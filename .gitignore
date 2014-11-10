@@ -1,0 +1,4 @@
+output/
+obj/
+bin/
+*.suo
