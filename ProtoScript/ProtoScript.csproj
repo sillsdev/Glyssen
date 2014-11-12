@@ -50,7 +50,14 @@
     <StartupObject>ProtoScript.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="L10NSharp">
+      <HintPath>..\lib\dotnet\L10NSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Palaso">
+      <HintPath>..\lib\dotnet\Palaso.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />

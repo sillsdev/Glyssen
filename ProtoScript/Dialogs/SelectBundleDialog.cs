@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Windows.Forms;
+using L10NSharp;
 
 namespace ProtoScript.Dialogs
 {
 	public class SelectBundleDialog : IDisposable
 	{
 		private const string kResourceBundleExtension = ".zip";
+		private const string kResourceBundleDescription = "Text Resource Bundle files";
 		private readonly OpenFileDialog m_fileDialog;
 
 		public SelectBundleDialog()
 		{
 			m_fileDialog = new OpenFileDialog
 			{
+				Title = LocalizationManager.GetString("SelectBundleDialog.Title", "Select a Text Resource Bundle file"),
 				InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-				Filter = "Zip files|*" + kResourceBundleExtension
+				Filter = kResourceBundleDescription + "|*" + kResourceBundleExtension
 			};
 		}
 

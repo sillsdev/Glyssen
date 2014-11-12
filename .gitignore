@@ -4,8 +4,10 @@ bin/
 packages/
 *.suo
 *.user
+*.pdb
 lib/dotnet/Palaso*.dll
 lib/dotnet/icu*.dll
 lib/dotnet/L10NSharp.dll
 lib/dotnet/Ionic.Zip.dll
 build/Palaso.BuildTasks.dll
+.nuget/NuGet.exe
