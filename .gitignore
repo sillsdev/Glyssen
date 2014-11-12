@@ -3,3 +3,8 @@ obj/
 bin/
 *.suo
 *.user
+lib/dotnet/Palaso*.dll
+lib/dotnet/icu*.dll
+lib/dotnet/L10NSharp.dll
+lib/dotnet/Ionic.Zip.dll
+build/Palaso.BuildTasks.dll
