@@ -12,7 +12,6 @@
 	<UsingTask TaskName="FileUpdate" AssemblyFile="$(RootDir)/build/Palaso.BuildTasks.dll" />
 	<UsingTask TaskName="NUnitTeamCity" AssemblyFile="$(teamcity_dotnet_nunitlauncher_msbuild_task)" Condition="'$(OS)'=='Windows_NT'"/>
 	<Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" Condition="'$(OS)'=='Windows_NT'"/>
-	<Import Project=".\Snowcode.S3BuildPublisher.Tasks.Targets"	Condition="'$(OS)'=='Windows_NT'"/>
 	<UsingTask AssemblyFile="C:\Program Files (x86)\MSBuild\MSBuildCommunityTasks\MSBuild.Community.Tasks.dll"
 		TaskName="MsBuild.Community.Tasks.WebDownload" Condition="'$(OS)'=='Windows_NT'"/>
 
