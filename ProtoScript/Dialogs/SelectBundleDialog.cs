@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace ProtoScript.Dialogs
 {
-	class SelectBundleDialog : IDisposable
+	public class SelectBundleDialog : IDisposable
 	{
 		private const string kResourceBundleExtension = ".zip";
 		private readonly OpenFileDialog m_fileDialog;

@@ -1,6 +1,7 @@
 output/
 obj/
 bin/
+packages/
 *.suo
 *.user
 lib/dotnet/Palaso*.dll
