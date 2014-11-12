@@ -5,7 +5,7 @@ namespace ProtoScript.Dialogs
 {
 	class SelectBundleDialog : IDisposable
 	{
-		private const string kResourceBundleExtension = ".bun";
+		private const string kResourceBundleExtension = ".zip";
 		private readonly OpenFileDialog m_fileDialog;
 
 		public SelectBundleDialog()
@@ -13,7 +13,7 @@ namespace ProtoScript.Dialogs
 			m_fileDialog = new OpenFileDialog
 			{
 				InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-				Filter = "Bundle files|*" + kResourceBundleExtension
+				Filter = "Zip files|*" + kResourceBundleExtension
 			};
 		}
 
