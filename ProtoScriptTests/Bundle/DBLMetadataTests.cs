@@ -105,7 +105,9 @@ namespace ProtoScriptTests.Bundle
   </archiveStatus>
 </DBLMetadata>";
 
-			Assert.AreEqual(expectedResult, XmlSerializeToString(metadata));
+			string modifiedExpectedResult = RemoveLineBreaks(expectedResult);
+			string modifiedResult = RemoveLineBreaks(XmlSerializeToString(metadata));
+			Assert.AreEqual(modifiedExpectedResult, modifiedResult);
 		}
 
 		private static string XmlSerializeToString(object objectInstance)
@@ -117,6 +119,11 @@ namespace ProtoScriptTests.Bundle
 				serializer.Serialize(writer, objectInstance);
 
 			return sb.ToString();
+		}
+
+		private static string RemoveLineBreaks(string str)
+		{
+			return str.Replace("\r", "").Replace("\n", "");
 		}
 	}
 }
