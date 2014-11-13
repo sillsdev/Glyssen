@@ -33,6 +33,7 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.button2 = new System.Windows.Forms.Button();
+			this.m_bundleId = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -80,11 +81,23 @@
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.button2_Click);
 			// 
+			// m_bundleId
+			// 
+			this.m_bundleId.AutoSize = true;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_bundleId, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_bundleId, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_bundleId, "SandboxForm.label2");
+			this.m_bundleId.Location = new System.Drawing.Point(32, 120);
+			this.m_bundleId.Name = "m_bundleId";
+			this.m_bundleId.Size = new System.Drawing.Size(0, 13);
+			this.m_bundleId.TabIndex = 3;
+			// 
 			// SandboxForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(489, 262);
+			this.Controls.Add(this.m_bundleId);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.button1);
@@ -106,6 +119,7 @@
 		private System.Windows.Forms.Label label1;
 		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
 		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Label m_bundleId;
 	}
 }
 

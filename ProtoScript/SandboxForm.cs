@@ -18,6 +18,7 @@ namespace ProtoScript
 			{
 				dlg.ShowDialog();
 				label1.Text = dlg.FileName;
+				m_bundleId.Text = Bundle.Bundle.Create(dlg.FileName).Id;
 			}
 		}
 

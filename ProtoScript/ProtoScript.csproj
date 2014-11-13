@@ -52,6 +52,9 @@
     <StartupObject>ProtoScript.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\ICSharpCode.SharpZipLib.dll.0.85.4.369\lib\net20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="L10NSharp">
       <HintPath>..\lib\dotnet\L10NSharp.dll</HintPath>
     </Reference>
@@ -71,6 +74,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bundle\Bundle.cs" />
+    <Compile Include="Bundle\DblMetadata.cs" />
     <Compile Include="Dialogs\SelectBundleDialog.cs" />
     <Compile Include="SandboxForm.cs">
       <SubType>Form</SubType>
