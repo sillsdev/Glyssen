@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using System.Xml.Serialization;
 using ICSharpCode.SharpZipLib.Zip;
-using Palaso.CommandLineProcessing;
-using Palaso.IO;
 
 namespace ProtoScript.Bundle
 {
