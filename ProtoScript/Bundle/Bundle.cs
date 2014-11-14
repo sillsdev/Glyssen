@@ -1,43 +1,52 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Xml.Serialization;
-using ICSharpCode.SharpZipLib.Zip;
+using ProtoScript.Utilities;
 
 namespace ProtoScript.Bundle
 {
 	public class Bundle
 	{
-		private DblMetadata m_dblMetadata;
+		private readonly DblMetadata m_dblMetadata;
+		private IDictionary<int, Canon> m_canons = new Dictionary<int, Canon>();
 
-		private Bundle() { }
-
-		public string Id 
+		public Bundle(string pathToZippedBundle)
 		{
-			get { return m_dblMetadata.id; }
-		} 
-		
-		public static Bundle Create(string pathToZippedBundle)
-		{
-			var bundle = new Bundle();
-
-			string pathToUnzippedDirectory;
-			Unzip(pathToZippedBundle, out pathToUnzippedDirectory);
+			string pathToUnzippedDirectory = Zip.ExtractToTempDirectory(pathToZippedBundle);
 
 			string metadataPath = Path.Combine(pathToUnzippedDirectory, "metadata.xml");
 
 			var xs = new XmlSerializer(typeof(DblMetadata));
-			bundle.m_dblMetadata = (DblMetadata)xs.Deserialize(new FileStream(metadataPath, FileMode.Open));
+			m_dblMetadata = (DblMetadata)xs.Deserialize(new FileStream(metadataPath, FileMode.Open));
 
-			return bundle;
+			ExtractCanons(pathToUnzippedDirectory);
 		}
 
-		private static void Unzip(string pathToZippedBundle, out string pathToUnzippedDirectory)
+		public string Id 
 		{
-			string tempPath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
-			Directory.CreateDirectory(tempPath);
+			get { return m_dblMetadata.id; }
+		}
 
-			new FastZip().ExtractZip(pathToZippedBundle, tempPath, null);
+		public IDictionary<int, Canon> Canons
+		{
+			get { return m_canons; }
+		}
 
-			pathToUnzippedDirectory = tempPath;
+		//TODO This method either needs to be greatly improved or replaced
+		private void ExtractCanons(string pathToUnzippedDirectory)
+		{
+			foreach (string dir in Directory.GetDirectories(pathToUnzippedDirectory, "USX_*"))
+			{
+				int canonId;
+				if (Int32.TryParse(dir[dir.Length - 1].ToString(CultureInfo.InvariantCulture), out canonId))
+				{
+					var canon = new Canon(canonId);
+					canon.ExtractBooks(dir);
+					m_canons.Add(canonId, canon);
+				}
+			}
 		}
 	}
 }

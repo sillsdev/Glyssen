@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using L10NSharp;
+using Palaso.Xml;
+using ProtoScript.Bundle;
 using ProtoScript.Dialogs;
 
 namespace ProtoScript
@@ -18,7 +22,19 @@ namespace ProtoScript
 			{
 				dlg.ShowDialog();
 				label1.Text = dlg.FileName;
-				m_bundleId.Text = Bundle.Bundle.Create(dlg.FileName).Id;
+				var bundle = new Bundle.Bundle(dlg.FileName);
+				m_bundleId.Text = bundle.Id;
+				Canon canon;
+				UsxDocument book;
+				if (bundle.Canons.TryGetValue(1, out canon))
+					if (canon.Books.TryGetValue("MRK", out book))
+					{
+						MessageBox.Show(book.GetBook().OuterXml);
+						var sb = new StringBuilder();
+						foreach (var block in new UsxParaParser(book.GetParas()).Parse())
+							sb.Append(block.GetAsXml(false));
+						Console.WriteLine(sb.ToString());
+					}
 			}
 		}
 

@@ -75,8 +75,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bundle\Bundle.cs" />
+    <Compile Include="Bundle\Canon.cs" />
     <Compile Include="Bundle\DblMetadata.cs" />
     <Compile Include="Block.cs" />
+    <Compile Include="Bundle\UsxDocument.cs" />
     <Compile Include="Dialogs\SelectBundleDialog.cs" />
     <Compile Include="SandboxForm.cs">
       <SubType>Form</SubType>
@@ -87,6 +89,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsxParaParser.cs" />
+    <Compile Include="Utilities\Zip.cs" />
     <EmbeddedResource Include="SandboxForm.resx">
       <DependentUpon>SandboxForm.cs</DependentUpon>
     </EmbeddedResource>
