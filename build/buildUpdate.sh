@@ -71,7 +71,7 @@ cd -
 #     URL: http://build.palaso.org/viewType.html?buildTypeId=bt223
 #     clean: false
 #     revision: latest.lastSuccessful
-#     paths: {"Palaso.BuildTasks.dll"=>"build/", "icu.net.dll"=>"lib/dotnet", "icudt40.dll"=>"lib/dotnet", "icuin40.dll"=>"lib/dotnet", "icuuc40.dll"=>"lib/dotnet", "Ionic.Zip.dll"=>"lib/dotnet", "L10NSharp.dll"=>"lib/dotnet", "Palaso.dll"=>"lib/dotnet", "PalasoUIWindowsForms.dll"=>"lib/dotnet"}
+#     paths: {"Palaso.BuildTasks.dll"=>"build/", "icu.net.dll"=>"lib/dotnet", "icudt40.dll"=>"lib/dotnet", "icuin40.dll"=>"lib/dotnet", "icuuc40.dll"=>"lib/dotnet", "L10NSharp.dll"=>"lib/dotnet", "Palaso.dll"=>"lib/dotnet", "PalasoUIWindowsForms.dll"=>"lib/dotnet"}
 #     VCS: https://github.com/sillsdev/libpalaso.git []
 
 # make sure output directories exist
@@ -84,7 +84,6 @@ copy_auto http://build.palaso.org/guestAuth/repository/download/bt223/latest.las
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt223/latest.lastSuccessful/icudt40.dll ../lib/dotnet/icudt40.dll
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt223/latest.lastSuccessful/icuin40.dll ../lib/dotnet/icuin40.dll
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt223/latest.lastSuccessful/icuuc40.dll ../lib/dotnet/icuuc40.dll
-copy_auto http://build.palaso.org/guestAuth/repository/download/bt223/latest.lastSuccessful/Ionic.Zip.dll ../lib/dotnet/Ionic.Zip.dll
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt223/latest.lastSuccessful/L10NSharp.dll ../lib/dotnet/L10NSharp.dll
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt223/latest.lastSuccessful/Palaso.dll ../lib/dotnet/Palaso.dll
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt223/latest.lastSuccessful/PalasoUIWindowsForms.dll ../lib/dotnet/PalasoUIWindowsForms.dll

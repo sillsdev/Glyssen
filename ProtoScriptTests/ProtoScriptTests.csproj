@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="BlockTests.cs" />
     <Compile Include="UsxParaParserTests.cs" />
+    <Compile Include="Bundle\DblMetadataTests.cs" />
     <Compile Include="Dialogs\SelectBundleDialogTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
