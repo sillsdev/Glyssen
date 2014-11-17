@@ -7,7 +7,7 @@ using ProtoScript.Bundle;
 namespace ProtoScriptTests
 {
 	[TestFixture]
-	class UsxParaParserTests
+	class UsxParserTests
 	{
 		const string usxFrame = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
 			"<usx version=\"2.0\">" +
@@ -31,7 +31,7 @@ namespace ProtoScriptTests
 										"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, " +
 										"<verse number=\"2\" style=\"v\" />" +
 										"kit ma gicoyo kwede i buk pa lanebi Icaya ni,</para>");
-			var parser = new UsxParaParser(new UsxDocument(doc).GetParas());
+			var parser = new UsxParser(new UsxDocument(doc).GetParas());
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(1, blocks.Count);
 			Assert.IsTrue(blocks[0].IsNarrator);
@@ -48,7 +48,7 @@ namespace ProtoScriptTests
 										"<char style=\"xo\" closed=\"false\">1.3: </char>" +
 										"<char style=\"xt\" closed=\"false\">Ic 40.3</char>" +
 										"</note>dwan dano mo ma daŋŋe ki i tim ni,</para>");
-			var parser = new UsxParaParser(new UsxDocument(doc).GetParas());
+			var parser = new UsxParser(new UsxDocument(doc).GetParas());
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(1, blocks.Count);
 			Assert.AreEqual("dwan dano mo ma daŋŋe ki i tim ni,", blocks[0].GetText(false));
@@ -59,7 +59,7 @@ namespace ProtoScriptTests
 		public void Parse_ParagraphStartsMidVerse()
 		{
 			var doc = CreateMarkOneDoc("<para style=\"q1\">ma bigero yoni;</para>");
-			var parser = new UsxParaParser(new UsxDocument(doc).GetParas());
+			var parser = new UsxParser(new UsxDocument(doc).GetParas());
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(1, blocks.Count);
 			Assert.AreEqual("ma bigero yoni;", blocks[0].GetText(false));
@@ -73,7 +73,7 @@ namespace ProtoScriptTests
 										"Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. " +
 										"<verse number=\"13\" style=\"v\" />Ci obedo i tim nino pyeraŋwen; Catan ocako bite, " +
 										"ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.</para>");
-			var parser = new UsxParaParser(new UsxDocument(doc).GetParas());
+			var parser = new UsxParser(new UsxDocument(doc).GetParas());
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(1, blocks.Count);
 			Assert.AreEqual("Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. Ci obedo i tim nino pyeraŋwen; Catan ocako bite, ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.", blocks[0].GetText(false));
@@ -84,7 +84,7 @@ namespace ProtoScriptTests
 		public void Parse_ChapterAndPara_BecomeTwoBlocks()
 		{
 			var doc = CreateMarkOneDoc("<para style=\"s1\">Lok ma Jon Labatija otito</para>");
-			var parser = new UsxParaParser(new UsxDocument(doc).GetChaptersAndParas());
+			var parser = new UsxParser(new UsxDocument(doc).GetChaptersAndParas());
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual("1", blocks[0].GetText(false));

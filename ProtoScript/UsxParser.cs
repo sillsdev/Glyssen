@@ -8,11 +8,11 @@ using ProtoScript.Bundle;
 
 namespace ProtoScript
 {
-	public class UsxParaParser
+	public class UsxParser
 	{
 		private readonly XmlNodeList m_nodeList;
 
-		public UsxParaParser(XmlNodeList nodeList)
+		public UsxParser(XmlNodeList nodeList)
 		{
 			m_nodeList = nodeList;
 		}

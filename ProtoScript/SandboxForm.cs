@@ -50,7 +50,7 @@ namespace ProtoScript
 				{
 					MessageBox.Show(book.GetBook().OuterXml);
 					var sb = new StringBuilder();
-					foreach (var block in new UsxParaParser(book.GetParas()).Parse())
+					foreach (var block in new UsxParser(book.GetParas()).Parse())
 						sb.Append(block.GetAsXml(false));
 					Console.WriteLine(sb.ToString());
 				}

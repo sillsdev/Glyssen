@@ -95,7 +95,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsxParaParser.cs" />
+    <Compile Include="UsxParser.cs" />
     <Compile Include="Utilities\Zip.cs" />
     <EmbeddedResource Include="Dialogs\WelcomeDialog.resx">
       <DependentUpon>WelcomeDialog.cs</DependentUpon>
