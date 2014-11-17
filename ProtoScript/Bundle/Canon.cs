@@ -20,6 +20,11 @@ namespace ProtoScript.Bundle
 			set { m_books = value; }
 		}
 
+		public bool TryGetBook(string bookId, out UsxDocument book)
+		{
+			return m_books.TryGetValue(bookId, out book);
+		}
+
 		//TODO This method either needs to be greatly improved or replaced
 		internal void ExtractBooks(string pathToCanon)
 		{

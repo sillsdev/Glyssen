@@ -10,7 +10,7 @@ namespace ProtoScript.Bundle
 	public class Bundle
 	{
 		private readonly DblMetadata m_dblMetadata;
-		private IDictionary<int, Canon> m_canons = new Dictionary<int, Canon>();
+		private readonly IDictionary<int, Canon> m_canons = new Dictionary<int, Canon>();
 
 		public Bundle(string pathToZippedBundle)
 		{
@@ -32,6 +32,11 @@ namespace ProtoScript.Bundle
 		public IDictionary<int, Canon> Canons
 		{
 			get { return m_canons; }
+		}
+
+		public bool TryGetCanon(int bookId, out Canon canon)
+		{
+			return m_canons.TryGetValue(bookId, out canon);
 		}
 
 		//TODO This method either needs to be greatly improved or replaced
