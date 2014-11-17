@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Palaso.Xml;
 
@@ -28,8 +27,6 @@ namespace ProtoScript
 		[XmlAttribute("characterId")]
 		public int CharacterId { get; set; }
 
-		//[XmlArrayItem(Type = typeof(ScriptText), ElementName = "text")]
-		//[XmlArrayItem(Type = typeof(Verse), ElementName = "verse")]
 		[XmlElement(Type = typeof(ScriptText), ElementName = "text")]
 		[XmlElement(Type = typeof(Verse), ElementName = "verse")]
 		public List<BlockElement> BlockElements { get; set; }
