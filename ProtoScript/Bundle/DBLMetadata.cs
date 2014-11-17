@@ -41,6 +41,11 @@ namespace ProtoScript.Bundle
 		public string script;
 		public string scriptDirection;
 		public string numerals;
+
+		public override string ToString()
+		{
+			return iso;
+		}
 	}
 
 	public class DblMetadataPromotion

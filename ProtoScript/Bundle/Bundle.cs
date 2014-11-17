@@ -24,9 +24,19 @@ namespace ProtoScript.Bundle
 			ExtractCanons(pathToUnzippedDirectory);
 		}
 
-		public string Id 
+		public DblMetadata Metadata
+		{
+			get { return m_dblMetadata; }
+		}
+
+		public string Id
 		{
 			get { return m_dblMetadata.id; }
+		}
+
+		public string Language
+		{
+			get { return m_dblMetadata.language.ToString(); }
 		}
 
 		public IDictionary<int, Canon> Canons

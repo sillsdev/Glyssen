@@ -46,5 +46,17 @@ namespace ProtoScript.Properties {
                 this["CurrentProject"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DefaultBundleDirectory {
+            get {
+                return ((string)(this["DefaultBundleDirectory"]));
+            }
+            set {
+                this["DefaultBundleDirectory"] = value;
+            }
+        }
     }
 }

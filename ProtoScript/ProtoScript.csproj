@@ -87,6 +87,7 @@
     <Compile Include="Dialogs\WelcomeDialog.Designer.cs">
       <DependentUpon>WelcomeDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Project.cs" />
     <Compile Include="SandboxForm.cs">
       <SubType>Form</SubType>
     </Compile>

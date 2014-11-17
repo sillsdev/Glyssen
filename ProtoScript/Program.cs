@@ -11,7 +11,7 @@ namespace ProtoScript
 {
 	static class Program
 	{
-		public const string kCompany = "SIL";
+		public const string kCompany = "FCBH-SIL";
 		public const string kProduct = "Protoscript Generator";
 
 		/// <summary>

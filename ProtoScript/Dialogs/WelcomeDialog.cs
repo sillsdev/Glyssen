@@ -15,7 +15,7 @@ namespace ProtoScript.Dialogs
 		{
 			using (var dlg = new SelectBundleDialog())
 			{
-				dlg.ShowDialog();
+				DialogResult = dlg.ShowDialog();
 				if (dlg.FileName != null)
 				{
 					Settings.Default.CurrentProject = dlg.FileName;

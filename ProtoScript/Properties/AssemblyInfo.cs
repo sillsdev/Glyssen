@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("ProtoScript")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("FCBH and SIL International")]
 [assembly: AssemblyProduct("ProtoScript")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCopyright("Copyright © 2014 SIL International and Faith Comes By Hearing")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
