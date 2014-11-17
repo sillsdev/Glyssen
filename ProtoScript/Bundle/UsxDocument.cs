@@ -6,6 +6,11 @@ namespace ProtoScript.Bundle
 	{
 		private readonly XmlDocument m_document;
 
+		public UsxDocument(XmlDocument document)
+		{
+			m_document = document;
+		}
+
 		public UsxDocument(string path)
 		{
 			m_document = new XmlDocument();
@@ -24,7 +29,7 @@ namespace ProtoScript.Bundle
 
 		public XmlNodeList GetChaptersAndParas()
 		{
-			return m_document.SelectNodes("//para | chapter");
+			return m_document.SelectNodes("//para | //chapter");
 		}
 	}
 }
