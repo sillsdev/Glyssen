@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 using System.Xml;
 using ProtoScript.Bundle;
 
@@ -44,6 +45,7 @@ namespace ProtoScript
 							break;
 						}
 						block = new Block(usxPara.StyleTag);
+						var sb = new StringBuilder();
 						// <verse number="1" style="v" />
 						// Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,
 						// <verse number="2" style="v" />
@@ -54,13 +56,17 @@ namespace ProtoScript
 							switch (childNode.Name)
 							{
 								case "verse":
+									block.BlockElements.Add(new ScriptText(sb.ToString()));
+									sb.Clear();
 									block.BlockElements.Add(new Verse(childNode.Attributes.GetNamedItem("number").Value));
 									break;
 								case "#text":
-									block.BlockElements.Add(new ScriptText(childNode.InnerText));
+									sb.Append(childNode.InnerText);
 									break;
 							}
 						}
+						block.BlockElements.Add(new ScriptText(sb.ToString()));
+						sb.Clear();
 						break;
 				}
 				blocks.Add(block);

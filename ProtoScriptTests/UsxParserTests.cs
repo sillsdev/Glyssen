@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Runtime.InteropServices;
 using System.Xml;
 using NUnit.Framework;
 using ProtoScript;
@@ -47,7 +48,7 @@ namespace ProtoScriptTests
 		}
 
 		[Test]
-		public void Parse_ParagraphWithNote()
+		public void Parse_ParagraphWithNote_NoteIsIgnored()
 		{
 			var doc = CreateMarkOneDoc("<para style=\"q1\">" +
 										"<verse number=\"3\" style=\"v\" />" +
@@ -60,6 +61,35 @@ namespace ProtoScriptTests
 			Assert.AreEqual(1, blocks.Count);
 			Assert.AreEqual("dwan dano mo ma daŋŋe ki i tim ni,", blocks[0].GetText(false));
 			Assert.AreEqual("[3]dwan dano mo ma daŋŋe ki i tim ni,", blocks[0].GetText(true));
+		}
+
+		[Test]
+		public void Parse_ParagraphWithFigure_FigureIsIgnored()
+		{
+			var doc = CreateMarkOneDoc("<para style=\"p\"><verse number=\"18\" style=\"v\" />" +
+										"Ci cutcut gutugi weko obwogi, gulubo kore." +
+										"<figure style=\"fig\" desc=\"\" file=\"4200118.TIF\" size=\"col\" loc=\"\" copy=\"\" ref=\"1.18\">" +
+										"Cutcut gutugi weko obwugi</figure></para >");
+			var parser = new UsxParser(new UsxDocument(doc).GetParas());
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(1, blocks.Count);
+			Assert.AreEqual(1, blocks[0].BlockElements.Count);
+			Assert.AreEqual("Ci cutcut gutugi weko obwogi, gulubo kore.", blocks[0].GetText(false));
+		}
+
+		[Test]
+		public void Parse_ParagraphWithFigureInMiddle_FigureIsIgnored()
+		{
+			var doc = CreateMarkOneDoc("<para style=\"p\">" +
+										"This text is before the figure, " +
+										"<figure style=\"fig\" desc=\"\" file=\"4200118.TIF\" size=\"col\" loc=\"\" copy=\"\" ref=\"1.18\">" +
+										"Cutcut gutugi weko obwugi</figure>" +
+										"and this text is after.</para >");
+			var parser = new UsxParser(new UsxDocument(doc).GetParas());
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(1, blocks.Count);
+			Assert.AreEqual(1, blocks[0].BlockElements.Count);
+			Assert.AreEqual("This text is before the figure, and this text is after.", blocks[0].GetText(false));
 		}
 
 		[Test]
@@ -118,6 +148,19 @@ namespace ProtoScriptTests
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual("Specific-Chapter One", blocks[0].GetText(false));
 			Assert.AreEqual("Lok ma Jon Labatija otito", blocks[1].GetText(false));
+		}
+
+		[Test, Ignore("TODO")]
+		public void Parse_ParaWithQuotes_BecomesTwoBlocks()
+		{
+			var doc = CreateMarkOneDoc("<verse number=\"19\" style=\"v\" />Yecu ocako gamo ni, “Wun yalwak ma niyewu lam, abibedo kwedwu nio wa awene? Dok abidiyo cwinya i komwu nio wa awene ba? Wukel en bota kany.” ");
+			var parser = new UsxParser(new UsxDocument(doc).GetParas());
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual("Yecu ocako gamo ni, ", blocks[0].GetText(false));
+			Assert.AreEqual("[19]Yecu ocako gamo ni, ", blocks[0].GetText(true));
+			Assert.AreEqual("[19]Yecu ocako gamo ni, ", blocks[1].GetText(true));
+			Assert.AreEqual("“Wun yalwak ma niyewu lam, abibedo kwedwu nio wa awene? Dok abidiyo cwinya i komwu nio wa awene ba? Wukel en bota kany.”", blocks[2].GetText(false));
 		}
 	}
 }
