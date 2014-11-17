@@ -56,8 +56,11 @@ namespace ProtoScript
 							switch (childNode.Name)
 							{
 								case "verse":
-									block.BlockElements.Add(new ScriptText(sb.ToString()));
-									sb.Clear();
+									if (sb.Length > 0)
+									{
+										block.BlockElements.Add(new ScriptText(sb.ToString()));
+										sb.Clear();
+									}
 									block.BlockElements.Add(new Verse(childNode.Attributes.GetNamedItem("number").Value));
 									break;
 								case "#text":
@@ -65,8 +68,11 @@ namespace ProtoScript
 									break;
 							}
 						}
-						block.BlockElements.Add(new ScriptText(sb.ToString()));
-						sb.Clear();
+						if (sb.Length > 0)
+						{
+							block.BlockElements.Add(new ScriptText(sb.ToString()));
+							sb.Clear();
+						}
 						break;
 				}
 				blocks.Add(block);

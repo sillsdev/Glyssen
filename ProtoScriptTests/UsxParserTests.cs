@@ -73,7 +73,7 @@ namespace ProtoScriptTests
 			var parser = new UsxParser(new UsxDocument(doc).GetParas());
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(1, blocks.Count);
-			Assert.AreEqual(1, blocks[0].BlockElements.Count);
+			Assert.AreEqual(2, blocks[0].BlockElements.Count);
 			Assert.AreEqual("Ci cutcut gutugi weko obwogi, gulubo kore.", blocks[0].GetText(false));
 		}
 
@@ -156,11 +156,10 @@ namespace ProtoScriptTests
 			var doc = CreateMarkOneDoc("<verse number=\"19\" style=\"v\" />Yecu ocako gamo ni, “Wun yalwak ma niyewu lam, abibedo kwedwu nio wa awene? Dok abidiyo cwinya i komwu nio wa awene ba? Wukel en bota kany.” ");
 			var parser = new UsxParser(new UsxDocument(doc).GetParas());
 			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual("Yecu ocako gamo ni, ", blocks[0].GetText(false));
 			Assert.AreEqual("[19]Yecu ocako gamo ni, ", blocks[0].GetText(true));
-			Assert.AreEqual("[19]Yecu ocako gamo ni, ", blocks[1].GetText(true));
-			Assert.AreEqual("“Wun yalwak ma niyewu lam, abibedo kwedwu nio wa awene? Dok abidiyo cwinya i komwu nio wa awene ba? Wukel en bota kany.”", blocks[2].GetText(false));
+			Assert.AreEqual("“Wun yalwak ma niyewu lam, abibedo kwedwu nio wa awene? Dok abidiyo cwinya i komwu nio wa awene ba? Wukel en bota kany.”", blocks[1].GetText(false));
 		}
 	}
 }
