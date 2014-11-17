@@ -15,5 +15,20 @@
         <seg>Select a Text Resource Bundle file</seg>
       </tuv>
     </tu>
+    <tu tuid="WelcomeDialog.SelectBundle">
+      <tuv xml:lang="en">
+        <seg>Select Bundle</seg>
+      </tuv>
+    </tu>
+    <tu tuid="WelcomeDialog.WelcomeText">
+      <tuv xml:lang="en">
+        <seg>Welcome to the Protoscript Generator.  To generate protoscripts, you will need a Text Release Bundle from Paratext or the Digital Bible Library.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="WelcomeDialog.WelcomeTitle">
+      <tuv xml:lang="en">
+        <seg>Welcome to Protoscript Generator</seg>
+      </tuv>
+    </tu>
   </body>
 </tmx>

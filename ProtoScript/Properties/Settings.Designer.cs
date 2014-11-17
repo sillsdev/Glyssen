@@ -34,5 +34,17 @@ namespace ProtoScript.Properties {
                 this["UserInterfaceLanguage"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CurrentProject {
+            get {
+                return ((string)(this["CurrentProject"]));
+            }
+            set {
+                this["CurrentProject"] = value;
+            }
+        }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Xml.Serialization;
 using NUnit.Framework;
+using Palaso.TestUtilities;
 using ProtoScript.Bundle;
 
 namespace ProtoScriptTests.Bundle
@@ -21,6 +21,9 @@ namespace ProtoScriptTests.Bundle
     <systemId type=""tms"">b9236acd-66f3-44d0-98fc-3970b3d017cd</systemId>
     <systemId type=""paratext"">3b9fdc679b9319c3ee45ab86cc1c0c42930c2979</systemId>
   </identification>
+  <language>
+    <iso>ach</iso>
+  </language>
   <promotion>    
     <promoVersionInfo contentType=""xhtml"">
       <h1>Acholi New Testament 1985</h1>
@@ -63,6 +66,12 @@ namespace ProtoScriptTests.Bundle
 		}
 
 		[Test]
+		public void GetLanguageIso()
+		{
+			Assert.AreEqual("ach", m_metadata.language.iso);
+		}
+
+		[Test]
 		public void GetPromoVersionInfo()
 		{
 			const string expectedValue = @"<h1>Acholi New Testament 1985</h1><p>This translation, published by the Bible Society " + 
@@ -94,7 +103,7 @@ namespace ProtoScriptTests.Bundle
 
 			const string expectedResult = 
 @"<?xml version=""1.0"" encoding=""utf-16""?>
-<DBLMetadata xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" id=""id"">
+<DBLMetadata id=""id"">
   <identification>
     <name>name</name>
     <systemId type=""type"">value</systemId>
@@ -105,25 +114,7 @@ namespace ProtoScriptTests.Bundle
   </archiveStatus>
 </DBLMetadata>";
 
-			string modifiedExpectedResult = RemoveLineBreaks(expectedResult);
-			string modifiedResult = RemoveLineBreaks(XmlSerializeToString(metadata));
-			Assert.AreEqual(modifiedExpectedResult, modifiedResult);
-		}
-
-		private static string XmlSerializeToString(object objectInstance)
-		{
-			var serializer = new XmlSerializer(objectInstance.GetType());
-			var sb = new StringBuilder();
-
-			using (TextWriter writer = new StringWriter(sb))
-				serializer.Serialize(writer, objectInstance);
-
-			return sb.ToString();
-		}
-
-		private static string RemoveLineBreaks(string str)
-		{
-			return str.Replace("\r", "").Replace("\n", "");
+			AssertThatXmlIn.String(expectedResult).EqualsIgnoreWhitespace(metadata.GetAsXml());
 		}
 	}
 }

@@ -107,6 +107,7 @@
 			this.l10NSharpExtender1.SetLocalizingId(this, "SandboxForm.WindowTitle");
 			this.Name = "SandboxForm";
 			this.Text = "SandboxForm";
+			this.Load += new System.EventHandler(this.SandboxForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

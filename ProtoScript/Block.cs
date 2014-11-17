@@ -62,9 +62,9 @@ namespace ProtoScript
 			get { return CharacterId == 0; }
 		}
 
-		public string GetAsXml()
+		public string GetAsXml(bool includeXmlDeclaration = true)
 		{
-			return XmlSerializationHelper.SerializeToString(this);
+			return XmlSerializationHelper.SerializeToString(this, !includeXmlDeclaration);
 		}
 	}
 

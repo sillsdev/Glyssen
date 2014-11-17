@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
+using Palaso.Xml;
 
 namespace ProtoScript.Bundle
 {
@@ -12,8 +13,14 @@ namespace ProtoScript.Bundle
 		[XmlAttribute]
 		public string id;
 		public DblMetadataIdentification identification;
+		public DblMetadataLanguage language;
 		public DblMetadataPromotion promotion;
 		public DblMetadataArchiveStatus archiveStatus;
+
+		public string GetAsXml()
+		{
+			return XmlSerializationHelper.SerializeToString(this);
+		}
 	}
 
 	public class DblMetadataIdentification
@@ -23,6 +30,17 @@ namespace ProtoScript.Bundle
 
 		[XmlElement("systemId")]
 		public HashSet<DblMetadataSystemId> systemIds;
+	}
+
+	public class DblMetadataLanguage
+	{
+		public string iso;
+		public string name;
+		public string ldml;
+		public string rod;
+		public string script;
+		public string scriptDirection;
+		public string numerals;
 	}
 
 	public class DblMetadataPromotion
