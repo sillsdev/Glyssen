@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using ProtoScript.Bundle;
 
@@ -12,6 +9,9 @@ namespace ProtoScript
 	{
 		private readonly XmlNodeList m_nodeList;
 
+		private string m_bookLevelChapterLabel;
+		private bool m_chapterNodeFound;
+
 		public UsxParser(XmlNodeList nodeList)
 		{
 			m_nodeList = nodeList;
@@ -19,19 +19,33 @@ namespace ProtoScript
 
 		public IEnumerable<Block> Parse()
 		{
+			IList<Block> blocks = new List<Block>();
 			foreach (XmlNode node in m_nodeList)
 			{
 				Block block = null;
 				switch (node.Name)
 				{
 					case "chapter":
-						var usxChapter = new UsxChapter(node);
-						block = new Block(usxChapter.StyleTag);
-						block.BlockElements.Add(new ScriptText(usxChapter.ChapterNumber));
+						m_chapterNodeFound = true;
+						block = ProcessChapterNode(node);
+						if (block == null)
+							continue;
 						break;
 					case "para":
 						var usxPara = new UsxPara(node);
+						if (usxPara.StyleTag == "cl")
+						{
+							block = ProcessChapterLabelNode(node.InnerText, usxPara);
+							if (block == null)
+								continue;
+
+							//The node before this was the chapter. We already added it, then found this label.
+							//Remove that block so it will be replaced with this one.
+							blocks.RemoveAt(blocks.Count-1);
+							break;
+						}
 						block = new Block(usxPara.StyleTag);
+						var sb = new StringBuilder();
 						// <verse number="1" style="v" />
 						// Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,
 						// <verse number="2" style="v" />
@@ -42,17 +56,60 @@ namespace ProtoScript
 							switch (childNode.Name)
 							{
 								case "verse":
+									if (sb.Length > 0)
+									{
+										block.BlockElements.Add(new ScriptText(sb.ToString()));
+										sb.Clear();
+									}
 									block.BlockElements.Add(new Verse(childNode.Attributes.GetNamedItem("number").Value));
 									break;
 								case "#text":
-									block.BlockElements.Add(new ScriptText(childNode.InnerText));
+									sb.Append(childNode.InnerText);
 									break;
 							}
 						}
+						if (sb.Length > 0)
+						{
+							block.BlockElements.Add(new ScriptText(sb.ToString()));
+							sb.Clear();
+						}
 						break;
 				}
-				yield return block;
+				blocks.Add(block);
 			}
+			return blocks;
+		}
+
+		private Block ProcessChapterNode(XmlNode node)
+		{
+			var usxChapter = new UsxChapter(node);
+			var block = new Block(usxChapter.StyleTag);
+			string chapterText;
+			if (m_bookLevelChapterLabel != null)
+			{
+				//TODO what if this isn't the right order? Is there any way we can know?
+				chapterText = m_bookLevelChapterLabel + " " + usxChapter.ChapterNumber;
+			}
+			else
+				chapterText = usxChapter.ChapterNumber;
+			block.BlockElements.Add(new ScriptText(chapterText));
+			return block;
+		}
+
+		private Block ProcessChapterLabelNode(string nodeText, UsxNode usxNode)
+		{
+			Block block = null;
+
+			// Chapter label before the first chapter means we have a chapter label which applies to all chapters
+			if (!m_chapterNodeFound)
+				m_bookLevelChapterLabel = nodeText;
+
+			if (m_bookLevelChapterLabel == null)
+			{
+				block = new Block(usxNode.StyleTag);
+				block.BlockElements.Add(new ScriptText(nodeText));
+			}
+			return block;
 		}
 	}
 }
