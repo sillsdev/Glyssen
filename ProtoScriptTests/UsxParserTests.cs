@@ -15,8 +15,15 @@ namespace ProtoScriptTests
 			"<chapter number=\"1\" style=\"c\" />" +
 			"{0}" +
 			"</usx>";
+		const string usxFrameWithGlobalChapterLabel = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+			"<usx version=\"2.0\">" +
+			"<book code=\"MRK\" style=\"id\">Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013</book>" +
+			"<para style=\"cl\">Global-Chapter</para>" +
+			"<chapter number=\"1\" style=\"c\" />" +
+			"{0}" +
+			"</usx>";
 
-		private XmlDocument CreateMarkOneDoc(string paraXmlNodes)
+		private XmlDocument CreateMarkOneDoc(string paraXmlNodes, string usxFrame = usxFrame)
 		{
 			var xmlDoc = new XmlDocument();
 			xmlDoc.LoadXml(string.Format(usxFrame, paraXmlNodes));
@@ -88,6 +95,28 @@ namespace ProtoScriptTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual("1", blocks[0].GetText(false));
+			Assert.AreEqual("Lok ma Jon Labatija otito", blocks[1].GetText(false));
+		}
+
+		[Test]
+		public void Parse_GlobalChapterLabel()
+		{
+			var doc = CreateMarkOneDoc("<para style=\"s1\">Lok ma Jon Labatija otito</para>", usxFrameWithGlobalChapterLabel);
+			var parser = new UsxParser(new UsxDocument(doc).GetChaptersAndParas());
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual("Global-Chapter 1", blocks[0].GetText(false));
+			Assert.AreEqual("Lok ma Jon Labatija otito", blocks[1].GetText(false));
+		}
+
+		[Test]
+		public void Parse_SpecificChapterLabel()
+		{
+			var doc = CreateMarkOneDoc("<para style=\"cl\">Specific-Chapter One</para><para style=\"s1\">Lok ma Jon Labatija otito</para>");
+			var parser = new UsxParser(new UsxDocument(doc).GetChaptersAndParas());
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual("Specific-Chapter One", blocks[0].GetText(false));
 			Assert.AreEqual("Lok ma Jon Labatija otito", blocks[1].GetText(false));
 		}
 	}
