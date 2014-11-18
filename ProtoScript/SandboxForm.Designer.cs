@@ -122,7 +122,7 @@
 			this.m_lblLanguage.Name = "m_lblLanguage";
 			this.m_lblLanguage.Size = new System.Drawing.Size(165, 13);
 			this.m_lblLanguage.TabIndex = 5;
-			this.m_lblLanguage.Text = "Langauge code (ISO 639-02): {0}";
+			this.m_lblLanguage.Text = "Language code (ISO 639-02): {0}";
 			// 
 			// SandboxForm
 			// 
