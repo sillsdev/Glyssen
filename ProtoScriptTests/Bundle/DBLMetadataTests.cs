@@ -12,7 +12,7 @@ namespace ProtoScriptTests.Bundle
 	{
 		private DblMetadata m_metadata;
 
-		private const string TestXml = 
+		private const string TestXml =
 @"<?xml version=""1.0"" encoding=""UTF-8""?>
 <DBLMetadata id=""3b9fdc679b9319c3"" revision=""1"" mediatype=""text"" typeVersion=""1.3"">
   <identification>
@@ -30,6 +30,10 @@ namespace ProtoScriptTests.Bundle
       <p>This translation, published by the Bible Society of Uganda, was first published in 1985.</p>
       <p>If you are interested in obtaining a printed copy, please contact the Bible Society of Uganda at <a href=""http://www.biblesociety-uganda.org/"">www.biblesociety-uganda.org</a>.</p>
     </promoVersionInfo>
+    <promoEmail contentType=""xhtml"">
+      <p>Hi YouVersion friend,</p>
+      <p>Sincerely, Your Friends at YouVersion</p>
+    </promoEmail>
   </promotion>
   <archiveStatus>
     <archivistName>Emma Canales -archivist</archivistName>
@@ -74,10 +78,18 @@ namespace ProtoScriptTests.Bundle
 		[Test]
 		public void GetPromoVersionInfo()
 		{
-			const string expectedValue = @"<h1>Acholi New Testament 1985</h1><p>This translation, published by the Bible Society " + 
-				@"of Uganda, was first published in 1985.</p><p>If you are interested in obtaining a printed copy, please contact " + 
+			const string expectedValue = @"<h1>Acholi New Testament 1985</h1><p>This translation, published by the Bible Society " +
+				@"of Uganda, was first published in 1985.</p><p>If you are interested in obtaining a printed copy, please contact " +
 				@"the Bible Society of Uganda at <a href=""http://www.biblesociety-uganda.org/"">www.biblesociety-uganda.org</a>.</p>";
-			Assert.AreEqual(expectedValue, m_metadata.promotion.promoVersionInfo);
+			Assert.AreEqual(expectedValue, m_metadata.promotion.promoVersionInfo.value);
+			Assert.AreEqual("xhtml", m_metadata.promotion.promoVersionInfo.contentType);
+		}
+
+		[Test]
+		public void GetPromoEmail()
+		{
+			const string expectedValue = @"<p>Hi YouVersion friend,</p><p>Sincerely, Your Friends at YouVersion</p>";
+			Assert.AreEqual(expectedValue, m_metadata.promotion.promoEmail.value);
 		}
 
 		[Test]
@@ -97,18 +109,29 @@ namespace ProtoScriptTests.Bundle
 					name = "name",
 					systemIds = new HashSet<DblMetadataSystemId> { new DblMetadataSystemId { type = "type", value = "value" } }
 				},
-				promotion = new DblMetadataPromotion(),
+				promotion = new DblMetadataPromotion
+				{
+					promoVersionInfo = new DblMetadataXhtmlContentNode { value = @"<h1>Acholi New Testament 1985</h1>" },
+					promoEmail = new DblMetadataXhtmlContentNode { value = "<p>Email Text</p>" }
+				},
 				archiveStatus = new DblMetadataArchiveStatus { dateArchived = "dateArchived" }
 			};
 
-			const string expectedResult = 
+			const string expectedResult =
 @"<?xml version=""1.0"" encoding=""utf-16""?>
 <DBLMetadata id=""id"">
   <identification>
     <name>name</name>
     <systemId type=""type"">value</systemId>
   </identification>
-  <promotion />
+  <promotion>
+    <promoVersionInfo contentType=""xhtml"">
+      <h1>Acholi New Testament 1985</h1>
+    </promoVersionInfo>
+    <promoEmail contentType=""xhtml"">
+      <p>Email Text</p>
+    </promoEmail>
+  </promotion>
   <archiveStatus>
     <dateArchived>dateArchived</dateArchived>
   </archiveStatus>

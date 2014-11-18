@@ -50,27 +50,50 @@ namespace ProtoScript.Bundle
 
 	public class DblMetadataPromotion
 	{
-		private string m_promoVersionInfo;
+		[XmlElement("promoVersionInfo")]
+		public DblMetadataXhtmlContentNode promoVersionInfo;
+
+		[XmlElement("promoEmail")]
+		public DblMetadataXhtmlContentNode promoEmail;
+	}
+
+	public class DblMetadataXhtmlContentNode
+	{
+		private string m_value;
+
+		public DblMetadataXhtmlContentNode()
+		{
+			contentType = "xhtml";
+		}
+
+		[XmlAttribute]
+		public string contentType;
 
 		[XmlAnyElement]
-		public XmlElement[] PromoVersionInfoNodes { get; set; }
+		public XmlElement[] InternalNodes { get; set; }
 
 		[XmlIgnore]
-		public string promoVersionInfo
+		public string value
 		{
 			get
 			{
-				if (m_promoVersionInfo == null)
+				if (m_value == null)
 				{
 					var sb = new StringBuilder();
-					foreach (var node in PromoVersionInfoNodes)
-						sb.Append(node.InnerXml);
-					m_promoVersionInfo = sb.ToString();
+					foreach (var node in InternalNodes)
+						sb.Append(node.OuterXml);
+					m_value = sb.ToString();
 				}
-				return m_promoVersionInfo;
+				return m_value;
+			}
+			set
+			{
+				m_value = value;
+				var doc = new XmlDocument();
+				doc.LoadXml(value);
+				InternalNodes = new[] { doc.DocumentElement };
 			}
 		}
-		public string promoEmail;
 	}
 
 	public class DblMetadataSystemId
