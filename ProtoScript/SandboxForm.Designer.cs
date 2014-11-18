@@ -30,7 +30,6 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			this.m_btnSelectBundle = new System.Windows.Forms.Button();
-			this.m_lblFile = new System.Windows.Forms.Label();
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.button2 = new System.Windows.Forms.Button();
 			this.m_lblBundleId = new System.Windows.Forms.Label();
@@ -49,22 +48,9 @@
 			this.m_btnSelectBundle.Name = "m_btnSelectBundle";
 			this.m_btnSelectBundle.Size = new System.Drawing.Size(84, 23);
 			this.m_btnSelectBundle.TabIndex = 0;
-			this.m_btnSelectBundle.Text = "Select Bundle";
+			this.m_btnSelectBundle.Text = "Open Project";
 			this.m_btnSelectBundle.UseVisualStyleBackColor = true;
 			this.m_btnSelectBundle.Click += new System.EventHandler(this.HandleSelectBundle_Click);
-			// 
-			// m_lblFile
-			// 
-			this.m_lblFile.AutoSize = true;
-			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_lblFile, null);
-			this.l10NSharpExtender1.SetLocalizationComment(this.m_lblFile, null);
-			this.l10NSharpExtender1.SetLocalizationPriority(this.m_lblFile, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_lblFile, "SandboxForm.SandboxForm.m_lblFile");
-			this.m_lblFile.Location = new System.Drawing.Point(137, 43);
-			this.m_lblFile.Name = "m_lblFile";
-			this.m_lblFile.Size = new System.Drawing.Size(43, 13);
-			this.m_lblFile.TabIndex = 1;
-			this.m_lblFile.Text = "File: {0}";
 			// 
 			// l10NSharpExtender1
 			// 
@@ -92,7 +78,7 @@
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_lblBundleId, null);
 			this.l10NSharpExtender1.SetLocalizationPriority(this.m_lblBundleId, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_lblBundleId, "SandboxForm.SandboxForm.m_lblBundleId");
-			this.m_lblBundleId.Location = new System.Drawing.Point(137, 73);
+			this.m_lblBundleId.Location = new System.Drawing.Point(137, 43);
 			this.m_lblBundleId.Name = "m_lblBundleId";
 			this.m_lblBundleId.Size = new System.Drawing.Size(74, 13);
 			this.m_lblBundleId.TabIndex = 3;
@@ -118,7 +104,7 @@
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_lblLanguage, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_lblLanguage, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_lblLanguage, "SandboxForm.SandboxForm.m_lblLanguage");
-			this.m_lblLanguage.Location = new System.Drawing.Point(137, 99);
+			this.m_lblLanguage.Location = new System.Drawing.Point(341, 43);
 			this.m_lblLanguage.Name = "m_lblLanguage";
 			this.m_lblLanguage.Size = new System.Drawing.Size(165, 13);
 			this.m_lblLanguage.TabIndex = 5;
@@ -133,13 +119,12 @@
 			this.Controls.Add(this.btnSave);
 			this.Controls.Add(this.m_lblBundleId);
 			this.Controls.Add(this.button2);
-			this.Controls.Add(this.m_lblFile);
 			this.Controls.Add(this.m_btnSelectBundle);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this, null);
 			this.l10NSharpExtender1.SetLocalizingId(this, "SandboxForm.WindowTitle");
 			this.Name = "SandboxForm";
-			this.Text = "SandboxForm";
+			this.Text = "Protoscript Generator";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SandboxForm_FormClosing);
 			this.Load += new System.EventHandler(this.SandboxForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).EndInit();
@@ -151,7 +136,6 @@
 		#endregion
 
 		private System.Windows.Forms.Button m_btnSelectBundle;
-		private System.Windows.Forms.Label m_lblFile;
 		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Label m_lblBundleId;

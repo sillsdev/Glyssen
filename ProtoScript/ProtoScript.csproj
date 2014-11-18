@@ -74,13 +74,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookScript.cs" />
     <Compile Include="Bundle\Bundle.cs" />
     <Compile Include="Bundle\Canon.cs" />
     <Compile Include="Bundle\DblMetadata.cs" />
     <Compile Include="Block.cs" />
     <Compile Include="Bundle\UsxDocument.cs" />
     <Compile Include="Bundle\UsxNode.cs" />
-    <Compile Include="Dialogs\SelectBundleDialog.cs" />
+    <Compile Include="Dialogs\SelectProjectDialog.cs" />
     <Compile Include="Dialogs\WelcomeDialog.cs">
       <SubType>Form</SubType>
     </Compile>

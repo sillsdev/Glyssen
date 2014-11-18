@@ -13,7 +13,7 @@ namespace ProtoScript.Dialogs
 
 		private void m_selectBundleBtn_Click(object sender, EventArgs e)
 		{
-			using (var dlg = new SelectBundleDialog())
+			using (var dlg = new SelectProjectDialog())
 			{
 				DialogResult = dlg.ShowDialog();
 				if (dlg.FileName != null)

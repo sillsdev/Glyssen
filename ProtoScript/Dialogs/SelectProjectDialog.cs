@@ -6,13 +6,12 @@ using ProtoScript.Properties;
 
 namespace ProtoScript.Dialogs
 {
-	public class SelectBundleDialog : IDisposable
+	public class SelectProjectDialog : IDisposable
 	{
 		private const string kResourceBundleExtension = ".zip";
-		private const string kResourceBundleDescription = "Text Resource Bundle files";
 		private readonly OpenFileDialog m_fileDialog;
 
-		public SelectBundleDialog()
+		public SelectProjectDialog()
 		{
 			var defaultDir = Settings.Default.DefaultBundleDirectory;
 			if (string.IsNullOrEmpty(defaultDir))
@@ -21,9 +20,16 @@ namespace ProtoScript.Dialogs
 			}
 			m_fileDialog = new OpenFileDialog
 			{
-				Title = LocalizationManager.GetString("SelectBundleDialog.Title", "Select a Text Resource Bundle file"),
+				Title = LocalizationManager.GetString("SelectBundleDialog.Title", "Open Project"),
 				InitialDirectory = defaultDir,
-				Filter = kResourceBundleDescription + "|*" + kResourceBundleExtension
+				Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}|{4} ({5})|{5}",
+					LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ResourceBundleFileTypeLabel", "Text Resource Bundle files"),
+					"*" + kResourceBundleExtension,
+					LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ProjectFilesLabel", "Protoscript Generator Project Files"),
+					"*" + Project.kProjectFileExtension,
+					LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.AllFilesLabel", "All Files"),
+					"*.*"),
+				DefaultExt = kResourceBundleExtension
 			};
 		}
 

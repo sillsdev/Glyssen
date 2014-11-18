@@ -13,19 +13,40 @@ namespace ProtoScript
 	public partial class SandboxForm : Form
 	{
 		private Project m_project;
+		private string m_bundleIdFmt;
+		private string m_LanguageIdFmt;
 
 		public SandboxForm()
 		{
 			InitializeComponent();
+			HandleStringsLocalized();
+		}
+
+		private string ProjectsBaseFolder
+		{
+			get
+			{
+				return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+					Program.kCompany, Program.kProduct);
+			}
+		}
+
+		protected void HandleStringsLocalized()
+		{
+			m_bundleIdFmt = m_lblBundleId.Text;
+			m_LanguageIdFmt = m_lblLanguage.Text;
 		}
 
 		private void HandleSelectBundle_Click(object sender, EventArgs e)
 		{
-			using (var dlg = new SelectBundleDialog())
+			using (var dlg = new SelectProjectDialog())
 			{
 				if (dlg.ShowDialog() == DialogResult.OK)
 				{
-					LoadBundle(dlg.FileName);
+					if (Path.GetExtension(dlg.FileName) == Project.kProjectFileExtension)
+						LoadProject(dlg.FileName);
+					else
+						LoadBundle(dlg.FileName);
 				}
 			}
 		}
@@ -47,18 +68,29 @@ namespace ProtoScript
 			}
 			else
 			{
-				MessageBox.Show("TODO: write code to reload project from XML");
+				LoadProject(Settings.Default.CurrentProject);
 			}
+		}
+
+		private void LoadProject(string filePath)
+		{
+			m_project = Project.Load(filePath);
+			UpdateDisplayOfProjectIdInfo();
 		}
 
 		private void LoadBundle(string bundlePath)
 		{
 			var bundle = new Bundle.Bundle(bundlePath);
-			m_lblFile.Text = string.Format(m_lblFile.Text, bundlePath);
-			m_lblBundleId.Text = string.Format(m_lblBundleId.Text, bundle.Id);
-			m_lblLanguage.Text = string.Format(m_lblLanguage.Text, bundle.Language);
-
+			// See if we already have a project for this bundle and open it instead.
+			var projFilePath = Project.GetProjectFilePath(ProjectsBaseFolder, bundle.Language, bundle.Id);
+			if (File.Exists(projFilePath))
+			{
+				LoadProject(projFilePath);
+				return;
+			}
 			m_project = new Project(bundle.Metadata);
+			UpdateDisplayOfProjectIdInfo();
+
 			Canon canon;
 			UsxDocument book;
 			if (bundle.TryGetCanon(1, out canon))
@@ -70,10 +102,15 @@ namespace ProtoScript
 			}
 		}
 
+		private void UpdateDisplayOfProjectIdInfo()
+		{
+			m_lblBundleId.Text = string.Format(m_bundleIdFmt, m_project.Id);
+			m_lblLanguage.Text = string.Format(m_LanguageIdFmt, m_project.Language);
+		}
+
 		private void HandleSave_Click(object sender, EventArgs e)
 		{
-			m_project.Save(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-				Program.kCompany, Program.kProduct));
+			m_project.Save(ProjectsBaseFolder);
 		}
 
 		private void SandboxForm_FormClosing(object sender, FormClosingEventArgs e)

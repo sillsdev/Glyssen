@@ -11,7 +11,7 @@ namespace ProtoScriptTests.Dialogs
 		[STAThread]
 		public void ShowDialog()
 		{
-			using (var dlg = new SelectBundleDialog())
+			using (var dlg = new SelectProjectDialog())
 			{
 				dlg.ShowDialog();
 			}
