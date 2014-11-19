@@ -1,12 +1,13 @@
 ﻿using System;
 using System.IO;
-using System.Reflection;
-using System.Text;
 using System.Windows.Forms;
 using L10NSharp;
+using Palaso.IO;
+using Paratext;
 using ProtoScript.Bundle;
 using ProtoScript.Dialogs;
 using ProtoScript.Properties;
+using Canon = ProtoScript.Bundle.Canon;
 
 namespace ProtoScript
 {
@@ -91,6 +92,16 @@ namespace ProtoScript
 			m_project = new Project(bundle.Metadata);
 			UpdateDisplayOfProjectIdInfo();
 			m_project.PopulateAndParseBooks(bundle);
+
+			Canon canon;
+			UsxDocument book;
+			if (bundle.TryGetCanon(1, out canon))
+			{
+				if (canon.TryGetBook("MRK", out book))
+				{
+					m_project.AddBook("MRK", new QuoteParser(new UsxParser(book.GetChaptersAndParas()).Parse()).Parse());
+				}
+			}
 		}
 
 		private void UpdateDisplayOfProjectIdInfo()
@@ -136,5 +147,26 @@ namespace ProtoScript
 				}
 			}
 		}
+
+		/// <summary>
+		/// TODO This very rudamentary code is just for developer testing at this point
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void m_btnLoadSfm_Click(object sender, EventArgs e)
+		{
+			string sfmFilePath = null;
+			using (var dlg = new OpenFileDialog())
+			{
+				if (dlg.ShowDialog() == DialogResult.OK)
+					sfmFilePath = dlg.FileName;
+			}
+			string usfmStylesheetPath = Path.Combine(FileLocator.GetDirectoryDistributedWithApplication("sfm"), "usfm.sty");
+			var book = new UsxDocument(UsfmToUsx.ConvertToXmlDocument(new ScrStylesheet(usfmStylesheetPath), File.ReadAllText(sfmFilePath)));
+			var metadata = new DblMetadata { id = "sfm" + DateTime.Now.Ticks, language = new DblMetadataLanguage { iso = "zzz" } };
+			m_project = new Project(metadata);
+			m_project.AddBook("MRK", new QuoteParser(new UsxParser(book.GetChaptersAndParas()).Parse()).Parse());
+		}
+
 	}
 }

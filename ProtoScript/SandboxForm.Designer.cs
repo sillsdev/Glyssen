@@ -36,6 +36,7 @@
 			this.btnSave = new System.Windows.Forms.Button();
 			this.m_lblLanguage = new System.Windows.Forms.Label();
 			this.m_btnExportToTabSeparated = new System.Windows.Forms.Button();
+			this.m_btnLoadSfm = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -66,7 +67,7 @@
 			this.l10NSharpExtender1.SetLocalizingId(this.button2, "SandboxForm.button2");
 			this.button2.Location = new System.Drawing.Point(32, 206);
 			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(75, 23);
+			this.button2.Size = new System.Drawing.Size(84, 23);
 			this.button2.TabIndex = 2;
 			this.button2.Text = "L10NSharp";
 			this.button2.UseVisualStyleBackColor = true;
@@ -125,12 +126,27 @@
 			this.m_btnExportToTabSeparated.UseVisualStyleBackColor = true;
 			this.m_btnExportToTabSeparated.Click += new System.EventHandler(this.HandleExportToTabSeparated_Click);
 			// 
+			// m_btnLoadSfm
+			// 
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnLoadSfm, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnLoadSfm, null);
+			this.l10NSharpExtender1.SetLocalizationPriority(this.m_btnLoadSfm, L10NSharp.LocalizationPriority.High);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_btnLoadSfm, "SandboxForm.SandboxForm.btnSave");
+			this.m_btnLoadSfm.Location = new System.Drawing.Point(32, 119);
+			this.m_btnLoadSfm.Name = "m_btnLoadSfm";
+			this.m_btnLoadSfm.Size = new System.Drawing.Size(84, 23);
+			this.m_btnLoadSfm.TabIndex = 6;
+			this.m_btnLoadSfm.Text = "Load SFM";
+			this.m_btnLoadSfm.UseVisualStyleBackColor = true;
+			this.m_btnLoadSfm.Click += new System.EventHandler(this.m_btnLoadSfm_Click);
+			// 
 			// SandboxForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(559, 262);
 			this.Controls.Add(this.m_btnExportToTabSeparated);
+			this.Controls.Add(this.m_btnLoadSfm);
 			this.Controls.Add(this.m_lblLanguage);
 			this.Controls.Add(this.btnSave);
 			this.Controls.Add(this.m_lblBundleId);
@@ -158,6 +174,7 @@
 		private System.Windows.Forms.Button btnSave;
 		private System.Windows.Forms.Label m_lblLanguage;
 		private System.Windows.Forms.Button m_btnExportToTabSeparated;
+		private System.Windows.Forms.Button m_btnLoadSfm;
 	}
 }
 
