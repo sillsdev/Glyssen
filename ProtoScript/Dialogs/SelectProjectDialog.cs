@@ -27,7 +27,7 @@ namespace ProtoScript.Dialogs
 					"*" + kResourceBundleExtension,
 					LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ProjectFilesLabel", "Protoscript Generator Project Files"),
 					"*" + Project.kProjectFileExtension,
-					LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.AllFilesLabel", "All Files"),
+					LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"),
 					"*.*"),
 				DefaultExt = kResourceBundleExtension
 			};

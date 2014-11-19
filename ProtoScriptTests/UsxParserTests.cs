@@ -43,6 +43,8 @@ namespace ProtoScriptTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(1, blocks.Count);
 			Assert.IsTrue(blocks[0].IsNarrator);
+			Assert.AreEqual(1, blocks[0].ChapterNumber, "Even though this test doesn't process the chapters, the block should default to chapter 1 (rather than 0) because it contains verse numbers.");
+			Assert.AreEqual(1, blocks[0].InitialVerseNumber);
 			Assert.AreEqual("Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[0].GetText(false));
 			Assert.AreEqual("[1]Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, [2]kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[0].GetText(true));
 		}
@@ -110,11 +112,12 @@ namespace ProtoScriptTests
 										"Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. " +
 										"<verse number=\"13\" style=\"v\" />Ci obedo i tim nino pyeraŋwen; Catan ocako bite, " +
 										"ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.</para>");
-			var parser = new UsxParser(new UsxDocument(doc).GetParas());
+			var parser = new UsxParser(new UsxDocument(doc).GetChaptersAndParas());
 			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(1, blocks.Count);
-			Assert.AreEqual("Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. Ci obedo i tim nino pyeraŋwen; Catan ocako bite, ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.", blocks[0].GetText(false));
-			Assert.AreEqual("Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. [13]Ci obedo i tim nino pyeraŋwen; Catan ocako bite, ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.", blocks[0].GetText(true));
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual(1, blocks[1].InitialVerseNumber);
+			Assert.AreEqual("Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. Ci obedo i tim nino pyeraŋwen; Catan ocako bite, ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.", blocks[1].GetText(false));
+			Assert.AreEqual("Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. [13]Ci obedo i tim nino pyeraŋwen; Catan ocako bite, ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.", blocks[1].GetText(true));
 		}
 
 		[Test]
@@ -124,7 +127,11 @@ namespace ProtoScriptTests
 			var parser = new UsxParser(new UsxDocument(doc).GetChaptersAndParas());
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual(1, blocks[0].ChapterNumber);
+			Assert.AreEqual(0, blocks[0].InitialVerseNumber);
 			Assert.AreEqual("1", blocks[0].GetText(false));
+			Assert.AreEqual(1, blocks[1].ChapterNumber);
+			Assert.AreEqual(0, blocks[1].InitialVerseNumber);
 			Assert.AreEqual("Lok ma Jon Labatija otito", blocks[1].GetText(false));
 		}
 
@@ -135,7 +142,11 @@ namespace ProtoScriptTests
 			var parser = new UsxParser(new UsxDocument(doc).GetChaptersAndParas());
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual(1, blocks[0].ChapterNumber);
+			Assert.AreEqual(0, blocks[0].InitialVerseNumber);
 			Assert.AreEqual("Global-Chapter 1", blocks[0].GetText(false));
+			Assert.AreEqual(1, blocks[1].ChapterNumber);
+			Assert.AreEqual(0, blocks[1].InitialVerseNumber);
 			Assert.AreEqual("Lok ma Jon Labatija otito", blocks[1].GetText(false));
 		}
 
@@ -146,8 +157,73 @@ namespace ProtoScriptTests
 			var parser = new UsxParser(new UsxDocument(doc).GetChaptersAndParas());
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual(1, blocks[0].ChapterNumber);
+			Assert.AreEqual(0, blocks[0].InitialVerseNumber);
 			Assert.AreEqual("Specific-Chapter One", blocks[0].GetText(false));
+			Assert.AreEqual(1, blocks[1].ChapterNumber);
+			Assert.AreEqual(0, blocks[1].InitialVerseNumber);
 			Assert.AreEqual("Lok ma Jon Labatija otito", blocks[1].GetText(false));
+		}
+
+		[Test]
+		public void Parse_ProcessChaptersAndVerses_BlocksGetCorrectChapterAndVerseNumbers()
+		{
+			var doc = CreateMarkOneDoc("<para style=\"p\">" +
+										"<verse number=\"1\" style=\"v\" />" +
+										"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, " +
+										"<verse number=\"2\" style=\"v\" />" +
+										"kit ma gicoyo kwede i buk pa lanebi Icaya ni,</para>" +
+										"<chapter number=\"2\" style=\"c\" />" +
+										"<para style=\"p\">" +
+										"<verse number=\"1\" style=\"v\" />" +
+										"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.</para>" +
+										"<para style=\"q1\">" +
+										"This is poetry, dude.</para>");
+			var parser = new UsxParser(new UsxDocument(doc).GetChaptersAndParas());
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(5, blocks.Count);
+			Assert.AreEqual("c", blocks[0].StyleTag);
+			Assert.AreEqual(1, blocks[0].ChapterNumber);
+			Assert.AreEqual(0, blocks[0].InitialVerseNumber);
+			Assert.AreEqual("1", blocks[0].GetText(true));
+			Assert.AreEqual("p", blocks[1].StyleTag);
+			Assert.AreEqual(1, blocks[1].ChapterNumber);
+			Assert.AreEqual(1, blocks[1].InitialVerseNumber);
+			Assert.AreEqual("[1]Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, [2]kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
+
+			Assert.AreEqual("c", blocks[2].StyleTag);
+			Assert.AreEqual(2, blocks[2].ChapterNumber);
+			Assert.AreEqual(0, blocks[2].InitialVerseNumber);
+			Assert.AreEqual("2", blocks[2].GetText(true));
+			Assert.AreEqual("p", blocks[3].StyleTag);
+			Assert.AreEqual(2, blocks[3].ChapterNumber);
+			Assert.AreEqual(1, blocks[3].InitialVerseNumber);
+			Assert.AreEqual("[1]Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[3].GetText(true));
+			Assert.AreEqual("q1", blocks[4].StyleTag);
+			Assert.AreEqual(2, blocks[4].ChapterNumber);
+			Assert.AreEqual(1, blocks[4].InitialVerseNumber);
+			Assert.AreEqual("This is poetry, dude.", blocks[4].GetText(true));
+		}
+
+		[Test]
+		public void Parse_ParaStartsWithVerseNumber_BlocksGetCorrectChapterAndVerseNumbers()
+		{
+			var doc = CreateMarkOneDoc("<para style=\"p\">" +
+										"<verse number=\"12\" style=\"v\" />" +
+										"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,</para>" +
+										"<para style=\"p\">" +
+										"<verse number=\"13\" style=\"v\" />" +
+										"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.</para>");
+			var parser = new UsxParser(new UsxDocument(doc).GetChaptersAndParas());
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(1, blocks[1].ChapterNumber);
+			Assert.AreEqual(12, blocks[1].InitialVerseNumber);
+			Assert.AreEqual("Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,", blocks[1].GetText(false));
+
+			Assert.AreEqual(1, blocks[2].ChapterNumber);
+			Assert.AreEqual(13, blocks[2].InitialVerseNumber);
+			Assert.AreEqual("Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(false));
 		}
 
 		[Test, Ignore("TODO")]
@@ -157,8 +233,12 @@ namespace ProtoScriptTests
 			var parser = new UsxParser(new UsxDocument(doc).GetParas());
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual(1, blocks[0].ChapterNumber, "Even though this test doesn't process the chapters, the block should default to chapter 1 (rather than 0) because it contains verse numbers.");
+			Assert.AreEqual(19, blocks[0].InitialVerseNumber);
 			Assert.AreEqual("Yecu ocako gamo ni, ", blocks[0].GetText(false));
 			Assert.AreEqual("[19]Yecu ocako gamo ni, ", blocks[0].GetText(true));
+			Assert.AreEqual(1, blocks[1].ChapterNumber, "Even though this test doesn't process the chapters, the block should default to chapter 1 (rather than 0) because it contains verse numbers.");
+			Assert.AreEqual(19, blocks[1].InitialVerseNumber);
 			Assert.AreEqual("“Wun yalwak ma niyewu lam, abibedo kwedwu nio wa awene? Dok abidiyo cwinya i komwu nio wa awene ba? Wukel en bota kany.”", blocks[1].GetText(false));
 		}
 	}

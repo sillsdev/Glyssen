@@ -58,5 +58,29 @@ namespace ProtoScript.Properties {
                 this["DefaultBundleDirectory"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DefaultExportDirectory {
+            get {
+                return ((string)(this["DefaultExportDirectory"]));
+            }
+            set {
+                this["DefaultExportDirectory"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        public string PgUsxParserVersion {
+            get {
+                return ((string)(this["PgUsxParserVersion"]));
+            }
+            set {
+                this["PgUsxParserVersion"] = value;
+            }
+        }
     }
 }

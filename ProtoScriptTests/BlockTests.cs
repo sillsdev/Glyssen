@@ -14,21 +14,68 @@ namespace ProtoScriptTests
 	class BlockTests
 	{
 		[Test]
-		public void Serialization_VerseAndTextElements_Works()
+		public void GetAsXml_VerseAndTextElements_XmlHasCorrectAttributesAndAlternatingVerseAndTextElements()
 		{
-			var block = new Block("p");
+			var block = new Block("p", 4);
 			block.BlockElements.Add(new Verse("1"));
-			block.BlockElements.Add(new ScriptText("Text of verse one."));
+			block.BlockElements.Add(new ScriptText("Text of verse one. "));
 			block.BlockElements.Add(new Verse("2"));
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 
-			AssertThatXmlIn.String("<?xml version=\"1.0\" encoding=\"utf-16\"?><block style=\"p\" characterId=\"0\">" +
+			AssertThatXmlIn.String("<?xml version=\"1.0\" encoding=\"utf-16\"?><block style=\"p\" chapter=\"4\" verse=\"1\" characterId=\"0\">" +
 				"<verse num=\"1\"/>" +
-				"<text>Text of verse one.</text>" +
+				"<text>Text of verse one. </text>" +
 				"<verse num=\"2\"/>" +
 				"<text>Text of verse two.</text>" +
 				"</block>")
 				.EqualsIgnoreWhitespace(block.GetAsXml());
+		}
+
+		[Test]
+		public void GetAsXml_TextBeginsMidVerse_XmlHasCorrectVerseInfo()
+		{
+			var block = new Block("p", 4, 3);
+			block.BlockElements.Add(new ScriptText("Text of verse three, part two. "));
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Text of verse four. "));
+			block.BlockElements.Add(new Verse("5"));
+			block.BlockElements.Add(new ScriptText("Text of verse five."));
+
+			AssertThatXmlIn.String("<?xml version=\"1.0\" encoding=\"utf-16\"?><block style=\"p\" chapter=\"4\" verse=\"3\" characterId=\"0\">" +
+				"<text>Text of verse three, part two. </text>" +
+				"<verse num=\"4\"/>" +
+				"<text>Text of verse four. </text>" +
+				"<verse num=\"5\"/>" +
+				"<text>Text of verse five.</text>" +
+				"</block>")
+				.EqualsIgnoreWhitespace(block.GetAsXml());
+		}
+
+		[Test]
+		public void GetAsTabDelimited_VerseAndTextElements_ExpectedColumnsIncludingJoinedText()
+		{
+			var block = new Block("p", 4);
+			block.BlockElements.Add(new Verse("1"));
+			block.BlockElements.Add(new ScriptText("Text of verse one. "));
+			block.BlockElements.Add(new Verse("2"));
+			block.BlockElements.Add(new ScriptText("Text of verse two."));
+
+			Assert.AreEqual("p\tMRK\t4\t1\t0\t[1]Text of verse one. [2]Text of verse two.",
+				block.GetAsTabDelimited("MRK"));
+		}
+
+		[Test]
+		public void GetAsTabDelimited_TextBeginsMidVerse_XmlHasCorrectVerseInfo()
+		{
+			var block = new Block("p", 4, 3);
+			block.BlockElements.Add(new ScriptText("Text of verse three, part two. "));
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Text of verse four. "));
+			block.BlockElements.Add(new Verse("5"));
+			block.BlockElements.Add(new ScriptText("Text of verse five."));
+
+			Assert.AreEqual("p\tMRK\t4\t3\t0\tText of verse three, part two. [4]Text of verse four. [5]Text of verse five.",
+				block.GetAsTabDelimited("MRK"));
 		}
 	}
 }

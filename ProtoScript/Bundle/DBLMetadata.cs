@@ -12,6 +12,18 @@ namespace ProtoScript.Bundle
 	{
 		[XmlAttribute]
 		public string id;
+
+		/// <summary>This is not part of the original DBL metadata. We add this when we parse the USX to create
+		/// a script. If significant changes to the parser are made and the parser version in the program does
+		/// not match the stored parser version, then we know to re-parse the original USX data.</summary>
+		[XmlAttribute("usxparserversion")]
+		public string PgUsxParserVersion;
+
+		/// <summary>This is not part of the original DBL metadata. We add this when we parse the USX to create
+		/// a script. This tells us the original (local) path of the DBL file used to create this project.</summary>
+		[XmlAttribute("origdblpath")]
+		public string OriginalPathOfDblFile;
+
 		public DblMetadataIdentification identification;
 		public DblMetadataLanguage language;
 		public DblMetadataPromotion promotion;

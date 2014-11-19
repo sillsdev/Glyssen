@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
@@ -10,19 +11,65 @@ namespace ProtoScript
 	[XmlRoot("block")]
 	public class Block
 	{
+		private int m_initialVerseNumber;
+		private int m_chapterNumber;
+
 		public Block()
 		{
 			// Needed for deserialization
 		}
 
-		public Block(string styleTag)
+		public Block(string styleTag, int chapterNum = 0, int initialVerseNum = 0)
 		{
 			StyleTag = styleTag;
 			BlockElements = new List<BlockElement>();
+			ChapterNumber = chapterNum;
+			InitialVerseNumber = initialVerseNum;
 		}
 
 		[XmlAttribute("style")]
 		public string StyleTag { get; set; }
+
+		[XmlAttribute("chapter")]
+		public int ChapterNumber
+		{
+			get
+			{
+				if (m_chapterNumber == 0)
+				{
+					if (InitialVerseNumber > 0 || BlockElements.Any(b => b is Verse))
+						m_chapterNumber = 1;
+				}
+				return m_chapterNumber;
+			}
+			set { m_chapterNumber = value; }
+		}
+
+		[XmlAttribute("verse")]
+		public int InitialVerseNumber
+		{
+			get
+			{
+				if (m_initialVerseNumber == 0)
+				{
+					var leadingVerseElement = BlockElements.FirstOrDefault() as Verse;
+					int verseNum;
+					if (leadingVerseElement != null)
+					{
+						if (Int32.TryParse(leadingVerseElement.Number, out verseNum))
+							m_initialVerseNumber = verseNum;
+						else
+							Debug.Fail("TODO: Deal with bogus verse number in data!");
+					}
+					else if (BlockElements.Any(b => b is Verse))
+					{
+						m_initialVerseNumber = 1;
+					}
+				}
+				return m_initialVerseNumber; 
+			}
+			set { m_initialVerseNumber = value; }
+		}
 
 		[XmlAttribute("characterId")]
 		public int CharacterId { get; set; }
@@ -65,6 +112,23 @@ namespace ProtoScript
 		public string GetAsXml(bool includeXmlDeclaration = true)
 		{
 			return XmlSerializationHelper.SerializeToString(this, !includeXmlDeclaration);
+		}
+
+		public string GetAsTabDelimited(string bookId)
+		{
+			StringBuilder builder = new StringBuilder();
+			builder.Append(StyleTag);
+			builder.Append('\t');
+			builder.Append(bookId);
+			builder.Append('\t');
+			builder.Append(ChapterNumber);
+			builder.Append('\t');
+			builder.Append(InitialVerseNumber);
+			builder.Append('\t');
+			builder.Append(CharacterId);
+			builder.Append('\t');
+			builder.Append(GetText(true));
+			return builder.ToString();
 		}
 	}
 

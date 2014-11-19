@@ -36,7 +36,19 @@ namespace ProtoScript
 
 		public static Project Load(string projectFilePath)
 		{
-			var project = new Project(XmlSerializationHelper.DeserializeFromFile<DblMetadata>(projectFilePath));
+			Project project;
+			var metadata = XmlSerializationHelper.DeserializeFromFile<DblMetadata>(projectFilePath);
+			if (metadata.PgUsxParserVersion != Settings.Default.PgUsxParserVersion &&
+				File.Exists(metadata.OriginalPathOfDblFile))
+			{
+				// ENHANCE: For now, just create a new bundle and re-parse
+				var bundle = new Bundle.Bundle(metadata.OriginalPathOfDblFile);
+				// See if we already have a project for this bundle and open it instead.
+				project = new Project(bundle.Metadata);
+				project.PopulateAndParseBooks(bundle);
+				return project;
+			}
+			project = new Project(metadata);
 			var projectDir = Path.GetDirectoryName(projectFilePath);
 			Debug.Assert(projectDir != null);
 			foreach (var file in Directory.GetFiles(projectDir, "???.xml"))
@@ -45,6 +57,19 @@ namespace ProtoScript
 					XmlSerializationHelper.DeserializeFromFile<BookScript>(file);
 			}
 			return project;
+		}
+
+		public void PopulateAndParseBooks(Bundle.Bundle bundle)
+		{
+			Canon canon;
+			if (bundle.TryGetCanon(1, out canon))
+			{
+				UsxDocument book;
+				if (canon.TryGetBook("MRK", out book))
+				{
+					AddBook("MRK", new UsxParser(book.GetChaptersAndParas()).Parse());
+				}
+			}
 		}
 
 		public void AddBook(string bookId, IEnumerable<Block> blocks)
@@ -86,6 +111,21 @@ namespace ProtoScript
 				XmlSerializationHelper.SerializeToFile(filePath, book.Value, out error);
 				if (error != null)
 					MessageBox.Show(error.Message);
+			}
+		}
+
+		public void ExportTabDelimited(string fileName)
+		{
+			int blockNumber = 1;
+			using (StreamWriter stream = new StreamWriter(fileName, false, Encoding.UTF8))
+			{
+				foreach (var book in m_books.Values)
+				{
+					foreach (var block in book.Blocks)
+					{
+						stream.WriteLine((blockNumber++) + "\t" + block.GetAsTabDelimited(book.BookId));
+					}
+				}
 			}
 		}
 	}

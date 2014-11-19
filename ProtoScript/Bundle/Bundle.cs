@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Xml.Serialization;
+using ProtoScript.Properties;
 using ProtoScript.Utilities;
 
 namespace ProtoScript.Bundle
@@ -20,6 +21,8 @@ namespace ProtoScript.Bundle
 
 			var xs = new XmlSerializer(typeof(DblMetadata));
 			m_dblMetadata = (DblMetadata)xs.Deserialize(new FileStream(metadataPath, FileMode.Open));
+			m_dblMetadata.OriginalPathOfDblFile = pathToZippedBundle;
+			m_dblMetadata.PgUsxParserVersion = Settings.Default.PgUsxParserVersion;
 
 			ExtractCanons(pathToUnzippedDirectory);
 		}
