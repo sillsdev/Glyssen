@@ -58,8 +58,14 @@
     <Reference Include="L10NSharp">
       <HintPath>..\lib\dotnet\L10NSharp.dll</HintPath>
     </Reference>
+    <Reference Include="NetLoc">
+      <HintPath>..\lib\dotnet\NetLoc.dll</HintPath>
+    </Reference>
     <Reference Include="Palaso">
       <HintPath>..\lib\dotnet\Palaso.dll</HintPath>
+    </Reference>
+    <Reference Include="ParatextShared">
+      <HintPath>..\lib\dotnet\ParatextShared.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
