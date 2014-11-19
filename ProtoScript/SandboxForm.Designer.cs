@@ -132,7 +132,7 @@
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnLoadSfm, null);
 			this.l10NSharpExtender1.SetLocalizationPriority(this.m_btnLoadSfm, L10NSharp.LocalizationPriority.High);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnLoadSfm, "SandboxForm.SandboxForm.btnSave");
-			this.m_btnLoadSfm.Location = new System.Drawing.Point(32, 119);
+			this.m_btnLoadSfm.Location = new System.Drawing.Point(32, 154);
 			this.m_btnLoadSfm.Name = "m_btnLoadSfm";
 			this.m_btnLoadSfm.Size = new System.Drawing.Size(84, 23);
 			this.m_btnLoadSfm.TabIndex = 6;
