@@ -97,7 +97,7 @@ namespace ProtoScript
 			{
 				if (canon.TryGetBook("MRK", out book))
 				{
-					m_project.AddBook("MRK", new UsxParser(book.GetParas()).Parse());
+					m_project.AddBook("MRK", new QuoteParser(new UsxParser(book.GetChaptersAndParas()).Parse()).Parse());
 				}
 			}
 		}

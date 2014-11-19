@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlockTests.cs" />
+    <Compile Include="QuoteParserTests.cs" />
     <Compile Include="UsxParserTests.cs" />
     <Compile Include="Bundle\DblMetadataTests.cs" />
     <Compile Include="Dialogs\SelectBundleDialogTests.cs" />

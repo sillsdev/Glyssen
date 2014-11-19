@@ -89,6 +89,7 @@
       <DependentUpon>WelcomeDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Project.cs" />
+    <Compile Include="QuoteParser.cs" />
     <Compile Include="SandboxForm.cs">
       <SubType>Form</SubType>
     </Compile>
