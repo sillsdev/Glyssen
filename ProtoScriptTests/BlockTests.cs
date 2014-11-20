@@ -60,7 +60,8 @@ namespace ProtoScriptTests
 			block.BlockElements.Add(new Verse("2"));
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 
-			Assert.AreEqual("p\tMRK\t4\t1\t0\t[1]Text of verse one. [2]Text of verse two.",
+			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
+			Assert.AreEqual("p\tMRK\t4\t1\t0\t[1]Text of verse one. [2]Text of verse two.\t" + textLength,
 				block.GetAsTabDelimited("MRK"));
 		}
 
@@ -74,7 +75,8 @@ namespace ProtoScriptTests
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
-			Assert.AreEqual("p\tMRK\t4\t3\t0\tText of verse three, part two. [4]Text of verse four. [5]Text of verse five.",
+			int textLength = "Text of verse three, part two. ".Length + "Text of verse four. ".Length + "Text of verse five.".Length;
+			Assert.AreEqual("p\tMRK\t4\t3\t0\tText of verse three, part two. [4]Text of verse four. [5]Text of verse five.\t" + textLength,
 				block.GetAsTabDelimited("MRK"));
 		}
 	}

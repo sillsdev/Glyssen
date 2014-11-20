@@ -128,6 +128,8 @@ namespace ProtoScript
 			builder.Append(CharacterId);
 			builder.Append('\t');
 			builder.Append(GetText(true));
+			builder.Append('\t');
+			builder.Append(GetText(false).Length);
 			return builder.ToString();
 		}
 	}
