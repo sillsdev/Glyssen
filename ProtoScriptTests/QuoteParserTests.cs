@@ -220,6 +220,26 @@ namespace ProtoScriptTests
 		}
 
 		[Test]
+		public void Parse_VerseAfterQuote()
+		{
+			var block = new Block("p");
+			block.BlockElements.Add(new ScriptText("«Go!» "));
+			block.BlockElements.Add(new Verse("3"));
+			block.BlockElements.Add(new ScriptText("he said."));
+			var input = new List<Block> { block };
+			Assert.AreEqual(1, input.Count);
+			Assert.AreEqual("«Go!» [3]he said.", input[0].GetText(true));
+
+			IList<Block> output = new QuoteParser(input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("«Go!» ", output[0].GetText(false));
+			Assert.AreEqual("he said.", output[1].GetText(false));
+
+			Assert.AreEqual("«Go!» ", output[0].GetText(true));
+			Assert.AreEqual("[3]he said.", output[1].GetText(true));
+		}
+
+		[Test]
 		public void Parse_VerseWithinQuote()
 		{
 			var block = new Block("p");
