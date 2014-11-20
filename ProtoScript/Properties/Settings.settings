@@ -15,7 +15,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="PgUsxParserVersion" Type="System.String" Scope="User">
-      <Value Profile="(Default)">8</Value>
+      <Value Profile="(Default)">9</Value>
     </Setting>
   </Settings>
 </SettingsFile>

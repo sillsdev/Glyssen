@@ -251,5 +251,28 @@ namespace ProtoScriptTests
 			Assert.AreEqual(13, blocks[2].InitialVerseNumber);
 			Assert.AreEqual("Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(false));
 		}
+
+		[Test]
+		public void Parse_VerseRange_BlocksGetCorrectStartingVerseNumber()
+		{
+			var doc = CreateMarkOneDoc("<para style=\"p\">" +
+										"<verse number=\"12-14\" style=\"v\" />" +
+										"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,</para>" +
+										"<para style=\"p\">" +
+										"<verse number=\"15-18\" style=\"v\" />" +
+										"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.</para>");
+			var parser = new UsxParser(new UsxDocument(doc).GetChaptersAndParas());
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(1, blocks[1].ChapterNumber);
+			Assert.AreEqual(12, blocks[1].InitialVerseNumber);
+			Assert.AreEqual("Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,", blocks[1].GetText(false));
+			Assert.AreEqual("[12-14]Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,", blocks[1].GetText(true));
+
+			Assert.AreEqual(1, blocks[2].ChapterNumber);
+			Assert.AreEqual(15, blocks[2].InitialVerseNumber);
+			Assert.AreEqual("Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(false));
+			Assert.AreEqual("[15-18]Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(true));
+		}
 	}
 }

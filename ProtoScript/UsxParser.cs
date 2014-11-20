@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Xml;
 using Palaso.Xml;
 using ProtoScript.Bundle;
+using ProtoScript.ToPalaso;
 
 namespace ProtoScript
 {
@@ -69,15 +70,10 @@ namespace ProtoScript
 										sb.Clear();
 									}
 									var verseNumStr = childNode.Attributes.GetNamedItem("number").Value;
-									int verseNum;
-									if (Int32.TryParse(verseNumStr, out verseNum))
-									{
-										m_currentVerse = verseNum;
-										if (!block.BlockElements.Any())
-											block.InitialVerseNumber = verseNum;
-									}
-									else
-										Debug.Fail("TODO: Deal with bogus verse number in USX data!");
+									int verseNum = ScrReference.VerseToIntStart(verseNumStr);
+									m_currentVerse = verseNum;
+									if (!block.BlockElements.Any())
+										block.InitialVerseNumber = verseNum;
 
 									block.BlockElements.Add(new Verse(verseNumStr));
 									break;
