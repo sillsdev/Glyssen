@@ -203,10 +203,34 @@ namespace ProtoScriptTests
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("[3]He said, ", output[0].GetText(true));
 			Assert.AreEqual(5, output[0].ChapterNumber);
-			Assert.AreEqual(3, output[0].InitialVerseNumber); 
+			Assert.AreEqual(3, output[0].InitialVerseNumber);
 			Assert.AreEqual("«Go!»", output[1].GetText(true));
 			Assert.AreEqual(5, output[1].ChapterNumber);
 			Assert.AreEqual(3, output[1].InitialVerseNumber);
+		}
+
+		[Test]
+		public void Parse_MultipleVersesBeforeQuote()
+		{
+			var block = new Block("p", 5);
+			block.BlockElements.Add(new Verse("3"));
+			block.BlockElements.Add(new ScriptText("Matthew tried to learn to fish, but Peter was upset. "));
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("He said, «Go back to your tax booth!»"));
+			var input = new List<Block> { block };
+			Assert.AreEqual(1, input.Count);
+			Assert.AreEqual("[3]Matthew tried to learn to fish, but Peter was upset. [4]He said, «Go back to your tax booth!»", input[0].GetText(true));
+			Assert.AreEqual(5, input[0].ChapterNumber);
+			Assert.AreEqual(3, input[0].InitialVerseNumber);
+
+			IList<Block> output = new QuoteParser(input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("[3]Matthew tried to learn to fish, but Peter was upset. [4]He said, ", output[0].GetText(true));
+			Assert.AreEqual(5, output[0].ChapterNumber);
+			Assert.AreEqual(3, output[0].InitialVerseNumber);
+			Assert.AreEqual("«Go back to your tax booth!»", output[1].GetText(true));
+			Assert.AreEqual(5, output[1].ChapterNumber);
+			Assert.AreEqual(4, output[1].InitialVerseNumber);
 		}
 
 		[Test]

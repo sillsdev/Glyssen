@@ -162,7 +162,16 @@ namespace ProtoScript
 		private void FlushBlock(string styleTag)
 		{
 			m_outputBlocks.Add(m_workingBlock);
-			m_workingBlock = new Block(styleTag, m_workingBlock.ChapterNumber, m_workingBlock.InitialVerseNumber);
+			var lastVerse = m_workingBlock.BlockElements.OfType<Verse>().LastOrDefault();
+			int verseNum = m_workingBlock.InitialVerseNumber;
+			if (lastVerse != null)
+			{
+				if (!Int32.TryParse(lastVerse.Number, out verseNum))
+				{
+					Debug.Fail("TODO: Deal with bogus verse number in data!");
+				}
+			}
+			m_workingBlock = new Block(styleTag, m_workingBlock.ChapterNumber, verseNum);
 		}
 
 		/// <summary>
