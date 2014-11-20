@@ -14,13 +14,17 @@ namespace ProtoScriptTests
 		[Test]
 		public void Parse_OneBlockBecomesTwo_QuoteAtEnd()
 		{
-			var block = new Block("p");
+			var block = new Block("p", 2, 5);
 			block.BlockElements.Add(new ScriptText("He said, «Go!»"));
 			var input = new List<Block> { block };
 			IList<Block> output = new QuoteParser(input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.AreEqual(2, output[0].ChapterNumber);
+			Assert.AreEqual(5, output[0].InitialVerseNumber);
 			Assert.AreEqual("«Go!»", output[1].GetText(false));
+			Assert.AreEqual(2, output[1].ChapterNumber);
+			Assert.AreEqual(5, output[1].InitialVerseNumber);
 		}
 		[Test]
 		public void Parse_OneBlockBecomesTwo_QuoteAtBeginning()
@@ -186,34 +190,46 @@ namespace ProtoScriptTests
 		[Test]
 		public void Parse_VerseAtBeginning()
 		{
-			var block = new Block("p");
+			var block = new Block("p", 5);
 			block.BlockElements.Add(new Verse("3"));
 			block.BlockElements.Add(new ScriptText("He said, «Go!»"));
 			var input = new List<Block> { block };
 			Assert.AreEqual(1, input.Count);
 			Assert.AreEqual("[3]He said, «Go!»", input[0].GetText(true));
+			Assert.AreEqual(5, input[0].ChapterNumber);
+			Assert.AreEqual(3, input[0].InitialVerseNumber);
 
 			IList<Block> output = new QuoteParser(input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("[3]He said, ", output[0].GetText(true));
+			Assert.AreEqual(5, output[0].ChapterNumber);
+			Assert.AreEqual(3, output[0].InitialVerseNumber); 
 			Assert.AreEqual("«Go!»", output[1].GetText(true));
+			Assert.AreEqual(5, output[1].ChapterNumber);
+			Assert.AreEqual(3, output[1].InitialVerseNumber);
 		}
 
 		[Test]
 		public void Parse_VerseBeforeQuote()
 		{
-			var block = new Block("p");
+			var block = new Block("p", 6, 2);
 			block.BlockElements.Add(new ScriptText("He said, "));
 			block.BlockElements.Add(new Verse("3"));
 			block.BlockElements.Add(new ScriptText("«Go!»"));
 			var input = new List<Block> { block };
 			Assert.AreEqual(1, input.Count);
 			Assert.AreEqual("He said, [3]«Go!»", input[0].GetText(true));
+			Assert.AreEqual(6, input[0].ChapterNumber);
+			Assert.AreEqual(2, input[0].InitialVerseNumber);
 
 			IList<Block> output = new QuoteParser(input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.AreEqual(6, output[0].ChapterNumber);
+			Assert.AreEqual(2, output[0].InitialVerseNumber);
 			Assert.AreEqual("«Go!»", output[1].GetText(false));
+			Assert.AreEqual(6, output[1].ChapterNumber);
+			Assert.AreEqual(3, output[1].InitialVerseNumber);
 
 			Assert.AreEqual("He said, ", output[0].GetText(true));
 			Assert.AreEqual("[3]«Go!»", output[1].GetText(true));
@@ -222,18 +238,24 @@ namespace ProtoScriptTests
 		[Test]
 		public void Parse_VerseWithinQuote()
 		{
-			var block = new Block("p");
+			var block = new Block("p", 6, 2);
 			block.BlockElements.Add(new ScriptText("He said, «Go "));
 			block.BlockElements.Add(new Verse("3"));
 			block.BlockElements.Add(new ScriptText("west!»"));
 			var input = new List<Block> { block };
 			Assert.AreEqual(1, input.Count);
 			Assert.AreEqual("He said, «Go [3]west!»", input[0].GetText(true));
+			Assert.AreEqual(6, input[0].ChapterNumber);
+			Assert.AreEqual(2, input[0].InitialVerseNumber);
 
 			IList<Block> output = new QuoteParser(input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.AreEqual(6, output[0].ChapterNumber);
+			Assert.AreEqual(2, output[0].InitialVerseNumber);
 			Assert.AreEqual("«Go west!»", output[1].GetText(false));
+			Assert.AreEqual(6, output[1].ChapterNumber);
+			Assert.AreEqual(2, output[1].InitialVerseNumber);
 
 			Assert.AreEqual("He said, ", output[0].GetText(true));
 			Assert.AreEqual("«Go [3]west!»", output[1].GetText(true));

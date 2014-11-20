@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -44,7 +45,7 @@ namespace ProtoScript
 			int quoteLevel = 0;
 			foreach (Block block in m_inputBlocks)
 			{
-				m_workingBlock = new Block(block.StyleTag);
+				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialVerseNumber);
 				
 				foreach (BlockElement element in block.BlockElements)
 				{
@@ -55,7 +56,6 @@ namespace ProtoScript
 						if (m_workingBlock.BlockElements.Any())
 							m_nonScriptTextBlockElements.Add(element);
 
-						// Add element as is and move on to the next
 						m_workingBlock.BlockElements.Add(element);
 						continue;
 					}
@@ -120,7 +120,18 @@ namespace ProtoScript
 			{
 				int numRemoved = m_outputBlocks.Last().BlockElements.RemoveAll(m_nonScriptTextBlockElements.Contains);
 				if (numRemoved > 0)
+				{
+					var verse = m_nonScriptTextBlockElements.First() as Verse;
+					if (verse != null)
+					{
+						int verseNum;
+						if (Int32.TryParse(verse.Number, out verseNum))
+							m_workingBlock.InitialVerseNumber = verseNum;
+						else
+							Debug.Fail("TODO: Deal with bogus verse number in data!");
+					}
 					m_workingBlock.BlockElements.InsertRange(0, m_nonScriptTextBlockElements);
+				}
 			}
 			m_nonScriptTextBlockElements.Clear();
 		}
@@ -145,7 +156,7 @@ namespace ProtoScript
 		private void FlushBlock(string styleTag)
 		{
 			m_outputBlocks.Add(m_workingBlock);
-			m_workingBlock = new Block(styleTag);
+			m_workingBlock = new Block(styleTag, m_workingBlock.ChapterNumber, m_workingBlock.InitialVerseNumber);
 		}
 
 		/// <summary>
