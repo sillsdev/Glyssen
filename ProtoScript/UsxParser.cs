@@ -85,7 +85,8 @@ namespace ProtoScript
 									sb.Append(childNode.InnerText);
 									break;
 								case "#whitespace":
-									sb.Append(childNode.InnerText);
+									if (sb.Length > 0)
+										sb.Append(childNode.InnerText);
 									break;
 							}
 						}
