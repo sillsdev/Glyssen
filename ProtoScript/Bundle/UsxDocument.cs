@@ -13,7 +13,7 @@ namespace ProtoScript.Bundle
 
 		public UsxDocument(string path)
 		{
-			m_document = new XmlDocument();
+			m_document = new XmlDocument { PreserveWhitespace = true };
 			m_document.Load(path);
 		}
 
