@@ -43,6 +43,7 @@ namespace ProtoScript
 			m_outputBlocks = new List<Block>();
 			var sb = new StringBuilder();
 			int quoteLevel = 0;
+			bool quoteEndPending = false;
 			foreach (Block block in m_inputBlocks)
 			{
 				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialVerseNumber);
@@ -52,6 +53,12 @@ namespace ProtoScript
 					var scriptText = element as ScriptText;
 					if (scriptText == null)
 					{
+						if (quoteEndPending)
+						{
+							FlushStringBuilderAndBlock(sb, block.StyleTag);
+							quoteEndPending = false;
+						}
+
 						// Add the element to our working list in case we need to move it to the next block (see MoveTrailingElementsIfNecessary)
 						if (m_workingBlock.BlockElements.Any())
 							m_nonScriptTextBlockElements.Add(element);
@@ -60,7 +67,6 @@ namespace ProtoScript
 						continue;
 					}
 					sb.Clear();
-					bool quoteEndPending = false;
 					foreach (char c in scriptText.Content)
 					{
 						string ch = Char.ToString(c);
