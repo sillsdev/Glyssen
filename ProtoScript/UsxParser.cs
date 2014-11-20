@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
+using Palaso.Xml;
 using ProtoScript.Bundle;
 
 namespace ProtoScript
@@ -81,6 +82,9 @@ namespace ProtoScript
 									block.BlockElements.Add(new Verse(verseNumStr));
 									break;
 								case "#text":
+									sb.Append(childNode.InnerText);
+									break;
+								case "#whitespace":
 									sb.Append(childNode.InnerText);
 									break;
 							}

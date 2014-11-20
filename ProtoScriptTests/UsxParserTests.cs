@@ -26,7 +26,7 @@ namespace ProtoScriptTests
 
 		private XmlDocument CreateMarkOneDoc(string paraXmlNodes, string usxFrame = usxFrame)
 		{
-			var xmlDoc = new XmlDocument();
+			var xmlDoc = new XmlDocument { PreserveWhitespace = true };
 			xmlDoc.LoadXml(string.Format(usxFrame, paraXmlNodes));
 			return xmlDoc;
 		}
@@ -92,6 +92,20 @@ namespace ProtoScriptTests
 			Assert.AreEqual(1, blocks.Count);
 			Assert.AreEqual(1, blocks[0].BlockElements.Count);
 			Assert.AreEqual("This text is before the figure, and this text is after.", blocks[0].GetText(false));
+		}
+
+		[Test]
+		public void Parse_SpaceAfterFigureBeforeVerseMaintained()
+		{
+			var doc = CreateMarkOneDoc("<para style=\"p\">" +
+										"Text before figure." +
+										"<figure /> <verse number=\"2\" />Text after figure.</para>");
+			var parser = new UsxParser(new UsxDocument(doc).GetParas());
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(1, blocks.Count);
+			Assert.AreEqual(3, blocks[0].BlockElements.Count);
+			Assert.AreEqual("Text before figure. Text after figure.", blocks[0].GetText(false));
+			Assert.AreEqual("Text before figure. [2]Text after figure.", blocks[0].GetText(true));
 		}
 
 		[Test]
@@ -224,22 +238,6 @@ namespace ProtoScriptTests
 			Assert.AreEqual(1, blocks[2].ChapterNumber);
 			Assert.AreEqual(13, blocks[2].InitialVerseNumber);
 			Assert.AreEqual("Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(false));
-		}
-
-		[Test, Ignore("TODO")]
-		public void Parse_ParaWithQuotes_BecomesTwoBlocks()
-		{
-			var doc = CreateMarkOneDoc("<verse number=\"19\" style=\"v\" />Yecu ocako gamo ni, “Wun yalwak ma niyewu lam, abibedo kwedwu nio wa awene? Dok abidiyo cwinya i komwu nio wa awene ba? Wukel en bota kany.” ");
-			var parser = new UsxParser(new UsxDocument(doc).GetParas());
-			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(2, blocks.Count);
-			Assert.AreEqual(1, blocks[0].ChapterNumber, "Even though this test doesn't process the chapters, the block should default to chapter 1 (rather than 0) because it contains verse numbers.");
-			Assert.AreEqual(19, blocks[0].InitialVerseNumber);
-			Assert.AreEqual("Yecu ocako gamo ni, ", blocks[0].GetText(false));
-			Assert.AreEqual("[19]Yecu ocako gamo ni, ", blocks[0].GetText(true));
-			Assert.AreEqual(1, blocks[1].ChapterNumber, "Even though this test doesn't process the chapters, the block should default to chapter 1 (rather than 0) because it contains verse numbers.");
-			Assert.AreEqual(19, blocks[1].InitialVerseNumber);
-			Assert.AreEqual("“Wun yalwak ma niyewu lam, abibedo kwedwu nio wa awene? Dok abidiyo cwinya i komwu nio wa awene ba? Wukel en bota kany.”", blocks[1].GetText(false));
 		}
 	}
 }
