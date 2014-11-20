@@ -109,6 +109,18 @@ namespace ProtoScriptTests
 		}
 
 		[Test]
+		public void Parse_WhitespaceAtBeginningOfParaNotPreserved()
+		{
+			var doc = CreateMarkOneDoc("<para style=\"p\"> <verse number=\"2\" />Text</para>");
+			var parser = new UsxParser(new UsxDocument(doc).GetParas());
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(1, blocks.Count);
+			Assert.AreEqual(2, blocks[0].BlockElements.Count);
+			Assert.AreEqual("Text", blocks[0].GetText(false));
+			Assert.AreEqual("[2]Text", blocks[0].GetText(true));
+		}
+
+		[Test]
 		public void Parse_ParagraphStartsMidVerse()
 		{
 			var doc = CreateMarkOneDoc("<para style=\"q1\">ma bigero yoni;</para>");
