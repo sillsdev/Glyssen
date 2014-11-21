@@ -55,7 +55,7 @@ namespace ProtoScript
 					{
 						if (quoteEndPending)
 						{
-							FlushStringBuilderAndBlock(sb, block.StyleTag);
+							FlushStringBuilderAndBlock(sb, block.StyleTag, quoteLevel > 0);
 							quoteEndPending = false;
 						}
 
@@ -77,12 +77,12 @@ namespace ProtoScript
 								sb.Append(c);
 								continue;
 							}
-							FlushStringBuilderAndBlock(sb, block.StyleTag);
+							FlushStringBuilderAndBlock(sb, block.StyleTag, true);
 							quoteEndPending = false;
 						}
 						if (quoteLevel == 0 && IsStartOfQuote(ch))
 						{
-							FlushStringBuilderAndBlock(sb, block.StyleTag);
+							FlushStringBuilderAndBlock(sb, block.StyleTag, quoteLevel > 0);
 							sb.Append(c);
 							quoteLevel++;
 						}
@@ -97,7 +97,7 @@ namespace ProtoScript
 					}
 					FlushStringBuilderToBlockElement(sb);
 				}
-				FlushBlock(block.StyleTag);
+				FlushBlock(block.StyleTag, quoteEndPending || quoteLevel > 0);
 			}
 			return m_outputBlocks;
 		}
@@ -148,19 +148,24 @@ namespace ProtoScript
 		/// </summary>
 		/// <param name="sb"></param>
 		/// <param name="styleTag"></param>
-		private void FlushStringBuilderAndBlock(StringBuilder sb, string styleTag)
+		private void FlushStringBuilderAndBlock(StringBuilder sb, string styleTag, bool inQuote)
 		{
 			FlushStringBuilderToBlockElement(sb);
 			if (m_workingBlock.BlockElements.Count > 0)
-				FlushBlock(styleTag);
+			{
+				FlushBlock(styleTag, inQuote);
+			}
 		}
 
 		/// <summary>
 		/// Add the working block to the new list and create a new working block
 		/// </summary>
 		/// <param name="styleTag"></param>
-		private void FlushBlock(string styleTag)
+		private void FlushBlock(string styleTag, bool inQuote)
 		{
+			if (inQuote)
+				m_workingBlock.CharacterId = Block.kUnknownCharacterId;
+
 			m_outputBlocks.Add(m_workingBlock);
 			var lastVerse = m_workingBlock.BlockElements.OfType<Verse>().LastOrDefault();
 			int verseNum = m_workingBlock.InitialVerseNumber;

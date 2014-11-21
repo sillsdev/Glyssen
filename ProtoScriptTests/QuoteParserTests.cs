@@ -22,10 +22,31 @@ namespace ProtoScriptTests
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual(2, output[0].ChapterNumber);
 			Assert.AreEqual(5, output[0].InitialVerseNumber);
+			Assert.IsTrue(output[0].IsNarrator);
 			Assert.AreEqual("«Go!»", output[1].GetText(false));
+			Assert.IsFalse(output[1].IsNarrator);
 			Assert.AreEqual(2, output[1].ChapterNumber);
 			Assert.AreEqual(5, output[1].InitialVerseNumber);
 		}
+
+		[Test]
+		public void Parse_OneBlockBecomesTwo_UnclosedQuoteAtEnd()
+		{
+			var block = new Block("p", 2, 5);
+			block.BlockElements.Add(new ScriptText("He said, «Go!"));
+			var input = new List<Block> { block };
+			IList<Block> output = new QuoteParser(input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.AreEqual(2, output[0].ChapterNumber);
+			Assert.AreEqual(5, output[0].InitialVerseNumber);
+			Assert.IsTrue(output[0].IsNarrator);
+			Assert.AreEqual("«Go!", output[1].GetText(false));
+			Assert.IsFalse(output[1].IsNarrator);
+			Assert.AreEqual(2, output[1].ChapterNumber);
+			Assert.AreEqual(5, output[1].InitialVerseNumber);
+		}
+
 		[Test]
 		public void Parse_OneBlockBecomesTwo_QuoteAtBeginning()
 		{
@@ -35,7 +56,9 @@ namespace ProtoScriptTests
 			IList<Block> output = new QuoteParser(input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("«Go!» ", output[0].GetText(false));
+			Assert.IsFalse(output[0].IsNarrator);
 			Assert.AreEqual("he said.", output[1].GetText(false));
+			Assert.IsTrue(output[1].IsNarrator);
 		}
 		[Test]
 		public void Parse_OneBlockBecomesThree_TwoQuotes()
@@ -46,8 +69,11 @@ namespace ProtoScriptTests
 			IList<Block> output = new QuoteParser(input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.IsTrue(output[0].IsNarrator);
 			Assert.AreEqual("«Go!»  ", output[1].GetText(false));
+			Assert.IsFalse(output[1].IsNarrator);
 			Assert.AreEqual("«Make me!»", output[2].GetText(false));
+			Assert.IsFalse(output[2].IsNarrator);
 		}
 		[Test]
 		public void Parse_OneBlockBecomesThree_QuoteInMiddle()
@@ -58,8 +84,11 @@ namespace ProtoScriptTests
 			IList<Block> output = new QuoteParser(input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.IsTrue(output[0].IsNarrator);
 			Assert.AreEqual("«Go!» ", output[1].GetText(false));
+			Assert.IsFalse(output[1].IsNarrator);
 			Assert.AreEqual("quietly.", output[2].GetText(false));
+			Assert.IsTrue(output[2].IsNarrator);
 		}
 
 		[Test]
@@ -73,7 +102,9 @@ namespace ProtoScriptTests
 			IList<Block> output = new QuoteParser(input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("See Spot run. ", output[0].GetText(false));
+			Assert.IsTrue(output[0].IsNarrator);
 			Assert.AreEqual("See Jane see Spot run.", output[1].GetText(false));
+			Assert.IsTrue(output[1].IsNarrator);
 		}
 		[Test]
 		public void Parse_TwoBlocksRemainTwo_NoQuotesAndQuotes()
@@ -86,7 +117,9 @@ namespace ProtoScriptTests
 			IList<Block> output = new QuoteParser(input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.IsTrue(output[0].IsNarrator);
 			Assert.AreEqual("«Go!»", output[1].GetText(false));
+			Assert.IsFalse(output[1].IsNarrator);
 		}
 
 		[Test]

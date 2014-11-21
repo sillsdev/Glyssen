@@ -11,6 +11,8 @@ namespace ProtoScript
 	[XmlRoot("block")]
 	public class Block
 	{
+		public const int kUnknownCharacterId = -1;
+
 		private int m_initialVerseNumber;
 		private int m_chapterNumber;
 
