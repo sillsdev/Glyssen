@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using Paratext;
+using ProtoScript.ToPalaso;
 
 namespace ProtoScript
 {
@@ -129,13 +131,7 @@ namespace ProtoScript
 				{
 					var verse = m_nonScriptTextBlockElements.First() as Verse;
 					if (verse != null)
-					{
-						int verseNum;
-						if (Int32.TryParse(verse.Number, out verseNum))
-							m_workingBlock.InitialVerseNumber = verseNum;
-						else
-							Debug.Fail("TODO: Deal with bogus verse number in data!");
-					}
+						m_workingBlock.InitialVerseNumber = ScrReference.VerseToIntStart(verse.Number);
 					m_workingBlock.BlockElements.InsertRange(0, m_nonScriptTextBlockElements);
 				}
 			}
@@ -170,12 +166,7 @@ namespace ProtoScript
 			var lastVerse = m_workingBlock.BlockElements.OfType<Verse>().LastOrDefault();
 			int verseNum = m_workingBlock.InitialVerseNumber;
 			if (lastVerse != null)
-			{
-				if (!Int32.TryParse(lastVerse.Number, out verseNum))
-				{
-					Debug.Fail("TODO: Deal with bogus verse number in data!");
-				}
-			}
+				verseNum = ScrReference.VerseToIntStart(lastVerse.Number);
 			m_workingBlock = new Block(styleTag, m_workingBlock.ChapterNumber, verseNum);
 		}
 
