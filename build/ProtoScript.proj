@@ -29,13 +29,16 @@
 	<Message Text="BuildHash: $(BuildHash)" Importance="high"/>
 
 	<!-- For now, mimicking Bloom's strategy of updating the version number here (not on TeamCity, not in the assemblies). -->
-	<CreateProperty Value="0.0.$(BuildCounter)">
+	<CreateProperty Value="0.1.$(BuildCounter)">
 		<Output PropertyName="Version" TaskParameter="Value"/>
 	</CreateProperty>
 	<CreateProperty Value="$(Version).$(BuildHash)">
 		<Output PropertyName="FullVersion" TaskParameter="Value"/>
 	</CreateProperty>
-	<CreateProperty Value="ProtoscriptGeneratorInstaller.$(Version).$(Label).msi">
+	<CreateProperty Value="ProtoscriptGeneratorInstaller.$(Version).msi" Condition=" '$(Label)' == '' ">
+		<Output PropertyName="InstallerFileName" TaskParameter="Value"/>
+	</CreateProperty>
+	<CreateProperty Value="ProtoscriptGeneratorInstaller.$(Version).$(Label).msi" Condition=" '$(Label)' != '' ">
 		<Output PropertyName="InstallerFileName" TaskParameter="Value"/>
 	</CreateProperty>
 	<Message Text="Version: $(Version)" Importance="high"/>
@@ -44,7 +47,7 @@
 
 	<Target Name="SetAssemblyVersion" DependsOnTargets="VersionNumbers">
 	<ItemGroup>
-		<AssemblyInfoFiles Include="$(RootDir)/src/**/AssemblyInfo.cs"/>
+		<AssemblyInfoFiles Include="$(RootDir)/**/AssemblyInfo.cs"/>
 	</ItemGroup>
 	<StampAssemblies Version="$(Version)" InputAssemblyPaths="@(AssemblyInfoFiles)" />
 	</Target>
@@ -66,17 +69,17 @@
 			NUnitVersion="NUnit-2.5.5" />
 	</Target>
 
-	<Target Name="Installer" DependsOnTargets="VersionNumbers; Build ">
+	<Target Name="Installer" DependsOnTargets="VersionNumbers; MakeWixForDistFiles; Build ">
 
 		<!-- set the version number in the installer configuration program.	Perhaps there's a way to just send in the variables rather than this brute-force
 			changing of the script, but I haven't figured that out. -->
 
-		<FileUpdate File="$(RootDir)\src\Installer\Installer.wxs" Regex='Property_ProductVersion = ".*"'
+		<FileUpdate File="$(RootDir)\Installer\Installer.wxs" Regex='Property_ProductVersion = ".*"'
 			ReplacementText ="Property_ProductVersion = &quot;$(Version)&quot;" />
 
 		<Message Text="Making Installer Version: $(Version)" Importance="high" />
 
-		<MSBuild Projects="$(RootDir)\src\Installer\Installer.wixproj"/>
+		<MSBuild Projects="$(RootDir)\Installer\Installer.wixproj"/>
 
 		<!-- remove an existing one with the same name, if necessary -->
 		<Delete Files="$(RootDir)\output\installer\$(InstallerFileName)" TreatErrorsAsWarnings="false" />
@@ -101,5 +104,20 @@
 
 	<Target Name="SignIfPossible" DependsOnTargets="VersionNumbers">
 		<Exec Command='sign "$(RootDir)\output\installer\$(InstallerFileName)"' ContinueOnError="true"></Exec>
+	</Target>
+	
+	<Target Name="MakeWixForDistFiles">
+		<MakeDir Directories ="$(RootDir)\output\installer" ContinueOnError ="true"/>
+		<MakeWixForDirTree
+			DirectoryReferenceId="ProgramDir"
+			ComponentGroupId="DistFiles"
+			RootDirectory="$(RootDir)\DistFiles"
+			InstallerSourceDirectory="$(RootDir)\Installer"
+			OutputFilePath="$(RootDir)\output\installer\GeneratedDistFiles.wxs"
+			MatchRegExPattern=".*"
+			>
+			<!--what does this do?-->
+			<Output TaskParameter="OutputFilePath" ItemName="Compile" />
+		</MakeWixForDirTree>
 	</Target>
 </Project>
