@@ -168,5 +168,11 @@ namespace ProtoScript
 			m_project.AddBook("MRK", new QuoteParser(new UsxParser(book.GetChaptersAndParas()).Parse()).Parse());
 		}
 
+		private void m_btnSettings_Click(object sender, EventArgs e)
+		{
+			using (var dlg = new ProjectSettingsDialog(m_project))
+				dlg.ShowDialog();
+		}
+
 	}
 }

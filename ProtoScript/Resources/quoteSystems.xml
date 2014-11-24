@@ -1,0 +1,62 @@
+<QuoteSystems>
+	<QuoteSystem>
+		<Name>Quotation marks, double</Name>
+		<MajorLanguage>English, US/Canada</MajorLanguage>
+		<StartQuoteMarker>“</StartQuoteMarker>
+		<EndQuoteMarker>”</EndQuoteMarker>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>Guillemets</Name>
+		<MajorLanguage>French</MajorLanguage>
+		<StartQuoteMarker>«</StartQuoteMarker>
+		<EndQuoteMarker>»</EndQuoteMarker>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>Quotation marks, single</Name>
+		<MajorLanguage>English, UK</MajorLanguage>
+		<StartQuoteMarker>‘</StartQuoteMarker>
+		<EndQuoteMarker>’</EndQuoteMarker>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>מֵירְכָאוֹת</Name>
+		<MajorLanguage>Hebrew</MajorLanguage>
+		<StartQuoteMarker>"</StartQuoteMarker>
+		<EndQuoteMarker>"</EndQuoteMarker>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>Citation marks</Name>
+		<MajorLanguage>Finnish/Swedish</MajorLanguage>
+		<StartQuoteMarker>”</StartQuoteMarker>
+		<EndQuoteMarker>”</EndQuoteMarker>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>Anführungszeichen</Name>
+		<MajorLanguage>German</MajorLanguage>
+		<StartQuoteMarker>„</StartQuoteMarker>
+		<EndQuoteMarker>“</EndQuoteMarker>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>Idézőjel</Name>
+		<MajorLanguage>Hungarian</MajorLanguage>
+		<StartQuoteMarker>„</StartQuoteMarker>
+		<EndQuoteMarker>”</EndQuoteMarker>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>Aanhalingstekens</Name>
+		<MajorLanguage>Dutch, alternate</MajorLanguage>
+		<StartQuoteMarker>‚</StartQuoteMarker>
+		<EndQuoteMarker>’</EndQuoteMarker>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>Hook brackets</Name>
+		<MajorLanguage>Chinese/Japanese</MajorLanguage>
+		<StartQuoteMarker>「</StartQuoteMarker>
+		<EndQuoteMarker>」</EndQuoteMarker>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>Citationstegn</Name>
+		<MajorLanguage>Danish</MajorLanguage>
+		<StartQuoteMarker>»</StartQuoteMarker>
+		<EndQuoteMarker>«</EndQuoteMarker>
+	</QuoteSystem>
+</QuoteSystems>

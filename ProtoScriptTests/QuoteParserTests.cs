@@ -184,7 +184,7 @@ namespace ProtoScriptTests
 		[Test]
 		public void Parse_StartEndSame_QuoteAtEnd()
 		{
-			var options = new QuoteParserOptions { StartQuoteMarker = "\"", EndQuoteMarker = "\"" };
+			var options = new QuoteSystem { StartQuoteMarker = "\"", EndQuoteMarker = "\"" };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, \"Go!\""));
 			var input = new List<Block> { block };
@@ -197,7 +197,7 @@ namespace ProtoScriptTests
 		[Test]
 		public void Parse_StartEndSame_QuoteAtBeginning()
 		{
-			var options = new QuoteParserOptions { StartQuoteMarker = "\"", EndQuoteMarker = "\"" };
+			var options = new QuoteSystem { StartQuoteMarker = "\"", EndQuoteMarker = "\"" };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("\"Go!\" he said."));
 			var input = new List<Block> { block };
@@ -210,7 +210,7 @@ namespace ProtoScriptTests
 		[Test, Ignore("TODO")]
 		public void Parse_StartEndSame_ThreeLevels()
 		{
-			var options = new QuoteParserOptions { StartQuoteMarker = "\"", EndQuoteMarker = "\"" };
+			var options = new QuoteSystem { StartQuoteMarker = "\"", EndQuoteMarker = "\"" };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, \"She said, 'They said, \"No way.\"'\""));
 			var input = new List<Block> { block };
@@ -375,7 +375,7 @@ namespace ProtoScriptTests
 		[Test]
 		public void Parse_UsingDifferentQuoteMarks()
 		{
-			var options = new QuoteParserOptions { StartQuoteMarker = "“", EndQuoteMarker = "”" };
+			var options = new QuoteSystem { StartQuoteMarker = "“", EndQuoteMarker = "”" };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("“Go!” he said."));
 			var input = new List<Block> { block };
@@ -388,7 +388,7 @@ namespace ProtoScriptTests
 		[Test]
 		public void Parse_BreakOnFirstLevelQuoteOnly_HasTwoLevels()
 		{
-			var options = new QuoteParserOptions { StartQuoteMarker = "“", EndQuoteMarker = "”" };
+			var options = new QuoteSystem { StartQuoteMarker = "“", EndQuoteMarker = "”" };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, “She said, ‘Get lost.’”"));
 			var input = new List<Block> { block };
@@ -401,7 +401,7 @@ namespace ProtoScriptTests
 		[Test]
 		public void Parse_BreakOnFirstLevelQuoteOnly_HasThreeLevels()
 		{
-			var options = new QuoteParserOptions { StartQuoteMarker = "“", EndQuoteMarker = "”" };
+			var options = new QuoteSystem { StartQuoteMarker = "“", EndQuoteMarker = "”" };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, “She said, ‘They said, “No way.”’”"));
 			var input = new List<Block> { block };
