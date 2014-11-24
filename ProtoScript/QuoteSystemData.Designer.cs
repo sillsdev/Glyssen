@@ -61,31 +61,6 @@ namespace ProtoScript {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to “	”	English, US/Canada	Quotation marks, double
-        ///«	»	French	Guillemets
-        ///‘	’	English, UK	Quotation marks, single
-        ///&quot;	&quot;	Hebrew	מֵירְכָאוֹת
-        ///”	”	Finnish/Swedish	Citation marks
-        ///„	“	German	Anführungszeichen
-        ///„	”	Hungarian	Idézőjel
-        ///‚	’	Dutch, alternate	Aanhalingstekens
-        ///「	」	Chinese/Japanese	Hook brackets
-        ///»	«	Danish	Citationstegn
-        ///
-        ///&lt;QuoteSystem&gt;
-        ///	&lt;Name&gt;Quotation marks, double&lt;/Name&gt;
-        ///	&lt;MajorLanguage&gt;English, US/Canada&lt;/MajorLanguage&gt;
-        ///	&lt;StartQuoteMarker&gt;“&lt;/StartQuoteMarker&gt;
-        ///	&lt;EndQuoteMarker&gt;”&lt;/EndQuoteMarker&gt;
-        /// [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string quoteSystems {
-            get {
-                return ResourceManager.GetString("quoteSystems", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to &lt;QuoteSystems&gt;
         ///	&lt;QuoteSystem&gt;
         ///		&lt;Name&gt;Quotation marks, double&lt;/Name&gt;
@@ -99,7 +74,10 @@ namespace ProtoScript {
         ///		&lt;StartQuoteMarker&gt;«&lt;/StartQuoteMarker&gt;
         ///		&lt;EndQuoteMarker&gt;»&lt;/EndQuoteMarker&gt;
         ///	&lt;/QuoteSystem&gt;
-        ///&lt;/QuoteSystems&gt;.
+        ///	&lt;QuoteSystem&gt;
+        ///		&lt;Name&gt;Quotation marks, single&lt;/Name&gt;
+        ///		&lt;MajorLanguage&gt;English, UK&lt;/MajorLanguage&gt;
+        ///		&lt;Star [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string quoteSystemsXml {
             get {
