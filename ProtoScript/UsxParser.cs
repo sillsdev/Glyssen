@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 using System.Xml;
-using Palaso.Xml;
 using ProtoScript.Bundle;
-using ProtoScript.ToPalaso;
+using SIL.ScriptureUtils;
 
 namespace ProtoScript
 {
