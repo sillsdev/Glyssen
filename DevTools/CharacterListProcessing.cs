@@ -123,7 +123,7 @@ namespace DevTools
 				sb.Append(entry.Key).Append("\t");
 				foreach (var value in entry.Value)
 					sb.Append(value).Append("\t");
-				sb.Append("\r\n");
+				sb.Append(Environment.NewLine);
 			}
 			return sb.ToString();
 		}
@@ -133,7 +133,7 @@ namespace DevTools
 			var sb = new StringBuilder();
 			foreach (var entry in set)
 			{
-				sb.Append(entry).Append("\r\n");
+				sb.Append(entry).Append(Environment.NewLine);
 			}
 			return sb.ToString();
 		}
@@ -143,7 +143,7 @@ namespace DevTools
 			var sb = new StringBuilder();
 			foreach (var entry in list)
 			{
-				sb.Append(entry).Append("\r\n");
+				sb.Append(entry).Append(Environment.NewLine);
 			}
 			return sb.ToString();
 		}

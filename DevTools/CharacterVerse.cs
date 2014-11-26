@@ -11,7 +11,7 @@ namespace DevTools
 		{
 			var all = new List<CharacterVerse>();
 			int lineNum = 0;
-			foreach (var line in ControlFiles.modified_CharacterNames_BookChapterVerse.Split(new[] { "\r\n" }, StringSplitOptions.None))
+			foreach (var line in ControlFiles.modified_CharacterNames_BookChapterVerse.Split(new[] { Environment.NewLine }, StringSplitOptions.None))
 			{
 				lineNum++;
 				if (string.IsNullOrEmpty(line))
@@ -34,7 +34,7 @@ namespace DevTools
 		{
 			var sb = new StringBuilder();
 			foreach (CharacterVerse cv in list)
-				sb.Append(cv.TabDelimited()).Append("\r\n");
+				sb.Append(cv.TabDelimited()).Append(Environment.NewLine);
 			return sb.ToString();
 		}
 
