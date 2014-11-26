@@ -34,7 +34,7 @@ namespace ProtoScript
 				return;
 
 			var list = new List<CharacterVerse>();
-			foreach (var line in Resources.CharacterVerseData.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
+			foreach (var line in Resources.CharacterVerseData.Split(new[] { "\n" }, StringSplitOptions.RemoveEmptyEntries))
 			{
 				string[] items = line.Split(new[] { "\t" }, StringSplitOptions.None);
 				if (items.Length != 6)
@@ -47,7 +47,7 @@ namespace ProtoScript
 					Verse = ScrReference.VerseToIntStart(items[2]), 
 					Character = items[3], 
 					CharacterId = Int32.Parse(items[4]), 
-					Delivery = items[5]//, 
+					Delivery = items[5].TrimEnd('\r')//, 
 					//Alias = items[6]
 				});
 			}
