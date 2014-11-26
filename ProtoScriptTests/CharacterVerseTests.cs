@@ -26,11 +26,5 @@ namespace ProtoScriptTests
 			int characterId = CharacterVerse.GetCharacter("MRK", 1, 1);
 			Assert.AreEqual(Block.kUnknownCharacterId, characterId);
 		}
-
-		[Test]
-		public void CountOfVersesWithIdentifiedQuotes_GetsExpectedNUmber()
-		{
-			Assert.AreEqual(10804, CharacterVerse.CountOfVersesWithIdentifiedQuotes);
-		}
 	}
 }

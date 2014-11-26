@@ -23,18 +23,13 @@ namespace ProtoScript
 			return Block.kUnknownCharacterId;
 		}
 
-		public static int CountOfVersesWithIdentifiedQuotes
-		{
-			get { return s_data.Count(); }
-		}
-
 		private static void LoadAll()
 		{
 			if (s_data != null)
 				return;
 
 			var list = new List<CharacterVerse>();
-			foreach (var line in Resources.CharacterVerseData.Split(new[] { "\n" }, StringSplitOptions.RemoveEmptyEntries))
+			foreach (var line in Resources.CharacterVerseData.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
 			{
 				string[] items = line.Split(new[] { "\t" }, StringSplitOptions.None);
 				if (items.Length != 6)
