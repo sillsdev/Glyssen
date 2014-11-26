@@ -37,6 +37,9 @@ namespace ProtoScript
 			foreach (var line in Resources.CharacterVerseData.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
 			{
 				string[] items = line.Split(new[] { "\t" }, StringSplitOptions.None);
+				if (items.Length != 6)
+					throw new ApplicationException("Bad format in CharacterVerseData!");
+
 				list.Add(new CharacterVerse
 				{
 					BookId = items[0], 
