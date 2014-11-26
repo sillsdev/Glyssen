@@ -34,7 +34,7 @@ namespace ProtoScript
 				return;
 
 			var list = new List<CharacterVerse>();
-			foreach (var line in Resources.CharacterVerseData.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries))
+			foreach (var line in Resources.CharacterVerseData.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
 			{
 				string[] items = line.Split(new[] { "\t" }, StringSplitOptions.None);
 				list.Add(new CharacterVerse
