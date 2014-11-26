@@ -64,5 +64,42 @@ namespace ProtoScript
 		{
 			return StartQuoteMarker + "  " + EndQuoteMarker;
 		}
+
+		#region Equals methods overrides
+
+		protected bool Equals(QuoteSystem other)
+		{
+			return string.Equals(StartQuoteMarker, other.StartQuoteMarker) && string.Equals(EndQuoteMarker, other.EndQuoteMarker);
+		}
+
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return false;
+			if (ReferenceEquals(this, obj))
+				return true;
+			if (obj.GetType() != this.GetType())
+				return false;
+			return Equals((QuoteSystem)obj);
+		}
+
+		public override int GetHashCode()
+		{
+			unchecked
+			{
+				return ((StartQuoteMarker != null ? StartQuoteMarker.GetHashCode() : 0) * 397) ^ (EndQuoteMarker != null ? EndQuoteMarker.GetHashCode() : 0);
+			}
+		}
+
+		public static bool operator ==(QuoteSystem left, QuoteSystem right)
+		{
+			return Equals(left, right);
+		}
+
+		public static bool operator !=(QuoteSystem left, QuoteSystem right)
+		{
+			return !Equals(left, right);
+		}
+		#endregion
 	}
 }

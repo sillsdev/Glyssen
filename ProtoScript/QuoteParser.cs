@@ -48,6 +48,13 @@ namespace ProtoScript
 			m_quoteSystem = quoteSystem;
 		}
 
+		public QuoteParser(string bookId, IEnumerable<Block> blocks, QuoteSystem quoteSystem)
+		{
+			m_bookId = bookId;
+			m_inputBlocks = blocks;
+			m_quoteSystem = quoteSystem;
+		}
+
 		/// <summary>
 		/// Parse through the given blocks character by character to determine where we need to break based on quotes 
 		/// </summary>

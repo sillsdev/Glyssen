@@ -99,7 +99,7 @@ namespace ProtoScript
 			{
 				if (canon.TryGetBook("MRK", out book))
 				{
-					m_project.AddBook("MRK", new QuoteParser("MRK", new UsxParser(book.GetChaptersAndParas()).Parse()).Parse());
+					m_project.AddBook("MRK", new QuoteParser("MRK", new UsxParser(book.GetChaptersAndParas()).Parse(), m_project.QuoteSystem).Parse());
 				}
 			}
 		}
@@ -165,7 +165,7 @@ namespace ProtoScript
 			var book = new UsxDocument(UsfmToUsx.ConvertToXmlDocument(new ScrStylesheet(usfmStylesheetPath), File.ReadAllText(sfmFilePath)));
 			var metadata = new DblMetadata { id = "sfm" + DateTime.Now.Ticks, language = new DblMetadataLanguage { iso = "zzz" } };
 			m_project = new Project(metadata);
-			m_project.AddBook("MRK", new QuoteParser("MRK", new UsxParser(book.GetChaptersAndParas()).Parse()).Parse());
+			m_project.AddBook("MRK", new QuoteParser("MRK", new UsxParser(book.GetChaptersAndParas()).Parse(), m_project.QuoteSystem).Parse());
 		}
 
 		private void m_btnSettings_Click(object sender, EventArgs e)
