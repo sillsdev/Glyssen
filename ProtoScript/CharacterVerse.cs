@@ -38,7 +38,7 @@ namespace ProtoScript
 			{
 				string[] items = line.Split(new[] { "\t" }, StringSplitOptions.None);
 				if (items.Length != 6)
-					throw new ApplicationException("Bad format in CharacterVerseData!");
+					throw new ApplicationException("Bad format in CharacterVerseData! Line #: " + list.Count + "; Line contents: " + line);
 
 				list.Add(new CharacterVerse
 				{
