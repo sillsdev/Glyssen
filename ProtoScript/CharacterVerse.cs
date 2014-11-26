@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ProtoScript.Properties;
 using SIL.ScriptureUtils;
 
 namespace ProtoScript
@@ -28,7 +29,7 @@ namespace ProtoScript
 				return;
 
 			var list = new List<CharacterVerse>();
-			foreach (var line in CharacterVerseData.CharacterVerse.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries))
+			foreach (var line in Resources.CharacterVerseData.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries))
 			{
 				string[] items = line.Split(new[] { "\t" }, StringSplitOptions.None);
 				list.Add(new CharacterVerse

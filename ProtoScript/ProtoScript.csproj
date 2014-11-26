@@ -92,11 +92,6 @@
     <Compile Include="Bundle\UsxDocument.cs" />
     <Compile Include="Bundle\UsxNode.cs" />
     <Compile Include="CharacterVerse.cs" />
-    <Compile Include="CharacterVerseData.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CharacterVerseData.resx</DependentUpon>
-    </Compile>
     <Compile Include="Dialogs\ProjectSettingsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,11 +108,6 @@
     <Compile Include="Project.cs" />
     <Compile Include="QuoteParser.cs" />
     <Compile Include="QuoteSystem.cs" />
-    <Compile Include="QuoteSystemData.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuoteSystemData.resx</DependentUpon>
-    </Compile>
     <Compile Include="SandboxForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,19 +118,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsxParser.cs" />
     <Compile Include="Utilities\Zip.cs" />
-    <EmbeddedResource Include="CharacterVerseData.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CharacterVerseData.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ProjectSettingsDialog.resx">
       <DependentUpon>ProjectSettingsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\WelcomeDialog.resx">
       <DependentUpon>WelcomeDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="QuoteSystemData.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>QuoteSystemData.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SandboxForm.resx">
       <DependentUpon>SandboxForm.cs</DependentUpon>
@@ -153,6 +135,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
