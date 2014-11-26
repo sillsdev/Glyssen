@@ -67,8 +67,9 @@
     <Reference Include="ParatextShared">
       <HintPath>..\lib\dotnet\ParatextShared.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.ScriptureUtils">
-      <HintPath>..\..\Transcelerator\lib\dotnet\SIL.ScriptureUtils.dll</HintPath>
+    <Reference Include="SIL.ScriptureUtils, Version=7.3.0.31476, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\dotnet\SIL.ScriptureUtils.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
