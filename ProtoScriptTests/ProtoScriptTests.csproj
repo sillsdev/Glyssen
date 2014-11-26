@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlockTests.cs" />
+    <Compile Include="CharacterVerseTests.cs" />
     <Compile Include="QuoteParserTests.cs" />
     <Compile Include="QuoteSystemTests.cs" />
     <Compile Include="UsxParserTests.cs" />

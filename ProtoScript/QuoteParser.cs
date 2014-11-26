@@ -9,6 +9,7 @@ namespace ProtoScript
 {
 	public class QuoteParser
 	{
+		private readonly string m_bookId;
 		private readonly IEnumerable<Block> m_inputBlocks;
 		private readonly QuoteSystem m_quoteSystem;
 
@@ -20,11 +21,23 @@ namespace ProtoScript
 		#endregion
 
 		/// <summary>
-		/// Create a QuoteParser using the default QuoteParserOptions
+		/// Create a QuoteParser using the default QuoteSystem
 		/// </summary>
 		/// <param name="blocks"></param>
 		public QuoteParser(IEnumerable<Block> blocks)
 		{
+			m_inputBlocks = blocks;
+			m_quoteSystem = QuoteSystem.Default;
+		}
+
+		/// <summary>
+		/// Create a QuoteParser using the default QuoteSystem
+		/// </summary>
+		/// <param name="bookId"></param>
+		/// <param name="blocks"></param>
+		public QuoteParser(string bookId, IEnumerable<Block> blocks)
+		{
+			m_bookId = bookId;
 			m_inputBlocks = blocks;
 			m_quoteSystem = QuoteSystem.Default;
 		}
@@ -143,6 +156,7 @@ namespace ProtoScript
 		/// </summary>
 		/// <param name="sb"></param>
 		/// <param name="styleTag"></param>
+		/// <param name="inQuote"></param>
 		private void FlushStringBuilderAndBlock(StringBuilder sb, string styleTag, bool inQuote)
 		{
 			FlushStringBuilderToBlockElement(sb);
@@ -156,10 +170,11 @@ namespace ProtoScript
 		/// Add the working block to the new list and create a new working block
 		/// </summary>
 		/// <param name="styleTag"></param>
+		/// <param name="inQuote"></param>
 		private void FlushBlock(string styleTag, bool inQuote)
 		{
 			if (inQuote)
-				m_workingBlock.CharacterId = Block.kUnknownCharacterId;
+				m_workingBlock.CharacterId = CharacterVerse.GetCharacter(m_bookId, m_workingBlock.ChapterNumber, m_workingBlock.InitialVerseNumber);
 
 			m_outputBlocks.Add(m_workingBlock);
 			var lastVerse = m_workingBlock.BlockElements.OfType<Verse>().LastOrDefault();
