@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using L10NSharp;
 using Palaso.Reporting;
@@ -38,8 +35,14 @@ namespace ProtoScript
 
 		public QuoteSystem QuoteSystem
 		{
-			get { return m_metadata.QuoteSystem; }
-			set { m_metadata.QuoteSystem = value; }
+			get { return m_metadata.QuoteSystem ?? QuoteSystem.Default; }
+			set
+			{
+				bool quoteSystemChanged = m_metadata.QuoteSystem != value;
+				m_metadata.QuoteSystem = value;
+				if (quoteSystemChanged)
+					HandleQuoteSystemChanged();
+			}
 		}
 
 		public static Project Load(string projectFilePath)
@@ -82,7 +85,7 @@ namespace ProtoScript
 				UsxDocument book;
 				if (canon.TryGetBook("MRK", out book))
 				{
-					AddBook("MRK", new QuoteParser("MRK", new UsxParser(book.GetChaptersAndParas()).Parse()).Parse());
+					AddBook("MRK", new QuoteParser("MRK", new UsxParser(book.GetChaptersAndParas()).Parse(), QuoteSystem).Parse());
 				}
 			}
 		}
@@ -141,6 +144,20 @@ namespace ProtoScript
 						stream.WriteLine((blockNumber++) + "\t" + block.GetAsTabDelimited(book.BookId));
 					}
 				}
+			}
+		}
+
+		private void HandleQuoteSystemChanged()
+		{
+			if (File.Exists(m_metadata.OriginalPathOfDblFile))
+			{
+				var bundle = new Bundle.Bundle(m_metadata.OriginalPathOfDblFile);
+				PopulateAndParseBooks(bundle);
+			}
+			else
+			{
+				//TODO
+				throw new ApplicationException();
 			}
 		}
 	}
