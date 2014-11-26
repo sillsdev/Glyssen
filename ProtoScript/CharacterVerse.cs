@@ -42,6 +42,8 @@ namespace ProtoScript
 					//Alias = items[6]
 				});
 			}
+			if (!list.Any())
+				throw new ApplicationException("No character verse data available!");
 			s_data = list;
 		}
 
