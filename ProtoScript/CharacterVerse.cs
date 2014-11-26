@@ -23,6 +23,11 @@ namespace ProtoScript
 			return Block.kUnknownCharacterId;
 		}
 
+		public static int CountOfVersesWithIdentifiedQuotes
+		{
+			get { return s_data.Count(); }
+		}
+
 		private static void LoadAll()
 		{
 			if (s_data != null)
