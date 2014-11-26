@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Paratext;
 using SIL.ScriptureUtils;
 
 namespace ProtoScript
@@ -9,7 +10,7 @@ namespace ProtoScript
 	public class QuoteParser
 	{
 		private readonly IEnumerable<Block> m_inputBlocks;
-		private readonly QuoteParserOptions m_options;
+		private readonly QuoteSystem m_quoteSystem;
 
 		#region working members
 		// These members are used by several methods. Making them class-level prevents passing of references.
@@ -25,13 +26,13 @@ namespace ProtoScript
 		public QuoteParser(IEnumerable<Block> blocks)
 		{
 			m_inputBlocks = blocks;
-			m_options = new QuoteParserOptions();
+			m_quoteSystem = QuoteSystem.Default;
 		}
 
-		public QuoteParser(IEnumerable<Block> blocks, QuoteParserOptions options)
+		public QuoteParser(IEnumerable<Block> blocks, QuoteSystem quoteSystem)
 		{
 			m_inputBlocks = blocks;
-			m_options = options;
+			m_quoteSystem = quoteSystem;
 		}
 
 		/// <summary>
@@ -190,7 +191,7 @@ namespace ProtoScript
 		/// <returns></returns>
 		private bool IsStartOfQuote(string character)
 		{
-			return character.Equals(m_options.StartQuoteMarker);
+			return character.Equals(m_quoteSystem.StartQuoteMarker);
 		}
 
 		/// <summary>
@@ -200,13 +201,7 @@ namespace ProtoScript
 		/// <returns></returns>
 		private bool IsEndOfQuote(string character)
 		{
-			return character.Equals(m_options.EndQuoteMarker);
+			return character.Equals(m_quoteSystem.EndQuoteMarker);
 		}
 	}
-
-	public class QuoteParserOptions
-	{
-		public string StartQuoteMarker = "«";
-		public string EndQuoteMarker = "»";
 	}
-}

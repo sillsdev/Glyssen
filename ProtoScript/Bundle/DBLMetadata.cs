@@ -24,6 +24,11 @@ namespace ProtoScript.Bundle
 		[XmlAttribute("origdblpath")]
 		public string OriginalPathOfDblFile;
 
+		/// <summary>
+		/// This is not part of the original DBL metadata.
+		/// </summary>
+		public QuoteSystem QuoteSystem;
+
 		public DblMetadataIdentification identification;
 		public DblMetadataLanguage language;
 		public DblMetadataPromotion promotion;

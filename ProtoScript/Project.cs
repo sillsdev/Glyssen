@@ -34,6 +34,12 @@ namespace ProtoScript
 			get { return m_metadata.language.ToString(); }
 		}
 
+		public QuoteSystem QuoteSystem
+		{
+			get { return m_metadata.QuoteSystem; }
+			set { m_metadata.QuoteSystem = value; }
+		}
+
 		public static Project Load(string projectFilePath)
 		{
 			Project project;
