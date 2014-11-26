@@ -2,6 +2,7 @@
 using System.Xml;
 using System.Xml.Serialization;
 using Palaso.Xml;
+using ProtoScript.Properties;
 
 namespace ProtoScript
 {
@@ -43,18 +44,12 @@ namespace ProtoScript
 			s_systems = new Dictionary<string, QuoteSystem>();
 
 			var doc = new XmlDocument();
-			doc.LoadXml(QuoteSystemData.quoteSystemsXml);
+			doc.LoadXml(Resources.QuoteSystemData);
 			foreach(XmlNode node in doc.SafeSelectNodes("//QuoteSystem"))
 			{
 				var qs = XmlSerializationHelper.DeserializeFromString<QuoteSystem>(node.OuterXml);
 				s_systems.Add(qs.Name, qs);
 			}
-			
-//			foreach (var line in QuoteSystemData.quoteSystems.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries))
-//			{
-//				var items = line.Split('\t');
-//				s_systems.Add(items[3], new QuoteSystem { StartQuoteMarker = items[0], EndQuoteMarker = items[1], MajorLanguage = items[2], Name = items[3] });
-//			}
 		}
 
 		public string Name;
