@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("FCBH and SIL International")]
-[assembly: AssemblyProduct("ProtoScript")]
+[assembly: AssemblyProduct("Protoscript Generator")]
 [assembly: AssemblyCopyright("Copyright © 2014 SIL International and Faith Comes By Hearing")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

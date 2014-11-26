@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using L10NSharp;
 using Palaso.IO;
 using Palaso.Reporting;
+using Palaso.UI.WindowsForms.Reporting;
 using ProtoScript.Properties;
 
 namespace ProtoScript
@@ -62,10 +63,17 @@ namespace ProtoScript
 
 		private static void SetUpErrorHandling()
 		{
-			ErrorReport.EmailAddress = "issues@hearthis.palaso.org";
+			ErrorReport.SetErrorReporter(new WinFormsErrorReporter());
+			ErrorReport.EmailAddress = "protoscript_generator@sil.org";
 			ErrorReport.AddStandardProperties();
-			ExceptionHandler.Init();
+			ExceptionHandler.Init(new WinFormsExceptionHandler());
+			// TODO (Analytics): ExceptionHandler.AddDelegate(ReportError);
 		}
+
+		//private static void ReportError(object sender, CancelExceptionHandlingEventArgs e)
+		//{
+		//	Analytics.ReportException(e.Exception);
+		//}
 
 		private static void SetUpLocalization()
 		{

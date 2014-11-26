@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
@@ -8,11 +8,18 @@ using Palaso.Xml;
 namespace ProtoScript.Bundle
 {
 	[XmlRoot("DBLMetadata")]
-	public class DblMetadata
+	public class DblMetadataBase
 	{
-		[XmlAttribute]
-		public string id;
+		[XmlAttribute] public string id;
+		[XmlAttribute] public string type;
+		[XmlAttribute] public string typeVersion;
 
+		public bool IsTextReleaseBundle { get { return type == "text"; } }
+	}
+
+	[XmlRoot("DBLMetadata")]
+	public class DblMetadata : DblMetadataBase
+	{
 		/// <summary>This is not part of the original DBL metadata. We add this when we parse the USX to create
 		/// a script. If significant changes to the parser are made and the parser version in the program does
 		/// not match the stored parser version, then we know to re-parse the original USX data.</summary>
@@ -37,6 +44,11 @@ namespace ProtoScript.Bundle
 		public string GetAsXml()
 		{
 			return XmlSerializationHelper.SerializeToString(this);
+		}
+
+		public static DblMetadata Load(string projectFilePath, out Exception exception)
+		{
+			return XmlSerializationHelper.DeserializeFromFile<DblMetadata>(projectFilePath, out exception);
 		}
 	}
 

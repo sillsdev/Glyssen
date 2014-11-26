@@ -64,6 +64,9 @@
     <Reference Include="Palaso">
       <HintPath>..\lib\dotnet\Palaso.dll</HintPath>
     </Reference>
+    <Reference Include="PalasoUIWindowsForms">
+      <HintPath>..\lib\dotnet\PalasoUIWindowsForms.dll</HintPath>
+    </Reference>
     <Reference Include="ParatextShared">
       <HintPath>..\lib\dotnet\ParatextShared.dll</HintPath>
     </Reference>

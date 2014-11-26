@@ -33,7 +33,6 @@
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.button2 = new System.Windows.Forms.Button();
 			this.m_lblBundleId = new System.Windows.Forms.Label();
-			this.btnSave = new System.Windows.Forms.Button();
 			this.m_lblLanguage = new System.Windows.Forms.Label();
 			this.m_btnExportToTabSeparated = new System.Windows.Forms.Button();
 			this.m_btnLoadSfm = new System.Windows.Forms.Button();
@@ -86,20 +85,6 @@
 			this.m_lblBundleId.Size = new System.Drawing.Size(74, 13);
 			this.m_lblBundleId.TabIndex = 3;
 			this.m_lblBundleId.Text = "Bundle ID: {0}";
-			// 
-			// btnSave
-			// 
-			this.l10NSharpExtender1.SetLocalizableToolTip(this.btnSave, null);
-			this.l10NSharpExtender1.SetLocalizationComment(this.btnSave, null);
-			this.l10NSharpExtender1.SetLocalizationPriority(this.btnSave, L10NSharp.LocalizationPriority.High);
-			this.l10NSharpExtender1.SetLocalizingId(this.btnSave, "SandboxForm.SandboxForm.btnSave");
-			this.btnSave.Location = new System.Drawing.Point(32, 68);
-			this.btnSave.Name = "btnSave";
-			this.btnSave.Size = new System.Drawing.Size(84, 23);
-			this.btnSave.TabIndex = 4;
-			this.btnSave.Text = "Save Project";
-			this.btnSave.UseVisualStyleBackColor = true;
-			this.btnSave.Click += new System.EventHandler(this.HandleSave_Click);
 			// 
 			// m_lblLanguage
 			// 
@@ -164,7 +149,6 @@
 			this.Controls.Add(this.m_btnExportToTabSeparated);
 			this.Controls.Add(this.m_btnLoadSfm);
 			this.Controls.Add(this.m_lblLanguage);
-			this.Controls.Add(this.btnSave);
 			this.Controls.Add(this.m_lblBundleId);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.m_btnSelectBundle);
@@ -187,7 +171,6 @@
 		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Label m_lblBundleId;
-		private System.Windows.Forms.Button btnSave;
 		private System.Windows.Forms.Label m_lblLanguage;
 		private System.Windows.Forms.Button m_btnExportToTabSeparated;
 		private System.Windows.Forms.Button m_btnLoadSfm;

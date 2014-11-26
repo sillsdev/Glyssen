@@ -7,6 +7,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using L10NSharp;
+using Palaso.Reporting;
 using Palaso.Xml;
 using ProtoScript.Bundle;
 using ProtoScript.Properties;
@@ -43,7 +45,14 @@ namespace ProtoScript
 		public static Project Load(string projectFilePath)
 		{
 			Project project;
-			var metadata = XmlSerializationHelper.DeserializeFromFile<DblMetadata>(projectFilePath);
+			Exception exception;
+			var metadata = DblMetadata.Load(projectFilePath, out exception);
+			if (exception != null)
+			{
+				ErrorReport.ReportNonFatalExceptionWithMessage(exception,
+					LocalizationManager.GetString("File.ProjectMetadataInvalid", "Project could not be loaded: {0}"), projectFilePath);
+				return null;
+			}
 			if (metadata.PgUsxParserVersion != Settings.Default.PgUsxParserVersion &&
 				File.Exists(metadata.OriginalPathOfDblFile))
 			{

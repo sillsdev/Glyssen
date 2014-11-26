@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using System.Windows.Forms;
 using L10NSharp;
 using Palaso.IO;
@@ -40,6 +41,8 @@ namespace ProtoScript
 
 		private void HandleSelectBundle_Click(object sender, EventArgs e)
 		{
+			SaveCurrentProject();
+
 			using (var dlg = new SelectProjectDialog())
 			{
 				if (dlg.ShowDialog() == DialogResult.OK)
@@ -59,12 +62,14 @@ namespace ProtoScript
 
 		private void SandboxForm_Load(object sender, EventArgs e)
 		{
-			if (string.IsNullOrEmpty(Settings.Default.CurrentProject))
+			if (string.IsNullOrEmpty(Settings.Default.CurrentProject) || !File.Exists(Settings.Default.CurrentProject))
 			{
 				using (var dlg = new WelcomeDialog())
 				{
 					if (dlg.ShowDialog() == DialogResult.OK)
 						LoadBundle(Settings.Default.CurrentProject);
+					else
+						UpdateDisplayOfProjectIdInfo();
 				}
 			}
 			else
@@ -75,13 +80,22 @@ namespace ProtoScript
 
 		private void LoadProject(string filePath)
 		{
-			m_project = Project.Load(filePath);
+			if (!LoadAndHandleApplicationExceptions(() => { m_project = Project.Load(filePath); }))
+				m_project = null;
 			UpdateDisplayOfProjectIdInfo();
 		}
 
 		private void LoadBundle(string bundlePath)
 		{
-			var bundle = new Bundle.Bundle(bundlePath);
+			Bundle.Bundle bundle = null;
+
+			if (!LoadAndHandleApplicationExceptions(() => { bundle = new Bundle.Bundle(bundlePath); }))
+			{
+				m_project = null;
+				UpdateDisplayOfProjectIdInfo();
+				return;
+			}
+
 			// See if we already have a project for this bundle and open it instead.
 			var projFilePath = Project.GetProjectFilePath(ProjectsBaseFolder, bundle.Language, bundle.Id);
 			if (File.Exists(projFilePath))
@@ -104,20 +118,43 @@ namespace ProtoScript
 			}
 		}
 
+		private bool LoadAndHandleApplicationExceptions(Action loadCommand)
+		{
+			try
+			{
+				loadCommand();
+			}
+			catch (ApplicationException ex)
+			{
+				StringBuilder bldr = new StringBuilder(ex.Message);
+				if (ex.InnerException != null)
+				{
+					bldr.Append(Environment.NewLine);
+					bldr.Append(ex.InnerException);
+				}
+
+				MessageBox.Show(bldr.ToString(), ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				return false;
+			}
+			return true;
+		}
+
 		private void UpdateDisplayOfProjectIdInfo()
 		{
-			m_lblBundleId.Text = string.Format(m_bundleIdFmt, m_project.Id);
-			m_lblLanguage.Text = string.Format(m_LanguageIdFmt, m_project.Language);
+			m_lblBundleId.Text = string.Format(m_bundleIdFmt, m_project != null ? m_project.Id : String.Empty);
+			m_lblLanguage.Text = string.Format(m_LanguageIdFmt, m_project != null ? m_project.Language : String.Empty);
 		}
-
-		private void HandleSave_Click(object sender, EventArgs e)
-		{
-			m_project.Save(ProjectsBaseFolder);
-		}
-
+	
 		private void SandboxForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
+			SaveCurrentProject();
 			Settings.Default.Save();
+		}
+
+		private void SaveCurrentProject()
+		{
+			if (m_project != null)
+				m_project.Save(ProjectsBaseFolder);
 		}
 
 		private void HandleExportToTabSeparated_Click(object sender, EventArgs e)

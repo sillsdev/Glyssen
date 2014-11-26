@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Xml.Serialization;
+using L10NSharp;
+using Palaso.Xml;
 using ProtoScript.Properties;
 using ProtoScript.Utilities;
 
@@ -15,12 +17,58 @@ namespace ProtoScript.Bundle
 
 		public Bundle(string pathToZippedBundle)
 		{
-			string pathToUnzippedDirectory = Zip.ExtractToTempDirectory(pathToZippedBundle);
+			string pathToUnzippedDirectory;
+			try
+			{
+				pathToUnzippedDirectory = Zip.ExtractToTempDirectory(pathToZippedBundle);
+			}
+			catch (Exception ex)
+			{
+				throw new ApplicationException(LocalizationManager.GetString("File.UnableToExtractBundle",
+						"Unable to read contents of Text Release Bundle:") +
+					Environment.NewLine + pathToZippedBundle, ex);
+			}
 
 			string metadataPath = Path.Combine(pathToUnzippedDirectory, "metadata.xml");
 
-			var xs = new XmlSerializer(typeof(DblMetadata));
-			m_dblMetadata = (DblMetadata)xs.Deserialize(new FileStream(metadataPath, FileMode.Open));
+			if (!File.Exists(metadataPath))
+			{
+				throw new ApplicationException(
+					LocalizationManager.GetString("File.MetadataFileMissingFromBundle",
+						"Required metadata not found. File is not a valid Text Release Bundle:") +
+					Environment.NewLine + pathToZippedBundle);
+			}
+
+			Exception exception;
+			m_dblMetadata = DblMetadata.Load(metadataPath, out exception);
+			if (exception != null)
+			{
+				DblMetadataBase metadataBase;
+				Exception metadataBaseDeserializationError;
+				metadataBase = XmlSerializationHelper.DeserializeFromFile<DblMetadataBase>(metadataPath, out metadataBaseDeserializationError);
+				if (metadataBaseDeserializationError != null)
+				{
+					throw new ApplicationException(
+						LocalizationManager.GetString("File.MetadataInvalid",
+							"Unable to read metadata. File is not a valid Text Release Bundle:") +
+						Environment.NewLine + pathToZippedBundle, metadataBaseDeserializationError);
+				}
+
+				throw new ApplicationException(
+					String.Format(LocalizationManager.GetString("File.MetadataInvalidVersion",
+						"Unable to read metadata. Type: {0}. Version: {1}. {2} does not recognize this file as a valid Text Release Bundle:"),
+						metadataBase.type, metadataBase.typeVersion, Program.kProduct) +
+					Environment.NewLine + pathToZippedBundle);
+			}
+
+			if (!m_dblMetadata.IsTextReleaseBundle)
+			{
+				throw new ApplicationException(
+					String.Format(LocalizationManager.GetString("File.NotTextReleaseBundle",
+						"This metadata in this bundle indicates that it is of type \"{0}\". Only Text Release Bundles are currently supported."),
+						m_dblMetadata.type));
+			}
+
 			m_dblMetadata.OriginalPathOfDblFile = pathToZippedBundle;
 			m_dblMetadata.PgUsxParserVersion = Settings.Default.PgUsxParserVersion;
 
