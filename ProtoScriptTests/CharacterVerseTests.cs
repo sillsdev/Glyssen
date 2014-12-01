@@ -9,8 +9,8 @@ namespace ProtoScriptTests
 		[Test]
 		public void GetCharacter_OneMatch_GetsCorrectCharacterId()
 		{
-			int characterId = CharacterVerse.GetCharacter("MRK", 1, 4);
-			Assert.AreEqual(273, characterId);
+			int characterId = CharacterVerse.GetCharacter("MRK", 1, 20);
+			Assert.AreEqual(700, characterId);
 		}
 
 		[Test]
