@@ -286,7 +286,6 @@ Gamaliel,29,0149
 Gedaliah, governor of Judah,14,0151
 Gehazi, servant of Elisha,14,0120
 Gentiles,29,0152
-Gibeonites [with deception],13,0153
 Gibeonites,13,0153
 Gideon,4,0154
 Gilead, elders of,14,0156
@@ -951,8 +950,8 @@ Spirit, the #10,10,0437
 Spirit, the #7,7,0700
 Spirit, the, and the bride #22,22,0438
 Spirit, the,10,0437
-Spy from Joseph,11,0439
-Spy,10,0440
+spy from Joseph,11,0439
+spies from Joshua, men,10,0440
 Stephen [cried out],9,0441
 Stephen,9,0441
 Steward,27,1042

@@ -2346,40 +2346,41 @@ DAN	9	24	Gabriel	0145
 DAN	9	25	Gabriel	0145	
 DAN	9	4	Daniel	0086	pleading in prayer
 DAN	9	7	Daniel	0086	pleading in prayer
-DEU	1	14	Moses quoting Israel	0344	
+DEU	1	14	Moses	0344	
 DEU	1	20	Moses	0344	
-DEU	1	22	Moses quoting Israel	0344	
+DEU	1	22	Moses	0344	
+DEU	1	25	Moses	0344	
 DEU	1	25	explorers, 12	0594	
-DEU	1	27	Moses quoting Israel	0344	
+DEU	1	27	Moses	0344	
 DEU	1	29	Moses	0344	
 DEU	1	35	God (the LORD)	2000	
 DEU	1	37	God (the LORD)	2000	
-DEU	1	41	Moses quoting Israel	0344	
+DEU	1	41	Moses	0344	
 DEU	1	42	God (the LORD)	2000	
 DEU	1	6	God (the LORD)	2000	
 DEU	1	6	Moses	0344	
 DEU	1	9	Moses	0344	
-DEU	10	1	God (the LORD)	2000	
-DEU	10	11	God (the LORD)	2000	
+DEU	10	1	Moses	0344	
+DEU	10	11	Moses	0344	
 DEU	12	20	Moses saying what Israel may say	0344	
 DEU	12	30	Moses saying what Israel shouldn't say	0344	
 DEU	13	13	Moses saying what Israel shouldn't say	0344	
 DEU	13	2	Moses saying what Israel shouldn't say	0344	
 DEU	13	6	Moses saying what Israel shouldn't say	0344	
-DEU	15	16	servant of Israelite	0898	
+DEU	15	16	Moses	0344	
 DEU	15	9	Moses saying what Israel shouldn't say	0344	
 DEU	17	14	Moses saying what Israel may say	0344	
-DEU	17	16	God (the LORD)	2000	
+DEU	17	16	Moses	0344	
 DEU	18	16	Moses quoting Israel	0344	
-DEU	18	17	God (the LORD)	2000	
+DEU	18	17	Moses	0344	
 DEU	18	21	Moses saying what Israel may say	0344	
-DEU	2	13	God (the LORD)	2000	
-DEU	2	18	God (the LORD)	2000	
-DEU	2	24	God (the LORD)	2000	
-DEU	2	27	messengers from Moses	0736	
-DEU	2	3	God (the LORD)	2000	
-DEU	2	31	God (the LORD)	2000	
-DEU	2	9	God (the LORD)	2000	
+DEU	2	13	Moses	0344	
+DEU	2	18	Moses	0344	
+DEU	2	24	Moses	0344	
+DEU	2	27	Moses	0344	
+DEU	2	3	Moses	0344	
+DEU	2	31	Moses	0344	
+DEU	2	9	Moses	0344	
 DEU	20	3	Moses saying what priest will say	0344	
 DEU	20	5	Moses saying what officers will say	0344	
 DEU	20	8	Moses saying what officers will say	0344	
@@ -2395,40 +2396,40 @@ DEU	26	3	Moses saying what Israel should say	0344
 DEU	26	5	Moses saying what Israel should say	0344	
 DEU	27	1	Moses/Elders of Israel	0344	
 DEU	27	15	Moses saying what Levites should say	0344	
-DEU	27	16	Levites	0312	
-DEU	27	16	people, all the	0824	
-DEU	27	17	Levites	0312	
-DEU	27	17	people, all the	0824	
-DEU	27	18	Levites	0312	
-DEU	27	18	people, all the	0824	
-DEU	27	19	Levites	0312	
-DEU	27	19	people, all the	0824	
-DEU	27	20	Levites	0312	
-DEU	27	20	people, all the	0824	
-DEU	27	21	Levites	0312	
-DEU	27	21	people, all the	0824	
-DEU	27	22	Levites	0312	
-DEU	27	22	people, all the	0824	
-DEU	27	23	Levites	0312	
-DEU	27	23	people, all the	0824	
-DEU	27	24	Levites	0312	
-DEU	27	24	people, all the	0824	
-DEU	27	25	Levites	0312	
-DEU	27	25	people, all the	0824	
-DEU	27	26	Levites	0312	
-DEU	27	26	people, all the	0824	
+DEU	27	16	Moses	0344	
+DEU	27	16	Moses	0344	
+DEU	27	17	Moses	0344	
+DEU	27	17	Moses	0344	
+DEU	27	18	Moses	0344	
+DEU	27	18	Moses	0344	
+DEU	27	19	Moses	0344	
+DEU	27	19	Moses	0344	
+DEU	27	20	Moses	0344	
+DEU	27	20	Moses	0344	
+DEU	27	21	Moses	0344	
+DEU	27	21	Moses	0344	
+DEU	27	22	Moses	0344	
+DEU	27	22	Moses	0344	
+DEU	27	23	Moses	0344	
+DEU	27	23	Moses	0344	
+DEU	27	24	Moses	0344	
+DEU	27	24	Moses	0344	
+DEU	27	25	Moses	0344	
+DEU	27	25	Moses	0344	
+DEU	27	26	Moses	0344	
+DEU	27	26	Moses	0344	
 DEU	27	9	Moses/Priests	0344	
-DEU	28	67	Israel	0196	
-DEU	29	19	idol worshiper from Israel	0631	
-DEU	29	24	nations, all the	0763	
-DEU	29	25	Israel	0196	
+DEU	28	67	Moses	0344	
+DEU	29	19	Moses	0344	
+DEU	29	24	Moses	0344	
+DEU	29	25	Moses	0344	
 DEU	3	18	Moses	0344	
-DEU	3	2	God (the LORD)	2000	
+DEU	3	2	Moses	0344	
 DEU	3	21	Moses	0344	
 DEU	3	24	Moses	0344	
-DEU	3	26	God (the LORD)	2000	
-DEU	30	12	Israel	0196	
-DEU	30	13	Israel	0196	
+DEU	3	26	Moses	0344	
+DEU	30	12	Moses	0344	
+DEU	30	13	Moses	0344	
 DEU	31	10	Moses	0344	
 DEU	31	14	God (the LORD)	2000	
 DEU	31	16	God (the LORD)	2000	
@@ -2484,7 +2485,7 @@ DEU	33	7	Moses	0344
 DEU	33	8	Moses	0344	
 DEU	33	9	Moses	0344	
 DEU	34	4	God (the LORD)	2000	
-DEU	4	10	God (the LORD)	2000	
+DEU	4	10	Moses	0344	
 DEU	4	6	Moses prophecying what the nations will say	0344	
 DEU	5	11	God (the LORD)	2000	
 DEU	5	12	God (the LORD)	2000	
@@ -3828,7 +3829,6 @@ GEN	44	30	Jacob's son, Judah|Judah	0233
 GEN	44	33	Jacob's son, Judah|Judah	0233	
 GEN	44	4	Joseph	0282	
 GEN	44	7	Jacob's sons|Reuben	0234	
-GEN	44	7	Jacob's sons|Simeon	0237	
 GEN	45	1	Joseph	0282	
 GEN	45	12	Joseph	0282	
 GEN	45	17	Pharoah (2nd)	0378	
@@ -3904,6 +3904,7 @@ GEN	5	2	Not A Quote	00000
 GEN	5	29	Lamech (descendent of Seth)	0308	
 GEN	50	11	Canaanites	0079	
 GEN	50	15	Jacob's sons	0234	
+GEN	50	15	Joseph's brothers|Simeon	0283	
 GEN	50	16	Jacob's sons	0234	
 GEN	50	17	Joseph's brothers|Simeon	0283	
 GEN	50	18	Joseph's brothers|Simeon	0283	
@@ -4878,7 +4879,7 @@ JDG	1	14	Acsah, Caleb's daughter	0015
 JDG	1	14	Caleb	0077	
 JDG	1	15	Acsah, Caleb's daughter	0015	
 JDG	1	2	God (the LORD)	2000	
-JDG	1	24	Spy from Joseph	0439	
+JDG	1	24	spy from Joseph	0439	
 JDG	1	3	Judah, men of	0290	
 JDG	1	7	Adoni-Bezek	0017	
 JDG	10	10	Israelites	0213	
@@ -6121,7 +6122,6 @@ JHN	19	11	Jesus	0700
 JHN	19	12	Jews, the	0262	
 JHN	19	14	Pilate	0387	to crowd
 JHN	19	15	chief priests	0521	intimidating
-JHN	19	15	Jews, the	0265	screaming
 JHN	19	15	Pilate	0387	to crowd
 JHN	19	19	sign on the cross	0907	
 JHN	19	21	chief priests/Sanhedrin=chief priests/whole Sanhedrin	0526	protest
@@ -7508,12 +7508,12 @@ JOS	17	4	Mahlah/Noah/Hoglah/Milcah/Tirzah, daughters of Zelophehad	0323
 JOS	18	3	Joshua	0285	
 JOS	18	8	Joshua	0285	
 JOS	2	1	Joshua	0285	
-JOS	2	14	Spy	0440	
+JOS	2	14	spies from Joshua, men	0440	
 JOS	2	16	Rahab	0392	
-JOS	2	17	Spy	0440	
+JOS	2	17	spies from Joshua, men	0440	
 JOS	2	2	messenger to King of Jericho	0729	
 JOS	2	21	Rahab	0392	
-JOS	2	24	Spy	0440	
+JOS	2	24	spies from Joshua, men	0440	
 JOS	2	3	King of Jericho	0299	
 JOS	2	4	Rahab	0392	
 JOS	2	9	Rahab	0392	
@@ -7530,24 +7530,24 @@ JOS	22	29	Reuben/Gad/Manasseh	0399
 JOS	22	31	Phineas	0386	
 JOS	22	8	Joshua	0285	
 JOS	23	11	Joshua, old	0286	
-JOS	23	12	Joshua	0285	
-JOS	23	14	Joshua	0285	
-JOS	23	2	Joshua	0285	
+JOS	23	12	Joshua, old	0286	
+JOS	23	14	Joshua, old	0286	
+JOS	23	2	Joshua, old	0286	
 JOS	23	4	Joshua, old	0286	
-JOS	23	6	Joshua	0285	
+JOS	23	6	Joshua, old	0286	
 JOS	23	8	Joshua, old	0286	
-JOS	23	9	Joshua	0285	
+JOS	23	9	Joshua, old	0286	
 JOS	24	11	Joshua, old	0286	
-JOS	24	14	Joshua	0285	
+JOS	24	14	Joshua, old	0286	
 JOS	24	16	people	0843	
-JOS	24	19	Joshua	0285	
-JOS	24	2	Joshua	0285	
+JOS	24	19	Joshua, old	0286	
+JOS	24	2	Joshua, old	0286	
 JOS	24	21	people	0843	
-JOS	24	22	Joshua	0285	
+JOS	24	22	Joshua, old	0286	
 JOS	24	22	people	0843	
-JOS	24	23	Joshua	0285	
+JOS	24	23	Joshua, old	0286	
 JOS	24	24	people	0843	
-JOS	24	27	Joshua	0285	
+JOS	24	27	Joshua, old	0286	
 JOS	24	5	Joshua, old	0286	
 JOS	24	8	Joshua, old	0286	
 JOS	24	9	Joshua, old	0286	
@@ -7580,7 +7580,7 @@ JOS	7	19	Joshua	0285
 JOS	7	2	Joshua	0285	
 JOS	7	20	Achan	0013	
 JOS	7	25	Joshua	0285	
-JOS	7	3	Spy	0440	
+JOS	7	3	spies from Joshua, men	0440	
 JOS	7	7	Joshua	0285	
 JOS	8	1	God (the LORD)	2000	
 JOS	8	18	God (the LORD)	2000	
@@ -7589,11 +7589,11 @@ JOS	9	19	Israel, all leaders of	0198
 JOS	9	21	Israel, all leaders of	0198	
 JOS	9	22	Joshua	0285	
 JOS	9	24	Gibeonites	0153	
-JOS	9	6	Gibeonites	0153	with deception
+JOS	9	6	Gibeonites	0153	
 JOS	9	7	Israel, men of	0201	
-JOS	9	8	Gibeonites	0153	with deception
+JOS	9	8	Gibeonites	0153	
 JOS	9	8	Joshua	0285	
-JOS	9	9	Gibeonites	0153	with deception
+JOS	9	9	Gibeonites	0153	
 JUD	1	14	Enoch	0129	
 JUD	1	18	apostles	0494	
 JUD	1	9	angel, arch-, Michael	0479	
@@ -9642,10 +9642,8 @@ MRK	6	37	Jesus	0700
 MRK	6	37	Philip=disciples, the=disciples, His	0381	frustrated
 MRK	6	37,38	Jesus	0700	
 MRK	6	37,38	Jesus	0700	questioning
-MRK	6	37-38	Jesus	0700	
 MRK	6	37-38	Jesus	0700	questioning
 MRK	6	38	Andrew=disciples, the=disciples, His	0036	
-MRK	6	38	Jesus	0700	
 MRK	6	38	Jesus	0700	questioning
 MRK	6	39	Jesus	0700	
 MRK	6	4	Jesus	0700	
