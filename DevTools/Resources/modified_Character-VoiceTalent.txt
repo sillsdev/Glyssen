@@ -16,16 +16,16 @@ Absalom's secret messengers,14,0012
 Absalom,3,0010
 Absalom/Israel, men of,3,0010
 Achan,14,0013
-Achish [said to himself],10,0013
-Achish,10,0014
+Achish [said to himself],10,2013
+Achish,10,2013
 Acsah, Caleb's daughter,24,0015
 Adam,30,0016
 Adoni-Bezek,10,0017
 Adoni-Zedek, king of Jerusalem,10,0018
 Adonijah, son of David,6,0019
 Advisers to king,6,0021
-Agabus the prophet #5 [proclaim],5,0021
-Agabus the prophet,5,0021
+Agabus the prophet #5 [proclaim],5,2021
+Agabus the prophet,5,2021
 Agag, king of Amalekites,17,0022
 Ahab, king of Israel,19,0023
 Ahaz, king of Judah [thought],4,0024
@@ -58,7 +58,7 @@ Army cry,28,0044
 Army officer, one of,4,0045
 Army officers,11,0046
 Artaxerxes, king of Persia [letter],1,0047
-Artaxerxes, king of Persia,1,0048
+Artaxerxes, king of Persia,1,0047
 Asa, king of Judah,1,0049
 Asahel, brother of Joab,9,0050
 Asaph,30,0051
@@ -145,15 +145,15 @@ Bartimaeus, blind=blind man, a #9 [pleading],9,1014
 Bartimaeus, blind=blind man, a #9 [shouting],9,1014
 Bartimaeus, blind=blind man, a #9,9,1014
 Baruch,1,0063
-Barzillai,1,0063
-Barzillai/Shobi/Makir,1,0063
+Barzillai,1,1063
+Barzillai/Shobi/Makir,1,1063
 Bathsheba,23,0064
 Belshazzar, king of Babylon,17,0065
 Ben-Hadad, king of Aram [letter],8,0066
 Ben-Hadad, king of Aram,8,0066
 Benaiah, son of Jehoiada,1,0067
 Benjamite,1,0068
-Benjamites,1,0068
+Benjamites,1,1068
 Beth Shemesh, men of,16,0069
 Bethlehem, elders of [trembled],16,0070
 Bildad the Shuhite,3,0071
@@ -163,7 +163,7 @@ Caesar Augustus,28,0074
 Caiaphas, high priest #11 [indignant],11,0075
 Caiaphas, high priest,11,0075
 Cain,15,0076
-Caleb (old),6,0077
+Caleb (old),6,1077
 Caleb,6,0077
 Canaanite mother of possessed girl=Syrophoenician mother of possessed girl [pleading],21,0078
 Canaanite mother of possessed girl=Syrophoenician mother of possessed girl,21,0078
@@ -200,16 +200,16 @@ David's enemies,30,0094
 David's enemy,30,0094
 David's foes, many,30,0094
 David's men,19,0095
-David's servants,9,0096
-David's supporters [shout for joy, glad],16,0800
+David's servants,9,1096
+David's supporters [shout for joy, glad],16,1800
 David, king [psalm],17,0093
 David, king [thought],17,0093
 David, king [very old],17,0093
 David, king,17,0093
 David,17,0093
-Deborah,23,0094
-Deborah/Barak,23,0094
-Delilah,25,0095
+Deborah,23,1094
+Deborah/Barak,23,1094
+Delilah,25,1095
 Demetrius,28,0096
 Devil,8,0800
 Doeg the Edomite,3,0099
@@ -260,7 +260,7 @@ Ephron the Hittite,6,0131
 Epicurean and Stoic philosophers, other #2 [superior],2,0133
 Epicurean and Stoic philosophers, they #1 [curious],1,1133
 Epicurean and Stoic philosophers, they #4,4,1134
-Esau,10,0133
+Esau,10,2133
 Esther, queen,23,0134
 Ethiopian,16,0136
 Eve,21,0137
@@ -373,7 +373,7 @@ Hamor-father,2,0164
 Hamor/Shechem|Hamor-father,2,0164
 Hanani the seer,4,0165
 Hanani, brother of Nehemiah/men of Judah, some,4,0165
-Hananiah, false prophet,4,0165
+Hananiah, false prophet,4,1165
 Hannah,23,0166
 Harbona, eunuch attending Xerxes, king,16,0167
 Hazael of Aram,16,0168
@@ -412,7 +412,7 @@ Hushai, David's friend,10,0189
 Irijah, captain of the guard of Judah,15,0190
 Isaac [thought],9,0191
 Isaac, old,3,0192
-Isaac,3,0192
+Isaac,3,0191
 Isaiah, the prophet (sign),28,0193
 Isaiah, the prophet (the LORD says),28,0193
 Isaiah, the prophet (word of the LORD came),28,0193
@@ -442,7 +442,7 @@ Israelite community [mourning bitterly],11,0203
 Israelite community [unbelief, mistrust],2,0204
 Israelite foreman,2,0204
 Israelite messengers,9,0205
-Israelite people |man [fearful],2,0204
+Israelite people|man [fearful],2,0204
 Israelite people, all|crowd,2,0207
 Israelite people,14,0206
 Israelite people|grumbler,11,0208
@@ -535,7 +535,7 @@ Jeroboam/Israel, all,13,1127
 Jesse,13,0258
 Jesus #7 [in a vision],7,0700
 Jesus #7,7,0700
-Jesus (child),18,0258
+Jesus (child),18,1258
 Jesus [compassionately],7,0700
 Jesus [deeply distressed],7,0700
 Jesus [exasperated; giving orders],7,0700
@@ -558,8 +558,8 @@ Jesus [testing faith],7,0700
 Jesus [warning],7,0700
 Jesus in 2 John,7,0700
 Jesus in Hebrews,7,0700
-Jesus' brothers #4 [challenging],4,0258
-Jesus' brothers,4,0258
+Jesus' brothers #4 [challenging],4,2258
+Jesus' brothers,4,2258
 Jesus' family,22,0259
 Jesus,7,0700
 Jewish authorities,4,0260
@@ -605,30 +605,30 @@ Jews, the,1,0262
 Jews, they,1,0262
 Jews,14,0265
 Jews/priests/nobles/officials,14,0274
-Jezebel,25,0265
-Joab's men, one of,14,0267
+Jezebel,25,1265
+Joab's men, one of,14,1267
 Joab,4,0266
-Joash, father of Gideon,14,0267
-Joash, king of Judah,12,0267
-Job's wife,25,0268
-Job, the man [thinking],13,0269
-Job, the man,13,0269
-Johanan,9,0270
-Johanan/Azariah/arrogant men,13,0271
-Johanan/all the army officers,13,0271
-Johanan/all the army officers/all the people,13,0271
-John #12 [amazed],12,0272
-John (disciple whom Jesus loved) [sad],12,0272
-John (disciple whom Jesus loved),12,0272
-John saying Lord who is going to betray you,12,0272
-John the Baptist [discouraged],6,0273
-John the Baptist [humble],6,0273
-John the Baptist [proclaiming truth],6,0273
-John the Baptist [rebuke],6,0273
-John the Baptist [warning],6,0273
-John the Baptist,6,0273
-John's disciples #3 [puzzled],3,0274
-John,12,0272
+Joash, father of Gideon,14,2267
+Joash, king of Judah,12,3267
+Job's wife,25,1268
+Job, the man [thinking],13,1269
+Job, the man,13,1269
+Johanan,9,2271
+Johanan/Azariah/arrogant men,13,2271
+Johanan/all the army officers,13,2271
+Johanan/all the army officers/all the people,13,2271
+John #12 [amazed],12,1272
+John (disciple whom Jesus loved) [sad],12,1272
+John (disciple whom Jesus loved),12,1272
+John saying Lord who is going to betray you,12,1272
+John the Baptist [discouraged],6,1273
+John the Baptist [humble],6,1273
+John the Baptist [proclaiming truth],6,1273
+John the Baptist [rebuke],6,1273
+John the Baptist [warning],6,1273
+John the Baptist,6,1273
+John's disciples #3 [puzzled],3,1274
+John,12,1272
 Jonadab [shrewd],14,0275
 Jonah [praying],15,0276
 Jonah,15,0276
@@ -658,8 +658,8 @@ Judas Iscariot=disciples, the,14,0293
 Judas Iscariot=some in home of Simon, leper [indignant],14,0293
 Judeaisers,30,0294
 King of Ammonites,16,0295
-King of Aram [had ordered],16,0295
-King of Aram,16,0296
+King of Aram [had ordered],16,1295
+King of Aram,16,1295
 King of Assyria,15,0297
 King of Babylon [said],16,0298
 King of Jericho,16,0299
@@ -667,7 +667,7 @@ King of Nineveh [proclamation],16,0300
 Kish, father of Saul,6,0302
 Korah/Dathan/Abiram/250 Israelite leaders|Korah [wicked],11,0303
 LORD appeared as men|angel,20,2000
-Laban's sons,11,0306
+Laban's sons,11,1306
 Laban,28,0305
 Laban/Bethuel (Laban's father),28,0305
 Laban/Laban's mother|Laban's mother,22,0306
@@ -715,7 +715,7 @@ Moabite prince 1,16,0340
 Moabite prince 2 [afraid],15,0341
 Moabite prince 2,15,0341
 Moabites (female),21,0342
-Moabites,16,0340
+Moabites,16,1340
 Mordecai, cousin of Esther,13,0343
 Moses (at LORD's command),19,0344
 Moses prophecying what God will say,19,0344
@@ -744,8 +744,8 @@ Moses/Elders of Israel,19,0344
 Moses/Eleazar|Moses,19,0344
 Moses/Israelites [sang],19,0344
 Moses/Priests,19,0344
-Naaman's servants,5,0346
-Naaman,4,0345
+Naaman's servants,5,1346
+Naaman,4,1345
 Nabal,14,0347
 Naboth,9,0348
 Nahash the Ammonite,28,0349
@@ -816,13 +816,13 @@ Peter (Simon) [swearing],13,0371
 Peter (Simon) and companions [exclaimed],13,0371
 Peter (Simon), with Eleven,13,0371
 Peter (Simon)/James/John/Andrew=disciples=they [confused],13,0371
-Peter (Simon)/James/John/Andrew=disciples=they,12,0272
-Peter (Simon)/James/John=disciples, the |John #12,12,0272
-Peter (Simon)/James/John=disciples, the|John [puzzled],12,0272
+Peter (Simon)/James/John/Andrew=disciples=they,12,1272
+Peter (Simon)/James/John=disciples, the|John #12,12,1272
+Peter (Simon)/James/John=disciples, the|John [puzzled],12,1272
 Peter (Simon)/John,13,0371
-Peter (Simon)/John/own people #9,9,0372
-Peter (Simon)/John=disciples (Jesus') |John #12,12,0272
-Peter (Simon)/John=disciples (Jesus')|disciples,12,0272
+Peter (Simon)/John/own people #9,9,1372
+Peter (Simon)/John=disciples (Jesus')|disciples,12,1272
+Peter (Simon)/John=disciples (Jesus')|John #12,12,1272
 Peter (Simon)/John=disciples (Jesus'),13,0371
 Pharisee expert-in-law|Good Priest [warning],5,0372
 Pharisee expert-in-law|Good Priest #5 [testing],5,0372
@@ -853,10 +853,10 @@ Pharisees/teachers of the law #15 [contempt],15,0377
 Pharisees/teachers of the law, some #15 [challenge],15,0377
 Pharisees/teachers of the law, some #15 [rebuke],15,0377
 Pharisees/teachers of the law,19,0378
-Pharoah (1st),16,0378
-Pharoah (2nd),16,0378
-Pharoah (3rd) [giving order],16,0378
-Pharoah (3rd),16,0378
+Pharoah (1st),16,1378
+Pharoah (2nd),16,1378
+Pharoah (3rd) [giving order],16,1378
+Pharoah (3rd),16,1378
 Pharoah's daughter,23,0379
 Pharoah's officials,17,0380
 Philip (apostle) #9 [excited],9,0381
@@ -874,7 +874,7 @@ Pilate [impatient],17,0387
 Pilate [surprised],17,0387
 Pilate [to Jesus],17,0387
 Pilate [to crowd],17,0387
-Pilate's wife,23,0388
+Pilate's wife,23,1388
 Pilate,17,0387
 Poets|leader of Ephraim,11,0388
 Potiphar's wife,25,0389
@@ -888,7 +888,7 @@ Recabite family, men of,3,0395
 Rehoboam, king, had said,1,0396
 Rehoboam, king,1,0396
 Rehum, commanding officer/Shimshai, secretary [letter],19,0397
-Relatives of Ahaziah, king of Judah,1,0397
+Relatives of Ahaziah, king of Judah,1,1397
 Report to King of Assyria,3,0398
 Reuben/Gad/Manasseh,2,0399
 Reubenites/Gadites/Manasseh,2,0399
@@ -896,8 +896,8 @@ Reubenites/Gadites|leader of Gad,1,0400
 Reubenites/Gadites|leader of Reuben,2,0399
 Rhoda [could be a young girl],18,0401
 Ruth,21,0402
-Sadducees, some,19,0402
-Sadducees,19,0402
+Sadducees, some,19,1402
+Sadducees,19,1402
 Sailors,4,0403
 Samson's 30 companions,11,0405
 Samson's father-in-law,10,0406
@@ -932,8 +932,8 @@ Sharezer/Regem-Melech/men of Bethel,15,0424
 Sheba, son of Bicri [troublemaker],8,0425
 Shecaniah, son of Jehiel [suggesting solution],3,0426
 Shechem|son of Shechem,4,0427
-Shemaiah, prophet (the LORD says),11,0427
-Shemaiah, son of Delaiah, false prophet,8,0427
+Shemaiah, prophet (the LORD says),11,1427
+Shemaiah, son of Delaiah, false prophet,8,1427
 Shephatiah/Gedaliah/Jehucal/Pashur (officials),4,0428
 Shimei,14,0429
 Simeon-old,15,0430
@@ -946,10 +946,10 @@ Solomon, king [blessing Israel in a loud voice],3,0436
 Solomon, king [prayer],3,0436
 Solomon, king [sent message],3,0436
 Solomon, king,3,0436
-Spirit, the #10,10,0437
+Spirit, the #10,10,0700
 Spirit, the #7,7,0700
 Spirit, the, and the bride #22,22,0438
-Spirit, the,10,0437
+Spirit, the,10,0700
 spy from Joseph,11,0439
 spies from Joshua, men,10,0440
 Stephen [cried out],9,0441
@@ -977,7 +977,7 @@ Zebul, governor of Shechem,19,0453
 Zechariah (the LORD says),17,0454
 Zechariah (vision),17,0454
 Zechariah (word of the LORD),17,0454
-Zechariah [praising],5,0455
+Zechariah [praising],5,0454
 Zechariah, son of Jehoiada the priest (Spirit of God upon),17,0454
 Zechariah, son of Jehoiada the priest,17,0454
 Zechariah,17,0454
@@ -989,7 +989,7 @@ Zeresh, wife of Haman/friends of Haman,25,0458
 Zerubbabel/Jeshua/rest of heads of families,13,0459
 Ziba,19,0460
 Zion,1,0461
-Ziphites,10,0461
+Ziphites,10,1461
 Zipporah-Moses wife,24,0462
 Zipporah-Moses wife/her sisters,24,0462
 Zophar the Naamathite,4,0463
@@ -1001,8 +1001,8 @@ all in temple [praising],30,0468
 all seeking God [rejoicing, glad],5,0469
 all who heard (in synagogues),1,0470
 altar, the,11,0471
-angel Gabriel, sent by God [to Mary],10,0471
-angel Gabriel, sent by God,1,0471
+angel Gabriel, sent by God [to Mary],10,1471
+angel Gabriel, sent by God,1,1471
 angel flying directly overhead #17,17,0472
 angel flying directly overhead, second #13,13,0473
 angel flying directly overhead, third,10,0474
@@ -1038,9 +1038,9 @@ angels in white, two,10,0479
 angels in white=men in clothes that gleamed like lightning, two,10,0479
 angels, all the #13,13,0478
 angels, many, living creatures, elders, thousands of thousands 1,13,0478
-angels, many, living creatures, elders, thousands of thousands 2,22,0487
+angels, many, living creatures, elders, thousands of thousands 2,22,1487
 angels, seven, one of #19,19,0909
-anger of the LORD,8,0486
+anger of the LORD,8,1486
 another (follower of Apollos) [boastful],11,0487
 another (follower of Peter/Cephas) [boastful],28,0488
 another holy one (in vision),11,0489
@@ -1058,7 +1058,7 @@ authorities, governing,30,0499
 believers who were Pharisees,17,0500
 believers, Corinth,12,0501
 believers, circumcised #1 [critical],1,0502
-believers, circumcised |Jewish believer #5 [rejoicing],5,0502
+believers, circumcised|Jewish believer #5 [rejoicing],5,0502
 believers, one hundred twenty [praying],12,0503
 beloved,23,0504
 blind man,3,0505
@@ -1107,7 +1107,7 @@ chief priests/elders of people|Good Priest [serious],5,0372
 chief priests/elders of people|Good Priest,5,0372
 chief priests/officers of temple guard,28,0530
 chief priests/rulers/the people #9 [shouting],9,0531
-chief priests/rulers/the people |mob #6,6,0532
+chief priests/rulers/the people|mob #6,6,0532
 chief priests/teachers of the law #11 [upset],11,0528
 chief priests/teachers of the law #15,15,0377
 chief priests/teachers of the law/elders=chief priests/elders of people #10 [challenge],10,0533
@@ -1117,11 +1117,11 @@ chief priests/teachers of the law=chief priests/elders of people #11,11,0528
 chief priests/teachers of the law=chief priests/elders of people,11,0528
 chief priests/their officials #15,15,0377
 chief priests/their officials,19,0527
-children [praising],18,0530
-children of Zion (Jerusalem),18,0531
-citizens of Shechem,11,0532
-city clerk #4 [diplomatic],4,0533
-city clerk,4,0533
+children [praising],18,1530
+children of Zion (Jerusalem),18,1531
+citizens of Shechem,11,1532
+city clerk #4 [diplomatic],4,1533
+city clerk,4,1533
 city, the whole,21,0534
 collectors of temple tax #3 [demanding],3,0535
 commander #17 [ordering],17,0536
@@ -1231,9 +1231,9 @@ disciples, the=those who heard #14 [shocked],14,0580
 disciples, two of His,12,0578
 disciples, whole crowd of=people, many=crowd, great|crowd [praising],12,0578
 disciples, whole crowd of=people, many=crowd, great,13,0579
-eagle crying with loud voice,25,0581
+eagle crying with loud voice,25,1581
 ear,27,0582
-elders of the land,10,0582
+elders of the land,10,1582
 elders of the Jews|Good Priest [interceding],5,0372
 elders of the Jews|Good Priest,5,0372
 elders, Ephesian,30,0583
@@ -1327,7 +1327,7 @@ father of possessed boy=man in crowd #4,4,0606
 father of possessed son=man in crowd #4 [distraught],4,0606
 field commander=Sennacherib's officers,15,0607
 figure like that of a man (in vision of God),7,0700
-followers of Jesus [ready to fight],13,0607
+followers of Jesus [ready to fight],13,1607
 fool,7,0608
 foot,29,0609
 foreman,16,0610
@@ -1337,7 +1337,7 @@ four living creatures, twenty-four elders,10,0613
 four living creatures,4,0612
 girl at high priest's courtyard=servant girl #24,24,0614
 girls,21,0615
-great company of heavenly host [stage whisper extra voices will be added],10,0615
+great company of heavenly host [stage whisper extra voices will be added],10,1615
 harvesters,9,0616
 head,9,0617
 hearers [mocking],15,0618
@@ -1476,7 +1476,7 @@ messenger, a,3,0732
 messenger, another,9,0733
 messenger, still another,12,0734
 messenger, yet another,15,0735
-messenger,9,0733
+messenger,9,1733
 messengers from Moses,3,0736
 messengers of Ahaziah,9,0737
 messengers of Ben-Hadad. king of Aram,6,0738
@@ -1584,7 +1584,7 @@ officials/all the people,12,0788
 old man of Gibeah,28,0789
 older daughter of Lot,25,0790
 one at table with him #5,5,0791
-one of you (follower of Paul) [boastful],14,0791
+one of you (follower of Paul) [boastful],14,1791
 one of you,5,0792
 one other who looked like a man,9,0793
 one seated on throne (God),20,0794
@@ -1660,7 +1660,7 @@ proclaimers of God's word,4,0850
 prophet Gad,28,0851
 prophet in Bethel (old),28,0852
 prophet in Bethel (old)/sons,17,0853
-prophet in Bethel (old) [word of the LORD],28,0854
+prophet in Bethel (old) [word of the LORD],28,0852
 prophet of the LORD, a,28,0854
 prophet, a,28,0854
 prophet, sons of the, one,13,0855
@@ -1675,7 +1675,7 @@ prostitute, one,22,0862
 prostitute, other,25,0863
 proverb about a dog,28,0864
 queen of Babylon,23,0865
-queen of Sheba,23,0865
+queen of Sheba,23,1865
 reader,17,0866
 rebelss,30,0867
 report to King of Aram,30,0868
@@ -1718,21 +1718,21 @@ servant of Nabal,12,0900
 servant of Saul,2,0901
 servant of concubine's husband,6,0902
 servant of priest [demanding],6,0903
-servant of priest,14,0901
+servant of priest,14,1901
 servants (Isaac's),6,0904
 servants of Achish, king of Gath,4,0905
 servants of David,11,0906
 servants of Eglon, king of Moab,3,0907
 servants of royal official #3 [excited],3,0908
 seven angels, one of the #19,19,0909
-seven sons of Sceva #14 [over-dramatic],14,0905
-seventy-two #14 [excited],14,0906
-she donkey,23,0907
-shepherds #4 [awe],4,0908
+seven sons of Sceva #14 [over-dramatic],14,1905
+seventy-two #14 [excited],14,1906
+she donkey,23,1907
+shepherds #4 [awe],4,1908
 shepherds #6,4,0020
-ship captains, seafarers, sailors #1 [weeping/ cry out],1,0906
-sign on the cross,14,0907
-singers from the ends of the earth,6,0908
+ship captains, seafarers, sailors #1 [weeping/ cry out],1,2906
+sign on the cross,14,2907
+singers from the ends of the earth,6,2908
 singers, and relatives [singing accompanied by 120 trumpets],6,0909
 singers,13,0910
 sinners,6,0911
@@ -1772,7 +1772,7 @@ son of widow,18,0938
 song (of the prostitute),25,0939
 souls of those killed for word of God,28,0940
 spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians,6,0941
-still another (follower of Christ) [boastful],6,0941
+still another (follower of Christ) [boastful],6,1941
 synagogue ruler #1 [angry],1,0942
 synagogue rulers|Good Priest #5 [gracious],5,0372
 tax collectors #3 [calling out],3,0943

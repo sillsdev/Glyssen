@@ -1668,7 +1668,7 @@ ACT 11.10 character=Peter (Simon)
 ACT 11.11 character=Peter (Simon)
 ACT 11.14 character=Peter (Simon)
 ACT 11.15 character=Peter (Simon)
-ACT 11.18 character=believers, circumcised |Jewish believer #5 [rejoicing]
+ACT 11.18 character=believers, circumcised|Jewish believer #5 [rejoicing]
 ACT 11.23 character=Barnabas
 ACT 11.28 character=Agabus the prophet
 ACT 11.3 character=believers, circumcised #1 [critical]
@@ -2706,7 +2706,7 @@ EXO 20.14 character=God (the LORD)
 EXO 20.15 character=God (the LORD)
 EXO 20.16 character=God (the LORD)
 EXO 20.17 character=God (the LORD)
-EXO 20.19 character=Israelite people |man [fearful]
+EXO 20.19 character=Israelite people|man [fearful]
 EXO 20.2 character=God (the LORD)
 EXO 20.20 character=Moses
 EXO 20.22 character=God (the LORD)
@@ -8224,7 +8224,7 @@ LUK 23.14 character=Pilate [to crowd]
 LUK 23.18 character=chief priests/rulers/the people #9 [shouting]
 LUK 23.2 character=council of elders:chief priests/teachers of the law
 LUK 23.20 character=Pilate
-LUK 23.21 character=chief priests/rulers/the people |mob #6
+LUK 23.21 character=chief priests/rulers/the people|mob #6
 LUK 23.22 character=Pilate [to crowd]
 LUK 23.23 character=crowd
 LUK 23.24,25 character=Pilate
@@ -8736,7 +8736,7 @@ MAT 16.4 character=Jesus
 MAT 16.6 character=Jesus [warning]
 MAT 16.7 character=disciples, the #14 [defensive]
 MAT 16.8 character=Jesus
-MAT 17.10 character=Peter (Simon)/James/John=disciples, the |John #12
+MAT 17.10 character=Peter (Simon)/James/John=disciples, the|John #12
 MAT 17.11 character=Jesus
 MAT 17.15 character=father of possessed son=man in crowd #4 [distraught]
 MAT 17.17 character=Jesus [giving orders]
@@ -9029,7 +9029,7 @@ MAT 26.11 character=Jesus
 MAT 26.12 character=Jesus
 MAT 26.13 character=Jesus
 MAT 26.15 character=Judas Iscariot [plotting]
-MAT 26.17 character=Peter (Simon)/John=disciples (Jesus') |John #12
+MAT 26.17 character=Peter (Simon)/John=disciples (Jesus')|John #12
 MAT 26.18 character=Jesus
 MAT 26.2 character=Jesus
 MAT 26.21 character=Jesus

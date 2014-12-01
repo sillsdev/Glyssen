@@ -95,8 +95,8 @@
 1CH	4	9	Jabez's mother	0231	
 1CO	1	12	another (follower of Apollos)	0487	boastful
 1CO	1	12	another (follower of Peter/Cephas)	0488	boastful
-1CO	1	12	one of you (follower of Paul)	0791	boastful
-1CO	1	12	still another (follower of Christ)	0941	boastful
+1CO	1	12	one of you (follower of Paul)	1791	boastful
+1CO	1	12	still another (follower of Christ)	1941	boastful
 1CO	1	15	believers, Corinth	0501	
 1CO	1	19	scripture	0890	
 1CO	1	31	scripture	0890	
@@ -138,7 +138,7 @@
 1CO	7	10	Paul	0062	
 1CO	8	5	Not A Quote	00000	
 1CO	9	9	scripture	0890	
-1JN	2	18	John	0272	
+1JN	2	18	John	1272	
 1JN	2	4	man who says 'I know him'	0678	
 1JN	2	6	man who says 'we remain in union with God'	0679	
 1JN	4	20	anyone	0493	
@@ -164,12 +164,12 @@
 1KI	1	52	Solomon, king	0436	
 1KI	1	53	Solomon, king	0436	
 1KI	1	6	Not A Quote	00000	
-1KI	10	6	queen of Sheba	0865	
+1KI	10	6	queen of Sheba	1865	
 1KI	11	11	God (the LORD)	2000	
 1KI	11	2	God (the LORD)	2000	
 1KI	11	21	Hadad the Edomite	0160	
 1KI	11	22	Hadad the Edomite	0160	
-1KI	11	22	Pharoah (3rd)	0378	
+1KI	11	22	Pharoah (3rd)	1378	
 1KI	11	31	Ahijah, the prophet	0026	word of the LORD
 1KI	12	10	young men	1015	
 1KI	12	12	Rehoboam, king	0396	
@@ -191,7 +191,7 @@
 1KI	13	16	man of God from Judah	0668	
 1KI	13	18	prophet in Bethel (old)	0852	
 1KI	13	2	man of God from Judah	0668	word of the LORD
-1KI	13	21	prophet in Bethel (old)	0854	word of the LORD
+1KI	13	21	prophet in Bethel (old)	0852	word of the LORD
 1KI	13	26	prophet in Bethel (old)	0852	
 1KI	13	27	prophet in Bethel (old)	0852	
 1KI	13	3	man of God from Judah	0668	
@@ -253,7 +253,7 @@
 1KI	19	13	voice, a	2000	
 1KI	19	14	Elijah	0115	
 1KI	19	15	God (the LORD)	2000	
-1KI	19	2	Jezebel	0265	
+1KI	19	2	Jezebel	1265	
 1KI	19	20	Elijah	0115	
 1KI	19	20	Elisha	0118	
 1KI	19	4	Elijah	0115	
@@ -319,7 +319,7 @@
 1KI	20	9	Ahab, king of Israel	0023	
 1KI	21	13	scoundrels	0887	
 1KI	21	14	elders/nobles of city	0586	
-1KI	21	15	Jezebel	0265	
+1KI	21	15	Jezebel	1265	
 1KI	21	18	God (the LORD)(word of the LORD came)	2000	
 1KI	21	2	Ahab, king of Israel	0023	
 1KI	21	20	Ahab, king of Israel	0023	
@@ -330,10 +330,10 @@
 1KI	21	29	God (the LORD)(word of the LORD came)	2000	
 1KI	21	3	Naboth	0348	
 1KI	21	4	Not A Quote	00000	
-1KI	21	5	Jezebel	0265	
+1KI	21	5	Jezebel	1265	
 1KI	21	6	Ahab, king of Israel	0023	
-1KI	21	7	Jezebel	0265	
-1KI	21	9	Jezebel	0265	
+1KI	21	7	Jezebel	1265	
+1KI	21	9	Jezebel	1265	
 1KI	22	11	Zedekiah, son of Kenaanah, prophet	0457	
 1KI	22	12	prophets, 400	0859	
 1KI	22	13	messenger of Ahab, king of Israel	0726	
@@ -353,7 +353,7 @@
 1KI	22	28	Micaiah, prophet of the LORD	0336	
 1KI	22	3	Ahab, king of Israel	0023	
 1KI	22	30	Ahab, king of Israel	0023	
-1KI	22	31	King of Aram	0296	
+1KI	22	31	King of Aram	1295	
 1KI	22	32	chariot commanders of Aram	0516	thought
 1KI	22	34	Ahab, king of Israel	0023	
 1KI	22	36	Army cry	0044	
@@ -588,7 +588,7 @@
 1SA	19	6	Saul	0414	
 1SA	2	1	Hannah	0166	
 1SA	2	10	Hannah	0166	
-1SA	2	15	servant of priest	0901	
+1SA	2	15	servant of priest	1901	
 1SA	2	16	man	0657	pleading
 1SA	2	16	servant of priest	0903	demanding
 1SA	2	2	Hannah	0166	
@@ -626,7 +626,7 @@
 1SA	20	9	Jonathan	0277	
 1SA	21	1	Ahimelech the priest	0027	
 1SA	21	11	servants of Achish, king of Gath	0905	
-1SA	21	14	Achish	0014	
+1SA	21	14	Achish	2013	
 1SA	21	2	David	0093	
 1SA	21	4	Ahimelech the priest	0027	
 1SA	21	5	David	0093	
@@ -651,7 +651,7 @@
 1SA	23	12	David	0093	
 1SA	23	12	God (the LORD)	2000	
 1SA	23	17	Jonathan	0277	
-1SA	23	19	Ziphites	0461	
+1SA	23	19	Ziphites	1461	
 1SA	23	2	David	0093	
 1SA	23	2	God (the LORD)	2000	
 1SA	23	21	Saul	0414	
@@ -678,10 +678,10 @@
 1SA	25	32	David	0093	
 1SA	25	35	David	0093	
 1SA	25	39	David	0093	
-1SA	25	40	David's servants	0096	
+1SA	25	40	David's servants	1096	
 1SA	25	41	Abigail	0002	
 1SA	25	5	David	0093	
-1SA	26	1	Ziphites	0461	
+1SA	26	1	Ziphites	1461	
 1SA	26	10	David	0093	
 1SA	26	14	Abner	0006	
 1SA	26	14	David	0093	
@@ -697,12 +697,12 @@
 1SA	26	8	Abishai, Joab's brother	0005	
 1SA	26	9	David	0093	
 1SA	27	1	David	0093	thought
-1SA	27	10	Achish	0014	
+1SA	27	10	Achish	2013	
 1SA	27	10	David	0093	
 1SA	27	11	David	0093	thought
-1SA	27	12	Achish	0013	said to himself
+1SA	27	12	Achish	2013	said to himself
 1SA	27	5	David	0093	
-1SA	28	1	Achish	0014	
+1SA	28	1	Achish	2013	
 1SA	28	10	Saul	0414	
 1SA	28	11	Saul	0414	
 1SA	28	11	woman medium	0998	
@@ -714,7 +714,7 @@
 1SA	28	15	Samuel	0408	
 1SA	28	15	Saul	0414	
 1SA	28	16	Samuel	0408	
-1SA	28	2	Achish	0014	
+1SA	28	2	Achish	2013	
 1SA	28	2	David	0093	
 1SA	28	21	woman medium	0998	
 1SA	28	23	Saul	0414	
@@ -722,13 +722,13 @@
 1SA	28	7	Saul's attendants	0416	
 1SA	28	8	Saul	0414	
 1SA	28	9	woman medium	0998	
-1SA	29	3	Achish	0014	
+1SA	29	3	Achish	2013	
 1SA	29	3	Philistine commanders	0382	
 1SA	29	4	Philistine commanders	0382	
 1SA	29	5	Philistine commanders	0382	
-1SA	29	6	Achish	0014	
+1SA	29	6	Achish	2013	
 1SA	29	8	David	0093	
-1SA	29	9	Achish	0014	
+1SA	29	9	Achish	2013	
 1SA	3	10	God (the LORD)	2000	
 1SA	3	10	Samuel	0408	
 1SA	3	11	God (the LORD)	2000	
@@ -830,7 +830,7 @@
 2CH	10	7	elders	0585	
 2CH	10	9	Rehoboam, king	0396	
 2CH	11	3	word of the LORD came to Shemaiah	2000	
-2CH	12	5	Shemaiah, prophet (the LORD says)	0427	
+2CH	12	5	Shemaiah, prophet (the LORD says)	1427	
 2CH	12	6	Israel, leaders of/Rehoboam, king	0196	
 2CH	12	7	word of the LORD came to Shemaiah	2000	
 2CH	13	10	Abijah, king of Judah	0003	
@@ -843,7 +843,7 @@
 2CH	16	7	Hanani the seer	0165	
 2CH	18	10	Zedekiah, son of Kenaanah, prophet	0457	false
 2CH	18	11	prophets, 400	0859	false prophets
-2CH	18	12	messenger	0733	
+2CH	18	12	messenger	1733	
 2CH	18	13	Micaiah, prophet of the LORD	0336	
 2CH	18	14	Ahab, king of Israel	0023	
 2CH	18	14	Micaiah, prophet of the LORD	0336	
@@ -862,7 +862,7 @@
 2CH	18	29	Ahab, king of Israel	0023	
 2CH	18	3	Ahab, king of Israel	0023	
 2CH	18	3	Jehoshaphat, king of Judah	0247	
-2CH	18	30	King of Aram	0295	had ordered
+2CH	18	30	King of Aram	1295	had ordered
 2CH	18	31	chariot commanders of Aram	0516	thought
 2CH	18	33	Ahab, king of Israel	0023	
 2CH	18	4	Jehoshaphat, king of Judah	0247	
@@ -899,8 +899,8 @@
 2CH	23	3	Jehoiada the priest	0245	
 2CH	24	20	Zechariah, son of Jehoiada the priest (Spirit of God upon)	0454	
 2CH	24	22	Zechariah, son of Jehoiada the priest	0454	
-2CH	24	5	Joash, king of Judah	0267	
-2CH	24	6	Joash, king of Judah	0267	
+2CH	24	5	Joash, king of Judah	3267	
+2CH	24	6	Joash, king of Judah	3267	
 2CH	25	15	prophet, a	0854	
 2CH	25	16	Amaziah, king of Judah	0030	
 2CH	25	16	prophet, a	0854	
@@ -965,7 +965,7 @@
 2CH	7	3	Israel, all	0197	worshipping God
 2CH	7	6	priests/Levites	0849	
 2CH	8	11	Solomon, king	0436	
-2CH	9	5	queen of Sheba	0865	
+2CH	9	5	queen of Sheba	1865	
 2CO	1	17	Not A Quote	00000	
 2CO	1	18	Not A Quote	00000	
 2CO	1	19	Not A Quote	00000	
@@ -1003,7 +1003,7 @@
 2KI	1	8	messengers of Ahaziah	0737	
 2KI	1	9	captain, first	0509	
 2KI	10	13	Jehu, son of Nimshi	0249	
-2KI	10	13	Relatives of Ahaziah, king of Judah	0397	
+2KI	10	13	Relatives of Ahaziah, king of Judah	1397	
 2KI	10	14	Jehu, son of Nimshi	0249	
 2KI	10	15	Jehonadab, son of Recab	0246	
 2KI	10	15	Jehu, son of Nimshi	0249	
@@ -1026,8 +1026,8 @@
 2KI	11	14	Athaliah	0053	
 2KI	11	15	Jehoiada the priest	0245	
 2KI	11	5	Jehoiada the priest	0245	
-2KI	12	4	Joash, king of Judah	0267	
-2KI	12	7	Joash, king of Judah	0267	
+2KI	12	4	Joash, king of Judah	3267	
+2KI	12	7	Joash, king of Judah	3267	
 2KI	13	14	Jehoash, king of Israel	0244	
 2KI	13	15	Elisha	0118	
 2KI	13	16	Elisha	0118	
@@ -1128,7 +1128,7 @@
 2KI	3	13	Joram, king of Israel	0280	
 2KI	3	14	Elisha	0118	
 2KI	3	16	Elisha (the LORD says)	0118	
-2KI	3	23	Moabites	0340	
+2KI	3	23	Moabites	1340	
 2KI	3	7	Jehoshaphat, king of Judah	0247	
 2KI	3	7	Joram, king of Israel	0280	
 2KI	3	8	Jehoshaphat, king of Judah	0247	
@@ -1171,16 +1171,16 @@
 2KI	4	7	Elisha	0118	
 2KI	4	9	woman, Shunammite	1000	well-to-do
 2KI	5	10	Elisha's messenger	0119	
-2KI	5	11	Naaman	0345	
-2KI	5	13	Naaman's servants	0346	
-2KI	5	15	Naaman	0345	
+2KI	5	11	Naaman	1345	
+2KI	5	13	Naaman's servants	1346	
+2KI	5	15	Naaman	1345	
 2KI	5	16	Elisha	0118	
-2KI	5	17	Naaman	0345	
+2KI	5	17	Naaman	1345	
 2KI	5	19	Elisha	0118	
 2KI	5	20	Gehazi, servant of Elisha	0120	
-2KI	5	21	Naaman	0345	
+2KI	5	21	Naaman	1345	
 2KI	5	22	Gehazi, servant of Elisha	0120	
-2KI	5	23	Naaman	0345	
+2KI	5	23	Naaman	1345	
 2KI	5	25	Elisha	0118	
 2KI	5	25	Gehazi, servant of Elisha	0120	
 2KI	5	26	Elisha	0118	
@@ -1266,7 +1266,7 @@
 2KI	9	23	Joram, king of Israel	0280	
 2KI	9	25	Jehu, son of Nimshi	0249	
 2KI	9	27	Jehu, son of Nimshi	0249	
-2KI	9	31	Jezebel	0265	
+2KI	9	31	Jezebel	1265	
 2KI	9	32	Jehu, son of Nimshi	0249	
 2KI	9	33	Jehu, son of Nimshi	0249	
 2KI	9	34	Jehu, son of Nimshi	0249	
@@ -1322,7 +1322,7 @@
 2SA	12	11	Nathan, the prophet	0352	
 2SA	12	13	David, king	0093	
 2SA	12	13	Nathan, the prophet	0352	
-2SA	12	18	David's servants	0096	
+2SA	12	18	David's servants	1096	
 2SA	12	19	David, king	0093	
 2SA	12	19	servants of David	0906	
 2SA	12	21	servants of David	0906	
@@ -1417,7 +1417,7 @@
 2SA	17	20	Absalom's men	0011	
 2SA	17	20	woman	1004	
 2SA	17	21	Jonathan, son of Abiathar	0279	
-2SA	17	29	Barzillai/Shobi/Makir	0063	
+2SA	17	29	Barzillai/Shobi/Makir	1063	
 2SA	17	5	Absalom	0010	
 2SA	17	6	Absalom	0010	
 2SA	17	7	Hushai, David's friend	0189	
@@ -1463,7 +1463,7 @@
 2SA	19	29	David, king	0093	
 2SA	19	30	Mephibosheth	0333	
 2SA	19	33	David, king	0093	
-2SA	19	34	Barzillai	0063	
+2SA	19	34	Barzillai	1063	
 2SA	19	38	David, king	0093	
 2SA	19	4	David, king	0093	
 2SA	19	41	Israel, all the men of	0196	
@@ -1484,7 +1484,7 @@
 2SA	2	27	Joab	0266	
 2SA	2	5	David	0093	
 2SA	20	1	Sheba, son of Bicri	0425	troublemaker
-2SA	20	11	Joab's men, one of	0267	
+2SA	20	11	Joab's men, one of	1267	
 2SA	20	16	woman, wise	1003	
 2SA	20	17	Joab	0266	
 2SA	20	17	woman, wise	1003	
@@ -1559,7 +1559,7 @@
 2SA	23	5	David, king	0093	
 2SA	23	6	David, king	0093	
 2SA	23	7	David, king	0093	
-2SA	24	1	anger of the LORD	0486	
+2SA	24	1	anger of the LORD	1486	
 2SA	24	10	David, king	0093	
 2SA	24	12	God (the LORD)(word of the LORD came)	2000	
 2SA	24	13	Gad, the prophet, David's seer	0146	
@@ -1668,9 +1668,9 @@ ACT	11	10	Peter (Simon)	0371
 ACT	11	11	Peter (Simon)	0371	
 ACT	11	14	Peter (Simon)	0371	
 ACT	11	15	Peter (Simon)	0371	
-ACT	11	18	believers, circumcised |Jewish believer	0502	rejoicing
+ACT	11	18	believers, circumcised|Jewish believer	0502	rejoicing
 ACT	11	23	Barnabas	0061	
-ACT	11	28	Agabus the prophet	0021	
+ACT	11	28	Agabus the prophet	2021	
 ACT	11	3	believers, circumcised	0502	critical
 ACT	11	5	Peter (Simon)	0371	
 ACT	11	6	Peter (Simon)	0371	
@@ -1778,7 +1778,7 @@ ACT	18	28	Appolos	0039
 ACT	18	5	Paul	0062	
 ACT	18	6	Paul	0062	rebuking
 ACT	18	9	Jesus	0700	in a vision
-ACT	19	13	seven sons of Sceva	0905	over-dramatic
+ACT	19	13	seven sons of Sceva	1905	over-dramatic
 ACT	19	15	evil spirit	0591	
 ACT	19	2	disciples, some	0574	
 ACT	19	2	Paul	0062	to new believers
@@ -1791,10 +1791,10 @@ ACT	19	3	disciples, some	0574
 ACT	19	3	Paul	0062	
 ACT	19	31	officials, Ephesus	0785	
 ACT	19	34	craftsmen/workmen	0548	furiously shouting
-ACT	19	35	city clerk	0533	diplomatic
-ACT	19	39	city clerk	0533	diplomatic
+ACT	19	35	city clerk	1533	diplomatic
+ACT	19	39	city clerk	1533	diplomatic
 ACT	19	4	Paul	0062	
-ACT	19	40	city clerk	0533	
+ACT	19	40	city clerk	1533	
 ACT	2	11	Jews, God-fearing from every nation	0262	
 ACT	2	12	Jews, God-fearing from every nation	0265	amazed and perplexed
 ACT	2	13	Jews, God-fearing from every nation, some	0267	made fun of them
@@ -1832,7 +1832,7 @@ ACT	20	31	Paul	0062
 ACT	20	32	Paul	0062	
 ACT	20	33	Paul	0062	
 ACT	20	38	elders, Ephesian	0583	
-ACT	21	11	Agabus the prophet	0021	proclaim
+ACT	21	11	Agabus the prophet	2021	proclaim
 ACT	21	13	Paul	0062	sad
 ACT	21	14	Paul's travelling companions, Luke and	0369	resigned
 ACT	21	20	James/all the elders	0241	encouraging
@@ -1996,14 +1996,14 @@ ACT	4	16	high priests/men of their family/rulers, elders, teachers of the law|Go
 ACT	4	17	high priest	0622	worried but stern
 ACT	4	18	chief priests/their officials	0527	
 ACT	4	19	Peter (Simon)/John	0371	
-ACT	4	20	John	0272	
+ACT	4	20	John	1272	
 ACT	4	23	Peter (Simon)/John	0371	
-ACT	4	24	Peter (Simon)/John/own people	0372	
-ACT	4	25	Peter (Simon)/John/own people	0372	
-ACT	4	26	Peter (Simon)/John/own people	0372	
-ACT	4	27	Peter (Simon)/John/own people	0372	
-ACT	4	28	Peter (Simon)/John/own people	0372	
-ACT	4	29	Peter (Simon)/John/own people	0372	
+ACT	4	24	Peter (Simon)/John/own people	1372	
+ACT	4	25	Peter (Simon)/John/own people	1372	
+ACT	4	26	Peter (Simon)/John/own people	1372	
+ACT	4	27	Peter (Simon)/John/own people	1372	
+ACT	4	28	Peter (Simon)/John/own people	1372	
+ACT	4	29	Peter (Simon)/John/own people	1372	
 ACT	4	7	high priests/men of their family/rulers, teachers of the law	0622	
 ACT	4	8	Peter (Simon)	0371	
 ACT	5	20	angel of the LORD, an	0473	commanding
@@ -2081,7 +2081,7 @@ ACT	8	19	Simon practiced magic	0431
 ACT	8	20	Peter (Simon)	0371	
 ACT	8	24	Simon practiced magic	0431	
 ACT	8	26	angel of the LORD, an	0474	
-ACT	8	29	Spirit, the	0437	
+ACT	8	29	Spirit, the	0700	
 ACT	8	30	Philip (the evangelist)	0381	
 ACT	8	31	Ethiopian	0136	
 ACT	8	32	Ethiopian	0136	
@@ -2579,24 +2579,24 @@ EST	8	5	Esther, queen	0134
 EST	8	7	Xerxes, king of Persia and Media (Ahasuerus)	0450	
 EST	9	12	Xerxes, king of Persia and Media (Ahasuerus)	0450	
 EST	9	13	Esther, queen	0134	
-EXO	1	10	Pharoah (3rd)	0378	
-EXO	1	16	Pharoah (3rd)	0378	
-EXO	1	18	Pharoah (3rd)	0378	
+EXO	1	10	Pharoah (3rd)	1378	
+EXO	1	16	Pharoah (3rd)	1378	
+EXO	1	18	Pharoah (3rd)	1378	
 EXO	1	19	midwives, Shiphrah/Puah	0742	
-EXO	1	22	Pharoah (3rd)	0378	giving order
-EXO	1	9	Pharoah (3rd)	0378	
+EXO	1	22	Pharoah (3rd)	1378	giving order
+EXO	1	9	Pharoah (3rd)	1378	
 EXO	10	1	God (the LORD)	2000	
-EXO	10	10	Pharoah (3rd)	0378	
+EXO	10	10	Pharoah (3rd)	1378	
 EXO	10	12	God (the LORD)	2000	
-EXO	10	16	Pharoah (3rd)	0378	
+EXO	10	16	Pharoah (3rd)	1378	
 EXO	10	21	God (the LORD)	2000	
-EXO	10	24	Pharoah (3rd)	0378	
+EXO	10	24	Pharoah (3rd)	1378	
 EXO	10	25	Moses	0344	
-EXO	10	28	Pharoah (3rd)	0378	
+EXO	10	28	Pharoah (3rd)	1378	
 EXO	10	29	Moses	0344	
 EXO	10	3	Moses/Aaron|Aaron	0001	
 EXO	10	7	Pharoah's officials	0380	
-EXO	10	8	Pharoah (3rd)	0378	
+EXO	10	8	Pharoah (3rd)	1378	
 EXO	10	9	Moses	0344	
 EXO	11	1	God (the LORD)	2000	
 EXO	11	4	Moses	0344	
@@ -2607,7 +2607,7 @@ EXO	12	17	God (the LORD)	2000
 EXO	12	2	God (the LORD)	2000	
 EXO	12	21	Moses	0344	
 EXO	12	24	Moses	0344	
-EXO	12	31	Pharoah (3rd)	0378	
+EXO	12	31	Pharoah (3rd)	1378	
 EXO	12	33	Egyptians	0105	terrified
 EXO	12	43	God (the LORD)	2000	
 EXO	12	46	God (the LORD)	2000	
@@ -2625,7 +2625,7 @@ EXO	14	15	God (the LORD)	2000
 EXO	14	2	God (the LORD)	2000	
 EXO	14	25	Egyptians	0105	afraid
 EXO	14	26	God (the LORD)	2000	
-EXO	14	5	Pharoah (3rd)	0378	
+EXO	14	5	Pharoah (3rd)	1378	
 EXO	15	1	Moses/Israelites	0344	sang
 EXO	15	10	Moses/Israelites	0344	sang
 EXO	15	11	Moses/Israelites	0344	sang
@@ -2706,7 +2706,7 @@ EXO	20	14	God (the LORD)	2000
 EXO	20	15	God (the LORD)	2000	
 EXO	20	16	God (the LORD)	2000	
 EXO	20	17	God (the LORD)	2000	
-EXO	20	19	Israelite people |man	0204	fearful
+EXO	20	19	Israelite people|man	0204	fearful
 EXO	20	2	God (the LORD)	2000	
 EXO	20	20	Moses	0344	
 EXO	20	22	God (the LORD)	2000	
@@ -2933,15 +2933,15 @@ EXO	5	10	Slave driver	0434
 EXO	5	13	Slave driver	0434	
 EXO	5	14	Slave driver	0434	
 EXO	5	15	Israelite foreman	0204	
-EXO	5	17	Pharoah (3rd)	0378	
-EXO	5	19	Pharoah (3rd)	0378	
-EXO	5	2	Pharoah (3rd)	0378	
+EXO	5	17	Pharoah (3rd)	1378	
+EXO	5	19	Pharoah (3rd)	1378	
+EXO	5	2	Pharoah (3rd)	1378	
 EXO	5	21	Israelite foreman	0204	
 EXO	5	22	Moses	0344	
 EXO	5	3	Moses/Aaron|Aaron	0001	
-EXO	5	4	Pharoah (3rd)	0378	
-EXO	5	5	Pharoah (3rd)	0378	
-EXO	5	7	Pharoah (3rd)	0378	
+EXO	5	4	Pharoah (3rd)	1378	
+EXO	5	5	Pharoah (3rd)	1378	
+EXO	5	7	Pharoah (3rd)	1378	
 EXO	6	1	God (the LORD)	2000	
 EXO	6	11	God (the LORD)	2000	
 EXO	6	12	Moses	0344	
@@ -2958,22 +2958,22 @@ EXO	7	19	God (the LORD)	2000
 EXO	7	9	God (the LORD)	2000	
 EXO	8	1	God (the LORD)	2000	
 EXO	8	10	Moses	0344	
-EXO	8	10	Pharoah (3rd)	0378	
+EXO	8	10	Pharoah (3rd)	1378	
 EXO	8	16	God (the LORD)	2000	
 EXO	8	19	Magicians	0321	
 EXO	8	20	God (the LORD)	2000	
-EXO	8	25	Pharoah (3rd)	0378	
+EXO	8	25	Pharoah (3rd)	1378	
 EXO	8	26	Moses	0344	
-EXO	8	28	Pharoah (3rd)	0378	
+EXO	8	28	Pharoah (3rd)	1378	
 EXO	8	29	Moses	0344	
 EXO	8	5	God (the LORD)	2000	
-EXO	8	8	Pharoah (3rd)	0378	
+EXO	8	8	Pharoah (3rd)	1378	
 EXO	8	9	Moses	0344	
 EXO	9	1	God (the LORD)	2000	
 EXO	9	13	God (the LORD)	2000	
 EXO	9	17	God (the LORD)	2000	
 EXO	9	22	God (the LORD)	2000	
-EXO	9	27	Pharoah (3rd)	0378	
+EXO	9	27	Pharoah (3rd)	1378	
 EXO	9	29	Moses	0344	
 EXO	9	5	God (the LORD)	2000	
 EXO	9	8	God (the LORD)	2000	
@@ -3342,7 +3342,7 @@ GAL	3	6	scripture	0890
 GAL	3	8	scripture	0890	
 GAL	4	27	scripture	0890	
 GAL	4	30	scripture	0890	
-GAL	4	6	Spirit, the	0437	
+GAL	4	6	Spirit, the	0700	
 GAL	5	14	scripture	0890	
 GAL	5	3	Not A Quote	00000	
 GAL	5	9	saying about yeast	0884	
@@ -3368,7 +3368,7 @@ GEN	11	4	man of Babel, 2nd	0666
 GEN	11	6	God (LORD came down to see)	2000	
 GEN	12	1	God (the LORD)	2000	
 GEN	12	11	Abram (Abraham)	0007	
-GEN	12	18	Pharoah (1st)	0378	
+GEN	12	18	Pharoah (1st)	1378	
 GEN	12	2	God (the LORD)	2000	
 GEN	12	3	God (the LORD)	2000	
 GEN	12	7	God (LORD appeared)	2000	
@@ -3484,7 +3484,7 @@ GEN	22	2	God (the LORD)	2000
 GEN	22	20	messenger to Abraham	0727	
 GEN	22	5	Abraham	0007	
 GEN	22	7	Abraham	0007	
-GEN	22	7	Isaac	0192	
+GEN	22	7	Isaac	0191	
 GEN	22	8	Abraham	0007	
 GEN	23	11	Ephron the Hittite	0131	
 GEN	23	13	Abraham	0007	
@@ -3529,26 +3529,26 @@ GEN	24	65	Rebekah	0393
 GEN	24	7	Abraham	0007	
 GEN	25	22	Rebekah	0393	
 GEN	25	23	God (the LORD)	2000	
-GEN	25	30	Esau	0133	
+GEN	25	30	Esau	2133	
 GEN	25	31	Jacob	0232	
-GEN	25	32	Esau	0133	
+GEN	25	32	Esau	2133	
 GEN	25	33	Jacob	0232	
 GEN	26	10	Abimelech, King of Philistines	0004	
 GEN	26	11	Abimelech, King of Philistines	0004	
 GEN	26	16	Abimelech, King of Philistines	0004	
 GEN	26	2	God (LORD appeared)	2000	
 GEN	26	20	herdsman	0620	
-GEN	26	22	Isaac	0192	
+GEN	26	22	Isaac	0191	
 GEN	26	24	God (LORD appeared at night)	2000	
-GEN	26	27	Isaac	0192	
+GEN	26	27	Isaac	0191	
 GEN	26	28	Abimelech, King of Philistines	0004	
 GEN	26	32	servants (Isaac's)	0904	
-GEN	26	7	Isaac	0192	
+GEN	26	7	Isaac	0191	
 GEN	26	7	Isaac	0191	thought
 GEN	26	7	Not A Quote	00000	
 GEN	26	9	Abimelech, King of Philistines	0004	
-GEN	26	9	Isaac	0192	
-GEN	27	1	Esau	0133	
+GEN	26	9	Isaac	0191	
+GEN	27	1	Esau	2133	
 GEN	27	1	Isaac, old	0192	
 GEN	27	11	Jacob	0232	
 GEN	27	13	Rebekah	0393	
@@ -3564,20 +3564,20 @@ GEN	27	24	Jacob	0232
 GEN	27	25	Isaac, old	0192	
 GEN	27	26	Isaac, old	0192	
 GEN	27	27	Isaac, old	0192	
-GEN	27	28	Isaac	0192	
+GEN	27	28	Isaac	0191	
 GEN	27	29	Isaac, old	0192	
-GEN	27	31	Esau	0133	
-GEN	27	32	Esau	0133	
+GEN	27	31	Esau	2133	
+GEN	27	32	Esau	2133	
 GEN	27	32	Isaac, old	0192	
 GEN	27	33	Isaac, old	0192	
-GEN	27	34	Esau	0133	
+GEN	27	34	Esau	2133	
 GEN	27	35	Isaac, old	0192	
-GEN	27	36	Esau	0133	
+GEN	27	36	Esau	2133	
 GEN	27	37	Isaac, old	0192	
-GEN	27	38	Esau	0133	
+GEN	27	38	Esau	2133	
 GEN	27	39	Isaac, old	0192	
 GEN	27	40	Isaac, old	0192	
-GEN	27	41	Esau	0133	
+GEN	27	41	Esau	2133	
 GEN	27	42	Rebekah	0393	
 GEN	27	46	Rebekah	0393	
 GEN	27	6	Rebekah	0393	
@@ -3645,7 +3645,7 @@ GEN	30	31	Laban	0305
 GEN	30	34	Laban	0305	
 GEN	30	6	Rachel	0391	
 GEN	30	8	Rachel	0391	
-GEN	31	1	Laban's sons	0306	
+GEN	31	1	Laban's sons	1306	
 GEN	31	10	Jacob	0232	
 GEN	31	14	Rachel/Leah	0309	
 GEN	31	24	God (LORD came in dream at night)	2000	
@@ -3685,12 +3685,12 @@ GEN	32	6	messengers of Jacob	0739
 GEN	32	8	Jacob (thought)	0232	
 GEN	32	9	Jacob (prayed)	0232	
 GEN	33	10	Jacob	0232	
-GEN	33	12	Esau	0133	
+GEN	33	12	Esau	2133	
 GEN	33	13	Jacob	0232	
 GEN	33	15	Jacob	0232	
 GEN	33	5	Jacob	0232	
 GEN	33	8	Jacob	0232	
-GEN	33	9	Esau	0133	
+GEN	33	9	Esau	2133	
 GEN	34	11	Shechem|son of Shechem	0427	
 GEN	34	14	Jacob's sons|Simeon	0237	
 GEN	34	21	Hamor/Shechem|Hamor-father	0164	
@@ -3764,21 +3764,21 @@ GEN	40	7	Joseph	0282
 GEN	40	8	chief cupbearer/chief baker	0518	
 GEN	40	8	Joseph	0282	
 GEN	40	9	chief cupbearer/chief baker	0518	
-GEN	41	15	Pharoah (2nd)	0378	
+GEN	41	15	Pharoah (2nd)	1378	
 GEN	41	16	Joseph	0282	
-GEN	41	17	Pharoah (2nd)	0378	
-GEN	41	22	Pharoah (2nd)	0378	
+GEN	41	17	Pharoah (2nd)	1378	
+GEN	41	22	Pharoah (2nd)	1378	
 GEN	41	25	Joseph	0282	
 GEN	41	28	Joseph	0282	
 GEN	41	33	Joseph	0282	
-GEN	41	38	Pharoah (2nd)	0378	
-GEN	41	39	Pharoah (2nd)	0378	
-GEN	41	41	Pharoah (2nd)	0378	
+GEN	41	38	Pharoah (2nd)	1378	
+GEN	41	39	Pharoah (2nd)	1378	
+GEN	41	41	Pharoah (2nd)	1378	
 GEN	41	43	men of Pharoah|messenger of Pharoah	0708	
-GEN	41	44	Pharoah (2nd)	0378	
+GEN	41	44	Pharoah (2nd)	1378	
 GEN	41	51	Joseph	0282	
 GEN	41	52	Joseph	0282	
-GEN	41	55	Pharoah (2nd)	0378	
+GEN	41	55	Pharoah (2nd)	1378	
 GEN	41	9	chief cupbearer	0518	
 GEN	42	1	Jacob	0232	
 GEN	42	10	Jacob's sons|Judah	0233	
@@ -3831,9 +3831,9 @@ GEN	44	4	Joseph	0282
 GEN	44	7	Jacob's sons|Reuben	0234	
 GEN	45	1	Joseph	0282	
 GEN	45	12	Joseph	0282	
-GEN	45	17	Pharoah (2nd)	0378	
-GEN	45	18	Pharoah (2nd)	0378	
-GEN	45	19	Pharoah (2nd)	0378	
+GEN	45	17	Pharoah (2nd)	1378	
+GEN	45	18	Pharoah (2nd)	1378	
+GEN	45	19	Pharoah (2nd)	1378	
 GEN	45	24	Joseph	0282	
 GEN	45	26	Jacob's sons|Reuben	0234	
 GEN	45	28	Jacob	0232	
@@ -3856,8 +3856,8 @@ GEN	47	3	Jacob's sons	0234
 GEN	47	30	Joseph	0282	
 GEN	47	31	Jacob	0232	
 GEN	47	4	Jacob's sons	0234	
-GEN	47	5	Pharoah (2nd)	0378	
-GEN	47	8	Pharoah (2nd)	0378	
+GEN	47	5	Pharoah (2nd)	1378	
+GEN	47	8	Pharoah (2nd)	1378	
 GEN	47	9	Jacob	0232	
 GEN	48	1	news giver to Joseph	0770	
 GEN	48	11	Jacob	0232	
@@ -3913,7 +3913,7 @@ GEN	50	2	Joseph	0282
 GEN	50	24	Joseph	0282	
 GEN	50	25	Joseph	0282	
 GEN	50	4	Joseph	0282	
-GEN	50	6	Pharoah (2nd)	0378	
+GEN	50	6	Pharoah (2nd)	1378	
 GEN	6	13	God (the LORD)	2000	
 GEN	6	14	God (the LORD)	2000	
 GEN	6	15	God (the LORD)	2000	
@@ -4268,9 +4268,9 @@ ISA	14	32	Not A Quote	00000
 ISA	14	8	Not A Quote	00000	
 ISA	14	8	pine trees/cedars of Lebanon	0846	
 ISA	16	14	God (the LORD)	2000	
-ISA	16	3	Moabites	0340	
+ISA	16	3	Moabites	1340	
 ISA	16	3	Moabites (female)	0342	
-ISA	16	4	Moabites	0340	
+ISA	16	4	Moabites	1340	
 ISA	16	4	Moabites (female)	0342	
 ISA	16	4	Not A Quote	00000	
 ISA	17	1	God (the LORD Almighty)	2000	
@@ -4319,7 +4319,7 @@ ISA	23	4	Not A Quote	00000
 ISA	23	4	sea, the	0892	
 ISA	24	16	Isaiah, the prophet	0193	
 ISA	24	16	Not A Quote	00000	
-ISA	24	16	singers from the ends of the earth	0908	
+ISA	24	16	singers from the ends of the earth	2908	
 ISA	25	9	Not A Quote	00000	
 ISA	25	9	people, God's	0817	
 ISA	27	2	God (the LORD)	2000	
@@ -4842,7 +4842,7 @@ ISA	66	9	God (the LORD)	2000
 ISA	7	11	God (the LORD)	2000	
 ISA	7	12	Ahaz, king of Judah	0024	
 ISA	7	13	Isaiah, the prophet	0193	
-ISA	7	2	messenger	0733	
+ISA	7	2	messenger	1733	
 ISA	7	3	God (the LORD)	2000	
 ISA	7	7	God (The Sovereign LORD)	2000	
 ISA	8	1	God (the LORD)	2000	
@@ -4954,18 +4954,18 @@ JDG	15	3	Samson	0404
 JDG	15	6	informer	0634	
 JDG	15	6	Philistines	0384	
 JDG	15	7	Samson	0404	
-JDG	16	10	Delilah	0095	
+JDG	16	10	Delilah	1095	
 JDG	16	11	Samson	0404	
-JDG	16	12	Delilah	0095	
-JDG	16	13	Delilah	0095	
+JDG	16	12	Delilah	1095	
+JDG	16	13	Delilah	1095	
 JDG	16	13	Samson	0404	
-JDG	16	14	Delilah	0095	
-JDG	16	15	Delilah	0095	
+JDG	16	14	Delilah	1095	
+JDG	16	15	Delilah	1095	
 JDG	16	17	Samson	0404	
-JDG	16	18	Delilah	0095	
+JDG	16	18	Delilah	1095	
 JDG	16	2	informer	0634	
 JDG	16	2	townsmen (wicked)	0959	
-JDG	16	20	Delilah	0095	
+JDG	16	20	Delilah	1095	
 JDG	16	20	Samson	0404	
 JDG	16	23	Philistines, rulers of	0385	
 JDG	16	24	Philistines	0384	
@@ -4974,9 +4974,9 @@ JDG	16	26	Samson	0404
 JDG	16	28	Samson	0404	
 JDG	16	30	Samson	0404	
 JDG	16	5	Philistines, rulers of	0385	
-JDG	16	6	Delilah	0095	
+JDG	16	6	Delilah	1095	
 JDG	16	7	Samson	0404	
-JDG	16	9	Delilah	0095	
+JDG	16	9	Delilah	1095	
 JDG	17	10	Micah	0334	
 JDG	17	13	Micah	0334	
 JDG	17	2	Micah	0334	
@@ -5021,9 +5021,9 @@ JDG	20	23	Israelites	0214	weeping
 JDG	20	28	God (the LORD)	2000	
 JDG	20	28	Israelites	0214	weeping
 JDG	20	3	Israelites	0213	
-JDG	20	32	Benjamites	0068	
+JDG	20	32	Benjamites	1068	
 JDG	20	32	Israelites	0213	
-JDG	20	39	Benjamites	0068	
+JDG	20	39	Benjamites	1068	
 JDG	20	4	concubine's husband	0543	
 JDG	20	8	Israelites, all	0217	
 JDG	21	1	Israel, men of	0201	
@@ -5041,45 +5041,45 @@ JDG	3	19	Ehud	0106
 JDG	3	20	Ehud	0106	
 JDG	3	24	servants of Eglon, king of Moab	0907	
 JDG	3	28	Ehud	0106	
-JDG	4	14	Deborah	0094	
+JDG	4	14	Deborah	1094	
 JDG	4	18	Jael	0238	
 JDG	4	19	Sisera	0432	
 JDG	4	20	Sisera	0432	
 JDG	4	22	Jael	0238	
-JDG	4	6	Deborah	0094	
+JDG	4	6	Deborah	1094	
 JDG	4	8	Barak	0060	
-JDG	4	9	Deborah	0094	
-JDG	5	10	Deborah/Barak	0094	
-JDG	5	11	Deborah/Barak	0094	
-JDG	5	12	Deborah/Barak	0094	
-JDG	5	13	Deborah/Barak	0094	
-JDG	5	14	Deborah/Barak	0094	
-JDG	5	15	Deborah/Barak	0094	
-JDG	5	16	Deborah/Barak	0094	
-JDG	5	17	Deborah/Barak	0094	
-JDG	5	18	Deborah/Barak	0094	
-JDG	5	19	Deborah/Barak	0094	
-JDG	5	2	Deborah/Barak	0094	
-JDG	5	20	Deborah/Barak	0094	
-JDG	5	21	Deborah/Barak	0094	
-JDG	5	22	Deborah/Barak	0094	
-JDG	5	23	Deborah/Barak	0094	
-JDG	5	24	Deborah/Barak	0094	
-JDG	5	25	Deborah/Barak	0094	
-JDG	5	26	Deborah/Barak	0094	
-JDG	5	27	Deborah/Barak	0094	
-JDG	5	28	Deborah/Barak	0094	
-JDG	5	29	Deborah/Barak	0094	
-JDG	5	3	Deborah/Barak	0094	
-JDG	5	30	Deborah/Barak	0094	
+JDG	4	9	Deborah	1094	
+JDG	5	10	Deborah/Barak	1094	
+JDG	5	11	Deborah/Barak	1094	
+JDG	5	12	Deborah/Barak	1094	
+JDG	5	13	Deborah/Barak	1094	
+JDG	5	14	Deborah/Barak	1094	
+JDG	5	15	Deborah/Barak	1094	
+JDG	5	16	Deborah/Barak	1094	
+JDG	5	17	Deborah/Barak	1094	
+JDG	5	18	Deborah/Barak	1094	
+JDG	5	19	Deborah/Barak	1094	
+JDG	5	2	Deborah/Barak	1094	
+JDG	5	20	Deborah/Barak	1094	
+JDG	5	21	Deborah/Barak	1094	
+JDG	5	22	Deborah/Barak	1094	
+JDG	5	23	Deborah/Barak	1094	
+JDG	5	24	Deborah/Barak	1094	
+JDG	5	25	Deborah/Barak	1094	
+JDG	5	26	Deborah/Barak	1094	
+JDG	5	27	Deborah/Barak	1094	
+JDG	5	28	Deborah/Barak	1094	
+JDG	5	29	Deborah/Barak	1094	
+JDG	5	3	Deborah/Barak	1094	
+JDG	5	30	Deborah/Barak	1094	
 JDG	5	30	Sisera's mother	0433	
-JDG	5	31	Deborah/Barak	0094	
-JDG	5	4	Deborah/Barak	0094	
-JDG	5	5	Deborah/Barak	0094	
-JDG	5	6	Deborah/Barak	0094	
-JDG	5	7	Deborah/Barak	0094	
-JDG	5	8	Deborah/Barak	0094	
-JDG	5	9	Deborah/Barak	0094	
+JDG	5	31	Deborah/Barak	1094	
+JDG	5	4	Deborah/Barak	1094	
+JDG	5	5	Deborah/Barak	1094	
+JDG	5	6	Deborah/Barak	1094	
+JDG	5	7	Deborah/Barak	1094	
+JDG	5	8	Deborah/Barak	1094	
+JDG	5	9	Deborah/Barak	1094	
 JDG	6	12	angel of the LORD, the	0700	
 JDG	6	13	Gideon	0154	
 JDG	6	14	God (the LORD)	2000	
@@ -5094,7 +5094,7 @@ JDG	6	25	God (the LORD)	2000
 JDG	6	29	person	0845	
 JDG	6	29	townsmen	0960	
 JDG	6	30	townsmen	0960	
-JDG	6	31	Joash, father of Gideon	0267	
+JDG	6	31	Joash, father of Gideon	2267	
 JDG	6	32	townsmen	0960	
 JDG	6	36	Gideon	0154	
 JDG	6	39	Gideon	0154	
@@ -5136,7 +5136,7 @@ JDG	9	16	Jotham	0288
 JDG	9	19	Jotham	0288	
 JDG	9	2	Abimelech, Gideon's son	0004	
 JDG	9	28	Gaal, son of Ebed	0144	
-JDG	9	3	citizens of Shechem	0532	
+JDG	9	3	citizens of Shechem	1532	
 JDG	9	31	Zebul, governor of Shechem	0453	
 JDG	9	36	Gaal, son of Ebed	0144	
 JDG	9	36	Zebul, governor of Shechem	0453	
@@ -5365,17 +5365,17 @@ JER	25	9	God (the LORD)(word of the LORD came)	2000
 JER	26	11	priests/prophets	0848	
 JER	26	12	Jeremiah, the prophet	0256	
 JER	26	16	officials/all the people	0788	
-JER	26	18	elders of the land	0582	
-JER	26	19	elders of the land	0582	
+JER	26	18	elders of the land	1582	
+JER	26	19	elders of the land	1582	
 JER	26	2	God (the LORD)(word of the LORD came)	2000	
 JER	26	8	priests/prophets/all the people	0848	
 JER	27	12	Jeremiah, the prophet (the LORD says)	0256	
 JER	27	16	Jeremiah, the prophet (the LORD says)	0256	
 JER	27	2	God (the LORD)(word of the LORD came)	2000	
-JER	28	11	Hananiah, false prophet	0165	
+JER	28	11	Hananiah, false prophet	1165	
 JER	28	13	God (the LORD)(word of the LORD came)	2000	
 JER	28	15	Jeremiah, the prophet (the LORD says)	0256	
-JER	28	2	Hananiah, false prophet	0165	
+JER	28	2	Hananiah, false prophet	1165	
 JER	28	6	Jeremiah, the prophet	0256	
 JER	29	10	Jeremiah, the prophet (the LORD says)	0256	letter
 JER	29	11	Jeremiah, the prophet (the LORD says)	0256	letter
@@ -5531,8 +5531,8 @@ JER	4	4	God (the LORD)	2000
 JER	4	5	God (the LORD)	2000	
 JER	4	6	God (the LORD)	2000	
 JER	4	9	God (the LORD)	2000	
-JER	40	14	Johanan/all the army officers	0271	
-JER	40	15	Johanan	0270	
+JER	40	14	Johanan/all the army officers	2271	
+JER	40	15	Johanan	2271	
 JER	40	16	Gedaliah, governor of Judah	0151	
 JER	40	2	Nebuzaradan, commander for king of Babylon	0357	
 JER	40	5	Nebuzaradan, commander for king of Babylon	0357	
@@ -5541,11 +5541,11 @@ JER	41	6	Ishmael, son of Nethaniah (murderer)	0195
 JER	41	8	men in mourning, ten of eighty	0698	
 JER	42	13	Jeremiah, the prophet (word of the LORD came)	0256	
 JER	42	19	Jeremiah, the prophet (word of the LORD came)	0256	
-JER	42	2	Johanan/all the army officers/all the people	0271	
+JER	42	2	Johanan/all the army officers/all the people	2271	
 JER	42	4	Jeremiah, the prophet	0256	
-JER	42	5	Johanan/all the army officers/all the people	0271	
+JER	42	5	Johanan/all the army officers/all the people	2271	
 JER	42	9	Jeremiah, the prophet (word of the LORD came)	0256	
-JER	43	2	Johanan/Azariah/arrogant men	0271	
+JER	43	2	Johanan/Azariah/arrogant men	2271	
 JER	43	9	God (the LORD)(word of the LORD came)	2000	
 JER	44	11	God (the LORD)(word of the LORD came)	2000	
 JER	44	16	idolators from Judah (men)	0632	
@@ -5879,19 +5879,19 @@ JER	9	6	God (the LORD)	2000
 JER	9	7	God (the LORD Almighty)	2000	
 JER	9	8	God (the LORD Almighty)	2000	
 JER	9	9	God (the LORD Almighty)	2000	
-JHN	1	15	John the Baptist	0273	
+JHN	1	15	John the Baptist	1273	
 JHN	1	19	priests/Levites from Jews	0848	
-JHN	1	20	John the Baptist	0273	
-JHN	1	21	John the Baptist	0273	
+JHN	1	20	John the Baptist	1273	
+JHN	1	21	John the Baptist	1273	
 JHN	1	21	priests/Levites from Jews	0848	
 JHN	1	22	priests/Levites from Jews	0848	
-JHN	1	23	John the Baptist	0273	
+JHN	1	23	John the Baptist	1273	
 JHN	1	25	Pharisees sent from Jews	0377	
-JHN	1	26	John the Baptist	0273	
-JHN	1	29	John the Baptist	0273	
-JHN	1	32	John the Baptist	0273	
-JHN	1	34	John the Baptist	0273	
-JHN	1	36	John the Baptist	0273	
+JHN	1	26	John the Baptist	1273	
+JHN	1	29	John the Baptist	1273	
+JHN	1	32	John the Baptist	1273	
+JHN	1	34	John the Baptist	1273	
+JHN	1	36	John the Baptist	1273	
 JHN	1	38	disciples of John Baptist, two	0575	curious
 JHN	1	38	Jesus	0700	questioning
 JHN	1	39	Jesus	0700	
@@ -5995,7 +5995,7 @@ JHN	13	18	Jesus	0700
 JHN	13	19	Jesus	0700	
 JHN	13	21	Jesus	0700	
 JHN	13	24	Peter (Simon)	0371	stage whisper
-JHN	13	25	John (disciple whom Jesus loved)	0272	sad
+JHN	13	25	John (disciple whom Jesus loved)	1272	sad
 JHN	13	26	Jesus	0700	
 JHN	13	27	Jesus	0700	giving orders
 JHN	13	29	Jesus	0700	
@@ -6123,7 +6123,7 @@ JHN	19	12	Jews, the	0262
 JHN	19	14	Pilate	0387	to crowd
 JHN	19	15	chief priests	0521	intimidating
 JHN	19	15	Pilate	0387	to crowd
-JHN	19	19	sign on the cross	0907	
+JHN	19	19	sign on the cross	2907	
 JHN	19	21	chief priests/Sanhedrin=chief priests/whole Sanhedrin	0526	protest
 JHN	19	22	Pilate	0387	impatient
 JHN	19	24	scripture	0890	
@@ -6183,7 +6183,7 @@ JHN	21	17	Not A Quote	00000
 JHN	21	17	Peter (Simon)	0371	perplexed
 JHN	21	18	Jesus	0700	
 JHN	21	19	Jesus	0700	inviting
-JHN	21	20	John saying Lord who is going to betray you	0272	
+JHN	21	20	John saying Lord who is going to betray you	1272	
 JHN	21	20	Not A Quote	00000	
 JHN	21	20	Peter (Simon)	0371	
 JHN	21	21	Peter (Simon)	0371	defensive
@@ -6194,7 +6194,7 @@ JHN	21	3	Thomas/Nathaniel/James/John/2 disciples	0447
 JHN	21	5	disciples, His|John	0578	calling out
 JHN	21	5	Jesus	0700	questioning
 JHN	21	6	Jesus	0700	
-JHN	21	7	John	0272	amazed
+JHN	21	7	John	1272	amazed
 JHN	21	7	Not A Quote	00000	
 JHN	3	10	Jesus	0700	questioning
 JHN	3	11	Jesus	0700	
@@ -6209,15 +6209,15 @@ JHN	3	2	Nicodemus	0360
 JHN	3	20	Jesus	0700	
 JHN	3	21	Jesus	0700	
 JHN	3	26	disciples, John Baptists/Jew, a certain	0581	concerned
-JHN	3	27	John the Baptist	0273	
-JHN	3	28	John the Baptist	0273	
+JHN	3	27	John the Baptist	1273	
+JHN	3	28	John the Baptist	1273	
 JHN	3	29	Jesus	0700	
 JHN	3	3	Jesus	0700	
-JHN	3	31	John the Baptist	0273	
-JHN	3	32	John the Baptist	0273	
-JHN	3	34	John the Baptist	0273	
-JHN	3	35	John the Baptist	0273	
-JHN	3	36	John the Baptist	0273	
+JHN	3	31	John the Baptist	1273	
+JHN	3	32	John the Baptist	1273	
+JHN	3	34	John the Baptist	1273	
+JHN	3	35	John the Baptist	1273	
+JHN	3	36	John the Baptist	1273	
 JHN	3	4	Nicodemus	0360	
 JHN	3	5	Jesus	0700	
 JHN	3	7	Jesus	0700	
@@ -6340,14 +6340,14 @@ JHN	7	25	people, some, in Jerusalem	0833	arguing
 JHN	7	26	people, some, in Jerusalem	0833	arguing
 JHN	7	27	people, some, in Jerusalem	0834	arguing
 JHN	7	28	Jesus	0700	
-JHN	7	3	Jesus' brothers	0258	challenging
+JHN	7	3	Jesus' brothers	2258	challenging
 JHN	7	31	crowd, many in the	0565	
 JHN	7	33	Jesus	0700	
 JHN	7	35	Jews, the	0377	
 JHN	7	36	Jews, the	0262	grumbling
 JHN	7	37	Jesus	0700	
 JHN	7	37-38	Jesus	0700	
-JHN	7	4	Jesus' brothers	0258	
+JHN	7	4	Jesus' brothers	2258	
 JHN	7	40	people, some of the	0832	
 JHN	7	41	people, others	0829	
 JHN	7	41	people, still other	0837	
@@ -6431,34 +6431,34 @@ JOB	1	14	messenger, a	0732
 JOB	1	16	messenger, another	0733	
 JOB	1	17	messenger, still another	0734	
 JOB	1	18	messenger, yet another	0735	
-JOB	1	21	Job, the man	0269	
-JOB	1	5	Job, the man	0269	thinking
+JOB	1	21	Job, the man	1269	
+JOB	1	5	Job, the man	1269	thinking
 JOB	1	7	God (the LORD)	2000	
 JOB	1	7	Satan	0800	
 JOB	1	8	God (the LORD)	2000	
 JOB	1	9	Satan	0800	
-JOB	10	1	Job, the man	0269	
-JOB	10	10	Job, the man	0269	
-JOB	10	11	Job, the man	0269	
-JOB	10	12	Job, the man	0269	
-JOB	10	13	Job, the man	0269	
-JOB	10	14	Job, the man	0269	
-JOB	10	15	Job, the man	0269	
-JOB	10	16	Job, the man	0269	
-JOB	10	17	Job, the man	0269	
-JOB	10	18	Job, the man	0269	
-JOB	10	19	Job, the man	0269	
-JOB	10	2	Job, the man	0269	
-JOB	10	20	Job, the man	0269	
-JOB	10	21	Job, the man	0269	
-JOB	10	22	Job, the man	0269	
-JOB	10	3	Job, the man	0269	
-JOB	10	4	Job, the man	0269	
-JOB	10	5	Job, the man	0269	
-JOB	10	6	Job, the man	0269	
-JOB	10	7	Job, the man	0269	
-JOB	10	8	Job, the man	0269	
-JOB	10	9	Job, the man	0269	
+JOB	10	1	Job, the man	1269	
+JOB	10	10	Job, the man	1269	
+JOB	10	11	Job, the man	1269	
+JOB	10	12	Job, the man	1269	
+JOB	10	13	Job, the man	1269	
+JOB	10	14	Job, the man	1269	
+JOB	10	15	Job, the man	1269	
+JOB	10	16	Job, the man	1269	
+JOB	10	17	Job, the man	1269	
+JOB	10	18	Job, the man	1269	
+JOB	10	19	Job, the man	1269	
+JOB	10	2	Job, the man	1269	
+JOB	10	20	Job, the man	1269	
+JOB	10	21	Job, the man	1269	
+JOB	10	22	Job, the man	1269	
+JOB	10	3	Job, the man	1269	
+JOB	10	4	Job, the man	1269	
+JOB	10	5	Job, the man	1269	
+JOB	10	6	Job, the man	1269	
+JOB	10	7	Job, the man	1269	
+JOB	10	8	Job, the man	1269	
+JOB	10	9	Job, the man	1269	
 JOB	11	10	Zophar the Naamathite	0463	
 JOB	11	11	Zophar the Naamathite	0463	
 JOB	11	12	Zophar the Naamathite	0463	
@@ -6478,80 +6478,80 @@ JOB	11	6	Zophar the Naamathite	0463
 JOB	11	7	Zophar the Naamathite	0463	
 JOB	11	8	Zophar the Naamathite	0463	
 JOB	11	9	Zophar the Naamathite	0463	
-JOB	12	10	Job, the man	0269	
-JOB	12	11	Job, the man	0269	
-JOB	12	12	Job, the man	0269	
-JOB	12	13	Job, the man	0269	
-JOB	12	14	Job, the man	0269	
-JOB	12	15	Job, the man	0269	
-JOB	12	16	Job, the man	0269	
-JOB	12	17	Job, the man	0269	
-JOB	12	18	Job, the man	0269	
-JOB	12	19	Job, the man	0269	
-JOB	12	2	Job, the man	0269	
-JOB	12	20	Job, the man	0269	
-JOB	12	21	Job, the man	0269	
-JOB	12	22	Job, the man	0269	
-JOB	12	23	Job, the man	0269	
-JOB	12	24	Job, the man	0269	
-JOB	12	25	Job, the man	0269	
-JOB	12	3	Job, the man	0269	
-JOB	12	4	Job, the man	0269	
-JOB	12	5	Job, the man	0269	
-JOB	12	6	Job, the man	0269	
-JOB	12	7	Job, the man	0269	
-JOB	12	8	Job, the man	0269	
-JOB	12	9	Job, the man	0269	
-JOB	13	1	Job, the man	0269	
-JOB	13	10	Job, the man	0269	
-JOB	13	11	Job, the man	0269	
-JOB	13	12	Job, the man	0269	
-JOB	13	13	Job, the man	0269	
-JOB	13	14	Job, the man	0269	
-JOB	13	15	Job, the man	0269	
-JOB	13	16	Job, the man	0269	
-JOB	13	17	Job, the man	0269	
-JOB	13	18	Job, the man	0269	
-JOB	13	19	Job, the man	0269	
-JOB	13	2	Job, the man	0269	
-JOB	13	20	Job, the man	0269	
-JOB	13	21	Job, the man	0269	
-JOB	13	22	Job, the man	0269	
-JOB	13	23	Job, the man	0269	
-JOB	13	24	Job, the man	0269	
-JOB	13	25	Job, the man	0269	
-JOB	13	26	Job, the man	0269	
-JOB	13	27	Job, the man	0269	
-JOB	13	28	Job, the man	0269	
-JOB	13	3	Job, the man	0269	
-JOB	13	4	Job, the man	0269	
-JOB	13	5	Job, the man	0269	
-JOB	13	6	Job, the man	0269	
-JOB	13	7	Job, the man	0269	
-JOB	13	8	Job, the man	0269	
-JOB	13	9	Job, the man	0269	
-JOB	14	1	Job, the man	0269	
-JOB	14	10	Job, the man	0269	
-JOB	14	11	Job, the man	0269	
-JOB	14	12	Job, the man	0269	
-JOB	14	13	Job, the man	0269	
-JOB	14	14	Job, the man	0269	
-JOB	14	15	Job, the man	0269	
-JOB	14	16	Job, the man	0269	
-JOB	14	17	Job, the man	0269	
-JOB	14	18	Job, the man	0269	
-JOB	14	19	Job, the man	0269	
-JOB	14	2	Job, the man	0269	
-JOB	14	20	Job, the man	0269	
-JOB	14	21	Job, the man	0269	
-JOB	14	22	Job, the man	0269	
-JOB	14	3	Job, the man	0269	
-JOB	14	4	Job, the man	0269	
-JOB	14	5	Job, the man	0269	
-JOB	14	6	Job, the man	0269	
-JOB	14	7	Job, the man	0269	
-JOB	14	8	Job, the man	0269	
-JOB	14	9	Job, the man	0269	
+JOB	12	10	Job, the man	1269	
+JOB	12	11	Job, the man	1269	
+JOB	12	12	Job, the man	1269	
+JOB	12	13	Job, the man	1269	
+JOB	12	14	Job, the man	1269	
+JOB	12	15	Job, the man	1269	
+JOB	12	16	Job, the man	1269	
+JOB	12	17	Job, the man	1269	
+JOB	12	18	Job, the man	1269	
+JOB	12	19	Job, the man	1269	
+JOB	12	2	Job, the man	1269	
+JOB	12	20	Job, the man	1269	
+JOB	12	21	Job, the man	1269	
+JOB	12	22	Job, the man	1269	
+JOB	12	23	Job, the man	1269	
+JOB	12	24	Job, the man	1269	
+JOB	12	25	Job, the man	1269	
+JOB	12	3	Job, the man	1269	
+JOB	12	4	Job, the man	1269	
+JOB	12	5	Job, the man	1269	
+JOB	12	6	Job, the man	1269	
+JOB	12	7	Job, the man	1269	
+JOB	12	8	Job, the man	1269	
+JOB	12	9	Job, the man	1269	
+JOB	13	1	Job, the man	1269	
+JOB	13	10	Job, the man	1269	
+JOB	13	11	Job, the man	1269	
+JOB	13	12	Job, the man	1269	
+JOB	13	13	Job, the man	1269	
+JOB	13	14	Job, the man	1269	
+JOB	13	15	Job, the man	1269	
+JOB	13	16	Job, the man	1269	
+JOB	13	17	Job, the man	1269	
+JOB	13	18	Job, the man	1269	
+JOB	13	19	Job, the man	1269	
+JOB	13	2	Job, the man	1269	
+JOB	13	20	Job, the man	1269	
+JOB	13	21	Job, the man	1269	
+JOB	13	22	Job, the man	1269	
+JOB	13	23	Job, the man	1269	
+JOB	13	24	Job, the man	1269	
+JOB	13	25	Job, the man	1269	
+JOB	13	26	Job, the man	1269	
+JOB	13	27	Job, the man	1269	
+JOB	13	28	Job, the man	1269	
+JOB	13	3	Job, the man	1269	
+JOB	13	4	Job, the man	1269	
+JOB	13	5	Job, the man	1269	
+JOB	13	6	Job, the man	1269	
+JOB	13	7	Job, the man	1269	
+JOB	13	8	Job, the man	1269	
+JOB	13	9	Job, the man	1269	
+JOB	14	1	Job, the man	1269	
+JOB	14	10	Job, the man	1269	
+JOB	14	11	Job, the man	1269	
+JOB	14	12	Job, the man	1269	
+JOB	14	13	Job, the man	1269	
+JOB	14	14	Job, the man	1269	
+JOB	14	15	Job, the man	1269	
+JOB	14	16	Job, the man	1269	
+JOB	14	17	Job, the man	1269	
+JOB	14	18	Job, the man	1269	
+JOB	14	19	Job, the man	1269	
+JOB	14	2	Job, the man	1269	
+JOB	14	20	Job, the man	1269	
+JOB	14	21	Job, the man	1269	
+JOB	14	22	Job, the man	1269	
+JOB	14	3	Job, the man	1269	
+JOB	14	4	Job, the man	1269	
+JOB	14	5	Job, the man	1269	
+JOB	14	6	Job, the man	1269	
+JOB	14	7	Job, the man	1269	
+JOB	14	8	Job, the man	1269	
+JOB	14	9	Job, the man	1269	
 JOB	15	10	Eliphaz the Temanite	0116	
 JOB	15	11	Eliphaz the Temanite	0116	
 JOB	15	12	Eliphaz the Temanite	0116	
@@ -6586,43 +6586,43 @@ JOB	15	6	Eliphaz the Temanite	0116
 JOB	15	7	Eliphaz the Temanite	0116	
 JOB	15	8	Eliphaz the Temanite	0116	
 JOB	15	9	Eliphaz the Temanite	0116	
-JOB	16	10	Job, the man	0269	
-JOB	16	11	Job, the man	0269	
-JOB	16	12	Job, the man	0269	
-JOB	16	13	Job, the man	0269	
-JOB	16	14	Job, the man	0269	
-JOB	16	15	Job, the man	0269	
-JOB	16	16	Job, the man	0269	
-JOB	16	17	Job, the man	0269	
-JOB	16	18	Job, the man	0269	
-JOB	16	19	Job, the man	0269	
-JOB	16	2	Job, the man	0269	
-JOB	16	20	Job, the man	0269	
-JOB	16	21	Job, the man	0269	
-JOB	16	22	Job, the man	0269	
-JOB	16	3	Job, the man	0269	
-JOB	16	4	Job, the man	0269	
-JOB	16	5	Job, the man	0269	
-JOB	16	6	Job, the man	0269	
-JOB	16	7	Job, the man	0269	
-JOB	16	8	Job, the man	0269	
-JOB	16	9	Job, the man	0269	
-JOB	17	1	Job, the man	0269	
-JOB	17	10	Job, the man	0269	
-JOB	17	11	Job, the man	0269	
-JOB	17	12	Job, the man	0269	
-JOB	17	13	Job, the man	0269	
-JOB	17	14	Job, the man	0269	
-JOB	17	15	Job, the man	0269	
-JOB	17	16	Job, the man	0269	
-JOB	17	2	Job, the man	0269	
-JOB	17	3	Job, the man	0269	
-JOB	17	4	Job, the man	0269	
-JOB	17	5	Job, the man	0269	
-JOB	17	6	Job, the man	0269	
-JOB	17	7	Job, the man	0269	
-JOB	17	8	Job, the man	0269	
-JOB	17	9	Job, the man	0269	
+JOB	16	10	Job, the man	1269	
+JOB	16	11	Job, the man	1269	
+JOB	16	12	Job, the man	1269	
+JOB	16	13	Job, the man	1269	
+JOB	16	14	Job, the man	1269	
+JOB	16	15	Job, the man	1269	
+JOB	16	16	Job, the man	1269	
+JOB	16	17	Job, the man	1269	
+JOB	16	18	Job, the man	1269	
+JOB	16	19	Job, the man	1269	
+JOB	16	2	Job, the man	1269	
+JOB	16	20	Job, the man	1269	
+JOB	16	21	Job, the man	1269	
+JOB	16	22	Job, the man	1269	
+JOB	16	3	Job, the man	1269	
+JOB	16	4	Job, the man	1269	
+JOB	16	5	Job, the man	1269	
+JOB	16	6	Job, the man	1269	
+JOB	16	7	Job, the man	1269	
+JOB	16	8	Job, the man	1269	
+JOB	16	9	Job, the man	1269	
+JOB	17	1	Job, the man	1269	
+JOB	17	10	Job, the man	1269	
+JOB	17	11	Job, the man	1269	
+JOB	17	12	Job, the man	1269	
+JOB	17	13	Job, the man	1269	
+JOB	17	14	Job, the man	1269	
+JOB	17	15	Job, the man	1269	
+JOB	17	16	Job, the man	1269	
+JOB	17	2	Job, the man	1269	
+JOB	17	3	Job, the man	1269	
+JOB	17	4	Job, the man	1269	
+JOB	17	5	Job, the man	1269	
+JOB	17	6	Job, the man	1269	
+JOB	17	7	Job, the man	1269	
+JOB	17	8	Job, the man	1269	
+JOB	17	9	Job, the man	1269	
 JOB	18	10	Bildad the Shuhite	0071	
 JOB	18	11	Bildad the Shuhite	0071	
 JOB	18	12	Bildad the Shuhite	0071	
@@ -6643,41 +6643,41 @@ JOB	18	6	Bildad the Shuhite	0071
 JOB	18	7	Bildad the Shuhite	0071	
 JOB	18	8	Bildad the Shuhite	0071	
 JOB	18	9	Bildad the Shuhite	0071	
-JOB	19	10	Job, the man	0269	
-JOB	19	11	Job, the man	0269	
-JOB	19	12	Job, the man	0269	
-JOB	19	13	Job, the man	0269	
-JOB	19	14	Job, the man	0269	
-JOB	19	15	Job, the man	0269	
-JOB	19	16	Job, the man	0269	
-JOB	19	17	Job, the man	0269	
-JOB	19	18	Job, the man	0269	
-JOB	19	19	Job, the man	0269	
-JOB	19	2	Job, the man	0269	
-JOB	19	20	Job, the man	0269	
-JOB	19	21	Job, the man	0269	
-JOB	19	22	Job, the man	0269	
-JOB	19	23	Job, the man	0269	
-JOB	19	24	Job, the man	0269	
-JOB	19	25	Job, the man	0269	
-JOB	19	26	Job, the man	0269	
-JOB	19	27	Job, the man	0269	
-JOB	19	28	Job, the man	0269	
-JOB	19	29	Job, the man	0269	
-JOB	19	3	Job, the man	0269	
-JOB	19	4	Job, the man	0269	
-JOB	19	5	Job, the man	0269	
-JOB	19	6	Job, the man	0269	
-JOB	19	7	Job, the man	0269	
-JOB	19	8	Job, the man	0269	
-JOB	19	9	Job, the man	0269	
-JOB	2	10	Job, the man	0269	
+JOB	19	10	Job, the man	1269	
+JOB	19	11	Job, the man	1269	
+JOB	19	12	Job, the man	1269	
+JOB	19	13	Job, the man	1269	
+JOB	19	14	Job, the man	1269	
+JOB	19	15	Job, the man	1269	
+JOB	19	16	Job, the man	1269	
+JOB	19	17	Job, the man	1269	
+JOB	19	18	Job, the man	1269	
+JOB	19	19	Job, the man	1269	
+JOB	19	2	Job, the man	1269	
+JOB	19	20	Job, the man	1269	
+JOB	19	21	Job, the man	1269	
+JOB	19	22	Job, the man	1269	
+JOB	19	23	Job, the man	1269	
+JOB	19	24	Job, the man	1269	
+JOB	19	25	Job, the man	1269	
+JOB	19	26	Job, the man	1269	
+JOB	19	27	Job, the man	1269	
+JOB	19	28	Job, the man	1269	
+JOB	19	29	Job, the man	1269	
+JOB	19	3	Job, the man	1269	
+JOB	19	4	Job, the man	1269	
+JOB	19	5	Job, the man	1269	
+JOB	19	6	Job, the man	1269	
+JOB	19	7	Job, the man	1269	
+JOB	19	8	Job, the man	1269	
+JOB	19	9	Job, the man	1269	
+JOB	2	10	Job, the man	1269	
 JOB	2	2	God (the LORD)	2000	
 JOB	2	2	Satan	0800	
 JOB	2	3	God (the LORD)	2000	
 JOB	2	4	Satan	0800	
 JOB	2	6	God (the LORD)	2000	
-JOB	2	9	Job's wife	0268	
+JOB	2	9	Job's wife	1268	
 JOB	20	10	Zophar the Naamathite	0463	
 JOB	20	11	Zophar the Naamathite	0463	
 JOB	20	12	Zophar the Naamathite	0463	
@@ -6706,38 +6706,38 @@ JOB	20	6	Zophar the Naamathite	0463
 JOB	20	7	Zophar the Naamathite	0463	
 JOB	20	8	Zophar the Naamathite	0463	
 JOB	20	9	Zophar the Naamathite	0463	
-JOB	21	10	Job, the man	0269	
-JOB	21	11	Job, the man	0269	
-JOB	21	12	Job, the man	0269	
-JOB	21	13	Job, the man	0269	
-JOB	21	14	Job, the man	0269	
-JOB	21	16	Job, the man	0269	
-JOB	21	17	Job, the man	0269	
-JOB	21	18	Job, the man	0269	
-JOB	21	19	Job, the man	0269	
-JOB	21	2	Job, the man	0269	
-JOB	21	20	Job, the man	0269	
-JOB	21	21	Job, the man	0269	
-JOB	21	22	Job, the man	0269	
-JOB	21	23	Job, the man	0269	
-JOB	21	24	Job, the man	0269	
-JOB	21	25	Job, the man	0269	
-JOB	21	26	Job, the man	0269	
-JOB	21	27	Job, the man	0269	
-JOB	21	28	Job, the man	0269	
-JOB	21	29	Job, the man	0269	
-JOB	21	3	Job, the man	0269	
-JOB	21	30	Job, the man	0269	
-JOB	21	31	Job, the man	0269	
-JOB	21	32	Job, the man	0269	
-JOB	21	33	Job, the man	0269	
-JOB	21	34	Job, the man	0269	
-JOB	21	4	Job, the man	0269	
-JOB	21	5	Job, the man	0269	
-JOB	21	6	Job, the man	0269	
-JOB	21	7	Job, the man	0269	
-JOB	21	8	Job, the man	0269	
-JOB	21	9	Job, the man	0269	
+JOB	21	10	Job, the man	1269	
+JOB	21	11	Job, the man	1269	
+JOB	21	12	Job, the man	1269	
+JOB	21	13	Job, the man	1269	
+JOB	21	14	Job, the man	1269	
+JOB	21	16	Job, the man	1269	
+JOB	21	17	Job, the man	1269	
+JOB	21	18	Job, the man	1269	
+JOB	21	19	Job, the man	1269	
+JOB	21	2	Job, the man	1269	
+JOB	21	20	Job, the man	1269	
+JOB	21	21	Job, the man	1269	
+JOB	21	22	Job, the man	1269	
+JOB	21	23	Job, the man	1269	
+JOB	21	24	Job, the man	1269	
+JOB	21	25	Job, the man	1269	
+JOB	21	26	Job, the man	1269	
+JOB	21	27	Job, the man	1269	
+JOB	21	28	Job, the man	1269	
+JOB	21	29	Job, the man	1269	
+JOB	21	3	Job, the man	1269	
+JOB	21	30	Job, the man	1269	
+JOB	21	31	Job, the man	1269	
+JOB	21	32	Job, the man	1269	
+JOB	21	33	Job, the man	1269	
+JOB	21	34	Job, the man	1269	
+JOB	21	4	Job, the man	1269	
+JOB	21	5	Job, the man	1269	
+JOB	21	6	Job, the man	1269	
+JOB	21	7	Job, the man	1269	
+JOB	21	8	Job, the man	1269	
+JOB	21	9	Job, the man	1269	
 JOB	22	10	Eliphaz the Temanite	0116	
 JOB	22	11	Eliphaz the Temanite	0116	
 JOB	22	12	Eliphaz the Temanite	0116	
@@ -6766,232 +6766,232 @@ JOB	22	6	Eliphaz the Temanite	0116
 JOB	22	7	Eliphaz the Temanite	0116	
 JOB	22	8	Eliphaz the Temanite	0116	
 JOB	22	9	Eliphaz the Temanite	0116	
-JOB	23	10	Job, the man	0269	
-JOB	23	11	Job, the man	0269	
-JOB	23	12	Job, the man	0269	
-JOB	23	13	Job, the man	0269	
-JOB	23	14	Job, the man	0269	
-JOB	23	15	Job, the man	0269	
-JOB	23	16	Job, the man	0269	
-JOB	23	17	Job, the man	0269	
-JOB	23	2	Job, the man	0269	
-JOB	23	3	Job, the man	0269	
-JOB	23	4	Job, the man	0269	
-JOB	23	5	Job, the man	0269	
-JOB	23	6	Job, the man	0269	
-JOB	23	7	Job, the man	0269	
-JOB	23	8	Job, the man	0269	
-JOB	23	9	Job, the man	0269	
-JOB	24	1	Job, the man	0269	
-JOB	24	10	Job, the man	0269	
-JOB	24	11	Job, the man	0269	
-JOB	24	12	Job, the man	0269	
-JOB	24	13	Job, the man	0269	
-JOB	24	14	Job, the man	0269	
-JOB	24	15	Job, the man	0269	
-JOB	24	16	Job, the man	0269	
-JOB	24	17	Job, the man	0269	
-JOB	24	18	Job, the man	0269	
-JOB	24	19	Job, the man	0269	
-JOB	24	2	Job, the man	0269	
-JOB	24	20	Job, the man	0269	
-JOB	24	21	Job, the man	0269	
-JOB	24	22	Job, the man	0269	
-JOB	24	23	Job, the man	0269	
-JOB	24	24	Job, the man	0269	
-JOB	24	25	Job, the man	0269	
-JOB	24	3	Job, the man	0269	
-JOB	24	4	Job, the man	0269	
-JOB	24	5	Job, the man	0269	
-JOB	24	6	Job, the man	0269	
-JOB	24	7	Job, the man	0269	
-JOB	24	8	Job, the man	0269	
-JOB	24	9	Job, the man	0269	
+JOB	23	10	Job, the man	1269	
+JOB	23	11	Job, the man	1269	
+JOB	23	12	Job, the man	1269	
+JOB	23	13	Job, the man	1269	
+JOB	23	14	Job, the man	1269	
+JOB	23	15	Job, the man	1269	
+JOB	23	16	Job, the man	1269	
+JOB	23	17	Job, the man	1269	
+JOB	23	2	Job, the man	1269	
+JOB	23	3	Job, the man	1269	
+JOB	23	4	Job, the man	1269	
+JOB	23	5	Job, the man	1269	
+JOB	23	6	Job, the man	1269	
+JOB	23	7	Job, the man	1269	
+JOB	23	8	Job, the man	1269	
+JOB	23	9	Job, the man	1269	
+JOB	24	1	Job, the man	1269	
+JOB	24	10	Job, the man	1269	
+JOB	24	11	Job, the man	1269	
+JOB	24	12	Job, the man	1269	
+JOB	24	13	Job, the man	1269	
+JOB	24	14	Job, the man	1269	
+JOB	24	15	Job, the man	1269	
+JOB	24	16	Job, the man	1269	
+JOB	24	17	Job, the man	1269	
+JOB	24	18	Job, the man	1269	
+JOB	24	19	Job, the man	1269	
+JOB	24	2	Job, the man	1269	
+JOB	24	20	Job, the man	1269	
+JOB	24	21	Job, the man	1269	
+JOB	24	22	Job, the man	1269	
+JOB	24	23	Job, the man	1269	
+JOB	24	24	Job, the man	1269	
+JOB	24	25	Job, the man	1269	
+JOB	24	3	Job, the man	1269	
+JOB	24	4	Job, the man	1269	
+JOB	24	5	Job, the man	1269	
+JOB	24	6	Job, the man	1269	
+JOB	24	7	Job, the man	1269	
+JOB	24	8	Job, the man	1269	
+JOB	24	9	Job, the man	1269	
 JOB	25	2	Bildad the Shuhite	0071	
 JOB	25	3	Bildad the Shuhite	0071	
 JOB	25	4	Bildad the Shuhite	0071	
 JOB	25	5	Bildad the Shuhite	0071	
 JOB	25	6	Bildad the Shuhite	0071	
-JOB	26	10	Job, the man	0269	
-JOB	26	11	Job, the man	0269	
-JOB	26	12	Job, the man	0269	
-JOB	26	13	Job, the man	0269	
-JOB	26	14	Job, the man	0269	
-JOB	26	2	Job, the man	0269	
-JOB	26	3	Job, the man	0269	
-JOB	26	4	Job, the man	0269	
-JOB	26	5	Job, the man	0269	
-JOB	26	6	Job, the man	0269	
-JOB	26	7	Job, the man	0269	
-JOB	26	8	Job, the man	0269	
-JOB	26	9	Job, the man	0269	
-JOB	27	10	Job, the man	0269	
-JOB	27	11	Job, the man	0269	
-JOB	27	12	Job, the man	0269	
-JOB	27	13	Job, the man	0269	
-JOB	27	14	Job, the man	0269	
-JOB	27	15	Job, the man	0269	
-JOB	27	16	Job, the man	0269	
-JOB	27	17	Job, the man	0269	
-JOB	27	18	Job, the man	0269	
-JOB	27	19	Job, the man	0269	
-JOB	27	2	Job, the man	0269	
-JOB	27	20	Job, the man	0269	
-JOB	27	21	Job, the man	0269	
-JOB	27	22	Job, the man	0269	
-JOB	27	23	Job, the man	0269	
-JOB	27	3	Job, the man	0269	
-JOB	27	4	Job, the man	0269	
-JOB	27	5	Job, the man	0269	
-JOB	27	6	Job, the man	0269	
-JOB	27	7	Job, the man	0269	
-JOB	27	8	Job, the man	0269	
-JOB	27	9	Job, the man	0269	
-JOB	28	1	Job, the man	0269	
-JOB	28	10	Job, the man	0269	
-JOB	28	11	Job, the man	0269	
-JOB	28	12	Job, the man	0269	
-JOB	28	13	Job, the man	0269	
-JOB	28	14	Job, the man	0269	
-JOB	28	15	Job, the man	0269	
-JOB	28	16	Job, the man	0269	
-JOB	28	17	Job, the man	0269	
-JOB	28	18	Job, the man	0269	
-JOB	28	19	Job, the man	0269	
-JOB	28	2	Job, the man	0269	
-JOB	28	20	Job, the man	0269	
-JOB	28	21	Job, the man	0269	
-JOB	28	22	Job, the man	0269	
-JOB	28	23	Job, the man	0269	
-JOB	28	24	Job, the man	0269	
-JOB	28	25	Job, the man	0269	
-JOB	28	26	Job, the man	0269	
-JOB	28	27	Job, the man	0269	
-JOB	28	28	Job, the man	0269	
-JOB	28	3	Job, the man	0269	
-JOB	28	4	Job, the man	0269	
-JOB	28	5	Job, the man	0269	
-JOB	28	6	Job, the man	0269	
-JOB	28	7	Job, the man	0269	
-JOB	28	8	Job, the man	0269	
-JOB	28	9	Job, the man	0269	
-JOB	29	10	Job, the man	0269	
-JOB	29	11	Job, the man	0269	
-JOB	29	12	Job, the man	0269	
-JOB	29	13	Job, the man	0269	
-JOB	29	14	Job, the man	0269	
-JOB	29	15	Job, the man	0269	
-JOB	29	16	Job, the man	0269	
-JOB	29	17	Job, the man	0269	
-JOB	29	18	Job, the man	0269	
-JOB	29	2	Job, the man	0269	
-JOB	29	21	Job, the man	0269	
-JOB	29	22	Job, the man	0269	
-JOB	29	23	Job, the man	0269	
-JOB	29	24	Job, the man	0269	
-JOB	29	25	Job, the man	0269	
-JOB	29	3	Job, the man	0269	
-JOB	29	4	Job, the man	0269	
-JOB	29	5	Job, the man	0269	
-JOB	29	6	Job, the man	0269	
-JOB	29	7	Job, the man	0269	
-JOB	29	8	Job, the man	0269	
-JOB	29	9	Job, the man	0269	
-JOB	3	10	Job, the man	0269	
-JOB	3	11	Job, the man	0269	
-JOB	3	12	Job, the man	0269	
-JOB	3	13	Job, the man	0269	
-JOB	3	14	Job, the man	0269	
-JOB	3	15	Job, the man	0269	
-JOB	3	16	Job, the man	0269	
-JOB	3	17	Job, the man	0269	
-JOB	3	18	Job, the man	0269	
-JOB	3	19	Job, the man	0269	
-JOB	3	20	Job, the man	0269	
-JOB	3	21	Job, the man	0269	
-JOB	3	22	Job, the man	0269	
-JOB	3	23	Job, the man	0269	
-JOB	3	24	Job, the man	0269	
-JOB	3	25	Job, the man	0269	
-JOB	3	26	Job, the man	0269	
-JOB	3	3	Job, the man	0269	
-JOB	3	4	Job, the man	0269	
-JOB	3	5	Job, the man	0269	
-JOB	3	6	Job, the man	0269	
-JOB	3	7	Job, the man	0269	
-JOB	3	8	Job, the man	0269	
-JOB	3	9	Job, the man	0269	
-JOB	30	1	Job, the man	0269	
-JOB	30	10	Job, the man	0269	
-JOB	30	11	Job, the man	0269	
-JOB	30	12	Job, the man	0269	
-JOB	30	13	Job, the man	0269	
-JOB	30	14	Job, the man	0269	
-JOB	30	15	Job, the man	0269	
-JOB	30	16	Job, the man	0269	
-JOB	30	17	Job, the man	0269	
-JOB	30	18	Job, the man	0269	
-JOB	30	19	Job, the man	0269	
-JOB	30	2	Job, the man	0269	
-JOB	30	20	Job, the man	0269	
-JOB	30	21	Job, the man	0269	
-JOB	30	22	Job, the man	0269	
-JOB	30	23	Job, the man	0269	
-JOB	30	24	Job, the man	0269	
-JOB	30	25	Job, the man	0269	
-JOB	30	26	Job, the man	0269	
-JOB	30	27	Job, the man	0269	
-JOB	30	28	Job, the man	0269	
-JOB	30	29	Job, the man	0269	
-JOB	30	3	Job, the man	0269	
-JOB	30	30	Job, the man	0269	
-JOB	30	31	Job, the man	0269	
-JOB	30	4	Job, the man	0269	
-JOB	30	5	Job, the man	0269	
-JOB	30	6	Job, the man	0269	
-JOB	30	7	Job, the man	0269	
-JOB	30	8	Job, the man	0269	
-JOB	30	9	Job, the man	0269	
-JOB	31	1	Job, the man	0269	
-JOB	31	10	Job, the man	0269	
-JOB	31	11	Job, the man	0269	
-JOB	31	12	Job, the man	0269	
-JOB	31	13	Job, the man	0269	
-JOB	31	14	Job, the man	0269	
-JOB	31	15	Job, the man	0269	
-JOB	31	16	Job, the man	0269	
-JOB	31	17	Job, the man	0269	
-JOB	31	18	Job, the man	0269	
-JOB	31	19	Job, the man	0269	
-JOB	31	2	Job, the man	0269	
-JOB	31	20	Job, the man	0269	
-JOB	31	21	Job, the man	0269	
-JOB	31	22	Job, the man	0269	
-JOB	31	23	Job, the man	0269	
-JOB	31	24	Job, the man	0269	
-JOB	31	25	Job, the man	0269	
-JOB	31	26	Job, the man	0269	
-JOB	31	27	Job, the man	0269	
-JOB	31	28	Job, the man	0269	
-JOB	31	29	Job, the man	0269	
-JOB	31	3	Job, the man	0269	
-JOB	31	30	Job, the man	0269	
-JOB	31	31	Job, the man	0269	
-JOB	31	32	Job, the man	0269	
-JOB	31	33	Job, the man	0269	
-JOB	31	34	Job, the man	0269	
-JOB	31	35	Job, the man	0269	
-JOB	31	36	Job, the man	0269	
-JOB	31	37	Job, the man	0269	
-JOB	31	38	Job, the man	0269	
-JOB	31	39	Job, the man	0269	
-JOB	31	4	Job, the man	0269	
-JOB	31	40	Job, the man	0269	
-JOB	31	5	Job, the man	0269	
-JOB	31	6	Job, the man	0269	
-JOB	31	7	Job, the man	0269	
-JOB	31	8	Job, the man	0269	
-JOB	31	9	Job, the man	0269	
+JOB	26	10	Job, the man	1269	
+JOB	26	11	Job, the man	1269	
+JOB	26	12	Job, the man	1269	
+JOB	26	13	Job, the man	1269	
+JOB	26	14	Job, the man	1269	
+JOB	26	2	Job, the man	1269	
+JOB	26	3	Job, the man	1269	
+JOB	26	4	Job, the man	1269	
+JOB	26	5	Job, the man	1269	
+JOB	26	6	Job, the man	1269	
+JOB	26	7	Job, the man	1269	
+JOB	26	8	Job, the man	1269	
+JOB	26	9	Job, the man	1269	
+JOB	27	10	Job, the man	1269	
+JOB	27	11	Job, the man	1269	
+JOB	27	12	Job, the man	1269	
+JOB	27	13	Job, the man	1269	
+JOB	27	14	Job, the man	1269	
+JOB	27	15	Job, the man	1269	
+JOB	27	16	Job, the man	1269	
+JOB	27	17	Job, the man	1269	
+JOB	27	18	Job, the man	1269	
+JOB	27	19	Job, the man	1269	
+JOB	27	2	Job, the man	1269	
+JOB	27	20	Job, the man	1269	
+JOB	27	21	Job, the man	1269	
+JOB	27	22	Job, the man	1269	
+JOB	27	23	Job, the man	1269	
+JOB	27	3	Job, the man	1269	
+JOB	27	4	Job, the man	1269	
+JOB	27	5	Job, the man	1269	
+JOB	27	6	Job, the man	1269	
+JOB	27	7	Job, the man	1269	
+JOB	27	8	Job, the man	1269	
+JOB	27	9	Job, the man	1269	
+JOB	28	1	Job, the man	1269	
+JOB	28	10	Job, the man	1269	
+JOB	28	11	Job, the man	1269	
+JOB	28	12	Job, the man	1269	
+JOB	28	13	Job, the man	1269	
+JOB	28	14	Job, the man	1269	
+JOB	28	15	Job, the man	1269	
+JOB	28	16	Job, the man	1269	
+JOB	28	17	Job, the man	1269	
+JOB	28	18	Job, the man	1269	
+JOB	28	19	Job, the man	1269	
+JOB	28	2	Job, the man	1269	
+JOB	28	20	Job, the man	1269	
+JOB	28	21	Job, the man	1269	
+JOB	28	22	Job, the man	1269	
+JOB	28	23	Job, the man	1269	
+JOB	28	24	Job, the man	1269	
+JOB	28	25	Job, the man	1269	
+JOB	28	26	Job, the man	1269	
+JOB	28	27	Job, the man	1269	
+JOB	28	28	Job, the man	1269	
+JOB	28	3	Job, the man	1269	
+JOB	28	4	Job, the man	1269	
+JOB	28	5	Job, the man	1269	
+JOB	28	6	Job, the man	1269	
+JOB	28	7	Job, the man	1269	
+JOB	28	8	Job, the man	1269	
+JOB	28	9	Job, the man	1269	
+JOB	29	10	Job, the man	1269	
+JOB	29	11	Job, the man	1269	
+JOB	29	12	Job, the man	1269	
+JOB	29	13	Job, the man	1269	
+JOB	29	14	Job, the man	1269	
+JOB	29	15	Job, the man	1269	
+JOB	29	16	Job, the man	1269	
+JOB	29	17	Job, the man	1269	
+JOB	29	18	Job, the man	1269	
+JOB	29	2	Job, the man	1269	
+JOB	29	21	Job, the man	1269	
+JOB	29	22	Job, the man	1269	
+JOB	29	23	Job, the man	1269	
+JOB	29	24	Job, the man	1269	
+JOB	29	25	Job, the man	1269	
+JOB	29	3	Job, the man	1269	
+JOB	29	4	Job, the man	1269	
+JOB	29	5	Job, the man	1269	
+JOB	29	6	Job, the man	1269	
+JOB	29	7	Job, the man	1269	
+JOB	29	8	Job, the man	1269	
+JOB	29	9	Job, the man	1269	
+JOB	3	10	Job, the man	1269	
+JOB	3	11	Job, the man	1269	
+JOB	3	12	Job, the man	1269	
+JOB	3	13	Job, the man	1269	
+JOB	3	14	Job, the man	1269	
+JOB	3	15	Job, the man	1269	
+JOB	3	16	Job, the man	1269	
+JOB	3	17	Job, the man	1269	
+JOB	3	18	Job, the man	1269	
+JOB	3	19	Job, the man	1269	
+JOB	3	20	Job, the man	1269	
+JOB	3	21	Job, the man	1269	
+JOB	3	22	Job, the man	1269	
+JOB	3	23	Job, the man	1269	
+JOB	3	24	Job, the man	1269	
+JOB	3	25	Job, the man	1269	
+JOB	3	26	Job, the man	1269	
+JOB	3	3	Job, the man	1269	
+JOB	3	4	Job, the man	1269	
+JOB	3	5	Job, the man	1269	
+JOB	3	6	Job, the man	1269	
+JOB	3	7	Job, the man	1269	
+JOB	3	8	Job, the man	1269	
+JOB	3	9	Job, the man	1269	
+JOB	30	1	Job, the man	1269	
+JOB	30	10	Job, the man	1269	
+JOB	30	11	Job, the man	1269	
+JOB	30	12	Job, the man	1269	
+JOB	30	13	Job, the man	1269	
+JOB	30	14	Job, the man	1269	
+JOB	30	15	Job, the man	1269	
+JOB	30	16	Job, the man	1269	
+JOB	30	17	Job, the man	1269	
+JOB	30	18	Job, the man	1269	
+JOB	30	19	Job, the man	1269	
+JOB	30	2	Job, the man	1269	
+JOB	30	20	Job, the man	1269	
+JOB	30	21	Job, the man	1269	
+JOB	30	22	Job, the man	1269	
+JOB	30	23	Job, the man	1269	
+JOB	30	24	Job, the man	1269	
+JOB	30	25	Job, the man	1269	
+JOB	30	26	Job, the man	1269	
+JOB	30	27	Job, the man	1269	
+JOB	30	28	Job, the man	1269	
+JOB	30	29	Job, the man	1269	
+JOB	30	3	Job, the man	1269	
+JOB	30	30	Job, the man	1269	
+JOB	30	31	Job, the man	1269	
+JOB	30	4	Job, the man	1269	
+JOB	30	5	Job, the man	1269	
+JOB	30	6	Job, the man	1269	
+JOB	30	7	Job, the man	1269	
+JOB	30	8	Job, the man	1269	
+JOB	30	9	Job, the man	1269	
+JOB	31	1	Job, the man	1269	
+JOB	31	10	Job, the man	1269	
+JOB	31	11	Job, the man	1269	
+JOB	31	12	Job, the man	1269	
+JOB	31	13	Job, the man	1269	
+JOB	31	14	Job, the man	1269	
+JOB	31	15	Job, the man	1269	
+JOB	31	16	Job, the man	1269	
+JOB	31	17	Job, the man	1269	
+JOB	31	18	Job, the man	1269	
+JOB	31	19	Job, the man	1269	
+JOB	31	2	Job, the man	1269	
+JOB	31	20	Job, the man	1269	
+JOB	31	21	Job, the man	1269	
+JOB	31	22	Job, the man	1269	
+JOB	31	23	Job, the man	1269	
+JOB	31	24	Job, the man	1269	
+JOB	31	25	Job, the man	1269	
+JOB	31	26	Job, the man	1269	
+JOB	31	27	Job, the man	1269	
+JOB	31	28	Job, the man	1269	
+JOB	31	29	Job, the man	1269	
+JOB	31	3	Job, the man	1269	
+JOB	31	30	Job, the man	1269	
+JOB	31	31	Job, the man	1269	
+JOB	31	32	Job, the man	1269	
+JOB	31	33	Job, the man	1269	
+JOB	31	34	Job, the man	1269	
+JOB	31	35	Job, the man	1269	
+JOB	31	36	Job, the man	1269	
+JOB	31	37	Job, the man	1269	
+JOB	31	38	Job, the man	1269	
+JOB	31	39	Job, the man	1269	
+JOB	31	4	Job, the man	1269	
+JOB	31	40	Job, the man	1269	
+JOB	31	5	Job, the man	1269	
+JOB	31	6	Job, the man	1269	
+JOB	31	7	Job, the man	1269	
+JOB	31	8	Job, the man	1269	
+JOB	31	9	Job, the man	1269	
 JOB	32	10	Elihu, son of Barakel	0114	
 JOB	32	11	Elihu, son of Barakel	0114	
 JOB	32	12	Elihu, son of Barakel	0114	
@@ -7245,8 +7245,8 @@ JOB	40	21	God (the LORD)	2000
 JOB	40	22	God (the LORD)	2000	
 JOB	40	23	God (the LORD)	2000	
 JOB	40	24	God (the LORD)	2000	
-JOB	40	4	Job, the man	0269	
-JOB	40	5	Job, the man	0269	
+JOB	40	4	Job, the man	1269	
+JOB	40	5	Job, the man	1269	
 JOB	40	7	God (the LORD)	2000	
 JOB	40	8	God (the LORD)	2000	
 JOB	40	9	God (the LORD)	2000	
@@ -7284,11 +7284,11 @@ JOB	41	6	God (the LORD)	2000
 JOB	41	7	God (the LORD)	2000	
 JOB	41	8	God (the LORD)	2000	
 JOB	41	9	God (the LORD)	2000	
-JOB	42	2	Job, the man	0269	
-JOB	42	3	Job, the man	0269	
-JOB	42	4	Job, the man	0269	
-JOB	42	5	Job, the man	0269	
-JOB	42	6	Job, the man	0269	
+JOB	42	2	Job, the man	1269	
+JOB	42	3	Job, the man	1269	
+JOB	42	4	Job, the man	1269	
+JOB	42	5	Job, the man	1269	
+JOB	42	6	Job, the man	1269	
 JOB	42	7	God (the LORD)	2000	
 JOB	5	1	Eliphaz the Temanite	0116	
 JOB	5	10	Eliphaz the Temanite	0116	
@@ -7317,55 +7317,55 @@ JOB	5	6	Eliphaz the Temanite	0116
 JOB	5	7	Eliphaz the Temanite	0116	
 JOB	5	8	Eliphaz the Temanite	0116	
 JOB	5	9	Eliphaz the Temanite	0116	
-JOB	6	10	Job, the man	0269	
-JOB	6	11	Job, the man	0269	
-JOB	6	12	Job, the man	0269	
-JOB	6	13	Job, the man	0269	
-JOB	6	14	Job, the man	0269	
-JOB	6	15	Job, the man	0269	
-JOB	6	16	Job, the man	0269	
-JOB	6	17	Job, the man	0269	
-JOB	6	18	Job, the man	0269	
-JOB	6	19	Job, the man	0269	
-JOB	6	2	Job, the man	0269	
-JOB	6	20	Job, the man	0269	
-JOB	6	21	Job, the man	0269	
-JOB	6	22	Job, the man	0269	
-JOB	6	24	Job, the man	0269	
-JOB	6	25	Job, the man	0269	
-JOB	6	26	Job, the man	0269	
-JOB	6	27	Job, the man	0269	
-JOB	6	28	Job, the man	0269	
-JOB	6	29	Job, the man	0269	
-JOB	6	3	Job, the man	0269	
-JOB	6	30	Job, the man	0269	
-JOB	6	4	Job, the man	0269	
-JOB	6	5	Job, the man	0269	
-JOB	6	6	Job, the man	0269	
-JOB	6	7	Job, the man	0269	
-JOB	6	8	Job, the man	0269	
-JOB	6	9	Job, the man	0269	
-JOB	7	1	Job, the man	0269	
-JOB	7	10	Job, the man	0269	
-JOB	7	11	Job, the man	0269	
-JOB	7	12	Job, the man	0269	
-JOB	7	13	Job, the man	0269	
-JOB	7	14	Job, the man	0269	
-JOB	7	15	Job, the man	0269	
-JOB	7	16	Job, the man	0269	
-JOB	7	17	Job, the man	0269	
-JOB	7	18	Job, the man	0269	
-JOB	7	19	Job, the man	0269	
-JOB	7	2	Job, the man	0269	
-JOB	7	20	Job, the man	0269	
-JOB	7	21	Job, the man	0269	
-JOB	7	3	Job, the man	0269	
-JOB	7	4	Job, the man	0269	
-JOB	7	5	Job, the man	0269	
-JOB	7	6	Job, the man	0269	
-JOB	7	7	Job, the man	0269	
-JOB	7	8	Job, the man	0269	
-JOB	7	9	Job, the man	0269	
+JOB	6	10	Job, the man	1269	
+JOB	6	11	Job, the man	1269	
+JOB	6	12	Job, the man	1269	
+JOB	6	13	Job, the man	1269	
+JOB	6	14	Job, the man	1269	
+JOB	6	15	Job, the man	1269	
+JOB	6	16	Job, the man	1269	
+JOB	6	17	Job, the man	1269	
+JOB	6	18	Job, the man	1269	
+JOB	6	19	Job, the man	1269	
+JOB	6	2	Job, the man	1269	
+JOB	6	20	Job, the man	1269	
+JOB	6	21	Job, the man	1269	
+JOB	6	22	Job, the man	1269	
+JOB	6	24	Job, the man	1269	
+JOB	6	25	Job, the man	1269	
+JOB	6	26	Job, the man	1269	
+JOB	6	27	Job, the man	1269	
+JOB	6	28	Job, the man	1269	
+JOB	6	29	Job, the man	1269	
+JOB	6	3	Job, the man	1269	
+JOB	6	30	Job, the man	1269	
+JOB	6	4	Job, the man	1269	
+JOB	6	5	Job, the man	1269	
+JOB	6	6	Job, the man	1269	
+JOB	6	7	Job, the man	1269	
+JOB	6	8	Job, the man	1269	
+JOB	6	9	Job, the man	1269	
+JOB	7	1	Job, the man	1269	
+JOB	7	10	Job, the man	1269	
+JOB	7	11	Job, the man	1269	
+JOB	7	12	Job, the man	1269	
+JOB	7	13	Job, the man	1269	
+JOB	7	14	Job, the man	1269	
+JOB	7	15	Job, the man	1269	
+JOB	7	16	Job, the man	1269	
+JOB	7	17	Job, the man	1269	
+JOB	7	18	Job, the man	1269	
+JOB	7	19	Job, the man	1269	
+JOB	7	2	Job, the man	1269	
+JOB	7	20	Job, the man	1269	
+JOB	7	21	Job, the man	1269	
+JOB	7	3	Job, the man	1269	
+JOB	7	4	Job, the man	1269	
+JOB	7	5	Job, the man	1269	
+JOB	7	6	Job, the man	1269	
+JOB	7	7	Job, the man	1269	
+JOB	7	8	Job, the man	1269	
+JOB	7	9	Job, the man	1269	
 JOB	8	10	Bildad the Shuhite	0071	
 JOB	8	11	Bildad the Shuhite	0071	
 JOB	8	12	Bildad the Shuhite	0071	
@@ -7387,40 +7387,40 @@ JOB	8	6	Bildad the Shuhite	0071
 JOB	8	7	Bildad the Shuhite	0071	
 JOB	8	8	Bildad the Shuhite	0071	
 JOB	8	9	Bildad the Shuhite	0071	
-JOB	9	10	Job, the man	0269	
-JOB	9	11	Job, the man	0269	
-JOB	9	12	Job, the man	0269	
-JOB	9	13	Job, the man	0269	
-JOB	9	14	Job, the man	0269	
-JOB	9	15	Job, the man	0269	
-JOB	9	16	Job, the man	0269	
-JOB	9	17	Job, the man	0269	
-JOB	9	18	Job, the man	0269	
-JOB	9	19	Job, the man	0269	
-JOB	9	2	Job, the man	0269	
-JOB	9	20	Job, the man	0269	
-JOB	9	21	Job, the man	0269	
-JOB	9	22	Job, the man	0269	
-JOB	9	23	Job, the man	0269	
-JOB	9	24	Job, the man	0269	
-JOB	9	25	Job, the man	0269	
-JOB	9	26	Job, the man	0269	
-JOB	9	27	Job, the man	0269	
-JOB	9	28	Job, the man	0269	
-JOB	9	29	Job, the man	0269	
-JOB	9	3	Job, the man	0269	
-JOB	9	30	Job, the man	0269	
-JOB	9	31	Job, the man	0269	
-JOB	9	32	Job, the man	0269	
-JOB	9	33	Job, the man	0269	
-JOB	9	34	Job, the man	0269	
-JOB	9	35	Job, the man	0269	
-JOB	9	4	Job, the man	0269	
-JOB	9	5	Job, the man	0269	
-JOB	9	6	Job, the man	0269	
-JOB	9	7	Job, the man	0269	
-JOB	9	8	Job, the man	0269	
-JOB	9	9	Job, the man	0269	
+JOB	9	10	Job, the man	1269	
+JOB	9	11	Job, the man	1269	
+JOB	9	12	Job, the man	1269	
+JOB	9	13	Job, the man	1269	
+JOB	9	14	Job, the man	1269	
+JOB	9	15	Job, the man	1269	
+JOB	9	16	Job, the man	1269	
+JOB	9	17	Job, the man	1269	
+JOB	9	18	Job, the man	1269	
+JOB	9	19	Job, the man	1269	
+JOB	9	2	Job, the man	1269	
+JOB	9	20	Job, the man	1269	
+JOB	9	21	Job, the man	1269	
+JOB	9	22	Job, the man	1269	
+JOB	9	23	Job, the man	1269	
+JOB	9	24	Job, the man	1269	
+JOB	9	25	Job, the man	1269	
+JOB	9	26	Job, the man	1269	
+JOB	9	27	Job, the man	1269	
+JOB	9	28	Job, the man	1269	
+JOB	9	29	Job, the man	1269	
+JOB	9	3	Job, the man	1269	
+JOB	9	30	Job, the man	1269	
+JOB	9	31	Job, the man	1269	
+JOB	9	32	Job, the man	1269	
+JOB	9	33	Job, the man	1269	
+JOB	9	34	Job, the man	1269	
+JOB	9	35	Job, the man	1269	
+JOB	9	4	Job, the man	1269	
+JOB	9	5	Job, the man	1269	
+JOB	9	6	Job, the man	1269	
+JOB	9	7	Job, the man	1269	
+JOB	9	8	Job, the man	1269	
+JOB	9	9	Job, the man	1269	
 JOL	2	12	God (the LORD)	2000	
 JOL	2	17	JOL saying what the priests should say	0226	
 JOL	2	19	God (the LORD)	2000	
@@ -7495,10 +7495,10 @@ JOS	13	1	God (the LORD)	2000
 JOS	13	2	God (the LORD)	2000	
 JOS	13	21	Not A Quote	00000	
 JOS	13	6	God (the LORD)	2000	
-JOS	14	10	Caleb (old)	0077	
-JOS	14	6	Caleb (old)	0077	
-JOS	15	16	Caleb (old)	0077	
-JOS	15	18	Caleb (old)	0077	
+JOS	14	10	Caleb (old)	1077	
+JOS	14	6	Caleb (old)	1077	
+JOS	15	16	Caleb (old)	1077	
+JOS	15	18	Caleb (old)	1077	
 JOS	15	19	Acsah, Caleb's daughter	0015	
 JOS	17	14	Joseph, people of	0284	
 JOS	17	15	Joshua	0285	
@@ -7609,7 +7609,7 @@ LAM	1	20	daughter of Zion (Jerusalem)	0570
 LAM	1	21	daughter of Zion (Jerusalem)	0570	
 LAM	1	22	daughter of Zion (Jerusalem)	0570	
 LAM	1	9	daughter of Zion (Jerusalem)	0570	
-LAM	2	12	children of Zion (Jerusalem)	0531	
+LAM	2	12	children of Zion (Jerusalem)	1531	
 LAM	2	15	passers by	0807	
 LAM	2	16	Enemies (scoffing)	0124	
 LAM	2	20	daughter of Zion (Jerusalem)	0570	
@@ -7717,11 +7717,11 @@ LUK	1	16	angel of the LORD, an	0474
 LUK	1	18	Zechariah	0454	
 LUK	1	19	angel of the LORD, an	0474	
 LUK	1	25	Elizabeth	0122	
-LUK	1	28	angel Gabriel, sent by God	0471	to Mary
+LUK	1	28	angel Gabriel, sent by God	1471	to Mary
 LUK	1	29	Mary (Jesus' mother)	0327	confused
-LUK	1	30	angel Gabriel, sent by God	0471	
+LUK	1	30	angel Gabriel, sent by God	1471	
 LUK	1	34	Mary (Jesus' mother)	0327	
-LUK	1	35	angel Gabriel, sent by God	0471	
+LUK	1	35	angel Gabriel, sent by God	1471	
 LUK	1	38	Mary (Jesus' mother)	0327	
 LUK	1	42	Elizabeth	0122	
 LUK	1	43	Elizabeth	0122	
@@ -7741,22 +7741,22 @@ LUK	1	62	Jews	0265
 LUK	1	63	his name is John	0626	
 LUK	1	64	Zechariah	0454	
 LUK	1	66	everyone who heard	0588	
-LUK	1	68	Zechariah	0455	praising
-LUK	1	69	Zechariah	0455	praising
-LUK	1	70	Zechariah	0455	praising
-LUK	1	70,71	Zechariah	0455	praising
-LUK	1	71	Zechariah	0455	praising
-LUK	1	72	Zechariah	0455	praising
-LUK	1	72-75	Zechariah	0455	praising
-LUK	1	73	Zechariah	0455	praising
-LUK	1	74	Zechariah	0455	praising
-LUK	1	75	Zechariah	0455	praising
-LUK	1	76	Zechariah	0455	praising
-LUK	1	76,77	Zechariah	0455	praising
-LUK	1	77	Zechariah	0455	praising
-LUK	1	78	Zechariah	0455	praising
-LUK	1	78,79	Zechariah	0455	praising
-LUK	1	79	Zechariah	0455	praising
+LUK	1	68	Zechariah	0454	praising
+LUK	1	69	Zechariah	0454	praising
+LUK	1	70	Zechariah	0454	praising
+LUK	1	70,71	Zechariah	0454	praising
+LUK	1	71	Zechariah	0454	praising
+LUK	1	72	Zechariah	0454	praising
+LUK	1	72-75	Zechariah	0454	praising
+LUK	1	73	Zechariah	0454	praising
+LUK	1	74	Zechariah	0454	praising
+LUK	1	75	Zechariah	0454	praising
+LUK	1	76	Zechariah	0454	praising
+LUK	1	76,77	Zechariah	0454	praising
+LUK	1	77	Zechariah	0454	praising
+LUK	1	78	Zechariah	0454	praising
+LUK	1	78,79	Zechariah	0454	praising
+LUK	1	79	Zechariah	0454	praising
 LUK	10	1	Jesus	0700	giving orders
 LUK	10	10	Jesus	0700	
 LUK	10	11	Jesus	0700	
@@ -7765,7 +7765,7 @@ LUK	10	13	Jesus	0700	warning
 LUK	10	14	Jesus	0700	warning
 LUK	10	15	Jesus	0700	
 LUK	10	16	Jesus	0700	
-LUK	10	17	seventy-two	0906	excited
+LUK	10	17	seventy-two	1906	excited
 LUK	10	18	Jesus	0700	
 LUK	10	19	Jesus	0700	
 LUK	10	2	Jesus	0700	instructing
@@ -8090,8 +8090,8 @@ LUK	19	8	Zaccheaus	0451
 LUK	19	9	Jesus	0700	
 LUK	2	1	Caesar Augustus	0074	
 LUK	2	10	angel of the LORD, an	0474	
-LUK	2	14	great company of heavenly host	0615	stage whisper extra voices will be added
-LUK	2	15	shepherds	0908	awe
+LUK	2	14	great company of heavenly host	1615	stage whisper extra voices will be added
+LUK	2	15	shepherds	1908	awe
 LUK	2	22-24	scripture	0890	
 LUK	2	23	scripture	0890	
 LUK	2	24	scripture	0890	
@@ -8103,7 +8103,7 @@ LUK	2	32	Simeon-old	0430
 LUK	2	34	Simeon-old	0430	
 LUK	2	38	Anna, prophetess	0037	
 LUK	2	48	Mary (Jesus' mother)	0327	
-LUK	2	49	Jesus (child)	0258	
+LUK	2	49	Jesus (child)	1258	
 LUK	20	10	Jesus	0700	
 LUK	20	11	Jesus	0700	
 LUK	20	12	Jesus	0700	
@@ -8125,13 +8125,13 @@ LUK	20	24	Jesus	0700
 LUK	20	24	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians	0941	
 LUK	20	25	Jesus	0700	
 LUK	20	25	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians	0941	
-LUK	20	27	Sadducees	0402	
-LUK	20	28	Sadducees	0402	
-LUK	20	29	Sadducees	0402	
+LUK	20	27	Sadducees	1402	
+LUK	20	28	Sadducees	1402	
+LUK	20	29	Sadducees	1402	
 LUK	20	3	Jesus	0700	
-LUK	20	32	Sadducees	0402	
-LUK	20	32,33	Sadducees	0402	
-LUK	20	33	Sadducees	0402	
+LUK	20	32	Sadducees	1402	
+LUK	20	32,33	Sadducees	1402	
+LUK	20	33	Sadducees	1402	
 LUK	20	34	Jesus	0700	
 LUK	20	36	Jesus	0700	
 LUK	20	37	Jesus	0700	
@@ -8174,7 +8174,7 @@ LUK	21	34,35	Jesus	0700
 LUK	21	35	Jesus	0700	
 LUK	21	5	disciples, some	0574	
 LUK	21	6	Jesus	0700	
-LUK	21	7	Peter (Simon)/James/John/Andrew=disciples=they	0272	
+LUK	21	7	Peter (Simon)/James/John/Andrew=disciples=they	1272	
 LUK	21	8	Jesus	0700	
 LUK	21	9	Jesus	0700	
 LUK	22	10	Jesus	0700	
@@ -8201,7 +8201,7 @@ LUK	22	40	Jesus	0700
 LUK	22	42	Jesus	0700	praying
 LUK	22	46	Jesus	0700	
 LUK	22	48	Jesus	0700	
-LUK	22	49	followers of Jesus	0607	ready to fight
+LUK	22	49	followers of Jesus	1607	ready to fight
 LUK	22	5	chief priests/officers of temple guard	0530	
 LUK	22	51	Jesus	0700	forcefully
 LUK	22	52	Jesus	0700	
@@ -8224,7 +8224,7 @@ LUK	23	14	Pilate	0387	to crowd
 LUK	23	18	chief priests/rulers/the people	0531	shouting
 LUK	23	2	council of elders:chief priests/teachers of the law	0546	
 LUK	23	20	Pilate	0387	
-LUK	23	21	chief priests/rulers/the people |mob	0532	
+LUK	23	21	chief priests/rulers/the people|mob	0532	
 LUK	23	22	Pilate	0387	to crowd
 LUK	23	23	crowd	0552	
 LUK	23	24,25	Pilate	0387	
@@ -8237,7 +8237,7 @@ LUK	23	33	Not A Quote	00000
 LUK	23	34	Jesus	0700	
 LUK	23	35	rulers=chief priests/teachers of the law/elders	0872	sneering
 LUK	23	37	soldier at the cross	0912	
-LUK	23	38	sign on the cross	0907	
+LUK	23	38	sign on the cross	2907	
 LUK	23	39	criminal on cross, one	0550	insulting
 LUK	23	4	Pilate	0387	to crowd
 LUK	23	40	criminal on cross, another	0549	
@@ -8282,20 +8282,20 @@ LUK	24	5	angels in white=men in clothes that gleamed like lightning, two	0479
 LUK	24	50	Jesus	0700	
 LUK	24	8	Mary Magdalene/Mary mother of James/Salome	0329	
 LUK	3	10	crowd	0562	
-LUK	3	11	John the Baptist	0273	
+LUK	3	11	John the Baptist	1273	
 LUK	3	12	tax collectors	0943	calling out
-LUK	3	13	John the Baptist	0273	
-LUK	3	14	John the Baptist	0273	
+LUK	3	13	John the Baptist	1273	
+LUK	3	14	John the Baptist	1273	
 LUK	3	14	soldiers	0916	calling out
 LUK	3	15	people	0843	
-LUK	3	16	John the Baptist	0273	
-LUK	3	17	John the Baptist	0273	
+LUK	3	16	John the Baptist	1273	
+LUK	3	17	John the Baptist	1273	
 LUK	3	22	voice from heaven	2000	
-LUK	3	3	John the Baptist	0273	
+LUK	3	3	John the Baptist	1273	
 LUK	3	4	scripture	0890	
-LUK	3	7	John the Baptist	0273	
-LUK	3	8	John the Baptist	0273	
-LUK	3	9	John the Baptist	0273	
+LUK	3	7	John the Baptist	1273	
+LUK	3	8	John the Baptist	1273	
+LUK	3	9	John the Baptist	1273	
 LUK	4	10	Devil	0800	
 LUK	4	12	Jesus	0700	
 LUK	4	18	Jesus	0700	
@@ -8383,9 +8383,9 @@ LUK	7	13	Jesus	0700	compassionately
 LUK	7	14	Jesus	0700	giving orders
 LUK	7	15	Jesus	0700	
 LUK	7	16	crowd, large	0563	praising
-LUK	7	19	John the Baptist	0273	discouraged
-LUK	7	20	John's disciples	0274	puzzled
-LUK	7	20,21	John's disciples	0274	puzzled
+LUK	7	19	John the Baptist	1273	discouraged
+LUK	7	20	John's disciples	1274	puzzled
+LUK	7	20,21	John's disciples	1274	puzzled
 LUK	7	22	Jesus	0700	
 LUK	7	23	Jesus	0700	
 LUK	7	24	Jesus	0700	
@@ -8487,7 +8487,7 @@ LUK	9	43	everyone in crowd	0587	praising God
 LUK	9	44	Jesus	0700	
 LUK	9	46	disciples, His	0580	arguing
 LUK	9	48	Jesus	0700	
-LUK	9	49	John (disciple whom Jesus loved)	0272	
+LUK	9	49	John (disciple whom Jesus loved)	1272	
 LUK	9	5	Jesus	0700	
 LUK	9	50	Jesus	0700	
 LUK	9	54	James/John (sons of Zebedee)|John	0242	
@@ -8587,7 +8587,7 @@ MAT	11	23	Jesus	0700	warning
 MAT	11	25	Jesus	0700	praying
 MAT	11	27	Jesus	0700	
 MAT	11	28	Jesus	0700	compassionately
-MAT	11	3	John's disciples	0274	puzzled
+MAT	11	3	John's disciples	1274	puzzled
 MAT	11	4	Jesus	0700	
 MAT	11	5	Jesus	0700	
 MAT	11	6	Jesus	0700	
@@ -8688,7 +8688,7 @@ MAT	14	30	Peter (Simon)	0371	afraid
 MAT	14	31	Jesus	0700	questioning
 MAT	14	33	disciples, the (but not Thomas)	0578	awe
 MAT	14	36	people, many	0827	
-MAT	14	4	John the Baptist	0273	rebuke
+MAT	14	4	John the Baptist	1273	rebuke
 MAT	14	7	Herod Antipas (the tetrarch)	0171	
 MAT	14	8	Herodias' daughter	0174	
 MAT	14	9	Herod Antipas (the tetrarch)	0171	
@@ -8736,7 +8736,7 @@ MAT	16	4	Jesus	0700
 MAT	16	6	Jesus	0700	warning
 MAT	16	7	disciples, the	0580	defensive
 MAT	16	8	Jesus	0700	
-MAT	17	10	Peter (Simon)/James/John=disciples, the |John	0272	
+MAT	17	10	Peter (Simon)/James/John=disciples, the|John	1272	
 MAT	17	11	Jesus	0700	
 MAT	17	15	father of possessed son=man in crowd	0606	distraught
 MAT	17	17	Jesus	0700	giving orders
@@ -8849,7 +8849,7 @@ MAT	20	9	Jesus	0700
 MAT	21	10	city, the whole	0534	
 MAT	21	11	disciples, whole crowd of=people, many=crowd, great|crowd	0578	praising
 MAT	21	13	Jesus	0700	
-MAT	21	15	children	0530	praising
+MAT	21	15	children	1530	praising
 MAT	21	16	chief priests/teachers of the law	0528	upset
 MAT	21	16	Jesus	0700	
 MAT	21	19	Jesus	0700	
@@ -8892,11 +8892,11 @@ MAT	22	2	Jesus	0700
 MAT	22	20	Jesus	0700	questioning
 MAT	22	21	Jesus	0700	
 MAT	22	21	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians	0941	
-MAT	22	24	Sadducees	0402	
-MAT	22	25	Sadducees	0402	
-MAT	22	27	Sadducees	0402	
-MAT	22	28	Sadducees	0402	
-MAT	22	28	Sadducees, some	0402	
+MAT	22	24	Sadducees	1402	
+MAT	22	25	Sadducees	1402	
+MAT	22	27	Sadducees	1402	
+MAT	22	28	Sadducees	1402	
+MAT	22	28	Sadducees, some	1402	
 MAT	22	29	Jesus	0700	
 MAT	22	3	Jesus	0700	
 MAT	22	31	Jesus	0700	
@@ -9029,7 +9029,7 @@ MAT	26	11	Jesus	0700
 MAT	26	12	Jesus	0700	
 MAT	26	13	Jesus	0700	
 MAT	26	15	Judas Iscariot	0293	plotting
-MAT	26	17	Peter (Simon)/John=disciples (Jesus') |John	0272	
+MAT	26	17	Peter (Simon)/John=disciples (Jesus')|John	1272	
 MAT	26	18	Jesus	0700	
 MAT	26	2	Jesus	0700	
 MAT	26	21	Jesus	0700	
@@ -9079,7 +9079,7 @@ MAT	27	11	Jesus	0700
 MAT	27	11	Pilate	0387	to Jesus
 MAT	27	13	Pilate	0387	to Jesus
 MAT	27	17	Pilate	0387	to crowd
-MAT	27	19	Pilate's wife	0388	
+MAT	27	19	Pilate's wife	1388	
 MAT	27	20	chief priests/elders	0528	
 MAT	27	21	crowd	0559	
 MAT	27	21	Pilate	0387	to crowd
@@ -9090,7 +9090,7 @@ MAT	27	23	Pilate	0387	to crowd
 MAT	27	24	Pilate	0387	to crowd
 MAT	27	25	people, all the	0821	shouting
 MAT	27	29	soldiers	0916	mocking
-MAT	27	37	sign on the cross	0907	
+MAT	27	37	sign on the cross	2907	
 MAT	27	4	chief priests/elders	0528	impatient
 MAT	27	4	Judas Iscariot	0293	remorse
 MAT	27	40	passers by	0808	mocking
@@ -9111,17 +9111,17 @@ MAT	28	13	chief priests/elders	0377	bribing
 MAT	28	18	Jesus	0700	
 MAT	28	5	angel of the LORD, an	0474	
 MAT	28	9	Jesus	0700	
-MAT	3	10	John the Baptist	0273	
-MAT	3	11	John the Baptist	0273	humble
-MAT	3	12	John the Baptist	0273	warning
-MAT	3	14	John the Baptist	0273	humble
+MAT	3	10	John the Baptist	1273	
+MAT	3	11	John the Baptist	1273	humble
+MAT	3	12	John the Baptist	1273	warning
+MAT	3	14	John the Baptist	1273	humble
 MAT	3	15	Jesus	0700	
 MAT	3	17	voice from heaven	2000	
-MAT	3	2	John the Baptist	0273	proclaiming truth
+MAT	3	2	John the Baptist	1273	proclaiming truth
 MAT	3	3	scripture	0890	
-MAT	3	7	John the Baptist	0273	
-MAT	3	8	John the Baptist	0273	rebuke
-MAT	3	9	John the Baptist	0273	
+MAT	3	7	John the Baptist	1273	
+MAT	3	8	John the Baptist	1273	rebuke
+MAT	3	9	John the Baptist	1273	
 MAT	4	10	Jesus	0700	rebuking
 MAT	4	15	scripture	0890	
 MAT	4	16	scripture	0890	
@@ -9240,7 +9240,7 @@ MAT	9	10	Not A Quote	00000
 MAT	9	11	Pharisees	0378	questioning
 MAT	9	12	Jesus	0700	questioning
 MAT	9	13	Jesus	0700	sternly
-MAT	9	14	John's disciples	0274	puzzled
+MAT	9	14	John's disciples	1274	puzzled
 MAT	9	15	Jesus	0700	
 MAT	9	16	Jesus	0700	
 MAT	9	17	Jesus	0700	
@@ -9322,11 +9322,11 @@ MRK	1	3	scripture	0890
 MRK	1	30	people, some	0835	
 MRK	1	37	Peter (Simon) and companions	0371	exclaimed
 MRK	1	38	Jesus	0700	
-MRK	1	4	John the Baptist	0273	
+MRK	1	4	John the Baptist	1273	
 MRK	1	40	man with leprosy	0682	pleading
 MRK	1	41	Jesus	0700	compassionately
 MRK	1	44	Jesus	0700	
-MRK	1	7	John the Baptist	0273	
+MRK	1	7	John the Baptist	1273	
 MRK	10	10	disciples, the	0580	
 MRK	10	11	Jesus	0700	
 MRK	10	14	Jesus	0700	
@@ -9395,11 +9395,11 @@ MRK	12	15	Jesus	0700
 MRK	12	16	Jesus	0700	questioning
 MRK	12	16	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians	0941	
 MRK	12	17	Jesus	0700	
-MRK	12	18	Sadducees	0402	
-MRK	12	19	Sadducees	0402	
+MRK	12	18	Sadducees	1402	
+MRK	12	19	Sadducees	1402	
 MRK	12	2	Jesus	0700	
-MRK	12	20	Sadducees	0402	
-MRK	12	23	Sadducees	0402	
+MRK	12	20	Sadducees	1402	
+MRK	12	23	Sadducees	1402	
 MRK	12	24	Jesus	0700	
 MRK	12	26	Jesus	0700	
 MRK	12	28	teachers of the law, one=expert in the law, an|Good Priest	0372	respectful
@@ -9439,7 +9439,7 @@ MRK	13	32	Jesus	0700
 MRK	13	33	Jesus	0700	
 MRK	13	34	Jesus	0700	
 MRK	13	35	Jesus	0700	
-MRK	13	4	Peter (Simon)/James/John/Andrew=disciples=they	0272	
+MRK	13	4	Peter (Simon)/James/John/Andrew=disciples=they	1272	
 MRK	13	5	Jesus	0700	
 MRK	13	6	Jesus	0700	
 MRK	13	7	Jesus	0700	
@@ -9447,7 +9447,7 @@ MRK	13	8	Jesus	0700
 MRK	13	9	Jesus	0700	
 MRK	14	10	Judas Iscariot	0293	
 MRK	14	11	Jewish authorities	0260	
-MRK	14	12	Peter (Simon)/John=disciples (Jesus')|disciples	0272	
+MRK	14	12	Peter (Simon)/John=disciples (Jesus')|disciples	1272	
 MRK	14	13	Jesus	0700	
 MRK	14	17,18	Jesus	0700	
 MRK	14	18	Jesus	0700	
@@ -9502,7 +9502,7 @@ MRK	15	18	soldiers	0916	mocking
 MRK	15	2	Jesus	0700	
 MRK	15	2	Pilate	0387	to Jesus
 MRK	15	22	Not A Quote	00000	
-MRK	15	26	sign on the cross	0907	
+MRK	15	26	sign on the cross	2907	
 MRK	15	28	scripture	0890	
 MRK	15	29	passers by	0807	insulting
 MRK	15	31	rulers=chief priests/teachers of the law/elders	0872	sneering
@@ -9624,8 +9624,8 @@ MRK	6	14	people, some	0831	excited
 MRK	6	15	people, other	0819	guessing
 MRK	6	15	people, still other	0836	
 MRK	6	16	Herod Antipas (the tetrarch)	0171	fearful
-MRK	6	17-18	John the Baptist	0273	rebuke
-MRK	6	18	John the Baptist	0273	rebuke
+MRK	6	17-18	John the Baptist	1273	rebuke
+MRK	6	18	John the Baptist	1273	rebuke
 MRK	6	2	men in synagogue	0701	amazed
 MRK	6	22	Herod Antipas (the tetrarch)	0171	drunk
 MRK	6	23	Herod Antipas (the tetrarch)	0171	drunk
@@ -9715,7 +9715,7 @@ MRK	8	5	Jesus	0700	questioning
 MRK	8	6	Jesus	0700	giving orders
 MRK	9	1	Jesus	0700	
 MRK	9	10	Not A Quote	00000	
-MRK	9	11	Peter (Simon)/James/John=disciples, the|John	0272	puzzled
+MRK	9	11	Peter (Simon)/James/John=disciples, the|John	1272	puzzled
 MRK	9	12	Jesus	0700	
 MRK	9	12,13	Jesus	0700	
 MRK	9	16	Jesus	0700	questioning
@@ -9734,7 +9734,7 @@ MRK	9	31	Jesus	0700
 MRK	9	33	Jesus	0700	questioning
 MRK	9	35	Jesus	0700	instructing
 MRK	9	37	Jesus	0700	instructing
-MRK	9	38	John (disciple whom Jesus loved)	0272	
+MRK	9	38	John (disciple whom Jesus loved)	1272	
 MRK	9	39	Jesus	0700	
 MRK	9	40	Jesus	0700	
 MRK	9	41	Jesus	0700	
@@ -9780,12 +9780,12 @@ NEH	13	25	Nehemiah	0359
 NEH	2	17	Nehemiah	0359	
 NEH	2	18	Jews/priests/nobles/officials	0274	
 NEH	2	19	Sanballat/Tobiah/Geshem, enemies	0127	mocking, ridiculing
-NEH	2	2	Artaxerxes, king of Persia	0048	
+NEH	2	2	Artaxerxes, king of Persia	0047	
 NEH	2	20	Nehemiah	0359	
 NEH	2	3	Nehemiah	0359	
-NEH	2	4	Artaxerxes, king of Persia	0048	
+NEH	2	4	Artaxerxes, king of Persia	0047	
 NEH	2	5	Nehemiah	0359	
-NEH	2	6	Artaxerxes, king of Persia	0048	
+NEH	2	6	Artaxerxes, king of Persia	0047	
 NEH	2	7	Nehemiah	0359	
 NEH	4	10	Judah, people in	0291	
 NEH	4	11	Enemies of Judah and Benjamin	0127	
@@ -9804,7 +9804,7 @@ NEH	5	4	men/wives, still others	0720	desperate
 NEH	5	7	Nehemiah	0359	
 NEH	5	8	Nehemiah	0359	
 NEH	5	9	Nehemiah	0359	
-NEH	6	10	Shemaiah, son of Delaiah, false prophet	0427	
+NEH	6	10	Shemaiah, son of Delaiah, false prophet	1427	
 NEH	6	11	Nehemiah	0359	
 NEH	6	2	Sanballat/Geshem, enemies [scheming]	0127	message
 NEH	6	3	Nehemiah	0359	message
@@ -9961,10 +9961,10 @@ NUM	22	14	Moabite prince 1	0340
 NUM	22	16	Moabite prince 2	0341	afraid
 NUM	22	18	Balaam	0058	
 NUM	22	20	God (the LORD)	2000	
-NUM	22	28	she donkey	0907	
+NUM	22	28	she donkey	1907	
 NUM	22	29	Balaam	0058	
 NUM	22	30	Balaam	0058	
-NUM	22	30	she donkey	0907	
+NUM	22	30	she donkey	1907	
 NUM	22	32	angel of the LORD, the	0700	
 NUM	22	34	Balaam	0058	
 NUM	22	35	angel of the LORD, the	0700	
@@ -10160,7 +10160,7 @@ PSA	32	5	David	0093	acknowledging sin
 PSA	35	10	David	0093	wholeheartedly
 PSA	35	21	David's enemies	0094	accusing, mocking
 PSA	35	25	David's enemies	0094	accusing, mocking
-PSA	35	27	David's supporters	0800	shout for joy, glad
+PSA	35	27	David's supporters	1800	shout for joy, glad
 PSA	35	3	David	0093	asking LORD's salvation
 PSA	38	16	David	0093	
 PSA	39	1	David	0093	
@@ -10209,7 +10209,7 @@ PSA	50	9	God (the LORD)(the Mighty One)	2000
 PSA	52	1	Doeg the Edomite	0099	
 PSA	52	7	people, righteous	0830	laughing
 PSA	53	1	fool	0608	
-PSA	54	1	Ziphites	0461	
+PSA	54	1	Ziphites	1461	
 PSA	55	6	David	0093	
 PSA	55	7	David	0093	
 PSA	55	8	David	0093	
@@ -10335,12 +10335,12 @@ REV	18	16	merchants of the earth	0721	wailing
 REV	18	16	voice from heaven, another	0976	wailing
 REV	18	17	merchants of the earth	0721	wailing
 REV	18	17	voice from heaven, another	0976	wailing
-REV	18	18	ship captains, seafarers, sailors	0906	weeping/ cry out
+REV	18	18	ship captains, seafarers, sailors	2906	weeping/ cry out
 REV	18	18	voice from heaven, another	0976	weeping/ cry out
-REV	18	19	ship captains, seafarers, sailors	0906	weeping/ cry out
+REV	18	19	ship captains, seafarers, sailors	2906	weeping/ cry out
 REV	18	19	voice from heaven, another	0976	weeping/ cry out
 REV	18	2	angel, another, coming down from heaven	0473	
-REV	18	20	ship captains, seafarers, sailors	0906	weeping/ cry out
+REV	18	20	ship captains, seafarers, sailors	2906	weeping/ cry out
 REV	18	21	angel, powerful	0482	
 REV	18	22	angel, powerful	0482	
 REV	18	23	angel, powerful	0482	
@@ -10413,7 +10413,7 @@ REV	22	14	Jesus	0700
 REV	22	16	Jesus	0700	
 REV	22	17	him who hears	0625	
 REV	22	17	Spirit, the, and the bride	0438	
-REV	22	18	John	0272	
+REV	22	18	John	1272	
 REV	22	20	Jesus	0700	
 REV	22	6	angel, the	0909	
 REV	22	7	Jesus	0700	
@@ -10444,7 +10444,7 @@ REV	4	11	twenty-four elders	0964
 REV	4	8	four living creatures	0612	
 REV	5	10	four living creatures, twenty-four elders	0613	
 REV	5	12	angels, many, living creatures, elders, thousands of thousands 1	0478	
-REV	5	13	angels, many, living creatures, elders, thousands of thousands 2	0487	
+REV	5	13	angels, many, living creatures, elders, thousands of thousands 2	1487	
 REV	5	14	four living creatures	0612	
 REV	5	2	angel, powerful	0483	loud
 REV	5	5	elders, one of the	0584	
@@ -10461,7 +10461,7 @@ REV	7	10	multitude from all nations, tribes, peoples, languages,	0746
 REV	7	12	angels, all the	0478	
 REV	7	13	elders, one of the	0584	
 REV	7	14	elders, one of the	0584	
-REV	7	14	John	0272	
+REV	7	14	John	1272	
 REV	7	15	elders, one of the	0584	
 REV	7	16	elders, one of the	0584	
 REV	7	17	elders, one of the	0584	
@@ -10470,7 +10470,7 @@ REV	7	5	voice	0482
 REV	7	6	voice	0482	
 REV	7	7	voice	0482	
 REV	7	8	voice	0482	
-REV	8	13	eagle crying with loud voice	0581	
+REV	8	13	eagle crying with loud voice	1581	
 REV	9	14	voice from altar	0973	
 ROM	1	17	scripture	0890	
 ROM	10	11	scripture	0890	
