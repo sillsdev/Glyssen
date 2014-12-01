@@ -80,8 +80,13 @@ namespace DevTools
 				cv.Character = cv.CharacterAndDelivery;
 
 			i = cv.Character.LastIndexOf(" #", StringComparison.InvariantCulture);
+			int num;
 			if (i > -1)
+			{
+				if (!Int32.TryParse(cv.Character.Substring(i+2), out num))
+					Debug.Fail("invalid #: " + cv.Character);
 				cv.Character = cv.Character.Substring(0, i);
+			}
 		}
 
 		public static Comparison<CharacterVerse> CharacterComparison = (object1, object2) => String.Compare(object1.CharacterAndDelivery, object2.CharacterAndDelivery, StringComparison.InvariantCulture);

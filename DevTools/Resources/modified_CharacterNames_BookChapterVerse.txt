@@ -1863,7 +1863,7 @@ ACT 22.20 character=Paul
 ACT 22.21 character=Paul
 ACT 22.22 character=crowd #14 [screaming]
 ACT 22.25 character=Paul [stern]
-ACT 22.26 character=centurion #6 |army officer [anxious]
+ACT 22.26 character=centurion 3|army officer [anxious]
 ACT 22.27 character=commander #17
 ACT 22.27 character=Paul
 ACT 22.28 character=commander #17
@@ -1879,7 +1879,7 @@ ACT 23.11 character=Jesus #7 [in a vision]
 ACT 23.14 character=Jews, 40 in conspiracy #14 [plotting]
 ACT 23.15 character=Jews
 ACT 23.17 character=Paul
-ACT 23.18 character=centurion #6 |army officer
+ACT 23.18 character=centurion 3|army officer
 ACT 23.19 character=commander #17
 ACT 23.2 character=Ananias [commanding]
 ACT 23.20 character=son of Paul's sister (young man)
@@ -1960,7 +1960,7 @@ ACT 27.31 character=Paul [warning]
 ACT 27.33 character=Paul [encouraging]
 ACT 27.34 character=Paul
 ACT 27.39 character=captain/crew
-ACT 27.43 character=centurion #10 |army officer
+ACT 27.43 character=centurion 1|army officer
 ACT 28.17 character=Paul
 ACT 28.18 character=Paul
 ACT 28.21 character=Jews, leaders of the #1
@@ -1992,7 +1992,7 @@ ACT 4.11 character=Peter (Simon)
 ACT 4.12 character=Peter (Simon)
 ACT 4.13 character=chief priests/their officials #15
 ACT 4.15 character=chief priests/their officials
-ACT 4.16 character=high priests/men of their family/rulers, elders, teachers of the law #5 |Good Priest [defending]
+ACT 4.16 character=high priests/men of their family/rulers, elders, teachers of the law|Good Priest [defending]
 ACT 4.17 character=high priest #15 [worried but stern]
 ACT 4.18 character=chief priests/their officials
 ACT 4.19 character=Peter (Simon)/John
@@ -5946,7 +5946,7 @@ JHN 11.3 character=Mary/Martha
 JHN 11.31 character=Jews, the (with Mary and Martha)
 JHN 11.32 character=Mary (sister of Martha)
 JHN 11.34 character=Jesus [questioning]
-JHN 11.34 character=Jews, the (with Mary and Martha) #25 |Mary
+JHN 11.34 character=Jews, the (with Mary and Martha)|Mary
 JHN 11.36 character=Jews, the (with Mary and Martha)
 JHN 11.37 character=Jews, the (with Mary and Martha, some)
 JHN 11.39 character=Jesus
@@ -5964,7 +5964,7 @@ JHN 11.56 character=Jews, the #3
 JHN 11.7 character=Jesus
 JHN 11.8 character=disciples, Jesus'
 JHN 11.9 character=Jesus
-JHN 12.13 character=disciples, whole crowd of=people, many=crowd, great #12 |crowd [praising]
+JHN 12.13 character=disciples, whole crowd of=people, many=crowd, great|crowd [praising]
 JHN 12.15 character=scripture
 JHN 12.19 character=Pharisees #15
 JHN 12.21 character=Greeks [respectful]
@@ -6055,7 +6055,7 @@ JHN 16.11 character=Jesus
 JHN 16.12 character=Jesus
 JHN 16.16 character=Jesus
 JHN 16.17 character=disciples, some of his #13 [puzzled]
-JHN 16.18 character=disciples, some of his #6 |Thomas [frustrated]
+JHN 16.18 character=disciples, some of his|Thomas [frustrated]
 JHN 16.19 character=Jesus
 JHN 16.20 character=Jesus
 JHN 16.23 character=Jesus
@@ -6191,7 +6191,7 @@ JHN 21.22 character=Jesus
 JHN 21.23 character=Jesus
 JHN 21.3 character=Peter (Simon)
 JHN 21.3 character=Thomas/Nathaniel/James/John/2 disciples
-JHN 21.5 character=disciples, His #12 |John [calling out]
+JHN 21.5 character=disciples, His|John [calling out]
 JHN 21.5 character=Jesus [questioning]
 JHN 21.6 character=Jesus
 JHN 21.7 character=John #12 [amazed]
@@ -7772,11 +7772,11 @@ LUK 10.2 character=Jesus [instructing]
 LUK 10.21 character=Jesus
 LUK 10.22 character=Jesus
 LUK 10.23 character=Jesus
-LUK 10.25 character=teachers of the law, one=expert in the law, an #5 |Good Priest [testing]
+LUK 10.25 character=teachers of the law, one=expert in the law, an|Good Priest [testing]
 LUK 10.26 character=Jesus [questioning]
-LUK 10.27 character=teachers of the law, one=expert in the law, an #5 |Good Priest
+LUK 10.27 character=teachers of the law, one=expert in the law, an|Good Priest
 LUK 10.28 character=Jesus
-LUK 10.29 character=teachers of the law, one=expert in the law, an #5 |Good Priest [justifying]
+LUK 10.29 character=teachers of the law, one=expert in the law, an|Good Priest [justifying]
 LUK 10.3 character=Jesus
 LUK 10.30 character=Jesus
 LUK 10.31 character=Jesus
@@ -7786,7 +7786,7 @@ LUK 10.34 character=Jesus
 LUK 10.35 character=Jesus
 LUK 10.36 character=Jesus [questioning]
 LUK 10.37 character=Jesus
-LUK 10.37 character=teachers of the law, one=expert in the law, an #5 |Good Priest
+LUK 10.37 character=teachers of the law, one=expert in the law, an|Good Priest
 LUK 10.4 character=Jesus [instructing]
 LUK 10.40 character=Martha
 LUK 10.41 character=Jesus [compassionately]
@@ -7906,7 +7906,7 @@ LUK 13.27 character=Jesus
 LUK 13.28 character=Jesus
 LUK 13.29 character=Jesus
 LUK 13.3 character=Jesus
-LUK 13.31 character=Pharisee expert-in-law #5 |Good Priest [warning]
+LUK 13.31 character=Pharisee expert-in-law|Good Priest [warning]
 LUK 13.32 character=Jesus #7
 LUK 13.33 character=Jesus #7
 LUK 13.34 character=Jesus
@@ -8110,7 +8110,7 @@ LUK 20.12 character=Jesus
 LUK 20.13 character=Jesus
 LUK 20.14 character=Jesus
 LUK 20.15 character=Jesus
-LUK 20.16 character=chief priests/elders of people #5 |Good Priest [alarmed]
+LUK 20.16 character=chief priests/elders of people|Good Priest [alarmed]
 LUK 20.16 character=Jesus
 LUK 20.16 character=people, the
 LUK 20.17 character=Jesus
@@ -8136,7 +8136,7 @@ LUK 20.34 character=Jesus
 LUK 20.36 character=Jesus
 LUK 20.37 character=Jesus
 LUK 20.38 character=Jesus
-LUK 20.39 character=teachers of the law, some #5 |Good Priest [compliment]
+LUK 20.39 character=teachers of the law, some|Good Priest [compliment]
 LUK 20.4 character=Jesus [questioning]
 LUK 20.41 character=Jesus
 LUK 20.42 character=Jesus
@@ -8208,8 +8208,8 @@ LUK 22.52 character=Jesus
 LUK 22.56 character=girl at high priest's courtyard=servant girl #24
 LUK 22.57 character=Peter (Simon) [denial]
 LUK 22.58 character=Peter (Simon) [stronger]
-LUK 22.58 character=servant girl, another=someone else #25 | servant girl [accusing]
-LUK 22.59 character=high priest's servant (man), one=those standing near #16 |another man [accusing]
+LUK 22.58 character=servant girl, another=someone else| servant girl [accusing]
+LUK 22.59 character=high priest's servant (man), one=those standing near|another man [accusing]
 LUK 22.60 character=Peter (Simon) [strongest]
 LUK 22.61 character=Jesus
 LUK 22.64 character=men who were guarding #6 [mocking]
@@ -8244,31 +8244,31 @@ LUK 23.40 character=criminal on cross, another
 LUK 23.42 character=criminal on cross, another #4 [repentant]
 LUK 23.43 character=Jesus
 LUK 23.46 character=Jesus
-LUK 23.47 character=centurion #2 |army officer [amazed]
+LUK 23.47 character=centurion 2|army officer [amazed]
 LUK 23.5 character=chief priests/Sanhedrin=chief priests/whole Sanhedrin #1 [loud, angry]
 LUK 23.6 character=Pilate
 LUK 23.7 character=chief priests/teachers of the law #15
 LUK 24.17 character=Jesus [questioning]
-LUK 24.18 character=Cleopas and other (on road to Emmaus) #3|Cleopas
-LUK 24.19 character=Cleopas and other (on road to Emmaus) #3|Cleopas
+LUK 24.18 character=Cleopas and other (on road to Emmaus)|Cleopas
+LUK 24.19 character=Cleopas and other (on road to Emmaus)|Cleopas
 LUK 24.19 character=Jesus
 LUK 24.19 character=other and Cleopas (on road to Emmaus) female|other female
-LUK 24.19 character=other and Cleopas (on road to Emmaus) male #9|other male
-LUK 24.20 character=Cleopas and other (on road to Emmaus) #3|Cleopas
-LUK 24.21 character=Cleopas and other (on road to Emmaus) #3|Cleopas
-LUK 24.22 character=Cleopas and other (on road to Emmaus) #3|Cleopas
+LUK 24.19 character=other and Cleopas (on road to Emmaus) male|other male
+LUK 24.20 character=Cleopas and other (on road to Emmaus)|Cleopas
+LUK 24.21 character=Cleopas and other (on road to Emmaus)|Cleopas
+LUK 24.22 character=Cleopas and other (on road to Emmaus)|Cleopas
 LUK 24.22 character=other and Cleopas (on road to Emmaus) female|other female
-LUK 24.22 character=other and Cleopas (on road to Emmaus) male #9|other male
-LUK 24.23 character=Cleopas and other (on road to Emmaus) #3|Cleopas
-LUK 24.24 character=Cleopas and other (on road to Emmaus) #3|Cleopas
+LUK 24.22 character=other and Cleopas (on road to Emmaus) male|other male
+LUK 24.23 character=Cleopas and other (on road to Emmaus)|Cleopas
+LUK 24.24 character=Cleopas and other (on road to Emmaus)|Cleopas
 LUK 24.25 character=Jesus
-LUK 24.29 character=Cleopas and other (on road to Emmaus) #3|Cleopas [urging]
+LUK 24.29 character=Cleopas and other (on road to Emmaus)|Cleopas [urging]
 LUK 24.29 character=Jesus
 LUK 24.29 character=other and Cleopas (on road to Emmaus) female|other female
-LUK 24.29 character=other and Cleopas (on road to Emmaus) male #9|other male
-LUK 24.32 character=Cleopas and other (on road to Emmaus) #3|Cleopas [urging]
+LUK 24.29 character=other and Cleopas (on road to Emmaus) male|other male
+LUK 24.32 character=Cleopas and other (on road to Emmaus)|Cleopas [urging]
 LUK 24.32 character=other and Cleopas (on road to Emmaus) female|other female
-LUK 24.32 character=other and Cleopas (on road to Emmaus) male #9|other male
+LUK 24.32 character=other and Cleopas (on road to Emmaus) male|other male
 LUK 24.34 character=Eleven/those with them
 LUK 24.36 character=Jesus
 LUK 24.38 character=Jesus
@@ -8400,7 +8400,7 @@ LUK 7.33 character=Not A Quote
 LUK 7.34 character=Jesus
 LUK 7.35 character=Jesus
 LUK 7.39 character=Pharisee(Simon) #1 [judgmental]
-LUK 7.4 character=elders of the Jews #5|Good Priest [interceding]
+LUK 7.4 character=elders of the Jews|Good Priest [interceding]
 LUK 7.40 character=Jesus
 LUK 7.40 character=Pharisee(Simon) #1
 LUK 7.41 character=Jesus
@@ -8411,11 +8411,11 @@ LUK 7.45 character=Jesus
 LUK 7.46 character=Jesus
 LUK 7.48 character=Jesus
 LUK 7.49 character=other guests at Pharisee(Simon)'s house #15 [unhappy]
-LUK 7.5 character=elders of the Jews #5|Good Priest
+LUK 7.5 character=elders of the Jews|Good Priest
 LUK 7.50 character=Jesus
-LUK 7.6 character=centurion=centurion/other guards |army officer #2 [polite]
-LUK 7.7 character=centurion=centurion/other guards |army officer #2 [polite]
-LUK 7.8 character=centurion #2
+LUK 7.6 character=centurion=centurion/other guards|army officer #2 [polite]
+LUK 7.7 character=centurion=centurion/other guards|army officer #2 [polite]
+LUK 7.8 character=centurion 2
 LUK 7.9 character=Jesus
 LUK 8.10 character=Jesus
 LUK 8.11 character=Jesus
@@ -8490,7 +8490,7 @@ LUK 9.48 character=Jesus
 LUK 9.49 character=John (disciple whom Jesus loved)
 LUK 9.5 character=Jesus
 LUK 9.50 character=Jesus
-LUK 9.54 character=James/John (sons of Zebedee) #12|John
+LUK 9.54 character=James/John (sons of Zebedee)|John
 LUK 9.55 character=Jesus [rebuking]
 LUK 9.57 character=teacher of the law=man|man #16 [eager]
 LUK 9.58 character=Jesus
@@ -8750,7 +8750,7 @@ MAT 17.26 character=Jesus
 MAT 17.26 character=Peter (Simon)
 MAT 17.27 character=Jesus
 MAT 17.4 character=Peter (Simon) [afraid]
-MAT 17.5 character=voice from bright cloud #20 (God)
+MAT 17.5 character=voice from bright cloud (God)
 MAT 17.7 character=Jesus [giving orders]
 MAT 17.9 character=Jesus [forcefully]
 MAT 18.1 character=disciples, the #12
@@ -8811,8 +8811,8 @@ MAT 2.20 character=angel of the LORD, an [commanding]
 MAT 2.23 character=scripture
 MAT 2.3 character=Not A Quote
 MAT 2.4 character=Herod the Great
-MAT 2.5 character=people's chief priests/teachers of the law #5 |Good Priest
-MAT 2.6 character=people's chief priests/teachers of the law #5 |Good Priest
+MAT 2.5 character=people's chief priests/teachers of the law|Good Priest
+MAT 2.6 character=people's chief priests/teachers of the law|Good Priest
 MAT 2.7 character=Not A Quote
 MAT 2.8 character=Herod the Great #19 [sly]
 MAT 20.1 character=Jesus
@@ -8827,7 +8827,7 @@ MAT 20.2 character=Jesus
 MAT 20.20 character=mother of Zebedee's sons
 MAT 20.21 character=Jesus
 MAT 20.21 character=mother of Zebedee's sons
-MAT 20.22 character=James/John (sons of Zebedee) #12|John [boldly]
+MAT 20.22 character=James/John (sons of Zebedee)|John [boldly]
 MAT 20.22 character=Jesus
 MAT 20.23 character=Jesus
 MAT 20.25 character=Jesus
@@ -8847,7 +8847,7 @@ MAT 20.7 character=Jesus
 MAT 20.8 character=Jesus
 MAT 20.9 character=Jesus
 MAT 21.10 character=city, the whole
-MAT 21.11 character=disciples, whole crowd of=people, many=crowd, great #12 |crowd [praising]
+MAT 21.11 character=disciples, whole crowd of=people, many=crowd, great|crowd [praising]
 MAT 21.13 character=Jesus
 MAT 21.15 character=children [praising]
 MAT 21.16 character=chief priests/teachers of the law #11 [upset]
@@ -8865,7 +8865,7 @@ MAT 21.27 character=Jesus
 MAT 21.28 character=Jesus
 MAT 21.29 character=Jesus
 MAT 21.30 character=Jesus
-MAT 21.31 character=chief priests/elders of people #5 |Good Priest
+MAT 21.31 character=chief priests/elders of people|Good Priest
 MAT 21.31 character=Jesus
 MAT 21.33 character=Jesus
 MAT 21.34 character=Jesus
@@ -8874,13 +8874,13 @@ MAT 21.36 character=Jesus
 MAT 21.37 character=Jesus
 MAT 21.38 character=Jesus
 MAT 21.40 character=Jesus
-MAT 21.41 character=chief priests/elders of people #5 |Good Priest [serious]
+MAT 21.41 character=chief priests/elders of people|Good Priest [serious]
 MAT 21.42 character=Jesus
 MAT 21.43 character=Jesus
 MAT 21.45 character=chief priests/Pharisees [angry]
 MAT 21.45 character=mother of Zebedee's sons
 MAT 21.5 character=scripture
-MAT 21.9 character=disciples, whole crowd of=people, many=crowd, great #12 |crowd [praising]
+MAT 21.9 character=disciples, whole crowd of=people, many=crowd, great|crowd [praising]
 MAT 22.10 character=Jesus
 MAT 22.11 character=Jesus
 MAT 22.12 character=Jesus
@@ -9099,7 +9099,7 @@ MAT 27.46 character=Jesus [deeply distressed]
 MAT 27.46 character=Not A Quote
 MAT 27.47 character=bystanders=some standing near #3 [uneasy]
 MAT 27.49 character=bystanders, rest #4 [jeering]
-MAT 27.54 character=centurion=centurion/other guards |army officer #2 [amazed]
+MAT 27.54 character=centurion=centurion/other guards|army officer #2 [amazed]
 MAT 27.6 character=chief priests #15 [disdain]
 MAT 27.63 character=chief priests/Pharisees #15 [negotiating]
 MAT 27.65 character=Pilate [impatient]
@@ -9232,10 +9232,10 @@ MAT 8.3 character=Jesus
 MAT 8.31 character=demons [begging]
 MAT 8.32 character=Jesus [giving orders]
 MAT 8.4 character=Jesus [giving orders]
-MAT 8.6 character=centurion #10 |army officer [entreating]
+MAT 8.6 character=centurion 1|army officer [entreating]
 MAT 8.7 character=Jesus
-MAT 8.8 character=centurion #10 |army officer
-MAT 8.9 character=centurion #10 |army officer
+MAT 8.8 character=centurion 1|army officer
+MAT 8.9 character=centurion 1|army officer
 MAT 9.10 character=Not A Quote
 MAT 9.11 character=Pharisees #19 [questioning]
 MAT 9.12 character=Jesus [questioning]
@@ -9346,11 +9346,11 @@ MRK 10.29 character=Jesus
 MRK 10.3 character=Jesus [questioning]
 MRK 10.31 character=Jesus
 MRK 10.33 character=Jesus
-MRK 10.35 character=James/John (sons of Zebedee) #12|John [boldly]
+MRK 10.35 character=James/John (sons of Zebedee)|John [boldly]
 MRK 10.36 character=Jesus
-MRK 10.37 character=James/John (sons of Zebedee) #12|John [boldly]
+MRK 10.37 character=James/John (sons of Zebedee)|John [boldly]
 MRK 10.38 character=Jesus
-MRK 10.39 character=James/John (sons of Zebedee) #12|John [boldly]
+MRK 10.39 character=James/John (sons of Zebedee)|John [boldly]
 MRK 10.39 character=Jesus
 MRK 10.4 character=Pharisees, some
 MRK 10.42 character=Jesus
@@ -9367,7 +9367,7 @@ MRK 10.51 character=Jesus
 MRK 10.52 character=Jesus
 MRK 10.6 character=Jesus
 MRK 10.8 character=Jesus
-MRK 11.10 character=disciples, whole crowd of=people, many=crowd, great #12 |crowd [praising]
+MRK 11.10 character=disciples, whole crowd of=people, many=crowd, great|crowd [praising]
 MRK 11.14 character=Jesus
 MRK 11.17 character=Jesus
 MRK 11.2 character=Jesus
@@ -9387,7 +9387,7 @@ MRK 11.33 character=Jesus
 MRK 11.5 character=owner of colt=people, some standing there #3 [suspicious]
 MRK 11.6 character=disciples, 2 men
 MRK 11.6 character=some people
-MRK 11.9 character=disciples, whole crowd of=people, many=crowd, great #12 |crowd [praising]
+MRK 11.9 character=disciples, whole crowd of=people, many=crowd, great|crowd [praising]
 MRK 12.1 character=Jesus [preaching]
 MRK 12.10 character=Jesus [preaching]
 MRK 12.14 character=spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians
@@ -9402,9 +9402,9 @@ MRK 12.20 character=Sadducees
 MRK 12.23 character=Sadducees
 MRK 12.24 character=Jesus
 MRK 12.26 character=Jesus
-MRK 12.28 character=teachers of the law, one=expert in the law, an #5 |Good Priest [respectful]
+MRK 12.28 character=teachers of the law, one=expert in the law, an|Good Priest [respectful]
 MRK 12.29 character=Jesus
-MRK 12.32 character=teachers of the law, one=expert in the law, an #5 |Good Priest [complimenting]
+MRK 12.32 character=teachers of the law, one=expert in the law, an|Good Priest [complimenting]
 MRK 12.34 character=Jesus
 MRK 12.35 character=Jesus
 MRK 12.36 character=Jesus
@@ -9447,7 +9447,7 @@ MRK 13.8 character=Jesus
 MRK 13.9 character=Jesus
 MRK 14.10 character=Judas Iscariot
 MRK 14.11 character=Jewish authorities
-MRK 14.12 character=Peter (Simon)/John=disciples (Jesus') #12|disciples
+MRK 14.12 character=Peter (Simon)/John=disciples (Jesus')|disciples
 MRK 14.13 character=Jesus
 MRK 14.17,18 character=Jesus
 MRK 14.18 character=Jesus
@@ -9513,8 +9513,8 @@ MRK 15.34-35 character=Jesus
 MRK 15.34-35 character=Not A Quote
 MRK 15.35 character=bystanders=some standing near #3 [uneasy]
 MRK 15.36 character=man, one #4 [jeering]
-MRK 15.38,39 character=centurion=centurion/other guards #2 |army officer [amazed]
-MRK 15.39 character=centurion=centurion/other guards #2 |army officer [amazed]
+MRK 15.38,39 character=centurion=centurion/other guards|army officer #2 [amazed]
+MRK 15.39 character=centurion=centurion/other guards|army officer #2 [amazed]
 MRK 15.4 character=Pilate [to Jesus]
 MRK 15.43 character=Joseph of Arimathea
 MRK 15.43 character=Pilate [surprised]
@@ -9715,7 +9715,7 @@ MRK 8.5 character=Jesus [questioning]
 MRK 8.6 character=Jesus [giving orders]
 MRK 9.1 character=Jesus
 MRK 9.10 character=Not A Quote
-MRK 9.11 character=Peter (Simon)/James/John=disciples, the #12 |John [puzzled]
+MRK 9.11 character=Peter (Simon)/James/John=disciples, the|John [puzzled]
 MRK 9.12 character=Jesus
 MRK 9.12,13 character=Jesus
 MRK 9.16 character=Jesus [questioning]
@@ -9860,7 +9860,7 @@ NUM 11.23 character=God (the LORD)
 NUM 11.27 character=young man, a [excited]
 NUM 11.28 character=Joshua
 NUM 11.29 character=Moses
-NUM 11.4 character=Rabble/Complainer #2
+NUM 11.4 character=Rabble/Complainer
 NUM 12.11 character=Aaron
 NUM 12.13 character=Moses
 NUM 12.14 character=God (the LORD)
@@ -9937,7 +9937,7 @@ NUM 20.18 character=Edom|king of Edom
 NUM 20.19 character=Israelites
 NUM 20.20 character=Edom|king of Edom
 NUM 20.24 character=God (the LORD)
-NUM 20.3 character=people, the|complainer #2/woman [complaining]
+NUM 20.3 character=people, the|complainer/woman [complaining]
 NUM 20.8 character=God (the LORD)
 NUM 21.14 character=Book of the Wars of the LORD|leader of Zebulun
 NUM 21.15 character=Moses/Israelites [sang]
@@ -9957,8 +9957,8 @@ NUM 21.8 character=God (the LORD)
 NUM 22.10 character=Balaam
 NUM 22.12 character=God (the LORD)
 NUM 22.13 character=Balaam
-NUM 22.14 character=Moabite prince #1
-NUM 22.16 character=Moabite prince #2 [afraid]
+NUM 22.14 character=Moabite prince 1
+NUM 22.16 character=Moabite prince 2 [afraid]
 NUM 22.18 character=Balaam
 NUM 22.20 character=God (the LORD)
 NUM 22.28 character=she donkey
@@ -9970,7 +9970,7 @@ NUM 22.34 character=Balaam
 NUM 22.35 character=angel of the LORD, the
 NUM 22.37 character=Balak
 NUM 22.38 character=Balaam
-NUM 22.4 character=Moabite prince #2
+NUM 22.4 character=Moabite prince 2
 NUM 22.5 character=Balak
 NUM 22.8 character=Balaam
 NUM 22.9 character=God (the LORD)
@@ -10443,8 +10443,8 @@ REV 4.1 character=voice like a trumpet #7
 REV 4.11 character=twenty-four elders
 REV 4.8 character=four living creatures
 REV 5.10 character=four living creatures, twenty-four elders
-REV 5.12 character=angels, many, living creatures, elders, thousands of thousands #13
-REV 5.13 character=angels, many, living creatures, elders, thousands of thousands #22
+REV 5.12 character=angels, many, living creatures, elders, thousands of thousands 1
+REV 5.13 character=angels, many, living creatures, elders, thousands of thousands 2
 REV 5.14 character=four living creatures
 REV 5.2 character=angel, powerful #6 [loud]
 REV 5.5 character=elders, one of the

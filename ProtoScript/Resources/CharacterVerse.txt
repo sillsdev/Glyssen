@@ -1863,7 +1863,7 @@ ACT	22	20	Paul	0062
 ACT	22	21	Paul	0062	
 ACT	22	22	crowd	0556	screaming
 ACT	22	25	Paul	0062	stern
-ACT	22	26	centurion	0515	anxious
+ACT	22	26	centurion 3|army officer	0515	anxious
 ACT	22	27	commander	0536	
 ACT	22	27	Paul	0062	
 ACT	22	28	commander	0536	
@@ -1879,7 +1879,7 @@ ACT	23	11	Jesus	0700	in a vision
 ACT	23	14	Jews, 40 in conspiracy	0265	plotting
 ACT	23	15	Jews	0265	
 ACT	23	17	Paul	0062	
-ACT	23	18	centurion	0515	
+ACT	23	18	centurion 3|army officer	0515	
 ACT	23	19	commander	0536	
 ACT	23	2	Ananias	0035	commanding
 ACT	23	20	son of Paul's sister (young man)	0936	
@@ -1960,7 +1960,7 @@ ACT	27	31	Paul	0062	warning
 ACT	27	33	Paul	0062	encouraging
 ACT	27	34	Paul	0062	
 ACT	27	39	captain/crew	0512	
-ACT	27	43	centurion	0513	
+ACT	27	43	centurion 1|army officer	0513	
 ACT	28	17	Paul	0062	
 ACT	28	18	Paul	0062	
 ACT	28	21	Jews, leaders of the	0262	
@@ -1992,7 +1992,7 @@ ACT	4	11	Peter (Simon)	0371
 ACT	4	12	Peter (Simon)	0371	
 ACT	4	13	chief priests/their officials	0377	
 ACT	4	15	chief priests/their officials	0527	
-ACT	4	16	high priests/men of their family/rulers, elders, teachers of the law	0372	defending
+ACT	4	16	high priests/men of their family/rulers, elders, teachers of the law|Good Priest	0372	defending
 ACT	4	17	high priest	0622	worried but stern
 ACT	4	18	chief priests/their officials	0527	
 ACT	4	19	Peter (Simon)/John	0371	
@@ -5946,7 +5946,7 @@ JHN	11	3	Mary/Martha	0330
 JHN	11	31	Jews, the (with Mary and Martha)	0271	
 JHN	11	32	Mary (sister of Martha)	0328	
 JHN	11	34	Jesus	0700	questioning
-JHN	11	34	Jews, the (with Mary and Martha)	0270	
+JHN	11	34	Jews, the (with Mary and Martha)|Mary	0270	
 JHN	11	36	Jews, the (with Mary and Martha)	0271	
 JHN	11	37	Jews, the (with Mary and Martha, some)	0272	
 JHN	11	39	Jesus	0700	
@@ -5964,7 +5964,7 @@ JHN	11	56	Jews, the	0270
 JHN	11	7	Jesus	0700	
 JHN	11	8	disciples, Jesus'	0579	
 JHN	11	9	Jesus	0700	
-JHN	12	13	disciples, whole crowd of=people, many=crowd, great	0578	praising
+JHN	12	13	disciples, whole crowd of=people, many=crowd, great|crowd	0578	praising
 JHN	12	15	scripture	0890	
 JHN	12	19	Pharisees	0377	
 JHN	12	21	Greeks	0159	respectful
@@ -6055,7 +6055,7 @@ JHN	16	11	Jesus	0700
 JHN	16	12	Jesus	0700	
 JHN	16	16	Jesus	0700	
 JHN	16	17	disciples, some of his	0579	puzzled
-JHN	16	18	disciples, some of his	0447	frustrated
+JHN	16	18	disciples, some of his|Thomas	0447	frustrated
 JHN	16	19	Jesus	0700	
 JHN	16	20	Jesus	0700	
 JHN	16	23	Jesus	0700	
@@ -6191,7 +6191,7 @@ JHN	21	22	Jesus	0700
 JHN	21	23	Jesus	0700	
 JHN	21	3	Peter (Simon)	0371	
 JHN	21	3	Thomas/Nathaniel/James/John/2 disciples	0447	
-JHN	21	5	disciples, His	0578	calling out
+JHN	21	5	disciples, His|John	0578	calling out
 JHN	21	5	Jesus	0700	questioning
 JHN	21	6	Jesus	0700	
 JHN	21	7	John	0272	amazed
@@ -7772,11 +7772,11 @@ LUK	10	2	Jesus	0700	instructing
 LUK	10	21	Jesus	0700	
 LUK	10	22	Jesus	0700	
 LUK	10	23	Jesus	0700	
-LUK	10	25	teachers of the law, one=expert in the law, an	0372	testing
+LUK	10	25	teachers of the law, one=expert in the law, an|Good Priest	0372	testing
 LUK	10	26	Jesus	0700	questioning
-LUK	10	27	teachers of the law, one=expert in the law, an	0372	
+LUK	10	27	teachers of the law, one=expert in the law, an|Good Priest	0372	
 LUK	10	28	Jesus	0700	
-LUK	10	29	teachers of the law, one=expert in the law, an	0372	justifying
+LUK	10	29	teachers of the law, one=expert in the law, an|Good Priest	0372	justifying
 LUK	10	3	Jesus	0700	
 LUK	10	30	Jesus	0700	
 LUK	10	31	Jesus	0700	
@@ -7786,7 +7786,7 @@ LUK	10	34	Jesus	0700
 LUK	10	35	Jesus	0700	
 LUK	10	36	Jesus	0700	questioning
 LUK	10	37	Jesus	0700	
-LUK	10	37	teachers of the law, one=expert in the law, an	0372	
+LUK	10	37	teachers of the law, one=expert in the law, an|Good Priest	0372	
 LUK	10	4	Jesus	0700	instructing
 LUK	10	40	Martha	0326	
 LUK	10	41	Jesus	0700	compassionately
@@ -7906,7 +7906,7 @@ LUK	13	27	Jesus	0700
 LUK	13	28	Jesus	0700	
 LUK	13	29	Jesus	0700	
 LUK	13	3	Jesus	0700	
-LUK	13	31	Pharisee expert-in-law	0372	warning
+LUK	13	31	Pharisee expert-in-law|Good Priest	0372	warning
 LUK	13	32	Jesus	0700	
 LUK	13	33	Jesus	0700	
 LUK	13	34	Jesus	0700	
@@ -8110,7 +8110,7 @@ LUK	20	12	Jesus	0700
 LUK	20	13	Jesus	0700	
 LUK	20	14	Jesus	0700	
 LUK	20	15	Jesus	0700	
-LUK	20	16	chief priests/elders of people	0372	alarmed
+LUK	20	16	chief priests/elders of people|Good Priest	0372	alarmed
 LUK	20	16	Jesus	0700	
 LUK	20	16	people, the	0840	
 LUK	20	17	Jesus	0700	
@@ -8136,7 +8136,7 @@ LUK	20	34	Jesus	0700
 LUK	20	36	Jesus	0700	
 LUK	20	37	Jesus	0700	
 LUK	20	38	Jesus	0700	
-LUK	20	39	teachers of the law, some	0372	compliment
+LUK	20	39	teachers of the law, some|Good Priest	0372	compliment
 LUK	20	4	Jesus	0700	questioning
 LUK	20	41	Jesus	0700	
 LUK	20	42	Jesus	0700	
@@ -8208,8 +8208,8 @@ LUK	22	52	Jesus	0700
 LUK	22	56	girl at high priest's courtyard=servant girl	0614	
 LUK	22	57	Peter (Simon)	0371	denial
 LUK	22	58	Peter (Simon)	0371	stronger
-LUK	22	58	servant girl, another=someone else	0896	accusing
-LUK	22	59	high priest's servant (man), one=those standing near	0623	accusing
+LUK	22	58	servant girl, another=someone else| servant girl	0896	accusing
+LUK	22	59	high priest's servant (man), one=those standing near|another man	0623	accusing
 LUK	22	60	Peter (Simon)	0371	strongest
 LUK	22	61	Jesus	0700	
 LUK	22	64	men who were guarding	0711	mocking
@@ -8244,31 +8244,31 @@ LUK	23	40	criminal on cross, another	0549
 LUK	23	42	criminal on cross, another	0549	repentant
 LUK	23	43	Jesus	0700	
 LUK	23	46	Jesus	0700	
-LUK	23	47	centurion	0514	amazed
+LUK	23	47	centurion 2|army officer	0514	amazed
 LUK	23	5	chief priests/Sanhedrin=chief priests/whole Sanhedrin	0526	loud, angry
 LUK	23	6	Pilate	0387	
 LUK	23	7	chief priests/teachers of the law	0377	
 LUK	24	17	Jesus	0700	questioning
-LUK	24	18	Cleopas and other (on road to Emmaus)	0081	
-LUK	24	19	Cleopas and other (on road to Emmaus)	0081	
+LUK	24	18	Cleopas and other (on road to Emmaus)|Cleopas	0081	
+LUK	24	19	Cleopas and other (on road to Emmaus)|Cleopas	0081	
 LUK	24	19	Jesus	0700	
 LUK	24	19	other and Cleopas (on road to Emmaus) female|other female	0797	
-LUK	24	19	other and Cleopas (on road to Emmaus) male	0798	
-LUK	24	20	Cleopas and other (on road to Emmaus)	0081	
-LUK	24	21	Cleopas and other (on road to Emmaus)	0081	
-LUK	24	22	Cleopas and other (on road to Emmaus)	0081	
+LUK	24	19	other and Cleopas (on road to Emmaus) male|other male	0798	
+LUK	24	20	Cleopas and other (on road to Emmaus)|Cleopas	0081	
+LUK	24	21	Cleopas and other (on road to Emmaus)|Cleopas	0081	
+LUK	24	22	Cleopas and other (on road to Emmaus)|Cleopas	0081	
 LUK	24	22	other and Cleopas (on road to Emmaus) female|other female	0797	
-LUK	24	22	other and Cleopas (on road to Emmaus) male	0798	
-LUK	24	23	Cleopas and other (on road to Emmaus)	0081	
-LUK	24	24	Cleopas and other (on road to Emmaus)	0081	
+LUK	24	22	other and Cleopas (on road to Emmaus) male|other male	0798	
+LUK	24	23	Cleopas and other (on road to Emmaus)|Cleopas	0081	
+LUK	24	24	Cleopas and other (on road to Emmaus)|Cleopas	0081	
 LUK	24	25	Jesus	0700	
-LUK	24	29	Cleopas and other (on road to Emmaus)	0081	urging
+LUK	24	29	Cleopas and other (on road to Emmaus)|Cleopas	0081	urging
 LUK	24	29	Jesus	0700	
 LUK	24	29	other and Cleopas (on road to Emmaus) female|other female	0797	
-LUK	24	29	other and Cleopas (on road to Emmaus) male	0798	
-LUK	24	32	Cleopas and other (on road to Emmaus)	0081	urging
+LUK	24	29	other and Cleopas (on road to Emmaus) male|other male	0798	
+LUK	24	32	Cleopas and other (on road to Emmaus)|Cleopas	0081	urging
 LUK	24	32	other and Cleopas (on road to Emmaus) female|other female	0797	
-LUK	24	32	other and Cleopas (on road to Emmaus) male	0798	
+LUK	24	32	other and Cleopas (on road to Emmaus) male|other male	0798	
 LUK	24	34	Eleven/those with them	0109	
 LUK	24	36	Jesus	0700	
 LUK	24	38	Jesus	0700	
@@ -8400,7 +8400,7 @@ LUK	7	33	Not A Quote	00000
 LUK	7	34	Jesus	0700	
 LUK	7	35	Jesus	0700	
 LUK	7	39	Pharisee(Simon)	0373	judgmental
-LUK	7	4	elders of the Jews	0372	interceding
+LUK	7	4	elders of the Jews|Good Priest	0372	interceding
 LUK	7	40	Jesus	0700	
 LUK	7	40	Pharisee(Simon)	0373	
 LUK	7	41	Jesus	0700	
@@ -8411,11 +8411,11 @@ LUK	7	45	Jesus	0700
 LUK	7	46	Jesus	0700	
 LUK	7	48	Jesus	0700	
 LUK	7	49	other guests at Pharisee(Simon)'s house	0799	unhappy
-LUK	7	5	elders of the Jews	0372	
+LUK	7	5	elders of the Jews|Good Priest	0372	
 LUK	7	50	Jesus	0700	
-LUK	7	6	centurion=centurion/other guards |army officer	0514	polite
-LUK	7	7	centurion=centurion/other guards |army officer	0514	polite
-LUK	7	8	centurion	0514	
+LUK	7	6	centurion=centurion/other guards|army officer	0514	polite
+LUK	7	7	centurion=centurion/other guards|army officer	0514	polite
+LUK	7	8	centurion 2	0514	
 LUK	7	9	Jesus	0700	
 LUK	8	10	Jesus	0700	
 LUK	8	11	Jesus	0700	
@@ -8490,7 +8490,7 @@ LUK	9	48	Jesus	0700
 LUK	9	49	John (disciple whom Jesus loved)	0272	
 LUK	9	5	Jesus	0700	
 LUK	9	50	Jesus	0700	
-LUK	9	54	James/John (sons of Zebedee)	0242	
+LUK	9	54	James/John (sons of Zebedee)|John	0242	
 LUK	9	55	Jesus	0700	rebuking
 LUK	9	57	teacher of the law=man|man	0944	eager
 LUK	9	58	Jesus	0700	
@@ -8750,7 +8750,7 @@ MAT	17	26	Jesus	0700
 MAT	17	26	Peter (Simon)	0371	
 MAT	17	27	Jesus	0700	
 MAT	17	4	Peter (Simon)	0371	afraid
-MAT	17	5	voice from bright cloud	2000	
+MAT	17	5	voice from bright cloud (God)	2000	
 MAT	17	7	Jesus	0700	giving orders
 MAT	17	9	Jesus	0700	forcefully
 MAT	18	1	disciples, the	0578	
@@ -8811,8 +8811,8 @@ MAT	2	20	angel of the LORD, an	0473	commanding
 MAT	2	23	scripture	0890	
 MAT	2	3	Not A Quote	00000	
 MAT	2	4	Herod the Great	0172	
-MAT	2	5	people's chief priests/teachers of the law	0372	
-MAT	2	6	people's chief priests/teachers of the law	0372	
+MAT	2	5	people's chief priests/teachers of the law|Good Priest	0372	
+MAT	2	6	people's chief priests/teachers of the law|Good Priest	0372	
 MAT	2	7	Not A Quote	00000	
 MAT	2	8	Herod the Great	0172	sly
 MAT	20	1	Jesus	0700	
@@ -8827,7 +8827,7 @@ MAT	20	2	Jesus	0700
 MAT	20	20	mother of Zebedee's sons	0745	
 MAT	20	21	Jesus	0700	
 MAT	20	21	mother of Zebedee's sons	0745	
-MAT	20	22	James/John (sons of Zebedee)	0242	boldly
+MAT	20	22	James/John (sons of Zebedee)|John	0242	boldly
 MAT	20	22	Jesus	0700	
 MAT	20	23	Jesus	0700	
 MAT	20	25	Jesus	0700	
@@ -8847,7 +8847,7 @@ MAT	20	7	Jesus	0700
 MAT	20	8	Jesus	0700	
 MAT	20	9	Jesus	0700	
 MAT	21	10	city, the whole	0534	
-MAT	21	11	disciples, whole crowd of=people, many=crowd, great	0578	praising
+MAT	21	11	disciples, whole crowd of=people, many=crowd, great|crowd	0578	praising
 MAT	21	13	Jesus	0700	
 MAT	21	15	children	0530	praising
 MAT	21	16	chief priests/teachers of the law	0528	upset
@@ -8865,7 +8865,7 @@ MAT	21	27	Jesus	0700
 MAT	21	28	Jesus	0700	
 MAT	21	29	Jesus	0700	
 MAT	21	30	Jesus	0700	
-MAT	21	31	chief priests/elders of people	0372	
+MAT	21	31	chief priests/elders of people|Good Priest	0372	
 MAT	21	31	Jesus	0700	
 MAT	21	33	Jesus	0700	
 MAT	21	34	Jesus	0700	
@@ -8874,13 +8874,13 @@ MAT	21	36	Jesus	0700
 MAT	21	37	Jesus	0700	
 MAT	21	38	Jesus	0700	
 MAT	21	40	Jesus	0700	
-MAT	21	41	chief priests/elders of people	0372	serious
+MAT	21	41	chief priests/elders of people|Good Priest	0372	serious
 MAT	21	42	Jesus	0700	
 MAT	21	43	Jesus	0700	
 MAT	21	45	chief priests/Pharisees	0525	angry
 MAT	21	45	mother of Zebedee's sons	0745	
 MAT	21	5	scripture	0890	
-MAT	21	9	disciples, whole crowd of=people, many=crowd, great	0578	praising
+MAT	21	9	disciples, whole crowd of=people, many=crowd, great|crowd	0578	praising
 MAT	22	10	Jesus	0700	
 MAT	22	11	Jesus	0700	
 MAT	22	12	Jesus	0700	
@@ -9099,7 +9099,7 @@ MAT	27	46	Jesus	0700	deeply distressed
 MAT	27	46	Not A Quote	00000	
 MAT	27	47	bystanders=some standing near	0508	uneasy
 MAT	27	49	bystanders, rest	0507	jeering
-MAT	27	54	centurion=centurion/other guards |army officer	0514	amazed
+MAT	27	54	centurion=centurion/other guards|army officer	0514	amazed
 MAT	27	6	chief priests	0520	disdain
 MAT	27	63	chief priests/Pharisees	0377	negotiating
 MAT	27	65	Pilate	0387	impatient
@@ -9232,10 +9232,10 @@ MAT	8	3	Jesus	0700
 MAT	8	31	demons	0573	begging
 MAT	8	32	Jesus	0700	giving orders
 MAT	8	4	Jesus	0700	giving orders
-MAT	8	6	centurion	0513	entreating
+MAT	8	6	centurion 1|army officer	0513	entreating
 MAT	8	7	Jesus	0700	
-MAT	8	8	centurion	0513	
-MAT	8	9	centurion	0513	
+MAT	8	8	centurion 1|army officer	0513	
+MAT	8	9	centurion 1|army officer	0513	
 MAT	9	10	Not A Quote	00000	
 MAT	9	11	Pharisees	0378	questioning
 MAT	9	12	Jesus	0700	questioning
@@ -9346,11 +9346,11 @@ MRK	10	29	Jesus	0700
 MRK	10	3	Jesus	0700	questioning
 MRK	10	31	Jesus	0700	
 MRK	10	33	Jesus	0700	
-MRK	10	35	James/John (sons of Zebedee)	0242	boldly
+MRK	10	35	James/John (sons of Zebedee)|John	0242	boldly
 MRK	10	36	Jesus	0700	
-MRK	10	37	James/John (sons of Zebedee)	0242	boldly
+MRK	10	37	James/John (sons of Zebedee)|John	0242	boldly
 MRK	10	38	Jesus	0700	
-MRK	10	39	James/John (sons of Zebedee)	0242	boldly
+MRK	10	39	James/John (sons of Zebedee)|John	0242	boldly
 MRK	10	39	Jesus	0700	
 MRK	10	4	Pharisees, some	0377	
 MRK	10	42	Jesus	0700	
@@ -9367,7 +9367,7 @@ MRK	10	51	Jesus	0700
 MRK	10	52	Jesus	0700	
 MRK	10	6	Jesus	0700	
 MRK	10	8	Jesus	0700	
-MRK	11	10	disciples, whole crowd of=people, many=crowd, great	0578	praising
+MRK	11	10	disciples, whole crowd of=people, many=crowd, great|crowd	0578	praising
 MRK	11	14	Jesus	0700	
 MRK	11	17	Jesus	0700	
 MRK	11	2	Jesus	0700	
@@ -9387,7 +9387,7 @@ MRK	11	33	Jesus	0700
 MRK	11	5	owner of colt=people, some standing there	0803	suspicious
 MRK	11	6	disciples, 2 men	0576	
 MRK	11	6	some people	0922	
-MRK	11	9	disciples, whole crowd of=people, many=crowd, great	0578	praising
+MRK	11	9	disciples, whole crowd of=people, many=crowd, great|crowd	0578	praising
 MRK	12	1	Jesus	0700	preaching
 MRK	12	10	Jesus	0700	preaching
 MRK	12	14	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians	0941	
@@ -9402,9 +9402,9 @@ MRK	12	20	Sadducees	0402
 MRK	12	23	Sadducees	0402	
 MRK	12	24	Jesus	0700	
 MRK	12	26	Jesus	0700	
-MRK	12	28	teachers of the law, one=expert in the law, an	0372	respectful
+MRK	12	28	teachers of the law, one=expert in the law, an|Good Priest	0372	respectful
 MRK	12	29	Jesus	0700	
-MRK	12	32	teachers of the law, one=expert in the law, an	0372	complimenting
+MRK	12	32	teachers of the law, one=expert in the law, an|Good Priest	0372	complimenting
 MRK	12	34	Jesus	0700	
 MRK	12	35	Jesus	0700	
 MRK	12	36	Jesus	0700	
@@ -9447,7 +9447,7 @@ MRK	13	8	Jesus	0700
 MRK	13	9	Jesus	0700	
 MRK	14	10	Judas Iscariot	0293	
 MRK	14	11	Jewish authorities	0260	
-MRK	14	12	Peter (Simon)/John=disciples (Jesus')	0272	
+MRK	14	12	Peter (Simon)/John=disciples (Jesus')|disciples	0272	
 MRK	14	13	Jesus	0700	
 MRK	14	17,18	Jesus	0700	
 MRK	14	18	Jesus	0700	
@@ -9513,8 +9513,8 @@ MRK	15	34-35	Jesus	0700
 MRK	15	34-35	Not A Quote	00000	
 MRK	15	35	bystanders=some standing near	0508	uneasy
 MRK	15	36	man, one	0687	jeering
-MRK	15	38,39	centurion=centurion/other guards	0514	amazed
-MRK	15	39	centurion=centurion/other guards	0514	amazed
+MRK	15	38,39	centurion=centurion/other guards|army officer	0514	amazed
+MRK	15	39	centurion=centurion/other guards|army officer	0514	amazed
 MRK	15	4	Pilate	0387	to Jesus
 MRK	15	43	Joseph of Arimathea	0281	
 MRK	15	43	Pilate	0387	surprised
@@ -9715,7 +9715,7 @@ MRK	8	5	Jesus	0700	questioning
 MRK	8	6	Jesus	0700	giving orders
 MRK	9	1	Jesus	0700	
 MRK	9	10	Not A Quote	00000	
-MRK	9	11	Peter (Simon)/James/John=disciples, the	0272	puzzled
+MRK	9	11	Peter (Simon)/James/John=disciples, the|John	0272	puzzled
 MRK	9	12	Jesus	0700	
 MRK	9	12,13	Jesus	0700	
 MRK	9	16	Jesus	0700	questioning
@@ -9937,7 +9937,7 @@ NUM	20	18	Edom|king of Edom	0102
 NUM	20	19	Israelites	0213	
 NUM	20	20	Edom|king of Edom	0102	
 NUM	20	24	God (the LORD)	2000	
-NUM	20	3	people, the|complainer	0841	complaining
+NUM	20	3	people, the|complainer/woman	0841	complaining
 NUM	20	8	God (the LORD)	2000	
 NUM	21	14	Book of the Wars of the LORD|leader of Zebulun	0073	
 NUM	21	15	Moses/Israelites	0344	sang
@@ -9957,8 +9957,8 @@ NUM	21	8	God (the LORD)	2000
 NUM	22	10	Balaam	0058	
 NUM	22	12	God (the LORD)	2000	
 NUM	22	13	Balaam	0058	
-NUM	22	14	Moabite prince	0340	
-NUM	22	16	Moabite prince	0341	afraid
+NUM	22	14	Moabite prince 1	0340	
+NUM	22	16	Moabite prince 2	0341	afraid
 NUM	22	18	Balaam	0058	
 NUM	22	20	God (the LORD)	2000	
 NUM	22	28	she donkey	0907	
@@ -9970,7 +9970,7 @@ NUM	22	34	Balaam	0058
 NUM	22	35	angel of the LORD, the	0700	
 NUM	22	37	Balak	0059	
 NUM	22	38	Balaam	0058	
-NUM	22	4	Moabite prince	0341	
+NUM	22	4	Moabite prince 2	0341	
 NUM	22	5	Balak	0059	
 NUM	22	8	Balaam	0058	
 NUM	22	9	God (the LORD)	2000	
@@ -10443,8 +10443,8 @@ REV	4	1	voice like a trumpet	0700
 REV	4	11	twenty-four elders	0964	
 REV	4	8	four living creatures	0612	
 REV	5	10	four living creatures, twenty-four elders	0613	
-REV	5	12	angels, many, living creatures, elders, thousands of thousands	0478	
-REV	5	13	angels, many, living creatures, elders, thousands of thousands	0487	
+REV	5	12	angels, many, living creatures, elders, thousands of thousands 1	0478	
+REV	5	13	angels, many, living creatures, elders, thousands of thousands 2	0487	
 REV	5	14	four living creatures	0612	
 REV	5	2	angel, powerful	0483	loud
 REV	5	5	elders, one of the	0584	

@@ -168,8 +168,8 @@ Caleb,6,0077
 Canaanite mother of possessed girl=Syrophoenician mother of possessed girl [pleading],21,0078
 Canaanite mother of possessed girl=Syrophoenician mother of possessed girl,21,0078
 Canaanites,12,0079
-Cleopas and other (on road to Emmaus) #3|Cleopas [urging],3,0081
-Cleopas and other (on road to Emmaus) #3|Cleopas,3,0081
+Cleopas and other (on road to Emmaus)|Cleopas [urging],3,0081
+Cleopas and other (on road to Emmaus)|Cleopas,3,0081
 Cornelius [afraid],2,0083
 Cornelius [gracious],2,0083
 Cornelius,2,0083
@@ -495,8 +495,8 @@ Jael,22,0238
 Jahaziel (Spirit of the Lord on),2,0239
 Jairus=ruler, a [pleading],15,0240
 James,15,0241
-James/John (sons of Zebedee) #12|John [boldly],12,0242
-James/John (sons of Zebedee) #12|John,12,0242
+James/John (sons of Zebedee)|John [boldly],12,0242
+James/John (sons of Zebedee)|John,12,0242
 James/all the elders #15 [encouraging],15,0241
 James/all the elders,15,0241
 Jebusites [thought],12,0243
@@ -595,7 +595,7 @@ Jews, the #24 [grumbling],24,0269
 Jews, the #3,3,0270
 Jews, the #9 [angry],9,0265
 Jews, the #9 [screaming],9,0265
-Jews, the (with Mary and Martha) #25 |Mary,21,0270
+Jews, the (with Mary and Martha)|Mary,21,0270
 Jews, the (with Mary and Martha),10,0271
 Jews, the (with Mary and Martha, some),22,0272
 Jews, the [accusing],28,0273
@@ -711,9 +711,9 @@ Michal, David's wife,24,0337
 Miriam-young girl,21,0338
 Miriam/Aaron|Aaron,18,0001
 Miriam/women [sang],21,0339
-Moabite prince #1,16,0340
-Moabite prince #2 [afraid],15,0341
-Moabite prince #2,15,0341
+Moabite prince 1,16,0340
+Moabite prince 2 [afraid],15,0341
+Moabite prince 2,15,0341
 Moabites (female),21,0342
 Moabites,16,0340
 Mordecai, cousin of Esther,13,0343
@@ -817,14 +817,14 @@ Peter (Simon) and companions [exclaimed],13,0371
 Peter (Simon), with Eleven,13,0371
 Peter (Simon)/James/John/Andrew=disciples=they [confused],13,0371
 Peter (Simon)/James/John/Andrew=disciples=they,12,0272
-Peter (Simon)/James/John=disciples, the #12 |John [puzzled],12,0272
 Peter (Simon)/James/John=disciples, the |John #12,12,0272
+Peter (Simon)/James/John=disciples, the|John [puzzled],12,0272
 Peter (Simon)/John,13,0371
 Peter (Simon)/John/own people #9,9,0372
-Peter (Simon)/John=disciples (Jesus') #12|disciples,12,0272
 Peter (Simon)/John=disciples (Jesus') |John #12,12,0272
+Peter (Simon)/John=disciples (Jesus')|disciples,12,0272
 Peter (Simon)/John=disciples (Jesus'),13,0371
-Pharisee expert-in-law #5 |Good Priest [warning],5,0372
+Pharisee expert-in-law|Good Priest [warning],5,0372
 Pharisee expert-in-law|Good Priest #5 [testing],5,0372
 Pharisee(Simon) #1 [judgmental],1,0373
 Pharisee(Simon) #1,1,0373
@@ -878,7 +878,7 @@ Pilate's wife,23,0388
 Pilate,17,0387
 Poets|leader of Ephraim,11,0388
 Potiphar's wife,25,0389
-Rabble/Complainer #2,2,0390
+Rabble/Complainer,2,0390
 Rachel,24,0391
 Rachel/Leah,21,0309
 Rahab,23,0392
@@ -1037,8 +1037,8 @@ angels appeared like men, 2|angel,5,0486
 angels in white, two,10,0479
 angels in white=men in clothes that gleamed like lightning, two,10,0479
 angels, all the #13,13,0478
-angels, many, living creatures, elders, thousands of thousands #13,13,0478
-angels, many, living creatures, elders, thousands of thousands #22,22,0487
+angels, many, living creatures, elders, thousands of thousands 1,13,0478
+angels, many, living creatures, elders, thousands of thousands 2,22,0487
 angels, seven, one of #19,19,0909
 anger of the LORD,8,0486
 another (follower of Apollos) [boastful],11,0487
@@ -1072,16 +1072,15 @@ captain, second,3,0511
 captain, third,4,0512
 captain,3,0511
 captain/crew,30,0512
-centurion #10 |army officer [entreating],10,0513
-centurion #10 |army officer,10,0513
-centurion #2 |army officer [amazed],2,0514
-centurion #2,2,0514
-centurion #6 |army officer [anxious],6,0515
-centurion #6 |army officer,6,0515
+centurion 1|army officer [entreating],10,0513
+centurion 1|army officer,10,0513
+centurion 2|army officer [amazed],2,0514
+centurion 2,2,0514
+centurion 3|army officer [anxious],6,0515
+centurion 3|army officer,6,0515
 centurion,10,0513
-centurion=centurion/other guards #2 |army officer [amazed],2,0514
-centurion=centurion/other guards |army officer #2 [amazed],2,0514
-centurion=centurion/other guards |army officer #2 [polite],2,0514
+centurion=centurion/other guards|army officer #2 [amazed],2,0514
+centurion=centurion/other guards|army officer #2 [polite],2,0514
 chariot commanders of Aram [thought],5,0516
 chief baker,10,0517
 chief cupbearer,28,0518
@@ -1103,9 +1102,9 @@ chief priests/Sanhedrin=chief priests/whole Sanhedrin #19,19,0527
 chief priests/elders #11 [impatient],11,0528
 chief priests/elders #11,11,0528
 chief priests/elders #15 [bribing],15,0377
-chief priests/elders of people #5 |Good Priest [alarmed],5,0372
-chief priests/elders of people #5 |Good Priest [serious],5,0372
-chief priests/elders of people #5 |Good Priest,5,0372
+chief priests/elders of people|Good Priest [alarmed],5,0372
+chief priests/elders of people|Good Priest [serious],5,0372
+chief priests/elders of people|Good Priest,5,0372
 chief priests/officers of temple guard,28,0530
 chief priests/rulers/the people #9 [shouting],9,0531
 chief priests/rulers/the people |mob #6,6,0532
@@ -1191,7 +1190,7 @@ disciples, 2 men #5 [urgent],5,0576
 disciples, 2 men,5,0576
 disciples, His #12 [puzzled],12,0577
 disciples, His #12 [sad],12,0578
-disciples, His #12 |John [calling out],12,0578
+disciples, His|John [calling out],12,0578
 disciples, His #13 [sad],13,0579
 disciples, His #14 [arguing],14,0580
 disciples, His #14 [excited],14,0580
@@ -1207,7 +1206,7 @@ disciples, many of His #14 [grumbling],14,0580
 disciples, one of His #12 [awe],12,0578
 disciples, one of His #12,12,0578
 disciples, some of his #13 [puzzled],13,0579
-disciples, some of his #6 |Thomas [frustrated],6,0447
+disciples, some of his|Thomas [frustrated],6,0447
 disciples, some,3,0574
 disciples, the #12 [awe],12,0578
 disciples, the #12,12,0578
@@ -1230,13 +1229,13 @@ disciples, the=disciples, His #13 [taking charge],13,0579
 disciples, the=disciples, His [declare],13,0579
 disciples, the=those who heard #14 [shocked],14,0580
 disciples, two of His,12,0578
-disciples, whole crowd of=people, many=crowd, great #12 |crowd [praising],12,0578
+disciples, whole crowd of=people, many=crowd, great|crowd [praising],12,0578
 disciples, whole crowd of=people, many=crowd, great,13,0579
 eagle crying with loud voice,25,0581
 ear,27,0582
-elders of the Jews #5|Good Priest [interceding],5,0372
-elders of the Jews #5|Good Priest,5,0372
 elders of the land,10,0582
+elders of the Jews|Good Priest [interceding],5,0372
+elders of the Jews|Good Priest,5,0372
 elders, Ephesian,30,0583
 elders, one of the,16,0584
 elders,4,0585
@@ -1348,10 +1347,10 @@ high priest #11 [demanding],11,0075
 high priest #11 [screaming],11,0075
 high priest #15 [worried but stern],15,0622
 high priest #15,15,0622
-high priest's servant (man), one=those standing near #16 |another man [accusing],9,0623
+high priest's servant (man), one=those standing near|another man [accusing],9,0623
 high priest's servant (man), one=those standing near=another #16 [accusing],16,0624
 high priest,15,0622
-high priests/men of their family/rulers, elders, teachers of the law #5 |Good Priest [defending],5,0372
+high priests/men of their family/rulers, elders, teachers of the law|Good Priest [defending],5,0372
 high priests/men of their family/rulers, teachers of the law,15,0622
 him who hears,9,0625
 his name is John,28,0626
@@ -1593,7 +1592,7 @@ one who looked like a man,5,0795
 one with garments stained crimson (Christ?),7,0700
 onlookers,9,0796
 other and Cleopas (on road to Emmaus) female|other female,28,0797
-other and Cleopas (on road to Emmaus) male #9|other male,9,0798
+other and Cleopas (on road to Emmaus) male|other male,9,0798
 other guests at Pharisee(Simon)'s house #15 [unhappy],15,0799
 others #1,1,0801
 others,9,0802
@@ -1613,7 +1612,7 @@ people at cistern,10,0812
 people gathered to pray #24,24,0813
 people in crowd,24,0814
 people who knew Saul,9,0815
-people's chief priests/teachers of the law #5 |Good Priest,5,0372
+people's chief priests/teachers of the law|Good Priest,5,0372
 people, Gadarene,30,0816
 people, God's,9,0817
 people, Israel, tribes of,6,0818
@@ -1642,7 +1641,7 @@ people, still other #12,12,0836
 people, still other #19,19,0837
 people, the [shouting],10,0838
 people, the,3,0840
-people, the|complainer #2/woman [complaining],25,0841
+people, the|complainer/woman [complaining],25,0841
 people, the|leader of Naphtali,10,0842
 people,12,0843
 peoples, many,17,0844
@@ -1710,7 +1709,7 @@ sea, the,30,0892
 seraph, one of the,6,0893
 seraphs,6,0894
 serpent,8,0895
-servant girl, another=someone else #25 | servant girl [accusing],25,0896
+servant girl, another=someone else| servant girl [accusing],25,0896
 servant girl, another=someone else #25,25,0896
 servant of Elijah,6,0897
 servant of Israelite,9,0898
@@ -1785,12 +1784,12 @@ teacher, the,3,0945
 teachers of the law #1 [insulting],1,0593
 teachers of the law #19 [indignant],19,0946
 teachers of the law (Pharisees) #19 [contempt],19,0946
-teachers of the law, one=expert in the law, an #5 |Good Priest [complimenting],5,0372
-teachers of the law, one=expert in the law, an #5 |Good Priest [justifying],5,0372
-teachers of the law, one=expert in the law, an #5 |Good Priest [respectful],5,0372
-teachers of the law, one=expert in the law, an #5 |Good Priest [testing],5,0372
-teachers of the law, one=expert in the law, an #5 |Good Priest,5,0372
-teachers of the law, some #5 |Good Priest [compliment],5,0372
+teachers of the law, one=expert in the law, an|Good Priest [complimenting],5,0372
+teachers of the law, one=expert in the law, an|Good Priest [justifying],5,0372
+teachers of the law, one=expert in the law, an|Good Priest [respectful],5,0372
+teachers of the law, one=expert in the law, an|Good Priest [testing],5,0372
+teachers of the law, one=expert in the law, an|Good Priest,5,0372
+teachers of the law, some|Good Priest [compliment],5,0372
 teachers of the law, some who were Pharisees #1 [arguing],1,0593
 teachers of the law/Pharisees,15,0377
 teachers of the law/Pharisees=Pharisees/teachers of the law #1 [angry],1,0593
@@ -1821,7 +1820,7 @@ voice (in trance),7,0700
 voice among living creatures #2,30,0971
 voice among living creatures,15,0972
 voice from altar #11,11,0973
-voice from bright cloud #20 (God),20,2000
+voice from bright cloud (God),20,2000
 voice from cloud,20,0974
 voice from heaven #1,1,0975
 voice from heaven, another #13 [wailing],13,0976
