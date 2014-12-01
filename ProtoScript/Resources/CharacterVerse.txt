@@ -963,7 +963,7 @@
 2CH	7	17	God (LORD appeared in dream at night)	2000	
 2CH	7	19	God (LORD appeared in dream at night)	2000	
 2CH	7	3	Israel, all	0197	worshipping God
-2CH	7	6	priests/Levites	0849	
+2CH	7	6	priests/Levites	0848	
 2CH	8	11	Solomon, king	0436	
 2CH	9	5	queen of Sheba	1865	
 2CO	1	17	Not A Quote	00000	
@@ -6401,9 +6401,9 @@ JHN	9	17	cured man, blind from birth	0569
 JHN	9	17	Pharisees	0377	
 JHN	9	19	Jews, the	0262	challenging
 JHN	9	2	disciples, the	0580	accusing
-JHN	9	20	parents of cured man, blind from birth	0805	cautious
-JHN	9	21	parents of cured man, blind from birth	0806	
-JHN	9	23	parents of cured man, blind from birth	0806	
+JHN	9	20	parents of cured man, blind from birth|parent 1	0805	cautious
+JHN	9	21	parents of cured man, blind from birth|parent 2	0806	
+JHN	9	23	parents of cured man, blind from birth|parent 2	0806	
 JHN	9	24	Jews, the	0262	challenging
 JHN	9	25	cured man, blind from birth	0569	
 JHN	9	26	Jews	0265	

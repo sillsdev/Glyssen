@@ -1599,8 +1599,8 @@ others,9,0802
 owner of colt=people, some standing there #3 [suspicious],3,0803
 owners of the slave girl #14 [angry],14,0804
 owners of the slave girl #14,14,0804
-parents of cured man, blind from birth #17 [cautious],17,0805
-parents of cured man, blind from birth #22,22,0806
+parents of cured man, blind from birth|parent 1 [cautious],17,0805
+parents of cured man, blind from birth|parent 2,22,0806
 passers by #15 [insulting],15,0807
 passers by #9 [mocking],9,0808
 passers by,15,0807
@@ -1651,7 +1651,7 @@ priest,4,0847
 priests,4,0848
 priests/Levites [singing praise],4,0848
 priests/Levites from Jews,4,0848
-priests/Levites,17,0849
+priests/Levites,17,0848
 priests/Levites/people,4,0848
 priests/prophets,4,0848
 priests/prophets/all the people,4,0848
