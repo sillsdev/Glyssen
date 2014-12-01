@@ -80,9 +80,9 @@ namespace DevTools
 				cv.Character = cv.CharacterAndDelivery;
 
 			i = cv.Character.LastIndexOf(" #", StringComparison.InvariantCulture);
-			int num;
 			if (i > -1)
 			{
+				int num;
 				if (!Int32.TryParse(cv.Character.Substring(i+2), out num))
 					Debug.Fail("invalid #: " + cv.Character);
 				cv.Character = cv.Character.Substring(0, i);
@@ -100,10 +100,11 @@ namespace DevTools
 		public string CharacterAndDelivery;
 		public string Delivery;
 		public string CharacterId;
+		public string Alias;
 
 		public string TabDelimited()
 		{
-			return Book + "\t" + Chapter + "\t" + Verse + "\t" + Character + "\t" + CharacterId + "\t" + Delivery;
+			return Book + "\t" + Chapter + "\t" + Verse + "\t" + Character + "\t" + CharacterId + "\t" + Delivery + "\t" + Alias;
 		}
 	}
 }

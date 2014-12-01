@@ -42,8 +42,8 @@ namespace ProtoScript
 					Verse = ScrReference.VerseToIntStart(items[2]), 
 					Character = items[3], 
 					CharacterId = Int32.Parse(items[4]), 
-					Delivery = items[5]//, 
-					//Alias = items[6]
+					Delivery = items[5],
+					Alias = items[6]
 				});
 			}
 			if (!list.Any())
