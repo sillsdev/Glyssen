@@ -258,8 +258,8 @@ Ephraimites [critical],6,0130
 Ephraimites,6,0130
 Ephron the Hittite,6,0131
 Epicurean and Stoic philosophers, other #2 [superior],2,0133
-Epicurean and Stoic philosophers, they #1 [curious],1,1133
-Epicurean and Stoic philosophers, they #4,4,1134
+Epicurean and Stoic philosophers, they 1 [curious],1,1133
+Epicurean and Stoic philosophers, they 2,4,1134
 Esau,10,2133
 Esther, queen,23,0134
 Ethiopian,16,0136
@@ -423,10 +423,10 @@ Isaiah, the prophet,28,0193
 Isaiah,28,0193
 Ish-Bosheth, son of Saul,16,0194
 Ishmael, son of Nethaniah (murderer),17,0195
-Israel [singing],2,0196
-Israel [will say],14,0197
+Israel 1 [singing],2,0196
+Israel 2 [will say],14,0197
 Israel says,11,0198
-Israel, all [worshipping God],14,0197
+Israel, all 1 [worshipping God],14,0197
 Israel, all leaders of,11,0198
 Israel, all the men of,2,0196
 Israel, all the tribes,14,0197
@@ -438,7 +438,7 @@ Israel,2,0196
 Israelite assembly, elders of,11,0203
 Israelite assembly,17,0202
 Israelite community [grumbling],2,0204
-Israelite community [mourning bitterly],11,0203
+Israelite community 1 [mourning bitterly],11,0203
 Israelite community [unbelief, mistrust],2,0204
 Israelite foreman,2,0204
 Israelite messengers,9,0205
@@ -453,9 +453,9 @@ Israelite people|man-grumbling,14,0206
 Israelite soldier, some,10,0211
 Israelite soldier,2,0210
 Israelite soldiers,28,0212
-Israelites [weeping],14,0214
-Israelites, all [mourning bitterly],1,0215
-Israelites, all [weeping bitterly],2,0216
+Israelites 1 [weeping],14,0214
+Israelites, all 1 [mourning bitterly],1,0215
+Israelites, all 2 [weeping bitterly],2,0216
 Israelites, all,14,0217
 Israelites, all|Israelite [frightened, shouting],2,0216
 Israelites, some,1,0217
@@ -563,44 +563,44 @@ Jesus' brothers,4,2258
 Jesus' family,22,0259
 Jesus,7,0700
 Jewish authorities,4,0260
-Jews #19 [impatient],19,0264
-Jews #19,19,0264
-Jews #9,9,0265
+Jews 1 [impatient],19,0264
+Jews 1,19,0264
+Jews,9,0265
 Jews [desperate],14,0265
 Jews from Jerusalem,19,0264
 Jews of Cyrene, Alexandria, Cilicia & Asia #14 [accusing],14,0265
 Jews, 40 in conspiracy #14 [plotting],14,0265
-Jews, God-fearing from every nation #1 [amazed],1,0262
-Jews, God-fearing from every nation [amazed and perplexed],14,0265
+Jews, God-fearing from every nation 1 [amazed],1,0262
+Jews, God-fearing from every nation 2 [amazed and perplexed],14,0265
 Jews, God-fearing from every nation, some [made fun of them],21,0267
-Jews, God-fearing from every nation,1,0262
+Jews, God-fearing from every nation 1,1,0262
 Jews, leaders of the #1,1,0262
 Jews, many of the #11 [contempt],11,0263
 Jews, others of the #23,23,0264
-Jews, the #1 [angry],1,0262
-Jews, the #1 [challenging],1,0262
-Jews, the #1 [grumbling],1,0262
-Jews, the #1 [inquiring],1,0262
-Jews, the #1 [offended],1,0262
-Jews, the #1 [outraged],1,0262
-Jews, the #1 [rebuke],1,0262
-Jews, the #1 [superior],1,0262
-Jews, the #11 [angry],11,0263
-Jews, the #11,11,0263
-Jews, the #15 [insisting],15,0377
-Jews, the #15,15,0377
-Jews, the #19 [harsh],19,0268
-Jews, the #19,19,0268
-Jews, the #24 [grumbling],24,0269
-Jews, the #3,3,0270
-Jews, the #9 [angry],9,0265
-Jews, the #9 [screaming],9,0265
+Jews, the 1 [angry],1,0262
+Jews, the 1 [challenging],1,0262
+Jews, the 1 [grumbling],1,0262
+Jews, the 1 [inquiring],1,0262
+Jews, the 1 [offended],1,0262
+Jews, the 1 [outraged],1,0262
+Jews, the 1 [rebuke],1,0262
+Jews, the 1 [superior],1,0262
+Jews, the 2 [angry],11,0263
+Jews, the 2,11,0263
+Jews, the 3 [insisting],15,0377
+Jews, the 3,15,0377
+Jews, the 4 [harsh],19,0268
+Jews, the 4,19,0268
+Jews, the 5 [grumbling],24,0269
+Jews, the 6,3,0270
+Jews, the 7 [angry],9,0265
+Jews, the 7 [screaming],9,0265
 Jews, the (with Mary and Martha)|Mary,21,0270
 Jews, the (with Mary and Martha),10,0271
 Jews, the (with Mary and Martha, some),22,0272
-Jews, the [accusing],28,0273
-Jews, the [questioning],28,0273
-Jews, the [speaking ironically],28,0273
+Jews, the 8 [accusing],28,0273
+Jews, the 8 [questioning],28,0273
+Jews, the 8 [speaking ironically],28,0273
 Jews, the,1,0262
 Jews, they,1,0262
 Jews,14,0265
@@ -676,8 +676,8 @@ Lamech (descendent of Cain),13,0307
 Lamech (descendent of Seth),18,0308
 Leah,23,0309
 Levite, young, from Bethlehem,2,0310
-Levites [praying],4,0311
-Levites,1,0312
+Levites 1 [praying],4,0311
+Levites 2,1,0312
 Levitical heads,14,0313
 Lookout,3,0314
 Lord #7,7,0700
@@ -829,27 +829,27 @@ Pharisee expert-in-law|Good Priest #5 [testing],5,0372
 Pharisee(Simon) #1 [judgmental],1,0373
 Pharisee(Simon) #1,1,0373
 Pharisee, a,10,0374
-Pharisees #1 [angry],1,0375
-Pharisees #11 [angry],11,0376
-Pharisees #11,11,0376
-Pharisees #15 [accusing],15,0377
-Pharisees #15 [exasperated],15,0377
-Pharisees #15 [testing],15,0377
-Pharisees #15,15,0377
-Pharisees #19 [questioning],19,0378
-Pharisees #19,19,0378
+Pharisees 1 [angry],1,0375
+Pharisees 2 [angry],11,0376
+Pharisees 2,11,0376
+Pharisees 3 [accusing],15,0377
+Pharisees 3 [exasperated],15,0377
+Pharisees 3 [testing],15,0377
+Pharisees 3,15,0377
+Pharisees 4 [questioning],19,0378
+Pharisees 4,19,0378
 Pharisees sent from Jews,15,0377
 Pharisees, other #10,10,0374
-Pharisees, some #1 [angry],1,0375
-Pharisees, some #1 [challenging],1,0375
-Pharisees, some #1,1,0375
-Pharisees, some #15 [challenge],15,0377
-Pharisees, some #15 [demanding],15,0377
-Pharisees, some [questioning],19,0378
+Pharisees, some 1 [angry],1,0375
+Pharisees, some 1 [challenging],1,0375
+Pharisees, some 1,1,0375
+Pharisees, some 2 [challenge],15,0377
+Pharisees, some 2 [demanding],15,0377
+Pharisees, some 3 [questioning],19,0378
 Pharisees, some,15,0377
 Pharisees,1,0375
 Pharisees/teachers of law|Pharisee, one #1 [muttering],1,0375
-Pharisees/teachers of the law #15 [contempt],15,0377
+Pharisees/teachers of the law 1 [contempt],15,0377
 Pharisees/teachers of the law, some #15 [challenge],15,0377
 Pharisees/teachers of the law, some #15 [rebuke],15,0377
 Pharisees/teachers of the law,19,0378
@@ -1010,8 +1010,8 @@ angel from the rising sun with seal of living God,17,0472
 angel in white=man dressed in white robe, young,14,0475
 angel of God, an,17,0472
 angel of God, the,7,0700
-angel of the LORD, an [commanding],17,0473
-angel of the LORD, an [official announcement],11,0473
+angel of the LORD, an 1 [commanding],17,0473
+angel of the LORD, an 1 [official announcement],11,0473
 angel of the LORD, an,12,0474
 angel of the LORD, the (vision),7,0700
 angel of the LORD, the [calling from Heaven],7,0700
@@ -1027,11 +1027,10 @@ angel, another, coming down from heaven #17,17,0473
 angel, arch-, Michael,10,0479
 angel, coming out of temple #9,9,0480
 angel, coming out of temple, another #6,6,0481
-angel, powerful #1,1,0482
-angel, powerful #6 [loud],6,0483
-angel, the #15,15,0484
-angel, the #19,19,0909
-angel, the,19,0909
+angel, powerful 1,1,0482
+angel, powerful 2 [loud],6,0483
+angel, the 1,15,0484
+angel, the 2,19,0909
 angel,17,0473
 angels appeared like men, 2|angel,5,0486
 angels in white, two,10,0479
@@ -1086,37 +1085,37 @@ chief baker,10,0517
 chief cupbearer,28,0518
 chief cupbearer/chief baker,28,0518
 chief official,11,0519
-chief priests #15 [disdain],15,0520
-chief priests #15 [worried],15,0520
-chief priests #19 [intimidating],19,0521
+chief priests 1 [disdain],15,0520
+chief priests 1 [worried],15,0520
+chief priests 2 [intimidating],19,0521
 chief priests,28,0522
-chief priests/Pharisees #11,11,0523
-chief priests/Pharisees #15 [negotiating],15,0377
+chief priests/Pharisees 1,11,0523
+chief priests/Pharisees 2 [negotiating],15,0377
 chief priests/Pharisees [angry],29,0525
-chief priests/Sanhedrin=chief priests/whole Sanhedrin #1 [loud, angry],1,0526
-chief priests/Sanhedrin=chief priests/whole Sanhedrin #1 [mocking],1,0526
-chief priests/Sanhedrin=chief priests/whole Sanhedrin #1 [protest],1,0526
-chief priests/Sanhedrin=chief priests/whole Sanhedrin #1 [upset],1,0526
-chief priests/Sanhedrin=chief priests/whole Sanhedrin #15,15,0377
-chief priests/Sanhedrin=chief priests/whole Sanhedrin #19,19,0527
-chief priests/elders #11 [impatient],11,0528
-chief priests/elders #11,11,0528
-chief priests/elders #15 [bribing],15,0377
+chief priests/Sanhedrin=chief priests/whole Sanhedrin 1 [loud, angry],1,0526
+chief priests/Sanhedrin=chief priests/whole Sanhedrin 1 [mocking],1,0526
+chief priests/Sanhedrin=chief priests/whole Sanhedrin 1 [protest],1,0526
+chief priests/Sanhedrin=chief priests/whole Sanhedrin 1 [upset],1,0526
+chief priests/Sanhedrin=chief priests/whole Sanhedrin 2,15,0377
+chief priests/Sanhedrin=chief priests/whole Sanhedrin 3,19,0527
+chief priests/elders 1 [impatient],11,0528
+chief priests/elders 1,11,0528
+chief priests/elders 2 [bribing],15,0377
 chief priests/elders of people|Good Priest [alarmed],5,0372
 chief priests/elders of people|Good Priest [serious],5,0372
 chief priests/elders of people|Good Priest,5,0372
 chief priests/officers of temple guard,28,0530
 chief priests/rulers/the people #9 [shouting],9,0531
 chief priests/rulers/the people|mob #6,6,0532
-chief priests/teachers of the law #11 [upset],11,0528
-chief priests/teachers of the law #15,15,0377
-chief priests/teachers of the law/elders=chief priests/elders of people #10 [challenge],10,0533
-chief priests/teachers of the law/elders=chief priests/elders of people #10 [to themselves],10,0533
-chief priests/teachers of the law/elders=chief priests/elders of people,1,0526
+chief priests/teachers of the law 1 [upset],11,0528
+chief priests/teachers of the law 2,15,0377
+chief priests/teachers of the law/elders=chief priests/elders of people 1 [challenge],10,0533
+chief priests/teachers of the law/elders=chief priests/elders of people 1 [to themselves],10,0533
+chief priests/teachers of the law/elders=chief priests/elders of people 2,1,0526
 chief priests/teachers of the law=chief priests/elders of people #11,11,0528
 chief priests/teachers of the law=chief priests/elders of people,11,0528
-chief priests/their officials #15,15,0377
-chief priests/their officials,19,0527
+chief priests/their officials 1,15,0377
+chief priests/their officials 2,19,0527
 children [praising],18,1530
 children of Zion (Jerusalem),18,1531
 citizens of Shechem,11,1532
@@ -1138,34 +1137,34 @@ company of the prophets, one of,12,0542
 company of the prophets,11,0539
 concubine's husband,4,0543
 conquerors of beast, image & his name #22,22,0544
-council of elders:chief priests/teachers of the law #15 [demanding],15,0545
-council of elders:chief priests/teachers of the law #15 [furious],15,0546
-council of elders:chief priests/teachers of the law,15,0546
+council of elders:chief priests/teachers of the law [demanding],15,0545
+council of elders:chief priests/teachers of the law [furious],15,0545
+council of elders:chief priests/teachers of the law,15,0545
 craftsman,11,0547
 craftsmen/workmen #14 [furiously shouting],14,0548
 criminal on cross, another #4 [repentant],4,0549
 criminal on cross, another,4,0549
 criminal on cross, one #16 [insulting],16,0550
 crippled man,28,0551
-crowd #1 [challenging],1,0552
-crowd #1 [insulting],1,0552
-crowd #1 [superior],1,0552
-crowd #10 [polite],10,0553
-crowd #10,10,0553
-crowd #13,13,0554
-crowd #14 [excited],14,0555
-crowd #14 [screaming],14,0556
-crowd #15,15,0557
-crowd #25 [amazed],25,0558
-crowd #3,3,0559
-crowd #4 [screaming],4,0560
-crowd #4 [shouting],4,0560
-crowd #4,4,0560
-crowd #6 [shouting louder],6,0561
-crowd #9 [screaming],9,0562
-crowd #9,9,0562
-crowd, large #21 [praising],21,0563
-crowd, large #5,5,0564
+crowd 1 [challenging],1,0552
+crowd 1 [insulting],1,0552
+crowd 1 [superior],1,0552
+crowd 2 [polite],10,0553
+crowd 2,10,0553
+crowd 3,13,0554
+crowd 4 [excited],14,0555
+crowd 4 [screaming],14,0555
+crowd 5,15,0557
+crowd 6 [amazed],25,0558
+crowd 7,3,0559
+crowd 8 [screaming],4,0560
+crowd 8 [shouting],4,0560
+crowd 8,4,0560
+crowd 9 [shouting louder],6,0561
+crowd 10 [screaming],9,0562
+crowd 10,9,0562
+crowd, large 1 [praising],21,0563
+crowd, large 2,5,0564
 crowd, many in the,22,0565
 crowd, some of,19,0566
 crowd,1,0552
@@ -1188,16 +1187,16 @@ disciple, another=man, another #3 [making excuse],3,0574
 disciples of John Baptist, two #3 [curious],3,0575
 disciples, 2 men #5 [urgent],5,0576
 disciples, 2 men,5,0576
-disciples, His #12 [puzzled],12,0577
-disciples, His #12 [sad],12,0578
+disciples, His 1 [puzzled],12,0577
+disciples, His 1 [sad],12,0577
 disciples, His|John [calling out],12,0578
-disciples, His #13 [sad],13,0579
-disciples, His #14 [arguing],14,0580
-disciples, His #14 [excited],14,0580
-disciples, His #14 [impatient],14,0580
-disciples, His #14 [upset],14,0580
-disciples, His #9,9,0581
-disciples, His,12,0578
+disciples, His 2 [sad],13,0579
+disciples, His 3 [arguing],14,0580
+disciples, His 3 [excited],14,0580
+disciples, His 3 [impatient],14,0580
+disciples, His 3 [upset],14,0580
+disciples, His 4,9,0581
+disciples, His,12,0577
 disciples, Jesus' [perplexed],13,0579
 disciples, Jesus' [relieved],13,0579
 disciples, Jesus',13,0579
@@ -1208,22 +1207,22 @@ disciples, one of His #12,12,0578
 disciples, some of his #13 [puzzled],13,0579
 disciples, some of his|Thomas [frustrated],6,0447
 disciples, some,3,0574
-disciples, the #12 [awe],12,0578
-disciples, the #12,12,0578
-disciples, the #13 [hesitant],13,0579
-disciples, the #13 [shocked],13,0579
-disciples, the #13,13,0579
-disciples, the #14 [accusing],14,0580
-disciples, the #14 [defensive],14,0580
-disciples, the #14 [excited],14,0580
-disciples, the #14 [questioning],14,0580
-disciples, the #14 [rebuke],14,0580
-disciples, the #14 [terrified],14,0580
-disciples, the #14 [upset],14,0580
+disciples, the 1 [awe],12,0578
+disciples, the 1,12,0578
+disciples, the 2 [hesitant],13,0579
+disciples, the 2 [shocked],13,0579
+disciples, the 2,13,0579
+disciples, the 3 [accusing],14,0580
+disciples, the 3 [defensive],14,0580
+disciples, the 3 [excited],14,0580
+disciples, the 3 [questioning],14,0580
+disciples, the 3 [rebuke],14,0580
+disciples, the 3 [terrified],14,0580
+disciples, the 3 [upset],14,0580
 disciples, the (but not Thomas) #12 [awe],12,0578
 disciples, the (but not Thomas) #12 [excited],12,0578
-disciples, the [amazed],13,0579
-disciples, the [fear, amazement],13,0579
+disciples, the 4 [amazed],13,0579
+disciples, the 4 [fear, amazement],13,0579
 disciples, the,14,0580
 disciples, the=disciples, His #13 [taking charge],13,0579
 disciples, the=disciples, His [declare],13,0579
@@ -1419,8 +1418,8 @@ man who says 'I know him',14,0678
 man who says 'we remain in union with God',15,0679
 man with evil spirit [shrieking],8,0680
 man with evil spirit,8,0680
-man with leprosy #10,10,0681
-man with leprosy #16 [pleading],16,0682
+man with leprosy 1,10,0681
+man with leprosy 2 [pleading],16,0682
 man with measuring line (vision),15,0683
 man's brother,14,0684
 man's voice from the Ulai (in vision),14,0685
@@ -1431,16 +1430,16 @@ man, wicked,30,0689
 many Samaritans,17,0690
 many in crowd,24,0691
 master of the banquet #11 [complimenting],11,0692
-men [singing and praising God],3,0693
+men 1 [singing and praising God],3,0693
 men dressed in white, two,10,0694
 men from Cornelius #4 [respectful],4,0695
 men from Cornelius,4,0695
 men from Jairus house #5 [sad],5,0696
 men from Judea, some #4 [harsh],4,0697
 men in mourning, ten of eighty,3,0698
-men in synagogue #12 [amazed],12,0699
-men in synagogue #3 [amazed],3,0701
-men in synagogue [taking offense at Jesus' teaching],14,0702
+men in synagogue 1 [amazed],12,0699
+men in synagogue 2 [amazed],3,0701
+men in synagogue 3 [taking offense at Jesus' teaching],14,0702
 men of Anathoth,3,0703
 men of Ashdod,12,0704
 men of David, one,6,0705
@@ -1594,20 +1593,20 @@ onlookers,9,0796
 other and Cleopas (on road to Emmaus) female|other female,28,0797
 other and Cleopas (on road to Emmaus) male|other male,9,0798
 other guests at Pharisee(Simon)'s house #15 [unhappy],15,0799
-others #1,1,0801
+others 1,1,0801
 others,9,0802
 owner of colt=people, some standing there #3 [suspicious],3,0803
 owners of the slave girl #14 [angry],14,0804
 owners of the slave girl #14,14,0804
 parents of cured man, blind from birth|parent 1 [cautious],17,0805
 parents of cured man, blind from birth|parent 2,22,0806
-passers by #15 [insulting],15,0807
-passers by #9 [mocking],9,0808
+passers by [insulting],15,0807
+passers by 1 [mocking],9,0808
 passers by,15,0807
-people #24 [amazed],24,0810
-people #5,5,0811
-people #6 [grieved],6,0811
-people #6 [shouting],6,0811
+people 1 [amazed],24,0810
+people 2,5,0811
+people 3 [grieved],6,0811
+people 3 [shouting],6,0811
 people at cistern,10,0812
 people gathered to pray #24,24,0813
 people in crowd,24,0814
@@ -1616,30 +1615,30 @@ people's chief priests/teachers of the law|Good Priest,5,0372
 people, Gadarene,30,0816
 people, God's,9,0817
 people, Israel, tribes of,6,0818
-people, all the #21,21,0819
-people, all the #22,22,0820
-people, all the #6 [shouting],6,0821
-people, all the [praising],12,0822
-people, all the [shouting],9,0823
+people, all the 1,21,0819
+people, all the 2,22,0820
+people, all the 3 [shouting],6,0821
+people, all the 4 [praising],12,0822
+people, all the 5 [shouting],9,0823
 people, all the,3,0824
 people, arrogant wicked,8,0825
 people, hurried,14,0826
 people, many #22,22,0827
 people, many,22,0827
-people, other #21 [guessing],21,0819
+people, other 1 [guessing],21,0819
 people, other,19,0828
 people, others #13,13,0829
 people, righteous [laughing],30,0830
 people, sick,30,0831
-people, some #4 [critical],4,0831
-people, some #4 [excited],4,0831
+people, some 1 [critical],4,0831
+people, some 1 [excited],4,0831
 people, some of the,21,0832
-people, some, in Jerusalem #24 [arguing],24,0833
-people, some, in Jerusalem #9 [arguing],9,0834
+people, some, in Jerusalem 1 [arguing],24,0833
+people, some, in Jerusalem 2 [arguing],9,0834
 people, some,3,0835
-people, still other #12,12,0836
-people, still other #19,19,0837
-people, the [shouting],10,0838
+people, still other 1,12,0836
+people, still other 2,19,0837
+people, the 1 [shouting],10,0838
 people, the,3,0840
 people, the|complainer/woman [complaining],25,0841
 people, the|leader of Naphtali,10,0842
@@ -1717,7 +1716,7 @@ servant of Naaman's wife (young girl),18,0899
 servant of Nabal,12,0900
 servant of Saul,2,0901
 servant of concubine's husband,6,0902
-servant of priest [demanding],6,0903
+servant of priest 1 [demanding],6,0903
 servant of priest,14,1901
 servants (Isaac's),6,0904
 servants of Achish, king of Gath,4,0905
@@ -1728,8 +1727,8 @@ seven angels, one of the #19,19,0909
 seven sons of Sceva #14 [over-dramatic],14,1905
 seventy-two #14 [excited],14,1906
 she donkey,23,1907
-shepherds #4 [awe],4,1908
-shepherds #6,4,0020
+shepherds 1 [awe],4,1908
+shepherds 2,4,0020
 ship captains, seafarers, sailors #1 [weeping/ cry out],1,2906
 sign on the cross,14,2907
 singers from the ends of the earth,6,2908
@@ -1740,10 +1739,10 @@ soldier at the cross #6,6,0912
 soldier 1, enemy,1,0913
 soldier 2, enemy,2,0914
 soldier, Israelite,3,0915
-soldiers #4 [calling out],4,0916
-soldiers #4 [mocking],4,0916
-soldiers #9 [gruff],9,0917
-soldiers #9 [mocking],9,0917
+soldiers 1 [calling out],4,0916
+soldiers 1 [mocking],4,0916
+soldiers 2 [gruff],9,0917
+soldiers 2 [mocking],9,0917
 soldiers, Assyrian,30,0918
 soldiers/officials from chief priests/Pharisees #4 [afraid],4,0919
 soldiers/officials from chief priests/Pharisees #4 [rowdy],4,0919
@@ -1751,10 +1750,10 @@ some claim we say,29,0920
 some in home of Simon, leper,30,0921
 some people,30,0922
 some,30,0923
-someone #14 [questioning],14,0924
-someone #4 [excited],4,0925
-someone [flattering, boastful, lying],14,0926
-someone [might argue],29,0927
+someone 1 [questioning],14,0924
+someone 2 [excited],4,0925
+someone 3 [flattering, boastful, lying],14,0926
+someone 4 [might argue],29,0927
 someone from Jairus' house #5 [sad],5,0928
 someone in Jerusalem,6,0929
 someone in crowd,9,0930
@@ -1781,8 +1780,8 @@ teacher, the [said in heart],3,0945
 teacher, the [thought in heart],3,0945
 teacher, the [thought],3,0945
 teacher, the,3,0945
-teachers of the law #1 [insulting],1,0593
-teachers of the law #19 [indignant],19,0946
+teachers of the law 1 [insulting],1,0593
+teachers of the law 2 [indignant],19,0946
 teachers of the law (Pharisees) #19 [contempt],19,0946
 teachers of the law, one=expert in the law, an|Good Priest [complimenting],5,0372
 teachers of the law, one=expert in the law, an|Good Priest [justifying],5,0372
@@ -1792,9 +1791,9 @@ teachers of the law, one=expert in the law, an|Good Priest,5,0372
 teachers of the law, some|Good Priest [compliment],5,0372
 teachers of the law, some who were Pharisees #1 [arguing],1,0593
 teachers of the law/Pharisees,15,0377
-teachers of the law/Pharisees=Pharisees/teachers of the law #1 [angry],1,0593
-teachers of the law/Pharisees=Pharisees/teachers of the law #1 [critical],1,0593
-teachers of the law/Pharisees=Pharisees/teachers of the law #19 [insulting],19,0948
+teachers of the law/Pharisees=Pharisees/teachers of the law 1 [angry],1,0593
+teachers of the law/Pharisees=Pharisees/teachers of the law 1 [critical],1,0593
+teachers of the law/Pharisees=Pharisees/teachers of the law 2 [insulting],19,0948
 temple guards #17 [amazed],17,0949
 temple police #6 [perplexed],6,0950
 ten men with leprosy #4,4,0951
@@ -1813,20 +1812,20 @@ twenty-four elders,10,0964
 twenty-four elders/four living creatures,4,0965
 unbelievers,30,0966
 vineyard owner (God?),20,2000
-voice #1,1,0482
-voice #15,15,0969
-voice #17,17,0970
+voice 1,1,0482
+voice 2,15,0969
+voice 3,17,0970
 voice (in trance),7,0700
-voice among living creatures #2,30,0971
+voice among living creatures 1,30,0971
 voice among living creatures,15,0972
 voice from altar #11,11,0973
 voice from bright cloud (God),20,2000
 voice from cloud,20,0974
 voice from heaven #1,1,0975
-voice from heaven, another #13 [wailing],13,0976
-voice from heaven, another #13 [weeping/ cry out],13,0976
-voice from heaven, another #13,13,0976
-voice from heaven, another #9,9,0977
+voice from heaven, another 1 [wailing],13,0976
+voice from heaven, another 1 [weeping/ cry out],13,0976
+voice from heaven, another 1,13,0976
+voice from heaven, another 2,9,0977
 voice from heaven, loud #1,1,0978
 voice from heaven, loud,20,2000
 voice from heaven,20,2000
@@ -1835,8 +1834,8 @@ voice from throne #11,11,0978
 voice from throne, loud #11,11,0978
 voice in heaven, loud,13,0979
 voice like a trumpet #7,7,0700
-voice of great crowd in heaven, loud #22,22,0979
-voice of great crowd in heaven, loud #23,23,0980
+voice of great crowd in heaven, loud,22,0979
+voice of great crowd in heaven, loud 1,23,0980
 voice of great crowd in heaven, loud,22,0979
 voice of great crowd, like roar of many waters, loud thunderclaps,24,0981
 voice of one calling, a (preparing way for Christ),6,0982
@@ -1866,7 +1865,7 @@ woman, bleeding for 12 years [thinking to herself],22,1001
 woman, caught in adultery,24,1002
 woman, wise,23,1003
 woman,23,1004
-women [joyfully singing],24,1005
+women 1 [joyfully singing],24,1005
 women of Bethlehem,25,1006
 women, seven,22,1007
 women,23,1008
@@ -1877,7 +1876,7 @@ word of the LORD spoken through Hosea,20,2000
 word of the LORD through Malachi,20,2000
 word of the LORD,20,2000
 world, the whole,21,1009
-you [smug],9,1010
+you 1 [smug],9,1010
 you ought to say,5,1011
 you who bring good tidings to Zion,5,1012
 you,17,1013

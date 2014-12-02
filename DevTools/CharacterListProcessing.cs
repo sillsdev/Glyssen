@@ -89,14 +89,23 @@ namespace DevTools
 				SetAlias(cv);
 			}
 
-			File.WriteAllText(Path.Combine(kBaseDirForOutput, "gen_CharacterCharacterId.txt"), CharacterCharacterId.AllTabDilimited(allCci));
+			File.WriteAllText(Path.Combine(kBaseDirForOutput, "gen_CharacterCharacterId_notFullyProcessed.txt"), CharacterCharacterId.AllTabDilimited(allCci));
 			allCci.RemoveAll(cciFound.Contains);
 
 			File.WriteAllText(Path.Combine(kBaseDirForOutput, "gen_CharacterVerse.txt"), CharacterVerse.AllTabDelimited(allCv));
+			PrintCharacterIdMap(allCv);
 			File.WriteAllText(Path.Combine(kBaseDirForOutput, "gen_cvNotFound.txt"), CharacterVerse.AllTabDelimited(cvNotFound));
 			File.WriteAllText(Path.Combine(kBaseDirForOutput, "gen_cciNotFound.txt"), CharacterCharacterId.AllTabDilimited(allCci));
 
 			return allCv;
+		}
+
+		private static void PrintCharacterIdMap(IEnumerable<CharacterVerse> allCv)
+		{
+			var set = new SortedSet<string>();
+			foreach (var cv in allCv)
+				set.Add(cv.Character + "\t" + cv.CharacterId);
+			File.WriteAllText(Path.Combine(kBaseDirForOutput, "gen_CharacterIdMap.txt"), TabDelimited(set));
 		}
 
 		private static void ProcessUniqueIds(HashSet<string> uniqueCharacterIds)
@@ -130,7 +139,7 @@ namespace DevTools
 			return sb.ToString();
 		}
 
-		public static string TabDelimited(HashSet<string> set)
+		public static string TabDelimited(ICollection<string> set)
 		{
 			var sb = new StringBuilder();
 			foreach (var entry in set)
@@ -140,7 +149,7 @@ namespace DevTools
 			return sb.ToString();
 		}
 
-		public static string TabDelimited(List<int> list)
+		public static string TabDelimited(ICollection<int> list)
 		{
 			var sb = new StringBuilder();
 			foreach (var entry in list)

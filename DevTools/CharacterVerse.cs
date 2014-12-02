@@ -104,7 +104,7 @@ namespace DevTools
 
 		public string TabDelimited()
 		{
-			return Book + "\t" + Chapter + "\t" + Verse + "\t" + Character + "\t" + CharacterId + "\t" + Delivery + "\t" + Alias;
+			return Book + "\t" + Chapter + "\t" + Verse + "\t" + Character + "\t" + Delivery + "\t" + Alias;
 		}
 	}
 }
