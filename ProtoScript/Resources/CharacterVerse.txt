@@ -155,7 +155,7 @@
 1KI	1	32	David	0093	very old	David, king
 1KI	1	33	David	0093	very old	David, king
 1KI	1	36	Benaiah, son of Jehoiada	0067		
-1KI	1	39	people, all the	0823	shouting	
+1KI	1	39	people, all the 5	0823	shouting	
 1KI	1	41	Joab	0266		
 1KI	1	42	Adonijah, son of David	0019		
 1KI	1	43	Jonathan, son of Abiathar	0279		
@@ -572,7 +572,7 @@
 1SA	18	22	Saul	0414		
 1SA	18	23	David	0093		
 1SA	18	25	Saul	0414		
-1SA	18	7	women	1005	joyfully singing	
+1SA	18	7	women 1	1005	joyfully singing	
 1SA	18	8	Saul	0414	thought	
 1SA	19	11	Michal, David's wife	0337		
 1SA	19	14	Michal, David's wife	0337		
@@ -590,7 +590,7 @@
 1SA	2	10	Hannah	0166		
 1SA	2	15	servant of priest	1901		
 1SA	2	16	man	0657	pleading	
-1SA	2	16	servant of priest	0903	demanding	
+1SA	2	16	servant of priest 1	0903	demanding	
 1SA	2	2	Hannah	0166		
 1SA	2	20	Eli	0110		
 1SA	2	23	Eli	0110		
@@ -888,7 +888,7 @@
 2CH	20	15	Jahaziel (Spirit of the Lord on)	0239		
 2CH	20	2	men, some	0715		
 2CH	20	20	Jehoshaphat, king of Judah	0247		
-2CH	20	21	men	0693	singing and praising God	
+2CH	20	21	men 1	0693	singing and praising God	
 2CH	20	37	Eliezer, prophet of the Lord	0113		
 2CH	20	6	Jehoshaphat, king of Judah	0247	praying	
 2CH	21	12	Elijah	0115	letter from	Elijah the prophet
@@ -962,7 +962,7 @@
 2CH	7	13	God	2000		God (LORD appeared in dream at night)
 2CH	7	17	God	2000		God (LORD appeared in dream at night)
 2CH	7	19	God	2000		God (LORD appeared in dream at night)
-2CH	7	3	Israel, all	0197	worshipping God	
+2CH	7	3	Israel, all 1	0197	worshipping God	
 2CH	7	6	priests/Levites	0848		
 2CH	8	11	Solomon, king	0436		
 2CH	9	5	queen of Sheba	1865		
@@ -1022,7 +1022,7 @@
 2KI	10	8	Jehu, son of Nimshi	0249		
 2KI	10	8	messenger from guardians of Ahab's children	0725		
 2KI	10	9	Jehu, son of Nimshi	0249		
-2KI	11	12	people, the	0838	shouting	
+2KI	11	12	people, the 1	0838	shouting	
 2KI	11	14	Athaliah	0053		
 2KI	11	15	Jehoiada	0245		Jehoiada the priest
 2KI	11	5	Jehoiada	0245		Jehoiada the priest
@@ -1681,9 +1681,9 @@ ACT	12	11	Peter (Simon)	0371
 ACT	12	14	Rhoda	0401	could be a young girl	
 ACT	12	15	people gathered to pray	0813		
 ACT	12	17	Peter (Simon)	0371	stage whisper	
-ACT	12	22	people	0811	shouting	
-ACT	12	7	angel of the LORD, an	0473	commanding	
-ACT	12	8	angel of the LORD, an	0473	commanding	
+ACT	12	22	people 3	0811	shouting	
+ACT	12	7	angel of the LORD, an 1	0473	commanding	
+ACT	12	8	angel of the LORD, an 1	0473	commanding	
 ACT	13	10	Paul	0062	rebuking	
 ACT	13	15	Good Priest	0372	gracious	synagogue rulers|Good Priest
 ACT	13	16	Paul	0062	preaching	
@@ -1713,7 +1713,7 @@ ACT	13	46	Paul	0062	bold	Paul/Barnabas
 ACT	13	47	Paul	0062	bold	Paul/Barnabas
 ACT	13	48	Gentiles	0152		
 ACT	14	10	Paul	0062	called out	
-ACT	14	11	crowd	0555	excited	
+ACT	14	11	crowd 4	0555	excited	
 ACT	14	15	Paul	0062	preaching	Barnabas/Paul
 ACT	14	16	Paul	0062	preaching	Barnabas/Paul
 ACT	14	22	Paul	0062		Barnabas/Paul
@@ -1755,8 +1755,8 @@ ACT	16	37	Paul	0062	upset
 ACT	16	39	Magistrates, chief	0322		
 ACT	16	9	Macedonian	0320		
 ACT	17	18	Epicurean and Stoic philosophers, other	0133	superior	
-ACT	17	19	Epicurean and Stoic philosophers, they	1133	curious	
-ACT	17	20	Epicurean and Stoic philosophers, they	1134		
+ACT	17	19	Epicurean and Stoic philosophers, they 1	1133	curious	
+ACT	17	20	Epicurean and Stoic philosophers, they 2	1134		
 ACT	17	22	Paul	0062	preaching	
 ACT	17	23	Paul	0062		
 ACT	17	24	Paul	0062		
@@ -1766,10 +1766,10 @@ ACT	17	27	Paul	0062
 ACT	17	28	Paul	0062		
 ACT	17	29	Paul	0062		
 ACT	17	3	Paul	0062		
-ACT	17	32	Epicurean and Stoic philosophers, they	1133	curious	
+ACT	17	32	Epicurean and Stoic philosophers, they 1	1133	curious	
 ACT	17	6	mob	0743		
 ACT	17	7	mob	0743		
-ACT	18	13	Jews, the	0265	angry	
+ACT	18	13	Jews, the 7	0265	angry	
 ACT	18	14	Gallio	0148	stern	
 ACT	18	18	Paul	0062		
 ACT	18	20	Paul	0062		
@@ -1795,8 +1795,8 @@ ACT	19	35	city clerk	1533	diplomatic
 ACT	19	39	city clerk	1533	diplomatic	
 ACT	19	4	Paul	0062		
 ACT	19	40	city clerk	1533		
-ACT	2	11	Jews, God-fearing from every nation	0262		
-ACT	2	12	Jews, God-fearing from every nation	0265	amazed and perplexed	
+ACT	2	11	Jews, God-fearing from every nation 1	0262		
+ACT	2	12	Jews, God-fearing from every nation 2	0265	amazed and perplexed	
 ACT	2	13	Jews, God-fearing from every nation, some	0267	made fun of them	
 ACT	2	14	Peter (Simon)	0371		Peter (Simon), with Eleven
 ACT	2	15	Peter (Simon)	0371		Peter (Simon), with Eleven
@@ -1813,12 +1813,12 @@ ACT	2	32	Peter (Simon)	0371
 ACT	2	34	Peter (Simon)	0371		
 ACT	2	35	Peter (Simon)	0371		
 ACT	2	36	Peter (Simon)	0371		
-ACT	2	37	people	0811	grieved	
+ACT	2	37	people 3	0811	grieved	
 ACT	2	38	Peter (Simon)	0371		
 ACT	2	39	Peter (Simon)	0371		
 ACT	2	40	Peter (Simon)	0371		
-ACT	2	7	Jews, God-fearing from every nation	0262	amazed	
-ACT	2	8	Jews, God-fearing from every nation	0262	amazed	
+ACT	2	7	Jews, God-fearing from every nation 1	0262	amazed	
+ACT	2	8	Jews, God-fearing from every nation 1	0262	amazed	
 ACT	2	9	Jews, they	0262		
 ACT	20	10	Paul	0062	called out	
 ACT	20	18	Paul	0062		
@@ -1840,9 +1840,9 @@ ACT	21	22	James	0241	encouraging	James/all the elders
 ACT	21	23	James	0241		James/all the elders
 ACT	21	24	James	0241	encouraging	James/all the elders
 ACT	21	25	James	0241		James/all the elders
-ACT	21	28	Jews, the	0265	screaming	
+ACT	21	28	Jews, the 7	0265	screaming	
 ACT	21	33	commander	0536		
-ACT	21	36	crowd	0561	shouting louder	
+ACT	21	36	crowd 9	0561	shouting louder	
 ACT	21	37	commander	0536		
 ACT	21	37	Paul	0062		
 ACT	21	37	Paul	0062	called out	
@@ -1861,7 +1861,7 @@ ACT	22	18	Paul	0062
 ACT	22	19	Paul	0062		
 ACT	22	20	Paul	0062		
 ACT	22	21	Paul	0062		
-ACT	22	22	crowd	0556	screaming	
+ACT	22	22	crowd 4	0555	screaming	
 ACT	22	25	Paul	0062	stern	
 ACT	22	26	centurion 3|army officer	0515	anxious	
 ACT	22	27	commander	0536		
@@ -1964,7 +1964,7 @@ ACT	27	43	centurion 1|army officer	0513
 ACT	28	17	Paul	0062		
 ACT	28	18	Paul	0062		
 ACT	28	21	Jews, leaders of the	0262		
-ACT	28	22	Jews, the	0262	inquiring	
+ACT	28	22	Jews, the 1	0262	inquiring	
 ACT	28	25	Paul	0062		
 ACT	28	26	Paul	0062		
 ACT	28	27	Paul	0062		
@@ -1990,11 +1990,11 @@ ACT	3	5	crippled man	0551
 ACT	3	6	Peter (Simon)	0371		
 ACT	4	11	Peter (Simon)	0371		
 ACT	4	12	Peter (Simon)	0371		
-ACT	4	13	chief priests/their officials	0377		
-ACT	4	15	chief priests/their officials	0527		
+ACT	4	13	chief priests/their officials 1	0377		
+ACT	4	15	chief priests/their officials 2	0527		
 ACT	4	16	Good Priest	0372	defending	high priests/men of their family/rulers, elders, teachers of the law|Good Priest
 ACT	4	17	high priest	0622	worried but stern	
-ACT	4	18	chief priests/their officials	0527		
+ACT	4	18	chief priests/their officials 2	0527		
 ACT	4	19	Peter (Simon)	0371		Peter (Simon)/John
 ACT	4	20	John	1272		
 ACT	4	23	Peter (Simon)	0371		Peter (Simon)/John
@@ -2006,10 +2006,10 @@ ACT	4	28	Peter (Simon)/John/own people	1372
 ACT	4	29	Peter (Simon)/John/own people	1372		
 ACT	4	7	high priests/men of their family/rulers, teachers of the law	0622		
 ACT	4	8	Peter (Simon)	0371		
-ACT	5	20	angel of the LORD, an	0473	commanding	
+ACT	5	20	angel of the LORD, an 1	0473	commanding	
 ACT	5	23	temple police	0950	perplexed	
 ACT	5	24	captain, of temple guard/chief priests	0510		
-ACT	5	25	someone	0925	excited	
+ACT	5	25	someone 2	0925	excited	
 ACT	5	28	high priest	0622		
 ACT	5	29	Peter (Simon)	0371		
 ACT	5	3	Peter (Simon)	0371		
@@ -2020,7 +2020,7 @@ ACT	5	34	Gamaliel	0149
 ACT	5	35	Gamaliel	0149		Gamaliel, a Pharisee on Sanhedrin
 ACT	5	37	Gamaliel	0149		Gamaliel, a Pharisee on Sanhedrin
 ACT	5	38	Gamaliel	0149		
-ACT	5	40	council of elders:chief priests/teachers of the law	0546		
+ACT	5	40	council of elders:chief priests/teachers of the law	0545		
 ACT	5	42	apostles	0494		
 ACT	5	8	Peter (Simon)	0371		
 ACT	5	8	Sapphira (Ananias' wife)	0410		
@@ -2028,8 +2028,8 @@ ACT	5	9	Peter (Simon)	0371
 ACT	6	11	Jews of Cyrene, Alexandria, Cilicia & Asia	0265	accusing	
 ACT	6	13	false witnesses	0603		
 ACT	6	14	false witnesses	0603		
-ACT	6	2	disciples, the	0579		
-ACT	6	3	disciples, the	0579		
+ACT	6	2	disciples, the 2	0579		
+ACT	6	3	disciples, the 2	0579		
 ACT	7	1	high priest	0622		
 ACT	7	10	Stephen	0441		
 ACT	7	11	Stephen	0441		
@@ -2076,7 +2076,7 @@ ACT	7	60	Stephen	0441	cried out
 ACT	7	7	Stephen	0441		
 ACT	7	8	Stephen	0441		
 ACT	7	9	Stephen	0441		
-ACT	8	10	people, all the	0819		
+ACT	8	10	people, all the 1	0819		
 ACT	8	19	Simon practiced magic	0431		
 ACT	8	20	Peter (Simon)	0371		
 ACT	8	24	Simon practiced magic	0431		
@@ -3600,13 +3600,13 @@ GEN	29	33	Leah	0309
 GEN	29	34	Leah	0309		
 GEN	29	35	Leah	0309		
 GEN	29	4	Jacob	0232		
-GEN	29	4	shepherds	0020		
+GEN	29	4	shepherds 2	0020		
 GEN	29	5	Jacob	0232		
-GEN	29	5	shepherds	0020		
+GEN	29	5	shepherds 2	0020		
 GEN	29	6	Jacob	0232		
-GEN	29	6	shepherds	0020		
+GEN	29	6	shepherds 2	0020		
 GEN	29	7	Jacob	0232		
-GEN	29	8	shepherds	0020		
+GEN	29	8	shepherds 2	0020		
 GEN	3	1	serpent	0895		
 GEN	3	10	Adam	0016		
 GEN	3	11	God	2000		God (the LORD)
@@ -4238,16 +4238,16 @@ ISA	10	5	God	2000		God (the LORD)
 ISA	10	6	God	2000		God (the LORD)
 ISA	10	7	God	2000		God (the LORD)
 ISA	10	8	God	2000		God (the LORD)
-ISA	12	1	Israel	0197	will say	
+ISA	12	1	Israel 2	0197	will say	
 ISA	12	1	Not A Quote	00000		
-ISA	12	2	Israel	0197	will say	
+ISA	12	2	Israel 2	0197	will say	
 ISA	12	2	Not A Quote	00000		
 ISA	12	3	Not A Quote	00000		
-ISA	12	4	Israel	0197	will say	
+ISA	12	4	Israel 2	0197	will say	
 ISA	12	4	Not A Quote	00000		
-ISA	12	5	Israel	0197	will say	
+ISA	12	5	Israel 2	0197	will say	
 ISA	12	5	Not A Quote	00000		
-ISA	12	6	Israel	0197	will say	
+ISA	12	6	Israel 2	0197	will say	
 ISA	12	6	Not A Quote	00000		
 ISA	14	10	kings over the nations	0642		
 ISA	14	10	Not A Quote	00000		
@@ -5013,13 +5013,13 @@ JDG	19	8	father of concubine	0605
 JDG	19	9	father of concubine	0605		
 JDG	2	1	Jesus	0700		angel of the LORD, the
 JDG	2	20	God	2000		God (the LORD)
-JDG	20	12	Israelites, all	0215	mourning bitterly	
+JDG	20	12	Israelites, all 1	0215	mourning bitterly	
 JDG	20	18	God	2000		God (the LORD)
 JDG	20	18	Israelites	0213		
 JDG	20	23	God	2000		God (the LORD)
-JDG	20	23	Israelites	0214	weeping	
+JDG	20	23	Israelites 1	0214	weeping	
 JDG	20	28	God	2000		God (the LORD)
-JDG	20	28	Israelites	0214	weeping	
+JDG	20	28	Israelites 1	0214	weeping	
 JDG	20	3	Israelites	0213		
 JDG	20	32	Benjamites	1068		
 JDG	20	32	Israelites	0213		
@@ -5031,7 +5031,7 @@ JDG	21	11	Israelite assembly	0202
 JDG	21	16	Israelite assembly, elders of	0203		
 JDG	21	17	Israelite assembly, elders of	0203		
 JDG	21	20	Israelite assembly, elders of	0203		
-JDG	21	3	Israelites, all	0216	weeping bitterly	
+JDG	21	3	Israelites, all 2	0216	weeping bitterly	
 JDG	21	5	Israelites	0213		
 JDG	21	6	Israelites	0213		
 JDG	21	7	Israelites	0213		
@@ -5920,18 +5920,18 @@ JHN	10	17	Jesus	0700
 JHN	10	2	Jesus	0700		
 JHN	10	20	Jews, many of the	0263	contempt	
 JHN	10	21	Jews, others of the	0264		
-JHN	10	24	Jews, the	0268		
+JHN	10	24	Jews, the 4	0268		
 JHN	10	25	Jesus	0700		
 JHN	10	3	Jesus	0700		
 JHN	10	32	Jesus	0700		
-JHN	10	33	Jews, the	0377		
+JHN	10	33	Jews, the 3	0377		
 JHN	10	34	Jesus	0700		
 JHN	10	41	people, many	0827		
 JHN	10	7	Jesus	0700		
 JHN	10	8	Jesus	0700		
 JHN	10	9	Jesus	0700		
 JHN	11	11	Jesus	0700		
-JHN	11	12	disciples, His	0578	sad	
+JHN	11	12	disciples, His 1	0577	sad	
 JHN	11	13	Jesus	0700		
 JHN	11	14	Jesus	0700		
 JHN	11	16	Thomas	0447	resigned	
@@ -5956,17 +5956,17 @@ JHN	11	40	Jesus	0700
 JHN	11	41	Jesus	0700	praying	
 JHN	11	43	Jesus	0700	giving orders	
 JHN	11	44	Jesus	0700	giving orders	
-JHN	11	47	chief priests/Sanhedrin=chief priests/whole Sanhedrin	0526	upset	
-JHN	11	48	chief priests	0520	worried	
+JHN	11	47	chief priests/Sanhedrin=chief priests/whole Sanhedrin 1	0526	upset	
+JHN	11	48	chief priests 1	0520	worried	
 JHN	11	49	Caiaphas	0075	indignant	Caiaphas, high priest
 JHN	11	51	Caiaphas	0075		Caiaphas, high priest
-JHN	11	56	Jews, the	0270		
+JHN	11	56	Jews, the 6	0270		
 JHN	11	7	Jesus	0700		
 JHN	11	8	disciples, Jesus'	0579		
 JHN	11	9	Jesus	0700		
 JHN	12	13	disciples, whole crowd of=people, many=crowd, great|crowd	0578	praising	
 JHN	12	15	scripture	0890		
-JHN	12	19	Pharisees	0377		
+JHN	12	19	Pharisees 3	0377		
 JHN	12	21	Greeks	0159	respectful	
 JHN	12	23	Jesus	0700		
 JHN	12	24	Jesus	0700		
@@ -5975,7 +5975,7 @@ JHN	12	27	Jesus	0700
 JHN	12	28	God	2000		voice from heaven
 JHN	12	29	crowds, others in	0552		
 JHN	12	30	Jesus	0700		
-JHN	12	34	crowd	0552	challenging	
+JHN	12	34	crowd 1	0552	challenging	
 JHN	12	35	Jesus	0700		
 JHN	12	38	scripture	0890		
 JHN	12	40	scripture	0890		
@@ -6061,7 +6061,7 @@ JHN	16	20	Jesus	0700
 JHN	16	23	Jesus	0700		
 JHN	16	25	Jesus	0700		
 JHN	16	29	disciples, Jesus'	0579	relieved	
-JHN	16	30	disciples, His	0581		
+JHN	16	30	disciples, His 4	0581		
 JHN	16	31	Jesus	0700		
 JHN	16	32	Jesus	0700		
 JHN	16	33	Jesus	0700		
@@ -6098,8 +6098,8 @@ JHN	18	26	high priest's servant (man), one=those standing near=another	0624	accu
 JHN	18	27	Peter (Simon)	0371		
 JHN	18	28,29	Pilate	0387	to crowd	
 JHN	18	29	Pilate	0387	to crowd	
-JHN	18	30	Jews, the	0262	offended	
-JHN	18	31	Jews, the	0268		
+JHN	18	30	Jews, the 1	0262	offended	
+JHN	18	31	Jews, the 4	0268		
 JHN	18	31	Pilate	0387	to crowd	
 JHN	18	33	Pilate	0387	to Jesus	
 JHN	18	34	Jesus	0700	questioning	
@@ -6121,32 +6121,32 @@ JHN	19	10	Pilate	0387	to Jesus
 JHN	19	11	Jesus	0700		
 JHN	19	12	Jews, the	0262		
 JHN	19	14	Pilate	0387	to crowd	
-JHN	19	15	chief priests	0521	intimidating	
+JHN	19	15	chief priests 2	0521	intimidating	
 JHN	19	15	Pilate	0387	to crowd	
 JHN	19	19	sign on the cross	2907		
-JHN	19	21	chief priests/Sanhedrin=chief priests/whole Sanhedrin	0526	protest	
+JHN	19	21	chief priests/Sanhedrin=chief priests/whole Sanhedrin 1	0526	protest	
 JHN	19	22	Pilate	0387	impatient	
 JHN	19	24	scripture	0890		
-JHN	19	24	soldiers	0917	gruff	
+JHN	19	24	soldiers 2	0917	gruff	
 JHN	19	26	Jesus	0700		
 JHN	19	27	Jesus	0700		
 JHN	19	28	Jesus	0700	deeply distressed	
-JHN	19	3	soldiers	0917	mocking	
+JHN	19	3	soldiers 2	0917	mocking	
 JHN	19	30	Jesus	0700		
 JHN	19	36	scripture	0890		
 JHN	19	37	scripture	0890		
 JHN	19	4	Pilate	0387	to crowd	
 JHN	19	5	Pilate	0387	to crowd	
-JHN	19	6	chief priests/Sanhedrin=chief priests/whole Sanhedrin	0527		
+JHN	19	6	chief priests/Sanhedrin=chief priests/whole Sanhedrin 3	0527		
 JHN	19	6	Pilate	0387	to crowd	
-JHN	19	7	Jews, the	0377	insisting	
+JHN	19	7	Jews, the 3	0377	insisting	
 JHN	19	9	Pilate	0387	to Jesus	
 JHN	2	10	master of the banquet	0692	complimenting	
 JHN	2	16	Jesus	0700	giving orders	
 JHN	2	17	scripture	0890		
-JHN	2	18	Jews, the	0377		
+JHN	2	18	Jews, the 3	0377		
 JHN	2	19	Jesus	0700		
-JHN	2	20	Jews, the	0377		
+JHN	2	20	Jews, the 3	0377		
 JHN	2	3	Mary (Jesus' mother)	0327		
 JHN	2	4	Jesus	0700		
 JHN	2	5	Mary (Jesus' mother)	0327		
@@ -6238,9 +6238,9 @@ JHN	4	25	woman, Samaritan	0999
 JHN	4	26	Jesus	0700		
 JHN	4	27	Not A Quote	00000		
 JHN	4	29	woman, Samaritan	0999		
-JHN	4	31	disciples, His	0578		
+JHN	4	31	disciples, His	0577		
 JHN	4	32	Jesus	0700		
-JHN	4	33	disciples, His	0577	puzzled	
+JHN	4	33	disciples, His 1	0577	puzzled	
 JHN	4	34	Jesus	0700		
 JHN	4	35	Jesus	0700		
 JHN	4	36	Jesus	0700		
@@ -6259,9 +6259,9 @@ JHN	4	7	Jesus	0700	requesting
 JHN	4	7,8	Jesus	0700		
 JHN	4	7-8	Jesus	0700		
 JHN	4	9	woman, Samaritan	0999		
-JHN	5	10	Jews, the	0262	rebuke	
+JHN	5	10	Jews, the 1	0262	rebuke	
 JHN	5	11	invalid for 38 years	0637		
-JHN	5	12	Jews, the	0262	angry	
+JHN	5	12	Jews, the 1	0262	angry	
 JHN	5	14	Jesus	0700		
 JHN	5	17	Jesus	0700		
 JHN	5	19	Jesus	0700		
@@ -6289,14 +6289,14 @@ JHN	6	10	Jesus	0700
 JHN	6	12	Jesus	0700		
 JHN	6	14	people in crowd	0814		
 JHN	6	20	Jesus	0700		
-JHN	6	25	crowd	0560		
+JHN	6	25	crowd 8	0560		
 JHN	6	26	Jesus	0700		
-JHN	6	28	crowd	0553		
+JHN	6	28	crowd 2	0553		
 JHN	6	29	Jesus	0700		
-JHN	6	30	crowd	0552	superior	
-JHN	6	31	Jews	0264		
+JHN	6	30	crowd 1	0552	superior	
+JHN	6	31	Jews 1	0264		
 JHN	6	32	Jesus	0700		
-JHN	6	34	crowd	0553	polite	
+JHN	6	34	crowd 2	0553	polite	
 JHN	6	35	Jesus	0700		
 JHN	6	36	Jesus	0700		
 JHN	6	37	Jesus	0700		
@@ -6304,7 +6304,7 @@ JHN	6	38	Jesus	0700
 JHN	6	39	Jesus	0700		
 JHN	6	40	Jesus	0700		
 JHN	6	41	Jesus	0700		
-JHN	6	42	Jews, the	0269	grumbling	
+JHN	6	42	Jews, the 5	0269	grumbling	
 JHN	6	43	Jesus	0700		
 JHN	6	44	Jesus	0700		
 JHN	6	45	Jesus	0700		
@@ -6314,7 +6314,7 @@ JHN	6	48	Jesus	0700
 JHN	6	49	Jesus	0700		
 JHN	6	5	Jesus	0700		
 JHN	6	50	Jesus	0700		
-JHN	6	52	Jews, the	0263		
+JHN	6	52	Jews, the 2	0263		
 JHN	6	53	Jesus	0700		
 JHN	6	56	Jesus	0700		
 JHN	6	60	disciples, many of His	0580	grumbling	
@@ -6326,68 +6326,68 @@ JHN	6	68	Peter (Simon)	0371
 JHN	6	7	Philip	0381		Philip=disciples, the=disciples, His
 JHN	6	70	Jesus	0700		
 JHN	6	9	Andrew	0036		Andrew=disciples, the=disciples, His
-JHN	7	11	Jews, the	0263		
+JHN	7	11	Jews, the 2	0263		
 JHN	7	12	crowds, others in	0552	harsh	
 JHN	7	12	crowds, some in	0567		
 JHN	7	15	Jews, the	0262		
 JHN	7	16	Jesus	0700		
 JHN	7	18	Jesus	0700		
 JHN	7	19	Jesus	0700		
-JHN	7	20	crowd	0552	insulting	
+JHN	7	20	crowd 1	0552	insulting	
 JHN	7	21	Jesus	0700		
 JHN	7	22	Jesus	0700		
-JHN	7	25	people, some, in Jerusalem	0833	arguing	
-JHN	7	26	people, some, in Jerusalem	0833	arguing	
-JHN	7	27	people, some, in Jerusalem	0834	arguing	
+JHN	7	25	people, some, in Jerusalem 1	0833	arguing	
+JHN	7	26	people, some, in Jerusalem 1	0833	arguing	
+JHN	7	27	people, some, in Jerusalem 2	0834	arguing	
 JHN	7	28	Jesus	0700		
 JHN	7	3	Jesus' brothers	2258	challenging	
 JHN	7	31	crowd, many in the	0565		
 JHN	7	33	Jesus	0700		
-JHN	7	35	Jews, the	0377		
-JHN	7	36	Jews, the	0262	grumbling	
+JHN	7	35	Jews, the 3	0377		
+JHN	7	36	Jews, the 1	0262	grumbling	
 JHN	7	37	Jesus	0700		
 JHN	7	37-38	Jesus	0700		
 JHN	7	4	Jesus' brothers	2258		
 JHN	7	40	people, some of the	0832		
 JHN	7	41	people, others	0829		
-JHN	7	41	people, still other	0837		
-JHN	7	45	chief priests/Pharisees	0523		
+JHN	7	41	people, still other 2	0837		
+JHN	7	45	chief priests/Pharisees 1	0523		
 JHN	7	46	temple guards	0949	amazed	
-JHN	7	47	Pharisees	0375	angry	
-JHN	7	48	Pharisees	0375	angry	
+JHN	7	47	Pharisees 1	0375	angry	
+JHN	7	48	Pharisees 1	0375	angry	
 JHN	7	51	Nicodemus	0360		
-JHN	7	52	Pharisees	0375	angry	
+JHN	7	52	Pharisees 1	0375	angry	
 JHN	7	6	Jesus	0700		
 JHN	8	10	Jesus	0700	questioning	
 JHN	8	11	Jesus	0700		
 JHN	8	11	woman, caught in adultery	1002		
 JHN	8	12	Jesus	0700		
-JHN	8	13	Pharisees	0378		
+JHN	8	13	Pharisees 4	0378		
 JHN	8	14	Jesus	0700		
 JHN	8	19	Jesus	0700		
-JHN	8	19	Pharisees	0376		
+JHN	8	19	Pharisees 2	0376		
 JHN	8	21	Jesus	0700		
 JHN	8	22	Jews	0265		
 JHN	8	23	Jesus	0700		
 JHN	8	25	Jesus	0700		
-JHN	8	25	Jews	0264	impatient	
+JHN	8	25	Jews 1	0264	impatient	
 JHN	8	26	Jesus	0700		
 JHN	8	28	Jesus	0700		
 JHN	8	31	Jesus	0700		
-JHN	8	33	Jews, the	0262	superior	
+JHN	8	33	Jews, the 1	0262	superior	
 JHN	8	34	Jesus	0700		
 JHN	8	39	Jesus	0700		
-JHN	8	39	Jews, the	0263		
+JHN	8	39	Jews, the 2	0263		
 JHN	8	4	teachers of the law/Pharisees	0377		
-JHN	8	41	Jews, the	0377		
+JHN	8	41	Jews, the 3	0377		
 JHN	8	42	Jesus	0700		
 JHN	8	45	Jesus	0700		
 JHN	8	46	Jesus	0700		
-JHN	8	48	Jews, the	0263	angry	
+JHN	8	48	Jews, the 2	0263	angry	
 JHN	8	49	Jesus	0700		
-JHN	8	52	Jews, the	0262	outraged	
+JHN	8	52	Jews, the 1	0262	outraged	
 JHN	8	54	Jesus	0700		
-JHN	8	57	Jews, the	0268		
+JHN	8	57	Jews, the 4	0268		
 JHN	8	58	Jesus	0700		
 JHN	8	7	Jesus	0700		
 JHN	9	10	neighbors of man blind from birth	0764		
@@ -6396,28 +6396,28 @@ JHN	9	12	cured man, blind from birth	0569
 JHN	9	12	neighbors of man blind from birth	0764		
 JHN	9	15	cured man, blind from birth	0569		
 JHN	9	16	Pharisees, other	0374		
-JHN	9	16	Pharisees, some	0375		
+JHN	9	16	Pharisees, some 1	0375		
 JHN	9	17	cured man, blind from birth	0569		
-JHN	9	17	Pharisees	0377		
-JHN	9	19	Jews, the	0262	challenging	
-JHN	9	2	disciples, the	0580	accusing	
+JHN	9	17	Pharisees 3	0377		
+JHN	9	19	Jews, the 1	0262	challenging	
+JHN	9	2	disciples, the 3	0580	accusing	
 JHN	9	20	parents of cured man, blind from birth|parent 1	0805	cautious	
 JHN	9	21	parents of cured man, blind from birth|parent 2	0806		
 JHN	9	23	parents of cured man, blind from birth|parent 2	0806		
-JHN	9	24	Jews, the	0262	challenging	
+JHN	9	24	Jews, the 1	0262	challenging	
 JHN	9	25	cured man, blind from birth	0569		
 JHN	9	26	Jews	0265		
 JHN	9	27	cured man, blind from birth	0569		
-JHN	9	28	Jews, the	0268	harsh	
+JHN	9	28	Jews, the 4	0268	harsh	
 JHN	9	3	Jesus	0700		
 JHN	9	30	cured man, blind from birth	0569		
-JHN	9	34	Jews, the	0268	harsh	
+JHN	9	34	Jews, the 4	0268	harsh	
 JHN	9	35	Jesus	0700	questioning	
 JHN	9	36	cured man, blind from birth	0569		
 JHN	9	37	Jesus	0700		
 JHN	9	38	cured man, blind from birth	0569		
 JHN	9	39	Jesus	0700		
-JHN	9	40	Pharisees, some	0375	challenging	
+JHN	9	40	Pharisees, some 1	0375	challenging	
 JHN	9	41	Jesus	0700		
 JHN	9	7	Jesus	0700	giving orders	
 JHN	9	7	Not A Quote	00000		
@@ -7799,7 +7799,7 @@ LUK	11	1	disciples, one of His	0578
 LUK	11	10	Jesus	0700		
 LUK	11	11	Jesus	0700		
 LUK	11	15	crowd, some of	0566		
-LUK	11	16	others	0801		
+LUK	11	16	others 1	0801		
 LUK	11	17	Jesus	0700		
 LUK	11	18	Jesus	0700		
 LUK	11	19	Jesus	0700		
@@ -7898,7 +7898,7 @@ LUK	13	15	Jesus	0700
 LUK	13	18	Jesus	0700		
 LUK	13	2	Jesus	0700		
 LUK	13	20	Jesus	0700		
-LUK	13	23	someone	0924	questioning	
+LUK	13	23	someone 1	0924	questioning	
 LUK	13	24	Jesus	0700		
 LUK	13	25	Jesus	0700		
 LUK	13	26	Jesus	0700		
@@ -7998,8 +7998,8 @@ LUK	16	9	Jesus	0700
 LUK	17	1	Jesus	0700		
 LUK	17	13	ten men with leprosy	0951		
 LUK	17	14	Jesus	0700		
-LUK	17	15	man with leprosy	0681		
-LUK	17	16	man with leprosy	0681		
+LUK	17	15	man with leprosy 1	0681		
+LUK	17	16	man with leprosy 1	0681		
 LUK	17	17	Jesus	0700		
 LUK	17	19	Jesus	0700	giving orders	
 LUK	17	2	Jesus	0700		
@@ -8018,7 +8018,7 @@ LUK	17	31	Jesus	0700
 LUK	17	32	Jesus	0700		
 LUK	17	33	Jesus	0700		
 LUK	17	34	Jesus	0700		
-LUK	17	37	disciples, His	0577	puzzled	
+LUK	17	37	disciples, His 1	0577	puzzled	
 LUK	17	37	Jesus	0700		
 LUK	17	5	apostles	0494		
 LUK	17	6	Jesus	0700		
@@ -8047,10 +8047,10 @@ LUK	18	3	Jesus	0700
 LUK	18	31	Jesus	0700		
 LUK	18	32	Jesus	0700		
 LUK	18	36	Bartimaeus	1014		Bartimaeus, blind=blind man, a
-LUK	18	37	crowd	0554		
+LUK	18	37	crowd 3	0554		
 LUK	18	38	Bartimaeus	1014	shouting	Bartimaeus, blind=blind man, a
 LUK	18	39	Bartimaeus	1014	shouting	Bartimaeus, blind=blind man, a
-LUK	18	39	crowd	0557		
+LUK	18	39	crowd 5	0557		
 LUK	18	4	Jesus	0700		
 LUK	18	4,5	Jesus	0700		
 LUK	18	41	Bartimaeus	1014	pleading	Bartimaeus, blind=blind man, a
@@ -8079,7 +8079,7 @@ LUK	19	30	Jesus	0700
 LUK	19	33	owner of colt=people, some standing there	0803	suspicious	
 LUK	19	34	disciples, two of His	0578		
 LUK	19	38	disciples, whole crowd of=people, many=crowd, great	0579		
-LUK	19	39	Pharisees, some	0377	demanding	
+LUK	19	39	Pharisees, some 2	0377	demanding	
 LUK	19	40	Jesus	0700		
 LUK	19	42	Jesus	0700		
 LUK	19	43	Jesus	0700		
@@ -8091,7 +8091,7 @@ LUK	19	9	Jesus	0700
 LUK	2	1	Caesar Augustus	0074		
 LUK	2	10	angel of the LORD, an	0474		
 LUK	2	14	great company of heavenly host	1615	stage whisper extra voices will be added	
-LUK	2	15	shepherds	1908	awe	
+LUK	2	15	shepherds 1	1908	awe	
 LUK	2	22-24	scripture	0890		
 LUK	2	23	scripture	0890		
 LUK	2	24	scripture	0890		
@@ -8115,7 +8115,7 @@ LUK	20	16	Jesus	0700
 LUK	20	16	people, the	0840		
 LUK	20	17	Jesus	0700		
 LUK	20	18	Jesus	0700		
-LUK	20	2	chief priests/teachers of the law/elders=chief priests/elders of people	0533	challenge	
+LUK	20	2	chief priests/teachers of the law/elders=chief priests/elders of people 1	0533	challenge	
 LUK	20	21	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians	0941		
 LUK	20	23	Jesus	0700		
 LUK	20	23,24	Jesus	0700		
@@ -8144,8 +8144,8 @@ LUK	20	43	Jesus	0700
 LUK	20	44	Not A Quote	00000		
 LUK	20	46	Jesus	0700	warning	
 LUK	20	47	Jesus	0700		
-LUK	20	5	chief priests/teachers of the law/elders=chief priests/elders of people	0533	to themselves	
-LUK	20	7	chief priests/teachers of the law/elders=chief priests/elders of people	0526		
+LUK	20	5	chief priests/teachers of the law/elders=chief priests/elders of people 1	0533	to themselves	
+LUK	20	7	chief priests/teachers of the law/elders=chief priests/elders of people 2	0526		
 LUK	20	8	Jesus	0700		
 LUK	20	9	Jesus	0700		
 LUK	21	10	Jesus	0700		
@@ -8190,7 +8190,7 @@ LUK	22	28	Jesus	0700
 LUK	22	31	Jesus	0700		
 LUK	22	33	Peter (Simon)	0371	passionate	
 LUK	22	34	Jesus	0700		
-LUK	22	35	disciples, His	0578		
+LUK	22	35	disciples, His	0577		
 LUK	22	35	Jesus	0700		
 LUK	22	36	Jesus	0700		
 LUK	22	37	Jesus	0700		
@@ -8217,12 +8217,12 @@ LUK	22	67	council of elders:chief priests/teachers of the law	0545	demanding
 LUK	22	67	Jesus	0700		
 LUK	22	70	council of elders:chief priests/teachers of the law	0545	demanding	
 LUK	22	70	Jesus	0700		
-LUK	22	71	council of elders:chief priests/teachers of the law	0546	furious	
+LUK	22	71	council of elders:chief priests/teachers of the law	0545	furious	
 LUK	22	8	Jesus	0700	giving orders	
 LUK	22	9	Peter (Simon)	0371		Peter (Simon)/John=disciples (Jesus')
 LUK	23	14	Pilate	0387	to crowd	
 LUK	23	18	chief priests/rulers/the people	0531	shouting	
-LUK	23	2	council of elders:chief priests/teachers of the law	0546		
+LUK	23	2	council of elders:chief priests/teachers of the law	0545		
 LUK	23	20	Pilate	0387		
 LUK	23	21	chief priests/rulers/the people|mob	0532		
 LUK	23	22	Pilate	0387	to crowd	
@@ -8245,9 +8245,9 @@ LUK	23	42	criminal on cross, another	0549	repentant
 LUK	23	43	Jesus	0700		
 LUK	23	46	Jesus	0700		
 LUK	23	47	centurion 2|army officer	0514	amazed	
-LUK	23	5	chief priests/Sanhedrin=chief priests/whole Sanhedrin	0526	loud, angry	
+LUK	23	5	chief priests/Sanhedrin=chief priests/whole Sanhedrin 1	0526	loud, angry	
 LUK	23	6	Pilate	0387		
-LUK	23	7	chief priests/teachers of the law	0377		
+LUK	23	7	chief priests/teachers of the law 2	0377		
 LUK	24	17	Jesus	0700	questioning	
 LUK	24	18	Cleopas and other (on road to Emmaus)|Cleopas	0081		
 LUK	24	19	Cleopas and other (on road to Emmaus)|Cleopas	0081		
@@ -8281,12 +8281,12 @@ LUK	24	49	Jesus	0700
 LUK	24	5	angels in white=men in clothes that gleamed like lightning, two	0479		
 LUK	24	50	Jesus	0700		
 LUK	24	8	Mary Magdalene	0329		Mary Magdalene/Mary mother of James/Salome
-LUK	3	10	crowd	0562		
+LUK	3	10	crowd 10	0562		
 LUK	3	11	John the Baptist	1273		
 LUK	3	12	tax collectors	0943	calling out	
 LUK	3	13	John the Baptist	1273		
 LUK	3	14	John the Baptist	1273		
-LUK	3	14	soldiers	0916	calling out	
+LUK	3	14	soldiers 1	0916	calling out	
 LUK	3	15	people	0843		
 LUK	3	16	John the Baptist	1273		
 LUK	3	17	John the Baptist	1273		
@@ -8309,7 +8309,7 @@ LUK	4	27	Jesus	0700
 LUK	4	3	Satan	0800		Devil
 LUK	4	34	man possessed by evil spirit	0670		
 LUK	4	35	Jesus	0700	giving orders	
-LUK	4	36	men in synagogue	0701	amazed	
+LUK	4	36	men in synagogue 2	0701	amazed	
 LUK	4	38	everyone	0589		
 LUK	4	39	Jesus	0700	rebuking	
 LUK	4	4	Jesus	0700		
@@ -8324,14 +8324,14 @@ LUK	5	12	man covered with leprosy	0660	pleading
 LUK	5	13	Jesus	0700		
 LUK	5	14	Jesus	0700	forcefully	
 LUK	5	20	Jesus	0700		
-LUK	5	21	teachers of the law/Pharisees=Pharisees/teachers of the law	0593	angry	
+LUK	5	21	teachers of the law/Pharisees=Pharisees/teachers of the law 1	0593	angry	
 LUK	5	22	Jesus	0700		
 LUK	5	24	Jesus	0700	giving orders	
 LUK	5	26	everyone	0589		
 LUK	5	27	Jesus	0700		
 LUK	5	27	narrator-LUK	0753		
 LUK	5	3	Jesus	0700		
-LUK	5	30	Pharisees/teachers of the law	0377	contempt	
+LUK	5	30	Pharisees/teachers of the law 1	0377	contempt	
 LUK	5	31	Jesus	0700		
 LUK	5	33	Pharisees/teachers of the law	0378		
 LUK	5	34	Jesus	0700		
@@ -8344,7 +8344,7 @@ LUK	5	5	Peter (Simon)	0371	polite
 LUK	5	8	Peter (Simon)	0371	afraid	
 LUK	5	8,9	Peter (Simon)	0371	afraid	
 LUK	6	10	Jesus	0700		
-LUK	6	2	Pharisees, some	0375	angry	
+LUK	6	2	Pharisees, some 1	0375	angry	
 LUK	6	20	Jesus	0700		
 LUK	6	21	Jesus	0700		
 LUK	6	22	Jesus	0700		
@@ -8382,7 +8382,7 @@ LUK	6	9	Jesus	0700	questioning
 LUK	7	13	Jesus	0700	compassionately	
 LUK	7	14	Jesus	0700	giving orders	
 LUK	7	15	Jesus	0700		
-LUK	7	16	crowd, large	0563	praising	
+LUK	7	16	crowd, large 1	0563	praising	
 LUK	7	19	John the Baptist	1273	discouraged	
 LUK	7	20	John's disciples	1274	puzzled	
 LUK	7	20,21	John's disciples	1274	puzzled	
@@ -8429,9 +8429,9 @@ LUK	8	18	Jesus	0700
 LUK	8	20	someone=they (in crowd)	0925		
 LUK	8	21	Jesus	0700		
 LUK	8	22	Jesus	0700	giving orders	
-LUK	8	24	disciples, the	0580	terrified	
+LUK	8	24	disciples, the 3	0580	terrified	
 LUK	8	24	Jesus	0700	giving orders	
-LUK	8	25	disciples, the	0579	fear, amazement	
+LUK	8	25	disciples, the 4	0579	fear, amazement	
 LUK	8	25	Jesus	0700	questioning	
 LUK	8	27	demon-possessed man	0573		
 LUK	8	27-29	demon-possessed man	0573		
@@ -8459,13 +8459,13 @@ LUK	8	56	Jesus	0700	warning
 LUK	8	6	Jesus	0700		
 LUK	8	7	Jesus	0700		
 LUK	8	8	Jesus	0700		
-LUK	8	9	disciples, His	0578		
+LUK	8	9	disciples, His	0577		
 LUK	9	12	disciples, the=disciples, His	0579	taking charge	
 LUK	9	13	Andrew	0036	frustrated	Andrew=twelve, the
 LUK	9	13	Jesus	0700	giving orders	
 LUK	9	14	Jesus	0700	giving orders	
 LUK	9	18	Jesus	0700	questioning	
-LUK	9	19	disciples, the	0580	excited	
+LUK	9	19	disciples, the 3	0580	excited	
 LUK	9	20	Jesus	0700	questioning	
 LUK	9	20	Peter (Simon)	0371	declare	
 LUK	9	21	Jesus	0700	warning	
@@ -8485,7 +8485,7 @@ LUK	9	41	Jesus	0700	exasperated
 LUK	9	41	Jesus	0700	giving orders	
 LUK	9	43	everyone in crowd	0587	praising God	
 LUK	9	44	Jesus	0700		
-LUK	9	46	disciples, His	0580	arguing	
+LUK	9	46	disciples, His 3	0580	arguing	
 LUK	9	48	Jesus	0700		
 LUK	9	49	John	1272		John (disciple whom Jesus loved)
 LUK	9	5	Jesus	0700		
@@ -8536,7 +8536,7 @@ MAL	4	1	God	2000		God (the LORD Almighty)
 MAL	4	4	God	2000		God (the LORD Almighty)
 MAL	4	5	God	2000		God (the LORD Almighty)
 MAT	1	1	Not A Quote	00000		
-MAT	1	20	angel of the LORD, an	0473	official announcement	
+MAT	1	20	angel of the LORD, an 1	0473	official announcement	
 MAT	1	21	Not A Quote	00000		
 MAT	1	23	Not A Quote	00000		
 MAT	1	23	scripture	0890		
@@ -8593,16 +8593,16 @@ MAT	11	5	Jesus	0700
 MAT	11	6	Jesus	0700		
 MAT	11	7	Jesus	0700		
 MAT	11	9	Jesus	0700		
-MAT	12	10	Pharisees	0377	testing	
+MAT	12	10	Pharisees 3	0377	testing	
 MAT	12	11	Jesus	0700		
 MAT	12	13	Jesus	0700	giving orders	
 MAT	12	16	Jesus	0700	warning	
 MAT	12	18	scripture	0890		
 MAT	12	19	scripture	0890		
-MAT	12	2	Pharisees	0376	angry	
+MAT	12	2	Pharisees 2	0376	angry	
 MAT	12	20	scripture	0890		
-MAT	12	23	people, all the	0820		
-MAT	12	24	Pharisees	0378		
+MAT	12	23	people, all the 2	0820		
+MAT	12	24	Pharisees 4	0378		
 MAT	12	25	Jesus	0700		
 MAT	12	26	Jesus	0700		
 MAT	12	27	Jesus	0700		
@@ -8632,7 +8632,7 @@ MAT	12	48	Jesus	0700	questioning
 MAT	12	49	Jesus	0700		
 MAT	12	7	Jesus	0700		
 MAT	12	7	Jesus	0700	patiently	
-MAT	13	10	disciples, the	0580	questioning	
+MAT	13	10	disciples, the 3	0580	questioning	
 MAT	13	11	Jesus	0700		
 MAT	13	13	Jesus	0700		
 MAT	13	14	Jesus	0700		
@@ -8654,7 +8654,7 @@ MAT	13	3	Jesus	0700
 MAT	13	31	Jesus	0700		
 MAT	13	33	Jesus	0700		
 MAT	13	35	scripture	0890		
-MAT	13	36	disciples, His	0578		
+MAT	13	36	disciples, His	0577		
 MAT	13	37	Jesus	0700		
 MAT	13	39	Jesus	0700		
 MAT	13	4	Jesus	0700		
@@ -8665,11 +8665,11 @@ MAT	13	47	Jesus	0700
 MAT	13	48	Jesus	0700		
 MAT	13	49	Jesus	0700		
 MAT	13	5	Jesus	0700		
-MAT	13	51	disciples, His	0578		
+MAT	13	51	disciples, His	0577		
 MAT	13	51	Jesus	0700	questioning	
 MAT	13	52	Jesus	0700		
-MAT	13	54	men in synagogue	0701	amazed	
-MAT	13	55	men in synagogue	0702	taking offense at Jesus' teaching	
+MAT	13	54	men in synagogue 2	0701	amazed	
+MAT	13	55	men in synagogue 3	0702	taking offense at Jesus' teaching	
 MAT	13	57	Jesus	0700		
 MAT	13	6	Jesus	0700		
 MAT	13	7	Jesus	0700		
@@ -8694,7 +8694,7 @@ MAT	14	8	Herodias' daughter	0174
 MAT	14	9	Herod Antipas (the tetrarch)	0171		
 MAT	14	9,10	Herod Antipas (the tetrarch)	0171		
 MAT	15	10	Jesus	0700		
-MAT	15	12	disciples, the	0580	rebuke	
+MAT	15	12	disciples, the 3	0580	rebuke	
 MAT	15	13	Jesus	0700		
 MAT	15	14	Jesus	0700		
 MAT	15	15	Peter (Simon)	0371	puzzled	
@@ -8702,7 +8702,7 @@ MAT	15	16	Jesus	0700
 MAT	15	17	Jesus	0700		
 MAT	15	2	Pharisees/teachers of the law, some	0377	rebuke	
 MAT	15	22	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl	0078	pleading	
-MAT	15	23	disciples, His	0580	impatient	
+MAT	15	23	disciples, His 3	0580	impatient	
 MAT	15	24	Jesus	0700		
 MAT	15	25	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl	0078	pleading	
 MAT	15	26	Jesus	0700	testing faith	
@@ -8710,15 +8710,15 @@ MAT	15	27	Canaanite mother of possessed girl=Syrophoenician mother of possessed 
 MAT	15	28	Jesus	0700		
 MAT	15	3	Jesus	0700		
 MAT	15	32	Jesus	0700	compassionately	
-MAT	15	33	disciples, His	0580	impatient	
-MAT	15	34	disciples, His	0578		
+MAT	15	33	disciples, His 3	0580	impatient	
+MAT	15	34	disciples, His	0577		
 MAT	15	34	Jesus	0700	questioning	
 MAT	15	4	Jesus	0700		
 MAT	15	5	Jesus	0700		
 MAT	15	8	Jesus	0700		
 MAT	16	1	Pharisees, some	0377		
 MAT	16	13	Jesus	0700	questioning	
-MAT	16	14	disciples, His	0580	excited	
+MAT	16	14	disciples, His 3	0580	excited	
 MAT	16	15	Jesus	0700		
 MAT	16	16	Peter (Simon)	0371		
 MAT	16	17	Jesus	0700		
@@ -8734,13 +8734,13 @@ MAT	16	27	Jesus	0700
 MAT	16	3	Jesus	0700		
 MAT	16	4	Jesus	0700		
 MAT	16	6	Jesus	0700	warning	
-MAT	16	7	disciples, the	0580	defensive	
+MAT	16	7	disciples, the 3	0580	defensive	
 MAT	16	8	Jesus	0700		
 MAT	17	10	John	1272		Peter (Simon)/James/John=disciples, the|John
 MAT	17	11	Jesus	0700		
 MAT	17	15	father of possessed son=man in crowd	0606	distraught	
 MAT	17	17	Jesus	0700	giving orders	
-MAT	17	19	disciples, the	0580	upset	
+MAT	17	19	disciples, the 3	0580	upset	
 MAT	17	20	Jesus	0700		
 MAT	17	22	Jesus	0700		
 MAT	17	24	collectors of temple tax	0535	demanding	
@@ -8753,7 +8753,7 @@ MAT	17	4	Peter (Simon)	0371	afraid
 MAT	17	5	God	2000		voice from bright cloud (God)
 MAT	17	7	Jesus	0700	giving orders	
 MAT	17	9	Jesus	0700	forcefully	
-MAT	18	1	disciples, the	0578		
+MAT	18	1	disciples, the 1	0578		
 MAT	18	10	Jesus	0700	warning	
 MAT	18	11	Jesus	0700		
 MAT	18	12	Jesus	0700		
@@ -8780,7 +8780,7 @@ MAT	18	5	Jesus	0700
 MAT	18	6	Jesus	0700		
 MAT	18	7	Jesus	0700		
 MAT	18	8	Jesus	0700		
-MAT	19	10	disciples, the	0579	shocked	
+MAT	19	10	disciples, the 2	0579	shocked	
 MAT	19	11	Jesus	0700		
 MAT	19	14	Jesus	0700		
 MAT	19	16	ruler, a certain=man, rich young	0870	respectful	
@@ -8795,19 +8795,19 @@ MAT	19	26	Jesus	0700
 MAT	19	27	Peter (Simon)	0371	confused	
 MAT	19	28	Jesus	0700		
 MAT	19	29	Jesus	0700		
-MAT	19	3	Pharisees, some	0377	challenge	
+MAT	19	3	Pharisees, some 2	0377	challenge	
 MAT	19	30	Jesus	0700		
 MAT	19	4	Jesus	0700		
 MAT	19	5	Jesus	0700		
 MAT	19	6	Jesus	0700		
-MAT	19	7	Pharisees, some	0377	challenge	
+MAT	19	7	Pharisees, some 2	0377	challenge	
 MAT	19	8	Jesus	0700		
 MAT	2	1	Not A Quote	00000		
-MAT	2	13	angel of the LORD, an	0473	commanding	
+MAT	2	13	angel of the LORD, an 1	0473	commanding	
 MAT	2	15	scripture	0890		
 MAT	2	18	scripture	0890		
 MAT	2	2	magi	0653		
-MAT	2	20	angel of the LORD, an	0473	commanding	
+MAT	2	20	angel of the LORD, an 1	0473	commanding	
 MAT	2	23	scripture	0890		
 MAT	2	3	Not A Quote	00000		
 MAT	2	4	Herod the Great	0172		
@@ -8837,7 +8837,7 @@ MAT	20	28	Jesus	0700
 MAT	20	3	Jesus	0700		
 MAT	20	30	Bartimaeus	1014	shouting	Bartimaeus, blind/other=blind men, two
 MAT	20	31	Bartimaeus	1014	shouting	Bartimaeus, blind/other=blind men, two
-MAT	20	31	crowd	0554		
+MAT	20	31	crowd 3	0554		
 MAT	20	32	Jesus	0700		
 MAT	20	33	Bartimaeus	1014	begging	Bartimaeus, blind/other=blind men, two
 MAT	20	4	Jesus	0700		
@@ -8850,16 +8850,16 @@ MAT	21	10	city, the whole	0534
 MAT	21	11	disciples, whole crowd of=people, many=crowd, great|crowd	0578	praising	
 MAT	21	13	Jesus	0700		
 MAT	21	15	children	1530	praising	
-MAT	21	16	chief priests/teachers of the law	0528	upset	
+MAT	21	16	chief priests/teachers of the law 1	0528	upset	
 MAT	21	16	Jesus	0700		
 MAT	21	19	Jesus	0700		
 MAT	21	2	Jesus	0700		
 MAT	21	20	disciples, the	0580		
 MAT	21	21	Jesus	0700		
-MAT	21	23	chief priests/teachers of the law/elders=chief priests/elders of people	0533	challenge	
+MAT	21	23	chief priests/teachers of the law/elders=chief priests/elders of people 1	0533	challenge	
 MAT	21	24	Jesus	0700		
 MAT	21	24-25	Jesus	0700		
-MAT	21	25	chief priests/teachers of the law/elders=chief priests/elders of people	0533	to themselves	
+MAT	21	25	chief priests/teachers of the law/elders=chief priests/elders of people 1	0533	to themselves	
 MAT	21	27	chief priests/teachers of the law=chief priests/elders of people	0528		
 MAT	21	27	Jesus	0700		
 MAT	21	28	Jesus	0700		
@@ -8908,7 +8908,7 @@ MAT	22	39	Jesus	0700
 MAT	22	4	Jesus	0700		
 MAT	22	40	Jesus	0700		
 MAT	22	42	Jesus	0700	questioning	
-MAT	22	42	Pharisees	0377	exasperated	
+MAT	22	42	Pharisees 3	0377	exasperated	
 MAT	22	43	Jesus	0700		
 MAT	22	44	Jesus	0700		
 MAT	22	45	Not A Quote	00000		
@@ -9064,8 +9064,8 @@ MAT	26	62	Caiaphas	0075	demanding	high priest
 MAT	26	63	Caiaphas	0075	demanding	high priest
 MAT	26	64	Jesus	0700		
 MAT	26	65	Caiaphas	0075	screaming	high priest
-MAT	26	66	chief priests/Sanhedrin=chief priests/whole Sanhedrin	0527		
-MAT	26	68	chief priests/Sanhedrin=chief priests/whole Sanhedrin	0377		
+MAT	26	66	chief priests/Sanhedrin=chief priests/whole Sanhedrin 3	0527		
+MAT	26	68	chief priests/Sanhedrin=chief priests/whole Sanhedrin 2	0377		
 MAT	26	69	girl at high priest's courtyard=servant girl	0614		
 MAT	26	70	Peter (Simon)	0371	denial	
 MAT	26	71	servant girl	0896		servant girl, another=someone else
@@ -9080,34 +9080,34 @@ MAT	27	11	Pilate	0387	to Jesus
 MAT	27	13	Pilate	0387	to Jesus	
 MAT	27	17	Pilate	0387	to crowd	
 MAT	27	19	Pilate's wife	1388		
-MAT	27	20	chief priests/elders	0528		
-MAT	27	21	crowd	0559		
+MAT	27	20	chief priests/elders 1	0528		
+MAT	27	21	crowd 7	0559		
 MAT	27	21	Pilate	0387	to crowd	
-MAT	27	22	crowd	0560	screaming	
+MAT	27	22	crowd 8	0560	screaming	
 MAT	27	22	Pilate	0387	to crowd	
-MAT	27	23	crowd	0562	screaming	
+MAT	27	23	crowd 10	0562	screaming	
 MAT	27	23	Pilate	0387	to crowd	
 MAT	27	24	Pilate	0387	to crowd	
-MAT	27	25	people, all the	0821	shouting	
-MAT	27	29	soldiers	0916	mocking	
+MAT	27	25	people, all the 3	0821	shouting	
+MAT	27	29	soldiers 1	0916	mocking	
 MAT	27	37	sign on the cross	2907		
-MAT	27	4	chief priests/elders	0528	impatient	
+MAT	27	4	chief priests/elders 1	0528	impatient	
 MAT	27	4	Judas Iscariot	0293	remorse	
-MAT	27	40	passers by	0808	mocking	
+MAT	27	40	passers by 1	0808	mocking	
 MAT	27	42	rulers=chief priests/teachers of the law/elders	0872	sneering	
 MAT	27	46	Jesus	0700	deeply distressed	
 MAT	27	46	Not A Quote	00000		
 MAT	27	47	bystanders=some standing near	0508	uneasy	
 MAT	27	49	bystanders, rest	0507	jeering	
 MAT	27	54	centurion=centurion/other guards|army officer	0514	amazed	
-MAT	27	6	chief priests	0520	disdain	
-MAT	27	63	chief priests/Pharisees	0377	negotiating	
+MAT	27	6	chief priests 1	0520	disdain	
+MAT	27	63	chief priests/Pharisees 2	0377	negotiating	
 MAT	27	65	Pilate	0387	impatient	
 MAT	27	7	chief priests	0522		
 MAT	27	8	Not A Quote	00000		
 MAT	27	9	scripture	0890		
 MAT	28	10	Jesus	0700		
-MAT	28	13	chief priests/elders	0377	bribing	
+MAT	28	13	chief priests/elders 2	0377	bribing	
 MAT	28	18	Jesus	0700		
 MAT	28	5	angel of the LORD, an	0474		
 MAT	28	9	Jesus	0700		
@@ -9220,13 +9220,13 @@ MAT	8	11	Jesus	0700	preaching
 MAT	8	13	Jesus	0700	giving orders	
 MAT	8	17	scripture	0890		
 MAT	8	19	teacher of the law=man|man	0944	eager	
-MAT	8	2	man with leprosy	0682	pleading	
+MAT	8	2	man with leprosy 2	0682	pleading	
 MAT	8	20	Jesus	0700	questioning	
 MAT	8	21	disciple, another=man, another	0574	making excuse	
 MAT	8	22	Jesus	0700	giving orders	
-MAT	8	25	disciples, the	0580	terrified	
+MAT	8	25	disciples, the 3	0580	terrified	
 MAT	8	26	Jesus	0700	giving orders	
-MAT	8	27	disciples, the	0579	amazed	
+MAT	8	27	disciples, the 4	0579	amazed	
 MAT	8	29	demon-possessed men, two	0573	screaming	
 MAT	8	3	Jesus	0700		
 MAT	8	31	demons	0573	begging	
@@ -9237,7 +9237,7 @@ MAT	8	7	Jesus	0700
 MAT	8	8	centurion 1|army officer	0513		
 MAT	8	9	centurion 1|army officer	0513		
 MAT	9	10	Not A Quote	00000		
-MAT	9	11	Pharisees	0378	questioning	
+MAT	9	11	Pharisees 4	0378	questioning	
 MAT	9	12	Jesus	0700	questioning	
 MAT	9	13	Jesus	0700	sternly	
 MAT	9	14	John's disciples	1274	puzzled	
@@ -9253,10 +9253,10 @@ MAT	9	27	blind men, two	0506	shouting
 MAT	9	28	blind men, two	0506	quieter	
 MAT	9	28	Jesus	0700	questioning	
 MAT	9	29	Jesus	0700		
-MAT	9	3	teachers of the law	0946	indignant	
+MAT	9	3	teachers of the law	0946	indignant	teachers of the law 2
 MAT	9	30	Jesus	0700	warning	
-MAT	9	33	crowd	0558	amazed	
-MAT	9	34	Pharisees	0377	accusing	
+MAT	9	33	crowd 6	0558	amazed	
+MAT	9	34	Pharisees 3	0377	accusing	
 MAT	9	37	Jesus	0700		
 MAT	9	4	Jesus	0700	questioning	
 MAT	9	6	Jesus	0700	giving orders	
@@ -9317,13 +9317,13 @@ MRK	1	2	scripture	0890
 MRK	1	20	Jesus	0700		
 MRK	1	24	man possessed by evil spirit	0670		
 MRK	1	25	Jesus	0700	giving orders	
-MRK	1	27	men in synagogue	0699	amazed	
+MRK	1	27	men in synagogue 1	0699	amazed	
 MRK	1	3	scripture	0890		
 MRK	1	30	people, some	0835		
 MRK	1	37	Peter (Simon)	0371	exclaimed	Peter (Simon) and companions
 MRK	1	38	Jesus	0700		
 MRK	1	4	John the Baptist	1273		
-MRK	1	40	man with leprosy	0682	pleading	
+MRK	1	40	man with leprosy 2	0682	pleading	
 MRK	1	41	Jesus	0700	compassionately	
 MRK	1	44	Jesus	0700		
 MRK	1	7	John the Baptist	1273		
@@ -9334,7 +9334,7 @@ MRK	10	16	Jesus	0700
 MRK	10	17	ruler, a certain=man, rich young	0870	respectful	
 MRK	10	18	Jesus	0700		
 MRK	10	18,19	Jesus	0700		
-MRK	10	2	Pharisees, some	0378	questioning	
+MRK	10	2	Pharisees, some 3	0378	questioning	
 MRK	10	20	ruler, a certain=man, rich young	0870	upset	
 MRK	10	21	Jesus	0700		
 MRK	10	23	Jesus	0700		
@@ -9359,7 +9359,7 @@ MRK	10	45	Jesus	0700
 MRK	10	47	Bartimaeus	1014	shouting	Bartimaeus, blind=blind man, a
 MRK	10	48	Bartimaeus	1014	shouting	Bartimaeus, blind=blind man, a
 MRK	10	48	crowd, many in the	0565		
-MRK	10	49	crowd, large	0564		
+MRK	10	49	crowd, large 2	0564		
 MRK	10	49	Jesus	0700		
 MRK	10	5	Jesus	0700		
 MRK	10	51	Bartimaeus	1014	pleading	Bartimaeus, blind=blind man, a
@@ -9377,12 +9377,12 @@ MRK	11	22,23	Jesus	0700
 MRK	11	23	Jesus	0700		
 MRK	11	24	Jesus	0700		
 MRK	11	25	Jesus	0700		
-MRK	11	28	chief priests/teachers of the law/elders=chief priests/elders of people	0533	challenge	
+MRK	11	28	chief priests/teachers of the law/elders=chief priests/elders of people 1	0533	challenge	
 MRK	11	29	Jesus	0700		
 MRK	11	29-30	Jesus	0700		
 MRK	11	30	Jesus	0700	questioning	
-MRK	11	31	chief priests/teachers of the law/elders=chief priests/elders of people	0533	to themselves	
-MRK	11	33	chief priests/teachers of the law/elders=chief priests/elders of people	0526		
+MRK	11	31	chief priests/teachers of the law/elders=chief priests/elders of people 1	0533	to themselves	
+MRK	11	33	chief priests/teachers of the law/elders=chief priests/elders of people 2	0526		
 MRK	11	33	Jesus	0700		
 MRK	11	5	owner of colt=people, some standing there	0803	suspicious	
 MRK	11	6	disciples, 2 men	0576		
@@ -9451,8 +9451,8 @@ MRK	14	12	John	1272		Peter (Simon)/John=disciples (Jesus')|disciples
 MRK	14	13	Jesus	0700		
 MRK	14	17,18	Jesus	0700		
 MRK	14	18	Jesus	0700		
-MRK	14	19	disciples, His	0579	sad	
-MRK	14	19	disciples, His	0581		
+MRK	14	19	disciples, His 2	0579	sad	
+MRK	14	19	disciples, His 4	0581		
 MRK	14	2	chief priests/teachers of the law=chief priests/elders of people	0528		
 MRK	14	20	Jesus	0700		
 MRK	14	22	Jesus	0700		
@@ -9483,7 +9483,7 @@ MRK	14	61	Caiaphas	0075	demanding	high priest
 MRK	14	62	Jesus	0700		
 MRK	14	63	Caiaphas	0075	screaming	high priest
 MRK	14	64	high priest	0622		
-MRK	14	65	chief priests/Sanhedrin=chief priests/whole Sanhedrin	0526	mocking	
+MRK	14	65	chief priests/Sanhedrin=chief priests/whole Sanhedrin 1	0526	mocking	
 MRK	14	67	girl at high priest's courtyard=servant girl	0614		
 MRK	14	68	Peter (Simon)	0371	denial	
 MRK	14	69	servant girl	0896		servant girl, another=someone else
@@ -9495,10 +9495,10 @@ MRK	14	9	Jesus	0700
 MRK	15	11	chief priests	0522		
 MRK	15	11	crowd	0552		
 MRK	15	12	Pilate	0387	to crowd	
-MRK	15	13	crowd	0560	shouting	
-MRK	15	14	crowd	0561	shouting louder	
+MRK	15	13	crowd 8	0560	shouting	
+MRK	15	14	crowd 9	0561	shouting louder	
 MRK	15	14	Pilate	0387	to crowd	
-MRK	15	18	soldiers	0916	mocking	
+MRK	15	18	soldiers 1	0916	mocking	
 MRK	15	2	Jesus	0700		
 MRK	15	2	Pilate	0387	to Jesus	
 MRK	15	22	Not A Quote	00000		
@@ -9536,23 +9536,23 @@ MRK	2	14	Jesus	0700	inviting
 MRK	2	15	Not A Quote	00000		
 MRK	2	16	teachers of the law	0946	contempt	teachers of the law (Pharisees)
 MRK	2	17	Jesus	0700		
-MRK	2	18	people, some	0831	critical	
+MRK	2	18	people, some 1	0831	critical	
 MRK	2	19	Jesus	0700		
 MRK	2	20	Jesus	0700		
 MRK	2	21	Jesus	0700		
 MRK	2	22	Jesus	0700		
-MRK	2	24	Pharisees	0377	accusing	
+MRK	2	24	Pharisees 3	0377	accusing	
 MRK	2	25	Jesus	0700		
 MRK	2	27	Jesus	0700		
 MRK	2	5	Jesus	0700		
-MRK	2	7	teachers of the law/Pharisees=Pharisees/teachers of the law	0593	angry	
+MRK	2	7	teachers of the law/Pharisees=Pharisees/teachers of the law 1	0593	angry	
 MRK	2	8	Jesus	0700	rebuking	
 MRK	3	11	evil spirits	0591		
 MRK	3	12	Jesus	0700		
 MRK	3	14	Jesus	0700		
 MRK	3	17	Not A Quote	00000		
 MRK	3	21	Jesus' family	0259		
-MRK	3	22	teachers of the law	0593	insulting	
+MRK	3	22	teachers of the law 1	0593	insulting	
 MRK	3	23	Jesus	0700		
 MRK	3	24	Jesus	0700		
 MRK	3	25	Jesus	0700		
@@ -9560,7 +9560,7 @@ MRK	3	26	Jesus	0700
 MRK	3	27	Jesus	0700		
 MRK	3	28	Jesus	0700		
 MRK	3	3	Jesus	0700	giving orders	
-MRK	3	30	teachers of the law/Pharisees=Pharisees/teachers of the law	0948	insulting	
+MRK	3	30	teachers of the law/Pharisees=Pharisees/teachers of the law 2	0948	insulting	
 MRK	3	31	Jesus' family	0259		
 MRK	3	32	someone=they (in crowd)	0925	announcing	
 MRK	3	33	Jesus	0700	questioning	
@@ -9587,10 +9587,10 @@ MRK	4	28	Jesus	0700
 MRK	4	3	Jesus	0700	preaching	
 MRK	4	30	Jesus	0700	instructing	
 MRK	4	35	Jesus	0700	giving orders	
-MRK	4	38	disciples, the	0580	terrified	
+MRK	4	38	disciples, the 3	0580	terrified	
 MRK	4	39	Jesus	0700	forcefully	
 MRK	4	40	Jesus	0700	questioning	
-MRK	4	41	disciples, the	0578	awe	
+MRK	4	41	disciples, the 1	0578	awe	
 MRK	4	5	Jesus	0700		
 MRK	4	7	Jesus	0700		
 MRK	4	8	Jesus	0700		
@@ -9619,14 +9619,14 @@ MRK	5	9	Jesus	0700	questioning
 MRK	5	9	man with evil spirit	0680		
 MRK	6	10	Jesus	0700	instructing	
 MRK	6	11	Jesus	0700		
-MRK	6	12	disciples, the	0578		
-MRK	6	14	people, some	0831	excited	
-MRK	6	15	people, other	0819	guessing	
-MRK	6	15	people, still other	0836		
+MRK	6	12	disciples, the 1	0578		
+MRK	6	14	people, some 1	0831	excited	
+MRK	6	15	people, other 1	0819	guessing	
+MRK	6	15	people, still other 1	0836		
 MRK	6	16	Herod Antipas (the tetrarch)	0171	fearful	
 MRK	6	17-18	John the Baptist	1273	rebuke	
 MRK	6	18	John the Baptist	1273	rebuke	
-MRK	6	2	men in synagogue	0701	amazed	
+MRK	6	2	men in synagogue 2	0701	amazed	
 MRK	6	22	Herod Antipas (the tetrarch)	0171	drunk	
 MRK	6	23	Herod Antipas (the tetrarch)	0171	drunk	
 MRK	6	24	Herodias	0173		
@@ -9634,7 +9634,7 @@ MRK	6	24	Herodias' daughter	0174
 MRK	6	25	Herodias' daughter	0174		
 MRK	6	26	Herod Antipas (the tetrarch)	0171		
 MRK	6	27	Herod Antipas (the tetrarch)	0171		
-MRK	6	3	people	0810	amazed	
+MRK	6	3	people 1	0810	amazed	
 MRK	6	31	Jesus	0700		
 MRK	6	31,32	Jesus	0700		
 MRK	6	35	disciples, the=disciples, His	0579	taking charge	
@@ -9647,12 +9647,12 @@ MRK	6	38	Andrew	0036		Andrew=disciples, the=disciples, His
 MRK	6	38	Jesus	0700	questioning	
 MRK	6	39	Jesus	0700		
 MRK	6	4	Jesus	0700		
-MRK	6	49	disciples, His	0578		
+MRK	6	49	disciples, His	0577		
 MRK	6	49	Jesus	0700	reassuring	
-MRK	6	49,50	disciples, His	0578		
+MRK	6	49,50	disciples, His	0577		
 MRK	6	49,50	Jesus	0700		
 MRK	6	49,50	Jesus	0700	reassuring	
-MRK	6	49-50	disciples, His	0578		
+MRK	6	49-50	disciples, His	0577		
 MRK	6	49-50	Jesus	0700	reassuring	
 MRK	6	50	Jesus	0700		
 MRK	6	56	people, sick	0831		
@@ -9664,7 +9664,7 @@ MRK	7	12	Jesus	0700
 MRK	7	12,13	Jesus	0700		
 MRK	7	14	Jesus	0700	warning	
 MRK	7	16	Jesus	0700		
-MRK	7	17	disciples, His	0577	puzzled	
+MRK	7	17	disciples, His 1	0577	puzzled	
 MRK	7	18	Jesus	0700		
 MRK	7	19	Not A Quote	00000		
 MRK	7	2	Not A Quote	00000		
@@ -9678,8 +9678,8 @@ MRK	7	34	Jesus	0700	giving orders
 MRK	7	34	Not A Quote	00000		
 MRK	7	36	Jesus	0700	warning	
 MRK	7	36	people, some	0835		
-MRK	7	37	people	0811		
-MRK	7	5	teachers of the law/Pharisees=Pharisees/teachers of the law	0593	critical	
+MRK	7	37	people 2	0811		
+MRK	7	5	teachers of the law/Pharisees=Pharisees/teachers of the law 1	0593	critical	
 MRK	7	6	Jesus	0700	rebuking	
 MRK	7	7	Jesus	0700	rebuking	
 MRK	7	8	Jesus	0700	rebuking	
@@ -9687,18 +9687,18 @@ MRK	7	9	Jesus	0700	rebuking
 MRK	8	11	Pharisees	0375		
 MRK	8	12	Jesus	0700	exasperated	
 MRK	8	15	Jesus	0700	warning	
-MRK	8	16	disciples, the	0580	defensive	
+MRK	8	16	disciples, the 3	0580	defensive	
 MRK	8	17	Jesus	0700	rebuking	
-MRK	8	19	disciples, the	0579	hesitant	
+MRK	8	19	disciples, the 2	0579	hesitant	
 MRK	8	2	Jesus	0700		
-MRK	8	20	disciples, the	0578		
+MRK	8	20	disciples, the 1	0578		
 MRK	8	20	Jesus	0700	questioning	
 MRK	8	21	Jesus	0700	questioning	
 MRK	8	23	Jesus	0700	questioning	
 MRK	8	24	blind man	0505		
 MRK	8	26	Jesus	0700	giving orders	
 MRK	8	27	Jesus	0700	questioning	
-MRK	8	28	disciples, the	0580	excited	
+MRK	8	28	disciples, the 3	0580	excited	
 MRK	8	29	Jesus	0700	questioning	
 MRK	8	29	Peter (Simon)	0371	declare	
 MRK	8	30	Jesus	0700	warning	
@@ -9709,8 +9709,8 @@ MRK	8	34	Jesus	0700	instructing
 MRK	8	35	Jesus	0700		
 MRK	8	36	Jesus	0700		
 MRK	8	38	Jesus	0700		
-MRK	8	4	disciples, the	0580	questioning	
-MRK	8	5	disciples, His	0578		
+MRK	8	4	disciples, the 3	0580	questioning	
+MRK	8	5	disciples, His	0577		
 MRK	8	5	Jesus	0700	questioning	
 MRK	8	6	Jesus	0700	giving orders	
 MRK	9	1	Jesus	0700		
@@ -9728,7 +9728,7 @@ MRK	9	23	Jesus	0700
 MRK	9	24	father of possessed boy=man in crowd	0606		
 MRK	9	25	Jesus	0700	giving orders	
 MRK	9	26	many in crowd	0691		
-MRK	9	28	disciples, His	0580	upset	
+MRK	9	28	disciples, His 3	0580	upset	
 MRK	9	29	Jesus	0700		
 MRK	9	31	Jesus	0700		
 MRK	9	33	Jesus	0700	questioning	
@@ -9764,7 +9764,7 @@ NEH	1	10	Nehemiah	0359	praying
 NEH	1	3	Hanani	0165		Hanani, brother of Nehemiah/men of Judah, some
 NEH	1	5	Nehemiah	0359	praying	
 NEH	1	8	Nehemiah	0359	praying	
-NEH	10	28	Levites	0312		
+NEH	10	28	Levites 2	0312		
 NEH	10	30	priests/Levites/people	0848		
 NEH	10	31	priests/Levites/people	0848		
 NEH	10	32	priests/Levites/people	0848		
@@ -9814,23 +9814,23 @@ NEH	6	9	Nehemiah	0359	praying
 NEH	6	9	Sanballat	0127	thinking	Sanballat/Geshem, enemies
 NEH	7	3	Nehemiah	0359		
 NEH	8	10	Nehemiah	0359		
-NEH	8	11	Levites	0312		
+NEH	8	11	Levites 2	0312		
 NEH	8	15	scripture (Moses quoting God)	0889		
-NEH	8	6	people, all the	0822	praising	
+NEH	8	6	people, all the 4	0822	praising	
 NEH	8	9	Nehemiah	0359		Nehemiah/Ezra/Levites
-NEH	9	13	Levites	0311	praying	
-NEH	9	16	Levites	0311	praying	
-NEH	9	19	Levites	0311	praying	
-NEH	9	22	Levites	0311	praying	
-NEH	9	26	Levites	0311	praying	
-NEH	9	28	Levites	0311	praying	
-NEH	9	29	Levites	0311	praying	
-NEH	9	32	Levites	0311	praying	
-NEH	9	36	Levites	0311	praying	
-NEH	9	38	Levites	0311	praying	
-NEH	9	5	Levites	0311	praying	
-NEH	9	7	Levites	0311	praying	
-NEH	9	9	Levites	0311	praying	
+NEH	9	13	Levites 1	0311	praying	
+NEH	9	16	Levites 1	0311	praying	
+NEH	9	19	Levites 1	0311	praying	
+NEH	9	22	Levites 1	0311	praying	
+NEH	9	26	Levites 1	0311	praying	
+NEH	9	28	Levites 1	0311	praying	
+NEH	9	29	Levites 1	0311	praying	
+NEH	9	32	Levites 1	0311	praying	
+NEH	9	36	Levites 1	0311	praying	
+NEH	9	38	Levites 1	0311	praying	
+NEH	9	5	Levites 1	0311	praying	
+NEH	9	7	Levites 1	0311	praying	
+NEH	9	9	Levites 1	0311	praying	
 NUM	1	10	God	2000		God (the LORD)
 NUM	1	11	God	2000		God (the LORD)
 NUM	1	12	God	2000		God (the LORD)
@@ -9883,7 +9883,7 @@ NUM	14	20	God	2000		God (the LORD)(Glory of LORD appeared)
 NUM	14	27	God	2000		God (the LORD)(Glory of LORD appeared)
 NUM	14	3	Israelite community	0204	grumbling	
 NUM	14	4	Israelite community	0204	grumbling	
-NUM	14	40	Israelite community	0203	mourning bitterly	
+NUM	14	40	Israelite community 1	0203	mourning bitterly	
 NUM	14	41	Moses	0344		
 NUM	14	7	Joshua	0285		leader of Ephraim,Joshua/leader of Judah, Caleb|Joshua/Caleb
 NUM	15	18	God	2000		God (the LORD)
@@ -9943,7 +9943,7 @@ NUM	21	14	Book of the Wars of the LORD|leader of Zebulun	0073
 NUM	21	15	Moses	0344	sang	Moses/Israelites
 NUM	21	16	God	2000		God (the LORD)
 NUM	21	17	Israel	0196		
-NUM	21	18	Israel	0196	singing	
+NUM	21	18	Israel 1	0196	singing	
 NUM	21	2	Israel|leader of Naphtali	0221		
 NUM	21	22	Israel|leader of Gad	0220		
 NUM	21	27	Poets|leader of Ephraim	0388		
@@ -10136,7 +10136,7 @@ PSA	10	6	Not A Quote	00000
 PSA	11	1	someone	0934		
 PSA	11	2	someone	0934		
 PSA	11	3	someone	0934		
-PSA	12	4	someone	0926	flattering, boastful, lying	
+PSA	12	4	someone 3	0926	flattering, boastful, lying	
 PSA	12	5	God	2000		God (the LORD)
 PSA	13	4	David's enemies	0094		David's enemy
 PSA	14	1	fool	0608		
@@ -10286,7 +10286,7 @@ REV	10	8	voice from heaven	0975
 REV	10	9	angel standing on sea and land	0473		
 REV	11	1	they (unclear in Greek/voice from heaven & angel?)	0953		
 REV	11	12	voice from heaven, loud	0978		
-REV	11	14	voice among living creatures	0971		
+REV	11	14	voice among living creatures 1	0971		
 REV	11	15	voices in heaven, loud	0984		
 REV	11	17	twenty-four elders	0964		
 REV	11	18	Not A Quote	00000		
@@ -10295,9 +10295,9 @@ REV	12	10	voice in heaven, loud	0979
 REV	12	11	voice in heaven, loud	0979		
 REV	12	12	voice in heaven, loud	0979		
 REV	13	10	God	2000		voice from heaven, loud
-REV	13	18	voice	0969		
+REV	13	18	voice 2	0969		
 REV	13	4	world, the whole	1009		
-REV	13	9	voice from heaven, another	0977		
+REV	13	9	voice from heaven, another 2	0977		
 REV	14	10	angel flying directly overhead, third	0474		
 REV	14	11	angel flying directly overhead, third	0474		
 REV	14	13	Jesus	0700		Spirit, the
@@ -10317,46 +10317,46 @@ REV	16	5	angel over waters	0475
 REV	16	6	angel over waters	0475		
 REV	16	7	altar, the	0471		
 REV	17	1	angels, seven, one of	0909		
-REV	17	11	angel, the	0909		
-REV	17	12	angel, the	0909		
-REV	17	15	angel, the	0909		
-REV	17	18	angel, the	0909		
+REV	17	11	angel, the 2	0909		
+REV	17	12	angel, the 2	0909		
+REV	17	15	angel, the 2	0909		
+REV	17	18	angel, the 2	0909		
 REV	17	5	Babylon	0057		
-REV	17	7	angel, the	0909		
-REV	17	8	angel, the	0909		
-REV	17	9	angel, the	0909		
+REV	17	7	angel, the 2	0909		
+REV	17	8	angel, the 2	0909		
+REV	17	9	angel, the 2	0909		
 REV	18	10	kings of the earth	0641		
-REV	18	10	voice from heaven, another	0976		
-REV	18	11	voice from heaven, another	0976		
-REV	18	12	voice from heaven, another	0976		
+REV	18	10	voice from heaven, another 1	0976		
+REV	18	11	voice from heaven, another 1	0976		
+REV	18	12	voice from heaven, another 1	0976		
 REV	18	14	merchants of the earth	0721		
-REV	18	14	voice from heaven, another	0976		
+REV	18	14	voice from heaven, another 1	0976		
 REV	18	16	merchants of the earth	0721	wailing	
-REV	18	16	voice from heaven, another	0976	wailing	
+REV	18	16	voice from heaven, another 1	0976	wailing	
 REV	18	17	merchants of the earth	0721	wailing	
-REV	18	17	voice from heaven, another	0976	wailing	
+REV	18	17	voice from heaven, another 1	0976	wailing	
 REV	18	18	ship captains, seafarers, sailors	2906	weeping/ cry out	
-REV	18	18	voice from heaven, another	0976	weeping/ cry out	
+REV	18	18	voice from heaven, another 1	0976	weeping/ cry out	
 REV	18	19	ship captains, seafarers, sailors	2906	weeping/ cry out	
-REV	18	19	voice from heaven, another	0976	weeping/ cry out	
+REV	18	19	voice from heaven, another 1	0976	weeping/ cry out	
 REV	18	2	angel, another, coming down from heaven	0473		
 REV	18	20	ship captains, seafarers, sailors	2906	weeping/ cry out	
-REV	18	21	angel, powerful	0482		
-REV	18	22	angel, powerful	0482		
-REV	18	23	angel, powerful	0482		
-REV	18	24	angel, powerful	0482		
+REV	18	21	angel, powerful 1	0482		
+REV	18	22	angel, powerful 1	0482		
+REV	18	23	angel, powerful 1	0482		
+REV	18	24	angel, powerful 1	0482		
 REV	18	3	angel, another, coming down from heaven	0473		
-REV	18	4	voice from heaven, another	0976		
-REV	18	5	voice from heaven, another	0976		
-REV	18	6	voice from heaven, another	0976		
+REV	18	4	voice from heaven, another 1	0976		
+REV	18	5	voice from heaven, another 1	0976		
+REV	18	6	voice from heaven, another 1	0976		
 REV	18	7	Babylon	0057		
-REV	18	7	voice from heaven, another	0976		
-REV	18	8	voice from heaven, another	0976		
-REV	18	9	voice from heaven, another	0976		
+REV	18	7	voice from heaven, another 1	0976		
+REV	18	8	voice from heaven, another 1	0976		
+REV	18	9	voice from heaven, another 1	0976		
 REV	19	1	voice of great crowd in heaven, loud	0979		
-REV	19	10	angel, the	0484		
+REV	19	10	angel, the 1	0484		
 REV	19	15	scripture	0890		
-REV	19	16	voice	0970		
+REV	19	16	voice 3	0970		
 REV	19	17	angel standing in sun	0476		
 REV	19	18	angel standing in sun	0476		
 REV	19	2	voice of great crowd in heaven, loud	0979		
@@ -10367,9 +10367,9 @@ REV	19	6	voice of great crowd in heaven, loud	0979
 REV	19	6	voice of great crowd, like roar of many waters, loud thunderclaps	0981		
 REV	19	7	voice of great crowd in heaven, loud	0979		
 REV	19	7	voice of great crowd, like roar of many waters, loud thunderclaps	0981		
-REV	19	8	voice of great crowd in heaven, loud	0980		
+REV	19	8	voice of great crowd in heaven, loud 1	0980		
 REV	19	8	voice of great crowd, like roar of many waters, loud thunderclaps	0981		
-REV	19	9	angel, the	0484		
+REV	19	9	angel, the 1	0484		
 REV	2	1	Jesus	0700		someone like a son of man
 REV	2	10	Jesus	0700		someone like a son of man
 REV	2	11	Jesus	0700		someone like a son of man
@@ -10397,27 +10397,27 @@ REV	2	6	Jesus	0700		someone like a son of man
 REV	2	7	Jesus	0700		someone like a son of man
 REV	2	8	Jesus	0700		someone like a son of man
 REV	2	9	Jesus	0700		someone like a son of man
-REV	20	5	voice	0482		
-REV	20	7	voice	0482		
+REV	20	5	voice 1	0482		
+REV	20	7	voice 1	0482		
 REV	21	3	voice from throne, loud	0978		
 REV	21	5	one seated on throne (God)	0794		
 REV	21	6	one seated on throne (God)	0794		
 REV	21	7	one seated on throne (God)	0794		
 REV	21	8	one seated on throne (God)	0794		
 REV	21	9	seven angels, one of the	0909		
-REV	22	10	angel, the	0909		
+REV	22	10	angel, the 2	0909		
 REV	22	12	Jesus	0700		
 REV	22	13	Jesus	0700		
-REV	22	14	angel, the	0909		
+REV	22	14	angel, the 2	0909		
 REV	22	14	Jesus	0700		
 REV	22	16	Jesus	0700		
 REV	22	17	him who hears	0625		
 REV	22	17	Spirit, the, and the bride	0438		
 REV	22	18	John	1272		
 REV	22	20	Jesus	0700		
-REV	22	6	angel, the	0909		
+REV	22	6	angel, the 2	0909		
 REV	22	7	Jesus	0700		
-REV	22	9	angel, the	0909		
+REV	22	9	angel, the 2	0909		
 REV	3	1	Jesus	0700		someone like a son of man
 REV	3	10	Jesus	0700		someone like a son of man
 REV	3	11	Jesus	0700		someone like a son of man
@@ -10446,7 +10446,7 @@ REV	5	10	four living creatures, twenty-four elders	0613
 REV	5	12	angels, many, living creatures, elders, thousands of thousands 1	0478		
 REV	5	13	angels, many, living creatures, elders, thousands of thousands 2	1487		
 REV	5	14	four living creatures	0612		
-REV	5	2	angel, powerful	0483	loud	
+REV	5	2	angel, powerful 2	0483	loud	
 REV	5	5	elders, one of the	0584		
 REV	5	9	four living creatures, twenty-four elders	0613		
 REV	6	1	four living creatures, one (voice of thunder)	0612		
@@ -10466,17 +10466,17 @@ REV	7	15	elders, one of the	0584
 REV	7	16	elders, one of the	0584		
 REV	7	17	elders, one of the	0584		
 REV	7	3	angel from the rising sun with seal of living God	0472		
-REV	7	5	voice	0482		
-REV	7	6	voice	0482		
-REV	7	7	voice	0482		
-REV	7	8	voice	0482		
+REV	7	5	voice 1	0482		
+REV	7	6	voice 1	0482		
+REV	7	7	voice 1	0482		
+REV	7	8	voice 1	0482		
 REV	8	13	eagle crying with loud voice	1581		
 REV	9	14	voice from altar	0973		
 ROM	1	17	scripture	0890		
 ROM	10	11	scripture	0890		
 ROM	10	12	Not A Quote	00000		
 ROM	10	13	scripture	0890		
-ROM	10	14	Jews, the	0273	questioning	
+ROM	10	14	Jews, the 8	0273	questioning	
 ROM	10	15	scripture	0890		
 ROM	10	16	scripture	0890		
 ROM	10	18	scripture	0890		
@@ -10491,7 +10491,7 @@ ROM	10	9	Not A Quote	00000
 ROM	11	1	Paul	0062		
 ROM	11	10	scripture	0890		
 ROM	11	11	Paul	0062		
-ROM	11	19	you	1010	smug	
+ROM	11	19	you 1	1010	smug	
 ROM	11	26	scripture	0890		
 ROM	11	27	scripture	0890		
 ROM	11	3	scripture	0890		
@@ -10512,13 +10512,13 @@ ROM	15	21	scripture	0890
 ROM	15	3	scripture	0890		
 ROM	15	9	scripture	0890		
 ROM	16	22	Tertius	0445		
-ROM	2	1	Jews, the	0273	accusing	
+ROM	2	1	Jews, the 8	0273	accusing	
 ROM	2	15	Gentiles	0152		
-ROM	2	15	Jews, the	0273	accusing	
+ROM	2	15	Jews, the 8	0273	accusing	
 ROM	2	24	scripture	0890		
 ROM	2	5,6	scripture	0890		
 ROM	2	6	scripture	0890		
-ROM	3	1	Jews, the	0273	speaking ironically	
+ROM	3	1	Jews, the 8	0273	speaking ironically	
 ROM	3	10	scripture	0890		
 ROM	3	11	scripture	0890		
 ROM	3	12	scripture	0890		
@@ -10528,10 +10528,10 @@ ROM	3	15	scripture	0890
 ROM	3	17	scripture	0890		
 ROM	3	18	scripture	0890		
 ROM	3	2	Paul	0062		
-ROM	3	3	Jews, the	0273	speaking ironically	
+ROM	3	3	Jews, the 8	0273	speaking ironically	
 ROM	3	4	scripture	0890		
-ROM	3	5	Jews, the	0273	speaking ironically	
-ROM	3	7	someone	0927	might argue	
+ROM	3	5	Jews, the 8	0273	speaking ironically	
+ROM	3	7	someone 4	0927	might argue	
 ROM	3	8	some claim we say	0920		
 ROM	4	17	scripture	0890		
 ROM	4	18	scripture	0890		
@@ -10541,7 +10541,7 @@ ROM	4	3	scripture	0890
 ROM	4	7	scripture	0890		
 ROM	4	8	scripture	0890		
 ROM	4	9	scripture	0890		
-ROM	7	13	Jews, the	0273	questioning	
+ROM	7	13	Jews, the 8	0273	questioning	
 ROM	7	7	scripture	0890		
 ROM	7	9	law, the	0646		
 ROM	8	15	we	0987	cry	
@@ -10550,7 +10550,7 @@ ROM	9	11-12	God	2000		scripture (God)
 ROM	9	11-13	God	2000		scripture (God)
 ROM	9	12	God	2000		scripture (God)
 ROM	9	13	God	2000		scripture (God)
-ROM	9	14	Jews, the	0273	speaking ironically	
+ROM	9	14	Jews, the 8	0273	speaking ironically	
 ROM	9	15	scripture	0890		
 ROM	9	17	scripture	0890		
 ROM	9	19	one of you	0792		
