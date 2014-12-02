@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using System.Xml.Serialization;
 using Palaso.Xml;
 
@@ -11,7 +12,27 @@ namespace ProtoScript
 	[XmlRoot("block")]
 	public class Block
 	{
-		public const int kUnknownCharacterId = -1;
+		/// <summary>Blocks represents a quote whose character has not been set</summary>
+		public const string UnknownCharacter = "Unknown";
+		/// <summary>Blocks which has not yet been parsed to identify contents/character</summary>
+		public static readonly string NotSet = null;
+
+		public enum StandardCharacter
+		{
+			Narrator,
+			BookOrChapter,
+			ExtraBiblical,
+			Intro,
+		}
+
+		/// <summary>Character ID prefix for material to be read by narrator</summary>
+		private const string kNarratorPrefix = "narrator-";
+		/// <summary>Character ID prefix for book titles or chapter breaks</summary>
+		private const string kBookOrChapterPrefix = "BC-";
+		/// <summary>Character ID prefix for extra-biblical material (section heads, etc.)</summary>
+		private const string kExtraBiblicalPrefix = "extra-";
+		/// <summary>Character ID prefix for intro material</summary>
+		private const string kIntroPrefix = "intro-";
 
 		private int m_initialVerseNumber;
 		private int m_chapterNumber;
@@ -74,7 +95,7 @@ namespace ProtoScript
 		}
 
 		[XmlAttribute("characterId")]
-		public int CharacterId { get; set; }
+		public string CharacterId { get; set; }
 
 		[XmlElement(Type = typeof(ScriptText), ElementName = "text")]
 		[XmlElement(Type = typeof(Verse), ElementName = "verse")]
@@ -105,10 +126,39 @@ namespace ProtoScript
 			return bldr.ToString();
 		}
 
-		[XmlIgnore]
-		public bool IsNarrator
+		public bool CharacterIs(string prefixOrName)
 		{
-			get { return CharacterId == 0; }
+			if (CharacterId == prefixOrName)
+				return true;
+
+			return (prefixOrName.EndsWith("-") && CharacterId.StartsWith(prefixOrName));
+		}
+
+		public bool CharacterIs(StandardCharacter standardCharacterType)
+		{
+			return CharacterIs(GetCharacterPrefix(standardCharacterType));
+		}
+
+		public bool CharacterIs(string bookId, StandardCharacter standardCharacterType)
+		{
+			return CharacterId == GetCharacterPrefix(standardCharacterType) + bookId;
+		}
+
+		public void SetStandardCharacter(string bookId, StandardCharacter standardCharacterType)
+		{
+			CharacterId = GetCharacterPrefix(standardCharacterType) + bookId;
+		}
+
+		private string GetCharacterPrefix(StandardCharacter standardCharacterType)
+		{
+			switch (standardCharacterType)
+			{
+				case StandardCharacter.Narrator: return kNarratorPrefix;
+				case StandardCharacter.BookOrChapter: return kBookOrChapterPrefix;
+				case StandardCharacter.ExtraBiblical: return kExtraBiblicalPrefix;
+				case StandardCharacter.Intro: return kIntroPrefix;
+				default: throw new ArgumentException("Unexpected standard character type.");
+			}
 		}
 
 		public string GetAsXml(bool includeXmlDeclaration = true)

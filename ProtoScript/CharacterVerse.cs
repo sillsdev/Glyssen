@@ -15,12 +15,12 @@ namespace ProtoScript
 			LoadAll();
 		}
 
-		public static int GetCharacter(string bookId, int chapter, int verse)
+		public static string GetCharacter(string bookId, int chapter, int verse)
 		{
 			IList<CharacterVerse> matches = s_data.Where(cv => cv.BookId == bookId && cv.Chapter == chapter && cv.Verse == verse).ToList();
 			if (matches.Count == 1)
-				return matches.First().CharacterId;
-			return Block.kUnknownCharacterId;
+				return matches.First().Character;
+			return Block.UnknownCharacter;
 		}
 
 		private static void LoadAll()

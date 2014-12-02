@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Xml.Serialization;
 using L10NSharp;
 using Palaso.Xml;
 using ProtoScript.Properties;
@@ -13,6 +12,7 @@ namespace ProtoScript.Bundle
 	public class Bundle
 	{
 		private readonly DblMetadata m_dblMetadata;
+		private readonly UsxStylesheet m_stylesheet;
 		private readonly IDictionary<int, Canon> m_canons = new Dictionary<int, Canon>();
 
 		public Bundle(string pathToZippedBundle)
@@ -29,23 +29,34 @@ namespace ProtoScript.Bundle
 					Environment.NewLine + pathToZippedBundle, ex);
 			}
 
-			string metadataPath = Path.Combine(pathToUnzippedDirectory, "metadata.xml");
+			m_dblMetadata = LoadMetadata(pathToZippedBundle, pathToUnzippedDirectory);
+
+			m_stylesheet = LoadStylesheet(pathToZippedBundle, pathToUnzippedDirectory);
+
+			ExtractCanons(pathToUnzippedDirectory);
+		}
+
+		private DblMetadata LoadMetadata(string pathToZippedBundle, string pathToUnzippedDirectory)
+		{
+			const string filename = "metadata.xml";
+			string metadataPath = Path.Combine(pathToUnzippedDirectory, filename);
 
 			if (!File.Exists(metadataPath))
 			{
 				throw new ApplicationException(
-					LocalizationManager.GetString("File.MetadataFileMissingFromBundle",
-						"Required metadata not found. File is not a valid Text Release Bundle:") +
+					string.Format(LocalizationManager.GetString("File.FileMissingFromBundle",
+						"Required {0} file not found. File is not a valid Text Release Bundle:"), filename) +
 					Environment.NewLine + pathToZippedBundle);
 			}
 
 			Exception exception;
-			m_dblMetadata = DblMetadata.Load(metadataPath, out exception);
+			var dblMetadata = DblMetadata.Load(metadataPath, out exception);
 			if (exception != null)
 			{
 				DblMetadataBase metadataBase;
 				Exception metadataBaseDeserializationError;
-				metadataBase = XmlSerializationHelper.DeserializeFromFile<DblMetadataBase>(metadataPath, out metadataBaseDeserializationError);
+				metadataBase = XmlSerializationHelper.DeserializeFromFile<DblMetadataBase>(metadataPath,
+					out metadataBaseDeserializationError);
 				if (metadataBaseDeserializationError != null)
 				{
 					throw new ApplicationException(
@@ -61,18 +72,43 @@ namespace ProtoScript.Bundle
 					Environment.NewLine + pathToZippedBundle);
 			}
 
-			if (!m_dblMetadata.IsTextReleaseBundle)
+			if (!dblMetadata.IsTextReleaseBundle)
 			{
 				throw new ApplicationException(
 					String.Format(LocalizationManager.GetString("File.NotTextReleaseBundle",
 						"This metadata in this bundle indicates that it is of type \"{0}\". Only Text Release Bundles are currently supported."),
-						m_dblMetadata.type));
+						dblMetadata.type));
 			}
 
-			m_dblMetadata.OriginalPathOfDblFile = pathToZippedBundle;
-			m_dblMetadata.PgUsxParserVersion = Settings.Default.PgUsxParserVersion;
+			dblMetadata.OriginalPathOfDblFile = pathToZippedBundle;
+			dblMetadata.PgUsxParserVersion = Settings.Default.PgUsxParserVersion;
 
-			ExtractCanons(pathToUnzippedDirectory);
+			return dblMetadata;
+		}
+
+		private UsxStylesheet LoadStylesheet(string pathToZippedBundle, string pathToUnzippedDirectory)
+		{
+			const string filename = "styles.xml";
+			string stylesheetPath = Path.Combine(pathToUnzippedDirectory, filename);
+
+			if (!File.Exists(stylesheetPath))
+			{
+				throw new ApplicationException(
+					string.Format(LocalizationManager.GetString("File.FileMissingFromBundle",
+						"Required {0} file not found. File is not a valid Text Release Bundle:"), filename) +
+					Environment.NewLine + pathToZippedBundle);
+			}
+
+			Exception exception;
+			var stylesheet = UsxStylesheet.Load(stylesheetPath, out exception);
+			if (exception != null)
+			{
+				throw new ApplicationException(
+					LocalizationManager.GetString("File.StylesheetInvalid",
+						"Unable to read stylesheet. File is not a valid Text Release Bundle:") +
+					Environment.NewLine + pathToZippedBundle, exception);
+			}
+			return stylesheet;
 		}
 
 		public DblMetadata Metadata
@@ -93,6 +129,10 @@ namespace ProtoScript.Bundle
 		public IDictionary<int, Canon> Canons
 		{
 			get { return m_canons; }
+		}
+		public UsxStylesheet Stylesheet
+		{
+			get { return m_stylesheet; }
 		}
 
 		public bool TryGetCanon(int bookId, out Canon canon)

@@ -11,6 +11,8 @@ namespace ProtoScript
 {
 	public class UsxParser
 	{
+		private readonly string m_bookId;
+		private readonly IStylesheet m_stylesheet;
 		private readonly XmlNodeList m_nodeList;
 
 		private string m_bookLevelChapterLabel;
@@ -18,8 +20,10 @@ namespace ProtoScript
 		private int m_currentChapter = 0;
 		private int m_currentVerse = 0;
 
-		public UsxParser(XmlNodeList nodeList)
+		public UsxParser(string bookId, IStylesheet stylesheet, XmlNodeList nodeList)
 		{
+			m_bookId = bookId;
+			m_stylesheet = stylesheet;
 			m_nodeList = nodeList;
 		}
 
@@ -38,8 +42,9 @@ namespace ProtoScript
 							continue;
 						break;
 					case "para":
-						var usxPara = new UsxPara(node);
-						if (usxPara.StyleTag == "cl")
+						var usxPara = new UsxNode(node);
+						IStyle style = m_stylesheet.GetStyle(usxPara.StyleTag);
+						if (style.IsChapterLabel)
 						{
 							block = ProcessChapterLabelNode(node.InnerText, usxPara);
 							if (block == null)
@@ -50,7 +55,16 @@ namespace ProtoScript
 							blocks.RemoveAt(blocks.Count-1);
 							break;
 						}
+
+						if (style.IsParallelPassageReference || !style.IsPublishable)
+							continue;
+
 						block = new Block(usxPara.StyleTag, m_currentChapter, m_currentVerse);
+						if (m_currentChapter == 0)
+							block.SetStandardCharacter(m_bookId, Block.StandardCharacter.Intro);
+						else if (style.IsPublishable && !style.IsVerseText)
+							block.SetStandardCharacter(m_bookId, Block.StandardCharacter.ExtraBiblical);
+
 						var sb = new StringBuilder();
 						// <verse number="1" style="v" />
 						// Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,
@@ -74,6 +88,11 @@ namespace ProtoScript
 										block.InitialVerseNumber = verseNum;
 
 									block.BlockElements.Add(new Verse(verseNumStr));
+									break;
+								case "char":
+									IStyle charStyle = m_stylesheet.GetStyle((new UsxNode(childNode)).StyleTag);
+									if (charStyle.IsPublishable)
+										sb.Append(childNode.InnerText);
 									break;
 								case "#text":
 									sb.Append(childNode.InnerText);
@@ -115,6 +134,7 @@ namespace ProtoScript
 				Debug.Fail("TODO: Deal with bogus chapter number in USX data!");
 			m_currentVerse = 0;
 			var block = new Block(usxChapter.StyleTag, m_currentChapter);
+			block.SetStandardCharacter(m_bookId, Block.StandardCharacter.BookOrChapter);
 			block.BlockElements.Add(new ScriptText(chapterText));
 			return block;
 		}

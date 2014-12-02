@@ -10,6 +10,7 @@ namespace ProtoScript
 	public class QuoteParser
 	{
 		private readonly string m_bookId;
+		private readonly int m_bookNum;
 		private readonly IEnumerable<Block> m_inputBlocks;
 		private readonly QuoteSystem m_quoteSystem;
 
@@ -23,34 +24,16 @@ namespace ProtoScript
 		/// <summary>
 		/// Create a QuoteParser using the default QuoteSystem
 		/// </summary>
-		/// <param name="blocks"></param>
-		public QuoteParser(IEnumerable<Block> blocks)
-		{
-			m_inputBlocks = blocks;
-			m_quoteSystem = QuoteSystem.Default;
-		}
-
-		/// <summary>
-		/// Create a QuoteParser using the default QuoteSystem
-		/// </summary>
 		/// <param name="bookId"></param>
 		/// <param name="blocks"></param>
-		public QuoteParser(string bookId, IEnumerable<Block> blocks)
+		public QuoteParser(string bookId, IEnumerable<Block> blocks) : this(bookId, blocks, QuoteSystem.Default)
 		{
-			m_bookId = bookId;
-			m_inputBlocks = blocks;
-			m_quoteSystem = QuoteSystem.Default;
-		}
-
-		public QuoteParser(IEnumerable<Block> blocks, QuoteSystem quoteSystem)
-		{
-			m_inputBlocks = blocks;
-			m_quoteSystem = quoteSystem;
 		}
 
 		public QuoteParser(string bookId, IEnumerable<Block> blocks, QuoteSystem quoteSystem)
 		{
 			m_bookId = bookId;
+			m_bookNum = BCVRef.BookToNumber(bookId);
 			m_inputBlocks = blocks;
 			m_quoteSystem = quoteSystem;
 		}
@@ -182,6 +165,8 @@ namespace ProtoScript
 		{
 			if (inQuote)
 				m_workingBlock.CharacterId = CharacterVerse.GetCharacter(m_bookId, m_workingBlock.ChapterNumber, m_workingBlock.InitialVerseNumber);
+			else
+				m_workingBlock.SetStandardCharacter(m_bookId, Block.StandardCharacter.Narrator);
 
 			m_outputBlocks.Add(m_workingBlock);
 			var lastVerse = m_workingBlock.BlockElements.OfType<Verse>().LastOrDefault();

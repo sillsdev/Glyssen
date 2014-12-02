@@ -4,6 +4,7 @@ using System.Xml;
 using NUnit.Framework;
 using ProtoScript;
 using ProtoScript.Bundle;
+using SIL.ScriptureUtils;
 
 namespace ProtoScriptTests
 {
@@ -39,14 +40,15 @@ namespace ProtoScriptTests
 										"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, " +
 										"<verse number=\"2\" style=\"v\" />" +
 										"kit ma gicoyo kwede i buk pa lanebi Icaya ni,</para>");
-			var parser = new UsxParser(new UsxDocument(doc).GetParas());
+			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(1, blocks.Count);
-			Assert.IsTrue(blocks[0].IsNarrator);
-			Assert.AreEqual(1, blocks[0].ChapterNumber, "Even though this test doesn't process the chapters, the block should default to chapter 1 (rather than 0) because it contains verse numbers.");
-			Assert.AreEqual(1, blocks[0].InitialVerseNumber);
-			Assert.AreEqual("Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[0].GetText(false));
-			Assert.AreEqual("[1]Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, [2]kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[0].GetText(true));
+			Assert.AreEqual(2, blocks.Count);
+			Assert.IsTrue(blocks[0].CharacterIs(Block.StandardCharacter.BookOrChapter));
+			Assert.IsTrue(blocks[1].CharacterIs(Block.NotSet));
+			Assert.AreEqual(1, blocks[1].ChapterNumber);
+			Assert.AreEqual(1, blocks[1].InitialVerseNumber);
+			Assert.AreEqual("Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(false));
+			Assert.AreEqual("[1]Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, [2]kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
 		}
 
 		[Test]
@@ -58,11 +60,11 @@ namespace ProtoScriptTests
 										"<char style=\"xo\" closed=\"false\">1.3: </char>" +
 										"<char style=\"xt\" closed=\"false\">Ic 40.3</char>" +
 										"</note>dwan dano mo ma daŋŋe ki i tim ni,</para>");
-			var parser = new UsxParser(new UsxDocument(doc).GetParas());
+			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(1, blocks.Count);
-			Assert.AreEqual("dwan dano mo ma daŋŋe ki i tim ni,", blocks[0].GetText(false));
-			Assert.AreEqual("[3]dwan dano mo ma daŋŋe ki i tim ni,", blocks[0].GetText(true));
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual("dwan dano mo ma daŋŋe ki i tim ni,", blocks[1].GetText(false));
+			Assert.AreEqual("[3]dwan dano mo ma daŋŋe ki i tim ni,", blocks[1].GetText(true));
 		}
 
 		[Test]
@@ -72,11 +74,11 @@ namespace ProtoScriptTests
 										"Ci cutcut gutugi weko obwogi, gulubo kore." +
 										"<figure style=\"fig\" desc=\"\" file=\"4200118.TIF\" size=\"col\" loc=\"\" copy=\"\" ref=\"1.18\">" +
 										"Cutcut gutugi weko obwugi</figure></para >");
-			var parser = new UsxParser(new UsxDocument(doc).GetParas());
+			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(1, blocks.Count);
-			Assert.AreEqual(2, blocks[0].BlockElements.Count);
-			Assert.AreEqual("Ci cutcut gutugi weko obwogi, gulubo kore.", blocks[0].GetText(false));
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual(2, blocks[1].BlockElements.Count);
+			Assert.AreEqual("Ci cutcut gutugi weko obwogi, gulubo kore.", blocks[1].GetText(false));
 		}
 
 		[Test]
@@ -87,11 +89,11 @@ namespace ProtoScriptTests
 										"<figure style=\"fig\" desc=\"\" file=\"4200118.TIF\" size=\"col\" loc=\"\" copy=\"\" ref=\"1.18\">" +
 										"Cutcut gutugi weko obwugi</figure>" +
 										"and this text is after.</para >");
-			var parser = new UsxParser(new UsxDocument(doc).GetParas());
+			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(1, blocks.Count);
-			Assert.AreEqual(1, blocks[0].BlockElements.Count);
-			Assert.AreEqual("This text is before the figure, and this text is after.", blocks[0].GetText(false));
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual(1, blocks[1].BlockElements.Count);
+			Assert.AreEqual("This text is before the figure, and this text is after.", blocks[1].GetText(false));
 		}
 
 		[Test]
@@ -100,35 +102,49 @@ namespace ProtoScriptTests
 			var doc = CreateMarkOneDoc("<para style=\"p\">" +
 										"Text before figure." +
 										"<figure /> <verse number=\"2\" />Text after figure.</para>");
-			var parser = new UsxParser(new UsxDocument(doc).GetParas());
+			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(1, blocks.Count);
-			Assert.AreEqual(3, blocks[0].BlockElements.Count);
-			Assert.AreEqual("Text before figure. Text after figure.", blocks[0].GetText(false));
-			Assert.AreEqual("Text before figure. [2]Text after figure.", blocks[0].GetText(true));
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual(3, blocks[1].BlockElements.Count);
+			Assert.AreEqual("Text before figure. Text after figure.", blocks[1].GetText(false));
+			Assert.AreEqual("Text before figure. [2]Text after figure.", blocks[1].GetText(true));
+		}
+
+		[Test]
+		public void Parse_ParagraphWithCharacterStyle_DataIsIncluded()
+		{
+			var doc = CreateMarkOneDoc("<para style=\"p\">" +
+										"If you don't always remember things, you will " +
+										"<char style=\"b\">" +
+										"sometimes</char>" +
+										" forget!</para >");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual("If you don't always remember things, you will sometimes forget!", blocks[1].GetText(false));
 		}
 
 		[Test]
 		public void Parse_WhitespaceAtBeginningOfParaNotPreserved()
 		{
 			var doc = CreateMarkOneDoc("<para style=\"p\"> <verse number=\"2\" />Text</para>");
-			var parser = new UsxParser(new UsxDocument(doc).GetParas());
+			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(1, blocks.Count);
-			Assert.AreEqual(2, blocks[0].BlockElements.Count);
-			Assert.AreEqual("Text", blocks[0].GetText(false));
-			Assert.AreEqual("[2]Text", blocks[0].GetText(true));
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual(2, blocks[1].BlockElements.Count);
+			Assert.AreEqual("Text", blocks[1].GetText(false));
+			Assert.AreEqual("[2]Text", blocks[1].GetText(true));
 		}
 
 		[Test]
 		public void Parse_ParagraphStartsMidVerse()
 		{
 			var doc = CreateMarkOneDoc("<para style=\"q1\">ma bigero yoni;</para>");
-			var parser = new UsxParser(new UsxDocument(doc).GetParas());
+			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(1, blocks.Count);
-			Assert.AreEqual("ma bigero yoni;", blocks[0].GetText(false));
-			Assert.AreEqual("ma bigero yoni;", blocks[0].GetText(true));
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual("ma bigero yoni;", blocks[1].GetText(false));
+			Assert.AreEqual("ma bigero yoni;", blocks[1].GetText(true));
 		}
 
 		[Test]
@@ -138,7 +154,7 @@ namespace ProtoScriptTests
 										"Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. " +
 										"<verse number=\"13\" style=\"v\" />Ci obedo i tim nino pyeraŋwen; Catan ocako bite, " +
 										"ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.</para>");
-			var parser = new UsxParser(new UsxDocument(doc).GetChaptersAndParas());
+			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual(1, blocks[1].InitialVerseNumber);
@@ -150,7 +166,7 @@ namespace ProtoScriptTests
 		public void Parse_ChapterAndPara_BecomeTwoBlocks()
 		{
 			var doc = CreateMarkOneDoc("<para style=\"s1\">Lok ma Jon Labatija otito</para>");
-			var parser = new UsxParser(new UsxDocument(doc).GetChaptersAndParas());
+			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual(1, blocks[0].ChapterNumber);
@@ -165,7 +181,7 @@ namespace ProtoScriptTests
 		public void Parse_GlobalChapterLabel()
 		{
 			var doc = CreateMarkOneDoc("<para style=\"s1\">Lok ma Jon Labatija otito</para>", usxFrameWithGlobalChapterLabel);
-			var parser = new UsxParser(new UsxDocument(doc).GetChaptersAndParas());
+			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual(1, blocks[0].ChapterNumber);
@@ -180,7 +196,7 @@ namespace ProtoScriptTests
 		public void Parse_SpecificChapterLabel()
 		{
 			var doc = CreateMarkOneDoc("<para style=\"cl\">Specific-Chapter One</para><para style=\"s1\">Lok ma Jon Labatija otito</para>");
-			var parser = new UsxParser(new UsxDocument(doc).GetChaptersAndParas());
+			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual(1, blocks[0].ChapterNumber);
@@ -205,7 +221,7 @@ namespace ProtoScriptTests
 										"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.</para>" +
 										"<para style=\"q1\">" +
 										"This is poetry, dude.</para>");
-			var parser = new UsxParser(new UsxDocument(doc).GetChaptersAndParas());
+			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(5, blocks.Count);
 			Assert.AreEqual("c", blocks[0].StyleTag);
@@ -240,7 +256,7 @@ namespace ProtoScriptTests
 										"<para style=\"p\">" +
 										"<verse number=\"13\" style=\"v\" />" +
 										"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.</para>");
-			var parser = new UsxParser(new UsxDocument(doc).GetChaptersAndParas());
+			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
@@ -261,7 +277,7 @@ namespace ProtoScriptTests
 										"<para style=\"p\">" +
 										"<verse number=\"15-18\" style=\"v\" />" +
 										"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.</para>");
-			var parser = new UsxParser(new UsxDocument(doc).GetChaptersAndParas());
+			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
@@ -274,5 +290,129 @@ namespace ProtoScriptTests
 			Assert.AreEqual("Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(false));
 			Assert.AreEqual("[15-18]Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(true));
 		}
+
+		[Test]
+		public void Parse_Intro_BlocksGetIntroCharacter()
+		{
+			var doc = new XmlDocument { PreserveWhitespace = true };
+			doc.LoadXml("<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+			"<usx version=\"2.0\">" +
+			"<book code=\"MRK\" style=\"id\">Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013</book>" +
+			"<para style=\"is\">About the Author</para>" +
+			"<para style=\"ip\">Mark was a great guy.</para>" +
+			"<chapter number=\"1\" style=\"c\" />" +
+			"<para style=\"p\">" +
+			"<verse number=\"1\" style=\"v\" />" +
+			"Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, </para>" +
+			"</usx>");
+
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(4, blocks.Count);
+			Assert.AreEqual(0, blocks[0].ChapterNumber);
+			Assert.AreEqual(0, blocks[0].InitialVerseNumber);
+			Assert.IsTrue(blocks[0].CharacterIs("MRK", Block.StandardCharacter.Intro));
+			Assert.AreEqual(0, blocks[1].ChapterNumber);
+			Assert.AreEqual(0, blocks[1].InitialVerseNumber);
+			Assert.IsTrue(blocks[1].CharacterIs("MRK", Block.StandardCharacter.Intro));
+			Assert.AreEqual(1, blocks[2].ChapterNumber);
+			Assert.AreEqual(0, blocks[2].InitialVerseNumber);
+			Assert.IsTrue(blocks[2].CharacterIs(Block.StandardCharacter.BookOrChapter));
+			Assert.AreEqual(1, blocks[3].ChapterNumber);
+			Assert.AreEqual(1, blocks[3].InitialVerseNumber);
+			Assert.AreEqual(Block.NotSet, blocks[3].CharacterId);
+		}
+
+		[Test]
+		public void Parse_SectionHeads_SectionHeadBlocksGetExtraBiblicalCharacterAndParallelPassageReferencesAreOmitted()
+		{
+			var doc = CreateMarkOneDoc("<para style=\"s\">" +
+										"John the Baptist prepares the way</para>" +
+										"<para style=\"r\">" +
+										"Matthew 3:1-12; Luke 3:1-20</para>" +
+										"<para style=\"p\">" +
+										"<verse number=\"1\" style=\"v\" />" +
+										"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.</para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(1, blocks[1].ChapterNumber);
+			Assert.AreEqual(0, blocks[1].InitialVerseNumber);
+			Assert.AreEqual("s", blocks[1].StyleTag);
+			Assert.IsTrue(blocks[1].CharacterIs("MRK", Block.StandardCharacter.ExtraBiblical));
+			Assert.AreEqual("John the Baptist prepares the way", blocks[1].GetText(false));
+
+			Assert.AreEqual(1, blocks[2].ChapterNumber);
+			Assert.AreEqual(1, blocks[2].InitialVerseNumber);
+			Assert.AreEqual("p", blocks[2].StyleTag);
+			Assert.AreEqual(Block.NotSet, blocks[2].CharacterId);
+			Assert.AreEqual("Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(false));
+		}
+
+		[Test]
+		public void Parse_UnpublishableText_NonpublishableDatExcluded()
+		{
+			var doc = CreateMarkOneDoc("<para style=\"p\">" +
+							"<verse number=\"1-2\" style=\"v\" />" +
+							"Acakki me lok me kwena maber i kom Yecu Kricito" +
+							"<char style=\"pro\">Crissitu</char>" +
+							", Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,</para>" +
+							"<para style=\"rem\">" +
+							"Tom was here!</para>" +
+							"<para style=\"q1\">" +
+							"“Nen, acwalo lakwenana otelo nyimi,</para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(1, blocks[1].ChapterNumber);
+			Assert.AreEqual(1, blocks[1].InitialVerseNumber);
+			Assert.AreEqual("p", blocks[1].StyleTag);
+			Assert.AreEqual(Block.NotSet, blocks[1].CharacterId);
+			Assert.AreEqual("[1-2]Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
+
+			Assert.AreEqual(1, blocks[2].ChapterNumber);
+			Assert.AreEqual(1, blocks[2].InitialVerseNumber);
+			Assert.AreEqual("q1", blocks[2].StyleTag);
+			Assert.AreEqual(Block.NotSet, blocks[2].CharacterId);
+			Assert.AreEqual("“Nen, acwalo lakwenana otelo nyimi,", blocks[2].GetText(true));
+		}
+
+		private UsxParser GetUsxParser(XmlDocument doc)
+		{
+			return new UsxParser("MRK", new TestStylesheet(), new UsxDocument(doc).GetChaptersAndParas());
+		}
+	}
+
+	public class TestStylesheet : IStylesheet
+	{
+		public IStyle GetStyle(string styleId)
+		{
+			Style style = new Style
+			{
+				Id = styleId,
+				IsPublishable = true,
+				IsVerseText = true,
+			};
+
+			switch (styleId)
+			{
+				case "s":
+					style.IsVerseText = false;
+					break;
+				case "rem":
+				case "restore":
+				case "sts":
+				case "pro":
+				case "pubinfo":
+					style.IsPublishable = false;
+					style.IsVerseText = false;
+					break;
+			}
+
+			return style;
+		}
+
+		public string FontFamily { get; private set; }
+		public int FontSizeInPoints { get; private set; }
 	}
 }

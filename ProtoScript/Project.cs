@@ -85,7 +85,8 @@ namespace ProtoScript
 				UsxDocument book;
 				if (canon.TryGetBook("MRK", out book))
 				{
-					AddBook("MRK", new QuoteParser("MRK", new UsxParser(book.GetChaptersAndParas()).Parse(), QuoteSystem).Parse());
+					var blocks = new UsxParser("MRK", bundle.Stylesheet, book.GetChaptersAndParas()).Parse();
+					AddBook("MRK", new QuoteParser("MRK", blocks, QuoteSystem).Parse());
 				}
 			}
 		}

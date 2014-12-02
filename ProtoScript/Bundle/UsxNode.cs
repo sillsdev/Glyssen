@@ -2,11 +2,11 @@
 
 namespace ProtoScript.Bundle
 {
-	public abstract class UsxNode
+	public class UsxNode
 	{
 		private readonly XmlNode m_node;
 
-		protected UsxNode(XmlNode node)
+		public UsxNode(XmlNode node)
 		{
 			m_node = node;
 		}
@@ -24,14 +24,6 @@ namespace ProtoScript.Bundle
 		public XmlNodeList ChildNodes
 		{
 			get { return m_node.ChildNodes; }
-		}
-	}
-
-	public class UsxPara : UsxNode
-	{
-		public UsxPara(XmlNode paraNode)
-			: base(paraNode)
-		{
 		}
 	}
 
