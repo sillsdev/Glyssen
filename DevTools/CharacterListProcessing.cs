@@ -85,6 +85,8 @@ namespace DevTools
 				}
 				if (!found)
 					cvNotFound.Add(cv);
+
+				SetAlias(cv);
 			}
 
 			File.WriteAllText(Path.Combine(kBaseDirForOutput, "gen_CharacterCharacterId.txt"), CharacterCharacterId.AllTabDilimited(allCci));
@@ -146,6 +148,18 @@ namespace DevTools
 				sb.Append(entry).Append(Environment.NewLine);
 			}
 			return sb.ToString();
+		}
+
+		private static void SetAlias(CharacterVerse cv)
+		{
+
+			int charId = Int32.Parse(cv.CharacterId);
+			string character;
+			if (AliasUtil.Aliases.TryGetValue(charId, out character) && cv.Character != character)
+			{
+				cv.Alias = cv.Character;
+				cv.Character = character;
+			}
 		}
 	}
 }

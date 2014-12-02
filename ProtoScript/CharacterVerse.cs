@@ -32,7 +32,7 @@ namespace ProtoScript
 			foreach (var line in Resources.CharacterVerseData.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries))
 			{
 				string[] items = line.Split(new[] { "\t" }, StringSplitOptions.None);
-				if (items.Length != 6)
+				if (items.Length != 7)
 					throw new ApplicationException("Bad format in CharacterVerseData! Line #: " + list.Count + "; Line contents: " + line);
 
 				list.Add(new CharacterVerse
@@ -42,8 +42,8 @@ namespace ProtoScript
 					Verse = ScrReference.VerseToIntStart(items[2]), 
 					Character = items[3], 
 					CharacterId = Int32.Parse(items[4]), 
-					Delivery = items[5]//, 
-					//Alias = items[6]
+					Delivery = items[5],
+					Alias = items[6]
 				});
 			}
 			if (!list.Any())

@@ -11,6 +11,8 @@ namespace ProtoScriptTests
 		{
 			var characterId = CharacterVerse.GetCharacter("MRK", 1, 4);
 			Assert.AreEqual("John the Baptist", characterId);
+			characterId = CharacterVerse.GetCharacter("MRK", 1, 20);
+			Assert.AreEqual("Jesus", characterId);
 		}
 
 		[Test]

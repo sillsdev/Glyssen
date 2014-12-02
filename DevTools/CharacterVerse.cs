@@ -81,7 +81,12 @@ namespace DevTools
 
 			i = cv.Character.LastIndexOf(" #", StringComparison.InvariantCulture);
 			if (i > -1)
+			{
+				int num;
+				if (!Int32.TryParse(cv.Character.Substring(i+2), out num))
+					Debug.Fail("invalid #: " + cv.Character);
 				cv.Character = cv.Character.Substring(0, i);
+			}
 		}
 
 		public static Comparison<CharacterVerse> CharacterComparison = (object1, object2) => String.Compare(object1.CharacterAndDelivery, object2.CharacterAndDelivery, StringComparison.InvariantCulture);
@@ -95,10 +100,11 @@ namespace DevTools
 		public string CharacterAndDelivery;
 		public string Delivery;
 		public string CharacterId;
+		public string Alias;
 
 		public string TabDelimited()
 		{
-			return Book + "\t" + Chapter + "\t" + Verse + "\t" + Character + "\t" + CharacterId + "\t" + Delivery;
+			return Book + "\t" + Chapter + "\t" + Verse + "\t" + Character + "\t" + CharacterId + "\t" + Delivery + "\t" + Alias;
 		}
 	}
 }
