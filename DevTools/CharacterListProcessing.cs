@@ -93,6 +93,7 @@ namespace DevTools
 			File.WriteAllText(Path.Combine(kBaseDirForOutput, "CharacterCharacterId_notFullyProcessed.txt"), CharacterCharacterId.AllTabDilimited(allCci));
 			allCci.RemoveAll(cciFound.Contains);
 
+			allCv.Sort(CharacterVerse.ReferenceComparison);
 			File.WriteAllText(Path.Combine(kBaseDirForOutput, "CharacterVerse.txt"), CharacterVerse.AllTabDelimited(allCv));
 			PrintCharacterIdMap(allCv);
 			File.WriteAllText(Path.Combine(kBaseDirForOutput, "cvNotFound.txt"), CharacterVerse.AllTabDelimited(cvNotFound));
