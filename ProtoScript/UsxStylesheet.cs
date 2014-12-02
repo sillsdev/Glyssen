@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Xml.Serialization;
 using Palaso.Xml;
+using ProtoScript.Properties;
 
 namespace ProtoScript
 {
@@ -34,8 +36,31 @@ namespace ProtoScript
 			return Styles.FirstOrDefault(s => s.Id == styleId);
 		}
 
-		public string FontFamily { get; private set; }
-		public int FontSizeInPoints { get; private set; }
+		public string FontFamily
+		{
+			get
+			{
+				var fontFamilyProperty = Properties.FirstOrDefault(p => p.name == "font-family");
+				return fontFamilyProperty != null ? fontFamilyProperty.Value : null;
+			}
+		}
+
+		public int FontSizeInPoints
+		{
+			get
+			{
+				var fontSizeProperty = Properties.FirstOrDefault(p => p.name == "font-size");
+				int val;
+				if (fontSizeProperty == null || !Int32.TryParse(fontSizeProperty.Value, out val))
+					return Settings.Default.DefaultFontSize;
+
+				if (fontSizeProperty.unit == "pt")
+					return val;
+
+				// REVIEW: Are any other units possible?
+				return Settings.Default.DefaultFontSize;
+			}
+		}
 
 		[XmlElement(ElementName = "style")]
 		public List<Style> Styles { get; set; }

@@ -50,6 +50,12 @@ namespace ProtoScript
 			bool quoteEndPending = false;
 			foreach (Block block in m_inputBlocks)
 			{
+				if (block.CharacterId != Block.NotSet)
+				{
+					m_outputBlocks.Add(block);
+					continue;
+				}
+
 				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialVerseNumber);
 				
 				foreach (BlockElement element in block.BlockElements)

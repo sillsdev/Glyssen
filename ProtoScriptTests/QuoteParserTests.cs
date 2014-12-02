@@ -410,5 +410,46 @@ namespace ProtoScriptTests
 			Assert.AreEqual("He said, ", output[0].GetText(true));
 			Assert.AreEqual("“She said, ‘They said, “No way.”’”", output[1].GetText(true));
 		}
+
+		[Test]
+		public void Parse_TitleIntrosChaptersAndExtraBiblicalMaterial_OnlyVerseTextGetsParsedForQuotes()
+		{
+			var options = new QuoteSystem { StartQuoteMarker = "“", EndQuoteMarker = "”" };
+			var titleBlock = new Block("mt");
+			titleBlock.BlockElements.Add(new ScriptText("Gospel of Mark"));
+			titleBlock.SetStandardCharacter("MRK", Block.StandardCharacter.BookOrChapter);
+			var introBlock1 = new Block("is");
+			introBlock1.BlockElements.Add(new ScriptText("All about Mark"));
+			var introBlock2 = new Block("ip");
+			introBlock1.SetStandardCharacter("MRK", Block.StandardCharacter.Intro);
+			introBlock2.BlockElements.Add(new ScriptText("Some people say, “Mark is way to short,” but I disagree."));
+			introBlock2.SetStandardCharacter("MRK", Block.StandardCharacter.Intro);
+			var chapterBlock = new Block("c");
+			chapterBlock.BlockElements.Add(new ScriptText("Chapter 1"));
+			chapterBlock.SetStandardCharacter("MRK", Block.StandardCharacter.BookOrChapter);
+			var sectionHeadBlock = new Block("s");
+			sectionHeadBlock.BlockElements.Add(new ScriptText("John tells everyone: “The Kingdom of Heaven is at hand”"));
+			sectionHeadBlock.SetStandardCharacter("MRK", Block.StandardCharacter.ExtraBiblical);
+			var paraBlock = new Block("p");
+			paraBlock.BlockElements.Add(new Verse("1"));
+			paraBlock.BlockElements.Add(new ScriptText("Jesus said, “Is that John?”"));
+			var input = new List<Block> { titleBlock, introBlock1, introBlock2, chapterBlock, sectionHeadBlock, paraBlock };
+			IList<Block> output = new QuoteParser("MRK", input, options).Parse().ToList();
+			Assert.AreEqual(7, output.Count);
+			Assert.AreEqual("Gospel of Mark", output[0].GetText(true));
+			Assert.IsTrue(output[0].CharacterIs("MRK", Block.StandardCharacter.BookOrChapter));
+			Assert.AreEqual("All about Mark", output[1].GetText(true));
+			Assert.IsTrue(output[1].CharacterIs("MRK", Block.StandardCharacter.Intro));
+			Assert.AreEqual("Some people say, “Mark is way to short,” but I disagree.", output[2].GetText(true));
+			Assert.IsTrue(output[2].CharacterIs("MRK", Block.StandardCharacter.Intro));
+			Assert.AreEqual("Chapter 1", output[3].GetText(true));
+			Assert.IsTrue(output[3].CharacterIs("MRK", Block.StandardCharacter.BookOrChapter));
+			Assert.AreEqual("John tells everyone: “The Kingdom of Heaven is at hand”", output[4].GetText(true));
+			Assert.IsTrue(output[4].CharacterIs("MRK", Block.StandardCharacter.ExtraBiblical));
+			Assert.AreEqual("[1]Jesus said, ", output[5].GetText(true));
+			Assert.IsTrue(output[5].CharacterIs("MRK", Block.StandardCharacter.Narrator));
+			Assert.AreEqual("“Is that John?”", output[6].GetText(true));
+			Assert.AreEqual(Block.UnknownCharacter, output[6].CharacterId);
+		}
 	}
 }

@@ -181,7 +181,14 @@ namespace ProtoScript
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
 					Settings.Default.DefaultExportDirectory = Path.GetDirectoryName(dlg.FileName);
-					m_project.ExportTabDelimited(dlg.FileName);
+					try
+					{
+						m_project.ExportTabDelimited(dlg.FileName);
+					}
+					catch(Exception ex)
+					{
+						MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+					}
 				}
 			}
 		}
