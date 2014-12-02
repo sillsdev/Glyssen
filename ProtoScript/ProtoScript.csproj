@@ -94,6 +94,7 @@
     <Compile Include="Block.cs" />
     <Compile Include="Bundle\UsxDocument.cs" />
     <Compile Include="Bundle\UsxNode.cs" />
+    <Compile Include="CharacterAssigner.cs" />
     <Compile Include="CharacterVerse.cs" />
     <Compile Include="Dialogs\ProjectSettingsDialog.cs">
       <SubType>Form</SubType>

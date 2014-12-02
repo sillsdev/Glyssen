@@ -93,16 +93,27 @@ namespace DevTools
 			File.WriteAllText(Path.Combine(kBaseDirForOutput, "CharacterCharacterId_notFullyProcessed.txt"), CharacterCharacterId.AllTabDilimited(allCci));
 			allCci.RemoveAll(cciFound.Contains);
 
-			allCv.Sort(CharacterVerse.ReferenceComparison);
-			File.WriteAllText(Path.Combine(kBaseDirForOutput, "CharacterVerse.txt"), CharacterVerse.AllTabDelimited(allCv));
-			PrintCharacterIdMap(allCv);
+			GenerateControlFile(allCv);
+			GenerateCharacterIdMap(allCv);
+
 			File.WriteAllText(Path.Combine(kBaseDirForOutput, "cvNotFound.txt"), CharacterVerse.AllTabDelimited(cvNotFound));
 			File.WriteAllText(Path.Combine(kBaseDirForOutput, "cciNotFound.txt"), CharacterCharacterId.AllTabDilimited(allCci));
 
 			return allCv;
 		}
 
-		private static void PrintCharacterIdMap(IEnumerable<CharacterVerse> allCv)
+		private static void GenerateControlFile(List<CharacterVerse> allCv)
+		{
+			int versionNumber = ProtoScript.CharacterVerse.ControlFileVersion + 1;
+
+			allCv.Sort(CharacterVerse.ReferenceComparison);
+			var sb = new StringBuilder();
+			sb.Append("Control File Version\t").Append(versionNumber).Append("\tGenerated\t").Append(DateTime.Now.ToString("R")).Append(Environment.NewLine);
+			sb.Append(CharacterVerse.AllTabDelimited(allCv));
+			File.WriteAllText(Path.Combine(kBaseDirForOutput, "CharacterVerse.txt"), sb.ToString());
+		}
+
+		private static void GenerateCharacterIdMap(IEnumerable<CharacterVerse> allCv)
 		{
 			var set = new SortedSet<string>();
 			foreach (var cv in allCv)

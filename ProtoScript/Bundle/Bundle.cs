@@ -82,6 +82,7 @@ namespace ProtoScript.Bundle
 
 			dblMetadata.OriginalPathOfDblFile = pathToZippedBundle;
 			dblMetadata.PgUsxParserVersion = Settings.Default.PgUsxParserVersion;
+			dblMetadata.ControlFileVersion = CharacterVerse.ControlFileVersion;
 
 			return dblMetadata;
 		}

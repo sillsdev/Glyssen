@@ -97,6 +97,9 @@ namespace ProtoScript
 		[XmlAttribute("characterId")]
 		public string CharacterId { get; set; }
 
+		[XmlAttribute("userConfirmed")]
+		public bool UserConfirmed { get; set; }
+
 		[XmlElement(Type = typeof(ScriptText), ElementName = "text")]
 		[XmlElement(Type = typeof(Verse), ElementName = "verse")]
 		public List<BlockElement> BlockElements { get; set; }

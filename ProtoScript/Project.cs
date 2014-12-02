@@ -74,6 +74,11 @@ namespace ProtoScript
 				project.m_books[Path.GetFileNameWithoutExtension(file)] =
 					XmlSerializationHelper.DeserializeFromFile<BookScript>(file);
 			}
+			if (metadata.ControlFileVersion != CharacterVerse.ControlFileVersion)
+			{
+				new CharacterAssigner().AssignAll(project.m_books.Values);
+				metadata.ControlFileVersion = CharacterVerse.ControlFileVersion;
+			}
 			return project;
 		}
 

@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlockTests.cs" />
+    <Compile Include="CharacterAssignerTests.cs" />
     <Compile Include="CharacterVerseTests.cs" />
     <Compile Include="QuoteParserTests.cs" />
     <Compile Include="QuoteSystemTests.cs" />

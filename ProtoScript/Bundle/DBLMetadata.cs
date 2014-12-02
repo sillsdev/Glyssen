@@ -32,6 +32,13 @@ namespace ProtoScript.Bundle
 		public string OriginalPathOfDblFile;
 
 		/// <summary>
+		/// This is not part of the original DBL metadata. 
+		/// We use this to know if character assignments should be reprocessed.
+		/// </summary>
+		[XmlAttribute("controlfileversion")]
+		public int ControlFileVersion;
+
+		/// <summary>
 		/// This is not part of the original DBL metadata.
 		/// </summary>
 		public QuoteSystem QuoteSystem;
