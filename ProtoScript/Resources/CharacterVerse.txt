@@ -6191,7 +6191,7 @@ JHN	21	22	Jesus
 JHN	21	23	Jesus		
 JHN	21	3	Peter (Simon)		
 JHN	21	3	Thomas		Thomas/Nathaniel/James/John/2 disciples
-JHN	21	5	disciples, His|John	calling out	
+JHN	21	5	John	calling out	disciples, His|John
 JHN	21	5	Jesus	questioning	
 JHN	21	6	Jesus		
 JHN	21	7	John	amazed	
@@ -8490,7 +8490,7 @@ LUK	9	48	Jesus
 LUK	9	49	John		John (disciple whom Jesus loved)
 LUK	9	5	Jesus		
 LUK	9	50	Jesus		
-LUK	9	54	James/John (sons of Zebedee)|John		
+LUK	9	54	John		James/John (sons of Zebedee)|John
 LUK	9	55	Jesus	rebuking	
 LUK	9	57	teacher of the law=man|man	eager	
 LUK	9	58	Jesus		
@@ -8827,7 +8827,7 @@ MAT	20	2	Jesus
 MAT	20	20	mother of Zebedee's sons		
 MAT	20	21	Jesus		
 MAT	20	21	mother of Zebedee's sons		
-MAT	20	22	James/John (sons of Zebedee)|John	boldly	
+MAT	20	22	John	boldly	James/John (sons of Zebedee)|John
 MAT	20	22	Jesus		
 MAT	20	23	Jesus		
 MAT	20	25	Jesus		
@@ -9346,11 +9346,11 @@ MRK	10	29	Jesus
 MRK	10	3	Jesus	questioning	
 MRK	10	31	Jesus		
 MRK	10	33	Jesus		
-MRK	10	35	James/John (sons of Zebedee)|John	boldly	
+MRK	10	35	John	boldly	James/John (sons of Zebedee)|John
 MRK	10	36	Jesus		
-MRK	10	37	James/John (sons of Zebedee)|John	boldly	
+MRK	10	37	John	boldly	James/John (sons of Zebedee)|John
 MRK	10	38	Jesus		
-MRK	10	39	James/John (sons of Zebedee)|John	boldly	
+MRK	10	39	John	boldly	James/John (sons of Zebedee)|John
 MRK	10	39	Jesus		
 MRK	10	4	Pharisees, some		
 MRK	10	42	Jesus		

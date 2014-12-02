@@ -12,4 +12,4 @@ lib/dotnet/Ionic.Zip.dll
 lib/dotnet/SIL.ScriptureUtils.dll
 build/Palaso.BuildTasks.dll
 .nuget/NuGet.exe
-DevTools/Resources/gen_*
+DevTools/Resources/temporary/*

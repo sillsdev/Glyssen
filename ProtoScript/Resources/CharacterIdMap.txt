@@ -243,7 +243,6 @@ disciples, His 2	0579
 disciples, His 3	0580
 disciples, His 4	0581
 disciples, His	0577
-disciples, His|John	0578
 disciples, Jesus'	0579
 disciples, John Baptists/Jew, a certain	0581
 disciples, many of His	0580
@@ -469,7 +468,6 @@ Jahaziel (Spirit of the Lord on)	0239
 jailer	0639
 Jairus=ruler, a	0240
 James	0241
-James/John (sons of Zebedee)|John	0242
 Jebusites	0243
 Jehoash, king of Israel	0244
 Jehoiada	0245
