@@ -22,6 +22,21 @@ namespace ProtoScript
 			IList<CharacterVerse> matches = s_data.Where(cv => cv.BookId == bookId && cv.Chapter == chapter && cv.Verse == verse).ToList();
 			if (matches.Count == 1)
 				return matches.First().Character;
+			if (matches.Count > 1)
+			{
+				string character = null;
+				foreach (CharacterVerse cv in matches)
+				{
+					if (character == null)
+					{
+						character = cv.Character;
+						continue;
+					}
+					if (character != cv.Character)
+						return Block.AmbiguousCharacter;
+				}
+				return character;
+			}
 			return Block.UnknownCharacter;
 		}
 

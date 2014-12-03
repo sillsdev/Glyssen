@@ -16,10 +16,19 @@ namespace ProtoScriptTests
 		}
 
 		[Test]
-		public void GetCharacter_MoreThanOneMatch_GetsUnknownCharacterId()
+		public void GetCharacter_MoreThanOneMatch_DifferentCharacters_GetsAmbiguousCharacterId()
 		{
 			var characterId = CharacterVerse.GetCharacter("MRK", 10, 48);
-			Assert.AreEqual(Block.UnknownCharacter, characterId);
+			Assert.AreEqual(Block.AmbiguousCharacter, characterId);
+		}
+
+		[Test]
+		public void GetCharacter_MoreThanOneMatch_SameCharacter_GetsCorrectCharacterId()
+		{
+			var characterId = CharacterVerse.GetCharacter("MRK", 15, 44);
+			Assert.AreEqual("Pilate", characterId);
+			characterId = CharacterVerse.GetCharacter("MRK", 16, 3);
+			Assert.AreEqual("Mary Magdalene", characterId);
 		}
 
 		[Test]
