@@ -29,6 +29,7 @@ namespace ProtoScript
 
 		public IEnumerable<Block> Parse()
 		{
+			var titleBuilder = new StringBuilder();
 			IList<Block> blocks = new List<Block>();
 			foreach (XmlNode node in m_nodeList)
 			{
@@ -36,6 +37,7 @@ namespace ProtoScript
 				switch (node.Name)
 				{
 					case "chapter":
+						AddMainTitleIfApplicable(blocks, titleBuilder);
 						m_chapterNodeFound = true;
 						block = ProcessChapterNode(node);
 						if (block == null)
@@ -59,6 +61,14 @@ namespace ProtoScript
 						if (style.IsParallelPassageReference || !style.IsPublishable)
 							continue;
 
+						if (style.HoldsBookNameOrAbbreviation)
+						{
+							if (style.Id.StartsWith("mt"))
+								titleBuilder.Append(node.InnerText).Append(" ");
+							continue;
+						}
+						AddMainTitleIfApplicable(blocks, titleBuilder);
+						
 						block = new Block(usxPara.StyleTag, m_currentChapter, m_currentVerse);
 						if (m_currentChapter == 0)
 							block.SetStandardCharacter(m_bookId, Block.StandardCharacter.Intro);
@@ -113,6 +123,16 @@ namespace ProtoScript
 				blocks.Add(block);
 			}
 			return blocks;
+		}
+
+		private void AddMainTitleIfApplicable(ICollection<Block> blocks, StringBuilder titleBuilder)
+		{
+			if (titleBuilder.Length < 1)
+				return;
+			var titleBlock = new Block("mt");
+			titleBlock.SetStandardCharacter(m_bookId, Block.StandardCharacter.BookOrChapter);
+			titleBlock.BlockElements.Add(new ScriptText { Content = titleBuilder.ToString().Trim() });
+			blocks.Add(titleBlock);
 		}
 
 		private Block ProcessChapterNode(XmlNode node)

@@ -1,34 +1,39 @@
 ﻿using System.Linq;
-using System.Runtime.InteropServices;
 using System.Xml;
 using NUnit.Framework;
 using ProtoScript;
 using ProtoScript.Bundle;
-using SIL.ScriptureUtils;
 
 namespace ProtoScriptTests
 {
 	[TestFixture]
 	class UsxParserTests
 	{
-		const string usxFrame = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+		private const string usxFrameStart = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
 			"<usx version=\"2.0\">" +
-			"<book code=\"MRK\" style=\"id\">Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013</book>" +
+			"<book code=\"MRK\" style=\"id\">Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013</book>";
+		private const string usxFrameEnd = "</usx>";
+		private const string usxFrame = 
+			usxFrameStart +
 			"<chapter number=\"1\" style=\"c\" />" +
 			"{0}" +
-			"</usx>";
-		const string usxFrameWithGlobalChapterLabel = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-			"<usx version=\"2.0\">" +
-			"<book code=\"MRK\" style=\"id\">Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013</book>" +
+			usxFrameEnd;
+		private const string usxFrameWithGlobalChapterLabel = 
+			usxFrameStart +
 			"<para style=\"cl\">Global-Chapter</para>" +
 			"<chapter number=\"1\" style=\"c\" />" +
 			"{0}" +
-			"</usx>";
+			usxFrameEnd;
 
 		private XmlDocument CreateMarkOneDoc(string paraXmlNodes, string usxFrame = usxFrame)
 		{
+			return CreateDocFromString(string.Format(usxFrame, paraXmlNodes));
+		}
+
+		private XmlDocument CreateDocFromString(string xml)
+		{
 			var xmlDoc = new XmlDocument { PreserveWhitespace = true };
-			xmlDoc.LoadXml(string.Format(usxFrame, paraXmlNodes));
+			xmlDoc.LoadXml(xml);
 			return xmlDoc;
 		}
 
@@ -377,6 +382,42 @@ namespace ProtoScriptTests
 			Assert.AreEqual("“Nen, acwalo lakwenana otelo nyimi,", blocks[2].GetText(true));
 		}
 
+		[Test]
+		public void Parse_TitleFollowedByChapter_TitleIsSimplified()
+		{
+			var doc = CreateDocFromString(
+				usxFrameStart +
+				"<para style=\"h\">header</para>" +
+				"<para style=\"mt2\">The Gospel According to</para>" +
+				"<para style=\"mt1\">Mark</para>" +
+				"<chapter number=\"1\" style=\"c\" />" +
+				usxFrameEnd);
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual("mt", blocks[0].StyleTag);
+			Assert.AreEqual("The Gospel According to Mark", blocks[0].GetText(false));
+			Assert.AreEqual("The Gospel According to Mark", blocks[0].GetText(true));
+		}
+
+		[Test]
+		public void Parse_TitleNotFollowedByChapter_TitleIsSimplified()
+		{
+			var doc = CreateDocFromString(
+				usxFrameStart +
+				"<para style=\"h\">header</para>" +
+				"<para style=\"mt2\">The Gospel According to</para>" +
+				"<para style=\"mt1\">Mark</para>" +
+				"<para style=\"s1\">section</para>" +
+				usxFrameEnd);
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual("mt", blocks[0].StyleTag);
+			Assert.AreEqual("The Gospel According to Mark", blocks[0].GetText(false));
+			Assert.AreEqual("The Gospel According to Mark", blocks[0].GetText(true));
+		}
+
 		private UsxParser GetUsxParser(XmlDocument doc)
 		{
 			return new UsxParser("MRK", new TestStylesheet(), new UsxDocument(doc).GetChaptersAndParas());
@@ -397,6 +438,12 @@ namespace ProtoScriptTests
 			switch (styleId)
 			{
 				case "s":
+				case "h":
+				case "h1":
+				case "toc1":
+				case "mt":
+				case "mt1":
+				case "mt2":
 					style.IsVerseText = false;
 					break;
 				case "rem":
