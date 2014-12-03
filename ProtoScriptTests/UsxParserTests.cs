@@ -418,6 +418,25 @@ namespace ProtoScriptTests
 			Assert.AreEqual("The Gospel According to Mark", blocks[0].GetText(true));
 		}
 
+		[Test]
+		public void Parse_TwoChapters_TitleIsSimplified()
+		{
+			var doc = CreateDocFromString(
+				usxFrameStart +
+				"<para style=\"h\">header</para>" +
+				"<para style=\"mt2\">The Gospel According to</para>" +
+				"<para style=\"mt1\">Mark</para>" +
+				"<chapter number=\"1\" style=\"c\" />" +
+				"<chapter number=\"2\" style=\"c\" />" +
+				usxFrameEnd);
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual("mt", blocks[0].StyleTag);
+			Assert.AreEqual("The Gospel According to Mark", blocks[0].GetText(false));
+			Assert.AreEqual("The Gospel According to Mark", blocks[0].GetText(true));
+		}
+
 		private UsxParser GetUsxParser(XmlDocument doc)
 		{
 			return new UsxParser("MRK", new TestStylesheet(), new UsxDocument(doc).GetChaptersAndParas());

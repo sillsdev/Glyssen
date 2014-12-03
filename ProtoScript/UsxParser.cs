@@ -133,6 +133,7 @@ namespace ProtoScript
 			titleBlock.SetStandardCharacter(m_bookId, Block.StandardCharacter.BookOrChapter);
 			titleBlock.BlockElements.Add(new ScriptText { Content = titleBuilder.ToString().Trim() });
 			blocks.Add(titleBlock);
+			titleBuilder.Clear();
 		}
 
 		private Block ProcessChapterNode(XmlNode node)
