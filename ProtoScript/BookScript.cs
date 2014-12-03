@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 namespace ProtoScript
 {
 	[XmlRoot("book")]
-	public class BookScript
+	public class BookScript : IScrBook
 	{
 		public BookScript()
 		{
@@ -23,5 +23,10 @@ namespace ProtoScript
 
 		[XmlElement(ElementName = "block")]
 		public List<Block> Blocks { get; set; }
+
+		public string GetVerseText(int chapter, int verse)
+		{
+			throw new System.NotImplementedException();
+		}
 	}
 }

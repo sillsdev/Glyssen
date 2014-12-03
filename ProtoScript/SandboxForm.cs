@@ -106,17 +106,6 @@ namespace ProtoScript
 			m_project = new Project(bundle.Metadata);
 			UpdateDisplayOfProjectIdInfo();
 			m_project.PopulateAndParseBooks(bundle);
-
-			Canon canon;
-			UsxDocument book;
-			if (bundle.TryGetCanon(1, out canon))
-			{
-				if (canon.TryGetBook("MRK", out book))
-				{
-					var blocks = new UsxParser("MRK", bundle.Stylesheet, book.GetChaptersAndParas()).Parse();
-					m_project.AddBook("MRK", new QuoteParser("MRK", blocks, m_project.QuoteSystem).Parse());
-				}
-			}
 		}
 
 		private bool LoadAndHandleApplicationExceptions(Action loadCommand)
@@ -203,16 +192,16 @@ namespace ProtoScript
 			string sfmFilePath = null;
 			using (var dlg = new OpenFileDialog())
 			{
-				if (dlg.ShowDialog() == DialogResult.OK)
-					sfmFilePath = dlg.FileName;
+				if (dlg.ShowDialog() != DialogResult.OK)
+					return;
+				sfmFilePath = dlg.FileName;
 			}
 			string usfmStylesheetPath = Path.Combine(FileLocator.GetDirectoryDistributedWithApplication("sfm"), "usfm.sty");
 			var scrStylesheet = new ScrStylesheet(usfmStylesheetPath);
 			var book = new UsxDocument(UsfmToUsx.ConvertToXmlDocument(scrStylesheet, File.ReadAllText(sfmFilePath)));
 			var metadata = new DblMetadata { id = "sfm" + DateTime.Now.Ticks, language = new DblMetadataLanguage { iso = "zzz" } };
 			m_project = new Project(metadata);
-			var blocks = new UsxParser("MRK", new ScrStylesheetAdapter(scrStylesheet), book.GetChaptersAndParas()).Parse();
-			m_project.AddBook("MRK", new QuoteParser("MRK", blocks, m_project.QuoteSystem).Parse());
+			m_project.ParseAndAddBooks(new [] { book }, new ScrStylesheetAdapter(scrStylesheet));
 		}
 
 		private void m_btnSettings_Click(object sender, EventArgs e)

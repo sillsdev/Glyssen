@@ -23,6 +23,11 @@ namespace ProtoScript
 			return Block.UnknownCharacter;
 		}
 
+		public static IEnumerable<CharacterVerse> GetAllQuoteInfo(string bookId)
+		{
+			return s_data.Where(cv => cv.BookId == bookId);
+		}
+
 		private static void LoadAll()
 		{
 			if (s_data != null)

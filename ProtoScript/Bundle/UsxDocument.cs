@@ -17,14 +17,18 @@ namespace ProtoScript.Bundle
 			m_document.Load(path);
 		}
 
-		public XmlNode GetBook()
-		{
-			return m_document.SelectSingleNode("//book");
-		}
+		//public XmlNode GetBook()
+		//{
+		//	return m_document.SelectSingleNode("//book");
+		//}
 
-		public XmlNodeList GetParas()
+		public string BookId
 		{
-			return m_document.SelectNodes("//para");
+			get
+			{
+				var book = m_document.SelectSingleNode("//book");
+				return book.Attributes.GetNamedItem("code").Value;
+			}
 		}
 
 		public XmlNodeList GetChaptersAndParas()

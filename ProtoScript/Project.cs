@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using L10NSharp;
 using Palaso.Reporting;
 using Palaso.Xml;
+using Paratext;
 using ProtoScript.Bundle;
 using ProtoScript.Properties;
+using Canon = ProtoScript.Bundle.Canon;
 
 namespace ProtoScript
 {
@@ -16,7 +19,7 @@ namespace ProtoScript
 	{
 		public const string kProjectFileExtension = ".pgproj";
 		private readonly DblMetadata m_metadata;
-		private readonly Dictionary<string, BookScript> m_books = new Dictionary<string, BookScript>();
+		private readonly List<BookScript> m_books = new List<BookScript>();
 
 		public Project(DblMetadata metadata)
 		{
@@ -71,8 +74,7 @@ namespace ProtoScript
 			Debug.Assert(projectDir != null);
 			foreach (var file in Directory.GetFiles(projectDir, "???.xml"))
 			{
-				project.m_books[Path.GetFileNameWithoutExtension(file)] =
-					XmlSerializationHelper.DeserializeFromFile<BookScript>(file);
+				project.m_books.Add(XmlSerializationHelper.DeserializeFromFile<BookScript>(file));
 			}
 			return project;
 		}
@@ -85,26 +87,39 @@ namespace ProtoScript
 				UsxDocument book;
 				if (canon.TryGetBook("MRK", out book))
 				{
-					var blocks = new UsxParser("MRK", bundle.Stylesheet, book.GetChaptersAndParas()).Parse();
-					AddBook("MRK", new QuoteParser("MRK", blocks, QuoteSystem).Parse());
+					ParseAndAddBooks(new [] { book }, bundle.Stylesheet);
 				}
 			}
 		}
 
-		public void AddBook(string bookId, IEnumerable<Block> blocks)
+		public void ParseAndAddBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet)
 		{
-			m_books[bookId] = new BookScript(bookId, blocks);
+			foreach (var book in books)
+			{
+				var bookId = book.BookId;
+				m_books.Add(new BookScript(bookId, new UsxParser(bookId, stylesheet, book.GetChaptersAndParas()).Parse()));
+			}
+
+			if (m_metadata.QuoteSystem == null)
+			{
+				m_metadata.QuoteSystem = QuoteSystemGuesser.Guess(m_books);
+			}
+
+			foreach (var bookScript in m_books)
+			{
+				bookScript.Blocks = new QuoteParser(bookScript.BookId, bookScript.Blocks, QuoteSystem).Parse().ToList();
+			}
 		}
 
-		public IEnumerable<Block> GetBlocksForBook(string bookId)
-		{
-			BookScript bookScript;
-			if (m_books.TryGetValue(bookId, out bookScript))
-			{
-				return bookScript.Blocks;
-			}
-			return null;
-		}
+		//public IEnumerable<Block> GetBlocksForBook(string bookId)
+		//{
+		//	BookScript bookScript;
+		//	if (m_books.TryGetValue(bookId, out bookScript))
+		//	{
+		//		return bookScript.Blocks;
+		//	}
+		//	return null;
+		//}
 
 		public static string GetProjectFilePath(string basePath, string langId, string bundleId)
 		{
@@ -126,8 +141,8 @@ namespace ProtoScript
 			var projectFolder = Path.GetDirectoryName(projectPath);
 			foreach (var book in m_books)
 			{
-				var filePath = Path.ChangeExtension(Path.Combine(projectFolder, book.Key), "xml");
-				XmlSerializationHelper.SerializeToFile(filePath, book.Value, out error);
+				var filePath = Path.ChangeExtension(Path.Combine(projectFolder, book.BookId), "xml");
+				XmlSerializationHelper.SerializeToFile(filePath, book, out error);
 				if (error != null)
 					MessageBox.Show(error.Message);
 			}
@@ -138,7 +153,7 @@ namespace ProtoScript
 			int blockNumber = 1;
 			using (StreamWriter stream = new StreamWriter(fileName, false, Encoding.UTF8))
 			{
-				foreach (var book in m_books.Values)
+				foreach (var book in m_books)
 				{
 					foreach (var block in book.Blocks)
 					{
