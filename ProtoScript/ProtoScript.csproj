@@ -52,6 +52,12 @@
     <StartupObject>ProtoScript.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Geckofx-Core">
+      <HintPath>..\lib\dotnet\Geckofx-Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Geckofx-Winforms">
+      <HintPath>..\lib\dotnet\Geckofx-Winforms.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\packages\ICSharpCode.SharpZipLib.dll.0.85.4.369\lib\net20\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
@@ -66,6 +72,9 @@
     </Reference>
     <Reference Include="PalasoUIWindowsForms">
       <HintPath>..\lib\dotnet\PalasoUIWindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="PalasoUIWindowsForms.GeckoBrowserAdapter">
+      <HintPath>..\lib\dotnet\PalasoUIWindowsForms.GeckoBrowserAdapter.dll</HintPath>
     </Reference>
     <Reference Include="ParatextShared">
       <HintPath>..\lib\dotnet\ParatextShared.dll</HintPath>
@@ -96,6 +105,12 @@
     <Compile Include="Bundle\UsxNode.cs" />
     <Compile Include="CharacterAssigner.cs" />
     <Compile Include="CharacterVerse.cs" />
+    <Compile Include="Controls\Browser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Browser.Designer.cs">
+      <DependentUpon>Browser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\ProjectSettingsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +143,9 @@
     <Compile Include="UsxParser.cs" />
     <Compile Include="UsxStylesheet.cs" />
     <Compile Include="Utilities\Zip.cs" />
+    <EmbeddedResource Include="Controls\Browser.resx">
+      <DependentUpon>Browser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ProjectSettingsDialog.resx">
       <DependentUpon>ProjectSettingsDialog.cs</DependentUpon>
     </EmbeddedResource>
