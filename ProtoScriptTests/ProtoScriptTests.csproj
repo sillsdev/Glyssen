@@ -66,6 +66,7 @@
     <Compile Include="BlockTests.cs" />
     <Compile Include="CharacterAssignerTests.cs" />
     <Compile Include="CharacterVerseTests.cs" />
+    <Compile Include="Controls\BrowserTests.cs" />
     <Compile Include="QuoteParserTests.cs" />
     <Compile Include="QuoteSystemGuesserTests.cs" />
     <Compile Include="QuoteSystemTests.cs" />

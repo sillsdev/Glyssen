@@ -66,19 +66,40 @@ cd -
 # URL: http://build.palaso.org/viewType.html?buildTypeId=bt431
 # VCS: https://github.com/sillsdev/ProtoScriptGenerator.git [master]
 # dependencies:
-# [0] build: palaso-win32-master Continuous (bt223)
+# [0] build: geckofx29-win32-continuous (bt399)
+#     project: GeckoFx
+#     URL: http://build.palaso.org/viewType.html?buildTypeId=bt399
+#     clean: false
+#     revision: latest.lastSuccessful
+#     paths: {"*"=>"lib/dotnet"}
+#     VCS: https://bitbucket.org/geckofx/geckofx-29.0 [default]
+# [1] build: XulRunner29-win32 (bt400)
+#     project: GeckoFx
+#     URL: http://build.palaso.org/viewType.html?buildTypeId=bt400
+#     clean: false
+#     revision: latest.lastSuccessful
+#     paths: {"xulrunner-29.0.1.en-US.win32.zip!**"=>"lib"}
+# [2] build: palaso-win32-master Continuous (bt223)
 #     project: libpalaso
 #     URL: http://build.palaso.org/viewType.html?buildTypeId=bt223
 #     clean: false
 #     revision: latest.lastSuccessful
-#     paths: {"Palaso.BuildTasks.dll"=>"build/", "icu.net.dll"=>"lib/dotnet", "icudt40.dll"=>"lib/dotnet", "icuin40.dll"=>"lib/dotnet", "icuuc40.dll"=>"lib/dotnet", "L10NSharp.dll"=>"lib/dotnet", "L10NSharp.pdb"=>"lib/dotnet", "Palaso.dll"=>"lib/dotnet", "Palaso.pdb"=>"lib/dotnet", "PalasoUIWindowsForms.dll"=>"lib/dotnet", "PalasoUIWindowsForms.pdb"=>"lib/dotnet", "Palaso.TestUtilities.dll"=>"lib/dotnet", "SIL.ScriptureUtils.dll"=>"lib/dotnet", "SIL.ScriptureUtils.pdb"=>"lib/dotnet"}
-#     VCS: https://github.com/sillsdev/libpalaso.git []
+#     paths: {"Palaso.BuildTasks.dll"=>"build/", "icu.net.dll"=>"lib/dotnet", "icudt40.dll"=>"lib/dotnet", "icuin40.dll"=>"lib/dotnet", "icuuc40.dll"=>"lib/dotnet", "L10NSharp.dll"=>"lib/dotnet", "L10NSharp.pdb"=>"lib/dotnet", "Palaso.dll"=>"lib/dotnet", "Palaso.pdb"=>"lib/dotnet", "PalasoUIWindowsForms.dll"=>"lib/dotnet", "PalasoUIWindowsForms.pdb"=>"lib/dotnet", "PalasoUIWindowsForms.GeckoBrowserAdapter.dll"=>"lib/dotnet", "PalasoUIWindowsForms.GeckoBrowserAdapter.pdb"=>"lib/dotnet", "Palaso.TestUtilities.dll"=>"lib/dotnet", "SIL.ScriptureUtils.dll"=>"lib/dotnet", "SIL.ScriptureUtils.pdb"=>"lib/dotnet"}
+#     VCS: https://github.com/sillsdev/libpalaso.git [master]
 
 # make sure output directories exist
+mkdir -p ../Downloads
 mkdir -p ../build/
+mkdir -p ../lib
 mkdir -p ../lib/dotnet
 
 # download artifact dependencies
+copy_auto http://build.palaso.org/guestAuth/repository/download/bt399/latest.lastSuccessful/Geckofx-Core.dll ../lib/dotnet/Geckofx-Core.dll
+copy_auto http://build.palaso.org/guestAuth/repository/download/bt399/latest.lastSuccessful/Geckofx-Core.dll.config ../lib/dotnet/Geckofx-Core.dll.config
+copy_auto http://build.palaso.org/guestAuth/repository/download/bt399/latest.lastSuccessful/Geckofx-Core.pdb ../lib/dotnet/Geckofx-Core.pdb
+copy_auto http://build.palaso.org/guestAuth/repository/download/bt399/latest.lastSuccessful/Geckofx-Winforms.dll ../lib/dotnet/Geckofx-Winforms.dll
+copy_auto http://build.palaso.org/guestAuth/repository/download/bt399/latest.lastSuccessful/Geckofx-Winforms.pdb ../lib/dotnet/Geckofx-Winforms.pdb
+copy_auto http://build.palaso.org/guestAuth/repository/download/bt400/latest.lastSuccessful/xulrunner-29.0.1.en-US.win32.zip ../Downloads/xulrunner-29.0.1.en-US.win32.zip
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt223/latest.lastSuccessful/Palaso.BuildTasks.dll ../build/Palaso.BuildTasks.dll
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt223/latest.lastSuccessful/icu.net.dll ../lib/dotnet/icu.net.dll
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt223/latest.lastSuccessful/icudt40.dll ../lib/dotnet/icudt40.dll
@@ -90,7 +111,11 @@ copy_auto http://build.palaso.org/guestAuth/repository/download/bt223/latest.las
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt223/latest.lastSuccessful/Palaso.pdb ../lib/dotnet/Palaso.pdb
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt223/latest.lastSuccessful/PalasoUIWindowsForms.dll ../lib/dotnet/PalasoUIWindowsForms.dll
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt223/latest.lastSuccessful/PalasoUIWindowsForms.pdb ../lib/dotnet/PalasoUIWindowsForms.pdb
+copy_auto http://build.palaso.org/guestAuth/repository/download/bt223/latest.lastSuccessful/PalasoUIWindowsForms.GeckoBrowserAdapter.dll ../lib/dotnet/PalasoUIWindowsForms.GeckoBrowserAdapter.dll
+copy_auto http://build.palaso.org/guestAuth/repository/download/bt223/latest.lastSuccessful/PalasoUIWindowsForms.GeckoBrowserAdapter.pdb ../lib/dotnet/PalasoUIWindowsForms.GeckoBrowserAdapter.pdb
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt223/latest.lastSuccessful/Palaso.TestUtilities.dll ../lib/dotnet/Palaso.TestUtilities.dll
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt223/latest.lastSuccessful/SIL.ScriptureUtils.dll ../lib/dotnet/SIL.ScriptureUtils.dll
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt223/latest.lastSuccessful/SIL.ScriptureUtils.pdb ../lib/dotnet/SIL.ScriptureUtils.pdb
+# extract downloaded zip files
+unzip -uqo ../Downloads/xulrunner-29.0.1.en-US.win32.zip -d ../lib
 # End of script

@@ -2,6 +2,7 @@ output/
 obj/
 bin/
 packages/
+Downloads/
 *.suo
 *.user
 *.pdb
@@ -10,6 +11,9 @@ lib/dotnet/icu*.dll
 lib/dotnet/L10NSharp.dll
 lib/dotnet/Ionic.Zip.dll
 lib/dotnet/SIL.ScriptureUtils.dll
+lib/dotnet/Geckofx*.dll
+lib/dotnet/Geckofx*.dll.config
+lib/xulrunner/
 build/Palaso.BuildTasks.dll
 .nuget/NuGet.exe
 DevTools/Resources/temporary/*
