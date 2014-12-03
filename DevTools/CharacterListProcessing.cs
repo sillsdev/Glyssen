@@ -7,7 +7,7 @@ namespace DevTools
 {
 	class CharacterListProcessing
 	{
-		private const string kBaseDirForOutput = "..\\..\\Resources";
+		private const string kBaseDirForOutput = "..\\..\\Resources\\temporary";
 
 		public static void Process()
 		{
@@ -18,7 +18,7 @@ namespace DevTools
 		static void FindAliases(List<CharacterVerse> characterVerses)
 		{
 			characterVerses.Sort(CharacterVerse.CharacterComparison);
-			File.WriteAllText(Path.Combine(kBaseDirForOutput, "gen_CharacterVerse_SortCharacter.txt"), CharacterVerse.AllTabDelimited(characterVerses));
+			File.WriteAllText(Path.Combine(kBaseDirForOutput, "CharacterVerse_SortCharacter.txt"), CharacterVerse.AllTabDelimited(characterVerses));
 
 			var characters = new Dictionary<string, HashSet<string>>();
 			foreach (var cv in characterVerses)
@@ -35,10 +35,10 @@ namespace DevTools
 				if (ch.Value.Count > 1)
 					multiCharacters.Add(ch.Key, ch.Value);
 			}
-			File.WriteAllText(Path.Combine(kBaseDirForOutput, "gen_MultipleCharacter.txt"), TabDelimited(multiCharacters));
+			File.WriteAllText(Path.Combine(kBaseDirForOutput, "MultipleCharacter.txt"), TabDelimited(multiCharacters));
 
 			characterVerses.Sort(CharacterVerse.CharacterIdComparison);
-			File.WriteAllText(Path.Combine(kBaseDirForOutput, "gen_CharacterVerse_SortCharacterId.txt"), CharacterVerse.AllTabDelimited(characterVerses));
+			File.WriteAllText(Path.Combine(kBaseDirForOutput, "CharacterVerse_SortCharacterId.txt"), CharacterVerse.AllTabDelimited(characterVerses));
 
 			var characterIds = new Dictionary<string, HashSet<string>>();
 			var uniqueCharacterIds = new HashSet<string>();
@@ -57,7 +57,7 @@ namespace DevTools
 				if (ch.Value.Count > 1)
 					multiCharacterIds.Add(ch.Key, ch.Value);
 			}
-			File.WriteAllText(Path.Combine(kBaseDirForOutput, "gen_MultipleCharacterId.txt"), TabDelimited(multiCharacterIds));
+			File.WriteAllText(Path.Combine(kBaseDirForOutput, "MultipleCharacterId.txt"), TabDelimited(multiCharacterIds));
 
 			ProcessUniqueIds(uniqueCharacterIds);
 		}
@@ -89,28 +89,41 @@ namespace DevTools
 				SetAlias(cv);
 			}
 
-			File.WriteAllText(Path.Combine(kBaseDirForOutput, "gen_CharacterCharacterId_notFullyProcessed.txt"), CharacterCharacterId.AllTabDilimited(allCci));
+			Directory.CreateDirectory(kBaseDirForOutput);
+			File.WriteAllText(Path.Combine(kBaseDirForOutput, "CharacterCharacterId_notFullyProcessed.txt"), CharacterCharacterId.AllTabDilimited(allCci));
 			allCci.RemoveAll(cciFound.Contains);
 
-			File.WriteAllText(Path.Combine(kBaseDirForOutput, "gen_CharacterVerse.txt"), CharacterVerse.AllTabDelimited(allCv));
-			PrintCharacterIdMap(allCv);
-			File.WriteAllText(Path.Combine(kBaseDirForOutput, "gen_cvNotFound.txt"), CharacterVerse.AllTabDelimited(cvNotFound));
-			File.WriteAllText(Path.Combine(kBaseDirForOutput, "gen_cciNotFound.txt"), CharacterCharacterId.AllTabDilimited(allCci));
+			GenerateControlFile(allCv);
+			GenerateCharacterIdMap(allCv);
+
+			File.WriteAllText(Path.Combine(kBaseDirForOutput, "cvNotFound.txt"), CharacterVerse.AllTabDelimited(cvNotFound));
+			File.WriteAllText(Path.Combine(kBaseDirForOutput, "cciNotFound.txt"), CharacterCharacterId.AllTabDilimited(allCci));
 
 			return allCv;
 		}
 
-		private static void PrintCharacterIdMap(IEnumerable<CharacterVerse> allCv)
+		private static void GenerateControlFile(List<CharacterVerse> allCv)
+		{
+			int versionNumber = ProtoScript.CharacterVerse.ControlFileVersion + 1;
+
+			allCv.Sort(CharacterVerse.ReferenceComparison);
+			var sb = new StringBuilder();
+			sb.Append("Control File Version\t").Append(versionNumber).Append("\tGenerated\t").Append(DateTime.Now.ToString("R")).Append(Environment.NewLine);
+			sb.Append(CharacterVerse.AllTabDelimited(allCv));
+			File.WriteAllText(Path.Combine(kBaseDirForOutput, "CharacterVerse.txt"), sb.ToString());
+		}
+
+		private static void GenerateCharacterIdMap(IEnumerable<CharacterVerse> allCv)
 		{
 			var set = new SortedSet<string>();
 			foreach (var cv in allCv)
 				set.Add(cv.Character + "\t" + cv.CharacterId);
-			File.WriteAllText(Path.Combine(kBaseDirForOutput, "gen_CharacterIdMap.txt"), TabDelimited(set));
+			File.WriteAllText(Path.Combine(kBaseDirForOutput, "CharacterIdMap.txt"), TabDelimited(set));
 		}
 
 		private static void ProcessUniqueIds(HashSet<string> uniqueCharacterIds)
 		{
-			File.WriteAllText(Path.Combine(kBaseDirForOutput, "gen_UniqueCharacterIds.txt"), TabDelimited(uniqueCharacterIds));
+			File.WriteAllText(Path.Combine(kBaseDirForOutput, "UniqueCharacterIds.txt"), TabDelimited(uniqueCharacterIds));
 
 			var missingIds = new List<int>();
 
@@ -123,7 +136,7 @@ namespace DevTools
 						missingIds.Add(i - 1);
 			}
 
-			File.WriteAllText(Path.Combine(kBaseDirForOutput, "gen_MissingCharacterIds.txt"), TabDelimited(missingIds));
+			File.WriteAllText(Path.Combine(kBaseDirForOutput, "MissingCharacterIds.txt"), TabDelimited(missingIds));
 		}
 
 		private static string TabDelimited(Dictionary<string, HashSet<string>> dictionary)

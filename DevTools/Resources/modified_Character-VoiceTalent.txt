@@ -495,8 +495,8 @@ Jael,22,0238
 Jahaziel (Spirit of the Lord on),2,0239
 Jairus=ruler, a [pleading],15,0240
 James,15,0241
-James/John (sons of Zebedee)|John [boldly],12,0242
-James/John (sons of Zebedee)|John,12,0242
+James/John (sons of Zebedee)|John [boldly],12,1272
+James/John (sons of Zebedee)|John,12,1272
 James/all the elders #15 [encouraging],15,0241
 James/all the elders,15,0241
 Jebusites [thought],12,0243
@@ -1189,7 +1189,7 @@ disciples, 2 men #5 [urgent],5,0576
 disciples, 2 men,5,0576
 disciples, His 1 [puzzled],12,0577
 disciples, His 1 [sad],12,0577
-disciples, His|John [calling out],12,0578
+disciples, His|John [calling out],12,1272
 disciples, His 2 [sad],13,0579
 disciples, His 3 [arguing],14,0580
 disciples, His 3 [excited],14,0580

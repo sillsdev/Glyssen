@@ -23,7 +23,7 @@ namespace ProtoScriptTests
 			block.BlockElements.Add(new Verse("2"));
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 
-			AssertThatXmlIn.String("<?xml version=\"1.0\" encoding=\"utf-16\"?><block style=\"p\" chapter=\"4\" verse=\"1\" characterId=\"narrator-MRK\">" +
+			AssertThatXmlIn.String("<?xml version=\"1.0\" encoding=\"utf-16\"?><block style=\"p\" chapter=\"4\" verse=\"1\" characterId=\"narrator-MRK\" userConfirmed=\"false\">" +
 				"<verse num=\"1\"/>" +
 				"<text>Text of verse one. </text>" +
 				"<verse num=\"2\"/>" +
@@ -42,7 +42,7 @@ namespace ProtoScriptTests
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
-			AssertThatXmlIn.String("<?xml version=\"1.0\" encoding=\"utf-16\"?><block style=\"p\" chapter=\"4\" verse=\"3\">" +
+			AssertThatXmlIn.String("<?xml version=\"1.0\" encoding=\"utf-16\"?><block style=\"p\" chapter=\"4\" verse=\"3\" userConfirmed=\"false\">" +
 				"<text>Text of verse three, part two. </text>" +
 				"<verse num=\"4\"/>" +
 				"<text>Text of verse four. </text>" +

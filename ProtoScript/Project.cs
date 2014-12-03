@@ -76,6 +76,11 @@ namespace ProtoScript
 			{
 				project.m_books.Add(XmlSerializationHelper.DeserializeFromFile<BookScript>(file));
 			}
+			if (metadata.ControlFileVersion != CharacterVerse.ControlFileVersion)
+			{
+				new CharacterAssigner().AssignAll(project.m_books);
+				metadata.ControlFileVersion = CharacterVerse.ControlFileVersion;
+			}
 			return project;
 		}
 
@@ -110,16 +115,6 @@ namespace ProtoScript
 				bookScript.Blocks = new QuoteParser(bookScript.BookId, bookScript.Blocks, QuoteSystem).Parse().ToList();
 			}
 		}
-
-		//public IEnumerable<Block> GetBlocksForBook(string bookId)
-		//{
-		//	BookScript bookScript;
-		//	if (m_books.TryGetValue(bookId, out bookScript))
-		//	{
-		//		return bookScript.Blocks;
-		//	}
-		//	return null;
-		//}
 
 		public static string GetProjectFilePath(string basePath, string langId, string bundleId)
 		{

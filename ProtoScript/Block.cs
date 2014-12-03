@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 using System.Xml.Serialization;
 using Palaso.Xml;
 
@@ -12,8 +11,13 @@ namespace ProtoScript
 	[XmlRoot("block")]
 	public class Block
 	{
-		/// <summary>Blocks represents a quote whose character has not been set</summary>
+		/// <summary>Blocks represents a quote whose character has not been set (usually represents an unexpected quote)</summary>
 		public const string UnknownCharacter = "Unknown";
+		/// <summary>
+		/// Blocks represents a quote whose character has not been set.
+		/// Used when the user needs to disambiguate between multiple potential characters.
+		/// </summary>
+		public const string AmbiguousCharacter = "Ambiguous";
 		/// <summary>Blocks which has not yet been parsed to identify contents/character</summary>
 		public static readonly string NotSet = null;
 
@@ -96,6 +100,9 @@ namespace ProtoScript
 
 		[XmlAttribute("characterId")]
 		public string CharacterId { get; set; }
+
+		[XmlAttribute("userConfirmed")]
+		public bool UserConfirmed { get; set; }
 
 		[XmlElement(Type = typeof(ScriptText), ElementName = "text")]
 		[XmlElement(Type = typeof(Verse), ElementName = "verse")]

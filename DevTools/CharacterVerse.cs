@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using SIL.ScriptureUtils;
 
 namespace DevTools
 {
@@ -91,6 +92,30 @@ namespace DevTools
 
 		public static Comparison<CharacterVerse> CharacterComparison = (object1, object2) => String.Compare(object1.CharacterAndDelivery, object2.CharacterAndDelivery, StringComparison.InvariantCulture);
 		public static Comparison<CharacterVerse> CharacterIdComparison = (object1, object2) => String.Compare(object1.CharacterId, object2.CharacterId, StringComparison.InvariantCulture);
+		public static Comparison<CharacterVerse> ReferenceComparison = (object1, object2) =>
+		{
+			int result = BCVRef.BookToNumber(object1.Book).CompareTo(BCVRef.BookToNumber(object2.Book));
+			if (result != 0)
+				return result;
+			result = Int32.Parse(object1.Chapter).CompareTo(Int32.Parse(object2.Chapter));
+			if (result != 0)
+				return result;
+			result = ScrReference.VerseToIntStart(object1.Verse).CompareTo(ScrReference.VerseToIntStart(object2.Verse));
+			if (result != 0)
+				return result;
+			result = ScrReference.VerseToIntEnd(object1.Verse).CompareTo(ScrReference.VerseToIntEnd(object2.Verse));
+			if (result != 0)
+				return result;
+			result = String.Compare(object1.Character, object2.Character, StringComparison.InvariantCulture);
+			if (result != 0)
+				return result;
+			result = String.Compare(object1.Alias, object2.Alias, StringComparison.InvariantCulture);
+			if (result != 0)
+				return result;
+			return 0;
+		};
+
+		
 
 		public string Reference;
 		public string Book;
