@@ -47,6 +47,9 @@
     <Reference Include="Palaso.TestUtilities">
       <HintPath>..\lib\dotnet\Palaso.TestUtilities.dll</HintPath>
     </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\packages\RhinoMocks.4.0.0-alpha3\lib\net40\Rhino.Mocks.dll</HintPath>
+    </Reference>
     <Reference Include="SIL.ScriptureUtils, Version=7.3.0.18505, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.ScriptureUtils.dll</HintPath>
@@ -67,6 +70,7 @@
     <Compile Include="CharacterAssignerTests.cs" />
     <Compile Include="CharacterVerseTests.cs" />
     <Compile Include="QuoteParserTests.cs" />
+    <Compile Include="BookScriptTests.cs" />
     <Compile Include="QuoteSystemGuesserTests.cs" />
     <Compile Include="QuoteSystemTests.cs" />
     <Compile Include="UsxDocumentTests.cs" />
@@ -100,6 +104,10 @@
       <Project>{45321f2e-174c-482a-bda1-bf199366fbd6}</Project>
       <Name>ProtoScript</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="acknowledgements.txt" />
+    <Content Include="license.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

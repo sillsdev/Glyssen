@@ -106,14 +106,10 @@ namespace ProtoScript
 			}
 
 			if (m_metadata.QuoteSystem == null)
-			{
 				m_metadata.QuoteSystem = QuoteSystemGuesser.Guess(m_books);
-			}
 
 			foreach (var bookScript in m_books)
-			{
 				bookScript.Blocks = new QuoteParser(bookScript.BookId, bookScript.Blocks, QuoteSystem).Parse().ToList();
-			}
 		}
 
 		public static string GetProjectFilePath(string basePath, string langId, string bundleId)

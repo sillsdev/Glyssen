@@ -8,6 +8,8 @@ namespace ProtoScript
 {
 	public class CharacterVerse
 	{
+		public const string kNotAQuote = "Not A Quote";
+
 		private static IEnumerable<CharacterVerse> s_data;
 
 		static CharacterVerse()
@@ -84,7 +86,6 @@ namespace ProtoScript
 		}
 
 		public string Character;
-		public int CharacterId;
 		public string BookId;
 		public int Chapter;
 		public int Verse;
