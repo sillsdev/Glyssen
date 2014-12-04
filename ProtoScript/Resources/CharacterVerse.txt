@@ -1,4 +1,4 @@
-Control File Version	1	Generated	Tue, 02 Dec 2014 15:02:38 GMT
+Control File Version	3	Generated	Thu, 04 Dec 2014 16:01:02 GMT
 GEN	1	3	God		God (the LORD)
 GEN	1	5	Not A Quote		
 GEN	1	6	God		God (the LORD)
@@ -242,8 +242,8 @@ GEN	25	31	Jacob
 GEN	25	32	Esau		
 GEN	25	33	Jacob		
 GEN	26	2	God		God (LORD appeared)
-GEN	26	7	Isaac	thought	
 GEN	26	7	Isaac		
+GEN	26	7	Isaac	thought	
 GEN	26	7	Not A Quote		
 GEN	26	9	Abimelech		Abimelech, King of Philistines
 GEN	26	9	Isaac		
@@ -2396,8 +2396,8 @@ RUT	4	17	women of Bethlehem
 2SA	4	8	Recab/Baanah		
 2SA	4	9	David		David, king
 2SA	5	1	Israel, all the tribes		
-2SA	5	6	Jebusites	thought	
 2SA	5	6	Jebusites		
+2SA	5	6	Jebusites	thought	
 2SA	5	8	David		David, king
 2SA	5	8	saying about blind and lame		
 2SA	5	19	David		David, king
@@ -6615,7 +6615,7 @@ DAN	4	19	Nebuchadnezzar, king of Babylon
 DAN	4	23	Daniel		
 DAN	4	24	Daniel		
 DAN	4	30	Nebuchadnezzar, king of Babylon		
-DAN	4	31	God		voice from heaven
+DAN	4	31	God		voice from heaven (God)
 DAN	4	34	Nebuchadnezzar, king of Babylon	letter	
 DAN	4	35	Nebuchadnezzar, king of Babylon	letter	
 DAN	4	35	Not A Quote		
@@ -6648,8 +6648,8 @@ DAN	7	5	Daniel	vision written
 DAN	7	6	Daniel	vision written	
 DAN	7	7	Daniel	vision written	
 DAN	7	8	Daniel	vision written	
-DAN	7	9	Daniel	vision written	
 DAN	7	9	Daniel		
+DAN	7	9	Daniel	vision written	
 DAN	7	10	Daniel	vision written	
 DAN	7	11	Daniel	vision written	
 DAN	7	13	Daniel	vision written	
@@ -7304,7 +7304,7 @@ MAL	4	1	God		God (the LORD Almighty)
 MAL	4	4	God		God (the LORD Almighty)
 MAL	4	5	God		God (the LORD Almighty)
 MAT	1	1	Not A Quote		
-MAT	1	20	angel of the LORD, an 1	official announcement	
+MAT	1	20	angel of the LORD, an	official announcement	
 MAT	1	21	Not A Quote		
 MAT	1	23	Not A Quote		
 MAT	1	23	scripture		
@@ -7317,10 +7317,10 @@ MAT	2	5	Good Priest		people's chief priests/teachers of the law|Good Priest
 MAT	2	6	Good Priest		people's chief priests/teachers of the law|Good Priest
 MAT	2	7	Not A Quote		
 MAT	2	8	Herod the Great	sly	
-MAT	2	13	angel of the LORD, an 1	commanding	
+MAT	2	13	angel of the LORD, an	commanding	
 MAT	2	15	scripture		
 MAT	2	18	scripture		
-MAT	2	20	angel of the LORD, an 1	commanding	
+MAT	2	20	angel of the LORD, an	commanding	
 MAT	2	23	scripture		
 MAT	3	2	John the Baptist	proclaiming truth	
 MAT	3	3	scripture		
@@ -7332,7 +7332,7 @@ MAT	3	11	John the Baptist	humble
 MAT	3	12	John the Baptist	warning	
 MAT	3	14	John the Baptist	humble	
 MAT	3	15	Jesus		
-MAT	3	17	God		voice from heaven
+MAT	3	17	God		voice from heaven (God)
 MAT	4	3	Satan		Tempter
 MAT	4	4	Jesus		
 MAT	4	6	Satan		Devil
@@ -7527,8 +7527,8 @@ MAT	11	28	Jesus	compassionately
 MAT	12	2	Pharisees 2	angry	
 MAT	12	3	Jesus	patiently	
 MAT	12	4	Jesus	patiently	
-MAT	12	7	Jesus	patiently	
 MAT	12	7	Jesus		
+MAT	12	7	Jesus	patiently	
 MAT	12	10	Pharisees 3	testing	
 MAT	12	11	Jesus		
 MAT	12	13	Jesus	giving orders	
@@ -8033,7 +8033,7 @@ MRK	1	2	scripture
 MRK	1	3	scripture		
 MRK	1	4	John the Baptist		
 MRK	1	7	John the Baptist		
-MRK	1	11	God		voice from heaven
+MRK	1	11	God		voice from heaven (God)
 MRK	1	15	Jesus		
 MRK	1	17	Jesus		
 MRK	1	20	Jesus		
@@ -8161,18 +8161,18 @@ MRK	6	35	disciples, the=disciples, His	taking charge
 MRK	6	37	Jesus		
 MRK	6	37	Philip	frustrated	Philip=disciples, the=disciples, His
 MRK	6	37,38	Jesus		
-MRK	6	37,38	Jesus	questioning	
 MRK	6	37-38	Jesus	questioning	
+MRK	6	37,38	Jesus	questioning	
 MRK	6	38	Andrew		Andrew=disciples, the=disciples, His
 MRK	6	38	Jesus	questioning	
 MRK	6	39	Jesus		
 MRK	6	49	disciples, His		
 MRK	6	49	Jesus	reassuring	
-MRK	6	49,50	disciples, His		
 MRK	6	49-50	disciples, His		
+MRK	6	49,50	disciples, His		
 MRK	6	49,50	Jesus		
-MRK	6	49,50	Jesus	reassuring	
 MRK	6	49-50	Jesus	reassuring	
+MRK	6	49,50	Jesus	reassuring	
 MRK	6	50	Jesus		
 MRK	6	56	people, sick		
 MRK	7	2	Not A Quote		
@@ -8461,8 +8461,8 @@ MRK	15	38,39	centurion=centurion/other guards|army officer	amazed
 MRK	15	39	centurion=centurion/other guards|army officer	amazed	
 MRK	15	43	Joseph of Arimathea		
 MRK	15	43	Pilate	surprised	
-MRK	15	44	Pilate	surprised	
 MRK	15	44	Pilate		
+MRK	15	44	Pilate	surprised	
 MRK	15	45	centurion		
 MRK	15	45	Pilate		
 MRK	16	3	Mary Magdalene		Mary Magdalene/Mary mother of James/Salome
@@ -8478,11 +8478,11 @@ LUK	1	16	angel of the LORD, an
 LUK	1	18	Zechariah		
 LUK	1	19	angel of the LORD, an		
 LUK	1	25	Elizabeth		
-LUK	1	28	angel Gabriel, sent by God	to Mary	
+LUK	1	28	angel of the LORD, an	to Mary	angel Gabriel, sent by God
 LUK	1	29	Mary (Jesus' mother)	confused	
-LUK	1	30	angel Gabriel, sent by God		
+LUK	1	30	angel of the LORD, an		angel Gabriel, sent by God
 LUK	1	34	Mary (Jesus' mother)		
-LUK	1	35	angel Gabriel, sent by God		
+LUK	1	35	angel of the LORD, an		angel Gabriel, sent by God
 LUK	1	38	Mary (Jesus' mother)		
 LUK	1	42	Elizabeth		
 LUK	1	43	Elizabeth		
@@ -8548,7 +8548,7 @@ LUK	3	14	soldiers 1	calling out
 LUK	3	15	people		
 LUK	3	16	John the Baptist		
 LUK	3	17	John the Baptist		
-LUK	3	22	God		voice from heaven
+LUK	3	22	God		voice from heaven (God)
 LUK	4	3	Satan		Devil
 LUK	4	4	Jesus		
 LUK	4	6	Satan		Devil
@@ -8737,8 +8737,8 @@ LUK	9	27	Jesus
 LUK	9	33	Peter (Simon)	afraid	
 LUK	9	35	voice from cloud		
 LUK	9	38	father of possessed boy=man in crowd	distraught	
-LUK	9	41	Jesus	exasperated; giving orders	
 LUK	9	41	Jesus	exasperated	
+LUK	9	41	Jesus	exasperated; giving orders	
 LUK	9	41	Jesus	giving orders	
 LUK	9	43	everyone in crowd	praising God	
 LUK	9	44	Jesus		
@@ -9599,7 +9599,7 @@ JHN	12	23	Jesus
 JHN	12	24	Jesus		
 JHN	12	25	Jesus		
 JHN	12	27	Jesus		
-JHN	12	28	God		voice from heaven
+JHN	12	28	God		voice from heaven (God)
 JHN	12	29	crowds, others in		
 JHN	12	30	Jesus		
 JHN	12	34	crowd 1	challenging	
@@ -9884,7 +9884,7 @@ ACT	5	3	Peter (Simon)
 ACT	5	8	Peter (Simon)		
 ACT	5	8	Sapphira (Ananias' wife)		
 ACT	5	9	Peter (Simon)		
-ACT	5	20	angel of the LORD, an 1	commanding	
+ACT	5	20	angel of the LORD, an	commanding	
 ACT	5	23	temple police	perplexed	
 ACT	5	24	captain, of temple guard/chief priests		
 ACT	5	25	someone 2	excited	
@@ -9980,8 +9980,8 @@ ACT	9	21	all who heard (in synagogues)
 ACT	9	34	Peter (Simon)		
 ACT	9	38	disciples, 2 men	urgent	
 ACT	9	40	Peter (Simon)		
-ACT	10	3	angel of God, an		
-ACT	10	4	angel of God, an		
+ACT	10	3	angel of the LORD, an		angel of God, an
+ACT	10	4	angel of the LORD, an		angel of God, an
 ACT	10	4	Cornelius	afraid	
 ACT	10	13	Jesus		voice (in trance)
 ACT	10	14	Peter (Simon)		
@@ -10017,8 +10017,8 @@ ACT	11	15	Peter (Simon)
 ACT	11	18	believers, circumcised	rejoicing	believers, circumcised|Jewish believer
 ACT	11	23	Barnabas		
 ACT	11	28	Agabus the prophet		
-ACT	12	7	angel of the LORD, an 1	commanding	
-ACT	12	8	angel of the LORD, an 1	commanding	
+ACT	12	7	angel of the LORD, an	commanding	
+ACT	12	8	angel of the LORD, an	commanding	
 ACT	12	11	Peter (Simon)		
 ACT	12	14	Rhoda	could be a young girl	
 ACT	12	15	people gathered to pray		
@@ -10689,14 +10689,14 @@ REV	7	16	elders, one of the
 REV	7	17	elders, one of the		
 REV	8	13	eagle crying with loud voice		
 REV	9	14	voice from altar		
-REV	10	4	voice from heaven		
+REV	10	4	God		voice from heaven (God)
 REV	10	6	angel standing on sea and land		
-REV	10	8	voice from heaven		
+REV	10	8	God		voice from heaven (God)
 REV	10	9	angel standing on sea and land		
 REV	10	11	they (unclear in Greek)		
 REV	11	1	they (unclear in Greek/voice from heaven & angel?)		
 REV	11	3	they (unclear in Greek/voice from heaven & angel?)		
-REV	11	12	voice from heaven, loud		
+REV	11	12	God		voice from heaven (God), loud
 REV	11	14	voice among living creatures 1		
 REV	11	15	voices in heaven, loud		
 REV	11	17	twenty-four elders		
@@ -10706,15 +10706,15 @@ REV	12	11	voice in heaven, loud
 REV	12	12	voice in heaven, loud		
 REV	13	4	world, the whole		
 REV	13	9	voice from heaven, another 2		
-REV	13	10	God		voice from heaven, loud
+REV	13	10	God		voice from heaven (God), loud
 REV	13	18	voice 2		
 REV	14	7	angel flying directly overhead		
 REV	14	8	angel flying directly overhead, second		
 REV	14	9	angel flying directly overhead, third		
 REV	14	10	angel flying directly overhead, third		
 REV	14	11	angel flying directly overhead, third		
+REV	14	13	God		voice from heaven (God)
 REV	14	13	Jesus		Spirit, the
-REV	14	13	voice from heaven		
 REV	14	14	Not A Quote		
 REV	14	15	angel, coming out of temple		
 REV	14	18	angel, coming out of temple, another		
@@ -10792,6 +10792,7 @@ REV	22	6	angel, the 2
 REV	22	7	Jesus		
 REV	22	9	angel, the 2		
 REV	22	10	angel, the 2		
+REV	22	11	angel, the 2		
 REV	22	12	Jesus		
 REV	22	13	Jesus		
 REV	22	14	angel, the 2		

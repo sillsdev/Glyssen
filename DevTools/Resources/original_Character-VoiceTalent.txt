@@ -17,7 +17,7 @@ Absalom,3,0010
 Absalom/Israel, men of,3,0010
 Achan,14,0013
 Achish [said to himself],10,0013
-Achish,10,0014
+Achish,10,0013
 Acsah, Caleb's daughter,24,0015
 Adam,30,0016
 Adoni-Bezek,10,0017
@@ -1006,17 +1006,17 @@ all seeking God [rejoicing, glad],5,0469
 all who heard (in synagogues),1,0470
 altar, the,11,0471
 angel Gabriel, sent by God [to Mary],10,0471
-angel Gabriel, sent by God,1,0471
-angel flying directly overhead #17,17,0472
+angel Gabriel, sent by God,10,0471
+angel flying directly overhead #10,10,0472
 angel flying directly overhead, second #13,13,0473
-angel flying directly overhead, third,10,0474
+angel flying directly overhead, third,1,0474
 angel from the rising sun with seal of living God,17,0472
 angel in white=man dressed in white robe, young,14,0475
-angel of God, an,17,0472
+angel of God, an,10,0471
 angel of God, the,7,0700
-angel of the LORD, an [commanding],17,0473
-angel of the LORD, an [official announcement],11,0473
-angel of the LORD, an,12,0474
+angel of the LORD, an [commanding],10,0471
+angel of the LORD, an [official announcement],10,0471
+angel of the LORD, an,10,0471
 angel of the LORD, the (vision),7,0700
 angel of the LORD, the [calling from Heaven],7,0700
 angel of the LORD, the,7,0700
@@ -1028,7 +1028,7 @@ angel who talked with Zechariah,19,0477
 angel wrestling with Jacob|angel,17,0700
 angel, another (vision),13,0478
 angel, another, coming down from heaven #17,17,0473
-angel, arch-, Michael,10,0479
+angel, arch-, Michael,1,0479
 angel, coming out of temple #9,9,0480
 angel, coming out of temple, another #6,6,0481
 angel, powerful #1,1,0482
@@ -1829,15 +1829,12 @@ voice among living creatures,15,0972
 voice from altar #11,11,0973
 voice from bright cloud #20 (God),20,2000
 voice from cloud,20,0974
-voice from heaven #1,1,0975
 voice from heaven, another #13 [wailing],13,0976
 voice from heaven, another #13 [weeping/ cry out],13,0976
 voice from heaven, another #13,13,0976
 voice from heaven, another #9,9,0977
-voice from heaven, loud #1,1,0978
-voice from heaven, loud,20,2000
-voice from heaven,20,2000
-voice from heaven,20,2022
+voice from heaven (God), loud,20,2000
+voice from heaven (God),20,2000
 voice from temple, loud,9,0977
 voice from throne #11,11,0978
 voice from throne, loud #11,11,0978
