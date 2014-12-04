@@ -39,7 +39,12 @@ namespace ProtoScriptTests
 		{
 			foreach (var quoteSystem in QuoteSystem.AllSystems)
 			{
-				Assert.AreEqual(quoteSystem, QuoteSystemGuesser.Guess(MockedBookForQuoteSystem.GetMockedBooks(quoteSystem)));
+				var sw = new Stopwatch();
+				sw.Start();
+				var guessedQuoteSystem = QuoteSystemGuesser.Guess(MockedBookForQuoteSystem.GetMockedBooks(quoteSystem));
+				sw.Stop();
+				Console.WriteLine("Took " + sw.ElapsedMilliseconds + " milliseconds to attempt to guess " + quoteSystem.Name + "(" + quoteSystem + ")");
+				Assert.AreEqual(quoteSystem, guessedQuoteSystem);
 			}
 		}
 
@@ -50,7 +55,7 @@ namespace ProtoScriptTests
 			sw.Start();
 			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(MockedBookForQuoteSystem.GetMockedBooks(null)));
 			sw.Stop();
-			Assert.IsTrue(sw.ElapsedMilliseconds < 5000);
+			Assert.IsTrue(sw.ElapsedMilliseconds < 5200, "Actual time (ms): " + sw.ElapsedMilliseconds);
 		}
 
 		// TODO: Is there any kind of test (and/or better program logic) that will do a good job of dealing with the quote systems where the start and end tags are the same.

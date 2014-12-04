@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using SIL.ScriptureUtils;
 
@@ -25,8 +26,12 @@ namespace ProtoScript
 			const double minStartQuotePercent = .75;
 			const double minEndQuotePercent = .22;
 			const int maxFollowingVersesToSearchForEndQuote = 7;
+			const int maxTimeLimit = 4800; // milliseconds
 			int prevQuoteChapter;
 			int prevQuoteVerse;
+
+			var stopwatch = new Stopwatch();
+			stopwatch.Start();
 
 			foreach (var book in bookList)
 			{
@@ -74,6 +79,12 @@ namespace ProtoScript
 								kvp.Value.EndQuoteHits > totalVersesAnalyzed * minEndQuotePercent)
 								return kvp.Key;
 						}
+					}
+
+					if (stopwatch.ElapsedMilliseconds > maxTimeLimit)
+					{
+						Debug.WriteLine("Giving up guessing quote system.");
+						return QuoteSystem.Default;
 					}
 
 					if (versesAnalyzedForCurrentBook >= maxSamplePerBook)
