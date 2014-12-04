@@ -11,6 +11,7 @@ using Palaso.Xml;
 using Paratext;
 using ProtoScript.Bundle;
 using ProtoScript.Properties;
+using SIL.ScriptureUtils;
 using Canon = ProtoScript.Bundle.Canon;
 
 namespace ProtoScript
@@ -18,6 +19,7 @@ namespace ProtoScript
 	internal class Project
 	{
 		public const string kProjectFileExtension = ".pgproj";
+		public const string kBookScriptFileExtension = ".xml";
 		private readonly DblMetadata m_metadata;
 		private readonly List<BookScript> m_books = new List<BookScript>();
 
@@ -72,9 +74,13 @@ namespace ProtoScript
 			project = new Project(metadata);
 			var projectDir = Path.GetDirectoryName(projectFilePath);
 			Debug.Assert(projectDir != null);
-			foreach (var file in Directory.GetFiles(projectDir, "???.xml"))
+			string[] files = Directory.GetFiles(projectDir, "???" + kBookScriptFileExtension);
+			for (int i = 1; i <= BCVRef.LastBook; i++)
 			{
-				project.m_books.Add(XmlSerializationHelper.DeserializeFromFile<BookScript>(file));
+				string bookCode = BCVRef.NumberToBookCode(i);
+				string possibleFileName = Path.Combine(projectDir, bookCode + kBookScriptFileExtension);
+				if (files.Contains(possibleFileName))
+					project.m_books.Add(XmlSerializationHelper.DeserializeFromFile<BookScript>(possibleFileName));
 			}
 			if (metadata.ControlFileVersion != CharacterVerse.ControlFileVersion)
 			{
