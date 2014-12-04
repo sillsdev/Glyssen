@@ -96,6 +96,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlockNavigator.cs" />
     <Compile Include="BookScript.cs" />
     <Compile Include="Bundle\Bundle.cs" />
     <Compile Include="Bundle\Canon.cs" />
