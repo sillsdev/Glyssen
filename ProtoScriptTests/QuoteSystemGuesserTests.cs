@@ -25,7 +25,7 @@ namespace ProtoScriptTests
 
 			for (int i = 1; i < BCVRef.LastBook; i++)
 			{
-				var mockedBook = MockRepository.Mock<IScrBook>();
+				var mockedBook = MockRepository.GenerateMock<IScrBook>();
 				mockedBook.Stub(x => x.BookId).Return(BCVRef.NumberToBookCode(i));
 				mockedBook.Stub(x => x.GetVerseText(Arg<int>.Is.Anything, Arg<int>.Is.Anything)).Return(string.Empty);
 				mockedBooks.Add(mockedBook);
