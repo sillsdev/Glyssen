@@ -35,14 +35,14 @@ namespace ProtoScriptTests
 		public void Assign_OverwriteUserConfirmedFalse_DoesNotOverwrite()
 		{
 			new CharacterAssigner().Assign(m_bookScript);
-			Assert.AreEqual("Made Up Guy", m_bookScript.Blocks[1].CharacterId);
+			Assert.AreEqual("Made Up Guy", m_bookScript.ScriptBlocks[1].CharacterId);
 		}
 
 		[Test]
 		public void Assign_OverwriteUserConfirmedTrue_DoesOverwrite()
 		{
 			new CharacterAssigner().Assign(m_bookScript, true);
-			Assert.AreEqual("John the Baptist", m_bookScript.Blocks[1].CharacterId);
+			Assert.AreEqual("John the Baptist", m_bookScript.ScriptBlocks[1].CharacterId);
 		}
 	}
 }

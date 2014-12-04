@@ -36,7 +36,7 @@ namespace ProtoScript
 				{
 					Id = styleId,
 					IsPublishable = ((tag.TextProperties & TextProperties.scPublishable) > 0),
-					IsVerseText = ((tag.TextProperties & TextProperties.scVerse) > 0),
+					IsVerseText = ((tag.TextType & ScrTextType.scVerseText) > 0),
 				};
 			}
 			m_styleLookup[styleId] = style;

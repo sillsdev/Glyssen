@@ -25,7 +25,7 @@ namespace ProtoScript.Dialogs
 		private void SetupQuoteMarksComboBox()
 		{
 			m_comboQuoteMarks.Items.AddRange(QuoteSystem.AllSystems.ToArray());
-			m_comboQuoteMarks.SelectedItem = m_project != null ? m_project.QuoteSystem : QuoteSystem.Default;
+			m_comboQuoteMarks.SelectedItem = m_project.QuoteSystem;
 		}
 
 		private void comboQuoteMarks_DrawItem(object sender, DrawItemEventArgs e)
@@ -40,26 +40,18 @@ namespace ProtoScript.Dialogs
 
 		private void m_btnOk_Click(object sender, EventArgs e)
 		{
-			if (m_project != null && m_project.QuoteSystem != (QuoteSystem)m_comboQuoteMarks.SelectedItem)
+			if (m_project.ConfirmedQuoteSystem != null && m_project.ConfirmedQuoteSystem != (QuoteSystem)m_comboQuoteMarks.SelectedItem)
 			{
 				string msg = LocalizationManager.GetString("ProjectSettingsDialog.ConfirmReparseMessage", "Changing the quote system will require a reparse of the text. Are you sure?");
 				string title = LocalizationManager.GetString("ProjectSettingsDialog.ConfirmReparse", "Confirm Reparse");
-				if (MessageBox.Show(msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
-				{
-					m_project.QuoteSystem = (QuoteSystem)m_comboQuoteMarks.SelectedItem;
-					Close();
-				}
-				else
+				if (MessageBox.Show(msg, title, MessageBoxButtons.YesNo) != DialogResult.Yes)
 				{
 					m_comboQuoteMarks.SelectedItem = m_project.QuoteSystem;
+					return;
 				}
 			}
-			else
-				Close();
-		}
-
-		private void m_btnCancel_Click(object sender, EventArgs e)
-		{
+			m_project.QuoteSystem = (QuoteSystem)m_comboQuoteMarks.SelectedItem;
+			DialogResult = DialogResult.OK;
 			Close();
 		}
 	}

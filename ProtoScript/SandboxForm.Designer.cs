@@ -100,6 +100,7 @@
 			// 
 			// m_btnExportToTabSeparated
 			// 
+			this.m_btnExportToTabSeparated.Enabled = false;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnExportToTabSeparated, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnExportToTabSeparated, null);
 			this.l10NSharpExtender1.SetLocalizationPriority(this.m_btnExportToTabSeparated, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -128,6 +129,7 @@
 			// 
 			// m_btnSettings
 			// 
+			this.m_btnSettings.Enabled = false;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnSettings, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnSettings, null);
 			this.l10NSharpExtender1.SetLocalizationPriority(this.m_btnSettings, L10NSharp.LocalizationPriority.NotLocalizable);

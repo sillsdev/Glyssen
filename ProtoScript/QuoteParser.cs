@@ -44,6 +44,8 @@ namespace ProtoScript
 		/// <returns>A new enumerable of blocks broken up for quotes</returns>
 		public IEnumerable<Block> Parse()
 		{
+			if (m_quoteSystem == null)
+				return m_inputBlocks;
 			m_outputBlocks = new List<Block>();
 			var sb = new StringBuilder();
 			int quoteLevel = 0;

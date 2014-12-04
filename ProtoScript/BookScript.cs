@@ -10,8 +10,10 @@ namespace ProtoScript
 	[XmlRoot("book")]
 	public class BookScript : IScrBook
 	{
-		private Dictionary<int, int> m_chapterStartBlockIndices = new Dictionary<int, int>();
- 
+		private Dictionary<int, int> m_chapterStartBlockIndices;
+		private int m_blockCount;
+		private List<Block> m_blocks;
+
 		public BookScript()
 		{
 			// Needed for deserialization
@@ -26,18 +28,52 @@ namespace ProtoScript
 		[XmlAttribute("id")]
 		public string BookId { get; set; }
 
+		/// <summary>
+		/// Don't use this getter in production code. It is intended ONLY for use by the XML serializer!
+		/// </summary>
 		[XmlElement(ElementName = "block")]
-		public List<Block> Blocks { get; set; }
+		public List<Block> Blocks
+		{
+			get { return m_blocks; }
+			set
+			{
+				m_blocks = value;
+				m_chapterStartBlockIndices = new Dictionary<int, int>();
+				m_blockCount = m_blocks.Count;
+			}
+		}
+
+		public IReadOnlyList<Block> ScriptBlocks
+		{
+			get { return m_blocks; }
+		}
 
 		public string GetVerseText(int chapter, int verse)
 		{
+			// Admittedly, this isn't the best way to prevent changes, but it is easier than doing custom serialization or trying to encapsulate the
+			// class to allow XML serialization but not expose the Blocks getter.
+			if (m_blockCount == 0)
+				m_blockCount = m_blocks.Count;
+			else if (m_blockCount != m_blocks.Count)
+				throw new InvalidOperationException("Blocks collection changed. Blocks getter should not be used to add or remove blocks to the list. Use setter instead.");
+			if (m_blockCount == 0)
+				return string.Empty;
 			int chapterStartBlock;
 			bool chapterStartFound = m_chapterStartBlockIndices.TryGetValue(chapter, out chapterStartBlock);
 
-			int iFirstBlockToExamine = -1;
-			for (int index = chapterStartBlock; index < Blocks.Count; index++)
+			if (!chapterStartFound && m_chapterStartBlockIndices.Any())
 			{
-				var block = Blocks[index];
+				int fallBackChapter = chapter;
+				while (fallBackChapter > 1)
+				{
+					if (m_chapterStartBlockIndices.TryGetValue(--fallBackChapter, out chapterStartBlock))
+						break;
+				}
+			}
+			int iFirstBlockToExamine = -1;
+			for (int index = chapterStartBlock; index < m_blockCount; index++)
+			{
+				var block = m_blocks[index];
 				if (block.ChapterNumber < chapter)
 					continue;
 				if (block.ChapterNumber > chapter)
@@ -63,13 +99,13 @@ namespace ProtoScript
 			{
 				if (!chapterStartFound)
 					return string.Empty;
-				iFirstBlockToExamine = Blocks.Count - 1;
+				iFirstBlockToExamine = m_blockCount - 1;
 			}
 			StringBuilder bldr = new StringBuilder();
 			bool foundVerseStart = false;
-			for (int index = iFirstBlockToExamine; index < Blocks.Count; index++)
+			for (int index = iFirstBlockToExamine; index < m_blockCount; index++)
 			{
-				var block = Blocks[index];
+				var block = m_blocks[index];
 				foreach (var element in block.BlockElements)
 				{
 					Verse verseElement = element as Verse;

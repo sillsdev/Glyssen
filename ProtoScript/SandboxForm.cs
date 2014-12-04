@@ -24,6 +24,27 @@ namespace ProtoScript
 			HandleStringsLocalized();
 		}
 
+		private void SetProject(Project project)
+		{
+			m_project = project;
+			m_btnSettings.Enabled = m_btnExportToTabSeparated.Enabled = m_project != null;
+			UpdateDisplayOfProjectIdInfo();
+
+			if (m_project != null)
+			{
+				if (m_project.ConfirmedQuoteSystem == null)
+				{
+					var msg = string.Format(LocalizationManager.GetString("Project.NeedQuoteSystem",
+						"{0} was unable to identify the quotation marks used in this project. " +
+						"The quotation system is needed to automatically identify quotations. " +
+						"Would you like to display the {1} dialog box now in order to select the correct quotation system for this project?"),
+						ProductName, LocalizationManager.GetString("ProjectSettingsDialog.ProjectSettings", "Project Settings"));
+					if (MessageBox.Show(msg, ProductName, MessageBoxButtons.YesNo) == DialogResult.Yes)
+						m_btnSettings_Click(null, null);
+				}
+			}
+		}
+
 		private string ProjectsBaseFolder
 		{
 			get
@@ -80,9 +101,8 @@ namespace ProtoScript
 
 		private void LoadProject(string filePath)
 		{
-			if (!LoadAndHandleApplicationExceptions(() => { m_project = Project.Load(filePath); }))
-				m_project = null;
-			UpdateDisplayOfProjectIdInfo();
+			if (!LoadAndHandleApplicationExceptions(() => SetProject(Project.Load(filePath))))
+				SetProject(null);
 		}
 
 		private void LoadBundle(string bundlePath)
@@ -91,8 +111,7 @@ namespace ProtoScript
 
 			if (!LoadAndHandleApplicationExceptions(() => { bundle = new Bundle.Bundle(bundlePath); }))
 			{
-				m_project = null;
-				UpdateDisplayOfProjectIdInfo();
+				SetProject(null);
 				return;
 			}
 
@@ -103,9 +122,7 @@ namespace ProtoScript
 				LoadProject(projFilePath);
 				return;
 			}
-			m_project = new Project(bundle.Metadata);
-			UpdateDisplayOfProjectIdInfo();
-			m_project.PopulateAndParseBooks(bundle);
+			SetProject(new Project(bundle));
 		}
 
 		private bool LoadAndHandleApplicationExceptions(Action loadCommand)
@@ -124,6 +141,7 @@ namespace ProtoScript
 				}
 
 				MessageBox.Show(bldr.ToString(), ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				UpdateDisplayOfProjectIdInfo();
 				return false;
 			}
 			return true;
@@ -196,12 +214,25 @@ namespace ProtoScript
 					return;
 				sfmFilePath = dlg.FileName;
 			}
-			string usfmStylesheetPath = Path.Combine(FileLocator.GetDirectoryDistributedWithApplication("sfm"), "usfm.sty");
-			var scrStylesheet = new ScrStylesheet(usfmStylesheetPath);
-			var book = new UsxDocument(UsfmToUsx.ConvertToXmlDocument(scrStylesheet, File.ReadAllText(sfmFilePath)));
+
+			ScrStylesheet scrStylesheet;
+			UsxDocument book;
+			try
+			{
+				string usfmStylesheetPath = Path.Combine(FileLocator.GetDirectoryDistributedWithApplication("sfm"), "usfm.sty");
+				scrStylesheet = new ScrStylesheet(usfmStylesheetPath);
+				book = new UsxDocument(UsfmToUsx.ConvertToXmlDocument(scrStylesheet, File.ReadAllText(sfmFilePath)));
+				var bookId = book.BookId;
+				if (bookId.Length != 3)
+					throw new Exception(LocalizationManager.GetString("Project.StandardFormat.InvalidBookId", "Invalid Book ID: " + bookId));
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				return;
+			}
 			var metadata = new DblMetadata { id = "sfm" + DateTime.Now.Ticks, language = new DblMetadataLanguage { iso = "zzz" } };
-			m_project = new Project(metadata);
-			m_project.ParseAndAddBooks(new [] { book }, new ScrStylesheetAdapter(scrStylesheet));
+			SetProject(new Project(metadata, new[] { book }, new ScrStylesheetAdapter(scrStylesheet)));
 		}
 
 		private void m_btnSettings_Click(object sender, EventArgs e)

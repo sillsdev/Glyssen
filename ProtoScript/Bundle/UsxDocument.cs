@@ -17,11 +17,6 @@ namespace ProtoScript.Bundle
 			m_document.Load(path);
 		}
 
-		//public XmlNode GetBook()
-		//{
-		//	return m_document.SelectSingleNode("//book");
-		//}
-
 		public string BookId
 		{
 			get

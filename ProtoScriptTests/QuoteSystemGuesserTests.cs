@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using NUnit.Framework;
 using ProtoScript;
@@ -15,7 +17,9 @@ namespace ProtoScriptTests
 		[Test]
 		public void Guess_NoBooks_ReturnsDefaultQuoteSystem()
 		{
-			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(new List<IScrBook>()));
+			bool certain;
+			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(new List<IScrBook>(), out certain));
+			Assert.IsFalse(certain);
 		}
 
 		[Test]
@@ -30,22 +34,40 @@ namespace ProtoScriptTests
 				mockedBook.Stub(x => x.GetVerseText(Arg<int>.Is.Anything, Arg<int>.Is.Anything)).Return(string.Empty);
 				mockedBooks.Add(mockedBook);
 			}
-		
-			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(mockedBooks));
+
+			bool certain;
+			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(mockedBooks, out certain));
+			Assert.IsFalse(certain);
 		}
 
 		[Test]
-		public void Guess_AllBuiltInQuoteSystems_CorrectlyIdentifiesSystem()
+		public void Guess_AllBuiltInQuoteSystemsWithHighlyConsistentData_CorrectlyIdentifiesSystemWithCertainty()
 		{
 			foreach (var quoteSystem in QuoteSystem.AllSystems)
 			{
-				var sw = new Stopwatch();
-				sw.Start();
-				var guessedQuoteSystem = QuoteSystemGuesser.Guess(MockedBookForQuoteSystem.GetMockedBooks(quoteSystem));
-				sw.Stop();
-				Console.WriteLine("Took " + sw.ElapsedMilliseconds + " milliseconds to attempt to guess " + quoteSystem.Name + "(" + quoteSystem + ")");
-				Assert.AreEqual(quoteSystem, guessedQuoteSystem);
+				RunTest(quoteSystem, true, true);
 			}
+		}
+
+		[Test]
+		public void Guess_DoubleCurlyQuotesWithLessConsistentData_CorrectlyIdentifiesSystemWithCertainty()
+		{
+			var quoteSystem = QuoteSystem.AllSystems.Single(qs => qs.Name == "Quotation marks, double");
+			RunTest(quoteSystem, false, true);
+		}
+
+		private void RunTest(QuoteSystem quoteSystem, bool highlyConsistentData, bool expectedCertain)
+		{
+			Console.WriteLine("Attempting to guess " + quoteSystem.Name + "(" + quoteSystem + ")");
+			var sw = new Stopwatch();
+			sw.Start();
+			bool certain;
+			var guessedQuoteSystem = QuoteSystemGuesser.Guess(MockedBookForQuoteSystem.GetMockedBooks(quoteSystem, highlyConsistentData), out certain);
+			sw.Stop();
+			Console.WriteLine("   took " + sw.ElapsedMilliseconds + " milliseconds.");
+			Assert.AreEqual(quoteSystem, guessedQuoteSystem);
+			if (expectedCertain)
+			Assert.IsTrue(certain);
 		}
 
 		[Test]
@@ -53,29 +75,32 @@ namespace ProtoScriptTests
 		{
 			var sw = new Stopwatch();
 			sw.Start();
-			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(MockedBookForQuoteSystem.GetMockedBooks(null)));
+			bool certain;
+			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(MockedBookForQuoteSystem.GetMockedBooks(null), out certain));
 			sw.Stop();
 			Assert.IsTrue(sw.ElapsedMilliseconds < 5200, "Actual time (ms): " + sw.ElapsedMilliseconds);
+			Assert.IsFalse(certain);
 		}
-
-		// TODO: Is there any kind of test (and/or better program logic) that will do a good job of dealing with the quote systems where the start and end tags are the same.
 	}
 
 	internal class MockedBookForQuoteSystem : IScrBook
 	{
 		private QuoteSystem m_desiredQuoteSystem;
+		private readonly bool m_highlyConsistentData;
+		private Random m_random = new Random();
 
-		public static List<IScrBook> GetMockedBooks(QuoteSystem desiredQuoteSystem)
+		public static List<IScrBook> GetMockedBooks(QuoteSystem desiredQuoteSystem, bool highlyConsistentData = false)
 		{
 			var mockedBooks = new List<IScrBook>();
 			for (int i = 1; i < BCVRef.LastBook; i++)
-				mockedBooks.Add(new MockedBookForQuoteSystem(i, desiredQuoteSystem));
+				mockedBooks.Add(new MockedBookForQuoteSystem(i, desiredQuoteSystem, highlyConsistentData));
 			return mockedBooks;
 		}
 
-		public MockedBookForQuoteSystem(int bookNum, QuoteSystem desiredQuoteSystem)
+		public MockedBookForQuoteSystem(int bookNum, QuoteSystem desiredQuoteSystem, bool highlyConsistentData)
 		{
 			m_desiredQuoteSystem = desiredQuoteSystem;
+			m_highlyConsistentData = highlyConsistentData;
 			BookId = BCVRef.NumberToBookCode(bookNum);
 		}
 
@@ -96,7 +121,6 @@ namespace ProtoScriptTests
 				return BlockTestExtensions.RandomString();
 
 			var verseText = new StringBuilder();
-			var random = new Random();
 
 			string character = CharacterVerse.GetCharacter(BookId, chapter, verse);
 			bool quoteStartExpected = character != Block.UnknownCharacter && character != "scripture" && character != CharacterVerse.kNotAQuote;
@@ -109,7 +133,115 @@ namespace ProtoScriptTests
 			// a start quote needs to be fairly rare.
 			QuotePosition startQuote = quoteStartExpected ? QuotePosition.MiddleOfVerse : QuotePosition.None;
 			QuotePosition endQuote = QuotePosition.None;
-			var randomizer = random.Next(50);
+
+			if (m_highlyConsistentData)
+				RandomizeHighlyConsistent(quoteStartExpected, ref startQuote, ref endQuote);
+			else
+				RandomizeLessConsistent(quoteStartExpected, ref startQuote, ref endQuote);
+
+			if (startQuote == QuotePosition.StartOfVerse)
+				verseText.Append(m_desiredQuoteSystem.StartQuoteMarker);
+			if (endQuote == QuotePosition.StartOfVerse)
+				verseText.Append(m_desiredQuoteSystem.EndQuoteMarker);
+
+			verseText.Append(BlockTestExtensions.RandomString());
+
+			if (startQuote == QuotePosition.MiddleOfVerse)
+			{
+				verseText.Append(m_desiredQuoteSystem.StartQuoteMarker);
+				verseText.Append(BlockTestExtensions.RandomString());
+			}
+
+			if (endQuote == QuotePosition.MiddleOfVerse || endQuote == QuotePosition.OutOfOrder)
+			{
+				verseText.Append(m_desiredQuoteSystem.EndQuoteMarker);
+				verseText.Append(BlockTestExtensions.RandomString());
+			}
+
+			if (startQuote == QuotePosition.OutOfOrder)
+			{
+				verseText.Append(m_desiredQuoteSystem.StartQuoteMarker);
+				verseText.Append(BlockTestExtensions.RandomString());
+			}
+
+			if (startQuote == QuotePosition.EndOfVerse)
+				verseText.Append(m_desiredQuoteSystem.StartQuoteMarker);
+			if (endQuote == QuotePosition.EndOfVerse)
+				verseText.Append(m_desiredQuoteSystem.EndQuoteMarker);
+
+			return verseText.ToString();
+		}
+
+		private void RandomizeHighlyConsistent(bool quoteStartExpected, ref QuotePosition startQuote, ref QuotePosition endQuote)
+		{
+			var randomizer = m_random.Next(50);
+			if (!quoteStartExpected)
+			{
+				switch (randomizer)
+				{
+					case 1:
+						startQuote = QuotePosition.MiddleOfVerse;
+						endQuote = QuotePosition.MiddleOfVerse;
+						break;
+					case 2:
+					case 3:
+					case 4:
+					case 5: 
+						endQuote = QuotePosition.MiddleOfVerse;
+						break;
+					case 6:
+					case 7:
+					case 8:
+					case 9:
+						endQuote = QuotePosition.EndOfVerse;
+						break;
+				}
+			}
+			else
+			{
+				switch (randomizer)
+				{
+					case 1:
+					case 2:
+						startQuote = QuotePosition.None;
+						break;
+					case 3:
+					case 4:
+					case 5:
+					case 6:
+					case 7:
+					case 8:
+						startQuote = QuotePosition.StartOfVerse;
+						break;
+					case 9:
+					case 10:
+					case 11:
+						endQuote = QuotePosition.MiddleOfVerse;
+						break;
+					case 12:
+					case 13:
+					case 14:
+					case 15:
+					case 16:
+					case 17:
+					case 18:
+					case 19:
+					case 20:
+					case 21:
+					case 22:
+					case 23:
+					case 24:
+					case 25:
+					case 26:
+						endQuote = QuotePosition.EndOfVerse;
+						break;
+				}
+			}
+		}
+
+		private void RandomizeLessConsistent(bool quoteStartExpected, ref QuotePosition startQuote, ref QuotePosition endQuote)
+		{
+			var randomizer = m_random.Next(50);
 			if (!quoteStartExpected)
 			{
 				switch (randomizer)
@@ -145,65 +277,37 @@ namespace ProtoScriptTests
 						startQuote = QuotePosition.StartOfVerse;
 						break;
 					case 7:
-						startQuote = QuotePosition.OutOfOrder;
-						endQuote = QuotePosition.OutOfOrder;
-						break;
 					case 8:
 					case 9:
 					case 10:
-					case 11:
-						endQuote = QuotePosition.MiddleOfVerse;
+						startQuote = QuotePosition.OutOfOrder;
+						endQuote = QuotePosition.OutOfOrder;
 						break;
+					case 11:
 					case 12:
 					case 13:
 					case 14:
+						endQuote = QuotePosition.MiddleOfVerse;
+						break;
 					case 15:
 					case 16:
 					case 17:
-						endQuote = QuotePosition.EndOfVerse;
-						break;
 					case 18:
 					case 19:
 					case 20:
+						endQuote = QuotePosition.EndOfVerse;
+						break;
 					case 21:
 					case 22:
 					case 23:
+					case 24:
+					case 25:
+					case 26:
+					case 27:
 						startQuote = QuotePosition.None;
 						break;
 				}
 			}
-
-			if (startQuote == QuotePosition.StartOfVerse)
-				verseText.Append(m_desiredQuoteSystem.StartQuoteMarker);
-			if (endQuote == QuotePosition.StartOfVerse)
-				verseText.Append(m_desiredQuoteSystem.EndQuoteMarker);
-
-			verseText.Append(BlockTestExtensions.RandomString());
-
-			if (startQuote == QuotePosition.MiddleOfVerse)
-			{
-				verseText.Append(m_desiredQuoteSystem.StartQuoteMarker);
-				verseText.Append(BlockTestExtensions.RandomString());
-			}
-
-			if (endQuote == QuotePosition.MiddleOfVerse || endQuote == QuotePosition.OutOfOrder)
-			{
-				verseText.Append(m_desiredQuoteSystem.EndQuoteMarker);
-				verseText.Append(BlockTestExtensions.RandomString());
-			}
-
-			if (startQuote == QuotePosition.OutOfOrder)
-			{
-				verseText.Append(m_desiredQuoteSystem.StartQuoteMarker);
-				verseText.Append(BlockTestExtensions.RandomString());
-			}
-
-			if (startQuote == QuotePosition.EndOfVerse)
-				verseText.Append(m_desiredQuoteSystem.StartQuoteMarker);
-			if (endQuote == QuotePosition.EndOfVerse)
-				verseText.Append(m_desiredQuoteSystem.EndQuoteMarker);
-
-			return verseText.ToString();
 		}
 	}
 }

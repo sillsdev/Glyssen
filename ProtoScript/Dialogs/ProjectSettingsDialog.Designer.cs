@@ -42,6 +42,7 @@
 			// 
 			// m_btnCancel
 			// 
+			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnCancel, "Common.Cancel");
@@ -51,7 +52,6 @@
 			this.m_btnCancel.TabIndex = 0;
 			this.m_btnCancel.Text = "Cancel";
 			this.m_btnCancel.UseVisualStyleBackColor = true;
-			this.m_btnCancel.Click += new System.EventHandler(this.m_btnCancel_Click);
 			// 
 			// m_btnOk
 			// 
@@ -133,8 +133,10 @@
 			// 
 			// ProjectSettingsDialog
 			// 
+			this.AcceptButton = this.m_btnOk;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.CancelButton = this.m_btnCancel;
 			this.ClientSize = new System.Drawing.Size(425, 237);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label1);
