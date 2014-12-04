@@ -109,9 +109,15 @@ namespace DevTools
 			result = String.Compare(object1.Character, object2.Character, StringComparison.InvariantCulture);
 			if (result != 0)
 				return result;
+			result = String.Compare(object1.Delivery, object2.Delivery, StringComparison.InvariantCulture);
+			if (result != 0)
+				return result;
 			result = String.Compare(object1.Alias, object2.Alias, StringComparison.InvariantCulture);
 			if (result != 0)
 				return result;
+			result = String.Compare(object1.Verse, object2.Verse, StringComparison.InvariantCulture);
+			if (result != 0)
+				return -result;
 			return 0;
 		};
 
