@@ -44,11 +44,8 @@ angel flying directly overhead	0472
 angel flying directly overhead, second	0473
 angel flying directly overhead, third	0474
 angel from the rising sun with seal of living God	0472
-angel Gabriel, sent by God	1471
 angel in white=man dressed in white robe, young	0475
-angel of God, an	0472
-angel of the LORD, an 1	0473
-angel of the LORD, an	0474
+angel of the LORD, an	1471
 angel over waters	0475
 angel standing in sun	0476
 angel standing on sea and land	0473
@@ -1063,10 +1060,8 @@ voice among living creatures 1	0971
 voice among living creatures	0972
 voice from altar	0973
 voice from cloud	0974
-voice from heaven	0975
 voice from heaven, another 1	0976
 voice from heaven, another 2	0977
-voice from heaven, loud	0978
 voice from temple, loud	0977
 voice from throne	0978
 voice from throne, loud	0978

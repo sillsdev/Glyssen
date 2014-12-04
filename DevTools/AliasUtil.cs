@@ -100,10 +100,11 @@ namespace DevTools
 			{1378, "Pharoah"},
 			{1402, "Sadducees"},
 			{1427, "Shemaiah"},
+			{1471, "angel of the LORD, an"},
 			{2000, "God"},
 			{2271, "Johanan"},
 
-			//TODO add the rest (found in get_MultipleCharacterId.txt)
+			//TODO add the rest (found in MultipleCharacterId.txt)
 		}; 
 	}
 }
