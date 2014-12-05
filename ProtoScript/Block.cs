@@ -174,6 +174,11 @@ namespace ProtoScript
 			return CharacterId == GetCharacterPrefix(standardCharacterType) + bookId;
 		}
 
+		public bool CharacterIsUnclear()
+		{
+			return CharacterIs(Block.UnknownCharacter) || CharacterIs(Block.AmbiguousCharacter);
+		}
+
 		public void SetStandardCharacter(string bookId, StandardCharacter standardCharacterType)
 		{
 			CharacterId = GetCharacterPrefix(standardCharacterType) + bookId;
