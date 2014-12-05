@@ -57,13 +57,14 @@ namespace ProtoScriptTests
 		{
 			var block = new Block("p", 4);
 			block.CharacterId = "Fred";
+			block.Delivery = "With great gusto and quivering frustration";
 			block.BlockElements.Add(new Verse("1"));
 			block.BlockElements.Add(new ScriptText("Text of verse one. "));
 			block.BlockElements.Add(new Verse("2"));
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			Assert.AreEqual("p\tMRK\t4\t1\tFred\t[1]Text of verse one. [2]Text of verse two.\t" + textLength,
+			Assert.AreEqual("p\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t[1]Text of verse one. [2]Text of verse two.\t" + textLength,
 				block.GetAsTabDelimited("MRK"));
 		}
 
@@ -78,8 +79,137 @@ namespace ProtoScriptTests
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
 			int textLength = "Text of verse three, part two. ".Length + "Text of verse four. ".Length + "Text of verse five.".Length;
-			Assert.AreEqual("p\tMRK\t4\t3\t\tText of verse three, part two. [4]Text of verse four. [5]Text of verse five.\t" + textLength,
+			Assert.AreEqual("p\tMRK\t4\t3\t\t\tText of verse three, part two. [4]Text of verse four. [5]Text of verse five.\t" + textLength,
 				block.GetAsTabDelimited("MRK"));
+		}
+
+		[Test]
+		public void SetCharacterAndDelivery_SingleCharacter_SetsCharacterAndDelivery()
+		{
+			var block = new Block("p", 4, 4);
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Text of verse four. "));
+			block.SetCharacterAndDelivery(new[] { JesusQuestioning });
+			Assert.AreEqual("Jesus", block.CharacterId);
+			Assert.AreEqual("Questioning", block.Delivery);
+		}
+
+		[Test]
+		public void SetCharacterAndDelivery_NoCharacters_SetsCharacterToUnknown()
+		{
+			var block = new Block("p", 4, 4);
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Text of verse four. "));
+			block.CharacterId = "Fred";
+			block.Delivery = "Freakin' out";
+			block.SetCharacterAndDelivery(new CharacterVerse[0]);
+			Assert.AreEqual(Block.UnknownCharacter, block.CharacterId);
+			Assert.IsNull(block.Delivery);
+		}
+
+		[Test]
+		public void SetCharacterAndDelivery_MultipleCharacters_SetsCharacterToAmbiguous()
+		{
+			var block = new Block("p", 4, 4);
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Text of verse four. "));
+			block.CharacterId = "Fred";
+			block.Delivery = "Freakin' out";
+			block.SetCharacterAndDelivery(new [] { JesusCommanding, JesusQuestioning, Andrew });
+			Assert.AreEqual(Block.AmbiguousCharacter, block.CharacterId);
+			Assert.IsNull(block.Delivery);
+		}
+
+		[Test]
+		public void IsStandardCharacter_BiblicalCharacter_ReturnsFalse()
+		{
+			var block = new Block("p", 4, 4);
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Text of verse four. "));
+			block.SetCharacterAndDelivery(new[] { JesusQuestioning });
+			Assert.IsFalse(block.CharacterIsStandard);
+		}
+
+		[Test]
+		public void IsStandardCharacter_Narrator_ReturnsTrue()
+		{
+			var block = new Block("p", 4, 4);
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Text of verse four. "));
+			block.SetStandardCharacter("MRK", Block.StandardCharacter.Narrator);
+			Assert.IsTrue(block.CharacterIsStandard);
+		}
+
+		[Test]
+		public void IsStandardCharacter_ExtraBiblical_ReturnsTrue()
+		{
+			var block = new Block("p", 4, 4);
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Text of verse four. "));
+			block.SetStandardCharacter("GEN", Block.StandardCharacter.ExtraBiblical);
+			Assert.IsTrue(block.CharacterIsStandard);
+		}
+
+		[Test]
+		public void IsStandardCharacter_BookOrChapter_ReturnsTrue()
+		{
+			var block = new Block("c", 4);
+			block.BlockElements.Add(new ScriptText("4"));
+			block.SetStandardCharacter("REV", Block.StandardCharacter.BookOrChapter);
+			Assert.IsTrue(block.CharacterIsStandard);
+		}
+
+		[Test]
+		public void IsStandardCharacter_Intro_ReturnsTrue()
+		{
+			var block = new Block("ip");
+			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
+			block.SetStandardCharacter("ROM", Block.StandardCharacter.Intro);
+			Assert.IsTrue(block.CharacterIsStandard);
+		}
+
+		private CharacterVerse JesusQuestioning
+		{
+			get
+			{
+				return new CharacterVerse
+				{
+					BookId = "MRK",
+					Chapter = 4,
+					Verse = 4,
+					Character = "Jesus",
+					Delivery = "Questioning"
+				};
+			}
+		}
+
+		private CharacterVerse JesusCommanding
+		{
+			get
+			{
+				return new CharacterVerse
+				{
+					BookId = "MRK",
+					Chapter = 4,
+					Verse = 4,
+					Character = "Jesus",
+					Delivery = "Commanding"
+				};
+			}
+		}
+
+		private CharacterVerse Andrew
+		{
+			get
+			{
+				return new CharacterVerse
+				{
+					BookId = "MRK",
+					Chapter = 4,
+					Verse = 4,
+					Character = "Andrew"
+				};
+			}
 		}
 	}
 }

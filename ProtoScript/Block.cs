@@ -102,12 +102,34 @@ namespace ProtoScript
 		[XmlAttribute("characterId")]
 		public string CharacterId { get; set; }
 
+		[XmlAttribute("delivery")]
+		public string Delivery { get; set; }
+
 		[XmlAttribute("userConfirmed")]
 		public bool UserConfirmed { get; set; }
 
 		[XmlElement(Type = typeof (ScriptText), ElementName = "text")]
 		[XmlElement(Type = typeof (Verse), ElementName = "verse")]
 		public List<BlockElement> BlockElements { get; set; }
+
+		public bool CharacterIsStandard
+		{
+			get
+			{
+				int i = CharacterId.IndexOf("-", StringComparison.Ordinal);
+				if (i < 0)
+					return false;
+				switch (CharacterId.Substring(0, i + 1))
+				{
+					case kNarratorPrefix:
+					case kIntroPrefix:
+					case kExtraBiblicalPrefix:
+					case kBookOrChapterPrefix:
+						return true;
+				}
+				return false;
+			}
+		}
 
 		public string GetText(bool includeVerseNumbers)
 		{
@@ -192,10 +214,27 @@ namespace ProtoScript
 			builder.Append('\t');
 			builder.Append(CharacterId);
 			builder.Append('\t');
+			builder.Append(Delivery);
+			builder.Append('\t');
 			builder.Append(GetText(true));
 			builder.Append('\t');
 			builder.Append(GetText(false).Length);
 			return builder.ToString();
+		}
+
+		public void SetCharacterAndDelivery(IEnumerable<CharacterVerse> characters)
+		{
+			var characterList = characters.ToList();
+			if (characterList.Count == 1)
+			{
+				CharacterId = characterList[0].Character;
+				Delivery = characterList[0].Delivery;
+			}
+			else
+			{
+				CharacterId = characterList.Count == 0 ? UnknownCharacter : AmbiguousCharacter;
+				Delivery = null;
+			}
 		}
 	}
 

@@ -14,8 +14,8 @@ namespace ProtoScriptTests
 	{
 		private BookScript m_bookScript;
 
-		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		[SetUp]
+		public void SetUp()
 		{
 			const string bookScript = @"
 <book id=""MRK"">
@@ -43,6 +43,13 @@ namespace ProtoScriptTests
 		{
 			new CharacterAssigner().Assign(m_bookScript, true);
 			Assert.AreEqual("John the Baptist", m_bookScript.ScriptBlocks[1].CharacterId);
+		}
+
+		[Test]
+		public void Assign_BlockIsStandardCharacter_DoesNotOverwrite()
+		{
+			new CharacterAssigner().Assign(m_bookScript, true);
+			Assert.AreEqual("narrator-MRK", m_bookScript.ScriptBlocks[0].CharacterId);
 		}
 	}
 }

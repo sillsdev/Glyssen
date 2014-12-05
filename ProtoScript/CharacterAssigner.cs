@@ -14,7 +14,7 @@ namespace ProtoScript
 		{
 			foreach (Block block in bookScript.ScriptBlocks)
 			{
-				if (block.UserConfirmed && !overwriteUserConfirmed)
+				if (block.CharacterIsStandard || (block.UserConfirmed && !overwriteUserConfirmed))
 					continue;
 				block.CharacterId = CharacterVerse.GetCharacter(bookScript.BookId, block.ChapterNumber, block.InitialVerseNumber);
 			}

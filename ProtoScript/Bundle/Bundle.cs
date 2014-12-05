@@ -143,7 +143,7 @@ namespace ProtoScript.Bundle
 			return m_canons.TryGetValue(bookId, out canon);
 		}
 
-		//TODO This method either needs to be greatly improved or replaced
+		//TODO (PG-36) This method either needs to be greatly improved or replaced
 		private void ExtractCanons(string pathToUnzippedDirectory)
 		{
 			foreach (string dir in Directory.GetDirectories(pathToUnzippedDirectory, "USX_*"))
