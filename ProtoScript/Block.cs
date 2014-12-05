@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 using Palaso.Xml;
+using SIL.ScriptureUtils;
 
 namespace ProtoScript
 {
@@ -93,7 +94,7 @@ namespace ProtoScript
 						m_initialVerseNumber = 1;
 					}
 				}
-				return m_initialVerseNumber; 
+				return m_initialVerseNumber;
 			}
 			set { m_initialVerseNumber = value; }
 		}
@@ -104,8 +105,8 @@ namespace ProtoScript
 		[XmlAttribute("userConfirmed")]
 		public bool UserConfirmed { get; set; }
 
-		[XmlElement(Type = typeof(ScriptText), ElementName = "text")]
-		[XmlElement(Type = typeof(Verse), ElementName = "verse")]
+		[XmlElement(Type = typeof (ScriptText), ElementName = "text")]
+		[XmlElement(Type = typeof (Verse), ElementName = "verse")]
 		public List<BlockElement> BlockElements { get; set; }
 
 		public string GetText(bool includeVerseNumbers)
@@ -160,11 +161,16 @@ namespace ProtoScript
 		{
 			switch (standardCharacterType)
 			{
-				case StandardCharacter.Narrator: return kNarratorPrefix;
-				case StandardCharacter.BookOrChapter: return kBookOrChapterPrefix;
-				case StandardCharacter.ExtraBiblical: return kExtraBiblicalPrefix;
-				case StandardCharacter.Intro: return kIntroPrefix;
-				default: throw new ArgumentException("Unexpected standard character type.");
+				case StandardCharacter.Narrator:
+					return kNarratorPrefix;
+				case StandardCharacter.BookOrChapter:
+					return kBookOrChapterPrefix;
+				case StandardCharacter.ExtraBiblical:
+					return kExtraBiblicalPrefix;
+				case StandardCharacter.Intro:
+					return kIntroPrefix;
+				default:
+					throw new ArgumentException("Unexpected standard character type.");
 			}
 		}
 
@@ -193,8 +199,8 @@ namespace ProtoScript
 		}
 	}
 
-	[XmlInclude(typeof(ScriptText))]
-	[XmlInclude(typeof(Verse))]
+	[XmlInclude(typeof (ScriptText))]
+	[XmlInclude(typeof (Verse))]
 	public abstract class BlockElement
 	{
 	}
@@ -228,6 +234,24 @@ namespace ProtoScript
 		}
 
 		[XmlAttribute("num")]
-		public string Number{ get; set; }
+		public string Number { get; set; }
+
+		/// <summary>
+		/// Gets the verse hnumber as an integer. If the Verse number represents a verse bridge, this will be the
+		/// starting number in the bridge.
+		/// </summary>
+		public int StartVerse
+		{
+			get { return ScrReference.VerseToIntStart(Number); }
+		}
+
+		/// <summary>
+		/// Gets the verse hnumber as an integer. If the Verse number represents a verse bridge, this will be the
+		/// ending number in the bridge.
+		/// </summary>
+		public int EndVerse
+		{
+			get { return ScrReference.VerseToIntEnd(Number); }
+		}
 	}
 }
