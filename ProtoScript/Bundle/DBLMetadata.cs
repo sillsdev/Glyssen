@@ -4,6 +4,7 @@ using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 using Palaso.Xml;
+using ProtoScript.Properties;
 
 namespace ProtoScript.Bundle
 {
@@ -42,6 +43,21 @@ namespace ProtoScript.Bundle
 		/// This is not part of the original DBL metadata.
 		/// </summary>
 		public QuoteSystem QuoteSystem;
+		
+		/// <summary>
+		/// This is not part of the original DBL metadata but rather is pulled in from the stylesheet.
+		/// </summary>
+		[XmlElement("fontFamily")]
+		public string FontFamily;
+		/// <summary>
+		/// This is not part of the original DBL metadata but rather is pulled in from the stylesheet.
+		/// </summary>
+		[XmlElement("fontSizeInPoints")]
+		public int FontSizeInPoints {
+			get { return m_fontSizeInPoints == 0 ? Settings.Default.DefaultFontSize : m_fontSizeInPoints; }
+			set { m_fontSizeInPoints = value; }
+		}
+		private int m_fontSizeInPoints;
 
 		public DblMetadataIdentification identification;
 		public DblMetadataLanguage language;

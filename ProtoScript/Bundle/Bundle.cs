@@ -29,9 +29,8 @@ namespace ProtoScript.Bundle
 					Environment.NewLine + pathToZippedBundle, ex);
 			}
 
-			m_dblMetadata = LoadMetadata(pathToZippedBundle, pathToUnzippedDirectory);
-
 			m_stylesheet = LoadStylesheet(pathToZippedBundle, pathToUnzippedDirectory);
+			m_dblMetadata = LoadMetadata(pathToZippedBundle, pathToUnzippedDirectory);
 
 			ExtractCanons(pathToUnzippedDirectory);
 		}
@@ -83,6 +82,9 @@ namespace ProtoScript.Bundle
 			dblMetadata.OriginalPathOfDblFile = pathToZippedBundle;
 			dblMetadata.PgUsxParserVersion = Settings.Default.PgUsxParserVersion;
 			dblMetadata.ControlFileVersion = CharacterVerse.ControlFileVersion;
+
+			dblMetadata.FontFamily = Stylesheet.FontFamily;
+			dblMetadata.FontSizeInPoints = Stylesheet.FontSizeInPoints;
 
 			return dblMetadata;
 		}

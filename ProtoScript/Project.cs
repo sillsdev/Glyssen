@@ -49,6 +49,16 @@ namespace ProtoScript
 			get { return m_metadata.language.ToString(); }
 		}
 
+		public string FontFamily
+		{
+			get { return m_metadata.FontFamily; }
+		}
+
+		public int FontSizeInPoints
+		{
+			get { return m_metadata.FontSizeInPoints; }
+		}
+
 		public QuoteSystem QuoteSystem
 		{
 			get { return m_metadata.QuoteSystem ?? m_defaultQuoteSystem; }
