@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using System.Xml.Serialization;
 using Palaso.Xml;
 using ProtoScript.Properties;
@@ -68,7 +67,9 @@ namespace ProtoScript
 
 	public class StylesheetProperty
 	{
+		[XmlAttribute]
 		public string name { get; set; }
+		[XmlAttribute]
 		public string unit { get; set; }
 
 		[XmlText]
