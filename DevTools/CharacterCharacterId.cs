@@ -23,6 +23,8 @@ namespace DevTools
 				string theRest = line.Substring(0, lastComma);
 				lastComma = theRest.LastIndexOf(",", StringComparison.InvariantCulture);
 				cc.Character = theRest.Substring(0, lastComma);
+				cc.VoiceTalentId = theRest.Substring(lastComma+1);
+				Int32.Parse(cc.VoiceTalentId);
 
 				all.Add(cc);
 			}
@@ -39,6 +41,7 @@ namespace DevTools
 
 		public string Character;
 		public string CharacterId;
+		public string VoiceTalentId;
 
 		public string TabDelimited()
 		{

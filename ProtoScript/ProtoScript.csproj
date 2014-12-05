@@ -112,6 +112,12 @@
     <Compile Include="Controls\Browser.Designer.cs">
       <DependentUpon>Browser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\AssignCharacterDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AssignCharacterDialog.Designer.cs">
+      <DependentUpon>AssignCharacterDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\ProjectSettingsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     <Compile Include="Utilities\Zip.cs" />
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\AssignCharacterDialog.resx">
+      <DependentUpon>AssignCharacterDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ProjectSettingsDialog.resx">
       <DependentUpon>ProjectSettingsDialog.cs</DependentUpon>

@@ -8,7 +8,6 @@ using System.Windows.Forms;
 using L10NSharp;
 using Palaso.Reporting;
 using Palaso.Xml;
-using Paratext;
 using ProtoScript.Bundle;
 using ProtoScript.Properties;
 using SIL.ScriptureUtils;
@@ -16,7 +15,7 @@ using Canon = ProtoScript.Bundle.Canon;
 
 namespace ProtoScript
 {
-	internal class Project
+	public class Project
 	{
 		public const string kProjectFileExtension = ".pgproj";
 		public const string kBookScriptFileExtension = ".xml";
@@ -49,6 +48,16 @@ namespace ProtoScript
 			get { return m_metadata.language.ToString(); }
 		}
 
+		public string FontFamily
+		{
+			get { return m_metadata.FontFamily; }
+		}
+
+		public int FontSizeInPoints
+		{
+			get { return m_metadata.FontSizeInPoints; }
+		}
+
 		public QuoteSystem QuoteSystem
 		{
 			get { return m_metadata.QuoteSystem ?? m_defaultQuoteSystem; }
@@ -71,6 +80,8 @@ namespace ProtoScript
 		{
 			get { return m_metadata.QuoteSystem; }
 		}
+
+		public IReadOnlyList<BookScript> Books { get { return m_books; } }
 
 		public static Project Load(string projectFilePath)
 		{

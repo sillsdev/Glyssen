@@ -132,6 +132,7 @@ namespace DevTools
 		public string Delivery;
 		public string CharacterId;
 		public string Alias;
+		public string VoiceTalentId;
 
 		public string TabDelimited()
 		{

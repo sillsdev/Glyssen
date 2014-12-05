@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using Gecko;
 using Palaso.UI.WindowsForms.HtmlBrowser;
 
@@ -13,20 +12,25 @@ namespace ProtoScript.Controls
 		{
 			InitializeComponent();
 
-			m_browser = new XWebBrowser(XWebBrowser.BrowserType.GeckoFx);
-			if (!(m_browser.NativeBrowser is GeckoWebBrowser))
-				Debug.Fail("Failed to use GeckoWebBrowser");
-			m_browser.Parent = this;
-			m_browser.Dock = DockStyle.Fill;
-			m_browser.AllowWebBrowserDrop = false;
-			m_browser.IsWebBrowserContextMenuEnabled = false;
-			m_browser.WebBrowserShortcutsEnabled = false;
+			m_browser = new XWebBrowser(XWebBrowser.BrowserType.GeckoFx)
+			{
+				Parent = this, 
+				Dock = DockStyle.Fill, 
+				AllowWebBrowserDrop = false, 
+				IsWebBrowserContextMenuEnabled = false, 
+				WebBrowserShortcutsEnabled = false
+			};
 			Controls.Add(m_browser);
 		}
 
 		public void Navigate(string url)
 		{
 			m_browser.Navigate(url);
+		}
+
+		public void DisplayHtml(string html)
+		{
+			((GeckoWebBrowser)m_browser.NativeBrowser).LoadHtml(html);
 		}
 	}
 }

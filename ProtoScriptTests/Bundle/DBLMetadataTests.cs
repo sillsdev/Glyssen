@@ -15,6 +15,7 @@ namespace ProtoScriptTests.Bundle
 		private const string TestXml =
 @"<?xml version=""1.0"" encoding=""UTF-8""?>
 <DBLMetadata id=""3b9fdc679b9319c3"" revision=""1"" mediatype=""text"" typeVersion=""1.3"">
+  <fontFamily>Charis SIL</fontFamily>
   <identification>
     <name>Acholi New Testament 1985</name>
     <nameLocal>Acoli Baibul 1985</nameLocal>
@@ -61,6 +62,12 @@ namespace ProtoScriptTests.Bundle
 		public void GetName()
 		{
 			Assert.AreEqual("Acholi New Testament 1985", m_metadata.identification.name);
+		}
+
+		[Test]
+		public void GetFontFamily()
+		{
+			Assert.AreEqual("Charis SIL", m_metadata.FontFamily);
 		}
 
 		[Test]
@@ -135,6 +142,7 @@ namespace ProtoScriptTests.Bundle
   <archiveStatus>
     <dateArchived>dateArchived</dateArchived>
   </archiveStatus>
+  <fontSizeInPoints>10</fontSizeInPoints>
 </DBLMetadata>";
 
 			AssertThatXmlIn.String(expectedResult).EqualsIgnoreWhitespace(metadata.GetAsXml());
