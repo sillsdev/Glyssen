@@ -37,6 +37,7 @@
 			this.m_btnExportToTabSeparated = new System.Windows.Forms.Button();
 			this.m_btnLoadSfm = new System.Windows.Forms.Button();
 			this.m_btnSettings = new System.Windows.Forms.Button();
+			this.m_btnAssign = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -142,11 +143,26 @@
 			this.m_btnSettings.UseVisualStyleBackColor = true;
 			this.m_btnSettings.Click += new System.EventHandler(this.m_btnSettings_Click);
 			// 
+			// m_btnAssign
+			// 
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnAssign, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnAssign, null);
+			this.l10NSharpExtender1.SetLocalizationPriority(this.m_btnAssign, L10NSharp.LocalizationPriority.High);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_btnAssign, "SandboxForm.Assign");
+			this.m_btnAssign.Location = new System.Drawing.Point(32, 67);
+			this.m_btnAssign.Name = "m_btnAssign";
+			this.m_btnAssign.Size = new System.Drawing.Size(84, 23);
+			this.m_btnAssign.TabIndex = 8;
+			this.m_btnAssign.Text = "Assign";
+			this.m_btnAssign.UseVisualStyleBackColor = true;
+			this.m_btnAssign.Click += new System.EventHandler(this.m_btnAssign_Click);
+			// 
 			// SandboxForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(559, 262);
+			this.Controls.Add(this.m_btnAssign);
 			this.Controls.Add(this.m_btnSettings);
 			this.Controls.Add(this.m_btnExportToTabSeparated);
 			this.Controls.Add(this.m_btnLoadSfm);
@@ -177,6 +193,7 @@
 		private System.Windows.Forms.Button m_btnExportToTabSeparated;
 		private System.Windows.Forms.Button m_btnLoadSfm;
 		private System.Windows.Forms.Button m_btnSettings;
+		private System.Windows.Forms.Button m_btnAssign;
 	}
 }
 

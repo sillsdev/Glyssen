@@ -21,5 +21,20 @@ namespace ProtoScriptTests.Controls
 				}
 			}
 		}
+
+		[Test, Ignore("By hand only")]
+		[STAThread]
+		public void DisplayHtml()
+		{
+			using (var form = new Form())
+			{
+				using (var browser = new Browser())
+				{
+					form.Controls.Add(browser);
+					browser.DisplayHtml("normal <em>italics</em> <strong>bold</strong>");
+					form.ShowDialog();
+				}
+			}
+		}
 	}
 }

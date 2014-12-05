@@ -241,5 +241,11 @@ namespace ProtoScript
 				dlg.ShowDialog();
 		}
 
+		private void m_btnAssign_Click(object sender, EventArgs e)
+		{
+			using (var dlg = new AssignCharacterDialog(m_project))
+				dlg.ShowDialog();
+		}
+
 	}
 }
