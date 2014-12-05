@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Linq;
+using NUnit.Framework;
 using ProtoScript;
 
 namespace ProtoScriptTests
@@ -36,6 +37,54 @@ namespace ProtoScriptTests
 		{
 			var characterId = CharacterVerse.GetCharacter("MRK", 1, 1);
 			Assert.AreEqual(Block.UnknownCharacter, characterId);
+		}
+
+		[Test]
+		public void GetCharacter_VerseBridge_StartVerse()
+		{
+			var characterId = CharacterVerse.GetCharacter("MRK", 15, 38);
+			Assert.AreEqual("centurion=centurion/other guards|army officer", characterId);
+		}
+
+		[Test]
+		public void GetCharacter_VerseBridge_MiddleVerse()
+		{
+			var characterId = CharacterVerse.GetCharacter("GEN", 15, 20);
+			Assert.AreEqual("God", characterId);
+		}
+
+		[Test]
+		public void GetCharacter_VerseBridge_EndVerse()
+		{
+			var characterId = CharacterVerse.GetCharacter("MRK", 16, 4);
+			Assert.AreEqual("Mary Magdalene", characterId);
+		}
+
+		[Test]
+		public void GetCharacters_One()
+		{
+			var characters = CharacterVerse.GetCharacters("GEN", 15, 20);
+			Assert.AreEqual(1, characters.Count());
+			Assert.AreEqual(1, characters.Count(c => c.Character == "God"));
+		}
+
+		[Test]
+		public void GetCharacters_MoreThanOne()
+		{
+			var characters = CharacterVerse.GetCharacters("MRK", 6, 24);
+			Assert.AreEqual(2, characters.Count());
+			Assert.AreEqual(1, characters.Count(c => c.Character == "Herodias"));
+			Assert.AreEqual(1, characters.Count(c => c.Character == "Herodias' daughter"));
+		}
+
+		[Test]
+		public void GetCharacters_MoreThanOne_Duplicate_ReturnsUnique()
+		{
+			var characters = CharacterVerse.GetCharacters("MRK", 6, 37);
+			Assert.AreEqual(3, characters.Count());
+			Assert.AreEqual(1, characters.Count(c => c.Character == "Jesus" && c.Delivery == ""));
+			Assert.AreEqual(1, characters.Count(c => c.Character == "Jesus" && c.Delivery == "questioning"));
+			Assert.AreEqual(1, characters.Count(c => c.Character == "Philip"));
 		}
 	}
 }
