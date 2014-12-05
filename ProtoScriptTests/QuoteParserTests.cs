@@ -14,20 +14,20 @@ namespace ProtoScriptTests
 		[Test]
 		public void Parse_OneBlockBecomesTwo_QuoteAtEnd()
 		{
-			var block = new Block("p", 15, 35);
-			block.BlockElements.Add(new ScriptText("When some of those standing near heard this, they said, «Listen, he's calling Elijah.»"));
+			var block = new Block("p", 7, 6);
+			block.BlockElements.Add(new ScriptText("He replied, «Isaiah was right when he prophesied about you.»"));
 			var input = new List<Block> { block };
 			IList<Block> output = new QuoteParser("MRK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
-			Assert.AreEqual("When some of those standing near heard this, they said, ", output[0].GetText(false));
-			Assert.AreEqual(15, output[0].ChapterNumber);
-			Assert.AreEqual(35, output[0].InitialVerseNumber);
+			Assert.AreEqual("He replied, ", output[0].GetText(false));
+			Assert.AreEqual(7, output[0].ChapterNumber);
+			Assert.AreEqual(6, output[0].InitialVerseNumber);
 			Assert.IsTrue(output[0].CharacterIs(Block.StandardCharacter.Narrator));
-			Assert.AreEqual("«Listen, he's calling Elijah.»", output[1].GetText(false));
-			Assert.AreEqual("bystanders=some standing near", output[1].CharacterId);
-			Assert.AreEqual("uneasy", output[1].Delivery);
-			Assert.AreEqual(15, output[1].ChapterNumber);
-			Assert.AreEqual(35, output[1].InitialVerseNumber);
+			Assert.AreEqual("«Isaiah was right when he prophesied about you.»", output[1].GetText(false));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual("rebuking", output[1].Delivery);
+			Assert.AreEqual(7, output[1].ChapterNumber);
+			Assert.AreEqual(6, output[1].InitialVerseNumber);
 		}
 
 		[Test]
