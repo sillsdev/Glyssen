@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace DevTools
@@ -60,6 +62,34 @@ namespace DevTools
 			File.WriteAllText(Path.Combine(kBaseDirForOutput, "MultipleCharacterId.txt"), TabDelimited(multiCharacterIds));
 
 			ProcessUniqueIds(uniqueCharacterIds);
+
+			ProcessHelpfulVersionOfMultipleCharacterId(multiCharacterIds, characterVerses);
+		}
+
+		private static void ProcessHelpfulVersionOfMultipleCharacterId(Dictionary<string, HashSet<string>> multiCharacterIds, List<CharacterVerse> characterVerses)
+		{
+			var sb = new StringBuilder();
+			var lines = new List<string>();
+			foreach (string characterId in multiCharacterIds.Keys)
+			{
+				HashSet<string> characters;
+				multiCharacterIds.TryGetValue(characterId, out characters);
+				foreach (string character in characters)
+				{
+					IEnumerable<CharacterVerse> cvs = characterVerses.Where(c => c.Character == character);
+					if (!cvs.Any())
+						Debug.Fail("Character not found: " + character);
+					foreach (CharacterVerse cv in cvs)
+					{
+						if (cv.CharacterId != characterId)
+							Debug.Fail("CharacterIds do not match: " + cv.CharacterId + ", " + characterId);
+						sb.Append(characterId).Append("\t").Append(cv.VoiceTalentId).Append("\t").Append(character).Append("\t").Append(cv.Reference);
+						lines.Add(sb.ToString());
+						sb.Clear();
+					}
+				}
+			}
+			File.WriteAllText(Path.Combine(kBaseDirForOutput, "MultipleCharacterId_Extra.txt"), TabDelimited(lines));
 		}
 
 		static List<CharacterVerse> ProcessJimFiles()
@@ -78,6 +108,7 @@ namespace DevTools
 					if (cv.CharacterAndDelivery.Equals(cci.Character))
 					{
 						cv.CharacterId = cci.CharacterId;
+						cv.VoiceTalentId = cci.VoiceTalentId;
 						cciFound.Add(cci);
 						found = true;
 						break;
