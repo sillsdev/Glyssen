@@ -122,10 +122,10 @@ namespace ProtoScriptTests
 
 			var verseText = new StringBuilder();
 
-			string character = CharacterVerse.GetCharacter(BookId, chapter, verse);
-			bool quoteStartExpected = character != Block.UnknownCharacter && character != "scripture" && character != CharacterVerse.kNotAQuote;
+			var characters = CharacterVerse.GetCharacters(BookId, chapter, verse).Where(c => c.Character != "scripture" && c.Character != CharacterVerse.kNotAQuote).ToList();
+			bool quoteStartExpected = characters.Count > 0;
 			// If previous verse had same character talking, it's probably a longer discourse, so minimize the number of start quotes.
-			if (verse > 1 && CharacterVerse.GetCharacter(BookId, chapter, verse - 1) == character && verse % 5 != 0)
+			if (verse > 1 && characters.Count == 1 && CharacterVerse.GetCharacters(BookId, chapter, verse - 1).SequenceEqual(characters) && verse % 5 != 0)
 				quoteStartExpected = false;
 
 			// The following attempts to more-or-less simulate real data.

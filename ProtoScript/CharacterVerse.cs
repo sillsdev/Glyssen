@@ -19,29 +19,6 @@ namespace ProtoScript
 
 		public static int ControlFileVersion { get; private set; }
 
-		public static string GetCharacter(string bookId, int chapter, int verse)
-		{
-			IList<CharacterVerse> matches = s_data.Where(cv => cv.BookCode == bookId && cv.Chapter == chapter && cv.Verse == verse).ToList();
-			if (matches.Count == 1)
-				return matches.First().Character;
-			if (matches.Count > 1)
-			{
-				string character = null;
-				foreach (CharacterVerse cv in matches)
-				{
-					if (character == null)
-					{
-						character = cv.Character;
-						continue;
-					}
-					if (character != cv.Character)
-						return Block.AmbiguousCharacter;
-				}
-				return character;
-			}
-			return Block.UnknownCharacter;
-		}
-
 		public static IEnumerable<CharacterVerse> GetCharacters(string bookId, int chapter, int verse)
 		{
 			return s_data.Where(cv => cv.BookCode == bookId && cv.Chapter == chapter && cv.Verse == verse);

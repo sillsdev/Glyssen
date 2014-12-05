@@ -65,7 +65,7 @@ namespace ProtoScript
 							{
 								for (int i = 1; i < maxFollowingVersesToSearchForEndQuote; i++)
 								{
-									if (CharacterVerse.GetCharacter(book.BookId, quote.Chapter, quote.Verse + i) != Block.UnknownCharacter)
+									if (!CharacterVerse.GetCharacters(book.BookId, quote.Chapter, quote.Verse + i).Any())
 										break;
 									text = book.GetVerseText(quote.Chapter, quote.Verse);
 									if (text.IndexOf(quoteSystem.EndQuoteMarker, StringComparison.Ordinal) > 0)

@@ -8,83 +8,72 @@ namespace ProtoScriptTests
 	class CharacterVerseTests
 	{
 		[Test]
-		public void GetCharacter_OneMatch_GetsCorrectCharacterId()
+		public void GetCharacters_NoMatch_EmptyResults()
 		{
-			var characterId = CharacterVerse.GetCharacter("MRK", 1, 4);
-			Assert.AreEqual("John the Baptist", characterId);
-			characterId = CharacterVerse.GetCharacter("MRK", 1, 20);
-			Assert.AreEqual("Jesus", characterId);
-		}
-
-		[Test]
-		public void GetCharacter_MoreThanOneMatch_DifferentCharacters_GetsAmbiguousCharacterId()
-		{
-			var characterId = CharacterVerse.GetCharacter("MRK", 10, 48);
-			Assert.AreEqual(Block.AmbiguousCharacter, characterId);
-		}
-
-		[Test]
-		public void GetCharacter_MoreThanOneMatch_SameCharacter_GetsCorrectCharacterId()
-		{
-			var characterId = CharacterVerse.GetCharacter("MRK", 15, 44);
-			Assert.AreEqual("Pilate", characterId);
-			characterId = CharacterVerse.GetCharacter("MRK", 16, 3);
-			Assert.AreEqual("Mary Magdalene", characterId);
-		}
-
-		[Test]
-		public void GetCharacter_NoMatch_GetsUnknownCharacterId()
-		{
-			var characterId = CharacterVerse.GetCharacter("MRK", 1, 1);
-			Assert.AreEqual(Block.UnknownCharacter, characterId);
-		}
-
-		[Test]
-		public void GetCharacter_VerseBridge_StartVerse()
-		{
-			var characterId = CharacterVerse.GetCharacter("MRK", 15, 38);
-			Assert.AreEqual("centurion=centurion/other guards|army officer", characterId);
-		}
-
-		[Test]
-		public void GetCharacter_VerseBridge_MiddleVerse()
-		{
-			var characterId = CharacterVerse.GetCharacter("GEN", 15, 20);
-			Assert.AreEqual("God", characterId);
-		}
-
-		[Test]
-		public void GetCharacter_VerseBridge_EndVerse()
-		{
-			var characterId = CharacterVerse.GetCharacter("MRK", 16, 4);
-			Assert.AreEqual("Mary Magdalene", characterId);
+			Assert.IsFalse(CharacterVerse.GetCharacters("MRK", 1, 1).Any());
 		}
 
 		[Test]
 		public void GetCharacters_One()
 		{
-			var characters = CharacterVerse.GetCharacters("GEN", 15, 20);
+			var characters = CharacterVerse.GetCharacters("GEN", 15, 20).ToList();
 			Assert.AreEqual(1, characters.Count());
 			Assert.AreEqual(1, characters.Count(c => c.Character == "God"));
 		}
 
 		[Test]
-		public void GetCharacters_MoreThanOne()
+		public void GetCharacter_VerseBridge_StartVerse()
 		{
-			var characters = CharacterVerse.GetCharacters("MRK", 6, 24);
+			var character = CharacterVerse.GetCharacters("MRK", 15, 38).Single();
+			Assert.AreEqual("centurion=centurion/other guards|army officer", character.Character);
+		}
+
+		[Test]
+		public void GetCharacter_VerseBridge_MiddleVerse()
+		{
+			var character = CharacterVerse.GetCharacters("GEN", 15, 20).Single();
+			Assert.AreEqual("God", character.Character);
+		}
+
+		[Test]
+		public void GetCharacter_VerseBridge_EndVerse()
+		{
+			var character = CharacterVerse.GetCharacters("MRK", 16, 4).Single();
+			Assert.AreEqual("Mary Magdalene", character.Character);
+		}
+
+		[Test] public void GetCharacters_MoreThanOneWithNoDuplicates_ReturnsAll()
+		{
+			var characters = CharacterVerse.GetCharacters("MRK", 6, 24).ToList();
 			Assert.AreEqual(2, characters.Count());
 			Assert.AreEqual(1, characters.Count(c => c.Character == "Herodias"));
 			Assert.AreEqual(1, characters.Count(c => c.Character == "Herodias' daughter"));
 		}
 
 		[Test]
-		public void GetCharacters_MoreThanOne_Duplicate_ReturnsUnique()
+		public void GetCharacters_MoreThanOneWithSomeDuplicates_ReturnsUnique()
 		{
-			var characters = CharacterVerse.GetCharacters("MRK", 6, 37);
+			var characters = CharacterVerse.GetCharacters("MRK", 6, 37).ToList();
 			Assert.AreEqual(3, characters.Count());
 			Assert.AreEqual(1, characters.Count(c => c.Character == "Jesus" && c.Delivery == ""));
 			Assert.AreEqual(1, characters.Count(c => c.Character == "Jesus" && c.Delivery == "questioning"));
 			Assert.AreEqual(1, characters.Count(c => c.Character == "Philip"));
+		}
+
+		[Test]
+		public void GetCharacters_MultipleEntriesForSameCharacterWithDifferentDeliveries_ReturnsOneResultPerDelivery()
+		{
+			var characters = CharacterVerse.GetCharacters("MRK", 15, 44).ToList();
+			Assert.AreEqual(2, characters.Count());
+			Assert.AreEqual(characters[0].Character, characters[1].Character);
+			Assert.AreNotEqual(characters[0].Delivery, characters[1].Delivery);
+		}
+
+		[Test]
+		public void GetCharacters_MultipleEntriesForSameCharacter_ReturnsSingleCharacter()
+		{
+			var character = CharacterVerse.GetCharacters("MRK", 16, 3).Single();
+			Assert.AreEqual("Mary Magdalene", character.Character);
 		}
 	}
 }

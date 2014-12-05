@@ -172,7 +172,7 @@ namespace ProtoScript
 		private void FlushBlock(string styleTag, bool inQuote)
 		{
 			if (inQuote)
-				m_workingBlock.CharacterId = CharacterVerse.GetCharacter(m_bookId, m_workingBlock.ChapterNumber, m_workingBlock.InitialVerseNumber);
+				m_workingBlock.SetCharacterAndDelivery(CharacterVerse.GetCharacters(m_bookId, m_workingBlock.ChapterNumber, m_workingBlock.InitialVerseNumber));
 			else
 				m_workingBlock.SetStandardCharacter(m_bookId, Block.StandardCharacter.Narrator);
 

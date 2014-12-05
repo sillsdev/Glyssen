@@ -7,6 +7,7 @@ using System.Xml;
 using NUnit.Framework;
 using Palaso.TestUtilities;
 using ProtoScript;
+using SIL.ScriptureUtils;
 
 namespace ProtoScriptTests
 {
@@ -174,9 +175,7 @@ namespace ProtoScriptTests
 			{
 				return new CharacterVerse
 				{
-					BookId = "MRK",
-					Chapter = 4,
-					Verse = 4,
+					BcvRef = new BCVRef(41, 4, 4),
 					Character = "Jesus",
 					Delivery = "Questioning"
 				};
@@ -189,9 +188,7 @@ namespace ProtoScriptTests
 			{
 				return new CharacterVerse
 				{
-					BookId = "MRK",
-					Chapter = 4,
-					Verse = 4,
+					BcvRef = new BCVRef(41, 4, 4),
 					Character = "Jesus",
 					Delivery = "Commanding"
 				};
@@ -204,9 +201,7 @@ namespace ProtoScriptTests
 			{
 				return new CharacterVerse
 				{
-					BookId = "MRK",
-					Chapter = 4,
-					Verse = 4,
+					BcvRef = new BCVRef(41, 4, 4),
 					Character = "Andrew"
 				};
 			}

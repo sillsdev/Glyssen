@@ -16,7 +16,7 @@ namespace ProtoScript
 			{
 				if (block.CharacterIsStandard || (block.UserConfirmed && !overwriteUserConfirmed))
 					continue;
-				block.CharacterId = CharacterVerse.GetCharacter(bookScript.BookId, block.ChapterNumber, block.InitialVerseNumber);
+				block.SetCharacterAndDelivery(CharacterVerse.GetCharacters(bookScript.BookId, block.ChapterNumber, block.InitialVerseNumber));
 			}
 		}
 	}

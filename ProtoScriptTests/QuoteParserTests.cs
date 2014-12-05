@@ -14,37 +14,38 @@ namespace ProtoScriptTests
 		[Test]
 		public void Parse_OneBlockBecomesTwo_QuoteAtEnd()
 		{
-			var block = new Block("p", 2, 5);
-			block.BlockElements.Add(new ScriptText("He said, «Go!»"));
+			var block = new Block("p", 15, 35);
+			block.BlockElements.Add(new ScriptText("When some of those standing near heard this, they said, «Listen, he's calling Elijah.»"));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser("LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser("MRK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
-			Assert.AreEqual("He said, ", output[0].GetText(false));
-			Assert.AreEqual(2, output[0].ChapterNumber);
-			Assert.AreEqual(5, output[0].InitialVerseNumber);
+			Assert.AreEqual("When some of those standing near heard this, they said, ", output[0].GetText(false));
+			Assert.AreEqual(15, output[0].ChapterNumber);
+			Assert.AreEqual(35, output[0].InitialVerseNumber);
 			Assert.IsTrue(output[0].CharacterIs(Block.StandardCharacter.Narrator));
-			Assert.AreEqual("«Go!»", output[1].GetText(false));
-			Assert.IsFalse(output[1].CharacterIs(Block.StandardCharacter.Narrator));
-			Assert.AreEqual(2, output[1].ChapterNumber);
-			Assert.AreEqual(5, output[1].InitialVerseNumber);
+			Assert.AreEqual("«Listen, he's calling Elijah.»", output[1].GetText(false));
+			Assert.AreEqual("bystanders=some standing near", output[1].CharacterId);
+			Assert.AreEqual("uneasy", output[1].Delivery);
+			Assert.AreEqual(15, output[1].ChapterNumber);
+			Assert.AreEqual(35, output[1].InitialVerseNumber);
 		}
 
 		[Test]
 		public void Parse_OneBlockBecomesTwo_UnclosedQuoteAtEnd()
 		{
-			var block = new Block("p", 2, 5);
-			block.BlockElements.Add(new ScriptText("He said, «Go!"));
+			var block = new Block("p", 2, 10);
+			block.BlockElements.Add(new ScriptText("But the angel said to them, «Do not be afraid!"));
 			var input = new List<Block> { block };
 			IList<Block> output = new QuoteParser("LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
-			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.AreEqual("But the angel said to them, ", output[0].GetText(false));
 			Assert.AreEqual(2, output[0].ChapterNumber);
-			Assert.AreEqual(5, output[0].InitialVerseNumber);
+			Assert.AreEqual(10, output[0].InitialVerseNumber);
 			Assert.IsTrue(output[0].CharacterIs(Block.StandardCharacter.Narrator));
-			Assert.AreEqual("«Go!", output[1].GetText(false));
-			Assert.IsFalse(output[1].CharacterIs(Block.StandardCharacter.Narrator));
+			Assert.AreEqual("«Do not be afraid!", output[1].GetText(false));
+			Assert.AreEqual("angel of the LORD, an", output[1].CharacterId);
 			Assert.AreEqual(2, output[1].ChapterNumber);
-			Assert.AreEqual(5, output[1].InitialVerseNumber);
+			Assert.AreEqual(10, output[1].InitialVerseNumber);
 		}
 
 		[Test]
