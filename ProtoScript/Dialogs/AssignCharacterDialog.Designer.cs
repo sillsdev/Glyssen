@@ -48,7 +48,7 @@
 			// m_l10NSharpExtender
 			// 
 			this.m_l10NSharpExtender.LocalizationManagerId = "ProtoscriptGenerator";
-			this.m_l10NSharpExtender.PrefixForNewItems = "ProjectSettingsDialog";
+			this.m_l10NSharpExtender.PrefixForNewItems = "AssignCharacterDialog";
 			// 
 			// m_btnNext
 			// 
@@ -83,7 +83,7 @@
 			this.m_btnAssign.Enabled = false;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAssign, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAssign, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAssign, "ProjectSettingsDialog.Assign");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAssign, "AssignCharacterDialog.AssignCharacter");
 			this.m_btnAssign.Location = new System.Drawing.Point(523, 417);
 			this.m_btnAssign.Name = "m_btnAssign";
 			this.m_btnAssign.Size = new System.Drawing.Size(95, 23);
@@ -97,7 +97,8 @@
 			this.m_labelReference.AutoSize = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_labelReference, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_labelReference, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelReference, "ProjectSettingsDialog.label1");
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_labelReference, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelReference, "AssignCharacterDialog.label1");
 			this.m_labelReference.Location = new System.Drawing.Point(344, 36);
 			this.m_labelReference.Name = "m_labelReference";
 			this.m_labelReference.Size = new System.Drawing.Size(57, 13);
@@ -151,7 +152,7 @@
 			this.m_labelWhoSpeaks.AutoSize = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_labelWhoSpeaks, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_labelWhoSpeaks, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelWhoSpeaks, "ProjectSettingsDialog.WhoSpeaks");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelWhoSpeaks, "AssignCharacterDialog.WhoSpeaks");
 			this.m_labelWhoSpeaks.Location = new System.Drawing.Point(13, 36);
 			this.m_labelWhoSpeaks.Name = "m_labelWhoSpeaks";
 			this.m_labelWhoSpeaks.Size = new System.Drawing.Size(113, 13);
@@ -162,7 +163,7 @@
 			// 
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_labelXofY, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_labelXofY, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelXofY, "ProjectSettingsDialog.XofY");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelXofY, "AssignCharacterDialog.XofY");
 			this.m_labelXofY.Location = new System.Drawing.Point(478, 505);
 			this.m_labelXofY.Name = "m_labelXofY";
 			this.m_labelXofY.Size = new System.Drawing.Size(64, 18);
