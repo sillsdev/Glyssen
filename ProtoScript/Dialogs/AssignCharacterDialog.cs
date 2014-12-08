@@ -1,40 +1,76 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using L10NSharp;
 
 namespace ProtoScript.Dialogs
 {
 	public partial class AssignCharacterDialog : Form
 	{
-		private readonly IReadOnlyList<BookScript> m_books;
+		private const string kNarrator = "Narrator";
+		private const string kNormalDelivery = "{normal}";
+		private const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
+		                                  "<style>{0}</style></head><body>{1}</body></html>";
+		private const string kCssFrame = "body{{font-family:{0};font-size:{1}pt}}.highlight{{background-color:yellow}}";
+
 		private readonly string m_fontFamily;
 		private readonly int m_fontSizeInPoints;
 		private readonly BlockNavigator m_navigator;
+		private List<Tuple<int, int>> m_relevantBlocks;
+		private int m_displayBlockIndex;
+		private IEnumerable<CharacterVerse> m_characters;
+		private IEnumerable<string> m_deliveries;
+		private bool m_showVerseNumbers = true; // May make this configurable later
 
 		public AssignCharacterDialog()
 		{
 			InitializeComponent();
 		}
 
-		public AssignCharacterDialog(Project project) : this(project, null)
-		{
-		}
-
-		public AssignCharacterDialog(Project project, Block initialBlock)
+		public AssignCharacterDialog(Project project)
 		{
 			InitializeComponent();
 
-			m_books = project.Books;
 			m_fontFamily = project.FontFamily;
 			m_fontSizeInPoints = project.FontSizeInPoints;
 
-			m_navigator = new BlockNavigator(m_books);
+			m_navigator = new BlockNavigator(project.Books);
 
-			if (initialBlock != null)
-				m_navigator.CurrentBlock = initialBlock;
+			PopulateRelevantBlocks();
 
-			LoadBlock();
+			if (IsRelevant(m_navigator.CurrentBlock))
+			{
+				m_displayBlockIndex = 0;
+				LoadBlock();
+			}
+			else
+			{
+				m_displayBlockIndex = -1;
+				LoadNextRelevantBlock();
+			}
+		}
+
+		private void PopulateRelevantBlocks()
+		{
+			m_navigator.NavigateToFirstBlock();
+			m_relevantBlocks = new List<Tuple<int, int>>();
+			Block block;
+			do
+			{
+				block = m_navigator.CurrentBlock;
+				if (IsRelevant(block))
+					m_relevantBlocks.Add(m_navigator.GetIndices());
+				m_navigator.NextBlock();
+			} while (!m_navigator.IsLastBlock(block));
+
+			m_navigator.NavigateToFirstBlock();
+		}
+
+		private bool IsRelevant(Block block)
+		{
+			return block.UserConfirmed || block.CharacterIsUnclear();
 		}
 
 		public void LoadBlock()
@@ -43,50 +79,73 @@ namespace ProtoScript.Dialogs
 			Block nextBlock = m_navigator.PeekNextBlock();
 			m_blocksDisplayBrowser.DisplayHtml(
 				BuildHtml(
-					previousBlock == null ? null : previousBlock.GetText(true),
-					m_navigator.CurrentBlock.GetText(true),
-					nextBlock == null ? null : nextBlock.GetText(true),
+					previousBlock == null ? null : previousBlock.GetText(m_showVerseNumbers),
+					m_navigator.CurrentBlock.GetText(m_showVerseNumbers),
+					nextBlock == null ? null : nextBlock.GetText(m_showVerseNumbers),
 					BuildStyle()));
-			UpdateButtons();
+
+			UpdateDisplay();
+			UpdateNavigationButtons();
+		}
+
+		private void UpdateDisplay()
+		{
+			String book = m_navigator.CurrentBook.BookId;
+			int chapter = m_navigator.CurrentBlock.ChapterNumber;
+			int verse = m_navigator.CurrentBlock.InitialVerseNumber;
+			m_labelReference.Text = string.Format("{0} {1}:{2}", book, chapter, verse);
+			string xOfY = LocalizationManager.GetString("AssignCharacterDialog.XofY", "{0} of {1}", "{0} is the current clip number; {1} is the total number of clips.");
+			m_labelXofY.Text = string.Format(xOfY, m_displayBlockIndex + 1, m_relevantBlocks.Count);
+
+			m_btnAssign.Enabled = false;
+
+			LoadCharacterListBox(CharacterVerseData.Singleton.GetCharacters(book, chapter, verse));
 		}
 
 		private string BuildHtml(string previousText, string mainText, string followingText, string style)
 		{
-			var sb = new StringBuilder();
-			sb.Append("<html><head><meta charset=\"UTF-8\"><style>");
-			sb.Append(style);
-			sb.Append("</style></head><body>");
+			var bldr = new StringBuilder();
 			if (!string.IsNullOrEmpty(previousText))
 			{
-				sb.Append(previousText);
-				sb.Append("<br/><br/>");
+				bldr.Append(previousText);
+				bldr.Append("<br/><br/>");
 			}
-			sb.Append("<span class=\"highlight\">");
-			sb.Append(mainText);
-			sb.Append("</span>");
+			bldr.Append("<span class=\"highlight\">");
+			bldr.Append(mainText);
+			bldr.Append("</span>");
 			if (!string.IsNullOrEmpty(followingText))
 			{
-				sb.Append("<br/><br/>");
-				sb.Append(followingText);
+				bldr.Append("<br/><br/>");
+				bldr.Append(followingText);
 			}
-			sb.Append("</body></html>");
-			return sb.ToString();
+			return string.Format(kHtmlFrame, style, bldr);
 		}
 
 		private string BuildStyle()
 		{
-			return "body{font-family:" + m_fontFamily + ";font-size:" + m_fontSizeInPoints + "pt}.highlight{background-color:yellow}";
+			return string.Format(kCssFrame, m_fontFamily, m_fontSizeInPoints);
 		}
 
-		private void UpdateButtons()
+		private void UpdateNavigationButtons()
 		{
-			m_btnNext.Enabled = !m_navigator.IsLastBlock(m_navigator.CurrentBlock);
-			m_btnPrevious.Enabled = !m_navigator.IsFirstBlock(m_navigator.CurrentBlock);
+			m_btnNext.Enabled = !OnLastRelevantBlock();
+			m_btnPrevious.Enabled = !OnFirstRelevantBlock();
+		}
+
+		private void UpdateAssignButton()
+		{
+			m_btnAssign.Enabled = m_listBoxCharacters.SelectedIndex > -1 && m_listBoxDeliveries.SelectedIndex > -1;
 		}
 
 		private void LoadNextBlock()
 		{
 			m_navigator.NextBlock();
+			LoadBlock();
+		}
+
+		private void LoadNextRelevantBlock()
+		{
+			m_navigator.SetIndices(m_relevantBlocks[++m_displayBlockIndex]);
 			LoadBlock();
 		}
 
@@ -96,14 +155,144 @@ namespace ProtoScript.Dialogs
 			LoadBlock();
 		}
 
+		private void LoadPreviousRelevantBlock()
+		{
+			m_navigator.SetIndices(m_relevantBlocks[--m_displayBlockIndex]);
+			LoadBlock();
+		}
+
+		private void LoadCharacterListBox(IEnumerable<CharacterVerse> characters)
+		{
+			m_characters = characters;
+
+			m_listBoxCharacters.Items.Clear();
+			m_listBoxDeliveries.Items.Clear();
+
+			m_listBoxCharacters.Items.Add(kNarrator);
+			foreach (CharacterVerse cv in new SortedSet<CharacterVerse>(m_characters, new CharacterComparer()))
+				m_listBoxCharacters.Items.Add(cv.Character);
+
+			SetCharacter();
+		}
+
+		private void SetCharacter()
+		{
+			Block currentBlock = m_navigator.CurrentBlock;
+			if (currentBlock.CharacterIs(Block.StandardCharacter.Narrator))
+				m_listBoxCharacters.SelectedItem = kNarrator;
+			if (!currentBlock.CharacterIsUnclear())
+			{
+				if (!m_listBoxCharacters.Items.Contains(currentBlock.CharacterId))
+					m_listBoxCharacters.Items.Add(currentBlock.CharacterId);
+				m_listBoxCharacters.SelectedItem = currentBlock.CharacterId;
+			}
+		}
+
+		private void LoadDeliveryListBox()
+		{
+			m_listBoxDeliveries.Items.Clear();
+			m_deliveries = new List<string>();
+			var selectedCharacter = (string)m_listBoxCharacters.SelectedItem;
+			m_listBoxDeliveries.Items.Add(kNormalDelivery);
+			if (selectedCharacter != kNarrator)
+			{
+				m_deliveries = m_characters.Where(c => c.Character == selectedCharacter).Select(c => c.Delivery).Where(d => !string.IsNullOrEmpty(d));
+				foreach (string delivery in m_deliveries)
+					m_listBoxDeliveries.Items.Add(delivery);
+			}
+			SetDelivery();
+		}
+
+		private void SetDelivery()
+		{
+			Block currentBlock = m_navigator.CurrentBlock;
+			if (!m_listBoxDeliveries.Items.Contains(currentBlock.Delivery))
+				m_listBoxDeliveries.Items.Add(currentBlock.Delivery);
+
+			if (m_listBoxDeliveries.Items.Count == 1)
+				m_listBoxDeliveries.SelectedIndex = 0;
+			else
+			{
+				if (currentBlock.CharacterId == (string)m_listBoxCharacters.SelectedItem)
+				{
+					m_listBoxDeliveries.SelectedItem = string.IsNullOrEmpty(currentBlock.Delivery) ? kNormalDelivery : currentBlock.Delivery;
+				}
+				else if (m_deliveries.Count() == 1)
+				{
+					m_listBoxDeliveries.SelectedIndex = 1;
+				}
+			}
+		}
+
+		private bool OnFirstRelevantBlock()
+		{
+			return m_displayBlockIndex == 0;
+		}
+
+		private bool OnLastRelevantBlock()
+		{
+			return m_displayBlockIndex == m_relevantBlocks.Count - 1;
+		}
+
+		private void SaveSelections()
+		{
+			Block currentBlock = m_navigator.CurrentBlock;
+
+			var selectedCharacter = (string)m_listBoxCharacters.SelectedItem;
+			if (selectedCharacter == kNarrator)
+				currentBlock.SetStandardCharacter(m_navigator.CurrentBook.BookId, Block.StandardCharacter.Narrator);
+			else
+				currentBlock.CharacterId = selectedCharacter;
+
+			var selectedDelivery = (string)m_listBoxDeliveries.SelectedItem;
+			currentBlock.Delivery = selectedDelivery == kNormalDelivery ? null : selectedDelivery;
+
+			currentBlock.UserConfirmed = true;
+		}
+
 		private void m_btnNext_Click(object sender, EventArgs e)
 		{
-			LoadNextBlock();
+			LoadNextRelevantBlock();
 		}
 
 		private void m_btnPrevious_Click(object sender, EventArgs e)
 		{
-			LoadPreviousBlock();
+			LoadPreviousRelevantBlock();
+		}
+
+		private void m_btnAssign_Click(object sender, EventArgs e)
+		{
+			SaveSelections();
+			LoadNextRelevantBlock();
+		}
+
+		private void m_listBoxCharacters_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			LoadDeliveryListBox();
+			UpdateAssignButton();
+		}
+
+		private void m_listBoxDeliveries_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			UpdateAssignButton();
+		}
+
+		private void m_linkLabelChapter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			String book = m_navigator.CurrentBook.BookId;
+			int chapter = m_navigator.CurrentBlock.ChapterNumber;
+			LoadCharacterListBox(CharacterVerseData.Singleton.GetUniqueCharacters(book, chapter));
+		}
+
+		private void m_linkLabelBook_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			String book = m_navigator.CurrentBook.BookId;
+			LoadCharacterListBox(CharacterVerseData.Singleton.GetUniqueCharacters(book));
+		}
+
+		private void m_linkLabelAll_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			LoadCharacterListBox(CharacterVerseData.Singleton.GetUniqueCharacters());
 		}
 	}
 }
