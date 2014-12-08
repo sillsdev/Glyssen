@@ -1,4 +1,4 @@
-Control File Version	4	Generated	Fri, 05 Dec 2014 16:13:15 GMT
+Control File Version	3	Generated	Thu, 04 Dec 2014 16:01:02 GMT
 GEN	1	3	God		God (the LORD)
 GEN	1	5	Not A Quote		
 GEN	1	6	God		God (the LORD)
@@ -100,9 +100,7 @@ GEN	15	8	Abraham		Abram (Abraham)
 GEN	15	9	God		God (word of the LORD came in a vision)
 GEN	15	13	God		God (word of the LORD came in a vision)
 GEN	15	18	God		God (word of the LORD came in a vision)
-GEN	15	19	God		God (word of the LORD came in a vision)
-GEN	15	20	God		God (word of the LORD came in a vision)
-GEN	15	21	God		God (word of the LORD came in a vision)
+GEN	15	18-21	God		God (word of the LORD came in a vision)
 GEN	16	2	Sarai (Sarah)		
 GEN	16	5	Sarai (Sarah)		
 GEN	16	6	Abraham		Abram (Abraham)
@@ -7613,7 +7611,7 @@ MAT	14	4	John the Baptist	rebuke
 MAT	14	7	Herod Antipas (the tetrarch)		
 MAT	14	8	Herodias' daughter		
 MAT	14	9	Herod Antipas (the tetrarch)		
-MAT	14	10	Herod Antipas (the tetrarch)		
+MAT	14	9,10	Herod Antipas (the tetrarch)		
 MAT	14	15	disciples, the=disciples, His	taking charge	
 MAT	14	16	Jesus		
 MAT	14	17	Andrew		Andrew=disciples, the=disciples, His
@@ -7905,12 +7903,9 @@ MAT	24	41	Jesus
 MAT	24	42	Jesus		
 MAT	24	43	Jesus		
 MAT	24	45	Jesus		
-MAT	24	46	Jesus		
 MAT	24	47	Jesus		
 MAT	24	48	Jesus		
-MAT	24	49	Jesus		
-MAT	24	50	Jesus		
-MAT	24	51	Jesus		
+MAT	24	48,49	Jesus		
 MAT	25	1	Jesus		
 MAT	25	5	Jesus		
 MAT	25	6	Jesus		
@@ -8127,6 +8122,7 @@ MRK	5	17	people, Gadarene
 MRK	5	18	man who had had demons		
 MRK	5	19	Jesus	giving orders	
 MRK	5	23	Jairus=ruler, a	pleading	
+MRK	5	27-28	woman, bleeding for 12 years	thinking to herself	
 MRK	5	28	woman, bleeding for 12 years	thinking to herself	
 MRK	5	30	Jesus	questioning	
 MRK	5	31	disciples, Jesus'	perplexed	
@@ -8142,17 +8138,15 @@ MRK	6	3	people 1	amazed
 MRK	6	4	Jesus		
 MRK	6	7	Jesus	giving orders	
 MRK	6	8	Jesus		
-MRK	6	9	Jesus		
-MRK	6	10	Jesus		
+MRK	6	8-9	Jesus		
 MRK	6	10	Jesus	instructing	
-MRK	6	11	Jesus		
 MRK	6	11	Jesus		
 MRK	6	12	disciples, the 1		
 MRK	6	14	people, some 1	excited	
 MRK	6	15	people, other 1	guessing	
 MRK	6	15	people, still other 1		
 MRK	6	16	Herod Antipas (the tetrarch)	fearful	
-MRK	6	17	Herod Antipas (the tetrarch)		
+MRK	6	17-18	John the Baptist	rebuke	
 MRK	6	18	John the Baptist	rebuke	
 MRK	6	22	Herod Antipas (the tetrarch)	drunk	
 MRK	6	23	Herod Antipas (the tetrarch)	drunk	
@@ -8162,14 +8156,24 @@ MRK	6	25	Herodias' daughter
 MRK	6	26	Herod Antipas (the tetrarch)		
 MRK	6	27	Herod Antipas (the tetrarch)		
 MRK	6	31	Jesus		
+MRK	6	31,32	Jesus		
 MRK	6	35	disciples, the=disciples, His	taking charge	
 MRK	6	37	Jesus		
 MRK	6	37	Philip	frustrated	Philip=disciples, the=disciples, His
+MRK	6	37,38	Jesus		
+MRK	6	37-38	Jesus	questioning	
+MRK	6	37,38	Jesus	questioning	
 MRK	6	38	Andrew		Andrew=disciples, the=disciples, His
 MRK	6	38	Jesus	questioning	
 MRK	6	39	Jesus		
-MRK	6	49	disciples, the 3	terrified	
-MRK	6	50	Jesus	reassuring	
+MRK	6	49	disciples, His		
+MRK	6	49	Jesus	reassuring	
+MRK	6	49-50	disciples, His		
+MRK	6	49,50	disciples, His		
+MRK	6	49,50	Jesus		
+MRK	6	49-50	Jesus	reassuring	
+MRK	6	49,50	Jesus	reassuring	
+MRK	6	50	Jesus		
 MRK	6	56	people, sick		
 MRK	7	2	Not A Quote		
 MRK	7	5	teachers of the law/Pharisees=Pharisees/teachers of the law 1	critical	
@@ -8178,11 +8182,9 @@ MRK	7	7	Jesus	rebuking
 MRK	7	8	Jesus	rebuking	
 MRK	7	9	Jesus	rebuking	
 MRK	7	10	Jesus	rebuking	
-MRK	7	11	Jesus	rebuking	
-MRK	7	12	Jesus	rebuking	
-MRK	7	13	Jesus	rebuking	
+MRK	7	12	Jesus		
+MRK	7	12,13	Jesus		
 MRK	7	14	Jesus	warning	
-MRK	7	15	Jesus		
 MRK	7	16	Jesus		
 MRK	7	17	disciples, His 1	puzzled	
 MRK	7	18	Jesus		
@@ -8234,7 +8236,7 @@ MRK	9	9	Jesus
 MRK	9	10	Not A Quote		
 MRK	9	11	John	puzzled	Peter (Simon)/James/John=disciples, the|John
 MRK	9	12	Jesus		
-MRK	9	13	Jesus		
+MRK	9	12,13	Jesus		
 MRK	9	16	Jesus	questioning	
 MRK	9	17	father of possessed boy=man in crowd		
 MRK	9	19	Jesus	exasperated	
@@ -8256,14 +8258,15 @@ MRK	9	39	Jesus
 MRK	9	40	Jesus		
 MRK	9	41	Jesus		
 MRK	9	42	Jesus	instructing	
-MRK	9	43	Jesus		
+MRK	9	43,44	Jesus		
 MRK	9	44	Jesus		
 MRK	9	45	Jesus		
+MRK	9	45,46	Jesus		
 MRK	9	46	Jesus		
 MRK	9	47	Jesus		
 MRK	9	48	Jesus		
 MRK	9	49	Jesus		
-MRK	9	50	Jesus		
+MRK	9	49,50	Jesus		
 MRK	9	50	Jesus		
 MRK	10	2	Pharisees, some 3	questioning	
 MRK	10	3	Jesus	questioning	
@@ -8277,7 +8280,7 @@ MRK	10	14	Jesus
 MRK	10	16	Jesus		
 MRK	10	17	ruler, a certain=man, rich young	respectful	
 MRK	10	18	Jesus		
-MRK	10	19	Jesus		
+MRK	10	18,19	Jesus		
 MRK	10	20	ruler, a certain=man, rich young	upset	
 MRK	10	21	Jesus		
 MRK	10	23	Jesus		
@@ -8315,11 +8318,13 @@ MRK	11	14	Jesus
 MRK	11	17	Jesus		
 MRK	11	21	Peter (Simon)	amazed	
 MRK	11	22	Jesus		
+MRK	11	22,23	Jesus		
 MRK	11	23	Jesus		
 MRK	11	24	Jesus		
 MRK	11	25	Jesus		
 MRK	11	28	chief priests/teachers of the law/elders=chief priests/elders of people 1	challenge	
 MRK	11	29	Jesus		
+MRK	11	29-30	Jesus		
 MRK	11	30	Jesus	questioning	
 MRK	11	31	chief priests/teachers of the law/elders=chief priests/elders of people 1	to themselves	
 MRK	11	33	chief priests/teachers of the law/elders=chief priests/elders of people 2		
@@ -8390,6 +8395,7 @@ MRK	14	10	Judas Iscariot
 MRK	14	11	Jewish authorities		
 MRK	14	12	John		Peter (Simon)/John=disciples (Jesus')|disciples
 MRK	14	13	Jesus		
+MRK	14	17,18	Jesus		
 MRK	14	18	Jesus		
 MRK	14	19	disciples, His 2	sad	
 MRK	14	19	disciples, His 4		
@@ -8447,8 +8453,11 @@ MRK	15	31	rulers=chief priests/teachers of the law/elders	sneering
 MRK	15	32	rulers=chief priests/teachers of the law/elders	sneering	
 MRK	15	34	Jesus		
 MRK	15	34	Not A Quote		
+MRK	15	34-35	Jesus		
+MRK	15	34-35	Not A Quote		
 MRK	15	35	bystanders=some standing near	uneasy	
 MRK	15	36	man, one	jeering	
+MRK	15	38,39	centurion=centurion/other guards|army officer	amazed	
 MRK	15	39	centurion=centurion/other guards|army officer	amazed	
 MRK	15	43	Joseph of Arimathea		
 MRK	15	43	Pilate	surprised	
@@ -8457,6 +8466,7 @@ MRK	15	44	Pilate	surprised
 MRK	15	45	centurion		
 MRK	15	45	Pilate		
 MRK	16	3	Mary Magdalene		Mary Magdalene/Mary mother of James/Salome
+MRK	16	3-4	Mary Magdalene		Mary Magdalene/Mary mother of James/Salome
 MRK	16	6	angel in white=man dressed in white robe, young		
 MRK	16	15	Jesus	giving orders	
 MRK	16	16	Jesus	giving orders	
@@ -8498,12 +8508,15 @@ LUK	1	70	Zechariah	praising
 LUK	1	70,71	Zechariah	praising	
 LUK	1	71	Zechariah	praising	
 LUK	1	72	Zechariah	praising	
+LUK	1	72-75	Zechariah	praising	
 LUK	1	73	Zechariah	praising	
 LUK	1	74	Zechariah	praising	
 LUK	1	75	Zechariah	praising	
 LUK	1	76	Zechariah	praising	
+LUK	1	76,77	Zechariah	praising	
 LUK	1	77	Zechariah	praising	
 LUK	1	78	Zechariah	praising	
+LUK	1	78,79	Zechariah	praising	
 LUK	1	79	Zechariah	praising	
 LUK	2	1	Caesar Augustus		
 LUK	2	10	angel of the LORD, an		
@@ -8857,6 +8870,7 @@ LUK	12	32	Jesus
 LUK	12	33	Jesus		
 LUK	12	34	Jesus		
 LUK	12	35	Jesus		
+LUK	12	35-36	Jesus		
 LUK	12	36	Jesus		
 LUK	12	37	Jesus		
 LUK	12	38	Jesus		
@@ -9319,6 +9333,8 @@ JHN	3	35	John the Baptist
 JHN	3	36	John the Baptist		
 JHN	4	1	people, some		
 JHN	4	7	Jesus	requesting	
+JHN	4	7-8	Jesus		
+JHN	4	7,8	Jesus		
 JHN	4	9	woman, Samaritan		
 JHN	4	10	Jesus		
 JHN	4	11	woman, Samaritan		
@@ -9440,7 +9456,7 @@ JHN	7	33	Jesus
 JHN	7	35	Jews, the 3		
 JHN	7	36	Jews, the 1	grumbling	
 JHN	7	37	Jesus		
-JHN	7	38	Jesus		
+JHN	7	37-38	Jesus		
 JHN	7	40	people, some of the		
 JHN	7	41	people, others		
 JHN	7	41	people, still other 2		
@@ -9528,10 +9544,9 @@ JHN	10	11	Jesus
 JHN	10	12	Jesus		
 JHN	10	13	Jesus		
 JHN	10	14	Jesus		
-JHN	10	15	Jesus		
+JHN	10	14-15	Jesus		
 JHN	10	16	Jesus		
 JHN	10	17	Jesus		
-JHN	10	18	Jesus		
 JHN	10	20	Jews, many of the	contempt	
 JHN	10	21	Jews, others of the		
 JHN	10	24	Jews, the 4		
@@ -9803,9 +9818,8 @@ ACT	1	16	Peter (Simon)
 ACT	1	19	Peter (Simon)		
 ACT	1	20	Peter (Simon)		
 ACT	1	21	Peter (Simon)		
-ACT	1	22	Peter (Simon)		
+ACT	1	21-22	Peter (Simon)		
 ACT	1	24	believers, one hundred twenty	praying	
-ACT	1	25	believers, one hundred twenty	praying	
 ACT	2	7	Jews, God-fearing from every nation 1	amazed	
 ACT	2	8	Jews, God-fearing from every nation 1	amazed	
 ACT	2	9	Jews, they		
@@ -10309,6 +10323,8 @@ ROM	8	15	we	cry
 ROM	8	36	scripture		
 ROM	9	7	scripture		
 ROM	9	9	scripture		
+ROM	9	11-12	God		scripture (God)
+ROM	9	11-13	God		scripture (God)
 ROM	9	12	God		scripture (God)
 ROM	9	13	God		scripture (God)
 ROM	9	14	Jews, the 8	speaking ironically	
@@ -10378,6 +10394,7 @@ ROM	16	22	Tertius
 1CO	3	20	scripture		
 1CO	4	6	saying about going beyond what is written		
 1CO	5	6	saying about yeast		
+1CO	5	12-13	scripture		
 1CO	5	13	scripture		
 1CO	6	12	Not A Quote		
 1CO	6	13	Not A Quote		
@@ -10471,6 +10488,7 @@ COL	4	17	Paul
 2TI	2	11	saying, true		
 2TI	2	19	inscription		
 TIT	1	12	Cretan prophet		
+TIT	1	12-13	Cretan prophet		
 TIT	2	12	Not A Quote		
 HEB	1	5	God		scripture (God)
 HEB	1	6	God		scripture (God)
@@ -10540,6 +10558,7 @@ HEB	12	29	scripture
 HEB	13	5	God		scripture (God)
 HEB	13	6	scripture		
 JAS	1	13	no one		
+JAS	2	2-3	someone		
 JAS	2	3	someone		
 JAS	2	8	scripture		
 JAS	2	11	scripture		

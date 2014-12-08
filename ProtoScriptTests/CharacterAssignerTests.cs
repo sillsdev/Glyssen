@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Palaso.Xml;
 using ProtoScript;
+using Rhino.Mocks;
 
 namespace ProtoScriptTests
 {
@@ -34,21 +30,27 @@ namespace ProtoScriptTests
 		[Test]
 		public void Assign_OverwriteUserConfirmedFalse_DoesNotOverwrite()
 		{
-			new CharacterAssigner().Assign(m_bookScript);
+			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
+			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 4)).Return(new[] { new CharacterVerse { Character = "John the Baptist" } });
+			new CharacterAssigner(cvInfo).Assign(m_bookScript);
 			Assert.AreEqual("Made Up Guy", m_bookScript.ScriptBlocks[1].CharacterId);
 		}
 
 		[Test]
 		public void Assign_OverwriteUserConfirmedTrue_DoesOverwrite()
 		{
-			new CharacterAssigner().Assign(m_bookScript, true);
+			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
+			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 4)).Return(new[] { new CharacterVerse { Character = "John the Baptist" } });
+			new CharacterAssigner(cvInfo).Assign(m_bookScript, true);
 			Assert.AreEqual("John the Baptist", m_bookScript.ScriptBlocks[1].CharacterId);
 		}
 
 		[Test]
 		public void Assign_BlockIsStandardCharacter_DoesNotOverwrite()
 		{
-			new CharacterAssigner().Assign(m_bookScript, true);
+			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
+			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 4)).Return(new[] { new CharacterVerse { Character = "John the Baptist" } });
+			new CharacterAssigner(cvInfo).Assign(m_bookScript, true);
 			Assert.AreEqual("narrator-MRK", m_bookScript.ScriptBlocks[0].CharacterId);
 		}
 	}

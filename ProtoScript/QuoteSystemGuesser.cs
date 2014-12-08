@@ -14,7 +14,7 @@ namespace ProtoScript
 			public int EndQuoteHits = 0;
 		}
 
-		public static QuoteSystem Guess(IEnumerable<IScrBook> bookList, out bool certain)
+		public static QuoteSystem Guess(ICharacterVerseInfo cvInfo, IEnumerable<IScrBook> bookList, out bool certain)
 		{
 			certain = false;
 			var bookCount = bookList.Count();
@@ -40,7 +40,7 @@ namespace ProtoScript
 				int prevQuoteChapter = -1;
 				int prevQuoteVerse = -1;
 
-				foreach (var quote in CharacterVerse.GetAllQuoteInfo(book.BookId).Where(q => q.Character != CharacterVerse.kNotAQuote))
+				foreach (var quote in cvInfo.GetAllQuoteInfo(book.BookId).Where(q => q.Character != CharacterVerseData.kNotAQuote))
 				{
 					if (quote.Chapter == prevQuoteChapter && (quote.Verse == prevQuoteVerse || quote.Verse == prevQuoteVerse + 1))
 					{
@@ -65,7 +65,7 @@ namespace ProtoScript
 							{
 								for (int i = 1; i < maxFollowingVersesToSearchForEndQuote; i++)
 								{
-									if (!CharacterVerse.GetCharacters(book.BookId, quote.Chapter, quote.Verse + i).Any())
+									if (!cvInfo.GetCharacters(book.BookId, quote.Chapter, quote.Verse + i).Any())
 										break;
 									text = book.GetVerseText(quote.Chapter, quote.Verse);
 									if (text.IndexOf(quoteSystem.EndQuoteMarker, StringComparison.Ordinal) > 0)

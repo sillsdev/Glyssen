@@ -81,7 +81,7 @@ namespace ProtoScript.Bundle
 
 			dblMetadata.OriginalPathOfDblFile = pathToZippedBundle;
 			dblMetadata.PgUsxParserVersion = Settings.Default.PgUsxParserVersion;
-			dblMetadata.ControlFileVersion = CharacterVerse.ControlFileVersion;
+			dblMetadata.ControlFileVersion = CharacterVerseData.Singleton.ControlFileVersion;
 
 			dblMetadata.FontFamily = Stylesheet.FontFamily;
 			dblMetadata.FontSizeInPoints = Stylesheet.FontSizeInPoints;

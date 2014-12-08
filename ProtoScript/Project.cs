@@ -123,16 +123,17 @@ namespace ProtoScript
 
 		private void InitializeLoadedProject()
 		{
+			var cvData = CharacterVerseData.Singleton;
 			if (ConfirmedQuoteSystem == null)
 			{
 				GuessAtQuoteSystem();
 				DoQuoteParse();
-				m_metadata.ControlFileVersion = CharacterVerse.ControlFileVersion;
+				m_metadata.ControlFileVersion = cvData.ControlFileVersion;
 			}
-			else if (m_metadata.ControlFileVersion != CharacterVerse.ControlFileVersion)
+			else if (m_metadata.ControlFileVersion != cvData.ControlFileVersion)
 			{
-				new CharacterAssigner().AssignAll(m_books);
-				m_metadata.ControlFileVersion = CharacterVerse.ControlFileVersion;
+				new CharacterAssigner(cvData).AssignAll(m_books);
+				m_metadata.ControlFileVersion = cvData.ControlFileVersion;
 			}
 		}
 
@@ -166,15 +167,16 @@ namespace ProtoScript
 		private void GuessAtQuoteSystem()
 		{
 			bool certain;
-			m_defaultQuoteSystem = QuoteSystemGuesser.Guess(m_books, out certain);
+			m_defaultQuoteSystem = QuoteSystemGuesser.Guess(CharacterVerseData.Singleton, m_books, out certain);
 			if (certain)
 				m_metadata.QuoteSystem = m_defaultQuoteSystem;
 		}
 
 		private void DoQuoteParse()
 		{
+			var cvInfo = CharacterVerseData.Singleton;
 			foreach (var bookScript in m_books)
-				bookScript.Blocks = new QuoteParser(bookScript.BookId, bookScript.ScriptBlocks, ConfirmedQuoteSystem).Parse().ToList();
+				bookScript.Blocks = new QuoteParser(cvInfo, bookScript.BookId, bookScript.ScriptBlocks, ConfirmedQuoteSystem).Parse().ToList();
 		}
 
 		public static string GetProjectFilePath(string basePath, string langId, string bundleId)

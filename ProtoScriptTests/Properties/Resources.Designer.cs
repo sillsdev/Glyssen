@@ -59,5 +59,30 @@ namespace ProtoScriptTests.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control File Version	3	Generated	Thu, 04 Dec 2014 16:01:02 GMT
+        ///GEN	1	3	God		God (the LORD)
+        ///GEN	1	5	Not A Quote		
+        ///GEN	1	6	God		God (the LORD)
+        ///GEN	1	8	Not A Quote		
+        ///GEN	1	9	God		God (the LORD)
+        ///GEN	1	10	Not A Quote		
+        ///GEN	1	11	God		God (the LORD)
+        ///GEN	1	14	God		God (the LORD)
+        ///GEN	1	20	God		God (the LORD)
+        ///GEN	1	22	God		God (the LORD)
+        ///GEN	1	24	God		God (the LORD)
+        ///GEN	1	26	God		God (the LORD)
+        ///GEN	1	28	God	blessing	God (the LORD)
+        ///GEN	1	29	God		God (the LORD)
+        ///GEN	1	30	God		God (the LORD)
+        ///GEN	2	16	God	 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TestCharacterVerse {
+            get {
+                return ResourceManager.GetString("TestCharacterVerse", resourceCulture);
+            }
+        }
     }
 }

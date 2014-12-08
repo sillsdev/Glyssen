@@ -9,6 +9,7 @@ namespace ProtoScript
 {
 	public class QuoteParser
 	{
+		private readonly ICharacterVerseInfo m_cvInfo;
 		private readonly string m_bookId;
 		private readonly int m_bookNum;
 		private readonly IEnumerable<Block> m_inputBlocks;
@@ -26,12 +27,13 @@ namespace ProtoScript
 		/// </summary>
 		/// <param name="bookId"></param>
 		/// <param name="blocks"></param>
-		public QuoteParser(string bookId, IEnumerable<Block> blocks) : this(bookId, blocks, QuoteSystem.Default)
+		public QuoteParser(ICharacterVerseInfo cvInfo, string bookId, IEnumerable<Block> blocks) : this(cvInfo, bookId, blocks, QuoteSystem.Default)
 		{
 		}
 
-		public QuoteParser(string bookId, IEnumerable<Block> blocks, QuoteSystem quoteSystem)
+		public QuoteParser(ICharacterVerseInfo cvInfo, string bookId, IEnumerable<Block> blocks, QuoteSystem quoteSystem)
 		{
+			m_cvInfo = cvInfo;
 			m_bookId = bookId;
 			m_bookNum = BCVRef.BookToNumber(bookId);
 			m_inputBlocks = blocks;
@@ -172,7 +174,7 @@ namespace ProtoScript
 		private void FlushBlock(string styleTag, bool inQuote)
 		{
 			if (inQuote)
-				m_workingBlock.SetCharacterAndDelivery(CharacterVerse.GetCharacters(m_bookId, m_workingBlock.ChapterNumber, m_workingBlock.InitialVerseNumber));
+				m_workingBlock.SetCharacterAndDelivery(m_cvInfo.GetCharacters(m_bookId, m_workingBlock.ChapterNumber, m_workingBlock.InitialVerseNumber));
 			else
 				m_workingBlock.SetStandardCharacter(m_bookId, Block.StandardCharacter.Narrator);
 

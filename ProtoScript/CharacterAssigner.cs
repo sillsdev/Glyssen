@@ -4,6 +4,13 @@ namespace ProtoScript
 {
 	public class CharacterAssigner
 	{
+		private readonly ICharacterVerseInfo m_cvInfo;
+
+		public CharacterAssigner(ICharacterVerseInfo cvInfo)
+		{
+			m_cvInfo = cvInfo;
+		}
+
 		public void AssignAll(ICollection<BookScript> bookScripts, bool overwriteUserConfirmed = false)
 		{
 			foreach (BookScript bookScript in bookScripts)
@@ -16,7 +23,7 @@ namespace ProtoScript
 			{
 				if (block.CharacterIsStandard || (block.UserConfirmed && !overwriteUserConfirmed))
 					continue;
-				block.SetCharacterAndDelivery(CharacterVerse.GetCharacters(bookScript.BookId, block.ChapterNumber, block.InitialVerseNumber));
+				block.SetCharacterAndDelivery(m_cvInfo.GetCharacters(bookScript.BookId, block.ChapterNumber, block.InitialVerseNumber));
 			}
 		}
 	}

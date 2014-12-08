@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Runtime.ConstrainedExecution;
 using System.Text;
 using NUnit.Framework;
 using ProtoScript;
@@ -18,7 +17,7 @@ namespace ProtoScriptTests
 		public void Guess_NoBooks_ReturnsDefaultQuoteSystem()
 		{
 			bool certain;
-			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(new List<IScrBook>(), out certain));
+			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(CharacterVerseData.Singleton, new List<IScrBook>(), out certain));
 			Assert.IsFalse(certain);
 		}
 
@@ -36,11 +35,17 @@ namespace ProtoScriptTests
 			}
 
 			bool certain;
-			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(mockedBooks, out certain));
+			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(CharacterVerseData.Singleton, mockedBooks, out certain));
 			Assert.IsFalse(certain);
 		}
 
+		/// <summary>
+		/// This is more of an acceptance test since it depends on the real production control file, randomly
+		/// generated test data (to attempt to simulate real data), and the interworking of the QuoteSystemGuesser
+		/// and the CharacterVerseData class.
+		/// </summary>
 		[Test]
+		[Category("SkipOnTeamCity")]
 		public void Guess_AllBuiltInQuoteSystemsWithHighlyConsistentData_CorrectlyIdentifiesSystemWithCertainty()
 		{
 			foreach (var quoteSystem in QuoteSystem.AllSystems)
@@ -49,7 +54,13 @@ namespace ProtoScriptTests
 			}
 		}
 
+		/// <summary>
+		/// This is more of an acceptance test since it depends on the real production control file, randomly
+		/// generated test data (to attempt to simulate real data), and the interworking of the QuoteSystemGuesser
+		/// and the CharacterVerseData class.
+		/// </summary>
 		[Test]
+		[Category("SkipOnTeamCity")]
 		public void Guess_DoubleCurlyQuotesWithLessConsistentData_CorrectlyIdentifiesSystemWithCertainty()
 		{
 			var quoteSystem = QuoteSystem.AllSystems.Single(qs => qs.Name == "Quotation marks, double");
@@ -62,7 +73,7 @@ namespace ProtoScriptTests
 			var sw = new Stopwatch();
 			sw.Start();
 			bool certain;
-			var guessedQuoteSystem = QuoteSystemGuesser.Guess(MockedBookForQuoteSystem.GetMockedBooks(quoteSystem, highlyConsistentData), out certain);
+			var guessedQuoteSystem = QuoteSystemGuesser.Guess(CharacterVerseData.Singleton, MockedBookForQuoteSystem.GetMockedBooks(quoteSystem, highlyConsistentData), out certain);
 			sw.Stop();
 			Console.WriteLine("   took " + sw.ElapsedMilliseconds + " milliseconds.");
 			Assert.AreEqual(quoteSystem, guessedQuoteSystem);
@@ -71,12 +82,13 @@ namespace ProtoScriptTests
 		}
 
 		[Test]
+		[Category("SkipOnTeamCity")]
 		public void Guess_NoQuotes_GivesUpWithoutTakingForever()
 		{
 			var sw = new Stopwatch();
 			sw.Start();
 			bool certain;
-			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(MockedBookForQuoteSystem.GetMockedBooks(null), out certain));
+			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(CharacterVerseData.Singleton, MockedBookForQuoteSystem.GetMockedBooks(null), out certain));
 			sw.Stop();
 			Assert.IsTrue(sw.ElapsedMilliseconds < 5200, "Actual time (ms): " + sw.ElapsedMilliseconds);
 			Assert.IsFalse(certain);
@@ -122,11 +134,15 @@ namespace ProtoScriptTests
 
 			var verseText = new StringBuilder();
 
-			var characters = CharacterVerse.GetCharacters(BookId, chapter, verse).Where(c => c.Character != "scripture" && c.Character != CharacterVerse.kNotAQuote).ToList();
+			var characters = CharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse)
+				.Where(c => c.Character != "scripture" && c.Character != CharacterVerseData.kNotAQuote).ToList();
 			bool quoteStartExpected = characters.Count > 0;
 			// If previous verse had same character talking, it's probably a longer discourse, so minimize the number of start quotes.
-			if (verse > 1 && characters.Count == 1 && CharacterVerse.GetCharacters(BookId, chapter, verse - 1).SequenceEqual(characters) && verse % 5 != 0)
+			if (verse > 1 && characters.Count == 1 && CharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse - 1)
+				.SequenceEqual(characters) && verse % 5 != 0)
+			{
 				quoteStartExpected = false;
+			}
 
 			// The following attempts to more-or-less simulate real data.
 			// When this method is called for verses that are expected to begin a quote, not having
