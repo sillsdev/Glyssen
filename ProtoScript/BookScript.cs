@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Xml.Serialization;
 using SIL.ScriptureUtils;
@@ -43,9 +44,33 @@ namespace ProtoScript
 			}
 		}
 
-		public IReadOnlyList<Block> ScriptBlocks
+		public Block this[int i]
 		{
-			get { return m_blocks; }
+			get { return m_blocks[i]; }
+		}
+
+		public bool HasScriptBlocks
+		{
+			get { return m_blocks.Any(); }
+		}
+
+		public IReadOnlyList<Block> GetScriptBlocks(bool join = false)
+		{
+			EnsureBlockCount();
+
+			if (!join || m_blockCount == 0)
+				return m_blocks;
+
+
+			var list = new List<Block>(m_blockCount);
+			list.Add(m_blocks[0]);
+			for (int i = 1; i < m_blockCount; i++)
+			{
+				var block = m_blocks[i];
+				// TODO: Add joining logic
+				list.Add(block);
+			}
+			return list;
 		}
 
 		public string GetVerseText(int chapter, int verse)
@@ -101,12 +126,7 @@ namespace ProtoScript
 
 		private int GetIndexOfFirstBlockForVerse(int chapter, int verse)
 		{
-			// Admittedly, this isn't the best way to prevent changes, but it is easier than doing custom serialization or trying to encapsulate the
-			// class to allow XML serialization but not expose the Blocks getter.
-			if (m_blockCount == 0)
-				m_blockCount = m_blocks.Count;
-			else if (m_blockCount != m_blocks.Count)
-				throw new InvalidOperationException("Blocks collection changed. Blocks getter should not be used to add or remove blocks to the list. Use setter instead.");
+			EnsureBlockCount();
 			if (m_blockCount == 0)
 				return -1;
 			int chapterStartBlock;
@@ -153,6 +173,21 @@ namespace ProtoScript
 				iFirstBlockToExamine = m_blockCount - 1;
 			}
 			return iFirstBlockToExamine;
+		}
+
+
+		/// <summary>
+		/// Admittedly, this isn't the best way to prevent changes, but it is easier than doing custom
+		/// serialization or trying to encapsulate the class to allow XML serialization but not expose
+		/// the Blocks getter.
+		/// </summary>
+		private void EnsureBlockCount()
+		{
+			if (m_blockCount == 0)
+				m_blockCount = m_blocks.Count;
+			else if (m_blockCount != m_blocks.Count)
+				throw new InvalidOperationException(
+					"Blocks collection changed. Blocks getter should not be used to add or remove blocks to the list. Use setter instead.");
 		}
 	}
 }

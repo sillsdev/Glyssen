@@ -21,7 +21,8 @@ namespace ProtoScriptTests
 			var blockD = new Block();
 			var blockE = new Block();
 			var blockF = new Block();
-			var bookScriptB = new BookScript { Blocks = new List<Block> { blockD, blockE, blockF } };
+			var blockG = new Block();
+			var bookScriptB = new BookScript { Blocks = new List<Block> { blockD, blockE, blockF, blockG } };
 			m_books = new List<BookScript> { bookScriptA, bookScriptB };
 
 			m_navigator = new BlockNavigator(m_books);
@@ -43,7 +44,7 @@ namespace ProtoScriptTests
 		public void GetBookScriptContainingBlock_BlockIsThere_FirstBook_FirstBlock_ReturnsCorrectBook()
 		{
 			var firstBook = m_books.First();
-			var firstBlock = firstBook.Blocks.First();
+			var firstBlock = firstBook[0];
 			Assert.AreEqual(firstBook, m_navigator.GetBookScriptContainingBlock(firstBlock));
 		}
 
@@ -51,7 +52,7 @@ namespace ProtoScriptTests
 		public void GetBookScriptContainingBlock_BlockIsThere_MiddleBook_MiddleBlock_ReturnsCorrectBook()
 		{
 			var middleBook = m_books[1];
-			var middleBlock = middleBook.Blocks[1];
+			var middleBlock = middleBook[1];
 			Assert.AreEqual(middleBook, m_navigator.GetBookScriptContainingBlock(middleBlock));
 		}
 
@@ -59,7 +60,7 @@ namespace ProtoScriptTests
 		public void GetBookScriptContainingBlock_BlockIsThere_LastBook_LastBlock_ReturnsCorrectBook()
 		{
 			var lastBook = m_books.Last();
-			var lastBlock = lastBook.Blocks.Last();
+			var lastBlock = lastBook.GetScriptBlocks().Last();
 			Assert.AreEqual(lastBook, m_navigator.GetBookScriptContainingBlock(lastBlock));
 		}
 
@@ -67,7 +68,7 @@ namespace ProtoScriptTests
 		public void IsLastBlockInBook_True()
 		{
 			var firstBook = m_books.First();
-			var lastBlock = firstBook.Blocks.Last();
+			var lastBlock = firstBook.GetScriptBlocks().Last();
 			Assert.AreEqual(true, m_navigator.IsLastBlockInBook(firstBook, lastBlock));
 		}
 
@@ -75,7 +76,7 @@ namespace ProtoScriptTests
 		public void IsLastBlockInBook_False()
 		{
 			var firstBook = m_books.First();
-			var firstBlock = firstBook.Blocks.First();
+			var firstBlock = firstBook[0];
 			Assert.AreEqual(false, m_navigator.IsLastBlockInBook(firstBook, firstBlock));
 		}
 
@@ -83,7 +84,7 @@ namespace ProtoScriptTests
 		public void IsLastBlock_True()
 		{
 			var lastBook = m_books.Last();
-			var lastBlock = lastBook.Blocks.Last();
+			var lastBlock = lastBook.GetScriptBlocks().Last();
 			Assert.AreEqual(true, m_navigator.IsLastBlock(lastBlock));
 		}
 
@@ -91,7 +92,7 @@ namespace ProtoScriptTests
 		public void IsLastBlock_False()
 		{
 			var firstBook = m_books.First();
-			var firstBlock = firstBook.Blocks.First();
+			var firstBlock = firstBook[0];
 			Assert.AreEqual(false, m_navigator.IsLastBlock(firstBlock));
 		}
 
@@ -99,7 +100,7 @@ namespace ProtoScriptTests
 		public void IsLastBlock_LastBlockInOtherBook_False()
 		{
 			var firstBook = m_books.First();
-			var lastBlock = firstBook.Blocks.Last();
+			var lastBlock = firstBook.GetScriptBlocks().Last();
 			Assert.AreEqual(false, m_navigator.IsLastBlock(lastBlock));
 		}
 
@@ -114,7 +115,7 @@ namespace ProtoScriptTests
 		public void IsFirstBlockInBook_True()
 		{
 			var firstBook = m_books.First();
-			var firstBlock = firstBook.Blocks.First();
+			var firstBlock = firstBook[0];
 			Assert.AreEqual(true, m_navigator.IsFirstBlockInBook(firstBook, firstBlock));
 		}
 
@@ -122,7 +123,7 @@ namespace ProtoScriptTests
 		public void IsFirstBlockInBookFalse()
 		{
 			var firstBook = m_books.First();
-			var lastBlock = firstBook.Blocks.Last();
+			var lastBlock = firstBook.GetScriptBlocks().Last();
 			Assert.AreEqual(false, m_navigator.IsFirstBlockInBook(firstBook, lastBlock));
 		}
 
@@ -130,7 +131,7 @@ namespace ProtoScriptTests
 		public void IsFirstBlock_True()
 		{
 			var firstBook = m_books.First();
-			var firstBlock = firstBook.Blocks.First();
+			var firstBlock = firstBook[0];
 			Assert.AreEqual(true, m_navigator.IsFirstBlock(firstBlock));
 		}
 
@@ -138,7 +139,7 @@ namespace ProtoScriptTests
 		public void IsFirstBlock_False()
 		{
 			var lastBook = m_books.Last();
-			var lastBlock = lastBook.Blocks.Last();
+			var lastBlock = lastBook.GetScriptBlocks().Last();
 			Assert.AreEqual(false, m_navigator.IsFirstBlock(lastBlock));
 		}
 
@@ -146,7 +147,7 @@ namespace ProtoScriptTests
 		public void IsFirstBlock_FirstBlockInOtherBook_False()
 		{
 			var lastBook = m_books.Last();
-			var firstBlock = lastBook.Blocks.First();
+			var firstBlock = lastBook[0];
 			Assert.AreEqual(false, m_navigator.IsFirstBlock(firstBlock));
 		}
 
@@ -161,8 +162,8 @@ namespace ProtoScriptTests
 		public void GetNextBlock_SameBook()
 		{
 			var firstBook = m_books.First();
-			var firstBlock = firstBook.Blocks.First();
-			var secondBlock = firstBook.Blocks[1];
+			var firstBlock = firstBook[0];
+			var secondBlock = firstBook[1];
 			m_navigator.CurrentBlock = firstBlock;
 			Assert.AreEqual(secondBlock, m_navigator.NextBlock());
 		}
@@ -171,9 +172,9 @@ namespace ProtoScriptTests
 		public void GetNextBlock_NextBook()
 		{
 			var firstBook = m_books.First();
-			var lastBlock = firstBook.Blocks.Last();
+			var lastBlock = firstBook.GetScriptBlocks().Last();
 			var secondBook = m_books[1];
-			var firstBlock = secondBook.Blocks.First();
+			var firstBlock = secondBook[0];
 			m_navigator.CurrentBlock = lastBlock;
 			Assert.AreEqual(firstBlock, m_navigator.NextBlock());
 		}
@@ -182,8 +183,8 @@ namespace ProtoScriptTests
 		public void PeekNextBlock_SameBook()
 		{
 			var firstBook = m_books.First();
-			var firstBlock = firstBook.Blocks.First();
-			var secondBlock = firstBook.Blocks[1];
+			var firstBlock = firstBook[0];
+			var secondBlock = firstBook[1];
 			m_navigator.CurrentBlock = firstBlock;
 			BookScript currentBook = m_navigator.CurrentBook;
 			Block currentBlock = m_navigator.CurrentBlock;
@@ -196,9 +197,9 @@ namespace ProtoScriptTests
 		public void PeekNextBlock_NextBook()
 		{
 			var firstBook = m_books.First();
-			var lastBlock = firstBook.Blocks.Last();
+			var lastBlock = firstBook.GetScriptBlocks().Last();
 			var secondBook = m_books[1];
-			var firstBlock = secondBook.Blocks.First();
+			var firstBlock = secondBook[0];
 			m_navigator.CurrentBlock = lastBlock;
 			BookScript currentBook = m_navigator.CurrentBook;
 			Block currentBlock = m_navigator.CurrentBlock;
@@ -211,7 +212,7 @@ namespace ProtoScriptTests
 		public void GetNextBlock_LastReturnsNull()
 		{
 			var lastBook = m_books.Last();
-			var lastBlock = lastBook.Blocks.Last();
+			var lastBlock = lastBook.GetScriptBlocks().Last();
 			m_navigator.CurrentBlock = lastBlock;
 			Assert.IsNull(m_navigator.NextBlock());
 		}
@@ -220,8 +221,8 @@ namespace ProtoScriptTests
 		public void GetPreviousBlock_SameBook()
 		{
 			var firstBook = m_books.First();
-			var firstBlock = firstBook.Blocks.First();
-			var secondBlock = firstBook.Blocks[1];
+			var firstBlock = firstBook[0];
+			var secondBlock = firstBook[1];
 			m_navigator.CurrentBlock = secondBlock;
 			Assert.AreEqual(firstBlock, m_navigator.PreviousBlock());
 		}
@@ -230,9 +231,9 @@ namespace ProtoScriptTests
 		public void GetPreviousBlock_PreviousBook()
 		{
 			var secondBook = m_books[1];
-			var firstBlock = secondBook.Blocks.First();
+			var firstBlock = secondBook[0];
 			var firstBook = m_books.First();
-			var lastBlock = firstBook.Blocks.Last();
+			var lastBlock = firstBook.GetScriptBlocks().Last();
 			m_navigator.CurrentBlock = firstBlock;
 			Assert.AreEqual(lastBlock, m_navigator.PreviousBlock());
 		}
@@ -241,8 +242,8 @@ namespace ProtoScriptTests
 		public void PeekPreviousBlock_SameBook()
 		{
 			var firstBook = m_books.First();
-			var firstBlock = firstBook.Blocks.First();
-			var secondBlock = firstBook.Blocks[1];
+			var firstBlock = firstBook[0];
+			var secondBlock = firstBook[1];
 			m_navigator.CurrentBlock = secondBlock;
 			BookScript currentBook = m_navigator.CurrentBook;
 			Block currentBlock = m_navigator.CurrentBlock;
@@ -255,9 +256,9 @@ namespace ProtoScriptTests
 		public void PeekPreviousBlock_PreviousBook()
 		{
 			var secondBook = m_books[1];
-			var firstBlock = secondBook.Blocks.First();
+			var firstBlock = secondBook[0];
 			var firstBook = m_books.First();
-			var lastBlock = firstBook.Blocks.Last();
+			var lastBlock = firstBook.GetScriptBlocks().Last();
 			m_navigator.CurrentBlock = firstBlock;
 			BookScript currentBook = m_navigator.CurrentBook;
 			Block currentBlock = m_navigator.CurrentBlock;
@@ -270,7 +271,7 @@ namespace ProtoScriptTests
 		public void GetPreviousBlock_FirstReturnsNull()
 		{
 			var firstBook = m_books.First();
-			var firstBlock = firstBook.Blocks.First();
+			var firstBlock = firstBook[0];
 			m_navigator.CurrentBlock = firstBlock;
 			Assert.IsNull(m_navigator.PreviousBlock());
 		}
@@ -278,7 +279,7 @@ namespace ProtoScriptTests
 		[Test]
 		public void CurrentBlock_StartsAtFirstBlock()
 		{
-			Assert.AreEqual(m_books.First().Blocks.First(), m_navigator.CurrentBlock);
+			Assert.AreEqual(m_books.First()[0], m_navigator.CurrentBlock);
 		}
 
 		[Test]
@@ -291,15 +292,15 @@ namespace ProtoScriptTests
 		public void GetNextBlock_GetPreviousBlock_BackToFirst()
 		{
 			m_navigator.NextBlock();
-			Assert.AreEqual(m_books.First().Blocks.First(), m_navigator.PreviousBlock());
+			Assert.AreEqual(m_books.First()[0], m_navigator.PreviousBlock());
 		}
 
 		[Test]
 		public void GetPreviousBlock_GetNextBlock_BackToLast()
 		{
-			m_navigator.CurrentBlock = m_books.Last().Blocks.Last();
+			m_navigator.CurrentBlock = m_books.Last().GetScriptBlocks().Last();
 			m_navigator.PreviousBlock();
-			Assert.AreEqual(m_books.Last().Blocks.Last(), m_navigator.NextBlock());
+			Assert.AreEqual(m_books.Last().GetScriptBlocks().Last(), m_navigator.NextBlock());
 		}
 	}
 }

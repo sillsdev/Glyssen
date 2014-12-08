@@ -15,10 +15,10 @@ namespace ProtoScript
 		public BlockNavigator(IReadOnlyList<BookScript> books)
 		{
 			m_books = books;
-			m_currentBook = m_books.First(b => b.Blocks.Any());
+			m_currentBook = m_books.First(b => b.HasScriptBlocks);
 			if (m_currentBook == null)
 				throw new ArgumentException("The list of books must contain at least one block.");
-			m_currentBlock = m_currentBook.Blocks.First();
+			m_currentBlock = m_currentBook[0];
 		}
 
 		public BookScript CurrentBook
@@ -46,10 +46,10 @@ namespace ProtoScript
 			set
 			{
 				m_currentBlock = value;
-				if (!CurrentBook.Blocks.Contains(m_currentBlock))
+				if (!CurrentBook.GetScriptBlocks().Contains(m_currentBlock))
 					CurrentBook = GetBookScriptContainingBlock(m_currentBlock);
 				int i = 0;
-				foreach (Block block in CurrentBook.Blocks)
+				foreach (Block block in CurrentBook.GetScriptBlocks())
 				{
 					if (block == m_currentBlock)
 					{
@@ -63,7 +63,7 @@ namespace ProtoScript
 
 		public BookScript GetBookScriptContainingBlock(Block block)
 		{
-			return m_books.FirstOrDefault(script => script.Blocks != null && script.Blocks.Contains(block));
+			return m_books.FirstOrDefault(script => script.GetScriptBlocks() != null && script.GetScriptBlocks().Contains(block));
 		}
 
 		public bool IsLastBook(BookScript book)
@@ -83,9 +83,7 @@ namespace ProtoScript
 
 		public bool IsLastBlockInBook(BookScript book, Block block)
 		{
-			List<Block> blocks = book.Blocks;
-			int i = blocks.IndexOf(block);
-			return i == blocks.Count - 1;
+			return block == book.GetScriptBlocks().LastOrDefault();
 		}
 
 		public bool IsFirstBook(BookScript book)
@@ -105,7 +103,7 @@ namespace ProtoScript
 
 		public bool IsFirstBlockInBook(BookScript book, Block block)
 		{
-			return book.Blocks.IndexOf(block) == 0;
+			return block == book.GetScriptBlocks().FirstOrDefault();
 		}
 
 		private BookScript PeekNextBook()
@@ -129,12 +127,12 @@ namespace ProtoScript
 			if (IsLastBlockInBook(m_currentBook, m_currentBlock))
 			{
 				BookScript nextBook = PeekNextBook();
-				if (!nextBook.Blocks.Any())
+				if (!nextBook.HasScriptBlocks)
 					return null;
-				return nextBook.Blocks[0];
+				return nextBook[0];
 			}
 
-			return m_currentBook.Blocks[m_currentBlockIndex + 1];
+			return m_currentBook[m_currentBlockIndex + 1];
 		}
 
 		public Block NextBlock()
@@ -144,13 +142,13 @@ namespace ProtoScript
 			if (IsLastBlockInBook(m_currentBook, m_currentBlock))
 			{
 				BookScript nextBook = NextBook();
-				if (!nextBook.Blocks.Any())
+				if (!nextBook.HasScriptBlocks)
 					return null;
 				m_currentBlockIndex = 0;
-				return nextBook.Blocks[m_currentBlockIndex];
+				return nextBook[m_currentBlockIndex];
 			}
 
-			return m_currentBlock = m_currentBook.Blocks[++m_currentBlockIndex];
+			return m_currentBlock = m_currentBook[++m_currentBlockIndex];
 		}
 
 		private BookScript PeekPreviousBook()
@@ -174,12 +172,12 @@ namespace ProtoScript
 			if (IsFirstBlockInBook(m_currentBook, m_currentBlock))
 			{
 				BookScript previousBook = PeekPreviousBook();
-				if (!previousBook.Blocks.Any())
+				if (!previousBook.HasScriptBlocks)
 					return null;
-				return previousBook.Blocks[m_currentBook.Blocks.Count - 1];
+				return previousBook[previousBook.GetScriptBlocks().Count - 1];
 			}
 
-			return m_currentBook.Blocks[m_currentBlockIndex - 1];
+			return m_currentBook[m_currentBlockIndex - 1];
 		}
 
 		public Block PreviousBlock()
@@ -189,13 +187,13 @@ namespace ProtoScript
 			if (IsFirstBlockInBook(m_currentBook, m_currentBlock))
 			{
 				BookScript previousBook = PreviousBook();
-				if (!previousBook.Blocks.Any())
+				if (!previousBook.HasScriptBlocks)
 					return null;
-				m_currentBlockIndex = m_currentBook.Blocks.Count - 1;
-				return previousBook.Blocks[m_currentBlockIndex];
+				m_currentBlockIndex = m_currentBook.GetScriptBlocks().Count - 1;
+				return previousBook[m_currentBlockIndex];
 			}
 
-			return m_currentBlock = m_currentBook.Blocks[--m_currentBlockIndex];
+			return m_currentBlock = m_currentBook[--m_currentBlockIndex];
 		}
 	}
 }

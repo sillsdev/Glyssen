@@ -19,7 +19,7 @@ namespace ProtoScript
 
 		public void Assign(BookScript bookScript, bool overwriteUserConfirmed = false)
 		{
-			foreach (Block block in bookScript.ScriptBlocks)
+			foreach (Block block in bookScript.GetScriptBlocks())
 			{
 				if (block.CharacterIsStandard || (block.UserConfirmed && !overwriteUserConfirmed))
 					continue;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -57,6 +58,10 @@ namespace ProtoScript
 
 		[XmlAttribute("style")]
 		public string StyleTag { get; set; }
+
+		[XmlAttribute("paragraphStart")]
+		[DefaultValue(false)]
+		public bool IsParagraphStart { get; set; }
 
 		[XmlAttribute("chapter")]
 		public int ChapterNumber

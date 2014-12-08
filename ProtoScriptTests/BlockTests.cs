@@ -37,13 +37,14 @@ namespace ProtoScriptTests
 		public void GetAsXml_TextBeginsMidVerse_XmlHasCorrectVerseInfo()
 		{
 			var block = new Block("p", 4, 3);
+			block.IsParagraphStart = true;
 			block.BlockElements.Add(new ScriptText("Text of verse three, part two. "));
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
-			AssertThatXmlIn.String("<?xml version=\"1.0\" encoding=\"utf-16\"?><block style=\"p\" chapter=\"4\" verse=\"3\" userConfirmed=\"false\">" +
+			AssertThatXmlIn.String("<?xml version=\"1.0\" encoding=\"utf-16\"?><block style=\"p\" paragraphStart=\"true\" chapter=\"4\" verse=\"3\" userConfirmed=\"false\">" +
 				"<text>Text of verse three, part two. </text>" +
 				"<verse num=\"4\"/>" +
 				"<text>Text of verse four. </text>" +
@@ -57,6 +58,7 @@ namespace ProtoScriptTests
 		public void GetAsTabDelimited_VerseAndTextElements_ExpectedColumnsIncludingJoinedText()
 		{
 			var block = new Block("p", 4);
+			block.IsParagraphStart = true;
 			block.CharacterId = "Fred";
 			block.Delivery = "With great gusto and quivering frustration";
 			block.BlockElements.Add(new Verse("1"));

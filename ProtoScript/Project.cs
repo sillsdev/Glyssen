@@ -176,7 +176,7 @@ namespace ProtoScript
 		{
 			var cvInfo = CharacterVerseData.Singleton;
 			foreach (var bookScript in m_books)
-				bookScript.Blocks = new QuoteParser(cvInfo, bookScript.BookId, bookScript.ScriptBlocks, ConfirmedQuoteSystem).Parse().ToList();
+				bookScript.Blocks = new QuoteParser(cvInfo, bookScript.BookId, bookScript.GetScriptBlocks(), ConfirmedQuoteSystem).Parse().ToList();
 		}
 
 		public static string GetProjectFilePath(string basePath, string langId, string bundleId)
@@ -213,7 +213,7 @@ namespace ProtoScript
 			{
 				foreach (var book in m_books)
 				{
-					foreach (var block in book.ScriptBlocks)
+					foreach (var block in book.GetScriptBlocks(true))
 					{
 						stream.WriteLine((blockNumber++) + "\t" + block.GetAsTabDelimited(book.BookId));
 					}
