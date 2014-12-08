@@ -181,7 +181,11 @@ namespace ProtoScript.Dialogs
 			if (currentBlock.CharacterIs(Block.StandardCharacter.Narrator))
 				m_listBoxCharacters.SelectedItem = kNarrator;
 			if (!currentBlock.CharacterIsUnclear())
+			{
+				if (!m_listBoxCharacters.Items.Contains(currentBlock.CharacterId))
+					m_listBoxCharacters.Items.Add(currentBlock.CharacterId);
 				m_listBoxCharacters.SelectedItem = currentBlock.CharacterId;
+			}
 		}
 
 		private void LoadDeliveryListBox()
@@ -201,19 +205,22 @@ namespace ProtoScript.Dialogs
 
 		private void SetDelivery()
 		{
+			Block currentBlock = m_navigator.CurrentBlock;
+			if (!m_listBoxDeliveries.Items.Contains(currentBlock.Delivery))
+				m_listBoxDeliveries.Items.Add(currentBlock.Delivery);
+
 			if (m_listBoxDeliveries.Items.Count == 1)
 				m_listBoxDeliveries.SelectedIndex = 0;
 			else
 			{
-				Block currentBlock = m_navigator.CurrentBlock;
-				m_listBoxDeliveries.SelectedItem = string.IsNullOrEmpty(currentBlock.Delivery) ? kNormalDelivery : currentBlock.Delivery;
-
-				//REVIEW:
-				// It would be nice if there was a feasible way to automatically select the only delivery for that
-				// character in the control file. The problem is when we get here, we don't know if the user has 
-				// changed the selection or if we are loading the saved value.
-				//
-				// E.g. If the only option for this block is Gabriel [proclaiming], we should automatically select "proclaiming"
+				if (currentBlock.CharacterId == (string)m_listBoxCharacters.SelectedItem)
+				{
+					m_listBoxDeliveries.SelectedItem = string.IsNullOrEmpty(currentBlock.Delivery) ? kNormalDelivery : currentBlock.Delivery;
+				}
+				else if (m_deliveries.Count() == 1)
+				{
+					m_listBoxDeliveries.SelectedIndex = 1;
+				}
 			}
 		}
 
