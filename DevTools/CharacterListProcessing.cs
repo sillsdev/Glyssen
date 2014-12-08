@@ -135,7 +135,7 @@ namespace DevTools
 
 		private static void GenerateControlFile(List<CharacterVerse> allCv)
 		{
-			int versionNumber = ProtoScript.CharacterVerse.ControlFileVersion + 1;
+			int versionNumber = ProtoScript.CharacterVerseData.Singleton.ControlFileVersion + 1;
 
 			allCv.Sort(CharacterVerse.ReferenceComparison);
 			var sb = new StringBuilder();

@@ -1,4 +1,4 @@
-Control File Version	4	Generated	Fri, 05 Dec 2014 16:13:15 GMT
+Control File Version	5	Generated	Mon, 08 Dec 2014 11:40:43 GMT
 GEN	1	3	God		God (the LORD)
 GEN	1	5	Not A Quote		
 GEN	1	6	God		God (the LORD)
@@ -7401,7 +7401,8 @@ MAT	6	25	Jesus	preaching
 MAT	6	26	Jesus	preaching	
 MAT	6	27	Jesus	preaching	
 MAT	6	28	Jesus	preaching	
-MAT	6	28,29	Jesus	preaching	
+MAT	6	29	Jesus	preaching	
+MAT	6	30	Jesus	preaching	
 MAT	6	31	Jesus	preaching	
 MAT	6	32	Jesus	preaching	
 MAT	6	33	Jesus	preaching	
@@ -7547,7 +7548,6 @@ MAT	12	28	Jesus
 MAT	12	29	Jesus		
 MAT	12	30	Jesus		
 MAT	12	31	Jesus		
-MAT	12	31,32	Jesus		
 MAT	12	32	Jesus		
 MAT	12	33	Jesus		
 MAT	12	34	Jesus		
@@ -7555,10 +7555,9 @@ MAT	12	35	Jesus
 MAT	12	36	Jesus		
 MAT	12	38	Pharisees/teachers of the law, some	challenge	
 MAT	12	39	Jesus	rebuking	
-MAT	12	40	Jesus		
+MAT	12	40	Jesus	rebuking	
 MAT	12	41	Jesus	rebuking	
-MAT	12	41,42	Jesus		
-MAT	12	42	Jesus		
+MAT	12	42	Jesus	rebuking	
 MAT	12	43	Jesus		
 MAT	12	44	Jesus		
 MAT	12	45	Jesus		
@@ -7780,8 +7779,8 @@ MAT	21	20	disciples, the
 MAT	21	21	Jesus		
 MAT	21	23	chief priests/teachers of the law/elders=chief priests/elders of people 1	challenge	
 MAT	21	24	Jesus		
-MAT	21	24-25	Jesus		
 MAT	21	25	chief priests/teachers of the law/elders=chief priests/elders of people 1	to themselves	
+MAT	21	25	Jesus		
 MAT	21	27	chief priests/teachers of the law=chief priests/elders of people		
 MAT	21	27	Jesus		
 MAT	21	28	Jesus		
@@ -8495,7 +8494,6 @@ LUK	1	66	everyone who heard
 LUK	1	68	Zechariah	praising	
 LUK	1	69	Zechariah	praising	
 LUK	1	70	Zechariah	praising	
-LUK	1	70,71	Zechariah	praising	
 LUK	1	71	Zechariah	praising	
 LUK	1	72	Zechariah	praising	
 LUK	1	73	Zechariah	praising	
@@ -8509,13 +8507,12 @@ LUK	2	1	Caesar Augustus
 LUK	2	10	angel of the LORD, an		
 LUK	2	14	great company of heavenly host	stage whisper extra voices will be added	
 LUK	2	15	shepherds 1	awe	
-LUK	2	22-24	scripture		
 LUK	2	23	scripture		
 LUK	2	24	scripture		
 LUK	2	26	Holy Spirit, the		
 LUK	2	29	Simeon-old		
 LUK	2	30	Simeon-old		
-LUK	2	31,32	Simeon-old		
+LUK	2	31	Simeon-old		
 LUK	2	32	Simeon-old		
 LUK	2	34	Simeon-old		
 LUK	2	38	Anna, prophetess		
@@ -8539,7 +8536,7 @@ LUK	3	22	God		voice from heaven (God)
 LUK	4	3	Satan		Devil
 LUK	4	4	Jesus		
 LUK	4	6	Satan		Devil
-LUK	4	6,7	Satan		Devil
+LUK	4	7	Satan		Devil
 LUK	4	8	Jesus		
 LUK	4	9	Satan		Devil
 LUK	4	10	Satan		Devil
@@ -8549,7 +8546,7 @@ LUK	4	21	Jesus
 LUK	4	22	all in synagogue	perplexed	
 LUK	4	23	Jesus		
 LUK	4	24	Jesus		
-LUK	4	25,26	Jesus		
+LUK	4	25	Jesus		
 LUK	4	26	Jesus		
 LUK	4	27	Jesus		
 LUK	4	34	man possessed by evil spirit		
@@ -8563,7 +8560,6 @@ LUK	5	3	Jesus
 LUK	5	4	Jesus		
 LUK	5	5	Peter (Simon)	polite	
 LUK	5	8	Peter (Simon)	afraid	
-LUK	5	8,9	Peter (Simon)	afraid	
 LUK	5	10	Jesus		
 LUK	5	12	man covered with leprosy	pleading	
 LUK	5	13	Jesus		
@@ -8610,7 +8606,6 @@ LUK	6	38	Jesus
 LUK	6	39	Jesus		
 LUK	6	40	Jesus		
 LUK	6	41	Jesus		
-LUK	6	41,42	Jesus		
 LUK	6	42	Jesus		
 LUK	6	43	Jesus		
 LUK	6	44	Jesus		
@@ -8631,7 +8626,6 @@ LUK	7	15	Jesus
 LUK	7	16	crowd, large 1	praising	
 LUK	7	19	John the Baptist	discouraged	
 LUK	7	20	John's disciples	puzzled	
-LUK	7	20,21	John's disciples	puzzled	
 LUK	7	22	Jesus		
 LUK	7	23	Jesus		
 LUK	7	24	Jesus		
@@ -8679,14 +8673,11 @@ LUK	8	24	Jesus	giving orders
 LUK	8	25	disciples, the 4	fear, amazement	
 LUK	8	25	Jesus	questioning	
 LUK	8	27	demon-possessed man		
-LUK	8	27-29	demon-possessed man		
-LUK	8	27-29	Jesus		
 LUK	8	28	demon-possessed man		
 LUK	8	29	Jesus		
 LUK	8	30	demon-possessed man		
 LUK	8	30	Jesus	questioning	
 LUK	8	31	demon-possessed man	begging	
-LUK	8	31,32	demon-possessed man	begging	
 LUK	8	32	demon-possessed man	begging	
 LUK	8	38	man who had had demons		
 LUK	8	39	Jesus		
@@ -8828,8 +8819,8 @@ LUK	12	1	Jesus	warning
 LUK	12	2	Jesus		
 LUK	12	4	Jesus		
 LUK	12	5	Jesus		
-LUK	12	6	Jesus	questioning	
-LUK	12	6,7	Jesus	questioning	
+LUK	12	6	Jesus		
+LUK	12	7	Jesus		
 LUK	12	8	Jesus		
 LUK	12	9	Jesus		
 LUK	12	10	Jesus		
@@ -8927,7 +8918,6 @@ LUK	15	1	Not A Quote
 LUK	15	2	Pharisees/teachers of law|Pharisee, one	muttering	
 LUK	15	4	Jesus		
 LUK	15	5	Jesus		
-LUK	15	5,6	Jesus		
 LUK	15	6	Jesus		
 LUK	15	7	Jesus		
 LUK	15	8	Jesus		
@@ -8968,7 +8958,7 @@ LUK	16	16	Jesus
 LUK	16	17	Jesus		
 LUK	16	18	Jesus		
 LUK	16	19	Jesus		
-LUK	16	20,21	Jesus		
+LUK	16	20	Jesus		
 LUK	16	21	Jesus		
 LUK	16	22	Jesus		
 LUK	16	23	Jesus		
@@ -9013,8 +9003,9 @@ LUK	18	1	Jesus
 LUK	18	2	Jesus		
 LUK	18	3	Jesus		
 LUK	18	4	Jesus		
-LUK	18	4,5	Jesus		
+LUK	18	5	Jesus		
 LUK	18	6	Jesus		
+LUK	18	7	Jesus		
 LUK	18	8	Jesus		
 LUK	18	10	Jesus		
 LUK	18	11	Jesus		
@@ -9054,8 +9045,6 @@ LUK	19	16	Jesus
 LUK	19	17	Jesus		
 LUK	19	18	Jesus		
 LUK	19	19	Jesus		
-LUK	19	20	Jesus		
-LUK	19	20,21	Jesus		
 LUK	19	21	Jesus		
 LUK	19	22	Jesus		
 LUK	19	23	Jesus		
@@ -9092,9 +9081,6 @@ LUK	20	17	Jesus
 LUK	20	18	Jesus		
 LUK	20	21	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians		
 LUK	20	23	Jesus		
-LUK	20	23-24	Jesus		
-LUK	20	23,24	Jesus		
-LUK	20	23,24	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians		
 LUK	20	24	Jesus		
 LUK	20	24	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians		
 LUK	20	25	Jesus		
@@ -9103,7 +9089,6 @@ LUK	20	27	Sadducees
 LUK	20	28	Sadducees		
 LUK	20	29	Sadducees		
 LUK	20	32	Sadducees		
-LUK	20	32,33	Sadducees		
 LUK	20	33	Sadducees		
 LUK	20	34	Jesus		
 LUK	20	36	Jesus		
@@ -9138,12 +9123,11 @@ LUK	21	25	Jesus
 LUK	21	26	Jesus		
 LUK	21	27	Jesus		
 LUK	21	29	Jesus		
-LUK	21	29,30	Jesus		
+LUK	21	30	Jesus		
 LUK	21	31	Jesus		
 LUK	21	32	Jesus		
 LUK	21	33	Jesus		
 LUK	21	34	Jesus		
-LUK	21	34,35	Jesus		
 LUK	21	35	Jesus		
 LUK	22	4	Judas Iscariot		
 LUK	22	5	chief priests/officers of temple guard		
@@ -9201,7 +9185,8 @@ LUK	23	20	Pilate
 LUK	23	21	chief priests/rulers/the people|mob		
 LUK	23	22	Pilate	to crowd	
 LUK	23	23	crowd		
-LUK	23	24,25	Pilate		
+LUK	23	24	Pilate		
+LUK	23	25	Pilate		
 LUK	23	28	Jesus		
 LUK	23	30	Jesus		
 LUK	23	31	Jesus		
@@ -9283,7 +9268,6 @@ JHN	2	4	Jesus
 JHN	2	5	Mary (Jesus' mother)		
 JHN	2	7	Jesus		
 JHN	2	8	Jesus		
-JHN	2	9,10	master of the banquet	complimenting	
 JHN	2	10	master of the banquet	complimenting	
 JHN	2	16	Jesus	giving orders	
 JHN	2	17	scripture		
@@ -9714,7 +9698,6 @@ JHN	18	25	Peter (Simon)	stronger
 JHN	18	25	servant girl		servant girl, another=someone else
 JHN	18	26	high priest's servant (man), one=those standing near=another	accusing	
 JHN	18	27	Peter (Simon)		
-JHN	18	28,29	Pilate	to crowd	
 JHN	18	29	Pilate	to crowd	
 JHN	18	30	Jews, the 1	offended	
 JHN	18	31	Jews, the 4		
@@ -10026,7 +10009,6 @@ ACT	13	29	Paul
 ACT	13	30	Paul		
 ACT	13	31	Paul		
 ACT	13	32	Paul		
-ACT	13	32,33	Paul		
 ACT	13	33	Paul		
 ACT	13	34	Paul		
 ACT	13	35	Paul		
@@ -10274,7 +10256,6 @@ ACT	28	27	Paul
 ACT	28	28	Paul		
 ROM	1	17	scripture		
 ROM	2	1	Jews, the 8	accusing	
-ROM	2	5,6	scripture		
 ROM	2	6	scripture		
 ROM	2	15	Gentiles		
 ROM	2	15	Jews, the 8	accusing	
@@ -10553,7 +10534,6 @@ JAS	4	6	scripture
 JAS	4	12	God		God (the LORD)
 JAS	4	13	someone		
 JAS	4	15	you ought to say		
-JAS	4	15,16	you ought to say		
 JAS	5	12	Not A Quote		
 1PE	1	16	scripture		
 1PE	1	24	scripture		
@@ -10613,7 +10593,6 @@ REV	2	22	Jesus		someone like a son of man
 REV	2	23	Jesus		someone like a son of man
 REV	2	25	Jesus		someone like a son of man
 REV	2	26	Jesus		someone like a son of man
-REV	2	26,27	Jesus		someone like a son of man
 REV	2	27	Jesus		someone like a son of man
 REV	2	29	Jesus		someone like a son of man
 REV	3	1	Jesus		someone like a son of man
