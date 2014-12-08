@@ -61,13 +61,25 @@ namespace ProtoScript
 			if (!join || m_blockCount == 0)
 				return m_blocks;
 
-
 			var list = new List<Block>(m_blockCount);
 			list.Add(m_blocks[0]);
 			for (int i = 1; i < m_blockCount; i++)
 			{
 				var block = m_blocks[i];
-				// TODO: Add joining logic
+				if (!block.IsParagraphStart)
+				{
+					var prevBlock = list.Last();
+					if (block.CharacterId == prevBlock.CharacterId && block.Delivery == prevBlock.Delivery)
+					{
+						var newBlock = prevBlock.Clone();
+						newBlock.BlockElements = new List<BlockElement>(prevBlock.BlockElements.Count + block.BlockElements.Count);
+						foreach (var blockElement in prevBlock.BlockElements.Concat(block.BlockElements))
+							newBlock.BlockElements.Add(blockElement.Clone());
+						newBlock.UserConfirmed &= block.UserConfirmed;
+						list[list.Count - 1] = newBlock;
+						continue;
+					}
+				}
 				list.Add(block);
 			}
 			return list;

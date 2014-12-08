@@ -56,6 +56,11 @@ namespace ProtoScript
 			InitialVerseNumber = initialVerseNum;
 		}
 
+		public Block Clone()
+		{
+			return (Block)MemberwiseClone();
+		}
+
 		[XmlAttribute("style")]
 		public string StyleTag { get; set; }
 
@@ -187,6 +192,7 @@ namespace ProtoScript
 		public void SetStandardCharacter(string bookId, StandardCharacter standardCharacterType)
 		{
 			CharacterId = GetCharacterPrefix(standardCharacterType) + bookId;
+			Delivery = null;
 		}
 
 		private string GetCharacterPrefix(StandardCharacter standardCharacterType)
@@ -252,6 +258,10 @@ namespace ProtoScript
 	[XmlInclude(typeof (Verse))]
 	public abstract class BlockElement
 	{
+		public virtual BlockElement Clone()
+		{
+			return (BlockElement)MemberwiseClone();
+		}
 	}
 
 	public class ScriptText : BlockElement

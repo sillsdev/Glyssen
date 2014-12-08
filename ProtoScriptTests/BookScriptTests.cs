@@ -227,6 +227,62 @@ namespace ProtoScriptTests
 		}
 		#endregion
 
+		#region GetScriptBlocks Tests
+		[Test]
+		public void GetScriptBlocks_NoJoining_GetsEntireBlocksList()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			mrkBlocks.Add(NewSingleVersePara(1));
+			mrkBlocks.Add(NewSingleVersePara(2));
+			mrkBlocks.Add(NewSingleVersePara(3));
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			Assert.IsTrue(bookScript.GetScriptBlocks(false).SequenceEqual(mrkBlocks));
+			Assert.IsTrue(bookScript.GetScriptBlocks().SequenceEqual(mrkBlocks)); // Same as above but proves that false is the default
+		}
+
+		[Test]
+		public void GetScriptBlocks_JoiningConsecutiveNarratorBlocksInTheSameParagraph_ResultsIncludeJoinedBlocks()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+
+			var block = NewSingleVersePara(1).AddVerse(2);
+			block.IsParagraphStart = true;
+			block.SetStandardCharacter("MRK", Block.StandardCharacter.Narrator);
+			mrkBlocks.Add(block);
+
+			block = new Block("p", m_curSetupChapter, 2);
+			block.BlockElements.Add(new ScriptText(" «Sons of Thunder»"));
+			block.IsParagraphStart = false;
+			block.SetStandardCharacter("MRK", Block.StandardCharacter.Narrator);
+			mrkBlocks.Add(block);
+
+			block = new Block("p", m_curSetupChapter, 2);
+			block.BlockElements.Add(new ScriptText(" the rest of verse 2. "));
+			block.IsParagraphStart = false;
+			block.SetStandardCharacter("MRK", Block.StandardCharacter.Narrator);
+			mrkBlocks.Add(block.AddVerse(3));
+
+			block = NewSingleVersePara(4).AddVerse(5);
+			block.IsParagraphStart = true;
+			block.SetStandardCharacter("MRK", Block.StandardCharacter.Narrator);
+			mrkBlocks.Add(block);
+
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var result = bookScript.GetScriptBlocks(true);
+			Assert.IsTrue(result[1].CharacterIs(Block.StandardCharacter.Narrator));
+			Assert.IsTrue(result[1].IsParagraphStart);
+			var textOfFirstVerseBlock = result[1].GetText(true);
+			Assert.IsTrue(textOfFirstVerseBlock.StartsWith("[1]"));
+			Assert.IsTrue(textOfFirstVerseBlock.Contains("[2]"));
+			Assert.IsTrue(textOfFirstVerseBlock.Contains(" «Sons of Thunder» the rest of verse 2. [3]"));
+			Assert.IsTrue(result[2].CharacterIs(Block.StandardCharacter.Narrator));
+			Assert.IsTrue(result[2].IsParagraphStart);
+			Assert.IsTrue(result[2].GetText(true).StartsWith("[4]"));
+		}
+		#endregion
+
 		#region Private Helper methods
 		private Block NewChapterBlock(int chapterNum)
 		{
