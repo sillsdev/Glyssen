@@ -31,9 +31,24 @@ namespace ProtoScript
 
 		public int ControlFileVersion { get; private set; }
 
-		public IEnumerable<CharacterVerse> GetCharacters(string bookId, int chapter, int verse)
+		public IEnumerable<CharacterVerse> GetCharacters(string bookCode, int chapter, int verse)
 		{
-			return m_data.Where(cv => cv.BookCode == bookId && cv.Chapter == chapter && cv.Verse == verse);
+			return m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter && cv.Verse == verse);
+		}
+
+		public IEnumerable<CharacterVerse> GetUniqueCharacters()
+		{
+			return new SortedSet<CharacterVerse>(m_data, new CharacterDeliveryComparer());
+		}
+
+		public IEnumerable<CharacterVerse> GetUniqueCharacters(string bookCode)
+		{
+			return new SortedSet<CharacterVerse>(m_data.Where(cv => cv.BookCode == bookCode), new CharacterDeliveryComparer());
+		}
+
+		public IEnumerable<CharacterVerse> GetUniqueCharacters(string bookCode, int chapter)
+		{
+			return new SortedSet<CharacterVerse>(m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter), new CharacterDeliveryComparer());
 		}
 
 		public IEnumerable<CharacterVerse> GetAllQuoteInfo(string bookId)

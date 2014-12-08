@@ -61,6 +61,24 @@ namespace ProtoScript
 			}
 		}
 
+		public void NavigateToFirstBlock()
+		{
+			SetIndices(new Tuple<int, int>(0, 0));
+		}
+
+		internal Tuple<int, int> GetIndices()
+		{
+			return new Tuple<int, int>(m_currentBookIndex, m_currentBlockIndex);
+		}
+
+		internal void SetIndices(Tuple<int, int> indices)
+		{
+			m_currentBookIndex = indices.Item1;
+			m_currentBook = m_books[m_currentBookIndex];
+			m_currentBlockIndex = indices.Item2;
+			m_currentBlock = m_currentBook.Blocks[m_currentBlockIndex];
+		}
+
 		public BookScript GetBookScriptContainingBlock(Block block)
 		{
 			return m_books.FirstOrDefault(script => script.GetScriptBlocks() != null && script.GetScriptBlocks().Contains(block));

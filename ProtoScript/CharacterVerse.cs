@@ -1,4 +1,6 @@
-﻿using SIL.ScriptureUtils;
+﻿using System;
+using System.Collections.Generic;
+using SIL.ScriptureUtils;
 
 namespace ProtoScript
 {
@@ -13,6 +15,11 @@ namespace ProtoScript
 		public string Alias;
 
 		public override string ToString()
+		{
+			return Character;
+		}
+
+		public string ToStringWithDelivery()
 		{
 			if (string.IsNullOrEmpty(Delivery))
 				return Character;
@@ -58,5 +65,27 @@ namespace ProtoScript
 			return !Equals(left, right);
 		}
 		#endregion
+	}
+
+	public class CharacterDeliveryComparer : IComparer<CharacterVerse>
+	{
+		int IComparer<CharacterVerse>.Compare(CharacterVerse x, CharacterVerse y)
+		{
+			int result = String.Compare(x.Character, y.Character, StringComparison.InvariantCultureIgnoreCase);
+			if (result != 0)
+				return result;
+			result = String.Compare(x.Delivery, y.Delivery, StringComparison.InvariantCultureIgnoreCase);
+			if (result != 0)
+				return result;
+			return 0;
+		}
+	}
+
+	public class CharacterComparer : IComparer<CharacterVerse>
+	{
+		int IComparer<CharacterVerse>.Compare(CharacterVerse x, CharacterVerse y)
+		{
+			return String.Compare(x.Character, y.Character, StringComparison.InvariantCultureIgnoreCase);
+		}
 	}
 }
