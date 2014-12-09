@@ -206,7 +206,7 @@ namespace ProtoScript.Dialogs
 		private void SetDelivery()
 		{
 			Block currentBlock = m_navigator.CurrentBlock;
-			if (!m_listBoxDeliveries.Items.Contains(currentBlock.Delivery))
+			if (!string.IsNullOrEmpty(currentBlock.Delivery) && !m_listBoxDeliveries.Items.Contains(currentBlock.Delivery))
 				m_listBoxDeliveries.Items.Add(currentBlock.Delivery);
 
 			if (m_listBoxDeliveries.Items.Count == 1)
