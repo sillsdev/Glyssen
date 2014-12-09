@@ -189,7 +189,7 @@ namespace ProtoScript.Dialogs
 			Block currentBlock = m_navigator.CurrentBlock;
 			if (currentBlock.CharacterIs(Block.StandardCharacter.Narrator))
 				m_listBoxCharacters.SelectedItem = kNarrator;
-			if (!currentBlock.CharacterIsUnclear())
+			else if (!currentBlock.CharacterIsUnclear())
 			{
 				if (!m_listBoxCharacters.Items.Contains(currentBlock.CharacterId))
 					m_listBoxCharacters.Items.Add(currentBlock.CharacterId);
