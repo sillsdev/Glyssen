@@ -39,10 +39,10 @@
 			this.m_linkLabelAll = new System.Windows.Forms.LinkLabel();
 			this.m_labelWhoSpeaks = new System.Windows.Forms.Label();
 			this.m_labelXofY = new System.Windows.Forms.Label();
+			this.m_blocksDisplayBrowser = new ProtoScript.Controls.Browser();
 			this.m_listBoxCharacters = new System.Windows.Forms.ListBox();
 			this.m_listBoxDeliveries = new System.Windows.Forms.ListBox();
 			this.m_progressBar = new ProtoScript.Controls.ProgressBarUnanimated();
-			this.m_blocksDisplayBrowser = new ProtoScript.Controls.Browser();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -111,7 +111,7 @@
 			this.m_linkLabelChapter.AutoSize = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkLabelChapter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkLabelChapter, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLabelChapter, "ProjectSettingsDialog.ShowChapter");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLabelChapter, "AssignCharacterDialog.ShowChapter");
 			this.m_linkLabelChapter.Location = new System.Drawing.Point(426, 227);
 			this.m_linkLabelChapter.Name = "m_linkLabelChapter";
 			this.m_linkLabelChapter.Size = new System.Drawing.Size(150, 13);
@@ -125,7 +125,7 @@
 			this.m_linkLabelBook.AutoSize = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkLabelBook, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkLabelBook, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLabelBook, "ProjectSettingsDialog.ShowBook");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLabelBook, "AssignCharacterDialog.ShowBook");
 			this.m_linkLabelBook.Location = new System.Drawing.Point(426, 244);
 			this.m_linkLabelBook.Name = "m_linkLabelBook";
 			this.m_linkLabelBook.Size = new System.Drawing.Size(138, 13);
@@ -139,7 +139,7 @@
 			this.m_linkLabelAll.AutoSize = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkLabelAll, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkLabelAll, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLabelAll, "ProjectSettingsDialog.ShowBook");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLabelAll, "AssignCharacterDialog.ShowAll");
 			this.m_linkLabelAll.Location = new System.Drawing.Point(426, 261);
 			this.m_linkLabelAll.Name = "m_linkLabelAll";
 			this.m_linkLabelAll.Size = new System.Drawing.Size(100, 13);
@@ -172,6 +172,18 @@
 			this.m_labelXofY.Text = "{0} of {1}";
 			this.m_labelXofY.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
+			// m_blocksDisplayBrowser
+			// 
+			this.m_blocksDisplayBrowser.AutoSize = true;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksDisplayBrowser, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksDisplayBrowser, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_blocksDisplayBrowser, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksDisplayBrowser, "ProjectSettingsDialog.Browser");
+			this.m_blocksDisplayBrowser.Location = new System.Drawing.Point(12, 60);
+			this.m_blocksDisplayBrowser.Name = "m_blocksDisplayBrowser";
+			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(383, 466);
+			this.m_blocksDisplayBrowser.TabIndex = 2;
+			// 
 			// m_listBoxCharacters
 			// 
 			this.m_listBoxCharacters.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -194,22 +206,13 @@
 			// 
 			// m_progressBar
 			// 
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_progressBar, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_progressBar, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_progressBar, "AssignCharacterDialog.AssignCharacterDialog.m_progressBar");
 			this.m_progressBar.Location = new System.Drawing.Point(12, 534);
 			this.m_progressBar.Name = "m_progressBar";
 			this.m_progressBar.Size = new System.Drawing.Size(606, 17);
 			this.m_progressBar.TabIndex = 12;
-			// 
-			// m_blocksDisplayBrowser
-			// 
-			this.m_blocksDisplayBrowser.AutoSize = true;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksDisplayBrowser, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksDisplayBrowser, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_blocksDisplayBrowser, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksDisplayBrowser, "ProjectSettingsDialog.Browser");
-			this.m_blocksDisplayBrowser.Location = new System.Drawing.Point(12, 60);
-			this.m_blocksDisplayBrowser.Name = "m_blocksDisplayBrowser";
-			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(383, 466);
-			this.m_blocksDisplayBrowser.TabIndex = 2;
 			// 
 			// AssignCharacterDialog
 			// 
