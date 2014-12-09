@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Installer.wxs" />
     <Compile Include="..\output\installer\GeneratedDistFiles.wxs" />
+	<Compile Include="..\output\installer\GeneratedXulRunner.wxs" />
   </ItemGroup>
   <ItemGroup>
       <WixExtension Include="WixFirewallExtension">

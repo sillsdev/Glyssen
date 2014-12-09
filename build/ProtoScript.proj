@@ -69,7 +69,7 @@
 			NUnitVersion="NUnit-2.5.5" />
 	</Target>
 
-	<Target Name="Installer" DependsOnTargets="VersionNumbers; MakeWixForDistFiles; Build ">
+	<Target Name="Installer" DependsOnTargets="VersionNumbers; MakeWixForDistFiles; MakeWixForXulRunner; Build ">
 
 		<!-- set the version number in the installer configuration program.	Perhaps there's a way to just send in the variables rather than this brute-force
 			changing of the script, but I haven't figured that out. -->
@@ -116,7 +116,20 @@
 			OutputFilePath="$(RootDir)\output\installer\GeneratedDistFiles.wxs"
 			MatchRegExPattern=".*"
 			>
-			<!--what does this do?-->
+			<Output TaskParameter="OutputFilePath" ItemName="Compile" />
+		</MakeWixForDirTree>
+	</Target>
+	
+	<Target Name="MakeWixForXulRunner">
+		<MakeDir Directories ="$(RootDir)\output\installer" ContinueOnError ="true"/>
+		<MakeWixForDirTree
+			DirectoryReferenceId="XulRunnerDir"
+			ComponentGroupId="XulRunner"
+			RootDirectory="$(RootDir)\lib\xulrunner"
+			InstallerSourceDirectory="$(RootDir)\Installer"
+			OutputFilePath="$(RootDir)\output\installer\GeneratedXulRunner.wxs"
+			MatchRegExPattern=".*"
+			>
 			<Output TaskParameter="OutputFilePath" ItemName="Compile" />
 		</MakeWixForDirTree>
 	</Target>
