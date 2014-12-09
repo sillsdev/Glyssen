@@ -456,5 +456,19 @@ namespace ProtoScriptTests
 			Assert.AreEqual("“Is that John?”", output[6].GetText(true));
 			Assert.AreEqual(Block.UnknownCharacter, output[6].CharacterId);
 		}
+
+		[Test]
+		public void Parse_IsParagraphStart()
+		{
+			var block = new Block("p") { IsParagraphStart = true };
+			block.BlockElements.Add(new ScriptText("He said, «Go»!"));
+			var input = new List<Block> { block };
+			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("He said, ", output[0].GetText(true));
+			Assert.AreEqual("«Go»!", output[1].GetText(true));
+			Assert.IsTrue(output[0].IsParagraphStart);
+			Assert.IsFalse(output[1].IsParagraphStart);
+		}
 	}
 }

@@ -60,7 +60,7 @@ namespace ProtoScript
 					continue;
 				}
 
-				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialVerseNumber);
+				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialVerseNumber) { IsParagraphStart = block.IsParagraphStart };
 				
 				foreach (BlockElement element in block.BlockElements)
 				{

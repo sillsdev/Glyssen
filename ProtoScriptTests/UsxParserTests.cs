@@ -414,6 +414,23 @@ namespace ProtoScriptTests
 			Assert.AreEqual("The Gospel According to Mark", blocks[0].GetText(true));
 		}
 
+		[Test]
+		public void Parse_IsParagraphStart()
+		{
+			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
+							"<verse number=\"1\" style=\"v\" />" +
+							"Verse 1 text</para>" +
+							"<para style=\"p\">" +
+			                "Verse 2 text" +
+							"<verse number=\"2\" style=\"v\" />" +
+							"more Verse 2 text</para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.IsTrue(blocks[1].IsParagraphStart);
+			Assert.IsTrue(blocks[2].IsParagraphStart);
+		}
+
 		private UsxParser GetUsxParser(XmlDocument doc)
 		{
 			return new UsxParser("MRK", new TestStylesheet(), new UsxDocument(doc).GetChaptersAndParas());

@@ -69,7 +69,7 @@ namespace ProtoScript
 						}
 						AddMainTitleIfApplicable(blocks, titleBuilder);
 						
-						block = new Block(usxPara.StyleTag, m_currentChapter, m_currentVerse);
+						block = new Block(usxPara.StyleTag, m_currentChapter, m_currentVerse) { IsParagraphStart = true };
 						if (m_currentChapter == 0)
 							block.SetStandardCharacter(m_bookId, Block.StandardCharacter.Intro);
 						else if (style.IsPublishable && !style.IsVerseText)
