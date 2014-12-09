@@ -76,7 +76,7 @@ namespace ProtoScript
 			m_currentBookIndex = indices.Item1;
 			m_currentBook = m_books[m_currentBookIndex];
 			m_currentBlockIndex = indices.Item2;
-			m_currentBlock = m_currentBook.Blocks[m_currentBlockIndex];
+			m_currentBlock = m_currentBook.GetScriptBlocks()[m_currentBlockIndex];
 		}
 
 		public BookScript GetBookScriptContainingBlock(Block block)
