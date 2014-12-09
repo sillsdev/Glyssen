@@ -113,6 +113,9 @@
     <Compile Include="Controls\Browser.Designer.cs">
       <DependentUpon>Browser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ProgressBarUnanimated.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Dialogs\AssignCharacterDialog.cs">
       <SubType>Form</SubType>
     </Compile>

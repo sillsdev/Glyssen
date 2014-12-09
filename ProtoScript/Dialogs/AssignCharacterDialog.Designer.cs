@@ -41,6 +41,7 @@
 			this.m_labelXofY = new System.Windows.Forms.Label();
 			this.m_listBoxCharacters = new System.Windows.Forms.ListBox();
 			this.m_listBoxDeliveries = new System.Windows.Forms.ListBox();
+			this.m_progressBar = new ProtoScript.Controls.ProgressBarUnanimated();
 			this.m_blocksDisplayBrowser = new ProtoScript.Controls.Browser();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.SuspendLayout();
@@ -191,6 +192,13 @@
 			this.m_listBoxDeliveries.TabIndex = 8;
 			this.m_listBoxDeliveries.SelectedIndexChanged += new System.EventHandler(this.m_listBoxDeliveries_SelectedIndexChanged);
 			// 
+			// m_progressBar
+			// 
+			this.m_progressBar.Location = new System.Drawing.Point(12, 534);
+			this.m_progressBar.Name = "m_progressBar";
+			this.m_progressBar.Size = new System.Drawing.Size(606, 17);
+			this.m_progressBar.TabIndex = 12;
+			// 
 			// m_blocksDisplayBrowser
 			// 
 			this.m_blocksDisplayBrowser.AutoSize = true;
@@ -208,7 +216,8 @@
 			this.AcceptButton = this.m_btnAssign;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(630, 538);
+			this.ClientSize = new System.Drawing.Size(630, 561);
+			this.Controls.Add(this.m_progressBar);
 			this.Controls.Add(this.m_labelXofY);
 			this.Controls.Add(this.m_labelWhoSpeaks);
 			this.Controls.Add(this.m_linkLabelAll);
@@ -249,5 +258,6 @@
 		private System.Windows.Forms.LinkLabel m_linkLabelAll;
 		private System.Windows.Forms.Label m_labelWhoSpeaks;
 		private System.Windows.Forms.Label m_labelXofY;
+		private ProtoScript.Controls.ProgressBarUnanimated m_progressBar;
 	}
 }

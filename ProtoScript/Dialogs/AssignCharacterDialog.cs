@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -19,6 +21,7 @@ namespace ProtoScript.Dialogs
 		private readonly int m_fontSizeInPoints;
 		private readonly BlockNavigator m_navigator;
 		private List<Tuple<int, int>> m_relevantBlocks;
+		private int m_assignedBlocks;
 		private int m_displayBlockIndex;
 		private IEnumerable<CharacterVerse> m_characters;
 		private IEnumerable<string> m_deliveries;
@@ -39,6 +42,8 @@ namespace ProtoScript.Dialogs
 			m_navigator = new BlockNavigator(project.Books);
 
 			PopulateRelevantBlocks();
+			m_progressBar.Maximum = m_relevantBlocks.Count;
+			m_progressBar.Increment(m_assignedBlocks);
 
 			if (IsRelevant(m_navigator.CurrentBlock))
 			{
@@ -61,7 +66,11 @@ namespace ProtoScript.Dialogs
 			{
 				block = m_navigator.CurrentBlock;
 				if (IsRelevant(block))
+				{
 					m_relevantBlocks.Add(m_navigator.GetIndices());
+					if (block.UserConfirmed)
+						m_assignedBlocks++;
+				}
 				m_navigator.NextBlock();
 			} while (!m_navigator.IsLastBlock(block));
 
@@ -206,8 +215,9 @@ namespace ProtoScript.Dialogs
 		private void SetDelivery()
 		{
 			Block currentBlock = m_navigator.CurrentBlock;
-			if (!string.IsNullOrEmpty(currentBlock.Delivery) && !m_listBoxDeliveries.Items.Contains(currentBlock.Delivery))
-				m_listBoxDeliveries.Items.Add(currentBlock.Delivery);
+			string delivery = string.IsNullOrEmpty(currentBlock.Delivery) ? kNormalDelivery : currentBlock.Delivery;
+			if (!m_listBoxDeliveries.Items.Contains(delivery))
+				m_listBoxDeliveries.Items.Add(delivery);
 
 			if (m_listBoxDeliveries.Items.Count == 1)
 				m_listBoxDeliveries.SelectedIndex = 0;
@@ -215,7 +225,7 @@ namespace ProtoScript.Dialogs
 			{
 				if (currentBlock.CharacterId == (string)m_listBoxCharacters.SelectedItem)
 				{
-					m_listBoxDeliveries.SelectedItem = string.IsNullOrEmpty(currentBlock.Delivery) ? kNormalDelivery : currentBlock.Delivery;
+					m_listBoxDeliveries.SelectedItem = delivery;
 				}
 				else if (m_deliveries.Count() == 1)
 				{
@@ -247,6 +257,12 @@ namespace ProtoScript.Dialogs
 			var selectedDelivery = (string)m_listBoxDeliveries.SelectedItem;
 			currentBlock.Delivery = selectedDelivery == kNormalDelivery ? null : selectedDelivery;
 
+			if (!currentBlock.UserConfirmed)
+			{
+				m_progressBar.Increment(1);
+				m_assignedBlocks++;
+			}
+
 			currentBlock.UserConfirmed = true;
 		}
 
@@ -263,7 +279,18 @@ namespace ProtoScript.Dialogs
 		private void m_btnAssign_Click(object sender, EventArgs e)
 		{
 			SaveSelections();
-			LoadNextRelevantBlock();
+			if (m_assignedBlocks == m_relevantBlocks.Count)
+			{
+				string title = LocalizationManager.GetString("AssignCharacterDialog.AssignmentsComplete", "Assignments Complete");
+				string msg = LocalizationManager.GetString("AssignCharacterDialog.CloseDialogMessage", "All assignments have been made.  Would you like to return to the main window?");
+				if (MessageBox.Show(msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
+				{
+					Close();
+					return;
+				}
+			}
+			if (!OnLastRelevantBlock())
+				LoadNextRelevantBlock();
 		}
 
 		private void m_listBoxCharacters_SelectedIndexChanged(object sender, EventArgs e)
