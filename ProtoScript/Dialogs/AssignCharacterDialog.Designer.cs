@@ -39,10 +39,10 @@
 			this.m_linkLabelAll = new System.Windows.Forms.LinkLabel();
 			this.m_labelWhoSpeaks = new System.Windows.Forms.Label();
 			this.m_labelXofY = new System.Windows.Forms.Label();
-			this.m_blocksDisplayBrowser = new ProtoScript.Controls.Browser();
 			this.m_listBoxCharacters = new System.Windows.Forms.ListBox();
 			this.m_listBoxDeliveries = new System.Windows.Forms.ListBox();
 			this.m_progressBar = new ProtoScript.Controls.ProgressBarUnanimated();
+			this.m_blocksDisplayBrowser = new ProtoScript.Controls.Browser();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -60,7 +60,7 @@
 			this.m_btnNext.Location = new System.Drawing.Point(543, 503);
 			this.m_btnNext.Name = "m_btnNext";
 			this.m_btnNext.Size = new System.Drawing.Size(75, 23);
-			this.m_btnNext.TabIndex = 0;
+			this.m_btnNext.TabIndex = 4;
 			this.m_btnNext.Text = "Skip";
 			this.m_btnNext.UseVisualStyleBackColor = true;
 			this.m_btnNext.Click += new System.EventHandler(this.m_btnNext_Click);
@@ -74,7 +74,7 @@
 			this.m_btnPrevious.Location = new System.Drawing.Point(402, 503);
 			this.m_btnPrevious.Name = "m_btnPrevious";
 			this.m_btnPrevious.Size = new System.Drawing.Size(75, 23);
-			this.m_btnPrevious.TabIndex = 1;
+			this.m_btnPrevious.TabIndex = 3;
 			this.m_btnPrevious.Text = "Previous";
 			this.m_btnPrevious.UseVisualStyleBackColor = true;
 			this.m_btnPrevious.Click += new System.EventHandler(this.m_btnPrevious_Click);
@@ -88,23 +88,24 @@
 			this.m_btnAssign.Location = new System.Drawing.Point(523, 417);
 			this.m_btnAssign.Name = "m_btnAssign";
 			this.m_btnAssign.Size = new System.Drawing.Size(95, 23);
-			this.m_btnAssign.TabIndex = 3;
+			this.m_btnAssign.TabIndex = 2;
 			this.m_btnAssign.Text = "Assign Character";
 			this.m_btnAssign.UseVisualStyleBackColor = true;
 			this.m_btnAssign.Click += new System.EventHandler(this.m_btnAssign_Click);
 			// 
 			// m_labelReference
 			// 
-			this.m_labelReference.AutoSize = true;
+			this.m_labelReference.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_labelReference, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_labelReference, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_labelReference, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelReference, "AssignCharacterDialog.label1");
-			this.m_labelReference.Location = new System.Drawing.Point(344, 36);
+			this.m_labelReference.Location = new System.Drawing.Point(251, 36);
 			this.m_labelReference.Name = "m_labelReference";
-			this.m_labelReference.Size = new System.Drawing.Size(57, 13);
+			this.m_labelReference.Size = new System.Drawing.Size(144, 13);
 			this.m_labelReference.TabIndex = 5;
 			this.m_labelReference.Text = "Reference";
+			this.m_labelReference.TextAlign = System.Drawing.ContentAlignment.TopRight;
 			// 
 			// m_linkLabelChapter
 			// 
@@ -172,18 +173,6 @@
 			this.m_labelXofY.Text = "{0} of {1}";
 			this.m_labelXofY.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// m_blocksDisplayBrowser
-			// 
-			this.m_blocksDisplayBrowser.AutoSize = true;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksDisplayBrowser, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksDisplayBrowser, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_blocksDisplayBrowser, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksDisplayBrowser, "ProjectSettingsDialog.Browser");
-			this.m_blocksDisplayBrowser.Location = new System.Drawing.Point(12, 60);
-			this.m_blocksDisplayBrowser.Name = "m_blocksDisplayBrowser";
-			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(383, 466);
-			this.m_blocksDisplayBrowser.TabIndex = 2;
-			// 
 			// m_listBoxCharacters
 			// 
 			this.m_listBoxCharacters.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -191,7 +180,7 @@
 			this.m_listBoxCharacters.Location = new System.Drawing.Point(413, 60);
 			this.m_listBoxCharacters.Name = "m_listBoxCharacters";
 			this.m_listBoxCharacters.Size = new System.Drawing.Size(205, 156);
-			this.m_listBoxCharacters.TabIndex = 4;
+			this.m_listBoxCharacters.TabIndex = 0;
 			this.m_listBoxCharacters.SelectedIndexChanged += new System.EventHandler(this.m_listBoxCharacters_SelectedIndexChanged);
 			// 
 			// m_listBoxDeliveries
@@ -201,7 +190,7 @@
 			this.m_listBoxDeliveries.Location = new System.Drawing.Point(413, 293);
 			this.m_listBoxDeliveries.Name = "m_listBoxDeliveries";
 			this.m_listBoxDeliveries.Size = new System.Drawing.Size(205, 104);
-			this.m_listBoxDeliveries.TabIndex = 8;
+			this.m_listBoxDeliveries.TabIndex = 1;
 			this.m_listBoxDeliveries.SelectedIndexChanged += new System.EventHandler(this.m_listBoxDeliveries_SelectedIndexChanged);
 			// 
 			// m_progressBar
@@ -213,6 +202,18 @@
 			this.m_progressBar.Name = "m_progressBar";
 			this.m_progressBar.Size = new System.Drawing.Size(606, 17);
 			this.m_progressBar.TabIndex = 12;
+			// 
+			// m_blocksDisplayBrowser
+			// 
+			this.m_blocksDisplayBrowser.AutoSize = true;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksDisplayBrowser, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksDisplayBrowser, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_blocksDisplayBrowser, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksDisplayBrowser, "ProjectSettingsDialog.Browser");
+			this.m_blocksDisplayBrowser.Location = new System.Drawing.Point(12, 60);
+			this.m_blocksDisplayBrowser.Name = "m_blocksDisplayBrowser";
+			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(383, 466);
+			this.m_blocksDisplayBrowser.TabIndex = 2;
 			// 
 			// AssignCharacterDialog
 			// 
