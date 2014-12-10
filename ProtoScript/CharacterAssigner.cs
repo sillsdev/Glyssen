@@ -23,7 +23,7 @@ namespace ProtoScript
 			{
 				if (block.CharacterIsStandard || (block.UserConfirmed && !overwriteUserConfirmed))
 					continue;
-				block.SetCharacterAndDelivery(m_cvInfo.GetCharacters(bookScript.BookId, block.ChapterNumber, block.InitialVerseNumber));
+				block.SetCharacterAndDelivery(m_cvInfo.GetCharacters(bookScript.BookId, block.ChapterNumber, block.InitialStartVerseNumber));
 			}
 		}
 	}

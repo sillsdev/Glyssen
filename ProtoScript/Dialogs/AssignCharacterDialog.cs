@@ -114,7 +114,7 @@ namespace ProtoScript.Dialogs
 		{
 			String book = m_navigator.CurrentBook.BookId;
 			int chapter = m_navigator.CurrentBlock.ChapterNumber;
-			int verse = m_navigator.CurrentBlock.InitialVerseNumber;
+			int verse = m_navigator.CurrentBlock.InitialStartVerseNumber;
 			m_labelReference.Text = string.Format("{0} {1}:{2}", book, chapter, verse);
 			string xOfY = LocalizationManager.GetString("AssignCharacterDialog.XofY", "{0} of {1}", "{0} is the current clip number; {1} is the total number of clips.");
 			m_labelXofY.Text = string.Format(xOfY, m_displayBlockIndex + 1, m_relevantBlocks.Count);

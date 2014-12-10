@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Paratext;
 using SIL.ScriptureUtils;
 
 namespace ProtoScript
@@ -60,7 +59,7 @@ namespace ProtoScript
 					continue;
 				}
 
-				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialVerseNumber) { IsParagraphStart = block.IsParagraphStart };
+				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber) { IsParagraphStart = block.IsParagraphStart };
 				
 				foreach (BlockElement element in block.BlockElements)
 				{
@@ -143,7 +142,7 @@ namespace ProtoScript
 				{
 					var verse = m_nonScriptTextBlockElements.First() as Verse;
 					if (verse != null)
-						m_workingBlock.InitialVerseNumber = ScrReference.VerseToIntStart(verse.Number);
+						m_workingBlock.InitialStartVerseNumber = ScrReference.VerseToIntStart(verse.Number);
 					m_workingBlock.BlockElements.InsertRange(0, m_nonScriptTextBlockElements);
 				}
 			}
@@ -174,16 +173,21 @@ namespace ProtoScript
 		private void FlushBlock(string styleTag, bool inQuote)
 		{
 			if (inQuote)
-				m_workingBlock.SetCharacterAndDelivery(m_cvInfo.GetCharacters(m_bookId, m_workingBlock.ChapterNumber, m_workingBlock.InitialVerseNumber));
+				m_workingBlock.SetCharacterAndDelivery(
+					m_cvInfo.GetCharacters(m_bookId, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber, m_workingBlock.InitialEndVerseNumber));
 			else
 				m_workingBlock.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.Narrator);
 
 			m_outputBlocks.Add(m_workingBlock);
 			var lastVerse = m_workingBlock.BlockElements.OfType<Verse>().LastOrDefault();
-			int verseNum = m_workingBlock.InitialVerseNumber;
+			int verseStartNum = m_workingBlock.InitialStartVerseNumber;
+			int verseEndNum = m_workingBlock.InitialEndVerseNumber;
 			if (lastVerse != null)
-				verseNum = ScrReference.VerseToIntStart(lastVerse.Number);
-			m_workingBlock = new Block(styleTag, m_workingBlock.ChapterNumber, verseNum);
+			{
+				verseStartNum = ScrReference.VerseToIntStart(lastVerse.Number);
+				verseEndNum = ScrReference.VerseToIntEnd(lastVerse.Number);
+			}
+			m_workingBlock = new Block(styleTag, m_workingBlock.ChapterNumber, verseStartNum, verseEndNum);
 		}
 
 		/// <summary>

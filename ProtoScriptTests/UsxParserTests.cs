@@ -28,7 +28,7 @@ namespace ProtoScriptTests
 			Assert.IsTrue(blocks[0].CharacterIs("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
 			Assert.IsTrue(blocks[1].CharacterId == Block.NotSet);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
-			Assert.AreEqual(1, blocks[1].InitialVerseNumber);
+			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(false));
 			Assert.AreEqual("[1]Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, [2]kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
 		}
@@ -139,7 +139,7 @@ namespace ProtoScriptTests
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
-			Assert.AreEqual(1, blocks[1].InitialVerseNumber);
+			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. Ci obedo i tim nino pyeraŋwen; Catan ocako bite, ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.", blocks[1].GetText(false));
 			Assert.AreEqual("Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. [13]Ci obedo i tim nino pyeraŋwen; Catan ocako bite, ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.", blocks[1].GetText(true));
 		}
@@ -152,10 +152,10 @@ namespace ProtoScriptTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual(1, blocks[0].ChapterNumber);
-			Assert.AreEqual(0, blocks[0].InitialVerseNumber);
+			Assert.AreEqual(0, blocks[0].InitialStartVerseNumber);
 			Assert.AreEqual("1", blocks[0].GetText(false));
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
-			Assert.AreEqual(0, blocks[1].InitialVerseNumber);
+			Assert.AreEqual(0, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("Lok ma Jon Labatija otito", blocks[1].GetText(false));
 		}
 
@@ -167,10 +167,10 @@ namespace ProtoScriptTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual(1, blocks[0].ChapterNumber);
-			Assert.AreEqual(0, blocks[0].InitialVerseNumber);
+			Assert.AreEqual(0, blocks[0].InitialStartVerseNumber);
 			Assert.AreEqual("Global-Chapter 1", blocks[0].GetText(false));
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
-			Assert.AreEqual(0, blocks[1].InitialVerseNumber);
+			Assert.AreEqual(0, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("Lok ma Jon Labatija otito", blocks[1].GetText(false));
 		}
 
@@ -182,10 +182,10 @@ namespace ProtoScriptTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual(1, blocks[0].ChapterNumber);
-			Assert.AreEqual(0, blocks[0].InitialVerseNumber);
+			Assert.AreEqual(0, blocks[0].InitialStartVerseNumber);
 			Assert.AreEqual("Specific-Chapter One", blocks[0].GetText(false));
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
-			Assert.AreEqual(0, blocks[1].InitialVerseNumber);
+			Assert.AreEqual(0, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("Lok ma Jon Labatija otito", blocks[1].GetText(false));
 		}
 
@@ -208,24 +208,24 @@ namespace ProtoScriptTests
 			Assert.AreEqual(5, blocks.Count);
 			Assert.AreEqual("c", blocks[0].StyleTag);
 			Assert.AreEqual(1, blocks[0].ChapterNumber);
-			Assert.AreEqual(0, blocks[0].InitialVerseNumber);
+			Assert.AreEqual(0, blocks[0].InitialStartVerseNumber);
 			Assert.AreEqual("1", blocks[0].GetText(true));
 			Assert.AreEqual("p", blocks[1].StyleTag);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
-			Assert.AreEqual(1, blocks[1].InitialVerseNumber);
+			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("[1]Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, [2]kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
 
 			Assert.AreEqual("c", blocks[2].StyleTag);
 			Assert.AreEqual(2, blocks[2].ChapterNumber);
-			Assert.AreEqual(0, blocks[2].InitialVerseNumber);
+			Assert.AreEqual(0, blocks[2].InitialStartVerseNumber);
 			Assert.AreEqual("2", blocks[2].GetText(true));
 			Assert.AreEqual("p", blocks[3].StyleTag);
 			Assert.AreEqual(2, blocks[3].ChapterNumber);
-			Assert.AreEqual(1, blocks[3].InitialVerseNumber);
+			Assert.AreEqual(1, blocks[3].InitialStartVerseNumber);
 			Assert.AreEqual("[1]Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[3].GetText(true));
 			Assert.AreEqual("q1", blocks[4].StyleTag);
 			Assert.AreEqual(2, blocks[4].ChapterNumber);
-			Assert.AreEqual(1, blocks[4].InitialVerseNumber);
+			Assert.AreEqual(1, blocks[4].InitialStartVerseNumber);
 			Assert.AreEqual("This is poetry, dude.", blocks[4].GetText(true));
 		}
 
@@ -242,11 +242,11 @@ namespace ProtoScriptTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
-			Assert.AreEqual(12, blocks[1].InitialVerseNumber);
+			Assert.AreEqual(12, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,", blocks[1].GetText(false));
 
 			Assert.AreEqual(1, blocks[2].ChapterNumber);
-			Assert.AreEqual(13, blocks[2].InitialVerseNumber);
+			Assert.AreEqual(13, blocks[2].InitialStartVerseNumber);
 			Assert.AreEqual("Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(false));
 		}
 
@@ -263,12 +263,12 @@ namespace ProtoScriptTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
-			Assert.AreEqual(12, blocks[1].InitialVerseNumber);
+			Assert.AreEqual(12, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,", blocks[1].GetText(false));
 			Assert.AreEqual("[12-14]Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,", blocks[1].GetText(true));
 
 			Assert.AreEqual(1, blocks[2].ChapterNumber);
-			Assert.AreEqual(15, blocks[2].InitialVerseNumber);
+			Assert.AreEqual(15, blocks[2].InitialStartVerseNumber);
 			Assert.AreEqual("Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(false));
 			Assert.AreEqual("[15-18]Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(true));
 		}
@@ -292,16 +292,16 @@ namespace ProtoScriptTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(4, blocks.Count);
 			Assert.AreEqual(0, blocks[0].ChapterNumber);
-			Assert.AreEqual(0, blocks[0].InitialVerseNumber);
+			Assert.AreEqual(0, blocks[0].InitialStartVerseNumber);
 			Assert.IsTrue(blocks[0].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Intro));
 			Assert.AreEqual(0, blocks[1].ChapterNumber);
-			Assert.AreEqual(0, blocks[1].InitialVerseNumber);
+			Assert.AreEqual(0, blocks[1].InitialStartVerseNumber);
 			Assert.IsTrue(blocks[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Intro));
 			Assert.AreEqual(1, blocks[2].ChapterNumber);
-			Assert.AreEqual(0, blocks[2].InitialVerseNumber);
+			Assert.AreEqual(0, blocks[2].InitialStartVerseNumber);
 			Assert.IsTrue(blocks[2].CharacterIs("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
 			Assert.AreEqual(1, blocks[3].ChapterNumber);
-			Assert.AreEqual(1, blocks[3].InitialVerseNumber);
+			Assert.AreEqual(1, blocks[3].InitialStartVerseNumber);
 			Assert.AreEqual(Block.NotSet, blocks[3].CharacterId);
 		}
 
@@ -319,13 +319,13 @@ namespace ProtoScriptTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
-			Assert.AreEqual(0, blocks[1].InitialVerseNumber);
+			Assert.AreEqual(0, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("s", blocks[1].StyleTag);
 			Assert.IsTrue(blocks[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical));
 			Assert.AreEqual("John the Baptist prepares the way", blocks[1].GetText(false));
 
 			Assert.AreEqual(1, blocks[2].ChapterNumber);
-			Assert.AreEqual(1, blocks[2].InitialVerseNumber);
+			Assert.AreEqual(1, blocks[2].InitialStartVerseNumber);
 			Assert.AreEqual("p", blocks[2].StyleTag);
 			Assert.AreEqual(Block.NotSet, blocks[2].CharacterId);
 			Assert.AreEqual("Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(false));
@@ -347,13 +347,13 @@ namespace ProtoScriptTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
-			Assert.AreEqual(1, blocks[1].InitialVerseNumber);
+			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("p", blocks[1].StyleTag);
 			Assert.AreEqual(Block.NotSet, blocks[1].CharacterId);
 			Assert.AreEqual("[1-2]Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
 
 			Assert.AreEqual(1, blocks[2].ChapterNumber);
-			Assert.AreEqual(1, blocks[2].InitialVerseNumber);
+			Assert.AreEqual(1, blocks[2].InitialStartVerseNumber);
 			Assert.AreEqual("q1", blocks[2].StyleTag);
 			Assert.AreEqual(Block.NotSet, blocks[2].CharacterId);
 			Assert.AreEqual("“Nen, acwalo lakwenana otelo nyimi,", blocks[2].GetText(true));
@@ -430,6 +430,36 @@ namespace ProtoScriptTests
 			Assert.IsTrue(blocks[0].IsParagraphStart); //chapter
 			Assert.IsTrue(blocks[1].IsParagraphStart);
 			Assert.IsTrue(blocks[2].IsParagraphStart);
+		}
+
+		[Test]
+		public void Parse_VerseBridge_SingleParagraph()
+		{
+			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
+							"<verse number=\"1-3\" style=\"v\" />" +
+							"Verse 1-3 text</para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
+			Assert.AreEqual(3, blocks[1].InitialEndVerseNumber);
+		}
+
+		[Test]
+		public void Parse_VerseBridge_AcrossMultipleParagraphs()
+		{
+			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
+							"<verse number=\"1-3\" style=\"v\" />" +
+							"Verse 1-3 beginning text" +
+							"</para><para style=\"p\">" +
+							"Verse 1-3 continuing text</para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
+			Assert.AreEqual(3, blocks[1].InitialEndVerseNumber);
+			Assert.AreEqual(1, blocks[2].InitialStartVerseNumber);
+			Assert.AreEqual(3, blocks[2].InitialEndVerseNumber);
 		}
 
 		private UsxParser GetUsxParser(XmlDocument doc)

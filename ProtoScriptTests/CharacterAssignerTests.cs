@@ -15,11 +15,11 @@ namespace ProtoScriptTests
 		{
 			const string bookScript = @"
 <book id=""MRK"">
-  <block style=""p"" chapter=""1"" verse=""4"" characterId=""narrator-MRK"" userConfirmed=""false"">
+  <block style=""p"" chapter=""1"" initialStartVerse=""4"" characterId=""narrator-MRK"" userConfirmed=""false"">
     <verse num=""4"" />
     <text>Mantsa tama, ka zlagaptá Yuhwana, mnda maga Batem ma mtak, kaʼa mantsa: </text>
   </block>
-  <block style=""p"" chapter=""1"" verse=""4"" characterId=""Made Up Guy"" userConfirmed=""true"">
+  <block style=""p"" chapter=""1"" initialStartVerse=""4"" characterId=""Made Up Guy"" userConfirmed=""true"">
     <text>«Mbəɗanafwa mbəɗa ta nzakwa ghuni, ka magaghunafta lu ta batem, ka plighunista Lazglafta ta dmakuha ghuni,» </text>
   </block>
 </book>";

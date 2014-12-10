@@ -408,7 +408,7 @@ namespace ProtoScriptTests
 				if (target[i].CharacterId == CharacterVerseData.UnknownCharacter)
 					quoteBlockIndices.Add(i);
 
-				if (target[i].InitialVerseNumber == 7 && iBlockAtVerse7 < 0)
+				if (target[i].InitialStartVerseNumber == 7 && iBlockAtVerse7 < 0)
 					iBlockAtVerse7 = i;  // this block has extra verses
 			}
 			Assert.IsTrue(quoteBlockIndices.Count > 0);
