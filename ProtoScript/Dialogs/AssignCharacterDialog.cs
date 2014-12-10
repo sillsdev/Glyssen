@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Gecko.Events;
 using L10NSharp;
 
 namespace ProtoScript.Dialogs
@@ -13,9 +12,11 @@ namespace ProtoScript.Dialogs
 	{
 		private const string kNarrator = "Narrator";
 		private const string kNormalDelivery = "{normal}";
+		private const string kMainQuoteElementId = "main-quote-text";
 		private const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
 		                                  "<style>{0}</style></head><body>{1}</body></html>";
 		private const string kCssFrame = "body{{font-family:{0};font-size:{1}pt}}.highlight{{background-color:yellow}}";
+		private const string kHtmlBetweenBlocks = "<br /><br />";
 
 		private readonly string m_fontFamily;
 		private readonly int m_fontSizeInPoints;
@@ -84,17 +85,21 @@ namespace ProtoScript.Dialogs
 
 		public void LoadBlock()
 		{
-			Block previousBlock = m_navigator.PeekPreviousBlock();
-			Block nextBlock = m_navigator.PeekNextBlock();
+			m_blocksDisplayBrowser.AddDocumentCompletedEventHandler(BrowserDocumentCompletedEventHandler);
 			m_blocksDisplayBrowser.DisplayHtml(
 				BuildHtml(
-					previousBlock == null ? null : previousBlock.GetText(m_showVerseNumbers),
+					BuildHtml(m_navigator.PeekBackwardWithinBook(10)),
 					m_navigator.CurrentBlock.GetText(m_showVerseNumbers),
-					nextBlock == null ? null : nextBlock.GetText(m_showVerseNumbers),
+					BuildHtml(m_navigator.PeekForwardWithinBook(10)),
 					BuildStyle()));
 
 			UpdateDisplay();
 			UpdateNavigationButtons();
+		}
+
+		private void BrowserDocumentCompletedEventHandler(object sender, GeckoDocumentCompletedEventArgs e)
+		{
+			m_blocksDisplayBrowser.ScrollElementIntoView(kMainQuoteElementId, -225);
 		}
 
 		private void UpdateDisplay()
@@ -114,20 +119,21 @@ namespace ProtoScript.Dialogs
 		private string BuildHtml(string previousText, string mainText, string followingText, string style)
 		{
 			var bldr = new StringBuilder();
-			if (!string.IsNullOrEmpty(previousText))
-			{
-				bldr.Append(previousText);
-				bldr.Append("<br/><br/>");
-			}
-			bldr.Append("<span class=\"highlight\">");
+			bldr.Append(previousText);
+			bldr.Append("<div id=\"main-quote-text\" class=\"highlight\">");
 			bldr.Append(mainText);
-			bldr.Append("</span>");
+			bldr.Append("</div>");
 			if (!string.IsNullOrEmpty(followingText))
-			{
-				bldr.Append("<br/><br/>");
-				bldr.Append(followingText);
-			}
+				bldr.Append(kHtmlBetweenBlocks).Append(followingText);
 			return string.Format(kHtmlFrame, style, bldr);
+		}
+
+		private string BuildHtml(IEnumerable<Block> blocks)
+		{
+			var bldr = new StringBuilder();
+			foreach (Block block in blocks)
+				bldr.Append(block.GetText(m_showVerseNumbers)).Append(kHtmlBetweenBlocks);
+			return bldr.ToString();
 		}
 
 		private string BuildStyle()

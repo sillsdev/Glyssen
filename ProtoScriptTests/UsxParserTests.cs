@@ -427,6 +427,7 @@ namespace ProtoScriptTests
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(3, blocks.Count);
+			Assert.IsTrue(blocks[0].IsParagraphStart); //chapter
 			Assert.IsTrue(blocks[1].IsParagraphStart);
 			Assert.IsTrue(blocks[2].IsParagraphStart);
 		}
