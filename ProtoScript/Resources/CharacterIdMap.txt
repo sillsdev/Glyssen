@@ -710,7 +710,38 @@ Nabal	0347
 Naboth	0348
 Nahash the Ammonite	0349
 Naomi	0350
+narrator-1CH	0139
+narrator-1CO	0748
+narrator-1KI	1018
+narrator-2CH	0139
+narrator-2CO	0748
+narrator-ACT	0753
+narrator-AMO	1017
+narrator-DAN	1018
+narrator-ECC	0754
+narrator-EPH	0748
+narrator-EXO	0748
+narrator-EZK	0756
+narrator-EZR	0757
+narrator-GAL	0748
+narrator-GEN	0748
+narrator-HAB	1019
+narrator-HEB	0748
+narrator-ISA	0758
+narrator-JAS	1022
+narrator-JER	0752
+narrator-JHN	0749
+narrator-JOS	0747
 narrator-LUK	0753
+narrator-MAL	0747
+narrator-MAT	0755
+narrator-MRK	0758
+narrator-PSA	0748
+narrator-REV	0750
+narrator-ROM	0748
+narrator-TIT	0748
+narrator-ZEC	0762
+narrator-ZEP	0762
 Nathan	0352
 Nathanael	0353
 Nations, the	0354
@@ -732,7 +763,6 @@ no one	0772
 Noah	0361
 Nobles/officials	0362
 non-reader	0773
-Not A Quote	00000
 Obadiah, manager of Ahab's palace	0363
 Oded, prophet of the Lord	0364
 officer of king of Israel (had said)	0774

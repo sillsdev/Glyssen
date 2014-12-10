@@ -176,7 +176,7 @@ namespace ProtoScript
 			if (inQuote)
 				m_workingBlock.SetCharacterAndDelivery(m_cvInfo.GetCharacters(m_bookId, m_workingBlock.ChapterNumber, m_workingBlock.InitialVerseNumber));
 			else
-				m_workingBlock.SetStandardCharacter(m_bookId, Block.StandardCharacter.Narrator);
+				m_workingBlock.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.Narrator);
 
 			m_outputBlocks.Add(m_workingBlock);
 			var lastVerse = m_workingBlock.BlockElements.OfType<Verse>().LastOrDefault();

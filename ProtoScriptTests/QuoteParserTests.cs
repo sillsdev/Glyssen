@@ -26,7 +26,7 @@ namespace ProtoScriptTests
 			Assert.AreEqual("He replied, ", output[0].GetText(false));
 			Assert.AreEqual(7, output[0].ChapterNumber);
 			Assert.AreEqual(6, output[0].InitialVerseNumber);
-			Assert.IsTrue(output[0].CharacterIs(Block.StandardCharacter.Narrator));
+			Assert.IsTrue(output[0].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual("«Isaiah was right when he prophesied about you.»", output[1].GetText(false));
 			Assert.AreEqual("Jesus", output[1].CharacterId);
 			Assert.AreEqual("rebuking", output[1].Delivery);
@@ -45,7 +45,7 @@ namespace ProtoScriptTests
 			Assert.AreEqual("But the angel said to them, ", output[0].GetText(false));
 			Assert.AreEqual(2, output[0].ChapterNumber);
 			Assert.AreEqual(10, output[0].InitialVerseNumber);
-			Assert.IsTrue(output[0].CharacterIs(Block.StandardCharacter.Narrator));
+			Assert.IsTrue(output[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual("«Do not be afraid!", output[1].GetText(false));
 			Assert.AreEqual("angel of the LORD, an", output[1].CharacterId);
 			Assert.AreEqual(2, output[1].ChapterNumber);
@@ -61,9 +61,9 @@ namespace ProtoScriptTests
 			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("«Go!» ", output[0].GetText(false));
-			Assert.IsFalse(output[0].CharacterIs(Block.StandardCharacter.Narrator));
+			Assert.IsFalse(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual("he said.", output[1].GetText(false));
-			Assert.IsTrue(output[1].CharacterIs(Block.StandardCharacter.Narrator));
+			Assert.IsTrue(output[1].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 		}
 		[Test]
 		public void Parse_OneBlockBecomesThree_TwoQuotes()
@@ -74,11 +74,11 @@ namespace ProtoScriptTests
 			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
-			Assert.IsTrue(output[0].CharacterIs(Block.StandardCharacter.Narrator));
+			Assert.IsTrue(output[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual("«Go!»  ", output[1].GetText(false));
-			Assert.IsFalse(output[1].CharacterIs(Block.StandardCharacter.Narrator));
+			Assert.IsFalse(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual("«Make me!»", output[2].GetText(false));
-			Assert.IsFalse(output[2].CharacterIs(Block.StandardCharacter.Narrator));
+			Assert.IsFalse(CharacterVerseData.IsCharacterOfType(output[2].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
 		}
 		[Test]
 		public void Parse_OneBlockBecomesThree_QuoteInMiddle()
@@ -89,11 +89,11 @@ namespace ProtoScriptTests
 			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
-			Assert.IsTrue(output[0].CharacterIs(Block.StandardCharacter.Narrator));
+			Assert.IsTrue(output[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual("«Go!» ", output[1].GetText(false));
-			Assert.IsFalse(output[1].CharacterIs(Block.StandardCharacter.Narrator));
+			Assert.IsFalse(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual("quietly.", output[2].GetText(false));
-			Assert.IsTrue(output[2].CharacterIs(Block.StandardCharacter.Narrator));
+			Assert.IsTrue(output[2].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 		}
 
 		[Test]
@@ -107,9 +107,9 @@ namespace ProtoScriptTests
 			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("See Spot run. ", output[0].GetText(false));
-			Assert.IsTrue(output[0].CharacterIs(Block.StandardCharacter.Narrator));
+			Assert.IsTrue(output[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual("See Jane see Spot run.", output[1].GetText(false));
-			Assert.IsTrue(output[1].CharacterIs(Block.StandardCharacter.Narrator));
+			Assert.IsTrue(output[1].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 		}
 		[Test]
 		public void Parse_TwoBlocksRemainTwo_NoQuotesAndQuotes()
@@ -122,9 +122,9 @@ namespace ProtoScriptTests
 			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
-			Assert.IsTrue(output[0].CharacterIs(Block.StandardCharacter.Narrator));
+			Assert.IsTrue(output[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual("«Go!»", output[1].GetText(false));
-			Assert.IsFalse(output[1].CharacterIs(Block.StandardCharacter.Narrator));
+			Assert.IsFalse(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
 		}
 
 		[Test]
@@ -422,19 +422,19 @@ namespace ProtoScriptTests
 			var options = new QuoteSystem { StartQuoteMarker = "“", EndQuoteMarker = "”" };
 			var titleBlock = new Block("mt");
 			titleBlock.BlockElements.Add(new ScriptText("Gospel of Mark"));
-			titleBlock.SetStandardCharacter("MRK", Block.StandardCharacter.BookOrChapter);
+			titleBlock.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
 			var introBlock1 = new Block("is");
 			introBlock1.BlockElements.Add(new ScriptText("All about Mark"));
 			var introBlock2 = new Block("ip");
-			introBlock1.SetStandardCharacter("MRK", Block.StandardCharacter.Intro);
+			introBlock1.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Intro);
 			introBlock2.BlockElements.Add(new ScriptText("Some people say, “Mark is way to short,” but I disagree."));
-			introBlock2.SetStandardCharacter("MRK", Block.StandardCharacter.Intro);
+			introBlock2.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Intro);
 			var chapterBlock = new Block("c");
 			chapterBlock.BlockElements.Add(new ScriptText("Chapter 1"));
-			chapterBlock.SetStandardCharacter("MRK", Block.StandardCharacter.BookOrChapter);
+			chapterBlock.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
 			var sectionHeadBlock = new Block("s");
 			sectionHeadBlock.BlockElements.Add(new ScriptText("John tells everyone: “The Kingdom of Heaven is at hand”"));
-			sectionHeadBlock.SetStandardCharacter("MRK", Block.StandardCharacter.ExtraBiblical);
+			sectionHeadBlock.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
 			var paraBlock = new Block("p");
 			paraBlock.BlockElements.Add(new Verse("1"));
 			paraBlock.BlockElements.Add(new ScriptText("Jesus said, “Is that John?”"));
@@ -442,19 +442,19 @@ namespace ProtoScriptTests
 			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
 			Assert.AreEqual(7, output.Count);
 			Assert.AreEqual("Gospel of Mark", output[0].GetText(true));
-			Assert.IsTrue(output[0].CharacterIs("MRK", Block.StandardCharacter.BookOrChapter));
+			Assert.IsTrue(output[0].CharacterIs("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
 			Assert.AreEqual("All about Mark", output[1].GetText(true));
-			Assert.IsTrue(output[1].CharacterIs("MRK", Block.StandardCharacter.Intro));
+			Assert.IsTrue(output[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Intro));
 			Assert.AreEqual("Some people say, “Mark is way to short,” but I disagree.", output[2].GetText(true));
-			Assert.IsTrue(output[2].CharacterIs("MRK", Block.StandardCharacter.Intro));
+			Assert.IsTrue(output[2].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Intro));
 			Assert.AreEqual("Chapter 1", output[3].GetText(true));
-			Assert.IsTrue(output[3].CharacterIs("MRK", Block.StandardCharacter.BookOrChapter));
+			Assert.IsTrue(output[3].CharacterIs("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
 			Assert.AreEqual("John tells everyone: “The Kingdom of Heaven is at hand”", output[4].GetText(true));
-			Assert.IsTrue(output[4].CharacterIs("MRK", Block.StandardCharacter.ExtraBiblical));
+			Assert.IsTrue(output[4].CharacterIs("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical));
 			Assert.AreEqual("[1]Jesus said, ", output[5].GetText(true));
-			Assert.IsTrue(output[5].CharacterIs("MRK", Block.StandardCharacter.Narrator));
+			Assert.IsTrue(output[5].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual("“Is that John?”", output[6].GetText(true));
-			Assert.AreEqual(Block.UnknownCharacter, output[6].CharacterId);
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[6].CharacterId);
 		}
 
 		[Test]

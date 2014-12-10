@@ -25,8 +25,8 @@ namespace ProtoScriptTests
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
-			Assert.IsTrue(blocks[0].CharacterIs(Block.StandardCharacter.BookOrChapter));
-			Assert.IsTrue(blocks[1].CharacterIs(Block.NotSet));
+			Assert.IsTrue(blocks[0].CharacterIs("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
+			Assert.IsTrue(blocks[1].CharacterId == Block.NotSet);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(1, blocks[1].InitialVerseNumber);
 			Assert.AreEqual("Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(false));
@@ -293,13 +293,13 @@ namespace ProtoScriptTests
 			Assert.AreEqual(4, blocks.Count);
 			Assert.AreEqual(0, blocks[0].ChapterNumber);
 			Assert.AreEqual(0, blocks[0].InitialVerseNumber);
-			Assert.IsTrue(blocks[0].CharacterIs("MRK", Block.StandardCharacter.Intro));
+			Assert.IsTrue(blocks[0].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Intro));
 			Assert.AreEqual(0, blocks[1].ChapterNumber);
 			Assert.AreEqual(0, blocks[1].InitialVerseNumber);
-			Assert.IsTrue(blocks[1].CharacterIs("MRK", Block.StandardCharacter.Intro));
+			Assert.IsTrue(blocks[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Intro));
 			Assert.AreEqual(1, blocks[2].ChapterNumber);
 			Assert.AreEqual(0, blocks[2].InitialVerseNumber);
-			Assert.IsTrue(blocks[2].CharacterIs(Block.StandardCharacter.BookOrChapter));
+			Assert.IsTrue(blocks[2].CharacterIs("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
 			Assert.AreEqual(1, blocks[3].ChapterNumber);
 			Assert.AreEqual(1, blocks[3].InitialVerseNumber);
 			Assert.AreEqual(Block.NotSet, blocks[3].CharacterId);
@@ -321,7 +321,7 @@ namespace ProtoScriptTests
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(0, blocks[1].InitialVerseNumber);
 			Assert.AreEqual("s", blocks[1].StyleTag);
-			Assert.IsTrue(blocks[1].CharacterIs("MRK", Block.StandardCharacter.ExtraBiblical));
+			Assert.IsTrue(blocks[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical));
 			Assert.AreEqual("John the Baptist prepares the way", blocks[1].GetText(false));
 
 			Assert.AreEqual(1, blocks[2].ChapterNumber);

@@ -248,30 +248,30 @@ namespace ProtoScriptTests
 			mrkBlocks.Add(NewChapterBlock(1));
 
 			var block = NewSingleVersePara(1).AddVerse(2);
-			block.SetStandardCharacter("MRK", Block.StandardCharacter.Narrator);
+			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
 			mrkBlocks.Add(block);
 
 			block = NewBlock(" «Sons of Thunder»");
-			block.SetStandardCharacter("MRK", Block.StandardCharacter.Narrator);
+			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
 			mrkBlocks.Add(block);
 
 			block = NewBlock(" the rest of verse 2. ");
-			block.SetStandardCharacter("MRK", Block.StandardCharacter.Narrator);
+			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
 			mrkBlocks.Add(block.AddVerse(3));
 
 			block = NewSingleVersePara(4).AddVerse(5);
-			block.SetStandardCharacter("MRK", Block.StandardCharacter.Narrator);
+			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
 			mrkBlocks.Add(block);
 
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var result = bookScript.GetScriptBlocks(true);
-			Assert.IsTrue(result[1].CharacterIs(Block.StandardCharacter.Narrator));
+			Assert.IsTrue(result[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.IsTrue(result[1].IsParagraphStart);
 			var textOfFirstVerseBlock = result[1].GetText(true);
 			Assert.IsTrue(textOfFirstVerseBlock.StartsWith("[1]"));
 			Assert.IsTrue(textOfFirstVerseBlock.Contains("[2]"));
 			Assert.IsTrue(textOfFirstVerseBlock.Contains(" «Sons of Thunder» the rest of verse 2. [3]"));
-			Assert.IsTrue(result[2].CharacterIs(Block.StandardCharacter.Narrator));
+			Assert.IsTrue(result[2].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.IsTrue(result[2].IsParagraphStart);
 			Assert.IsTrue(result[2].GetText(true).StartsWith("[4]"));
 		}
@@ -297,7 +297,7 @@ namespace ProtoScriptTests
 			var target = CreateStandardMarkScript();
 			target.ApplyUserDecisions(source);
 			Assert.IsFalse(target.GetScriptBlocks().Any(b => b.UserConfirmed));
-			Assert.IsTrue(target.GetScriptBlocks().All(b => b.CharacterIsStandard || b.CharacterIs(Block.UnknownCharacter)));
+			Assert.IsTrue(target.GetScriptBlocks().All(b => b.CharacterIsStandard || b.CharacterId == CharacterVerseData.UnknownCharacter));
 		}
 
 		[Test]
@@ -307,7 +307,7 @@ namespace ProtoScriptTests
 			var userConfirmedCharacterBlockIndices = new List<int>();
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterIs(Block.UnknownCharacter))
+				if (source[i].CharacterId == CharacterVerseData.UnknownCharacter)
 				{
 					source[i].CharacterId = "Fred the Frog";
 					source[i].Delivery = "with certitude";
@@ -343,7 +343,7 @@ namespace ProtoScriptTests
 			var userConfirmedCharacterBlockIndices = new List<int>();
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterIs(Block.UnknownCharacter))
+				if (source[i].CharacterId == CharacterVerseData.UnknownCharacter)
 				{
 					if (i % 2 == 0)
 					{
@@ -366,7 +366,7 @@ namespace ProtoScriptTests
 				{
 					if (i % 2 == 0)
 					{
-						Assert.IsTrue(target[i].CharacterIs(Block.UnknownCharacter));
+						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.UnknownCharacter);
 						Assert.IsNull(target[i].Delivery);
 						Assert.IsFalse(target[i].UserConfirmed);
 					}
@@ -392,7 +392,7 @@ namespace ProtoScriptTests
 			var source = CreateStandardMarkScript();
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterIs(Block.UnknownCharacter))
+				if (source[i].CharacterId == CharacterVerseData.UnknownCharacter)
 				{
 					source[i].CharacterId = "Fred the Frog";
 					source[i].Delivery = "with certitude";
@@ -405,7 +405,7 @@ namespace ProtoScriptTests
 			int iBlockAtVerse7 = -1;
 			for (int i = 0; i < target.GetScriptBlocks().Count; i++)
 			{
-				if (target[i].CharacterIs(Block.UnknownCharacter))
+				if (target[i].CharacterId == CharacterVerseData.UnknownCharacter)
 					quoteBlockIndices.Add(i);
 
 				if (target[i].InitialVerseNumber == 7 && iBlockAtVerse7 < 0)
@@ -426,7 +426,7 @@ namespace ProtoScriptTests
 				{
 					if (indicesOfQuoteBlocksWithExtraVerses.Contains(i))
 					{
-						Assert.IsTrue(target[i].CharacterIs(Block.UnknownCharacter));
+						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.UnknownCharacter);
 						Assert.IsFalse(target[i].UserConfirmed);
 					}
 					else
@@ -451,7 +451,7 @@ namespace ProtoScriptTests
 			var source = CreateStandardMarkScript(true);
 			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
 			{
-				if (source[i].CharacterIs(Block.UnknownCharacter))
+				if (source[i].CharacterId == CharacterVerseData.UnknownCharacter)
 				{
 					source[i].CharacterId = "Fred the Frog";
 					source[i].Delivery = "with certitude";
@@ -463,7 +463,7 @@ namespace ProtoScriptTests
 			var quoteBlockIndices = new List<int>();
 			for (int i = 0; i < target.GetScriptBlocks().Count; i++)
 			{
-				if (target[i].CharacterIs(Block.UnknownCharacter))
+				if (target[i].CharacterId == CharacterVerseData.UnknownCharacter)
 					quoteBlockIndices.Add(i);
 			}
 			Assert.IsTrue(quoteBlockIndices.Count > 0);
@@ -539,18 +539,18 @@ namespace ProtoScriptTests
 			int i = 0;
 			var mrkBlocks = new List<Block>();
 			mrkBlocks.Add(NewChapterBlock(1));
-			mrkBlocks[i++].SetStandardCharacter("MRK", Block.StandardCharacter.BookOrChapter);
+			mrkBlocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
 			mrkBlocks.Add(NewPara("s", "Predicación de Juan el Bautista"));
-			mrkBlocks[i++].SetStandardCharacter("MRK", Block.StandardCharacter.ExtraBiblical);
+			mrkBlocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
 			mrkBlocks.Add(NewSingleVersePara(1, "Principio del evangelio de Jesucristo, el Hijo de Dios. ")
 				.AddVerse(2, "Como está escrito en el profeta Isaías:"));
-			mrkBlocks[i++].SetStandardCharacter("MRK", Block.StandardCharacter.Narrator);
+			mrkBlocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
 			mrkBlocks.Add(NewPara("q1", "«Yo envío a mi mensajero delante de ti, El cual preparará tu camino.")
 				.AddVerse(3, "Una voz clama en el desierto: “Preparen el camino del Señor; Enderecen sus sendas.”»"));
 			mrkBlocks[i++].SetCharacterAndDelivery(new CharacterVerse[0]);
 			mrkBlocks.Add(NewSingleVersePara(4, "Juan se presentó en el desierto, y bautizaba y proclamaba el bautismo de arrepentimiento para el perdón de pecados. ")
 				.AddVerse(5, "Toda la gente de la provincia de Judea y de Jerusalén acudía a él, y allí en el río Jordán confesaban sus pecados, y Juan los bautizaba."));
-			mrkBlocks[i++].SetStandardCharacter("MRK", Block.StandardCharacter.Narrator);
+			mrkBlocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
 
 			if (includeExtraVersesInChapter1)
 			{
@@ -566,11 +566,11 @@ namespace ProtoScriptTests
 			}
 
 			mrkBlocks.Add(NewPara("s", "El bautismo de Jesús"));
-			mrkBlocks[i++].SetStandardCharacter("MRK", Block.StandardCharacter.ExtraBiblical);
+			mrkBlocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
 			mrkBlocks.Add(NewSingleVersePara(9, "Por esos días llegó Jesús desde Nazaret de Galilea, y fue bautizado por Juan en el Jordán. ")
 				.AddVerse(10, "En cuanto Jesús salió del agua, vio que los cielos se abrían y que el Espíritu descendía sobre él como una paloma. ")
 				.AddVerse(11, "Y desde los cielos se oyó una voz que decía: "));
-			mrkBlocks[i++].SetStandardCharacter("MRK", Block.StandardCharacter.Narrator);
+			mrkBlocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
 			mrkBlocks.Add(NewBlock("«Tú eres mi Hijo amado, en quien me complazco.»"));
 			mrkBlocks[i++].SetCharacterAndDelivery(new CharacterVerse[0]);
 
@@ -579,7 +579,7 @@ namespace ProtoScriptTests
 				mrkBlocks.Add(NewSingleVersePara(14,
 					"Después de que Juan fue encarcelado, Jesús fue a Galilea para proclamar el evangelio del reino de Dios.")
 					.AddVerse(15, "Decía: "));
-				mrkBlocks[i++].SetStandardCharacter("MRK", Block.StandardCharacter.Narrator);
+				mrkBlocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
 				mrkBlocks.Add(NewBlock("«El tiempo se ha cumplido, y el reino de Dios se ha acercado. ¡Arrepiéntanse, y crean en el evangelio!»"));
 				mrkBlocks[i++].SetCharacterAndDelivery(new CharacterVerse[0]);
 			}

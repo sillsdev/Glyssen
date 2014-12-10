@@ -770,7 +770,6 @@ Nehemiah/Ezra/Levites,28,0359
 Nicodemus,10,0360
 Noah,5,0361
 Nobles/officials,13,0362
-Not A Quote,30,00000
 Obadiah, manager of Ahab's palace,5,0363
 Oded, prophet of the Lord,5,0364
 Oppressors of poor (women),21,0365

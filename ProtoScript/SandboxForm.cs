@@ -3,6 +3,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using L10NSharp;
+using L10NSharp.UI;
 using Palaso.IO;
 using Paratext;
 using ProtoScript.Bundle;
@@ -22,6 +23,8 @@ namespace ProtoScript
 		{
 			InitializeComponent();
 			HandleStringsLocalized();
+
+			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 		}
 
 		private void SetProject(Project project)

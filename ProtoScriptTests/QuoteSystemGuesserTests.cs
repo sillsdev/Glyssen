@@ -135,7 +135,7 @@ namespace ProtoScriptTests
 			var verseText = new StringBuilder();
 
 			var characters = CharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse)
-				.Where(c => c.Character != "scripture" && c.Character != CharacterVerseData.kNotAQuote).ToList();
+				.Where(c => c.Character != "scripture" && !CharacterVerseData.IsCharacterOfType(c.Character, CharacterVerseData.StandardCharacter.Narrator)).ToList();
 			bool quoteStartExpected = characters.Count > 0;
 			// If previous verse had same character talking, it's probably a longer discourse, so minimize the number of start quotes.
 			if (verse > 1 && characters.Count == 1 && CharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse - 1)

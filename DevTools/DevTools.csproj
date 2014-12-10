@@ -79,9 +79,6 @@
     <Content Include="Resources\original_Character-VoiceTalent.txt" />
     <Content Include="Resources\original_CharacterNames_BookChapterVerse.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\CharacterVerse.txt" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

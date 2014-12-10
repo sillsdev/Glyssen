@@ -71,9 +71,9 @@ namespace ProtoScript
 						
 						block = new Block(usxPara.StyleTag, m_currentChapter, m_currentVerse) { IsParagraphStart = true };
 						if (m_currentChapter == 0)
-							block.SetStandardCharacter(m_bookId, Block.StandardCharacter.Intro);
+							block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.Intro);
 						else if (style.IsPublishable && !style.IsVerseText)
-							block.SetStandardCharacter(m_bookId, Block.StandardCharacter.ExtraBiblical);
+							block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.ExtraBiblical);
 
 						var sb = new StringBuilder();
 						// <verse number="1" style="v" />
@@ -130,7 +130,7 @@ namespace ProtoScript
 			if (titleBuilder.Length < 1)
 				return;
 			var titleBlock = new Block("mt");
-			titleBlock.SetStandardCharacter(m_bookId, Block.StandardCharacter.BookOrChapter);
+			titleBlock.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.BookOrChapter);
 			titleBlock.BlockElements.Add(new ScriptText { Content = titleBuilder.ToString().Trim() });
 			blocks.Add(titleBlock);
 			titleBuilder.Clear();
@@ -155,7 +155,7 @@ namespace ProtoScript
 				Debug.Fail("TODO: Deal with bogus chapter number in USX data!");
 			m_currentVerse = 0;
 			var block = new Block(usxChapter.StyleTag, m_currentChapter) { IsParagraphStart = true };
-			block.SetStandardCharacter(m_bookId, Block.StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.BookOrChapter);
 			block.BlockElements.Add(new ScriptText(chapterText));
 			return block;
 		}

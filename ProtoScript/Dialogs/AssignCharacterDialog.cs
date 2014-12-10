@@ -5,13 +5,14 @@ using System.Text;
 using System.Windows.Forms;
 using Gecko.Events;
 using L10NSharp;
+using L10NSharp.UI;
 
 namespace ProtoScript.Dialogs
 {
 	public partial class AssignCharacterDialog : Form
 	{
-		private const string kNarrator = "Narrator";
-		private const string kNormalDelivery = "{normal}";
+		private string m_narrator;
+		private string m_normalDelivery;
 		private const string kMainQuoteElementId = "main-quote-text";
 		private const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
 		                                  "<style>{0}</style></head><body>{1}</body></html>";
@@ -31,12 +32,19 @@ namespace ProtoScript.Dialogs
 		public AssignCharacterDialog()
 		{
 			InitializeComponent();
+			HandleStringsLocalized();
+
+			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 		}
 
-		public AssignCharacterDialog(Project project)
+		private void HandleStringsLocalized()
 		{
-			InitializeComponent();
+			m_narrator = LocalizationManager.GetString("AssignCharacterDialog.Narrator", "Narrator");
+			m_normalDelivery = LocalizationManager.GetString("AssignCharacterDialog.NormalDelivery", "normal");
+		}
 
+		public AssignCharacterDialog(Project project) : this()
+		{
 			m_fontFamily = project.FontFamily;
 			m_fontSizeInPoints = project.FontSizeInPoints;
 
@@ -183,8 +191,9 @@ namespace ProtoScript.Dialogs
 			m_listBoxCharacters.Items.Clear();
 			m_listBoxDeliveries.Items.Clear();
 
-			m_listBoxCharacters.Items.Add(kNarrator);
-			foreach (CharacterVerse cv in new SortedSet<CharacterVerse>(m_characters, new CharacterComparer()))
+			m_listBoxCharacters.Items.Add(m_narrator);
+			foreach (CharacterVerse cv in new SortedSet<CharacterVerse>(m_characters, new CharacterComparer())
+				.Where(c => !CharacterVerseData.IsCharacterOfType(c.Character, CharacterVerseData.StandardCharacter.Narrator)))
 				m_listBoxCharacters.Items.Add(cv.Character);
 
 			SetCharacter();
@@ -193,8 +202,8 @@ namespace ProtoScript.Dialogs
 		private void SetCharacter()
 		{
 			Block currentBlock = m_navigator.CurrentBlock;
-			if (currentBlock.CharacterIs(Block.StandardCharacter.Narrator))
-				m_listBoxCharacters.SelectedItem = kNarrator;
+			if (currentBlock.CharacterIs(m_navigator.CurrentBook.BookId, CharacterVerseData.StandardCharacter.Narrator))
+				m_listBoxCharacters.SelectedItem = m_narrator;
 			else if (!currentBlock.CharacterIsUnclear())
 			{
 				if (!m_listBoxCharacters.Items.Contains(currentBlock.CharacterId))
@@ -208,8 +217,8 @@ namespace ProtoScript.Dialogs
 			m_listBoxDeliveries.Items.Clear();
 			m_deliveries = new List<string>();
 			var selectedCharacter = (string)m_listBoxCharacters.SelectedItem;
-			m_listBoxDeliveries.Items.Add(kNormalDelivery);
-			if (selectedCharacter != kNarrator)
+			m_listBoxDeliveries.Items.Add(m_normalDelivery);
+			if (selectedCharacter != m_narrator)
 			{
 				m_deliveries = m_characters.Where(c => c.Character == selectedCharacter).Select(c => c.Delivery).Where(d => !string.IsNullOrEmpty(d));
 				foreach (string delivery in m_deliveries)
@@ -221,7 +230,7 @@ namespace ProtoScript.Dialogs
 		private void SetDelivery()
 		{
 			Block currentBlock = m_navigator.CurrentBlock;
-			string delivery = string.IsNullOrEmpty(currentBlock.Delivery) ? kNormalDelivery : currentBlock.Delivery;
+			string delivery = string.IsNullOrEmpty(currentBlock.Delivery) ? m_normalDelivery : currentBlock.Delivery;
 			if (!m_listBoxDeliveries.Items.Contains(delivery))
 				m_listBoxDeliveries.Items.Add(delivery);
 
@@ -255,13 +264,13 @@ namespace ProtoScript.Dialogs
 			Block currentBlock = m_navigator.CurrentBlock;
 
 			var selectedCharacter = (string)m_listBoxCharacters.SelectedItem;
-			if (selectedCharacter == kNarrator)
-				currentBlock.SetStandardCharacter(m_navigator.CurrentBook.BookId, Block.StandardCharacter.Narrator);
+			if (selectedCharacter == m_narrator)
+				currentBlock.SetStandardCharacter(m_navigator.CurrentBook.BookId, CharacterVerseData.StandardCharacter.Narrator);
 			else
 				currentBlock.CharacterId = selectedCharacter;
 
 			var selectedDelivery = (string)m_listBoxDeliveries.SelectedItem;
-			currentBlock.Delivery = selectedDelivery == kNormalDelivery ? null : selectedDelivery;
+			currentBlock.Delivery = selectedDelivery == m_normalDelivery ? null : selectedDelivery;
 
 			if (!currentBlock.UserConfirmed)
 			{

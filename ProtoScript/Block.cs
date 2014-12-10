@@ -13,32 +13,8 @@ namespace ProtoScript
 	[XmlRoot("block")]
 	public class Block
 	{
-		/// <summary>Blocks represents a quote whose character has not been set (usually represents an unexpected quote)</summary>
-		public const string UnknownCharacter = "Unknown";
-		/// <summary>
-		/// Blocks represents a quote whose character has not been set.
-		/// Used when the user needs to disambiguate between multiple potential characters.
-		/// </summary>
-		public const string AmbiguousCharacter = "Ambiguous";
 		/// <summary>Blocks which has not yet been parsed to identify contents/character</summary>
 		public static readonly string NotSet = null;
-
-		public enum StandardCharacter
-		{
-			Narrator,
-			BookOrChapter,
-			ExtraBiblical,
-			Intro,
-		}
-
-		/// <summary>Character ID prefix for material to be read by narrator</summary>
-		private const string kNarratorPrefix = "narrator-";
-		/// <summary>Character ID prefix for book titles or chapter breaks</summary>
-		private const string kBookOrChapterPrefix = "BC-";
-		/// <summary>Character ID prefix for extra-biblical material (section heads, etc.)</summary>
-		private const string kExtraBiblicalPrefix = "extra-";
-		/// <summary>Character ID prefix for intro material</summary>
-		private const string kIntroPrefix = "intro-";
 
 		private int m_initialVerseNumber;
 		private int m_chapterNumber;
@@ -124,24 +100,7 @@ namespace ProtoScript
 
 		public bool CharacterIsStandard
 		{
-			get
-			{
-				if (String.IsNullOrEmpty(CharacterId))
-					return false;
-
-				int i = CharacterId.IndexOf("-", StringComparison.Ordinal);
-				if (i < 0)
-					return false;
-				switch (CharacterId.Substring(0, i + 1))
-				{
-					case kNarratorPrefix:
-					case kIntroPrefix:
-					case kExtraBiblicalPrefix:
-					case kBookOrChapterPrefix:
-						return true;
-				}
-				return false;
-			}
+			get { return CharacterVerseData.IsCharacterStandard(CharacterId); }
 		}
 
 		public string GetText(bool includeVerseNumbers)
@@ -169,50 +128,20 @@ namespace ProtoScript
 			return bldr.ToString();
 		}
 
-		public bool CharacterIs(string prefixOrName)
+		public bool CharacterIs(string bookId, CharacterVerseData.StandardCharacter standardCharacterType)
 		{
-			if (CharacterId == prefixOrName)
-				return true;
-
-			return (prefixOrName.EndsWith("-") && CharacterId.StartsWith(prefixOrName));
-		}
-
-		public bool CharacterIs(StandardCharacter standardCharacterType)
-		{
-			return CharacterIs(GetCharacterPrefix(standardCharacterType));
-		}
-
-		public bool CharacterIs(string bookId, StandardCharacter standardCharacterType)
-		{
-			return CharacterId == GetCharacterPrefix(standardCharacterType) + bookId;
+			return CharacterId == CharacterVerseData.GetStandardCharacterId(bookId, standardCharacterType);
 		}
 
 		public bool CharacterIsUnclear()
 		{
-			return CharacterIs(Block.UnknownCharacter) || CharacterIs(Block.AmbiguousCharacter);
+			return CharacterId == CharacterVerseData.UnknownCharacter || CharacterId == CharacterVerseData.AmbiguousCharacter;
 		}
 
-		public void SetStandardCharacter(string bookId, StandardCharacter standardCharacterType)
+		public void SetStandardCharacter(string bookId, CharacterVerseData.StandardCharacter standardCharacterType)
 		{
-			CharacterId = GetCharacterPrefix(standardCharacterType) + bookId;
+			CharacterId = CharacterVerseData.GetStandardCharacterId(bookId, standardCharacterType);
 			Delivery = null;
-		}
-
-		private string GetCharacterPrefix(StandardCharacter standardCharacterType)
-		{
-			switch (standardCharacterType)
-			{
-				case StandardCharacter.Narrator:
-					return kNarratorPrefix;
-				case StandardCharacter.BookOrChapter:
-					return kBookOrChapterPrefix;
-				case StandardCharacter.ExtraBiblical:
-					return kExtraBiblicalPrefix;
-				case StandardCharacter.Intro:
-					return kIntroPrefix;
-				default:
-					throw new ArgumentException("Unexpected standard character type.");
-			}
 		}
 
 		public string GetAsXml(bool includeXmlDeclaration = true)
@@ -251,7 +180,7 @@ namespace ProtoScript
 			}
 			else
 			{
-				CharacterId = characterList.Count == 0 ? UnknownCharacter : AmbiguousCharacter;
+				CharacterId = characterList.Count == 0 ? CharacterVerseData.UnknownCharacter : CharacterVerseData.AmbiguousCharacter;
 				Delivery = null;
 			}
 		}

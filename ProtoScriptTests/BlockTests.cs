@@ -18,7 +18,7 @@ namespace ProtoScriptTests
 		public void GetAsXml_VerseAndTextElements_XmlHasCorrectAttributesAndAlternatingVerseAndTextElements()
 		{
 			var block = new Block("p", 4);
-			block.SetStandardCharacter("MRK", Block.StandardCharacter.Narrator);
+			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
 			block.BlockElements.Add(new Verse("1"));
 			block.BlockElements.Add(new ScriptText("Text of verse one. "));
 			block.BlockElements.Add(new Verse("2"));
@@ -106,7 +106,7 @@ namespace ProtoScriptTests
 			block.CharacterId = "Fred";
 			block.Delivery = "Freakin' out";
 			block.SetCharacterAndDelivery(new CharacterVerse[0]);
-			Assert.AreEqual(Block.UnknownCharacter, block.CharacterId);
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, block.CharacterId);
 			Assert.IsNull(block.Delivery);
 		}
 
@@ -119,7 +119,7 @@ namespace ProtoScriptTests
 			block.CharacterId = "Fred";
 			block.Delivery = "Freakin' out";
 			block.SetCharacterAndDelivery(new [] { JesusCommanding, JesusQuestioning, Andrew });
-			Assert.AreEqual(Block.AmbiguousCharacter, block.CharacterId);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, block.CharacterId);
 			Assert.IsNull(block.Delivery);
 		}
 
@@ -139,7 +139,7 @@ namespace ProtoScriptTests
 			var block = new Block("p", 4, 4);
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
-			block.SetStandardCharacter("MRK", Block.StandardCharacter.Narrator);
+			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
 			Assert.IsTrue(block.CharacterIsStandard);
 		}
 
@@ -149,7 +149,7 @@ namespace ProtoScriptTests
 			var block = new Block("p", 4, 4);
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
-			block.SetStandardCharacter("GEN", Block.StandardCharacter.ExtraBiblical);
+			block.SetStandardCharacter("GEN", CharacterVerseData.StandardCharacter.ExtraBiblical);
 			Assert.IsTrue(block.CharacterIsStandard);
 		}
 
@@ -158,7 +158,7 @@ namespace ProtoScriptTests
 		{
 			var block = new Block("c", 4);
 			block.BlockElements.Add(new ScriptText("4"));
-			block.SetStandardCharacter("REV", Block.StandardCharacter.BookOrChapter);
+			block.SetStandardCharacter("REV", CharacterVerseData.StandardCharacter.BookOrChapter);
 			Assert.IsTrue(block.CharacterIsStandard);
 		}
 
@@ -167,7 +167,7 @@ namespace ProtoScriptTests
 		{
 			var block = new Block("ip");
 			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
-			block.SetStandardCharacter("ROM", Block.StandardCharacter.Intro);
+			block.SetStandardCharacter("ROM", CharacterVerseData.StandardCharacter.Intro);
 			Assert.IsTrue(block.CharacterIsStandard);
 		}
 

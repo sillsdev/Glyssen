@@ -40,7 +40,8 @@ namespace ProtoScript
 				int prevQuoteChapter = -1;
 				int prevQuoteVerse = -1;
 
-				foreach (var quote in cvInfo.GetAllQuoteInfo(book.BookId).Where(q => q.Character != CharacterVerseData.kNotAQuote))
+				foreach (var quote in cvInfo.GetAllQuoteInfo(book.BookId)
+					.Where(q => !CharacterVerseData.IsCharacterOfType(q.Character, CharacterVerseData.StandardCharacter.Narrator)))
 				{
 					if (quote.Chapter == prevQuoteChapter && (quote.Verse == prevQuoteVerse || quote.Verse == prevQuoteVerse + 1))
 					{
