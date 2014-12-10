@@ -201,5 +201,42 @@ namespace ProtoScript
 				throw new InvalidOperationException(
 					"Blocks collection changed. Blocks getter should not be used to add or remove blocks to the list. Use setter instead.");
 		}
+
+		public void ApplyUserDecisions(BookScript sourceBookScript)
+		{
+			var comparer = new BlockElementContentsComparer();
+			int iTarget = 0;
+			foreach (var sourceBlock in sourceBookScript.m_blocks.Where(b => b.UserConfirmed))
+			{
+				if (m_blocks[iTarget].ChapterNumber < sourceBlock.ChapterNumber)
+					iTarget = GetIndexOfFirstBlockForVerse(sourceBlock.ChapterNumber, sourceBlock.InitialVerseNumber);
+				else
+				{
+					while (m_blocks[iTarget].InitialVerseNumber < sourceBlock.InitialVerseNumber)
+					{
+						iTarget++;
+						if (iTarget == m_blocks.Count)
+							return;
+					}
+				}
+				do
+				{
+					if (m_blocks[iTarget].StyleTag == sourceBlock.StyleTag &&
+						m_blocks[iTarget].IsParagraphStart == sourceBlock.IsParagraphStart &&
+						m_blocks[iTarget].BlockElements.SequenceEqual(sourceBlock.BlockElements, comparer))
+					{
+						m_blocks[iTarget].CharacterId = sourceBlock.CharacterId;
+						m_blocks[iTarget].Delivery = sourceBlock.Delivery;
+						m_blocks[iTarget].UserConfirmed = true;
+						iTarget++;
+						if (iTarget == m_blocks.Count)
+							return;
+						break;
+					}
+				} while (++iTarget < m_blocks.Count &&
+						m_blocks[iTarget].ChapterNumber == sourceBlock.ChapterNumber &&
+						m_blocks[iTarget].InitialVerseNumber == sourceBlock.InitialVerseNumber);
+			}
+		}
 	}
 }

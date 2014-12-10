@@ -126,6 +126,9 @@ namespace ProtoScript
 		{
 			get
 			{
+				if (String.IsNullOrEmpty(CharacterId))
+					return false;
+
 				int i = CharacterId.IndexOf("-", StringComparison.Ordinal);
 				if (i < 0)
 					return false;
@@ -261,6 +264,27 @@ namespace ProtoScript
 		public virtual BlockElement Clone()
 		{
 			return (BlockElement)MemberwiseClone();
+		}
+	}
+
+	public class BlockElementContentsComparer : IEqualityComparer<BlockElement>
+	{
+		public bool Equals(BlockElement x, BlockElement y)
+		{
+			var xAsVerse = x as Verse;
+			if (xAsVerse != null)
+			{
+				var yAsVerse = y as Verse;
+				return yAsVerse != null && xAsVerse.Number == yAsVerse.Number;
+			}
+
+			var yAsScriptText = y as ScriptText;
+			return yAsScriptText != null && ((ScriptText) x).Content == yAsScriptText.Content;
+		}
+
+		public int GetHashCode(BlockElement obj)
+		{
+			return obj.GetHashCode();
 		}
 	}
 

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using L10NSharp;
+using SIL.ScriptureUtils;
 
 namespace ProtoScript.Bundle
 {
@@ -31,8 +33,9 @@ namespace ProtoScript.Bundle
 			foreach (string filePath in Directory.GetFiles(pathToCanon, "*.usx"))
 			{
 				var fi = new FileInfo(filePath);
-				string bookId = fi.Name.Substring(0, fi.Name.LastIndexOf(".", StringComparison.InvariantCulture));
-				m_books.Add(bookId, new UsxDocument(filePath));
+				string bookId = Path.GetFileNameWithoutExtension(fi.Name);
+				if (bookId.Length == 3)
+					m_books.Add(bookId, new UsxDocument(filePath));
 			}
 		}
 	}

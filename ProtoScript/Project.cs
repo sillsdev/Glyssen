@@ -85,7 +85,27 @@ namespace ProtoScript
 
 		public static Project Load(string projectFilePath)
 		{
-			Project project;
+			Project existingProject = LoadExistingProject(projectFilePath);
+
+			if (existingProject.m_metadata.PgUsxParserVersion != Settings.Default.PgUsxParserVersion &&
+				File.Exists(existingProject.m_metadata.OriginalPathOfDblFile))
+			{
+				var bundle = new Bundle.Bundle(existingProject.m_metadata.OriginalPathOfDblFile);
+				// See if we already have a project for this bundle and open it instead.
+				var upgradedProject = new Project(bundle.Metadata);
+				upgradedProject.QuoteSystem = existingProject.m_metadata.QuoteSystem;
+				upgradedProject.m_metadata.Books = existingProject.m_metadata.Books;
+				upgradedProject.PopulateAndParseBooks(bundle);
+				upgradedProject.ApplyUserDecisions(existingProject);
+				return upgradedProject;
+			}
+			
+			existingProject.InitializeLoadedProject();
+			return existingProject;
+		}
+
+		private static Project LoadExistingProject(string projectFilePath)
+		{
 			Exception exception;
 			var metadata = DblMetadata.Load(projectFilePath, out exception);
 			if (exception != null)
@@ -94,18 +114,7 @@ namespace ProtoScript
 					LocalizationManager.GetString("File.ProjectMetadataInvalid", "Project could not be loaded: {0}"), projectFilePath);
 				return null;
 			}
-			if (metadata.PgUsxParserVersion != Settings.Default.PgUsxParserVersion &&
-				File.Exists(metadata.OriginalPathOfDblFile))
-			{
-				// ENHANCE: For now, just create a new bundle and re-parse
-				var bundle = new Bundle.Bundle(metadata.OriginalPathOfDblFile);
-				// See if we already have a project for this bundle and open it instead.
-				project = new Project(bundle.Metadata);
-				project.QuoteSystem = metadata.QuoteSystem;
-				project.PopulateAndParseBooks(bundle);
-				return project;
-			}
-			project = new Project(metadata);
+			Project project = new Project(metadata);
 			var projectDir = Path.GetDirectoryName(projectFilePath);
 			Debug.Assert(projectDir != null);
 			string[] files = Directory.GetFiles(projectDir, "???" + kBookScriptFileExtension);
@@ -116,8 +125,6 @@ namespace ProtoScript
 				if (files.Contains(possibleFileName))
 					project.m_books.Add(XmlSerializationHelper.DeserializeFromFile<BookScript>(possibleFileName));
 			}
-
-			project.InitializeLoadedProject();
 			return project;
 		}
 
@@ -137,15 +144,29 @@ namespace ProtoScript
 			}
 		}
 
+		private void ApplyUserDecisions(Project sourceProject)
+		{
+			for (int iBook = 0; iBook < m_books.Count; iBook++)
+			{
+				var targetBookScript = m_books[iBook];
+				var sourceBookScript = sourceProject.m_books[iBook];
+				Debug.Assert(targetBookScript.BookId == sourceBookScript.BookId);
+				targetBookScript.ApplyUserDecisions(sourceBookScript);
+			}
+		}
+
 		private void PopulateAndParseBooks(Bundle.Bundle bundle)
 		{
 			Canon canon;
 			if (bundle.TryGetCanon(1, out canon))
 			{
-				UsxDocument book;
-				if (canon.TryGetBook("MRK", out book))
+				foreach (var book in m_metadata.Books.Where(b => b.IncludeInScript))
 				{
-					AddAndParseBooks(new[] { book }, bundle.Stylesheet);
+					UsxDocument usxBook;
+					if (canon.TryGetBook(book.Code, out usxBook))
+					{
+						AddAndParseBooks(new[] { usxBook }, bundle.Stylesheet);
+					}
 				}
 			}
 		}

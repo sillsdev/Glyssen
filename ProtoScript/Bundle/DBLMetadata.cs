@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
@@ -49,6 +50,7 @@ namespace ProtoScript.Bundle
 		/// </summary>
 		[XmlElement("fontFamily")]
 		public string FontFamily;
+
 		/// <summary>
 		/// This is not part of the original DBL metadata but rather is pulled in from the stylesheet.
 		/// </summary>
@@ -63,6 +65,8 @@ namespace ProtoScript.Bundle
 		public DblMetadataLanguage language;
 		public DblMetadataPromotion promotion;
 		public DblMetadataArchiveStatus archiveStatus;
+		[XmlElement("bookNames")]
+		public List<Book> Books { get; set; }
 
 		public string GetAsXml()
 		{
@@ -161,5 +165,24 @@ namespace ProtoScript.Bundle
 	{
 		public string dateArchived;
 		public string dateUpdated;
+	}
+
+	public class Book
+	{
+		[XmlAttribute("code")]
+		public string Code { get; set; }
+
+		[XmlAttribute("include")]
+		[DefaultValue(true)]
+		public bool IncludeInScript { get; set; }
+
+		[XmlElement("long")]
+		public string LongName { get; set; }
+
+		[XmlElement("short")]
+		public string ShortName { get; set; }
+
+		[XmlElement("abbr")]
+		public string Abbreviation { get; set; }
 	}
 }
