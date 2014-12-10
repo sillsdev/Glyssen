@@ -281,12 +281,33 @@ namespace ProtoScriptTests
 			Assert.IsTrue(result[2].IsParagraphStart);
 			Assert.IsTrue(result[2].GetText(true).StartsWith("[4]"));
 		}
+
+		[Test]
+		public void GetScriptBlocks_JoiningConsecutiveBcBlocksInDifferentParagraphs_ResultsNotJoined()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewTitleBlock("The Gospel According to Mark"));
+			mrkBlocks.Add(NewChapterBlock(1));
+
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var result = bookScript.GetScriptBlocks(true);
+			Assert.AreEqual(2, result.Count);
+		}
 		#endregion
 
 		#region Private Helper methods
+		private Block NewTitleBlock(string text)
+		{
+			var block = new Block("mt");
+			block.IsParagraphStart = true;
+			block.BlockElements.Add(new ScriptText(text));
+			return block;
+		}
+
 		private Block NewChapterBlock(int chapterNum)
 		{
 			var block = new Block("c", chapterNum);
+			block.IsParagraphStart = true;
 			block.BlockElements.Add(new ScriptText(chapterNum.ToString()));
 			m_curSetupChapter = chapterNum;
 			return block;

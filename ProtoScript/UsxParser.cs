@@ -154,7 +154,7 @@ namespace ProtoScript
 			else
 				Debug.Fail("TODO: Deal with bogus chapter number in USX data!");
 			m_currentVerse = 0;
-			var block = new Block(usxChapter.StyleTag, m_currentChapter);
+			var block = new Block(usxChapter.StyleTag, m_currentChapter) { IsParagraphStart = true };
 			block.SetStandardCharacter(m_bookId, Block.StandardCharacter.BookOrChapter);
 			block.BlockElements.Add(new ScriptText(chapterText));
 			return block;
