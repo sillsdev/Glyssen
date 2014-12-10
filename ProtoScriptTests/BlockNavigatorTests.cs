@@ -269,6 +269,89 @@ namespace ProtoScriptTests
 		}
 
 		[Test]
+		public void PeekForwardWithinBook_OneBlock_WithinBook()
+		{
+			var secondBlock = m_books.First()[1];
+			IEnumerable<Block> result = m_navigator.PeekForwardWithinBook(1);
+			Assert.AreEqual(1, result.Count());
+			Assert.AreEqual(secondBlock, result.First());
+		}
+
+		[Test]
+		public void PeekForwardWithinBook_OneBlock_StartAtBookEnd_ReturnsEmpty()
+		{
+			m_navigator.CurrentBlock = m_books.First().Blocks.Last();
+			IEnumerable<Block> result = m_navigator.PeekForwardWithinBook(1);
+			Assert.AreEqual(0, result.Count());
+		}
+
+		[Test]
+		public void PeekForwardWithinBook_MultipleBlocks_WithinBook()
+		{
+			var secondBlock = m_books.First()[1];
+			var thirdBlock = m_books.First()[2];
+			IEnumerable<Block> result = m_navigator.PeekForwardWithinBook(2);
+			Assert.AreEqual(2, result.Count());
+			Assert.AreEqual(secondBlock, result.First());
+			Assert.AreEqual(thirdBlock, result.Last());
+		}
+
+		[Test]
+		public void PeekForwardWithinBook_MultipleBlocks_StopsAtBookEnd()
+		{
+			var secondBlock = m_books.First()[1];
+			var thirdBlock = m_books.First()[2];
+			IEnumerable<Block> result = m_navigator.PeekForwardWithinBook(3);
+			Assert.AreEqual(2, result.Count());
+			Assert.AreEqual(secondBlock, result.First());
+			Assert.AreEqual(thirdBlock, result.Last());
+		}
+
+		[Test]
+		public void PeekBackwardWithinBook_OneBlock_WithinBook()
+		{
+			var firstBlock = m_books.First()[0];
+			var secondBlock = m_books.First()[1];
+			m_navigator.CurrentBlock = secondBlock;
+			IEnumerable<Block> result = m_navigator.PeekBackwardWithinBook(1);
+			Assert.AreEqual(1, result.Count());
+			Assert.AreEqual(firstBlock, result.First());
+		}
+
+		[Test]
+		public void PeekBackwardWithinBook_OneBlock_StartAtBookBegin_ReturnsEmpty()
+		{
+			IEnumerable<Block> result = m_navigator.PeekBackwardWithinBook(1);
+			Assert.AreEqual(0, result.Count());
+		}
+
+		[Test]
+		public void PeekBackwardWithinBook_MultipleBlocks_WithinBook()
+		{
+			var firstBlock = m_books.First()[0];
+			var secondBlock = m_books.First()[1];
+			var thirdBlock = m_books.First()[2];
+			m_navigator.CurrentBlock = thirdBlock;
+			IEnumerable<Block> result = m_navigator.PeekBackwardWithinBook(2);
+			Assert.AreEqual(2, result.Count());
+			Assert.AreEqual(firstBlock, result.First());
+			Assert.AreEqual(secondBlock, result.Last());
+		}
+
+		[Test]
+		public void PeekBackwardWithinBook_MultipleBlocks_StopsAtBookBegin()
+		{
+			var firstBlock = m_books.First()[0];
+			var secondBlock = m_books.First()[1];
+			var thirdBlock = m_books.First()[2];
+			m_navigator.CurrentBlock = thirdBlock;
+			IEnumerable<Block> result = m_navigator.PeekBackwardWithinBook(3);
+			Assert.AreEqual(2, result.Count());
+			Assert.AreEqual(firstBlock, result.First());
+			Assert.AreEqual(secondBlock, result.Last());
+		}
+
+		[Test]
 		public void GetPreviousBlock_FirstReturnsNull()
 		{
 			var firstBook = m_books.First();

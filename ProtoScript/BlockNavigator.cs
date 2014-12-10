@@ -104,6 +104,11 @@ namespace ProtoScript
 			return block == book.GetScriptBlocks().LastOrDefault();
 		}
 
+		private bool IsLastBlockInBook(BookScript book, int blockIndex)
+		{
+			return blockIndex == book.Blocks.Count - 1;
+		}
+
 		public bool IsFirstBook(BookScript book)
 		{
 			if (!m_books.Any())
@@ -152,6 +157,33 @@ namespace ProtoScript
 
 			return m_currentBook[m_currentBlockIndex + 1];
 		}
+
+		public IEnumerable<Block> PeekForwardWithinBook(int numberOfBlocks)
+		{
+			var blocks = new List<Block>();
+			int tempCurrentBlockIndex = m_currentBlockIndex;
+			for (int i = 0; i < numberOfBlocks; i++)
+			{
+				if (IsLastBlockInBook(m_currentBook, tempCurrentBlockIndex))
+					break;
+				blocks.Add(m_currentBook[++tempCurrentBlockIndex]);
+			}
+			return blocks;
+		}
+
+		public IEnumerable<Block> PeekBackwardWithinBook(int numberOfBlocks)
+		{
+			var blocks = new List<Block>();
+			int tempCurrentBlockIndex = m_currentBlockIndex;
+			for (int i = 0; i < numberOfBlocks; i++)
+			{
+				if (tempCurrentBlockIndex == 0)
+					break;
+				blocks.Add(m_currentBook[--tempCurrentBlockIndex]);
+			}
+			blocks.Reverse();
+			return blocks;
+		} 
 
 		public Block NextBlock()
 		{
