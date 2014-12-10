@@ -65,7 +65,8 @@ namespace ProtoScript.Bundle
 		public DblMetadataLanguage language;
 		public DblMetadataPromotion promotion;
 		public DblMetadataArchiveStatus archiveStatus;
-		[XmlElement("bookNames")]
+		[XmlArray("bookNames")]
+		[XmlArrayItem("book")]
 		public List<Book> Books { get; set; }
 
 		public string GetAsXml()
@@ -169,6 +170,11 @@ namespace ProtoScript.Bundle
 
 	public class Book
 	{
+		public Book()
+		{
+			IncludeInScript = true;
+		}
+
 		[XmlAttribute("code")]
 		public string Code { get; set; }
 

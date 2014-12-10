@@ -94,7 +94,9 @@ namespace ProtoScript
 				// See if we already have a project for this bundle and open it instead.
 				var upgradedProject = new Project(bundle.Metadata);
 				upgradedProject.QuoteSystem = existingProject.m_metadata.QuoteSystem;
-				upgradedProject.m_metadata.Books = existingProject.m_metadata.Books;
+				// Prior to Parser version 17, project metadata didn't keep the Books collection.
+				if (existingProject.m_metadata.Books != null && existingProject.m_metadata.Books.Any())
+					upgradedProject.m_metadata.Books = existingProject.m_metadata.Books;
 				upgradedProject.PopulateAndParseBooks(bundle);
 				upgradedProject.ApplyUserDecisions(existingProject);
 				return upgradedProject;
@@ -149,9 +151,9 @@ namespace ProtoScript
 			for (int iBook = 0; iBook < m_books.Count; iBook++)
 			{
 				var targetBookScript = m_books[iBook];
-				var sourceBookScript = sourceProject.m_books[iBook];
-				Debug.Assert(targetBookScript.BookId == sourceBookScript.BookId);
-				targetBookScript.ApplyUserDecisions(sourceBookScript);
+				var sourceBookScript = sourceProject.m_books.SingleOrDefault(b => b.BookId == targetBookScript.BookId);
+				if (sourceBookScript != null)
+					targetBookScript.ApplyUserDecisions(sourceBookScript);
 			}
 		}
 
