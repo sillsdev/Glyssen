@@ -16,6 +16,7 @@ namespace ProtoScript
 		public static readonly string NotSet = null;
 
 		private int m_initialStartVerseNumber;
+		private int m_initialEndVerseNumber;
 		private int m_chapterNumber;
 
 		public Block()
@@ -29,7 +30,7 @@ namespace ProtoScript
 			BlockElements = new List<BlockElement>();
 			ChapterNumber = chapterNum;
 			InitialStartVerseNumber = initialStartVerseNum;
-			InitialEndVerseNumber = initialStartVerseNum == initialEndVerseNum ? 0 : initialEndVerseNum;
+			InitialEndVerseNumber = initialEndVerseNum;
 		}
 
 		public Block Clone()
@@ -83,7 +84,10 @@ namespace ProtoScript
 
 		[XmlAttribute("initialEndVerse")]
 		[DefaultValue(0)]
-		public int InitialEndVerseNumber { get; set; }
+		public int InitialEndVerseNumber {
+			get { return m_initialEndVerseNumber; }
+			set { m_initialEndVerseNumber = m_initialStartVerseNumber == value ? 0 : value; }
+		}
 
 		[XmlAttribute("characterId")]
 		public string CharacterId { get; set; }

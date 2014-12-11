@@ -476,6 +476,38 @@ namespace ProtoScriptTests
 		}
 
 		[Test]
+		public void Parse_IsParagraphStart_BlockStartsWithVerse()
+		{
+			var block = new Block("q1") { IsParagraphStart = true };
+			block.BlockElements.Add(new Verse("23"));
+			block.BlockElements.Add(new ScriptText("«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,"));
+			var input = new List<Block> { block };
+			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(1, output.Count);
+			Assert.AreEqual("[23]«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,", output[0].GetText(true));
+			Assert.IsTrue(output[0].IsParagraphStart);
+		}
+
+		[Test]
+		public void Parse_IsParagraphStart_VerseAndQuoteSpansParagraphs()
+		{
+			var block = new Block("q1") { IsParagraphStart = true };
+			block.BlockElements.Add(new Verse("23"));
+			block.BlockElements.Add(new ScriptText("«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,"));
+			var block2 = new Block("q1") { IsParagraphStart = true };
+			block2.BlockElements.Add(new ScriptText("ŋa tsanaftá hgani ka Emanuwel,» manda mnay kazlay: Kawadaga Lazglafta nda amu kəʼa ya."));
+			var input = new List<Block> { block, block2 };
+			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual("[23]«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,", output[0].GetText(true));
+			Assert.AreEqual("ŋa tsanaftá hgani ka Emanuwel,» ", output[1].GetText(true));
+			Assert.AreEqual("manda mnay kazlay: Kawadaga Lazglafta nda amu kəʼa ya.", output[2].GetText(true));
+			Assert.IsTrue(output[0].IsParagraphStart);
+			Assert.IsTrue(output[1].IsParagraphStart);
+			Assert.IsFalse(output[2].IsParagraphStart);
+		}
+
+		[Test]
 		public void Parse_QuoteInNewParagraphWithinVerseBridge_NarratorAndOther()
 		{
 			var block1 = new Block("p", 17, 3, 4);
@@ -529,6 +561,24 @@ namespace ProtoScriptTests
 			Assert.AreEqual("narrator-ACT", output[0].CharacterId);
 			Assert.AreEqual("Peter (Simon)", output[1].CharacterId);
 			Assert.AreEqual("Peter (Simon)", output[2].CharacterId);
+		}
+
+		[Test]
+		public void Parse_QuoteSpansParagraphs()
+		{
+			var block1 = new Block("p", 1, 23);
+			block1.BlockElements.Add(new Verse("23"));
+			block1.BlockElements.Add(new ScriptText("«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,"));
+			var block2 = new Block("q1", 1, 23);
+			block2.BlockElements.Add(new ScriptText("ŋa tsanaftá hgani ka Emanuwel,» manda mnay kazlay: Kawadaga Lazglafta nda amu kəʼa ya."));
+			var input = new List<Block> { block1, block2 };
+
+			CharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual("[23]«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,", output[0].GetText(true));
+			Assert.AreEqual("ŋa tsanaftá hgani ka Emanuwel,» ", output[1].GetText(true));
+			Assert.AreEqual("manda mnay kazlay: Kawadaga Lazglafta nda amu kəʼa ya.", output[2].GetText(true));
 		}
 	}
 }

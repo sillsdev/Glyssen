@@ -73,8 +73,7 @@ namespace ProtoScript
 						}
 
 						// Add the element to our working list in case we need to move it to the next block (see MoveTrailingElementsIfNecessary)
-						if (m_workingBlock.BlockElements.Any())
-							m_nonScriptTextBlockElements.Add(element);
+						m_nonScriptTextBlockElements.Add(element);
 
 						m_workingBlock.BlockElements.Add(element);
 						continue;
@@ -137,13 +136,21 @@ namespace ProtoScript
 		{
 			if (m_outputBlocks.Any())
 			{
-				int numRemoved = m_outputBlocks.Last().BlockElements.RemoveAll(m_nonScriptTextBlockElements.Contains);
+				Block lastBlock = m_outputBlocks.Last();
+				int numRemoved = lastBlock.BlockElements.RemoveAll(m_nonScriptTextBlockElements.Contains);
 				if (numRemoved > 0)
 				{
 					var verse = m_nonScriptTextBlockElements.First() as Verse;
 					if (verse != null)
 						m_workingBlock.InitialStartVerseNumber = ScrReference.VerseToIntStart(verse.Number);
 					m_workingBlock.BlockElements.InsertRange(0, m_nonScriptTextBlockElements);
+
+					// If we removed all block elements, remove the block
+					if (!lastBlock.BlockElements.Any())
+					{
+						m_workingBlock.IsParagraphStart = lastBlock.IsParagraphStart;
+						m_outputBlocks.Remove(lastBlock);
+					}
 				}
 			}
 			m_nonScriptTextBlockElements.Clear();
