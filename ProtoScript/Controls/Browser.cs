@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
@@ -23,7 +25,8 @@ namespace ProtoScript.Controls
 				IsWebBrowserContextMenuEnabled = false, 
 				WebBrowserShortcutsEnabled = false
 			};
-			m_geckoBrowser = (GeckoWebBrowser)browser.NativeBrowser;
+			if (!ReallyDesignMode)
+				m_geckoBrowser = (GeckoWebBrowser)browser.NativeBrowser;
 			Controls.Add(browser);
 		}
 
@@ -52,6 +55,15 @@ namespace ProtoScript.Controls
 		public void RemoveDocumentCompletedEventHandler(EventHandler<GeckoDocumentCompletedEventArgs> eventHandler)
 		{
 			m_geckoBrowser.DocumentCompleted -= eventHandler;
+		}
+
+		private bool ReallyDesignMode
+		{
+			get
+			{
+				return (DesignMode || GetService(typeof(IDesignerHost)) != null) ||
+					(LicenseManager.UsageMode == LicenseUsageMode.Designtime);
+			}
 		}
 	}
 }
