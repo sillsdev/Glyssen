@@ -168,18 +168,20 @@ namespace ProtoScript.Dialogs
 			Block currentBlock = m_navigator.CurrentBlock;
 			var selectedCharacter = (string)m_listBoxCharacters.SelectedItem;
 			if (selectedCharacter == m_narrator)
+			{
 				if (!currentBlock.CharacterIs(currentBook.BookId, CharacterVerseData.StandardCharacter.Narrator))
 					return true;
-			else
-				if (selectedCharacter != currentBlock.CharacterId)
-					return true;
+			}
+			else if (selectedCharacter != currentBlock.CharacterId)
+				return true;
 			var selectedDelivery = (string)m_listBoxDeliveries.SelectedItem;
 			if (selectedDelivery == m_normalDelivery)
+			{
 				if (currentBlock.Delivery != null)
 					return true;
-			else
-				if (selectedDelivery != currentBlock.Delivery)
-					return true;
+			}
+			else if (selectedDelivery != currentBlock.Delivery)
+				return true;
 			return false;
 		}
 
