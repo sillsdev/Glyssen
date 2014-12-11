@@ -306,13 +306,28 @@ namespace ProtoScript.Dialogs
 			currentBlock.UserConfirmed = true;
 		}
 
+		private bool UserConfirmSaveChangesIfNecessary()
+		{
+			if (m_listBoxCharacters.SelectedIndex > -1 && IsDirty())
+			{
+				string title = LocalizationManager.GetString("AssignCharacterDialog.UnsavedChanges", "Unsaved Changes");
+				string msg = LocalizationManager.GetString("AssignCharacterDialog.UnsavedChangesMessage", "The Character and Delivery selections for this clip have not been submitted. Do you want to save your changes before navigating?");
+				return MessageBox.Show(msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes;
+			}
+			return false;
+		}
+
 		private void m_btnNext_Click(object sender, EventArgs e)
 		{
+			if (UserConfirmSaveChangesIfNecessary())
+				SaveSelections();
 			LoadNextRelevantBlock();
 		}
 
 		private void m_btnPrevious_Click(object sender, EventArgs e)
 		{
+			if (UserConfirmSaveChangesIfNecessary())
+				SaveSelections();
 			LoadPreviousRelevantBlock();
 		}
 
@@ -360,6 +375,12 @@ namespace ProtoScript.Dialogs
 		private void m_linkLabelAll_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			LoadCharacterListBox(CharacterVerseData.Singleton.GetUniqueCharacters());
+		}
+
+		private void AssignCharacterDialog_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			if (UserConfirmSaveChangesIfNecessary())
+				SaveSelections();
 		}
 	}
 }
