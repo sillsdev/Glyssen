@@ -17,7 +17,8 @@ namespace ProtoScript.Dialogs
 		private const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
 		                                  "<style>{0}</style></head><body>{1}</body></html>";
 		private const string kCssFrame = "body{{font-family:{0};font-size:{1}pt}}.highlight{{background-color:yellow}}";
-		private const string kHtmlBetweenBlocks = "<br /><br />";
+		private const string kHtmlLineBreak = "<br />";
+		private const string kHtmlDoubleLineBreak = "<br /><br />";
 
 		private readonly string m_fontFamily;
 		private readonly int m_fontSizeInPoints;
@@ -114,7 +115,7 @@ namespace ProtoScript.Dialogs
 		{
 			String book = m_navigator.CurrentBook.BookId;
 			int chapter = m_navigator.CurrentBlock.ChapterNumber;
-			int verse = m_navigator.CurrentBlock.InitialVerseNumber;
+			int verse = m_navigator.CurrentBlock.InitialStartVerseNumber;
 			m_labelReference.Text = string.Format("{0} {1}:{2}", book, chapter, verse);
 			string xOfY = LocalizationManager.GetString("AssignCharacterDialog.XofY", "{0} of {1}", "{0} is the current clip number; {1} is the total number of clips.");
 			m_labelXofY.Text = string.Format(xOfY, m_displayBlockIndex + 1, m_relevantBlocks.Count);
@@ -132,7 +133,7 @@ namespace ProtoScript.Dialogs
 			bldr.Append(mainText);
 			bldr.Append("</div>");
 			if (!string.IsNullOrEmpty(followingText))
-				bldr.Append(kHtmlBetweenBlocks).Append(followingText);
+				bldr.Append(kHtmlLineBreak).Append(followingText);
 			return string.Format(kHtmlFrame, style, bldr);
 		}
 
@@ -140,7 +141,7 @@ namespace ProtoScript.Dialogs
 		{
 			var bldr = new StringBuilder();
 			foreach (Block block in blocks)
-				bldr.Append(block.GetText(m_showVerseNumbers)).Append(kHtmlBetweenBlocks);
+				bldr.Append(block.GetText(m_showVerseNumbers)).Append(kHtmlDoubleLineBreak);
 			return bldr.ToString();
 		}
 
@@ -157,7 +158,31 @@ namespace ProtoScript.Dialogs
 
 		private void UpdateAssignButton()
 		{
-			m_btnAssign.Enabled = m_listBoxCharacters.SelectedIndex > -1 && m_listBoxDeliveries.SelectedIndex > -1;
+			bool characterAndDeliverySelected = m_listBoxCharacters.SelectedIndex > -1 && m_listBoxDeliveries.SelectedIndex > -1;
+			m_btnAssign.Enabled = characterAndDeliverySelected && IsDirty();
+		}
+
+		private bool IsDirty()
+		{
+			BookScript currentBook = m_navigator.CurrentBook;
+			Block currentBlock = m_navigator.CurrentBlock;
+			var selectedCharacter = (string)m_listBoxCharacters.SelectedItem;
+			if (selectedCharacter == m_narrator)
+			{
+				if (!currentBlock.CharacterIs(currentBook.BookId, CharacterVerseData.StandardCharacter.Narrator))
+					return true;
+			}
+			else if (selectedCharacter != currentBlock.CharacterId)
+				return true;
+			var selectedDelivery = (string)m_listBoxDeliveries.SelectedItem;
+			if (selectedDelivery == m_normalDelivery)
+			{
+				if (currentBlock.Delivery != null)
+					return true;
+			}
+			else if (selectedDelivery != currentBlock.Delivery)
+				return true;
+			return false;
 		}
 
 		private void LoadNextBlock()
@@ -281,13 +306,28 @@ namespace ProtoScript.Dialogs
 			currentBlock.UserConfirmed = true;
 		}
 
+		private bool UserConfirmSaveChangesIfNecessary()
+		{
+			if (m_listBoxCharacters.SelectedIndex > -1 && IsDirty())
+			{
+				string title = LocalizationManager.GetString("AssignCharacterDialog.UnsavedChanges", "Unsaved Changes");
+				string msg = LocalizationManager.GetString("AssignCharacterDialog.UnsavedChangesMessage", "The Character and Delivery selections for this clip have not been submitted. Do you want to save your changes before navigating?");
+				return MessageBox.Show(msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes;
+			}
+			return false;
+		}
+
 		private void m_btnNext_Click(object sender, EventArgs e)
 		{
+			if (UserConfirmSaveChangesIfNecessary())
+				SaveSelections();
 			LoadNextRelevantBlock();
 		}
 
 		private void m_btnPrevious_Click(object sender, EventArgs e)
 		{
+			if (UserConfirmSaveChangesIfNecessary())
+				SaveSelections();
 			LoadPreviousRelevantBlock();
 		}
 
@@ -335,6 +375,12 @@ namespace ProtoScript.Dialogs
 		private void m_linkLabelAll_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			LoadCharacterListBox(CharacterVerseData.Singleton.GetUniqueCharacters());
+		}
+
+		private void AssignCharacterDialog_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			if (UserConfirmSaveChangesIfNecessary())
+				SaveSelections();
 		}
 	}
 }

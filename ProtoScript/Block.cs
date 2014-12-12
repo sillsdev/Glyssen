@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
@@ -16,7 +15,8 @@ namespace ProtoScript
 		/// <summary>Blocks which has not yet been parsed to identify contents/character</summary>
 		public static readonly string NotSet = null;
 
-		private int m_initialVerseNumber;
+		private int m_initialStartVerseNumber;
+		private int m_initialEndVerseNumber;
 		private int m_chapterNumber;
 
 		public Block()
@@ -24,12 +24,13 @@ namespace ProtoScript
 			// Needed for deserialization
 		}
 
-		public Block(string styleTag, int chapterNum = 0, int initialVerseNum = 0)
+		public Block(string styleTag, int chapterNum = 0, int initialStartVerseNum = 0, int initialEndVerseNum = 0)
 		{
 			StyleTag = styleTag;
 			BlockElements = new List<BlockElement>();
 			ChapterNumber = chapterNum;
-			InitialVerseNumber = initialVerseNum;
+			InitialStartVerseNumber = initialStartVerseNum;
+			InitialEndVerseNumber = initialEndVerseNum;
 		}
 
 		public Block Clone()
@@ -51,7 +52,7 @@ namespace ProtoScript
 			{
 				if (m_chapterNumber == 0)
 				{
-					if (InitialVerseNumber > 0 || BlockElements.Any(b => b is Verse))
+					if (InitialStartVerseNumber > 0 || BlockElements.Any(b => b is Verse))
 						m_chapterNumber = 1;
 				}
 				return m_chapterNumber;
@@ -59,30 +60,33 @@ namespace ProtoScript
 			set { m_chapterNumber = value; }
 		}
 
-		[XmlAttribute("verse")]
-		public int InitialVerseNumber
+		[XmlAttribute("initialStartVerse")]
+		public int InitialStartVerseNumber
 		{
 			get
 			{
-				if (m_initialVerseNumber == 0)
+				if (m_initialStartVerseNumber == 0)
 				{
 					var leadingVerseElement = BlockElements.FirstOrDefault() as Verse;
-					int verseNum;
 					if (leadingVerseElement != null)
 					{
-						if (Int32.TryParse(leadingVerseElement.Number, out verseNum))
-							m_initialVerseNumber = verseNum;
-						else
-							Debug.Fail("TODO: Deal with bogus verse number in data!");
+						m_initialStartVerseNumber = leadingVerseElement.StartVerse;
 					}
 					else if (BlockElements.Any(b => b is Verse))
 					{
-						m_initialVerseNumber = 1;
+						m_initialStartVerseNumber = 1;
 					}
 				}
-				return m_initialVerseNumber;
+				return m_initialStartVerseNumber;
 			}
-			set { m_initialVerseNumber = value; }
+			set { m_initialStartVerseNumber = value; }
+		}
+
+		[XmlAttribute("initialEndVerse")]
+		[DefaultValue(0)]
+		public int InitialEndVerseNumber {
+			get { return m_initialEndVerseNumber; }
+			set { m_initialEndVerseNumber = m_initialStartVerseNumber == value ? 0 : value; }
 		}
 
 		[XmlAttribute("characterId")]
@@ -92,6 +96,7 @@ namespace ProtoScript
 		public string Delivery { get; set; }
 
 		[XmlAttribute("userConfirmed")]
+		[DefaultValue(false)]
 		public bool UserConfirmed { get; set; }
 
 		[XmlElement(Type = typeof (ScriptText), ElementName = "text")]
@@ -158,7 +163,7 @@ namespace ProtoScript
 			builder.Append('\t');
 			builder.Append(ChapterNumber);
 			builder.Append('\t');
-			builder.Append(InitialVerseNumber);
+			builder.Append(InitialStartVerseNumber);
 			builder.Append('\t');
 			builder.Append(CharacterId);
 			builder.Append('\t');
@@ -178,10 +183,25 @@ namespace ProtoScript
 				CharacterId = characterList[0].Character;
 				Delivery = characterList[0].Delivery;
 			}
+			else if (characterList.Count == 0)
+			{
+				CharacterId = CharacterVerseData.UnknownCharacter;
+				Delivery = null;
+			}
 			else
 			{
-				CharacterId = characterList.Count == 0 ? CharacterVerseData.UnknownCharacter : CharacterVerseData.AmbiguousCharacter;
-				Delivery = null;
+				// Might all represent the same Character/Delivery.  Need to check.
+				var set = new SortedSet<CharacterVerse>(characterList, new CharacterDeliveryComparer());
+				if (set.Count == 1)
+				{
+					CharacterId = set.First().Character;
+					Delivery = set.First().Delivery;
+				}
+				else
+				{
+					CharacterId = CharacterVerseData.AmbiguousCharacter;
+					Delivery = null;
+				}
 			}
 		}
 	}
@@ -249,7 +269,7 @@ namespace ProtoScript
 		public string Number { get; set; }
 
 		/// <summary>
-		/// Gets the verse hnumber as an integer. If the Verse number represents a verse bridge, this will be the
+		/// Gets the verse number as an integer. If the Verse number represents a verse bridge, this will be the
 		/// starting number in the bridge.
 		/// </summary>
 		public int StartVerse
@@ -258,7 +278,7 @@ namespace ProtoScript
 		}
 
 		/// <summary>
-		/// Gets the verse hnumber as an integer. If the Verse number represents a verse bridge, this will be the
+		/// Gets the verse number as an integer. If the Verse number represents a verse bridge, this will be the
 		/// ending number in the bridge.
 		/// </summary>
 		public int EndVerse

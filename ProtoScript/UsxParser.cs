@@ -18,7 +18,8 @@ namespace ProtoScript
 		private string m_bookLevelChapterLabel;
 		private bool m_chapterNodeFound;
 		private int m_currentChapter = 0;
-		private int m_currentVerse = 0;
+		private int m_currentStartVerse = 0;
+		private int m_currentEndVerse = 0;
 
 		public UsxParser(string bookId, IStylesheet stylesheet, XmlNodeList nodeList)
 		{
@@ -69,7 +70,7 @@ namespace ProtoScript
 						}
 						AddMainTitleIfApplicable(blocks, titleBuilder);
 						
-						block = new Block(usxPara.StyleTag, m_currentChapter, m_currentVerse) { IsParagraphStart = true };
+						block = new Block(usxPara.StyleTag, m_currentChapter, m_currentStartVerse, m_currentEndVerse) { IsParagraphStart = true };
 						if (m_currentChapter == 0)
 							block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.Intro);
 						else if (style.IsPublishable && !style.IsVerseText)
@@ -92,10 +93,13 @@ namespace ProtoScript
 										sb.Clear();
 									}
 									var verseNumStr = childNode.Attributes.GetNamedItem("number").Value;
-									int verseNum = ScrReference.VerseToIntStart(verseNumStr);
-									m_currentVerse = verseNum;
+									m_currentStartVerse = ScrReference.VerseToIntStart(verseNumStr);
+									m_currentEndVerse = ScrReference.VerseToIntEnd(verseNumStr);
 									if (!block.BlockElements.Any())
-										block.InitialVerseNumber = verseNum;
+									{
+										block.InitialStartVerseNumber = m_currentStartVerse;
+										block.InitialEndVerseNumber = m_currentEndVerse;
+									}
 
 									block.BlockElements.Add(new Verse(verseNumStr));
 									break;
@@ -153,7 +157,8 @@ namespace ProtoScript
 				m_currentChapter = chapterNum;
 			else
 				Debug.Fail("TODO: Deal with bogus chapter number in USX data!");
-			m_currentVerse = 0;
+			m_currentStartVerse = 0;
+			m_currentEndVerse = 0;
 			var block = new Block(usxChapter.StyleTag, m_currentChapter) { IsParagraphStart = true };
 			block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.BookOrChapter);
 			block.BlockElements.Add(new ScriptText(chapterText));
@@ -172,7 +177,8 @@ namespace ProtoScript
 			{
 				block = new Block(usxNode.StyleTag, m_currentChapter);
 				block.BlockElements.Add(new ScriptText(nodeText));
-				m_currentVerse = 0;
+				m_currentStartVerse = 0;
+				m_currentEndVerse = 0;
 			}
 			return block;
 		}

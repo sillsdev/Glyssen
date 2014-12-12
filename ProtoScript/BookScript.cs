@@ -170,10 +170,10 @@ namespace ProtoScript
 					m_chapterStartBlockIndices[chapter] = index;
 					chapterStartFound = true;
 				}
-				if (block.InitialVerseNumber < verse)
+				if (block.InitialStartVerseNumber < verse)
 					continue;
 				iFirstBlockToExamine = index;
-				if (block.InitialVerseNumber > verse || !(block.BlockElements.First() is Verse))
+				if (block.InitialStartVerseNumber > verse || !(block.BlockElements.First() is Verse))
 					iFirstBlockToExamine--;
 				break;
 			}
@@ -209,10 +209,10 @@ namespace ProtoScript
 			foreach (var sourceBlock in sourceBookScript.m_blocks.Where(b => b.UserConfirmed))
 			{
 				if (m_blocks[iTarget].ChapterNumber < sourceBlock.ChapterNumber)
-					iTarget = GetIndexOfFirstBlockForVerse(sourceBlock.ChapterNumber, sourceBlock.InitialVerseNumber);
+					iTarget = GetIndexOfFirstBlockForVerse(sourceBlock.ChapterNumber, sourceBlock.InitialStartVerseNumber);
 				else
 				{
-					while (m_blocks[iTarget].InitialVerseNumber < sourceBlock.InitialVerseNumber)
+					while (m_blocks[iTarget].InitialStartVerseNumber < sourceBlock.InitialStartVerseNumber)
 					{
 						iTarget++;
 						if (iTarget == m_blocks.Count)
@@ -235,7 +235,7 @@ namespace ProtoScript
 					}
 				} while (++iTarget < m_blocks.Count &&
 						m_blocks[iTarget].ChapterNumber == sourceBlock.ChapterNumber &&
-						m_blocks[iTarget].InitialVerseNumber == sourceBlock.InitialVerseNumber);
+						m_blocks[iTarget].InitialStartVerseNumber == sourceBlock.InitialStartVerseNumber);
 			}
 		}
 	}

@@ -945,10 +945,10 @@ Solomon, king [blessing Israel in a loud voice],3,0436
 Solomon, king [prayer],3,0436
 Solomon, king [sent message],3,0436
 Solomon, king,3,0436
-Spirit, the #10,10,0700
-Spirit, the #7,7,0700
+Spirit, the #10,10,0437
+Spirit, the #7,7,0437
 Spirit, the, and the bride #22,22,0438
-Spirit, the,10,0700
+Spirit, the,10,0437
 spy from Joseph,11,0439
 spies from Joshua, men,10,0440
 Stephen [cried out],9,0441
@@ -1486,72 +1486,72 @@ mob #6,6,0743
 mob,6,0743
 mother of Zebedee's sons,22,0745
 multitude from all nations, tribes, peoples, languages,,6,0746
-narrator-1CH,2,0139
+narrator-1CH,2,1139
 narrator-1CO,19,0748
 narrator-1JN,12,0749
 narrator-1KI,17,1018
-narrator-1PE,12,0749
+narrator-1PE,12,1749
 narrator-1SA,5,0750
-narrator-1TH,19,0748
-narrator-1TI,19,0748
-narrator-2CH,2,0139
-narrator-2CO,19,0748
-narrator-2JN,12,0749
+narrator-1TH,19,1748
+narrator-1TI,19,2748
+narrator-2CH,2,2139
+narrator-2CO,19,3748
+narrator-2JN,12,2749
 narrator-2KI,18,0752
-narrator-2PE,12,0749
-narrator-2SA,5,0750
-narrator-2TH,19,0748
-narrator-2TI,19,0748
-narrator-3JN,12,0749
+narrator-2PE,12,3749
+narrator-2SA,5,1750
+narrator-2TH,19,4748
+narrator-2TI,19,5748
+narrator-3JN,12,4749
 narrator-ACT,11,0753
 narrator-AMO,15,1017
-narrator-COL,19,0748
-narrator-DAN,15,1018
-narrator-DEU,19,0748
+narrator-COL,19,6748
+narrator-DAN,15,2018
+narrator-DEU,19,7748
 narrator-ECC,3,0754
-narrator-EPH,19,0748
+narrator-EPH,19,8748
 narrator-EST,1,0755
-narrator-EXO,19,0748
+narrator-EXO,19,9748
 narrator-EZK,4,0756
 narrator-EZR,10,0757
-narrator-GAL,19,0748
-narrator-GEN,19,0748
+narrator-GAL,19,10748
+narrator-GEN,19,11748
 narrator-HAB,15,1019
 narrator-HAG,15,1020
-narrator-HEB,19,0748
+narrator-HEB,19,12748
 narrator-HOS,15,1021
 narrator-ISA,28,0758
 narrator-JAS,15,1022
-narrator-JDG,5,0750
-narrator-JER,2,0752
-narrator-JHN,12,0749
+narrator-JDG,5,2750
+narrator-JER,2,1752
+narrator-JHN,12,5749
 narrator-JOB,16,0759
 narrator-JOL,6,0760
 narrator-JON,6,0760
 narrator-JOS,15,0747
 narrator-JUD,6,0760
-narrator-LAM,2,0752
-narrator-LEV,19,0748
-narrator-LUK,11,0753
-narrator-MAL,15,0747
+narrator-LAM,2,2752
+narrator-LEV,19,13748
+narrator-LUK,11,1753
+narrator-MAL,15,1747
 narrator-MAT,1,0755
-narrator-MIC,15,0747
-narrator-MRK,28,0758
-narrator-NAM,11,0753
+narrator-MIC,15,2747
+narrator-MRK,28,1758
+narrator-NAM,11,2753
 narrator-NEH,9,0761
-narrator-NUM,19,0748
-narrator-OBA,11,0753
-narrator-PHM,19,0748
-narrator-PHP,19,0748
-narrator-PRO,19,0748
-narrator-PSA,19,0748
-narrator-REV,5,0750
-narrator-ROM,19,0748
-narrator-RUT,5,0750
+narrator-NUM,19,14748
+narrator-OBA,11,15753
+narrator-PHM,19,16748
+narrator-PHP,19,17748
+narrator-PRO,19,18748
+narrator-PSA,19,19748
+narrator-REV,5,3750
+narrator-ROM,19,20748
+narrator-RUT,5,4750
 narrator-SNG,3,0754
-narrator-TIT,19,0748
+narrator-TIT,19,21748
 narrator-ZEC,17,0762
-narrator-ZEP,17,0762
+narrator-ZEP,17,1762
 nations, all the,6,0763
 neighbors of man blind from birth #24,24,0764
 neighbors of man blind from birth, others #25,25,0765

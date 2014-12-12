@@ -99,9 +99,11 @@ namespace ProtoScript
 
 		public int ControlFileVersion { get; private set; }
 
-		public IEnumerable<CharacterVerse> GetCharacters(string bookCode, int chapter, int verse)
+		public IEnumerable<CharacterVerse> GetCharacters(string bookCode, int chapter, int startVerse, int endVerse = 0)
 		{
-			return m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter && cv.Verse == verse);
+			if (startVerse > 0 && endVerse == 0)
+				return m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter && cv.Verse == startVerse);
+			return m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter && cv.Verse >= startVerse && cv.Verse <= endVerse);
 		}
 
 		public IEnumerable<CharacterVerse> GetUniqueCharacters()

@@ -1,4 +1,4 @@
-Control File Version	6	Generated	Wed, 10 Dec 2014 15:12:22 GMT
+Control File Version	9	Generated	Fri, 12 Dec 2014 10:37:33 GMT
 GEN	1	3	God		God (the LORD)
 GEN	1	5	narrator-GEN		
 GEN	1	6	God		God (the LORD)
@@ -7345,90 +7345,9 @@ MAT	4	15	scripture
 MAT	4	16	scripture		
 MAT	4	17	Jesus	preaching	
 MAT	4	19	Jesus	inviting	
-MAT	5	3	Jesus	preaching	
-MAT	5	4	Jesus	preaching	
-MAT	5	5	Jesus	preaching	
-MAT	5	6	Jesus	preaching	
-MAT	5	7	Jesus	preaching	
-MAT	5	8	Jesus	preaching	
-MAT	5	9	Jesus	preaching	
-MAT	5	10	Jesus	preaching	
-MAT	5	11	Jesus	preaching	
-MAT	5	13	Jesus	preaching	
-MAT	5	14	Jesus	preaching	
-MAT	5	17	Jesus	preaching	
-MAT	5	18	Jesus	preaching	
-MAT	5	19	Jesus	preaching	
-MAT	5	20	Jesus	preaching	
-MAT	5	21	Jesus	preaching	
-MAT	5	22	Jesus	preaching	
-MAT	5	23	Jesus	preaching	
-MAT	5	24	Jesus	preaching	
-MAT	5	25	Jesus	preaching	
-MAT	5	27	Jesus	preaching	
-MAT	5	28	Jesus	preaching	
-MAT	5	29	Jesus	preaching	
-MAT	5	31	Jesus	preaching	
-MAT	5	32	Jesus	preaching	
-MAT	5	33	Jesus	preaching	
-MAT	5	34	Jesus	preaching	
-MAT	5	35	Jesus	preaching	
-MAT	5	36	Jesus	preaching	
-MAT	5	37	Jesus	preaching	
-MAT	5	38	Jesus	preaching	
-MAT	5	39	Jesus	preaching	
-MAT	5	43	Jesus	preaching	
-MAT	5	44	Jesus	preaching	
-MAT	5	45	Jesus	preaching	
-MAT	5	46	Jesus	preaching	
-MAT	6	1	Jesus	preaching	
-MAT	6	2	Jesus	preaching	
-MAT	6	3	Jesus	preaching	
-MAT	6	5	Jesus	preaching	
-MAT	6	6	Jesus	preaching	
-MAT	6	7	Jesus	preaching	
-MAT	6	9	Jesus	preaching	
-MAT	6	14	Jesus	preaching	
-MAT	6	16	Jesus	preaching	
-MAT	6	17	Jesus	preaching	
-MAT	6	19	Jesus	preaching	
-MAT	6	20	Jesus	preaching	
-MAT	6	21	Jesus	preaching	
-MAT	6	22	Jesus	preaching	
-MAT	6	23	Jesus	preaching	
-MAT	6	24	Jesus	preaching	
-MAT	6	25	Jesus	preaching	
-MAT	6	26	Jesus	preaching	
-MAT	6	27	Jesus	preaching	
-MAT	6	28	Jesus	preaching	
-MAT	6	29	Jesus	preaching	
-MAT	6	30	Jesus	preaching	
-MAT	6	31	Jesus	preaching	
-MAT	6	32	Jesus	preaching	
-MAT	6	33	Jesus	preaching	
-MAT	6	34	Jesus	preaching	
-MAT	7	1	Jesus	preaching	
-MAT	7	2	Jesus	preaching	
-MAT	7	3	Jesus	preaching	
-MAT	7	4	Jesus	preaching	
-MAT	7	5	Jesus	preaching	
-MAT	7	6	Jesus	preaching	
-MAT	7	7	Jesus	preaching	
-MAT	7	8	Jesus	preaching	
-MAT	7	9	Jesus	preaching	
-MAT	7	11	Jesus	preaching	
-MAT	7	12	Jesus	preaching	
-MAT	7	13	Jesus	preaching	
-MAT	7	14	Jesus	preaching	
-MAT	7	15	Jesus	preaching	
-MAT	7	16	Jesus	preaching	
-MAT	7	18	Jesus	preaching	
-MAT	7	19	Jesus	preaching	
-MAT	7	21	Jesus	preaching	
-MAT	7	22	Jesus	preaching	
-MAT	7	24	Jesus	preaching	
-MAT	7	25	Jesus	preaching	
-MAT	7	26	Jesus	preaching	
+MAT	5	3-48	Jesus	preaching	
+MAT	6	1-34	Jesus	preaching	
+MAT	7	1-27	Jesus	preaching	
 MAT	8	2	man with leprosy 2	pleading	
 MAT	8	3	Jesus		
 MAT	8	4	Jesus	giving orders	
@@ -9924,7 +9843,7 @@ ACT	8	19	Simon practiced magic
 ACT	8	20	Peter (Simon)		
 ACT	8	24	Simon practiced magic		
 ACT	8	26	angel of the LORD, an		
-ACT	8	29	Jesus		Spirit, the
+ACT	8	29	Spirit, the		
 ACT	8	30	Philip		Philip (the evangelist)
 ACT	8	31	Ethiopian		
 ACT	8	32	Ethiopian		
@@ -9956,7 +9875,7 @@ ACT	10	13	Jesus		voice (in trance)
 ACT	10	14	Peter (Simon)		
 ACT	10	15	Jesus		voice (in trance)
 ACT	10	18	men from Cornelius		
-ACT	10	19	Jesus		Spirit, the
+ACT	10	19	Spirit, the		
 ACT	10	21	Peter (Simon)		
 ACT	10	22	men from Cornelius	respectful	
 ACT	10	23	Peter (Simon)		
@@ -10267,14 +10186,7 @@ ROM	3	4	scripture
 ROM	3	5	Jews, the 8	speaking ironically	
 ROM	3	7	someone 4	might argue	
 ROM	3	8	some claim we say		
-ROM	3	10	scripture		
-ROM	3	11	scripture		
-ROM	3	12	scripture		
-ROM	3	13	scripture		
-ROM	3	14	scripture		
-ROM	3	15	scripture		
-ROM	3	17	scripture		
-ROM	3	18	scripture		
+ROM	3	10-18	scripture		
 ROM	4	3	scripture		
 ROM	4	7	scripture		
 ROM	4	8	scripture		
@@ -10421,7 +10333,7 @@ GAL	3	13	scripture
 GAL	3	16	narrator-GAL		
 GAL	3	17	God		God (the LORD)
 GAL	3	22	scripture		
-GAL	4	6	Jesus		Spirit, the
+GAL	4	6	Spirit, the		
 GAL	4	27	scripture		
 GAL	4	30	scripture		
 GAL	5	3	narrator-GAL		
@@ -10474,6 +10386,7 @@ HEB	3	8	scripture
 HEB	3	9	scripture		
 HEB	3	10	scripture		
 HEB	3	11	scripture		
+HEB	3	13	narrator-HEB		
 HEB	3	15	scripture		
 HEB	3	18	God		God (the LORD)
 HEB	4	3	God		scripture (God)
@@ -10537,12 +10450,14 @@ JAS	4	15	you ought to say
 JAS	5	12	narrator-JAS		
 1PE	1	16	scripture		
 1PE	1	24	scripture		
+1PE	1	25	scripture		
 1PE	2	3	scripture		
 1PE	2	6	scripture		
 1PE	2	7	scripture		
 1PE	2	8	scripture		
 1PE	2	10	scripture		
 1PE	2	22	scripture		
+1PE	3	6	narrator-1PE		
 1PE	3	10	scripture		
 1PE	3	11	scripture		
 1PE	3	12	scripture		
@@ -10569,53 +10484,8 @@ REV	1	11	Jesus		voice like a trumpet
 REV	1	13	narrator-REV		
 REV	1	17	Jesus		someone like a son of man
 REV	1	19	Jesus		someone like a son of man
-REV	2	1	Jesus		someone like a son of man
-REV	2	2	Jesus		someone like a son of man
-REV	2	3	Jesus		someone like a son of man
-REV	2	4	Jesus		someone like a son of man
-REV	2	6	Jesus		someone like a son of man
-REV	2	7	Jesus		someone like a son of man
-REV	2	8	Jesus		someone like a son of man
-REV	2	9	Jesus		someone like a son of man
-REV	2	10	Jesus		someone like a son of man
-REV	2	11	Jesus		someone like a son of man
-REV	2	12	Jesus		someone like a son of man
-REV	2	13	Jesus		someone like a son of man
-REV	2	14	Jesus		someone like a son of man
-REV	2	15	Jesus		someone like a son of man
-REV	2	16	Jesus		someone like a son of man
-REV	2	17	Jesus		someone like a son of man
-REV	2	18	Jesus		someone like a son of man
-REV	2	19	Jesus		someone like a son of man
-REV	2	20	Jesus		someone like a son of man
-REV	2	21	Jesus		someone like a son of man
-REV	2	22	Jesus		someone like a son of man
-REV	2	23	Jesus		someone like a son of man
-REV	2	25	Jesus		someone like a son of man
-REV	2	26	Jesus		someone like a son of man
-REV	2	27	Jesus		someone like a son of man
-REV	2	29	Jesus		someone like a son of man
-REV	3	1	Jesus		someone like a son of man
-REV	3	3	Jesus		someone like a son of man
-REV	3	4	Jesus		someone like a son of man
-REV	3	5	Jesus		someone like a son of man
-REV	3	6	Jesus		someone like a son of man
-REV	3	7	Jesus		someone like a son of man
-REV	3	8	Jesus		someone like a son of man
-REV	3	9	Jesus		someone like a son of man
-REV	3	10	Jesus		someone like a son of man
-REV	3	11	Jesus		someone like a son of man
-REV	3	12	Jesus		someone like a son of man
-REV	3	13	Jesus		someone like a son of man
-REV	3	14	Jesus		someone like a son of man
-REV	3	15	Jesus		someone like a son of man
-REV	3	16	Jesus		someone like a son of man
-REV	3	17	Jesus		someone like a son of man
-REV	3	18	Jesus		someone like a son of man
-REV	3	19	Jesus		someone like a son of man
-REV	3	20	Jesus		someone like a son of man
-REV	3	21	Jesus		someone like a son of man
-REV	3	22	Jesus		someone like a son of man
+REV	2	1-29	Jesus		someone like a son of man
+REV	3	1-22	Jesus		someone like a son of man
 REV	4	1	Jesus		voice like a trumpet
 REV	4	8	four living creatures		
 REV	4	11	twenty-four elders		
@@ -10647,7 +10517,9 @@ REV	7	14	John
 REV	7	15	elders, one of the		
 REV	7	16	elders, one of the		
 REV	7	17	elders, one of the		
+REV	8	11	narrator-REV		
 REV	8	13	eagle crying with loud voice		
+REV	9	11	narrator-REV		
 REV	9	14	voice from altar		
 REV	10	4	God		voice from heaven (God)
 REV	10	6	angel standing on sea and land		
@@ -10674,7 +10546,7 @@ REV	14	9	angel flying directly overhead, third
 REV	14	10	angel flying directly overhead, third		
 REV	14	11	angel flying directly overhead, third		
 REV	14	13	God		voice from heaven (God)
-REV	14	13	Jesus		Spirit, the
+REV	14	13	Spirit, the		
 REV	14	14	narrator-REV		
 REV	14	15	angel, coming out of temple		
 REV	14	18	angel, coming out of temple, another		
@@ -10728,14 +10600,11 @@ REV	19	2	voice of great crowd in heaven, loud
 REV	19	3	voice of great crowd in heaven, loud		
 REV	19	4	twenty-four elders/four living creatures		
 REV	19	5	voice from throne		
-REV	19	6	voice of great crowd in heaven, loud		
 REV	19	6	voice of great crowd, like roar of many waters, loud thunderclaps		
-REV	19	7	voice of great crowd in heaven, loud		
 REV	19	7	voice of great crowd, like roar of many waters, loud thunderclaps		
-REV	19	8	voice of great crowd in heaven, loud 1		
-REV	19	8	voice of great crowd, like roar of many waters, loud thunderclaps		
 REV	19	9	angel, the 1		
 REV	19	10	angel, the 1		
+REV	19	13	narrator-REV		
 REV	19	15	scripture		
 REV	19	16	voice 3		
 REV	19	17	angel standing in sun		

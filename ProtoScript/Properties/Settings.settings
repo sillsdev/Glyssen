@@ -15,7 +15,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="PgUsxParserVersion" Type="System.String" Scope="User">
-      <Value Profile="(Default)">17</Value>
+      <Value Profile="(Default)">18</Value>
     </Setting>
     <Setting Name="DefaultFontSize" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>

@@ -25,13 +25,13 @@ namespace ProtoScriptTests
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He replied, ", output[0].GetText(false));
 			Assert.AreEqual(7, output[0].ChapterNumber);
-			Assert.AreEqual(6, output[0].InitialVerseNumber);
+			Assert.AreEqual(6, output[0].InitialStartVerseNumber);
 			Assert.IsTrue(output[0].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual("«Isaiah was right when he prophesied about you.»", output[1].GetText(false));
 			Assert.AreEqual("Jesus", output[1].CharacterId);
 			Assert.AreEqual("rebuking", output[1].Delivery);
 			Assert.AreEqual(7, output[1].ChapterNumber);
-			Assert.AreEqual(6, output[1].InitialVerseNumber);
+			Assert.AreEqual(6, output[1].InitialStartVerseNumber);
 		}
 
 		[Test]
@@ -44,12 +44,12 @@ namespace ProtoScriptTests
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("But the angel said to them, ", output[0].GetText(false));
 			Assert.AreEqual(2, output[0].ChapterNumber);
-			Assert.AreEqual(10, output[0].InitialVerseNumber);
+			Assert.AreEqual(10, output[0].InitialStartVerseNumber);
 			Assert.IsTrue(output[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual("«Do not be afraid!", output[1].GetText(false));
 			Assert.AreEqual("angel of the LORD, an", output[1].CharacterId);
 			Assert.AreEqual(2, output[1].ChapterNumber);
-			Assert.AreEqual(10, output[1].InitialVerseNumber);
+			Assert.AreEqual(10, output[1].InitialStartVerseNumber);
 		}
 
 		[Test]
@@ -235,16 +235,16 @@ namespace ProtoScriptTests
 			Assert.AreEqual(1, input.Count);
 			Assert.AreEqual("[3]He said, «Go!»", input[0].GetText(true));
 			Assert.AreEqual(5, input[0].ChapterNumber);
-			Assert.AreEqual(3, input[0].InitialVerseNumber);
+			Assert.AreEqual(3, input[0].InitialStartVerseNumber);
 
 			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("[3]He said, ", output[0].GetText(true));
 			Assert.AreEqual(5, output[0].ChapterNumber);
-			Assert.AreEqual(3, output[0].InitialVerseNumber);
+			Assert.AreEqual(3, output[0].InitialStartVerseNumber);
 			Assert.AreEqual("«Go!»", output[1].GetText(true));
 			Assert.AreEqual(5, output[1].ChapterNumber);
-			Assert.AreEqual(3, output[1].InitialVerseNumber);
+			Assert.AreEqual(3, output[1].InitialStartVerseNumber);
 		}
 
 		[Test]
@@ -259,16 +259,16 @@ namespace ProtoScriptTests
 			Assert.AreEqual(1, input.Count);
 			Assert.AreEqual("[3]Matthew tried to learn to fish, but Peter was upset. [4]He said, «Go back to your tax booth!»", input[0].GetText(true));
 			Assert.AreEqual(5, input[0].ChapterNumber);
-			Assert.AreEqual(3, input[0].InitialVerseNumber);
+			Assert.AreEqual(3, input[0].InitialStartVerseNumber);
 
 			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("[3]Matthew tried to learn to fish, but Peter was upset. [4]He said, ", output[0].GetText(true));
 			Assert.AreEqual(5, output[0].ChapterNumber);
-			Assert.AreEqual(3, output[0].InitialVerseNumber);
+			Assert.AreEqual(3, output[0].InitialStartVerseNumber);
 			Assert.AreEqual("«Go back to your tax booth!»", output[1].GetText(true));
 			Assert.AreEqual(5, output[1].ChapterNumber);
-			Assert.AreEqual(4, output[1].InitialVerseNumber);
+			Assert.AreEqual(4, output[1].InitialStartVerseNumber);
 		}
 
 		[Test]
@@ -282,16 +282,16 @@ namespace ProtoScriptTests
 			Assert.AreEqual(1, input.Count);
 			Assert.AreEqual("He said, [3]«Go!»", input[0].GetText(true));
 			Assert.AreEqual(6, input[0].ChapterNumber);
-			Assert.AreEqual(2, input[0].InitialVerseNumber);
+			Assert.AreEqual(2, input[0].InitialStartVerseNumber);
 
 			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual(6, output[0].ChapterNumber);
-			Assert.AreEqual(2, output[0].InitialVerseNumber);
+			Assert.AreEqual(2, output[0].InitialStartVerseNumber);
 			Assert.AreEqual("«Go!»", output[1].GetText(false));
 			Assert.AreEqual(6, output[1].ChapterNumber);
-			Assert.AreEqual(3, output[1].InitialVerseNumber);
+			Assert.AreEqual(3, output[1].InitialStartVerseNumber);
 
 			Assert.AreEqual("He said, ", output[0].GetText(true));
 			Assert.AreEqual("[3]«Go!»", output[1].GetText(true));
@@ -328,16 +328,16 @@ namespace ProtoScriptTests
 			Assert.AreEqual(1, input.Count);
 			Assert.AreEqual("He said, «Go [3]west!»", input[0].GetText(true));
 			Assert.AreEqual(6, input[0].ChapterNumber);
-			Assert.AreEqual(2, input[0].InitialVerseNumber);
+			Assert.AreEqual(2, input[0].InitialStartVerseNumber);
 
 			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual(6, output[0].ChapterNumber);
-			Assert.AreEqual(2, output[0].InitialVerseNumber);
+			Assert.AreEqual(2, output[0].InitialStartVerseNumber);
 			Assert.AreEqual("«Go west!»", output[1].GetText(false));
 			Assert.AreEqual(6, output[1].ChapterNumber);
-			Assert.AreEqual(2, output[1].InitialVerseNumber);
+			Assert.AreEqual(2, output[1].InitialStartVerseNumber);
 
 			Assert.AreEqual("He said, ", output[0].GetText(true));
 			Assert.AreEqual("«Go [3]west!»", output[1].GetText(true));
@@ -473,6 +473,112 @@ namespace ProtoScriptTests
 			Assert.IsTrue(output[0].IsParagraphStart);
 			Assert.IsTrue(output[1].IsParagraphStart);
 			Assert.IsFalse(output[2].IsParagraphStart);
+		}
+
+		[Test]
+		public void Parse_IsParagraphStart_BlockStartsWithVerse()
+		{
+			var block = new Block("q1") { IsParagraphStart = true };
+			block.BlockElements.Add(new Verse("23"));
+			block.BlockElements.Add(new ScriptText("«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,"));
+			var input = new List<Block> { block };
+			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(1, output.Count);
+			Assert.AreEqual("[23]«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,", output[0].GetText(true));
+			Assert.IsTrue(output[0].IsParagraphStart);
+		}
+
+		[Test]
+		public void Parse_IsParagraphStart_VerseAndQuoteSpansParagraphs()
+		{
+			var block = new Block("q1") { IsParagraphStart = true };
+			block.BlockElements.Add(new Verse("23"));
+			block.BlockElements.Add(new ScriptText("«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,"));
+			var block2 = new Block("q1") { IsParagraphStart = true };
+			block2.BlockElements.Add(new ScriptText("ŋa tsanaftá hgani ka Emanuwel,» manda mnay kazlay: Kawadaga Lazglafta nda amu kəʼa ya."));
+			var input = new List<Block> { block, block2 };
+			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual("[23]«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,", output[0].GetText(true));
+			Assert.AreEqual("ŋa tsanaftá hgani ka Emanuwel,» ", output[1].GetText(true));
+			Assert.AreEqual("manda mnay kazlay: Kawadaga Lazglafta nda amu kəʼa ya.", output[2].GetText(true));
+			Assert.IsTrue(output[0].IsParagraphStart);
+			Assert.IsTrue(output[1].IsParagraphStart);
+			Assert.IsFalse(output[2].IsParagraphStart);
+		}
+
+		[Test]
+		public void Parse_QuoteInNewParagraphWithinVerseBridge_NarratorAndOther()
+		{
+			var block1 = new Block("p", 17, 3, 4);
+			block1.BlockElements.Add(new Verse("3-4"));
+			block1.BlockElements.Add(new ScriptText("Then Peter said, "));
+			var block2 = new Block("q1", 17, 3, 4);
+			block2.BlockElements.Add(new ScriptText("«What verse is this?»"));
+			var input = new List<Block> { block1, block2 };
+
+			CharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("narrator-MAT", output[0].CharacterId);
+			Assert.AreEqual("Peter (Simon)", output[1].CharacterId);
+		}
+
+		[Test]
+		public void Parse_QuoteInNewParagraphWithinVerseBridge_DifferentCharacters_MarksBothAsAmbiguous()
+		{
+			var block1 = new Block("p", 6, 7, 9);
+			block1.BlockElements.Add(new Verse("7-9"));
+			block1.BlockElements.Add(new ScriptText("Philip said, «Surely you can't be serious.»"));
+			block1.BlockElements.Add(new ScriptText("Andrew said, «I am serious.»"));
+			var block2 = new Block("q1", 6, 7, 9);
+			block2.BlockElements.Add(new ScriptText("«And don't call me Shirley.»"));
+			var input = new List<Block> { block1, block2 };
+
+			CharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			Assert.AreEqual(5, output.Count);
+			Assert.AreEqual("narrator-JHN", output[0].CharacterId);
+			Assert.AreEqual("Ambiguous", output[1].CharacterId);
+			Assert.AreEqual("narrator-JHN", output[2].CharacterId);
+			Assert.AreEqual("Ambiguous", output[3].CharacterId);
+			Assert.AreEqual("Ambiguous", output[4].CharacterId);
+		}
+
+		[Test]
+		public void Parse_QuoteInNewParagraphWithinVerseBridge_SameCharacter_MarksBothAsCorrectCharacter()
+		{
+			var block1 = new Block("p", 1, 19, 20);
+			block1.BlockElements.Add(new Verse("19-20"));
+			block1.BlockElements.Add(new ScriptText("Peter said, «They don't call him the son of thunder for nothing.»"));
+			var block2 = new Block("q1", 1, 19, 20);
+			block2.BlockElements.Add(new ScriptText("«Oh, and his brother, too.»"));
+			var input = new List<Block> { block1, block2 };
+
+			CharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "ACT", input).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual("narrator-ACT", output[0].CharacterId);
+			Assert.AreEqual("Peter (Simon)", output[1].CharacterId);
+			Assert.AreEqual("Peter (Simon)", output[2].CharacterId);
+		}
+
+		[Test]
+		public void Parse_QuoteSpansParagraphs()
+		{
+			var block1 = new Block("p", 1, 23);
+			block1.BlockElements.Add(new Verse("23"));
+			block1.BlockElements.Add(new ScriptText("«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,"));
+			var block2 = new Block("q1", 1, 23);
+			block2.BlockElements.Add(new ScriptText("ŋa tsanaftá hgani ka Emanuwel,» manda mnay kazlay: Kawadaga Lazglafta nda amu kəʼa ya."));
+			var input = new List<Block> { block1, block2 };
+
+			CharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual("[23]«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,", output[0].GetText(true));
+			Assert.AreEqual("ŋa tsanaftá hgani ka Emanuwel,» ", output[1].GetText(true));
+			Assert.AreEqual("manda mnay kazlay: Kawadaga Lazglafta nda amu kəʼa ya.", output[2].GetText(true));
 		}
 	}
 }

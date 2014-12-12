@@ -710,38 +710,39 @@ Nabal	0347
 Naboth	0348
 Nahash the Ammonite	0349
 Naomi	0350
-narrator-1CH	0139
+narrator-1CH	1139
 narrator-1CO	0748
 narrator-1KI	1018
-narrator-2CH	0139
-narrator-2CO	0748
+narrator-1PE	1749
+narrator-2CH	2139
+narrator-2CO	3748
 narrator-ACT	0753
 narrator-AMO	1017
-narrator-DAN	1018
+narrator-DAN	2018
 narrator-ECC	0754
-narrator-EPH	0748
-narrator-EXO	0748
+narrator-EPH	8748
+narrator-EXO	9748
 narrator-EZK	0756
 narrator-EZR	0757
-narrator-GAL	0748
-narrator-GEN	0748
+narrator-GAL	10748
+narrator-GEN	11748
 narrator-HAB	1019
-narrator-HEB	0748
+narrator-HEB	12748
 narrator-ISA	0758
 narrator-JAS	1022
-narrator-JER	0752
-narrator-JHN	0749
+narrator-JER	1752
+narrator-JHN	5749
 narrator-JOS	0747
-narrator-LUK	0753
-narrator-MAL	0747
+narrator-LUK	1753
+narrator-MAL	1747
 narrator-MAT	0755
-narrator-MRK	0758
-narrator-PSA	0748
-narrator-REV	0750
-narrator-ROM	0748
-narrator-TIT	0748
+narrator-MRK	1758
+narrator-PSA	19748
+narrator-REV	3750
+narrator-ROM	20748
+narrator-TIT	21748
 narrator-ZEC	0762
-narrator-ZEP	0762
+narrator-ZEP	1762
 Nathan	0352
 Nathanael	0353
 Nations, the	0354
@@ -1043,6 +1044,7 @@ song (of the prostitute)	0939
 souls of those killed for word of God	0940
 spies from Joshua, men	0440
 spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians	0941
+Spirit, the	0437
 Spirit, the, and the bride	0438
 spy from Joseph	0439
 Stephen	0441
@@ -1096,7 +1098,6 @@ voice from temple, loud	0977
 voice from throne	0978
 voice from throne, loud	0978
 voice in heaven, loud	0979
-voice of great crowd in heaven, loud 1	0980
 voice of great crowd in heaven, loud	0979
 voice of great crowd, like roar of many waters, loud thunderclaps	0981
 voice of one calling, a (preparing way for Christ)	0982
