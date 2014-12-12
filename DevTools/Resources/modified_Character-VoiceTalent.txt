@@ -945,10 +945,10 @@ Solomon, king [blessing Israel in a loud voice],3,0436
 Solomon, king [prayer],3,0436
 Solomon, king [sent message],3,0436
 Solomon, king,3,0436
-Spirit, the #10,10,0700
-Spirit, the #7,7,0700
+Spirit, the #10,10,0437
+Spirit, the #7,7,0437
 Spirit, the, and the bride #22,22,0438
-Spirit, the,10,0700
+Spirit, the,10,0437
 spy from Joseph,11,0439
 spies from Joshua, men,10,0440
 Stephen [cried out],9,0441

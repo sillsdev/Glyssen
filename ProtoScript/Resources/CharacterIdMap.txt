@@ -1044,6 +1044,7 @@ song (of the prostitute)	0939
 souls of those killed for word of God	0940
 spies from Joshua, men	0440
 spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians	0941
+Spirit, the	0437
 Spirit, the, and the bride	0438
 spy from Joseph	0439
 Stephen	0441
@@ -1097,7 +1098,6 @@ voice from temple, loud	0977
 voice from throne	0978
 voice from throne, loud	0978
 voice in heaven, loud	0979
-voice of great crowd in heaven, loud 1	0980
 voice of great crowd in heaven, loud	0979
 voice of great crowd, like roar of many waters, loud thunderclaps	0981
 voice of one calling, a (preparing way for Christ)	0982
