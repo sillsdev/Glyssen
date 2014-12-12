@@ -61,23 +61,23 @@ namespace ProtoScript.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1CH	10	4	Saul	0414	
-        ///1CH	11	1	Israel, all	0199	
-        ///1CH	11	17	David	0093	
-        ///1CH	11	19	David	0093	
-        ///1CH	11	5	Jebusites	0243	
-        ///1CH	11	6	David (had said)	0093	
-        ///1CH	12	17	David	0093	
-        ///1CH	12	18	Amasai, chief of thirty (Spirit came upon)	0029	
-        ///1CH	12	19	Philistines, rulers of	0385	
-        ///1CH	13	12	David, king	0093	
-        ///1CH	13	2	David, king	0093	
-        ///1CH	14	10	David, king	0093	
-        ///1CH	14	10	God (the LORD)	2000	
-        ///1CH	14	11	David, king	0093	
-        ///1CH	14	14	God (the LORD)	2000	
-        ///1CH	15	12	David, king	0093	
-        ///1CH	15	2	David, king	0093	        /// [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Control File Version	6	Generated	Wed, 10 Dec 2014 15:12:22 GMT
+        ///GEN	1	3	God		God (the LORD)
+        ///GEN	1	5	narrator-GEN		
+        ///GEN	1	6	God		God (the LORD)
+        ///GEN	1	8	narrator-GEN		
+        ///GEN	1	9	God		God (the LORD)
+        ///GEN	1	10	narrator-GEN		
+        ///GEN	1	11	God		God (the LORD)
+        ///GEN	1	14	God		God (the LORD)
+        ///GEN	1	20	God		God (the LORD)
+        ///GEN	1	22	God		God (the LORD)
+        ///GEN	1	24	God		God (the LORD)
+        ///GEN	1	26	God		God (the LORD)
+        ///GEN	1	28	God	blessing	God (the LORD)
+        ///GEN	1	29	God		God (the LORD)
+        ///GEN	1	30	God		God (the LORD)
+        ///GEN	2	16	G [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CharacterVerseData {
             get {
@@ -107,6 +107,26 @@ namespace ProtoScript.Properties {
         internal static string QuoteSystemData {
             get {
                 return ResourceManager.GetString("QuoteSystemData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;usx version=&quot;2.0&quot;&gt;
+        ///  &lt;book code=&quot;MRK&quot; style=&quot;id&quot;&gt;Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013&lt;/book&gt;
+        ///  &lt;para style=&quot;h&quot;&gt;MARAKO&lt;/para&gt;
+        ///  &lt;para style=&quot;toc1&quot;&gt;Jiri Ma Marako Ocoyo&lt;/para&gt;
+        ///  &lt;para style=&quot;toc2&quot;&gt;Marako&lt;/para&gt;
+        ///  &lt;para style=&quot;toc3&quot;&gt;Mar&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;JIRI ma&lt;/para&gt;
+        ///  &lt;para style=&quot;mt1&quot;&gt;MARAKO&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;ocoyo&lt;/para&gt;
+        ///  &lt;chapter number=&quot;1&quot; style=&quot;c&quot; /&gt;
+        ///  &lt;para style=&quot;s1&quot;&gt;Lok ma Jon Labatija otit [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SampleMRK {
+            get {
+                return ResourceManager.GetString("SampleMRK", resourceCulture);
             }
         }
     }

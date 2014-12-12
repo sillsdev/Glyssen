@@ -78,6 +78,37 @@ namespace ProtoScript.Bundle
 		{
 			return XmlSerializationHelper.DeserializeFromFile<DblMetadata>(projectFilePath, out exception);
 		}
+
+		public override string ToString()
+		{
+			string format = "{0} - {1}";
+			string languagePart;
+			if (string.IsNullOrEmpty(language.name))
+			{
+				if (language.iso == "sample")
+				{
+					languagePart = string.Empty;
+					format = "{1}";
+				}
+				else
+					languagePart = language.iso;
+			}
+			else
+				languagePart = string.Format("{0} ({1})", language.name, language.iso);
+
+			string identificationPart;
+			if (identification == null)
+				identificationPart = id;
+			else
+			{
+				if (identification.nameLocal == identification.name)
+					identificationPart = identification.nameLocal;
+				else
+					identificationPart = String.Format("{0} ({1})", identification.nameLocal, identification.name);
+			}
+
+			return String.Format(format, languagePart, identificationPart);
+		}
 	}
 
 	public class DblMetadataIdentification

@@ -48,15 +48,6 @@ namespace ProtoScript
 			}
 		}
 
-		private string ProjectsBaseFolder
-		{
-			get
-			{
-				return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-					Program.kCompany, Program.kProduct);
-			}
-		}
-
 		protected void HandleStringsLocalized()
 		{
 			m_bundleIdFmt = m_lblBundleId.Text;
@@ -66,20 +57,39 @@ namespace ProtoScript
 		private void HandleSelectBundle_Click(object sender, EventArgs e)
 		{
 			SaveCurrentProject();
+			ShowOpenProjectDialog();
+		}
 
-			using (var dlg = new SelectProjectDialog())
+		private DialogResult ShowOpenProjectDialog(bool welcome = false)
+		{
+			Project.CreateSampleProjectIfNeeded();
+
+			using (var dlg = new OpenProjectDlg(welcome))
 			{
-				if (dlg.ShowDialog() == DialogResult.OK)
+				var result = dlg.ShowDialog(this);
+				if (result == DialogResult.OK)
 				{
-					if (Path.GetExtension(dlg.FileName) == Project.kProjectFileExtension)
-						LoadProject(dlg.FileName);
-					else
-						LoadBundle(dlg.FileName);
+					switch (dlg.Type)
+					{
+						case OpenProjectDlg.ProjectType.ExistingProject:
+							LoadProject(dlg.SelectedProject);
+							break;
+						case OpenProjectDlg.ProjectType.TextReleaseBundle:
+							LoadBundle(dlg.SelectedProject);
+							break;
+						case OpenProjectDlg.ProjectType.StandardFormatBook:
+							LoadSfmBook(dlg.SelectedProject);
+							break;
+						default:
+							MessageBox.Show("Sorry - not implemented yet");
+							break;
+					}
 				}
+				return result;
 			}
 		}
 
-		private void button2_Click(object sender, EventArgs e)
+		private void m_btnLocalize_Click(object sender, EventArgs e)
 		{
 			LocalizationManager.ShowLocalizationDialogBox("");
 		}
@@ -88,13 +98,8 @@ namespace ProtoScript
 		{
 			if (string.IsNullOrEmpty(Settings.Default.CurrentProject) || !File.Exists(Settings.Default.CurrentProject))
 			{
-				using (var dlg = new WelcomeDialog())
-				{
-					if (dlg.ShowDialog() == DialogResult.OK)
-						LoadBundle(Settings.Default.CurrentProject);
-					else
-						UpdateDisplayOfProjectIdInfo();
-				}
+				if (ShowOpenProjectDialog(true) != DialogResult.OK)
+					Close();
 			}
 			else
 			{
@@ -119,7 +124,7 @@ namespace ProtoScript
 			}
 
 			// See if we already have a project for this bundle and open it instead.
-			var projFilePath = Project.GetProjectFilePath(ProjectsBaseFolder, bundle.Language, bundle.Id);
+			var projFilePath = Project.GetProjectFilePath(bundle.Language, bundle.Id);
 			if (File.Exists(projFilePath))
 			{
 				LoadProject(projFilePath);
@@ -165,7 +170,7 @@ namespace ProtoScript
 		private void SaveCurrentProject()
 		{
 			if (m_project != null)
-				m_project.Save(ProjectsBaseFolder);
+				m_project.Save();
 		}
 
 		private void HandleExportToTabSeparated_Click(object sender, EventArgs e)
@@ -218,6 +223,11 @@ namespace ProtoScript
 				sfmFilePath = dlg.FileName;
 			}
 
+			LoadSfmBook(sfmFilePath);
+		}
+
+		private void LoadSfmBook(string sfmFilePath)
+		{
 			ScrStylesheet scrStylesheet;
 			UsxDocument book;
 			try
@@ -227,15 +237,16 @@ namespace ProtoScript
 				book = new UsxDocument(UsfmToUsx.ConvertToXmlDocument(scrStylesheet, File.ReadAllText(sfmFilePath)));
 				var bookId = book.BookId;
 				if (bookId.Length != 3)
-					throw new Exception(LocalizationManager.GetString("Project.StandardFormat.InvalidBookId", "Invalid Book ID: " + bookId));
+					throw new Exception(LocalizationManager.GetString("Project.StandardFormat.InvalidBookId",
+						"Invalid Book ID: " + bookId));
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				return;
 			}
-			var metadata = new DblMetadata { id = "sfm" + DateTime.Now.Ticks, language = new DblMetadataLanguage { iso = "zzz" } };
-			SetProject(new Project(metadata, new[] { book }, new ScrStylesheetAdapter(scrStylesheet)));
+			var metadata = new DblMetadata {id = "sfm" + DateTime.Now.Ticks, language = new DblMetadataLanguage {iso = "zzz"}};
+			SetProject(new Project(metadata, new[] {book}, new ScrStylesheetAdapter(scrStylesheet)));
 		}
 
 		private void m_btnSettings_Click(object sender, EventArgs e)

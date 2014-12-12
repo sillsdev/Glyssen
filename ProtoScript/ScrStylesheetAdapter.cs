@@ -43,7 +43,7 @@ namespace ProtoScript
 			return style;
 		}
 
-		public string FontFamily { get; private set; }
-		public int FontSizeInPoints { get; private set; }
+		public string FontFamily { get; set; }
+		public int FontSizeInPoints { get; set; }
 	}
 }

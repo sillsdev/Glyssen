@@ -5,9 +5,12 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 using L10NSharp;
+using Palaso.IO;
 using Palaso.Reporting;
 using Palaso.Xml;
+using Paratext;
 using ProtoScript.Bundle;
 using ProtoScript.Properties;
 using SIL.ScriptureUtils;
@@ -36,6 +39,15 @@ namespace ProtoScript
 		public Project(DblMetadata metadata, IEnumerable<UsxDocument> books, IStylesheet stylesheet) : this(metadata)
 		{
 			AddAndParseBooks(books, stylesheet);
+		}
+
+		public static string ProjectsBaseFolder
+		{
+			get
+			{
+				return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+					Program.kCompany, Program.kProduct);
+			}
 		}
 
 		public string Id
@@ -202,14 +214,14 @@ namespace ProtoScript
 				bookScript.Blocks = new QuoteParser(cvInfo, bookScript.BookId, bookScript.GetScriptBlocks(), ConfirmedQuoteSystem).Parse().ToList();
 		}
 
-		public static string GetProjectFilePath(string basePath, string langId, string bundleId)
+		public static string GetProjectFilePath(string langId, string bundleId)
 		{
-			return Path.Combine(basePath, langId, bundleId, langId + kProjectFileExtension);
+			return Path.Combine(ProjectsBaseFolder, langId, bundleId, langId + kProjectFileExtension);
 		}
 
-		public void Save(string path)
+		public void Save()
 		{
-			var projectPath = GetProjectFilePath(path, m_metadata.language.ToString(), m_metadata.id);
+			var projectPath = GetProjectFilePath(m_metadata.language.ToString(), m_metadata.id);
 			Directory.CreateDirectory(Path.GetDirectoryName(projectPath));
 			Exception error;
 			XmlSerializationHelper.SerializeToFile(projectPath, m_metadata, out error);
@@ -256,6 +268,33 @@ namespace ProtoScript
 				//TODO
 				throw new ApplicationException();
 			}
+		}
+
+		public static void CreateSampleProjectIfNeeded()
+		{
+			var samplePath = GetProjectFilePath("sample", "sample");
+			if (File.Exists(samplePath))
+				return;
+			var sampleMetadata = new DblMetadata();
+			sampleMetadata.Books = new List<Book>();
+			var bookOfMarkMetadata = new Book();
+			bookOfMarkMetadata.Code = "RMK";
+			bookOfMarkMetadata.IncludeInScript = true;
+			bookOfMarkMetadata.LongName = "Gospel of Mark";
+			bookOfMarkMetadata.ShortName = "Mark";
+			sampleMetadata.Books.Add(bookOfMarkMetadata);
+			sampleMetadata.FontFamily = "Times New Roman";
+			sampleMetadata.FontSizeInPoints = 12;
+			sampleMetadata.id = "Sample";
+			sampleMetadata.language = new DblMetadataLanguage {iso = "sample"};
+
+			XmlDocument sampleMark = new XmlDocument();
+			sampleMark.LoadXml(Resources.SampleMRK);
+			UsxDocument mark = new UsxDocument(sampleMark);
+			string usfmStylesheetPath = Path.Combine(FileLocator.GetDirectoryDistributedWithApplication("sfm"), "usfm.sty");
+			
+			var stylesheet = new ScrStylesheetAdapter(new ScrStylesheet(usfmStylesheetPath));
+			(new Project(sampleMetadata, new[] {mark}, stylesheet)).Save();
 		}
 	}
 }

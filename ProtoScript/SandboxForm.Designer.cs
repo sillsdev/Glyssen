@@ -31,7 +31,7 @@
 			this.components = new System.ComponentModel.Container();
 			this.m_btnSelectBundle = new System.Windows.Forms.Button();
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
-			this.button2 = new System.Windows.Forms.Button();
+			this.m_btnLocalize = new System.Windows.Forms.Button();
 			this.m_lblBundleId = new System.Windows.Forms.Label();
 			this.m_lblLanguage = new System.Windows.Forms.Label();
 			this.m_btnExportToTabSeparated = new System.Windows.Forms.Button();
@@ -60,19 +60,19 @@
 			this.l10NSharpExtender1.LocalizationManagerId = "ProtoscriptGenerator";
 			this.l10NSharpExtender1.PrefixForNewItems = "SandboxForm";
 			// 
-			// button2
+			// m_btnLocalize
 			// 
-			this.l10NSharpExtender1.SetLocalizableToolTip(this.button2, null);
-			this.l10NSharpExtender1.SetLocalizationComment(this.button2, null);
-			this.l10NSharpExtender1.SetLocalizationPriority(this.button2, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.l10NSharpExtender1.SetLocalizingId(this.button2, "SandboxForm.button2");
-			this.button2.Location = new System.Drawing.Point(32, 221);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(84, 23);
-			this.button2.TabIndex = 2;
-			this.button2.Text = "L10NSharp";
-			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.button2_Click);
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnLocalize, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnLocalize, null);
+			this.l10NSharpExtender1.SetLocalizationPriority(this.m_btnLocalize, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_btnLocalize, "SandboxForm.button2");
+			this.m_btnLocalize.Location = new System.Drawing.Point(32, 221);
+			this.m_btnLocalize.Name = "m_btnLocalize";
+			this.m_btnLocalize.Size = new System.Drawing.Size(84, 23);
+			this.m_btnLocalize.TabIndex = 2;
+			this.m_btnLocalize.Text = "L10NSharp";
+			this.m_btnLocalize.UseVisualStyleBackColor = true;
+			this.m_btnLocalize.Click += new System.EventHandler(this.m_btnLocalize_Click);
 			// 
 			// m_lblBundleId
 			// 
@@ -126,6 +126,7 @@
 			this.m_btnLoadSfm.TabIndex = 6;
 			this.m_btnLoadSfm.Text = "Load SFM";
 			this.m_btnLoadSfm.UseVisualStyleBackColor = true;
+			this.m_btnLoadSfm.Visible = false;
 			this.m_btnLoadSfm.Click += new System.EventHandler(this.m_btnLoadSfm_Click);
 			// 
 			// m_btnSettings
@@ -168,7 +169,7 @@
 			this.Controls.Add(this.m_btnLoadSfm);
 			this.Controls.Add(this.m_lblLanguage);
 			this.Controls.Add(this.m_lblBundleId);
-			this.Controls.Add(this.button2);
+			this.Controls.Add(this.m_btnLocalize);
 			this.Controls.Add(this.m_btnSelectBundle);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this, null);
@@ -187,7 +188,7 @@
 
 		private System.Windows.Forms.Button m_btnSelectBundle;
 		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
-		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button m_btnLocalize;
 		private System.Windows.Forms.Label m_lblBundleId;
 		private System.Windows.Forms.Label m_lblLanguage;
 		private System.Windows.Forms.Button m_btnExportToTabSeparated;
