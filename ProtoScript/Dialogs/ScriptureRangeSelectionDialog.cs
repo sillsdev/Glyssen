@@ -41,12 +41,6 @@ namespace ProtoScript.Dialogs
 				if (metadataBook != null)
 					metadataBook.IncludeInScript = false;
 			}
-			Close();
-		}
-
-		private void m_btnCancel_Click(object sender, EventArgs e)
-		{
-			Close();
 		}
 	}
 }

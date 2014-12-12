@@ -43,6 +43,7 @@
 			// 
 			// m_btnOk
 			// 
+			this.m_btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnOk, "Common.OK");
@@ -69,6 +70,7 @@
 			// 
 			// m_btnCancel
 			// 
+			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnCancel, "Common.Cancel");
@@ -78,7 +80,6 @@
 			this.m_btnCancel.TabIndex = 2;
 			this.m_btnCancel.Text = "Cancel";
 			this.m_btnCancel.UseVisualStyleBackColor = true;
-			this.m_btnCancel.Click += new System.EventHandler(this.m_btnCancel_Click);
 			// 
 			// ScriptureRangeSelectionDialog
 			// 
