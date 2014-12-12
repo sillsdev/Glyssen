@@ -713,6 +713,7 @@ Naomi	0350
 narrator-1CH	1139
 narrator-1CO	0748
 narrator-1KI	1018
+narrator-1PE	1749
 narrator-2CH	2139
 narrator-2CO	3748
 narrator-ACT	0753
