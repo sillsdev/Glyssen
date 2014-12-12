@@ -288,13 +288,13 @@ namespace ProtoScript
 			if (File.Exists(samplePath))
 				return;
 			var sampleMetadata = new DblMetadata();
-			sampleMetadata.Books = new List<Book>();
+			sampleMetadata.AvailableBooks = new List<Book>();
 			var bookOfMarkMetadata = new Book();
 			bookOfMarkMetadata.Code = "RMK";
 			bookOfMarkMetadata.IncludeInScript = true;
 			bookOfMarkMetadata.LongName = "Gospel of Mark";
 			bookOfMarkMetadata.ShortName = "Mark";
-			sampleMetadata.Books.Add(bookOfMarkMetadata);
+			sampleMetadata.AvailableBooks.Add(bookOfMarkMetadata);
 			sampleMetadata.FontFamily = "Times New Roman";
 			sampleMetadata.FontSizeInPoints = 12;
 			sampleMetadata.id = "Sample";
