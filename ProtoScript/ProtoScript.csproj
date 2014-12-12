@@ -98,6 +98,7 @@
   <ItemGroup>
     <Compile Include="BlockNavigator.cs" />
     <Compile Include="BookScript.cs" />
+    <Compile Include="BookSetUtils.cs" />
     <Compile Include="Bundle\Bundle.cs" />
     <Compile Include="Bundle\Canon.cs" />
     <Compile Include="Bundle\DblMetadata.cs" />
@@ -134,6 +135,12 @@
     <Compile Include="Dialogs\ProjectSettingsDialog.Designer.cs">
       <DependentUpon>ProjectSettingsDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\ScriptureRangeSelectionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ScriptureRangeSelectionDialog.Designer.cs">
+      <DependentUpon>ScriptureRangeSelectionDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\SelectProjectDialog.cs" />
     <Compile Include="ICharacterVerseInfo.cs" />
     <Compile Include="IScrBook.cs" />
@@ -166,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ProjectSettingsDialog.resx">
       <DependentUpon>ProjectSettingsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ScriptureRangeSelectionDialog.resx">
+      <DependentUpon>ScriptureRangeSelectionDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SandboxForm.resx">
       <DependentUpon>SandboxForm.cs</DependentUpon>

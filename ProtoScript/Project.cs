@@ -95,6 +95,18 @@ namespace ProtoScript
 
 		public IReadOnlyList<BookScript> Books { get { return m_books; } }
 
+		public IReadOnlyList<BookScript> IncludedBooks
+		{
+			get
+			{
+				return (from book in Books 
+						where AvailableBooks.Where(ab => ab.IncludeInScript).Select(ab => ab.Code).Contains(book.BookId)
+						select book).ToList();
+			}
+		}
+
+		public IReadOnlyList<Book> AvailableBooks { get { return m_metadata.AvailableBooks; } }
+
 		public static Project Load(string projectFilePath)
 		{
 			Project existingProject = LoadExistingProject(projectFilePath);
@@ -107,8 +119,8 @@ namespace ProtoScript
 				var upgradedProject = new Project(bundle.Metadata);
 				upgradedProject.QuoteSystem = existingProject.m_metadata.QuoteSystem;
 				// Prior to Parser version 17, project metadata didn't keep the Books collection.
-				if (existingProject.m_metadata.Books != null && existingProject.m_metadata.Books.Any())
-					upgradedProject.m_metadata.Books = existingProject.m_metadata.Books;
+				if (existingProject.m_metadata.AvailableBooks != null && existingProject.m_metadata.AvailableBooks.Any())
+					upgradedProject.m_metadata.AvailableBooks = existingProject.m_metadata.AvailableBooks;
 				upgradedProject.PopulateAndParseBooks(bundle);
 				upgradedProject.ApplyUserDecisions(existingProject);
 				return upgradedProject;
@@ -174,7 +186,7 @@ namespace ProtoScript
 			Canon canon;
 			if (bundle.TryGetCanon(1, out canon))
 			{
-				foreach (var book in m_metadata.Books.Where(b => b.IncludeInScript))
+				foreach (var book in m_metadata.AvailableBooks.Where(b => b.IncludeInScript))
 				{
 					UsxDocument usxBook;
 					if (canon.TryGetBook(book.Code, out usxBook))
@@ -244,9 +256,9 @@ namespace ProtoScript
 		public void ExportTabDelimited(string fileName)
 		{
 			int blockNumber = 1;
-			using (StreamWriter stream = new StreamWriter(fileName, false, Encoding.UTF8))
+			using (var stream = new StreamWriter(fileName, false, Encoding.UTF8))
 			{
-				foreach (var book in m_books)
+				foreach (var book in IncludedBooks)
 				{
 					foreach (var block in book.GetScriptBlocks(true))
 					{

@@ -49,7 +49,7 @@ namespace ProtoScript.Dialogs
 			m_fontFamily = project.FontFamily;
 			m_fontSizeInPoints = project.FontSizeInPoints;
 
-			m_navigator = new BlockNavigator(project.Books);
+			m_navigator = new BlockNavigator(project.IncludedBooks);
 
 			PopulateRelevantBlocks();
 			m_progressBar.Maximum = m_relevantBlocks.Count;
@@ -213,6 +213,8 @@ namespace ProtoScript.Dialogs
 		{
 			m_characters = characters;
 
+			m_listBoxCharacters.BeginUpdate();
+
 			m_listBoxCharacters.Items.Clear();
 			m_listBoxDeliveries.Items.Clear();
 
@@ -222,6 +224,8 @@ namespace ProtoScript.Dialogs
 				m_listBoxCharacters.Items.Add(cv.Character);
 
 			SetCharacter();
+
+			m_listBoxCharacters.EndUpdate();
 		}
 
 		private void SetCharacter()
@@ -239,6 +243,7 @@ namespace ProtoScript.Dialogs
 
 		private void LoadDeliveryListBox()
 		{
+			m_listBoxDeliveries.BeginUpdate();
 			m_listBoxDeliveries.Items.Clear();
 			m_deliveries = new List<string>();
 			var selectedCharacter = (string)m_listBoxCharacters.SelectedItem;
@@ -250,6 +255,7 @@ namespace ProtoScript.Dialogs
 					m_listBoxDeliveries.Items.Add(delivery);
 			}
 			SetDelivery();
+			m_listBoxDeliveries.EndUpdate();
 		}
 
 		private void SetDelivery()

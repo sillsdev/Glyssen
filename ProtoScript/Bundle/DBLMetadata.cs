@@ -67,7 +67,7 @@ namespace ProtoScript.Bundle
 		public DblMetadataArchiveStatus archiveStatus;
 		[XmlArray("bookNames")]
 		[XmlArrayItem("book")]
-		public List<Book> Books { get; set; }
+		public List<Book> AvailableBooks { get; set; }
 
 		public string GetAsXml()
 		{
