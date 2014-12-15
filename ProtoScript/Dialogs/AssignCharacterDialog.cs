@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Gecko;
+using Gecko.DOM;
 using Gecko.Events;
 using L10NSharp;
 using L10NSharp.UI;
@@ -15,10 +17,13 @@ namespace ProtoScript.Dialogs
 		private string m_normalDelivery;
 		private const string kMainQuoteElementId = "main-quote-text";
 		private const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
-		                                  "<style>{0}</style></head><body>{1}</body></html>";
-		private const string kCssFrame = "body{{font-family:{0};font-size:{1}pt}}.highlight{{background-color:yellow}}";
-		private const string kHtmlLineBreak = "<br />";
-		private const string kHtmlDoubleLineBreak = "<br /><br />";
+										  "<style>{0}</style></head><body>{1}</body></html>";
+		private const string kHtmlLineBreak = "<div class='block-spacer'></div>";
+		private const string kCssClassContext = "context";
+		private const string kCssFrame = "body{{font-family:{0};font-size:{1}pt}}" +
+		                                 ".highlight{{background-color:yellow}}" +
+		                                 "." + kCssClassContext + ":hover{{background-color:#FFFFA0}}" +
+		                                 ".block-spacer{{height:30px}}";
 
 		private readonly string m_fontFamily;
 		private readonly int m_fontSizeInPoints;
@@ -29,6 +34,7 @@ namespace ProtoScript.Dialogs
 		private IEnumerable<CharacterVerse> m_characters;
 		private IEnumerable<string> m_deliveries;
 		private bool m_showVerseNumbers = true; // May make this configurable later
+		private ToolTip m_toolTip;
 
 		public AssignCharacterDialog()
 		{
@@ -46,6 +52,10 @@ namespace ProtoScript.Dialogs
 
 		public AssignCharacterDialog(Project project) : this()
 		{
+			m_blocksDisplayBrowser.OnMouseOver += OnMouseOver;
+			m_blocksDisplayBrowser.OnMouseOut += OnMouseOut;
+			m_blocksDisplayBrowser.OnDocumentCompleted += OnDocumentCompleted;
+
 			m_fontFamily = project.FontFamily;
 			m_fontSizeInPoints = project.FontSizeInPoints;
 
@@ -94,7 +104,6 @@ namespace ProtoScript.Dialogs
 
 		public void LoadBlock()
 		{
-			m_blocksDisplayBrowser.AddDocumentCompletedEventHandler(BrowserDocumentCompletedEventHandler);
 			m_blocksDisplayBrowser.DisplayHtml(
 				BuildHtml(
 					BuildHtml(m_navigator.PeekBackwardWithinBook(10)),
@@ -104,11 +113,6 @@ namespace ProtoScript.Dialogs
 
 			UpdateDisplay();
 			UpdateNavigationButtons();
-		}
-
-		private void BrowserDocumentCompletedEventHandler(object sender, GeckoDocumentCompletedEventArgs e)
-		{
-			m_blocksDisplayBrowser.ScrollElementIntoView(kMainQuoteElementId, -225);
 		}
 
 		private void UpdateDisplay()
@@ -141,7 +145,15 @@ namespace ProtoScript.Dialogs
 		{
 			var bldr = new StringBuilder();
 			foreach (Block block in blocks)
-				bldr.Append(block.GetText(m_showVerseNumbers)).Append(kHtmlDoubleLineBreak);
+				bldr.Append(BuildHtml(block));
+			return bldr.ToString();
+		}
+
+		private string BuildHtml(Block block)
+		{
+			var bldr = new StringBuilder();
+			bldr.Append("<div class='").Append(kCssClassContext).Append("' data-character='").Append(block.CharacterId).Append("'>")
+				.Append(block.GetText(m_showVerseNumbers)).Append("</div>").Append(kHtmlLineBreak);
 			return bldr.ToString();
 		}
 
@@ -323,6 +335,7 @@ namespace ProtoScript.Dialogs
 			return false;
 		}
 
+		#region form events
 		private void m_btnNext_Click(object sender, EventArgs e)
 		{
 			if (UserConfirmSaveChangesIfNecessary())
@@ -388,5 +401,46 @@ namespace ProtoScript.Dialogs
 			if (UserConfirmSaveChangesIfNecessary())
 				SaveSelections();
 		}
+		#endregion
+
+		#region browser events
+		private void OnMouseOver(object sender, DomMouseEventArgs e)
+		{
+			if (e.Target == null)
+				return;
+			var geckoElement = e.Target.CastToGeckoElement();
+			var divElement = geckoElement as GeckoDivElement;
+			if (divElement == null)
+				return;
+
+			if (divElement.ClassName == kCssClassContext)
+			{
+				m_toolTip = new ToolTip { IsBalloon = true };
+				int x = m_blocksDisplayBrowser.Location.X + m_blocksDisplayBrowser.Size.Width - 33;
+				int y = m_blocksDisplayBrowser.Location.Y + e.ClientY - 15;
+				m_toolTip.Show(divElement.GetAttribute("data-character"), this, x, y);
+			}
+		}
+
+		private void OnMouseOut(object sender, DomMouseEventArgs e)
+		{
+			if (e.Target == null)
+				return;
+			var geckoElement = e.Target.CastToGeckoElement();
+			var divElement = geckoElement as GeckoDivElement;
+			if (divElement == null)
+				return;
+
+			if (divElement.ClassName == kCssClassContext)
+			{
+				m_toolTip.Hide(this);
+			}
+		}
+
+		private void OnDocumentCompleted(object sender, GeckoDocumentCompletedEventArgs e)
+		{
+			m_blocksDisplayBrowser.ScrollElementIntoView(kMainQuoteElementId, -225);
+		}
+		#endregion
 	}
 }

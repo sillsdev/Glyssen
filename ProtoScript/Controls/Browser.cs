@@ -13,6 +13,11 @@ namespace ProtoScript.Controls
 	{
 		private readonly GeckoWebBrowser m_geckoBrowser;
 
+		public new event EventHandler<DomMouseEventArgs> OnMouseMove;
+		public event EventHandler<DomMouseEventArgs> OnMouseOver;
+		public event EventHandler<DomMouseEventArgs> OnMouseOut;
+		public event EventHandler<GeckoDocumentCompletedEventArgs> OnDocumentCompleted;
+
 		public Browser()
 		{
 			InitializeComponent();
@@ -26,7 +31,13 @@ namespace ProtoScript.Controls
 				WebBrowserShortcutsEnabled = false
 			};
 			if (!ReallyDesignMode)
+			{
 				m_geckoBrowser = (GeckoWebBrowser)browser.NativeBrowser;
+				m_geckoBrowser.DomMouseMove += HandleDomMouseMove;
+				m_geckoBrowser.DomMouseOver += HandleDomMouseOver;
+				m_geckoBrowser.DomMouseOut += HandleDomMouseOut;
+				m_geckoBrowser.DocumentCompleted += HandleDocumentCompleted;
+			}
 			Controls.Add(browser);
 		}
 
@@ -47,16 +58,6 @@ namespace ProtoScript.Controls
 			div.Parent.ScrollTop += adjustment;
 		}
 
-		public void AddDocumentCompletedEventHandler(EventHandler<GeckoDocumentCompletedEventArgs> eventHandler)
-		{
-			m_geckoBrowser.DocumentCompleted += eventHandler;
-		}
-
-		public void RemoveDocumentCompletedEventHandler(EventHandler<GeckoDocumentCompletedEventArgs> eventHandler)
-		{
-			m_geckoBrowser.DocumentCompleted -= eventHandler;
-		}
-
 		private bool ReallyDesignMode
 		{
 			get
@@ -65,5 +66,35 @@ namespace ProtoScript.Controls
 					(LicenseManager.UsageMode == LicenseUsageMode.Designtime);
 			}
 		}
+
+		#region browser events
+		private void HandleDomMouseMove(object sender, DomMouseEventArgs e)
+		{
+			EventHandler<DomMouseEventArgs> handler = OnMouseMove;
+			if (handler != null)
+				handler(this, e);
+		}
+
+		private void HandleDomMouseOver(object sender, DomMouseEventArgs e)
+		{
+			EventHandler<DomMouseEventArgs> handler = OnMouseOver;
+			if (handler != null)
+				handler(this, e);
+		}
+
+		private void HandleDomMouseOut(object sender, DomMouseEventArgs e)
+		{
+			EventHandler<DomMouseEventArgs> handler = OnMouseOut;
+			if (handler != null)
+				handler(this, e);
+		}
+
+		private void HandleDocumentCompleted(object sender, GeckoDocumentCompletedEventArgs e)
+		{
+			EventHandler<GeckoDocumentCompletedEventArgs> handler = OnDocumentCompleted;
+			if (handler != null)
+				handler(this, e);
+		}
+		#endregion
 	}
 }
