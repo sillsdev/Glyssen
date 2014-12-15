@@ -26,11 +26,15 @@ namespace ProtoScript.Dialogs
 		                                 ".highlight{{background-color:yellow}}" +
 		                                 "." + kCssClassContext + ":hover{{background-color:#FFFFA0}}" +
 		                                 ".block-spacer{{height:30px}}";
+		private const int kContextBlocksBackward = 10;
+		private const int kContextBlocksForward = 10;
 
 		private readonly string m_fontFamily;
 		private readonly int m_fontSizeInPoints;
 		private readonly BlockNavigator m_navigator;
 		private List<Tuple<int, int>> m_relevantBlocks;
+		private IEnumerable<Block> m_contextBlocksBackward;
+		private IEnumerable<Block> m_contextBlocksForward;
 		private int m_assignedBlocks;
 		private int m_displayBlockIndex;
 		private IEnumerable<CharacterVerse> m_characters;
@@ -108,9 +112,9 @@ namespace ProtoScript.Dialogs
 		{
 			m_blocksDisplayBrowser.DisplayHtml(
 				BuildHtml(
-					BuildHtml(m_navigator.PeekBackwardWithinBook(10)),
+					BuildHtml(m_contextBlocksBackward = m_navigator.PeekBackwardWithinBook(kContextBlocksBackward)),
 					m_navigator.CurrentBlock.GetText(m_showVerseNumbers),
-					BuildHtml(m_navigator.PeekForwardWithinBook(10)),
+					BuildHtml(m_contextBlocksForward = m_navigator.PeekForwardWithinBook(kContextBlocksForward)),
 					BuildStyle()));
 
 			UpdateDisplay();
@@ -202,21 +206,9 @@ namespace ProtoScript.Dialogs
 			return false;
 		}
 
-		private void LoadNextBlock()
-		{
-			m_navigator.NextBlock();
-			LoadBlock();
-		}
-
 		private void LoadNextRelevantBlock()
 		{
 			m_navigator.SetIndices(m_relevantBlocks[++m_displayBlockIndex]);
-			LoadBlock();
-		}
-
-		private void LoadPreviousBlock()
-		{
-			m_navigator.PreviousBlock();
 			LoadBlock();
 		}
 
@@ -236,13 +228,28 @@ namespace ProtoScript.Dialogs
 			m_listBoxDeliveries.Items.Clear();
 
 			m_listBoxCharacters.Items.Add(m_narrator);
-			foreach (CharacterVerse cv in new SortedSet<CharacterVerse>(m_characters, new CharacterComparer())
-				.Where(c => !CharacterVerseData.IsCharacterOfType(c.Character, CharacterVerseData.StandardCharacter.Narrator)))
-				m_listBoxCharacters.Items.Add(cv.Character);
+			AddItemsToCharacterListBox(m_characters);
+
+			if (m_listBoxCharacters.Items.Count < 2)
+				ExpandCharactersInList();
 
 			SelectCharacter();
 
 			m_listBoxCharacters.EndUpdate();
+		}
+
+		private void ExpandCharactersInList()
+		{
+			m_characters = m_contextBlocksBackward.Union(m_contextBlocksForward).Where(b => !b.CharacterIsStandard && !b.CharacterIsUnclear())
+				.Select(b => new CharacterVerse { Character = b.CharacterId, Delivery = b.Delivery });
+			AddItemsToCharacterListBox(m_characters);
+		}
+
+		private void AddItemsToCharacterListBox(IEnumerable<CharacterVerse> characters)
+		{
+			foreach (CharacterVerse cv in new SortedSet<CharacterVerse>(characters, new CharacterComparer())
+				.Where(c => !CharacterVerseData.IsCharacterOfType(c.Character, CharacterVerseData.StandardCharacter.Narrator)))
+				m_listBoxCharacters.Items.Add(cv.Character);
 		}
 
 		private void SelectCharacter()
