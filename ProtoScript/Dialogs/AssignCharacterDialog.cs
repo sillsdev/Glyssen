@@ -8,6 +8,8 @@ using Gecko.DOM;
 using Gecko.Events;
 using L10NSharp;
 using L10NSharp.UI;
+using SIL.ScriptureControls;
+using SIL.ScriptureUtils;
 
 namespace ProtoScript.Dialogs
 {
@@ -112,7 +114,7 @@ namespace ProtoScript.Dialogs
 					BuildStyle()));
 
 			UpdateDisplay();
-			UpdateNavigationButtons();
+			UpdateNavigationButtonState();
 		}
 
 		private void UpdateDisplay()
@@ -120,9 +122,12 @@ namespace ProtoScript.Dialogs
 			String book = m_navigator.CurrentBook.BookId;
 			int chapter = m_navigator.CurrentBlock.ChapterNumber;
 			int verse = m_navigator.CurrentBlock.InitialStartVerseNumber;
-			m_labelReference.Text = string.Format("{0} {1}:{2}", book, chapter, verse);
+			var currRef = new BCVRef(BCVRef.BookToNumber(book), chapter, verse);
+			m_labelReference.Text = BCVRef.MakeReferenceString(currRef, currRef, ":", "-");
 			string xOfY = LocalizationManager.GetString("AssignCharacterDialog.XofY", "{0} of {1}", "{0} is the current clip number; {1} is the total number of clips.");
 			m_labelXofY.Text = string.Format(xOfY, m_displayBlockIndex + 1, m_relevantBlocks.Count);
+
+			SendScrReference(currRef);
 
 			m_btnAssign.Enabled = false;
 
@@ -162,13 +167,13 @@ namespace ProtoScript.Dialogs
 			return string.Format(kCssFrame, m_fontFamily, m_fontSizeInPoints);
 		}
 
-		private void UpdateNavigationButtons()
+		private void UpdateNavigationButtonState()
 		{
-			m_btnNext.Enabled = !OnLastRelevantBlock();
-			m_btnPrevious.Enabled = !OnFirstRelevantBlock();
+			m_btnNext.Enabled = !IsLastRelevantBlock();
+			m_btnPrevious.Enabled = !IsFirstRelevantBlock();
 		}
 
-		private void UpdateAssignButton()
+		private void UpdateAssignButtonState()
 		{
 			bool characterAndDeliverySelected = m_listBoxCharacters.SelectedIndex > -1 && m_listBoxDeliveries.SelectedIndex > -1;
 			m_btnAssign.Enabled = characterAndDeliverySelected && IsDirty();
@@ -235,12 +240,12 @@ namespace ProtoScript.Dialogs
 				.Where(c => !CharacterVerseData.IsCharacterOfType(c.Character, CharacterVerseData.StandardCharacter.Narrator)))
 				m_listBoxCharacters.Items.Add(cv.Character);
 
-			SetCharacter();
+			SelectCharacter();
 
 			m_listBoxCharacters.EndUpdate();
 		}
 
-		private void SetCharacter()
+		private void SelectCharacter()
 		{
 			Block currentBlock = m_navigator.CurrentBlock;
 			if (currentBlock.CharacterIs(m_navigator.CurrentBook.BookId, CharacterVerseData.StandardCharacter.Narrator))
@@ -266,11 +271,11 @@ namespace ProtoScript.Dialogs
 				foreach (string delivery in m_deliveries)
 					m_listBoxDeliveries.Items.Add(delivery);
 			}
-			SetDelivery();
+			SelectDelivery();
 			m_listBoxDeliveries.EndUpdate();
 		}
 
-		private void SetDelivery()
+		private void SelectDelivery()
 		{
 			Block currentBlock = m_navigator.CurrentBlock;
 			string delivery = string.IsNullOrEmpty(currentBlock.Delivery) ? m_normalDelivery : currentBlock.Delivery;
@@ -292,12 +297,12 @@ namespace ProtoScript.Dialogs
 			}
 		}
 
-		private bool OnFirstRelevantBlock()
+		private bool IsFirstRelevantBlock()
 		{
 			return m_displayBlockIndex == 0;
 		}
 
-		private bool OnLastRelevantBlock()
+		private bool IsLastRelevantBlock()
 		{
 			return m_displayBlockIndex == m_relevantBlocks.Count - 1;
 		}
@@ -335,7 +340,18 @@ namespace ProtoScript.Dialogs
 			return false;
 		}
 
-		#region form events
+		/// <summary>
+		/// Sends a "Santa Fe" focus message which can be used by other applications (such as Paratext)
+		/// to navigate to the same Scripture reference
+		/// </summary>
+		/// <param name="currRef"></param>
+		private void SendScrReference(BCVRef currRef)
+		{
+			if (currRef != null && currRef.Valid)
+				SantaFeFocusMessageHandler.SendFocusMessage(currRef.ToString());
+		}
+
+		#region Form events
 		private void m_btnNext_Click(object sender, EventArgs e)
 		{
 			if (UserConfirmSaveChangesIfNecessary())
@@ -363,19 +379,19 @@ namespace ProtoScript.Dialogs
 					return;
 				}
 			}
-			if (!OnLastRelevantBlock())
+			if (!IsLastRelevantBlock())
 				LoadNextRelevantBlock();
 		}
 
 		private void m_listBoxCharacters_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			LoadDeliveryListBox();
-			UpdateAssignButton();
+			UpdateAssignButtonState();
 		}
 
 		private void m_listBoxDeliveries_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			UpdateAssignButton();
+			UpdateAssignButtonState();
 		}
 
 		private void m_linkLabelChapter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -403,7 +419,7 @@ namespace ProtoScript.Dialogs
 		}
 		#endregion
 
-		#region browser events
+		#region Browser events
 		private void OnMouseOver(object sender, DomMouseEventArgs e)
 		{
 			if (e.Target == null)
