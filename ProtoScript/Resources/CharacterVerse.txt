@@ -1,4 +1,4 @@
-Control File Version	9	Generated	Fri, 12 Dec 2014 10:37:33 GMT
+Control File Version	10	Generated	Mon, 15 Dec 2014 16:47:26 GMT
 GEN	1	3	God		God (the LORD)
 GEN	1	5	narrator-GEN		
 GEN	1	6	God		God (the LORD)
@@ -7789,82 +7789,10 @@ MAT	23	35	Jesus
 MAT	23	37	Jesus	rebuking	
 MAT	24	2	Jesus		
 MAT	24	3	Peter (Simon)	confused	Peter (Simon)/James/John/Andrew=disciples=they
-MAT	24	4	Jesus		
-MAT	24	5	Jesus		
-MAT	24	6	Jesus		
-MAT	24	8	Jesus		
-MAT	24	9	Jesus		
-MAT	24	10	Jesus		
-MAT	24	11	Jesus		
-MAT	24	13	Jesus		
-MAT	24	14	Jesus		
-MAT	24	15	Jesus		
-MAT	24	16	Jesus		
-MAT	24	18	Jesus		
-MAT	24	19	Jesus		
-MAT	24	21	Jesus		
-MAT	24	22	Jesus		
-MAT	24	23	Jesus		
+MAT	24	4-24	Jesus		
 MAT	24	25	Jesus	sternly	
-MAT	24	26	Jesus		
-MAT	24	27	Jesus		
-MAT	24	28	Jesus		
-MAT	24	29	Jesus		
-MAT	24	30	Jesus		
-MAT	24	31	Jesus		
-MAT	24	32	Jesus		
-MAT	24	33	Jesus		
-MAT	24	34	Jesus		
-MAT	24	36	Jesus		
-MAT	24	37	Jesus		
-MAT	24	39	Jesus		
-MAT	24	40	Jesus		
-MAT	24	41	Jesus		
-MAT	24	42	Jesus		
-MAT	24	43	Jesus		
-MAT	24	45	Jesus		
-MAT	24	46	Jesus		
-MAT	24	47	Jesus		
-MAT	24	48	Jesus		
-MAT	24	49	Jesus		
-MAT	24	50	Jesus		
-MAT	24	51	Jesus		
-MAT	25	1	Jesus		
-MAT	25	5	Jesus		
-MAT	25	6	Jesus		
-MAT	25	7	Jesus		
-MAT	25	8	Jesus		
-MAT	25	9	Jesus		
-MAT	25	10	Jesus		
-MAT	25	11	Jesus		
-MAT	25	12	Jesus		
-MAT	25	13	Jesus		
-MAT	25	14	Jesus		
-MAT	25	15	Jesus		
-MAT	25	16	Jesus		
-MAT	25	18	Jesus		
-MAT	25	19	Jesus		
-MAT	25	20	Jesus		
-MAT	25	21	Jesus		
-MAT	25	22	Jesus		
-MAT	25	23	Jesus		
-MAT	25	24	Jesus		
-MAT	25	25	Jesus		
-MAT	25	26	Jesus		
-MAT	25	27	Jesus		
-MAT	25	28	Jesus		
-MAT	25	31	Jesus		
-MAT	25	33	Jesus		
-MAT	25	34	Jesus		
-MAT	25	36	Jesus		
-MAT	25	37	Jesus		
-MAT	25	39	Jesus		
-MAT	25	40	Jesus		
-MAT	25	41	Jesus		
-MAT	25	43	Jesus		
-MAT	25	44	Jesus		
-MAT	25	45	Jesus		
-MAT	25	46	Jesus		
+MAT	24	26-51	Jesus		
+MAT	25	1-46	Jesus		
 MAT	26	2	Jesus		
 MAT	26	5	chief priests/teachers of the law=chief priests/elders of people		
 MAT	26	8	Judas Iscariot	indignant	Judas Iscariot=disciples, the
