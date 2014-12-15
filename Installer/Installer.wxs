@@ -107,6 +107,10 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="SIL.ScriptureUtils.dll" Name="SIL.ScriptureUtils.dll" KeyPath="yes" Source="..\output\release\SIL.ScriptureUtils.dll" />
           </Component>
 
+          <Component Id="SIL.ScriptureControls.dll" Guid="{3211eeca-71be-4e26-a4fa-22b9e15a15ad}">
+            <File Id="SIL.ScriptureControls.dll" Name="SIL.ScriptureControls.dll" KeyPath="yes" Source="..\output\release\SIL.ScriptureControls.dll" />
+          </Component>
+
           <Component Id="ParatextShared.dll" Guid="{8a047a21-cabf-4fe4-ab4e-40da9e23f9ce}">
             <File Id="ParatextShared.dll" Name="ParatextShared.dll" KeyPath="yes" Source="..\output\release\ParatextShared.dll" />
           </Component>
@@ -136,6 +140,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="Geckofx_Core.dll"/>
       <ComponentRef Id="Geckofx_Winforms.dll"/>
       <ComponentRef Id="SIL.ScriptureUtils.dll"/>
+      <ComponentRef Id="SIL.ScriptureControls.dll"/>
       <ComponentRef Id="ParatextShared.dll"/>
       <ComponentRef Id="NetLoc.dll"/>
       <ComponentRef Id="L10NSharp.dll"/>
