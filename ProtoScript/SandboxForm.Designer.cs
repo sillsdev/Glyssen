@@ -138,9 +138,9 @@
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnSelectBooks, "SandboxForm.SelectBooks");
 			this.m_btnSelectBooks.Location = new System.Drawing.Point(32, 67);
 			this.m_btnSelectBooks.Name = "m_btnSelectBooks";
-			this.m_btnSelectBooks.Size = new System.Drawing.Size(84, 23);
+			this.m_btnSelectBooks.Size = new System.Drawing.Size(99, 23);
 			this.m_btnSelectBooks.TabIndex = 9;
-			this.m_btnSelectBooks.Text = "Select Book(s)";
+			this.m_btnSelectBooks.Text = "Select Books...";
 			this.m_btnSelectBooks.UseVisualStyleBackColor = true;
 			this.m_btnSelectBooks.Click += new System.EventHandler(this.m_btnSelectBooks_Click);
 			// 
