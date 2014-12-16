@@ -252,5 +252,10 @@ namespace ProtoScript
 				dlg.ShowDialog();
 		}
 
+		private void m_btnSelectBooks_Click(object sender, EventArgs e)
+		{
+			using (var dlg = new ScriptureRangeSelectionDialog(m_project))
+				dlg.ShowDialog();
+		}
 	}
 }

@@ -79,6 +79,10 @@
     <Reference Include="ParatextShared">
       <HintPath>..\lib\dotnet\ParatextShared.dll</HintPath>
     </Reference>
+    <Reference Include="SIL.ScriptureControls, Version=7.3.0.23701, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\dotnet\SIL.ScriptureControls.dll</HintPath>
+    </Reference>
     <Reference Include="SIL.ScriptureUtils, Version=7.3.0.31476, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.ScriptureUtils.dll</HintPath>
@@ -98,6 +102,7 @@
   <ItemGroup>
     <Compile Include="BlockNavigator.cs" />
     <Compile Include="BookScript.cs" />
+    <Compile Include="BookSetUtils.cs" />
     <Compile Include="Bundle\Bundle.cs" />
     <Compile Include="Bundle\Canon.cs" />
     <Compile Include="Bundle\DblMetadata.cs" />
@@ -134,6 +139,12 @@
     <Compile Include="Dialogs\QuotationMarksDialog.Designer.cs">
       <DependentUpon>QuotationMarksDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\ScriptureRangeSelectionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ScriptureRangeSelectionDialog.Designer.cs">
+      <DependentUpon>ScriptureRangeSelectionDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\SelectProjectDialog.cs" />
     <Compile Include="ICharacterVerseInfo.cs" />
     <Compile Include="IScrBook.cs" />
@@ -166,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\QuotationMarksDialog.resx">
       <DependentUpon>QuotationMarksDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ScriptureRangeSelectionDialog.resx">
+      <DependentUpon>ScriptureRangeSelectionDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SandboxForm.resx">
       <DependentUpon>SandboxForm.cs</DependentUpon>

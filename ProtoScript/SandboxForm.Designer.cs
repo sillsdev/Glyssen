@@ -36,6 +36,7 @@
 			this.m_lblLanguage = new System.Windows.Forms.Label();
 			this.m_btnExportToTabSeparated = new System.Windows.Forms.Button();
 			this.m_btnAssign = new System.Windows.Forms.Button();
+			this.m_btnSelectBooks = new System.Windows.Forms.Button();
 			this.m_lblSelectedQuotationMarks = new System.Windows.Forms.Label();
 			this.m_lblQuotationMarksSystem = new System.Windows.Forms.Label();
 			this.m_linkChangeQuotationSystem = new System.Windows.Forms.LinkLabel();
@@ -107,7 +108,7 @@
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnExportToTabSeparated, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnExportToTabSeparated, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnExportToTabSeparated, "SandboxForm.SandboxForm.m_btnExportToTabSeparated");
-			this.m_btnExportToTabSeparated.Location = new System.Drawing.Point(32, 98);
+			this.m_btnExportToTabSeparated.Location = new System.Drawing.Point(32, 125);
 			this.m_btnExportToTabSeparated.Name = "m_btnExportToTabSeparated";
 			this.m_btnExportToTabSeparated.Size = new System.Drawing.Size(99, 23);
 			this.m_btnExportToTabSeparated.TabIndex = 6;
@@ -121,13 +122,27 @@
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnAssign, null);
 			this.l10NSharpExtender1.SetLocalizationPriority(this.m_btnAssign, L10NSharp.LocalizationPriority.High);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnAssign, "SandboxForm.SandboxForm.m_btnAssign");
-			this.m_btnAssign.Location = new System.Drawing.Point(32, 67);
+			this.m_btnAssign.Location = new System.Drawing.Point(32, 96);
 			this.m_btnAssign.Name = "m_btnAssign";
 			this.m_btnAssign.Size = new System.Drawing.Size(99, 23);
 			this.m_btnAssign.TabIndex = 8;
 			this.m_btnAssign.Text = "Assign...";
 			this.m_btnAssign.UseVisualStyleBackColor = true;
 			this.m_btnAssign.Click += new System.EventHandler(this.m_btnAssign_Click);
+			// 
+			// m_btnSelectBooks
+			// 
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnSelectBooks, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnSelectBooks, null);
+			this.l10NSharpExtender1.SetLocalizationPriority(this.m_btnSelectBooks, L10NSharp.LocalizationPriority.High);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_btnSelectBooks, "SandboxForm.SelectBooks");
+			this.m_btnSelectBooks.Location = new System.Drawing.Point(32, 67);
+			this.m_btnSelectBooks.Name = "m_btnSelectBooks";
+			this.m_btnSelectBooks.Size = new System.Drawing.Size(84, 23);
+			this.m_btnSelectBooks.TabIndex = 9;
+			this.m_btnSelectBooks.Text = "Select Book(s)";
+			this.m_btnSelectBooks.UseVisualStyleBackColor = true;
+			this.m_btnSelectBooks.Click += new System.EventHandler(this.m_btnSelectBooks_Click);
 			// 
 			// m_lblSelectedQuotationMarks
 			// 
@@ -182,6 +197,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(559, 262);
+			this.Controls.Add(this.m_btnSelectBooks);
 			this.Controls.Add(this.m_linkChangeQuotationSystem);
 			this.Controls.Add(this.m_lblQuotationMarksSystem);
 			this.Controls.Add(this.m_lblSelectedQuotationMarks);
@@ -213,6 +229,7 @@
 		private System.Windows.Forms.Label m_lblLanguage;
 		private System.Windows.Forms.Button m_btnExportToTabSeparated;
 		private System.Windows.Forms.Button m_btnAssign;
+		private System.Windows.Forms.Button m_btnSelectBooks;
 		private System.Windows.Forms.Label m_lblSelectedQuotationMarks;
 		private System.Windows.Forms.Label m_lblQuotationMarksSystem;
 		private System.Windows.Forms.LinkLabel m_linkChangeQuotationSystem;

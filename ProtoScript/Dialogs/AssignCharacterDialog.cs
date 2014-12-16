@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Gecko;
+using Gecko.DOM;
 using Gecko.Events;
 using L10NSharp;
 using L10NSharp.UI;
+using SIL.ScriptureControls;
+using SIL.ScriptureUtils;
 
 namespace ProtoScript.Dialogs
 {
@@ -15,20 +19,28 @@ namespace ProtoScript.Dialogs
 		private string m_normalDelivery;
 		private const string kMainQuoteElementId = "main-quote-text";
 		private const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
-		                                  "<style>{0}</style></head><body>{1}</body></html>";
-		private const string kCssFrame = "body{{font-family:{0};font-size:{1}pt}}.highlight{{background-color:yellow}}";
-		private const string kHtmlLineBreak = "<br />";
-		private const string kHtmlDoubleLineBreak = "<br /><br />";
+										  "<style>{0}</style></head><body>{1}</body></html>";
+		private const string kHtmlLineBreak = "<div class='block-spacer'></div>";
+		private const string kCssClassContext = "context";
+		private const string kCssFrame = "body{{font-family:{0};font-size:{1}pt}}" +
+		                                 ".highlight{{background-color:yellow}}" +
+		                                 "." + kCssClassContext + ":hover{{background-color:#FFFFA0}}" +
+		                                 ".block-spacer{{height:30px}}";
+		private const int kContextBlocksBackward = 10;
+		private const int kContextBlocksForward = 10;
 
 		private readonly string m_fontFamily;
 		private readonly int m_fontSizeInPoints;
 		private readonly BlockNavigator m_navigator;
 		private List<Tuple<int, int>> m_relevantBlocks;
+		private IEnumerable<Block> m_contextBlocksBackward;
+		private IEnumerable<Block> m_contextBlocksForward;
 		private int m_assignedBlocks;
 		private int m_displayBlockIndex;
 		private IEnumerable<CharacterVerse> m_characters;
 		private IEnumerable<string> m_deliveries;
 		private bool m_showVerseNumbers = true; // May make this configurable later
+		private ToolTip m_toolTip;
 
 		public AssignCharacterDialog()
 		{
@@ -46,10 +58,14 @@ namespace ProtoScript.Dialogs
 
 		public AssignCharacterDialog(Project project) : this()
 		{
+			m_blocksDisplayBrowser.OnMouseOver += OnMouseOver;
+			m_blocksDisplayBrowser.OnMouseOut += OnMouseOut;
+			m_blocksDisplayBrowser.OnDocumentCompleted += OnDocumentCompleted;
+
 			m_fontFamily = project.FontFamily;
 			m_fontSizeInPoints = project.FontSizeInPoints;
 
-			m_navigator = new BlockNavigator(project.Books);
+			m_navigator = new BlockNavigator(project.IncludedBooks);
 
 			PopulateRelevantBlocks();
 			m_progressBar.Maximum = m_relevantBlocks.Count;
@@ -94,21 +110,15 @@ namespace ProtoScript.Dialogs
 
 		public void LoadBlock()
 		{
-			m_blocksDisplayBrowser.AddDocumentCompletedEventHandler(BrowserDocumentCompletedEventHandler);
 			m_blocksDisplayBrowser.DisplayHtml(
 				BuildHtml(
-					BuildHtml(m_navigator.PeekBackwardWithinBook(10)),
+					BuildHtml(m_contextBlocksBackward = m_navigator.PeekBackwardWithinBook(kContextBlocksBackward)),
 					m_navigator.CurrentBlock.GetText(m_showVerseNumbers),
-					BuildHtml(m_navigator.PeekForwardWithinBook(10)),
+					BuildHtml(m_contextBlocksForward = m_navigator.PeekForwardWithinBook(kContextBlocksForward)),
 					BuildStyle()));
 
 			UpdateDisplay();
-			UpdateNavigationButtons();
-		}
-
-		private void BrowserDocumentCompletedEventHandler(object sender, GeckoDocumentCompletedEventArgs e)
-		{
-			m_blocksDisplayBrowser.ScrollElementIntoView(kMainQuoteElementId, -225);
+			UpdateNavigationButtonState();
 		}
 
 		private void UpdateDisplay()
@@ -116,9 +126,12 @@ namespace ProtoScript.Dialogs
 			String book = m_navigator.CurrentBook.BookId;
 			int chapter = m_navigator.CurrentBlock.ChapterNumber;
 			int verse = m_navigator.CurrentBlock.InitialStartVerseNumber;
-			m_labelReference.Text = string.Format("{0} {1}:{2}", book, chapter, verse);
+			var currRef = new BCVRef(BCVRef.BookToNumber(book), chapter, verse);
+			m_labelReference.Text = BCVRef.MakeReferenceString(currRef, currRef, ":", "-");
 			string xOfY = LocalizationManager.GetString("AssignCharacterDialog.XofY", "{0} of {1}", "{0} is the current clip number; {1} is the total number of clips.");
 			m_labelXofY.Text = string.Format(xOfY, m_displayBlockIndex + 1, m_relevantBlocks.Count);
+
+			SendScrReference(currRef);
 
 			m_btnAssign.Enabled = false;
 
@@ -141,7 +154,15 @@ namespace ProtoScript.Dialogs
 		{
 			var bldr = new StringBuilder();
 			foreach (Block block in blocks)
-				bldr.Append(block.GetText(m_showVerseNumbers)).Append(kHtmlDoubleLineBreak);
+				bldr.Append(BuildHtml(block));
+			return bldr.ToString();
+		}
+
+		private string BuildHtml(Block block)
+		{
+			var bldr = new StringBuilder();
+			bldr.Append("<div class='").Append(kCssClassContext).Append("' data-character='").Append(block.CharacterId).Append("'>")
+				.Append(block.GetText(m_showVerseNumbers)).Append("</div>").Append(kHtmlLineBreak);
 			return bldr.ToString();
 		}
 
@@ -150,13 +171,13 @@ namespace ProtoScript.Dialogs
 			return string.Format(kCssFrame, m_fontFamily, m_fontSizeInPoints);
 		}
 
-		private void UpdateNavigationButtons()
+		private void UpdateNavigationButtonState()
 		{
-			m_btnNext.Enabled = !OnLastRelevantBlock();
-			m_btnPrevious.Enabled = !OnFirstRelevantBlock();
+			m_btnNext.Enabled = !IsLastRelevantBlock();
+			m_btnPrevious.Enabled = !IsFirstRelevantBlock();
 		}
 
-		private void UpdateAssignButton()
+		private void UpdateAssignButtonState()
 		{
 			bool characterAndDeliverySelected = m_listBoxCharacters.SelectedIndex > -1 && m_listBoxDeliveries.SelectedIndex > -1;
 			m_btnAssign.Enabled = characterAndDeliverySelected && IsDirty();
@@ -185,21 +206,9 @@ namespace ProtoScript.Dialogs
 			return false;
 		}
 
-		private void LoadNextBlock()
-		{
-			m_navigator.NextBlock();
-			LoadBlock();
-		}
-
 		private void LoadNextRelevantBlock()
 		{
 			m_navigator.SetIndices(m_relevantBlocks[++m_displayBlockIndex]);
-			LoadBlock();
-		}
-
-		private void LoadPreviousBlock()
-		{
-			m_navigator.PreviousBlock();
 			LoadBlock();
 		}
 
@@ -213,18 +222,37 @@ namespace ProtoScript.Dialogs
 		{
 			m_characters = characters;
 
+			m_listBoxCharacters.BeginUpdate();
+
 			m_listBoxCharacters.Items.Clear();
 			m_listBoxDeliveries.Items.Clear();
 
 			m_listBoxCharacters.Items.Add(m_narrator);
-			foreach (CharacterVerse cv in new SortedSet<CharacterVerse>(m_characters, new CharacterComparer())
-				.Where(c => !CharacterVerseData.IsCharacterOfType(c.Character, CharacterVerseData.StandardCharacter.Narrator)))
-				m_listBoxCharacters.Items.Add(cv.Character);
+			AddItemsToCharacterListBox(m_characters);
 
-			SetCharacter();
+			if (m_listBoxCharacters.Items.Count < 2)
+				ExpandCharactersInList();
+
+			SelectCharacter();
+
+			m_listBoxCharacters.EndUpdate();
 		}
 
-		private void SetCharacter()
+		private void ExpandCharactersInList()
+		{
+			m_characters = m_contextBlocksBackward.Union(m_contextBlocksForward).Where(b => !b.CharacterIsStandard && !b.CharacterIsUnclear())
+				.Select(b => new CharacterVerse { Character = b.CharacterId, Delivery = b.Delivery });
+			AddItemsToCharacterListBox(m_characters);
+		}
+
+		private void AddItemsToCharacterListBox(IEnumerable<CharacterVerse> characters)
+		{
+			foreach (CharacterVerse cv in new SortedSet<CharacterVerse>(characters, new CharacterComparer())
+				.Where(c => !CharacterVerseData.IsCharacterOfType(c.Character, CharacterVerseData.StandardCharacter.Narrator)))
+				m_listBoxCharacters.Items.Add(cv.Character);
+		}
+
+		private void SelectCharacter()
 		{
 			Block currentBlock = m_navigator.CurrentBlock;
 			if (currentBlock.CharacterIs(m_navigator.CurrentBook.BookId, CharacterVerseData.StandardCharacter.Narrator))
@@ -239,6 +267,7 @@ namespace ProtoScript.Dialogs
 
 		private void LoadDeliveryListBox()
 		{
+			m_listBoxDeliveries.BeginUpdate();
 			m_listBoxDeliveries.Items.Clear();
 			m_deliveries = new List<string>();
 			var selectedCharacter = (string)m_listBoxCharacters.SelectedItem;
@@ -249,10 +278,11 @@ namespace ProtoScript.Dialogs
 				foreach (string delivery in m_deliveries)
 					m_listBoxDeliveries.Items.Add(delivery);
 			}
-			SetDelivery();
+			SelectDelivery();
+			m_listBoxDeliveries.EndUpdate();
 		}
 
-		private void SetDelivery()
+		private void SelectDelivery()
 		{
 			Block currentBlock = m_navigator.CurrentBlock;
 			string delivery = string.IsNullOrEmpty(currentBlock.Delivery) ? m_normalDelivery : currentBlock.Delivery;
@@ -274,12 +304,12 @@ namespace ProtoScript.Dialogs
 			}
 		}
 
-		private bool OnFirstRelevantBlock()
+		private bool IsFirstRelevantBlock()
 		{
 			return m_displayBlockIndex == 0;
 		}
 
-		private bool OnLastRelevantBlock()
+		private bool IsLastRelevantBlock()
 		{
 			return m_displayBlockIndex == m_relevantBlocks.Count - 1;
 		}
@@ -317,6 +347,18 @@ namespace ProtoScript.Dialogs
 			return false;
 		}
 
+		/// <summary>
+		/// Sends a "Santa Fe" focus message which can be used by other applications (such as Paratext)
+		/// to navigate to the same Scripture reference
+		/// </summary>
+		/// <param name="currRef"></param>
+		private void SendScrReference(BCVRef currRef)
+		{
+			if (currRef != null && currRef.Valid)
+				SantaFeFocusMessageHandler.SendFocusMessage(currRef.ToString());
+		}
+
+		#region Form events
 		private void m_btnNext_Click(object sender, EventArgs e)
 		{
 			if (UserConfirmSaveChangesIfNecessary())
@@ -344,19 +386,19 @@ namespace ProtoScript.Dialogs
 					return;
 				}
 			}
-			if (!OnLastRelevantBlock())
+			if (!IsLastRelevantBlock())
 				LoadNextRelevantBlock();
 		}
 
 		private void m_listBoxCharacters_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			LoadDeliveryListBox();
-			UpdateAssignButton();
+			UpdateAssignButtonState();
 		}
 
 		private void m_listBoxDeliveries_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			UpdateAssignButton();
+			UpdateAssignButtonState();
 		}
 
 		private void m_linkLabelChapter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -382,5 +424,46 @@ namespace ProtoScript.Dialogs
 			if (UserConfirmSaveChangesIfNecessary())
 				SaveSelections();
 		}
+		#endregion
+
+		#region Browser events
+		private void OnMouseOver(object sender, DomMouseEventArgs e)
+		{
+			if (e.Target == null)
+				return;
+			var geckoElement = e.Target.CastToGeckoElement();
+			var divElement = geckoElement as GeckoDivElement;
+			if (divElement == null)
+				return;
+
+			if (divElement.ClassName == kCssClassContext)
+			{
+				m_toolTip = new ToolTip { IsBalloon = true };
+				int x = m_blocksDisplayBrowser.Location.X + m_blocksDisplayBrowser.Size.Width - 33;
+				int y = m_blocksDisplayBrowser.Location.Y + e.ClientY - 15;
+				m_toolTip.Show(divElement.GetAttribute("data-character"), this, x, y);
+			}
+		}
+
+		private void OnMouseOut(object sender, DomMouseEventArgs e)
+		{
+			if (e.Target == null)
+				return;
+			var geckoElement = e.Target.CastToGeckoElement();
+			var divElement = geckoElement as GeckoDivElement;
+			if (divElement == null)
+				return;
+
+			if (divElement.ClassName == kCssClassContext)
+			{
+				m_toolTip.Hide(this);
+			}
+		}
+
+		private void OnDocumentCompleted(object sender, GeckoDocumentCompletedEventArgs e)
+		{
+			m_blocksDisplayBrowser.ScrollElementIntoView(kMainQuoteElementId, -225);
+		}
+		#endregion
 	}
 }
