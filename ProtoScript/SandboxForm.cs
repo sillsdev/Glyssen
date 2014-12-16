@@ -30,8 +30,8 @@ namespace ProtoScript
 		private void SetProject(Project project)
 		{
 			m_project = project;
-			m_btnSettings.Enabled = m_btnExportToTabSeparated.Enabled = m_project != null;
-			UpdateDisplayOfProjectIdInfo();
+			m_linkChangeQuotationSystem.Enabled = m_btnExportToTabSeparated.Enabled = m_project != null;
+			UpdateDisplayOfProjectInfo();
 
 			if (m_project != null)
 			{
@@ -43,7 +43,7 @@ namespace ProtoScript
 						"Would you like to display the {1} dialog box now in order to select the correct quotation system for this project?"),
 						ProductName, LocalizationManager.GetString("ProjectSettingsDialog.ProjectSettings", "Project Settings"));
 					if (MessageBox.Show(msg, ProductName, MessageBoxButtons.YesNo) == DialogResult.Yes)
-						m_btnSettings_Click(null, null);
+						HandleChangeQuotationMarks_Click(null, null);
 				}
 			}
 		}
@@ -54,7 +54,7 @@ namespace ProtoScript
 			m_LanguageIdFmt = m_lblLanguage.Text;
 		}
 
-		private void HandleSelectBundle_Click(object sender, EventArgs e)
+		private void HandleOpenProject_Click(object sender, EventArgs e)
 		{
 			SaveCurrentProject();
 			ShowOpenProjectDialog();
@@ -149,16 +149,22 @@ namespace ProtoScript
 				}
 
 				MessageBox.Show(bldr.ToString(), ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-				UpdateDisplayOfProjectIdInfo();
+				UpdateDisplayOfProjectInfo();
 				return false;
 			}
 			return true;
 		}
 
-		private void UpdateDisplayOfProjectIdInfo()
+		private void UpdateDisplayOfProjectInfo()
 		{
 			m_lblBundleId.Text = string.Format(m_bundleIdFmt, m_project != null ? m_project.Id : String.Empty);
 			m_lblLanguage.Text = string.Format(m_LanguageIdFmt, m_project != null ? m_project.Language : String.Empty);
+			UpdateDisplayOfQuoteSystemInfo();
+		}
+
+		private void UpdateDisplayOfQuoteSystemInfo()
+		{
+			m_lblSelectedQuotationMarks.Text = m_project != null ? m_project.QuoteSystem.ToString() : String.Empty;
 		}
 	
 		private void SandboxForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -208,24 +214,6 @@ namespace ProtoScript
 			}
 		}
 
-		/// <summary>
-		/// TODO This very rudamentary code is just for developer testing at this point
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void m_btnLoadSfm_Click(object sender, EventArgs e)
-		{
-			string sfmFilePath = null;
-			using (var dlg = new OpenFileDialog())
-			{
-				if (dlg.ShowDialog() != DialogResult.OK)
-					return;
-				sfmFilePath = dlg.FileName;
-			}
-
-			LoadSfmBook(sfmFilePath);
-		}
-
 		private void LoadSfmBook(string sfmFilePath)
 		{
 			ScrStylesheet scrStylesheet;
@@ -249,10 +237,13 @@ namespace ProtoScript
 			SetProject(new Project(metadata, new[] {book}, new ScrStylesheetAdapter(scrStylesheet)));
 		}
 
-		private void m_btnSettings_Click(object sender, EventArgs e)
+		private void HandleChangeQuotationMarks_Click(object sender, EventArgs e)
 		{
-			using (var dlg = new ProjectSettingsDialog(m_project))
-				dlg.ShowDialog();
+			using (var dlg = new QuotationMarksDialog(m_project))
+			{
+				if (dlg.ShowDialog(this) == DialogResult.OK)
+					UpdateDisplayOfQuoteSystemInfo();
+			}
 		}
 
 		private void m_btnAssign_Click(object sender, EventArgs e)

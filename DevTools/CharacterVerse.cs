@@ -121,8 +121,6 @@ namespace DevTools
 			return 0;
 		};
 
-		
-
 		public string Reference;
 		public string Book;
 		public string Chapter;
@@ -133,10 +131,11 @@ namespace DevTools
 		public string CharacterId;
 		public string Alias;
 		public string VoiceTalentId;
+		public bool IsDialogue { get; set; }
 
 		public string TabDelimited()
 		{
-			return Book + "\t" + Chapter + "\t" + Verse + "\t" + Character + "\t" + Delivery + "\t" + Alias;
+			return Book + "\t" + Chapter + "\t" + Verse + "\t" + Character + "\t" + Delivery + "\t" + Alias + "\t" + IsDialogue;
 		}
 	}
 }

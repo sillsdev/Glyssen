@@ -61,6 +61,68 @@ namespace DevTools {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MAT 2:2
+        ///MAT 2:2
+        ///MAT 2:2
+        ///MAT 2:5
+        ///MAT 2:5
+        ///MAT 2:5
+        ///MAT 2:8
+        ///MAT 3:14
+        ///MAT 3:14
+        ///MAT 3:15
+        ///MAT 3:15
+        ///MAT 4:3
+        ///MAT 4:4
+        ///MAT 4:6
+        ///MAT 4:6
+        ///MAT 4:7
+        ///MAT 4:7
+        ///MAT 4:9
+        ///MAT 4:10
+        ///MAT 4:10
+        ///MAT 4:10
+        ///MAT 4:19
+        ///MAT 4:19
+        ///MAT 8:2
+        ///MAT 8:2
+        ///MAT 8:3
+        ///MAT 8:3
+        ///MAT 8:3
+        ///MAT 8:4
+        ///MAT 8:4
+        ///MAT 8:4
+        ///MAT 8:6
+        ///MAT 8:7
+        ///MAT 8:7
+        ///MAT 8:8
+        ///MAT 8:10
+        ///MAT 8:13
+        ///MAT 8:19
+        ///MAT 8:20
+        ///MAT 8:20
+        ///MAT 8:20
+        ///MAT 8:21
+        ///MAT 8:22
+        ///MAT 8:22
+        ///MAT 8:22
+        ///MAT 8:25
+        ///MAT 8:25
+        ///MAT 8:25
+        ///MAT 8:26
+        ///MAT 8:26
+        ///MAT 8:26
+        ///MAT 8:29
+        ///MAT 8:31
+        ///MAT 8:32 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string DialogQuotes {
+            get {
+                return ResourceManager.GetString("DialogQuotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Aaron,18,0001
         ///Abigail,23,0002
         ///Abijah, king of Judah,12,0003
@@ -79,8 +141,8 @@ namespace DevTools {
         ///Absalom,3,0010
         ///Absalom/Israel, men of,3,0010
         ///Achan,14,0013
-        ///Achish [said to himself],10,0013
-        ///Achish,10,0014
+        ///Achish [said to himself],10,2013
+        ///Achish,10,2013
         ///Acsah, Caleb&apos;s dau [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string modified_Character_VoiceTalent {
@@ -90,8 +152,7 @@ namespace DevTools {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 
-        ///1CH 10.4 character=Saul
+        ///   Looks up a localized string similar to 1CH 10.4 character=Saul
         ///1CH 11.1 character=Israel, all
         ///1CH 11.17 character=David
         ///1CH 11.19 character=David
@@ -105,7 +166,7 @@ namespace DevTools {
         ///1CH 14.10 character=David, king
         ///1CH 14.10 character=God (the LORD)
         ///1CH 14.11 character=David, king
-        ///1CH 14.14 character=God (the L [rest of string was truncated]&quot;;.
+        ///1CH 14.14 character=God (the LOR [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string modified_CharacterNames_BookChapterVerse {
             get {
@@ -133,7 +194,7 @@ namespace DevTools {
         ///Absalom/Israel, men of,3,0010
         ///Achan,14,0013
         ///Achish [said to himself],10,0013
-        ///Achish,10,0014
+        ///Achish,10,0013
         ///Acsah, Caleb&apos;s dau [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string original_Character_VoiceTalent {
@@ -143,22 +204,23 @@ namespace DevTools {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 
-        ///1CH 10.4 character=Saul
-        ///1CH 11.1 character=Israel, all
-        ///1CH 11.17 character=David
-        ///1CH 11.19 character=David
-        ///1CH 11.5 character=Jebusites
-        ///1CH 11.6 character=David (had said)
-        ///1CH 12.17 character=David
-        ///1CH 12.18 character=Amasai, chief of thirty (Spirit came upon)
-        ///1CH 12.19 character=Philistines, rulers of
-        ///1CH 13.12 character=David, king
-        ///1CH 13.2 character=David, king
-        ///1CH 14.10 character=David, king
-        ///1CH 14.10 character=God (the LORD)
-        ///1CH 14.11 character=David, king
-        ///1CH 14.14 character=God (the L [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to 1CH 1.0 character=narrator-1CH
+        ///1CO 1.0 character=narrator-1CO
+        ///1JN 1.0 character=narrator-1JN
+        ///1KI 1.0 character=narrator-1KI
+        ///1PE 1.0 character=narrator-1PE
+        ///1SA 1.0 character=narrator-1SA
+        ///1TH 1.0 character=narrator-1TH
+        ///1TI 1.0 character=narrator-1TI
+        ///2CH 1.0 character=narrator-2CH
+        ///2CO 1.0 character=narrator-2CO
+        ///2JN 1.0 character=narrator-2JN
+        ///2KI 1.0 character=narrator-2KI
+        ///2PE 1.0 character=narrator-2PE
+        ///2SA 1.0 character=narrator-2SA
+        ///2TH 1.0 character=narrator-2TH
+        ///2TI 1.0 character=narrator-2TI
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string original_CharacterNames_BookChapterVerse {
             get {

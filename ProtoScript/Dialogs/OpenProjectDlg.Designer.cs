@@ -37,10 +37,10 @@
 			this.m_btnCancel = new System.Windows.Forms.Button();
 			this.m_linkParatextProject = new System.Windows.Forms.LinkLabel();
 			this.m_linkSFFolder = new System.Windows.Forms.LinkLabel();
+			this.m_linkSingleSFBook = new System.Windows.Forms.LinkLabel();
 			this.m_tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
 			this.m_tableLayoutPanelExistingProject = new System.Windows.Forms.TableLayoutPanel();
 			this.m_listExistingProjects = new System.Windows.Forms.ListBox();
-			this.m_linkSingleSFBook = new System.Windows.Forms.LinkLabel();
 			lblNewProject = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.m_tableLayoutPanelMain.SuspendLayout();
@@ -106,9 +106,9 @@
 			this.m_btnOk.Enabled = false;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_btnOk, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnOk, "OpenProjectDialog.OpenProjectDlg.m_btnOk");
-			this.m_btnOk.Location = new System.Drawing.Point(205, 306);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_btnOk, L10NSharp.LocalizationPriority.High);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnOk, "Common.OK");
+			this.m_btnOk.Location = new System.Drawing.Point(233, 305);
 			this.m_btnOk.Name = "m_btnOk";
 			this.m_btnOk.Size = new System.Drawing.Size(75, 23);
 			this.m_btnOk.TabIndex = 1;
@@ -122,9 +122,9 @@
 			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancel, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_btnCancel, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnCancel, "OpenProjectDialog.OpenProjectDlg.m_btnCancel");
-			this.m_btnCancel.Location = new System.Drawing.Point(124, 306);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_btnCancel, L10NSharp.LocalizationPriority.High);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnCancel, "Common.Cancel");
+			this.m_btnCancel.Location = new System.Drawing.Point(314, 305);
 			this.m_btnCancel.Name = "m_btnCancel";
 			this.m_btnCancel.Size = new System.Drawing.Size(75, 23);
 			this.m_btnCancel.TabIndex = 2;
@@ -163,6 +163,24 @@
 			this.m_linkSFFolder.TabIndex = 5;
 			this.m_linkSFFolder.TabStop = true;
 			this.m_linkSFFolder.Text = "Folder of Standard Format files";
+			// 
+			// m_linkSingleSFBook
+			// 
+			this.m_linkSingleSFBook.AutoSize = true;
+			this.m_linkSingleSFBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_linkSingleSFBook.LinkColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkSingleSFBook, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkSingleSFBook, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_linkSingleSFBook, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkSingleSFBook, "OpenProjectDialog.OpenProjectDlg.m_linkSingleSFBook");
+			this.m_linkSingleSFBook.Location = new System.Drawing.Point(0, 252);
+			this.m_linkSingleSFBook.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
+			this.m_linkSingleSFBook.Name = "m_linkSingleSFBook";
+			this.m_linkSingleSFBook.Size = new System.Drawing.Size(260, 18);
+			this.m_linkSingleSFBook.TabIndex = 6;
+			this.m_linkSingleSFBook.TabStop = true;
+			this.m_linkSingleSFBook.Text = "Single Book from Standard Format file";
+			this.m_linkSingleSFBook.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkSingleSFBook_LinkClicked);
 			// 
 			// m_tableLayoutPanelMain
 			// 
@@ -215,24 +233,6 @@
 			this.m_listExistingProjects.TabIndex = 1;
 			this.m_listExistingProjects.SelectedIndexChanged += new System.EventHandler(this.m_listExistingProjects_SelectedIndexChanged);
 			this.m_listExistingProjects.DoubleClick += new System.EventHandler(this.m_listExistingProjects_DoubleClick);
-			// 
-			// m_linkSingleSFBook
-			// 
-			this.m_linkSingleSFBook.AutoSize = true;
-			this.m_linkSingleSFBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_linkSingleSFBook.LinkColor = System.Drawing.Color.White;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkSingleSFBook, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkSingleSFBook, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_linkSingleSFBook, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkSingleSFBook, "OpenProjectDialog.OpenProjectDlg.m_linkSingleSFBook");
-			this.m_linkSingleSFBook.Location = new System.Drawing.Point(0, 252);
-			this.m_linkSingleSFBook.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
-			this.m_linkSingleSFBook.Name = "m_linkSingleSFBook";
-			this.m_linkSingleSFBook.Size = new System.Drawing.Size(260, 18);
-			this.m_linkSingleSFBook.TabIndex = 6;
-			this.m_linkSingleSFBook.TabStop = true;
-			this.m_linkSingleSFBook.Text = "Single Book from Standard Format file";
-			this.m_linkSingleSFBook.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkSingleSFBook_LinkClicked);
 			// 
 			// OpenProjectDlg
 			// 

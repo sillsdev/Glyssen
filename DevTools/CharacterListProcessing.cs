@@ -119,6 +119,9 @@ namespace DevTools
 					cvNotFound.Add(cv);
 
 				SetAlias(cv);
+
+				if (DialogueQuotesRefeerences.Contains(cv.Book, cv.Chapter, cv.Verse))
+					cv.IsDialogue = true;
 			}
 
 			Directory.CreateDirectory(kBaseDirForHelperOutput);

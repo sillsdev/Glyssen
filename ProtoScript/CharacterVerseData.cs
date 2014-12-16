@@ -146,7 +146,7 @@ namespace ProtoScript
 					firstLine = false;
 					continue;
 				}
-				if (items.Length != 6)
+				if (items.Length < 6 || items.Length > 7)
 					throw new ApplicationException("Bad format in CharacterVerseData! Line #: " + list.Count + "; Line contents: " + line);
 
 				int chapter = Int32.Parse(items[1]);
@@ -156,7 +156,8 @@ namespace ProtoScript
 						BcvRef = new BCVRef(BCVRef.BookToNumber(items[0]), chapter, verse),
 						Character = items[3], 
 						Delivery = items[4],
-						Alias = items[5]
+						Alias = items[5],
+						IsDialogue = (items.Length == 7 && items[6].Equals("True", StringComparison.OrdinalIgnoreCase))
 					});
 			}
 			if (!list.Any())

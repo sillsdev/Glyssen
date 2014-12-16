@@ -54,6 +54,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ControlFiles.resx</DependentUpon>
     </Compile>
+    <Compile Include="DialogueQuotesRefeerences.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -74,6 +75,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\DialogQuotes.txt" />
     <Content Include="Resources\modified_Character-VoiceTalent.txt" />
     <Content Include="Resources\modified_CharacterNames_BookChapterVerse.txt" />
     <Content Include="Resources\original_Character-VoiceTalent.txt" />

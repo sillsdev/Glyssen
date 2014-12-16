@@ -23,13 +23,14 @@ namespace ProtoScript
 			var stats = QuoteSystem.AllSystems.ToDictionary(s => s, s => new QuoteStatistics());
 			int totalVersesAnalyzed = 0;
 			const int minSample = 15;
-			int maxSamplePerBook = BCVRef.LastBook * minSample / bookCount;
+			int maxNonDialogueSamplesPerBook = BCVRef.LastBook * minSample / bookCount;
 			const double minStartQuotePercent = .75;
 			const double minEndQuotePercent = .25;
 			const double maxCompetitorPercent = .6;
 			const int maxFollowingVersesToSearchForEndQuote = 7;
 			const int maxTimeLimit = 4800; // milliseconds
 			QuoteStatistics bestStatistics = new QuoteStatistics();
+			int followingVersesToSearchForEndQuote;
 
 			var stopwatch = new Stopwatch();
 			stopwatch.Start();
@@ -43,33 +44,53 @@ namespace ProtoScript
 				foreach (var quote in cvInfo.GetAllQuoteInfo(book.BookId)
 					.Where(q => !CharacterVerseData.IsCharacterOfType(q.Character, CharacterVerseData.StandardCharacter.Narrator)))
 				{
+					if (versesAnalyzedForCurrentBook > maxNonDialogueSamplesPerBook && !quote.IsDialogue)
+						continue;
+
 					if (quote.Chapter == prevQuoteChapter && (quote.Verse == prevQuoteVerse || quote.Verse == prevQuoteVerse + 1))
 					{
 						prevQuoteVerse = quote.Verse;
 						continue;
 					}
 					var text = book.GetVerseText(quote.Chapter, quote.Verse);
-					foreach (var quoteSystem in QuoteSystem.AllSystems)
+					Debug.WriteLine("Evaluating {0} {1}:{2} - contents: {3}", book.BookId, quote.Chapter, quote.Verse, text);
+					foreach (var quoteSystem in stats.Keys)
 					{
+						string endQuoteMarker = quoteSystem.EndQuoteMarker;
+						followingVersesToSearchForEndQuote = maxFollowingVersesToSearchForEndQuote;
+
 						int ichStartQuote = text.IndexOf(quoteSystem.StartQuoteMarker, StringComparison.Ordinal);
+
+						if (quote.IsDialogue && !string.IsNullOrEmpty(quoteSystem.QuotationDashMarker))
+						{
+							int i = text.IndexOf(quoteSystem.QuotationDashMarker, StringComparison.Ordinal);
+							if (i >= 0 && (ichStartQuote < 0 || i < ichStartQuote))
+							{
+								// Found a dialogue quote marker earlier in the text.
+								if (!String.IsNullOrEmpty(quoteSystem.QuotationDashEndMarker) || ichStartQuote < 0)
+									endQuoteMarker = quoteSystem.QuotationDashEndMarker;
+								ichStartQuote = i;
+								followingVersesToSearchForEndQuote = 1; // Dialogue quotes are typically short and rarely cross more than one verse.
+							}
+						}
 						if (ichStartQuote >= 0 && ichStartQuote < text.Length - 2)
 						{
 							if (++stats[quoteSystem].StartQuoteHits > bestStatistics.StartQuoteHits)
 								bestStatistics.StartQuoteHits++;
 
-							if (text.IndexOf(quoteSystem.EndQuoteMarker, ichStartQuote + 1, StringComparison.Ordinal) > ichStartQuote)
+							if (endQuoteMarker == null || text.IndexOf(endQuoteMarker, ichStartQuote + 1, StringComparison.Ordinal) > ichStartQuote)
 							{
 								if (++stats[quoteSystem].EndQuoteHits > bestStatistics.EndQuoteHits)
 									bestStatistics.EndQuoteHits++;
 							}
 							else
 							{
-								for (int i = 1; i < maxFollowingVersesToSearchForEndQuote; i++)
+								for (int i = 1; i < followingVersesToSearchForEndQuote; i++)
 								{
 									if (!cvInfo.GetCharacters(book.BookId, quote.Chapter, quote.Verse + i).Any())
 										break;
 									text = book.GetVerseText(quote.Chapter, quote.Verse);
-									if (text.IndexOf(quoteSystem.EndQuoteMarker, StringComparison.Ordinal) > 0)
+									if (text.IndexOf(endQuoteMarker, StringComparison.Ordinal) > 0)
 									{
 										if (++stats[quoteSystem].EndQuoteHits > bestStatistics.EndQuoteHits)
 											bestStatistics.EndQuoteHits++;
@@ -113,13 +134,22 @@ namespace ProtoScript
 						}
 						if (match != null)
 						{
-							if (competitors.Any())
+							var closeCompetitors = competitors.Where(c => c.StartQuoteMarker != match.StartQuoteMarker ||
+								c.EndQuoteMarker != match.EndQuoteMarker ||
+								stats[c].StartQuoteHits == bestStatistics.StartQuoteHits).ToList();
+							if (closeCompetitors.Any())
 							{
-								foreach (var competitor in competitors)
-									Debug.WriteLine("Competitor \"" + competitor + "\" too close to leader \"" + match + "\".");
+								foreach (var competitor in closeCompetitors)
+									Debug.WriteLine("Competitor " + competitor.Name + " (" + competitor + ") too close to leader \"" + match + "\".");
 							}
 							else
 							{
+								Debug.WriteLine("STATISTICS:");
+								foreach (var kvp in stats.Where(kvp => kvp.Value.StartQuoteHits > 0 || kvp.Value.EndQuoteHits > 0))
+								{
+									Debug.WriteLine(kvp.Key.Name + "(" + kvp.Key + ")\tStart Hits: " + kvp.Value.StartQuoteHits + "\tEnd Hits: " +
+													kvp.Value.EndQuoteHits);
+								}
 								certain = true;
 								return match;
 							}
@@ -131,9 +161,6 @@ namespace ProtoScript
 						Debug.WriteLine("Giving up guessing quote system.");
 						return BestGuess(stats, bestStatistics);
 					}
-
-					if (versesAnalyzedForCurrentBook >= maxSamplePerBook)
-						break;
 
 					prevQuoteChapter = quote.Chapter;
 					prevQuoteVerse = quote.Verse;
@@ -147,14 +174,25 @@ namespace ProtoScript
 			if (bestStatistics.StartQuoteHits == 0 && bestStatistics.EndQuoteHits == 0)
 				return QuoteSystem.Default;
 
+			Debug.WriteLine("STATISTICS:");
+
 			int maxEndQuoteHits = 0;
 			QuoteSystem bestSystem = QuoteSystem.Default;
-			foreach (var system in stats.Where(kvp => (kvp.Value.StartQuoteHits == bestStatistics.StartQuoteHits)))
+			foreach (var kvp in stats)
 			{
-				if (system.Value.EndQuoteHits > maxEndQuoteHits)
+				if (kvp.Value.StartQuoteHits > 0 || kvp.Value.EndQuoteHits > 0)
 				{
-					maxEndQuoteHits = system.Value.EndQuoteHits;
-					bestSystem = system.Key;
+					Debug.WriteLine(kvp.Key.Name + "(" + kvp.Key + ")\tStart Hits: " + kvp.Value.StartQuoteHits + "\tEnd Hits: " +
+									kvp.Value.EndQuoteHits);
+				}
+
+				if ((kvp.Value.StartQuoteHits == bestStatistics.StartQuoteHits))
+				{
+					if (kvp.Value.EndQuoteHits > maxEndQuoteHits)
+					{
+						maxEndQuoteHits = kvp.Value.EndQuoteHits;
+						bestSystem = kvp.Key;
+					}
 				}
 			}
 			return bestSystem;

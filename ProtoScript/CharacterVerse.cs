@@ -13,6 +13,7 @@ namespace ProtoScript
 		public int Verse { get { return BcvRef.Verse; } }
 		public string Delivery;
 		public string Alias;
+		public bool IsDialogue { get; set; }
 
 		public override string ToString()
 		{
@@ -29,7 +30,7 @@ namespace ProtoScript
 		#region Equality Members
 		protected bool Equals(CharacterVerse other)
 		{
-			return Equals(BcvRef, other.BcvRef) && string.Equals(Character, other.Character) && string.Equals(Delivery, other.Delivery) && string.Equals(Alias, other.Alias);
+			return Equals(BcvRef, other.BcvRef) && string.Equals(Character, other.Character) && string.Equals(Delivery, other.Delivery) && string.Equals(Alias, other.Alias) && IsDialogue == other.IsDialogue;
 		}
 
 		public override bool Equals(object obj)

@@ -591,6 +591,8 @@ namespace ProtoScriptTests
 
 	internal static class BlockTestExtensions
 	{
+		static Random s_random = new Random();
+
 		internal static Block AddVerse(this Block block, int verseNum, string text = null)
 		{
 			return block.AddVerse(verseNum.ToString(), text);
@@ -608,13 +610,12 @@ namespace ProtoScriptTests
 		// ENHANCE: Consider moving this to Palaso test utilities
 		internal static string RandomString()
 		{
-			var chars = " ABCDEF GHIJK LMNOP QRSTU VWXYZ abcdef ghijk lmnop qrstu vwxyz ,.!?";
+			var chars = " AAAB CDDEEF GHIJK LMNNOPP QRRSSTTU VWXYZ aaaabb ccdd eeeeef gghiiijk llmmnn oopp qrrsssttu vwxyz ,,...!?\u2014";
 			var randomString = new StringBuilder();
-			var random = new Random();
-			var length = random.Next(80);
+			var length = 4 + s_random.Next(80);
 
 			for (int i = 0; i < length; i++)
-				randomString.Append(chars[random.Next(chars.Length)]);
+				randomString.Append(chars[s_random.Next(chars.Length)]);
 
 			return randomString.ToString();
 		}

@@ -128,11 +128,11 @@
     <Compile Include="Dialogs\OpenProjectDlg.Designer.cs">
       <DependentUpon>OpenProjectDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\ProjectSettingsDialog.cs">
+    <Compile Include="Dialogs\QuotationMarksDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\ProjectSettingsDialog.Designer.cs">
-      <DependentUpon>ProjectSettingsDialog.cs</DependentUpon>
+    <Compile Include="Dialogs\QuotationMarksDialog.Designer.cs">
+      <DependentUpon>QuotationMarksDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\SelectProjectDialog.cs" />
     <Compile Include="ICharacterVerseInfo.cs" />
@@ -164,8 +164,8 @@
     <EmbeddedResource Include="Dialogs\OpenProjectDlg.resx">
       <DependentUpon>OpenProjectDlg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ProjectSettingsDialog.resx">
-      <DependentUpon>ProjectSettingsDialog.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\QuotationMarksDialog.resx">
+      <DependentUpon>QuotationMarksDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SandboxForm.resx">
       <DependentUpon>SandboxForm.cs</DependentUpon>
@@ -212,7 +212,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\quoteSystems.xml" />
+    <None Include="Resources\quoteSystems.xml">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\CharacterVerse.txt" />

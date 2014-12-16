@@ -5,11 +5,87 @@
 		<StartQuoteMarker>“</StartQuoteMarker>
 		<EndQuoteMarker>”</EndQuoteMarker>
 	</QuoteSystem>
+  	<QuoteSystem>
+		<Name>Tırnak işareti (with 2014 Quotation dash)</Name>
+		<MajorLanguage>Turkish/Vietnamese</MajorLanguage>
+		<StartQuoteMarker>“</StartQuoteMarker>
+		<EndQuoteMarker>”</EndQuoteMarker>
+    <QuotationDashMarker>—</QuotationDashMarker>
+	</QuoteSystem>
+  	<QuoteSystem>
+		<Name>Tırnak işareti (with 2015 Quotation dash)</Name>
+		<MajorLanguage>Turkish/Vietnamese</MajorLanguage>
+		<StartQuoteMarker>“</StartQuoteMarker>
+		<EndQuoteMarker>”</EndQuoteMarker>
+    <QuotationDashMarker>―</QuotationDashMarker>
+	</QuoteSystem>
+  	<QuoteSystem>
+		<Name>Virgolette (with opening and closing 2014 Quotation dash)</Name>
+		<MajorLanguage>Italian</MajorLanguage>
+		<StartQuoteMarker>“</StartQuoteMarker>
+		<EndQuoteMarker>”</EndQuoteMarker>
+    <QuotationDashMarker>—</QuotationDashMarker>
+    <QuotationDashEndMarker>—</QuotationDashEndMarker>
+	</QuoteSystem>
+  	<QuoteSystem>
+		<Name>Virgolette (with opening and closing 2015 Quotation dash)</Name>
+		<MajorLanguage>Italian</MajorLanguage>
+		<StartQuoteMarker>“</StartQuoteMarker>
+		<EndQuoteMarker>”</EndQuoteMarker>
+    <QuotationDashMarker>―</QuotationDashMarker>
+    <QuotationDashEndMarker>―</QuotationDashEndMarker>
+	</QuoteSystem>
 	<QuoteSystem>
 		<Name>Guillemets</Name>
 		<MajorLanguage>French</MajorLanguage>
 		<StartQuoteMarker>«</StartQuoteMarker>
 		<EndQuoteMarker>»</EndQuoteMarker>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>Guillemets (with 2014 Quotation dash - alternating speakers)</Name>
+		<MajorLanguage>French</MajorLanguage>
+		<StartQuoteMarker>«</StartQuoteMarker>
+		<EndQuoteMarker>»</EndQuoteMarker>
+    <QuotationDashMarker>—</QuotationDashMarker>
+    <QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>true</QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>Guillemets (with 2015 Quotation dash - alternating speakers)</Name>
+		<MajorLanguage>French</MajorLanguage>
+		<StartQuoteMarker>«</StartQuoteMarker>
+		<EndQuoteMarker>»</EndQuoteMarker>
+    <QuotationDashMarker>―</QuotationDashMarker>
+    <QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>true</QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>Εισαγωγικά (with 2014 Quotation dash)</Name>
+		<MajorLanguage>Greek</MajorLanguage>
+		<StartQuoteMarker>«</StartQuoteMarker>
+		<EndQuoteMarker>»</EndQuoteMarker>
+    <QuotationDashMarker>—</QuotationDashMarker>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>Εισαγωγικά (with 2015 Quotation dash)</Name>
+		<MajorLanguage>Greek</MajorLanguage>
+		<StartQuoteMarker>«</StartQuoteMarker>
+		<EndQuoteMarker>»</EndQuoteMarker>
+    <QuotationDashMarker>―</QuotationDashMarker>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>Comillas latinas (with opening and closing 2014 Quotation dash)</Name>
+		<MajorLanguage>Spanish/Russian</MajorLanguage>
+		<StartQuoteMarker>«</StartQuoteMarker>
+		<EndQuoteMarker>»</EndQuoteMarker>
+    <QuotationDashMarker>—</QuotationDashMarker>
+    <QuotationDashEndMarker>—</QuotationDashEndMarker>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>Comillas latinas (with opening and closing 2015 Quotation dash)</Name>
+		<MajorLanguage>Spanish/Russian</MajorLanguage>
+		<StartQuoteMarker>«</StartQuoteMarker>
+		<EndQuoteMarker>»</EndQuoteMarker>
+    <QuotationDashMarker>―</QuotationDashMarker>
+    <QuotationDashEndMarker>―</QuotationDashEndMarker>
 	</QuoteSystem>
 	<QuoteSystem>
 		<Name>Quotation marks, single</Name>
@@ -30,10 +106,40 @@
 		<EndQuoteMarker>”</EndQuoteMarker>
 	</QuoteSystem>
 	<QuoteSystem>
+		<Name>Citationstecken (with 2014 Quotation dash)</Name>
+		<MajorLanguage>Swedish</MajorLanguage>
+		<StartQuoteMarker>”</StartQuoteMarker>
+		<EndQuoteMarker>”</EndQuoteMarker>
+    <QuotationDashMarker>—</QuotationDashMarker>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>Citationstecken (with 2015 Quotation dash)</Name>
+		<MajorLanguage>Swedish</MajorLanguage>
+		<StartQuoteMarker>”</StartQuoteMarker>
+		<EndQuoteMarker>”</EndQuoteMarker>
+    <QuotationDashMarker>―</QuotationDashMarker>
+	</QuoteSystem>
+	<QuoteSystem>
 		<Name>Anführungszeichen</Name>
 		<MajorLanguage>German</MajorLanguage>
 		<StartQuoteMarker>„</StartQuoteMarker>
 		<EndQuoteMarker>“</EndQuoteMarker>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>Ghilimele (with opening and closing 2014 Quotation dash)</Name>
+		<MajorLanguage>Eastern Europe</MajorLanguage>
+		<StartQuoteMarker>„</StartQuoteMarker>
+		<EndQuoteMarker>“</EndQuoteMarker>
+    <QuotationDashMarker>—</QuotationDashMarker>
+    <QuotationDashEndMarker>—</QuotationDashEndMarker>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>Ghilimele (with opening and closing 2015 Quotation dash)</Name>
+		<MajorLanguage>Eastern Europe</MajorLanguage>
+		<StartQuoteMarker>„</StartQuoteMarker>
+		<EndQuoteMarker>“</EndQuoteMarker>
+    <QuotationDashMarker>―</QuotationDashMarker>
+    <QuotationDashEndMarker>―</QuotationDashEndMarker>
 	</QuoteSystem>
 	<QuoteSystem>
 		<Name>Idézőjel</Name>
@@ -58,5 +164,21 @@
 		<MajorLanguage>Danish</MajorLanguage>
 		<StartQuoteMarker>»</StartQuoteMarker>
 		<EndQuoteMarker>«</EndQuoteMarker>
+	</QuoteSystem>
+  <QuoteSystem>
+		<Name>Cudzysłów (with opening and closing 2014 Quotation dash)</Name>
+		<MajorLanguage>Polish</MajorLanguage>
+		<StartQuoteMarker>»</StartQuoteMarker>
+		<EndQuoteMarker>«</EndQuoteMarker>
+    <QuotationDashMarker>—</QuotationDashMarker>
+    <QuotationDashEndMarker>—</QuotationDashEndMarker>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>Cudzysłów (with opening and closing 2015 Quotation dash)</Name>
+		<MajorLanguage>Polish</MajorLanguage>
+		<StartQuoteMarker>»</StartQuoteMarker>
+		<EndQuoteMarker>«</EndQuoteMarker>
+    <QuotationDashMarker>―</QuotationDashMarker>
+    <QuotationDashEndMarker>―</QuotationDashEndMarker>
 	</QuoteSystem>
 </QuoteSystems>

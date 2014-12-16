@@ -50,7 +50,7 @@ namespace ProtoScriptTests
 		{
 			foreach (var quoteSystem in QuoteSystem.AllSystems)
 			{
-				RunTest(quoteSystem, true, true);
+				RunTest(quoteSystem, true, String.IsNullOrEmpty(quoteSystem.QuotationDashMarker));
 			}
 		}
 
@@ -76,7 +76,7 @@ namespace ProtoScriptTests
 			var guessedQuoteSystem = QuoteSystemGuesser.Guess(CharacterVerseData.Singleton, MockedBookForQuoteSystem.GetMockedBooks(quoteSystem, highlyConsistentData), out certain);
 			sw.Stop();
 			Console.WriteLine("   took " + sw.ElapsedMilliseconds + " milliseconds.");
-			Assert.AreEqual(quoteSystem, guessedQuoteSystem);
+			Assert.AreEqual(quoteSystem, guessedQuoteSystem, "Expected " + quoteSystem.Name + ", but was " + guessedQuoteSystem.Name);
 			if (expectedCertain)
 			Assert.IsTrue(certain);
 		}
@@ -104,7 +104,7 @@ namespace ProtoScriptTests
 		public static List<IScrBook> GetMockedBooks(QuoteSystem desiredQuoteSystem, bool highlyConsistentData = false)
 		{
 			var mockedBooks = new List<IScrBook>();
-			for (int i = 1; i < BCVRef.LastBook; i++)
+			for (int i = 1; i <= BCVRef.LastBook; i++)
 				mockedBooks.Add(new MockedBookForQuoteSystem(i, desiredQuoteSystem, highlyConsistentData));
 			return mockedBooks;
 		}
@@ -155,35 +155,66 @@ namespace ProtoScriptTests
 			else
 				RandomizeLessConsistent(quoteStartExpected, ref startQuote, ref endQuote);
 
+
+			string startQuoteMarker = m_desiredQuoteSystem.StartQuoteMarker;
+			string endQuoteMarker = m_desiredQuoteSystem.EndQuoteMarker;
+
+			if (!String.IsNullOrEmpty(m_desiredQuoteSystem.QuotationDashMarker))
+			{
+				if (quoteStartExpected && characters[0].IsDialogue)
+				{
+					if (m_random.Next(10) > 1)
+					{
+						// 90% of expected dialogue quotes will, in fact, use the dialogue quote marker.
+						startQuoteMarker = m_desiredQuoteSystem.QuotationDashMarker;
+						if (!String.IsNullOrEmpty(m_desiredQuoteSystem.QuotationDashEndMarker))
+							endQuoteMarker = m_desiredQuoteSystem.QuotationDashEndMarker;
+						else if (characters.Count > 1 && m_desiredQuoteSystem.QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes)
+							endQuoteMarker = startQuoteMarker;
+						else
+							endQuote = QuotePosition.None;
+					}
+				}
+				else
+				{
+					if (m_random.Next(50) > 1)
+					{
+						// 2% of quotes that were not expected to be dialogue will, nonetheless, use the dialogue quote marker.
+						startQuoteMarker = m_desiredQuoteSystem.QuotationDashMarker;
+						endQuoteMarker = m_desiredQuoteSystem.QuotationDashEndMarker;
+					}
+				}
+			}
+
 			if (startQuote == QuotePosition.StartOfVerse)
-				verseText.Append(m_desiredQuoteSystem.StartQuoteMarker);
+				verseText.Append(startQuoteMarker);
 			if (endQuote == QuotePosition.StartOfVerse)
-				verseText.Append(m_desiredQuoteSystem.EndQuoteMarker);
+				verseText.Append(endQuoteMarker);
 
 			verseText.Append(BlockTestExtensions.RandomString());
 
 			if (startQuote == QuotePosition.MiddleOfVerse)
 			{
-				verseText.Append(m_desiredQuoteSystem.StartQuoteMarker);
+				verseText.Append(startQuoteMarker);
 				verseText.Append(BlockTestExtensions.RandomString());
 			}
 
 			if (endQuote == QuotePosition.MiddleOfVerse || endQuote == QuotePosition.OutOfOrder)
 			{
-				verseText.Append(m_desiredQuoteSystem.EndQuoteMarker);
+				verseText.Append(endQuoteMarker);
 				verseText.Append(BlockTestExtensions.RandomString());
 			}
 
 			if (startQuote == QuotePosition.OutOfOrder)
 			{
-				verseText.Append(m_desiredQuoteSystem.StartQuoteMarker);
+				verseText.Append(startQuoteMarker);
 				verseText.Append(BlockTestExtensions.RandomString());
 			}
 
 			if (startQuote == QuotePosition.EndOfVerse)
-				verseText.Append(m_desiredQuoteSystem.StartQuoteMarker);
+				verseText.Append(startQuoteMarker);
 			if (endQuote == QuotePosition.EndOfVerse)
-				verseText.Append(m_desiredQuoteSystem.EndQuoteMarker);
+				verseText.Append(endQuoteMarker);
 
 			return verseText.ToString();
 		}
