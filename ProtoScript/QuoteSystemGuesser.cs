@@ -1,4 +1,6 @@
-﻿using System;
+﻿#define SHOWTESTINFO
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -8,13 +10,20 @@ namespace ProtoScript
 {
 	public class QuoteSystemGuesser
 	{
+		const int kMinSample = 15;
+		const double kMinStartQuotePercent = .75;
+		const double kMinEndQuotePercent = .25;
+		const double kMaxCompetitorPercent = .6;
+		const int kMaxFollowingVersesToSearchForEndQuote = 7;
+		const int kMaxTimeLimit = 4800; // milliseconds
+	
 		private class QuoteStatistics
 		{
-			public int StartQuoteHits = 0;
-			public int EndQuoteHits = 0;
+			public int StartQuoteHits;
+			public int EndQuoteHits;
 		}
 
-		public static QuoteSystem Guess(ICharacterVerseInfo cvInfo, IEnumerable<IScrBook> bookList, out bool certain)
+		public static QuoteSystem Guess<T>(ICharacterVerseInfo cvInfo, List<T> bookList, out bool certain) where T : IScrBook
 		{
 			certain = false;
 			var bookCount = bookList.Count();
@@ -22,15 +31,12 @@ namespace ProtoScript
 				return QuoteSystem.Default;
 			var stats = QuoteSystem.AllSystems.ToDictionary(s => s, s => new QuoteStatistics());
 			int totalVersesAnalyzed = 0;
-			const int minSample = 15;
-			int maxNonDialogueSamplesPerBook = BCVRef.LastBook * minSample / bookCount;
-			const double minStartQuotePercent = .75;
-			const double minEndQuotePercent = .25;
-			const double maxCompetitorPercent = .6;
-			const int maxFollowingVersesToSearchForEndQuote = 7;
-			const int maxTimeLimit = 4800; // milliseconds
+			int maxNonDialogueSamplesPerBook = BCVRef.LastBook * kMinSample / bookCount;
+
 			QuoteStatistics bestStatistics = new QuoteStatistics();
-			int followingVersesToSearchForEndQuote;
+#if SHOWTESTINFO
+			QuoteSystem bestQuoteSystem = null;
+#endif
 
 			var stopwatch = new Stopwatch();
 			stopwatch.Start();
@@ -53,11 +59,13 @@ namespace ProtoScript
 						continue;
 					}
 					var text = book.GetVerseText(quote.Chapter, quote.Verse);
+#if SHOWTESTINFO
 					Debug.WriteLine("Evaluating {0} {1}:{2} - contents: {3}", book.BookId, quote.Chapter, quote.Verse, text);
+#endif
 					foreach (var quoteSystem in stats.Keys)
 					{
 						string endQuoteMarker = quoteSystem.EndQuoteMarker;
-						followingVersesToSearchForEndQuote = maxFollowingVersesToSearchForEndQuote;
+						int followingVersesToSearchForEndQuote = kMaxFollowingVersesToSearchForEndQuote;
 
 						int ichStartQuote = text.IndexOf(quoteSystem.StartQuoteMarker, StringComparison.Ordinal);
 
@@ -76,7 +84,16 @@ namespace ProtoScript
 						if (ichStartQuote >= 0 && ichStartQuote < text.Length - 2)
 						{
 							if (++stats[quoteSystem].StartQuoteHits > bestStatistics.StartQuoteHits)
+							{
 								bestStatistics.StartQuoteHits++;
+#if SHOWTESTINFO
+								if (bestQuoteSystem != quoteSystem)
+								{
+									Debug.WriteLine("New start quote leader: " + quoteSystem.Name);
+									bestQuoteSystem = quoteSystem;
+								}
+#endif
+							}
 
 							if (endQuoteMarker == null || text.IndexOf(endQuoteMarker, ichStartQuote + 1, StringComparison.Ordinal) > ichStartQuote)
 							{
@@ -103,7 +120,7 @@ namespace ProtoScript
 					totalVersesAnalyzed++;
 					versesAnalyzedForCurrentBook++;
 
-					if (totalVersesAnalyzed >= minSample && bestStatistics.EndQuoteHits > 0)
+					if (totalVersesAnalyzed >= kMinSample && bestStatistics.EndQuoteHits > 0)
 					{
 						QuoteSystem match = null;
 						var competitors = new List<QuoteSystem>();
@@ -113,24 +130,26 @@ namespace ProtoScript
 							bool possibleMatch = (kvp.Value.StartQuoteHits == bestStatistics.StartQuoteHits ||
 												kvp.Value.EndQuoteHits == bestStatistics.EndQuoteHits);
 							if (match == null && possibleMatch &&
-								kvp.Value.StartQuoteHits > totalVersesAnalyzed * minStartQuotePercent &&
-								kvp.Value.EndQuoteHits > totalVersesAnalyzed * minEndQuotePercent)
+								kvp.Value.StartQuoteHits > totalVersesAnalyzed * kMinStartQuotePercent &&
+								kvp.Value.EndQuoteHits > totalVersesAnalyzed * kMinEndQuotePercent)
 							{
 								match = kvp.Key;
 							}
-							else if (kvp.Value.StartQuoteHits > bestStatistics.StartQuoteHits * maxCompetitorPercent &&
-								kvp.Value.EndQuoteHits > bestStatistics.EndQuoteHits * maxCompetitorPercent)
+							else if (kvp.Value.StartQuoteHits > bestStatistics.StartQuoteHits * kMaxCompetitorPercent &&
+								kvp.Value.EndQuoteHits > bestStatistics.EndQuoteHits * kMaxCompetitorPercent)
 							{
 								// We just found a competitor that is too close to the current leader to safely declare
 								// the winner a clear and convincing winner. (So nobody wins.)
 								competitors.Add(kvp.Key);
 							}
-							//else if (possibleMatch)
-							//{
-							//	Debug.WriteLine("Possible match: " + kvp.Key);
-							//	Debug.WriteLine(" -- StartQuoteHits: " + kvp.Value.StartQuoteHits + " of a possible " + totalVersesAnalyzed);
-							//	Debug.WriteLine(" -- EndQuoteHits: " + kvp.Value.EndQuoteHits + " of a possible " + totalVersesAnalyzed);
-							//}
+#if SHOWTESTINFO
+							else if (possibleMatch)
+							{
+								Debug.WriteLine("Possible match: " + kvp.Key);
+								Debug.WriteLine(" -- StartQuoteHits: " + kvp.Value.StartQuoteHits + " of a possible " + totalVersesAnalyzed);
+								Debug.WriteLine(" -- EndQuoteHits: " + kvp.Value.EndQuoteHits + " of a possible " + totalVersesAnalyzed);
+							}
+#endif
 						}
 						if (match != null)
 						{
@@ -139,26 +158,32 @@ namespace ProtoScript
 								stats[c].StartQuoteHits == bestStatistics.StartQuoteHits).ToList();
 							if (closeCompetitors.Any())
 							{
+#if SHOWTESTINFO
 								foreach (var competitor in closeCompetitors)
 									Debug.WriteLine("Competitor " + competitor.Name + " (" + competitor + ") too close to leader \"" + match + "\".");
+#endif
 							}
 							else
 							{
+#if SHOWTESTINFO
 								Debug.WriteLine("STATISTICS:");
 								foreach (var kvp in stats.Where(kvp => kvp.Value.StartQuoteHits > 0 || kvp.Value.EndQuoteHits > 0))
 								{
 									Debug.WriteLine(kvp.Key.Name + "(" + kvp.Key + ")\tStart Hits: " + kvp.Value.StartQuoteHits + "\tEnd Hits: " +
 													kvp.Value.EndQuoteHits);
 								}
+#endif
 								certain = true;
 								return match;
 							}
 						}
 					}
 
-					if (stopwatch.ElapsedMilliseconds > maxTimeLimit)
+					if (stopwatch.ElapsedMilliseconds > kMaxTimeLimit)
 					{
+#if SHOWTESTINFO
 						Debug.WriteLine("Giving up guessing quote system.");
+#endif
 						return BestGuess(stats, bestStatistics);
 					}
 
@@ -174,17 +199,20 @@ namespace ProtoScript
 			if (bestStatistics.StartQuoteHits == 0 && bestStatistics.EndQuoteHits == 0)
 				return QuoteSystem.Default;
 
+#if SHOWTESTINFO
 			Debug.WriteLine("STATISTICS:");
-
+#endif
 			int maxEndQuoteHits = 0;
 			QuoteSystem bestSystem = QuoteSystem.Default;
 			foreach (var kvp in stats)
 			{
+#if SHOWTESTINFO
 				if (kvp.Value.StartQuoteHits > 0 || kvp.Value.EndQuoteHits > 0)
 				{
 					Debug.WriteLine(kvp.Key.Name + "(" + kvp.Key + ")\tStart Hits: " + kvp.Value.StartQuoteHits + "\tEnd Hits: " +
 									kvp.Value.EndQuoteHits);
 				}
+#endif
 
 				if ((kvp.Value.StartQuoteHits == bestStatistics.StartQuoteHits))
 				{

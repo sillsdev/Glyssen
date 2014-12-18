@@ -2,6 +2,7 @@
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects> 
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{45321F2E-174C-482A-BDA1-BF199366FBD6}</ProjectGuid>
@@ -64,10 +65,12 @@
     <Reference Include="L10NSharp">
       <HintPath>..\lib\dotnet\L10NSharp.dll</HintPath>
     </Reference>
-    <Reference Include="NetLoc">
+    <Reference Include="NetLoc, Version=7.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\NetLoc.dll</HintPath>
     </Reference>
-    <Reference Include="Palaso">
+    <Reference Include="Palaso, Version=2.6.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\Palaso.dll</HintPath>
     </Reference>
     <Reference Include="PalasoUIWindowsForms">
@@ -76,7 +79,8 @@
     <Reference Include="PalasoUIWindowsForms.GeckoBrowserAdapter">
       <HintPath>..\lib\dotnet\PalasoUIWindowsForms.GeckoBrowserAdapter.dll</HintPath>
     </Reference>
-    <Reference Include="ParatextShared">
+    <Reference Include="ParatextShared, Version=7.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\ParatextShared.dll</HintPath>
     </Reference>
     <Reference Include="SIL.ScriptureControls, Version=7.3.0.23701, Culture=neutral, processorArchitecture=MSIL">

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -11,7 +10,6 @@ namespace ProtoScript.Dialogs
 	public partial class QuotationMarksDialog : Form
 	{
 		private readonly Project m_project;
-		private string m_hintFormat;
 
 		internal QuotationMarksDialog(Project project)
 		{

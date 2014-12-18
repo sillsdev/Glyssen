@@ -76,9 +76,16 @@ namespace ProtoScriptTests
 			var guessedQuoteSystem = QuoteSystemGuesser.Guess(CharacterVerseData.Singleton, MockedBookForQuoteSystem.GetMockedBooks(quoteSystem, highlyConsistentData), out certain);
 			sw.Stop();
 			Console.WriteLine("   took " + sw.ElapsedMilliseconds + " milliseconds.");
-			Assert.AreEqual(quoteSystem, guessedQuoteSystem, "Expected " + quoteSystem.Name + ", but was " + guessedQuoteSystem.Name);
 			if (expectedCertain)
-			Assert.IsTrue(certain);
+			{
+				Assert.AreEqual(quoteSystem, guessedQuoteSystem, "Expected " + quoteSystem.Name + ", but was " + guessedQuoteSystem.Name);
+				Assert.IsTrue(certain);
+			}
+			else
+			{
+				var comparer = new FirstLevelQuoteSystemComparer();
+				Assert.IsTrue(comparer.Equals(quoteSystem, guessedQuoteSystem), "Expected " + quoteSystem + ", but was " + guessedQuoteSystem);
+			}
 		}
 
 		[Test]
@@ -97,9 +104,9 @@ namespace ProtoScriptTests
 
 	internal class MockedBookForQuoteSystem : IScrBook
 	{
-		private QuoteSystem m_desiredQuoteSystem;
+		private readonly QuoteSystem m_desiredQuoteSystem;
 		private readonly bool m_highlyConsistentData;
-		private Random m_random = new Random();
+		private Random m_random = new Random(300);
 
 		public static List<IScrBook> GetMockedBooks(QuoteSystem desiredQuoteSystem, bool highlyConsistentData = false)
 		{
@@ -192,6 +199,11 @@ namespace ProtoScriptTests
 				verseText.Append(endQuoteMarker);
 
 			verseText.Append(BlockTestExtensions.RandomString());
+
+			if (m_highlyConsistentData && startQuote != QuotePosition.None && startQuote != QuotePosition.StartOfVerse)
+			{
+				verseText.Replace('\u2014', '-'); // Prevent spurious em-dashes before starting quote mark
+			}
 
 			if (startQuote == QuotePosition.MiddleOfVerse)
 			{
