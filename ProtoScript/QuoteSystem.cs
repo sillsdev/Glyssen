@@ -17,37 +17,52 @@ namespace ProtoScript
 		{
 			get { return Palaso.Extensions.StringExtensions.kObjReplacementChar.ToString(CultureInfo.InvariantCulture); }
 		}
-		
-		private static IDictionary<string, QuoteSystem> s_systems;
+
+		private static List<QuoteSystem> s_systems;
+		private static List<QuoteSystem> s_uniquelyGuessableSystems;
 
 		static QuoteSystem()
 		{
-			LoadDefaultSystems();
+			s_systems = new List<QuoteSystem>();
+
+			var doc = new XmlDocument();
+			doc.LoadXml(Resources.QuoteSystemData);
+			foreach (XmlNode node in doc.SafeSelectNodes("//QuoteSystem"))
+				s_systems.Add(XmlSerializationHelper.DeserializeFromString<QuoteSystem>(node.OuterXml));
 		}
 
 		public static QuoteSystem Default
 		{
-			get
-			{
-				QuoteSystem defaultQuoteSystem;
-				TryGetQuoteSystem("Guillemets", out defaultQuoteSystem);
-				return defaultQuoteSystem;
-			}
+			get { return s_systems.SingleOrDefault(s => s.Name == "Guillemets"); }
 		}
 
-		public static IEnumerable<QuoteSystem> AllSystems
+		public static IEnumerable<QuoteSystem> UniquelyGuessableSystems
 		{
-			get { return s_systems.Values; }
+			get
+			{
+				if (s_uniquelyGuessableSystems == null)
+				{
+					s_uniquelyGuessableSystems = AllUniqueFirstLevelSystems.ToList();
+					var comparer = new FirstLevelQuoteSystemComparer();
+					foreach (var qs in s_systems.Where(q => q.QuotationDashMarker != null))
+					{
+						if (!s_uniquelyGuessableSystems.Any(s => comparer.Equals(s, qs) && s.QuotationDashMarker == qs.QuotationDashMarker))
+						{
+							var minimallySpecifiedSystem = GetOrCreateQuoteSystem(qs.StartQuoteMarker,
+								qs.EndQuoteMarker, qs.QuotationDashMarker, null, false);
+							if (string.IsNullOrEmpty(minimallySpecifiedSystem.Name))
+								minimallySpecifiedSystem = qs;
+							s_uniquelyGuessableSystems.Add(minimallySpecifiedSystem);
+						}
+					}
+				}
+				return s_uniquelyGuessableSystems;
+			}
 		}
 
 		public static IEnumerable<QuoteSystem> AllUniqueFirstLevelSystems
 		{
-			get { return s_systems.Values.Where(q => q.QuotationDashMarker == null).Distinct(new FirstLevelQuoteSystemComparer()); }
-		}
-
-		public static bool TryGetQuoteSystem(string name, out QuoteSystem quoteSystem)
-		{
-			return s_systems.TryGetValue(name, out quoteSystem);
+			get { return s_systems.Where(q => q.QuotationDashMarker == null).Distinct(new FirstLevelQuoteSystemComparer()); }
 		}
 
 		public static QuoteSystem GetOrCreateQuoteSystem(string startQuoteMarker, string endQuoteMarker,
@@ -62,24 +77,8 @@ namespace ProtoScript
 				QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes = quotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes
 			};
 
-			var match = AllSystems.SingleOrDefault(qs => qs.Equals(newQuoteSystem));
+			var match = s_systems.SingleOrDefault(qs => qs.Equals(newQuoteSystem));
 			return match ?? newQuoteSystem;
-		}
-
-		private static void LoadDefaultSystems()
-		{
-			if (s_systems != null)
-				return;
-
-			s_systems = new Dictionary<string, QuoteSystem>();
-
-			var doc = new XmlDocument();
-			doc.LoadXml(Resources.QuoteSystemData);
-			foreach(XmlNode node in doc.SafeSelectNodes("//QuoteSystem"))
-			{
-				var qs = XmlSerializationHelper.DeserializeFromString<QuoteSystem>(node.OuterXml);
-				s_systems.Add(qs.Name, qs);
-			}
 		}
 
 		public string Name { get; set; }

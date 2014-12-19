@@ -1,4 +1,4 @@
-﻿#define SHOWTESTINFO
+﻿//#define SHOWTESTINFO
 
 using System;
 using System.Collections.Generic;
@@ -10,18 +10,18 @@ namespace ProtoScript
 {
 	public class QuoteSystemGuesser
 	{
-		const int kMinSample = 15;
-		const double kMinStartQuotePercent = .75;
-		const double kMinEndQuotePercent = .25;
-		const double kMaxCompetitorPercent = .6;
-		const int kMaxFollowingVersesToSearchForEndQuote = 7;
-		const int kMaxTimeLimit = 4800; // milliseconds
-	
-		private class QuoteStatistics
-		{
-			public int StartQuoteHits;
-			public int EndQuoteHits;
-		}
+		private const int kMinSample = 15;
+		private const int kMinQuotationDashSample = 15;
+		private const double kMinPercent = .75;
+		private const double kMinQuotationDashPercent = .25;
+		private const double kQuotationDashFailPercent = .10;
+		private const double kMaxCompetitorPercent = .6;
+		private const int kMaxFollowingVersesToSearchForEndQuote = 7;
+		private const int kMaxTimeLimit = 8000; // milliseconds - TODO: Lower to 4800
+
+		private const int kStartQuoteValue = 2;
+		private const int kEndQuoteValue = 2;
+		private const int kQuotationDashValue = 3;
 
 		public static QuoteSystem Guess<T>(ICharacterVerseInfo cvInfo, List<T> bookList, out bool certain) where T : IScrBook
 		{
@@ -29,14 +29,18 @@ namespace ProtoScript
 			var bookCount = bookList.Count();
 			if (bookCount == 0)
 				return QuoteSystem.Default;
-			var stats = QuoteSystem.AllSystems.ToDictionary(s => s, s => new QuoteStatistics());
+			var scores = QuoteSystem.UniquelyGuessableSystems.ToDictionary(s => s, s => 0);
+			var quotationDashCounts = QuoteSystem.UniquelyGuessableSystems.Where(s => !String.IsNullOrEmpty(s.QuotationDashMarker))
+				.ToDictionary(s => s, s => 0);
+			var viableSystems = scores.Keys.ToList();
 			int totalVersesAnalyzed = 0;
+			int totalDialoqueQuoteVersesAnalyzed = 0;
 			int maxNonDialogueSamplesPerBook = BCVRef.LastBook * kMinSample / bookCount;
 
-			QuoteStatistics bestStatistics = new QuoteStatistics();
-#if SHOWTESTINFO
-			QuoteSystem bestQuoteSystem = null;
-#endif
+			int bestScore = 0;
+			bool foundEndQuote = false;
+
+			int kVerseValue = Math.Min(kStartQuoteValue + kEndQuoteValue, kQuotationDashValue);
 
 			var stopwatch = new Stopwatch();
 			stopwatch.Start();
@@ -62,11 +66,8 @@ namespace ProtoScript
 #if SHOWTESTINFO
 					Debug.WriteLine("Evaluating {0} {1}:{2} - contents: {3}", book.BookId, quote.Chapter, quote.Verse, text);
 #endif
-					foreach (var quoteSystem in stats.Keys)
+					foreach (var quoteSystem in viableSystems)
 					{
-						string endQuoteMarker = quoteSystem.EndQuoteMarker;
-						int followingVersesToSearchForEndQuote = kMaxFollowingVersesToSearchForEndQuote;
-
 						int ichStartQuote = text.IndexOf(quoteSystem.StartQuoteMarker, StringComparison.Ordinal);
 
 						if (quote.IsDialogue && !string.IsNullOrEmpty(quoteSystem.QuotationDashMarker))
@@ -75,42 +76,39 @@ namespace ProtoScript
 							if (i >= 0 && (ichStartQuote < 0 || i < ichStartQuote))
 							{
 								// Found a dialogue quote marker earlier in the text.
-								if (!String.IsNullOrEmpty(quoteSystem.QuotationDashEndMarker) || ichStartQuote < 0)
-									endQuoteMarker = quoteSystem.QuotationDashEndMarker;
-								ichStartQuote = i;
-								followingVersesToSearchForEndQuote = 1; // Dialogue quotes are typically short and rarely cross more than one verse.
+								scores[quoteSystem] += kQuotationDashValue;
+								quotationDashCounts[quoteSystem]++;
+								if (scores[quoteSystem] > bestScore)
+									bestScore = scores[quoteSystem];
+								continue;
 							}
 						}
 						if (ichStartQuote >= 0 && ichStartQuote < text.Length - 2)
 						{
-							if (++stats[quoteSystem].StartQuoteHits > bestStatistics.StartQuoteHits)
-							{
-								bestStatistics.StartQuoteHits++;
-#if SHOWTESTINFO
-								if (bestQuoteSystem != quoteSystem)
-								{
-									Debug.WriteLine("New start quote leader: " + quoteSystem.Name);
-									bestQuoteSystem = quoteSystem;
-								}
-#endif
-							}
+							scores[quoteSystem] += kStartQuoteValue;
+							if (scores[quoteSystem] > bestScore)
+								bestScore = scores[quoteSystem];
 
-							if (endQuoteMarker == null || text.IndexOf(endQuoteMarker, ichStartQuote + 1, StringComparison.Ordinal) > ichStartQuote)
+							if (text.IndexOf(quoteSystem.EndQuoteMarker, ichStartQuote + 1, StringComparison.Ordinal) > ichStartQuote)
 							{
-								if (++stats[quoteSystem].EndQuoteHits > bestStatistics.EndQuoteHits)
-									bestStatistics.EndQuoteHits++;
+								foundEndQuote = true;
+								scores[quoteSystem] += kEndQuoteValue;
+								if (scores[quoteSystem] > bestScore)
+									bestScore = scores[quoteSystem];
 							}
 							else
 							{
-								for (int i = 1; i < followingVersesToSearchForEndQuote; i++)
+								for (int i = 1; i < kMaxFollowingVersesToSearchForEndQuote; i++)
 								{
 									if (!cvInfo.GetCharacters(book.BookId, quote.Chapter, quote.Verse + i).Any())
 										break;
 									text = book.GetVerseText(quote.Chapter, quote.Verse);
-									if (text.IndexOf(endQuoteMarker, StringComparison.Ordinal) > 0)
+									if (text.IndexOf(quoteSystem.EndQuoteMarker, StringComparison.Ordinal) > 0)
 									{
-										if (++stats[quoteSystem].EndQuoteHits > bestStatistics.EndQuoteHits)
-											bestStatistics.EndQuoteHits++;
+										foundEndQuote = true;
+										scores[quoteSystem] += kEndQuoteValue;
+										if (scores[quoteSystem] > bestScore)
+											bestScore = scores[quoteSystem];
 										break;
 									}
 								}
@@ -118,111 +116,96 @@ namespace ProtoScript
 						}
 					}
 					totalVersesAnalyzed++;
+					if (quote.IsDialogue)
+						totalDialoqueQuoteVersesAnalyzed++;
 					versesAnalyzedForCurrentBook++;
 
-					if (totalVersesAnalyzed >= kMinSample && bestStatistics.EndQuoteHits > 0)
+					if (totalVersesAnalyzed >= kMinSample && foundEndQuote &&
+						(totalDialoqueQuoteVersesAnalyzed >= kMinQuotationDashSample ||
+						viableSystems.TrueForAll(s => String.IsNullOrEmpty(s.QuotationDashMarker))))
 					{
-						QuoteSystem match = null;
 						var competitors = new List<QuoteSystem>();
 
-						foreach (var kvp in stats)
+						foreach (var kvp in scores)
 						{
-							bool possibleMatch = (kvp.Value.StartQuoteHits == bestStatistics.StartQuoteHits ||
-												kvp.Value.EndQuoteHits == bestStatistics.EndQuoteHits);
-							if (match == null && possibleMatch &&
-								kvp.Value.StartQuoteHits > totalVersesAnalyzed * kMinStartQuotePercent &&
-								kvp.Value.EndQuoteHits > totalVersesAnalyzed * kMinEndQuotePercent)
+							if (kvp.Value > totalVersesAnalyzed * kVerseValue * kMinPercent &&
+								kvp.Value > bestScore * kMaxCompetitorPercent)
 							{
-								match = kvp.Key;
-							}
-							else if (kvp.Value.StartQuoteHits > bestStatistics.StartQuoteHits * kMaxCompetitorPercent &&
-								kvp.Value.EndQuoteHits > bestStatistics.EndQuoteHits * kMaxCompetitorPercent)
-							{
-								// We just found a competitor that is too close to the current leader to safely declare
-								// the winner a clear and convincing winner. (So nobody wins.)
 								competitors.Add(kvp.Key);
 							}
-#if SHOWTESTINFO
-							else if (possibleMatch)
-							{
-								Debug.WriteLine("Possible match: " + kvp.Key);
-								Debug.WriteLine(" -- StartQuoteHits: " + kvp.Value.StartQuoteHits + " of a possible " + totalVersesAnalyzed);
-								Debug.WriteLine(" -- EndQuoteHits: " + kvp.Value.EndQuoteHits + " of a possible " + totalVersesAnalyzed);
-							}
-#endif
 						}
-						if (match != null)
+
+						if (competitors.Any())
 						{
-							var closeCompetitors = competitors.Where(c => c.StartQuoteMarker != match.StartQuoteMarker ||
-								c.EndQuoteMarker != match.EndQuoteMarker ||
-								stats[c].StartQuoteHits == bestStatistics.StartQuoteHits).ToList();
-							if (closeCompetitors.Any())
+							Debug.WriteLine("STATISTICS:");
+							foreach (var system in competitors)
 							{
-#if SHOWTESTINFO
-								foreach (var competitor in closeCompetitors)
-									Debug.WriteLine("Competitor " + competitor.Name + " (" + competitor + ") too close to leader \"" + match + "\".");
-#endif
-							}
-							else
-							{
-#if SHOWTESTINFO
-								Debug.WriteLine("STATISTICS:");
-								foreach (var kvp in stats.Where(kvp => kvp.Value.StartQuoteHits > 0 || kvp.Value.EndQuoteHits > 0))
+								Debug.WriteLine(system.Name + "(" + system + ")\tScore: " + scores[system]);
+								if (!String.IsNullOrEmpty(system.QuotationDashMarker))
 								{
-									Debug.WriteLine(kvp.Key.Name + "(" + kvp.Key + ")\tStart Hits: " + kvp.Value.StartQuoteHits + "\tEnd Hits: " +
-													kvp.Value.EndQuoteHits);
+									Debug.WriteLine("\tPercentage matches of total Dialogue quotes analyzed: " + (100.0 * quotationDashCounts[system]) / totalDialoqueQuoteVersesAnalyzed);
 								}
-#endif
-								certain = true;
-								return match;
 							}
+
+							if (competitors.Count == 1)
+							{
+								certain = true;
+								return competitors[0];
+							}
+
+							viableSystems = viableSystems.Where(competitors.Contains).ToList();
+							if (competitors.TrueForAll(c => c.StartQuoteMarker == competitors[0].StartQuoteMarker &&
+								c.EndQuoteMarker == competitors[0].EndQuoteMarker))
+							{
+								var contendersWithQDash = competitors.Where(c => !String.IsNullOrEmpty(c.QuotationDashMarker)).ToList();
+								if (contendersWithQDash.TrueForAll(
+									c => quotationDashCounts[c] < kQuotationDashFailPercent * totalDialoqueQuoteVersesAnalyzed))
+								{
+									certain = true;
+									return competitors.Single(c => String.IsNullOrEmpty(c.QuotationDashMarker));
+								}
+								var winners = contendersWithQDash.Where(c => scores[c] == bestScore &&
+									quotationDashCounts[c] > kMinQuotationDashPercent * totalDialoqueQuoteVersesAnalyzed).ToList();
+								if (winners.Count == 1)
+								{
+									// Don't set certain to true. Can't ever be sure of details for dialogue quotes
+									return winners[0];
+								}
+							}
+							// Still have multiple systems in contention with the same first-level start & end markers,
+							// but we haven't seen enough evidence to pick a clear winner.
 						}
 					}
 
 					if (stopwatch.ElapsedMilliseconds > kMaxTimeLimit)
 					{
 #if SHOWTESTINFO
-						Debug.WriteLine("Giving up guessing quote system.");
+						Debug.WriteLine("Time-out guessing quote system.");
 #endif
-						return BestGuess(stats, bestStatistics);
+						return BestGuess(viableSystems, scores, bestScore, foundEndQuote);
 					}
 
 					prevQuoteChapter = quote.Chapter;
 					prevQuoteVerse = quote.Verse;
 				}
 			}
-			return BestGuess(stats, bestStatistics);
+			return BestGuess(viableSystems, scores, bestScore, foundEndQuote);
 		}
 
-		private static QuoteSystem BestGuess(Dictionary<QuoteSystem, QuoteStatistics> stats, QuoteStatistics bestStatistics)
+		private static QuoteSystem BestGuess(IEnumerable<QuoteSystem> viableSystems, Dictionary<QuoteSystem, int> scores, int bestScore, bool foundEndQuote)
 		{
-			if (bestStatistics.StartQuoteHits == 0 && bestStatistics.EndQuoteHits == 0)
-				return QuoteSystem.Default;
-
-#if SHOWTESTINFO
-			Debug.WriteLine("STATISTICS:");
-#endif
-			int maxEndQuoteHits = 0;
-			QuoteSystem bestSystem = QuoteSystem.Default;
-			foreach (var kvp in stats)
+			var bestSystem = viableSystems.FirstOrDefault(s => scores[s] == bestScore);
+			if (bestSystem == null || !foundEndQuote)
 			{
 #if SHOWTESTINFO
-				if (kvp.Value.StartQuoteHits > 0 || kvp.Value.EndQuoteHits > 0)
-				{
-					Debug.WriteLine(kvp.Key.Name + "(" + kvp.Key + ")\tStart Hits: " + kvp.Value.StartQuoteHits + "\tEnd Hits: " +
-									kvp.Value.EndQuoteHits);
-				}
+				if (bestSystem == null)
+					Debug.WriteLine("No best system found. Using default.");
+				if (!foundEndQuote)
+					Debug.WriteLine("No end-quote match found for any system. Using default.");
 #endif
-
-				if ((kvp.Value.StartQuoteHits == bestStatistics.StartQuoteHits))
-				{
-					if (kvp.Value.EndQuoteHits > maxEndQuoteHits)
-					{
-						maxEndQuoteHits = kvp.Value.EndQuoteHits;
-						bestSystem = kvp.Key;
-					}
-				}
+				return QuoteSystem.Default;
 			}
+
 			return bestSystem;
 		}
 	}

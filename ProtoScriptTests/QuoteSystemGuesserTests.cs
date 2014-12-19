@@ -46,11 +46,11 @@ namespace ProtoScriptTests
 		/// </summary>
 		[Test]
 		[Category("SkipOnTeamCity")]
-		public void Guess_AllBuiltInQuoteSystemsWithHighlyConsistentData_CorrectlyIdentifiesSystemWithCertainty()
+		public void Guess_AllFirstLevelQuoteSystemsWithHighlyConsistentData_CorrectlyIdentifiesSystemWithCertainty()
 		{
-			foreach (var quoteSystem in QuoteSystem.AllSystems)
+			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => String.IsNullOrEmpty(qs.QuotationDashMarker)))
 			{
-				RunTest(quoteSystem, true, String.IsNullOrEmpty(quoteSystem.QuotationDashMarker));
+				RunTest(quoteSystem, true, true);
 			}
 		}
 
@@ -61,9 +61,37 @@ namespace ProtoScriptTests
 		/// </summary>
 		[Test]
 		[Category("SkipOnTeamCity")]
-		public void Guess_DoubleCurlyQuotesWithLessConsistentData_CorrectlyIdentifiesSystemWithCertainty()
+		public void Guess_SystemsWithDialogueQuotesWithHighlyConsistentData_CorrectlyIdentifiesSystemWithUncertainty()
 		{
-			var quoteSystem = QuoteSystem.AllSystems.Single(qs => qs.Name == "Quotation marks, double");
+			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => !String.IsNullOrEmpty(qs.QuotationDashMarker)))
+			{
+				RunTest(quoteSystem, true, false);
+			}
+		}
+
+		/// <summary>
+		/// This is more of an acceptance test since it depends on the real production control file, randomly
+		/// generated test data (to attempt to simulate real data), and the interworking of the QuoteSystemGuesser
+		/// and the CharacterVerseData class.
+		/// </summary>
+		[Test]
+		[Category("SkipOnTeamCity")]
+		public void Guess_DoubleCurlyQuotesWithLessConsistentData_CorrectlyIdentifiesSystemWithUncertainty()
+		{
+			var quoteSystem = QuoteSystem.UniquelyGuessableSystems.Single(qs => qs.Name == "Quotation marks, double");
+			RunTest(quoteSystem, false, false);
+		}
+
+		/// <summary>
+		/// This is more of an acceptance test since it depends on the real production control file, randomly
+		/// generated test data (to attempt to simulate real data), and the interworking of the QuoteSystemGuesser
+		/// and the CharacterVerseData class.
+		/// </summary>
+		[Test]
+		[Category("SkipOnTeamCity")]
+		public void Guess_StraightQuotesWithLessConsistentData_CorrectlyIdentifiesSystemWithCertainty()
+		{
+			var quoteSystem = QuoteSystem.UniquelyGuessableSystems.Single(qs => qs.StartQuoteMarker == "\"");
 			RunTest(quoteSystem, false, true);
 		}
 
