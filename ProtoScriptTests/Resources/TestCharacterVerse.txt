@@ -7310,2982 +7310,2794 @@ MAT	1	23	narrator-MAT
 MAT	1	23	scripture		
 MAT	1	24	narrator-MAT		
 MAT	2	1	narrator-MAT		
-MAT	2	2	magi		
-MAT	2	3	narrator-MAT		
-MAT	2	4	Herod the Great		
-MAT	2	5	Good Priest		people's chief priests/teachers of the law|Good Priest
-MAT	2	6	Good Priest		people's chief priests/teachers of the law|Good Priest
-MAT	2	7	narrator-MAT		
-MAT	2	8	Herod the Great	sly	
-MAT	2	13	angel of the LORD, an	commanding	
-MAT	2	15	scripture		
-MAT	2	18	scripture		
-MAT	2	20	angel of the LORD, an	commanding	
-MAT	2	23	scripture		
-MAT	3	2	John the Baptist	proclaiming truth	
-MAT	3	3	scripture		
-MAT	3	7	John the Baptist		
-MAT	3	8	John the Baptist	rebuke	
-MAT	3	9	John the Baptist		
-MAT	3	10	John the Baptist		
-MAT	3	11	John the Baptist	humble	
-MAT	3	12	John the Baptist	warning	
-MAT	3	14	John the Baptist	humble	
-MAT	3	15	Jesus		
-MAT	3	17	God		voice from heaven (God)
-MAT	4	3	Satan		Tempter
-MAT	4	4	Jesus		
-MAT	4	6	Satan		Devil
-MAT	4	7	Jesus		
-MAT	4	9	Satan		Devil
-MAT	4	10	Jesus	rebuking	
-MAT	4	15	scripture		
-MAT	4	16	scripture		
-MAT	4	17	Jesus	preaching	
-MAT	4	19	Jesus	inviting	
-MAT	5	3	Jesus	preaching	
-MAT	5	4	Jesus	preaching	
-MAT	5	5	Jesus	preaching	
-MAT	5	6	Jesus	preaching	
-MAT	5	7	Jesus	preaching	
-MAT	5	8	Jesus	preaching	
-MAT	5	9	Jesus	preaching	
-MAT	5	10	Jesus	preaching	
-MAT	5	11	Jesus	preaching	
-MAT	5	13	Jesus	preaching	
-MAT	5	14	Jesus	preaching	
-MAT	5	17	Jesus	preaching	
-MAT	5	18	Jesus	preaching	
-MAT	5	19	Jesus	preaching	
-MAT	5	20	Jesus	preaching	
-MAT	5	21	Jesus	preaching	
-MAT	5	22	Jesus	preaching	
-MAT	5	23	Jesus	preaching	
-MAT	5	24	Jesus	preaching	
-MAT	5	25	Jesus	preaching	
-MAT	5	27	Jesus	preaching	
-MAT	5	28	Jesus	preaching	
-MAT	5	29	Jesus	preaching	
-MAT	5	31	Jesus	preaching	
-MAT	5	32	Jesus	preaching	
-MAT	5	33	Jesus	preaching	
-MAT	5	34	Jesus	preaching	
-MAT	5	35	Jesus	preaching	
-MAT	5	36	Jesus	preaching	
-MAT	5	37	Jesus	preaching	
-MAT	5	38	Jesus	preaching	
-MAT	5	39	Jesus	preaching	
-MAT	5	43	Jesus	preaching	
-MAT	5	44	Jesus	preaching	
-MAT	5	45	Jesus	preaching	
-MAT	5	46	Jesus	preaching	
-MAT	6	1	Jesus	preaching	
-MAT	6	2	Jesus	preaching	
-MAT	6	3	Jesus	preaching	
-MAT	6	5	Jesus	preaching	
-MAT	6	6	Jesus	preaching	
-MAT	6	7	Jesus	preaching	
-MAT	6	9	Jesus	preaching	
-MAT	6	14	Jesus	preaching	
-MAT	6	16	Jesus	preaching	
-MAT	6	17	Jesus	preaching	
-MAT	6	19	Jesus	preaching	
-MAT	6	20	Jesus	preaching	
-MAT	6	21	Jesus	preaching	
-MAT	6	22	Jesus	preaching	
-MAT	6	23	Jesus	preaching	
-MAT	6	24	Jesus	preaching	
-MAT	6	25	Jesus	preaching	
-MAT	6	26	Jesus	preaching	
-MAT	6	27	Jesus	preaching	
-MAT	6	28	Jesus	preaching	
-MAT	6	28,29	Jesus	preaching	
-MAT	6	31	Jesus	preaching	
-MAT	6	32	Jesus	preaching	
-MAT	6	33	Jesus	preaching	
-MAT	6	34	Jesus	preaching	
-MAT	7	1	Jesus	preaching	
-MAT	7	2	Jesus	preaching	
-MAT	7	3	Jesus	preaching	
-MAT	7	4	Jesus	preaching	
-MAT	7	5	Jesus	preaching	
-MAT	7	6	Jesus	preaching	
-MAT	7	7	Jesus	preaching	
-MAT	7	8	Jesus	preaching	
-MAT	7	9	Jesus	preaching	
-MAT	7	11	Jesus	preaching	
-MAT	7	12	Jesus	preaching	
-MAT	7	13	Jesus	preaching	
-MAT	7	14	Jesus	preaching	
-MAT	7	15	Jesus	preaching	
-MAT	7	16	Jesus	preaching	
-MAT	7	18	Jesus	preaching	
-MAT	7	19	Jesus	preaching	
-MAT	7	21	Jesus	preaching	
-MAT	7	22	Jesus	preaching	
-MAT	7	24	Jesus	preaching	
-MAT	7	25	Jesus	preaching	
-MAT	7	26	Jesus	preaching	
-MAT	8	2	man with leprosy 2	pleading	
-MAT	8	3	Jesus		
-MAT	8	4	Jesus	giving orders	
-MAT	8	6	centurion 1|army officer	entreating	
-MAT	8	7	Jesus		
-MAT	8	8	centurion 1|army officer		
-MAT	8	9	centurion 1|army officer		
-MAT	8	10	Jesus	surprised	
-MAT	8	11	Jesus	preaching	
-MAT	8	13	Jesus	giving orders	
-MAT	8	17	scripture		
-MAT	8	19	teacher of the law=man|man	eager	
-MAT	8	20	Jesus	questioning	
-MAT	8	21	disciple, another=man, another	making excuse	
-MAT	8	22	Jesus	giving orders	
-MAT	8	25	disciples, the 3	terrified	
-MAT	8	26	Jesus	giving orders	
-MAT	8	27	disciples, the 4	amazed	
-MAT	8	29	demon-possessed men, two	screaming	
-MAT	8	31	demons	begging	
-MAT	8	32	Jesus	giving orders	
-MAT	9	2	Jesus	compassionately	
-MAT	9	3	teachers of the law	indignant	teachers of the law 2
-MAT	9	4	Jesus	questioning	
-MAT	9	6	Jesus	giving orders	
-MAT	9	9	Jesus	giving orders	
-MAT	9	10	narrator-MAT		
-MAT	9	11	Pharisees 4	questioning	
-MAT	9	12	Jesus	questioning	
-MAT	9	13	Jesus	sternly	
-MAT	9	14	John's disciples	puzzled	
-MAT	9	15	Jesus		
-MAT	9	16	Jesus		
-MAT	9	17	Jesus		
-MAT	9	18	Jairus=ruler, a	pleading	
-MAT	9	21	woman, bleeding for 12 years	thinking to herself	
-MAT	9	22	Jesus		
-MAT	9	24	Jesus	giving orders	
-MAT	9	27	blind men, two	shouting	
-MAT	9	28	blind men, two	quieter	
-MAT	9	28	Jesus	questioning	
-MAT	9	29	Jesus		
-MAT	9	30	Jesus	warning	
-MAT	9	33	crowd 6	amazed	
-MAT	9	34	Pharisees 3	accusing	
-MAT	9	37	Jesus		
-MAT	10	1	Jesus		
-MAT	10	5	Jesus	instructing	
-MAT	10	6	Jesus	instructing	
-MAT	10	7	Jesus	instructing	
-MAT	10	8	Jesus	instructing	
-MAT	10	9	Jesus	instructing	
-MAT	10	10	Jesus	instructing	
-MAT	10	11	Jesus	instructing	
-MAT	10	13	Jesus	instructing	
-MAT	10	14	Jesus	instructing	
-MAT	10	15	Jesus	instructing	
-MAT	10	16	Jesus	instructing	
-MAT	10	17	Jesus	instructing	
-MAT	10	18	Jesus	instructing	
-MAT	10	19	Jesus	instructing	
-MAT	10	21	Jesus	instructing	
-MAT	10	22	Jesus	instructing	
-MAT	10	23	Jesus	instructing	
-MAT	10	24	Jesus	instructing	
-MAT	10	26	Jesus	instructing	
-MAT	10	27	Jesus	instructing	
-MAT	10	28	Jesus	instructing	
-MAT	10	29	Jesus	instructing	
-MAT	10	31	Jesus	instructing	
-MAT	10	32	Jesus	instructing	
-MAT	10	34	Jesus	instructing	
-MAT	10	35	Jesus	instructing	
-MAT	10	36	Jesus	instructing	
-MAT	10	37	Jesus	instructing	
-MAT	10	38	Jesus	instructing	
-MAT	10	39	Jesus	instructing	
-MAT	10	40	Jesus	instructing	
-MAT	10	42	Jesus	instructing	
-MAT	11	3	John's disciples	puzzled	
-MAT	11	4	Jesus		
-MAT	11	5	Jesus		
-MAT	11	6	Jesus		
-MAT	11	7	Jesus		
-MAT	11	9	Jesus		
-MAT	11	10	Jesus		
-MAT	11	11	Jesus		
-MAT	11	12	Jesus		
-MAT	11	16	Jesus		
-MAT	11	17	Jesus		
-MAT	11	18	Jesus		
-MAT	11	19	Jesus		
-MAT	11	21	Jesus	rebuking	
-MAT	11	22	Jesus	rebuking	
-MAT	11	23	Jesus	warning	
-MAT	11	25	Jesus	praying	
-MAT	11	27	Jesus		
-MAT	11	28	Jesus	compassionately	
-MAT	12	2	Pharisees 2	angry	
-MAT	12	3	Jesus	patiently	
-MAT	12	4	Jesus	patiently	
-MAT	12	7	Jesus		
-MAT	12	7	Jesus	patiently	
-MAT	12	10	Pharisees 3	testing	
-MAT	12	11	Jesus		
-MAT	12	13	Jesus	giving orders	
-MAT	12	16	Jesus	warning	
-MAT	12	18	scripture		
-MAT	12	19	scripture		
-MAT	12	20	scripture		
-MAT	12	23	people, all the 2		
-MAT	12	24	Pharisees 4		
-MAT	12	25	Jesus		
-MAT	12	26	Jesus		
-MAT	12	27	Jesus		
-MAT	12	28	Jesus		
-MAT	12	29	Jesus		
-MAT	12	30	Jesus		
-MAT	12	31	Jesus		
-MAT	12	31,32	Jesus		
-MAT	12	32	Jesus		
-MAT	12	33	Jesus		
-MAT	12	34	Jesus		
-MAT	12	35	Jesus		
-MAT	12	36	Jesus		
-MAT	12	38	Pharisees/teachers of the law, some	challenge	
-MAT	12	39	Jesus	rebuking	
-MAT	12	40	Jesus		
-MAT	12	41	Jesus	rebuking	
-MAT	12	41,42	Jesus		
-MAT	12	42	Jesus		
-MAT	12	43	Jesus		
-MAT	12	44	Jesus		
-MAT	12	45	Jesus		
-MAT	12	47	someone=they (in crowd)	announcing	
-MAT	12	48	Jesus	questioning	
-MAT	12	49	Jesus		
-MAT	13	3	Jesus		
-MAT	13	4	Jesus		
-MAT	13	5	Jesus		
-MAT	13	6	Jesus		
-MAT	13	7	Jesus		
-MAT	13	8	Jesus		
-MAT	13	9	Jesus		
-MAT	13	10	disciples, the 3	questioning	
-MAT	13	11	Jesus		
-MAT	13	13	Jesus		
-MAT	13	14	Jesus		
-MAT	13	15	Jesus		
-MAT	13	16	Jesus		
-MAT	13	18	Jesus		
-MAT	13	19	Jesus		
-MAT	13	20	Jesus		
-MAT	13	21	Jesus		
-MAT	13	22	Jesus		
-MAT	13	23	Jesus		
-MAT	13	24	Jesus		
-MAT	13	25	Jesus		
-MAT	13	26	Jesus		
-MAT	13	27	Jesus		
-MAT	13	28	Jesus		
-MAT	13	29	Jesus		
-MAT	13	31	Jesus		
-MAT	13	33	Jesus		
-MAT	13	35	scripture		
-MAT	13	36	disciples, His		
-MAT	13	37	Jesus		
-MAT	13	39	Jesus		
-MAT	13	40	Jesus		
-MAT	13	44	Jesus		
-MAT	13	45	Jesus		
-MAT	13	47	Jesus		
-MAT	13	48	Jesus		
-MAT	13	49	Jesus		
-MAT	13	51	disciples, His		
-MAT	13	51	Jesus	questioning	
-MAT	13	52	Jesus		
-MAT	13	54	men in synagogue 2	amazed	
-MAT	13	55	men in synagogue 3	taking offense at Jesus' teaching	
-MAT	13	57	Jesus		
-MAT	14	2	Herod Antipas (the tetrarch)	fearful	
-MAT	14	4	John the Baptist	rebuke	
-MAT	14	7	Herod Antipas (the tetrarch)		
-MAT	14	8	Herodias' daughter		
-MAT	14	9	Herod Antipas (the tetrarch)		
-MAT	14	9,10	Herod Antipas (the tetrarch)		
-MAT	14	15	disciples, the=disciples, His	taking charge	
-MAT	14	16	Jesus		
-MAT	14	17	Andrew		Andrew=disciples, the=disciples, His
-MAT	14	18	Jesus	giving orders	
-MAT	14	26	disciples, the		
-MAT	14	27	Jesus	forcefully	
-MAT	14	28	Peter (Simon)	calling out	
-MAT	14	29	Jesus	giving orders	
-MAT	14	30	Peter (Simon)	afraid	
-MAT	14	31	Jesus	questioning	
-MAT	14	33	disciples, the (but not Thomas)	awe	
-MAT	14	36	people, many		
-MAT	15	2	Pharisees/teachers of the law, some	rebuke	
-MAT	15	3	Jesus		
-MAT	15	4	Jesus		
-MAT	15	5	Jesus		
-MAT	15	8	Jesus		
-MAT	15	10	Jesus		
-MAT	15	12	disciples, the 3	rebuke	
-MAT	15	13	Jesus		
-MAT	15	14	Jesus		
-MAT	15	15	Peter (Simon)	puzzled	
-MAT	15	16	Jesus		
-MAT	15	17	Jesus		
-MAT	15	22	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl	pleading	
-MAT	15	23	disciples, His 3	impatient	
-MAT	15	24	Jesus		
-MAT	15	25	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl	pleading	
-MAT	15	26	Jesus	testing faith	
-MAT	15	27	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl		
-MAT	15	28	Jesus		
-MAT	15	32	Jesus	compassionately	
-MAT	15	33	disciples, His 3	impatient	
-MAT	15	34	disciples, His		
-MAT	15	34	Jesus	questioning	
-MAT	16	1	Pharisees, some		
-MAT	16	2	Jesus		
-MAT	16	3	Jesus		
-MAT	16	4	Jesus		
-MAT	16	6	Jesus	warning	
-MAT	16	7	disciples, the 3	defensive	
-MAT	16	8	Jesus		
-MAT	16	13	Jesus	questioning	
-MAT	16	14	disciples, His 3	excited	
-MAT	16	15	Jesus		
-MAT	16	16	Peter (Simon)		
-MAT	16	17	Jesus		
-MAT	16	20	Jesus		
-MAT	16	21	Jesus		
-MAT	16	22	Peter (Simon)		
-MAT	16	23	Jesus	rebuking	
-MAT	16	24	Jesus		
-MAT	16	25	Jesus		
-MAT	16	26	Jesus		
-MAT	16	27	Jesus		
-MAT	17	4	Peter (Simon)	afraid	
-MAT	17	5	God		voice from bright cloud (God)
-MAT	17	7	Jesus	giving orders	
-MAT	17	9	Jesus	forcefully	
-MAT	17	10	John		Peter (Simon)/James/John=disciples, the|John
-MAT	17	11	Jesus		
-MAT	17	15	father of possessed son=man in crowd	distraught	
-MAT	17	17	Jesus	giving orders	
-MAT	17	19	disciples, the 3	upset	
-MAT	17	20	Jesus		
-MAT	17	22	Jesus		
-MAT	17	24	collectors of temple tax	demanding	
-MAT	17	25	Jesus		
-MAT	17	25	Peter (Simon)		
-MAT	17	26	Jesus		
-MAT	17	26	Peter (Simon)		
-MAT	17	27	Jesus		
-MAT	18	1	disciples, the 1		
-MAT	18	3	Jesus		
-MAT	18	5	Jesus		
-MAT	18	6	Jesus		
-MAT	18	7	Jesus		
-MAT	18	8	Jesus		
-MAT	18	10	Jesus	warning	
-MAT	18	11	Jesus		
-MAT	18	12	Jesus		
-MAT	18	13	Jesus		
-MAT	18	15	Jesus		
-MAT	18	16	Jesus		
-MAT	18	17	Jesus		
-MAT	18	18	Jesus		
-MAT	18	19	Jesus		
-MAT	18	21	Peter (Simon)	asking question	
-MAT	18	22	Jesus		
-MAT	18	23	Jesus		
-MAT	18	25	Jesus		
-MAT	18	26	Jesus		
-MAT	18	27	Jesus		
-MAT	18	28	Jesus		
-MAT	18	29	Jesus		
-MAT	18	30	Jesus		
-MAT	18	31	Jesus		
-MAT	18	32	Jesus		
-MAT	18	35	Jesus		
-MAT	19	3	Pharisees, some 2	challenge	
-MAT	19	4	Jesus		
-MAT	19	5	Jesus		
-MAT	19	6	Jesus		
-MAT	19	7	Pharisees, some 2	challenge	
-MAT	19	8	Jesus		
-MAT	19	10	disciples, the 2	shocked	
-MAT	19	11	Jesus		
-MAT	19	14	Jesus		
-MAT	19	16	ruler, a certain=man, rich young	respectful	
-MAT	19	17	Jesus		
-MAT	19	18	Jesus		
-MAT	19	18	ruler, a certain=man, rich young		
-MAT	19	20	ruler, a certain=man, rich young	upset	
-MAT	19	21	Jesus		
-MAT	19	23	Jesus		
-MAT	19	25	disciples, the=those who heard	shocked	
-MAT	19	26	Jesus		
-MAT	19	27	Peter (Simon)	confused	
-MAT	19	28	Jesus		
-MAT	19	29	Jesus		
-MAT	19	30	Jesus		
-MAT	20	1	Jesus		
-MAT	20	2	Jesus		
-MAT	20	3	Jesus		
-MAT	20	4	Jesus		
-MAT	20	5	Jesus		
-MAT	20	6	Jesus		
-MAT	20	7	Jesus		
-MAT	20	8	Jesus		
-MAT	20	9	Jesus		
-MAT	20	10	Jesus		
-MAT	20	11	Jesus		
-MAT	20	12	Jesus		
-MAT	20	13	Jesus		
-MAT	20	15	Jesus		
-MAT	20	16	Jesus		
-MAT	20	18	Jesus		
-MAT	20	20	mother of Zebedee's sons		
-MAT	20	21	Jesus		
-MAT	20	21	mother of Zebedee's sons		
-MAT	20	22	Jesus		
-MAT	20	22	John	boldly	James/John (sons of Zebedee)|John
-MAT	20	23	Jesus		
-MAT	20	25	Jesus		
-MAT	20	26	Jesus		
-MAT	20	27	Jesus		
-MAT	20	28	Jesus		
-MAT	20	30	Bartimaeus	shouting	Bartimaeus, blind/other=blind men, two
-MAT	20	31	Bartimaeus	shouting	Bartimaeus, blind/other=blind men, two
-MAT	20	31	crowd 3		
-MAT	20	32	Jesus		
-MAT	20	33	Bartimaeus	begging	Bartimaeus, blind/other=blind men, two
-MAT	21	2	Jesus		
-MAT	21	5	scripture		
-MAT	21	9	disciples, whole crowd of=people, many=crowd, great|crowd	praising	
-MAT	21	10	city, the whole		
-MAT	21	11	disciples, whole crowd of=people, many=crowd, great|crowd	praising	
-MAT	21	13	Jesus		
-MAT	21	15	children	praising	
-MAT	21	16	chief priests/teachers of the law 1	upset	
-MAT	21	16	Jesus		
-MAT	21	19	Jesus		
-MAT	21	20	disciples, the		
-MAT	21	21	Jesus		
-MAT	21	23	chief priests/teachers of the law/elders=chief priests/elders of people 1	challenge	
-MAT	21	24	Jesus		
-MAT	21	24-25	Jesus		
-MAT	21	25	chief priests/teachers of the law/elders=chief priests/elders of people 1	to themselves	
-MAT	21	27	chief priests/teachers of the law=chief priests/elders of people		
-MAT	21	27	Jesus		
-MAT	21	28	Jesus		
-MAT	21	29	Jesus		
-MAT	21	30	Jesus		
-MAT	21	31	Good Priest		chief priests/elders of people|Good Priest
-MAT	21	31	Jesus		
-MAT	21	33	Jesus		
-MAT	21	34	Jesus		
-MAT	21	35	Jesus		
-MAT	21	36	Jesus		
-MAT	21	37	Jesus		
-MAT	21	38	Jesus		
-MAT	21	40	Jesus		
-MAT	21	41	Good Priest	serious	chief priests/elders of people|Good Priest
-MAT	21	42	Jesus		
-MAT	21	43	Jesus		
-MAT	21	45	chief priests/Pharisees	angry	
-MAT	21	45	mother of Zebedee's sons		
-MAT	22	2	Jesus		
-MAT	22	3	Jesus		
-MAT	22	4	Jesus		
-MAT	22	5	Jesus		
-MAT	22	6	Jesus		
-MAT	22	7	Jesus		
-MAT	22	8	Jesus		
-MAT	22	10	Jesus		
-MAT	22	11	Jesus		
-MAT	22	12	Jesus		
-MAT	22	13	Jesus		
-MAT	22	14	Jesus		
-MAT	22	16	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians		
-MAT	22	18	Jesus	rebuking	
-MAT	22	20	Jesus	questioning	
-MAT	22	21	Jesus		
-MAT	22	21	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians		
-MAT	22	24	Sadducees		
-MAT	22	25	Sadducees		
-MAT	22	27	Sadducees		
-MAT	22	28	Sadducees		
-MAT	22	28	Sadducees		Sadducees, some
-MAT	22	29	Jesus		
-MAT	22	31	Jesus		
-MAT	22	32	Jesus		
-MAT	22	36	Good Priest	testing	Pharisee expert-in-law|Good Priest
-MAT	22	37	Jesus		
-MAT	22	38	Jesus		
-MAT	22	39	Jesus		
-MAT	22	40	Jesus		
-MAT	22	42	Jesus	questioning	
-MAT	22	42	Pharisees 3	exasperated	
-MAT	22	43	Jesus		
-MAT	22	44	Jesus		
-MAT	22	45	narrator-MAT		
-MAT	23	2	Jesus		
-MAT	23	4	Jesus		
-MAT	23	5	Jesus		
-MAT	23	6	Jesus		
-MAT	23	7	Jesus		
-MAT	23	8	Jesus		
-MAT	23	10	Jesus		
-MAT	23	11	Jesus		
-MAT	23	12	Jesus		
-MAT	23	13	Jesus	warning	
-MAT	23	14	Jesus	warning	
-MAT	23	15	Jesus	warning	
-MAT	23	16	Jesus	warning	
-MAT	23	17	Jesus	warning	
-MAT	23	18	Jesus	warning	
-MAT	23	19	Jesus	warning	
-MAT	23	20	Jesus	warning	
-MAT	23	21	Jesus	warning	
-MAT	23	22	Jesus	warning	
-MAT	23	23	Jesus	warning	
-MAT	23	24	Jesus	warning	
-MAT	23	25	Jesus	warning	
-MAT	23	26	Jesus		
-MAT	23	27	Jesus	warning	
-MAT	23	28	Jesus	warning	
-MAT	23	29	Jesus	warning	
-MAT	23	30	Jesus	warning	
-MAT	23	31	Jesus	warning	
-MAT	23	32	Jesus	warning	
-MAT	23	33	Jesus	rebuking	
-MAT	23	34	Jesus	warning	
-MAT	23	35	Jesus		
-MAT	23	37	Jesus	rebuking	
-MAT	24	2	Jesus		
-MAT	24	3	Peter (Simon)	confused	Peter (Simon)/James/John/Andrew=disciples=they
-MAT	24	4	Jesus		
-MAT	24	5	Jesus		
-MAT	24	6	Jesus		
-MAT	24	8	Jesus		
-MAT	24	9	Jesus		
-MAT	24	10	Jesus		
-MAT	24	11	Jesus		
-MAT	24	13	Jesus		
-MAT	24	14	Jesus		
-MAT	24	15	Jesus		
-MAT	24	16	Jesus		
-MAT	24	18	Jesus		
-MAT	24	19	Jesus		
-MAT	24	21	Jesus		
-MAT	24	22	Jesus		
-MAT	24	23	Jesus		
-MAT	24	25	Jesus	sternly	
-MAT	24	26	Jesus		
-MAT	24	27	Jesus		
-MAT	24	28	Jesus		
-MAT	24	29	Jesus		
-MAT	24	30	Jesus		
-MAT	24	31	Jesus		
-MAT	24	32	Jesus		
-MAT	24	33	Jesus		
-MAT	24	34	Jesus		
-MAT	24	36	Jesus		
-MAT	24	37	Jesus		
-MAT	24	39	Jesus		
-MAT	24	40	Jesus		
-MAT	24	41	Jesus		
-MAT	24	42	Jesus		
-MAT	24	43	Jesus		
-MAT	24	45	Jesus		
-MAT	24	47	Jesus		
-MAT	24	48	Jesus		
-MAT	24	48,49	Jesus		
-MAT	25	1	Jesus		
-MAT	25	5	Jesus		
-MAT	25	6	Jesus		
-MAT	25	7	Jesus		
-MAT	25	8	Jesus		
-MAT	25	9	Jesus		
-MAT	25	10	Jesus		
-MAT	25	11	Jesus		
-MAT	25	12	Jesus		
-MAT	25	13	Jesus		
-MAT	25	14	Jesus		
-MAT	25	15	Jesus		
-MAT	25	16	Jesus		
-MAT	25	18	Jesus		
-MAT	25	19	Jesus		
-MAT	25	20	Jesus		
-MAT	25	21	Jesus		
-MAT	25	22	Jesus		
-MAT	25	23	Jesus		
-MAT	25	24	Jesus		
-MAT	25	25	Jesus		
-MAT	25	26	Jesus		
-MAT	25	27	Jesus		
-MAT	25	28	Jesus		
-MAT	25	31	Jesus		
-MAT	25	33	Jesus		
-MAT	25	34	Jesus		
-MAT	25	36	Jesus		
-MAT	25	37	Jesus		
-MAT	25	39	Jesus		
-MAT	25	40	Jesus		
-MAT	25	41	Jesus		
-MAT	25	43	Jesus		
-MAT	25	44	Jesus		
-MAT	25	45	Jesus		
-MAT	25	46	Jesus		
-MAT	26	2	Jesus		
-MAT	26	5	chief priests/teachers of the law=chief priests/elders of people		
-MAT	26	8	Judas Iscariot	indignant	Judas Iscariot=disciples, the
-MAT	26	9	Judas Iscariot		Judas Iscariot=disciples, the
-MAT	26	10	Jesus		
-MAT	26	11	Jesus		
-MAT	26	12	Jesus		
-MAT	26	13	Jesus		
-MAT	26	15	Judas Iscariot	plotting	
-MAT	26	17	John		Peter (Simon)/John=disciples (Jesus')|John
-MAT	26	18	Jesus		
-MAT	26	21	Jesus		
-MAT	26	22	twelve, the=disciples|disciples, His	sad	
-MAT	26	23	Jesus		
-MAT	26	25	Jesus		
-MAT	26	25	Judas Iscariot	fake innocence	
-MAT	26	26	Jesus		
-MAT	26	27	Jesus		
-MAT	26	28	Jesus		
-MAT	26	29	Jesus		
-MAT	26	31	Jesus		
-MAT	26	32	Jesus		
-MAT	26	33	Peter (Simon)	passionate	
-MAT	26	34	Jesus		
-MAT	26	35	Peter (Simon)	stronger	
-MAT	26	36	Jesus	giving orders	
-MAT	26	38	Jesus		
-MAT	26	39	Jesus	praying	
-MAT	26	40	Jesus		
-MAT	26	41	Jesus		
-MAT	26	42	Jesus	deeply distressed	
-MAT	26	45	Jesus	resigned	
-MAT	26	48	Judas Iscariot	plotting	
-MAT	26	49	Judas Iscariot	fake respect	
-MAT	26	50	Jesus		
-MAT	26	52	Jesus		
-MAT	26	55	Jesus		
-MAT	26	61	false witnesses		
-MAT	26	62	Caiaphas	demanding	high priest
-MAT	26	63	Caiaphas	demanding	high priest
-MAT	26	64	Jesus		
-MAT	26	65	Caiaphas	screaming	high priest
-MAT	26	66	chief priests/Sanhedrin=chief priests/whole Sanhedrin 3		
-MAT	26	68	chief priests/Sanhedrin=chief priests/whole Sanhedrin 2		
-MAT	26	69	girl at high priest's courtyard=servant girl		
-MAT	26	70	Peter (Simon)	denial	
-MAT	26	71	servant girl		servant girl, another=someone else
-MAT	26	72	Peter (Simon)	stronger denial	
-MAT	26	73	high priest's servant (man), one=those standing near=another	accusing	
-MAT	26	74	Peter (Simon)	swearing	
-MAT	26	75	Jesus		
-MAT	27	4	chief priests/elders 1	impatient	
-MAT	27	4	Judas Iscariot	remorse	
-MAT	27	6	chief priests 1	disdain	
-MAT	27	7	chief priests		
-MAT	27	8	narrator-MAT		
-MAT	27	9	scripture		
-MAT	27	11	Jesus		
-MAT	27	11	Pilate	to Jesus	
-MAT	27	13	Pilate	to Jesus	
-MAT	27	17	Pilate	to crowd	
-MAT	27	19	Pilate's wife		
-MAT	27	20	chief priests/elders 1		
-MAT	27	21	crowd 7		
-MAT	27	21	Pilate	to crowd	
-MAT	27	22	crowd 8	screaming	
-MAT	27	22	Pilate	to crowd	
-MAT	27	23	crowd 10	screaming	
-MAT	27	23	Pilate	to crowd	
-MAT	27	24	Pilate	to crowd	
-MAT	27	25	people, all the 3	shouting	
-MAT	27	29	soldiers 1	mocking	
-MAT	27	37	sign on the cross		
-MAT	27	40	passers by 1	mocking	
-MAT	27	42	rulers=chief priests/teachers of the law/elders	sneering	
-MAT	27	46	Jesus	deeply distressed	
-MAT	27	46	narrator-MAT		
-MAT	27	47	bystanders=some standing near	uneasy	
-MAT	27	49	bystanders, rest	jeering	
-MAT	27	54	centurion=centurion/other guards|army officer	amazed	
-MAT	27	63	chief priests/Pharisees 2	negotiating	
-MAT	27	65	Pilate	impatient	
-MAT	28	5	angel of the LORD, an		
-MAT	28	9	Jesus		
-MAT	28	10	Jesus		
-MAT	28	13	chief priests/elders 2	bribing	
-MAT	28	18	Jesus		
-MRK	1	2	scripture		
-MRK	1	3	scripture		
-MRK	1	4	John the Baptist		
-MRK	1	7	John the Baptist		
-MRK	1	11	God		voice from heaven (God)
-MRK	1	15	Jesus		
-MRK	1	17	Jesus		
-MRK	1	20	Jesus		
-MRK	1	24	man possessed by evil spirit		
-MRK	1	25	Jesus	giving orders	
-MRK	1	27	men in synagogue 1	amazed	
-MRK	1	30	people, some		
-MRK	1	37	Peter (Simon)	exclaimed	Peter (Simon) and companions
-MRK	1	38	Jesus		
-MRK	1	40	man with leprosy 2	pleading	
-MRK	1	41	Jesus	compassionately	
-MRK	1	44	Jesus		
-MRK	2	5	Jesus		
-MRK	2	7	teachers of the law/Pharisees=Pharisees/teachers of the law 1	angry	
-MRK	2	8	Jesus	rebuking	
-MRK	2	11	Jesus	giving orders	
-MRK	2	12	everyone in crowd	praising God	
-MRK	2	14	Jesus	inviting	
-MRK	2	15	narrator-MRK		
-MRK	2	16	teachers of the law	contempt	teachers of the law (Pharisees)
-MRK	2	17	Jesus		
-MRK	2	18	people, some 1	critical	
-MRK	2	19	Jesus		
-MRK	2	20	Jesus		
-MRK	2	21	Jesus		
-MRK	2	22	Jesus		
-MRK	2	24	Pharisees 3	accusing	
-MRK	2	25	Jesus		
-MRK	2	27	Jesus		
-MRK	3	3	Jesus	giving orders	
-MRK	3	4	Jesus		
-MRK	3	5	Jesus	giving orders	
-MRK	3	9	Jesus	giving orders	
-MRK	3	11	evil spirits		
-MRK	3	12	Jesus		
-MRK	3	14	Jesus		
-MRK	3	17	narrator-MRK		
-MRK	3	21	Jesus' family		
-MRK	3	22	teachers of the law 1	insulting	
-MRK	3	23	Jesus		
-MRK	3	24	Jesus		
-MRK	3	25	Jesus		
-MRK	3	26	Jesus		
-MRK	3	27	Jesus		
-MRK	3	28	Jesus		
-MRK	3	30	teachers of the law/Pharisees=Pharisees/teachers of the law 2	insulting	
-MRK	3	31	Jesus' family		
-MRK	3	32	someone=they (in crowd)	announcing	
-MRK	3	33	Jesus	questioning	
-MRK	3	34	Jesus		
-MRK	4	3	Jesus	preaching	
-MRK	4	5	Jesus		
-MRK	4	7	Jesus		
-MRK	4	8	Jesus		
-MRK	4	9	Jesus	warning	
-MRK	4	10	disciples, the		
-MRK	4	11	Jesus		
-MRK	4	12	Jesus		
-MRK	4	13	Jesus	questioning	
-MRK	4	14	Jesus	instructing	
-MRK	4	15	Jesus		
-MRK	4	16	Jesus		
-MRK	4	17	Jesus		
-MRK	4	18	Jesus		
-MRK	4	19	Jesus		
-MRK	4	20	Jesus		
-MRK	4	21	Jesus		
-MRK	4	22	Jesus		
-MRK	4	24	Jesus		
-MRK	4	26	Jesus	instructing	
-MRK	4	28	Jesus		
-MRK	4	30	Jesus	instructing	
-MRK	4	35	Jesus	giving orders	
-MRK	4	38	disciples, the 3	terrified	
-MRK	4	39	Jesus	forcefully	
-MRK	4	40	Jesus	questioning	
-MRK	4	41	disciples, the 1	awe	
-MRK	5	7	man with evil spirit	shrieking	
-MRK	5	8	Jesus		
-MRK	5	9	Jesus	questioning	
-MRK	5	9	man with evil spirit		
-MRK	5	10	man with evil spirit		
-MRK	5	12	demons	begging	
-MRK	5	15	narrator-MRK		
-MRK	5	17	people, Gadarene		
-MRK	5	18	man who had had demons		
-MRK	5	19	Jesus	giving orders	
-MRK	5	23	Jairus=ruler, a	pleading	
-MRK	5	27-28	woman, bleeding for 12 years	thinking to herself	
-MRK	5	28	woman, bleeding for 12 years	thinking to herself	
-MRK	5	30	Jesus	questioning	
-MRK	5	31	disciples, Jesus'	perplexed	
-MRK	5	34	Jesus	giving orders	
-MRK	5	35	men from Jairus house	sad	
-MRK	5	36	Jesus		
-MRK	5	39	Jesus	questioning	
-MRK	5	41	Jesus	giving orders	
-MRK	5	41	narrator-MRK		
-MRK	5	43	Jesus		
-MRK	6	2	men in synagogue 2	amazed	
-MRK	6	3	people 1	amazed	
-MRK	6	4	Jesus		
-MRK	6	7	Jesus	giving orders	
-MRK	6	8	Jesus		
-MRK	6	8-9	Jesus		
-MRK	6	10	Jesus	instructing	
-MRK	6	11	Jesus		
-MRK	6	12	disciples, the 1		
-MRK	6	14	people, some 1	excited	
-MRK	6	15	people, other 1	guessing	
-MRK	6	15	people, still other 1		
-MRK	6	16	Herod Antipas (the tetrarch)	fearful	
-MRK	6	17-18	John the Baptist	rebuke	
-MRK	6	18	John the Baptist	rebuke	
-MRK	6	22	Herod Antipas (the tetrarch)	drunk	
-MRK	6	23	Herod Antipas (the tetrarch)	drunk	
-MRK	6	24	Herodias		
-MRK	6	24	Herodias' daughter		
-MRK	6	25	Herodias' daughter		
-MRK	6	26	Herod Antipas (the tetrarch)		
-MRK	6	27	Herod Antipas (the tetrarch)		
-MRK	6	31	Jesus		
-MRK	6	31,32	Jesus		
-MRK	6	35	disciples, the=disciples, His	taking charge	
-MRK	6	37	Jesus		
-MRK	6	37	Philip	frustrated	Philip=disciples, the=disciples, His
-MRK	6	37,38	Jesus		
-MRK	6	37-38	Jesus	questioning	
-MRK	6	37,38	Jesus	questioning	
-MRK	6	38	Andrew		Andrew=disciples, the=disciples, His
-MRK	6	38	Jesus	questioning	
-MRK	6	39	Jesus		
-MRK	6	49	disciples, His		
-MRK	6	49	Jesus	reassuring	
-MRK	6	49-50	disciples, His		
-MRK	6	49,50	disciples, His		
-MRK	6	49,50	Jesus		
-MRK	6	49-50	Jesus	reassuring	
-MRK	6	49,50	Jesus	reassuring	
-MRK	6	50	Jesus		
-MRK	6	56	people, sick		
-MRK	7	2	narrator-MRK		
-MRK	7	5	teachers of the law/Pharisees=Pharisees/teachers of the law 1	critical	
-MRK	7	6	Jesus	rebuking	
-MRK	7	7	Jesus	rebuking	
-MRK	7	8	Jesus	rebuking	
-MRK	7	9	Jesus	rebuking	
-MRK	7	10	Jesus	rebuking	
-MRK	7	12	Jesus		
-MRK	7	12,13	Jesus		
-MRK	7	14	Jesus	warning	
-MRK	7	16	Jesus		
-MRK	7	17	disciples, His 1	puzzled	
-MRK	7	18	Jesus		
-MRK	7	19	narrator-MRK		
-MRK	7	20	Jesus	instructing	
-MRK	7	26	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl		
-MRK	7	27	Jesus	instructing	
-MRK	7	28	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl		
-MRK	7	29	Jesus		
-MRK	7	32	neighbors/others who had seen blind man begging		
-MRK	7	34	Jesus	giving orders	
-MRK	7	34	narrator-MRK		
-MRK	7	36	Jesus	warning	
-MRK	7	36	people, some		
-MRK	7	37	people 2		
-MRK	8	2	Jesus		
-MRK	8	4	disciples, the 3	questioning	
-MRK	8	5	disciples, His		
-MRK	8	5	Jesus	questioning	
-MRK	8	6	Jesus	giving orders	
-MRK	8	11	Pharisees		
-MRK	8	12	Jesus	exasperated	
-MRK	8	15	Jesus	warning	
-MRK	8	16	disciples, the 3	defensive	
-MRK	8	17	Jesus	rebuking	
-MRK	8	19	disciples, the 2	hesitant	
-MRK	8	20	disciples, the 1		
-MRK	8	20	Jesus	questioning	
-MRK	8	21	Jesus	questioning	
-MRK	8	23	Jesus	questioning	
-MRK	8	24	blind man		
-MRK	8	26	Jesus	giving orders	
-MRK	8	27	Jesus	questioning	
-MRK	8	28	disciples, the 3	excited	
-MRK	8	29	Jesus	questioning	
-MRK	8	29	Peter (Simon)	declare	
-MRK	8	30	Jesus	warning	
-MRK	8	31	Jesus	instructing	
-MRK	8	32	Peter (Simon)		
-MRK	8	33	Jesus	rebuking	
-MRK	8	34	Jesus	instructing	
-MRK	8	35	Jesus		
-MRK	8	36	Jesus		
-MRK	8	38	Jesus		
-MRK	9	1	Jesus		
-MRK	9	5	Peter (Simon)	afraid	
-MRK	9	7	voice from cloud		
-MRK	9	9	Jesus		
-MRK	9	10	narrator-MRK		
-MRK	9	11	John	puzzled	Peter (Simon)/James/John=disciples, the|John
-MRK	9	12	Jesus		
-MRK	9	12,13	Jesus		
-MRK	9	16	Jesus	questioning	
-MRK	9	17	father of possessed boy=man in crowd		
-MRK	9	19	Jesus	exasperated	
-MRK	9	21	father of possessed boy=man in crowd	distraught	
-MRK	9	21	Jesus	questioning	
-MRK	9	22	father of possessed boy=man in crowd	distraught	
-MRK	9	23	Jesus		
-MRK	9	24	father of possessed boy=man in crowd		
-MRK	9	25	Jesus	giving orders	
-MRK	9	26	many in crowd		
-MRK	9	28	disciples, His 3	upset	
-MRK	9	29	Jesus		
-MRK	9	31	Jesus		
-MRK	9	33	Jesus	questioning	
-MRK	9	35	Jesus	instructing	
-MRK	9	37	Jesus	instructing	
-MRK	9	38	John		John (disciple whom Jesus loved)
-MRK	9	39	Jesus		
-MRK	9	40	Jesus		
-MRK	9	41	Jesus		
-MRK	9	42	Jesus	instructing	
-MRK	9	43,44	Jesus		
-MRK	9	44	Jesus		
-MRK	9	45	Jesus		
-MRK	9	45,46	Jesus		
-MRK	9	46	Jesus		
-MRK	9	47	Jesus		
-MRK	9	48	Jesus		
-MRK	9	49	Jesus		
-MRK	9	49,50	Jesus		
-MRK	9	50	Jesus		
-MRK	10	2	Pharisees, some 3	questioning	
-MRK	10	3	Jesus	questioning	
-MRK	10	4	Pharisees, some		
-MRK	10	5	Jesus		
-MRK	10	6	Jesus		
-MRK	10	8	Jesus		
-MRK	10	10	disciples, the		
-MRK	10	11	Jesus		
-MRK	10	14	Jesus		
-MRK	10	16	Jesus		
-MRK	10	17	ruler, a certain=man, rich young	respectful	
-MRK	10	18	Jesus		
-MRK	10	18,19	Jesus		
-MRK	10	20	ruler, a certain=man, rich young	upset	
-MRK	10	21	Jesus		
-MRK	10	23	Jesus		
-MRK	10	24	Jesus		
-MRK	10	26	disciples, the=those who heard	shocked	
-MRK	10	27	Jesus		
-MRK	10	28	Peter (Simon)		
-MRK	10	29	Jesus		
-MRK	10	31	Jesus		
-MRK	10	33	Jesus		
-MRK	10	35	John	boldly	James/John (sons of Zebedee)|John
-MRK	10	36	Jesus		
-MRK	10	37	John	boldly	James/John (sons of Zebedee)|John
-MRK	10	38	Jesus		
-MRK	10	39	Jesus		
-MRK	10	39	John	boldly	James/John (sons of Zebedee)|John
-MRK	10	42	Jesus		
-MRK	10	43	Jesus		
-MRK	10	45	Jesus		
-MRK	10	47	Bartimaeus	shouting	Bartimaeus, blind=blind man, a
-MRK	10	48	Bartimaeus	shouting	Bartimaeus, blind=blind man, a
-MRK	10	48	crowd, many in the		
-MRK	10	49	crowd, large 2		
-MRK	10	49	Jesus		
-MRK	10	51	Bartimaeus	pleading	Bartimaeus, blind=blind man, a
-MRK	10	51	Jesus		
-MRK	10	52	Jesus		
-MRK	11	2	Jesus		
-MRK	11	5	owner of colt=people, some standing there	suspicious	
-MRK	11	6	disciples, 2 men		
-MRK	11	6	some people		
-MRK	11	9	disciples, whole crowd of=people, many=crowd, great|crowd	praising	
-MRK	11	10	disciples, whole crowd of=people, many=crowd, great|crowd	praising	
-MRK	11	14	Jesus		
-MRK	11	17	Jesus		
-MRK	11	21	Peter (Simon)	amazed	
-MRK	11	22	Jesus		
-MRK	11	22,23	Jesus		
-MRK	11	23	Jesus		
-MRK	11	24	Jesus		
-MRK	11	25	Jesus		
-MRK	11	28	chief priests/teachers of the law/elders=chief priests/elders of people 1	challenge	
-MRK	11	29	Jesus		
-MRK	11	29-30	Jesus		
-MRK	11	30	Jesus	questioning	
-MRK	11	31	chief priests/teachers of the law/elders=chief priests/elders of people 1	to themselves	
-MRK	11	33	chief priests/teachers of the law/elders=chief priests/elders of people 2		
-MRK	11	33	Jesus		
-MRK	12	1	Jesus	preaching	
-MRK	12	2	Jesus		
-MRK	12	4	Jesus	preaching	
-MRK	12	5	Jesus	preaching	
-MRK	12	6	Jesus		
-MRK	12	7	Jesus		
-MRK	12	9	Jesus		
-MRK	12	10	Jesus	preaching	
-MRK	12	14	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians		
-MRK	12	15	Jesus		
-MRK	12	16	Jesus	questioning	
-MRK	12	16	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians		
-MRK	12	17	Jesus		
-MRK	12	18	Sadducees		
-MRK	12	19	Sadducees		
-MRK	12	20	Sadducees		
-MRK	12	23	Sadducees		
-MRK	12	24	Jesus		
-MRK	12	26	Jesus		
-MRK	12	28	Good Priest	respectful	teachers of the law, one=expert in the law, an|Good Priest
-MRK	12	29	Jesus		
-MRK	12	32	Good Priest	complimenting	teachers of the law, one=expert in the law, an|Good Priest
-MRK	12	34	Jesus		
-MRK	12	35	Jesus		
-MRK	12	36	Jesus		
-MRK	12	37	Jesus		
-MRK	12	38	Jesus	warning	
-MRK	12	40	Jesus		
-MRK	12	43	Jesus	giving orders	
-MRK	13	1	disciples, one of His	awe	
-MRK	13	2	Jesus		
-MRK	13	4	John		Peter (Simon)/James/John/Andrew=disciples=they
-MRK	13	5	Jesus		
-MRK	13	6	Jesus		
-MRK	13	7	Jesus		
-MRK	13	8	Jesus		
-MRK	13	9	Jesus		
-MRK	13	10	Jesus		
-MRK	13	11	Jesus		
-MRK	13	12	Jesus		
-MRK	13	13	Jesus		
-MRK	13	14	Jesus		
-MRK	13	15	Jesus		
-MRK	13	17	Jesus		
-MRK	13	21	Jesus		
-MRK	13	22	Jesus		
-MRK	13	24	Jesus		
-MRK	13	25	Jesus		
-MRK	13	26	Jesus		
-MRK	13	27	Jesus		
-MRK	13	28	Jesus		
-MRK	13	30	Jesus		
-MRK	13	31	Jesus		
-MRK	13	32	Jesus		
-MRK	13	33	Jesus		
-MRK	13	34	Jesus		
-MRK	13	35	Jesus		
-MRK	14	2	chief priests/teachers of the law=chief priests/elders of people		
-MRK	14	4	Judas Iscariot	indignant	Judas Iscariot=some in home of Simon, leper
-MRK	14	5	some in home of Simon, leper		
-MRK	14	6	Jesus		
-MRK	14	9	Jesus		
-MRK	14	10	Judas Iscariot		
-MRK	14	11	Jewish authorities		
-MRK	14	12	John		Peter (Simon)/John=disciples (Jesus')|disciples
-MRK	14	13	Jesus		
-MRK	14	17,18	Jesus		
-MRK	14	18	Jesus		
-MRK	14	19	disciples, His 2	sad	
-MRK	14	19	disciples, His 4		
-MRK	14	20	Jesus		
-MRK	14	22	Jesus		
-MRK	14	23	Jesus		
-MRK	14	24	Jesus		
-MRK	14	25	Jesus		
-MRK	14	27	Jesus		
-MRK	14	28	Jesus		
-MRK	14	29	Peter (Simon)	declare	
-MRK	14	30	Jesus		
-MRK	14	31	Peter (Simon)	passionate	
-MRK	14	32	Jesus		
-MRK	14	33	Jesus		
-MRK	14	34	Jesus	deeply distressed	
-MRK	14	36	Jesus		
-MRK	14	37	Jesus	questioning	
-MRK	14	38	Jesus		
-MRK	14	41	Jesus		
-MRK	14	44	Judas Iscariot	plotting	
-MRK	14	45	Judas Iscariot	fake respect	
-MRK	14	48	Jesus	questioning	
-MRK	14	58	witnesses, false, two=witnesses, some false	mocking	
-MRK	14	60	Caiaphas	demanding	high priest
-MRK	14	61	Caiaphas	demanding	high priest
-MRK	14	62	Jesus		
-MRK	14	63	Caiaphas	screaming	high priest
-MRK	14	64	high priest		
-MRK	14	65	chief priests/Sanhedrin=chief priests/whole Sanhedrin 1	mocking	
-MRK	14	67	girl at high priest's courtyard=servant girl		
-MRK	14	68	Peter (Simon)	denial	
-MRK	14	69	servant girl		servant girl, another=someone else
-MRK	14	70	high priest's servant (man), one=those standing near=another	accusing	
-MRK	14	70	Peter (Simon)	defensive	
-MRK	14	71	Peter (Simon)	swearing	
-MRK	14	72	Jesus		
-MRK	15	2	Jesus		
-MRK	15	2	Pilate	to Jesus	
-MRK	15	4	Pilate	to Jesus	
-MRK	15	8	crowd		
-MRK	15	9	Pilate	to crowd	
-MRK	15	11	chief priests		
-MRK	15	11	crowd		
-MRK	15	12	Pilate	to crowd	
-MRK	15	13	crowd 8	shouting	
-MRK	15	14	crowd 9	shouting louder	
-MRK	15	14	Pilate	to crowd	
-MRK	15	18	soldiers 1	mocking	
-MRK	15	22	narrator-MRK		
-MRK	15	26	sign on the cross		
-MRK	15	28	scripture		
-MRK	15	29	passers by	insulting	
-MRK	15	31	rulers=chief priests/teachers of the law/elders	sneering	
-MRK	15	32	rulers=chief priests/teachers of the law/elders	sneering	
-MRK	15	34	Jesus		
-MRK	15	34	narrator-MRK		
-MRK	15	34-35	Jesus		
-MRK	15	34-35	narrator-MRK		
-MRK	15	35	bystanders=some standing near	uneasy	
-MRK	15	36	man, one	jeering	
+MAT	2	2	magi			True
+MAT	2	3	narrator-MAT			False
+MAT	2	4	Herod the Great			False
+MAT	2	5	Good Priest		people's chief priests/teachers of the law|Good Priest	True
+MAT	2	6	Good Priest		people's chief priests/teachers of the law|Good Priest	False
+MAT	2	7	narrator-MAT			False
+MAT	2	8	Herod the Great	sly		True
+MAT	2	13	angel of the LORD, an	commanding		False
+MAT	2	15	scripture			False
+MAT	2	18	scripture			False
+MAT	2	20	angel of the LORD, an	commanding		False
+MAT	2	23	scripture			False
+MAT	3	2	John the Baptist	proclaiming truth		False
+MAT	3	3	scripture			False
+MAT	3	7	John the Baptist			False
+MAT	3	8	John the Baptist	rebuke		False
+MAT	3	9	John the Baptist			False
+MAT	3	10	John the Baptist			False
+MAT	3	11	John the Baptist	humble		False
+MAT	3	12	John the Baptist	warning		False
+MAT	3	14	John the Baptist	humble		True
+MAT	3	15	Jesus			True
+MAT	3	17	God		voice from heaven (God)	False
+MAT	4	3	Satan		Tempter	True
+MAT	4	4	Jesus			True
+MAT	4	6	Satan		Devil	True
+MAT	4	7	Jesus			True
+MAT	4	9	Satan		Devil	True
+MAT	4	10	Jesus	rebuking		True
+MAT	4	15	scripture			False
+MAT	4	16	scripture			False
+MAT	4	17	Jesus	preaching		False
+MAT	4	19	Jesus	inviting		True
+MAT	5	3-48	Jesus	preaching		False
+MAT	6	1-34	Jesus	preaching		False
+MAT	7	1-27	Jesus	preaching		False
+MAT	8	2	man with leprosy 2	pleading		True
+MAT	8	3	Jesus			True
+MAT	8	4	Jesus	giving orders		True
+MAT	8	6	centurion 1|army officer	entreating		True
+MAT	8	7	Jesus			True
+MAT	8	8	centurion 1|army officer			True
+MAT	8	9	centurion 1|army officer			False
+MAT	8	10	Jesus	surprised		True
+MAT	8	11	Jesus	preaching		False
+MAT	8	13	Jesus	giving orders		True
+MAT	8	17	scripture			False
+MAT	8	19	teacher of the law=man|man	eager		True
+MAT	8	20	Jesus	questioning		True
+MAT	8	21	disciple, another=man, another	making excuse		True
+MAT	8	22	Jesus	giving orders		True
+MAT	8	25	disciples, the 3	terrified		True
+MAT	8	26	Jesus	giving orders		True
+MAT	8	27	disciples, the 4	amazed		False
+MAT	8	29	demon-possessed men, two	screaming		True
+MAT	8	31	demons	begging		True
+MAT	8	32	Jesus	giving orders		True
+MAT	9	2	Jesus	compassionately		True
+MAT	9	3	teachers of the law	indignant	teachers of the law 2	False
+MAT	9	4	Jesus	questioning		True
+MAT	9	6	Jesus	giving orders		True
+MAT	9	9	Jesus	giving orders		False
+MAT	9	10	narrator-MAT			False
+MAT	9	11	Pharisees 4	questioning		True
+MAT	9	12	Jesus	questioning		True
+MAT	9	13	Jesus	sternly		False
+MAT	9	14	John's disciples	puzzled		True
+MAT	9	15	Jesus			True
+MAT	9	16	Jesus			False
+MAT	9	17	Jesus			False
+MAT	9	18	Jairus=ruler, a	pleading		True
+MAT	9	21	woman, bleeding for 12 years	thinking to herself		False
+MAT	9	22	Jesus			True
+MAT	9	24	Jesus	giving orders		True
+MAT	9	27	blind men, two	shouting		True
+MAT	9	28	blind men, two	quieter		True
+MAT	9	28	Jesus	questioning		True
+MAT	9	29	Jesus			True
+MAT	9	30	Jesus	warning		True
+MAT	9	33	crowd 6	amazed		False
+MAT	9	34	Pharisees 3	accusing		False
+MAT	9	37	Jesus			True
+MAT	10	1	Jesus			False
+MAT	10	5	Jesus	instructing		False
+MAT	10	6	Jesus	instructing		False
+MAT	10	7	Jesus	instructing		False
+MAT	10	8	Jesus	instructing		False
+MAT	10	9	Jesus	instructing		False
+MAT	10	10	Jesus	instructing		False
+MAT	10	11	Jesus	instructing		False
+MAT	10	13	Jesus	instructing		False
+MAT	10	14	Jesus	instructing		False
+MAT	10	15	Jesus	instructing		False
+MAT	10	16	Jesus	instructing		False
+MAT	10	17	Jesus	instructing		False
+MAT	10	18	Jesus	instructing		False
+MAT	10	19	Jesus	instructing		False
+MAT	10	21	Jesus	instructing		False
+MAT	10	22	Jesus	instructing		False
+MAT	10	23	Jesus	instructing		False
+MAT	10	24	Jesus	instructing		False
+MAT	10	26	Jesus	instructing		False
+MAT	10	27	Jesus	instructing		False
+MAT	10	28	Jesus	instructing		False
+MAT	10	29	Jesus	instructing		False
+MAT	10	31	Jesus	instructing		False
+MAT	10	32	Jesus	instructing		False
+MAT	10	34	Jesus	instructing		False
+MAT	10	35	Jesus	instructing		False
+MAT	10	36	Jesus	instructing		False
+MAT	10	37	Jesus	instructing		False
+MAT	10	38	Jesus	instructing		False
+MAT	10	39	Jesus	instructing		False
+MAT	10	40	Jesus	instructing		False
+MAT	10	42	Jesus	instructing		False
+MAT	11	3	John's disciples	puzzled		True
+MAT	11	4	Jesus			False
+MAT	11	5	Jesus			False
+MAT	11	6	Jesus			False
+MAT	11	7	Jesus			False
+MAT	11	9	Jesus			False
+MAT	11	10	Jesus			False
+MAT	11	11	Jesus			False
+MAT	11	12	Jesus			False
+MAT	11	16	Jesus			False
+MAT	11	17	Jesus			False
+MAT	11	18	Jesus			False
+MAT	11	19	Jesus			False
+MAT	11	21	Jesus	rebuking		False
+MAT	11	22	Jesus	rebuking		False
+MAT	11	23	Jesus	warning		False
+MAT	11	25	Jesus	praying		False
+MAT	11	27	Jesus			False
+MAT	11	28	Jesus	compassionately		False
+MAT	12	2	Pharisees 2	angry		True
+MAT	12	3	Jesus	patiently		True
+MAT	12	4	Jesus	patiently		False
+MAT	12	7	Jesus			False
+MAT	12	7	Jesus	patiently		False
+MAT	12	10	Pharisees 3	testing		True
+MAT	12	11	Jesus			True
+MAT	12	13	Jesus	giving orders		True
+MAT	12	16	Jesus	warning		False
+MAT	12	18	scripture			False
+MAT	12	19	scripture			False
+MAT	12	20	scripture			False
+MAT	12	23	people, all the 2			False
+MAT	12	24	Pharisees 4			False
+MAT	12	25	Jesus			False
+MAT	12	26	Jesus			False
+MAT	12	27	Jesus			False
+MAT	12	28	Jesus			False
+MAT	12	29	Jesus			False
+MAT	12	30	Jesus			False
+MAT	12	31	Jesus			False
+MAT	12	32	Jesus			False
+MAT	12	33	Jesus			False
+MAT	12	34	Jesus			False
+MAT	12	35	Jesus			False
+MAT	12	36	Jesus			False
+MAT	12	38	Pharisees/teachers of the law, some	challenge		True
+MAT	12	39	Jesus	rebuking		True
+MAT	12	40	Jesus	rebuking		False
+MAT	12	41	Jesus	rebuking		False
+MAT	12	42	Jesus	rebuking		False
+MAT	12	43	Jesus			False
+MAT	12	44	Jesus			False
+MAT	12	45	Jesus			False
+MAT	12	47	someone=they (in crowd)	announcing		True
+MAT	12	48	Jesus	questioning		True
+MAT	12	49	Jesus			True
+MAT	13	3	Jesus			False
+MAT	13	4	Jesus			False
+MAT	13	5	Jesus			False
+MAT	13	6	Jesus			False
+MAT	13	7	Jesus			False
+MAT	13	8	Jesus			False
+MAT	13	9	Jesus			False
+MAT	13	10	disciples, the 3	questioning		True
+MAT	13	11	Jesus			False
+MAT	13	13	Jesus			False
+MAT	13	14	Jesus			False
+MAT	13	15	Jesus			False
+MAT	13	16	Jesus			False
+MAT	13	18	Jesus			False
+MAT	13	19	Jesus			False
+MAT	13	20	Jesus			False
+MAT	13	21	Jesus			False
+MAT	13	22	Jesus			False
+MAT	13	23	Jesus			False
+MAT	13	24	Jesus			False
+MAT	13	25	Jesus			False
+MAT	13	26	Jesus			False
+MAT	13	27	Jesus			False
+MAT	13	28	Jesus			False
+MAT	13	29	Jesus			False
+MAT	13	31	Jesus			False
+MAT	13	33	Jesus			False
+MAT	13	35	scripture			False
+MAT	13	36	disciples, His			False
+MAT	13	37	Jesus			False
+MAT	13	39	Jesus			False
+MAT	13	40	Jesus			False
+MAT	13	44	Jesus			False
+MAT	13	45	Jesus			False
+MAT	13	47	Jesus			False
+MAT	13	48	Jesus			False
+MAT	13	49	Jesus			False
+MAT	13	51	disciples, His			True
+MAT	13	51	Jesus	questioning		True
+MAT	13	52	Jesus			True
+MAT	13	54	men in synagogue 2	amazed		True
+MAT	13	55	men in synagogue 3	taking offense at Jesus' teaching		False
+MAT	13	57	Jesus			True
+MAT	14	2	Herod Antipas (the tetrarch)	fearful		False
+MAT	14	4	John the Baptist	rebuke		False
+MAT	14	7	Herod Antipas (the tetrarch)			False
+MAT	14	8	Herodias' daughter			False
+MAT	14	9	Herod Antipas (the tetrarch)			False
+MAT	14	10	Herod Antipas (the tetrarch)			False
+MAT	14	15	disciples, the=disciples, His	taking charge		True
+MAT	14	16	Jesus			True
+MAT	14	17	Andrew		Andrew=disciples, the=disciples, His	True
+MAT	14	18	Jesus	giving orders		True
+MAT	14	26	disciples, the			True
+MAT	14	27	Jesus	forcefully		True
+MAT	14	28	Peter (Simon)	calling out		True
+MAT	14	29	Jesus	giving orders		True
+MAT	14	30	Peter (Simon)	afraid		True
+MAT	14	31	Jesus	questioning		True
+MAT	14	33	disciples, the (but not Thomas)	awe		True
+MAT	14	36	people, many			False
+MAT	15	2	Pharisees/teachers of the law, some	rebuke		True
+MAT	15	3	Jesus			True
+MAT	15	4	Jesus			False
+MAT	15	5	Jesus			False
+MAT	15	8	Jesus			False
+MAT	15	10	Jesus			True
+MAT	15	12	disciples, the 3	rebuke		True
+MAT	15	13	Jesus			True
+MAT	15	14	Jesus			False
+MAT	15	15	Peter (Simon)	puzzled		True
+MAT	15	16	Jesus			True
+MAT	15	17	Jesus			False
+MAT	15	22	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl	pleading		True
+MAT	15	23	disciples, His 3	impatient		True
+MAT	15	24	Jesus			True
+MAT	15	25	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl	pleading		True
+MAT	15	26	Jesus	testing faith		True
+MAT	15	27	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl			True
+MAT	15	28	Jesus			True
+MAT	15	32	Jesus	compassionately		True
+MAT	15	33	disciples, His 3	impatient		True
+MAT	15	34	disciples, His			True
+MAT	15	34	Jesus	questioning		True
+MAT	16	1	Pharisees, some			False
+MAT	16	2	Jesus			False
+MAT	16	3	Jesus			False
+MAT	16	4	Jesus			False
+MAT	16	6	Jesus	warning		True
+MAT	16	7	disciples, the 3	defensive		False
+MAT	16	8	Jesus			True
+MAT	16	13	Jesus	questioning		True
+MAT	16	14	disciples, His 3	excited		True
+MAT	16	15	Jesus			True
+MAT	16	16	Peter (Simon)			True
+MAT	16	17	Jesus			True
+MAT	16	20	Jesus			False
+MAT	16	21	Jesus			False
+MAT	16	22	Peter (Simon)			True
+MAT	16	23	Jesus	rebuking		True
+MAT	16	24	Jesus			True
+MAT	16	25	Jesus			False
+MAT	16	26	Jesus			False
+MAT	16	27	Jesus			False
+MAT	17	4	Peter (Simon)	afraid		True
+MAT	17	5	God		voice from bright cloud (God)	False
+MAT	17	7	Jesus	giving orders		True
+MAT	17	9	Jesus	forcefully		True
+MAT	17	10	John		Peter (Simon)/James/John=disciples, the|John	True
+MAT	17	11	Jesus			True
+MAT	17	15	father of possessed son=man in crowd	distraught		True
+MAT	17	17	Jesus	giving orders		True
+MAT	17	19	disciples, the 3	upset		True
+MAT	17	20	Jesus			True
+MAT	17	22	Jesus			False
+MAT	17	24	collectors of temple tax	demanding		True
+MAT	17	25	Jesus			True
+MAT	17	25	Peter (Simon)			True
+MAT	17	26	Jesus			True
+MAT	17	26	Peter (Simon)			True
+MAT	17	27	Jesus			False
+MAT	18	1	disciples, the 1			True
+MAT	18	3	Jesus			True
+MAT	18	5	Jesus			False
+MAT	18	6	Jesus			False
+MAT	18	7	Jesus			False
+MAT	18	8	Jesus			False
+MAT	18	10	Jesus	warning		False
+MAT	18	11	Jesus			False
+MAT	18	12	Jesus			False
+MAT	18	13	Jesus			False
+MAT	18	15	Jesus			False
+MAT	18	16	Jesus			False
+MAT	18	17	Jesus			False
+MAT	18	18	Jesus			False
+MAT	18	19	Jesus			False
+MAT	18	21	Peter (Simon)	asking question		True
+MAT	18	22	Jesus			True
+MAT	18	23	Jesus			False
+MAT	18	25	Jesus			False
+MAT	18	26	Jesus			False
+MAT	18	27	Jesus			False
+MAT	18	28	Jesus			False
+MAT	18	29	Jesus			False
+MAT	18	30	Jesus			False
+MAT	18	31	Jesus			False
+MAT	18	32	Jesus			False
+MAT	18	35	Jesus			False
+MAT	19	3	Pharisees, some 2	challenge		True
+MAT	19	4	Jesus			True
+MAT	19	5	Jesus			False
+MAT	19	6	Jesus			False
+MAT	19	7	Pharisees, some 2	challenge		True
+MAT	19	8	Jesus			True
+MAT	19	10	disciples, the 2	shocked		True
+MAT	19	11	Jesus			True
+MAT	19	14	Jesus			False
+MAT	19	16	ruler, a certain=man, rich young	respectful		True
+MAT	19	17	Jesus			True
+MAT	19	18	Jesus			True
+MAT	19	18	ruler, a certain=man, rich young			True
+MAT	19	20	ruler, a certain=man, rich young	upset		True
+MAT	19	21	Jesus			True
+MAT	19	23	Jesus			True
+MAT	19	25	disciples, the=those who heard	shocked		True
+MAT	19	26	Jesus			True
+MAT	19	27	Peter (Simon)	confused		True
+MAT	19	28	Jesus			True
+MAT	19	29	Jesus			False
+MAT	19	30	Jesus			False
+MAT	20	1	Jesus			False
+MAT	20	2	Jesus			False
+MAT	20	3	Jesus			False
+MAT	20	4	Jesus			False
+MAT	20	5	Jesus			False
+MAT	20	6	Jesus			False
+MAT	20	7	Jesus			False
+MAT	20	8	Jesus			False
+MAT	20	9	Jesus			False
+MAT	20	10	Jesus			False
+MAT	20	11	Jesus			False
+MAT	20	12	Jesus			False
+MAT	20	13	Jesus			False
+MAT	20	15	Jesus			False
+MAT	20	16	Jesus			False
+MAT	20	18	Jesus			False
+MAT	20	20	mother of Zebedee's sons			False
+MAT	20	21	Jesus			True
+MAT	20	21	mother of Zebedee's sons			True
+MAT	20	22	Jesus			True
+MAT	20	22	John	boldly	James/John (sons of Zebedee)|John	True
+MAT	20	23	Jesus			True
+MAT	20	25	Jesus			True
+MAT	20	26	Jesus			False
+MAT	20	27	Jesus			False
+MAT	20	28	Jesus			False
+MAT	20	30	Bartimaeus	shouting	Bartimaeus, blind/other=blind men, two	True
+MAT	20	31	Bartimaeus	shouting	Bartimaeus, blind/other=blind men, two	True
+MAT	20	31	crowd 3			True
+MAT	20	32	Jesus			True
+MAT	20	33	Bartimaeus	begging	Bartimaeus, blind/other=blind men, two	True
+MAT	21	2	Jesus			False
+MAT	21	5	scripture			False
+MAT	21	9	disciples, whole crowd of=people, many=crowd, great|crowd	praising		True
+MAT	21	10	city, the whole			True
+MAT	21	11	disciples, whole crowd of=people, many=crowd, great|crowd	praising		True
+MAT	21	13	Jesus			True
+MAT	21	15	children	praising		False
+MAT	21	16	chief priests/teachers of the law 1	upset		True
+MAT	21	16	Jesus			True
+MAT	21	19	Jesus			True
+MAT	21	20	disciples, the			True
+MAT	21	21	Jesus			True
+MAT	21	23	chief priests/teachers of the law/elders=chief priests/elders of people 1	challenge		True
+MAT	21	24	Jesus			True
+MAT	21	25	chief priests/teachers of the law/elders=chief priests/elders of people 1	to themselves		False
+MAT	21	25	Jesus			False
+MAT	21	27	chief priests/teachers of the law=chief priests/elders of people			True
+MAT	21	27	Jesus			True
+MAT	21	28	Jesus			True
+MAT	21	29	Jesus			False
+MAT	21	30	Jesus			False
+MAT	21	31	Good Priest		chief priests/elders of people|Good Priest	True
+MAT	21	31	Jesus			True
+MAT	21	33	Jesus			False
+MAT	21	34	Jesus			False
+MAT	21	35	Jesus			False
+MAT	21	36	Jesus			False
+MAT	21	37	Jesus			False
+MAT	21	38	Jesus			False
+MAT	21	40	Jesus			False
+MAT	21	41	Good Priest	serious	chief priests/elders of people|Good Priest	True
+MAT	21	42	Jesus			True
+MAT	21	43	Jesus			False
+MAT	21	45	chief priests/Pharisees	angry		False
+MAT	21	45	mother of Zebedee's sons			False
+MAT	22	2	Jesus			False
+MAT	22	3	Jesus			False
+MAT	22	4	Jesus			False
+MAT	22	5	Jesus			False
+MAT	22	6	Jesus			False
+MAT	22	7	Jesus			False
+MAT	22	8	Jesus			False
+MAT	22	10	Jesus			False
+MAT	22	11	Jesus			False
+MAT	22	12	Jesus			False
+MAT	22	13	Jesus			False
+MAT	22	14	Jesus			False
+MAT	22	16	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			True
+MAT	22	18	Jesus	rebuking		True
+MAT	22	20	Jesus	questioning		True
+MAT	22	21	Jesus			True
+MAT	22	21	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			True
+MAT	22	24	Sadducees			True
+MAT	22	25	Sadducees			False
+MAT	22	27	Sadducees			False
+MAT	22	28	Sadducees			False
+MAT	22	28	Sadducees		Sadducees, some	False
+MAT	22	29	Jesus			True
+MAT	22	31	Jesus			False
+MAT	22	32	Jesus			False
+MAT	22	36	Good Priest	testing	Pharisee expert-in-law|Good Priest	True
+MAT	22	37	Jesus			True
+MAT	22	38	Jesus			False
+MAT	22	39	Jesus			False
+MAT	22	40	Jesus			False
+MAT	22	42	Jesus	questioning		True
+MAT	22	42	Pharisees 3	exasperated		True
+MAT	22	43	Jesus			True
+MAT	22	44	Jesus			False
+MAT	22	45	narrator-MAT			False
+MAT	23	2	Jesus			False
+MAT	23	4	Jesus			False
+MAT	23	5	Jesus			False
+MAT	23	6	Jesus			False
+MAT	23	7	Jesus			False
+MAT	23	8	Jesus			False
+MAT	23	10	Jesus			False
+MAT	23	11	Jesus			False
+MAT	23	12	Jesus			False
+MAT	23	13	Jesus	warning		False
+MAT	23	14	Jesus	warning		False
+MAT	23	15	Jesus	warning		False
+MAT	23	16	Jesus	warning		False
+MAT	23	17	Jesus	warning		False
+MAT	23	18	Jesus	warning		False
+MAT	23	19	Jesus	warning		False
+MAT	23	20	Jesus	warning		False
+MAT	23	21	Jesus	warning		False
+MAT	23	22	Jesus	warning		False
+MAT	23	23	Jesus	warning		False
+MAT	23	24	Jesus	warning		False
+MAT	23	25	Jesus	warning		False
+MAT	23	26	Jesus			False
+MAT	23	27	Jesus	warning		False
+MAT	23	28	Jesus	warning		False
+MAT	23	29	Jesus	warning		False
+MAT	23	30	Jesus	warning		False
+MAT	23	31	Jesus	warning		False
+MAT	23	32	Jesus	warning		False
+MAT	23	33	Jesus	rebuking		False
+MAT	23	34	Jesus	warning		False
+MAT	23	35	Jesus			False
+MAT	23	37	Jesus	rebuking		False
+MAT	24	2	Jesus			True
+MAT	24	3	Peter (Simon)	confused	Peter (Simon)/James/John/Andrew=disciples=they	True
+MAT	24	4-24	Jesus			False
+MAT	24	25	Jesus	sternly		False
+MAT	24	26-51	Jesus			False
+MAT	25	1-46	Jesus			False
+MAT	26	2	Jesus			False
+MAT	26	5	chief priests/teachers of the law=chief priests/elders of people			True
+MAT	26	8	Judas Iscariot	indignant	Judas Iscariot=disciples, the	True
+MAT	26	9	Judas Iscariot		Judas Iscariot=disciples, the	False
+MAT	26	10	Jesus			True
+MAT	26	11	Jesus			False
+MAT	26	12	Jesus			False
+MAT	26	13	Jesus			False
+MAT	26	15	Judas Iscariot	plotting		True
+MAT	26	17	John		Peter (Simon)/John=disciples (Jesus')|John	True
+MAT	26	18	Jesus			False
+MAT	26	21	Jesus			True
+MAT	26	22	twelve, the=disciples|disciples, His	sad		True
+MAT	26	23	Jesus			True
+MAT	26	25	Jesus			True
+MAT	26	25	Judas Iscariot	fake innocence		True
+MAT	26	26	Jesus			True
+MAT	26	27	Jesus			True
+MAT	26	28	Jesus			False
+MAT	26	29	Jesus			False
+MAT	26	31	Jesus			True
+MAT	26	32	Jesus			False
+MAT	26	33	Peter (Simon)	passionate		True
+MAT	26	34	Jesus			True
+MAT	26	35	Peter (Simon)	stronger		True
+MAT	26	36	Jesus	giving orders		False
+MAT	26	38	Jesus			True
+MAT	26	39	Jesus	praying		False
+MAT	26	40	Jesus			True
+MAT	26	41	Jesus			False
+MAT	26	42	Jesus	deeply distressed		False
+MAT	26	45	Jesus	resigned		False
+MAT	26	48	Judas Iscariot	plotting		False
+MAT	26	49	Judas Iscariot	fake respect		True
+MAT	26	50	Jesus			True
+MAT	26	52	Jesus			True
+MAT	26	55	Jesus			True
+MAT	26	61	false witnesses			True
+MAT	26	62	Caiaphas	demanding	high priest	True
+MAT	26	63	Caiaphas	demanding	high priest	True
+MAT	26	64	Jesus			True
+MAT	26	65	Caiaphas	screaming	high priest	True
+MAT	26	66	chief priests/Sanhedrin=chief priests/whole Sanhedrin 3			True
+MAT	26	68	chief priests/Sanhedrin=chief priests/whole Sanhedrin 2			True
+MAT	26	69	girl at high priest's courtyard=servant girl			True
+MAT	26	70	Peter (Simon)	denial		True
+MAT	26	71	servant girl		servant girl, another=someone else	True
+MAT	26	72	Peter (Simon)	stronger denial		True
+MAT	26	73	high priest's servant (man), one=those standing near=another	accusing		True
+MAT	26	74	Peter (Simon)	swearing		True
+MAT	26	75	Jesus			False
+MAT	27	4	chief priests/elders 1	impatient		True
+MAT	27	4	Judas Iscariot	remorse		True
+MAT	27	6	chief priests 1	disdain		False
+MAT	27	7	chief priests			False
+MAT	27	8	narrator-MAT			False
+MAT	27	9	scripture			False
+MAT	27	11	Jesus			True
+MAT	27	11	Pilate	to Jesus		True
+MAT	27	13	Pilate	to Jesus		True
+MAT	27	17	Pilate	to crowd		True
+MAT	27	19	Pilate's wife			False
+MAT	27	20	chief priests/elders 1			False
+MAT	27	21	crowd 7			True
+MAT	27	21	Pilate	to crowd		True
+MAT	27	22	crowd 8	screaming		True
+MAT	27	22	Pilate	to crowd		True
+MAT	27	23	crowd 10	screaming		True
+MAT	27	23	Pilate	to crowd		True
+MAT	27	24	Pilate	to crowd		True
+MAT	27	25	people, all the 3	shouting		True
+MAT	27	29	soldiers 1	mocking		True
+MAT	27	37	sign on the cross			False
+MAT	27	40	passers by 1	mocking		True
+MAT	27	42	rulers=chief priests/teachers of the law/elders	sneering		True
+MAT	27	46	Jesus	deeply distressed		False
+MAT	27	46	narrator-MAT			False
+MAT	27	47	bystanders=some standing near	uneasy		True
+MAT	27	49	bystanders, rest	jeering		True
+MAT	27	54	centurion=centurion/other guards|army officer	amazed		True
+MAT	27	63	chief priests/Pharisees 2	negotiating		True
+MAT	27	65	Pilate	impatient		True
+MAT	28	5	angel of the LORD, an			True
+MAT	28	9	Jesus			False
+MAT	28	10	Jesus			True
+MAT	28	13	chief priests/elders 2	bribing		False
+MAT	28	18	Jesus			True
+MRK	1	17	Jesus			True
+MRK	1	20	Jesus			False
+MRK	1	24	man possessed by evil spirit			True
+MRK	1	25	Jesus	giving orders		True
+MRK	1	27	men in synagogue 1	amazed		False
+MRK	1	30	people, some			False
+MRK	1	37	Peter (Simon)	exclaimed	Peter (Simon) and companions	True
+MRK	1	38	Jesus			True
+MRK	1	40	man with leprosy 2	pleading		True
+MRK	1	41	Jesus	compassionately		True
+MRK	1	44	Jesus			False
+MRK	2	5	Jesus			True
+MRK	2	7	teachers of the law/Pharisees=Pharisees/teachers of the law 1	angry		False
+MRK	2	8	Jesus	rebuking		True
+MRK	2	11	Jesus	giving orders		False
+MRK	2	12	everyone in crowd	praising God		True
+MRK	2	14	Jesus	inviting		True
+MRK	2	15	narrator-MRK			False
+MRK	2	16	teachers of the law	contempt	teachers of the law (Pharisees)	True
+MRK	2	17	Jesus			True
+MRK	2	18	people, some 1	critical		True
+MRK	2	19	Jesus			True
+MRK	2	20	Jesus			False
+MRK	2	21	Jesus			False
+MRK	2	22	Jesus			False
+MRK	2	24	Pharisees 3	accusing		True
+MRK	2	25	Jesus			True
+MRK	2	27	Jesus			False
+MRK	3	3	Jesus	giving orders		True
+MRK	3	4	Jesus			True
+MRK	3	5	Jesus	giving orders		True
+MRK	3	9	Jesus	giving orders		False
+MRK	3	11	evil spirits			False
+MRK	3	12	Jesus			False
+MRK	3	14	Jesus			False
+MRK	3	17	narrator-MRK			False
+MRK	3	21	Jesus' family			False
+MRK	3	22	teachers of the law 1	insulting		False
+MRK	3	23	Jesus			False
+MRK	3	24	Jesus			False
+MRK	3	25	Jesus			False
+MRK	3	26	Jesus			False
+MRK	3	27	Jesus			False
+MRK	3	28	Jesus			False
+MRK	3	30	teachers of the law/Pharisees=Pharisees/teachers of the law 2	insulting		False
+MRK	3	31	Jesus' family			False
+MRK	3	32	someone=they (in crowd)	announcing		True
+MRK	3	33	Jesus	questioning		True
+MRK	3	34	Jesus			True
+MRK	4	3	Jesus	preaching		False
+MRK	4	5	Jesus			False
+MRK	4	7	Jesus			False
+MRK	4	8	Jesus			False
+MRK	4	9	Jesus	warning		False
+MRK	4	10	disciples, the			False
+MRK	4	11	Jesus			False
+MRK	4	12	Jesus			False
+MRK	4	13	Jesus	questioning		False
+MRK	4	14	Jesus	instructing		False
+MRK	4	15	Jesus			False
+MRK	4	16	Jesus			False
+MRK	4	17	Jesus			False
+MRK	4	18	Jesus			False
+MRK	4	19	Jesus			False
+MRK	4	20	Jesus			False
+MRK	4	21	Jesus			False
+MRK	4	22	Jesus			False
+MRK	4	24	Jesus			False
+MRK	4	26	Jesus	instructing		False
+MRK	4	28	Jesus			False
+MRK	4	30	Jesus	instructing		False
+MRK	4	35	Jesus	giving orders		True
+MRK	4	38	disciples, the 3	terrified		True
+MRK	4	39	Jesus	forcefully		True
+MRK	4	40	Jesus	questioning		True
+MRK	4	41	disciples, the 1	awe		True
+MRK	5	7	man with evil spirit	shrieking		True
+MRK	5	8	Jesus			False
+MRK	5	9	Jesus	questioning		True
+MRK	5	9	man with evil spirit			True
+MRK	5	10	man with evil spirit			False
+MRK	5	12	demons	begging		True
+MRK	5	15	narrator-MRK			False
+MRK	5	17	people, Gadarene			False
+MRK	5	18	man who had had demons			False
+MRK	5	19	Jesus	giving orders		True
+MRK	5	23	Jairus=ruler, a	pleading		True
+MRK	5	28	woman, bleeding for 12 years	thinking to herself		False
+MRK	5	30	Jesus	questioning		True
+MRK	5	31	disciples, Jesus'	perplexed		True
+MRK	5	34	Jesus	giving orders		True
+MRK	5	35	men from Jairus house	sad		True
+MRK	5	36	Jesus			True
+MRK	5	39	Jesus	questioning		True
+MRK	5	41	Jesus	giving orders		True
+MRK	5	41	narrator-MRK			True
+MRK	5	43	Jesus			False
+MRK	6	2	men in synagogue 2	amazed		True
+MRK	6	3	people 1	amazed		False
+MRK	6	4	Jesus			True
+MRK	6	7	Jesus	giving orders		False
+MRK	6	8	Jesus			False
+MRK	6	9	Jesus			False
+MRK	6	10	Jesus			False
+MRK	6	10	Jesus	instructing		False
+MRK	6	11	Jesus			False
+MRK	6	11	Jesus			False
+MRK	6	12	disciples, the 1			False
+MRK	6	14	people, some 1	excited		False
+MRK	6	15	people, other 1	guessing		False
+MRK	6	15	people, still other 1			False
+MRK	6	16	Herod Antipas (the tetrarch)	fearful		False
+MRK	6	17	Herod Antipas (the tetrarch)			False
+MRK	6	18	John the Baptist	rebuke		False
+MRK	6	22	Herod Antipas (the tetrarch)	drunk		True
+MRK	6	23	Herod Antipas (the tetrarch)	drunk		True
+MRK	6	24	Herodias			True
+MRK	6	24	Herodias' daughter			True
+MRK	6	25	Herodias' daughter			True
+MRK	6	26	Herod Antipas (the tetrarch)			False
+MRK	6	27	Herod Antipas (the tetrarch)			False
+MRK	6	31	Jesus			True
+MRK	6	35	disciples, the=disciples, His	taking charge		True
+MRK	6	37	Jesus			True
+MRK	6	37	Philip	frustrated	Philip=disciples, the=disciples, His	True
+MRK	6	37,38	Jesus			True
+MRK	6	37-38	Jesus	questioning		True
+MRK	6	37,38	Jesus	questioning		True
+MRK	6	38	Andrew		Andrew=disciples, the=disciples, His	True
+MRK	6	38	Jesus	questioning		True
+MRK	6	39	Jesus			False
+MRK	6	49	disciples, the 3	terrified		False
+MRK	6	50	Jesus	reassuring		False
+MRK	6	56	people, sick			False
+MRK	7	2	narrator-MRK			False
+MRK	7	5	teachers of the law/Pharisees=Pharisees/teachers of the law 1	critical		True
+MRK	7	6	Jesus	rebuking		True
+MRK	7	7	Jesus	rebuking		False
+MRK	7	8	Jesus	rebuking		False
+MRK	7	9	Jesus	rebuking		False
+MRK	7	10	Jesus	rebuking		False
+MRK	7	11	Jesus	rebuking		False
+MRK	7	12	Jesus	rebuking		False
+MRK	7	13	Jesus	rebuking		False
+MRK	7	14	Jesus	warning		True
+MRK	7	15	Jesus			False
+MRK	7	16	Jesus			False
+MRK	7	17	disciples, His 1	puzzled		False
+MRK	7	18	Jesus			True
+MRK	7	19	narrator-MRK			False
+MRK	7	20	Jesus	instructing		True
+MRK	7	26	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl			False
+MRK	7	27	Jesus	instructing		True
+MRK	7	28	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl			True
+MRK	7	29	Jesus			True
+MRK	7	32	neighbors/others who had seen blind man begging			False
+MRK	7	34	Jesus	giving orders		False
+MRK	7	34	narrator-MRK			False
+MRK	7	36	Jesus	warning		False
+MRK	7	36	people, some			False
+MRK	7	37	people 2			False
+MRK	8	2	Jesus			True
+MRK	8	4	disciples, the 3	questioning		True
+MRK	8	5	disciples, His			True
+MRK	8	5	Jesus	questioning		True
+MRK	8	6	Jesus	giving orders		False
+MRK	8	11	Pharisees			False
+MRK	8	12	Jesus	exasperated		False
+MRK	8	15	Jesus	warning		True
+MRK	8	16	disciples, the 3	defensive		False
+MRK	8	17	Jesus	rebuking		True
+MRK	8	19	disciples, the 2	hesitant		True
+MRK	8	20	disciples, the 1			True
+MRK	8	20	Jesus	questioning		True
+MRK	8	21	Jesus	questioning		True
+MRK	8	23	Jesus	questioning		False
+MRK	8	24	blind man			True
+MRK	8	26	Jesus	giving orders		True
+MRK	8	27	Jesus	questioning		True
+MRK	8	28	disciples, the 3	excited		True
+MRK	8	29	Jesus	questioning		True
+MRK	8	29	Peter (Simon)	declare		True
+MRK	8	30	Jesus	warning		True
+MRK	8	31	Jesus	instructing		False
+MRK	8	32	Peter (Simon)			False
+MRK	8	33	Jesus	rebuking		True
+MRK	8	34	Jesus	instructing		True
+MRK	8	35	Jesus			False
+MRK	8	36	Jesus			False
+MRK	8	38	Jesus			False
+MRK	9	1	Jesus			True
+MRK	9	5	Peter (Simon)	afraid		True
+MRK	9	7	voice from cloud			False
+MRK	9	9	Jesus			False
+MRK	9	10	narrator-MRK			False
+MRK	9	11	John	puzzled	Peter (Simon)/James/John=disciples, the|John	True
+MRK	9	12	Jesus			True
+MRK	9	13	Jesus			True
+MRK	9	16	Jesus	questioning		True
+MRK	9	17	father of possessed boy=man in crowd			True
+MRK	9	19	Jesus	exasperated		True
+MRK	9	21	father of possessed boy=man in crowd	distraught		True
+MRK	9	21	Jesus	questioning		True
+MRK	9	22	father of possessed boy=man in crowd	distraught		False
+MRK	9	23	Jesus			True
+MRK	9	24	father of possessed boy=man in crowd			True
+MRK	9	25	Jesus	giving orders		True
+MRK	9	26	many in crowd			False
+MRK	9	28	disciples, His 3	upset		True
+MRK	9	29	Jesus			True
+MRK	9	31	Jesus			False
+MRK	9	33	Jesus	questioning		False
+MRK	9	35	Jesus	instructing		False
+MRK	9	37	Jesus	instructing		False
+MRK	9	38	John		John (disciple whom Jesus loved)	True
+MRK	9	39	Jesus			True
+MRK	9	40	Jesus			False
+MRK	9	41	Jesus			False
+MRK	9	42	Jesus	instructing		False
+MRK	9	43	Jesus			False
+MRK	9	44	Jesus			False
+MRK	9	45	Jesus			False
+MRK	9	46	Jesus			False
+MRK	9	47	Jesus			False
+MRK	9	48	Jesus			False
+MRK	9	49	Jesus			False
+MRK	9	50	Jesus			False
+MRK	9	50	Jesus			False
+MRK	10	2	Pharisees, some 3	questioning		False
+MRK	10	3	Jesus	questioning		True
+MRK	10	4	Pharisees, some			True
+MRK	10	5	Jesus			True
+MRK	10	6	Jesus			False
+MRK	10	8	Jesus			False
+MRK	10	10	disciples, the			False
+MRK	10	11	Jesus			True
+MRK	10	14	Jesus			False
+MRK	10	16	Jesus			False
+MRK	10	17	ruler, a certain=man, rich young	respectful		True
+MRK	10	18	Jesus			True
+MRK	10	19	Jesus			False
+MRK	10	20	ruler, a certain=man, rich young	upset		True
+MRK	10	21	Jesus			True
+MRK	10	23	Jesus			True
+MRK	10	24	Jesus			True
+MRK	10	26	disciples, the=those who heard	shocked		False
+MRK	10	27	Jesus			True
+MRK	10	28	Peter (Simon)			True
+MRK	10	29	Jesus			True
+MRK	10	31	Jesus			False
+MRK	10	33	Jesus			False
+MRK	10	35	John	boldly	James/John (sons of Zebedee)|John	True
+MRK	10	36	Jesus			True
+MRK	10	37	John	boldly	James/John (sons of Zebedee)|John	True
+MRK	10	38	Jesus			True
+MRK	10	39	Jesus			True
+MRK	10	39	John	boldly	James/John (sons of Zebedee)|John	True
+MRK	10	42	Jesus			True
+MRK	10	43	Jesus			False
+MRK	10	45	Jesus			False
+MRK	10	47	Bartimaeus	shouting	Bartimaeus, blind=blind man, a	True
+MRK	10	48	Bartimaeus	shouting	Bartimaeus, blind=blind man, a	True
+MRK	10	48	crowd, many in the			True
+MRK	10	49	crowd, large 2			True
+MRK	10	49	Jesus			True
+MRK	10	51	Bartimaeus	pleading	Bartimaeus, blind=blind man, a	True
+MRK	10	51	Jesus			True
+MRK	10	52	Jesus			True
+MRK	11	2	Jesus			False
+MRK	11	5	owner of colt=people, some standing there	suspicious		False
+MRK	11	6	disciples, 2 men			False
+MRK	11	6	some people			False
+MRK	11	9	disciples, whole crowd of=people, many=crowd, great|crowd	praising		True
+MRK	11	10	disciples, whole crowd of=people, many=crowd, great|crowd	praising		True
+MRK	11	14	Jesus			False
+MRK	11	17	Jesus			False
+MRK	11	21	Peter (Simon)	amazed		True
+MRK	11	22	Jesus			True
+MRK	11	23	Jesus			False
+MRK	11	24	Jesus			False
+MRK	11	25	Jesus			False
+MRK	11	28	chief priests/teachers of the law/elders=chief priests/elders of people 1	challenge		True
+MRK	11	29	Jesus			True
+MRK	11	30	Jesus	questioning		False
+MRK	11	31	chief priests/teachers of the law/elders=chief priests/elders of people 1	to themselves		False
+MRK	11	33	chief priests/teachers of the law/elders=chief priests/elders of people 2			True
+MRK	11	33	Jesus			True
+MRK	12	1	Jesus	preaching		False
+MRK	12	2	Jesus			False
+MRK	12	4	Jesus	preaching		False
+MRK	12	5	Jesus	preaching		False
+MRK	12	6	Jesus			False
+MRK	12	7	Jesus			False
+MRK	12	9	Jesus			False
+MRK	12	10	Jesus	preaching		False
+MRK	12	14	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			True
+MRK	12	15	Jesus			True
+MRK	12	16	Jesus	questioning		True
+MRK	12	16	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			True
+MRK	12	17	Jesus			True
+MRK	12	18	Sadducees			False
+MRK	12	19	Sadducees			True
+MRK	12	20	Sadducees			False
+MRK	12	23	Sadducees			False
+MRK	12	24	Jesus			True
+MRK	12	26	Jesus			False
+MRK	12	28	Good Priest	respectful	teachers of the law, one=expert in the law, an|Good Priest	True
+MRK	12	29	Jesus			True
+MRK	12	32	Good Priest	complimenting	teachers of the law, one=expert in the law, an|Good Priest	True
+MRK	12	34	Jesus			True
+MRK	12	35	Jesus			True
+MRK	12	36	Jesus			False
+MRK	12	37	Jesus			False
+MRK	12	38	Jesus	warning		False
+MRK	12	40	Jesus			False
+MRK	12	43	Jesus	giving orders		False
+MRK	13	1	disciples, one of His	awe		True
+MRK	13	2	Jesus			True
+MRK	13	4	John		Peter (Simon)/James/John/Andrew=disciples=they	True
+MRK	13	5	Jesus			False
+MRK	13	6	Jesus			False
+MRK	13	7	Jesus			False
+MRK	13	8	Jesus			False
+MRK	13	9	Jesus			False
+MRK	13	10	Jesus			False
+MRK	13	11	Jesus			False
+MRK	13	12	Jesus			False
+MRK	13	13	Jesus			False
+MRK	13	14	Jesus			False
+MRK	13	15	Jesus			False
+MRK	13	17	Jesus			False
+MRK	13	21	Jesus			False
+MRK	13	22	Jesus			False
+MRK	13	24	Jesus			False
+MRK	13	25	Jesus			False
+MRK	13	26	Jesus			False
+MRK	13	27	Jesus			False
+MRK	13	28	Jesus			False
+MRK	13	30	Jesus			False
+MRK	13	31	Jesus			False
+MRK	13	32	Jesus			False
+MRK	13	33	Jesus			False
+MRK	13	34	Jesus			False
+MRK	13	35	Jesus			False
+MRK	14	2	chief priests/teachers of the law=chief priests/elders of people			False
+MRK	14	4	Judas Iscariot	indignant	Judas Iscariot=some in home of Simon, leper	True
+MRK	14	5	some in home of Simon, leper			False
+MRK	14	6	Jesus			True
+MRK	14	9	Jesus			False
+MRK	14	10	Judas Iscariot			False
+MRK	14	11	Jewish authorities			False
+MRK	14	12	John		Peter (Simon)/John=disciples (Jesus')|disciples	True
+MRK	14	13	Jesus			True
+MRK	14	18	Jesus			True
+MRK	14	19	disciples, His 2	sad		True
+MRK	14	19	disciples, His 4			True
+MRK	14	20	Jesus			True
+MRK	14	22	Jesus			True
+MRK	14	23	Jesus			False
+MRK	14	24	Jesus			True
+MRK	14	25	Jesus			False
+MRK	14	27	Jesus			True
+MRK	14	28	Jesus			False
+MRK	14	29	Peter (Simon)	declare		True
+MRK	14	30	Jesus			True
+MRK	14	31	Peter (Simon)	passionate		True
+MRK	14	32	Jesus			False
+MRK	14	33	Jesus			False
+MRK	14	34	Jesus	deeply distressed		True
+MRK	14	36	Jesus			False
+MRK	14	37	Jesus	questioning		True
+MRK	14	38	Jesus			False
+MRK	14	41	Jesus			False
+MRK	14	44	Judas Iscariot	plotting		False
+MRK	14	45	Judas Iscariot	fake respect		True
+MRK	14	48	Jesus	questioning		True
+MRK	14	58	witnesses, false, two=witnesses, some false	mocking		True
+MRK	14	60	Caiaphas	demanding	high priest	True
+MRK	14	61	Caiaphas	demanding	high priest	True
+MRK	14	62	Jesus			True
+MRK	14	63	Caiaphas	screaming	high priest	True
+MRK	14	64	high priest			False
+MRK	14	65	chief priests/Sanhedrin=chief priests/whole Sanhedrin 1	mocking		True
+MRK	14	67	girl at high priest's courtyard=servant girl			True
+MRK	14	68	Peter (Simon)	denial		True
+MRK	14	69	servant girl		servant girl, another=someone else	True
+MRK	14	70	high priest's servant (man), one=those standing near=another	accusing		True
+MRK	14	70	Peter (Simon)	defensive		True
+MRK	14	71	Peter (Simon)	swearing		True
+MRK	14	72	Jesus			False
+MRK	15	2	Jesus			True
+MRK	15	2	Pilate	to Jesus		True
+MRK	15	4	Pilate	to Jesus		True
+MRK	15	8	crowd			False
+MRK	15	9	Pilate	to crowd		True
+MRK	15	11	chief priests			False
+MRK	15	11	crowd			False
+MRK	15	12	Pilate	to crowd		True
+MRK	15	13	crowd 8	shouting		True
+MRK	15	14	crowd 9	shouting louder		True
+MRK	15	14	Pilate	to crowd		True
+MRK	15	18	soldiers 1	mocking		True
+MRK	15	22	narrator-MRK			False
+MRK	15	26	sign on the cross			False
+MRK	15	28	scripture			False
+MRK	15	29	passers by	insulting		True
+MRK	15	31	rulers=chief priests/teachers of the law/elders	sneering		True
+MRK	15	32	rulers=chief priests/teachers of the law/elders	sneering		False
+MRK	15	34	Jesus			False
+MRK	15	34	narrator-MRK			False
+MRK	15	35	bystanders=some standing near	uneasy		True
+MRK	15	36	man, one	jeering		True
 MRK	15	38,39	centurion=centurion/other guards|army officer	amazed	
-MRK	15	39	centurion=centurion/other guards|army officer	amazed	
-MRK	15	43	Joseph of Arimathea		
-MRK	15	43	Pilate	surprised	
-MRK	15	44	Pilate		
-MRK	15	44	Pilate	surprised	
-MRK	15	45	centurion		
-MRK	15	45	Pilate		
+MRK	15	39	centurion=centurion/other guards|army officer	amazed		True
+MRK	15	43	Joseph of Arimathea			False
+MRK	15	43	Pilate	surprised		False
+MRK	15	44	Pilate			False
+MRK	15	44	Pilate	surprised		False
+MRK	15	45	centurion			False
+MRK	15	45	Pilate			False
 MRK	16	3	Mary Magdalene		Mary Magdalene/Mary mother of James/Salome
 MRK	16	3-4	Mary Magdalene		Mary Magdalene/Mary mother of James/Salome
-MRK	16	6	angel in white=man dressed in white robe, young		
-MRK	16	15	Jesus	giving orders	
-MRK	16	16	Jesus	giving orders	
-MRK	16	17	Jesus		
-LUK	1	13	angel of the LORD, an		
-LUK	1	14	angel of the LORD, an		
-LUK	1	15	angel of the LORD, an		
-LUK	1	16	angel of the LORD, an		
-LUK	1	18	Zechariah		
-LUK	1	19	angel of the LORD, an		
-LUK	1	25	Elizabeth		
-LUK	1	28	angel of the LORD, an	to Mary	angel Gabriel, sent by God
-LUK	1	29	Mary (Jesus' mother)	confused	
-LUK	1	30	angel of the LORD, an		angel Gabriel, sent by God
-LUK	1	34	Mary (Jesus' mother)		
-LUK	1	35	angel of the LORD, an		angel Gabriel, sent by God
-LUK	1	38	Mary (Jesus' mother)		
-LUK	1	42	Elizabeth		
-LUK	1	43	Elizabeth		
-LUK	1	44	Elizabeth		
-LUK	1	46	Mary (Jesus' mother)		
-LUK	1	48	Mary (Jesus' mother)		
-LUK	1	49	Mary (Jesus' mother)		
-LUK	1	50	Mary (Jesus' mother)		
-LUK	1	51	Mary (Jesus' mother)		
-LUK	1	52	Mary (Jesus' mother)		
-LUK	1	53	Mary (Jesus' mother)		
-LUK	1	54	Mary (Jesus' mother)		
-LUK	1	55	Mary (Jesus' mother)		
-LUK	1	60	Elizabeth		
-LUK	1	61	neighbors/relatives of Zechariah/Elizabeth		
-LUK	1	62	Jews		
-LUK	1	63	his name is John		
-LUK	1	64	Zechariah		
-LUK	1	66	everyone who heard		
-LUK	1	68	Zechariah	praising	
-LUK	1	69	Zechariah	praising	
-LUK	1	70	Zechariah	praising	
-LUK	1	70,71	Zechariah	praising	
-LUK	1	71	Zechariah	praising	
-LUK	1	72	Zechariah	praising	
-LUK	1	72-75	Zechariah	praising	
-LUK	1	73	Zechariah	praising	
-LUK	1	74	Zechariah	praising	
-LUK	1	75	Zechariah	praising	
-LUK	1	76	Zechariah	praising	
-LUK	1	76,77	Zechariah	praising	
-LUK	1	77	Zechariah	praising	
-LUK	1	78	Zechariah	praising	
-LUK	1	78,79	Zechariah	praising	
-LUK	1	79	Zechariah	praising	
-LUK	2	1	Caesar Augustus		
-LUK	2	10	angel of the LORD, an		
-LUK	2	14	great company of heavenly host	stage whisper extra voices will be added	
-LUK	2	15	shepherds 1	awe	
-LUK	2	22-24	scripture		
-LUK	2	23	scripture		
-LUK	2	24	scripture		
-LUK	2	26	Holy Spirit, the		
-LUK	2	29	Simeon-old		
-LUK	2	30	Simeon-old		
-LUK	2	31,32	Simeon-old		
-LUK	2	32	Simeon-old		
-LUK	2	34	Simeon-old		
-LUK	2	38	Anna, prophetess		
-LUK	2	48	Mary (Jesus' mother)		
-LUK	2	49	Jesus (child)		
-LUK	3	3	John the Baptist		
-LUK	3	4	scripture		
-LUK	3	7	John the Baptist		
-LUK	3	8	John the Baptist		
-LUK	3	9	John the Baptist		
-LUK	3	10	crowd 10		
-LUK	3	11	John the Baptist		
-LUK	3	12	tax collectors	calling out	
-LUK	3	13	John the Baptist		
-LUK	3	14	John the Baptist		
-LUK	3	14	soldiers 1	calling out	
-LUK	3	15	people		
-LUK	3	16	John the Baptist		
-LUK	3	17	John the Baptist		
-LUK	3	22	God		voice from heaven (God)
-LUK	4	3	Satan		Devil
-LUK	4	4	Jesus		
-LUK	4	6	Satan		Devil
-LUK	4	6,7	Satan		Devil
-LUK	4	8	Jesus		
-LUK	4	9	Satan		Devil
-LUK	4	10	Satan		Devil
-LUK	4	12	Jesus		
-LUK	4	18	Jesus		
-LUK	4	21	Jesus		
-LUK	4	22	all in synagogue	perplexed	
-LUK	4	23	Jesus		
-LUK	4	24	Jesus		
-LUK	4	25,26	Jesus		
-LUK	4	26	Jesus		
-LUK	4	27	Jesus		
-LUK	4	34	man possessed by evil spirit		
-LUK	4	35	Jesus	giving orders	
-LUK	4	36	men in synagogue 2	amazed	
-LUK	4	38	everyone		
-LUK	4	39	Jesus	rebuking	
-LUK	4	41	demons coming out of people		
-LUK	4	43	Jesus		
-LUK	5	3	Jesus		
-LUK	5	4	Jesus		
-LUK	5	5	Peter (Simon)	polite	
-LUK	5	8	Peter (Simon)	afraid	
-LUK	5	8,9	Peter (Simon)	afraid	
-LUK	5	10	Jesus		
-LUK	5	12	man covered with leprosy	pleading	
-LUK	5	13	Jesus		
-LUK	5	14	Jesus	forcefully	
-LUK	5	20	Jesus		
-LUK	5	21	teachers of the law/Pharisees=Pharisees/teachers of the law 1	angry	
-LUK	5	22	Jesus		
-LUK	5	24	Jesus	giving orders	
-LUK	5	26	everyone		
-LUK	5	27	Jesus		
-LUK	5	27	narrator-LUK		
-LUK	5	30	Pharisees/teachers of the law 1	contempt	
-LUK	5	31	Jesus		
-LUK	5	33	Pharisees/teachers of the law		
-LUK	5	34	Jesus		
-LUK	5	36	Jesus		
-LUK	5	37	Jesus		
-LUK	5	38	Jesus		
-LUK	5	39	Jesus		
-LUK	6	2	Pharisees, some 1	angry	
-LUK	6	3	Jesus		
-LUK	6	4	Jesus		
-LUK	6	5	Jesus		
-LUK	6	8	Jesus	giving orders	
-LUK	6	9	Jesus	questioning	
-LUK	6	10	Jesus		
-LUK	6	20	Jesus		
-LUK	6	21	Jesus		
-LUK	6	22	Jesus		
-LUK	6	23	Jesus		
-LUK	6	24	Jesus		
-LUK	6	25	Jesus		
-LUK	6	26	Jesus		
-LUK	6	27	Jesus		
-LUK	6	28	Jesus		
-LUK	6	29	Jesus		
-LUK	6	31	Jesus		
-LUK	6	32	Jesus		
-LUK	6	33	Jesus		
-LUK	6	34	Jesus		
-LUK	6	35	Jesus		
-LUK	6	37	Jesus		
-LUK	6	38	Jesus		
-LUK	6	39	Jesus		
-LUK	6	40	Jesus		
-LUK	6	41	Jesus		
-LUK	6	41,42	Jesus		
-LUK	6	42	Jesus		
-LUK	6	43	Jesus		
-LUK	6	44	Jesus		
-LUK	6	45	Jesus		
-LUK	6	46	Jesus		
-LUK	6	47	Jesus		
-LUK	6	48	Jesus		
-LUK	6	49	Jesus		
-LUK	7	4	Good Priest	interceding	elders of the Jews|Good Priest
-LUK	7	5	Good Priest		elders of the Jews|Good Priest
-LUK	7	6	centurion=centurion/other guards|army officer	polite	
-LUK	7	7	centurion=centurion/other guards|army officer	polite	
-LUK	7	8	centurion 2		
-LUK	7	9	Jesus		
-LUK	7	13	Jesus	compassionately	
-LUK	7	14	Jesus	giving orders	
-LUK	7	15	Jesus		
-LUK	7	16	crowd, large 1	praising	
-LUK	7	19	John the Baptist	discouraged	
-LUK	7	20	John's disciples	puzzled	
-LUK	7	20,21	John's disciples	puzzled	
-LUK	7	22	Jesus		
-LUK	7	23	Jesus		
-LUK	7	24	Jesus		
-LUK	7	25	Jesus		
-LUK	7	26	Jesus		
-LUK	7	27	Jesus		
-LUK	7	28	Jesus		
-LUK	7	31	Jesus		
-LUK	7	32	Jesus		
-LUK	7	33	Jesus		
-LUK	7	33	narrator-LUK		
-LUK	7	34	Jesus		
-LUK	7	35	Jesus		
-LUK	7	39	Pharisee(Simon)	judgmental	
-LUK	7	40	Jesus		
-LUK	7	40	Pharisee(Simon)		
-LUK	7	41	Jesus		
-LUK	7	43	Jesus		
-LUK	7	43	Pharisee(Simon)		
-LUK	7	44	Jesus		
-LUK	7	45	Jesus		
-LUK	7	46	Jesus		
-LUK	7	48	Jesus		
-LUK	7	49	other guests at Pharisee(Simon)'s house	unhappy	
-LUK	7	50	Jesus		
-LUK	8	5	Jesus		
-LUK	8	6	Jesus		
-LUK	8	7	Jesus		
-LUK	8	8	Jesus		
-LUK	8	9	disciples, His		
-LUK	8	10	Jesus		
-LUK	8	11	Jesus		
-LUK	8	12	Jesus		
-LUK	8	13	Jesus		
-LUK	8	14	Jesus		
-LUK	8	15	Jesus		
-LUK	8	16	Jesus		
-LUK	8	17	Jesus		
-LUK	8	18	Jesus		
-LUK	8	20	someone=they (in crowd)		
-LUK	8	21	Jesus		
-LUK	8	22	Jesus	giving orders	
-LUK	8	24	disciples, the 3	terrified	
-LUK	8	24	Jesus	giving orders	
-LUK	8	25	disciples, the 4	fear, amazement	
-LUK	8	25	Jesus	questioning	
-LUK	8	27	demon-possessed man		
-LUK	8	27-29	demon-possessed man		
-LUK	8	27-29	Jesus		
-LUK	8	28	demon-possessed man		
-LUK	8	29	Jesus		
-LUK	8	30	demon-possessed man		
-LUK	8	30	Jesus	questioning	
-LUK	8	31	demon-possessed man	begging	
-LUK	8	31,32	demon-possessed man	begging	
-LUK	8	32	demon-possessed man	begging	
-LUK	8	38	man who had had demons		
-LUK	8	39	Jesus		
-LUK	8	45	Jesus	questioning	
-LUK	8	45	Peter (Simon)	perplexed	
-LUK	8	46	Jesus		
-LUK	8	48	Jesus		
-LUK	8	49	someone from Jairus' house	sad	
-LUK	8	50	Jesus		
-LUK	8	52	Jesus		
-LUK	8	54	Jesus	giving orders	
-LUK	8	55	Jesus		
-LUK	8	56	Jesus	warning	
-LUK	9	3	Jesus	instructing	
-LUK	9	4	Jesus		
-LUK	9	5	Jesus		
-LUK	9	7	people, some		
-LUK	9	8	people, other		
-LUK	9	9	Herod Antipas (the tetrarch)		
-LUK	9	12	disciples, the=disciples, His	taking charge	
-LUK	9	13	Andrew	frustrated	Andrew=twelve, the
-LUK	9	13	Jesus	giving orders	
-LUK	9	14	Jesus	giving orders	
-LUK	9	18	Jesus	questioning	
-LUK	9	19	disciples, the 3	excited	
-LUK	9	20	Jesus	questioning	
-LUK	9	20	Peter (Simon)	declare	
-LUK	9	21	Jesus	warning	
-LUK	9	22	Jesus		
-LUK	9	23	Jesus	instructing	
-LUK	9	24	Jesus		
-LUK	9	25	Jesus	instructing	
-LUK	9	26	Jesus		
-LUK	9	27	Jesus		
-LUK	9	33	Peter (Simon)	afraid	
-LUK	9	35	voice from cloud		
-LUK	9	38	father of possessed boy=man in crowd	distraught	
-LUK	9	41	Jesus	exasperated	
-LUK	9	41	Jesus	exasperated; giving orders	
-LUK	9	41	Jesus	giving orders	
-LUK	9	43	everyone in crowd	praising God	
-LUK	9	44	Jesus		
-LUK	9	46	disciples, His 3	arguing	
-LUK	9	48	Jesus		
-LUK	9	49	John		John (disciple whom Jesus loved)
-LUK	9	50	Jesus		
-LUK	9	54	John		James/John (sons of Zebedee)|John
-LUK	9	55	Jesus	rebuking	
-LUK	9	57	teacher of the law=man|man	eager	
-LUK	9	58	Jesus		
-LUK	9	59	disciple, another=man, another	making excuse	
-LUK	9	59	Jesus	inviting	
-LUK	9	60	Jesus		
-LUK	9	61	man, still another		
-LUK	9	62	Jesus		
-LUK	10	1	Jesus	giving orders	
-LUK	10	2	Jesus	instructing	
-LUK	10	3	Jesus		
-LUK	10	4	Jesus	instructing	
-LUK	10	5	Jesus		
-LUK	10	6	Jesus		
-LUK	10	7	Jesus		
-LUK	10	8	Jesus		
-LUK	10	9	Jesus		
-LUK	10	10	Jesus		
-LUK	10	11	Jesus		
-LUK	10	12	Jesus		
-LUK	10	13	Jesus	warning	
-LUK	10	14	Jesus	warning	
-LUK	10	15	Jesus		
-LUK	10	16	Jesus		
-LUK	10	17	seventy-two	excited	
-LUK	10	18	Jesus		
-LUK	10	19	Jesus		
-LUK	10	21	Jesus		
-LUK	10	22	Jesus		
-LUK	10	23	Jesus		
-LUK	10	25	Good Priest	testing	teachers of the law, one=expert in the law, an|Good Priest
-LUK	10	26	Jesus	questioning	
-LUK	10	27	Good Priest		teachers of the law, one=expert in the law, an|Good Priest
-LUK	10	28	Jesus		
-LUK	10	29	Good Priest	justifying	teachers of the law, one=expert in the law, an|Good Priest
-LUK	10	30	Jesus		
-LUK	10	31	Jesus		
-LUK	10	32	Jesus		
-LUK	10	33	Jesus		
-LUK	10	34	Jesus		
-LUK	10	35	Jesus		
-LUK	10	36	Jesus	questioning	
-LUK	10	37	Good Priest		teachers of the law, one=expert in the law, an|Good Priest
-LUK	10	37	Jesus		
-LUK	10	40	Martha		
-LUK	10	41	Jesus	compassionately	
-LUK	11	1	disciples, one of His		
-LUK	11	2	Jesus	instructing	
-LUK	11	5	Jesus		
-LUK	11	6	Jesus		
-LUK	11	7	Jesus		
-LUK	11	8	Jesus		
-LUK	11	9	Jesus		
-LUK	11	10	Jesus		
-LUK	11	11	Jesus		
-LUK	11	15	crowd, some of		
-LUK	11	16	others 1		
-LUK	11	17	Jesus		
-LUK	11	18	Jesus		
-LUK	11	19	Jesus		
-LUK	11	20	Jesus		
-LUK	11	21	Jesus		
-LUK	11	22	Jesus		
-LUK	11	23	Jesus		
-LUK	11	24	Jesus		
-LUK	11	25	Jesus		
-LUK	11	27	woman in crowd		
-LUK	11	28	Jesus		
-LUK	11	29	Jesus		
-LUK	11	30	Jesus		
-LUK	11	31	Jesus		
-LUK	11	32	Jesus		
-LUK	11	33	Jesus		
-LUK	11	34	Jesus		
-LUK	11	35	Jesus		
-LUK	11	37	Pharisee, a		
-LUK	11	39	Jesus		
-LUK	11	40	Jesus		
-LUK	11	41	Jesus		
-LUK	11	42	Jesus	rebuking	
-LUK	11	43	Jesus	rebuking	
-LUK	11	44	Jesus		
-LUK	11	45	experts-in-law, one|teachers of the law	insulted	
-LUK	11	46	Jesus	rebuking	
-LUK	11	47	Jesus		
-LUK	11	48	Jesus	rebuking	
-LUK	11	49	Jesus		
-LUK	11	50	Jesus		
-LUK	11	51	Jesus		
-LUK	11	52	Jesus	rebuking	
-LUK	12	1	Jesus	warning	
-LUK	12	2	Jesus		
-LUK	12	4	Jesus		
-LUK	12	5	Jesus		
-LUK	12	6	Jesus	questioning	
-LUK	12	6,7	Jesus	questioning	
-LUK	12	8	Jesus		
-LUK	12	9	Jesus		
-LUK	12	10	Jesus		
-LUK	12	11	Jesus		
-LUK	12	13	someone in crowd		
-LUK	12	14	Jesus	questioning	
-LUK	12	15	Jesus	warning	
-LUK	12	16	Jesus		
-LUK	12	17	Jesus		
-LUK	12	18	Jesus		
-LUK	12	19	Jesus		
-LUK	12	20	Jesus		
-LUK	12	21	Jesus		
-LUK	12	22	Jesus		
-LUK	12	23	Jesus		
-LUK	12	24	Jesus		
-LUK	12	25	Jesus		
-LUK	12	26	Jesus		
-LUK	12	27	Jesus		
-LUK	12	28	Jesus		
-LUK	12	29	Jesus		
-LUK	12	30	Jesus		
-LUK	12	31	Jesus		
-LUK	12	32	Jesus		
-LUK	12	33	Jesus		
-LUK	12	34	Jesus		
-LUK	12	35	Jesus		
-LUK	12	35-36	Jesus		
-LUK	12	36	Jesus		
-LUK	12	37	Jesus		
-LUK	12	38	Jesus		
-LUK	12	39	Jesus		
-LUK	12	41	Peter (Simon)		
-LUK	12	42	Jesus		
-LUK	12	44	Jesus		
-LUK	12	45	Jesus		
-LUK	12	46	Jesus		
-LUK	12	47	Jesus		
-LUK	12	48	Jesus		
-LUK	12	49	Jesus		
-LUK	12	50	Jesus		
-LUK	12	51	Jesus		
-LUK	12	52	Jesus		
-LUK	12	54	Jesus		
-LUK	12	55	Jesus		
-LUK	12	56	Jesus		
-LUK	12	57	Jesus		
-LUK	13	2	Jesus		
-LUK	13	3	Jesus		
-LUK	13	4	Jesus		
-LUK	13	6	Jesus		
-LUK	13	7	Jesus		
-LUK	13	8	Jesus		
-LUK	13	12	Jesus		
-LUK	13	14	synagogue ruler	angry	
-LUK	13	15	Jesus		
-LUK	13	18	Jesus		
-LUK	13	20	Jesus		
-LUK	13	23	someone 1	questioning	
-LUK	13	24	Jesus		
-LUK	13	25	Jesus		
-LUK	13	26	Jesus		
-LUK	13	27	Jesus		
-LUK	13	28	Jesus		
-LUK	13	29	Jesus		
-LUK	13	31	Good Priest	warning	Pharisee expert-in-law|Good Priest
-LUK	13	32	Jesus		
-LUK	13	33	Jesus		
-LUK	13	34	Jesus		
-LUK	14	3	Jesus	questioning	
-LUK	14	5	Jesus	questioning	
-LUK	14	8	Jesus		
-LUK	14	9	Jesus		
-LUK	14	10	Jesus		
-LUK	14	11	Jesus		
-LUK	14	12	Jesus		
-LUK	14	13	Jesus		
-LUK	14	15	one at table with him		
-LUK	14	16	Jesus		
-LUK	14	17	Jesus		
-LUK	14	18	Jesus		
-LUK	14	19	Jesus		
-LUK	14	20	Jesus		
-LUK	14	21	Jesus		
-LUK	14	22	Jesus		
-LUK	14	23	Jesus		
-LUK	14	26	Jesus		
-LUK	14	28	Jesus		
-LUK	14	30	Jesus		
-LUK	14	31	Jesus		
-LUK	14	32	Jesus		
-LUK	14	33	Jesus		
-LUK	14	34	Jesus		
-LUK	14	35	Jesus		
-LUK	15	1	narrator-LUK		
-LUK	15	2	Pharisees/teachers of law|Pharisee, one	muttering	
-LUK	15	4	Jesus		
-LUK	15	5	Jesus		
-LUK	15	5,6	Jesus		
-LUK	15	6	Jesus		
-LUK	15	7	Jesus		
-LUK	15	8	Jesus		
-LUK	15	9	Jesus		
-LUK	15	10	Jesus		
-LUK	15	11	Jesus		
-LUK	15	12	Jesus		
-LUK	15	13	Jesus		
-LUK	15	14	Jesus		
-LUK	15	15	Jesus		
-LUK	15	16	Jesus		
-LUK	15	17	Jesus		
-LUK	15	18	narrator-LUK		
-LUK	15	19	Jesus		
-LUK	15	20	Jesus		
-LUK	15	21	Jesus		
-LUK	15	22	Jesus		
-LUK	15	24	Jesus		
-LUK	15	25	Jesus		
-LUK	15	27	Jesus		
-LUK	15	28	Jesus		
-LUK	15	30	Jesus		
-LUK	15	31	Jesus		
-LUK	16	1	Jesus		
-LUK	16	2	Jesus		
-LUK	16	3	Jesus		
-LUK	16	4	Jesus		
-LUK	16	5	Jesus		
-LUK	16	6	Jesus		
-LUK	16	7	Jesus		
-LUK	16	8	Jesus		
-LUK	16	9	Jesus		
-LUK	16	10	Jesus		
-LUK	16	12	Jesus		
-LUK	16	13	Jesus		
-LUK	16	15	Jesus		
-LUK	16	16	Jesus		
-LUK	16	17	Jesus		
-LUK	16	18	Jesus		
-LUK	16	19	Jesus		
-LUK	16	20,21	Jesus		
-LUK	16	21	Jesus		
-LUK	16	22	Jesus		
-LUK	16	23	Jesus		
-LUK	16	24	Jesus		
-LUK	16	25	Jesus		
-LUK	16	26	Jesus		
-LUK	16	27	Jesus		
-LUK	16	29	Jesus		
-LUK	16	30	Jesus		
-LUK	16	31	Jesus		
-LUK	17	1	Jesus		
-LUK	17	2	Jesus		
-LUK	17	3	Jesus		
-LUK	17	5	apostles		
-LUK	17	6	Jesus		
-LUK	17	7	Jesus		
-LUK	17	8	Jesus		
-LUK	17	9	Jesus		
-LUK	17	13	ten men with leprosy		
-LUK	17	14	Jesus		
-LUK	17	15	man with leprosy 1		
-LUK	17	16	man with leprosy 1		
-LUK	17	17	Jesus		
-LUK	17	19	Jesus	giving orders	
-LUK	17	20	Jesus	questioning	
-LUK	17	22	Jesus		
-LUK	17	23	Jesus		
-LUK	17	24	Jesus		
-LUK	17	25	Jesus		
-LUK	17	26	Jesus		
-LUK	17	27	Jesus		
-LUK	17	28	Jesus		
-LUK	17	29	Jesus		
-LUK	17	30	Jesus		
-LUK	17	31	Jesus		
-LUK	17	32	Jesus		
-LUK	17	33	Jesus		
-LUK	17	34	Jesus		
-LUK	17	37	disciples, His 1	puzzled	
-LUK	17	37	Jesus		
-LUK	18	1	Jesus		
-LUK	18	2	Jesus		
-LUK	18	3	Jesus		
-LUK	18	4	Jesus		
-LUK	18	4,5	Jesus		
-LUK	18	6	Jesus		
-LUK	18	8	Jesus		
-LUK	18	10	Jesus		
-LUK	18	11	Jesus		
-LUK	18	12	Jesus		
-LUK	18	13	Jesus		
-LUK	18	14	Jesus		
-LUK	18	15	disciples, the		
-LUK	18	16	Jesus		
-LUK	18	18	ruler, a certain=man, rich young	respectful	
-LUK	18	19	Jesus		
-LUK	18	21	ruler, a certain=man, rich young	upset	
-LUK	18	22	Jesus		
-LUK	18	24	Jesus		
-LUK	18	26	disciples, the=those who heard	shocked	
-LUK	18	27	Jesus		
-LUK	18	28	Peter (Simon)	perplexed	
-LUK	18	29	Jesus		
-LUK	18	31	Jesus		
-LUK	18	32	Jesus		
-LUK	18	36	Bartimaeus		Bartimaeus, blind=blind man, a
-LUK	18	37	crowd 3		
-LUK	18	38	Bartimaeus	shouting	Bartimaeus, blind=blind man, a
-LUK	18	39	Bartimaeus	shouting	Bartimaeus, blind=blind man, a
-LUK	18	39	crowd 5		
-LUK	18	41	Bartimaeus	pleading	Bartimaeus, blind=blind man, a
-LUK	18	41	Jesus	questioning	
-LUK	18	42	Jesus		
-LUK	19	5	Jesus	giving orders	
-LUK	19	7	people, all the		
-LUK	19	8	Zaccheaus		
-LUK	19	9	Jesus		
-LUK	19	12	Jesus		
-LUK	19	13	Jesus		
-LUK	19	14	Jesus		
-LUK	19	15	Jesus		
-LUK	19	16	Jesus		
-LUK	19	17	Jesus		
-LUK	19	18	Jesus		
-LUK	19	19	Jesus		
-LUK	19	20	Jesus		
-LUK	19	20,21	Jesus		
-LUK	19	21	Jesus		
-LUK	19	22	Jesus		
-LUK	19	23	Jesus		
-LUK	19	24	Jesus		
-LUK	19	25	Jesus		
-LUK	19	26	Jesus		
-LUK	19	27	Jesus		
-LUK	19	30	Jesus		
-LUK	19	33	owner of colt=people, some standing there	suspicious	
-LUK	19	34	disciples, two of His		
-LUK	19	38	disciples, whole crowd of=people, many=crowd, great		
-LUK	19	39	Pharisees, some 2	demanding	
-LUK	19	40	Jesus		
-LUK	19	42	Jesus		
-LUK	19	43	Jesus		
-LUK	19	46	Jesus		
-LUK	20	2	chief priests/teachers of the law/elders=chief priests/elders of people 1	challenge	
-LUK	20	3	Jesus		
-LUK	20	4	Jesus	questioning	
-LUK	20	5	chief priests/teachers of the law/elders=chief priests/elders of people 1	to themselves	
-LUK	20	7	chief priests/teachers of the law/elders=chief priests/elders of people 2		
-LUK	20	8	Jesus		
-LUK	20	9	Jesus		
-LUK	20	10	Jesus		
-LUK	20	11	Jesus		
-LUK	20	12	Jesus		
-LUK	20	13	Jesus		
-LUK	20	14	Jesus		
-LUK	20	15	Jesus		
-LUK	20	16	Good Priest	alarmed	chief priests/elders of people|Good Priest
-LUK	20	16	Jesus		
-LUK	20	16	people, the		
-LUK	20	17	Jesus		
-LUK	20	18	Jesus		
-LUK	20	21	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians		
-LUK	20	23	Jesus		
-LUK	20	23-24	Jesus		
-LUK	20	23,24	Jesus		
-LUK	20	23,24	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians		
-LUK	20	24	Jesus		
-LUK	20	24	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians		
-LUK	20	25	Jesus		
-LUK	20	25	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians		
-LUK	20	27	Sadducees		
-LUK	20	28	Sadducees		
-LUK	20	29	Sadducees		
-LUK	20	32	Sadducees		
-LUK	20	32,33	Sadducees		
-LUK	20	33	Sadducees		
-LUK	20	34	Jesus		
-LUK	20	36	Jesus		
-LUK	20	37	Jesus		
-LUK	20	38	Jesus		
-LUK	20	39	Good Priest	compliment	teachers of the law, some|Good Priest
-LUK	20	41	Jesus		
-LUK	20	42	Jesus		
-LUK	20	43	Jesus		
-LUK	20	44	narrator-LUK		
-LUK	20	46	Jesus	warning	
-LUK	20	47	Jesus		
-LUK	21	3	Jesus		
-LUK	21	5	disciples, some		
-LUK	21	6	Jesus		
-LUK	21	7	John		Peter (Simon)/James/John/Andrew=disciples=they
-LUK	21	8	Jesus		
-LUK	21	9	Jesus		
-LUK	21	10	Jesus		
-LUK	21	11	Jesus		
-LUK	21	12	Jesus		
-LUK	21	13	Jesus		
-LUK	21	15	Jesus		
-LUK	21	16	Jesus		
-LUK	21	19	Jesus		
-LUK	21	20	Jesus		
-LUK	21	21	Jesus		
-LUK	21	22	Jesus		
-LUK	21	23	Jesus		
-LUK	21	24	Jesus		
-LUK	21	25	Jesus		
-LUK	21	26	Jesus		
-LUK	21	27	Jesus		
-LUK	21	29	Jesus		
-LUK	21	29,30	Jesus		
-LUK	21	31	Jesus		
-LUK	21	32	Jesus		
-LUK	21	33	Jesus		
-LUK	21	34	Jesus		
-LUK	21	34,35	Jesus		
-LUK	21	35	Jesus		
-LUK	22	4	Judas Iscariot		
-LUK	22	5	chief priests/officers of temple guard		
-LUK	22	8	Jesus	giving orders	
-LUK	22	9	Peter (Simon)		Peter (Simon)/John=disciples (Jesus')
-LUK	22	10	Jesus		
-LUK	22	15	Jesus		
-LUK	22	17	Jesus		
-LUK	22	19	Jesus		
-LUK	22	20	Jesus		
-LUK	22	21	Jesus		
-LUK	22	23	disciples, one of His		
-LUK	22	25	Jesus		
-LUK	22	27	Jesus		
-LUK	22	28	Jesus		
-LUK	22	31	Jesus		
-LUK	22	33	Peter (Simon)	passionate	
-LUK	22	34	Jesus		
-LUK	22	35	disciples, His		
-LUK	22	35	Jesus		
-LUK	22	36	Jesus		
-LUK	22	37	Jesus		
-LUK	22	38	disciples, the=disciples, His	declare	
-LUK	22	38	Jesus		
-LUK	22	40	Jesus		
-LUK	22	42	Jesus	praying	
-LUK	22	46	Jesus		
-LUK	22	48	Jesus		
-LUK	22	49	followers of Jesus	ready to fight	
-LUK	22	51	Jesus	forcefully	
-LUK	22	52	Jesus		
-LUK	22	56	girl at high priest's courtyard=servant girl		
-LUK	22	57	Peter (Simon)	denial	
-LUK	22	58	Peter (Simon)	stronger	
-LUK	22	58	servant girl	accusing	servant girl, another=someone else| servant girl
-LUK	22	59	high priest's servant (man), one=those standing near|another man	accusing	
-LUK	22	60	Peter (Simon)	strongest	
-LUK	22	61	Jesus		
-LUK	22	64	men who were guarding	mocking	
-LUK	22	67	council of elders:chief priests/teachers of the law	demanding	
-LUK	22	67	Jesus		
-LUK	22	70	council of elders:chief priests/teachers of the law	demanding	
-LUK	22	70	Jesus		
-LUK	22	71	council of elders:chief priests/teachers of the law	furious	
-LUK	23	2	council of elders:chief priests/teachers of the law		
-LUK	23	3	Jesus		
-LUK	23	3	Pilate	to Jesus	
-LUK	23	4	Pilate	to crowd	
-LUK	23	5	chief priests/Sanhedrin=chief priests/whole Sanhedrin 1	loud, angry	
-LUK	23	6	Pilate		
-LUK	23	7	chief priests/teachers of the law 2		
-LUK	23	14	Pilate	to crowd	
-LUK	23	18	chief priests/rulers/the people	shouting	
-LUK	23	20	Pilate		
-LUK	23	21	chief priests/rulers/the people|mob		
-LUK	23	22	Pilate	to crowd	
-LUK	23	23	crowd		
-LUK	23	24,25	Pilate		
-LUK	23	28	Jesus		
-LUK	23	30	Jesus		
-LUK	23	31	Jesus		
-LUK	23	33	narrator-LUK		
-LUK	23	34	Jesus		
-LUK	23	35	rulers=chief priests/teachers of the law/elders	sneering	
-LUK	23	37	soldier at the cross		
-LUK	23	38	sign on the cross		
-LUK	23	39	criminal on cross, one	insulting	
-LUK	23	40	criminal on cross, another		
-LUK	23	42	criminal on cross, another	repentant	
-LUK	23	43	Jesus		
-LUK	23	46	Jesus		
-LUK	23	47	centurion 2|army officer	amazed	
-LUK	24	4	Mary Magdalene		Mary Magdalene/Mary mother of James/Salome
-LUK	24	5	angels in white=men in clothes that gleamed like lightning, two		
-LUK	24	8	Mary Magdalene		Mary Magdalene/Mary mother of James/Salome
-LUK	24	17	Jesus	questioning	
-LUK	24	18	Cleopas and other (on road to Emmaus)|Cleopas		
-LUK	24	19	Cleopas and other (on road to Emmaus)|Cleopas		
-LUK	24	19	Jesus		
-LUK	24	19	other and Cleopas (on road to Emmaus) female|other female		
-LUK	24	19	other and Cleopas (on road to Emmaus) male|other male		
-LUK	24	20	Cleopas and other (on road to Emmaus)|Cleopas		
-LUK	24	21	Cleopas and other (on road to Emmaus)|Cleopas		
-LUK	24	22	Cleopas and other (on road to Emmaus)|Cleopas		
-LUK	24	22	other and Cleopas (on road to Emmaus) female|other female		
-LUK	24	22	other and Cleopas (on road to Emmaus) male|other male		
-LUK	24	23	Cleopas and other (on road to Emmaus)|Cleopas		
-LUK	24	24	Cleopas and other (on road to Emmaus)|Cleopas		
-LUK	24	25	Jesus		
-LUK	24	29	Cleopas and other (on road to Emmaus)|Cleopas	urging	
-LUK	24	29	Jesus		
-LUK	24	29	other and Cleopas (on road to Emmaus) female|other female		
-LUK	24	29	other and Cleopas (on road to Emmaus) male|other male		
-LUK	24	32	Cleopas and other (on road to Emmaus)|Cleopas	urging	
-LUK	24	32	other and Cleopas (on road to Emmaus) female|other female		
-LUK	24	32	other and Cleopas (on road to Emmaus) male|other male		
-LUK	24	34	Eleven/those with them		
-LUK	24	36	Jesus		
-LUK	24	38	Jesus		
-LUK	24	41	Jesus	questioning	
-LUK	24	44	Jesus		
-LUK	24	46	Jesus		
-LUK	24	48	Jesus		
-LUK	24	49	Jesus		
-LUK	24	50	Jesus		
-JHN	1	15	John the Baptist		
-JHN	1	19	priests/Levites from Jews		
-JHN	1	20	John the Baptist		
-JHN	1	21	John the Baptist		
-JHN	1	21	priests/Levites from Jews		
-JHN	1	22	priests/Levites from Jews		
-JHN	1	23	John the Baptist		
-JHN	1	25	Pharisees sent from Jews		
-JHN	1	26	John the Baptist		
-JHN	1	29	John the Baptist		
-JHN	1	32	John the Baptist		
-JHN	1	34	John the Baptist		
-JHN	1	36	John the Baptist		
-JHN	1	38	disciples of John Baptist, two	curious	
-JHN	1	38	Jesus	questioning	
-JHN	1	39	Jesus		
-JHN	1	41	Andrew	excited	
-JHN	1	41	narrator-JHN		
-JHN	1	42	Jesus		
-JHN	1	43	Jesus	inviting	
-JHN	1	45	Philip	excited	Philip (apostle)
-JHN	1	46	Nathanael		
-JHN	1	46	Philip		Philip (apostle)
-JHN	1	47	Jesus		
-JHN	1	48	Jesus		
-JHN	1	48	Nathanael	puzzled	
-JHN	1	49	Nathanael	awe	
-JHN	1	50	Jesus		
-JHN	1	51	Jesus		
-JHN	2	3	Mary (Jesus' mother)		
-JHN	2	4	Jesus		
-JHN	2	5	Mary (Jesus' mother)		
-JHN	2	7	Jesus		
-JHN	2	8	Jesus		
-JHN	2	9,10	master of the banquet	complimenting	
-JHN	2	10	master of the banquet	complimenting	
-JHN	2	16	Jesus	giving orders	
-JHN	2	17	scripture		
-JHN	2	18	Jews, the 3		
-JHN	2	19	Jesus		
-JHN	2	20	Jews, the 3		
-JHN	3	2	Nicodemus		
-JHN	3	3	Jesus		
-JHN	3	4	Nicodemus		
-JHN	3	5	Jesus		
-JHN	3	7	Jesus		
-JHN	3	8	Jesus		
-JHN	3	9	Nicodemus		
-JHN	3	10	Jesus	questioning	
-JHN	3	11	Jesus		
-JHN	3	12	Jesus	questioning	
-JHN	3	13	Jesus		
-JHN	3	14	Jesus		
-JHN	3	16	Jesus		
-JHN	3	17	Jesus		
-JHN	3	18	Jesus		
-JHN	3	19	Jesus		
-JHN	3	20	Jesus		
-JHN	3	21	Jesus		
-JHN	3	26	disciples, John Baptists/Jew, a certain	concerned	
-JHN	3	27	John the Baptist		
-JHN	3	28	John the Baptist		
-JHN	3	29	Jesus		
-JHN	3	31	John the Baptist		
-JHN	3	32	John the Baptist		
-JHN	3	34	John the Baptist		
-JHN	3	35	John the Baptist		
-JHN	3	36	John the Baptist		
-JHN	4	1	people, some		
-JHN	4	7	Jesus	requesting	
-JHN	4	7-8	Jesus		
-JHN	4	7,8	Jesus		
-JHN	4	9	woman, Samaritan		
-JHN	4	10	Jesus		
-JHN	4	11	woman, Samaritan		
-JHN	4	13	Jesus		
-JHN	4	15	woman, Samaritan		
-JHN	4	16	Jesus		
-JHN	4	17	Jesus		
-JHN	4	17	woman, Samaritan		
-JHN	4	19	woman, Samaritan		
-JHN	4	20	woman, Samaritan		
-JHN	4	21	Jesus		
-JHN	4	25	woman, Samaritan		
-JHN	4	26	Jesus		
-JHN	4	27	narrator-JHN		
-JHN	4	29	woman, Samaritan		
-JHN	4	31	disciples, His		
-JHN	4	32	Jesus		
-JHN	4	33	disciples, His 1	puzzled	
-JHN	4	34	Jesus		
-JHN	4	35	Jesus		
-JHN	4	36	Jesus		
-JHN	4	37	Jesus		
-JHN	4	39	woman, Samaritan		
-JHN	4	40	many Samaritans		
-JHN	4	42	many Samaritans		
-JHN	4	44	Jesus		
-JHN	4	48	Jesus		
-JHN	4	49	official, royal	pleading	
-JHN	4	50	Jesus		
-JHN	4	51	servants of royal official	excited	
-JHN	4	52	servants of royal official	excited	
-JHN	4	53	Jesus	giving orders	
-JHN	5	6	Jesus	questioning	
-JHN	5	7	invalid for 38 years	whining	
-JHN	5	8	Jesus	giving orders	
-JHN	5	10	Jews, the 1	rebuke	
-JHN	5	11	invalid for 38 years		
-JHN	5	12	Jews, the 1	angry	
-JHN	5	14	Jesus		
-JHN	5	17	Jesus		
-JHN	5	19	Jesus		
-JHN	5	23	Jesus		
-JHN	5	24	Jesus		
-JHN	5	25	Jesus		
-JHN	5	27	Jesus		
-JHN	5	28	Jesus		
-JHN	5	30	Jesus		
-JHN	5	31	Jesus		
-JHN	5	32	Jesus		
-JHN	5	33	Jesus		
-JHN	5	35	Jesus		
-JHN	5	36	Jesus		
-JHN	5	37	Jesus		
-JHN	5	39	Jesus		
-JHN	5	40	Jesus		
-JHN	5	41	Jesus		
-JHN	5	44	Jesus		
-JHN	5	45	Jesus		
-JHN	6	5	Jesus		
-JHN	6	7	Philip		Philip=disciples, the=disciples, His
-JHN	6	9	Andrew		Andrew=disciples, the=disciples, His
-JHN	6	10	Jesus		
-JHN	6	12	Jesus		
-JHN	6	14	people in crowd		
-JHN	6	20	Jesus		
-JHN	6	25	crowd 8		
-JHN	6	26	Jesus		
-JHN	6	28	crowd 2		
-JHN	6	29	Jesus		
-JHN	6	30	crowd 1	superior	
-JHN	6	31	Jews 1		
-JHN	6	32	Jesus		
-JHN	6	34	crowd 2	polite	
-JHN	6	35	Jesus		
-JHN	6	36	Jesus		
-JHN	6	37	Jesus		
-JHN	6	38	Jesus		
-JHN	6	39	Jesus		
-JHN	6	40	Jesus		
-JHN	6	41	Jesus		
-JHN	6	42	Jews, the 5	grumbling	
-JHN	6	43	Jesus		
-JHN	6	44	Jesus		
-JHN	6	45	Jesus		
-JHN	6	46	Jesus		
-JHN	6	47	Jesus		
-JHN	6	48	Jesus		
-JHN	6	49	Jesus		
-JHN	6	50	Jesus		
-JHN	6	52	Jews, the 2		
-JHN	6	53	Jesus		
-JHN	6	56	Jesus		
-JHN	6	60	disciples, many of His	grumbling	
-JHN	6	61	Jesus		
-JHN	6	64	Jesus		
-JHN	6	65	Jesus		
-JHN	6	67	Jesus	questioning	
-JHN	6	68	Peter (Simon)		
-JHN	6	70	Jesus		
-JHN	7	3	Jesus' brothers	challenging	
-JHN	7	4	Jesus' brothers		
-JHN	7	6	Jesus		
-JHN	7	11	Jews, the 2		
-JHN	7	12	crowds, others in	harsh	
-JHN	7	12	crowds, some in		
-JHN	7	15	Jews, the		
-JHN	7	16	Jesus		
-JHN	7	18	Jesus		
-JHN	7	19	Jesus		
-JHN	7	20	crowd 1	insulting	
-JHN	7	21	Jesus		
-JHN	7	22	Jesus		
-JHN	7	25	people, some, in Jerusalem 1	arguing	
-JHN	7	26	people, some, in Jerusalem 1	arguing	
-JHN	7	27	people, some, in Jerusalem 2	arguing	
-JHN	7	28	Jesus		
-JHN	7	31	crowd, many in the		
-JHN	7	33	Jesus		
-JHN	7	35	Jews, the 3		
-JHN	7	36	Jews, the 1	grumbling	
-JHN	7	37	Jesus		
-JHN	7	37-38	Jesus		
-JHN	7	40	people, some of the		
-JHN	7	41	people, others		
-JHN	7	41	people, still other 2		
-JHN	7	45	chief priests/Pharisees 1		
-JHN	7	46	temple guards	amazed	
-JHN	7	47	Pharisees 1	angry	
-JHN	7	48	Pharisees 1	angry	
-JHN	7	51	Nicodemus		
-JHN	7	52	Pharisees 1	angry	
-JHN	8	4	teachers of the law/Pharisees		
-JHN	8	7	Jesus		
-JHN	8	10	Jesus	questioning	
-JHN	8	11	Jesus		
-JHN	8	11	woman, caught in adultery		
-JHN	8	12	Jesus		
-JHN	8	13	Pharisees 4		
-JHN	8	14	Jesus		
-JHN	8	19	Jesus		
-JHN	8	19	Pharisees 2		
-JHN	8	21	Jesus		
-JHN	8	22	Jews		
-JHN	8	23	Jesus		
-JHN	8	25	Jesus		
-JHN	8	25	Jews 1	impatient	
-JHN	8	26	Jesus		
-JHN	8	28	Jesus		
-JHN	8	31	Jesus		
-JHN	8	33	Jews, the 1	superior	
-JHN	8	34	Jesus		
-JHN	8	39	Jesus		
-JHN	8	39	Jews, the 2		
-JHN	8	41	Jews, the 3		
-JHN	8	42	Jesus		
-JHN	8	45	Jesus		
-JHN	8	46	Jesus		
-JHN	8	48	Jews, the 2	angry	
-JHN	8	49	Jesus		
-JHN	8	52	Jews, the 1	outraged	
-JHN	8	54	Jesus		
-JHN	8	57	Jews, the 4		
-JHN	8	58	Jesus		
-JHN	9	2	disciples, the 3	accusing	
-JHN	9	3	Jesus		
-JHN	9	7	Jesus	giving orders	
-JHN	9	7	narrator-JHN		
-JHN	9	8	neighbors of man blind from birth		
-JHN	9	9	cured man, blind from birth		
-JHN	9	9	neighbors of man blind from birth, others		
-JHN	9	9	neighbors of man blind from birth, some		
-JHN	9	10	neighbors of man blind from birth		
-JHN	9	11	cured man, blind from birth		
-JHN	9	12	cured man, blind from birth		
-JHN	9	12	neighbors of man blind from birth		
-JHN	9	15	cured man, blind from birth		
-JHN	9	16	Pharisees, other		
-JHN	9	16	Pharisees, some 1		
-JHN	9	17	cured man, blind from birth		
-JHN	9	17	Pharisees 3		
-JHN	9	19	Jews, the 1	challenging	
-JHN	9	20	parents of cured man, blind from birth|parent 1	cautious	
-JHN	9	21	parents of cured man, blind from birth|parent 2		
-JHN	9	23	parents of cured man, blind from birth|parent 2		
-JHN	9	24	Jews, the 1	challenging	
-JHN	9	25	cured man, blind from birth		
-JHN	9	26	Jews		
-JHN	9	27	cured man, blind from birth		
-JHN	9	28	Jews, the 4	harsh	
-JHN	9	30	cured man, blind from birth		
-JHN	9	34	Jews, the 4	harsh	
-JHN	9	35	Jesus	questioning	
-JHN	9	36	cured man, blind from birth		
-JHN	9	37	Jesus		
-JHN	9	38	cured man, blind from birth		
-JHN	9	39	Jesus		
-JHN	9	40	Pharisees, some 1	challenging	
-JHN	9	41	Jesus		
-JHN	10	1	Jesus		
-JHN	10	2	Jesus		
-JHN	10	3	Jesus		
-JHN	10	7	Jesus		
-JHN	10	8	Jesus		
-JHN	10	9	Jesus		
-JHN	10	10	Jesus		
-JHN	10	11	Jesus		
-JHN	10	12	Jesus		
-JHN	10	13	Jesus		
-JHN	10	14	Jesus		
-JHN	10	14-15	Jesus		
-JHN	10	16	Jesus		
-JHN	10	17	Jesus		
-JHN	10	20	Jews, many of the	contempt	
-JHN	10	21	Jews, others of the		
-JHN	10	24	Jews, the 4		
-JHN	10	25	Jesus		
-JHN	10	32	Jesus		
-JHN	10	33	Jews, the 3		
-JHN	10	34	Jesus		
-JHN	10	41	people, many		
-JHN	11	3	Mary/Martha		
-JHN	11	4	Jesus		
-JHN	11	7	Jesus		
-JHN	11	8	disciples, Jesus'		
-JHN	11	9	Jesus		
-JHN	11	11	Jesus		
-JHN	11	12	disciples, His 1	sad	
-JHN	11	13	Jesus		
-JHN	11	14	Jesus		
-JHN	11	16	Thomas	resigned	
-JHN	11	17	someone		
-JHN	11	21	Martha		
-JHN	11	23	Jesus	reassuring	
-JHN	11	24	Martha		
-JHN	11	25	Jesus		
-JHN	11	27	Martha		
-JHN	11	28	Martha		
-JHN	11	31	Jews, the (with Mary and Martha)		
-JHN	11	32	Mary (sister of Martha)		
-JHN	11	34	Jesus	questioning	
-JHN	11	34	Jews, the (with Mary and Martha)|Mary		
-JHN	11	36	Jews, the (with Mary and Martha)		
-JHN	11	37	Jews, the (with Mary and Martha, some)		
-JHN	11	39	Jesus		
-JHN	11	39	Martha		
-JHN	11	40	Jesus		
-JHN	11	41	Jesus	praying	
-JHN	11	43	Jesus	giving orders	
-JHN	11	44	Jesus	giving orders	
-JHN	11	47	chief priests/Sanhedrin=chief priests/whole Sanhedrin 1	upset	
-JHN	11	48	chief priests 1	worried	
-JHN	11	49	Caiaphas	indignant	Caiaphas, high priest
-JHN	11	51	Caiaphas		Caiaphas, high priest
-JHN	11	56	Jews, the 6		
-JHN	12	5	Judas Iscariot	objecting	
-JHN	12	7	Jesus		
-JHN	12	13	disciples, whole crowd of=people, many=crowd, great|crowd	praising	
-JHN	12	15	scripture		
-JHN	12	19	Pharisees 3		
-JHN	12	21	Greeks	respectful	
-JHN	12	23	Jesus		
-JHN	12	24	Jesus		
-JHN	12	25	Jesus		
-JHN	12	27	Jesus		
-JHN	12	28	God		voice from heaven (God)
-JHN	12	29	crowds, others in		
-JHN	12	30	Jesus		
-JHN	12	34	crowd 1	challenging	
-JHN	12	35	Jesus		
-JHN	12	38	scripture		
-JHN	12	40	scripture		
-JHN	12	44	Jesus		
-JHN	12	46	Jesus		
-JHN	12	47	Jesus		
-JHN	12	48	Jesus		
-JHN	12	49	Jesus		
-JHN	13	6	Peter (Simon)		
-JHN	13	7	Jesus		
-JHN	13	8	Jesus		
-JHN	13	8	Peter (Simon)	declare	
-JHN	13	9	Peter (Simon)	humble	
-JHN	13	10	Jesus		
-JHN	13	11	Jesus		
-JHN	13	12	Jesus		
-JHN	13	13	Jesus		
-JHN	13	17	Jesus		
-JHN	13	18	Jesus		
-JHN	13	19	Jesus		
-JHN	13	21	Jesus		
-JHN	13	24	Peter (Simon)	stage whisper	
-JHN	13	25	John	sad	John (disciple whom Jesus loved)
-JHN	13	26	Jesus		
-JHN	13	27	Jesus	giving orders	
-JHN	13	29	Jesus		
-JHN	13	31	Jesus		
-JHN	13	32	Jesus		
-JHN	13	33	Jesus		
-JHN	13	34	Jesus		
-JHN	13	36	Jesus		
-JHN	13	36	Peter (Simon)	puzzled	
-JHN	13	37	Peter (Simon)	declare	
-JHN	13	38	Jesus		
-JHN	14	1	Jesus		
-JHN	14	5	Thomas	frustrated	
-JHN	14	6	Jesus		
-JHN	14	7	Jesus		
-JHN	14	8	Philip		Philip (apostle)
-JHN	14	9	Jesus		
-JHN	14	10	Jesus		
-JHN	14	12	Jesus		
-JHN	14	15	Jesus		
-JHN	14	17	Jesus		
-JHN	14	18	Jesus		
-JHN	14	21	Jesus		
-JHN	14	22	Judas (not Judas Iscariot)	puzzled	
-JHN	14	23	Jesus		
-JHN	14	24	Jesus		
-JHN	14	25	Jesus		
-JHN	14	26	Jesus		
-JHN	14	27	Jesus		
-JHN	14	28	Jesus		
-JHN	14	29	Jesus		
-JHN	14	30	Jesus		
-JHN	14	31	Jesus		
-JHN	15	1	Jesus		
-JHN	15	4	Jesus		
-JHN	15	5	Jesus		
-JHN	15	6	Jesus		
-JHN	15	7	Jesus		
-JHN	15	8	Jesus		
-JHN	15	9	Jesus		
-JHN	15	10	Jesus		
-JHN	15	11	Jesus		
-JHN	15	15	Jesus		
-JHN	15	16	Jesus		
-JHN	15	18	Jesus		
-JHN	15	21	Jesus		
-JHN	15	22	Jesus		
-JHN	15	25	Jesus		
-JHN	15	26	Jesus		
-JHN	16	1	Jesus		
-JHN	16	4	Jesus		
-JHN	16	5	Jesus		
-JHN	16	7	Jesus		
-JHN	16	8	Jesus		
-JHN	16	11	Jesus		
-JHN	16	12	Jesus		
-JHN	16	16	Jesus		
-JHN	16	17	disciples, some of his	puzzled	
-JHN	16	18	Thomas	frustrated	disciples, some of his|Thomas
-JHN	16	19	Jesus		
-JHN	16	20	Jesus		
-JHN	16	23	Jesus		
-JHN	16	25	Jesus		
-JHN	16	29	disciples, Jesus'	relieved	
-JHN	16	30	disciples, His 4		
-JHN	16	31	Jesus		
-JHN	16	32	Jesus		
-JHN	16	33	Jesus		
-JHN	17	1	Jesus	praying	
-JHN	17	3	Jesus	praying	
-JHN	17	4	Jesus	praying	
-JHN	17	5	Jesus	praying	
-JHN	17	6	Jesus	praying	
-JHN	17	8	Jesus	praying	
-JHN	17	9	Jesus	praying	
-JHN	17	11	Jesus	praying	
-JHN	17	12	Jesus	praying	
-JHN	17	13	Jesus	praying	
-JHN	17	19	Jesus	praying	
-JHN	17	20	Jesus	praying	
-JHN	17	22	Jesus	praying	
-JHN	17	23	Jesus	praying	
-JHN	17	24	Jesus	praying	
-JHN	17	25	Jesus	praying	
-JHN	18	4	Jesus	questioning	
-JHN	18	5	Jesus		
-JHN	18	5	soldiers/officials from chief priests/Pharisees	rowdy	
-JHN	18	6	Jesus		
-JHN	18	7	Jesus	questioning	
-JHN	18	7	soldiers/officials from chief priests/Pharisees	afraid	
-JHN	18	8	Jesus		
-JHN	18	9	Jesus		
-JHN	18	11	Jesus		
-JHN	18	14	Caiaphas		Caiaphas, high priest
-JHN	18	17	girl at high priest's courtyard=servant girl		
-JHN	18	17	Peter (Simon)	denial	
-JHN	18	20	Jesus		
-JHN	18	22	officials, one of the	gruff	
-JHN	18	23	Jesus		
-JHN	18	25	Peter (Simon)	stronger	
-JHN	18	25	servant girl		servant girl, another=someone else
-JHN	18	26	high priest's servant (man), one=those standing near=another	accusing	
-JHN	18	27	Peter (Simon)		
-JHN	18	28,29	Pilate	to crowd	
-JHN	18	29	Pilate	to crowd	
-JHN	18	30	Jews, the 1	offended	
-JHN	18	31	Jews, the 4		
-JHN	18	31	Pilate	to crowd	
-JHN	18	33	Pilate	to Jesus	
-JHN	18	34	Jesus	questioning	
-JHN	18	35	Pilate	to Jesus	
-JHN	18	36	Jesus		
-JHN	18	37	Jesus		
-JHN	18	37	Pilate	to Jesus	
-JHN	18	38	Pilate	to Jesus	
-JHN	18	40	Jews, they		
-JHN	19	3	soldiers 2	mocking	
-JHN	19	4	Pilate	to crowd	
-JHN	19	5	Pilate	to crowd	
-JHN	19	6	chief priests/Sanhedrin=chief priests/whole Sanhedrin 3		
-JHN	19	6	Pilate	to crowd	
-JHN	19	7	Jews, the 3	insisting	
-JHN	19	9	Pilate	to Jesus	
-JHN	19	10	Pilate	to Jesus	
-JHN	19	11	Jesus		
-JHN	19	12	Jews, the		
-JHN	19	14	Pilate	to crowd	
-JHN	19	15	chief priests 2	intimidating	
-JHN	19	15	Pilate	to crowd	
-JHN	19	19	sign on the cross		
-JHN	19	21	chief priests/Sanhedrin=chief priests/whole Sanhedrin 1	protest	
-JHN	19	22	Pilate	impatient	
-JHN	19	24	scripture		
-JHN	19	24	soldiers 2	gruff	
-JHN	19	26	Jesus		
-JHN	19	27	Jesus		
-JHN	19	28	Jesus	deeply distressed	
-JHN	19	30	Jesus		
-JHN	19	36	scripture		
-JHN	19	37	scripture		
-JHN	20	2	Mary Magdalene		
-JHN	20	13	angels in white, two		
-JHN	20	13	Mary Magdalene		
-JHN	20	15	Jesus		
-JHN	20	15	Mary Magdalene		
-JHN	20	16	Jesus		
-JHN	20	16	Mary Magdalene		
-JHN	20	17	Jesus		
-JHN	20	18	Mary Magdalene		
-JHN	20	19	Jesus		
-JHN	20	21	Jesus		
-JHN	20	22	Jesus		
-JHN	20	25	disciples, the (but not Thomas)	excited	
-JHN	20	25	Thomas	stubborn	
-JHN	20	26	Jesus		
-JHN	20	27	Jesus		
-JHN	20	28	Thomas	shocked	
-JHN	20	29	Jesus		
-JHN	21	3	Peter (Simon)		
-JHN	21	3	Thomas		Thomas/Nathaniel/James/John/2 disciples
-JHN	21	5	Jesus	questioning	
-JHN	21	5	John	calling out	disciples, His|John
-JHN	21	6	Jesus		
-JHN	21	7	John	amazed	
-JHN	21	7	narrator-JHN		
-JHN	21	10	Jesus	giving orders	
-JHN	21	12	Jesus		
-JHN	21	12	narrator-JHN		
-JHN	21	15	Jesus	questioning	
-JHN	21	15	Peter (Simon)		
-JHN	21	16	Jesus	questioning	
-JHN	21	16	Peter (Simon)		
-JHN	21	17	Jesus		
-JHN	21	17	narrator-JHN		
-JHN	21	17	Peter (Simon)	perplexed	
-JHN	21	18	Jesus		
-JHN	21	19	Jesus	inviting	
-JHN	21	20	John		John saying Lord who is going to betray you
-JHN	21	20	narrator-JHN		
-JHN	21	20	Peter (Simon)		
-JHN	21	21	Peter (Simon)	defensive	
-JHN	21	22	Jesus		
-JHN	21	23	Jesus		
-ACT	1	4	Jesus		
-ACT	1	6	apostles		
-ACT	1	7	Jesus		
-ACT	1	8	Jesus		
-ACT	1	11	men dressed in white, two		
-ACT	1	16	Peter (Simon)		
-ACT	1	19	Peter (Simon)		
-ACT	1	20	Peter (Simon)		
-ACT	1	21	Peter (Simon)		
-ACT	1	21-22	Peter (Simon)		
-ACT	1	24	believers, one hundred twenty	praying	
-ACT	2	7	Jews, God-fearing from every nation 1	amazed	
-ACT	2	8	Jews, God-fearing from every nation 1	amazed	
-ACT	2	9	Jews, they		
-ACT	2	11	Jews, God-fearing from every nation 1		
-ACT	2	12	Jews, God-fearing from every nation 2	amazed and perplexed	
-ACT	2	13	Jews, God-fearing from every nation, some	made fun of them	
-ACT	2	14	Peter (Simon)		Peter (Simon), with Eleven
-ACT	2	15	Peter (Simon)		Peter (Simon), with Eleven
-ACT	2	16	Peter (Simon)		
-ACT	2	17	Peter (Simon)		
-ACT	2	22	Peter (Simon)		
-ACT	2	23	Peter (Simon)		
-ACT	2	24	Peter (Simon)		
-ACT	2	25	Peter (Simon)		
-ACT	2	29	Peter (Simon)		
-ACT	2	30	Peter (Simon)		
-ACT	2	31	Peter (Simon)		
-ACT	2	32	Peter (Simon)		
-ACT	2	34	Peter (Simon)		
-ACT	2	35	Peter (Simon)		
-ACT	2	36	Peter (Simon)		
-ACT	2	37	people 3	grieved	
-ACT	2	38	Peter (Simon)		
-ACT	2	39	Peter (Simon)		
-ACT	2	40	Peter (Simon)		
-ACT	3	4	Peter (Simon)		
-ACT	3	5	crippled man		
-ACT	3	6	Peter (Simon)		
-ACT	3	10	people		
-ACT	3	12	Peter (Simon)		
-ACT	3	13	Peter (Simon)		
-ACT	3	15	Peter (Simon)		
-ACT	3	16	Peter (Simon)		
-ACT	3	17	Peter (Simon)		
-ACT	3	19	Peter (Simon)		
-ACT	3	20	Peter (Simon)		
-ACT	3	21	Peter (Simon)		
-ACT	3	22	Peter (Simon)		
-ACT	3	23	Peter (Simon)		
-ACT	3	24	Peter (Simon)		
-ACT	3	25	Peter (Simon)		
-ACT	3	26	Peter (Simon)		
-ACT	4	7	high priests/men of their family/rulers, teachers of the law		
-ACT	4	8	Peter (Simon)		
-ACT	4	11	Peter (Simon)		
-ACT	4	12	Peter (Simon)		
-ACT	4	13	chief priests/their officials 1		
-ACT	4	15	chief priests/their officials 2		
-ACT	4	16	Good Priest	defending	high priests/men of their family/rulers, elders, teachers of the law|Good Priest
-ACT	4	17	high priest	worried but stern	
-ACT	4	18	chief priests/their officials 2		
-ACT	4	19	Peter (Simon)		Peter (Simon)/John
-ACT	4	20	John		
-ACT	4	23	Peter (Simon)		Peter (Simon)/John
-ACT	4	24	Peter (Simon)/John/own people		
-ACT	4	25	Peter (Simon)/John/own people		
-ACT	4	26	Peter (Simon)/John/own people		
-ACT	4	27	Peter (Simon)/John/own people		
-ACT	4	28	Peter (Simon)/John/own people		
-ACT	4	29	Peter (Simon)/John/own people		
-ACT	5	3	Peter (Simon)		
-ACT	5	8	Peter (Simon)		
-ACT	5	8	Sapphira (Ananias' wife)		
-ACT	5	9	Peter (Simon)		
-ACT	5	20	angel of the LORD, an	commanding	
-ACT	5	23	temple police	perplexed	
-ACT	5	24	captain, of temple guard/chief priests		
-ACT	5	25	someone 2	excited	
-ACT	5	28	high priest		
-ACT	5	29	Peter (Simon)		
-ACT	5	30	Peter (Simon)		
-ACT	5	31	Peter (Simon)		
-ACT	5	32	Peter (Simon)		
-ACT	5	34	Gamaliel		
-ACT	5	35	Gamaliel		Gamaliel, a Pharisee on Sanhedrin
-ACT	5	37	Gamaliel		Gamaliel, a Pharisee on Sanhedrin
-ACT	5	38	Gamaliel		
-ACT	5	40	council of elders:chief priests/teachers of the law		
-ACT	5	42	apostles		
-ACT	6	2	disciples, the 2		
-ACT	6	3	disciples, the 2		
-ACT	6	11	Jews of Cyrene, Alexandria, Cilicia & Asia	accusing	
-ACT	6	13	false witnesses		
-ACT	6	14	false witnesses		
-ACT	7	1	high priest		
-ACT	7	2	Stephen		
-ACT	7	3	Stephen		
-ACT	7	4	Stephen		
-ACT	7	5	Stephen		
-ACT	7	6	Stephen		
-ACT	7	7	Stephen		
-ACT	7	8	Stephen		
-ACT	7	9	Stephen		
-ACT	7	10	Stephen		
-ACT	7	11	Stephen		
-ACT	7	12	Stephen		
-ACT	7	13	Stephen		
-ACT	7	14	Stephen		
-ACT	7	17	Stephen		
-ACT	7	19	Stephen		
-ACT	7	20	Stephen		
-ACT	7	22	Stephen		
-ACT	7	23	Stephen		
-ACT	7	26	Stephen		
-ACT	7	27	Stephen		
-ACT	7	28	Stephen		
-ACT	7	29	Stephen		
-ACT	7	30	Stephen		
-ACT	7	31	Stephen		
-ACT	7	32	Stephen		
-ACT	7	33	Stephen		
-ACT	7	35	Stephen		
-ACT	7	36	Stephen		
-ACT	7	37	Stephen		
-ACT	7	38	Stephen		
-ACT	7	39	Stephen		
-ACT	7	40	Stephen		
-ACT	7	41	Stephen		
-ACT	7	42	Stephen		
-ACT	7	43	Stephen		
-ACT	7	44	Stephen		
-ACT	7	45	Stephen		
-ACT	7	46	Stephen		
-ACT	7	48	Stephen		
-ACT	7	49	Stephen		
-ACT	7	51	Stephen		
-ACT	7	56	Stephen		
-ACT	7	57	Sanhedrin/chief priests/Pharisees		
-ACT	7	59	Stephen		
-ACT	7	60	Stephen	cried out	
-ACT	8	10	people, all the 1		
-ACT	8	19	Simon practiced magic		
-ACT	8	20	Peter (Simon)		
-ACT	8	24	Simon practiced magic		
-ACT	8	26	angel of the LORD, an		
-ACT	8	29	Jesus		Spirit, the
-ACT	8	30	Philip		Philip (the evangelist)
-ACT	8	31	Ethiopian		
-ACT	8	32	Ethiopian		
-ACT	8	33	narrator-ACT		
-ACT	8	34	Ethiopian		
-ACT	8	36	Ethiopian		
-ACT	8	37	Ethiopian		
-ACT	8	37	Philip		Philip (the evangelist)
-ACT	9	4	Jesus	questioning	
-ACT	9	5	Jesus		
-ACT	9	5	Paul	awe	
-ACT	9	6	Jesus		
-ACT	9	10	Ananias	awe	
-ACT	9	10	Jesus		Lord
-ACT	9	11	Jesus		Lord
-ACT	9	12	Jesus		Lord
-ACT	9	13	Ananias	puzzled	
-ACT	9	15	Jesus		Lord
-ACT	9	17	Ananias	praying	
-ACT	9	20	Paul		
-ACT	9	21	all who heard (in synagogues)		
-ACT	9	34	Peter (Simon)		
-ACT	9	38	disciples, 2 men	urgent	
-ACT	9	40	Peter (Simon)		
-ACT	10	3	angel of the LORD, an		angel of God, an
-ACT	10	4	angel of the LORD, an		angel of God, an
-ACT	10	4	Cornelius	afraid	
-ACT	10	13	Jesus		voice (in trance)
-ACT	10	14	Peter (Simon)		
-ACT	10	15	Jesus		voice (in trance)
-ACT	10	18	men from Cornelius		
-ACT	10	19	Jesus		Spirit, the
-ACT	10	21	Peter (Simon)		
-ACT	10	22	men from Cornelius	respectful	
-ACT	10	23	Peter (Simon)		
-ACT	10	26	Peter (Simon)		
-ACT	10	28	Peter (Simon)		
-ACT	10	30	Cornelius	gracious	
-ACT	10	32	Cornelius	gracious	
-ACT	10	33	Cornelius		
-ACT	10	34	Peter (Simon)		
-ACT	10	36	Peter (Simon)		
-ACT	10	37	Peter (Simon)		
-ACT	10	38	Peter (Simon)		
-ACT	10	39	Peter (Simon)		
-ACT	10	41	Peter (Simon)		
-ACT	10	42	Peter (Simon)		
-ACT	10	47	Peter (Simon)		
-ACT	11	3	believers, circumcised	critical	
-ACT	11	5	Peter (Simon)		
-ACT	11	6	Peter (Simon)		
-ACT	11	7	Peter (Simon)		
-ACT	11	8	Peter (Simon)		
-ACT	11	9	Peter (Simon)		
-ACT	11	10	Peter (Simon)		
-ACT	11	11	Peter (Simon)		
-ACT	11	14	Peter (Simon)		
-ACT	11	15	Peter (Simon)		
-ACT	11	18	believers, circumcised	rejoicing	believers, circumcised|Jewish believer
-ACT	11	23	Barnabas		
-ACT	11	28	Agabus the prophet		
-ACT	12	7	angel of the LORD, an	commanding	
-ACT	12	8	angel of the LORD, an	commanding	
-ACT	12	11	Peter (Simon)		
-ACT	12	14	Rhoda	could be a young girl	
-ACT	12	15	people gathered to pray		
-ACT	12	17	Peter (Simon)	stage whisper	
-ACT	12	22	people 3	shouting	
-ACT	13	2	Holy Spirit, the		
-ACT	13	10	Paul	rebuking	
-ACT	13	15	Good Priest	gracious	synagogue rulers|Good Priest
-ACT	13	16	Paul	preaching	
-ACT	13	17	Paul		
-ACT	13	18	Paul		
-ACT	13	20	Paul		
-ACT	13	22	Paul		
-ACT	13	23	Paul		
-ACT	13	26	Paul		
-ACT	13	27	Paul		
-ACT	13	28	Paul		
-ACT	13	29	Paul		
-ACT	13	30	Paul		
-ACT	13	31	Paul		
-ACT	13	32	Paul		
-ACT	13	32,33	Paul		
-ACT	13	33	Paul		
-ACT	13	34	Paul		
-ACT	13	35	Paul		
-ACT	13	36	Paul		
-ACT	13	37	Paul		
-ACT	13	38	Paul		
-ACT	13	41	Paul		
-ACT	13	43	Paul		Paul/Barnabas
-ACT	13	46	Paul	bold	Paul/Barnabas
-ACT	13	47	Paul	bold	Paul/Barnabas
-ACT	13	48	Gentiles		
-ACT	14	10	Paul	called out	
-ACT	14	11	crowd 4	excited	
-ACT	14	15	Paul	preaching	Barnabas/Paul
-ACT	14	16	Paul	preaching	Barnabas/Paul
-ACT	14	22	Paul		Barnabas/Paul
-ACT	15	1	men from Judea, some	harsh	
-ACT	15	5	believers who were Pharisees		
-ACT	15	7	Peter (Simon)		
-ACT	15	9	Peter (Simon)		
-ACT	15	10	Peter (Simon)		
-ACT	15	13	James		
-ACT	15	16	James		
-ACT	15	17	James		
-ACT	15	19	James		
-ACT	15	20	James		
-ACT	15	21	James		
-ACT	15	23	letter from apostles and elders		
-ACT	15	24	letter from apostles and elders		
-ACT	15	25	letter from apostles and elders		
-ACT	15	26	letter from apostles and elders		
-ACT	15	27	letter from apostles and elders		
-ACT	15	28	letter from apostles and elders		
-ACT	15	29	letter from apostles and elders		
-ACT	15	36	Paul		
-ACT	15	37	Barnabas		
-ACT	15	38	Paul		
-ACT	16	9	Macedonian		
-ACT	16	10	God		God (the LORD)
-ACT	16	15	Lydia		
-ACT	16	17	fortune telling slave girl		
-ACT	16	18	Paul	stern	
-ACT	16	20	owners of the slave girl	angry	
-ACT	16	21	owners of the slave girl		
-ACT	16	23	authorities, Philippi		
-ACT	16	27	jailer	fearful	
-ACT	16	28	Paul	shouting	
-ACT	16	30	jailer	fearful	
-ACT	16	31	Paul		Paul and Silas
-ACT	16	35	officers of magistrates		
-ACT	16	36	jailer	respectful	
-ACT	16	37	Paul	upset	
-ACT	16	39	Magistrates, chief		
-ACT	17	3	Paul		
-ACT	17	6	mob		
-ACT	17	7	mob		
-ACT	17	18	Epicurean and Stoic philosophers, other	superior	
-ACT	17	19	Epicurean and Stoic philosophers, they 1	curious	
-ACT	17	20	Epicurean and Stoic philosophers, they 2		
-ACT	17	22	Paul	preaching	
-ACT	17	23	Paul		
-ACT	17	24	Paul		
-ACT	17	25	Paul		
-ACT	17	26	Paul		
-ACT	17	27	Paul		
-ACT	17	28	Paul		
-ACT	17	29	Paul		
-ACT	17	32	Epicurean and Stoic philosophers, they 1	curious	
-ACT	18	5	Paul		
-ACT	18	6	Paul	rebuking	
-ACT	18	9	Jesus	in a vision	
-ACT	18	13	Jews, the 7	angry	
-ACT	18	14	Gallio	stern	
-ACT	18	18	Paul		
-ACT	18	20	Paul		
-ACT	18	21	Paul		
-ACT	18	28	Appolos		
-ACT	19	2	disciples, some		
-ACT	19	2	Paul	to new believers	
-ACT	19	3	disciples, some		
-ACT	19	3	Paul		
-ACT	19	4	Paul		
-ACT	19	13	seven sons of Sceva	over-dramatic	
-ACT	19	15	evil spirit		
-ACT	19	21	Paul		
-ACT	19	25	Demetrius		
-ACT	19	26	Demetrius		
-ACT	19	27	Demetrius		
-ACT	19	28	craftsmen/workmen	furiously shouting	
-ACT	19	31	officials, Ephesus		
-ACT	19	34	craftsmen/workmen	furiously shouting	
-ACT	19	35	city clerk	diplomatic	
-ACT	19	39	city clerk	diplomatic	
-ACT	19	40	city clerk		
-ACT	20	10	Paul	called out	
-ACT	20	18	Paul		
-ACT	20	21	Paul		
-ACT	20	22	Paul		
-ACT	20	24	Paul		
-ACT	20	25	Paul		
-ACT	20	27	Paul		
-ACT	20	28	Paul		
-ACT	20	31	Paul		
-ACT	20	32	Paul		
-ACT	20	33	Paul		
-ACT	20	38	elders, Ephesian		
-ACT	21	4	Holy Spirit, the		Holy Spirit through disciples
-ACT	21	11	Agabus the prophet	proclaim	
-ACT	21	13	Paul	sad	
-ACT	21	14	Paul's travelling companions, Luke and	resigned	
-ACT	21	20	James	encouraging	James/all the elders
-ACT	21	22	James	encouraging	James/all the elders
-ACT	21	23	James		James/all the elders
-ACT	21	24	James	encouraging	James/all the elders
-ACT	21	25	James		James/all the elders
-ACT	21	28	Jews, the 7	screaming	
-ACT	21	33	commander		
-ACT	21	36	crowd 9	shouting louder	
-ACT	21	37	commander		
-ACT	21	37	Paul		
-ACT	21	37	Paul	called out	
-ACT	21	38	commander		
-ACT	21	39	Paul		
-ACT	21	40	commander		
-ACT	22	1	Paul	preaching	
-ACT	22	3	Paul	preaching	
-ACT	22	6	Paul		
-ACT	22	7	Paul		
-ACT	22	8	Paul		
-ACT	22	9	Paul		
-ACT	22	10	Paul		
-ACT	22	11	Paul		
-ACT	22	12	Paul		
-ACT	22	13	Paul		
-ACT	22	14	Paul		
-ACT	22	17	Paul		
-ACT	22	18	Paul		
-ACT	22	19	Paul		
-ACT	22	20	Paul		
-ACT	22	21	Paul		
-ACT	22	22	crowd 4	screaming	
-ACT	22	25	Paul	stern	
-ACT	22	26	centurion 3|army officer	anxious	
-ACT	22	27	commander		
-ACT	22	27	Paul		
-ACT	22	28	commander		
-ACT	22	28	Paul		
-ACT	22	29	commander		
-ACT	23	1	Paul	stern	
-ACT	23	2	Ananias	commanding	
-ACT	23	3	Paul	rebuking	
-ACT	23	4	those standing near	angry	
-ACT	23	5	Paul		
-ACT	23	6	Paul	called out	
-ACT	23	9	teachers of the law, some who were Pharisees	arguing	
-ACT	23	11	Jesus	in a vision	
-ACT	23	14	Jews, 40 in conspiracy	plotting	
-ACT	23	15	Jews		
-ACT	23	17	Paul		
-ACT	23	18	centurion 3|army officer		
-ACT	23	19	commander		
-ACT	23	20	son of Paul's sister (young man)		
-ACT	23	21	son of Paul's sister (young man)		
-ACT	23	22	commander	ordering	
-ACT	23	23	commander	ordering	
-ACT	23	25	commander's letter		
-ACT	23	26	commander's letter		
-ACT	23	29	commander's letter		
-ACT	23	30	commander's letter		
-ACT	23	34	Paul		
-ACT	23	35	Felix	with authority	
-ACT	24	2	Tertullus-Lawyer	accusing	
-ACT	24	3	Tertullus-Lawyer		
-ACT	24	4	Tertullus-Lawyer	accusing	
-ACT	24	5	Tertullus-Lawyer		
-ACT	24	9	Jews, the		
-ACT	24	10	Paul	defense to governor	
-ACT	24	13	Paul	defense to governor	
-ACT	24	14	Paul		
-ACT	24	16	Paul	defense to governor	
-ACT	24	17	Paul		
-ACT	24	18	Paul	defense to governor	
-ACT	24	19	Paul		
-ACT	24	22	Felix		
-ACT	24	25	Felix	afraid	
-ACT	25	4	Festus		
-ACT	25	5	Festus		
-ACT	25	7	Jews from Jerusalem		
-ACT	25	8	Paul	defense to governor	
-ACT	25	9	Festus		
-ACT	25	10	Paul		
-ACT	25	11	Paul		
-ACT	25	12	Festus		
-ACT	25	14	Festus		
-ACT	25	16	Festus		
-ACT	25	17	Festus		
-ACT	25	19	Festus		
-ACT	25	20	Festus		
-ACT	25	22	Festus		
-ACT	25	22	Herod Agrippa II		
-ACT	25	24	Festus		
-ACT	25	25	Festus		
-ACT	25	26	Festus		
-ACT	26	1	Herod Agrippa II		
-ACT	26	2	Paul		
-ACT	26	4	Paul		
-ACT	26	5	Paul		
-ACT	26	6	Paul		
-ACT	26	9	Paul		
-ACT	26	12	Paul		
-ACT	26	13	Paul		
-ACT	26	14	Paul		
-ACT	26	15	Paul		
-ACT	26	16	Paul		
-ACT	26	19	Paul		
-ACT	26	20	Paul		
-ACT	26	21	Paul		
-ACT	26	24	Festus		
-ACT	26	25	Paul		
-ACT	26	27	Paul		
-ACT	26	28	Herod Agrippa II		
-ACT	26	29	Paul		
-ACT	26	31	those sitting with Festus, Herod Agrippa II and Bernice		
-ACT	26	32	Herod Agrippa II		
-ACT	27	10	Paul	warning	
-ACT	27	12	captain/crew		
-ACT	27	14	narrator-ACT		
-ACT	27	21	Paul		
-ACT	27	22	Paul		
-ACT	27	23	Paul		
-ACT	27	31	Paul	warning	
-ACT	27	33	Paul	encouraging	
-ACT	27	34	Paul		
-ACT	27	39	captain/crew		
-ACT	27	43	centurion 1|army officer		
-ACT	28	4	islanders	suspicious	
-ACT	28	6	islanders		
-ACT	28	17	Paul		
-ACT	28	18	Paul		
-ACT	28	21	Jews, leaders of the		
-ACT	28	22	Jews, the 1	inquiring	
-ACT	28	25	Paul		
-ACT	28	26	Paul		
-ACT	28	27	Paul		
-ACT	28	28	Paul		
+MRK	16	6	angel in white=man dressed in white robe, young			True
+MRK	16	15	Jesus	giving orders		False
+MRK	16	16	Jesus	giving orders		False
+MRK	16	17	Jesus			False
+LUK	1	13	angel of the LORD, an			True
+LUK	1	14	angel of the LORD, an			False
+LUK	1	15	angel of the LORD, an			False
+LUK	1	16	angel of the LORD, an			False
+LUK	1	18	Zechariah			True
+LUK	1	19	angel of the LORD, an			True
+LUK	1	25	Elizabeth			False
+LUK	1	28	angel of the LORD, an	to Mary	angel Gabriel, sent by God	True
+LUK	1	29	Mary (Jesus' mother)	confused		False
+LUK	1	30	angel of the LORD, an		angel Gabriel, sent by God	True
+LUK	1	34	Mary (Jesus' mother)			True
+LUK	1	35	angel of the LORD, an		angel Gabriel, sent by God	True
+LUK	1	38	Mary (Jesus' mother)			True
+LUK	1	42	Elizabeth			True
+LUK	1	43	Elizabeth			False
+LUK	1	44	Elizabeth			False
+LUK	1	46	Mary (Jesus' mother)			False
+LUK	1	48	Mary (Jesus' mother)			False
+LUK	1	49	Mary (Jesus' mother)			False
+LUK	1	50	Mary (Jesus' mother)			False
+LUK	1	51	Mary (Jesus' mother)			False
+LUK	1	52	Mary (Jesus' mother)			False
+LUK	1	53	Mary (Jesus' mother)			False
+LUK	1	54	Mary (Jesus' mother)			False
+LUK	1	55	Mary (Jesus' mother)			False
+LUK	1	60	Elizabeth			True
+LUK	1	61	neighbors/relatives of Zechariah/Elizabeth			True
+LUK	1	62	Jews			False
+LUK	1	63	his name is John			False
+LUK	1	64	Zechariah			False
+LUK	1	66	everyone who heard			False
+LUK	1	68	Zechariah	praising		False
+LUK	1	69	Zechariah	praising		False
+LUK	1	70	Zechariah	praising		False
+LUK	1	71	Zechariah	praising		False
+LUK	1	72	Zechariah	praising		False
+LUK	1	73	Zechariah	praising		False
+LUK	1	74	Zechariah	praising		False
+LUK	1	75	Zechariah	praising		False
+LUK	1	76	Zechariah	praising		False
+LUK	1	77	Zechariah	praising		False
+LUK	1	78	Zechariah	praising		False
+LUK	1	79	Zechariah	praising		False
+LUK	2	1	Caesar Augustus			False
+LUK	2	10	angel of the LORD, an			False
+LUK	2	14	great company of heavenly host	stage whisper extra voices will be added		False
+LUK	2	15	shepherds 1	awe		False
+LUK	2	23	scripture			False
+LUK	2	24	scripture			False
+LUK	2	26	Holy Spirit, the			False
+LUK	2	29	Simeon-old			False
+LUK	2	30	Simeon-old			False
+LUK	2	31	Simeon-old			False
+LUK	2	32	Simeon-old			False
+LUK	2	34	Simeon-old			False
+LUK	2	38	Anna, prophetess			False
+LUK	2	48	Mary (Jesus' mother)			True
+LUK	2	49	Jesus (child)			True
+LUK	3	3	John the Baptist			False
+LUK	3	4	scripture			False
+LUK	3	7	John the Baptist			False
+LUK	3	8	John the Baptist			False
+LUK	3	9	John the Baptist			False
+LUK	3	10	crowd 10			True
+LUK	3	11	John the Baptist			True
+LUK	3	12	tax collectors	calling out		True
+LUK	3	13	John the Baptist			True
+LUK	3	14	John the Baptist			True
+LUK	3	14	soldiers 1	calling out		True
+LUK	3	15	people			False
+LUK	3	16	John the Baptist			False
+LUK	3	17	John the Baptist			False
+LUK	3	22	God		voice from heaven (God)	False
+LUK	4	3	Satan		Devil	True
+LUK	4	4	Jesus			True
+LUK	4	6	Satan		Devil	True
+LUK	4	7	Satan		Devil	False
+LUK	4	8	Jesus			True
+LUK	4	9	Satan		Devil	True
+LUK	4	10	Satan		Devil	False
+LUK	4	12	Jesus			True
+LUK	4	18	Jesus			False
+LUK	4	21	Jesus			False
+LUK	4	22	all in synagogue	perplexed		False
+LUK	4	23	Jesus			False
+LUK	4	24	Jesus			False
+LUK	4	25	Jesus			False
+LUK	4	26	Jesus			False
+LUK	4	27	Jesus			False
+LUK	4	34	man possessed by evil spirit			True
+LUK	4	35	Jesus	giving orders		True
+LUK	4	36	men in synagogue 2	amazed		False
+LUK	4	38	everyone			False
+LUK	4	39	Jesus	rebuking		False
+LUK	4	41	demons coming out of people			False
+LUK	4	43	Jesus			False
+LUK	5	3	Jesus			False
+LUK	5	4	Jesus			True
+LUK	5	5	Peter (Simon)	polite		True
+LUK	5	8	Peter (Simon)	afraid		True
+LUK	5	10	Jesus			True
+LUK	5	12	man covered with leprosy	pleading		True
+LUK	5	13	Jesus			True
+LUK	5	14	Jesus	forcefully		True
+LUK	5	20	Jesus			True
+LUK	5	21	teachers of the law/Pharisees=Pharisees/teachers of the law 1	angry		False
+LUK	5	22	Jesus			True
+LUK	5	24	Jesus	giving orders		True
+LUK	5	26	everyone			False
+LUK	5	27	Jesus			True
+LUK	5	27	narrator-LUK			True
+LUK	5	30	Pharisees/teachers of the law 1	contempt		True
+LUK	5	31	Jesus			True
+LUK	5	33	Pharisees/teachers of the law			True
+LUK	5	34	Jesus			True
+LUK	5	36	Jesus			True
+LUK	5	37	Jesus			False
+LUK	5	38	Jesus			False
+LUK	5	39	Jesus			False
+LUK	6	2	Pharisees, some 1	angry		True
+LUK	6	3	Jesus			True
+LUK	6	4	Jesus			False
+LUK	6	5	Jesus			True
+LUK	6	8	Jesus	giving orders		True
+LUK	6	9	Jesus	questioning		True
+LUK	6	10	Jesus			True
+LUK	6	20	Jesus			False
+LUK	6	21	Jesus			False
+LUK	6	22	Jesus			False
+LUK	6	23	Jesus			False
+LUK	6	24	Jesus			False
+LUK	6	25	Jesus			False
+LUK	6	26	Jesus			False
+LUK	6	27	Jesus			False
+LUK	6	28	Jesus			False
+LUK	6	29	Jesus			False
+LUK	6	31	Jesus			False
+LUK	6	32	Jesus			False
+LUK	6	33	Jesus			False
+LUK	6	34	Jesus			False
+LUK	6	35	Jesus			False
+LUK	6	37	Jesus			False
+LUK	6	38	Jesus			False
+LUK	6	39	Jesus			False
+LUK	6	40	Jesus			False
+LUK	6	41	Jesus			False
+LUK	6	42	Jesus			False
+LUK	6	43	Jesus			False
+LUK	6	44	Jesus			False
+LUK	6	45	Jesus			False
+LUK	6	46	Jesus			False
+LUK	6	47	Jesus			False
+LUK	6	48	Jesus			False
+LUK	6	49	Jesus			False
+LUK	7	4	Good Priest	interceding	elders of the Jews|Good Priest	True
+LUK	7	5	Good Priest		elders of the Jews|Good Priest	False
+LUK	7	6	centurion=centurion/other guards|army officer	polite		False
+LUK	7	7	centurion=centurion/other guards|army officer	polite		False
+LUK	7	8	centurion 2			False
+LUK	7	9	Jesus			True
+LUK	7	13	Jesus	compassionately		True
+LUK	7	14	Jesus	giving orders		True
+LUK	7	15	Jesus			False
+LUK	7	16	crowd, large 1	praising		True
+LUK	7	19	John the Baptist	discouraged		False
+LUK	7	20	John's disciples	puzzled		True
+LUK	7	22	Jesus			True
+LUK	7	23	Jesus			False
+LUK	7	24	Jesus			False
+LUK	7	25	Jesus			False
+LUK	7	26	Jesus			False
+LUK	7	27	Jesus			False
+LUK	7	28	Jesus			False
+LUK	7	31	Jesus			False
+LUK	7	32	Jesus			False
+LUK	7	33	Jesus			False
+LUK	7	33	narrator-LUK			False
+LUK	7	34	Jesus			False
+LUK	7	35	Jesus			False
+LUK	7	39	Pharisee(Simon)	judgmental		False
+LUK	7	40	Jesus			True
+LUK	7	40	Pharisee(Simon)			True
+LUK	7	41	Jesus			True
+LUK	7	43	Jesus			True
+LUK	7	43	Pharisee(Simon)			True
+LUK	7	44	Jesus			True
+LUK	7	45	Jesus			False
+LUK	7	46	Jesus			False
+LUK	7	48	Jesus			True
+LUK	7	49	other guests at Pharisee(Simon)'s house	unhappy		False
+LUK	7	50	Jesus			True
+LUK	8	5	Jesus			False
+LUK	8	6	Jesus			False
+LUK	8	7	Jesus			False
+LUK	8	8	Jesus			False
+LUK	8	9	disciples, His			False
+LUK	8	10	Jesus			False
+LUK	8	11	Jesus			False
+LUK	8	12	Jesus			False
+LUK	8	13	Jesus			False
+LUK	8	14	Jesus			False
+LUK	8	15	Jesus			False
+LUK	8	16	Jesus			False
+LUK	8	17	Jesus			False
+LUK	8	18	Jesus			False
+LUK	8	20	someone=they (in crowd)			True
+LUK	8	21	Jesus			True
+LUK	8	22	Jesus	giving orders		False
+LUK	8	24	disciples, the 3	terrified		True
+LUK	8	24	Jesus	giving orders		True
+LUK	8	25	disciples, the 4	fear, amazement		True
+LUK	8	25	Jesus	questioning		True
+LUK	8	27	demon-possessed man			False
+LUK	8	28	demon-possessed man			True
+LUK	8	29	Jesus			False
+LUK	8	30	demon-possessed man			True
+LUK	8	30	Jesus	questioning		True
+LUK	8	31	demon-possessed man	begging		False
+LUK	8	32	demon-possessed man	begging		False
+LUK	8	38	man who had had demons			False
+LUK	8	39	Jesus			True
+LUK	8	45	Jesus	questioning		True
+LUK	8	45	Peter (Simon)	perplexed		True
+LUK	8	46	Jesus			True
+LUK	8	48	Jesus			True
+LUK	8	49	someone from Jairus' house	sad		True
+LUK	8	50	Jesus			True
+LUK	8	52	Jesus			True
+LUK	8	54	Jesus	giving orders		True
+LUK	8	55	Jesus			False
+LUK	8	56	Jesus	warning		False
+LUK	9	3	Jesus	instructing		True
+LUK	9	4	Jesus			False
+LUK	9	5	Jesus			False
+LUK	9	7	people, some			False
+LUK	9	8	people, other			False
+LUK	9	9	Herod Antipas (the tetrarch)			False
+LUK	9	12	disciples, the=disciples, His	taking charge		True
+LUK	9	13	Andrew	frustrated	Andrew=twelve, the	True
+LUK	9	13	Jesus	giving orders		True
+LUK	9	14	Jesus	giving orders		True
+LUK	9	18	Jesus	questioning		True
+LUK	9	19	disciples, the 3	excited		True
+LUK	9	20	Jesus	questioning		True
+LUK	9	20	Peter (Simon)	declare		True
+LUK	9	21	Jesus	warning		False
+LUK	9	22	Jesus			True
+LUK	9	23	Jesus	instructing		True
+LUK	9	24	Jesus			False
+LUK	9	25	Jesus	instructing		False
+LUK	9	26	Jesus			False
+LUK	9	27	Jesus			False
+LUK	9	33	Peter (Simon)	afraid		True
+LUK	9	35	voice from cloud			False
+LUK	9	38	father of possessed boy=man in crowd	distraught		True
+LUK	9	41	Jesus	exasperated		True
+LUK	9	41	Jesus	exasperated; giving orders		True
+LUK	9	41	Jesus	giving orders		True
+LUK	9	43	everyone in crowd	praising God		False
+LUK	9	44	Jesus			True
+LUK	9	46	disciples, His 3	arguing		False
+LUK	9	48	Jesus			True
+LUK	9	49	John		John (disciple whom Jesus loved)	True
+LUK	9	50	Jesus			True
+LUK	9	54	John		James/John (sons of Zebedee)|John	True
+LUK	9	55	Jesus	rebuking		False
+LUK	9	57	teacher of the law=man|man	eager		True
+LUK	9	58	Jesus			True
+LUK	9	59	disciple, another=man, another	making excuse		True
+LUK	9	59	Jesus	inviting		True
+LUK	9	60	Jesus			True
+LUK	9	61	man, still another			True
+LUK	9	62	Jesus			True
+LUK	10	1	Jesus	giving orders		False
+LUK	10	2	Jesus	instructing		False
+LUK	10	3	Jesus			False
+LUK	10	4	Jesus	instructing		False
+LUK	10	5	Jesus			False
+LUK	10	6	Jesus			False
+LUK	10	7	Jesus			False
+LUK	10	8	Jesus			False
+LUK	10	9	Jesus			False
+LUK	10	10	Jesus			False
+LUK	10	11	Jesus			False
+LUK	10	12	Jesus			False
+LUK	10	13	Jesus	warning		False
+LUK	10	14	Jesus	warning		False
+LUK	10	15	Jesus			False
+LUK	10	16	Jesus			False
+LUK	10	17	seventy-two	excited		True
+LUK	10	18	Jesus			True
+LUK	10	19	Jesus			False
+LUK	10	21	Jesus			False
+LUK	10	22	Jesus			False
+LUK	10	23	Jesus			False
+LUK	10	25	Good Priest	testing	teachers of the law, one=expert in the law, an|Good Priest	True
+LUK	10	26	Jesus	questioning		True
+LUK	10	27	Good Priest		teachers of the law, one=expert in the law, an|Good Priest	True
+LUK	10	28	Jesus			True
+LUK	10	29	Good Priest	justifying	teachers of the law, one=expert in the law, an|Good Priest	True
+LUK	10	30	Jesus			True
+LUK	10	31	Jesus			False
+LUK	10	32	Jesus			False
+LUK	10	33	Jesus			False
+LUK	10	34	Jesus			False
+LUK	10	35	Jesus			False
+LUK	10	36	Jesus	questioning		False
+LUK	10	37	Good Priest		teachers of the law, one=expert in the law, an|Good Priest	True
+LUK	10	37	Jesus			True
+LUK	10	40	Martha			True
+LUK	10	41	Jesus	compassionately		True
+LUK	11	1	disciples, one of His			True
+LUK	11	2	Jesus	instructing		True
+LUK	11	5	Jesus			True
+LUK	11	6	Jesus			False
+LUK	11	7	Jesus			False
+LUK	11	8	Jesus			False
+LUK	11	9	Jesus			False
+LUK	11	10	Jesus			False
+LUK	11	11	Jesus			False
+LUK	11	15	crowd, some of			False
+LUK	11	16	others 1			False
+LUK	11	17	Jesus			False
+LUK	11	18	Jesus			False
+LUK	11	19	Jesus			False
+LUK	11	20	Jesus			False
+LUK	11	21	Jesus			False
+LUK	11	22	Jesus			False
+LUK	11	23	Jesus			False
+LUK	11	24	Jesus			False
+LUK	11	25	Jesus			False
+LUK	11	27	woman in crowd			True
+LUK	11	28	Jesus			True
+LUK	11	29	Jesus			False
+LUK	11	30	Jesus			False
+LUK	11	31	Jesus			False
+LUK	11	32	Jesus			False
+LUK	11	33	Jesus			False
+LUK	11	34	Jesus			False
+LUK	11	35	Jesus			False
+LUK	11	37	Pharisee, a			False
+LUK	11	39	Jesus			True
+LUK	11	40	Jesus			False
+LUK	11	41	Jesus			False
+LUK	11	42	Jesus	rebuking		False
+LUK	11	43	Jesus	rebuking		False
+LUK	11	44	Jesus			False
+LUK	11	45	experts-in-law, one|teachers of the law	insulted		True
+LUK	11	46	Jesus	rebuking		True
+LUK	11	47	Jesus			False
+LUK	11	48	Jesus	rebuking		False
+LUK	11	49	Jesus			False
+LUK	11	50	Jesus			False
+LUK	11	51	Jesus			False
+LUK	11	52	Jesus	rebuking		False
+LUK	12	1	Jesus	warning		False
+LUK	12	2	Jesus			False
+LUK	12	4	Jesus			False
+LUK	12	5	Jesus			False
+LUK	12	6	Jesus			False
+LUK	12	7	Jesus			False
+LUK	12	8	Jesus			False
+LUK	12	9	Jesus			False
+LUK	12	10	Jesus			False
+LUK	12	11	Jesus			False
+LUK	12	13	someone in crowd			True
+LUK	12	14	Jesus	questioning		True
+LUK	12	15	Jesus	warning		True
+LUK	12	16	Jesus			False
+LUK	12	17	Jesus			False
+LUK	12	18	Jesus			False
+LUK	12	19	Jesus			False
+LUK	12	20	Jesus			False
+LUK	12	21	Jesus			False
+LUK	12	22	Jesus			False
+LUK	12	23	Jesus			False
+LUK	12	24	Jesus			False
+LUK	12	25	Jesus			False
+LUK	12	26	Jesus			False
+LUK	12	27	Jesus			False
+LUK	12	28	Jesus			False
+LUK	12	29	Jesus			False
+LUK	12	30	Jesus			False
+LUK	12	31	Jesus			False
+LUK	12	32	Jesus			False
+LUK	12	33	Jesus			False
+LUK	12	34	Jesus			False
+LUK	12	35	Jesus			False
+LUK	12	36	Jesus			False
+LUK	12	37	Jesus			False
+LUK	12	38	Jesus			False
+LUK	12	39	Jesus			False
+LUK	12	41	Peter (Simon)			True
+LUK	12	42	Jesus			False
+LUK	12	44	Jesus			False
+LUK	12	45	Jesus			False
+LUK	12	46	Jesus			False
+LUK	12	47	Jesus			False
+LUK	12	48	Jesus			False
+LUK	12	49	Jesus			False
+LUK	12	50	Jesus			False
+LUK	12	51	Jesus			False
+LUK	12	52	Jesus			False
+LUK	12	54	Jesus			False
+LUK	12	55	Jesus			False
+LUK	12	56	Jesus			False
+LUK	12	57	Jesus			False
+LUK	13	2	Jesus			False
+LUK	13	3	Jesus			False
+LUK	13	4	Jesus			False
+LUK	13	6	Jesus			False
+LUK	13	7	Jesus			False
+LUK	13	8	Jesus			False
+LUK	13	12	Jesus			True
+LUK	13	14	synagogue ruler	angry		True
+LUK	13	15	Jesus			True
+LUK	13	18	Jesus			False
+LUK	13	20	Jesus			False
+LUK	13	23	someone 1	questioning		True
+LUK	13	24	Jesus			True
+LUK	13	25	Jesus			False
+LUK	13	26	Jesus			False
+LUK	13	27	Jesus			False
+LUK	13	28	Jesus			False
+LUK	13	29	Jesus			False
+LUK	13	31	Good Priest	warning	Pharisee expert-in-law|Good Priest	True
+LUK	13	32	Jesus			True
+LUK	13	33	Jesus			False
+LUK	13	34	Jesus			False
+LUK	14	3	Jesus	questioning		True
+LUK	14	5	Jesus	questioning		True
+LUK	14	8	Jesus			True
+LUK	14	9	Jesus			False
+LUK	14	10	Jesus			False
+LUK	14	11	Jesus			False
+LUK	14	12	Jesus			True
+LUK	14	13	Jesus			False
+LUK	14	15	one at table with him			True
+LUK	14	16	Jesus			True
+LUK	14	17	Jesus			False
+LUK	14	18	Jesus			False
+LUK	14	19	Jesus			False
+LUK	14	20	Jesus			False
+LUK	14	21	Jesus			False
+LUK	14	22	Jesus			False
+LUK	14	23	Jesus			False
+LUK	14	26	Jesus			False
+LUK	14	28	Jesus			False
+LUK	14	30	Jesus			False
+LUK	14	31	Jesus			False
+LUK	14	32	Jesus			False
+LUK	14	33	Jesus			False
+LUK	14	34	Jesus			False
+LUK	14	35	Jesus			False
+LUK	15	1	narrator-LUK			False
+LUK	15	2	Pharisees/teachers of law|Pharisee, one	muttering		False
+LUK	15	4	Jesus			False
+LUK	15	5	Jesus			False
+LUK	15	6	Jesus			False
+LUK	15	7	Jesus			False
+LUK	15	8	Jesus			False
+LUK	15	9	Jesus			False
+LUK	15	10	Jesus			False
+LUK	15	11	Jesus			False
+LUK	15	12	Jesus			False
+LUK	15	13	Jesus			False
+LUK	15	14	Jesus			False
+LUK	15	15	Jesus			False
+LUK	15	16	Jesus			False
+LUK	15	17	Jesus			False
+LUK	15	18	narrator-LUK			False
+LUK	15	19	Jesus			False
+LUK	15	20	Jesus			False
+LUK	15	21	Jesus			False
+LUK	15	22	Jesus			False
+LUK	15	24	Jesus			False
+LUK	15	25	Jesus			False
+LUK	15	27	Jesus			False
+LUK	15	28	Jesus			False
+LUK	15	30	Jesus			False
+LUK	15	31	Jesus			False
+LUK	16	1	Jesus			False
+LUK	16	2	Jesus			False
+LUK	16	3	Jesus			False
+LUK	16	4	Jesus			False
+LUK	16	5	Jesus			False
+LUK	16	6	Jesus			False
+LUK	16	7	Jesus			False
+LUK	16	8	Jesus			False
+LUK	16	9	Jesus			False
+LUK	16	10	Jesus			False
+LUK	16	12	Jesus			False
+LUK	16	13	Jesus			False
+LUK	16	15	Jesus			False
+LUK	16	16	Jesus			False
+LUK	16	17	Jesus			False
+LUK	16	18	Jesus			False
+LUK	16	19	Jesus			False
+LUK	16	20	Jesus			False
+LUK	16	21	Jesus			False
+LUK	16	22	Jesus			False
+LUK	16	23	Jesus			False
+LUK	16	24	Jesus			False
+LUK	16	25	Jesus			False
+LUK	16	26	Jesus			False
+LUK	16	27	Jesus			False
+LUK	16	29	Jesus			False
+LUK	16	30	Jesus			False
+LUK	16	31	Jesus			False
+LUK	17	1	Jesus			False
+LUK	17	2	Jesus			False
+LUK	17	3	Jesus			False
+LUK	17	5	apostles			True
+LUK	17	6	Jesus			True
+LUK	17	7	Jesus			False
+LUK	17	8	Jesus			False
+LUK	17	9	Jesus			False
+LUK	17	13	ten men with leprosy			True
+LUK	17	14	Jesus			True
+LUK	17	15	man with leprosy 1			False
+LUK	17	16	man with leprosy 1			False
+LUK	17	17	Jesus			True
+LUK	17	19	Jesus	giving orders		True
+LUK	17	20	Jesus	questioning		True
+LUK	17	22	Jesus			True
+LUK	17	23	Jesus			False
+LUK	17	24	Jesus			False
+LUK	17	25	Jesus			False
+LUK	17	26	Jesus			False
+LUK	17	27	Jesus			False
+LUK	17	28	Jesus			False
+LUK	17	29	Jesus			False
+LUK	17	30	Jesus			False
+LUK	17	31	Jesus			False
+LUK	17	32	Jesus			False
+LUK	17	33	Jesus			False
+LUK	17	34	Jesus			False
+LUK	17	37	disciples, His 1	puzzled		True
+LUK	17	37	Jesus			True
+LUK	18	1	Jesus			False
+LUK	18	2	Jesus			False
+LUK	18	3	Jesus			False
+LUK	18	4	Jesus			False
+LUK	18	5	Jesus			False
+LUK	18	6	Jesus			False
+LUK	18	7	Jesus			False
+LUK	18	8	Jesus			False
+LUK	18	10	Jesus			False
+LUK	18	11	Jesus			False
+LUK	18	12	Jesus			False
+LUK	18	13	Jesus			False
+LUK	18	14	Jesus			False
+LUK	18	15	disciples, the			False
+LUK	18	16	Jesus			False
+LUK	18	18	ruler, a certain=man, rich young	respectful		True
+LUK	18	19	Jesus			True
+LUK	18	21	ruler, a certain=man, rich young	upset		True
+LUK	18	22	Jesus			True
+LUK	18	24	Jesus			True
+LUK	18	26	disciples, the=those who heard	shocked		True
+LUK	18	27	Jesus			True
+LUK	18	28	Peter (Simon)	perplexed		True
+LUK	18	29	Jesus			True
+LUK	18	31	Jesus			False
+LUK	18	32	Jesus			False
+LUK	18	36	Bartimaeus		Bartimaeus, blind=blind man, a	False
+LUK	18	37	crowd 3			True
+LUK	18	38	Bartimaeus	shouting	Bartimaeus, blind=blind man, a	True
+LUK	18	39	Bartimaeus	shouting	Bartimaeus, blind=blind man, a	True
+LUK	18	39	crowd 5			True
+LUK	18	41	Bartimaeus	pleading	Bartimaeus, blind=blind man, a	True
+LUK	18	41	Jesus	questioning		True
+LUK	18	42	Jesus			True
+LUK	19	5	Jesus	giving orders		True
+LUK	19	7	people, all the			False
+LUK	19	8	Zaccheaus			True
+LUK	19	9	Jesus			True
+LUK	19	12	Jesus			False
+LUK	19	13	Jesus			False
+LUK	19	14	Jesus			False
+LUK	19	15	Jesus			False
+LUK	19	16	Jesus			False
+LUK	19	17	Jesus			False
+LUK	19	18	Jesus			False
+LUK	19	19	Jesus			False
+LUK	19	21	Jesus			False
+LUK	19	22	Jesus			False
+LUK	19	23	Jesus			False
+LUK	19	24	Jesus			False
+LUK	19	25	Jesus			False
+LUK	19	26	Jesus			False
+LUK	19	27	Jesus			False
+LUK	19	30	Jesus			False
+LUK	19	33	owner of colt=people, some standing there	suspicious		True
+LUK	19	34	disciples, two of His			True
+LUK	19	38	disciples, whole crowd of=people, many=crowd, great			True
+LUK	19	39	Pharisees, some 2	demanding		True
+LUK	19	40	Jesus			True
+LUK	19	42	Jesus			False
+LUK	19	43	Jesus			False
+LUK	19	46	Jesus			True
+LUK	20	2	chief priests/teachers of the law/elders=chief priests/elders of people 1	challenge		True
+LUK	20	3	Jesus			True
+LUK	20	4	Jesus	questioning		False
+LUK	20	5	chief priests/teachers of the law/elders=chief priests/elders of people 1	to themselves		False
+LUK	20	7	chief priests/teachers of the law/elders=chief priests/elders of people 2			True
+LUK	20	8	Jesus			True
+LUK	20	9	Jesus			False
+LUK	20	10	Jesus			False
+LUK	20	11	Jesus			False
+LUK	20	12	Jesus			False
+LUK	20	13	Jesus			False
+LUK	20	14	Jesus			False
+LUK	20	15	Jesus			False
+LUK	20	16	Good Priest	alarmed	chief priests/elders of people|Good Priest	True
+LUK	20	16	Jesus			True
+LUK	20	16	people, the			True
+LUK	20	17	Jesus			True
+LUK	20	18	Jesus			False
+LUK	20	21	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			True
+LUK	20	23	Jesus			False
+LUK	20	24	Jesus			True
+LUK	20	24	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			True
+LUK	20	25	Jesus			True
+LUK	20	25	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			True
+LUK	20	27	Sadducees			False
+LUK	20	28	Sadducees			True
+LUK	20	29	Sadducees			False
+LUK	20	32	Sadducees			False
+LUK	20	33	Sadducees			False
+LUK	20	34	Jesus			True
+LUK	20	36	Jesus			False
+LUK	20	37	Jesus			False
+LUK	20	38	Jesus			False
+LUK	20	39	Good Priest	compliment	teachers of the law, some|Good Priest	True
+LUK	20	41	Jesus			True
+LUK	20	42	Jesus			False
+LUK	20	43	Jesus			False
+LUK	20	44	narrator-LUK			False
+LUK	20	46	Jesus	warning		False
+LUK	20	47	Jesus			False
+LUK	21	3	Jesus			True
+LUK	21	5	disciples, some			False
+LUK	21	6	Jesus			True
+LUK	21	7	John		Peter (Simon)/James/John/Andrew=disciples=they	True
+LUK	21	8	Jesus			False
+LUK	21	9	Jesus			False
+LUK	21	10	Jesus			False
+LUK	21	11	Jesus			False
+LUK	21	12	Jesus			False
+LUK	21	13	Jesus			False
+LUK	21	15	Jesus			False
+LUK	21	16	Jesus			False
+LUK	21	19	Jesus			False
+LUK	21	20	Jesus			False
+LUK	21	21	Jesus			False
+LUK	21	22	Jesus			False
+LUK	21	23	Jesus			False
+LUK	21	24	Jesus			False
+LUK	21	25	Jesus			False
+LUK	21	26	Jesus			False
+LUK	21	27	Jesus			False
+LUK	21	29	Jesus			False
+LUK	21	30	Jesus			False
+LUK	21	31	Jesus			False
+LUK	21	32	Jesus			False
+LUK	21	33	Jesus			False
+LUK	21	34	Jesus			False
+LUK	21	35	Jesus			False
+LUK	22	4	Judas Iscariot			False
+LUK	22	5	chief priests/officers of temple guard			False
+LUK	22	8	Jesus	giving orders		True
+LUK	22	9	Peter (Simon)		Peter (Simon)/John=disciples (Jesus')	True
+LUK	22	10	Jesus			True
+LUK	22	15	Jesus			True
+LUK	22	17	Jesus			True
+LUK	22	19	Jesus			True
+LUK	22	20	Jesus			True
+LUK	22	21	Jesus			False
+LUK	22	23	disciples, one of His			False
+LUK	22	25	Jesus			False
+LUK	22	27	Jesus			False
+LUK	22	28	Jesus			False
+LUK	22	31	Jesus			False
+LUK	22	33	Peter (Simon)	passionate		True
+LUK	22	34	Jesus			True
+LUK	22	35	disciples, His			True
+LUK	22	35	Jesus			True
+LUK	22	36	Jesus			True
+LUK	22	37	Jesus			False
+LUK	22	38	disciples, the=disciples, His	declare		True
+LUK	22	38	Jesus			True
+LUK	22	40	Jesus			False
+LUK	22	42	Jesus	praying		False
+LUK	22	46	Jesus			True
+LUK	22	48	Jesus			True
+LUK	22	49	followers of Jesus	ready to fight		True
+LUK	22	51	Jesus	forcefully		True
+LUK	22	52	Jesus			True
+LUK	22	56	girl at high priest's courtyard=servant girl			True
+LUK	22	57	Peter (Simon)	denial		True
+LUK	22	58	Peter (Simon)	stronger		True
+LUK	22	58	servant girl	accusing	servant girl, another=someone else| servant girl	True
+LUK	22	59	high priest's servant (man), one=those standing near|another man	accusing		True
+LUK	22	60	Peter (Simon)	strongest		True
+LUK	22	61	Jesus			False
+LUK	22	64	men who were guarding	mocking		True
+LUK	22	67	council of elders:chief priests/teachers of the law	demanding		True
+LUK	22	67	Jesus			True
+LUK	22	70	council of elders:chief priests/teachers of the law	demanding		True
+LUK	22	70	Jesus			True
+LUK	22	71	council of elders:chief priests/teachers of the law	furious		True
+LUK	23	2	council of elders:chief priests/teachers of the law			True
+LUK	23	3	Jesus			True
+LUK	23	3	Pilate	to Jesus		True
+LUK	23	4	Pilate	to crowd		True
+LUK	23	5	chief priests/Sanhedrin=chief priests/whole Sanhedrin 1	loud, angry		True
+LUK	23	6	Pilate			False
+LUK	23	7	chief priests/teachers of the law 2			False
+LUK	23	14	Pilate	to crowd		True
+LUK	23	18	chief priests/rulers/the people	shouting		True
+LUK	23	20	Pilate			False
+LUK	23	21	chief priests/rulers/the people|mob			True
+LUK	23	22	Pilate	to crowd		True
+LUK	23	23	crowd			False
+LUK	23	24	Pilate			False
+LUK	23	25	Pilate			False
+LUK	23	28	Jesus			True
+LUK	23	30	Jesus			False
+LUK	23	31	Jesus			False
+LUK	23	33	narrator-LUK			False
+LUK	23	34	Jesus			False
+LUK	23	35	rulers=chief priests/teachers of the law/elders	sneering		True
+LUK	23	37	soldier at the cross			True
+LUK	23	38	sign on the cross			False
+LUK	23	39	criminal on cross, one	insulting		True
+LUK	23	40	criminal on cross, another			True
+LUK	23	42	criminal on cross, another	repentant		True
+LUK	23	43	Jesus			True
+LUK	23	46	Jesus			True
+LUK	23	47	centurion 2|army officer	amazed		True
+LUK	24	4	Mary Magdalene		Mary Magdalene/Mary mother of James/Salome	False
+LUK	24	5	angels in white=men in clothes that gleamed like lightning, two			True
+LUK	24	8	Mary Magdalene		Mary Magdalene/Mary mother of James/Salome	False
+LUK	24	17	Jesus	questioning		True
+LUK	24	18	Cleopas and other (on road to Emmaus)|Cleopas			True
+LUK	24	19	Cleopas and other (on road to Emmaus)|Cleopas			True
+LUK	24	19	Jesus			True
+LUK	24	19	other and Cleopas (on road to Emmaus) female|other female			True
+LUK	24	19	other and Cleopas (on road to Emmaus) male|other male			True
+LUK	24	20	Cleopas and other (on road to Emmaus)|Cleopas			False
+LUK	24	21	Cleopas and other (on road to Emmaus)|Cleopas			False
+LUK	24	22	Cleopas and other (on road to Emmaus)|Cleopas			False
+LUK	24	22	other and Cleopas (on road to Emmaus) female|other female			False
+LUK	24	22	other and Cleopas (on road to Emmaus) male|other male			False
+LUK	24	23	Cleopas and other (on road to Emmaus)|Cleopas			False
+LUK	24	24	Cleopas and other (on road to Emmaus)|Cleopas			False
+LUK	24	25	Jesus			True
+LUK	24	29	Cleopas and other (on road to Emmaus)|Cleopas	urging		True
+LUK	24	29	Jesus			True
+LUK	24	29	other and Cleopas (on road to Emmaus) female|other female			True
+LUK	24	29	other and Cleopas (on road to Emmaus) male|other male			True
+LUK	24	32	Cleopas and other (on road to Emmaus)|Cleopas	urging		True
+LUK	24	32	other and Cleopas (on road to Emmaus) female|other female			True
+LUK	24	32	other and Cleopas (on road to Emmaus) male|other male			True
+LUK	24	34	Eleven/those with them			True
+LUK	24	36	Jesus			True
+LUK	24	38	Jesus			True
+LUK	24	41	Jesus	questioning		True
+LUK	24	44	Jesus			True
+LUK	24	46	Jesus			True
+LUK	24	48	Jesus			False
+LUK	24	49	Jesus			False
+LUK	24	50	Jesus			False
+JHN	1	15	John the Baptist			False
+JHN	1	19	priests/Levites from Jews			False
+JHN	1	20	John the Baptist			True
+JHN	1	21	John the Baptist			True
+JHN	1	21	priests/Levites from Jews			True
+JHN	1	22	priests/Levites from Jews			True
+JHN	1	23	John the Baptist			True
+JHN	1	25	Pharisees sent from Jews			True
+JHN	1	26	John the Baptist			True
+JHN	1	29	John the Baptist			False
+JHN	1	32	John the Baptist			False
+JHN	1	34	John the Baptist			False
+JHN	1	36	John the Baptist			True
+JHN	1	38	disciples of John Baptist, two	curious		True
+JHN	1	38	Jesus	questioning		True
+JHN	1	39	Jesus			True
+JHN	1	41	Andrew	excited		True
+JHN	1	41	narrator-JHN			True
+JHN	1	42	Jesus			True
+JHN	1	43	Jesus	inviting		True
+JHN	1	45	Philip	excited	Philip (apostle)	True
+JHN	1	46	Nathanael			True
+JHN	1	46	Philip		Philip (apostle)	True
+JHN	1	47	Jesus			True
+JHN	1	48	Jesus			True
+JHN	1	48	Nathanael	puzzled		True
+JHN	1	49	Nathanael	awe		True
+JHN	1	50	Jesus			True
+JHN	1	51	Jesus			True
+JHN	2	3	Mary (Jesus' mother)			True
+JHN	2	4	Jesus			True
+JHN	2	5	Mary (Jesus' mother)			True
+JHN	2	7	Jesus			True
+JHN	2	8	Jesus			True
+JHN	2	10	master of the banquet	complimenting		True
+JHN	2	16	Jesus	giving orders		True
+JHN	2	17	scripture			False
+JHN	2	18	Jews, the 3			True
+JHN	2	19	Jesus			True
+JHN	2	20	Jews, the 3			True
+JHN	3	2	Nicodemus			True
+JHN	3	3	Jesus			True
+JHN	3	4	Nicodemus			True
+JHN	3	5	Jesus			True
+JHN	3	7	Jesus			False
+JHN	3	8	Jesus			False
+JHN	3	9	Nicodemus			True
+JHN	3	10	Jesus	questioning		True
+JHN	3	11	Jesus			False
+JHN	3	12	Jesus	questioning		False
+JHN	3	13	Jesus			False
+JHN	3	14	Jesus			False
+JHN	3	16	Jesus			False
+JHN	3	17	Jesus			False
+JHN	3	18	Jesus			False
+JHN	3	19	Jesus			False
+JHN	3	20	Jesus			False
+JHN	3	21	Jesus			False
+JHN	3	26	disciples, John Baptists/Jew, a certain	concerned		True
+JHN	3	27	John the Baptist			True
+JHN	3	28	John the Baptist			False
+JHN	3	29	Jesus			False
+JHN	3	31	John the Baptist			False
+JHN	3	32	John the Baptist			False
+JHN	3	34	John the Baptist			False
+JHN	3	35	John the Baptist			False
+JHN	3	36	John the Baptist			False
+JHN	4	1	people, some			False
+JHN	4	7	Jesus	requesting		True
+JHN	4	9	woman, Samaritan			True
+JHN	4	10	Jesus			True
+JHN	4	11	woman, Samaritan			True
+JHN	4	13	Jesus			True
+JHN	4	15	woman, Samaritan			True
+JHN	4	16	Jesus			True
+JHN	4	17	Jesus			True
+JHN	4	17	woman, Samaritan			True
+JHN	4	19	woman, Samaritan			True
+JHN	4	20	woman, Samaritan			False
+JHN	4	21	Jesus			True
+JHN	4	25	woman, Samaritan			True
+JHN	4	26	Jesus			True
+JHN	4	27	narrator-JHN			False
+JHN	4	29	woman, Samaritan			True
+JHN	4	31	disciples, His			True
+JHN	4	32	Jesus			True
+JHN	4	33	disciples, His 1	puzzled		False
+JHN	4	34	Jesus			True
+JHN	4	35	Jesus			False
+JHN	4	36	Jesus			False
+JHN	4	37	Jesus			False
+JHN	4	39	woman, Samaritan			False
+JHN	4	40	many Samaritans			False
+JHN	4	42	many Samaritans			True
+JHN	4	44	Jesus			False
+JHN	4	48	Jesus			True
+JHN	4	49	official, royal	pleading		True
+JHN	4	50	Jesus			True
+JHN	4	51	servants of royal official	excited		False
+JHN	4	52	servants of royal official	excited		True
+JHN	4	53	Jesus	giving orders		False
+JHN	5	6	Jesus	questioning		True
+JHN	5	7	invalid for 38 years	whining		True
+JHN	5	8	Jesus	giving orders		True
+JHN	5	10	Jews, the 1	rebuke		True
+JHN	5	11	invalid for 38 years			True
+JHN	5	12	Jews, the 1	angry		True
+JHN	5	14	Jesus			True
+JHN	5	17	Jesus			True
+JHN	5	19	Jesus			False
+JHN	5	23	Jesus			False
+JHN	5	24	Jesus			False
+JHN	5	25	Jesus			False
+JHN	5	27	Jesus			False
+JHN	5	28	Jesus			False
+JHN	5	30	Jesus			False
+JHN	5	31	Jesus			False
+JHN	5	32	Jesus			False
+JHN	5	33	Jesus			False
+JHN	5	35	Jesus			False
+JHN	5	36	Jesus			False
+JHN	5	37	Jesus			False
+JHN	5	39	Jesus			False
+JHN	5	40	Jesus			False
+JHN	5	41	Jesus			False
+JHN	5	44	Jesus			False
+JHN	5	45	Jesus			False
+JHN	6	5	Jesus			True
+JHN	6	7	Philip		Philip=disciples, the=disciples, His	True
+JHN	6	9	Andrew		Andrew=disciples, the=disciples, His	True
+JHN	6	10	Jesus			True
+JHN	6	12	Jesus			True
+JHN	6	14	people in crowd			False
+JHN	6	20	Jesus			False
+JHN	6	25	crowd 8			True
+JHN	6	26	Jesus			True
+JHN	6	28	crowd 2			True
+JHN	6	29	Jesus			True
+JHN	6	30	crowd 1	superior		True
+JHN	6	31	Jews 1			True
+JHN	6	32	Jesus			True
+JHN	6	34	crowd 2	polite		True
+JHN	6	35	Jesus			True
+JHN	6	36	Jesus			False
+JHN	6	37	Jesus			False
+JHN	6	38	Jesus			False
+JHN	6	39	Jesus			False
+JHN	6	40	Jesus			False
+JHN	6	41	Jesus			False
+JHN	6	42	Jews, the 5	grumbling		False
+JHN	6	43	Jesus			True
+JHN	6	44	Jesus			False
+JHN	6	45	Jesus			False
+JHN	6	46	Jesus			False
+JHN	6	47	Jesus			False
+JHN	6	48	Jesus			False
+JHN	6	49	Jesus			False
+JHN	6	50	Jesus			False
+JHN	6	52	Jews, the 2			False
+JHN	6	53	Jesus			True
+JHN	6	56	Jesus			False
+JHN	6	60	disciples, many of His	grumbling		False
+JHN	6	61	Jesus			True
+JHN	6	64	Jesus			False
+JHN	6	65	Jesus			True
+JHN	6	67	Jesus	questioning		True
+JHN	6	68	Peter (Simon)			True
+JHN	6	70	Jesus			True
+JHN	7	3	Jesus' brothers	challenging		True
+JHN	7	4	Jesus' brothers			False
+JHN	7	6	Jesus			True
+JHN	7	11	Jews, the 2			False
+JHN	7	12	crowds, others in	harsh		False
+JHN	7	12	crowds, some in			False
+JHN	7	15	Jews, the			False
+JHN	7	16	Jesus			True
+JHN	7	18	Jesus			False
+JHN	7	19	Jesus			False
+JHN	7	20	crowd 1	insulting		True
+JHN	7	21	Jesus			True
+JHN	7	22	Jesus			False
+JHN	7	25	people, some, in Jerusalem 1	arguing		False
+JHN	7	26	people, some, in Jerusalem 1	arguing		False
+JHN	7	27	people, some, in Jerusalem 2	arguing		False
+JHN	7	28	Jesus			True
+JHN	7	31	crowd, many in the			False
+JHN	7	33	Jesus			True
+JHN	7	35	Jews, the 3			True
+JHN	7	36	Jews, the 1	grumbling		False
+JHN	7	37	Jesus			True
+JHN	7	38	Jesus			False
+JHN	7	40	people, some of the			False
+JHN	7	41	people, others			False
+JHN	7	41	people, still other 2			False
+JHN	7	45	chief priests/Pharisees 1			True
+JHN	7	46	temple guards	amazed		True
+JHN	7	47	Pharisees 1	angry		True
+JHN	7	48	Pharisees 1	angry		False
+JHN	7	51	Nicodemus			True
+JHN	7	52	Pharisees 1	angry		True
+JHN	8	4	teachers of the law/Pharisees			True
+JHN	8	7	Jesus			True
+JHN	8	10	Jesus	questioning		True
+JHN	8	11	Jesus			True
+JHN	8	11	woman, caught in adultery			True
+JHN	8	12	Jesus			True
+JHN	8	13	Pharisees 4			True
+JHN	8	14	Jesus			True
+JHN	8	19	Jesus			True
+JHN	8	19	Pharisees 2			True
+JHN	8	21	Jesus			True
+JHN	8	22	Jews			False
+JHN	8	23	Jesus			True
+JHN	8	25	Jesus			True
+JHN	8	25	Jews 1	impatient		True
+JHN	8	26	Jesus			False
+JHN	8	28	Jesus			True
+JHN	8	31	Jesus			True
+JHN	8	33	Jews, the 1	superior		True
+JHN	8	34	Jesus			True
+JHN	8	39	Jesus			True
+JHN	8	39	Jews, the 2			True
+JHN	8	41	Jews, the 3			True
+JHN	8	42	Jesus			True
+JHN	8	45	Jesus			False
+JHN	8	46	Jesus			False
+JHN	8	48	Jews, the 2	angry		True
+JHN	8	49	Jesus			True
+JHN	8	52	Jews, the 1	outraged		True
+JHN	8	54	Jesus			True
+JHN	8	57	Jews, the 4			True
+JHN	8	58	Jesus			True
+JHN	9	2	disciples, the 3	accusing		True
+JHN	9	3	Jesus			True
+JHN	9	7	Jesus	giving orders		True
+JHN	9	7	narrator-JHN			True
+JHN	9	8	neighbors of man blind from birth			False
+JHN	9	9	cured man, blind from birth			False
+JHN	9	9	neighbors of man blind from birth, others			False
+JHN	9	9	neighbors of man blind from birth, some			False
+JHN	9	10	neighbors of man blind from birth			True
+JHN	9	11	cured man, blind from birth			True
+JHN	9	12	cured man, blind from birth			True
+JHN	9	12	neighbors of man blind from birth			True
+JHN	9	15	cured man, blind from birth			True
+JHN	9	16	Pharisees, other			False
+JHN	9	16	Pharisees, some 1			False
+JHN	9	17	cured man, blind from birth			True
+JHN	9	17	Pharisees 3			True
+JHN	9	19	Jews, the 1	challenging		True
+JHN	9	20	parents of cured man, blind from birth|parent 1	cautious		True
+JHN	9	21	parents of cured man, blind from birth|parent 2			False
+JHN	9	23	parents of cured man, blind from birth|parent 2			False
+JHN	9	24	Jews, the 1	challenging		True
+JHN	9	25	cured man, blind from birth			True
+JHN	9	26	Jews			True
+JHN	9	27	cured man, blind from birth			True
+JHN	9	28	Jews, the 4	harsh		True
+JHN	9	30	cured man, blind from birth			True
+JHN	9	34	Jews, the 4	harsh		True
+JHN	9	35	Jesus	questioning		True
+JHN	9	36	cured man, blind from birth			True
+JHN	9	37	Jesus			True
+JHN	9	38	cured man, blind from birth			True
+JHN	9	39	Jesus			True
+JHN	9	40	Pharisees, some 1	challenging		True
+JHN	9	41	Jesus			True
+JHN	10	1	Jesus			False
+JHN	10	2	Jesus			False
+JHN	10	3	Jesus			False
+JHN	10	7	Jesus			False
+JHN	10	8	Jesus			False
+JHN	10	9	Jesus			False
+JHN	10	10	Jesus			False
+JHN	10	11	Jesus			False
+JHN	10	12	Jesus			False
+JHN	10	13	Jesus			False
+JHN	10	14	Jesus			False
+JHN	10	15	Jesus			False
+JHN	10	16	Jesus			False
+JHN	10	17	Jesus			False
+JHN	10	18	Jesus			False
+JHN	10	20	Jews, many of the	contempt		False
+JHN	10	21	Jews, others of the			False
+JHN	10	24	Jews, the 4			True
+JHN	10	25	Jesus			True
+JHN	10	32	Jesus			True
+JHN	10	33	Jews, the 3			True
+JHN	10	34	Jesus			True
+JHN	10	41	people, many			False
+JHN	11	3	Mary/Martha			False
+JHN	11	4	Jesus			False
+JHN	11	7	Jesus			True
+JHN	11	8	disciples, Jesus'			True
+JHN	11	9	Jesus			True
+JHN	11	11	Jesus			True
+JHN	11	12	disciples, His 1	sad		True
+JHN	11	13	Jesus			False
+JHN	11	14	Jesus			True
+JHN	11	16	Thomas	resigned		True
+JHN	11	17	someone			False
+JHN	11	21	Martha			True
+JHN	11	23	Jesus	reassuring		True
+JHN	11	24	Martha			True
+JHN	11	25	Jesus			True
+JHN	11	27	Martha			True
+JHN	11	28	Martha			True
+JHN	11	31	Jews, the (with Mary and Martha)			False
+JHN	11	32	Mary (sister of Martha)			True
+JHN	11	34	Jesus	questioning		True
+JHN	11	34	Jews, the (with Mary and Martha)|Mary			True
+JHN	11	36	Jews, the (with Mary and Martha)			True
+JHN	11	37	Jews, the (with Mary and Martha, some)			True
+JHN	11	39	Jesus			True
+JHN	11	39	Martha			True
+JHN	11	40	Jesus			True
+JHN	11	41	Jesus	praying		True
+JHN	11	43	Jesus	giving orders		True
+JHN	11	44	Jesus	giving orders		True
+JHN	11	47	chief priests/Sanhedrin=chief priests/whole Sanhedrin 1	upset		True
+JHN	11	48	chief priests 1	worried		False
+JHN	11	49	Caiaphas	indignant	Caiaphas, high priest	True
+JHN	11	51	Caiaphas		Caiaphas, high priest	False
+JHN	11	56	Jews, the 6			False
+JHN	12	5	Judas Iscariot	objecting		True
+JHN	12	7	Jesus			True
+JHN	12	13	disciples, whole crowd of=people, many=crowd, great|crowd	praising		True
+JHN	12	15	scripture			False
+JHN	12	19	Pharisees 3			False
+JHN	12	21	Greeks	respectful		True
+JHN	12	23	Jesus			True
+JHN	12	24	Jesus			False
+JHN	12	25	Jesus			False
+JHN	12	27	Jesus			False
+JHN	12	28	God		voice from heaven (God)	False
+JHN	12	29	crowds, others in			False
+JHN	12	30	Jesus			True
+JHN	12	34	crowd 1	challenging		True
+JHN	12	35	Jesus			True
+JHN	12	38	scripture			False
+JHN	12	40	scripture			False
+JHN	12	44	Jesus			False
+JHN	12	46	Jesus			False
+JHN	12	47	Jesus			False
+JHN	12	48	Jesus			False
+JHN	12	49	Jesus			False
+JHN	13	6	Peter (Simon)			True
+JHN	13	7	Jesus			True
+JHN	13	8	Jesus			True
+JHN	13	8	Peter (Simon)	declare		True
+JHN	13	9	Peter (Simon)	humble		True
+JHN	13	10	Jesus			True
+JHN	13	11	Jesus			False
+JHN	13	12	Jesus			True
+JHN	13	13	Jesus			False
+JHN	13	17	Jesus			False
+JHN	13	18	Jesus			False
+JHN	13	19	Jesus			False
+JHN	13	21	Jesus			True
+JHN	13	24	Peter (Simon)	stage whisper		False
+JHN	13	25	John	sad	John (disciple whom Jesus loved)	True
+JHN	13	26	Jesus			True
+JHN	13	27	Jesus	giving orders		True
+JHN	13	29	Jesus			False
+JHN	13	31	Jesus			True
+JHN	13	32	Jesus			False
+JHN	13	33	Jesus			False
+JHN	13	34	Jesus			False
+JHN	13	36	Jesus			True
+JHN	13	36	Peter (Simon)	puzzled		True
+JHN	13	37	Peter (Simon)	declare		True
+JHN	13	38	Jesus			True
+JHN	14	1	Jesus			False
+JHN	14	5	Thomas	frustrated		True
+JHN	14	6	Jesus			True
+JHN	14	7	Jesus			False
+JHN	14	8	Philip		Philip (apostle)	True
+JHN	14	9	Jesus			False
+JHN	14	10	Jesus			False
+JHN	14	12	Jesus			False
+JHN	14	15	Jesus			False
+JHN	14	17	Jesus			False
+JHN	14	18	Jesus			False
+JHN	14	21	Jesus			False
+JHN	14	22	Judas (not Judas Iscariot)	puzzled		True
+JHN	14	23	Jesus			True
+JHN	14	24	Jesus			False
+JHN	14	25	Jesus			False
+JHN	14	26	Jesus			False
+JHN	14	27	Jesus			False
+JHN	14	28	Jesus			False
+JHN	14	29	Jesus			False
+JHN	14	30	Jesus			False
+JHN	14	31	Jesus			False
+JHN	15	1	Jesus			False
+JHN	15	4	Jesus			False
+JHN	15	5	Jesus			False
+JHN	15	6	Jesus			False
+JHN	15	7	Jesus			False
+JHN	15	8	Jesus			False
+JHN	15	9	Jesus			False
+JHN	15	10	Jesus			False
+JHN	15	11	Jesus			False
+JHN	15	15	Jesus			False
+JHN	15	16	Jesus			False
+JHN	15	18	Jesus			False
+JHN	15	21	Jesus			False
+JHN	15	22	Jesus			False
+JHN	15	25	Jesus			False
+JHN	15	26	Jesus			False
+JHN	16	1	Jesus			False
+JHN	16	4	Jesus			False
+JHN	16	5	Jesus			False
+JHN	16	7	Jesus			False
+JHN	16	8	Jesus			False
+JHN	16	11	Jesus			False
+JHN	16	12	Jesus			False
+JHN	16	16	Jesus			False
+JHN	16	17	disciples, some of his	puzzled		False
+JHN	16	18	Thomas	frustrated	disciples, some of his|Thomas	False
+JHN	16	19	Jesus			True
+JHN	16	20	Jesus			False
+JHN	16	23	Jesus			False
+JHN	16	25	Jesus			False
+JHN	16	29	disciples, Jesus'	relieved		True
+JHN	16	30	disciples, His 4			False
+JHN	16	31	Jesus			True
+JHN	16	32	Jesus			False
+JHN	16	33	Jesus			False
+JHN	17	1	Jesus	praying		False
+JHN	17	3	Jesus	praying		False
+JHN	17	4	Jesus	praying		False
+JHN	17	5	Jesus	praying		False
+JHN	17	6	Jesus	praying		False
+JHN	17	8	Jesus	praying		False
+JHN	17	9	Jesus	praying		False
+JHN	17	11	Jesus	praying		False
+JHN	17	12	Jesus	praying		False
+JHN	17	13	Jesus	praying		False
+JHN	17	19	Jesus	praying		False
+JHN	17	20	Jesus	praying		False
+JHN	17	22	Jesus	praying		False
+JHN	17	23	Jesus	praying		False
+JHN	17	24	Jesus	praying		False
+JHN	17	25	Jesus	praying		False
+JHN	18	4	Jesus	questioning		True
+JHN	18	5	Jesus			True
+JHN	18	5	soldiers/officials from chief priests/Pharisees	rowdy		True
+JHN	18	6	Jesus			False
+JHN	18	7	Jesus	questioning		True
+JHN	18	7	soldiers/officials from chief priests/Pharisees	afraid		True
+JHN	18	8	Jesus			True
+JHN	18	9	Jesus			False
+JHN	18	11	Jesus			True
+JHN	18	14	Caiaphas		Caiaphas, high priest	False
+JHN	18	17	girl at high priest's courtyard=servant girl			True
+JHN	18	17	Peter (Simon)	denial		True
+JHN	18	20	Jesus			True
+JHN	18	22	officials, one of the	gruff		True
+JHN	18	23	Jesus			True
+JHN	18	25	Peter (Simon)	stronger		True
+JHN	18	25	servant girl		servant girl, another=someone else	True
+JHN	18	26	high priest's servant (man), one=those standing near=another	accusing		True
+JHN	18	27	Peter (Simon)			False
+JHN	18	29	Pilate	to crowd		True
+JHN	18	30	Jews, the 1	offended		True
+JHN	18	31	Jews, the 4			True
+JHN	18	31	Pilate	to crowd		True
+JHN	18	33	Pilate	to Jesus		True
+JHN	18	34	Jesus	questioning		True
+JHN	18	35	Pilate	to Jesus		True
+JHN	18	36	Jesus			True
+JHN	18	37	Jesus			True
+JHN	18	37	Pilate	to Jesus		True
+JHN	18	38	Pilate	to Jesus		True
+JHN	18	40	Jews, they			True
+JHN	19	3	soldiers 2	mocking		True
+JHN	19	4	Pilate	to crowd		True
+JHN	19	5	Pilate	to crowd		True
+JHN	19	6	chief priests/Sanhedrin=chief priests/whole Sanhedrin 3			True
+JHN	19	6	Pilate	to crowd		True
+JHN	19	7	Jews, the 3	insisting		True
+JHN	19	9	Pilate	to Jesus		True
+JHN	19	10	Pilate	to Jesus		True
+JHN	19	11	Jesus			True
+JHN	19	12	Jews, the			True
+JHN	19	14	Pilate	to crowd		True
+JHN	19	15	chief priests 2	intimidating		True
+JHN	19	15	Pilate	to crowd		True
+JHN	19	19	sign on the cross			False
+JHN	19	21	chief priests/Sanhedrin=chief priests/whole Sanhedrin 1	protest		True
+JHN	19	22	Pilate	impatient		True
+JHN	19	24	scripture			True
+JHN	19	24	soldiers 2	gruff		True
+JHN	19	26	Jesus			True
+JHN	19	27	Jesus			True
+JHN	19	28	Jesus	deeply distressed		True
+JHN	19	30	Jesus			True
+JHN	19	36	scripture			False
+JHN	19	37	scripture			False
+JHN	20	2	Mary Magdalene			True
+JHN	20	13	angels in white, two			True
+JHN	20	13	Mary Magdalene			True
+JHN	20	15	Jesus			True
+JHN	20	15	Mary Magdalene			True
+JHN	20	16	Jesus			True
+JHN	20	16	Mary Magdalene			True
+JHN	20	17	Jesus			True
+JHN	20	18	Mary Magdalene			False
+JHN	20	19	Jesus			True
+JHN	20	21	Jesus			True
+JHN	20	22	Jesus			True
+JHN	20	25	disciples, the (but not Thomas)	excited		True
+JHN	20	25	Thomas	stubborn		True
+JHN	20	26	Jesus			True
+JHN	20	27	Jesus			True
+JHN	20	28	Thomas	shocked		True
+JHN	20	29	Jesus			True
+JHN	21	3	Peter (Simon)			True
+JHN	21	3	Thomas		Thomas/Nathaniel/James/John/2 disciples	True
+JHN	21	5	Jesus	questioning		True
+JHN	21	5	John	calling out	disciples, His|John	True
+JHN	21	6	Jesus			True
+JHN	21	7	John	amazed		True
+JHN	21	7	narrator-JHN			True
+JHN	21	10	Jesus	giving orders		True
+JHN	21	12	Jesus			True
+JHN	21	12	narrator-JHN			True
+JHN	21	15	Jesus	questioning		True
+JHN	21	15	Peter (Simon)			True
+JHN	21	16	Jesus	questioning		True
+JHN	21	16	Peter (Simon)			True
+JHN	21	17	Jesus			True
+JHN	21	17	narrator-JHN			True
+JHN	21	17	Peter (Simon)	perplexed		True
+JHN	21	18	Jesus			False
+JHN	21	19	Jesus	inviting		True
+JHN	21	20	John		John saying Lord who is going to betray you	False
+JHN	21	20	narrator-JHN			False
+JHN	21	20	Peter (Simon)			False
+JHN	21	21	Peter (Simon)	defensive		True
+JHN	21	22	Jesus			True
+JHN	21	23	Jesus			False
+ACT	1	4	Jesus			True
+ACT	1	6	apostles			True
+ACT	1	7	Jesus			True
+ACT	1	8	Jesus			False
+ACT	1	11	men dressed in white, two			True
+ACT	1	16	Peter (Simon)			False
+ACT	1	19	Peter (Simon)			False
+ACT	1	20	Peter (Simon)			False
+ACT	1	21	Peter (Simon)			False
+ACT	1	22	Peter (Simon)			False
+ACT	1	24	believers, one hundred twenty	praying		False
+ACT	1	25	believers, one hundred twenty	praying		False
+ACT	2	7	Jews, God-fearing from every nation 1	amazed		False
+ACT	2	8	Jews, God-fearing from every nation 1	amazed		False
+ACT	2	9	Jews, they			False
+ACT	2	11	Jews, God-fearing from every nation 1			False
+ACT	2	12	Jews, God-fearing from every nation 2	amazed and perplexed		False
+ACT	2	13	Jews, God-fearing from every nation, some	made fun of them		False
+ACT	2	14	Peter (Simon)		Peter (Simon), with Eleven	False
+ACT	2	15	Peter (Simon)		Peter (Simon), with Eleven	False
+ACT	2	16	Peter (Simon)			False
+ACT	2	17	Peter (Simon)			False
+ACT	2	22	Peter (Simon)			False
+ACT	2	23	Peter (Simon)			False
+ACT	2	24	Peter (Simon)			False
+ACT	2	25	Peter (Simon)			False
+ACT	2	29	Peter (Simon)			False
+ACT	2	30	Peter (Simon)			False
+ACT	2	31	Peter (Simon)			False
+ACT	2	32	Peter (Simon)			False
+ACT	2	34	Peter (Simon)			False
+ACT	2	35	Peter (Simon)			False
+ACT	2	36	Peter (Simon)			False
+ACT	2	37	people 3	grieved		True
+ACT	2	38	Peter (Simon)			True
+ACT	2	39	Peter (Simon)			False
+ACT	2	40	Peter (Simon)			True
+ACT	3	4	Peter (Simon)			True
+ACT	3	5	crippled man			False
+ACT	3	6	Peter (Simon)			True
+ACT	3	10	people			False
+ACT	3	12	Peter (Simon)			False
+ACT	3	13	Peter (Simon)			False
+ACT	3	15	Peter (Simon)			False
+ACT	3	16	Peter (Simon)			False
+ACT	3	17	Peter (Simon)			False
+ACT	3	19	Peter (Simon)			False
+ACT	3	20	Peter (Simon)			False
+ACT	3	21	Peter (Simon)			False
+ACT	3	22	Peter (Simon)			False
+ACT	3	23	Peter (Simon)			False
+ACT	3	24	Peter (Simon)			False
+ACT	3	25	Peter (Simon)			False
+ACT	3	26	Peter (Simon)			False
+ACT	4	7	high priests/men of their family/rulers, teachers of the law			True
+ACT	4	8	Peter (Simon)			True
+ACT	4	11	Peter (Simon)			False
+ACT	4	12	Peter (Simon)			False
+ACT	4	13	chief priests/their officials 1			False
+ACT	4	15	chief priests/their officials 2			False
+ACT	4	16	Good Priest	defending	high priests/men of their family/rulers, elders, teachers of the law|Good Priest	False
+ACT	4	17	high priest	worried but stern		False
+ACT	4	18	chief priests/their officials 2			False
+ACT	4	19	Peter (Simon)		Peter (Simon)/John	True
+ACT	4	20	John			False
+ACT	4	23	Peter (Simon)		Peter (Simon)/John	False
+ACT	4	24	Peter (Simon)/John/own people			False
+ACT	4	25	Peter (Simon)/John/own people			False
+ACT	4	26	Peter (Simon)/John/own people			False
+ACT	4	27	Peter (Simon)/John/own people			False
+ACT	4	28	Peter (Simon)/John/own people			False
+ACT	4	29	Peter (Simon)/John/own people			False
+ACT	5	3	Peter (Simon)			True
+ACT	5	8	Peter (Simon)			True
+ACT	5	8	Sapphira (Ananias' wife)			True
+ACT	5	9	Peter (Simon)			True
+ACT	5	20	angel of the LORD, an	commanding		False
+ACT	5	23	temple police	perplexed		False
+ACT	5	24	captain, of temple guard/chief priests			False
+ACT	5	25	someone 2	excited		False
+ACT	5	28	high priest			True
+ACT	5	29	Peter (Simon)			True
+ACT	5	30	Peter (Simon)			False
+ACT	5	31	Peter (Simon)			False
+ACT	5	32	Peter (Simon)			False
+ACT	5	34	Gamaliel			False
+ACT	5	35	Gamaliel		Gamaliel, a Pharisee on Sanhedrin	False
+ACT	5	37	Gamaliel		Gamaliel, a Pharisee on Sanhedrin	False
+ACT	5	38	Gamaliel			False
+ACT	5	40	council of elders:chief priests/teachers of the law			False
+ACT	5	42	apostles			False
+ACT	6	2	disciples, the 2			False
+ACT	6	3	disciples, the 2			False
+ACT	6	11	Jews of Cyrene, Alexandria, Cilicia & Asia	accusing		False
+ACT	6	13	false witnesses			False
+ACT	6	14	false witnesses			False
+ACT	7	1	high priest			False
+ACT	7	2	Stephen			False
+ACT	7	3	Stephen			False
+ACT	7	4	Stephen			False
+ACT	7	5	Stephen			False
+ACT	7	6	Stephen			False
+ACT	7	7	Stephen			False
+ACT	7	8	Stephen			False
+ACT	7	9	Stephen			False
+ACT	7	10	Stephen			False
+ACT	7	11	Stephen			False
+ACT	7	12	Stephen			False
+ACT	7	13	Stephen			False
+ACT	7	14	Stephen			False
+ACT	7	17	Stephen			False
+ACT	7	19	Stephen			False
+ACT	7	20	Stephen			False
+ACT	7	22	Stephen			False
+ACT	7	23	Stephen			False
+ACT	7	26	Stephen			False
+ACT	7	27	Stephen			False
+ACT	7	28	Stephen			False
+ACT	7	29	Stephen			False
+ACT	7	30	Stephen			False
+ACT	7	31	Stephen			False
+ACT	7	32	Stephen			False
+ACT	7	33	Stephen			False
+ACT	7	35	Stephen			False
+ACT	7	36	Stephen			False
+ACT	7	37	Stephen			False
+ACT	7	38	Stephen			False
+ACT	7	39	Stephen			False
+ACT	7	40	Stephen			False
+ACT	7	41	Stephen			False
+ACT	7	42	Stephen			False
+ACT	7	43	Stephen			False
+ACT	7	44	Stephen			False
+ACT	7	45	Stephen			False
+ACT	7	46	Stephen			False
+ACT	7	48	Stephen			False
+ACT	7	49	Stephen			False
+ACT	7	51	Stephen			False
+ACT	7	56	Stephen			True
+ACT	7	57	Sanhedrin/chief priests/Pharisees			False
+ACT	7	59	Stephen			False
+ACT	7	60	Stephen	cried out		False
+ACT	8	10	people, all the 1			False
+ACT	8	19	Simon practiced magic			False
+ACT	8	20	Peter (Simon)			True
+ACT	8	24	Simon practiced magic			True
+ACT	8	26	angel of the LORD, an			False
+ACT	8	29	Spirit, the			False
+ACT	8	30	Philip		Philip (the evangelist)	True
+ACT	8	31	Ethiopian			True
+ACT	8	32	Ethiopian			False
+ACT	8	33	narrator-ACT			False
+ACT	8	34	Ethiopian			True
+ACT	8	36	Ethiopian			True
+ACT	8	37	Ethiopian			False
+ACT	8	37	Philip		Philip (the evangelist)	False
+ACT	9	4	Jesus	questioning		False
+ACT	9	5	Jesus			False
+ACT	9	5	Paul	awe		False
+ACT	9	6	Jesus			False
+ACT	9	10	Ananias	awe		False
+ACT	9	10	Jesus		Lord	False
+ACT	9	11	Jesus		Lord	False
+ACT	9	12	Jesus		Lord	False
+ACT	9	13	Ananias	puzzled		False
+ACT	9	15	Jesus		Lord	False
+ACT	9	17	Ananias	praying		False
+ACT	9	20	Paul			False
+ACT	9	21	all who heard (in synagogues)			False
+ACT	9	34	Peter (Simon)			True
+ACT	9	38	disciples, 2 men	urgent		False
+ACT	9	40	Peter (Simon)			False
+ACT	10	3	angel of the LORD, an		angel of God, an	False
+ACT	10	4	angel of the LORD, an		angel of God, an	False
+ACT	10	4	Cornelius	afraid		False
+ACT	10	13	Jesus		voice (in trance)	False
+ACT	10	14	Peter (Simon)			False
+ACT	10	15	Jesus		voice (in trance)	False
+ACT	10	18	men from Cornelius			False
+ACT	10	19	Spirit, the			False
+ACT	10	21	Peter (Simon)			True
+ACT	10	22	men from Cornelius	respectful		True
+ACT	10	23	Peter (Simon)			False
+ACT	10	26	Peter (Simon)			True
+ACT	10	28	Peter (Simon)			True
+ACT	10	30	Cornelius	gracious		True
+ACT	10	32	Cornelius	gracious		False
+ACT	10	33	Cornelius			False
+ACT	10	34	Peter (Simon)			True
+ACT	10	36	Peter (Simon)			False
+ACT	10	37	Peter (Simon)			False
+ACT	10	38	Peter (Simon)			False
+ACT	10	39	Peter (Simon)			False
+ACT	10	41	Peter (Simon)			False
+ACT	10	42	Peter (Simon)			False
+ACT	10	47	Peter (Simon)			True
+ACT	11	3	believers, circumcised	critical		False
+ACT	11	5	Peter (Simon)			True
+ACT	11	6	Peter (Simon)			False
+ACT	11	7	Peter (Simon)			False
+ACT	11	8	Peter (Simon)			False
+ACT	11	9	Peter (Simon)			False
+ACT	11	10	Peter (Simon)			False
+ACT	11	11	Peter (Simon)			False
+ACT	11	14	Peter (Simon)			False
+ACT	11	15	Peter (Simon)			False
+ACT	11	18	believers, circumcised	rejoicing	believers, circumcised|Jewish believer	True
+ACT	11	23	Barnabas			False
+ACT	11	28	Agabus the prophet			False
+ACT	12	7	angel of the LORD, an	commanding		False
+ACT	12	8	angel of the LORD, an	commanding		False
+ACT	12	11	Peter (Simon)			False
+ACT	12	14	Rhoda	could be a young girl		True
+ACT	12	15	people gathered to pray			True
+ACT	12	17	Peter (Simon)	stage whisper		True
+ACT	12	22	people 3	shouting		False
+ACT	13	2	Holy Spirit, the			False
+ACT	13	10	Paul	rebuking		False
+ACT	13	15	Good Priest	gracious	synagogue rulers|Good Priest	False
+ACT	13	16	Paul	preaching		False
+ACT	13	17	Paul			False
+ACT	13	18	Paul			False
+ACT	13	20	Paul			False
+ACT	13	22	Paul			False
+ACT	13	23	Paul			False
+ACT	13	26	Paul			False
+ACT	13	27	Paul			False
+ACT	13	28	Paul			False
+ACT	13	29	Paul			False
+ACT	13	30	Paul			False
+ACT	13	31	Paul			False
+ACT	13	32	Paul			False
+ACT	13	33	Paul			False
+ACT	13	34	Paul			False
+ACT	13	35	Paul			False
+ACT	13	36	Paul			False
+ACT	13	37	Paul			False
+ACT	13	38	Paul			False
+ACT	13	41	Paul			False
+ACT	13	43	Paul		Paul/Barnabas	False
+ACT	13	46	Paul	bold	Paul/Barnabas	False
+ACT	13	47	Paul	bold	Paul/Barnabas	False
+ACT	13	48	Gentiles			False
+ACT	14	10	Paul	called out		True
+ACT	14	11	crowd 4	excited		True
+ACT	14	15	Paul	preaching	Barnabas/Paul	True
+ACT	14	16	Paul	preaching	Barnabas/Paul	False
+ACT	14	22	Paul		Barnabas/Paul	False
+ACT	15	1	men from Judea, some	harsh		False
+ACT	15	5	believers who were Pharisees			True
+ACT	15	7	Peter (Simon)			True
+ACT	15	9	Peter (Simon)			False
+ACT	15	10	Peter (Simon)			False
+ACT	15	13	James			True
+ACT	15	16	James			False
+ACT	15	17	James			False
+ACT	15	19	James			False
+ACT	15	20	James			False
+ACT	15	21	James			False
+ACT	15	23	letter from apostles and elders			False
+ACT	15	24	letter from apostles and elders			False
+ACT	15	25	letter from apostles and elders			False
+ACT	15	26	letter from apostles and elders			False
+ACT	15	27	letter from apostles and elders			False
+ACT	15	28	letter from apostles and elders			False
+ACT	15	29	letter from apostles and elders			False
+ACT	15	36	Paul			False
+ACT	15	37	Barnabas			False
+ACT	15	38	Paul			False
+ACT	16	9	Macedonian			False
+ACT	16	10	God		God (the LORD)	False
+ACT	16	15	Lydia			False
+ACT	16	17	fortune telling slave girl			True
+ACT	16	18	Paul	stern		True
+ACT	16	20	owners of the slave girl	angry		True
+ACT	16	21	owners of the slave girl			False
+ACT	16	23	authorities, Philippi			False
+ACT	16	27	jailer	fearful		False
+ACT	16	28	Paul	shouting		True
+ACT	16	30	jailer	fearful		True
+ACT	16	31	Paul		Paul and Silas	True
+ACT	16	35	officers of magistrates			False
+ACT	16	36	jailer	respectful		True
+ACT	16	37	Paul	upset		True
+ACT	16	39	Magistrates, chief			False
+ACT	17	3	Paul			False
+ACT	17	6	mob			False
+ACT	17	7	mob			False
+ACT	17	18	Epicurean and Stoic philosophers, other	superior		False
+ACT	17	19	Epicurean and Stoic philosophers, they 1	curious		True
+ACT	17	20	Epicurean and Stoic philosophers, they 2			False
+ACT	17	22	Paul	preaching		False
+ACT	17	23	Paul			False
+ACT	17	24	Paul			False
+ACT	17	25	Paul			False
+ACT	17	26	Paul			False
+ACT	17	27	Paul			False
+ACT	17	28	Paul			False
+ACT	17	29	Paul			False
+ACT	17	32	Epicurean and Stoic philosophers, they 1	curious		True
+ACT	18	5	Paul			False
+ACT	18	6	Paul	rebuking		False
+ACT	18	9	Jesus	in a vision		False
+ACT	18	13	Jews, the 7	angry		True
+ACT	18	14	Gallio	stern		True
+ACT	18	18	Paul			False
+ACT	18	20	Paul			False
+ACT	18	21	Paul			False
+ACT	18	28	Appolos			False
+ACT	19	2	disciples, some			True
+ACT	19	2	Paul	to new believers		True
+ACT	19	3	disciples, some			True
+ACT	19	3	Paul			True
+ACT	19	4	Paul			True
+ACT	19	13	seven sons of Sceva	over-dramatic		False
+ACT	19	15	evil spirit			False
+ACT	19	21	Paul			False
+ACT	19	25	Demetrius			False
+ACT	19	26	Demetrius			False
+ACT	19	27	Demetrius			False
+ACT	19	28	craftsmen/workmen	furiously shouting		False
+ACT	19	31	officials, Ephesus			False
+ACT	19	34	craftsmen/workmen	furiously shouting		False
+ACT	19	35	city clerk	diplomatic		False
+ACT	19	39	city clerk	diplomatic		False
+ACT	19	40	city clerk			False
+ACT	20	10	Paul	called out		True
+ACT	20	18	Paul			False
+ACT	20	21	Paul			False
+ACT	20	22	Paul			False
+ACT	20	24	Paul			False
+ACT	20	25	Paul			False
+ACT	20	27	Paul			False
+ACT	20	28	Paul			False
+ACT	20	31	Paul			False
+ACT	20	32	Paul			False
+ACT	20	33	Paul			False
+ACT	20	38	elders, Ephesian			False
+ACT	21	4	Holy Spirit, the		Holy Spirit through disciples	False
+ACT	21	11	Agabus the prophet	proclaim		True
+ACT	21	13	Paul	sad		True
+ACT	21	14	Paul's travelling companions, Luke and	resigned		True
+ACT	21	20	James	encouraging	James/all the elders	False
+ACT	21	22	James	encouraging	James/all the elders	False
+ACT	21	23	James		James/all the elders	False
+ACT	21	24	James	encouraging	James/all the elders	False
+ACT	21	25	James		James/all the elders	False
+ACT	21	28	Jews, the 7	screaming		False
+ACT	21	33	commander			False
+ACT	21	36	crowd 9	shouting louder		False
+ACT	21	37	commander			True
+ACT	21	37	Paul			True
+ACT	21	37	Paul	called out		True
+ACT	21	38	commander			False
+ACT	21	39	Paul			True
+ACT	21	40	commander			False
+ACT	22	1	Paul	preaching		False
+ACT	22	3	Paul	preaching		False
+ACT	22	6	Paul			False
+ACT	22	7	Paul			False
+ACT	22	8	Paul			False
+ACT	22	9	Paul			False
+ACT	22	10	Paul			False
+ACT	22	11	Paul			False
+ACT	22	12	Paul			False
+ACT	22	13	Paul			False
+ACT	22	14	Paul			False
+ACT	22	17	Paul			False
+ACT	22	18	Paul			False
+ACT	22	19	Paul			False
+ACT	22	20	Paul			False
+ACT	22	21	Paul			False
+ACT	22	22	crowd 4	screaming		False
+ACT	22	25	Paul	stern		True
+ACT	22	26	centurion 3|army officer	anxious		True
+ACT	22	27	commander			True
+ACT	22	27	Paul			True
+ACT	22	28	commander			True
+ACT	22	28	Paul			True
+ACT	22	29	commander			False
+ACT	23	1	Paul	stern		True
+ACT	23	2	Ananias	commanding		False
+ACT	23	3	Paul	rebuking		True
+ACT	23	4	those standing near	angry		True
+ACT	23	5	Paul			True
+ACT	23	6	Paul	called out		True
+ACT	23	9	teachers of the law, some who were Pharisees	arguing		True
+ACT	23	11	Jesus	in a vision		False
+ACT	23	14	Jews, 40 in conspiracy	plotting		True
+ACT	23	15	Jews			False
+ACT	23	17	Paul			True
+ACT	23	18	centurion 3|army officer			True
+ACT	23	19	commander			True
+ACT	23	20	son of Paul's sister (young man)			True
+ACT	23	21	son of Paul's sister (young man)			False
+ACT	23	22	commander	ordering		True
+ACT	23	23	commander	ordering		True
+ACT	23	25	commander's letter			False
+ACT	23	26	commander's letter			False
+ACT	23	29	commander's letter			False
+ACT	23	30	commander's letter			False
+ACT	23	34	Paul			False
+ACT	23	35	Felix	with authority		False
+ACT	24	2	Tertullus-Lawyer	accusing		True
+ACT	24	3	Tertullus-Lawyer			False
+ACT	24	4	Tertullus-Lawyer	accusing		False
+ACT	24	5	Tertullus-Lawyer			False
+ACT	24	9	Jews, the			False
+ACT	24	10	Paul	defense to governor		True
+ACT	24	13	Paul	defense to governor		False
+ACT	24	14	Paul			False
+ACT	24	16	Paul	defense to governor		False
+ACT	24	17	Paul			False
+ACT	24	18	Paul	defense to governor		False
+ACT	24	19	Paul			False
+ACT	24	22	Felix			True
+ACT	24	25	Felix	afraid		False
+ACT	25	4	Festus			False
+ACT	25	5	Festus			False
+ACT	25	7	Jews from Jerusalem			False
+ACT	25	8	Paul	defense to governor		True
+ACT	25	9	Festus			True
+ACT	25	10	Paul			True
+ACT	25	11	Paul			False
+ACT	25	12	Festus			True
+ACT	25	14	Festus			True
+ACT	25	16	Festus			False
+ACT	25	17	Festus			False
+ACT	25	19	Festus			False
+ACT	25	20	Festus			False
+ACT	25	22	Festus			True
+ACT	25	22	Herod Agrippa II			True
+ACT	25	24	Festus			True
+ACT	25	25	Festus			False
+ACT	25	26	Festus			False
+ACT	26	1	Herod Agrippa II			True
+ACT	26	2	Paul			False
+ACT	26	4	Paul			False
+ACT	26	5	Paul			False
+ACT	26	6	Paul			False
+ACT	26	9	Paul			False
+ACT	26	12	Paul			False
+ACT	26	13	Paul			False
+ACT	26	14	Paul			False
+ACT	26	15	Paul			False
+ACT	26	16	Paul			False
+ACT	26	19	Paul			False
+ACT	26	20	Paul			False
+ACT	26	21	Paul			False
+ACT	26	24	Festus			True
+ACT	26	25	Paul			True
+ACT	26	27	Paul			False
+ACT	26	28	Herod Agrippa II			True
+ACT	26	29	Paul			True
+ACT	26	31	those sitting with Festus, Herod Agrippa II and Bernice			True
+ACT	26	32	Herod Agrippa II			True
+ACT	27	10	Paul	warning		False
+ACT	27	12	captain/crew			False
+ACT	27	14	narrator-ACT			False
+ACT	27	21	Paul			False
+ACT	27	22	Paul			False
+ACT	27	23	Paul			False
+ACT	27	31	Paul	warning		False
+ACT	27	33	Paul	encouraging		False
+ACT	27	34	Paul			False
+ACT	27	39	captain/crew			False
+ACT	27	43	centurion 1|army officer			False
+ACT	28	4	islanders	suspicious		False
+ACT	28	6	islanders			False
+ACT	28	17	Paul			True
+ACT	28	18	Paul			False
+ACT	28	21	Jews, leaders of the			True
+ACT	28	22	Jews, the 1	inquiring		False
+ACT	28	25	Paul			False
+ACT	28	26	Paul			False
+ACT	28	27	Paul			False
+ACT	28	28	Paul			False
 ROM	1	17	scripture		
 ROM	2	1	Jews, the 8	accusing	
 ROM	2	5,6	scripture		

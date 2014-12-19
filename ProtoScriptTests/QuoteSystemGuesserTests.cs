@@ -40,12 +40,11 @@ namespace ProtoScriptTests
 		}
 
 		/// <summary>
-		/// This is more of an acceptance test since it depends on the real production control file, randomly
-		/// generated test data (to attempt to simulate real data), and the interworking of the QuoteSystemGuesser
-		/// and the CharacterVerseData class.
+		/// This is more of an acceptance test since it depends on randomly, generated test data (to attempt
+		/// to simulate real data), and the interworking of the QuoteSystemGuesser and the CharacterVerseData class.
 		/// </summary>
 		[Test]
-		[Category("SkipOnTeamCity")]
+		//[Category("SkipOnTeamCity")]
 		public void Guess_AllFirstLevelQuoteSystemsWithHighlyConsistentData_CorrectlyIdentifiesSystemWithCertainty()
 		{
 			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => String.IsNullOrEmpty(qs.QuotationDashMarker)))
@@ -55,12 +54,11 @@ namespace ProtoScriptTests
 		}
 
 		/// <summary>
-		/// This is more of an acceptance test since it depends on the real production control file, randomly
-		/// generated test data (to attempt to simulate real data), and the interworking of the QuoteSystemGuesser
-		/// and the CharacterVerseData class.
+		/// This is more of an acceptance test since it depends on randomly, generated test data (to attempt
+		/// to simulate real data), and the interworking of the QuoteSystemGuesser and the CharacterVerseData class.
 		/// </summary>
 		[Test]
-		[Category("SkipOnTeamCity")]
+		//[Category("SkipOnTeamCity")]
 		public void Guess_SystemsWithDialogueQuotesWithHighlyConsistentData_CorrectlyIdentifiesSystemWithUncertainty()
 		{
 			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => !String.IsNullOrEmpty(qs.QuotationDashMarker)))
@@ -69,26 +67,14 @@ namespace ProtoScriptTests
 			}
 		}
 
-		/// <summary>
-		/// This is more of an acceptance test since it depends on the real production control file, randomly
-		/// generated test data (to attempt to simulate real data), and the interworking of the QuoteSystemGuesser
-		/// and the CharacterVerseData class.
-		/// </summary>
 		[Test]
-		[Category("SkipOnTeamCity")]
 		public void Guess_DoubleCurlyQuotesWithLessConsistentData_CorrectlyIdentifiesSystemWithUncertainty()
 		{
 			var quoteSystem = QuoteSystem.UniquelyGuessableSystems.Single(qs => qs.Name == "Quotation marks, double");
 			RunTest(quoteSystem, false, false);
 		}
 
-		/// <summary>
-		/// This is more of an acceptance test since it depends on the real production control file, randomly
-		/// generated test data (to attempt to simulate real data), and the interworking of the QuoteSystemGuesser
-		/// and the CharacterVerseData class.
-		/// </summary>
 		[Test]
-		[Category("SkipOnTeamCity")]
 		public void Guess_StraightQuotesWithLessConsistentData_CorrectlyIdentifiesSystemWithCertainty()
 		{
 			var quoteSystem = QuoteSystem.UniquelyGuessableSystems.Single(qs => qs.StartQuoteMarker == "\"");

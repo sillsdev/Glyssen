@@ -17,7 +17,7 @@ namespace ProtoScript
 		private const double kQuotationDashFailPercent = .10;
 		private const double kMaxCompetitorPercent = .6;
 		private const int kMaxFollowingVersesToSearchForEndQuote = 7;
-		private const int kMaxTimeLimit = 8000; // milliseconds - TODO: Lower to 4800
+		private const int kMaxTimeLimit = 4800;
 
 		private const int kStartQuoteValue = 2;
 		private const int kEndQuoteValue = 2;
@@ -45,7 +45,8 @@ namespace ProtoScript
 			var stopwatch = new Stopwatch();
 			stopwatch.Start();
 
-			foreach (var book in bookList)
+			// Start with the New Testament because that's where most of the dialogue quotes are, and it makes guessing A LOT faster!
+			foreach (var book in bookList.SkipWhile(b => BCVRef.BookToNumber(b.BookId) < 40).Union(bookList.TakeWhile(b => BCVRef.BookToNumber(b.BookId) < 40)))
 			{
 				int versesAnalyzedForCurrentBook = 0;
 				int prevQuoteChapter = -1;
@@ -137,6 +138,7 @@ namespace ProtoScript
 
 						if (competitors.Any())
 						{
+#if SHOWTESTINFO
 							Debug.WriteLine("STATISTICS:");
 							foreach (var system in competitors)
 							{
@@ -146,6 +148,7 @@ namespace ProtoScript
 									Debug.WriteLine("\tPercentage matches of total Dialogue quotes analyzed: " + (100.0 * quotationDashCounts[system]) / totalDialoqueQuoteVersesAnalyzed);
 								}
 							}
+#endif
 
 							if (competitors.Count == 1)
 							{
