@@ -65,6 +65,7 @@ namespace ProtoScriptTests
 			Assert.AreEqual("he said.", output[1].GetText(false));
 			Assert.IsTrue(output[1].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 		}
+
 		[Test]
 		public void Parse_OneBlockBecomesThree_TwoQuotes()
 		{
@@ -80,6 +81,31 @@ namespace ProtoScriptTests
 			Assert.AreEqual("«Make me!»", output[2].GetText(false));
 			Assert.IsFalse(CharacterVerseData.IsCharacterOfType(output[2].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
 		}
+
+		[Test]
+		public void Parse_QuoteEndsRightBeforeNewVerseStart_QuoteCharacterIdentified()
+		{
+			var block = new Block("p", 15, 34);
+			block.BlockElements.Add(new Verse("34"));
+			block.BlockElements.Add(new ScriptText("Yecu openyogi ni, “Wutye ki mugati adi?” Gugamo ni, “Abiro, ki rec mogo matitino manok.” "));
+			block.BlockElements.Add(new Verse("35"));
+			block.BlockElements.Add(new ScriptText("Ociko lwak ni gubed piny i ŋom, "));
+			var input = new List<Block> { block };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", null, null, false);
+			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(5, output.Count);
+			Assert.AreEqual("Yecu openyogi ni, ", output[0].GetText(false));
+			Assert.IsTrue(output[0].CharacterIs("MAT", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual("“Wutye ki mugati adi?” ", output[1].GetText(false));
+			Assert.IsFalse(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual("Gugamo ni, ", output[2].GetText(false));
+			Assert.IsTrue(output[2].CharacterIs("MAT", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual("“Abiro, ki rec mogo matitino manok.” ", output[3].GetText(false));
+			Assert.IsFalse(CharacterVerseData.IsCharacterOfType(output[3].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual("Ociko lwak ni gubed piny i ŋom, ", output[4].GetText(false));
+			Assert.IsTrue(output[4].CharacterIs("MAT", CharacterVerseData.StandardCharacter.Narrator));
+		}
+
 		[Test]
 		public void Parse_OneBlockBecomesThree_QuoteInMiddle()
 		{
@@ -579,6 +605,190 @@ namespace ProtoScriptTests
 			Assert.AreEqual("[23]«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,", output[0].GetText(true));
 			Assert.AreEqual("ŋa tsanaftá hgani ka Emanuwel,» ", output[1].GetText(true));
 			Assert.AreEqual("manda mnay kazlay: Kawadaga Lazglafta nda amu kəʼa ya.", output[2].GetText(true));
+		}
+
+		[Test]
+		public void Parse_DialogueQuoteAtStartAndNearEnd_OneBlockBecomesTwo()
+		{
+			var block = new Block("p", 1, 17);
+			block.BlockElements.Add(new ScriptText("—Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, —timiayi."));
+			var input = new List<Block> { block };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", "—", "—", false);
+			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("—Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, ", output[0].GetText(false));
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual(string.Empty, output[0].Delivery);
+			Assert.AreEqual(1, output[0].ChapterNumber);
+			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
+			Assert.AreEqual("—timiayi.", output[1].GetText(false));
+			Assert.IsTrue(output[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(1, output[1].ChapterNumber);
+			Assert.AreEqual(17, output[1].InitialStartVerseNumber);
+		}
+
+		[Test]
+		public void Parse_DialogueQuoteUsingColonWithNoExplicitEnd_OneBlockBecomesTwo()
+		{
+			var block1 = new Block("p", 14, 6);
+			block1.BlockElements.Add(new Verse("6"));
+			block1.BlockElements.Add(new ScriptText("Jesús le dijo: Yo soy el camino, y la verdad, y la vida; nadie viene al Padre sino por mí. "));
+			block1.BlockElements.Add(new Verse("7"));
+			block1.BlockElements.Add(new ScriptText("Si me hubierais conocido, también hubierais conocido a mi Padre; desde ahora le conocéis y le habéis visto."));
+			var block2 = new Block("p", 14, 8);
+			block2.BlockElements.Add(new Verse("8"));
+			block2.BlockElements.Add(new ScriptText("Felipe le dijo: Señor, muéstranos al Padre, y nos basta."));
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", ":", null, false);
+			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+			Assert.AreEqual("[6]Jesús le dijo: ", output[0].GetText(true));
+			Assert.IsTrue(output[0].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(14, output[0].ChapterNumber);
+			Assert.AreEqual(6, output[0].InitialStartVerseNumber);
+			Assert.AreEqual("Yo soy el camino, y la verdad, y la vida; nadie viene al Padre sino por mí. [7]Si me hubierais conocido, también hubierais conocido a mi Padre; desde ahora le conocéis y le habéis visto.", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(string.Empty, output[1].Delivery);
+			Assert.AreEqual(14, output[1].ChapterNumber);
+			Assert.AreEqual(6, output[1].InitialStartVerseNumber);
+
+			Assert.AreEqual("[8]Felipe le dijo: ", output[2].GetText(true));
+			Assert.IsTrue(output[2].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(14, output[2].ChapterNumber);
+			Assert.AreEqual(8, output[2].InitialStartVerseNumber);
+			Assert.AreEqual("Señor, muéstranos al Padre, y nos basta.", output[3].GetText(true));
+			Assert.AreEqual("Philip", output[3].CharacterId);
+			Assert.AreEqual(string.Empty, output[3].Delivery);
+			Assert.AreEqual(14, output[3].ChapterNumber);
+			Assert.AreEqual(8, output[3].InitialStartVerseNumber);
+		}
+
+		[Test]
+		public void Parse_DialogueQuoteAtStartEndedByAnyPunctuation_OneBlockBecomesTwo()
+		{
+			var block = new Block("p", 1, 17);
+			block.BlockElements.Add(new ScriptText("—Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum."));
+			var input = new List<Block> { block };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", "—", QuoteSystem.AnyPunctuation, false);
+			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("—Wína nemartustaram. ", output[0].GetText(false));
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual(string.Empty, output[0].Delivery);
+			Assert.AreEqual(1, output[0].ChapterNumber);
+			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
+			Assert.AreEqual("Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum.", output[1].GetText(false));
+			Assert.IsTrue(output[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(1, output[1].ChapterNumber);
+			Assert.AreEqual(17, output[1].InitialStartVerseNumber);
+		}
+
+		[Test]
+		public void Parse_DialogueQuoteContainingRegularQuote_InnerRegularQuoteIgnored()
+		{
+			var block = new Block("p", 1, 17);
+			block.BlockElements.Add(new ScriptText("—Wína nemartustaram: “Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum,” —timiayi."));
+			var input = new List<Block> { block };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", "—", "—", false);
+			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("—Wína nemartustaram: “Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum,” ", output[0].GetText(false));
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual(string.Empty, output[0].Delivery);
+			Assert.AreEqual(1, output[0].ChapterNumber);
+			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
+			Assert.AreEqual("—timiayi.", output[1].GetText(false));
+			Assert.IsTrue(output[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(1, output[1].ChapterNumber);
+			Assert.AreEqual(17, output[1].InitialStartVerseNumber);
+		}
+
+		[Test]
+		public void Parse_DialogueQuotesInsideFirstLevelRegularQuotesNotIndicatingChangeOfSpeaker_FirstLevelQuoteBecomesSeparateBlock()
+		{
+			var block = new Block("p", 1, 1);
+			block.BlockElements.Add(new ScriptText("“The following is just an ordinary m-dash — don't treat it as a dialogue quote — okay?”, said the frog."));
+			var input = new List<Block> { block };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", "—", "—", false);
+			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("“The following is just an ordinary m-dash — don't treat it as a dialogue quote — okay?”, ", output[0].GetText(false));
+			Assert.IsTrue(output[0].CharacterIsUnclear());
+			Assert.AreEqual(1, output[0].ChapterNumber);
+			Assert.AreEqual(1, output[0].InitialStartVerseNumber);
+			Assert.AreEqual("said the frog.", output[1].GetText(false));
+			Assert.IsTrue(output[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(1, output[1].ChapterNumber);
+			Assert.AreEqual(1, output[1].InitialStartVerseNumber);
+		}
+
+		[Test]
+		public void Parse_DialogueQuoteWithNoSentenceEndingPunctuationFollowedByCloseAfterPoetry_QuoteRemainsOpenUntilClosed()
+		{
+			var block1 = new Block("p", 2, 5);
+			block1.BlockElements.Add(new ScriptText("—Belén yaktanam Judá nungkanam nuni akiinatnuitai. Cristo akiinatniuri pachis aarmauka nuwaitai:"));
+			var block2 = new Block("q2", 2, 6);
+			block2.BlockElements.Add(new Verse("6"));
+			block2.BlockElements.Add(new ScriptText("Yus chichaak: “Judá nungkanam yakat Belén tutai mianchauka achatnuitai. Antsu nu yaktanam juun apu akiinatnua nuka Israela weari ainaun inartinuitai. Tura asamtai nu yaktaka chikich yakat Judá nungkanam aa nuna nangkamasang juun atinuitai,”"));
+			var block3 = new Block("m", 2, 6);
+			block3.BlockElements.Add(new ScriptText("Yus timiayi. Tu aarmawaitai, —tusar aimkarmiayi."));
+			var input = new List<Block> { block1, block2, block3 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", "—", "—", false);
+			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+
+			Assert.AreEqual("—Belén yaktanam Judá nungkanam nuni akiinatnuitai. Cristo akiinatniuri pachis aarmauka nuwaitai:", output[0].GetText(true));
+			Assert.AreEqual("Good Priest", output[0].CharacterId);
+			Assert.AreEqual(string.Empty, output[0].Delivery);
+			Assert.AreEqual(2, output[0].ChapterNumber);
+			Assert.AreEqual(5, output[0].InitialStartVerseNumber);
+
+			Assert.AreEqual("[6]Yus chichaak: “Judá nungkanam yakat Belén tutai mianchauka achatnuitai. Antsu nu yaktanam juun apu akiinatnua nuka Israela weari ainaun inartinuitai. Tura asamtai nu yaktaka chikich yakat Judá nungkanam aa nuna nangkamasang juun atinuitai,”", output[1].GetText(true));
+			Assert.AreEqual("Good Priest", output[1].CharacterId);
+			Assert.AreEqual(2, output[1].ChapterNumber);
+			Assert.AreEqual(6, output[1].InitialStartVerseNumber);
+
+			Assert.AreEqual("Yus timiayi. Tu aarmawaitai, ", output[2].GetText(true));
+			Assert.AreEqual("Good Priest", output[2].CharacterId);
+			Assert.AreEqual(2, output[2].ChapterNumber);
+			Assert.AreEqual(6, output[2].InitialStartVerseNumber);
+
+			Assert.AreEqual("—tusar aimkarmiayi.", output[3].GetText(true));
+			Assert.IsTrue(output[3].CharacterIs("MAT", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(2, output[3].ChapterNumber);
+			Assert.AreEqual(6, output[3].InitialStartVerseNumber);
+		}
+
+		[Test]
+		public void Parse_DialogueQuoteWithNoExplicitEnd_QuoteClosedByEndOfParagraph()
+		{
+			var block1 = new Block("p", 1, 17);
+			block1.BlockElements.Add(new Verse("17"));
+			block1.BlockElements.Add(new ScriptText("Quia joˈ tso Jesús nda̱a̱na:"));
+			var block2 = new Block("p", 1, 17);
+			block2.BlockElements.Add(new ScriptText("—Quioˈyoˈ ñˈeⁿndyo̱ ndoˈ ja nntsˈaa na nlatjomˈyoˈ nnˈaⁿ tachii cweˈ calcaa."));
+			var block3 = new Block("m", 1, 18);
+			block3.BlockElements.Add(new Verse("18"));
+			block3.BlockElements.Add(new ScriptText("Joona mañoomˈ ˈndyena lquiˈ ˈnaaⁿna. Tyˈena ñˈeⁿñê."));
+			var input = new List<Block> { block1, block2, block3 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", "—", "—", false);
+			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+
+			Assert.AreEqual("[17]Quia joˈ tso Jesús nda̱a̱na:", output[0].GetText(true));
+			Assert.IsTrue(output[0].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(1, output[0].ChapterNumber);
+			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
+
+			Assert.AreEqual("—Quioˈyoˈ ñˈeⁿndyo̱ ndoˈ ja nntsˈaa na nlatjomˈyoˈ nnˈaⁿ tachii cweˈ calcaa.", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(1, output[1].ChapterNumber);
+			Assert.AreEqual(17, output[1].InitialStartVerseNumber);
+
+			Assert.AreEqual("[18]Joona mañoomˈ ˈndyena lquiˈ ˈnaaⁿna. Tyˈena ñˈeⁿñê.", output[2].GetText(true));
+			Assert.IsTrue(output[2].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(1, output[2].ChapterNumber);
+			Assert.AreEqual(18, output[2].InitialStartVerseNumber);
 		}
 	}
 }

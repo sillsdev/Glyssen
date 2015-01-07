@@ -209,9 +209,12 @@
 			this.m_chkAlternateSpeakersInFirstLevelQuotes.Name = "m_chkAlternateSpeakersInFirstLevelQuotes";
 			this.m_chkAlternateSpeakersInFirstLevelQuotes.Size = new System.Drawing.Size(418, 17);
 			this.m_chkAlternateSpeakersInFirstLevelQuotes.TabIndex = 13;
+			this.m_chkAlternateSpeakersInFirstLevelQuotes.Tag = "\"Making this invisible until we can find a project that actually uses this. Not y" +
+    "et implemented in QuoteParser.\"";
 			this.m_chkAlternateSpeakersInFirstLevelQuotes.Text = "Quotation dashes also indicate change of speaker within first-level quotation mar" +
     "ks.";
 			this.m_chkAlternateSpeakersInFirstLevelQuotes.UseVisualStyleBackColor = true;
+			this.m_chkAlternateSpeakersInFirstLevelQuotes.Visible = false;
 			// 
 			// m_pnlDialogeQuotes
 			// 

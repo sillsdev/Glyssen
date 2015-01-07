@@ -8695,6 +8695,7 @@ MAT 15.34 character=Jesus [questioning]
 MAT 15.4 character=Jesus
 MAT 15.5 character=Jesus
 MAT 15.8 character=Jesus
+MAT 15.9 character=Jesus
 MAT 16.1 character=Pharisees, some
 MAT 16.13 character=Jesus [questioning]
 MAT 16.14 character=disciples, His 3 [excited]
