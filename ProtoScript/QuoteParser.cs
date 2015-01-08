@@ -57,7 +57,7 @@ namespace ProtoScript
 			Block blockInWhichDialogueQuoteStarted = null;
 			foreach (Block block in m_inputBlocks)
 			{
-				if (block.CharacterId != Block.NotSet)
+				if (block.UserConfirmed || (block.CharacterIsStandard && !block.CharacterIs(m_bookId, CharacterVerseData.StandardCharacter.Narrator)))
 				{
 					m_outputBlocks.Add(block);
 					continue;

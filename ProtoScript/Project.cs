@@ -185,15 +185,16 @@ namespace ProtoScript
 		{
 			Canon canon;
 			if (bundle.TryGetCanon(1, out canon))
+				AddAndParseBooks(GetUsxBooksToInclude(canon), bundle.Stylesheet);
+		}
+
+		private IEnumerable<UsxDocument> GetUsxBooksToInclude(Canon canon)
+		{
+			foreach (var book in m_metadata.AvailableBooks.Where(b => b.IncludeInScript))
 			{
-				foreach (var book in m_metadata.AvailableBooks.Where(b => b.IncludeInScript))
-				{
-					UsxDocument usxBook;
-					if (canon.TryGetBook(book.Code, out usxBook))
-					{
-						AddAndParseBooks(new[] { usxBook }, bundle.Stylesheet);
-					}
-				}
+				UsxDocument usxBook;
+				if (canon.TryGetBook(book.Code, out usxBook))
+					yield return usxBook;
 			}
 		}
 
