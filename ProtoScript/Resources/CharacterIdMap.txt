@@ -597,7 +597,7 @@ men of Ashdod	0704
 men of David	0706
 men of David, one	0705
 men of Enaim|townsman	0707
-men of Pharoah|messenger of Pharoah	0708
+men of Pharaoh|messenger of Pharaoh	0708
 men of Sodom	0709
 men of the city (Bethel)	0710
 men of the city (Jericho)	1710
@@ -793,6 +793,8 @@ peoples, many	0844
 person	0845
 Peter (Simon)	0371
 Peter (Simon)/John/own people	1372
+Pharaoh's daughter	0379
+Pharaoh's officials	0380
 Pharisee(Simon)	0373
 Pharisees 2	0376
 Pharisees 5	0375
@@ -803,8 +805,6 @@ Pharisees, some	2377
 Pharisees/teachers of the law 3	2375
 Pharisees/teachers of the law	0378
 Pharoah	1378
-Pharoah's daughter	0379
-Pharoah's officials	0380
 Philip	0381
 Philistine commanders	0382
 Philistine priests and diviners	0383
@@ -1036,7 +1036,7 @@ what is formed	0989
 wicked men of Gibeah	0990
 widow (from company of prophets)	0991
 widow at Zarephath	0992
-wise men of Pharoah	0993
+wise men of Pharaoh	0993
 witnesses, false, two=witnesses, some false	0994
 woman from Tekoa	0995
 woman in crowd	0996

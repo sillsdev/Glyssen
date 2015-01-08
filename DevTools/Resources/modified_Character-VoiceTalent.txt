@@ -851,12 +851,12 @@ Pharisees/teachers of the law 3 [muttering],15,2375
 Pharisees/teachers of the law 3 [questioning],15,2375
 Pharisees/teachers of the law, some #15 [rebuke],15,0377
 Pharisees/teachers of the law,19,0378
-Pharoah (1st),16,1378
-Pharoah (2nd),16,1378
-Pharoah (3rd) [giving order],16,1378
-Pharoah (3rd),16,1378
-Pharoah's daughter,23,0379
-Pharoah's officials,17,0380
+Pharaoh (1st),16,1378
+Pharaoh (2nd),16,1378
+Pharaoh (3rd) [giving order],16,1378
+Pharaoh (3rd),16,1378
+Pharaoh's daughter,23,0379
+Pharaoh's officials,17,0380
 Philip (apostle) #9 [excited],9,0381
 Philip (apostle),9,0381
 Philip (the evangelist) #4,4,0381
@@ -1353,7 +1353,6 @@ holy one (in vision),6,0627
 husband of Shunammite,1,0628
 husband of concubine,3,0629
 hymn, early credal,28,0630
-idol worshiper from Israel,8,0631
 idolators from Judah (men),6,0632
 idolators from Judah (women),25,0633
 informer,2,0634
@@ -1441,7 +1440,7 @@ men of Ashdod,12,0704
 men of David, one,6,0705
 men of David,11,0706
 men of Enaim|townsman,14,0707
-men of Pharoah|messenger of Pharoah,6,0708
+men of Pharaoh|messenger of Pharaoh,6,0708
 men of Sodom,3,0709
 men of the city (Bethel),3,0710
 men of the city (Jericho),3,1710
@@ -1472,7 +1471,6 @@ messenger, another,9,0733
 messenger, still another,12,0734
 messenger, yet another,15,0735
 messenger,9,1733
-messengers from Moses,3,0736
 messengers of Ahaziah,9,0737
 messengers of Ben-Hadad. king of Aram,6,0738
 messengers of Jacob,9,0739
@@ -1549,7 +1547,6 @@ narrator-SNG,3,0754
 narrator-TIT,19,21748
 narrator-ZEC,17,0762
 narrator-ZEP,17,1762
-nations, all the,6,0763
 neighbors of man blind from birth #24,24,0764
 neighbors of man blind from birth, others #25,25,0765
 neighbors of man blind from birth, some,28,0766
@@ -1707,7 +1704,6 @@ serpent,8,0895
 servant girl, another=someone else| servant girl [accusing],25,0896
 servant girl, another=someone else #25,25,0896
 servant of Elijah,6,0897
-servant of Israelite,9,0898
 servant of Naaman's wife (young girl),18,0899
 servant of Nabal,12,0900
 servant of Saul,2,0901
@@ -1827,8 +1823,6 @@ voice from throne, loud #11,11,0978
 voice in heaven, loud,13,1979
 voice like a trumpet #7,7,0700
 voice of great crowd in heaven, loud,22,0979
-voice of great crowd in heaven, loud 1,23,0980
-voice of great crowd in heaven, loud,22,0979
 voice of great crowd, like roar of many waters, loud thunderclaps,24,0981
 voice of one calling, a (preparing way for Christ),6,0982
 voice of one speaking (in vision of God),6,0983
@@ -1844,7 +1838,7 @@ what is formed,13,0989
 wicked men of Gibeah,8,0990
 widow (from company of prophets),22,0991
 widow at Zarephath,23,0992
-wise men of Pharoah,16,0993
+wise men of Pharaoh,16,0993
 witnesses, false, two=witnesses, some false #3 [mocking],3,0994
 woman from Tekoa,23,0995
 woman in crowd,23,0996

@@ -1,4 +1,4 @@
-Control File Version	13	Generated	Thu, 08 Jan 2015 14:19:48 GMT
+Control File Version	15	Generated	Thu, 08 Jan 2015 14:30:50 GMT
 GEN	1	3	God		God (the LORD)	False
 GEN	1	5	narrator-GEN			False
 GEN	1	6	God		God (the LORD)	False
@@ -82,7 +82,7 @@ GEN	12	2	God		God (the LORD)	False
 GEN	12	3	God		God (the LORD)	False
 GEN	12	7	God		God (LORD appeared)	False
 GEN	12	11	Abraham		Abram (Abraham)	False
-GEN	12	18	Pharoah		Pharoah (1st)	False
+GEN	12	18	Pharoah		Pharaoh (1st)	False
 GEN	13	8	Abraham		Abram (Abraham)	False
 GEN	13	14	God		God (the LORD)	False
 GEN	14	4	king of Sodom			False
@@ -448,21 +448,21 @@ GEN	40	14	Joseph			False
 GEN	40	16	chief baker			False
 GEN	40	18	Joseph			False
 GEN	41	9	chief cupbearer			False
-GEN	41	15	Pharoah		Pharoah (2nd)	False
+GEN	41	15	Pharoah		Pharaoh (2nd)	False
 GEN	41	16	Joseph			False
-GEN	41	17	Pharoah		Pharoah (2nd)	False
-GEN	41	22	Pharoah		Pharoah (2nd)	False
+GEN	41	17	Pharoah		Pharaoh (2nd)	False
+GEN	41	22	Pharoah		Pharaoh (2nd)	False
 GEN	41	25	Joseph			False
 GEN	41	28	Joseph			False
 GEN	41	33	Joseph			False
-GEN	41	38	Pharoah		Pharoah (2nd)	False
-GEN	41	39	Pharoah		Pharoah (2nd)	False
-GEN	41	41	Pharoah		Pharoah (2nd)	False
-GEN	41	43	men of Pharoah|messenger of Pharoah			False
-GEN	41	44	Pharoah		Pharoah (2nd)	False
+GEN	41	38	Pharoah		Pharaoh (2nd)	False
+GEN	41	39	Pharoah		Pharaoh (2nd)	False
+GEN	41	41	Pharoah		Pharaoh (2nd)	False
+GEN	41	43	men of Pharaoh|messenger of Pharaoh			False
+GEN	41	44	Pharoah		Pharaoh (2nd)	False
 GEN	41	51	Joseph			False
 GEN	41	52	Joseph			False
-GEN	41	55	Pharoah		Pharoah (2nd)	False
+GEN	41	55	Pharoah		Pharaoh (2nd)	False
 GEN	42	1	Jacob			False
 GEN	42	2	Jacob			False
 GEN	42	7	Joseph			False
@@ -518,9 +518,9 @@ GEN	45	4	Joseph			False
 GEN	45	5	Joseph			False
 GEN	45	8	Joseph			False
 GEN	45	12	Joseph			False
-GEN	45	17	Pharoah		Pharoah (2nd)	False
-GEN	45	18	Pharoah		Pharoah (2nd)	False
-GEN	45	19	Pharoah		Pharoah (2nd)	False
+GEN	45	17	Pharoah		Pharaoh (2nd)	False
+GEN	45	18	Pharoah		Pharaoh (2nd)	False
+GEN	45	19	Pharoah		Pharaoh (2nd)	False
 GEN	45	24	Joseph			False
 GEN	45	26	Reuben		Jacob's sons|Reuben	False
 GEN	45	28	Jacob			False
@@ -531,8 +531,8 @@ GEN	46	31	Joseph			False
 GEN	47	1	Joseph			False
 GEN	47	3	Reuben		Jacob's sons	False
 GEN	47	4	Reuben		Jacob's sons	False
-GEN	47	5	Pharoah		Pharoah (2nd)	False
-GEN	47	8	Pharoah		Pharoah (2nd)	False
+GEN	47	5	Pharoah		Pharaoh (2nd)	False
+GEN	47	8	Pharoah		Pharaoh (2nd)	False
 GEN	47	9	Jacob			False
 GEN	47	15	all Egypt			False
 GEN	47	16	Joseph			False
@@ -585,7 +585,7 @@ GEN	49	27	Jacob			False
 GEN	49	29	Jacob			False
 GEN	50	2	Joseph			False
 GEN	50	4	Joseph			False
-GEN	50	6	Pharoah		Pharoah (2nd)	False
+GEN	50	6	Pharoah		Pharaoh (2nd)	False
 GEN	50	11	Canaanites			False
 GEN	50	15	Joseph's brothers|Simeon			False
 GEN	50	15	Reuben		Jacob's sons	False
@@ -595,17 +595,17 @@ GEN	50	18	Joseph's brothers|Simeon			False
 GEN	50	19	Joseph			False
 GEN	50	24	Joseph			False
 GEN	50	25	Joseph			False
-EXO	1	9	Pharoah		Pharoah (3rd)	False
-EXO	1	10	Pharoah		Pharoah (3rd)	False
-EXO	1	16	Pharoah		Pharoah (3rd)	False
-EXO	1	18	Pharoah		Pharoah (3rd)	False
+EXO	1	9	Pharoah		Pharaoh (3rd)	False
+EXO	1	10	Pharoah		Pharaoh (3rd)	False
+EXO	1	16	Pharoah		Pharaoh (3rd)	False
+EXO	1	18	Pharoah		Pharaoh (3rd)	False
 EXO	1	19	midwives, Shiphrah/Puah			False
-EXO	1	22	Pharoah	giving order	Pharoah (3rd)	False
-EXO	2	6	Pharoah's daughter			False
+EXO	1	22	Pharoah	giving order	Pharaoh (3rd)	False
+EXO	2	6	Pharaoh's daughter			False
 EXO	2	7	Miriam-young girl			False
-EXO	2	8	Pharoah's daughter			False
-EXO	2	9	Pharoah's daughter			False
-EXO	2	10	Pharoah's daughter			False
+EXO	2	8	Pharaoh's daughter			False
+EXO	2	9	Pharaoh's daughter			False
+EXO	2	10	Pharaoh's daughter			False
 EXO	2	13	Moses			False
 EXO	2	14	man (Hebrew fighting)			False
 EXO	2	14	Moses			False
@@ -656,17 +656,17 @@ EXO	4	25	Zipporah		Zipporah-Moses wife	False
 EXO	4	26	narrator-EXO			False
 EXO	4	27	God		God (the LORD)	False
 EXO	5	1	Aaron		Moses/Aaron|Aaron	False
-EXO	5	2	Pharoah		Pharoah (3rd)	False
+EXO	5	2	Pharoah		Pharaoh (3rd)	False
 EXO	5	3	Aaron		Moses/Aaron|Aaron	False
-EXO	5	4	Pharoah		Pharoah (3rd)	False
-EXO	5	5	Pharoah		Pharoah (3rd)	False
-EXO	5	7	Pharoah		Pharoah (3rd)	False
+EXO	5	4	Pharoah		Pharaoh (3rd)	False
+EXO	5	5	Pharoah		Pharaoh (3rd)	False
+EXO	5	7	Pharoah		Pharaoh (3rd)	False
 EXO	5	10	Slave driver			False
 EXO	5	13	Slave driver			False
 EXO	5	14	Slave driver			False
 EXO	5	15	Israelite foreman			False
-EXO	5	17	Pharoah		Pharoah (3rd)	False
-EXO	5	19	Pharoah		Pharoah (3rd)	False
+EXO	5	17	Pharoah		Pharaoh (3rd)	False
+EXO	5	19	Pharoah		Pharaoh (3rd)	False
 EXO	5	21	Israelite foreman			False
 EXO	5	22	Moses			False
 EXO	6	1	God		God (the LORD)	False
@@ -685,16 +685,16 @@ EXO	7	17	God		God (the LORD)	False
 EXO	7	19	God		God (the LORD)	False
 EXO	8	1	God		God (the LORD)	False
 EXO	8	5	God		God (the LORD)	False
-EXO	8	8	Pharoah		Pharoah (3rd)	False
+EXO	8	8	Pharoah		Pharaoh (3rd)	False
 EXO	8	9	Moses			False
 EXO	8	10	Moses			False
-EXO	8	10	Pharoah		Pharoah (3rd)	False
+EXO	8	10	Pharoah		Pharaoh (3rd)	False
 EXO	8	16	God		God (the LORD)	False
 EXO	8	19	Magicians			False
 EXO	8	20	God		God (the LORD)	False
-EXO	8	25	Pharoah		Pharoah (3rd)	False
+EXO	8	25	Pharoah		Pharaoh (3rd)	False
 EXO	8	26	Moses			False
-EXO	8	28	Pharoah		Pharoah (3rd)	False
+EXO	8	28	Pharoah		Pharaoh (3rd)	False
 EXO	8	29	Moses			False
 EXO	9	1	God		God (the LORD)	False
 EXO	9	5	God		God (the LORD)	False
@@ -702,20 +702,20 @@ EXO	9	8	God		God (the LORD)	False
 EXO	9	13	God		God (the LORD)	False
 EXO	9	17	God		God (the LORD)	False
 EXO	9	22	God		God (the LORD)	False
-EXO	9	27	Pharoah		Pharoah (3rd)	False
+EXO	9	27	Pharoah		Pharaoh (3rd)	False
 EXO	9	29	Moses			False
 EXO	10	1	God		God (the LORD)	False
 EXO	10	3	Aaron		Moses/Aaron|Aaron	False
-EXO	10	7	Pharoah's officials			False
-EXO	10	8	Pharoah		Pharoah (3rd)	False
+EXO	10	7	Pharaoh's officials			False
+EXO	10	8	Pharoah		Pharaoh (3rd)	False
 EXO	10	9	Moses			False
-EXO	10	10	Pharoah		Pharoah (3rd)	False
+EXO	10	10	Pharoah		Pharaoh (3rd)	False
 EXO	10	12	God		God (the LORD)	False
-EXO	10	16	Pharoah		Pharoah (3rd)	False
+EXO	10	16	Pharoah		Pharaoh (3rd)	False
 EXO	10	21	God		God (the LORD)	False
-EXO	10	24	Pharoah		Pharoah (3rd)	False
+EXO	10	24	Pharoah		Pharaoh (3rd)	False
 EXO	10	25	Moses			False
-EXO	10	28	Pharoah		Pharoah (3rd)	False
+EXO	10	28	Pharoah		Pharaoh (3rd)	False
 EXO	10	29	Moses			False
 EXO	11	1	God		God (the LORD)	False
 EXO	11	4	Moses			False
@@ -727,7 +727,7 @@ EXO	12	14	God		God (the LORD)	False
 EXO	12	17	God		God (the LORD)	False
 EXO	12	21	Moses			False
 EXO	12	24	Moses			False
-EXO	12	31	Pharoah		Pharoah (3rd)	False
+EXO	12	31	Pharoah		Pharaoh (3rd)	False
 EXO	12	33	Egyptians	terrified		False
 EXO	12	43	God		God (the LORD)	False
 EXO	12	46	God		God (the LORD)	False
@@ -739,7 +739,7 @@ EXO	13	14	Moses			False
 EXO	13	17	God		God (the LORD)	False
 EXO	13	19	Joseph			False
 EXO	14	2	God		God (the LORD)	False
-EXO	14	5	Pharoah		Pharoah (3rd)	False
+EXO	14	5	Pharoah		Pharaoh (3rd)	False
 EXO	14	11	Israelite people|man-cried out	terrified		False
 EXO	14	13	Moses			False
 EXO	14	15	God		God (the LORD)	False
@@ -2785,7 +2785,7 @@ RUT	4	17	women of Bethlehem			False
 1KI	11	11	God		God (the LORD)	False
 1KI	11	21	Hadad the Edomite			False
 1KI	11	22	Hadad the Edomite			False
-1KI	11	22	Pharoah		Pharoah (3rd)	False
+1KI	11	22	Pharoah		Pharaoh (3rd)	False
 1KI	11	31	Ahijah, the prophet	word of the LORD		False
 1KI	12	4	Jereboam/all Israel			False
 1KI	12	5	Rehoboam		Rehoboam, king	False
@@ -4988,7 +4988,7 @@ ISA	19	2	God		God (the LORD, the LORD Almighty)	False
 ISA	19	3	God		God (the LORD, the LORD Almighty)	False
 ISA	19	4	God		God (the LORD, the LORD Almighty)	False
 ISA	19	11	narrator-ISA			False
-ISA	19	11	wise men of Pharoah			False
+ISA	19	11	wise men of Pharaoh			False
 ISA	19	25	God		God (the LORD Almighty)	False
 ISA	20	2	Isaiah		Isaiah, the prophet (the LORD says)	False
 ISA	20	3	God		God (the LORD)	False
