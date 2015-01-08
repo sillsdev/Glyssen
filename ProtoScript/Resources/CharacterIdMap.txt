@@ -41,32 +41,29 @@ Amos	0033
 Ananias	0035
 Andrew	0036
 angel flying directly overhead	0472
-angel flying directly overhead, second	0473
+angel flying directly overhead, second	1473
 angel flying directly overhead, third	0474
-angel from the rising sun with seal of living God	0472
-angel in white=man dressed in white robe, young	0475
 angel of the LORD, an	1471
-angel over waters	0475
+angel over waters	2909
 angel standing in sun	0476
-angel standing on sea and land	0473
+angel standing on sea and land	2473
 angel who talked with Zechariah	0477
 angel	0473
 angel, another (vision)	0478
-angel, another, coming down from heaven	0473
+angel, another, coming down from heaven	3473
 angel, arch-, Michael	0479
 angel, coming out of temple	0480
 angel, coming out of temple, another	0481
-angel, powerful 1	0482
 angel, powerful 2	0483
+angel, powerful	0482
 angel, the 1	0484
 angel, the 2	0909
 angels appeared like men, 2|angel	0486
-angels in white, two	0479
-angels in white=men in clothes that gleamed like lightning, two	0479
-angels, all the	0478
-angels, many, living creatures, elders, thousands of thousands 1	0478
+angels in white, two	1479
+angels, all the	1478
+angels, many, living creatures, elders, thousands of thousands 1	2478
 angels, many, living creatures, elders, thousands of thousands 2	1487
-angels, seven, one of	0909
+angels, seven, one of	3909
 anger of the LORD	1486
 Anna, prophetess	0037
 another (follower of Apollos)	0487
@@ -133,41 +130,29 @@ Canaanites	0079
 captain	0511
 captain, first	0509
 captain, of temple guard/chief priests	0510
-captain, second	0511
-captain, third	0512
+captain, second	1511
+captain, third	1512
 captain/crew	0512
-centurion 1|army officer	0513
+centurion 1	0513
 centurion 2	0514
-centurion 2|army officer	0514
 centurion 3|army officer	0515
-centurion	0513
-centurion=centurion/other guards|army officer	0514
 chariot commanders of Aram	0516
 chief baker	0517
 chief cupbearer	0518
-chief cupbearer/chief baker	0518
 chief official	0519
 chief priests 1	0520
 chief priests 2	0521
 chief priests	0522
-chief priests/elders 1	0528
-chief priests/elders 2	0377
+chief priests/elders 2	3377
+chief priests/elders	0528
 chief priests/officers of temple guard	0530
 chief priests/Pharisees 1	0523
-chief priests/Pharisees 2	0377
 chief priests/Pharisees	0525
 chief priests/rulers/the people	0531
 chief priests/rulers/the people|mob	0532
-chief priests/Sanhedrin=chief priests/whole Sanhedrin 1	0526
-chief priests/Sanhedrin=chief priests/whole Sanhedrin 2	0377
-chief priests/Sanhedrin=chief priests/whole Sanhedrin 3	0527
-chief priests/teachers of the law 1	0528
-chief priests/teachers of the law 2	0377
+chief priests/Sanhedrin 1	0526
+chief priests/Sanhedrin 2	0527
 chief priests/teachers of the law/elders=chief priests/elders of people 1	0533
-chief priests/teachers of the law/elders=chief priests/elders of people 2	0526
-chief priests/teachers of the law=chief priests/elders of people	0528
-chief priests/their officials 1	0377
-chief priests/their officials 2	0527
 children of Zion (Jerusalem)	1531
 children	1530
 citizens of Shechem	1532
@@ -177,7 +162,6 @@ Cleopas and other (on road to Emmaus)|Cleopas	0081
 collectors of temple tax	0535
 commander	0536
 commander|leader of Benjamin	0537
-commander's letter	0536
 company of the prophets (Bethel)	0538
 company of the prophets	0539
 company of the prophets, one of (the LORD says) (young man)	0540
@@ -193,7 +177,6 @@ Cretan prophet	0084
 criminal on cross, another	0549
 criminal on cross, one	0550
 crippled man	0551
-crowd 1	0552
 crowd 10	0562
 crowd 2	0553
 crowd 3	0554
@@ -208,7 +191,7 @@ crowd, large 1	0563
 crowd, large 2	0564
 crowd, many in the	0565
 crowd, some of	0566
-crowds, others in	0552
+crowds, others in	1552
 crowds, some in	0567
 crying out	0568
 cured man, blind from birth	0569
@@ -228,35 +211,16 @@ David's supporters	1800
 Deborah	1094
 Delilah	1095
 Demetrius	0096
-demon-possessed man	0573
-demon-possessed men, two	0573
-demons coming out of people	0573
-demons	0573
-disciple, another=man, another	0574
+demons coming out of people	1573
+demons/demon-possessed man	0573
 disciples of John Baptist, two	0575
 disciples, 2 men	0576
-disciples, His 1	0577
-disciples, His 2	0579
-disciples, His 3	0580
-disciples, His 4	0581
 disciples, His	0577
-disciples, Jesus'	0579
-disciples, John Baptists/Jew, a certain	0581
-disciples, many of His	0580
-disciples, one of His	0578
-disciples, some of his	0579
+disciples, John the Baptist's	0581
 disciples, some	0574
-disciples, the (but not Thomas)	0578
 disciples, the 1	0578
 disciples, the 2	0579
-disciples, the 3	0580
-disciples, the 4	0579
 disciples, the	0580
-disciples, the=disciples, His	0579
-disciples, the=those who heard	0580
-disciples, two of His	0578
-disciples, whole crowd of=people, many=crowd, great	0579
-disciples, whole crowd of=people, many=crowd, great|crowd	0578
 Doeg the Edomite	0099
 eagle crying with loud voice	1581
 ear	0582
@@ -272,7 +236,6 @@ elders of the land	1582
 elders	0585
 elders, Ephesian	0583
 elders, one of the	0584
-elders/nobles of city	0586
 elders/people	0586
 Eleazar, the priest	0108
 Eleven/those with them	0109
@@ -307,11 +270,10 @@ everyone who heard	0588
 everyone	0589
 evil men/troublemakers	0590
 evil spirit	0591
-evil spirits	0591
+evil spirits	1591
 exiles	0592
-experts-in-law, one|teachers of the law	0593
 explorers, 12	0594
-explorers, ten	0594
+explorers, ten	1594
 eye	0601
 Ezekiel	0138
 Ezra, priest and teacher	0139
@@ -320,7 +282,6 @@ false witnesses	0603
 family heads of Gilead|leader of Manasseh	0604
 father of concubine	0605
 father of possessed boy=man in crowd	0606
-father of possessed son=man in crowd	0606
 Felix	0140
 Festus	0141
 Field commander from King of Assyria	0142
@@ -331,7 +292,6 @@ foot	0609
 foreman	0610
 fortune telling slave girl	0611
 four living creatures	0612
-four living creatures, one (voice of thunder)	0612
 four living creatures, twenty-four elders	0613
 Friend of Tamar	0143
 Gaal, son of Ebed	0144
@@ -378,7 +338,6 @@ Hezekiah, king of Judah	0175
 high priest	0622
 high priest's servant (man), one=those standing near|another man	0623
 high priest's servant (man), one=those standing near=another	0624
-high priests/men of their family/rulers, teachers of the law	0622
 Hilkiah, high priest	0176
 him who hears	0625
 Hirah, the Adullamite	0177
@@ -401,7 +360,7 @@ idolators from Judah (men)	0632
 idolators from Judah (women)	0633
 informer	0634
 inscription on turban	0635
-inscription	0635
+inscription	1635
 invaders	0636
 invalid for 38 years	0637
 Irijah, captain of the guard of Judah	0190
@@ -413,41 +372,34 @@ Ishmael, son of Nethaniah (murderer)	0195
 islanders	0638
 Israel 1	0196
 Israel 2	0197
-Israel says	0198
-Israel	0196
-Israel, all 1	0197
-Israel, all leaders of	0198
-Israel, all the men of	0196
-Israel, all the tribes	0197
+Israel 3	0198
 Israel, all	0199
 Israel, elders of	0200
-Israel, leaders of/Rehoboam, king	0196
 Israel, men of	0201
 Israel|leader of Gad	0220
 Israel|leader of Naphtali	0221
 Israelite assembly	0202
 Israelite assembly, elders of	0203
-Israelite community 1	0203
+Israelite community 1	1203
 Israelite community	0204
-Israelite foreman	0204
+Israelite foreman	1204
 Israelite messengers	0205
 Israelite people	0206
 Israelite people, all|crowd	0207
-Israelite people|grumbler	0208
+Israelite people|grumbler	1208
 Israelite people|grumbling person-use a woman	0209
-Israelite people|man	0204
+Israelite people|man	2204
 Israelite people|man-cried out	0208
-Israelite people|man-grumbling make us gods	0208
-Israelite people|man-grumbling	0206
+Israelite people|man-grumbling make us gods	2208
+Israelite people|man-grumbling	1206
 Israelite soldier	0210
 Israelite soldier, some	0211
 Israelite soldiers	0212
 Israelites 1	0214
 Israelites	0213
 Israelites, all 1	0215
-Israelites, all 2	0216
-Israelites, all	0217
-Israelites, all|Israelite	0216
+Israelites, all 3	0216
+Israelites, all	1217
 Israelites, some	0217
 Israelites|Israelite	0218
 Israelites|woman	0219
@@ -489,29 +441,24 @@ Jesus' family	0259
 Jesus	0700
 Jewish authorities	0260
 Jews 1	0264
-Jews from Jerusalem	0264
-Jews of Cyrene, Alexandria, Cilicia & Asia	0265
-Jews	0265
-Jews, 40 in conspiracy	0265
-Jews, God-fearing from every nation 1	0262
-Jews, God-fearing from every nation 2	0265
+Jews 2	3265
+Jews from Jerusalem	2264
+Jews of Cyrene, Alexandria, Cilicia & Asia	5265
+Jews, 40 in conspiracy	4265
+Jews, God-fearing from every nation 1	1262
+Jews, God-fearing from every nation 2	2265
 Jews, God-fearing from every nation, some	0267
-Jews, leaders of the	0262
-Jews, many of the	0263
-Jews, others of the	0264
+Jews, others of the	1264
 Jews, the (with Mary and Martha)	0271
-Jews, the (with Mary and Martha)|Mary	0270
+Jews, the (with Mary and Martha)|Mary	1270
 Jews, the (with Mary and Martha, some)	0272
 Jews, the 1	0262
 Jews, the 2	0263
-Jews, the 3	0377
 Jews, the 4	0268
 Jews, the 5	0269
 Jews, the 6	0270
 Jews, the 7	0265
 Jews, the 8	0273
-Jews, the	0262
-Jews, they	0262
 Jews/priests/nobles/officials	0274
 Jezebel	1265
 Joab	0266
@@ -595,14 +542,14 @@ man covered with leprosy	0660
 man escaped from Jerusalem	0661
 man from Saul's camp (young)	0662
 man in linen above river	0663
-man in linen with writing kit (in vision)	0663
+man in linen with writing kit (in vision)	1663
 man like bronze with measuring rod (vision of God)	0664
 man of Babel, 1st	0665
 man of Babel, 2nd	0666
 man of Gibeah	0667
 man of God from Judah	0668
 man of God	0669
-man of God, a	0668
+man of God, a	1668
 man possessed by evil spirit	0670
 man reporting to David	0671
 man standing among myrtle trees	0672
@@ -653,7 +600,7 @@ men of Enaim|townsman	0707
 men of Pharoah|messenger of Pharoah	0708
 men of Sodom	0709
 men of the city (Bethel)	0710
-men of the city	0710
+men of the city (Jericho)	1710
 men who were guarding	0711
 men with leprosy, four	0712
 men	0716
@@ -809,7 +756,6 @@ Paul	0062
 Paul's travelling companions, Luke and	0369
 people 1	0810
 people 2	0811
-people 3	0811
 people at cistern	0812
 people gathered to pray	0813
 people in crowd	0814
@@ -827,12 +773,12 @@ people, God's	0817
 people, hurried	0826
 people, Israel, tribes of	0818
 people, many	0827
-people, other 1	0819
+people, other 1	1819
 people, other	0828
 people, others	0829
 people, righteous	0830
 people, sick	0831
-people, some 1	0831
+people, some 1	1831
 people, some of the	0832
 people, some	0835
 people, some, in Jerusalem 1	0833
@@ -848,22 +794,14 @@ person	0845
 Peter (Simon)	0371
 Peter (Simon)/John/own people	1372
 Pharisee(Simon)	0373
-Pharisee, a	0374
-Pharisees 1	0375
 Pharisees 2	0376
-Pharisees 3	0377
-Pharisees 4	0378
-Pharisees sent from Jews	0377
-Pharisees	0375
+Pharisees 5	0375
+Pharisees	1377
 Pharisees, other	0374
-Pharisees, some 1	0375
-Pharisees, some 2	0377
-Pharisees, some 3	0378
-Pharisees, some	0377
-Pharisees/teachers of law|Pharisee, one	0375
-Pharisees/teachers of the law 1	0377
+Pharisees, some 4	1375
+Pharisees, some	2377
+Pharisees/teachers of the law 3	2375
 Pharisees/teachers of the law	0378
-Pharisees/teachers of the law, some	0377
 Pharoah	1378
 Pharoah's daughter	0379
 Pharoah's officials	0380
@@ -879,12 +817,7 @@ pine trees/cedars of Lebanon	0846
 Poets|leader of Ephraim	0388
 Potiphar's wife	0389
 priest	0847
-priests	0848
-priests/Levites from Jews	0848
 priests/Levites	0848
-priests/Levites/people	0848
-priests/prophets	0848
-priests/prophets/all the people	0848
 proclaim	0849
 proclaimers of God's word	0850
 prophet Gad	0851
@@ -892,7 +825,6 @@ prophet in Bethel (old)	0852
 prophet in Bethel (old)/sons	0853
 prophet of the LORD, a	0854
 prophet	0856
-prophet, a	0854
 prophet, sons of the, one	0855
 prophets (the LORD said)	0857
 prophets of Baal	0858
@@ -983,7 +915,6 @@ servants of Achish, king of Gath	0905
 servants of David	0906
 servants of Eglon, king of Moab	0907
 servants of royal official	0908
-seven angels, one of the	0909
 seven sons of Sceva	1905
 seventy-two	1906
 Shadrach/Meshach/Abednego	0422
@@ -1005,7 +936,7 @@ Simeon-old	0430
 Simon practiced magic	0431
 singers from the ends of the earth	2908
 singers	0910
-singers, and relatives	0909
+singers, and relatives	1909
 sinners	0911
 Sisera	0432
 Sisera's mother	0433
@@ -1025,7 +956,7 @@ some in home of Simon, leper	0921
 some people	0922
 some	0923
 someone 1	0924
-someone 2	0925
+someone 2	1925
 someone 3	0926
 someone 4	0927
 someone from Jairus' house	0928
@@ -1057,18 +988,15 @@ Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	0444
 tax collectors	0943
 teacher of the law=man|man	0944
 teacher, the	0945
-teachers of the law 1	0593
-teachers of the law	0946
-teachers of the law, some who were Pharisees	0593
+teachers of the law 1	0946
+teachers of the law	0593
 teachers of the law/Pharisees	0377
-teachers of the law/Pharisees=Pharisees/teachers of the law 1	0593
 teachers of the law/Pharisees=Pharisees/teachers of the law 2	0948
 temple guards	0949
 temple police	0950
 ten men with leprosy	0951
 Tertius	0445
 Tertullus-Lawyer	0446
-they (unclear in Greek)	0952
 they (unclear in Greek/voice from heaven & angel?)	0953
 Thomas	0447
 those hiding from the LORD	0955
@@ -1085,7 +1013,6 @@ twenty-four elders	0964
 twenty-four elders/four living creatures	0965
 unbelievers	0966
 Uriah	0449
-voice 1	0482
 voice 2	0969
 voice 3	0970
 voice among living creatures 1	0971
@@ -1093,11 +1020,9 @@ voice among living creatures	0972
 voice from altar	0973
 voice from cloud	0974
 voice from heaven, another 1	0976
-voice from heaven, another 2	0977
-voice from temple, loud	0977
+voice from temple	0977
 voice from throne	0978
-voice from throne, loud	0978
-voice in heaven, loud	0979
+voice in heaven, loud	1979
 voice of great crowd in heaven, loud	0979
 voice of great crowd, like roar of many waters, loud thunderclaps	0981
 voice of one calling, a (preparing way for Christ)	0982
