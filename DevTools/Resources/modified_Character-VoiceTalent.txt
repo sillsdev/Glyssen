@@ -68,70 +68,6 @@ Athaliah,25,0053
 Azariah the priest,11,0055
 Azariah the priest/80 priests [courageous],11,0055
 Azariah, prophet (Spirit of God on),11,0055
-BC-1CH,26,0056
-BC-1CO,26,0056
-BC-1JN,26,0056
-BC-1KI,26,0056
-BC-1PE,26,0056
-BC-1SA,26,0056
-BC-1TH,26,0056
-BC-1TI,26,0056
-BC-2CH,26,0056
-BC-2CO,26,0056
-BC-2JN,26,0056
-BC-2KI,26,0056
-BC-2PE,26,0056
-BC-2SA,26,0056
-BC-2TH,26,0056
-BC-2TI,26,0056
-BC-3JN,26,0056
-BC-ACT,26,0056
-BC-AMO,26,0056
-BC-COL,26,0056
-BC-DAN,26,0056
-BC-DEU,26,0056
-BC-ECC,26,0056
-BC-EPH,26,0056
-BC-EST,26,0056
-BC-EXO,26,0056
-BC-EZK,26,0056
-BC-EZR,26,0056
-BC-GAL,26,0056
-BC-GEN,26,0056
-BC-HAB,26,0056
-BC-HAG,26,0056
-BC-HEB,26,0056
-BC-HOS,26,0056
-BC-ISA,26,0056
-BC-JAS,26,0056
-BC-JDG,26,0056
-BC-JER,26,0056
-BC-JHN,26,0056
-BC-JOB,26,0056
-BC-JOL,26,0056
-BC-JON,26,0056
-BC-JOS,26,0056
-BC-JUD,26,0056
-BC-LAM,26,0056
-BC-LEV,26,0056
-BC-LUK,26,0056
-BC-MAL,26,0056
-BC-MAT,26,0056
-BC-MIC,26,0056
-BC-MRK,26,0056
-BC-NAM,26,0056
-BC-NEH,26,0056
-BC-NUM,26,0056
-BC-OBA,26,0056
-BC-PHM,26,0056
-BC-PHP,26,0056
-BC-REV,26,0056
-BC-ROM,26,0056
-BC-RUT,26,0056
-BC-SNG,26,0056
-BC-TIT,26,0056
-BC-ZEC,26,0056
-BC-ZEP,26,0056
 Babylon #21,21,0057
 Balaam (Spirit of God upon him),6,0058
 Balaam,6,0058
@@ -159,7 +95,7 @@ Beth Shemesh, men of,16,0069
 Bethlehem, elders of [trembled],16,0070
 Bildad the Shuhite,3,0071
 Boaz,10,0072
-Book of the Wars of the LORD|leader of Zebulun,16,0073
+Book of the Wars of the LORD,16,0073
 Caesar Augustus,28,0074
 Caiaphas, high priest #11 [indignant],11,0075
 Caiaphas, high priest,11,0075
@@ -215,8 +151,7 @@ Demetrius,28,0096
 Devil,8,0800
 Doeg the Edomite,3,0099
 Ebed-Melech (official of king of Judea),9,0100
-Edom may say,6,0101
-Edom|king of Edom,4,0102
+Edom,4,0102
 Eglon, king of Moab,15,0103
 Egyptian (slave of Amalekite),16,0104
 Egyptians [afraid],15,0105
@@ -258,9 +193,11 @@ Ephraim/Samaria, people of,6,0130
 Ephraimites [critical],6,0130
 Ephraimites,6,0130
 Ephron the Hittite,6,0131
-Epicurean and Stoic philosophers, other #2 [superior],2,0133
-Epicurean and Stoic philosophers, they 1 [curious],1,1133
-Epicurean and Stoic philosophers, they 2,4,1134
+Epicurean and Stoic philosophers, other [superior],2,0133
+Epicurean and Stoic philosophers, some [superior],2,3133
+Epicurean and Stoic philosophers [curious],1,1133
+Epicurean and Stoic philosophers, sneering [sneering],4,1134
+Epicurean and Stoic philosophers, interested,4,2134
 Esau,10,2133
 Esther, queen,23,0134
 Ethiopian,16,0136
@@ -439,7 +376,7 @@ Israel,2,0196
 Israelite assembly, elders of,11,0203
 Israelite assembly,17,0202
 Israelite community [grumbling],2,0204
-Israelite community 1 [mourning bitterly],11,1203
+Israelite community [mourning bitterly],2,0204
 Israelite community [unbelief, mistrust],2,0204
 Israelite foreman,2,1204
 Israelite messengers,9,0205
@@ -468,9 +405,9 @@ Israel|leader of Gad,2,0220
 Israel|leader of Naphtali,14,0221
 It is said,2,0223
 Ittai,2,0224
-JER quoting Israel,2,0225
-JOL saying what the priests should say,6,0226
-JOL saying what the weakling should say,6,0227
+Jeremiah quoting Israel,2,0225
+Joel saying what the priests should say,6,0226
+Joel saying what the weakling should say,6,0227
 Jabesh, elders of,17,0228
 Jabesh, men of,6,0229
 Jabez's mother,22,0231
@@ -637,7 +574,7 @@ Jonathan, son of Abiathar,14,0279
 Jonathan,12,0277
 Joram, king of Israel,28,0280
 Joseph of Arimathea,28,0281
-Joseph's brothers|Simeon,11,0283
+Joseph's brothers|Simeon,11,0237
 Joseph, people of,13,0284
 Joseph,17,0282
 Joshua, old,13,0286
@@ -676,8 +613,8 @@ Lamech (descendent of Cain),13,0307
 Lamech (descendent of Seth),18,0308
 Leah,23,0309
 Levite, young, from Bethlehem,2,0310
-Levites 1 [praying],4,0311
-Levites 2,1,0312
+Levites [praying],4,0311
+Levites,4,0311
 Levitical heads,14,0313
 Lookout,3,0314
 Lord #7,7,0700
@@ -690,7 +627,7 @@ Lydia,22,0319
 Macedonian,10,0320
 Magicians,9,0321
 Magistrates, chief,15,0322
-Mahlah/Noah/Hoglah/Milcah/Tirzah, daughters of Zelophehad,21,0323
+Mahlah/Noah/Hoglah/Milcah/Tirzah, daughters of Zelophehad,21,0572
 Manoah's wife, mother of Samson,23,0324
 Manoah, father of Samson,28,0325
 Martha,24,0326
@@ -711,9 +648,8 @@ Michal, David's wife,24,0337
 Miriam-young girl,21,0338
 Miriam/Aaron|Aaron,18,0001
 Miriam/women [sang],21,0339
-Moabite prince 1,16,0340
-Moabite prince 2 [afraid],15,0341
-Moabite prince 2,15,0341
+Moabite officials,15,0341
+Moabite officials, more distinguished,14,1341
 Moabites (female),21,0342
 Moabites,16,1340
 Mordecai, cousin of Esther,13,0343
@@ -996,7 +932,7 @@ Zipporah-Moses wife/her sisters,24,0462
 Zophar the Naamathite,4,0463
 advisor (young) [foolish men],9,0464
 all Egypt,14,0465
-all Israelites|make us gods,11,0466
+Israelites (wanting gods made),11,0466
 all in synagogue #5 [perplexed],5,0467
 all in temple [praising],30,0468
 all seeking God [rejoicing, glad],5,0469
@@ -1028,17 +964,15 @@ angel, arch-, Michael,1,0479
 angel, coming out of temple #9,9,0480
 angel, coming out of temple, another #6,6,0481
 angel, powerful 1,1,0482
-angel, powerful 2 [loud],6,0483
-angel, the 1,15,0484
-angel, the 2,19,0909
-angel,17,0473
-angels appeared like men, 2|angel,5,0486
+angel, powerful 2 [loud],6,0482
+angel (one of the seven),19,0909
+angels at Sodom, two,17,0473
+angels appeared like men, two,5,0473
 angels in white, two,10,1479
 angels in white=men in clothes that gleamed like lightning, two,10,1479
 angels, all the #13,13,1478
 angels, many, living creatures, elders, thousands of thousands 1,13,2478
 angels, many, living creatures, elders, thousands of thousands 2,22,1487
-angels, seven, one of #19,19,3909
 anger of the LORD,8,1486
 another (follower of Apollos) [boastful],11,0487
 another (follower of Peter/Cephas) [boastful],28,0488
@@ -1071,15 +1005,14 @@ captain, second,3,1511
 captain, third,4,1512
 captain,3,0511
 captain/crew,30,0512
-centurion 1|army officer [entreating],10,0513
-centurion 1|army officer,10,0513
-centurion 2|army officer [amazed],2,0514
-centurion 2,2,0514
-centurion 3|army officer [anxious],6,0515
-centurion 3|army officer,6,0515
-centurion,10,0513
-centurion=centurion/other guards|army officer #2 [amazed],2,0514
-centurion=centurion/other guards|army officer #2 [polite],2,0514
+centurion at crucifixion [amazed],6,0513
+centurion at Paul's flogging [anxious],6,0514
+centurion on ship with Paul,6,0515
+centurion summoned by Pilate,6,2515
+centurion with great faith [entreating],6,3515
+centurion with great faith [polite],6,3515
+centurion with great faith,6,3515
+centurion, one of the,6,1515
 chariot commanders of Aram [thought],5,0516
 chief baker,10,0517
 chief cupbearer,28,0518
@@ -1134,7 +1067,7 @@ company of the prophets (Jericho),11,0539
 company of the prophets, one of (the LORD says) (young man),12,0540
 company of the prophets, one of (young man),5,0541
 company of the prophets, one of,12,0542
-company of the prophets,11,0539
+company of the prophets,11,0542
 concubine's husband,4,0543
 conquerors of beast, image & his name #22,22,0544
 council of elders:chief priests/teachers of the law [demanding],15,0545
@@ -1177,7 +1110,7 @@ daughter of Zion (Jerusalem),22,0570
 daughter of Zion will say,22,0570
 daughter of Zion,22,0570
 daughter-in-law of Eli,22,0571
-daughters of Zelophehad|daughter of Zelophehad,23,0572
+daughters of Zelophehad,23,0572
 demon-possessed man [begging],8,0573
 demon-possessed man,8,0573
 demon-possessed men, two [screaming],8,0573
@@ -1250,72 +1183,6 @@ exiles,17,0592
 experts-in-law, one|teachers of the law #1 [insulted],1,0593
 explorers, 12,17,0594
 explorers, ten,17,1594
-extra-1CH,27,0600
-extra-1CO,27,0600
-extra-1JN,27,0600
-extra-1KI,27,0600
-extra-1PE,27,0600
-extra-1SA,27,0600
-extra-1TH,27,0600
-extra-1TI,27,0600
-extra-2CH,27,0600
-extra-2CO,27,0600
-extra-2JN,27,0600
-extra-2KI,27,0600
-extra-2PE,27,0600
-extra-2SA,27,0600
-extra-2TH,27,0600
-extra-2TI,27,0600
-extra-3JN,27,0600
-extra-ACT,27,0600
-extra-AMO,27,0600
-extra-COL,27,0600
-extra-DAN,27,0600
-extra-DEU,27,0600
-extra-ECC,27,0600
-extra-EPH,27,0600
-extra-EST,27,0600
-extra-EXO,27,0600
-extra-EZK,27,0600
-extra-EZR,27,0600
-extra-GAL,27,0600
-extra-GEN,27,0600
-extra-HAB,27,0600
-extra-HAG,27,0600
-extra-HEB,27,0600
-extra-HOS,27,0600
-extra-ISA,27,0600
-extra-JAS,27,0600
-extra-JDG,27,0600
-extra-JER,27,0600
-extra-JHN,27,0600
-extra-JOB,27,0600
-extra-JOL,27,0600
-extra-JON,27,0600
-extra-JOS,27,0600
-extra-JUD,27,0600
-extra-LAM,27,0600
-extra-LEV,27,0600
-extra-LUK,27,0600
-extra-MAL,27,0600
-extra-MAT,27,0600
-extra-MIC,27,0600
-extra-MRK,27,0600
-extra-NAM,27,0600
-extra-NEH,27,0600
-extra-NUM,27,0600
-extra-OBA,27,0600
-extra-PHM,27,0600
-extra-PHP,27,0600
-extra-PRO,27,0600
-extra-PSA,27,0600
-extra-REV,27,0600
-extra-ROM,27,0600
-extra-RUT,27,0600
-extra-SNG,27,0600
-extra-TIT,27,0600
-extra-ZEC,27,0600
-extra-ZEP,27,0600
 eye,28,0601
 false teachers,8,0602
 false witnesses,8,0603
@@ -1351,7 +1218,6 @@ high priest,15,0622
 high priests/men of their family/rulers, elders, teachers of the law|Good Priest [defending],5,0372
 high priests/men of their family/rulers, teachers of the law,15,0622
 him who hears,9,0625
-his name is John,28,0626
 holy one (in vision),6,0627
 husband of Shunammite,1,0628
 husband of concubine,3,0629
@@ -1388,7 +1254,7 @@ maidens,24,0654
 man (Hebrew fighting),1,0655
 man (at Shechem),12,0656
 man (at Shechem)|man,12,0656
-man [pleading],15,0657
+person sacrificing [pleading],15,0657
 man all alone,12,0658
 man answered David,14,0659
 man covered with leprosy #16 [pleading],16,0660
@@ -1416,28 +1282,28 @@ man who says 'I know him',14,0678
 man who says 'we remain in union with God',15,0679
 man with evil spirit [shrieking],8,0680
 man with evil spirit,8,0680
-man with leprosy 1,10,0681
-man with leprosy 2 [pleading],16,0682
+leper, thankful Samaritan,10,0681
+leper [pleading],16,0682
 man with measuring line (vision),15,0683
 man's brother,14,0684
 man's voice from the Ulai (in vision),14,0685
 man, a,15,0686
-man, one #4 [jeering],4,0687
+man with sponge [jeering],4,0687
 man, still another,9,0688
 man, wicked,30,0689
 many Samaritans,17,0690
 many in crowd,24,0691
 master of the banquet #11 [complimenting],11,0692
-men 1 [singing and praising God],3,0693
+men appointed to sing and praise [singing and praising God],3,0693
 men dressed in white, two,10,0694
 men from Cornelius #4 [respectful],4,0695
 men from Cornelius,4,0695
 men from Jairus house #5 [sad],5,0696
 men from Judea, some #4 [harsh],4,0697
 men in mourning, ten of eighty,3,0698
-men in synagogue 1 [amazed],12,0699
-men in synagogue 2 [amazed],3,0701
-men in synagogue 3 [taking offense at Jesus' teaching],14,0702
+men in Capernaum synagogue [amazed],12,0699
+men in Nazareth synagogue [amazed],3,0701
+men in Nazareth synagogue [taking offense at Jesus' teaching],3,0701
 men of Anathoth,3,0703
 men of Ashdod,12,0704
 men of David, one,6,0705
@@ -1477,13 +1343,13 @@ messenger,9,1733
 messengers of Ahaziah,9,0737
 messengers of Ben-Hadad. king of Aram,6,0738
 messengers of Jacob,9,0739
-midwife of Rachel|midwife,22,0740
+midwife of Rachel,22,0740
 midwife of Tamar,22,0741
 midwives, Shiphrah/Puah,22,0742
 mob #6,6,0743
 mob,6,0743
 mother of Zebedee's sons,22,0745
-multitude from all nations, tribes, peoples, languages,,6,0746
+multitude from all nations, tribes, peoples, languages,6,0746
 narrator-1CH,2,1139
 narrator-1CO,19,0748
 narrator-1JN,12,0749
@@ -1582,14 +1448,14 @@ one at table with him #5,5,0791
 one of you (follower of Paul) [boastful],14,1791
 one of you,5,0792
 one other who looked like a man,9,0793
-one seated on throne (God),20,0794
+one seated on throne (God),20,2000
 one who looked like a man,5,0795
 one with garments stained crimson (Christ?),7,0700
 onlookers,9,0796
 other and Cleopas (on road to Emmaus) female|other female,28,0797
 other and Cleopas (on road to Emmaus) male|other male,9,0798
 other guests at Pharisee(Simon)'s house #15 [unhappy],15,0799
-others 1,1,0801
+crowd, others of,1,0801
 others,9,0802
 owner of colt=people, some standing there #3 [suspicious],3,0803
 owners of the slave girl #14 [angry],14,0804
@@ -1597,7 +1463,7 @@ owners of the slave girl #14,14,0804
 parents of cured man, blind from birth|parent 1 [cautious],17,0805
 parents of cured man, blind from birth|parent 2,22,0806
 passers by [insulting],15,0807
-passers by 1 [mocking],9,0808
+passers by [mocking],9,0807
 passers by,15,0807
 people 1 [amazed],24,0810
 people 2,5,0811
@@ -1676,7 +1542,7 @@ proverb about a dog,28,0864
 queen of Babylon,23,0865
 queen of Sheba,23,1865
 reader,17,0866
-rebelss,30,0867
+rebels,30,0867
 report to King of Aram,30,0868
 rule given by Paul,17,0869
 ruler, a certain=man, rich young #6 [respectful],6,0870
@@ -1715,8 +1581,8 @@ servant of Naaman's wife (young girl),18,0899
 servant of Nabal,12,0900
 servant of Saul,2,0901
 servant of concubine's husband,6,0902
-servant of priest 1 [demanding],6,0903
-servant of priest,14,1901
+servant of priest [demanding],6,0903
+servant of priest,14,0903
 servants (Isaac's),6,0904
 servants of Achish, king of Gath,4,0905
 servants of David,11,0906
@@ -1725,8 +1591,8 @@ servants of royal official #3 [excited],3,0908
 seven sons of Sceva #14 [over-dramatic],14,1905
 seventy-two #14 [excited],14,1906
 she donkey,23,1907
-shepherds 1 [awe],4,1908
-shepherds 2,4,0020
+shepherds outside Bethlehem [awe],4,1908
+shepherds at the well,4,0020
 ship captains, seafarers, sailors #1 [weeping/ cry out],1,2906
 sign on the cross,14,2907
 singers from the ends of the earth,6,2908
@@ -1737,21 +1603,19 @@ soldier at the cross #6,6,0912
 soldier 1, enemy,1,0913
 soldier 2, enemy,2,0914
 soldier, Israelite,3,0915
-soldiers 1 [calling out],4,0916
-soldiers 1 [mocking],4,0916
-soldiers 2 [gruff],9,0917
-soldiers 2 [mocking],9,0917
+soldiers, some [calling out],4,0916
+soldiers, Roman [gruff],9,0917
+soldiers, Roman [mocking],9,0917
 soldiers, Assyrian,30,0918
 soldiers/officials from chief priests/Pharisees #4 [afraid],4,0919
 soldiers/officials from chief priests/Pharisees #4 [rowdy],4,0919
 some claim we say,29,0920
 some in home of Simon, leper,30,0921
-some people,30,0922
 some,30,0923
-someone 1 [questioning],14,0924
-someone 2 [excited],4,1925
-someone 3 [flattering, boastful, lying],14,0926
-someone 4 [might argue],29,0927
+someone [questioning],14,0934
+someone [excited],4,0934
+someone [flattering, boastful, lying],14,0934
+someone [might argue],29,0934
 someone from Jairus' house #5 [sad],5,0928
 someone in Jerusalem,6,0929
 someone in crowd,9,0930
@@ -1773,14 +1637,14 @@ still another (follower of Christ) [boastful],6,1941
 synagogue ruler #1 [angry],1,0942
 synagogue rulers|Good Priest #5 [gracious],5,0372
 tax collectors #3 [calling out],3,0943
-teacher of the law=man|man #16 [eager],16,0944
+teacher of the law [eager],16,0944
 teacher, the [said in heart],3,0945
 teacher, the [thought in heart],3,0945
 teacher, the [thought],3,0945
 teacher, the,3,0945
-teachers of the law 1 [insulting],1,0593
-teachers of the law 2 [indignant],19,0946
-teachers of the law (Pharisees) #19 [contempt],19,0946
+teachers of the law [insulting],1,0593
+teachers of the law [indignant],19,0593
+teachers of the law (Pharisees) #19 [contempt],19,0593
 teachers of the law, one=expert in the law, an|Good Priest [complimenting],5,0372
 teachers of the law, one=expert in the law, an|Good Priest [justifying],5,0372
 teachers of the law, one=expert in the law, an|Good Priest [respectful],5,0372
@@ -1791,7 +1655,6 @@ teachers of the law, some who were Pharisees #1 [arguing],1,0593
 teachers of the law/Pharisees,15,0377
 teachers of the law/Pharisees=Pharisees/teachers of the law 1 [angry],1,0593
 teachers of the law/Pharisees=Pharisees/teachers of the law 1 [critical],1,0593
-teachers of the law/Pharisees=Pharisees/teachers of the law 2 [insulting],19,0948
 temple guards #17 [amazed],17,0949
 temple police #6 [perplexed],6,0950
 ten men with leprosy #4,4,0951
@@ -1811,17 +1674,14 @@ twenty-four elders/four living creatures,4,0965
 unbelievers,30,0966
 vineyard owner (God?),20,2000
 voice 1,1,0482
-voice 2,15,0969
-voice 3,17,0970
 voice (in trance),7,0700
-voice among living creatures 1,30,0971
 voice among living creatures,15,0972
 voice from altar #11,11,0973
 voice from bright cloud (God),20,2000
 voice from cloud,20,0974
-voice from heaven, another 1 [wailing],13,0976
-voice from heaven, another 1 [weeping/ cry out],13,0976
-voice from heaven, another 1,13,0976
+voice from heaven, another [wailing],13,0976
+voice from heaven, another [weeping/ cry out],13,0976
+voice from heaven, another,13,0976
 voice from heaven, another 2,9,0977
 voice from heaven (God), loud,20,2000
 voice from heaven (God),20,2000
