@@ -1,4 +1,4 @@
-Control File Version	15	Generated	Thu, 08 Jan 2015 14:30:50 GMT
+Control File Version	21	Generated	Thu, 08 Jan 2015 17:16:05 GMT
 GEN	1	3	God		God (the LORD)	False
 GEN	1	5	narrator-GEN			False
 GEN	1	6	God		God (the LORD)	False
@@ -7359,6 +7359,7 @@ MAT	8	10	Jesus	surprised		True
 MAT	8	11	Jesus	preaching		False
 MAT	8	13	Jesus	giving orders		True
 MAT	8	17	scripture			False
+MAT	8	18	Jesus	giving orders		False
 MAT	8	19	teacher of the law=man|man	eager		True
 MAT	8	20	Jesus	questioning		True
 MAT	8	21	disciples, some	making excuse	disciple, another=man, another	True
@@ -7369,6 +7370,7 @@ MAT	8	27	disciples, the 2	amazed	disciples, the 4	False
 MAT	8	29	demons/demon-possessed man	screaming	demon-possessed men, two	True
 MAT	8	31	demons/demon-possessed man	begging	demons	True
 MAT	8	32	Jesus	giving orders		True
+MAT	8	34	townsmen	pleading		False
 MAT	9	2	Jesus	compassionately		True
 MAT	9	3	teachers of the law 1	indignant	teachers of the law 2	False
 MAT	9	4	Jesus	questioning		True
@@ -7458,7 +7460,7 @@ MAT	12	16	Jesus	warning		False
 MAT	12	18	scripture			False
 MAT	12	19	scripture			False
 MAT	12	20	scripture			False
-MAT	12	23	people, all the 2			False
+MAT	12	23	people, all the 2	astonished		False
 MAT	12	24	Pharisees/teachers of the law		Pharisees 4	False
 MAT	12	25	Jesus			False
 MAT	12	26	Jesus			False
@@ -7536,6 +7538,8 @@ MAT	14	15	disciples, the 2	taking charge	disciples, the=disciples, His	True
 MAT	14	16	Jesus			True
 MAT	14	17	Andrew		Andrew=disciples, the=disciples, His	True
 MAT	14	18	Jesus	giving orders		True
+MAT	14	19	Jesus			False
+MAT	14	19	Jesus	praying		False
 MAT	14	26	disciples, the			True
 MAT	14	27	Jesus	forcefully		True
 MAT	14	28	Peter (Simon)	calling out		True
@@ -7564,10 +7568,12 @@ MAT	15	25	Canaanite mother of possessed girl=Syrophoenician mother of possessed 
 MAT	15	26	Jesus	testing faith		True
 MAT	15	27	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl			True
 MAT	15	28	Jesus			True
+MAT	15	31	everyone in crowd	praising God		False
 MAT	15	32	Jesus	compassionately		True
 MAT	15	33	disciples, the	impatient	disciples, His 3	True
 MAT	15	34	disciples, His			True
 MAT	15	34	Jesus	questioning		True
+MAT	15	35	Jesus			False
 MAT	16	1	Pharisees			False
 MAT	16	2	Jesus			False
 MAT	16	3	Jesus			False
@@ -7897,6 +7903,7 @@ MRK	1	37	Peter (Simon)	exclaimed	Peter (Simon) and companions	True
 MRK	1	38	Jesus			True
 MRK	1	40	man with leprosy 2	pleading		True
 MRK	1	41	Jesus	compassionately		True
+MRK	1	43	Jesus	warning		False
 MRK	1	44	Jesus			False
 MRK	2	5	Jesus			True
 MRK	2	7	teachers of the law	angry	teachers of the law/Pharisees=Pharisees/teachers of the law 1	False
@@ -7969,6 +7976,7 @@ MRK	5	9	Jesus	questioning		True
 MRK	5	9	man with evil spirit			True
 MRK	5	10	man with evil spirit			False
 MRK	5	12	demons/demon-possessed man	begging	demons	True
+MRK	5	13	Jesus			False
 MRK	5	15	narrator-MRK			False
 MRK	5	17	people, Gadarene			False
 MRK	5	18	man who had had demons			False
@@ -8050,6 +8058,7 @@ MRK	8	4	disciples, the	questioning	disciples, the 3	True
 MRK	8	5	disciples, His			True
 MRK	8	5	Jesus	questioning		True
 MRK	8	6	Jesus	giving orders		False
+MRK	8	7	Jesus			False
 MRK	8	11	Pharisees			False
 MRK	8	12	Jesus	exasperated		False
 MRK	8	15	Jesus	warning		True
@@ -8169,6 +8178,7 @@ MRK	11	28	chief priests/teachers of the law/elders=chief priests/elders of peopl
 MRK	11	29	Jesus			True
 MRK	11	30	Jesus	questioning		False
 MRK	11	31	chief priests/teachers of the law/elders=chief priests/elders of people 1	to themselves		False
+MRK	11	32	chief priests/teachers of the law/elders=chief priests/elders of people 1	to themselves		False
 MRK	11	33	chief priests/Sanhedrin 1		chief priests/teachers of the law/elders=chief priests/elders of people 2	True
 MRK	11	33	Jesus			True
 MRK	12	1	Jesus	preaching		False
@@ -8314,6 +8324,7 @@ LUK	1	15	angel of the LORD, an			False
 LUK	1	16	angel of the LORD, an			False
 LUK	1	18	Zechariah			True
 LUK	1	19	angel of the LORD, an			True
+LUK	1	21	people, the	wondering		False
 LUK	1	25	Elizabeth			False
 LUK	1	28	angel of the LORD, an	to Mary	angel Gabriel, sent by God	True
 LUK	1	29	Mary (Jesus' mother)	confused		False
@@ -8325,6 +8336,7 @@ LUK	1	42	Elizabeth			True
 LUK	1	43	Elizabeth			False
 LUK	1	44	Elizabeth			False
 LUK	1	46	Mary (Jesus' mother)			False
+LUK	1	47	Mary (Jesus' mother)			False
 LUK	1	48	Mary (Jesus' mother)			False
 LUK	1	49	Mary (Jesus' mother)			False
 LUK	1	50	Mary (Jesus' mother)			False
@@ -8368,6 +8380,8 @@ LUK	2	48	Mary (Jesus' mother)			True
 LUK	2	49	Jesus (child)			True
 LUK	3	3	John the Baptist			False
 LUK	3	4	scripture			False
+LUK	3	5	scripture			False
+LUK	3	6	scripture			False
 LUK	3	7	John the Baptist			False
 LUK	3	8	John the Baptist			False
 LUK	3	9	John the Baptist			False
@@ -8389,7 +8403,8 @@ LUK	4	8	Jesus			True
 LUK	4	9	Satan		Devil	True
 LUK	4	10	Satan		Devil	False
 LUK	4	12	Jesus			True
-LUK	4	18	Jesus			False
+LUK	4	18	Jesus	reading Scripture		False
+LUK	4	19	Jesus	reading Scripture		False
 LUK	4	21	Jesus			False
 LUK	4	22	all in synagogue	perplexed		False
 LUK	4	23	Jesus			False
@@ -8449,6 +8464,7 @@ LUK	6	32	Jesus			False
 LUK	6	33	Jesus			False
 LUK	6	34	Jesus			False
 LUK	6	35	Jesus			False
+LUK	6	36	Jesus			False
 LUK	6	37	Jesus			False
 LUK	6	38	Jesus			False
 LUK	6	39	Jesus			False
@@ -8527,8 +8543,10 @@ LUK	8	30	demons/demon-possessed man		demon-possessed man	True
 LUK	8	30	Jesus	questioning		True
 LUK	8	31	demons/demon-possessed man	begging	demon-possessed man	False
 LUK	8	32	demons/demon-possessed man	begging	demon-possessed man	False
+LUK	8	37	people, all the 2	fearful		False
 LUK	8	38	man who had had demons			False
 LUK	8	39	Jesus			True
+LUK	8	41	Jairus=ruler, a	pleading		False
 LUK	8	45	Jesus	questioning		True
 LUK	8	45	Peter (Simon)	perplexed		True
 LUK	8	46	Jesus			True
@@ -8536,6 +8554,7 @@ LUK	8	48	Jesus			True
 LUK	8	49	someone from Jairus' house	sad		True
 LUK	8	50	Jesus			True
 LUK	8	52	Jesus			True
+LUK	8	53	people, all the 2	laughing		False
 LUK	8	54	Jesus	giving orders		True
 LUK	8	55	Jesus			False
 LUK	8	56	Jesus	warning		False
@@ -8549,6 +8568,7 @@ LUK	9	12	disciples, the 2	taking charge	disciples, the=disciples, His	True
 LUK	9	13	Andrew	frustrated	Andrew=twelve, the	True
 LUK	9	13	Jesus	giving orders		True
 LUK	9	14	Jesus	giving orders		True
+LUK	9	15	Andrew	giving orders	disciples, the|Andrew	False
 LUK	9	18	Jesus	questioning		True
 LUK	9	19	disciples, the	excited	disciples, the 3	True
 LUK	9	20	Jesus	questioning		True
@@ -8603,6 +8623,7 @@ LUK	10	19	Jesus			False
 LUK	10	21	Jesus			False
 LUK	10	22	Jesus			False
 LUK	10	23	Jesus			False
+LUK	10	24	Jesus			False
 LUK	10	25	Good Priest	testing	teachers of the law, one=expert in the law, an|Good Priest	True
 LUK	10	26	Jesus	questioning		True
 LUK	10	27	Good Priest		teachers of the law, one=expert in the law, an|Good Priest	True
@@ -8621,6 +8642,8 @@ LUK	10	40	Martha			True
 LUK	10	41	Jesus	compassionately		True
 LUK	11	1	disciples, the 1		disciples, one of His	True
 LUK	11	2	Jesus	instructing		True
+LUK	11	3	Jesus	instructing		False
+LUK	11	4	Jesus	instructing		False
 LUK	11	5	Jesus			True
 LUK	11	6	Jesus			False
 LUK	11	7	Jesus			False
@@ -8825,13 +8848,16 @@ LUK	17	6	Jesus			True
 LUK	17	7	Jesus			False
 LUK	17	8	Jesus			False
 LUK	17	9	Jesus			False
+LUK	17	10	Jesus			False
 LUK	17	13	ten men with leprosy			True
 LUK	17	14	Jesus			True
 LUK	17	15	man with leprosy 1			False
 LUK	17	16	man with leprosy 1			False
 LUK	17	17	Jesus			True
 LUK	17	19	Jesus	giving orders		True
-LUK	17	20	Jesus	questioning		True
+LUK	17	20	Jesus			True
+LUK	17	20	teachers of the law/Pharisees	questioning	Pharisees 3	True
+LUK	17	21	Jesus			False
 LUK	17	22	Jesus			True
 LUK	17	23	Jesus			False
 LUK	17	24	Jesus			False
@@ -8882,7 +8908,7 @@ LUK	18	41	Bartimaeus	pleading	Bartimaeus, blind=blind man, a	True
 LUK	18	41	Jesus	questioning		True
 LUK	18	42	Jesus			True
 LUK	19	5	Jesus	giving orders		True
-LUK	19	7	people, all the			False
+LUK	19	7	people, all the 2	muttering		False
 LUK	19	8	Zaccheaus			True
 LUK	19	9	Jesus			True
 LUK	19	12	Jesus			False

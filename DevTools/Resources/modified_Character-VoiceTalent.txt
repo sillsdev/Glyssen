@@ -48,6 +48,7 @@ Ananias [praying],17,0035
 Ananias [puzzled],17,0035
 Andrew [excited],3,0036
 Andrew=disciples, the=disciples, His #3,3,0036
+disciples, the|Andrew [giving orders],3,0036
 Andrew=twelve, the #3 [frustrated],3,0036
 Anna, prophetess,22,0037
 Appolos,29,0039
@@ -548,6 +549,7 @@ Jesus [patiently],7,0700
 Jesus [praying],7,0700
 Jesus [preaching],7,0700
 Jesus [questioning],7,0700
+Jesus [reading Scripture],7,0700
 Jesus [reassuring],7,0700
 Jesus [rebuking],7,0700
 Jesus [requesting],7,0700
@@ -832,6 +834,7 @@ Pharisees 2,11,0376
 Pharisees 3 [accusing],15,0377
 Pharisees 3 [exasperated],15,0377
 Pharisees 3 [testing],15,0377
+Pharisees 3 [questioning],15,0377
 Pharisees 3,15,0377
 Pharisees 4,19,0378
 Pharisees sent from Jews,15,0377
@@ -1609,10 +1612,13 @@ people, Gadarene,30,0816
 people, God's,9,0817
 people, Israel, tribes of,6,0818
 people, all the 1,21,0819
-people, all the 2,22,0820
+people, all the 2 [astonished],22,0820
+people, all the 2 [fearful],22,0820
 people, all the 3 [shouting],6,0821
 people, all the 4 [praising],12,0822
 people, all the 5 [shouting],9,0823
+people, all the 2 [laughing],22,0820
+people, all the 2 [muttering],22,0820
 people, all the,3,0824
 people, arrogant wicked,8,0825
 people, hurried,14,0826
@@ -1632,6 +1638,7 @@ people, some,3,0835
 people, still other 1,12,0836
 people, still other 2,19,0837
 people, the 1 [shouting],10,0838
+people, the [wondering],3,0840
 people, the,3,0840
 people, the|complainer/woman [complaining],25,0841
 people, the|leader of Naphtali,10,0842
@@ -1795,6 +1802,7 @@ those standing near #1 [angry],1,0957
 those who seek God,6,0958
 townsmen (wicked),8,0959
 townsmen,9,0960
+townsmen [pleading],9,0960
 townsmen-wicked (of Sodom),14,0961
 troublemakers,8,0962
 twelve, the=disciples|disciples, His #13 [sad],13,0963
