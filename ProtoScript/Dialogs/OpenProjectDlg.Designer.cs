@@ -163,6 +163,7 @@
 			this.m_linkSFFolder.TabIndex = 5;
 			this.m_linkSFFolder.TabStop = true;
 			this.m_linkSFFolder.Text = "Folder of Standard Format files";
+			this.m_linkSFFolder.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkSFFolder_LinkClicked);
 			// 
 			// m_linkSingleSFBook
 			// 

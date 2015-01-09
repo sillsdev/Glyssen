@@ -94,5 +94,17 @@ namespace ProtoScript.Properties {
                 this["DefaultFontSize"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DefaultSfmDirectory {
+            get {
+                return ((string)(this["DefaultSfmDirectory"]));
+            }
+            set {
+                this["DefaultSfmDirectory"] = value;
+            }
+        }
     }
 }

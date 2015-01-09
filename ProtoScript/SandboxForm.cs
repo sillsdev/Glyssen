@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using L10NSharp;
@@ -65,21 +66,24 @@ namespace ProtoScript
 		{
 			Project.CreateSampleProjectIfNeeded();
 
-			using (var dlg = new OpenProjectDlg(welcome))
+			using (var dlg = new SfmProjectMetadataDlg(welcome))
 			{
 				var result = dlg.ShowDialog(this);
 				if (result == DialogResult.OK)
 				{
 					switch (dlg.Type)
 					{
-						case OpenProjectDlg.ProjectType.ExistingProject:
+						case SfmProjectMetadataDlg.ProjectType.ExistingProject:
 							LoadProject(dlg.SelectedProject);
 							break;
-						case OpenProjectDlg.ProjectType.TextReleaseBundle:
+						case SfmProjectMetadataDlg.ProjectType.TextReleaseBundle:
 							LoadBundle(dlg.SelectedProject);
 							break;
-						case OpenProjectDlg.ProjectType.StandardFormatBook:
+						case SfmProjectMetadataDlg.ProjectType.StandardFormatBook:
 							LoadSfmBook(dlg.SelectedProject);
+							break;
+						case SfmProjectMetadataDlg.ProjectType.StandardFormatFolder:
+							LoadSfmFolder(dlg.SelectedProject);
 							break;
 						default:
 							MessageBox.Show("Sorry - not implemented yet");
@@ -234,9 +238,60 @@ namespace ProtoScript
 				MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				return;
 			}
-			var availableBooks = new List<Book>{new Book{Code = book.BookId}};
-			var metadata = new DblMetadata {id = "sfm" + DateTime.Now.Ticks, language = new DblMetadataLanguage {iso = "zzz"}, AvailableBooks = availableBooks};
-			SetProject(new Project(metadata, new[] {book}, new ScrStylesheetAdapter(scrStylesheet)));
+			var availableBooks = new List<Book> { new Book { Code = book.BookId } };
+			var metadata = new DblMetadata { id = "sfm" + DateTime.Now.Ticks, language = new DblMetadataLanguage { iso = "zzz" }, AvailableBooks = availableBooks };
+			SetProject(new Project(metadata, new[] { book }, new ScrStylesheetAdapter(scrStylesheet)));
+		}
+
+		private DblMetadata GenerateMetadataFroSfmProject(IEnumerable<UsxDocument> books)
+		{
+
+		}
+
+		private void LoadSfmFolder(string sfmFolderPath)
+		{
+			ScrStylesheet scrStylesheet;
+			List<UsxDocument> books = new List<UsxDocument>();
+			try
+			{
+				string usfmStylesheetPath = Path.Combine(FileLocator.GetDirectoryDistributedWithApplication("sfm"), "usfm.sty");
+				scrStylesheet = new ScrStylesheet(usfmStylesheetPath);
+
+				Exception firstFailure = null;
+				foreach (var sfmFilePath in Directory.GetFiles(sfmFolderPath))
+				{
+					try
+					{
+						var book = new UsxDocument(UsfmToUsx.ConvertToXmlDocument(scrStylesheet, File.ReadAllText(sfmFilePath)));
+						var bookId = book.BookId;
+						if (bookId.Length != 3)
+							throw new Exception(LocalizationManager.GetString("Project.StandardFormat.InvalidBookId",
+								"Invalid Book ID: " + bookId));
+						books.Add(book);
+					}
+					catch (Exception e)
+					{
+						if (firstFailure == null)
+							firstFailure = e;
+					}
+				}
+				if (books.Count == 0)
+				{
+					if (firstFailure != null)
+						throw firstFailure;
+					throw new Exception(LocalizationManager.GetString("Project.StandardFormat.NoValidSfBooksInFolder",
+						"No valid Standard Format Scripture books were found in: " + sfmFolderPath));
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				return;
+			}
+
+			var availableBooks = books.Select(b => new Book { Code = b.BookId}).ToList();
+			var metadata = new DblMetadata { id = "sfm" + DateTime.Now.Ticks, language = new DblMetadataLanguage { iso = "zzz", name = sfmFolderPath }, AvailableBooks = availableBooks };
+			SetProject(new Project(metadata, books, new ScrStylesheetAdapter(scrStylesheet)));
 		}
 
 		private void HandleChangeQuotationMarks_Click(object sender, EventArgs e)
