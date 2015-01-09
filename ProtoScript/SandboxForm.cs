@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
@@ -233,7 +234,8 @@ namespace ProtoScript
 				MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				return;
 			}
-			var metadata = new DblMetadata {id = "sfm" + DateTime.Now.Ticks, language = new DblMetadataLanguage {iso = "zzz"}};
+			var availableBooks = new List<Book>{new Book{Code = book.BookId}};
+			var metadata = new DblMetadata {id = "sfm" + DateTime.Now.Ticks, language = new DblMetadataLanguage {iso = "zzz"}, AvailableBooks = availableBooks};
 			SetProject(new Project(metadata, new[] {book}, new ScrStylesheetAdapter(scrStylesheet)));
 		}
 
