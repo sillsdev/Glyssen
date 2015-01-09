@@ -8749,6 +8749,7 @@ MAT 19.8 character=Jesus
 MAT 2.1 character=narrator-MAT
 MAT 2.13 character=angel of the LORD, an [commanding]
 MAT 2.15 character=scripture
+MAT 2.16 character=Herod the Great
 MAT 2.18 character=scripture
 MAT 2.2 character=magi
 MAT 2.20 character=angel of the LORD, an [commanding]
