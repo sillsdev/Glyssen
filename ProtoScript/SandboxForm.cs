@@ -66,23 +66,23 @@ namespace ProtoScript
 		{
 			Project.CreateSampleProjectIfNeeded();
 
-			using (var dlg = new SfmProjectMetadataDlg(welcome))
+			using (var dlg = new OpenProjectDlg(welcome))
 			{
 				var result = dlg.ShowDialog(this);
 				if (result == DialogResult.OK)
 				{
 					switch (dlg.Type)
 					{
-						case SfmProjectMetadataDlg.ProjectType.ExistingProject:
+						case OpenProjectDlg.ProjectType.ExistingProject:
 							LoadProject(dlg.SelectedProject);
 							break;
-						case SfmProjectMetadataDlg.ProjectType.TextReleaseBundle:
+						case OpenProjectDlg.ProjectType.TextReleaseBundle:
 							LoadBundle(dlg.SelectedProject);
 							break;
-						case SfmProjectMetadataDlg.ProjectType.StandardFormatBook:
+						case OpenProjectDlg.ProjectType.StandardFormatBook:
 							LoadSfmBook(dlg.SelectedProject);
 							break;
-						case SfmProjectMetadataDlg.ProjectType.StandardFormatFolder:
+						case OpenProjectDlg.ProjectType.StandardFormatFolder:
 							LoadSfmFolder(dlg.SelectedProject);
 							break;
 						default:
@@ -219,6 +219,20 @@ namespace ProtoScript
 			}
 		}
 
+		private DblMetadata GenerateMetadataFroSfmProject(IEnumerable<UsxDocument> books, string defaultLanguageName = null)
+		{
+			string isoCode = "zzz";
+			string languageName = defaultLanguageName;
+			string projectName = "";
+
+			//using (var dlg = new )
+			//{}
+
+			var availableBooks = books.Select(b => new Book { Code = b.BookId }).ToList();
+			var metadata = new DblMetadata { id = "sfm" + DateTime.Now.Ticks, language = new DblMetadataLanguage { iso = "zzz", name = languageName }, AvailableBooks = availableBooks };
+			return metadata;
+		}
+
 		private void LoadSfmBook(string sfmFilePath)
 		{
 			ScrStylesheet scrStylesheet;
@@ -238,14 +252,9 @@ namespace ProtoScript
 				MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				return;
 			}
-			var availableBooks = new List<Book> { new Book { Code = book.BookId } };
-			var metadata = new DblMetadata { id = "sfm" + DateTime.Now.Ticks, language = new DblMetadataLanguage { iso = "zzz" }, AvailableBooks = availableBooks };
-			SetProject(new Project(metadata, new[] { book }, new ScrStylesheetAdapter(scrStylesheet)));
-		}
-
-		private DblMetadata GenerateMetadataFroSfmProject(IEnumerable<UsxDocument> books)
-		{
-
+			var books = new[] {book};
+			var metadata = GenerateMetadataFroSfmProject(books);
+			SetProject(new Project(metadata, books, new ScrStylesheetAdapter(scrStylesheet)));
 		}
 
 		private void LoadSfmFolder(string sfmFolderPath)
@@ -289,8 +298,7 @@ namespace ProtoScript
 				return;
 			}
 
-			var availableBooks = books.Select(b => new Book { Code = b.BookId}).ToList();
-			var metadata = new DblMetadata { id = "sfm" + DateTime.Now.Ticks, language = new DblMetadataLanguage { iso = "zzz", name = sfmFolderPath }, AvailableBooks = availableBooks };
+			var metadata = GenerateMetadataFroSfmProject(books, sfmFolderPath);
 			SetProject(new Project(metadata, books, new ScrStylesheetAdapter(scrStylesheet)));
 		}
 
