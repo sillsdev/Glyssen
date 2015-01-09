@@ -1,4 +1,4 @@
-Control File Version	22	Generated	Fri, 09 Jan 2015 11:37:31 GMT
+Control File Version	24	Generated	Fri, 09 Jan 2015 15:25:11 GMT
 GEN	1	3	God		God (the LORD)	False
 GEN	1	5	narrator-GEN			False
 GEN	1	6	God		God (the LORD)	False
@@ -8888,6 +8888,7 @@ LUK	18	37	crowd 3			True
 LUK	18	38	Bartimaeus	shouting	Bartimaeus, blind=blind man, a	True
 LUK	18	39	Bartimaeus	shouting	Bartimaeus, blind=blind man, a	True
 LUK	18	39	crowd 5			True
+LUK	18	40	Jesus	giving orders		False
 LUK	18	41	Bartimaeus	pleading	Bartimaeus, blind=blind man, a	True
 LUK	18	41	Jesus	questioning		True
 LUK	18	42	Jesus			True
@@ -8938,6 +8939,7 @@ LUK	20	16	people, the			True
 LUK	20	17	Jesus			True
 LUK	20	18	Jesus			False
 LUK	20	21	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			True
+LUK	20	22	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			False
 LUK	20	23	Jesus			False
 LUK	20	24	Jesus			True
 LUK	20	24	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			True
@@ -9187,6 +9189,7 @@ JHN	4	39	woman, Samaritan			False
 JHN	4	40	many Samaritans			False
 JHN	4	42	many Samaritans			True
 JHN	4	44	Jesus			False
+JHN	4	47	official, royal	pleading		False
 JHN	4	48	Jesus			True
 JHN	4	49	official, royal	pleading		True
 JHN	4	50	Jesus			True
@@ -9418,6 +9421,7 @@ JHN	11	51	Caiaphas		Caiaphas, high priest	False
 JHN	11	56	Jews, the 6			False
 JHN	12	5	Judas Iscariot	objecting		True
 JHN	12	7	Jesus			True
+JHN	12	10	chief priests	plotting		False
 JHN	12	13	disciples, the 1	praising	disciples, whole crowd of=people, many=crowd, great|crowd	True
 JHN	12	15	scripture			False
 JHN	12	19	teachers of the law/Pharisees		Pharisees 3	False
@@ -9549,6 +9553,7 @@ JHN	18	11	Jesus			True
 JHN	18	14	Caiaphas		Caiaphas, high priest	False
 JHN	18	17	girl at high priest's courtyard=servant girl			True
 JHN	18	17	Peter (Simon)	denial		True
+JHN	18	19	high priest		Annas, high priest	False
 JHN	18	20	Jesus			True
 JHN	18	22	officials, one of the	gruff		True
 JHN	18	23	Jesus			True
@@ -9581,6 +9586,7 @@ JHN	19	12	Jews, the 1		Jews, the	True
 JHN	19	14	Pilate	to crowd		True
 JHN	19	15	chief priests 2	intimidating		True
 JHN	19	15	Pilate	to crowd		True
+JHN	19	17	narrator-JHN			False
 JHN	19	19	sign on the cross			False
 JHN	19	21	chief priests/Sanhedrin 1	protest	chief priests/Sanhedrin=chief priests/whole Sanhedrin 1	True
 JHN	19	22	Pilate	impatient		True
@@ -9604,6 +9610,7 @@ JHN	20	18	Mary Magdalene			False
 JHN	20	19	Jesus			True
 JHN	20	21	Jesus			True
 JHN	20	22	Jesus			True
+JHN	20	23	Jesus			False
 JHN	20	25	disciples, the 1	excited	disciples, the (but not Thomas)	True
 JHN	20	25	Thomas	stubborn		True
 JHN	20	26	Jesus			True
@@ -9636,6 +9643,7 @@ JHN	21	21	Peter (Simon)	defensive		True
 JHN	21	22	Jesus			True
 JHN	21	23	Jesus			False
 ACT	1	4	Jesus			True
+ACT	1	5	Jesus			False
 ACT	1	6	apostles			True
 ACT	1	7	Jesus			True
 ACT	1	8	Jesus			False
@@ -9654,14 +9662,22 @@ ACT	2	14	Peter (Simon)		Peter (Simon), with Eleven	False
 ACT	2	15	Peter (Simon)		Peter (Simon), with Eleven	False
 ACT	2	16	Peter (Simon)			False
 ACT	2	17	Peter (Simon)			False
+ACT	2	18	Peter (Simon)			False
+ACT	2	19	Peter (Simon)			False
+ACT	2	20	Peter (Simon)			False
+ACT	2	21	Peter (Simon)			False
 ACT	2	22	Peter (Simon)			False
 ACT	2	23	Peter (Simon)			False
 ACT	2	24	Peter (Simon)			False
 ACT	2	25	Peter (Simon)			False
+ACT	2	26	Peter (Simon)			False
+ACT	2	27	Peter (Simon)			False
+ACT	2	28	Peter (Simon)			False
 ACT	2	29	Peter (Simon)			False
 ACT	2	30	Peter (Simon)			False
 ACT	2	31	Peter (Simon)			False
 ACT	2	32	Peter (Simon)			False
+ACT	2	33	Peter (Simon)			False
 ACT	2	34	Peter (Simon)			False
 ACT	2	35	Peter (Simon)			False
 ACT	2	36	Peter (Simon)			False
@@ -9669,10 +9685,12 @@ ACT	2	37	people 2	grieved	people 3	True
 ACT	2	38	Peter (Simon)			True
 ACT	2	39	Peter (Simon)			False
 ACT	2	40	Peter (Simon)			True
+ACT	3	2	narrator-ACT			False
 ACT	3	4	Peter (Simon)			True
 ACT	3	5	crippled man			False
 ACT	3	6	Peter (Simon)			True
 ACT	3	10	people			False
+ACT	3	11	narrator-ACT			False
 ACT	3	12	Peter (Simon)			False
 ACT	3	13	Peter (Simon)			False
 ACT	3	15	Peter (Simon)			False
@@ -9704,6 +9722,7 @@ ACT	4	26	Peter (Simon)/John/own people			False
 ACT	4	27	Peter (Simon)/John/own people			False
 ACT	4	28	Peter (Simon)/John/own people			False
 ACT	4	29	Peter (Simon)/John/own people			False
+ACT	4	36	narrator-ACT			False
 ACT	5	3	Peter (Simon)			True
 ACT	5	8	Peter (Simon)			True
 ACT	5	8	Sapphira (Ananias' wife)			True
@@ -9725,6 +9744,7 @@ ACT	5	40	council of elders:chief priests/teachers of the law			False
 ACT	5	42	apostles			False
 ACT	6	2	disciples, the 2			False
 ACT	6	3	disciples, the 2			False
+ACT	6	9	narrator-ACT			False
 ACT	6	11	Jews of Cyrene, Alexandria, Cilicia & Asia	accusing		False
 ACT	6	13	false witnesses			False
 ACT	6	14	false witnesses			False
@@ -9761,9 +9781,12 @@ ACT	9	15	Jesus		Lord	False
 ACT	9	17	Ananias	praying		False
 ACT	9	20	Paul			False
 ACT	9	21	all who heard (in synagogues)			False
+ACT	9	22	Paul			False
 ACT	9	34	Peter (Simon)			True
+ACT	9	36	narrator-ACT			False
 ACT	9	38	disciples, 2 men	urgent		False
 ACT	9	40	Peter (Simon)			False
+ACT	10	1	narrator-ACT			False
 ACT	10	3	angel of the LORD, an		angel of God, an	False
 ACT	10	4	angel of the LORD, an		angel of God, an	False
 ACT	10	4	Cornelius	afraid		False
@@ -9777,9 +9800,7 @@ ACT	10	22	men from Cornelius	respectful		True
 ACT	10	23	Peter (Simon)			False
 ACT	10	26	Peter (Simon)			True
 ACT	10	28	Peter (Simon)			True
-ACT	10	30	Cornelius	gracious		True
-ACT	10	32	Cornelius	gracious		False
-ACT	10	33	Cornelius			False
+ACT	10	30-33	Cornelius			False
 ACT	10	34	Peter (Simon)			True
 ACT	10	36	Peter (Simon)			False
 ACT	10	37	Peter (Simon)			False
@@ -9788,6 +9809,7 @@ ACT	10	39	Peter (Simon)			False
 ACT	10	41	Peter (Simon)			False
 ACT	10	42	Peter (Simon)			False
 ACT	10	47	Peter (Simon)			True
+ACT	10	48	Peter (Simon)	giving orders		False
 ACT	11	3	believers, circumcised	critical		False
 ACT	11	5	Peter (Simon)			True
 ACT	11	6	Peter (Simon)			False
@@ -9803,34 +9825,18 @@ ACT	11	23	Barnabas			False
 ACT	11	28	Agabus the prophet			False
 ACT	12	7	angel of the LORD, an	commanding		False
 ACT	12	8	angel of the LORD, an	commanding		False
-ACT	12	11	Peter (Simon)			False
+ACT	12	11	Peter (Simon)	speaking or thinking to himself		False
 ACT	12	14	Rhoda	could be a young girl		True
 ACT	12	15	people gathered to pray			True
-ACT	12	17	Peter (Simon)	stage whisper		True
+ACT	12	17	Peter (Simon)			True
+ACT	12	18	soldiers	perplexed		False
+ACT	12	19	Herod Agrippa II			False
 ACT	12	22	people 2	shouting	people 3	False
 ACT	13	2	Holy Spirit, the			False
 ACT	13	10	Paul	rebuking		False
 ACT	13	15	Good Priest	gracious	synagogue rulers|Good Priest	False
-ACT	13	16	Paul	preaching		False
-ACT	13	17	Paul			False
-ACT	13	18	Paul			False
-ACT	13	20	Paul			False
-ACT	13	22	Paul			False
-ACT	13	23	Paul			False
-ACT	13	26	Paul			False
-ACT	13	27	Paul			False
-ACT	13	28	Paul			False
-ACT	13	29	Paul			False
-ACT	13	30	Paul			False
-ACT	13	31	Paul			False
-ACT	13	32	Paul			False
-ACT	13	33	Paul			False
-ACT	13	34	Paul			False
-ACT	13	35	Paul			False
-ACT	13	36	Paul			False
-ACT	13	37	Paul			False
-ACT	13	38	Paul			False
-ACT	13	41	Paul			False
+ACT	13	16-41	Paul	preaching		False
+ACT	13	42	people 2		people in synagogue	False
 ACT	13	43	Paul		Paul/Barnabas	False
 ACT	13	46	Paul	bold	Paul/Barnabas	False
 ACT	13	47	Paul	bold	Paul/Barnabas	False
@@ -9845,22 +9851,13 @@ ACT	15	5	believers who were Pharisees			True
 ACT	15	7	Peter (Simon)			True
 ACT	15	9	Peter (Simon)			False
 ACT	15	10	Peter (Simon)			False
-ACT	15	13	James			True
-ACT	15	16	James			False
-ACT	15	17	James			False
-ACT	15	19	James			False
-ACT	15	20	James			False
-ACT	15	21	James			False
-ACT	15	23	letter from apostles and elders			False
-ACT	15	24	letter from apostles and elders			False
-ACT	15	25	letter from apostles and elders			False
-ACT	15	26	letter from apostles and elders			False
-ACT	15	27	letter from apostles and elders			False
-ACT	15	28	letter from apostles and elders			False
-ACT	15	29	letter from apostles and elders			False
+ACT	15	13-21	James			False
+ACT	15	23-29	letter from apostles and elders			False
+ACT	15	33	brothers at Antioch, the	blessing		False
 ACT	15	36	Paul			False
 ACT	15	37	Barnabas			False
 ACT	15	38	Paul			False
+ACT	15	40	brothers at Antioch, the	blessing		False
 ACT	16	9	Macedonian			False
 ACT	16	10	God		God (the LORD)	False
 ACT	16	15	Lydia			False
@@ -9868,9 +9865,11 @@ ACT	16	17	fortune telling slave girl			True
 ACT	16	18	Paul	stern		True
 ACT	16	20	owners of the slave girl	angry		True
 ACT	16	21	owners of the slave girl			False
-ACT	16	23	authorities, Philippi			False
+ACT	16	22	authorities, Philippi	giving orders		False
+ACT	16	23	authorities, Philippi	giving orders		False
 ACT	16	27	jailer	fearful		False
 ACT	16	28	Paul	shouting		True
+ACT	16	29	jailer	urgent		False
 ACT	16	30	jailer	fearful		True
 ACT	16	31	Paul		Paul and Silas	True
 ACT	16	35	officers of magistrates			False
@@ -9916,21 +9915,14 @@ ACT	19	26	Demetrius			False
 ACT	19	27	Demetrius			False
 ACT	19	28	craftsmen/workmen	furiously shouting		False
 ACT	19	31	officials, Ephesus			False
+ACT	19	33	craftsmen/workmen	furiously shouting		False
 ACT	19	34	craftsmen/workmen	furiously shouting		False
 ACT	19	35	city clerk	diplomatic		False
 ACT	19	39	city clerk	diplomatic		False
 ACT	19	40	city clerk			False
 ACT	20	10	Paul	called out		True
-ACT	20	18	Paul			False
-ACT	20	21	Paul			False
-ACT	20	22	Paul			False
-ACT	20	24	Paul			False
-ACT	20	25	Paul			False
-ACT	20	27	Paul			False
-ACT	20	28	Paul			False
-ACT	20	31	Paul			False
-ACT	20	32	Paul			False
-ACT	20	33	Paul			False
+ACT	20	16	Paul			False
+ACT	20	18-35	Paul			False
 ACT	20	38	elders, Ephesian			False
 ACT	21	4	Holy Spirit, the		Holy Spirit through disciples	False
 ACT	21	11	Agabus the prophet	proclaim		True
@@ -9943,29 +9935,15 @@ ACT	21	24	James	encouraging	James/all the elders	False
 ACT	21	25	James		James/all the elders	False
 ACT	21	28	Jews, the 7	screaming		False
 ACT	21	33	commander			False
-ACT	21	36	crowd 9	shouting louder		False
+ACT	21	34	crowd 9	shouting		False
+ACT	21	36	crowd 9	shouting		False
 ACT	21	37	commander			True
 ACT	21	37	Paul			True
 ACT	21	37	Paul	called out		True
 ACT	21	38	commander			False
 ACT	21	39	Paul			True
 ACT	21	40	commander			False
-ACT	22	1	Paul	preaching		False
-ACT	22	3	Paul	preaching		False
-ACT	22	6	Paul			False
-ACT	22	7	Paul			False
-ACT	22	8	Paul			False
-ACT	22	9	Paul			False
-ACT	22	10	Paul			False
-ACT	22	11	Paul			False
-ACT	22	12	Paul			False
-ACT	22	13	Paul			False
-ACT	22	14	Paul			False
-ACT	22	17	Paul			False
-ACT	22	18	Paul			False
-ACT	22	19	Paul			False
-ACT	22	20	Paul			False
-ACT	22	21	Paul			False
+ACT	22	1-21	Paul	preaching		False
 ACT	22	22	crowd 4	screaming		False
 ACT	22	25	Paul	stern		True
 ACT	22	26	centurion at Paul's flogging	anxious		True
@@ -10011,8 +9989,10 @@ ACT	24	18	Paul	defense to governor		False
 ACT	24	19	Paul			False
 ACT	24	22	Felix			True
 ACT	24	25	Felix	afraid		False
+ACT	25	3	chief priests and Jewish leaders			False
 ACT	25	4	Festus			False
 ACT	25	5	Festus			False
+ACT	25	6	Festus	giving orders		False
 ACT	25	7	Jews from Jerusalem			False
 ACT	25	8	Paul	defense to governor		True
 ACT	25	9	Festus			True
@@ -10026,6 +10006,7 @@ ACT	25	19	Festus			False
 ACT	25	20	Festus			False
 ACT	25	22	Festus			True
 ACT	25	22	Herod Agrippa II			True
+ACT	25	23	Festus	giving orders		False
 ACT	25	24	Festus			True
 ACT	25	25	Festus			False
 ACT	25	26	Festus			False
@@ -10063,6 +10044,7 @@ ACT	27	39	captain/crew			False
 ACT	27	43	centurion on ship with Paul			False
 ACT	28	4	islanders	suspicious		False
 ACT	28	6	islanders			False
+ACT	28	14	brothers at Puteoli, some			False
 ACT	28	17	Paul			True
 ACT	28	18	Paul			False
 ACT	28	21	Jews, the 1		Jews, leaders of the	True

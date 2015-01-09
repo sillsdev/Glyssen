@@ -51,6 +51,7 @@ Andrew=disciples, the=disciples, His #3,3,0036
 disciples, the|Andrew [giving orders],3,0036
 Andrew=twelve, the #3 [frustrated],3,0036
 Anna, prophetess,22,0037
+Annas, high priest,15,0622
 Appolos,29,0039
 Aramean soldiers,6,0041
 Araunah,28,0042
@@ -108,7 +109,6 @@ Canaanites,12,0079
 Cleopas and other (on road to Emmaus)|Cleopas [urging],3,0081
 Cleopas and other (on road to Emmaus)|Cleopas,3,0081
 Cornelius [afraid],2,0083
-Cornelius [gracious],2,0083
 Cornelius,2,0083
 Cretan prophet,8,0084
 Cyrus, king of Persia,17,0085
@@ -210,6 +210,7 @@ Felix #5 [afraid],5,0140
 Felix #5 [with authority],5,0140
 Felix #5,5,0140
 Festus,10,0141
+Festus [giving orders],10,0141
 Field commander from King of Assyria,16,0142
 Friend of Tamar,21,0143
 Gaal, son of Ebed,28,0144
@@ -738,11 +739,13 @@ Peter (Simon) [confused],13,0371
 Peter (Simon) [declare],13,0371
 Peter (Simon) [defensive],13,0371
 Peter (Simon) [denial],13,0371
+Peter (Simon) [giving orders],13,0371
 Peter (Simon) [humble],13,0371
 Peter (Simon) [passionate],13,0371
 Peter (Simon) [perplexed],13,0371
 Peter (Simon) [polite],13,0371
 Peter (Simon) [puzzled],13,0371
+Peter (Simon) [speaking or thinking to himself],13,0371
 Peter (Simon) [stage whisper],13,0371
 Peter (Simon) [stronger denial],13,0371
 Peter (Simon) [stronger],13,0371
@@ -986,7 +989,7 @@ apostles,13,0494
 assembly, whole,11,0495
 astrologers,9,0496
 attendants to Xerxes, king,11,0497
-authorities, Philippi,30,0498
+authorities, Philippi [giving orders],30,0498
 authorities, governing,30,0499
 believers who were Pharisees,17,0500
 believers, Corinth,12,0501
@@ -997,6 +1000,8 @@ beloved,23,0504
 blind man,3,0505
 blind men, two #11 [quieter],11,0506
 blind men, two #11 [shouting],11,0506
+brothers at Antioch, the [blessing],12,2001
+brothers at Puteoli, some,12,1807
 bystanders, rest #4 [jeering],4,0507
 bystanders=some standing near #3 [uneasy],3,0508
 captain, first,1,0509
@@ -1022,6 +1027,7 @@ chief priests 1 [disdain],15,0520
 chief priests 1 [worried],15,0520
 chief priests 2 [intimidating],19,0521
 chief priests,28,0522
+chief priests [plotting],28,0522
 chief priests/Pharisees 1,11,0523
 chief priests/Pharisees 2 [negotiating],15,0377
 chief priests/Pharisees [angry],29,0525
@@ -1049,6 +1055,7 @@ chief priests/teachers of the law/elders=chief priests/elders of people 2,1,0526
 chief priests/teachers of the law=chief priests/elders of people #11,11,0528
 chief priests/teachers of the law=chief priests/elders of people,11,0528
 chief priests/their officials,19,0527
+chief priests and Jewish leaders,19,2264
 children [praising],18,1530
 children of Zion (Jerusalem),18,1531
 citizens of Shechem,11,1532
@@ -1093,6 +1100,7 @@ crowd 7,3,0559
 crowd 8 [screaming],4,0560
 crowd 8 [shouting],4,0560
 crowd 8,4,0560
+crowd 9 [shouting],6,0561
 crowd 9 [shouting louder],6,0561
 crowd 10 [screaming],9,0562
 crowd 10,9,0562
@@ -1234,6 +1242,7 @@ islanders #4 [suspicious],4,0638
 islanders,4,0638
 jailer #3 [fearful],3,0639
 jailer #3 [respectful],3,0639
+jailer #3 [urgent],3,0639
 king of Sodom,12,0640
 kings of the earth,12,0641
 kings over the nations,12,0642
@@ -1472,6 +1481,7 @@ people 3 [shouting],6,0811
 people at cistern,10,0812
 people gathered to pray #24,24,0813
 people in crowd,24,0814
+people in synagogue,5,0811
 people who knew Saul,9,0815
 people's chief priests/teachers of the law|Good Priest,5,0372
 people, Gadarene,30,0816
@@ -1607,6 +1617,7 @@ soldiers, some [calling out],4,0916
 soldiers, Roman [gruff],9,0917
 soldiers, Roman [mocking],9,0917
 soldiers, Assyrian,30,0918
+soldiers [perplexed],4,2002
 soldiers/officials from chief priests/Pharisees #4 [afraid],4,0919
 soldiers/officials from chief priests/Pharisees #4 [rowdy],4,0919
 some claim we say,29,0920

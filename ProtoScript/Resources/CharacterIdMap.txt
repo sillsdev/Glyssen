@@ -113,6 +113,8 @@ blind man	0505
 blind men, two	0506
 Boaz	0072
 Book of the Wars of the LORD	0073
+brothers at Antioch, the	2001
+brothers at Puteoli, some	1807
 bystanders, rest	0507
 bystanders=some standing near	0508
 Caesar Augustus	0074
@@ -140,6 +142,7 @@ chief cupbearer	0518
 chief official	0519
 chief priests 1	0520
 chief priests 2	0521
+chief priests and Jewish leaders	2264
 chief priests	0522
 chief priests/elders 2	3377
 chief priests/elders	0528
@@ -937,6 +940,7 @@ soldier 1, enemy	0913
 soldier 2, enemy	0914
 soldier at the cross	0912
 soldier, Israelite	0915
+soldiers	2002
 soldiers, Assyrian	0918
 soldiers, Roman	0917
 soldiers, some	0916
