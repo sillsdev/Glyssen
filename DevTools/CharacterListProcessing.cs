@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace DevTools
 {
@@ -39,6 +40,9 @@ namespace DevTools
 					multiCharacters.Add(ch.Key, ch.Value);
 			}
 			File.WriteAllText(Path.Combine(kBaseDirForHelperOutput, "MultipleCharacter.txt"), TabDelimited(multiCharacters));
+			if (multiCharacters.Count > 0)
+				MessageBox.Show("Two or more numerical character IDs have the same character name.\n" +
+							"See MultipleCharacter.txt for the character IDs in question.");
 
 			characterVerses.Sort(CharacterVerse.CharacterIdComparison);
 			File.WriteAllText(Path.Combine(kBaseDirForHelperOutput, "CharacterVerse_SortCharacterId.txt"), CharacterVerse.AllTabDelimited(characterVerses));
@@ -61,6 +65,10 @@ namespace DevTools
 					multiCharacterIds.Add(ch.Key, ch.Value);
 			}
 			File.WriteAllText(Path.Combine(kBaseDirForHelperOutput, "MultipleCharacterId.txt"), TabDelimited(multiCharacterIds));
+			if (multiCharacterIds.Count > 0)
+				MessageBox.Show("Two or more characters have the same numerical character ID.\n" +
+			                "One way to resolve this is by making them aliases in AliasUtil.cs.\n" +
+			                "See MultipleCharacterId.txt or MultipleCharacterId_Extra.txt for the characters in question.");
 
 			ProcessUniqueIds(uniqueCharacterIds);
 

@@ -443,7 +443,6 @@ Jesus	0700
 Jewish authorities	0260
 Jews 1	0264
 Jews 2	3265
-Jews from Jerusalem	2264
 Jews of Cyrene, Alexandria, Cilicia & Asia	5265
 Jews, 40 in conspiracy	4265
 Jews, God-fearing from every nation 1	1262
@@ -823,7 +822,7 @@ prophet	0856
 prophet, sons of the, one	0855
 prophets (the LORD said)	0857
 prophets of Baal	0858
-prophets, 400	0859
+prophets, 400 false	0859
 prophets, their	0860
 prophets/priests	0861
 prostitute, one	0862
@@ -1050,7 +1049,7 @@ Zeba/Zalmunna	0452
 Zebul, governor of Shechem	0453
 Zechariah	0454
 Zedekiah, king of Judah	0456
-Zedekiah, son of Kenaanah, prophet	0457
+Zedekiah, son of Kenaanah, false prophet	0457
 Zeresh, wife of Haman/friends of Haman	0458
 Zerubbabel/Jeshua/rest of heads of families	0459
 Ziba	0460

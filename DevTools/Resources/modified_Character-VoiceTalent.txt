@@ -596,7 +596,7 @@ Judas Iscariot=disciples, the,14,0293
 Judas Iscariot=some in home of Simon, leper [indignant],14,0293
 Judeaisers,30,0294
 King of Ammonites,16,0295
-King of Aram [had ordered],16,1295
+King of Aram [commanding],16,1295
 King of Aram,16,1295
 King of Assyria,15,0297
 King of Babylon [said],16,0298
@@ -922,9 +922,7 @@ Zechariah, son of Jehoiada the priest (Spirit of God upon),17,0454
 Zechariah, son of Jehoiada the priest,17,0454
 Zechariah,17,0454
 Zedekiah, king of Judah,17,0456
-Zedekiah, son of Kenaanah, prophet [false prophet],12,0457
-Zedekiah, son of Kenaanah, prophet [false],12,0457
-Zedekiah, son of Kenaanah, prophet,12,0457
+Zedekiah, son of Kenaanah, false prophet,12,0457
 Zeresh, wife of Haman/friends of Haman,25,0458
 Zerubbabel/Jeshua/rest of heads of families,13,0459
 Ziba,19,0460
@@ -1542,8 +1540,7 @@ prophet, sons of the, one,13,0855
 prophet,2,0856
 prophets (the LORD said),6,0857
 prophets of Baal,8,0858
-prophets, 400 [false prophets],14,0859
-prophets, 400,14,0859
+prophets, 400 false,14,0859
 prophets, their,6,0860
 prophets/priests,17,0861
 prostitute, one,22,0862
