@@ -794,6 +794,7 @@ namespace ProtoScriptTests
 			Assert.AreEqual("First in Chapter", output[5].CharacterId);
 		}
 
+		[Test]
 		public void Parse_DialogueQuoteAtStartAndNearEnd_OneBlockBecomesTwo()
 		{
 			var block = new Block("p", 1, 17);
