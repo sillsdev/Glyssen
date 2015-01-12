@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using ProtoScript;
@@ -771,6 +772,28 @@ namespace ProtoScriptTests
 		}
 
 		[Test]
+		public void Parse_AcrossChapter_FindsCorrectCharacters()
+		{
+			var block1 = new Block("p", 1, 31) { IsParagraphStart = true };
+			block1.BlockElements.Add(new Verse("31"));
+			block1.BlockElements.Add(new ScriptText("Some text and «a quote» and more text."));
+			var blockC = new Block("c", 2, 0) { IsParagraphStart = true };
+			blockC.BlockElements.Add(new ScriptText("2"));
+			var block2 = new Block("p", 2, 1) { IsParagraphStart = true };
+			block2.BlockElements.Add(new Verse("1"));
+			block2.BlockElements.Add(new ScriptText("Text in the next chapter and «another quote»"));
+			var input = new List<Block> { block1, blockC, block2 };
+
+			CharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "GEN", input).Parse().ToList();
+			Assert.AreEqual(6, output.Count);
+			Assert.AreEqual("narrator-GEN", output[0].CharacterId);
+			Assert.AreEqual("Last in Chapter", output[1].CharacterId);
+			Assert.AreEqual("narrator-GEN", output[2].CharacterId);
+			Assert.AreEqual("narrator-GEN", output[4].CharacterId);
+			Assert.AreEqual("First in Chapter", output[5].CharacterId);
+		}
+
 		public void Parse_DialogueQuoteAtStartAndNearEnd_OneBlockBecomesTwo()
 		{
 			var block = new Block("p", 1, 17);

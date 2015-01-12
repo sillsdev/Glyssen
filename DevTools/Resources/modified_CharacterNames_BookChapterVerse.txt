@@ -1918,6 +1918,7 @@ ACT 26.4 character=Paul
 ACT 26.5 character=Paul
 ACT 26.6 character=Paul
 ACT 26.9 character=Paul
+ACT 27.1 character=narrator-ACT
 ACT 27.10 character=Paul [warning]
 ACT 27.12 character=captain/crew
 ACT 27.14 character=narrator-ACT
