@@ -16,10 +16,11 @@ namespace DevTools
 		public static void Process()
 		{
 			var allCv = ProcessJimFiles();
-			FindAliases(allCv);
+			allCv = FindAliases(allCv);
+			FindDeliveries(allCv);
 		}
 
-		static void FindAliases(List<CharacterVerse> characterVerses)
+		static List<CharacterVerse> FindAliases(List<CharacterVerse> characterVerses)
 		{
 			characterVerses.Sort(CharacterVerse.CharacterComparison);
 			File.WriteAllText(Path.Combine(kBaseDirForHelperOutput, "CharacterVerse_SortCharacter.txt"), CharacterVerse.AllTabDelimited(characterVerses));
@@ -73,6 +74,8 @@ namespace DevTools
 			ProcessUniqueIds(uniqueCharacterIds);
 
 			ProcessHelpfulVersionOfMultipleCharacterId(multiCharacterIds, characterVerses);
+
+			return characterVerses;
 		}
 
 		private static void ProcessHelpfulVersionOfMultipleCharacterId(Dictionary<string, HashSet<string>> multiCharacterIds, List<CharacterVerse> characterVerses)
@@ -225,6 +228,14 @@ namespace DevTools
 				cv.Alias = cv.Character;
 				cv.Character = character;
 			}
+		}
+
+		private static void FindDeliveries(List<CharacterVerse> allCv)
+		{
+			var deliveries = new SortedSet<string>();
+			foreach (CharacterVerse cv in allCv)
+				deliveries.Add(cv.Delivery);
+			File.WriteAllText(Path.Combine(kBaseDirForHelperOutput, "UniqueDeliveries.txt"), TabDelimited(deliveries));
 		}
 	}
 }
