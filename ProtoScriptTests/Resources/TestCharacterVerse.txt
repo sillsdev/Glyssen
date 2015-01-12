@@ -14,6 +14,8 @@ GEN	1	26	God		God (the LORD)
 GEN	1	28	God	blessing	God (the LORD)
 GEN	1	29	God		God (the LORD)
 GEN	1	30	God		God (the LORD)
+GEN	1	31	Last in Chapter		
+GEN	2	1	First in Chapter		
 GEN	2	16	God		God (the LORD)
 GEN	2	18	God		God (the LORD)
 GEN	2	23	Adam		

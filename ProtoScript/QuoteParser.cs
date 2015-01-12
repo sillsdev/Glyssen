@@ -66,6 +66,7 @@ namespace ProtoScript
 				if (quoteLevel == 1 && blockInWhichDialogueQuoteStarted != null && (!IsNormalParagraphStyle(blockInWhichDialogueQuoteStarted.StyleTag) || blockEndedWithSentenceEndingPunctuation || !IsFollowOnParagraphStyle(block.StyleTag)))
 					quoteLevel--;
 
+				bool beyondLeadingPunctuation = false;
 				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber) { IsParagraphStart = block.IsParagraphStart };
 				
 				foreach (BlockElement element in block.BlockElements)
@@ -89,6 +90,18 @@ namespace ProtoScript
 					foreach (char c in scriptText.Content)
 					{
 						string ch = Char.ToString(c);
+						if (Char.IsPunctuation(c))
+						{
+							if (!beyondLeadingPunctuation && quoteLevel > 0 && m_workingBlock.IsParagraphStart)
+							{
+								// If we are in a quote, skip any paragraph-leading punctuation for proper processing of continuation quotes
+								sb.Append(c);
+								continue;
+							}
+						}
+						else
+							beyondLeadingPunctuation = true;
+
 						if (quoteStartPending)
 						{
 							if (Char.IsWhiteSpace(c))
@@ -121,7 +134,11 @@ namespace ProtoScript
 							dialogueQuoteEndPending = false;
 							sb.Append(m_quoteSystem.QuotationDashEndMarker);
 						}
-						if (quoteLevel == 0 && IsStartOfQuote(ch))
+						if (quoteLevel > 0 && IsStartOfRegularQuote(ch) && !IsStartAndEndMarkersSame())
+							quoteLevel++;
+						else if (quoteLevel > 1 && IsEndOfRegularQuote(ch) && !IsStartAndEndMarkersSame())
+							quoteLevel--;
+						else if (quoteLevel == 0 && IsStartOfQuote(ch))
 						{
 							blockInWhichDialogueQuoteStarted = IsStartOfRegularQuote(ch) ? null : block;
 							if (c == ':') // For quotes introduced using a colon, the colon belongs with the preceding block.
@@ -299,6 +316,11 @@ namespace ProtoScript
 		private bool IsEndOfRegularQuote(string character)
 		{
 			return character.Equals(m_quoteSystem.EndQuoteMarker);
+		}
+
+		private bool IsStartAndEndMarkersSame()
+		{
+			return m_quoteSystem.StartQuoteMarker.Equals(m_quoteSystem.EndQuoteMarker);
 		}
 
 		private bool IsSentenceEnding(char c)

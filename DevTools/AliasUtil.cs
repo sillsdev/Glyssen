@@ -124,6 +124,7 @@ namespace DevTools
 			{1471, "angel of the LORD, an"},
 			{1479, "angels in white, two"},
 			{2000, "God"},
+			{2264, "chief priests and Jewish leaders"},
 			{2271, "Johanan"},
 		}; 
 	}
