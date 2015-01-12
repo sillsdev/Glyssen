@@ -7,6 +7,9 @@ using System.Windows.Forms;
 using L10NSharp;
 using L10NSharp.UI;
 using Palaso.IO;
+using Palaso.UI.WindowsForms;
+using Palaso.UI.WindowsForms.WritingSystems;
+using Palaso.WritingSystems;
 using Paratext;
 using ProtoScript.Bundle;
 using ProtoScript.Dialogs;
@@ -219,17 +222,41 @@ namespace ProtoScript
 			}
 		}
 
-		private DblMetadata GenerateMetadataFroSfmProject(IEnumerable<UsxDocument> books, string defaultLanguageName = null)
+		private DblMetadata GenerateMetadataForSfmProject(IEnumerable<UsxDocument> books, ScrStylesheetAdapter stylesheet, string defaultLanguageName = null)
 		{
-			string isoCode = "zzz";
-			string languageName = defaultLanguageName;
-			string projectName = "";
+			string projectId;
+			string isoCode;
+			string languageName;
+			string projectName;
+			var wsDefinition = new WritingSystemDefinition();
+			WritingSystemSetupModel model = new WritingSystemSetupModel(wsDefinition);
+			if (FontHelper.GetSupportsRegular("Charis SIL"))
+				stylesheet.FontFamily = "Charis SIL";
+			else
+				stylesheet.FontFamily = "Times New Roman";
+			model.CurrentDefaultFontName = stylesheet.FontFamily;
+			model.CurrentDefaultFontSize = stylesheet.FontSizeInPoints = 14;
 
-			//using (var dlg = new )
-			//{}
+			using (var dlg = new SfmProjectMetadataDlg(model))
+			{
+				dlg.LanguageName = defaultLanguageName;
+
+				if (dlg.ShowDialog(this) == DialogResult.Cancel)
+					return null;
+
+				projectId = dlg.ProjectId;
+				isoCode = dlg.IsoCode;
+				projectName = dlg.ProjectName;
+				languageName = dlg.LanguageName;
+				stylesheet.FontFamily = model.CurrentDefaultFontName;
+				stylesheet.FontSizeInPoints = (int)model.CurrentDefaultFontSize;
+			}
 
 			var availableBooks = books.Select(b => new Book { Code = b.BookId }).ToList();
-			var metadata = new DblMetadata { id = "sfm" + DateTime.Now.Ticks, language = new DblMetadataLanguage { iso = "zzz", name = languageName }, AvailableBooks = availableBooks };
+			var metadata = new DblMetadata { id = projectId,
+				identification = new DblMetadataIdentification {name = projectName},
+				language = new DblMetadataLanguage { iso = isoCode, name = languageName },
+				AvailableBooks = availableBooks };
 			return metadata;
 		}
 
@@ -253,8 +280,9 @@ namespace ProtoScript
 				return;
 			}
 			var books = new[] {book};
-			var metadata = GenerateMetadataFroSfmProject(books);
-			SetProject(new Project(metadata, books, new ScrStylesheetAdapter(scrStylesheet)));
+			var stylesheet = new ScrStylesheetAdapter(scrStylesheet);
+			var metadata = GenerateMetadataForSfmProject(books, stylesheet);
+			SetProject(metadata == null ? null : new Project(metadata, books, stylesheet));
 		}
 
 		private void LoadSfmFolder(string sfmFolderPath)
@@ -298,8 +326,9 @@ namespace ProtoScript
 				return;
 			}
 
-			var metadata = GenerateMetadataFroSfmProject(books, sfmFolderPath);
-			SetProject(new Project(metadata, books, new ScrStylesheetAdapter(scrStylesheet)));
+			var stylesheet = new ScrStylesheetAdapter(scrStylesheet);
+			var metadata = GenerateMetadataForSfmProject(books, stylesheet, Path.GetFileName(sfmFolderPath));
+			SetProject(metadata == null ? null : new Project(metadata, books, stylesheet));
 		}
 
 		private void HandleChangeQuotationMarks_Click(object sender, EventArgs e)

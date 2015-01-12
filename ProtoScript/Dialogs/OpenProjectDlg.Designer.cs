@@ -248,7 +248,7 @@
 			this.Controls.Add(this.m_tableLayoutPanelMain);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this, "OpenProjectDialog.OpenProject");
+			this.m_l10NSharpExtender.SetLocalizingId(this, "OpenProjectDialog.WindowTitle");
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(420, 382);

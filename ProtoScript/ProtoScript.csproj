@@ -2,7 +2,7 @@
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects> 
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{45321F2E-174C-482A-BDA1-BF199366FBD6}</ProjectGuid>
@@ -150,6 +150,12 @@
       <DependentUpon>ScriptureRangeSelectionDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\SelectProjectDialog.cs" />
+    <Compile Include="Dialogs\SfmProjectMetadataDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\SfmProjectMetadataDlg.Designer.cs">
+      <DependentUpon>SfmProjectMetadataDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="ICharacterVerseInfo.cs" />
     <Compile Include="IScrBook.cs" />
     <Compile Include="IStylesheet.cs" />
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ScriptureRangeSelectionDialog.resx">
       <DependentUpon>ScriptureRangeSelectionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\SfmProjectMetadataDlg.resx">
+      <DependentUpon>SfmProjectMetadataDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SandboxForm.resx">
       <DependentUpon>SandboxForm.cs</DependentUpon>
