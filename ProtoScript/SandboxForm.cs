@@ -255,8 +255,10 @@ namespace ProtoScript
 			var availableBooks = books.Select(b => new Book { Code = b.BookId }).ToList();
 			var metadata = new DblMetadata { id = projectId,
 				identification = new DblMetadataIdentification {name = projectName},
-				language = new DblMetadataLanguage { iso = isoCode, name = languageName },
-				AvailableBooks = availableBooks };
+				language = new DblMetadataLanguage { iso = isoCode, name = languageName, scriptDirection = model.CurrentRightToLeftScript ? "RTL" : "LTR" },
+				AvailableBooks = availableBooks,
+				FontFamily = stylesheet.FontFamily,
+				FontSizeInPoints = stylesheet.FontSizeInPoints };
 			return metadata;
 		}
 

@@ -127,6 +127,7 @@ namespace ProtoScript.Bundle
 		public string ldml;
 		public string rod;
 		public string script;
+		[DefaultValue("LTR")]
 		public string scriptDirection;
 		public string numerals;
 
