@@ -34,16 +34,23 @@
 			this.m_btnPrevious = new System.Windows.Forms.Button();
 			this.m_btnAssign = new System.Windows.Forms.Button();
 			this.m_labelReference = new System.Windows.Forms.Label();
-			this.m_linkLabelChapter = new System.Windows.Forms.LinkLabel();
-			this.m_linkLabelBook = new System.Windows.Forms.LinkLabel();
-			this.m_linkLabelAll = new System.Windows.Forms.LinkLabel();
 			this.m_labelWhoSpeaks = new System.Windows.Forms.Label();
 			this.m_labelXofY = new System.Windows.Forms.Label();
-			this.m_progressBar = new ProtoScript.Controls.ProgressBarUnanimated();
-			this.m_blocksDisplayBrowser = new ProtoScript.Controls.Browser();
+			this.m_llMoreChar = new System.Windows.Forms.LinkLabel();
+			this.m_txtBoxCharacterFilter = new System.Windows.Forms.TextBox();
+			this.m_picBoxSearchChar = new System.Windows.Forms.PictureBox();
+			this.m_lblCharacter = new System.Windows.Forms.Label();
+			this.m_lblDelivery = new System.Windows.Forms.Label();
+			this.m_llMoreDel = new System.Windows.Forms.LinkLabel();
+			this.m_picBoxSearchDel = new System.Windows.Forms.PictureBox();
+			this.m_txtBoxDeliveryFilter = new System.Windows.Forms.TextBox();
 			this.m_listBoxCharacters = new System.Windows.Forms.ListBox();
 			this.m_listBoxDeliveries = new System.Windows.Forms.ListBox();
+			this.m_progressBar = new ProtoScript.Controls.ProgressBarUnanimated();
+			this.m_blocksDisplayBrowser = new ProtoScript.Controls.Browser();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_picBoxSearchChar)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_picBoxSearchDel)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// m_l10NSharpExtender
@@ -57,7 +64,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnNext, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnNext, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnNext, "Common.Next");
-			this.m_btnNext.Location = new System.Drawing.Point(543, 503);
+			this.m_btnNext.Location = new System.Drawing.Point(543, 495);
 			this.m_btnNext.Name = "m_btnNext";
 			this.m_btnNext.Size = new System.Drawing.Size(75, 23);
 			this.m_btnNext.TabIndex = 4;
@@ -71,7 +78,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnPrevious, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnPrevious, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnPrevious, "Common.Previous");
-			this.m_btnPrevious.Location = new System.Drawing.Point(402, 503);
+			this.m_btnPrevious.Location = new System.Drawing.Point(402, 495);
 			this.m_btnPrevious.Name = "m_btnPrevious";
 			this.m_btnPrevious.Size = new System.Drawing.Size(75, 23);
 			this.m_btnPrevious.TabIndex = 3;
@@ -85,7 +92,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAssign, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAssign, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAssign, "AssignCharacterDialog.AssignCharacter");
-			this.m_btnAssign.Location = new System.Drawing.Point(523, 417);
+			this.m_btnAssign.Location = new System.Drawing.Point(523, 455);
 			this.m_btnAssign.Name = "m_btnAssign";
 			this.m_btnAssign.Size = new System.Drawing.Size(95, 23);
 			this.m_btnAssign.TabIndex = 2;
@@ -96,66 +103,26 @@
 			// m_labelReference
 			// 
 			this.m_labelReference.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_labelReference.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_labelReference, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_labelReference, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_labelReference, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelReference, "AssignCharacterDialog.label1");
-			this.m_labelReference.Location = new System.Drawing.Point(251, 36);
+			this.m_labelReference.Location = new System.Drawing.Point(251, 19);
 			this.m_labelReference.Name = "m_labelReference";
 			this.m_labelReference.Size = new System.Drawing.Size(144, 13);
 			this.m_labelReference.TabIndex = 5;
 			this.m_labelReference.Text = "Reference";
 			this.m_labelReference.TextAlign = System.Drawing.ContentAlignment.TopRight;
 			// 
-			// m_linkLabelChapter
-			// 
-			this.m_linkLabelChapter.AutoSize = true;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkLabelChapter, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkLabelChapter, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLabelChapter, "AssignCharacterDialog.ShowChapter");
-			this.m_linkLabelChapter.Location = new System.Drawing.Point(426, 227);
-			this.m_linkLabelChapter.Name = "m_linkLabelChapter";
-			this.m_linkLabelChapter.Size = new System.Drawing.Size(150, 13);
-			this.m_linkLabelChapter.TabIndex = 6;
-			this.m_linkLabelChapter.TabStop = true;
-			this.m_linkLabelChapter.Text = "Show all characters in chapter";
-			this.m_linkLabelChapter.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkLabelChapter_LinkClicked);
-			// 
-			// m_linkLabelBook
-			// 
-			this.m_linkLabelBook.AutoSize = true;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkLabelBook, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkLabelBook, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLabelBook, "AssignCharacterDialog.ShowBook");
-			this.m_linkLabelBook.Location = new System.Drawing.Point(426, 244);
-			this.m_linkLabelBook.Name = "m_linkLabelBook";
-			this.m_linkLabelBook.Size = new System.Drawing.Size(138, 13);
-			this.m_linkLabelBook.TabIndex = 7;
-			this.m_linkLabelBook.TabStop = true;
-			this.m_linkLabelBook.Text = "Show all characters in book";
-			this.m_linkLabelBook.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkLabelBook_LinkClicked);
-			// 
-			// m_linkLabelAll
-			// 
-			this.m_linkLabelAll.AutoSize = true;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkLabelAll, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkLabelAll, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLabelAll, "AssignCharacterDialog.ShowAll");
-			this.m_linkLabelAll.Location = new System.Drawing.Point(426, 261);
-			this.m_linkLabelAll.Name = "m_linkLabelAll";
-			this.m_linkLabelAll.Size = new System.Drawing.Size(100, 13);
-			this.m_linkLabelAll.TabIndex = 9;
-			this.m_linkLabelAll.TabStop = true;
-			this.m_linkLabelAll.Text = "Show all characters";
-			this.m_linkLabelAll.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkLabelAll_LinkClicked);
-			// 
 			// m_labelWhoSpeaks
 			// 
 			this.m_labelWhoSpeaks.AutoSize = true;
+			this.m_labelWhoSpeaks.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_labelWhoSpeaks, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_labelWhoSpeaks, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelWhoSpeaks, "AssignCharacterDialog.WhoSpeaks");
-			this.m_labelWhoSpeaks.Location = new System.Drawing.Point(13, 36);
+			this.m_labelWhoSpeaks.Location = new System.Drawing.Point(13, 19);
 			this.m_labelWhoSpeaks.Name = "m_labelWhoSpeaks";
 			this.m_labelWhoSpeaks.Size = new System.Drawing.Size(113, 13);
 			this.m_labelWhoSpeaks.TabIndex = 10;
@@ -163,15 +130,142 @@
 			// 
 			// m_labelXofY
 			// 
+			this.m_labelXofY.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_labelXofY, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_labelXofY, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelXofY, "AssignCharacterDialog.XofY");
-			this.m_labelXofY.Location = new System.Drawing.Point(478, 505);
+			this.m_labelXofY.Location = new System.Drawing.Point(478, 497);
 			this.m_labelXofY.Name = "m_labelXofY";
 			this.m_labelXofY.Size = new System.Drawing.Size(64, 18);
 			this.m_labelXofY.TabIndex = 11;
 			this.m_labelXofY.Text = "{0} of {1}";
 			this.m_labelXofY.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// m_llMoreChar
+			// 
+			this.m_llMoreChar.AutoSize = true;
+			this.m_llMoreChar.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreChar, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llMoreChar, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_llMoreChar, "AssignCharacterDialog.MoreCharacters");
+			this.m_llMoreChar.Location = new System.Drawing.Point(410, 257);
+			this.m_llMoreChar.Name = "m_llMoreChar";
+			this.m_llMoreChar.Size = new System.Drawing.Size(85, 13);
+			this.m_llMoreChar.TabIndex = 13;
+			this.m_llMoreChar.TabStop = true;
+			this.m_llMoreChar.Text = "More Characters";
+			this.m_llMoreChar.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.m_llMoreChar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkLabelMore_LinkClicked);
+			// 
+			// m_txtBoxCharacterFilter
+			// 
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtBoxCharacterFilter, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtBoxCharacterFilter, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtBoxCharacterFilter, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtBoxCharacterFilter, "AssignCharacterDialog.textBox1");
+			this.m_txtBoxCharacterFilter.Location = new System.Drawing.Point(413, 59);
+			this.m_txtBoxCharacterFilter.Name = "m_txtBoxCharacterFilter";
+			this.m_txtBoxCharacterFilter.Size = new System.Drawing.Size(181, 20);
+			this.m_txtBoxCharacterFilter.TabIndex = 14;
+			this.m_txtBoxCharacterFilter.TextChanged += new System.EventHandler(this.m_txtBoxCharacterFilter_TextChanged);
+			// 
+			// m_picBoxSearchChar
+			// 
+			this.m_picBoxSearchChar.Image = global::ProtoScript.Properties.Resources.search_glyph;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_picBoxSearchChar, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_picBoxSearchChar, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_picBoxSearchChar, "AssignCharacterDialog.pictureBox1");
+			this.m_picBoxSearchChar.Location = new System.Drawing.Point(600, 59);
+			this.m_picBoxSearchChar.Name = "m_picBoxSearchChar";
+			this.m_picBoxSearchChar.Size = new System.Drawing.Size(18, 20);
+			this.m_picBoxSearchChar.TabIndex = 15;
+			this.m_picBoxSearchChar.TabStop = false;
+			// 
+			// m_lblCharacter
+			// 
+			this.m_lblCharacter.AutoSize = true;
+			this.m_lblCharacter.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblCharacter, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblCharacter, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblCharacter, "AssignCharacterDialog.Character");
+			this.m_lblCharacter.Location = new System.Drawing.Point(410, 43);
+			this.m_lblCharacter.Name = "m_lblCharacter";
+			this.m_lblCharacter.Size = new System.Drawing.Size(53, 13);
+			this.m_lblCharacter.TabIndex = 16;
+			this.m_lblCharacter.Text = "Character";
+			// 
+			// m_lblDelivery
+			// 
+			this.m_lblDelivery.AutoSize = true;
+			this.m_lblDelivery.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblDelivery, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblDelivery, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblDelivery, "AssignCharacterDialog.Delivery");
+			this.m_lblDelivery.Location = new System.Drawing.Point(410, 298);
+			this.m_lblDelivery.Name = "m_lblDelivery";
+			this.m_lblDelivery.Size = new System.Drawing.Size(45, 13);
+			this.m_lblDelivery.TabIndex = 17;
+			this.m_lblDelivery.Text = "Delivery";
+			// 
+			// m_llMoreDel
+			// 
+			this.m_llMoreDel.AutoSize = true;
+			this.m_llMoreDel.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+			this.m_llMoreDel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreDel, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llMoreDel, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_llMoreDel, "AssignCharacterDialog.MoreDeliveries");
+			this.m_llMoreDel.Location = new System.Drawing.Point(410, 434);
+			this.m_llMoreDel.Name = "m_llMoreDel";
+			this.m_llMoreDel.Size = new System.Drawing.Size(80, 13);
+			this.m_llMoreDel.TabIndex = 18;
+			this.m_llMoreDel.TabStop = true;
+			this.m_llMoreDel.Text = "More Deliveries";
+			this.m_llMoreDel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_llMoreDel_LinkClicked);
+			// 
+			// m_picBoxSearchDel
+			// 
+			this.m_picBoxSearchDel.Image = global::ProtoScript.Properties.Resources.search_glyph;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_picBoxSearchDel, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_picBoxSearchDel, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_picBoxSearchDel, "AssignCharacterDialog.pictureBox1");
+			this.m_picBoxSearchDel.Location = new System.Drawing.Point(600, 314);
+			this.m_picBoxSearchDel.Name = "m_picBoxSearchDel";
+			this.m_picBoxSearchDel.Size = new System.Drawing.Size(18, 20);
+			this.m_picBoxSearchDel.TabIndex = 20;
+			this.m_picBoxSearchDel.TabStop = false;
+			// 
+			// m_txtBoxDeliveryFilter
+			// 
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtBoxDeliveryFilter, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtBoxDeliveryFilter, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtBoxDeliveryFilter, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtBoxDeliveryFilter, "AssignCharacterDialog.textBox1");
+			this.m_txtBoxDeliveryFilter.Location = new System.Drawing.Point(413, 314);
+			this.m_txtBoxDeliveryFilter.Name = "m_txtBoxDeliveryFilter";
+			this.m_txtBoxDeliveryFilter.Size = new System.Drawing.Size(181, 20);
+			this.m_txtBoxDeliveryFilter.TabIndex = 19;
+			this.m_txtBoxDeliveryFilter.TextChanged += new System.EventHandler(this.m_txtBoxDeliveryFilter_TextChanged);
+			// 
+			// m_listBoxCharacters
+			// 
+			this.m_listBoxCharacters.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.m_listBoxCharacters.FormattingEnabled = true;
+			this.m_listBoxCharacters.Location = new System.Drawing.Point(413, 59);
+			this.m_listBoxCharacters.Name = "m_listBoxCharacters";
+			this.m_listBoxCharacters.Size = new System.Drawing.Size(205, 195);
+			this.m_listBoxCharacters.TabIndex = 0;
+			this.m_listBoxCharacters.SelectedIndexChanged += new System.EventHandler(this.m_listBoxCharacters_SelectedIndexChanged);
+			// 
+			// m_listBoxDeliveries
+			// 
+			this.m_listBoxDeliveries.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.m_listBoxDeliveries.FormattingEnabled = true;
+			this.m_listBoxDeliveries.Location = new System.Drawing.Point(413, 314);
+			this.m_listBoxDeliveries.Name = "m_listBoxDeliveries";
+			this.m_listBoxDeliveries.Size = new System.Drawing.Size(205, 117);
+			this.m_listBoxDeliveries.TabIndex = 1;
+			this.m_listBoxDeliveries.SelectedIndexChanged += new System.EventHandler(this.m_listBoxDeliveries_SelectedIndexChanged);
 			// 
 			// m_progressBar
 			// 
@@ -190,59 +284,50 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksDisplayBrowser, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_blocksDisplayBrowser, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksDisplayBrowser, "ProjectSettingsDialog.Browser");
-			this.m_blocksDisplayBrowser.Location = new System.Drawing.Point(12, 60);
+			this.m_blocksDisplayBrowser.Location = new System.Drawing.Point(12, 43);
 			this.m_blocksDisplayBrowser.Name = "m_blocksDisplayBrowser";
-			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(383, 466);
+			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(383, 475);
 			this.m_blocksDisplayBrowser.TabIndex = 2;
-			// 
-			// m_listBoxCharacters
-			// 
-			this.m_listBoxCharacters.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.m_listBoxCharacters.FormattingEnabled = true;
-			this.m_listBoxCharacters.Location = new System.Drawing.Point(413, 60);
-			this.m_listBoxCharacters.Name = "m_listBoxCharacters";
-			this.m_listBoxCharacters.Size = new System.Drawing.Size(205, 156);
-			this.m_listBoxCharacters.TabIndex = 0;
-			this.m_listBoxCharacters.SelectedIndexChanged += new System.EventHandler(this.m_listBoxCharacters_SelectedIndexChanged);
-			// 
-			// m_listBoxDeliveries
-			// 
-			this.m_listBoxDeliveries.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.m_listBoxDeliveries.FormattingEnabled = true;
-			this.m_listBoxDeliveries.Location = new System.Drawing.Point(413, 293);
-			this.m_listBoxDeliveries.Name = "m_listBoxDeliveries";
-			this.m_listBoxDeliveries.Size = new System.Drawing.Size(205, 104);
-			this.m_listBoxDeliveries.TabIndex = 1;
-			this.m_listBoxDeliveries.SelectedIndexChanged += new System.EventHandler(this.m_listBoxDeliveries_SelectedIndexChanged);
 			// 
 			// AssignCharacterDialog
 			// 
 			this.AcceptButton = this.m_btnAssign;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(630, 561);
+			this.Controls.Add(this.m_picBoxSearchDel);
+			this.Controls.Add(this.m_txtBoxDeliveryFilter);
+			this.Controls.Add(this.m_llMoreDel);
+			this.Controls.Add(this.m_lblDelivery);
+			this.Controls.Add(this.m_lblCharacter);
+			this.Controls.Add(this.m_picBoxSearchChar);
+			this.Controls.Add(this.m_txtBoxCharacterFilter);
+			this.Controls.Add(this.m_llMoreChar);
 			this.Controls.Add(this.m_progressBar);
 			this.Controls.Add(this.m_labelXofY);
 			this.Controls.Add(this.m_labelWhoSpeaks);
-			this.Controls.Add(this.m_linkLabelAll);
 			this.Controls.Add(this.m_listBoxDeliveries);
-			this.Controls.Add(this.m_linkLabelBook);
-			this.Controls.Add(this.m_linkLabelChapter);
 			this.Controls.Add(this.m_labelReference);
 			this.Controls.Add(this.m_listBoxCharacters);
 			this.Controls.Add(this.m_btnAssign);
 			this.Controls.Add(this.m_blocksDisplayBrowser);
 			this.Controls.Add(this.m_btnPrevious);
 			this.Controls.Add(this.m_btnNext);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this, "AssignCharacterDialog.AssignCharacter");
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "AssignCharacterDialog";
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Assign Character";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AssignCharacterDialog_FormClosing);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_picBoxSearchChar)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_picBoxSearchDel)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -257,12 +342,17 @@
 		private System.Windows.Forms.Button m_btnAssign;
 		private System.Windows.Forms.ListBox m_listBoxCharacters;
 		private System.Windows.Forms.Label m_labelReference;
-		private System.Windows.Forms.LinkLabel m_linkLabelChapter;
-		private System.Windows.Forms.LinkLabel m_linkLabelBook;
 		private System.Windows.Forms.ListBox m_listBoxDeliveries;
-		private System.Windows.Forms.LinkLabel m_linkLabelAll;
 		private System.Windows.Forms.Label m_labelWhoSpeaks;
 		private System.Windows.Forms.Label m_labelXofY;
 		private ProtoScript.Controls.ProgressBarUnanimated m_progressBar;
+		private System.Windows.Forms.LinkLabel m_llMoreChar;
+		private System.Windows.Forms.TextBox m_txtBoxCharacterFilter;
+		private System.Windows.Forms.PictureBox m_picBoxSearchChar;
+		private System.Windows.Forms.Label m_lblCharacter;
+		private System.Windows.Forms.Label m_lblDelivery;
+		private System.Windows.Forms.LinkLabel m_llMoreDel;
+		private System.Windows.Forms.PictureBox m_picBoxSearchDel;
+		private System.Windows.Forms.TextBox m_txtBoxDeliveryFilter;
 	}
 }

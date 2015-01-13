@@ -175,6 +175,7 @@
     <Compile Include="Style.cs" />
     <Compile Include="UsxParser.cs" />
     <Compile Include="UsxStylesheet.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Utilities\Zip.cs" />
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
@@ -245,6 +246,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\CharacterVerse.txt" />
+    <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

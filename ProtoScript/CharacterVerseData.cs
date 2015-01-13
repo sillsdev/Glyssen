@@ -35,6 +35,8 @@ namespace ProtoScript
 		private static CharacterVerseData s_singleton;
 
 		private IEnumerable<CharacterVerse> m_data;
+		private IEnumerable<CharacterVerse> m_uniqueCharacterAndDeliveries;
+		private IEnumerable<string> m_uniqueDeliveries; 
 
 		internal static string TabDelimitedCharacterVerseData { get; set; }
 
@@ -70,9 +72,9 @@ namespace ProtoScript
 			return false;
 		}
 
-		public static string GetStandardCharacterId(string bookID, StandardCharacter standardCharacterType)
+		public static string GetStandardCharacterId(string bookId, StandardCharacter standardCharacterType)
 		{
-			return GetCharacterPrefix(standardCharacterType) + bookID;
+			return GetCharacterPrefix(standardCharacterType) + bookId;
 		}
 
 		private static string GetCharacterPrefix(StandardCharacter standardCharacterType)
@@ -106,19 +108,24 @@ namespace ProtoScript
 			return m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter && cv.Verse >= startVerse && cv.Verse <= endVerse);
 		}
 
-		public IEnumerable<CharacterVerse> GetUniqueCharacters()
+		public IEnumerable<CharacterVerse> GetUniqueCharacterAndDeliveries()
 		{
-			return new SortedSet<CharacterVerse>(m_data, new CharacterDeliveryComparer());
+			return m_uniqueCharacterAndDeliveries ?? (m_uniqueCharacterAndDeliveries = new SortedSet<CharacterVerse>(m_data, new CharacterDeliveryComparer()));
 		}
 
-		public IEnumerable<CharacterVerse> GetUniqueCharacters(string bookCode)
+		public IEnumerable<CharacterVerse> GetUniqueCharacterAndDeliveries(string bookCode)
 		{
 			return new SortedSet<CharacterVerse>(m_data.Where(cv => cv.BookCode == bookCode), new CharacterDeliveryComparer());
 		}
 
-		public IEnumerable<CharacterVerse> GetUniqueCharacters(string bookCode, int chapter)
+		public IEnumerable<CharacterVerse> GetUniqueCharacterAndDeliveries(string bookCode, int chapter)
 		{
 			return new SortedSet<CharacterVerse>(m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter), new CharacterDeliveryComparer());
+		}
+
+		public IEnumerable<string> GetUniqueDeliveries()
+		{
+			return m_uniqueDeliveries ?? (m_uniqueDeliveries = new SortedSet<string>(m_data.Select(cv => cv.Delivery).Where(d => !string.IsNullOrEmpty(d))));
 		}
 
 		public IEnumerable<CharacterVerse> GetAllQuoteInfo(string bookId)
@@ -154,7 +161,7 @@ namespace ProtoScript
 					list.Add(new CharacterVerse
 					{
 						BcvRef = new BCVRef(BCVRef.BookToNumber(items[0]), chapter, verse),
-						Character = items[3], 
+						Character = items[3],
 						Delivery = items[4],
 						Alias = items[5],
 						IsDialogue = (items.Length == 7 && items[6].Equals("True", StringComparison.OrdinalIgnoreCase))
@@ -163,6 +170,8 @@ namespace ProtoScript
 			if (!list.Any())
 				throw new ApplicationException("No character verse data available!");
 			m_data = list;
+			m_uniqueCharacterAndDeliveries = null;
+			m_uniqueDeliveries = null;
 		}
 
 	}

@@ -61,23 +61,20 @@ namespace ProtoScript.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	6	Generated	Wed, 10 Dec 2014 15:12:22 GMT
-        ///GEN	1	3	God		God (the LORD)
-        ///GEN	1	5	narrator-GEN		
-        ///GEN	1	6	God		God (the LORD)
-        ///GEN	1	8	narrator-GEN		
-        ///GEN	1	9	God		God (the LORD)
-        ///GEN	1	10	narrator-GEN		
-        ///GEN	1	11	God		God (the LORD)
-        ///GEN	1	14	God		God (the LORD)
-        ///GEN	1	20	God		God (the LORD)
-        ///GEN	1	22	God		God (the LORD)
-        ///GEN	1	24	God		God (the LORD)
-        ///GEN	1	26	God		God (the LORD)
-        ///GEN	1	28	God	blessing	God (the LORD)
-        ///GEN	1	29	God		God (the LORD)
-        ///GEN	1	30	God		God (the LORD)
-        ///GEN	2	16	G [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Control File Version	26	Generated	Mon, 12 Jan 2015 10:12:17 GMT
+        ///GEN	1	3	God		God (the LORD)	False
+        ///GEN	1	5	narrator-GEN			False
+        ///GEN	1	6	God		God (the LORD)	False
+        ///GEN	1	8	narrator-GEN			False
+        ///GEN	1	9	God		God (the LORD)	False
+        ///GEN	1	10	narrator-GEN			False
+        ///GEN	1	11	God		God (the LORD)	False
+        ///GEN	1	14	God		God (the LORD)	False
+        ///GEN	1	20	God		God (the LORD)	False
+        ///GEN	1	22	God		God (the LORD)	False
+        ///GEN	1	24	God		God (the LORD)	False
+        ///GEN	1	26	God		God (the LORD)	False
+        ///GEN	1	28	God	blessing	God (the LORD [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CharacterVerseData {
             get {
@@ -93,16 +90,14 @@ namespace ProtoScript.Properties {
         ///		&lt;StartQuoteMarker&gt;“&lt;/StartQuoteMarker&gt;
         ///		&lt;EndQuoteMarker&gt;”&lt;/EndQuoteMarker&gt;
         ///	&lt;/QuoteSystem&gt;
-        ///	&lt;QuoteSystem&gt;
-        ///		&lt;Name&gt;Guillemets&lt;/Name&gt;
-        ///		&lt;MajorLanguage&gt;French&lt;/MajorLanguage&gt;
-        ///		&lt;StartQuoteMarker&gt;«&lt;/StartQuoteMarker&gt;
-        ///		&lt;EndQuoteMarker&gt;»&lt;/EndQuoteMarker&gt;
+        ///  	&lt;QuoteSystem&gt;
+        ///		&lt;Name&gt;Tırnak işareti (with 2014 Quotation dash)&lt;/Name&gt;
+        ///		&lt;MajorLanguage&gt;Turkish/Vietnamese&lt;/MajorLanguage&gt;
+        ///		&lt;StartQuoteMarker&gt;“&lt;/StartQuoteMarker&gt;
+        ///		&lt;EndQuoteMarker&gt;”&lt;/EndQuoteMarker&gt;
+        ///    &lt;QuotationDashMarker&gt;—&lt;/QuotationDashMarker&gt;
         ///	&lt;/QuoteSystem&gt;
-        ///	&lt;QuoteSystem&gt;
-        ///		&lt;Name&gt;Quotation marks, single&lt;/Name&gt;
-        ///		&lt;MajorLanguage&gt;English, UK&lt;/MajorLanguage&gt;
-        ///		&lt;Star [rest of string was truncated]&quot;;.
+        ///  	&lt;QuoteSyste [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string QuoteSystemData {
             get {
@@ -127,6 +122,16 @@ namespace ProtoScript.Properties {
         internal static string SampleMRK {
             get {
                 return ResourceManager.GetString("SampleMRK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search_glyph {
+            get {
+                object obj = ResourceManager.GetObject("search_glyph", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

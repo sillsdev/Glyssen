@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -41,10 +42,19 @@ namespace ProtoScript.Dialogs
 		private IEnumerable<string> m_deliveries;
 		private bool m_showVerseNumbers = true; // May make this configurable later
 		private ToolTip m_toolTip;
+		private IEnumerable<CharacterVerse> m_charactersInBook;
+		private readonly Size m_listBoxCharactersOriginalSize;
+		private readonly Point m_listBoxCharactersOriginalLocation;
+		private readonly Size m_listBoxDeliveriesOriginalSize;
+		private readonly Point m_listBoxDeliveriesOriginalLocation;
 
 		public AssignCharacterDialog()
 		{
 			InitializeComponent();
+			m_listBoxCharactersOriginalSize = m_listBoxCharacters.Size;
+			m_listBoxCharactersOriginalLocation = m_listBoxCharacters.Location;
+			m_listBoxDeliveriesOriginalSize = m_listBoxDeliveries.Size;
+			m_listBoxDeliveriesOriginalLocation = m_listBoxDeliveries.Location;
 			HandleStringsLocalized();
 
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
@@ -133,6 +143,7 @@ namespace ProtoScript.Dialogs
 
 			SendScrReference(currRef);
 
+			HideCharacterFilter();
 			m_btnAssign.Enabled = false;
 
 			LoadCharacterListBox(CharacterVerseData.Singleton.GetCharacters(book, chapter, verse));
@@ -183,6 +194,46 @@ namespace ProtoScript.Dialogs
 			m_btnAssign.Enabled = characterAndDeliverySelected && IsDirty();
 		}
 
+		private void ShowCharacterFilter()
+		{
+			m_txtBoxCharacterFilter.Show();
+			m_picBoxSearchChar.Show();
+			var verticalAdjustment = m_txtBoxCharacterFilter.Size.Height + 5;
+			m_listBoxCharacters.Location = new Point(m_listBoxCharacters.Location.X, m_listBoxCharacters.Location.Y + verticalAdjustment);
+			m_listBoxCharacters.Size = new Size(m_listBoxCharacters.Size.Width, m_listBoxCharacters.Size.Height - verticalAdjustment);
+			m_llMoreChar.Enabled = false;
+		}
+
+		private void HideCharacterFilter()
+		{
+			m_txtBoxCharacterFilter.Clear();
+			m_txtBoxCharacterFilter.Hide();
+			m_picBoxSearchChar.Hide();
+			m_listBoxCharacters.Location = m_listBoxCharactersOriginalLocation;
+			m_listBoxCharacters.Size = m_listBoxCharactersOriginalSize;
+			m_llMoreChar.Enabled = true;
+		}
+
+		private void ShowDeliveryFilter()
+		{
+			m_txtBoxDeliveryFilter.Show();
+			m_picBoxSearchDel.Show();
+			var verticalAdjustment = m_txtBoxDeliveryFilter.Size.Height + 5;
+			m_listBoxDeliveries.Location = new Point(m_listBoxDeliveries.Location.X, m_listBoxDeliveries.Location.Y + verticalAdjustment);
+			m_listBoxDeliveries.Size = new Size(m_listBoxDeliveries.Size.Width, m_listBoxDeliveries.Size.Height - verticalAdjustment);
+			m_llMoreDel.Enabled = false;
+		}
+
+		private void HideDeliveryFilter()
+		{
+			m_txtBoxDeliveryFilter.Clear();
+			m_txtBoxDeliveryFilter.Hide();
+			m_picBoxSearchDel.Hide();
+			m_listBoxDeliveries.Location = m_listBoxDeliveriesOriginalLocation;
+			m_listBoxDeliveries.Size = m_listBoxDeliveriesOriginalSize;
+			m_llMoreDel.Enabled = true;
+		}
+
 		private bool IsDirty()
 		{
 			BookScript currentBook = m_navigator.CurrentBook;
@@ -218,7 +269,7 @@ namespace ProtoScript.Dialogs
 			LoadBlock();
 		}
 
-		private void LoadCharacterListBox(IEnumerable<CharacterVerse> characters)
+		private void LoadCharacterListBox(IEnumerable<CharacterVerse> characters, bool expandListIfNone = true)
 		{
 			m_characters = characters;
 
@@ -226,11 +277,12 @@ namespace ProtoScript.Dialogs
 
 			m_listBoxCharacters.Items.Clear();
 			m_listBoxDeliveries.Items.Clear();
+			HideDeliveryFilter();
 
 			m_listBoxCharacters.Items.Add(m_narrator);
 			AddItemsToCharacterListBox(m_characters);
 
-			if (m_listBoxCharacters.Items.Count < 2)
+			if (expandListIfNone && m_listBoxCharacters.Items.Count < 2)
 				ExpandCharactersInList();
 
 			SelectCharacter();
@@ -265,18 +317,29 @@ namespace ProtoScript.Dialogs
 			}
 		}
 
-		private void LoadDeliveryListBox()
+		private void LoadDeliveryListBox(IEnumerable<string> deliveries = null)
 		{
 			m_listBoxDeliveries.BeginUpdate();
 			m_listBoxDeliveries.Items.Clear();
-			m_deliveries = new List<string>();
-			var selectedCharacter = (string)m_listBoxCharacters.SelectedItem;
-			m_listBoxDeliveries.Items.Add(m_normalDelivery);
-			if (selectedCharacter != m_narrator)
+
+			if (deliveries != null)
 			{
-				m_deliveries = m_characters.Where(c => c.Character == selectedCharacter).Select(c => c.Delivery).Where(d => !string.IsNullOrEmpty(d));
+				m_deliveries = deliveries;
+				m_listBoxDeliveries.Items.Add(m_normalDelivery);
 				foreach (string delivery in m_deliveries)
 					m_listBoxDeliveries.Items.Add(delivery);
+			}
+			else
+			{
+				m_deliveries = new List<string>();
+				var selectedCharacter = (string)m_listBoxCharacters.SelectedItem;
+				m_listBoxDeliveries.Items.Add(m_normalDelivery);
+				if (selectedCharacter != m_narrator)
+				{
+					m_deliveries = m_characters.Where(c => c.Character == selectedCharacter).Select(c => c.Delivery).Where(d => !string.IsNullOrEmpty(d));
+					foreach (string delivery in m_deliveries)
+						m_listBoxDeliveries.Items.Add(delivery);
+				}
 			}
 			SelectDelivery();
 			m_listBoxDeliveries.EndUpdate();
@@ -358,6 +421,13 @@ namespace ProtoScript.Dialogs
 				SantaFeFocusMessageHandler.SendFocusMessage(currRef.ToString());
 		}
 
+		private void ShowCharactersInBook()
+		{
+			String book = m_navigator.CurrentBook.BookId;
+			m_charactersInBook = CharacterVerseData.Singleton.GetUniqueCharacterAndDeliveries(book);
+			LoadCharacterListBox(m_charactersInBook);
+		}
+
 		#region Form events
 		private void m_btnNext_Click(object sender, EventArgs e)
 		{
@@ -393,6 +463,9 @@ namespace ProtoScript.Dialogs
 		private void m_listBoxCharacters_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			LoadDeliveryListBox();
+			HideDeliveryFilter();
+			if ((string)m_listBoxCharacters.SelectedItem == m_narrator)
+				m_llMoreDel.Enabled = false;
 			UpdateAssignButtonState();
 		}
 
@@ -401,28 +474,38 @@ namespace ProtoScript.Dialogs
 			UpdateAssignButtonState();
 		}
 
-		private void m_linkLabelChapter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		private void m_linkLabelMore_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			String book = m_navigator.CurrentBook.BookId;
-			int chapter = m_navigator.CurrentBlock.ChapterNumber;
-			LoadCharacterListBox(CharacterVerseData.Singleton.GetUniqueCharacters(book, chapter));
+			ShowCharacterFilter();
+			ShowCharactersInBook();
 		}
 
-		private void m_linkLabelBook_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		private void m_llMoreDel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			String book = m_navigator.CurrentBook.BookId;
-			LoadCharacterListBox(CharacterVerseData.Singleton.GetUniqueCharacters(book));
-		}
-
-		private void m_linkLabelAll_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
-			LoadCharacterListBox(CharacterVerseData.Singleton.GetUniqueCharacters());
+			ShowDeliveryFilter();
+			LoadDeliveryListBox(CharacterVerseData.Singleton.GetUniqueDeliveries());
 		}
 
 		private void AssignCharacterDialog_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			if (UserConfirmSaveChangesIfNecessary())
 				SaveSelections();
+		}
+
+		private void m_txtBoxCharacterFilter_TextChanged(object sender, EventArgs e)
+		{
+			if (string.IsNullOrWhiteSpace(m_txtBoxCharacterFilter.Text))
+				ShowCharactersInBook();
+			else
+				LoadCharacterListBox(CharacterVerseData.Singleton.GetUniqueCharacterAndDeliveries().Where(cv => cv.Character.Contains(m_txtBoxCharacterFilter.Text.Trim(), StringComparison.OrdinalIgnoreCase)), false);
+		}
+
+		private void m_txtBoxDeliveryFilter_TextChanged(object sender, EventArgs e)
+		{
+			if (string.IsNullOrWhiteSpace(m_txtBoxDeliveryFilter.Text))
+				LoadDeliveryListBox(CharacterVerseData.Singleton.GetUniqueDeliveries());
+			else
+				LoadDeliveryListBox(CharacterVerseData.Singleton.GetUniqueDeliveries().Where(d => d.Contains(m_txtBoxDeliveryFilter.Text.Trim(), StringComparison.OrdinalIgnoreCase)));
 		}
 		#endregion
 
