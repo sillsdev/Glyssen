@@ -16,31 +16,16 @@ namespace ProtoScript.Dialogs
 {
 	public partial class AssignCharacterDialog : Form
 	{
+		private readonly AssignCharacterViewModel m_viewModel;
 		private string m_narrator;
 		private string m_normalDelivery;
 		private const string kMainQuoteElementId = "main-quote-text";
-		private const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
-										  "<style>{0}</style></head><body>{1}</body></html>";
-		private const string kHtmlLineBreak = "<div class='block-spacer'></div>";
 		private const string kCssClassContext = "context";
-		private const string kCssFrame = "body{{font-family:{0};font-size:{1}pt}}" +
-		                                 ".highlight{{background-color:yellow}}" +
-		                                 "." + kCssClassContext + ":hover{{background-color:#FFFFA0}}" +
-		                                 ".block-spacer{{height:30px}}";
 		private const int kContextBlocksBackward = 10;
 		private const int kContextBlocksForward = 10;
 
-		private readonly string m_fontFamily;
-		private readonly int m_fontSizeInPoints;
-		private readonly BlockNavigator m_navigator;
-		private List<Tuple<int, int>> m_relevantBlocks;
-		private IEnumerable<Block> m_contextBlocksBackward;
-		private IEnumerable<Block> m_contextBlocksForward;
-		private int m_assignedBlocks;
-		private int m_displayBlockIndex;
 		private IEnumerable<CharacterVerse> m_characters;
 		private IEnumerable<string> m_deliveries;
-		private bool m_showVerseNumbers = true; // May make this configurable later
 		private ToolTip m_toolTip;
 		private IEnumerable<CharacterVerse> m_charactersInBook;
 		private readonly Size m_listBoxCharactersOriginalSize;
@@ -62,70 +47,32 @@ namespace ProtoScript.Dialogs
 
 		private void HandleStringsLocalized()
 		{
-			m_narrator = LocalizationManager.GetString("AssignCharacterDialog.Narrator", "Narrator");
-			m_normalDelivery = LocalizationManager.GetString("AssignCharacterDialog.NormalDelivery", "normal");
+			m_narrator = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.Narrator", "Narrator");
+			m_normalDelivery = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.NormalDelivery", "normal");
+			m_viewModel.Narrator = m_narrator;
+			m_viewModel.NormalDelivery = m_normalDelivery;
 		}
 
-		public AssignCharacterDialog(Project project) : this()
+		public AssignCharacterDialog(AssignCharacterViewModel viewModel) : this()
 		{
+			m_viewModel = viewModel;
+			m_viewModel.BackwardContextBlockCount = kContextBlocksBackward;
+			m_viewModel.ForwardContextBlockCount = kContextBlocksForward;
 			m_blocksDisplayBrowser.OnMouseOver += OnMouseOver;
 			m_blocksDisplayBrowser.OnMouseOut += OnMouseOut;
 			m_blocksDisplayBrowser.OnDocumentCompleted += OnDocumentCompleted;
 
-			m_fontFamily = project.FontFamily;
-			m_fontSizeInPoints = project.FontSizeInPoints;
+			m_progressBar.Maximum = viewModel.RelevantBlockCount;
+			m_progressBar.Increment(viewModel.AssignedBlockCount);
 
-			m_navigator = new BlockNavigator(project.IncludedBooks);
+			m_viewModel.AssignedBlocksIncremented += (sender, args) => m_progressBar.Increment(1);
 
-			PopulateRelevantBlocks();
-			m_progressBar.Maximum = m_relevantBlocks.Count;
-			m_progressBar.Increment(m_assignedBlocks);
-
-			if (IsRelevant(m_navigator.CurrentBlock))
-			{
-				m_displayBlockIndex = 0;
-				LoadBlock();
-			}
-			else
-			{
-				m_displayBlockIndex = -1;
-				LoadNextRelevantBlock();
-			}
-		}
-
-		private void PopulateRelevantBlocks()
-		{
-			m_navigator.NavigateToFirstBlock();
-			m_relevantBlocks = new List<Tuple<int, int>>();
-			Block block;
-			do
-			{
-				block = m_navigator.CurrentBlock;
-				if (IsRelevant(block))
-				{
-					m_relevantBlocks.Add(m_navigator.GetIndices());
-					if (block.UserConfirmed)
-						m_assignedBlocks++;
-				}
-				m_navigator.NextBlock();
-			} while (!m_navigator.IsLastBlock(block));
-
-			m_navigator.NavigateToFirstBlock();
-		}
-
-		private bool IsRelevant(Block block)
-		{
-			return block.UserConfirmed || block.CharacterIsUnclear();
+			LoadBlock();
 		}
 
 		public void LoadBlock()
 		{
-			m_blocksDisplayBrowser.DisplayHtml(
-				BuildHtml(
-					BuildHtml(m_contextBlocksBackward = m_navigator.PeekBackwardWithinBook(kContextBlocksBackward)),
-					m_navigator.CurrentBlock.GetText(m_showVerseNumbers),
-					BuildHtml(m_contextBlocksForward = m_navigator.PeekForwardWithinBook(kContextBlocksForward)),
-					BuildStyle()));
+			m_blocksDisplayBrowser.DisplayHtml(m_viewModel.Html);
 
 			UpdateDisplay();
 			UpdateNavigationButtonState();
@@ -133,13 +80,13 @@ namespace ProtoScript.Dialogs
 
 		private void UpdateDisplay()
 		{
-			String book = m_navigator.CurrentBook.BookId;
-			int chapter = m_navigator.CurrentBlock.ChapterNumber;
-			int verse = m_navigator.CurrentBlock.InitialStartVerseNumber;
+			String book = m_viewModel.CurrentBookId;
+			int chapter = m_viewModel.CurrentBlock.ChapterNumber;
+			int verse = m_viewModel.CurrentBlock.InitialStartVerseNumber;
 			var currRef = new BCVRef(BCVRef.BookToNumber(book), chapter, verse);
 			m_labelReference.Text = BCVRef.MakeReferenceString(currRef, currRef, ":", "-");
-			string xOfY = LocalizationManager.GetString("AssignCharacterDialog.XofY", "{0} of {1}", "{0} is the current clip number; {1} is the total number of clips.");
-			m_labelXofY.Text = string.Format(xOfY, m_displayBlockIndex + 1, m_relevantBlocks.Count);
+			string xOfY = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.XofY", "{0} of {1}", "{0} is the current clip number; {1} is the total number of clips.");
+			m_labelXofY.Text = string.Format(xOfY, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
 
 			SendScrReference(currRef);
 
@@ -149,43 +96,11 @@ namespace ProtoScript.Dialogs
 			LoadCharacterListBox(CharacterVerseData.Singleton.GetCharacters(book, chapter, verse));
 		}
 
-		private string BuildHtml(string previousText, string mainText, string followingText, string style)
-		{
-			var bldr = new StringBuilder();
-			bldr.Append(previousText);
-			bldr.Append("<div id=\"main-quote-text\" class=\"highlight\">");
-			bldr.Append(mainText);
-			bldr.Append("</div>");
-			if (!string.IsNullOrEmpty(followingText))
-				bldr.Append(kHtmlLineBreak).Append(followingText);
-			return string.Format(kHtmlFrame, style, bldr);
-		}
-
-		private string BuildHtml(IEnumerable<Block> blocks)
-		{
-			var bldr = new StringBuilder();
-			foreach (Block block in blocks)
-				bldr.Append(BuildHtml(block));
-			return bldr.ToString();
-		}
-
-		private string BuildHtml(Block block)
-		{
-			var bldr = new StringBuilder();
-			bldr.Append("<div class='").Append(kCssClassContext).Append("' data-character='").Append(block.CharacterId).Append("'>")
-				.Append(block.GetText(m_showVerseNumbers)).Append("</div>").Append(kHtmlLineBreak);
-			return bldr.ToString();
-		}
-
-		private string BuildStyle()
-		{
-			return string.Format(kCssFrame, m_fontFamily, m_fontSizeInPoints);
-		}
 
 		private void UpdateNavigationButtonState()
 		{
-			m_btnNext.Enabled = !IsLastRelevantBlock();
-			m_btnPrevious.Enabled = !IsFirstRelevantBlock();
+			m_btnNext.Enabled = !m_viewModel.IsLastRelevantBlock;
+			m_btnPrevious.Enabled = !m_viewModel.IsFirstRelevantBlock;
 		}
 
 		private void UpdateAssignButtonState()
@@ -236,12 +151,11 @@ namespace ProtoScript.Dialogs
 
 		private bool IsDirty()
 		{
-			BookScript currentBook = m_navigator.CurrentBook;
-			Block currentBlock = m_navigator.CurrentBlock;
+			Block currentBlock = m_viewModel.CurrentBlock;
 			var selectedCharacter = (string)m_listBoxCharacters.SelectedItem;
 			if (selectedCharacter == m_narrator)
 			{
-				if (!currentBlock.CharacterIs(currentBook.BookId, CharacterVerseData.StandardCharacter.Narrator))
+				if (!currentBlock.CharacterIs(m_viewModel.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator))
 					return true;
 			}
 			else if (selectedCharacter != currentBlock.CharacterId)
@@ -259,13 +173,13 @@ namespace ProtoScript.Dialogs
 
 		private void LoadNextRelevantBlock()
 		{
-			m_navigator.SetIndices(m_relevantBlocks[++m_displayBlockIndex]);
+			m_viewModel.LoadNextRelevantBlock();
 			LoadBlock();
 		}
 
 		private void LoadPreviousRelevantBlock()
 		{
-			m_navigator.SetIndices(m_relevantBlocks[--m_displayBlockIndex]);
+			m_viewModel.LoadPreviousRelevantBlock();
 			LoadBlock();
 		}
 
@@ -292,7 +206,7 @@ namespace ProtoScript.Dialogs
 
 		private void ExpandCharactersInList()
 		{
-			m_characters = m_contextBlocksBackward.Union(m_contextBlocksForward).Where(b => !b.CharacterIsStandard && !b.CharacterIsUnclear())
+			m_characters = m_viewModel.ContextBlocks.Where(b => !b.CharacterIsStandard && !b.CharacterIsUnclear())
 				.Select(b => new CharacterVerse { Character = b.CharacterId, Delivery = b.Delivery });
 			AddItemsToCharacterListBox(m_characters);
 		}
@@ -306,8 +220,8 @@ namespace ProtoScript.Dialogs
 
 		private void SelectCharacter()
 		{
-			Block currentBlock = m_navigator.CurrentBlock;
-			if (currentBlock.CharacterIs(m_navigator.CurrentBook.BookId, CharacterVerseData.StandardCharacter.Narrator))
+			Block currentBlock = m_viewModel.CurrentBlock;
+			if (currentBlock.CharacterIs(m_viewModel.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator))
 				m_listBoxCharacters.SelectedItem = m_narrator;
 			else if (!currentBlock.CharacterIsUnclear())
 			{
@@ -347,7 +261,7 @@ namespace ProtoScript.Dialogs
 
 		private void SelectDelivery()
 		{
-			Block currentBlock = m_navigator.CurrentBlock;
+			Block currentBlock = m_viewModel.CurrentBlock;
 			string delivery = string.IsNullOrEmpty(currentBlock.Delivery) ? m_normalDelivery : currentBlock.Delivery;
 			if (!m_listBoxDeliveries.Items.Contains(delivery))
 				m_listBoxDeliveries.Items.Add(delivery);
@@ -367,44 +281,18 @@ namespace ProtoScript.Dialogs
 			}
 		}
 
-		private bool IsFirstRelevantBlock()
-		{
-			return m_displayBlockIndex == 0;
-		}
-
-		private bool IsLastRelevantBlock()
-		{
-			return m_displayBlockIndex == m_relevantBlocks.Count - 1;
-		}
-
 		private void SaveSelections()
 		{
-			Block currentBlock = m_navigator.CurrentBlock;
-
-			var selectedCharacter = (string)m_listBoxCharacters.SelectedItem;
-			if (selectedCharacter == m_narrator)
-				currentBlock.SetStandardCharacter(m_navigator.CurrentBook.BookId, CharacterVerseData.StandardCharacter.Narrator);
-			else
-				currentBlock.CharacterId = selectedCharacter;
-
-			var selectedDelivery = (string)m_listBoxDeliveries.SelectedItem;
-			currentBlock.Delivery = selectedDelivery == m_normalDelivery ? null : selectedDelivery;
-
-			if (!currentBlock.UserConfirmed)
-			{
-				m_progressBar.Increment(1);
-				m_assignedBlocks++;
-			}
-
-			currentBlock.UserConfirmed = true;
+			m_viewModel.SetCharacterAndDelivery((string) m_listBoxCharacters.SelectedItem,
+				(string) m_listBoxDeliveries.SelectedItem);
 		}
 
 		private bool UserConfirmSaveChangesIfNecessary()
 		{
 			if (m_listBoxCharacters.SelectedIndex > -1 && IsDirty())
 			{
-				string title = LocalizationManager.GetString("AssignCharacterDialog.UnsavedChanges", "Unsaved Changes");
-				string msg = LocalizationManager.GetString("AssignCharacterDialog.UnsavedChangesMessage", "The Character and Delivery selections for this clip have not been submitted. Do you want to save your changes before navigating?");
+				string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChanges", "Unsaved Changes");
+				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChangesMessage", "The Character and Delivery selections for this clip have not been submitted. Do you want to save your changes before navigating?");
 				return MessageBox.Show(msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes;
 			}
 			return false;
@@ -423,7 +311,7 @@ namespace ProtoScript.Dialogs
 
 		private void ShowCharactersInBook()
 		{
-			String book = m_navigator.CurrentBook.BookId;
+			String book = m_viewModel.CurrentBookId;
 			m_charactersInBook = CharacterVerseData.Singleton.GetUniqueCharacterAndDeliveries(book);
 			LoadCharacterListBox(m_charactersInBook);
 		}
@@ -446,17 +334,17 @@ namespace ProtoScript.Dialogs
 		private void m_btnAssign_Click(object sender, EventArgs e)
 		{
 			SaveSelections();
-			if (m_assignedBlocks == m_relevantBlocks.Count)
+			if (m_viewModel.AreAllAssignmentsComplete)
 			{
-				string title = LocalizationManager.GetString("AssignCharacterDialog.AssignmentsComplete", "Assignments Complete");
-				string msg = LocalizationManager.GetString("AssignCharacterDialog.CloseDialogMessage", "All assignments have been made.  Would you like to return to the main window?");
+				string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.AssignmentsComplete", "Assignments Complete");
+				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.CloseDialogMessage", "All assignments have been made. Would you like to return to the main window?");
 				if (MessageBox.Show(msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
 				{
 					Close();
 					return;
 				}
 			}
-			if (!IsLastRelevantBlock())
+			if (!m_viewModel.IsLastRelevantBlock)
 				LoadNextRelevantBlock();
 		}
 

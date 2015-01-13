@@ -131,6 +131,7 @@
     <Compile Include="Dialogs\AssignCharacterDialog.Designer.cs">
       <DependentUpon>AssignCharacterDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\AssignCharacterViewModel.cs" />
     <Compile Include="Dialogs\OpenProjectDlg.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -82,7 +82,7 @@
 			this.m_lblLanguageName.Location = new System.Drawing.Point(3, 4);
 			this.m_lblLanguageName.Name = "m_lblLanguageName";
 			this.m_lblLanguageName.Size = new System.Drawing.Size(120, 18);
-			this.m_lblLanguageName.TabIndex = 3;
+			this.m_lblLanguageName.TabIndex = 0;
 			this.m_lblLanguageName.Text = "Language Name:";
 			// 
 			// m_lblIso639_2_Code
@@ -98,7 +98,7 @@
 			this.m_lblIso639_2_Code.Location = new System.Drawing.Point(3, 30);
 			this.m_lblIso639_2_Code.Name = "m_lblIso639_2_Code";
 			this.m_lblIso639_2_Code.Size = new System.Drawing.Size(207, 18);
-			this.m_lblIso639_2_Code.TabIndex = 4;
+			this.m_lblIso639_2_Code.TabIndex = 2;
 			this.m_lblIso639_2_Code.Text = "Ethnologue (ISO 639-2) Code:";
 			// 
 			// m_lblProjectName
@@ -113,7 +113,7 @@
 			this.m_lblProjectName.Location = new System.Drawing.Point(3, 66);
 			this.m_lblProjectName.Name = "m_lblProjectName";
 			this.m_lblProjectName.Size = new System.Drawing.Size(103, 18);
-			this.m_lblProjectName.TabIndex = 5;
+			this.m_lblProjectName.TabIndex = 4;
 			this.m_lblProjectName.Text = "Project Name:";
 			// 
 			// m_lblProjectId
@@ -129,7 +129,7 @@
 			this.m_lblProjectId.Location = new System.Drawing.Point(3, 93);
 			this.m_lblProjectId.Name = "m_lblProjectId";
 			this.m_lblProjectId.Size = new System.Drawing.Size(74, 18);
-			this.m_lblProjectId.TabIndex = 8;
+			this.m_lblProjectId.TabIndex = 6;
 			this.m_lblProjectId.Text = "Project Id:";
 			// 
 			// m_txtLanguageName
@@ -142,7 +142,7 @@
 			this.m_txtLanguageName.Location = new System.Drawing.Point(216, 3);
 			this.m_txtLanguageName.Name = "m_txtLanguageName";
 			this.m_txtLanguageName.Size = new System.Drawing.Size(278, 20);
-			this.m_txtLanguageName.TabIndex = 9;
+			this.m_txtLanguageName.TabIndex = 1;
 			// 
 			// m_txtIso639_2_Code
 			// 
@@ -155,7 +155,7 @@
 			this.m_txtIso639_2_Code.MaxLength = 3;
 			this.m_txtIso639_2_Code.Name = "m_txtIso639_2_Code";
 			this.m_txtIso639_2_Code.Size = new System.Drawing.Size(278, 20);
-			this.m_txtIso639_2_Code.TabIndex = 12;
+			this.m_txtIso639_2_Code.TabIndex = 3;
 			this.m_txtIso639_2_Code.WordWrap = false;
 			this.m_txtIso639_2_Code.TextChanged += new System.EventHandler(this.UpdateProjectId);
 			// 
@@ -169,7 +169,7 @@
 			this.m_txtProjectName.Location = new System.Drawing.Point(216, 65);
 			this.m_txtProjectName.Name = "m_txtProjectName";
 			this.m_txtProjectName.Size = new System.Drawing.Size(278, 20);
-			this.m_txtProjectName.TabIndex = 13;
+			this.m_txtProjectName.TabIndex = 5;
 			this.m_txtProjectName.TextChanged += new System.EventHandler(this.UpdateProjectId);
 			// 
 			// m_txtProjectId
@@ -183,7 +183,7 @@
 			this.m_txtProjectId.Location = new System.Drawing.Point(3, 3);
 			this.m_txtProjectId.Name = "m_txtProjectId";
 			this.m_txtProjectId.Size = new System.Drawing.Size(189, 20);
-			this.m_txtProjectId.TabIndex = 15;
+			this.m_txtProjectId.TabIndex = 0;
 			// 
 			// m_chkOverride
 			// 
@@ -196,7 +196,7 @@
 			this.m_chkOverride.Location = new System.Drawing.Point(198, 3);
 			this.m_chkOverride.Name = "m_chkOverride";
 			this.m_chkOverride.Size = new System.Drawing.Size(83, 22);
-			this.m_chkOverride.TabIndex = 16;
+			this.m_chkOverride.TabIndex = 1;
 			this.m_chkOverride.Text = "Override";
 			this.m_chkOverride.UseVisualStyleBackColor = true;
 			this.m_chkOverride.CheckedChanged += new System.EventHandler(this.m_chkOverride_CheckedChanged);
@@ -227,7 +227,7 @@
 			this.m_btnOk.Location = new System.Drawing.Point(356, 333);
 			this.m_btnOk.Name = "m_btnOk";
 			this.m_btnOk.Size = new System.Drawing.Size(75, 23);
-			this.m_btnOk.TabIndex = 11;
+			this.m_btnOk.TabIndex = 1;
 			this.m_btnOk.Text = "OK";
 			this.m_btnOk.UseVisualStyleBackColor = true;
 			this.m_btnOk.Click += new System.EventHandler(this.HandleOkButtonClick);
@@ -258,7 +258,7 @@
 			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
 			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.m_tableLayoutMain.Size = new System.Drawing.Size(497, 302);
-			this.m_tableLayoutMain.TabIndex = 10;
+			this.m_tableLayoutMain.TabIndex = 0;
 			// 
 			// m_tableLayoutProjectId
 			// 
