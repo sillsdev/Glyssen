@@ -33,18 +33,6 @@ namespace ProtoScript.Dialogs
 		private readonly Size m_listBoxDeliveriesOriginalSize;
 		private readonly Point m_listBoxDeliveriesOriginalLocation;
 
-		public AssignCharacterDialog()
-		{
-			InitializeComponent();
-			m_listBoxCharactersOriginalSize = m_listBoxCharacters.Size;
-			m_listBoxCharactersOriginalLocation = m_listBoxCharacters.Location;
-			m_listBoxDeliveriesOriginalSize = m_listBoxDeliveries.Size;
-			m_listBoxDeliveriesOriginalLocation = m_listBoxDeliveries.Location;
-			HandleStringsLocalized();
-
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
-		}
-
 		private void HandleStringsLocalized()
 		{
 			m_narrator = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.Narrator", "Narrator");
@@ -53,8 +41,14 @@ namespace ProtoScript.Dialogs
 			m_viewModel.NormalDelivery = m_normalDelivery;
 		}
 
-		public AssignCharacterDialog(AssignCharacterViewModel viewModel) : this()
+		public AssignCharacterDialog(AssignCharacterViewModel viewModel)
 		{
+			InitializeComponent();
+			m_listBoxCharactersOriginalSize = m_listBoxCharacters.Size;
+			m_listBoxCharactersOriginalLocation = m_listBoxCharacters.Location;
+			m_listBoxDeliveriesOriginalSize = m_listBoxDeliveries.Size;
+			m_listBoxDeliveriesOriginalLocation = m_listBoxDeliveries.Location;
+
 			m_viewModel = viewModel;
 			m_viewModel.BackwardContextBlockCount = kContextBlocksBackward;
 			m_viewModel.ForwardContextBlockCount = kContextBlocksForward;
@@ -65,6 +59,9 @@ namespace ProtoScript.Dialogs
 			m_progressBar.Maximum = viewModel.RelevantBlockCount;
 			m_progressBar.Increment(viewModel.AssignedBlockCount);
 
+			HandleStringsLocalized();
+
+			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 			m_viewModel.AssignedBlocksIncremented += (sender, args) => m_progressBar.Increment(1);
 
 			LoadBlock();

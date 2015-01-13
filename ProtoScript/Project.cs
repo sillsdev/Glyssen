@@ -70,6 +70,11 @@ namespace ProtoScript
 			get { return m_metadata.FontSizeInPoints; }
 		}
 
+		public bool RightToLeftScript
+		{
+			get { return m_metadata.language.scriptDirection == "RTL"; }
+		}
+
 		public QuoteSystem QuoteSystem
 		{
 			get { return m_metadata.QuoteSystem ?? m_defaultQuoteSystem; }

@@ -8,17 +8,19 @@ namespace ProtoScript.Dialogs
 	public class AssignCharacterViewModel
 	{
 		private const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
-								  "<style>{0}</style></head><body>{1}</body></html>";
+								  "<style>{0}</style></head><body {1}>{2}</body></html>";
 		private const string kHtmlLineBreak = "<div class='block-spacer'></div>";
 		private const string kCssClassContext = "context";
 		private const string kCssFrame = "body{{font-family:{0};font-size:{1}pt}}" +
-										 ".highlight{{background-color:yellow}}" +
-										 "." + kCssClassContext + ":hover{{background-color:#FFFFA0}}" +
-										 ".block-spacer{{height:30px}}";
+										".highlight{{background-color:yellow}}" +
+										"." + kCssClassContext + ":hover{{background-color:#FFFFA0}}" +
+										".block-spacer{{height:30px}}" +
+										".right-to-left{{direction:rtl}}";
 
 		private bool m_showVerseNumbers = true; // May make this configurable later
 		private readonly string m_fontFamily;
 		private readonly int m_fontSizeInPoints;
+		private readonly bool m_rightToLeftScript;
 		private readonly BlockNavigator m_navigator;
 		private List<Tuple<int, int>> m_relevantBlocks;
 		private int m_displayBlockIndex = -1;
@@ -34,6 +36,7 @@ namespace ProtoScript.Dialogs
 			m_navigator = new BlockNavigator(project.IncludedBooks);
 			m_fontFamily = project.FontFamily;
 			m_fontSizeInPoints = project.FontSizeInPoints;
+			m_rightToLeftScript = project.RightToLeftScript;
 
 			PopulateRelevantBlocks();
 
@@ -129,7 +132,8 @@ namespace ProtoScript.Dialogs
 			bldr.Append("</div>");
 			if (!string.IsNullOrEmpty(followingText))
 				bldr.Append(kHtmlLineBreak).Append(followingText);
-			return string.Format(kHtmlFrame, style, bldr);
+			var bodyAttributes = m_rightToLeftScript ? "class=\"right-to-left\"" : "";
+			return string.Format(kHtmlFrame, style, bodyAttributes, bldr);
 		}
 
 		private string BuildHtml(IEnumerable<Block> blocks)
@@ -165,8 +169,11 @@ namespace ProtoScript.Dialogs
 			currentBlock.Delivery = selectedDelivery == NormalDelivery ? null : selectedDelivery;
 
 			if (!currentBlock.UserConfirmed)
+			{
 				m_assignedBlocks++;
-
+				if (AssignedBlocksIncremented != null)
+					AssignedBlocksIncremented(this, new EventArgs());
+			}
 			currentBlock.UserConfirmed = true;
 		}
 	}
