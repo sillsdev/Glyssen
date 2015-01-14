@@ -108,9 +108,8 @@ namespace ProtoScript.Dialogs
 
 		private void ShowCharacterFilter()
 		{
-			m_txtBoxCharacterFilter.Show();
-			m_picBoxSearchChar.Show();
-			var verticalAdjustment = m_txtBoxCharacterFilter.Size.Height + 5;
+			m_pnlCharacterFilter.Show();
+			var verticalAdjustment = m_pnlCharacterFilter.Size.Height + 5;
 			m_listBoxCharacters.Location = new Point(m_listBoxCharacters.Location.X, m_listBoxCharacters.Location.Y + verticalAdjustment);
 			m_listBoxCharacters.Size = new Size(m_listBoxCharacters.Size.Width, m_listBoxCharacters.Size.Height - verticalAdjustment);
 			m_llMoreChar.Enabled = false;
@@ -118,9 +117,8 @@ namespace ProtoScript.Dialogs
 
 		private void HideCharacterFilter()
 		{
-			m_txtBoxCharacterFilter.Clear();
-			m_txtBoxCharacterFilter.Hide();
-			m_picBoxSearchChar.Hide();
+			m_txtCharacterFilter.Clear();
+			m_pnlCharacterFilter.Hide();
 			m_listBoxCharacters.Location = m_listBoxCharactersOriginalLocation;
 			m_listBoxCharacters.Size = m_listBoxCharactersOriginalSize;
 			m_llMoreChar.Enabled = true;
@@ -128,9 +126,8 @@ namespace ProtoScript.Dialogs
 
 		private void ShowDeliveryFilter()
 		{
-			m_txtBoxDeliveryFilter.Show();
-			m_picBoxSearchDel.Show();
-			var verticalAdjustment = m_txtBoxDeliveryFilter.Size.Height + 5;
+			m_pnlDeliveryFilter.Show();
+			var verticalAdjustment = m_pnlDeliveryFilter.Size.Height + 5;
 			m_listBoxDeliveries.Location = new Point(m_listBoxDeliveries.Location.X, m_listBoxDeliveries.Location.Y + verticalAdjustment);
 			m_listBoxDeliveries.Size = new Size(m_listBoxDeliveries.Size.Width, m_listBoxDeliveries.Size.Height - verticalAdjustment);
 			m_llMoreDel.Enabled = false;
@@ -138,9 +135,8 @@ namespace ProtoScript.Dialogs
 
 		private void HideDeliveryFilter()
 		{
-			m_txtBoxDeliveryFilter.Clear();
-			m_txtBoxDeliveryFilter.Hide();
-			m_picBoxSearchDel.Hide();
+			m_txtDeliveryFilter.Clear();
+			m_pnlDeliveryFilter.Hide();
 			m_listBoxDeliveries.Location = m_listBoxDeliveriesOriginalLocation;
 			m_listBoxDeliveries.Size = m_listBoxDeliveriesOriginalSize;
 			m_llMoreDel.Enabled = true;
@@ -379,18 +375,28 @@ namespace ProtoScript.Dialogs
 
 		private void m_txtBoxCharacterFilter_TextChanged(object sender, EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(m_txtBoxCharacterFilter.Text))
+			if (string.IsNullOrWhiteSpace(m_txtCharacterFilter.Text))
 				ShowCharactersInBook();
 			else
-				LoadCharacterListBox(CharacterVerseData.Singleton.GetUniqueCharacterAndDeliveries().Where(cv => cv.Character.Contains(m_txtBoxCharacterFilter.Text.Trim(), StringComparison.OrdinalIgnoreCase)), false);
+				LoadCharacterListBox(CharacterVerseData.Singleton.GetUniqueCharacterAndDeliveries().Where(cv => cv.Character.Contains(m_txtCharacterFilter.Text.Trim(), StringComparison.OrdinalIgnoreCase)), false);
 		}
 
 		private void m_txtBoxDeliveryFilter_TextChanged(object sender, EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(m_txtBoxDeliveryFilter.Text))
+			if (string.IsNullOrWhiteSpace(m_txtDeliveryFilter.Text))
 				LoadDeliveryListBox(CharacterVerseData.Singleton.GetUniqueDeliveries());
 			else
-				LoadDeliveryListBox(CharacterVerseData.Singleton.GetUniqueDeliveries().Where(d => d.Contains(m_txtBoxDeliveryFilter.Text.Trim(), StringComparison.OrdinalIgnoreCase)));
+				LoadDeliveryListBox(CharacterVerseData.Singleton.GetUniqueDeliveries().Where(d => d.Contains(m_txtDeliveryFilter.Text.Trim(), StringComparison.OrdinalIgnoreCase)));
+		}
+
+		private void m_icnCharacterFilter_Click(object sender, EventArgs e)
+		{
+			m_txtCharacterFilter.Focus();
+		}
+
+		private void m_icnDeliveryFilter_Click(object sender, EventArgs e)
+		{
+			m_txtDeliveryFilter.Focus();
 		}
 		#endregion
 
