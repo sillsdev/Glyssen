@@ -1,20 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using L10NSharp;
 using L10NSharp.UI;
-using Palaso.IO;
-using Palaso.UI.WindowsForms;
-using Palaso.UI.WindowsForms.WritingSystems;
-using Palaso.WritingSystems;
-using Paratext;
-using ProtoScript.Bundle;
 using ProtoScript.Dialogs;
 using ProtoScript.Properties;
-using Canon = ProtoScript.Bundle.Canon;
 
 namespace ProtoScript
 {
@@ -222,120 +213,43 @@ namespace ProtoScript
 			}
 		}
 
-		private DblMetadata GenerateMetadataForSfmProject(IEnumerable<UsxDocument> books, ScrStylesheetAdapter stylesheet, string defaultLanguageName = null)
-		{
-			string projectId;
-			string isoCode;
-			string languageName;
-			string projectName;
-			var wsDefinition = new WritingSystemDefinition();
-			WritingSystemSetupModel model = new WritingSystemSetupModel(wsDefinition);
-			if (FontHelper.GetSupportsRegular("Charis SIL"))
-				stylesheet.FontFamily = "Charis SIL";
-			else
-				stylesheet.FontFamily = "Times New Roman";
-			model.CurrentDefaultFontName = stylesheet.FontFamily;
-			model.CurrentDefaultFontSize = stylesheet.FontSizeInPoints = 14;
-
-			using (var dlg = new SfmProjectMetadataDlg(model))
-			{
-				dlg.LanguageName = defaultLanguageName;
-
-				if (dlg.ShowDialog(this) == DialogResult.Cancel)
-					return null;
-
-				projectId = dlg.ProjectId;
-				isoCode = dlg.IsoCode;
-				projectName = dlg.ProjectName;
-				languageName = dlg.LanguageName;
-				stylesheet.FontFamily = model.CurrentDefaultFontName;
-				stylesheet.FontSizeInPoints = (int)model.CurrentDefaultFontSize;
-			}
-
-			var availableBooks = books.Select(b => new Book { Code = b.BookId }).ToList();
-			var metadata = new DblMetadata { id = projectId,
-				identification = new DblMetadataIdentification {name = projectName},
-				language = new DblMetadataLanguage { iso = isoCode, name = languageName, scriptDirection = model.CurrentRightToLeftScript ? "RTL" : "LTR" },
-				AvailableBooks = availableBooks,
-				FontFamily = stylesheet.FontFamily,
-				FontSizeInPoints = stylesheet.FontSizeInPoints };
-			return metadata;
-		}
-
 		private void LoadSfmBook(string sfmFilePath)
 		{
-			ScrStylesheet scrStylesheet;
-			UsxDocument book;
 			try
 			{
-				string usfmStylesheetPath = Path.Combine(FileLocator.GetDirectoryDistributedWithApplication("sfm"), "usfm.sty");
-				scrStylesheet = new ScrStylesheet(usfmStylesheetPath);
-				book = new UsxDocument(UsfmToUsx.ConvertToXmlDocument(scrStylesheet, File.ReadAllText(sfmFilePath)));
-				var bookId = book.BookId;
-				if (bookId.Length != 3)
-					throw new Exception(LocalizationManager.GetString("Project.StandardFormat.InvalidBookId",
-						"Invalid Book ID: " + bookId));
+				SetProject(SfmLoader.LoadSfmBookAndMetadata(sfmFilePath));
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-				return;
 			}
-			var books = new[] {book};
-			var stylesheet = new ScrStylesheetAdapter(scrStylesheet);
-			var metadata = GenerateMetadataForSfmProject(books, stylesheet);
-			SetProject(metadata == null ? null : new Project(metadata, books, stylesheet));
 		}
 
 		private void LoadSfmFolder(string sfmFolderPath)
 		{
-			ScrStylesheet scrStylesheet;
-			List<UsxDocument> books = new List<UsxDocument>();
 			try
 			{
-				string usfmStylesheetPath = Path.Combine(FileLocator.GetDirectoryDistributedWithApplication("sfm"), "usfm.sty");
-				scrStylesheet = new ScrStylesheet(usfmStylesheetPath);
-
-				Exception firstFailure = null;
-				foreach (var sfmFilePath in Directory.GetFiles(sfmFolderPath))
-				{
-					try
-					{
-						var book = new UsxDocument(UsfmToUsx.ConvertToXmlDocument(scrStylesheet, File.ReadAllText(sfmFilePath)));
-						var bookId = book.BookId;
-						if (bookId.Length != 3)
-							throw new Exception(LocalizationManager.GetString("Project.StandardFormat.InvalidBookId",
-								"Invalid Book ID: " + bookId));
-						books.Add(book);
-					}
-					catch (Exception e)
-					{
-						if (firstFailure == null)
-							firstFailure = e;
-					}
-				}
-				if (books.Count == 0)
-				{
-					if (firstFailure != null)
-						throw firstFailure;
-					throw new Exception(LocalizationManager.GetString("Project.StandardFormat.NoValidSfBooksInFolder",
-						"No valid Standard Format Scripture books were found in: " + sfmFolderPath));
-				}
+				SetProject(SfmLoader.LoadSfmFolderAndMetadata(sfmFolderPath));
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-				return;
 			}
-
-			var stylesheet = new ScrStylesheetAdapter(scrStylesheet);
-			var metadata = GenerateMetadataForSfmProject(books, stylesheet, Path.GetFileName(sfmFolderPath));
-			SetProject(metadata == null ? null : new Project(metadata, books, stylesheet));
 		}
 
 		private void HandleChangeQuotationMarks_Click(object sender, EventArgs e)
 		{
-			using (var dlg = new QuotationMarksDialog(m_project))
+			bool reparseOkay = true;
+			if (!m_project.IsReparseOkay())
+			{
+				string msg = LocalizationManager.GetString("Project.UnableToModifyQuoteSystemMessage", 
+					"The original source of the project is no longer in its original location or has been significantly modified. " +
+					"The quote system cannot be modified since that would require a reparse of the original text.");
+				string title = LocalizationManager.GetString("Project.UnableToModifyQuoteSystem", "Unable to Modify Quote System");
+				MessageBox.Show(msg, title);
+				reparseOkay = false;
+			}
+			using (var dlg = new QuotationMarksDialog(m_project, !reparseOkay))
 			{
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 					UpdateDisplayOfQuoteSystemInfo();

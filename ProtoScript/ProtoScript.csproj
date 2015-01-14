@@ -173,6 +173,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScrStylesheetAdapter.cs" />
+    <Compile Include="SfmLoader.cs" />
     <Compile Include="Style.cs" />
     <Compile Include="UsxParser.cs" />
     <Compile Include="UsxStylesheet.cs" />

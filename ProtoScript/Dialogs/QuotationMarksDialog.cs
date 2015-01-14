@@ -11,7 +11,7 @@ namespace ProtoScript.Dialogs
 	{
 		private readonly Project m_project;
 
-		internal QuotationMarksDialog(Project project)
+		internal QuotationMarksDialog(Project project, bool readOnly)
 		{
 			InitializeComponent();
 
@@ -20,6 +20,9 @@ namespace ProtoScript.Dialogs
 			SetupQuoteMarksComboBoxes(m_project.QuoteSystem);
 
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+
+			if (readOnly)
+				MakeReadOnly();
 		}
 
 		private void HandleStringsLocalized()
@@ -56,6 +59,12 @@ namespace ProtoScript.Dialogs
 				case "\u2014": m_cboQuotationDash.SelectedIndex = 1; break;
 				default: m_cboQuotationDash.Text = quotationDashMarker; break;
 			}
+		}
+
+		private void MakeReadOnly()
+		{
+			//Review: Do we need to disable the controls?
+			m_btnOk.Enabled = false;
 		}
 
 		private string SameAsStartDashText
