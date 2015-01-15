@@ -33,6 +33,16 @@ namespace ProtoScript.Bundle
 		[XmlAttribute("origdblpath")]
 		public string OriginalPathOfDblFile;
 
+		/// <summary>This is not part of the original DBL metadata. We add this when we parse an SFM file to create
+		/// a script. This tells us the original (local) path of the SFM file used to create this project.</summary>
+		[XmlAttribute("origsfmfile")]
+		public string OriginalPathOfSfmFile;
+
+		/// <summary>This is not part of the original DBL metadata. We add this when we parse a directory of SFM files to create
+		/// a script. This tells us the original (local) path of the directory used to create this project.</summary>
+		[XmlAttribute("origsfmdir")]
+		public string OriginalPathOfSfmDirectory;
+
 		/// <summary>
 		/// This is not part of the original DBL metadata. 
 		/// We use this to know if character assignments should be reprocessed.

@@ -37,20 +37,24 @@
 			this.m_labelWhoSpeaks = new System.Windows.Forms.Label();
 			this.m_labelXofY = new System.Windows.Forms.Label();
 			this.m_llMoreChar = new System.Windows.Forms.LinkLabel();
-			this.m_txtBoxCharacterFilter = new System.Windows.Forms.TextBox();
-			this.m_picBoxSearchChar = new System.Windows.Forms.PictureBox();
+			this.m_txtCharacterFilter = new System.Windows.Forms.TextBox();
 			this.m_lblCharacter = new System.Windows.Forms.Label();
 			this.m_lblDelivery = new System.Windows.Forms.Label();
 			this.m_llMoreDel = new System.Windows.Forms.LinkLabel();
-			this.m_picBoxSearchDel = new System.Windows.Forms.PictureBox();
-			this.m_txtBoxDeliveryFilter = new System.Windows.Forms.TextBox();
+			this.m_txtDeliveryFilter = new System.Windows.Forms.TextBox();
+			this.m_icnCharacterFilter = new System.Windows.Forms.PictureBox();
 			this.m_listBoxCharacters = new System.Windows.Forms.ListBox();
 			this.m_listBoxDeliveries = new System.Windows.Forms.ListBox();
+			this.m_pnlCharacterFilter = new System.Windows.Forms.Panel();
 			this.m_progressBar = new ProtoScript.Controls.ProgressBarUnanimated();
 			this.m_blocksDisplayBrowser = new ProtoScript.Controls.Browser();
+			this.m_pnlDeliveryFilter = new System.Windows.Forms.Panel();
+			this.m_icnDeliveryFilter = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.m_picBoxSearchChar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.m_picBoxSearchDel)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_icnCharacterFilter)).BeginInit();
+			this.m_pnlCharacterFilter.SuspendLayout();
+			this.m_pnlDeliveryFilter.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.m_icnDeliveryFilter)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// m_l10NSharpExtender
@@ -157,29 +161,19 @@
 			this.m_llMoreChar.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
 			this.m_llMoreChar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkLabelMore_LinkClicked);
 			// 
-			// m_txtBoxCharacterFilter
+			// m_txtCharacterFilter
 			// 
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtBoxCharacterFilter, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtBoxCharacterFilter, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtBoxCharacterFilter, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtBoxCharacterFilter, "AssignCharacterDialog.textBox1");
-			this.m_txtBoxCharacterFilter.Location = new System.Drawing.Point(413, 59);
-			this.m_txtBoxCharacterFilter.Name = "m_txtBoxCharacterFilter";
-			this.m_txtBoxCharacterFilter.Size = new System.Drawing.Size(181, 20);
-			this.m_txtBoxCharacterFilter.TabIndex = 14;
-			this.m_txtBoxCharacterFilter.TextChanged += new System.EventHandler(this.m_txtBoxCharacterFilter_TextChanged);
-			// 
-			// m_picBoxSearchChar
-			// 
-			this.m_picBoxSearchChar.Image = global::ProtoScript.Properties.Resources.search_glyph;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_picBoxSearchChar, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_picBoxSearchChar, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_picBoxSearchChar, "AssignCharacterDialog.pictureBox1");
-			this.m_picBoxSearchChar.Location = new System.Drawing.Point(600, 59);
-			this.m_picBoxSearchChar.Name = "m_picBoxSearchChar";
-			this.m_picBoxSearchChar.Size = new System.Drawing.Size(18, 20);
-			this.m_picBoxSearchChar.TabIndex = 15;
-			this.m_picBoxSearchChar.TabStop = false;
+			this.m_txtCharacterFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtCharacterFilter, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtCharacterFilter, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtCharacterFilter, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtCharacterFilter, "AssignCharacterDialog.textBox1");
+			this.m_txtCharacterFilter.Location = new System.Drawing.Point(1, 1);
+			this.m_txtCharacterFilter.Margin = new System.Windows.Forms.Padding(0);
+			this.m_txtCharacterFilter.Name = "m_txtCharacterFilter";
+			this.m_txtCharacterFilter.Size = new System.Drawing.Size(160, 13);
+			this.m_txtCharacterFilter.TabIndex = 14;
+			this.m_txtCharacterFilter.TextChanged += new System.EventHandler(this.m_txtBoxCharacterFilter_TextChanged);
 			// 
 			// m_lblCharacter
 			// 
@@ -223,29 +217,32 @@
 			this.m_llMoreDel.Text = "More Deliveries";
 			this.m_llMoreDel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_llMoreDel_LinkClicked);
 			// 
-			// m_picBoxSearchDel
+			// m_txtDeliveryFilter
 			// 
-			this.m_picBoxSearchDel.Image = global::ProtoScript.Properties.Resources.search_glyph;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_picBoxSearchDel, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_picBoxSearchDel, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_picBoxSearchDel, "AssignCharacterDialog.pictureBox1");
-			this.m_picBoxSearchDel.Location = new System.Drawing.Point(600, 314);
-			this.m_picBoxSearchDel.Name = "m_picBoxSearchDel";
-			this.m_picBoxSearchDel.Size = new System.Drawing.Size(18, 20);
-			this.m_picBoxSearchDel.TabIndex = 20;
-			this.m_picBoxSearchDel.TabStop = false;
+			this.m_txtDeliveryFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtDeliveryFilter, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtDeliveryFilter, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtDeliveryFilter, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtDeliveryFilter, "AssignCharacterDialog.textBox1");
+			this.m_txtDeliveryFilter.Location = new System.Drawing.Point(1, 1);
+			this.m_txtDeliveryFilter.Margin = new System.Windows.Forms.Padding(0);
+			this.m_txtDeliveryFilter.Name = "m_txtDeliveryFilter";
+			this.m_txtDeliveryFilter.Size = new System.Drawing.Size(160, 13);
+			this.m_txtDeliveryFilter.TabIndex = 19;
+			this.m_txtDeliveryFilter.TextChanged += new System.EventHandler(this.m_txtBoxDeliveryFilter_TextChanged);
 			// 
-			// m_txtBoxDeliveryFilter
+			// m_icnCharacterFilter
 			// 
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtBoxDeliveryFilter, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtBoxDeliveryFilter, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtBoxDeliveryFilter, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtBoxDeliveryFilter, "AssignCharacterDialog.textBox1");
-			this.m_txtBoxDeliveryFilter.Location = new System.Drawing.Point(413, 314);
-			this.m_txtBoxDeliveryFilter.Name = "m_txtBoxDeliveryFilter";
-			this.m_txtBoxDeliveryFilter.Size = new System.Drawing.Size(181, 20);
-			this.m_txtBoxDeliveryFilter.TabIndex = 19;
-			this.m_txtBoxDeliveryFilter.TextChanged += new System.EventHandler(this.m_txtBoxDeliveryFilter_TextChanged);
+			this.m_icnCharacterFilter.Image = global::ProtoScript.Properties.Resources.search_glyph;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_icnCharacterFilter, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_icnCharacterFilter, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_icnCharacterFilter, "AssignCharacterDialog.pictureBox1");
+			this.m_icnCharacterFilter.Location = new System.Drawing.Point(161, -1);
+			this.m_icnCharacterFilter.Name = "m_icnCharacterFilter";
+			this.m_icnCharacterFilter.Size = new System.Drawing.Size(18, 20);
+			this.m_icnCharacterFilter.TabIndex = 22;
+			this.m_icnCharacterFilter.TabStop = false;
+			this.m_icnCharacterFilter.Click += new System.EventHandler(this.m_icnCharacterFilter_Click);
 			// 
 			// m_listBoxCharacters
 			// 
@@ -266,6 +263,18 @@
 			this.m_listBoxDeliveries.Size = new System.Drawing.Size(205, 117);
 			this.m_listBoxDeliveries.TabIndex = 1;
 			this.m_listBoxDeliveries.SelectedIndexChanged += new System.EventHandler(this.m_listBoxDeliveries_SelectedIndexChanged);
+			// 
+			// m_pnlCharacterFilter
+			// 
+			this.m_pnlCharacterFilter.BackColor = System.Drawing.Color.White;
+			this.m_pnlCharacterFilter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.m_pnlCharacterFilter.Controls.Add(this.m_icnCharacterFilter);
+			this.m_pnlCharacterFilter.Controls.Add(this.m_txtCharacterFilter);
+			this.m_pnlCharacterFilter.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.m_pnlCharacterFilter.Location = new System.Drawing.Point(413, 59);
+			this.m_pnlCharacterFilter.Name = "m_pnlCharacterFilter";
+			this.m_pnlCharacterFilter.Size = new System.Drawing.Size(181, 20);
+			this.m_pnlCharacterFilter.TabIndex = 21;
 			// 
 			// m_progressBar
 			// 
@@ -289,6 +298,31 @@
 			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(383, 475);
 			this.m_blocksDisplayBrowser.TabIndex = 2;
 			// 
+			// m_pnlDeliveryFilter
+			// 
+			this.m_pnlDeliveryFilter.BackColor = System.Drawing.Color.White;
+			this.m_pnlDeliveryFilter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.m_pnlDeliveryFilter.Controls.Add(this.m_icnDeliveryFilter);
+			this.m_pnlDeliveryFilter.Controls.Add(this.m_txtDeliveryFilter);
+			this.m_pnlDeliveryFilter.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.m_pnlDeliveryFilter.Location = new System.Drawing.Point(413, 314);
+			this.m_pnlDeliveryFilter.Name = "m_pnlDeliveryFilter";
+			this.m_pnlDeliveryFilter.Size = new System.Drawing.Size(181, 20);
+			this.m_pnlDeliveryFilter.TabIndex = 23;
+			// 
+			// m_icnDeliveryFilter
+			// 
+			this.m_icnDeliveryFilter.Image = global::ProtoScript.Properties.Resources.search_glyph;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_icnDeliveryFilter, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_icnDeliveryFilter, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_icnDeliveryFilter, "AssignCharacterDialog.pictureBox1");
+			this.m_icnDeliveryFilter.Location = new System.Drawing.Point(161, -1);
+			this.m_icnDeliveryFilter.Name = "m_icnDeliveryFilter";
+			this.m_icnDeliveryFilter.Size = new System.Drawing.Size(18, 20);
+			this.m_icnDeliveryFilter.TabIndex = 22;
+			this.m_icnDeliveryFilter.TabStop = false;
+			this.m_icnDeliveryFilter.Click += new System.EventHandler(this.m_icnDeliveryFilter_Click);
+			// 
 			// AssignCharacterDialog
 			// 
 			this.AcceptButton = this.m_btnAssign;
@@ -296,13 +330,11 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(630, 561);
-			this.Controls.Add(this.m_picBoxSearchDel);
-			this.Controls.Add(this.m_txtBoxDeliveryFilter);
+			this.Controls.Add(this.m_pnlDeliveryFilter);
+			this.Controls.Add(this.m_pnlCharacterFilter);
 			this.Controls.Add(this.m_llMoreDel);
 			this.Controls.Add(this.m_lblDelivery);
 			this.Controls.Add(this.m_lblCharacter);
-			this.Controls.Add(this.m_picBoxSearchChar);
-			this.Controls.Add(this.m_txtBoxCharacterFilter);
 			this.Controls.Add(this.m_llMoreChar);
 			this.Controls.Add(this.m_progressBar);
 			this.Controls.Add(this.m_labelXofY);
@@ -326,8 +358,12 @@
 			this.Text = "Assign Character";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AssignCharacterDialog_FormClosing);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.m_picBoxSearchChar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.m_picBoxSearchDel)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_icnCharacterFilter)).EndInit();
+			this.m_pnlCharacterFilter.ResumeLayout(false);
+			this.m_pnlCharacterFilter.PerformLayout();
+			this.m_pnlDeliveryFilter.ResumeLayout(false);
+			this.m_pnlDeliveryFilter.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.m_icnDeliveryFilter)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -347,12 +383,14 @@
 		private System.Windows.Forms.Label m_labelXofY;
 		private ProtoScript.Controls.ProgressBarUnanimated m_progressBar;
 		private System.Windows.Forms.LinkLabel m_llMoreChar;
-		private System.Windows.Forms.TextBox m_txtBoxCharacterFilter;
-		private System.Windows.Forms.PictureBox m_picBoxSearchChar;
+		private System.Windows.Forms.TextBox m_txtCharacterFilter;
 		private System.Windows.Forms.Label m_lblCharacter;
 		private System.Windows.Forms.Label m_lblDelivery;
 		private System.Windows.Forms.LinkLabel m_llMoreDel;
-		private System.Windows.Forms.PictureBox m_picBoxSearchDel;
-		private System.Windows.Forms.TextBox m_txtBoxDeliveryFilter;
+		private System.Windows.Forms.TextBox m_txtDeliveryFilter;
+		private System.Windows.Forms.Panel m_pnlCharacterFilter;
+		private System.Windows.Forms.PictureBox m_icnCharacterFilter;
+		private System.Windows.Forms.Panel m_pnlDeliveryFilter;
+		private System.Windows.Forms.PictureBox m_icnDeliveryFilter;
 	}
 }

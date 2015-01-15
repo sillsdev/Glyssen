@@ -7,10 +7,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using L10NSharp;
-using Palaso.IO;
 using Palaso.Reporting;
 using Palaso.Xml;
-using Paratext;
 using ProtoScript.Bundle;
 using ProtoScript.Properties;
 using SIL.ScriptureUtils;
@@ -22,6 +20,9 @@ namespace ProtoScript
 	{
 		public const string kProjectFileExtension = ".pgproj";
 		public const string kBookScriptFileExtension = ".xml";
+		public const string kDefaultFontPrimary = "Charis SIL";
+		public const string kDefaultFontSecondary = "Times New Roman";
+		public const int kDefaultFontSize = 14;
 		private readonly DblMetadata m_metadata;
 		private QuoteSystem m_defaultQuoteSystem = QuoteSystem.Default;
 		private readonly List<BookScript> m_books = new List<BookScript>();
@@ -281,11 +282,39 @@ namespace ProtoScript
 				var bundle = new Bundle.Bundle(m_metadata.OriginalPathOfDblFile);
 				PopulateAndParseBooks(bundle);
 			}
+			else if (File.Exists(m_metadata.OriginalPathOfSfmFile) && QuoteSystem != null)
+			{
+				AddAndParseBooks(new [] { SfmLoader.LoadSfmBook(m_metadata.OriginalPathOfSfmFile) }, SfmLoader.GetUsfmStylesheet());
+			}
+			else if (Directory.Exists(m_metadata.OriginalPathOfSfmDirectory) && QuoteSystem != null) 
+			{
+				AddAndParseBooks(SfmLoader.LoadSfmFolder(m_metadata.OriginalPathOfSfmDirectory), SfmLoader.GetUsfmStylesheet());
+			}
 			else
 			{
 				//TODO
 				throw new ApplicationException();
 			}
+		}
+
+		public bool IsReparseOkay()
+		{
+			if (QuoteSystem == null)
+				return false;
+			if (File.Exists(m_metadata.OriginalPathOfDblFile))
+				return true;
+			if (File.Exists(m_metadata.OriginalPathOfSfmFile))
+				return true;
+			if (Directory.Exists(m_metadata.OriginalPathOfSfmDirectory))
+			{
+				// Ensure the books present originally are the same as those present now
+				List<UsxDocument> booksInFolder = SfmLoader.LoadSfmFolder(m_metadata.OriginalPathOfSfmDirectory);
+				if (booksInFolder.Count != m_metadata.AvailableBooks.Count)
+					return false;
+				List<string> bookIdsInFolder = booksInFolder.Select(b => b.BookId).ToList();
+				return m_metadata.AvailableBooks.All(book => bookIdsInFolder.Contains(book.Code));
+			}
+			return false;
 		}
 
 		public static void CreateSampleProjectIfNeeded()
@@ -296,7 +325,7 @@ namespace ProtoScript
 			var sampleMetadata = new DblMetadata();
 			sampleMetadata.AvailableBooks = new List<Book>();
 			var bookOfMarkMetadata = new Book();
-			bookOfMarkMetadata.Code = "RMK";
+			bookOfMarkMetadata.Code = "MRK";
 			bookOfMarkMetadata.IncludeInScript = true;
 			bookOfMarkMetadata.LongName = "Gospel of Mark";
 			bookOfMarkMetadata.ShortName = "Mark";
@@ -309,10 +338,8 @@ namespace ProtoScript
 			XmlDocument sampleMark = new XmlDocument();
 			sampleMark.LoadXml(Resources.SampleMRK);
 			UsxDocument mark = new UsxDocument(sampleMark);
-			string usfmStylesheetPath = Path.Combine(FileLocator.GetDirectoryDistributedWithApplication("sfm"), "usfm.sty");
-			
-			var stylesheet = new ScrStylesheetAdapter(new ScrStylesheet(usfmStylesheetPath));
-			(new Project(sampleMetadata, new[] {mark}, stylesheet)).Save();
+
+			(new Project(sampleMetadata, new[] { mark }, SfmLoader.GetUsfmStylesheet())).Save();
 		}
 	}
 }

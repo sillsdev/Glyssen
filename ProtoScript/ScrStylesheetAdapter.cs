@@ -5,7 +5,7 @@ using Paratext;
 
 namespace ProtoScript
 {
-	class ScrStylesheetAdapter : IStylesheet
+	public class ScrStylesheetAdapter : IStylesheet
 	{
 		private readonly ScrStylesheet m_scrStylesheet;
 		private readonly Dictionary<string, Style> m_styleLookup;

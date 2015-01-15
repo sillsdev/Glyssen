@@ -1,5 +1,4 @@
 ﻿using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace ProtoScript.Controls
@@ -35,7 +34,7 @@ namespace ProtoScript.Controls
 					rect.Width = (int)(rect.Width * ((double)Value / Maximum));
 					if (rect.Width == 0) rect.Width = 1; // Can't draw rec with width of 0.
 
-					var brush = new LinearGradientBrush(rect, BackColor, m_BarForeColor, LinearGradientMode.Vertical);
+					var brush = new SolidBrush(m_BarForeColor);
 					offscreen.FillRectangle(brush, inset, inset, rect.Width, rect.Height);
 
 					e.Graphics.DrawImage(offscreenImage, 0, 0);
