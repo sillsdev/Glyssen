@@ -31,7 +31,7 @@ all in synagogue	0467
 all in temple	0468
 all seeking God	0469
 all who heard (in synagogues)	0470
-altar, the	0471
+altar	0471
 Amasai, chief of thirty (Spirit came upon)	0029
 Amaziah	0030
 Ammonite nobles	0031
@@ -50,7 +50,6 @@ angel standing on sea and land	2473
 angel who talked with Zechariah	0477
 angel, another (vision)	0478
 angel, another, coming down from heaven	3473
-angel, arch-, Michael	0479
 angel, coming out of temple	0480
 angel, coming out of temple, another	0481
 angel, powerful	0482
@@ -216,14 +215,15 @@ Delilah	1095
 Demetrius	0096
 demons coming out of people	1573
 demons/demon-possessed man	0573
+disciples 1	0578
+disciples 2	0579
+disciples 3	0580
 disciples of John Baptist, two	0575
+disciples	0577
 disciples, 2 men	0576
-disciples, His	0577
 disciples, John the Baptist's	0581
 disciples, some	0574
-disciples, the 1	0578
-disciples, the 2	0579
-disciples, the	0580
+disciples=twelve (disciples), the	0963
 Doeg the Edomite	0099
 eagle crying with loud voice	1581
 ear	0582
@@ -289,7 +289,6 @@ father of possessed boy=man in crowd	0606
 Felix	0140
 Festus	0141
 Field commander from King of Assyria	0142
-field commander=Sennacherib's officers	0607
 followers of Jesus	1607
 fool	0608
 foot	0609
@@ -441,31 +440,31 @@ Jesus' brothers	2258
 Jesus' family	0259
 Jesus	0700
 Jewish authorities	0260
+Jews (with Mary and Martha)	0271
+Jews (with Mary and Martha)|Mary	1270
+Jews (with Mary and Martha, some)	0272
 Jews 1	0264
 Jews 2	3265
+Jews 4	0268
+Jews 5	0269
+Jews 6	0270
+Jews 8	0273
 Jews of Cyrene, Alexandria, Cilicia & Asia	5265
 Jews, 40 in conspiracy	4265
 Jews, God-fearing from every nation 1	1262
 Jews, God-fearing from every nation 2	2265
 Jews, God-fearing from every nation, some	0267
 Jews, others of the	1264
-Jews, the (with Mary and Martha)	0271
-Jews, the (with Mary and Martha)|Mary	1270
-Jews, the (with Mary and Martha, some)	0272
 Jews, the 1	0262
 Jews, the 2	0263
-Jews, the 4	0268
-Jews, the 5	0269
-Jews, the 6	0270
 Jews, the 7	0265
-Jews, the 8	0273
 Jews/priests/nobles/officials	0274
 Jezebel	1265
 Joab	0266
 Joab's men, one of	1267
 Joash, father of Gideon	2267
 Joash, king of Judah	3267
-Job, the man	1269
+Job	1269
 Job's wife	1268
 Joel saying what the priests should say	0226
 Joel saying what the weakling should say	0227
@@ -511,7 +510,6 @@ Laban's sons	1306
 Lamech (descendent of Cain)	0307
 Lamech (descendent of Seth)	0308
 law of Moses where LORD commanded	0645
-law, the	0646
 leaders in Ephraim	0647
 leaders	0648
 Leah	0309
@@ -630,6 +628,7 @@ messengers of Jacob	0739
 Micah	0334
 Micah's mother	0335
 Micaiah, prophet of the LORD	0336
+Michael (archangel)	0479
 Michal, David's wife	0337
 midwife of Rachel	0740
 midwife of Tamar	0741
@@ -688,8 +687,8 @@ narrator-ZEC	0762
 narrator-ZEP	1762
 Nathan	0352
 Nathanael	0353
+nations, people of the	0355
 Nations, the	0354
-Nations, the, people of	0355
 Nebuchadnezzar, king of Babylon	0356
 Nebuzaradan	0357
 Neco, king of Egypt	0358
@@ -747,13 +746,15 @@ Pashur/Zephaniah	0368
 passers by	0807
 Paul	0062
 Paul's travelling companions, Luke and	0369
+people (complaining Israelites)	0841
 people 1	0810
 people 2	0811
 people at cistern	0812
+people at coronation of King Joash	0838
 people gathered to pray	0813
 people in crowd	0814
 people who knew Saul	0815
-people	0843
+people	0840
 people, all the 1	0819
 people, all the 2	0820
 people, all the 3	0821
@@ -773,15 +774,11 @@ people, righteous	0830
 people, sick	0831
 people, some 1	1831
 people, some of the	0832
-people, some	0835
 people, some, in Jerusalem 1	0833
 people, some, in Jerusalem 2	0834
 people, still other 1	0836
 people, still other 2	0837
-people, the 1	0838
-people, the	0840
-people, the|complainer/woman	0841
-people, the|leader of Naphtali	0842
+people|leader of Naphtali	0842
 peoples, many	0844
 person sacrificing	0657
 person	0845
@@ -890,9 +887,10 @@ scouts of Ben-Hadad, king of Aram	0888
 scripture (Moses quoting God)	0889
 scripture	0890
 scroll with decree of Cyrus, king	0891
-sea, the	0892
+sea	0892
 Sennacherib, king of Assyria	0421
 Sennacherib's messengers	0420
+Sennacherib's officers	0607
 seraph, one of the	0893
 seraphs	0894
 serpent	0895
@@ -975,8 +973,8 @@ Tamar, daughter of David	0442
 Tamar, daughter-in-law of Judah	0443
 Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	0444
 tax collectors	0943
+teacher (Preacher)	0945
 teacher of the law	0944
-teacher, the	0945
 teachers of the law	0593
 teachers of the law/Pharisees	0377
 temple guards	0949
@@ -995,7 +993,6 @@ townsmen (wicked)	0959
 townsmen	0960
 townsmen-wicked (of Sodom)	0961
 troublemakers	0962
-twelve, the=disciples|disciples, His	0963
 twenty-four elders	0964
 twenty-four elders/four living creatures	0965
 unbelievers	0966
@@ -1036,7 +1033,7 @@ women 1	1005
 women of Bethlehem	1006
 women	1008
 women, seven	1007
-world, the whole	1009
+worshippers of the beast	1009
 Xerxes, king of Persia and Media (Ahasuerus)	0450
 you 1	1010
 you ought to say	1011

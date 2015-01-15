@@ -95,10 +95,10 @@ namespace DevTools
 			{0572, "daughters of Zelophehad"},
 			{0573, "demons/demon-possessed man"},
 			{0574, "disciples, some"},
-			{0577, "disciples, His"},
-			{0578, "disciples, the 1"},
-			{0579, "disciples, the 2"},
-			{0580, "disciples, the"},
+			{0577, "disciples"},
+			{0578, "disciples 1"},
+			{0579, "disciples 2"},
+			{0580, "disciples 3"},
 			{0581, "disciples, John the Baptist's"},
 			{0586, "elders/people"},
 			{0593, "teachers of the law"},
@@ -126,6 +126,7 @@ namespace DevTools
 			{2000, "God"},
 			{2264, "chief priests and Jewish leaders"},
 			{2271, "Johanan"},
+			{0890, "scripture"},
 		}; 
 	}
 }

@@ -1,4 +1,4 @@
-Control File Version	27	Generated	Mon, 12 Jan 2015 14:59:37 GMT
+Control File Version	32	Generated	Thu, 15 Jan 2015 15:55:36 GMT
 GEN	1	3	God		God (the LORD)	False
 GEN	1	5	narrator-GEN			False
 GEN	1	6	God		God (the LORD)	False
@@ -107,11 +107,11 @@ GEN	16	2	Sarai (Sarah)			False
 GEN	16	5	Sarai (Sarah)			False
 GEN	16	6	Abraham		Abram (Abraham)	False
 GEN	16	8	Hagar, the Egyptian			False
-GEN	16	8	Jesus		angel of the LORD, the	False
-GEN	16	9	Jesus		angel of the LORD, the	False
-GEN	16	10	Jesus		angel of the LORD, the	False
-GEN	16	11	Jesus		angel of the LORD, the	False
-GEN	16	12	Jesus		angel of the LORD, the	False
+GEN	16	8	Jesus		angel of the LORD	False
+GEN	16	9	Jesus		angel of the LORD	False
+GEN	16	10	Jesus		angel of the LORD	False
+GEN	16	11	Jesus		angel of the LORD	False
+GEN	16	12	Jesus		angel of the LORD	False
 GEN	16	13	Hagar, the Egyptian			False
 GEN	17	1	God		God (LORD appeared)	False
 GEN	17	4	God		God (LORD appeared)	False
@@ -192,10 +192,10 @@ GEN	22	7	Abraham			False
 GEN	22	7	Isaac			False
 GEN	22	8	Abraham			False
 GEN	22	11	Abraham			False
-GEN	22	11	Jesus	calling from Heaven	angel of the LORD, the	False
-GEN	22	12	Jesus	calling from Heaven	angel of the LORD, the	False
+GEN	22	11	Jesus	calling from Heaven	angel of the LORD	False
+GEN	22	12	Jesus	calling from Heaven	angel of the LORD	False
 GEN	22	14	proclaim			False
-GEN	22	16	Jesus	calling from Heaven	angel of the LORD, the	False
+GEN	22	16	Jesus	calling from Heaven	angel of the LORD	False
 GEN	22	20	messenger to Abraham			False
 GEN	23	4	Abraham			False
 GEN	23	6	Hittites			False
@@ -1210,7 +1210,7 @@ NUM	19	14	God		God (the LORD)	False
 NUM	19	16	God		God (the LORD)	False
 NUM	19	17	God		God (the LORD)	False
 NUM	19	21	God		God (the LORD)	False
-NUM	20	3	people, the|complainer/woman	complaining		False
+NUM	20	3	people (complaining Israelites)			False
 NUM	20	8	God		God (the LORD)	False
 NUM	20	10	Moses			False
 NUM	20	12	God		God (the LORD)	False
@@ -1221,8 +1221,8 @@ NUM	20	19	Israelites			False
 NUM	20	20	Edom			False
 NUM	20	24	God		God (the LORD)	False
 NUM	21	2	Israel|leader of Naphtali			False
-NUM	21	5	people, the			False
-NUM	21	7	people, the|leader of Naphtali			False
+NUM	21	5	people			False
+NUM	21	7	people|leader of Naphtali			False
 NUM	21	8	God		God (the LORD)	False
 NUM	21	14	Book of the Wars of the LORD			False
 NUM	21	15	Moses	sang	Moses/Israelites	False
@@ -1251,9 +1251,9 @@ NUM	22	28	she donkey			False
 NUM	22	29	Balaam			False
 NUM	22	30	Balaam			False
 NUM	22	30	she donkey			False
-NUM	22	32	Jesus		angel of the LORD, the	False
+NUM	22	32	Jesus		angel of the LORD	False
 NUM	22	34	Balaam			False
-NUM	22	35	Jesus		angel of the LORD, the	False
+NUM	22	35	Jesus		angel of the LORD	False
 NUM	22	37	Balak			False
 NUM	22	38	Balaam			False
 NUM	23	1	Balaam			False
@@ -1651,7 +1651,7 @@ JDG	1	14	Acsah, Caleb's daughter			False
 JDG	1	14	Caleb			False
 JDG	1	15	Acsah, Caleb's daughter			False
 JDG	1	24	spy from Joseph			False
-JDG	2	1	Jesus		angel of the LORD, the	False
+JDG	2	1	Jesus		angel of the LORD	False
 JDG	2	20	God		God (the LORD)	False
 JDG	3	19	Eglon, king of Moab			False
 JDG	3	19	Ehud			False
@@ -1698,7 +1698,7 @@ JDG	5	30	Deborah		Deborah/Barak	False
 JDG	5	30	Sisera's mother			False
 JDG	5	31	Deborah		Deborah/Barak	False
 JDG	6	8	prophet			False
-JDG	6	12	Jesus		angel of the LORD, the	False
+JDG	6	12	Jesus		angel of the LORD	False
 JDG	6	13	Gideon			False
 JDG	6	14	God		God (the LORD)	False
 JDG	6	15	Gideon			False
@@ -1795,18 +1795,18 @@ JDG	12	5	Ephraimites		Ephraim, survivor of	False
 JDG	12	5	Gilead, men of			False
 JDG	12	6	Ephraimites		Ephraim, survivor of	False
 JDG	12	6	Gilead, men of			False
-JDG	13	3	Jesus		angel of the LORD, the	False
+JDG	13	3	Jesus		angel of the LORD	False
 JDG	13	6	Manoah's wife, mother of Samson			False
 JDG	13	8	Manoah, father of Samson			False
 JDG	13	10	Manoah's wife, mother of Samson			False
-JDG	13	11	Jesus		angel of the LORD, the	False
+JDG	13	11	Jesus		angel of the LORD	False
 JDG	13	11	Manoah, father of Samson			False
 JDG	13	12	Manoah, father of Samson			False
-JDG	13	13	Jesus		angel of the LORD, the	False
+JDG	13	13	Jesus		angel of the LORD	False
 JDG	13	15	Manoah, father of Samson			False
-JDG	13	16	Jesus		angel of the LORD, the	False
+JDG	13	16	Jesus		angel of the LORD	False
 JDG	13	17	Manoah, father of Samson			False
-JDG	13	18	Jesus		angel of the LORD, the	False
+JDG	13	18	Jesus		angel of the LORD	False
 JDG	13	22	Manoah, father of Samson			False
 JDG	13	23	Manoah's wife, mother of Samson			False
 JDG	14	2	Samson			False
@@ -2959,7 +2959,7 @@ RUT	4	17	women of Bethlehem			False
 1KI	22	36	Army cry			False
 1KI	22	49	Ahaziah, king of Israel			False
 2KI	1	2	Ahaziah, king of Israel			False
-2KI	1	3	Jesus		angel of the LORD, the	False
+2KI	1	3	Jesus		angel of the LORD	False
 2KI	1	5	Ahaziah, king of Israel			False
 2KI	1	6	messengers of Ahaziah			False
 2KI	1	7	Ahaziah, king of Israel			False
@@ -2970,7 +2970,7 @@ RUT	4	17	women of Bethlehem			False
 2KI	1	11	captain, second			False
 2KI	1	12	Elijah			False
 2KI	1	13	captain, third			False
-2KI	1	15	Jesus		angel of the LORD, the	False
+2KI	1	15	Jesus		angel of the LORD	False
 2KI	1	16	Elijah			False
 2KI	2	2	Elijah			False
 2KI	2	2	Elisha			False
@@ -3171,7 +3171,7 @@ RUT	4	17	women of Bethlehem			False
 2KI	10	25	Jehu, son of Nimshi			False
 2KI	10	30	God		God (the LORD)	False
 2KI	11	5	Jehoiada		Jehoiada the priest	False
-2KI	11	12	people, the 1	shouting		False
+2KI	11	12	people at coronation of King Joash	shouting/rejoicing		False
 2KI	11	14	Athaliah			False
 2KI	11	15	Jehoiada		Jehoiada the priest	False
 2KI	12	4	Joash, king of Judah			False
@@ -3472,9 +3472,9 @@ RUT	4	17	women of Bethlehem			False
 2CH	31	10	Azariah		Azariah the priest	False
 2CH	32	4	men, large force of			False
 2CH	32	7	Hezekiah, king of Judah			False
-2CH	32	10	field commander=Sennacherib's officers			False
-2CH	32	13	field commander=Sennacherib's officers			False
+2CH	32	10-16	Sennacherib's officers			False
 2CH	32	17	Sennacherib, king of Assyria	letter		False
+2CH	32	18-19	Sennacherib's officers			False
 2CH	33	4	God	had said	God (the LORD)	False
 2CH	33	4	narrator-2CH			False
 2CH	33	7	God	had said	God (the LORD)	False
@@ -3633,7 +3633,7 @@ EST	8	5	Esther, queen			False
 EST	8	7	Xerxes, king of Persia and Media (Ahasuerus)			False
 EST	9	12	Xerxes, king of Persia and Media (Ahasuerus)			False
 EST	9	13	Esther, queen			False
-JOB	1	5	Job, the man	thinking		False
+JOB	1	5	Job	thinking		False
 JOB	1	7	God		God (the LORD)	False
 JOB	1	7	Satan			False
 JOB	1	8	God		God (the LORD)	False
@@ -3644,38 +3644,38 @@ JOB	1	14	messenger, a			False
 JOB	1	16	messenger, another			False
 JOB	1	17	messenger, still another			False
 JOB	1	18	messenger, yet another			False
-JOB	1	21	Job, the man			False
+JOB	1	21	Job			False
 JOB	2	2	God		God (the LORD)	False
 JOB	2	2	Satan			False
 JOB	2	3	God		God (the LORD)	False
 JOB	2	4	Satan			False
 JOB	2	6	God		God (the LORD)	False
 JOB	2	9	Job's wife			False
-JOB	2	10	Job, the man			False
-JOB	3	3	Job, the man			False
-JOB	3	4	Job, the man			False
-JOB	3	5	Job, the man			False
-JOB	3	6	Job, the man			False
-JOB	3	7	Job, the man			False
-JOB	3	8	Job, the man			False
-JOB	3	9	Job, the man			False
-JOB	3	10	Job, the man			False
-JOB	3	11	Job, the man			False
-JOB	3	12	Job, the man			False
-JOB	3	13	Job, the man			False
-JOB	3	14	Job, the man			False
-JOB	3	15	Job, the man			False
-JOB	3	16	Job, the man			False
-JOB	3	17	Job, the man			False
-JOB	3	18	Job, the man			False
-JOB	3	19	Job, the man			False
-JOB	3	20	Job, the man			False
-JOB	3	21	Job, the man			False
-JOB	3	22	Job, the man			False
-JOB	3	23	Job, the man			False
-JOB	3	24	Job, the man			False
-JOB	3	25	Job, the man			False
-JOB	3	26	Job, the man			False
+JOB	2	10	Job			False
+JOB	3	3	Job			False
+JOB	3	4	Job			False
+JOB	3	5	Job			False
+JOB	3	6	Job			False
+JOB	3	7	Job			False
+JOB	3	8	Job			False
+JOB	3	9	Job			False
+JOB	3	10	Job			False
+JOB	3	11	Job			False
+JOB	3	12	Job			False
+JOB	3	13	Job			False
+JOB	3	14	Job			False
+JOB	3	15	Job			False
+JOB	3	16	Job			False
+JOB	3	17	Job			False
+JOB	3	18	Job			False
+JOB	3	19	Job			False
+JOB	3	20	Job			False
+JOB	3	21	Job			False
+JOB	3	22	Job			False
+JOB	3	23	Job			False
+JOB	3	24	Job			False
+JOB	3	25	Job			False
+JOB	3	26	Job			False
 JOB	4	2	Eliphaz the Temanite			False
 JOB	4	3	Eliphaz the Temanite			False
 JOB	4	4	Eliphaz the Temanite			False
@@ -3719,55 +3719,55 @@ JOB	5	24	Eliphaz the Temanite			False
 JOB	5	25	Eliphaz the Temanite			False
 JOB	5	26	Eliphaz the Temanite			False
 JOB	5	27	Eliphaz the Temanite			False
-JOB	6	2	Job, the man			False
-JOB	6	3	Job, the man			False
-JOB	6	4	Job, the man			False
-JOB	6	5	Job, the man			False
-JOB	6	6	Job, the man			False
-JOB	6	7	Job, the man			False
-JOB	6	8	Job, the man			False
-JOB	6	9	Job, the man			False
-JOB	6	10	Job, the man			False
-JOB	6	11	Job, the man			False
-JOB	6	12	Job, the man			False
-JOB	6	13	Job, the man			False
-JOB	6	14	Job, the man			False
-JOB	6	15	Job, the man			False
-JOB	6	16	Job, the man			False
-JOB	6	17	Job, the man			False
-JOB	6	18	Job, the man			False
-JOB	6	19	Job, the man			False
-JOB	6	20	Job, the man			False
-JOB	6	21	Job, the man			False
-JOB	6	22	Job, the man			False
-JOB	6	24	Job, the man			False
-JOB	6	25	Job, the man			False
-JOB	6	26	Job, the man			False
-JOB	6	27	Job, the man			False
-JOB	6	28	Job, the man			False
-JOB	6	29	Job, the man			False
-JOB	6	30	Job, the man			False
-JOB	7	1	Job, the man			False
-JOB	7	2	Job, the man			False
-JOB	7	3	Job, the man			False
-JOB	7	4	Job, the man			False
-JOB	7	5	Job, the man			False
-JOB	7	6	Job, the man			False
-JOB	7	7	Job, the man			False
-JOB	7	8	Job, the man			False
-JOB	7	9	Job, the man			False
-JOB	7	10	Job, the man			False
-JOB	7	11	Job, the man			False
-JOB	7	12	Job, the man			False
-JOB	7	13	Job, the man			False
-JOB	7	14	Job, the man			False
-JOB	7	15	Job, the man			False
-JOB	7	16	Job, the man			False
-JOB	7	17	Job, the man			False
-JOB	7	18	Job, the man			False
-JOB	7	19	Job, the man			False
-JOB	7	20	Job, the man			False
-JOB	7	21	Job, the man			False
+JOB	6	2	Job			False
+JOB	6	3	Job			False
+JOB	6	4	Job			False
+JOB	6	5	Job			False
+JOB	6	6	Job			False
+JOB	6	7	Job			False
+JOB	6	8	Job			False
+JOB	6	9	Job			False
+JOB	6	10	Job			False
+JOB	6	11	Job			False
+JOB	6	12	Job			False
+JOB	6	13	Job			False
+JOB	6	14	Job			False
+JOB	6	15	Job			False
+JOB	6	16	Job			False
+JOB	6	17	Job			False
+JOB	6	18	Job			False
+JOB	6	19	Job			False
+JOB	6	20	Job			False
+JOB	6	21	Job			False
+JOB	6	22	Job			False
+JOB	6	24	Job			False
+JOB	6	25	Job			False
+JOB	6	26	Job			False
+JOB	6	27	Job			False
+JOB	6	28	Job			False
+JOB	6	29	Job			False
+JOB	6	30	Job			False
+JOB	7	1	Job			False
+JOB	7	2	Job			False
+JOB	7	3	Job			False
+JOB	7	4	Job			False
+JOB	7	5	Job			False
+JOB	7	6	Job			False
+JOB	7	7	Job			False
+JOB	7	8	Job			False
+JOB	7	9	Job			False
+JOB	7	10	Job			False
+JOB	7	11	Job			False
+JOB	7	12	Job			False
+JOB	7	13	Job			False
+JOB	7	14	Job			False
+JOB	7	15	Job			False
+JOB	7	16	Job			False
+JOB	7	17	Job			False
+JOB	7	18	Job			False
+JOB	7	19	Job			False
+JOB	7	20	Job			False
+JOB	7	21	Job			False
 JOB	8	2	Bildad the Shuhite			False
 JOB	8	3	Bildad the Shuhite			False
 JOB	8	4	Bildad the Shuhite			False
@@ -3789,62 +3789,62 @@ JOB	8	19	Bildad the Shuhite			False
 JOB	8	20	Bildad the Shuhite			False
 JOB	8	21	Bildad the Shuhite			False
 JOB	8	22	Bildad the Shuhite			False
-JOB	9	2	Job, the man			False
-JOB	9	3	Job, the man			False
-JOB	9	4	Job, the man			False
-JOB	9	5	Job, the man			False
-JOB	9	6	Job, the man			False
-JOB	9	7	Job, the man			False
-JOB	9	8	Job, the man			False
-JOB	9	9	Job, the man			False
-JOB	9	10	Job, the man			False
-JOB	9	11	Job, the man			False
-JOB	9	12	Job, the man			False
-JOB	9	13	Job, the man			False
-JOB	9	14	Job, the man			False
-JOB	9	15	Job, the man			False
-JOB	9	16	Job, the man			False
-JOB	9	17	Job, the man			False
-JOB	9	18	Job, the man			False
-JOB	9	19	Job, the man			False
-JOB	9	20	Job, the man			False
-JOB	9	21	Job, the man			False
-JOB	9	22	Job, the man			False
-JOB	9	23	Job, the man			False
-JOB	9	24	Job, the man			False
-JOB	9	25	Job, the man			False
-JOB	9	26	Job, the man			False
-JOB	9	27	Job, the man			False
-JOB	9	28	Job, the man			False
-JOB	9	29	Job, the man			False
-JOB	9	30	Job, the man			False
-JOB	9	31	Job, the man			False
-JOB	9	32	Job, the man			False
-JOB	9	33	Job, the man			False
-JOB	9	34	Job, the man			False
-JOB	9	35	Job, the man			False
-JOB	10	1	Job, the man			False
-JOB	10	2	Job, the man			False
-JOB	10	3	Job, the man			False
-JOB	10	4	Job, the man			False
-JOB	10	5	Job, the man			False
-JOB	10	6	Job, the man			False
-JOB	10	7	Job, the man			False
-JOB	10	8	Job, the man			False
-JOB	10	9	Job, the man			False
-JOB	10	10	Job, the man			False
-JOB	10	11	Job, the man			False
-JOB	10	12	Job, the man			False
-JOB	10	13	Job, the man			False
-JOB	10	14	Job, the man			False
-JOB	10	15	Job, the man			False
-JOB	10	16	Job, the man			False
-JOB	10	17	Job, the man			False
-JOB	10	18	Job, the man			False
-JOB	10	19	Job, the man			False
-JOB	10	20	Job, the man			False
-JOB	10	21	Job, the man			False
-JOB	10	22	Job, the man			False
+JOB	9	2	Job			False
+JOB	9	3	Job			False
+JOB	9	4	Job			False
+JOB	9	5	Job			False
+JOB	9	6	Job			False
+JOB	9	7	Job			False
+JOB	9	8	Job			False
+JOB	9	9	Job			False
+JOB	9	10	Job			False
+JOB	9	11	Job			False
+JOB	9	12	Job			False
+JOB	9	13	Job			False
+JOB	9	14	Job			False
+JOB	9	15	Job			False
+JOB	9	16	Job			False
+JOB	9	17	Job			False
+JOB	9	18	Job			False
+JOB	9	19	Job			False
+JOB	9	20	Job			False
+JOB	9	21	Job			False
+JOB	9	22	Job			False
+JOB	9	23	Job			False
+JOB	9	24	Job			False
+JOB	9	25	Job			False
+JOB	9	26	Job			False
+JOB	9	27	Job			False
+JOB	9	28	Job			False
+JOB	9	29	Job			False
+JOB	9	30	Job			False
+JOB	9	31	Job			False
+JOB	9	32	Job			False
+JOB	9	33	Job			False
+JOB	9	34	Job			False
+JOB	9	35	Job			False
+JOB	10	1	Job			False
+JOB	10	2	Job			False
+JOB	10	3	Job			False
+JOB	10	4	Job			False
+JOB	10	5	Job			False
+JOB	10	6	Job			False
+JOB	10	7	Job			False
+JOB	10	8	Job			False
+JOB	10	9	Job			False
+JOB	10	10	Job			False
+JOB	10	11	Job			False
+JOB	10	12	Job			False
+JOB	10	13	Job			False
+JOB	10	14	Job			False
+JOB	10	15	Job			False
+JOB	10	16	Job			False
+JOB	10	17	Job			False
+JOB	10	18	Job			False
+JOB	10	19	Job			False
+JOB	10	20	Job			False
+JOB	10	21	Job			False
+JOB	10	22	Job			False
 JOB	11	2	Zophar the Naamathite			False
 JOB	11	3	Zophar the Naamathite			False
 JOB	11	4	Zophar the Naamathite			False
@@ -3864,80 +3864,80 @@ JOB	11	17	Zophar the Naamathite			False
 JOB	11	18	Zophar the Naamathite			False
 JOB	11	19	Zophar the Naamathite			False
 JOB	11	20	Zophar the Naamathite			False
-JOB	12	2	Job, the man			False
-JOB	12	3	Job, the man			False
-JOB	12	4	Job, the man			False
-JOB	12	5	Job, the man			False
-JOB	12	6	Job, the man			False
-JOB	12	7	Job, the man			False
-JOB	12	8	Job, the man			False
-JOB	12	9	Job, the man			False
-JOB	12	10	Job, the man			False
-JOB	12	11	Job, the man			False
-JOB	12	12	Job, the man			False
-JOB	12	13	Job, the man			False
-JOB	12	14	Job, the man			False
-JOB	12	15	Job, the man			False
-JOB	12	16	Job, the man			False
-JOB	12	17	Job, the man			False
-JOB	12	18	Job, the man			False
-JOB	12	19	Job, the man			False
-JOB	12	20	Job, the man			False
-JOB	12	21	Job, the man			False
-JOB	12	22	Job, the man			False
-JOB	12	23	Job, the man			False
-JOB	12	24	Job, the man			False
-JOB	12	25	Job, the man			False
-JOB	13	1	Job, the man			False
-JOB	13	2	Job, the man			False
-JOB	13	3	Job, the man			False
-JOB	13	4	Job, the man			False
-JOB	13	5	Job, the man			False
-JOB	13	6	Job, the man			False
-JOB	13	7	Job, the man			False
-JOB	13	8	Job, the man			False
-JOB	13	9	Job, the man			False
-JOB	13	10	Job, the man			False
-JOB	13	11	Job, the man			False
-JOB	13	12	Job, the man			False
-JOB	13	13	Job, the man			False
-JOB	13	14	Job, the man			False
-JOB	13	15	Job, the man			False
-JOB	13	16	Job, the man			False
-JOB	13	17	Job, the man			False
-JOB	13	18	Job, the man			False
-JOB	13	19	Job, the man			False
-JOB	13	20	Job, the man			False
-JOB	13	21	Job, the man			False
-JOB	13	22	Job, the man			False
-JOB	13	23	Job, the man			False
-JOB	13	24	Job, the man			False
-JOB	13	25	Job, the man			False
-JOB	13	26	Job, the man			False
-JOB	13	27	Job, the man			False
-JOB	13	28	Job, the man			False
-JOB	14	1	Job, the man			False
-JOB	14	2	Job, the man			False
-JOB	14	3	Job, the man			False
-JOB	14	4	Job, the man			False
-JOB	14	5	Job, the man			False
-JOB	14	6	Job, the man			False
-JOB	14	7	Job, the man			False
-JOB	14	8	Job, the man			False
-JOB	14	9	Job, the man			False
-JOB	14	10	Job, the man			False
-JOB	14	11	Job, the man			False
-JOB	14	12	Job, the man			False
-JOB	14	13	Job, the man			False
-JOB	14	14	Job, the man			False
-JOB	14	15	Job, the man			False
-JOB	14	16	Job, the man			False
-JOB	14	17	Job, the man			False
-JOB	14	18	Job, the man			False
-JOB	14	19	Job, the man			False
-JOB	14	20	Job, the man			False
-JOB	14	21	Job, the man			False
-JOB	14	22	Job, the man			False
+JOB	12	2	Job			False
+JOB	12	3	Job			False
+JOB	12	4	Job			False
+JOB	12	5	Job			False
+JOB	12	6	Job			False
+JOB	12	7	Job			False
+JOB	12	8	Job			False
+JOB	12	9	Job			False
+JOB	12	10	Job			False
+JOB	12	11	Job			False
+JOB	12	12	Job			False
+JOB	12	13	Job			False
+JOB	12	14	Job			False
+JOB	12	15	Job			False
+JOB	12	16	Job			False
+JOB	12	17	Job			False
+JOB	12	18	Job			False
+JOB	12	19	Job			False
+JOB	12	20	Job			False
+JOB	12	21	Job			False
+JOB	12	22	Job			False
+JOB	12	23	Job			False
+JOB	12	24	Job			False
+JOB	12	25	Job			False
+JOB	13	1	Job			False
+JOB	13	2	Job			False
+JOB	13	3	Job			False
+JOB	13	4	Job			False
+JOB	13	5	Job			False
+JOB	13	6	Job			False
+JOB	13	7	Job			False
+JOB	13	8	Job			False
+JOB	13	9	Job			False
+JOB	13	10	Job			False
+JOB	13	11	Job			False
+JOB	13	12	Job			False
+JOB	13	13	Job			False
+JOB	13	14	Job			False
+JOB	13	15	Job			False
+JOB	13	16	Job			False
+JOB	13	17	Job			False
+JOB	13	18	Job			False
+JOB	13	19	Job			False
+JOB	13	20	Job			False
+JOB	13	21	Job			False
+JOB	13	22	Job			False
+JOB	13	23	Job			False
+JOB	13	24	Job			False
+JOB	13	25	Job			False
+JOB	13	26	Job			False
+JOB	13	27	Job			False
+JOB	13	28	Job			False
+JOB	14	1	Job			False
+JOB	14	2	Job			False
+JOB	14	3	Job			False
+JOB	14	4	Job			False
+JOB	14	5	Job			False
+JOB	14	6	Job			False
+JOB	14	7	Job			False
+JOB	14	8	Job			False
+JOB	14	9	Job			False
+JOB	14	10	Job			False
+JOB	14	11	Job			False
+JOB	14	12	Job			False
+JOB	14	13	Job			False
+JOB	14	14	Job			False
+JOB	14	15	Job			False
+JOB	14	16	Job			False
+JOB	14	17	Job			False
+JOB	14	18	Job			False
+JOB	14	19	Job			False
+JOB	14	20	Job			False
+JOB	14	21	Job			False
+JOB	14	22	Job			False
 JOB	15	2	Eliphaz the Temanite			False
 JOB	15	3	Eliphaz the Temanite			False
 JOB	15	4	Eliphaz the Temanite			False
@@ -3972,43 +3972,43 @@ JOB	15	32	Eliphaz the Temanite			False
 JOB	15	33	Eliphaz the Temanite			False
 JOB	15	34	Eliphaz the Temanite			False
 JOB	15	35	Eliphaz the Temanite			False
-JOB	16	2	Job, the man			False
-JOB	16	3	Job, the man			False
-JOB	16	4	Job, the man			False
-JOB	16	5	Job, the man			False
-JOB	16	6	Job, the man			False
-JOB	16	7	Job, the man			False
-JOB	16	8	Job, the man			False
-JOB	16	9	Job, the man			False
-JOB	16	10	Job, the man			False
-JOB	16	11	Job, the man			False
-JOB	16	12	Job, the man			False
-JOB	16	13	Job, the man			False
-JOB	16	14	Job, the man			False
-JOB	16	15	Job, the man			False
-JOB	16	16	Job, the man			False
-JOB	16	17	Job, the man			False
-JOB	16	18	Job, the man			False
-JOB	16	19	Job, the man			False
-JOB	16	20	Job, the man			False
-JOB	16	21	Job, the man			False
-JOB	16	22	Job, the man			False
-JOB	17	1	Job, the man			False
-JOB	17	2	Job, the man			False
-JOB	17	3	Job, the man			False
-JOB	17	4	Job, the man			False
-JOB	17	5	Job, the man			False
-JOB	17	6	Job, the man			False
-JOB	17	7	Job, the man			False
-JOB	17	8	Job, the man			False
-JOB	17	9	Job, the man			False
-JOB	17	10	Job, the man			False
-JOB	17	11	Job, the man			False
-JOB	17	12	Job, the man			False
-JOB	17	13	Job, the man			False
-JOB	17	14	Job, the man			False
-JOB	17	15	Job, the man			False
-JOB	17	16	Job, the man			False
+JOB	16	2	Job			False
+JOB	16	3	Job			False
+JOB	16	4	Job			False
+JOB	16	5	Job			False
+JOB	16	6	Job			False
+JOB	16	7	Job			False
+JOB	16	8	Job			False
+JOB	16	9	Job			False
+JOB	16	10	Job			False
+JOB	16	11	Job			False
+JOB	16	12	Job			False
+JOB	16	13	Job			False
+JOB	16	14	Job			False
+JOB	16	15	Job			False
+JOB	16	16	Job			False
+JOB	16	17	Job			False
+JOB	16	18	Job			False
+JOB	16	19	Job			False
+JOB	16	20	Job			False
+JOB	16	21	Job			False
+JOB	16	22	Job			False
+JOB	17	1	Job			False
+JOB	17	2	Job			False
+JOB	17	3	Job			False
+JOB	17	4	Job			False
+JOB	17	5	Job			False
+JOB	17	6	Job			False
+JOB	17	7	Job			False
+JOB	17	8	Job			False
+JOB	17	9	Job			False
+JOB	17	10	Job			False
+JOB	17	11	Job			False
+JOB	17	12	Job			False
+JOB	17	13	Job			False
+JOB	17	14	Job			False
+JOB	17	15	Job			False
+JOB	17	16	Job			False
 JOB	18	2	Bildad the Shuhite			False
 JOB	18	3	Bildad the Shuhite			False
 JOB	18	4	Bildad the Shuhite			False
@@ -4029,34 +4029,34 @@ JOB	18	18	Bildad the Shuhite			False
 JOB	18	19	Bildad the Shuhite			False
 JOB	18	20	Bildad the Shuhite			False
 JOB	18	21	Bildad the Shuhite			False
-JOB	19	2	Job, the man			False
-JOB	19	3	Job, the man			False
-JOB	19	4	Job, the man			False
-JOB	19	5	Job, the man			False
-JOB	19	6	Job, the man			False
-JOB	19	7	Job, the man			False
-JOB	19	8	Job, the man			False
-JOB	19	9	Job, the man			False
-JOB	19	10	Job, the man			False
-JOB	19	11	Job, the man			False
-JOB	19	12	Job, the man			False
-JOB	19	13	Job, the man			False
-JOB	19	14	Job, the man			False
-JOB	19	15	Job, the man			False
-JOB	19	16	Job, the man			False
-JOB	19	17	Job, the man			False
-JOB	19	18	Job, the man			False
-JOB	19	19	Job, the man			False
-JOB	19	20	Job, the man			False
-JOB	19	21	Job, the man			False
-JOB	19	22	Job, the man			False
-JOB	19	23	Job, the man			False
-JOB	19	24	Job, the man			False
-JOB	19	25	Job, the man			False
-JOB	19	26	Job, the man			False
-JOB	19	27	Job, the man			False
-JOB	19	28	Job, the man			False
-JOB	19	29	Job, the man			False
+JOB	19	2	Job			False
+JOB	19	3	Job			False
+JOB	19	4	Job			False
+JOB	19	5	Job			False
+JOB	19	6	Job			False
+JOB	19	7	Job			False
+JOB	19	8	Job			False
+JOB	19	9	Job			False
+JOB	19	10	Job			False
+JOB	19	11	Job			False
+JOB	19	12	Job			False
+JOB	19	13	Job			False
+JOB	19	14	Job			False
+JOB	19	15	Job			False
+JOB	19	16	Job			False
+JOB	19	17	Job			False
+JOB	19	18	Job			False
+JOB	19	19	Job			False
+JOB	19	20	Job			False
+JOB	19	21	Job			False
+JOB	19	22	Job			False
+JOB	19	23	Job			False
+JOB	19	24	Job			False
+JOB	19	25	Job			False
+JOB	19	26	Job			False
+JOB	19	27	Job			False
+JOB	19	28	Job			False
+JOB	19	29	Job			False
 JOB	20	2	Zophar the Naamathite			False
 JOB	20	3	Zophar the Naamathite			False
 JOB	20	4	Zophar the Naamathite			False
@@ -4085,38 +4085,38 @@ JOB	20	26	Zophar the Naamathite			False
 JOB	20	27	Zophar the Naamathite			False
 JOB	20	28	Zophar the Naamathite			False
 JOB	20	29	Zophar the Naamathite			False
-JOB	21	2	Job, the man			False
-JOB	21	3	Job, the man			False
-JOB	21	4	Job, the man			False
-JOB	21	5	Job, the man			False
-JOB	21	6	Job, the man			False
-JOB	21	7	Job, the man			False
-JOB	21	8	Job, the man			False
-JOB	21	9	Job, the man			False
-JOB	21	10	Job, the man			False
-JOB	21	11	Job, the man			False
-JOB	21	12	Job, the man			False
-JOB	21	13	Job, the man			False
-JOB	21	14	Job, the man			False
-JOB	21	16	Job, the man			False
-JOB	21	17	Job, the man			False
-JOB	21	18	Job, the man			False
-JOB	21	19	Job, the man			False
-JOB	21	20	Job, the man			False
-JOB	21	21	Job, the man			False
-JOB	21	22	Job, the man			False
-JOB	21	23	Job, the man			False
-JOB	21	24	Job, the man			False
-JOB	21	25	Job, the man			False
-JOB	21	26	Job, the man			False
-JOB	21	27	Job, the man			False
-JOB	21	28	Job, the man			False
-JOB	21	29	Job, the man			False
-JOB	21	30	Job, the man			False
-JOB	21	31	Job, the man			False
-JOB	21	32	Job, the man			False
-JOB	21	33	Job, the man			False
-JOB	21	34	Job, the man			False
+JOB	21	2	Job			False
+JOB	21	3	Job			False
+JOB	21	4	Job			False
+JOB	21	5	Job			False
+JOB	21	6	Job			False
+JOB	21	7	Job			False
+JOB	21	8	Job			False
+JOB	21	9	Job			False
+JOB	21	10	Job			False
+JOB	21	11	Job			False
+JOB	21	12	Job			False
+JOB	21	13	Job			False
+JOB	21	14	Job			False
+JOB	21	16	Job			False
+JOB	21	17	Job			False
+JOB	21	18	Job			False
+JOB	21	19	Job			False
+JOB	21	20	Job			False
+JOB	21	21	Job			False
+JOB	21	22	Job			False
+JOB	21	23	Job			False
+JOB	21	24	Job			False
+JOB	21	25	Job			False
+JOB	21	26	Job			False
+JOB	21	27	Job			False
+JOB	21	28	Job			False
+JOB	21	29	Job			False
+JOB	21	30	Job			False
+JOB	21	31	Job			False
+JOB	21	32	Job			False
+JOB	21	33	Job			False
+JOB	21	34	Job			False
 JOB	22	2	Eliphaz the Temanite			False
 JOB	22	3	Eliphaz the Temanite			False
 JOB	22	4	Eliphaz the Temanite			False
@@ -4145,208 +4145,208 @@ JOB	22	27	Eliphaz the Temanite			False
 JOB	22	28	Eliphaz the Temanite			False
 JOB	22	29	Eliphaz the Temanite			False
 JOB	22	30	Eliphaz the Temanite			False
-JOB	23	2	Job, the man			False
-JOB	23	3	Job, the man			False
-JOB	23	4	Job, the man			False
-JOB	23	5	Job, the man			False
-JOB	23	6	Job, the man			False
-JOB	23	7	Job, the man			False
-JOB	23	8	Job, the man			False
-JOB	23	9	Job, the man			False
-JOB	23	10	Job, the man			False
-JOB	23	11	Job, the man			False
-JOB	23	12	Job, the man			False
-JOB	23	13	Job, the man			False
-JOB	23	14	Job, the man			False
-JOB	23	15	Job, the man			False
-JOB	23	16	Job, the man			False
-JOB	23	17	Job, the man			False
-JOB	24	1	Job, the man			False
-JOB	24	2	Job, the man			False
-JOB	24	3	Job, the man			False
-JOB	24	4	Job, the man			False
-JOB	24	5	Job, the man			False
-JOB	24	6	Job, the man			False
-JOB	24	7	Job, the man			False
-JOB	24	8	Job, the man			False
-JOB	24	9	Job, the man			False
-JOB	24	10	Job, the man			False
-JOB	24	11	Job, the man			False
-JOB	24	12	Job, the man			False
-JOB	24	13	Job, the man			False
-JOB	24	14	Job, the man			False
-JOB	24	15	Job, the man			False
-JOB	24	16	Job, the man			False
-JOB	24	17	Job, the man			False
-JOB	24	18	Job, the man			False
-JOB	24	19	Job, the man			False
-JOB	24	20	Job, the man			False
-JOB	24	21	Job, the man			False
-JOB	24	22	Job, the man			False
-JOB	24	23	Job, the man			False
-JOB	24	24	Job, the man			False
-JOB	24	25	Job, the man			False
+JOB	23	2	Job			False
+JOB	23	3	Job			False
+JOB	23	4	Job			False
+JOB	23	5	Job			False
+JOB	23	6	Job			False
+JOB	23	7	Job			False
+JOB	23	8	Job			False
+JOB	23	9	Job			False
+JOB	23	10	Job			False
+JOB	23	11	Job			False
+JOB	23	12	Job			False
+JOB	23	13	Job			False
+JOB	23	14	Job			False
+JOB	23	15	Job			False
+JOB	23	16	Job			False
+JOB	23	17	Job			False
+JOB	24	1	Job			False
+JOB	24	2	Job			False
+JOB	24	3	Job			False
+JOB	24	4	Job			False
+JOB	24	5	Job			False
+JOB	24	6	Job			False
+JOB	24	7	Job			False
+JOB	24	8	Job			False
+JOB	24	9	Job			False
+JOB	24	10	Job			False
+JOB	24	11	Job			False
+JOB	24	12	Job			False
+JOB	24	13	Job			False
+JOB	24	14	Job			False
+JOB	24	15	Job			False
+JOB	24	16	Job			False
+JOB	24	17	Job			False
+JOB	24	18	Job			False
+JOB	24	19	Job			False
+JOB	24	20	Job			False
+JOB	24	21	Job			False
+JOB	24	22	Job			False
+JOB	24	23	Job			False
+JOB	24	24	Job			False
+JOB	24	25	Job			False
 JOB	25	2	Bildad the Shuhite			False
 JOB	25	3	Bildad the Shuhite			False
 JOB	25	4	Bildad the Shuhite			False
 JOB	25	5	Bildad the Shuhite			False
 JOB	25	6	Bildad the Shuhite			False
-JOB	26	2	Job, the man			False
-JOB	26	3	Job, the man			False
-JOB	26	4	Job, the man			False
-JOB	26	5	Job, the man			False
-JOB	26	6	Job, the man			False
-JOB	26	7	Job, the man			False
-JOB	26	8	Job, the man			False
-JOB	26	9	Job, the man			False
-JOB	26	10	Job, the man			False
-JOB	26	11	Job, the man			False
-JOB	26	12	Job, the man			False
-JOB	26	13	Job, the man			False
-JOB	26	14	Job, the man			False
-JOB	27	2	Job, the man			False
-JOB	27	3	Job, the man			False
-JOB	27	4	Job, the man			False
-JOB	27	5	Job, the man			False
-JOB	27	6	Job, the man			False
-JOB	27	7	Job, the man			False
-JOB	27	8	Job, the man			False
-JOB	27	9	Job, the man			False
-JOB	27	10	Job, the man			False
-JOB	27	11	Job, the man			False
-JOB	27	12	Job, the man			False
-JOB	27	13	Job, the man			False
-JOB	27	14	Job, the man			False
-JOB	27	15	Job, the man			False
-JOB	27	16	Job, the man			False
-JOB	27	17	Job, the man			False
-JOB	27	18	Job, the man			False
-JOB	27	19	Job, the man			False
-JOB	27	20	Job, the man			False
-JOB	27	21	Job, the man			False
-JOB	27	22	Job, the man			False
-JOB	27	23	Job, the man			False
-JOB	28	1	Job, the man			False
-JOB	28	2	Job, the man			False
-JOB	28	3	Job, the man			False
-JOB	28	4	Job, the man			False
-JOB	28	5	Job, the man			False
-JOB	28	6	Job, the man			False
-JOB	28	7	Job, the man			False
-JOB	28	8	Job, the man			False
-JOB	28	9	Job, the man			False
-JOB	28	10	Job, the man			False
-JOB	28	11	Job, the man			False
-JOB	28	12	Job, the man			False
-JOB	28	13	Job, the man			False
-JOB	28	14	Job, the man			False
-JOB	28	15	Job, the man			False
-JOB	28	16	Job, the man			False
-JOB	28	17	Job, the man			False
-JOB	28	18	Job, the man			False
-JOB	28	19	Job, the man			False
-JOB	28	20	Job, the man			False
-JOB	28	21	Job, the man			False
-JOB	28	22	Job, the man			False
-JOB	28	23	Job, the man			False
-JOB	28	24	Job, the man			False
-JOB	28	25	Job, the man			False
-JOB	28	26	Job, the man			False
-JOB	28	27	Job, the man			False
-JOB	28	28	Job, the man			False
-JOB	29	2	Job, the man			False
-JOB	29	3	Job, the man			False
-JOB	29	4	Job, the man			False
-JOB	29	5	Job, the man			False
-JOB	29	6	Job, the man			False
-JOB	29	7	Job, the man			False
-JOB	29	8	Job, the man			False
-JOB	29	9	Job, the man			False
-JOB	29	10	Job, the man			False
-JOB	29	11	Job, the man			False
-JOB	29	12	Job, the man			False
-JOB	29	13	Job, the man			False
-JOB	29	14	Job, the man			False
-JOB	29	15	Job, the man			False
-JOB	29	16	Job, the man			False
-JOB	29	17	Job, the man			False
-JOB	29	18	Job, the man			False
-JOB	29	21	Job, the man			False
-JOB	29	22	Job, the man			False
-JOB	29	23	Job, the man			False
-JOB	29	24	Job, the man			False
-JOB	29	25	Job, the man			False
-JOB	30	1	Job, the man			False
-JOB	30	2	Job, the man			False
-JOB	30	3	Job, the man			False
-JOB	30	4	Job, the man			False
-JOB	30	5	Job, the man			False
-JOB	30	6	Job, the man			False
-JOB	30	7	Job, the man			False
-JOB	30	8	Job, the man			False
-JOB	30	9	Job, the man			False
-JOB	30	10	Job, the man			False
-JOB	30	11	Job, the man			False
-JOB	30	12	Job, the man			False
-JOB	30	13	Job, the man			False
-JOB	30	14	Job, the man			False
-JOB	30	15	Job, the man			False
-JOB	30	16	Job, the man			False
-JOB	30	17	Job, the man			False
-JOB	30	18	Job, the man			False
-JOB	30	19	Job, the man			False
-JOB	30	20	Job, the man			False
-JOB	30	21	Job, the man			False
-JOB	30	22	Job, the man			False
-JOB	30	23	Job, the man			False
-JOB	30	24	Job, the man			False
-JOB	30	25	Job, the man			False
-JOB	30	26	Job, the man			False
-JOB	30	27	Job, the man			False
-JOB	30	28	Job, the man			False
-JOB	30	29	Job, the man			False
-JOB	30	30	Job, the man			False
-JOB	30	31	Job, the man			False
-JOB	31	1	Job, the man			False
-JOB	31	2	Job, the man			False
-JOB	31	3	Job, the man			False
-JOB	31	4	Job, the man			False
-JOB	31	5	Job, the man			False
-JOB	31	6	Job, the man			False
-JOB	31	7	Job, the man			False
-JOB	31	8	Job, the man			False
-JOB	31	9	Job, the man			False
-JOB	31	10	Job, the man			False
-JOB	31	11	Job, the man			False
-JOB	31	12	Job, the man			False
-JOB	31	13	Job, the man			False
-JOB	31	14	Job, the man			False
-JOB	31	15	Job, the man			False
-JOB	31	16	Job, the man			False
-JOB	31	17	Job, the man			False
-JOB	31	18	Job, the man			False
-JOB	31	19	Job, the man			False
-JOB	31	20	Job, the man			False
-JOB	31	21	Job, the man			False
-JOB	31	22	Job, the man			False
-JOB	31	23	Job, the man			False
-JOB	31	24	Job, the man			False
-JOB	31	25	Job, the man			False
-JOB	31	26	Job, the man			False
-JOB	31	27	Job, the man			False
-JOB	31	28	Job, the man			False
-JOB	31	29	Job, the man			False
-JOB	31	30	Job, the man			False
-JOB	31	31	Job, the man			False
-JOB	31	32	Job, the man			False
-JOB	31	33	Job, the man			False
-JOB	31	34	Job, the man			False
-JOB	31	35	Job, the man			False
-JOB	31	36	Job, the man			False
-JOB	31	37	Job, the man			False
-JOB	31	38	Job, the man			False
-JOB	31	39	Job, the man			False
-JOB	31	40	Job, the man			False
+JOB	26	2	Job			False
+JOB	26	3	Job			False
+JOB	26	4	Job			False
+JOB	26	5	Job			False
+JOB	26	6	Job			False
+JOB	26	7	Job			False
+JOB	26	8	Job			False
+JOB	26	9	Job			False
+JOB	26	10	Job			False
+JOB	26	11	Job			False
+JOB	26	12	Job			False
+JOB	26	13	Job			False
+JOB	26	14	Job			False
+JOB	27	2	Job			False
+JOB	27	3	Job			False
+JOB	27	4	Job			False
+JOB	27	5	Job			False
+JOB	27	6	Job			False
+JOB	27	7	Job			False
+JOB	27	8	Job			False
+JOB	27	9	Job			False
+JOB	27	10	Job			False
+JOB	27	11	Job			False
+JOB	27	12	Job			False
+JOB	27	13	Job			False
+JOB	27	14	Job			False
+JOB	27	15	Job			False
+JOB	27	16	Job			False
+JOB	27	17	Job			False
+JOB	27	18	Job			False
+JOB	27	19	Job			False
+JOB	27	20	Job			False
+JOB	27	21	Job			False
+JOB	27	22	Job			False
+JOB	27	23	Job			False
+JOB	28	1	Job			False
+JOB	28	2	Job			False
+JOB	28	3	Job			False
+JOB	28	4	Job			False
+JOB	28	5	Job			False
+JOB	28	6	Job			False
+JOB	28	7	Job			False
+JOB	28	8	Job			False
+JOB	28	9	Job			False
+JOB	28	10	Job			False
+JOB	28	11	Job			False
+JOB	28	12	Job			False
+JOB	28	13	Job			False
+JOB	28	14	Job			False
+JOB	28	15	Job			False
+JOB	28	16	Job			False
+JOB	28	17	Job			False
+JOB	28	18	Job			False
+JOB	28	19	Job			False
+JOB	28	20	Job			False
+JOB	28	21	Job			False
+JOB	28	22	Job			False
+JOB	28	23	Job			False
+JOB	28	24	Job			False
+JOB	28	25	Job			False
+JOB	28	26	Job			False
+JOB	28	27	Job			False
+JOB	28	28	Job			False
+JOB	29	2	Job			False
+JOB	29	3	Job			False
+JOB	29	4	Job			False
+JOB	29	5	Job			False
+JOB	29	6	Job			False
+JOB	29	7	Job			False
+JOB	29	8	Job			False
+JOB	29	9	Job			False
+JOB	29	10	Job			False
+JOB	29	11	Job			False
+JOB	29	12	Job			False
+JOB	29	13	Job			False
+JOB	29	14	Job			False
+JOB	29	15	Job			False
+JOB	29	16	Job			False
+JOB	29	17	Job			False
+JOB	29	18	Job			False
+JOB	29	21	Job			False
+JOB	29	22	Job			False
+JOB	29	23	Job			False
+JOB	29	24	Job			False
+JOB	29	25	Job			False
+JOB	30	1	Job			False
+JOB	30	2	Job			False
+JOB	30	3	Job			False
+JOB	30	4	Job			False
+JOB	30	5	Job			False
+JOB	30	6	Job			False
+JOB	30	7	Job			False
+JOB	30	8	Job			False
+JOB	30	9	Job			False
+JOB	30	10	Job			False
+JOB	30	11	Job			False
+JOB	30	12	Job			False
+JOB	30	13	Job			False
+JOB	30	14	Job			False
+JOB	30	15	Job			False
+JOB	30	16	Job			False
+JOB	30	17	Job			False
+JOB	30	18	Job			False
+JOB	30	19	Job			False
+JOB	30	20	Job			False
+JOB	30	21	Job			False
+JOB	30	22	Job			False
+JOB	30	23	Job			False
+JOB	30	24	Job			False
+JOB	30	25	Job			False
+JOB	30	26	Job			False
+JOB	30	27	Job			False
+JOB	30	28	Job			False
+JOB	30	29	Job			False
+JOB	30	30	Job			False
+JOB	30	31	Job			False
+JOB	31	1	Job			False
+JOB	31	2	Job			False
+JOB	31	3	Job			False
+JOB	31	4	Job			False
+JOB	31	5	Job			False
+JOB	31	6	Job			False
+JOB	31	7	Job			False
+JOB	31	8	Job			False
+JOB	31	9	Job			False
+JOB	31	10	Job			False
+JOB	31	11	Job			False
+JOB	31	12	Job			False
+JOB	31	13	Job			False
+JOB	31	14	Job			False
+JOB	31	15	Job			False
+JOB	31	16	Job			False
+JOB	31	17	Job			False
+JOB	31	18	Job			False
+JOB	31	19	Job			False
+JOB	31	20	Job			False
+JOB	31	21	Job			False
+JOB	31	22	Job			False
+JOB	31	23	Job			False
+JOB	31	24	Job			False
+JOB	31	25	Job			False
+JOB	31	26	Job			False
+JOB	31	27	Job			False
+JOB	31	28	Job			False
+JOB	31	29	Job			False
+JOB	31	30	Job			False
+JOB	31	31	Job			False
+JOB	31	32	Job			False
+JOB	31	33	Job			False
+JOB	31	34	Job			False
+JOB	31	35	Job			False
+JOB	31	36	Job			False
+JOB	31	37	Job			False
+JOB	31	38	Job			False
+JOB	31	39	Job			False
+JOB	31	40	Job			False
 JOB	32	6	Elihu, son of Barakel			False
 JOB	32	7	Elihu, son of Barakel			False
 JOB	32	8	Elihu, son of Barakel			False
@@ -4569,8 +4569,8 @@ JOB	39	28	God		God (the LORD)	False
 JOB	39	29	God		God (the LORD)	False
 JOB	39	30	God		God (the LORD)	False
 JOB	40	2	God		God (the LORD)	False
-JOB	40	4	Job, the man			False
-JOB	40	5	Job, the man			False
+JOB	40	4	Job			False
+JOB	40	5	Job			False
 JOB	40	7	God		God (the LORD)	False
 JOB	40	8	God		God (the LORD)	False
 JOB	40	9	God		God (the LORD)	False
@@ -4623,11 +4623,11 @@ JOB	41	31	God		God (the LORD)	False
 JOB	41	32	God		God (the LORD)	False
 JOB	41	33	God		God (the LORD)	False
 JOB	41	34	God		God (the LORD)	False
-JOB	42	2	Job, the man			False
-JOB	42	3	Job, the man			False
-JOB	42	4	Job, the man			False
-JOB	42	5	Job, the man			False
-JOB	42	6	Job, the man			False
+JOB	42	2	Job			False
+JOB	42	3	Job			False
+JOB	42	4	Job			False
+JOB	42	5	Job			False
+JOB	42	6	Job			False
 JOB	42	7	God		God (the LORD)	False
 PSA	2	3	kings of the earth			False
 PSA	2	6	God		God (Lord, The One enthroned in heaven)	False
@@ -4748,7 +4748,7 @@ PSA	77	9	Asaph			False
 PSA	77	10	Asaph			False
 PSA	78	19	Israelite community	unbelief, mistrust		False
 PSA	78	20	Israelite community	unbelief, mistrust		False
-PSA	79	10	Nations, the			False
+PSA	79	10	Nations, the		nations	False
 PSA	80	1	narrator-PSA			False
 PSA	81	6	God		God (the LORD)	False
 PSA	81	7	God		God (the LORD)	False
@@ -4772,26 +4772,26 @@ PSA	83	12	Enemies of Israel			False
 PSA	87	4	Enemies of Israel			False
 PSA	87	5	saying about Zion			False
 PSA	87	6	God		God (the LORD) will write	False
-ECC	1	2	teacher, the			False
+ECC	1	2	teacher (Preacher)			False
 ECC	1	10	someone			False
 ECC	1	16	someone			False
-ECC	2	1	teacher, the			False
-ECC	2	2	teacher, the			False
-ECC	2	15	teacher, the	said in heart		False
-ECC	2	15	teacher, the	thought in heart		False
-ECC	3	17	teacher, the	thought in heart		False
-ECC	3	18	teacher, the	thought		False
+ECC	2	1	teacher (Preacher)			False
+ECC	2	2	teacher (Preacher)			False
+ECC	2	15	teacher (Preacher)	said/thought in heart		False
+ECC	2	15	teacher (Preacher)	said/thought in heart		False
+ECC	3	17	teacher (Preacher)	said/thought in heart		False
+ECC	3	18	teacher (Preacher)	said/thought in heart		False
 ECC	4	8	man all alone			False
 ECC	5	6	narrator-ECC			False
 ECC	7	10	narrator-ECC			False
-ECC	7	23	teacher, the			False
-ECC	7	27	teacher, the			False
-ECC	7	28	teacher, the			False
-ECC	7	29	teacher, the			False
+ECC	7	23	teacher (Preacher)			False
+ECC	7	27	teacher (Preacher)			False
+ECC	7	28	teacher (Preacher)			False
+ECC	7	29	teacher (Preacher)			False
 ECC	8	4	narrator-ECC			False
-ECC	9	16	teacher, the			False
+ECC	9	16	teacher (Preacher)			False
 ECC	12	1	narrator-ECC			False
-ECC	12	8	teacher, the			False
+ECC	12	8	teacher (Preacher)			False
 SNG	1	2	beloved			False
 SNG	1	4	beloved			False
 SNG	1	4	maidens			False
@@ -4857,14 +4857,14 @@ ISA	1	17	God		God (the LORD)	False
 ISA	1	18	God		God (the LORD)	False
 ISA	1	19	God		God (the LORD)	False
 ISA	1	20	God		God (the LORD)	False
-ISA	1	24	God		God (lord, the LORD Almighty, the Mighty One of Israel)	False
-ISA	1	25	God		God (lord, the LORD Almighty, the Mighty One of Israel)	False
-ISA	1	26	God		God (lord, the LORD Almighty, the Mighty One of Israel)	False
-ISA	1	29	God		God (lord, the LORD Almighty, the Mighty One of Israel)	False
+ISA	1	24	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	False
+ISA	1	25	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	False
+ISA	1	26	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	False
+ISA	1	29	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	False
 ISA	1	29	Isaiah			False
-ISA	1	30	God		God (lord, the LORD Almighty, the Mighty One of Israel)	False
+ISA	1	30	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	False
 ISA	1	30	Isaiah			False
-ISA	1	31	God		God (lord, the LORD Almighty, the Mighty One of Israel)	False
+ISA	1	31	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	False
 ISA	1	31	Isaiah			False
 ISA	2	3	narrator-ISA			False
 ISA	2	3	peoples, many			False
@@ -4997,7 +4997,7 @@ ISA	22	19	God		God (the LORD, the LORD Almighty)	False
 ISA	22	20	God		God (the LORD, the LORD Almighty)	False
 ISA	22	25	God		God (the LORD Almighty)	False
 ISA	23	4	narrator-ISA			False
-ISA	23	4	sea, the			False
+ISA	23	4	sea			False
 ISA	23	12	God		God (the LORD)	False
 ISA	23	16	narrator-ISA			False
 ISA	23	16	song (of the prostitute)			False
@@ -6256,7 +6256,7 @@ LAM	3	47	Jeremiah			False
 LAM	3	56	Jeremiah			False
 LAM	3	57	God		God (the LORD)	False
 LAM	4	15	men			False
-LAM	4	15	Nations, the, people of			False
+LAM	4	15	nations, people of the			False
 LAM	4	15	prophets/priests			False
 EZK	2	1	voice of one speaking (in vision of God)			False
 EZK	2	3	voice of one speaking (in vision of God)			False
@@ -6412,7 +6412,7 @@ EZK	23	46	God		God (the LORD)(word of the LORD came)	False
 EZK	23	48	God		God (the LORD)(word of the LORD came)	False
 EZK	24	2	God		God (the LORD)(word of the LORD came)	False
 EZK	24	16	God		God (the LORD)(word of the LORD came)	False
-EZK	24	19	people, the			False
+EZK	24	19	people			False
 EZK	24	20	Ezekiel			False
 EZK	24	20	God		God (the LORD)(word of the LORD came)	False
 EZK	24	25	God		God (the LORD)(word of the LORD came)	False
@@ -7039,11 +7039,11 @@ MIC	3	6	God		God (the LORD)	False
 MIC	3	7	God		God (the LORD)	False
 MIC	3	8	Micah			False
 MIC	3	11	priests/Levites		priests/prophets	False
-MIC	4	2	Nations, the		Nations, many	False
+MIC	4	2	Nations, the		nations, many	False
 MIC	4	6	God		God (the LORD)	False
 MIC	4	7	God		God (the LORD)	False
 MIC	4	8	God		God (the LORD)	False
-MIC	4	11	Nations, the		Nations, many	False
+MIC	4	11	Nations, the		nations, many	False
 MIC	4	13	God		God (the LORD)	False
 MIC	5	2	God		God (the LORD)	False
 MIC	5	10	God		God (the LORD)	False
@@ -7160,7 +7160,7 @@ ZEC	1	9	angel who talked with Zechariah		angel who talked with Zechariah (vision
 ZEC	1	9	Zechariah		Zechariah (vision)	False
 ZEC	1	10	man standing among myrtle trees	vision		False
 ZEC	1	11	Horses (in vision)			False
-ZEC	1	12	Jesus		angel of the LORD, the (vision)	False
+ZEC	1	12	Jesus		angel of the LORD (vision)	False
 ZEC	1	14	angel who talked with Zechariah		angel who talked with Zechariah (vision)	False
 ZEC	1	16	angel who talked with Zechariah		angel who talked with Zechariah (vision)	False
 ZEC	1	17	angel who talked with Zechariah		angel who talked with Zechariah (vision)	False
@@ -7177,9 +7177,9 @@ ZEC	2	8	God		God (the LORD)(in vision of God)	False
 ZEC	2	10	God		God (the LORD)(in vision of God)	False
 ZEC	2	11	God		God (the LORD)(in vision of God)	False
 ZEC	3	2	God		God (the LORD)(in vision of God)	False
-ZEC	3	4	Jesus		angel of the LORD, the (vision)	False
+ZEC	3	4	Jesus		angel of the LORD (vision)	False
 ZEC	3	5	Zechariah		Zechariah (vision)	False
-ZEC	3	7	Jesus		angel of the LORD, the (vision)	False
+ZEC	3	7	Jesus		angel of the LORD (vision)	False
 ZEC	4	2	angel who talked with Zechariah			False
 ZEC	4	2	Zechariah			False
 ZEC	4	4	Zechariah			False
@@ -7347,9 +7347,9 @@ MAT	8	19	teacher of the law	eager		True
 MAT	8	20	Jesus	questioning		True
 MAT	8	21	disciples, some	making excuse	disciple, another=man, another	True
 MAT	8	22	Jesus	giving orders		True
-MAT	8	25	disciples, the	terrified	disciples, the 3	True
+MAT	8	25	disciples 3	terrified		True
 MAT	8	26	Jesus	giving orders		True
-MAT	8	27	disciples, the 2	amazed	disciples, the 4	False
+MAT	8	27	disciples 2	amazed	disciples 4	False
 MAT	8	29	demons/demon-possessed man	screaming	demon-possessed men, two	True
 MAT	8	31	demons/demon-possessed man	begging	demons	True
 MAT	8	32	Jesus	giving orders		True
@@ -7475,7 +7475,7 @@ MAT	13	6	Jesus			False
 MAT	13	7	Jesus			False
 MAT	13	8	Jesus			False
 MAT	13	9	Jesus			False
-MAT	13	10	disciples, the	questioning	disciples, the 3	True
+MAT	13	10	disciples 3	questioning		True
 MAT	13	11	Jesus			False
 MAT	13	13	Jesus			False
 MAT	13	14	Jesus			False
@@ -7496,7 +7496,7 @@ MAT	13	29	Jesus			False
 MAT	13	31	Jesus			False
 MAT	13	33	Jesus			False
 MAT	13	35	scripture			False
-MAT	13	36	disciples, His			False
+MAT	13	36	disciples			False
 MAT	13	37	Jesus			False
 MAT	13	39	Jesus			False
 MAT	13	40	Jesus			False
@@ -7505,7 +7505,7 @@ MAT	13	45	Jesus			False
 MAT	13	47	Jesus			False
 MAT	13	48	Jesus			False
 MAT	13	49	Jesus			False
-MAT	13	51	disciples, His			True
+MAT	13	51	disciples			True
 MAT	13	51	Jesus	questioning		True
 MAT	13	52	Jesus			True
 MAT	13	53	men in Nazareth synagogue	amazed		False
@@ -7519,19 +7519,19 @@ MAT	14	7	Herod Antipas (the tetrarch)			False
 MAT	14	8	Herodias' daughter			False
 MAT	14	9	Herod Antipas (the tetrarch)			False
 MAT	14	10	Herod Antipas (the tetrarch)			False
-MAT	14	15	disciples, the 2	taking charge	disciples, the=disciples, His	True
+MAT	14	15	disciples 2	taking charge	disciples	True
 MAT	14	16	Jesus			True
-MAT	14	17	Andrew		Andrew=disciples, the=disciples, His	True
+MAT	14	17	Andrew		Andrew=disciples	True
 MAT	14	18	Jesus	giving orders		True
 MAT	14	19	Jesus			False
 MAT	14	19	Jesus	praying		False
-MAT	14	26	disciples, the			True
+MAT	14	26	disciples			True
 MAT	14	27	Jesus	forcefully		True
 MAT	14	28	Peter (Simon)	calling out		True
 MAT	14	29	Jesus	giving orders		True
 MAT	14	30	Peter (Simon)	afraid		True
 MAT	14	31	Jesus	questioning		True
-MAT	14	33	disciples, the 1	awe	disciples, the (but not Thomas)	True
+MAT	14	33	disciples 1	awe	disciples (but not Thomas)	True
 MAT	14	36	people, many			False
 MAT	15	2	teachers of the law/Pharisees	rebuke	Pharisees/teachers of the law, some	True
 MAT	15	3	Jesus			True
@@ -7540,14 +7540,14 @@ MAT	15	5	Jesus			False
 MAT	15	8	Jesus			False
 MAT	15	9	Jesus			False
 MAT	15	10	Jesus			True
-MAT	15	12	disciples, the	rebuke	disciples, the 3	True
+MAT	15	12	disciples 3	rebuke		True
 MAT	15	13	Jesus			True
 MAT	15	14	Jesus			False
 MAT	15	15	Peter (Simon)	puzzled		True
 MAT	15	16	Jesus			True
 MAT	15	17	Jesus			False
 MAT	15	22	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl	pleading		True
-MAT	15	23	disciples, the	impatient	disciples, His 3	True
+MAT	15	23	disciples 3	impatient		True
 MAT	15	24	Jesus			True
 MAT	15	25	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl	pleading		True
 MAT	15	26	Jesus	testing faith		True
@@ -7555,8 +7555,8 @@ MAT	15	27	Canaanite mother of possessed girl=Syrophoenician mother of possessed 
 MAT	15	28	Jesus			True
 MAT	15	31	everyone in crowd	praising God		False
 MAT	15	32	Jesus	compassionately		True
-MAT	15	33	disciples, the	impatient	disciples, His 3	True
-MAT	15	34	disciples, His			True
+MAT	15	33	disciples 3	impatient		True
+MAT	15	34	disciples			True
 MAT	15	34	Jesus	questioning		True
 MAT	15	35	Jesus			False
 MAT	16	1	Pharisees			False
@@ -7564,10 +7564,10 @@ MAT	16	2	Jesus			False
 MAT	16	3	Jesus			False
 MAT	16	4	Jesus			False
 MAT	16	6	Jesus	warning		True
-MAT	16	7	disciples, the	defensive	disciples, the 3	False
+MAT	16	7	disciples 3	defensive		False
 MAT	16	8	Jesus			True
 MAT	16	13	Jesus	questioning		True
-MAT	16	14	disciples, the	excited	disciples, His 3	True
+MAT	16	14	disciples 3	excited		True
 MAT	16	15	Jesus			True
 MAT	16	16	Peter (Simon)			True
 MAT	16	17	Jesus			True
@@ -7583,11 +7583,11 @@ MAT	17	4	Peter (Simon)	afraid		True
 MAT	17	5	God		voice from bright cloud (God)	False
 MAT	17	7	Jesus	giving orders		True
 MAT	17	9	Jesus	forcefully		True
-MAT	17	10	John		Peter (Simon)/James/John=disciples, the|John	True
+MAT	17	10	John		Peter (Simon)/James/John=disciples|John	True
 MAT	17	11	Jesus			True
 MAT	17	15	father of possessed boy=man in crowd	distraught		True
 MAT	17	17	Jesus	giving orders		True
-MAT	17	19	disciples, the	upset	disciples, the 3	True
+MAT	17	19	disciples 3	upset		True
 MAT	17	20	Jesus			True
 MAT	17	22	Jesus			False
 MAT	17	24	collectors of temple tax	demanding		True
@@ -7596,7 +7596,7 @@ MAT	17	25	Peter (Simon)			True
 MAT	17	26	Jesus			True
 MAT	17	26	Peter (Simon)			True
 MAT	17	27	Jesus			False
-MAT	18	1	disciples, the 1			True
+MAT	18	1	disciples 1			True
 MAT	18	3	Jesus			True
 MAT	18	5	Jesus			False
 MAT	18	6	Jesus			False
@@ -7629,7 +7629,7 @@ MAT	19	5	Jesus			False
 MAT	19	6	Jesus			False
 MAT	19	7	Pharisees, some	challenge		True
 MAT	19	8	Jesus			True
-MAT	19	10	disciples, the 2	shocked		True
+MAT	19	10	disciples 2	shocked		True
 MAT	19	11	Jesus			True
 MAT	19	14	Jesus			False
 MAT	19	16	ruler, a certain=man, rich young	respectful		True
@@ -7639,7 +7639,7 @@ MAT	19	18	ruler, a certain=man, rich young			True
 MAT	19	20	ruler, a certain=man, rich young	upset		True
 MAT	19	21	Jesus			True
 MAT	19	23	Jesus			True
-MAT	19	25	disciples, the	shocked	disciples, the=those who heard	True
+MAT	19	25	disciples 3	shocked	disciples 3=those who heard	True
 MAT	19	26	Jesus			True
 MAT	19	27	Peter (Simon)	confused		True
 MAT	19	28	Jesus			True
@@ -7678,15 +7678,15 @@ MAT	20	32	Jesus			True
 MAT	20	33	Bartimaeus	begging	Bartimaeus, blind/other=blind men, two	True
 MAT	21	2	Jesus			False
 MAT	21	5	scripture			False
-MAT	21	9	disciples, the 1	praising	disciples, whole crowd of=people, many=crowd, great|crowd	True
+MAT	21	9	disciples 1	praising	disciples, whole crowd of=people, many=crowd, great|crowd	True
 MAT	21	10	city, the whole			True
-MAT	21	11	disciples, the 1	praising	disciples, whole crowd of=people, many=crowd, great|crowd	True
+MAT	21	11	disciples 1	praising	disciples, whole crowd of=people, many=crowd, great|crowd	True
 MAT	21	13	Jesus			True
 MAT	21	15	children	praising		False
 MAT	21	16	chief priests/elders	upset	chief priests/teachers of the law 1	True
 MAT	21	16	Jesus			True
 MAT	21	19	Jesus			True
-MAT	21	20	disciples, the			True
+MAT	21	20	disciples			True
 MAT	21	21	Jesus			True
 MAT	21	23	chief priests/teachers of the law/elders=chief priests/elders of people 1	challenge		True
 MAT	21	24	Jesus			True
@@ -7780,15 +7780,15 @@ MAT	23	34	Jesus	warning		False
 MAT	23	35	Jesus			False
 MAT	23	37	Jesus	rebuking		False
 MAT	24	2	Jesus			True
-MAT	24	3	Peter (Simon)	confused	Peter (Simon)/James/John/Andrew=disciples=they	True
+MAT	24	3	Peter (Simon)		Peter (Simon)/James/John/Andrew=disciples=they (disciples)|Peter (Simon)	True
 MAT	24	4-24	Jesus			False
 MAT	24	25	Jesus	sternly		False
 MAT	24	26-51	Jesus			False
 MAT	25	1-46	Jesus			False
 MAT	26	2	Jesus			False
 MAT	26	5	chief priests/elders		chief priests/teachers of the law=chief priests/elders of people	True
-MAT	26	8	Judas Iscariot	indignant	Judas Iscariot=disciples, the	True
-MAT	26	9	Judas Iscariot		Judas Iscariot=disciples, the	False
+MAT	26	8	Judas Iscariot	indignant	Judas Iscariot=disciples	True
+MAT	26	9	Judas Iscariot		Judas Iscariot=disciples	False
 MAT	26	10	Jesus			True
 MAT	26	11	Jesus			False
 MAT	26	12	Jesus			False
@@ -7797,7 +7797,7 @@ MAT	26	15	Judas Iscariot	plotting		True
 MAT	26	17	John		Peter (Simon)/John=disciples (Jesus')|John	True
 MAT	26	18	Jesus			False
 MAT	26	21	Jesus			True
-MAT	26	22	twelve, the=disciples|disciples, His	sad		True
+MAT	26	22	disciples=twelve (disciples), the	sad		True
 MAT	26	23	Jesus			True
 MAT	26	25	Jesus			True
 MAT	26	25	Judas Iscariot	fake innocence		True
@@ -7883,7 +7883,7 @@ MRK	1	20	Jesus			False
 MRK	1	24	man possessed by evil spirit			True
 MRK	1	25	Jesus	giving orders		True
 MRK	1	27	men in Capernaum synagogue	amazed		False
-MRK	1	30	people, some			False
+MRK	1	30	people			False
 MRK	1	37	Peter (Simon)	exclaimed	Peter (Simon) and companions	True
 MRK	1	38	Jesus			True
 MRK	1	40	leper	pleading		True
@@ -7933,7 +7933,7 @@ MRK	4	5	Jesus			False
 MRK	4	7	Jesus			False
 MRK	4	8	Jesus			False
 MRK	4	9	Jesus	warning		False
-MRK	4	10	disciples, the			False
+MRK	4	10	disciples			False
 MRK	4	11	Jesus			False
 MRK	4	12	Jesus			False
 MRK	4	13	Jesus	questioning		False
@@ -7951,10 +7951,10 @@ MRK	4	26	Jesus	instructing		False
 MRK	4	28	Jesus			False
 MRK	4	30	Jesus	instructing		False
 MRK	4	35	Jesus	giving orders		True
-MRK	4	38	disciples, the	terrified	disciples, the 3	True
+MRK	4	38	disciples 3	terrified		True
 MRK	4	39	Jesus	forcefully		True
 MRK	4	40	Jesus	questioning		True
-MRK	4	41	disciples, the 1	awe		True
+MRK	4	41	disciples 1	awe		True
 MRK	5	7	man with evil spirit	shrieking		True
 MRK	5	8	Jesus			False
 MRK	5	9	Jesus	questioning		True
@@ -7969,7 +7969,7 @@ MRK	5	19	Jesus	giving orders		True
 MRK	5	23	Jairus=ruler, a	pleading		True
 MRK	5	28	woman, bleeding for 12 years	thinking to herself		False
 MRK	5	30	Jesus	questioning		True
-MRK	5	31	disciples, the 2	perplexed	disciples, Jesus'	True
+MRK	5	31	disciples 2	perplexed	disciples, Jesus'	True
 MRK	5	34	Jesus	giving orders		True
 MRK	5	35	men from Jairus house	sad		True
 MRK	5	36	Jesus			True
@@ -7987,7 +7987,7 @@ MRK	6	10	Jesus			False
 MRK	6	10	Jesus	instructing		False
 MRK	6	11	Jesus			False
 MRK	6	11	Jesus			False
-MRK	6	12	disciples, the 1			False
+MRK	6	12	disciples 1			False
 MRK	6	14	people, some 1	excited		False
 MRK	6	15	people, other 1	guessing		False
 MRK	6	15	people, still other 1			False
@@ -8002,13 +8002,13 @@ MRK	6	25	Herodias' daughter			True
 MRK	6	26	Herod Antipas (the tetrarch)			False
 MRK	6	27	Herod Antipas (the tetrarch)			False
 MRK	6	31	Jesus			True
-MRK	6	35	disciples, the 2	taking charge	disciples, the=disciples, His	True
+MRK	6	35	disciples 2	taking charge	disciples	True
 MRK	6	37	Jesus			True
-MRK	6	37	Philip	frustrated	Philip=disciples, the=disciples, His	True
-MRK	6	38	Andrew		Andrew=disciples, the=disciples, His	True
+MRK	6	37	Philip	frustrated	Philip=disciples	True
+MRK	6	38	Andrew		Andrew=disciples	True
 MRK	6	38	Jesus	questioning		True
 MRK	6	39	Jesus			False
-MRK	6	49	disciples, the	terrified	disciples, the 3	False
+MRK	6	49	disciples 3	terrified		False
 MRK	6	50	Jesus	reassuring		False
 MRK	6	56	people, sick			False
 MRK	7	2	narrator-MRK			False
@@ -8024,7 +8024,7 @@ MRK	7	13	Jesus	rebuking		False
 MRK	7	14	Jesus	warning		True
 MRK	7	15	Jesus			False
 MRK	7	16	Jesus			False
-MRK	7	17	disciples, His	puzzled	disciples, His 1	False
+MRK	7	17	disciples	puzzled	disciples 1	False
 MRK	7	18	Jesus			True
 MRK	7	19	narrator-MRK			False
 MRK	7	20	Jesus	instructing		True
@@ -8036,28 +8036,28 @@ MRK	7	32	neighbors/others who had seen blind man begging			False
 MRK	7	34	Jesus	giving orders		False
 MRK	7	34	narrator-MRK			False
 MRK	7	36	Jesus	warning		False
-MRK	7	36	people, some			False
+MRK	7	36	people			False
 MRK	7	37	people 2			False
 MRK	8	2	Jesus			True
-MRK	8	4	disciples, the	questioning	disciples, the 3	True
-MRK	8	5	disciples, His			True
+MRK	8	4	disciples 3	questioning		True
+MRK	8	5	disciples			True
 MRK	8	5	Jesus	questioning		True
 MRK	8	6	Jesus	giving orders		False
 MRK	8	7	Jesus			False
 MRK	8	11	Pharisees			False
 MRK	8	12	Jesus	exasperated		False
 MRK	8	15	Jesus	warning		True
-MRK	8	16	disciples, the	defensive	disciples, the 3	False
+MRK	8	16	disciples 3	defensive		False
 MRK	8	17	Jesus	rebuking		True
-MRK	8	19	disciples, the 2	hesitant		True
-MRK	8	20	disciples, the 1			True
+MRK	8	19	disciples 2	hesitant		True
+MRK	8	20	disciples 1			True
 MRK	8	20	Jesus	questioning		True
 MRK	8	21	Jesus	questioning		True
 MRK	8	23	Jesus	questioning		False
 MRK	8	24	blind man			True
 MRK	8	26	Jesus	giving orders		True
 MRK	8	27	Jesus	questioning		True
-MRK	8	28	disciples, the	excited	disciples, the 3	True
+MRK	8	28	disciples 3	excited		True
 MRK	8	29	Jesus	questioning		True
 MRK	8	29	Peter (Simon)	declare		True
 MRK	8	30	Jesus	warning		True
@@ -8073,7 +8073,7 @@ MRK	9	5	Peter (Simon)	afraid		True
 MRK	9	7	voice from cloud			False
 MRK	9	9	Jesus			False
 MRK	9	10	narrator-MRK			False
-MRK	9	11	John	puzzled	Peter (Simon)/James/John=disciples, the|John	True
+MRK	9	11	John	puzzled	Peter (Simon)/James/John=disciples|John	True
 MRK	9	12	Jesus			True
 MRK	9	13	Jesus			True
 MRK	9	16	Jesus	questioning		True
@@ -8086,7 +8086,7 @@ MRK	9	23	Jesus			True
 MRK	9	24	father of possessed boy=man in crowd			True
 MRK	9	25	Jesus	giving orders		True
 MRK	9	26	many in crowd			False
-MRK	9	28	disciples, the	upset	disciples, His 3	True
+MRK	9	28	disciples 3	upset		True
 MRK	9	29	Jesus			True
 MRK	9	31	Jesus			False
 MRK	9	33	Jesus	questioning		False
@@ -8112,7 +8112,7 @@ MRK	10	4	Pharisees, some			True
 MRK	10	5	Jesus			True
 MRK	10	6	Jesus			False
 MRK	10	8	Jesus			False
-MRK	10	10	disciples, the			False
+MRK	10	10	disciples			False
 MRK	10	11	Jesus			True
 MRK	10	14	Jesus			False
 MRK	10	16	Jesus			False
@@ -8123,7 +8123,7 @@ MRK	10	20	ruler, a certain=man, rich young	upset		True
 MRK	10	21	Jesus			True
 MRK	10	23	Jesus			True
 MRK	10	24	Jesus			True
-MRK	10	26	disciples, the	shocked	disciples, the=those who heard	False
+MRK	10	26	disciples 3	shocked	disciples 3=those who heard	False
 MRK	10	27	Jesus			True
 MRK	10	28	Peter (Simon)			True
 MRK	10	29	Jesus			True
@@ -8149,9 +8149,9 @@ MRK	10	52	Jesus			True
 MRK	11	2	Jesus			False
 MRK	11	5	owner of colt=people, some standing there	suspicious		False
 MRK	11	6	disciples, 2 men			False
-MRK	11	6	people, some			False
-MRK	11	9	disciples, the 1	praising	disciples, whole crowd of=people, many=crowd, great|crowd	True
-MRK	11	10	disciples, the 1	praising	disciples, whole crowd of=people, many=crowd, great|crowd	True
+MRK	11	6	people			False
+MRK	11	9	disciples 1	praising	disciples, whole crowd of=people, many=crowd, great|crowd	True
+MRK	11	10	disciples 1	praising	disciples, whole crowd of=people, many=crowd, great|crowd	True
 MRK	11	14	Jesus			False
 MRK	11	17	Jesus			False
 MRK	11	21	Peter (Simon)	amazed		True
@@ -8166,14 +8166,13 @@ MRK	11	31	chief priests/teachers of the law/elders=chief priests/elders of peopl
 MRK	11	32	chief priests/teachers of the law/elders=chief priests/elders of people 1	to themselves		False
 MRK	11	33	chief priests/Sanhedrin 1		chief priests/teachers of the law/elders=chief priests/elders of people 2	True
 MRK	11	33	Jesus			True
-MRK	12	1	Jesus	preaching		False
+MRK	12	1-11	Jesus	preaching		False
 MRK	12	2	Jesus			False
 MRK	12	4	Jesus	preaching		False
 MRK	12	5	Jesus	preaching		False
 MRK	12	6	Jesus			False
 MRK	12	7	Jesus			False
 MRK	12	9	Jesus			False
-MRK	12	10	Jesus	preaching		False
 MRK	12	14	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			True
 MRK	12	15	Jesus			True
 MRK	12	16	Jesus	questioning		True
@@ -8195,9 +8194,9 @@ MRK	12	37	Jesus			False
 MRK	12	38	Jesus	warning		False
 MRK	12	40	Jesus			False
 MRK	12	43	Jesus	giving orders		False
-MRK	13	1	disciples, the 1	awe	disciples, one of His	True
+MRK	13	1	disciples 1	awe	disciples, one of His	True
 MRK	13	2	Jesus			True
-MRK	13	4	John		Peter (Simon)/James/John/Andrew=disciples=they	True
+MRK	13	4	Peter (Simon)		Peter (Simon)/James/John/Andrew=disciples=they (disciples)|Peter (Simon)	True
 MRK	13	5	Jesus			False
 MRK	13	6	Jesus			False
 MRK	13	7	Jesus			False
@@ -8233,8 +8232,8 @@ MRK	14	11	Jewish authorities			False
 MRK	14	12	John		Peter (Simon)/John=disciples (Jesus')|disciples	True
 MRK	14	13	Jesus			True
 MRK	14	18	Jesus			True
-MRK	14	19	disciples, John the Baptist's		disciples, His 4	True
-MRK	14	19	disciples, the 2	sad	disciples, His 2	True
+MRK	14	19	disciples 2	sad		True
+MRK	14	19	disciples, John the Baptist's		disciples 4	True
 MRK	14	20	Jesus			True
 MRK	14	22	Jesus			True
 MRK	14	23	Jesus			False
@@ -8309,7 +8308,7 @@ LUK	1	15	angel of the LORD, an			False
 LUK	1	16	angel of the LORD, an			False
 LUK	1	18	Zechariah			True
 LUK	1	19	angel of the LORD, an			True
-LUK	1	21	people, the	wondering		False
+LUK	1	21	people	wondering		False
 LUK	1	25	Elizabeth			False
 LUK	1	28	angel of the LORD, an	to Mary	angel Gabriel, sent by God	True
 LUK	1	29	Mary (Jesus' mother)	confused		False
@@ -8354,7 +8353,7 @@ LUK	2	14	great company of heavenly host	stage whisper extra voices will be added
 LUK	2	15	shepherds outside Bethlehem	awe		False
 LUK	2	23	scripture			False
 LUK	2	24	scripture			False
-LUK	2	26	Holy Spirit, the			False
+LUK	2	26	Holy Spirit, the		Holy Spirit	False
 LUK	2	29	Simeon-old			False
 LUK	2	30	Simeon-old			False
 LUK	2	31	Simeon-old			False
@@ -8504,7 +8503,7 @@ LUK	8	5	Jesus			False
 LUK	8	6	Jesus			False
 LUK	8	7	Jesus			False
 LUK	8	8	Jesus			False
-LUK	8	9	disciples, His			False
+LUK	8	9	disciples			False
 LUK	8	10	Jesus			False
 LUK	8	11	Jesus			False
 LUK	8	12	Jesus			False
@@ -8517,9 +8516,9 @@ LUK	8	18	Jesus			False
 LUK	8	20	someone=they (in crowd)			True
 LUK	8	21	Jesus			True
 LUK	8	22	Jesus	giving orders		False
-LUK	8	24	disciples, the	terrified	disciples, the 3	True
+LUK	8	24	disciples 3	terrified		True
 LUK	8	24	Jesus	giving orders		True
-LUK	8	25	disciples, the 2	fear, amazement	disciples, the 4	True
+LUK	8	25	disciples 2	fear, amazement	disciples 4	True
 LUK	8	25	Jesus	questioning		True
 LUK	8	27	demons/demon-possessed man		demon-possessed man	False
 LUK	8	28	demons/demon-possessed man		demon-possessed man	True
@@ -8546,16 +8545,16 @@ LUK	8	56	Jesus	warning		False
 LUK	9	3	Jesus	instructing		True
 LUK	9	4	Jesus			False
 LUK	9	5	Jesus			False
-LUK	9	7	people, some			False
+LUK	9	7	people			False
 LUK	9	8	people, other			False
 LUK	9	9	Herod Antipas (the tetrarch)			False
-LUK	9	12	disciples, the 2	taking charge	disciples, the=disciples, His	True
-LUK	9	13	Andrew	frustrated	Andrew=twelve, the	True
+LUK	9	12	disciples 2	taking charge	disciples	True
+LUK	9	13	Andrew	frustrated	Andrew=twelve (disciples), the	True
 LUK	9	13	Jesus	giving orders		True
 LUK	9	14	Jesus	giving orders		True
-LUK	9	15	Andrew	giving orders	disciples, the|Andrew	False
+LUK	9	15	Andrew	giving orders	disciples|Andrew	False
 LUK	9	18	Jesus	questioning		True
-LUK	9	19	disciples, the	excited	disciples, the 3	True
+LUK	9	19	disciples 3	excited		True
 LUK	9	20	Jesus	questioning		True
 LUK	9	20	Peter (Simon)	declare		True
 LUK	9	21	Jesus	warning		False
@@ -8573,7 +8572,7 @@ LUK	9	41	Jesus	exasperated; giving orders		True
 LUK	9	41	Jesus	giving orders		True
 LUK	9	43	everyone in crowd	praising God		False
 LUK	9	44	Jesus			True
-LUK	9	46	disciples, the	arguing	disciples, His 3	False
+LUK	9	46	disciples 3	arguing		False
 LUK	9	48	Jesus			True
 LUK	9	49	John		John (disciple whom Jesus loved)	True
 LUK	9	50	Jesus			True
@@ -8625,7 +8624,7 @@ LUK	10	37	Good Priest		teachers of the law, one=expert in the law, an|Good Pries
 LUK	10	37	Jesus			True
 LUK	10	40	Martha			True
 LUK	10	41	Jesus	compassionately		True
-LUK	11	1	disciples, the 1		disciples, one of His	True
+LUK	11	1	disciples 1		disciples, one of His	True
 LUK	11	2	Jesus	instructing		True
 LUK	11	3	Jesus	instructing		False
 LUK	11	4	Jesus	instructing		False
@@ -8856,7 +8855,7 @@ LUK	17	31	Jesus			False
 LUK	17	32	Jesus			False
 LUK	17	33	Jesus			False
 LUK	17	34	Jesus			False
-LUK	17	37	disciples, His	puzzled	disciples, His 1	True
+LUK	17	37	disciples	puzzled	disciples 1	True
 LUK	17	37	Jesus			True
 LUK	18	1	Jesus			False
 LUK	18	2	Jesus			False
@@ -8871,14 +8870,14 @@ LUK	18	11	Jesus			False
 LUK	18	12	Jesus			False
 LUK	18	13	Jesus			False
 LUK	18	14	Jesus			False
-LUK	18	15	disciples, the			False
+LUK	18	15	disciples			False
 LUK	18	16	Jesus			False
 LUK	18	18	ruler, a certain=man, rich young	respectful		True
 LUK	18	19	Jesus			True
 LUK	18	21	ruler, a certain=man, rich young	upset		True
 LUK	18	22	Jesus			True
 LUK	18	24	Jesus			True
-LUK	18	26	disciples, the	shocked	disciples, the=those who heard	True
+LUK	18	26	disciples 3	shocked	disciples 3=those who heard	True
 LUK	18	27	Jesus			True
 LUK	18	28	Peter (Simon)	perplexed		True
 LUK	18	29	Jesus			True
@@ -8914,8 +8913,8 @@ LUK	19	26	Jesus			False
 LUK	19	27	Jesus			False
 LUK	19	30	Jesus			False
 LUK	19	33	owner of colt=people, some standing there	suspicious		True
-LUK	19	34	disciples, the 1		disciples, two of His	True
-LUK	19	38	disciples, the 2		disciples, whole crowd of=people, many=crowd, great	True
+LUK	19	34	disciples 1		disciples, two of His	True
+LUK	19	38	disciples 2		disciples, whole crowd of=people, many=crowd, great	True
 LUK	19	39	teachers of the law/Pharisees	demanding	Pharisees, some 2	True
 LUK	19	40	Jesus			True
 LUK	19	42	Jesus			False
@@ -8936,7 +8935,7 @@ LUK	20	14	Jesus			False
 LUK	20	15	Jesus			False
 LUK	20	16	Good Priest	alarmed	chief priests/elders of people|Good Priest	True
 LUK	20	16	Jesus			True
-LUK	20	16	people, the			True
+LUK	20	16	people			True
 LUK	20	17	Jesus			True
 LUK	20	18	Jesus			False
 LUK	20	21	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			True
@@ -8965,7 +8964,7 @@ LUK	20	47	Jesus			False
 LUK	21	3	Jesus			True
 LUK	21	5	disciples, some			False
 LUK	21	6	Jesus			True
-LUK	21	7	John		Peter (Simon)/James/John/Andrew=disciples=they	True
+LUK	21	7	Peter (Simon)		Peter (Simon)/James/John/Andrew=disciples=they (disciples)|Peter (Simon)	True
 LUK	21	8	Jesus			False
 LUK	21	9	Jesus			False
 LUK	21	10	Jesus			False
@@ -9000,18 +8999,18 @@ LUK	22	17	Jesus			True
 LUK	22	19	Jesus			True
 LUK	22	20	Jesus			True
 LUK	22	21	Jesus			False
-LUK	22	23	disciples, the 1		disciples, one of His	False
+LUK	22	23	disciples 1		disciples, one of His	False
 LUK	22	25	Jesus			False
 LUK	22	27	Jesus			False
 LUK	22	28	Jesus			False
 LUK	22	31	Jesus			False
 LUK	22	33	Peter (Simon)	passionate		True
 LUK	22	34	Jesus			True
-LUK	22	35	disciples, His			True
+LUK	22	35	disciples			True
 LUK	22	35	Jesus			True
 LUK	22	36	Jesus			True
 LUK	22	37	Jesus			False
-LUK	22	38	disciples, the 2	declare	disciples, the=disciples, His	True
+LUK	22	38	disciples 2	declare	disciples	True
 LUK	22	38	Jesus			True
 LUK	22	40	Jesus			False
 LUK	22	42	Jesus	praying		False
@@ -9134,7 +9133,7 @@ JHN	2	16	Jesus	giving orders		True
 JHN	2	17	scripture			False
 JHN	2	18	Pharisees			True
 JHN	2	19	Jesus			True
-JHN	2	20	teachers of the law/Pharisees		Jews, the 3	True
+JHN	2	20	teachers of the law/Pharisees		Jews 3	True
 JHN	3	2	Nicodemus			True
 JHN	3	3	Jesus			True
 JHN	3	4	Nicodemus			True
@@ -9162,7 +9161,7 @@ JHN	3	32	John the Baptist			False
 JHN	3	34	John the Baptist			False
 JHN	3	35	John the Baptist			False
 JHN	3	36	John the Baptist			False
-JHN	4	1	people, some			False
+JHN	4	1	people			False
 JHN	4	7	Jesus	requesting		True
 JHN	4	9	woman, Samaritan			True
 JHN	4	10	Jesus			True
@@ -9179,9 +9178,9 @@ JHN	4	25	woman, Samaritan			True
 JHN	4	26	Jesus			True
 JHN	4	27	narrator-JHN			False
 JHN	4	29	woman, Samaritan			True
-JHN	4	31	disciples, His			True
+JHN	4	31	disciples			True
 JHN	4	32	Jesus			True
-JHN	4	33	disciples, His	puzzled	disciples, His 1	False
+JHN	4	33	disciples	puzzled	disciples 1	False
 JHN	4	34	Jesus			True
 JHN	4	35	Jesus			False
 JHN	4	36	Jesus			False
@@ -9200,9 +9199,9 @@ JHN	4	53	Jesus	giving orders		False
 JHN	5	6	Jesus	questioning		True
 JHN	5	7	invalid for 38 years	whining		True
 JHN	5	8	Jesus	giving orders		True
-JHN	5	10	Jews, the 1	rebuke		True
+JHN	5	10	Jews, the 1	rebuke	Jews 1	True
 JHN	5	11	invalid for 38 years			True
-JHN	5	12	Jews, the 1	angry		True
+JHN	5	12	Jews, the 1	angry	Jews 1	True
 JHN	5	14	Jesus			True
 JHN	5	17	Jesus			True
 JHN	5	19	Jesus			False
@@ -9224,8 +9223,8 @@ JHN	5	41	Jesus			False
 JHN	5	44	Jesus			False
 JHN	5	45	Jesus			False
 JHN	6	5	Jesus			True
-JHN	6	7	Philip		Philip=disciples, the=disciples, His	True
-JHN	6	9	Andrew		Andrew=disciples, the=disciples, His	True
+JHN	6	7	Philip		Philip=disciples	True
+JHN	6	9	Andrew			True
 JHN	6	10	Jesus			True
 JHN	6	12	Jesus			True
 JHN	6	14	people in crowd			False
@@ -9245,7 +9244,7 @@ JHN	6	38	Jesus			False
 JHN	6	39	Jesus			False
 JHN	6	40	Jesus			False
 JHN	6	41	Jesus			False
-JHN	6	42	Jews, the 5	grumbling		False
+JHN	6	42	Jews 5	grumbling		False
 JHN	6	43	Jesus			True
 JHN	6	44	Jesus			False
 JHN	6	45	Jesus			False
@@ -9254,10 +9253,10 @@ JHN	6	47	Jesus			False
 JHN	6	48	Jesus			False
 JHN	6	49	Jesus			False
 JHN	6	50	Jesus			False
-JHN	6	52	Jews, the 2			False
+JHN	6	52	Jews, the 2		Jews 2	False
 JHN	6	53	Jesus			True
 JHN	6	56	Jesus			False
-JHN	6	60	disciples, the	grumbling	disciples, many of His	False
+JHN	6	60	disciples 3	grumbling	disciples, many of His	False
 JHN	6	61	Jesus			True
 JHN	6	64	Jesus			False
 JHN	6	65	Jesus			True
@@ -9267,10 +9266,10 @@ JHN	6	70	Jesus			True
 JHN	7	3	Jesus' brothers	challenging		True
 JHN	7	4	Jesus' brothers			False
 JHN	7	6	Jesus			True
-JHN	7	11	Jews, the 2			False
+JHN	7	11	Jews, the 2		Jews 2	False
 JHN	7	12	crowds, others in	harsh		False
 JHN	7	12	crowds, some in			False
-JHN	7	15	Jews, the 1		Jews, the	False
+JHN	7	15	Jews, the 7		Jews	False
 JHN	7	16	Jesus			True
 JHN	7	18	Jesus			False
 JHN	7	19	Jesus			False
@@ -9283,13 +9282,13 @@ JHN	7	27	people, some, in Jerusalem 2	arguing		False
 JHN	7	28	Jesus			True
 JHN	7	31	crowd, many in the			False
 JHN	7	33	Jesus			True
-JHN	7	35	teachers of the law/Pharisees		Jews, the 3	True
-JHN	7	36	Jews, the 1	grumbling		False
+JHN	7	35	teachers of the law/Pharisees		Jews 3	True
+JHN	7	36	Jews, the 1	grumbling	Jews 1	False
 JHN	7	37	Jesus			True
 JHN	7	38	Jesus			False
 JHN	7	40	people, some of the			False
 JHN	7	41	people, others			False
-JHN	7	41	people, still other 2			False
+JHN	7	41-42	people, still other 2			False
 JHN	7	45	chief priests/Pharisees 1			True
 JHN	7	46	temple guards	amazed		True
 JHN	7	47	Pharisees 5	angry	Pharisees 1	True
@@ -9314,21 +9313,21 @@ JHN	8	25	Jews 1	impatient		True
 JHN	8	26	Jesus			False
 JHN	8	28	Jesus			True
 JHN	8	31	Jesus			True
-JHN	8	33	Jews, the 1	superior		True
+JHN	8	33	Jews, the 1	superior	Jews 1	True
 JHN	8	34	Jesus			True
 JHN	8	39	Jesus			True
-JHN	8	39	Jews, the 2			True
-JHN	8	41	teachers of the law/Pharisees		Jews, the 3	True
+JHN	8	39	Jews, the 2		Jews 2	True
+JHN	8	41	teachers of the law/Pharisees		Jews 3	True
 JHN	8	42	Jesus			True
 JHN	8	45	Jesus			False
 JHN	8	46	Jesus			False
-JHN	8	48	Jews, the 2	angry		True
+JHN	8	48	Jews, the 2	angry	Jews 2	True
 JHN	8	49	Jesus			True
-JHN	8	52	Jews, the 1	outraged		True
+JHN	8	52	Jews, the 1	outraged	Jews 1	True
 JHN	8	54	Jesus			True
-JHN	8	57	Jews, the 4			True
+JHN	8	57	Jews 4			True
 JHN	8	58	Jesus			True
-JHN	9	2	disciples, the	accusing	disciples, the 3	True
+JHN	9	2	disciples 3	accusing		True
 JHN	9	3	Jesus			True
 JHN	9	7	Jesus	giving orders		True
 JHN	9	7	narrator-JHN			True
@@ -9345,17 +9344,17 @@ JHN	9	16	Pharisees 5		Pharisees, some 1	False
 JHN	9	16	Pharisees, other			False
 JHN	9	17	cured man, blind from birth			True
 JHN	9	17	teachers of the law/Pharisees		Pharisees 3	True
-JHN	9	19	Jews, the 1	challenging		True
+JHN	9	19	Jews, the 1	challenging	Jews 1	True
 JHN	9	20	parents of cured man, blind from birth|parent 1	cautious		True
 JHN	9	21	parents of cured man, blind from birth|parent 2			False
 JHN	9	23	parents of cured man, blind from birth|parent 2			False
-JHN	9	24	Jews, the 1	challenging		True
+JHN	9	24	Jews, the 1	challenging	Jews 1	True
 JHN	9	25	cured man, blind from birth			True
 JHN	9	26	Jews, the 7		Jews	True
 JHN	9	27	cured man, blind from birth			True
-JHN	9	28	Jews, the 4	harsh		True
+JHN	9	28	Jews 4	harsh		True
 JHN	9	30	cured man, blind from birth			True
-JHN	9	34	Jews, the 4	harsh		True
+JHN	9	34	Jews 4	harsh		True
 JHN	9	35	Jesus	questioning		True
 JHN	9	36	cured man, blind from birth			True
 JHN	9	37	Jesus			True
@@ -9380,19 +9379,19 @@ JHN	10	17	Jesus			False
 JHN	10	18	Jesus			False
 JHN	10	20	Jews, the 2	contempt	Jews, many of the	False
 JHN	10	21	Jews, others of the			False
-JHN	10	24	Jews, the 4			True
+JHN	10	24	Jews 4			True
 JHN	10	25	Jesus			True
 JHN	10	32	Jesus			True
-JHN	10	33	teachers of the law/Pharisees		Jews, the 3	True
+JHN	10	33	teachers of the law/Pharisees		Jews 3	True
 JHN	10	34	Jesus			True
 JHN	10	41	people, many			False
 JHN	11	3	Mary/Martha			False
 JHN	11	4	Jesus			False
 JHN	11	7	Jesus			True
-JHN	11	8	disciples, the 2		disciples, Jesus'	True
+JHN	11	8	disciples 2		disciples, Jesus'	True
 JHN	11	9	Jesus			True
 JHN	11	11	Jesus			True
-JHN	11	12	disciples, His	sad	disciples, His 1	True
+JHN	11	12	disciples	sad	disciples 1	True
 JHN	11	13	Jesus			False
 JHN	11	14	Jesus			True
 JHN	11	16	Thomas	resigned		True
@@ -9403,12 +9402,12 @@ JHN	11	24	Martha			True
 JHN	11	25	Jesus			True
 JHN	11	27	Martha			True
 JHN	11	28	Martha			True
-JHN	11	31	Jews, the (with Mary and Martha)			False
+JHN	11	31	Jews (with Mary and Martha)			False
 JHN	11	32	Mary (sister of Martha)			True
 JHN	11	34	Jesus	questioning		True
-JHN	11	34	Jews, the (with Mary and Martha)|Mary			True
-JHN	11	36	Jews, the (with Mary and Martha)			True
-JHN	11	37	Jews, the (with Mary and Martha, some)			True
+JHN	11	34	Jews (with Mary and Martha)|Mary			True
+JHN	11	36	Jews (with Mary and Martha)			True
+JHN	11	37	Jews (with Mary and Martha, some)			True
 JHN	11	39	Jesus			True
 JHN	11	39	Martha			True
 JHN	11	40	Jesus			True
@@ -9419,11 +9418,11 @@ JHN	11	47	chief priests/Sanhedrin 1	upset	chief priests/Sanhedrin=chief priests/
 JHN	11	48	chief priests 1	worried		False
 JHN	11	49	Caiaphas	indignant	Caiaphas, high priest	True
 JHN	11	51	Caiaphas		Caiaphas, high priest	False
-JHN	11	56	Jews, the 6			False
+JHN	11	56	Jews 6			False
 JHN	12	5	Judas Iscariot	objecting		True
 JHN	12	7	Jesus			True
 JHN	12	10	chief priests	plotting		False
-JHN	12	13	disciples, the 1	praising	disciples, whole crowd of=people, many=crowd, great|crowd	True
+JHN	12	13	disciples 1	praising	disciples, whole crowd of=people, many=crowd, great|crowd	True
 JHN	12	15	scripture			False
 JHN	12	19	teachers of the law/Pharisees		Pharisees 3	False
 JHN	12	21	Greeks	respectful		True
@@ -9515,14 +9514,14 @@ JHN	16	8	Jesus			False
 JHN	16	11	Jesus			False
 JHN	16	12	Jesus			False
 JHN	16	16	Jesus			False
-JHN	16	17	disciples, the 2	puzzled	disciples, some of his	False
+JHN	16	17	disciples 2	puzzled	disciples, some of his	False
 JHN	16	18	Thomas	frustrated	disciples, some of his|Thomas	False
 JHN	16	19	Jesus			True
 JHN	16	20	Jesus			False
 JHN	16	23	Jesus			False
 JHN	16	25	Jesus			False
-JHN	16	29	disciples, the 2	relieved	disciples, Jesus'	True
-JHN	16	30	disciples, John the Baptist's		disciples, His 4	False
+JHN	16	29	disciples 2	relieved	disciples, Jesus'	True
+JHN	16	30	disciples, John the Baptist's		disciples 4	False
 JHN	16	31	Jesus			True
 JHN	16	32	Jesus			False
 JHN	16	33	Jesus			False
@@ -9563,8 +9562,8 @@ JHN	18	25	servant girl		servant girl, another=someone else	True
 JHN	18	26	high priest's servant (man), one=those standing near=another	accusing		True
 JHN	18	27	Peter (Simon)			False
 JHN	18	29	Pilate	to crowd		True
-JHN	18	30	Jews, the 1	offended		True
-JHN	18	31	Jews, the 4			True
+JHN	18	30	Jews, the 1	offended	Jews 1	True
+JHN	18	31	Jews 4			True
 JHN	18	31	Pilate	to crowd		True
 JHN	18	33	Pilate	to Jesus		True
 JHN	18	34	Jesus	questioning		True
@@ -9573,17 +9572,17 @@ JHN	18	36	Jesus			True
 JHN	18	37	Jesus			True
 JHN	18	37	Pilate	to Jesus		True
 JHN	18	38	Pilate	to Jesus		True
-JHN	18	40	Jews, the 1		Jews, they	True
+JHN	18	40	Jews, the 7		Jews	True
 JHN	19	3	soldiers, Roman	mocking		True
 JHN	19	4	Pilate	to crowd		True
 JHN	19	5	Pilate	to crowd		True
 JHN	19	6	chief priests/Sanhedrin 2		chief priests/Sanhedrin=chief priests/whole Sanhedrin 3	True
 JHN	19	6	Pilate	to crowd		True
-JHN	19	7	teachers of the law/Pharisees	insisting	Jews, the 3	True
+JHN	19	7	teachers of the law/Pharisees	insisting	Jews 3	True
 JHN	19	9	Pilate	to Jesus		True
 JHN	19	10	Pilate	to Jesus		True
 JHN	19	11	Jesus			True
-JHN	19	12	Jews, the 1		Jews, the	True
+JHN	19	12	Jews, the 7		Jews	True
 JHN	19	14	Pilate	to crowd		True
 JHN	19	15	chief priests 2	intimidating		True
 JHN	19	15	Pilate	to crowd		True
@@ -9612,7 +9611,7 @@ JHN	20	19	Jesus			True
 JHN	20	21	Jesus			True
 JHN	20	22	Jesus			True
 JHN	20	23	Jesus			False
-JHN	20	25	disciples, the 1	excited	disciples, the (but not Thomas)	True
+JHN	20	25	disciples 1	excited	disciples (but not Thomas)	True
 JHN	20	25	Thomas	stubborn		True
 JHN	20	26	Jesus			True
 JHN	20	27	Jesus			True
@@ -9621,7 +9620,7 @@ JHN	20	29	Jesus			True
 JHN	21	3	Peter (Simon)			True
 JHN	21	3	Thomas		Thomas/Nathaniel/James/John/2 disciples	True
 JHN	21	5	Jesus	questioning		True
-JHN	21	5	John	calling out	disciples, His|John	True
+JHN	21	5	John	calling out	disciples|John	True
 JHN	21	6	Jesus			True
 JHN	21	7	John	amazed		True
 JHN	21	7	narrator-JHN			True
@@ -9743,8 +9742,8 @@ ACT	5	37	Gamaliel		Gamaliel, a Pharisee on Sanhedrin	False
 ACT	5	38	Gamaliel			False
 ACT	5	40	council of elders:chief priests/teachers of the law			False
 ACT	5	42	apostles			False
-ACT	6	2	disciples, the 2			False
-ACT	6	3	disciples, the 2			False
+ACT	6	2	disciples 2			False
+ACT	6	3	disciples 2			False
 ACT	6	9	narrator-ACT			False
 ACT	6	11	Jews of Cyrene, Alexandria, Cilicia & Asia	accusing		False
 ACT	6	13	false witnesses			False
@@ -9833,7 +9832,7 @@ ACT	12	17	Peter (Simon)			True
 ACT	12	18	soldiers	perplexed		False
 ACT	12	19	Herod Agrippa II			False
 ACT	12	22	people 2	shouting	people 3	False
-ACT	13	2	Holy Spirit, the			False
+ACT	13	2	Holy Spirit, the		Holy Spirit	False
 ACT	13	10	Paul	rebuking		False
 ACT	13	15	Good Priest	gracious	synagogue rulers|Good Priest	False
 ACT	13	16-41	Paul	preaching		False
@@ -9897,7 +9896,7 @@ ACT	17	32	Epicurean and Stoic philosophers, sneering	sneering		True
 ACT	18	5	Paul			False
 ACT	18	6	Paul	rebuking		False
 ACT	18	9	Jesus	in a vision		False
-ACT	18	13	Jews, the 7	angry		True
+ACT	18	13	Jews, the 7	angry	Jews 7	True
 ACT	18	14	Gallio	stern		True
 ACT	18	18	Paul			False
 ACT	18	20	Paul			False
@@ -9934,7 +9933,7 @@ ACT	21	22	James	encouraging	James/all the elders	False
 ACT	21	23	James		James/all the elders	False
 ACT	21	24	James	encouraging	James/all the elders	False
 ACT	21	25	James		James/all the elders	False
-ACT	21	28	Jews, the 7	screaming		False
+ACT	21	28	Jews, the 7	screaming	Jews 7	False
 ACT	21	33	commander			False
 ACT	21	34	crowd 9	shouting		False
 ACT	21	36	crowd 9	shouting		False
@@ -9980,7 +9979,7 @@ ACT	24	2	Tertullus-Lawyer	accusing		True
 ACT	24	3	Tertullus-Lawyer			False
 ACT	24	4	Tertullus-Lawyer	accusing		False
 ACT	24	5	Tertullus-Lawyer			False
-ACT	24	9	Jews, the 1		Jews, the	False
+ACT	24	9	Jews, the 7		Jews	False
 ACT	24	10	Paul	defense to governor		True
 ACT	24	13	Paul	defense to governor		False
 ACT	24	14	Paul			False
@@ -10050,22 +10049,22 @@ ACT	28	14	brothers at Puteoli, some			False
 ACT	28	17	Paul			True
 ACT	28	18	Paul			False
 ACT	28	21	Jews, the 1		Jews, leaders of the	True
-ACT	28	22	Jews, the 1	inquiring		False
+ACT	28	22	Jews, the 1	inquiring	Jews 1	False
 ACT	28	25	Paul			False
 ACT	28	26	Paul			False
 ACT	28	27	Paul			False
 ACT	28	28	Paul			False
 ROM	1	17	scripture			False
-ROM	2	1	Jews, the 8	accusing		False
+ROM	2	1	Jews 8	accusing		False
 ROM	2	6	scripture			False
 ROM	2	15	Gentiles			False
-ROM	2	15	Jews, the 8	accusing		False
+ROM	2	15	Jews 8	accusing		False
 ROM	2	24	scripture			False
-ROM	3	1	Jews, the 8	speaking ironically		False
+ROM	3	1	Jews 8	speaking ironically		False
 ROM	3	2	Paul			False
-ROM	3	3	Jews, the 8	speaking ironically		False
+ROM	3	3	Jews 8	speaking ironically		False
 ROM	3	4	scripture			False
-ROM	3	5	Jews, the 8	speaking ironically		False
+ROM	3	5	Jews 8	speaking ironically		False
 ROM	3	7	someone	might argue		False
 ROM	3	8	some claim we say			False
 ROM	3	10-18	scripture			False
@@ -10078,15 +10077,15 @@ ROM	4	18	scripture			False
 ROM	4	22	scripture			False
 ROM	4	23	narrator-ROM			False
 ROM	7	7	scripture			False
-ROM	7	9	law, the			False
-ROM	7	13	Jews, the 8	questioning		False
+ROM	7	9	scripture		law	False
+ROM	7	13	Jews 8	questioning		False
 ROM	8	15	we	cry		False
 ROM	8	36	scripture			False
 ROM	9	7	scripture			False
 ROM	9	9	scripture			False
 ROM	9	12	God		scripture (God)	False
 ROM	9	13	God		scripture (God)	False
-ROM	9	14	Jews, the 8	speaking ironically		False
+ROM	9	14	Jews 8	speaking ironically		False
 ROM	9	15	scripture			False
 ROM	9	17	scripture			False
 ROM	9	19	one of you			False
@@ -10106,7 +10105,7 @@ ROM	10	9	narrator-ROM			False
 ROM	10	11	scripture			False
 ROM	10	12	narrator-ROM			False
 ROM	10	13	scripture			False
-ROM	10	14	Jews, the 8	questioning		False
+ROM	10	14	Jews 8	questioning		False
 ROM	10	15	scripture			False
 ROM	10	16	scripture			False
 ROM	10	18	scripture			False
@@ -10298,8 +10297,8 @@ HEB	10	6	Jesus		Jesus in Hebrews	False
 HEB	10	7	Jesus		Jesus in Hebrews	False
 HEB	10	8	Jesus		Jesus in Hebrews	False
 HEB	10	9	Jesus		Jesus in Hebrews	False
-HEB	10	16	Holy Spirit, the			False
-HEB	10	17	Holy Spirit, the			False
+HEB	10	16	Holy Spirit, the		Holy Spirit	False
+HEB	10	17	Holy Spirit, the		Holy Spirit	False
 HEB	10	30	God		scripture (God)	False
 HEB	10	37	God		scripture (God)	False
 HEB	10	38	scripture			False
@@ -10357,7 +10356,7 @@ JAS	5	12	narrator-JAS			False
 1JN	4	20	anyone			False
 1JN	4	21	Jesus			False
 2JN	1	6	Jesus		Jesus in 2 John	False
-JUD	1	9	angel, arch-, Michael			False
+JUD	1	9	Michael (archangel)			False
 JUD	1	14	Enoch			False
 JUD	1	18	apostles			False
 REV	1	8	God		Lord God Almighty (spoken by God-10 commentaries)	False
@@ -10417,7 +10416,7 @@ REV	11	18	narrator-REV			False
 REV	12	10	voice in heaven, loud			False
 REV	12	11	voice in heaven, loud			False
 REV	12	12	voice in heaven, loud			False
-REV	13	4	world, the whole			False
+REV	13	4	worshippers of the beast			False
 REV	13	9	voice from temple		voice from heaven, another 2	False
 REV	13	10	God		voice from heaven (God), loud	False
 REV	14	7	angel flying directly overhead			False
@@ -10435,7 +10434,7 @@ REV	15	4	conquerors of beast, image & his name			False
 REV	16	1	voice from temple		voice from temple, loud	False
 REV	16	5	angel over waters			False
 REV	16	6	angel over waters			False
-REV	16	7	altar, the			False
+REV	16	7	altar			False
 REV	16	15	Jesus			False
 REV	16	17	God		voice out of temple, from throne	False
 REV	17	1-2	angel (one of the seven)			False
