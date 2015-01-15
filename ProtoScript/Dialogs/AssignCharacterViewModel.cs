@@ -128,7 +128,7 @@ namespace ProtoScript.Dialogs
 			var bldr = new StringBuilder();
 			bldr.Append(previousText);
 			bldr.Append("<div id=\"main-quote-text\" class=\"highlight\">");
-			bldr.Append(mainText);
+			bldr.Append(SuperscriptVerseNumbers(mainText));
 			bldr.Append("</div>");
 			if (!string.IsNullOrEmpty(followingText))
 				bldr.Append(kHtmlLineBreak).Append(followingText);
@@ -146,10 +146,18 @@ namespace ProtoScript.Dialogs
 
 		private string BuildHtml(Block block)
 		{
+			string text = SuperscriptVerseNumbers(block.GetText(m_showVerseNumbers));
 			var bldr = new StringBuilder();
 			bldr.Append("<div class='").Append(kCssClassContext).Append("' data-character='").Append(block.CharacterId).Append("'>")
-				.Append(block.GetText(m_showVerseNumbers)).Append("</div>").Append(kHtmlLineBreak);
+				.Append(text)
+				.Append("</div>")
+				.Append(kHtmlLineBreak);
 			return bldr.ToString();
+		}
+
+		private string SuperscriptVerseNumbers(string text)
+		{
+			return text.Replace("[", "<sup>").Replace("]", "</sup>");
 		}
 
 		private string BuildStyle()
