@@ -165,9 +165,9 @@
     <Compile Include="IScrBook.cs" />
     <Compile Include="IStylesheet.cs" />
     <Compile Include="Project.cs" />
-    <Compile Include="QuoteParser.cs" />
-    <Compile Include="QuoteSystem.cs" />
-    <Compile Include="QuoteSystemGuesser.cs" />
+    <Compile Include="Quote\QuoteParser.cs" />
+    <Compile Include="Quote\QuoteSystem.cs" />
+    <Compile Include="Quote\QuoteSystemGuesser.cs" />
     <Compile Include="SandboxForm.cs">
       <SubType>Form</SubType>
     </Compile>
