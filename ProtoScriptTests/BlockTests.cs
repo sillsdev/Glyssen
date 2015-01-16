@@ -7,6 +7,7 @@ using System.Xml;
 using NUnit.Framework;
 using Palaso.TestUtilities;
 using ProtoScript;
+using ProtoScript.Character;
 using SIL.ScriptureUtils;
 
 namespace ProtoScriptTests

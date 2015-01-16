@@ -1,4 +1,5 @@
 ﻿using System;
+using ProtoScript.Character;
 
 namespace ProtoScript.Analysis
 {

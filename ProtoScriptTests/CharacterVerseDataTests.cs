@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using NUnit.Framework;
 using ProtoScript;
+using ProtoScript.Character;
 
 namespace ProtoScriptTests
 {

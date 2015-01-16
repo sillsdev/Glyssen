@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ProtoScript.Character;
 using SIL.ScriptureUtils;
 
 namespace ProtoScript.Dialogs

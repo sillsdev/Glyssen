@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ProtoScript
+namespace ProtoScript.Character
 {
 	public interface ICharacterVerseInfo
 	{

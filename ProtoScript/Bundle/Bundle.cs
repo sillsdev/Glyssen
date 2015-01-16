@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using L10NSharp;
 using Palaso.Xml;
+using ProtoScript.Character;
 using ProtoScript.Properties;
 using ProtoScript.Utilities;
 

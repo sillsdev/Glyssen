@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using ProtoScript.Properties;
 
-namespace ProtoScript
+namespace ProtoScript.Character
 {
 	public class ControlCharacterVerseData : CharacterVerseData
 	{

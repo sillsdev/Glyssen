@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using ProtoScript;
+using ProtoScript.Character;
 using Rhino.Mocks;
 using SIL.ScriptureUtils;
 

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace ProtoScript
+namespace ProtoScript.Character
 {
 	class CombinedCharacterVerseData : ICharacterVerseInfo
 	{

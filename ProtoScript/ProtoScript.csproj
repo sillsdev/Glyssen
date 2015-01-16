@@ -114,11 +114,13 @@
     <Compile Include="Block.cs" />
     <Compile Include="Bundle\UsxDocument.cs" />
     <Compile Include="Bundle\UsxNode.cs" />
-    <Compile Include="CharacterAssigner.cs" />
-    <Compile Include="CharacterVerse.cs" />
-    <Compile Include="CharacterVerseData.cs" />
-    <Compile Include="ControlCharacterVerseData.cs" />
-    <Compile Include="CombinedCharacterVerseData.cs" />
+    <Compile Include="Character\CharacterAssigner.cs" />
+    <Compile Include="Character\CharacterVerse.cs" />
+    <Compile Include="Character\CharacterVerseData.cs" />
+    <Compile Include="Character\CombinedCharacterVerseData.cs" />
+    <Compile Include="Character\ControlCharacterVerseData.cs" />
+    <Compile Include="Character\ICharacterVerseInfo.cs" />
+    <Compile Include="Character\ProjectCharacterVerseData.cs" />
     <Compile Include="Controls\Browser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -160,11 +162,9 @@
     <Compile Include="Dialogs\SfmProjectMetadataDlg.Designer.cs">
       <DependentUpon>SfmProjectMetadataDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="ICharacterVerseInfo.cs" />
     <Compile Include="IScrBook.cs" />
     <Compile Include="IStylesheet.cs" />
     <Compile Include="Project.cs" />
-    <Compile Include="ProjectCharacterVerseData.cs" />
     <Compile Include="QuoteParser.cs" />
     <Compile Include="QuoteSystem.cs" />
     <Compile Include="QuoteSystemGuesser.cs" />

@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace ProtoScript
+namespace ProtoScript.Character
 {
 	public class ProjectCharacterVerseData : CharacterVerseData
 	{

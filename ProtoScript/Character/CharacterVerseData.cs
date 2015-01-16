@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using SIL.ScriptureUtils;
 
-namespace ProtoScript
+namespace ProtoScript.Character
 {
 	public abstract class CharacterVerseData : ICharacterVerseInfo
 	{

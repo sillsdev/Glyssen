@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using Palaso.Xml;
 using ProtoScript;
+using ProtoScript.Character;
 using Rhino.Mocks;
 
 namespace ProtoScriptTests

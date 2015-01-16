@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using ProtoScript.Dialogs;
 using SIL.ScriptureUtils;
 
-namespace ProtoScript
+namespace ProtoScript.Character
 {
 	public class CharacterVerse
 	{

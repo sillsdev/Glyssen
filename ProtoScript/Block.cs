@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 using Palaso.Xml;
+using ProtoScript.Character;
 using SIL.ScriptureUtils;
 
 namespace ProtoScript

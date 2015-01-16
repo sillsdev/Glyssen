@@ -3,6 +3,7 @@ using System.Xml;
 using NUnit.Framework;
 using ProtoScript;
 using ProtoScript.Bundle;
+using ProtoScript.Character;
 
 namespace ProtoScriptTests
 {

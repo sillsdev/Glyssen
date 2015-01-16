@@ -8,6 +8,7 @@ using Gecko.DOM;
 using Gecko.Events;
 using L10NSharp;
 using L10NSharp.UI;
+using ProtoScript.Character;
 using SIL.ScriptureControls;
 using SIL.ScriptureUtils;
 

@@ -11,6 +11,7 @@ using Palaso.Reporting;
 using Palaso.Xml;
 using ProtoScript.Analysis;
 using ProtoScript.Bundle;
+using ProtoScript.Character;
 using ProtoScript.Properties;
 using SIL.ScriptureUtils;
 using Canon = ProtoScript.Bundle.Canon;
