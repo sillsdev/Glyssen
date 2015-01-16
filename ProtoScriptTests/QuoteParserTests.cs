@@ -13,7 +13,7 @@ namespace ProtoScriptTests
 		public void FixtureSetup()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
-			CharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
 		}
 
 		[Test]
@@ -22,7 +22,7 @@ namespace ProtoScriptTests
 			var block = new Block("p", 7, 6);
 			block.BlockElements.Add(new ScriptText("He replied, «Isaiah was right when he prophesied about you.»"));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He replied, ", output[0].GetText(false));
 			Assert.AreEqual(7, output[0].ChapterNumber);
@@ -41,7 +41,7 @@ namespace ProtoScriptTests
 			var block = new Block("p", 2, 10);
 			block.BlockElements.Add(new ScriptText("But the angel said to them, «Do not be afraid!"));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("But the angel said to them, ", output[0].GetText(false));
 			Assert.AreEqual(2, output[0].ChapterNumber);
@@ -59,7 +59,7 @@ namespace ProtoScriptTests
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("«Go!» he said."));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("«Go!» ", output[0].GetText(false));
 			Assert.IsFalse(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
@@ -73,7 +73,7 @@ namespace ProtoScriptTests
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, «Go!»  «Make me!»"));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.IsTrue(output[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
@@ -93,7 +93,7 @@ namespace ProtoScriptTests
 			block.BlockElements.Add(new ScriptText("Ociko lwak ni gubed piny i ŋom, "));
 			var input = new List<Block> { block };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", null, null, false);
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 			Assert.AreEqual("Yecu openyogi ni, ", output[0].GetText(false));
 			Assert.IsTrue(output[0].CharacterIs("MAT", CharacterVerseData.StandardCharacter.Narrator));
@@ -113,7 +113,7 @@ namespace ProtoScriptTests
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, «Go!» quietly."));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.IsTrue(output[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
@@ -131,7 +131,7 @@ namespace ProtoScriptTests
 			var block2 = new Block("p");
 			block2.BlockElements.Add(new ScriptText("See Jane see Spot run."));
 			var input = new List<Block> { block, block2 };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("See Spot run. ", output[0].GetText(false));
 			Assert.IsTrue(output[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
@@ -146,7 +146,7 @@ namespace ProtoScriptTests
 			var block2 = new Block("p");
 			block2.BlockElements.Add(new ScriptText("«Go!»"));
 			var input = new List<Block> { block, block2 };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.IsTrue(output[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
@@ -162,7 +162,7 @@ namespace ProtoScriptTests
 			var block2 = new Block("p");
 			block2.BlockElements.Add(new ScriptText("«Make me!»"));
 			var input = new List<Block> { block, block2 };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual("«Go!» ", output[1].GetText(false));
@@ -176,7 +176,7 @@ namespace ProtoScriptTests
 			var block2 = new Block("p");
 			block2.BlockElements.Add(new ScriptText("west!»"));
 			var input = new List<Block> { block, block2 };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual("«Go ", output[1].GetText(false));
@@ -191,7 +191,7 @@ namespace ProtoScriptTests
 			var block2 = new Block("p");
 			block2.BlockElements.Add(new ScriptText("«Get!»"));
 			var input = new List<Block> { block, block2 };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual("«Go!", output[1].GetText(false));
@@ -206,7 +206,7 @@ namespace ProtoScriptTests
 			var block2 = new Block("p");
 			block2.BlockElements.Add(new ScriptText("»Get!»"));
 			var input = new List<Block> { block, block2 };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual("«Go!", output[1].GetText(false));
@@ -221,7 +221,7 @@ namespace ProtoScriptTests
 			var block2 = new Block("p") { IsParagraphStart = true };
 			block2.BlockElements.Add(new ScriptText("«Get!» Thus he ended."));
 			var input = new List<Block> { block, block2 };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual("«Go!", output[1].GetText(false));
@@ -239,7 +239,7 @@ namespace ProtoScriptTests
 			var block3 = new Block("p") { IsParagraphStart = true };
 			block3.BlockElements.Add(new ScriptText("«No,» she replied."));
 			var input = new List<Block> { block, block2, block3 };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual("«Go!", output[1].GetText(false));
@@ -256,7 +256,7 @@ namespace ProtoScriptTests
 			var block2 = new Block("p") { IsParagraphStart = true };
 			block2.BlockElements.Add(new ScriptText("«‹«Get!»›» Thus he ended."));
 			var input = new List<Block> { block, block2 };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual("«‹«Go!", output[1].GetText(false));
@@ -272,7 +272,7 @@ namespace ProtoScriptTests
 			var block2 = new Block("p") { IsParagraphStart = true };
 			block2.BlockElements.Add(new ScriptText("«Get!»›» Thus he ended."));
 			var input = new List<Block> { block, block2 };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual("«‹«Go!", output[1].GetText(false));
@@ -290,7 +290,7 @@ namespace ProtoScriptTests
 			var block3 = new Block("p") { IsParagraphStart = true };
 			block3.BlockElements.Add(new ScriptText("«No,» she replied."));
 			var input = new List<Block> { block, block2, block3 };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual("«‹«Go!", output[1].GetText(false));
@@ -309,7 +309,7 @@ namespace ProtoScriptTests
 			var block3 = new Block("p") { IsParagraphStart = true };
 			block3.BlockElements.Add(new ScriptText("«No,» she replied."));
 			var input = new List<Block> { block, block2, block3 };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual("«‹«Go!", output[1].GetText(false));
@@ -325,7 +325,7 @@ namespace ProtoScriptTests
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, \"Go!\""));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual("\"Go!\"", output[1].GetText(false));
@@ -338,7 +338,7 @@ namespace ProtoScriptTests
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("\"Go!\" he said."));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("\"Go!\" ", output[0].GetText(false));
 			Assert.AreEqual("he said.", output[1].GetText(false));
@@ -351,7 +351,7 @@ namespace ProtoScriptTests
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, \"Go!\" quietly."));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual("\"Go!\" ", output[1].GetText(false));
@@ -365,7 +365,7 @@ namespace ProtoScriptTests
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, \"She said, 'They said, \"No way.\"'\""));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(true));
 			Assert.AreEqual("\"She said, 'They said, \"No way.\"'\"", output[1].GetText(true));
@@ -383,7 +383,7 @@ namespace ProtoScriptTests
 			Assert.AreEqual(5, input[0].ChapterNumber);
 			Assert.AreEqual(3, input[0].InitialStartVerseNumber);
 
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("[3]He said, ", output[0].GetText(true));
 			Assert.AreEqual(5, output[0].ChapterNumber);
@@ -407,7 +407,7 @@ namespace ProtoScriptTests
 			Assert.AreEqual(5, input[0].ChapterNumber);
 			Assert.AreEqual(3, input[0].InitialStartVerseNumber);
 
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("[3]Matthew tried to learn to fish, but Peter was upset. [4]He said, ", output[0].GetText(true));
 			Assert.AreEqual(5, output[0].ChapterNumber);
@@ -430,7 +430,7 @@ namespace ProtoScriptTests
 			Assert.AreEqual(6, input[0].ChapterNumber);
 			Assert.AreEqual(2, input[0].InitialStartVerseNumber);
 
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual(6, output[0].ChapterNumber);
@@ -454,7 +454,7 @@ namespace ProtoScriptTests
 			Assert.AreEqual(1, input.Count);
 			Assert.AreEqual("«Go!» [3]he said.", input[0].GetText(true));
 
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("«Go!» ", output[0].GetText(false));
 			Assert.AreEqual("he said.", output[1].GetText(false));
@@ -476,7 +476,7 @@ namespace ProtoScriptTests
 			Assert.AreEqual(6, input[0].ChapterNumber);
 			Assert.AreEqual(2, input[0].InitialStartVerseNumber);
 
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual(6, output[0].ChapterNumber);
@@ -495,7 +495,7 @@ namespace ProtoScriptTests
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, «Go!»"));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(true));
 			Assert.AreEqual("«Go!»", output[1].GetText(true));
@@ -506,7 +506,7 @@ namespace ProtoScriptTests
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("«Go»!! he said."));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("«Go»!! ", output[0].GetText(true));
 			Assert.AreEqual("he said.", output[1].GetText(true));
@@ -517,7 +517,7 @@ namespace ProtoScriptTests
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, «Go»!"));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(true));
 			Assert.AreEqual("«Go»!", output[1].GetText(true));
@@ -530,7 +530,7 @@ namespace ProtoScriptTests
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("“Go!” he said."));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("“Go!” ", output[0].GetText(true));
 			Assert.AreEqual("he said.", output[1].GetText(true));
@@ -543,7 +543,7 @@ namespace ProtoScriptTests
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, “She said, ‘Get lost.’”"));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(true));
 			Assert.AreEqual("“She said, ‘Get lost.’”", output[1].GetText(true));
@@ -556,7 +556,7 @@ namespace ProtoScriptTests
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, “She said, ‘They said, “No way.”’”"));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(true));
 			Assert.AreEqual("“She said, ‘They said, “No way.”’”", output[1].GetText(true));
@@ -569,7 +569,7 @@ namespace ProtoScriptTests
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, “She said, ‘They said, “No way!” rudely.’”"));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(true));
 			Assert.AreEqual("“She said, ‘They said, “No way!” rudely.’”", output[1].GetText(true));
@@ -582,7 +582,7 @@ namespace ProtoScriptTests
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, “She said, ‘They said, “No way!” rudely,’” politely."));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(true));
 			Assert.AreEqual("“She said, ‘They said, “No way!” rudely,’” ", output[1].GetText(true));
@@ -598,7 +598,7 @@ namespace ProtoScriptTests
 			var block2 = new Block("p");
 			block2.BlockElements.Add(new ScriptText("He continued, “The end.”"));
 			var input = new List<Block> { block, block2 };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(true));
 			Assert.AreEqual("“She said, ‘They said, “No way!” quite rudely.’”", output[1].GetText(true));
@@ -629,7 +629,7 @@ namespace ProtoScriptTests
 			paraBlock.BlockElements.Add(new Verse("1"));
 			paraBlock.BlockElements.Add(new ScriptText("Jesus said, “Is that John?”"));
 			var input = new List<Block> { titleBlock, introBlock1, introBlock2, chapterBlock, sectionHeadBlock, paraBlock };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, options).Parse().ToList();
 			Assert.AreEqual(7, output.Count);
 			Assert.AreEqual("Gospel of Mark", output[0].GetText(true));
 			Assert.IsTrue(output[0].CharacterIs("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
@@ -655,7 +655,7 @@ namespace ProtoScriptTests
 			var block = new Block("p") { IsParagraphStart = true };
 			block.BlockElements.Add(new ScriptText("He said, «Go»!"));
 			var input = new List<Block> { chapterBlock, block };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual("Chapter 1", output[0].GetText(true));
 			Assert.AreEqual("He said, ", output[1].GetText(true));
@@ -672,7 +672,7 @@ namespace ProtoScriptTests
 			block.BlockElements.Add(new Verse("23"));
 			block.BlockElements.Add(new ScriptText("«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,"));
 			var input = new List<Block> { block };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(1, output.Count);
 			Assert.AreEqual("[23]«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,", output[0].GetText(true));
 			Assert.IsTrue(output[0].IsParagraphStart);
@@ -687,7 +687,7 @@ namespace ProtoScriptTests
 			var block2 = new Block("q1") { IsParagraphStart = true };
 			block2.BlockElements.Add(new ScriptText("ŋa tsanaftá hgani ka Emanuwel,» manda mnay kazlay: Kawadaga Lazglafta nda amu kəʼa ya."));
 			var input = new List<Block> { block, block2 };
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual("[23]«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,", output[0].GetText(true));
 			Assert.AreEqual("ŋa tsanaftá hgani ka Emanuwel,» ", output[1].GetText(true));
@@ -707,8 +707,8 @@ namespace ProtoScriptTests
 			block2.BlockElements.Add(new ScriptText("«What verse is this?»"));
 			var input = new List<Block> { block1, block2 };
 
-			CharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("narrator-MAT", output[0].CharacterId);
 			Assert.AreEqual("Peter (Simon)", output[1].CharacterId);
@@ -725,8 +725,8 @@ namespace ProtoScriptTests
 			block2.BlockElements.Add(new ScriptText("«And don't call me Shirley.»"));
 			var input = new List<Block> { block1, block2 };
 
-			CharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 			Assert.AreEqual("narrator-JHN", output[0].CharacterId);
 			Assert.AreEqual("Ambiguous", output[1].CharacterId);
@@ -745,8 +745,8 @@ namespace ProtoScriptTests
 			block2.BlockElements.Add(new ScriptText("«Oh, and his brother, too.»"));
 			var input = new List<Block> { block1, block2 };
 
-			CharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "ACT", input).Parse().ToList();
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual("narrator-ACT", output[0].CharacterId);
 			Assert.AreEqual("Peter (Simon)", output[1].CharacterId);
@@ -763,8 +763,8 @@ namespace ProtoScriptTests
 			block2.BlockElements.Add(new ScriptText("ŋa tsanaftá hgani ka Emanuwel,» manda mnay kazlay: Kawadaga Lazglafta nda amu kəʼa ya."));
 			var input = new List<Block> { block1, block2 };
 
-			CharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual("[23]«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,", output[0].GetText(true));
 			Assert.AreEqual("ŋa tsanaftá hgani ka Emanuwel,» ", output[1].GetText(true));
@@ -784,8 +784,8 @@ namespace ProtoScriptTests
 			block2.BlockElements.Add(new ScriptText("Text in the next chapter and «another quote»"));
 			var input = new List<Block> { block1, blockC, block2 };
 
-			CharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "GEN", input).Parse().ToList();
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
 			Assert.AreEqual(6, output.Count);
 			Assert.AreEqual("narrator-GEN", output[0].CharacterId);
 			Assert.AreEqual("Last in Chapter", output[1].CharacterId);
@@ -801,7 +801,7 @@ namespace ProtoScriptTests
 			block.BlockElements.Add(new ScriptText("—Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, —timiayi."));
 			var input = new List<Block> { block };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", "—", "—", false);
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("—Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, ", output[0].GetText(false));
 			Assert.AreEqual("Jesus", output[0].CharacterId);
@@ -827,7 +827,7 @@ namespace ProtoScriptTests
 			block2.BlockElements.Add(new ScriptText("Felipe le dijo: Señor, muéstranos al Padre, y nos basta."));
 			var input = new List<Block> { block1, block2 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", ":", null, false);
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 			Assert.AreEqual("[6]Jesús le dijo: ", output[0].GetText(true));
 			Assert.IsTrue(output[0].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
@@ -857,7 +857,7 @@ namespace ProtoScriptTests
 			block.BlockElements.Add(new ScriptText("—Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum."));
 			var input = new List<Block> { block };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", "—", QuoteSystem.AnyPunctuation, false);
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("—Wína nemartustaram. ", output[0].GetText(false));
 			Assert.AreEqual("Jesus", output[0].CharacterId);
@@ -877,7 +877,7 @@ namespace ProtoScriptTests
 			block.BlockElements.Add(new ScriptText("—Wína nemartustaram: “Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum,” —timiayi."));
 			var input = new List<Block> { block };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", "—", "—", false);
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("—Wína nemartustaram: “Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum,” ", output[0].GetText(false));
 			Assert.AreEqual("Jesus", output[0].CharacterId);
@@ -897,7 +897,7 @@ namespace ProtoScriptTests
 			block.BlockElements.Add(new ScriptText("“The following is just an ordinary m-dash — don't treat it as a dialogue quote — okay?”, said the frog."));
 			var input = new List<Block> { block };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", "—", "—", false);
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("“The following is just an ordinary m-dash — don't treat it as a dialogue quote — okay?”, ", output[0].GetText(false));
 			Assert.IsTrue(output[0].CharacterIsUnclear());
@@ -921,7 +921,7 @@ namespace ProtoScriptTests
 			block3.BlockElements.Add(new ScriptText("Yus timiayi. Tu aarmawaitai, —tusar aimkarmiayi."));
 			var input = new List<Block> { block1, block2, block3 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", "—", "—", false);
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
 			Assert.AreEqual("—Belén yaktanam Judá nungkanam nuni akiinatnuitai. Cristo akiinatniuri pachis aarmauka nuwaitai:", output[0].GetText(true));
@@ -959,7 +959,7 @@ namespace ProtoScriptTests
 			block3.BlockElements.Add(new ScriptText("Joona mañoomˈ ˈndyena lquiˈ ˈnaaⁿna. Tyˈena ñˈeⁿñê."));
 			var input = new List<Block> { block1, block2, block3 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", "—", "—", false);
-			IList<Block> output = new QuoteParser(CharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
 			Assert.AreEqual("[17]Quia joˈ tso Jesús nda̱a̱na:", output[0].GetText(true));

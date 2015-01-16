@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ProtoScript.Properties;
+using System.Text;
 using SIL.ScriptureUtils;
 
 namespace ProtoScript
 {
-	public class CharacterVerseData : ICharacterVerseInfo
+	public abstract class CharacterVerseData : ICharacterVerseInfo
 	{
 		/// <summary>Blocks represents a quote whose character has not been set (usually represents an unexpected quote)</summary>
 		public const string UnknownCharacter = "Unknown";
@@ -22,35 +22,6 @@ namespace ProtoScript
 			BookOrChapter,
 			ExtraBiblical,
 			Intro,
-		}
-
-		/// <summary>Character ID prefix for material to be read by narrator</summary>
-		private const string kNarratorPrefix = "narrator-";
-		/// <summary>Character ID prefix for book titles or chapter breaks</summary>
-		private const string kBookOrChapterPrefix = "BC-";
-		/// <summary>Character ID prefix for extra-biblical material (section heads, etc.)</summary>
-		private const string kExtraBiblicalPrefix = "extra-";
-		/// <summary>Character ID prefix for intro material</summary>
-		private const string kIntroPrefix = "intro-";
-		private static CharacterVerseData s_singleton;
-
-		private IEnumerable<CharacterVerse> m_data;
-		private IEnumerable<CharacterVerse> m_uniqueCharacterAndDeliveries;
-		private IEnumerable<string> m_uniqueDeliveries; 
-
-		internal static string TabDelimitedCharacterVerseData { get; set; }
-
-		private CharacterVerseData()
-		{
-			// Tests can set this before accessing the Singleton.
-			if (TabDelimitedCharacterVerseData == null)
-				TabDelimitedCharacterVerseData = Resources.CharacterVerseData;
-			LoadAll();
-		}
-
-		public static CharacterVerseData Singleton
-		{
-			get { return s_singleton ?? (s_singleton = new CharacterVerseData()); }
 		}
 
 		public static bool IsCharacterStandard(string characterId)
@@ -77,6 +48,11 @@ namespace ProtoScript
 			return GetCharacterPrefix(standardCharacterType) + bookId;
 		}
 
+		public static bool IsCharacterOfType(string characterId, StandardCharacter standardCharacterType)
+		{
+			return characterId.StartsWith(GetCharacterPrefix(standardCharacterType));
+		}
+
 		private static string GetCharacterPrefix(StandardCharacter standardCharacterType)
 		{
 			switch (standardCharacterType)
@@ -94,18 +70,46 @@ namespace ProtoScript
 			}
 		}
 
-		public static bool IsCharacterOfType(string characterId, StandardCharacter standardCharacterType)
-		{
-			return characterId.StartsWith(GetCharacterPrefix(standardCharacterType));
-		}
+		/// <summary>Character ID prefix for material to be read by narrator</summary>
+		protected const string kNarratorPrefix = "narrator-";
+		/// <summary>Character ID prefix for book titles or chapter breaks</summary>
+		protected const string kBookOrChapterPrefix = "BC-";
+		/// <summary>Character ID prefix for extra-biblical material (section heads, etc.)</summary>
+		protected const string kExtraBiblicalPrefix = "extra-";
+		/// <summary>Character ID prefix for intro material</summary>
+		protected const string kIntroPrefix = "intro-";
 
-		public int ControlFileVersion { get; private set; }
+		private ISet<CharacterVerse> m_data = new HashSet<CharacterVerse>();
+		private IEnumerable<CharacterVerse> m_uniqueCharacterAndDeliveries;
+		private IEnumerable<string> m_uniqueDeliveries;
 
 		public IEnumerable<CharacterVerse> GetCharacters(string bookCode, int chapter, int startVerse, int endVerse = 0)
 		{
 			if (startVerse > 0 && endVerse == 0)
 				return m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter && cv.Verse == startVerse);
 			return m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter && cv.Verse >= startVerse && cv.Verse <= endVerse);
+		}
+
+		public IEnumerable<CharacterVerse> GetAllQuoteInfo()
+		{
+			return m_data;
+		}
+
+		public IEnumerable<CharacterVerse> GetAllQuoteInfo(string bookCode)
+		{
+			return m_data.Where(cv => cv.BookCode == bookCode);
+		}
+
+		public virtual void AddCharacterVerse(CharacterVerse cv)
+		{
+			m_data.Add(cv);
+			m_uniqueCharacterAndDeliveries = null;
+			m_uniqueDeliveries = null;
+		}
+
+		public bool Any()
+		{
+			return m_data.Any();
 		}
 
 		public IEnumerable<CharacterVerse> GetUniqueCharacterAndDeliveries()
@@ -128,51 +132,60 @@ namespace ProtoScript
 			return m_uniqueDeliveries ?? (m_uniqueDeliveries = new SortedSet<string>(m_data.Select(cv => cv.Delivery).Where(d => !string.IsNullOrEmpty(d))));
 		}
 
-		public IEnumerable<CharacterVerse> GetAllQuoteInfo(string bookId)
+		public void RemoveAll(IEnumerable<CharacterVerse> cvsToRemove, IEqualityComparer<CharacterVerse> comparer)
 		{
-			return m_data.Where(cv => cv.BookCode == bookId);
-		}
+			var intersection = m_data.Intersect(cvsToRemove, comparer);
+			foreach (CharacterVerse cv in intersection)
+				m_data.Remove(cv);
 
-		private void LoadAll()
-		{
-			if (m_data != null)
-				return;
-
-			bool firstLine = true;
-			var list = new HashSet<CharacterVerse>();
-			foreach (var line in TabDelimitedCharacterVerseData.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries))
-			{
-				string[] items = line.Split(new[] { "\t" }, StringSplitOptions.None);
-				if (firstLine)
-				{
-					int cfv;
-					if (Int32.TryParse(items[1], out cfv) && items[0].StartsWith("Control File"))
-						ControlFileVersion = cfv;
-					else
-						throw new ApplicationException("Bad format in CharacterVerseData metadata: " + line);
-					firstLine = false;
-					continue;
-				}
-				if (items.Length < 6 || items.Length > 7)
-					throw new ApplicationException("Bad format in CharacterVerseData! Line #: " + list.Count + "; Line contents: " + line);
-
-				int chapter = Int32.Parse(items[1]);
-				for (int verse = ScrReference.VerseToIntStart(items[2]); verse <= ScrReference.VerseToIntEnd(items[2]); verse++)
-					list.Add(new CharacterVerse
-					{
-						BcvRef = new BCVRef(BCVRef.BookToNumber(items[0]), chapter, verse),
-						Character = items[3],
-						Delivery = items[4],
-						Alias = items[5],
-						IsDialogue = (items.Length == 7 && items[6].Equals("True", StringComparison.OrdinalIgnoreCase))
-					});
-			}
-			if (!list.Any())
-				throw new ApplicationException("No character verse data available!");
-			m_data = list;
 			m_uniqueCharacterAndDeliveries = null;
 			m_uniqueDeliveries = null;
 		}
 
+		public void LoadData(string tabDelimitedCharacterVerseData)
+		{
+			var set = new HashSet<CharacterVerse>();
+			int lineNumber = 0;
+			foreach (var line in tabDelimitedCharacterVerseData.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries))
+			{
+				string[] items = line.Split(new[] { "\t" }, StringSplitOptions.None);
+				ISet<CharacterVerse> cvs = ProcessLine(items, lineNumber++);
+				if (cvs != null)
+					set.UnionWith(cvs);
+			}
+			m_data = set;
+			m_uniqueCharacterAndDeliveries = null;
+			m_uniqueDeliveries = null;
+		}
+
+		protected virtual ISet<CharacterVerse> ProcessLine(string[] items, int lineNumber)
+		{
+			var list = new HashSet<CharacterVerse>();
+
+			if (items.Length < 6 || items.Length > 8)
+				throw new ApplicationException("Bad format in CharacterVerseDataBase! Line #: " + lineNumber + "; Line contents: " + items);
+
+			int chapter = Int32.Parse(items[1]);
+			for (int verse = ScrReference.VerseToIntStart(items[2]); verse <= ScrReference.VerseToIntEnd(items[2]); verse++)
+				list.Add(new CharacterVerse
+				{
+					BcvRef = new BCVRef(BCVRef.BookToNumber(items[0]), chapter, verse),
+					Character = items[3],
+					Delivery = items[4],
+					Alias = items[5],
+					IsDialogue = (items.Length == 7 && items[6].Equals("True", StringComparison.OrdinalIgnoreCase)),
+					UserCreated = (items.Length == 8 && items[7].Equals("True", StringComparison.OrdinalIgnoreCase)),
+				});
+
+			return list;
+		}
+
+		public string ToTabDelimited()
+		{
+			var sb = new StringBuilder();
+			foreach (CharacterVerse cv in m_data)
+				sb.Append(cv.ToTabDelimited()).Append(Environment.NewLine);
+			return sb.ToString();
+		}
 	}
 }

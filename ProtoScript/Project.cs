@@ -21,6 +21,7 @@ namespace ProtoScript
 	{
 		public const string kProjectFileExtension = ".pgproj";
 		public const string kBookScriptFileExtension = ".xml";
+		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
 		public const string kDefaultFontPrimary = "Charis SIL";
 		public const string kDefaultFontSecondary = "Times New Roman";
 		public const int kDefaultFontSize = 14;
@@ -31,6 +32,7 @@ namespace ProtoScript
 		public Project(DblMetadata metadata)
 		{
 			m_metadata = metadata;
+			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath);
 		}
 
 		public Project(Bundle.Bundle bundle) : this(bundle.Metadata)
@@ -114,6 +116,8 @@ namespace ProtoScript
 
 		public IReadOnlyList<Book> AvailableBooks { get { return m_metadata.AvailableBooks; } }
 
+		public ProjectCharacterVerseData ProjectCharacterVerseData;
+
 		public static Project Load(string projectFilePath)
 		{
 			Project existingProject = LoadExistingProject(projectFilePath);
@@ -163,17 +167,17 @@ namespace ProtoScript
 
 		private void InitializeLoadedProject()
 		{
-			var cvData = CharacterVerseData.Singleton;
+			int controlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
 			if (ConfirmedQuoteSystem == null)
 			{
 				GuessAtQuoteSystem();
 				DoQuoteParse();
-				m_metadata.ControlFileVersion = cvData.ControlFileVersion;
+				m_metadata.ControlFileVersion = controlFileVersion;
 			}
-			else if (m_metadata.ControlFileVersion != cvData.ControlFileVersion)
+			else if (m_metadata.ControlFileVersion != controlFileVersion)
 			{
-				new CharacterAssigner(cvData).AssignAll(m_books);
-				m_metadata.ControlFileVersion = cvData.ControlFileVersion;
+				new CharacterAssigner(new CombinedCharacterVerseData(this)).AssignAll(m_books);
+				m_metadata.ControlFileVersion = controlFileVersion;
 			}
 		}
 
@@ -222,14 +226,14 @@ namespace ProtoScript
 		private void GuessAtQuoteSystem()
 		{
 			bool certain;
-			m_defaultQuoteSystem = QuoteSystemGuesser.Guess(CharacterVerseData.Singleton, m_books, out certain);
+			m_defaultQuoteSystem = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, m_books, out certain);
 			if (certain)
 				m_metadata.QuoteSystem = m_defaultQuoteSystem;
 		}
 
 		private void DoQuoteParse()
 		{
-			var cvInfo = CharacterVerseData.Singleton;
+			var cvInfo = ProjectCharacterVerseData;
 			foreach (var bookScript in m_books)
 				bookScript.Blocks = new QuoteParser(cvInfo, bookScript.BookId, bookScript.GetScriptBlocks(), ConfirmedQuoteSystem).Parse().ToList();
 #if DEBUG
@@ -262,6 +266,7 @@ namespace ProtoScript
 				if (error != null)
 					MessageBox.Show(error.Message);
 			}
+			ProjectCharacterVerseData.WriteToFile(ProjectCharacterVerseDataPath);
 		}
 
 		public void ExportTabDelimited(string fileName)
@@ -299,6 +304,11 @@ namespace ProtoScript
 				//TODO
 				throw new ApplicationException();
 			}
+		}
+
+		private string ProjectCharacterVerseDataPath
+		{
+			get { return Path.Combine(ProjectsBaseFolder, m_metadata.language.ToString(), m_metadata.id, kProjectCharacterVerseFileName); }
 		}
 
 		public bool IsReparseOkay()

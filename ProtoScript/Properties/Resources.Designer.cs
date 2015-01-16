@@ -61,7 +61,17 @@ namespace ProtoScript.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	26	Generated	Mon, 12 Jan 2015 10:12:17 GMT
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _112_Plus_Green_16x16_72 {
+            get {
+                object obj = ResourceManager.GetObject("112_Plus_Green_16x16_72", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control File Version	27	Generated	Mon, 12 Jan 2015 14:59:37 GMT
         ///GEN	1	3	God		God (the LORD)	False
         ///GEN	1	5	narrator-GEN			False
         ///GEN	1	6	God		God (the LORD)	False
