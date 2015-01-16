@@ -1,9 +1,9 @@
 ﻿using NUnit.Framework;
 using Palaso.TestUtilities;
 using Palaso.Xml;
-using ProtoScript;
+using ProtoScript.Quote;
 
-namespace ProtoScriptTests
+namespace ProtoScriptTests.Quote
 {
 	[TestFixture]
 	class QuoteSystemTests

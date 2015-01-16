@@ -13,6 +13,7 @@ using ProtoScript.Analysis;
 using ProtoScript.Bundle;
 using ProtoScript.Character;
 using ProtoScript.Properties;
+using ProtoScript.Quote;
 using SIL.ScriptureUtils;
 using Canon = ProtoScript.Bundle.Canon;
 

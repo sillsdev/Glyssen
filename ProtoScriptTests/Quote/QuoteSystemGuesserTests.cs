@@ -6,10 +6,11 @@ using System.Text;
 using NUnit.Framework;
 using ProtoScript;
 using ProtoScript.Character;
+using ProtoScript.Quote;
 using Rhino.Mocks;
 using SIL.ScriptureUtils;
 
-namespace ProtoScriptTests
+namespace ProtoScriptTests.Quote
 {
 	[TestFixture]
 	class QuoteSystemGuesserTests

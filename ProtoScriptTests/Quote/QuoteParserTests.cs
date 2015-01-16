@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using ProtoScript;
 using ProtoScript.Character;
+using ProtoScript.Quote;
 
-namespace ProtoScriptTests
+namespace ProtoScriptTests.Quote
 {
 	[TestFixture]
 	public class QuoteParserTests

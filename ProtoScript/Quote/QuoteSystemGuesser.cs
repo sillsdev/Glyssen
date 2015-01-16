@@ -7,7 +7,7 @@ using System.Linq;
 using ProtoScript.Character;
 using SIL.ScriptureUtils;
 
-namespace ProtoScript
+namespace ProtoScript.Quote
 {
 	public class QuoteSystemGuesser
 	{

@@ -5,7 +5,7 @@ using System.Text;
 using ProtoScript.Character;
 using SIL.ScriptureUtils;
 
-namespace ProtoScript
+namespace ProtoScript.Quote
 {
 	public class QuoteParser
 	{
