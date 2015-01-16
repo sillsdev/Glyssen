@@ -9,6 +9,7 @@ using System.Xml;
 using L10NSharp;
 using Palaso.Reporting;
 using Palaso.Xml;
+using ProtoScript.Analysis;
 using ProtoScript.Bundle;
 using ProtoScript.Properties;
 using SIL.ScriptureUtils;
@@ -231,6 +232,9 @@ namespace ProtoScript
 			var cvInfo = CharacterVerseData.Singleton;
 			foreach (var bookScript in m_books)
 				bookScript.Blocks = new QuoteParser(cvInfo, bookScript.BookId, bookScript.GetScriptBlocks(), ConfirmedQuoteSystem).Parse().ToList();
+#if DEBUG
+			new ProjectAnalysis(this).AnalyzeQuoteParse();
+#endif
 		}
 
 		public static string GetProjectFilePath(string langId, string bundleId)
