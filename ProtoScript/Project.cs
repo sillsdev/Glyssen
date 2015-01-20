@@ -235,7 +235,7 @@ namespace ProtoScript
 
 		private void DoQuoteParse()
 		{
-			var cvInfo = ProjectCharacterVerseData;
+			var cvInfo = new CombinedCharacterVerseData(this);
 			foreach (var bookScript in m_books)
 				bookScript.Blocks = new QuoteParser(cvInfo, bookScript.BookId, bookScript.GetScriptBlocks(), ConfirmedQuoteSystem).Parse().ToList();
 #if DEBUG
