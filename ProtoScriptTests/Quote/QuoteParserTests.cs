@@ -319,6 +319,21 @@ namespace ProtoScriptTests.Quote
 			Assert.AreEqual("she replied.", output[4].GetText(false));
 		}
 
+		[Test, Ignore("TODO PG-85")]
+		public void Parse_BlockStartsWithNewThirdLevelQuote()
+		{
+			var block = new Block("p") { IsParagraphStart = true };
+			block.BlockElements.Add(new ScriptText("He said, «‹She said, "));
+			var block3 = new Block("p") { IsParagraphStart = true };
+			block3.BlockElements.Add(new ScriptText("«Get!» rudely.›»"));
+			var input = new List<Block> { block, block3 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.AreEqual("«‹She said, ", output[1].GetText(false));
+			Assert.AreEqual("«Get!» rudely.›»", output[2].GetText(false));
+		}
+
 		[Test]
 		public void Parse_StartEndSame_QuoteAtEnd()
 		{
