@@ -58,6 +58,28 @@
     <QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>true</QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>
 	</QuoteSystem>
 	<QuoteSystem>
+		<Name>false Guillemets</Name>
+		<MajorLanguage>Paratext</MajorLanguage>
+		<StartQuoteMarker>&lt;&lt;</StartQuoteMarker>
+		<EndQuoteMarker>&gt;&gt;</EndQuoteMarker>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>false Guillemets (with 2014 Quotation dash - alternating speakers)</Name>
+		<MajorLanguage>Paratext</MajorLanguage>
+		<StartQuoteMarker>&lt;&lt;</StartQuoteMarker>
+		<EndQuoteMarker>&gt;&gt;</EndQuoteMarker>
+    <QuotationDashMarker>—</QuotationDashMarker>
+    <QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>true</QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>
+	</QuoteSystem>
+	<QuoteSystem>
+		<Name>false Guillemets (with 2015 Quotation dash - alternating speakers)</Name>
+		<MajorLanguage>Paratext</MajorLanguage>
+		<StartQuoteMarker>&lt;&lt;</StartQuoteMarker>
+		<EndQuoteMarker>&gt;&gt;</EndQuoteMarker>
+    <QuotationDashMarker>―</QuotationDashMarker>
+    <QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>true</QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>
+	</QuoteSystem>
+	<QuoteSystem>
 		<Name>Εισαγωγικά (with 2014 Quotation dash)</Name>
 		<MajorLanguage>Greek</MajorLanguage>
 		<StartQuoteMarker>«</StartQuoteMarker>

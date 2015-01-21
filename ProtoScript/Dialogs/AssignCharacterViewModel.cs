@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web;
 using ProtoScript.Character;
 using SIL.ScriptureUtils;
 
@@ -73,7 +74,7 @@ namespace ProtoScript.Dialogs
 			{
 				return BuildHtml(
 					BuildHtml(m_contextBlocksBackward = m_navigator.PeekBackwardWithinBook(BackwardContextBlockCount)),
-					m_navigator.CurrentBlock.GetText(m_showVerseNumbers),
+					HttpUtility.HtmlEncode(m_navigator.CurrentBlock.GetText(m_showVerseNumbers)),
 					BuildHtml(m_contextBlocksForward = m_navigator.PeekForwardWithinBook(ForwardContextBlockCount)),
 					BuildStyle());
 			}
@@ -172,7 +173,7 @@ namespace ProtoScript.Dialogs
 
 		private string BuildHtml(Block block)
 		{
-			string text = SuperscriptVerseNumbers(block.GetText(m_showVerseNumbers));
+			string text = SuperscriptVerseNumbers(HttpUtility.HtmlEncode(block.GetText(m_showVerseNumbers)));
 			var bldr = new StringBuilder();
 			bldr.Append("<div class='").Append(kCssClassContext).Append("' data-character='").Append(block.CharacterId).Append("'>")
 				.Append(text)
