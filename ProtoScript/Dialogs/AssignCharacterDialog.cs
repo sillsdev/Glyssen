@@ -91,8 +91,18 @@ namespace ProtoScript.Dialogs
 			m_btnAssign.Enabled = false;
 
 			LoadCharacterListBox(m_viewModel.GetCharacters(book, chapter, verse));
+			UpdateShortcutDisplay();
 		}
 
+		private void UpdateShortcutDisplay()
+		{
+			m_pnlShortcuts.Visible = m_listBoxCharacters.Items.Count <= 5;
+			m_lblShortcut1.Visible = m_listBoxCharacters.Items.Count > 0;
+			m_lblShortcut2.Visible = m_listBoxCharacters.Items.Count > 1;
+			m_lblShortcut3.Visible = m_listBoxCharacters.Items.Count > 2;
+			m_lblShortcut4.Visible = m_listBoxCharacters.Items.Count > 3;
+			m_lblShortcut5.Visible = m_listBoxCharacters.Items.Count > 4;
+		}
 
 		private void UpdateNavigationButtonState()
 		{
@@ -104,12 +114,20 @@ namespace ProtoScript.Dialogs
 		{
 			bool characterAndDeliverySelected = m_listBoxCharacters.SelectedIndex > -1 && m_listBoxDeliveries.SelectedIndex > -1;
 			m_btnAssign.Enabled = characterAndDeliverySelected && IsDirty();
+			if (m_btnAssign.Enabled)
+			{
+				if (m_btnNext.Focused)
+					m_btnAssign.Focus();
+				if (m_btnPrevious.Focused)
+					m_btnAssign.Focus();
+			}
 		}
 
 		private void ShowCharacterFilter()
 		{
 			m_pnlCharacterFilter.Show();
 			m_btnAddCharacter.Show();
+			m_pnlShortcuts.Hide();
 			var verticalAdjustment = m_pnlCharacterFilter.Size.Height + 5;
 			m_listBoxCharacters.Location = new Point(m_listBoxCharacters.Location.X, m_listBoxCharacters.Location.Y + verticalAdjustment);
 			m_listBoxCharacters.Size = new Size(m_listBoxCharacters.Size.Width, m_listBoxCharacters.Size.Height - verticalAdjustment);
@@ -436,6 +454,37 @@ namespace ProtoScript.Dialogs
 		private void m_btnAddDelivery_Click(object sender, EventArgs e)
 		{
 			AddNewDelivery(m_txtDeliveryFilter.Text);
+		}
+
+		private void AssignCharacterDialog_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (!m_pnlShortcuts.Visible || m_txtCharacterFilter.Focused || m_txtDeliveryFilter.Focused)
+				return;
+
+			switch (e.KeyChar)
+			{
+				case '1':
+					m_listBoxCharacters.SelectedIndex = 0;
+					break;
+				case '2':
+					m_listBoxCharacters.SelectedIndex = 1;
+					break;
+				case '3':
+					m_listBoxCharacters.SelectedIndex = 2;
+					break;
+				case '4':
+					m_listBoxCharacters.SelectedIndex = 3;
+					break;
+				case '5':
+					m_listBoxCharacters.SelectedIndex = 4;
+					break;
+			}
+		}
+
+		private void AssignCharacterDialog_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Return && m_btnAssign.Enabled)
+				m_btnAssign.PerformClick();
 		}
 		#endregion
 
