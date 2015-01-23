@@ -1,1056 +1,1059 @@
-Aaron	0001
-Abigail	0002
-Abijah, king of Judah	0003
-Abimelech	0004
-Abishai, Joab's brother	0005
-Abner	0006
-Abraham	0007
-Abraham's chief servant	0008
-Absalom	0010
-Absalom's men	0011
-Absalom's secret messengers	0012
-Achan	0013
-Achish	2013
-Acsah, Caleb's daughter	0015
-Adam	0016
-Adoni-Bezek	0017
-Adonijah, son of David	0019
-Adoni-Zedek, king of Jerusalem	0018
-Advisers to king	0021
-advisor (young)	0464
-Agabus the prophet	2021
-Agag, king of Amalekites	0022
-Ahab, king of Israel	0023
-Ahaz, king of Judah	0024
-Ahaziah, king of Israel	0025
-Ahijah, the prophet	0026
-Ahimelech the priest	0027
-Ahithophel	0028
-all Egypt	0465
-all in synagogue	0467
-all in temple	0468
-all seeking God	0469
-all who heard (in synagogues)	0470
-altar	0471
-Amasai, chief of thirty (Spirit came upon)	0029
-Amaziah	0030
-Ammonite nobles	0031
-Amnon	0032
-Amos	0033
-Ananias	0035
-Andrew	0036
-angel (one of the seven)	0909
-angel flying directly overhead	0472
-angel flying directly overhead, second	1473
-angel flying directly overhead, third	0474
-angel of the LORD, an	1471
-angel over waters	2909
-angel standing in sun	0476
-angel standing on sea and land	2473
-angel who talked with Zechariah	0477
-angel, another (vision)	0478
-angel, another, coming down from heaven	3473
-angel, coming out of temple	0480
-angel, coming out of temple, another	0481
-angel, powerful	0482
-angels at Sodom, two	0473
-angels in white, two	1479
-angels, all the	1478
-angels, many, living creatures, elders, thousands of thousands 1	2478
-angels, many, living creatures, elders, thousands of thousands 2	1487
-anger of the LORD	1486
-Anna, prophetess	0037
-another (follower of Apollos)	0487
-another (follower of Peter/Cephas)	0488
-another holy one (in vision)	0489
-another of you	0490
-answer from Israel	0491
-anyone with complaint for king	0492
-anyone	0493
-apostles	0494
-Appolos	0039
-Aramean soldiers	0041
-Araunah	0042
-Arioch	0043
-Army cry	0044
-Army officer, one of	0045
-Army officers	0046
-Artaxerxes, king of Persia	0047
-Asa, king of Judah	0049
-Asahel, brother of Joab	0050
-Asaph	0051
-assembly, whole	0495
-astrologers	0496
-Athaliah	0053
-attendants to Xerxes, king	0497
-authorities, governing	0499
-authorities, Philippi	0498
-Azariah	0055
-Babylon	0057
-Balaam	0058
-Balak	0059
-Barak	0060
-Barnabas	0061
-Bartimaeus	1014
-Baruch	0063
-Barzillai	1063
-Bathsheba	0064
-believers who were Pharisees	0500
-believers, circumcised	0502
-believers, Corinth	0501
-believers, one hundred twenty	0503
-beloved	0504
-Belshazzar, king of Babylon	0065
-Benaiah, son of Jehoiada	0067
-Ben-Hadad, king of Aram	0066
-Benjamite	0068
-Benjamites	1068
-Beth Shemesh, men of	0069
-Bethlehem, elders of	0070
-Bildad the Shuhite	0071
-blind man	0505
-blind men, two	0506
-Boaz	0072
-Book of the Wars of the LORD	0073
-brothers at Antioch, the	2001
-brothers at Puteoli, some	1807
-bystanders, rest	0507
-bystanders=some standing near	0508
-Caesar Augustus	0074
-Caiaphas	0075
-Cain	0076
-Caleb (old)	1077
-Caleb	0077
-Canaanite mother of possessed girl=Syrophoenician mother of possessed girl	0078
-Canaanites	0079
-captain	0511
-captain, first	0509
-captain, of temple guard/chief priests	0510
-captain, second	1511
-captain, third	1512
-captain/crew	0512
-centurion at crucifixion	0513
-centurion at Paul's flogging	0514
-centurion on ship with Paul	0515
-centurion summoned by Pilate	2515
-centurion with great faith	3515
-centurion, one of the	1515
-chariot commanders of Aram	0516
-chief baker	0517
-chief cupbearer	0518
-chief official	0519
-chief priests 1	0520
-chief priests 2	0521
-chief priests and Jewish leaders	2264
-chief priests	0522
-chief priests/elders 2	3377
-chief priests/elders	0528
-chief priests/officers of temple guard	0530
-chief priests/Pharisees 1	0523
-chief priests/Pharisees	0525
-chief priests/rulers/the people	0531
-chief priests/rulers/the people|mob	0532
-chief priests/Sanhedrin 1	0526
-chief priests/Sanhedrin 2	0527
-chief priests/teachers of the law/elders=chief priests/elders of people 1	0533
-children of Zion (Jerusalem)	1531
-children	1530
-citizens of Shechem	1532
-city clerk	1533
-city, the whole	0534
-Cleopas	0081
-collectors of temple tax	0535
-commander	0536
-commander|leader of Benjamin	0537
-company of the prophets (Bethel)	0538
-company of the prophets (Jericho)	0539
-company of the prophets	0542
-company of the prophets, one of (the LORD says) (young man)	0540
-company of the prophets, one of (young man)	0541
-concubine's husband	0543
-conquerors of beast, image & his name	0544
-Cornelius	0083
-council of elders:chief priests/teachers of the law	0545
-craftsman	0547
-craftsmen/workmen	0548
-Cretan prophet	0084
-criminal on cross, another	0549
-criminal on cross, one	0550
-crippled man	0551
-crowd 10	0562
-crowd 2	0553
-crowd 3	0554
-crowd 4	0555
-crowd 5	0557
-crowd 6	0558
-crowd 7	0559
-crowd 8	0560
-crowd 9	0561
-crowd	0552
-crowd, large 1	0563
-crowd, large 2	0564
-crowd, many in the	0565
-crowd, others of	0801
-crowd, some of	0566
-crowds, others in	1552
-crowds, some in	0567
-crying out	0568
-cured man, blind from birth	0569
-Cyrus, king of Persia	0085
-Dan	0236
-Daniel	0086
-Danites	0087
-Darius	0088
-Dathan/Abiram|Dathan	0089
-daughter of Zion	0570
-daughter-in-law of Eli	0571
-daughters of Zelophehad	0572
-David	0093
-David's enemies	0094
-David's men	0095
-David's servants	1096
-David's supporters	1800
-Deborah	1094
-Delilah	1095
-Demetrius	0096
-demons coming out of people	1573
-demons/demon-possessed man	0573
-disciples 1	0578
-disciples 2	0579
-disciples 3	0580
-disciples of John Baptist, two	0575
-disciples	0577
-disciples, 2 men	0576
-disciples, John the Baptist's	0581
-disciples, some	0574
-disciples=twelve (disciples), the	0963
-Doeg the Edomite	0099
-eagle crying with loud voice	1581
-ear	0582
-Ebed-Melech (official of king of Judea)	0100
-Edom	0102
-Eglon, king of Moab	0103
-Egyptian (slave of Amalekite)	0104
-Egyptians	0105
-Ehud	0106
-Ekron, people of	0107
-elders of the land	1582
-elders	0585
-elders, Ephesian	0583
-elders, one of the	0584
-elders/people	0586
-Eleazar, the priest	0108
-Eleven/those with them	0109
-Eli	0110
-Eliab, David's brother	0111
-Eliakim	0112
-Eliezer, prophet of the Lord	0113
-Elihu, son of Barakel	0114
-Elijah	0115
-Eliphaz the Temanite	0116
-Elisha (LORD has shown me)	0117
-Elisha	0118
-Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/other officials	0121
-Elisha's messenger	0119
-Elizabeth	0122
-Elkanah	0123
-Enemies of God	0124
-Enemies of Israel	0126
-Enemy	0128
-Enoch	0129
-Ephraimites	0130
-Ephron the Hittite	0131
-Epicurean and Stoic philosophers	1133
-Epicurean and Stoic philosophers, interested	2134
-Epicurean and Stoic philosophers, other	0133
-Epicurean and Stoic philosophers, sneering	1134
-Epicurean and Stoic philosophers, some	3133
-Esau	2133
-Esther, queen	0134
-Ethiopian	0136
-Eve	0137
-everyone in crowd	0587
-everyone who heard	0588
-everyone	0589
-evil men/troublemakers	0590
-evil spirit	0591
-evil spirits	1591
-exiles	0592
-explorers, 12	0594
-explorers, ten	1594
-eye	0601
-Ezekiel	0138
-Ezra, priest and teacher	0139
-false teachers	0602
-false witnesses	0603
-family heads of Gilead|leader of Manasseh	0604
-father of concubine	0605
-father of possessed boy=man in crowd	0606
-Felix	0140
-Festus	0141
-Field commander from King of Assyria	0142
-followers of Jesus	1607
-fool	0608
-foot	0609
-foreman	0610
-fortune telling slave girl	0611
-four living creatures	0612
-four living creatures, twenty-four elders	0613
-Friend of Tamar	0143
-Gaal, son of Ebed	0144
-Gabriel	0145
-Gad, the prophet, David's seer	0146
-Gadites	0147
-Gallio	0148
-Gamaliel	0149
-Gedaliah, governor of Judah	0151
-Gehazi	0120
-Gentiles	0152
-Gibeonites	0153
-Gideon	0154
-Gilead, elders of	0156
-Gilead, men of	0157
-girl at high priest's courtyard=servant girl	0614
-girls	0615
-God	2000
-Goliath	0158
-Good Priest	0372
-great company of heavenly host	1615
-Greeks	0159
-Hadad the Edomite	0160
-Hagar, the Egyptian	0161
-Haggai (word of the LORD)	0162
-Haman, highest noble to Xerxes, king	0163
-Hamor	0164
-Hanani	0165
-Hananiah, false prophet	1165
-Hannah	0166
-Harbona, eunuch attending Xerxes, king	0167
-harvesters	0616
-Hazael of Aram	0168
-head	0617
-hearers	0618
-herald	0619
-herdsman	0620
-Herod Agrippa II	0170
-Herod Antipas (the tetrarch)	0171
-Herod the Great	0172
-Herodias' daughter	0174
-Herodias	0173
-Hezekiah, king of Judah	0175
-high priest	0622
-high priest's servant (man), one=those standing near|another man	0623
-high priest's servant (man), one=those standing near=another	0624
-Hilkiah, high priest	0176
-him who hears	0625
-Hirah, the Adullamite	0177
-Hiram, king of Tyre	0178
-Hittites	0180
-Hobab, Moses brother-in-law	0181
-holy one (in vision)	0627
-Holy Spirit, the	0182
-Horseman, first	0184
-Horseman, second	0185
-Horses (in vision)	0186
-Hosea	0187
-Huldah	0188
-husband of concubine	0629
-husband of Shunammite	0628
-Hushai, David's friend	0189
-hymn, early credal	0630
-idolators from Judah (men)	0632
-idolators from Judah (women)	0633
-informer	0634
-inscription on turban	0635
-inscription	1635
-invaders	0636
-invalid for 38 years	0637
-Irijah, captain of the guard of Judah	0190
-Isaac	0191
-Isaac, old	0192
-Isaiah	0193
-Ish-Bosheth, son of Saul	0194
-Ishmael, son of Nethaniah (murderer)	0195
-islanders	0638
-Israel 1	0196
-Israel 2	0197
-Israel 3	0198
-Israel, all	0199
-Israel, elders of	0200
-Israel, men of	0201
-Israel|leader of Gad	0220
-Israel|leader of Naphtali	0221
-Israelite assembly	0202
-Israelite assembly, elders of	0203
-Israelite community	0204
-Israelite foreman	1204
-Israelite messengers	0205
-Israelite people	0206
-Israelite people, all|crowd	0207
-Israelite people|grumbler	1208
-Israelite people|grumbling person-use a woman	0209
-Israelite people|man	2204
-Israelite people|man-cried out	0208
-Israelite people|man-grumbling make us gods	2208
-Israelite people|man-grumbling	1206
-Israelite soldier	0210
-Israelite soldier, some	0211
-Israelite soldiers	0212
-Israelites (wanting gods made)	0466
-Israelites 1	0214
-Israelites	0213
-Israelites, all 1	0215
-Israelites, all 3	0216
-Israelites, all	1217
-Israelites, some	0217
-Israelites|Israelite	0218
-Israelites|woman	0219
-It is said	0223
-Ittai	0224
-Jabesh, elders of	0228
-Jabesh, men of	0229
-Jabez	0230
-Jabez's mother	0231
-Jacob	0232
-Jael	0238
-Jahaziel (Spirit of the Lord on)	0239
-jailer	0639
-Jairus=ruler, a	0240
-James	0241
-Jebusites	0243
-Jehoash, king of Israel	0244
-Jehoiada	0245
-Jehonadab, son of Recab	0246
-Jehoshaphat, king of Judah	0247
-Jehu	0248
-Jehu, son of Nimshi	0249
-Jehucal/Zephaniah, priest	0250
-Jehudi	0251
-Jephthah	0253
-Jephthah's daughter	0254
-Jephtha's brothers	0252
-Jereboam/all Israel	0255
-Jeremiah quoting Israel	0225
-Jeremiah	0256
-Jeremiah's enemies	1125
-Jeroboam	1127
-Jesse	0258
-Jesus (child)	1258
-Jesus' brothers	2258
-Jesus' family	0259
-Jesus	0700
-Jewish authorities	0260
-Jews (with Mary and Martha)	0271
-Jews (with Mary and Martha)|Mary	1270
-Jews (with Mary and Martha, some)	0272
-Jews 1	0264
-Jews 2	3265
-Jews 4	0268
-Jews 5	0269
-Jews 6	0270
-Jews 8	0273
-Jews of Cyrene, Alexandria, Cilicia & Asia	5265
-Jews, 40 in conspiracy	4265
-Jews, God-fearing from every nation 1	1262
-Jews, God-fearing from every nation 2	2265
-Jews, God-fearing from every nation, some	0267
-Jews, others of the	1264
-Jews, the 1	0262
-Jews, the 2	0263
-Jews, the 7	0265
-Jews/priests/nobles/officials	0274
-Jezebel	1265
-Joab	0266
-Joab's men, one of	1267
-Joash, father of Gideon	2267
-Joash, king of Judah	3267
-Job	1269
-Job's wife	1268
-Joel saying what the priests should say	0226
-Joel saying what the weakling should say	0227
-Johanan	2271
-John the Baptist	1273
-John	1272
-John's disciples	1274
-Jonadab	0275
-Jonah	0276
-Jonathan	0277
-Jonathan, son of Abiathar	0279
-Jonathan's armor bearer	0278
-Joram, king of Israel	0280
-Joseph of Arimathea	0281
-Joseph	0282
-Joseph, people of	0284
-Joshua	0285
-Joshua, old	0286
-Josiah, king of Judah	0287
-Jotham	0288
-Judah	0233
-Judah, men of	0290
-Judah, people in	0291
-Judas (not Judas Iscariot)	0292
-Judas Iscariot	0293
-Judeaisers	0294
-King of Ammonites	0295
-King of Aram	1295
-King of Assyria	0297
-King of Babylon	0298
-King of Jericho	0299
-King of Nineveh	0300
-king of Sodom	0640
-kings of the earth	0641
-kings over the nations	0642
-kings, princes, generals, rich, powerful, slave and free	0643
-kinsman-redeemer	0644
-Kish, father of Saul	0302
-Korah/Dathan/Abiram/250 Israelite leaders|Korah	0303
-Laban	0305
-Laban/Laban's mother|Laban's mother	0306
-Laban's sons	1306
-Lamech (descendent of Cain)	0307
-Lamech (descendent of Seth)	0308
-law of Moses where LORD commanded	0645
-leaders in Ephraim	0647
-leaders	0648
-Leah	0309
-leper	0682
-leper, thankful Samaritan	0681
-letter from apostles and elders	0649 
-Levi	0235
-Levite, young, from Bethlehem	0310
-Levites	0311
-Levitical heads	0313
-living creature, fourth	0650
-living creature, second	0651
-living creature, third	0652
-Lookout	0314
-Lot	0317
-Lover	0318
-Lydia	0319
-Macedonian	0320
-magi	0653
-Magicians	0321
-Magistrates, chief	0322
-maidens	0654
-man (at Shechem)	0656
-man (Hebrew fighting)	0655
-man all alone	0658
-man answered David	0659
-man covered with leprosy	0660
-man escaped from Jerusalem	0661
-man from Saul's camp (young)	0662
-man in linen above river	0663
-man in linen with writing kit (in vision)	1663
-man like bronze with measuring rod (vision of God)	0664
-man of Babel, 1st	0665
-man of Babel, 2nd	0666
-man of Gibeah	0667
-man of God from Judah	0668
-man of God	0669
-man of God, a	1668
-man possessed by evil spirit	0670
-man reporting to David	0671
-man standing among myrtle trees	0672
-man told David	0673
-man told Joab	0674
-man told Solomon	0675
-man told troops	0676
-man who had had demons	0677
-man who says 'I know him'	0678
-man who says 'we remain in union with God'	0679
-man with evil spirit	0680
-man with measuring line (vision)	0683
-man with sponge	0687
-man, a	0686
-man, still another	0688
-man, wicked	0689
-Manoah, father of Samson	0325
-Manoah's wife, mother of Samson	0324
-man's brother	0684
-man's voice from the Ulai (in vision)	0685
-many in crowd	0691
-many Samaritans	0690
-Martha	0326
-Mary (Jesus' mother)	0327
-Mary (sister of Martha)	0328
-Mary Magdalene	0329
-Mary/Martha	0330
-master of the banquet	0692
-Melchizedek, king of Salem (priest of God Most High)	0331
-Memucan, noble advisor to Xerxes, king	0332
-men appointed to sing and praise	0693
-men dressed in white, two	0694
-men from Cornelius	0695
-men from Jairus house	0696
-men from Judea, some	0697
-men in Capernaum synagogue	0699
-men in mourning, ten of eighty	0698
-men in Nazareth synagogue	0701
-men of Anathoth	0703
-men of Ashdod	0704
-men of David	0706
-men of David, one	0705
-men of Enaim|townsman	0707
-men of Pharaoh|messenger of Pharaoh	0708
-men of Sodom	0709
-men of the city (Bethel)	0710
-men of the city (Jericho)	1710
-men who were guarding	0711
-men with leprosy, four	0712
-men	0716
-men, large force of	0713
-men, many	0714
-men, some	0715
-men/people	0717
-men/their wives	0718
-men/their wives, other	0719
-men/wives, still others	0720
-Mephibosheth	0333
-merchants of the earth	0721
-message to Saul	0722
-messenger Ahimaaz	0723
-messenger from battle to David	0724
-messenger from guardians of Ahab's children	0725
-messenger of Ahab, king of Israel	0726
-messenger to Abraham	0727
-messenger to David	0728
-messenger to King of Jericho	0729
-messenger to Saul	0730
-messenger	1733
-messenger, a	0732
-messenger, another	0733
-messenger, Cushite	0731
-messenger, still another	0734
-messenger, yet another	0735
-messengers of Ahaziah	0737
-messengers of Ben-Hadad. king of Aram	0738
-messengers of Jacob	0739
-Micah	0334
-Micah's mother	0335
-Micaiah, prophet of the LORD	0336
-Michael (archangel)	0479
-Michal, David's wife	0337
-midwife of Rachel	0740
-midwife of Tamar	0741
-midwives, Shiphrah/Puah	0742
-Miriam/women	0339
-Miriam-young girl	0338
-Moabite officials	0341
-Moabite officials, more distinguished	1341
-Moabites (female)	0342
-Moabites	1340
-mob	0743
-Mordecai, cousin of Esther	0343
-Moses' father-in-law	0345
-Moses' messengers from Kadesh|Leader of Issachar	0346
-Moses	0344
-mother of Zebedee's sons	0745
-multitude from all nations, tribes, peoples, languages	0746
-Naaman	1345
-Naaman's servants	1346
-Nabal	0347
-Naboth	0348
-Nahash the Ammonite	0349
-Naomi	0350
-narrator-1CH	1139
-narrator-1CO	0748
-narrator-1KI	1018
-narrator-1PE	1749
-narrator-2CH	2139
-narrator-2CO	3748
-narrator-ACT	0753
-narrator-AMO	1017
-narrator-DAN	2018
-narrator-ECC	0754
-narrator-EPH	8748
-narrator-EXO	9748
-narrator-EZK	0756
-narrator-EZR	0757
-narrator-GAL	10748
-narrator-GEN	11748
-narrator-HAB	1019
-narrator-HEB	12748
-narrator-ISA	0758
-narrator-JAS	1022
-narrator-JER	1752
-narrator-JHN	5749
-narrator-JOS	0747
-narrator-LUK	1753
-narrator-MAL	1747
-narrator-MAT	0755
-narrator-MRK	1758
-narrator-PSA	19748
-narrator-REV	3750
-narrator-ROM	20748
-narrator-TIT	21748
-narrator-ZEC	0762
-narrator-ZEP	1762
-Nathan	0352
-Nathanael	0353
-nations, people of the	0355
-Nations, the	0354
-Nebuchadnezzar, king of Babylon	0356
-Nebuzaradan	0357
-Neco, king of Egypt	0358
-Nehemiah	0359
-neighbors of man blind from birth	0764
-neighbors of man blind from birth, others	0765
-neighbors of man blind from birth, some	0766
-neighbors/others who had seen blind man begging	0767
-neighbors/relatives of Zechariah/Elizabeth	0768
-news giver to Jacob	0769
-news giver to Joseph	0770
-Nicodemus	0360
-no one says	0771
-no one	0772
-Noah	0361
-Nobles/officials	0362
-non-reader	0773
-Obadiah, manager of Ahab's palace	0363
-Oded, prophet of the Lord	0364
-officer of king of Israel (had said)	0774
-officer of king of Israel	0776
-officer of king of Israel, one of	0775
-officers of King of Aram	0777
-officers of magistrates	0778
-officers	0779
-official, royal	0780
-officials of Ben-Hadad, king of Aram	0781
-officials of David	0782
-officials of Samaria	0783
-officials of Succoth	0784
-officials, Ephesus	0785
-officials, one of the	0786
-officials, royal, to Xerxes, king	0787
-officials/all the people	0788
-old man of Gibeah	0789
-older daughter of Lot	0790
-one at table with him	0791
-one of you (follower of Paul)	1791
-one of you	0792
-one other who looked like a man	0793
-one who looked like a man	0795
-onlookers	0796
-Oppressors of poor (women)	0365
-Oppressors of poor	0366
-Orpah/Ruth|Orpah	0367
-other and Cleopas (on road to Emmaus) female|other female	0797
-other and Cleopas (on road to Emmaus) male|other male	0798
-other guests at Pharisee(Simon)'s house	0799
-others	0802
-owner of colt=people, some standing there	0803
-owners of the slave girl	0804
-parents of cured man, blind from birth|parent 1	0805
-parents of cured man, blind from birth|parent 2	0806
-Pashur/Zephaniah	0368
-passers by	0807
-Paul	0062
-Paul's travelling companions, Luke and	0369
-people (complaining Israelites)	0841
-people 1	0810
-people 2	0811
-people at cistern	0812
-people at coronation of King Joash	0838
-people gathered to pray	0813
-people in crowd	0814
-people who knew Saul	0815
-people	0840
-people, all the 1	0819
-people, all the 2	0820
-people, all the 3	0821
-people, all the 4	0822
-people, all the 5	0823
-people, all the	0824
-people, arrogant wicked	0825
-people, Gadarene	0816
-people, God's	0817
-people, hurried	0826
-people, Israel, tribes of	0818
-people, many	0827
-people, other 1	1819
-people, other	0828
-people, others	0829
-people, righteous	0830
-people, sick	0831
-people, some 1	1831
-people, some of the	0832
-people, some, in Jerusalem 1	0833
-people, some, in Jerusalem 2	0834
-people, still other 1	0836
-people, still other 2	0837
-people|leader of Naphtali	0842
-peoples, many	0844
-person sacrificing	0657
-person	0845
-Peter (Simon)	0371
-Peter (Simon)/John/own people	1372
-Pharaoh	1378
-Pharaoh's daughter	0379
-Pharaoh's officials	0380
-Pharisee(Simon)	0373
-Pharisees 2	0376
-Pharisees 5	0375
-Pharisees	1377
-Pharisees, other	0374
-Pharisees, some 4	1375
-Pharisees, some	2377
-Pharisees/teachers of the law 3	2375
-Pharisees/teachers of the law	0378
-Philip	0381
-Philistine commanders	0382
-Philistine priests and diviners	0383
-Philistines	0384
-Philistines, rulers of	0385
-Phineas	0386
-Pilate	0387
-Pilate's wife	1388
-pine trees/cedars of Lebanon	0846
-Poets|leader of Ephraim	0388
-Potiphar's wife	0389
-priest	0847
-priests/Levites	0848
-proclaim	0849
-proclaimers of God's word	0850
-prophet Gad	0851
-prophet in Bethel (old)	0852
-prophet in Bethel (old)/sons	0853
-prophet of the LORD, a	0854
-prophet	0856
-prophet, sons of the, one	0855
-prophets (the LORD said)	0857
-prophets of Baal	0858
-prophets, 400 false	0859
-prophets, their	0860
-prophets/priests	0861
-prostitute, one	0862
-prostitute, other	0863
-proverb about a dog	0864
-queen of Babylon	0865
-queen of Sheba	1865
-Rabble/Complainer	0390
-Rachel	0391
-Rahab	0392
-reader	0866
-Rebekah	0393
-rebels	0867
-Recab/Baanah	0394
-Recabite family, men of	0395
-Rehoboam	0396
-Rehum, commanding officer/Shimshai, secretary	0397
-Relatives of Ahaziah, king of Judah	1397
-report to King of Aram	0868
-Report to King of Assyria	0398
-Reuben	0234
-Reubenites	0399
-Reubenites/Gadites|leader of Gad	0400
-Rhoda	0401
-rule given by Paul	0869
-ruler, a certain=man, rich young	0870
-rulers of people in Jerusalem	0871
-rulers=chief priests/teachers of the law/elders	0872
-rules of the world	0873
-Ruth	0402
-Sadducees	1402
-Sailors	0403
-Samson	0404
-Samson's 30 companions	0405
-Samson's father-in-law	0406
-Samson's wife	0407
-Samuel	0408
-Sanballat	0127
-Sanhedrin/chief priests/Pharisees	0409
-Sapphira (Ananias' wife)	0410
-Sarai (Sarah)	0411
-Satan	0800
-Satraps	0413
-Saul	0414
-Saul's announcement	0415
-Saul's attendants	0416
-Saul's messengers	0417
-Saul's servant	0418
-Saul's uncle	0419
-saying about Anakites	0874
-saying about bad company	0878
-saying about blind and lame	0879
-saying about going beyond what is written	0880
-saying about Nimrod	0875
-saying about Saul	0876
-saying about seer	0881
-saying about sow	0882
-saying about what controls you	0883
-saying about yeast	0884
-saying about Zion	0877
-saying, true	0885
-scoffers	0886
-scoundrels	0887
-scouts of Ben-Hadad, king of Aram	0888
-scripture (Moses quoting God)	0889
-scripture	0890
-scroll with decree of Cyrus, king	0891
-sea	0892
-Sennacherib, king of Assyria	0421
-Sennacherib's messengers	0420
-Sennacherib's officers	0607
-seraph, one of the	0893
-seraphs	0894
-serpent	0895
-servant girl	0896
-servant of concubine's husband	0902
-servant of Elijah	0897
-servant of Naaman's wife (young girl)	0899
-servant of Nabal	0900
-servant of priest	0903
-servant of Saul	0901
-servants (Isaac's)	0904
-servants of Achish, king of Gath	0905
-servants of David	0906
-servants of Eglon, king of Moab	0907
-servants of royal official	0908
-seven sons of Sceva	1905
-seventy-two	1906
-Shadrach/Meshach/Abednego	0422
-Shaphan, secretary	0423
-Sharezer/Regem-Melech/men of Bethel	0424
-she donkey	1907
-Sheba, son of Bicri	0425
-Shecaniah, son of Jehiel	0426
-Shechem|son of Shechem	0427
-Shemaiah	1427
-Shephatiah/Gedaliah/Jehucal/Pashur (officials)	0428
-shepherds at the well	0020
-shepherds outside Bethlehem	1908
-Shimei	0429
-ship captains, seafarers, sailors	2906
-sign on the cross	2907
-Simeon	0237
-Simeon-old	0430
-Simon practiced magic	0431
-singers from the ends of the earth	2908
-singers	0910
-singers, and relatives	1909
-sinners	0911
-Sisera	0432
-Sisera's mother	0433
-Slave driver	0434
-Slave girls	0435
-soldier 1, enemy	0913
-soldier 2, enemy	0914
-soldier at the cross	0912
-soldier, Israelite	0915
-soldiers	2002
-soldiers, Assyrian	0918
-soldiers, Roman	0917
-soldiers, some	0916
-soldiers/officials from chief priests/Pharisees	0919
-Solomon, king	0436
-some claim we say	0920
-some in home of Simon, leper	0921
-some	0923
-someone from Jairus' house	0928
-someone in crowd	0930
-someone in Jerusalem	0929
-someone told David	0931
-someone told King of Aram	0932
-someone told Shimei	0933
-someone	0934
-someone=they (in crowd)	0925
-son in Israel (child) will say	0935
-son of Paul's sister (young man)	0936
-son of Shunammite	0937
-son of widow	0938
-song (of the prostitute)	0939
-souls of those killed for word of God	0940
-spies from Joshua, men	0440
-spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians	0941
-Spirit, the	0437
-Spirit, the, and the bride	0438
-spy from Joseph	0439
-Stephen	0441
-Steward	1042
-still another (follower of Christ)	1941
-synagogue ruler	0942
-Tamar, daughter of David	0442
-Tamar, daughter-in-law of Judah	0443
-Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	0444
-tax collectors	0943
-teacher (Preacher)	0945
-teacher of the law	0944
-teachers of the law	0593
-teachers of the law/Pharisees	0377
-temple guards	0949
-temple police	0950
-ten men with leprosy	0951
-Tertius	0445
-Tertullus-Lawyer	0446
-they (unclear in Greek/voice from heaven & angel?)	0953
-Thomas	0447
-those hiding from the LORD	0955
-those sitting with Festus, Herod Agrippa II and Bernice	0956
-those standing near	0957
-those who seek God	0958
-Tobiah, enemy	0448
-townsmen (wicked)	0959
-townsmen	0960
-townsmen-wicked (of Sodom)	0961
-troublemakers	0962
-twenty-four elders	0964
-twenty-four elders/four living creatures	0965
-unbelievers	0966
-Uriah	0449
-voice among living creatures	0972
-voice from altar	0973
-voice from cloud	0974
-voice from heaven, another	0976
-voice from temple	0977
-voice from throne	0978
-voice in heaven, loud	1979
-voice of great crowd in heaven, loud	0979
-voice of great crowd, like roar of many waters, loud thunderclaps	0981
-voice of one calling, a (preparing way for Christ)	0982
-voice of one speaking (in vision of God)	0983
-voices in heaven, loud	0984
-warriors from Zorah and Eshtaol, 5	0985
-watchman	0986
-we	0987
-weakling	0988
-what is formed	0989
-wicked men of Gibeah	0990
-widow (from company of prophets)	0991
-widow at Zarephath	0992
-wise men of Pharaoh	0993
-witnesses, false, two=witnesses, some false	0994
-woman from Tekoa	0995
-woman in crowd	0996
-woman in famine	0997
-woman medium	0998
-woman	1004
-woman, bleeding for 12 years	1001
-woman, caught in adultery	1002
-woman, Samaritan	0999
-woman, Shunammite	1000
-woman, wise	1003
-women 1	1005
-women of Bethlehem	1006
-women	1008
-women, seven	1007
-worshippers of the beast	1009
-Xerxes, king of Persia and Media (Ahasuerus)	0450
-you 1	1010
-you ought to say	1011
-you who bring good tidings to Zion	1012
-you	1013
-young men	1015
-youths	1016
-Zaccheaus	0451
-Zeba/Zalmunna	0452
-Zebul, governor of Shechem	0453
-Zechariah	0454
-Zedekiah, king of Judah	0456
-Zedekiah, son of Kenaanah, false prophet	0457
-Zeresh, wife of Haman/friends of Haman	0458
-Zerubbabel/Jeshua/rest of heads of families	0459
-Ziba	0460
-Zion	0461
-Ziphites	1461
-Zipporah	0462
-Zophar the Naamathite	0463
+Aaron	1	FALSE	Male			
+Abigail	2	FALSE	Female			
+"Abijah, king of Judah"	3	FALSE	Male			
+"Abimelech, King of Gerar"	4	FALSE	Male			
+"Abimelech, King of Gerar/Phicol"		TRUE	Male			
+"Abimelech, King of the Philistines (in Gerar)"		FALSE	Male			
+"Abimelech, son of Gideon"		FALSE	Male			
+"Abishai, Joab's brother"	5	FALSE	Male			
+Abner	6	FALSE	Male			
+Abraham	7	FALSE	Male			
+Abraham's chief servant	8	FALSE	Male			
+Absalom	10	FALSE	Male			
+Absalom's men	11	TRUE	Male			
+Absalom's secret messengers	12	TRUE	Male			
+Achan	13	FALSE	Male			
+Achish	2013	FALSE	Male			
+"Acsah, Caleb's daughter"	15	FALSE	Female			
+Adam	16	FALSE	Male			
+Adoni-Bezek	17	FALSE	Male			
+"Adonijah, son of David"	19	FALSE	Male			
+"Adoni-Zedek, king of Jerusalem"	18	FALSE	Male			
+Advisers to king	21	TRUE	Male			
+Agabus the prophet	2021	FALSE	Male			
+"Agag, king of Amalekites"	22	FALSE	Male			
+"Ahab, king of Israel"	23	FALSE	Male			
+"Ahaz, king of Judah"	24	FALSE	Male			
+"Ahaziah, king of Israel"	25	FALSE	Male			
+"Ahijah, the prophet"	26	FALSE	Male			
+Ahimelech the priest (son of Ahitub)	27	FALSE	Male			
+Ahithophel	28	FALSE	Male			
+all Egypt	465	TRUE				
+all in synagogue	467	TRUE				
+all in temple	468	TRUE				
+all seeking God	469	TRUE				
+all who heard (in synagogues)	470	TRUE				
+altar	471	FALSE				
+"Amasai, chief of thirty (Spirit came upon)"	29	FALSE	Male			
+Amaziah	30	FALSE	Male			
+Ammonite nobles	31	TRUE	Male			
+Amnon	32	FALSE	Male			
+Amos	33	FALSE	Male			
+Ananias	35	FALSE	Male			
+Andrew	36	FALSE	Male			
+angel (one of the seven)	909	FALSE				
+angel flying directly overhead	472	FALSE				
+"angel flying directly overhead, second"	1473	FALSE				
+"angel flying directly overhead, third"	474	FALSE				
+"angel of the LORD, an"	1471	FALSE	Male			
+angel or messenger (Greek variant: someone speaking to John)	953	FALSE				
+angel over waters	2909	FALSE				
+angel standing in sun	476	FALSE				
+angel standing on sea and land	2473	FALSE				
+angel who talked with Zechariah	477	FALSE				
+angel who wrestled with Jacob		FALSE	Male			
+"angel, another (vision)"	478	FALSE				
+"angel, another, coming down from heaven"	3473	FALSE				
+"angel, coming out of temple"	480	FALSE				
+"angel, coming out of temple, another"	481	FALSE				
+"angel, powerful"	482	FALSE				
+"angels at Sodom, two"	473	TRUE	Male			
+"angels in white, two"	1479	TRUE	Male			
+"angels, all the"	1478	TRUE				
+"angels, living creatures, elders (thousands of thousands)"	2478	TRUE				
+anger of the LORD	1486	FALSE	Male		Could be either God or David	
+"Anna, prophetess"	37	FALSE	Female			
+another (follower of Apollos)	487	FALSE				
+another (follower of Peter/Cephas)	488	FALSE				
+another holy one (in vision)	489	FALSE				
+another of you (follower of Apollos)	490	FALSE				
+answer from Israel	491	TRUE				
+anyone	493	FALSE				
+anyone with complaint for king	492	FALSE				
+apostles	494	TRUE	Male			
+Appolos	39	FALSE	Male			
+Aramean soldiers	41	TRUE	Male			
+"Araunah, the Jebusite"	42	FALSE	Male			
+Arioch	43	FALSE	Male			
+Army cry	44	TRUE	Male			
+"Army officer, one of"	45	FALSE	Male			
+Army officers	46	TRUE	Male			
+"Artaxerxes, king of Persia"	47	FALSE	Male			
+"Asa, king of Judah"	49	FALSE	Male			
+"Asahel, brother of Joab"	50	FALSE	Male			
+Asaph	51	FALSE	Male			
+"assembly, whole"	495	TRUE				
+astrologers	496	TRUE	Male			
+"Athaliah, mother of Ahaziah (Queen)"	53	FALSE	Female			
+"attendants to Xerxes, king"	497	TRUE	Male			
+attendents of Phineas' wife	1008	TRUE	Female			
+"authorities, governing"	499	TRUE	Male			
+"authorities, Philippi"	498	TRUE	Male			
+Azariah the priest	55	FALSE	Male			
+Azariah the priest/eighty other priests		TRUE	Male			
+"Azariah, son of Oded"		FALSE	Male			
+Azariah/Johanan/arrogant men		TRUE	Male			
+Babylon	57	FALSE				
+Balaam	58	FALSE	Male			
+Balak	59	FALSE	Male			
+Barak	60	FALSE	Male			
+Barnabas	61	FALSE	Male			
+Bartimaeus	1014	FALSE	Male			
+Baruch	63	FALSE	Male			
+Barzillai	1063	FALSE	Male			
+Bathsheba	64	FALSE	Female			
+bearer of good news	1012	FALSE				
+believers who were Pharisees	500	TRUE	Male			
+"believers, circumcised (in Jerusalem)"	502	TRUE	Male			
+"believers, Corinth"	501	TRUE				
+"believers, one hundred twenty"	503	TRUE				
+beloved	504	FALSE				
+"Belshazzar, king of Babylon"	65	FALSE	Male			
+"Benaiah, son of Jehoiada"	67	FALSE	Male			
+"Ben-Hadad, king of Aram"	66	FALSE	Male			
+Benjamite	68	FALSE	Male			
+Benjamites	1068	TRUE				
+"Beth Shemesh, men of"	69	TRUE	Male			
+"Bethlehem, elders of"	70	TRUE	Male			
+Bildad the Shuhite	71	FALSE	Male			
+blind man	505	FALSE	Male			
+"blind men, two"	506	TRUE	Male			
+Boaz	72	FALSE	Male			
+Book of the Wars of the LORD	73	FALSE				
+"brothers at Antioch, the"	2001	TRUE	Male			
+"brothers at Puteoli, some"	1807	TRUE	Male			
+"bystanders, rest"	507	TRUE				
+bystanders at Calvary	508	TRUE				
+Caesar Augustus	74	FALSE	Male			
+Caiaphas	75	FALSE	Male			
+Cain	76	FALSE	Male			
+Caleb	77	FALSE	Male			
+Caleb (old)	1077	FALSE	Male	old (85)		
+Canaanite (Syrophoenician) mother of possessed girl	78	FALSE	Female			
+Canaanites	79	TRUE				
+captain	511	FALSE	Male			
+"captain, first"	509	FALSE	Male			
+"captain, of temple guard/chief priests"	510	FALSE	Male			
+"captain, second"	1511	FALSE	Male			
+"captain, third"	1512	FALSE	Male			
+captain/crew	512	FALSE	Male			
+centurion at crucifixion	513	FALSE	Male			
+centurion at Paul's flogging	514	FALSE	Male			
+centurion on ship with Paul	515	FALSE	Male			
+centurion summoned by Pilate	2515	FALSE	Male			
+centurion with great faith	3515	FALSE	Male			
+"centurion, one of the"	1515	FALSE	Male			
+chariot commanders of Aram	516	TRUE	Male			
+chief baker	517	FALSE	Male			
+chief cupbearer	518	FALSE	Male			
+chief official	519	FALSE	Male			
+chief priests	522	TRUE	Male			
+chief priests and Jewish leaders	2264	TRUE	Male			
+chief priests/elders	528	TRUE	Male			
+chief priests/officers of temple guard	530	TRUE	Male			
+chief priests/Pharisees	525	TRUE	Male			
+chief priests/rulers/the people	531	TRUE	Male			
+chief priests/Sanhedrin	526	TRUE	Male			
+chief priests/teachers of the law		TRUE	Male			
+chief priests/teachers of the law/elders	533	TRUE	Male			
+children	1530	TRUE		child		
+children of Zion (Jerusalem)	1531	TRUE		child		
+citizens of Shechem	1532	TRUE				
+city clerk	1533	FALSE	Male			
+people of Jerusalem	534	TRUE				
+Cleopas	81	FALSE	Male			
+Cleopas' companion (on road to Emmaus)	798	FALSE	Unknown			
+Cleopas/companion (on road to Emmaus)		TRUE				
+collectors of temple tax	535	TRUE				
+commander	536	FALSE				
+company of the prophets	542	TRUE				
+company of the prophets (Bethel)	538	TRUE				
+company of the prophets (Jericho)	539	TRUE				
+"company of the prophets, one of (the LORD says) (young man)"	540	FALSE	Male	young man		
+"company of the prophets, one of (young man)"	541	FALSE	Male	young man		
+concubine's husband	543	FALSE	Male			
+"conquerors of beast, image & his name"	544	TRUE				
+Cornelius	83	FALSE	Male			
+council of elders:chief priests/teachers of the law	545	TRUE	Male			
+craftsman	547	FALSE	Male			
+craftsmen/workmen	548	TRUE	Male			
+Cretan prophet	84	FALSE	Male			
+"criminal on cross, another"	549	FALSE	Male			
+"criminal on cross, one"	550	FALSE	Male			
+crippled man	551	FALSE	Male			
+crowd	552	TRUE				
+"crowd, large"	563	TRUE				
+"crowd, many in the"	565	TRUE				
+"crowd, others in"	1552	TRUE				
+"crowd, some in"	567	TRUE				
+crying out	568	FALSE	Male		Used only in Habbakuk - should probably be Habbakuk	
+"cured man, blind from birth"	569	FALSE	Male			
+"Cyrus, king of Persia"	85	FALSE	Male			
+Dan	236	FALSE	Male			
+Daniel	86	FALSE	Male			
+Danites	87	TRUE				
+Darius	88	FALSE	Male			
+Dathan		FALSE	Male			
+Dathan/Abiram	89	TRUE	Male			
+daughter of Zion	570	FALSE	Female			
+daughter-in-law of Eli	571	FALSE	Female			
+daughters of Zelophehad	572	TRUE	Female			
+David	93	FALSE	Male			
+David's enemies	94	TRUE	Male			
+David's men	95	TRUE	Male			
+David's servants	1096	TRUE				
+David's supporters	1800	TRUE				
+Deborah	1094	FALSE	Female			
+Delilah	1095	FALSE	Female			
+Demetrius	96	FALSE	Male			
+demons coming out of people	1573	TRUE				
+demons/demon-possessed man	573	TRUE				
+disciple who wanted to bury his father		FALSE	Male			
+disciples	577	TRUE	Male			
+disciples (but not Thomas)		TRUE	Male			
+"disciples of John Baptist, two (Andrew and another)"	575	TRUE	Male			
+"disciples, two men (from Joppa)"		TRUE	Male			
+John's disciples	581	TRUE	Male			
+"disciples, some"	574	TRUE				
+Doeg the Edomite	99	FALSE	Male			
+eagle crying with loud voice	1581	FALSE				
+ear	582	FALSE				
+Ebed-Melech (official of king of Judea)	100	FALSE				
+Edom	102	FALSE				
+"Eglon, king of Moab"	103	FALSE				
+Egyptian (slave of Amalekite)	104	FALSE				
+Egyptians	105	TRUE				
+Ehud	106	FALSE				
+"Ekron, people of"	107	TRUE				
+elders	585	TRUE				
+elders of the Jews		TRUE	Male			
+elders of the land	1582	TRUE	Male			
+"elders, Ephesian"	583	TRUE	Male			
+"elders, one of the"	584	FALSE	Male			
+elders/people	586	TRUE	Male			
+"Eleazar, the priest"	108	FALSE	Male			
+Eleven/those with them	109	TRUE				
+Eli	110	FALSE	Male			
+"Eliab, David's brother"	111	FALSE	Male			
+Eliakim	112	FALSE				
+"Eliezer, prophet of the Lord"	113	FALSE	Male			
+"Elihu, son of Barakel"	114	FALSE	Male			
+Elijah	115	FALSE	Male			
+Eliphaz the Temanite	116	FALSE	Male			
+Elisha	118	FALSE	Male			
+Elisha (LORD has shown me)	117	FALSE	Male			
+Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/other officials	121	FALSE				
+Elisha's messenger	119	FALSE				
+Elizabeth	122	FALSE	Female			
+Elkanah	123	FALSE				
+Enemies of God	124	TRUE				
+Enemies of Israel	126	TRUE				
+Enemy	128	FALSE				
+Enoch	129	FALSE				
+Ephraimites	130	TRUE				
+Ephron the Hittite	131	FALSE				
+Epicurean and Stoic philosophers	1133	TRUE				
+"Epicurean and Stoic philosophers, interested"	2134	TRUE				
+"Epicurean and Stoic philosophers, other"	133	TRUE				
+"Epicurean and Stoic philosophers, sneering"	1134	TRUE				
+"Epicurean and Stoic philosophers, some"	3133	TRUE				
+Esau	2133	FALSE	Male			
+"Esther, queen"	134	FALSE	Female			
+Ethiopian	136	FALSE	Male			
+Eve	137	FALSE	Female			
+every created thing	1487	TRUE				
+every created thing	1487	TRUE				
+everyone	589	TRUE				
+everyone in crowd	587	TRUE				
+everyone who heard	588	TRUE				
+evil men/troublemakers	590	TRUE				
+evil spirit	591	FALSE				
+evil spirits	1591	TRUE				
+exiles	592	TRUE				
+"explorers, ten"	1594	TRUE				
+"explorers, twelve"	594	TRUE				
+expert in the law		FALSE	Male			
+eye	601	FALSE				
+Ezekiel	138	FALSE	Male			
+"Ezra, priest and teacher"	139	FALSE	Male			
+false prophets/people (as quoted by God/Micah)	860	TRUE				
+false teachers	602	TRUE				
+false witnesses	603	TRUE				
+family heads of Gilead	604	TRUE	Male			
+father of concubine	605	FALSE				
+"father of cured man, blind from birth"	805	FALSE	Male			
+father of demon-possessed boy	606	FALSE	Male			
+Felix	140	FALSE	Male			
+Festus	141	FALSE	Male			
+Field commander from King of Assyria	142	FALSE	Male			
+flatterers		TRUE				
+followers of Jesus	1607	TRUE				
+fool	608	FALSE				
+foot	609	FALSE				
+foreman	610	FALSE	Male			
+fortune telling slave girl	611	FALSE	Female			
+four living creatures	612	TRUE				
+four living creatures/twenty-four elders	613	TRUE				
+friend (or informer) of Tamar	143	FALSE				
+"Gaal, son of Ebed"	144	FALSE	Male			
+Gabriel	145	FALSE	Male			
+"Gad, the prophet, David's seer"	146	FALSE	Male			
+Gallio	148	FALSE	Male			
+Gamaliel	149	FALSE	Male			
+Gazites (wicked)	959	TRUE				
+"Gedaliah, governor of Judah"	151	FALSE	Male			
+Gehazi	120	FALSE	Male			
+Gentiles	152	TRUE				
+Gibeonites	153	TRUE				
+Gideon	154	FALSE	Male			
+"Gilead, elders of"	156	TRUE	Male			
+"Gilead, men of"	157	TRUE	Male			
+girls	615	TRUE	Female			
+God	2000	FALSE	Male			
+Goliath	158	FALSE	Male			
+Good Priest	372	FALSE	Male		Many quotes resolve to this  pseudo-character by default	
+great company of heavenly host	1615	TRUE				
+Greeks	159	TRUE				
+Hadad the Edomite	160	FALSE				
+"Hagar, the Egyptian"	161	FALSE				
+Haggai (word of the LORD)	162	FALSE	Male			
+"Haman, highest noble to Xerxes, king"	163	FALSE	Male			
+Hamor	164	FALSE	Male			
+Hamor/Shechem		TRUE	Male			
+Hanani	165	FALSE				
+"Hananiah, false prophet"	1165	FALSE				
+Hannah	166	FALSE	Female			
+"Harbona, eunuch attending Xerxes, king"	167	FALSE	Male			
+harvesters	616	TRUE				
+Hazael of Aram	168	FALSE				
+head	617	FALSE				
+hearers	618	TRUE				
+herald	619	FALSE				
+herdsman	620	FALSE	Male			
+Herod Agrippa II	170	FALSE	Male			
+Herod Antipas (the tetrarch)	171	FALSE	Male			
+Herod the Great	172	FALSE	Male			
+Herodias	173	FALSE	Female			
+Herodias' daughter	174	FALSE	Female			
+"Hezekiah, king of Judah"	175	FALSE	Male			
+high priest	622	FALSE	Male			
+high priest's servant (relative of the man whose ear Peter cut off)		FALSE	Male			
+high priest's servant/those standing near	623	TRUE	Male			
+"high priests/men of their family/rulers, elders, teachers of the law"		TRUE	Male			
+"Hilkiah, high priest"	176	FALSE	Male			
+him who hears	625	FALSE	Male			
+"Hirah, the Adullamite"	177	FALSE				
+"Hiram, king of Tyre"	178	FALSE	Male			
+Hittites	180	TRUE				
+"Hobab, Moses brother-in-law"	181	FALSE				
+holy one (in vision)	627	FALSE				
+"Holy Spirit, the"	182	FALSE	Male			
+"Horseman, first"	184	FALSE	Male			
+"Horseman, second"	185	FALSE	Male			
+Horses (in vision)	186	TRUE				
+Hosea	187	FALSE	Male			
+"Huldah, prophetess"	188	FALSE	Female			
+husband of concubine	629	FALSE				
+husband of Shunammite	628	FALSE				
+"Hushai, David's friend"	189	FALSE				
+"hymn, early credal"	630	FALSE				
+idolators	223	TRUE				
+idolators from Judah (men)	632	TRUE				
+idolators from Judah (women)	633	TRUE				
+informer	634	FALSE				
+inscription	1635	FALSE				
+inscription on turban	635	FALSE				
+invaders	636	TRUE				
+invalid for 38 years	637	FALSE				
+"Irijah, captain of the guard of Judah"	190	FALSE				
+Isaac	191	FALSE	Male			
+"Isaac, old"	192	FALSE	Male	old		
+Isaiah	193	FALSE	Male			
+"Ish-Bosheth, son of Saul"	194	FALSE	Male			
+"Ishmael, son of Nethaniah (murderer)"	195	FALSE	Male			
+islanders	638	TRUE				
+Israel	196	TRUE				
+"Israel, all"	199	TRUE				
+"Israel, all leaders of"	198	TRUE	Male			
+"Israel, all the tribes"	197	TRUE				
+"Israel, elders of"	200	TRUE	Male			
+"Israel, leaders of/King Rehoboam"		TRUE	Male			
+"Israel, men of"	201	TRUE	Male			
+Israelite assembly	202	TRUE				
+"Israelite assembly, elders of"	203	TRUE	Male			
+Israelite community	204	TRUE				
+Israelite foreman	1204	FALSE	Male			
+Israelite messengers	205	TRUE				
+Israelite people	206	TRUE				
+Israelite people (spokesman before Moses)	2204	TRUE	Male			
+"Israelite people, all"	207	TRUE				
+"Israelite people, grumblers"	209	TRUE	Pref: Female			
+"Israelite people, quarrelers"	1208	TRUE	Pref: Male			
+Israelite soldier (in Saul's army)	210	FALSE	Male			
+Israelite soldiers	212	TRUE	Male			
+Israelites	213	TRUE				
+Israelites (excluding Benjamites)	214	TRUE				
+Israelites (wanting gods made)	466	TRUE				
+Israelites (wondering about manna)	219	TRUE	Pref: Female			
+"Israelites, all"	1217	TRUE				
+"Israelites, some"	217	TRUE				
+Ittai	224	FALSE				
+"Jabesh, elders of"	228	TRUE	Male			
+"Jabesh, men of"	229	TRUE	Male			
+Jabez	230	FALSE	Male			
+Jabez's mother	231	FALSE	Female			
+Jacob	232	FALSE	Male			
+Jacob's son (the one who discovered his silver in his sack)		TRUE	Male			
+Jacob's sons		TRUE	Male			
+"Jacob's sons (not Simeon, Joseph, or Benjamin)"		TRUE	Male			
+Jael	238	FALSE	Female			
+Jahaziel (Spirit of the Lord on)	239	FALSE				
+jailer	639	FALSE	Male			
+Jairus (synagogue leader)	240	FALSE	Male			
+James	241	FALSE	Male			
+James/John (sons of Zebedee)		TRUE	Male			
+Jebusites	243	TRUE				
+"Jehoash, king of Israel"	244	FALSE	Male			
+Jehoiada	245	FALSE	Male			
+"Jehonadab, son of Recab"	246	FALSE	Male			
+"Jehoshaphat, king of Judah"	247	FALSE	Male			
+"Jehu, son of Hanani"	248	FALSE	Male			
+"Jehu, son of Nimshi"	249	FALSE	Male			
+"Jehucal/Zephaniah, priest"	250	FALSE				
+Jehudi	251	FALSE				
+Jephthah	253	FALSE	Male			
+Jephthah's daughter	254	FALSE	Female	youth		
+Jephthah's brothers	252	TRUE	Male			
+Jereboam/all Israel	255	TRUE				
+Jeremiah	256	FALSE	Male			
+Jeremiah quoting Israel	225	FALSE				
+Jeremiah's enemies	1125	TRUE	Male			
+Jeroboam	1127	FALSE	Male			
+Jesse	258	FALSE	Male			
+Jesus	700	FALSE	Male			
+Jesus (child)	1258	FALSE	Male	youth (12)		
+Jesus' brothers	2258	TRUE				
+Jesus' family	259	TRUE				
+Jewish authorities	260	TRUE				
+Jews		TRUE				
+Jews (with Mary and Martha)	271	TRUE				
+"Jews of Cyrene, Alexandria, Cilicia & Asia"	5265	TRUE				
+"Jews, doubting (with Mary and Martha)"	272	TRUE				
+"Jews, God-fearing from every nation"	1262	TRUE				
+"Jews, God-fearing from every nation, some"	267	TRUE				
+"Jews, more than forty in conspiracy"	4265	TRUE				
+Jews/Mary/Martha	1270	TRUE	Both			
+Jews/priests/nobles/officials	274	TRUE				
+Jezebel	1265	FALSE				
+Joab	266	FALSE				
+"Joab's men, one of"	1267	FALSE				
+"Joash, father of Gideon"	2267	FALSE				
+"Joash, king of Judah"	3267	FALSE				
+Job	1269	FALSE				
+Job's wife	1268	FALSE				
+Joel saying what the priests should say	226	FALSE				
+Joel saying what the weakling should say	227	FALSE				
+Johanan	2271	FALSE				
+John	1272	FALSE				
+John the Baptist	1273	FALSE				
+Jonadab	275	FALSE	Male			
+Jonah	276	FALSE	Male			
+Jonathan	277	FALSE	Male			
+"Jonathan, son of Abiathar"	279	FALSE	Male			
+Jonathan's armor bearer	278	FALSE	Male			
+"Joram, king of Israel"	280	FALSE	Male			
+Joseph	282	FALSE	Male			
+Joseph of Arimathea	281	FALSE	Male			
+"Joseph, people of"	284	FALSE				
+Joshua	285	FALSE	Male			
+"Joshua, old"	286	FALSE	Male			
+Joshua/Caleb		TRUE	Male			
+"Josiah, king of Judah"	287	FALSE	Male			
+Jotham	288	FALSE	Male			
+Judah	233	FALSE	Male			
+"Judah, men of"	290	TRUE	Male			
+"Judah, people in"	291	TRUE				
+Judaizers	294	TRUE	Male			
+Judas (not Judas Iscariot)	292	FALSE	Male			
+Judas Iscariot	293	FALSE	Male			
+King of Ammonites	295	FALSE	Male			
+King of Aram	1295	FALSE	Male			
+King of Assyria	297	FALSE	Male			
+King of Babylon	298	FALSE	Male			
+King of Jericho	299	FALSE	Male			
+King of Nineveh	300	FALSE	Male			
+king of Sodom	640	FALSE	Male			
+kings of the earth	641	TRUE	Male			
+kings over the nations	642	TRUE	Male			
+"kings, princes, generals, rich, powerful, slave and free"	643	TRUE	Male			
+kinsman-redeemer	644	FALSE	Male			
+"Kish, father of Saul"	302	FALSE	Male			
+Korah		FALSE	Male			Evil
+Korah/Dathan/Abiram/250 Israelite leaders	303	TRUE	Male			
+Laban	305	FALSE	Male			
+Laban/Bethuel (Laban's father)		TRUE	Male			
+Laban/Laban's mother	306	TRUE				
+Laban's mother		FALSE	Female			
+Laban's sons	1306	TRUE	Male			
+Lamech (descendent of Cain)	307	FALSE	Male			
+Lamech (descendent of Seth)	308	FALSE	Male			
+law of Moses where LORD commanded	645	FALSE				
+leaders	648	TRUE				
+leaders in Ephraim (Azariah/Berekiah/Jehizkiah/Amasa)	647	TRUE	Male			
+Leah	309	FALSE	Female			
+leper	682	FALSE				
+"leper, thankful Samaritan"	681	FALSE				
+letter from apostles and elders	649	FALSE				
+Levi	235	FALSE				
+"Levite, young, from Bethlehem"	310	FALSE	Male	young man		
+Levites	311	TRUE				
+Levitical heads	313	TRUE				
+"living creature, first"		FALSE				
+"living creature, fourth"	650	FALSE				
+"living creature, second"	651	FALSE				
+"living creature, third"	652	FALSE				
+Lookout	314	FALSE				
+Lot	317	FALSE				
+Lover	318	FALSE				
+Lydia	319	FALSE				
+Macedonian	320	FALSE				
+magi	653	TRUE				
+Magicians	321	TRUE				
+"Magistrates, chief"	322	TRUE				
+maidens	654	TRUE	Female			
+man (at Shechem)	656	FALSE	Male			
+man (Hebrew fighting)	655	FALSE	Male			
+man (hypothetical)	686	FALSE	Male			
+man all alone	658	FALSE	Male			
+man answered David	659	FALSE	Male			
+man covered with leprosy	660	FALSE	Male			
+man escaped from Jerusalem	661	FALSE	Male			
+man from Saul's camp (young)	662	FALSE	Male	young man		
+man in linen above river	663	FALSE	Male			
+man in linen with writing kit (in vision)	1663	FALSE	Male			
+man like bronze with measuring rod (vision of God)	664	FALSE	Male			
+man of Gibeah	667	FALSE	Male			
+man of God	669	FALSE	Male			
+man of God from Judah	668	FALSE	Male			
+"man of God, a"	1668	FALSE	Male			
+man possessed by evil spirit	670	FALSE	Male			
+man reporting to David	671	FALSE	Male			
+man standing among myrtle trees	672	FALSE	Male			
+man told David	673	FALSE	Male			
+man told Joab	674	FALSE	Male			
+man told Solomon	675	FALSE	Male			
+man told troops	676	FALSE	Male			
+man who had had demons	677	FALSE	Male			
+man who says 'I know him'	678	FALSE	Male			
+man who says 'we remain in union with God'	679	FALSE	Male			
+man with evil spirit	680	FALSE	Male			
+man with measuring line (vision)	683	FALSE	Male			
+man with sponge	687	FALSE	Male			
+"man, still another"	688	FALSE	Male			
+"man, wicked"	689	FALSE	Male			
+"Manoah, father of Samson"	325	FALSE	Male			
+"Manoah's wife, mother of Samson"	324	FALSE	Female			
+man's brother	684	FALSE	Male			
+man's voice from the Ulai (in vision)	685	FALSE	Male			
+many in crowd	691	TRUE				
+many Samaritans	690	TRUE				
+Martha	326	FALSE	Female			
+Mary (Jesus' mother)	327	FALSE	Female			
+Mary (sister of Martha)	328	FALSE	Female			
+Mary Magdalene	329	FALSE	Female			
+Mary/Martha	330	TRUE	Female			
+master of the banquet	692	FALSE	Male			
+"Melchizedek, king of Salem (priest of God Most High)"	331	FALSE	Male			
+"Memucan, noble advisor to Xerxes, king"	332	FALSE	Male			
+men	716	TRUE	Male			
+men appointed to sing and praise	693	TRUE	Male			
+"men dressed in white, two"	694	TRUE	Male			
+men from Cornelius	695	TRUE	Male			
+men from Jairus house	696	TRUE	Male			
+"men from Judea, some"	697	TRUE	Male			
+men in Capernaum synagogue	699	TRUE	Male			
+"men in mourning, ten of eighty"	698	TRUE	Male			
+men in Nazareth synagogue	701	TRUE	Male			
+men of Anathoth	703	TRUE	Male			
+men of Ashdod	704	TRUE	Male			
+men of Babel	665	TRUE	Male			
+men of David	706	TRUE	Male			
+"men of David, one"	705	TRUE	Male			
+men of Enaim	707	TRUE	Male			
+men of Pharaoh	708	TRUE	Male			
+men of Sodom (wicked)	709	TRUE	Male			
+men of the city (Bethel)	710	TRUE	Male			
+men of the city (Jericho)	1710	TRUE	Male			
+men who were guarding	711	TRUE	Male			
+"men with leprosy, four"	712	TRUE	Male			
+"men, large force of"	713	TRUE	Male			
+"men, many"	714	TRUE	Male			
+"men, some"	715	TRUE	Male			
+men/people	717	TRUE				
+men/their wives	718	TRUE	Both			
+"men/their wives, other"	719	TRUE	Both			
+"men/wives, still others"	720	TRUE	Both			
+Mephibosheth	333	FALSE				
+merchants of the earth	721	TRUE				
+message to Saul	722	FALSE				
+messenger	1733	FALSE				
+messenger Ahimaaz	723	FALSE				
+messenger from battle to David	724	FALSE				
+messenger from guardians of Ahab's children	725	FALSE				
+"messenger of Ahab, king of Israel"	726	FALSE				
+messenger to Abraham	727	FALSE				
+messenger to David	728	FALSE				
+messenger to King of Jericho	729	FALSE				
+messenger to Saul	730	FALSE				
+"messenger, a"	732	FALSE				
+"messenger, another"	733	FALSE				
+"messenger, Cushite"	731	FALSE				
+"messenger, still another"	734	FALSE				
+"messenger, yet another"	735	FALSE				
+messengers of Ahaziah	737	TRUE				
+messengers of Ben-Hadad. king of Aram	738	TRUE				
+messengers of Jacob	739	TRUE				
+Micah	334	FALSE				
+Micah's mother	335	FALSE				
+"Micaiah, prophet of the LORD"	336	FALSE				
+Michael (archangel)	479	FALSE				
+"Michal, David's wife"	337	FALSE				
+Midianite soldier who had a dream	913	FALSE	Male			
+Midianite soldier who interprets dream	914	FALSE	Male			
+midwife of Rachel	740	FALSE				
+midwife of Tamar	741	FALSE				
+"midwives, Shiphrah/Puah"	742	TRUE				
+Miriam/Aaron		TRUE	Both			
+Miriam/women	339	TRUE	Female			
+Miriam-young girl	338	FALSE	Female	child		
+Moabite officials	341	TRUE				
+"Moabite officials, more distinguished"	1341	TRUE				
+Moabites	1340	TRUE				
+Moabites (female)	342	TRUE				
+mob	743	TRUE				
+"Mordecai, cousin of Esther"	343	FALSE				
+Moses	344	FALSE				
+Moses' father-in-law	345	FALSE				
+Moses' messengers from Kadesh	346	TRUE				
+Moses/Aaron		TRUE	Male			
+Moses/Eleazar		TRUE	Male			
+"mother of cured man, blind from birth"	806	FALSE	Female			
+mother of Zebedee's sons	745	FALSE				
+"multitude from all nations, tribes, peoples, languages"	746	TRUE				
+Naaman	1345	FALSE				
+Naaman's servants	1346	TRUE				
+Nabal	347	FALSE				
+Naboth	348	FALSE				
+Nahash the Ammonite	349	FALSE				
+Naomi	350	FALSE				
+narrator-1CH	1139	FALSE				
+narrator-1CO	748	FALSE				
+narrator-1KI	1018	FALSE				
+narrator-1PE	1749	FALSE				
+narrator-2CH	2139	FALSE				
+narrator-2CO	3748	FALSE				
+narrator-ACT	753	FALSE				
+narrator-AMO	1017	FALSE				
+narrator-DAN	2018	FALSE				
+narrator-ECC	754	FALSE				
+narrator-EPH	8748	FALSE				
+narrator-EXO	9748	FALSE				
+narrator-EZK	756	FALSE				
+narrator-EZR	757	FALSE				
+narrator-GAL	10748	FALSE				
+narrator-GEN	11748	FALSE				
+narrator-HAB	1019	FALSE				
+narrator-HEB	12748	FALSE				
+narrator-ISA	758	FALSE				
+narrator-JAS	1022	FALSE				
+narrator-JER	1752	FALSE				
+narrator-JHN	5749	FALSE				
+narrator-JOS	747	FALSE				
+narrator-LUK	1753	FALSE				
+narrator-MAL	1747	FALSE				
+narrator-MAT	755	FALSE				
+narrator-MRK	1758	FALSE				
+narrator-PSA	19748	FALSE				
+narrator-REV	3750	FALSE				
+narrator-ROM	20748	FALSE				
+narrator-TIT	21748	FALSE				
+narrator-ZEC	762	FALSE				
+narrator-ZEP	1762	FALSE				
+Nathan	352	FALSE				
+Nathanael	353	FALSE				
+"nations, people of the"	355	TRUE				
+"Nations, the"	354	TRUE				
+"Nebuchadnezzar, king of Babylon"	356	FALSE				
+Nebuzaradan	357	FALSE				
+"Neco, king of Egypt"	358	FALSE				
+Nehemiah	359	FALSE				
+neighbors of man blind from birth	764	TRUE				
+"neighbors of man blind from birth, others"	765	TRUE				
+"neighbors of man blind from birth, some"	766	TRUE				
+neighbors/relatives of Zechariah/Elizabeth	768	TRUE				
+news giver to Jacob	769	FALSE				
+news giver to Joseph	770	FALSE				
+Nicodemus	360	FALSE				
+no one	772	FALSE				
+no one says	771	FALSE				
+Noah	361	FALSE				
+Nobles/officials	362	TRUE				
+non-reader	773	FALSE				
+"Obadiah, manager of Ahab's palace"	363	FALSE				
+"Oded, prophet of the Lord"	364	FALSE				
+officer of King Jehoshaphat of Israel		FALSE				
+officer of King Joram of Israel	775	FALSE				
+"officer of king of Israel, on whose arm the king leaned"	776	FALSE				
+"officer of king of Israel, on whose arm the king leaned (post mortem)"	774	FALSE				
+officers	779	TRUE				
+officers of King of Aram	777	TRUE				
+officers of magistrates	778	TRUE				
+"official, royal"	780	FALSE				
+"officials of Ben-Hadad, king of Aram"	781	TRUE				
+officials of David	782	TRUE				
+officials of Samaria	783	TRUE				
+officials of Succoth	784	TRUE				
+"officials, Ephesus"	785	TRUE				
+"officials, one of the"	786	FALSE				
+"officials, royal, to Xerxes, king"	787	TRUE				
+officials/all the people	788	TRUE				
+old man of Gibeah	789	FALSE				
+older daughter of Lot	790	FALSE				
+one at table with him	791	FALSE				
+one of the experts in the law		FALSE	Male			
+one of you (follower of Paul)	1791	FALSE				
+one of you (hypothetical)	792	TRUE				
+one other who looked like a man	793	FALSE				
+one who looked like a man	795	FALSE				
+onlookers	796	TRUE				
+Oppressors of poor	366	TRUE				
+Oppressors of poor (women)	365	TRUE				
+Orpah		FALSE	Female			
+Orpah/Ruth	367	TRUE	Female			
+other guests at Pharisee(Simon)'s house	799	TRUE				
+others	802	TRUE				
+others (testing Jesus)	801	TRUE				
+owners of colt	803	FALSE				
+owners of the slave girl	804	TRUE				
+"parents of cured man, blind from birth"		TRUE	Both		"May want to assign one or more of these lines to famle, as appropriate"	
+Pashur/Zephaniah	368	TRUE				
+passers by	807	TRUE				
+Paul	62	FALSE				
+"Paul's travelling companions, Luke and"	369	TRUE				
+people	840	TRUE				
+people (complaining Israelites)	841	TRUE				
+people at cistern	812	TRUE				
+people at coronation of King Joash	838	TRUE				
+people gathered to pray	813	TRUE				
+people in crowd	814	TRUE				
+people in high priest's courtyard		TRUE	Both		Group consisted of at least a servant girl and a man	
+people of Decapolis	767	TRUE				
+"people of Jerusalem, some"	833	TRUE				
+people who knew Saul	815	TRUE				
+"people, all the"	824	TRUE				
+"people, arrogant wicked"	825	TRUE				
+Gadarene (or Gerasenes) people	816	TRUE				
+"people, God's"	817	TRUE				
+"people, hurried"	826	TRUE				
+"people, Israel, tribes of"	818	TRUE				
+"people, many"	827	TRUE				
+"people, other"	828	TRUE				
+"people, others"	829	TRUE				
+"people, righteous"	830	TRUE				
+"people, sick"	831	TRUE				
+"people, some"	1831	TRUE				
+"people, still others"	836	TRUE				
+"peoples, many"	844	TRUE				
+person	845	FALSE				
+person asking someone to read a sealed book		FALSE				
+person sacrificing	657	FALSE				
+person who told David about Philistines		FALSE				
+person who told David of Nathan's arrival	931	FALSE				
+person who told Jesus how long Lazuras had been dead		FALSE				
+person who told Joshua where the kings were hiding		FALSE				
+person who told King of Aram of Elisha's arrival	932	FALSE				
+person who told Samuel where Saul was		FALSE				
+person who told Saul where David was		FALSE				
+person who told Shimei where his servants were	933	FALSE				
+person who told the guards and priests where the apostles were		FALSE				
+Peter (Simon)	371	FALSE	Male			
+Peter (Simon)/John/own people	1372	TRUE	Male			
+Peter (Simon)/John		TRUE	Male			
+Pharaoh (1st)	1378	FALSE	Male			
+Pharaoh (2nd)		FALSE	Male			
+Pharaoh (3rd)		FALSE	Male			
+Pharaoh's daughter	379	FALSE	Female			
+Pharaoh's officials	380	TRUE	Male			
+Pharisee(expert in the law)		FALSE	Male			
+Pharisee(Simon)	373	FALSE	Male			
+Peter (Simon)/James/John		TRUE	Male			
+Peter (Simon)/James/John/Andrew		TRUE	Male			
+Pharisees	1377	TRUE	Male			
+"Pharisees, other"	374	TRUE	Male			
+"Pharisees, some"	2377	TRUE	Male			
+Pharisees/teachers of the law	378	TRUE	Male			
+Philip	381	FALSE	Male			
+Philistine commanders	382	TRUE	Male			
+Philistine priests and diviners	383	TRUE	Male			
+Philistines	384	TRUE	Male			
+"Philistines, rulers of"	385	TRUE	Male			
+Phineas	386	FALSE	Male			
+pig herdsmen		TRUE	Male			
+Pilate	387	FALSE	Male			
+Pilate's wife	1388	FALSE				
+pine trees/cedars of Lebanon	846	TRUE				
+poets	388	TRUE				
+Potiphar's wife	389	FALSE	Female			
+priest	847	FALSE	Male			
+priests/Levites	848	TRUE	Male			
+proclaimers of God's word	850	TRUE				
+prophet	856	FALSE				
+prophet Gad	851	FALSE	Male			
+prophet in Bethel (old)	852	FALSE	Male	old		
+"prophet of the LORD, a"	854	FALSE				
+prophet who confronts Ahab	855	FALSE				
+prophets (speaking the word of the LORD)	857	TRUE				
+prophets of Baal	858	TRUE				
+"prophets, 400 false"	859	TRUE				
+prophets/priests	861	TRUE				
+"prostitute, one"	862	FALSE				
+"prostitute, other"	863	FALSE				
+proverb about a dog	864	FALSE				
+queen of Babylon	865	FALSE	Female			
+queen of Sheba	1865	FALSE	Female			
+rabble/complainers	390	TRUE				
+Rachel	391	FALSE	Female			
+Rahab	392	FALSE	Female			
+reader	866	FALSE				
+Rebekah	393	FALSE	Female			
+rebels	867	TRUE				
+Recab/Baanah	394	FALSE				
+"Recabite family, men of"	395	FALSE				
+Rehoboam	396	FALSE	Male			
+"Rehum, commanding officer/Shimshai, secretary"	397	FALSE	Male			
+"Relatives of Ahaziah, king of Judah"	1397	FALSE				
+reply to the slain believers (in heavenly vision)		FALSE				
+report concerning Paul		FALSE				
+report to King of Aram	868	FALSE				
+report to King of Assyria	398	FALSE				
+Reuben	234	FALSE	Male			
+Reubenites/Gadites	400	TRUE	Male			
+Reubenites/Gadites/half-tribe of Manasseh	147	TRUE	Male			
+Rhoda	401	FALSE	Female			
+rich young ruler	870	FALSE	Male	young man		
+rule given by Paul	869	FALSE				
+rulers of people in Jerusalem	871	TRUE				
+rules of the world	873	FALSE				
+Ruth	402	FALSE	Female			
+Sadducees	1402	TRUE	Male			
+sailors	403	TRUE	Male			
+Samson	404	FALSE	Male			
+Samson's 30 companions	405	TRUE	Male			
+Samson's father-in-law	406	FALSE	Male			
+Samson's wife	407	FALSE	Female			
+Samuel	408	FALSE	Male			
+Sanballat	127	FALSE	Male			
+Sanhedrin/chief priests/Pharisees	409	TRUE	Male			
+Sapphira (Ananias' wife)	410	FALSE	Female			
+Sarai (Sarah)	411	FALSE	Female			
+Satan	800	FALSE	Male			
+Satraps	413	TRUE	Male			
+Saul	414	FALSE	Male			
+Saul's announcement	415	FALSE				
+Saul's attendants	416	TRUE				
+Saul's messengers	417	TRUE				
+Saul's servant	418	FALSE				
+Saul's uncle	419	FALSE	Male			
+saying (proverb)	849	FALSE				
+saying about Anakites	874	FALSE				
+saying about bad company	878	FALSE				
+saying about blind and lame	879	FALSE				
+saying about captivity and death by the sword		FALSE			"Possibly a reference to Jeremiah 15:2, Jeremiah 43:11 or Matthew 26:52"	
+saying about going beyond what is written	880	FALSE				
+saying about Nimrod	875	FALSE				
+saying about Saul	876	FALSE				
+saying about seer	881	FALSE				
+saying about sow	882	FALSE				
+saying about what controls you	883	FALSE				
+saying about yeast	884	FALSE				
+saying about Zion	877	FALSE				
+"saying, true"	885	FALSE				
+scoffers	886	TRUE				
+scoundrels	887	TRUE				
+"scouts of Ben-Hadad, king of Aram"	888	TRUE	Male			
+scripture	890	FALSE				
+scripture (Moses quoting God)	889	FALSE				
+"scroll with decree of Cyrus, king"	891	FALSE				
+sea	892	FALSE				
+second person to accuse Peter (man)		FALSE	Male			
+"Sennacherib, king of Assyria"	421	FALSE	Male			
+Sennacherib's messengers	420	TRUE	Male			
+Sennacherib's officers	607	TRUE	Male			
+"seraph, one of the"	893	FALSE				
+seraphs	894	TRUE				
+serpent	895	FALSE				
+servant girl at high priest's courtyard	614	FALSE	Female			
+"servant girl, another"	896	FALSE	Female			
+servant of concubine's husband	902	FALSE				
+servant of Elijah	897	FALSE	Male			
+servant of Naaman's wife (young girl)	899	FALSE	Female	child/youth		
+servant of Nabal	900	FALSE				
+servant of priest	903	FALSE				
+servant of Saul	901	FALSE				
+"servants of Achish, king of Gath"	905	TRUE				
+servants of David	906	TRUE				
+"servants of Eglon, king of Moab"	907	TRUE				
+servants of Isaac	904	TRUE				
+servants of royal official	908	TRUE				
+seven sons of Sceva	1905	TRUE				
+seventy-two	1906	TRUE				
+Shadrach/Meshach/Abednego	422	TRUE				
+"Shaphan, secretary"	423	FALSE				
+Sharezer/Regem-Melech/men of Bethel	424	TRUE				
+she donkey	1907	FALSE				
+"Sheba, son of Bicri"	425	FALSE				
+"Shecaniah, son of Jehiel"	426	FALSE				
+"Shechem, son of Hamor"	427	FALSE				
+Shemaiah	1427	FALSE				
+Shephatiah/Gedaliah/Jehucal/Pashur (officials)	428	TRUE				
+shepherds at the well	20	TRUE				
+shepherds outside Bethlehem	1908	TRUE				
+Shimei	429	FALSE				
+"ship captains, seafarers, sailors"	2906	TRUE				
+sign on the cross	2907	FALSE				
+Simeon	237	FALSE	Male			
+Simeon-old	430	FALSE	Male	old		
+Simon (magician)	431	FALSE	Male			
+singers	910	TRUE				
+singers from the ends of the earth	2908	TRUE				
+"singers, and relatives"	1909	TRUE				
+sinners	911	TRUE				
+Sisera	432	FALSE	Male			
+Sisera's mother	433	FALSE	Female			
+Slave driver	434	FALSE				
+Slave girls	435	TRUE	Female			
+soldier at the cross	912	FALSE	Male			
+"soldier, Israelite"	915	FALSE	Male			
+soldiers	2002	TRUE	Male			
+"soldiers, Assyrian"	918	TRUE	Male			
+"soldiers, Roman"	917	TRUE	Male			
+"soldiers, some"	916	TRUE	Male			
+soldiers/officials from chief priests/Pharisees	919	TRUE	Male			
+"Solomon, king"	436	FALSE	Male			
+some in home of Simon the leper	921	TRUE	Male		"Judas Iscariot was the main spokesman, if the accounts in Matthew 26 and Mark 14 are held to be the same annointing as the one in John 12"	
+some people (quoted by Paul)	923	TRUE				
+someone	934	TRUE				
+someone (hypothetical argument)		TRUE				
+someone from Jairus' house	928	FALSE				
+someone from Seir		FALSE				
+someone in crowd	930	FALSE				
+someone in Jerusalem	929	FALSE				
+someone in Saul's army	211	TRUE	Male			
+son (child) in Israel (hypothetical)	935	FALSE	Male	child/youth		
+son of Paul's sister (young man)	936	FALSE	Male	young man		
+son of Shunammite	937	FALSE	Male			
+son of widow	938	FALSE	Male			
+song (of the prostitute)	939	FALSE	Female			
+sons of prophet in Bethel	853	TRUE	Male			
+souls of those killed for word of God	940	TRUE				
+"spies from Joshua, men"	440	TRUE	Male			
+spies  (Pharisees/Herodians)	941	TRUE	Male			
+Spirit and the bride	438	TRUE	Male			
+spy from Joseph	439	FALSE				
+Stephen	441	FALSE	Male			
+Steward	1042	FALSE	Male			
+still another (follower of Christ)	1941	FALSE				
+synagogue ruler	942	FALSE	Male			
+synagogue rulers		TRUE	Male			
+"Tamar, daughter of David"	442	FALSE	Female			
+"Tamar, daughter-in-law of Judah"	443	FALSE	Female			
+"Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates"	444	FALSE	Male			
+tax collectors	943	TRUE	Male			
+teacher (Preacher)	945	FALSE	Male			
+teacher of the law	944	FALSE	Male			
+teachers of the law	593	TRUE	Male			
+teachers of the law/Pharisees	377	TRUE	Male			
+temple guards	949	TRUE	Male			
+temple police	950	TRUE	Male			
+ten men with leprosy	951	TRUE	Male			
+Tertius	445	FALSE	Male			
+Tertullus-Lawyer	446	FALSE	Male			
+Thomas	447	FALSE	Male			
+those hiding from the LORD	955	TRUE				
+"those sitting with Festus, Herod Agrippa II and Bernice"	956	TRUE				
+those standing near	957	TRUE				
+those who had seen the demon-possessed man cured		TRUE				
+those who seek God	958	TRUE				
+three men (two angels and the LORD)		TRUE	Male			
+"Tobiah, enemy"	448	FALSE				
+townsmen	960	TRUE	Male			
+townsmen of Ophrah		TRUE	Male			
+troublemakers	962	TRUE	Male			
+twenty-four elders	964	TRUE	Male			
+twenty-four elders/four living creatures	965	TRUE	Male			
+unbeliever who comes under conviction		FALSE				
+unbelievers	966	TRUE				
+Uriah	449	FALSE	Male			
+voice from altar	973	FALSE				
+voice from among living creatures	972	FALSE				
+voice from cloud	974	FALSE				
+voice from heaven (God?)		TRUE	Male		Possibly God speaking (not identified)	
+"voice from heaven, another"	976	FALSE				
+voice from temple	977	FALSE				
+voice from throne	978	FALSE				
+voice in heaven		TRUE				
+"voice in heaven, loud"	1979	FALSE				
+"voice of great crowd in heaven, loud"	979	TRUE				
+"voice of great crowd, like roar of many waters, loud thunderclaps"	981	TRUE				
+"voice of one calling, a (preparing way for Christ)"	982	FALSE				
+voice of one speaking (in vision of God)	983	FALSE				
+"voices in heaven, loud"	984	TRUE				
+"warriors from Zorah and Eshtaol, five"	985	TRUE				
+watchman	986	FALSE				
+we (believers)	987	TRUE				
+weakling	988	FALSE				
+what is formed	989	FALSE				
+whoever has doubts		FALSE				
+wicked men of Gibeah	990	TRUE				
+widow (from company of prophets)	991	FALSE	Female			
+widow at Zarephath	992	FALSE	Female			
+wise men of Pharaoh	993	TRUE				
+"witnesses, false"	994	TRUE				
+woman from Tekoa	995	FALSE	Female			
+woman in Bahurim	1004	FALSE	Female			
+woman in crowd	996	FALSE	Female			
+woman in famine	997	FALSE	Female			
+woman medium	998	FALSE	Female			
+"woman, bleeding for twelve years"	1001	FALSE	Female			
+"woman, caught in adultery"	1002	FALSE	Female			
+"woman, Samaritan"	999	FALSE	Female			
+"woman, Shunammite"	1000	FALSE	Female			
+"woman, wise"	1003	FALSE	Female			
+women of Bethlehem	1006	TRUE	Female			
+"women, dancing"	1005	TRUE	Female			
+"women, seven"	1007	TRUE	Female			
+worshippers of the beast	1009	TRUE				
+"Xerxes, king of Persia and Media (Ahasuerus)"	450	FALSE	Male			
+you (hypothetical Gentile)	1010	FALSE				
+you (hypothetical)		TRUE				
+"you (people of Zion, restored)"	1013	TRUE				
+you (rebelious people)		TRUE				
+you ought to say	1011	FALSE				
+you who bring good tidings to Zion		TRUE				
+young man		FALSE	Male	youth		
+young men (advisors of Rehoboam)	1015	TRUE	Male	young man		
+youths	1016	TRUE		youth		
+Zaccheaus	451	FALSE	Male			
+Zeba/Zalmunna	452	TRUE				
+"Zebul, governor of Shechem"	453	FALSE	Male			
+Zechariah	454	FALSE	Male			
+"Zedekiah, king of Judah"	456	FALSE	Male			
+"Zedekiah, son of Kenaanah, false prophet"	457	FALSE	Male			
+"Zeresh, wife of Haman/friends of Haman"	458	TRUE	Female			
+Zerubbabel/Jeshua/rest of heads of families	459	TRUE	Male			
+Ziba	460	TRUE	Male			
+Zion	461	FALSE				
+Ziphites	1461	TRUE				
+Zipporah	462	FALSE	Female			
+Zophar the Naamathite	463	FALSE				
+Shua (Judah's wife)		FALSE	Female			

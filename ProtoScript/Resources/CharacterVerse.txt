@@ -1,4 +1,4 @@
-Control File Version	32	Generated	Thu, 15 Jan 2015 15:55:36 GMT
+Control File Version	33
 GEN	1	3	God		God (the LORD)	False
 GEN	1	5	narrator-GEN			False
 GEN	1	6	God		God (the LORD)	False
@@ -74,15 +74,15 @@ GEN	9	25	Noah			False
 GEN	9	26	Noah			False
 GEN	9	27	Noah			False
 GEN	10	9	saying about Nimrod			False
-GEN	11	3	man of Babel, 1st			False
-GEN	11	4	man of Babel, 2nd			False
+GEN	11	3	men of Babel			False
+GEN	11	4	men of Babel			False
 GEN	11	6	God		God (LORD came down to see)	False
 GEN	12	1	God		God (the LORD)	False
 GEN	12	2	God		God (the LORD)	False
 GEN	12	3	God		God (the LORD)	False
 GEN	12	7	God		God (LORD appeared)	False
 GEN	12	11	Abraham		Abram (Abraham)	False
-GEN	12	18	Pharaoh		Pharaoh (1st)	False
+GEN	12	18	Pharaoh (1st)		Pharaoh	False
 GEN	13	8	Abraham		Abram (Abraham)	False
 GEN	13	14	God		God (the LORD)	False
 GEN	14	4	king of Sodom			False
@@ -123,11 +123,11 @@ GEN	17	17	Abraham		Abram (Abraham)	False
 GEN	17	18	Abraham			False
 GEN	17	19	God		God (LORD appeared)	False
 GEN	17	20	God		God (LORD appeared)	False
-GEN	18	3	Abraham			False
-GEN	18	5	God		LORD appeared as men|angel	False
+GEN	18	3-5	Abraham			False
+GEN	18	5	three men (two angels and the LORD)			False	angels at Sodom, two
 GEN	18	6	Abraham			False
 GEN	18	9	Abraham			False
-GEN	18	9	God		LORD appeared as men|angel	False
+GEN	18	9	three men (two angels and the LORD)			False	angels at Sodom, two
 GEN	18	10	God		God (LORD appeared)	False
 GEN	18	12	Sarai (Sarah)			False
 GEN	18	13	God		God (LORD appeared)	False
@@ -152,9 +152,9 @@ GEN	18	32	God		God (LORD appeared)	False
 GEN	19	2	angels at Sodom, two			False
 GEN	19	2	Lot			False
 GEN	19	3	angels at Sodom, two			False
-GEN	19	5	townsmen-wicked (of Sodom)			False
+GEN	19	5	men of Sodom (wicked)			False
 GEN	19	7	Lot			False
-GEN	19	9	men of Sodom			False
+GEN	19	9	men of Sodom (wicked)			False
 GEN	19	12	angels at Sodom, two		angels appeared like men, two	False
 GEN	19	14	angels at Sodom, two		angels appeared like men, two	False
 GEN	19	15	angels at Sodom, two			False
@@ -166,23 +166,23 @@ GEN	19	31	older daughter of Lot			False
 GEN	19	34	older daughter of Lot			False
 GEN	20	2	Abraham			False
 GEN	20	3	God		God (LORD came in dream at night)	False
-GEN	20	4	Abimelech		Abimelech, (1st)	False
+GEN	20	4	Abimelech, King of Gerar			False
 GEN	20	6	God		God (LORD came in dream at night)	False
-GEN	20	9	Abimelech		Abimelech, (1st)	False
-GEN	20	10	Abimelech		Abimelech, (1st)	False
+GEN	20	9	Abimelech, King of Gerar			False
+GEN	20	10	Abimelech, King of Gerar			False
 GEN	20	11	Abraham			False
-GEN	20	15	Abimelech		Abimelech, (1st)	False
-GEN	20	16	Abimelech		Abimelech, (1st)	False
+GEN	20	15	Abimelech, King of Gerar			False
+GEN	20	16	Abimelech, King of Gerar			False
 GEN	21	6	Sarai (Sarah)			False
 GEN	21	7	Sarai (Sarah)			False
 GEN	21	10	Sarai (Sarah)			False
 GEN	21	12	God		God (the LORD)	False
 GEN	21	16	Hagar, the Egyptian			False
 GEN	21	17	Jesus		angel of God, the	False
-GEN	21	22	Abimelech		Abimelech/Phicol	False
+GEN	21	22	Abimelech, King of Gerar/Phicol		Abimelech and Phicol	False
 GEN	21	24	Abraham			False
-GEN	21	26	Abimelech			False
-GEN	21	29	Abimelech			False
+GEN	21	26	Abimelech, King of Gerar		Abimelech	False
+GEN	21	29	Abimelech, King of Gerar		Abimelech	False
 GEN	21	30	Abraham			False
 GEN	22	1	Abraham			False
 GEN	22	1	God		God (the LORD)	False
@@ -194,7 +194,9 @@ GEN	22	8	Abraham			False
 GEN	22	11	Abraham			False
 GEN	22	11	Jesus	calling from Heaven	angel of the LORD	False
 GEN	22	12	Jesus	calling from Heaven	angel of the LORD	False
-GEN	22	14	proclaim			False
+GEN	22	14	saying (proverb)			False
+GEN	22	14	narrator-GEN			False
+GEN	22	14	Abraham			False
 GEN	22	16	Jesus	calling from Heaven	angel of the LORD	False
 GEN	22	20	messenger to Abraham			False
 GEN	23	4	Abraham			False
@@ -227,14 +229,14 @@ GEN	24	45	Abraham's chief servant			False
 GEN	24	46	Rebekah			False
 GEN	24	47	Abraham's chief servant			False
 GEN	24	49	Abraham's chief servant			False
-GEN	24	50	Laban		Laban/Bethuel (Laban's father)	False
+GEN	24	50	Laban/Bethuel (Laban's father)			False	Laban
 GEN	24	54	Abraham's chief servant			False
-GEN	24	55	Laban/Laban's mother|Laban's mother			False
+GEN	24	55	Laban/Laban's mother			False	Laban's mother
 GEN	24	56	Abraham's chief servant			False
-GEN	24	57	Laban		Laban/Laban's mother|Laban	False
-GEN	24	58	Laban		Laban/Laban's mother|Laban	False
+GEN	24	57	Laban/Laban's mother			False	Laban
+GEN	24	58	Laban/Laban's mother			False	Laban
 GEN	24	58	Rebekah			False
-GEN	24	60	Laban		Laban/Laban's mother|Laban	False
+GEN	24	60	Laban/Laban's mother			False	Laban
 GEN	24	64	Rebekah			False
 GEN	24	65	Abraham's chief servant			False
 GEN	24	65	Rebekah			False
@@ -248,17 +250,17 @@ GEN	26	2	God		God (LORD appeared)	False
 GEN	26	7	Isaac			False
 GEN	26	7	Isaac	thought		False
 GEN	26	7	narrator-GEN			False
-GEN	26	9	Abimelech		Abimelech, King of Philistines	False
+GEN	26	9	Abimelech, King of the Philistines (in Gerar)		Abimelech, King of the Philistines	False
 GEN	26	9	Isaac			False
-GEN	26	10	Abimelech		Abimelech, King of Philistines	False
-GEN	26	11	Abimelech		Abimelech, King of Philistines	False
-GEN	26	16	Abimelech		Abimelech, King of Philistines	False
+GEN	26	10	Abimelech, King of the Philistines (in Gerar)		Abimelech, King of the Philistines	False
+GEN	26	11	Abimelech, King of the Philistines (in Gerar)		Abimelech, King of the Philistines	False
+GEN	26	16	Abimelech, King of the Philistines (in Gerar)		Abimelech, King of the Philistines	False
 GEN	26	20	herdsman			False
 GEN	26	22	Isaac			False
 GEN	26	24	God		God (LORD appeared at night)	False
 GEN	26	27	Isaac			False
-GEN	26	28	Abimelech		Abimelech, King of Philistines	False
-GEN	26	32	servants (Isaac's)			False
+GEN	26	28	Abimelech, King of the Philistines (in Gerar)		Abimelech, King of the Philistines	False
+GEN	26	32	servants of Isaac			False
 GEN	27	1	Esau			False
 GEN	27	1	Isaac, old			False
 GEN	27	2	Isaac, old			False
@@ -372,11 +374,11 @@ GEN	32	17	Jacob			False
 GEN	32	19	Jacob			False
 GEN	32	20	Jacob	thought		False
 GEN	32	26	Jacob			False
-GEN	32	26	Jesus		angel wrestling with Jacob|angel	False
+GEN	32	26	angel who wrestled with Jacob		the man (angel)	False
 GEN	32	27	Jacob			False
-GEN	32	28	Jesus		angel wrestling with Jacob|angel	False
+GEN	32	28	angel who wrestled with Jacob		the man (angel)	False
 GEN	32	29	Jacob			False
-GEN	32	29	Jesus		angel wrestling with Jacob|angel	False
+GEN	32	29	angel who wrestled with Jacob		the man (angel)	False
 GEN	32	30	Jacob			False
 GEN	33	5	Jacob			False
 GEN	33	8	Jacob			False
@@ -385,52 +387,61 @@ GEN	33	10	Jacob			False
 GEN	33	12	Esau			False
 GEN	33	13	Jacob			False
 GEN	33	15	Jacob			False
-GEN	34	4	Shechem|son of Shechem			False
-GEN	34	8	Hamor		Hamor-father	False
-GEN	34	11	Shechem|son of Shechem			False
-GEN	34	14	Simeon		Jacob's sons|Simeon	False
-GEN	34	21	Hamor		Hamor/Shechem|Hamor-father	False
+GEN	34	4	Shechem, son of Hamor			False
+GEN	34	8-10	Hamor			False
+GEN	34	11-12	Shechem, son of Hamor			False
+GEN	34	14-17	Jacob's sons			False	Simeon
+GEN	34	21-23	Hamor/Shechem			False	Hamor
 GEN	34	30	Jacob			False
-GEN	34	31	Simeon		Jacob's son|Simeon	False
+GEN	34	31	Jacob's sons			False	Simeon
 GEN	35	1	God		God (the LORD)	False
 GEN	35	2	Jacob			False
 GEN	35	10	God	blessing	God (LORD appeared)	False
 GEN	35	11	God		God (LORD appeared)	False
 GEN	35	17	midwife of Rachel			False
 GEN	37	6	Joseph			False
-GEN	37	8	Simeon		Jacob's sons|Simeon	False
+GEN	37	8	Jacob's sons			False	Simeon
 GEN	37	9	Joseph			False
 GEN	37	10	Jacob			False
 GEN	37	13	Joseph			False
 GEN	37	14	Jacob			False
-GEN	37	15	man (at Shechem)		man (at Shechem)|man	False
+GEN	37	15	man (at Shechem)			False
 GEN	37	16	Joseph			False
 GEN	37	17	man (at Shechem)			False
-GEN	37	19	Levi		Jacob's sons|Levi	False
-GEN	37	20	Simeon		Jacob's sons|Simeon	False
-GEN	37	21	Reuben		Jacob's son, Reuben|Reuben	False
-GEN	37	22	Reuben		Jacob's son, Reuben|Reuben	False
-GEN	37	26	Judah		Jacob's son, Judah|Judah	False
-GEN	37	30	Reuben		Jacob's son, Reuben|Reuben	False
-GEN	37	32	Judah		Jacob's son|Judah	False
+GEN	37	19	Jacob's sons			False	Levi
+GEN	37	20	Jacob's sons			False	Simeon
+GEN	37	21	Reuben			False
+GEN	37	22	Reuben			False
+GEN	37	26-27	Judah			False
+GEN	37	27	Jacob's sons			False
+GEN	37	30	Reuben			False
+GEN	37	32	Jacob's sons			False	Judah
 GEN	37	33	Jacob			False
 GEN	37	35	Jacob			False
-GEN	38	8	Judah		Jacob's son|Judah	False
-GEN	38	11	Judah		Jacob's son, Judah|Judah	False
-GEN	38	13	Friend of Tamar			False
+GEN	38	3	Shua (Judah's wife)			False
+GEN	38	3	narrator-GEN			False
+GEN	38	4	Shua (Judah's wife)			False
+GEN	38	4	narrator-GEN			False
+GEN	38	5	Shua (Judah's wife)			False
+GEN	38	5	narrator-GEN			False
+GEN	38	8	Judah			False
+GEN	38	11	Judah	thinking to himself		False
+GEN	38	13	friend (or informer) of Tamar			False
+GEN	38	16	Judah			False
 GEN	38	16	Tamar, daughter-in-law of Judah			False
-GEN	38	17	Judah		Jacob's son, Judah|Judah	False
+GEN	38	17	Judah			False
 GEN	38	17	Tamar, daughter-in-law of Judah			False
+GEN	38	18	Judah			False
 GEN	38	18	Tamar, daughter-in-law of Judah			False
 GEN	38	21	Hirah, the Adullamite			False
-GEN	38	21	men of Enaim|townsman			False
+GEN	38	21	men of Enaim			False
 GEN	38	22	Hirah, the Adullamite			False
-GEN	38	23	Judah		Jacob's son, Judah|Judah	False
+GEN	38	23	Judah			False
 GEN	38	24	informer			False
-GEN	38	24	Judah		Jacob's son, Judah|Judah	False
-GEN	38	25	Friend of Tamar			False
+GEN	38	24	Judah			False
+GEN	38	25	friend (or informer) of Tamar			False
 GEN	38	25	Tamar, daughter-in-law of Judah			False
-GEN	38	26	Judah		Jacob's son, Judah|Judah	False
+GEN	38	26	Judah			False
 GEN	38	28	midwife of Tamar			False
 GEN	38	29	midwife of Tamar			False
 GEN	39	7	Potiphar's wife			False
@@ -449,81 +460,74 @@ GEN	40	14	Joseph			False
 GEN	40	16	chief baker			False
 GEN	40	18	Joseph			False
 GEN	41	9	chief cupbearer			False
-GEN	41	15	Pharaoh		Pharaoh (2nd)	False
+GEN	41	15	Pharaoh (2nd)		Pharaoh	False
 GEN	41	16	Joseph			False
-GEN	41	17	Pharaoh		Pharaoh (2nd)	False
-GEN	41	22	Pharaoh		Pharaoh (2nd)	False
+GEN	41	17	Pharaoh (2nd)		Pharaoh	False
+GEN	41	22	Pharaoh (2nd)		Pharaoh	False
 GEN	41	25	Joseph			False
 GEN	41	28	Joseph			False
 GEN	41	33	Joseph			False
-GEN	41	38	Pharaoh		Pharaoh (2nd)	False
-GEN	41	39	Pharaoh		Pharaoh (2nd)	False
-GEN	41	41	Pharaoh		Pharaoh (2nd)	False
-GEN	41	43	men of Pharaoh|messenger of Pharaoh			False
-GEN	41	44	Pharaoh		Pharaoh (2nd)	False
+GEN	41	38	Pharaoh (2nd)		Pharaoh	False
+GEN	41	39	Pharaoh (2nd)		Pharaoh	False
+GEN	41	41	Pharaoh (2nd)		Pharaoh	False
+GEN	41	43	men of Pharaoh			False
+GEN	41	44	Pharaoh (2nd)		Pharaoh	False
 GEN	41	51	Joseph			False
 GEN	41	52	Joseph			False
-GEN	41	55	Pharaoh		Pharaoh (2nd)	False
+GEN	41	55	Pharaoh (2nd)		Pharaoh	False
 GEN	42	1	Jacob			False
 GEN	42	2	Jacob			False
 GEN	42	7	Joseph			False
-GEN	42	7	Reuben		Jacob's sons|Reuben	False
+GEN	42	7	Jacob's sons			False	Reuben
 GEN	42	9	Joseph			False
-GEN	42	10	Judah		Jacob's sons|Judah	False
-GEN	42	10	Reuben		Jacob's sons|Reuben	False
+GEN	42	10-11	Jacob's sons			False
 GEN	42	12	Joseph			False
-GEN	42	13	Reuben		Jacob's sons|Reuben	False
-GEN	42	14	Joseph			False
-GEN	42	18	Joseph			False
-GEN	42	21	Dan		Jacob's sons|Dan	False
-GEN	42	22	Reuben		Jacob's son, Reuben|Reuben	False
-GEN	42	28	Dan		Jacob's sons|Dan	False
-GEN	42	28	Levi		Jacob's sons|Levi	False
-GEN	42	30	Reuben		Jacob's son|Reuben	False
-GEN	42	33	Reuben		Jacob's sons	False
+GEN	42	13	Jacob's sons			False	Reuben
+GEN	42	14-16	Joseph			False
+GEN	42	18-20	Joseph			False
+GEN	42	21	Jacob's sons			False	Dan
+GEN	42	22	Reuben			False
+GEN	42	24	Joseph			False
+GEN	42	25	Joseph			False
+GEN	42	28	Jacob's son (the one who discovered his silver in his sack)			False	Dan
+GEN	42	28	Jacob's sons (not Simeon, Joseph, or Benjamin)			False	Levi
+GEN	42	30-32	Jacob's sons (not Simeon, Joseph, or Benjamin)			False	Reuben
+GEN	42	33-34	Jacob's sons (not Simeon, Joseph, or Benjamin)			False	Reuben
 GEN	42	36	Jacob			False
-GEN	42	37	Reuben		Jacob's son, Reuben|Reuben	False
+GEN	42	37	Reuben			False
 GEN	42	38	Jacob			False
 GEN	43	2	Jacob			False
-GEN	43	3	Judah		Jacob's son, Judah|Judah	False
+GEN	43	3-5	Judah			False
 GEN	43	6	Jacob			False
-GEN	43	7	Reuben		Jacob's sons|Levi/Reuben	False
-GEN	43	8	Judah		Jacob's son, Judah|Judah	False
-GEN	43	11	Jacob			False
+GEN	43	7	Jacob's sons (not Simeon, Joseph, or Benjamin)			False	Reuben
+GEN	43	8-10	Judah			False
+GEN	43	11-14	Jacob			False
 GEN	43	16	Joseph			False
-GEN	43	18	Levi	thought	Jacob's sons|Levi	False
-GEN	43	20	Reuben		Jacob's sons|Reuben	False
+GEN	43	18	Jacob's sons (not Simeon, Joseph, or Benjamin)	thought		False	Levi
+GEN	43	20-22	Jacob's sons (not Simeon, Joseph, or Benjamin)			False	Reuben
 GEN	43	23	Steward			False
-GEN	43	27	Steward			False
-GEN	43	28	Levi		Jacob's sons|Levi	False
-GEN	43	28	Reuben		Jacob's sons|Reuben	False
+GEN	43	25	Steward			False
+GEN	43	27	Joseph			False
+GEN	43	28	Jacob's sons			False
 GEN	43	29	Joseph			False
 GEN	43	31	Joseph			False
-GEN	44	1	Joseph			False
-GEN	44	4	Joseph			False
-GEN	44	7	Reuben		Jacob's sons|Reuben	False
+GEN	44	1-2	Joseph			False
+GEN	44	4-5	Joseph			False
+GEN	44	6	Steward			False
+GEN	44	7-9	Jacob's sons			False	Reuben
 GEN	44	10	Steward			False
 GEN	44	15	Joseph			False
-GEN	44	16	Judah		Jacob's son, Judah|Judah	False
+GEN	44	16	Judah			False
 GEN	44	17	Joseph			False
-GEN	44	18	Judah		Jacob's son, Judah|Judah	False
-GEN	44	21	Judah		Jacob's son, Judah|Judah	False
-GEN	44	24	Judah		Jacob's son, Judah|Judah	False
-GEN	44	25	Judah		Jacob's son, Judah|Judah	False
-GEN	44	27	Judah		Jacob's son, Judah|Judah	False
-GEN	44	30	Judah		Jacob's son, Judah|Judah	False
-GEN	44	33	Judah		Jacob's son, Judah|Judah	False
+GEN	44	18-34	Judah			False
 GEN	45	1	Joseph			False
 GEN	45	3	Joseph			False
-GEN	45	4	Joseph			False
-GEN	45	5	Joseph			False
-GEN	45	8	Joseph			False
-GEN	45	12	Joseph			False
-GEN	45	17	Pharaoh		Pharaoh (2nd)	False
-GEN	45	18	Pharaoh		Pharaoh (2nd)	False
-GEN	45	19	Pharaoh		Pharaoh (2nd)	False
+GEN	45	4-13	Joseph			False
+GEN	45	17	Pharaoh (2nd)		Pharaoh	False
+GEN	45	18	Pharaoh (2nd)		Pharaoh	False
+GEN	45	19-20	Pharaoh (2nd)		Pharaoh	False
 GEN	45	24	Joseph			False
-GEN	45	26	Reuben		Jacob's sons|Reuben	False
+GEN	45	26	Jacob's sons			False	Reuben
 GEN	45	28	Jacob			False
 GEN	46	2	God		God (LORD in vision at night)	False
 GEN	46	3	God		God (LORD in vision at night)	False
@@ -532,8 +536,8 @@ GEN	46	31	Joseph			False
 GEN	47	1	Joseph			False
 GEN	47	3	Reuben		Jacob's sons	False
 GEN	47	4	Reuben		Jacob's sons	False
-GEN	47	5	Pharaoh		Pharaoh (2nd)	False
-GEN	47	8	Pharaoh		Pharaoh (2nd)	False
+GEN	47	5	Pharaoh (2nd)		Pharaoh	False
+GEN	47	8	Pharaoh (2nd)		Pharaoh	False
 GEN	47	9	Jacob			False
 GEN	47	15	all Egypt			False
 GEN	47	16	Joseph			False
@@ -586,22 +590,22 @@ GEN	49	27	Jacob			False
 GEN	49	29	Jacob			False
 GEN	50	2	Joseph			False
 GEN	50	4	Joseph			False
-GEN	50	6	Pharaoh		Pharaoh (2nd)	False
+GEN	50	6	Pharaoh (2nd)		Pharaoh	False
 GEN	50	11	Canaanites			False
 GEN	50	15	Reuben		Jacob's sons	False
-GEN	50	15	Simeon		Joseph's brothers|Simeon	False
+GEN	50	15	Jacob's sons			False	Simeon
 GEN	50	16	Reuben		Jacob's sons	False
-GEN	50	17	Simeon		Joseph's brothers|Simeon	False
-GEN	50	18	Simeon		Joseph's brothers|Simeon	False
-GEN	50	19	Joseph			False
+GEN	50	17	Jacob's sons			False	Simeon
+GEN	50	18	Jacob's sons			False	Simeon
+GEN	50	19-21	Joseph			False
 GEN	50	24	Joseph			False
 GEN	50	25	Joseph			False
-EXO	1	9	Pharaoh		Pharaoh (3rd)	False
-EXO	1	10	Pharaoh		Pharaoh (3rd)	False
-EXO	1	16	Pharaoh		Pharaoh (3rd)	False
-EXO	1	18	Pharaoh		Pharaoh (3rd)	False
+EXO	1	9	Pharaoh (3rd)		Pharaoh	False
+EXO	1	10	Pharaoh (3rd)		Pharaoh	False
+EXO	1	16	Pharaoh (3rd)		Pharaoh	False
+EXO	1	18	Pharaoh (3rd)		Pharaoh	False
 EXO	1	19	midwives, Shiphrah/Puah			False
-EXO	1	22	Pharaoh	giving order	Pharaoh (3rd)	False
+EXO	1	22	Pharaoh (3rd)	giving order	Pharaoh	False
 EXO	2	6	Pharaoh's daughter			False
 EXO	2	7	Miriam-young girl			False
 EXO	2	8	Pharaoh's daughter			False
@@ -656,18 +660,18 @@ EXO	4	22	God		God (the LORD)	False
 EXO	4	25	Zipporah		Zipporah-Moses wife	False
 EXO	4	26	narrator-EXO			False
 EXO	4	27	God		God (the LORD)	False
-EXO	5	1	Aaron		Moses/Aaron|Aaron	False
-EXO	5	2	Pharaoh		Pharaoh (3rd)	False
-EXO	5	3	Aaron		Moses/Aaron|Aaron	False
-EXO	5	4	Pharaoh		Pharaoh (3rd)	False
-EXO	5	5	Pharaoh		Pharaoh (3rd)	False
-EXO	5	7	Pharaoh		Pharaoh (3rd)	False
+EXO	5	1	Moses/Aaron			False	Aaron
+EXO	5	2	Pharaoh (3rd)		Pharaoh	False
+EXO	5	3	Moses/Aaron			False	Aaron
+EXO	5	4	Pharaoh (3rd)		Pharaoh	False
+EXO	5	5	Pharaoh (3rd)		Pharaoh	False
+EXO	5	7	Pharaoh (3rd)		Pharaoh	False
 EXO	5	10	Slave driver			False
 EXO	5	13	Slave driver			False
 EXO	5	14	Slave driver			False
 EXO	5	15	Israelite foreman			False
-EXO	5	17	Pharaoh		Pharaoh (3rd)	False
-EXO	5	19	Pharaoh		Pharaoh (3rd)	False
+EXO	5	17	Pharaoh (3rd)		Pharaoh	False
+EXO	5	19	Pharaoh (3rd)		Pharaoh	False
 EXO	5	21	Israelite foreman			False
 EXO	5	22	Moses			False
 EXO	6	1	God		God (the LORD)	False
@@ -686,16 +690,16 @@ EXO	7	17	God		God (the LORD)	False
 EXO	7	19	God		God (the LORD)	False
 EXO	8	1	God		God (the LORD)	False
 EXO	8	5	God		God (the LORD)	False
-EXO	8	8	Pharaoh		Pharaoh (3rd)	False
+EXO	8	8	Pharaoh (3rd)		Pharaoh	False
 EXO	8	9	Moses			False
 EXO	8	10	Moses			False
-EXO	8	10	Pharaoh		Pharaoh (3rd)	False
+EXO	8	10	Pharaoh (3rd)		Pharaoh	False
 EXO	8	16	God		God (the LORD)	False
 EXO	8	19	Magicians			False
 EXO	8	20	God		God (the LORD)	False
-EXO	8	25	Pharaoh		Pharaoh (3rd)	False
+EXO	8	25	Pharaoh (3rd)		Pharaoh	False
 EXO	8	26	Moses			False
-EXO	8	28	Pharaoh		Pharaoh (3rd)	False
+EXO	8	28	Pharaoh (3rd)		Pharaoh	False
 EXO	8	29	Moses			False
 EXO	9	1	God		God (the LORD)	False
 EXO	9	5	God		God (the LORD)	False
@@ -703,20 +707,20 @@ EXO	9	8	God		God (the LORD)	False
 EXO	9	13	God		God (the LORD)	False
 EXO	9	17	God		God (the LORD)	False
 EXO	9	22	God		God (the LORD)	False
-EXO	9	27	Pharaoh		Pharaoh (3rd)	False
+EXO	9	27	Pharaoh (3rd)		Pharaoh	False
 EXO	9	29	Moses			False
 EXO	10	1	God		God (the LORD)	False
-EXO	10	3	Aaron		Moses/Aaron|Aaron	False
+EXO	10	3	Moses/Aaron			False	Aaron
 EXO	10	7	Pharaoh's officials			False
-EXO	10	8	Pharaoh		Pharaoh (3rd)	False
+EXO	10	8	Pharaoh (3rd)		Pharaoh	False
 EXO	10	9	Moses			False
-EXO	10	10	Pharaoh		Pharaoh (3rd)	False
+EXO	10	10	Pharaoh (3rd)		Pharaoh	False
 EXO	10	12	God		God (the LORD)	False
-EXO	10	16	Pharaoh		Pharaoh (3rd)	False
+EXO	10	16	Pharaoh (3rd)		Pharaoh	False
 EXO	10	21	God		God (the LORD)	False
-EXO	10	24	Pharaoh		Pharaoh (3rd)	False
+EXO	10	24	Pharaoh (3rd)		Pharaoh	False
 EXO	10	25	Moses			False
-EXO	10	28	Pharaoh		Pharaoh (3rd)	False
+EXO	10	28	Pharaoh (3rd)		Pharaoh	False
 EXO	10	29	Moses			False
 EXO	11	1	God		God (the LORD)	False
 EXO	11	4	Moses			False
@@ -728,7 +732,7 @@ EXO	12	14	God		God (the LORD)	False
 EXO	12	17	God		God (the LORD)	False
 EXO	12	21	Moses			False
 EXO	12	24	Moses			False
-EXO	12	31	Pharaoh		Pharaoh (3rd)	False
+EXO	12	31	Pharaoh (3rd)		Pharaoh	False
 EXO	12	33	Egyptians	terrified		False
 EXO	12	43	God		God (the LORD)	False
 EXO	12	46	God		God (the LORD)	False
@@ -740,8 +744,8 @@ EXO	13	14	Moses			False
 EXO	13	17	God		God (the LORD)	False
 EXO	13	19	Joseph			False
 EXO	14	2	God		God (the LORD)	False
-EXO	14	5	Pharaoh		Pharaoh (3rd)	False
-EXO	14	11	Israelite people|man-cried out	terrified		False
+EXO	14	5	Pharaoh (3rd)		Pharaoh	False
+EXO	14	11	Israel, men of	terrified		False
 EXO	14	13	Moses			False
 EXO	14	15	God		God (the LORD)	False
 EXO	14	25	Egyptians	afraid		False
@@ -765,16 +769,15 @@ EXO	15	16	Moses	sang	Moses/Israelites	False
 EXO	15	17	Moses	sang	Moses/Israelites	False
 EXO	15	18	Moses	sang	Moses/Israelites	False
 EXO	15	21	Miriam/women	sang		False
-EXO	15	24	Israelite people|man-grumbling			False
+EXO	15	24	Israelite people, grumblers			False
 EXO	15	26	God		God (the LORD)	False
-EXO	16	3	Israelite people|grumbling person-use a woman			False
+EXO	16	3	Israelite people, grumblers			False
 EXO	16	4	God		God (the LORD)	False
-EXO	16	6	Aaron		Moses/Aaron|Aaron	False
+EXO	16	6	Moses/Aaron			False	Aaron
 EXO	16	8	Moses			False
 EXO	16	9	Moses			False
 EXO	16	12	God		God (the LORD)	False
-EXO	16	15	Israelites|woman			False
-EXO	16	15	Israelites|woman	What is it?		False
+EXO	16	15	Israelites (wondering about manna)	questioning		False
 EXO	16	15	Moses			False
 EXO	16	19	Moses			False
 EXO	16	23	Moses			False
@@ -782,13 +785,12 @@ EXO	16	25	Moses			False
 EXO	16	28	God		God (the LORD)	False
 EXO	16	32	Moses			False
 EXO	16	33	Moses			False
-EXO	17	2	Israelite people|grumbler			False
+EXO	17	2	Israelite people, quarrelers			False
 EXO	17	2	Moses			False
-EXO	17	3	Israelite people|grumbling person-use a woman			False
+EXO	17	3	Israelite people, grumblers			False
 EXO	17	4	Moses			False
 EXO	17	5	God		God (the LORD)	False
-EXO	17	7	Israelite people|grumbler			False
-EXO	17	7	Israelite people|man-grumbling make us gods			False
+EXO	17	7	Israelite people, quarrelers			False
 EXO	17	9	Moses			False
 EXO	17	14	God		God (the LORD)	False
 EXO	17	16	Moses			False
@@ -819,7 +821,7 @@ EXO	20	14	God		God (the LORD)	False
 EXO	20	15	God		God (the LORD)	False
 EXO	20	16	God		God (the LORD)	False
 EXO	20	17	God		God (the LORD)	False
-EXO	20	19	Israelite people|man	fearful		False
+EXO	20	19	Israelite people (spokesman before Moses)	fearful		False
 EXO	20	20	Moses			False
 EXO	20	22	God		God (the LORD)	False
 EXO	21	1	God		God (the LORD)	False
@@ -878,8 +880,8 @@ EXO	23	23	God		God (the LORD)	False
 EXO	23	27	God		God (the LORD)	False
 EXO	23	31	God		God (the LORD)	False
 EXO	24	1	God		God (the LORD)	False
-EXO	24	3	Israelite people, all|crowd			False
-EXO	24	7	Israelite people, all|crowd			False
+EXO	24	3	Israelite people, all			False
+EXO	24	7	Israelite people, all			False
 EXO	24	8	Moses			False
 EXO	24	12	God		God (the LORD)	False
 EXO	24	14	Moses			False
@@ -1134,16 +1136,16 @@ NUM	10	30	Hobab, Moses brother-in-law			False
 NUM	10	31	Moses			False
 NUM	10	35	Moses			False
 NUM	10	36	Moses			False
-NUM	11	4	Rabble/Complainer			False
+NUM	11	4	rabble/complainers			False
 NUM	11	11	Moses			False
 NUM	11	16	God		God (the LORD)	False
 NUM	11	18	God		God (the LORD)	False
 NUM	11	21	Moses			False
 NUM	11	23	God		God (the LORD)	False
-NUM	11	27	Bartimaeus	excited	young man, a	False
+NUM	11	27	young man	excited		False
 NUM	11	28	Joshua			False
 NUM	11	29	Moses			False
-NUM	12	2	Aaron		Miriam/Aaron|Aaron	False
+NUM	12	2	Miriam/Aaron			False	Aaron
 NUM	12	4	God		God (the LORD)	False
 NUM	12	6	God		God (the LORD)	False
 NUM	12	7	God		God (the LORD)	False
@@ -1154,13 +1156,13 @@ NUM	12	14	God		God (the LORD)	False
 NUM	13	2	God		God (the LORD)	False
 NUM	13	17	Moses			False
 NUM	13	27	explorers, ten			False
-NUM	13	30	Caleb		leader of Judah, Caleb|Caleb	False
+NUM	13	30	Caleb			False
 NUM	13	31	explorers, ten			False
 NUM	13	32	explorers, ten			False
 NUM	14	2	Israelite community	grumbling		False
 NUM	14	3	Israelite community	grumbling		False
 NUM	14	4	Israelite community	grumbling		False
-NUM	14	7	Joshua		leader of Ephraim,Joshua/leader of Judah, Caleb|Joshua/Caleb	False
+NUM	14	7-9	Joshua/Caleb			False	Joshua
 NUM	14	11	God		God (the LORD)(Glory of LORD appeared)	False
 NUM	14	13	Moses			False
 NUM	14	17	Moses			False
@@ -1172,26 +1174,26 @@ NUM	15	2	God		God (glory of the LORD appeared)	False
 NUM	15	18	God		God (the LORD)	False
 NUM	15	35	God		God (the LORD)	False
 NUM	15	38	God		God (the LORD)	False
-NUM	16	3	Korah/Dathan/Abiram/250 Israelite leaders|Korah	wicked		False
+NUM	16	3	Korah/Dathan/Abiram/250 Israelite leaders	arrogantly		False	Korah
 NUM	16	5	Moses			False
 NUM	16	8	Moses			False
-NUM	16	12	Dathan/Abiram|Dathan			False
 NUM	16	12	Moses			False
+NUM	16	12-14	Dathan/Abiram			False	Dathan
 NUM	16	15	Moses			False
-NUM	16	16	Moses			False
+NUM	16	16-17	Moses			False
 NUM	16	21	God		God (the LORD)(Glory of LORD appeared)	False
-NUM	16	22	Moses		Moses/Aaron|Moses	False
+NUM	16	22	Moses/Aaron			False	Moses
 NUM	16	24	God		God (the LORD)(Glory of LORD appeared)	False
 NUM	16	26	Moses			False
 NUM	16	28	Moses			False
-NUM	16	34	Israelites, all 3	frightened, shouting	Israelites, all|Israelite	False
+NUM	16	34	Israelites, all	frightened, shouting		False
 NUM	16	37	God		God (the LORD)(Glory of LORD appeared)	False
 NUM	16	41	Israelite community	grumbling		False
 NUM	16	45	God		God (glory of the LORD appeared, cloud covering Tent of Meeting)	False
 NUM	16	46	Moses			False
 NUM	17	2	God		God (glory of the LORD appeared, cloud covering Tent of Meeting)	False
 NUM	17	10	God		God (the LORD)	False
-NUM	17	12	Israelites|Israelite			False
+NUM	17	12	Israelites			False
 NUM	18	1	God		God (the LORD)	False
 NUM	18	5	God		God (the LORD)	False
 NUM	18	8	God		God (the LORD)	False
@@ -1214,26 +1216,26 @@ NUM	20	3	people (complaining Israelites)			False
 NUM	20	8	God		God (the LORD)	False
 NUM	20	10	Moses			False
 NUM	20	12	God		God (the LORD)	False
-NUM	20	14	Moses' messengers from Kadesh|Leader of Issachar			False
-NUM	20	16	Moses' messengers from Kadesh|Leader of Issachar			False
+NUM	20	14	Moses' messengers from Kadesh			False
+NUM	20	16	Moses' messengers from Kadesh			False
 NUM	20	18	Edom			False
 NUM	20	19	Israelites			False
 NUM	20	20	Edom			False
 NUM	20	24	God		God (the LORD)	False
-NUM	21	2	Israel|leader of Naphtali			False
+NUM	21	2	Israel			False
 NUM	21	5	people			False
-NUM	21	7	people|leader of Naphtali			False
+NUM	21	7	people			False
 NUM	21	8	God		God (the LORD)	False
 NUM	21	14	Book of the Wars of the LORD			False
 NUM	21	15	Moses	sang	Moses/Israelites	False
 NUM	21	16	God		God (the LORD)	False
-NUM	21	17	Israel 1		Israel	False
-NUM	21	18	Israel 1	singing		False
-NUM	21	22	Israel|leader of Gad			False
-NUM	21	27	Poets|leader of Ephraim			False
-NUM	21	28	Poets|leader of Ephraim			False
-NUM	21	29	Poets|leader of Ephraim			False
-NUM	21	30	Poets|leader of Ephraim			False
+NUM	21	17	Israel			False
+NUM	21	18	Israel	singing		False
+NUM	21	22	Israel			False
+NUM	21	27	poets			False
+NUM	21	28	poets			False
+NUM	21	29	poets			False
+NUM	21	30	poets			False
 NUM	21	34	God		God (the LORD)	False
 NUM	22	4	Moabites			False
 NUM	22	5	Balak			False
@@ -1305,7 +1307,7 @@ NUM	25	5	Moses			False
 NUM	25	11	God		God (the LORD)	False
 NUM	25	17	God		God (the LORD)	False
 NUM	26	2	God		God (the LORD)	False
-NUM	26	4	Moses		Moses/Eleazar|Moses	False
+NUM	26	4	Moses/Eleazar			False	Moses
 NUM	26	53	God		God (the LORD)	False
 NUM	27	3-4	daughters of Zelophehad			False
 NUM	27	7	God		God (the LORD)	False
@@ -1326,17 +1328,22 @@ NUM	31	16	Moses			False
 NUM	31	19	Moses			False
 NUM	31	21	Eleazar, the priest			False
 NUM	31	26	God		God (the LORD)	False
-NUM	31	49	commander|leader of Benjamin			False
-NUM	32	3	Reubenites		Reubenites/Gadites|leader of Reuben	False
-NUM	32	5	Reubenites/Gadites|leader of Gad			False
-NUM	32	6	Moses			False
-NUM	32	14	Moses			False
-NUM	32	16	Gadites		Gadites|leader of Reuben	False
-NUM	32	20	Moses			False
-NUM	32	23	Moses			False
-NUM	32	25	Gadites		Gadites/Reubenites|leader of Gad	False
-NUM	32	29	Moses			False
-NUM	32	31	Gadites		Gadites/Reubenites|leader of Reuben	False
+NUM	31	49-50	Army officers			False
+NUM	32	3	Reubenites/Gadites			False
+NUM	32	4	Reubenites/Gadites			False
+NUM	32	5	Reubenites/Gadites			False
+NUM	32	6-5	Moses			False
+NUM	32	16	Reubenites/Gadites			False
+NUM	32	17	Reubenites/Gadites			False
+NUM	32	18	Reubenites/Gadites			False
+NUM	32	19	Reubenites/Gadites			False
+NUM	32	20-24	Moses			False
+NUM	32	25	Reubenites/Gadites		Gadites/Reubenites	False
+NUM	32	26	Reubenites/Gadites		Gadites/Reubenites	False
+NUM	32	27	Reubenites/Gadites		Gadites/Reubenites	False
+NUM	32	29-30	Moses			False
+NUM	32	31	Reubenites/Gadites		Gadites/Reubenites	False
+NUM	32	32	Reubenites/Gadites		Gadites/Reubenites	False
 NUM	33	51	God		God (the LORD)	False
 NUM	34	2	God		God (the LORD)	False
 NUM	34	13	Moses			False
@@ -1355,7 +1362,7 @@ NUM	35	2	God		God (the LORD)	False
 NUM	35	4	God		God (the LORD)	False
 NUM	35	6	God		God (the LORD)	False
 NUM	35	10	God		God (the LORD)	False
-NUM	36	2	family heads of Gilead|leader of Manasseh			False
+NUM	36	2	family heads of Gilead			False
 NUM	36	5	Moses		Moses (at LORD's command)	False
 DEU	1	6	God		God (the LORD)	False
 DEU	1	6	Moses			False
@@ -1363,7 +1370,7 @@ DEU	1	9	Moses			False
 DEU	1	14	Moses			False
 DEU	1	20	Moses			False
 DEU	1	22	Moses			False
-DEU	1	25	explorers, 12			False
+DEU	1	25	explorers, twelve			False
 DEU	1	25	Moses			False
 DEU	1	27	Moses			False
 DEU	1	29	Moses			False
@@ -1399,7 +1406,7 @@ DEU	5	21	God		God (the LORD)	False
 DEU	5	24	Moses		Moses quoting Israel	False
 DEU	5	28	God		God (the LORD)	False
 DEU	5	30	God		God (the LORD)	False
-DEU	6	20	son in Israel (child) will say			False
+DEU	6	20	son (child) in Israel (hypothetical)			False
 DEU	6	21	Moses		Moses saying what Israel should say	False
 DEU	7	17	Moses		Moses saying what Israel may say	False
 DEU	8	17	Moses		Moses saying what Israel may say	False
@@ -1527,8 +1534,8 @@ JOS	1	6	God		God (the LORD)	False
 JOS	1	9	Joshua			False
 JOS	1	10	Joshua			False
 JOS	1	11	Joshua			False
-JOS	1	13	Joshua			False
-JOS	1	16	Reubenites		Reubenites/Gadites/Manasseh	False
+JOS	1	13-15	Joshua			False
+JOS	1	16	Reubenites/Gadites/half-tribe of Manasseh			False
 JOS	2	1	Joshua			False
 JOS	2	2	messenger to King of Jericho			False
 JOS	2	3	King of Jericho			False
@@ -1578,15 +1585,15 @@ JOS	9	7	Israel, men of			False
 JOS	9	8	Gibeonites			False
 JOS	9	8	Joshua			False
 JOS	9	9	Gibeonites			False
-JOS	9	19	Israel 3		Israel, all leaders of	False
-JOS	9	21	Israel 3		Israel, all leaders of	False
+JOS	9	19	Israel, all leaders of			False
+JOS	9	21	Israel, all leaders of			False
 JOS	9	22	Joshua			False
 JOS	9	24	Gibeonites			False
 JOS	10	4	Adoni-Zedek, king of Jerusalem			False
 JOS	10	6	Gibeonites			False
 JOS	10	8	God		God (the LORD)	False
 JOS	10	12	Joshua			False
-JOS	10	17	someone			False
+JOS	10	17	person who told Joshua where the kings were hiding			False
 JOS	10	18	Joshua			False
 JOS	10	22	Joshua			False
 JOS	10	24	Joshua			False
@@ -1614,12 +1621,13 @@ JOS	21	2	Levitical heads			False
 JOS	22	2	Joshua			False
 JOS	22	8	Joshua			False
 JOS	22	16	Phineas		Phineas, priest/chiefs of tribes	False
-JOS	22	22	Reubenites		Reuben/Gad/Manasseh	False
-JOS	22	24	Reubenites		Reuben/Gad/Manasseh	False
-JOS	22	26	Reubenites		Reuben/Gad/Manasseh	False
-JOS	22	28	Reubenites		Reuben/Gad/Manasseh	False
-JOS	22	29	Reubenites		Reuben/Gad/Manasseh	False
+JOS	22	22-23	Reubenites/Gadites/half-tribe of Manasseh		Reuben/Gad/Manasseh	False
+JOS	22	24-25	Reubenites/Gadites/half-tribe of Manasseh		Reuben/Gad/Manasseh	False
+JOS	22	26-27	Reubenites/Gadites/half-tribe of Manasseh		Reuben/Gad/Manasseh	False
+JOS	22	28	Reubenites/Gadites/half-tribe of Manasseh		Reuben/Gad/Manasseh	False
+JOS	22	29	Reubenites/Gadites/half-tribe of Manasseh		Reuben/Gad/Manasseh	False
 JOS	22	31	Phineas			False
+JOS	22	32	Phineas		Phineas/leaders	False
 JOS	23	2	Joshua, old			False
 JOS	23	4	Joshua, old			False
 JOS	23	6	Joshua, old			False
@@ -1710,10 +1718,10 @@ JDG	6	22	Gideon			False
 JDG	6	23	God		God (the LORD)	False
 JDG	6	25	God		God (the LORD)	False
 JDG	6	29	person			False
-JDG	6	29	townsmen			False
-JDG	6	30	townsmen			False
+JDG	6	29	townsmen of Ophrah			False
+JDG	6	30	townsmen of Ophrah			False
 JDG	6	31	Joash, father of Gideon			False
-JDG	6	32	townsmen			False
+JDG	6	32	townsmen of Ophrah			False
 JDG	6	36	Gideon			False
 JDG	6	39	Gideon			False
 JDG	7	2	God		God (the LORD)	False
@@ -1721,8 +1729,8 @@ JDG	7	4	God		God (the LORD)	False
 JDG	7	5	God		God (the LORD)	False
 JDG	7	7	God		God (the LORD)	False
 JDG	7	9	God		God (the LORD)	False
-JDG	7	13	soldier 1, enemy			False
-JDG	7	14	soldier 2, enemy			False
+JDG	7	13	Midianite soldier who had a dream			False
+JDG	7	14	Midianite soldier who interprets dream			False
 JDG	7	15	Gideon			False
 JDG	7	17	Gideon			False
 JDG	7	20	soldier, Israelite			False
@@ -1743,7 +1751,7 @@ JDG	8	22	Israelites			False
 JDG	8	23	Gideon			False
 JDG	8	24	Gideon			False
 JDG	8	25	Israelites			False
-JDG	9	2	Abimelech		Abimelech, Gideon's son	False
+JDG	9	2	Abimelech, son of Gideon		Abimelech, son of Jerubbaal	False
 JDG	9	3	citizens of Shechem			False
 JDG	9	7	Jotham			False
 JDG	9	9	Jotham			False
@@ -1761,13 +1769,13 @@ JDG	9	36	Gaal, son of Ebed			False
 JDG	9	36	Zebul, governor of Shechem			False
 JDG	9	37	Gaal, son of Ebed			False
 JDG	9	38	Zebul, governor of Shechem			False
-JDG	9	48	Abimelech		Abimelech, Gideon's son	False
-JDG	9	54	Abimelech		Abimelech, Gideon's son	False
+JDG	9	48	Abimelech, son of Gideon		Abimelech	False
+JDG	9	54	Abimelech, son of Gideon		Abimelech	False
 JDG	10	10	Israelites			False
 JDG	10	11	God		God (the LORD)	False
 JDG	10	15	Israelites			False
 JDG	10	18	Gilead, elders of			False
-JDG	11	2	Jephtha's brothers			False
+JDG	11	2	Jephthah's brothers			False
 JDG	11	6	Gilead, elders of			False
 JDG	11	7	Jephthah			False
 JDG	11	8	Gilead, elders of			False
@@ -1836,7 +1844,7 @@ JDG	15	13	Judah, men of			False
 JDG	15	16	Samson			False
 JDG	15	18	Samson			False
 JDG	16	2	informer			False
-JDG	16	2	townsmen (wicked)			False
+JDG	16	2	Gazites (wicked)			False
 JDG	16	5	Philistines, rulers of			False
 JDG	16	6	Delilah			False
 JDG	16	7	Samson			False
@@ -1866,15 +1874,15 @@ JDG	17	9	Micah			False
 JDG	17	10	Micah			False
 JDG	17	13	Micah			False
 JDG	18	2	Danites			False
-JDG	18	3	warriors from Zorah and Eshtaol, 5			False
+JDG	18	3	warriors from Zorah and Eshtaol, five			False
 JDG	18	4	Levite, young, from Bethlehem			False
-JDG	18	5	warriors from Zorah and Eshtaol, 5			False
+JDG	18	5	warriors from Zorah and Eshtaol, five			False
 JDG	18	6	Levite, young, from Bethlehem			False
 JDG	18	8	Danites			False
-JDG	18	9	warriors from Zorah and Eshtaol, 5			False
-JDG	18	14	warriors from Zorah and Eshtaol, 5			False
+JDG	18	9	warriors from Zorah and Eshtaol, five			False
+JDG	18	14	warriors from Zorah and Eshtaol, five			False
 JDG	18	18	Levite, young, from Bethlehem			False
-JDG	18	19	warriors from Zorah and Eshtaol, 5			False
+JDG	18	19	warriors from Zorah and Eshtaol, five			False
 JDG	18	23	Danites			False
 JDG	18	24	Micah			False
 JDG	18	25	Danites			False
@@ -1895,18 +1903,18 @@ JDG	19	30	everyone			False
 JDG	20	3	Israelites			False
 JDG	20	4	concubine's husband			False
 JDG	20	8	Israelites, all			False
-JDG	20	12	Israelites, all 1	mourning bitterly		False
+JDG	20	12	Israelites, all	mourning bitterly		False
 JDG	20	18	God		God (the LORD)	False
 JDG	20	18	Israelites			False
 JDG	20	23	God		God (the LORD)	False
-JDG	20	23	Israelites 1	weeping		False
+JDG	20	23	Israelites (excluding Benjamites)	weeping		False
 JDG	20	28	God		God (the LORD)	False
-JDG	20	28	Israelites 1	weeping		False
+JDG	20	28	Israelites (excluding Benjamites)	weeping		False
 JDG	20	32	Benjamites			False
 JDG	20	32	Israelites			False
 JDG	20	39	Benjamites			False
 JDG	21	1	Israel, men of			False
-JDG	21	3	Israelites, all 3	weeping bitterly	Israelites, all 2	False
+JDG	21	3	Israelites, all	weeping bitterly		False
 JDG	21	5	Israelites			False
 JDG	21	6	Israelites			False
 JDG	21	7	Israelites			False
@@ -1916,7 +1924,7 @@ JDG	21	16	Israelite assembly, elders of			False
 JDG	21	17	Israelite assembly, elders of			False
 JDG	21	20	Israelite assembly, elders of			False
 RUT	1	8	Naomi			False
-RUT	1	10	Orpah/Ruth|Orpah			False
+RUT	1	10	Orpah/Ruth			False	Orpah
 RUT	1	11	Naomi			False
 RUT	1	15	Naomi			False
 RUT	1	16	Ruth			False
@@ -2009,7 +2017,7 @@ RUT	4	17	women of Bethlehem			False
 1SA	4	16	Benjamite			False
 1SA	4	16	Eli			False
 1SA	4	17	Benjamite			False
-1SA	4	20	women			False
+1SA	4	20	attendents of Phineas' wife			False
 1SA	4	21	daughter-in-law of Eli			False
 1SA	4	22	daughter-in-law of Eli			False
 1SA	5	7	men of Ashdod			False
@@ -2111,11 +2119,10 @@ RUT	4	17	women of Bethlehem			False
 1SA	14	18	Saul			False
 1SA	14	19	Saul			False
 1SA	14	24	Saul			False
-1SA	14	28	Israelite soldier			False
+1SA	14	28	Israelite soldier (in Saul's army)			False
 1SA	14	29	Jonathan			False
-1SA	14	33	Israelite soldier, some			False
+1SA	14	33	someone in Saul's army			False
 1SA	14	33	Saul			False
-1SA	14	34	Israelite soldier, some			False
 1SA	14	34	Saul			False
 1SA	14	36	Israelite soldiers			False
 1SA	14	36	priest			False
@@ -2133,7 +2140,7 @@ RUT	4	17	women of Bethlehem			False
 1SA	15	1	Samuel			False
 1SA	15	6	Saul			False
 1SA	15	11	God		word of the LORD	False
-1SA	15	12	someone			False
+1SA	15	12	person who told Samuel where Saul was			False
 1SA	15	13	Saul			False
 1SA	15	14	Samuel			False
 1SA	15	15	Saul			False
@@ -2189,7 +2196,7 @@ RUT	4	17	women of Bethlehem			False
 1SA	17	56	Saul			False
 1SA	17	58	David			False
 1SA	17	58	Saul			False
-1SA	18	7	women 1	joyfully singing		False
+1SA	18	7	women, dancing	joyfully singing		False
 1SA	18	8	Saul	thought		False
 1SA	18	11	Saul			False
 1SA	18	17	Saul			False
@@ -2231,12 +2238,12 @@ RUT	4	17	women of Bethlehem			False
 1SA	20	38	Jonathan			False
 1SA	20	40	Jonathan			False
 1SA	20	42	Jonathan			False
-1SA	21	1	Ahimelech the priest			False
+1SA	21	1	Ahimelech the priest (son of Ahitub)			False
 1SA	21	2	David			False
-1SA	21	4	Ahimelech the priest			False
+1SA	21	4	Ahimelech the priest (son of Ahitub)			False
 1SA	21	5	David			False
 1SA	21	8	David			False
-1SA	21	9	Ahimelech the priest			False
+1SA	21	9	Ahimelech the priest (son of Ahitub)			False
 1SA	21	9	David			False
 1SA	21	11	servants of Achish, king of Gath			False
 1SA	21	14	Achish			False
@@ -2244,15 +2251,16 @@ RUT	4	17	women of Bethlehem			False
 1SA	22	5	prophet Gad			False
 1SA	22	7	Saul			False
 1SA	22	9	Doeg the Edomite			False
-1SA	22	12	Ahimelech the priest			False
+1SA	22	11	Saul			False
+1SA	22	12	Ahimelech the priest (son of Ahitub)			False
 1SA	22	12	Saul			False
 1SA	22	13	Saul			False
-1SA	22	14	Ahimelech the priest			False
+1SA	22	14	Ahimelech the priest (son of Ahitub)			False
 1SA	22	16	Saul			False
 1SA	22	17	Saul			False
 1SA	22	18	Saul			False
 1SA	22	22	David			False
-1SA	23	1	someone			False
+1SA	23	1	person who told David about Philistines			False
 1SA	23	2	David			False
 1SA	23	2	God		God (the LORD)	False
 1SA	23	3	David's men			False
@@ -2267,7 +2275,7 @@ RUT	4	17	women of Bethlehem			False
 1SA	23	19	Ziphites			False
 1SA	23	21	Saul			False
 1SA	23	27	messenger to Saul			False
-1SA	24	1	someone			False
+1SA	24	1	person who told Saul where David was			False
 1SA	24	4	David's men			False
 1SA	24	6	David			False
 1SA	24	8	David			False
@@ -2399,7 +2407,7 @@ RUT	4	17	women of Bethlehem			False
 2SA	3	38	David		David, king	False
 2SA	4	8	Recab/Baanah			False
 2SA	4	9	David		David, king	False
-2SA	5	1	Israel 2		Israel, all the tribes	False
+2SA	5	1-2	Israel, all the tribes			False
 2SA	5	6	Jebusites			False
 2SA	5	6	Jebusites	thought		False
 2SA	5	8	David		David, king	False
@@ -2550,7 +2558,7 @@ RUT	4	17	women of Bethlehem			False
 2SA	17	14	Absalom		Absalom/Israel, men of	False
 2SA	17	15	Hushai, David's friend			False
 2SA	17	20	Absalom's men			False
-2SA	17	20	woman			False
+2SA	17	20	woman in Bahurim			False
 2SA	17	21	Jonathan, son of Abiathar			False
 2SA	17	29	Barzillai		Barzillai/Shobi/Makir	False
 2SA	18	2	David		David, king	False
@@ -2601,7 +2609,7 @@ RUT	4	17	women of Bethlehem			False
 2SA	19	33	David		David, king	False
 2SA	19	34	Barzillai			False
 2SA	19	38	David		David, king	False
-2SA	19	41	Israel 1		Israel, all the men of	False
+2SA	19	41	Israel		Israel, all the men of	False
 2SA	19	42	Judah, men of			False
 2SA	19	43	Israel, men of			False
 2SA	20	1	Sheba, son of Bicri	troublemaker		False
@@ -2690,10 +2698,10 @@ RUT	4	17	women of Bethlehem			False
 2SA	24	16	God		God (the LORD)	False
 2SA	24	17	David		David, king	False
 2SA	24	18	Gad, the prophet, David's seer			False
-2SA	24	21	Araunah			False
+2SA	24	21	Araunah, the Jebusite			False
 2SA	24	21	David		David, king	False
-2SA	24	22	Araunah			False
-2SA	24	23	Araunah			False
+2SA	24	22	Araunah, the Jebusite			False
+2SA	24	23	Araunah, the Jebusite			False
 2SA	24	24	David		David, king	False
 1KI	1	2	servants of David			False
 1KI	1	5	Adonijah, son of David			False
@@ -2701,7 +2709,7 @@ RUT	4	17	women of Bethlehem			False
 1KI	1	11	Nathan		Nathan, the prophet	False
 1KI	1	16	David	very old	David, king	False
 1KI	1	17	Bathsheba			False
-1KI	1	23	someone told David			False
+1KI	1	23	person who told David of Nathan's arrival			False
 1KI	1	24	Nathan		Nathan, the prophet	False
 1KI	1	28	David	very old	David, king	False
 1KI	1	29	David	very old	David, king	False
@@ -2709,7 +2717,7 @@ RUT	4	17	women of Bethlehem			False
 1KI	1	32	David	very old	David, king	False
 1KI	1	33	David	very old	David, king	False
 1KI	1	36	Benaiah, son of Jehoiada			False
-1KI	1	39	people, all the 5	shouting		False
+1KI	1	39	people, all the	shouting		False
 1KI	1	41	Joab			False
 1KI	1	42	Adonijah, son of David			False
 1KI	1	43	Jonathan, son of Abiathar			False
@@ -2740,7 +2748,7 @@ RUT	4	17	women of Bethlehem			False
 1KI	2	31	Solomon, king			False
 1KI	2	36	Solomon, king			False
 1KI	2	38	Shimei			False
-1KI	2	39	someone told Shimei			False
+1KI	2	39	person who told Shimei where his servants were			False
 1KI	2	42	Solomon, king			False
 1KI	2	44	Solomon, king			False
 1KI	3	5	God		God (the LORD)(appeared during night in dream)	False
@@ -2787,15 +2795,17 @@ RUT	4	17	women of Bethlehem			False
 1KI	11	11	God		God (the LORD)	False
 1KI	11	21	Hadad the Edomite			False
 1KI	11	22	Hadad the Edomite			False
-1KI	11	22	Pharaoh		Pharaoh (3rd)	False
+1KI	11	22	Pharaoh (3rd)		Pharaoh	False
 1KI	11	31	Ahijah, the prophet	word of the LORD		False
 1KI	12	4	Jereboam/all Israel			False
 1KI	12	5	Rehoboam		Rehoboam, king	False
 1KI	12	6	Rehoboam		Rehoboam, king	False
 1KI	12	7	elders			False
 1KI	12	9	Rehoboam		Rehoboam, king	False
-1KI	12	10	young men			False
-1KI	12	12	Rehoboam		Rehoboam, king	False
+1KI	12	10	young men (advisors of Rehoboam)			False		1KI 12.10;2CH 10.10
+1KI	12	11	young men (advisors of Rehoboam)			False		1KI 12.11;2CH 10.11
+1KI	12	12	narrator-1KI	quoting Rehoboam		False
+1KI	12	12	Rehoboam	re-quote of previous command	Rehoboam, king	False
 1KI	12	14	Rehoboam		Rehoboam, king	False
 1KI	12	16	Israel, all			False
 1KI	12	23	God		God (the LORD)(word of the LORD came)	False
@@ -2817,7 +2827,7 @@ RUT	4	17	women of Bethlehem			False
 1KI	13	21	prophet in Bethel (old)	word of the LORD		False
 1KI	13	26	prophet in Bethel (old)			False
 1KI	13	27	prophet in Bethel (old)			False
-1KI	13	30	prophet in Bethel (old)/sons			False
+1KI	13	30	sons of prophet in Bethel			False
 1KI	13	31	prophet in Bethel (old)			False
 1KI	14	2	Jeroboam		Jeroboam, king of Israel	False
 1KI	14	5	God		God (the LORD)	False
@@ -2825,7 +2835,7 @@ RUT	4	17	women of Bethlehem			False
 1KI	14	12	Ahijah, the prophet			False
 1KI	14	14	Ahijah, the prophet			False
 1KI	15	19	Asa, king of Judah			False
-1KI	16	2	Jehu	word of the LORD	Jehu, son of Hanani	False
+1KI	16	2	Jehu, son of Hanani	word of the LORD		False
 1KI	17	1	Elijah			False
 1KI	17	3	God		God (the LORD)(word of the LORD came)	False
 1KI	17	9	God		God (the LORD)(word of the LORD came)	False
@@ -2902,12 +2912,12 @@ RUT	4	17	women of Bethlehem			False
 1KI	20	33	officials of Ben-Hadad, king of Aram			False
 1KI	20	34	Ahab, king of Israel			False
 1KI	20	34	Ben-Hadad, king of Aram			False
-1KI	20	35	prophet, sons of the, one			False
-1KI	20	36	prophet, sons of the, one			False
-1KI	20	37	prophet, sons of the, one			False
-1KI	20	39	prophet, sons of the, one			False
+1KI	20	35	prophet who confronts Ahab			False
+1KI	20	36	prophet who confronts Ahab			False
+1KI	20	37	prophet who confronts Ahab			False
+1KI	20	39	prophet who confronts Ahab			False
 1KI	20	40	Ahab, king of Israel			False
-1KI	20	42	prophet, sons of the, one			False
+1KI	20	42	prophet who confronts Ahab			False
 1KI	21	2	Ahab, king of Israel			False
 1KI	21	3	Naboth			False
 1KI	21	4	narrator-1KI			False
@@ -3002,7 +3012,7 @@ RUT	4	17	women of Bethlehem			False
 2KI	3	8	Joram, king of Israel			False
 2KI	3	10	Joram, king of Israel			False
 2KI	3	11	Jehoshaphat, king of Judah			False
-2KI	3	11	officer of king of Israel			False
+2KI	3	11	officer of King Jehoshaphat of Israel			False
 2KI	3	12	Jehoshaphat, king of Judah			False
 2KI	3	13	Elisha			False
 2KI	3	13	Joram, king of Israel			False
@@ -3095,22 +3105,22 @@ RUT	4	17	women of Bethlehem			False
 2KI	6	33	Joram, king of Israel			False
 2KI	7	1	Elisha		Elisha (the LORD says)	False
 2KI	7	2	Elisha			False
-2KI	7	2	officer of king of Israel			False
+2KI	7	2	officer of king of Israel, on whose arm the king leaned			False
 2KI	7	3	men with leprosy, four			False
 2KI	7	6	Aramean soldiers			False
 2KI	7	9	men with leprosy, four			False
 2KI	7	10	men with leprosy, four			False
 2KI	7	12	Joram, king of Israel			False
-2KI	7	13	officer of king of Israel, one of			False
+2KI	7	13	officer of King Joram of Israel			False
 2KI	7	14	Joram, king of Israel			False
 2KI	7	18	Elisha		Elisha (had said)	False
 2KI	7	19	Elisha		Elisha (had said)	False
-2KI	7	19	officer of king of Israel (had said)			False
+2KI	7	19	officer of king of Israel, on whose arm the king leaned (post mortem)			False
 2KI	8	1	Elisha		Elisha (had said)	False
 2KI	8	4	Joram, king of Israel			False
 2KI	8	5	Gehazi		Gehazi, servant of Elisha	False
 2KI	8	6	Joram, king of Israel			False
-2KI	8	7	someone told King of Aram			False
+2KI	8	7	person who told King of Aram of Elisha's arrival			False
 2KI	8	8	Ben-Hadad, king of Aram			False
 2KI	8	9	Hazael of Aram			False
 2KI	8	10	Elisha			False
@@ -3172,12 +3182,12 @@ RUT	4	17	women of Bethlehem			False
 2KI	10	30	God		God (the LORD)	False
 2KI	11	5	Jehoiada		Jehoiada the priest	False
 2KI	11	12	people at coronation of King Joash	shouting/rejoicing		False
-2KI	11	14	Athaliah			False
+2KI	11	14	Athaliah, mother of Ahaziah (Queen)		Athaliah	False
 2KI	11	15	Jehoiada		Jehoiada the priest	False
 2KI	12	4	Joash, king of Judah			False
 2KI	12	7	Joash, king of Judah			False
 2KI	13	14	Jehoash, king of Israel			False
-2KI	13	15	Elisha			False
+2KI	13	15	Elisha			False2 kings 
 2KI	13	16	Elisha			False
 2KI	13	17	Elisha			False
 2KI	13	18	Elisha			False
@@ -3191,7 +3201,7 @@ RUT	4	17	women of Bethlehem			False
 2KI	17	12	God		God (the LORD) had said	False
 2KI	17	13	God		God (the LORD) had warned through prophets and seers	False
 2KI	17	15	God		God (the LORD) had ordered them	False
-2KI	17	26	Report to King of Assyria			False
+2KI	17	26	report to King of Assyria			False
 2KI	17	27	King of Assyria			False
 2KI	17	35	God		God (the LORD), commandment of	False
 2KI	18	14	Hezekiah, king of Judah			False
@@ -3231,13 +3241,13 @@ RUT	4	17	women of Bethlehem			False
 2KI	20	19	Hezekiah, king of Judah			False
 2KI	21	4	God		God (the LORD) had said	False
 2KI	21	7	God		God (the LORD) had said	False
-2KI	21	11	prophets (the LORD said)			False
+2KI	21	11-15	prophets (speaking the word of the LORD)			False
 2KI	22	4	Josiah, king of Judah			False
 2KI	22	8	Hilkiah, high priest			False
 2KI	22	9	Shaphan, secretary			False
 2KI	22	10	Shaphan, secretary			False
 2KI	22	13	Josiah, king of Judah			False
-2KI	22	15	Huldah		Huldah, prophetess (the LORD says)	False
+2KI	22	15	Huldah, prophetess		Huldah, prophetess (the LORD says)	False
 2KI	23	17	Josiah, king of Judah			False
 2KI	23	17	men of the city (Bethel)			False
 2KI	23	18	Josiah, king of Judah			False
@@ -3316,7 +3326,7 @@ RUT	4	17	women of Bethlehem			False
 1CH	21	15	God		God (the LORD)	False
 1CH	21	17	David			False
 1CH	21	22	David		David, king	False
-1CH	21	23	Araunah			False
+1CH	21	23	Araunah, the Jebusite			False
 1CH	21	24	David		David, king	False
 1CH	22	1	David		David, king	False
 1CH	22	5	David		David, king	False
@@ -3368,7 +3378,7 @@ RUT	4	17	women of Bethlehem			False
 2CH	6	40	Solomon, king			False
 2CH	6	41	Solomon, king			False
 2CH	6	42	Solomon, king			False
-2CH	7	3	Israel 2	worshipping God	Israel, all 1	False
+2CH	7	3	Israel	worshipping God		False
 2CH	7	6	priests/Levites			False
 2CH	7	12	God		God (LORD appeared in dream at night)	False
 2CH	7	13	God		God (LORD appeared in dream at night)	False
@@ -3381,21 +3391,22 @@ RUT	4	17	women of Bethlehem			False
 2CH	10	6	Rehoboam		Rehoboam, king	False
 2CH	10	7	elders			False
 2CH	10	9	Rehoboam		Rehoboam, king	False
-2CH	10	10	advisor (young)	foolish men		False
-2CH	10	12	narrator-2CH			False
-2CH	10	12	Rehoboam		Rehoboam, king, had said	False
+2CH	10	10	young men (advisors of Rehoboam)			False		1KI 12.10;2CH 10.10
+2CH	10	11	young men (advisors of Rehoboam)			False		1KI 12.11;2CH 10.11
+2CH	10	12	narrator-2CH	quoting Rehoboam		False
+2CH	10	12	Rehoboam	re-quote of previous command	King Rehoboam	False
 2CH	10	14	Rehoboam		Rehoboam, king	False
 2CH	10	16	Israel, all			False
 2CH	11	3	God		word of the LORD came to Shemaiah	False
 2CH	12	5	Shemaiah		Shemaiah, prophet (the LORD says)	False
-2CH	12	6	Israel 1		Israel, leaders of/Rehoboam, king	False
+2CH	12	6	Israel, leaders of/King Rehoboam			False
 2CH	12	7	God		word of the LORD came to Shemaiah	False
 2CH	13	4	Abijah, king of Judah			False
 2CH	13	8	Abijah, king of Judah			False
 2CH	13	10	Abijah, king of Judah			False
 2CH	14	7	Asa, king of Judah			False
 2CH	14	11	Asa, king of Judah			False
-2CH	15	2	Azariah		Azariah, prophet (Spirit of God on)	False
+2CH	15	2	Azariah, son of Oded			False
 2CH	16	3	Asa, king of Judah			False
 2CH	16	7	Hanani		Hanani the seer	False
 2CH	18	3	Ahab, king of Israel			False
@@ -3429,7 +3440,7 @@ RUT	4	17	women of Bethlehem			False
 2CH	18	30	King of Aram	commanding		False
 2CH	18	31	chariot commanders of Aram	thought		False
 2CH	18	33	Ahab, king of Israel			False
-2CH	19	2	Jehu		Jehu, son of Hanani, the seer	False
+2CH	19	2	Jehu, son of Hanani			False
 2CH	19	6	Jehoshaphat, king of Judah			False
 2CH	19	9	Jehoshaphat, king of Judah			False
 2CH	19	11	Jehoshaphat, king of Judah			False
@@ -3444,7 +3455,7 @@ RUT	4	17	women of Bethlehem			False
 2CH	22	9	men, some			False
 2CH	23	3	Jehoiada		Jehoiada the priest	False
 2CH	23	11	Jehoiada		Jehoiada the priest/his sons	False
-2CH	23	13	Athaliah	wicked	Athaliah, queen	False
+2CH	23	13	Athaliah, mother of Ahaziah (Queen)	angry, wicked	Athaliah, queen	False
 2CH	23	14	Jehoiada		Jehoiada the priest	False
 2CH	24	5	Joash, king of Judah			False
 2CH	24	6	Joash, king of Judah			False
@@ -3459,17 +3470,17 @@ RUT	4	17	women of Bethlehem			False
 2CH	25	16	prophet of the LORD, a		prophet, a	False
 2CH	25	17	Amaziah		Amaziah, king of Judah	False
 2CH	25	18	Jehoash, king of Israel			False
-2CH	26	18	Azariah	courageous	Azariah the priest/80 priests	False
+2CH	26	18	Azariah the priest/eighty other priests	courageous		False	Azariah the priest
 2CH	26	23	people			False
 2CH	28	9	Oded, prophet of the Lord			False
-2CH	28	13	leaders in Ephraim			False
+2CH	28	13	leaders in Ephraim (Azariah/Berekiah/Jehizkiah/Amasa)			False
 2CH	28	23	Ahaz, king of Judah	thought		False
 2CH	29	5	Hezekiah, king of Judah			False
 2CH	29	18	priests/Levites		priests	False
 2CH	29	31	Hezekiah, king of Judah			False
 2CH	30	6	Hezekiah, king of Judah	letter		False
 2CH	30	18	Hezekiah, king of Judah			False
-2CH	31	10	Azariah		Azariah the priest	False
+2CH	31	10	Azariah the priest		Azariah the chief priest	False
 2CH	32	4	men, large force of			False
 2CH	32	7	Hezekiah, king of Judah			False
 2CH	32	10-16	Sennacherib's officers			False
@@ -3483,7 +3494,7 @@ RUT	4	17	women of Bethlehem			False
 2CH	34	16	Shaphan, secretary			False
 2CH	34	18	Shaphan, secretary			False
 2CH	34	21	Josiah, king of Judah			False
-2CH	34	23	Huldah	woman	Huldah, prophetess	False
+2CH	34	23	Huldah, prophetess			False
 2CH	35	3	Josiah, king of Judah			False
 2CH	35	5	Josiah, king of Judah			False
 2CH	35	21	Neco, king of Egypt			False
@@ -3561,7 +3572,7 @@ NEH	4	2	Sanballat	angry, ridiculing	Sanballat, enemy	False
 NEH	4	3	Tobiah, enemy	mocking, ridiculing		False
 NEH	4	10	Judah, people in			False
 NEH	4	11	Sanballat		Enemies of Judah and Benjamin	False
-NEH	4	12	Jews 2	desperate		False
+NEH	4	12	Jews	desperate		False
 NEH	4	14	Nehemiah			False
 NEH	4	19	Nehemiah			False
 NEH	4	22	Nehemiah			False
@@ -3583,7 +3594,7 @@ NEH	6	9	Sanballat	thinking	Sanballat/Geshem, enemies	False
 NEH	6	10	Shemaiah		Shemaiah, son of Delaiah, false prophet	False
 NEH	6	11	Nehemiah			False
 NEH	7	3	Nehemiah			False
-NEH	8	6	people, all the 4	praising		False
+NEH	8	6	people, all the	praising		False
 NEH	8	9	Nehemiah		Nehemiah/Ezra/Levites	False
 NEH	8	10	Nehemiah			False
 NEH	8	11	Levites			False
@@ -4641,10 +4652,10 @@ PSA	9	1	narrator-PSA			False
 PSA	10	6	narrator-PSA			False
 PSA	10	11	man, wicked			False
 PSA	10	13	man, wicked			False
-PSA	11	1	someone			False
-PSA	11	2	someone			False
-PSA	11	3	someone			False
-PSA	12	4	someone	flattering, boastful, lying		False
+PSA	11	1	someone (hypothetical argument)			False
+PSA	11	2	someone (hypothetical argument)			False
+PSA	11	3	someone (hypothetical argument)			False
+PSA	12	4	flatterers	flattering, boastful, lying		False
 PSA	12	5	God		God (the LORD)	False
 PSA	13	4	David's enemies		David's enemy	False
 PSA	14	1	fool			False
@@ -4774,7 +4785,7 @@ PSA	87	5	saying about Zion			False
 PSA	87	6	God		God (the LORD) will write	False
 ECC	1	2	teacher (Preacher)			False
 ECC	1	10	someone			False
-ECC	1	16	someone			False
+ECC	1	16	teacher (Preacher)			False
 ECC	2	1	teacher (Preacher)			False
 ECC	2	2	teacher (Preacher)			False
 ECC	2	15	teacher (Preacher)	said/thought in heart		False
@@ -4868,7 +4879,7 @@ ISA	1	31	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	False
 ISA	1	31	Isaiah			False
 ISA	2	3	narrator-ISA			False
 ISA	2	3	peoples, many			False
-ISA	3	6	man, a			False
+ISA	3	6	man (hypothetical)			False
 ISA	3	6	narrator-ISA			False
 ISA	3	7	man's brother			False
 ISA	3	7	narrator-ISA			False
@@ -4924,16 +4935,16 @@ ISA	10	24	God		God (the LORD, the LORD Almighty)	False
 ISA	10	25	God		God (the LORD, the LORD Almighty)	False
 ISA	10	29	narrator-ISA			False
 ISA	10	29	soldiers, Assyrian			False
-ISA	12	1	Israel 2	will say		False
+ISA	12	1	Israel	will say		False
 ISA	12	1	narrator-ISA			False
-ISA	12	2	Israel 2	will say		False
+ISA	12	2	Israel	will say		False
 ISA	12	2	narrator-ISA			False
 ISA	12	3	narrator-ISA			False
-ISA	12	4	Israel 2	will say		False
+ISA	12	4	Israel	will say		False
 ISA	12	4	narrator-ISA			False
-ISA	12	5	Israel 2	will say		False
+ISA	12	5	Israel	will say		False
 ISA	12	5	narrator-ISA			False
-ISA	12	6	Israel 2	will say		False
+ISA	12	6	Israel	will say		False
 ISA	12	6	narrator-ISA			False
 ISA	14	8	narrator-ISA			False
 ISA	14	8	pine trees/cedars of Lebanon			False
@@ -4981,7 +4992,7 @@ ISA	21	8	narrator-ISA			False
 ISA	21	9	Lookout			False
 ISA	21	9	narrator-ISA			False
 ISA	21	11	narrator-ISA			False
-ISA	21	11	someone			False
+ISA	21	11	someone from Seir			False
 ISA	21	12	narrator-ISA			False
 ISA	21	12	watchman			False
 ISA	21	16	God		God (the LORD)	False
@@ -5020,8 +5031,10 @@ ISA	28	17	God		God (The Sovereign LORD)	False
 ISA	28	18	God		God (The Sovereign LORD)	False
 ISA	28	19	God		God (The Sovereign LORD)	False
 ISA	29	11	narrator-ISA			False
+ISA	29	11	person asking someone to read a sealed book			False
 ISA	29	11	reader			False
 ISA	29	12	narrator-ISA			False
+ISA	29	12	person asking someone to read a sealed book			False
 ISA	29	12	non-reader			False
 ISA	29	13	God		God (the LORD)	False
 ISA	29	14	God		God (the LORD)	False
@@ -5046,11 +5059,11 @@ ISA	30	13	God		God (Holy One of Israel)	False
 ISA	30	14	God		God (Holy One of Israel)	False
 ISA	30	15	God		God (The Sovereign LORD, the Holy One of Israel)	False
 ISA	30	16	God		God (The Sovereign LORD, the Holy One of Israel)	False
-ISA	30	16	you			False
+ISA	30	16	you (rebelious people)			False
 ISA	30	17	God		God (The Sovereign LORD, the Holy One of Israel)	False
 ISA	30	21	God		voice, a (God?)	False
 ISA	30	22	narrator-ISA			False
-ISA	30	22	you			False
+ISA	30	22	you (people of Zion, restored)			False
 ISA	31	4	God		God (the LORD)	False
 ISA	31	5	God		God (the LORD)	False
 ISA	31	8	God		God (the LORD)	False
@@ -5061,7 +5074,7 @@ ISA	33	12	God		God (the LORD)	False
 ISA	33	14	narrator-ISA			False
 ISA	33	14	sinners			False
 ISA	33	18	narrator-ISA			False
-ISA	33	18	you			False
+ISA	33	18	you (hypothetical)	thinking, questioning		False
 ISA	33	24	narrator-ISA			False
 ISA	35	4	narrator-ISA			False
 ISA	36	4	Field commander from King of Assyria			False
@@ -5124,7 +5137,7 @@ ISA	40	8	God		voice, a (God?)	False
 ISA	40	9	narrator-ISA			False
 ISA	40	9	you who bring good tidings to Zion			False
 ISA	40	25	God		God (the Holy One)	False
-ISA	40	27	Israel 1		Israel	False
+ISA	40	27	Israel			False
 ISA	40	27	narrator-ISA			False
 ISA	41	1	God		God (the LORD)	False
 ISA	41	2	God		God (the LORD)	False
@@ -5299,7 +5312,7 @@ ISA	48	20	narrator-ISA			False
 ISA	48	22	God		God (the LORD)	False
 ISA	49	3	God		God (the LORD)	False
 ISA	49	3	narrator-ISA			False
-ISA	49	4	Israel 1		Israel	False
+ISA	49	4	Israel			False
 ISA	49	4	narrator-ISA			False
 ISA	49	6	God		God (the LORD)	False
 ISA	49	7	God		God (the LORD, Redeemer, the Holy One of Israel)	False
@@ -5583,10 +5596,10 @@ JER	5	8	God		God (the LORD)	False
 JER	5	9	God		God (the LORD)	False
 JER	5	10	God		God (the LORD)	False
 JER	5	11	God		God (the LORD)	False
-JER	5	12	Israel 3		Israel says	False
+JER	5	12	Israel		 	False
 JER	5	12	Jeremiah quoting Israel			False
 JER	5	12	narrator-JER			False
-JER	5	13	Israel 3		Israel says	False
+JER	5	13	Israel			False
 JER	5	13	Jeremiah quoting Israel			False
 JER	5	13	narrator-JER			False
 JER	5	14	God		God (the LORD God Almighty)	False
@@ -5995,7 +6008,7 @@ JER	42	5	Johanan		Johanan/all the army officers/all the people	False
 JER	42	9	Jeremiah		Jeremiah, the prophet (word of the LORD came)	False
 JER	42	13	Jeremiah		Jeremiah, the prophet (word of the LORD came)	False
 JER	42	19	Jeremiah		Jeremiah, the prophet (word of the LORD came)	False
-JER	43	2	Johanan		Johanan/Azariah/arrogant men	False
+JER	43	2	Azariah/Johanan/arrogant men		Azariah, Johanan and all the arrogant men	False	Johanan
 JER	43	9	God		God (the LORD)(word of the LORD came)	False
 JER	44	2	God		God (the LORD)(word of the LORD came)	False
 JER	44	7	God		God (the LORD)(word of the LORD came)	False
@@ -6749,9 +6762,9 @@ HOS	5	12	God		word of the LORD spoken through Hosea	False
 HOS	5	13	God		word of the LORD spoken through Hosea	False
 HOS	5	14	God		word of the LORD spoken through Hosea	False
 HOS	5	15	God		word of the LORD spoken through Hosea	False
-HOS	6	1	Israel 1		Israel	False
-HOS	6	2	Israel 1		Israel	False
-HOS	6	3	Israel 1		Israel	False
+HOS	6	1	Israel			False
+HOS	6	2	Israel			False
+HOS	6	3	Israel			False
 HOS	6	4	God		word of the LORD spoken through Hosea	False
 HOS	6	5	God		word of the LORD spoken through Hosea	False
 HOS	6	6	God		word of the LORD spoken through Hosea	False
@@ -6819,7 +6832,7 @@ HOS	11	11	God		word of the LORD spoken through Hosea	False
 HOS	12	8	Hosea		Hosea saying what wicked will say	False
 HOS	12	9	God		word of the LORD spoken through Hosea	False
 HOS	12	10	God		word of the LORD spoken through Hosea	False
-HOS	13	2	It is said			False
+HOS	13	2	idolators			False
 HOS	13	4	God		word of the LORD spoken through Hosea	False
 HOS	13	5	God		word of the LORD spoken through Hosea	False
 HOS	13	6	God		word of the LORD spoken through Hosea	False
@@ -6994,13 +7007,13 @@ OBA	1	17	God		God (the LORD)	False
 OBA	1	18	God		God (the LORD)	False
 JON	1	2	God		God (the LORD)(word of the LORD came)	False
 JON	1	6	captain			False
-JON	1	7	Sailors			False
-JON	1	8	Sailors			False
+JON	1	7	sailors			False
+JON	1	8	sailors			False
 JON	1	9	Jonah			False
-JON	1	10	Sailors			False
-JON	1	11	Sailors			False
+JON	1	10	sailors			False
+JON	1	11	sailors			False
 JON	1	12	Jonah			False
-JON	1	14	Sailors			False
+JON	1	14	sailors			False
 JON	2	2	Jonah	praying		False
 JON	2	3	Jonah	praying		False
 JON	2	4	Jonah	praying		False
@@ -7022,9 +7035,9 @@ MIC	1	6	God		God (the LORD)	False
 MIC	1	7	God		God (the LORD)	False
 MIC	2	3	God		God (the LORD)	False
 MIC	2	4	God		God (the LORD)	False
-MIC	2	6	prophets, their			False
+MIC	2	6	false prophets/people (as quoted by God/Micah)			False
 MIC	2	7	God		God (the LORD)	False
-MIC	2	7	prophets, their			False
+MIC	2	7	false prophets/people (as quoted by God/Micah)			False
 MIC	2	8	God		God (the LORD)	False
 MIC	2	9	God		God (the LORD)	False
 MIC	2	10	God		God (the LORD)	False
@@ -7297,8 +7310,8 @@ MAT	2	1	narrator-MAT			False
 MAT	2	2	magi			True
 MAT	2	3	narrator-MAT			False
 MAT	2	4	Herod the Great			False
-MAT	2	5	Good Priest		people's chief priests/teachers of the law|Good Priest	True
-MAT	2	6	Good Priest		people's chief priests/teachers of the law|Good Priest	False
+MAT	2	5	chief priests/teachers of the law			True	Good Priest
+MAT	2	6	chief priests/teachers of the law			False	Good Priest
 MAT	2	7	narrator-MAT			False
 MAT	2	8	Herod the Great	sly		True
 MAT	2	13	angel of the LORD, an	commanding		False
@@ -7339,36 +7352,37 @@ MAT	8	7	Jesus			True
 MAT	8	8	centurion with great faith			True
 MAT	8	9	centurion with great faith			False
 MAT	8	10	Jesus	surprised		True
-MAT	8	11	Jesus	preaching		False
+MAT	8	11-12	Jesus			False
 MAT	8	13	Jesus	giving orders		True
 MAT	8	17	scripture			False
 MAT	8	18	Jesus	giving orders		False
-MAT	8	19	teacher of the law	eager		True
+MAT	8	19	teacher of the law	eager		True		MAT 8.19;LUK 9.57
 MAT	8	20	Jesus	questioning		True
-MAT	8	21	disciples, some	making excuse	disciple, another=man, another	True
+MAT	8	21	disciple who wanted to bury his father	making excuse	disciple, another	True		MAT 8.21;LUK 9.59
 MAT	8	22	Jesus	giving orders		True
-MAT	8	25	disciples 3	terrified		True
+MAT	8	25	disciples	terrified		True
 MAT	8	26	Jesus	giving orders		True
-MAT	8	27	disciples 2	amazed	disciples 4	False
+MAT	8	27	disciples	amazed		False
 MAT	8	29	demons/demon-possessed man	screaming	demon-possessed men, two	True
 MAT	8	31	demons/demon-possessed man	begging	demons	True
 MAT	8	32	Jesus	giving orders		True
-MAT	8	34	townsmen	pleading		False
+MAT	8	33	pig herdsmen			False
+MAT	8	34	Gadarene (or Gerasenes) people	pleading	the whole town (of the region of the Gadarenes)	False		MAT 8.34;MRK 5.17;LUK 8.37
 MAT	9	2	Jesus	compassionately		True
 MAT	9	3	teachers of the law	indignant		False
 MAT	9	4	Jesus	questioning		True
 MAT	9	6	Jesus	giving orders		True
 MAT	9	9	Jesus	giving orders		False
 MAT	9	10	narrator-MAT			False
-MAT	9	11	Pharisees/teachers of the law 3	questioning		True
+MAT	9	11	Pharisees/teachers of the law	questioning		True
 MAT	9	12	Jesus	questioning		True
 MAT	9	13	Jesus	sternly		False
 MAT	9	14	John's disciples	puzzled		True
 MAT	9	15	Jesus			True
 MAT	9	16	Jesus			False
 MAT	9	17	Jesus			False
-MAT	9	18	Jairus=ruler, a	pleading		True
-MAT	9	21	woman, bleeding for 12 years	thinking to herself		False
+MAT	9	18	Jairus (synagogue leader)	pleading	synagogue leader	True		MAT 9.18;MRK 5.23;LUK 8.41
+MAT	9	21	woman, bleeding for twelve years	thinking to herself		False
 MAT	9	22	Jesus			True
 MAT	9	24	Jesus	giving orders		True
 MAT	9	27	blind men, two	shouting		True
@@ -7376,8 +7390,8 @@ MAT	9	28	blind men, two	quieter		True
 MAT	9	28	Jesus	questioning		True
 MAT	9	29	Jesus			True
 MAT	9	30	Jesus	warning		True
-MAT	9	33	crowd 6	amazed		False
-MAT	9	34	teachers of the law/Pharisees	accusing	Pharisees 3	False
+MAT	9	33	crowd	amazed		False
+MAT	9	34	teachers of the law/Pharisees	accusing		False
 MAT	9	37	Jesus			True
 MAT	10	1	Jesus			False
 MAT	10	5	Jesus	instructing		False
@@ -7412,7 +7426,7 @@ MAT	10	38	Jesus	instructing		False
 MAT	10	39	Jesus	instructing		False
 MAT	10	40	Jesus	instructing		False
 MAT	10	42	Jesus	instructing		False
-MAT	11	3	John's disciples	puzzled		True
+MAT	11	3	John's disciples	puzzled		True		MAT 11.3;LUK 7.20
 MAT	11	4	Jesus			False
 MAT	11	5	Jesus			False
 MAT	11	6	Jesus			False
@@ -7431,20 +7445,20 @@ MAT	11	23	Jesus	warning		False
 MAT	11	25	Jesus	praying		False
 MAT	11	27	Jesus			False
 MAT	11	28	Jesus	compassionately		False
-MAT	12	2	Pharisees 2	angry		True
+MAT	12	2	Pharisees	angry		True
 MAT	12	3	Jesus	patiently		True
 MAT	12	4	Jesus	patiently		False
 MAT	12	7	Jesus			False
 MAT	12	7	Jesus	patiently		False
-MAT	12	10	teachers of the law/Pharisees	testing	Pharisees 3	True
+MAT	12	10	teachers of the law/Pharisees	testing		True
 MAT	12	11	Jesus			True
 MAT	12	13	Jesus	giving orders		True
 MAT	12	16	Jesus	warning		False
 MAT	12	18	scripture			False
 MAT	12	19	scripture			False
 MAT	12	20	scripture			False
-MAT	12	23	people, all the 2	astonished		False
-MAT	12	24	Pharisees/teachers of the law		Pharisees 4	False
+MAT	12	23	people, all the	astonished		False
+MAT	12	24	Pharisees/teachers of the law			False
 MAT	12	25	Jesus			False
 MAT	12	26	Jesus			False
 MAT	12	27	Jesus			False
@@ -7465,7 +7479,7 @@ MAT	12	42	Jesus	rebuking		False
 MAT	12	43	Jesus			False
 MAT	12	44	Jesus			False
 MAT	12	45	Jesus			False
-MAT	12	47	someone=they (in crowd)	announcing		True
+MAT	12	47	crowd	announcing	someone	True		MAT 12.47;MRK 3.32;LUK 8.20
 MAT	12	48	Jesus	questioning		True
 MAT	12	49	Jesus			True
 MAT	13	3	Jesus			False
@@ -7475,7 +7489,7 @@ MAT	13	6	Jesus			False
 MAT	13	7	Jesus			False
 MAT	13	8	Jesus			False
 MAT	13	9	Jesus			False
-MAT	13	10	disciples 3	questioning		True
+MAT	13	10	disciples	questioning		True
 MAT	13	11	Jesus			False
 MAT	13	13	Jesus			False
 MAT	13	14	Jesus			False
@@ -7519,9 +7533,9 @@ MAT	14	7	Herod Antipas (the tetrarch)			False
 MAT	14	8	Herodias' daughter			False
 MAT	14	9	Herod Antipas (the tetrarch)			False
 MAT	14	10	Herod Antipas (the tetrarch)			False
-MAT	14	15	disciples 2	taking charge	disciples	True
+MAT	14	15	disciples	taking charge		True		MAT 14.15;MRK 6.35-36;LUK 9.12
 MAT	14	16	Jesus			True
-MAT	14	17	Andrew		Andrew=disciples	True
+MAT	14	17	Andrew		disciples	True		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
 MAT	14	18	Jesus	giving orders		True
 MAT	14	19	Jesus			False
 MAT	14	19	Jesus	praying		False
@@ -7531,31 +7545,31 @@ MAT	14	28	Peter (Simon)	calling out		True
 MAT	14	29	Jesus	giving orders		True
 MAT	14	30	Peter (Simon)	afraid		True
 MAT	14	31	Jesus	questioning		True
-MAT	14	33	disciples 1	awe	disciples (but not Thomas)	True
+MAT	14	33	disciples	awe	disciples (those in the boat)	True
 MAT	14	36	people, many			False
-MAT	15	2	teachers of the law/Pharisees	rebuke	Pharisees/teachers of the law, some	True
+MAT	15	2	teachers of the law/Pharisees	critical	Pharisees and teachers of the law	True		MAT 15.2;MRK 7.5
 MAT	15	3	Jesus			True
 MAT	15	4	Jesus			False
 MAT	15	5	Jesus			False
 MAT	15	8	Jesus			False
 MAT	15	9	Jesus			False
 MAT	15	10	Jesus			True
-MAT	15	12	disciples 3	rebuke		True
+MAT	15	12	disciples	rebuke		True
 MAT	15	13	Jesus			True
 MAT	15	14	Jesus			False
 MAT	15	15	Peter (Simon)	puzzled		True
 MAT	15	16	Jesus			True
 MAT	15	17	Jesus			False
-MAT	15	22	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl	pleading		True
-MAT	15	23	disciples 3	impatient		True
+MAT	15	22	Canaanite (Syrophoenician) mother of possessed girl	pleading		True		MAT 15.22;MRK 7.26
+MAT	15	23	disciples	impatient		True
 MAT	15	24	Jesus			True
-MAT	15	25	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl	pleading		True
+MAT	15	25	Canaanite (Syrophoenician) mother of possessed girl	pleading		True
 MAT	15	26	Jesus	testing faith		True
-MAT	15	27	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl			True
+MAT	15	27	Canaanite (Syrophoenician) mother of possessed girl			True
 MAT	15	28	Jesus			True
 MAT	15	31	everyone in crowd	praising God		False
 MAT	15	32	Jesus	compassionately		True
-MAT	15	33	disciples 3	impatient		True
+MAT	15	33	disciples	impatient		True
 MAT	15	34	disciples			True
 MAT	15	34	Jesus	questioning		True
 MAT	15	35	Jesus			False
@@ -7564,10 +7578,10 @@ MAT	16	2	Jesus			False
 MAT	16	3	Jesus			False
 MAT	16	4	Jesus			False
 MAT	16	6	Jesus	warning		True
-MAT	16	7	disciples 3	defensive		False
+MAT	16	7	disciples	defensive		False
 MAT	16	8	Jesus			True
 MAT	16	13	Jesus	questioning		True
-MAT	16	14	disciples 3	excited		True
+MAT	16	14	disciples	excited		True
 MAT	16	15	Jesus			True
 MAT	16	16	Peter (Simon)			True
 MAT	16	17	Jesus			True
@@ -7583,11 +7597,13 @@ MAT	17	4	Peter (Simon)	afraid		True
 MAT	17	5	God		voice from bright cloud (God)	False
 MAT	17	7	Jesus	giving orders		True
 MAT	17	9	Jesus	forcefully		True
-MAT	17	10	John		Peter (Simon)/James/John=disciples|John	True
+MAT	17	10	Peter (Simon)/James/John	puzzled	the disciples (Peter (Simon)/James/John)	True	John	MAT 17.10;MRK 9.11
 MAT	17	11	Jesus			True
-MAT	17	15	father of possessed boy=man in crowd	distraught		True
-MAT	17	17	Jesus	giving orders		True
-MAT	17	19	disciples 3	upset		True
+MAT	17	15-16	father of demon-possessed boy	distraught	a man (father of demon-possessed boy)	True		MAT 17.15-16;MRK 9.17-18,22;LUK 9.38-40
+MAT	17	17	Jesus	exasperated		True		MAT 17.17;MRK 9.19;LUK 9.41
+MAT	17	17	Jesus	exasperated; giving orders		True		MAT 17.17;MRK 9.19;LUK 9.41
+MAT	17	17	Jesus	giving orders		True		MAT 17.17;MRK 9.19;LUK 9.41
+MAT	17	19	disciples	upset		True
 MAT	17	20	Jesus			True
 MAT	17	22	Jesus			False
 MAT	17	24	collectors of temple tax	demanding		True
@@ -7596,7 +7612,7 @@ MAT	17	25	Peter (Simon)			True
 MAT	17	26	Jesus			True
 MAT	17	26	Peter (Simon)			True
 MAT	17	27	Jesus			False
-MAT	18	1	disciples 1			True
+MAT	18	1	disciples			True
 MAT	18	3	Jesus			True
 MAT	18	5	Jesus			False
 MAT	18	6	Jesus			False
@@ -7629,17 +7645,17 @@ MAT	19	5	Jesus			False
 MAT	19	6	Jesus			False
 MAT	19	7	Pharisees, some	challenge		True
 MAT	19	8	Jesus			True
-MAT	19	10	disciples 2	shocked		True
+MAT	19	10	disciples	shocked		True
 MAT	19	11	Jesus			True
 MAT	19	14	Jesus			False
-MAT	19	16	ruler, a certain=man, rich young	respectful		True
+MAT	19	16	rich young ruler	respectful	man (young)	True		MAT 19.16;MRK 10.17;LUK 18.18
 MAT	19	17	Jesus			True
-MAT	19	18	Jesus			True
-MAT	19	18	ruler, a certain=man, rich young			True
-MAT	19	20	ruler, a certain=man, rich young	upset		True
+MAT	19	18	rich young ruler		man (young)	True
+MAT	19	18-19	Jesus			True
+MAT	19	20	rich young ruler	upset	man (young)	True		MAT 19.20;MRK 10.20;LUK 18.21
 MAT	19	21	Jesus			True
 MAT	19	23	Jesus			True
-MAT	19	25	disciples 3	shocked	disciples 3=those who heard	True
+MAT	19	25	disciples	shocked		True		MAT 19.25;MRK 10.26;LUK 18.26
 MAT	19	26	Jesus			True
 MAT	19	27	Peter (Simon)	confused		True
 MAT	19	28	Jesus			True
@@ -7665,39 +7681,41 @@ MAT	20	20	mother of Zebedee's sons			False
 MAT	20	21	Jesus			True
 MAT	20	21	mother of Zebedee's sons			True
 MAT	20	22	Jesus			True
-MAT	20	22	John	boldly	James/John (sons of Zebedee)|John	True
+MAT	20	22	James/John (sons of Zebedee)	boldly		True	John
 MAT	20	23	Jesus			True
 MAT	20	25	Jesus			True
 MAT	20	26	Jesus			False
 MAT	20	27	Jesus			False
 MAT	20	28	Jesus			False
-MAT	20	30	Bartimaeus	shouting	Bartimaeus, blind/other=blind men, two	True
-MAT	20	31	Bartimaeus	shouting	Bartimaeus, blind/other=blind men, two	True
-MAT	20	31	crowd 3			True
+MAT	20	30	crowd			True		MAT 20.30;MRK 10.47;LUK 18.37
+MAT	20	30	blind men, two	shouting		True	Bartimaeus	MAT 20.30;MRK 10.47;LUK 18.38
+MAT	20	31	crowd	rebuking		True		MAT 20.31;MRK 10.48;LUK 18.39
+MAT	20	31	blind men, two	shouting		True	Bartimaeus	MAT 20.31;MRK 10.48;LUK 18.39
 MAT	20	32	Jesus			True
-MAT	20	33	Bartimaeus	begging	Bartimaeus, blind/other=blind men, two	True
+MAT	20	33	blind men, two	begging		True	Bartimaeus	MAT 20.33;MRK 10.51;LUK 18.41
 MAT	21	2	Jesus			False
 MAT	21	5	scripture			False
-MAT	21	9	disciples 1	praising	disciples, whole crowd of=people, many=crowd, great|crowd	True
-MAT	21	10	city, the whole			True
-MAT	21	11	disciples 1	praising	disciples, whole crowd of=people, many=crowd, great|crowd	True
+MAT	21	9	crowd	praising loudly		True		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13
+MAT	21	10	people of Jerusalem		the whole city	True
+MAT	21	11	crowd	praising		True
 MAT	21	13	Jesus			True
 MAT	21	15	children	praising		False
-MAT	21	16	chief priests/elders	upset	chief priests/teachers of the law 1	True
+MAT	21	16	chief priests/elders	upset	chief priests/teachers of the law	True
 MAT	21	16	Jesus			True
 MAT	21	19	Jesus			True
 MAT	21	20	disciples			True
 MAT	21	21	Jesus			True
-MAT	21	23	chief priests/teachers of the law/elders=chief priests/elders of people 1	challenge		True
+MAT	21	23	chief priests/teachers of the law/elders	challenge	chief priests and the elders of the people	True		MAT 21.23;MRK 11.28;LUK 20.2
 MAT	21	24	Jesus			True
-MAT	21	25	chief priests/teachers of the law/elders=chief priests/elders of people 1	to themselves		False
 MAT	21	25	Jesus			False
-MAT	21	27	chief priests/elders		chief priests/teachers of the law=chief priests/elders of people	True
-MAT	21	27	Jesus			True
+MAT	21	25	chief priests/teachers of the law/elders	to themselves	chief priests and the elders of the people	False		MAT 21.25;MRK 11.31;LUK 20.5
+MAT	21	26	chief priests/teachers of the law/elders	to themselves	chief priests and the elders of the people	False		MAT 21.26;MRK 11.32;LUK 20.6
+MAT	21	27	chief priests/teachers of the law/elders		chief priests and the elders of the people	True		MAT 21.27;MRK 11.33;LUK 20.7
+MAT	21	27	Jesus			True		MAT 21.27;MRK 11.33;LUK 20.8
 MAT	21	28	Jesus			True
 MAT	21	29	Jesus			False
 MAT	21	30	Jesus			False
-MAT	21	31	Good Priest		chief priests/elders of people|Good Priest	True
+MAT	21	31	chief priests/elders		chief priests/elders of people	True	Good Priest
 MAT	21	31	Jesus			True
 MAT	21	33	Jesus			False
 MAT	21	34	Jesus			False
@@ -7706,7 +7724,7 @@ MAT	21	36	Jesus			False
 MAT	21	37	Jesus			False
 MAT	21	38	Jesus			False
 MAT	21	40	Jesus			False
-MAT	21	41	Good Priest	serious	chief priests/elders of people|Good Priest	True
+MAT	21	41	chief priests/elders	serious	chief priests/elders of people	True	Good Priest
 MAT	21	42	Jesus			True
 MAT	21	43	Jesus			False
 MAT	21	45	chief priests/Pharisees	angry		False
@@ -7723,11 +7741,12 @@ MAT	22	11	Jesus			False
 MAT	22	12	Jesus			False
 MAT	22	13	Jesus			False
 MAT	22	14	Jesus			False
-MAT	22	16	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			True
-MAT	22	18	Jesus	rebuking		True
+MAT	22	16	spies  (Pharisees/Herodians)		disciples of Pharisees/Herodians	True		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
+MAT	22	17	spies  (Pharisees/Herodians)		disciples of Pharisees/Herodians	True		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
+MAT	22	18-19	Jesus	rebuking		True
 MAT	22	20	Jesus	questioning		True
+MAT	22	21	spies  (Pharisees/Herodians)		disciples of Pharisees/Herodians	True		MAT 22.21;MRK 12.16;LUK 20.24
 MAT	22	21	Jesus			True
-MAT	22	21	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			True
 MAT	22	24	Sadducees			True
 MAT	22	25	Sadducees			False
 MAT	22	27	Sadducees			False
@@ -7736,13 +7755,13 @@ MAT	22	28	Sadducees		Sadducees, some	False
 MAT	22	29	Jesus			True
 MAT	22	31	Jesus			False
 MAT	22	32	Jesus			False
-MAT	22	36	Good Priest	testing	Pharisee expert-in-law|Good Priest	True
+MAT	22	36	Pharisee(expert in the law)	testing		True	Good Priest
 MAT	22	37	Jesus			True
 MAT	22	38	Jesus			False
 MAT	22	39	Jesus			False
 MAT	22	40	Jesus			False
 MAT	22	42	Jesus	questioning		True
-MAT	22	42	teachers of the law/Pharisees	exasperated	Pharisees 3	True
+MAT	22	42	teachers of the law/Pharisees	exasperated		True
 MAT	22	43	Jesus			True
 MAT	22	44	Jesus			False
 MAT	22	45	narrator-MAT			False
@@ -7780,25 +7799,25 @@ MAT	23	34	Jesus	warning		False
 MAT	23	35	Jesus			False
 MAT	23	37	Jesus	rebuking		False
 MAT	24	2	Jesus			True
-MAT	24	3	Peter (Simon)		Peter (Simon)/James/John/Andrew=disciples=they (disciples)|Peter (Simon)	True
+MAT	24	3	Peter (Simon)/James/John/Andrew		the disciples	True	Peter (Simon)	MAT 24.3;MRK 13.4;LUK 21.7
 MAT	24	4-24	Jesus			False
 MAT	24	25	Jesus	sternly		False
 MAT	24	26-51	Jesus			False
 MAT	25	1-46	Jesus			False
 MAT	26	2	Jesus			False
-MAT	26	5	chief priests/elders		chief priests/teachers of the law=chief priests/elders of people	True
-MAT	26	8	Judas Iscariot	indignant	Judas Iscariot=disciples	True
-MAT	26	9	Judas Iscariot		Judas Iscariot=disciples	False
+MAT	26	5	chief priests/teachers of the law/elders		chief priests/elders/Caiaphas	True		MAT 26.5;MRK 14.2
+MAT	26	8	disciples	indignant		True	Judas Iscariot	MAT 26.8-9;MRK 14.4-5;JHN 12.5
+MAT	26	9	disciples	indignant		False	Judas Iscariot	MAT 26.8-9;MRK 14.4-5;JHN 12.5
 MAT	26	10	Jesus			True
 MAT	26	11	Jesus			False
 MAT	26	12	Jesus			False
 MAT	26	13	Jesus			False
 MAT	26	15	Judas Iscariot	plotting		True
-MAT	26	17	John		Peter (Simon)/John=disciples (Jesus')|John	True
+MAT	26	17	Peter (Simon)/John		the disciples	True	John	MAT 26.17;MRK 14.12;LUK 22.9
 MAT	26	18	Jesus			False
-MAT	26	21	Jesus			True
-MAT	26	22	disciples=twelve (disciples), the	sad		True
-MAT	26	23	Jesus			True
+MAT	26	21	Jesus			True		MAT 26.21;MRK 14.18
+MAT	26	22	disciples	sad		True		MAT 26.22;MRK 14.19;LUK 22.23
+MAT	26	23-24	Jesus			True		MAT 26.23;MRK 14.20
 MAT	26	25	Jesus			True
 MAT	26	25	Judas Iscariot	fake innocence		True
 MAT	26	26	Jesus			True
@@ -7822,23 +7841,23 @@ MAT	26	49	Judas Iscariot	fake respect		True
 MAT	26	50	Jesus			True
 MAT	26	52	Jesus			True
 MAT	26	55	Jesus			True
-MAT	26	61	false witnesses			True
+MAT	26	61	witnesses, false		two false witnesses	True		MAT 26.61;MRK 14.58
 MAT	26	62	Caiaphas	demanding	high priest	True
 MAT	26	63	Caiaphas	demanding	high priest	True
 MAT	26	64	Jesus			True
-MAT	26	65	Caiaphas	screaming	high priest	True
-MAT	26	66	chief priests/Sanhedrin 2		chief priests/Sanhedrin=chief priests/whole Sanhedrin 3	True
-MAT	26	68	teachers of the law/Pharisees		chief priests/Sanhedrin=chief priests/whole Sanhedrin 2	True
-MAT	26	69	girl at high priest's courtyard=servant girl			True
+MAT	26	65-66	Caiaphas	indignant, angry	high priest	True
+MAT	26	66	chief priests/Sanhedrin		chief priests/whole Sanhedrin	True		MAT 26.66;MRK 14.64
+MAT	26	68	chief priests/Sanhedrin	mocking	chief priests/whole Sanhedrin	True		MAT 26.68;MRK 14.65
+MAT	26	69	servant girl at high priest's courtyard			True		MAT 26.69;MRK 14.67;LUK 22.56;JHN 18.17
 MAT	26	70	Peter (Simon)	denial		True
-MAT	26	71	servant girl		servant girl, another=someone else	True
+MAT	26	71	servant girl, another			True		MAT 26.71;MRK 14.69;LUK 22.58;JHN 18.25
 MAT	26	72	Peter (Simon)	stronger denial		True
-MAT	26	73	high priest's servant (man), one=those standing near=another	accusing		True
-MAT	26	74	Peter (Simon)	swearing		True
+MAT	26	73	high priest's servant/those standing near	accusing	those standing near	True	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
+MAT	26	74	Peter (Simon)	swearing (strongest denial)		True
 MAT	26	75	Jesus			False
-MAT	27	4	chief priests/elders	impatient	chief priests/elders 1	True
+MAT	27	4	chief priests/elders	impatient		True
 MAT	27	4	Judas Iscariot	remorse		True
-MAT	27	6	chief priests 1	disdain		False
+MAT	27	6	chief priests	disdain		False
 MAT	27	7	chief priests			False
 MAT	27	8	narrator-MAT			False
 MAT	27	9	scripture			False
@@ -7847,30 +7866,32 @@ MAT	27	11	Pilate	to Jesus		True
 MAT	27	13	Pilate	to Jesus		True
 MAT	27	17	Pilate	to crowd		True
 MAT	27	19	Pilate's wife			False
-MAT	27	20	chief priests/elders		chief priests/elders 1	False
-MAT	27	21	crowd 7			True
+MAT	27	20	chief priests/elders			False
+MAT	27	21	crowd			True
 MAT	27	21	Pilate	to crowd		True
-MAT	27	22	crowd 8	screaming		True
+MAT	27	22	crowd	screaming		True	mob	MAT 27.22;MRK 15.13
 MAT	27	22	Pilate	to crowd		True
-MAT	27	23	crowd 10	screaming		True
+MAT	27	23	crowd	screaming		True	mob	MAT 27.23;MRK 15.14;LUK 23.21
 MAT	27	23	Pilate	to crowd		True
 MAT	27	24	Pilate	to crowd		True
-MAT	27	25	people, all the 3	shouting		True
+MAT	27	25	people, all the	shouting		True
 MAT	27	29	soldiers, Roman	mocking		True
 MAT	27	37	sign on the cross			False
 MAT	27	40	passers by	mocking		True
-MAT	27	42	rulers=chief priests/teachers of the law/elders	sneering		True
+MAT	27	42	chief priests/teachers of the law/elders	sneering	chief priests/teachers of the law/elders	True		MAT 27.42;MRK 15.31-32;LUK 23.35
+MAT	27	43	chief priests/teachers of the law/elders	sneering	chief priests/teachers of the law/elders	True
 MAT	27	46	Jesus	deeply distressed		False
 MAT	27	46	narrator-MAT			False
-MAT	27	47	bystanders=some standing near	uneasy		True
+MAT	27	47	bystanders at Calvary	uneasy	some of the bystanders	True		MAT 27.47;MRK 15.35
 MAT	27	49	bystanders, rest	jeering		True
 MAT	27	54	centurion at crucifixion	amazed		True
-MAT	27	63	teachers of the law/Pharisees	negotiating	chief priests/Pharisees 2	True
+MAT	27	63	teachers of the law/Pharisees	negotiating	chief 	True
 MAT	27	65	Pilate	impatient		True
-MAT	28	5	angels in white, two		angels in white=men in clothes that gleamed like lightning, two	True
+MAT	28	5-6	angels in white, two		angel	True		MAT 28.5-6;MRK 16.6;LUK 24.6
+MAT	28	7	angels in white, two		angel	True		MAT 28.7;MRK 16.7
 MAT	28	9	Jesus			False
 MAT	28	10	Jesus			True
-MAT	28	13	chief priests/elders 2	bribing		False
+MAT	28	13	chief priests/elders	bribing		False
 MAT	28	18	Jesus			True
 MRK	1	2	scripture			False
 MRK	1	3	scripture			False
@@ -7891,7 +7912,7 @@ MRK	1	41	Jesus	compassionately		True
 MRK	1	43	Jesus	warning		False
 MRK	1	44	Jesus			False
 MRK	2	5	Jesus			True
-MRK	2	7	teachers of the law	angry	teachers of the law/Pharisees=Pharisees/teachers of the law 1	False
+MRK	2	7	teachers of the law/Pharisees	thinking to themselves, indignant	teachers of the law	False		MRK 2.7;LUK 5.21
 MRK	2	8	Jesus	rebuking		True
 MRK	2	11	Jesus	giving orders		False
 MRK	2	12	everyone in crowd	praising God		True
@@ -7899,12 +7920,12 @@ MRK	2	14	Jesus	inviting		True
 MRK	2	15	narrator-MRK			False
 MRK	2	16	teachers of the law	contempt	teachers of the law (Pharisees)	True
 MRK	2	17	Jesus			True
-MRK	2	18	people, some 1	critical		True
+MRK	2	18	people, some	critical		True
 MRK	2	19	Jesus			True
 MRK	2	20	Jesus			False
 MRK	2	21	Jesus			False
 MRK	2	22	Jesus			False
-MRK	2	24	Pharisees, some 4	accusing		True
+MRK	2	24	Pharisees, some	accusing		True
 MRK	2	25	Jesus			True
 MRK	2	27	Jesus			False
 MRK	3	3	Jesus	giving orders		True
@@ -7925,7 +7946,7 @@ MRK	3	27	Jesus			False
 MRK	3	28	Jesus			False
 MRK	3	30	teachers of the law	insulting		False
 MRK	3	31	Jesus' family			False
-MRK	3	32	someone=they (in crowd)	announcing		True
+MRK	3	32	crowd	announcing		True		MAT 12.47;MRK 3.32;LUK 8.20
 MRK	3	33	Jesus	questioning		True
 MRK	3	34	Jesus			True
 MRK	4	3	Jesus	preaching		False
@@ -7951,10 +7972,10 @@ MRK	4	26	Jesus	instructing		False
 MRK	4	28	Jesus			False
 MRK	4	30	Jesus	instructing		False
 MRK	4	35	Jesus	giving orders		True
-MRK	4	38	disciples 3	terrified		True
+MRK	4	38	disciples	terrified		True
 MRK	4	39	Jesus	forcefully		True
 MRK	4	40	Jesus	questioning		True
-MRK	4	41	disciples 1	awe		True
+MRK	4	41	disciples	awe		True
 MRK	5	7	man with evil spirit	shrieking		True
 MRK	5	8	Jesus			False
 MRK	5	9	Jesus	questioning		True
@@ -7963,13 +7984,15 @@ MRK	5	10	man with evil spirit			False
 MRK	5	12	demons/demon-possessed man	begging	demons	True
 MRK	5	13	Jesus			False
 MRK	5	15	narrator-MRK			False
-MRK	5	17	people, Gadarene			False
+MRK	5	16	those who had seen the demon-possessed man cured			False
+MRK	5	17	Gadarene (or Gerasenes) people	pleading	the people (of the region of the Gerasenes)	False		MAT 8.34;MRK 5.17;LUK 8.37
 MRK	5	18	man who had had demons			False
 MRK	5	19	Jesus	giving orders		True
-MRK	5	23	Jairus=ruler, a	pleading		True
-MRK	5	28	woman, bleeding for 12 years	thinking to herself		False
+MRK	5	20	man who had had demons			False
+MRK	5	23	Jairus (synagogue leader)	pleading		True		MAT 9.18;MRK 5.23;LUK 8.41
+MRK	5	28	woman, bleeding for twelve years	thinking to herself		False
 MRK	5	30	Jesus	questioning		True
-MRK	5	31	disciples 2	perplexed	disciples, Jesus'	True
+MRK	5	31	disciples	perplexed	disciples, Jesus'	True
 MRK	5	34	Jesus	giving orders		True
 MRK	5	35	men from Jairus house	sad		True
 MRK	5	36	Jesus			True
@@ -7978,7 +8001,7 @@ MRK	5	41	Jesus	giving orders		True
 MRK	5	41	narrator-MRK			True
 MRK	5	43	Jesus			False
 MRK	6	2	men in Nazareth synagogue	amazed		True
-MRK	6	3	people 1	amazed		False
+MRK	6	3	people	amazed		False
 MRK	6	4	Jesus			True
 MRK	6	7	Jesus	giving orders		False
 MRK	6	8	Jesus			False
@@ -7987,10 +8010,10 @@ MRK	6	10	Jesus			False
 MRK	6	10	Jesus	instructing		False
 MRK	6	11	Jesus			False
 MRK	6	11	Jesus			False
-MRK	6	12	disciples 1			False
-MRK	6	14	people, some 1	excited		False
-MRK	6	15	people, other 1	guessing		False
-MRK	6	15	people, still other 1			False
+MRK	6	12	disciples			False
+MRK	6	14	people, some	excited		False
+MRK	6	15	people, other	guessing		False
+MRK	6	15	people, still others			False
 MRK	6	16	Herod Antipas (the tetrarch)	fearful		False
 MRK	6	17	Herod Antipas (the tetrarch)			False
 MRK	6	18	John the Baptist	rebuke		False
@@ -8002,17 +8025,17 @@ MRK	6	25	Herodias' daughter			True
 MRK	6	26	Herod Antipas (the tetrarch)			False
 MRK	6	27	Herod Antipas (the tetrarch)			False
 MRK	6	31	Jesus			True
-MRK	6	35	disciples 2	taking charge	disciples	True
+MRK	6	35	disciples	taking charge	disciples	True		MAT 14.15;MRK 6.35-36;LUK 9.12
 MRK	6	37	Jesus			True
-MRK	6	37	Philip	frustrated	Philip=disciples	True
-MRK	6	38	Andrew		Andrew=disciples	True
+MRK	6	37	Philip	frustrated	disciples	True		MRK 6.37;JHN 6.7
+MRK	6	38	Andrew		disciples	True		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
 MRK	6	38	Jesus	questioning		True
 MRK	6	39	Jesus			False
-MRK	6	49	disciples 3	terrified		False
+MRK	6	49	disciples	terrified		False
 MRK	6	50	Jesus	reassuring		False
 MRK	6	56	people, sick			False
 MRK	7	2	narrator-MRK			False
-MRK	7	5	teachers of the law	critical	teachers of the law/Pharisees=Pharisees/teachers of the law 1	True
+MRK	7	5	teachers of the law/Pharisees	critical	Pharisees and teachers of the law	True		MAT 15.2;MRK 7.5
 MRK	7	6	Jesus	rebuking		True
 MRK	7	7	Jesus	rebuking		False
 MRK	7	8	Jesus	rebuking		False
@@ -8024,22 +8047,22 @@ MRK	7	13	Jesus	rebuking		False
 MRK	7	14	Jesus	warning		True
 MRK	7	15	Jesus			False
 MRK	7	16	Jesus			False
-MRK	7	17	disciples	puzzled	disciples 1	False
+MRK	7	17	disciples	puzzled		False
 MRK	7	18	Jesus			True
 MRK	7	19	narrator-MRK			False
 MRK	7	20	Jesus	instructing		True
-MRK	7	26	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl			False
+MRK	7	26	Canaanite (Syrophoenician) mother of possessed girl			False		MAT 15.22;MRK 7.26
 MRK	7	27	Jesus	instructing		True
-MRK	7	28	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl			True
+MRK	7	28	Canaanite (Syrophoenician) mother of possessed girl			True
 MRK	7	29	Jesus			True
-MRK	7	32	neighbors/others who had seen blind man begging			False
+MRK	7	32	people of Decapolis			False
 MRK	7	34	Jesus	giving orders		False
 MRK	7	34	narrator-MRK			False
 MRK	7	36	Jesus	warning		False
-MRK	7	36	people			False
-MRK	7	37	people 2			False
+MRK	7	36	people of Decapolis			False
+MRK	7	37	people of Decapolis			False
 MRK	8	2	Jesus			True
-MRK	8	4	disciples 3	questioning		True
+MRK	8	4	disciples	questioning		True
 MRK	8	5	disciples			True
 MRK	8	5	Jesus	questioning		True
 MRK	8	6	Jesus	giving orders		False
@@ -8047,17 +8070,17 @@ MRK	8	7	Jesus			False
 MRK	8	11	Pharisees			False
 MRK	8	12	Jesus	exasperated		False
 MRK	8	15	Jesus	warning		True
-MRK	8	16	disciples 3	defensive		False
+MRK	8	16	disciples	defensive		False
 MRK	8	17	Jesus	rebuking		True
-MRK	8	19	disciples 2	hesitant		True
-MRK	8	20	disciples 1			True
+MRK	8	19	disciples	hesitant		True
+MRK	8	20	disciples			True
 MRK	8	20	Jesus	questioning		True
 MRK	8	21	Jesus	questioning		True
 MRK	8	23	Jesus	questioning		False
 MRK	8	24	blind man			True
 MRK	8	26	Jesus	giving orders		True
 MRK	8	27	Jesus	questioning		True
-MRK	8	28	disciples 3	excited		True
+MRK	8	28	disciples	excited		True
 MRK	8	29	Jesus	questioning		True
 MRK	8	29	Peter (Simon)	declare		True
 MRK	8	30	Jesus	warning		True
@@ -8073,20 +8096,21 @@ MRK	9	5	Peter (Simon)	afraid		True
 MRK	9	7	voice from cloud			False
 MRK	9	9	Jesus			False
 MRK	9	10	narrator-MRK			False
-MRK	9	11	John	puzzled	Peter (Simon)/James/John=disciples|John	True
+MRK	9	11	Peter (Simon)/James/John	puzzled		True	John	MAT 17.10;MRK 9.11
 MRK	9	12	Jesus			True
 MRK	9	13	Jesus			True
 MRK	9	16	Jesus	questioning		True
-MRK	9	17	father of possessed boy=man in crowd			True
-MRK	9	19	Jesus	exasperated		True
-MRK	9	21	father of possessed boy=man in crowd	distraught		True
+MRK	9	17-18	father of demon-possessed boy		man in crowd (father of demon-possessed boy)	True		MAT 17.15-16;MRK 9.17-18,22;LUK 9.38-40
+MRK	9	19	Jesus	exasperated		True		MAT 17.17;MRK 9.19;LUK 9.41
+MRK	9	19	Jesus	exasperated; giving orders		True		MAT 17.17;MRK 9.19;LUK 9.41
+MRK	9	19	Jesus	giving orders		True		MAT 17.17;MRK 9.19;LUK 9.41
 MRK	9	21	Jesus	questioning		True
-MRK	9	22	father of possessed boy=man in crowd	distraught		False
+MRK	9	21-22	father of demon-possessed boy	distraught		True		MAT 17.15-16;MRK 9.17-18,22;LUK 9.38-40
 MRK	9	23	Jesus			True
-MRK	9	24	father of possessed boy=man in crowd			True
+MRK	9	24	father of demon-possessed boy			True
 MRK	9	25	Jesus	giving orders		True
 MRK	9	26	many in crowd			False
-MRK	9	28	disciples 3	upset		True
+MRK	9	28	disciples	upset		True
 MRK	9	29	Jesus			True
 MRK	9	31	Jesus			False
 MRK	9	33	Jesus	questioning		False
@@ -8116,42 +8140,44 @@ MRK	10	10	disciples			False
 MRK	10	11	Jesus			True
 MRK	10	14	Jesus			False
 MRK	10	16	Jesus			False
-MRK	10	17	ruler, a certain=man, rich young	respectful		True
+MRK	10	17	rich young ruler	respectful	man	True		MAT 19.16;MRK 10.17;LUK 18.18
 MRK	10	18	Jesus			True
 MRK	10	19	Jesus			False
-MRK	10	20	ruler, a certain=man, rich young	upset		True
+MRK	10	20	rich young ruler	upset	man	True		MAT 19.20;MRK 10.20;LUK 18.21
 MRK	10	21	Jesus			True
 MRK	10	23	Jesus			True
 MRK	10	24	Jesus			True
-MRK	10	26	disciples 3	shocked	disciples 3=those who heard	False
+MRK	10	26	disciples	shocked		False		MAT 19.25;MRK 10.26;LUK 18.26
 MRK	10	27	Jesus			True
 MRK	10	28	Peter (Simon)			True
 MRK	10	29	Jesus			True
 MRK	10	31	Jesus			False
 MRK	10	33	Jesus			False
-MRK	10	35	John	boldly	James/John (sons of Zebedee)|John	True
+MRK	10	35	James/John (sons of Zebedee)	boldly		True	John
 MRK	10	36	Jesus			True
-MRK	10	37	John	boldly	James/John (sons of Zebedee)|John	True
+MRK	10	37	James/John (sons of Zebedee)	boldly		True	John
 MRK	10	38	Jesus			True
 MRK	10	39	Jesus			True
-MRK	10	39	John	boldly	James/John (sons of Zebedee)|John	True
+MRK	10	39	James/John (sons of Zebedee)	boldly		True	John
 MRK	10	42	Jesus			True
 MRK	10	43	Jesus			False
 MRK	10	45	Jesus			False
-MRK	10	47	Bartimaeus	shouting	Bartimaeus, blind=blind man, a	True
-MRK	10	48	Bartimaeus	shouting	Bartimaeus, blind=blind man, a	True
-MRK	10	48	crowd, many in the			True
-MRK	10	49	crowd, large 2			True
+MRK	10	46	narrator-MRK			False
+MRK	10	46	Bartimaeus	begging	Bartimaeus (a blind man)	False		MRK 10.46;LUK 18.35
+MRK	10	47	crowd			False		MAT 20.30;MRK 10.47;LUK 18.37
+MRK	10	47	Bartimaeus	shouting	Bartimaeus (a blind man)	True		MAT 20.30;MRK 10.47;LUK 18.38
+MRK	10	48	crowd, many in the	rebuking		True		MAT 20.31;MRK 10.48;LUK 18.39
+MRK	10	48	Bartimaeus	shouting	Bartimaeus (a blind man)	True		MAT 20.31;MRK 10.48;LUK 18.39
+MRK	10	49	crowd	encouraging		True
 MRK	10	49	Jesus			True
-MRK	10	51	Bartimaeus	pleading	Bartimaeus, blind=blind man, a	True
+MRK	10	51	Bartimaeus	pleading	Bartimaeus (a blind man)	True		MAT 20.33;MRK 10.51;LUK 18.41
 MRK	10	51	Jesus			True
 MRK	10	52	Jesus			True
 MRK	11	2	Jesus			False
-MRK	11	5	owner of colt=people, some standing there	suspicious		False
-MRK	11	6	disciples, 2 men			False
+MRK	11	5	owners of colt	suspicious	people standing there	False		MRK 11.5;LUK 19.33
+MRK	11	6	disciples		disciples, two of His	False
 MRK	11	6	people			False
-MRK	11	9	disciples 1	praising	disciples, whole crowd of=people, many=crowd, great|crowd	True
-MRK	11	10	disciples 1	praising	disciples, whole crowd of=people, many=crowd, great|crowd	True
+MRK	11	9-10	crowd	praising loudly		True		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13
 MRK	11	14	Jesus			False
 MRK	11	17	Jesus			False
 MRK	11	21	Peter (Simon)	amazed		True
@@ -8159,13 +8185,13 @@ MRK	11	22	Jesus			True
 MRK	11	23	Jesus			False
 MRK	11	24	Jesus			False
 MRK	11	25	Jesus			False
-MRK	11	28	chief priests/teachers of the law/elders=chief priests/elders of people 1	challenge		True
+MRK	11	28	chief priests/teachers of the law/elders	challenge		True		MAT 21.23;MRK 11.28;LUK 20.2
 MRK	11	29	Jesus			True
 MRK	11	30	Jesus	questioning		False
-MRK	11	31	chief priests/teachers of the law/elders=chief priests/elders of people 1	to themselves		False
-MRK	11	32	chief priests/teachers of the law/elders=chief priests/elders of people 1	to themselves		False
-MRK	11	33	chief priests/Sanhedrin 1		chief priests/teachers of the law/elders=chief priests/elders of people 2	True
-MRK	11	33	Jesus			True
+MRK	11	31	chief priests/teachers of the law/elders	to themselves		False		MAT 21.25;MRK 11.31;LUK 20.5
+MRK	11	32	chief priests/teachers of the law/elders	to themselves		False		MAT 21.26;MRK 11.32;LUK 20.6
+MRK	11	33	chief priests/teachers of the law/elders			True		MAT 21.27;MRK 11.33;LUK 20.7
+MRK	11	33	Jesus			True		MAT 21.27;MRK 11.33;LUK 20.8
 MRK	12	1-11	Jesus	preaching		False
 MRK	12	2	Jesus			False
 MRK	12	4	Jesus	preaching		False
@@ -8173,10 +8199,11 @@ MRK	12	5	Jesus	preaching		False
 MRK	12	6	Jesus			False
 MRK	12	7	Jesus			False
 MRK	12	9	Jesus			False
-MRK	12	14	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			True
+MRK	12	14	spies  (Pharisees/Herodians)		Pharisees/Herodians	True		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
+MRK	12	15	spies  (Pharisees/Herodians)		Pharisees/Herodians	True		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
 MRK	12	15	Jesus			True
 MRK	12	16	Jesus	questioning		True
-MRK	12	16	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			True
+MRK	12	16	spies  (Pharisees/Herodians)		Pharisees/Herodians	True		MAT 22.21;MRK 12.16;LUK 20.24
 MRK	12	17	Jesus			True
 MRK	12	18	Sadducees			False
 MRK	12	19	Sadducees			True
@@ -8184,9 +8211,9 @@ MRK	12	20	Sadducees			False
 MRK	12	23	Sadducees			False
 MRK	12	24	Jesus			True
 MRK	12	26	Jesus			False
-MRK	12	28	Good Priest	respectful	teachers of the law, one=expert in the law, an|Good Priest	True
+MRK	12	28	expert in the law	respectful		True	Good Priest
 MRK	12	29	Jesus			True
-MRK	12	32	Good Priest	complimenting	teachers of the law, one=expert in the law, an|Good Priest	True
+MRK	12	32	expert in the law	complimenting		True	Good Priest
 MRK	12	34	Jesus			True
 MRK	12	35	Jesus			True
 MRK	12	36	Jesus			False
@@ -8194,9 +8221,9 @@ MRK	12	37	Jesus			False
 MRK	12	38	Jesus	warning		False
 MRK	12	40	Jesus			False
 MRK	12	43	Jesus	giving orders		False
-MRK	13	1	disciples 1	awe	disciples, one of His	True
+MRK	13	1	disciples	awe	disciples, one of His	True
 MRK	13	2	Jesus			True
-MRK	13	4	Peter (Simon)		Peter (Simon)/James/John/Andrew=disciples=they (disciples)|Peter (Simon)	True
+MRK	13	4	Peter (Simon)/James/John/Andrew			True	Peter (Simon)	MAT 24.3;MRK 13.4;LUK 21.7
 MRK	13	5	Jesus			False
 MRK	13	6	Jesus			False
 MRK	13	7	Jesus			False
@@ -8222,19 +8249,19 @@ MRK	13	32	Jesus			False
 MRK	13	33	Jesus			False
 MRK	13	34	Jesus			False
 MRK	13	35	Jesus			False
-MRK	14	2	chief priests/elders		chief priests/teachers of the law=chief priests/elders of people	False
-MRK	14	4	Judas Iscariot	indignant	Judas Iscariot=some in home of Simon, leper	True
-MRK	14	5	some in home of Simon, leper			False
+MRK	14	2	chief priests/teachers of the law/elders		chief priests/teachers of the law	False		MAT 26.5;MRK 14.2
+MRK	14	4	disciples	indignant	some in home of Simon the leper	True	Judas Iscariot	MAT 26.8-9;MRK 14.4-5;JHN 12.5
+MRK	14	5	disciples	indignant, rebuking harshly	some in home of Simon the leper	False	Judas Iscariot	MAT 26.8-9;MRK 14.4-5;JHN 12.5
 MRK	14	6	Jesus			True
 MRK	14	9	Jesus			False
 MRK	14	10	Judas Iscariot			False
 MRK	14	11	Jewish authorities			False
-MRK	14	12	John		Peter (Simon)/John=disciples (Jesus')|disciples	True
-MRK	14	13	Jesus			True
-MRK	14	18	Jesus			True
-MRK	14	19	disciples 2	sad		True
-MRK	14	19	disciples, John the Baptist's		disciples 4	True
-MRK	14	20	Jesus			True
+MRK	14	12	Peter (Simon)/John		Jesus' disciples	True	John	MAT 26.17;MRK 14.12;LUK 22.9
+MRK	14	13-15	Jesus			True
+MRK	14	18	Jesus			True		MAT 26.21;MRK 14.18
+MRK	14	19	disciples	sad		True		MAT 26.22;MRK 14.19;LUK 22.23
+MRK	14	20	Jesus			True		MAT 26.23;MRK 14.20
+MRK	14	21	Jesus			True
 MRK	14	22	Jesus			True
 MRK	14	23	Jesus			False
 MRK	14	24	Jesus			True
@@ -8254,19 +8281,20 @@ MRK	14	41	Jesus			False
 MRK	14	44	Judas Iscariot	plotting		False
 MRK	14	45	Judas Iscariot	fake respect		True
 MRK	14	48	Jesus	questioning		True
-MRK	14	58	witnesses, false, two=witnesses, some false	mocking		True
+MRK	14	58	witnesses, false	mocking		True		MAT 26.61;MRK 14.58
 MRK	14	60	Caiaphas	demanding	high priest	True
 MRK	14	61	Caiaphas	demanding	high priest	True
 MRK	14	62	Jesus			True
 MRK	14	63	Caiaphas	screaming	high priest	True
-MRK	14	64	high priest			False
-MRK	14	65	chief priests/Sanhedrin 1	mocking	chief priests/Sanhedrin=chief priests/whole Sanhedrin 1	True
-MRK	14	67	girl at high priest's courtyard=servant girl			True
+MRK	14	64	Caiaphas		high priest	False
+MRK	14	64	chief priests/Sanhedrin		chief priests/Sanhedrin	True		MAT 26.66;MRK 14.64
+MRK	14	65	chief priests/Sanhedrin	mocking	chief priests/Sanhedrin	True		MAT 26.68;MRK 14.65
+MRK	14	67	servant girl at high priest's courtyard		one of the servant girls of the high priest	True		MAT 26.69;MRK 14.67;LUK 22.56;JHN 18.17
 MRK	14	68	Peter (Simon)	denial		True
-MRK	14	69	servant girl		servant girl, another=someone else	True
-MRK	14	70	high priest's servant (man), one=those standing near=another	accusing		True
-MRK	14	70	Peter (Simon)	defensive		True
-MRK	14	71	Peter (Simon)	swearing		True
+MRK	14	69	servant girl at high priest's courtyard		servant girl	True		MAT 26.71;MRK 14.69;LUK 22.58;JHN 18.25
+MRK	14	70	Peter (Simon)	stronger denial		True
+MRK	14	70	high priest's servant/those standing near	accusing	those standing near	True	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
+MRK	14	71	Peter (Simon)	stongest denial, swearing		True
 MRK	14	72	Jesus			False
 MRK	15	2	Jesus			True
 MRK	15	2	Pilate	to Jesus		True
@@ -8276,19 +8304,19 @@ MRK	15	9	Pilate	to crowd		True
 MRK	15	11	chief priests			False
 MRK	15	11	crowd			False
 MRK	15	12	Pilate	to crowd		True
-MRK	15	13	crowd 8	shouting		True
-MRK	15	14	crowd 9	shouting louder		True
+MRK	15	13	crowd	shouting		True	mob	MAT 27.22;MRK 15.13
+MRK	15	14	crowd	shouting louder		True	mob	MAT 27.23;MRK 15.14;LUK 23.21
 MRK	15	14	Pilate	to crowd		True
 MRK	15	18	soldiers, Roman	mocking		True
 MRK	15	22	narrator-MRK			False
 MRK	15	26	sign on the cross			False
 MRK	15	28	scripture			False
 MRK	15	29	passers by	insulting		True
-MRK	15	31	rulers=chief priests/teachers of the law/elders	sneering		True
-MRK	15	32	rulers=chief priests/teachers of the law/elders	sneering		False
+MRK	15	31	chief priests/teachers of the law/elders	sneering	chief priests/teachers of the law 	True		MAT 27.42;MRK 15.31-32;LUK 23.35
+MRK	15	32	chief priests/teachers of the law/elders	sneering	chief priests/teachers of the law	False		MAT 27.42;MRK 15.31-32;LUK 23.35
 MRK	15	34	Jesus			False
 MRK	15	34	narrator-MRK			False
-MRK	15	35	bystanders=some standing near	uneasy		True
+MRK	15	35	bystanders at Calvary	uneasy	some of the bystanders	True		MAT 27.47;MRK 15.35
 MRK	15	36	man with sponge	jeering		True
 MRK	15	39	centurion at crucifixion	amazed		True
 MRK	15	43	Joseph of Arimathea			False
@@ -8298,7 +8326,8 @@ MRK	15	44	Pilate	surprised		False
 MRK	15	45	centurion summoned by Pilate			False
 MRK	15	45	Pilate			False
 MRK	16	3	Mary Magdalene		Mary Magdalene/Mary mother of James/Salome	False
-MRK	16	6	angels in white, two		angels in white=men in clothes that gleamed like lightning, two	True
+MRK	16	6	angels in white, two		young man in white robe (angel)	True		MAT 28.5-6;MRK 16.6;LUK 24.6
+MRK	16	7	angels in white, two		young man in white robe (angel)	True		MAT 28.7;MRK 16.7
 MRK	16	15	Jesus	giving orders		False
 MRK	16	16	Jesus	giving orders		False
 MRK	16	17	Jesus			False
@@ -8331,7 +8360,7 @@ LUK	1	54	Mary (Jesus' mother)			False
 LUK	1	55	Mary (Jesus' mother)			False
 LUK	1	60	Elizabeth			True
 LUK	1	61	neighbors/relatives of Zechariah/Elizabeth			True
-LUK	1	62	Jews, the 7		Jews	False
+LUK	1	62	Jews			False
 LUK	1	63	narrator-LUK			False
 LUK	1	64	Zechariah			False
 LUK	1	66	everyone who heard			False
@@ -8369,7 +8398,7 @@ LUK	3	6	scripture			False
 LUK	3	7	John the Baptist			False
 LUK	3	8	John the Baptist			False
 LUK	3	9	John the Baptist			False
-LUK	3	10	crowd 10			True
+LUK	3	10	crowd			True
 LUK	3	11	John the Baptist			True
 LUK	3	12	tax collectors	calling out		True
 LUK	3	13	John the Baptist			True
@@ -8412,13 +8441,13 @@ LUK	5	12	man covered with leprosy	pleading		True
 LUK	5	13	Jesus			True
 LUK	5	14	Jesus	forcefully		True
 LUK	5	20	Jesus			True
-LUK	5	21	teachers of the law	angry	teachers of the law/Pharisees=Pharisees/teachers of the law 1	False
+LUK	5	21	teachers of the law/Pharisees	thinking to themselves, indignant	Pharisees and the teachers of the law	False		MRK 2.7;LUK 5.21
 LUK	5	22	Jesus			True
 LUK	5	24	Jesus	giving orders		True
 LUK	5	26	everyone			False
 LUK	5	27	Jesus			True
 LUK	5	27	narrator-LUK			True
-LUK	5	30	Pharisees/teachers of the law 3	contempt		True
+LUK	5	30	Pharisees/teachers of the law	complaining		True
 LUK	5	31	Jesus			True
 LUK	5	33	Pharisees/teachers of the law			True
 LUK	5	34	Jesus			True
@@ -8426,7 +8455,7 @@ LUK	5	36	Jesus			True
 LUK	5	37	Jesus			False
 LUK	5	38	Jesus			False
 LUK	5	39	Jesus			False
-LUK	6	2	Pharisees, some 4	angry		True
+LUK	6	2	Pharisees, some	angry		True
 LUK	6	3	Jesus			True
 LUK	6	4	Jesus			False
 LUK	6	5	Jesus			True
@@ -8462,8 +8491,7 @@ LUK	6	46	Jesus			False
 LUK	6	47	Jesus			False
 LUK	6	48	Jesus			False
 LUK	6	49	Jesus			False
-LUK	7	4	Good Priest	interceding	elders of the Jews|Good Priest	True
-LUK	7	5	Good Priest		elders of the Jews|Good Priest	False
+LUK	7	4-5	elders of the Jews	interceding		True	Good Priest
 LUK	7	6	centurion with great faith	polite		False
 LUK	7	7	centurion with great faith	polite		False
 LUK	7	8	centurion with great faith			False
@@ -8471,9 +8499,9 @@ LUK	7	9	Jesus			True
 LUK	7	13	Jesus	compassionately		True
 LUK	7	14	Jesus	giving orders		True
 LUK	7	15	Jesus			False
-LUK	7	16	crowd, large 1	praising		True
+LUK	7	16	crowd, large	praising		True
 LUK	7	19	John the Baptist	discouraged		False
-LUK	7	20	John's disciples	puzzled		True
+LUK	7	20	John's disciples	puzzled	John's disciples, two	True		MAT 11.3;LUK 7.20
 LUK	7	22	Jesus			True
 LUK	7	23	Jesus			False
 LUK	7	24	Jesus			False
@@ -8513,12 +8541,12 @@ LUK	8	15	Jesus			False
 LUK	8	16	Jesus			False
 LUK	8	17	Jesus			False
 LUK	8	18	Jesus			False
-LUK	8	20	someone=they (in crowd)			True
+LUK	8	20	crowd		someone	True		MAT 12.47;MRK 3.32;LUK 8.20
 LUK	8	21	Jesus			True
 LUK	8	22	Jesus	giving orders		False
-LUK	8	24	disciples 3	terrified		True
+LUK	8	24	disciples	terrified		True
 LUK	8	24	Jesus	giving orders		True
-LUK	8	25	disciples 2	fear, amazement	disciples 4	True
+LUK	8	25	disciples	fear, amazement		True
 LUK	8	25	Jesus	questioning		True
 LUK	8	27	demons/demon-possessed man		demon-possessed man	False
 LUK	8	28	demons/demon-possessed man		demon-possessed man	True
@@ -8527,10 +8555,12 @@ LUK	8	30	demons/demon-possessed man		demon-possessed man	True
 LUK	8	30	Jesus	questioning		True
 LUK	8	31	demons/demon-possessed man	begging	demon-possessed man	False
 LUK	8	32	demons/demon-possessed man	begging	demon-possessed man	False
-LUK	8	37	people, all the 2	fearful		False
+LUK	8	34	pig herdsmen			False
+LUK	8	36	those who had seen the demon-possessed man cured			False
+LUK	8	37	Gadarene (or Gerasenes) people	fearful	people of the region of the Gerasenes	False		MAT 8.34;MRK 5.17;LUK 8.37
 LUK	8	38	man who had had demons			False
 LUK	8	39	Jesus			True
-LUK	8	41	Jairus=ruler, a	pleading		False
+LUK	8	41	Jairus (synagogue leader)	pleading		False		MAT 9.18;MRK 5.23;LUK 8.41
 LUK	8	45	Jesus	questioning		True
 LUK	8	45	Peter (Simon)	perplexed		True
 LUK	8	46	Jesus			True
@@ -8538,7 +8568,7 @@ LUK	8	48	Jesus			True
 LUK	8	49	someone from Jairus' house	sad		True
 LUK	8	50	Jesus			True
 LUK	8	52	Jesus			True
-LUK	8	53	people, all the 2	laughing		False
+LUK	8	53	people, all the	laughing		False
 LUK	8	54	Jesus	giving orders		True
 LUK	8	55	Jesus			False
 LUK	8	56	Jesus	warning		False
@@ -8548,13 +8578,13 @@ LUK	9	5	Jesus			False
 LUK	9	7	people			False
 LUK	9	8	people, other			False
 LUK	9	9	Herod Antipas (the tetrarch)			False
-LUK	9	12	disciples 2	taking charge	disciples	True
-LUK	9	13	Andrew	frustrated	Andrew=twelve (disciples), the	True
+LUK	9	12	disciples	taking charge	the Twelve (disciples)	True		MAT 14.15;MRK 6.35-36;LUK 9.12
+LUK	9	13	Andrew	frustrated	the Twelve (disciples)	True		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
 LUK	9	13	Jesus	giving orders		True
 LUK	9	14	Jesus	giving orders		True
-LUK	9	15	Andrew	giving orders	disciples|Andrew	False
+LUK	9	15	disciples	giving orders		False	Andrew
 LUK	9	18	Jesus	questioning		True
-LUK	9	19	disciples 3	excited		True
+LUK	9	19	disciples	excited		True
 LUK	9	20	Jesus	questioning		True
 LUK	9	20	Peter (Simon)	declare		True
 LUK	9	21	Jesus	warning		False
@@ -8566,21 +8596,21 @@ LUK	9	26	Jesus			False
 LUK	9	27	Jesus			False
 LUK	9	33	Peter (Simon)	afraid		True
 LUK	9	35	voice from cloud			False
-LUK	9	38	father of possessed boy=man in crowd	distraught		True
-LUK	9	41	Jesus	exasperated		True
-LUK	9	41	Jesus	exasperated; giving orders		True
-LUK	9	41	Jesus	giving orders		True
+LUK	9	38-40	father of demon-possessed boy	distraught	man in crowd (father of demon-possessed boy)	True		MAT 17.15-16;MRK 9.17-18,22;LUK 9.38-40
+LUK	9	41	Jesus	exasperated		True		MAT 17.17;MRK 9.19;LUK 9.41
+LUK	9	41	Jesus	exasperated; giving orders		True		MAT 17.17;MRK 9.19;LUK 9.41
+LUK	9	41	Jesus	giving orders		True		MAT 17.17;MRK 9.19;LUK 9.41
 LUK	9	43	everyone in crowd	praising God		False
 LUK	9	44	Jesus			True
-LUK	9	46	disciples 3	arguing		False
+LUK	9	46	disciples	arguing		False
 LUK	9	48	Jesus			True
 LUK	9	49	John		John (disciple whom Jesus loved)	True
 LUK	9	50	Jesus			True
-LUK	9	54	John		James/John (sons of Zebedee)|John	True
+LUK	9	54	James/John (sons of Zebedee)			True	John
 LUK	9	55	Jesus	rebuking		False
-LUK	9	57	teacher of the law	eager		True
+LUK	9	57	teacher of the law	eager	a man (teacher of the law)	True		MAT 8.19;LUK 9.57
 LUK	9	58	Jesus			True
-LUK	9	59	disciples, some	making excuse	disciple, another=man, another	True
+LUK	9	59	disciple who wanted to bury his father	making excuse	another man	True		MAT 8.21;LUK 9.59
 LUK	9	59	Jesus	inviting		True
 LUK	9	60	Jesus			True
 LUK	9	61	man, still another			True
@@ -8608,11 +8638,11 @@ LUK	10	21	Jesus			False
 LUK	10	22	Jesus			False
 LUK	10	23	Jesus			False
 LUK	10	24	Jesus			False
-LUK	10	25	Good Priest	testing	teachers of the law, one=expert in the law, an|Good Priest	True
+LUK	10	25	expert in the law	testing		True	Good Priest
 LUK	10	26	Jesus	questioning		True
-LUK	10	27	Good Priest		teachers of the law, one=expert in the law, an|Good Priest	True
+LUK	10	27	expert in the law			True	Good Priest
 LUK	10	28	Jesus			True
-LUK	10	29	Good Priest	justifying	teachers of the law, one=expert in the law, an|Good Priest	True
+LUK	10	29	expert in the law	justifying		True	Good Priest
 LUK	10	30	Jesus			True
 LUK	10	31	Jesus			False
 LUK	10	32	Jesus			False
@@ -8620,11 +8650,11 @@ LUK	10	33	Jesus			False
 LUK	10	34	Jesus			False
 LUK	10	35	Jesus			False
 LUK	10	36	Jesus	questioning		False
-LUK	10	37	Good Priest		teachers of the law, one=expert in the law, an|Good Priest	True
+LUK	10	37	expert in the law			True	Good Priest
 LUK	10	37	Jesus			True
 LUK	10	40	Martha			True
 LUK	10	41	Jesus	compassionately		True
-LUK	11	1	disciples 1		disciples, one of His	True
+LUK	11	1	disciples		disciples, one of His	True
 LUK	11	2	Jesus	instructing		True
 LUK	11	3	Jesus	instructing		False
 LUK	11	4	Jesus	instructing		False
@@ -8635,8 +8665,8 @@ LUK	11	8	Jesus			False
 LUK	11	9	Jesus			False
 LUK	11	10	Jesus			False
 LUK	11	11	Jesus			False
-LUK	11	15	crowd, some of			False
-LUK	11	16	crowd, others of			False
+LUK	11	15	crowd, some in			False
+LUK	11	16	others (testing Jesus)			False
 LUK	11	17	Jesus			False
 LUK	11	18	Jesus			False
 LUK	11	19	Jesus			False
@@ -8662,7 +8692,7 @@ LUK	11	41	Jesus			False
 LUK	11	42	Jesus	rebuking		False
 LUK	11	43	Jesus	rebuking		False
 LUK	11	44	Jesus			False
-LUK	11	45	teachers of the law	insulted	experts-in-law, one|teachers of the law	True
+LUK	11	45	one of the experts in the law	insulted		True
 LUK	11	46	Jesus	rebuking		True
 LUK	11	47	Jesus			False
 LUK	11	48	Jesus	rebuking		False
@@ -8740,7 +8770,7 @@ LUK	13	26	Jesus			False
 LUK	13	27	Jesus			False
 LUK	13	28	Jesus			False
 LUK	13	29	Jesus			False
-LUK	13	31	Good Priest	warning	Pharisee expert-in-law|Good Priest	True
+LUK	13	31	Pharisee(expert in the law)	warning		True	Good Priest
 LUK	13	32	Jesus			True
 LUK	13	33	Jesus			False
 LUK	13	34	Jesus			False
@@ -8770,7 +8800,7 @@ LUK	14	33	Jesus			False
 LUK	14	34	Jesus			False
 LUK	14	35	Jesus			False
 LUK	15	1	narrator-LUK			False
-LUK	15	2	Pharisees/teachers of the law 3	muttering		False
+LUK	15	2	Pharisees/teachers of the law	complaining		False
 LUK	15	4	Jesus			False
 LUK	15	5	Jesus			False
 LUK	15	6	Jesus			False
@@ -8840,7 +8870,7 @@ LUK	17	16	leper, thankful Samaritan			False
 LUK	17	17	Jesus			True
 LUK	17	19	Jesus	giving orders		True
 LUK	17	20	Jesus			True
-LUK	17	20	teachers of the law/Pharisees	questioning	Pharisees 3	True
+LUK	17	20	teachers of the law/Pharisees	questioning		True
 LUK	17	21	Jesus			False
 LUK	17	22	Jesus			True
 LUK	17	23	Jesus			False
@@ -8855,7 +8885,7 @@ LUK	17	31	Jesus			False
 LUK	17	32	Jesus			False
 LUK	17	33	Jesus			False
 LUK	17	34	Jesus			False
-LUK	17	37	disciples	puzzled	disciples 1	True
+LUK	17	37	disciples	puzzled		True
 LUK	17	37	Jesus			True
 LUK	18	1	Jesus			False
 LUK	18	2	Jesus			False
@@ -8872,28 +8902,30 @@ LUK	18	13	Jesus			False
 LUK	18	14	Jesus			False
 LUK	18	15	disciples			False
 LUK	18	16	Jesus			False
-LUK	18	18	ruler, a certain=man, rich young	respectful		True
+LUK	18	18	rich young ruler	respectful	ruler	True		MAT 19.16;MRK 10.17;LUK 18.18
 LUK	18	19	Jesus			True
-LUK	18	21	ruler, a certain=man, rich young	upset		True
+LUK	18	21	rich young ruler	upset	ruler	True		MAT 19.20;MRK 10.20;LUK 18.21
 LUK	18	22	Jesus			True
 LUK	18	24	Jesus			True
-LUK	18	26	disciples 3	shocked	disciples 3=those who heard	True
+LUK	18	26	disciples	shocked	those who heard	True		MAT 19.25;MRK 10.26;LUK 18.26
 LUK	18	27	Jesus			True
 LUK	18	28	Peter (Simon)	perplexed		True
 LUK	18	29	Jesus			True
 LUK	18	31	Jesus			False
 LUK	18	32	Jesus			False
-LUK	18	36	Bartimaeus		Bartimaeus, blind=blind man, a	False
-LUK	18	37	crowd 3			True
-LUK	18	38	Bartimaeus	shouting	Bartimaeus, blind=blind man, a	True
-LUK	18	39	Bartimaeus	shouting	Bartimaeus, blind=blind man, a	True
-LUK	18	39	crowd 5			True
+LUK	18	35	Bartimaeus	begging	blind man	False		MRK 10.46;LUK 18.35
+LUK	18	36	Bartimaeus		blind man	False
+LUK	18	37	crowd			True		MAT 20.30;MRK 10.47;LUK 18.37
+LUK	18	38	Bartimaeus	shouting	blind man	True		MAT 20.30;MRK 10.47;LUK 18.38
+LUK	18	39	crowd	rebuking		True		MAT 20.31;MRK 10.48;LUK 18.39
+LUK	18	39	Bartimaeus	shouting	blind man	True		MAT 20.31;MRK 10.48;LUK 18.39
 LUK	18	40	Jesus	giving orders		False
-LUK	18	41	Bartimaeus	pleading	Bartimaeus, blind=blind man, a	True
 LUK	18	41	Jesus	questioning		True
+LUK	18	41	Bartimaeus	pleading	blind man	True		MAT 20.33;MRK 10.51;LUK 18.41
 LUK	18	42	Jesus			True
+LUK	18	43	people	praising		False
 LUK	19	5	Jesus	giving orders		True
-LUK	19	7	people, all the 2	muttering		False
+LUK	19	7	people, all the	muttering		False
 LUK	19	8	Zaccheaus			True
 LUK	19	9	Jesus			True
 LUK	19	12	Jesus			False
@@ -8912,20 +8944,21 @@ LUK	19	25	Jesus			False
 LUK	19	26	Jesus			False
 LUK	19	27	Jesus			False
 LUK	19	30	Jesus			False
-LUK	19	33	owner of colt=people, some standing there	suspicious		True
-LUK	19	34	disciples 1		disciples, two of His	True
-LUK	19	38	disciples 2		disciples, whole crowd of=people, many=crowd, great	True
-LUK	19	39	teachers of the law/Pharisees	demanding	Pharisees, some 2	True
+LUK	19	33	owners of colt	suspicious		True		MRK 11.5;LUK 19.33
+LUK	19	34	disciples		disciples, two of His	True
+LUK	19	38	crowd	praising loudly	whole crowd of disciples	True		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13
+LUK	19	39	teachers of the law/Pharisees	demanding	Pharisees	True
 LUK	19	40	Jesus			True
 LUK	19	42	Jesus			False
 LUK	19	43	Jesus			False
 LUK	19	46	Jesus			True
-LUK	20	2	chief priests/teachers of the law/elders=chief priests/elders of people 1	challenge		True
+LUK	20	2	chief priests/teachers of the law/elders	challenge		True		MAT 21.23;MRK 11.28;LUK 20.2
 LUK	20	3	Jesus			True
 LUK	20	4	Jesus	questioning		False
-LUK	20	5	chief priests/teachers of the law/elders=chief priests/elders of people 1	to themselves		False
-LUK	20	7	chief priests/Sanhedrin 1		chief priests/teachers of the law/elders=chief priests/elders of people 2	True
-LUK	20	8	Jesus			True
+LUK	20	5	chief priests/teachers of the law/elders	to themselves		False		MAT 21.25;MRK 11.31;LUK 20.5
+LUK	20	6	chief priests/teachers of the law/elders	to themselves		False		MAT 21.26;MRK 11.32;LUK 20.6
+LUK	20	7	chief priests/teachers of the law/elders			True		MAT 21.27;MRK 11.33;LUK 20.7
+LUK	20	8	Jesus			True		MAT 21.27;MRK 11.33;LUK 20.8
 LUK	20	9	Jesus			False
 LUK	20	10	Jesus			False
 LUK	20	11	Jesus			False
@@ -8933,18 +8966,17 @@ LUK	20	12	Jesus			False
 LUK	20	13	Jesus			False
 LUK	20	14	Jesus			False
 LUK	20	15	Jesus			False
-LUK	20	16	Good Priest	alarmed	chief priests/elders of people|Good Priest	True
+LUK	20	16	chief priests/teachers of the law/elders	alarmed		True	Good Priest
 LUK	20	16	Jesus			True
 LUK	20	16	people			True
 LUK	20	17	Jesus			True
 LUK	20	18	Jesus			False
-LUK	20	21	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			True
-LUK	20	22	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			False
+LUK	20	21	spies  (Pharisees/Herodians)		spies (from the teachers of the law and chief priests)	True		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
+LUK	20	22	spies  (Pharisees/Herodians)		spies (from the teachers of the law and chief priests)	False		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
 LUK	20	23	Jesus			False
 LUK	20	24	Jesus			True
-LUK	20	24	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			True
+LUK	20	24	spies  (Pharisees/Herodians)		spies (from the teachers of the law and chief priests)	True		MAT 22.21;MRK 12.16;LUK 20.24
 LUK	20	25	Jesus			True
-LUK	20	25	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			True
 LUK	20	27	Sadducees			False
 LUK	20	28	Sadducees			True
 LUK	20	29	Sadducees			False
@@ -8954,7 +8986,7 @@ LUK	20	34	Jesus			True
 LUK	20	36	Jesus			False
 LUK	20	37	Jesus			False
 LUK	20	38	Jesus			False
-LUK	20	39	Good Priest	compliment	teachers of the law, some|Good Priest	True
+LUK	20	39	teachers of the law	compliment		True	Good Priest
 LUK	20	41	Jesus			True
 LUK	20	42	Jesus			False
 LUK	20	43	Jesus			False
@@ -8964,7 +8996,7 @@ LUK	20	47	Jesus			False
 LUK	21	3	Jesus			True
 LUK	21	5	disciples, some			False
 LUK	21	6	Jesus			True
-LUK	21	7	Peter (Simon)		Peter (Simon)/James/John/Andrew=disciples=they (disciples)|Peter (Simon)	True
+LUK	21	7	Peter (Simon)/James/John/Andrew		some of his disciples	True	Peter (Simon)	MAT 24.3;MRK 13.4;LUK 21.7
 LUK	21	8	Jesus			False
 LUK	21	9	Jesus			False
 LUK	21	10	Jesus			False
@@ -8992,14 +9024,14 @@ LUK	21	35	Jesus			False
 LUK	22	4	Judas Iscariot			False
 LUK	22	5	chief priests/officers of temple guard			False
 LUK	22	8	Jesus	giving orders		True
-LUK	22	9	Peter (Simon)		Peter (Simon)/John=disciples (Jesus')	True
+LUK	22	9	Peter (Simon)/John			True	John	MAT 26.17;MRK 14.12;LUK 22.9
 LUK	22	10	Jesus			True
 LUK	22	15	Jesus			True
 LUK	22	17	Jesus			True
 LUK	22	19	Jesus			True
 LUK	22	20	Jesus			True
 LUK	22	21	Jesus			False
-LUK	22	23	disciples 1		disciples, one of His	False
+LUK	22	23	disciples			False		MAT 26.22;MRK 14.19;LUK 22.23
 LUK	22	25	Jesus			False
 LUK	22	27	Jesus			False
 LUK	22	28	Jesus			False
@@ -9010,7 +9042,7 @@ LUK	22	35	disciples			True
 LUK	22	35	Jesus			True
 LUK	22	36	Jesus			True
 LUK	22	37	Jesus			False
-LUK	22	38	disciples 2	declare	disciples	True
+LUK	22	38	disciples	declare		True
 LUK	22	38	Jesus			True
 LUK	22	40	Jesus			False
 LUK	22	42	Jesus	praying		False
@@ -9019,12 +9051,12 @@ LUK	22	48	Jesus			True
 LUK	22	49	followers of Jesus	ready to fight		True
 LUK	22	51	Jesus	forcefully		True
 LUK	22	52	Jesus			True
-LUK	22	56	girl at high priest's courtyard=servant girl			True
+LUK	22	56	servant girl at high priest's courtyard		servant girl	True		MAT 26.69;MRK 14.67;LUK 22.56;JHN 18.17
 LUK	22	57	Peter (Simon)	denial		True
-LUK	22	58	Peter (Simon)	stronger		True
-LUK	22	58	servant girl	accusing	servant girl, another=someone else| servant girl	True
-LUK	22	59	high priest's servant (man), one=those standing near|another man	accusing		True
-LUK	22	60	Peter (Simon)	strongest		True
+LUK	22	58	second person to accuse Peter (man)	accusing	someone else (man)	True		MAT 26.71;MRK 14.69;LUK 22.58;JHN 18.25
+LUK	22	58	Peter (Simon)	stronger denial		True
+LUK	22	59	high priest's servant/those standing near	accusing	another (person in the courtyard)	True	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
+LUK	22	60	Peter (Simon)	strongest denial		True
 LUK	22	61	Jesus			False
 LUK	22	64	men who were guarding	mocking		True
 LUK	22	67	council of elders:chief priests/teachers of the law	demanding		True
@@ -9036,13 +9068,13 @@ LUK	23	2	council of elders:chief priests/teachers of the law			True
 LUK	23	3	Jesus			True
 LUK	23	3	Pilate	to Jesus		True
 LUK	23	4	Pilate	to crowd		True
-LUK	23	5	chief priests/Sanhedrin 1	loud, angry	chief priests/Sanhedrin=chief priests/whole Sanhedrin 1	True
+LUK	23	5	chief priests/Sanhedrin	loud, angry	chief priests/crowd/whole assembly (Sanhedrin)	True
 LUK	23	6	Pilate			False
-LUK	23	7	teachers of the law/Pharisees		chief priests/teachers of the law 2	False
+LUK	23	7	chief priests/Sanhedrin			False
 LUK	23	14	Pilate	to crowd		True
-LUK	23	18	chief priests/rulers/the people	shouting		True
+LUK	23	18	chief priests/rulers/the people	shouting	whole crowd	True
 LUK	23	20	Pilate			False
-LUK	23	21	chief priests/rulers/the people|mob			True
+LUK	23	21	chief priests/rulers/the people		whole crowd	True	mob	MAT 27.23;MRK 15.14;LUK 23.21
 LUK	23	22	Pilate	to crowd		True
 LUK	23	23	crowd			False
 LUK	23	24	Pilate			False
@@ -9052,7 +9084,7 @@ LUK	23	30	Jesus			False
 LUK	23	31	Jesus			False
 LUK	23	33	narrator-LUK			False
 LUK	23	34	Jesus			False
-LUK	23	35	rulers=chief priests/teachers of the law/elders	sneering		True
+LUK	23	35	chief priests/teachers of the law/elders	sneering	rulers	True		MAT 27.42;MRK 15.31-32;LUK 23.35
 LUK	23	37	soldier at the cross			True
 LUK	23	38	sign on the cross			False
 LUK	23	39	criminal on cross, one	insulting		True
@@ -9062,29 +9094,27 @@ LUK	23	43	Jesus			True
 LUK	23	46	Jesus			True
 LUK	23	47	centurion at crucifixion	amazed		True
 LUK	24	4	Mary Magdalene		Mary Magdalene/Mary mother of James/Salome	False
-LUK	24	5	angels in white, two		angels in white=men in clothes that gleamed like lightning, two	True
+LUK	24	5	angels in white, two		men (angels) in clothes that gleamed like lightning, two	True
+LUK	24	6	angels in white, two		men (angels) in clothes that gleamed like lightning, two	True		MAT 28.5-6;MRK 16.6;LUK 24.6
+LUK	24	7	angels in white, two		men (angels) in clothes that gleamed like lightning, two	True
 LUK	24	8	Mary Magdalene		Mary Magdalene/Mary mother of James/Salome	False
 LUK	24	17	Jesus	questioning		True
-LUK	24	18	Cleopas		Cleopas and other (on road to Emmaus)|Cleopas	True
-LUK	24	19	Cleopas		Cleopas and other (on road to Emmaus)|Cleopas	True
+LUK	24	18	Cleopas/companion (on road to Emmaus)			True	Cleopas
+LUK	24	19	Cleopas/companion (on road to Emmaus)			True	Cleopas
 LUK	24	19	Jesus			True
-LUK	24	19	other and Cleopas (on road to Emmaus) female|other female			True
-LUK	24	19	other and Cleopas (on road to Emmaus) male|other male			True
-LUK	24	20	Cleopas		Cleopas and other (on road to Emmaus)|Cleopas	False
-LUK	24	21	Cleopas		Cleopas and other (on road to Emmaus)|Cleopas	False
-LUK	24	22	Cleopas		Cleopas and other (on road to Emmaus)|Cleopas	False
-LUK	24	22	other and Cleopas (on road to Emmaus) female|other female			False
-LUK	24	22	other and Cleopas (on road to Emmaus) male|other male			False
-LUK	24	23	Cleopas		Cleopas and other (on road to Emmaus)|Cleopas	False
-LUK	24	24	Cleopas		Cleopas and other (on road to Emmaus)|Cleopas	False
+LUK	24	19	Cleopas/companion (on road to Emmaus)			False	Cleopas' companion (on road to Emmaus)
+LUK	24	20	Cleopas/companion (on road to Emmaus)			False	Cleopas
+LUK	24	21	Cleopas/companion (on road to Emmaus)			False	Cleopas
+LUK	24	22	Cleopas/companion (on road to Emmaus)			False	Cleopas
+LUK	24	22	Cleopas/companion (on road to Emmaus)			False	Cleopas' companion (on road to Emmaus)
+LUK	24	23	Cleopas/companion (on road to Emmaus)			False	Cleopas
+LUK	24	24	Cleopas/companion (on road to Emmaus)			False	Cleopas
 LUK	24	25	Jesus			True
-LUK	24	29	Cleopas	urging	Cleopas and other (on road to Emmaus)|Cleopas	True
+LUK	24	29	Cleopas/companion (on road to Emmaus)	urging		True	Cleopas
 LUK	24	29	Jesus			True
-LUK	24	29	other and Cleopas (on road to Emmaus) female|other female			True
-LUK	24	29	other and Cleopas (on road to Emmaus) male|other male			True
-LUK	24	32	Cleopas	urging	Cleopas and other (on road to Emmaus)|Cleopas	True
-LUK	24	32	other and Cleopas (on road to Emmaus) female|other female			True
-LUK	24	32	other and Cleopas (on road to Emmaus) male|other male			True
+LUK	24	29	Cleopas/companion (on road to Emmaus)			True	Cleopas' companion (on road to Emmaus)
+LUK	24	32	Cleopas/companion (on road to Emmaus)	urging		True	Cleopas
+LUK	24	32	Cleopas/companion (on road to Emmaus)			True	Cleopas' companion (on road to Emmaus)
 LUK	24	34	Eleven/those with them			True
 LUK	24	36	Jesus			True
 LUK	24	38	Jesus			True
@@ -9101,13 +9131,14 @@ JHN	1	21	John the Baptist			True
 JHN	1	21	priests/Levites		priests/Levites from Jews	True
 JHN	1	22	priests/Levites		priests/Levites from Jews	True
 JHN	1	23	John the Baptist			True
-JHN	1	25	teachers of the law/Pharisees		Pharisees sent from Jews	True
+JHN	1	25	Pharisees			True
+JHN	1	25	priests/Levites		priests and Levites sent from Pharisees	True
 JHN	1	26	John the Baptist			True
 JHN	1	29	John the Baptist			False
 JHN	1	32	John the Baptist			False
 JHN	1	34	John the Baptist			False
 JHN	1	36	John the Baptist			True
-JHN	1	38	disciples of John Baptist, two	curious		True
+JHN	1	38	disciples of John Baptist, two (Andrew and another)	curious		True
 JHN	1	38	Jesus	questioning		True
 JHN	1	39	Jesus			True
 JHN	1	41	Andrew	excited		True
@@ -9133,7 +9164,7 @@ JHN	2	16	Jesus	giving orders		True
 JHN	2	17	scripture			False
 JHN	2	18	Pharisees			True
 JHN	2	19	Jesus			True
-JHN	2	20	teachers of the law/Pharisees		Jews 3	True
+JHN	2	20	teachers of the law/Pharisees			True
 JHN	3	2	Nicodemus			True
 JHN	3	3	Jesus			True
 JHN	3	4	Nicodemus			True
@@ -9152,7 +9183,7 @@ JHN	3	18	Jesus			False
 JHN	3	19	Jesus			False
 JHN	3	20	Jesus			False
 JHN	3	21	Jesus			False
-JHN	3	26	disciples, John the Baptist's	concerned	disciples, John Baptists/Jew, a certain	True
+JHN	3	26	John's disciples	concerned	John's disciples/a certain Jew	True
 JHN	3	27	John the Baptist			True
 JHN	3	28	John the Baptist			False
 JHN	3	29	Jesus			False
@@ -9180,7 +9211,7 @@ JHN	4	27	narrator-JHN			False
 JHN	4	29	woman, Samaritan			True
 JHN	4	31	disciples			True
 JHN	4	32	Jesus			True
-JHN	4	33	disciples	puzzled	disciples 1	False
+JHN	4	33	disciples	puzzled		False
 JHN	4	34	Jesus			True
 JHN	4	35	Jesus			False
 JHN	4	36	Jesus			False
@@ -9199,9 +9230,9 @@ JHN	4	53	Jesus	giving orders		False
 JHN	5	6	Jesus	questioning		True
 JHN	5	7	invalid for 38 years	whining		True
 JHN	5	8	Jesus	giving orders		True
-JHN	5	10	Jews, the 1	rebuke	Jews 1	True
+JHN	5	10	Jews	rebuke		True
 JHN	5	11	invalid for 38 years			True
-JHN	5	12	Jews, the 1	angry	Jews 1	True
+JHN	5	12	Jews	angry		True
 JHN	5	14	Jesus			True
 JHN	5	17	Jesus			True
 JHN	5	19	Jesus			False
@@ -9223,20 +9254,20 @@ JHN	5	41	Jesus			False
 JHN	5	44	Jesus			False
 JHN	5	45	Jesus			False
 JHN	6	5	Jesus			True
-JHN	6	7	Philip		Philip=disciples	True
-JHN	6	9	Andrew			True
+JHN	6	7	Philip			True		MRK 6.37;JHN 6.7
+JHN	6	9	Andrew		Andrew, Simon Peter’s brother	True		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
 JHN	6	10	Jesus			True
 JHN	6	12	Jesus			True
 JHN	6	14	people in crowd			False
 JHN	6	20	Jesus			False
-JHN	6	25	crowd 8			True
+JHN	6	25	crowd			True
 JHN	6	26	Jesus			True
-JHN	6	28	crowd 2			True
+JHN	6	28	crowd			True
 JHN	6	29	Jesus			True
-JHN	6	30	crowd	superior	crowd 1	True
-JHN	6	31	Jews 1			True
+JHN	6	30	crowd	superior	crowd	True
+JHN	6	31	Jews			True
 JHN	6	32	Jesus			True
-JHN	6	34	crowd 2	polite		True
+JHN	6	34	crowd	polite		True
 JHN	6	35	Jesus			True
 JHN	6	36	Jesus			False
 JHN	6	37	Jesus			False
@@ -9244,7 +9275,7 @@ JHN	6	38	Jesus			False
 JHN	6	39	Jesus			False
 JHN	6	40	Jesus			False
 JHN	6	41	Jesus			False
-JHN	6	42	Jews 5	grumbling		False
+JHN	6	42	Jews	grumbling		False
 JHN	6	43	Jesus			True
 JHN	6	44	Jesus			False
 JHN	6	45	Jesus			False
@@ -9253,10 +9284,10 @@ JHN	6	47	Jesus			False
 JHN	6	48	Jesus			False
 JHN	6	49	Jesus			False
 JHN	6	50	Jesus			False
-JHN	6	52	Jews, the 2		Jews 2	False
+JHN	6	52	Jews			False
 JHN	6	53	Jesus			True
 JHN	6	56	Jesus			False
-JHN	6	60	disciples 3	grumbling	disciples, many of His	False
+JHN	6	60	disciples	grumbling	disciples, many of His	False
 JHN	6	61	Jesus			True
 JHN	6	64	Jesus			False
 JHN	6	65	Jesus			True
@@ -9266,68 +9297,68 @@ JHN	6	70	Jesus			True
 JHN	7	3	Jesus' brothers	challenging		True
 JHN	7	4	Jesus' brothers			False
 JHN	7	6	Jesus			True
-JHN	7	11	Jews, the 2		Jews 2	False
-JHN	7	12	crowds, others in	harsh		False
-JHN	7	12	crowds, some in			False
-JHN	7	15	Jews, the 7		Jews	False
+JHN	7	11	Jews			False
+JHN	7	12	crowd, others in	harsh		False
+JHN	7	12	crowd, some in			False
+JHN	7	15	Jews			False
 JHN	7	16	Jesus			True
 JHN	7	18	Jesus			False
 JHN	7	19	Jesus			False
-JHN	7	20	crowd	insulting	crowd 1	True
+JHN	7	20	crowd	insulting	crowd	True
 JHN	7	21	Jesus			True
 JHN	7	22	Jesus			False
-JHN	7	25	people, some, in Jerusalem 1	arguing		False
-JHN	7	26	people, some, in Jerusalem 1	arguing		False
-JHN	7	27	people, some, in Jerusalem 2	arguing		False
+JHN	7	25	people of Jerusalem, some	arguing		False
+JHN	7	26	people of Jerusalem, some	arguing		False
+JHN	7	27	people of Jerusalem, some	arguing		False
 JHN	7	28	Jesus			True
 JHN	7	31	crowd, many in the			False
 JHN	7	33	Jesus			True
-JHN	7	35	teachers of the law/Pharisees		Jews 3	True
-JHN	7	36	Jews, the 1	grumbling	Jews 1	False
+JHN	7	35	teachers of the law/Pharisees			True
+JHN	7	36	Jews	grumbling		False
 JHN	7	37	Jesus			True
 JHN	7	38	Jesus			False
-JHN	7	40	people, some of the			False
+JHN	7	40	people, some			False
 JHN	7	41	people, others			False
-JHN	7	41-42	people, still other 2			False
-JHN	7	45	chief priests/Pharisees 1			True
+JHN	7	41-42	people, still others			False
+JHN	7	45	chief priests/Pharisees			True
 JHN	7	46	temple guards	amazed		True
-JHN	7	47	Pharisees 5	angry	Pharisees 1	True
-JHN	7	48	Pharisees 5	angry	Pharisees 1	False
+JHN	7	47	Pharisees	angry		True
+JHN	7	48	Pharisees	angry		False
 JHN	7	51	Nicodemus			True
-JHN	7	52	Pharisees 5	angry	Pharisees 1	True
+JHN	7	52	Pharisees	angry		True
 JHN	8	4	teachers of the law/Pharisees			True
 JHN	8	7	Jesus			True
 JHN	8	10	Jesus	questioning		True
 JHN	8	11	Jesus			True
 JHN	8	11	woman, caught in adultery			True
 JHN	8	12	Jesus			True
-JHN	8	13	Pharisees/teachers of the law		Pharisees 4	True
+JHN	8	13	Pharisees/teachers of the law		Pharisees	True
 JHN	8	14	Jesus			True
 JHN	8	19	Jesus			True
-JHN	8	19	Pharisees 2			True
+JHN	8	19	Pharisees			True
 JHN	8	21	Jesus			True
-JHN	8	22	Jews, the 7		Jews	False
+JHN	8	22	Jews			False
 JHN	8	23	Jesus			True
 JHN	8	25	Jesus			True
-JHN	8	25	Jews 1	impatient		True
+JHN	8	25	Jews	impatient		True
 JHN	8	26	Jesus			False
 JHN	8	28	Jesus			True
 JHN	8	31	Jesus			True
-JHN	8	33	Jews, the 1	superior	Jews 1	True
+JHN	8	33	Jews	superior		True
 JHN	8	34	Jesus			True
 JHN	8	39	Jesus			True
-JHN	8	39	Jews, the 2		Jews 2	True
-JHN	8	41	teachers of the law/Pharisees		Jews 3	True
+JHN	8	39	Jews			True
+JHN	8	41	teachers of the law/Pharisees			True
 JHN	8	42	Jesus			True
 JHN	8	45	Jesus			False
 JHN	8	46	Jesus			False
-JHN	8	48	Jews, the 2	angry	Jews 2	True
+JHN	8	48	Jews	angry		True
 JHN	8	49	Jesus			True
-JHN	8	52	Jews, the 1	outraged	Jews 1	True
+JHN	8	52	Jews	outraged		True
 JHN	8	54	Jesus			True
-JHN	8	57	Jews 4			True
+JHN	8	57	Jews			True
 JHN	8	58	Jesus			True
-JHN	9	2	disciples 3	accusing		True
+JHN	9	2	disciples	accusing		True
 JHN	9	3	Jesus			True
 JHN	9	7	Jesus	giving orders		True
 JHN	9	7	narrator-JHN			True
@@ -9340,27 +9371,27 @@ JHN	9	11	cured man, blind from birth			True
 JHN	9	12	cured man, blind from birth			True
 JHN	9	12	neighbors of man blind from birth			True
 JHN	9	15	cured man, blind from birth			True
-JHN	9	16	Pharisees 5		Pharisees, some 1	False
+JHN	9	16	Pharisees			False
 JHN	9	16	Pharisees, other			False
 JHN	9	17	cured man, blind from birth			True
-JHN	9	17	teachers of the law/Pharisees		Pharisees 3	True
-JHN	9	19	Jews, the 1	challenging	Jews 1	True
-JHN	9	20	parents of cured man, blind from birth|parent 1	cautious		True
-JHN	9	21	parents of cured man, blind from birth|parent 2			False
-JHN	9	23	parents of cured man, blind from birth|parent 2			False
-JHN	9	24	Jews, the 1	challenging	Jews 1	True
+JHN	9	17	teachers of the law/Pharisees		Pharisees	True
+JHN	9	19	Jews	challenging		True
+JHN	9	20	parents of cured man, blind from birth	cautious		Truefather of cured man, blind from birth
+JHN	9	21	parents of cured man, blind from birth			Falsemother of cured man, blind from birth
+JHN	9	23	parents of cured man, blind from birth			Falsemother of cured man, blind from birth
+JHN	9	24	Jews	challenging		True
 JHN	9	25	cured man, blind from birth			True
-JHN	9	26	Jews, the 7		Jews	True
+JHN	9	26	Jews			True
 JHN	9	27	cured man, blind from birth			True
-JHN	9	28	Jews 4	harsh		True
+JHN	9	28	Jews	harsh		True
 JHN	9	30	cured man, blind from birth			True
-JHN	9	34	Jews 4	harsh		True
+JHN	9	34	Jews	harsh		True
 JHN	9	35	Jesus	questioning		True
 JHN	9	36	cured man, blind from birth			True
 JHN	9	37	Jesus			True
 JHN	9	38	cured man, blind from birth			True
 JHN	9	39	Jesus			True
-JHN	9	40	Pharisees 5	challenging	Pharisees, some 1	True
+JHN	9	40	Pharisees	challenging		True
 JHN	9	41	Jesus			True
 JHN	10	1	Jesus			False
 JHN	10	2	Jesus			False
@@ -9377,63 +9408,64 @@ JHN	10	15	Jesus			False
 JHN	10	16	Jesus			False
 JHN	10	17	Jesus			False
 JHN	10	18	Jesus			False
-JHN	10	20	Jews, the 2	contempt	Jews, many of the	False
-JHN	10	21	Jews, others of the			False
-JHN	10	24	Jews 4			True
+JHN	10	20	Jews	contempt		False
+JHN	10	21	Jews			False
+JHN	10	24	Jews			True
 JHN	10	25	Jesus			True
 JHN	10	32	Jesus			True
-JHN	10	33	teachers of the law/Pharisees		Jews 3	True
+JHN	10	33	teachers of the law/Pharisees			True
 JHN	10	34	Jesus			True
 JHN	10	41	people, many			False
 JHN	11	3	Mary/Martha			False
 JHN	11	4	Jesus			False
 JHN	11	7	Jesus			True
-JHN	11	8	disciples 2		disciples, Jesus'	True
+JHN	11	8	disciples		disciples, Jesus'	True
 JHN	11	9	Jesus			True
 JHN	11	11	Jesus			True
-JHN	11	12	disciples	sad	disciples 1	True
+JHN	11	12	disciples	sad		True
 JHN	11	13	Jesus			False
 JHN	11	14	Jesus			True
 JHN	11	16	Thomas	resigned		True
-JHN	11	17	someone			False
+JHN	11	17	person who told Jesus how long Lazuras had been dead			False
 JHN	11	21	Martha			True
 JHN	11	23	Jesus	reassuring		True
 JHN	11	24	Martha			True
 JHN	11	25	Jesus			True
 JHN	11	27	Martha			True
 JHN	11	28	Martha			True
-JHN	11	31	Jews (with Mary and Martha)			False
+JHN	11	31	Jews/Mary/Martha			False	Jews (with Mary and Martha)
 JHN	11	32	Mary (sister of Martha)			True
 JHN	11	34	Jesus	questioning		True
-JHN	11	34	Jews (with Mary and Martha)|Mary			True
-JHN	11	36	Jews (with Mary and Martha)			True
-JHN	11	37	Jews (with Mary and Martha, some)			True
+JHN	11	34	Jews/Mary/Martha			True	Mary (sister of Martha)
+JHN	11	36	Jews/Mary/Martha			True	Jews (with Mary and Martha)
+JHN	11	37	Jews, doubting (with Mary and Martha)	skeptical		True
 JHN	11	39	Jesus			True
 JHN	11	39	Martha			True
 JHN	11	40	Jesus			True
-JHN	11	41	Jesus	praying		True
+JHN	11	41-42	Jesus	praying		True
 JHN	11	43	Jesus	giving orders		True
 JHN	11	44	Jesus	giving orders		True
-JHN	11	47	chief priests/Sanhedrin 1	upset	chief priests/Sanhedrin=chief priests/whole Sanhedrin 1	True
-JHN	11	48	chief priests 1	worried		False
+JHN	11	47	Sanhedrin/chief priests/Pharisees	upset		True
+JHN	11	48	chief priests	worried		False
 JHN	11	49	Caiaphas	indignant	Caiaphas, high priest	True
 JHN	11	51	Caiaphas		Caiaphas, high priest	False
-JHN	11	56	Jews 6			False
-JHN	12	5	Judas Iscariot	objecting		True
+JHN	11	56	Jews			False
+JHN	12	5	Judas Iscariot	indignant, rebuking harshly		True		MAT 26.8-9;MRK 14.4-5;JHN 12.5
 JHN	12	7	Jesus			True
 JHN	12	10	chief priests	plotting		False
-JHN	12	13	disciples 1	praising	disciples, whole crowd of=people, many=crowd, great|crowd	True
+JHN	12	13	crowd	praising loudly	great crowd	True		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13
 JHN	12	15	scripture			False
-JHN	12	19	teachers of the law/Pharisees		Pharisees 3	False
+JHN	12	19	teachers of the law/Pharisees		Pharisees	False
 JHN	12	21	Greeks	respectful		True
 JHN	12	23	Jesus			True
 JHN	12	24	Jesus			False
 JHN	12	25	Jesus			False
 JHN	12	27	Jesus			False
 JHN	12	28	God		voice from heaven (God)	False
-JHN	12	29	crowds, others in			False
+JHN	12	29	crowd			False
+JHN	12	29	crowd, others in			False
 JHN	12	30	Jesus			True
-JHN	12	34	crowd	challenging	crowd 1	True
+JHN	12	34	crowd	challenging	crowd	True
 JHN	12	35	Jesus			True
 JHN	12	38	scripture			False
 JHN	12	40	scripture			False
@@ -9514,14 +9546,13 @@ JHN	16	8	Jesus			False
 JHN	16	11	Jesus			False
 JHN	16	12	Jesus			False
 JHN	16	16	Jesus			False
-JHN	16	17	disciples 2	puzzled	disciples, some of his	False
-JHN	16	18	Thomas	frustrated	disciples, some of his|Thomas	False
+JHN	16	17	disciples	puzzled	disciples, some of his	False
+JHN	16	18	disciples	frustrated	disciples, some of his	False	Thomas
 JHN	16	19	Jesus			True
 JHN	16	20	Jesus			False
 JHN	16	23	Jesus			False
 JHN	16	25	Jesus			False
-JHN	16	29	disciples 2	relieved	disciples, Jesus'	True
-JHN	16	30	disciples, John the Baptist's		disciples 4	False
+JHN	16	29-30	disciples	relieved	disciples, Jesus'	True
 JHN	16	31	Jesus			True
 JHN	16	32	Jesus			False
 JHN	16	33	Jesus			False
@@ -9551,19 +9582,19 @@ JHN	18	8	Jesus			True
 JHN	18	9	Jesus			False
 JHN	18	11	Jesus			True
 JHN	18	14	Caiaphas		Caiaphas, high priest	False
-JHN	18	17	girl at high priest's courtyard=servant girl			True
+JHN	18	17	servant girl at high priest's courtyard		servant girl who watched the door	True		MAT 26.69;MRK 14.67;LUK 22.56;JHN 18.17
 JHN	18	17	Peter (Simon)	denial		True
 JHN	18	19	high priest		Annas, high priest	False
 JHN	18	20	Jesus			True
 JHN	18	22	officials, one of the	gruff		True
 JHN	18	23	Jesus			True
-JHN	18	25	Peter (Simon)	stronger		True
-JHN	18	25	servant girl		servant girl, another=someone else	True
-JHN	18	26	high priest's servant (man), one=those standing near=another	accusing		True
-JHN	18	27	Peter (Simon)			False
+JHN	18	25	people in high priest's courtyard		they (people accusing Peter)	True	second person to accuse Peter (man)	MAT 26.71;MRK 14.69;LUK 22.58;JHN 18.25
+JHN	18	25	Peter (Simon)	stronger denial		True
+JHN	18	26	high priest's servant (relative of the man whose ear Peter cut off)	accusing		True		MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
+JHN	18	27	Peter (Simon)	strongest denial		False
 JHN	18	29	Pilate	to crowd		True
-JHN	18	30	Jews, the 1	offended	Jews 1	True
-JHN	18	31	Jews 4			True
+JHN	18	30	Jews	offended		True
+JHN	18	31	Jews			True
 JHN	18	31	Pilate	to crowd		True
 JHN	18	33	Pilate	to Jesus		True
 JHN	18	34	Jesus	questioning		True
@@ -9572,23 +9603,23 @@ JHN	18	36	Jesus			True
 JHN	18	37	Jesus			True
 JHN	18	37	Pilate	to Jesus		True
 JHN	18	38	Pilate	to Jesus		True
-JHN	18	40	Jews, the 7		Jews	True
+JHN	18	40	Jews			True
 JHN	19	3	soldiers, Roman	mocking		True
 JHN	19	4	Pilate	to crowd		True
 JHN	19	5	Pilate	to crowd		True
-JHN	19	6	chief priests/Sanhedrin 2		chief priests/Sanhedrin=chief priests/whole Sanhedrin 3	True
+JHN	19	6	chief priests and Jewish leaders	shouting	chief priests/officers	True
 JHN	19	6	Pilate	to crowd		True
-JHN	19	7	teachers of the law/Pharisees	insisting	Jews 3	True
+JHN	19	7	teachers of the law/Pharisees	insisting	Jewish leaders	True
 JHN	19	9	Pilate	to Jesus		True
 JHN	19	10	Pilate	to Jesus		True
 JHN	19	11	Jesus			True
-JHN	19	12	Jews, the 7		Jews	True
+JHN	19	12	teachers of the law/Pharisees	insisting	Jewish leaders	True
 JHN	19	14	Pilate	to crowd		True
-JHN	19	15	chief priests 2	intimidating		True
+JHN	19	15	chief priests	shouting		True
 JHN	19	15	Pilate	to crowd		True
 JHN	19	17	narrator-JHN			False
 JHN	19	19	sign on the cross			False
-JHN	19	21	chief priests/Sanhedrin 1	protest	chief priests/Sanhedrin=chief priests/whole Sanhedrin 1	True
+JHN	19	21	chief priests	protesting		True
 JHN	19	22	Pilate	impatient		True
 JHN	19	24	scripture			True
 JHN	19	24	soldiers, Roman	gruff		True
@@ -9611,7 +9642,7 @@ JHN	20	19	Jesus			True
 JHN	20	21	Jesus			True
 JHN	20	22	Jesus			True
 JHN	20	23	Jesus			False
-JHN	20	25	disciples 1	excited	disciples (but not Thomas)	True
+JHN	20	25	disciples (but not Thomas)	excited		True
 JHN	20	25	Thomas	stubborn		True
 JHN	20	26	Jesus			True
 JHN	20	27	Jesus			True
@@ -9620,7 +9651,7 @@ JHN	20	29	Jesus			True
 JHN	21	3	Peter (Simon)			True
 JHN	21	3	Thomas		Thomas/Nathaniel/James/John/2 disciples	True
 JHN	21	5	Jesus	questioning		True
-JHN	21	5	John	calling out	disciples|John	True
+JHN	21	5	disciples	calling out		True	John
 JHN	21	6	Jesus			True
 JHN	21	7	John	amazed		True
 JHN	21	7	narrator-JHN			True
@@ -9655,9 +9686,9 @@ ACT	1	21	Peter (Simon)			False
 ACT	1	22	Peter (Simon)			False
 ACT	1	24	believers, one hundred twenty	praying		False
 ACT	1	25	believers, one hundred twenty	praying		False
-ACT	2	7-11	Jews, God-fearing from every nation 1	amazed		False
-ACT	2	12	Jews, God-fearing from every nation 2	amazed and perplexed		False
-ACT	2	13	Jews, God-fearing from every nation, some	made fun of them		False
+ACT	2	7-11	Jews, God-fearing from every nation	amazed		False
+ACT	2	12	Jews, God-fearing from every nation	amazed and perplexed		False
+ACT	2	13	Jews, God-fearing from every nation, some	mocking		False
 ACT	2	14	Peter (Simon)		Peter (Simon), with Eleven	False
 ACT	2	15	Peter (Simon)		Peter (Simon), with Eleven	False
 ACT	2	16	Peter (Simon)			False
@@ -9681,7 +9712,7 @@ ACT	2	33	Peter (Simon)			False
 ACT	2	34	Peter (Simon)			False
 ACT	2	35	Peter (Simon)			False
 ACT	2	36	Peter (Simon)			False
-ACT	2	37	people 2	grieved	people 3	True
+ACT	2	37	people			True
 ACT	2	38	Peter (Simon)			True
 ACT	2	39	Peter (Simon)			False
 ACT	2	40	Peter (Simon)			True
@@ -9708,11 +9739,11 @@ ACT	4	7	high priest		high priests/men of their family/rulers, teachers of the la
 ACT	4	8	Peter (Simon)			True
 ACT	4	11	Peter (Simon)			False
 ACT	4	12	Peter (Simon)			False
-ACT	4	13	chief priests/elders 2			False
-ACT	4	15	chief priests/Sanhedrin 2		chief priests/their officials	False
-ACT	4	16	Good Priest	defending	high priests/men of their family/rulers, elders, teachers of the law|Good Priest	False
+ACT	4	13	chief priests/elders			False
+ACT	4	15	chief priests/Sanhedrin		chief priests/their officials	False
+ACT	4	16	high priests/men of their family/rulers, elders, teachers of the law		men in the Sanhedrin	False	Good Priest
 ACT	4	17	high priest	worried but stern		False
-ACT	4	18	chief priests/Sanhedrin 2		chief priests/their officials	False
+ACT	4	18	chief priests/Sanhedrin		chief priests/their officials	False
 ACT	4	19	Peter (Simon)		Peter (Simon)/John	True
 ACT	4	20	John			False
 ACT	4	23	Peter (Simon)		Peter (Simon)/John	False
@@ -9730,7 +9761,7 @@ ACT	5	9	Peter (Simon)			True
 ACT	5	20	angel of the LORD, an	commanding		False
 ACT	5	23	temple police	perplexed		False
 ACT	5	24	captain, of temple guard/chief priests			False
-ACT	5	25	someone	excited		False
+ACT	5	25	person who told the guards and priests where the apostles were	excited		False
 ACT	5	28	high priest			True
 ACT	5	29	Peter (Simon)			True
 ACT	5	30	Peter (Simon)			False
@@ -9742,8 +9773,8 @@ ACT	5	37	Gamaliel		Gamaliel, a Pharisee on Sanhedrin	False
 ACT	5	38	Gamaliel			False
 ACT	5	40	council of elders:chief priests/teachers of the law			False
 ACT	5	42	apostles			False
-ACT	6	2	disciples 2			False
-ACT	6	3	disciples 2			False
+ACT	6	2	disciples			False
+ACT	6	3	disciples			False
 ACT	6	9	narrator-ACT			False
 ACT	6	11	Jews of Cyrene, Alexandria, Cilicia & Asia	accusing		False
 ACT	6	13	false witnesses			False
@@ -9754,12 +9785,12 @@ ACT	7	56	Stephen			True
 ACT	7	57	Sanhedrin/chief priests/Pharisees			False
 ACT	7	59	Stephen			False
 ACT	7	60	Stephen	cried out		False
-ACT	8	10	people, all the 1			False
-ACT	8	19	Simon practiced magic			False
+ACT	8	10	people, all the			False
+ACT	8	19	Simon (magician)			False
 ACT	8	20	Peter (Simon)			True
-ACT	8	24	Simon practiced magic			True
+ACT	8	24	Simon (magician)			True
 ACT	8	26	angel of the LORD, an			False
-ACT	8	29	Spirit, the			False
+ACT	8	29	Holy Spirit, the		Spirit, the	False
 ACT	8	30	Philip		Philip (the evangelist)	True
 ACT	8	31	Ethiopian			True
 ACT	8	32	Ethiopian			False
@@ -9784,7 +9815,7 @@ ACT	9	21	all who heard (in synagogues)			False
 ACT	9	22	Paul			False
 ACT	9	34	Peter (Simon)			True
 ACT	9	36	narrator-ACT			False
-ACT	9	38	disciples, 2 men	urgent		False
+ACT	9	38	disciples, two men (from Joppa)	urgent		False
 ACT	9	40	Peter (Simon)			False
 ACT	10	1	narrator-ACT			False
 ACT	10	3	angel of the LORD, an		angel of God, an	False
@@ -9794,7 +9825,7 @@ ACT	10	13	Jesus		voice (in trance)	False
 ACT	10	14	Peter (Simon)			False
 ACT	10	15	Jesus		voice (in trance)	False
 ACT	10	18	men from Cornelius			False
-ACT	10	19	Spirit, the			False
+ACT	10	19	Holy Spirit, the		Spirit, the	False
 ACT	10	21	Peter (Simon)			True
 ACT	10	22	men from Cornelius	respectful		True
 ACT	10	23	Peter (Simon)			False
@@ -9810,17 +9841,15 @@ ACT	10	41	Peter (Simon)			False
 ACT	10	42	Peter (Simon)			False
 ACT	10	47	Peter (Simon)			True
 ACT	10	48	Peter (Simon)	giving orders		False
-ACT	11	3	believers, circumcised	critical		False
+ACT	11	3	believers, circumcised (in Jerusalem)	critical		False
 ACT	11	5	Peter (Simon)			True
 ACT	11	6	Peter (Simon)			False
 ACT	11	7	Peter (Simon)			False
 ACT	11	8	Peter (Simon)			False
-ACT	11	9	Peter (Simon)			False
-ACT	11	10	Peter (Simon)			False
-ACT	11	11	Peter (Simon)			False
-ACT	11	14	Peter (Simon)			False
-ACT	11	15	Peter (Simon)			False
-ACT	11	18	believers, circumcised	rejoicing	believers, circumcised|Jewish believer	True
+ACT	11	9-10	Peter (Simon)			False
+ACT	11	11-14	Peter (Simon)			False
+ACT	11	15-17	Peter (Simon)			False
+ACT	11	18	believers, circumcised (in Jerusalem)	rejoicing		True
 ACT	11	23	Barnabas			False
 ACT	11	28	Agabus the prophet			False
 ACT	12	7	angel of the LORD, an	commanding		False
@@ -9831,18 +9860,18 @@ ACT	12	15	people gathered to pray			True
 ACT	12	17	Peter (Simon)			True
 ACT	12	18	soldiers	perplexed		False
 ACT	12	19	Herod Agrippa II			False
-ACT	12	22	people 2	shouting	people 3	False
+ACT	12	22	people	shouting		False
 ACT	13	2	Holy Spirit, the		Holy Spirit	False
 ACT	13	10	Paul	rebuking		False
-ACT	13	15	Good Priest	gracious	synagogue rulers|Good Priest	False
+ACT	13	15	synagogue rulers	gracious		False	Good Priest
 ACT	13	16-41	Paul	preaching		False
-ACT	13	42	people 2		people in synagogue	False
+ACT	13	42	people		people in synagogue	False
 ACT	13	43	Paul		Paul/Barnabas	False
 ACT	13	46	Paul	bold	Paul/Barnabas	False
 ACT	13	47	Paul	bold	Paul/Barnabas	False
 ACT	13	48	Gentiles			False
 ACT	14	10	Paul	called out		True
-ACT	14	11	crowd 4	excited		True
+ACT	14	11	crowd	excited		True
 ACT	14	15	Paul	preaching	Barnabas/Paul	True
 ACT	14	16	Paul	preaching	Barnabas/Paul	False
 ACT	14	22	Paul		Barnabas/Paul	False
@@ -9896,7 +9925,7 @@ ACT	17	32	Epicurean and Stoic philosophers, sneering	sneering		True
 ACT	18	5	Paul			False
 ACT	18	6	Paul	rebuking		False
 ACT	18	9	Jesus	in a vision		False
-ACT	18	13	Jews, the 7	angry	Jews 7	True
+ACT	18	13	Jews	angry		True
 ACT	18	14	Gallio	stern		True
 ACT	18	18	Paul			False
 ACT	18	20	Paul			False
@@ -9933,10 +9962,10 @@ ACT	21	22	James	encouraging	James/all the elders	False
 ACT	21	23	James		James/all the elders	False
 ACT	21	24	James	encouraging	James/all the elders	False
 ACT	21	25	James		James/all the elders	False
-ACT	21	28	Jews, the 7	screaming	Jews 7	False
+ACT	21	28	Jews	screaming		False
 ACT	21	33	commander			False
-ACT	21	34	crowd 9	shouting		False
-ACT	21	36	crowd 9	shouting		False
+ACT	21	34	crowd	shouting		False
+ACT	21	36	crowd	shouting		False
 ACT	21	37	commander			True
 ACT	21	37	Paul			True
 ACT	21	37	Paul	called out		True
@@ -9944,7 +9973,7 @@ ACT	21	38	commander			False
 ACT	21	39	Paul			True
 ACT	21	40	commander			False
 ACT	22	1-21	Paul	preaching		False
-ACT	22	22	crowd 4	screaming		False
+ACT	22	22	crowd	screaming		False
 ACT	22	25	Paul	stern		True
 ACT	22	26	centurion at Paul's flogging	anxious		True
 ACT	22	27	commander			True
@@ -9960,8 +9989,8 @@ ACT	23	5	Paul			True
 ACT	23	6	Paul	called out		True
 ACT	23	9	teachers of the law	arguing	teachers of the law, some who were Pharisees	True
 ACT	23	11	Jesus	in a vision		False
-ACT	23	14	Jews, 40 in conspiracy	plotting		True
-ACT	23	15	Jews, the 7		Jews	False
+ACT	23	14	Jews, more than forty in conspiracy	plotting		True
+ACT	23	15	Jews			False
 ACT	23	17	Paul			True
 ACT	23	18	centurion, one of the			True
 ACT	23	19	commander			True
@@ -9979,7 +10008,7 @@ ACT	24	2	Tertullus-Lawyer	accusing		True
 ACT	24	3	Tertullus-Lawyer			False
 ACT	24	4	Tertullus-Lawyer	accusing		False
 ACT	24	5	Tertullus-Lawyer			False
-ACT	24	9	Jews, the 7		Jews	False
+ACT	24	9	Jews			False
 ACT	24	10	Paul	defense to governor		True
 ACT	24	13	Paul	defense to governor		False
 ACT	24	14	Paul			False
@@ -10048,25 +10077,25 @@ ACT	28	6	islanders			False
 ACT	28	14	brothers at Puteoli, some			False
 ACT	28	17	Paul			True
 ACT	28	18	Paul			False
-ACT	28	21	Jews, the 1		Jews, leaders of the	True
-ACT	28	22	Jews, the 1	inquiring	Jews 1	False
+ACT	28	21	Jews		Jews, leaders of the	True
+ACT	28	22	Jews	inquiring		False
 ACT	28	25	Paul			False
 ACT	28	26	Paul			False
 ACT	28	27	Paul			False
 ACT	28	28	Paul			False
 ROM	1	17	scripture			False
-ROM	2	1	Jews 8	accusing		False
+ROM	2	1	Jews	accusing		False
 ROM	2	6	scripture			False
 ROM	2	15	Gentiles			False
-ROM	2	15	Jews 8	accusing		False
+ROM	2	15	Jews	accusing		False
 ROM	2	24	scripture			False
-ROM	3	1	Jews 8	speaking ironically		False
+ROM	3	1	Jews	speaking ironically		False
 ROM	3	2	Paul			False
-ROM	3	3	Jews 8	speaking ironically		False
+ROM	3	3	Jews	speaking ironically		False
 ROM	3	4	scripture			False
-ROM	3	5	Jews 8	speaking ironically		False
-ROM	3	7	someone	might argue		False
-ROM	3	8	some claim we say			False
+ROM	3	5	Jews	speaking ironically		False
+ROM	3	7	someone (hypothetical argument)	might argue		False
+ROM	3	8	some people (quoted by Paul)			False
 ROM	3	10-18	scripture			False
 ROM	4	3	scripture			False
 ROM	4	7	scripture			False
@@ -10078,17 +10107,17 @@ ROM	4	22	scripture			False
 ROM	4	23	narrator-ROM			False
 ROM	7	7	scripture			False
 ROM	7	9	scripture		law	False
-ROM	7	13	Jews 8	questioning		False
-ROM	8	15	we	cry		False
+ROM	7	13	Jews	questioning		False
+ROM	8	15	we (believers)	cry		False
 ROM	8	36	scripture			False
 ROM	9	7	scripture			False
 ROM	9	9	scripture			False
 ROM	9	12	God		scripture (God)	False
 ROM	9	13	God		scripture (God)	False
-ROM	9	14	Jews 8	speaking ironically		False
+ROM	9	14	Jews	speaking ironically		False
 ROM	9	15	scripture			False
 ROM	9	17	scripture			False
-ROM	9	19	one of you			False
+ROM	9	19	one of you (hypothetical)			False
 ROM	9	20	scripture			False
 ROM	9	25	scripture			False
 ROM	9	26	scripture			False
@@ -10105,7 +10134,7 @@ ROM	10	9	narrator-ROM			False
 ROM	10	11	scripture			False
 ROM	10	12	narrator-ROM			False
 ROM	10	13	scripture			False
-ROM	10	14	Jews 8	questioning		False
+ROM	10	14	Jews	questioning		False
 ROM	10	15	scripture			False
 ROM	10	16	scripture			False
 ROM	10	18	scripture			False
@@ -10119,7 +10148,7 @@ ROM	11	8	scripture			False
 ROM	11	9	scripture			False
 ROM	11	10	scripture			False
 ROM	11	11	Paul			False
-ROM	11	19	you 1	smug		False
+ROM	11	19	you (hypothetical Gentile)	smug		False
 ROM	11	26	scripture			False
 ROM	11	27	scripture			False
 ROM	11	34	scripture			False
@@ -10129,6 +10158,7 @@ ROM	12	20	scripture			False
 ROM	13	3	authorities, governing			False
 ROM	13	9	scripture			False
 ROM	14	11	scripture			False
+ROM	14	23	whoever has doubts			False
 ROM	15	3	scripture			False
 ROM	15	9	scripture			False
 ROM	15	10	scripture			False
@@ -10145,8 +10175,8 @@ ROM	16	22	Tertius			False
 1CO	1	31	scripture			False
 1CO	2	9	scripture			False
 1CO	2	16	scripture			False
-1CO	3	4	another of you			False
-1CO	3	4	one of you			False
+1CO	3	4	another of you (follower of Apollos)			False
+1CO	3	4	one of you (follower of Paul)			False
 1CO	3	18	narrator-1CO			False
 1CO	3	19	scripture			False
 1CO	3	20	scripture			False
@@ -10157,6 +10187,7 @@ ROM	16	22	Tertius			False
 1CO	6	13	narrator-1CO			False
 1CO	6	16	scripture			False
 1CO	7	10	Paul			False
+1CO	8	1	narrator-1CO			False
 1CO	8	5	narrator-1CO			False
 1CO	9	9	scripture			False
 1CO	10	7	scripture			False
@@ -10172,11 +10203,11 @@ ROM	16	22	Tertius			False
 1CO	12	21	head			False
 1CO	14	16	narrator-1CO			False
 1CO	14	21	scripture			False
-1CO	14	25	someone			False
+1CO	14	25	unbeliever who comes under conviction			False
 1CO	15	27	narrator-1CO			False
 1CO	15	32	scripture			False
 1CO	15	33	saying about bad company			False
-1CO	15	35	someone			False
+1CO	15	35	someone (hypothetical argument)			False
 1CO	15	45	scripture			False
 1CO	15	54	scripture			False
 1CO	15	55	scripture			False
@@ -10194,14 +10225,14 @@ ROM	16	22	Tertius			False
 2CO	8	15	scripture			False
 2CO	9	9	scripture			False
 2CO	10	1	narrator-2CO			False
-2CO	10	10	some			False
+2CO	10	10	some people (quoted by Paul)			False
 2CO	10	17	scripture			False
 2CO	11	5	narrator-2CO			False
 2CO	12	9	Jesus		Lord Jesus	False
 2CO	12	11	narrator-2CO			False
-2CO	12	16	someone			False
+2CO	12	16	someone (hypothetical argument)			False
 2CO	13	1	scripture			False
-GAL	1	23	someone			False
+GAL	1	23	report concerning Paul			False
 GAL	2	14	Paul			False
 GAL	2	15	Paul			False
 GAL	2	17	Paul			False
@@ -10214,13 +10245,13 @@ GAL	3	13	scripture			False
 GAL	3	16	narrator-GAL			False
 GAL	3	17	God		God (the LORD)	False
 GAL	3	22	scripture			False
-GAL	4	6	Spirit, the			False
+GAL	4	6	Holy Spirit, the		the Spirit (of God's Son)	False
 GAL	4	27	scripture			False
 GAL	4	30	scripture			False
 GAL	5	3	narrator-GAL			False
 GAL	5	9	saying about yeast			False
 GAL	5	14	scripture			False
-GAL	6	12	Judeaisers			False
+GAL	6	12	Judaizers			False
 EPH	1	7	God		God (the LORD)	False
 EPH	2	11	narrator-EPH			False
 EPH	4	8	scripture			False
@@ -10318,9 +10349,8 @@ JAS	1	13	no one			False
 JAS	2	3	someone			False
 JAS	2	8	scripture			False
 JAS	2	11	scripture			False
-JAS	2	16	one of you			False
-JAS	2	17	one of you			False
-JAS	2	18	someone			False
+JAS	2	16	one of you (hypothetical)			False
+JAS	2	18	someone (hypothetical argument)			False
 JAS	2	23	scripture			False
 JAS	3	15	narrator-JAS			False
 JAS	4	5	scripture			False
@@ -10370,26 +10400,23 @@ REV	3	1-22	Jesus		someone like a son of man	False
 REV	4	1	Jesus		voice like a trumpet	False
 REV	4	8	four living creatures			False
 REV	4	11	twenty-four elders			False
-REV	5	2	angel, powerful	loud	angel, powerful 2	False
+REV	5	2	angel, powerful	loud	angel, powerful	False
 REV	5	5	elders, one of the			False
-REV	5	9	four living creatures, twenty-four elders			False
-REV	5	10	four living creatures, twenty-four elders			False
-REV	5	12	angels, many, living creatures, elders, thousands of thousands 1			False
-REV	5	13	angels, many, living creatures, elders, thousands of thousands 2			False
+REV	5	9	four living creatures/twenty-four elders			False
+REV	5	10	four living creatures/twenty-four elders			False
+REV	5	12	angels, living creatures, elders (thousands of thousands)			False
+REV	5	13	every created thing			False
 REV	5	14	four living creatures			False
-REV	6	1	four living creatures		four living creatures, one (voice of thunder)	False
+REV	6	1	living creature, first	loudly (like thunder)		False
 REV	6	3	living creature, second			False
 REV	6	5	living creature, third			False
-REV	6	6	voice among living creatures			False
+REV	6	6	voice from among living creatures			False
 REV	6	7	living creature, fourth			False
 REV	6	10	souls of those killed for word of God			False
-REV	6	11	voice among living creatures			False
+REV	6	11	reply to the slain believers (in heavenly vision)			False
 REV	6	16	kings, princes, generals, rich, powerful, slave and free	crying out		False
 REV	7	3	angel standing in sun		angel from the rising sun with seal of living God	False
-REV	7	5	angel, powerful		voice 1	False
-REV	7	6	angel, powerful		voice 1	False
-REV	7	7	angel, powerful		voice 1	False
-REV	7	8	angel, powerful		voice 1	False
+REV	7	5-8	voice in heaven			False
 REV	7	10	multitude from all nations, tribes, peoples, languages			False
 REV	7	12	angels, all the			False
 REV	7	13	elders, one of the			False
@@ -10407,8 +10434,7 @@ REV	10	6	angel standing on sea and land			False
 REV	10	8	God		voice from heaven (God)	False
 REV	10	9	angel standing on sea and land			False
 REV	10	11	angel standing on sea and land			False
-REV	11	1	they (unclear in Greek/voice from heaven & angel?)			False
-REV	11	3	they (unclear in Greek/voice from heaven & angel?)			False
+REV	11	1-3	angel or messenger (Greek variant: someone speaking to John)			False
 REV	11	12	God		voice from heaven (God), loud	False
 REV	11	15	voices in heaven, loud			False
 REV	11	17	twenty-four elders			False
@@ -10417,15 +10443,17 @@ REV	12	10	voice in heaven, loud			False
 REV	12	11	voice in heaven, loud			False
 REV	12	12	voice in heaven, loud			False
 REV	13	4	worshippers of the beast			False
-REV	13	9	voice from temple		voice from heaven, another 2	False
-REV	13	10	God		voice from heaven (God), loud	False
+REV	13	9	voice in heaven			False
+REV	13	10	saying about captivity and death by the sword			False	God
+REV	13	10	scripture			False
+REV	13	10	God			False
 REV	14	7	angel flying directly overhead			False
 REV	14	8	angel flying directly overhead, second			False
 REV	14	9	angel flying directly overhead, third			False
 REV	14	10	angel flying directly overhead, third			False
 REV	14	11	angel flying directly overhead, third			False
-REV	14	13	God		voice from heaven (God)	False
-REV	14	13	Spirit, the			False
+REV	14	13	voice from heaven (God?)		voice from heaven	False	God
+REV	14	13	Holy Spirit, the		Spirit, the	False
 REV	14	14	narrator-REV			False
 REV	14	15	angel, coming out of temple			False
 REV	14	18	angel, coming out of temple, another			False
@@ -10464,10 +10492,7 @@ REV	18	18	voice from heaven, another	weeping/ cry out		False
 REV	18	19	ship captains, seafarers, sailors	weeping/ cry out		False
 REV	18	19	voice from heaven, another	weeping/ cry out		False
 REV	18	20	ship captains, seafarers, sailors	weeping/ cry out		False
-REV	18	21	angel, powerful		angel, powerful 1	False
-REV	18	22	angel, powerful		angel, powerful 1	False
-REV	18	23	angel, powerful		angel, powerful 1	False
-REV	18	24	angel, powerful		angel, powerful 1	False
+REV	18	21-24	angel, powerful			False
 REV	19	1	voice of great crowd in heaven, loud			False
 REV	19	2	voice of great crowd in heaven, loud			False
 REV	19	3	voice of great crowd in heaven, loud			False
@@ -10482,8 +10507,6 @@ REV	19	15	scripture			False
 REV	19	16	narrator-REV			False
 REV	19	17	angel standing in sun			False
 REV	19	18	angel standing in sun			False
-REV	20	5	angel, powerful		voice 1	False
-REV	20	7	angel, powerful		voice 1	False
 REV	21	3	voice from throne		voice from throne, loud	False
 REV	21	5	God		one seated on throne (God)	False
 REV	21	6	God		one seated on throne (God)	False
@@ -10501,6 +10524,6 @@ REV	22	14	Jesus			False
 REV	22	15	Jesus			False
 REV	22	16	Jesus			False
 REV	22	17	him who hears			False
-REV	22	17	Spirit, the, and the bride			False
+REV	22	17	Spirit and the bride			False
 REV	22	18	John			False
 REV	22	20	Jesus			False
