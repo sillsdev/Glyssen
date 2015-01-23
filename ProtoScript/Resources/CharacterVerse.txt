@@ -1993,8 +1993,8 @@ RUT	4	17	women of Bethlehem			False
 1SA	2	16	servant of priest	demanding		False
 1SA	2	20	Eli			False
 1SA	2	23	Eli			False
-1SA	2	27	man of God			False
-1SA	2	30	man of God			False
+1SA	2	27	man of God (prophet to Eli)			False
+1SA	2	30	man of God (prophet to Eli)			False
 1SA	3	4	Samuel			False
 1SA	3	5	Eli			False
 1SA	3	5	Samuel			False
@@ -2897,14 +2897,14 @@ RUT	4	17	women of Bethlehem			False
 1KI	20	10	messengers of Ben-Hadad. king of Aram			False
 1KI	20	11	Ahab, king of Israel			False
 1KI	20	12	Ben-Hadad, king of Aram			False
-1KI	20	13	prophet of the LORD, a			False
+1KI	20	13	prophet of the LORD			False
 1KI	20	14	Ahab, king of Israel			False
-1KI	20	14	prophet of the LORD, a			False
+1KI	20	14	prophet of the LORD			False
 1KI	20	17	scouts of Ben-Hadad, king of Aram			False
 1KI	20	18	Ben-Hadad, king of Aram			False
-1KI	20	22	prophet of the LORD, a			False
+1KI	20	22	prophet of the LORD			False
 1KI	20	23	officials of Ben-Hadad, king of Aram			False
-1KI	20	28	prophet of the LORD, a			False
+1KI	20	28	prophet of the LORD			False
 1KI	20	31	officials of Ben-Hadad, king of Aram			False
 1KI	20	32	Ahab, king of Israel			False
 1KI	20	32	officials of Ben-Hadad, king of Aram			False
@@ -3462,12 +3462,12 @@ RUT	4	17	women of Bethlehem			False
 2CH	24	20	Zechariah		Zechariah, son of Jehoiada the priest (Spirit of God upon)	False
 2CH	24	22	Zechariah		Zechariah, son of Jehoiada the priest	False
 2CH	25	4	law of Moses where LORD commanded			False
-2CH	25	7	man of God, a			False
+2CH	25	7	man of God (prophet to Amaziah)			False
 2CH	25	9	Amaziah		Amaziah, king of Judah	False
-2CH	25	9	man of God, a			False
-2CH	25	15	prophet of the LORD, a		prophet, a	False
+2CH	25	9	man of God (prophet to Amaziah)			False
+2CH	25	15	prophet of the LORD		prophet, a	False
 2CH	25	16	Amaziah		Amaziah, king of Judah	False
-2CH	25	16	prophet of the LORD, a		prophet, a	False
+2CH	25	16	prophet of the LORD		prophet, a	False
 2CH	25	17	Amaziah		Amaziah, king of Judah	False
 2CH	25	18	Jehoash, king of Israel			False
 2CH	26	18	Azariah the priest/eighty other priests	courageous		False	Azariah the priest
@@ -3651,10 +3651,10 @@ JOB	1	8	God		God (the LORD)	False
 JOB	1	9	Satan			False
 JOB	1	10	Satan			False
 JOB	1	12	God		God (the LORD)	False
-JOB	1	14	messenger, a			False
+JOB	1	14-15	messenger			False
 JOB	1	16	messenger, another			False
 JOB	1	17	messenger, still another			False
-JOB	1	18	messenger, yet another			False
+JOB	1	18-19	messenger, yet another			False
 JOB	1	21	Job			False
 JOB	2	2	God		God (the LORD)	False
 JOB	2	2	Satan			False
@@ -9760,7 +9760,7 @@ ACT	5	8	Sapphira (Ananias' wife)			True
 ACT	5	9	Peter (Simon)			True
 ACT	5	20	angel of the LORD, an	commanding		False
 ACT	5	23	temple police	perplexed		False
-ACT	5	24	captain, of temple guard/chief priests			False
+ACT	5	24	captain of the temple guard/chief priests			False
 ACT	5	25	person who told the guards and priests where the apostles were	excited		False
 ACT	5	28	high priest			True
 ACT	5	29	Peter (Simon)			True
