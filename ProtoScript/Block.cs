@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 using Palaso.Xml;
+using ProtoScript.Character;
 using SIL.ScriptureUtils;
 
 namespace ProtoScript
@@ -98,6 +99,10 @@ namespace ProtoScript
 		[XmlAttribute("userConfirmed")]
 		[DefaultValue(false)]
 		public bool UserConfirmed { get; set; }
+
+		[XmlAttribute("userAdded")]
+		[DefaultValue(false)]
+		public bool UserAdded { get; set; }
 
 		[XmlElement(Type = typeof (ScriptText), ElementName = "text")]
 		[XmlElement(Type = typeof (Verse), ElementName = "verse")]

@@ -43,18 +43,27 @@
 			this.m_llMoreDel = new System.Windows.Forms.LinkLabel();
 			this.m_txtDeliveryFilter = new System.Windows.Forms.TextBox();
 			this.m_icnCharacterFilter = new System.Windows.Forms.PictureBox();
+			this.m_icnDeliveryFilter = new System.Windows.Forms.PictureBox();
+			this.m_btnAddCharacter = new System.Windows.Forms.Button();
+			this.m_btnAddDelivery = new System.Windows.Forms.Button();
 			this.m_listBoxCharacters = new System.Windows.Forms.ListBox();
 			this.m_listBoxDeliveries = new System.Windows.Forms.ListBox();
 			this.m_pnlCharacterFilter = new System.Windows.Forms.Panel();
+			this.m_pnlDeliveryFilter = new System.Windows.Forms.Panel();
+			this.m_lblShortcut1 = new System.Windows.Forms.Label();
+			this.m_lblShortcut2 = new System.Windows.Forms.Label();
+			this.m_pnlShortcuts = new System.Windows.Forms.Panel();
+			this.m_lblShortcut3 = new System.Windows.Forms.Label();
+			this.m_lblShortcut4 = new System.Windows.Forms.Label();
+			this.m_lblShortcut5 = new System.Windows.Forms.Label();
 			this.m_progressBar = new ProtoScript.Controls.ProgressBarUnanimated();
 			this.m_blocksDisplayBrowser = new ProtoScript.Controls.Browser();
-			this.m_pnlDeliveryFilter = new System.Windows.Forms.Panel();
-			this.m_icnDeliveryFilter = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnCharacterFilter)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_icnDeliveryFilter)).BeginInit();
 			this.m_pnlCharacterFilter.SuspendLayout();
 			this.m_pnlDeliveryFilter.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.m_icnDeliveryFilter)).BeginInit();
+			this.m_pnlShortcuts.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// m_l10NSharpExtender
@@ -159,7 +168,7 @@
 			this.m_llMoreChar.TabStop = true;
 			this.m_llMoreChar.Text = "More Characters";
 			this.m_llMoreChar.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-			this.m_llMoreChar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkLabelMore_LinkClicked);
+			this.m_llMoreChar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_llMoreChar_LinkClicked);
 			// 
 			// m_txtCharacterFilter
 			// 
@@ -173,7 +182,7 @@
 			this.m_txtCharacterFilter.Name = "m_txtCharacterFilter";
 			this.m_txtCharacterFilter.Size = new System.Drawing.Size(160, 13);
 			this.m_txtCharacterFilter.TabIndex = 14;
-			this.m_txtCharacterFilter.TextChanged += new System.EventHandler(this.m_txtBoxCharacterFilter_TextChanged);
+			this.m_txtCharacterFilter.TextChanged += new System.EventHandler(this.m_txtCharacterFilter_TextChanged);
 			// 
 			// m_lblCharacter
 			// 
@@ -229,7 +238,7 @@
 			this.m_txtDeliveryFilter.Name = "m_txtDeliveryFilter";
 			this.m_txtDeliveryFilter.Size = new System.Drawing.Size(160, 13);
 			this.m_txtDeliveryFilter.TabIndex = 19;
-			this.m_txtDeliveryFilter.TextChanged += new System.EventHandler(this.m_txtBoxDeliveryFilter_TextChanged);
+			this.m_txtDeliveryFilter.TextChanged += new System.EventHandler(this.m_txtDeliveryFilter_TextChanged);
 			// 
 			// m_icnCharacterFilter
 			// 
@@ -243,6 +252,57 @@
 			this.m_icnCharacterFilter.TabIndex = 22;
 			this.m_icnCharacterFilter.TabStop = false;
 			this.m_icnCharacterFilter.Click += new System.EventHandler(this.m_icnCharacterFilter_Click);
+			// 
+			// m_icnDeliveryFilter
+			// 
+			this.m_icnDeliveryFilter.Image = global::ProtoScript.Properties.Resources.search_glyph;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_icnDeliveryFilter, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_icnDeliveryFilter, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_icnDeliveryFilter, "AssignCharacterDialog.pictureBox1");
+			this.m_icnDeliveryFilter.Location = new System.Drawing.Point(161, -1);
+			this.m_icnDeliveryFilter.Name = "m_icnDeliveryFilter";
+			this.m_icnDeliveryFilter.Size = new System.Drawing.Size(18, 20);
+			this.m_icnDeliveryFilter.TabIndex = 22;
+			this.m_icnDeliveryFilter.TabStop = false;
+			this.m_icnDeliveryFilter.Click += new System.EventHandler(this.m_icnDeliveryFilter_Click);
+			// 
+			// m_btnAddCharacter
+			// 
+			this.m_btnAddCharacter.BackgroundImage = global::ProtoScript.Properties.Resources._112_Plus_Green_16x16_72;
+			this.m_btnAddCharacter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.m_btnAddCharacter.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_btnAddCharacter.FlatAppearance.BorderSize = 2;
+			this.m_btnAddCharacter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.m_btnAddCharacter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAddCharacter, "Add New Character");
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAddCharacter, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAddCharacter, "AssignCharacterDialog.AddCharacter");
+			this.m_btnAddCharacter.Location = new System.Drawing.Point(598, 59);
+			this.m_btnAddCharacter.Margin = new System.Windows.Forms.Padding(0);
+			this.m_btnAddCharacter.Name = "m_btnAddCharacter";
+			this.m_btnAddCharacter.Size = new System.Drawing.Size(20, 20);
+			this.m_btnAddCharacter.TabIndex = 24;
+			this.m_btnAddCharacter.UseVisualStyleBackColor = false;
+			this.m_btnAddCharacter.Click += new System.EventHandler(this.m_btnAddCharacter_Click);
+			// 
+			// m_btnAddDelivery
+			// 
+			this.m_btnAddDelivery.BackgroundImage = global::ProtoScript.Properties.Resources._112_Plus_Green_16x16_72;
+			this.m_btnAddDelivery.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.m_btnAddDelivery.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_btnAddDelivery.FlatAppearance.BorderSize = 2;
+			this.m_btnAddDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.m_btnAddDelivery.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAddDelivery, "Add New Delivery");
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAddDelivery, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAddDelivery, "AssignCharacterDialog.AddDelivery");
+			this.m_btnAddDelivery.Location = new System.Drawing.Point(598, 314);
+			this.m_btnAddDelivery.Margin = new System.Windows.Forms.Padding(0);
+			this.m_btnAddDelivery.Name = "m_btnAddDelivery";
+			this.m_btnAddDelivery.Size = new System.Drawing.Size(20, 20);
+			this.m_btnAddDelivery.TabIndex = 25;
+			this.m_btnAddDelivery.UseVisualStyleBackColor = false;
+			this.m_btnAddDelivery.Click += new System.EventHandler(this.m_btnAddDelivery_Click);
 			// 
 			// m_listBoxCharacters
 			// 
@@ -276,6 +336,102 @@
 			this.m_pnlCharacterFilter.Size = new System.Drawing.Size(181, 20);
 			this.m_pnlCharacterFilter.TabIndex = 21;
 			// 
+			// m_pnlDeliveryFilter
+			// 
+			this.m_pnlDeliveryFilter.BackColor = System.Drawing.Color.White;
+			this.m_pnlDeliveryFilter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.m_pnlDeliveryFilter.Controls.Add(this.m_icnDeliveryFilter);
+			this.m_pnlDeliveryFilter.Controls.Add(this.m_txtDeliveryFilter);
+			this.m_pnlDeliveryFilter.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.m_pnlDeliveryFilter.Location = new System.Drawing.Point(413, 314);
+			this.m_pnlDeliveryFilter.Name = "m_pnlDeliveryFilter";
+			this.m_pnlDeliveryFilter.Size = new System.Drawing.Size(181, 20);
+			this.m_pnlDeliveryFilter.TabIndex = 23;
+			// 
+			// m_lblShortcut1
+			// 
+			this.m_lblShortcut1.AutoSize = true;
+			this.m_lblShortcut1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_lblShortcut1.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblShortcut1, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblShortcut1, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut1, "AssignCharacterDialog.label1");
+			this.m_lblShortcut1.Location = new System.Drawing.Point(3, 3);
+			this.m_lblShortcut1.Name = "m_lblShortcut1";
+			this.m_lblShortcut1.Size = new System.Drawing.Size(10, 12);
+			this.m_lblShortcut1.TabIndex = 26;
+			this.m_lblShortcut1.Text = "1";
+			// 
+			// m_lblShortcut2
+			// 
+			this.m_lblShortcut2.AutoSize = true;
+			this.m_lblShortcut2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_lblShortcut2.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblShortcut2, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblShortcut2, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut2, "AssignCharacterDialog.label1");
+			this.m_lblShortcut2.Location = new System.Drawing.Point(3, 16);
+			this.m_lblShortcut2.Name = "m_lblShortcut2";
+			this.m_lblShortcut2.Size = new System.Drawing.Size(10, 12);
+			this.m_lblShortcut2.TabIndex = 27;
+			this.m_lblShortcut2.Text = "2";
+			// 
+			// m_pnlShortcuts
+			// 
+			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut5);
+			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut4);
+			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut3);
+			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut2);
+			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut1);
+			this.m_pnlShortcuts.Location = new System.Drawing.Point(398, 57);
+			this.m_pnlShortcuts.Name = "m_pnlShortcuts";
+			this.m_pnlShortcuts.Size = new System.Drawing.Size(15, 164);
+			this.m_pnlShortcuts.TabIndex = 28;
+			// 
+			// m_lblShortcut3
+			// 
+			this.m_lblShortcut3.AutoSize = true;
+			this.m_lblShortcut3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_lblShortcut3.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblShortcut3, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblShortcut3, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut3, "AssignCharacterDialog.label1");
+			this.m_lblShortcut3.Location = new System.Drawing.Point(3, 29);
+			this.m_lblShortcut3.Name = "m_lblShortcut3";
+			this.m_lblShortcut3.Size = new System.Drawing.Size(10, 12);
+			this.m_lblShortcut3.TabIndex = 28;
+			this.m_lblShortcut3.Text = "3";
+			// 
+			// m_lblShortcut4
+			// 
+			this.m_lblShortcut4.AutoSize = true;
+			this.m_lblShortcut4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_lblShortcut4.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblShortcut4, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblShortcut4, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblShortcut4, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut4, "AssignCharacterDialog.label1");
+			this.m_lblShortcut4.Location = new System.Drawing.Point(3, 42);
+			this.m_lblShortcut4.Name = "m_lblShortcut4";
+			this.m_lblShortcut4.Size = new System.Drawing.Size(10, 12);
+			this.m_lblShortcut4.TabIndex = 29;
+			this.m_lblShortcut4.Text = "4";
+			// 
+			// m_lblShortcut5
+			// 
+			this.m_lblShortcut5.AutoSize = true;
+			this.m_lblShortcut5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_lblShortcut5.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblShortcut5, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblShortcut5, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblShortcut5, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut5, "AssignCharacterDialog.label1");
+			this.m_lblShortcut5.Location = new System.Drawing.Point(3, 55);
+			this.m_lblShortcut5.Name = "m_lblShortcut5";
+			this.m_lblShortcut5.Size = new System.Drawing.Size(10, 12);
+			this.m_lblShortcut5.TabIndex = 30;
+			this.m_lblShortcut5.Text = "5";
+			// 
 			// m_progressBar
 			// 
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_progressBar, null);
@@ -298,31 +454,6 @@
 			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(383, 475);
 			this.m_blocksDisplayBrowser.TabIndex = 2;
 			// 
-			// m_pnlDeliveryFilter
-			// 
-			this.m_pnlDeliveryFilter.BackColor = System.Drawing.Color.White;
-			this.m_pnlDeliveryFilter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.m_pnlDeliveryFilter.Controls.Add(this.m_icnDeliveryFilter);
-			this.m_pnlDeliveryFilter.Controls.Add(this.m_txtDeliveryFilter);
-			this.m_pnlDeliveryFilter.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.m_pnlDeliveryFilter.Location = new System.Drawing.Point(413, 314);
-			this.m_pnlDeliveryFilter.Name = "m_pnlDeliveryFilter";
-			this.m_pnlDeliveryFilter.Size = new System.Drawing.Size(181, 20);
-			this.m_pnlDeliveryFilter.TabIndex = 23;
-			// 
-			// m_icnDeliveryFilter
-			// 
-			this.m_icnDeliveryFilter.Image = global::ProtoScript.Properties.Resources.search_glyph;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_icnDeliveryFilter, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_icnDeliveryFilter, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_icnDeliveryFilter, "AssignCharacterDialog.pictureBox1");
-			this.m_icnDeliveryFilter.Location = new System.Drawing.Point(161, -1);
-			this.m_icnDeliveryFilter.Name = "m_icnDeliveryFilter";
-			this.m_icnDeliveryFilter.Size = new System.Drawing.Size(18, 20);
-			this.m_icnDeliveryFilter.TabIndex = 22;
-			this.m_icnDeliveryFilter.TabStop = false;
-			this.m_icnDeliveryFilter.Click += new System.EventHandler(this.m_icnDeliveryFilter_Click);
-			// 
 			// AssignCharacterDialog
 			// 
 			this.AcceptButton = this.m_btnAssign;
@@ -330,6 +461,9 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(630, 561);
+			this.Controls.Add(this.m_pnlShortcuts);
+			this.Controls.Add(this.m_btnAddDelivery);
+			this.Controls.Add(this.m_btnAddCharacter);
 			this.Controls.Add(this.m_pnlDeliveryFilter);
 			this.Controls.Add(this.m_pnlCharacterFilter);
 			this.Controls.Add(this.m_llMoreDel);
@@ -347,6 +481,7 @@
 			this.Controls.Add(this.m_btnPrevious);
 			this.Controls.Add(this.m_btnNext);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.KeyPreview = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this, "AssignCharacterDialog.AssignCharacter");
@@ -357,13 +492,17 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Assign Character";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AssignCharacterDialog_FormClosing);
+			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AssignCharacterDialog_KeyDown);
+			this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AssignCharacterDialog_KeyPress);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnCharacterFilter)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_icnDeliveryFilter)).EndInit();
 			this.m_pnlCharacterFilter.ResumeLayout(false);
 			this.m_pnlCharacterFilter.PerformLayout();
 			this.m_pnlDeliveryFilter.ResumeLayout(false);
 			this.m_pnlDeliveryFilter.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.m_icnDeliveryFilter)).EndInit();
+			this.m_pnlShortcuts.ResumeLayout(false);
+			this.m_pnlShortcuts.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -392,5 +531,13 @@
 		private System.Windows.Forms.PictureBox m_icnCharacterFilter;
 		private System.Windows.Forms.Panel m_pnlDeliveryFilter;
 		private System.Windows.Forms.PictureBox m_icnDeliveryFilter;
+		private System.Windows.Forms.Button m_btnAddCharacter;
+		private System.Windows.Forms.Button m_btnAddDelivery;
+		private System.Windows.Forms.Label m_lblShortcut1;
+		private System.Windows.Forms.Label m_lblShortcut2;
+		private System.Windows.Forms.Panel m_pnlShortcuts;
+		private System.Windows.Forms.Label m_lblShortcut3;
+		private System.Windows.Forms.Label m_lblShortcut5;
+		private System.Windows.Forms.Label m_lblShortcut4;
 	}
 }

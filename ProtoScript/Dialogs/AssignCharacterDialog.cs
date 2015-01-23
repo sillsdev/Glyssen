@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
 using Gecko.Events;
 using L10NSharp;
 using L10NSharp.UI;
+using ProtoScript.Character;
 using SIL.ScriptureControls;
 using SIL.ScriptureUtils;
 
@@ -25,7 +25,7 @@ namespace ProtoScript.Dialogs
 		private const int kContextBlocksForward = 10;
 
 		private IEnumerable<CharacterVerse> m_characters;
-		private IEnumerable<string> m_deliveries;
+		private IEnumerable<AssignCharacterViewModel.Delivery> m_deliveries;
 		private ToolTip m_toolTip;
 		private IEnumerable<CharacterVerse> m_charactersInBook;
 		private readonly Size m_listBoxCharactersOriginalSize;
@@ -90,9 +90,19 @@ namespace ProtoScript.Dialogs
 			HideCharacterFilter();
 			m_btnAssign.Enabled = false;
 
-			LoadCharacterListBox(CharacterVerseData.Singleton.GetCharacters(book, chapter, verse));
+			LoadCharacterListBox(m_viewModel.GetCharacters(book, chapter, verse));
+			UpdateShortcutDisplay();
 		}
 
+		private void UpdateShortcutDisplay()
+		{
+			m_pnlShortcuts.Visible = m_listBoxCharacters.Items.Count <= 5;
+			m_lblShortcut1.Visible = m_listBoxCharacters.Items.Count > 0;
+			m_lblShortcut2.Visible = m_listBoxCharacters.Items.Count > 1;
+			m_lblShortcut3.Visible = m_listBoxCharacters.Items.Count > 2;
+			m_lblShortcut4.Visible = m_listBoxCharacters.Items.Count > 3;
+			m_lblShortcut5.Visible = m_listBoxCharacters.Items.Count > 4;
+		}
 
 		private void UpdateNavigationButtonState()
 		{
@@ -104,11 +114,20 @@ namespace ProtoScript.Dialogs
 		{
 			bool characterAndDeliverySelected = m_listBoxCharacters.SelectedIndex > -1 && m_listBoxDeliveries.SelectedIndex > -1;
 			m_btnAssign.Enabled = characterAndDeliverySelected && IsDirty();
+			if (m_btnAssign.Enabled)
+			{
+				if (m_btnNext.Focused)
+					m_btnAssign.Focus();
+				if (m_btnPrevious.Focused)
+					m_btnAssign.Focus();
+			}
 		}
 
 		private void ShowCharacterFilter()
 		{
 			m_pnlCharacterFilter.Show();
+			m_btnAddCharacter.Show();
+			m_pnlShortcuts.Hide();
 			var verticalAdjustment = m_pnlCharacterFilter.Size.Height + 5;
 			m_listBoxCharacters.Location = new Point(m_listBoxCharacters.Location.X, m_listBoxCharacters.Location.Y + verticalAdjustment);
 			m_listBoxCharacters.Size = new Size(m_listBoxCharacters.Size.Width, m_listBoxCharacters.Size.Height - verticalAdjustment);
@@ -119,6 +138,7 @@ namespace ProtoScript.Dialogs
 		{
 			m_txtCharacterFilter.Clear();
 			m_pnlCharacterFilter.Hide();
+			m_btnAddCharacter.Hide();
 			m_listBoxCharacters.Location = m_listBoxCharactersOriginalLocation;
 			m_listBoxCharacters.Size = m_listBoxCharactersOriginalSize;
 			m_llMoreChar.Enabled = true;
@@ -127,6 +147,7 @@ namespace ProtoScript.Dialogs
 		private void ShowDeliveryFilter()
 		{
 			m_pnlDeliveryFilter.Show();
+			m_btnAddDelivery.Show();
 			var verticalAdjustment = m_pnlDeliveryFilter.Size.Height + 5;
 			m_listBoxDeliveries.Location = new Point(m_listBoxDeliveries.Location.X, m_listBoxDeliveries.Location.Y + verticalAdjustment);
 			m_listBoxDeliveries.Size = new Size(m_listBoxDeliveries.Size.Width, m_listBoxDeliveries.Size.Height - verticalAdjustment);
@@ -137,6 +158,7 @@ namespace ProtoScript.Dialogs
 		{
 			m_txtDeliveryFilter.Clear();
 			m_pnlDeliveryFilter.Hide();
+			m_btnAddDelivery.Hide();
 			m_listBoxDeliveries.Location = m_listBoxDeliveriesOriginalLocation;
 			m_listBoxDeliveries.Size = m_listBoxDeliveriesOriginalSize;
 			m_llMoreDel.Enabled = true;
@@ -145,15 +167,15 @@ namespace ProtoScript.Dialogs
 		private bool IsDirty()
 		{
 			Block currentBlock = m_viewModel.CurrentBlock;
-			var selectedCharacter = (string)m_listBoxCharacters.SelectedItem;
-			if (selectedCharacter == m_narrator)
+			var selectedCharacter = (AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem;
+			if (selectedCharacter.Text == m_narrator)
 			{
 				if (!currentBlock.CharacterIs(m_viewModel.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator))
 					return true;
 			}
-			else if (selectedCharacter != currentBlock.CharacterId)
+			else if (selectedCharacter.Text != currentBlock.CharacterId)
 				return true;
-			var selectedDelivery = (string)m_listBoxDeliveries.SelectedItem;
+			var selectedDelivery = ((AssignCharacterViewModel.Delivery)m_listBoxDeliveries.SelectedItem).Text;
 			if (selectedDelivery == m_normalDelivery)
 			{
 				if (currentBlock.Delivery != null)
@@ -186,7 +208,7 @@ namespace ProtoScript.Dialogs
 			m_listBoxDeliveries.Items.Clear();
 			HideDeliveryFilter();
 
-			m_listBoxCharacters.Items.Add(m_narrator);
+			m_listBoxCharacters.Items.Add(new AssignCharacterViewModel.Character(m_narrator, false));
 			AddItemsToCharacterListBox(m_characters);
 
 			if (expandListIfNone && m_listBoxCharacters.Items.Count < 2)
@@ -208,19 +230,20 @@ namespace ProtoScript.Dialogs
 		{
 			foreach (CharacterVerse cv in new SortedSet<CharacterVerse>(characters, new CharacterComparer())
 				.Where(c => !CharacterVerseData.IsCharacterOfType(c.Character, CharacterVerseData.StandardCharacter.Narrator)))
-				m_listBoxCharacters.Items.Add(cv.Character);
+				m_listBoxCharacters.Items.Add(new AssignCharacterViewModel.Character(cv.Character, cv.UserCreated));
 		}
 
 		private void SelectCharacter()
 		{
 			Block currentBlock = m_viewModel.CurrentBlock;
 			if (currentBlock.CharacterIs(m_viewModel.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator))
-				m_listBoxCharacters.SelectedItem = m_narrator;
+				m_listBoxCharacters.SelectedItem = new AssignCharacterViewModel.Character(m_narrator, false);
 			else if (!currentBlock.CharacterIsUnclear())
 			{
-				if (!m_listBoxCharacters.Items.Contains(currentBlock.CharacterId))
-					m_listBoxCharacters.Items.Add(currentBlock.CharacterId);
-				m_listBoxCharacters.SelectedItem = currentBlock.CharacterId;
+				var selectedCharacter = new AssignCharacterViewModel.Character(currentBlock.CharacterId);
+				if (!m_listBoxCharacters.Items.Contains(selectedCharacter))
+					m_listBoxCharacters.Items.Add(selectedCharacter);
+				m_listBoxCharacters.SelectedItem = selectedCharacter;
 			}
 		}
 
@@ -231,20 +254,20 @@ namespace ProtoScript.Dialogs
 
 			if (deliveries != null)
 			{
-				m_deliveries = deliveries;
-				m_listBoxDeliveries.Items.Add(m_normalDelivery);
-				foreach (string delivery in m_deliveries)
+				m_deliveries = deliveries.Select(d => new AssignCharacterViewModel.Delivery(d));
+				m_listBoxDeliveries.Items.Add(new AssignCharacterViewModel.Delivery(m_normalDelivery));
+				foreach (AssignCharacterViewModel.Delivery delivery in m_deliveries)
 					m_listBoxDeliveries.Items.Add(delivery);
 			}
 			else
 			{
-				m_deliveries = new List<string>();
-				var selectedCharacter = (string)m_listBoxCharacters.SelectedItem;
-				m_listBoxDeliveries.Items.Add(m_normalDelivery);
+				m_deliveries = new List<AssignCharacterViewModel.Delivery>();
+				var selectedCharacter = ((AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem).Text;
+				m_listBoxDeliveries.Items.Add(new AssignCharacterViewModel.Delivery(m_normalDelivery));
 				if (selectedCharacter != m_narrator)
 				{
-					m_deliveries = m_characters.Where(c => c.Character == selectedCharacter).Select(c => c.Delivery).Where(d => !string.IsNullOrEmpty(d));
-					foreach (string delivery in m_deliveries)
+					m_deliveries = m_characters.Where(c => c.Character == selectedCharacter).Where(c => !string.IsNullOrEmpty(c.Delivery)).Select(d => new AssignCharacterViewModel.Delivery(d.Delivery));
+					foreach (AssignCharacterViewModel.Delivery delivery in m_deliveries)
 						m_listBoxDeliveries.Items.Add(delivery);
 				}
 			}
@@ -254,18 +277,20 @@ namespace ProtoScript.Dialogs
 
 		private void SelectDelivery()
 		{
+			if (m_listBoxCharacters.Items.Count == 0 || m_listBoxDeliveries.Items.Count == 0 || m_listBoxCharacters.SelectedItem == null)
+				return;
 			Block currentBlock = m_viewModel.CurrentBlock;
 			string delivery = string.IsNullOrEmpty(currentBlock.Delivery) ? m_normalDelivery : currentBlock.Delivery;
-			if (!m_listBoxDeliveries.Items.Contains(delivery))
-				m_listBoxDeliveries.Items.Add(delivery);
+			if (!m_listBoxDeliveries.Items.Cast<AssignCharacterViewModel.Delivery>().Select(d => d.Text).Contains(delivery))
+				m_listBoxDeliveries.Items.Add(new AssignCharacterViewModel.Delivery(delivery));
 
 			if (m_listBoxDeliveries.Items.Count == 1)
 				m_listBoxDeliveries.SelectedIndex = 0;
 			else
 			{
-				if (currentBlock.CharacterId == (string)m_listBoxCharacters.SelectedItem)
+				if (currentBlock.CharacterId == ((AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem).Text)
 				{
-					m_listBoxDeliveries.SelectedItem = delivery;
+					m_listBoxDeliveries.SelectedItem = new AssignCharacterViewModel.Delivery(delivery);
 				}
 				else if (m_deliveries.Count() == 1)
 				{
@@ -276,8 +301,8 @@ namespace ProtoScript.Dialogs
 
 		private void SaveSelections()
 		{
-			m_viewModel.SetCharacterAndDelivery((string) m_listBoxCharacters.SelectedItem,
-				(string) m_listBoxDeliveries.SelectedItem);
+			m_viewModel.SetCharacterAndDelivery((AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem,
+				(AssignCharacterViewModel.Delivery) m_listBoxDeliveries.SelectedItem);
 		}
 
 		private bool UserConfirmSaveChangesIfNecessary()
@@ -305,8 +330,28 @@ namespace ProtoScript.Dialogs
 		private void ShowCharactersInBook()
 		{
 			String book = m_viewModel.CurrentBookId;
-			m_charactersInBook = CharacterVerseData.Singleton.GetUniqueCharacterAndDeliveries(book);
+			m_charactersInBook = m_viewModel.GetUniqueCharacterAndDeliveries(book);
 			LoadCharacterListBox(m_charactersInBook);
+		}
+
+		private void AddNewCharacter(string character)
+		{
+			if (string.IsNullOrWhiteSpace(character))
+				return;
+			var newItem = new AssignCharacterViewModel.Character(character, true);
+			if (!m_listBoxCharacters.Items.Contains(newItem))
+				m_listBoxCharacters.Items.Add(newItem);
+			m_listBoxCharacters.SelectedItem = newItem;
+		}
+
+		private void AddNewDelivery(string delivery)
+		{
+			if (string.IsNullOrWhiteSpace(delivery))
+				return;
+			var newItem = new AssignCharacterViewModel.Delivery(delivery, true);
+			if (!m_listBoxDeliveries.Items.Contains(newItem))
+				m_listBoxDeliveries.Items.Add(newItem);
+			m_listBoxDeliveries.SelectedItem = newItem;
 		}
 
 		#region Form events
@@ -345,7 +390,7 @@ namespace ProtoScript.Dialogs
 		{
 			LoadDeliveryListBox();
 			HideDeliveryFilter();
-			if ((string)m_listBoxCharacters.SelectedItem == m_narrator)
+			if (((AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem).Text == m_narrator)
 				m_llMoreDel.Enabled = false;
 			UpdateAssignButtonState();
 		}
@@ -355,16 +400,18 @@ namespace ProtoScript.Dialogs
 			UpdateAssignButtonState();
 		}
 
-		private void m_linkLabelMore_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		private void m_llMoreChar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			ShowCharacterFilter();
 			ShowCharactersInBook();
+			m_txtCharacterFilter.Focus();
 		}
 
 		private void m_llMoreDel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			ShowDeliveryFilter();
-			LoadDeliveryListBox(CharacterVerseData.Singleton.GetUniqueDeliveries());
+			LoadDeliveryListBox(m_viewModel.GetUniqueDeliveries());
+			m_txtDeliveryFilter.Focus();
 		}
 
 		private void AssignCharacterDialog_FormClosing(object sender, FormClosingEventArgs e)
@@ -373,20 +420,20 @@ namespace ProtoScript.Dialogs
 				SaveSelections();
 		}
 
-		private void m_txtBoxCharacterFilter_TextChanged(object sender, EventArgs e)
+		private void m_txtCharacterFilter_TextChanged(object sender, EventArgs e)
 		{
 			if (string.IsNullOrWhiteSpace(m_txtCharacterFilter.Text))
 				ShowCharactersInBook();
 			else
-				LoadCharacterListBox(CharacterVerseData.Singleton.GetUniqueCharacterAndDeliveries().Where(cv => cv.Character.Contains(m_txtCharacterFilter.Text.Trim(), StringComparison.OrdinalIgnoreCase)), false);
+				LoadCharacterListBox(m_viewModel.GetUniqueCharacterAndDeliveries().Where(cv => cv.Character.Contains(m_txtCharacterFilter.Text.Trim(), StringComparison.OrdinalIgnoreCase)), false);
 		}
 
-		private void m_txtBoxDeliveryFilter_TextChanged(object sender, EventArgs e)
+		private void m_txtDeliveryFilter_TextChanged(object sender, EventArgs e)
 		{
 			if (string.IsNullOrWhiteSpace(m_txtDeliveryFilter.Text))
-				LoadDeliveryListBox(CharacterVerseData.Singleton.GetUniqueDeliveries());
+				LoadDeliveryListBox(m_viewModel.GetUniqueDeliveries());
 			else
-				LoadDeliveryListBox(CharacterVerseData.Singleton.GetUniqueDeliveries().Where(d => d.Contains(m_txtDeliveryFilter.Text.Trim(), StringComparison.OrdinalIgnoreCase)));
+				LoadDeliveryListBox(m_viewModel.GetUniqueDeliveries().Where(d => d.Contains(m_txtDeliveryFilter.Text.Trim(), StringComparison.OrdinalIgnoreCase)));
 		}
 
 		private void m_icnCharacterFilter_Click(object sender, EventArgs e)
@@ -397,6 +444,47 @@ namespace ProtoScript.Dialogs
 		private void m_icnDeliveryFilter_Click(object sender, EventArgs e)
 		{
 			m_txtDeliveryFilter.Focus();
+		}
+
+		private void m_btnAddCharacter_Click(object sender, EventArgs e)
+		{
+			AddNewCharacter(m_txtCharacterFilter.Text);
+		}
+
+		private void m_btnAddDelivery_Click(object sender, EventArgs e)
+		{
+			AddNewDelivery(m_txtDeliveryFilter.Text);
+		}
+
+		private void AssignCharacterDialog_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (!m_pnlShortcuts.Visible || m_txtCharacterFilter.Focused || m_txtDeliveryFilter.Focused)
+				return;
+
+			switch (e.KeyChar)
+			{
+				case '1':
+					m_listBoxCharacters.SelectedIndex = 0;
+					break;
+				case '2':
+					m_listBoxCharacters.SelectedIndex = 1;
+					break;
+				case '3':
+					m_listBoxCharacters.SelectedIndex = 2;
+					break;
+				case '4':
+					m_listBoxCharacters.SelectedIndex = 3;
+					break;
+				case '5':
+					m_listBoxCharacters.SelectedIndex = 4;
+					break;
+			}
+		}
+
+		private void AssignCharacterDialog_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Return && m_btnAssign.Enabled)
+				m_btnAssign.PerformClick();
 		}
 		#endregion
 

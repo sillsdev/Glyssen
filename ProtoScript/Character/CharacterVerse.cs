@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using SIL.ScriptureUtils;
 
-namespace ProtoScript
+namespace ProtoScript.Character
 {
 	public class CharacterVerse
 	{
@@ -14,6 +14,7 @@ namespace ProtoScript
 		public string Delivery;
 		public string Alias;
 		public bool IsDialogue { get; set; }
+		public bool UserCreated { get; set; }
 
 		public override string ToString()
 		{
@@ -25,6 +26,11 @@ namespace ProtoScript
 			if (string.IsNullOrEmpty(Delivery))
 				return Character;
 			return string.Format("{0} [{1}]", Character, Delivery);
+		}
+
+		public string ToTabDelimited()
+		{
+			return BookCode + "\t" + Chapter + "\t" + Verse + "\t" + Character + "\t" + Delivery + "\t" + Alias + "\t" + IsDialogue + "\t" + UserCreated;
 		}
 
 		#region Equality Members
@@ -66,6 +72,25 @@ namespace ProtoScript
 			return !Equals(left, right);
 		}
 		#endregion
+	}
+
+	public class BcvCharacterDeliveryComparer : IEqualityComparer<CharacterVerse>
+	{
+		public bool Equals(CharacterVerse x, CharacterVerse y)
+		{
+			return x.BcvRef.Equals(y.BcvRef) && x.Character.Equals(y.Character) && x.Delivery.Equals(y.Delivery);
+		}
+
+		public int GetHashCode(CharacterVerse obj)
+		{
+			unchecked
+			{
+				int hashCode = (obj.BcvRef != null ? obj.BcvRef.GetHashCode() : 0);
+				hashCode = (hashCode * 397) ^ (obj.Character != null ? obj.Character.GetHashCode() : 0);
+				hashCode = (hashCode * 397) ^ (obj.Delivery != null ? obj.Delivery.GetHashCode() : 0);
+				return hashCode;
+			}
+		}
 	}
 
 	public class CharacterDeliveryComparer : IComparer<CharacterVerse>

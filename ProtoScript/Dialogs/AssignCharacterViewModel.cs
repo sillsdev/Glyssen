@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web;
+using ProtoScript.Character;
+using SIL.ScriptureUtils;
 
 namespace ProtoScript.Dialogs
 {
@@ -21,6 +24,8 @@ namespace ProtoScript.Dialogs
 		private readonly string m_fontFamily;
 		private readonly int m_fontSizeInPoints;
 		private readonly bool m_rightToLeftScript;
+		private readonly ProjectCharacterVerseData m_projectCharacterVerseData;
+		private readonly CombinedCharacterVerseData m_combinedCharacterVerseData;
 		private readonly BlockNavigator m_navigator;
 		private List<Tuple<int, int>> m_relevantBlocks;
 		private int m_displayBlockIndex = -1;
@@ -37,6 +42,8 @@ namespace ProtoScript.Dialogs
 			m_fontFamily = project.FontFamily;
 			m_fontSizeInPoints = project.FontSizeInPoints;
 			m_rightToLeftScript = project.RightToLeftScript;
+			m_projectCharacterVerseData = project.ProjectCharacterVerseData;
+			m_combinedCharacterVerseData = new CombinedCharacterVerseData(project);
 
 			PopulateRelevantBlocks();
 
@@ -67,7 +74,7 @@ namespace ProtoScript.Dialogs
 			{
 				return BuildHtml(
 					BuildHtml(m_contextBlocksBackward = m_navigator.PeekBackwardWithinBook(BackwardContextBlockCount)),
-					m_navigator.CurrentBlock.GetText(m_showVerseNumbers),
+					HttpUtility.HtmlEncode(m_navigator.CurrentBlock.GetText(m_showVerseNumbers)),
 					BuildHtml(m_contextBlocksForward = m_navigator.PeekForwardWithinBook(ForwardContextBlockCount)),
 					BuildStyle());
 			}
@@ -97,6 +104,26 @@ namespace ProtoScript.Dialogs
 		{
 			m_navigator.SetIndices(m_relevantBlocks[--m_displayBlockIndex]);
 		}
+
+		public IEnumerable<CharacterVerse> GetCharacters(string bookCode, int chapter, int verse)
+		{
+			return m_combinedCharacterVerseData.GetCharacters(bookCode, chapter, verse);
+		}
+
+		public IEnumerable<CharacterVerse> GetUniqueCharacterAndDeliveries()
+		{
+			return m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries();
+		}
+
+		public IEnumerable<CharacterVerse> GetUniqueCharacterAndDeliveries(string bookCode)
+		{
+			return m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries(bookCode);
+		}
+
+		public IEnumerable<string> GetUniqueDeliveries()
+		{
+			return m_combinedCharacterVerseData.GetUniqueDeliveries();
+		} 
 
 		private void PopulateRelevantBlocks()
 		{
@@ -130,10 +157,10 @@ namespace ProtoScript.Dialogs
 			bldr.Append("<div id=\"main-quote-text\" class=\"highlight\">");
 			bldr.Append(SuperscriptVerseNumbers(mainText));
 			bldr.Append("</div>");
-			if (!string.IsNullOrEmpty(followingText))
+			if (!String.IsNullOrEmpty(followingText))
 				bldr.Append(kHtmlLineBreak).Append(followingText);
 			var bodyAttributes = m_rightToLeftScript ? "class=\"right-to-left\"" : "";
-			return string.Format(kHtmlFrame, style, bodyAttributes, bldr);
+			return String.Format(kHtmlFrame, style, bodyAttributes, bldr);
 		}
 
 		private string BuildHtml(IEnumerable<Block> blocks)
@@ -146,7 +173,7 @@ namespace ProtoScript.Dialogs
 
 		private string BuildHtml(Block block)
 		{
-			string text = SuperscriptVerseNumbers(block.GetText(m_showVerseNumbers));
+			string text = SuperscriptVerseNumbers(HttpUtility.HtmlEncode(block.GetText(m_showVerseNumbers)));
 			var bldr = new StringBuilder();
 			bldr.Append("<div class='").Append(kCssClassContext).Append("' data-character='").Append(block.CharacterId).Append("'>")
 				.Append(text)
@@ -162,19 +189,25 @@ namespace ProtoScript.Dialogs
 
 		private string BuildStyle()
 		{
-			return string.Format(kCssFrame, m_fontFamily, m_fontSizeInPoints);
+			return String.Format(kCssFrame, m_fontFamily, m_fontSizeInPoints);
 		}
 
-		public void SetCharacterAndDelivery(string selectedCharacter, string selectedDelivery)
+		internal void SetCharacterAndDelivery(Character selectedCharacter, Delivery selectedDelivery)
 		{
 			Block currentBlock = CurrentBlock;
 
-			if (selectedCharacter == Narrator)
+			if (currentBlock.CharacterId == CharacterVerseData.UnknownCharacter || selectedCharacter.UserCreated)
+				currentBlock.UserAdded = true;
+
+			if (currentBlock.UserAdded || selectedDelivery.UserCreated)
+				AddRecordToProjectCharacterVerseData(currentBlock, selectedCharacter, selectedDelivery);
+
+			if (selectedCharacter.Text == Narrator)
 				currentBlock.SetStandardCharacter(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator);
 			else
-				currentBlock.CharacterId = selectedCharacter;
+				currentBlock.CharacterId = selectedCharacter.Text;
 
-			currentBlock.Delivery = selectedDelivery == NormalDelivery ? null : selectedDelivery;
+			currentBlock.Delivery = selectedDelivery.Text == NormalDelivery ? null : selectedDelivery.Text;
 
 			if (!currentBlock.UserConfirmed)
 			{
@@ -184,5 +217,131 @@ namespace ProtoScript.Dialogs
 			}
 			currentBlock.UserConfirmed = true;
 		}
+
+		private void AddRecordToProjectCharacterVerseData(Block block, Character character, Delivery delivery)
+		{
+			var cv = new CharacterVerse
+			{
+				BcvRef = new BCVRef(BCVRef.BookToNumber(CurrentBookId), block.ChapterNumber, block.InitialStartVerseNumber),
+				Character = character.Text == Narrator ? CharacterVerseData.GetStandardCharacterId(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator) : character.Text,
+				Delivery = delivery.Text == NormalDelivery ? null : delivery.Text,
+				UserCreated = character.UserCreated || delivery.UserCreated
+			};
+			m_projectCharacterVerseData.AddCharacterVerse(cv);
+		}
+
+		#region Character class
+		internal class Character
+		{
+			public string Text;
+			public bool UserCreated;
+
+			public Character(string text)
+			{
+				Text = text;
+			}
+
+			public Character(string text, bool userCreated)
+			{
+				Text = text;
+				UserCreated = userCreated;
+			}
+
+			public override string ToString()
+			{
+				return Text;
+			}
+
+			#region Equality members
+			protected bool Equals(Character other)
+			{
+				return string.Equals(Text, other.Text);
+			}
+
+			public override bool Equals(object obj)
+			{
+				if (ReferenceEquals(null, obj))
+					return false;
+				if (ReferenceEquals(this, obj))
+					return true;
+				if (obj.GetType() != this.GetType())
+					return false;
+				return Equals((Character)obj);
+			}
+
+			public override int GetHashCode()
+			{
+				return (Text != null ? Text.GetHashCode() : 0);
+			}
+
+			public static bool operator ==(Character left, Character right)
+			{
+				return Equals(left, right);
+			}
+
+			public static bool operator !=(Character left, Character right)
+			{
+				return !Equals(left, right);
+			}
+			#endregion
+		}
+		#endregion
+
+		#region Delivery class
+		internal class Delivery
+		{
+			public string Text;
+			public bool UserCreated;
+
+			public Delivery(string text)
+			{
+				Text = text;
+			}
+
+			public Delivery(string text, bool userCreated)
+			{
+				Text = text;
+				UserCreated = userCreated;
+			}
+
+			public override string ToString()
+			{
+				return Text;
+			}
+
+			#region Equality members
+			protected bool Equals(Delivery other)
+			{
+				return String.Equals(Text, (string)other.Text);
+			}
+
+			public override bool Equals(object obj)
+			{
+				if (ReferenceEquals(null, obj))
+					return false;
+				if (ReferenceEquals(this, obj))
+					return true;
+				if (obj.GetType() != this.GetType())
+					return false;
+				return Equals((Delivery)obj);
+			}
+
+			public override int GetHashCode()
+			{
+				return (Text != null ? Text.GetHashCode() : 0);
+			}
+
+			public static bool operator ==(Delivery left, Delivery right)
+			{
+				return Equals(left, right);
+			}
+
+			public static bool operator !=(Delivery left, Delivery right)
+			{
+				return !Equals(left, right);
+			}
+			#endregion
+		}
+		#endregion
 	}
 }

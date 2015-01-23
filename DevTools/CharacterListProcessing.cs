@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ProtoScript.Character;
 
 namespace DevTools
 {
@@ -150,7 +151,7 @@ namespace DevTools
 
 		private static void GenerateControlFile(List<CharacterVerse> allCv)
 		{
-			int versionNumber = ProtoScript.CharacterVerseData.Singleton.ControlFileVersion + 1;
+			int versionNumber = ControlCharacterVerseData.Singleton.ControlFileVersion + 1;
 
 			allCv.Sort(CharacterVerse.ReferenceComparison);
 			var sb = new StringBuilder();

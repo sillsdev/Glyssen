@@ -5,10 +5,12 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using ProtoScript;
+using ProtoScript.Character;
+using ProtoScript.Quote;
 using Rhino.Mocks;
 using SIL.ScriptureUtils;
 
-namespace ProtoScriptTests
+namespace ProtoScriptTests.Quote
 {
 	[TestFixture]
 	class QuoteSystemGuesserTests
@@ -17,7 +19,7 @@ namespace ProtoScriptTests
 		public void Guess_NoBooks_ReturnsDefaultQuoteSystem()
 		{
 			bool certain;
-			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(CharacterVerseData.Singleton, new List<IScrBook>(), out certain));
+			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, new List<IScrBook>(), out certain));
 			Assert.IsFalse(certain);
 		}
 
@@ -35,7 +37,7 @@ namespace ProtoScriptTests
 			}
 
 			bool certain;
-			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(CharacterVerseData.Singleton, mockedBooks, out certain));
+			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, mockedBooks, out certain));
 			Assert.IsFalse(certain);
 		}
 
@@ -87,7 +89,7 @@ namespace ProtoScriptTests
 			var sw = new Stopwatch();
 			sw.Start();
 			bool certain;
-			var guessedQuoteSystem = QuoteSystemGuesser.Guess(CharacterVerseData.Singleton, MockedBookForQuoteSystem.GetMockedBooks(quoteSystem, highlyConsistentData), out certain);
+			var guessedQuoteSystem = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, MockedBookForQuoteSystem.GetMockedBooks(quoteSystem, highlyConsistentData), out certain);
 			sw.Stop();
 			Console.WriteLine("   took " + sw.ElapsedMilliseconds + " milliseconds.");
 			if (expectedCertain)
@@ -109,7 +111,7 @@ namespace ProtoScriptTests
 			var sw = new Stopwatch();
 			sw.Start();
 			bool certain;
-			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(CharacterVerseData.Singleton, MockedBookForQuoteSystem.GetMockedBooks(null), out certain));
+			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, MockedBookForQuoteSystem.GetMockedBooks(null), out certain));
 			sw.Stop();
 			Assert.IsTrue(sw.ElapsedMilliseconds < 5200, "Actual time (ms): " + sw.ElapsedMilliseconds);
 			Assert.IsFalse(certain);
@@ -155,11 +157,11 @@ namespace ProtoScriptTests
 
 			var verseText = new StringBuilder();
 
-			var characters = CharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse)
+			var characters = ControlCharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse)
 				.Where(c => c.Character != "scripture" && !CharacterVerseData.IsCharacterOfType(c.Character, CharacterVerseData.StandardCharacter.Narrator)).ToList();
 			bool quoteStartExpected = characters.Count > 0;
 			// If previous verse had same character talking, it's probably a longer discourse, so minimize the number of start quotes.
-			if (verse > 1 && characters.Count == 1 && CharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse - 1)
+			if (verse > 1 && characters.Count == 1 && ControlCharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse - 1)
 				.SequenceEqual(characters) && verse % 5 != 0)
 			{
 				quoteStartExpected = false;

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Xml.Serialization;
 using Palaso.Xml;
 using ProtoScript.Properties;
 
-namespace ProtoScript
+namespace ProtoScript.Quote
 {
 	[XmlRoot]
 	public class QuoteSystem

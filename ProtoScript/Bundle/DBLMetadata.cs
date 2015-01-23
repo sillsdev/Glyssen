@@ -6,6 +6,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using Palaso.Xml;
 using ProtoScript.Properties;
+using ProtoScript.Quote;
 
 namespace ProtoScript.Bundle
 {

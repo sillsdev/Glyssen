@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using ProtoScript.Bundle;
+using ProtoScript.Character;
 using SIL.ScriptureUtils;
 
 namespace ProtoScript

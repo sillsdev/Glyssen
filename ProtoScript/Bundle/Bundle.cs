@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using L10NSharp;
 using Palaso.Xml;
+using ProtoScript.Character;
 using ProtoScript.Properties;
 using ProtoScript.Utilities;
 
@@ -81,7 +82,7 @@ namespace ProtoScript.Bundle
 
 			dblMetadata.OriginalPathOfDblFile = pathToZippedBundle;
 			dblMetadata.PgUsxParserVersion = Settings.Default.PgUsxParserVersion;
-			dblMetadata.ControlFileVersion = CharacterVerseData.Singleton.ControlFileVersion;
+			dblMetadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
 
 			dblMetadata.FontFamily = Stylesheet.FontFamily;
 			dblMetadata.FontSizeInPoints = Stylesheet.FontSizeInPoints;

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using L10NSharp;
 using L10NSharp.UI;
+using ProtoScript.Quote;
 
 namespace ProtoScript.Dialogs
 {
