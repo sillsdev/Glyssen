@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Palaso, Version=2.6.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\dotnet\Palaso.dll</HintPath>
+    </Reference>
     <Reference Include="SIL.ScriptureUtils, Version=7.3.0.18505, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.ScriptureUtils.dll</HintPath>
@@ -47,6 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AliasUtil.cs" />
+    <Compile Include="BiblicalTerms\BiblicalTerms.cs" />
+    <Compile Include="BiblicalTerms\BiblicalTermsList.cs" />
+    <Compile Include="BiblicalTerms\Processor.cs" />
     <Compile Include="CharacterCharacterId.cs" />
     <Compile Include="CharacterListProcessing.cs" />
     <Compile Include="CharacterVerse.cs" />
@@ -77,11 +84,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\DialogQuotes.txt" />
+    <Content Include="Resources\BiblicalTerms.xml" />
     <Content Include="Resources\modified_Character-VoiceTalent.txt" />
     <Content Include="Resources\modified_CharacterNames_BookChapterVerse.txt" />
     <Content Include="Resources\original_Character-VoiceTalent.txt" />
     <Content Include="Resources\original_CharacterNames_BookChapterVerse.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
