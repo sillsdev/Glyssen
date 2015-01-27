@@ -193,12 +193,7 @@ namespace ProtoScriptTests
 		{
 			get
 			{
-				return new CharacterVerse
-				{
-					BcvRef = new BCVRef(41, 4, 4),
-					Character = "Jesus",
-					Delivery = "Questioning"
-				};
+				return new CharacterVerse(new BCVRef(41, 4, 4), "Jesus", "Questioning", null, false);
 			}
 		}
 
@@ -206,12 +201,7 @@ namespace ProtoScriptTests
 		{
 			get
 			{
-				return new CharacterVerse
-				{
-					BcvRef = new BCVRef(41, 4, 4),
-					Character = "Jesus",
-					Delivery = "Commanding"
-				};
+				return new CharacterVerse(new BCVRef(41, 4, 4), "Jesus", "Commanding", null, false);
 			}
 		}
 
@@ -219,11 +209,7 @@ namespace ProtoScriptTests
 		{
 			get
 			{
-				return new CharacterVerse
-				{
-					BcvRef = new BCVRef(41, 4, 4),
-					Character = "Andrew"
-				};
+				return new CharacterVerse(new BCVRef(41, 4, 4), "Andrew", null, null, false);
 			}
 		}
 	}

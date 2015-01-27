@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using SIL.ScriptureUtils;
 
 namespace ProtoScript.Character
@@ -15,6 +14,11 @@ namespace ProtoScript.Character
 		/// Used when the user needs to disambiguate between multiple potential characters.
 		/// </summary>
 		public const string AmbiguousCharacter = "Ambiguous";
+
+		protected const int kiIsDialogue = 6;
+		protected const int kiDefaultCharacter = 7;
+		protected const int kiParallelPassageInfo = 8;
+		protected const int kMaxItems = kiParallelPassageInfo + 1;
 
 		public enum StandardCharacter
 		{
@@ -148,6 +152,8 @@ namespace ProtoScript.Character
 			int lineNumber = 0;
 			foreach (var line in tabDelimitedCharacterVerseData.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries))
 			{
+				if (line.Length == 0 || line[0] == '#')
+					continue;
 				string[] items = line.Split(new[] { "\t" }, StringSplitOptions.None);
 				ISet<CharacterVerse> cvs = ProcessLine(items, lineNumber++);
 				if (cvs != null)
@@ -162,30 +168,16 @@ namespace ProtoScript.Character
 		{
 			var list = new HashSet<CharacterVerse>();
 
-			if (items.Length < 6 || items.Length > 8)
+			if (items.Length < kiIsDialogue || items.Length > kMaxItems)
 				throw new ApplicationException("Bad format in CharacterVerseDataBase! Line #: " + lineNumber + "; Line contents: " + items);
 
 			int chapter = Int32.Parse(items[1]);
 			for (int verse = ScrReference.VerseToIntStart(items[2]); verse <= ScrReference.VerseToIntEnd(items[2]); verse++)
-				list.Add(new CharacterVerse
-				{
-					BcvRef = new BCVRef(BCVRef.BookToNumber(items[0]), chapter, verse),
-					Character = items[3],
-					Delivery = items[4],
-					Alias = items[5],
-					IsDialogue = (items.Length == 7 && items[6].Equals("True", StringComparison.OrdinalIgnoreCase)),
-					UserCreated = (items.Length == 8 && items[7].Equals("True", StringComparison.OrdinalIgnoreCase)),
-				});
+				list.Add(CreateCharacterVerse(new BCVRef(BCVRef.BookToNumber(items[0]), chapter, verse), items));
 
 			return list;
 		}
 
-		public string ToTabDelimited()
-		{
-			var sb = new StringBuilder();
-			foreach (CharacterVerse cv in m_data)
-				sb.Append(cv.ToTabDelimited()).Append(Environment.NewLine);
-			return sb.ToString();
-		}
+		protected abstract CharacterVerse CreateCharacterVerse(BCVRef bcvRef, string[] items);
 	}
 }

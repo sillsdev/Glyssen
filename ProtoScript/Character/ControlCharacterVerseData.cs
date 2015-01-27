@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ProtoScript.Properties;
+using SIL.ScriptureUtils;
 
 namespace ProtoScript.Character
 {
@@ -58,6 +59,14 @@ namespace ProtoScript.Character
 				ControlFileVersion = cfv;
 			else
 				throw new ApplicationException("Bad format in CharacterVerseDataBase metadata: " + items);
+		}
+
+		protected override CharacterVerse CreateCharacterVerse(BCVRef bcvRef, string[] items)
+		{
+			return new CharacterVerse(bcvRef, items[3], items[4], items[5], false,
+				(items.Length > kiIsDialogue && items[kiIsDialogue].Equals("True", StringComparison.OrdinalIgnoreCase)),
+				(items.Length > kiDefaultCharacter) ? items[kiDefaultCharacter] : null,
+				(items.Length > kiParallelPassageInfo) ? items[kiParallelPassageInfo] : null);
 		}
 	}
 }

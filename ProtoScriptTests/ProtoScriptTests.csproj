@@ -73,6 +73,8 @@
     <Compile Include="CharacterVerseDataTests.cs" />
     <Compile Include="Controls\BrowserTests.cs" />
     <Compile Include="BookScriptTests.cs" />
+    <Compile Include="Dialogs\AssignCharacterViewModelTests.cs" />
+    <Compile Include="ProjectCharacterVerseDataTests.cs" />
     <Compile Include="Quote\QuoteParserTests.cs" />
     <Compile Include="Quote\QuoteSystemGuesserTests.cs" />
     <Compile Include="Quote\QuoteSystemTests.cs" />

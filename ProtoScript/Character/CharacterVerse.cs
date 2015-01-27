@@ -6,15 +6,40 @@ namespace ProtoScript.Character
 {
 	public class CharacterVerse
 	{
-		public string Character;
-		public BCVRef BcvRef;
-		public string BookCode { get { return BCVRef.NumberToBookCode(BcvRef.Book); } }
-		public int Chapter { get { return BcvRef.Chapter; } }
-		public int Verse { get { return BcvRef.Verse; } }
-		public string Delivery;
-		public string Alias;
-		public bool IsDialogue { get; set; }
-		public bool UserCreated { get; set; }
+		private readonly string m_character;
+		private readonly BCVRef m_bcvRef;
+
+		private readonly string m_delivery;
+		private readonly string m_alias;
+		private readonly bool m_isDialogue;
+		private readonly string m_defaultCharacter;
+		private readonly string m_parallelPassageReferences;
+		private readonly bool m_userCreated;
+
+		public BCVRef BcvRef { get { return m_bcvRef; } }
+		public string BookCode { get { return BCVRef.NumberToBookCode(m_bcvRef.Book); } }
+		public int Chapter { get { return m_bcvRef.Chapter; } }
+		public int Verse { get { return m_bcvRef.Verse; } }
+		public string Character { get { return m_character; } }
+		public string Delivery { get { return m_delivery; } }
+		public string Alias { get { return m_alias; } }
+		public bool IsDialogue { get { return m_isDialogue; } }
+		public string DefaultCharacter { get { return m_defaultCharacter; } }
+		public string ParallelPassageReferences { get { return m_parallelPassageReferences; } }
+		public bool UserCreated { get { return m_userCreated; } }
+
+		public CharacterVerse(BCVRef bcvRef, string character, string delivery, string alias, bool userCreated,
+			bool isDialogue = false, string defaultCharacter = null, string parallelPassageReferences = null)
+		{
+			m_bcvRef = bcvRef;
+			m_character = character;
+			m_delivery = delivery;
+			m_alias = alias;
+			m_isDialogue = isDialogue;
+			m_defaultCharacter = defaultCharacter;
+			m_parallelPassageReferences = parallelPassageReferences;
+			m_userCreated = userCreated;
+		}
 
 		public override string ToString()
 		{
@@ -30,13 +55,14 @@ namespace ProtoScript.Character
 
 		public string ToTabDelimited()
 		{
-			return BookCode + "\t" + Chapter + "\t" + Verse + "\t" + Character + "\t" + Delivery + "\t" + Alias + "\t" + IsDialogue + "\t" + UserCreated;
+			return BookCode + "\t" + Chapter + "\t" + Verse + "\t" + Character + "\t" + Delivery + "\t" + Alias + "\t" +
+				IsDialogue + "\t" + DefaultCharacter + "\t" + ParallelPassageReferences + "\t" + UserCreated;
 		}
 
 		#region Equality Members
 		protected bool Equals(CharacterVerse other)
 		{
-			return Equals(BcvRef, other.BcvRef) && string.Equals(Character, other.Character) && string.Equals(Delivery, other.Delivery) && string.Equals(Alias, other.Alias) && IsDialogue == other.IsDialogue;
+			return Equals(m_bcvRef, other.m_bcvRef) && string.Equals(Character, other.Character) && string.Equals(Delivery, other.Delivery) && string.Equals(Alias, other.Alias) && IsDialogue == other.IsDialogue;
 		}
 
 		public override bool Equals(object obj)
@@ -54,7 +80,7 @@ namespace ProtoScript.Character
 		{
 			unchecked
 			{
-				int hashCode = (BcvRef != null ? BcvRef.GetHashCode() : 0);
+				int hashCode = (m_bcvRef != null ? m_bcvRef.GetHashCode() : 0);
 				hashCode = (hashCode * 397) ^ (Character != null ? Character.GetHashCode() : 0);
 				hashCode = (hashCode * 397) ^ (Delivery != null ? Delivery.GetHashCode() : 0);
 				hashCode = (hashCode * 397) ^ (Alias != null ? Alias.GetHashCode() : 0);
@@ -104,14 +130,6 @@ namespace ProtoScript.Character
 			if (result != 0)
 				return result;
 			return 0;
-		}
-	}
-
-	public class CharacterComparer : IComparer<CharacterVerse>
-	{
-		int IComparer<CharacterVerse>.Compare(CharacterVerse x, CharacterVerse y)
-		{
-			return String.Compare(x.Character, y.Character, StringComparison.InvariantCultureIgnoreCase);
 		}
 	}
 }

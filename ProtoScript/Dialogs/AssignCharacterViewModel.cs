@@ -28,11 +28,14 @@ namespace ProtoScript.Dialogs
 		private readonly CombinedCharacterVerseData m_combinedCharacterVerseData;
 		private readonly BlockNavigator m_navigator;
 		private List<Tuple<int, int>> m_relevantBlocks;
+		private readonly CharacterIdComparer m_characterComparer = new CharacterIdComparer();
 		private int m_displayBlockIndex = -1;
 
 		private int m_assignedBlocks;
 		private IEnumerable<Block> m_contextBlocksBackward;
 		private IEnumerable<Block> m_contextBlocksForward;
+
+		private HashSet<CharacterVerse> m_currentCharacters; 
 
 		public event EventHandler AssignedBlocksIncremented;
 
@@ -58,15 +61,9 @@ namespace ProtoScript.Dialogs
 		public int CurrentBlockDisplayIndex { get { return m_displayBlockIndex + 1; } }
 		public string CurrentBookId { get { return m_navigator.CurrentBook.BookId; } }
 		public Block CurrentBlock { get { return m_navigator.CurrentBlock; } }
-		public IEnumerable<Block> ContextBlocks
-		{
-			get { return m_contextBlocksBackward.Union(m_contextBlocksForward); }
-		}
-
+		public CharacterIdComparer CharacterComparer { get { return m_characterComparer; } }
 		public int BackwardContextBlockCount { get; set; }
 		public int ForwardContextBlockCount { get; set; }
-		public string Narrator { get; set; }
-		public string NormalDelivery { get; set; }
 
 		public string Html
 		{
@@ -105,24 +102,87 @@ namespace ProtoScript.Dialogs
 			m_navigator.SetIndices(m_relevantBlocks[--m_displayBlockIndex]);
 		}
 
-		public IEnumerable<CharacterVerse> GetCharacters(string bookCode, int chapter, int verse)
+		public IEnumerable<Character> Characters
 		{
-			return m_combinedCharacterVerseData.GetCharacters(bookCode, chapter, verse);
+			get
+			{
+				return new SortedSet<Character>(m_currentCharacters.Select(cv => new Character(cv.Character, cv.Alias, cv.UserCreated)),
+					m_characterComparer);
+			}
 		}
 
-		public IEnumerable<CharacterVerse> GetUniqueCharacterAndDeliveries()
+		public IEnumerable<Character> GetCharactersForCurrentReference(bool expandIfNone)
 		{
-			return m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries();
+			m_currentCharacters = new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetCharacters(CurrentBookId,
+				CurrentBlock.ChapterNumber, CurrentBlock.InitialStartVerseNumber, CurrentBlock.InitialEndVerseNumber));
+
+			var listToReturn = new List<Character>(new SortedSet<Character>(
+				m_currentCharacters.Select(cv => new Character(cv.Character, cv.Alias, cv.UserCreated)), m_characterComparer));
+
+			if (listToReturn.All(c => !c.IsNarrator))
+				listToReturn.Add(Character.Narrator);
+
+			if (m_currentCharacters.Count == 0 && expandIfNone)
+			{
+				// This will get any potential or actual characters from surrounding material.
+				foreach (var block in m_contextBlocksBackward.Union(m_contextBlocksForward))
+				{
+					foreach (var character in m_combinedCharacterVerseData.GetCharacters(CurrentBookId, block.ChapterNumber,
+						block.InitialStartVerseNumber, block.InitialEndVerseNumber))
+					{
+						m_currentCharacters.Add(character);
+					}
+				}
+
+				listToReturn.AddRange(new SortedSet<Character>(m_currentCharacters.Select(cv =>
+					new Character(cv.Character, cv.Alias, cv.UserCreated)), m_characterComparer));
+			}
+
+			return listToReturn;
 		}
 
-		public IEnumerable<CharacterVerse> GetUniqueCharacterAndDeliveries(string bookCode)
+		public IEnumerable<Character> GetUniqueCharacters(string filterText = null)
 		{
-			return m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries(bookCode);
+			m_currentCharacters = new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries());
+			if (!string.IsNullOrWhiteSpace(filterText))
+			{
+				filterText = filterText.Trim();
+				m_currentCharacters.RemoveWhere(c => !c.Character.Contains(filterText, StringComparison.OrdinalIgnoreCase) &&
+					!c.Alias.Contains(filterText, StringComparison.OrdinalIgnoreCase));
+			}
+			return Characters;
 		}
 
-		public IEnumerable<string> GetUniqueDeliveries()
+		public IEnumerable<Character> GetUniqueCharactersForCurrentBook()
 		{
-			return m_combinedCharacterVerseData.GetUniqueDeliveries();
+			m_currentCharacters = new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries(CurrentBookId));
+			return Characters;
+		}
+		
+		public IEnumerable<Delivery> GetDeliveriesForCharacter(Character selectedCharacter)
+		{
+			var deliveries = new List<Delivery>();
+			deliveries.Add(Delivery.Normal);
+			if (!selectedCharacter.IsNarrator)
+			{
+				foreach (var delivery in m_currentCharacters.Where(c => c.Character == selectedCharacter.CharacterId)
+					.Where(c => !string.IsNullOrEmpty(c.Delivery))
+					.Select(cv => cv.Delivery))
+				{
+					if (deliveries.All(d => d.Text != delivery))
+						deliveries.Add(new Delivery(delivery));
+				}
+			}
+			return deliveries;
+		}
+
+		public IEnumerable<Delivery> GetUniqueDeliveries(string filterText = null)
+		{
+			if (string.IsNullOrWhiteSpace(filterText))
+				return m_combinedCharacterVerseData.GetUniqueDeliveries().Select(d => new Delivery(d));
+				
+			return m_combinedCharacterVerseData.GetUniqueDeliveries()
+				.Where(d => d.Contains(filterText.Trim(), StringComparison.OrdinalIgnoreCase)).Select(d => new Delivery(d));
 		} 
 
 		private void PopulateRelevantBlocks()
@@ -192,7 +252,7 @@ namespace ProtoScript.Dialogs
 			return String.Format(kCssFrame, m_fontFamily, m_fontSizeInPoints);
 		}
 
-		internal void SetCharacterAndDelivery(Character selectedCharacter, Delivery selectedDelivery)
+		public void SetCharacterAndDelivery(Character selectedCharacter, Delivery selectedDelivery)
 		{
 			Block currentBlock = CurrentBlock;
 
@@ -202,12 +262,12 @@ namespace ProtoScript.Dialogs
 			if (currentBlock.UserAdded || selectedDelivery.UserCreated)
 				AddRecordToProjectCharacterVerseData(currentBlock, selectedCharacter, selectedDelivery);
 
-			if (selectedCharacter.Text == Narrator)
+			if (selectedCharacter.IsNarrator)
 				currentBlock.SetStandardCharacter(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator);
 			else
-				currentBlock.CharacterId = selectedCharacter.Text;
+				currentBlock.CharacterId = selectedCharacter.CharacterId;
 
-			currentBlock.Delivery = selectedDelivery.Text == NormalDelivery ? null : selectedDelivery.Text;
+			currentBlock.Delivery = selectedDelivery.IsNormal ? null : selectedDelivery.Text;
 
 			if (!currentBlock.UserConfirmed)
 			{
@@ -218,44 +278,64 @@ namespace ProtoScript.Dialogs
 			currentBlock.UserConfirmed = true;
 		}
 
+		private BCVRef GetBlockReference(Block block)
+		{
+			return new BCVRef(BCVRef.BookToNumber(CurrentBookId), block.ChapterNumber, block.InitialStartVerseNumber);
+		}
+
 		private void AddRecordToProjectCharacterVerseData(Block block, Character character, Delivery delivery)
 		{
-			var cv = new CharacterVerse
-			{
-				BcvRef = new BCVRef(BCVRef.BookToNumber(CurrentBookId), block.ChapterNumber, block.InitialStartVerseNumber),
-				Character = character.Text == Narrator ? CharacterVerseData.GetStandardCharacterId(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator) : character.Text,
-				Delivery = delivery.Text == NormalDelivery ? null : delivery.Text,
-				UserCreated = character.UserCreated || delivery.UserCreated
-			};
+			var cv = new CharacterVerse(
+				GetBlockReference(block),
+				character.IsNarrator
+						? CharacterVerseData.GetStandardCharacterId(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator)
+						: character.CharacterId,
+				delivery.IsNormal ? null : delivery.Text,
+				character.Alias,
+				character.UserCreated || delivery.UserCreated);
 			m_projectCharacterVerseData.AddCharacterVerse(cv);
 		}
 
 		#region Character class
-		internal class Character
+		public class Character
 		{
-			public string Text;
-			public bool UserCreated;
+			private static Character s_narrator;
 
-			public Character(string text)
+			private readonly string m_characterId;
+			private readonly string m_alias;
+			private readonly bool m_userCreated;
+
+			public static Character Narrator { get { return s_narrator; } }
+
+			public string CharacterId { get { return m_characterId; } }
+			public string Alias { get { return m_alias; } }
+			public bool UserCreated { get { return m_userCreated; } }
+			public bool IsNarrator { get { return Equals(s_narrator); } }
+
+			public static void SetNarrator(string narrator)
 			{
-				Text = text;
+				s_narrator = new Character(narrator);
 			}
 
-			public Character(string text, bool userCreated)
+			internal Character(string characterId, string alias = null, bool userCreated = false)
 			{
-				Text = text;
-				UserCreated = userCreated;
+				if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator))
+					m_characterId = s_narrator.CharacterId;
+				else
+					m_characterId= characterId;	
+				m_alias = String.IsNullOrWhiteSpace(alias) ? null : alias;
+				m_userCreated = userCreated;
 			}
 
 			public override string ToString()
 			{
-				return Text;
+				return Alias ?? CharacterId;
 			}
 
 			#region Equality members
 			protected bool Equals(Character other)
 			{
-				return string.Equals(Text, other.Text);
+				return string.Equals(CharacterId, other.CharacterId);
 			}
 
 			public override bool Equals(object obj)
@@ -271,7 +351,7 @@ namespace ProtoScript.Dialogs
 
 			public override int GetHashCode()
 			{
-				return (Text != null ? Text.GetHashCode() : 0);
+				return (m_characterId != null ? m_characterId.GetHashCode() : 0);
 			}
 
 			public static bool operator ==(Character left, Character right)
@@ -287,21 +367,36 @@ namespace ProtoScript.Dialogs
 		}
 		#endregion
 
-		#region Delivery class
-		internal class Delivery
+		public class CharacterIdComparer : IComparer<Character>
 		{
-			public string Text;
-			public bool UserCreated;
-
-			public Delivery(string text)
+			int IComparer<Character>.Compare(Character x, Character y)
 			{
-				Text = text;
+				return String.Compare(x.CharacterId, y.CharacterId, StringComparison.InvariantCultureIgnoreCase);
+			}
+		}
+
+		#region Delivery class
+		public class Delivery
+		{
+			private static Delivery s_normalDelivery;
+
+			private readonly string m_text;
+			private readonly bool m_userCreated;
+
+			public string Text { get { return m_text; } }
+			public bool UserCreated { get { return m_userCreated; } }
+			public static Delivery Normal { get { return s_normalDelivery; } }
+			public bool IsNormal { get { return Equals(s_normalDelivery); } }
+
+			public static void SetNormalDelivery(string normalDelivery)
+			{
+				s_normalDelivery = new Delivery(normalDelivery);
 			}
 
-			public Delivery(string text, bool userCreated)
+			internal Delivery(string text, bool userCreated = false)
 			{
-				Text = text;
-				UserCreated = userCreated;
+				m_text = text;
+				m_userCreated = userCreated;
 			}
 
 			public override string ToString()
@@ -312,7 +407,7 @@ namespace ProtoScript.Dialogs
 			#region Equality members
 			protected bool Equals(Delivery other)
 			{
-				return String.Equals(Text, (string)other.Text);
+				return String.Equals(Text, other.Text);
 			}
 
 			public override bool Equals(object obj)
