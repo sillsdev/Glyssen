@@ -30,7 +30,8 @@ namespace DevTools.BiblicalTerms
 			filteredList.Sort(new Term.GlossDomainComparer());
 			//File.WriteAllLines("..\\..\\Resources\\temporary\\ProperNames.txt", filteredList.Distinct(Term.GlossComparer).Select(t => t.ToTabDelimited()));
 
-			var controlData = CharacterDetailData.Singleton.GetAll();
+//			var controlData = CharacterDetailData.Singleton.GetAll();
+			var controlData = ControlCharacterVerseData.Singleton.GetAllQuoteInfo();
 			File.WriteAllLines("..\\..\\Resources\\temporary\\duplicatedInControl.txt", filteredList.Select(t => t.Gloss).Intersect(controlData.Select(c => c.Character)));
 
 			var notInControlList = filteredList.Where(t => !controlData.Select(c => c.Character).Contains(t.Gloss));
