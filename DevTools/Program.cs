@@ -4,7 +4,8 @@
 	{
 		static void Main(string[] args)
 		{
-			CharacterListProcessing.Process();
+//			CharacterListProcessing.Process();
+			BiblicalTerms.Processor.Process();
 		}
 	}
 }
