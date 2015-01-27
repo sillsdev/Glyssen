@@ -116,6 +116,8 @@
     <Compile Include="Bundle\UsxDocument.cs" />
     <Compile Include="Bundle\UsxNode.cs" />
     <Compile Include="Character\CharacterAssigner.cs" />
+    <Compile Include="Character\CharacterDetail.cs" />
+    <Compile Include="Character\CharacterDetailData.cs" />
     <Compile Include="Character\CharacterVerse.cs" />
     <Compile Include="Character\CharacterVerseData.cs" />
     <Compile Include="Character\CombinedCharacterVerseData.cs" />
@@ -252,6 +254,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\112_Plus_Green_16x16_72.png" />
+    <Content Include="Resources\CharacterIdMap.txt" />
     <Content Include="Resources\CharacterVerse.txt" />
     <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />

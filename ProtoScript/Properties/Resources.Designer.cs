@@ -71,7 +71,30 @@ namespace ProtoScript.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	27	Generated	Mon, 12 Jan 2015 14:59:37 GMT
+        ///   Looks up a localized string similar to #Character ID	Code (discard)	Multiple Speakers	Gender	Age	Comment
+        ///Aaron	1	FALSE	Male		
+        ///Abigail	2	FALSE	Female		
+        ///Abijah, king of Judah	3	FALSE	Male		
+        ///Abimelech, King of Gerar	4	FALSE	Male		
+        ///Abimelech, King of Gerar/Phicol		TRUE	Male		
+        ///Abimelech, King of the Philistines (in Gerar)		FALSE	Male		
+        ///Abimelech, son of Gideon		FALSE	Male		
+        ///Abishai, Joab&apos;s brother	5	FALSE	Male		
+        ///Abner	6	FALSE	Male		
+        ///Abraham	7	FALSE	Male		
+        ///Abraham&apos;s chief servant	8	FALSE	Male		
+        ///Absalom	10	FALSE	Male		
+        ///Absalom&apos;s men	11	TRU [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string CharacterIdMap {
+            get {
+                return ResourceManager.GetString("CharacterIdMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control File Version	34
+        ///#	C	V	Character ID	Delivery	Alias	Dialogue	Default Character	Parallel Passage
         ///GEN	1	3	God		God (the LORD)	False
         ///GEN	1	5	narrator-GEN			False
         ///GEN	1	6	God		God (the LORD)	False
@@ -83,8 +106,7 @@ namespace ProtoScript.Properties {
         ///GEN	1	20	God		God (the LORD)	False
         ///GEN	1	22	God		God (the LORD)	False
         ///GEN	1	24	God		God (the LORD)	False
-        ///GEN	1	26	God		God (the LORD)	False
-        ///GEN	1	28	God	blessing	God (the LORD [rest of string was truncated]&quot;;.
+        ///GEN	1	26	God		God (the LORD)	Fal [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CharacterVerseData {
             get {

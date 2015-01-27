@@ -103,7 +103,6 @@ Bartimaeus	1014	FALSE	Male
 Baruch	63	FALSE	Male		
 Barzillai	1063	FALSE	Male		
 Bathsheba	64	FALSE	Female		
-bearer of good news	1012	FALSE			
 believers who were Pharisees	500	TRUE	Male		
 believers, circumcised (in Jerusalem)	502	TRUE	Male		
 believers, Corinth	501	TRUE			
@@ -940,7 +939,6 @@ soldiers, Roman	917	TRUE	Male
 soldiers, some	916	TRUE	Male		
 soldiers/officials from chief priests/Pharisees	919	TRUE	Male		
 Solomon, king	436	FALSE	Male		
-some in home of Simon the leper	921	TRUE	Male		Judas Iscariot was the main spokesman, if the accounts in Matthew 26 and Mark 14 are held to be the same annointing as the one in John 12
 some people (quoted by Paul)	923	TRUE			
 someone	934	TRUE			
 someone (hypothetical argument)		TRUE			
@@ -986,7 +984,6 @@ those who had seen the demon-possessed man cured		TRUE
 those who seek God	958	TRUE			
 three men (two angels and the LORD)		TRUE	Male		
 Tobiah, enemy	448	FALSE	Male		
-townsmen	960	TRUE	Male		
 townsmen of Ophrah		TRUE	Male		
 troublemakers	962	TRUE	Male		
 twenty-four elders	964	TRUE	Male		
