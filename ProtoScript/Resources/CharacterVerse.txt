@@ -8114,6 +8114,7 @@ MRK	9	28	disciples	upset		True
 MRK	9	29	Jesus			True
 MRK	9	31	Jesus			False
 MRK	9	33	Jesus	questioning		False
+MRK	9	34	disciples	arguing		False
 MRK	9	35	Jesus	instructing		False
 MRK	9	37	Jesus	instructing		False
 MRK	9	38	John		John (disciple whom Jesus loved)	True
@@ -8275,6 +8276,7 @@ MRK	14	31	Peter (Simon)	passionate		True
 MRK	14	32	Jesus			False
 MRK	14	33	Jesus			False
 MRK	14	34	Jesus	deeply distressed		True
+MRK	14	35	Jesus			False
 MRK	14	36	Jesus			False
 MRK	14	37	Jesus	questioning		True
 MRK	14	38	Jesus			False
@@ -8396,6 +8398,7 @@ LUK	2	30	Simeon-old			False
 LUK	2	31	Simeon-old			False
 LUK	2	32	Simeon-old			False
 LUK	2	34	Simeon-old			False
+LUK	2	35	Simeon-old			False
 LUK	2	38	Anna, prophetess			False
 LUK	2	48	Mary (Jesus' mother)			True
 LUK	2	49	Jesus (child)			True
@@ -8423,6 +8426,7 @@ LUK	4	7	Satan		Devil	False
 LUK	4	8	Jesus			True
 LUK	4	9	Satan		Devil	True
 LUK	4	10	Satan		Devil	False
+LUK	4	11	Satan		Devil	False
 LUK	4	12	Jesus			True
 LUK	4	18	Jesus	reading Scripture		False
 LUK	4	19	Jesus	reading Scripture		False
@@ -8520,7 +8524,6 @@ LUK	7	28	Jesus			False
 LUK	7	31	Jesus			False
 LUK	7	32	Jesus			False
 LUK	7	33	Jesus			False
-LUK	7	33	narrator-LUK			False
 LUK	7	34	Jesus			False
 LUK	7	35	Jesus			False
 LUK	7	39	Pharisee(Simon)	judgmental		False
@@ -9244,6 +9247,7 @@ JHN	5	10	Jews	rebuke		True
 JHN	5	11	invalid for 38 years			True
 JHN	5	12	Jews	angry		True
 JHN	5	14	Jesus			True
+JHN	5	15	invalid for 38 years			False
 JHN	5	17	Jesus			True
 JHN	5	19	Jesus			False
 JHN	5	23	Jesus			False
@@ -9406,6 +9410,8 @@ JHN	9	41	Jesus			True
 JHN	10	1	Jesus			False
 JHN	10	2	Jesus			False
 JHN	10	3	Jesus			False
+JHN	10	4	Jesus			False
+JHN	10	5	Jesus			False
 JHN	10	7	Jesus			False
 JHN	10	8	Jesus			False
 JHN	10	9	Jesus			False
@@ -9422,9 +9428,18 @@ JHN	10	20	Jews	contempt		False
 JHN	10	21	Jews			False
 JHN	10	24	Jews			True
 JHN	10	25	Jesus			True
+JHN	10	26	Jesus			False
+JHN	10	27	Jesus			False
+JHN	10	28	Jesus			False
+JHN	10	29	Jesus			False
+JHN	10	30	Jesus			False
 JHN	10	32	Jesus			True
 JHN	10	33	teachers of the law/Pharisees			True
 JHN	10	34	Jesus			True
+JHN	10	35	Jesus			False
+JHN	10	36	Jesus			False
+JHN	10	37	Jesus			False
+JHN	10	38	Jesus			False
 JHN	10	41	people, many			False
 JHN	11	3	Mary/Martha			False
 JHN	11	4	Jesus			False
@@ -9532,56 +9547,17 @@ JHN	14	28	Jesus			False
 JHN	14	29	Jesus			False
 JHN	14	30	Jesus			False
 JHN	14	31	Jesus			False
-JHN	15	1	Jesus			False
-JHN	15	4	Jesus			False
-JHN	15	5	Jesus			False
-JHN	15	6	Jesus			False
-JHN	15	7	Jesus			False
-JHN	15	8	Jesus			False
-JHN	15	9	Jesus			False
-JHN	15	10	Jesus			False
-JHN	15	11	Jesus			False
-JHN	15	15	Jesus			False
-JHN	15	16	Jesus			False
-JHN	15	18	Jesus			False
-JHN	15	21	Jesus			False
-JHN	15	22	Jesus			False
-JHN	15	25	Jesus			False
-JHN	15	26	Jesus			False
-JHN	16	1	Jesus			False
-JHN	16	4	Jesus			False
-JHN	16	5	Jesus			False
-JHN	16	7	Jesus			False
-JHN	16	8	Jesus			False
-JHN	16	11	Jesus			False
-JHN	16	12	Jesus			False
-JHN	16	16	Jesus			False
+JHN	15	1-27	Jesus			False
+JHN	16	1-16	Jesus			False
 JHN	16	17	disciples	puzzled	disciples, some of his	False
 JHN	16	18	disciples	frustrated	disciples, some of his	False	Thomas
 JHN	16	19	Jesus			True
-JHN	16	20	Jesus			False
-JHN	16	23	Jesus			False
-JHN	16	25	Jesus			False
+JHN	16	20-28	Jesus			False
 JHN	16	29-30	disciples	relieved	disciples, Jesus'	True
 JHN	16	31	Jesus			True
 JHN	16	32	Jesus			False
 JHN	16	33	Jesus			False
-JHN	17	1	Jesus	praying		False
-JHN	17	3	Jesus	praying		False
-JHN	17	4	Jesus	praying		False
-JHN	17	5	Jesus	praying		False
-JHN	17	6	Jesus	praying		False
-JHN	17	8	Jesus	praying		False
-JHN	17	9	Jesus	praying		False
-JHN	17	11	Jesus	praying		False
-JHN	17	12	Jesus	praying		False
-JHN	17	13	Jesus	praying		False
-JHN	17	19	Jesus	praying		False
-JHN	17	20	Jesus	praying		False
-JHN	17	22	Jesus	praying		False
-JHN	17	23	Jesus	praying		False
-JHN	17	24	Jesus	praying		False
-JHN	17	25	Jesus	praying		False
+JHN	17	1-27	Jesus	praying		False
 JHN	18	4	Jesus	questioning		True
 JHN	18	5	Jesus			True
 JHN	18	5	soldiers/officials from chief priests/Pharisees	rowdy		True
