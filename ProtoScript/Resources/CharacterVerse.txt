@@ -8336,15 +8336,22 @@ LUK	1	13	angel of the LORD, an			True
 LUK	1	14	angel of the LORD, an			False
 LUK	1	15	angel of the LORD, an			False
 LUK	1	16	angel of the LORD, an			False
+LUK	1	17	angel of the LORD, an			False
 LUK	1	18	Zechariah			True
 LUK	1	19	angel of the LORD, an			True
+LUK	1	20	angel of the LORD, an			False
 LUK	1	21	people	wondering		False
 LUK	1	25	Elizabeth			False
 LUK	1	28	angel of the LORD, an	to Mary	angel Gabriel, sent by God	True
 LUK	1	29	Mary (Jesus' mother)	confused		False
 LUK	1	30	angel of the LORD, an		angel Gabriel, sent by God	True
+LUK	1	31	angel of the LORD, an		angel Gabriel, sent by God	False
+LUK	1	32	angel of the LORD, an		angel Gabriel, sent by God	False
+LUK	1	33	angel of the LORD, an		angel Gabriel, sent by God	False
 LUK	1	34	Mary (Jesus' mother)			True
 LUK	1	35	angel of the LORD, an		angel Gabriel, sent by God	True
+LUK	1	36	angel of the LORD, an		angel Gabriel, sent by God	False
+LUK	1	37	angel of the LORD, an		angel Gabriel, sent by God	False
 LUK	1	38	Mary (Jesus' mother)			True
 LUK	1	42	Elizabeth			True
 LUK	1	43	Elizabeth			False
