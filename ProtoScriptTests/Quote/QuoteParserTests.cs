@@ -930,6 +930,22 @@ namespace ProtoScriptTests.Quote
 			Assert.AreEqual("First in Chapter", output[5].CharacterId);
 		}
 
+		[Test, Ignore("TODO PG-99")]
+		public void Parse_SpaceAfterVerse_NoEmptyBlock()
+		{
+			var block1 = new Block("p", 3, 12) { IsParagraphStart = true };
+			block1.BlockElements.Add(new ScriptText("«pe, kadi ki acel.» "));
+			block1.BlockElements.Add(new Verse("13"));
+			block1.BlockElements.Add(new ScriptText(" «Guŋamo doggi calo lyel ma twolo,»"));
+			var input = new List<Block> { block1 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM", input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("«pe, kadi ki acel.» ", output[0].GetText(false));
+			Assert.AreEqual("«Guŋamo doggi calo lyel ma twolo,»", output[1].GetText(false));
+			Assert.AreEqual("«pe, kadi ki acel.» ", output[0].GetText(true));
+			Assert.AreEqual("[13]«Guŋamo doggi calo lyel ma twolo,»", output[1].GetText(true));
+		}
+
 		[Test]
 		public void Parse_DialogueQuoteAtStartAndNearEnd_OneBlockBecomesTwo()
 		{

@@ -51,6 +51,34 @@ namespace ProtoScriptTests
 		}
 
 		[Test]
+		public void Parse_ParagraphWithSpaceAfterVerseAndNote_SpacesAreMaintained()
+		{
+			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"q1\">" +
+										"“pe, kadi ki acel.” <verse number=\"3\" /><note /> “Guŋamo doggi calo lyel ma twolo,”</para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual("“pe, kadi ki acel.”  “Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(false));
+			Assert.AreEqual("“pe, kadi ki acel.” [3] “Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(true));
+			Assert.AreEqual("“pe, kadi ki acel.” ", ((ScriptText)blocks[1].BlockElements[0]).Content);
+			Assert.AreEqual(" “Guŋamo doggi calo lyel ma twolo,”", ((ScriptText)blocks[1].BlockElements[2]).Content);
+		}
+
+		[Test]
+		public void Parse_ParagraphWithSpaceAfterVerse_SpacesAreMaintained()
+		{
+			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"q1\">" +
+										"“pe, kadi ki acel.” <verse number=\"3\" /> “Guŋamo doggi calo lyel ma twolo,”</para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual("“pe, kadi ki acel.”  “Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(false));
+			Assert.AreEqual("“pe, kadi ki acel.” [3] “Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(true));
+			Assert.AreEqual("“pe, kadi ki acel.” ", ((ScriptText)blocks[1].BlockElements[0]).Content);
+			Assert.AreEqual(" “Guŋamo doggi calo lyel ma twolo,”", ((ScriptText)blocks[1].BlockElements[2]).Content);
+		}
+
+		[Test]
 		public void Parse_ParagraphWithFigure_FigureIsIgnored()
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\"><verse number=\"18\" style=\"v\" />" +
