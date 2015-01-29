@@ -335,7 +335,8 @@ namespace ProtoScript
 
 		public static void CreateSampleProjectIfNeeded()
 		{
-			var samplePath = GetProjectFilePath("sample", "sample");
+			const string kSample = "sample";
+			var samplePath = GetProjectFilePath(kSample, kSample);
 			if (File.Exists(samplePath))
 				return;
 			var sampleMetadata = new DblMetadata();
@@ -349,7 +350,7 @@ namespace ProtoScript
 			sampleMetadata.FontFamily = "Times New Roman";
 			sampleMetadata.FontSizeInPoints = 12;
 			sampleMetadata.id = "Sample";
-			sampleMetadata.language = new DblMetadataLanguage {iso = "sample"};
+			sampleMetadata.language = new DblMetadataLanguage {iso = kSample};
 
 			XmlDocument sampleMark = new XmlDocument();
 			sampleMark.LoadXml(Resources.SampleMRK);

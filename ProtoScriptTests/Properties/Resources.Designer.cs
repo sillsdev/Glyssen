@@ -63,11 +63,11 @@ namespace ProtoScriptTests.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Control File Version	3	Generated	Thu, 04 Dec 2014 16:01:02 GMT
         ///GEN	1	3	God		God (the LORD)
-        ///GEN	1	5	Not A Quote		
+        ///GEN	1	5	narrator-GEN		
         ///GEN	1	6	God		God (the LORD)
-        ///GEN	1	8	Not A Quote		
+        ///GEN	1	8	narrator-GEN		
         ///GEN	1	9	God		God (the LORD)
-        ///GEN	1	10	Not A Quote		
+        ///GEN	1	10	narrator-GEN		
         ///GEN	1	11	God		God (the LORD)
         ///GEN	1	14	God		God (the LORD)
         ///GEN	1	20	God		God (the LORD)
@@ -77,11 +77,31 @@ namespace ProtoScriptTests.Properties {
         ///GEN	1	28	God	blessing	God (the LORD)
         ///GEN	1	29	God		God (the LORD)
         ///GEN	1	30	God		God (the LORD)
-        ///GEN	2	16	God	 [rest of string was truncated]&quot;;.
+        ///GEN	1	31	L [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TestCharacterVerse {
             get {
                 return ResourceManager.GetString("TestCharacterVerse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;usx version=&quot;2.0&quot;&gt;
+        ///  &lt;book code=&quot;MRK&quot; style=&quot;id&quot;&gt;Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013&lt;/book&gt;
+        ///  &lt;para style=&quot;h&quot;&gt;MARAKO&lt;/para&gt;
+        ///  &lt;para style=&quot;toc1&quot;&gt;Jiri Ma Marako Ocoyo&lt;/para&gt;
+        ///  &lt;para style=&quot;toc2&quot;&gt;Marako&lt;/para&gt;
+        ///  &lt;para style=&quot;toc3&quot;&gt;Mar&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;JIRI ma&lt;/para&gt;
+        ///  &lt;para style=&quot;mt1&quot;&gt;MARAKO&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;ocoyo&lt;/para&gt;
+        ///  &lt;chapter number=&quot;1&quot; style=&quot;c&quot; /&gt;
+        ///  &lt;para style=&quot;s1&quot;&gt;Lok ma Jon Labatija otit [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TestMRK {
+            get {
+                return ResourceManager.GetString("TestMRK", resourceCulture);
             }
         }
     }

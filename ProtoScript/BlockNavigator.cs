@@ -15,7 +15,7 @@ namespace ProtoScript
 		public BlockNavigator(IReadOnlyList<BookScript> books)
 		{
 			m_books = books;
-			m_currentBook = m_books.First(b => b.HasScriptBlocks);
+			m_currentBook = m_books.FirstOrDefault(b => b.HasScriptBlocks);
 			if (m_currentBook == null)
 				throw new ArgumentException("The list of books must contain at least one block.");
 			m_currentBlock = m_currentBook[0];

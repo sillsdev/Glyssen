@@ -29,13 +29,13 @@ namespace ProtoScript.Dialogs
 		private readonly BlockNavigator m_navigator;
 		private List<Tuple<int, int>> m_relevantBlocks;
 		private readonly CharacterIdComparer m_characterComparer = new CharacterIdComparer();
+		private readonly DeliveryComparer m_deliveryComparer = new DeliveryComparer();
 		private int m_displayBlockIndex = -1;
 
 		private int m_assignedBlocks;
-		private IEnumerable<Block> m_contextBlocksBackward;
-		private IEnumerable<Block> m_contextBlocksForward;
 
-		private HashSet<CharacterVerse> m_currentCharacters; 
+		private HashSet<CharacterVerse> m_currentCharacters;
+		private List<Delivery> m_currentDeliveries;
 
 		public event EventHandler AssignedBlocksIncremented;
 
@@ -65,14 +65,24 @@ namespace ProtoScript.Dialogs
 		public int BackwardContextBlockCount { get; set; }
 		public int ForwardContextBlockCount { get; set; }
 
+		private IEnumerable<Block> ContextBlocksBackward
+		{
+			get { return m_navigator.PeekBackwardWithinBook(BackwardContextBlockCount); }
+		}
+
+		private IEnumerable<Block> ContextBlocksForward
+		{
+			get { return m_navigator.PeekForwardWithinBook(ForwardContextBlockCount); }
+		}
+
 		public string Html
 		{
 			get
 			{
 				return BuildHtml(
-					BuildHtml(m_contextBlocksBackward = m_navigator.PeekBackwardWithinBook(BackwardContextBlockCount)),
+					BuildHtml(ContextBlocksBackward),
 					HttpUtility.HtmlEncode(m_navigator.CurrentBlock.GetText(m_showVerseNumbers)),
-					BuildHtml(m_contextBlocksForward = m_navigator.PeekForwardWithinBook(ForwardContextBlockCount)),
+					BuildHtml(ContextBlocksForward),
 					BuildStyle());
 			}
 		}
@@ -102,22 +112,18 @@ namespace ProtoScript.Dialogs
 			m_navigator.SetIndices(m_relevantBlocks[--m_displayBlockIndex]);
 		}
 
-		public IEnumerable<Character> Characters
+		public HashSet<CharacterVerse> GetUniqueCharactersForCurrentReference()
 		{
-			get
-			{
-				return new SortedSet<Character>(m_currentCharacters.Select(cv => new Character(cv.Character, cv.Alias, cv.UserCreated)),
-					m_characterComparer);
-			}
+			return new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetCharacters(CurrentBookId,
+				CurrentBlock.ChapterNumber, CurrentBlock.InitialStartVerseNumber, CurrentBlock.InitialEndVerseNumber));
 		}
 
-		public IEnumerable<Character> GetCharactersForCurrentReference(bool expandIfNone)
+		public IEnumerable<Character> GetCharactersForCurrentReference(bool expandIfNone = true)
 		{
-			m_currentCharacters = new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetCharacters(CurrentBookId,
-				CurrentBlock.ChapterNumber, CurrentBlock.InitialStartVerseNumber, CurrentBlock.InitialEndVerseNumber));
+			m_currentCharacters = GetUniqueCharactersForCurrentReference();
 
 			var listToReturn = new List<Character>(new SortedSet<Character>(
-				m_currentCharacters.Select(cv => new Character(cv.Character, cv.Alias, cv.UserCreated)), m_characterComparer));
+				m_currentCharacters.Select(cv => new Character(cv.Character, cv.Alias, cv.ProjectSpecific)), m_characterComparer));
 
 			if (listToReturn.All(c => !c.IsNarrator))
 				listToReturn.Add(Character.Narrator);
@@ -125,7 +131,7 @@ namespace ProtoScript.Dialogs
 			if (m_currentCharacters.Count == 0 && expandIfNone)
 			{
 				// This will get any potential or actual characters from surrounding material.
-				foreach (var block in m_contextBlocksBackward.Union(m_contextBlocksForward))
+				foreach (var block in ContextBlocksBackward.Union(ContextBlocksForward))
 				{
 					foreach (var character in m_combinedCharacterVerseData.GetCharacters(CurrentBookId, block.ChapterNumber,
 						block.InitialStartVerseNumber, block.InitialEndVerseNumber))
@@ -135,7 +141,7 @@ namespace ProtoScript.Dialogs
 				}
 
 				listToReturn.AddRange(new SortedSet<Character>(m_currentCharacters.Select(cv =>
-					new Character(cv.Character, cv.Alias, cv.UserCreated)), m_characterComparer));
+					new Character(cv.Character, cv.Alias)), m_characterComparer));
 			}
 
 			return listToReturn;
@@ -143,46 +149,67 @@ namespace ProtoScript.Dialogs
 
 		public IEnumerable<Character> GetUniqueCharacters(string filterText = null)
 		{
-			m_currentCharacters = new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries());
-			if (!string.IsNullOrWhiteSpace(filterText))
+			var charactersForCurrentRef = GetUniqueCharactersForCurrentReference();
+
+			if (string.IsNullOrWhiteSpace(filterText))
 			{
+				m_currentCharacters = new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries(CurrentBookId));
+			}
+			else
+			{
+				m_currentCharacters = new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries());
+
 				filterText = filterText.Trim();
 				m_currentCharacters.RemoveWhere(c => !c.Character.Contains(filterText, StringComparison.OrdinalIgnoreCase) &&
 					!c.Alias.Contains(filterText, StringComparison.OrdinalIgnoreCase));
 			}
-			return Characters;
-		}
 
-		public IEnumerable<Character> GetUniqueCharactersForCurrentBook()
-		{
-			m_currentCharacters = new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries(CurrentBookId));
-			return Characters;
+			var listToReturn = new List<Character>(new SortedSet<Character>(m_currentCharacters.Select(cv => new Character(cv.Character, cv.Alias,
+				!charactersForCurrentRef.Contains(cv) || cv.ProjectSpecific)), m_characterComparer));
+
+			// PG-88: Now add (at the end of list) any items from charactersForCurrentRef (plus the narrator) that are not in the list.
+			listToReturn.AddRange(charactersForCurrentRef.Where(cv => listToReturn.All(ec => ec.CharacterId != cv.Character))
+				.Select(cv => new Character(cv.Character, cv.Alias, cv.ProjectSpecific)));
+
+			if (listToReturn.All(c => !c.IsNarrator))
+				listToReturn.Add(Character.Narrator);
+			return listToReturn;
 		}
 		
 		public IEnumerable<Delivery> GetDeliveriesForCharacter(Character selectedCharacter)
 		{
-			var deliveries = new List<Delivery>();
-			deliveries.Add(Delivery.Normal);
+			m_currentDeliveries = new List<Delivery>();
+			if (selectedCharacter == null)
+				return m_currentDeliveries;
+			m_currentDeliveries.Add(Delivery.Normal);
 			if (!selectedCharacter.IsNarrator)
 			{
-				foreach (var delivery in m_currentCharacters.Where(c => c.Character == selectedCharacter.CharacterId)
-					.Where(c => !string.IsNullOrEmpty(c.Delivery))
-					.Select(cv => cv.Delivery))
+				foreach (var cv in m_currentCharacters.Where(c => c.Character == selectedCharacter.CharacterId &&
+					!string.IsNullOrEmpty(c.Delivery) &&
+					m_currentDeliveries.All(d => d.Text != c.Delivery)))
 				{
-					if (deliveries.All(d => d.Text != delivery))
-						deliveries.Add(new Delivery(delivery));
+					m_currentDeliveries.Add(new Delivery(cv.Delivery, cv.ProjectSpecific));
 				}
 			}
-			return deliveries;
+			return m_currentDeliveries;
 		}
 
 		public IEnumerable<Delivery> GetUniqueDeliveries(string filterText = null)
 		{
+			List<Delivery> deliveries;
 			if (string.IsNullOrWhiteSpace(filterText))
-				return m_combinedCharacterVerseData.GetUniqueDeliveries().Select(d => new Delivery(d));
-				
-			return m_combinedCharacterVerseData.GetUniqueDeliveries()
-				.Where(d => d.Contains(filterText.Trim(), StringComparison.OrdinalIgnoreCase)).Select(d => new Delivery(d));
+				deliveries = m_combinedCharacterVerseData.GetUniqueDeliveries()
+					.Select(d => m_currentDeliveries.FirstOrDefault(cd => cd.Text == d) ?? new Delivery(d)).ToList();
+			else
+				deliveries = m_combinedCharacterVerseData.GetUniqueDeliveries()
+				.Where(ud => ud.Contains(filterText.Trim(), StringComparison.OrdinalIgnoreCase)).Select(d =>
+					m_currentDeliveries.FirstOrDefault(cd => cd.Text == d) ?? new Delivery(d)).ToList();
+
+			deliveries.Sort(m_deliveryComparer);
+
+			deliveries.AddRange(m_currentDeliveries.Where(d => !deliveries.Contains(d)));
+
+			return deliveries;
 		} 
 
 		private void PopulateRelevantBlocks()
@@ -256,10 +283,7 @@ namespace ProtoScript.Dialogs
 		{
 			Block currentBlock = CurrentBlock;
 
-			if (currentBlock.CharacterId == CharacterVerseData.UnknownCharacter || selectedCharacter.UserCreated)
-				currentBlock.UserAdded = true;
-
-			if (currentBlock.UserAdded || selectedDelivery.UserCreated)
+			if (selectedCharacter.ProjectSpecific || selectedDelivery.ProjectSpecific)
 				AddRecordToProjectCharacterVerseData(currentBlock, selectedCharacter, selectedDelivery);
 
 			if (selectedCharacter.IsNarrator)
@@ -292,7 +316,7 @@ namespace ProtoScript.Dialogs
 						: character.CharacterId,
 				delivery.IsNormal ? null : delivery.Text,
 				character.Alias,
-				character.UserCreated || delivery.UserCreated);
+				character.ProjectSpecific || delivery.ProjectSpecific);
 			m_projectCharacterVerseData.AddCharacterVerse(cv);
 		}
 
@@ -303,28 +327,28 @@ namespace ProtoScript.Dialogs
 
 			private readonly string m_characterId;
 			private readonly string m_alias;
-			private readonly bool m_userCreated;
+			private readonly bool m_projectSpecific;
 
 			public static Character Narrator { get { return s_narrator; } }
 
 			public string CharacterId { get { return m_characterId; } }
 			public string Alias { get { return m_alias; } }
-			public bool UserCreated { get { return m_userCreated; } }
+			public bool ProjectSpecific { get { return m_projectSpecific; } }
 			public bool IsNarrator { get { return Equals(s_narrator); } }
 
 			public static void SetNarrator(string narrator)
 			{
-				s_narrator = new Character(narrator);
+				s_narrator = new Character(narrator, null, false);
 			}
 
-			internal Character(string characterId, string alias = null, bool userCreated = false)
+			internal Character(string characterId, string alias = null, bool projectSpecific = true)
 			{
 				if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator))
 					m_characterId = s_narrator.CharacterId;
 				else
 					m_characterId= characterId;	
 				m_alias = String.IsNullOrWhiteSpace(alias) ? null : alias;
-				m_userCreated = userCreated;
+				m_projectSpecific = projectSpecific;
 			}
 
 			public override string ToString()
@@ -367,6 +391,7 @@ namespace ProtoScript.Dialogs
 		}
 		#endregion
 
+		#region CharacterIdComparer class
 		public class CharacterIdComparer : IComparer<Character>
 		{
 			int IComparer<Character>.Compare(Character x, Character y)
@@ -374,6 +399,7 @@ namespace ProtoScript.Dialogs
 				return String.Compare(x.CharacterId, y.CharacterId, StringComparison.InvariantCultureIgnoreCase);
 			}
 		}
+		#endregion
 
 		#region Delivery class
 		public class Delivery
@@ -381,22 +407,22 @@ namespace ProtoScript.Dialogs
 			private static Delivery s_normalDelivery;
 
 			private readonly string m_text;
-			private readonly bool m_userCreated;
+			private readonly bool m_projectSpecific;
 
 			public string Text { get { return m_text; } }
-			public bool UserCreated { get { return m_userCreated; } }
+			public bool ProjectSpecific { get { return m_projectSpecific; } }
 			public static Delivery Normal { get { return s_normalDelivery; } }
 			public bool IsNormal { get { return Equals(s_normalDelivery); } }
 
 			public static void SetNormalDelivery(string normalDelivery)
 			{
-				s_normalDelivery = new Delivery(normalDelivery);
+				s_normalDelivery = new Delivery(normalDelivery, false);
 			}
 
-			internal Delivery(string text, bool userCreated = false)
+			internal Delivery(string text, bool projectSpecific = true)
 			{
 				m_text = text;
-				m_userCreated = userCreated;
+				m_projectSpecific = projectSpecific;
 			}
 
 			public override string ToString()
@@ -436,6 +462,16 @@ namespace ProtoScript.Dialogs
 				return !Equals(left, right);
 			}
 			#endregion
+		}
+		#endregion
+
+		#region DeliveryComparer class
+		public class DeliveryComparer : IComparer<Delivery>
+		{
+			int IComparer<Delivery>.Compare(Delivery x, Delivery y)
+			{
+				return String.Compare(x.Text, y.Text, StringComparison.InvariantCultureIgnoreCase);
+			}
 		}
 		#endregion
 	}

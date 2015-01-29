@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using SIL.ScriptureUtils;
+using Palaso.Extensions;
 
 namespace ProtoScript.Character
 {
@@ -168,8 +170,9 @@ namespace ProtoScript.Character
 		{
 			var list = new HashSet<CharacterVerse>();
 
-			if (items.Length < kiIsDialogue || items.Length > kMaxItems)
-				throw new ApplicationException("Bad format in CharacterVerseDataBase! Line #: " + lineNumber + "; Line contents: " + items);
+			if (items.Length < kiIsDialogue)
+				throw new ApplicationException("Bad format in CharacterVerseDataBase! Line #: " + lineNumber + "; Line contents: " + items.Concat("\t"));
+			Debug.Assert(items.Length <= kMaxItems);
 
 			int chapter = Int32.Parse(items[1]);
 			for (int verse = ScrReference.VerseToIntStart(items[2]); verse <= ScrReference.VerseToIntEnd(items[2]); verse++)

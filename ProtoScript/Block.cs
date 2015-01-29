@@ -100,10 +100,6 @@ namespace ProtoScript
 		[DefaultValue(false)]
 		public bool UserConfirmed { get; set; }
 
-		[XmlAttribute("userAdded")]
-		[DefaultValue(false)]
-		public bool UserAdded { get; set; }
-
 		[XmlElement(Type = typeof (ScriptText), ElementName = "text")]
 		[XmlElement(Type = typeof (Verse), ElementName = "verse")]
 		public List<BlockElement> BlockElements { get; set; }

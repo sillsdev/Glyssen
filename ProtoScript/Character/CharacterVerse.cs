@@ -14,7 +14,7 @@ namespace ProtoScript.Character
 		private readonly bool m_isDialogue;
 		private readonly string m_defaultCharacter;
 		private readonly string m_parallelPassageReferences;
-		private readonly bool m_userCreated;
+		private readonly bool m_projectSpecific;
 
 		public BCVRef BcvRef { get { return m_bcvRef; } }
 		public string BookCode { get { return BCVRef.NumberToBookCode(m_bcvRef.Book); } }
@@ -26,9 +26,9 @@ namespace ProtoScript.Character
 		public bool IsDialogue { get { return m_isDialogue; } }
 		public string DefaultCharacter { get { return m_defaultCharacter; } }
 		public string ParallelPassageReferences { get { return m_parallelPassageReferences; } }
-		public bool UserCreated { get { return m_userCreated; } }
+		public bool ProjectSpecific { get { return m_projectSpecific; } }
 
-		public CharacterVerse(BCVRef bcvRef, string character, string delivery, string alias, bool userCreated,
+		public CharacterVerse(BCVRef bcvRef, string character, string delivery, string alias, bool projectSpecific,
 			bool isDialogue = false, string defaultCharacter = null, string parallelPassageReferences = null)
 		{
 			m_bcvRef = bcvRef;
@@ -38,7 +38,7 @@ namespace ProtoScript.Character
 			m_isDialogue = isDialogue;
 			m_defaultCharacter = defaultCharacter;
 			m_parallelPassageReferences = parallelPassageReferences;
-			m_userCreated = userCreated;
+			m_projectSpecific = projectSpecific;
 		}
 
 		public override string ToString()
@@ -51,12 +51,6 @@ namespace ProtoScript.Character
 			if (string.IsNullOrEmpty(Delivery))
 				return Character;
 			return string.Format("{0} [{1}]", Character, Delivery);
-		}
-
-		public string ToTabDelimited()
-		{
-			return BookCode + "\t" + Chapter + "\t" + Verse + "\t" + Character + "\t" + Delivery + "\t" + Alias + "\t" +
-				IsDialogue + "\t" + DefaultCharacter + "\t" + ParallelPassageReferences + "\t" + UserCreated;
 		}
 
 		#region Equality Members

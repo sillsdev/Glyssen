@@ -30,7 +30,7 @@ namespace ProtoScriptTests
 				Assert.AreEqual("Confused", quoteInfo.Delivery);
 				Assert.AreEqual("disciples", quoteInfo.Alias);
 				Assert.IsFalse(quoteInfo.IsDialogue);
-				Assert.IsTrue(quoteInfo.UserCreated);
+				Assert.IsTrue(quoteInfo.ProjectSpecific);
 				Assert.IsNull(quoteInfo.DefaultCharacter);
 				Assert.IsNull(quoteInfo.ParallelPassageReferences);
 			}
@@ -51,7 +51,7 @@ namespace ProtoScriptTests
 				Assert.AreEqual("Jesus", quoteInfo.Character);
 				Assert.AreEqual("Mysteriously", quoteInfo.Delivery);
 				Assert.IsFalse(quoteInfo.IsDialogue);
-				Assert.IsTrue(quoteInfo.UserCreated);
+				Assert.IsTrue(quoteInfo.ProjectSpecific);
 				Assert.IsNull(quoteInfo.DefaultCharacter);
 				Assert.IsNull(quoteInfo.ParallelPassageReferences);
 			}
