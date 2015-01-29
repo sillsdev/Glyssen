@@ -1,20 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using SIL.ScriptureUtils;
 
 namespace DevTools.FCBH
 {
 	public class TemplateData
 	{
-		public static IEnumerable<TemplateDatum> All()
+		public static IEnumerable<TemplateDatum> All(bool includeNarrator)
 		{
 			var result = new List<TemplateDatum>();
-			foreach (var line in ControlFiles.FCBH_OT_Template_simplified.Split(new[] { Environment.NewLine }, StringSplitOptions.None))
+			var allLines = ControlFiles.FCBH_OT_Template_simplified.Split(new[] { Environment.NewLine }, StringSplitOptions.None).ToList();
+				allLines.AddRange(ControlFiles.FCBH_NT_Template_simplified.Split(new[] { Environment.NewLine }, StringSplitOptions.None).ToList());
+			foreach (var line in allLines)
 			{
 				try
 				{
 					string[] items = line.Split(new[] { '\t' });
+
+					if (!includeNarrator && items[3].StartsWith("Narr_"))
+						continue;
+
 					int verse = items[2] == "<<" ? 0 : Int32.Parse(items[2]);
 					string book = items[0];
 					switch (book)
@@ -43,26 +50,6 @@ namespace DevTools.FCBH
 						case "NAH":
 							book = "NAM";
 							break;
-					}
-					var bcvRef = new BCVRef(BCVRef.BookToNumber(book), Int32.Parse(items[1]), verse);
-					if (!bcvRef.BookIsValid)
-						Debug.Fail("Invalid book: " + line);
-					result.Add(new TemplateDatum(bcvRef, items[3]));
-				}
-				catch
-				{
-					Debug.Fail(line);
-				}
-			}
-			foreach (var line in ControlFiles.FCBH_NT_Template_simplified.Split(new[] { Environment.NewLine }, StringSplitOptions.None))
-			{
-				try
-				{
-					string[] items = line.Split(new[] { '\t' });
-					int verse = items[2] == "<<" ? 0 : Int32.Parse(items[2]);
-					string book = items[0];
-					switch (book)
-					{
 						case "TTS":
 							book = "TIT";
 							break;

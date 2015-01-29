@@ -15,14 +15,24 @@ namespace DevTools.FCBH
 		public static void Process()
 		{
 			Directory.CreateDirectory("..\\..\\Resources\\temporary");
-
 			var sb = new StringBuilder();
+
+			CompareAndCombineLists(true, sb);
+			File.WriteAllText("..\\..\\Resources\\temporary\\control_plus_FCBH.txt", sb.ToString());
+
+			sb.Clear();
+			CompareAndCombineLists(false, sb);
+			File.WriteAllText("..\\..\\Resources\\temporary\\control_plus_FCBH_without_FCBH_narrator.txt", sb.ToString());
+		}
+
+		private static void CompareAndCombineLists(bool includeFcbhNarrator, StringBuilder sb)
+		{
 			sb.Append("#Book").Append(TAB).Append("Chapter").Append(TAB).Append("Verse").Append(TAB)
 				.Append("Control Character").Append(TAB).Append("FCBH Character").Append(TAB).Append("Delivery").Append(TAB)
 				.Append("Alias").Append(TAB).Append("Dialog").Append(TAB).Append("Default Char").Append(TAB)
 				.Append("Parallel").Append(TAB).Append(Environment.NewLine);
 
-			var allFcbh = TemplateData.All();
+			var allFcbh = TemplateData.All(includeFcbhNarrator);
 			var control = ControlCharacterVerseData.Singleton.GetAllQuoteInfo();
 
 			var fcbhDictionary = new Dictionary<BCVRef, List<TemplateDatum>>();
@@ -99,9 +109,6 @@ namespace DevTools.FCBH
 						}
 				}
 			}
-
-			File.WriteAllText("..\\..\\Resources\\temporary\\FCBH_added.txt", sb.ToString());
 		}
-
 	}
 }
