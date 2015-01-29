@@ -123,6 +123,36 @@ namespace DevTools {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MAT	1	&lt;&lt;	Narr_001: Matthew	#01		1	&quot;MATTHEW
+        ///MATTHEW CHP 1&quot;
+        ///MAT	1	1	Narr_001: Matthew	#01		2	&quot; {1} The book of the genealogy of Jesus Christ, the son of David, the son of Abraham.&quot;
+        ///MAT	1	2	Narr_001: Matthew	#01		3	&quot; ||| DO NOT COMBINE |||
+        ///{Music--Starts @ v2}
+        ///
+        /// {2} Abraham became the father of Isaac. Isaac became the father of Jacob. Jacob became the father of Judah and his brothers.&quot;
+        ///MAT	1	3	Narr_001: Matthew	#01		4	 {3} Judah became the father of Perez and Zerah by Tamar. Perez became the father of Hezro [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string FCBH_NT_Template_simplified {
+            get {
+                return ResourceManager.GetString("FCBH_NT_Template_simplified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GEN	1	&lt;&lt;	Narr_01: Genesis	#19		1	&quot;GENESIS 
+        ///GENESIS 1&quot;
+        ///GEN	1	1	Narr_01: Genesis	#19		2	 {1} In the beginning God created the heavens and the earth.
+        ///GEN	1	2	Narr_01: Genesis	#19		3	&quot; {2} Now the earth was formless and empty, darkness was over the surface of the deep, and the Spirit of God was hovering over the waters. {3} And God said,&quot;
+        ///GEN	1	3	God-FX1	#20		4	&quot; &lt;&lt; Let there be light,&quot;&quot;&quot;
+        ///GEN	1	3	Narr_01: Genesis	#19		5	&quot; and there was light. {4} God saw that the light was good, and he separated the light f [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string FCBH_OT_Template_simplified {
+            get {
+                return ResourceManager.GetString("FCBH_OT_Template_simplified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Aaron,18,0001
         ///Abigail,23,0002
         ///Abijah, king of Judah,12,0003

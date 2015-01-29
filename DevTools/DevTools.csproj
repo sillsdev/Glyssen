@@ -63,6 +63,9 @@
       <DependentUpon>ControlFiles.resx</DependentUpon>
     </Compile>
     <Compile Include="DialogueQuotesRefeerences.cs" />
+    <Compile Include="FCBH\Processor.cs" />
+    <Compile Include="FCBH\TemplateData.cs" />
+    <Compile Include="FCBH\TemplateDatum.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -85,6 +88,8 @@
   <ItemGroup>
     <None Include="Resources\DialogQuotes.txt" />
     <Content Include="Resources\BiblicalTerms.xml" />
+    <Content Include="Resources\FCBH_NT_Template_simplified.txt" />
+    <Content Include="Resources\FCBH_OT_Template_simplified.txt" />
     <Content Include="Resources\modified_Character-VoiceTalent.txt" />
     <Content Include="Resources\modified_CharacterNames_BookChapterVerse.txt" />
     <Content Include="Resources\original_Character-VoiceTalent.txt" />
