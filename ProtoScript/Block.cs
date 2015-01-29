@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -99,6 +98,10 @@ namespace ProtoScript
 		[XmlAttribute("userConfirmed")]
 		[DefaultValue(false)]
 		public bool UserConfirmed { get; set; }
+
+		[XmlAttribute("multiBlockQuote")]
+		[DefaultValue(MultiBlockQuote.None)]
+		public MultiBlockQuote MultiBlockQuote { get; set; }
 
 		[XmlElement(Type = typeof (ScriptText), ElementName = "text")]
 		[XmlElement(Type = typeof (Verse), ElementName = "verse")]

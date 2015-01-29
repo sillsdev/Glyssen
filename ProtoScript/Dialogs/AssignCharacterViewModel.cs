@@ -234,7 +234,7 @@ namespace ProtoScript.Dialogs
 
 		private bool IsRelevant(Block block)
 		{
-			return block.UserConfirmed || block.CharacterIsUnclear();
+			return (block.UserConfirmed || block.CharacterIsUnclear()) && block.MultiBlockQuote != MultiBlockQuote.Continuation;
 		}
 
 		private string BuildHtml(string previousText, string mainText, string followingText, string style)

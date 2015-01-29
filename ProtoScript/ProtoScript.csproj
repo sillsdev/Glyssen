@@ -167,6 +167,7 @@
     </Compile>
     <Compile Include="IScrBook.cs" />
     <Compile Include="IStylesheet.cs" />
+    <Compile Include="MultiBlockQuote.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Quote\QuoteParser.cs" />
     <Compile Include="Quote\QuoteSystem.cs" />

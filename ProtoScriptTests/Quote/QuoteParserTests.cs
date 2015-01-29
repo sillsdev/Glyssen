@@ -947,6 +947,48 @@ namespace ProtoScriptTests.Quote
 		}
 
 		[Test]
+		public void Parse_MultiBlockQuote()
+		{
+			var block1 = new Block("q1", 1, 23) { IsParagraphStart = true };
+			block1.BlockElements.Add(new Verse("23"));
+			block1.BlockElements.Add(new ScriptText("«Nen, nyako mo ma peya oŋeyo "));
+			var block2 = new Block("q1", 1, 23) { IsParagraphStart = true };
+			block2.BlockElements.Add(new ScriptText("laco biyac, "));
+			var block3 = new Block("q1", 1, 23) { IsParagraphStart = true };
+			block3.BlockElements.Add(new ScriptText("binywalo latin ma laco» "));
+			var block4 = new Block("q1", 1, 23) { IsParagraphStart = true };
+			block4.BlockElements.Add(new ScriptText("«Gibicako nyiŋe Emmanuel»"));
+			var input = new List<Block> { block1, block2, block3, block4 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
+		}
+
+		[Test]
+		public void Parse_MultiBlockQuote_AcrossSectionHead()
+		{
+			var block1 = new Block("p", 5, 16) { IsParagraphStart = true };
+			block1.BlockElements.Add(new ScriptText("«Wun bene wubed "));
+			var block2 = new Block("s1", 5, 16) { IsParagraphStart = true, CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical)};
+			block2.BlockElements.Add(new ScriptText("Lok ma Yecu opwonyo i kom cik"));
+			var block3 = new Block("p", 5, 17) { IsParagraphStart = true };
+			block3.BlockElements.Add(new Verse("17"));
+			block3.BlockElements.Add(new ScriptText("«Pe wutam ni an "));
+			var block4 = new Block("q1", 5, 17) { IsParagraphStart = true };
+			block4.BlockElements.Add(new ScriptText("Ada awaco botwu ni»"));
+			var input = new List<Block> { block1, block2, block3, block4 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Start, output[2].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[3].MultiBlockQuote);
+		}
+
+		[Test]
 		public void Parse_DialogueQuoteAtStartAndNearEnd_OneBlockBecomesTwo()
 		{
 			var block = new Block("p", 1, 17);
