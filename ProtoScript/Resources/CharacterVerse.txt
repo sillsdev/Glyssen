@@ -10486,6 +10486,7 @@ REV	19	4	twenty-four elders/four living creatures			False
 REV	19	5	voice from throne			False
 REV	19	6	voice of great crowd, like roar of many waters, loud thunderclaps			False
 REV	19	7	voice of great crowd, like roar of many waters, loud thunderclaps			False
+REV	19	8	voice of great crowd, like roar of many waters, loud thunderclaps			False
 REV	19	9	angel (one of the seven)			False
 REV	19	10	angel (one of the seven)			False
 REV	19	13	narrator-REV			False
