@@ -36,7 +36,7 @@ namespace ProtoScript.Dialogs
 		private int m_assignedBlocks;
 
 		private HashSet<CharacterVerse> m_currentCharacters;
-		private List<Delivery> m_currentDeliveries;
+		private List<Delivery> m_currentDeliveries = new List<Delivery>();
 
 		public event EventHandler AssignedBlocksIncremented;
 
