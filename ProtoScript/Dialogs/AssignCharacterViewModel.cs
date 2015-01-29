@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
+using L10NSharp;
 using ProtoScript.Character;
 using SIL.ScriptureUtils;
 
@@ -64,6 +65,12 @@ namespace ProtoScript.Dialogs
 		public CharacterIdComparer CharacterComparer { get { return m_characterComparer; } }
 		public int BackwardContextBlockCount { get; set; }
 		public int ForwardContextBlockCount { get; set; }
+
+		public void SetNarratorAndNormalDelivery(string narrator, string normalDelivery)
+		{
+			Character.SetNarrator(narrator, () => CurrentBookId);
+			Delivery.SetNormalDelivery(normalDelivery);
+		}
 
 		private IEnumerable<Block> ContextBlocksBackward
 		{
@@ -328,6 +335,7 @@ namespace ProtoScript.Dialogs
 			private readonly string m_characterId;
 			private readonly string m_alias;
 			private readonly bool m_projectSpecific;
+			private static Func<string> s_funcToGetBookId;
 
 			public static Character Narrator { get { return s_narrator; } }
 
@@ -336,8 +344,9 @@ namespace ProtoScript.Dialogs
 			public bool ProjectSpecific { get { return m_projectSpecific; } }
 			public bool IsNarrator { get { return Equals(s_narrator); } }
 
-			public static void SetNarrator(string narrator)
+			public static void SetNarrator(string narrator, Func<string> funcToGetBookId)
 			{
+				s_funcToGetBookId = funcToGetBookId;
 				s_narrator = new Character(narrator, null, false);
 			}
 
@@ -353,6 +362,8 @@ namespace ProtoScript.Dialogs
 
 			public override string ToString()
 			{
+				if (IsNarrator)
+					return String.Format(CharacterId, s_funcToGetBookId());
 				return Alias ?? CharacterId;
 			}
 

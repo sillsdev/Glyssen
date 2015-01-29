@@ -30,8 +30,8 @@ namespace ProtoScript.Dialogs
 
 		private void HandleStringsLocalized()
 		{
-			AssignCharacterViewModel.Character.SetNarrator(LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.Narrator", "Narrator"));
-			AssignCharacterViewModel.Delivery.SetNormalDelivery(LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.NormalDelivery", "normal"));
+			m_viewModel.SetNarratorAndNormalDelivery(LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.Narrator", "Narrator ({0})"),
+				LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.NormalDelivery", "normal"));
 		}
 
 		public AssignCharacterDialog(AssignCharacterViewModel viewModel)

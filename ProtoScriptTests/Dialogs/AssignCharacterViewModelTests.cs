@@ -31,8 +31,7 @@ namespace ProtoScriptTests.Dialogs
 		public void SetUp()
 		{
 			m_model = new AssignCharacterViewModel(m_testProject);
-			AssignCharacterViewModel.Character.SetNarrator("Narrator");
-			AssignCharacterViewModel.Delivery.SetNormalDelivery("normal");
+			m_model.SetNarratorAndNormalDelivery("Narrator ({0})", "normal");
 			m_model.BackwardContextBlockCount = 10;
 			m_model.ForwardContextBlockCount = 10;
 		}
@@ -79,6 +78,12 @@ namespace ProtoScriptTests.Dialogs
 			Assert.AreEqual("MRK", m_model.CurrentBookId);
 			Assert.AreEqual(1, m_model.CurrentBlock.ChapterNumber);
 			Assert.AreEqual(2, m_model.CurrentBlock.InitialStartVerseNumber);
+		}
+
+		[Test]
+		public void Narrator_CurrentBookIsMark_ToStringIncludesBookName()
+		{
+			Assert.AreEqual("Narrator (MRK)", AssignCharacterViewModel.Character.Narrator.ToString());
 		}
 
 		[Test]

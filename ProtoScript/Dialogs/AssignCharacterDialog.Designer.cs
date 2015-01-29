@@ -46,16 +46,16 @@
 			this.m_icnDeliveryFilter = new System.Windows.Forms.PictureBox();
 			this.m_btnAddCharacter = new System.Windows.Forms.Button();
 			this.m_btnAddDelivery = new System.Windows.Forms.Button();
+			this.m_lblShortcut1 = new System.Windows.Forms.Label();
+			this.m_lblShortcut2 = new System.Windows.Forms.Label();
+			this.m_lblShortcut3 = new System.Windows.Forms.Label();
+			this.m_lblShortcut4 = new System.Windows.Forms.Label();
+			this.m_lblShortcut5 = new System.Windows.Forms.Label();
 			this.m_listBoxCharacters = new System.Windows.Forms.ListBox();
 			this.m_listBoxDeliveries = new System.Windows.Forms.ListBox();
 			this.m_pnlCharacterFilter = new System.Windows.Forms.Panel();
 			this.m_pnlDeliveryFilter = new System.Windows.Forms.Panel();
-			this.m_lblShortcut1 = new System.Windows.Forms.Label();
-			this.m_lblShortcut2 = new System.Windows.Forms.Label();
 			this.m_pnlShortcuts = new System.Windows.Forms.Panel();
-			this.m_lblShortcut3 = new System.Windows.Forms.Label();
-			this.m_lblShortcut4 = new System.Windows.Forms.Label();
-			this.m_lblShortcut5 = new System.Windows.Forms.Label();
 			this.m_progressBar = new ProtoScript.Controls.ProgressBarUnanimated();
 			this.m_blocksDisplayBrowser = new ProtoScript.Controls.Browser();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
@@ -116,6 +116,7 @@
 			// m_labelReference
 			// 
 			this.m_labelReference.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_labelReference.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_labelReference.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_labelReference, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_labelReference, null);
@@ -123,7 +124,7 @@
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelReference, "AssignCharacterDialog.label1");
 			this.m_labelReference.Location = new System.Drawing.Point(251, 19);
 			this.m_labelReference.Name = "m_labelReference";
-			this.m_labelReference.Size = new System.Drawing.Size(144, 13);
+			this.m_labelReference.Size = new System.Drawing.Size(144, 18);
 			this.m_labelReference.TabIndex = 5;
 			this.m_labelReference.Text = "Reference";
 			this.m_labelReference.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -131,13 +132,14 @@
 			// m_labelWhoSpeaks
 			// 
 			this.m_labelWhoSpeaks.AutoSize = true;
+			this.m_labelWhoSpeaks.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_labelWhoSpeaks.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_labelWhoSpeaks, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_labelWhoSpeaks, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelWhoSpeaks, "AssignCharacterDialog.WhoSpeaks");
 			this.m_labelWhoSpeaks.Location = new System.Drawing.Point(13, 19);
 			this.m_labelWhoSpeaks.Name = "m_labelWhoSpeaks";
-			this.m_labelWhoSpeaks.Size = new System.Drawing.Size(113, 13);
+			this.m_labelWhoSpeaks.Size = new System.Drawing.Size(156, 18);
 			this.m_labelWhoSpeaks.TabIndex = 10;
 			this.m_labelWhoSpeaks.Text = "Who speaks this part?";
 			// 
@@ -161,7 +163,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreChar, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llMoreChar, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_llMoreChar, "AssignCharacterDialog.MoreCharacters");
-			this.m_llMoreChar.Location = new System.Drawing.Point(410, 257);
+			this.m_llMoreChar.Location = new System.Drawing.Point(410, 265);
 			this.m_llMoreChar.Name = "m_llMoreChar";
 			this.m_llMoreChar.Size = new System.Drawing.Size(85, 13);
 			this.m_llMoreChar.TabIndex = 13;
@@ -173,40 +175,43 @@
 			// m_txtCharacterFilter
 			// 
 			this.m_txtCharacterFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.m_txtCharacterFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtCharacterFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtCharacterFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtCharacterFilter, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtCharacterFilter, "AssignCharacterDialog.textBox1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtCharacterFilter, "AssignCharacterDialog.AssignCharacterDialog.m_txtCharacterFilter");
 			this.m_txtCharacterFilter.Location = new System.Drawing.Point(1, 1);
 			this.m_txtCharacterFilter.Margin = new System.Windows.Forms.Padding(0);
 			this.m_txtCharacterFilter.Name = "m_txtCharacterFilter";
-			this.m_txtCharacterFilter.Size = new System.Drawing.Size(160, 13);
+			this.m_txtCharacterFilter.Size = new System.Drawing.Size(160, 17);
 			this.m_txtCharacterFilter.TabIndex = 14;
 			this.m_txtCharacterFilter.TextChanged += new System.EventHandler(this.m_txtCharacterFilter_TextChanged);
 			// 
 			// m_lblCharacter
 			// 
 			this.m_lblCharacter.AutoSize = true;
+			this.m_lblCharacter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_lblCharacter.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblCharacter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblCharacter, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblCharacter, "AssignCharacterDialog.Character");
-			this.m_lblCharacter.Location = new System.Drawing.Point(410, 43);
+			this.m_lblCharacter.Location = new System.Drawing.Point(410, 41);
 			this.m_lblCharacter.Name = "m_lblCharacter";
-			this.m_lblCharacter.Size = new System.Drawing.Size(53, 13);
+			this.m_lblCharacter.Size = new System.Drawing.Size(73, 18);
 			this.m_lblCharacter.TabIndex = 16;
 			this.m_lblCharacter.Text = "Character";
 			// 
 			// m_lblDelivery
 			// 
 			this.m_lblDelivery.AutoSize = true;
+			this.m_lblDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_lblDelivery.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblDelivery, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblDelivery, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblDelivery, "AssignCharacterDialog.Delivery");
-			this.m_lblDelivery.Location = new System.Drawing.Point(410, 298);
+			this.m_lblDelivery.Location = new System.Drawing.Point(410, 293);
 			this.m_lblDelivery.Name = "m_lblDelivery";
-			this.m_lblDelivery.Size = new System.Drawing.Size(45, 13);
+			this.m_lblDelivery.Size = new System.Drawing.Size(60, 18);
 			this.m_lblDelivery.TabIndex = 17;
 			this.m_lblDelivery.Text = "Delivery";
 			// 
@@ -218,7 +223,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreDel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llMoreDel, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_llMoreDel, "AssignCharacterDialog.MoreDeliveries");
-			this.m_llMoreDel.Location = new System.Drawing.Point(410, 434);
+			this.m_llMoreDel.Location = new System.Drawing.Point(410, 425);
 			this.m_llMoreDel.Name = "m_llMoreDel";
 			this.m_llMoreDel.Size = new System.Drawing.Size(80, 13);
 			this.m_llMoreDel.TabIndex = 18;
@@ -229,14 +234,15 @@
 			// m_txtDeliveryFilter
 			// 
 			this.m_txtDeliveryFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.m_txtDeliveryFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtDeliveryFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtDeliveryFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtDeliveryFilter, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtDeliveryFilter, "AssignCharacterDialog.textBox1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtDeliveryFilter, "AssignCharacterDialog.AssignCharacterDialog.m_txtDeliveryFilter");
 			this.m_txtDeliveryFilter.Location = new System.Drawing.Point(1, 1);
 			this.m_txtDeliveryFilter.Margin = new System.Windows.Forms.Padding(0);
 			this.m_txtDeliveryFilter.Name = "m_txtDeliveryFilter";
-			this.m_txtDeliveryFilter.Size = new System.Drawing.Size(160, 13);
+			this.m_txtDeliveryFilter.Size = new System.Drawing.Size(160, 17);
 			this.m_txtDeliveryFilter.TabIndex = 19;
 			this.m_txtDeliveryFilter.TextChanged += new System.EventHandler(this.m_txtDeliveryFilter_TextChanged);
 			// 
@@ -277,7 +283,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAddCharacter, "Add New Character");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAddCharacter, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAddCharacter, "AssignCharacterDialog.AddCharacter");
-			this.m_btnAddCharacter.Location = new System.Drawing.Point(598, 59);
+			this.m_btnAddCharacter.Location = new System.Drawing.Point(598, 64);
 			this.m_btnAddCharacter.Margin = new System.Windows.Forms.Padding(0);
 			this.m_btnAddCharacter.Name = "m_btnAddCharacter";
 			this.m_btnAddCharacter.Size = new System.Drawing.Size(20, 20);
@@ -304,50 +310,6 @@
 			this.m_btnAddDelivery.UseVisualStyleBackColor = false;
 			this.m_btnAddDelivery.Click += new System.EventHandler(this.m_btnAddDelivery_Click);
 			// 
-			// m_listBoxCharacters
-			// 
-			this.m_listBoxCharacters.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.m_listBoxCharacters.FormattingEnabled = true;
-			this.m_listBoxCharacters.Location = new System.Drawing.Point(413, 59);
-			this.m_listBoxCharacters.Name = "m_listBoxCharacters";
-			this.m_listBoxCharacters.Size = new System.Drawing.Size(205, 195);
-			this.m_listBoxCharacters.TabIndex = 0;
-			this.m_listBoxCharacters.SelectedIndexChanged += new System.EventHandler(this.m_listBoxCharacters_SelectedIndexChanged);
-			// 
-			// m_listBoxDeliveries
-			// 
-			this.m_listBoxDeliveries.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.m_listBoxDeliveries.FormattingEnabled = true;
-			this.m_listBoxDeliveries.Location = new System.Drawing.Point(413, 314);
-			this.m_listBoxDeliveries.Name = "m_listBoxDeliveries";
-			this.m_listBoxDeliveries.Size = new System.Drawing.Size(205, 117);
-			this.m_listBoxDeliveries.TabIndex = 1;
-			this.m_listBoxDeliveries.SelectedIndexChanged += new System.EventHandler(this.m_listBoxDeliveries_SelectedIndexChanged);
-			// 
-			// m_pnlCharacterFilter
-			// 
-			this.m_pnlCharacterFilter.BackColor = System.Drawing.Color.White;
-			this.m_pnlCharacterFilter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.m_pnlCharacterFilter.Controls.Add(this.m_icnCharacterFilter);
-			this.m_pnlCharacterFilter.Controls.Add(this.m_txtCharacterFilter);
-			this.m_pnlCharacterFilter.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.m_pnlCharacterFilter.Location = new System.Drawing.Point(413, 59);
-			this.m_pnlCharacterFilter.Name = "m_pnlCharacterFilter";
-			this.m_pnlCharacterFilter.Size = new System.Drawing.Size(181, 20);
-			this.m_pnlCharacterFilter.TabIndex = 21;
-			// 
-			// m_pnlDeliveryFilter
-			// 
-			this.m_pnlDeliveryFilter.BackColor = System.Drawing.Color.White;
-			this.m_pnlDeliveryFilter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.m_pnlDeliveryFilter.Controls.Add(this.m_icnDeliveryFilter);
-			this.m_pnlDeliveryFilter.Controls.Add(this.m_txtDeliveryFilter);
-			this.m_pnlDeliveryFilter.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.m_pnlDeliveryFilter.Location = new System.Drawing.Point(413, 314);
-			this.m_pnlDeliveryFilter.Name = "m_pnlDeliveryFilter";
-			this.m_pnlDeliveryFilter.Size = new System.Drawing.Size(181, 20);
-			this.m_pnlDeliveryFilter.TabIndex = 23;
-			// 
 			// m_lblShortcut1
 			// 
 			this.m_lblShortcut1.AutoSize = true;
@@ -370,23 +332,11 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblShortcut2, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblShortcut2, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut2, "AssignCharacterDialog.label1");
-			this.m_lblShortcut2.Location = new System.Drawing.Point(3, 16);
+			this.m_lblShortcut2.Location = new System.Drawing.Point(3, 22);
 			this.m_lblShortcut2.Name = "m_lblShortcut2";
 			this.m_lblShortcut2.Size = new System.Drawing.Size(10, 12);
 			this.m_lblShortcut2.TabIndex = 27;
 			this.m_lblShortcut2.Text = "2";
-			// 
-			// m_pnlShortcuts
-			// 
-			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut5);
-			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut4);
-			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut3);
-			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut2);
-			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut1);
-			this.m_pnlShortcuts.Location = new System.Drawing.Point(398, 57);
-			this.m_pnlShortcuts.Name = "m_pnlShortcuts";
-			this.m_pnlShortcuts.Size = new System.Drawing.Size(15, 164);
-			this.m_pnlShortcuts.TabIndex = 28;
 			// 
 			// m_lblShortcut3
 			// 
@@ -396,7 +346,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblShortcut3, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblShortcut3, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut3, "AssignCharacterDialog.label1");
-			this.m_lblShortcut3.Location = new System.Drawing.Point(3, 29);
+			this.m_lblShortcut3.Location = new System.Drawing.Point(3, 41);
 			this.m_lblShortcut3.Name = "m_lblShortcut3";
 			this.m_lblShortcut3.Size = new System.Drawing.Size(10, 12);
 			this.m_lblShortcut3.TabIndex = 28;
@@ -411,7 +361,7 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblShortcut4, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblShortcut4, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut4, "AssignCharacterDialog.label1");
-			this.m_lblShortcut4.Location = new System.Drawing.Point(3, 42);
+			this.m_lblShortcut4.Location = new System.Drawing.Point(3, 60);
 			this.m_lblShortcut4.Name = "m_lblShortcut4";
 			this.m_lblShortcut4.Size = new System.Drawing.Size(10, 12);
 			this.m_lblShortcut4.TabIndex = 29;
@@ -426,11 +376,71 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblShortcut5, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblShortcut5, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut5, "AssignCharacterDialog.label1");
-			this.m_lblShortcut5.Location = new System.Drawing.Point(3, 55);
+			this.m_lblShortcut5.Location = new System.Drawing.Point(3, 79);
 			this.m_lblShortcut5.Name = "m_lblShortcut5";
 			this.m_lblShortcut5.Size = new System.Drawing.Size(10, 12);
 			this.m_lblShortcut5.TabIndex = 30;
 			this.m_lblShortcut5.Text = "5";
+			// 
+			// m_listBoxCharacters
+			// 
+			this.m_listBoxCharacters.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.m_listBoxCharacters.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_listBoxCharacters.FormattingEnabled = true;
+			this.m_listBoxCharacters.ItemHeight = 18;
+			this.m_listBoxCharacters.Location = new System.Drawing.Point(413, 64);
+			this.m_listBoxCharacters.Name = "m_listBoxCharacters";
+			this.m_listBoxCharacters.Size = new System.Drawing.Size(205, 198);
+			this.m_listBoxCharacters.TabIndex = 0;
+			this.m_listBoxCharacters.SelectedIndexChanged += new System.EventHandler(this.m_listBoxCharacters_SelectedIndexChanged);
+			// 
+			// m_listBoxDeliveries
+			// 
+			this.m_listBoxDeliveries.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.m_listBoxDeliveries.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_listBoxDeliveries.FormattingEnabled = true;
+			this.m_listBoxDeliveries.ItemHeight = 18;
+			this.m_listBoxDeliveries.Location = new System.Drawing.Point(413, 314);
+			this.m_listBoxDeliveries.Name = "m_listBoxDeliveries";
+			this.m_listBoxDeliveries.Size = new System.Drawing.Size(205, 108);
+			this.m_listBoxDeliveries.TabIndex = 1;
+			this.m_listBoxDeliveries.SelectedIndexChanged += new System.EventHandler(this.m_listBoxDeliveries_SelectedIndexChanged);
+			// 
+			// m_pnlCharacterFilter
+			// 
+			this.m_pnlCharacterFilter.BackColor = System.Drawing.Color.White;
+			this.m_pnlCharacterFilter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.m_pnlCharacterFilter.Controls.Add(this.m_icnCharacterFilter);
+			this.m_pnlCharacterFilter.Controls.Add(this.m_txtCharacterFilter);
+			this.m_pnlCharacterFilter.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.m_pnlCharacterFilter.Location = new System.Drawing.Point(413, 64);
+			this.m_pnlCharacterFilter.Name = "m_pnlCharacterFilter";
+			this.m_pnlCharacterFilter.Size = new System.Drawing.Size(181, 20);
+			this.m_pnlCharacterFilter.TabIndex = 21;
+			// 
+			// m_pnlDeliveryFilter
+			// 
+			this.m_pnlDeliveryFilter.BackColor = System.Drawing.Color.White;
+			this.m_pnlDeliveryFilter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.m_pnlDeliveryFilter.Controls.Add(this.m_icnDeliveryFilter);
+			this.m_pnlDeliveryFilter.Controls.Add(this.m_txtDeliveryFilter);
+			this.m_pnlDeliveryFilter.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.m_pnlDeliveryFilter.Location = new System.Drawing.Point(413, 314);
+			this.m_pnlDeliveryFilter.Name = "m_pnlDeliveryFilter";
+			this.m_pnlDeliveryFilter.Size = new System.Drawing.Size(181, 20);
+			this.m_pnlDeliveryFilter.TabIndex = 23;
+			// 
+			// m_pnlShortcuts
+			// 
+			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut5);
+			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut4);
+			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut3);
+			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut2);
+			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut1);
+			this.m_pnlShortcuts.Location = new System.Drawing.Point(398, 62);
+			this.m_pnlShortcuts.Name = "m_pnlShortcuts";
+			this.m_pnlShortcuts.Size = new System.Drawing.Size(15, 164);
+			this.m_pnlShortcuts.TabIndex = 28;
 			// 
 			// m_progressBar
 			// 
