@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace DevTools
+﻿namespace DevTools
 {
 	class Program
 	{
@@ -8,7 +6,8 @@ namespace DevTools
 		{
 //			CharacterListProcessing.Process();
 //			BiblicalTerms.Processor.Process();
-			FCBH.Processor.Process();
+//			FCBH.Processor.Process();
+			VerseBridgeHelper.RemoveAllVerseBridges();
 		}
 	}
 }
