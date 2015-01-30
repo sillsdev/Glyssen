@@ -1,4 +1,4 @@
-Control File Version	39
+Control File Version	40
 #	C	V	Character ID	Delivery	Alias	Dialogue	Default Character	Parallel Passage
 GEN	1	3	God		God (the LORD)	FALSE		
 GEN	1	5	narrator-GEN			FALSE		
@@ -281,7 +281,7 @@ GEN	27	24	Jacob			FALSE
 GEN	27	25	Isaac, old			FALSE		
 GEN	27	26	Isaac, old			FALSE		
 GEN	27	27	Isaac, old			FALSE		
-GEN	27	28	Isaac			FALSE		
+GEN	27	28	Isaac, old			FALSE		
 GEN	27	29	Isaac, old			FALSE		
 GEN	27	31	Esau			FALSE		
 GEN	27	32	Esau			FALSE		
@@ -411,6 +411,7 @@ GEN	35	10	God	blessing	God (LORD appeared)	FALSE
 GEN	35	11	God		God (LORD appeared)	FALSE		
 GEN	35	17	midwife of Rachel			FALSE		
 GEN	37	6	Joseph			FALSE		
+GEN	37	7	Joseph			FALSE		
 GEN	37	8	Jacob's sons			FALSE	Simeon	
 GEN	37	9	Joseph			FALSE		
 GEN	37	10	Jacob			FALSE		
@@ -675,9 +676,9 @@ EXO	2	10	Pharaoh's daughter			FALSE
 EXO	2	13	Moses			FALSE		
 EXO	2	14	man (Hebrew fighting)			FALSE		
 EXO	2	14	Moses			FALSE		
-EXO	2	18	Moses' father-in-law			FALSE		
+EXO	2	18	Jethro, Moses' father-in-law			FALSE		
 EXO	2	19	Zipporah		Zipporah-Moses wife/her sisters	FALSE		
-EXO	2	20	Moses' father-in-law			FALSE		
+EXO	2	20	Jethro, Moses' father-in-law			FALSE		
 EXO	2	21	Moses			FALSE		
 EXO	2	22	Moses			FALSE		
 EXO	3	3	Moses			FALSE		
@@ -714,7 +715,7 @@ EXO	4	12	God		God (angel of the LORD within burning bush)	FALSE
 EXO	4	13	Moses			FALSE		
 EXO	4	14	God		God (angel of the LORD within burning bush)	FALSE		
 EXO	4	18	Moses			FALSE		
-EXO	4	18	Moses' father-in-law			FALSE		
+EXO	4	18	Jethro, Moses' father-in-law			FALSE		
 EXO	4	19	God		God (the LORD)	FALSE		
 EXO	4	21	God		God (the LORD)	FALSE		
 EXO	4	22	God		God (the LORD)	FALSE		
@@ -857,11 +858,11 @@ EXO	17	14	God		God (the LORD)	FALSE
 EXO	17	16	Moses			FALSE		
 EXO	18	3	Moses			FALSE		
 EXO	18	4	Moses			FALSE		
-EXO	18	6	Moses' father-in-law			FALSE		
-EXO	18	10	Moses' father-in-law			FALSE		
-EXO	18	14	Moses' father-in-law			FALSE		
+EXO	18	6	Jethro, Moses' father-in-law			FALSE		
+EXO	18	10	Jethro, Moses' father-in-law			FALSE		
+EXO	18	14	Jethro, Moses' father-in-law			FALSE		
 EXO	18	15	Moses			FALSE		
-EXO	18	17	Moses' father-in-law			FALSE		
+EXO	18	17	Jethro, Moses' father-in-law			FALSE		
 EXO	19	3	God		God (the LORD)	FALSE		
 EXO	19	8	elders			FALSE		
 EXO	19	9	God		God (the LORD)	FALSE		
@@ -7584,10 +7585,10 @@ MAT	7	24	Jesus	preaching		FALSE
 MAT	7	25	Jesus	preaching		FALSE		
 MAT	7	26	Jesus	preaching		FALSE		
 MAT	7	27	Jesus	preaching		FALSE		
-MAT	8	2	leper	pleading		TRUE		
+MAT	8	2	leper	pleading		TRUE		MAT 8.2;MRK 1.40;LUK  5.12
 MAT	8	3	Jesus			TRUE		
 MAT	8	4	Jesus	giving orders		TRUE		
-MAT	8	6	centurion with great faith	entreating		TRUE		
+MAT	8	6	centurion with great faith	entreating		TRUE		MAT 8.6;LUK 7.6
 MAT	8	7	Jesus			TRUE		
 MAT	8	8	centurion with great faith			TRUE		
 MAT	8	9	centurion with great faith			FALSE		
@@ -7604,8 +7605,9 @@ MAT	8	22	Jesus	giving orders		TRUE
 MAT	8	25	disciples	terrified		TRUE		
 MAT	8	26	Jesus	giving orders		TRUE		
 MAT	8	27	disciples	amazed		FALSE		
-MAT	8	29	demons/demon-possessed man	screaming	demon-possessed men, two	TRUE		
-MAT	8	31	demons/demon-possessed man	begging	demons	TRUE		
+# Demon possessed man/men in Gadara 2015-01-29 jaa								
+MAT	8	29	demons/demon-possessed man	screaming	demon-possessed men, two	TRUE		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
+MAT	8	31	demons/demon-possessed man	begging	demons	TRUE		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 MAT	8	32	Jesus	giving orders		TRUE		
 MAT	8	33	pig herdsmen			FALSE		
 MAT	8	34	Gadarene (or Gerasenes) people	pleading	the whole town (of the region of the Gadarenes)	FALSE		MAT 8.34;MRK 5.17;LUK 8.37
@@ -7623,7 +7625,7 @@ MAT	9	15	Jesus			TRUE
 MAT	9	16	Jesus			FALSE		
 MAT	9	17	Jesus			FALSE		
 MAT	9	18	Jairus (synagogue leader)	pleading	synagogue leader	TRUE		MAT 9.18;MRK 5.23;LUK 8.41
-MAT	9	21	woman, bleeding for twelve years	thinking to herself		FALSE		
+MAT	9	21	woman, bleeding for twelve years	thinking to herself		FALSE		MAT 9.21;MRK 5.28,33;LUK 8.47
 MAT	9	22	Jesus			TRUE		
 MAT	9	24	Jesus	giving orders		TRUE		
 MAT	9	27	blind men, two	shouting		TRUE		
@@ -8247,7 +8249,7 @@ MRK	1	27	men in Capernaum synagogue	amazed		FALSE
 MRK	1	30	people			FALSE		
 MRK	1	37	Peter (Simon)	exclaimed	Peter (Simon) and companions	TRUE		
 MRK	1	38	Jesus			TRUE		
-MRK	1	40	leper	pleading		TRUE		
+MRK	1	40	leper	pleading		TRUE		MAT 8.2;MRK 1.40;LUK  5.12
 MRK	1	41	Jesus	compassionately		TRUE		
 MRK	1	43	Jesus	warning		FALSE		
 MRK	1	44	Jesus			FALSE		
@@ -8316,12 +8318,14 @@ MRK	4	38	disciples	terrified		TRUE
 MRK	4	39	Jesus	forcefully		TRUE		
 MRK	4	40	Jesus	questioning		TRUE		
 MRK	4	41	disciples	awe		TRUE		
-MRK	5	7	man with evil spirit	shrieking		TRUE		
+# Demon possessed man/men in Gadara 2015-01-29 jaa								
+MRK	5	7	demons/demon-possessed man	shrieking	Legion (demon possessed man)	TRUE		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 MRK	5	8	Jesus			FALSE		
 MRK	5	9	Jesus	questioning		TRUE		
-MRK	5	9	man with evil spirit			TRUE		
-MRK	5	10	man with evil spirit			FALSE		
-MRK	5	12	demons/demon-possessed man	begging	demons	TRUE		
+# Demon possessed man/men in Gadara 2015-01-29 jaa								
+MRK	5	9	demons/demon-possessed man	begging	Legion (demon possessed man)	TRUE		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
+MRK	5	10	demons/demon-possessed man	begging	Legion (demon possessed man)	FALSE		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
+MRK	5	12	demons/demon-possessed man	begging	Legion (demon possessed man)	TRUE		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 MRK	5	13	Jesus			FALSE		
 MRK	5	15	narrator-MRK			FALSE		
 MRK	5	16	those who had seen the demon-possessed man cured			FALSE		
@@ -8330,11 +8334,13 @@ MRK	5	18	man who had had demons			FALSE
 MRK	5	19	Jesus	giving orders		TRUE		
 MRK	5	20	man who had had demons			FALSE		
 MRK	5	23	Jairus (synagogue leader)	pleading		TRUE		MAT 9.18;MRK 5.23;LUK 8.41
-MRK	5	28	woman, bleeding for twelve years	thinking to herself		FALSE		
+MRK	5	28	woman, bleeding for twelve years	thinking to herself		FALSE		MAT 9.21;MRK 5.28,33;LUK 8.47
 MRK	5	30	Jesus	questioning		TRUE		
 MRK	5	31	disciples	perplexed	disciples, Jesus'	TRUE		
+# added MRK.5.33 as it is indirect but could be turned into direct speech. 2015-01-29 jaa								
+MRK	5	33	woman, bleeding for twelve years			FALSE		MAT 9.21;MRK 5.28,33;LUK 8.47
 MRK	5	34	Jesus	giving orders		TRUE		
-MRK	5	35	men from Jairus house	sad		TRUE		
+MRK	5	35	men from Jairus' house	sad		TRUE		MRK 5.35;LUK 8.49
 MRK	5	36	Jesus			TRUE		
 MRK	5	39	Jesus	questioning		TRUE		
 MRK	5	41	Jesus	giving orders		TRUE		
@@ -8796,7 +8802,7 @@ LUK	5	4	Jesus			TRUE
 LUK	5	5	Peter (Simon)	polite		TRUE		
 LUK	5	8	Peter (Simon)	afraid		TRUE		
 LUK	5	10	Jesus			TRUE		
-LUK	5	12	man covered with leprosy	pleading		TRUE		
+LUK	5	12	leper	pleading	man covered with leprosy	TRUE		MAT 8.2;MRK 1.40;LUK  5.12
 LUK	5	13	Jesus			TRUE		
 LUK	5	14	Jesus	forcefully		TRUE		
 LUK	5	20	Jesus			TRUE		
@@ -8852,7 +8858,7 @@ LUK	6	48	Jesus			FALSE
 LUK	6	49	Jesus			FALSE		
 LUK	7	4	elders of the Jews	interceding		TRUE	Good Priest	
 LUK	7	5	elders of the Jews	interceding		TRUE	Good Priest	
-LUK	7	6	centurion with great faith	polite		FALSE		
+LUK	7	6	centurion with great faith	polite		FALSE		MAT 8.6;LUK 7.6
 LUK	7	7	centurion with great faith	polite		FALSE		
 LUK	7	8	centurion with great faith			FALSE		
 LUK	7	9	Jesus			TRUE		
@@ -8908,12 +8914,12 @@ LUK	8	24	Jesus	giving orders		TRUE
 LUK	8	25	disciples	fear, amazement		TRUE		
 LUK	8	25	Jesus	questioning		TRUE		
 LUK	8	27	demons/demon-possessed man		demon-possessed man	FALSE		
-LUK	8	28	demons/demon-possessed man		demon-possessed man	TRUE		
+LUK	8	28	demons/demon-possessed man		demon-possessed man	TRUE		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 LUK	8	29	Jesus			FALSE		
-LUK	8	30	demons/demon-possessed man		demon-possessed man	TRUE		
+LUK	8	30	demons/demon-possessed man		demon-possessed man	TRUE		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 LUK	8	30	Jesus	questioning		TRUE		
-LUK	8	31	demons/demon-possessed man	begging	demon-possessed man	FALSE		
-LUK	8	32	demons/demon-possessed man	begging	demon-possessed man	FALSE		
+LUK	8	31	demons/demon-possessed man	begging	demon-possessed man	FALSE		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
+LUK	8	32	demons/demon-possessed man	begging	demon-possessed man	FALSE		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 LUK	8	34	pig herdsmen			FALSE		
 LUK	8	36	those who had seen the demon-possessed man cured			FALSE		
 LUK	8	37	Gadarene (or Gerasenes) people	fearful	people of the region of the Gerasenes	FALSE		MAT 8.34;MRK 5.17;LUK 8.37
@@ -8923,8 +8929,10 @@ LUK	8	41	Jairus (synagogue leader)	pleading		FALSE		MAT 9.18;MRK 5.23;LUK 8.41
 LUK	8	45	Jesus	questioning		TRUE		
 LUK	8	45	Peter (Simon)	perplexed		TRUE		
 LUK	8	46	Jesus			TRUE		
+# added LUK.8.47 as it is indirect but could be turned into direct speech. 2015-01-29 jaa								
+LUK	8	47	woman, bleeding for twelve years			FALSE		MAT 9.21;MRK 5.28,33;LUK 8.47
 LUK	8	48	Jesus			TRUE		
-LUK	8	49	someone from Jairus' house	sad		TRUE		
+LUK	8	49	men from Jairus' house	sad		TRUE		MRK 5.35;LUK 8.49
 LUK	8	50	Jesus			TRUE		
 LUK	8	52	Jesus			TRUE		
 LUK	8	53	people, all the	laughing		FALSE		
