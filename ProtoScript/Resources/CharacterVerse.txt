@@ -1,4 +1,4 @@
-Control File Version	37
+Control File Version	38
 #	C	V	Character ID	Delivery	Alias	Dialogue	Default Character	Parallel Passage
 GEN	1	3	God		God (the LORD)	False
 GEN	1	5	narrator-GEN			False
@@ -1333,7 +1333,7 @@ NUM	31	49-50	Army officers			False
 NUM	32	3	Reubenites/Gadites			False
 NUM	32	4	Reubenites/Gadites			False
 NUM	32	5	Reubenites/Gadites			False
-NUM	32	6-5	Moses			False
+NUM	32	6-15	Moses			False
 NUM	32	16	Reubenites/Gadites			False
 NUM	32	17	Reubenites/Gadites			False
 NUM	32	18	Reubenites/Gadites			False
@@ -1448,26 +1448,15 @@ DEU	27	1	Moses		Moses/Elders of Israel	False
 DEU	27	9	Moses		Moses/Priests	False
 DEU	27	15	Moses		Moses saying what Levites should say	False
 DEU	27	16	Moses			False
-DEU	27	16	Moses			False
-DEU	27	17	Moses			False
 DEU	27	17	Moses			False
 DEU	27	18	Moses			False
-DEU	27	18	Moses			False
-DEU	27	19	Moses			False
 DEU	27	19	Moses			False
 DEU	27	20	Moses			False
-DEU	27	20	Moses			False
-DEU	27	21	Moses			False
 DEU	27	21	Moses			False
 DEU	27	22	Moses			False
-DEU	27	22	Moses			False
-DEU	27	23	Moses			False
 DEU	27	23	Moses			False
 DEU	27	24	Moses			False
-DEU	27	24	Moses			False
 DEU	27	25	Moses			False
-DEU	27	25	Moses			False
-DEU	27	26	Moses			False
 DEU	27	26	Moses			False
 DEU	28	67	Moses			False
 DEU	29	19	Moses			False
@@ -3188,7 +3177,7 @@ RUT	4	17	women of Bethlehem			False
 2KI	12	4	Joash, king of Judah			False
 2KI	12	7	Joash, king of Judah			False
 2KI	13	14	Jehoash, king of Israel			False
-2KI	13	15	Elisha			False2 kings 
+2KI	13	15	Elisha			False
 2KI	13	16	Elisha			False
 2KI	13	17	Elisha			False
 2KI	13	18	Elisha			False
@@ -4789,7 +4778,6 @@ ECC	1	10	someone			False
 ECC	1	16	teacher (Preacher)			False
 ECC	2	1	teacher (Preacher)			False
 ECC	2	2	teacher (Preacher)			False
-ECC	2	15	teacher (Preacher)	said/thought in heart		False
 ECC	2	15	teacher (Preacher)	said/thought in heart		False
 ECC	3	17	teacher (Preacher)	said/thought in heart		False
 ECC	3	18	teacher (Preacher)	said/thought in heart		False
@@ -8009,7 +7997,6 @@ MRK	6	9	Jesus			False
 MRK	6	10	Jesus			False
 MRK	6	10	Jesus	instructing		False
 MRK	6	11	Jesus			False
-MRK	6	11	Jesus			False
 MRK	6	12	disciples			False
 MRK	6	14	people, some	excited		False
 MRK	6	15	people, other	guessing		False
@@ -8130,7 +8117,6 @@ MRK	9	47	Jesus			False
 MRK	9	48	Jesus			False
 MRK	9	49	Jesus			False
 MRK	9	50	Jesus			False
-MRK	9	50	Jesus			False
 MRK	10	2	Pharisees, some	questioning		False
 MRK	10	3	Jesus	questioning		True
 MRK	10	4	Pharisees, some			True
@@ -8194,12 +8180,6 @@ MRK	11	32	chief priests/teachers of the law/elders	to themselves		False		MAT 21.
 MRK	11	33	chief priests/teachers of the law/elders			True		MAT 21.27;MRK 11.33;LUK 20.7
 MRK	11	33	Jesus			True		MAT 21.27;MRK 11.33;LUK 20.8
 MRK	12	1-11	Jesus	preaching		False
-MRK	12	2	Jesus			False
-MRK	12	4	Jesus	preaching		False
-MRK	12	5	Jesus	preaching		False
-MRK	12	6	Jesus			False
-MRK	12	7	Jesus			False
-MRK	12	9	Jesus			False
 MRK	12	14	spies  (Pharisees/Herodians)		Pharisees/Herodians	True		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
 MRK	12	15	spies  (Pharisees/Herodians)		Pharisees/Herodians	True		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
 MRK	12	15	Jesus			True
@@ -9269,7 +9249,7 @@ JHN	5	44	Jesus			False
 JHN	5	45	Jesus			False
 JHN	6	5	Jesus			True
 JHN	6	7	Philip			True		MRK 6.37;JHN 6.7
-JHN	6	9	Andrew		Andrew, Simon Peter’s brother	True		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
+JHN	6	9	Andrew		Andrew, Simon Peter's brother	True		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
 JHN	6	10	Jesus			True
 JHN	6	12	Jesus			True
 JHN	6	14	people in crowd			False

@@ -1,13 +1,29 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using ProtoScript.Character;
+using ProtoScript.Properties;
 
 namespace ControlDataIntegrityTests
 {
 	[TestFixture]
 	public class CharacterDetailDataTests
 	{
+		[Test]
+		public void DataIntegrity_NoDuplicateLines()
+		{
+			string[] allLines = Resources.CharacterVerseData.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+
+			var set = new HashSet<string>();
+			foreach (var line in allLines)
+			{
+				if (line.StartsWith("#"))
+					continue;
+				Assert.IsTrue(set.Add(line), "Duplicate line: " + line);
+			}
+		}
+
 		[Test]
 		public void DataIntegrity_AllCharacterIdsAndDefaultCharactersHaveCharacterDetail()
 		{
