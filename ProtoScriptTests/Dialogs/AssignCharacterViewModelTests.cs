@@ -155,6 +155,20 @@ namespace ProtoScriptTests.Dialogs
 		}
 
 		[Test]
+		public void LoadNextRelevantBlock_DataHasSomeContinuationBlocksNeedingAssignment_ContinuationBlocksNeverGetLoaded()
+		{
+			Assert.IsTrue(m_testProject.IncludedBooks.SelectMany(b => b.Blocks).Any(b => b.CharacterIsUnclear() && b.MultiBlockQuote == MultiBlockQuote.Continuation),
+				"Test data does not have the required characteristics. Need at least one unassigned block that is a continuation of a quote from earlier paragraph.");
+
+			do
+			{
+				Assert.IsFalse(m_model.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Continuation);
+				m_model.LoadNextRelevantBlock();
+			} while (!m_model.IsLastRelevantBlock);
+			Assert.IsFalse(m_model.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Continuation);
+		}
+
+		[Test]
 		public void GetDeliveriesForCharacter_NullCharacter_GetsEmptyEnumeration()
 		{
 			Assert.False(m_model.GetDeliveriesForCharacter(null).Any());

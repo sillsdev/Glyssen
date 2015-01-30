@@ -51,6 +51,8 @@
 			this.m_lblShortcut3 = new System.Windows.Forms.Label();
 			this.m_lblShortcut4 = new System.Windows.Forms.Label();
 			this.m_lblShortcut5 = new System.Windows.Forms.Label();
+			this.m_blocksDisplayBrowser = new ProtoScript.Controls.Browser();
+			this.m_progressBar = new ProtoScript.Controls.ProgressBarUnanimated();
 			this.m_listBoxCharacters = new System.Windows.Forms.ListBox();
 			this.m_listBoxDeliveries = new System.Windows.Forms.ListBox();
 			this.m_pnlCharacterFilter = new System.Windows.Forms.Panel();
@@ -59,8 +61,6 @@
 			this.m_pnlCharacterAndDeliverySelection = new System.Windows.Forms.TableLayoutPanel();
 			this.m_splitContainer = new System.Windows.Forms.SplitContainer();
 			this.m_tableBlocks = new System.Windows.Forms.TableLayoutPanel();
-			this.m_blocksDisplayBrowser = new ProtoScript.Controls.Browser();
-			this.m_progressBar = new ProtoScript.Controls.ProgressBarUnanimated();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnCharacterFilter)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnDeliveryFilter)).BeginInit();
@@ -402,6 +402,32 @@
 			this.m_lblShortcut5.TabIndex = 30;
 			this.m_lblShortcut5.Text = "5";
 			// 
+			// m_blocksDisplayBrowser
+			// 
+			this.m_blocksDisplayBrowser.AutoSize = true;
+			this.m_tableBlocks.SetColumnSpan(this.m_blocksDisplayBrowser, 2);
+			this.m_blocksDisplayBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksDisplayBrowser, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksDisplayBrowser, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_blocksDisplayBrowser, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksDisplayBrowser, "ProjectSettingsDialog.Browser");
+			this.m_blocksDisplayBrowser.Location = new System.Drawing.Point(3, 21);
+			this.m_blocksDisplayBrowser.Name = "m_blocksDisplayBrowser";
+			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(296, 513);
+			this.m_blocksDisplayBrowser.TabIndex = 2;
+			// 
+			// m_progressBar
+			// 
+			this.m_progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_progressBar, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_progressBar, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_progressBar, "AssignCharacterDialog.AssignCharacterDialog.m_progressBar");
+			this.m_progressBar.Location = new System.Drawing.Point(24, 522);
+			this.m_progressBar.Name = "m_progressBar";
+			this.m_progressBar.Size = new System.Drawing.Size(582, 17);
+			this.m_progressBar.TabIndex = 12;
+			// 
 			// m_listBoxCharacters
 			// 
 			this.m_listBoxCharacters.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -527,7 +553,6 @@
 			this.m_splitContainer.Size = new System.Drawing.Size(611, 537);
 			this.m_splitContainer.SplitterDistance = 302;
 			this.m_splitContainer.TabIndex = 30;
-			this.m_splitContainer.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.m_splitContainer_SplitterMoving);
 			// 
 			// m_tableBlocks
 			// 
@@ -546,32 +571,6 @@
 			this.m_tableBlocks.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.m_tableBlocks.Size = new System.Drawing.Size(302, 537);
 			this.m_tableBlocks.TabIndex = 11;
-			// 
-			// m_blocksDisplayBrowser
-			// 
-			this.m_blocksDisplayBrowser.AutoSize = true;
-			this.m_tableBlocks.SetColumnSpan(this.m_blocksDisplayBrowser, 2);
-			this.m_blocksDisplayBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksDisplayBrowser, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksDisplayBrowser, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_blocksDisplayBrowser, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksDisplayBrowser, "ProjectSettingsDialog.Browser");
-			this.m_blocksDisplayBrowser.Location = new System.Drawing.Point(3, 21);
-			this.m_blocksDisplayBrowser.Name = "m_blocksDisplayBrowser";
-			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(296, 513);
-			this.m_blocksDisplayBrowser.TabIndex = 2;
-			// 
-			// m_progressBar
-			// 
-			this.m_progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_progressBar, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_progressBar, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_progressBar, "AssignCharacterDialog.AssignCharacterDialog.m_progressBar");
-			this.m_progressBar.Location = new System.Drawing.Point(24, 522);
-			this.m_progressBar.Name = "m_progressBar";
-			this.m_progressBar.Size = new System.Drawing.Size(582, 17);
-			this.m_progressBar.TabIndex = 12;
 			// 
 			// AssignCharacterDialog
 			// 

@@ -121,9 +121,6 @@ namespace ProtoScript.Dialogs
 			m_pnlCharacterFilter.Show();
 			m_btnAddCharacter.Show();
 			m_pnlShortcuts.Hide();
-			//var verticalAdjustment = m_pnlCharacterFilter.Size.Height + 5;
-			//m_listBoxCharacters.Location = new Point(m_listBoxCharacters.Location.X, m_listBoxCharacters.Location.Y + verticalAdjustment);
-			//m_listBoxCharacters.Size = new Size(m_listBoxCharacters.Size.Width, m_listBoxCharacters.Size.Height - verticalAdjustment);
 			m_llMoreChar.Enabled = false;
 		}
 
@@ -132,8 +129,6 @@ namespace ProtoScript.Dialogs
 			m_txtCharacterFilter.Clear();
 			m_pnlCharacterFilter.Hide();
 			m_btnAddCharacter.Hide();
-			//m_listBoxCharacters.Location = m_listBoxCharactersOriginalLocation;
-			//m_listBoxCharacters.Size = m_listBoxCharactersOriginalSize;
 			m_llMoreChar.Enabled = true;
 		}
 
@@ -141,9 +136,6 @@ namespace ProtoScript.Dialogs
 		{
 			m_pnlDeliveryFilter.Show();
 			m_btnAddDelivery.Show();
-			//var verticalAdjustment = m_pnlDeliveryFilter.Size.Height + 5;
-			//m_listBoxDeliveries.Location = new Point(m_listBoxDeliveries.Location.X, m_listBoxDeliveries.Location.Y + verticalAdjustment);
-			//m_listBoxDeliveries.Size = new Size(m_listBoxDeliveries.Size.Width, m_listBoxDeliveries.Size.Height - verticalAdjustment);
 			m_llMoreDel.Enabled = false;
 		}
 
@@ -152,8 +144,6 @@ namespace ProtoScript.Dialogs
 			m_txtDeliveryFilter.Clear();
 			m_pnlDeliveryFilter.Hide();
 			m_btnAddDelivery.Hide();
-			//m_listBoxDeliveries.Location = m_listBoxDeliveriesOriginalLocation;
-			//m_listBoxDeliveries.Size = m_listBoxDeliveriesOriginalSize;
 			m_llMoreDel.Enabled = true;
 		}
 
@@ -504,10 +494,5 @@ namespace ProtoScript.Dialogs
 			m_blocksDisplayBrowser.ScrollElementIntoView(kMainQuoteElementId, -225);
 		}
 		#endregion
-
-		private void m_splitContainer_SplitterMoving(object sender, SplitterCancelEventArgs e)
-		{
-			m_blocksDisplayBrowser.Invalidate();
-		}
 	}
 }

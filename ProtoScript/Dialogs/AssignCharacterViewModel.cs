@@ -21,6 +21,19 @@ namespace ProtoScript.Dialogs
 										".block-spacer{{height:30px}}" +
 										".right-to-left{{direction:rtl}}";
 
+		[Flags]
+		public enum BlocksToDisplay
+		{
+			Unexpected = 1,
+			Ambiguous = 2,
+			MissingExpectedQuote = 4,
+			MoreQuotesThanExpectedSpeakers = 8,
+			KnownTroubleSpots = 16,
+			All = 32, // If this bit is set, ignore everything else - show all blocks
+			NeedAssignments = Unexpected | Ambiguous,
+			HotSpots = MissingExpectedQuote | MoreQuotesThanExpectedSpeakers | KnownTroubleSpots,
+		}
+
 		private bool m_showVerseNumbers = true; // May make this configurable later
 		private readonly string m_fontFamily;
 		private readonly int m_fontSizeInPoints;
@@ -37,10 +50,11 @@ namespace ProtoScript.Dialogs
 
 		private HashSet<CharacterVerse> m_currentCharacters;
 		private List<Delivery> m_currentDeliveries = new List<Delivery>();
+		private BlocksToDisplay m_mode;
 
 		public event EventHandler AssignedBlocksIncremented;
 
-		public AssignCharacterViewModel(Project project)
+		public AssignCharacterViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.NeedAssignments)
 		{
 			m_navigator = new BlockNavigator(project.IncludedBooks);
 			m_fontFamily = project.FontFamily;
@@ -49,12 +63,7 @@ namespace ProtoScript.Dialogs
 			m_projectCharacterVerseData = project.ProjectCharacterVerseData;
 			m_combinedCharacterVerseData = new CombinedCharacterVerseData(project);
 
-			PopulateRelevantBlocks();
-
-			if (IsRelevant(m_navigator.CurrentBlock))
-				m_displayBlockIndex = 0;
-			else if (RelevantBlockCount > 0)
-				LoadNextRelevantBlock();
+			Mode = mode;
 		}
 
 		public int RelevantBlockCount { get { return m_relevantBlocks.Count; } }
@@ -107,6 +116,22 @@ namespace ProtoScript.Dialogs
 		public bool AreAllAssignmentsComplete
 		{
 			get { return m_assignedBlocks == m_relevantBlocks.Count; }
+		}
+
+		public BlocksToDisplay Mode
+		{
+			get { return m_mode; }
+			set
+			{
+				m_mode = value;
+
+				PopulateRelevantBlocks();
+
+				if (IsRelevant(m_navigator.CurrentBlock))
+					m_displayBlockIndex = 0;
+				else if (RelevantBlockCount > 0)
+					LoadNextRelevantBlock();
+			}
 		}
 
 		public void LoadNextRelevantBlock()
