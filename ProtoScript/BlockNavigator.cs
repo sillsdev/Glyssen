@@ -171,6 +171,13 @@ namespace ProtoScript
 			return blocks;
 		}
 
+		public Block PeekNthNextBlockWithinBook(int nth)
+		{
+			if (m_currentBook.Blocks.Count < m_currentBlockIndex + nth + 1)
+				return null;
+			return m_currentBook[m_currentBlockIndex + nth];
+		}
+
 		public IEnumerable<Block> PeekBackwardWithinBook(int numberOfBlocks)
 		{
 			var blocks = new List<Block>();
@@ -183,7 +190,14 @@ namespace ProtoScript
 			}
 			blocks.Reverse();
 			return blocks;
-		} 
+		}
+
+		public Block PeekNthPreviousBlockWithinBook(int nth)
+		{
+			if (m_currentBlockIndex - nth < 0)
+				return null;
+			return m_currentBook[m_currentBlockIndex - nth];
+		}
 
 		public Block NextBlock()
 		{

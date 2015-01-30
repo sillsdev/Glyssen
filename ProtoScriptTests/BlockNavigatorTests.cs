@@ -269,6 +269,54 @@ namespace ProtoScriptTests
 		}
 
 		[Test]
+		public void PeekNthNextBlockWithinBook_NEquals1()
+		{
+			m_navigator.NavigateToFirstBlock();
+			Block result = m_navigator.PeekNthNextBlockWithinBook(1);
+			Assert.AreEqual(m_books.First()[1], result);
+		}
+
+		[Test]
+		public void PeekNthNextBlockWithinBook_NGreaterThan1()
+		{
+			m_navigator.NavigateToFirstBlock();
+			Block result = m_navigator.PeekNthNextBlockWithinBook(2);
+			Assert.AreEqual(m_books.First()[2], result);
+		}
+
+		[Test]
+		public void PeekNthNextBlockWithinBook_BeyondBook_ReturnsNull()
+		{
+			m_navigator.NavigateToFirstBlock();
+			Block result = m_navigator.PeekNthNextBlockWithinBook(3);
+			Assert.IsNull(result);
+		}
+
+		[Test]
+		public void PeekNthPreviousBlockWithinBook_NEquals1()
+		{
+			m_navigator.CurrentBlock = m_books[1].Blocks[2];
+			Block result = m_navigator.PeekNthPreviousBlockWithinBook(1);
+			Assert.AreEqual(m_books[1].Blocks[1], result);
+		}
+
+		[Test]
+		public void PeekNthPreviousBlockWithinBook_NGreaterThan1()
+		{
+			m_navigator.CurrentBlock = m_books[1].Blocks[2];
+			Block result = m_navigator.PeekNthPreviousBlockWithinBook(2);
+			Assert.AreEqual(m_books[1].Blocks[0], result);
+		}
+
+		[Test]
+		public void PeekNthPreviousBlockWithinBook_BeyondBook_ReturnsNull()
+		{
+			m_navigator.CurrentBlock = m_books[1].Blocks[2];
+			Block result = m_navigator.PeekNthPreviousBlockWithinBook(3);
+			Assert.IsNull(result);
+		}
+
+		[Test]
 		public void PeekForwardWithinBook_OneBlock_WithinBook()
 		{
 			var secondBlock = m_books.First()[1];
