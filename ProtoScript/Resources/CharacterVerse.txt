@@ -9465,18 +9465,14 @@ LUK	24	17	Jesus	questioning		TRUE
 LUK	24	18	Cleopas/companion (on road to Emmaus)			TRUE	Cleopas	
 LUK	24	19	Cleopas/companion (on road to Emmaus)			TRUE	Cleopas	
 LUK	24	19	Jesus			TRUE		
-LUK	24	19	Cleopas/companion (on road to Emmaus)			FALSE	Cleopas' companion (on road to Emmaus)	
 LUK	24	20	Cleopas/companion (on road to Emmaus)			FALSE	Cleopas	
 LUK	24	21	Cleopas/companion (on road to Emmaus)			FALSE	Cleopas	
-LUK	24	22	Cleopas/companion (on road to Emmaus)			FALSE	Cleopas	
 LUK	24	22	Cleopas/companion (on road to Emmaus)			FALSE	Cleopas' companion (on road to Emmaus)	
-LUK	24	23	Cleopas/companion (on road to Emmaus)			FALSE	Cleopas	
-LUK	24	24	Cleopas/companion (on road to Emmaus)			FALSE	Cleopas	
+LUK	24	23	Cleopas/companion (on road to Emmaus)			FALSE	Cleopas' companion (on road to Emmaus)	
+LUK	24	24	Cleopas/companion (on road to Emmaus)			FALSE	Cleopas' companion (on road to Emmaus)	
 LUK	24	25	Jesus			TRUE		
 LUK	24	29	Cleopas/companion (on road to Emmaus)	urging		TRUE	Cleopas	
 LUK	24	29	Jesus			TRUE		
-LUK	24	29	Cleopas/companion (on road to Emmaus)			TRUE	Cleopas' companion (on road to Emmaus)	
-LUK	24	32	Cleopas/companion (on road to Emmaus)	urging		TRUE	Cleopas	
 LUK	24	32	Cleopas/companion (on road to Emmaus)			TRUE	Cleopas' companion (on road to Emmaus)	
 LUK	24	34	Eleven/those with them			TRUE		
 LUK	24	36	Jesus			TRUE		
