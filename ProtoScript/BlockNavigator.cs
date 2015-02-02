@@ -27,16 +27,7 @@ namespace ProtoScript
 			set
 			{
 				m_currentBook = value;
-				int i = 0;
-				foreach (BookScript book in m_books)
-				{
-					if (book == m_currentBook)
-					{
-						m_currentBookIndex = i;
-						break;
-					}
-					i++;
-				}
+				m_currentBookIndex = GetBookIndex(m_currentBook);
 			}
 		}
 
@@ -79,6 +70,14 @@ namespace ProtoScript
 			m_currentBlock = m_currentBook.GetScriptBlocks()[m_currentBlockIndex];
 		}
 
+		internal Tuple<int, int> GetIndicesOfSpecificBlock(Block block)
+		{
+			if (block == m_currentBlock)
+				return GetIndices();
+			BookScript containingBook = GetBookScriptContainingBlock(block);
+			return new Tuple<int, int>(GetBookIndex(containingBook), containingBook.Blocks.IndexOf(block));
+		}
+
 		public BookScript GetBookScriptContainingBlock(Block block)
 		{
 			return m_books.FirstOrDefault(script => script.GetScriptBlocks() != null && script.GetScriptBlocks().Contains(block));
@@ -102,6 +101,18 @@ namespace ProtoScript
 		public bool IsLastBlockInBook(BookScript book, Block block)
 		{
 			return block == book.GetScriptBlocks().LastOrDefault();
+		}
+
+		private int GetBookIndex(BookScript bookToFind)
+		{
+			int i = 0;
+			foreach (BookScript book in m_books)
+			{
+				if (book == bookToFind)
+					return i;
+				i++;
+			}
+			throw new ArgumentException("Book is not part of book list");
 		}
 
 		private bool IsLastBlockInBook(BookScript book, int blockIndex)
@@ -171,11 +182,25 @@ namespace ProtoScript
 			return blocks;
 		}
 
-		public Block PeekNthNextBlockWithinBook(int nth)
+		public Block PeekNthNextBlockWithinBook(int n)
 		{
-			if (m_currentBook.Blocks.Count < m_currentBlockIndex + nth + 1)
+			return PeekNthNextBlockWithinBook(n, m_currentBookIndex, m_currentBlockIndex);
+		}
+
+		public Block PeekNthNextBlockWithinBook(int n, Block block)
+		{
+			if (block == m_currentBlock)
+				return PeekNthNextBlockWithinBook(n);
+			Tuple<int, int> indices = GetIndicesOfSpecificBlock(block);
+			return PeekNthNextBlockWithinBook(n, indices.Item1, indices.Item2);
+		}
+
+		private Block PeekNthNextBlockWithinBook(int n, int bookIndex, int blockIndex)
+		{
+			BookScript book = m_books[bookIndex];
+			if (book.Blocks.Count < blockIndex + n + 1)
 				return null;
-			return m_currentBook[m_currentBlockIndex + nth];
+			return book[blockIndex + n];
 		}
 
 		public IEnumerable<Block> PeekBackwardWithinBook(int numberOfBlocks)
@@ -192,11 +217,24 @@ namespace ProtoScript
 			return blocks;
 		}
 
-		public Block PeekNthPreviousBlockWithinBook(int nth)
+		public Block PeekNthPreviousBlockWithinBook(int n)
 		{
-			if (m_currentBlockIndex - nth < 0)
+			return PeekNthPreviousBlockWithinBook(n, m_currentBookIndex, m_currentBlockIndex);
+		}
+
+		public Block PeekNthPreviousBlockWithinBook(int n, Block block)
+		{
+			if (block == m_currentBlock)
+				return PeekNthPreviousBlockWithinBook(n);
+			Tuple<int, int> indices = GetIndicesOfSpecificBlock(block);
+			return PeekNthPreviousBlockWithinBook(n, indices.Item1, indices.Item2);
+		}
+
+		private Block PeekNthPreviousBlockWithinBook(int n, int bookIndex, int blockIndex)
+		{
+			if (blockIndex - n < 0)
 				return null;
-			return m_currentBook[m_currentBlockIndex - nth];
+			return m_books[bookIndex][blockIndex - n];
 		}
 
 		public Block NextBlock()
