@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
-using L10NSharp;
 using ProtoScript.Character;
 using SIL.ScriptureUtils;
 
@@ -11,6 +10,7 @@ namespace ProtoScript.Dialogs
 {
 	public class AssignCharacterViewModel
 	{
+		internal const string kDataCharacter = "data-character";
 		private const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
 								  "<style>{0}</style></head><body {1}>{2}</body></html>";
 		private const string kHtmlLineBreak = "<div class='block-spacer'></div>";
@@ -96,9 +96,9 @@ namespace ProtoScript.Dialogs
 			get
 			{
 				return BuildHtml(
-					BuildHtml(ContextBlocksBackward),
-					HttpUtility.HtmlEncode(m_navigator.CurrentBlock.GetText(m_showVerseNumbers)),
-					BuildHtml(ContextBlocksForward),
+					BuildContextBlocksHtml(ContextBlocksBackward),
+					BuildCurrentBlockHtml(),
+					BuildContextBlocksHtml(ContextBlocksForward),
 					BuildStyle());
 			}
 		}
@@ -242,7 +242,7 @@ namespace ProtoScript.Dialogs
 			deliveries.AddRange(m_currentDeliveries.Where(d => !deliveries.Contains(d)));
 
 			return deliveries;
-		} 
+		}
 
 		private void PopulateRelevantBlocks()
 		{
@@ -294,12 +294,55 @@ namespace ProtoScript.Dialogs
 		{
 			string text = SuperscriptVerseNumbers(HttpUtility.HtmlEncode(block.GetText(m_showVerseNumbers)));
 			var bldr = new StringBuilder();
-			bldr.Append("<div class='").Append(kCssClassContext).Append("' data-character='").Append(block.CharacterId).Append("'>")
-				.Append(text)
-				.Append("</div>")
-				.Append(kHtmlLineBreak);
+			bldr.Append("<div>").Append(text).Append("</div>");
 			return bldr.ToString();
 		}
+
+		private string BuildCurrentBlockHtml()
+		{
+			return BuildHtml(GetAllBlocksWithSameQuote(m_navigator.CurrentBlock));
+		}
+
+		private string BuildContextBlocksHtml(IEnumerable<Block> blocks)
+		{
+			var bldr = new StringBuilder();
+			foreach (Block block in blocks)
+			{
+				bldr.Append("<div class='").Append(kCssClassContext).Append("' ").Append(kDataCharacter).Append("='").Append(block.CharacterId).Append("'>");
+				foreach (Block innerBlock in GetAllBlocksWithSameQuote(block))
+					bldr.Append(BuildHtml(innerBlock));
+				bldr.Append("</div>");
+				if (block.MultiBlockQuote != MultiBlockQuote.Continuation)
+					bldr.Append(kHtmlLineBreak);
+			}
+			return bldr.ToString();
+		}
+
+		private IEnumerable<Block> GetAllBlocksWithSameQuote(Block baseLineBlock)
+		{
+			var blockList = new List<Block>();
+			switch (baseLineBlock.MultiBlockQuote)
+			{
+				case MultiBlockQuote.Start:
+					blockList.Add(baseLineBlock);
+					int i = 1;
+					Block block = m_navigator.PeekNthNextBlockWithinBook(i++, baseLineBlock);
+					while (block != null && block.MultiBlockQuote == MultiBlockQuote.Continuation)
+					{
+						blockList.Add(block);
+						block = m_navigator.PeekNthNextBlockWithinBook(i++, baseLineBlock);
+					}
+					break;
+				case MultiBlockQuote.Continuation:
+					// These should all be brought in through a Start block, so don't do anything with them here
+					break;
+				default:
+					// Not part of a multi-block quote. Just return the base-line block
+					blockList.Add(baseLineBlock);
+					break;
+			}
+			return blockList;
+		} 
 
 		private string SuperscriptVerseNumbers(string text)
 		{
@@ -311,27 +354,31 @@ namespace ProtoScript.Dialogs
 			return String.Format(kCssFrame, m_fontFamily, m_fontSizeInPoints);
 		}
 
-		public void SetCharacterAndDelivery(Character selectedCharacter, Delivery selectedDelivery)
+		private void SetCharacterAndDelivery(Block block, Character selectedCharacter, Delivery selectedDelivery)
 		{
-			Block currentBlock = CurrentBlock;
-
 			if (selectedCharacter.ProjectSpecific || selectedDelivery.ProjectSpecific)
-				AddRecordToProjectCharacterVerseData(currentBlock, selectedCharacter, selectedDelivery);
+				AddRecordToProjectCharacterVerseData(block, selectedCharacter, selectedDelivery);
 
 			if (selectedCharacter.IsNarrator)
-				currentBlock.SetStandardCharacter(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator);
+				block.SetStandardCharacter(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator);
 			else
-				currentBlock.CharacterId = selectedCharacter.CharacterId;
+				block.CharacterId = selectedCharacter.CharacterId;
 
-			currentBlock.Delivery = selectedDelivery.IsNormal ? null : selectedDelivery.Text;
+			block.Delivery = selectedDelivery.IsNormal ? null : selectedDelivery.Text;
 
-			if (!currentBlock.UserConfirmed)
+			if (!block.UserConfirmed)
 			{
 				m_assignedBlocks++;
 				if (AssignedBlocksIncremented != null)
 					AssignedBlocksIncremented(this, new EventArgs());
 			}
-			currentBlock.UserConfirmed = true;
+			block.UserConfirmed = true;
+		}
+
+		public void SetCharacterAndDelivery(Character selectedCharacter, Delivery selectedDelivery)
+		{
+			foreach (Block block in GetAllBlocksWithSameQuote(CurrentBlock))
+				SetCharacterAndDelivery(block, selectedCharacter, selectedDelivery);
 		}
 
 		private BCVRef GetBlockReference(Block block)

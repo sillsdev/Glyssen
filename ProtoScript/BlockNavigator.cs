@@ -187,11 +187,11 @@ namespace ProtoScript
 			return PeekNthNextBlockWithinBook(n, m_currentBookIndex, m_currentBlockIndex);
 		}
 
-		public Block PeekNthNextBlockWithinBook(int n, Block block)
+		public Block PeekNthNextBlockWithinBook(int n, Block baseLineBlock)
 		{
-			if (block == m_currentBlock)
+			if (baseLineBlock == m_currentBlock)
 				return PeekNthNextBlockWithinBook(n);
-			Tuple<int, int> indices = GetIndicesOfSpecificBlock(block);
+			Tuple<int, int> indices = GetIndicesOfSpecificBlock(baseLineBlock);
 			return PeekNthNextBlockWithinBook(n, indices.Item1, indices.Item2);
 		}
 
@@ -222,11 +222,11 @@ namespace ProtoScript
 			return PeekNthPreviousBlockWithinBook(n, m_currentBookIndex, m_currentBlockIndex);
 		}
 
-		public Block PeekNthPreviousBlockWithinBook(int n, Block block)
+		public Block PeekNthPreviousBlockWithinBook(int n, Block baseLineBlock)
 		{
-			if (block == m_currentBlock)
+			if (baseLineBlock == m_currentBlock)
 				return PeekNthPreviousBlockWithinBook(n);
-			Tuple<int, int> indices = GetIndicesOfSpecificBlock(block);
+			Tuple<int, int> indices = GetIndicesOfSpecificBlock(baseLineBlock);
 			return PeekNthPreviousBlockWithinBook(n, indices.Item1, indices.Item2);
 		}
 
