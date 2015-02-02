@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Gecko;
@@ -461,12 +460,13 @@ namespace ProtoScript.Dialogs
 			if (divElement == null)
 				return;
 
-			if (divElement.ClassName == kCssClassContext)
+			if (divElement.Parent.ClassName == kCssClassContext)
 			{
 				m_toolTip = new ToolTip { IsBalloon = true };
-				int x = m_blocksDisplayBrowser.Location.X + m_blocksDisplayBrowser.Size.Width - 33;
-				int y = m_blocksDisplayBrowser.Location.Y + e.ClientY - 15;
-				m_toolTip.Show(divElement.GetAttribute("data-character"), this, x, y);
+				// 22 and 3 are the magic numbers which happen to make these display in the correct place
+				int x = m_blocksDisplayBrowser.Location.X + m_blocksDisplayBrowser.Size.Width - 22;
+				int y = m_blocksDisplayBrowser.Location.Y + e.ClientY - 3;
+				m_toolTip.Show(divElement.Parent.GetAttribute(AssignCharacterViewModel.kDataCharacter), this, x, y);
 			}
 		}
 
@@ -479,7 +479,7 @@ namespace ProtoScript.Dialogs
 			if (divElement == null)
 				return;
 
-			if (divElement.ClassName == kCssClassContext)
+			if (divElement.Parent.ClassName == kCssClassContext)
 			{
 				m_toolTip.Hide(this);
 			}

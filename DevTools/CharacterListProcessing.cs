@@ -11,7 +11,7 @@ namespace DevTools
 {
 	class CharacterListProcessing
 	{
-		private const string kBaseDirForRealOutput = "..\\..\\..\\ProtoScript\\Resources";
+		public const string kBaseDirForRealOutput = "..\\..\\..\\ProtoScript\\Resources";
 		private const string kBaseDirForHelperOutput = "..\\..\\Resources\\temporary";
 
 		public static void Process()

@@ -525,7 +525,6 @@ man (Hebrew fighting)	655	FALSE	Male
 man (hypothetical)	686	FALSE	Male		
 man all alone	658	FALSE	Male		
 man answered David	659	FALSE	Male		
-man covered with leprosy	660	FALSE	Male		
 man escaped from Jerusalem	661	FALSE	Male		
 man from Saul's camp (young)	662	FALSE	Male	young man	
 man in linen above river	663	FALSE	Male		
@@ -545,7 +544,6 @@ man told troops	676	FALSE	Male
 man who had had demons	677	FALSE	Male		
 man who says 'I know him'	678	FALSE	Male		
 man who says 'we remain in union with God'	679	FALSE	Male		
-man with evil spirit	680	FALSE	Male		
 man with measuring line (vision)	683	FALSE	Male		
 man with sponge	687	FALSE	Male		
 man, still another	688	FALSE	Male		
@@ -568,7 +566,7 @@ men	716	TRUE	Male
 men appointed to sing and praise	693	TRUE	Male		
 men dressed in white, two	694	TRUE	Male		
 men from Cornelius	695	TRUE	Male		
-men from Jairus house	696	TRUE	Male		
+men from Jairus' house	696	TRUE	Male		
 men from Judea, some	697	TRUE	Male		
 men in Capernaum synagogue	699	TRUE	Male		
 men in mourning, ten of eighty	698	TRUE	Male		
@@ -631,7 +629,7 @@ Moabites (female)	342	TRUE	Female
 mob	743	TRUE			
 Mordecai, cousin of Esther	343	FALSE	Male		
 Moses	344	FALSE	Male		
-Moses' father-in-law	345	FALSE	Male		
+Jethro, Moses' father-in-law	345	FALSE	Male		
 Moses' messengers from Kadesh	346	TRUE			
 Moses/Aaron		TRUE	Male		
 Moses/Eleazar		TRUE	Male		
@@ -942,7 +940,6 @@ Solomon, king	436	FALSE	Male
 some people (quoted by Paul)	923	TRUE			
 someone	934	TRUE			
 someone (hypothetical argument)		TRUE			
-someone from Jairus' house	928	FALSE			
 someone from Seir		FALSE			
 someone in crowd	930	FALSE			
 someone in Jerusalem	929	FALSE			
