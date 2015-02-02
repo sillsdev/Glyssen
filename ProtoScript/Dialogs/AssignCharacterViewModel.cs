@@ -19,7 +19,8 @@ namespace ProtoScript.Dialogs
 										".highlight{{background-color:yellow}}" +
 										"." + kCssClassContext + ":hover{{background-color:#FFFFA0}}" +
 										".block-spacer{{height:30px}}" +
-										".right-to-left{{direction:rtl}}";
+										".right-to-left{{direction:rtl}}" +
+										".section-header{{text-align:center;font-weight:bold}}";
 
 		[Flags]
 		public enum BlocksToDisplay
@@ -294,7 +295,12 @@ namespace ProtoScript.Dialogs
 		{
 			string text = SuperscriptVerseNumbers(HttpUtility.HtmlEncode(block.GetText(m_showVerseNumbers)));
 			var bldr = new StringBuilder();
-			bldr.Append("<div>").Append(text).Append("</div>");
+			bldr.Append("<div");
+			if (block.StyleTag.StartsWith("s"))
+				bldr.Append(" class=\"section-header\"");
+			bldr.Append(">");
+			bldr.Append(text);
+			bldr.Append("</div>");
 			return bldr.ToString();
 		}
 
