@@ -183,6 +183,20 @@ namespace ProtoScript
 			}
 			blocks.Reverse();
 			return blocks;
+		}
+
+		public IEnumerable<Block> PeekBackwardWithinBookWhile(Func<Block, bool> predicate)
+		{
+			int tempCurrentBlockIndex = m_currentBlockIndex;
+			while (tempCurrentBlockIndex > 0 && predicate(m_currentBook[--tempCurrentBlockIndex]))
+				yield return m_currentBook[tempCurrentBlockIndex];
+		}
+
+		public IEnumerable<Block> PeekForwardWithinBookWhile(Func<Block, bool> predicate)
+		{
+			int tempCurrentBlockIndex = m_currentBlockIndex;
+			while (!IsLastBlockInBook(m_currentBook, tempCurrentBlockIndex) && predicate(m_currentBook[++tempCurrentBlockIndex]))
+				yield return m_currentBook[tempCurrentBlockIndex];
 		} 
 
 		public Block NextBlock()

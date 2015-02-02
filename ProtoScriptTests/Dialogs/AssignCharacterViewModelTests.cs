@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Xml;
 using NUnit.Framework;
 using ProtoScript;
@@ -31,7 +32,7 @@ namespace ProtoScriptTests.Dialogs
 		public void SetUp()
 		{
 			m_model = new AssignCharacterViewModel(m_testProject);
-			m_model.SetNarratorAndNormalDelivery("Narrator ({0})", "normal");
+			m_model.SetNarratorAndNormalDelivery("narrator ({0})", "normal");
 			m_model.BackwardContextBlockCount = 10;
 			m_model.ForwardContextBlockCount = 10;
 		}
@@ -83,7 +84,7 @@ namespace ProtoScriptTests.Dialogs
 		[Test]
 		public void Narrator_CurrentBookIsMark_ToStringIncludesBookName()
 		{
-			Assert.AreEqual("Narrator (MRK)", AssignCharacterViewModel.Character.Narrator.ToString());
+			Assert.AreEqual("narrator (MRK)", AssignCharacterViewModel.Character.Narrator.ToString());
 		}
 
 		[Test]
@@ -166,6 +167,33 @@ namespace ProtoScriptTests.Dialogs
 				m_model.LoadNextRelevantBlock();
 			} while (!m_model.IsLastRelevantBlock);
 			Assert.IsFalse(m_model.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Continuation);
+		}
+
+		[Test]
+		public void SetMode_MoreQuotesThanExpectedSpeakers_LoadsBlocksWithMoreQuotesThanExpectedSpeakers()
+		{
+			m_model.Mode = AssignCharacterViewModel.BlocksToDisplay.MoreQuotesThanExpectedSpeakers;
+
+			Assert.AreEqual("MRK", m_model.CurrentBookId);
+			Assert.AreEqual(1, m_model.CurrentBlock.ChapterNumber);
+			Assert.AreEqual(2, m_model.CurrentBlock.InitialStartVerseNumber);
+			FindRefInMark(2, 5);
+		}
+
+		[Test]
+		public void SetMode_ExcludeUserConfirmed_UserConfirmedBlockSkipped()
+		{
+			var block1 = m_model.CurrentBlock;
+			m_model.LoadNextRelevantBlock();
+			var block2 = m_model.CurrentBlock;
+			m_model.LoadPreviousRelevantBlock();
+
+			block1.CharacterId = "Sigmund";
+			block1.UserConfirmed = true;
+
+			m_model.Mode |= AssignCharacterViewModel.BlocksToDisplay.ExcludeUserConfirmed;
+
+			Assert.AreEqual(block2, m_model.CurrentBlock);
 		}
 
 		[Test]

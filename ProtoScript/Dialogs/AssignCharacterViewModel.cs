@@ -30,6 +30,7 @@ namespace ProtoScript.Dialogs
 			MoreQuotesThanExpectedSpeakers = 8,
 			KnownTroubleSpots = 16,
 			All = 32, // If this bit is set, ignore everything else - show all blocks
+			ExcludeUserConfirmed = 64,
 			NeedAssignments = Unexpected | Ambiguous,
 			HotSpots = MissingExpectedQuote | MoreQuotesThanExpectedSpeakers | KnownTroubleSpots,
 		}
@@ -130,7 +131,10 @@ namespace ProtoScript.Dialogs
 				if (IsRelevant(m_navigator.CurrentBlock))
 					m_displayBlockIndex = 0;
 				else if (RelevantBlockCount > 0)
+				{
+					m_displayBlockIndex = -1;
 					LoadNextRelevantBlock();
+				}
 			}
 		}
 
@@ -266,7 +270,40 @@ namespace ProtoScript.Dialogs
 
 		private bool IsRelevant(Block block)
 		{
-			return (block.UserConfirmed || block.CharacterIsUnclear()) && block.MultiBlockQuote != MultiBlockQuote.Continuation;
+			if (block.MultiBlockQuote == MultiBlockQuote.Continuation)
+				return Mode == BlocksToDisplay.All;
+			if ((Mode & BlocksToDisplay.ExcludeUserConfirmed) > 0 && block.UserConfirmed)
+				return false;
+			if ((Mode & BlocksToDisplay.NeedAssignments) > 0)
+				return (block.UserConfirmed || block.CharacterIsUnclear());
+			if ((Mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) > 0)
+			{
+				if (!block.IsQuote)
+					return false;
+
+				var expectedSpeakers = ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber, block.InitialStartVerseNumber,
+					block.InitialEndVerseNumber).Distinct(new CvCharacterIdComparer()).Count();
+
+				var actualquotes = 1; // this is the quote represented by the given block.
+
+				if (actualquotes > expectedSpeakers)
+					return true;
+
+				// Check surrounding blocks to count quote blocks for same verse.
+				actualquotes += m_navigator.PeekBackwardWithinBookWhile(b => b.ChapterNumber == block.ChapterNumber &&
+					b.InitialStartVerseNumber == block.InitialStartVerseNumber)
+					.Count(b => b.IsQuote);
+
+				if (actualquotes > expectedSpeakers)
+					return true;
+
+				actualquotes += m_navigator.PeekForwardWithinBookWhile(b => b.ChapterNumber == block.ChapterNumber &&
+					b.InitialStartVerseNumber == block.InitialStartVerseNumber)
+					.Count(b => b.IsQuote);
+
+				return (actualquotes > expectedSpeakers);
+			}
+			return false;
 		}
 
 		private string BuildHtml(string previousText, string mainText, string followingText, string style)

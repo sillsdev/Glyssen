@@ -126,4 +126,17 @@ namespace ProtoScript.Character
 			return 0;
 		}
 	}
+
+	public class CvCharacterIdComparer : IEqualityComparer<CharacterVerse>
+	{
+		public bool Equals(CharacterVerse x, CharacterVerse y)
+		{
+			return String.Equals(x.Character, y.Character);
+		}
+
+		public int GetHashCode(CharacterVerse obj)
+		{
+			return obj.Character.GetHashCode();
+		}
+	}
 }
