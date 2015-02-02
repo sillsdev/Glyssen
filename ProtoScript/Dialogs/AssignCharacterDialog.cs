@@ -9,6 +9,7 @@ using Gecko.Events;
 using L10NSharp;
 using L10NSharp.UI;
 using ProtoScript.Character;
+using ProtoScript.Controls;
 using SIL.ScriptureControls;
 using SIL.ScriptureUtils;
 
@@ -23,10 +24,7 @@ namespace ProtoScript.Dialogs
 		private const int kContextBlocksForward = 10;
 
 		private ToolTip m_toolTip;
-		//private readonly Size m_listBoxCharactersOriginalSize;
-		//private readonly Point m_listBoxCharactersOriginalLocation;
-		//private readonly Size m_listBoxDeliveriesOriginalSize;
-		//private readonly Point m_listBoxDeliveriesOriginalLocation;
+
 
 		private void HandleStringsLocalized()
 		{
@@ -37,11 +35,9 @@ namespace ProtoScript.Dialogs
 		public AssignCharacterDialog(AssignCharacterViewModel viewModel)
 		{
 			InitializeComponent();
-			//m_listBoxCharactersOriginalSize = m_listBoxCharacters.Size;
-			//m_listBoxCharactersOriginalLocation = m_listBoxCharacters.Location;
-			//m_listBoxDeliveriesOriginalSize = m_listBoxDeliveries.Size;
-			//m_listBoxDeliveriesOriginalLocation = m_listBoxDeliveries.Location;
-
+			m_txtCharacterFilter.CorrectHeight();
+			m_txtDeliveryFilter.CorrectHeight();
+			
 			m_viewModel = viewModel;
 			m_viewModel.BackwardContextBlockCount = kContextBlocksBackward;
 			m_viewModel.ForwardContextBlockCount = kContextBlocksForward;

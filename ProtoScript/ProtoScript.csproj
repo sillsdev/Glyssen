@@ -133,6 +133,7 @@
     <Compile Include="Controls\ProgressBarUnanimated.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\TextBoxExtensions.cs" />
     <Compile Include="Dialogs\AssignCharacterDialog.cs">
       <SubType>Form</SubType>
     </Compile>

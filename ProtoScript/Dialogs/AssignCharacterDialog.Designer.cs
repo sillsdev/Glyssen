@@ -51,8 +51,6 @@
 			this.m_lblShortcut3 = new System.Windows.Forms.Label();
 			this.m_lblShortcut4 = new System.Windows.Forms.Label();
 			this.m_lblShortcut5 = new System.Windows.Forms.Label();
-			this.m_blocksDisplayBrowser = new ProtoScript.Controls.Browser();
-			this.m_progressBar = new ProtoScript.Controls.ProgressBarUnanimated();
 			this.m_listBoxCharacters = new System.Windows.Forms.ListBox();
 			this.m_listBoxDeliveries = new System.Windows.Forms.ListBox();
 			this.m_pnlCharacterFilter = new System.Windows.Forms.Panel();
@@ -61,6 +59,10 @@
 			this.m_pnlCharacterAndDeliverySelection = new System.Windows.Forms.TableLayoutPanel();
 			this.m_splitContainer = new System.Windows.Forms.SplitContainer();
 			this.m_tableBlocks = new System.Windows.Forms.TableLayoutPanel();
+			this.tableLayoutPanelCharacter = new System.Windows.Forms.TableLayoutPanel();
+			this.tableLayoutPanelDelivery = new System.Windows.Forms.TableLayoutPanel();
+			this.m_blocksDisplayBrowser = new ProtoScript.Controls.Browser();
+			this.m_progressBar = new ProtoScript.Controls.ProgressBarUnanimated();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnCharacterFilter)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnDeliveryFilter)).BeginInit();
@@ -73,6 +75,8 @@
 			this.m_splitContainer.Panel2.SuspendLayout();
 			this.m_splitContainer.SuspendLayout();
 			this.m_tableBlocks.SuspendLayout();
+			this.tableLayoutPanelCharacter.SuspendLayout();
+			this.tableLayoutPanelDelivery.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// m_l10NSharpExtender
@@ -176,7 +180,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreChar, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llMoreChar, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_llMoreChar, "AssignCharacterDialog.MoreCharacters");
-			this.m_llMoreChar.Location = new System.Drawing.Point(21, 241);
+			this.m_llMoreChar.Location = new System.Drawing.Point(21, 240);
 			this.m_llMoreChar.Name = "m_llMoreChar";
 			this.m_llMoreChar.Size = new System.Drawing.Size(85, 13);
 			this.m_llMoreChar.TabIndex = 13;
@@ -187,8 +191,8 @@
 			// 
 			// m_txtCharacterFilter
 			// 
+			this.m_txtCharacterFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_txtCharacterFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.m_txtCharacterFilter.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_txtCharacterFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtCharacterFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtCharacterFilter, null);
@@ -197,7 +201,7 @@
 			this.m_txtCharacterFilter.Location = new System.Drawing.Point(0, 0);
 			this.m_txtCharacterFilter.Margin = new System.Windows.Forms.Padding(0);
 			this.m_txtCharacterFilter.Name = "m_txtCharacterFilter";
-			this.m_txtCharacterFilter.Size = new System.Drawing.Size(249, 17);
+			this.m_txtCharacterFilter.Size = new System.Drawing.Size(231, 17);
 			this.m_txtCharacterFilter.TabIndex = 14;
 			this.m_txtCharacterFilter.TextChanged += new System.EventHandler(this.m_txtCharacterFilter_TextChanged);
 			// 
@@ -224,7 +228,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblDelivery, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblDelivery, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblDelivery, "AssignCharacterDialog.Delivery");
-			this.m_lblDelivery.Location = new System.Drawing.Point(21, 254);
+			this.m_lblDelivery.Location = new System.Drawing.Point(21, 253);
 			this.m_lblDelivery.Name = "m_lblDelivery";
 			this.m_lblDelivery.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
 			this.m_lblDelivery.Size = new System.Drawing.Size(60, 28);
@@ -250,8 +254,8 @@
 			// 
 			// m_txtDeliveryFilter
 			// 
+			this.m_txtDeliveryFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_txtDeliveryFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.m_txtDeliveryFilter.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_txtDeliveryFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtDeliveryFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtDeliveryFilter, null);
@@ -260,42 +264,49 @@
 			this.m_txtDeliveryFilter.Location = new System.Drawing.Point(0, 0);
 			this.m_txtDeliveryFilter.Margin = new System.Windows.Forms.Padding(0);
 			this.m_txtDeliveryFilter.Name = "m_txtDeliveryFilter";
-			this.m_txtDeliveryFilter.Size = new System.Drawing.Size(249, 17);
+			this.m_txtDeliveryFilter.Size = new System.Drawing.Size(231, 17);
 			this.m_txtDeliveryFilter.TabIndex = 19;
 			this.m_txtDeliveryFilter.TextChanged += new System.EventHandler(this.m_txtDeliveryFilter_TextChanged);
 			// 
 			// m_icnCharacterFilter
 			// 
-			this.m_icnCharacterFilter.Dock = System.Windows.Forms.DockStyle.Right;
+			this.m_icnCharacterFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_icnCharacterFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.m_icnCharacterFilter.Image = global::ProtoScript.Properties.Resources.search_glyph;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_icnCharacterFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_icnCharacterFilter, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_icnCharacterFilter, "AssignCharacterDialog.pictureBox1");
 			this.m_icnCharacterFilter.Location = new System.Drawing.Point(231, 0);
+			this.m_icnCharacterFilter.Margin = new System.Windows.Forms.Padding(0);
 			this.m_icnCharacterFilter.Name = "m_icnCharacterFilter";
-			this.m_icnCharacterFilter.Size = new System.Drawing.Size(18, 14);
+			this.m_icnCharacterFilter.Size = new System.Drawing.Size(18, 17);
+			this.m_icnCharacterFilter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
 			this.m_icnCharacterFilter.TabIndex = 22;
 			this.m_icnCharacterFilter.TabStop = false;
 			this.m_icnCharacterFilter.Click += new System.EventHandler(this.m_icnCharacterFilter_Click);
 			// 
 			// m_icnDeliveryFilter
 			// 
-			this.m_icnDeliveryFilter.Dock = System.Windows.Forms.DockStyle.Right;
+			this.m_icnDeliveryFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_icnDeliveryFilter.Image = global::ProtoScript.Properties.Resources.search_glyph;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_icnDeliveryFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_icnDeliveryFilter, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_icnDeliveryFilter, "AssignCharacterDialog.pictureBox1");
 			this.m_icnDeliveryFilter.Location = new System.Drawing.Point(231, 0);
+			this.m_icnDeliveryFilter.Margin = new System.Windows.Forms.Padding(0);
 			this.m_icnDeliveryFilter.Name = "m_icnDeliveryFilter";
-			this.m_icnDeliveryFilter.Size = new System.Drawing.Size(18, 16);
+			this.m_icnDeliveryFilter.Size = new System.Drawing.Size(18, 17);
 			this.m_icnDeliveryFilter.TabIndex = 22;
 			this.m_icnDeliveryFilter.TabStop = false;
 			this.m_icnDeliveryFilter.Click += new System.EventHandler(this.m_icnDeliveryFilter_Click);
 			// 
 			// m_btnAddCharacter
 			// 
+			this.m_btnAddCharacter.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_btnAddCharacter.BackgroundImage = global::ProtoScript.Properties.Resources._112_Plus_Green_16x16_72;
-			this.m_btnAddCharacter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.m_btnAddCharacter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.m_btnAddCharacter.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_btnAddCharacter.FlatAppearance.BorderSize = 2;
 			this.m_btnAddCharacter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -303,7 +314,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAddCharacter, "Add New Character");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAddCharacter, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAddCharacter, "AssignCharacterDialog.AddCharacter");
-			this.m_btnAddCharacter.Location = new System.Drawing.Point(277, 18);
+			this.m_btnAddCharacter.Location = new System.Drawing.Point(277, 21);
 			this.m_btnAddCharacter.Margin = new System.Windows.Forms.Padding(0);
 			this.m_btnAddCharacter.Name = "m_btnAddCharacter";
 			this.m_btnAddCharacter.Size = new System.Drawing.Size(20, 20);
@@ -322,7 +333,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAddDelivery, "Add New Delivery");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAddDelivery, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAddDelivery, "AssignCharacterDialog.AddDelivery");
-			this.m_btnAddDelivery.Location = new System.Drawing.Point(277, 282);
+			this.m_btnAddDelivery.Location = new System.Drawing.Point(277, 281);
 			this.m_btnAddDelivery.Margin = new System.Windows.Forms.Padding(0);
 			this.m_btnAddDelivery.Name = "m_btnAddDelivery";
 			this.m_btnAddDelivery.Size = new System.Drawing.Size(20, 20);
@@ -402,32 +413,6 @@
 			this.m_lblShortcut5.TabIndex = 30;
 			this.m_lblShortcut5.Text = "5";
 			// 
-			// m_blocksDisplayBrowser
-			// 
-			this.m_blocksDisplayBrowser.AutoSize = true;
-			this.m_tableBlocks.SetColumnSpan(this.m_blocksDisplayBrowser, 2);
-			this.m_blocksDisplayBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksDisplayBrowser, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksDisplayBrowser, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_blocksDisplayBrowser, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksDisplayBrowser, "ProjectSettingsDialog.Browser");
-			this.m_blocksDisplayBrowser.Location = new System.Drawing.Point(3, 21);
-			this.m_blocksDisplayBrowser.Name = "m_blocksDisplayBrowser";
-			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(296, 513);
-			this.m_blocksDisplayBrowser.TabIndex = 2;
-			// 
-			// m_progressBar
-			// 
-			this.m_progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_progressBar, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_progressBar, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_progressBar, "AssignCharacterDialog.AssignCharacterDialog.m_progressBar");
-			this.m_progressBar.Location = new System.Drawing.Point(24, 522);
-			this.m_progressBar.Name = "m_progressBar";
-			this.m_progressBar.Size = new System.Drawing.Size(582, 17);
-			this.m_progressBar.TabIndex = 12;
-			// 
 			// m_listBoxCharacters
 			// 
 			this.m_listBoxCharacters.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -437,9 +422,9 @@
 			this.m_listBoxCharacters.FormattingEnabled = true;
 			this.m_listBoxCharacters.IntegralHeight = false;
 			this.m_listBoxCharacters.ItemHeight = 18;
-			this.m_listBoxCharacters.Location = new System.Drawing.Point(21, 45);
+			this.m_listBoxCharacters.Location = new System.Drawing.Point(21, 48);
 			this.m_listBoxCharacters.Name = "m_listBoxCharacters";
-			this.m_listBoxCharacters.Size = new System.Drawing.Size(273, 193);
+			this.m_listBoxCharacters.Size = new System.Drawing.Size(273, 189);
 			this.m_listBoxCharacters.TabIndex = 0;
 			this.m_listBoxCharacters.SelectedIndexChanged += new System.EventHandler(this.m_listBoxCharacters_SelectedIndexChanged);
 			// 
@@ -460,28 +445,31 @@
 			// 
 			// m_pnlCharacterFilter
 			// 
+			this.m_pnlCharacterFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_pnlCharacterFilter.AutoSize = true;
+			this.m_pnlCharacterFilter.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.m_pnlCharacterFilter.BackColor = System.Drawing.Color.White;
 			this.m_pnlCharacterFilter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.m_pnlCharacterFilter.Controls.Add(this.m_icnCharacterFilter);
-			this.m_pnlCharacterFilter.Controls.Add(this.m_txtCharacterFilter);
+			this.m_pnlCharacterFilter.Controls.Add(this.tableLayoutPanelCharacter);
 			this.m_pnlCharacterFilter.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.m_pnlCharacterFilter.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_pnlCharacterFilter.Location = new System.Drawing.Point(21, 21);
 			this.m_pnlCharacterFilter.Name = "m_pnlCharacterFilter";
-			this.m_pnlCharacterFilter.Size = new System.Drawing.Size(253, 18);
+			this.m_pnlCharacterFilter.Size = new System.Drawing.Size(253, 21);
 			this.m_pnlCharacterFilter.TabIndex = 21;
 			// 
 			// m_pnlDeliveryFilter
 			// 
+			this.m_pnlDeliveryFilter.AutoSize = true;
+			this.m_pnlDeliveryFilter.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.m_pnlDeliveryFilter.BackColor = System.Drawing.Color.White;
 			this.m_pnlDeliveryFilter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.m_pnlDeliveryFilter.Controls.Add(this.m_icnDeliveryFilter);
-			this.m_pnlDeliveryFilter.Controls.Add(this.m_txtDeliveryFilter);
+			this.m_pnlDeliveryFilter.Controls.Add(this.tableLayoutPanelDelivery);
 			this.m_pnlDeliveryFilter.Cursor = System.Windows.Forms.Cursors.IBeam;
 			this.m_pnlDeliveryFilter.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_pnlDeliveryFilter.Location = new System.Drawing.Point(21, 285);
+			this.m_pnlDeliveryFilter.Location = new System.Drawing.Point(21, 284);
 			this.m_pnlDeliveryFilter.Name = "m_pnlDeliveryFilter";
-			this.m_pnlDeliveryFilter.Size = new System.Drawing.Size(253, 20);
+			this.m_pnlDeliveryFilter.Size = new System.Drawing.Size(253, 21);
 			this.m_pnlDeliveryFilter.TabIndex = 23;
 			// 
 			// m_pnlShortcuts
@@ -491,7 +479,7 @@
 			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut3);
 			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut2);
 			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut1);
-			this.m_pnlShortcuts.Location = new System.Drawing.Point(3, 45);
+			this.m_pnlShortcuts.Location = new System.Drawing.Point(3, 48);
 			this.m_pnlShortcuts.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
 			this.m_pnlShortcuts.Name = "m_pnlShortcuts";
 			this.m_pnlShortcuts.Size = new System.Drawing.Size(15, 159);
@@ -572,6 +560,68 @@
 			this.m_tableBlocks.Size = new System.Drawing.Size(302, 537);
 			this.m_tableBlocks.TabIndex = 11;
 			// 
+			// tableLayoutPanelCharacter
+			// 
+			this.tableLayoutPanelCharacter.AutoSize = true;
+			this.tableLayoutPanelCharacter.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.tableLayoutPanelCharacter.ColumnCount = 2;
+			this.tableLayoutPanelCharacter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanelCharacter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanelCharacter.Controls.Add(this.m_icnCharacterFilter, 1, 0);
+			this.tableLayoutPanelCharacter.Controls.Add(this.m_txtCharacterFilter, 0, 0);
+			this.tableLayoutPanelCharacter.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanelCharacter.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanelCharacter.Margin = new System.Windows.Forms.Padding(0);
+			this.tableLayoutPanelCharacter.Name = "tableLayoutPanelCharacter";
+			this.tableLayoutPanelCharacter.RowCount = 1;
+			this.tableLayoutPanelCharacter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanelCharacter.Size = new System.Drawing.Size(249, 17);
+			this.tableLayoutPanelCharacter.TabIndex = 0;
+			// 
+			// tableLayoutPanelDelivery
+			// 
+			this.tableLayoutPanelDelivery.AutoSize = true;
+			this.tableLayoutPanelDelivery.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.tableLayoutPanelDelivery.ColumnCount = 2;
+			this.tableLayoutPanelDelivery.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanelDelivery.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanelDelivery.Controls.Add(this.m_icnDeliveryFilter, 1, 0);
+			this.tableLayoutPanelDelivery.Controls.Add(this.m_txtDeliveryFilter, 0, 0);
+			this.tableLayoutPanelDelivery.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanelDelivery.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanelDelivery.Margin = new System.Windows.Forms.Padding(0);
+			this.tableLayoutPanelDelivery.Name = "tableLayoutPanelDelivery";
+			this.tableLayoutPanelDelivery.RowCount = 1;
+			this.tableLayoutPanelDelivery.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanelDelivery.Size = new System.Drawing.Size(249, 17);
+			this.tableLayoutPanelDelivery.TabIndex = 0;
+			// 
+			// m_blocksDisplayBrowser
+			// 
+			this.m_blocksDisplayBrowser.AutoSize = true;
+			this.m_tableBlocks.SetColumnSpan(this.m_blocksDisplayBrowser, 2);
+			this.m_blocksDisplayBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksDisplayBrowser, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksDisplayBrowser, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_blocksDisplayBrowser, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksDisplayBrowser, "ProjectSettingsDialog.Browser");
+			this.m_blocksDisplayBrowser.Location = new System.Drawing.Point(3, 21);
+			this.m_blocksDisplayBrowser.Name = "m_blocksDisplayBrowser";
+			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(296, 513);
+			this.m_blocksDisplayBrowser.TabIndex = 2;
+			// 
+			// m_progressBar
+			// 
+			this.m_progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_progressBar, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_progressBar, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_progressBar, "AssignCharacterDialog.AssignCharacterDialog.m_progressBar");
+			this.m_progressBar.Location = new System.Drawing.Point(24, 522);
+			this.m_progressBar.Name = "m_progressBar";
+			this.m_progressBar.Size = new System.Drawing.Size(582, 17);
+			this.m_progressBar.TabIndex = 12;
+			// 
 			// AssignCharacterDialog
 			// 
 			this.AcceptButton = this.m_btnAssign;
@@ -614,6 +664,10 @@
 			this.m_splitContainer.ResumeLayout(false);
 			this.m_tableBlocks.ResumeLayout(false);
 			this.m_tableBlocks.PerformLayout();
+			this.tableLayoutPanelCharacter.ResumeLayout(false);
+			this.tableLayoutPanelCharacter.PerformLayout();
+			this.tableLayoutPanelDelivery.ResumeLayout(false);
+			this.tableLayoutPanelDelivery.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -652,5 +706,7 @@
 		private System.Windows.Forms.TableLayoutPanel m_pnlCharacterAndDeliverySelection;
 		private System.Windows.Forms.SplitContainer m_splitContainer;
 		private System.Windows.Forms.TableLayoutPanel m_tableBlocks;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanelDelivery;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanelCharacter;
 	}
 }
