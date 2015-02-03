@@ -8,6 +8,20 @@ using SIL.ScriptureUtils;
 
 namespace ProtoScript.Dialogs
 {
+	[Flags]
+	public enum BlocksToDisplay
+	{
+		Unexpected = 1,
+		Ambiguous = 2,
+		MissingExpectedQuote = 4,
+		MoreQuotesThanExpectedSpeakers = 8,
+		KnownTroubleSpots = 16,
+		All = 32, // If this bit is set, ignore everything else (except Exclude user-confirmed)- show all blocks
+		ExcludeUserConfirmed = 64,
+		NeedAssignments = Unexpected | Ambiguous,
+		HotSpots = MissingExpectedQuote | MoreQuotesThanExpectedSpeakers | KnownTroubleSpots,
+	}
+
 	public class AssignCharacterViewModel
 	{
 		internal const string kDataCharacter = "data-character";
@@ -22,19 +36,7 @@ namespace ProtoScript.Dialogs
 										".right-to-left{{direction:rtl}}" +
 										".section-header{{text-align:center;font-weight:bold}}";
 
-		[Flags]
-		public enum BlocksToDisplay
-		{
-			Unexpected = 1,
-			Ambiguous = 2,
-			MissingExpectedQuote = 4,
-			MoreQuotesThanExpectedSpeakers = 8,
-			KnownTroubleSpots = 16,
-			All = 32, // If this bit is set, ignore everything else - show all blocks
-			ExcludeUserConfirmed = 64,
-			NeedAssignments = Unexpected | Ambiguous,
-			HotSpots = MissingExpectedQuote | MoreQuotesThanExpectedSpeakers | KnownTroubleSpots,
-		}
+
 
 		private bool m_showVerseNumbers = true; // May make this configurable later
 		private readonly string m_fontFamily;
@@ -125,6 +127,9 @@ namespace ProtoScript.Dialogs
 			get { return m_mode; }
 			set
 			{
+				if (m_mode == value)
+					return;
+
 				m_mode = value;
 
 				PopulateRelevantBlocks();
@@ -395,6 +400,23 @@ namespace ProtoScript.Dialogs
 		private string BuildStyle()
 		{
 			return String.Format(kCssFrame, m_fontFamily, m_fontSizeInPoints);
+		}
+
+		public bool IsModified(Character newCharacter, Delivery newDelivery)
+		{
+			Block currentBlock = CurrentBlock;
+			if (newCharacter.IsNarrator)
+			{
+				if (!currentBlock.CharacterIs(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator))
+					return true;
+			}
+			else if (newCharacter.CharacterId != currentBlock.CharacterId)
+				return true;
+
+			if (newDelivery.IsNormal)
+				return (!string.IsNullOrEmpty(currentBlock.Delivery));
+
+			return newDelivery.Text != currentBlock.Delivery;
 		}
 
 		private void SetCharacterAndDelivery(Block block, Character selectedCharacter, Delivery selectedDelivery)

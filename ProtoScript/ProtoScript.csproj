@@ -255,6 +255,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\yellow-ok-icon.png" />
     <None Include="Resources\112_Plus_Green_16x16_72.png" />
     <Content Include="Resources\CharacterIdMap.txt" />
     <Content Include="Resources\CharacterVerse.txt" />

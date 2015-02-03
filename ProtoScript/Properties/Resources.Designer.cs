@@ -93,20 +93,20 @@ namespace ProtoScript.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	34
+        ///   Looks up a localized string similar to Control File Version	40
         ///#	C	V	Character ID	Delivery	Alias	Dialogue	Default Character	Parallel Passage
-        ///GEN	1	3	God		God (the LORD)	False
-        ///GEN	1	5	narrator-GEN			False
-        ///GEN	1	6	God		God (the LORD)	False
-        ///GEN	1	8	narrator-GEN			False
-        ///GEN	1	9	God		God (the LORD)	False
-        ///GEN	1	10	narrator-GEN			False
-        ///GEN	1	11	God		God (the LORD)	False
-        ///GEN	1	14	God		God (the LORD)	False
-        ///GEN	1	20	God		God (the LORD)	False
-        ///GEN	1	22	God		God (the LORD)	False
-        ///GEN	1	24	God		God (the LORD)	False
-        ///GEN	1	26	God		God (the LORD)	Fal [rest of string was truncated]&quot;;.
+        ///GEN	1	3	God		God (the LORD)	FALSE		
+        ///GEN	1	5	narrator-GEN			FALSE		
+        ///GEN	1	6	God		God (the LORD)	FALSE		
+        ///GEN	1	8	narrator-GEN			FALSE		
+        ///GEN	1	9	God		God (the LORD)	FALSE		
+        ///GEN	1	10	narrator-GEN			FALSE		
+        ///GEN	1	11	God		God (the LORD)	FALSE		
+        ///GEN	1	14	God		God (the LORD)	FALSE		
+        ///GEN	1	20	God		God (the LORD)	FALSE		
+        ///GEN	1	22	God		God (the LORD)	FALSE		
+        ///GEN	1	24	God		God (the LORD)	FALSE		
+        ///GEN	1	26	G [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CharacterVerseData {
             get {
@@ -163,6 +163,16 @@ namespace ProtoScript.Properties {
         internal static System.Drawing.Bitmap search_glyph {
             get {
                 object obj = ResourceManager.GetObject("search_glyph", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap yellow_ok_icon {
+            get {
+                object obj = ResourceManager.GetObject("yellow_ok_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

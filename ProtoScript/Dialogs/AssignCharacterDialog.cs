@@ -1,5 +1,11 @@
-﻿using System;
+﻿/// 
+/// Artist: Double-J Design (Available for custom work)
+/// Iconset: Origami Colored Pencil Icons (160 icons)
+/// License: CC Attribution 4.0
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using Gecko;
@@ -23,12 +29,15 @@ namespace ProtoScript.Dialogs
 		private const int kContextBlocksForward = 10;
 
 		private ToolTip m_toolTip;
+		private string m_xOfYFmt;
 
 
 		private void HandleStringsLocalized()
 		{
 			m_viewModel.SetNarratorAndNormalDelivery(LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.Narrator", "narrator ({0})"),
 				LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.NormalDelivery", "normal"));
+
+			m_xOfYFmt = m_labelXofY.Text;
 		}
 
 		public AssignCharacterDialog(AssignCharacterViewModel viewModel)
@@ -52,7 +61,25 @@ namespace ProtoScript.Dialogs
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 			m_viewModel.AssignedBlocksIncremented += (sender, args) => m_progressBar.Increment(1);
 
+			SetFilterControlsFromMode();
+
 			LoadBlock();
+		}
+
+		private void SetFilterControlsFromMode()
+		{
+			var mode = m_viewModel.Mode;
+			if ((mode & BlocksToDisplay.NeedAssignments) != 0)
+				m_toolStripComboBoxFilter.SelectedIndex = 0;
+			else if ((mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) != 0)
+				m_toolStripComboBoxFilter.SelectedIndex = 1;
+			else if ((mode & BlocksToDisplay.All) != 0)
+				m_toolStripComboBoxFilter.SelectedIndex = 2;
+			else
+				throw new InvalidEnumArgumentException("mode", (int)mode, typeof(BlocksToDisplay));
+
+			if ((mode & BlocksToDisplay.ExcludeUserConfirmed) != 0)
+				m_toolStripButtonExcludeUserConfirmed.Checked = true;
 		}
 
 		public void LoadBlock()
@@ -70,8 +97,7 @@ namespace ProtoScript.Dialogs
 			int verse = m_viewModel.CurrentBlock.InitialStartVerseNumber;
 			var currRef = new BCVRef(BCVRef.BookToNumber(book), chapter, verse);
 			m_labelReference.Text = BCVRef.MakeReferenceString(currRef, currRef, ":", "-");
-			string xOfY = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.XofY", "{0} of {1}", "{0} is the current clip number; {1} is the total number of clips.");
-			m_labelXofY.Text = string.Format(xOfY, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
+			m_labelXofY.Text = string.Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
 
 			SendScrReference(currRef);
 
@@ -144,24 +170,8 @@ namespace ProtoScript.Dialogs
 
 		private bool IsDirty()
 		{
-			Block currentBlock = m_viewModel.CurrentBlock;
-			var selectedCharacter = (AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem;
-			if (selectedCharacter.IsNarrator)
-			{
-				if (!currentBlock.CharacterIs(m_viewModel.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator))
-					return true;
-			}
-			else if (selectedCharacter.CharacterId != currentBlock.CharacterId)
-				return true;
-			var selectedDelivery = ((AssignCharacterViewModel.Delivery)m_listBoxDeliveries.SelectedItem);
-			if (selectedDelivery.IsNormal)
-			{
-				if (currentBlock.Delivery != null)
-					return true;
-			}
-			else if (selectedDelivery.Text != currentBlock.Delivery)
-				return true;
-			return false;
+			return m_viewModel.IsModified((AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem,
+				(AssignCharacterViewModel.Delivery)m_listBoxDeliveries.SelectedItem);
 		}
 
 		private void LoadNextRelevantBlock()
@@ -490,5 +500,27 @@ namespace ProtoScript.Dialogs
 			m_blocksDisplayBrowser.ScrollElementIntoView(kMainQuoteElementId, -225);
 		}
 		#endregion
+
+		private void HandleFilterChanged(object sender, EventArgs e)
+		{
+			if (!IsHandleCreated)
+				return;
+
+			BlocksToDisplay mode;
+
+			switch (m_toolStripComboBoxFilter.SelectedIndex)
+			{
+				case 0: mode = BlocksToDisplay.NeedAssignments; break;
+				case 1: mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers; break;
+				default: mode = BlocksToDisplay.All; break;
+			}
+
+			if (m_toolStripButtonExcludeUserConfirmed.Checked)
+				mode |= BlocksToDisplay.ExcludeUserConfirmed;
+
+			m_viewModel.Mode = mode;
+
+			LoadBlock();
+		}
 	}
 }

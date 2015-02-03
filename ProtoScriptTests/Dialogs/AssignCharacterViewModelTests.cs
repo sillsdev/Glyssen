@@ -172,7 +172,7 @@ namespace ProtoScriptTests.Dialogs
 		[Test]
 		public void SetMode_MoreQuotesThanExpectedSpeakers_LoadsBlocksWithMoreQuotesThanExpectedSpeakers()
 		{
-			m_model.Mode = AssignCharacterViewModel.BlocksToDisplay.MoreQuotesThanExpectedSpeakers;
+			m_model.Mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers;
 
 			Assert.AreEqual("MRK", m_model.CurrentBookId);
 			Assert.AreEqual(1, m_model.CurrentBlock.ChapterNumber);
@@ -191,7 +191,7 @@ namespace ProtoScriptTests.Dialogs
 			block1.CharacterId = "Sigmund";
 			block1.UserConfirmed = true;
 
-			m_model.Mode |= AssignCharacterViewModel.BlocksToDisplay.ExcludeUserConfirmed;
+			m_model.Mode |= BlocksToDisplay.ExcludeUserConfirmed;
 
 			Assert.AreEqual(block2, m_model.CurrentBlock);
 		}
@@ -200,6 +200,40 @@ namespace ProtoScriptTests.Dialogs
 		public void GetDeliveriesForCharacter_NullCharacter_GetsEmptyEnumeration()
 		{
 			Assert.False(m_model.GetDeliveriesForCharacter(null).Any());
+		}
+
+		[Test]
+		public void IsModified_NormalDeliveryNoChange_ReturnsFalse()
+		{
+			var block1 = m_model.CurrentBlock;
+			m_model.CurrentBlock.Delivery = null;
+			Assert.IsFalse(m_model.IsModified(new AssignCharacterViewModel.Character(block1.CharacterId), AssignCharacterViewModel.Delivery.Normal));
+			m_model.CurrentBlock.Delivery = string.Empty;
+			Assert.IsFalse(m_model.IsModified(new AssignCharacterViewModel.Character(block1.CharacterId), AssignCharacterViewModel.Delivery.Normal));
+		}
+
+		[Test]
+		public void IsModified_CharacterChanged_ReturnsTrue()
+		{
+			var block1 = m_model.CurrentBlock;
+			block1.Delivery = null;
+			Assert.IsTrue(m_model.IsModified(new AssignCharacterViewModel.Character("Ferdinand"), AssignCharacterViewModel.Delivery.Normal));
+		}
+
+		[Test]
+		public void IsModified_DeliveryChangedToNormal_ReturnsTrue()
+		{
+			var block1 = m_model.CurrentBlock;
+			m_model.CurrentBlock.Delivery = "annoyed";
+			Assert.IsTrue(m_model.IsModified(new AssignCharacterViewModel.Character(block1.CharacterId), AssignCharacterViewModel.Delivery.Normal));
+		}
+
+		[Test]
+		public void IsModified_DeliveryChangedFromNormal_ReturnsTrue()
+		{
+			var block1 = m_model.CurrentBlock;
+			m_model.CurrentBlock.Delivery = null;
+			Assert.IsTrue(m_model.IsModified(new AssignCharacterViewModel.Character(block1.CharacterId), new AssignCharacterViewModel.Delivery("peeved")));
 		}
 
 		private void FindRefInMark(int chapter, int verse)
