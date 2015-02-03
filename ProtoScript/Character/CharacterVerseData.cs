@@ -30,7 +30,7 @@ namespace ProtoScript.Character
 			Intro,
 		}
 
-		public static bool IsCharacterStandard(string characterId)
+		public static bool IsCharacterStandard(string characterId, bool includeNarrator = true)
 		{
 			if (String.IsNullOrEmpty(characterId))
 				return false;
@@ -41,6 +41,7 @@ namespace ProtoScript.Character
 			switch (characterId.Substring(0, i + 1))
 			{
 				case kNarratorPrefix:
+					return includeNarrator;
 				case kIntroPrefix:
 				case kExtraBiblicalPrefix:
 				case kBookOrChapterPrefix:

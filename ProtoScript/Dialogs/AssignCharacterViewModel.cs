@@ -309,6 +309,8 @@ namespace ProtoScript.Dialogs
 
 				return (actualquotes > expectedSpeakers);
 			}
+			if ((Mode & BlocksToDisplay.All) > 0)
+				return !CharacterVerseData.IsCharacterStandard(block.CharacterId, false);
 			return false;
 		}
 

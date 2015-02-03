@@ -197,6 +197,13 @@ namespace ProtoScriptTests.Dialogs
 		}
 
 		[Test]
+		public void SetMode_All_UnmodifiableStandardBlocksSkipped()
+		{
+			m_model.Mode = BlocksToDisplay.All;
+			Assert.IsFalse(CharacterVerseData.IsCharacterStandard(m_model.CurrentBlock.CharacterId, false));
+		}
+
+		[Test]
 		public void GetDeliveriesForCharacter_NullCharacter_GetsEmptyEnumeration()
 		{
 			Assert.False(m_model.GetDeliveriesForCharacter(null).Any());

@@ -432,7 +432,6 @@
 			this.m_toolStrip.Name = "m_toolStrip";
 			this.m_toolStrip.Size = new System.Drawing.Size(635, 25);
 			this.m_toolStrip.TabIndex = 31;
-			this.m_toolStrip.Text = "toolStrip1";
 			// 
 			// m_toolStripLabelFilter
 			// 
@@ -446,6 +445,7 @@
 			// 
 			// m_toolStripComboBoxFilter
 			// 
+			this.m_toolStripComboBoxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.m_toolStripComboBoxFilter.Items.AddRange(new object[] {
             "Quotes not assigned automatically",
             "More quotes than expected in verse",
@@ -456,6 +456,7 @@
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripComboBoxFilter, "AssignCharacterDialog.AssignCharacterDialog.m_toolStripComboBoxFilter");
 			this.m_toolStripComboBoxFilter.Name = "m_toolStripComboBoxFilter";
 			this.m_toolStripComboBoxFilter.Size = new System.Drawing.Size(225, 25);
+			this.m_toolStripComboBoxFilter.Text = "Quotes not assigned automatically";
 			this.m_toolStripComboBoxFilter.SelectedIndexChanged += new System.EventHandler(this.HandleFilterChanged);
 			// 
 			// m_toolStripButtonExcludeUserConfirmed
