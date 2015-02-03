@@ -34,7 +34,7 @@ namespace ProtoScript.Dialogs
 		private void SetupQuoteMarksComboBoxes(QuoteSystem currentSystem)
 		{
 			m_comboQuoteMarks.Items.AddRange(QuoteSystem.AllUniqueFirstLevelSystems.ToArray());
-			m_comboQuoteMarks.SelectedItem = currentSystem;
+			m_comboQuoteMarks.SelectedItem = currentSystem.GetCorrespondingFirstLevelQuoteSystem();
 
 			var quotationDashMarker = currentSystem.QuotationDashMarker;
 			m_chkDialogueQuotations.Checked = !String.IsNullOrEmpty(quotationDashMarker);
@@ -54,12 +54,14 @@ namespace ProtoScript.Dialogs
 			m_cboEndQuotationDash.Items.Add(LocalizationManager.GetString("QuotationMarksDialog.EndQuotationDashWithAnyPunctuation", "Any punctuation mark"));
 
 			var quotationDashEndMarker = currentSystem.QuotationDashEndMarker;
-			switch (quotationDashEndMarker)
-			{
-				case "\u2015": m_cboQuotationDash.SelectedIndex = 0; break;
-				case "\u2014": m_cboQuotationDash.SelectedIndex = 1; break;
-				default: m_cboQuotationDash.Text = quotationDashMarker; break;
-			}
+			if (string.IsNullOrEmpty(quotationDashEndMarker))
+				m_cboEndQuotationDash.SelectedIndex = 0;
+			else if (quotationDashEndMarker == quotationDashMarker)
+				m_cboEndQuotationDash.SelectedIndex = 1;
+			else if (quotationDashEndMarker == QuoteSystem.AnyPunctuation)
+				m_cboEndQuotationDash.SelectedIndex = 2;
+			else
+				m_cboEndQuotationDash.Text = quotationDashEndMarker;
 		}
 
 		private void MakeReadOnly()
@@ -165,7 +167,7 @@ namespace ProtoScript.Dialogs
 						case 2: quotationDashEndMarker = QuoteSystem.AnyPunctuation; break;
 						default:
 							if (!String.IsNullOrWhiteSpace(m_cboEndQuotationDash.Text))
-								quotationDashMarker = m_cboEndQuotationDash.Text;
+								quotationDashEndMarker = m_cboEndQuotationDash.Text;
 							break;
 					}
 

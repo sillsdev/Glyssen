@@ -95,6 +95,11 @@ namespace ProtoScript.Quote
 		[DefaultValue(false)]
 		public bool QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes { get; set; }
 
+		public QuoteSystem GetCorrespondingFirstLevelQuoteSystem()
+		{
+			return AllUniqueFirstLevelSystems.FirstOrDefault(f => f.StartQuoteMarker == StartQuoteMarker && f.EndQuoteMarker == EndQuoteMarker);
+		}
+
 		public override string ToString()
 		{
 			return StartQuoteMarker + "  " + EndQuoteMarker;
