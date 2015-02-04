@@ -178,6 +178,20 @@ namespace ProtoScript
 			return existingProject;
 		}
 
+		public static void SetHiddenFlag(string projectFilePath, bool hidden)
+		{
+			Exception exception;
+			var metadata = DblMetadata.Load(projectFilePath, out exception);
+			if (exception != null)
+			{
+				ErrorReport.ReportNonFatalExceptionWithMessage(exception,
+					LocalizationManager.GetString("File.ProjectCouldNotBeModified", "Project could not be modified: {0}"), projectFilePath);
+				return;
+			}
+			metadata.HiddenByDefault = hidden;
+			new Project(metadata).Save();
+		}
+
 		private static Project LoadExistingProject(string projectFilePath)
 		{
 			Exception exception;

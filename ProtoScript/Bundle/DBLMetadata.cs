@@ -53,6 +53,14 @@ namespace ProtoScript.Bundle
 
 		/// <summary>
 		/// This is not part of the original DBL metadata.
+		/// If true, the project is hidden from the user by default (usually hidden by the user)
+		/// </summary>
+		[XmlAttribute("hiddenbydefault")]
+		[DefaultValue(false)]
+		public bool HiddenByDefault;
+
+		/// <summary>
+		/// This is not part of the original DBL metadata.
 		/// </summary>
 		public QuoteSystem QuoteSystem;
 		

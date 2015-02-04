@@ -4,9 +4,6 @@ using System.Text;
 using System.Windows.Forms;
 using L10NSharp;
 using L10NSharp.UI;
-using Palaso.UI.WindowsForms;
-using Palaso.UI.WindowsForms.WritingSystems;
-using Palaso.WritingSystems;
 using ProtoScript.Dialogs;
 using ProtoScript.Properties;
 
@@ -63,7 +60,7 @@ namespace ProtoScript
 		{
 			Project.CreateSampleProjectIfNeeded();
 
-			using (var dlg = new OpenProjectDlg(welcome))
+			using (var dlg = new OpenProjectDlg(m_project, welcome))
 			{
 				var result = dlg.ShowDialog(this);
 				if (result == DialogResult.OK)
