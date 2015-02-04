@@ -197,6 +197,29 @@ namespace ProtoScriptTests.Dialogs
 		}
 
 		[Test]
+		public void SetMode_AlternateBetweenModes_AssignedBlockCountDoesNotGrowContinuously()
+		{
+			Assert.AreEqual(0, m_model.AssignedBlockCount);
+
+			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("Jesus"), AssignCharacterViewModel.Delivery.Normal);
+
+			Assert.AreEqual(1, m_model.AssignedBlockCount);
+
+			m_model.Mode = BlocksToDisplay.NeedAssignments | BlocksToDisplay.ExcludeUserConfirmed;			
+			Assert.AreEqual(0, m_model.AssignedBlockCount);
+
+			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			Assert.AreEqual(1, m_model.AssignedBlockCount);
+
+			// The assignment call above actually affects 5 blocks because they are all in the same quote.
+			m_model.Mode = BlocksToDisplay.All;
+			Assert.AreEqual(1, m_model.AssignedBlockCount);
+
+			m_model.Mode = BlocksToDisplay.HotSpots | BlocksToDisplay.ExcludeUserConfirmed;
+			Assert.AreEqual(0, m_model.AssignedBlockCount);
+		}
+
+		[Test]
 		public void SetMode_All_UnmodifiableStandardBlocksSkipped()
 		{
 			m_model.Mode = BlocksToDisplay.All;

@@ -256,6 +256,7 @@ namespace ProtoScript.Dialogs
 
 		private void PopulateRelevantBlocks()
 		{
+			m_assignedBlocks = 0;
 			m_navigator.NavigateToFirstBlock();
 			m_relevantBlocks = new List<Tuple<int, int>>();
 			Block block;
@@ -277,7 +278,7 @@ namespace ProtoScript.Dialogs
 		private bool IsRelevant(Block block)
 		{
 			if (block.MultiBlockQuote == MultiBlockQuote.Continuation)
-				return Mode == BlocksToDisplay.All;
+				return false;
 			if ((Mode & BlocksToDisplay.ExcludeUserConfirmed) > 0 && block.UserConfirmed)
 				return false;
 			if ((Mode & BlocksToDisplay.NeedAssignments) > 0)
@@ -433,17 +434,18 @@ namespace ProtoScript.Dialogs
 
 			block.Delivery = selectedDelivery.IsNormal ? null : selectedDelivery.Text;
 
-			if (!block.UserConfirmed)
-			{
-				m_assignedBlocks++;
-				if (AssignedBlocksIncremented != null)
-					AssignedBlocksIncremented(this, new EventArgs());
-			}
 			block.UserConfirmed = true;
 		}
 
 		public void SetCharacterAndDelivery(Character selectedCharacter, Delivery selectedDelivery)
 		{
+			if (!CurrentBlock.UserConfirmed)
+			{
+				m_assignedBlocks++;
+				if (AssignedBlocksIncremented != null)
+					AssignedBlocksIncremented(this, new EventArgs());
+			}
+
 			foreach (Block block in GetAllBlocksWithSameQuote(CurrentBlock))
 				SetCharacterAndDelivery(block, selectedCharacter, selectedDelivery);
 		}

@@ -53,17 +53,30 @@ namespace ProtoScript.Dialogs
 			m_blocksDisplayBrowser.OnMouseOut += OnMouseOut;
 			m_blocksDisplayBrowser.OnDocumentCompleted += OnDocumentCompleted;
 
-			m_progressBar.Maximum = viewModel.RelevantBlockCount;
-			m_progressBar.Increment(viewModel.AssignedBlockCount);
+			UpdateProgressBarForMode();
 
 			HandleStringsLocalized();
 
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
-			m_viewModel.AssignedBlocksIncremented += (sender, args) => m_progressBar.Increment(1);
+			m_viewModel.AssignedBlocksIncremented += (sender, args) => { if (m_progressBar.Visible) m_progressBar.Increment(1); };
 
 			SetFilterControlsFromMode();
 
 			LoadBlock();
+		}
+
+		private void UpdateProgressBarForMode()
+		{
+			if ((m_viewModel.Mode & BlocksToDisplay.NeedAssignments) == BlocksToDisplay.NeedAssignments)
+			{
+				m_progressBar.Visible = true;
+				m_progressBar.Maximum = m_viewModel.RelevantBlockCount;
+				m_progressBar.Value = m_viewModel.AssignedBlockCount;
+			}
+			else
+			{
+				m_progressBar.Visible = false;				
+			}
 		}
 
 		private void SetFilterControlsFromMode()
@@ -521,6 +534,8 @@ namespace ProtoScript.Dialogs
 			m_viewModel.Mode = mode;
 
 			LoadBlock();
+
+			UpdateProgressBarForMode();
 		}
 	}
 }
