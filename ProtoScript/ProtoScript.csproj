@@ -160,16 +160,17 @@
       <DependentUpon>ScriptureRangeSelectionDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\SelectProjectDialog.cs" />
-    <Compile Include="Dialogs\SfmProjectMetadataDlg.cs">
+    <Compile Include="Dialogs\ProjectMetadataDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\SfmProjectMetadataDlg.Designer.cs">
-      <DependentUpon>SfmProjectMetadataDlg.cs</DependentUpon>
+    <Compile Include="Dialogs\ProjectMetadataDlg.Designer.cs">
+      <DependentUpon>ProjectMetadataDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="IScrBook.cs" />
     <Compile Include="IStylesheet.cs" />
     <Compile Include="MultiBlockQuote.cs" />
     <Compile Include="Project.cs" />
+    <Compile Include="ProjectMetadataViewModel.cs" />
     <Compile Include="Quote\QuoteParser.cs" />
     <Compile Include="Quote\QuoteSystem.cs" />
     <Compile Include="Quote\QuoteSystemGuesser.cs" />
@@ -203,8 +204,8 @@
     <EmbeddedResource Include="Dialogs\ScriptureRangeSelectionDialog.resx">
       <DependentUpon>ScriptureRangeSelectionDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\SfmProjectMetadataDlg.resx">
-      <DependentUpon>SfmProjectMetadataDlg.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\ProjectMetadataDlg.resx">
+      <DependentUpon>ProjectMetadataDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SandboxForm.resx">
       <DependentUpon>SandboxForm.cs</DependentUpon>

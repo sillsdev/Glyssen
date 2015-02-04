@@ -101,24 +101,23 @@ namespace ProtoScript
 			string languageName;
 			string projectName;
 			var wsDefinition = new WritingSystemDefinition();
-			var model = new WritingSystemSetupModel(wsDefinition);
+			var wsModel = new WritingSystemSetupModel(wsDefinition);
 			stylesheet.FontFamily = FontHelper.GetSupportsRegular(Project.kDefaultFontPrimary) ? Project.kDefaultFontPrimary : Project.kDefaultFontSecondary;
-			model.CurrentDefaultFontName = stylesheet.FontFamily;
-			model.CurrentDefaultFontSize = stylesheet.FontSizeInPoints = Project.kDefaultFontSize;
+			wsModel.CurrentDefaultFontName = stylesheet.FontFamily;
+			wsModel.CurrentDefaultFontSize = stylesheet.FontSizeInPoints = Project.kDefaultFontSize;
+			var model = new ProjectMetadataViewModel(wsModel) { LanguageName = defaultLanguageName };
 
-			using (var dlg = new SfmProjectMetadataDlg(model))
+			using (var dlg = new ProjectMetadataDlg(model, true))
 			{
-				dlg.LanguageName = defaultLanguageName;
-
 				if (dlg.ShowDialog() == DialogResult.Cancel)
 					return null;
 
-				projectId = dlg.ProjectId;
-				isoCode = dlg.IsoCode;
-				projectName = dlg.ProjectName;
-				languageName = dlg.LanguageName;
-				stylesheet.FontFamily = model.CurrentDefaultFontName;
-				stylesheet.FontSizeInPoints = (int)model.CurrentDefaultFontSize;
+				projectId = dlg.ProjectMetadataViewModel.ProjectId;
+				isoCode = dlg.ProjectMetadataViewModel.IsoCode;
+				projectName = dlg.ProjectMetadataViewModel.ProjectName;
+				languageName = dlg.ProjectMetadataViewModel.LanguageName;
+				stylesheet.FontFamily = dlg.ProjectMetadataViewModel.WsModel.CurrentDefaultFontName;
+				stylesheet.FontSizeInPoints = (int)dlg.ProjectMetadataViewModel.WsModel.CurrentDefaultFontSize;
 			}
 
 			var availableBooks = books.Select(b => new Book { Code = b.BookId }).ToList();
@@ -126,7 +125,7 @@ namespace ProtoScript
 			{
 				id = projectId,
 				identification = new DblMetadataIdentification { name = projectName },
-				language = new DblMetadataLanguage { iso = isoCode, name = languageName, scriptDirection = model.CurrentRightToLeftScript ? "RTL" : "LTR" },
+				language = new DblMetadataLanguage { iso = isoCode, name = languageName, scriptDirection = wsModel.CurrentRightToLeftScript ? "RTL" : "LTR" },
 				AvailableBooks = availableBooks,
 				FontFamily = stylesheet.FontFamily,
 				FontSizeInPoints = stylesheet.FontSizeInPoints

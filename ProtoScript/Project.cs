@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using System.Xml;
 using L10NSharp;
 using Palaso.Reporting;
+using Palaso.UI.WindowsForms.WritingSystems;
+using Palaso.WritingSystems;
 using Palaso.Xml;
 using ProtoScript.Analysis;
 using ProtoScript.Bundle;
@@ -61,9 +63,9 @@ namespace ProtoScript
 			get { return m_metadata.id; }
 		}
 
-		public string Language
+		public string LanguageIsoCode
 		{
-			get { return m_metadata.language.ToString(); }
+			get { return m_metadata.language.iso; }
 		}
 
 		public string FontFamily
@@ -118,7 +120,40 @@ namespace ProtoScript
 
 		public IReadOnlyList<Book> AvailableBooks { get { return m_metadata.AvailableBooks; } }
 
+		public string OriginalPathOfDblFile { get { return m_metadata.OriginalPathOfDblFile; } }
+
 		public ProjectCharacterVerseData ProjectCharacterVerseData;
+
+		public ProjectMetadataViewModel ProjectMetadataViewModel
+		{
+			get
+			{
+				var wsModel = new WritingSystemSetupModel(new WritingSystemDefinition())
+				{
+					CurrentDefaultFontName = FontFamily,
+					CurrentDefaultFontSize = FontSizeInPoints,
+					CurrentRightToLeftScript = RightToLeftScript
+				};
+				var model = new ProjectMetadataViewModel(wsModel)
+				{
+					LanguageName = m_metadata.language.name,
+					IsoCode = m_metadata.language.iso,
+					ProjectId = Id,
+					ProjectName = m_metadata.identification.name
+				};
+				return model;
+			}
+			set
+			{
+				ProjectMetadataViewModel model = value;
+				m_metadata.id = model.ProjectId;
+				m_metadata.language.iso = model.IsoCode;
+				m_metadata.identification.name = model.ProjectName;
+				m_metadata.language.name = model.LanguageName;
+				m_metadata.FontFamily = model.WsModel.CurrentDefaultFontName;
+				m_metadata.FontSizeInPoints = (int)model.WsModel.CurrentDefaultFontSize;
+			}
+		}
 
 		public static Project Load(string projectFilePath)
 		{
