@@ -4,6 +4,9 @@ using System.Text;
 using System.Windows.Forms;
 using L10NSharp;
 using L10NSharp.UI;
+using Palaso.UI.WindowsForms;
+using Palaso.UI.WindowsForms.WritingSystems;
+using Palaso.WritingSystems;
 using ProtoScript.Dialogs;
 using ProtoScript.Properties;
 
@@ -157,7 +160,7 @@ namespace ProtoScript
 		private void UpdateDisplayOfProjectInfo()
 		{
 			m_lblBundleId.Text = string.Format(m_bundleIdFmt, m_project != null ? m_project.Id : String.Empty);
-			m_lblLanguage.Text = string.Format(m_LanguageIdFmt, m_project != null ? m_project.Language : String.Empty);
+			m_lblLanguage.Text = string.Format(m_LanguageIdFmt, m_project != null ? m_project.LanguageIsoCode : String.Empty);
 			UpdateDisplayOfQuoteSystemInfo();
 		}
 
@@ -274,6 +277,18 @@ namespace ProtoScript
 		{
 			using (var dlg = new ScriptureRangeSelectionDialog(m_project))
 				dlg.ShowDialog();
+		}
+
+		private void m_btnSettings_Click(object sender, EventArgs e)
+		{
+			bool readOnly = File.Exists(m_project.OriginalPathOfDblFile);
+			using (var dlg = new ProjectMetadataDlg(m_project.ProjectMetadataViewModel, false, readOnly))
+			{
+				if (dlg.ShowDialog() == DialogResult.Cancel)
+					return;
+
+				m_project.ProjectMetadataViewModel = dlg.ProjectMetadataViewModel;
+			}
 		}
 	}
 }

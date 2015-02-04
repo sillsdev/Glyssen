@@ -1,6 +1,6 @@
 ﻿namespace ProtoScript.Dialogs
 {
-	partial class SfmProjectMetadataDlg
+	partial class ProjectMetadataDlg
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -40,8 +40,8 @@
 			this.m_txtProjectName = new System.Windows.Forms.TextBox();
 			this.m_txtProjectId = new System.Windows.Forms.TextBox();
 			this.m_chkOverride = new System.Windows.Forms.CheckBox();
-			this.m_wsFontControl = new Palaso.UI.WindowsForms.WritingSystems.WSFontControl();
 			this.m_btnOk = new System.Windows.Forms.Button();
+			this.m_wsFontControl = new Palaso.UI.WindowsForms.WritingSystems.WSFontControl();
 			this.m_tableLayoutMain = new System.Windows.Forms.TableLayoutPanel();
 			this.m_tableLayoutProjectId = new System.Windows.Forms.TableLayoutPanel();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
@@ -62,7 +62,7 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_btnCancel, L10NSharp.LocalizationPriority.High);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnCancel, "Common.Cancel");
-			this.m_btnCancel.Location = new System.Drawing.Point(437, 333);
+			this.m_btnCancel.Location = new System.Drawing.Point(437, 342);
 			this.m_btnCancel.Name = "m_btnCancel";
 			this.m_btnCancel.Size = new System.Drawing.Size(75, 23);
 			this.m_btnCancel.TabIndex = 2;
@@ -201,6 +201,22 @@
 			this.m_chkOverride.UseVisualStyleBackColor = true;
 			this.m_chkOverride.CheckedChanged += new System.EventHandler(this.m_chkOverride_CheckedChanged);
 			// 
+			// m_btnOk
+			// 
+			this.m_btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_btnOk, L10NSharp.LocalizationPriority.High);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnOk, "Common.OK");
+			this.m_btnOk.Location = new System.Drawing.Point(356, 342);
+			this.m_btnOk.Name = "m_btnOk";
+			this.m_btnOk.Size = new System.Drawing.Size(75, 23);
+			this.m_btnOk.TabIndex = 1;
+			this.m_btnOk.Text = "OK";
+			this.m_btnOk.UseVisualStyleBackColor = true;
+			this.m_btnOk.Click += new System.EventHandler(this.HandleOkButtonClick);
+			// 
 			// m_wsFontControl
 			// 
 			this.m_tableLayoutMain.SetColumnSpan(this.m_wsFontControl, 2);
@@ -213,24 +229,8 @@
 			this.m_wsFontControl.Location = new System.Drawing.Point(4, 130);
 			this.m_wsFontControl.Margin = new System.Windows.Forms.Padding(4);
 			this.m_wsFontControl.Name = "m_wsFontControl";
-			this.m_wsFontControl.Size = new System.Drawing.Size(489, 168);
+			this.m_wsFontControl.Size = new System.Drawing.Size(489, 177);
 			this.m_wsFontControl.TabIndex = 7;
-			// 
-			// m_btnOk
-			// 
-			this.m_btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_btnOk, L10NSharp.LocalizationPriority.High);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnOk, "Common.OK");
-			this.m_btnOk.Location = new System.Drawing.Point(356, 333);
-			this.m_btnOk.Name = "m_btnOk";
-			this.m_btnOk.Size = new System.Drawing.Size(75, 23);
-			this.m_btnOk.TabIndex = 1;
-			this.m_btnOk.Text = "OK";
-			this.m_btnOk.UseVisualStyleBackColor = true;
-			this.m_btnOk.Click += new System.EventHandler(this.HandleOkButtonClick);
 			// 
 			// m_tableLayoutMain
 			// 
@@ -257,7 +257,7 @@
 			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
 			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.m_tableLayoutMain.Size = new System.Drawing.Size(497, 302);
+			this.m_tableLayoutMain.Size = new System.Drawing.Size(497, 311);
 			this.m_tableLayoutMain.TabIndex = 0;
 			// 
 			// m_tableLayoutProjectId
@@ -277,14 +277,14 @@
 			this.m_tableLayoutProjectId.Size = new System.Drawing.Size(284, 28);
 			this.m_tableLayoutProjectId.TabIndex = 11;
 			// 
-			// SfmProjectMetadataDlg
+			// ProjectMetadataDlg
 			// 
 			this.AcceptButton = this.m_btnOk;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.CancelButton = this.m_btnCancel;
-			this.ClientSize = new System.Drawing.Size(527, 372);
+			this.ClientSize = new System.Drawing.Size(527, 381);
 			this.Controls.Add(this.m_btnOk);
 			this.Controls.Add(this.m_tableLayoutMain);
 			this.Controls.Add(this.m_btnCancel);
@@ -294,12 +294,12 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(543, 410);
-			this.Name = "SfmProjectMetadataDlg";
+			this.Name = "ProjectMetadataDlg";
 			this.Padding = new System.Windows.Forms.Padding(15, 15, 15, 55);
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Standard Format Project Metadata";
+			this.Text = "Project Metadata";
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			this.m_tableLayoutMain.ResumeLayout(false);
 			this.m_tableLayoutMain.PerformLayout();

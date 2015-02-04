@@ -1,53 +1,88 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using L10NSharp;
-using Palaso.UI.WindowsForms.WritingSystems;
 
 namespace ProtoScript.Dialogs
 {
-	public partial class SfmProjectMetadataDlg : Form
+	public partial class ProjectMetadataDlg : Form
 	{
-		private readonly WritingSystemSetupModel m_model;
-
-		public SfmProjectMetadataDlg(WritingSystemSetupModel model)
+		private ProjectMetadataViewModel m_model;
+		private readonly bool m_initialSave;
+		public ProjectMetadataDlg(ProjectMetadataViewModel model, bool initialSave = false, bool readOnly = false)
 		{
-			m_model = model;
 			InitializeComponent();
-			m_wsFontControl.BindToModel(model);
+			if (readOnly)
+				SetReadOnly();
+			ProjectMetadataViewModel = model;
+			m_wsFontControl.BindToModel(model.WsModel);
+			m_initialSave = initialSave;
+			if (!m_initialSave)
+			{
+				m_chkOverride.Visible = false;
+				m_txtIso639_2_Code.Enabled = false;
+			}
 			UpdateProjectId(null, null);
 		}
 
-		public string LanguageName
+		public ProjectMetadataViewModel ProjectMetadataViewModel {
+			get
+			{
+				m_model.LanguageName = LanguageName;
+				m_model.IsoCode = IsoCode;
+				m_model.ProjectName = ProjectName;
+				m_model.ProjectId = ProjectId;
+				return m_model;
+			}
+			private set
+			{
+				m_model = value;
+				LanguageName = value.LanguageName;
+				IsoCode = value.IsoCode;
+				ProjectName = value.ProjectName;
+				ProjectId = value.ProjectId;
+			}
+		}
+
+		private string LanguageName
 		{
 			get { return m_txtLanguageName.Text; }
 			set { m_txtLanguageName.Text = value ?? string.Empty; }
 		}
 
-		public string IsoCode
+		private string IsoCode
 		{
 			get { return (string.IsNullOrWhiteSpace(m_txtIso639_2_Code.Text)) ? "zzz" : m_txtIso639_2_Code.Text; }
+			set { m_txtIso639_2_Code.Text = value; }
 		}
 
-		public string ProjectName
+		private string ProjectName
 		{
 			get { return m_txtProjectName.Text; }
+			set { m_txtProjectName.Text = value; }
 		}
 
-		public string ProjectId
+		private string ProjectId
 		{
 			get { return m_txtProjectId.Text; }
+			set { m_txtProjectId.Text = value; }
+		}
+
+		private void SetReadOnly()
+		{
+			m_txtLanguageName.Enabled = false;
+			m_txtIso639_2_Code.Enabled = false;
+			m_txtProjectName.Enabled = false;
+			m_chkOverride.Visible = false;
+			m_wsFontControl.ReadOnly = true;
+			m_btnOk.Enabled = false;
 		}
 
 		private void UpdateProjectId(object sender, EventArgs e)
 		{
+			if (!m_initialSave)
+				return;
 			if (!m_txtProjectId.Enabled)
 			{
 				StringBuilder bldr = new StringBuilder("sfm");
@@ -81,7 +116,7 @@ namespace ProtoScript.Dialogs
 
 		private void HandleOkButtonClick(object sender, EventArgs e)
 		{
-			if (File.Exists(Project.GetProjectFilePath(IsoCode, m_txtProjectId.Text)))
+			if (m_initialSave && File.Exists(Project.GetProjectFilePath(IsoCode, m_txtProjectId.Text)))
 			{
 				var msg =string.Format(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.OverwriteProjectPrompt",
 					"A {0} project with an ID of {1} already exists for this language. Do you want to overwrite it?"),
