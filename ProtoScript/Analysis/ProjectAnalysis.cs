@@ -33,7 +33,7 @@ namespace ProtoScript.Analysis
 			}
 			Console.WriteLine("*************************************************************");
 			Console.WriteLine();
-			Console.WriteLine(m_projectToAnalyze.Language);
+			Console.WriteLine(m_projectToAnalyze.LanguageIsoCode);
 			double assignedAutomatically = (totalBlocks - (unknownBlocks + ambiguousBlocks)) / (double)totalBlocks;
 			Console.WriteLine("Percentage of blocks assigned automatically: " + assignedAutomatically * 100);
 			double narrator = narratorBlocks / (double)totalBlocks;
