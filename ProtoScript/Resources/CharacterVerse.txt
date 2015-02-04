@@ -348,7 +348,7 @@ GEN	31	1	Laban's sons			FALSE
 GEN	31	3	God		God (the LORD)	FALSE		
 GEN	31	5	Jacob			FALSE		
 GEN	31	10	Jacob			FALSE		
-GEN	31	14	Leah		Rachel/Leah	FALSE		
+GEN	31	14	Rachel/Leah			FALSE	Leah	
 GEN	31	24	God		God (LORD came in dream at night)	FALSE		
 GEN	31	26	Laban			FALSE		
 GEN	31	31	Jacob			FALSE		
@@ -465,9 +465,9 @@ GEN	39	14	Potiphar's wife			FALSE
 GEN	39	17	Potiphar's wife			FALSE		
 GEN	39	19	Potiphar's wife			FALSE		
 GEN	40	7	Joseph			FALSE		
-GEN	40	8	chief cupbearer		chief cupbearer/chief baker	FALSE		
+GEN	40	8	chief cupbearer/chief baker			FALSE	chief cupbearer	
 GEN	40	8	Joseph			FALSE		
-GEN	40	9	chief cupbearer		chief cupbearer/chief baker	FALSE		
+GEN	40	9	chief cupbearer/chief baker			FALSE	chief cupbearer	
 GEN	40	12	Joseph			FALSE		
 GEN	40	14	Joseph			FALSE		
 GEN	40	16	chief baker			FALSE		
@@ -812,24 +812,24 @@ EXO	14	13	Moses			FALSE
 EXO	14	15	God		God (the LORD)	FALSE		
 EXO	14	25	Egyptians	afraid		FALSE		
 EXO	14	26	God		God (the LORD)	FALSE		
-EXO	15	1	Moses	sang	Moses/Israelites	FALSE		
-EXO	15	2	Moses	sang	Moses/Israelites	FALSE		
-EXO	15	3	Moses	sang	Moses/Israelites	FALSE		
-EXO	15	4	Moses	sang	Moses/Israelites	FALSE		
-EXO	15	5	Moses	sang	Moses/Israelites	FALSE		
-EXO	15	6	Moses	sang	Moses/Israelites	FALSE		
-EXO	15	7	Moses	sang	Moses/Israelites	FALSE		
-EXO	15	8	Moses	sang	Moses/Israelites	FALSE		
-EXO	15	9	Moses	sang	Moses/Israelites	FALSE		
-EXO	15	10	Moses	sang	Moses/Israelites	FALSE		
-EXO	15	11	Moses	sang	Moses/Israelites	FALSE		
-EXO	15	12	Moses	sang	Moses/Israelites	FALSE		
-EXO	15	13	Moses	sang	Moses/Israelites	FALSE		
-EXO	15	14	Moses	sang	Moses/Israelites	FALSE		
-EXO	15	15	Moses	sang	Moses/Israelites	FALSE		
-EXO	15	16	Moses	sang	Moses/Israelites	FALSE		
-EXO	15	17	Moses	sang	Moses/Israelites	FALSE		
-EXO	15	18	Moses	sang	Moses/Israelites	FALSE		
+EXO	15	1	Moses/Israelites	sang		FALSE	Moses	
+EXO	15	2	Moses/Israelites	sang		FALSE	Moses	
+EXO	15	3	Moses/Israelites	sang		FALSE	Moses	
+EXO	15	4	Moses/Israelites	sang		FALSE	Moses	
+EXO	15	5	Moses/Israelites	sang		FALSE	Moses	
+EXO	15	6	Moses/Israelites	sang		FALSE	Moses	
+EXO	15	7	Moses/Israelites	sang		FALSE	Moses	
+EXO	15	8	Moses/Israelites	sang		FALSE	Moses	
+EXO	15	9	Moses/Israelites	sang		FALSE	Moses	
+EXO	15	10	Moses/Israelites	sang		FALSE	Moses	
+EXO	15	11	Moses/Israelites	sang		FALSE	Moses	
+EXO	15	12	Moses/Israelites	sang		FALSE	Moses	
+EXO	15	13	Moses/Israelites	sang		FALSE	Moses	
+EXO	15	14	Moses/Israelites	sang		FALSE	Moses	
+EXO	15	15	Moses/Israelites	sang		FALSE	Moses	
+EXO	15	16	Moses/Israelites	sang		FALSE	Moses	
+EXO	15	17	Moses/Israelites	sang		FALSE	Moses	
+EXO	15	18	Moses/Israelites	sang		FALSE	Moses	
 EXO	15	21	Miriam/women	sang		FALSE		
 EXO	15	24	Israelite people, grumblers			FALSE		
 EXO	15	26	God		God (the LORD)	FALSE		
@@ -1141,7 +1141,7 @@ LEV	24	14	God		God (the LORD)	FALSE
 LEV	25	2	God		God (the LORD)	FALSE		
 LEV	27	2	God		God (the LORD)	FALSE		
 NUM	1	2	God		God (the LORD)	FALSE		
-NUM	1	5	Moses	sang	Moses/Israelites	FALSE		
+NUM	1	5	Moses/Israelites	sang		FALSE	Moses	
 NUM	1	6	God		God (the LORD)	FALSE		
 NUM	1	7	God		God (the LORD)	FALSE		
 NUM	1	8	God		God (the LORD)	FALSE		
@@ -1294,7 +1294,7 @@ NUM	21	5	people			FALSE
 NUM	21	7	people			FALSE		
 NUM	21	8	God		God (the LORD)	FALSE		
 NUM	21	14	Book of the Wars of the LORD			FALSE		
-NUM	21	15	Moses	sang	Moses/Israelites	FALSE		
+NUM	21	15	Moses/Israelites	sang		FALSE	Moses	
 NUM	21	16	God		God (the LORD)	FALSE		
 NUM	21	17	Israel			FALSE		
 NUM	21	18	Israel	singing		FALSE		
@@ -1526,8 +1526,8 @@ DEU	25	9	Moses		Moses saying what widow may say	FALSE
 DEU	26	3	Moses		Moses saying what Israel should say	FALSE		
 DEU	26	5	Moses		Moses saying what Israel should say	FALSE		
 DEU	26	13	Moses		Moses saying what Israel should say	FALSE		
-DEU	27	1	Moses		Moses/Elders of Israel	FALSE		
-DEU	27	9	Moses		Moses/Priests	FALSE		
+DEU	27	1	Moses/Elders of Israel			FALSE	Moses	
+DEU	27	9	Moses/Priests			FALSE	Moses	
 DEU	27	15	Moses		Moses saying what Levites should say	FALSE		
 DEU	27	16	Moses			FALSE		
 DEU	27	17	Moses			FALSE		
@@ -1704,7 +1704,7 @@ JOS	22	27	Reubenites/Gadites/half-tribe of Manasseh		Reuben/Gad/Manasseh	FALSE
 JOS	22	28	Reubenites/Gadites/half-tribe of Manasseh		Reuben/Gad/Manasseh	FALSE		
 JOS	22	29	Reubenites/Gadites/half-tribe of Manasseh		Reuben/Gad/Manasseh	FALSE		
 JOS	22	31	Phineas			FALSE		
-JOS	22	32	Phineas		Phineas/leaders	FALSE		
+JOS	22	32	Phineas/leaders			FALSE	Phineas	
 JOS	23	2	Joshua, old			FALSE		
 JOS	23	4	Joshua, old			FALSE		
 JOS	23	6	Joshua, old			FALSE		
@@ -1751,37 +1751,37 @@ JDG	4	18	Jael			FALSE
 JDG	4	19	Sisera			FALSE		
 JDG	4	20	Sisera			FALSE		
 JDG	4	22	Jael			FALSE		
-JDG	5	2	Deborah		Deborah/Barak	FALSE		
-JDG	5	3	Deborah		Deborah/Barak	FALSE		
-JDG	5	4	Deborah		Deborah/Barak	FALSE		
-JDG	5	5	Deborah		Deborah/Barak	FALSE		
-JDG	5	6	Deborah		Deborah/Barak	FALSE		
-JDG	5	7	Deborah		Deborah/Barak	FALSE		
-JDG	5	8	Deborah		Deborah/Barak	FALSE		
-JDG	5	9	Deborah		Deborah/Barak	FALSE		
-JDG	5	10	Deborah		Deborah/Barak	FALSE		
-JDG	5	11	Deborah		Deborah/Barak	FALSE		
-JDG	5	12	Deborah		Deborah/Barak	FALSE		
-JDG	5	13	Deborah		Deborah/Barak	FALSE		
-JDG	5	14	Deborah		Deborah/Barak	FALSE		
-JDG	5	15	Deborah		Deborah/Barak	FALSE		
-JDG	5	16	Deborah		Deborah/Barak	FALSE		
-JDG	5	17	Deborah		Deborah/Barak	FALSE		
-JDG	5	18	Deborah		Deborah/Barak	FALSE		
-JDG	5	19	Deborah		Deborah/Barak	FALSE		
-JDG	5	20	Deborah		Deborah/Barak	FALSE		
-JDG	5	21	Deborah		Deborah/Barak	FALSE		
-JDG	5	22	Deborah		Deborah/Barak	FALSE		
-JDG	5	23	Deborah		Deborah/Barak	FALSE		
-JDG	5	24	Deborah		Deborah/Barak	FALSE		
-JDG	5	25	Deborah		Deborah/Barak	FALSE		
-JDG	5	26	Deborah		Deborah/Barak	FALSE		
-JDG	5	27	Deborah		Deborah/Barak	FALSE		
-JDG	5	28	Deborah		Deborah/Barak	FALSE		
-JDG	5	29	Deborah		Deborah/Barak	FALSE		
-JDG	5	30	Deborah		Deborah/Barak	FALSE		
+JDG	5	2	Deborah/Barak			FALSE	Deborah	
+JDG	5	3	Deborah/Barak			FALSE	Deborah	
+JDG	5	4	Deborah/Barak			FALSE	Deborah	
+JDG	5	5	Deborah/Barak			FALSE	Deborah	
+JDG	5	6	Deborah/Barak			FALSE	Deborah	
+JDG	5	7	Deborah/Barak			FALSE	Deborah	
+JDG	5	8	Deborah/Barak			FALSE	Deborah	
+JDG	5	9	Deborah/Barak			FALSE	Deborah	
+JDG	5	10	Deborah/Barak			FALSE	Deborah	
+JDG	5	11	Deborah/Barak			FALSE	Deborah	
+JDG	5	12	Deborah/Barak			FALSE	Deborah	
+JDG	5	13	Deborah/Barak			FALSE	Deborah	
+JDG	5	14	Deborah/Barak			FALSE	Deborah	
+JDG	5	15	Deborah/Barak			FALSE	Deborah	
+JDG	5	16	Deborah/Barak			FALSE	Deborah	
+JDG	5	17	Deborah/Barak			FALSE	Deborah	
+JDG	5	18	Deborah/Barak			FALSE	Deborah	
+JDG	5	19	Deborah/Barak			FALSE	Deborah	
+JDG	5	20	Deborah/Barak			FALSE	Deborah	
+JDG	5	21	Deborah/Barak			FALSE	Deborah	
+JDG	5	22	Deborah/Barak			FALSE	Deborah	
+JDG	5	23	Deborah/Barak			FALSE	Deborah	
+JDG	5	24	Deborah/Barak			FALSE	Deborah	
+JDG	5	25	Deborah/Barak			FALSE	Deborah	
+JDG	5	26	Deborah/Barak			FALSE	Deborah	
+JDG	5	27	Deborah/Barak			FALSE	Deborah	
+JDG	5	28	Deborah/Barak			FALSE	Deborah	
+JDG	5	29	Deborah/Barak			FALSE	Deborah	
+JDG	5	30	Deborah/Barak			FALSE	Deborah	
 JDG	5	30	Sisera's mother			FALSE		
-JDG	5	31	Deborah		Deborah/Barak	FALSE		
+JDG	5	31	Deborah/Barak			FALSE	Deborah	
 JDG	6	8	prophet			FALSE		
 JDG	6	12	Jesus		the angel of the LORD	FALSE		
 JDG	6	13	Gideon			FALSE		
@@ -2633,12 +2633,12 @@ RUT	4	17	women of Bethlehem			FALSE
 2SA	17	6	Absalom			FALSE		
 2SA	17	7	Hushai, David's friend			FALSE		
 2SA	17	11	Hushai, David's friend			FALSE		
-2SA	17	14	Absalom		Absalom/Israel, men of	FALSE		
+2SA	17	14	Absalom/Israel, men of			FALSE	Absalom	
 2SA	17	15	Hushai, David's friend			FALSE		
 2SA	17	20	Absalom's men			FALSE		
 2SA	17	20	woman in Bahurim			FALSE		
 2SA	17	21	Jonathan, son of Abiathar			FALSE		
-2SA	17	29	Barzillai		Barzillai/Shobi/Makir	FALSE		
+2SA	17	29	Barzillai/Shobi/Makir			FALSE	Barzillai	
 2SA	18	2	David		David, king	FALSE		
 2SA	18	3	men of David			FALSE		
 2SA	18	4	David		David, king	FALSE		
@@ -3289,13 +3289,13 @@ RUT	4	17	women of Bethlehem			FALSE
 2KI	18	14	Hezekiah, king of Judah			FALSE		
 2KI	18	19	Field commander from King of Assyria			FALSE		
 2KI	18	22	Field commander from King of Assyria			FALSE		
-2KI	18	26	Eliakim		Eliakim/Shebna/Joah	FALSE		
+2KI	18	26	Eliakim/Shebna/Joah			FALSE	Eliakim	
 2KI	18	27	Field commander from King of Assyria			FALSE		
 2KI	18	28	Field commander from King of Assyria			FALSE		
 2KI	18	31	Field commander from King of Assyria			FALSE		
 2KI	18	32	Field commander from King of Assyria			FALSE		
 2KI	18	36	Hezekiah, king of Judah			FALSE		
-2KI	19	3	Eliakim		Eliakim/Shebna/priests	FALSE		
+2KI	19	3	Eliakim/Shebna/priests			FALSE	Eliakim	
 2KI	19	6	Isaiah		Isaiah, the prophet (the LORD says)	FALSE		
 2KI	19	10	Sennacherib, king of Assyria			FALSE		
 2KI	19	15	Hezekiah, king of Judah			FALSE		
@@ -3472,7 +3472,7 @@ RUT	4	17	women of Bethlehem			FALSE
 2CH	7	19	God		God (LORD appeared in dream at night)	FALSE		
 2CH	8	11	Solomon, king			FALSE		
 2CH	9	5	queen of Sheba			FALSE		
-2CH	10	4	Jeroboam		Jeroboam/Israel, all	FALSE		
+2CH	10	4	Jeroboam/Israel, all			FALSE	Jeroboam	
 2CH	10	5	Rehoboam		Rehoboam, king	FALSE		
 2CH	10	6	Rehoboam		Rehoboam, king	FALSE		
 2CH	10	7	elders			FALSE		
@@ -3659,7 +3659,7 @@ NEH	2	6	Artaxerxes, king of Persia			FALSE
 NEH	2	7	Nehemiah			FALSE		
 NEH	2	17	Nehemiah			FALSE		
 NEH	2	18	Jews/priests/nobles/officials			FALSE		
-NEH	2	19	Sanballat	mocking, ridiculing	Sanballat/Tobiah/Geshem, enemies	FALSE		
+NEH	2	19	Sanballat/Tobiah/Geshem, enemies	mocking, ridiculing		FALSE	Sanballat	
 NEH	2	20	Nehemiah			FALSE		
 NEH	4	2	Sanballat	angry, ridiculing	Sanballat, enemy	FALSE		
 NEH	4	3	Tobiah, enemy	mocking, ridiculing		FALSE		
@@ -3678,17 +3678,17 @@ NEH	5	9	Nehemiah			FALSE
 NEH	5	12	Nobles/officials			FALSE		
 NEH	5	13	assembly, whole			FALSE		
 NEH	5	13	Nehemiah			FALSE		
-NEH	6	2	Sanballat	message	Sanballat/Geshem, enemies [scheming]	FALSE		
+NEH	6	2	Sanballat/Geshem, enemies [scheming]	message		FALSE	Sanballat	
 NEH	6	3	Nehemiah	message		FALSE		
 NEH	6	6	Sanballat	letter	Sanballat, enemy	FALSE		
 NEH	6	8	Nehemiah	message		FALSE		
 NEH	6	9	Nehemiah	praying		FALSE		
-NEH	6	9	Sanballat	thinking	Sanballat/Geshem, enemies	FALSE		
+NEH	6	9	Sanballat/Geshem, enemies	thinking		FALSE	Sanballat	
 NEH	6	10	Shemaiah		Shemaiah, son of Delaiah, false prophet	FALSE		
 NEH	6	11	Nehemiah			FALSE		
 NEH	7	3	Nehemiah			FALSE		
 NEH	8	6	people, all the	praising		FALSE		
-NEH	8	9	Nehemiah		Nehemiah/Ezra/Levites	FALSE		
+NEH	8	9	Nehemiah/Ezra/Levites			FALSE	Nehemiah	
 NEH	8	10	Nehemiah			FALSE		
 NEH	8	11	Levites			FALSE		
 NEH	8	15	scripture (Moses quoting God)			FALSE		
@@ -3725,18 +3725,18 @@ NEH	9	34	Levites	praying		FALSE
 NEH	9	35	Levites	praying		FALSE		
 NEH	9	36	Levites	praying		FALSE		
 NEH	9	37	Levites	praying		FALSE		
-NEH	10	28	priests/Levites		priests/Levites/people	FALSE		
-NEH	10	29	priests/Levites		priests/Levites/people	FALSE		
-NEH	10	30	priests/Levites		priests/Levites/people	FALSE		
-NEH	10	31	priests/Levites		priests/Levites/people	FALSE		
-NEH	10	32	priests/Levites		priests/Levites/people	FALSE		
-NEH	10	33	priests/Levites		priests/Levites/people	FALSE		
-NEH	10	34	priests/Levites		priests/Levites/people	FALSE		
-NEH	10	35	priests/Levites		priests/Levites/people	FALSE		
-NEH	10	36	priests/Levites		priests/Levites/people	FALSE		
-NEH	10	37	priests/Levites		priests/Levites/people	FALSE		
-NEH	10	38	priests/Levites		priests/Levites/people	FALSE		
-NEH	10	39	priests/Levites		priests/Levites/people	FALSE		
+NEH	10	28	priests/Levites/people			FALSE	priests/Levites	
+NEH	10	29	priests/Levites/people			FALSE	priests/Levites	
+NEH	10	30	priests/Levites/people			FALSE	priests/Levites	
+NEH	10	31	priests/Levites/people			FALSE	priests/Levites	
+NEH	10	32	priests/Levites/people			FALSE	priests/Levites	
+NEH	10	33	priests/Levites/people			FALSE	priests/Levites	
+NEH	10	34	priests/Levites/people			FALSE	priests/Levites	
+NEH	10	35	priests/Levites/people			FALSE	priests/Levites	
+NEH	10	36	priests/Levites/people			FALSE	priests/Levites	
+NEH	10	37	priests/Levites/people			FALSE	priests/Levites	
+NEH	10	38	priests/Levites/people			FALSE	priests/Levites	
+NEH	10	39	priests/Levites/people			FALSE	priests/Levites	
 NEH	13	11	Nehemiah			FALSE		
 NEH	13	17	Nehemiah			FALSE		
 NEH	13	21	Nehemiah			FALSE		
@@ -5216,13 +5216,13 @@ ISA	33	24	narrator-ISA			FALSE
 ISA	35	4	narrator-ISA			FALSE		
 ISA	36	4	Field commander from King of Assyria			FALSE		
 ISA	36	7	Field commander from King of Assyria			FALSE		
-ISA	36	11	Eliakim		Eliakim/Shebna/Joah	FALSE		
+ISA	36	11	Eliakim/Shebna/Joah			FALSE	Eliakim	
 ISA	36	12	Field commander from King of Assyria			FALSE		
 ISA	36	13	Field commander from King of Assyria			FALSE		
 ISA	36	16	Field commander from King of Assyria			FALSE		
 ISA	36	18	Field commander from King of Assyria			FALSE		
 ISA	36	21	Hezekiah, king of Judah			FALSE		
-ISA	37	3	Eliakim		Eliakim/Shebna/leading priests	FALSE		
+ISA	37	3	Eliakim/Shebna/leading priests			FALSE	Eliakim	
 ISA	37	6	Isaiah		Isaiah, the prophet	FALSE		
 ISA	37	10	Sennacherib's messengers			FALSE		
 ISA	37	16	Hezekiah, king of Judah			FALSE		
@@ -6134,14 +6134,14 @@ JER	39	16	God		God (the LORD)(word of the LORD came)	FALSE
 JER	40	2	Nebuzaradan		Nebuzaradan, commander for king of Babylon	FALSE		
 JER	40	5	Nebuzaradan		Nebuzaradan, commander for king of Babylon	FALSE		
 JER	40	9	Gedaliah, governor of Judah			FALSE		
-JER	40	14	Johanan		Johanan/all the army officers	FALSE		
+JER	40	14	Johanan/all the army officers			FALSE	Johanan	
 JER	40	15	Johanan			FALSE		
 JER	40	16	Gedaliah, governor of Judah			FALSE		
 JER	41	6	Ishmael, son of Nethaniah (murderer)			FALSE		
 JER	41	8	men in mourning, ten of eighty			FALSE		
-JER	42	2	Johanan		Johanan/all the army officers/all the people	FALSE		
+JER	42	2	Johanan/all the army officers/all the people			FALSE	Johanan	
 JER	42	4	Jeremiah		Jeremiah, the prophet	FALSE		
-JER	42	5	Johanan		Johanan/all the army officers/all the people	FALSE		
+JER	42	5	Johanan/all the army officers/all the people			FALSE	Johanan	
 JER	42	9	Jeremiah		Jeremiah, the prophet (word of the LORD came)	FALSE		
 JER	42	13	Jeremiah		Jeremiah, the prophet (word of the LORD came)	FALSE		
 JER	42	19	Jeremiah		Jeremiah, the prophet (word of the LORD came)	FALSE		
@@ -6765,11 +6765,11 @@ DAN	5	26	Daniel			FALSE
 DAN	5	27	Daniel			FALSE		
 DAN	5	28	Daniel			FALSE		
 DAN	6	5	Satraps			FALSE		
-DAN	6	6	Satraps		Satraps/Administrators	FALSE		
+DAN	6	6	Satraps/Administrators			FALSE	Satraps	
 DAN	6	12	Darius		Darius, king of Medes and Persians	FALSE		
-DAN	6	12	Satraps		Satraps/Administrators	FALSE		
-DAN	6	13	Satraps		Satraps/Administrators	FALSE		
-DAN	6	15	Satraps		Satraps/Administrators	FALSE		
+DAN	6	12	Satraps/Administrators			FALSE	Satraps	
+DAN	6	13	Satraps/Administrators			FALSE	Satraps	
+DAN	6	15	Satraps/Administrators			FALSE	Satraps	
 DAN	6	16	Darius		Darius, king of Medes and Persians	FALSE		
 DAN	6	20	Darius		Darius, king of Medes and Persians	FALSE		
 DAN	6	21	Daniel			FALSE		
@@ -8681,7 +8681,7 @@ MRK	15	44	Pilate			FALSE
 MRK	15	44	Pilate	surprised		FALSE		
 MRK	15	45	centurion summoned by Pilate			FALSE		
 MRK	15	45	Pilate			FALSE		
-MRK	16	3	Mary Magdalene		Mary Magdalene/Mary mother of James/Salome	FALSE		
+MRK	16	3	Mary Magdalene/Mary mother of James/Salome			FALSE	Mary Magdalene	
 MRK	16	6	angels in white, two		young man in white robe (angel)	TRUE		MAT 28.5-6;MRK 16.6;LUK 24.6
 MRK	16	7	angels in white, two		young man in white robe (angel)	TRUE		MAT 28.7;MRK 16.7
 MRK	16	15	Jesus	giving orders		FALSE		
@@ -9464,11 +9464,11 @@ LUK	23	42	criminal on cross, another	repentant		TRUE
 LUK	23	43	Jesus			TRUE		
 LUK	23	46	Jesus			TRUE		
 LUK	23	47	centurion at crucifixion	amazed		TRUE		
-LUK	24	4	Mary Magdalene		Mary Magdalene/Mary mother of James/Salome	FALSE		
+LUK	24	4	Mary Magdalene/Mary mother of James/Salome			FALSE	Mary Magdalene	
 LUK	24	5	angels in white, two		men (angels) in clothes that gleamed like lightning, two	TRUE		
 LUK	24	6	angels in white, two		men (angels) in clothes that gleamed like lightning, two	TRUE		MAT 28.5-6;MRK 16.6;LUK 24.6
 LUK	24	7	angels in white, two		men (angels) in clothes that gleamed like lightning, two	TRUE		
-LUK	24	8	Mary Magdalene		Mary Magdalene/Mary mother of James/Salome	FALSE		
+LUK	24	8	Mary Magdalene/Mary mother of James/Salome			FALSE	Mary Magdalene	
 LUK	24	17	Jesus	questioning		TRUE		
 LUK	24	18	Cleopas/companion (on road to Emmaus)			TRUE	Cleopas	
 LUK	24	19	Cleopas/companion (on road to Emmaus)			TRUE	Cleopas	
@@ -9550,7 +9550,7 @@ JHN	3	18	Jesus			FALSE
 JHN	3	19	Jesus			FALSE		
 JHN	3	20	Jesus			FALSE		
 JHN	3	21	Jesus			FALSE		
-JHN	3	26	John's disciples	concerned	John's disciples/a certain Jew	TRUE		
+JHN	3	26	John's disciples/a certain Jew	concerned		TRUE	John's disciples	
 JHN	3	27	John the Baptist			TRUE		
 JHN	3	28	John the Baptist			FALSE		
 JHN	3	29	Jesus			FALSE		
@@ -10067,7 +10067,7 @@ JHN	20	27	Jesus			TRUE
 JHN	20	28	Thomas	shocked		TRUE		
 JHN	20	29	Jesus			TRUE		
 JHN	21	3	Peter (Simon)			TRUE		
-JHN	21	3	Thomas		Thomas/Nathaniel/James/John/2 disciples	TRUE		
+JHN	21	3	Thomas/Nathaniel/James/John/2 disciples			TRUE	Thomas	
 JHN	21	5	Jesus	questioning		TRUE		
 JHN	21	5	disciples	calling out		TRUE	John	
 JHN	21	6	Jesus			TRUE		
@@ -10166,9 +10166,9 @@ ACT	4	15	chief priests/Sanhedrin		chief priests/their officials	FALSE
 ACT	4	16	high priests/men of their family/rulers, elders, teachers of the law		men in the Sanhedrin	FALSE	Good Priest	
 ACT	4	17	high priest	worried but stern		FALSE		
 ACT	4	18	chief priests/Sanhedrin		chief priests/their officials	FALSE		
-ACT	4	19	Peter (Simon)		Peter (Simon)/John	TRUE		
+ACT	4	19	Peter (Simon)/John			TRUE	Peter (Simon)	
 ACT	4	20	John			FALSE		
-ACT	4	23	Peter (Simon)		Peter (Simon)/John	FALSE		
+ACT	4	23	Peter (Simon)/John			FALSE	Peter (Simon)	
 ACT	4	24	Peter (Simon)/John/own people			FALSE		
 ACT	4	25	Peter (Simon)/John/own people			FALSE		
 ACT	4	26	Peter (Simon)/John/own people			FALSE		
@@ -10373,15 +10373,15 @@ ACT	13	39	Paul	preaching		FALSE
 ACT	13	40	Paul	preaching		FALSE		
 ACT	13	41	Paul	preaching		FALSE		
 ACT	13	42	people		people in synagogue	FALSE		
-ACT	13	43	Paul		Paul/Barnabas	FALSE		
-ACT	13	46	Paul	bold	Paul/Barnabas	FALSE		
-ACT	13	47	Paul	bold	Paul/Barnabas	FALSE		
+ACT	13	43	Paul/Barnabas			FALSE	Paul	
+ACT	13	46	Paul/Barnabas	bold		FALSE	Paul	
+ACT	13	47	Paul/Barnabas	bold		FALSE	Paul	
 ACT	13	48	Gentiles			FALSE		
 ACT	14	10	Paul	called out		TRUE		
 ACT	14	11	crowd	excited		TRUE		
-ACT	14	15	Paul	preaching	Barnabas/Paul	TRUE		
-ACT	14	16	Paul	preaching	Barnabas/Paul	FALSE		
-ACT	14	22	Paul		Barnabas/Paul	FALSE		
+ACT	14	15	Barnabas/Paul	preaching		TRUE	Paul	
+ACT	14	16	Barnabas/Paul	preaching		FALSE	Paul	
+ACT	14	22	Barnabas/Paul			FALSE	Paul	
 ACT	15	1	men from Judea, some	harsh		FALSE		
 ACT	15	5	believers who were Pharisees			TRUE		
 ACT	15	7	Peter (Simon)			TRUE		
@@ -10495,11 +10495,11 @@ ACT	21	4	Holy Spirit, the		Holy Spirit through disciples	FALSE
 ACT	21	11	Agabus the prophet	proclaim		TRUE		
 ACT	21	13	Paul	sad		TRUE		
 ACT	21	14	Paul's travelling companions, Luke and	resigned		TRUE		
-ACT	21	20	James	encouraging	James/all the elders	FALSE		
-ACT	21	22	James	encouraging	James/all the elders	FALSE		
-ACT	21	23	James		James/all the elders	FALSE		
-ACT	21	24	James	encouraging	James/all the elders	FALSE		
-ACT	21	25	James		James/all the elders	FALSE		
+ACT	21	20	James/all the elders	encouraging		FALSE	James	
+ACT	21	22	James/all the elders	encouraging		FALSE	James	
+ACT	21	23	James/all the elders			FALSE	James	
+ACT	21	24	James/all the elders	encouraging		FALSE	James	
+ACT	21	25	James/all the elders			FALSE	James	
 ACT	21	28	Jews	screaming		FALSE		
 ACT	21	33	commander			FALSE		
 ACT	21	34	crowd	shouting		FALSE		
