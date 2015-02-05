@@ -266,6 +266,13 @@ namespace ProtoScriptTests.Dialogs
 			Assert.IsTrue(m_model.IsModified(new AssignCharacterViewModel.Character(block1.CharacterId), new AssignCharacterViewModel.Delivery("peeved")));
 		}
 
+		[Test]
+		public void BlockCountForCurrentBook_TestMrk_ReturnsTrue()
+		{
+			int expectedCount = m_testProject.IncludedBooks[0].Blocks.Count;
+			Assert.AreEqual(expectedCount, m_model.BlockCountForCurrentBook, "Test data may have been changed");
+		}
+
 		private void FindRefInMark(int chapter, int verse)
 		{
 			while (m_model.CurrentBlock.ChapterNumber <= chapter && m_model.CurrentBlock.InitialStartVerseNumber != verse)

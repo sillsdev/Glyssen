@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Web;
 using ProtoScript.Character;
@@ -70,11 +71,13 @@ namespace ProtoScript.Dialogs
 			Mode = mode;
 		}
 
+		public int BlockCountForCurrentBook { get { return m_navigator.CurrentBook.Blocks.Count; } }
 		public int RelevantBlockCount { get { return m_relevantBlocks.Count; } }
 		public int AssignedBlockCount { get { return m_assignedBlocks; } }
 		public int CurrentBlockDisplayIndex { get { return m_displayBlockIndex + 1; } }
 		public string CurrentBookId { get { return m_navigator.CurrentBook.BookId; } }
 		public Block CurrentBlock { get { return m_navigator.CurrentBlock; } }
+		public int CurrentBlockIndexInBook { get { return m_navigator.GetIndices().Item2; } }
 		public CharacterIdComparer CharacterComparer { get { return m_characterComparer; } }
 		public int BackwardContextBlockCount { get; set; }
 		public int ForwardContextBlockCount { get; set; }
@@ -105,6 +108,20 @@ namespace ProtoScript.Dialogs
 					BuildContextBlocksHtml(ContextBlocksForward),
 					BuildStyle());
 			}
+		}
+
+		public Block GetNthBlockInCurrentBook(int i)
+		{
+			return m_navigator.CurrentBook.Blocks[i];
+		}
+
+		public string GetBlockReferenceString(Block block = null)
+		{
+			block = block ?? m_navigator.CurrentBlock;
+			var startRef = GetBlockReference(block);
+			var endRef = (block.InitialEndVerseNumber <= block.InitialStartVerseNumber) ? startRef :
+				new BCVRef(startRef.Book, startRef.Chapter, block.InitialEndVerseNumber);
+			return BCVRef.MakeReferenceString(startRef, endRef, ":", "-");
 		}
 
 		public bool IsFirstRelevantBlock
@@ -259,18 +276,19 @@ namespace ProtoScript.Dialogs
 			m_assignedBlocks = 0;
 			m_navigator.NavigateToFirstBlock();
 			m_relevantBlocks = new List<Tuple<int, int>>();
-			Block block;
-			do
+			Block block = m_navigator.CurrentBlock;
+			for (;;)
 			{
-				block = m_navigator.CurrentBlock;
 				if (IsRelevant(block))
 				{
 					m_relevantBlocks.Add(m_navigator.GetIndices());
 					if (block.UserConfirmed)
 						m_assignedBlocks++;
 				}
-				m_navigator.NextBlock();
-			} while (!m_navigator.IsLastBlock(block));
+				if (m_navigator.IsLastBlock(block))
+					break;
+				block = m_navigator.NextBlock();
+			}
 
 			m_navigator.NavigateToFirstBlock();
 		}
@@ -450,7 +468,7 @@ namespace ProtoScript.Dialogs
 				SetCharacterAndDelivery(block, selectedCharacter, selectedDelivery);
 		}
 
-		private BCVRef GetBlockReference(Block block)
+		public BCVRef GetBlockReference(Block block)
 		{
 			return new BCVRef(BCVRef.BookToNumber(CurrentBookId), block.ChapterNumber, block.InitialStartVerseNumber);
 		}
@@ -626,5 +644,6 @@ namespace ProtoScript.Dialogs
 			}
 		}
 		#endregion
+
 	}
 }

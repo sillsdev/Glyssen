@@ -52,9 +52,19 @@
 			this.m_lblShortcut4 = new System.Windows.Forms.Label();
 			this.m_lblShortcut5 = new System.Windows.Forms.Label();
 			this.m_toolStrip = new System.Windows.Forms.ToolStrip();
+			this.m_toolStripButtonHtmlView = new System.Windows.Forms.ToolStripButton();
+			this.m_toolStripButtonGridView = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.m_toolStripLabelFilter = new System.Windows.Forms.ToolStripLabel();
 			this.m_toolStripComboBoxFilter = new System.Windows.Forms.ToolStripComboBox();
 			this.m_toolStripButtonExcludeUserConfirmed = new System.Windows.Forms.ToolStripButton();
+			this.m_dataGridViewBlocks = new System.Windows.Forms.DataGridView();
+			this.colReference = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colCharacter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colDelivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colText = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.m_blocksDisplayBrowser = new ProtoScript.Controls.Browser();
+			this.m_progressBar = new ProtoScript.Controls.ProgressBarUnanimated();
 			this.m_listBoxCharacters = new System.Windows.Forms.ListBox();
 			this.m_listBoxDeliveries = new System.Windows.Forms.ListBox();
 			this.m_pnlCharacterFilter = new System.Windows.Forms.Panel();
@@ -65,12 +75,12 @@
 			this.m_pnlCharacterAndDeliverySelection = new System.Windows.Forms.TableLayoutPanel();
 			this.m_splitContainer = new System.Windows.Forms.SplitContainer();
 			this.m_tableBlocks = new System.Windows.Forms.TableLayoutPanel();
-			this.m_blocksDisplayBrowser = new ProtoScript.Controls.Browser();
-			this.m_progressBar = new ProtoScript.Controls.ProgressBarUnanimated();
+			this.m_panelContext = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnCharacterFilter)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnDeliveryFilter)).BeginInit();
 			this.m_toolStrip.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.m_dataGridViewBlocks)).BeginInit();
 			this.m_pnlCharacterFilter.SuspendLayout();
 			this.tableLayoutPanelCharacter.SuspendLayout();
 			this.m_pnlDeliveryFilter.SuspendLayout();
@@ -82,6 +92,7 @@
 			this.m_splitContainer.Panel2.SuspendLayout();
 			this.m_splitContainer.SuspendLayout();
 			this.m_tableBlocks.SuspendLayout();
+			this.m_panelContext.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// m_l10NSharpExtender
@@ -421,6 +432,9 @@
 			// m_toolStrip
 			// 
 			this.m_toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.m_toolStripButtonHtmlView,
+            this.m_toolStripButtonGridView,
+            this.toolStripSeparator1,
             this.m_toolStripLabelFilter,
             this.m_toolStripComboBoxFilter,
             this.m_toolStripButtonExcludeUserConfirmed});
@@ -432,6 +446,46 @@
 			this.m_toolStrip.Name = "m_toolStrip";
 			this.m_toolStrip.Size = new System.Drawing.Size(635, 25);
 			this.m_toolStrip.TabIndex = 31;
+			// 
+			// m_toolStripButtonHtmlView
+			// 
+			this.m_toolStripButtonHtmlView.Checked = true;
+			this.m_toolStripButtonHtmlView.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.m_toolStripButtonHtmlView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.m_toolStripButtonHtmlView.Image = global::ProtoScript.Properties.Resources.html_view;
+			this.m_toolStripButtonHtmlView.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonHtmlView, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonHtmlView, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStripButtonHtmlView, L10NSharp.LocalizationPriority.MediumHigh);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonHtmlView, "AssignCharacterDialog.AssignCharacterDialog.m_toolStripButtonHtmlView");
+			this.m_toolStripButtonHtmlView.Name = "m_toolStripButtonHtmlView";
+			this.m_toolStripButtonHtmlView.Size = new System.Drawing.Size(23, 22);
+			this.m_toolStripButtonHtmlView.Text = "Formatted view";
+			this.m_toolStripButtonHtmlView.ToolTipText = "Left pane shows the highlighted block and surrounding context formatted as Script" +
+    "ure";
+			this.m_toolStripButtonHtmlView.CheckedChanged += new System.EventHandler(this.HandleHtmlViewCheckChanged);
+			this.m_toolStripButtonHtmlView.Click += new System.EventHandler(this.HandleViewTypeToolStripButtonClick);
+			// 
+			// m_toolStripButtonGridView
+			// 
+			this.m_toolStripButtonGridView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.m_toolStripButtonGridView.Image = global::ProtoScript.Properties.Resources.grid_icon;
+			this.m_toolStripButtonGridView.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonGridView, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonGridView, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStripButtonGridView, L10NSharp.LocalizationPriority.MediumHigh);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonGridView, "AssignCharacterDialog.AssignCharacterDialog.m_toolStripButtonGridView");
+			this.m_toolStripButtonGridView.Name = "m_toolStripButtonGridView";
+			this.m_toolStripButtonGridView.Size = new System.Drawing.Size(23, 22);
+			this.m_toolStripButtonGridView.Text = "Grid view";
+			this.m_toolStripButtonGridView.ToolTipText = "Left pane shows the highlighted block and surrounding context in a grid";
+			this.m_toolStripButtonGridView.CheckedChanged += new System.EventHandler(this.HandleDataGridViewCheckChanged);
+			this.m_toolStripButtonGridView.Click += new System.EventHandler(this.HandleViewTypeToolStripButtonClick);
+			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
 			// 
 			// m_toolStripLabelFilter
 			// 
@@ -474,6 +528,107 @@
 			this.m_toolStripButtonExcludeUserConfirmed.Text = "Exclude confirmed";
 			this.m_toolStripButtonExcludeUserConfirmed.ToolTipText = "Exclude blocks that are already user-confirmed";
 			this.m_toolStripButtonExcludeUserConfirmed.CheckedChanged += new System.EventHandler(this.HandleFilterChanged);
+			// 
+			// m_dataGridViewBlocks
+			// 
+			this.m_dataGridViewBlocks.AllowUserToAddRows = false;
+			this.m_dataGridViewBlocks.AllowUserToDeleteRows = false;
+			this.m_dataGridViewBlocks.AllowUserToOrderColumns = true;
+			this.m_dataGridViewBlocks.AllowUserToResizeRows = false;
+			this.m_dataGridViewBlocks.BackgroundColor = System.Drawing.SystemColors.Window;
+			this.m_dataGridViewBlocks.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.m_dataGridViewBlocks.CausesValidation = false;
+			this.m_dataGridViewBlocks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.m_dataGridViewBlocks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colReference,
+            this.colCharacter,
+            this.colDelivery,
+            this.colText});
+			this.m_dataGridViewBlocks.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_dataGridViewBlocks, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_dataGridViewBlocks, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_dataGridViewBlocks, "AssignCharacterDialog.dataGridView1");
+			this.m_dataGridViewBlocks.Location = new System.Drawing.Point(0, 319);
+			this.m_dataGridViewBlocks.Name = "m_dataGridViewBlocks";
+			this.m_dataGridViewBlocks.ReadOnly = true;
+			this.m_dataGridViewBlocks.RowHeadersVisible = false;
+			this.m_dataGridViewBlocks.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.m_dataGridViewBlocks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.m_dataGridViewBlocks.ShowCellErrors = false;
+			this.m_dataGridViewBlocks.ShowCellToolTips = false;
+			this.m_dataGridViewBlocks.ShowEditingIcon = false;
+			this.m_dataGridViewBlocks.ShowRowErrors = false;
+			this.m_dataGridViewBlocks.Size = new System.Drawing.Size(292, 149);
+			this.m_dataGridViewBlocks.TabIndex = 30;
+			this.m_dataGridViewBlocks.VirtualMode = true;
+			this.m_dataGridViewBlocks.Visible = false;
+			this.m_dataGridViewBlocks.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.m_dataGridViewBlocks_CellValueNeeded);
+			// 
+			// colReference
+			// 
+			this.colReference.HeaderText = "Reference";
+			this.colReference.MaxInputLength = 11;
+			this.colReference.MinimumWidth = 60;
+			this.colReference.Name = "colReference";
+			this.colReference.ReadOnly = true;
+			this.colReference.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.colReference.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.colReference.Width = 60;
+			// 
+			// colCharacter
+			// 
+			this.colCharacter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.colCharacter.HeaderText = "Character";
+			this.colCharacter.Name = "colCharacter";
+			this.colCharacter.ReadOnly = true;
+			this.colCharacter.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			// 
+			// colDelivery
+			// 
+			this.colDelivery.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.colDelivery.HeaderText = "Delivery";
+			this.colDelivery.Name = "colDelivery";
+			this.colDelivery.ReadOnly = true;
+			this.colDelivery.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			// 
+			// colText
+			// 
+			this.colText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.colText.FillWeight = 400F;
+			this.colText.HeaderText = "Text";
+			this.colText.MinimumWidth = 50;
+			this.colText.Name = "colText";
+			this.colText.ReadOnly = true;
+			this.colText.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.colText.Width = 400;
+			// 
+			// m_blocksDisplayBrowser
+			// 
+			this.m_blocksDisplayBrowser.AutoSize = true;
+			this.m_blocksDisplayBrowser.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.m_blocksDisplayBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksDisplayBrowser, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksDisplayBrowser, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_blocksDisplayBrowser, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksDisplayBrowser, "ProjectSettingsDialog.Browser");
+			this.m_blocksDisplayBrowser.Location = new System.Drawing.Point(0, 0);
+			this.m_blocksDisplayBrowser.Name = "m_blocksDisplayBrowser";
+			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(295, 471);
+			this.m_blocksDisplayBrowser.TabIndex = 2;
+			this.m_blocksDisplayBrowser.OnMouseOver += new System.EventHandler<Gecko.DomMouseEventArgs>(this.OnMouseOver);
+			this.m_blocksDisplayBrowser.OnMouseOut += new System.EventHandler<Gecko.DomMouseEventArgs>(this.OnMouseOut);
+			this.m_blocksDisplayBrowser.OnDocumentCompleted += new System.EventHandler<Gecko.Events.GeckoDocumentCompletedEventArgs>(this.OnDocumentCompleted);
+			// 
+			// m_progressBar
+			// 
+			this.m_progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_progressBar, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_progressBar, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_progressBar, "AssignCharacterDialog.AssignCharacterDialog.m_progressBar");
+			this.m_progressBar.Location = new System.Drawing.Point(0, 544);
+			this.m_progressBar.Name = "m_progressBar";
+			this.m_progressBar.Size = new System.Drawing.Size(635, 17);
+			this.m_progressBar.TabIndex = 12;
 			// 
 			// m_listBoxCharacters
 			// 
@@ -648,8 +803,8 @@
 			this.m_tableBlocks.ColumnCount = 2;
 			this.m_tableBlocks.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.m_tableBlocks.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.m_tableBlocks.Controls.Add(this.m_panelContext, 0, 1);
 			this.m_tableBlocks.Controls.Add(this.m_labelReference, 1, 0);
-			this.m_tableBlocks.Controls.Add(this.m_blocksDisplayBrowser, 0, 1);
 			this.m_tableBlocks.Controls.Add(this.m_labelWhoSpeaks, 0, 0);
 			this.m_tableBlocks.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_tableBlocks.Location = new System.Drawing.Point(12, 12);
@@ -660,30 +815,16 @@
 			this.m_tableBlocks.Size = new System.Drawing.Size(301, 495);
 			this.m_tableBlocks.TabIndex = 11;
 			// 
-			// m_blocksDisplayBrowser
+			// m_panelContext
 			// 
-			this.m_blocksDisplayBrowser.AutoSize = true;
-			this.m_tableBlocks.SetColumnSpan(this.m_blocksDisplayBrowser, 2);
-			this.m_blocksDisplayBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksDisplayBrowser, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksDisplayBrowser, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_blocksDisplayBrowser, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksDisplayBrowser, "ProjectSettingsDialog.Browser");
-			this.m_blocksDisplayBrowser.Location = new System.Drawing.Point(3, 21);
-			this.m_blocksDisplayBrowser.Name = "m_blocksDisplayBrowser";
-			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(295, 471);
-			this.m_blocksDisplayBrowser.TabIndex = 2;
-			// 
-			// m_progressBar
-			// 
-			this.m_progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_progressBar, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_progressBar, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_progressBar, "AssignCharacterDialog.AssignCharacterDialog.m_progressBar");
-			this.m_progressBar.Location = new System.Drawing.Point(0, 544);
-			this.m_progressBar.Name = "m_progressBar";
-			this.m_progressBar.Size = new System.Drawing.Size(635, 17);
-			this.m_progressBar.TabIndex = 12;
+			this.m_tableBlocks.SetColumnSpan(this.m_panelContext, 2);
+			this.m_panelContext.Controls.Add(this.m_dataGridViewBlocks);
+			this.m_panelContext.Controls.Add(this.m_blocksDisplayBrowser);
+			this.m_panelContext.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.m_panelContext.Location = new System.Drawing.Point(3, 21);
+			this.m_panelContext.Name = "m_panelContext";
+			this.m_panelContext.Size = new System.Drawing.Size(295, 471);
+			this.m_panelContext.TabIndex = 30;
 			// 
 			// AssignCharacterDialog
 			// 
@@ -715,6 +856,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.m_icnDeliveryFilter)).EndInit();
 			this.m_toolStrip.ResumeLayout(false);
 			this.m_toolStrip.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.m_dataGridViewBlocks)).EndInit();
 			this.m_pnlCharacterFilter.ResumeLayout(false);
 			this.m_pnlCharacterFilter.PerformLayout();
 			this.tableLayoutPanelCharacter.ResumeLayout(false);
@@ -733,6 +875,8 @@
 			this.m_splitContainer.ResumeLayout(false);
 			this.m_tableBlocks.ResumeLayout(false);
 			this.m_tableBlocks.PerformLayout();
+			this.m_panelContext.ResumeLayout(false);
+			this.m_panelContext.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -778,5 +922,14 @@
 		private System.Windows.Forms.ToolStripLabel m_toolStripLabelFilter;
 		private System.Windows.Forms.ToolStripComboBox m_toolStripComboBoxFilter;
 		private System.Windows.Forms.ToolStripButton m_toolStripButtonExcludeUserConfirmed;
+		private System.Windows.Forms.ToolStripButton m_toolStripButtonGridView;
+		private System.Windows.Forms.ToolStripButton m_toolStripButtonHtmlView;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+		private System.Windows.Forms.DataGridView m_dataGridViewBlocks;
+		private System.Windows.Forms.Panel m_panelContext;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colReference;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colCharacter;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colDelivery;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colText;
 	}
 }

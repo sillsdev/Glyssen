@@ -1,11 +1,14 @@
-﻿/// 
-/// Artist: Double-J Design (Available for custom work)
-/// Iconset: Origami Colored Pencil Icons (160 icons)
-/// License: CC Attribution 4.0
+﻿// Attributions for icons used in this dialog box:
+//
+// Exclude User Confirmed Icon:
+// Artist: Double-J Design (Available for custom work)
+// Iconset: Origami Colored Pencil Icons (160 icons)
+// License: CC Attribution 4.0
 
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using Gecko;
@@ -45,13 +48,12 @@ namespace ProtoScript.Dialogs
 			InitializeComponent();
 			m_txtCharacterFilter.CorrectHeight();
 			m_txtDeliveryFilter.CorrectHeight();
-			
+			if (Properties.Settings.Default.AssignCharactersShowGridView)
+				m_toolStripButtonGridView.Checked = true;
+
 			m_viewModel = viewModel;
 			m_viewModel.BackwardContextBlockCount = kContextBlocksBackward;
 			m_viewModel.ForwardContextBlockCount = kContextBlocksForward;
-			m_blocksDisplayBrowser.OnMouseOver += OnMouseOver;
-			m_blocksDisplayBrowser.OnMouseOut += OnMouseOut;
-			m_blocksDisplayBrowser.OnDocumentCompleted += OnDocumentCompleted;
 
 			UpdateProgressBarForMode();
 
@@ -63,6 +65,9 @@ namespace ProtoScript.Dialogs
 			SetFilterControlsFromMode();
 
 			LoadBlock();
+
+			m_blocksDisplayBrowser.VisibleChanged += (sender, args) => UpdateContextBlocksDisplay();
+			m_dataGridViewBlocks.VisibleChanged += (sender, args) => UpdateContextBlocksDisplay();
 		}
 
 		private void UpdateProgressBarForMode()
@@ -97,22 +102,30 @@ namespace ProtoScript.Dialogs
 
 		public void LoadBlock()
 		{
-			m_blocksDisplayBrowser.DisplayHtml(m_viewModel.Html);
-
+			UpdateContextBlocksDisplay();
 			UpdateDisplay();
 			UpdateNavigationButtonState();
 		}
 
+		private void UpdateContextBlocksDisplay()
+		{
+			if (m_blocksDisplayBrowser.Visible)
+				m_blocksDisplayBrowser.DisplayHtml(m_viewModel.Html);
+			else
+			{
+				m_dataGridViewBlocks.RowCount = m_viewModel.BlockCountForCurrentBook;
+				m_dataGridViewBlocks.FirstDisplayedScrollingRowIndex = Math.Max(0,
+					m_viewModel.CurrentBlockIndexInBook - kContextBlocksBackward);
+				m_dataGridViewBlocks.Rows[m_viewModel.CurrentBlockIndexInBook].Selected = true;
+			}
+		}
+
 		private void UpdateDisplay()
 		{
-			String book = m_viewModel.CurrentBookId;
-			int chapter = m_viewModel.CurrentBlock.ChapterNumber;
-			int verse = m_viewModel.CurrentBlock.InitialStartVerseNumber;
-			var currRef = new BCVRef(BCVRef.BookToNumber(book), chapter, verse);
-			m_labelReference.Text = BCVRef.MakeReferenceString(currRef, currRef, ":", "-");
+			m_labelReference.Text = m_viewModel.GetBlockReferenceString();
 			m_labelXofY.Text = string.Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
 
-			SendScrReference(currRef);
+			SendScrReference(m_viewModel.GetBlockReference(m_viewModel.CurrentBlock));
 
 			HideCharacterFilter();
 			m_btnAssign.Enabled = false;
@@ -471,48 +484,6 @@ namespace ProtoScript.Dialogs
 			if (e.KeyCode == Keys.Return && m_btnAssign.Enabled)
 				m_btnAssign.PerformClick();
 		}
-		#endregion
-
-		#region Browser events
-		private void OnMouseOver(object sender, DomMouseEventArgs e)
-		{
-			if (e.Target == null)
-				return;
-			var geckoElement = e.Target.CastToGeckoElement();
-			var divElement = geckoElement as GeckoDivElement;
-			if (divElement == null)
-				return;
-
-			if (divElement.Parent.ClassName == kCssClassContext)
-			{
-				m_toolTip = new ToolTip { IsBalloon = true };
-				// 22 and 3 are the magic numbers which happen to make these display in the correct place
-				int x = m_blocksDisplayBrowser.Location.X + m_blocksDisplayBrowser.Size.Width - 22;
-				int y = m_blocksDisplayBrowser.Location.Y + e.ClientY - 3;
-				m_toolTip.Show(divElement.Parent.GetAttribute(AssignCharacterViewModel.kDataCharacter), this, x, y);
-			}
-		}
-
-		private void OnMouseOut(object sender, DomMouseEventArgs e)
-		{
-			if (e.Target == null)
-				return;
-			var geckoElement = e.Target.CastToGeckoElement();
-			var divElement = geckoElement as GeckoDivElement;
-			if (divElement == null)
-				return;
-
-			if (divElement.Parent.ClassName == kCssClassContext)
-			{
-				m_toolTip.Hide(this);
-			}
-		}
-
-		private void OnDocumentCompleted(object sender, GeckoDocumentCompletedEventArgs e)
-		{
-			m_blocksDisplayBrowser.ScrollElementIntoView(kMainQuoteElementId, -225);
-		}
-		#endregion
 
 		private void HandleFilterChanged(object sender, EventArgs e)
 		{
@@ -537,5 +508,111 @@ namespace ProtoScript.Dialogs
 
 			UpdateProgressBarForMode();
 		}
+
+		private void HandleHtmlViewCheckChanged(object sender, EventArgs e)
+		{
+			if (m_toolStripButtonHtmlView.Checked == m_toolStripButtonGridView.Checked)
+			{
+				m_toolStripButtonGridView.Checked = !m_toolStripButtonHtmlView.Checked;
+
+				Debug.Assert(!m_toolStripButtonGridView.Checked);
+
+				SuspendLayout();
+				m_blocksDisplayBrowser.Visible = true;
+				m_dataGridViewBlocks.Visible = false;
+				m_dataGridViewBlocks.Dock = DockStyle.None;
+				m_blocksDisplayBrowser.Dock = DockStyle.Fill;
+				ResumeLayout();
+				Properties.Settings.Default.AssignCharactersShowGridView = false;
+			}
+		}
+
+		private void HandleDataGridViewCheckChanged(object sender, EventArgs e)
+		{
+			if (m_toolStripButtonHtmlView.Checked == m_toolStripButtonGridView.Checked)
+			{
+				m_toolStripButtonHtmlView.Checked = !m_toolStripButtonGridView.Checked;
+
+				Debug.Assert(!m_toolStripButtonHtmlView.Checked);
+
+				SuspendLayout();
+				m_dataGridViewBlocks.Visible = true;
+				m_blocksDisplayBrowser.Visible = false;
+				m_blocksDisplayBrowser.Dock = DockStyle.None;
+				m_dataGridViewBlocks.Dock = DockStyle.Fill;
+				ResumeLayout();
+				Properties.Settings.Default.AssignCharactersShowGridView = true;
+			}
+		}
+
+		private void HandleViewTypeToolStripButtonClick(object sender, EventArgs e)
+		{
+			var button = (ToolStripButton)sender;
+			if (!button.Checked)
+				button.Checked = true;
+		}
+
+		private void m_dataGridViewBlocks_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
+		{
+			var block = m_viewModel.GetNthBlockInCurrentBook(e.RowIndex);
+			if (e.ColumnIndex == colReference.Index)
+				e.Value = m_viewModel.GetBlockReferenceString(block);
+			else if (e.ColumnIndex == colCharacter.Index)
+				e.Value = block.CharacterId; // TODO: PG-112
+			else if (e.ColumnIndex == colDelivery.Index)
+				e.Value = block.Delivery;
+			else if (e.ColumnIndex == colText.Index)
+				e.Value = block.GetText(true);
+		}
+		#endregion
+
+		#region Browser events
+		private void OnMouseOver(object sender, DomMouseEventArgs e)
+		{
+			if (e.Target == null)
+				return;
+			if (m_blocksDisplayBrowser.Visible)
+			{
+				var geckoElement = e.Target.CastToGeckoElement();
+				var divElement = geckoElement as GeckoDivElement;
+				if (divElement == null)
+					return;
+
+				if (divElement.Parent.ClassName == kCssClassContext)
+				{
+					m_toolTip = new ToolTip {IsBalloon = true};
+					// 22 is the magic numbers which happen to make these display in the correct place
+					int x = m_blocksDisplayBrowser.Location.X + m_blocksDisplayBrowser.Size.Width - 22;
+					int y = m_blocksDisplayBrowser.Location.Y + e.ClientY - m_blocksDisplayBrowser.Margin.Top;
+					m_toolTip.Show(divElement.Parent.GetAttribute(AssignCharacterViewModel.kDataCharacter), this, x, y);
+				}
+			}
+			else
+			{
+				// TODO: Implement tool tips for data grid view display.
+			}
+		}
+
+		private void OnMouseOut(object sender, DomMouseEventArgs e)
+		{
+			if (e.Target == null)
+				return;
+			var geckoElement = e.Target.CastToGeckoElement();
+			var divElement = geckoElement as GeckoDivElement;
+			if (divElement == null)
+				return;
+
+			if (divElement.Parent.ClassName == kCssClassContext)
+			{
+				m_toolTip.Hide(this);
+			}
+		}
+
+		private void OnDocumentCompleted(object sender, GeckoDocumentCompletedEventArgs e)
+		{
+			m_blocksDisplayBrowser.ScrollElementIntoView(kMainQuoteElementId, -225);
+		}
+		#endregion
+
 	}
 }

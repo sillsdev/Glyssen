@@ -106,5 +106,17 @@ namespace ProtoScript.Properties {
                 this["DefaultSfmDirectory"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AssignCharactersShowGridView {
+            get {
+                return ((bool)(this["AssignCharactersShowGridView"]));
+            }
+            set {
+                this["AssignCharactersShowGridView"] = value;
+            }
+        }
     }
 }

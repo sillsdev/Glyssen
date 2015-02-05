@@ -115,6 +115,26 @@ namespace ProtoScript.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap grid_icon {
+            get {
+                object obj = ResourceManager.GetObject("grid_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap html_view {
+            get {
+                object obj = ResourceManager.GetObject("html_view", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;QuoteSystems&gt;
         ///	&lt;QuoteSystem&gt;
         ///		&lt;Name&gt;Quotation marks, double&lt;/Name&gt;
