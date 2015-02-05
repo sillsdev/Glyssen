@@ -21,20 +21,17 @@ namespace ProtoScript.Dialogs
 			StandardFormatBook,
 		}
 
-		private readonly List<string> m_existingProjectPaths = new List<string>(); 
-		public OpenProjectDlg(bool welcome = false)
+		private readonly List<string> m_existingProjectPaths = new List<string>();
+		private readonly Project m_currentProject;
+		public OpenProjectDlg(Project currentProject, bool welcome = false)
 		{
+			m_currentProject = currentProject;
 			InitializeComponent();
 			if (welcome)
 			{
 				ShowInTaskbar = true;
 				Text = LocalizationManager.GetString("DialogBoxes.WelcomeDlg.Title", "Welcome to Protoscript Generator");
 			}
-		}
-
-		protected override bool ShowFocusCues
-		{
-			get { return m_tableLayoutPanelExistingProject.Visible && base.ShowFocusCues; }
 		}
 
 		public ProjectType Type { get; private set; }
@@ -44,6 +41,14 @@ namespace ProtoScript.Dialogs
 		protected override void OnLoad(EventArgs e)
 		{
 			base.OnLoad(e);
+			LoadExistingProjects();
+		}
+
+		private void LoadExistingProjects()
+		{
+			m_listExistingProjects.SelectedIndex = -1;
+			m_listExistingProjects.Items.Clear();
+			m_existingProjectPaths.Clear();
 			foreach (var projectFolder in Directory.GetDirectories(Project.ProjectsBaseFolder))
 			{
 				foreach (var versionFolder in Directory.GetDirectories(projectFolder))
@@ -56,6 +61,8 @@ namespace ProtoScript.Dialogs
 						Exception exception;
 						var metadata = DblMetadata.Load(path, out exception);
 						if (exception != null)
+							continue;
+						if (metadata.HiddenByDefault)
 							continue;
 
 						m_listExistingProjects.Items.Add(metadata);
@@ -175,6 +182,19 @@ namespace ProtoScript.Dialogs
 			SelectedProject = m_existingProjectPaths[m_listExistingProjects.SelectedIndex];
 			DialogResult = DialogResult.OK;
 			Close();
+		}
+
+		private void m_linkRemoveProject_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			if (m_currentProject != null && m_currentProject.Id == ((DblMetadata)m_listExistingProjects.SelectedItem).id)
+			{
+				string title = LocalizationManager.GetString("Project.CannotRemoveCaption", "Cannot Remove from List");
+				string msg = LocalizationManager.GetString("Project.CannotRemove", "Cannot remove the selected project because it is currently open");
+				MessageBox.Show(msg, title);
+				return;
+			}
+			Project.SetHiddenFlag(m_existingProjectPaths[m_listExistingProjects.SelectedIndex], true);
+			LoadExistingProjects();
 		}
 	}
 }
