@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management.Instrumentation;
 
 namespace ProtoScript
 {
@@ -36,19 +37,11 @@ namespace ProtoScript
 			get { return m_currentBlock; }
 			set
 			{
+				var indices = GetIndicesOfSpecificBlock(value);
 				m_currentBlock = value;
-				if (!CurrentBook.GetScriptBlocks().Contains(m_currentBlock))
-					CurrentBook = GetBookScriptContainingBlock(m_currentBlock);
-				int i = 0;
-				foreach (Block block in CurrentBook.GetScriptBlocks())
-				{
-					if (block == m_currentBlock)
-					{
-						m_currentBlockIndex = i;
-						break;
-					}
-					i++;
-				}
+				m_currentBookIndex = indices.Item1;
+				m_currentBlockIndex = indices.Item2;
+				m_currentBook = m_books[m_currentBookIndex];
 			}
 		}
 
@@ -74,8 +67,23 @@ namespace ProtoScript
 		{
 			if (block == m_currentBlock)
 				return GetIndices();
-			BookScript containingBook = GetBookScriptContainingBlock(block);
-			return new Tuple<int, int>(GetBookIndex(containingBook), containingBook.Blocks.IndexOf(block));
+			// In production code, I think this will always only be called for the current book, so we try that
+			// first before looking at all the rest of the books for this block.
+
+			var indexInCurrentBook = m_currentBook.GetScriptBlocks().IndexOf(block);
+			if (indexInCurrentBook >= 0)
+				return new Tuple<int, int>(m_currentBookIndex, indexInCurrentBook);
+
+			for (int iBook = 0; iBook < m_books.Count; iBook++)
+			{
+				if (iBook == m_currentBookIndex)
+					continue;
+				var book = m_books[iBook];
+				var iBlock = book.GetScriptBlocks().IndexOf(block);
+				if (iBlock >= 0)
+					return new Tuple<int, int>(iBook, iBlock);
+			}
+			throw new ArgumentOutOfRangeException("block", block.ToString(), "Block not found in any book!");
 		}
 
 		public BookScript GetBookScriptContainingBlock(Block block)
@@ -90,12 +98,9 @@ namespace ProtoScript
 			return book == m_books.Last();
 		}
 
-		public bool IsLastBlock(Block block)
+		public bool IsLastBlock()
 		{
-			BookScript book = GetBookScriptContainingBlock(block);
-			if (book == null)
-				return false;
-			return IsLastBlockInBook(book, block) && IsLastBook(book);
+			return IsLastBlockInBook(m_currentBook, m_currentBlock) && IsLastBook(m_currentBook);
 		}
 
 		public bool IsLastBlockInBook(BookScript book, Block block)
@@ -117,7 +122,7 @@ namespace ProtoScript
 
 		private bool IsLastBlockInBook(BookScript book, int blockIndex)
 		{
-			return blockIndex == book.Blocks.Count - 1;
+			return blockIndex == book.GetScriptBlocks().Count - 1;
 		}
 
 		public bool IsFirstBook(BookScript book)
@@ -156,7 +161,7 @@ namespace ProtoScript
 
 		public Block PeekNextBlock()
 		{
-			if (IsLastBlock(m_currentBlock))
+			if (IsLastBlock())
 				return null;
 			if (IsLastBlockInBook(m_currentBook, m_currentBlock))
 			{
@@ -198,7 +203,7 @@ namespace ProtoScript
 		private Block PeekNthNextBlockWithinBook(int n, int bookIndex, int blockIndex)
 		{
 			BookScript book = m_books[bookIndex];
-			if (book.Blocks.Count < blockIndex + n + 1)
+			if (book.GetScriptBlocks().Count < blockIndex + n + 1)
 				return null;
 			return book[blockIndex + n];
 		}
@@ -253,7 +258,7 @@ namespace ProtoScript
 
 		public Block NextBlock()
 		{
-			if (IsLastBlock(m_currentBlock))
+			if (IsLastBlock())
 				return null;
 			if (IsLastBlockInBook(m_currentBook, m_currentBlock))
 			{
@@ -310,6 +315,19 @@ namespace ProtoScript
 			}
 
 			return m_currentBlock = m_currentBook[--m_currentBlockIndex];
+		}
+	}
+
+	public static class IEnumerableExtensions
+	{
+		public static int IndexOf<T>(this IEnumerable<T> list, T item)
+		{
+			for (int i = 0; i < list.Count(); i++)
+			{
+				if (item.Equals(list.ElementAt(i)))
+					return i;
+			}
+			return -1;
 		}
 	}
 }

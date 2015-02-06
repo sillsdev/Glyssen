@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -71,7 +72,7 @@ namespace ProtoScript.Dialogs
 			Mode = mode;
 		}
 
-		public int BlockCountForCurrentBook { get { return m_navigator.CurrentBook.Blocks.Count; } }
+		public int BlockCountForCurrentBook { get { return m_navigator.CurrentBook.GetScriptBlocks().Count; } }
 		public int RelevantBlockCount { get { return m_relevantBlocks.Count; } }
 		public int AssignedBlockCount { get { return m_assignedBlocks; } }
 		public int CurrentBlockDisplayIndex { get { return m_displayBlockIndex + 1; } }
@@ -112,7 +113,7 @@ namespace ProtoScript.Dialogs
 
 		public Block GetNthBlockInCurrentBook(int i)
 		{
-			return m_navigator.CurrentBook.Blocks[i];
+			return m_navigator.CurrentBook.GetScriptBlocks()[i];
 		}
 
 		public string GetBlockReferenceString(Block block = null)
@@ -285,7 +286,7 @@ namespace ProtoScript.Dialogs
 					if (block.UserConfirmed)
 						m_assignedBlocks++;
 				}
-				if (m_navigator.IsLastBlock(block))
+				if (m_navigator.IsLastBlock())
 					break;
 				block = m_navigator.NextBlock();
 			}
@@ -389,29 +390,36 @@ namespace ProtoScript.Dialogs
 
 		private IEnumerable<Block> GetAllBlocksWithSameQuote(Block baseLineBlock)
 		{
-			var blockList = new List<Block>();
 			switch (baseLineBlock.MultiBlockQuote)
 			{
 				case MultiBlockQuote.Start:
-					blockList.Add(baseLineBlock);
-					int i = 1;
-					Block block = m_navigator.PeekNthNextBlockWithinBook(i++, baseLineBlock);
-					while (block != null && block.MultiBlockQuote == MultiBlockQuote.Continuation)
-					{
-						blockList.Add(block);
-						block = m_navigator.PeekNthNextBlockWithinBook(i++, baseLineBlock);
-					}
+					yield return baseLineBlock;
+					foreach (var i in GetIndicesOfQuoteContinuationBlocks(baseLineBlock))
+						yield return m_navigator.CurrentBook[i];
 					break;
 				case MultiBlockQuote.Continuation:
 					// These should all be brought in through a Start block, so don't do anything with them here
 					break;
 				default:
 					// Not part of a multi-block quote. Just return the base-line block
-					blockList.Add(baseLineBlock);
+					yield return baseLineBlock;
 					break;
 			}
-			return blockList;
-		} 
+		}
+
+		public IEnumerable<int> GetIndicesOfQuoteContinuationBlocks(Block startQuoteBlock)
+		{
+			// Note this method assumes the startQuoteBlock is in the navigator's current book.
+			Debug.Assert(startQuoteBlock.MultiBlockQuote == MultiBlockQuote.Start);
+
+			for (int j = m_navigator.GetIndicesOfSpecificBlock(startQuoteBlock).Item2 + 1; ; j++)
+			{
+				Block block = m_navigator.CurrentBook[j];
+				if (block == null || block.MultiBlockQuote != MultiBlockQuote.Continuation)
+					break;
+				yield return j;
+			}
+		}
 
 		private string SuperscriptVerseNumbers(string text)
 		{

@@ -20,7 +20,7 @@ namespace ProtoScript.Analysis
 			int ambiguousBlocks = 0;
 			foreach (BookScript book in m_projectToAnalyze.IncludedBooks)
 			{
-				foreach (Block block in book.Blocks)
+				foreach (Block block in book.GetScriptBlocks(false))
 				{
 					totalBlocks++;
 					if (block.CharacterIs(book.BookId, CharacterVerseData.StandardCharacter.Narrator))

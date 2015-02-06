@@ -31,6 +31,7 @@ namespace ProtoScript
 
 		/// <summary>
 		/// Don't use this getter in production code. It is intended ONLY for use by the XML serializer!
+		/// This is to prevent accidentally leaking the actual list and risking modification by calling code.
 		/// </summary>
 		[XmlElement(ElementName = "block")]
 		public List<Block> Blocks

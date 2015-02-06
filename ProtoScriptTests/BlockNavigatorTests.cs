@@ -85,24 +85,24 @@ namespace ProtoScriptTests
 		public void IsLastBlock_True()
 		{
 			var lastBook = m_books.Last();
-			var lastBlock = lastBook.GetScriptBlocks().Last();
-			Assert.AreEqual(true, m_navigator.IsLastBlock(lastBlock));
+			m_navigator.CurrentBlock = lastBook.GetScriptBlocks().Last();
+			Assert.AreEqual(true, m_navigator.IsLastBlock());
 		}
 
 		[Test]
 		public void IsLastBlock_False()
 		{
 			var firstBook = m_books.First();
-			var firstBlock = firstBook[0];
-			Assert.AreEqual(false, m_navigator.IsLastBlock(firstBlock));
+			m_navigator.CurrentBlock = firstBook[0];
+			Assert.AreEqual(false, m_navigator.IsLastBlock());
 		}
 
 		[Test]
 		public void IsLastBlock_LastBlockInOtherBook_False()
 		{
 			var firstBook = m_books.First();
-			var lastBlock = firstBook.GetScriptBlocks().Last();
-			Assert.AreEqual(false, m_navigator.IsLastBlock(lastBlock));
+			m_navigator.CurrentBlock = firstBook.GetScriptBlocks().Last();
+			Assert.AreEqual(false, m_navigator.IsLastBlock());
 		}
 
 		[Test]

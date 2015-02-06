@@ -113,10 +113,20 @@ namespace ProtoScript.Dialogs
 				m_blocksDisplayBrowser.DisplayHtml(m_viewModel.Html);
 			else
 			{
+				SuspendLayout();
+				m_dataGridViewBlocks.ClearSelection();
+				m_dataGridViewBlocks.MultiSelect = m_viewModel.CurrentBlock.MultiBlockQuote != MultiBlockQuote.None;
+				colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
 				m_dataGridViewBlocks.RowCount = m_viewModel.BlockCountForCurrentBook;
-				m_dataGridViewBlocks.FirstDisplayedScrollingRowIndex = Math.Max(0,
-					m_viewModel.CurrentBlockIndexInBook - kContextBlocksBackward);
+				m_dataGridViewBlocks.FirstDisplayedScrollingRowIndex = Math.Max(0, m_viewModel.CurrentBlockIndexInBook - kContextBlocksBackward);
 				m_dataGridViewBlocks.Rows[m_viewModel.CurrentBlockIndexInBook].Selected = true;
+				if (m_viewModel.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Start)
+				{
+					foreach (var i in m_viewModel.GetIndicesOfQuoteContinuationBlocks(m_viewModel.CurrentBlock))
+						m_dataGridViewBlocks.Rows[i].Selected = true;
+				}
+				colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+				ResumeLayout();
 			}
 		}
 
@@ -554,6 +564,8 @@ namespace ProtoScript.Dialogs
 
 		private void m_dataGridViewBlocks_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
 		{
+			if (e.RowIndex >= m_dataGridViewBlocks.RowCount)
+				return;
 			var block = m_viewModel.GetNthBlockInCurrentBook(e.RowIndex);
 			if (e.ColumnIndex == colReference.Index)
 				e.Value = m_viewModel.GetBlockReferenceString(block);
