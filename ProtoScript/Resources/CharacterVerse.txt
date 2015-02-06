@@ -3295,7 +3295,7 @@ RUT	4	17	women of Bethlehem			FALSE
 2KI	18	31	Field commander from King of Assyria			FALSE		
 2KI	18	32	Field commander from King of Assyria			FALSE		
 2KI	18	36	Hezekiah, king of Judah			FALSE		
-2KI	19	3	Eliakim/Shebna/priests			FALSE	Eliakim	
+2KI	19	3	Eliakim/Shebna/leading priests			FALSE	Eliakim	
 2KI	19	6	Isaiah		Isaiah, the prophet (the LORD says)	FALSE		
 2KI	19	10	Sennacherib, king of Assyria			FALSE		
 2KI	19	15	Hezekiah, king of Judah			FALSE		
@@ -3678,7 +3678,7 @@ NEH	5	9	Nehemiah			FALSE
 NEH	5	12	Nobles/officials			FALSE		
 NEH	5	13	assembly, whole			FALSE		
 NEH	5	13	Nehemiah			FALSE		
-NEH	6	2	Sanballat/Geshem, enemies [scheming]	message		FALSE	Sanballat	
+NEH	6	2	Sanballat/Geshem, enemies	scheming message		FALSE	Sanballat	
 NEH	6	3	Nehemiah	message		FALSE		
 NEH	6	6	Sanballat	letter	Sanballat, enemy	FALSE		
 NEH	6	8	Nehemiah	message		FALSE		

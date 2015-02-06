@@ -12,6 +12,7 @@ Abraham	7	FALSE	Male
 Abraham's chief servant	8	FALSE	Male		
 Absalom	10	FALSE	Male		
 Absalom's men	11	TRUE	Male		
+Absalom/Israel, men of		TRUE	Male		
 Absalom's secret messengers	12	TRUE	Male		
 Achan	13	FALSE	Male		
 Achish	2013	FALSE	Male		
@@ -99,9 +100,11 @@ Balaam	58	FALSE	Male
 Balak	59	FALSE	Male		
 Barak	60	FALSE	Male		
 Barnabas	61	FALSE	Male		
+Barnabas/Paul		TRUE	Male		
 Bartimaeus	1014	FALSE	Male		
 Baruch	63	FALSE	Male		
 Barzillai	1063	FALSE	Male		
+Barzillai/Shobi/Makir		TRUE	Male		
 Bathsheba	64	FALSE	Female		
 believers who were Pharisees	500	TRUE	Male		
 believers, circumcised (in Jerusalem)	502	TRUE	Male		
@@ -146,6 +149,7 @@ centurion, one of the	1515	FALSE	Male
 chariot commanders of Aram	516	TRUE	Male		
 chief baker	517	FALSE	Male		
 chief cupbearer	518	FALSE	Male		
+chief cupbearer/chief baker		TRUE	Male		
 chief official	519	FALSE	Male		
 chief priests	522	TRUE	Male		
 chief priests and Jewish leaders	2264	TRUE	Male		
@@ -203,6 +207,7 @@ David's men	95	TRUE	Male
 David's servants	1096	TRUE			
 David's supporters	1800	TRUE			
 Deborah	1094	FALSE	Female		
+Deborah/Barak		TRUE	Both		
 Delilah	1095	FALSE	Female		
 Demetrius	96	FALSE	Male		
 demons coming out of people	1573	TRUE			
@@ -233,7 +238,9 @@ Eleazar, the priest	108	FALSE	Male
 Eleven/those with them	109	TRUE			
 Eli	110	FALSE	Male		
 Eliab, David's brother	111	FALSE	Male		
-Eliakim	112	FALSE			
+Eliakim	112	FALSE	Male		
+Eliakim/Shebna/Joah		TRUE	Male		
+Eliakim/Shebna/leading priests		TRUE	Male		
 Eliezer, prophet of the Lord	113	FALSE	Male		
 Elihu, son of Barakel	114	FALSE	Male		
 Elijah	115	FALSE	Male		
@@ -409,6 +416,7 @@ Jahaziel (Spirit of the Lord on)	239	FALSE
 jailer	639	FALSE	Male		
 Jairus (synagogue leader)	240	FALSE	Male		
 James	241	FALSE	Male		
+James/all the elders		TRUE	Male		
 James/John (sons of Zebedee)		TRUE	Male		
 Jebusites	243	TRUE			
 Jehoash, king of Israel	244	FALSE	Male		
@@ -427,6 +435,7 @@ Jeremiah	256	FALSE	Male
 Jeremiah quoting Israel	225	FALSE			
 Jeremiah's enemies	1125	TRUE	Male		
 Jeroboam	1127	FALSE	Male		
+Jeroboam/Israel, all		TRUE	Male		
 Jesse	258	FALSE	Male		
 Jesus	700	FALSE	Male		
 Jesus (child)	1258	FALSE	Male	youth (12)	
@@ -451,10 +460,13 @@ Job	1269	FALSE	Male
 Job's wife	1268	FALSE	Female		
 Joel saying what the priests should say	226	FALSE	Male		
 Joel saying what the weakling should say	227	FALSE			
-Johanan	2271	FALSE			
+Johanan	2271	FALSE	Male		
+Johanan/all the army officers		TRUE	Male		
+Johanan/all the army officers/all the people		TRUE	Male		
 John	1272	FALSE	Male		
 John the Baptist	1273	FALSE	Male		
 John's disciples	581	TRUE	Male		
+John's disciples/a certain Jew		TRUE	Male		
 Jonadab	275	FALSE	Male		
 Jonah	276	FALSE	Male		
 Jonathan	277	FALSE	Male		
@@ -558,6 +570,7 @@ Martha	326	FALSE	Female
 Mary (Jesus' mother)	327	FALSE	Female		
 Mary (sister of Martha)	328	FALSE	Female		
 Mary Magdalene	329	FALSE	Female		
+Mary Magdalene/Mary mother of James/Salome		TRUE	Female		
 Mary/Martha	330	TRUE	Female		
 master of the banquet	692	FALSE	Male		
 Melchizedek, king of Salem (priest of God Most High)	331	FALSE	Male		
@@ -632,7 +645,10 @@ Moses	344	FALSE	Male
 Jethro, Moses' father-in-law	345	FALSE	Male		
 Moses' messengers from Kadesh	346	TRUE			
 Moses/Aaron		TRUE	Male		
+Moses/Elders of Israel		TRUE	Male		
 Moses/Eleazar		TRUE	Male		
+Moses/Israelites		TRUE	Pref: Male		
+Moses/Priests		TRUE	Male		
 mother of cured man, blind from birth	806	FALSE	Female		
 mother of Zebedee's sons	745	FALSE	Female		
 multitude from all nations, tribes, peoples, languages	746	TRUE			
@@ -683,6 +699,7 @@ Nebuchadnezzar, king of Babylon	356	FALSE	Male
 Nebuzaradan	357	FALSE	Male		
 Neco, king of Egypt	358	FALSE	Male		
 Nehemiah	359	FALSE	Male		
+Nehemiah/Ezra/Levites		TRUE	Male		
 neighbors of man blind from birth	764	TRUE			
 neighbors of man blind from birth, others	765	TRUE			
 neighbors of man blind from birth, some	766	TRUE			
@@ -735,6 +752,7 @@ parents of cured man, blind from birth		TRUE	Both		May want to assign one or mor
 Pashur/Zephaniah	368	TRUE			
 passers by	807	TRUE			
 Paul	62	FALSE	Male		
+Paul/Barnabas		TRUE	Male		
 Paul's travelling companions, Luke and	369	TRUE			
 people	840	TRUE			
 people (complaining Israelites)	841	TRUE			
@@ -794,6 +812,7 @@ Philistine priests and diviners	383	TRUE	Male
 Philistines	384	TRUE	Male		
 Philistines, rulers of	385	TRUE	Male		
 Phineas	386	FALSE	Male		
+Phineas/leaders		TRUE	Male		
 pig herdsmen		TRUE	Male		
 Pilate	387	FALSE	Male		
 Pilate's wife	1388	FALSE	Female		
@@ -802,6 +821,7 @@ poets	388	TRUE
 Potiphar's wife	389	FALSE	Female		
 priest	847	FALSE	Male		
 priests/Levites	848	TRUE	Male		
+priests/Levites/people		TRUE	Male		
 proclaimers of God's word	850	TRUE			
 prophet	856	FALSE			
 prophet Gad	851	FALSE	Male		
@@ -819,6 +839,7 @@ queen of Babylon	865	FALSE	Female
 queen of Sheba	1865	FALSE	Female		
 rabble/complainers	390	TRUE			
 Rachel	391	FALSE	Female		
+Rachel/Leah		TRUE	Female		
 Rahab	392	FALSE	Female		
 reader	866	FALSE			
 Rebekah	393	FALSE	Female		
@@ -849,11 +870,14 @@ Samson's father-in-law	406	FALSE	Male
 Samson's wife	407	FALSE	Female		
 Samuel	408	FALSE	Male		
 Sanballat	127	FALSE	Male		
+Sanballat/Geshem, enemies		TRUE	Male		
+Sanballat/Tobiah/Geshem, enemies		TRUE	Male		
 Sanhedrin/chief priests/Pharisees	409	TRUE	Male		
 Sapphira (Ananias' wife)	410	FALSE	Female		
 Sarai (Sarah)	411	FALSE	Female		
 Satan	800	FALSE	Male		
 Satraps	413	TRUE	Male		
+Satraps/Administrators		TRUE	Male		
 Saul	414	FALSE	Male		
 Saul's announcement	415	FALSE			
 Saul's attendants	416	TRUE	Male		
@@ -974,6 +998,7 @@ ten men with leprosy	951	TRUE	Male
 Tertius	445	FALSE	Male		
 Tertullus-Lawyer	446	FALSE	Male		
 Thomas	447	FALSE	Male		
+Thomas/Nathaniel/James/John/2 disciples		TRUE	Male		
 those hiding from the LORD	955	TRUE			
 those sitting with Festus, Herod Agrippa II and Bernice	956	TRUE			
 those standing near	957	TRUE			
