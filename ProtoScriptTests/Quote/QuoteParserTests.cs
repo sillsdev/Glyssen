@@ -930,7 +930,7 @@ namespace ProtoScriptTests.Quote
 			Assert.AreEqual("First in Chapter", output[5].CharacterId);
 		}
 
-		[Test, Ignore("TODO PG-99")]
+		[Test]
 		public void Parse_SpaceAfterVerse_NoEmptyBlock()
 		{
 			var block1 = new Block("p", 3, 12) { IsParagraphStart = true };

@@ -270,7 +270,9 @@ namespace ProtoScript.Quote
 		/// <param name="sb"></param>
 		private void FlushStringBuilderToBlockElement(StringBuilder sb)
 		{
-			if (sb.Length > 0)
+			if (sb.Length > 0 && string.IsNullOrWhiteSpace(sb.ToString()))
+				sb.Clear();
+			else if (sb.Length > 0)
 			{
 				MoveTrailingElementsIfNecessary();
 				m_workingBlock.BlockElements.Add(new ScriptText(sb.ToString()));
