@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -284,12 +285,24 @@ namespace ProtoScript
 
 		private void DoQuoteParse()
 		{
-			var cvInfo = new CombinedCharacterVerseData(this);
-			foreach (var bookScript in m_books)
-				bookScript.Blocks = new QuoteParser(cvInfo, bookScript.BookId, bookScript.GetScriptBlocks(), ConfirmedQuoteSystem).Parse().ToList();
+			var quoteWorker = new BackgroundWorker { WorkerReportsProgress = true };
+			quoteWorker.DoWork += QuoteWorker_DoWork;
+			quoteWorker.ProgressChanged += QuoteWorker_ProgressChanged;
+			quoteWorker.RunWorkerAsync();
+		}
+
+		private void QuoteWorker_DoWork(object sender, DoWorkEventArgs doWorkEventArgs)
+		{
+			new ProjectQuoteParser().ParseProject(this, sender as BackgroundWorker);
 #if DEBUG
 			new ProjectAnalysis(this).AnalyzeQuoteParse();
 #endif
+		}
+
+		private void QuoteWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+		{
+			//TODO
+			//Console.WriteLine(e.ProgressPercentage);
 		}
 
 		public static string GetProjectFilePath(string langId, string bundleId)
@@ -337,24 +350,8 @@ namespace ProtoScript
 
 		private void HandleQuoteSystemChanged()
 		{
-			if (File.Exists(m_metadata.OriginalPathOfDblFile) && QuoteSystem != null)
-			{
-				var bundle = new Bundle.Bundle(m_metadata.OriginalPathOfDblFile);
-				PopulateAndParseBooks(bundle);
-			}
-			else if (File.Exists(m_metadata.OriginalPathOfSfmFile) && QuoteSystem != null)
-			{
-				AddAndParseBooks(new [] { SfmLoader.LoadSfmBook(m_metadata.OriginalPathOfSfmFile) }, SfmLoader.GetUsfmStylesheet());
-			}
-			else if (Directory.Exists(m_metadata.OriginalPathOfSfmDirectory) && QuoteSystem != null) 
-			{
-				AddAndParseBooks(SfmLoader.LoadSfmFolder(m_metadata.OriginalPathOfSfmDirectory), SfmLoader.GetUsfmStylesheet());
-			}
-			else
-			{
-				//TODO
-				throw new ApplicationException();
-			}
+			if (QuoteSystem != null)
+				DoQuoteParse();
 		}
 
 		private string ProjectCharacterVerseDataPath
