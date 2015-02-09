@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using ProtoScript.Character;
+using ProtoScript.Utilities;
 
 namespace ProtoScript.Quote
 {
@@ -31,7 +32,7 @@ namespace ProtoScript.Quote
 					else
 						m_completedBlocksPerBook.Add(b.BookId, completedBookBlocks);
 					m_completedProjectBlocks += completedBookBlocks - prior;
-					int totalPercentComplete = Math.Min(99, (int)((((double)m_completedProjectBlocks) / ((double)m_allProjectBlocks)) * 100));
+					int totalPercentComplete = MathUtilities.Percent(m_completedProjectBlocks, m_allProjectBlocks, 99);
 					projectWorker.ReportProgress(totalPercentComplete);
 				};
 				b.Blocks = new QuoteParser(cvInfo, b.BookId, b.GetScriptBlocks(), project.ConfirmedQuoteSystem).Parse(bookProgress).ToList();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Xml;
 using NUnit.Framework;
 using ProtoScript;
@@ -75,7 +76,9 @@ namespace ProtoScriptTests.Dialogs
 			sampleMark.LoadXml(Properties.Resources.TestMRK);
 			UsxDocument mark = new UsxDocument(sampleMark);
 
-			(new Project(sampleMetadata, new[] { mark }, SfmLoader.GetUsfmStylesheet())).Save();
+			var project = new Project(sampleMetadata, new[] { mark }, SfmLoader.GetUsfmStylesheet());
+			while (!project.IsInitialized)
+				Thread.Sleep(100);
 		}
 
 		[Test]
