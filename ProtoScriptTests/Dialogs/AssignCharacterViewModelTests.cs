@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -32,7 +33,11 @@ namespace ProtoScriptTests.Dialogs
 		public void SetUp()
 		{
 			m_model = new AssignCharacterViewModel(m_testProject);
-			m_model.SetNarratorAndNormalDelivery("narrator ({0})", "normal");
+			m_model.SetUiStrings("narrator ({0})",
+				"book title or chapter ({0})",
+				"introduction ({0})",
+				"section head ({0})",
+				"normal");
 			m_model.BackwardContextBlockCount = 10;
 			m_model.ForwardContextBlockCount = 10;
 		}
@@ -165,7 +170,7 @@ namespace ProtoScriptTests.Dialogs
 			{
 				Assert.IsFalse(m_model.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Continuation);
 				m_model.LoadNextRelevantBlock();
-			} while (!m_model.IsLastRelevantBlock);
+			} while (!m_model.CanNavigateToNextRelevantBlock);
 			Assert.IsFalse(m_model.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Continuation);
 		}
 
@@ -212,7 +217,7 @@ namespace ProtoScriptTests.Dialogs
 			Assert.AreEqual(1, m_model.AssignedBlockCount);
 
 			// The assignment call above actually affects 5 blocks because they are all in the same quote.
-			m_model.Mode = BlocksToDisplay.All;
+			m_model.Mode = BlocksToDisplay.AllScripture;
 			Assert.AreEqual(1, m_model.AssignedBlockCount);
 
 			m_model.Mode = BlocksToDisplay.HotSpots | BlocksToDisplay.ExcludeUserConfirmed;
@@ -222,7 +227,7 @@ namespace ProtoScriptTests.Dialogs
 		[Test]
 		public void SetMode_All_UnmodifiableStandardBlocksSkipped()
 		{
-			m_model.Mode = BlocksToDisplay.All;
+			m_model.Mode = BlocksToDisplay.AllScripture;
 			Assert.IsFalse(CharacterVerseData.IsCharacterStandard(m_model.CurrentBlock.CharacterId, false));
 		}
 
@@ -271,6 +276,217 @@ namespace ProtoScriptTests.Dialogs
 		{
 			int expectedCount = m_testProject.IncludedBooks[0].Blocks.Count;
 			Assert.AreEqual(expectedCount, m_model.BlockCountForCurrentBook, "Test data may have been changed");
+		}
+
+		[Test]
+		public void GetIndexOfClosestRelevantBlock_MinGreaterThanMax_ReturnsNegative1()
+		{
+			Assert.AreEqual(-1, AssignCharacterViewModel.GetIndexOfClosestRelevantBlock(
+				new List<Tuple<int, int>>(), new Tuple<int, int>(1, 2), true, 1, 0));
+		}
+
+		[Test]
+		public void GetIndexOfClosestRelevantBlock_PreviousBlockIsRelevant_ReturnsClosestPreviousRelevantBlock()
+		{
+			var relevantBlocks = new List<Tuple<int, int>>();
+			relevantBlocks.Add(new Tuple<int, int>(1, 2));
+			relevantBlocks.Add(new Tuple<int, int>(1, 20));
+			relevantBlocks.Add(new Tuple<int, int>(2, 1));
+			relevantBlocks.Add(new Tuple<int, int>(2, 7));
+			relevantBlocks.Add(new Tuple<int, int>(2, 8));
+			relevantBlocks.Add(new Tuple<int, int>(2, 14));
+			relevantBlocks.Add(new Tuple<int, int>(3, 2));
+			Assert.AreEqual(4, AssignCharacterViewModel.GetIndexOfClosestRelevantBlock(
+				relevantBlocks, new Tuple<int, int>(2, 10), true, 0, relevantBlocks.Count - 1));
+		}
+
+		[Test]
+		public void GetIndexOfClosestRelevantBlock_NoPreviousBlockIsRelevant_ReturnsNegative1()
+		{
+			var relevantBlocks = new List<Tuple<int, int>>();
+			relevantBlocks.Add(new Tuple<int, int>(2, 14));
+			relevantBlocks.Add(new Tuple<int, int>(3, 2));
+			Assert.AreEqual(-1, AssignCharacterViewModel.GetIndexOfClosestRelevantBlock(
+				relevantBlocks, new Tuple<int, int>(1, 3), true, 0, relevantBlocks.Count - 1));
+		}
+
+		[Test]
+		public void GetIndexOfClosestRelevantBlock_FollowingBlockIsRelevant_ReturnsClosestFollowingRelevantBlock()
+		{
+			var relevantBlocks = new List<Tuple<int, int>>();
+			relevantBlocks.Add(new Tuple<int, int>(1, 2));
+			relevantBlocks.Add(new Tuple<int, int>(1, 20));
+			relevantBlocks.Add(new Tuple<int, int>(2, 1));
+			relevantBlocks.Add(new Tuple<int, int>(2, 7));
+			relevantBlocks.Add(new Tuple<int, int>(2, 8));
+			relevantBlocks.Add(new Tuple<int, int>(2, 14));
+			relevantBlocks.Add(new Tuple<int, int>(3, 2));
+			Assert.AreEqual(2, AssignCharacterViewModel.GetIndexOfClosestRelevantBlock(
+				relevantBlocks, new Tuple<int, int>(1, 21), false, 0, relevantBlocks.Count - 1));
+		}
+
+		[Test]
+		public void GetIndexOfClosestRelevantBlock_NoFollowingBlockIsRelevant_ReturnsNegative1()
+		{
+			var relevantBlocks = new List<Tuple<int, int>>();
+			relevantBlocks.Add(new Tuple<int, int>(1, 2));
+			relevantBlocks.Add(new Tuple<int, int>(1, 20));
+			relevantBlocks.Add(new Tuple<int, int>(2, 1));
+			relevantBlocks.Add(new Tuple<int, int>(2, 7));
+			relevantBlocks.Add(new Tuple<int, int>(2, 8));
+			relevantBlocks.Add(new Tuple<int, int>(2, 14));
+			relevantBlocks.Add(new Tuple<int, int>(3, 2));
+			Assert.AreEqual(-1, AssignCharacterViewModel.GetIndexOfClosestRelevantBlock(
+				relevantBlocks, new Tuple<int, int>(3, 3), false, 0, relevantBlocks.Count - 1));
+		}
+
+		[Test]
+		public void CanNavigateToPreviousRelevantBlock_CurrentBlockIsFirstRelevantBlock_ReturnsFalse()
+		{
+			Assert.IsFalse(m_model.CanNavigateToPreviousRelevantBlock);
+		}
+
+		[Test]
+		public void CanNavigateToNextRelevantBlock_CurrentBlockIsFirstRelevantBlock_ReturnsTrue()
+		{
+			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
+		}
+
+		[Test]
+		public void CanNavigateToPreviousRelevantBlock_CurrentBlockIsSecondRelevantBlock_ReturnsTrue()
+		{
+			m_model.LoadNextRelevantBlock();
+			Assert.IsTrue(m_model.CanNavigateToPreviousRelevantBlock);
+		}
+
+		[Test]
+		public void CanNavigateToNextRelevantBlock_CurrentBlockIsLastRelevantBlock_ReturnsFalse()
+		{
+			m_model.CurrentBlockIndexInBook = m_testProject.IncludedBooks[0].GetScriptBlocks().Count - 1;
+			m_model.LoadPreviousRelevantBlock();
+			Assert.IsFalse(m_model.CanNavigateToNextRelevantBlock);
+		}
+
+		[Test]
+		public void CanNavigateToPreviousRelevantBlock_CurrentBlockIsVeryFirstBlock_ReturnsFalse()
+		{
+			m_model.CurrentBlockIndexInBook = 0;
+			Assert.IsFalse(m_model.CanNavigateToPreviousRelevantBlock);
+		}
+
+		[Test]
+		public void CanNavigateToNextRelevantBlock_CurrentBlockIsVeryLastBlockInBook_ReturnsFalse()
+		{
+			m_model.CurrentBlockIndexInBook = m_testProject.IncludedBooks[0].GetScriptBlocks().Count - 1;
+			Assert.IsFalse(m_model.CanNavigateToNextRelevantBlock);
+		}
+
+		[Test]
+		public void CanNavigateToPreviousRelevantBlock_CurrentBlockIsAdHocLocationInMIddleOfBook_ReturnsTrue()
+		{
+			m_model.CurrentBlockIndexInBook = 400;
+			Assert.IsFalse(m_model.IsCurrentBlockRelevant, "If this fails, we chose a relevant block index by accident.");
+			Assert.IsTrue(m_model.CanNavigateToPreviousRelevantBlock);
+		}
+
+		[Test]
+		public void CanNavigateToNextRelevantBlock_CurrentBlockIsAdHocLocationInMIddleOfBook_ReturnsTrue()
+		{
+			m_model.CurrentBlockIndexInBook = 400;
+			Assert.IsFalse(m_model.IsCurrentBlockRelevant, "If this fails, we chose a relevant block index by accident.");
+			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
+		}
+
+		[Test]
+		public void SetCurrentBlockIndexInBook_BlockIsRelevantSingleBlockQuote_StateReflectsRelevantBlock()
+		{
+			m_model.LoadNextRelevantBlock();
+			var index = m_model.CurrentBlockIndexInBook;
+			Assert.AreEqual(MultiBlockQuote.None, m_model.CurrentBlock.MultiBlockQuote, "If this fails, choose a different block.");
+			m_model.LoadNextRelevantBlock();
+			m_model.LoadNextRelevantBlock();
+			m_model.CurrentBlockIndexInBook = index;
+			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			Assert.IsTrue(m_model.CanNavigateToPreviousRelevantBlock);
+			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
+			Assert.AreEqual(2, m_model.CurrentBlockDisplayIndex);
+		}
+
+		[Test]
+		public void SetCurrentBlockIndexInBook_BlockIsNotRelevantSingleBlockQuote_StateReflectsRelevantBlock()
+		{
+			m_model.CurrentBlockIndexInBook = 400;
+			Assert.AreEqual(MultiBlockQuote.None, m_model.CurrentBlock.MultiBlockQuote, "If this fails, choose a different block.");
+			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
+			Assert.IsTrue(m_model.CanNavigateToPreviousRelevantBlock);
+			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
+			Assert.AreEqual(0, m_model.CurrentBlockDisplayIndex);
+		}
+
+		[Test]
+		public void SetCurrentBlockIndexInBook_BlockIsQuoteContinuationBlockForRelevantQuote_StateReflectsQuoteStartBlock()
+		{
+			var blocks = m_testProject.IncludedBooks[0].GetScriptBlocks();
+			int i = 1;
+			for (; i < blocks.Count; i++)
+			{
+				if (blocks[i].MultiBlockQuote == MultiBlockQuote.Continuation)
+				{
+					var quoteStart = i - 1;
+					if (blocks[quoteStart].CharacterIsUnclear())
+						break;
+					do
+					{
+						i++;
+					} while (blocks[i].MultiBlockQuote == MultiBlockQuote.Continuation);
+				}
+			}
+			m_model.CurrentBlockIndexInBook = i;
+			Assert.AreEqual(MultiBlockQuote.Start, m_model.CurrentBlock.MultiBlockQuote);
+			Assert.IsTrue(m_model.GetIndicesOfQuoteContinuationBlocks(m_model.CurrentBlock).Any());
+			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			Assert.IsTrue(m_model.CurrentBlockDisplayIndex > 0);
+		}
+
+		[Test]
+		public void SetCurrentBlockIndexInBook_BlockIsNotRelevantQuoteContinuationBlock_StateReflectsQuoteStartBlock()
+		{
+			var blocks = m_testProject.IncludedBooks[0].GetScriptBlocks();
+			int i = 1;
+			for (; i < blocks.Count; i++)
+			{
+				if (blocks[i].MultiBlockQuote == MultiBlockQuote.Continuation)
+				{
+					var quoteStart = i - 1;
+					if (!blocks[quoteStart].CharacterIsUnclear())
+						break;
+					do
+					{
+						i++;
+					} while (blocks[i].MultiBlockQuote == MultiBlockQuote.Continuation);
+				}
+			}
+			m_model.CurrentBlockIndexInBook = i;
+			Assert.AreEqual(MultiBlockQuote.Start, m_model.CurrentBlock.MultiBlockQuote);
+			Assert.IsTrue(m_model.GetIndicesOfQuoteContinuationBlocks(m_model.CurrentBlock).Any());
+			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
+			Assert.AreEqual(0, m_model.CurrentBlockDisplayIndex);
+		}
+
+		[Test]
+		public void GetIsBlockScripture_ScriptureBlock_ReturnsTrue()
+		{
+			m_model.Mode = BlocksToDisplay.AllScripture;
+			FindRefInMark(1, 12);
+			Assert.IsTrue(m_model.GetIsBlockScripture(m_model.CurrentBlock));
+			Assert.IsTrue(m_model.GetIsBlockScripture(m_model.CurrentBlockIndexInBook));
+		}
+
+		[Test]
+		public void GetIsBlockScripture_TitleBlock_ReturnsFalse()
+		{
+			Assert.IsFalse(m_model.GetIsBlockScripture(m_testProject.IncludedBooks[0].Blocks[0]));
+			Assert.IsFalse(m_model.GetIsBlockScripture(0));
 		}
 
 		private void FindRefInMark(int chapter, int verse)

@@ -24,6 +24,7 @@ namespace ProtoScript.Character
 
 		public enum StandardCharacter
 		{
+			NonStandard,
 			Narrator,
 			BookOrChapter,
 			ExtraBiblical,
@@ -32,22 +33,34 @@ namespace ProtoScript.Character
 
 		public static bool IsCharacterStandard(string characterId, bool includeNarrator = true)
 		{
+			switch (GetStandardCharacterType(characterId))
+			{
+				case StandardCharacter.Narrator:
+					return includeNarrator;
+				case StandardCharacter.Intro:
+				case StandardCharacter.ExtraBiblical:
+				case StandardCharacter.BookOrChapter:
+					return true;
+				default: return false;
+			}
+		}
+
+		public static StandardCharacter GetStandardCharacterType(string characterId)
+		{
 			if (String.IsNullOrEmpty(characterId))
-				return false;
+				return StandardCharacter.NonStandard;
 
 			int i = characterId.IndexOf("-", StringComparison.Ordinal);
 			if (i < 0)
-				return false;
+				return StandardCharacter.NonStandard;
 			switch (characterId.Substring(0, i + 1))
 			{
-				case kNarratorPrefix:
-					return includeNarrator;
-				case kIntroPrefix:
-				case kExtraBiblicalPrefix:
-				case kBookOrChapterPrefix:
-					return true;
+				case kNarratorPrefix: return StandardCharacter.Narrator;
+				case kIntroPrefix: return StandardCharacter.Intro;
+				case kExtraBiblicalPrefix: return StandardCharacter.ExtraBiblical;
+				case kBookOrChapterPrefix: return StandardCharacter.BookOrChapter;
 			}
-			return false;
+			return StandardCharacter.NonStandard;
 		}
 
 		public static string GetStandardCharacterId(string bookId, StandardCharacter standardCharacterType)

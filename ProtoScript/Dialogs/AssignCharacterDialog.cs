@@ -33,11 +33,15 @@ namespace ProtoScript.Dialogs
 
 		private ToolTip m_toolTip;
 		private string m_xOfYFmt;
-
+		private bool m_updatingContext = true;
 
 		private void HandleStringsLocalized()
 		{
-			m_viewModel.SetNarratorAndNormalDelivery(LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.Narrator", "narrator ({0})"),
+			m_viewModel.SetUiStrings(
+				LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.Narrator", "narrator ({0})"),
+				LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.BookChapterCharacter", "book title or chapter ({0})"),
+				LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.IntroCharacter", "introduction ({0})"),
+				LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.ExtraCharacter", "section head ({0})"),
 				LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.NormalDelivery", "normal"));
 
 			m_xOfYFmt = m_labelXofY.Text;
@@ -64,10 +68,8 @@ namespace ProtoScript.Dialogs
 
 			SetFilterControlsFromMode();
 
-			LoadBlock();
-
-			m_blocksDisplayBrowser.VisibleChanged += (sender, args) => UpdateContextBlocksDisplay();
-			m_dataGridViewBlocks.VisibleChanged += (sender, args) => UpdateContextBlocksDisplay();
+			m_blocksDisplayBrowser.VisibleChanged += (sender, args) => LoadBlock();
+			m_dataGridViewBlocks.VisibleChanged += (sender, args) => LoadBlock();
 		}
 
 		private void UpdateProgressBarForMode()
@@ -91,7 +93,7 @@ namespace ProtoScript.Dialogs
 				m_toolStripComboBoxFilter.SelectedIndex = 0;
 			else if ((mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 1;
-			else if ((mode & BlocksToDisplay.All) != 0)
+			else if ((mode & BlocksToDisplay.AllScripture) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 2;
 			else
 				throw new InvalidEnumArgumentException("mode", (int)mode, typeof(BlocksToDisplay));
@@ -113,26 +115,37 @@ namespace ProtoScript.Dialogs
 				m_blocksDisplayBrowser.DisplayHtml(m_viewModel.Html);
 			else
 			{
+				m_updatingContext = true;
 				SuspendLayout();
-				m_dataGridViewBlocks.ClearSelection();
 				m_dataGridViewBlocks.MultiSelect = m_viewModel.CurrentBlock.MultiBlockQuote != MultiBlockQuote.None;
 				colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
 				m_dataGridViewBlocks.RowCount = m_viewModel.BlockCountForCurrentBook;
-				m_dataGridViewBlocks.FirstDisplayedScrollingRowIndex = Math.Max(0, m_viewModel.CurrentBlockIndexInBook - kContextBlocksBackward);
+				m_dataGridViewBlocks.ClearSelection();
 				m_dataGridViewBlocks.Rows[m_viewModel.CurrentBlockIndexInBook].Selected = true;
-				if (m_viewModel.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Start)
+				 if (m_viewModel.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Start)
 				{
 					foreach (var i in m_viewModel.GetIndicesOfQuoteContinuationBlocks(m_viewModel.CurrentBlock))
 						m_dataGridViewBlocks.Rows[i].Selected = true;
 				}
 				colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+				var firstRowOfContextToMakeVisible = Math.Max(0, m_viewModel.CurrentBlockIndexInBook - kContextBlocksBackward);
+				if (firstRowOfContextToMakeVisible < m_dataGridViewBlocks.FirstDisplayedScrollingRowIndex ||
+					firstRowOfContextToMakeVisible >
+					m_dataGridViewBlocks.FirstDisplayedScrollingRowIndex +
+					m_dataGridViewBlocks.Height / m_dataGridViewBlocks.Rows[firstRowOfContextToMakeVisible].Height)
+				{
+					m_dataGridViewBlocks.FirstDisplayedScrollingRowIndex = firstRowOfContextToMakeVisible;
+				}
+
 				ResumeLayout();
+				m_updatingContext = false;
 			}
 		}
 
 		private void UpdateDisplay()
 		{
 			m_labelReference.Text = m_viewModel.GetBlockReferenceString();
+			m_labelXofY.Visible = m_viewModel.IsCurrentBlockRelevant;
 			m_labelXofY.Text = string.Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
 
 			SendScrReference(m_viewModel.GetBlockReference(m_viewModel.CurrentBlock));
@@ -156,8 +169,8 @@ namespace ProtoScript.Dialogs
 
 		private void UpdateNavigationButtonState()
 		{
-			m_btnNext.Enabled = !m_viewModel.IsLastRelevantBlock;
-			m_btnPrevious.Enabled = !m_viewModel.IsFirstRelevantBlock;
+			m_btnNext.Enabled = m_viewModel.CanNavigateToNextRelevantBlock;
+			m_btnPrevious.Enabled = m_viewModel.CanNavigateToPreviousRelevantBlock;
 		}
 
 		private void UpdateAssignButtonState()
@@ -245,7 +258,7 @@ namespace ProtoScript.Dialogs
 				m_listBoxCharacters.SelectedItem = AssignCharacterViewModel.Character.Narrator;
 			else if (!currentBlock.CharacterIsUnclear())
 			{
-				foreach (var item in m_listBoxCharacters.Items.Cast<AssignCharacterViewModel.Character>())
+				foreach (var item in CurrentContextCharacters)
 				{
 					if (item.CharacterId == currentBlock.CharacterId)
 					{
@@ -254,6 +267,11 @@ namespace ProtoScript.Dialogs
 					}
 				}
 			}
+		}
+
+		private IEnumerable<AssignCharacterViewModel.Character> CurrentContextCharacters
+		{
+			get { return m_listBoxCharacters.Items.Cast<AssignCharacterViewModel.Character>(); }
 		}
 
 		private void LoadDeliveryListBox(IEnumerable<AssignCharacterViewModel.Delivery> deliveries, AssignCharacterViewModel.Delivery selectedItem = null)
@@ -341,7 +359,7 @@ namespace ProtoScript.Dialogs
 			if (string.IsNullOrWhiteSpace(character))
 				return;
 
-			var existingItem = m_listBoxCharacters.Items.Cast<AssignCharacterViewModel.Character>()
+			var existingItem = CurrentContextCharacters
 				.FirstOrDefault(c => c.ToString() == character);
 			if (existingItem != null)
 			{
@@ -395,7 +413,7 @@ namespace ProtoScript.Dialogs
 					return;
 				}
 			}
-			if (!m_viewModel.IsLastRelevantBlock)
+			if (!m_viewModel.CanNavigateToNextRelevantBlock)
 				LoadNextRelevantBlock();
 		}
 
@@ -506,7 +524,7 @@ namespace ProtoScript.Dialogs
 			{
 				case 0: mode = BlocksToDisplay.NeedAssignments; break;
 				case 1: mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers; break;
-				default: mode = BlocksToDisplay.All; break;
+				default: mode = BlocksToDisplay.AllScripture; break;
 			}
 
 			if (m_toolStripButtonExcludeUserConfirmed.Checked)
@@ -564,17 +582,26 @@ namespace ProtoScript.Dialogs
 
 		private void m_dataGridViewBlocks_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
 		{
-			if (e.RowIndex >= m_dataGridViewBlocks.RowCount)
-				return;
 			var block = m_viewModel.GetNthBlockInCurrentBook(e.RowIndex);
 			if (e.ColumnIndex == colReference.Index)
 				e.Value = m_viewModel.GetBlockReferenceString(block);
 			else if (e.ColumnIndex == colCharacter.Index)
-				e.Value = block.CharacterId; // TODO: PG-112
+				e.Value = AssignCharacterViewModel.Character.GetCharacterIdForUi(block.CharacterId, CurrentContextCharacters);
 			else if (e.ColumnIndex == colDelivery.Index)
 				e.Value = block.Delivery;
 			else if (e.ColumnIndex == colText.Index)
 				e.Value = block.GetText(true);
+		}
+
+		private void m_dataGridViewBlocks_SelectionChanged(object sender, EventArgs e)
+		{
+			if (m_updatingContext)
+				return;
+
+			if (m_viewModel.GetIsBlockScripture(m_dataGridViewBlocks.SelectedRows[0].Index))
+				m_viewModel.CurrentBlockIndexInBook = m_dataGridViewBlocks.SelectedRows[0].Index;
+
+			LoadBlock();
 		}
 		#endregion
 
@@ -625,6 +652,5 @@ namespace ProtoScript.Dialogs
 			m_blocksDisplayBrowser.ScrollElementIntoView(kMainQuoteElementId, -225);
 		}
 		#endregion
-
 	}
 }

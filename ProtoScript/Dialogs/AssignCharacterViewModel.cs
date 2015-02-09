@@ -18,7 +18,7 @@ namespace ProtoScript.Dialogs
 		MissingExpectedQuote = 4,
 		MoreQuotesThanExpectedSpeakers = 8,
 		KnownTroubleSpots = 16,
-		All = 32, // If this bit is set, ignore everything else (except Exclude user-confirmed)- show all blocks
+		AllScripture = 32, // If this bit is set, ignore everything else (except Exclude user-confirmed)- show all editable (i.e., Scripture) blocks
 		ExcludeUserConfirmed = 64,
 		NeedAssignments = Unexpected | Ambiguous,
 		HotSpots = MissingExpectedQuote | MoreQuotesThanExpectedSpeakers | KnownTroubleSpots,
@@ -48,8 +48,10 @@ namespace ProtoScript.Dialogs
 		private readonly CombinedCharacterVerseData m_combinedCharacterVerseData;
 		private readonly BlockNavigator m_navigator;
 		private List<Tuple<int, int>> m_relevantBlocks;
+		private Tuple<int, int> m_temporarilyIncludedBlock;
 		private readonly CharacterIdComparer m_characterComparer = new CharacterIdComparer();
 		private readonly DeliveryComparer m_deliveryComparer = new DeliveryComparer();
+		private static readonly BookBlockTupleComparer s_bookBlockComparer = new BookBlockTupleComparer();
 		private int m_displayBlockIndex = -1;
 
 		private int m_assignedBlocks;
@@ -78,14 +80,36 @@ namespace ProtoScript.Dialogs
 		public int CurrentBlockDisplayIndex { get { return m_displayBlockIndex + 1; } }
 		public string CurrentBookId { get { return m_navigator.CurrentBook.BookId; } }
 		public Block CurrentBlock { get { return m_navigator.CurrentBlock; } }
-		public int CurrentBlockIndexInBook { get { return m_navigator.GetIndices().Item2; } }
 		public CharacterIdComparer CharacterComparer { get { return m_characterComparer; } }
 		public int BackwardContextBlockCount { get; set; }
 		public int ForwardContextBlockCount { get; set; }
+		public bool IsCurrentBlockRelevant { get { return m_temporarilyIncludedBlock == null; } }
 
-		public void SetNarratorAndNormalDelivery(string narrator, string normalDelivery)
+		public int CurrentBlockIndexInBook
 		{
-			Character.SetNarrator(narrator, () => CurrentBookId);
+			get
+			{
+				return m_navigator.GetIndices().Item2;
+			}
+ 			set
+ 			{
+ 				int index = value;
+ 				Tuple<int, int> location;
+ 				do
+ 				{
+	 				location = new Tuple<int, int>(m_navigator.GetIndices().Item1, index);
+					m_navigator.SetIndices(location);			
+ 				} while (CurrentBlock.MultiBlockQuote == MultiBlockQuote.Continuation && --index >= 0);
+				Debug.Assert(index >= 0);
+ 				m_displayBlockIndex = m_relevantBlocks.IndexOf(location);
+				m_temporarilyIncludedBlock = m_displayBlockIndex < 0 ? location : null;
+			}
+		}
+
+		public void SetUiStrings(string narrator, string bookChapterCharacter, string introCharacter,
+			string extraCharacter, string normalDelivery)
+		{
+			Character.SetUIStrings(narrator, bookChapterCharacter, introCharacter, extraCharacter, () => CurrentBookId);
 			Delivery.SetNormalDelivery(normalDelivery);
 		}
 
@@ -125,14 +149,36 @@ namespace ProtoScript.Dialogs
 			return BCVRef.MakeReferenceString(startRef, endRef, ":", "-");
 		}
 
-		public bool IsFirstRelevantBlock
+		public bool CanNavigateToPreviousRelevantBlock
 		{
-			get { return m_displayBlockIndex == 0; }
+			get
+			{
+				if (RelevantBlockCount == 0)
+					return false;
+
+				if (IsCurrentBlockRelevant)
+					return m_displayBlockIndex != 0; 
+
+				// Current block was navigated to ad-hoc and doesn't match the filter. See if there is a relevant block before it.
+				var firstRelevantBlock = m_relevantBlocks[0];
+				return s_bookBlockComparer.Compare(firstRelevantBlock, m_temporarilyIncludedBlock) < 0;
+			}
 		}
 
-		public bool IsLastRelevantBlock
+		public bool CanNavigateToNextRelevantBlock
 		{
-			get { return m_displayBlockIndex == RelevantBlockCount - 1; }
+			get
+			{
+				if (RelevantBlockCount == 0)
+					return false;
+
+				if (IsCurrentBlockRelevant)
+					return m_displayBlockIndex != RelevantBlockCount - 1;
+
+				// Current block was navigated to ad-hoc and doesn't match the filter. See if there is a relevant block after it.
+				var lastRelevantBlock = m_relevantBlocks.Last();
+				return s_bookBlockComparer.Compare(lastRelevantBlock, m_temporarilyIncludedBlock) > 0;
+			}
 		}
 
 		public bool AreAllAssignmentsComplete
@@ -164,12 +210,48 @@ namespace ProtoScript.Dialogs
 
 		public void LoadNextRelevantBlock()
 		{
-			m_navigator.SetIndices(m_relevantBlocks[++m_displayBlockIndex]);
+			if (IsCurrentBlockRelevant)
+				m_navigator.SetIndices(m_relevantBlocks[++m_displayBlockIndex]);
+			else
+				LoadClosestRelevantBlock(false);
 		}
 
 		public void LoadPreviousRelevantBlock()
 		{
-			m_navigator.SetIndices(m_relevantBlocks[--m_displayBlockIndex]);
+			if (IsCurrentBlockRelevant)
+				m_navigator.SetIndices(m_relevantBlocks[--m_displayBlockIndex]);
+			else
+				LoadClosestRelevantBlock(true);
+		}
+
+		private void LoadClosestRelevantBlock(bool prev)
+		{
+			m_displayBlockIndex = GetIndexOfClosestRelevantBlock(m_relevantBlocks, m_temporarilyIncludedBlock, prev, 0, RelevantBlockCount - 1);
+			m_temporarilyIncludedBlock = null;
+			m_navigator.SetIndices(m_relevantBlocks[m_displayBlockIndex]);
+		}
+
+		public static int GetIndexOfClosestRelevantBlock(List<Tuple<int, int>> list, Tuple<int, int> key, bool prev,
+			int min, int max)
+		{
+			if (min > max)
+			{
+				if (prev)
+					return (max >= 0 && max < list.Count && s_bookBlockComparer.Compare(key, list[max]) > 0) ? max : -1;
+				
+				return (min >= 0 && min < list.Count && s_bookBlockComparer.Compare(key, list[min]) < 0) ? min : -1;					
+			}
+			int mid = (min + max) / 2;
+
+			int comparison = s_bookBlockComparer.Compare(key, list[mid]);
+
+			if (comparison == 0)
+				throw new ArgumentException("Block not expected to be in existing list", "key");
+			
+			if (comparison < 0)
+				return GetIndexOfClosestRelevantBlock(list, key, prev, min, mid - 1);
+			
+			return GetIndexOfClosestRelevantBlock(list, key, prev, mid + 1, max);
 		}
 
 		public HashSet<CharacterVerse> GetUniqueCharactersForCurrentReference()
@@ -272,6 +354,26 @@ namespace ProtoScript.Dialogs
 			return deliveries;
 		}
 
+		/// <summary>
+		/// Gets whether the specified block represents Scripture text. (Only Scripture blocks can have their
+		/// character/delivery changed. Book titles, chapters, and section heads have characters assigned
+		/// programmatically and cannot be changed.)
+		/// </summary>
+		public bool GetIsBlockScripture(Block block)
+		{
+			return !CharacterVerseData.IsCharacterStandard(block.CharacterId, false);
+		}
+
+		/// <summary>
+		/// Gets whether the specified block represents Scripture text. (Only Scripture blocks can have their
+		/// character/delivery changed. Book titles, chapters, and section heads have characters assigned
+		/// programmatically and cannot be changed.)
+		/// </summary>
+		public bool GetIsBlockScripture(int blockIndex)
+		{
+			return GetIsBlockScripture(GetNthBlockInCurrentBook(blockIndex));
+		}
+
 		private void PopulateRelevantBlocks()
 		{
 			m_assignedBlocks = 0;
@@ -329,8 +431,8 @@ namespace ProtoScript.Dialogs
 
 				return (actualquotes > expectedSpeakers);
 			}
-			if ((Mode & BlocksToDisplay.All) > 0)
-				return !CharacterVerseData.IsCharacterStandard(block.CharacterId, false);
+			if ((Mode & BlocksToDisplay.AllScripture) > 0)
+				return GetIsBlockScripture(block);
 			return false;
 		}
 
@@ -498,6 +600,9 @@ namespace ProtoScript.Dialogs
 		public class Character
 		{
 			private static Character s_narrator;
+			private static string s_bookChapterCharacter;
+			private static string s_introCharacter;
+			private static string s_extraCharacter;
 
 			private readonly string m_characterId;
 			private readonly string m_alias;
@@ -511,10 +616,14 @@ namespace ProtoScript.Dialogs
 			public bool ProjectSpecific { get { return m_projectSpecific; } }
 			public bool IsNarrator { get { return Equals(s_narrator); } }
 
-			public static void SetNarrator(string narrator, Func<string> funcToGetBookId)
+			public static void SetUIStrings(string narrator, string bookChapterCharacter, string introCharacter,
+				string extraCharacter, Func<string> funcToGetBookId)
 			{
 				s_funcToGetBookId = funcToGetBookId;
 				s_narrator = new Character(narrator, null, false);
+				s_bookChapterCharacter = bookChapterCharacter;
+				s_introCharacter = introCharacter;
+				s_extraCharacter = extraCharacter;
 			}
 
 			internal Character(string characterId, string alias = null, bool projectSpecific = true)
@@ -532,6 +641,19 @@ namespace ProtoScript.Dialogs
 				if (IsNarrator)
 					return String.Format(CharacterId, s_funcToGetBookId());
 				return Alias ?? CharacterId;
+			}
+
+			public static string GetCharacterIdForUi(string characterId, IEnumerable<Character> charactersInContext)
+			{
+				// TODO: PG-112
+				switch (CharacterVerseData.GetStandardCharacterType(characterId))
+				{
+					case CharacterVerseData.StandardCharacter.Narrator: return s_narrator.ToString();
+					case CharacterVerseData.StandardCharacter.Intro: return String.Format(s_introCharacter, s_funcToGetBookId());
+					case CharacterVerseData.StandardCharacter.ExtraBiblical: return String.Format(s_extraCharacter, s_funcToGetBookId());
+					case CharacterVerseData.StandardCharacter.BookOrChapter: return String.Format(s_bookChapterCharacter, s_funcToGetBookId());
+					default: return characterId;
+				}
 			}
 
 			#region Equality members
@@ -653,5 +775,19 @@ namespace ProtoScript.Dialogs
 		}
 		#endregion
 
+		#region
+		public class BookBlockTupleComparer : IComparer<Tuple<int, int>>
+		{
+			public int Compare(Tuple<int, int> x, Tuple<int, int> y)
+			{
+				int item1Comparison = x.Item1.CompareTo(y.Item1);
+				if (item1Comparison == 0)
+				{
+					return x.Item2.CompareTo(y.Item2);
+				}
+				return item1Comparison;
+			}
+		}
+		#endregion
 	}
 }
