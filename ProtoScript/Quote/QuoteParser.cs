@@ -17,7 +17,7 @@ namespace ProtoScript.Quote
 		private readonly QuoteSystem m_quoteSystem;
 
 		#region working members
-		// These members are used by several methods. Making them class-level prevents passing of references.
+		// These members are used by several methods. Making them class-level prevents passing them repeatedly
 		private List<Block> m_outputBlocks;
 		private Block m_workingBlock;
 		private readonly List<BlockElement> m_nonScriptTextBlockElements = new List<BlockElement>();
@@ -47,8 +47,9 @@ namespace ProtoScript.Quote
 		/// <summary>
 		/// Parse through the given blocks character by character to determine where we need to break based on quotes 
 		/// </summary>
+		/// <param name="progress">If provided, reports how many blocks have been processed</param>
 		/// <returns>A new enumerable of blocks broken up for quotes</returns>
-		public IEnumerable<Block> Parse()
+		public IEnumerable<Block> Parse(IProgress<int> progress = null)
 		{
 			if (m_quoteSystem == null)
 				return m_inputBlocks;
@@ -64,6 +65,7 @@ namespace ProtoScript.Quote
 			bool dialogueQuoteEndPending = false;
 			bool blockEndedWithSentenceEndingPunctuation = false;
 			Block blockInWhichDialogueQuoteStarted = null;
+			int blocksCompleted = 0;
 			foreach (Block block in m_inputBlocks)
 			{
 				if (block.UserConfirmed || (block.CharacterIsStandard && !block.CharacterIs(m_bookId, CharacterVerseData.StandardCharacter.Narrator)))
@@ -74,6 +76,10 @@ namespace ProtoScript.Quote
 					m_nextBlockContinuesQuote = false;
 
 					m_outputBlocks.Add(block);
+
+					if (progress != null)
+						progress.Report(blocksCompleted++);
+
 					continue;
 				}
 
@@ -260,6 +266,9 @@ namespace ProtoScript.Quote
 					FlushStringBuilderToBlockElement(sb);
 				}
 				FlushBlock(block.StyleTag, quoteEndPending || m_quoteLevel > 0);
+
+				if (progress != null)
+					progress.Report(blocksCompleted++);
 			}
 			return m_outputBlocks;
 		}
