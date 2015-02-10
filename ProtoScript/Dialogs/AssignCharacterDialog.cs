@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
@@ -67,9 +68,7 @@ namespace ProtoScript.Dialogs
 
 			colText.DefaultCellStyle.Font = m_viewModel.Font;
 			if (m_viewModel.RightToLeft)
-			{
 				m_dataGridViewBlocks.CellPainting += HandleDataGridViewBlocksCellPainting;
-			}
 
 			UpdateProgressBarForMode();
 
@@ -81,7 +80,8 @@ namespace ProtoScript.Dialogs
 			SetFilterControlsFromMode();
 
 			m_blocksDisplayBrowser.VisibleChanged += (sender, args) => LoadBlock();
-			m_dataGridViewBlocks.VisibleChanged += (sender, args) => LoadBlock();
+			m_dataGridViewBlocks.VisibleChanged += (sender, args) => BeginInvoke(new Action(LoadBlock));
+			m_dataGridViewBlocks.RowHeightChanged += AdjustScrollingInResponseToRowSizeChange;
 		}
 
 		private void UpdateProgressBarForMode()
@@ -154,23 +154,20 @@ namespace ProtoScript.Dialogs
 
 		private void ScrollDesiredRowsIntoView(int firstRow, int lastRow)
 		{
-			int precedingContextRows = 3;
+			int precedingContextRows = 4;
+			int followingContextRows = 2;
 			var firstRowLocation = m_dataGridViewBlocks.GetCellDisplayRectangle(0, firstRow, false);
-			var lastRowLocation = m_dataGridViewBlocks.GetCellDisplayRectangle(0, lastRow, false);
+			var lastRowLocation = m_dataGridViewBlocks.GetCellDisplayRectangle(0, lastRow + followingContextRows, false);
 			while ((firstRowLocation.Height == 0 || lastRowLocation.Height == 0 || (firstRow != lastRow &&
-				lastRowLocation.Y + lastRowLocation.Height > m_dataGridViewBlocks.ClientRectangle.Height)) && precedingContextRows-- > 0)
+				lastRowLocation.Y + lastRowLocation.Height > m_dataGridViewBlocks.ClientRectangle.Height)) && precedingContextRows >= 0)
 			{
-				var firstRowOfContextToMakeVisible = Math.Max(0, firstRow - precedingContextRows);
-				//if (firstRowOfContextToMakeVisible < m_dataGridViewBlocks.FirstDisplayedScrollingRowIndex ||
-				//	firstRowOfContextToMakeVisible >
-				//	m_dataGridViewBlocks.FirstDisplayedScrollingRowIndex +
-				//	m_dataGridViewBlocks.Height / m_dataGridViewBlocks.Rows[firstRowOfContextToMakeVisible].Height)
-				//{
-					m_dataGridViewBlocks.FirstDisplayedScrollingRowIndex = firstRowOfContextToMakeVisible;
-				//}
+				var firstRowOfContextToMakeVisible = Math.Max(0, firstRow - precedingContextRows--);
+				m_dataGridViewBlocks.FirstDisplayedScrollingRowIndex = firstRowOfContextToMakeVisible;
 
 				firstRowLocation = m_dataGridViewBlocks.GetCellDisplayRectangle(0, firstRow, false);
-				lastRowLocation = m_dataGridViewBlocks.GetCellDisplayRectangle(0, lastRow, false);
+				if (followingContextRows > 0)
+					followingContextRows--;
+				lastRowLocation = m_dataGridViewBlocks.GetCellDisplayRectangle(0, lastRow + followingContextRows, false);
 			}
 		}
 
@@ -646,27 +643,16 @@ namespace ProtoScript.Dialogs
 				e.Value = block.GetText(true);
 		}
 
-		private void HandleDataGridViewBlocksRowHeightInfoNeeded(object sender, DataGridViewRowHeightInfoNeededEventArgs e)
-		{
-			var block = m_viewModel.GetNthBlockInCurrentBook(e.RowIndex);
-			var characterId = AssignCharacterViewModel.Character.GetCharacterIdForUi(block.CharacterId, CurrentContextCharacters);
-			var text = block.GetText(true);
-			using (Graphics g = CreateGraphics())
-			{
-				var flags = TextFormatFlags.WordBreak | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.GlyphOverhangPadding;
-				var characterIdHeight = TextRenderer.MeasureText(g, characterId, m_dataGridViewBlocks.Font, new Size(colCharacter.Width, e.MinimumHeight), flags).Height;
-				var textHeight = TextRenderer.MeasureText(g, text, m_viewModel.Font, new Size(colText.Width, e.MinimumHeight), flags |
-					(m_viewModel.RightToLeft ? TextFormatFlags.RightToLeft : TextFormatFlags.Left)).Height;
-				e.Height = Math.Max(characterIdHeight, textHeight) + m_dataGridViewBlocks.Margin.Vertical;
-			}
-		}
-
 		void HandleDataGridViewBlocksColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
 		{
 			if (m_dataGridViewBlocks.ContainsFocus)
 				Properties.Settings.Default.AssignCharactersBlockContextGrid = GridSettings.Create(m_dataGridViewBlocks);
 		}
 
+		/// <summary>
+		/// This method only gets subscribed to for right-to-left scripts. If we need this in the future for other painting enhancements,
+		/// the logic that controls this will need to be moved into this method (so it can be subscribed to unconditionally).
+		/// </summary>
 		void HandleDataGridViewBlocksCellPainting(object sender, DataGridViewCellPaintingEventArgs e)
 		{
 			if (e.ColumnIndex == colText.Index && e.RowIndex >= 0)
@@ -688,6 +674,17 @@ namespace ProtoScript.Dialogs
 				m_viewModel.CurrentBlockIndexInBook = m_dataGridViewBlocks.SelectedRows[0].Index;
 
 			LoadBlock();
+		}
+
+		private void AdjustScrollingInResponseToRowSizeChange(object sender, DataGridViewRowEventArgs args)
+		{
+			if (m_dataGridViewBlocks.SelectedRows.Count > 0)
+			{
+				var firstRow = m_dataGridViewBlocks.SelectedRows[m_dataGridViewBlocks.SelectedRows.Count - 1].Index;
+				var lastRow = m_dataGridViewBlocks.SelectedRows[0].Index;
+				if (args.Row.Index > firstRow - 5 && args.Row.Index < lastRow + 2)
+					BeginInvoke(new Action(() => ScrollDesiredRowsIntoView(firstRow, lastRow)));
+			}
 		}
 		#endregion
 
