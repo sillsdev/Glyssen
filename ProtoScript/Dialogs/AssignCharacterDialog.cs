@@ -155,16 +155,14 @@ namespace ProtoScript.Dialogs
 		private void ScrollDesiredRowsIntoView(int firstRow, int lastRow)
 		{
 			int precedingContextRows = 4;
-			int followingContextRows = 2;
-			var firstRowLocation = m_dataGridViewBlocks.GetCellDisplayRectangle(0, firstRow, false);
+			int followingContextRows = Math.Min(2, m_dataGridViewBlocks.RowCount - lastRow - 1);
 			var lastRowLocation = m_dataGridViewBlocks.GetCellDisplayRectangle(0, lastRow + followingContextRows, false);
-			while ((firstRowLocation.Height == 0 || lastRowLocation.Height == 0 || (firstRow != lastRow &&
+			while ((lastRowLocation.Height == 0 || (firstRow != lastRow &&
 				lastRowLocation.Y + lastRowLocation.Height > m_dataGridViewBlocks.ClientRectangle.Height)) && precedingContextRows >= 0)
 			{
 				var firstRowOfContextToMakeVisible = Math.Max(0, firstRow - precedingContextRows--);
 				m_dataGridViewBlocks.FirstDisplayedScrollingRowIndex = firstRowOfContextToMakeVisible;
 
-				firstRowLocation = m_dataGridViewBlocks.GetCellDisplayRectangle(0, firstRow, false);
 				if (followingContextRows > 0)
 					followingContextRows--;
 				lastRowLocation = m_dataGridViewBlocks.GetCellDisplayRectangle(0, lastRow + followingContextRows, false);
@@ -685,6 +683,24 @@ namespace ProtoScript.Dialogs
 				if (args.Row.Index > firstRow - 5 && args.Row.Index < lastRow + 2)
 					BeginInvoke(new Action(() => ScrollDesiredRowsIntoView(firstRow, lastRow)));
 			}
+		}
+
+		private void IncreaseFont(object sender, EventArgs e)
+		{
+			m_viewModel.FontSize++;
+			colText.DefaultCellStyle.Font = m_viewModel.Font;
+			var origFont = m_dataGridViewBlocks.DefaultCellStyle.Font;
+			m_dataGridViewBlocks.DefaultCellStyle.Font = new Font(origFont.FontFamily, origFont.SizeInPoints + 1, origFont.Style);
+			UpdateContextBlocksDisplay();
+		}
+
+		private void DecreaseFont(object sender, EventArgs e)
+		{
+			m_viewModel.FontSize--;
+			colText.DefaultCellStyle.Font = m_viewModel.Font;
+			var origFont = m_dataGridViewBlocks.DefaultCellStyle.Font;
+			m_dataGridViewBlocks.DefaultCellStyle.Font = new Font(origFont.FontFamily, origFont.SizeInPoints - 1, origFont.Style);
+			UpdateContextBlocksDisplay();
 		}
 		#endregion
 

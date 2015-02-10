@@ -117,6 +117,16 @@ namespace ProtoScript.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DecreaseSize {
+            get {
+                object obj = ResourceManager.GetObject("DecreaseSize", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap grid_icon {
             get {
                 object obj = ResourceManager.GetObject("grid_icon", resourceCulture);
@@ -130,6 +140,16 @@ namespace ProtoScript.Properties {
         internal static System.Drawing.Bitmap html_view {
             get {
                 object obj = ResourceManager.GetObject("html_view", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IncreaseSize {
+            get {
+                object obj = ResourceManager.GetObject("IncreaseSize", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

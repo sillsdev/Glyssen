@@ -57,6 +57,9 @@
 			this.m_toolStrip = new System.Windows.Forms.ToolStrip();
 			this.m_toolStripButtonHtmlView = new System.Windows.Forms.ToolStripButton();
 			this.m_toolStripButtonGridView = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.m_toolStripButtonLargerFont = new System.Windows.Forms.ToolStripButton();
+			this.m_toolStripButtonSmallerFont = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.m_toolStripLabelFilter = new System.Windows.Forms.ToolStripLabel();
 			this.m_toolStripComboBoxFilter = new System.Windows.Forms.ToolStripComboBox();
@@ -437,6 +440,9 @@
 			this.m_toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.m_toolStripButtonHtmlView,
             this.m_toolStripButtonGridView,
+            this.toolStripSeparator2,
+            this.m_toolStripButtonLargerFont,
+            this.m_toolStripButtonSmallerFont,
             this.toolStripSeparator1,
             this.m_toolStripLabelFilter,
             this.m_toolStripComboBoxFilter,
@@ -484,6 +490,40 @@
 			this.m_toolStripButtonGridView.ToolTipText = "Left pane shows the highlighted block and surrounding context in a grid";
 			this.m_toolStripButtonGridView.CheckedChanged += new System.EventHandler(this.HandleDataGridViewCheckChanged);
 			this.m_toolStripButtonGridView.Click += new System.EventHandler(this.HandleViewTypeToolStripButtonClick);
+			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+			// 
+			// m_toolStripButtonLargerFont
+			// 
+			this.m_toolStripButtonLargerFont.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.m_toolStripButtonLargerFont.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_toolStripButtonLargerFont.Image = global::ProtoScript.Properties.Resources.IncreaseSize;
+			this.m_toolStripButtonLargerFont.ImageTransparentColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonLargerFont, "Increase size of text");
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonLargerFont, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonLargerFont, "AssignCharacterDialog.AssignCharacterDialog.m_toolStripButtonLargerFont");
+			this.m_toolStripButtonLargerFont.Name = "m_toolStripButtonLargerFont";
+			this.m_toolStripButtonLargerFont.Size = new System.Drawing.Size(23, 22);
+			this.m_toolStripButtonLargerFont.Text = "Increase size of text";
+			this.m_toolStripButtonLargerFont.Click += new System.EventHandler(this.IncreaseFont);
+			// 
+			// m_toolStripButtonSmallerFont
+			// 
+			this.m_toolStripButtonSmallerFont.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.m_toolStripButtonSmallerFont.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.m_toolStripButtonSmallerFont.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_toolStripButtonSmallerFont.Image = global::ProtoScript.Properties.Resources.DecreaseSize;
+			this.m_toolStripButtonSmallerFont.ImageTransparentColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonSmallerFont, "Decrease size of text");
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonSmallerFont, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonSmallerFont, "AssignCharacterDialog.AssignCharacterDialog.m_toolStripButtonSmallerFont");
+			this.m_toolStripButtonSmallerFont.Name = "m_toolStripButtonSmallerFont";
+			this.m_toolStripButtonSmallerFont.Size = new System.Drawing.Size(23, 22);
+			this.m_toolStripButtonSmallerFont.Text = "Decrease size of text";
+			this.m_toolStripButtonSmallerFont.Click += new System.EventHandler(this.DecreaseFont);
 			// 
 			// toolStripSeparator1
 			// 
@@ -761,7 +801,7 @@
 			this.m_pnlShortcuts.Location = new System.Drawing.Point(3, 48);
 			this.m_pnlShortcuts.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
 			this.m_pnlShortcuts.Name = "m_pnlShortcuts";
-			this.m_pnlShortcuts.Size = new System.Drawing.Size(15, 147);
+			this.m_pnlShortcuts.Size = new System.Drawing.Size(15, 144);
 			this.m_pnlShortcuts.TabIndex = 28;
 			// 
 			// m_pnlCharacterAndDeliverySelection
@@ -872,6 +912,7 @@
 			this.Name = "AssignCharacterDialog";
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
+			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Assign Characters";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AssignCharacterDialog_FormClosing);
@@ -957,5 +998,8 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn colCharacter;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colDelivery;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colText;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+		private System.Windows.Forms.ToolStripButton m_toolStripButtonSmallerFont;
+		private System.Windows.Forms.ToolStripButton m_toolStripButtonLargerFont;
 	}
 }

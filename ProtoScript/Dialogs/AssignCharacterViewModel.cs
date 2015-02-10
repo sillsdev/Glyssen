@@ -44,7 +44,7 @@ namespace ProtoScript.Dialogs
 		private bool m_showVerseNumbers = true; // May make this configurable later
 		private Font m_font;
 		private readonly string m_fontFamily;
-		private readonly int m_fontSizeInPoints;
+		private int m_fontSizeInPoints;
 		private readonly bool m_rightToLeftScript;
 		private readonly ProjectCharacterVerseData m_projectCharacterVerseData;
 		private readonly CombinedCharacterVerseData m_combinedCharacterVerseData;
@@ -68,8 +68,7 @@ namespace ProtoScript.Dialogs
 		{
 			m_navigator = new BlockNavigator(project.IncludedBooks);
 			m_fontFamily = project.FontFamily;
-			m_fontSizeInPoints = project.FontSizeInPoints;
-			m_font = new Font(m_fontFamily, m_fontSizeInPoints);
+			FontSize = project.FontSizeInPoints;
 			m_rightToLeftScript = project.RightToLeftScript;
 			m_projectCharacterVerseData = project.ProjectCharacterVerseData;
 			m_combinedCharacterVerseData = new CombinedCharacterVerseData(project);
@@ -89,6 +88,17 @@ namespace ProtoScript.Dialogs
 		public bool IsCurrentBlockRelevant { get { return m_temporarilyIncludedBlock == null; } }
 		public bool RightToLeft { get { return m_rightToLeftScript; } }
 		public Font Font { get { return m_font; } }
+		public int FontSize
+		{
+			get { return m_fontSizeInPoints; }
+			set
+			{
+				if (m_font != null)
+					m_font.Dispose();
+				m_fontSizeInPoints = value;
+				m_font = new Font(m_fontFamily, m_fontSizeInPoints);
+			}
+		}
 
 		public int CurrentBlockIndexInBook
 		{

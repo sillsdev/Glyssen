@@ -265,6 +265,8 @@
     <None Include="Resources\data-grid-icon.png" />
     <None Include="Resources\grid-icon.png" />
     <None Include="Resources\html-view.png" />
+    <None Include="Resources\DecreaseSize.png" />
+    <None Include="Resources\IncreaseSize.png" />
     <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />
   </ItemGroup>
