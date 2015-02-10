@@ -157,6 +157,8 @@ namespace ProtoScript
 			}
 		}
 
+		public bool IsInitialized { get; private set; }
+
 		public static Project Load(string projectFilePath)
 		{
 			Project existingProject = LoadExistingProject(projectFilePath);
@@ -289,6 +291,7 @@ namespace ProtoScript
 			var quoteWorker = new BackgroundWorker { WorkerReportsProgress = true };
 			quoteWorker.DoWork += QuoteWorker_DoWork;
 			quoteWorker.ProgressChanged += QuoteWorker_ProgressChanged;
+			quoteWorker.RunWorkerCompleted += QuoteWorker_RunWorkerCompleted;
 			quoteWorker.RunWorkerAsync();
 		}
 
@@ -298,6 +301,11 @@ namespace ProtoScript
 #if DEBUG
 			new ProjectAnalysis(this).AnalyzeQuoteParse();
 #endif
+		}
+
+		private void QuoteWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+		{
+			Save();
 		}
 
 		private void QuoteWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -332,6 +340,7 @@ namespace ProtoScript
 					MessageBox.Show(error.Message);
 			}
 			ProjectCharacterVerseData.WriteToFile(ProjectCharacterVerseDataPath);
+			IsInitialized = true;
 		}
 
 		public void ExportTabDelimited(string fileName)
