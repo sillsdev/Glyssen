@@ -68,8 +68,12 @@ namespace ProtoScript.Quote
 			int blocksCompleted = 0;
 			foreach (Block block in m_inputBlocks)
 			{
-				if (block.UserConfirmed || (block.CharacterIsStandard && !block.CharacterIs(m_bookId, CharacterVerseData.StandardCharacter.Narrator)))
+				if (block.UserConfirmed)
+					throw new InvalidOperationException("Should not be parsing blocks that already have user-decisions applied.");
+
+				if (block.CharacterIsStandard && !block.CharacterIs(m_bookId, CharacterVerseData.StandardCharacter.Narrator))
 				{
+					// The following handles the case where an open quote is interrupted by a section head or chapter break
 					var lastBlockAdded = m_outputBlocks.LastOrDefault();
 					if (lastBlockAdded != null && lastBlockAdded.MultiBlockQuote == MultiBlockQuote.Start)
 						lastBlockAdded.MultiBlockQuote = MultiBlockQuote.None;

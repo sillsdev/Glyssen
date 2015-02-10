@@ -360,8 +360,26 @@ namespace ProtoScript
 
 		private void HandleQuoteSystemChanged()
 		{
-			if (QuoteSystem != null)
-				DoQuoteParse();
+			m_books.Clear();
+
+			if (File.Exists(m_metadata.OriginalPathOfDblFile) && QuoteSystem != null)
+			{
+				var bundle = new Bundle.Bundle(m_metadata.OriginalPathOfDblFile);
+				PopulateAndParseBooks(bundle);
+			}
+			else if (File.Exists(m_metadata.OriginalPathOfSfmFile) && QuoteSystem != null)
+			{
+				AddAndParseBooks(new[] { SfmLoader.LoadSfmBook(m_metadata.OriginalPathOfSfmFile) }, SfmLoader.GetUsfmStylesheet());
+			}
+			else if (Directory.Exists(m_metadata.OriginalPathOfSfmDirectory) && QuoteSystem != null)
+			{
+				AddAndParseBooks(SfmLoader.LoadSfmFolder(m_metadata.OriginalPathOfSfmDirectory), SfmLoader.GetUsfmStylesheet());
+			}
+			else
+			{
+				//TODO
+				throw new ApplicationException();
+			}
 		}
 
 		private string ProjectCharacterVerseDataPath

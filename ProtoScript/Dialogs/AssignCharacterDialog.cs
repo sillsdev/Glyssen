@@ -133,24 +133,44 @@ namespace ProtoScript.Dialogs
 				colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
 				m_dataGridViewBlocks.RowCount = m_viewModel.BlockCountForCurrentBook;
 				m_dataGridViewBlocks.ClearSelection();
-				m_dataGridViewBlocks.Rows[m_viewModel.CurrentBlockIndexInBook].Selected = true;
-				 if (m_viewModel.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Start)
+				var firstRow = m_viewModel.CurrentBlockIndexInBook;
+				var lastRow = firstRow;
+				m_dataGridViewBlocks.Rows[firstRow].Selected = true;
+				if (m_viewModel.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Start)
 				{
 					foreach (var i in m_viewModel.GetIndicesOfQuoteContinuationBlocks(m_viewModel.CurrentBlock))
+					{
 						m_dataGridViewBlocks.Rows[i].Selected = true;
+						lastRow = i;
+					}
 				}
 				colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-				var firstRowOfContextToMakeVisible = Math.Max(0, m_viewModel.CurrentBlockIndexInBook - kContextBlocksBackward);
-				if (firstRowOfContextToMakeVisible < m_dataGridViewBlocks.FirstDisplayedScrollingRowIndex ||
-					firstRowOfContextToMakeVisible >
-					m_dataGridViewBlocks.FirstDisplayedScrollingRowIndex +
-					m_dataGridViewBlocks.Height / m_dataGridViewBlocks.Rows[firstRowOfContextToMakeVisible].Height)
-				{
-					m_dataGridViewBlocks.FirstDisplayedScrollingRowIndex = firstRowOfContextToMakeVisible;
-				}
+				ScrollDesiredRowsIntoView(firstRow, lastRow);
 
 				ResumeLayout();
 				m_updatingContext = false;
+			}
+		}
+
+		private void ScrollDesiredRowsIntoView(int firstRow, int lastRow)
+		{
+			int precedingContextRows = 3;
+			var firstRowLocation = m_dataGridViewBlocks.GetCellDisplayRectangle(0, firstRow, false);
+			var lastRowLocation = m_dataGridViewBlocks.GetCellDisplayRectangle(0, lastRow, false);
+			while ((firstRowLocation.Height == 0 || lastRowLocation.Height == 0 || (firstRow != lastRow &&
+				lastRowLocation.Y + lastRowLocation.Height > m_dataGridViewBlocks.ClientRectangle.Height)) && precedingContextRows-- > 0)
+			{
+				var firstRowOfContextToMakeVisible = Math.Max(0, firstRow - precedingContextRows);
+				//if (firstRowOfContextToMakeVisible < m_dataGridViewBlocks.FirstDisplayedScrollingRowIndex ||
+				//	firstRowOfContextToMakeVisible >
+				//	m_dataGridViewBlocks.FirstDisplayedScrollingRowIndex +
+				//	m_dataGridViewBlocks.Height / m_dataGridViewBlocks.Rows[firstRowOfContextToMakeVisible].Height)
+				//{
+					m_dataGridViewBlocks.FirstDisplayedScrollingRowIndex = firstRowOfContextToMakeVisible;
+				//}
+
+				firstRowLocation = m_dataGridViewBlocks.GetCellDisplayRectangle(0, firstRow, false);
+				lastRowLocation = m_dataGridViewBlocks.GetCellDisplayRectangle(0, lastRow, false);
 			}
 		}
 
