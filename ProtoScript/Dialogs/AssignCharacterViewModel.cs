@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -24,7 +25,7 @@ namespace ProtoScript.Dialogs
 		HotSpots = MissingExpectedQuote | MoreQuotesThanExpectedSpeakers | KnownTroubleSpots,
 	}
 
-	public class AssignCharacterViewModel
+	public class AssignCharacterViewModel : IDisposable
 	{
 		internal const string kDataCharacter = "data-character";
 		private const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
@@ -41,6 +42,7 @@ namespace ProtoScript.Dialogs
 
 
 		private bool m_showVerseNumbers = true; // May make this configurable later
+		private Font m_font;
 		private readonly string m_fontFamily;
 		private readonly int m_fontSizeInPoints;
 		private readonly bool m_rightToLeftScript;
@@ -67,6 +69,7 @@ namespace ProtoScript.Dialogs
 			m_navigator = new BlockNavigator(project.IncludedBooks);
 			m_fontFamily = project.FontFamily;
 			m_fontSizeInPoints = project.FontSizeInPoints;
+			m_font = new Font(m_fontFamily, m_fontSizeInPoints);
 			m_rightToLeftScript = project.RightToLeftScript;
 			m_projectCharacterVerseData = project.ProjectCharacterVerseData;
 			m_combinedCharacterVerseData = new CombinedCharacterVerseData(project);
@@ -84,6 +87,8 @@ namespace ProtoScript.Dialogs
 		public int BackwardContextBlockCount { get; set; }
 		public int ForwardContextBlockCount { get; set; }
 		public bool IsCurrentBlockRelevant { get { return m_temporarilyIncludedBlock == null; } }
+		public bool RightToLeft { get { return m_rightToLeftScript; } }
+		public Font Font { get { return m_font; } }
 
 		public int CurrentBlockIndexInBook
 		{
@@ -788,6 +793,19 @@ namespace ProtoScript.Dialogs
 				return item1Comparison;
 			}
 		}
+		#endregion
+
+		#region IDisposable Members
+
+		public void Dispose()
+		{
+			if (m_font != null)
+			{
+				m_font.Dispose();
+				m_font = null;
+			}
+		}
+
 		#endregion
 	}
 }

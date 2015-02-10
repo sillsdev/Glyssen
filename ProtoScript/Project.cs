@@ -153,6 +153,7 @@ namespace ProtoScript
 				m_metadata.language.name = model.LanguageName;
 				m_metadata.FontFamily = model.WsModel.CurrentDefaultFontName;
 				m_metadata.FontSizeInPoints = (int)model.WsModel.CurrentDefaultFontSize;
+				m_metadata.language.scriptDirection = model.WsModel.CurrentRightToLeftScript ? "RTL" : "LTR";
 			}
 		}
 

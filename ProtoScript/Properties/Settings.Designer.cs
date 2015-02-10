@@ -73,7 +73,7 @@ namespace ProtoScript.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("21")]
+        [global::System.Configuration.DefaultSettingValueAttribute("22")]
         public string PgUsxParserVersion {
             get {
                 return ((string)(this["PgUsxParserVersion"]));
@@ -116,6 +116,28 @@ namespace ProtoScript.Properties {
             }
             set {
                 this["AssignCharactersShowGridView"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Palaso.UI.WindowsForms.PortableSettingsProvider.FormSettings AssignCharacterDialogFormSettings {
+            get {
+                return ((global::Palaso.UI.WindowsForms.PortableSettingsProvider.FormSettings)(this["AssignCharacterDialogFormSettings"]));
+            }
+            set {
+                this["AssignCharacterDialogFormSettings"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Palaso.UI.WindowsForms.PortableSettingsProvider.GridSettings AssignCharactersBlockContextGrid {
+            get {
+                return ((global::Palaso.UI.WindowsForms.PortableSettingsProvider.GridSettings)(this["AssignCharactersBlockContextGrid"]));
+            }
+            set {
+                this["AssignCharactersBlockContextGrid"] = value;
             }
         }
     }

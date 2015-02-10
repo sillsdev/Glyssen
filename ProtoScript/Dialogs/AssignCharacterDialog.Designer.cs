@@ -29,6 +29,9 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_btnNext = new System.Windows.Forms.Button();
 			this.m_btnPrevious = new System.Windows.Forms.Button();
@@ -59,12 +62,6 @@
 			this.m_toolStripComboBoxFilter = new System.Windows.Forms.ToolStripComboBox();
 			this.m_toolStripButtonExcludeUserConfirmed = new System.Windows.Forms.ToolStripButton();
 			this.m_dataGridViewBlocks = new System.Windows.Forms.DataGridView();
-			this.colReference = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.colCharacter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.colDelivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.colText = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.m_blocksDisplayBrowser = new ProtoScript.Controls.Browser();
-			this.m_progressBar = new ProtoScript.Controls.ProgressBarUnanimated();
 			this.m_listBoxCharacters = new System.Windows.Forms.ListBox();
 			this.m_listBoxDeliveries = new System.Windows.Forms.ListBox();
 			this.m_pnlCharacterFilter = new System.Windows.Forms.Panel();
@@ -76,6 +73,12 @@
 			this.m_splitContainer = new System.Windows.Forms.SplitContainer();
 			this.m_tableBlocks = new System.Windows.Forms.TableLayoutPanel();
 			this.m_panelContext = new System.Windows.Forms.Panel();
+			this.m_blocksDisplayBrowser = new ProtoScript.Controls.Browser();
+			this.m_progressBar = new ProtoScript.Controls.ProgressBarUnanimated();
+			this.colReference = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colCharacter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colDelivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colText = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnCharacterFilter)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnDeliveryFilter)).BeginInit();
@@ -535,15 +538,32 @@
 			this.m_dataGridViewBlocks.AllowUserToDeleteRows = false;
 			this.m_dataGridViewBlocks.AllowUserToOrderColumns = true;
 			this.m_dataGridViewBlocks.AllowUserToResizeRows = false;
+			this.m_dataGridViewBlocks.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
 			this.m_dataGridViewBlocks.BackgroundColor = System.Drawing.SystemColors.Window;
 			this.m_dataGridViewBlocks.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.m_dataGridViewBlocks.CausesValidation = false;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.m_dataGridViewBlocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.m_dataGridViewBlocks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.m_dataGridViewBlocks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colReference,
             this.colCharacter,
             this.colDelivery,
             this.colText});
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.m_dataGridViewBlocks.DefaultCellStyle = dataGridViewCellStyle3;
 			this.m_dataGridViewBlocks.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_dataGridViewBlocks, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_dataGridViewBlocks, null);
@@ -563,76 +583,9 @@
 			this.m_dataGridViewBlocks.TabIndex = 30;
 			this.m_dataGridViewBlocks.VirtualMode = true;
 			this.m_dataGridViewBlocks.Visible = false;
-			this.m_dataGridViewBlocks.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.m_dataGridViewBlocks_CellValueNeeded);
-			this.m_dataGridViewBlocks.SelectionChanged += new System.EventHandler(this.m_dataGridViewBlocks_SelectionChanged);
-			// 
-			// colReference
-			// 
-			this.colReference.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-			this.colReference.HeaderText = "Reference";
-			this.colReference.MaxInputLength = 11;
-			this.colReference.MinimumWidth = 30;
-			this.colReference.Name = "colReference";
-			this.colReference.ReadOnly = true;
-			this.colReference.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			this.colReference.Width = 63;
-			// 
-			// colCharacter
-			// 
-			this.colCharacter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.colCharacter.FillWeight = 200F;
-			this.colCharacter.HeaderText = "Character";
-			this.colCharacter.MinimumWidth = 60;
-			this.colCharacter.Name = "colCharacter";
-			this.colCharacter.ReadOnly = true;
-			this.colCharacter.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			// 
-			// colDelivery
-			// 
-			this.colDelivery.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.colDelivery.HeaderText = "Delivery";
-			this.colDelivery.MinimumWidth = 60;
-			this.colDelivery.Name = "colDelivery";
-			this.colDelivery.ReadOnly = true;
-			this.colDelivery.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			// 
-			// colText
-			// 
-			this.colText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.colText.FillWeight = 200F;
-			this.colText.HeaderText = "Text";
-			this.colText.MinimumWidth = 60;
-			this.colText.Name = "colText";
-			this.colText.ReadOnly = true;
-			this.colText.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			// 
-			// m_blocksDisplayBrowser
-			// 
-			this.m_blocksDisplayBrowser.AutoSize = true;
-			this.m_blocksDisplayBrowser.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.m_blocksDisplayBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksDisplayBrowser, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksDisplayBrowser, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_blocksDisplayBrowser, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksDisplayBrowser, "ProjectSettingsDialog.Browser");
-			this.m_blocksDisplayBrowser.Location = new System.Drawing.Point(0, 0);
-			this.m_blocksDisplayBrowser.Name = "m_blocksDisplayBrowser";
-			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(295, 471);
-			this.m_blocksDisplayBrowser.TabIndex = 2;
-			this.m_blocksDisplayBrowser.OnMouseOver += new System.EventHandler<Gecko.DomMouseEventArgs>(this.OnMouseOver);
-			this.m_blocksDisplayBrowser.OnMouseOut += new System.EventHandler<Gecko.DomMouseEventArgs>(this.OnMouseOut);
-			this.m_blocksDisplayBrowser.OnDocumentCompleted += new System.EventHandler<Gecko.Events.GeckoDocumentCompletedEventArgs>(this.OnDocumentCompleted);
-			// 
-			// m_progressBar
-			// 
-			this.m_progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_progressBar, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_progressBar, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_progressBar, "AssignCharacterDialog.AssignCharacterDialog.m_progressBar");
-			this.m_progressBar.Location = new System.Drawing.Point(0, 544);
-			this.m_progressBar.Name = "m_progressBar";
-			this.m_progressBar.Size = new System.Drawing.Size(635, 17);
-			this.m_progressBar.TabIndex = 12;
+			this.m_dataGridViewBlocks.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.HandleDataGridViewBlocksCellValueNeeded);
+			this.m_dataGridViewBlocks.RowHeightInfoNeeded += new System.Windows.Forms.DataGridViewRowHeightInfoNeededEventHandler(this.HandleDataGridViewBlocksRowHeightInfoNeeded);
+			this.m_dataGridViewBlocks.SelectionChanged += new System.EventHandler(this.HandleDataGridViewBlocksSelectionChanged);
 			// 
 			// m_listBoxCharacters
 			// 
@@ -829,6 +782,76 @@
 			this.m_panelContext.Name = "m_panelContext";
 			this.m_panelContext.Size = new System.Drawing.Size(295, 471);
 			this.m_panelContext.TabIndex = 30;
+			// 
+			// m_blocksDisplayBrowser
+			// 
+			this.m_blocksDisplayBrowser.AutoSize = true;
+			this.m_blocksDisplayBrowser.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.m_blocksDisplayBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksDisplayBrowser, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksDisplayBrowser, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_blocksDisplayBrowser, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksDisplayBrowser, "ProjectSettingsDialog.Browser");
+			this.m_blocksDisplayBrowser.Location = new System.Drawing.Point(0, 0);
+			this.m_blocksDisplayBrowser.Name = "m_blocksDisplayBrowser";
+			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(295, 471);
+			this.m_blocksDisplayBrowser.TabIndex = 2;
+			this.m_blocksDisplayBrowser.OnMouseOver += new System.EventHandler<Gecko.DomMouseEventArgs>(this.OnMouseOver);
+			this.m_blocksDisplayBrowser.OnMouseOut += new System.EventHandler<Gecko.DomMouseEventArgs>(this.OnMouseOut);
+			this.m_blocksDisplayBrowser.OnDocumentCompleted += new System.EventHandler<Gecko.Events.GeckoDocumentCompletedEventArgs>(this.OnDocumentCompleted);
+			// 
+			// m_progressBar
+			// 
+			this.m_progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_progressBar, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_progressBar, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_progressBar, "AssignCharacterDialog.AssignCharacterDialog.m_progressBar");
+			this.m_progressBar.Location = new System.Drawing.Point(0, 544);
+			this.m_progressBar.Name = "m_progressBar";
+			this.m_progressBar.Size = new System.Drawing.Size(635, 17);
+			this.m_progressBar.TabIndex = 12;
+			// 
+			// colReference
+			// 
+			this.colReference.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.colReference.DefaultCellStyle = dataGridViewCellStyle2;
+			this.colReference.HeaderText = "Reference";
+			this.colReference.MaxInputLength = 11;
+			this.colReference.MinimumWidth = 30;
+			this.colReference.Name = "colReference";
+			this.colReference.ReadOnly = true;
+			this.colReference.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.colReference.Width = 82;
+			// 
+			// colCharacter
+			// 
+			this.colCharacter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.colCharacter.FillWeight = 200F;
+			this.colCharacter.HeaderText = "Character";
+			this.colCharacter.MinimumWidth = 60;
+			this.colCharacter.Name = "colCharacter";
+			this.colCharacter.ReadOnly = true;
+			this.colCharacter.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			// 
+			// colDelivery
+			// 
+			this.colDelivery.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.colDelivery.HeaderText = "Delivery";
+			this.colDelivery.MinimumWidth = 60;
+			this.colDelivery.Name = "colDelivery";
+			this.colDelivery.ReadOnly = true;
+			this.colDelivery.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			// 
+			// colText
+			// 
+			this.colText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.colText.FillWeight = 200F;
+			this.colText.HeaderText = "Text";
+			this.colText.MinimumWidth = 60;
+			this.colText.Name = "colText";
+			this.colText.ReadOnly = true;
+			this.colText.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
 			// 
 			// AssignCharacterDialog
 			// 

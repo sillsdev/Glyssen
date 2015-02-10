@@ -515,13 +515,13 @@ namespace ProtoScriptTests.Quote
 			block.BlockElements.Add(new ScriptText("He said, «Go!»"));
 			var input = new List<Block> { block };
 			Assert.AreEqual(1, input.Count);
-			Assert.AreEqual("[3]He said, «Go!»", input[0].GetText(true));
+			Assert.AreEqual("[3]\u00A0He said, «Go!»", input[0].GetText(true));
 			Assert.AreEqual(5, input[0].ChapterNumber);
 			Assert.AreEqual(3, input[0].InitialStartVerseNumber);
 
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
-			Assert.AreEqual("[3]He said, ", output[0].GetText(true));
+			Assert.AreEqual("[3]\u00A0He said, ", output[0].GetText(true));
 			Assert.AreEqual(5, output[0].ChapterNumber);
 			Assert.AreEqual(3, output[0].InitialStartVerseNumber);
 			Assert.AreEqual("«Go!»", output[1].GetText(true));
@@ -539,13 +539,13 @@ namespace ProtoScriptTests.Quote
 			block.BlockElements.Add(new ScriptText("He said, «Go back to your tax booth!»"));
 			var input = new List<Block> { block };
 			Assert.AreEqual(1, input.Count);
-			Assert.AreEqual("[3]Matthew tried to learn to fish, but Peter was upset. [4]He said, «Go back to your tax booth!»", input[0].GetText(true));
+			Assert.AreEqual("[3]\u00A0Matthew tried to learn to fish, but Peter was upset. [4]\u00A0He said, «Go back to your tax booth!»", input[0].GetText(true));
 			Assert.AreEqual(5, input[0].ChapterNumber);
 			Assert.AreEqual(3, input[0].InitialStartVerseNumber);
 
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
-			Assert.AreEqual("[3]Matthew tried to learn to fish, but Peter was upset. [4]He said, ", output[0].GetText(true));
+			Assert.AreEqual("[3]\u00A0Matthew tried to learn to fish, but Peter was upset. [4]\u00A0He said, ", output[0].GetText(true));
 			Assert.AreEqual(5, output[0].ChapterNumber);
 			Assert.AreEqual(3, output[0].InitialStartVerseNumber);
 			Assert.AreEqual("«Go back to your tax booth!»", output[1].GetText(true));
@@ -562,7 +562,7 @@ namespace ProtoScriptTests.Quote
 			block.BlockElements.Add(new ScriptText("«Go!»"));
 			var input = new List<Block> { block };
 			Assert.AreEqual(1, input.Count);
-			Assert.AreEqual("He said, [3]«Go!»", input[0].GetText(true));
+			Assert.AreEqual("He said, [3]\u00A0«Go!»", input[0].GetText(true));
 			Assert.AreEqual(6, input[0].ChapterNumber);
 			Assert.AreEqual(2, input[0].InitialStartVerseNumber);
 
@@ -576,7 +576,7 @@ namespace ProtoScriptTests.Quote
 			Assert.AreEqual(3, output[1].InitialStartVerseNumber);
 
 			Assert.AreEqual("He said, ", output[0].GetText(true));
-			Assert.AreEqual("[3]«Go!»", output[1].GetText(true));
+			Assert.AreEqual("[3]\u00A0«Go!»", output[1].GetText(true));
 		}
 
 		[Test]
@@ -588,7 +588,7 @@ namespace ProtoScriptTests.Quote
 			block.BlockElements.Add(new ScriptText("he said."));
 			var input = new List<Block> { block };
 			Assert.AreEqual(1, input.Count);
-			Assert.AreEqual("«Go!» [3]he said.", input[0].GetText(true));
+			Assert.AreEqual("«Go!» [3]\u00A0he said.", input[0].GetText(true));
 
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
@@ -596,7 +596,7 @@ namespace ProtoScriptTests.Quote
 			Assert.AreEqual("he said.", output[1].GetText(false));
 
 			Assert.AreEqual("«Go!» ", output[0].GetText(true));
-			Assert.AreEqual("[3]he said.", output[1].GetText(true));
+			Assert.AreEqual("[3]\u00A0he said.", output[1].GetText(true));
 		}
 
 		[Test]
@@ -608,7 +608,7 @@ namespace ProtoScriptTests.Quote
 			block.BlockElements.Add(new ScriptText("west!»"));
 			var input = new List<Block> { block };
 			Assert.AreEqual(1, input.Count);
-			Assert.AreEqual("He said, «Go [3]west!»", input[0].GetText(true));
+			Assert.AreEqual("He said, «Go [3]\u00A0west!»", input[0].GetText(true));
 			Assert.AreEqual(6, input[0].ChapterNumber);
 			Assert.AreEqual(2, input[0].InitialStartVerseNumber);
 
@@ -622,7 +622,7 @@ namespace ProtoScriptTests.Quote
 			Assert.AreEqual(2, output[1].InitialStartVerseNumber);
 
 			Assert.AreEqual("He said, ", output[0].GetText(true));
-			Assert.AreEqual("«Go [3]west!»", output[1].GetText(true));
+			Assert.AreEqual("«Go [3]\u00A0west!»", output[1].GetText(true));
 		}
 
 		[Test]
@@ -777,7 +777,7 @@ namespace ProtoScriptTests.Quote
 			Assert.IsTrue(output[3].CharacterIs("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
 			Assert.AreEqual("John tells everyone: “The Kingdom of Heaven is at hand”", output[4].GetText(true));
 			Assert.IsTrue(output[4].CharacterIs("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical));
-			Assert.AreEqual("[1]Jesus said, ", output[5].GetText(true));
+			Assert.AreEqual("[1]\u00A0Jesus said, ", output[5].GetText(true));
 			Assert.IsTrue(output[5].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual("“Is that John?”", output[6].GetText(true));
 			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[6].CharacterId);
@@ -810,7 +810,7 @@ namespace ProtoScriptTests.Quote
 			var input = new List<Block> { block };
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(1, output.Count);
-			Assert.AreEqual("[23]«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,", output[0].GetText(true));
+			Assert.AreEqual("[23]\u00A0«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,", output[0].GetText(true));
 			Assert.IsTrue(output[0].IsParagraphStart);
 		}
 
@@ -825,7 +825,7 @@ namespace ProtoScriptTests.Quote
 			var input = new List<Block> { block, block2 };
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
-			Assert.AreEqual("[23]«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,", output[0].GetText(true));
+			Assert.AreEqual("[23]\u00A0«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,", output[0].GetText(true));
 			Assert.AreEqual("ŋa tsanaftá hgani ka Emanuwel,» ", output[1].GetText(true));
 			Assert.AreEqual("manda mnay kazlay: Kawadaga Lazglafta nda amu kəʼa ya.", output[2].GetText(true));
 			Assert.IsTrue(output[0].IsParagraphStart);
@@ -902,7 +902,7 @@ namespace ProtoScriptTests.Quote
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
-			Assert.AreEqual("[23]«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,", output[0].GetText(true));
+			Assert.AreEqual("[23]\u00A0«Wya dzaʼa zlghafzlgha daghala makwa ta kul snaŋtá zgun ta huɗi, ŋa yatani ta zwaŋa zgun,", output[0].GetText(true));
 			Assert.AreEqual("ŋa tsanaftá hgani ka Emanuwel,» ", output[1].GetText(true));
 			Assert.AreEqual("manda mnay kazlay: Kawadaga Lazglafta nda amu kəʼa ya.", output[2].GetText(true));
 		}
@@ -943,7 +943,7 @@ namespace ProtoScriptTests.Quote
 			Assert.AreEqual("«pe, kadi ki acel.» ", output[0].GetText(false));
 			Assert.AreEqual("«Guŋamo doggi calo lyel ma twolo,»", output[1].GetText(false));
 			Assert.AreEqual("«pe, kadi ki acel.» ", output[0].GetText(true));
-			Assert.AreEqual("[13]«Guŋamo doggi calo lyel ma twolo,»", output[1].GetText(true));
+			Assert.AreEqual("[13]\u00A0«Guŋamo doggi calo lyel ma twolo,»", output[1].GetText(true));
 		}
 
 		[Test]
@@ -1023,17 +1023,17 @@ namespace ProtoScriptTests.Quote
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", ":", null, false);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
-			Assert.AreEqual("[6]Jesús le dijo: ", output[0].GetText(true));
+			Assert.AreEqual("[6]\u00A0Jesús le dijo: ", output[0].GetText(true));
 			Assert.IsTrue(output[0].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(14, output[0].ChapterNumber);
 			Assert.AreEqual(6, output[0].InitialStartVerseNumber);
-			Assert.AreEqual("Yo soy el camino, y la verdad, y la vida; nadie viene al Padre sino por mí. [7]Si me hubierais conocido, también hubierais conocido a mi Padre; desde ahora le conocéis y le habéis visto.", output[1].GetText(true));
+			Assert.AreEqual("Yo soy el camino, y la verdad, y la vida; nadie viene al Padre sino por mí. [7]\u00A0Si me hubierais conocido, también hubierais conocido a mi Padre; desde ahora le conocéis y le habéis visto.", output[1].GetText(true));
 			Assert.AreEqual("Jesus", output[1].CharacterId);
 			Assert.AreEqual(string.Empty, output[1].Delivery);
 			Assert.AreEqual(14, output[1].ChapterNumber);
 			Assert.AreEqual(6, output[1].InitialStartVerseNumber);
 
-			Assert.AreEqual("[8]Felipe le dijo: ", output[2].GetText(true));
+			Assert.AreEqual("[8]\u00A0Felipe le dijo: ", output[2].GetText(true));
 			Assert.IsTrue(output[2].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(14, output[2].ChapterNumber);
 			Assert.AreEqual(8, output[2].InitialStartVerseNumber);
@@ -1124,7 +1124,7 @@ namespace ProtoScriptTests.Quote
 			Assert.AreEqual(2, output[0].ChapterNumber);
 			Assert.AreEqual(5, output[0].InitialStartVerseNumber);
 
-			Assert.AreEqual("[6]Yus chichaak: “Judá nungkanam yakat Belén tutai mianchauka achatnuitai. Antsu nu yaktanam juun apu akiinatnua nuka Israela weari ainaun inartinuitai. Tura asamtai nu yaktaka chikich yakat Judá nungkanam aa nuna nangkamasang juun atinuitai,”", output[1].GetText(true));
+			Assert.AreEqual("[6]\u00A0Yus chichaak: “Judá nungkanam yakat Belén tutai mianchauka achatnuitai. Antsu nu yaktanam juun apu akiinatnua nuka Israela weari ainaun inartinuitai. Tura asamtai nu yaktaka chikich yakat Judá nungkanam aa nuna nangkamasang juun atinuitai,”", output[1].GetText(true));
 			Assert.AreEqual("Good Priest", output[1].CharacterId);
 			Assert.AreEqual(2, output[1].ChapterNumber);
 			Assert.AreEqual(6, output[1].InitialStartVerseNumber);
@@ -1156,7 +1156,7 @@ namespace ProtoScriptTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
-			Assert.AreEqual("[17]Quia joˈ tso Jesús nda̱a̱na:", output[0].GetText(true));
+			Assert.AreEqual("[17]\u00A0Quia joˈ tso Jesús nda̱a̱na:", output[0].GetText(true));
 			Assert.IsTrue(output[0].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(1, output[0].ChapterNumber);
 			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
@@ -1166,7 +1166,7 @@ namespace ProtoScriptTests.Quote
 			Assert.AreEqual(1, output[1].ChapterNumber);
 			Assert.AreEqual(17, output[1].InitialStartVerseNumber);
 
-			Assert.AreEqual("[18]Joona mañoomˈ ˈndyena lquiˈ ˈnaaⁿna. Tyˈena ñˈeⁿñê.", output[2].GetText(true));
+			Assert.AreEqual("[18]\u00A0Joona mañoomˈ ˈndyena lquiˈ ˈnaaⁿna. Tyˈena ñˈeⁿñê.", output[2].GetText(true));
 			Assert.IsTrue(output[2].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(1, output[2].ChapterNumber);
 			Assert.AreEqual(18, output[2].InitialStartVerseNumber);
@@ -1207,17 +1207,17 @@ namespace ProtoScriptTests.Quote
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("<<", ">>", ":", null, false);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
-			Assert.AreEqual("[6]Jesús le dijo: ", output[0].GetText(true));
+			Assert.AreEqual("[6]\u00A0Jesús le dijo: ", output[0].GetText(true));
 			Assert.IsTrue(output[0].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(14, output[0].ChapterNumber);
 			Assert.AreEqual(6, output[0].InitialStartVerseNumber);
-			Assert.AreEqual("Yo soy el camino, y la verdad, y la vida; nadie viene al Padre sino por mí. [7]Si me hubierais conocido, también hubierais conocido a mi Padre; desde ahora le conocéis y le habéis visto.", output[1].GetText(true));
+			Assert.AreEqual("Yo soy el camino, y la verdad, y la vida; nadie viene al Padre sino por mí. [7]\u00A0Si me hubierais conocido, también hubierais conocido a mi Padre; desde ahora le conocéis y le habéis visto.", output[1].GetText(true));
 			Assert.AreEqual("Jesus", output[1].CharacterId);
 			Assert.AreEqual(string.Empty, output[1].Delivery);
 			Assert.AreEqual(14, output[1].ChapterNumber);
 			Assert.AreEqual(6, output[1].InitialStartVerseNumber);
 
-			Assert.AreEqual("[8]Felipe le dijo: ", output[2].GetText(true));
+			Assert.AreEqual("[8]\u00A0Felipe le dijo: ", output[2].GetText(true));
 			Assert.IsTrue(output[2].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(14, output[2].ChapterNumber);
 			Assert.AreEqual(8, output[2].InitialStartVerseNumber);
@@ -1308,7 +1308,7 @@ namespace ProtoScriptTests.Quote
 			Assert.AreEqual(2, output[0].ChapterNumber);
 			Assert.AreEqual(5, output[0].InitialStartVerseNumber);
 
-			Assert.AreEqual("[6]Yus chichaak: <<Judá nungkanam yakat Belén tutai mianchauka achatnuitai. Antsu nu yaktanam juun apu akiinatnua nuka Israela weari ainaun inartinuitai. Tura asamtai nu yaktaka chikich yakat Judá nungkanam aa nuna nangkamasang juun atinuitai,>>", output[1].GetText(true));
+			Assert.AreEqual("[6]\u00A0Yus chichaak: <<Judá nungkanam yakat Belén tutai mianchauka achatnuitai. Antsu nu yaktanam juun apu akiinatnua nuka Israela weari ainaun inartinuitai. Tura asamtai nu yaktaka chikich yakat Judá nungkanam aa nuna nangkamasang juun atinuitai,>>", output[1].GetText(true));
 			Assert.AreEqual("Good Priest", output[1].CharacterId);
 			Assert.AreEqual(2, output[1].ChapterNumber);
 			Assert.AreEqual(6, output[1].InitialStartVerseNumber);
@@ -1340,7 +1340,7 @@ namespace ProtoScriptTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
-			Assert.AreEqual("[17]Quia joˈ tso Jesús nda̱a̱na:", output[0].GetText(true));
+			Assert.AreEqual("[17]\u00A0Quia joˈ tso Jesús nda̱a̱na:", output[0].GetText(true));
 			Assert.IsTrue(output[0].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(1, output[0].ChapterNumber);
 			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
@@ -1350,7 +1350,7 @@ namespace ProtoScriptTests.Quote
 			Assert.AreEqual(1, output[1].ChapterNumber);
 			Assert.AreEqual(17, output[1].InitialStartVerseNumber);
 
-			Assert.AreEqual("[18]Joona mañoomˈ ˈndyena lquiˈ ˈnaaⁿna. Tyˈena ñˈeⁿñê.", output[2].GetText(true));
+			Assert.AreEqual("[18]\u00A0Joona mañoomˈ ˈndyena lquiˈ ˈnaaⁿna. Tyˈena ñˈeⁿñê.", output[2].GetText(true));
 			Assert.IsTrue(output[2].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(1, output[2].ChapterNumber);
 			Assert.AreEqual(18, output[2].InitialStartVerseNumber);

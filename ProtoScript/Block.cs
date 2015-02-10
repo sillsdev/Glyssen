@@ -124,7 +124,7 @@ namespace ProtoScript
 					{
 						bldr.Append("[");
 						bldr.Append(verse.Number);
-						bldr.Append("]");
+						bldr.Append("]\u00A0");
 					}
 				}
 				else

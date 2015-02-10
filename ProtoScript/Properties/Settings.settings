@@ -15,7 +15,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="PgUsxParserVersion" Type="System.String" Scope="User">
-      <Value Profile="(Default)">21</Value>
+      <Value Profile="(Default)">22</Value>
     </Setting>
     <Setting Name="DefaultFontSize" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>
@@ -25,6 +25,12 @@
     </Setting>
     <Setting Name="AssignCharactersShowGridView" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="AssignCharacterDialogFormSettings" Type="Palaso.UI.WindowsForms.PortableSettingsProvider.FormSettings" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="AssignCharactersBlockContextGrid" Type="Palaso.UI.WindowsForms.PortableSettingsProvider.GridSettings" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

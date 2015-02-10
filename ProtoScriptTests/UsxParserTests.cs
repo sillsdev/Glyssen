@@ -31,7 +31,7 @@ namespace ProtoScriptTests
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(false));
-			Assert.AreEqual("[1]Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, [2]kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
+			Assert.AreEqual("[1]\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, [2]\u00A0kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
 		}
 
 		[Test]
@@ -47,35 +47,35 @@ namespace ProtoScriptTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual("dwan dano mo ma daŋŋe ki i tim ni,", blocks[1].GetText(false));
-			Assert.AreEqual("[3]dwan dano mo ma daŋŋe ki i tim ni,", blocks[1].GetText(true));
+			Assert.AreEqual("[3]\u00A0dwan dano mo ma daŋŋe ki i tim ni,", blocks[1].GetText(true));
 		}
 
 		[Test]
-		public void Parse_ParagraphWithSpaceAfterVerseAndNote_SpacesAreMaintained()
+		public void Parse_ParagraphWithSpaceAfterVerseAndNote_ExtraSpaceIsRemoved()
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"q1\">" +
 										"“pe, kadi ki acel.” <verse number=\"3\" /><note /> “Guŋamo doggi calo lyel ma twolo,”</para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
-			Assert.AreEqual("“pe, kadi ki acel.”  “Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(false));
-			Assert.AreEqual("“pe, kadi ki acel.” [3] “Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(true));
+			Assert.AreEqual("“pe, kadi ki acel.” “Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(false));
+			Assert.AreEqual("“pe, kadi ki acel.” [3]\u00A0“Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(true));
 			Assert.AreEqual("“pe, kadi ki acel.” ", ((ScriptText)blocks[1].BlockElements[0]).Content);
-			Assert.AreEqual(" “Guŋamo doggi calo lyel ma twolo,”", ((ScriptText)blocks[1].BlockElements[2]).Content);
+			Assert.AreEqual("“Guŋamo doggi calo lyel ma twolo,”", ((ScriptText)blocks[1].BlockElements[2]).Content);
 		}
 
 		[Test]
-		public void Parse_ParagraphWithSpaceAfterVerse_SpacesAreMaintained()
+		public void Parse_ParagraphWithSpaceAfterVerse_ExtraSpaceIsRemoved()
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"q1\">" +
 										"“pe, kadi ki acel.” <verse number=\"3\" /> “Guŋamo doggi calo lyel ma twolo,”</para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
-			Assert.AreEqual("“pe, kadi ki acel.”  “Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(false));
-			Assert.AreEqual("“pe, kadi ki acel.” [3] “Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(true));
+			Assert.AreEqual("“pe, kadi ki acel.” “Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(false));
+			Assert.AreEqual("“pe, kadi ki acel.” [3]\u00A0“Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(true));
 			Assert.AreEqual("“pe, kadi ki acel.” ", ((ScriptText)blocks[1].BlockElements[0]).Content);
-			Assert.AreEqual(" “Guŋamo doggi calo lyel ma twolo,”", ((ScriptText)blocks[1].BlockElements[2]).Content);
+			Assert.AreEqual("“Guŋamo doggi calo lyel ma twolo,”", ((ScriptText)blocks[1].BlockElements[2]).Content);
 		}
 
 		[Test]
@@ -118,7 +118,7 @@ namespace ProtoScriptTests
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual(3, blocks[1].BlockElements.Count);
 			Assert.AreEqual("Text before figure. Text after figure.", blocks[1].GetText(false));
-			Assert.AreEqual("Text before figure. [2]Text after figure.", blocks[1].GetText(true));
+			Assert.AreEqual("Text before figure. [2]\u00A0Text after figure.", blocks[1].GetText(true));
 		}
 
 		[Test]
@@ -144,7 +144,7 @@ namespace ProtoScriptTests
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual(2, blocks[1].BlockElements.Count);
 			Assert.AreEqual("Text", blocks[1].GetText(false));
-			Assert.AreEqual("[2]Text", blocks[1].GetText(true));
+			Assert.AreEqual("[2]\u00A0Text", blocks[1].GetText(true));
 		}
 
 		[Test]
@@ -170,7 +170,7 @@ namespace ProtoScriptTests
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. Ci obedo i tim nino pyeraŋwen; Catan ocako bite, ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.", blocks[1].GetText(false));
-			Assert.AreEqual("Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. [13]Ci obedo i tim nino pyeraŋwen; Catan ocako bite, ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.", blocks[1].GetText(true));
+			Assert.AreEqual("Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. [13]\u00A0Ci obedo i tim nino pyeraŋwen; Catan ocako bite, ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.", blocks[1].GetText(true));
 		}
 
 		[Test]
@@ -242,7 +242,7 @@ namespace ProtoScriptTests
 			Assert.AreEqual("p", blocks[1].StyleTag);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
-			Assert.AreEqual("[1]Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, [2]kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
+			Assert.AreEqual("[1]\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, [2]\u00A0kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
 
 			Assert.AreEqual("c", blocks[2].StyleTag);
 			Assert.AreEqual(2, blocks[2].ChapterNumber);
@@ -251,7 +251,7 @@ namespace ProtoScriptTests
 			Assert.AreEqual("p", blocks[3].StyleTag);
 			Assert.AreEqual(2, blocks[3].ChapterNumber);
 			Assert.AreEqual(1, blocks[3].InitialStartVerseNumber);
-			Assert.AreEqual("[1]Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[3].GetText(true));
+			Assert.AreEqual("[1]\u00A0Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[3].GetText(true));
 			Assert.AreEqual("q1", blocks[4].StyleTag);
 			Assert.AreEqual(2, blocks[4].ChapterNumber);
 			Assert.AreEqual(1, blocks[4].InitialStartVerseNumber);
@@ -294,12 +294,12 @@ namespace ProtoScriptTests
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(12, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,", blocks[1].GetText(false));
-			Assert.AreEqual("[12-14]Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,", blocks[1].GetText(true));
+			Assert.AreEqual("[12-14]\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,", blocks[1].GetText(true));
 
 			Assert.AreEqual(1, blocks[2].ChapterNumber);
 			Assert.AreEqual(15, blocks[2].InitialStartVerseNumber);
 			Assert.AreEqual("Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(false));
-			Assert.AreEqual("[15-18]Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(true));
+			Assert.AreEqual("[15-18]\u00A0Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(true));
 		}
 
 		[Test]
@@ -379,7 +379,7 @@ namespace ProtoScriptTests
 			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("p", blocks[1].StyleTag);
 			Assert.AreEqual(Block.NotSet, blocks[1].CharacterId);
-			Assert.AreEqual("[1-2]Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
+			Assert.AreEqual("[1-2]\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
 
 			Assert.AreEqual(1, blocks[2].ChapterNumber);
 			Assert.AreEqual(1, blocks[2].InitialStartVerseNumber);

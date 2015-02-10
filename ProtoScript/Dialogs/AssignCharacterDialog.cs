@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Gecko;
@@ -16,6 +17,7 @@ using Gecko.DOM;
 using Gecko.Events;
 using L10NSharp;
 using L10NSharp.UI;
+using Palaso.UI.WindowsForms.PortableSettingsProvider;
 using ProtoScript.Character;
 using ProtoScript.Controls;
 using SIL.ScriptureControls;
@@ -50,6 +52,10 @@ namespace ProtoScript.Dialogs
 		public AssignCharacterDialog(AssignCharacterViewModel viewModel)
 		{
 			InitializeComponent();
+			
+			if (Properties.Settings.Default.AssignCharacterDialogFormSettings == null)
+				Properties.Settings.Default.AssignCharacterDialogFormSettings = FormSettings.Create(this);
+
 			m_txtCharacterFilter.CorrectHeight();
 			m_txtDeliveryFilter.CorrectHeight();
 			if (Properties.Settings.Default.AssignCharactersShowGridView)
@@ -58,6 +64,12 @@ namespace ProtoScript.Dialogs
 			m_viewModel = viewModel;
 			m_viewModel.BackwardContextBlockCount = kContextBlocksBackward;
 			m_viewModel.ForwardContextBlockCount = kContextBlocksForward;
+
+			colText.DefaultCellStyle.Font = m_viewModel.Font;
+			if (m_viewModel.RightToLeft)
+			{
+				m_dataGridViewBlocks.CellPainting += HandleDataGridViewBlocksCellPainting;
+			}
 
 			UpdateProgressBarForMode();
 
@@ -386,6 +398,27 @@ namespace ProtoScript.Dialogs
 		}
 
 		#region Form events
+		/// ------------------------------------------------------------------------------------
+		protected override void OnLoad(EventArgs e)
+		{
+			Properties.Settings.Default.AssignCharacterDialogFormSettings.InitializeForm(this);
+
+			if (Properties.Settings.Default.AssignCharactersBlockContextGrid != null)
+				Properties.Settings.Default.AssignCharactersBlockContextGrid.InitializeGrid(m_dataGridViewBlocks);
+
+			base.OnLoad(e);
+
+			if (Properties.Settings.Default.AssignCharactersBlockContextGrid != null)
+				Properties.Settings.Default.AssignCharactersBlockContextGrid.InitializeGrid(m_dataGridViewBlocks);
+		}
+
+		protected override void OnHandleCreated(EventArgs e)
+		{
+			base.OnHandleCreated(e);
+
+			m_dataGridViewBlocks.ColumnWidthChanged += HandleDataGridViewBlocksColumnWidthChanged;
+		}
+
 		private void m_btnNext_Click(object sender, EventArgs e)
 		{
 			if (UserConfirmSaveChangesIfNecessary())
@@ -580,7 +613,7 @@ namespace ProtoScript.Dialogs
 				button.Checked = true;
 		}
 
-		private void m_dataGridViewBlocks_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
+		private void HandleDataGridViewBlocksCellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
 		{
 			var block = m_viewModel.GetNthBlockInCurrentBook(e.RowIndex);
 			if (e.ColumnIndex == colReference.Index)
@@ -593,7 +626,40 @@ namespace ProtoScript.Dialogs
 				e.Value = block.GetText(true);
 		}
 
-		private void m_dataGridViewBlocks_SelectionChanged(object sender, EventArgs e)
+		private void HandleDataGridViewBlocksRowHeightInfoNeeded(object sender, DataGridViewRowHeightInfoNeededEventArgs e)
+		{
+			var block = m_viewModel.GetNthBlockInCurrentBook(e.RowIndex);
+			var characterId = AssignCharacterViewModel.Character.GetCharacterIdForUi(block.CharacterId, CurrentContextCharacters);
+			var text = block.GetText(true);
+			using (Graphics g = CreateGraphics())
+			{
+				var flags = TextFormatFlags.WordBreak | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.GlyphOverhangPadding;
+				var characterIdHeight = TextRenderer.MeasureText(g, characterId, m_dataGridViewBlocks.Font, new Size(colCharacter.Width, e.MinimumHeight), flags).Height;
+				var textHeight = TextRenderer.MeasureText(g, text, m_viewModel.Font, new Size(colText.Width, e.MinimumHeight), flags |
+					(m_viewModel.RightToLeft ? TextFormatFlags.RightToLeft : TextFormatFlags.Left)).Height;
+				e.Height = Math.Max(characterIdHeight, textHeight) + m_dataGridViewBlocks.Margin.Vertical;
+			}
+		}
+
+		void HandleDataGridViewBlocksColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
+		{
+			if (m_dataGridViewBlocks.ContainsFocus)
+				Properties.Settings.Default.AssignCharactersBlockContextGrid = GridSettings.Create(m_dataGridViewBlocks);
+		}
+
+		void HandleDataGridViewBlocksCellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+		{
+			if (e.ColumnIndex == colText.Index && e.RowIndex >= 0)
+			{
+				e.PaintBackground(e.CellBounds, true);
+				TextRenderer.DrawText(e.Graphics, e.FormattedValue.ToString(),
+				e.CellStyle.Font, e.CellBounds, e.CellStyle.ForeColor,
+				 TextFormatFlags.WordBreak | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.RightToLeft | TextFormatFlags.Right);
+				e.Handled = true;
+			}
+		}
+
+		private void HandleDataGridViewBlocksSelectionChanged(object sender, EventArgs e)
 		{
 			if (m_updatingContext)
 				return;

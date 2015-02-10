@@ -118,6 +118,7 @@ namespace ProtoScript
 									break;
 							}
 						}
+						sb.TrimStart();
 						if (sb.Length > 0)
 						{
 							block.BlockElements.Add(new ScriptText(sb.ToString()));
@@ -182,6 +183,15 @@ namespace ProtoScript
 				m_currentEndVerse = 0;
 			}
 			return block;
+		}
+	}
+
+	static class StringBuilderExtensions
+	{
+		public static void TrimStart(this StringBuilder sb)
+		{
+			while (sb.Length > 0 && sb[0] == ' ')
+				sb.Remove(0, 1);
 		}
 	}
 }

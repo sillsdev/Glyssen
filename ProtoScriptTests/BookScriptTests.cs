@@ -137,7 +137,7 @@ namespace ProtoScriptTests
 			mrkBlocks.Add(NewSingleVersePara(5));
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var block = bookScript.GetFirstBlockForVerse(1, 3);
-			Assert.AreEqual("[3]This is it!", block.GetText(true));
+			Assert.AreEqual("[3]\u00A0This is it!", block.GetText(true));
 		}
 
 		[Test]
@@ -150,7 +150,7 @@ namespace ProtoScriptTests
 			mrkBlocks.Add(NewSingleVersePara(6));
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var block = bookScript.GetFirstBlockForVerse(1, 2);
-			Assert.IsTrue(block.GetText(true).StartsWith("[2]This is it![3]"));
+			Assert.IsTrue(block.GetText(true).StartsWith("[2]\u00A0This is it![3]\u00A0"));
 		}
 
 		[Test]
@@ -163,7 +163,7 @@ namespace ProtoScriptTests
 			mrkBlocks.Add(NewSingleVersePara(6));
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var block = bookScript.GetFirstBlockForVerse(1, 4);
-			Assert.IsTrue(block.GetText(true).Contains("[4]This is it![5]"));
+			Assert.IsTrue(block.GetText(true).Contains("[4]\u00A0This is it![5]\u00A0"));
 		}
 
 		[Test]
@@ -192,7 +192,7 @@ namespace ProtoScriptTests
 			mrkBlocks.Add(NewSingleVersePara(7).AddVerse(8));
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var block = bookScript.GetFirstBlockForVerse(2, 5);
-			Assert.IsTrue(block.GetText(true).Contains("[5]This is it![6]"));
+			Assert.IsTrue(block.GetText(true).Contains("[5]\u00A0This is it![6]\u00A0"));
 		}
 
 		[Test]
@@ -205,7 +205,7 @@ namespace ProtoScriptTests
 			mrkBlocks.Add(NewSingleVersePara(7));
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var block = bookScript.GetFirstBlockForVerse(1, 5);
-			Assert.IsTrue(block.GetText(true).EndsWith("[4-6]This is it!"));
+			Assert.IsTrue(block.GetText(true).EndsWith("[4-6]\u00A0This is it!"));
 		}
 
 		[Test]
@@ -224,7 +224,7 @@ namespace ProtoScriptTests
 			mrkBlocks.Add(NewSingleVersePara(4));
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var firstBlockForVerse1_3 = bookScript.GetFirstBlockForVerse(1, 3);
-			Assert.IsTrue(firstBlockForVerse1_3.GetText(true).EndsWith("[3]This is it!"));
+			Assert.IsTrue(firstBlockForVerse1_3.GetText(true).EndsWith("[3]\u00A0This is it!"));
 		}
 		#endregion
 
