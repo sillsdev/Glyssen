@@ -268,6 +268,8 @@ namespace ProtoScript
 			}
 			using (var dlg = new AssignCharacterDialog(viewModel))
 				dlg.ShowDialog();
+
+			m_project.FontSizeUiAdjustment = viewModel.FontSizeUiAdjustment;
 		}
 
 		private void m_btnSelectBooks_Click(object sender, EventArgs e)

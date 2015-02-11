@@ -44,7 +44,8 @@ namespace ProtoScript.Dialogs
 		private bool m_showVerseNumbers = true; // May make this configurable later
 		private Font m_font;
 		private readonly string m_fontFamily;
-		private int m_fontSizeInPoints;
+		private readonly int m_baseFontSizeInPoints;
+		private int m_fontSizeUiAdjustment;
 		private readonly bool m_rightToLeftScript;
 		private readonly ProjectCharacterVerseData m_projectCharacterVerseData;
 		private readonly CombinedCharacterVerseData m_combinedCharacterVerseData;
@@ -68,7 +69,8 @@ namespace ProtoScript.Dialogs
 		{
 			m_navigator = new BlockNavigator(project.IncludedBooks);
 			m_fontFamily = project.FontFamily;
-			FontSize = project.FontSizeInPoints;
+			m_baseFontSizeInPoints = project.FontSizeInPoints;
+			FontSizeUiAdjustment = project.FontSizeUiAdjustment;
 			m_rightToLeftScript = project.RightToLeftScript;
 			m_projectCharacterVerseData = project.ProjectCharacterVerseData;
 			m_combinedCharacterVerseData = new CombinedCharacterVerseData(project);
@@ -88,15 +90,15 @@ namespace ProtoScript.Dialogs
 		public bool IsCurrentBlockRelevant { get { return m_temporarilyIncludedBlock == null; } }
 		public bool RightToLeft { get { return m_rightToLeftScript; } }
 		public Font Font { get { return m_font; } }
-		public int FontSize
+		public int FontSizeUiAdjustment
 		{
-			get { return m_fontSizeInPoints; }
+			get { return m_fontSizeUiAdjustment; }
 			set
 			{
 				if (m_font != null)
 					m_font.Dispose();
-				m_fontSizeInPoints = value;
-				m_font = new Font(m_fontFamily, m_fontSizeInPoints);
+				m_fontSizeUiAdjustment = value;
+				m_font = new Font(m_fontFamily, m_baseFontSizeInPoints + m_fontSizeUiAdjustment);
 			}
 		}
 
@@ -298,7 +300,7 @@ namespace ProtoScript.Dialogs
 				}
 
 				listToReturn.AddRange(new SortedSet<Character>(m_currentCharacters.Select(cv =>
-					new Character(cv.Character, cv.Alias)), m_characterComparer));
+					new Character(cv.Character, cv.Alias)), m_characterComparer).Where(c => !listToReturn.Contains(c)));
 			}
 
 			return listToReturn;
@@ -545,7 +547,7 @@ namespace ProtoScript.Dialogs
 
 		private string BuildStyle()
 		{
-			return String.Format(kCssFrame, m_fontFamily, m_fontSizeInPoints);
+			return String.Format(kCssFrame, m_fontFamily, m_baseFontSizeInPoints + m_fontSizeUiAdjustment);
 		}
 
 		public bool IsModified(Character newCharacter, Delivery newDelivery)

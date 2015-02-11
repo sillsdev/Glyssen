@@ -79,6 +79,12 @@ namespace ProtoScript
 			get { return m_metadata.FontSizeInPoints; }
 		}
 
+		public int FontSizeUiAdjustment
+		{
+			get { return m_metadata.FontSizeUiAdjustment; }
+			set { m_metadata.FontSizeUiAdjustment = value; }
+		}
+
 		public bool RightToLeftScript
 		{
 			get { return m_metadata.language.scriptDirection == "RTL"; }

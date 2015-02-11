@@ -63,25 +63,91 @@ namespace ProtoScript.Bundle
 		/// This is not part of the original DBL metadata.
 		/// </summary>
 		public QuoteSystem QuoteSystem;
-		
+
 		/// <summary>
-		/// This is not part of the original DBL metadata but rather is pulled in from the stylesheet.
+		/// This is not part of the original DBL metadata. This data is now stored as part of the "langauge" data. 
 		/// </summary>
 		[XmlElement("fontFamily")]
-		public string FontFamily;
+		public string FontFamily_DeprecatedXml
+		{
+			get { return null; }
+			set { FontFamily = value; }
+		}
 
 		/// <summary>
-		/// This is not part of the original DBL metadata but rather is pulled in from the stylesheet.
+		/// The font family for the language associated with this project.
+		/// </summary>
+		[XmlIgnore]
+		public string FontFamily
+		{
+			get { return language == null ? m_fontFamilyTemp : language.FontFamily; }
+			set
+			{
+				if (language == null)
+					m_fontFamilyTemp = value;
+				else
+					language.FontFamily = value;
+			}
+		}
+
+		/// <summary>
+		/// This is not part of the original DBL metadata. This data is now stored as part of the "langauge" data. 
 		/// </summary>
 		[XmlElement("fontSizeInPoints")]
-		public int FontSizeInPoints {
-			get { return m_fontSizeInPoints == 0 ? Settings.Default.DefaultFontSize : m_fontSizeInPoints; }
-			set { m_fontSizeInPoints = value; }
+		[DefaultValue(default(int))]
+		public int FontSizeInPoints_DeprecatedXml
+		{
+			get { return default(int); }
+			set { FontSizeInPoints = value; }
 		}
-		private int m_fontSizeInPoints;
+
+		/// <summary>
+		/// This is not part of the original DBL metadata but rather is pulled in from the stylesheet
+		/// or set via the ProjectMetadataDlg.
+		/// </summary>
+		[XmlIgnore]
+		public int FontSizeInPoints
+		{
+			get  { return language == null ? m_fontSizeInPointsTemp : language.FontSizeInPoints; }
+			set
+			{
+				if (language == null)
+					m_fontSizeInPointsTemp = value;
+				else
+					language.FontSizeInPoints = value;
+			}
+		}
+
+		[XmlIgnore]
+		public int FontSizeUiAdjustment
+		{
+			get { return language == null ? 0 : language.FontSizeUiAdjustment; }
+			set { language.FontSizeUiAdjustment = value; }
+		}
+
+		private int m_fontSizeInPointsTemp;
+		private string m_fontFamilyTemp;
+		private DblMetadataLanguage m_language;
 
 		public DblMetadataIdentification identification;
-		public DblMetadataLanguage language;
+		public DblMetadataLanguage language
+		{
+			get { return m_language; }
+			set
+			{
+				m_language = value;
+				if (m_fontFamilyTemp != default(string))
+				{
+					m_language.FontFamily = m_fontFamilyTemp;
+					m_fontFamilyTemp = default(string);
+				}
+				if (m_fontSizeInPointsTemp != default(int))
+				{
+					m_language.FontSizeInPoints = m_fontSizeInPointsTemp;
+					m_fontSizeInPointsTemp = default(int);
+				}
+			}
+		}
 		public DblMetadataPromotion promotion;
 		public DblMetadataArchiveStatus archiveStatus;
 		[XmlArray("bookNames")]
@@ -95,7 +161,10 @@ namespace ProtoScript.Bundle
 
 		public static DblMetadata Load(string projectFilePath, out Exception exception)
 		{
-			return XmlSerializationHelper.DeserializeFromFile<DblMetadata>(projectFilePath, out exception);
+			var metadata = XmlSerializationHelper.DeserializeFromFile<DblMetadata>(projectFilePath, out exception);
+			if (metadata.language == null && (metadata.m_fontFamilyTemp != default(string) || metadata.m_fontSizeInPointsTemp != default(int)))
+				metadata.language = new DblMetadataLanguage();
+			return metadata;
 		}
 
 		public override string ToString()
@@ -141,6 +210,8 @@ namespace ProtoScript.Bundle
 
 	public class DblMetadataLanguage
 	{
+		private int m_fontSizeInPoints;
+
 		public string iso;
 		public string name;
 		public string ldml;
@@ -149,6 +220,30 @@ namespace ProtoScript.Bundle
 		[DefaultValue("LTR")]
 		public string scriptDirection;
 		public string numerals;
+
+		/// <summary>
+		/// This is not part of the original language metadata but rather is pulled in from the stylesheet
+		/// or set via the ProjectMetadataDlg.
+		/// </summary>
+		[XmlElement("fontFamily")]
+		public string FontFamily { get; set; }
+
+		/// <summary>
+		/// This is not part of the original language metadata but rather is pulled in from the stylesheet
+		/// or set via the ProjectMetadataDlg.
+		/// </summary>
+		[XmlElement("fontSizeInPoints")]
+		public int FontSizeInPoints
+		{
+			get { return m_fontSizeInPoints == 0 ? Settings.Default.DefaultFontSize : m_fontSizeInPoints; }
+			set { m_fontSizeInPoints = value; }
+		}
+
+		/// <summary>
+		/// This is not part of the original language metadata.
+		/// </summary>
+		[XmlElement("fontSizeUiAdjustment")]
+		public int FontSizeUiAdjustment { get; set; }
 
 		public override string ToString()
 		{

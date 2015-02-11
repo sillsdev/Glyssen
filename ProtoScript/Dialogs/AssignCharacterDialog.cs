@@ -67,6 +67,9 @@ namespace ProtoScript.Dialogs
 			m_viewModel.ForwardContextBlockCount = kContextBlocksForward;
 
 			colText.DefaultCellStyle.Font = m_viewModel.Font;
+			var origFont = m_dataGridViewBlocks.DefaultCellStyle.Font;
+			m_dataGridViewBlocks.DefaultCellStyle.Font = new Font(origFont.FontFamily,
+				origFont.SizeInPoints + m_viewModel.FontSizeUiAdjustment, origFont.Style);
 			if (m_viewModel.RightToLeft)
 				m_dataGridViewBlocks.CellPainting += HandleDataGridViewBlocksCellPainting;
 
@@ -129,10 +132,15 @@ namespace ProtoScript.Dialogs
 			{
 				m_updatingContext = true;
 				SuspendLayout();
+				// Need to clear the selction here and again below here because some of the property setters on
+				// DataGridView have the side-effect of creating a selection. And since we might be changing the row
+				// count, we can't afford to have HandleDataGridViewBlocksCellValueNeeded getting called with an
+				// index that is out of range for the new book.
+				m_dataGridViewBlocks.ClearSelection();
 				m_dataGridViewBlocks.MultiSelect = m_viewModel.CurrentBlock.MultiBlockQuote != MultiBlockQuote.None;
 				colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
 				m_dataGridViewBlocks.RowCount = m_viewModel.BlockCountForCurrentBook;
-				m_dataGridViewBlocks.ClearSelection();
+				m_dataGridViewBlocks.ClearSelection(); // see note, above.
 				var firstRow = m_viewModel.CurrentBlockIndexInBook;
 				var lastRow = firstRow;
 				m_dataGridViewBlocks.Rows[firstRow].Selected = true;
@@ -687,7 +695,7 @@ namespace ProtoScript.Dialogs
 
 		private void IncreaseFont(object sender, EventArgs e)
 		{
-			m_viewModel.FontSize++;
+			m_viewModel.FontSizeUiAdjustment++;
 			colText.DefaultCellStyle.Font = m_viewModel.Font;
 			var origFont = m_dataGridViewBlocks.DefaultCellStyle.Font;
 			m_dataGridViewBlocks.DefaultCellStyle.Font = new Font(origFont.FontFamily, origFont.SizeInPoints + 1, origFont.Style);
@@ -696,7 +704,7 @@ namespace ProtoScript.Dialogs
 
 		private void DecreaseFont(object sender, EventArgs e)
 		{
-			m_viewModel.FontSize--;
+			m_viewModel.FontSizeUiAdjustment--;
 			colText.DefaultCellStyle.Font = m_viewModel.Font;
 			var origFont = m_dataGridViewBlocks.DefaultCellStyle.Font;
 			m_dataGridViewBlocks.DefaultCellStyle.Font = new Font(origFont.FontFamily, origFont.SizeInPoints - 1, origFont.Style);
