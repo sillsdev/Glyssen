@@ -243,6 +243,7 @@ namespace ProtoScript.Bundle
 		/// This is not part of the original language metadata.
 		/// </summary>
 		[XmlElement("fontSizeUiAdjustment")]
+		[DefaultValue(0)]
 		public int FontSizeUiAdjustment { get; set; }
 
 		public override string ToString()

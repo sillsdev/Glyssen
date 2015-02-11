@@ -121,6 +121,7 @@ namespace ProtoScriptTests.Bundle
 					promoVersionInfo = new DblMetadataXhtmlContentNode { value = @"<h1>Acholi New Testament 1985</h1>" },
 					promoEmail = new DblMetadataXhtmlContentNode { value = "<p>Email Text</p>" }
 				},
+				language = new DblMetadataLanguage(),
 				archiveStatus = new DblMetadataArchiveStatus { dateArchived = "dateArchived" }
 			};
 
@@ -142,7 +143,9 @@ namespace ProtoScriptTests.Bundle
   <archiveStatus>
     <dateArchived>dateArchived</dateArchived>
   </archiveStatus>
-  <fontSizeInPoints>10</fontSizeInPoints>
+  <language>
+    <fontSizeInPoints>10</fontSizeInPoints>
+  </language>
 </DBLMetadata>";
 
 			AssertThatXmlIn.String(expectedResult).EqualsIgnoreWhitespace(metadata.GetAsXml());
