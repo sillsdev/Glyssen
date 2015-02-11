@@ -77,7 +77,7 @@ namespace ProtoScriptTests.Dialogs
 			UsxDocument mark = new UsxDocument(sampleMark);
 
 			var project = new Project(sampleMetadata, new[] { mark }, SfmLoader.GetUsfmStylesheet());
-			while (!project.IsInitialized)
+			while (project.ProjectState != ProjectState.FullyInitialized)
 				Thread.Sleep(100);
 		}
 

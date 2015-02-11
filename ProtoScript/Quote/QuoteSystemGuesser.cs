@@ -2,9 +2,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using ProtoScript.Character;
+using ProtoScript.Utilities;
 using SIL.ScriptureUtils;
 
 namespace ProtoScript.Quote
@@ -24,12 +26,15 @@ namespace ProtoScript.Quote
 		private const int kEndQuoteValue = 2;
 		private const int kQuotationDashValue = 3;
 
-		public static QuoteSystem Guess<T>(ICharacterVerseInfo cvInfo, List<T> bookList, out bool certain) where T : IScrBook
+		public static QuoteSystem Guess<T>(ICharacterVerseInfo cvInfo, List<T> bookList, out bool certain, BackgroundWorker worker = null) where T : IScrBook
 		{
 			certain = false;
 			var bookCount = bookList.Count();
 			if (bookCount == 0)
+			{
+				ReportProgressComplete(worker);
 				return QuoteSystem.Default;
+			}
 			var scores = QuoteSystem.UniquelyGuessableSystems.ToDictionary(s => s, s => 0);
 			var quotationDashCounts = QuoteSystem.UniquelyGuessableSystems.Where(s => !String.IsNullOrEmpty(s.QuotationDashMarker))
 				.ToDictionary(s => s, s => 0);
@@ -37,6 +42,7 @@ namespace ProtoScript.Quote
 			int totalVersesAnalyzed = 0;
 			int totalDialoqueQuoteVersesAnalyzed = 0;
 			int maxNonDialogueSamplesPerBook = BCVRef.LastBook * kMinSample / bookCount;
+			int booksProcessed = 0;
 
 			int bestScore = 0;
 			bool foundEndQuote = false;
@@ -49,6 +55,9 @@ namespace ProtoScript.Quote
 			// Start with the New Testament because that's where most of the dialogue quotes are, and it makes guessing A LOT faster!
 			foreach (var book in bookList.SkipWhile(b => BCVRef.BookToNumber(b.BookId) < 40).Union(bookList.TakeWhile(b => BCVRef.BookToNumber(b.BookId) < 40)))
 			{
+				if (worker != null)
+					worker.ReportProgress(MathUtilities.Percent(++booksProcessed, bookCount));
+
 				int versesAnalyzedForCurrentBook = 0;
 				int prevQuoteChapter = -1;
 				int prevQuoteVerse = -1;
@@ -154,6 +163,7 @@ namespace ProtoScript.Quote
 							if (competitors.Count == 1)
 							{
 								certain = true;
+								ReportProgressComplete(worker);
 								return competitors[0];
 							}
 
@@ -166,6 +176,7 @@ namespace ProtoScript.Quote
 									c => quotationDashCounts[c] < kQuotationDashFailPercent * totalDialoqueQuoteVersesAnalyzed))
 								{
 									certain = true;
+									ReportProgressComplete(worker);
 									return competitors.Single(c => String.IsNullOrEmpty(c.QuotationDashMarker));
 								}
 								var winners = contendersWithQDash.Where(c => scores[c] == bestScore &&
@@ -173,6 +184,7 @@ namespace ProtoScript.Quote
 								if (winners.Count == 1)
 								{
 									// Don't set certain to true. Can't ever be sure of details for dialogue quotes
+									ReportProgressComplete(worker);
 									return winners[0];
 								}
 							}
@@ -186,6 +198,7 @@ namespace ProtoScript.Quote
 #if SHOWTESTINFO
 						Debug.WriteLine("Time-out guessing quote system.");
 #endif
+						ReportProgressComplete(worker);
 						return BestGuess(viableSystems, scores, bestScore, foundEndQuote);
 					}
 
@@ -193,6 +206,7 @@ namespace ProtoScript.Quote
 					prevQuoteVerse = quote.Verse;
 				}
 			}
+			ReportProgressComplete(worker);
 			return BestGuess(viableSystems, scores, bestScore, foundEndQuote);
 		}
 
@@ -211,6 +225,12 @@ namespace ProtoScript.Quote
 			}
 
 			return bestSystem;
+		}
+
+		private static void ReportProgressComplete(BackgroundWorker worker)
+		{
+			if (worker != null)
+				worker.ReportProgress(100);
 		}
 	}
 }
