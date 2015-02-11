@@ -171,6 +171,7 @@
     <Compile Include="MultiBlockQuote.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="ProjectMetadataViewModel.cs" />
+    <Compile Include="ProjectUsxParser.cs" />
     <Compile Include="Quote\ProjectQuoteParser.cs" />
     <Compile Include="Quote\QuoteParser.cs" />
     <Compile Include="Quote\QuoteSystem.cs" />

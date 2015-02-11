@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
@@ -14,6 +16,7 @@ namespace ProtoScript
 		private Project m_project;
 		private string m_bundleIdFmt;
 		private string m_LanguageIdFmt;
+		private string m_projectLoadedFmt;
 
 		public SandboxForm()
 		{
@@ -26,7 +29,34 @@ namespace ProtoScript
 		private void SetProject(Project project)
 		{
 			m_project = project;
-			m_linkChangeQuotationSystem.Enabled = m_btnExportToTabSeparated.Enabled = m_project != null;
+			if (m_project != null)
+			{
+				m_project.ProjectStateChanged += (sender, args) => FinishSetProjectIfReady();
+				m_project.ProjectStateChanged += (sender, args) => UpdateProjectState();
+				m_project.ProgressChanged += (sender, args) => UpdateDisplayOfProjectLoaded(args.ProgressPercentage);
+			}
+
+			bool validProject = m_project != null;
+			m_linkChangeQuotationSystem.Enabled = validProject;
+			m_btnSelectBooks.Enabled = validProject;
+			m_btnSettings.Enabled = validProject;
+			m_btnAssign.Enabled = validProject;
+			m_btnExportToTabSeparated.Enabled = validProject;
+
+			if (m_project != null && (m_project.ProjectState & ProjectState.ReadyForUserInteraction) == 0)
+				return; //FinishSetProject will be called by the event handler
+
+			FinishSetProject();
+		}
+
+		private void FinishSetProjectIfReady()
+		{
+			if (m_project != null && (m_project.ProjectState & ProjectState.ReadyForUserInteraction) > 0)
+				FinishSetProject();
+		}
+
+		private void FinishSetProject()
+		{
 			UpdateDisplayOfProjectInfo();
 
 			if (m_project != null)
@@ -48,6 +78,18 @@ namespace ProtoScript
 		{
 			m_bundleIdFmt = m_lblBundleId.Text;
 			m_LanguageIdFmt = m_lblLanguage.Text;
+			m_projectLoadedFmt = m_lblProjectLoaded.Text;
+		}
+
+		private void SetReadOnly(bool readOnly)
+		{
+			m_btnOpenProject.Enabled = !readOnly;
+			m_btnSettings.Enabled = !readOnly && m_project != null;
+			m_btnSelectBooks.Enabled = !readOnly && m_project != null;
+			m_btnAssign.Enabled = !readOnly && m_project != null;
+			m_btnExportToTabSeparated.Enabled = !readOnly && m_project != null;
+			m_btnLocalize.Enabled = !readOnly;
+			m_linkChangeQuotationSystem.Enabled = !readOnly && m_project != null;
 		}
 
 		private void HandleOpenProject_Click(object sender, EventArgs e)
@@ -158,7 +200,20 @@ namespace ProtoScript
 		{
 			m_lblBundleId.Text = string.Format(m_bundleIdFmt, m_project != null ? m_project.Id : String.Empty);
 			m_lblLanguage.Text = string.Format(m_LanguageIdFmt, m_project != null ? m_project.LanguageIsoCode : String.Empty);
+			UpdateDisplayOfProjectLoaded(m_project != null ? m_project.PercentInitialized : 0);
 			UpdateDisplayOfQuoteSystemInfo();
+		}
+
+		private void UpdateDisplayOfProjectLoaded(int percent)
+		{
+			m_lblProjectLoaded.Text = string.Format(m_projectLoadedFmt, percent.ToString(CultureInfo.InvariantCulture));
+			m_lblProjectLoaded.ForeColor = percent < 100 ? Color.Red : Color.LawnGreen;
+		}
+
+		private void UpdateProjectState()
+		{
+			if (m_project != null)
+				SetReadOnly((m_project.ProjectState & ProjectState.ReadyForUserInteraction) == 0);
 		}
 
 		private void UpdateDisplayOfQuoteSystemInfo()

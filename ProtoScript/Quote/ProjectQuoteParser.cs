@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -10,32 +10,26 @@ namespace ProtoScript.Quote
 {
 	public class ProjectQuoteParser
 	{
-		private int m_allProjectBlocks;
-		private int m_completedProjectBlocks;
-		readonly Dictionary<string, int> m_completedBlocksPerBook = new Dictionary<string, int>();
-
 		public void ParseProject(Project project, BackgroundWorker projectWorker)
 		{
 			var cvInfo = new CombinedCharacterVerseData(project);
 
-			foreach (var bookScript in project.Books)
-				m_allProjectBlocks += bookScript.GetScriptBlocks().Count;
-
-			Parallel.ForEach(project.Books, b =>
+			var numBlocksPerBook = new ConcurrentDictionary<string, int>();
+			var blocksInBook = new ConcurrentDictionary<BookScript, IReadOnlyList<Block>>();
+			Parallel.ForEach(project.Books, book =>
 			{
-				var bookProgress = new Progress<int>();
-				bookProgress.ProgressChanged += (sender, completedBookBlocks) =>
-				{
-					int prior;
-					if (m_completedBlocksPerBook.TryGetValue(b.BookId, out prior))
-						m_completedBlocksPerBook[b.BookId] = completedBookBlocks;
-					else
-						m_completedBlocksPerBook.Add(b.BookId, completedBookBlocks);
-					m_completedProjectBlocks += completedBookBlocks - prior;
-					int totalPercentComplete = MathUtilities.Percent(m_completedProjectBlocks, m_allProjectBlocks, 99);
-					projectWorker.ReportProgress(totalPercentComplete);
-				};
-				b.Blocks = new QuoteParser(cvInfo, b.BookId, b.GetScriptBlocks(), project.ConfirmedQuoteSystem).Parse(bookProgress).ToList();
+				var nodeList = book.GetScriptBlocks();
+				blocksInBook.AddOrUpdate(book, nodeList, (script, list) => nodeList);
+				numBlocksPerBook.AddOrUpdate(book.BookId, nodeList.Count, (s, i) => nodeList.Count);
+			});
+			int allProjectBlocks = numBlocksPerBook.Values.Sum();
+
+			int completedProjectBlocks = 0;
+			Parallel.ForEach(blocksInBook.Keys, book =>
+			{
+				book.Blocks = new QuoteParser(cvInfo, book.BookId, blocksInBook[book], project.ConfirmedQuoteSystem).Parse().ToList();
+				completedProjectBlocks += numBlocksPerBook[book.BookId];
+				projectWorker.ReportProgress(MathUtilities.Percent(completedProjectBlocks, allProjectBlocks, 99));
 			});
 
 			projectWorker.ReportProgress(100);

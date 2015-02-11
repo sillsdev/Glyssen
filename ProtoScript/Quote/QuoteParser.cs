@@ -47,9 +47,8 @@ namespace ProtoScript.Quote
 		/// <summary>
 		/// Parse through the given blocks character by character to determine where we need to break based on quotes 
 		/// </summary>
-		/// <param name="progress">If provided, reports how many blocks have been processed</param>
 		/// <returns>A new enumerable of blocks broken up for quotes</returns>
-		public IEnumerable<Block> Parse(IProgress<int> progress = null)
+		public IEnumerable<Block> Parse()
 		{
 			if (m_quoteSystem == null)
 				return m_inputBlocks;
@@ -65,7 +64,6 @@ namespace ProtoScript.Quote
 			bool dialogueQuoteEndPending = false;
 			bool blockEndedWithSentenceEndingPunctuation = false;
 			Block blockInWhichDialogueQuoteStarted = null;
-			int blocksCompleted = 0;
 			foreach (Block block in m_inputBlocks)
 			{
 				if (block.UserConfirmed)
@@ -80,10 +78,6 @@ namespace ProtoScript.Quote
 					m_nextBlockContinuesQuote = false;
 
 					m_outputBlocks.Add(block);
-
-					if (progress != null)
-						progress.Report(blocksCompleted++);
-
 					continue;
 				}
 
@@ -253,7 +247,7 @@ namespace ProtoScript.Quote
 							}
 						}
 						if (m_quoteLevel < 0)
-							Debug.Fail("Quote level should never be less than 0");
+							Debug.Fail("Quote level should never be less than 0.  " + m_bookId + " " + block.ChapterNumber + " " + block.InitialStartVerseNumber);
 						if (possibleStartQuoteMarker.Length > 0)
 						{
 							sb.Append(possibleStartQuoteMarker);
@@ -270,9 +264,6 @@ namespace ProtoScript.Quote
 					FlushStringBuilderToBlockElement(sb);
 				}
 				FlushBlock(block.StyleTag, quoteEndPending || m_quoteLevel > 0);
-
-				if (progress != null)
-					progress.Report(blocksCompleted++);
 			}
 			return m_outputBlocks;
 		}

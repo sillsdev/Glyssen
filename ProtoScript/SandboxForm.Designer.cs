@@ -41,6 +41,7 @@
 			this.m_lblQuotationMarksSystem = new System.Windows.Forms.Label();
 			this.m_linkChangeQuotationSystem = new System.Windows.Forms.LinkLabel();
 			this.m_btnSettings = new System.Windows.Forms.Button();
+			this.m_lblProjectLoaded = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -206,12 +207,26 @@
 			this.m_btnSettings.UseVisualStyleBackColor = true;
 			this.m_btnSettings.Click += new System.EventHandler(this.m_btnSettings_Click);
 			// 
+			// m_lblProjectLoaded
+			// 
+			this.m_lblProjectLoaded.AutoSize = true;
+			this.m_lblProjectLoaded.ForeColor = System.Drawing.Color.White;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_lblProjectLoaded, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_lblProjectLoaded, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_lblProjectLoaded, "SandboxForm.SandboxForm.m_lblLanguage");
+			this.m_lblProjectLoaded.Location = new System.Drawing.Point(341, 96);
+			this.m_lblProjectLoaded.Name = "m_lblProjectLoaded";
+			this.m_lblProjectLoaded.Size = new System.Drawing.Size(107, 13);
+			this.m_lblProjectLoaded.TabIndex = 16;
+			this.m_lblProjectLoaded.Text = "Project Loaded: {0}%";
+			// 
 			// SandboxForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(559, 262);
+			this.Controls.Add(this.m_lblProjectLoaded);
 			this.Controls.Add(this.m_btnSettings);
 			this.Controls.Add(this.m_btnSelectBooks);
 			this.Controls.Add(this.m_linkChangeQuotationSystem);
@@ -250,6 +265,7 @@
 		private System.Windows.Forms.Label m_lblQuotationMarksSystem;
 		private System.Windows.Forms.LinkLabel m_linkChangeQuotationSystem;
 		private System.Windows.Forms.Button m_btnSettings;
+		private System.Windows.Forms.Label m_lblProjectLoaded;
 	}
 }
 

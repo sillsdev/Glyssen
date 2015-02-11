@@ -30,9 +30,18 @@ namespace ProtoScript
 		public const string kDefaultFontPrimary = "Charis SIL";
 		public const string kDefaultFontSecondary = "Times New Roman";
 		public const int kDefaultFontSize = 14;
+
+		private const double kUsxPercent = 0.25;
+		private const double kGuessPercent = 0.10;
+		private const double kQuotePercent = 0.65;
+
 		private readonly DblMetadata m_metadata;
 		private QuoteSystem m_defaultQuoteSystem = QuoteSystem.Default;
 		private readonly List<BookScript> m_books = new List<BookScript>();
+		private int m_usxPercentComplete;
+		private int m_guessPercentComplete;
+		private int m_quotePercentComplete;
+		private ProjectState m_projectState;
 
 		public Project(DblMetadata metadata)
 		{
@@ -49,6 +58,9 @@ namespace ProtoScript
 		{
 			AddAndParseBooks(books, stylesheet);
 		}
+
+		public event EventHandler<ProgressChangedEventArgs> ProgressChanged;
+		public event EventHandler<ProjectStateChangedEventArgs> ProjectStateChanged;
 
 		public static string ProjectsBaseFolder
 		{
@@ -163,7 +175,17 @@ namespace ProtoScript
 			}
 		}
 
-		public bool IsInitialized { get; private set; }
+		public int PercentInitialized { get; private set; }
+
+		public ProjectState ProjectState
+		{
+			get { return m_projectState; }
+			private set
+			{
+				m_projectState = value;
+				OnStateChanged(new ProjectStateChangedEventArgs { ProjectState = m_projectState });
+			}
+		}
 
 		public static Project Load(string projectFilePath)
 		{
@@ -202,6 +224,11 @@ namespace ProtoScript
 			new Project(metadata).Save();
 		}
 
+		private int UpdatePercentInitialized()
+		{
+			return PercentInitialized = (int)(m_usxPercentComplete * kUsxPercent + m_guessPercentComplete * kGuessPercent + m_quotePercentComplete * kQuotePercent);
+		}
+
 		private static Project LoadExistingProject(string projectFilePath)
 		{
 			Exception exception;
@@ -228,18 +255,23 @@ namespace ProtoScript
 
 		private void InitializeLoadedProject()
 		{
+			m_usxPercentComplete = 100;
 			int controlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
 			if (ConfirmedQuoteSystem == null)
 			{
 				GuessAtQuoteSystem();
-				DoQuoteParse();
 				m_metadata.ControlFileVersion = controlFileVersion;
+				return;
 			}
-			else if (m_metadata.ControlFileVersion != controlFileVersion)
+			m_guessPercentComplete = 100;
+			m_quotePercentComplete = 100;
+			if (m_metadata.ControlFileVersion != controlFileVersion)
 			{
 				new CharacterAssigner(new CombinedCharacterVerseData(this)).AssignAll(m_books);
 				m_metadata.ControlFileVersion = controlFileVersion;
 			}
+			UpdatePercentInitialized();
+			ProjectState = ProjectState.FullyInitialized;
 		}
 
 		private void ApplyUserDecisions(Project sourceProject)
@@ -272,52 +304,110 @@ namespace ProtoScript
 
 		private void AddAndParseBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet)
 		{
-			foreach (var book in books)
-			{
-				var bookId = book.BookId;
-				m_books.Add(new BookScript(bookId, new UsxParser(bookId, stylesheet, book.GetChaptersAndParas()).Parse()));
-			}
+			ProjectState = ProjectState.Initial;
+			var usxWorker = new BackgroundWorker { WorkerReportsProgress = true };
+			usxWorker.DoWork += UsxWorker_DoWork;
+			usxWorker.RunWorkerCompleted += UsxWorker_RunWorkerCompleted;
+			usxWorker.ProgressChanged += UsxWorker_ProgressChanged;
+
+			object[] parameters = { books, stylesheet };
+			usxWorker.RunWorkerAsync(parameters);
+		}
+
+		private void UsxWorker_DoWork(object sender, DoWorkEventArgs e)
+		{
+			var parameters = e.Argument as object[];
+			var books = (IEnumerable<UsxDocument>)parameters[0];
+			var stylesheet = (IStylesheet)parameters[1];
+
+			e.Result = new ProjectUsxParser().ParseProject(books, stylesheet, sender as BackgroundWorker);
+		}
+
+		private void UsxWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+		{
+			if (e.Error != null)
+				Debug.Fail(e.Error.Message);
+
+			var result = (IEnumerable<BookScript>)e.Result;
+			m_books.AddRange(result);
 
 			if (ConfirmedQuoteSystem == null)
 				GuessAtQuoteSystem();
+			else
+				DoQuoteParse();
+		}
 
-			DoQuoteParse();
+		private void UsxWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+		{
+			m_usxPercentComplete = e.ProgressPercentage;
+			var pe = new ProgressChangedEventArgs(UpdatePercentInitialized(), null);
+			OnReport(pe);
 		}
 
 		private void GuessAtQuoteSystem()
 		{
+			ProjectState = ProjectState.UsxComplete;
+			var guessWorker = new BackgroundWorker { WorkerReportsProgress = true };
+			guessWorker.DoWork += GuessWorker_DoWork;
+			guessWorker.RunWorkerCompleted += GuessWorker_RunWorkerCompleted;
+			guessWorker.ProgressChanged += GuessWorker_ProgressChanged;
+			guessWorker.RunWorkerAsync();
+		}
+
+		private void GuessWorker_DoWork(object sender, DoWorkEventArgs e)
+		{
 			bool certain;
-			m_defaultQuoteSystem = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, m_books, out certain);
+			m_defaultQuoteSystem = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, m_books, out certain, sender as BackgroundWorker);
+			e.Result = certain;
+		}
+
+		private void GuessWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+		{
+			if (e.Error != null)
+				Debug.Fail(e.Error.Message);
+
+			bool certain = (bool)e.Result;
 			if (certain)
-				m_metadata.QuoteSystem = m_defaultQuoteSystem;
+				QuoteSystem = m_defaultQuoteSystem; //Setting the QuoteSystem kicks off a quote parse
+			else
+				Save();
+		}
+
+		private void GuessWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+		{
+			m_guessPercentComplete = e.ProgressPercentage;
+			var pe = new ProgressChangedEventArgs(UpdatePercentInitialized(), null);
+			OnReport(pe);
 		}
 
 		private void DoQuoteParse()
 		{
+			ProjectState = ProjectState.GuessComplete;
 			var quoteWorker = new BackgroundWorker { WorkerReportsProgress = true };
 			quoteWorker.DoWork += QuoteWorker_DoWork;
-			quoteWorker.ProgressChanged += QuoteWorker_ProgressChanged;
 			quoteWorker.RunWorkerCompleted += QuoteWorker_RunWorkerCompleted;
+			quoteWorker.ProgressChanged += QuoteWorker_ProgressChanged;
 			quoteWorker.RunWorkerAsync();
 		}
 
 		private void QuoteWorker_DoWork(object sender, DoWorkEventArgs doWorkEventArgs)
 		{
 			new ProjectQuoteParser().ParseProject(this, sender as BackgroundWorker);
-#if DEBUG
-			new ProjectAnalysis(this).AnalyzeQuoteParse();
-#endif
 		}
 
 		private void QuoteWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
+#if DEBUG
+			new ProjectAnalysis(this).AnalyzeQuoteParse();
+#endif
 			Save();
 		}
 
 		private void QuoteWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
 		{
-			//TODO
-			//Console.WriteLine(e.ProgressPercentage);
+			m_quotePercentComplete = e.ProgressPercentage;
+			var pe = new ProgressChangedEventArgs(UpdatePercentInitialized(), null);
+			OnReport(pe);
 		}
 
 		public static string GetProjectFilePath(string langId, string bundleId)
@@ -346,7 +436,7 @@ namespace ProtoScript
 					MessageBox.Show(error.Message);
 			}
 			ProjectCharacterVerseData.WriteToFile(ProjectCharacterVerseDataPath);
-			IsInitialized = true;
+			ProjectState = ConfirmedQuoteSystem == null ? ProjectState.NeedsQuoteSystemConfirmation : ProjectState.FullyInitialized;
 		}
 
 		public void ExportTabDelimited(string fileName)
@@ -413,6 +503,24 @@ namespace ProtoScript
 			return false;
 		}
 
+		private void OnReport(ProgressChangedEventArgs e)
+		{
+			EventHandler<ProgressChangedEventArgs> handler = ProgressChanged;
+			if (handler != null)
+			{
+				handler(this, e);
+			}
+		}
+
+		private void OnStateChanged(ProjectStateChangedEventArgs e)
+		{
+			EventHandler<ProjectStateChangedEventArgs> handler = ProjectStateChanged;
+			if (handler != null)
+			{
+				handler(this, e);
+			}
+		}
+
 		public static void CreateSampleProjectIfNeeded()
 		{
 			const string kSample = "sample";
@@ -438,5 +546,22 @@ namespace ProtoScript
 
 			(new Project(sampleMetadata, new[] { mark }, SfmLoader.GetUsfmStylesheet())).Save();
 		}
+	}
+
+	public class ProjectStateChangedEventArgs : EventArgs
+	{
+		public ProjectState ProjectState { get; set; }
+	}
+
+	[Flags]
+	public enum ProjectState
+	{
+		Initial = 1,
+		UsxComplete = 2,
+		GuessComplete = 4,
+		NeedsQuoteSystemConfirmation = 8,
+		QuoteParseComplete = 16,
+		FullyInitialized = 32,
+		ReadyForUserInteraction = NeedsQuoteSystemConfirmation | FullyInitialized
 	}
 }
