@@ -54,6 +54,7 @@ namespace ProtoScript
 
 		public Project(Bundle.Bundle bundle) : this(bundle.Metadata)
 		{
+			Directory.CreateDirectory(ProjectFolder);
 			bundle.CopyVersificationFile(VersificationFilePath);
 			PopulateAndParseBooks(bundle);
 		}
@@ -437,8 +438,9 @@ namespace ProtoScript
 
 		public void Save()
 		{
+			Directory.CreateDirectory(ProjectFolder);
+
 			var projectPath = GetProjectFilePath(m_metadata.language.ToString(), m_metadata.id);
-			Directory.CreateDirectory(Path.GetDirectoryName(projectPath));
 			Exception error;
 			XmlSerializationHelper.SerializeToFile(projectPath, m_metadata, out error);
 			if (error != null)
