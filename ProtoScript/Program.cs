@@ -34,7 +34,18 @@ namespace ProtoScript
 			if ((Control.ModifierKeys & Keys.Shift) > 0 && !string.IsNullOrEmpty(userConfigSettingsPath))
 				HandleDeleteUserSettings(userConfigSettingsPath);
 
-			//TODO analytics?
+			// TODO (PG-117): This is temporary code to initialize Paratext versification table
+			try
+			{
+				Paratext.ScrTextCollection.Initialize();
+			}
+			catch (Exception)
+			{
+				MessageBox.Show(
+					"It appears that Paratext is not installed on this computer. You can still use Protoscript Generator, but some verse navigation stuff won't work right. This is temporary. See Jira issue PG-117.");
+			}
+
+			// TODO (PG-18) Add analytics
 
 			Application.Run(new SandboxForm());
 		}

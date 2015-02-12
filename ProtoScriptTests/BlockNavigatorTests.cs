@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using ProtoScript;
+using SIL.ScriptureUtils;
 
 namespace ProtoScriptTests
 {
@@ -15,15 +16,15 @@ namespace ProtoScriptTests
 		[SetUp]
 		public void SetUp()
 		{
-			var blockA = new Block();
-			var blockB = new Block();
-			var blockC = new Block();
-			var bookScriptA = new BookScript { Blocks = new List<Block> { blockA, blockB, blockC } };
-			var blockD = new Block();
-			var blockE = new Block();
-			var blockF = new Block();
-			var blockG = new Block();
-			var bookScriptB = new BookScript { Blocks = new List<Block> { blockD, blockE, blockF, blockG } };
+			var blockA = new Block("ip");
+			var blockB = new Block("p", 1, 1);
+			var blockC = new Block("p", 2, 7);
+			var bookScriptA = new BookScript("LUK", new List<Block> { blockA, blockB, blockC });
+			var blockD = new Block("ip");
+			var blockE = new Block("p", 1, 1);
+			var blockF = new Block("p", 5, 7);
+			var blockG = new Block("p", 5, 7);
+			var bookScriptB = new BookScript("ROM", new List<Block> { blockD, blockE, blockF, blockG });
 			m_books = new List<BookScript> { bookScriptA, bookScriptB };
 
 			m_navigator = new BlockNavigator(m_books);
@@ -538,5 +539,43 @@ namespace ProtoScriptTests
 			var result = m_navigator.GetIndicesOfSpecificBlock(m_books.Last().GetScriptBlocks()[3]);
 			Assert.AreEqual(new Tuple<int, int>(1, 3), result);
 		}
+
+		[Test]
+		public void GetIndicesOfFirstBlockAtReference_BookNotIncluded_ReturnsNull()
+		{
+			var result = m_navigator.GetIndicesOfFirstBlockAtReference(new BCVRef(65, 1, 2));
+			Assert.IsNull(result);
+		}
+
+		[Test]
+		public void GetIndicesOfFirstBlockAtReference_ChapterNotFound_ReturnsNull()
+		{
+			var result = m_navigator.GetIndicesOfFirstBlockAtReference(new BCVRef(BCVRef.BookToNumber("LUK"), 3, 7));
+			Assert.IsNull(result);
+		}
+
+		[Test]
+		public void GetIndicesOfFirstBlockAtReference_VerseNotFound_ReturnsNull()
+		{
+			var result = m_navigator.GetIndicesOfFirstBlockAtReference(new BCVRef(BCVRef.BookToNumber("LUK"), 2, 17));
+			Assert.IsNull(result);
+		}
+
+		[Test]
+		public void GetIndicesOfFirstBlockAtReference_InFirstBook_ReturnsIndices()
+		{
+			var result = m_navigator.GetIndicesOfFirstBlockAtReference(new BCVRef(BCVRef.BookToNumber("LUK"), 1, 1));
+			Assert.AreEqual(0, result.Item1);
+			Assert.AreEqual(1, result.Item2);
+		}
+
+		[Test]
+		public void GetIndicesOfFirstBlockAtReference_TwoBlockAtSameReference_ReturnsIndicesForFirstMatch()
+		{
+			var result = m_navigator.GetIndicesOfFirstBlockAtReference(new BCVRef(BCVRef.BookToNumber("ROM"), 5, 7));
+			Assert.AreEqual(1, result.Item1);
+			Assert.AreEqual(2, result.Item2);
+		}
+
 	}
 }

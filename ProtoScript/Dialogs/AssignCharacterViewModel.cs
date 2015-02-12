@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Security.Policy;
 using System.Text;
 using System.Web;
+using Paratext;
 using ProtoScript.Character;
 using SIL.ScriptureUtils;
+using ScrVers = Paratext.ScrVers;
 
 namespace ProtoScript.Dialogs
 {
@@ -50,6 +52,7 @@ namespace ProtoScript.Dialogs
 		private readonly ProjectCharacterVerseData m_projectCharacterVerseData;
 		private readonly CombinedCharacterVerseData m_combinedCharacterVerseData;
 		private readonly BlockNavigator m_navigator;
+		private readonly IEnumerable<string> m_includedBooks; 
 		private List<Tuple<int, int>> m_relevantBlocks;
 		private Tuple<int, int> m_temporarilyIncludedBlock;
 		private readonly CharacterIdComparer m_characterComparer = new CharacterIdComparer();
@@ -68,16 +71,19 @@ namespace ProtoScript.Dialogs
 		public AssignCharacterViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.NeedAssignments)
 		{
 			m_navigator = new BlockNavigator(project.IncludedBooks);
+			m_includedBooks = project.IncludedBooks.Select(b => b.BookId);
 			m_fontFamily = project.FontFamily;
 			m_baseFontSizeInPoints = project.FontSizeInPoints;
 			FontSizeUiAdjustment = project.FontSizeUiAdjustment;
 			m_rightToLeftScript = project.RightToLeftScript;
 			m_projectCharacterVerseData = project.ProjectCharacterVerseData;
 			m_combinedCharacterVerseData = new CombinedCharacterVerseData(project);
+			Versification = project.Versification;
 
 			Mode = mode;
 		}
 
+		public ScrVers Versification { get; private set; }
 		public int BlockCountForCurrentBook { get { return m_navigator.CurrentBook.GetScriptBlocks().Count; } }
 		public int RelevantBlockCount { get { return m_relevantBlocks.Count; } }
 		public int AssignedBlockCount { get { return m_assignedBlocks; } }
@@ -88,6 +94,7 @@ namespace ProtoScript.Dialogs
 		public int BackwardContextBlockCount { get; set; }
 		public int ForwardContextBlockCount { get; set; }
 		public bool IsCurrentBlockRelevant { get { return m_temporarilyIncludedBlock == null; } }
+		public IEnumerable<string> IncludedBooks { get { return m_includedBooks; } }
 		public bool RightToLeft { get { return m_rightToLeftScript; } }
 		public Font Font { get { return m_font; } }
 		public int FontSizeUiAdjustment
@@ -223,6 +230,17 @@ namespace ProtoScript.Dialogs
 					LoadNextRelevantBlock();
 				}
 			}
+		}
+
+		public bool TryLoadBlock(VerseRef verseRef)
+		{
+			var indices = m_navigator.GetIndicesOfFirstBlockAtReference(new BCVRef(verseRef.BBBCCCVVV));
+			if (indices == null)
+				return false;
+			m_displayBlockIndex = m_relevantBlocks.IndexOf(indices);
+			m_temporarilyIncludedBlock = m_displayBlockIndex < 0 ? indices : null;
+			m_navigator.SetIndices(indices);
+			return true;
 		}
 
 		public void LoadNextRelevantBlock()

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Xml;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Palaso.TestUtilities;
 using ProtoScript;
 using ProtoScript.Character;
@@ -187,6 +181,54 @@ namespace ProtoScriptTests
 			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
 			block.SetStandardCharacter("ROM", CharacterVerseData.StandardCharacter.Intro);
 			Assert.IsTrue(block.CharacterIsStandard);
+		}
+
+		[Test]
+		public void LastVerse_Intro_ReturnsZero()
+		{
+			var block = new Block("ip");
+			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
+			Assert.AreEqual(0, block.LastVerse);
+		}
+
+		[Test]
+		public void LastVerse_ScriptureBlockWithSingleStartVerseAndNoVerseElements_ReturnsInitialStartVerse()
+		{
+			var block = new Block("ip", 3, 15);
+			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
+			Assert.AreEqual(15, block.LastVerse);
+		}
+
+		[Test]
+		public void LastVerse_ScriptureBlockStartingWithVerseBridgeAndNoVerseElements_ReturnsInitialEndVerse()
+		{
+			var block = new Block("ip", 3, 15, 17);
+			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
+			Assert.AreEqual(17, block.LastVerse);
+		}
+
+		[Test]
+		public void LastVerse_ScriptureBlockWithVerseElements_ReturnsEndVerseFromBlockElement()
+		{
+			var block = new Block("ip", 3, 15);
+			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
+			block.BlockElements.Add(new Verse("16"));
+			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
+			block.BlockElements.Add(new Verse("17"));
+			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
+			Assert.AreEqual(17, block.LastVerse);
+		}
+
+		[Test]
+		public void LastVerse_ScriptureBlockWithVerseElementContainingBridge_ReturnsEndVerseFromBlockElement()
+		{
+			var block = new Block("ip", 3, 15);
+			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
+			block.BlockElements.Add(new Verse("16"));
+			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
+			block.BlockElements.Add(new Verse("17-19"));
+			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
+			Assert.AreEqual(19, block.LastVerse);
 		}
 
 		private CharacterVerse JesusQuestioning

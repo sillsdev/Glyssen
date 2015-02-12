@@ -11,7 +11,6 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
@@ -19,6 +18,7 @@ using Gecko.Events;
 using L10NSharp;
 using L10NSharp.UI;
 using Palaso.UI.WindowsForms.PortableSettingsProvider;
+using Paratext;
 using ProtoScript.Character;
 using ProtoScript.Controls;
 using SIL.ScriptureControls;
@@ -61,6 +61,17 @@ namespace ProtoScript.Dialogs
 			m_txtDeliveryFilter.CorrectHeight();
 			if (Properties.Settings.Default.AssignCharactersShowGridView)
 				m_toolStripButtonGridView.Checked = true;
+
+			var books = new BookSet();
+			foreach (var bookId in viewModel.IncludedBooks)
+				books.Add(bookId);
+			m_scriptureReference.VerseControl.BooksPresentSet = books;
+			m_scriptureReference.VerseControl.ShowEmptyBooks = false;
+
+			m_scriptureReference.VerseControl.AllowVerseSegments = false;
+			// TODO (PG-117): Set versification according to project
+			m_scriptureReference.VerseControl.Versification = viewModel.Versification;
+			m_scriptureReference.VerseControl.VerseRefChanged += m_scriptureReference_VerseRefChanged;
 
 			m_viewModel = viewModel;
 			m_viewModel.BackwardContextBlockCount = kContextBlocksBackward;
@@ -179,7 +190,11 @@ namespace ProtoScript.Dialogs
 
 		private void UpdateDisplay()
 		{
-			m_labelReference.Text = m_viewModel.GetBlockReferenceString();
+			var blockRef = m_viewModel.GetBlockReference(m_viewModel.CurrentBlock);
+			var versesInBlock = m_viewModel.CurrentBlock.LastVerse - blockRef.Verse;
+			var displayedRefMinusBlockStartRef = m_scriptureReference.VerseControl.VerseRef.BBBCCCVVV - blockRef.BBCCCVVV;
+			if (displayedRefMinusBlockStartRef >= 0 && displayedRefMinusBlockStartRef < versesInBlock)
+				m_scriptureReference.VerseControl.VerseRef = new VerseRef(m_viewModel.GetBlockReference(m_viewModel.CurrentBlock), Paratext.ScrVers.English);
 			m_labelXofY.Visible = m_viewModel.IsCurrentBlockRelevant;
 			m_labelXofY.Text = string.Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
 
@@ -540,7 +555,7 @@ namespace ProtoScript.Dialogs
 
 		private void AssignCharacterDialog_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			if (!m_pnlShortcuts.Visible || m_txtCharacterFilter.Focused || m_txtDeliveryFilter.Focused)
+			if (!m_pnlShortcuts.Visible || m_txtCharacterFilter.Focused || m_txtDeliveryFilter.Focused || m_scriptureReference.Focused )
 				return;
 
 			switch (e.KeyChar)
@@ -709,6 +724,12 @@ namespace ProtoScript.Dialogs
 			var origFont = m_dataGridViewBlocks.DefaultCellStyle.Font;
 			m_dataGridViewBlocks.DefaultCellStyle.Font = new Font(origFont.FontFamily, origFont.SizeInPoints - 1, origFont.Style);
 			UpdateContextBlocksDisplay();
+		}
+
+		private void m_scriptureReference_VerseRefChanged(object sender, PropertyChangedEventArgs e)
+		{
+			if (m_viewModel.TryLoadBlock(m_scriptureReference.VerseControl.VerseRef))
+				LoadBlock();
 		}
 		#endregion
 

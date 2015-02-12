@@ -172,6 +172,8 @@ namespace ProtoScript
 				return;
 			}
 			SetProject(new Project(bundle));
+
+			bundle.Dispose();
 		}
 
 		private bool LoadAndHandleApplicationExceptions(Action loadCommand)

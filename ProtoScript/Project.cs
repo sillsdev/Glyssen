@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using L10NSharp;
+using NetLoc;
+using Palaso.IO;
 using Palaso.Reporting;
 using Palaso.UI.WindowsForms.WritingSystems;
 using Palaso.WritingSystems;
@@ -27,6 +29,7 @@ namespace ProtoScript
 		public const string kProjectFileExtension = ".pgproj";
 		public const string kBookScriptFileExtension = ".xml";
 		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
+		public const string kVersificationFileName = "versification.vrs";
 		public const string kDefaultFontPrimary = "Charis SIL";
 		public const string kDefaultFontSecondary = "Times New Roman";
 		public const int kDefaultFontSize = 14;
@@ -51,11 +54,14 @@ namespace ProtoScript
 
 		public Project(Bundle.Bundle bundle) : this(bundle.Metadata)
 		{
+			bundle.CopyVersificationFile(VersificationFilePath);
 			PopulateAndParseBooks(bundle);
 		}
 
 		public Project(DblMetadata metadata, IEnumerable<UsxDocument> books, IStylesheet stylesheet) : this(metadata)
 		{
+			// TODO (PG-117): Allow caller to pass in a versification.
+			//File.Copy(FileLocator.GetFileDistributedWithApplication("eng.vrs"), VersificationFilePath);
 			AddAndParseBooks(books, stylesheet);
 		}
 
@@ -100,6 +106,18 @@ namespace ProtoScript
 		public bool RightToLeftScript
 		{
 			get { return m_metadata.language.scriptDirection == "RTL"; }
+		}
+
+		public Paratext.ScrVers Versification
+		{
+			get
+			{
+				if (VersificationFilePath != null)
+				{
+					// TODO (PG-117): return custom versification.
+				}
+				return Paratext.ScrVers.English;
+			}
 		}
 
 		public QuoteSystem QuoteSystem
@@ -194,16 +212,18 @@ namespace ProtoScript
 			if (existingProject.m_metadata.PgUsxParserVersion != Settings.Default.PgUsxParserVersion &&
 				File.Exists(existingProject.m_metadata.OriginalPathOfDblFile))
 			{
-				var bundle = new Bundle.Bundle(existingProject.m_metadata.OriginalPathOfDblFile);
-				// See if we already have a project for this bundle and open it instead.
-				var upgradedProject = new Project(bundle.Metadata);
-				upgradedProject.QuoteSystem = existingProject.m_metadata.QuoteSystem;
-				// Prior to Parser version 17, project metadata didn't keep the Books collection.
-				if (existingProject.m_metadata.AvailableBooks != null && existingProject.m_metadata.AvailableBooks.Any())
-					upgradedProject.m_metadata.AvailableBooks = existingProject.m_metadata.AvailableBooks;
-				upgradedProject.PopulateAndParseBooks(bundle);
-				upgradedProject.ApplyUserDecisions(existingProject);
-				return upgradedProject;
+				using (var bundle = new Bundle.Bundle(existingProject.m_metadata.OriginalPathOfDblFile))
+				{
+					// See if we already have a project for this bundle and open it instead.
+					var upgradedProject = new Project(bundle.Metadata);
+					upgradedProject.QuoteSystem = existingProject.m_metadata.QuoteSystem;
+					// Prior to Parser version 17, project metadata didn't keep the Books collection.
+					if (existingProject.m_metadata.AvailableBooks != null && existingProject.m_metadata.AvailableBooks.Any())
+						upgradedProject.m_metadata.AvailableBooks = existingProject.m_metadata.AvailableBooks;
+					upgradedProject.PopulateAndParseBooks(bundle);
+					upgradedProject.ApplyUserDecisions(existingProject);
+					return upgradedProject;
+				}
 			}
 			
 			existingProject.InitializeLoadedProject();
@@ -460,8 +480,8 @@ namespace ProtoScript
 
 			if (File.Exists(m_metadata.OriginalPathOfDblFile) && QuoteSystem != null)
 			{
-				var bundle = new Bundle.Bundle(m_metadata.OriginalPathOfDblFile);
-				PopulateAndParseBooks(bundle);
+				using (var bundle = new Bundle.Bundle(m_metadata.OriginalPathOfDblFile))
+					PopulateAndParseBooks(bundle);
 			}
 			else if (File.Exists(m_metadata.OriginalPathOfSfmFile) && QuoteSystem != null)
 			{
@@ -480,7 +500,17 @@ namespace ProtoScript
 
 		private string ProjectCharacterVerseDataPath
 		{
-			get { return Path.Combine(ProjectsBaseFolder, m_metadata.language.ToString(), m_metadata.id, kProjectCharacterVerseFileName); }
+			get { return Path.Combine(ProjectFolder, kProjectCharacterVerseFileName); }
+		}
+
+		private string VersificationFilePath
+		{
+			get { return Path.Combine(ProjectFolder, kVersificationFileName); }
+		}
+
+		private string ProjectFolder
+		{
+			get { return Path.Combine(ProjectsBaseFolder, m_metadata.language.ToString(), m_metadata.id); }
 		}
 
 		public bool IsReparseOkay()

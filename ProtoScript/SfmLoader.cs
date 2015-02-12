@@ -85,7 +85,7 @@ namespace ProtoScript
 		{
 			if (s_usfmStyleSheet != null)
 				return s_usfmStyleSheet;
-			string usfmStylesheetPath = Path.Combine(FileLocator.GetDirectoryDistributedWithApplication("sfm"), "usfm.sty");
+			string usfmStylesheetPath = FileLocator.GetFileDistributedWithApplication("sfm", "usfm.sty");
 			return s_usfmStyleSheet = new ScrStylesheet(usfmStylesheetPath);
 		}
 

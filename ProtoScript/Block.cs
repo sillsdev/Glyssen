@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -80,6 +81,17 @@ namespace ProtoScript
 				return m_initialStartVerseNumber;
 			}
 			set { m_initialStartVerseNumber = value; }
+		}
+
+		public int LastVerse
+		{
+			get
+			{
+				var lastVerse = BlockElements.OfType<Verse>().LastOrDefault();
+				if (lastVerse == null)
+					return m_initialEndVerseNumber > 0 ? m_initialEndVerseNumber : m_initialStartVerseNumber;
+				return lastVerse.EndVerse;
+			}
 		}
 
 		[XmlAttribute("initialEndVerse")]

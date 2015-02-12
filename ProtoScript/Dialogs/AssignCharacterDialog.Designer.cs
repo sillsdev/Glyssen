@@ -36,7 +36,6 @@
 			this.m_btnNext = new System.Windows.Forms.Button();
 			this.m_btnPrevious = new System.Windows.Forms.Button();
 			this.m_btnAssign = new System.Windows.Forms.Button();
-			this.m_labelReference = new System.Windows.Forms.Label();
 			this.m_labelWhoSpeaks = new System.Windows.Forms.Label();
 			this.m_labelXofY = new System.Windows.Forms.Label();
 			this.m_llMoreChar = new System.Windows.Forms.LinkLabel();
@@ -64,6 +63,7 @@
 			this.m_toolStripLabelFilter = new System.Windows.Forms.ToolStripLabel();
 			this.m_toolStripComboBoxFilter = new System.Windows.Forms.ToolStripComboBox();
 			this.m_toolStripButtonExcludeUserConfirmed = new System.Windows.Forms.ToolStripButton();
+			this.m_scriptureReference = new Paratext.ToolStripVerseControl();
 			this.m_dataGridViewBlocks = new System.Windows.Forms.DataGridView();
 			this.colReference = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colCharacter = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -150,22 +150,6 @@
 			this.m_btnAssign.Text = "Assign Character";
 			this.m_btnAssign.UseVisualStyleBackColor = true;
 			this.m_btnAssign.Click += new System.EventHandler(this.m_btnAssign_Click);
-			// 
-			// m_labelReference
-			// 
-			this.m_labelReference.AutoSize = true;
-			this.m_labelReference.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_labelReference.ForeColor = System.Drawing.Color.White;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_labelReference, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_labelReference, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_labelReference, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelReference, "AssignCharacterDialog.label1");
-			this.m_labelReference.Location = new System.Drawing.Point(222, 0);
-			this.m_labelReference.Name = "m_labelReference";
-			this.m_labelReference.Size = new System.Drawing.Size(76, 18);
-			this.m_labelReference.TabIndex = 5;
-			this.m_labelReference.Text = "Reference";
-			this.m_labelReference.TextAlign = System.Drawing.ContentAlignment.TopRight;
 			// 
 			// m_labelWhoSpeaks
 			// 
@@ -446,7 +430,8 @@
             this.toolStripSeparator1,
             this.m_toolStripLabelFilter,
             this.m_toolStripComboBoxFilter,
-            this.m_toolStripButtonExcludeUserConfirmed});
+            this.m_toolStripButtonExcludeUserConfirmed,
+            this.m_scriptureReference});
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStrip, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStrip, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStrip, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -571,6 +556,18 @@
 			this.m_toolStripButtonExcludeUserConfirmed.Text = "Exclude confirmed";
 			this.m_toolStripButtonExcludeUserConfirmed.ToolTipText = "Exclude blocks that are already user-confirmed";
 			this.m_toolStripButtonExcludeUserConfirmed.CheckedChanged += new System.EventHandler(this.HandleFilterChanged);
+			// 
+			// m_scriptureReference
+			// 
+			this.m_scriptureReference.BackColor = System.Drawing.Color.Transparent;
+			this.m_scriptureReference.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_scriptureReference, "");
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_scriptureReference, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_scriptureReference, L10NSharp.LocalizationPriority.Low);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_scriptureReference, "AssignCharacterDialog.AssignCharacterDialog.VerseControl");
+			this.m_scriptureReference.Margin = new System.Windows.Forms.Padding(0, 2, 0, 0);
+			this.m_scriptureReference.Name = "m_scriptureReference";
+			this.m_scriptureReference.Size = new System.Drawing.Size(191, 23);
 			// 
 			// m_dataGridViewBlocks
 			// 
@@ -866,11 +863,10 @@
 			// m_tableBlocks
 			// 
 			this.m_tableBlocks.AccessibleDescription = "";
-			this.m_tableBlocks.ColumnCount = 2;
+			this.m_tableBlocks.ColumnCount = 1;
 			this.m_tableBlocks.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.m_tableBlocks.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.m_tableBlocks.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.m_tableBlocks.Controls.Add(this.m_panelContext, 0, 1);
-			this.m_tableBlocks.Controls.Add(this.m_labelReference, 1, 0);
 			this.m_tableBlocks.Controls.Add(this.m_labelWhoSpeaks, 0, 0);
 			this.m_tableBlocks.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_tableBlocks.Location = new System.Drawing.Point(12, 12);
@@ -883,7 +879,6 @@
 			// 
 			// m_panelContext
 			// 
-			this.m_tableBlocks.SetColumnSpan(this.m_panelContext, 2);
 			this.m_panelContext.Controls.Add(this.m_dataGridViewBlocks);
 			this.m_panelContext.Controls.Add(this.m_blocksDisplayBrowser);
 			this.m_panelContext.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -957,7 +952,6 @@
 		private Controls.Browser m_blocksDisplayBrowser;
 		private System.Windows.Forms.Button m_btnAssign;
 		private System.Windows.Forms.ListBox m_listBoxCharacters;
-		private System.Windows.Forms.Label m_labelReference;
 		private System.Windows.Forms.ListBox m_listBoxDeliveries;
 		private System.Windows.Forms.Label m_labelWhoSpeaks;
 		private System.Windows.Forms.Label m_labelXofY;
@@ -1001,5 +995,6 @@
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 		private System.Windows.Forms.ToolStripButton m_toolStripButtonSmallerFont;
 		private System.Windows.Forms.ToolStripButton m_toolStripButtonLargerFont;
+		private Paratext.ToolStripVerseControl m_scriptureReference;
 	}
 }

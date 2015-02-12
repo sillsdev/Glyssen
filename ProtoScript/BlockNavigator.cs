@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SIL.ScriptureUtils;
 
 namespace ProtoScript
 {
@@ -83,6 +85,30 @@ namespace ProtoScript
 					return new Tuple<int, int>(iBook, iBlock);
 			}
 			throw new ArgumentOutOfRangeException("block", block.ToString(), "Block not found in any book!");
+		}
+
+		public Tuple<int, int> GetIndicesOfFirstBlockAtReference(BCVRef bcvRef)
+		{
+			var bookId = BCVRef.NumberToBookCode(bcvRef.Book);
+			int bookIndex = -1;
+			BookScript book = null;
+			for (int i = 0; i < m_books.Count; i++)
+			{
+				book = m_books[i];
+				if (book.BookId == bookId)
+				{
+					bookIndex = i;
+					break;
+				}
+			}
+
+			if (bookIndex == -1 || book == null)
+				return null;
+
+			var blockIndex = book.Blocks.IndexOf(
+				a => a.ChapterNumber == bcvRef.Chapter && a.InitialStartVerseNumber <= bcvRef.Verse && a.LastVerse >= bcvRef.Verse);
+
+			return blockIndex == -1 ? null : new Tuple<int, int>(bookIndex, blockIndex);
 		}
 
 		public BookScript GetBookScriptContainingBlock(Block block)
@@ -319,11 +345,17 @@ namespace ProtoScript
 
 	public static class IEnumerableExtensions
 	{
-		public static int IndexOf<T>(this IEnumerable<T> list, T item)
+		public static int IndexOf<T>(this IEnumerable<T> enumeration, T item)
 		{
-			for (int i = 0; i < list.Count(); i++)
+			return enumeration.IndexOf(a => Equals(a, item));
+		}
+
+		public static int IndexOf<T>(this IEnumerable<T> enumeration, Func<T, bool> match)
+		{
+			var list = enumeration.ToList();
+			for (int i = 0; i < list.Count; i++)
 			{
-				if (item.Equals(list.ElementAt(i)))
+				if (match(list[i]))
 					return i;
 			}
 			return -1;
