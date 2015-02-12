@@ -193,7 +193,7 @@ namespace ProtoScript.Dialogs
 			var blockRef = m_viewModel.GetBlockReference(m_viewModel.CurrentBlock);
 			var versesInBlock = m_viewModel.CurrentBlock.LastVerse - blockRef.Verse;
 			var displayedRefMinusBlockStartRef = m_scriptureReference.VerseControl.VerseRef.BBBCCCVVV - blockRef.BBCCCVVV;
-			if (displayedRefMinusBlockStartRef >= 0 && displayedRefMinusBlockStartRef < versesInBlock)
+			if (displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInBlock)
 				m_scriptureReference.VerseControl.VerseRef = new VerseRef(m_viewModel.GetBlockReference(m_viewModel.CurrentBlock), Paratext.ScrVers.English);
 			m_labelXofY.Visible = m_viewModel.IsCurrentBlockRelevant;
 			m_labelXofY.Text = string.Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
@@ -595,6 +595,7 @@ namespace ProtoScript.Dialogs
 			{
 				case 0: mode = BlocksToDisplay.NeedAssignments; break;
 				case 1: mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers; break;
+				case 2: mode = BlocksToDisplay.AllExpectedQuotes; break;
 				default: mode = BlocksToDisplay.AllScripture; break;
 			}
 

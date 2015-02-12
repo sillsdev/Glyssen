@@ -531,6 +531,7 @@
 			this.m_toolStripComboBoxFilter.Items.AddRange(new object[] {
             "Quotes not assigned automatically",
             "More quotes than expected in verse",
+            "Verses with expected quotes",
             "All Scripture"});
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripComboBoxFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripComboBoxFilter, null);
