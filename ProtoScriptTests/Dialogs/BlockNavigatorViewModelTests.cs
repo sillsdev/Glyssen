@@ -9,6 +9,7 @@ using ProtoScript;
 using ProtoScript.Bundle;
 using ProtoScript.Character;
 using ProtoScript.Dialogs;
+using SIL.ScriptureUtils;
 
 namespace ProtoScriptTests.Dialogs
 {
@@ -123,6 +124,29 @@ namespace ProtoScriptTests.Dialogs
 			m_model.Mode |= BlocksToDisplay.ExcludeUserConfirmed;
 
 			Assert.AreEqual(block2, m_model.CurrentBlock);
+		}
+
+		[Test]
+		public void SetMode_AllExpectedQuotes_UserConfirmedBlockSkipped()
+		{
+			// TODO (PG-70, part 1): When Jim has finished his part of PG-42, we need to add the new IsExpected field into the data.
+			// When we do that, we should also update the TestCharacterVerse.txt to add this new column of data. The easiest way would
+			// be to do a reg-ex Replace, as follows:
+			// Find:True
+			// Replace:True\t\True
+			// This will make all the Dialogue quotes also be expected quotes (and it will allow this test to continue to pass)
+			m_model.Mode = BlocksToDisplay.AllScripture;
+			FindRefInMark(1, 17);
+			var block1 = m_model.CurrentBlock;
+			m_model.LoadNextRelevantBlock();
+			var block2 = m_model.CurrentBlock;
+
+			m_model.Mode = BlocksToDisplay.AllExpectedQuotes;
+
+			Assert.IsTrue(m_model.RelevantBlockCount > 0);
+			Assert.AreEqual("MRK 1:16-17", m_model.GetBlockReferenceString());
+			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(block1, m_model.CurrentBlock);
 		}
 
 		[Test]

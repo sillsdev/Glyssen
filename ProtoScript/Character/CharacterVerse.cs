@@ -12,6 +12,7 @@ namespace ProtoScript.Character
 		private readonly string m_delivery;
 		private readonly string m_alias;
 		private readonly bool m_isDialogue;
+		private readonly bool m_isExpected;
 		private readonly string m_defaultCharacter;
 		private readonly string m_parallelPassageReferences;
 		private readonly bool m_projectSpecific;
@@ -24,18 +25,20 @@ namespace ProtoScript.Character
 		public string Delivery { get { return m_delivery; } }
 		public string Alias { get { return m_alias; } }
 		public bool IsDialogue { get { return m_isDialogue; } }
+		public bool IsExpected { get { return m_isExpected; } }
 		public string DefaultCharacter { get { return m_defaultCharacter; } }
 		public string ParallelPassageReferences { get { return m_parallelPassageReferences; } }
 		public bool ProjectSpecific { get { return m_projectSpecific; } }
 
 		public CharacterVerse(BCVRef bcvRef, string character, string delivery, string alias, bool projectSpecific,
-			bool isDialogue = false, string defaultCharacter = null, string parallelPassageReferences = null)
+			bool isDialogue = false, bool isExpected = false, string defaultCharacter = null, string parallelPassageReferences = null)
 		{
 			m_bcvRef = bcvRef;
 			m_character = character;
 			m_delivery = delivery;
 			m_alias = alias;
 			m_isDialogue = isDialogue;
+			m_isExpected = isExpected;
 			m_defaultCharacter = defaultCharacter;
 			m_parallelPassageReferences = parallelPassageReferences;
 			m_projectSpecific = projectSpecific;

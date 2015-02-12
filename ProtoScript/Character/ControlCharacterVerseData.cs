@@ -65,6 +65,7 @@ namespace ProtoScript.Character
 		{
 			return new CharacterVerse(bcvRef, items[3], items[4], items[5], false,
 				(items.Length > kiIsDialogue && items[kiIsDialogue].Equals("True", StringComparison.OrdinalIgnoreCase)),
+				(items.Length > kiIsExpected && items[kiIsExpected].Equals("True", StringComparison.OrdinalIgnoreCase)), // NOTE: this is for PG-70, part 1. Eventually kiIsExpected will be its own field in the control file and this line will do the right thing. For now (since kiIsExpected == kiIsDialogue), this property is just getting set the same way as the IsDialog property.
 				(items.Length > kiDefaultCharacter) ? items[kiDefaultCharacter] : null,
 				(items.Length > kiParallelPassageInfo) ? items[kiParallelPassageInfo] : null);
 		}

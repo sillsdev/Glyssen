@@ -94,7 +94,12 @@ namespace ProtoScript.Dialogs
 			SetFilterControlsFromMode();
 
 			m_blocksDisplayBrowser.VisibleChanged += (sender, args) => LoadBlock();
-			m_dataGridViewBlocks.VisibleChanged += (sender, args) => BeginInvoke(new Action(LoadBlock));
+			m_dataGridViewBlocks.VisibleChanged += (sender, args) => BeginInvoke(new Action(() =>
+			{
+				LoadBlock();
+				if (m_dataGridViewBlocks.Visible)
+					m_dataGridViewBlocks.AutoResizeColumns();
+			}));
 			m_dataGridViewBlocks.RowHeightChanged += AdjustScrollingInResponseToRowSizeChange;
 		}
 

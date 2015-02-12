@@ -18,8 +18,9 @@ namespace ProtoScript.Character
 		public const string AmbiguousCharacter = "Ambiguous";
 
 		protected const int kiIsDialogue = 6;
-		protected const int kiDefaultCharacter = 7;
-		protected const int kiParallelPassageInfo = 8;
+		protected const int kiIsExpected = 6; // TODO (PG-70, part 1): = kiIsDialogue + 1
+		protected const int kiDefaultCharacter = kiIsExpected + 1;
+		protected const int kiParallelPassageInfo = kiDefaultCharacter + 1;
 		protected const int kMaxItems = kiParallelPassageInfo + 1;
 
 		public enum StandardCharacter

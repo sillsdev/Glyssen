@@ -68,6 +68,20 @@ namespace ProtoScript.Dialogs
 
 			if (m_currentCharacters.Count == 0 && expandIfNone)
 			{
+				// This will get any expected characters from other verses in the current block.
+				var block = CurrentBlock;
+				foreach (var character in m_combinedCharacterVerseData.GetCharacters(CurrentBookId, block.ChapterNumber,
+						block.InitialStartVerseNumber, block.LastVerse))
+				{
+					m_currentCharacters.Add(character);
+				}
+				
+				listToReturn.AddRange(new SortedSet<Character>(m_currentCharacters.Select(cv =>
+					new Character(cv.Character, cv.Alias)), m_characterComparer).Where(c => !listToReturn.Contains(c)));
+			}
+
+			if (m_currentCharacters.Count == 0 && expandIfNone)
+			{
 				// This will get any potential or actual characters from surrounding material.
 				foreach (var block in ContextBlocksBackward.Union(ContextBlocksForward))
 				{

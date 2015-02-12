@@ -279,8 +279,9 @@ namespace ProtoScript.Dialogs
 		{
 			block = block ?? m_navigator.CurrentBlock;
 			var startRef = GetBlockReference(block);
-			var endRef = (block.InitialEndVerseNumber <= block.InitialStartVerseNumber) ? startRef :
-				new BCVRef(startRef.Book, startRef.Chapter, block.InitialEndVerseNumber);
+			var lastVerseInBlock = block.LastVerse;
+			var endRef = (lastVerseInBlock <= block.InitialStartVerseNumber) ? startRef :
+				new BCVRef(startRef.Book, startRef.Chapter, lastVerseInBlock);
 			return BCVRef.MakeReferenceString(startRef, endRef, ":", "-");
 		}
 
@@ -422,7 +423,10 @@ namespace ProtoScript.Dialogs
 				return (block.UserConfirmed || block.CharacterIsUnclear());
 			if ((Mode & BlocksToDisplay.AllExpectedQuotes) > 0)
 			{
-				return false; // TODO: Implement
+				if (!GetIsBlockScripture(block))
+					return false;
+				return ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber, block.InitialStartVerseNumber,
+					block.LastVerse).Any(c => c.IsExpected);
 			}
 			if ((Mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) > 0)
 			{

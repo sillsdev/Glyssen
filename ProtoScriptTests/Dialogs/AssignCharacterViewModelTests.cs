@@ -63,6 +63,17 @@ namespace ProtoScriptTests.Dialogs
 		}
 
 		[Test]
+		public void GetCharactersForCurrentReference_NonQuoteBlockContainingVerseWitExpectedQuote_GetsNarratorFollowedByOtherSpeakersInVersesInBlock()
+		{
+			m_model.Mode = BlocksToDisplay.AllExpectedQuotes;
+			Assert.AreEqual("MRK 1:16-17", m_model.GetBlockReferenceString());
+			var characters = m_model.GetCharactersForCurrentReference(true).ToList();
+			Assert.AreEqual(2, characters.Count);
+			Assert.IsTrue(characters[0].IsNarrator);
+			Assert.AreEqual("Jesus", characters[1].CharacterId);
+		}
+
+		[Test]
 		public void GetCharactersForCurrentReference_UnexpectedQuoteWithContext_GetsNarratorOnly()
 		{
 			// Note: Default forward/backward cvontext is 10 blocks.
