@@ -196,6 +196,7 @@ namespace ProtoScript.Dialogs
 			if (displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInBlock)
 				m_scriptureReference.VerseControl.VerseRef = new VerseRef(m_viewModel.GetBlockReference(m_viewModel.CurrentBlock), Paratext.ScrVers.English);
 			m_labelXofY.Visible = m_viewModel.IsCurrentBlockRelevant;
+			Debug.Assert(m_viewModel.RelevantBlockCount >= m_viewModel.CurrentBlockDisplayIndex);
 			m_labelXofY.Text = string.Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
 
 			SendScrReference(m_viewModel.GetBlockReference(m_viewModel.CurrentBlock));
@@ -383,7 +384,7 @@ namespace ProtoScript.Dialogs
 			{
 				string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChanges", "Unsaved Changes");
 				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChangesMessage", "The Character and Delivery selections for this clip have not been submitted. Do you want to save your changes before navigating?");
-				return MessageBox.Show(msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes;
+				return MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes;
 			}
 			return false;
 		}
@@ -478,7 +479,7 @@ namespace ProtoScript.Dialogs
 			{
 				string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.AssignmentsComplete", "Assignments Complete");
 				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.CloseDialogMessage", "All assignments have been made. Would you like to return to the main window?");
-				if (MessageBox.Show(msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
+				if (MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
 				{
 					Close();
 					return;
@@ -604,7 +605,31 @@ namespace ProtoScript.Dialogs
 
 			m_viewModel.Mode = mode;
 
-			LoadBlock();
+			if (m_viewModel.RelevantBlockCount > 0)
+			{
+				LoadBlock();
+			}
+			else
+			{
+				if (m_blocksDisplayBrowser.Visible)
+					m_blocksDisplayBrowser.DisplayHtml(String.Empty);
+				else
+				{
+					m_updatingContext = true;
+					SuspendLayout();
+					m_dataGridViewBlocks.ClearSelection();
+					m_dataGridViewBlocks.RowCount = 0;
+					colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+					ResumeLayout();
+					m_updatingContext = false;
+				}
+				m_labelXofY.Visible = false;
+				m_listBoxCharacters.Items.Clear();
+				m_listBoxDeliveries.Items.Clear();
+
+				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.NoMatches", "Nothing matches your current filter.");
+				MessageBox.Show(this, msg, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
 
 			UpdateProgressBarForMode();
 		}

@@ -54,7 +54,6 @@ namespace ProtoScript.Dialogs
 		private Tuple<int, int> m_temporarilyIncludedBlock;
 		private static readonly BookBlockTupleComparer s_bookBlockComparer = new BookBlockTupleComparer();
 		private int m_displayBlockIndex = -1;
-
 		private BlocksToDisplay m_mode;
 
 		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.AllScripture)
@@ -81,6 +80,7 @@ namespace ProtoScript.Dialogs
 		}
 		#endregion
 
+		#region Public properties
 		public ScrVers Versification { get; private set; }
 		public int BlockCountForCurrentBook { get { return m_navigator.CurrentBook.GetScriptBlocks().Count; } }
 		public int RelevantBlockCount { get { return m_relevantBlocks.Count; } }
@@ -126,6 +126,30 @@ namespace ProtoScript.Dialogs
 			}
 		}
 
+		public BlocksToDisplay Mode
+		{
+			get { return m_mode; }
+			set
+			{
+				if (m_mode == value)
+					return;
+
+				m_mode = value;
+
+				PopulateRelevantBlocks();
+
+				if (IsRelevant(m_navigator.CurrentBlock))
+					m_displayBlockIndex = 0;
+				else if (RelevantBlockCount > 0)
+				{
+					m_displayBlockIndex = -1;
+					LoadNextRelevantBlock();
+				}
+			}
+		}
+		#endregion
+
+		#region Context blocks
 		protected IEnumerable<Block> ContextBlocksBackward
 		{
 			get { return m_navigator.PeekBackwardWithinBook(BackwardContextBlockCount); }
@@ -135,6 +159,7 @@ namespace ProtoScript.Dialogs
 		{
 			get { return m_navigator.PeekForwardWithinBook(ForwardContextBlockCount); }
 		}
+		#endregion
 
 		#region HTML Browser support
 		public string Html
@@ -214,6 +239,7 @@ namespace ProtoScript.Dialogs
 		}
 		#endregion
 
+		#region Methods for dealing with multi-block quotes
 		protected IEnumerable<Block> GetAllBlocksWithSameQuote(Block baseLineBlock)
 		{
 			switch (baseLineBlock.MultiBlockQuote)
@@ -246,12 +272,9 @@ namespace ProtoScript.Dialogs
 				yield return j;
 			}
 		}
+		#endregion
 
-		public Block GetNthBlockInCurrentBook(int i)
-		{
-			return m_navigator.CurrentBook.GetScriptBlocks()[i];
-		}
-
+		#region GetBlockReference
 		public string GetBlockReferenceString(Block block = null)
 		{
 			block = block ?? m_navigator.CurrentBlock;
@@ -264,6 +287,13 @@ namespace ProtoScript.Dialogs
 		public BCVRef GetBlockReference(Block block)
 		{
 			return new BCVRef(BCVRef.BookToNumber(CurrentBookId), block.ChapterNumber, block.InitialStartVerseNumber);
+		}
+		#endregion
+
+		#region Navigation methods
+		public Block GetNthBlockInCurrentBook(int i)
+		{
+			return m_navigator.CurrentBook.GetScriptBlocks()[i];
 		}
 
 		public bool CanNavigateToPreviousRelevantBlock
@@ -295,28 +325,6 @@ namespace ProtoScript.Dialogs
 				// Current block was navigated to ad-hoc and doesn't match the filter. See if there is a relevant block after it.
 				var lastRelevantBlock = m_relevantBlocks.Last();
 				return s_bookBlockComparer.Compare(lastRelevantBlock, m_temporarilyIncludedBlock) > 0;
-			}
-		}
-
-		public BlocksToDisplay Mode
-		{
-			get { return m_mode; }
-			set
-			{
-				if (m_mode == value)
-					return;
-
-				m_mode = value;
-
-				PopulateRelevantBlocks();
-
-				if (IsRelevant(m_navigator.CurrentBlock))
-					m_displayBlockIndex = 0;
-				else if (RelevantBlockCount > 0)
-				{
-					m_displayBlockIndex = -1;
-					LoadNextRelevantBlock();
-				}
 			}
 		}
 
@@ -376,7 +384,9 @@ namespace ProtoScript.Dialogs
 
 			return GetIndexOfClosestRelevantBlock(list, key, prev, mid + 1, max);
 		}
+		#endregion
 
+		#region Filtering methods
 		protected virtual void PopulateRelevantBlocks()
 		{
 			m_navigator.NavigateToFirstBlock();
@@ -465,6 +475,7 @@ namespace ProtoScript.Dialogs
 		{
 			return GetIsBlockScripture(GetNthBlockInCurrentBook(blockIndex));
 		}
+		#endregion
 	}
 
 	#region BookBlockTupleComparer
