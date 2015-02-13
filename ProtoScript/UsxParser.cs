@@ -90,6 +90,7 @@ namespace ProtoScript
 								case "verse":
 									if (sb.Length > 0)
 									{
+										sb.TrimStart();
 										block.BlockElements.Add(new ScriptText(sb.ToString()));
 										sb.Clear();
 									}

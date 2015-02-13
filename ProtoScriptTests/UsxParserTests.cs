@@ -65,6 +65,19 @@ namespace ProtoScriptTests
 		}
 
 		[Test]
+		public void Parse_ParagraphWithSpaceAfterVerseAndNoteWithFollowingVerse_ExtraSpaceIsRemoved()
+		{
+			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\"> <verse number=\"1\" /> <note /> Pi <verse number=\"2\" />Wan </para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual("Pi Wan ", blocks[1].GetText(false));
+			Assert.AreEqual("[1]\u00A0Pi [2]\u00A0Wan ", blocks[1].GetText(true));
+			Assert.AreEqual("Pi ", ((ScriptText)blocks[1].BlockElements[1]).Content);
+			Assert.AreEqual("Wan ", ((ScriptText)blocks[1].BlockElements[3]).Content);
+		}
+
+		[Test]
 		public void Parse_ParagraphWithSpaceAfterVerse_ExtraSpaceIsRemoved()
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"q1\">" +
