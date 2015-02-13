@@ -29,18 +29,8 @@ namespace ProtoScript.Dialogs
 
 		private void m_btnOk_Click(object sender, EventArgs e)
 		{
-			foreach (string bookCode in m_bookChooserControl.SelectedBooks.SelectedBookNumbers.Select(BCVRef.NumberToBookCode))
-			{
-				Book metadataBook = m_project.AvailableBooks.FirstOrDefault(b => b.Code == bookCode);
-				if (metadataBook != null)
-					metadataBook.IncludeInScript = true;
-			}
-			foreach (string bookCode in m_bookChooserControl.SelectedBooks.UnselectedBookNumbers.Select(BCVRef.NumberToBookCode))
-			{
-				Book metadataBook = m_project.AvailableBooks.FirstOrDefault(b => b.Code == bookCode);
-				if (metadataBook != null)
-					metadataBook.IncludeInScript = false;
-			}
+			foreach (var book in m_project.AvailableBooks)
+				book.IncludeInScript = m_bookChooserControl.SelectedBooks.IsSelected(BCVRef.BookToNumber(book.Code));
 		}
 	}
 }

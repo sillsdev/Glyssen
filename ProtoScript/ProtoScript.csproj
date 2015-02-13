@@ -144,6 +144,7 @@
       <DependentUpon>AssignCharacterDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\AssignCharacterViewModel.cs" />
+    <Compile Include="Dialogs\BlockNavigationEventHandlers.cs" />
     <Compile Include="Dialogs\BlockNavigatorViewModel.cs" />
     <Compile Include="Dialogs\OpenProjectDlg.cs">
       <SubType>Form</SubType>

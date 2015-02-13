@@ -64,7 +64,7 @@
 			// m_l10NSharpExtender
 			// 
 			this.m_l10NSharpExtender.LocalizationManagerId = "ProtoscriptGenerator";
-			this.m_l10NSharpExtender.PrefixForNewItems = "OpenProjectDialog";
+			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.OpenProjectDialog";
 			// 
 			// lblExistingProject
 			// 
@@ -88,7 +88,7 @@
 			this.m_linkTextReleaseBundle.LinkColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkTextReleaseBundle, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkTextReleaseBundle, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkTextReleaseBundle, "OpenProjectDialog.OpenProjectDlg.m_linkTextReleaseBundle");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkTextReleaseBundle, "DialogBoxes.OpenProjectDlg.m_linkTextReleaseBundle");
 			this.m_linkTextReleaseBundle.Location = new System.Drawing.Point(0, 189);
 			this.m_linkTextReleaseBundle.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
 			this.m_linkTextReleaseBundle.Name = "m_linkTextReleaseBundle";
@@ -137,7 +137,7 @@
 			this.m_linkParatextProject.LinkColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkParatextProject, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkParatextProject, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkParatextProject, "OpenProjectDialog.OpenProjectDlg.m_linkParatextProject");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkParatextProject, "DialogBoxes.OpenProjectDlg.m_linkParatextProject");
 			this.m_linkParatextProject.Location = new System.Drawing.Point(0, 211);
 			this.m_linkParatextProject.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
 			this.m_linkParatextProject.Name = "m_linkParatextProject";
@@ -154,7 +154,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkSFFolder, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkSFFolder, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_linkSFFolder, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkSFFolder, "OpenProjectDialog.OpenProjectDlg.m_linkSFFolder");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkSFFolder, "DialogBoxes.OpenProjectDlg.m_linkSFFolder");
 			this.m_linkSFFolder.Location = new System.Drawing.Point(0, 233);
 			this.m_linkSFFolder.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
 			this.m_linkSFFolder.Name = "m_linkSFFolder";
@@ -172,7 +172,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkSingleSFBook, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkSingleSFBook, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_linkSingleSFBook, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkSingleSFBook, "OpenProjectDialog.OpenProjectDlg.m_linkSingleSFBook");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkSingleSFBook, "DialogBoxes.OpenProjectDlg.m_linkSingleSFBook");
 			this.m_linkSingleSFBook.Location = new System.Drawing.Point(0, 255);
 			this.m_linkSingleSFBook.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
 			this.m_linkSingleSFBook.Name = "m_linkSingleSFBook";

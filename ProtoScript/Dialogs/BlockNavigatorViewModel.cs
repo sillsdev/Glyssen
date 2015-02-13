@@ -34,13 +34,14 @@ namespace ProtoScript.Dialogs
 		private const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
 								  "<style>{0}</style></head><body {1}>{2}</body></html>";
 		private const string kHtmlLineBreak = "<div class='block-spacer'></div>";
-		private const string kCssClassContext = "context";
+		internal const string kCssClassContext = "context";
 		private const string kCssFrame = "body{{font-family:{0};font-size:{1}pt}}" +
 										".highlight{{background-color:yellow}}" +
 										"." + kCssClassContext + ":hover{{background-color:#FFFFA0}}" +
 										".block-spacer{{height:30px}}" +
 										".right-to-left{{direction:rtl}}" +
 										".section-header{{text-align:center;font-weight:bold}}";
+		internal const string kMainQuoteElementId = "main-quote-text";
 
 		private bool m_showVerseNumbers = true; // May make this configurable later
 		private Font m_font;
@@ -178,7 +179,9 @@ namespace ProtoScript.Dialogs
 		{
 			var bldr = new StringBuilder();
 			bldr.Append(previousText);
-			bldr.Append("<div id=\"main-quote-text\" class=\"highlight\">");
+			bldr.Append("<div id=\"");
+			bldr.Append(kMainQuoteElementId);
+			bldr.Append("\" class=\"highlight\">");
 			bldr.Append(SuperscriptVerseNumbers(mainText));
 			bldr.Append("</div>");
 			if (!String.IsNullOrEmpty(followingText))

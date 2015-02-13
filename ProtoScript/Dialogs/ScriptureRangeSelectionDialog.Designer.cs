@@ -39,7 +39,7 @@
 			// m_l10NSharpExtender
 			// 
 			this.m_l10NSharpExtender.LocalizationManagerId = "ProtoscriptGenerator";
-			this.m_l10NSharpExtender.PrefixForNewItems = "ScriptureRangeSelectionDialog";
+			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.ScriptureRangeSelectionDialog";
 			// 
 			// m_btnOk
 			// 
@@ -61,7 +61,7 @@
 			this.m_bookChooserControl.HideExtraMaterialButton = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_bookChooserControl, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_bookChooserControl, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_bookChooserControl, "ScriptureRangeSelectionDialog.BookChooserControl");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_bookChooserControl, "DialogBoxes.ScriptureRangeSelectionDialog.BookChooserControl");
 			this.m_bookChooserControl.Location = new System.Drawing.Point(13, 13);
 			this.m_bookChooserControl.Name = "m_bookChooserControl";
 			this.m_bookChooserControl.RequireSelectedBook = false;
@@ -92,7 +92,7 @@
 			this.Controls.Add(this.m_bookChooserControl);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this, "ScriptureRangeSelectionDialog.WindowTitle");
+			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.ScriptureRangeSelectionDialog.WindowTitle");
 			this.Name = "ScriptureRangeSelectionDialog";
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

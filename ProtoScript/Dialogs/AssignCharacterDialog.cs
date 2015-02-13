@@ -29,7 +29,6 @@ namespace ProtoScript.Dialogs
 	public partial class AssignCharacterDialog : Form
 	{
 		private readonly AssignCharacterViewModel m_viewModel;
-		private const string kMainQuoteElementId = "main-quote-text";
 		private const string kCssClassContext = "context";
 		private const int kContextBlocksBackward = 10;
 		private const int kContextBlocksForward = 10;
@@ -779,15 +778,11 @@ namespace ProtoScript.Dialogs
 				if (divElement.Parent.ClassName == kCssClassContext)
 				{
 					m_toolTip = new ToolTip {IsBalloon = true};
-					// 22 is the magic numbers which happen to make these display in the correct place
+					// 22 is the magic number which happens to make these display in the correct place
 					int x = m_blocksDisplayBrowser.Location.X + m_blocksDisplayBrowser.Size.Width - 22;
 					int y = m_blocksDisplayBrowser.Location.Y + e.ClientY - m_blocksDisplayBrowser.Margin.Top;
 					m_toolTip.Show(divElement.Parent.GetAttribute(AssignCharacterViewModel.kDataCharacter), this, x, y);
 				}
-			}
-			else
-			{
-				// TODO: Implement tool tips for data grid view display.
 			}
 		}
 
@@ -808,7 +803,7 @@ namespace ProtoScript.Dialogs
 
 		private void OnDocumentCompleted(object sender, GeckoDocumentCompletedEventArgs e)
 		{
-			m_blocksDisplayBrowser.ScrollElementIntoView(kMainQuoteElementId, -225);
+			m_blocksDisplayBrowser.ScrollElementIntoView(BlockNavigatorViewModel.kMainQuoteElementId, -225);
 		}
 		#endregion
 	}
