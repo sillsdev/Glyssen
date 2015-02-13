@@ -350,7 +350,10 @@ namespace ProtoScript
 				Debug.Fail(e.Error.Message);
 
 			var result = (IEnumerable<BookScript>)e.Result;
-			m_books.AddRange(result);
+			//REVIEW: more efficient to sort after the fact like this?  Or just don't run them in parallel (in ProjectUsxParser) in the first place?
+			var resultList = result.ToList();
+			resultList.Sort((a, b) => BCVRef.BookToNumber(a.BookId).CompareTo(BCVRef.BookToNumber(b.BookId)));
+			m_books.AddRange(resultList);
 
 			if (ConfirmedQuoteSystem == null)
 				GuessAtQuoteSystem();
