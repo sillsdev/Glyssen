@@ -154,6 +154,7 @@ namespace ProtoScript.Dialogs
 				m_dataGridViewBlocks.ClearSelection();
 				m_dataGridViewBlocks.MultiSelect = m_viewModel.CurrentBlock.MultiBlockQuote != MultiBlockQuote.None;
 				colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+				m_dataGridViewBlocks.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 				m_dataGridViewBlocks.RowCount = m_viewModel.BlockCountForCurrentBook;
 				m_dataGridViewBlocks.ClearSelection(); // see note, above.
 				var firstRow = m_viewModel.CurrentBlockIndexInBook;
@@ -168,6 +169,7 @@ namespace ProtoScript.Dialogs
 					}
 				}
 				colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+				m_dataGridViewBlocks.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
 				ScrollDesiredRowsIntoView(firstRow, lastRow);
 
 				ResumeLayout();
