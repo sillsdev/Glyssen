@@ -152,16 +152,5 @@ namespace ProtoScript.Properties {
                 this["QuoteMarksDialogShowGridView"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::Palaso.UI.WindowsForms.PortableSettingsProvider.GridSettings QuotationMarksDialogAssignBlocksGrid {
-            get {
-                return ((global::Palaso.UI.WindowsForms.PortableSettingsProvider.GridSettings)(this["QuotationMarksDialogAssignBlocksGrid"]));
-            }
-            set {
-                this["QuotationMarksDialogAssignBlocksGrid"] = value;
-            }
-        }
     }
 }

@@ -18,6 +18,9 @@ namespace ProtoScript.Controls
 
 	public partial class ScriptBlocksViewer : UserControl
 	{
+		private const int kContextBlocksBackward = 10;
+		private const int kContextBlocksForward = 10;
+
 		private BlockNavigatorViewModel m_viewModel;
 		private Func<Block, string> m_getCharacterIdForUi;
 		private Func<Block, string> m_getDelivery;
@@ -36,6 +39,9 @@ namespace ProtoScript.Controls
 			m_getCharacterIdForUi = getCharacterIdForUi;
 			m_getDelivery = getDelivery;
 			m_dataGridViewBlocks.Initialize(m_viewModel);
+
+			m_viewModel.BackwardContextBlockCount = kContextBlocksBackward;
+			m_viewModel.ForwardContextBlockCount = kContextBlocksForward;
 
 			if (m_getCharacterIdForUi == null)
 				m_dataGridViewBlocks.Columns.Remove(colCharacter);

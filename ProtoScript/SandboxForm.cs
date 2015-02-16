@@ -306,29 +306,31 @@ namespace ProtoScript
 				MessageBox.Show(msg, title);
 				reparseOkay = false;
 			}
-	
-			var viewModel = new BlockNavigatorViewModel(m_project, BlocksToDisplay.AllExpectedQuotes);
-			using (var dlg = new QuotationMarksDialog(m_project, viewModel, !reparseOkay))
+
+			using (var viewModel = new BlockNavigatorViewModel(m_project, BlocksToDisplay.AllExpectedQuotes))
 			{
-				if (dlg.ShowDialog(this) == DialogResult.OK)
-					UpdateDisplayOfQuoteSystemInfo();
+				using (var dlg = new QuotationMarksDialog(m_project, viewModel, !reparseOkay))
+				{
+					if (dlg.ShowDialog(this) == DialogResult.OK)
+						UpdateDisplayOfQuoteSystemInfo();
+				}
 			}
 		}
 
 		private void m_btnAssign_Click(object sender, EventArgs e)
 		{
-			var viewModel = new AssignCharacterViewModel(m_project);
-			if (viewModel.RelevantBlockCount == 0)
+			using (var viewModel = new AssignCharacterViewModel(m_project))
 			{
-				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.AllAssignmentsMadeAutomatically",
-					"Character assigments were made automatically for all quotations in the Scripture text. There is nothing more to do at this time.");
-				MessageBox.Show(this, msg, ProductName, MessageBoxButtons.OK);
-				return;
+				if (viewModel.RelevantBlockCount == 0)
+				{
+					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.AllAssignmentsMadeAutomatically",
+						"Character assigments were made automatically for all quotations in the Scripture text. There is nothing more to do at this time.");
+					MessageBox.Show(this, msg, ProductName, MessageBoxButtons.OK);
+					return;
+				}
+				using (var dlg = new AssignCharacterDialog(viewModel))
+					dlg.ShowDialog();
 			}
-			using (var dlg = new AssignCharacterDialog(viewModel))
-				dlg.ShowDialog();
-
-			m_project.FontSizeUiAdjustment = viewModel.FontSizeUiAdjustment;
 		}
 
 		private void m_btnSelectBooks_Click(object sender, EventArgs e)

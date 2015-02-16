@@ -9,12 +9,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Gecko;
-using Gecko.DOM;
-using Gecko.Events;
 using L10NSharp;
 using L10NSharp.UI;
 using Palaso.UI.WindowsForms.PortableSettingsProvider;
@@ -29,8 +25,6 @@ namespace ProtoScript.Dialogs
 	public partial class AssignCharacterDialog : Form
 	{
 		private readonly AssignCharacterViewModel m_viewModel;
-		private const int kContextBlocksBackward = 10;
-		private const int kContextBlocksForward = 10;
 
 		private string m_xOfYFmt;
 
@@ -49,7 +43,9 @@ namespace ProtoScript.Dialogs
 		public AssignCharacterDialog(AssignCharacterViewModel viewModel)
 		{
 			InitializeComponent();
-			
+
+			m_viewModel = viewModel;
+
 			if (Properties.Settings.Default.AssignCharacterDialogFormSettings == null)
 				Properties.Settings.Default.AssignCharacterDialogFormSettings = FormSettings.Create(this);
 
@@ -59,19 +55,16 @@ namespace ProtoScript.Dialogs
 				m_toolStripButtonGridView.Checked = true;
 
 			var books = new BookSet();
-			foreach (var bookId in viewModel.IncludedBooks)
+			foreach (var bookId in m_viewModel.IncludedBooks)
 				books.Add(bookId);
 			m_scriptureReference.VerseControl.BooksPresentSet = books;
 			m_scriptureReference.VerseControl.ShowEmptyBooks = false;
 
 			m_scriptureReference.VerseControl.AllowVerseSegments = false;
 			// TODO (PG-117): Set versification according to project
-			m_scriptureReference.VerseControl.Versification = viewModel.Versification;
+			m_scriptureReference.VerseControl.Versification = m_viewModel.Versification;
 			m_scriptureReference.VerseControl.VerseRefChanged += m_scriptureReference_VerseRefChanged;
 
-			m_viewModel = viewModel;
-			m_viewModel.BackwardContextBlockCount = kContextBlocksBackward;
-			m_viewModel.ForwardContextBlockCount = kContextBlocksForward;
 			m_blocksViewer.Initialize(m_viewModel,
 				block => AssignCharacterViewModel.Character.GetCharacterIdForUi(block.CharacterId, CurrentContextCharacters),
 				block => block.Delivery);
@@ -80,8 +73,8 @@ namespace ProtoScript.Dialogs
 			UpdateProgressBarForMode();
 
 			HandleStringsLocalized();
-
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+
 			m_viewModel.AssignedBlocksIncremented += (sender, args) => { if (m_progressBar.Visible) m_progressBar.Increment(1); };
 
 			m_blocksViewer.VisibleChanged += (sender, args) => BeginInvoke(new Action(() =>
@@ -218,11 +211,6 @@ namespace ProtoScript.Dialogs
 		private void LoadNextRelevantBlock()
 		{
 			m_viewModel.LoadNextRelevantBlock();
-		}
-
-		private void LoadPreviousRelevantBlock()
-		{
-			m_viewModel.LoadPreviousRelevantBlock();
 		}
 
 		private void LoadCharacterListBox(IEnumerable<AssignCharacterViewModel.Character> characters)
@@ -401,7 +389,7 @@ namespace ProtoScript.Dialogs
 		{
 			if (UserConfirmSaveChangesIfNecessary())
 				SaveSelections();
-			LoadPreviousRelevantBlock();
+			m_viewModel.LoadPreviousRelevantBlock();
 		}
 
 		private void m_btnAssign_Click(object sender, EventArgs e)

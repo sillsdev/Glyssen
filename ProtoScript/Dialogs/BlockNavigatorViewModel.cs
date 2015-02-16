@@ -31,6 +31,7 @@ namespace ProtoScript.Dialogs
 
 	public class BlockNavigatorViewModel : IDisposable
 	{
+		private readonly Project m_project;
 		internal const string kDataCharacter = "data-character";
 		private const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
 								  "<style>{0}</style></head><body {1}>{2}</body></html>";
@@ -63,6 +64,7 @@ namespace ProtoScript.Dialogs
 
 		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.AllScripture)
 		{
+			m_project = project;
 			m_navigator = new BlockNavigator(project.IncludedBooks);
 			m_includedBooks = project.IncludedBooks.Select(b => b.BookId);
 			m_fontFamily = project.FontFamily;
@@ -77,6 +79,8 @@ namespace ProtoScript.Dialogs
 		#region IDisposable Members
 		public void Dispose()
 		{
+			m_project.FontSizeUiAdjustment = m_fontSizeUiAdjustment;
+
 			if (m_font != null)
 			{
 				m_font.Dispose();
