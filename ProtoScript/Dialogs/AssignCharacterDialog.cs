@@ -29,13 +29,10 @@ namespace ProtoScript.Dialogs
 	public partial class AssignCharacterDialog : Form
 	{
 		private readonly AssignCharacterViewModel m_viewModel;
-		private const string kCssClassContext = "context";
 		private const int kContextBlocksBackward = 10;
 		private const int kContextBlocksForward = 10;
 
-		private ToolTip m_toolTip;
 		private string m_xOfYFmt;
-		private bool m_updatingContext = true;
 
 		private void HandleStringsLocalized()
 		{
@@ -75,13 +72,10 @@ namespace ProtoScript.Dialogs
 			m_viewModel = viewModel;
 			m_viewModel.BackwardContextBlockCount = kContextBlocksBackward;
 			m_viewModel.ForwardContextBlockCount = kContextBlocksForward;
-
-			colText.DefaultCellStyle.Font = m_viewModel.Font;
-			var origFont = m_dataGridViewBlocks.DefaultCellStyle.Font;
-			m_dataGridViewBlocks.DefaultCellStyle.Font = new Font(origFont.FontFamily,
-				origFont.SizeInPoints + m_viewModel.FontSizeUiAdjustment, origFont.Style);
-			if (m_viewModel.RightToLeft)
-				m_dataGridViewBlocks.CellPainting += HandleDataGridViewBlocksCellPainting;
+			m_blocksViewer.Initialize(m_viewModel,
+				block => AssignCharacterViewModel.Character.GetCharacterIdForUi(block.CharacterId, CurrentContextCharacters),
+				block => block.Delivery);
+			m_viewModel.CurrentBlockChanged += (sender, args) => LoadBlock();
 
 			UpdateProgressBarForMode();
 
@@ -90,16 +84,13 @@ namespace ProtoScript.Dialogs
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 			m_viewModel.AssignedBlocksIncremented += (sender, args) => { if (m_progressBar.Visible) m_progressBar.Increment(1); };
 
-			SetFilterControlsFromMode();
-
-			m_blocksDisplayBrowser.VisibleChanged += (sender, args) => LoadBlock();
-			m_dataGridViewBlocks.VisibleChanged += (sender, args) => BeginInvoke(new Action(() =>
+			m_blocksViewer.VisibleChanged += (sender, args) => BeginInvoke(new Action(() =>
 			{
-				LoadBlock();
-				if (m_dataGridViewBlocks.Visible)
-					m_dataGridViewBlocks.AutoResizeColumns();
+				if (m_blocksViewer.Visible)
+					LoadBlock();
 			}));
-			m_dataGridViewBlocks.RowHeightChanged += AdjustScrollingInResponseToRowSizeChange;
+
+			SetFilterControlsFromMode();
 		}
 
 		private void UpdateProgressBarForMode()
@@ -134,62 +125,8 @@ namespace ProtoScript.Dialogs
 
 		public void LoadBlock()
 		{
-			UpdateContextBlocksDisplay();
 			UpdateDisplay();
 			UpdateNavigationButtonState();
-		}
-
-		private void UpdateContextBlocksDisplay()
-		{
-			if (m_blocksDisplayBrowser.Visible)
-				m_blocksDisplayBrowser.DisplayHtml(m_viewModel.Html);
-			else
-			{
-				m_updatingContext = true;
-				SuspendLayout();
-				// Need to clear the selction here and again below here because some of the property setters on
-				// DataGridView have the side-effect of creating a selection. And since we might be changing the row
-				// count, we can't afford to have HandleDataGridViewBlocksCellValueNeeded getting called with an
-				// index that is out of range for the new book.
-				m_dataGridViewBlocks.ClearSelection();
-				m_dataGridViewBlocks.MultiSelect = m_viewModel.CurrentBlock.MultiBlockQuote != MultiBlockQuote.None;
-				colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-				m_dataGridViewBlocks.RowCount = m_viewModel.BlockCountForCurrentBook;
-				m_dataGridViewBlocks.ClearSelection(); // see note, above.
-				var firstRow = m_viewModel.CurrentBlockIndexInBook;
-				var lastRow = firstRow;
-				m_dataGridViewBlocks.Rows[firstRow].Selected = true;
-				if (m_viewModel.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Start)
-				{
-					foreach (var i in m_viewModel.GetIndicesOfQuoteContinuationBlocks(m_viewModel.CurrentBlock))
-					{
-						m_dataGridViewBlocks.Rows[i].Selected = true;
-						lastRow = i;
-					}
-				}
-				colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-				ScrollDesiredRowsIntoView(firstRow, lastRow);
-
-				ResumeLayout();
-				m_updatingContext = false;
-			}
-		}
-
-		private void ScrollDesiredRowsIntoView(int firstRow, int lastRow)
-		{
-			int precedingContextRows = 4;
-			int followingContextRows = Math.Min(2, m_dataGridViewBlocks.RowCount - lastRow - 1);
-			var lastRowLocation = m_dataGridViewBlocks.GetCellDisplayRectangle(0, lastRow + followingContextRows, false);
-			while ((lastRowLocation.Height == 0 || (firstRow != lastRow &&
-				lastRowLocation.Y + lastRowLocation.Height > m_dataGridViewBlocks.ClientRectangle.Height)) && precedingContextRows >= 0)
-			{
-				var firstRowOfContextToMakeVisible = Math.Max(0, firstRow - precedingContextRows--);
-				m_dataGridViewBlocks.FirstDisplayedScrollingRowIndex = firstRowOfContextToMakeVisible;
-
-				if (followingContextRows > 0)
-					followingContextRows--;
-				lastRowLocation = m_dataGridViewBlocks.GetCellDisplayRectangle(0, lastRow + followingContextRows, false);
-			}
 		}
 
 		private void UpdateDisplay()
@@ -281,13 +218,11 @@ namespace ProtoScript.Dialogs
 		private void LoadNextRelevantBlock()
 		{
 			m_viewModel.LoadNextRelevantBlock();
-			LoadBlock();
 		}
 
 		private void LoadPreviousRelevantBlock()
 		{
 			m_viewModel.LoadPreviousRelevantBlock();
-			LoadBlock();
 		}
 
 		private void LoadCharacterListBox(IEnumerable<AssignCharacterViewModel.Character> characters)
@@ -445,21 +380,14 @@ namespace ProtoScript.Dialogs
 		protected override void OnLoad(EventArgs e)
 		{
 			Properties.Settings.Default.AssignCharacterDialogFormSettings.InitializeForm(this);
-
-			if (Properties.Settings.Default.AssignCharactersBlockContextGrid != null)
-				Properties.Settings.Default.AssignCharactersBlockContextGrid.InitializeGrid(m_dataGridViewBlocks);
-
 			base.OnLoad(e);
-
-			if (Properties.Settings.Default.AssignCharactersBlockContextGrid != null)
-				Properties.Settings.Default.AssignCharactersBlockContextGrid.InitializeGrid(m_dataGridViewBlocks);
+			m_blocksViewer.BlocksGridSettings = Properties.Settings.Default.AssignCharactersBlockContextGrid;
 		}
-
-		protected override void OnHandleCreated(EventArgs e)
+		
+		protected override void OnClosing(CancelEventArgs e)
 		{
-			base.OnHandleCreated(e);
-
-			m_dataGridViewBlocks.ColumnWidthChanged += HandleDataGridViewBlocksColumnWidthChanged;
+			Properties.Settings.Default.AssignCharactersBlockContextGrid = m_blocksViewer.BlocksGridSettings;
+			base.OnClosing(e);
 		}
 
 		private void m_btnNext_Click(object sender, EventArgs e)
@@ -615,18 +543,7 @@ namespace ProtoScript.Dialogs
 			}
 			else
 			{
-				if (m_blocksDisplayBrowser.Visible)
-					m_blocksDisplayBrowser.DisplayHtml(String.Empty);
-				else
-				{
-					m_updatingContext = true;
-					SuspendLayout();
-					m_dataGridViewBlocks.ClearSelection();
-					m_dataGridViewBlocks.RowCount = 0;
-					colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-					ResumeLayout();
-					m_updatingContext = false;
-				}
+				m_blocksViewer.Clear();
 				m_labelXofY.Visible = false;
 				m_listBoxCharacters.Items.Clear();
 				m_listBoxDeliveries.Items.Clear();
@@ -646,12 +563,7 @@ namespace ProtoScript.Dialogs
 
 				Debug.Assert(!m_toolStripButtonGridView.Checked);
 
-				SuspendLayout();
-				m_blocksDisplayBrowser.Visible = true;
-				m_dataGridViewBlocks.Visible = false;
-				m_dataGridViewBlocks.Dock = DockStyle.None;
-				m_blocksDisplayBrowser.Dock = DockStyle.Fill;
-				ResumeLayout();
+				m_blocksViewer.ViewType = ScriptBlocksViewType.Html;
 				Properties.Settings.Default.AssignCharactersShowGridView = false;
 			}
 		}
@@ -664,12 +576,7 @@ namespace ProtoScript.Dialogs
 
 				Debug.Assert(!m_toolStripButtonHtmlView.Checked);
 
-				SuspendLayout();
-				m_dataGridViewBlocks.Visible = true;
-				m_blocksDisplayBrowser.Visible = false;
-				m_blocksDisplayBrowser.Dock = DockStyle.None;
-				m_dataGridViewBlocks.Dock = DockStyle.Fill;
-				ResumeLayout();
+				m_blocksViewer.ViewType = ScriptBlocksViewType.Grid;
 				Properties.Settings.Default.AssignCharactersShowGridView = true;
 			}
 		}
@@ -681,129 +588,19 @@ namespace ProtoScript.Dialogs
 				button.Checked = true;
 		}
 
-		private void HandleDataGridViewBlocksCellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
-		{
-			var block = m_viewModel.GetNthBlockInCurrentBook(e.RowIndex);
-			if (e.ColumnIndex == colReference.Index)
-				e.Value = m_viewModel.GetBlockReferenceString(block);
-			else if (e.ColumnIndex == colCharacter.Index)
-				e.Value = AssignCharacterViewModel.Character.GetCharacterIdForUi(block.CharacterId, CurrentContextCharacters);
-			else if (e.ColumnIndex == colDelivery.Index)
-				e.Value = block.Delivery;
-			else if (e.ColumnIndex == colText.Index)
-				e.Value = block.GetText(true);
-		}
-
-		void HandleDataGridViewBlocksColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
-		{
-			if (m_dataGridViewBlocks.ContainsFocus)
-				Properties.Settings.Default.AssignCharactersBlockContextGrid = GridSettings.Create(m_dataGridViewBlocks);
-		}
-
-		/// <summary>
-		/// This method only gets subscribed to for right-to-left scripts. If we need this in the future for other painting enhancements,
-		/// the logic that controls this will need to be moved into this method (so it can be subscribed to unconditionally).
-		/// </summary>
-		void HandleDataGridViewBlocksCellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-		{
-			if (e.ColumnIndex == colText.Index && e.RowIndex >= 0)
-			{
-				e.PaintBackground(e.CellBounds, true);
-				TextRenderer.DrawText(e.Graphics, e.FormattedValue.ToString(),
-				e.CellStyle.Font, e.CellBounds, e.CellStyle.ForeColor,
-				 TextFormatFlags.WordBreak | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.RightToLeft | TextFormatFlags.Right);
-				e.Handled = true;
-			}
-		}
-
-		private void HandleDataGridViewBlocksSelectionChanged(object sender, EventArgs e)
-		{
-			if (m_updatingContext)
-				return;
-
-			if (m_viewModel.GetIsBlockScripture(m_dataGridViewBlocks.SelectedRows[0].Index))
-				m_viewModel.CurrentBlockIndexInBook = m_dataGridViewBlocks.SelectedRows[0].Index;
-
-			LoadBlock();
-		}
-
-		private void AdjustScrollingInResponseToRowSizeChange(object sender, DataGridViewRowEventArgs args)
-		{
-			if (m_dataGridViewBlocks.SelectedRows.Count > 0)
-			{
-				var firstRow = m_dataGridViewBlocks.SelectedRows[m_dataGridViewBlocks.SelectedRows.Count - 1].Index;
-				var lastRow = m_dataGridViewBlocks.SelectedRows[0].Index;
-				if (args.Row.Index > firstRow - 5 && args.Row.Index < lastRow + 2)
-					BeginInvoke(new Action(() => ScrollDesiredRowsIntoView(firstRow, lastRow)));
-			}
-		}
-
 		private void IncreaseFont(object sender, EventArgs e)
 		{
-			m_viewModel.FontSizeUiAdjustment++;
-			colText.DefaultCellStyle.Font = m_viewModel.Font;
-			var origFont = m_dataGridViewBlocks.DefaultCellStyle.Font;
-			m_dataGridViewBlocks.DefaultCellStyle.Font = new Font(origFont.FontFamily, origFont.SizeInPoints + 1, origFont.Style);
-			UpdateContextBlocksDisplay();
+			m_blocksViewer.IncreaseFont();
 		}
 
 		private void DecreaseFont(object sender, EventArgs e)
 		{
-			m_viewModel.FontSizeUiAdjustment--;
-			colText.DefaultCellStyle.Font = m_viewModel.Font;
-			var origFont = m_dataGridViewBlocks.DefaultCellStyle.Font;
-			m_dataGridViewBlocks.DefaultCellStyle.Font = new Font(origFont.FontFamily, origFont.SizeInPoints - 1, origFont.Style);
-			UpdateContextBlocksDisplay();
+			m_blocksViewer.DecreaseFont();
 		}
 
 		private void m_scriptureReference_VerseRefChanged(object sender, PropertyChangedEventArgs e)
 		{
-			if (m_viewModel.TryLoadBlock(m_scriptureReference.VerseControl.VerseRef))
-				LoadBlock();
-		}
-		#endregion
-
-		#region Browser events
-		private void OnMouseOver(object sender, DomMouseEventArgs e)
-		{
-			if (e.Target == null)
-				return;
-			if (m_blocksDisplayBrowser.Visible)
-			{
-				var geckoElement = e.Target.CastToGeckoElement();
-				var divElement = geckoElement as GeckoDivElement;
-				if (divElement == null)
-					return;
-
-				if (divElement.Parent.ClassName == kCssClassContext)
-				{
-					m_toolTip = new ToolTip {IsBalloon = true};
-					// 22 is the magic number which happens to make these display in the correct place
-					int x = m_blocksDisplayBrowser.Location.X + m_blocksDisplayBrowser.Size.Width - 22;
-					int y = m_blocksDisplayBrowser.Location.Y + e.ClientY - m_blocksDisplayBrowser.Margin.Top;
-					m_toolTip.Show(divElement.Parent.GetAttribute(AssignCharacterViewModel.kDataCharacter), this, x, y);
-				}
-			}
-		}
-
-		private void OnMouseOut(object sender, DomMouseEventArgs e)
-		{
-			if (e.Target == null)
-				return;
-			var geckoElement = e.Target.CastToGeckoElement();
-			var divElement = geckoElement as GeckoDivElement;
-			if (divElement == null)
-				return;
-
-			if (divElement.Parent.ClassName == kCssClassContext)
-			{
-				m_toolTip.Hide(this);
-			}
-		}
-
-		private void OnDocumentCompleted(object sender, GeckoDocumentCompletedEventArgs e)
-		{
-			m_blocksDisplayBrowser.ScrollElementIntoView(BlockNavigatorViewModel.kMainQuoteElementId, -225);
+			m_viewModel.TryLoadBlock(m_scriptureReference.VerseControl.VerseRef);
 		}
 		#endregion
 	}

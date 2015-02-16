@@ -140,5 +140,28 @@ namespace ProtoScript.Properties {
                 this["AssignCharactersBlockContextGrid"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool QuoteMarksDialogShowGridView {
+            get {
+                return ((bool)(this["QuoteMarksDialogShowGridView"]));
+            }
+            set {
+                this["QuoteMarksDialogShowGridView"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Palaso.UI.WindowsForms.PortableSettingsProvider.GridSettings QuotationMarksDialogAssignBlocksGrid {
+            get {
+                return ((global::Palaso.UI.WindowsForms.PortableSettingsProvider.GridSettings)(this["QuotationMarksDialogAssignBlocksGrid"]));
+            }
+            set {
+                this["QuotationMarksDialogAssignBlocksGrid"] = value;
+            }
+        }
     }
 }

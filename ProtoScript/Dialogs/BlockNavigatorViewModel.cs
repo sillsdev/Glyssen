@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using Paratext;
+using Paratext.Users;
 using ProtoScript.Character;
 using SIL.ScriptureUtils;
 using ScrVers = Paratext.ScrVers;
@@ -54,8 +55,11 @@ namespace ProtoScript.Dialogs
 		protected List<Tuple<int, int>> m_relevantBlocks;
 		private Tuple<int, int> m_temporarilyIncludedBlock;
 		private static readonly BookBlockTupleComparer s_bookBlockComparer = new BookBlockTupleComparer();
-		private int m_displayBlockIndex = -1;
+		private int m_currentBlockIndex = -1;
 		private BlocksToDisplay m_mode;
+
+		public event EventHandler UiFontSizeChanged;
+		public event EventHandler CurrentBlockChanged;
 
 		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.AllScripture)
 		{
@@ -85,7 +89,7 @@ namespace ProtoScript.Dialogs
 		public ScrVers Versification { get; private set; }
 		public int BlockCountForCurrentBook { get { return m_navigator.CurrentBook.GetScriptBlocks().Count; } }
 		public int RelevantBlockCount { get { return m_relevantBlocks.Count; } }
-		public int CurrentBlockDisplayIndex { get { return m_displayBlockIndex + 1; } }
+		public int CurrentBlockDisplayIndex { get { return m_currentBlockIndex + 1; } }
 		public string CurrentBookId { get { return m_navigator.CurrentBook.BookId; } }
 		public Block CurrentBlock { get { return m_navigator.CurrentBlock; } }
 		public int BackwardContextBlockCount { get; set; }
@@ -103,6 +107,9 @@ namespace ProtoScript.Dialogs
 					m_font.Dispose();
 				m_fontSizeUiAdjustment = value;
 				m_font = new Font(m_fontFamily, m_baseFontSizeInPoints + m_fontSizeUiAdjustment);
+
+				if (UiFontSizeChanged != null)
+					UiFontSizeChanged(this, new EventArgs());
 			}
 		}
 
@@ -116,14 +123,17 @@ namespace ProtoScript.Dialogs
 			{
 				int index = value;
 				Tuple<int, int> location;
+				var bookIndex = m_navigator.GetIndices().Item1;
 				do
 				{
-					location = new Tuple<int, int>(m_navigator.GetIndices().Item1, index);
+					location = new Tuple<int, int>(bookIndex, index);
 					m_navigator.SetIndices(location);
 				} while (CurrentBlock.MultiBlockQuote == MultiBlockQuote.Continuation && --index >= 0);
 				Debug.Assert(index >= 0);
-				m_displayBlockIndex = m_relevantBlocks.IndexOf(location);
-				m_temporarilyIncludedBlock = m_displayBlockIndex < 0 ? location : null;
+				m_currentBlockIndex = m_relevantBlocks.IndexOf(location);
+				m_temporarilyIncludedBlock = m_currentBlockIndex < 0 ? location : null;
+				if (CurrentBlockChanged != null)
+					CurrentBlockChanged(this, new EventArgs());
 			}
 		}
 
@@ -140,10 +150,10 @@ namespace ProtoScript.Dialogs
 				PopulateRelevantBlocks();
 
 				if (IsRelevant(m_navigator.CurrentBlock))
-					m_displayBlockIndex = 0;
+					m_currentBlockIndex = 0;
 				else if (RelevantBlockCount > 0)
 				{
-					m_displayBlockIndex = -1;
+					m_currentBlockIndex = -1;
 					LoadNextRelevantBlock();
 				}
 			}
@@ -308,7 +318,7 @@ namespace ProtoScript.Dialogs
 					return false;
 
 				if (IsCurrentBlockRelevant)
-					return m_displayBlockIndex != 0;
+					return m_currentBlockIndex != 0;
 
 				// Current block was navigated to ad-hoc and doesn't match the filter. See if there is a relevant block before it.
 				var firstRelevantBlock = m_relevantBlocks[0];
@@ -324,7 +334,7 @@ namespace ProtoScript.Dialogs
 					return false;
 
 				if (IsCurrentBlockRelevant)
-					return m_displayBlockIndex != RelevantBlockCount - 1;
+					return m_currentBlockIndex != RelevantBlockCount - 1;
 
 				// Current block was navigated to ad-hoc and doesn't match the filter. See if there is a relevant block after it.
 				var lastRelevantBlock = m_relevantBlocks.Last();
@@ -337,16 +347,16 @@ namespace ProtoScript.Dialogs
 			var indices = m_navigator.GetIndicesOfFirstBlockAtReference(new BCVRef(verseRef.BBBCCCVVV));
 			if (indices == null)
 				return false;
-			m_displayBlockIndex = m_relevantBlocks.IndexOf(indices);
-			m_temporarilyIncludedBlock = m_displayBlockIndex < 0 ? indices : null;
-			m_navigator.SetIndices(indices);
+			m_currentBlockIndex = m_relevantBlocks.IndexOf(indices);
+			m_temporarilyIncludedBlock = m_currentBlockIndex < 0 ? indices : null;
+			SetBlock(indices);
 			return true;
 		}
 
 		public void LoadNextRelevantBlock()
 		{
 			if (IsCurrentBlockRelevant)
-				m_navigator.SetIndices(m_relevantBlocks[++m_displayBlockIndex]);
+				SetBlock(m_relevantBlocks[++m_currentBlockIndex]);
 			else
 				LoadClosestRelevantBlock(false);
 		}
@@ -354,16 +364,23 @@ namespace ProtoScript.Dialogs
 		public void LoadPreviousRelevantBlock()
 		{
 			if (IsCurrentBlockRelevant)
-				m_navigator.SetIndices(m_relevantBlocks[--m_displayBlockIndex]);
+				SetBlock(m_relevantBlocks[--m_currentBlockIndex]);
 			else
 				LoadClosestRelevantBlock(true);
 		}
 
 		private void LoadClosestRelevantBlock(bool prev)
 		{
-			m_displayBlockIndex = GetIndexOfClosestRelevantBlock(m_relevantBlocks, m_temporarilyIncludedBlock, prev, 0, RelevantBlockCount - 1);
+			m_currentBlockIndex = GetIndexOfClosestRelevantBlock(m_relevantBlocks, m_temporarilyIncludedBlock, prev, 0, RelevantBlockCount - 1);
 			m_temporarilyIncludedBlock = null;
-			m_navigator.SetIndices(m_relevantBlocks[m_displayBlockIndex]);
+			SetBlock(m_relevantBlocks[m_currentBlockIndex]);
+		}
+
+		private void SetBlock(Tuple<int, int> indices)
+		{
+			m_navigator.SetIndices(indices);
+			if (CurrentBlockChanged != null)
+				CurrentBlockChanged(this, new EventArgs());
 		}
 
 		public static int GetIndexOfClosestRelevantBlock(List<Tuple<int, int>> list, Tuple<int, int> key, bool prev,

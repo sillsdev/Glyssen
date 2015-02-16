@@ -136,6 +136,15 @@
     <Compile Include="Controls\ProgressBarUnanimated.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\ScriptBlocksGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ScriptBlocksViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ScriptBlocksViewer.Designer.cs">
+      <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
     <Compile Include="Dialogs\AssignCharacterDialog.cs">
       <SubType>Form</SubType>
@@ -198,6 +207,9 @@
     <Compile Include="Utilities\Zip.cs" />
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ScriptBlocksViewer.resx">
+      <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AssignCharacterDialog.resx">
       <DependentUpon>AssignCharacterDialog.cs</DependentUpon>

@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Gecko.Events;
 using L10NSharp;
 using L10NSharp.UI;
 using ProtoScript.Quote;
@@ -11,12 +12,14 @@ namespace ProtoScript.Dialogs
 	public partial class QuotationMarksDialog : Form
 	{
 		private readonly Project m_project;
+		private readonly BlockNavigatorViewModel m_navigatorViewModel;
 
-		internal QuotationMarksDialog(Project project, bool readOnly)
+		internal QuotationMarksDialog(Project project, BlockNavigatorViewModel navigatorViewModel, bool readOnly)
 		{
 			InitializeComponent();
 
 			m_project = project;
+			m_navigatorViewModel = navigatorViewModel;
 
 			SetupQuoteMarksComboBoxes(m_project.QuoteSystem);
 
@@ -191,5 +194,12 @@ namespace ProtoScript.Dialogs
 		{
 			m_cboEndQuotationDash.Items[1] = SameAsStartDashText;
 		}
+
+		#region Block Navigation event handlers
+		private void OnDocumentCompleted(object sender, GeckoDocumentCompletedEventArgs e)
+		{
+			m_blocksDisplayBrowser.ScrollElementIntoView(BlockNavigatorViewModel.kMainQuoteElementId, -225);
+		}
+		#endregion
 	}
 }

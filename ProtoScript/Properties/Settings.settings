@@ -32,5 +32,11 @@
     <Setting Name="AssignCharactersBlockContextGrid" Type="Palaso.UI.WindowsForms.PortableSettingsProvider.GridSettings" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="QuoteMarksDialogShowGridView" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="QuotationMarksDialogAssignBlocksGrid" Type="Palaso.UI.WindowsForms.PortableSettingsProvider.GridSettings" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

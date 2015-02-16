@@ -306,7 +306,9 @@ namespace ProtoScript
 				MessageBox.Show(msg, title);
 				reparseOkay = false;
 			}
-			using (var dlg = new QuotationMarksDialog(m_project, !reparseOkay))
+	
+			var viewModel = new BlockNavigatorViewModel(m_project, BlocksToDisplay.AllExpectedQuotes);
+			using (var dlg = new QuotationMarksDialog(m_project, viewModel, !reparseOkay))
 			{
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 					UpdateDisplayOfQuoteSystemInfo();
