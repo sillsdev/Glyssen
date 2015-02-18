@@ -16,7 +16,7 @@ namespace ProtoScript.Bundle
 		private readonly DblMetadata m_dblMetadata;
 		private readonly UsxStylesheet m_stylesheet;
 		private readonly IDictionary<int, Canon> m_canons = new Dictionary<int, Canon>();
-		private string m_pathToZippedBundle;
+		private readonly string m_pathToZippedBundle;
 		private string m_pathToUnzippedDirectory;
 
 		public Bundle(string pathToZippedBundle)
@@ -56,9 +56,8 @@ namespace ProtoScript.Bundle
 			var dblMetadata = DblMetadata.Load(metadataPath, out exception);
 			if (exception != null)
 			{
-				DblMetadataBase metadataBase;
 				Exception metadataBaseDeserializationError;
-				metadataBase = XmlSerializationHelper.DeserializeFromFile<DblMetadataBase>(metadataPath,
+				DblMetadataBase metadataBase = XmlSerializationHelper.DeserializeFromFile<DblMetadataBase>(metadataPath,
 					out metadataBaseDeserializationError);
 				if (metadataBaseDeserializationError != null)
 				{
