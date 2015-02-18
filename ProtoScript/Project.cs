@@ -177,7 +177,7 @@ namespace ProtoScript
 					LanguageName = m_metadata.language.name,
 					IsoCode = m_metadata.language.iso,
 					ProjectId = Id,
-					ProjectName = m_metadata.identification.name
+					ProjectName = m_metadata.identification == null ? null : m_metadata.identification.name
 				};
 				return model;
 			}
