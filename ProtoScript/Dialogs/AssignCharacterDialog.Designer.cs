@@ -65,7 +65,7 @@ namespace ProtoScript.Dialogs
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.m_scriptureReference = new Paratext.ToolStripVerseControl();
 			this.m_blocksViewer = new ProtoScript.Controls.ScriptBlocksViewer();
-			this.m_progressBar = new ProtoScript.Controls.ProgressBarUnanimated();
+			this.m_progressBar = new ProtoScript.Controls.BlockProgressBar();
 			this.m_listBoxCharacters = new System.Windows.Forms.ListBox();
 			this.m_listBoxDeliveries = new System.Windows.Forms.ListBox();
 			this.m_pnlCharacterFilter = new System.Windows.Forms.Panel();
@@ -820,7 +820,7 @@ namespace ProtoScript.Dialogs
 		private System.Windows.Forms.ListBox m_listBoxDeliveries;
 		private System.Windows.Forms.Label m_labelWhoSpeaks;
 		private System.Windows.Forms.Label m_labelXofY;
-		private ProtoScript.Controls.ProgressBarUnanimated m_progressBar;
+		private ProtoScript.Controls.BlockProgressBar m_progressBar;
 		private System.Windows.Forms.LinkLabel m_llMoreChar;
 		private System.Windows.Forms.TextBox m_txtCharacterFilter;
 		private System.Windows.Forms.Label m_lblCharacter;
