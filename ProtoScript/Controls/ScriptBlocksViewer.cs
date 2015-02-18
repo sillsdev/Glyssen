@@ -24,7 +24,7 @@ namespace ProtoScript.Controls
 		private BlockNavigatorViewModel m_viewModel;
 		private Func<Block, string> m_getCharacterIdForUi;
 		private Func<Block, string> m_getDelivery;
-		private readonly ToolTip m_toolTip = new ToolTip { IsBalloon = true, Active = false};
+		private ToolTip m_toolTip;
 		private ScriptBlocksViewType m_viewType;
 
 		#region Construction and Initialization
@@ -155,7 +155,7 @@ namespace ProtoScript.Controls
 		#region Browser events
 		private void OnMouseOver(object sender, DomMouseEventArgs e)
 		{
-			if (e.Target == null)
+			if (e.Target == null || m_getCharacterIdForUi == null)
 				return;
 			if (m_blocksDisplayBrowser.Visible)
 			{
@@ -166,6 +166,7 @@ namespace ProtoScript.Controls
 
 				if (divElement.Parent.ClassName == BlockNavigatorViewModel.kCssClassContext)
 				{
+					m_toolTip = new ToolTip { IsBalloon = true };
 					// 22 is the magic number which happens to make these display in the correct place
 					int x = m_blocksDisplayBrowser.Location.X + m_blocksDisplayBrowser.Size.Width - 22;
 					int y = m_blocksDisplayBrowser.Location.Y + e.ClientY - m_blocksDisplayBrowser.Margin.Top;
@@ -176,7 +177,7 @@ namespace ProtoScript.Controls
 
 		private void OnMouseOut(object sender, DomMouseEventArgs e)
 		{
-			if (e.Target == null)
+			if (e.Target == null || m_toolTip == null)
 				return;
 			var geckoElement = e.Target.CastToGeckoElement();
 			var divElement = geckoElement as GeckoDivElement;
@@ -186,6 +187,8 @@ namespace ProtoScript.Controls
 			if (divElement.Parent.ClassName == BlockNavigatorViewModel.kCssClassContext)
 			{
 				m_toolTip.Hide(this);
+				m_toolTip.Dispose();
+				m_toolTip = null;
 			}
 		}
 
