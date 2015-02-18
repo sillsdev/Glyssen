@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using SIL.ScriptureUtils;
 
 namespace DevTools.FCBH
@@ -10,10 +9,15 @@ namespace DevTools.FCBH
 	{
 		public static IEnumerable<TemplateDatum> All(bool includeNarrator)
 		{
+			var result = ProcessLines(ControlFiles.FCBH_OT_Template_simplified.Split(new[] { Environment.NewLine }, StringSplitOptions.None), includeNarrator, true);
+			result.AddRange(ProcessLines(ControlFiles.FCBH_NT_Template_simplified.Split(new[] { Environment.NewLine }, StringSplitOptions.None), includeNarrator, false));
+			return result;
+		}
+
+		private static List<TemplateDatum> ProcessLines(IEnumerable<string> lines, bool includeNarrator, bool oldTestament)
+		{
 			var result = new List<TemplateDatum>();
-			var allLines = ControlFiles.FCBH_OT_Template_simplified.Split(new[] { Environment.NewLine }, StringSplitOptions.None).ToList();
-				allLines.AddRange(ControlFiles.FCBH_NT_Template_simplified.Split(new[] { Environment.NewLine }, StringSplitOptions.None).ToList());
-			foreach (var line in allLines)
+			foreach (var line in lines)
 			{
 				try
 				{
@@ -24,39 +28,47 @@ namespace DevTools.FCBH
 
 					int verse = items[2] == "<<" ? 0 : Int32.Parse(items[2]);
 					string book = items[0];
-					switch (book)
-					{
-						case "1SM":
-							book = "1SA";
-							break;
-						case "2SM":
-							book = "2SA";
-							break;
-						case "PSM":
-							book = "PSA";
-							break;
-						case "PRV":
-							book = "PRO";
-							break;
-						case "SOS":
-							book = "SNG";
-							break;
-						case "EZE":
-							book = "EZK";
-							break;
-						case "JOEL":
-							book = "JOL";
-							break;
-						case "NAH":
-							book = "NAM";
-							break;
-						case "TTS":
-							book = "TIT";
-							break;
-						case "JMS":
-							book = "JAS";
-							break;
-					}
+					if (oldTestament)
+						switch (book)
+						{
+							case "JUD": // JUD is Judges in OT and Jude in NT
+								book = "JDG";
+								break;
+							case "1SM":
+								book = "1SA";
+								break;
+							case "2SM":
+								book = "2SA";
+								break;
+							case "PSM":
+								book = "PSA";
+								break;
+							case "PRV":
+								book = "PRO";
+								break;
+							case "SOS":
+								book = "SNG";
+								break;
+							case "EZE":
+								book = "EZK";
+								break;
+							case "JOEL":
+								book = "JOL";
+								break;
+							case "NAH":
+								book = "NAM";
+								break;
+						}
+					else
+						switch (book)
+						{
+							case "TTS":
+								book = "TIT";
+								break;
+							case "JMS":
+								book = "JAS";
+								break;
+						}
 					var bcvRef = new BCVRef(BCVRef.BookToNumber(book), Int32.Parse(items[1]), verse);
 					if (!bcvRef.BookIsValid)
 						Debug.Fail("Invalid book: " + line);
@@ -68,6 +80,6 @@ namespace DevTools.FCBH
 				}
 			}
 			return result;
-		} 
+		}
 	}
 }
