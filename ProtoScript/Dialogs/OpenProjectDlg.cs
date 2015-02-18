@@ -168,6 +168,7 @@ namespace ProtoScript.Dialogs
 		private void m_listExistingProjects_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			m_btnOk.Enabled = m_listExistingProjects.SelectedIndex >= 0;
+			m_linkRemoveProject.Enabled = m_listExistingProjects.SelectedIndex >= 0;
 		}
 
 		private void m_btnOk_Click(object sender, EventArgs e)
@@ -186,6 +187,8 @@ namespace ProtoScript.Dialogs
 
 		private void m_linkRemoveProject_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
+			if (m_listExistingProjects.SelectedIndex < 0)
+				return;
 			if (m_currentProject != null && m_currentProject.Id == ((DblMetadata)m_listExistingProjects.SelectedItem).id)
 			{
 				string title = LocalizationManager.GetString("Project.CannotRemoveCaption", "Cannot Remove from List");

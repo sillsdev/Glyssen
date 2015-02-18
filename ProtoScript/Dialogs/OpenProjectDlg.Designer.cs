@@ -186,6 +186,7 @@
 			// 
 			this.m_linkRemoveProject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_linkRemoveProject.AutoSize = true;
+			this.m_linkRemoveProject.Enabled = false;
 			this.m_linkRemoveProject.LinkColor = System.Drawing.SystemColors.Highlight;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkRemoveProject, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkRemoveProject, null);
