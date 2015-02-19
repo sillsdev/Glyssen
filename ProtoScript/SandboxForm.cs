@@ -8,15 +8,18 @@ using L10NSharp;
 using L10NSharp.UI;
 using ProtoScript.Dialogs;
 using ProtoScript.Properties;
+using ProtoScript.Utilities;
 
 namespace ProtoScript
 {
 	public partial class SandboxForm : Form
 	{
 		private Project m_project;
+		private AssignCharacterViewModel m_assignCharacterViewModel;
 		private string m_bundleIdFmt;
 		private string m_LanguageIdFmt;
 		private string m_projectLoadedFmt;
+		private string m_percentAssigned;
 
 		public SandboxForm()
 		{
@@ -57,6 +60,12 @@ namespace ProtoScript
 
 		private void FinishSetProject()
 		{
+			if (m_assignCharacterViewModel != null)
+				m_assignCharacterViewModel.Dispose();
+
+			if (m_project != null)
+				m_assignCharacterViewModel = new AssignCharacterViewModel(m_project);
+
 			UpdateDisplayOfProjectInfo();
 
 			if (m_project != null)
@@ -79,6 +88,7 @@ namespace ProtoScript
 			m_bundleIdFmt = m_lblBundleId.Text;
 			m_LanguageIdFmt = m_lblLanguage.Text;
 			m_projectLoadedFmt = m_lblProjectLoaded.Text;
+			m_percentAssigned = m_lblPercentAssigned.Text;
 		}
 
 		private void SetReadOnly(bool readOnly)
@@ -88,6 +98,7 @@ namespace ProtoScript
 			m_btnSelectBooks.Enabled = !readOnly && m_project != null;
 			m_btnAssign.Enabled = !readOnly && m_project != null;
 			m_btnExportToTabSeparated.Enabled = !readOnly && m_project != null;
+			m_btnExit.Enabled = !readOnly;
 			m_btnLocalize.Enabled = !readOnly;
 			m_linkChangeQuotationSystem.Enabled = !readOnly && m_project != null;
 		}
@@ -200,9 +211,10 @@ namespace ProtoScript
 
 		private void UpdateDisplayOfProjectInfo()
 		{
-			m_lblBundleId.Text = string.Format(m_bundleIdFmt, m_project != null ? m_project.Id : String.Empty);
+			m_lblBundleId.Text = string.Format(m_bundleIdFmt, m_project != null ? m_project.Name : String.Empty);
 			m_lblLanguage.Text = string.Format(m_LanguageIdFmt, m_project != null ? m_project.LanguageIsoCode : String.Empty);
 			UpdateDisplayOfProjectLoaded(m_project != null ? m_project.PercentInitialized : 0);
+			UpdateDisplayOfPercentAssigned();
 			UpdateDisplayOfQuoteSystemInfo();
 		}
 
@@ -210,6 +222,14 @@ namespace ProtoScript
 		{
 			m_lblProjectLoaded.Text = string.Format(m_projectLoadedFmt, percent.ToString(CultureInfo.InvariantCulture));
 			m_lblProjectLoaded.ForeColor = percent < 100 ? Color.Red : Color.LawnGreen;
+		}
+
+		private void UpdateDisplayOfPercentAssigned()
+		{
+			int percentAssigned = 0;
+			if (m_assignCharacterViewModel != null)
+				percentAssigned = MathUtilities.Percent(m_assignCharacterViewModel.AssignedBlockCount, m_assignCharacterViewModel.RelevantBlockCount);
+			m_lblPercentAssigned.Text = string.Format(m_percentAssigned, percentAssigned);
 		}
 
 		private void UpdateProjectState()
@@ -227,6 +247,9 @@ namespace ProtoScript
 		{
 			SaveCurrentProject();
 			Settings.Default.Save();
+
+			if (m_assignCharacterViewModel != null)
+				m_assignCharacterViewModel.Dispose();
 		}
 
 		private void SaveCurrentProject()
@@ -319,18 +342,16 @@ namespace ProtoScript
 
 		private void m_btnAssign_Click(object sender, EventArgs e)
 		{
-			using (var viewModel = new AssignCharacterViewModel(m_project))
+			if (m_assignCharacterViewModel.RelevantBlockCount == 0)
 			{
-				if (viewModel.RelevantBlockCount == 0)
-				{
-					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.AllAssignmentsMadeAutomatically",
-						"Character assigments were made automatically for all quotations in the Scripture text. There is nothing more to do at this time.");
-					MessageBox.Show(this, msg, ProductName, MessageBoxButtons.OK);
-					return;
-				}
-				using (var dlg = new AssignCharacterDialog(viewModel))
-					dlg.ShowDialog();
+				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.AllAssignmentsMadeAutomatically",
+					"Character assigments were made automatically for all quotations in the Scripture text. There is nothing more to do at this time.");
+				MessageBox.Show(this, msg, ProductName, MessageBoxButtons.OK);
+				return;
 			}
+			using (var dlg = new AssignCharacterDialog(m_assignCharacterViewModel))
+				dlg.ShowDialog();
+			UpdateDisplayOfPercentAssigned();
 		}
 
 		private void m_btnSelectBooks_Click(object sender, EventArgs e)
@@ -349,6 +370,12 @@ namespace ProtoScript
 
 				m_project.ProjectMetadataViewModel = dlg.ProjectMetadataViewModel;
 			}
+		}
+
+		private void m_btnExit_Click(object sender, EventArgs e)
+		{
+			// Save is handled in FormClosing event
+			Close();
 		}
 	}
 }

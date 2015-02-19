@@ -28,10 +28,7 @@ namespace ProtoScript.Dialogs
 			m_currentProject = currentProject;
 			InitializeComponent();
 			if (welcome)
-			{
 				ShowInTaskbar = true;
-				Text = LocalizationManager.GetString("DialogBoxes.WelcomeDlg.Title", "Welcome to Protoscript Generator");
-			}
 		}
 
 		public ProjectType Type { get; private set; }
@@ -49,6 +46,7 @@ namespace ProtoScript.Dialogs
 			m_listExistingProjects.SelectedIndex = -1;
 			m_listExistingProjects.Items.Clear();
 			m_existingProjectPaths.Clear();
+			DblMetadata itemToSelect = null;
 			foreach (var projectFolder in Directory.GetDirectories(Project.ProjectsBaseFolder))
 			{
 				foreach (var versionFolder in Directory.GetDirectories(projectFolder))
@@ -67,9 +65,14 @@ namespace ProtoScript.Dialogs
 
 						m_listExistingProjects.Items.Add(metadata);
 						m_existingProjectPaths.Add(path);
+
+						if (m_currentProject != null && m_currentProject.Id == metadata.id)
+							itemToSelect = metadata;
 					}
 				}
 			}
+			if (itemToSelect != null)
+				m_listExistingProjects.SelectedItem = itemToSelect;
 		}
 
 		private void m_linkTextReleaseBundle_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -168,6 +171,7 @@ namespace ProtoScript.Dialogs
 		private void m_listExistingProjects_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			m_btnOk.Enabled = m_listExistingProjects.SelectedIndex >= 0;
+			m_linkRemoveProject.Enabled = m_listExistingProjects.SelectedIndex >= 0;
 		}
 
 		private void m_btnOk_Click(object sender, EventArgs e)
@@ -186,6 +190,8 @@ namespace ProtoScript.Dialogs
 
 		private void m_linkRemoveProject_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
+			if (m_listExistingProjects.SelectedIndex < 0)
+				return;
 			if (m_currentProject != null && m_currentProject.Id == ((DblMetadata)m_listExistingProjects.SelectedItem).id)
 			{
 				string title = LocalizationManager.GetString("Project.CannotRemoveCaption", "Cannot Remove from List");

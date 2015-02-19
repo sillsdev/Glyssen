@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using L10NSharp;
@@ -405,7 +406,7 @@ namespace ProtoScript.Dialogs
 					return;
 				}
 			}
-			if (!m_viewModel.CanNavigateToNextRelevantBlock)
+			if (m_viewModel.CanNavigateToNextRelevantBlock)
 				LoadNextRelevantBlock();
 		}
 
@@ -479,24 +480,13 @@ namespace ProtoScript.Dialogs
 			if (!m_pnlShortcuts.Visible || m_txtCharacterFilter.Focused || m_txtDeliveryFilter.Focused || m_scriptureReference.Focused )
 				return;
 
-			switch (e.KeyChar)
-			{
-				case '1':
-					m_listBoxCharacters.SelectedIndex = 0;
-					break;
-				case '2':
-					m_listBoxCharacters.SelectedIndex = 1;
-					break;
-				case '3':
-					m_listBoxCharacters.SelectedIndex = 2;
-					break;
-				case '4':
-					m_listBoxCharacters.SelectedIndex = 3;
-					break;
-				case '5':
-					m_listBoxCharacters.SelectedIndex = 4;
-					break;
-			}
+			int selectedIndexOneBased;
+			Int32.TryParse(e.KeyChar.ToString(CultureInfo.InvariantCulture), out selectedIndexOneBased);
+			if (selectedIndexOneBased < 1 || selectedIndexOneBased > 5)
+				return;
+
+			if (m_listBoxCharacters.Items.Count >= selectedIndexOneBased)
+				m_listBoxCharacters.SelectedIndex = selectedIndexOneBased - 1; //listBox is zero-based
 		}
 
 		private void AssignCharacterDialog_KeyDown(object sender, KeyEventArgs e)

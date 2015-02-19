@@ -127,6 +127,12 @@
     <Compile Include="Character\ControlCharacterVerseData.cs" />
     <Compile Include="Character\ICharacterVerseInfo.cs" />
     <Compile Include="Character\ProjectCharacterVerseData.cs" />
+    <Compile Include="Controls\BlockProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\BlockProgressBar.Designer.cs">
+      <DependentUpon>BlockProgressBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Browser.cs">
       <SubType>UserControl</SubType>
     </Compile>

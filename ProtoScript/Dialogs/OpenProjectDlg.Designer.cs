@@ -53,13 +53,13 @@
 			lblNewProject.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(lblNewProject, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(lblNewProject, null);
-			this.m_l10NSharpExtender.SetLocalizingId(lblNewProject, "OpenProjectDialog.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(lblNewProject, "OpenProjectDialog.NewProject");
 			lblNewProject.Location = new System.Drawing.Point(0, 161);
 			lblNewProject.Margin = new System.Windows.Forms.Padding(0, 20, 0, 10);
 			lblNewProject.Name = "lblNewProject";
 			lblNewProject.Size = new System.Drawing.Size(179, 18);
 			lblNewProject.TabIndex = 2;
-			lblNewProject.Text = "New Project Based On";
+			lblNewProject.Text = "New Project based on:";
 			// 
 			// m_l10NSharpExtender
 			// 
@@ -73,13 +73,13 @@
 			this.lblExistingProject.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.lblExistingProject, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.lblExistingProject, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.lblExistingProject, "OpenProjectDialog.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.lblExistingProject, "OpenProjectDialog.SelectProject");
 			this.lblExistingProject.Location = new System.Drawing.Point(0, 0);
 			this.lblExistingProject.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
 			this.lblExistingProject.Name = "lblExistingProject";
-			this.lblExistingProject.Size = new System.Drawing.Size(126, 18);
+			this.lblExistingProject.Size = new System.Drawing.Size(205, 18);
 			this.lblExistingProject.TabIndex = 0;
-			this.lblExistingProject.Text = "Existing Project";
+			this.lblExistingProject.Text = "Select Project to work on:";
 			// 
 			// m_linkTextReleaseBundle
 			// 
@@ -101,6 +101,7 @@
 			// m_btnOk
 			// 
 			this.m_btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_btnOk.BackColor = System.Drawing.Color.Transparent;
 			this.m_btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.m_btnOk.Enabled = false;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
@@ -112,12 +113,13 @@
 			this.m_btnOk.Size = new System.Drawing.Size(75, 23);
 			this.m_btnOk.TabIndex = 1;
 			this.m_btnOk.Text = "OK";
-			this.m_btnOk.UseVisualStyleBackColor = true;
+			this.m_btnOk.UseVisualStyleBackColor = false;
 			this.m_btnOk.Click += new System.EventHandler(this.m_btnOk_Click);
 			// 
 			// m_btnCancel
 			// 
 			this.m_btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_btnCancel.BackColor = System.Drawing.Color.Transparent;
 			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancel, null);
@@ -128,7 +130,7 @@
 			this.m_btnCancel.Size = new System.Drawing.Size(75, 23);
 			this.m_btnCancel.TabIndex = 2;
 			this.m_btnCancel.Text = "Cancel";
-			this.m_btnCancel.UseVisualStyleBackColor = true;
+			this.m_btnCancel.UseVisualStyleBackColor = false;
 			// 
 			// m_linkParatextProject
 			// 
@@ -186,6 +188,7 @@
 			// 
 			this.m_linkRemoveProject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_linkRemoveProject.AutoSize = true;
+			this.m_linkRemoveProject.Enabled = false;
 			this.m_linkRemoveProject.LinkColor = System.Drawing.SystemColors.Highlight;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkRemoveProject, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkRemoveProject, null);

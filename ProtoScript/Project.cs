@@ -8,8 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using L10NSharp;
-using NetLoc;
-using Palaso.IO;
 using Palaso.Reporting;
 using Palaso.UI.WindowsForms.WritingSystems;
 using Palaso.WritingSystems;
@@ -81,6 +79,16 @@ namespace ProtoScript
 		public string Id
 		{
 			get { return m_metadata.id; }
+		}
+
+		public string Name
+		{
+			get
+			{
+				if (m_metadata.identification == null) //Some old Sample projects will fall into this category
+					return Id;
+				return m_metadata.identification.name;
+			}
 		}
 
 		public string LanguageIsoCode
@@ -574,6 +582,7 @@ namespace ProtoScript
 			sampleMetadata.FontSizeInPoints = 12;
 			sampleMetadata.id = "Sample";
 			sampleMetadata.language = new DblMetadataLanguage {iso = kSample};
+			sampleMetadata.identification = new DblMetadataIdentification { name = "Sample Project", nameLocal = "Sample Project"};
 
 			XmlDocument sampleMark = new XmlDocument();
 			sampleMark.LoadXml(Resources.SampleMRK);
