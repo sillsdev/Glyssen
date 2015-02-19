@@ -98,6 +98,7 @@ namespace ProtoScript
 			m_btnSelectBooks.Enabled = !readOnly && m_project != null;
 			m_btnAssign.Enabled = !readOnly && m_project != null;
 			m_btnExportToTabSeparated.Enabled = !readOnly && m_project != null;
+			m_btnExit.Enabled = !readOnly;
 			m_btnLocalize.Enabled = !readOnly;
 			m_linkChangeQuotationSystem.Enabled = !readOnly && m_project != null;
 		}
@@ -369,6 +370,12 @@ namespace ProtoScript
 
 				m_project.ProjectMetadataViewModel = dlg.ProjectMetadataViewModel;
 			}
+		}
+
+		private void m_btnExit_Click(object sender, EventArgs e)
+		{
+			// Save is handled in FormClosing event
+			Close();
 		}
 	}
 }

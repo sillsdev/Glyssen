@@ -43,6 +43,7 @@
 			this.m_btnSettings = new System.Windows.Forms.Button();
 			this.m_lblProjectLoaded = new System.Windows.Forms.Label();
 			this.m_lblPercentAssigned = new System.Windows.Forms.Label();
+			this.m_btnExit = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -240,12 +241,27 @@
 			this.m_lblPercentAssigned.TabIndex = 17;
 			this.m_lblPercentAssigned.Text = "Assigned: {0}%";
 			// 
+			// m_btnExit
+			// 
+			this.m_btnExit.BackColor = System.Drawing.Color.Transparent;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnExit, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnExit, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_btnExit, "SandboxForm.SandboxForm.m_btnExportToTabSeparated");
+			this.m_btnExit.Location = new System.Drawing.Point(32, 183);
+			this.m_btnExit.Name = "m_btnExit";
+			this.m_btnExit.Size = new System.Drawing.Size(110, 23);
+			this.m_btnExit.TabIndex = 18;
+			this.m_btnExit.Text = "Save and Exit...";
+			this.m_btnExit.UseVisualStyleBackColor = false;
+			this.m_btnExit.Click += new System.EventHandler(this.m_btnExit_Click);
+			// 
 			// SandboxForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(559, 262);
+			this.Controls.Add(this.m_btnExit);
 			this.Controls.Add(this.m_lblPercentAssigned);
 			this.Controls.Add(this.m_lblProjectLoaded);
 			this.Controls.Add(this.m_btnSettings);
@@ -288,6 +304,7 @@
 		private System.Windows.Forms.Button m_btnSettings;
 		private System.Windows.Forms.Label m_lblProjectLoaded;
 		private System.Windows.Forms.Label m_lblPercentAssigned;
+		private System.Windows.Forms.Button m_btnExit;
 	}
 }
 
