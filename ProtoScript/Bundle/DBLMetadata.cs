@@ -169,18 +169,11 @@ namespace ProtoScript.Bundle
 
 		public override string ToString()
 		{
-			string format = "{0} - {1}";
+			if (language.iso == "sample")
+				return id;
 			string languagePart;
 			if (string.IsNullOrEmpty(language.name))
-			{
-				if (language.iso == "sample")
-				{
-					languagePart = string.Empty;
-					format = "{1}";
-				}
-				else
-					languagePart = language.iso;
-			}
+				languagePart = language.iso;
 			else
 				languagePart = string.Format("{0} ({1})", language.name, language.iso);
 
@@ -195,7 +188,7 @@ namespace ProtoScript.Bundle
 					identificationPart = String.Format("{0} ({1})", identification.nameLocal, identification.name);
 			}
 
-			return String.Format(format, languagePart, identificationPart);
+			return String.Format("{0} - {1}", languagePart, identificationPart);
 		}
 	}
 
