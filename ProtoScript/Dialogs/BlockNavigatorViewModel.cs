@@ -42,7 +42,8 @@ namespace ProtoScript.Dialogs
 										"." + kCssClassContext + ":hover{{background-color:#FFFFA0}}" +
 										".block-spacer{{height:30px}}" +
 										".right-to-left{{direction:rtl}}" +
-										".section-header{{text-align:center;font-weight:bold}}";
+										".section-header{{text-align:center;font-weight:bold}}" +
+										".chapter-label{{font-weight:bold;font-size:150%}}";
 		internal const string kMainQuoteElementId = "main-quote-text";
 
 		private bool m_showVerseNumbers = true; // May make this configurable later
@@ -219,6 +220,8 @@ namespace ProtoScript.Dialogs
 			bldr.Append("<div");
 			if (block.StyleTag.StartsWith("s"))
 				bldr.Append(" class=\"section-header\"");
+			else if (block.StyleTag.StartsWith("c"))
+				bldr.Append(" class=\"chapter-label\"");
 			bldr.Append(">");
 			bldr.Append(text);
 			bldr.Append("</div>");
