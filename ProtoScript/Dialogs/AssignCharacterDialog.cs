@@ -405,7 +405,7 @@ namespace ProtoScript.Dialogs
 					return;
 				}
 			}
-			if (!m_viewModel.CanNavigateToNextRelevantBlock)
+			if (m_viewModel.CanNavigateToNextRelevantBlock)
 				LoadNextRelevantBlock();
 		}
 
