@@ -98,11 +98,11 @@ namespace ProtoScript
 			ShowOpenProjectDialog();
 		}
 
-		private DialogResult ShowOpenProjectDialog(bool welcome = false)
+		private DialogResult ShowOpenProjectDialog()
 		{
 			Project.CreateSampleProjectIfNeeded();
 
-			using (var dlg = new OpenProjectDlg(m_project, welcome))
+			using (var dlg = new OpenProjectDlg(m_project))
 			{
 				var result = dlg.ShowDialog(this);
 				if (result == DialogResult.OK)
@@ -139,7 +139,7 @@ namespace ProtoScript
 		{
 			if (string.IsNullOrEmpty(Settings.Default.CurrentProject) || !File.Exists(Settings.Default.CurrentProject))
 			{
-				if (ShowOpenProjectDialog(true) != DialogResult.OK)
+				if (ShowOpenProjectDialog() != DialogResult.OK)
 					Close();
 			}
 			else
