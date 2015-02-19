@@ -47,16 +47,17 @@
 			// 
 			// m_btnOpenProject
 			// 
+			this.m_btnOpenProject.BackColor = System.Drawing.Color.Transparent;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnOpenProject, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnOpenProject, null);
 			this.l10NSharpExtender1.SetLocalizationPriority(this.m_btnOpenProject, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnOpenProject, "SandboxForm.SandboxForm.m_btnOpenProject");
 			this.m_btnOpenProject.Location = new System.Drawing.Point(32, 38);
 			this.m_btnOpenProject.Name = "m_btnOpenProject";
-			this.m_btnOpenProject.Size = new System.Drawing.Size(99, 23);
+			this.m_btnOpenProject.Size = new System.Drawing.Size(113, 23);
 			this.m_btnOpenProject.TabIndex = 0;
 			this.m_btnOpenProject.Text = "Open Project...";
-			this.m_btnOpenProject.UseVisualStyleBackColor = true;
+			this.m_btnOpenProject.UseVisualStyleBackColor = false;
 			this.m_btnOpenProject.Click += new System.EventHandler(this.HandleOpenProject_Click);
 			// 
 			// l10NSharpExtender1
@@ -66,6 +67,7 @@
 			// 
 			// m_btnLocalize
 			// 
+			this.m_btnLocalize.BackColor = System.Drawing.Color.Transparent;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnLocalize, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnLocalize, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnLocalize, "SandboxForm.SandboxForm.m_btnLocalize");
@@ -74,7 +76,7 @@
 			this.m_btnLocalize.Size = new System.Drawing.Size(137, 23);
 			this.m_btnLocalize.TabIndex = 2;
 			this.m_btnLocalize.Text = "User-interface Language";
-			this.m_btnLocalize.UseVisualStyleBackColor = true;
+			this.m_btnLocalize.UseVisualStyleBackColor = false;
 			this.m_btnLocalize.Click += new System.EventHandler(this.m_btnLocalize_Click);
 			// 
 			// m_lblBundleId
@@ -85,7 +87,7 @@
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_lblBundleId, null);
 			this.l10NSharpExtender1.SetLocalizationPriority(this.m_lblBundleId, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_lblBundleId, "SandboxForm.SandboxForm.m_lblBundleId");
-			this.m_lblBundleId.Location = new System.Drawing.Point(137, 43);
+			this.m_lblBundleId.Location = new System.Drawing.Point(154, 43);
 			this.m_lblBundleId.Name = "m_lblBundleId";
 			this.m_lblBundleId.Size = new System.Drawing.Size(74, 13);
 			this.m_lblBundleId.TabIndex = 3;
@@ -106,44 +108,47 @@
 			// 
 			// m_btnExportToTabSeparated
 			// 
+			this.m_btnExportToTabSeparated.BackColor = System.Drawing.Color.Transparent;
 			this.m_btnExportToTabSeparated.Enabled = false;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnExportToTabSeparated, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnExportToTabSeparated, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnExportToTabSeparated, "SandboxForm.SandboxForm.m_btnExportToTabSeparated");
 			this.m_btnExportToTabSeparated.Location = new System.Drawing.Point(32, 154);
 			this.m_btnExportToTabSeparated.Name = "m_btnExportToTabSeparated";
-			this.m_btnExportToTabSeparated.Size = new System.Drawing.Size(99, 23);
+			this.m_btnExportToTabSeparated.Size = new System.Drawing.Size(113, 23);
 			this.m_btnExportToTabSeparated.TabIndex = 6;
 			this.m_btnExportToTabSeparated.Text = "Export...";
-			this.m_btnExportToTabSeparated.UseVisualStyleBackColor = true;
+			this.m_btnExportToTabSeparated.UseVisualStyleBackColor = false;
 			this.m_btnExportToTabSeparated.Click += new System.EventHandler(this.HandleExportToTabSeparated_Click);
 			// 
 			// m_btnAssign
 			// 
+			this.m_btnAssign.BackColor = System.Drawing.Color.Transparent;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnAssign, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnAssign, null);
 			this.l10NSharpExtender1.SetLocalizationPriority(this.m_btnAssign, L10NSharp.LocalizationPriority.High);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnAssign, "SandboxForm.SandboxForm.m_btnAssign");
 			this.m_btnAssign.Location = new System.Drawing.Point(32, 125);
 			this.m_btnAssign.Name = "m_btnAssign";
-			this.m_btnAssign.Size = new System.Drawing.Size(99, 23);
+			this.m_btnAssign.Size = new System.Drawing.Size(113, 23);
 			this.m_btnAssign.TabIndex = 8;
-			this.m_btnAssign.Text = "Assign...";
-			this.m_btnAssign.UseVisualStyleBackColor = true;
+			this.m_btnAssign.Text = "Assign Characters...";
+			this.m_btnAssign.UseVisualStyleBackColor = false;
 			this.m_btnAssign.Click += new System.EventHandler(this.m_btnAssign_Click);
 			// 
 			// m_btnSelectBooks
 			// 
+			this.m_btnSelectBooks.BackColor = System.Drawing.Color.Transparent;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnSelectBooks, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnSelectBooks, null);
 			this.l10NSharpExtender1.SetLocalizationPriority(this.m_btnSelectBooks, L10NSharp.LocalizationPriority.High);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnSelectBooks, "SandboxForm.SelectBooks");
 			this.m_btnSelectBooks.Location = new System.Drawing.Point(32, 96);
 			this.m_btnSelectBooks.Name = "m_btnSelectBooks";
-			this.m_btnSelectBooks.Size = new System.Drawing.Size(99, 23);
+			this.m_btnSelectBooks.Size = new System.Drawing.Size(113, 23);
 			this.m_btnSelectBooks.TabIndex = 9;
 			this.m_btnSelectBooks.Text = "Select Books...";
-			this.m_btnSelectBooks.UseVisualStyleBackColor = true;
+			this.m_btnSelectBooks.UseVisualStyleBackColor = false;
 			this.m_btnSelectBooks.Click += new System.EventHandler(this.m_btnSelectBooks_Click);
 			// 
 			// m_lblSelectedQuotationMarks
@@ -195,16 +200,17 @@
 			// 
 			// m_btnSettings
 			// 
+			this.m_btnSettings.BackColor = System.Drawing.Color.Transparent;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnSettings, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnSettings, null);
 			this.l10NSharpExtender1.SetLocalizationPriority(this.m_btnSettings, L10NSharp.LocalizationPriority.High);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnSettings, "SandboxForm.SelectBooks");
 			this.m_btnSettings.Location = new System.Drawing.Point(32, 67);
 			this.m_btnSettings.Name = "m_btnSettings";
-			this.m_btnSettings.Size = new System.Drawing.Size(99, 23);
+			this.m_btnSettings.Size = new System.Drawing.Size(113, 23);
 			this.m_btnSettings.TabIndex = 12;
 			this.m_btnSettings.Text = "Project Settings...";
-			this.m_btnSettings.UseVisualStyleBackColor = true;
+			this.m_btnSettings.UseVisualStyleBackColor = false;
 			this.m_btnSettings.Click += new System.EventHandler(this.m_btnSettings_Click);
 			// 
 			// m_lblProjectLoaded

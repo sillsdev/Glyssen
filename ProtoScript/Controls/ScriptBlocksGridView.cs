@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProtoScript.Dialogs;
 
@@ -46,13 +40,23 @@ namespace ProtoScript.Controls
 
 		protected override void OnCellValueNeeded(DataGridViewCellValueEventArgs e)
 		{
-			var block = m_viewModel.GetNthBlockInCurrentBook(e.RowIndex);
-			if (e.ColumnIndex == m_colReference.Index)
-				e.Value = m_viewModel.GetBlockReferenceString(block);
-			else if (e.ColumnIndex == m_colText.Index)
-				e.Value = block.GetText(true);
+			if (m_updatingContext && (e.RowIndex < 0 || e.RowIndex >= m_viewModel.BlockCountForCurrentBook))
+			{
+				// This should never happen, but because of the side-effects of various DGV properites and methods,
+				// it seems to be incredibly difficult to ensure that things are done in an order that won't on
+				// occassion cause it to request the value for a cell which no longer exists.
+				e.Value = string.Empty;
+			}
 			else
-				base.OnCellValueNeeded(e);
+			{
+				var block = m_viewModel.GetNthBlockInCurrentBook(e.RowIndex);
+				if (e.ColumnIndex == m_colReference.Index)
+					e.Value = m_viewModel.GetBlockReferenceString(block);
+				else if (e.ColumnIndex == m_colText.Index)
+					e.Value = block.GetText(true);
+				else
+					base.OnCellValueNeeded(e);
+			}
 		}
 
 		protected override void OnCellPainting(DataGridViewCellPaintingEventArgs e)
@@ -88,16 +92,20 @@ namespace ProtoScript.Controls
 		{
 			m_updatingContext = true;
 			SuspendLayout();
-			// Need to clear the selction here and again below here because some of the property setters on
-			// DataGridView have the side-effect of creating a selection. And since we might be changing the row
-			// count, we can't afford to have HandleDataGridViewBlocksCellValueNeeded getting called with an
-			// index that is out of range for the new book.
 			ClearSelection();
-			MultiSelect = m_viewModel.CurrentBlock.MultiBlockQuote != MultiBlockQuote.None;
-			m_colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-			AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-			RowCount = m_viewModel.BlockCountForCurrentBook;
-			ClearSelection(); // see note, above.
+			bool changingRowCount = RowCount == m_viewModel.BlockCountForCurrentBook;
+			if (changingRowCount)
+			{
+				MultiSelect = m_viewModel.CurrentBlock.MultiBlockQuote != MultiBlockQuote.None;
+				m_colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+				AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+				RowCount = m_viewModel.BlockCountForCurrentBook;
+				// Need to clear the selection here again because some of the property setters on
+				// DataGridView have the side-effect of creating a selection. We want to avoid having
+				// HandleDataGridViewBlocksCellValueNeeded get called with an index that is out of
+				// range for the new book.
+				ClearSelection();
+			}
 			var firstRow = m_viewModel.CurrentBlockIndexInBook;
 			var lastRow = firstRow;
 			Rows[firstRow].Selected = true;
@@ -109,8 +117,11 @@ namespace ProtoScript.Controls
 					lastRow = i;
 				}
 			}
-			m_colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-			AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+			if (changingRowCount)
+			{
+				m_colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+				AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+			}
 			ScrollDesiredRowsIntoView(firstRow, lastRow);
 
 			ResumeLayout();
