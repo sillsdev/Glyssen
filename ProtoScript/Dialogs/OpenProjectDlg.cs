@@ -23,10 +23,12 @@ namespace ProtoScript.Dialogs
 
 		private readonly List<string> m_existingProjectPaths = new List<string>();
 		private readonly Project m_currentProject;
-		public OpenProjectDlg(Project currentProject)
+		public OpenProjectDlg(Project currentProject, bool welcome = false)
 		{
 			m_currentProject = currentProject;
 			InitializeComponent();
+			if (welcome)
+				ShowInTaskbar = true;
 		}
 
 		public ProjectType Type { get; private set; }
