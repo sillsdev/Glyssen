@@ -83,6 +83,11 @@ namespace ProtoScript
 			get { return m_metadata.id; }
 		}
 
+		public string Name
+		{
+			get { return m_metadata.identification.name; }
+		}
+
 		public string LanguageIsoCode
 		{
 			get { return m_metadata.language.iso; }
