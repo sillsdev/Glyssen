@@ -93,7 +93,7 @@ namespace ProtoScript.Controls
 			m_updatingContext = true;
 			SuspendLayout();
 			ClearSelection();
-			bool changingRowCount = RowCount == m_viewModel.BlockCountForCurrentBook;
+			bool changingRowCount = RowCount != m_viewModel.BlockCountForCurrentBook;
 			if (changingRowCount)
 			{
 				MultiSelect = m_viewModel.CurrentBlock.MultiBlockQuote != MultiBlockQuote.None;
