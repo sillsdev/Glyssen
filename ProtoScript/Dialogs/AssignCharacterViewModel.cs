@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Paratext;
 using ProtoScript.Character;
 
 namespace ProtoScript.Dialogs
@@ -17,7 +18,12 @@ namespace ProtoScript.Dialogs
 
 		public event EventHandler AssignedBlocksIncremented;
 
-		public AssignCharacterViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.NeedAssignments) : base(project, mode)
+		public AssignCharacterViewModel(Project project)
+			: this(project, project.Status.AssignCharacterMode != 0 ? project.Status.AssignCharacterMode : BlocksToDisplay.NeedAssignments, project.Status.AssignCharacterReference)
+		{
+		}
+
+		public AssignCharacterViewModel(Project project, BlocksToDisplay mode, VerseRef verseRef) : base(project, mode, verseRef)
 		{
 			m_projectCharacterVerseData = project.ProjectCharacterVerseData;
 			m_combinedCharacterVerseData = new CombinedCharacterVerseData(project);
@@ -25,6 +31,16 @@ namespace ProtoScript.Dialogs
 
 		public int AssignedBlockCount { get { return m_assignedBlocks; } }
 		public CharacterIdComparer CharacterComparer { get { return m_characterComparer; } }
+
+		public override BlocksToDisplay Mode
+		{
+			get { return base.Mode; }
+			set
+			{
+				base.Mode = value;
+				m_project.Status.AssignCharacterMode = value;
+			}
+		}
 
 		public void SetUiStrings(string narrator, string bookChapterCharacter, string introCharacter,
 			string extraCharacter, string normalDelivery)
@@ -43,6 +59,11 @@ namespace ProtoScript.Dialogs
 		{
 			if (block.UserConfirmed)
 				m_assignedBlocks++;
+		}
+
+		protected override void StoreVerseRef()
+		{
+			m_project.Status.AssignCharacterReference = GetBlockVerseRef();
 		}
 
 		public bool AreAllAssignmentsComplete

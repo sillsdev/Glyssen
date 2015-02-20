@@ -128,6 +128,9 @@ namespace ProtoScriptTests.Bundle
 			const string expectedResult =
 @"<?xml version=""1.0"" encoding=""utf-16""?>
 <DBLMetadata id=""id"" controlfileversion=""0"">
+  <projectStatus>
+    <assignCharacterMode />
+  </projectStatus>
   <identification>
     <name>name</name>
     <systemId type=""type"">value</systemId>

@@ -220,8 +220,10 @@ namespace ProtoScript
 
 		private void UpdateDisplayOfProjectLoaded(int percent)
 		{
-			m_lblProjectLoaded.Text = string.Format(m_projectLoadedFmt, percent.ToString(CultureInfo.InvariantCulture));
-			m_lblProjectLoaded.ForeColor = percent < 100 ? Color.Red : Color.LawnGreen;
+			double assignedAutomatically = 0;
+			if (m_project != null && m_project.ProjectAnalysis != null)
+				assignedAutomatically = m_project.ProjectAnalysis.PercentAssigned;
+			m_lblProjectLoaded.Text = string.Format(m_projectLoadedFmt, percent.ToString(CultureInfo.InvariantCulture), assignedAutomatically);
 		}
 
 		private void UpdateDisplayOfPercentAssigned()
@@ -351,13 +353,18 @@ namespace ProtoScript
 			}
 			using (var dlg = new AssignCharacterDialog(m_assignCharacterViewModel))
 				dlg.ShowDialog();
-			UpdateDisplayOfPercentAssigned();
+			m_project.Analyze();
+			UpdateDisplayOfProjectInfo();
 		}
 
 		private void m_btnSelectBooks_Click(object sender, EventArgs e)
 		{
 			using (var dlg = new ScriptureRangeSelectionDialog(m_project))
-				dlg.ShowDialog();
+				if (dlg.ShowDialog() == DialogResult.OK)
+				{
+					m_project.Analyze();
+					UpdateDisplayOfProjectInfo();
+				}
 		}
 
 		private void m_btnSettings_Click(object sender, EventArgs e)
