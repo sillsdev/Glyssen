@@ -43,6 +43,7 @@ namespace ProtoScript
 		private int m_guessPercentComplete;
 		private int m_quotePercentComplete;
 		private ProjectState m_projectState;
+		private ProjectAnalysis m_analysis;
 
 		public Project(DblMetadata metadata)
 		{
@@ -133,6 +134,11 @@ namespace ProtoScript
 		{
 			get { return m_metadata.ProjectStatus; }
 			private set { m_metadata.ProjectStatus = value; }
+		}
+
+		public ProjectAnalysis ProjectAnalysis
+		{
+			get { return m_analysis ?? (m_analysis = new ProjectAnalysis(this)); }
 		}
 
 		public QuoteSystem QuoteSystem
@@ -314,6 +320,7 @@ namespace ProtoScript
 			}
 			UpdatePercentInitialized();
 			ProjectState = ProjectState.FullyInitialized;
+			Analyze();
 		}
 
 		private void ApplyUserDecisions(Project sourceProject)
@@ -442,9 +449,7 @@ namespace ProtoScript
 
 		private void QuoteWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
-#if DEBUG
-			new ProjectAnalysis(this).AnalyzeQuoteParse();
-#endif
+			Analyze();
 			Save();
 		}
 
@@ -458,6 +463,11 @@ namespace ProtoScript
 		public static string GetProjectFilePath(string langId, string bundleId)
 		{
 			return Path.Combine(ProjectsBaseFolder, langId, bundleId, langId + kProjectFileExtension);
+		}
+
+		public void Analyze()
+		{
+			ProjectAnalysis.AnalyzeQuoteParse();
 		}
 
 		public void Save()
