@@ -9,7 +9,6 @@ using Paratext;
 using ProtoScript.Dialogs;
 using ProtoScript.Properties;
 using ProtoScript.Quote;
-using SIL.ScriptureUtils;
 
 namespace ProtoScript.Bundle
 {
@@ -70,6 +69,7 @@ namespace ProtoScript.Bundle
 		/// <summary>
 		/// This is not part of the original DBL metadata.
 		/// </summary>
+		[XmlElement("projectStatus")]
 		public ProjectStatus ProjectStatus = new ProjectStatus();
 
 		/// <summary>
@@ -202,7 +202,9 @@ namespace ProtoScript.Bundle
 
 	public class ProjectStatus
 	{
+		[XmlElement("assignCharacterReference")]
 		public VerseRef AssignCharacterReference;
+		[XmlElement("assignCharacterMode")]
 		public BlocksToDisplay AssignCharacterMode;
 	}
 

@@ -132,6 +132,7 @@ namespace ProtoScript
 		public ProjectStatus Status
 		{
 			get { return m_metadata.ProjectStatus; }
+			private set { m_metadata.ProjectStatus = value; }
 		}
 
 		public QuoteSystem QuoteSystem
@@ -219,6 +220,11 @@ namespace ProtoScript
 				m_projectState = value;
 				OnStateChanged(new ProjectStateChangedEventArgs { ProjectState = m_projectState });
 			}
+		}
+
+		internal void ClearProjectStatus()
+		{
+			Status = new ProjectStatus();
 		}
 
 		public static Project Load(string projectFilePath)
