@@ -195,6 +195,55 @@ namespace ProtoScriptTests.Dialogs
 			Assert.IsTrue(m_model.IsModified(new AssignCharacterViewModel.Character(block1.CharacterId), new AssignCharacterViewModel.Delivery("peeved")));
 		}
 
+		[Test]
+		public void IsModified_BlockCharacterAndDeliveryNotSetCharacterNull_ReturnsFalse()
+		{
+			var block1 = m_model.CurrentBlock;
+			block1.CharacterId = null;
+			block1.Delivery = null;
+			Assert.IsFalse(m_model.IsModified(null, null));
+		}
+
+		[Test]
+		public void IsModified_BlockCharacterAmbiguousCharacterNull_ReturnsFalse()
+		{
+			var block1 = m_model.CurrentBlock;
+			block1.CharacterId = CharacterVerseData.AmbiguousCharacter;
+			Assert.IsFalse(m_model.IsModified(null, null));
+		}
+
+		[Test]
+		public void IsModified_BlockCharacterUnknownCharacterNull_ReturnsFalse()
+		{
+			var block1 = m_model.CurrentBlock;
+			block1.CharacterId = CharacterVerseData.UnknownCharacter;
+			Assert.IsFalse(m_model.IsModified(null, null));
+		}
+
+		[Test]
+		public void IsModified_BlockCharacterAndDeliverySetCharacterNull_ReturnsTrue()
+		{
+			var block1 = m_model.CurrentBlock;
+			block1.CharacterId = "Abram";
+			block1.Delivery = "frenetic";
+			Assert.IsTrue(m_model.IsModified(null, null));
+		}
+
+		[Test]
+		public void IsModified_CharacterUnchangedDeliveryNull_ReturnsTrue()
+		{
+			// NOTE: This scenario should not be possible via the UI.
+			var block1 = m_model.CurrentBlock;
+			Assert.IsTrue(m_model.IsModified(new AssignCharacterViewModel.Character(block1.CharacterId), null));
+		}
+
+		[Test]
+		public void IsModified_CharacterChangedDeliveryNull_ReturnsTrue()
+		{
+			m_model.CurrentBlock.Delivery = null;
+			Assert.IsTrue(m_model.IsModified(new AssignCharacterViewModel.Character("Ralph W Emerson"), null));
+		}
+
 		private void FindRefInMark(int chapter, int verse)
 		{
 			while (m_model.CurrentBlock.ChapterNumber <= chapter && m_model.CurrentBlock.InitialStartVerseNumber != verse)

@@ -23,7 +23,7 @@ namespace ProtoScript.Controls
 				var firstRow = SelectedRows[SelectedRows.Count - 1].Index;
 				var lastRow = SelectedRows[0].Index;
 				if (e.Row.Index > firstRow - 5 && e.Row.Index < lastRow + 2)
-					BeginInvoke(new Action(() => ScrollDesiredRowsIntoView(firstRow, lastRow)));
+					this.SafeInvoke(() => ScrollDesiredRowsIntoView(firstRow, lastRow), true);
 			}
 		}
 

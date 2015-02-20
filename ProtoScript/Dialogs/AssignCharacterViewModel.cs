@@ -167,12 +167,17 @@ namespace ProtoScript.Dialogs
 		public bool IsModified(Character newCharacter, Delivery newDelivery)
 		{
 			Block currentBlock = CurrentBlock;
+			if (newCharacter == null)
+				return !(currentBlock.CharacterIsUnclear() || currentBlock.CharacterId == null);
 			if (newCharacter.IsNarrator)
 			{
 				if (!currentBlock.CharacterIs(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator))
 					return true;
 			}
 			else if (newCharacter.CharacterId != currentBlock.CharacterId)
+				return true;
+
+			if (newDelivery == null)
 				return true;
 
 			if (newDelivery.IsNormal)

@@ -78,11 +78,11 @@ namespace ProtoScript.Dialogs
 
 			m_viewModel.AssignedBlocksIncremented += (sender, args) => { if (m_progressBar.Visible) m_progressBar.Increment(1); };
 
-			m_blocksViewer.VisibleChanged += (sender, args) => BeginInvoke(new Action(() =>
+			m_blocksViewer.VisibleChanged += (sender, args) => this.SafeInvoke(() =>
 			{
 				if (m_blocksViewer.Visible)
 					LoadBlock();
-			}));
+			}, true);
 
 			SetFilterControlsFromMode();
 		}
@@ -306,15 +306,33 @@ namespace ProtoScript.Dialogs
 				(AssignCharacterViewModel.Delivery) m_listBoxDeliveries.SelectedItem);
 		}
 
-		private bool UserConfirmSaveChangesIfNecessary()
+		private bool IsOkayToLeaveBlock()
 		{
-			if (m_listBoxCharacters.SelectedIndex > -1 && IsDirty())
+			bool result = true;
+
+			if (IsDirty())
 			{
-				string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChanges", "Unsaved Changes");
-				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChangesMessage", "The Character and Delivery selections for this clip have not been submitted. Do you want to save your changes before navigating?");
-				return MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes;
+				if (m_btnAssign.Enabled)
+				{
+					string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChanges", "Unsaved Changes");
+					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChangesMessage",
+						"The Character and Delivery selections have not been submitted. Do you want to save your changes before navigating?");
+					if (MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
+						SaveSelections();
+				}
+				else
+				{
+					Debug.Assert(m_listBoxCharacters.SelectedIndex > -1 && m_listBoxDeliveries.SelectedIndex < 0);
+					string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChanges", "Unsaved Changes");
+					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChangesMessage",
+						"You have selected a Character but no Delivery. Would you like to discard your selection and leave without changing the assignment?");
+					result = MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) ==
+						DialogResult.Yes;
+				}
+
+				Focus();
 			}
-			return false;
+			return result;
 		}
 
 		/// <summary>
@@ -381,16 +399,14 @@ namespace ProtoScript.Dialogs
 
 		private void m_btnNext_Click(object sender, EventArgs e)
 		{
-			if (UserConfirmSaveChangesIfNecessary())
-				SaveSelections();
-			LoadNextRelevantBlock();
+			if (IsOkayToLeaveBlock())
+				LoadNextRelevantBlock();
 		}
 
 		private void m_btnPrevious_Click(object sender, EventArgs e)
 		{
-			if (UserConfirmSaveChangesIfNecessary())
-				SaveSelections();
-			m_viewModel.LoadPreviousRelevantBlock();
+			if (IsOkayToLeaveBlock())
+				m_viewModel.LoadPreviousRelevantBlock();
 		}
 
 		private void m_btnAssign_Click(object sender, EventArgs e)
@@ -412,9 +428,11 @@ namespace ProtoScript.Dialogs
 
 		private void m_listBoxCharacters_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			LoadDeliveryListBox(m_viewModel.GetDeliveriesForCharacter((AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem));
+			var selectedCharacter = (AssignCharacterViewModel.Character) m_listBoxCharacters.SelectedItem;
+
+			LoadDeliveryListBox(m_viewModel.GetDeliveriesForCharacter(selectedCharacter));
 			HideDeliveryFilter();
-			if (((AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem).IsNarrator)
+			if (selectedCharacter != null && selectedCharacter.IsNarrator)
 				m_llMoreDel.Enabled = false;
 			UpdateAssignButtonState();
 		}
@@ -440,8 +458,7 @@ namespace ProtoScript.Dialogs
 
 		private void AssignCharacterDialog_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			if (UserConfirmSaveChangesIfNecessary())
-				SaveSelections();
+			e.Cancel = !IsOkayToLeaveBlock();
 		}
 
 		private void m_txtCharacterFilter_TextChanged(object sender, EventArgs e)

@@ -139,6 +139,7 @@
     <Compile Include="Controls\Browser.Designer.cs">
       <DependentUpon>Browser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ControlExtensions.cs" />
     <Compile Include="Controls\ProgressBarUnanimated.cs">
       <SubType>Component</SubType>
     </Compile>

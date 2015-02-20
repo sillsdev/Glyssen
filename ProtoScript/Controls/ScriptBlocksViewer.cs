@@ -51,10 +51,10 @@ namespace ProtoScript.Controls
 
 			m_dataGridViewBlocks.Dock = DockStyle.Fill;
 
-			m_viewModel.CurrentBlockChanged += (sender, args) => BeginInvoke(new Action(UpdateContextBlocksDisplay));
+			m_viewModel.CurrentBlockChanged += (sender, args) => this.SafeInvoke(UpdateContextBlocksDisplay, true);
 
 			m_blocksDisplayBrowser.VisibleChanged += HandleSelectedBlockChanged;
-			m_dataGridViewBlocks.VisibleChanged += (sender, args) => BeginInvoke(new Action(() => HandleSelectedBlockChanged(sender, args)));
+			m_dataGridViewBlocks.VisibleChanged += (sender, args) => this.SafeInvoke(() => HandleSelectedBlockChanged(sender, args), true);
 		}
 		#endregion
 

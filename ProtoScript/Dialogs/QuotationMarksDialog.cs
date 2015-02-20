@@ -47,11 +47,11 @@ namespace ProtoScript.Dialogs
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 
-			m_blocksViewer.VisibleChanged += (sender, args) => BeginInvoke(new Action(() =>
+			m_blocksViewer.VisibleChanged += (sender, args) => this.SafeInvoke(() =>
 			{
 				if (m_blocksViewer.Visible)
 					LoadBlock();
-			}));
+			}, true);
 
 			SetFilterControlsFromMode();
 

@@ -99,6 +99,7 @@ namespace ProtoScript.Dialogs
 			// m_btnNext
 			// 
 			this.m_btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_btnNext.BackColor = System.Drawing.Color.Transparent;
 			this.m_btnNext.Enabled = false;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnNext, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnNext, null);
@@ -108,12 +109,13 @@ namespace ProtoScript.Dialogs
 			this.m_btnNext.Size = new System.Drawing.Size(75, 23);
 			this.m_btnNext.TabIndex = 4;
 			this.m_btnNext.Text = "Next";
-			this.m_btnNext.UseVisualStyleBackColor = true;
+			this.m_btnNext.UseVisualStyleBackColor = false;
 			this.m_btnNext.Click += new System.EventHandler(this.m_btnNext_Click);
 			// 
 			// m_btnPrevious
 			// 
 			this.m_btnPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_btnPrevious.BackColor = System.Drawing.Color.Transparent;
 			this.m_btnPrevious.Enabled = false;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnPrevious, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnPrevious, null);
@@ -123,12 +125,13 @@ namespace ProtoScript.Dialogs
 			this.m_btnPrevious.Size = new System.Drawing.Size(75, 23);
 			this.m_btnPrevious.TabIndex = 3;
 			this.m_btnPrevious.Text = "Previous";
-			this.m_btnPrevious.UseVisualStyleBackColor = true;
+			this.m_btnPrevious.UseVisualStyleBackColor = false;
 			this.m_btnPrevious.Click += new System.EventHandler(this.m_btnPrevious_Click);
 			// 
 			// m_btnAssign
 			// 
 			this.m_btnAssign.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_btnAssign.BackColor = System.Drawing.Color.Transparent;
 			this.m_btnAssign.Enabled = false;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAssign, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAssign, null);
@@ -138,7 +141,7 @@ namespace ProtoScript.Dialogs
 			this.m_btnAssign.Size = new System.Drawing.Size(95, 23);
 			this.m_btnAssign.TabIndex = 2;
 			this.m_btnAssign.Text = "Assign Character";
-			this.m_btnAssign.UseVisualStyleBackColor = true;
+			this.m_btnAssign.UseVisualStyleBackColor = false;
 			this.m_btnAssign.Click += new System.EventHandler(this.m_btnAssign_Click);
 			// 
 			// m_labelWhoSpeaks
@@ -172,6 +175,7 @@ namespace ProtoScript.Dialogs
 			// m_llMoreChar
 			// 
 			this.m_llMoreChar.AutoSize = true;
+			this.m_llMoreChar.BackColor = System.Drawing.Color.Transparent;
 			this.m_llMoreChar.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreChar, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llMoreChar, null);
@@ -235,6 +239,7 @@ namespace ProtoScript.Dialogs
 			// m_llMoreDel
 			// 
 			this.m_llMoreDel.AutoSize = true;
+			this.m_llMoreDel.BackColor = System.Drawing.Color.Transparent;
 			this.m_llMoreDel.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.m_llMoreDel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreDel, null);
