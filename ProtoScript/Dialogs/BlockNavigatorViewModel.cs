@@ -31,7 +31,7 @@ namespace ProtoScript.Dialogs
 
 	public class BlockNavigatorViewModel : IDisposable
 	{
-		private readonly Project m_project;
+		protected readonly Project m_project;
 		internal const string kDataCharacter = "data-character";
 		private const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
 								  "<style>{0}</style></head><body {1}>{2}</body></html>";
@@ -63,7 +63,11 @@ namespace ProtoScript.Dialogs
 		public event EventHandler UiFontSizeChanged;
 		public event EventHandler CurrentBlockChanged;
 
-		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.AllScripture)
+		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.AllScripture) : this(project, mode, null)
+		{
+		}
+
+		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode, VerseRef verseRef)
 		{
 			m_project = project;
 			m_navigator = new BlockNavigator(project.IncludedBooks);
@@ -75,6 +79,9 @@ namespace ProtoScript.Dialogs
 			Versification = project.Versification;
 
 			Mode = mode;
+
+			if (verseRef != null)
+				TryLoadBlock(verseRef);
 		}
 
 		#region IDisposable Members
@@ -137,12 +144,11 @@ namespace ProtoScript.Dialogs
 				Debug.Assert(index >= 0);
 				m_currentBlockIndex = m_relevantBlocks.IndexOf(location);
 				m_temporarilyIncludedBlock = m_currentBlockIndex < 0 ? location : null;
-				if (CurrentBlockChanged != null)
-					CurrentBlockChanged(this, new EventArgs());
+				HandleCurrentBlockChanged();
 			}
 		}
 
-		public BlocksToDisplay Mode
+		public virtual BlocksToDisplay Mode
 		{
 			get { return m_mode; }
 			set
@@ -309,6 +315,12 @@ namespace ProtoScript.Dialogs
 		{
 			return new BCVRef(BCVRef.BookToNumber(CurrentBookId), block.ChapterNumber, block.InitialStartVerseNumber);
 		}
+
+		public VerseRef GetBlockVerseRef(Block block = null)
+		{
+			block = block ?? m_navigator.CurrentBlock;
+			return new VerseRef(BCVRef.BookToNumber(CurrentBookId), block.ChapterNumber, block.InitialStartVerseNumber, Versification);
+		}
 		#endregion
 
 		#region Navigation methods
@@ -386,8 +398,18 @@ namespace ProtoScript.Dialogs
 		private void SetBlock(Tuple<int, int> indices)
 		{
 			m_navigator.SetIndices(indices);
+			HandleCurrentBlockChanged();
+		}
+
+		private void HandleCurrentBlockChanged()
+		{
 			if (CurrentBlockChanged != null)
 				CurrentBlockChanged(this, new EventArgs());
+			StoreVerseRef();
+		}
+
+		protected virtual void StoreVerseRef()
+		{
 		}
 
 		public static int GetIndexOfClosestRelevantBlock(List<Tuple<int, int>> list, Tuple<int, int> key, bool prev,

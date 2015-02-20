@@ -129,6 +129,11 @@ namespace ProtoScript
 			}
 		}
 
+		public ProjectStatus Status
+		{
+			get { return m_metadata.ProjectStatus; }
+		}
+
 		public QuoteSystem QuoteSystem
 		{
 			get { return m_metadata.QuoteSystem ?? m_defaultQuoteSystem; }
@@ -209,6 +214,8 @@ namespace ProtoScript
 			get { return m_projectState; }
 			private set
 			{
+				if (m_projectState == value)
+					return;
 				m_projectState = value;
 				OnStateChanged(new ProjectStateChangedEventArgs { ProjectState = m_projectState });
 			}

@@ -108,8 +108,10 @@ namespace ProtoScript.Dialogs
 				m_toolStripComboBoxFilter.SelectedIndex = 0;
 			else if ((mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 1;
-			else if ((mode & BlocksToDisplay.AllScripture) != 0)
+			else if ((mode & BlocksToDisplay.AllExpectedQuotes) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 2;
+			else if ((mode & BlocksToDisplay.AllScripture) != 0)
+				m_toolStripComboBoxFilter.SelectedIndex = 3;
 			else
 				throw new InvalidEnumArgumentException("mode", (int)mode, typeof(BlocksToDisplay));
 

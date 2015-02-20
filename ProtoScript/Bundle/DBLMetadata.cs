@@ -5,8 +5,11 @@ using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 using Palaso.Xml;
+using Paratext;
+using ProtoScript.Dialogs;
 using ProtoScript.Properties;
 using ProtoScript.Quote;
+using SIL.ScriptureUtils;
 
 namespace ProtoScript.Bundle
 {
@@ -63,6 +66,11 @@ namespace ProtoScript.Bundle
 		/// This is not part of the original DBL metadata.
 		/// </summary>
 		public QuoteSystem QuoteSystem;
+
+		/// <summary>
+		/// This is not part of the original DBL metadata.
+		/// </summary>
+		public ProjectStatus ProjectStatus = new ProjectStatus();
 
 		/// <summary>
 		/// This is not part of the original DBL metadata. This data is now stored as part of the "langauge" data. 
@@ -190,6 +198,12 @@ namespace ProtoScript.Bundle
 
 			return String.Format("{0} - {1}", languagePart, identificationPart);
 		}
+	}
+
+	public class ProjectStatus
+	{
+		public VerseRef AssignCharacterReference;
+		public BlocksToDisplay AssignCharacterMode;
 	}
 
 	public class DblMetadataIdentification
