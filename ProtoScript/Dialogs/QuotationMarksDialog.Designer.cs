@@ -55,11 +55,11 @@
 			this.m_btnNext = new System.Windows.Forms.Button();
 			this.m_labelXofY = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
+			this.m_lblStartDialogueQuote = new System.Windows.Forms.Label();
+			this.m_blocksViewer = new ProtoScript.Controls.ScriptBlocksViewer();
 			this.m_pnlDialogeQuotes = new System.Windows.Forms.Panel();
 			this.m_splitContainer = new System.Windows.Forms.SplitContainer();
 			this.m_tableLayoutPanelDataBrowser = new System.Windows.Forms.TableLayoutPanel();
-			this.m_lblStartDialogueQuote = new System.Windows.Forms.Label();
-			this.m_blocksViewer = new ProtoScript.Controls.ScriptBlocksViewer();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.m_toolStrip.SuspendLayout();
 			this.m_pnlDialogeQuotes.SuspendLayout();
@@ -73,6 +73,7 @@
 			// m_btnCancel
 			// 
 			this.m_btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_btnCancel.BackColor = System.Drawing.Color.Transparent;
 			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancel, null);
@@ -83,11 +84,12 @@
 			this.m_btnCancel.Size = new System.Drawing.Size(75, 23);
 			this.m_btnCancel.TabIndex = 0;
 			this.m_btnCancel.Text = "Cancel";
-			this.m_btnCancel.UseVisualStyleBackColor = true;
+			this.m_btnCancel.UseVisualStyleBackColor = false;
 			// 
 			// m_btnOk
 			// 
 			this.m_btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_btnOk.BackColor = System.Drawing.Color.Transparent;
 			this.m_btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
@@ -98,7 +100,7 @@
 			this.m_btnOk.Size = new System.Drawing.Size(75, 23);
 			this.m_btnOk.TabIndex = 1;
 			this.m_btnOk.Text = "OK";
-			this.m_btnOk.UseVisualStyleBackColor = true;
+			this.m_btnOk.UseVisualStyleBackColor = false;
 			this.m_btnOk.Click += new System.EventHandler(this.m_btnOk_Click);
 			// 
 			// m_l10NSharpExtender
@@ -127,6 +129,7 @@
 			// m_lblQuotationMarks
 			// 
 			this.m_lblQuotationMarks.AutoSize = true;
+			this.m_lblQuotationMarks.BackColor = System.Drawing.Color.Transparent;
 			this.m_lblQuotationMarks.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_lblQuotationMarks.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblQuotationMarks, null);
@@ -154,6 +157,7 @@
 			// m_chkDialogueQuotations
 			// 
 			this.m_chkDialogueQuotations.AutoSize = true;
+			this.m_chkDialogueQuotations.BackColor = System.Drawing.Color.Transparent;
 			this.m_chkDialogueQuotations.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_chkDialogueQuotations.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_chkDialogueQuotations, null);
@@ -164,7 +168,7 @@
 			this.m_chkDialogueQuotations.Size = new System.Drawing.Size(360, 22);
 			this.m_chkDialogueQuotations.TabIndex = 9;
 			this.m_chkDialogueQuotations.Text = "This project marks dialogue with quotation dashes.";
-			this.m_chkDialogueQuotations.UseVisualStyleBackColor = true;
+			this.m_chkDialogueQuotations.UseVisualStyleBackColor = false;
 			this.m_chkDialogueQuotations.CheckedChanged += new System.EventHandler(this.m_chkDialogueQuotations_CheckedChanged);
 			// 
 			// m_cboQuotationDash
@@ -210,6 +214,7 @@
 			// m_lblEndDialogueQuote
 			// 
 			this.m_lblEndDialogueQuote.AutoSize = true;
+			this.m_lblEndDialogueQuote.BackColor = System.Drawing.Color.Transparent;
 			this.m_lblEndDialogueQuote.Enabled = false;
 			this.m_lblEndDialogueQuote.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_lblEndDialogueQuote.ForeColor = System.Drawing.Color.White;
@@ -225,6 +230,7 @@
 			// m_chkAlternateSpeakersInFirstLevelQuotes
 			// 
 			this.m_chkAlternateSpeakersInFirstLevelQuotes.AutoSize = true;
+			this.m_chkAlternateSpeakersInFirstLevelQuotes.BackColor = System.Drawing.Color.Transparent;
 			this.m_chkAlternateSpeakersInFirstLevelQuotes.Enabled = false;
 			this.m_chkAlternateSpeakersInFirstLevelQuotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_chkAlternateSpeakersInFirstLevelQuotes.ForeColor = System.Drawing.Color.White;
@@ -237,7 +243,7 @@
 			this.m_chkAlternateSpeakersInFirstLevelQuotes.TabIndex = 13;
 			this.m_chkAlternateSpeakersInFirstLevelQuotes.Tag = "\"Making this invisible until we can find a project that actually uses this. Not y" +
     "et implemented in QuoteParser.\"";
-			this.m_chkAlternateSpeakersInFirstLevelQuotes.UseVisualStyleBackColor = true;
+			this.m_chkAlternateSpeakersInFirstLevelQuotes.UseVisualStyleBackColor = false;
 			this.m_chkAlternateSpeakersInFirstLevelQuotes.Visible = false;
 			// 
 			// m_toolStrip
@@ -380,6 +386,7 @@
 			// m_btnPrevious
 			// 
 			this.m_btnPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_btnPrevious.BackColor = System.Drawing.Color.Transparent;
 			this.m_btnPrevious.Enabled = false;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnPrevious, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnPrevious, null);
@@ -389,12 +396,13 @@
 			this.m_btnPrevious.Size = new System.Drawing.Size(75, 23);
 			this.m_btnPrevious.TabIndex = 4;
 			this.m_btnPrevious.Text = "Previous";
-			this.m_btnPrevious.UseVisualStyleBackColor = true;
+			this.m_btnPrevious.UseVisualStyleBackColor = false;
 			this.m_btnPrevious.Click += new System.EventHandler(this.m_btnPrevious_Click);
 			// 
 			// m_btnNext
 			// 
 			this.m_btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.m_btnNext.BackColor = System.Drawing.Color.Transparent;
 			this.m_btnNext.Enabled = false;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnNext, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnNext, null);
@@ -404,12 +412,13 @@
 			this.m_btnNext.Size = new System.Drawing.Size(75, 23);
 			this.m_btnNext.TabIndex = 5;
 			this.m_btnNext.Text = "Next";
-			this.m_btnNext.UseVisualStyleBackColor = true;
+			this.m_btnNext.UseVisualStyleBackColor = false;
 			this.m_btnNext.Click += new System.EventHandler(this.m_btnNext_Click);
 			// 
 			// m_labelXofY
 			// 
 			this.m_labelXofY.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.m_labelXofY.BackColor = System.Drawing.Color.Transparent;
 			this.m_labelXofY.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_labelXofY, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_labelXofY, "{0} is the current block number; {1} is the total number of blocks.");
@@ -424,6 +433,7 @@
 			// 
 			// label1
 			// 
+			this.label1.BackColor = System.Drawing.Color.Transparent;
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label1, null);
@@ -438,6 +448,37 @@
 			this.label1.Text = "Quotation dashes also indicate change of speaker within first-level quotation mar" +
     "ks.";
 			this.label1.Visible = false;
+			// 
+			// m_lblStartDialogueQuote
+			// 
+			this.m_lblStartDialogueQuote.AutoSize = true;
+			this.m_lblStartDialogueQuote.BackColor = System.Drawing.Color.Transparent;
+			this.m_lblStartDialogueQuote.Enabled = false;
+			this.m_lblStartDialogueQuote.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_lblStartDialogueQuote.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblStartDialogueQuote, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblStartDialogueQuote, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblStartDialogueQuote, "DialogBoxes.QuotationMarksDialog.m_lblEndDialogueQuote");
+			this.m_lblStartDialogueQuote.Location = new System.Drawing.Point(77, 43);
+			this.m_lblStartDialogueQuote.Name = "m_lblStartDialogueQuote";
+			this.m_lblStartDialogueQuote.Size = new System.Drawing.Size(171, 18);
+			this.m_lblStartDialogueQuote.TabIndex = 15;
+			this.m_lblStartDialogueQuote.Text = "Dialogue quotation dash:";
+			// 
+			// m_blocksViewer
+			// 
+			this.m_blocksViewer.BackColor = System.Drawing.Color.Transparent;
+			this.m_tableLayoutPanelDataBrowser.SetColumnSpan(this.m_blocksViewer, 3);
+			this.m_blocksViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksViewer, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksViewer, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksViewer, "DialogBoxes.QuotationMarksDialog.ScriptBlocksViewer");
+			this.m_blocksViewer.Location = new System.Drawing.Point(3, 3);
+			this.m_blocksViewer.Name = "m_blocksViewer";
+			this.m_blocksViewer.Size = new System.Drawing.Size(258, 301);
+			this.m_blocksViewer.TabIndex = 0;
+			this.m_blocksViewer.Text = "Project Data:";
+			this.m_blocksViewer.ViewType = ProtoScript.Controls.ScriptBlocksViewType.Html;
 			// 
 			// m_pnlDialogeQuotes
 			// 
@@ -499,36 +540,6 @@
 			this.m_tableLayoutPanelDataBrowser.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanelDataBrowser.Size = new System.Drawing.Size(264, 336);
 			this.m_tableLayoutPanelDataBrowser.TabIndex = 1;
-			// 
-			// m_lblStartDialogueQuote
-			// 
-			this.m_lblStartDialogueQuote.AutoSize = true;
-			this.m_lblStartDialogueQuote.Enabled = false;
-			this.m_lblStartDialogueQuote.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_lblStartDialogueQuote.ForeColor = System.Drawing.Color.White;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblStartDialogueQuote, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblStartDialogueQuote, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblStartDialogueQuote, "DialogBoxes.QuotationMarksDialog.m_lblEndDialogueQuote");
-			this.m_lblStartDialogueQuote.Location = new System.Drawing.Point(77, 43);
-			this.m_lblStartDialogueQuote.Name = "m_lblStartDialogueQuote";
-			this.m_lblStartDialogueQuote.Size = new System.Drawing.Size(171, 18);
-			this.m_lblStartDialogueQuote.TabIndex = 15;
-			this.m_lblStartDialogueQuote.Text = "Dialogue quotation dash:";
-			// 
-			// m_blocksViewer
-			// 
-			this.m_blocksViewer.BackColor = System.Drawing.Color.Transparent;
-			this.m_tableLayoutPanelDataBrowser.SetColumnSpan(this.m_blocksViewer, 3);
-			this.m_blocksViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksViewer, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksViewer, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksViewer, "DialogBoxes.QuotationMarksDialog.ScriptBlocksViewer");
-			this.m_blocksViewer.Location = new System.Drawing.Point(3, 3);
-			this.m_blocksViewer.Name = "m_blocksViewer";
-			this.m_blocksViewer.Size = new System.Drawing.Size(258, 301);
-			this.m_blocksViewer.TabIndex = 0;
-			this.m_blocksViewer.Text = "Project Data:";
-			this.m_blocksViewer.ViewType = ProtoScript.Controls.ScriptBlocksViewType.Html;
 			// 
 			// QuotationMarksDialog
 			// 
