@@ -14,12 +14,12 @@ using System.Linq;
 using System.Windows.Forms;
 using L10NSharp;
 using L10NSharp.UI;
-using Palaso.UI.WindowsForms.PortableSettingsProvider;
 using Paratext;
 using ProtoScript.Character;
 using ProtoScript.Controls;
 using SIL.ScriptureControls;
 using SIL.ScriptureUtils;
+using SIL.Windows.Forms.PortableSettingsProvider;
 
 namespace ProtoScript.Dialogs
 {

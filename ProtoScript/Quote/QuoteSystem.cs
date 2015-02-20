@@ -4,8 +4,8 @@ using System.Globalization;
 using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
-using Palaso.Xml;
 using ProtoScript.Properties;
+using SIL.Xml;
 
 namespace ProtoScript.Quote
 {
@@ -14,7 +14,7 @@ namespace ProtoScript.Quote
 	{
 		public static string AnyPunctuation
 		{
-			get { return Palaso.Extensions.StringExtensions.kObjReplacementChar.ToString(CultureInfo.InvariantCulture); }
+			get { return SIL.Extensions.StringExtensions.kObjReplacementChar.ToString(CultureInfo.InvariantCulture); }
 		}
 
 		private static List<QuoteSystem> s_systems;

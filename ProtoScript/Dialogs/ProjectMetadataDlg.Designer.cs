@@ -41,7 +41,7 @@
 			this.m_txtProjectId = new System.Windows.Forms.TextBox();
 			this.m_chkOverride = new System.Windows.Forms.CheckBox();
 			this.m_btnOk = new System.Windows.Forms.Button();
-			this.m_wsFontControl = new Palaso.UI.WindowsForms.WritingSystems.WSFontControl();
+			this.m_wsFontControl = new SIL.Windows.Forms.WritingSystems.WSFontControl();
 			this.m_tableLayoutMain = new System.Windows.Forms.TableLayoutPanel();
 			this.m_tableLayoutProjectId = new System.Windows.Forms.TableLayoutPanel();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
@@ -324,7 +324,7 @@
 		private System.Windows.Forms.CheckBox m_chkOverride;
 		private System.Windows.Forms.TextBox m_txtProjectName;
 		private System.Windows.Forms.TextBox m_txtIso639_2_Code;
-		private Palaso.UI.WindowsForms.WritingSystems.WSFontControl m_wsFontControl;
+		private SIL.Windows.Forms.WritingSystems.WSFontControl m_wsFontControl;
 		private System.Windows.Forms.Button m_btnOk;
 	}
 }

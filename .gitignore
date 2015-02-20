@@ -9,8 +9,7 @@ Downloads/
 lib/dotnet/Palaso*.dll
 lib/dotnet/icu*.dll
 lib/dotnet/L10NSharp.dll
-lib/dotnet/SIL.ScriptureUtils.dll
-lib/dotnet/SIL.ScriptureControls.dll
+lib/dotnet/SIL.*.dll
 lib/dotnet/Geckofx*.dll
 lib/dotnet/Geckofx*.dll.config
 lib/xulrunner/

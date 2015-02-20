@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using Palaso.TestUtilities;
-using Palaso.Xml;
 using ProtoScript.Quote;
+using SIL.Xml;
 
 namespace ProtoScriptTests.Quote
 {

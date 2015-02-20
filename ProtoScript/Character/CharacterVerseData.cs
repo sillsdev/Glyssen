@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using SIL.Extensions;
 using SIL.ScriptureUtils;
-using Palaso.Extensions;
 
 namespace ProtoScript.Character
 {

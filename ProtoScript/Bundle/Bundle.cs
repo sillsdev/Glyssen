@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using L10NSharp;
-using Palaso.Reporting;
-using Palaso.Xml;
 using ProtoScript.Character;
 using ProtoScript.Properties;
 using ProtoScript.Utilities;
+using SIL.Reporting;
+using SIL.Xml;
 
 namespace ProtoScript.Bundle
 {

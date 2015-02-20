@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
 using Gecko.Events;
-using Palaso.UI.WindowsForms.HtmlBrowser;
+using SIL.Windows.Forms.HtmlBrowser;
 
 namespace ProtoScript.Controls
 {

@@ -3,10 +3,10 @@ using System.Configuration;
 using System.IO;
 using System.Windows.Forms;
 using L10NSharp;
-using Palaso.IO;
-using Palaso.Reporting;
-using Palaso.UI.WindowsForms.Reporting;
 using ProtoScript.Properties;
+using SIL.IO;
+using SIL.Reporting;
+using SIL.Windows.Forms.Reporting;
 
 namespace ProtoScript
 {

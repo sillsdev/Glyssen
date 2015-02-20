@@ -33,9 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Palaso, Version=2.6.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\dotnet\Palaso.dll</HintPath>
+    <Reference Include="SIL.Core">
+      <HintPath>..\lib\dotnet\SIL.Core.dll</HintPath>
     </Reference>
     <Reference Include="SIL.ScriptureUtils, Version=7.3.0.18505, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

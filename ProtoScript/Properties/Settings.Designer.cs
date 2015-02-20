@@ -121,9 +121,9 @@ namespace ProtoScript.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::Palaso.UI.WindowsForms.PortableSettingsProvider.FormSettings AssignCharacterDialogFormSettings {
+        public global::SIL.Windows.Forms.PortableSettingsProvider.FormSettings AssignCharacterDialogFormSettings {
             get {
-                return ((global::Palaso.UI.WindowsForms.PortableSettingsProvider.FormSettings)(this["AssignCharacterDialogFormSettings"]));
+                return ((global::SIL.Windows.Forms.PortableSettingsProvider.FormSettings)(this["AssignCharacterDialogFormSettings"]));
             }
             set {
                 this["AssignCharacterDialogFormSettings"] = value;
@@ -132,9 +132,9 @@ namespace ProtoScript.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::Palaso.UI.WindowsForms.PortableSettingsProvider.GridSettings AssignCharactersBlockContextGrid {
+        public global::SIL.Windows.Forms.PortableSettingsProvider.GridSettings AssignCharactersBlockContextGrid {
             get {
-                return ((global::Palaso.UI.WindowsForms.PortableSettingsProvider.GridSettings)(this["AssignCharactersBlockContextGrid"]));
+                return ((global::SIL.Windows.Forms.PortableSettingsProvider.GridSettings)(this["AssignCharactersBlockContextGrid"]));
             }
             set {
                 this["AssignCharactersBlockContextGrid"] = value;

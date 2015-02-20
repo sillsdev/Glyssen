@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
-using Palaso.Xml;
 using ProtoScript;
+using SIL.Xml;
 
 namespace ProtoScriptTests
 {

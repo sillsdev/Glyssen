@@ -1,4 +1,4 @@
-﻿using Palaso.UI.WindowsForms.WritingSystems;
+﻿using SIL.Windows.Forms.WritingSystems;
 
 namespace ProtoScript
 {

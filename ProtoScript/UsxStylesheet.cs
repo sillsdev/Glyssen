@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Xml.Serialization;
-using Palaso.Xml;
 using ProtoScript.Properties;
+using SIL.Xml;
 
 namespace ProtoScript
 {

@@ -4,11 +4,11 @@ using System.ComponentModel;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
-using Palaso.Xml;
 using Paratext;
 using ProtoScript.Dialogs;
 using ProtoScript.Properties;
 using ProtoScript.Quote;
+using SIL.Xml;
 
 namespace ProtoScript.Bundle
 {

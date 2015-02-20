@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Palaso.Xml;
 using ProtoScript.Character;
+using SIL.Xml;
 
 namespace DevTools.BiblicalTerms
 {

@@ -72,19 +72,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\NetLoc.dll</HintPath>
     </Reference>
-    <Reference Include="Palaso, Version=2.6.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\dotnet\Palaso.dll</HintPath>
-    </Reference>
-    <Reference Include="PalasoUIWindowsForms">
-      <HintPath>..\lib\dotnet\PalasoUIWindowsForms.dll</HintPath>
-    </Reference>
-    <Reference Include="PalasoUIWindowsForms.GeckoBrowserAdapter">
-      <HintPath>..\lib\dotnet\PalasoUIWindowsForms.GeckoBrowserAdapter.dll</HintPath>
-    </Reference>
     <Reference Include="ParatextShared, Version=7.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\ParatextShared.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.Core">
+      <HintPath>..\lib\dotnet\SIL.Core.dll</HintPath>
     </Reference>
     <Reference Include="SIL.ScriptureControls, Version=7.3.0.23701, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -93,6 +86,18 @@
     <Reference Include="SIL.ScriptureUtils, Version=7.3.0.31476, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.ScriptureUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.Windows.Forms">
+      <HintPath>..\lib\dotnet\SIL.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.Windows.Forms.GeckoBrowserAdapter">
+      <HintPath>..\lib\dotnet\SIL.Windows.Forms.GeckoBrowserAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.Windows.Forms.WritingSystems">
+      <HintPath>..\lib\dotnet\SIL.Windows.Forms.WritingSystems.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.WritingSystems">
+      <HintPath>..\lib\dotnet\SIL.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

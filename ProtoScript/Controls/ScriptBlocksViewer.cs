@@ -5,8 +5,8 @@ using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
 using Gecko.Events;
-using Palaso.UI.WindowsForms.PortableSettingsProvider;
 using ProtoScript.Dialogs;
+using SIL.Windows.Forms.PortableSettingsProvider;
 
 namespace ProtoScript.Controls
 {

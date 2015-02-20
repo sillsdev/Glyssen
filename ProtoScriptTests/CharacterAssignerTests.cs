@@ -1,9 +1,9 @@
 ﻿using NUnit.Framework;
-using Palaso.Xml;
 using ProtoScript;
 using ProtoScript.Character;
 using Rhino.Mocks;
 using SIL.ScriptureUtils;
+using SIL.Xml;
 
 namespace ProtoScriptTests
 {

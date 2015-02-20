@@ -4,13 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using L10NSharp;
-using Palaso.IO;
-using Palaso.UI.WindowsForms;
-using Palaso.UI.WindowsForms.WritingSystems;
-using Palaso.WritingSystems;
 using Paratext;
 using ProtoScript.Bundle;
 using ProtoScript.Dialogs;
+using SIL.IO;
+using SIL.Windows.Forms;
+using SIL.Windows.Forms.WritingSystems;
+using SIL.WritingSystems;
 
 namespace ProtoScript
 {

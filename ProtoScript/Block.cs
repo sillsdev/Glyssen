@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
-using Palaso.Xml;
 using ProtoScript.Character;
 using SIL.ScriptureUtils;
+using SIL.Xml;
 
 namespace ProtoScript
 {
