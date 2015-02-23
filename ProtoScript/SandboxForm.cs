@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Text;
@@ -8,14 +7,12 @@ using L10NSharp;
 using L10NSharp.UI;
 using ProtoScript.Dialogs;
 using ProtoScript.Properties;
-using ProtoScript.Utilities;
 
 namespace ProtoScript
 {
 	public partial class SandboxForm : Form
 	{
 		private Project m_project;
-		private AssignCharacterViewModel m_assignCharacterViewModel;
 		private string m_bundleIdFmt;
 		private string m_LanguageIdFmt;
 		private string m_projectLoadedFmt;
@@ -60,12 +57,6 @@ namespace ProtoScript
 
 		private void FinishSetProject()
 		{
-			if (m_assignCharacterViewModel != null)
-				m_assignCharacterViewModel.Dispose();
-
-			if (m_project != null)
-				m_assignCharacterViewModel = new AssignCharacterViewModel(m_project);
-
 			UpdateDisplayOfProjectInfo();
 
 			if (m_project != null)
@@ -222,15 +213,15 @@ namespace ProtoScript
 		{
 			double assignedAutomatically = 0;
 			if (m_project != null && m_project.ProjectAnalysis != null)
-				assignedAutomatically = m_project.ProjectAnalysis.PercentAssigned;
+				assignedAutomatically = m_project.ProjectAnalysis.TotalPercentAssigned;
 			m_lblProjectLoaded.Text = string.Format(m_projectLoadedFmt, percent.ToString(CultureInfo.InvariantCulture), assignedAutomatically);
 		}
 
 		private void UpdateDisplayOfPercentAssigned()
 		{
-			int percentAssigned = 0;
-			if (m_assignCharacterViewModel != null)
-				percentAssigned = MathUtilities.Percent(m_assignCharacterViewModel.AssignedBlockCount, m_assignCharacterViewModel.RelevantBlockCount);
+			double percentAssigned = 0;
+			if (m_project != null && m_project.ProjectAnalysis != null)
+				percentAssigned = m_project.ProjectAnalysis.UserPercentAssigned;
 			m_lblPercentAssigned.Text = string.Format(m_percentAssigned, percentAssigned);
 		}
 
@@ -249,9 +240,6 @@ namespace ProtoScript
 		{
 			SaveCurrentProject();
 			Settings.Default.Save();
-
-			if (m_assignCharacterViewModel != null)
-				m_assignCharacterViewModel.Dispose();
 		}
 
 		private void SaveCurrentProject()
@@ -344,15 +332,18 @@ namespace ProtoScript
 
 		private void m_btnAssign_Click(object sender, EventArgs e)
 		{
-			if (m_assignCharacterViewModel.RelevantBlockCount == 0)
+			using (var viewModel = new AssignCharacterViewModel(m_project))
 			{
-				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.AllAssignmentsMadeAutomatically",
-					"Character assigments were made automatically for all quotations in the Scripture text. There is nothing more to do at this time.");
-				MessageBox.Show(this, msg, ProductName, MessageBoxButtons.OK);
-				return;
+				if (viewModel.RelevantBlockCount == 0)
+				{
+					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.AllAssignmentsMadeAutomatically",
+						"Character assigments were made automatically for all quotations in the Scripture text. There is nothing more to do at this time.");
+					MessageBox.Show(this, msg, ProductName, MessageBoxButtons.OK);
+					return;
+				}
+				using (var dlg = new AssignCharacterDialog(viewModel))
+					dlg.ShowDialog();
 			}
-			using (var dlg = new AssignCharacterDialog(m_assignCharacterViewModel))
-				dlg.ShowDialog();
 			m_project.Analyze();
 			UpdateDisplayOfProjectInfo();
 		}

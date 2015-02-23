@@ -17,7 +17,10 @@ namespace ProtoScript.Analysis
 		public int NarratorBlocks { get; private set; }
 		public int UnknownBlocks { get; private set; }
 		public int AmbiguousBlocks { get; private set; }
-		public double PercentAssigned { get; private set; }
+		public double TotalPercentAssigned { get; private set; }
+		public int UserAssignedBlocks { get; private set; }
+		public int NeedsAssignment { get; private set; }
+		public double UserPercentAssigned { get; private set; }
 
 		public void AnalyzeQuoteParse()
 		{
@@ -25,6 +28,8 @@ namespace ProtoScript.Analysis
 			NarratorBlocks = 0;
 			UnknownBlocks = 0;
 			AmbiguousBlocks = 0;
+			UserAssignedBlocks = 0;
+			NeedsAssignment = 0;
 			foreach (BookScript book in m_projectToAnalyze.IncludedBooks)
 			{
 				foreach (Block block in book.GetScriptBlocks(false))
@@ -36,9 +41,14 @@ namespace ProtoScript.Analysis
 						UnknownBlocks++;
 					else if (block.CharacterId == CharacterVerseData.AmbiguousCharacter)
 						AmbiguousBlocks++;
+					if (block.UserConfirmed)
+						UserAssignedBlocks++;
+					if (block.UserConfirmed || block.CharacterIsUnclear())
+						NeedsAssignment++;
 				}
 			}
-			PercentAssigned = MathUtilities.PercentAsDouble(TotalBlocks - (UnknownBlocks + AmbiguousBlocks), TotalBlocks);
+			TotalPercentAssigned = MathUtilities.PercentAsDouble(TotalBlocks - (UnknownBlocks + AmbiguousBlocks), TotalBlocks);
+			UserPercentAssigned = MathUtilities.PercentAsDouble(UserAssignedBlocks, NeedsAssignment);
 #if DEBUG
 			ReportInConsole();
 #endif
@@ -49,7 +59,7 @@ namespace ProtoScript.Analysis
 			Console.WriteLine("*************************************************************");
 			Console.WriteLine();
 			Console.WriteLine(m_projectToAnalyze.LanguageIsoCode);
-			Console.WriteLine("Blocks assigned automatically: {0:N2}%", PercentAssigned);
+			Console.WriteLine("Blocks assigned automatically: {0:N2}%", TotalPercentAssigned);
 			double narrator = MathUtilities.PercentAsDouble(NarratorBlocks, TotalBlocks);
 			Console.WriteLine("Narrator: {0:N2}%", narrator);
 			double unknown = MathUtilities.PercentAsDouble(UnknownBlocks, TotalBlocks);
