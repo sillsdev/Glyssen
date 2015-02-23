@@ -155,6 +155,16 @@ namespace ProtoScript.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon PgIcon {
+            get {
+                object obj = ResourceManager.GetObject("PgIcon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;QuoteSystems&gt;
         ///	&lt;QuoteSystem&gt;
         ///		&lt;Name&gt;Quotation marks, double&lt;/Name&gt;

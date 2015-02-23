@@ -52,6 +52,9 @@
   <PropertyGroup>
     <StartupObject>ProtoScript.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\PgIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Geckofx-Core">
       <HintPath>..\lib\dotnet\Geckofx-Core.dll</HintPath>
@@ -291,6 +294,7 @@
     <None Include="Resources\html-view.png" />
     <None Include="Resources\DecreaseSize.png" />
     <None Include="Resources\IncreaseSize.png" />
+    <None Include="Resources\PgIcon.ico" />
     <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />
   </ItemGroup>

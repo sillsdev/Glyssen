@@ -64,7 +64,6 @@
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_bookChooserControl, "DialogBoxes.ScriptureRangeSelectionDialog.BookChooserControl");
 			this.m_bookChooserControl.Location = new System.Drawing.Point(13, 13);
 			this.m_bookChooserControl.Name = "m_bookChooserControl";
-			this.m_bookChooserControl.RequireSelectedBook = false;
 			this.m_bookChooserControl.Size = new System.Drawing.Size(555, 288);
 			this.m_bookChooserControl.TabIndex = 0;
 			// 
@@ -94,6 +93,7 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.ScriptureRangeSelectionDialog.WindowTitle");
 			this.Name = "ScriptureRangeSelectionDialog";
+			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Select Scripture to Include in Protoscript";

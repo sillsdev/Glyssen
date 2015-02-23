@@ -92,9 +92,8 @@ namespace ProtoScript
 			string targetTmxFilePath = Path.Combine(kCompany, kProduct);
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
 
-			// TODO, replace null with icon
 			LocalizationManager.Create(desiredUiLangId, "ProtoscriptGenerator", Application.ProductName, Application.ProductVersion,
-				installedStringFileFolder, targetTmxFilePath, null, IssuesEmailAddress, "ProtoScript");
+				installedStringFileFolder, targetTmxFilePath, Resources.PgIcon, IssuesEmailAddress, "ProtoScript");
 
 			// For now, do not set up localization for Palaso
 			// TODO, should we?

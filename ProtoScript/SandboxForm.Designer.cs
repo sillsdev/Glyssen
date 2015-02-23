@@ -226,7 +226,7 @@
 			this.m_lblProjectLoaded.Name = "m_lblProjectLoaded";
 			this.m_lblProjectLoaded.Size = new System.Drawing.Size(240, 13);
 			this.m_lblProjectLoaded.TabIndex = 16;
-			this.m_lblProjectLoaded.Text = "{0}% loaded   ({1:N2}% of all blocks are assigned)";
+			this.m_lblProjectLoaded.Text = "{0}% loaded   ({1:N1}% of all blocks are assigned)";
 			// 
 			// m_lblPercentAssigned
 			// 
@@ -237,9 +237,9 @@
 			this.l10NSharpExtender1.SetLocalizingId(this.m_lblPercentAssigned, "SandboxForm.SandboxForm.m_lblLanguage");
 			this.m_lblPercentAssigned.Location = new System.Drawing.Point(175, 130);
 			this.m_lblPercentAssigned.Name = "m_lblPercentAssigned";
-			this.m_lblPercentAssigned.Size = new System.Drawing.Size(258, 13);
+			this.m_lblPercentAssigned.Size = new System.Drawing.Size(275, 13);
 			this.m_lblPercentAssigned.TabIndex = 17;
-			this.m_lblPercentAssigned.Text = "{0}% of blocks needing user assignment are assigned";
+			this.m_lblPercentAssigned.Text = "{0:N1}% of blocks needing user assignment are assigned";
 			// 
 			// m_btnExit
 			// 
@@ -275,6 +275,7 @@
 			this.Controls.Add(this.m_lblBundleId);
 			this.Controls.Add(this.m_btnLocalize);
 			this.Controls.Add(this.m_btnOpenProject);
+			this.Icon = global::ProtoScript.Properties.Resources.PgIcon;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this, null);
 			this.l10NSharpExtender1.SetLocalizingId(this, "SandboxForm.WindowTitle");

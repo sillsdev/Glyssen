@@ -54,6 +54,8 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             </Directory>
         </Directory>
 
+        <Directory Id="DesktopFolder" Name="Desktop"/>
+        
       <Directory Id='ProgramMenuFolder' Name='Programs'>
         <Directory Id='ProtoscriptGeneratorShortcutDir' Name='Protoscript Generator'>
           <Component Id ='removeShortcutDir' Guid ="{B8000306-EB15-4458-8264-97C1F888AD1E}">
@@ -74,8 +76,10 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <Registry Root="HKCU" Key="SOFTWARE\ProtoscriptGenerator\Components\ProtoScript.exe" KeyPath="yes" />
             <File Id="ProtoScript.exe" Name="ProtoScript.exe"  Source="..\output\release\ProtoScript.exe" />
 
-            <Shortcut Id="startmenuShortcut"  Directory="ProtoscriptGeneratorShortcutDir" Name="Protoscript Generator"
-                 WorkingDirectory="ProgramDir" Target="[!ProtoScript.exe]"  Icon ="ProtoScript.exe" />
+            <Shortcut Id="startmenuShortcut" Directory="ProtoscriptGeneratorShortcutDir" Name="Protoscript Generator"
+                 WorkingDirectory="ProgramDir" Target="[!ProtoScript.exe]" Icon="ProtoScript.exe" />
+            <Shortcut Id="desktopShortcut" Directory="DesktopFolder" Name="Protoscript Generator"
+                 WorkingDirectory="INSTALLDIR" Target="[!ProtoScript.exe]" Icon="ProtoScript.exe" />
 
           </Component>
 
