@@ -87,16 +87,16 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="ProtoScript.exe.config" Name="ProtoScript.exe.config" KeyPath="yes" Source="..\output\release\ProtoScript.exe.config" />
           </Component>
 
-          <Component Id="Palaso.dll" Guid="{A46C492A-304B-47b8-A13A-7CE4896B5643}">
-            <File Id="Palaso.dll" Name="Palaso.dll" KeyPath="yes" Source="..\output\release\Palaso.dll" />
+          <Component Id="SIL.Core.dll" Guid="{b85eba03-ba56-40b9-9c7f-ae166748f6f5}">
+            <File Id="SIL.Core.dll" Name="SIL.Core.dll" KeyPath="yes" Source="..\output\release\SIL.Core.dll" />
           </Component>
 
-          <Component Id="PalasoUIWindowsForms.dll" Guid="{1cacb7f4-7c49-43b6-a5cf-589954860844}">
-            <File Id="PalasoUIWindowsForms.dll" Name="PalasoUIWindowsForms.dll" KeyPath="yes" Source="..\output\release\PalasoUIWindowsForms.dll" />
+          <Component Id="SIL.Windows.Forms.dll" Guid="{ea18bc71-5da1-49e5-a126-ead84ad1d287}">
+            <File Id="SIL.Windows.Forms.dll" Name="SIL.Windows.Forms.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.dll" />
           </Component>
 
-          <Component Id="PalasoUIWindowsForms.GeckoBrowserAdapter.dll" Guid="{bf4aa435-b585-43cf-9714-5c049eab1f9e}">
-            <File Id="PalasoUIWindowsForms.GeckoBrowserAdapter.dll" Name="PalasoUIWindowsForms.GeckoBrowserAdapter.dll" KeyPath="yes" Source="..\output\release\PalasoUIWindowsForms.GeckoBrowserAdapter.dll" />
+          <Component Id="SIL.Windows.Forms.GeckoBrowserAdapter.dll" Guid="{d5efb16d-09a1-41e4-b46b-7bd1cc44abfd}">
+            <File Id="SIL.Windows.Forms.GeckoBrowserAdapter.dll" Name="SIL.Windows.Forms.GeckoBrowserAdapter.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.GeckoBrowserAdapter.dll" />
           </Component>
 
           <Component Id="Geckofx_Core.dll" Guid="{55db00fb-4a1f-437e-a14e-22c562aecd5a}">
@@ -146,9 +146,9 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 
     <Feature Id="ProductFeature" Level="1" Title="Basic Stuff">
       <ComponentRef Id ="removeShortcutDir"/>
-      <ComponentRef Id="Palaso.dll"/>
-      <ComponentRef Id="PalasoUIWindowsForms.dll"/>
-      <ComponentRef Id="PalasoUIWindowsForms.GeckoBrowserAdapter.dll"/>
+      <ComponentRef Id="SIL.Core.dll"/>
+      <ComponentRef Id="SIL.Windows.Forms.dll"/>
+      <ComponentRef Id="SIL.Windows.Forms.GeckoBrowserAdapter.dll"/>
       <ComponentRef Id="Geckofx_Core.dll"/>
       <ComponentRef Id="Geckofx_Winforms.dll"/>
       <ComponentRef Id="SIL.ScriptureUtils.dll"/>
