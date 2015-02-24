@@ -99,12 +99,16 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="SIL.Windows.Forms.GeckoBrowserAdapter.dll" Name="SIL.Windows.Forms.GeckoBrowserAdapter.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.GeckoBrowserAdapter.dll" />
           </Component>
 
-          <Component Id="Geckofx_Core.dll" Guid="{55db00fb-4a1f-437e-a14e-22c562aecd5a}">
-            <File Id="Geckofx_Core.dll" Name="Geckofx-Core.dll" KeyPath="yes" Source="..\output\release\Geckofx-Core.dll" />
+          <Component Id="SIL.Windows.Forms.Keyboarding.dll" Guid="{c7e9afe7-3d60-4171-a11e-73f68ba455d2}">
+            <File Id="SIL.Windows.Forms.Keyboarding.dll" Name="SIL.Windows.Forms.Keyboarding.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.Keyboarding.dll" />
           </Component>
 
-          <Component Id="Geckofx_Winforms.dll" Guid="{69cbecdc-dfc8-4f96-a947-5fca98f72c04}">
-            <File Id="Geckofx_Winforms.dll" Name="Geckofx-Winforms.dll" KeyPath="yes" Source="..\output\release\Geckofx-Winforms.dll" />
+          <Component Id="SIL.WritingSystems.dll" Guid="{2e0d8b57-3d08-45e7-be4c-01adc1838449}">
+            <File Id="SIL.WritingSystems.dll" Name="SIL.WritingSystems.dll" KeyPath="yes" Source="..\output\release\SIL.WritingSystems.dll" />
+          </Component>
+
+          <Component Id="SIL.Windows.Forms.WritingSystems.dll" Guid="{d80fbd4c-4bfa-42f3-81cc-95210a0fa402}">
+            <File Id="SIL.Windows.Forms.WritingSystems.dll" Name="SIL.Windows.Forms.WritingSystems.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.WritingSystems.dll" />
           </Component>
 
           <Component Id="SIL.ScriptureUtils.dll" Guid="{386eb5b9-c3ef-4640-9400-e5efb3fc83c4}">
@@ -115,21 +119,35 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="SIL.ScriptureControls.dll" Name="SIL.ScriptureControls.dll" KeyPath="yes" Source="..\output\release\SIL.ScriptureControls.dll" />
           </Component>
 
+          <Component Id="Geckofx_Core.dll" Guid="{55db00fb-4a1f-437e-a14e-22c562aecd5a}">
+            <File Id="Geckofx_Core.dll" Name="Geckofx-Core.dll" KeyPath="yes" Source="..\output\release\Geckofx-Core.dll" />
+          </Component>
+
+          <Component Id="Geckofx_Winforms.dll" Guid="{69cbecdc-dfc8-4f96-a947-5fca98f72c04}">
+            <File Id="Geckofx_Winforms.dll" Name="Geckofx-Winforms.dll" KeyPath="yes" Source="..\output\release\Geckofx-Winforms.dll" />
+          </Component>
+
           <Component Id="ParatextShared.dll" Guid="{8a047a21-cabf-4fe4-ab4e-40da9e23f9ce}">
             <File Id="ParatextShared.dll" Name="ParatextShared.dll" KeyPath="yes" Source="..\output\release\ParatextShared.dll" />
           </Component>
 
+          <!--Needed for ParatextShared-->
+          <Component Id="Palaso.dll" Guid="{A46C492A-304B-47b8-A13A-7CE4896B5643}">
+            <File Id="Palaso.dll" Name="Palaso.dll" KeyPath="yes" Source="..\output\release\Palaso.dll" />
+          </Component>
+          <Component Id="PalasoUIWindowsForms.dll" Guid="{1cacb7f4-7c49-43b6-a5cf-589954860844}">
+            <File Id="PalasoUIWindowsForms.dll" Name="PalasoUIWindowsForms.dll" KeyPath="yes" Source="..\output\release\PalasoUIWindowsForms.dll" />
+          </Component>
           <Component Id="NetLoc.dll" Guid="{350690e2-f5b9-47ba-a882-79037f7660fb}">
             <File Id="NetLoc.dll" Name="NetLoc.dll" KeyPath="yes" Source="..\output\release\NetLoc.dll" />
           </Component>
-
           <Component Id="Utilities.dll" Guid="{28303157-060A-4ACD-A3B8-B55F42B91550}">
             <File Id="Utilities.dll" Name="Utilities.dll" KeyPath="yes" Source="..\output\release\Utilities.dll" />
           </Component>
-
           <Component Id="Ionic.Zip.dll" Guid="{EA956C01-1047-414D-AFDB-9AEE2B0B064F}">
             <File Id="Ionic.Zip.dll" Name="Ionic.Zip.dll" KeyPath="yes" Source="..\output\release\Ionic.Zip.dll" />
           </Component>
+          <!--End Needed for ParatextShared-->
 
           <Component Id="L10NSharp.dll" Guid="{59DBC21F-581C-4FA4-AF2F-EBDAC3A7697B}">
             <File Id="L10NSharp.dll" Name="L10NSharp.dll" KeyPath="yes" Source="..\output\release\L10NSharp.dll" />
@@ -149,11 +167,16 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="SIL.Core.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.GeckoBrowserAdapter.dll"/>
-      <ComponentRef Id="Geckofx_Core.dll"/>
-      <ComponentRef Id="Geckofx_Winforms.dll"/>
+      <ComponentRef Id="SIL.Windows.Forms.Keyboarding.dll"/>
+      <ComponentRef Id="SIL.WritingSystems.dll"/>
+      <ComponentRef Id="SIL.Windows.Forms.WritingSystems.dll"/>
       <ComponentRef Id="SIL.ScriptureUtils.dll"/>
       <ComponentRef Id="SIL.ScriptureControls.dll"/>
+      <ComponentRef Id="Geckofx_Core.dll"/>
+      <ComponentRef Id="Geckofx_Winforms.dll"/>
       <ComponentRef Id="ParatextShared.dll"/>
+      <ComponentRef Id="Palaso.dll"/>
+      <ComponentRef Id="PalasoUIWindowsForms.dll"/>
       <ComponentRef Id="NetLoc.dll"/>
       <ComponentRef Id="Utilities.dll"/>
       <ComponentRef Id="Ionic.Zip.dll"/>
