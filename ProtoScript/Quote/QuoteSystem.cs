@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
 using ProtoScript.Properties;
+using SIL.WritingSystems;
 using SIL.Xml;
 
 namespace ProtoScript.Quote
@@ -47,8 +49,7 @@ namespace ProtoScript.Quote
 					{
 						if (!s_uniquelyGuessableSystems.Any(s => comparer.Equals(s, qs) && s.QuotationDashMarker == qs.QuotationDashMarker))
 						{
-							var minimallySpecifiedSystem = GetOrCreateQuoteSystem(qs.StartQuoteMarker,
-								qs.EndQuoteMarker, qs.QuotationDashMarker, null, false);
+							var minimallySpecifiedSystem = GetOrCreateQuoteSystem(qs.FirstLevel, qs.QuotationDashMarker, null, false);
 							if (string.IsNullOrEmpty(minimallySpecifiedSystem.Name))
 								minimallySpecifiedSystem = qs;
 							s_uniquelyGuessableSystems.Add(minimallySpecifiedSystem);
@@ -64,13 +65,21 @@ namespace ProtoScript.Quote
 			get { return s_systems.Where(q => q.QuotationDashMarker == null).Distinct(new FirstLevelQuoteSystemComparer()); }
 		}
 
+		[Obsolete("Use version with QuotationMark instead", false)]
 		public static QuoteSystem GetOrCreateQuoteSystem(string startQuoteMarker, string endQuoteMarker,
+			string quotationDashMarker, string quotationDashEndMarker, bool quotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes)
+		{
+			return GetOrCreateQuoteSystem(
+				new QuotationMark(startQuoteMarker, endQuoteMarker, startQuoteMarker, 1, QuotationMarkingSystemType.Normal),
+				quotationDashMarker, quotationDashEndMarker, quotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes);
+		}
+
+		public static QuoteSystem GetOrCreateQuoteSystem(QuotationMark firstLevel,
 			string quotationDashMarker, string quotationDashEndMarker, bool quotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes)
 		{
 			var newQuoteSystem = new QuoteSystem
 			{
-				StartQuoteMarker = startQuoteMarker,
-				EndQuoteMarker = endQuoteMarker,
+				FirstLevel = firstLevel,
 				QuotationDashMarker = quotationDashMarker,
 				QuotationDashEndMarker = quotationDashEndMarker,
 				QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes = quotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes
@@ -84,9 +93,45 @@ namespace ProtoScript.Quote
 
 		public string MajorLanguage { get; set; }
 
-		public string StartQuoteMarker { get; set; }
+		[XmlIgnore]
+		public QuotationMark FirstLevel { get; set; }
+		[XmlIgnore]
+		public QuotationMark SecondLevel { get; set; }
+		[XmlIgnore]
+		public QuotationMark ThirdLevel { get; set; }
 
-		public string EndQuoteMarker { get; set; }
+		[XmlElement("StartQuoteMarker")]
+		public string StartQuoteMarker_DeprecatedXml
+		{
+			get { return FirstLevel.Open; }
+			set
+			{
+				if (FirstLevel == null)
+					FirstLevel = new QuotationMark(value, null, value, 1, QuotationMarkingSystemType.Normal);
+				else
+				{
+					string close = FirstLevel.Close;
+					FirstLevel = new QuotationMark(value, close, value, 1, QuotationMarkingSystemType.Normal);
+				}
+			}
+		}
+
+		[XmlElement("EndQuoteMarker")]
+		public string EndQuoteMarker_DeprecatedXml
+		{
+			get { return FirstLevel.Close; }
+			set
+			{
+				if (FirstLevel == null)
+					FirstLevel = new QuotationMark(value, null, value, 1, QuotationMarkingSystemType.Normal);
+				else
+				{
+					string open = FirstLevel.Open;
+					string cont = FirstLevel.Continue;
+					FirstLevel = new QuotationMark(open, value, cont, 1, QuotationMarkingSystemType.Normal);
+				}
+			}
+		}
 
 		public string QuotationDashMarker { get; set; }
 
@@ -97,23 +142,24 @@ namespace ProtoScript.Quote
 
 		public QuoteSystem GetCorrespondingFirstLevelQuoteSystem()
 		{
-			return AllUniqueFirstLevelSystems.FirstOrDefault(f => f.StartQuoteMarker == StartQuoteMarker && f.EndQuoteMarker == EndQuoteMarker);
+			return AllUniqueFirstLevelSystems.FirstOrDefault(f => f.FirstLevel.Open == FirstLevel.Open && f.FirstLevel.Close == FirstLevel.Close);
 		}
 
 		public override string ToString()
 		{
-			return StartQuoteMarker + "  " + EndQuoteMarker;
+			return FirstLevel.Open + "  " + FirstLevel.Close;
 		}
 
 		#region Equals methods overrides
 
 		protected bool Equals(QuoteSystem other)
 		{
-			return string.Equals(StartQuoteMarker, other.StartQuoteMarker) && 
-				string.Equals(EndQuoteMarker, other.EndQuoteMarker) &&
-				string.Equals(QuotationDashMarker, other.QuotationDashMarker) &&
-				string.Equals(QuotationDashEndMarker, other.QuotationDashEndMarker) &&
-				QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes == other.QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes;
+			return Equals(FirstLevel, other.FirstLevel) && 
+				Equals(SecondLevel, other.SecondLevel) && 
+				Equals(ThirdLevel, other.ThirdLevel) && 
+				string.Equals(QuotationDashMarker, other.QuotationDashMarker) && 
+				string.Equals(QuotationDashEndMarker, other.QuotationDashEndMarker) && 
+				QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes.Equals(other.QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes);
 		}
 
 		public override bool Equals(object obj)
@@ -131,7 +177,13 @@ namespace ProtoScript.Quote
 		{
 			unchecked
 			{
-				return ((StartQuoteMarker != null ? StartQuoteMarker.GetHashCode() : 0) * 397) ^ (EndQuoteMarker != null ? EndQuoteMarker.GetHashCode() : 0);
+				int hashCode = (FirstLevel != null ? FirstLevel.GetHashCode() : 0);
+				hashCode = (hashCode * 397) ^ (SecondLevel != null ? SecondLevel.GetHashCode() : 0);
+				hashCode = (hashCode * 397) ^ (ThirdLevel != null ? ThirdLevel.GetHashCode() : 0);
+				hashCode = (hashCode * 397) ^ (QuotationDashMarker != null ? QuotationDashMarker.GetHashCode() : 0);
+				hashCode = (hashCode * 397) ^ (QuotationDashEndMarker != null ? QuotationDashEndMarker.GetHashCode() : 0);
+				hashCode = (hashCode * 397) ^ QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes.GetHashCode();
+				return hashCode;
 			}
 		}
 
@@ -151,8 +203,7 @@ namespace ProtoScript.Quote
 	{
 		public bool Equals(QuoteSystem x, QuoteSystem y)
 		{
-			return string.Equals(x.StartQuoteMarker, y.StartQuoteMarker) &&
-				string.Equals(x.EndQuoteMarker, y.EndQuoteMarker);
+			return Equals(x.FirstLevel, y.FirstLevel);
 		}
 
 		public int GetHashCode(QuoteSystem obj)

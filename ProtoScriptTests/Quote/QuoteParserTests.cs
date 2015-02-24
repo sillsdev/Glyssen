@@ -4,6 +4,7 @@ using NUnit.Framework;
 using ProtoScript;
 using ProtoScript.Character;
 using ProtoScript.Quote;
+using SIL.WritingSystems;
 
 namespace ProtoScriptTests.Quote
 {
@@ -337,7 +338,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Parse_StartAndEnd_TwoSameCharacters_QuoteAtBeginning()
 		{
-			var options = new QuoteSystem { StartQuoteMarker = "<<", EndQuoteMarker = ">>" };
+			var options = new QuoteSystem { FirstLevel = new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal) };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("<<Go!>> he said."));
 			var input = new List<Block> { block };
@@ -350,7 +351,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Parse_StartAndEnd_TwoSameCharacters_QuoteInMiddle()
 		{
-			var options = new QuoteSystem { StartQuoteMarker = "<<", EndQuoteMarker = ">>" };
+			var options = new QuoteSystem { FirstLevel = new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal) };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, <<Go!>> loudly."));
 			var input = new List<Block> { block };
@@ -364,7 +365,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Parse_StartAndEnd_TwoSameCharacters_QuoteAtEnd()
 		{
-			var options = new QuoteSystem { StartQuoteMarker = "<<", EndQuoteMarker = ">>" };
+			var options = new QuoteSystem { FirstLevel = new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal) };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, <<Go!>>"));
 			var input = new List<Block> { block };
@@ -377,7 +378,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Parse_StartAndEnd_TwoDifferentCharacters_QuoteAtBeginning()
 		{
-			var options = new QuoteSystem { StartQuoteMarker = "&*", EndQuoteMarker = "^~" };
+			var options = new QuoteSystem { FirstLevel = new QuotationMark("&*", "^~", "&*", 1, QuotationMarkingSystemType.Normal) };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("&*Go!^~ he said."));
 			var input = new List<Block> { block };
@@ -390,7 +391,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Parse_StartAndEnd_TwoDifferentCharacters_QuoteInMiddle()
 		{
-			var options = new QuoteSystem { StartQuoteMarker = "&*", EndQuoteMarker = "^~" };
+			var options = new QuoteSystem { FirstLevel = new QuotationMark("&*", "^~", "&*", 1, QuotationMarkingSystemType.Normal) };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, &*Go!^~ loudly."));
 			var input = new List<Block> { block };
@@ -404,7 +405,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Parse_StartAndEnd_TwoDifferentCharacters_QuoteAtEnd()
 		{
-			var options = new QuoteSystem { StartQuoteMarker = "&*", EndQuoteMarker = "^~" };
+			var options = new QuoteSystem { FirstLevel = new QuotationMark("&*", "^~", "&*", 1, QuotationMarkingSystemType.Normal) };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, &*Go!^~"));
 			var input = new List<Block> { block };
@@ -417,7 +418,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Parse_StartAndEnd_ThreeSameCharacters_QuoteAtBeginning()
 		{
-			var options = new QuoteSystem { StartQuoteMarker = "<<<", EndQuoteMarker = ">>>" };
+			var options = new QuoteSystem { FirstLevel = new QuotationMark("<<<", ">>>", "<<<", 1, QuotationMarkingSystemType.Normal) };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("<<<Go!>>> he said."));
 			var input = new List<Block> { block };
@@ -430,7 +431,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Parse_StartAndEnd_ThreeSameCharacters_QuoteInMiddle()
 		{
-			var options = new QuoteSystem { StartQuoteMarker = "<<<", EndQuoteMarker = ">>>" };
+			var options = new QuoteSystem { FirstLevel = new QuotationMark("<<<", ">>>", "<<<", 1, QuotationMarkingSystemType.Normal) };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, <<<Go!>>> loudly."));
 			var input = new List<Block> { block };
@@ -444,7 +445,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Parse_StartAndEnd_ThreeSameCharacters_QuoteAtEnd()
 		{
-			var options = new QuoteSystem { StartQuoteMarker = "<<<", EndQuoteMarker = ">>>" };
+			var options = new QuoteSystem { FirstLevel = new QuotationMark("<<<", ">>>", "<<<", 1, QuotationMarkingSystemType.Normal) };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, <<<Go!>>>"));
 			var input = new List<Block> { block };
@@ -457,7 +458,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Parse_StartEndSame_QuoteAtEnd()
 		{
-			var options = new QuoteSystem { StartQuoteMarker = "\"", EndQuoteMarker = "\"" };
+			var options = new QuoteSystem { FirstLevel = new QuotationMark("\"", "\"", "\"", 1, QuotationMarkingSystemType.Normal) };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, \"Go!\""));
 			var input = new List<Block> { block };
@@ -470,7 +471,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Parse_StartEndSame_QuoteAtBeginning()
 		{
-			var options = new QuoteSystem { StartQuoteMarker = "\"", EndQuoteMarker = "\"" };
+			var options = new QuoteSystem { FirstLevel = new QuotationMark("\"", "\"", "\"", 1, QuotationMarkingSystemType.Normal) };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("\"Go!\" he said."));
 			var input = new List<Block> { block };
@@ -483,7 +484,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Parse_StartEndSame_QuoteInMiddle()
 		{
-			var options = new QuoteSystem { StartQuoteMarker = "\"", EndQuoteMarker = "\"" };
+			var options = new QuoteSystem { FirstLevel = new QuotationMark("\"", "\"", "\"", 1, QuotationMarkingSystemType.Normal) };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, \"Go!\" quietly."));
 			var input = new List<Block> { block };
@@ -497,7 +498,7 @@ namespace ProtoScriptTests.Quote
 		[Test, Ignore("TODO")]
 		public void Parse_StartEndSame_ThreeLevels()
 		{
-			var options = new QuoteSystem { StartQuoteMarker = "\"", EndQuoteMarker = "\"" };
+			var options = new QuoteSystem { FirstLevel = new QuotationMark("\"", "\"", "\"", 1, QuotationMarkingSystemType.Normal) };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, \"She said, 'They said, \"No way.\"'\""));
 			var input = new List<Block> { block };
@@ -662,7 +663,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Parse_UsingDifferentQuoteMarks()
 		{
-			var options = new QuoteSystem { StartQuoteMarker = "“", EndQuoteMarker = "”" };
+			var options = new QuoteSystem { FirstLevel = new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal) };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("“Go!” he said."));
 			var input = new List<Block> { block };
@@ -675,7 +676,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Parse_BreakOnFirstLevelQuoteOnly_HasTwoLevels()
 		{
-			var options = new QuoteSystem { StartQuoteMarker = "“", EndQuoteMarker = "”" };
+			var options = new QuoteSystem { FirstLevel = new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal) };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, “She said, ‘Get lost.’”"));
 			var input = new List<Block> { block };
@@ -688,7 +689,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Parse_BreakOnFirstLevelQuoteOnly_HasThreeLevels()
 		{
-			var options = new QuoteSystem { StartQuoteMarker = "“", EndQuoteMarker = "”" };
+			var options = new QuoteSystem { FirstLevel = new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal) };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, “She said, ‘They said, “No way.”’”"));
 			var input = new List<Block> { block };
@@ -701,7 +702,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Parse_BreakOnFirstLevelQuoteOnly_HasThreeLevelsAndContinuesInside()
 		{
-			var options = new QuoteSystem { StartQuoteMarker = "“", EndQuoteMarker = "”" };
+			var options = new QuoteSystem { FirstLevel = new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal) };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, “She said, ‘They said, “No way!” rudely.’”"));
 			var input = new List<Block> { block };
@@ -714,7 +715,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Parse_BreakOnFirstLevelQuoteOnly_HasThreeLevelsAndContinuesOutside()
 		{
-			var options = new QuoteSystem { StartQuoteMarker = "“", EndQuoteMarker = "”" };
+			var options = new QuoteSystem { FirstLevel = new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal) };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, “She said, ‘They said, “No way!” rudely,’” politely."));
 			var input = new List<Block> { block };
@@ -728,7 +729,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Parse_QuoteFollowsThirdLevelQuote_BrokenCorrectly()
 		{
-			var options = new QuoteSystem { StartQuoteMarker = "“", EndQuoteMarker = "”" };
+			var options = new QuoteSystem { FirstLevel = new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal) };
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, “She said, ‘They said, “No way!” quite rudely.’”"));
 			var block2 = new Block("p");
@@ -745,7 +746,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Parse_TitleIntrosChaptersAndExtraBiblicalMaterial_OnlyVerseTextGetsParsedForQuotes()
 		{
-			var options = new QuoteSystem { StartQuoteMarker = "“", EndQuoteMarker = "”" };
+			var options = new QuoteSystem { FirstLevel = new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal) };
 			var titleBlock = new Block("mt");
 			titleBlock.BlockElements.Add(new ScriptText("Gospel of Mark"));
 			titleBlock.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);

@@ -79,7 +79,7 @@ namespace ProtoScript.Quote
 #endif
 					foreach (var quoteSystem in viableSystems)
 					{
-						int ichStartQuote = text.IndexOf(quoteSystem.StartQuoteMarker, StringComparison.Ordinal);
+						int ichStartQuote = text.IndexOf(quoteSystem.FirstLevel.Open, StringComparison.Ordinal);
 
 						if (quote.IsDialogue && !string.IsNullOrEmpty(quoteSystem.QuotationDashMarker))
 						{
@@ -100,7 +100,7 @@ namespace ProtoScript.Quote
 							if (scores[quoteSystem] > bestScore)
 								bestScore = scores[quoteSystem];
 
-							if (text.IndexOf(quoteSystem.EndQuoteMarker, ichStartQuote + 1, StringComparison.Ordinal) > ichStartQuote)
+							if (text.IndexOf(quoteSystem.FirstLevel.Close, ichStartQuote + 1, StringComparison.Ordinal) > ichStartQuote)
 							{
 								foundEndQuote = true;
 								scores[quoteSystem] += kEndQuoteValue;
@@ -114,7 +114,7 @@ namespace ProtoScript.Quote
 									if (!cvInfo.GetCharacters(book.BookId, quote.Chapter, quote.Verse + i).Any())
 										break;
 									text = book.GetVerseText(quote.Chapter, quote.Verse);
-									if (text.IndexOf(quoteSystem.EndQuoteMarker, StringComparison.Ordinal) > 0)
+									if (text.IndexOf(quoteSystem.FirstLevel.Close, StringComparison.Ordinal) > 0)
 									{
 										foundEndQuote = true;
 										scores[quoteSystem] += kEndQuoteValue;
@@ -168,8 +168,8 @@ namespace ProtoScript.Quote
 							}
 
 							viableSystems = viableSystems.Where(competitors.Contains).ToList();
-							if (competitors.TrueForAll(c => c.StartQuoteMarker == competitors[0].StartQuoteMarker &&
-								c.EndQuoteMarker == competitors[0].EndQuoteMarker))
+							if (competitors.TrueForAll(c => c.FirstLevel.Open == competitors[0].FirstLevel.Open &&
+								c.FirstLevel.Close == competitors[0].FirstLevel.Close))
 							{
 								var contendersWithQDash = competitors.Where(c => !String.IsNullOrEmpty(c.QuotationDashMarker)).ToList();
 								if (contendersWithQDash.TrueForAll(

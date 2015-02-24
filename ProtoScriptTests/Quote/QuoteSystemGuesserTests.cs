@@ -79,7 +79,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Guess_StraightQuotesWithLessConsistentData_CorrectlyIdentifiesSystemWithCertainty()
 		{
-			var quoteSystem = QuoteSystem.UniquelyGuessableSystems.Single(qs => qs.StartQuoteMarker == "\"");
+			var quoteSystem = QuoteSystem.UniquelyGuessableSystems.Single(qs => qs.FirstLevel.Open == "\"");
 			RunTest(quoteSystem, false, true);
 		}
 
@@ -179,8 +179,8 @@ namespace ProtoScriptTests.Quote
 				RandomizeLessConsistent(quoteStartExpected, ref startQuote, ref endQuote);
 
 
-			string startQuoteMarker = m_desiredQuoteSystem.StartQuoteMarker;
-			string endQuoteMarker = m_desiredQuoteSystem.EndQuoteMarker;
+			string startQuoteMarker = m_desiredQuoteSystem.FirstLevel.Open;
+			string endQuoteMarker = m_desiredQuoteSystem.FirstLevel.Close;
 
 			if (!String.IsNullOrEmpty(m_desiredQuoteSystem.QuotationDashMarker))
 			{

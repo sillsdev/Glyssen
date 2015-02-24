@@ -207,8 +207,7 @@ namespace ProtoScript.Dialogs
 
 					quotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes = m_chkAlternateSpeakersInFirstLevelQuotes.Checked;
 				}
-				return QuoteSystem.GetOrCreateQuoteSystem(quoteSystemForFirstLevelQuotes.StartQuoteMarker,
-					quoteSystemForFirstLevelQuotes.EndQuoteMarker,
+				return QuoteSystem.GetOrCreateQuoteSystem(quoteSystemForFirstLevelQuotes.FirstLevel,
 					quotationDashMarker, quotationDashEndMarker, quotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes);
 			}
 		}

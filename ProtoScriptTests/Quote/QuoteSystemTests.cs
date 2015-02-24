@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using Palaso.TestUtilities;
 using ProtoScript.Quote;
+using SIL.WritingSystems;
 using SIL.Xml;
 
 namespace ProtoScriptTests.Quote
@@ -36,9 +37,29 @@ namespace ProtoScriptTests.Quote
 		}
 
 		[Test]
+		public void Deserialize()
+		{
+			const string input = @"<QuoteSystem>
+	<Name>Guillemets</Name>
+	<MajorLanguage>French</MajorLanguage>
+	<StartQuoteMarker>«</StartQuoteMarker>
+	<EndQuoteMarker>»</EndQuoteMarker>
+</QuoteSystem>";
+			var quoteSystem = XmlSerializationHelper.DeserializeFromString<QuoteSystem>(input);
+			Assert.AreEqual("«", quoteSystem.FirstLevel.Open);
+			Assert.AreEqual("«", quoteSystem.FirstLevel.Continue);
+			Assert.AreEqual("»", quoteSystem.FirstLevel.Close);
+		}
+
+		[Test]
 		public void Serialize()
 		{
-			var qs = new QuoteSystem { Name = "Guillemets", StartQuoteMarker = "«", EndQuoteMarker = "»", MajorLanguage = "French" };
+			var qs = new QuoteSystem
+			{
+				Name = "Guillemets",
+				FirstLevel = new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal),
+				MajorLanguage = "French"
+			};
 			string xml = XmlSerializationHelper.SerializeToString(qs);
 			const string expectedResult = @"<QuoteSystem>
 	<Name>Guillemets</Name>

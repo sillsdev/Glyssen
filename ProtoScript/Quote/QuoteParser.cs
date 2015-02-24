@@ -56,8 +56,8 @@ namespace ProtoScript.Quote
 			var sb = new StringBuilder();
 			var possibleStartQuoteMarker = new StringBuilder();
 			var possibleEndQuoteMarker = new StringBuilder();
-			bool quoteStartMulticharacter = m_quoteSystem.StartQuoteMarker.Length > 1;
-			bool quoteEndMulticharacter = m_quoteSystem.EndQuoteMarker.Length > 1;
+			bool quoteStartMulticharacter = m_quoteSystem.FirstLevel.Open.Length > 1;
+			bool quoteEndMulticharacter = m_quoteSystem.FirstLevel.Close.Length > 1;
 			m_quoteLevel = 0;
 			bool quoteEndPending = false;
 			bool quoteStartPending = false;
@@ -386,14 +386,14 @@ namespace ProtoScript.Quote
 		/// <returns></returns>
 		private bool IsStartOfRegularQuote(string character)
 		{
-			return character.Equals(m_quoteSystem.StartQuoteMarker);
+			return character.Equals(m_quoteSystem.FirstLevel.Open);
 		}
 
 		private bool IsStartOfRegularQuote(bool multicharacter, string character, string possibleMulticharacterQuoteMarker)
 		{
 			if (multicharacter)
-				return possibleMulticharacterQuoteMarker.Equals(m_quoteSystem.StartQuoteMarker);
-			return character.Equals(m_quoteSystem.StartQuoteMarker);
+				return possibleMulticharacterQuoteMarker.Equals(m_quoteSystem.FirstLevel.Open);
+			return character.Equals(m_quoteSystem.FirstLevel.Open);
 		}
 
 		/// <summary>
@@ -413,7 +413,7 @@ namespace ProtoScript.Quote
 		/// <returns></returns>
 		private bool IsStartOfQuote(string character)
 		{
-			return character.Equals(m_quoteSystem.StartQuoteMarker) || character.Equals(m_quoteSystem.QuotationDashMarker);
+			return character.Equals(m_quoteSystem.FirstLevel.Open) || character.Equals(m_quoteSystem.QuotationDashMarker);
 		}
 
 		/// <summary>
@@ -423,7 +423,7 @@ namespace ProtoScript.Quote
 		/// <returns></returns>
 		private bool IsPossibleStartOfRegularQuote(string character)
 		{
-			return m_quoteSystem.StartQuoteMarker.StartsWith(character);
+			return m_quoteSystem.FirstLevel.Open.StartsWith(character);
 		}
 
 		/// <summary>
@@ -433,7 +433,7 @@ namespace ProtoScript.Quote
 		/// <returns></returns>
 		private bool IsPossibleEndOfRegularQuote(string character)
 		{
-			return m_quoteSystem.EndQuoteMarker.StartsWith(character);
+			return m_quoteSystem.FirstLevel.Close.StartsWith(character);
 		}
 
 		/// <summary>
@@ -443,19 +443,19 @@ namespace ProtoScript.Quote
 		/// <returns></returns>
 		private bool IsEndOfRegularQuote(string character)
 		{
-			return character.Equals(m_quoteSystem.EndQuoteMarker);
+			return character.Equals(m_quoteSystem.FirstLevel.Close);
 		}
 
 		private bool IsEndOfRegularQuote(bool multicharacter, string character, string possibleMulticharacterQuoteMarker)
 		{
 			if (multicharacter)
-				return possibleMulticharacterQuoteMarker.Equals(m_quoteSystem.EndQuoteMarker);
-			return character.Equals(m_quoteSystem.EndQuoteMarker);
+				return possibleMulticharacterQuoteMarker.Equals(m_quoteSystem.FirstLevel.Close);
+			return character.Equals(m_quoteSystem.FirstLevel.Close);
 		}
 
 		private bool IsStartAndEndMarkersSame()
 		{
-			return m_quoteSystem.StartQuoteMarker.Equals(m_quoteSystem.EndQuoteMarker);
+			return m_quoteSystem.FirstLevel.Open.Equals(m_quoteSystem.FirstLevel.Close);
 		}
 
 		private bool IsSentenceEnding(char c)
