@@ -481,41 +481,41 @@ namespace ProtoScriptTests
 		[Test]
 		public void GetIndices_FirstBlock()
 		{
-			Assert.AreEqual(new Tuple<int, int>(0, 0), m_navigator.GetIndices());
+			Assert.AreEqual(new BookBlockIndices(0, 0), m_navigator.GetIndices());
 		}
 
 		[Test]
 		public void GetIndices_SecondBlock()
 		{
 			m_navigator.CurrentBlock = m_books.First().GetScriptBlocks()[1];
-			Assert.AreEqual(new Tuple<int, int>(0, 1), m_navigator.GetIndices());
+			Assert.AreEqual(new BookBlockIndices(0, 1), m_navigator.GetIndices());
 		}
 
 		[Test]
 		public void GetIndices_LastBlock()
 		{
 			m_navigator.CurrentBlock = m_books.Last().GetScriptBlocks()[3];
-			Assert.AreEqual(new Tuple<int, int>(1, 3), m_navigator.GetIndices());
+			Assert.AreEqual(new BookBlockIndices(1, 3), m_navigator.GetIndices());
 		}
 
 		[Test]
 		public void SetIndices_FirstBlock()
 		{
-			m_navigator.SetIndices(new Tuple<int, int>(0, 0));
+			m_navigator.SetIndices(new BookBlockIndices(0, 0));
 			Assert.AreEqual(m_books.First().GetScriptBlocks()[0], m_navigator.CurrentBlock);
 		}
 
 		[Test]
 		public void SetIndices_SecondBlock()
 		{
-			m_navigator.SetIndices(new Tuple<int, int>(0, 1));
+			m_navigator.SetIndices(new BookBlockIndices(0, 1));
 			Assert.AreEqual(m_books.First().GetScriptBlocks()[1], m_navigator.CurrentBlock);
 		}
 
 		[Test]
 		public void SetIndices_LastBlock()
 		{
-			m_navigator.SetIndices(new Tuple<int, int>(1, 3));
+			m_navigator.SetIndices(new BookBlockIndices(1, 3));
 			Assert.AreEqual(m_books.Last().GetScriptBlocks()[3], m_navigator.CurrentBlock);
 		}
 
@@ -523,21 +523,21 @@ namespace ProtoScriptTests
 		public void GetIndicesOfSpecificBlock_FirstBlock()
 		{
 			var result = m_navigator.GetIndicesOfSpecificBlock(m_books.First().GetScriptBlocks()[0]);
-			Assert.AreEqual(new Tuple<int, int>(0, 0), result);
+			Assert.AreEqual(new BookBlockIndices(0, 0), result);
 		}
 
 		[Test]
 		public void GetIndicesOfSpecificBlock_SecondBlock()
 		{
 			var result = m_navigator.GetIndicesOfSpecificBlock(m_books.First().GetScriptBlocks()[1]);
-			Assert.AreEqual(new Tuple<int, int>(0, 1), result);
+			Assert.AreEqual(new BookBlockIndices(0, 1), result);
 		}
 
 		[Test]
 		public void GetIndicesOfSpecificBlock_LastBlock()
 		{
 			var result = m_navigator.GetIndicesOfSpecificBlock(m_books.Last().GetScriptBlocks()[3]);
-			Assert.AreEqual(new Tuple<int, int>(1, 3), result);
+			Assert.AreEqual(new BookBlockIndices(1, 3), result);
 		}
 
 		[Test]
@@ -565,16 +565,16 @@ namespace ProtoScriptTests
 		public void GetIndicesOfFirstBlockAtReference_InFirstBook_ReturnsIndices()
 		{
 			var result = m_navigator.GetIndicesOfFirstBlockAtReference(new BCVRef(BCVRef.BookToNumber("LUK"), 1, 1));
-			Assert.AreEqual(0, result.Item1);
-			Assert.AreEqual(1, result.Item2);
+			Assert.AreEqual(0, result.BookIndex);
+			Assert.AreEqual(1, result.BlockIndex);
 		}
 
 		[Test]
 		public void GetIndicesOfFirstBlockAtReference_TwoBlockAtSameReference_ReturnsIndicesForFirstMatch()
 		{
 			var result = m_navigator.GetIndicesOfFirstBlockAtReference(new BCVRef(BCVRef.BookToNumber("ROM"), 5, 7));
-			Assert.AreEqual(1, result.Item1);
-			Assert.AreEqual(2, result.Item2);
+			Assert.AreEqual(1, result.BookIndex);
+			Assert.AreEqual(2, result.BlockIndex);
 		}
 
 	}

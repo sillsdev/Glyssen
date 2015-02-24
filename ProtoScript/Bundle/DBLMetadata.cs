@@ -202,8 +202,8 @@ namespace ProtoScript.Bundle
 
 	public class ProjectStatus
 	{
-		[XmlElement("assignCharacterReference")]
-		public VerseRef AssignCharacterReference;
+		[XmlElement("assignCharacterBlock")]
+		public BookBlockIndices AssignCharacterBlock;
 		[XmlElement("assignCharacterMode")]
 		public BlocksToDisplay AssignCharacterMode;
 	}

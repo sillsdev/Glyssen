@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using Paratext;
-using Paratext.Users;
 using ProtoScript.Character;
 using SIL.ScriptureUtils;
 using ScrVers = Paratext.ScrVers;
@@ -54,8 +53,8 @@ namespace ProtoScript.Dialogs
 		private readonly bool m_rightToLeftScript;
 		private readonly BlockNavigator m_navigator;
 		private readonly IEnumerable<string> m_includedBooks;
-		protected List<Tuple<int, int>> m_relevantBlocks;
-		private Tuple<int, int> m_temporarilyIncludedBlock;
+		protected List<BookBlockIndices> m_relevantBlocks;
+		private BookBlockIndices m_temporarilyIncludedBlock;
 		private static readonly BookBlockTupleComparer s_bookBlockComparer = new BookBlockTupleComparer();
 		private int m_currentBlockIndex = -1;
 		private BlocksToDisplay m_mode;
@@ -67,7 +66,7 @@ namespace ProtoScript.Dialogs
 		{
 		}
 
-		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode, VerseRef verseRef)
+		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode, BookBlockIndices startingIndices)
 		{
 			m_project = project;
 			m_navigator = new BlockNavigator(project.IncludedBooks);
@@ -80,8 +79,8 @@ namespace ProtoScript.Dialogs
 
 			Mode = mode;
 
-			if (verseRef != null)
-				TryLoadBlock(verseRef);
+			if (startingIndices != null && !startingIndices.IsUndefined)
+				m_navigator.SetIndices(startingIndices);
 		}
 
 		#region IDisposable Members
@@ -129,16 +128,16 @@ namespace ProtoScript.Dialogs
 		{
 			get
 			{
-				return m_navigator.GetIndices().Item2;
+				return m_navigator.GetIndices().BlockIndex;
 			}
 			set
 			{
 				int index = value;
-				Tuple<int, int> location;
-				var bookIndex = m_navigator.GetIndices().Item1;
+				BookBlockIndices location;
+				var bookIndex = m_navigator.GetIndices().BookIndex;
 				do
 				{
-					location = new Tuple<int, int>(bookIndex, index);
+					location = new BookBlockIndices(bookIndex, index);
 					m_navigator.SetIndices(location);
 				} while (CurrentBlock.MultiBlockQuote == MultiBlockQuote.Continuation && --index >= 0);
 				Debug.Assert(index >= 0);
@@ -290,7 +289,7 @@ namespace ProtoScript.Dialogs
 			// Note this method assumes the startQuoteBlock is in the navigator's current book.
 			Debug.Assert(startQuoteBlock.MultiBlockQuote == MultiBlockQuote.Start);
 
-			for (int j = m_navigator.GetIndicesOfSpecificBlock(startQuoteBlock).Item2 + 1; ; j++)
+			for (int j = m_navigator.GetIndicesOfSpecificBlock(startQuoteBlock).BlockIndex + 1; ; j++)
 			{
 				Block block = m_navigator.CurrentBook[j];
 				if (block == null || block.MultiBlockQuote != MultiBlockQuote.Continuation)
@@ -395,7 +394,7 @@ namespace ProtoScript.Dialogs
 			SetBlock(m_relevantBlocks[m_currentBlockIndex]);
 		}
 
-		private void SetBlock(Tuple<int, int> indices)
+		private void SetBlock(BookBlockIndices indices)
 		{
 			m_navigator.SetIndices(indices);
 			HandleCurrentBlockChanged();
@@ -405,14 +404,19 @@ namespace ProtoScript.Dialogs
 		{
 			if (CurrentBlockChanged != null)
 				CurrentBlockChanged(this, new EventArgs());
-			StoreVerseRef();
+			StoreCurrentBlockIndices();
 		}
 
-		protected virtual void StoreVerseRef()
+		protected virtual void StoreCurrentBlockIndices()
 		{
 		}
 
-		public static int GetIndexOfClosestRelevantBlock(List<Tuple<int, int>> list, Tuple<int, int> key, bool prev,
+		protected BookBlockIndices GetCurrentBlockIndices()
+		{
+			return m_navigator.GetIndices();
+		} 
+
+		public static int GetIndexOfClosestRelevantBlock(List<BookBlockIndices> list, BookBlockIndices key, bool prev,
 			int min, int max)
 		{
 			if (min > max)
@@ -440,7 +444,7 @@ namespace ProtoScript.Dialogs
 		protected virtual void PopulateRelevantBlocks()
 		{
 			m_navigator.NavigateToFirstBlock();
-			m_relevantBlocks = new List<Tuple<int, int>>();
+			m_relevantBlocks = new List<BookBlockIndices>();
 			Block block = m_navigator.CurrentBlock;
 			for (; ; )
 			{
@@ -532,14 +536,14 @@ namespace ProtoScript.Dialogs
 	}
 
 	#region BookBlockTupleComparer
-	public class BookBlockTupleComparer : IComparer<Tuple<int, int>>
+	public class BookBlockTupleComparer : IComparer<BookBlockIndices>
 	{
-		public int Compare(Tuple<int, int> x, Tuple<int, int> y)
+		public int Compare(BookBlockIndices x, BookBlockIndices y)
 		{
-			int item1Comparison = x.Item1.CompareTo(y.Item1);
+			int item1Comparison = x.BookIndex.CompareTo(y.BookIndex);
 			if (item1Comparison == 0)
 			{
-				return x.Item2.CompareTo(y.Item2);
+				return x.BlockIndex.CompareTo(y.BlockIndex);
 			}
 			return item1Comparison;
 		}

@@ -353,6 +353,7 @@ namespace ProtoScript
 			using (var dlg = new ScriptureRangeSelectionDialog(m_project))
 				if (dlg.ShowDialog() == DialogResult.OK)
 				{
+					m_project.ClearProjectStatus();
 					m_project.Analyze();
 					UpdateDisplayOfProjectInfo();
 				}

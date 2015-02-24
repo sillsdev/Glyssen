@@ -19,11 +19,12 @@ namespace ProtoScript.Dialogs
 		public event EventHandler AssignedBlocksIncremented;
 
 		public AssignCharacterViewModel(Project project)
-			: this(project, project.Status.AssignCharacterMode != 0 ? project.Status.AssignCharacterMode : BlocksToDisplay.NeedAssignments, project.Status.AssignCharacterReference)
+			: this(project, project.Status.AssignCharacterMode != 0 ? project.Status.AssignCharacterMode : BlocksToDisplay.NeedAssignments, project.Status.AssignCharacterBlock)
 		{
 		}
 
-		public AssignCharacterViewModel(Project project, BlocksToDisplay mode, VerseRef verseRef) : base(project, mode, verseRef)
+		public AssignCharacterViewModel(Project project, BlocksToDisplay mode, BookBlockIndices startingIndices)
+			: base(project, mode, startingIndices)
 		{
 			m_projectCharacterVerseData = project.ProjectCharacterVerseData;
 			m_combinedCharacterVerseData = new CombinedCharacterVerseData(project);
@@ -61,9 +62,9 @@ namespace ProtoScript.Dialogs
 				m_assignedBlocks++;
 		}
 
-		protected override void StoreVerseRef()
+		protected override void StoreCurrentBlockIndices()
 		{
-			m_project.Status.AssignCharacterReference = GetBlockVerseRef();
+			m_project.Status.AssignCharacterBlock = GetCurrentBlockIndices();
 		}
 
 		public bool AreAllAssignmentsComplete

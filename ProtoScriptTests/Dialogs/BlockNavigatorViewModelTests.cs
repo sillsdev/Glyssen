@@ -160,62 +160,62 @@ namespace ProtoScriptTests.Dialogs
 		public void GetIndexOfClosestRelevantBlock_MinGreaterThanMax_ReturnsNegative1()
 		{
 			Assert.AreEqual(-1, AssignCharacterViewModel.GetIndexOfClosestRelevantBlock(
-				new List<Tuple<int, int>>(), new Tuple<int, int>(1, 2), true, 1, 0));
+				new List<BookBlockIndices>(), new BookBlockIndices(1, 2), true, 1, 0));
 		}
 
 		[Test]
 		public void GetIndexOfClosestRelevantBlock_PreviousBlockIsRelevant_ReturnsClosestPreviousRelevantBlock()
 		{
-			var relevantBlocks = new List<Tuple<int, int>>();
-			relevantBlocks.Add(new Tuple<int, int>(1, 2));
-			relevantBlocks.Add(new Tuple<int, int>(1, 20));
-			relevantBlocks.Add(new Tuple<int, int>(2, 1));
-			relevantBlocks.Add(new Tuple<int, int>(2, 7));
-			relevantBlocks.Add(new Tuple<int, int>(2, 8));
-			relevantBlocks.Add(new Tuple<int, int>(2, 14));
-			relevantBlocks.Add(new Tuple<int, int>(3, 2));
+			var relevantBlocks = new List<BookBlockIndices>();
+			relevantBlocks.Add(new BookBlockIndices(1, 2));
+			relevantBlocks.Add(new BookBlockIndices(1, 20));
+			relevantBlocks.Add(new BookBlockIndices(2, 1));
+			relevantBlocks.Add(new BookBlockIndices(2, 7));
+			relevantBlocks.Add(new BookBlockIndices(2, 8));
+			relevantBlocks.Add(new BookBlockIndices(2, 14));
+			relevantBlocks.Add(new BookBlockIndices(3, 2));
 			Assert.AreEqual(4, AssignCharacterViewModel.GetIndexOfClosestRelevantBlock(
-				relevantBlocks, new Tuple<int, int>(2, 10), true, 0, relevantBlocks.Count - 1));
+				relevantBlocks, new BookBlockIndices(2, 10), true, 0, relevantBlocks.Count - 1));
 		}
 
 		[Test]
 		public void GetIndexOfClosestRelevantBlock_NoPreviousBlockIsRelevant_ReturnsNegative1()
 		{
-			var relevantBlocks = new List<Tuple<int, int>>();
-			relevantBlocks.Add(new Tuple<int, int>(2, 14));
-			relevantBlocks.Add(new Tuple<int, int>(3, 2));
+			var relevantBlocks = new List<BookBlockIndices>();
+			relevantBlocks.Add(new BookBlockIndices(2, 14));
+			relevantBlocks.Add(new BookBlockIndices(3, 2));
 			Assert.AreEqual(-1, AssignCharacterViewModel.GetIndexOfClosestRelevantBlock(
-				relevantBlocks, new Tuple<int, int>(1, 3), true, 0, relevantBlocks.Count - 1));
+				relevantBlocks, new BookBlockIndices(1, 3), true, 0, relevantBlocks.Count - 1));
 		}
 
 		[Test]
 		public void GetIndexOfClosestRelevantBlock_FollowingBlockIsRelevant_ReturnsClosestFollowingRelevantBlock()
 		{
-			var relevantBlocks = new List<Tuple<int, int>>();
-			relevantBlocks.Add(new Tuple<int, int>(1, 2));
-			relevantBlocks.Add(new Tuple<int, int>(1, 20));
-			relevantBlocks.Add(new Tuple<int, int>(2, 1));
-			relevantBlocks.Add(new Tuple<int, int>(2, 7));
-			relevantBlocks.Add(new Tuple<int, int>(2, 8));
-			relevantBlocks.Add(new Tuple<int, int>(2, 14));
-			relevantBlocks.Add(new Tuple<int, int>(3, 2));
+			var relevantBlocks = new List<BookBlockIndices>();
+			relevantBlocks.Add(new BookBlockIndices(1, 2));
+			relevantBlocks.Add(new BookBlockIndices(1, 20));
+			relevantBlocks.Add(new BookBlockIndices(2, 1));
+			relevantBlocks.Add(new BookBlockIndices(2, 7));
+			relevantBlocks.Add(new BookBlockIndices(2, 8));
+			relevantBlocks.Add(new BookBlockIndices(2, 14));
+			relevantBlocks.Add(new BookBlockIndices(3, 2));
 			Assert.AreEqual(2, AssignCharacterViewModel.GetIndexOfClosestRelevantBlock(
-				relevantBlocks, new Tuple<int, int>(1, 21), false, 0, relevantBlocks.Count - 1));
+				relevantBlocks, new BookBlockIndices(1, 21), false, 0, relevantBlocks.Count - 1));
 		}
 
 		[Test]
 		public void GetIndexOfClosestRelevantBlock_NoFollowingBlockIsRelevant_ReturnsNegative1()
 		{
-			var relevantBlocks = new List<Tuple<int, int>>();
-			relevantBlocks.Add(new Tuple<int, int>(1, 2));
-			relevantBlocks.Add(new Tuple<int, int>(1, 20));
-			relevantBlocks.Add(new Tuple<int, int>(2, 1));
-			relevantBlocks.Add(new Tuple<int, int>(2, 7));
-			relevantBlocks.Add(new Tuple<int, int>(2, 8));
-			relevantBlocks.Add(new Tuple<int, int>(2, 14));
-			relevantBlocks.Add(new Tuple<int, int>(3, 2));
+			var relevantBlocks = new List<BookBlockIndices>();
+			relevantBlocks.Add(new BookBlockIndices(1, 2));
+			relevantBlocks.Add(new BookBlockIndices(1, 20));
+			relevantBlocks.Add(new BookBlockIndices(2, 1));
+			relevantBlocks.Add(new BookBlockIndices(2, 7));
+			relevantBlocks.Add(new BookBlockIndices(2, 8));
+			relevantBlocks.Add(new BookBlockIndices(2, 14));
+			relevantBlocks.Add(new BookBlockIndices(3, 2));
 			Assert.AreEqual(-1, AssignCharacterViewModel.GetIndexOfClosestRelevantBlock(
-				relevantBlocks, new Tuple<int, int>(3, 3), false, 0, relevantBlocks.Count - 1));
+				relevantBlocks, new BookBlockIndices(3, 3), false, 0, relevantBlocks.Count - 1));
 		}
 
 		[Test]

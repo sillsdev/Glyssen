@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
+using System.Xml.Serialization;
+using Paratext.Users;
 using SIL.ScriptureUtils;
 
 namespace ProtoScript
@@ -40,31 +43,31 @@ namespace ProtoScript
 			{
 				var indices = GetIndicesOfSpecificBlock(value);
 				m_currentBlock = value;
-				m_currentBookIndex = indices.Item1;
-				m_currentBlockIndex = indices.Item2;
+				m_currentBookIndex = indices.BookIndex;
+				m_currentBlockIndex = indices.BlockIndex;
 				m_currentBook = m_books[m_currentBookIndex];
 			}
 		}
 
 		public void NavigateToFirstBlock()
 		{
-			SetIndices(new Tuple<int, int>(0, 0));
+			SetIndices(new BookBlockIndices(0, 0));
 		}
 
-		internal Tuple<int, int> GetIndices()
+		internal BookBlockIndices GetIndices()
 		{
-			return new Tuple<int, int>(m_currentBookIndex, m_currentBlockIndex);
+			return new BookBlockIndices(m_currentBookIndex, m_currentBlockIndex);
 		}
 
-		internal void SetIndices(Tuple<int, int> indices)
+		internal void SetIndices(BookBlockIndices indices)
 		{
-			m_currentBookIndex = indices.Item1;
+			m_currentBookIndex = indices.BookIndex;
 			m_currentBook = m_books[m_currentBookIndex];
-			m_currentBlockIndex = indices.Item2;
+			m_currentBlockIndex = indices.BlockIndex;
 			m_currentBlock = m_currentBook.GetScriptBlocks()[m_currentBlockIndex];
 		}
 
-		internal Tuple<int, int> GetIndicesOfSpecificBlock(Block block)
+		internal BookBlockIndices GetIndicesOfSpecificBlock(Block block)
 		{
 			if (block == m_currentBlock)
 				return GetIndices();
@@ -73,7 +76,7 @@ namespace ProtoScript
 
 			var indexInCurrentBook = m_currentBook.GetScriptBlocks().IndexOf(block);
 			if (indexInCurrentBook >= 0)
-				return new Tuple<int, int>(m_currentBookIndex, indexInCurrentBook);
+				return new BookBlockIndices(m_currentBookIndex, indexInCurrentBook);
 
 			for (int iBook = 0; iBook < m_books.Count; iBook++)
 			{
@@ -82,12 +85,12 @@ namespace ProtoScript
 				var book = m_books[iBook];
 				var iBlock = book.GetScriptBlocks().IndexOf(block);
 				if (iBlock >= 0)
-					return new Tuple<int, int>(iBook, iBlock);
+					return new BookBlockIndices(iBook, iBlock);
 			}
 			throw new ArgumentOutOfRangeException("block", block.ToString(), "Block not found in any book!");
 		}
 
-		public Tuple<int, int> GetIndicesOfFirstBlockAtReference(BCVRef bcvRef)
+		public BookBlockIndices GetIndicesOfFirstBlockAtReference(BCVRef bcvRef)
 		{
 			var bookId = BCVRef.NumberToBookCode(bcvRef.Book);
 			int bookIndex = -1;
@@ -108,7 +111,7 @@ namespace ProtoScript
 			var blockIndex = book.Blocks.IndexOf(
 				a => a.ChapterNumber == bcvRef.Chapter && a.InitialStartVerseNumber <= bcvRef.Verse && a.LastVerse >= bcvRef.Verse);
 
-			return blockIndex == -1 ? null : new Tuple<int, int>(bookIndex, blockIndex);
+			return blockIndex == -1 ? null : new BookBlockIndices(bookIndex, blockIndex);
 		}
 
 		public BookScript GetBookScriptContainingBlock(Block block)
@@ -221,8 +224,8 @@ namespace ProtoScript
 		{
 			if (baseLineBlock == m_currentBlock)
 				return PeekNthNextBlockWithinBook(n);
-			Tuple<int, int> indices = GetIndicesOfSpecificBlock(baseLineBlock);
-			return PeekNthNextBlockWithinBook(n, indices.Item1, indices.Item2);
+			BookBlockIndices indices = GetIndicesOfSpecificBlock(baseLineBlock);
+			return PeekNthNextBlockWithinBook(n, indices.BookIndex, indices.BlockIndex);
 		}
 
 		private Block PeekNthNextBlockWithinBook(int n, int bookIndex, int blockIndex)
@@ -270,8 +273,8 @@ namespace ProtoScript
 		{
 			if (baseLineBlock == m_currentBlock)
 				return PeekNthPreviousBlockWithinBook(n);
-			Tuple<int, int> indices = GetIndicesOfSpecificBlock(baseLineBlock);
-			return PeekNthPreviousBlockWithinBook(n, indices.Item1, indices.Item2);
+			BookBlockIndices indices = GetIndicesOfSpecificBlock(baseLineBlock);
+			return PeekNthPreviousBlockWithinBook(n, indices.BookIndex, indices.BlockIndex);
 		}
 
 		private Block PeekNthPreviousBlockWithinBook(int n, int bookIndex, int blockIndex)
@@ -341,6 +344,70 @@ namespace ProtoScript
 
 			return m_currentBlock = m_currentBook[--m_currentBlockIndex];
 		}
+	}
+
+	[XmlRoot]
+	public class BookBlockIndices : IEquatable<BookBlockIndices>
+	{
+		public BookBlockIndices()
+		{
+			BookIndex = -1;
+			BlockIndex = -1;
+		}
+
+		public BookBlockIndices(int bookIndex, int blockIndex)
+		{
+			BookIndex = bookIndex;
+			BlockIndex = blockIndex;
+		}
+
+		[XmlElement("bookIndex")]
+		public int BookIndex { get; set; }
+
+		[XmlElement("blockIndex")]
+		public int BlockIndex { get; set; }
+
+		public bool IsUndefined { get { return BookIndex == -1 || BlockIndex == -1; } }
+
+		#region equality members
+		public bool Equals(BookBlockIndices other)
+		{
+			if (ReferenceEquals(null, other))
+				return false;
+			if (ReferenceEquals(this, other))
+				return true;
+			return BookIndex == other.BookIndex && BlockIndex == other.BlockIndex;
+		}
+
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return false;
+			if (ReferenceEquals(this, obj))
+				return true;
+			if (obj.GetType() != this.GetType())
+				return false;
+			return Equals((BookBlockIndices)obj);
+		}
+
+		public override int GetHashCode()
+		{
+			unchecked
+			{
+				return (BookIndex * 397) ^ BlockIndex;
+			}
+		}
+
+		public static bool operator ==(BookBlockIndices left, BookBlockIndices right)
+		{
+			return Equals(left, right);
+		}
+
+		public static bool operator !=(BookBlockIndices left, BookBlockIndices right)
+		{
+			return !Equals(left, right);
+		}
+		#endregion
 	}
 
 	public static class IEnumerableExtensions
