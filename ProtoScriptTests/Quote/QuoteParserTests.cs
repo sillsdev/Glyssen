@@ -94,7 +94,7 @@ namespace ProtoScriptTests.Quote
 			block.BlockElements.Add(new Verse("35"));
 			block.BlockElements.Add(new ScriptText("Ociko lwak ni gubed piny i ŋom, "));
 			var input = new List<Block> { block };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", null, null, false);
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null, false);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 			Assert.AreEqual("Yecu openyogi ni, ", output[0].GetText(false));
@@ -995,7 +995,7 @@ namespace ProtoScriptTests.Quote
 			var block = new Block("p", 1, 17);
 			block.BlockElements.Add(new ScriptText("—Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, —timiayi."));
 			var input = new List<Block> { block };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", "—", "—", false);
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—", false);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("—Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, ", output[0].GetText(false));
@@ -1021,7 +1021,7 @@ namespace ProtoScriptTests.Quote
 			block2.BlockElements.Add(new Verse("8"));
 			block2.BlockElements.Add(new ScriptText("Felipe le dijo: Señor, muéstranos al Padre, y nos basta."));
 			var input = new List<Block> { block1, block2 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", ":", null, false);
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null, false);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 			Assert.AreEqual("[6]\u00A0Jesús le dijo: ", output[0].GetText(true));
@@ -1051,7 +1051,7 @@ namespace ProtoScriptTests.Quote
 			var block = new Block("p", 1, 17);
 			block.BlockElements.Add(new ScriptText("—Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum."));
 			var input = new List<Block> { block };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", "—", QuoteSystem.AnyPunctuation, false);
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", QuoteSystem.AnyPunctuation, false);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("—Wína nemartustaram. ", output[0].GetText(false));
@@ -1071,7 +1071,7 @@ namespace ProtoScriptTests.Quote
 			var block = new Block("p", 1, 17);
 			block.BlockElements.Add(new ScriptText("—Wína nemartustaram: “Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum,” —timiayi."));
 			var input = new List<Block> { block };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", "—", "—", false);
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—", false);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("—Wína nemartustaram: “Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum,” ", output[0].GetText(false));
@@ -1091,7 +1091,7 @@ namespace ProtoScriptTests.Quote
 			var block = new Block("p", 1, 1);
 			block.BlockElements.Add(new ScriptText("“The following is just an ordinary m-dash — don't treat it as a dialogue quote — okay?”, said the frog."));
 			var input = new List<Block> { block };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", "—", "—", false);
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—", false);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("“The following is just an ordinary m-dash — don't treat it as a dialogue quote — okay?”, ", output[0].GetText(false));
@@ -1115,7 +1115,7 @@ namespace ProtoScriptTests.Quote
 			var block3 = new Block("m", 2, 6);
 			block3.BlockElements.Add(new ScriptText("Yus timiayi. Tu aarmawaitai, —tusar aimkarmiayi."));
 			var input = new List<Block> { block1, block2, block3 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", "—", "—", false);
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—", false);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
@@ -1153,7 +1153,7 @@ namespace ProtoScriptTests.Quote
 			block3.BlockElements.Add(new Verse("18"));
 			block3.BlockElements.Add(new ScriptText("Joona mañoomˈ ˈndyena lquiˈ ˈnaaⁿna. Tyˈena ñˈeⁿñê."));
 			var input = new List<Block> { block1, block2, block3 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("“", "”", "—", "—", false);
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—", false);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
@@ -1179,7 +1179,7 @@ namespace ProtoScriptTests.Quote
 			var block = new Block("p", 1, 17);
 			block.BlockElements.Add(new ScriptText("—Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, —timiayi."));
 			var input = new List<Block> { block };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("<<", ">>", "—", "—", false);
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal), "—", "—", false);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("—Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, ", output[0].GetText(false));
@@ -1205,7 +1205,7 @@ namespace ProtoScriptTests.Quote
 			block2.BlockElements.Add(new Verse("8"));
 			block2.BlockElements.Add(new ScriptText("Felipe le dijo: Señor, muéstranos al Padre, y nos basta."));
 			var input = new List<Block> { block1, block2 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("<<", ">>", ":", null, false);
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal), ":", null, false);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 			Assert.AreEqual("[6]\u00A0Jesús le dijo: ", output[0].GetText(true));
@@ -1235,7 +1235,7 @@ namespace ProtoScriptTests.Quote
 			var block = new Block("p", 1, 17);
 			block.BlockElements.Add(new ScriptText("—Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum."));
 			var input = new List<Block> { block };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("<<", ">>", "—", QuoteSystem.AnyPunctuation, false);
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal), "—", QuoteSystem.AnyPunctuation, false);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("—Wína nemartustaram. ", output[0].GetText(false));
@@ -1255,7 +1255,7 @@ namespace ProtoScriptTests.Quote
 			var block = new Block("p", 1, 17);
 			block.BlockElements.Add(new ScriptText("—Wína nemartustaram: <<Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum,>> —timiayi."));
 			var input = new List<Block> { block };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("<<", ">>", "—", "—", false);
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal), "—", "—", false);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("—Wína nemartustaram: <<Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum,>> ", output[0].GetText(false));
@@ -1275,7 +1275,7 @@ namespace ProtoScriptTests.Quote
 			var block = new Block("p", 1, 1);
 			block.BlockElements.Add(new ScriptText("<<The following is just an ordinary m-dash — don't treat it as a dialogue quote — okay?>>, said the frog."));
 			var input = new List<Block> { block };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("<<", ">>", "—", "—", false);
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal), "—", "—", false);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("<<The following is just an ordinary m-dash — don't treat it as a dialogue quote — okay?>>, ", output[0].GetText(false));
@@ -1299,7 +1299,7 @@ namespace ProtoScriptTests.Quote
 			var block3 = new Block("m", 2, 6);
 			block3.BlockElements.Add(new ScriptText("Yus timiayi. Tu aarmawaitai, —tusar aimkarmiayi."));
 			var input = new List<Block> { block1, block2, block3 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("<<", ">>", "—", "—", false);
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal), "—", "—", false);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 
@@ -1337,7 +1337,7 @@ namespace ProtoScriptTests.Quote
 			block3.BlockElements.Add(new Verse("18"));
 			block3.BlockElements.Add(new ScriptText("Joona mañoomˈ ˈndyena lquiˈ ˈnaaⁿna. Tyˈena ñˈeⁿñê."));
 			var input = new List<Block> { block1, block2, block3 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem("<<", ">>", "—", "—", false);
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal), "—", "—", false);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 

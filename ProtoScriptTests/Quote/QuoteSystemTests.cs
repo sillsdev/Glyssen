@@ -12,16 +12,17 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void GetCorrespondingFirstLevelQuoteSystem_SameSystem()
 		{
-			var french = QuoteSystem.GetOrCreateQuoteSystem("«", "»", null, null, false); //Guillemets -- French
+			var french = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal), null, null, false); //Guillemets -- French
 			Assert.AreEqual(french, french.GetCorrespondingFirstLevelQuoteSystem());
+			new QuotationMark("", "", "", 1, QuotationMarkingSystemType.Normal);
 		}
 
 		[Test]
 		public void GetCorrespondingFirstLevelQuoteSystem_WithQuoteDash()
 		{
-			var turkish = QuoteSystem.GetOrCreateQuoteSystem("«", "»", "—", null, false); //Tırnak işareti (with 2014 Quotation dash) -- Turkish/Vietnamese
-			var french = QuoteSystem.GetOrCreateQuoteSystem("«", "»", null, null, false); //Guillemets -- French
-			var english = QuoteSystem.GetOrCreateQuoteSystem("“", "”", null, null, false); //Quotation marks, double -- English, US/Canada
+			var turkish = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal), "—", null, false); //Tırnak işareti (with 2014 Quotation dash) -- Turkish/Vietnamese
+			var french = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal), null, null, false); //Guillemets -- French
+			var english = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null, false); //Quotation marks, double -- English, US/Canada
 			Assert.AreEqual(french, turkish.GetCorrespondingFirstLevelQuoteSystem());
 			Assert.AreNotEqual(english, turkish.GetCorrespondingFirstLevelQuoteSystem());
 		}
@@ -29,9 +30,9 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void GetCorrespondingFirstLevelQuoteSystem_AllAdditionalFields()
 		{
-			var madeup = QuoteSystem.GetOrCreateQuoteSystem("“", "”", "―", "―", true); //Made-up
-			var french = QuoteSystem.GetOrCreateQuoteSystem("«", "»", null, null, false); //Guillemets -- French
-			var english = QuoteSystem.GetOrCreateQuoteSystem("“", "”", null, null, false); //Quotation marks, double -- English, US/Canada
+			var madeup = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "―", "―", true); //Made-up
+			var french = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal), null, null, false); //Guillemets -- French
+			var english = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null, false); //Quotation marks, double -- English, US/Canada
 			Assert.AreEqual(english, madeup.GetCorrespondingFirstLevelQuoteSystem());
 			Assert.AreNotEqual(french, madeup.GetCorrespondingFirstLevelQuoteSystem());
 		}

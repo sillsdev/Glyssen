@@ -65,15 +65,6 @@ namespace ProtoScript.Quote
 			get { return s_systems.Where(q => q.QuotationDashMarker == null).Distinct(new FirstLevelQuoteSystemComparer()); }
 		}
 
-		[Obsolete("Use version with QuotationMark instead", false)]
-		public static QuoteSystem GetOrCreateQuoteSystem(string startQuoteMarker, string endQuoteMarker,
-			string quotationDashMarker, string quotationDashEndMarker, bool quotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes)
-		{
-			return GetOrCreateQuoteSystem(
-				new QuotationMark(startQuoteMarker, endQuoteMarker, startQuoteMarker, 1, QuotationMarkingSystemType.Normal),
-				quotationDashMarker, quotationDashEndMarker, quotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes);
-		}
-
 		public static QuoteSystem GetOrCreateQuoteSystem(QuotationMark firstLevel,
 			string quotationDashMarker, string quotationDashEndMarker, bool quotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes)
 		{
