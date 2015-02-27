@@ -55,10 +55,9 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Serialize()
 		{
-			var qs = new QuoteSystem
+			var qs = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal))
 			{
 				Name = "Guillemets",
-				FirstLevel = new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal),
 				MajorLanguage = "French"
 			};
 			string xml = XmlSerializationHelper.SerializeToString(qs);
