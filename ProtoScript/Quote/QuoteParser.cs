@@ -103,6 +103,9 @@ namespace ProtoScript.Quote
 						// Add the element to our working list in case we need to move it to the next block (see MoveTrailingElementsIfNecessary)
 						m_nonScriptTextBlockElements.Add(element);
 
+						if (!m_workingBlock.BlockElements.Any() && element is Verse)
+							m_workingBlock.InitialStartVerseNumber = (element as Verse).StartVerse;
+
 						m_workingBlock.BlockElements.Add(element);
 						continue;
 					}

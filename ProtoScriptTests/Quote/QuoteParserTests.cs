@@ -627,6 +627,31 @@ namespace ProtoScriptTests.Quote
 		}
 
 		[Test]
+		public void Parse_VerseFollowsQuoteEndMarkAndSpace_InitialStartVerseNumberCorrect()
+		{
+			var block = new Block("p", 1, 1) { IsParagraphStart = true };
+			block.BlockElements.Add(new Verse("1"));
+			block.BlockElements.Add(new ScriptText("abc "));
+			block.BlockElements.Add(new Verse("2"));
+			block.BlockElements.Add(new ScriptText("def «ghi» "));
+			block.BlockElements.Add(new Verse("3"));
+			block.BlockElements.Add(new ScriptText("jkl "));
+			var input = new List<Block> { block };
+
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual("abc def ", output[0].GetText(false));
+			Assert.AreEqual("«ghi» ", output[1].GetText(false));
+			Assert.AreEqual("jkl ", output[2].GetText(false));
+			Assert.AreEqual("[1]\u00A0abc [2]\u00A0def ", output[0].GetText(true));
+			Assert.AreEqual(1, output[0].InitialStartVerseNumber);
+			Assert.AreEqual("«ghi» ", output[1].GetText(true));
+			Assert.AreEqual(2, output[1].InitialStartVerseNumber);
+			Assert.AreEqual("[3]\u00A0jkl ", output[2].GetText(true));
+			Assert.AreEqual(3, output[2].InitialStartVerseNumber);
+		}
+
+		[Test]
 		public void Parse_SpaceStaysWithPriorBlock()
 		{
 			var block = new Block("p");
