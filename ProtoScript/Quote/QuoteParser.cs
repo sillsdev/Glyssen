@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using ProtoScript.Character;
 using SIL.ScriptureUtils;
-using SIL.WritingSystems;
 
 namespace ProtoScript.Quote
 {
@@ -70,6 +68,12 @@ namespace ProtoScript.Quote
 			sb.Length--;
 
 			var quoteMatcher = sb.ToString();
+			// quoteMatcher includes all the possible markers; e.g. (?:«)|(?:‹)|(?:›)|(?:»).
+			// Need to group because they could be more than one character each.
+			// The outer () means we want to include the delimiter in the results
+			// ?: => non-matching group
+			// \s => whitespace
+			// \w => word-forming character
 			return new Regex(String.Format(@"((?:(?:{0})+(?:(?:\s)+(?:{0})+)*)+[^\w]*)", quoteMatcher));
 		}
 
