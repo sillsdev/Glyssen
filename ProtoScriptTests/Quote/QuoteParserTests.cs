@@ -1163,24 +1163,17 @@ namespace ProtoScriptTests.Quote
 		}
 
 
-		[Test]
+		[Test, Ignore("Is this even a reasonable case?")]
 		public void Parse_DialogueQuoteContainingRegularQuoteEndedByAnyPunctuation_PunctuationInInnerRegularQuoteIgnored()
 		{
 			var block = new Block("p", 1, 17);
-			block.BlockElements.Add(new ScriptText("—Wína nemartustaram “Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum,” —timiayi."));
+			block.BlockElements.Add(new ScriptText("—Wína nemartustaram “Turaram namak achiarme nunisrumek. aints ainau wína chichamur ujakmintrum.”"));
 			var input = new List<Block> { block };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", QuoteSystem.AnyPunctuation, false);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
-			Assert.AreEqual(2, output.Count);
-			Assert.AreEqual("—Wína nemartustaram “Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum,” ", output[0].GetText(false));
+			Assert.AreEqual(1, output.Count);
+			Assert.AreEqual("—Wína nemartustaram “Turaram namak achiarme nunisrumek. aints ainau wína chichamur ujakmintrum.”", output[0].GetText(false));
 			Assert.AreEqual("Jesus", output[0].CharacterId);
-			Assert.AreEqual(string.Empty, output[0].Delivery);
-			Assert.AreEqual(1, output[0].ChapterNumber);
-			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
-			Assert.AreEqual("—timiayi.", output[1].GetText(false));
-			Assert.IsTrue(output[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
-			Assert.AreEqual(1, output[1].ChapterNumber);
-			Assert.AreEqual(17, output[1].InitialStartVerseNumber);
 		}
 
 		[Test]

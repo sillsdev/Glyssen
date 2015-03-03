@@ -103,8 +103,7 @@ namespace ProtoScript.Quote
 			// ?: => non-matching group
 			// \s => whitespace
 			// \w => word-forming character
-			//return new Regex(String.Format(@"((?:(?:{0})+(?:(?:\s)+(?:{0})+)*)+[^\w]*{1})", quoteMatcher, punctuation));
-			return new Regex(String.Format(@"((?:(?:{0})(?:[^\w{1}])*){2})", quoteMatcher, Regex.Escape(quoteChars.Concat(string.Empty)), punctuation));
+			return new Regex(String.Format(@"((?:(?:{0})(?:[^\w{1}])*){2})", quoteMatcher, Regex.Escape(quoteChars.Concat(string.Empty)), punctuation), RegexOptions.Compiled);
 		}
 
 		/// <summary>
@@ -117,17 +116,9 @@ namespace ProtoScript.Quote
 				return m_inputBlocks;
 			m_outputBlocks = new List<Block>();
 			var sb = new StringBuilder();
-			var possibleStartQuoteMarker = new StringBuilder();
-			var possibleEndQuoteMarker = new StringBuilder();
-			bool quoteStartMulticharacter = m_quoteSystem.FirstLevel.Open.Length > 1;
-			bool quoteEndMulticharacter = m_quoteSystem.FirstLevel.Close.Length > 1;
 			m_quoteLevel = 0;
-			bool quoteEndPending = false;
-			bool quoteStartPending = false;
-			bool dialogueQuoteEndPending = false;
 			bool blockEndedWithSentenceEndingPunctuation = false;
 			Block blockInWhichDialogueQuoteStarted = null;
-			bool atBeginningOfBlock;
 			foreach (Block block in m_inputBlocks)
 			{
 				if (block.UserConfirmed)
@@ -148,23 +139,14 @@ namespace ProtoScript.Quote
 				if (m_quoteLevel == 1 && blockInWhichDialogueQuoteStarted != null && (!IsNormalParagraphStyle(blockInWhichDialogueQuoteStarted.StyleTag) || blockEndedWithSentenceEndingPunctuation || !IsFollowOnParagraphStyle(block.StyleTag)))
 					m_quoteLevel--;
 
-				possibleStartQuoteMarker.Clear();
-				possibleEndQuoteMarker.Clear();
-				bool beyondLeadingPunctuation = false;
 				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber) { IsParagraphStart = block.IsParagraphStart };
 
-				atBeginningOfBlock = true;
+				bool atBeginningOfBlock = true;
 				foreach (BlockElement element in block.BlockElements)
 				{
 					var scriptText = element as ScriptText;
 					if (scriptText == null)
 					{
-						if (quoteEndPending)
-						{
-							FlushStringBuilderAndBlock(sb, block.StyleTag, true);
-							quoteEndPending = false;
-						}
-
 						// Add the element to our working list in case we need to move it to the next block (see MoveTrailingElementsIfNecessary)
 						m_nonScriptTextBlockElements.Add(element);
 
@@ -242,160 +224,10 @@ namespace ProtoScript.Quote
 						{
 							sb.Append(token);
 						}
-
-						//if (possibleStartQuoteMarker.Length > 0)
-						//{
-						//	possibleStartQuoteMarker.Append(ch);
-						//	if (IsStartOfRegularQuote(possibleStartQuoteMarker.ToString()))
-						//	{
-						//		quoteStartPending = true;
-						//	}
-						//	else if (IsPossibleStartOfRegularQuote(possibleStartQuoteMarker.ToString()))
-						//	{
-						//		continue;
-						//	}
-						//	else
-						//	{
-						//		sb.Append(possibleStartQuoteMarker);
-						//		possibleStartQuoteMarker.Clear();
-						//	}
-						//}
-						//if (!quoteEndPending && possibleEndQuoteMarker.Length > 0)
-						//{
-						//	possibleEndQuoteMarker.Append(ch);
-						//	if (IsEndOfRegularQuote(possibleEndQuoteMarker.ToString()))
-						//	{
-						//		//Do nothing
-						//	}
-						//	else if (IsPossibleEndOfRegularQuote(possibleEndQuoteMarker.ToString()))
-						//	{
-						//		continue;
-						//	}
-						//	else
-						//	{
-						//		sb.Append(possibleEndQuoteMarker);
-						//		possibleEndQuoteMarker.Clear();
-						//	}
-						//}
-
-						//if (Char.IsPunctuation(c))
-						//{
-						//	if (!beyondLeadingPunctuation && m_quoteLevel > 0 && m_workingBlock.IsParagraphStart)
-						//	{
-						//		// If we are in a quote, skip any paragraph-leading punctuation for proper processing of continuation quotes
-						//		sb.Append(c);
-						//		continue;
-						//	}
-						//}
-						//else
-						//	beyondLeadingPunctuation = true;
-
-						//if (quoteStartPending)
-						//{
-						//	if (Char.IsWhiteSpace(c))
-						//	{
-						//		sb.Append(c);
-						//		continue;
-						//	}
-						//	if (!IsStartOfQuote(ch))
-						//	{
-						//		FlushStringBuilderAndBlock(sb, block.StyleTag, false);
-						//		m_quoteLevel++;
-						//	}
-						//	quoteStartPending = false;
-						//}
-						//if (quoteEndPending)
-						//{
-						//	if (!IsStartOfQuote(ch) && IsAddOnCharacter(c))
-						//	{
-						//		sb.Append(c);
-						//		continue;
-						//	}
-						//	FlushStringBuilderAndBlock(sb, block.StyleTag, true);
-						//	quoteEndPending = false;
-						//}
-						//if (dialogueQuoteEndPending)
-						//{
-						//	FlushStringBuilderAndBlock(sb, block.StyleTag, true);
-						//	dialogueQuoteEndPending = false;
-						//	sb.Append(m_quoteSystem.QuotationDashEndMarker);
-						//}
-
-						//if (m_quoteLevel > 0 && IsStartOfRegularQuote(ch) && !IsStartAndEndMarkersSame())
-						//	m_quoteLevel++;
-						//else if (m_quoteLevel > 1 && IsEndOfRegularQuote(ch) && !IsStartAndEndMarkersSame())
-						//	m_quoteLevel--;
-						//else if (m_quoteLevel == 0 && (IsStartOfRegularQuote(quoteStartMulticharacter, ch, possibleStartQuoteMarker.ToString()) || IsStartOfDialogQuote(ch)))
-						//{
-						//	blockInWhichDialogueQuoteStarted = IsStartOfRegularQuote(quoteStartMulticharacter, ch, possibleStartQuoteMarker.ToString()) ? null : block;
-						//	if (c == ':') // For quotes introduced using a colon, the colon belongs with the preceding block.
-						//		quoteStartPending = true;
-						//	else
-						//	{
-						//		FlushStringBuilderAndBlock(sb, block.StyleTag, m_quoteLevel > 0);
-						//		m_quoteLevel++;
-						//	}
-						//	blockEndedWithSentenceEndingPunctuation = false;
-						//}
-						//else if (quoteStartMulticharacter && m_quoteLevel == 0 && (IsPossibleStartOfRegularQuote(ch) || IsStartOfDialogQuote(ch)))
-						//{
-						//	possibleStartQuoteMarker.Append(ch);
-						//	continue;
-						//}
-						//else if (blockInWhichDialogueQuoteStarted == null && IsEndOfRegularQuote(quoteEndMulticharacter, ch, possibleEndQuoteMarker.ToString()))
-						//{
-						//	quoteEndPending = true;
-						//	m_quoteLevel--;
-						//}
-						//else if (quoteEndMulticharacter && blockInWhichDialogueQuoteStarted == null && IsPossibleEndOfRegularQuote(ch))
-						//{
-						//	possibleEndQuoteMarker.Append(ch);
-						//	continue;
-						//}
-						//else if (m_quoteLevel == 1 && blockInWhichDialogueQuoteStarted != null)
-						//{
-						//	if (m_quoteSystem.QuotationDashEndMarker == QuoteSystem.AnyPunctuation && Char.IsPunctuation(c))
-						//	{
-						//		quoteEndPending = true;
-						//		m_quoteLevel--;
-						//	}
-						//	else if (ch.Equals(m_quoteSystem.QuotationDashEndMarker))
-						//	{
-						//		dialogueQuoteEndPending = true;
-						//		m_quoteLevel--;
-						//		continue;
-						//	}
-						//	else if (blockInWhichDialogueQuoteStarted == block)
-						//	{
-						//		if (char.IsPunctuation(c))
-						//		{
-						//			if (IsSentenceEnding(c))
-						//				blockEndedWithSentenceEndingPunctuation = true;
-						//		}
-						//		else if (!char.IsWhiteSpace(c))
-						//		{
-						//			blockEndedWithSentenceEndingPunctuation = false;
-						//		}
-						//	}
-						//}
-						//if (m_quoteLevel < 0)
-						//	Debug.Fail("Quote level should never be less than 0.  " + m_bookId + " " + block.ChapterNumber + " " + block.InitialStartVerseNumber);
-						//if (possibleStartQuoteMarker.Length > 0)
-						//{
-						//	sb.Append(possibleStartQuoteMarker);
-						//	possibleStartQuoteMarker.Clear();
-						//}
-						//else if (quoteEndPending && possibleEndQuoteMarker.Length > 0)
-						//{
-						//	sb.Append(possibleEndQuoteMarker);
-						//	possibleEndQuoteMarker.Clear();
-						//}
-						//else
-						//	sb.Append(c);
 					}
 					FlushStringBuilderToBlockElement(sb);
 				}
-				FlushBlock(block.StyleTag, quoteEndPending || m_quoteLevel > 0);
+				FlushBlock(block.StyleTag, m_quoteLevel > 0);
 			}
 			return m_outputBlocks;
 		}
@@ -530,100 +362,6 @@ namespace ProtoScript.Quote
 				verseEndNum = ScrReference.VerseToIntEnd(lastVerse.Number);
 			}
 			m_workingBlock = new Block(styleTag, m_workingBlock.ChapterNumber, verseStartNum, verseEndNum);
-		}
-
-		/// <summary>
-		/// The given character should be attached to whatever text precedes it.
-		/// For example, given this text:
-		///		«Go»! he said.
-		/// The first block should contain the trailing punctuation and whitespace:
-		///		«Go»! 
-		///		he said.
-		/// </summary>
-		/// <param name="character"></param>
-		/// <returns></returns>
-		private bool IsAddOnCharacter(char character)
-		{
-			return Char.IsWhiteSpace(character) || Char.IsPunctuation(character);
-		}
-
-		/// <summary>
-		/// The given string represents the beginning of a first-level quote (indicated by a regular start/end pair)
-		/// </summary>
-		/// <param name="character"></param>
-		/// <returns></returns>
-		private bool IsStartOfRegularQuote(string character)
-		{
-			return character.Equals(m_quoteSystem.FirstLevel.Open);
-		}
-
-		private bool IsStartOfRegularQuote(bool multicharacter, string character, string possibleMulticharacterQuoteMarker)
-		{
-			if (multicharacter)
-				return possibleMulticharacterQuoteMarker.Equals(m_quoteSystem.FirstLevel.Open);
-			return character.Equals(m_quoteSystem.FirstLevel.Open);
-		}
-
-		/// <summary>
-		/// The given string represents the beginning of a dialog quote
-		/// </summary>
-		/// <param name="character"></param>
-		/// <returns></returns>
-		private bool IsStartOfDialogQuote(string character)
-		{
-			return character.Equals(m_quoteSystem.QuotationDashMarker);
-		}
-
-		/// <summary>
-		/// The given string represents the beginning of a quote
-		/// </summary>
-		/// <param name="character"></param>
-		/// <returns></returns>
-		private bool IsStartOfQuote(string character)
-		{
-			return character.Equals(m_quoteSystem.FirstLevel.Open) || character.Equals(m_quoteSystem.QuotationDashMarker);
-		}
-
-		/// <summary>
-		/// The given string represents the start of a beginning quote marker
-		/// </summary>
-		/// <param name="character"></param>
-		/// <returns></returns>
-		private bool IsPossibleStartOfRegularQuote(string character)
-		{
-			return m_quoteSystem.FirstLevel.Open.StartsWith(character);
-		}
-
-		/// <summary>
-		/// The given string represents the start of a ending quote marker
-		/// </summary>
-		/// <param name="character"></param>
-		/// <returns></returns>
-		private bool IsPossibleEndOfRegularQuote(string character)
-		{
-			return m_quoteSystem.FirstLevel.Close.StartsWith(character);
-		}
-
-		/// <summary>
-		/// The given string represents the end of a first-level quote (indicated by a regular start/end pair)
-		/// </summary>
-		/// <param name="character"></param>
-		/// <returns></returns>
-		private bool IsEndOfRegularQuote(string character)
-		{
-			return character.Equals(m_quoteSystem.FirstLevel.Close);
-		}
-
-		private bool IsEndOfRegularQuote(bool multicharacter, string character, string possibleMulticharacterQuoteMarker)
-		{
-			if (multicharacter)
-				return possibleMulticharacterQuoteMarker.Equals(m_quoteSystem.FirstLevel.Close);
-			return character.Equals(m_quoteSystem.FirstLevel.Close);
-		}
-
-		private bool IsStartAndEndMarkersSame()
-		{
-			return m_quoteSystem.FirstLevel.Open.Equals(m_quoteSystem.FirstLevel.Close);
 		}
 
 		private bool IsSentenceEnding(char c)
