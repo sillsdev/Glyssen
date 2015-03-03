@@ -219,6 +219,7 @@ namespace ProtoScript.Quote
 							if (m_quoteSystem.QuotationDashEndMarker == QuoteSystem.AnyPunctuation && IsNonQuotePunctuation(token[0]))
 							{
 								m_quoteLevel--;
+								blockInWhichDialogueQuoteStarted = null;
 								sb.Append(token);
 								FlushStringBuilderAndBlock(sb, block.StyleTag, true);
 							}
@@ -227,6 +228,7 @@ namespace ProtoScript.Quote
 								if (!string.IsNullOrEmpty(m_quoteSystem.QuotationDashEndMarker) && token.StartsWith(m_quoteSystem.QuotationDashEndMarker, StringComparison.Ordinal))
 								{
 									m_quoteLevel--;
+									blockInWhichDialogueQuoteStarted = null;
 									FlushStringBuilderAndBlock(sb, block.StyleTag, true);
 								}
 								else
