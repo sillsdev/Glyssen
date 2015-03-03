@@ -1381,5 +1381,17 @@ namespace ProtoScriptTests.Quote
 			Assert.AreEqual(1, output[2].ChapterNumber);
 			Assert.AreEqual(18, output[2].InitialStartVerseNumber);
 		}
+
+		[Test]
+		public void Parse_VerseBridge_CharacterInEachVerse_ResultIsAmbiguous()
+		{
+			var block1 = new Block("p", 9, 27, 28);
+			block1.BlockElements.Add(new Verse("27-28"));
+			block1.BlockElements.Add(new ScriptText("«Quote.»"));
+			var input = new List<Block> { block1 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM", input).Parse().ToList();
+			Assert.AreEqual(1, output.Count);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[0].CharacterId);
+		}
 	}
 }
