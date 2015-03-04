@@ -137,7 +137,10 @@ namespace ProtoScript.Quote
 				}
 
 				if (m_quoteLevel == 1 && blockInWhichDialogueQuoteStarted != null && (!IsNormalParagraphStyle(blockInWhichDialogueQuoteStarted.StyleTag) || blockEndedWithSentenceEndingPunctuation || !IsFollowOnParagraphStyle(block.StyleTag)))
+				{
 					m_quoteLevel--;
+					blockInWhichDialogueQuoteStarted = null;
+				}
 
 				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber) { IsParagraphStart = block.IsParagraphStart };
 
@@ -177,7 +180,7 @@ namespace ProtoScript.Quote
 							if (--m_quoteLevel == 0)
 								FlushStringBuilderAndBlock(sb, block.StyleTag, true);
 						}
-						else if (m_quoteSystem.Levels.Count > m_quoteLevel && token.StartsWith(OpenerForNextLevel))
+						else if (m_quoteSystem.Levels.Count > m_quoteLevel && token.StartsWith(OpenerForNextLevel) && blockInWhichDialogueQuoteStarted == null)
 						{
 							if (m_quoteLevel == 0)
 								FlushStringBuilderAndBlock(sb, block.StyleTag, false);
