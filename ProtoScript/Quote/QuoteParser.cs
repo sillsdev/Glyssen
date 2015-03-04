@@ -94,7 +94,8 @@ namespace ProtoScript.Quote
 
 			string punctuation = "";
 			if (m_quoteSystem.QuotationDashEndMarker == QuoteSystem.AnyPunctuation)
-				punctuation = string.Format(@"|(?:[^\w\s\d{0}]\s*)", Regex.Escape(m_quoteCharacters));
+				// (?!\w) is to ensure we only get word-final punctuation
+				punctuation = string.Format(@"|(?:[^\w\s\d{0}](?!\w)\s*)", Regex.Escape(m_quoteCharacters));
 
 			var quoteMatcher = sbQuoteMatcher.ToString();
 			// quoteMatcher includes all the possible markers; e.g. (?:«)|(?:‹)|(?:›)|(?:»).
