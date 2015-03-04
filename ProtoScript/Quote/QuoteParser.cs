@@ -120,6 +120,7 @@ namespace ProtoScript.Quote
 			m_quoteLevel = 0;
 			bool blockEndedWithSentenceEndingPunctuation = false;
 			Block blockInWhichDialogueQuoteStarted = null;
+			bool potentialDialogueContinuer = false;
 			foreach (Block block in m_inputBlocks)
 			{
 				if (block.UserConfirmed)
@@ -137,7 +138,6 @@ namespace ProtoScript.Quote
 					continue;
 				}
 
-				bool potentialDialogueContinuer = false;
 				if (m_quoteLevel == 1 && 
 					blockInWhichDialogueQuoteStarted != null && 
 					(!IsNormalParagraphStyle(blockInWhichDialogueQuoteStarted.StyleTag) || blockEndedWithSentenceEndingPunctuation || !IsFollowOnParagraphStyle(block.StyleTag)))

@@ -1345,6 +1345,35 @@ namespace ProtoScriptTests.Quote
 		}
 
 		[Test]
+		public void Parse_DialogueQuoteWithPotentialContinuerOverMultipleParagraphs_EndedByQuotationDash()
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("—Wikia tuke pujutan sukartin asan. "));
+			var block2 = new Block("p", 6, 49);
+			block2.BlockElements.Add(new Verse("49"));
+			block2.BlockElements.Add(new ScriptText("“Nintimrataram,” "));
+			var block3 = new Block("p", 6, 50);
+			block3.BlockElements.Add(new Verse("50"));
+			block3.BlockElements.Add(new ScriptText("“Antsu yurumkan, —Jesús timiayi."));
+			var input = new List<Block> { block1, block2, block3 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—", false);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+
+			Assert.AreEqual("—Wikia tuke pujutan sukartin asan. ", output[0].GetText(true));
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+
+			Assert.AreEqual("[49]\u00A0“Nintimrataram,” ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+
+			Assert.AreEqual("[50]\u00A0“Antsu yurumkan, ", output[2].GetText(true));
+			Assert.AreEqual("Jesus", output[2].CharacterId);
+
+			Assert.AreEqual("—Jesús timiayi.", output[3].GetText(true));
+			Assert.IsTrue(output[3].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+		}
+
+		[Test]
 		public void Parse_DialogueQuoteWithPotentialContinuer_EndedByFirstLevelEnd()
 		{
 			var block1 = new Block("p", 6, 48);
