@@ -137,7 +137,9 @@ namespace ProtoScript.Quote
 					continue;
 				}
 
-				if (m_quoteLevel == 1 && blockInWhichDialogueQuoteStarted != null && (!IsNormalParagraphStyle(blockInWhichDialogueQuoteStarted.StyleTag) || blockEndedWithSentenceEndingPunctuation || !IsFollowOnParagraphStyle(block.StyleTag)))
+				if (m_quoteLevel == 1 && 
+					blockInWhichDialogueQuoteStarted != null && 
+					(!IsNormalParagraphStyle(blockInWhichDialogueQuoteStarted.StyleTag) || blockEndedWithSentenceEndingPunctuation || !IsFollowOnParagraphStyle(block.StyleTag)))
 				{
 					m_quoteLevel--;
 					blockInWhichDialogueQuoteStarted = null;
@@ -219,7 +221,7 @@ namespace ProtoScript.Quote
 								}
 								else
 								{
-									blockEndedWithSentenceEndingPunctuation = EndsWithSentenceEndingPunctuation(token);
+									blockEndedWithSentenceEndingPunctuation = !IsFollowOnParagraphStyle(m_workingBlock.StyleTag) && EndsWithSentenceEndingPunctuation(token);
 								}
 								sb.Append(token);
 							}
