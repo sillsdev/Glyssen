@@ -1167,6 +1167,43 @@ namespace ProtoScriptTests.Quote
 		}
 
 		[Test]
+		public void Parse_DialogueQuoteWithNoSentenceEndingPunctuationFollowedByCloseAfterPoetry_SentenceEndingWithinPoetry_QuoteRemainsOpenUntilClosed()
+		{
+			var block1 = new Block("p", 2, 5);
+			block1.BlockElements.Add(new ScriptText("—Quote:"));
+			var block2 = new Block("q2", 2, 6);
+			block2.BlockElements.Add(new Verse("6"));
+			block2.BlockElements.Add(new ScriptText("Poetry stuff. "));
+			var block3 = new Block("m", 2, 6);
+			block3.BlockElements.Add(new ScriptText("More poetry stuff —back to narrator."));
+			var input = new List<Block> { block1, block2, block3 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—", false);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+
+			Assert.AreEqual("—Quote:", output[0].GetText(true));
+			Assert.AreEqual("Good Priest", output[0].CharacterId);
+			Assert.AreEqual(string.Empty, output[0].Delivery);
+			Assert.AreEqual(2, output[0].ChapterNumber);
+			Assert.AreEqual(5, output[0].InitialStartVerseNumber);
+
+			Assert.AreEqual("[6]\u00A0Poetry stuff. ", output[1].GetText(true));
+			Assert.AreEqual("Good Priest", output[1].CharacterId);
+			Assert.AreEqual(2, output[1].ChapterNumber);
+			Assert.AreEqual(6, output[1].InitialStartVerseNumber);
+
+			Assert.AreEqual("More poetry stuff ", output[2].GetText(true));
+			Assert.AreEqual("Good Priest", output[2].CharacterId);
+			Assert.AreEqual(2, output[2].ChapterNumber);
+			Assert.AreEqual(6, output[2].InitialStartVerseNumber);
+
+			Assert.AreEqual("—back to narrator.", output[3].GetText(true));
+			Assert.IsTrue(output[3].CharacterIs("MAT", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(2, output[3].ChapterNumber);
+			Assert.AreEqual(6, output[3].InitialStartVerseNumber);
+		}
+
+		[Test]
 		public void Parse_DialogueQuoteWithNoExplicitEnd_QuoteClosedByEndOfParagraph()
 		{
 			var block1 = new Block("p", 1, 17);
