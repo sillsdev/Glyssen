@@ -71,6 +71,13 @@ namespace ProtoScript.Controls
 			}
 			base.OnCellPainting(e);
 		}
+
+		protected override void OnKeyDown(KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+				e.SuppressKeyPress = true;
+			base.OnKeyDown(e);
+		}
 		#endregion
 
 		#region public methods
@@ -94,12 +101,16 @@ namespace ProtoScript.Controls
 			SuspendLayout();
 			ClearSelection();
 			bool changingRowCount = RowCount != m_viewModel.BlockCountForCurrentBook;
-			if (changingRowCount)
+			bool multiSelect = m_viewModel.CurrentBlock.MultiBlockQuote != MultiBlockQuote.None;
+			if (changingRowCount || MultiSelect != multiSelect)
 			{
-				MultiSelect = m_viewModel.CurrentBlock.MultiBlockQuote != MultiBlockQuote.None;
-				m_colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-				AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-				RowCount = m_viewModel.BlockCountForCurrentBook;
+				MultiSelect = multiSelect;
+				if (changingRowCount)
+				{
+					m_colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+					AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+					RowCount = m_viewModel.BlockCountForCurrentBook;
+				}
 				// Need to clear the selection here again because some of the property setters on
 				// DataGridView have the side-effect of creating a selection. We want to avoid having
 				// HandleDataGridViewBlocksCellValueNeeded get called with an index that is out of

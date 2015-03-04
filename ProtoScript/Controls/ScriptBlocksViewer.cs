@@ -51,10 +51,20 @@ namespace ProtoScript.Controls
 
 			m_dataGridViewBlocks.Dock = DockStyle.Fill;
 
-			m_viewModel.CurrentBlockChanged += (sender, args) => this.SafeInvoke(UpdateContextBlocksDisplay, true);
+			Disposed += ScriptBlocksViewer_Disposed;
 
-			m_blocksDisplayBrowser.VisibleChanged += HandleSelectedBlockChanged;
-			m_dataGridViewBlocks.VisibleChanged += (sender, args) => this.SafeInvoke(() => HandleSelectedBlockChanged(sender, args), true);
+			m_viewModel.CurrentBlockChanged += UpdateContextBlocksDisplay;
+			m_blocksDisplayBrowser.VisibleChanged += UpdateContextBlocksDisplay;
+			m_dataGridViewBlocks.VisibleChanged += UpdateContextBlocksDisplay;
+		}
+
+		void ScriptBlocksViewer_Disposed(object sender, EventArgs e)
+		{
+			m_viewModel.CurrentBlockChanged -= UpdateContextBlocksDisplay;
+			m_blocksDisplayBrowser.VisibleChanged -= UpdateContextBlocksDisplay;
+			m_dataGridViewBlocks.VisibleChanged -= UpdateContextBlocksDisplay;
+
+			Disposed -= ScriptBlocksViewer_Disposed;
 		}
 		#endregion
 
@@ -98,13 +108,13 @@ namespace ProtoScript.Controls
 		public void IncreaseFont()
 		{
 			m_viewModel.FontSizeUiAdjustment++;
-			UpdateContextBlocksDisplay();
+			UpdateContextBlocksDisplay(null, null);
 		}
 
 		public void DecreaseFont()
 		{
 			m_viewModel.FontSizeUiAdjustment--;
-			UpdateContextBlocksDisplay();
+			UpdateContextBlocksDisplay(null, null);
 		}
 
 		public void Clear()
@@ -123,17 +133,15 @@ namespace ProtoScript.Controls
 			viewBeingHidden.Visible = false;
 		}
 
-		private void UpdateContextBlocksDisplay()
+		private void UpdateContextBlocksDisplay(object sender, EventArgs args)
 		{
-			if (m_blocksDisplayBrowser.Visible)
-				m_blocksDisplayBrowser.DisplayHtml(m_viewModel.Html);
-			else
-				m_dataGridViewBlocks.UpdateContext();
-		}
-		
-		private void HandleSelectedBlockChanged(object sender, EventArgs e)
-		{
-			UpdateContextBlocksDisplay();
+			this.SafeInvoke(() =>
+			{
+				if (m_blocksDisplayBrowser.Visible)
+					m_blocksDisplayBrowser.DisplayHtml(m_viewModel.Html);
+				else
+					m_dataGridViewBlocks.UpdateContext();
+			}, true);
 		}
 
 		private void HandleDataGridViewBlocksCellValueNeeded(object sender, DataGridViewCellValueEventArgs e)

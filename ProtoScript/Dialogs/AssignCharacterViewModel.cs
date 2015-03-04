@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Paratext;
 using ProtoScript.Character;
 
 namespace ProtoScript.Dialogs
@@ -189,6 +188,9 @@ namespace ProtoScript.Dialogs
 		public bool IsModified(Character newCharacter, Delivery newDelivery)
 		{
 			Block currentBlock = CurrentBlock;
+			if (CharacterVerseData.IsCharacterStandard(currentBlock.CharacterId, false))
+				return false; // Can't change these.
+
 			if (newCharacter == null)
 				return !(currentBlock.CharacterIsUnclear() || currentBlock.CharacterId == null);
 			if (newCharacter.IsNarrator)
@@ -246,7 +248,7 @@ namespace ProtoScript.Dialogs
 				delivery.IsNormal ? null : delivery.Text,
 				character.Alias,
 				character.ProjectSpecific || delivery.ProjectSpecific);
-			m_projectCharacterVerseData.AddCharacterVerse(cv);
+			m_projectCharacterVerseData.Add(cv);
 		}
 
 		#region Character class

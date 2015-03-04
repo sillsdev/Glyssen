@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using NUnit.Framework;
 using ProtoScript.Character;
 using ProtoScript.Properties;
+using SIL.ScriptureUtils;
 
 namespace ControlDataIntegrityTests
 {
@@ -12,58 +14,47 @@ namespace ControlDataIntegrityTests
 	public class CharacterDetailDataTests
 	{
 		[Test]
-		public void DataIntegrity_NoDuplicateLines()
+		public void DataIntegrity_RequiredFieldsHaveValidFormatAndThereAreNoDuplicateLines()
 		{
-			string[] allLines = Resources.CharacterVerseData.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+			Regex regex = new Regex("^[^\t]+\t(\\d*)\t((TRUE)|(FALSE))\t((Male)|(Female)|(Both)|(Unknown)|(Pref: Male)|(Pref: Female))?\t[^\t]*\t[^\t]*", RegexOptions.Compiled);
+			string[] allLines = Resources.CharacterIdMap.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
 			var set = new HashSet<string>();
-			foreach (var line in allLines)
+			foreach (var line in allLines.Skip(1))
 			{
 				if (line.StartsWith("#"))
 					continue;
-				Assert.IsTrue(set.Add(line), "Duplicate line: " + line);
+
+				var match = regex.Match(line);
+				Assert.IsTrue(match.Success, "Failed to match line: " + line);
+
+				var matchResult = match.Result("$&");
+				Assert.IsTrue(set.Add(matchResult), "Duplicate line: " + matchResult);
 			}
 		}
 
 		[Test]
-		public void DataIntegrity_AllCharacterIdsAndDefaultCharactersHaveCharacterDetail()
+		public void DataIntegrity_AllNonNarratorCharacterDetailsHaveCharacterIdOrDefaultCharacter()
 		{
-			IEnumerable<string> charactersHavingDetail = CharacterDetailData.Singleton.GetAll().Select(d => d.Character);
-			ISet<string> missingCharacters = new HashSet<string>();
-			ISet<string> missingDefaultCharacters = new HashSet<string>();
-			foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
-			{
-				if (!charactersHavingDetail.Contains(cv.Character))
-					missingCharacters.Add(cv.Character);
-				if (!(string.IsNullOrEmpty(cv.DefaultCharacter) || charactersHavingDetail.Contains(cv.DefaultCharacter)))
-					missingDefaultCharacters.Add(cv.DefaultCharacter);
-			}
-			Assert.False(missingCharacters.Any() || missingDefaultCharacters.Any(),
-				"Characters in Character-Verse data but not in Character-Detail:" +
-				Environment.NewLine +
-				OnePerLineWithIndent(missingCharacters) +
-				Environment.NewLine +
-				"Default characters in Character-Verse data but not in Character-Detail:" +
-				Environment.NewLine +
-				OnePerLineWithIndent(missingDefaultCharacters));
-		}
-
-		[Test]
-		public void DataIntegrity_AllCharacterDetailsHaveCharacterIdOrDefaultCharacter()
-		{
-			IEnumerable<string> charactersIds = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Select(d => d.Character);
-			IEnumerable<string> defaultCharacters = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Select(d => d.DefaultCharacter);
+			var charactersIds = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Select(d => d.Character).ToList();
+			var defaultCharacters = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Select(d => d.DefaultCharacter).ToList();
 			ISet<string> missingCharacters = new HashSet<string>();
 			foreach (string character in CharacterDetailData.Singleton.GetAll().Select(d => d.Character))
-				if (!(charactersIds.Contains(character) || defaultCharacters.Contains(character)))
+			{
+				if (!CharacterVerseData.IsCharacterOfType(character, CharacterVerseData.StandardCharacter.Narrator) &&
+					(!(charactersIds.Contains(character) || defaultCharacters.Contains(character))))
 					missingCharacters.Add(character);
+			}
 			Assert.False(missingCharacters.Any(),
 				"Characters in Character-Detail data but not in Character-Verse data:" +
 				Environment.NewLine +
-				OnePerLineWithIndent(missingCharacters));
+				missingCharacters.OnePerLineWithIndent());
 		}
+	}
 
-		private string OnePerLineWithIndent(IEnumerable<string> enumerable)
+	internal static class TestOutputExtensions
+	{
+		internal static string OnePerLineWithIndent(this IEnumerable<string> enumerable)
 		{
 			var sb = new StringBuilder();
 			foreach (string item in enumerable)
