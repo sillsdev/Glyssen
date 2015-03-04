@@ -137,12 +137,14 @@ namespace ProtoScript.Quote
 					continue;
 				}
 
+				bool potentialDialogueContinuer = false;
 				if (m_quoteLevel == 1 && 
 					blockInWhichDialogueQuoteStarted != null && 
 					(!IsNormalParagraphStyle(blockInWhichDialogueQuoteStarted.StyleTag) || blockEndedWithSentenceEndingPunctuation || !IsFollowOnParagraphStyle(block.StyleTag)))
 				{
 					m_quoteLevel--;
 					blockInWhichDialogueQuoteStarted = null;
+					potentialDialogueContinuer = m_quoteSystem.QuotationDashEndMarker != null && m_quoteSystem.QuotationDashEndMarker != QuoteSystem.AnyPunctuation;
 				}
 
 				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber) { IsParagraphStart = block.IsParagraphStart };
@@ -175,6 +177,16 @@ namespace ProtoScript.Quote
 								sb.Append(token);
 								continue;
 							}
+							if (m_quoteLevel == 0)
+							{
+								string continuerForNextLevel = ContinuerForNextLevel;
+								if (string.IsNullOrEmpty(continuerForNextLevel) || !token.StartsWith(continuerForNextLevel))
+									potentialDialogueContinuer = false;
+							}
+							else
+							{
+								potentialDialogueContinuer = false;
+							}
 						}
 
 						if (m_quoteLevel > 0 && token.StartsWith(CloserForCurrentLevel) && blockInWhichDialogueQuoteStarted == null)
@@ -202,7 +214,7 @@ namespace ProtoScript.Quote
 								sb.Append(token);
 							m_quoteLevel++;
 						}
-						else if (m_quoteLevel == 1 && blockInWhichDialogueQuoteStarted != null)
+						else if (potentialDialogueContinuer || (m_quoteLevel == 1 && blockInWhichDialogueQuoteStarted != null))
 						{
 							if (m_quoteSystem.QuotationDashEndMarker == QuoteSystem.AnyPunctuation && IsNonQuotePunctuation(token[0]))
 							{
@@ -239,6 +251,7 @@ namespace ProtoScript.Quote
 		}
 
 		public string ContinuerForCurrentLevel { get { return m_quoteSystem.Levels[m_quoteLevel - 1].Continue; } }
+		public string ContinuerForNextLevel { get { return m_quoteSystem.Levels[m_quoteLevel].Continue; } }
 		public string CloserForCurrentLevel { get { return m_quoteSystem.Levels[m_quoteLevel - 1].Close; } }
 		public string OpenerForNextLevel { get { return m_quoteSystem.Levels[m_quoteLevel].Open; } }
 
