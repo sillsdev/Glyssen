@@ -320,6 +320,33 @@ namespace ProtoScript
 			}
 			UpdatePercentInitialized();
 			ProjectState = ProjectState.FullyInitialized;
+
+			foreach (var book in Books)
+			{
+				foreach (var block in book.Blocks.Where(b => !b.CharacterIsStandard && !b.CharacterIsUnclear()))
+				{
+					IEnumerable<CharacterVerse> cvUsed;
+					if (string.IsNullOrEmpty(block.Delivery))
+					{
+						cvUsed = ControlCharacterVerseData.Singleton.GetCharacters(book.BookId, block.ChapterNumber,
+							block.InitialStartVerseNumber,
+							block.LastVerse).Where(cv => cv.Character == block.CharacterId &&
+								string.IsNullOrEmpty(cv.Delivery));
+					}
+					else
+					{
+						cvUsed = ControlCharacterVerseData.Singleton.GetCharacters(book.BookId, block.ChapterNumber,
+							block.InitialStartVerseNumber,
+							block.LastVerse).Where(cv => cv.Character == block.CharacterId &&
+								cv.Delivery == block.Delivery);
+					}
+					if (!ControlCharacterVerseData.Singleton.AddUsedCharacters(cvUsed))
+					{
+						Debug.Fail("How did we get here?");
+					}
+				}
+			}
+
 			Analyze();
 		}
 
@@ -375,8 +402,8 @@ namespace ProtoScript
 		private void UsxWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
 			if (e.Error != null)
-				Debug.Fail(e.Error.Message);
-
+				throw e.Error;
+			
 			var result = (IEnumerable<BookScript>)e.Result;
 			//REVIEW: more efficient to sort after the fact like this?  Or just don't run them in parallel (in ProjectUsxParser) in the first place?
 			var resultList = result.ToList();
@@ -416,7 +443,7 @@ namespace ProtoScript
 		private void GuessWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
 			if (e.Error != null)
-				Debug.Fail(e.Error.Message);
+				throw e.Error;
 
 			bool certain = (bool)e.Result;
 			if (certain)
@@ -492,6 +519,7 @@ namespace ProtoScript
 					MessageBox.Show(error.Message);
 			}
 			ProjectCharacterVerseData.WriteToFile(ProjectCharacterVerseDataPath);
+			ControlCharacterVerseData.Singleton.WriteToFile(@"C:\Projects\ProtoscriptGenerator\ProtoScript\Resources\IndirectCV.txt");
 			ProjectState = ConfirmedQuoteSystem == null ? ProjectState.NeedsQuoteSystemConfirmation : ProjectState.FullyInitialized;
 		}
 

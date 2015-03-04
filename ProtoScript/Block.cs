@@ -217,6 +217,7 @@ namespace ProtoScript
 			{
 				CharacterId = characterList[0].Character;
 				Delivery = characterList[0].Delivery;
+				ControlCharacterVerseData.Singleton.AddUsedCharacters(characterList[0], InitialStartVerseNumber, LastVerse);
 			}
 			else if (characterList.Count == 0)
 			{
@@ -231,6 +232,7 @@ namespace ProtoScript
 				{
 					CharacterId = set.First().Character;
 					Delivery = set.First().Delivery;
+					ControlCharacterVerseData.Singleton.AddUsedCharacters(set.First(), InitialStartVerseNumber, LastVerse);
 				}
 				else
 				{

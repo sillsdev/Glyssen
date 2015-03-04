@@ -247,7 +247,11 @@ namespace ProtoScript.Quote
 							}
 						}
 						if (m_quoteLevel < 0)
-							Debug.Fail("Quote level should never be less than 0.  " + m_bookId + " " + block.ChapterNumber + " " + block.InitialStartVerseNumber);
+						{
+							m_quoteLevel = 0;
+							//Debug.Fail("Quote level should never be less than 0.  " + m_bookId + " " + block.ChapterNumber + " " +
+							//			block.InitialStartVerseNumber);
+						}
 						if (possibleStartQuoteMarker.Length > 0)
 						{
 							sb.Append(possibleStartQuoteMarker);

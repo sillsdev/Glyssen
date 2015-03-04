@@ -165,6 +165,18 @@ namespace ProtoScript.Dialogs
 				else if (RelevantBlockCount > 0)
 				{
 					m_currentBlockIndex = -1;
+					if (m_temporarilyIncludedBlock != null)
+					{
+						// Block that was temporarily included in previous filter might now match the new filter
+						var i = m_relevantBlocks.IndexOf(m_temporarilyIncludedBlock);
+						if (i >= 0)
+						{
+							m_currentBlockIndex = i;
+							m_temporarilyIncludedBlock = null;
+							SetBlock(m_relevantBlocks[m_currentBlockIndex]);
+							return;
+						}
+					}
 					LoadNextRelevantBlock();
 				}
 			}
@@ -290,7 +302,7 @@ namespace ProtoScript.Dialogs
 			// Note this method assumes the startQuoteBlock is in the navigator's current book.
 			Debug.Assert(startQuoteBlock.MultiBlockQuote == MultiBlockQuote.Start);
 
-			for (int j = m_navigator.GetIndicesOfSpecificBlock(startQuoteBlock).Item2 + 1; ; j++)
+			for (int j = m_navigator.GetIndicesOfSpecificBlock(startQuoteBlock).Item2 + 1; j < BlockCountForCurrentBook; j++)
 			{
 				Block block = m_navigator.CurrentBook[j];
 				if (block == null || block.MultiBlockQuote != MultiBlockQuote.Continuation)

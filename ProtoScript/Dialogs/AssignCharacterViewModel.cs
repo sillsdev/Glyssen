@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Paratext;
 using ProtoScript.Character;
@@ -188,6 +189,9 @@ namespace ProtoScript.Dialogs
 		public bool IsModified(Character newCharacter, Delivery newDelivery)
 		{
 			Block currentBlock = CurrentBlock;
+			if (CharacterVerseData.IsCharacterStandard(currentBlock.CharacterId, false))
+				return false; // Can't change these.
+
 			if (newCharacter == null)
 				return !(currentBlock.CharacterIsUnclear() || currentBlock.CharacterId == null);
 			if (newCharacter.IsNarrator)
@@ -211,6 +215,30 @@ namespace ProtoScript.Dialogs
 		{
 			if (selectedCharacter.ProjectSpecific || selectedDelivery.ProjectSpecific)
 				AddRecordToProjectCharacterVerseData(block, selectedCharacter, selectedDelivery);
+			else if (!selectedCharacter.IsNarrator)
+			{
+				CharacterVerse cvUsed;
+				if (selectedDelivery.Text == "normal")
+				{
+					cvUsed = ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber,
+						block.InitialStartVerseNumber,
+						block.InitialEndVerseNumber).FirstOrDefault(cv => cv.Character == selectedCharacter.CharacterId &&
+							string.IsNullOrEmpty(cv.Delivery));
+				}
+				else
+				{
+					cvUsed = ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber,
+						block.InitialStartVerseNumber,
+						block.InitialEndVerseNumber).FirstOrDefault(cv => cv.Character == selectedCharacter.CharacterId &&
+							cv.Delivery == selectedDelivery.Text);
+				}
+				if (cvUsed != null)
+					ControlCharacterVerseData.Singleton.AddUsedCharacters(cvUsed, block.InitialStartVerseNumber, block.LastVerse);
+				else
+				{
+					Debug.Fail("How did we get here?");
+				}
+			}
 
 			if (selectedCharacter.IsNarrator)
 				block.SetStandardCharacter(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator);
@@ -245,7 +273,7 @@ namespace ProtoScript.Dialogs
 				delivery.IsNormal ? null : delivery.Text,
 				character.Alias,
 				character.ProjectSpecific || delivery.ProjectSpecific);
-			m_projectCharacterVerseData.AddCharacterVerse(cv);
+			m_projectCharacterVerseData.Add(cv);
 		}
 
 		#region Character class

@@ -65,6 +65,7 @@ angels, all the	1478	TRUE
 angels, living creatures, elders (thousands of thousands)	2478	TRUE			
 anger of the LORD	1486	FALSE	Male		Could be either God or David
 Anna, prophetess	37	FALSE	Female		
+Annas, the high priest		FALSE	Male		
 another (follower of Apollos)	487	FALSE			
 another (follower of Peter/Cephas)	488	FALSE			
 another holy one (in vision)	489	FALSE			
@@ -104,18 +105,20 @@ Barnabas/Paul		TRUE	Male
 Bartimaeus	1014	FALSE	Male		
 Baruch	63	FALSE	Male		
 Barzillai	1063	FALSE	Male		
-Barzillai/Shobi/Makir		TRUE	Male		
+Shobi/Makir/Barzillai		TRUE	Male		
 Bathsheba	64	FALSE	Female		
 believers who were Pharisees	500	TRUE	Male		
 believers, circumcised (in Jerusalem)	502	TRUE	Male		
 believers, Corinth	501	TRUE			
 believers, one hundred twenty	503	TRUE			
-beloved	504	FALSE			
+beloved	504	FALSE	Female		
 Belshazzar, king of Babylon	65	FALSE	Male		
 Benaiah, son of Jehoiada	67	FALSE	Male		
 Ben-Hadad, king of Aram	66	FALSE	Male		
 Benjamite	68	FALSE	Male		
 Benjamites	1068	TRUE			
+Bera, king of Sodom/Birsha, king of Gomorrah/Shinab, king of Admah/Shemeber, king of Zeboiim/king of Bela		TRUE	Male		
+Bera, king of Sodom	640	FALSE	Male		
 Beth Shemesh, men of	69	TRUE	Male		
 Bethlehem, elders of	70	TRUE	Male		
 Bildad the Shuhite	71	FALSE	Male		
@@ -189,7 +192,6 @@ crowd, large	563	TRUE
 crowd, many in the	565	TRUE			
 crowd, others in	1552	TRUE			
 crowd, some in	567	TRUE			
-crying out	568	FALSE	Male		Used only in Habbakuk - should probably be Habbakuk
 cured man, blind from birth	569	FALSE	Male		
 Cyrus, king of Persia	85	FALSE	Male		
 Dan	236	FALSE	Male		
@@ -276,7 +278,6 @@ evil spirits	1591	TRUE
 exiles	592	TRUE			
 expert in the law		FALSE	Male		
 explorers, ten	1594	TRUE	Male		
-explorers, twelve	594	TRUE	Male		
 eye	601	FALSE			
 Ezekiel	138	FALSE	Male		
 Ezra, priest and teacher	139	FALSE	Male		
@@ -302,6 +303,7 @@ friend (or informer) of Tamar	143	FALSE
 Gaal, son of Ebed	144	FALSE	Male		
 Gabriel	145	FALSE	Male		
 Gad, the prophet, David's seer	146	FALSE	Male		
+Gadites/Reubenites	400	TRUE	Male		
 Gadarene (or Gerasenes) people	816	TRUE			
 Gallio	148	FALSE	Male		
 Gamaliel	149	FALSE	Male		
@@ -316,7 +318,7 @@ Gilead, men of	157	TRUE	Male
 girls	615	TRUE	Female		
 God	2000	FALSE	Male		
 Goliath	158	FALSE	Male		
-Good Priest	372	FALSE	Male		Many quotes resolve to this  pseudo-character by default
+Good Priest	372	FALSE	Male		Many quotes resolve to this pseudo-character by default
 great company of heavenly host	1615	TRUE			
 Greeks	159	TRUE			
 Hadad the Edomite	160	FALSE			
@@ -365,9 +367,8 @@ hymn, early credal	630	FALSE
 idolators	223	TRUE			
 idolators from Judah (men)	632	TRUE	Male		
 idolators from Judah (women)	633	TRUE	Female		
-informer	634	FALSE			
-inscription	1635	FALSE			
-inscription on turban	635	FALSE			
+informer	634	TRUE			
+inscription on forehead of Babylon		FALSE	Pref: Female		
 invaders	636	TRUE			
 invalid for 38 years	637	FALSE			
 Irijah, captain of the guard of Judah	190	FALSE			
@@ -432,7 +433,6 @@ Jephthah's brothers	252	TRUE	Male
 Jephthah's daughter	254	FALSE	Female	youth	
 Jereboam/all Israel	255	TRUE			
 Jeremiah	256	FALSE	Male		
-Jeremiah quoting Israel	225	FALSE			
 Jeremiah's enemies	1125	TRUE	Male		
 Jeroboam	1127	FALSE	Male		
 Jeroboam/Israel, all		TRUE	Male		
@@ -459,7 +459,6 @@ Joash, king of Judah	3267	FALSE	Male
 Job	1269	FALSE	Male		
 Job's wife	1268	FALSE	Female		
 Joel saying what the priests should say	226	FALSE	Male		
-Joel saying what the weakling should say	227	FALSE			
 Johanan	2271	FALSE	Male		
 Johanan/all the army officers		TRUE	Male		
 Johanan/all the army officers/all the people		TRUE	Male		
@@ -482,6 +481,7 @@ Joshua/Caleb		TRUE	Male
 Josiah, king of Judah	287	FALSE	Male		
 Jotham	288	FALSE	Male		
 Judah	233	FALSE	Male		
+Judah, all		TRUE	Both		
 Judah, men of	290	TRUE	Male		
 Judah, people in	291	TRUE			
 Judaizers	294	TRUE	Male		
@@ -493,7 +493,6 @@ King of Assyria	297	FALSE	Male
 King of Babylon	298	FALSE	Male		
 King of Jericho	299	FALSE	Male		
 King of Nineveh	300	FALSE	Male		
-king of Sodom	640	FALSE	Male		
 kings of the earth	641	TRUE	Male		
 kings over the nations	642	TRUE	Male		
 kings, princes, generals, rich, powerful, slave and free	643	TRUE	Male		
@@ -525,7 +524,7 @@ living creature, second	651	FALSE
 living creature, third	652	FALSE			
 Lookout	314	FALSE			
 Lot	317	FALSE	Male		
-Lover	318	FALSE			
+lover	318	FALSE	Male		
 Lydia	319	FALSE	Female		
 Macedonian	320	FALSE			
 magi	653	TRUE	Male		
@@ -548,11 +547,7 @@ man of God (prophet to Eli)	669	FALSE	Male
 man of God from Judah	668	FALSE	Male		
 man possessed by evil spirit	670	FALSE	Male		
 man reporting to David	671	FALSE	Male		
-man standing among myrtle trees	672	FALSE	Male		
-man told David	673	FALSE	Male		
-man told Joab	674	FALSE	Male		
-man told Solomon	675	FALSE	Male		
-man told troops	676	FALSE	Male		
+man standing among myrtle trees	672	FALSE	Male			
 man who had had demons	677	FALSE	Male		
 man who says 'I know him'	678	FALSE	Male		
 man who says 'we remain in union with God'	679	FALSE	Male		
@@ -561,10 +556,7 @@ man with sponge	687	FALSE	Male
 man, still another	688	FALSE	Male		
 man, wicked	689	FALSE	Male		
 Manoah, father of Samson	325	FALSE	Male		
-Manoah's wife, mother of Samson	324	FALSE	Female		
-man's brother	684	FALSE	Male		
-man's voice from the Ulai (in vision)	685	FALSE	Male		
-many in crowd	691	TRUE			
+Manoah, father of Samson/Manoah's wife		TRUE	Both		
 many Samaritans	690	TRUE			
 Martha	326	FALSE	Female		
 Mary (Jesus' mother)	327	FALSE	Female		
@@ -590,6 +582,7 @@ men of Babel	665	TRUE	Male
 men of David	706	TRUE	Male		
 men of David, one	705	TRUE	Male		
 men of Enaim	707	TRUE	Male		
+men of Gerar		TRUE	Male		
 men of Pharaoh	708	TRUE	Male		
 men of Sodom (wicked)	709	TRUE	Male		
 men of the city (Bethel)	710	TRUE	Male		
@@ -605,9 +598,10 @@ men/their wives, other	719	TRUE	Both
 men/wives, still others	720	TRUE	Both		
 Mephibosheth	333	FALSE	Male		
 merchants of the earth	721	TRUE			
+message from Tamar		FALSE	Pref: Female		
 message to Saul	722	FALSE			
 messenger	1733	TRUE			
-messenger Ahimaaz	723	FALSE	Male		
+Ahimaaz (messenger)	723	FALSE	Male		
 messenger from battle to David	724	FALSE	Male		
 messenger from guardians of Ahab's children	725	FALSE	Male		
 messenger of Ahab, king of Israel	726	FALSE	Male		
@@ -621,7 +615,9 @@ messenger, still another	734	FALSE
 messenger, yet another	735	FALSE			
 messengers of Ahaziah	737	TRUE	Male		
 messengers of Ben-Hadad. king of Aram	738	TRUE	Male		
-messengers of Jacob	739	TRUE	Male		
+messengers of Jabesh		TRUE	Male				
+messengers of Jacob	739	TRUE	Male				
+messengers of Saul		TRUE	Male		
 Micah	334	FALSE	Male		
 Micah's mother	335	FALSE	Female		
 Micaiah, prophet of the LORD	336	FALSE			
@@ -638,7 +634,7 @@ Miriam-young girl	338	FALSE	Female	child
 Moabite officials	341	TRUE	Male		
 Moabite officials, more distinguished	1341	TRUE	Male		
 Moabites	1340	TRUE			
-Moabites (female)	342	TRUE	Female		
+Moabitesses (female)	342	TRUE	Female		
 mob	743	TRUE			
 Mordecai, cousin of Esther	343	FALSE	Male		
 Moses	344	FALSE	Male		
@@ -660,7 +656,7 @@ Nahash the Ammonite	349	FALSE
 Naomi	350	FALSE	Female		
 narrator-1CH	1139	FALSE			
 narrator-1CO	748	FALSE			
-narrator-1KI	1018	FALSE			
+narrator-1KI	1018	FALSE													 Joel saying what the weakling should say
 narrator-1PE	1749	FALSE			
 narrator-2CH	2139	FALSE			
 narrator-2CO	3748	FALSE			
@@ -700,6 +696,7 @@ Nebuzaradan	357	FALSE	Male
 Neco, king of Egypt	358	FALSE	Male		
 Nehemiah	359	FALSE	Male		
 Nehemiah/Ezra/Levites		TRUE	Male		
+Nehemiah/Levites/Israelites		TRUE	Male		
 neighbors of man blind from birth	764	TRUE			
 neighbors of man blind from birth, others	765	TRUE			
 neighbors of man blind from birth, some	766	TRUE			
@@ -737,6 +734,7 @@ one of the experts in the law		FALSE	Male
 one of you (follower of Paul)	1791	FALSE			
 one of you (hypothetical)	792	TRUE			
 one other who looked like a man	793	FALSE			
+one who brings good news		TRUE			
 one who looked like a man	795	FALSE			
 onlookers	796	TRUE			
 Oppressors of poor	366	TRUE			
@@ -778,7 +776,6 @@ people, sick	831	TRUE
 people, some	1831	TRUE			
 people, still others	836	TRUE			
 peoples, many	844	TRUE			
-person	845	FALSE			
 person asking someone to read a sealed book		FALSE			
 person sacrificing	657	FALSE			
 person who told David about Philistines		FALSE			
@@ -854,9 +851,8 @@ report concerning Paul		FALSE
 report to King of Aram	868	FALSE			
 report to King of Assyria	398	FALSE			
 Reuben	234	FALSE	Male		
-Reubenites/Gadites	400	TRUE	Male		
 Reubenites/Gadites/half-tribe of Manasseh	147	TRUE	Male		
-Rhoda	401	FALSE	Female		
+Rhoda	401	FALSE	Female	possibly young girl/teen	
 rich young ruler	870	FALSE	Male	young man	
 rule given by Paul	869	FALSE			
 rulers of people in Jerusalem	871	TRUE			
@@ -879,6 +875,7 @@ Satan	800	FALSE	Male
 Satraps	413	TRUE	Male		
 Satraps/Administrators		TRUE	Male		
 Saul	414	FALSE	Male		
+Saul/Israel, men of		TRUE	Male		
 Saul's announcement	415	FALSE			
 Saul's attendants	416	TRUE	Male		
 Saul's messengers	417	TRUE	Male		
@@ -886,7 +883,6 @@ Saul's servant	418	FALSE	Male
 Saul's uncle	419	FALSE	Male		
 saying (proverb)	849	FALSE			
 saying about Anakites	874	FALSE			
-saying about bad company	878	FALSE			
 saying about blind and lame	879	FALSE			
 saying about captivity and death by the sword		FALSE			Possibly a reference to Jeremiah 15:2, Jeremiah 43:11 or Matthew 26:52
 saying about going beyond what is written	880	FALSE			
@@ -903,7 +899,6 @@ scoundrels	887	TRUE
 scouts of Ben-Hadad, king of Aram	888	TRUE	Male		
 scripture	890	FALSE			
 scripture (Moses quoting God)	889	FALSE			
-scroll with decree of Cyrus, king	891	FALSE			
 sea	892	FALSE			
 second person to accuse Peter (man)		FALSE	Male		
 Sennacherib, king of Assyria	421	FALSE	Male		
@@ -975,7 +970,7 @@ son of widow	938	FALSE	Male
 song (of the prostitute)	939	FALSE	Female		
 sons of prophet in Bethel	853	TRUE	Male		
 souls of those killed for word of God	940	TRUE			
-spies  (Pharisees/Herodians)	941	TRUE	Male		
+spies (Pharisees/Herodians)	941	TRUE	Male		
 spies from Joshua, men	440	TRUE	Male		
 Spirit and the bride	438	TRUE	Male		
 spy from Joseph	439	FALSE			
@@ -1058,7 +1053,6 @@ you (hypothetical)		TRUE
 you (people of Zion, restored)	1013	TRUE			
 you (rebelious people)		TRUE			
 you ought to say	1011	FALSE			
-you who bring good tidings to Zion		TRUE			
 young man		FALSE	Male	youth	
 young men (advisors of Rehoboam)	1015	TRUE	Male	young man	
 youths	1016	TRUE		youth	

@@ -344,13 +344,13 @@ namespace ProtoScript
 
 		private void m_btnAssign_Click(object sender, EventArgs e)
 		{
-			if (m_assignCharacterViewModel.RelevantBlockCount == 0)
-			{
-				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.AllAssignmentsMadeAutomatically",
-					"Character assigments were made automatically for all quotations in the Scripture text. There is nothing more to do at this time.");
-				MessageBox.Show(this, msg, ProductName, MessageBoxButtons.OK);
-				return;
-			}
+			//if (m_assignCharacterViewModel.RelevantBlockCount == 0)
+			//{
+			//	string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.AllAssignmentsMadeAutomatically",
+			//		"Character assigments were made automatically for all quotations in the Scripture text. There is nothing more to do at this time.");
+			//	MessageBox.Show(this, msg, ProductName, MessageBoxButtons.OK);
+			//	return;
+			//}
 			using (var dlg = new AssignCharacterDialog(m_assignCharacterViewModel))
 				dlg.ShowDialog();
 			m_project.Analyze();

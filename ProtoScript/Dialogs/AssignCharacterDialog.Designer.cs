@@ -75,6 +75,7 @@ namespace ProtoScript.Dialogs
 			this.m_pnlShortcuts = new System.Windows.Forms.Panel();
 			this.m_pnlCharacterAndDeliverySelection = new System.Windows.Forms.TableLayoutPanel();
 			this.m_splitContainer = new System.Windows.Forms.SplitContainer();
+			this.tableLayoutPanelNavigationControls = new System.Windows.Forms.TableLayoutPanel();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnCharacterFilter)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnDeliveryFilter)).BeginInit();
@@ -89,6 +90,7 @@ namespace ProtoScript.Dialogs
 			this.m_splitContainer.Panel1.SuspendLayout();
 			this.m_splitContainer.Panel2.SuspendLayout();
 			this.m_splitContainer.SuspendLayout();
+			this.tableLayoutPanelNavigationControls.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// m_l10NSharpExtender
@@ -104,7 +106,8 @@ namespace ProtoScript.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnNext, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnNext, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnNext, "Common.Next");
-			this.m_btnNext.Location = new System.Drawing.Point(224, 482);
+			this.m_btnNext.Location = new System.Drawing.Point(199, 7);
+			this.m_btnNext.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
 			this.m_btnNext.Name = "m_btnNext";
 			this.m_btnNext.Size = new System.Drawing.Size(75, 23);
 			this.m_btnNext.TabIndex = 4;
@@ -120,7 +123,7 @@ namespace ProtoScript.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnPrevious, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnPrevious, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnPrevious, "Common.Previous");
-			this.m_btnPrevious.Location = new System.Drawing.Point(83, 482);
+			this.m_btnPrevious.Location = new System.Drawing.Point(22, 7);
 			this.m_btnPrevious.Name = "m_btnPrevious";
 			this.m_btnPrevious.Size = new System.Drawing.Size(75, 23);
 			this.m_btnPrevious.TabIndex = 3;
@@ -161,13 +164,15 @@ namespace ProtoScript.Dialogs
 			// m_labelXofY
 			// 
 			this.m_labelXofY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_labelXofY.AutoSize = true;
 			this.m_labelXofY.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_labelXofY, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_labelXofY, "{0} is the current block number; {1} is the total number of blocks.");
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelXofY, "DialogBoxes.AssignCharacterDialog.XofY");
-			this.m_labelXofY.Location = new System.Drawing.Point(159, 484);
+			this.m_labelXofY.Location = new System.Drawing.Point(103, 5);
+			this.m_labelXofY.MinimumSize = new System.Drawing.Size(90, 28);
 			this.m_labelXofY.Name = "m_labelXofY";
-			this.m_labelXofY.Size = new System.Drawing.Size(64, 18);
+			this.m_labelXofY.Size = new System.Drawing.Size(90, 28);
 			this.m_labelXofY.TabIndex = 11;
 			this.m_labelXofY.Text = "{0} of {1}";
 			this.m_labelXofY.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -752,16 +757,32 @@ namespace ProtoScript.Dialogs
 			// 
 			// m_splitContainer.Panel2
 			// 
+			this.m_splitContainer.Panel2.Controls.Add(this.tableLayoutPanelNavigationControls);
 			this.m_splitContainer.Panel2.Controls.Add(this.m_pnlCharacterAndDeliverySelection);
-			this.m_splitContainer.Panel2.Controls.Add(this.m_btnNext);
-			this.m_splitContainer.Panel2.Controls.Add(this.m_btnPrevious);
-			this.m_splitContainer.Panel2.Controls.Add(this.m_labelXofY);
 			this.m_splitContainer.Panel2.Controls.Add(this.m_btnAssign);
 			this.m_splitContainer.Panel2.Padding = new System.Windows.Forms.Padding(0, 12, 12, 12);
 			this.m_splitContainer.Panel2MinSize = 250;
 			this.m_splitContainer.Size = new System.Drawing.Size(635, 519);
 			this.m_splitContainer.SplitterDistance = 313;
 			this.m_splitContainer.TabIndex = 30;
+			// 
+			// tableLayoutPanelNavigationControls
+			// 
+			this.tableLayoutPanelNavigationControls.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.tableLayoutPanelNavigationControls.ColumnCount = 3;
+			this.tableLayoutPanelNavigationControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanelNavigationControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanelNavigationControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanelNavigationControls.Controls.Add(this.m_btnPrevious, 0, 0);
+			this.tableLayoutPanelNavigationControls.Controls.Add(this.m_labelXofY, 1, 0);
+			this.tableLayoutPanelNavigationControls.Controls.Add(this.m_btnNext, 2, 0);
+			this.tableLayoutPanelNavigationControls.Location = new System.Drawing.Point(24, 471);
+			this.tableLayoutPanelNavigationControls.Margin = new System.Windows.Forms.Padding(0);
+			this.tableLayoutPanelNavigationControls.Name = "tableLayoutPanelNavigationControls";
+			this.tableLayoutPanelNavigationControls.RowCount = 1;
+			this.tableLayoutPanelNavigationControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanelNavigationControls.Size = new System.Drawing.Size(274, 33);
+			this.tableLayoutPanelNavigationControls.TabIndex = 30;
 			// 
 			// AssignCharacterDialog
 			// 
@@ -810,6 +831,8 @@ namespace ProtoScript.Dialogs
 			this.m_splitContainer.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.m_splitContainer)).EndInit();
 			this.m_splitContainer.ResumeLayout(false);
+			this.tableLayoutPanelNavigationControls.ResumeLayout(false);
+			this.tableLayoutPanelNavigationControls.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -861,5 +884,6 @@ namespace ProtoScript.Dialogs
 		private System.Windows.Forms.ToolStripButton m_toolStripButtonLargerFont;
 		private Paratext.ToolStripVerseControl m_scriptureReference;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanelNavigationControls;
 	}
 }
