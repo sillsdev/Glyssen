@@ -16,7 +16,7 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_ValidControlVersionPresent()
 		{
-			Assert.IsTrue(Regex.IsMatch(Resources.CharacterVerseData, "\\AControl File Version\t\\d+\r$", RegexOptions.Multiline));
+			Assert.IsTrue(Regex.IsMatch(Resources.CharacterVerseData, @"\AControl File Version\t\d+\r\n?$", RegexOptions.Multiline));
 		}
 
 		[Test]
