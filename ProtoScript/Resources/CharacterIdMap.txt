@@ -109,7 +109,6 @@ Barzillai	1063	FALSE	Male
 Bathsheba	64	FALSE	Female		
 believers who were Pharisees	500	TRUE	Male		
 believers, circumcised (in Jerusalem)	502	TRUE	Male		
-believers, Corinth	501	TRUE			
 believers, one hundred twenty	503	TRUE			
 beloved	504	FALSE	Female		
 Belshazzar, king of Babylon	65	FALSE	Male		
