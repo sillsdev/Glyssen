@@ -1,4 +1,4 @@
-Control File Version	64
+Control File Version	65
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -370,9 +370,9 @@ GEN	30	27	Laban			Normal
 GEN	30	28	Laban			Normal		
 GEN	30	29	Jacob			Normal		
 GEN	30	31	Jacob			Normal		
+GEN	30	31	Laban			Normal		
 GEN	30	32	Jacob			Normal		
 GEN	30	33	Jacob			Normal		
-GEN	30	31	Laban			Normal		
 GEN	30	34	Laban			Normal		
 GEN	31	1	Laban's sons			Normal		
 GEN	31	3	God		God (the LORD)	Normal		
@@ -2790,8 +2790,8 @@ JDG	5	27	Deborah/Barak			Implicit	Deborah
 JDG	5	28	Deborah/Barak			Implicit	Deborah	
 JDG	5	29	Deborah/Barak			Implicit	Deborah	
 JDG	5	30	Deborah/Barak			Implicit	Deborah	
-JDG	5	31	Deborah/Barak			Implicit	Deborah	
 JDG	5	30	Sisera's mother			Quotation		
+JDG	5	31	Deborah/Barak			Implicit	Deborah	
 JDG	6	8	prophet			Normal		
 JDG	6	12	Jesus		the angel of the LORD	Normal		
 JDG	6	13	Gideon			Normal		
@@ -4723,8 +4723,8 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	32	19	Sennacherib's officers			Indirect		
 2CH	33	4	God		God (the LORD)	Quotation		
 2CH	33	7	God		God (the LORD)	Quotation		
-2CH	33	8	God		God (the LORD)	Quotation		
 2CH	33	7	narrator-2CH			Indirect		
+2CH	33	8	God		God (the LORD)	Quotation		
 2CH	33	8	narrator-2CH			Indirect		
 2CH	34	15	Hilkiah, high priest			Normal		
 2CH	34	16	Shaphan, secretary			Normal		
@@ -6164,12 +6164,12 @@ SNG	2	7	beloved			Normal
 SNG	2	8	beloved			Implicit		
 SNG	2	9	beloved			Implicit		
 SNG	2	10	beloved			Normal		
-SNG	2	11	beloved			Normal		
-SNG	2	12	beloved			Normal		
-SNG	2	13	beloved			Normal		
 SNG	2	10	lover			Normal		
+SNG	2	11	beloved			Normal		
 SNG	2	11	lover			Normal		
+SNG	2	12	beloved			Normal		
 SNG	2	12	lover			Normal		
+SNG	2	13	beloved			Normal		
 SNG	2	13	lover			Normal		
 SNG	2	14	lover			Implicit		
 SNG	2	15	maidens			Normal		
@@ -6183,16 +6183,16 @@ SNG	3	4	beloved			Implicit
 SNG	3	5	beloved			Normal		
 SNG	3	5	lover			Normal		
 SNG	3	6	beloved			Normal		
-SNG	3	7	beloved			Normal		
-SNG	3	8	beloved			Normal		
-SNG	3	9	beloved			Normal		
-SNG	3	10	beloved			Normal		
-SNG	3	11	beloved			Normal		
 SNG	3	6	maidens			Normal		
+SNG	3	7	beloved			Normal		
 SNG	3	7	maidens			Normal		
+SNG	3	8	beloved			Normal		
 SNG	3	8	maidens			Normal		
+SNG	3	9	beloved			Normal		
 SNG	3	9	maidens			Normal		
+SNG	3	10	beloved			Normal		
 SNG	3	10	maidens			Normal		
+SNG	3	11	beloved			Normal		
 SNG	3	11	maidens			Normal		
 SNG	4	1	lover			Implicit		
 SNG	4	2	lover			Implicit		
@@ -6289,10 +6289,10 @@ ISA	1	24	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	Normal
 ISA	1	25	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	Normal		
 ISA	1	26	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	Normal		
 ISA	1	29	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	Normal		
-ISA	1	30	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	Normal		
-ISA	1	31	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	Normal		
 ISA	1	29	Isaiah			Normal		
+ISA	1	30	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	Normal		
 ISA	1	30	Isaiah			Normal		
+ISA	1	31	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	Normal		
 ISA	1	31	Isaiah			Normal		
 ISA	2	3	peoples, many			Hypothetical		
 ISA	3	6	man (hypothetical)			Hypothetical		
@@ -6974,12 +6974,12 @@ JER	3	20	God		God (the LORD)	Normal
 JER	3	21	God		God (the LORD)	Potential		
 JER	3	22	God		God (the LORD)	Normal		
 JER	3	22	Jeremiah			Normal		
-JER	3	23	Jeremiah			Normal		
-JER	3	24	Jeremiah			Normal		
-JER	3	25	Jeremiah			Normal		
 JER	3	22	people			Normal		
+JER	3	23	Jeremiah			Normal		
 JER	3	23	people			Normal		
+JER	3	24	Jeremiah			Normal		
 JER	3	24	people			Normal		
+JER	3	25	Jeremiah			Normal		
 JER	3	25	people			Normal		
 JER	4	1	God		God (the LORD)	Normal		
 JER	4	2	God		God (the LORD)	Normal		
@@ -7029,8 +7029,8 @@ JER	6	1	God		God (the LORD)	Normal
 JER	6	2	God		God (the LORD)	Normal		
 JER	6	3	God		God (the LORD)	Normal		
 JER	6	4	God		God saying what invaders will say	Hypothetical		
-JER	6	5	God		God saying what invaders will say	Hypothetical		
 JER	6	4	invaders			Hypothetical		
+JER	6	5	God		God saying what invaders will say	Hypothetical		
 JER	6	5	invaders			Hypothetical		
 JER	6	6	God		God (the LORD Almighty)	Normal		
 JER	6	7	God		God (the LORD Almighty)	Normal		
@@ -7248,10 +7248,10 @@ JER	19	15	Jeremiah		 	Normal
 JER	19	15	God		God (the LORD Almighty)	Normal		
 JER	20	3	Jeremiah			Normal		
 JER	20	4	Jeremiah			Normal		
-JER	20	5	Jeremiah			Normal		
-JER	20	6	Jeremiah			Normal		
 JER	20	4	God		God (the LORD)	Normal		
+JER	20	5	Jeremiah			Normal		
 JER	20	5	God		God (the LORD)	Normal		
+JER	20	6	Jeremiah			Normal		
 JER	20	6	God		God (the LORD)	Normal		
 JER	20	7	Jeremiah			Implicit		
 JER	20	8	Jeremiah			Implicit		
@@ -7262,25 +7262,25 @@ JER	20	15	messenger			Quotation
 JER	21	2	Pashur/Zephaniah			Normal		
 JER	21	3	Jeremiah			Normal		
 JER	21	4	Jeremiah			Normal		
+JER	21	4	God		God (the LORD)	Normal		
 JER	21	5	Jeremiah			Normal		
+JER	21	5	God		God (the LORD)	Normal		
 JER	21	6	Jeremiah			Normal		
+JER	21	6	God		God (the LORD)	Normal		
 JER	21	7	Jeremiah			Normal		
+JER	21	7	God		God (the LORD)	Normal		
 JER	21	8	Jeremiah			Normal		
+JER	21	8	God		God (the LORD)	Normal		
 JER	21	9	Jeremiah			Normal		
+JER	21	9	God		God (the LORD)	Normal		
 JER	21	10	Jeremiah			Normal		
+JER	21	10	God		God (the LORD)	Normal		
 JER	21	11	Jeremiah			Normal		
 JER	21	12	Jeremiah			Normal		
-JER	21	13	Jeremiah			Normal		
-JER	21	14	Jeremiah			Normal		
-JER	21	4	God		God (the LORD)	Normal		
-JER	21	5	God		God (the LORD)	Normal		
-JER	21	6	God		God (the LORD)	Normal		
-JER	21	7	God		God (the LORD)	Normal		
-JER	21	8	God		God (the LORD)	Normal		
-JER	21	9	God		God (the LORD)	Normal		
-JER	21	10	God		God (the LORD)	Normal		
 JER	21	12	God		God (the LORD)	Normal		
+JER	21	13	Jeremiah			Normal		
 JER	21	13	God		God (the LORD)	Normal		
+JER	21	14	Jeremiah			Normal		
 JER	21	14	God		God (the LORD)	Normal		
 JER	22	1	God		God (the LORD)(word of the LORD)	Normal		
 JER	22	6	God		God (the LORD)(word of the LORD)	Normal		
@@ -7443,8 +7443,8 @@ JER	31	18	God		God (the LORD)	Normal
 JER	31	19	God		God (the LORD)	Normal		
 JER	31	20	God		God (the LORD)	Normal		
 JER	31	21	God		God (the LORD)	Normal		
-JER	31	22	God		God (the LORD)	Normal		
 JER	31	21	Jeremiah			Normal		
+JER	31	22	God		God (the LORD)	Normal		
 JER	31	22	Jeremiah			Normal		
 JER	31	23	God		God (the LORD Almighty, the God of Israel)	Normal		
 JER	31	24	God		God (the LORD Almighty, the God of Israel)	Normal		
