@@ -13,6 +13,11 @@ namespace ProtoScript.Character
 				LoadData(File.ReadAllText(fullPath));
 		}
 
+		public virtual void Add(CharacterVerse cv)
+		{
+			AddCharacterVerse(cv);
+		}
+
 		public void WriteToFile(string fullPath)
 		{
 			RemoveDataAlsoInControlFile();

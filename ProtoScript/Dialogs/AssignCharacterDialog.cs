@@ -26,8 +26,8 @@ namespace ProtoScript.Dialogs
 	public partial class AssignCharacterDialog : Form
 	{
 		private readonly AssignCharacterViewModel m_viewModel;
-
 		private string m_xOfYFmt;
+		private bool m_promptToCloseWhenAssignmentsAreComplete = true;
 
 		private void HandleStringsLocalized()
 		{
@@ -61,30 +61,40 @@ namespace ProtoScript.Dialogs
 			m_scriptureReference.VerseControl.BooksPresentSet = books;
 			m_scriptureReference.VerseControl.ShowEmptyBooks = false;
 
+			Disposed += AssignCharacterDialog_Disposed;
+
 			m_scriptureReference.VerseControl.AllowVerseSegments = false;
 			// TODO (PG-117): Set versification according to project
 			m_scriptureReference.VerseControl.Versification = m_viewModel.Versification;
 			m_scriptureReference.VerseControl.VerseRefChanged += m_scriptureReference_VerseRefChanged;
+			m_scriptureReference.VerseControl.Disposed += (sender, args) =>
+				m_scriptureReference.VerseControl.VerseRefChanged -= m_scriptureReference_VerseRefChanged;
 
 			m_blocksViewer.Initialize(m_viewModel,
 				block => AssignCharacterViewModel.Character.GetCharacterIdForUi(block.CharacterId, CurrentContextCharacters),
 				block => block.Delivery);
-			m_viewModel.CurrentBlockChanged += (sender, args) => LoadBlock();
+			m_viewModel.CurrentBlockChanged += LoadBlock;
 
 			UpdateProgressBarForMode();
 
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 
-			m_viewModel.AssignedBlocksIncremented += (sender, args) => { if (m_progressBar.Visible) m_progressBar.Increment(1); };
+			m_viewModel.AssignedBlocksIncremented += m_viewModel_AssignedBlocksIncremented;
 
-			m_blocksViewer.VisibleChanged += (sender, args) => this.SafeInvoke(() =>
-			{
-				if (m_blocksViewer.Visible)
-					LoadBlock();
-			}, true);
+			m_blocksViewer.VisibleChanged += LoadBlock;
+			m_blocksViewer.Disposed += (sender, args) => m_blocksViewer.VisibleChanged -= LoadBlock;
 
 			SetFilterControlsFromMode();
+		}
+
+		void m_viewModel_AssignedBlocksIncremented(object sender, EventArgs e)
+		{
+			this.SafeInvoke(() =>
+			{
+				if (m_progressBar.Visible)
+					m_progressBar.Increment(1);
+			});
 		}
 
 		private void UpdateProgressBarForMode()
@@ -119,10 +129,16 @@ namespace ProtoScript.Dialogs
 				m_toolStripButtonExcludeUserConfirmed.Checked = true;
 		}
 
-		public void LoadBlock()
+		public void LoadBlock(object sender, EventArgs args)
 		{
-			UpdateDisplay();
-			UpdateNavigationButtonState();
+			if (m_blocksViewer.Visible)
+			{
+				this.SafeInvoke(() =>
+				{
+					UpdateDisplay();
+					UpdateNavigationButtonState();
+				});
+			}
 		}
 
 		private void UpdateDisplay()
@@ -392,6 +408,15 @@ namespace ProtoScript.Dialogs
 			base.OnLoad(e);
 			m_blocksViewer.BlocksGridSettings = Properties.Settings.Default.AssignCharactersBlockContextGrid;
 		}
+
+		void AssignCharacterDialog_Disposed(object sender, EventArgs e)
+		{
+			m_viewModel.CurrentBlockChanged -= LoadBlock;
+			LocalizeItemDlg.StringsLocalized -= HandleStringsLocalized;
+			m_viewModel.AssignedBlocksIncremented -= m_viewModel_AssignedBlocksIncremented;
+
+			Disposed -= AssignCharacterDialog_Disposed;
+		}
 		
 		protected override void OnClosing(CancelEventArgs e)
 		{
@@ -414,7 +439,7 @@ namespace ProtoScript.Dialogs
 		private void m_btnAssign_Click(object sender, EventArgs e)
 		{
 			SaveSelections();
-			if (m_viewModel.AreAllAssignmentsComplete)
+			if (m_viewModel.AreAllAssignmentsComplete && m_promptToCloseWhenAssignmentsAreComplete)
 			{
 				string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.AssignmentsComplete", "Assignments Complete");
 				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.CloseDialogMessage", "All assignments have been made. Would you like to return to the main window?");
@@ -423,6 +448,7 @@ namespace ProtoScript.Dialogs
 					Close();
 					return;
 				}
+				m_promptToCloseWhenAssignmentsAreComplete = false;
 			}
 			if (m_viewModel.CanNavigateToNextRelevantBlock)
 				LoadNextRelevantBlock();
@@ -510,8 +536,13 @@ namespace ProtoScript.Dialogs
 
 		private void AssignCharacterDialog_KeyDown(object sender, KeyEventArgs e)
 		{
-			if (e.KeyCode == Keys.Return && m_btnAssign.Enabled)
-				m_btnAssign.PerformClick();
+			if (e.KeyCode == Keys.Return && m_splitContainer.ContainsFocus)
+			{
+				if (m_btnAssign.Enabled)
+					m_btnAssign.PerformClick();
+				else if (m_btnNext.Enabled)
+					m_btnNext.PerformClick();
+			}
 		}
 
 		private void HandleFilterChanged(object sender, EventArgs e)
@@ -536,7 +567,7 @@ namespace ProtoScript.Dialogs
 
 			if (m_viewModel.RelevantBlockCount > 0)
 			{
-				LoadBlock();
+				LoadBlock(sender, e);
 			}
 			else
 			{

@@ -375,8 +375,8 @@ namespace ProtoScript
 		private void UsxWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
 			if (e.Error != null)
-				Debug.Fail(e.Error.Message);
-
+				throw e.Error;
+			
 			var result = (IEnumerable<BookScript>)e.Result;
 			//REVIEW: more efficient to sort after the fact like this?  Or just don't run them in parallel (in ProjectUsxParser) in the first place?
 			var resultList = result.ToList();
@@ -416,7 +416,7 @@ namespace ProtoScript
 		private void GuessWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
 			if (e.Error != null)
-				Debug.Fail(e.Error.Message);
+				throw e.Error;
 
 			bool certain = (bool)e.Result;
 			if (certain)

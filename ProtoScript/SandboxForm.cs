@@ -334,13 +334,6 @@ namespace ProtoScript
 		{
 			using (var viewModel = new AssignCharacterViewModel(m_project))
 			{
-				if (viewModel.RelevantBlockCount == 0)
-				{
-					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.AllAssignmentsMadeAutomatically",
-						"Character assigments were made automatically for all quotations in the Scripture text. There is nothing more to do at this time.");
-					MessageBox.Show(this, msg, ProductName, MessageBoxButtons.OK);
-					return;
-				}
 				using (var dlg = new AssignCharacterDialog(viewModel))
 					dlg.ShowDialog();
 			}

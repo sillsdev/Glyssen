@@ -17,9 +17,9 @@ namespace ProtoScript.Character
 		/// </summary>
 		public const string AmbiguousCharacter = "Ambiguous";
 
-		protected const int kiIsDialogue = 6;
-		protected const int kiIsExpected = 6; // TODO (PG-70, part 1): = kiIsDialogue + 1
-		protected const int kiDefaultCharacter = kiIsExpected + 1;
+		public const int kiMinRequiredFields = 5;
+		protected const int kiQuoteType = kiMinRequiredFields + 1;
+		protected const int kiDefaultCharacter = kiQuoteType + 1;
 		protected const int kiParallelPassageInfo = kiDefaultCharacter + 1;
 		protected const int kMaxItems = kiParallelPassageInfo + 1;
 
@@ -121,7 +121,7 @@ namespace ProtoScript.Character
 			return m_data.Where(cv => cv.BookCode == bookCode);
 		}
 
-		public virtual void AddCharacterVerse(CharacterVerse cv)
+		protected virtual void AddCharacterVerse(CharacterVerse cv)
 		{
 			m_data.Add(cv);
 			m_uniqueCharacterAndDeliveries = null;
@@ -155,7 +155,7 @@ namespace ProtoScript.Character
 
 		public void RemoveAll(IEnumerable<CharacterVerse> cvsToRemove, IEqualityComparer<CharacterVerse> comparer)
 		{
-			var intersection = m_data.Intersect(cvsToRemove, comparer);
+			var intersection = m_data.Intersect(cvsToRemove, comparer).ToList();
 			foreach (CharacterVerse cv in intersection)
 				m_data.Remove(cv);
 
@@ -185,8 +185,8 @@ namespace ProtoScript.Character
 		{
 			var list = new HashSet<CharacterVerse>();
 
-			if (items.Length < kiIsDialogue)
-				throw new ApplicationException("Bad format in CharacterVerseDataBase! Line #: " + lineNumber + "; Line contents: " + items.Concat("\t"));
+			if (items.Length < kiQuoteType)
+				throw new ApplicationException("Bad format in CharacterVerseDataBase! Line #: " + lineNumber + "; Line contents: " + string.Join("\t", items));
 			Debug.Assert(items.Length <= kMaxItems);
 
 			int chapter = Int32.Parse(items[1]);

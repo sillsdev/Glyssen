@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using ProtoScript.Properties;
 using SIL.ScriptureUtils;
 
@@ -37,7 +38,7 @@ namespace ProtoScript.Character
 				throw new ApplicationException("No character verse data available!");
 		}
 
-		public override void AddCharacterVerse(CharacterVerse cv)
+		protected override void AddCharacterVerse(CharacterVerse cv)
 		{
 			throw new ApplicationException("A new character cannot be added to the control file directly");
 		}
@@ -63,9 +64,17 @@ namespace ProtoScript.Character
 
 		protected override CharacterVerse CreateCharacterVerse(BCVRef bcvRef, string[] items)
 		{
-			return new CharacterVerse(bcvRef, items[3], items[4], items[5], false,
-				(items.Length > kiIsDialogue && items[kiIsDialogue].Equals("True", StringComparison.OrdinalIgnoreCase)),
-				(items.Length > kiIsExpected && items[kiIsExpected].Equals("True", StringComparison.OrdinalIgnoreCase)), // NOTE: this is for PG-70, part 1. Eventually kiIsExpected will be its own field in the control file and this line will do the right thing. For now (since kiIsExpected == kiIsDialogue), this property is just getting set the same way as the IsDialog property.
+			QuoteType quoteType = QuoteType.Normal;
+			if (items.Length > kiQuoteType)
+			{
+				var value = items[kiQuoteType];
+				if (value != "FALSE" && value != String.Empty && !Enum.TryParse(value, out quoteType))
+				{
+					throw new InvalidDataException(string.Format("items[{0}] has a value of {1}, which is not a valid {2}",
+						kiQuoteType, value, typeof (QuoteType).Name));
+				}
+			}
+			return new CharacterVerse(bcvRef, items[3], items[4], items[5], false, quoteType,
 				(items.Length > kiDefaultCharacter) ? items[kiDefaultCharacter] : null,
 				(items.Length > kiParallelPassageInfo) ? items[kiParallelPassageInfo] : null);
 		}

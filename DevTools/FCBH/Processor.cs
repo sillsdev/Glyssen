@@ -30,7 +30,7 @@ namespace DevTools.FCBH
 			sb.Append("Control File Version").Append(TAB).Append(Environment.NewLine);
 			sb.Append("#").Append(TAB).Append("C").Append(TAB).Append("V").Append(TAB)
 				.Append("Character ID").Append(TAB).Append("FCBH Character ID").Append(TAB).Append("Delivery").Append(TAB)
-				.Append("Alias").Append(TAB).Append("Dialogue").Append(TAB).Append("Default Character").Append(TAB)
+				.Append("Alias").Append(TAB).Append("Quote Type").Append(TAB).Append("Default Character").Append(TAB)
 				.Append("Parallel Passage").Append(Environment.NewLine);
 
 			var allFcbh = TemplateData.All(includeFcbhNarrator);
@@ -80,7 +80,7 @@ namespace DevTools.FCBH
 					sb.Append(cv.BookCode).Append(TAB)
 					.Append(cv.Chapter).Append(TAB).Append(cv.Verse).Append(TAB).Append(cv.Character).Append(TAB)
 					.Append(fcbhDatum.CharacterId).Append(TAB).Append(cv.Delivery).Append(TAB).Append(cv.Alias).Append(TAB)
-					.Append(DialogueOutput(cv.IsDialogue)).Append(TAB).Append(cv.DefaultCharacter).Append(TAB).Append(cv.ParallelPassageReferences)
+					.Append(cv.QuoteType).Append(TAB).Append(cv.DefaultCharacter).Append(TAB).Append(cv.ParallelPassageReferences)
 					.Append(Environment.NewLine);
 				}
 				else
@@ -91,7 +91,7 @@ namespace DevTools.FCBH
 							sb.Append(cv.BookCode).Append(TAB)
 							.Append(cv.Chapter).Append(TAB).Append(cv.Verse).Append(TAB).Append(cv.Character).Append(TAB)
 							.Append(TAB).Append(cv.Delivery).Append(TAB).Append(cv.Alias).Append(TAB)
-							.Append(DialogueOutput(cv.IsDialogue)).Append(TAB).Append(cv.DefaultCharacter).Append(TAB).Append(cv.ParallelPassageReferences)
+							.Append(cv.QuoteType).Append(TAB).Append(cv.DefaultCharacter).Append(TAB).Append(cv.ParallelPassageReferences)
 							.Append(Environment.NewLine);
 						}
 					if (hasFcbh)
@@ -110,11 +110,6 @@ namespace DevTools.FCBH
 						}
 				}
 			}
-		}
-
-		private static string DialogueOutput(bool isDialogue)
-		{
-			return isDialogue ? "TRUE" : "FALSE";
 		}
 	}
 }
