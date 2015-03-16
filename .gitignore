@@ -8,6 +8,7 @@ Downloads/
 *.pdb
 lib/dotnet/Palaso*.dll
 lib/dotnet/icu*.dll
+lib/dotnet/icu*.config
 lib/dotnet/L10NSharp.dll
 lib/dotnet/SIL.*.dll
 lib/dotnet/Geckofx*.dll
