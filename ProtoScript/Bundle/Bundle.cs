@@ -147,14 +147,15 @@ namespace ProtoScript.Bundle
 		{
 			get { return m_canons; }
 		}
+
 		public UsxStylesheet Stylesheet
 		{
 			get { return m_stylesheet; }
 		}
 
-		public bool TryGetCanon(int bookId, out Canon canon)
+		public bool TryGetCanon(int canonId, out Canon canon)
 		{
-			return m_canons.TryGetValue(bookId, out canon);
+			return m_canons.TryGetValue(canonId, out canon);
 		}
 
 		//TODO (PG-36) This method either needs to be greatly improved or replaced
