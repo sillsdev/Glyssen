@@ -153,12 +153,9 @@ namespace ProtoScript
 				bool quoteSystemChanged = ConfirmedQuoteSystem != value;
 				m_metadata.QuoteSystem = value;
 
-				if (!quoteSystemChanged)
-					return;
-
 				if (IsQuoteSystemUserConfirmed && ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
 					DoQuoteParse();
-				else if (!quoteSystemBeingSetForFirstTime)
+				else if (quoteSystemChanged && !quoteSystemBeingSetForFirstTime)
 					HandleQuoteSystemChanged();
 			}
 		}
