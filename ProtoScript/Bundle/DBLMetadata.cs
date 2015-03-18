@@ -61,10 +61,23 @@ namespace ProtoScript.Bundle
 		[DefaultValue(false)]
 		public bool HiddenByDefault;
 
+		private QuoteSystem m_quoteSystem;
 		/// <summary>
-		/// This is not part of the original DBL metadata.
+		/// This is not part of the original DBL metadata. This data is now stored in LDML.
 		/// </summary>
-		public QuoteSystem QuoteSystem;
+		[XmlElement("QuoteSystem")]
+		public QuoteSystem QuoteSystem_DeprecatedXml
+		{
+			get { return null; }
+			set { m_quoteSystem = value; }
+		}
+
+		[XmlIgnore]
+		public QuoteSystem QuoteSystem
+		{
+			get { return m_quoteSystem; }
+			set { m_quoteSystem = value; }
+		}
 
 		/// <summary>
 		/// This is not part of the original DBL metadata.
@@ -72,8 +85,12 @@ namespace ProtoScript.Bundle
 		[XmlElement("projectStatus")]
 		public ProjectStatus ProjectStatus = new ProjectStatus();
 
+		[XmlElement("isQuoteSystemUserConfirmed")]
+		[DefaultValue(false)]
+		public bool IsQuoteSystemUserConfirmed;
+
 		/// <summary>
-		/// This is not part of the original DBL metadata. This data is now stored as part of the "langauge" data. 
+		/// This is not part of the original DBL metadata. This data is now stored as part of the "language" data. 
 		/// </summary>
 		[XmlElement("fontFamily")]
 		public string FontFamily_DeprecatedXml

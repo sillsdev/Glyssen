@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Xml;
@@ -32,18 +31,28 @@ namespace ProtoScript.Quote
 				s_systems.Add(XmlSerializationHelper.DeserializeFromString<QuoteSystem>(node.OuterXml));
 		}
 
+		private BulkObservableList<QuotationMark> m_allLevels; 
+
 		public QuoteSystem()
 		{
-			Levels = new BulkObservableList<QuotationMark>();
+			AllLevels = new BulkObservableList<QuotationMark>();
 		}
 
-		public QuoteSystem(QuotationMark firstLevel,
-			string quotationDashMarker = null, string quotationDashEndMarker = null, bool quotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes = false) : this()
+		public QuoteSystem(QuotationMark firstLevel, string quotationDashMarker = null, string quotationDashEndMarker = null) : this()
 		{
-			Levels.Add(firstLevel);
-			QuotationDashMarker = quotationDashMarker;
-			QuotationDashEndMarker = quotationDashEndMarker;
-			QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes = quotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes;
+			AllLevels.Add(firstLevel);
+			if (quotationDashMarker != null)
+				AllLevels.Add(new QuotationMark(quotationDashMarker, quotationDashEndMarker, null, 1, QuotationMarkingSystemType.Narrative));
+		}
+
+		public QuoteSystem(BulkObservableList<QuotationMark> allLevels) : this()
+		{
+			AllLevels = allLevels;
+		}
+
+		public QuoteSystem(QuoteSystem quoteSystem) : this()
+		{
+			AllLevels.AddRange(quoteSystem.AllLevels.Select(l => new QuotationMark(l.Open, l.Close, l.Continue, l.Level, l.Type)));
 		}
 
 		public static QuoteSystem Default
@@ -63,7 +72,7 @@ namespace ProtoScript.Quote
 					{
 						if (!s_uniquelyGuessableSystems.Any(s => comparer.Equals(s, qs) && s.QuotationDashMarker == qs.QuotationDashMarker))
 						{
-							var minimallySpecifiedSystem = GetOrCreateQuoteSystem(qs.FirstLevel, qs.QuotationDashMarker, null, false);
+							var minimallySpecifiedSystem = GetOrCreateQuoteSystem(qs.FirstLevel, qs.QuotationDashMarker, null);
 							if (string.IsNullOrEmpty(minimallySpecifiedSystem.Name))
 								minimallySpecifiedSystem = qs;
 							s_uniquelyGuessableSystems.Add(minimallySpecifiedSystem);
@@ -79,10 +88,9 @@ namespace ProtoScript.Quote
 			get { return s_systems.Where(q => q.QuotationDashMarker == null).Distinct(new FirstLevelQuoteSystemComparer()); }
 		}
 
-		public static QuoteSystem GetOrCreateQuoteSystem(QuotationMark firstLevel,
-			string quotationDashMarker, string quotationDashEndMarker, bool quotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes)
+		public static QuoteSystem GetOrCreateQuoteSystem(QuotationMark firstLevel, string quotationDashMarker, string quotationDashEndMarker)
 		{
-			var newQuoteSystem = new QuoteSystem(firstLevel, quotationDashMarker, quotationDashEndMarker, quotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes);
+			var newQuoteSystem = new QuoteSystem(firstLevel, quotationDashMarker, quotationDashEndMarker);
 
 			var match = s_systems.SingleOrDefault(qs => qs.Equals(newQuoteSystem));
 			return match ?? newQuoteSystem;
@@ -93,50 +101,107 @@ namespace ProtoScript.Quote
 		public string MajorLanguage { get; set; }
 
 		[XmlIgnore]
-		public BulkObservableList<QuotationMark> Levels;
+		public BulkObservableList<QuotationMark> AllLevels
+		{
+			get { return m_allLevels; }
+			set { m_allLevels = value; }
+		}
 
 		[XmlIgnore]
-		public QuotationMark FirstLevel { get { return Levels[0]; } }
+		public System.Collections.ObjectModel.ReadOnlyCollection<QuotationMark> NormalLevels
+		{
+			get { return m_allLevels.Where(l => l.Type == QuotationMarkingSystemType.Normal).ToList().AsReadOnly(); }
+		}
+
+		[XmlIgnore]
+		public QuotationMark FirstLevel { get { return AllLevels[0]; } }
 
 		[XmlElement("StartQuoteMarker")]
 		public string StartQuoteMarker_DeprecatedXml
 		{
-			get { return FirstLevel.Open; }
+			get { return null; }
 			set
 			{
-				if (Levels.Count == 0)
-					Levels.Add(new QuotationMark(value, null, value, 1, QuotationMarkingSystemType.Normal));
+				if (AllLevels.Count == 0)
+					AllLevels.Add(new QuotationMark(value, null, value, 1, QuotationMarkingSystemType.Normal));
 				else
-				{
-					string close = Levels[0].Close;
-					Levels[0] = new QuotationMark(value, close, value, 1, QuotationMarkingSystemType.Normal);
-				}
+					AllLevels[0] = new QuotationMark(value, AllLevels[0].Close, value, 1, QuotationMarkingSystemType.Normal);
 			}
 		}
 
 		[XmlElement("EndQuoteMarker")]
 		public string EndQuoteMarker_DeprecatedXml
 		{
-			get { return FirstLevel.Close; }
+			get { return null; }
 			set
 			{
-				if (Levels.Count == 0)
-					Levels.Add(new QuotationMark(value, null, value, 1, QuotationMarkingSystemType.Normal));
+				if (AllLevels.Count == 0)
+					AllLevels.Add(new QuotationMark(null, value, null, 1, QuotationMarkingSystemType.Normal));
+				else
+					AllLevels[0] = new QuotationMark(AllLevels[0].Open, value, AllLevels[0].Continue, 1, QuotationMarkingSystemType.Normal);
+			}
+		}
+
+		[XmlElement("QuotationDashMarker")]
+		public string QuotationDashMarker_DeprecatedXml
+		{
+			get { return null; }
+			set
+			{
+				QuotationMark dialog = AllLevels.FirstOrDefault(l => l.Level == 1 && l.Type == QuotationMarkingSystemType.Narrative);
+				if (dialog == null)
+				{
+					AllLevels.Add(new QuotationMark(value, null, null, 1, QuotationMarkingSystemType.Narrative));
+				}
 				else
 				{
-					string open = Levels[0].Open;
-					string cont = Levels[0].Continue;
-					Levels[0] = new QuotationMark(open, value, cont, 1, QuotationMarkingSystemType.Normal);
+					AllLevels.Remove(dialog);
+					AllLevels.Add(new QuotationMark(value, dialog.Close, dialog.Continue, 1, QuotationMarkingSystemType.Narrative));
 				}
 			}
 		}
 
-		public string QuotationDashMarker { get; set; }
+		[XmlElement("QuotationDashEndMarker")]
+		public string QuotationDashEndMarker_DeprecatedXml
+		{
+			get { return null; }
+			set
+			{
+				QuotationMark dialog = AllLevels.FirstOrDefault(l => l.Level == 1 && l.Type == QuotationMarkingSystemType.Narrative);
+				if (dialog == null)
+				{
+					AllLevels.Add(new QuotationMark(null, value, null, 1, QuotationMarkingSystemType.Narrative));
+				}
+				else
+				{
+					AllLevels.Remove(dialog);
+					AllLevels.Add(new QuotationMark(dialog.Open, value, dialog.Continue, 1, QuotationMarkingSystemType.Narrative));
+				}
+			}
+		}
 
-		public string QuotationDashEndMarker { get; set; }
+		[XmlIgnore]
+		public string QuotationDashMarker {
+			get
+			{
+				QuotationMark dialog = AllLevels.FirstOrDefault(l => l.Level == 1 && l.Type == QuotationMarkingSystemType.Narrative);
+				if (dialog == null)
+					return null;
+				return dialog.Open;
+			} 
+		}
 
-		[DefaultValue(false)]
-		public bool QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes { get; set; }
+		[XmlIgnore]
+		public string QuotationDashEndMarker
+		{
+			get
+			{
+				QuotationMark dialog = AllLevels.FirstOrDefault(l => l.Level == 1 && l.Type == QuotationMarkingSystemType.Narrative);
+				if (dialog == null)
+					return null;
+				return dialog.Close;
+			}
+		}
 
 		public QuoteSystem GetCorrespondingFirstLevelQuoteSystem()
 		{
@@ -154,14 +219,11 @@ namespace ProtoScript.Quote
 		{
 			if (other == null)
 				return false;
-			if (Levels == null)
-				return other.Levels == null;
-			if (other.Levels == null)
+			if (AllLevels == null)
+				return other.AllLevels == null;
+			if (other.AllLevels == null)
 				return false;
-			return Levels.SequenceEqual(other.Levels) &&
-				string.Equals(QuotationDashMarker, other.QuotationDashMarker) && 
-				string.Equals(QuotationDashEndMarker, other.QuotationDashEndMarker) && 
-				QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes.Equals(other.QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes);
+			return AllLevels.SequenceEqual(other.AllLevels);
 		}
 
 		public override bool Equals(object obj)
@@ -179,11 +241,7 @@ namespace ProtoScript.Quote
 		{
 			unchecked
 			{
-				int hashCode = (Levels != null ? Levels.GetHashCode() : 0);
-				hashCode = (hashCode * 397) ^ (QuotationDashMarker != null ? QuotationDashMarker.GetHashCode() : 0);
-				hashCode = (hashCode * 397) ^ (QuotationDashEndMarker != null ? QuotationDashEndMarker.GetHashCode() : 0);
-				hashCode = (hashCode * 397) ^ QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes.GetHashCode();
-				return hashCode;
+				return (AllLevels != null ? AllLevels.GetHashCode() : 0);
 			}
 		}
 

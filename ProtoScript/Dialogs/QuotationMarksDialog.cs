@@ -2,13 +2,14 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
 using ProtoScript.Controls;
 using ProtoScript.Quote;
+using SIL.ObjectModel;
+using SIL.WritingSystems;
 
 namespace ProtoScript.Dialogs
 {
@@ -21,7 +22,7 @@ namespace ProtoScript.Dialogs
 		internal QuotationMarksDialog(Project project, BlockNavigatorViewModel navigatorViewModel, bool readOnly)
 		{
 			InitializeComponent();
-			
+
 			m_project = project;
 			m_navigatorViewModel = navigatorViewModel;
 	
@@ -67,8 +68,40 @@ namespace ProtoScript.Dialogs
 
 		private void SetupQuoteMarksComboBoxes(QuoteSystem currentSystem)
 		{
-			m_comboQuoteMarks.Items.AddRange(QuoteSystem.AllUniqueFirstLevelSystems.ToArray());
-			m_comboQuoteMarks.SelectedItem = currentSystem.GetCorrespondingFirstLevelQuoteSystem();
+//			m_comboQuoteMarks.Items.AddRange(QuoteSystem.AllUniqueFirstLevelSystems.ToArray());
+//			m_comboQuoteMarks.SelectedItem = currentSystem.GetCorrespondingFirstLevelQuoteSystem();
+
+			foreach (var control in m_pnlLevels.Controls)
+			{
+				var cb = control as ComboBox;
+				if (cb != null)
+				{
+					cb.Items.Clear();
+					cb.Items.AddRange(QuoteUtils.AllDefaultSymbols());
+				}
+			}
+
+			foreach (var level in m_project.QuoteSystem.NormalLevels)
+			{
+				switch (level.Level)
+				{
+					case 1:
+						m_cbLevel1Begin.Text = BlankBecomesNone(level.Open);
+						m_cbLevel1Continue.Text = BlankBecomesNone(level.Continue);
+						m_cbLevel1End.Text = BlankBecomesNone(level.Close);
+						break;
+					case 2:
+						m_cbLevel2Begin.Text = BlankBecomesNone(level.Open);
+						m_cbLevel2Continue.Text = BlankBecomesNone(level.Continue);
+						m_cbLevel2End.Text = BlankBecomesNone(level.Close);
+						break;
+					case 3:
+						m_cbLevel3Begin.Text = BlankBecomesNone(level.Open);
+						m_cbLevel3Continue.Text = BlankBecomesNone(level.Continue);
+						m_cbLevel3End.Text = BlankBecomesNone(level.Close);
+						break;
+				}
+			}
 
 			var quotationDashMarker = currentSystem.QuotationDashMarker;
 			m_chkDialogueQuotations.Checked = !String.IsNullOrEmpty(quotationDashMarker);
@@ -85,7 +118,7 @@ namespace ProtoScript.Dialogs
 			m_cboEndQuotationDash.Items.Clear();
 			m_cboEndQuotationDash.Items.Add(LocalizationManager.GetString("QuotationMarksDialog.EndQuotationDashWithParagraphOnly", "End of paragraph (only)"));
 			m_cboEndQuotationDash.Items.Add(SameAsStartDashText);
-			m_cboEndQuotationDash.Items.Add(LocalizationManager.GetString("QuotationMarksDialog.EndQuotationDashWithAnyPunctuation", "Any punctuation mark"));
+//			m_cboEndQuotationDash.Items.Add(LocalizationManager.GetString("QuotationMarksDialog.EndQuotationDashWithAnyPunctuation", "Any punctuation mark"));
 
 			var quotationDashEndMarker = currentSystem.QuotationDashEndMarker;
 			if (string.IsNullOrEmpty(quotationDashEndMarker))
@@ -93,9 +126,20 @@ namespace ProtoScript.Dialogs
 			else if (quotationDashEndMarker == quotationDashMarker)
 				m_cboEndQuotationDash.SelectedIndex = 1;
 			else if (quotationDashEndMarker == QuoteSystem.AnyPunctuation)
-				m_cboEndQuotationDash.SelectedIndex = 2;
+//				m_cboEndQuotationDash.SelectedIndex = 2;
+				m_cboEndQuotationDash.SelectedIndex = 0;
 			else
 				m_cboEndQuotationDash.Text = quotationDashEndMarker;
+		}
+
+		private string BlankBecomesNone(string text)
+		{
+			return string.IsNullOrEmpty(text) ? QuoteUtils.None : text;
+		}
+
+		private string NoneBecomesBlank(string text)
+		{
+			return text == QuoteUtils.None ? null : text;
 		}
 
 		private void MakeReadOnly()
@@ -123,6 +167,18 @@ namespace ProtoScript.Dialogs
 				return string.Format(LocalizationManager.GetString("QuotationMarksDialog.EndQuotationDashWithStartDash",
 					"Same as start quotation dash ({0})"), quotationDashMarker);
 			}
+		}
+
+		private bool ValidateQuoteSystem(QuoteSystem quoteSystem, out string validationMessage)
+		{
+			var level1 = quoteSystem.FirstLevel;
+			if (level1 == null || string.IsNullOrEmpty(level1.Open) || string.IsNullOrEmpty(level1.Close))
+			{
+				validationMessage = LocalizationManager.GetString("QuotationMarksDialog.Level1OpenCloseRequired", "Level 1 Open and Close are required.");
+				return false;
+			}
+			validationMessage = null;
+			return true;
 		}
 
 		private void HandlecomboQuoteMarksDrawItem(object sender, DrawItemEventArgs e)
@@ -159,31 +215,44 @@ namespace ProtoScript.Dialogs
 
 		private void m_btnOk_Click(object sender, EventArgs e)
 		{
-			if (m_project.ConfirmedQuoteSystem != null && m_project.ConfirmedQuoteSystem != CurrentQuoteSystem)
+			QuoteSystem currentQuoteSystem = CurrentQuoteSystem;
+			string validationMessage;
+			if (!ValidateQuoteSystem(currentQuoteSystem, out validationMessage))
+			{
+				MessageBox.Show(validationMessage, LocalizationManager.GetString("QuotationMarksDialog.QuoteSystemInvalid", "Quote System Invalid"));
+				DialogResult = DialogResult.None;
+				return;
+			}
+			if (m_project.IsQuoteSystemUserConfirmed && m_project.ConfirmedQuoteSystem != null && m_project.ConfirmedQuoteSystem != currentQuoteSystem)
 			{
 				string msg = LocalizationManager.GetString("ProjectSettingsDialog.ConfirmReparseMessage", "Changing the quote system will require a reparse of the text. Are you sure?");
 				string title = LocalizationManager.GetString("ProjectSettingsDialog.ConfirmReparse", "Confirm Reparse");
 				if (MessageBox.Show(msg, title, MessageBoxButtons.YesNo) != DialogResult.Yes)
 				{
 					SetupQuoteMarksComboBoxes(m_project.QuoteSystem);
+					DialogResult = DialogResult.None;
 					return;
 				}
 			}
-			m_project.QuoteSystem = CurrentQuoteSystem;
-			DialogResult = DialogResult.OK;
-			Close();
+			m_project.IsQuoteSystemUserConfirmed = true;
+			m_project.QuoteSystem = currentQuoteSystem;
 		}
 
 		public QuoteSystem CurrentQuoteSystem
 		{
 			get
 			{
-				var quoteSystemForFirstLevelQuotes = (QuoteSystem)m_comboQuoteMarks.SelectedItem;
-				string quotationDashMarker = null;
-				string quotationDashEndMarker = null;
-				bool quotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes = false;
+				var levels = new BulkObservableList<QuotationMark>();
+				levels.Add(new QuotationMark(NoneBecomesBlank(m_cbLevel1Begin.Text), NoneBecomesBlank(m_cbLevel1End.Text), NoneBecomesBlank(m_cbLevel1Continue.Text), 1, QuotationMarkingSystemType.Normal));
+				if (!string.IsNullOrEmpty(m_cbLevel2Begin.Text))
+					levels.Add(new QuotationMark(NoneBecomesBlank(m_cbLevel2Begin.Text), NoneBecomesBlank(m_cbLevel2End.Text), NoneBecomesBlank(m_cbLevel2Continue.Text), 2, QuotationMarkingSystemType.Normal));
+				if (!string.IsNullOrEmpty(m_cbLevel3Begin.Text))
+					levels.Add(new QuotationMark(NoneBecomesBlank(m_cbLevel3Begin.Text), NoneBecomesBlank(m_cbLevel3End.Text), NoneBecomesBlank(m_cbLevel3Continue.Text), 3, QuotationMarkingSystemType.Normal));
+
 				if (m_chkDialogueQuotations.Checked)
 				{
+					string quotationDashMarker = null;
+					string quotationDashEndMarker = null;
 					switch (m_cboQuotationDash.SelectedIndex)
 					{
 						case 0: quotationDashMarker = "\u2015"; break;
@@ -205,10 +274,11 @@ namespace ProtoScript.Dialogs
 							break;
 					}
 
-					quotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes = m_chkAlternateSpeakersInFirstLevelQuotes.Checked;
+					if (quotationDashMarker != null)
+						levels.Add(new QuotationMark(quotationDashMarker, quotationDashEndMarker, null, 1, QuotationMarkingSystemType.Narrative));
 				}
-				return QuoteSystem.GetOrCreateQuoteSystem(quoteSystemForFirstLevelQuotes.FirstLevel,
-					quotationDashMarker, quotationDashEndMarker, quotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes);
+
+				return new QuoteSystem(levels);
 			}
 		}
 

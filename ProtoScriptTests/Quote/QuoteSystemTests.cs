@@ -12,7 +12,7 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void GetCorrespondingFirstLevelQuoteSystem_SameSystem()
 		{
-			var french = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal), null, null, false); //Guillemets -- French
+			var french = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal), null, null); //Guillemets -- French
 			Assert.AreEqual(french, french.GetCorrespondingFirstLevelQuoteSystem());
 			new QuotationMark("", "", "", 1, QuotationMarkingSystemType.Normal);
 		}
@@ -20,9 +20,9 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void GetCorrespondingFirstLevelQuoteSystem_WithQuoteDash()
 		{
-			var turkish = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal), "—", null, false); //Tırnak işareti (with 2014 Quotation dash) -- Turkish/Vietnamese
-			var french = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal), null, null, false); //Guillemets -- French
-			var english = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null, false); //Quotation marks, double -- English, US/Canada
+			var turkish = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal), "—", null); //Tırnak işareti (with 2014 Quotation dash) -- Turkish/Vietnamese
+			var french = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal), null, null); //Guillemets -- French
+			var english = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null); //Quotation marks, double -- English, US/Canada
 			Assert.AreEqual(french, turkish.GetCorrespondingFirstLevelQuoteSystem());
 			Assert.AreNotEqual(english, turkish.GetCorrespondingFirstLevelQuoteSystem());
 		}
@@ -30,9 +30,9 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void GetCorrespondingFirstLevelQuoteSystem_AllAdditionalFields()
 		{
-			var madeup = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "―", "―", true); //Made-up
-			var french = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal), null, null, false); //Guillemets -- French
-			var english = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null, false); //Quotation marks, double -- English, US/Canada
+			var madeup = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "―", "―"); //Made-up
+			var french = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal), null, null); //Guillemets -- French
+			var english = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null); //Quotation marks, double -- English, US/Canada
 			Assert.AreEqual(english, madeup.GetCorrespondingFirstLevelQuoteSystem());
 			Assert.AreNotEqual(french, madeup.GetCorrespondingFirstLevelQuoteSystem());
 		}
@@ -41,33 +41,25 @@ namespace ProtoScriptTests.Quote
 		public void Deserialize()
 		{
 			const string input = @"<QuoteSystem>
-	<Name>Guillemets</Name>
-	<MajorLanguage>French</MajorLanguage>
-	<StartQuoteMarker>«</StartQuoteMarker>
-	<EndQuoteMarker>»</EndQuoteMarker>
-</QuoteSystem>";
+					<Name>Virgolette (with opening and closing 2014 Quotation dash)</Name>
+					<MajorLanguage>Italian</MajorLanguage>
+					<StartQuoteMarker>“</StartQuoteMarker>
+					<EndQuoteMarker>”</EndQuoteMarker>
+					<QuotationDashMarker>—</QuotationDashMarker>
+					<QuotationDashEndMarker>—</QuotationDashEndMarker>
+				</QuoteSystem>";
 			var quoteSystem = XmlSerializationHelper.DeserializeFromString<QuoteSystem>(input);
-			Assert.AreEqual("«", quoteSystem.FirstLevel.Open);
-			Assert.AreEqual("«", quoteSystem.FirstLevel.Continue);
-			Assert.AreEqual("»", quoteSystem.FirstLevel.Close);
-		}
-
-		[Test]
-		public void Serialize()
-		{
-			var qs = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal))
-			{
-				Name = "Guillemets",
-				MajorLanguage = "French"
-			};
-			string xml = XmlSerializationHelper.SerializeToString(qs);
-			const string expectedResult = @"<QuoteSystem>
-	<Name>Guillemets</Name>
-	<MajorLanguage>French</MajorLanguage>
-	<StartQuoteMarker>«</StartQuoteMarker>
-	<EndQuoteMarker>»</EndQuoteMarker>
-</QuoteSystem>";
-			AssertThatXmlIn.String(expectedResult).EqualsIgnoreWhitespace(xml);
+			Assert.AreEqual("Virgolette (with opening and closing 2014 Quotation dash)", quoteSystem.Name);
+			Assert.AreEqual("Italian", quoteSystem.MajorLanguage);
+			Assert.AreEqual(2, quoteSystem.AllLevels.Count);
+			Assert.AreEqual(1, quoteSystem.NormalLevels.Count);
+			Assert.AreEqual("“", quoteSystem.FirstLevel.Open);
+			Assert.AreEqual("”", quoteSystem.FirstLevel.Close);
+			Assert.AreEqual("“", quoteSystem.FirstLevel.Continue);
+			Assert.AreEqual(1, quoteSystem.FirstLevel.Level);
+			Assert.AreEqual(QuotationMarkingSystemType.Normal, quoteSystem.FirstLevel.Type);
+			Assert.AreEqual("—", quoteSystem.QuotationDashMarker);
+			Assert.AreEqual("—", quoteSystem.QuotationDashEndMarker);
 		}
 	}
 }

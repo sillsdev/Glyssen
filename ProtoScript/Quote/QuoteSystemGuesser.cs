@@ -8,6 +8,7 @@ using System.Linq;
 using ProtoScript.Character;
 using ProtoScript.Utilities;
 using SIL.ScriptureUtils;
+using SIL.WritingSystems;
 
 namespace ProtoScript.Quote
 {
@@ -164,7 +165,7 @@ namespace ProtoScript.Quote
 							{
 								certain = true;
 								ReportProgressComplete(worker);
-								return competitors[0];
+								return SystemWithAllLevels(competitors[0], scores);
 							}
 
 							viableSystems = viableSystems.Where(competitors.Contains).ToList();
@@ -177,7 +178,7 @@ namespace ProtoScript.Quote
 								{
 									certain = true;
 									ReportProgressComplete(worker);
-									return competitors.Single(c => String.IsNullOrEmpty(c.QuotationDashMarker));
+									return SystemWithAllLevels(competitors.Single(c => String.IsNullOrEmpty(c.QuotationDashMarker)), scores);
 								}
 								var winners = contendersWithQDash.Where(c => scores[c] == bestScore &&
 									quotationDashCounts[c] > kMinQuotationDashPercent * totalDialoqueQuoteVersesAnalyzed).ToList();
@@ -185,7 +186,7 @@ namespace ProtoScript.Quote
 								{
 									// Don't set certain to true. Can't ever be sure of details for dialogue quotes
 									ReportProgressComplete(worker);
-									return winners[0];
+									return SystemWithAllLevels(winners[0], scores);
 								}
 							}
 							// Still have multiple systems in contention with the same first-level start & end markers,
@@ -225,6 +226,46 @@ namespace ProtoScript.Quote
 			}
 
 			return bestSystem;
+		}
+
+		private static QuoteSystem SystemWithAllLevels(QuoteSystem system, Dictionary<QuoteSystem, int> scores)
+		{
+			// We don't want to modify one of the existing systems
+			var newSystem = new QuoteSystem(system);
+
+			QuotationMark level1 = newSystem.FirstLevel;
+			QuotationMark level2 = null;
+			var level2Possibilities = QuoteUtils.GetLevel2Possibilities(level1);
+			
+			if (level2Possibilities == null)
+				return newSystem;
+			int count = level2Possibilities.Count();
+			if (count == 0)
+				return newSystem;
+
+			if (count > 1)
+			{
+				QuotationMark possibilityWithHighestScore = null;
+				int highestScore = 0;
+				foreach (var qs in scores)
+				{
+					foreach (var possibility in level2Possibilities)
+					{
+						if (qs.Key.FirstLevel.Open == possibility.Open && qs.Key.FirstLevel.Close == possibility.Close && qs.Value > highestScore)
+						{
+							highestScore = qs.Value;
+							possibilityWithHighestScore = qs.Key.FirstLevel;
+						}
+					}
+				}
+				level2 = possibilityWithHighestScore;
+			}
+			if (level2 == null)
+				level2 = QuoteUtils.GetLevel2Default(level1);
+
+			newSystem.AllLevels.Add(new QuotationMark(level2.Open, level2.Close, QuoteUtils.GenerateLevel2ContinuerByConcatenation(newSystem, level2.Continue), 2, QuotationMarkingSystemType.Normal));
+			newSystem.AllLevels.Add(QuoteUtils.GenerateLevel3(newSystem, true));
+			return newSystem;
 		}
 
 		private static void ReportProgressComplete(BackgroundWorker worker)

@@ -42,20 +42,22 @@
 		<EndQuoteMarker>»</EndQuoteMarker>
 	</QuoteSystem>
 	<QuoteSystem>
-		<Name>Guillemets (with 2014 Quotation dash - alternating speakers)</Name>
+		<Name>Guillemets (with 2014 Quotation dash)</Name>
+		<!--<Name>Guillemets (with 2014 Quotation dash - alternating speakers)</Name>-->
 		<MajorLanguage>French</MajorLanguage>
 		<StartQuoteMarker>«</StartQuoteMarker>
 		<EndQuoteMarker>»</EndQuoteMarker>
     <QuotationDashMarker>—</QuotationDashMarker>
-    <QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>true</QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>
+    <!--<QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>true</QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>-->
 	</QuoteSystem>
 	<QuoteSystem>
-		<Name>Guillemets (with 2015 Quotation dash - alternating speakers)</Name>
+		<Name>Guillemets (with 2015 Quotation dash)</Name>
+		<!--<Name>Guillemets (with 2015 Quotation dash - alternating speakers)</Name>-->
 		<MajorLanguage>French</MajorLanguage>
 		<StartQuoteMarker>«</StartQuoteMarker>
 		<EndQuoteMarker>»</EndQuoteMarker>
     <QuotationDashMarker>―</QuotationDashMarker>
-    <QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>true</QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>
+    <!--<QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>true</QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>-->
 	</QuoteSystem>
 	<QuoteSystem>
 		<Name>false Guillemets</Name>
@@ -64,22 +66,24 @@
 		<EndQuoteMarker>&gt;&gt;</EndQuoteMarker>
 	</QuoteSystem>
 	<QuoteSystem>
-		<Name>false Guillemets (with 2014 Quotation dash - alternating speakers)</Name>
+		<Name>false Guillemets (with 2014 Quotation dash)</Name>
+		<!--<Name>false Guillemets (with 2014 Quotation dash - alternating speakers)</Name>-->
 		<MajorLanguage>Paratext</MajorLanguage>
 		<StartQuoteMarker>&lt;&lt;</StartQuoteMarker>
 		<EndQuoteMarker>&gt;&gt;</EndQuoteMarker>
     <QuotationDashMarker>—</QuotationDashMarker>
-    <QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>true</QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>
+    <!--<QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>true</QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>-->
 	</QuoteSystem>
 	<QuoteSystem>
-		<Name>false Guillemets (with 2015 Quotation dash - alternating speakers)</Name>
+		<Name>false Guillemets (with 2015 Quotation dash)</Name>
+		<!--<Name>false Guillemets (with 2015 Quotation dash - alternating speakers)</Name>-->
 		<MajorLanguage>Paratext</MajorLanguage>
 		<StartQuoteMarker>&lt;&lt;</StartQuoteMarker>
 		<EndQuoteMarker>&gt;&gt;</EndQuoteMarker>
     <QuotationDashMarker>―</QuotationDashMarker>
-    <QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>true</QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>
+    <!--<QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>true</QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes>-->
 	</QuoteSystem>
-	<QuoteSystem>
+	<!--<QuoteSystem>
 		<Name>Εισαγωγικά (with 2014 Quotation dash)</Name>
 		<MajorLanguage>Greek</MajorLanguage>
 		<StartQuoteMarker>«</StartQuoteMarker>
@@ -92,7 +96,7 @@
 		<StartQuoteMarker>«</StartQuoteMarker>
 		<EndQuoteMarker>»</EndQuoteMarker>
     <QuotationDashMarker>―</QuotationDashMarker>
-	</QuoteSystem>
+	</QuoteSystem>-->
 	<QuoteSystem>
 		<Name>Comillas latinas (with opening and closing 2014 Quotation dash)</Name>
 		<MajorLanguage>Spanish/Russian</MajorLanguage>

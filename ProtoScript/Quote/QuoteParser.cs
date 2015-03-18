@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using Palaso.Extensions;
 using ProtoScript.Character;
+using SIL.Extensions;
 using SIL.ScriptureUtils;
 using Utilities;
 
@@ -54,7 +54,7 @@ namespace ProtoScript.Quote
 			var splitters = new HashSet<string>();
 			var quoteChars = new HashSet<char>();
 
-			foreach (var level in m_quoteSystem.Levels)
+			foreach (var level in m_quoteSystem.NormalLevels)
 			{
 				splitters.Add(level.Open);
 				splitters.Add(level.Close);
@@ -195,7 +195,7 @@ namespace ProtoScript.Quote
 							if (--m_quoteLevel == 0)
 								FlushStringBuilderAndBlock(sb, block.StyleTag, true);
 						}
-						else if (m_quoteSystem.Levels.Count > m_quoteLevel && token.StartsWith(OpenerForNextLevel) && blockInWhichDialogueQuoteStarted == null)
+						else if (m_quoteSystem.NormalLevels.Count > m_quoteLevel && token.StartsWith(OpenerForNextLevel) && blockInWhichDialogueQuoteStarted == null)
 						{
 							if (m_quoteLevel == 0)
 								FlushStringBuilderAndBlock(sb, block.StyleTag, false);
@@ -250,10 +250,10 @@ namespace ProtoScript.Quote
 			return m_outputBlocks;
 		}
 
-		public string ContinuerForCurrentLevel { get { return m_quoteSystem.Levels[m_quoteLevel - 1].Continue; } }
-		public string ContinuerForNextLevel { get { return m_quoteSystem.Levels[m_quoteLevel].Continue; } }
-		public string CloserForCurrentLevel { get { return m_quoteSystem.Levels[m_quoteLevel - 1].Close; } }
-		public string OpenerForNextLevel { get { return m_quoteSystem.Levels[m_quoteLevel].Open; } }
+		public string ContinuerForCurrentLevel { get { return m_quoteSystem.NormalLevels[m_quoteLevel - 1].Continue; } }
+		public string ContinuerForNextLevel { get { return m_quoteSystem.NormalLevels[m_quoteLevel].Continue; } }
+		public string CloserForCurrentLevel { get { return m_quoteSystem.NormalLevels[m_quoteLevel - 1].Close; } }
+		public string OpenerForNextLevel { get { return m_quoteSystem.NormalLevels[m_quoteLevel].Open; } }
 
 		private bool EndsWithSentenceEndingPunctuation(string text)
 		{

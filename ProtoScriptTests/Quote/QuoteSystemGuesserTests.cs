@@ -94,7 +94,7 @@ namespace ProtoScriptTests.Quote
 			Console.WriteLine("   took " + sw.ElapsedMilliseconds + " milliseconds.");
 			if (expectedCertain)
 			{
-				Assert.AreEqual(quoteSystem, guessedQuoteSystem, "Expected " + quoteSystem.Name + ", but was " + guessedQuoteSystem.Name);
+				Assert.AreEqual(quoteSystem.FirstLevel, guessedQuoteSystem.FirstLevel, "Expected " + quoteSystem.FirstLevel + ", but was " + guessedQuoteSystem.FirstLevel);
 				Assert.IsTrue(certain);
 			}
 			else
@@ -192,8 +192,6 @@ namespace ProtoScriptTests.Quote
 						startQuoteMarker = m_desiredQuoteSystem.QuotationDashMarker;
 						if (!String.IsNullOrEmpty(m_desiredQuoteSystem.QuotationDashEndMarker))
 							endQuoteMarker = m_desiredQuoteSystem.QuotationDashEndMarker;
-						else if (characters.Count > 1 && m_desiredQuoteSystem.QuotationDashesIndicateChangeOfSpeakerInFirstLevelQuotes)
-							endQuoteMarker = startQuoteMarker;
 						else
 							endQuote = QuotePosition.None;
 					}

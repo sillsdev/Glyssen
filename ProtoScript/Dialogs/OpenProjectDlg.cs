@@ -154,7 +154,7 @@ namespace ProtoScript.Dialogs
 			using (var dlg = new FolderBrowserDialog())
 			{
 				dlg.Reset();
-				dlg.RootFolder = Environment.SpecialFolder.MyComputer;
+				dlg.RootFolder = Environment.SpecialFolder.Desktop;
 				dlg.Description = LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.SelectFolderOfSfFiles", "Select the folder containing the project's Standard Format files.");
 				dlg.SelectedPath = DefaultSfmDirectory;
 				dlg.ShowNewFolderButton = false;

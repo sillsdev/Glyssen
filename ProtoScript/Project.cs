@@ -26,6 +26,7 @@ namespace ProtoScript
 	{
 		public const string kProjectFileExtension = ".pgproj";
 		public const string kBookScriptFileExtension = ".xml";
+		public const string kLdmlFileExtension = ".ldml";
 		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
 		public const string kVersificationFileName = "versification.vrs";
 		public const string kDefaultFontPrimary = "Charis SIL";
@@ -44,6 +45,8 @@ namespace ProtoScript
 		private int m_quotePercentComplete;
 		private ProjectState m_projectState;
 		private ProjectAnalysis m_analysis;
+		private WritingSystemDefinition m_wsDefinition;
+		private IWritingSystemRepository m_wsRepository;
 
 		public Project(DblMetadata metadata)
 		{
@@ -149,19 +152,26 @@ namespace ProtoScript
 				bool quoteSystemBeingSetForFirstTime = ConfirmedQuoteSystem == null;
 				bool quoteSystemChanged = ConfirmedQuoteSystem != value;
 				m_metadata.QuoteSystem = value;
-				if (quoteSystemChanged)
-				{
-					if (quoteSystemBeingSetForFirstTime)
-						DoQuoteParse();
-					else
-						HandleQuoteSystemChanged();
-				}
+
+				if (!quoteSystemChanged)
+					return;
+
+				if (IsQuoteSystemUserConfirmed && ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
+					DoQuoteParse();
+				else if (!quoteSystemBeingSetForFirstTime)
+					HandleQuoteSystemChanged();
 			}
 		}
 
 		public QuoteSystem ConfirmedQuoteSystem
 		{
 			get { return m_metadata.QuoteSystem; }
+		}
+
+		public bool IsQuoteSystemUserConfirmed
+		{
+			get { return m_metadata.IsQuoteSystemUserConfirmed; }
+			set { m_metadata.IsQuoteSystemUserConfirmed = value; }
 		}
 
 		public IReadOnlyList<BookScript> Books { get { return m_books; } }
@@ -186,7 +196,7 @@ namespace ProtoScript
 		{
 			get
 			{
-				var wsModel = new WritingSystemSetupModel(new WritingSystemDefinition())
+				var wsModel = new WritingSystemSetupModel(WritingSystem)
 				{
 					CurrentDefaultFontName = FontFamily,
 					CurrentDefaultFontSize = FontSizeInPoints,
@@ -303,6 +313,8 @@ namespace ProtoScript
 
 		private void InitializeLoadedProject()
 		{
+			LoadWritingSystem();
+
 			m_usxPercentComplete = 100;
 			int controlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
 			if (ConfirmedQuoteSystem == null)
@@ -312,6 +324,13 @@ namespace ProtoScript
 				return;
 			}
 			m_guessPercentComplete = 100;
+			if (!IsQuoteSystemUserConfirmed)
+			{
+				m_quotePercentComplete = 0;
+				UpdatePercentInitialized();
+				ProjectState = ProjectState.NeedsQuoteSystemConfirmation;
+				return;
+			}
 			m_quotePercentComplete = 100;
 			if (m_metadata.ControlFileVersion != controlFileVersion)
 			{
@@ -385,7 +404,7 @@ namespace ProtoScript
 
 			if (ConfirmedQuoteSystem == null)
 				GuessAtQuoteSystem();
-			else
+			else if (IsQuoteSystemUserConfirmed)
 				DoQuoteParse();
 		}
 
@@ -418,11 +437,13 @@ namespace ProtoScript
 			if (e.Error != null)
 				throw e.Error;
 
-			bool certain = (bool)e.Result;
-			if (certain)
-				QuoteSystem = m_defaultQuoteSystem; //Setting the QuoteSystem kicks off a quote parse
-			else
-				Save();
+			if ((bool)e.Result) //certain
+			{
+				IsQuoteSystemUserConfirmed = false;
+				QuoteSystem = m_defaultQuoteSystem;
+			}
+			
+			Save();
 		}
 
 		private void GuessWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -449,6 +470,9 @@ namespace ProtoScript
 
 		private void QuoteWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
+			if (e.Error != null)
+				throw e.Error;
+
 			Analyze();
 			Save();
 		}
@@ -492,7 +516,52 @@ namespace ProtoScript
 					MessageBox.Show(error.Message);
 			}
 			ProjectCharacterVerseData.WriteToFile(ProjectCharacterVerseDataPath);
-			ProjectState = ConfirmedQuoteSystem == null ? ProjectState.NeedsQuoteSystemConfirmation : ProjectState.FullyInitialized;
+			SaveWritingSystem();
+			ProjectState = !IsQuoteSystemUserConfirmed ? ProjectState.NeedsQuoteSystemConfirmation : ProjectState.FullyInitialized;
+		}
+
+		private WritingSystemDefinition WritingSystem
+		{
+			get
+			{
+				if (m_wsDefinition != null)
+					return m_wsDefinition;
+
+				string languagecode = LanguageIsoCode;
+				if (!IetfLanguageTagHelper.IsValid(languagecode))
+					languagecode = WellKnownSubtags.UnlistedLanguage;
+
+				if (!WritingSystemRepository.TryGet(languagecode, out m_wsDefinition))
+					m_wsDefinition = new WritingSystemDefinition(languagecode);
+
+				WritingSystemRepository.Set(m_wsDefinition);
+				return m_wsDefinition;
+			}
+		}
+
+		private void SaveWritingSystem()
+		{
+			WritingSystemDefinition ws = WritingSystem;
+			ws.QuotationMarks.Clear();
+			if (ConfirmedQuoteSystem != null)
+				ws.QuotationMarks.AddRange(ConfirmedQuoteSystem.AllLevels);
+
+			WritingSystemRepository.Save();
+		}
+
+		private void LoadWritingSystem()
+		{
+			WritingSystemDefinition ws = WritingSystem;
+			if (m_metadata.QuoteSystem == null)
+				m_metadata.QuoteSystem = new QuoteSystem();
+
+			// If we read in the quote data from the metadata (where it used to be stored)
+			// and haven't created the LDML file yet, don't blow away the old data yet
+			if (ws.QuotationMarks.Any())
+			{
+				m_metadata.QuoteSystem.AllLevels.Clear();
+				m_metadata.QuoteSystem.AllLevels.AddRange(ws.QuotationMarks);
+			}
 		}
 
 		public void ExportTabDelimited(string fileName)
@@ -547,6 +616,16 @@ namespace ProtoScript
 		private string ProjectFolder
 		{
 			get { return Path.Combine(ProjectsBaseFolder, m_metadata.language.ToString(), m_metadata.id); }
+		}
+
+		private IWritingSystemRepository WritingSystemRepository
+		{
+			get
+			{
+				if (m_wsRepository != null)
+					return m_wsRepository;
+				return m_wsRepository = LdmlInFolderWritingSystemRepository.Initialize(ProjectFolder);
+			}
 		}
 
 		public bool IsReparseOkay()

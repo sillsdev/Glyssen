@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -9,7 +8,6 @@ using ProtoScript;
 using ProtoScript.Bundle;
 using ProtoScript.Character;
 using ProtoScript.Dialogs;
-using SIL.ScriptureUtils;
 
 namespace ProtoScriptTests.Dialogs
 {
@@ -71,6 +69,15 @@ namespace ProtoScriptTests.Dialogs
 			UsxDocument mark = new UsxDocument(sampleMark);
 
 			var project = new Project(sampleMetadata, new[] { mark }, SfmLoader.GetUsfmStylesheet());
+
+			// Wait for guesser to finish
+			while (project.ProjectState != ProjectState.NeedsQuoteSystemConfirmation)
+				Thread.Sleep(100);
+
+			project.IsQuoteSystemUserConfirmed = true;
+			project.QuoteSystem = project.ConfirmedQuoteSystem;
+			
+			// Wait for quote parse to finish
 			while (project.ProjectState != ProjectState.FullyInitialized)
 				Thread.Sleep(100);
 
