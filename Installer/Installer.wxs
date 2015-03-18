@@ -136,7 +136,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="Palaso.dll" Name="Palaso.dll" KeyPath="yes" Source="..\output\release\Palaso.dll" />
           </Component>
           <Component Id="PalasoUIWindowsForms.dll" Guid="{1cacb7f4-7c49-43b6-a5cf-589954860844}">
-            <File Id="PalasoUIWindowsForms.dll" Name="PalasoUIWindowsForms.dll" KeyPath="yes" Source="..\output\release\PalasoUIWindowsForms.dll" />
+            <File Id="PalasoUIWindowsForms.dll" Name="PalasoUIWindowsForms.dll" KeyPath="yes" Source="..\lib\dotnet\PalasoUIWindowsForms.dll" />
           </Component>
           <Component Id="NetLoc.dll" Guid="{350690e2-f5b9-47ba-a882-79037f7660fb}">
             <File Id="NetLoc.dll" Name="NetLoc.dll" KeyPath="yes" Source="..\output\release\NetLoc.dll" />
