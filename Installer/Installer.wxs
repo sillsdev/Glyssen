@@ -127,6 +127,10 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="Geckofx_Winforms.dll" Name="Geckofx-Winforms.dll" KeyPath="yes" Source="..\output\release\Geckofx-Winforms.dll" />
           </Component>
 
+          <Component Id="icu.net.dll" Guid="{a145070d-4fae-49ab-a7f5-4980895f62ba}">
+            <File Id="icu.net.dll" Name="icu.net.dll" KeyPath="yes" Source="..\output\release\icu.net.dll" />
+          </Component>
+
           <Component Id="ParatextShared.dll" Guid="{8a047a21-cabf-4fe4-ab4e-40da9e23f9ce}">
             <File Id="ParatextShared.dll" Name="ParatextShared.dll" KeyPath="yes" Source="..\output\release\ParatextShared.dll" />
           </Component>
@@ -174,6 +178,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="SIL.ScriptureControls.dll"/>
       <ComponentRef Id="Geckofx_Core.dll"/>
       <ComponentRef Id="Geckofx_Winforms.dll"/>
+      <ComponentRef Id="icu.net.dll"/>
       <ComponentRef Id="ParatextShared.dll"/>
       <ComponentRef Id="Palaso.dll"/>
       <ComponentRef Id="PalasoUIWindowsForms.dll"/>
