@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using ProtoScript.Character;
-using SIL.Extensions;
 using SIL.ScriptureUtils;
 using Utilities;
 
@@ -67,7 +66,7 @@ namespace ProtoScript.Quote
 			{
 				quoteChars.Add(ch);
 			}
-			m_quoteCharacters = quoteChars.Concat(string.Empty);
+			m_quoteCharacters = string.Join(string.Empty, quoteChars);
 
 			if (!string.IsNullOrEmpty(m_quoteSystem.QuotationDashMarker))
 			{
@@ -105,7 +104,7 @@ namespace ProtoScript.Quote
 			// ?: => non-matching group
 			// \s => whitespace
 			// \w => word-forming character
-			return new Regex(String.Format(@"((?:(?:{0})(?:[^\w{1}])*){2})", quoteMatcher, Regex.Escape(quoteChars.Concat(string.Empty)), punctuation), RegexOptions.Compiled);
+			return new Regex(String.Format(@"((?:(?:{0})(?:[^\w{1}])*){2})", quoteMatcher, Regex.Escape(string.Join(string.Empty, quoteChars)), punctuation), RegexOptions.Compiled);
 		}
 
 		/// <summary>
