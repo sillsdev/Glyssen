@@ -139,7 +139,7 @@ namespace ProtoScript.Dialogs
 				{
 					location = new BookBlockIndices(bookIndex, index);
 					m_navigator.SetIndices(location);
-				} while (CurrentBlock.MultiBlockQuote == MultiBlockQuote.Continuation && --index >= 0);
+				} while ((CurrentBlock.MultiBlockQuote == MultiBlockQuote.Continuation || CurrentBlock.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery) && --index >= 0);
 				Debug.Assert(index >= 0);
 				m_currentBlockIndex = m_relevantBlocks.IndexOf(location);
 				m_temporarilyIncludedBlock = m_currentBlockIndex < 0 ? location : null;
@@ -259,7 +259,7 @@ namespace ProtoScript.Dialogs
 				foreach (Block innerBlock in GetAllBlocksWithSameQuote(block))
 					bldr.Append(BuildHtml(innerBlock));
 				bldr.Append("</div>");
-				if (block.MultiBlockQuote != MultiBlockQuote.Continuation)
+				if (block.MultiBlockQuote != MultiBlockQuote.Continuation && block.MultiBlockQuote != MultiBlockQuote.ChangeOfDelivery)
 					bldr.Append(kHtmlLineBreak);
 			}
 			return bldr.ToString();
@@ -287,6 +287,7 @@ namespace ProtoScript.Dialogs
 						yield return m_navigator.CurrentBook[i];
 					break;
 				case MultiBlockQuote.Continuation:
+				case MultiBlockQuote.ChangeOfDelivery:
 					// These should all be brought in through a Start block, so don't do anything with them here
 					break;
 				default:
@@ -304,7 +305,7 @@ namespace ProtoScript.Dialogs
 			for (int j = m_navigator.GetIndicesOfSpecificBlock(startQuoteBlock).BlockIndex + 1; j < BlockCountForCurrentBook; j++)
 			{
 				Block block = m_navigator.CurrentBook[j];
-				if (block == null || block.MultiBlockQuote != MultiBlockQuote.Continuation)
+				if (block == null || (block.MultiBlockQuote != MultiBlockQuote.Continuation && block.MultiBlockQuote != MultiBlockQuote.ChangeOfDelivery))
 					break;
 				yield return j;
 			}
@@ -480,7 +481,7 @@ namespace ProtoScript.Dialogs
 
 		private bool IsRelevant(Block block)
 		{
-			if (block.MultiBlockQuote == MultiBlockQuote.Continuation)
+			if (block.MultiBlockQuote == MultiBlockQuote.Continuation || block.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
 				return false;
 			if ((Mode & BlocksToDisplay.ExcludeUserConfirmed) > 0 && block.UserConfirmed)
 				return false;
@@ -499,7 +500,7 @@ namespace ProtoScript.Dialogs
 					return false;
 
 				var expectedSpeakers = ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber, block.InitialStartVerseNumber,
-					block.InitialEndVerseNumber).Distinct(new CvCharacterIdComparer()).Count();
+					block.InitialEndVerseNumber).Distinct(new CharacterEqualityComparer()).Count();
 
 				var actualquotes = 1; // this is the quote represented by the given block.
 

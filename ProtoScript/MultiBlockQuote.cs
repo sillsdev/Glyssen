@@ -4,6 +4,7 @@
 	{
 		None,
 		Start,
-		Continuation
+		Continuation,
+		ChangeOfDelivery
 	}
 }

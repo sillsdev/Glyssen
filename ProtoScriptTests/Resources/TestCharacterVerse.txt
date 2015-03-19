@@ -8315,6 +8315,7 @@ LUK	1	19	angel of the LORD, an			Dialogue
 LUK	1	25	Elizabeth			Normal
 LUK	1	28	angel of the LORD, an	to Mary	angel Gabriel, sent by God	Dialogue
 LUK	1	29	Mary (Jesus' mother)	confused		Normal
+LUK	1	29	angel of the LORD, an		angel Gabriel, sent by God	Dialogue
 LUK	1	30	angel of the LORD, an		angel Gabriel, sent by God	Dialogue
 LUK	1	34	Mary (Jesus' mother)			Dialogue
 LUK	1	35	angel of the LORD, an		angel Gabriel, sent by God	Dialogue

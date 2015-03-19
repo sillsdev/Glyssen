@@ -155,7 +155,7 @@ namespace ProtoScript.Character
 		#endregion
 	}
 
-	public class BcvCharacterDeliveryComparer : IEqualityComparer<CharacterVerse>
+	public class BcvCharacterDeliveryEqualityComparer : IEqualityComparer<CharacterVerse>
 	{
 		public bool Equals(CharacterVerse x, CharacterVerse y)
 		{
@@ -174,6 +174,37 @@ namespace ProtoScript.Character
 		}
 	}
 
+	public class CharacterDeliveryEqualityComparer : IEqualityComparer<CharacterVerse>
+	{
+		public bool Equals(CharacterVerse x, CharacterVerse y)
+		{
+			return x.Character.Equals(y.Character) && x.Delivery.Equals(y.Delivery);
+		}
+
+		public int GetHashCode(CharacterVerse obj)
+		{
+			unchecked
+			{
+				int hashCode = (obj.Character != null ? obj.Character.GetHashCode() : 0);
+				hashCode = (hashCode * 397) ^ (obj.Delivery != null ? obj.Delivery.GetHashCode() : 0);
+				return hashCode;
+			}
+		}
+	}
+
+	public class CharacterEqualityComparer : IEqualityComparer<CharacterVerse>
+	{
+		public bool Equals(CharacterVerse x, CharacterVerse y)
+		{
+			return String.Equals(x.Character, y.Character);
+		}
+
+		public int GetHashCode(CharacterVerse obj)
+		{
+			return obj.Character.GetHashCode();
+		}
+	}
+
 	public class CharacterDeliveryComparer : IComparer<CharacterVerse>
 	{
 		int IComparer<CharacterVerse>.Compare(CharacterVerse x, CharacterVerse y)
@@ -185,19 +216,6 @@ namespace ProtoScript.Character
 			if (result != 0)
 				return result;
 			return 0;
-		}
-	}
-
-	public class CvCharacterIdComparer : IEqualityComparer<CharacterVerse>
-	{
-		public bool Equals(CharacterVerse x, CharacterVerse y)
-		{
-			return String.Equals(x.Character, y.Character);
-		}
-
-		public int GetHashCode(CharacterVerse obj)
-		{
-			return obj.Character.GetHashCode();
 		}
 	}
 }

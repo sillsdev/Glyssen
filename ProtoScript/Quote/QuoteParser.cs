@@ -27,6 +27,7 @@ namespace ProtoScript.Quote
 		private readonly List<BlockElement> m_nonScriptTextBlockElements = new List<BlockElement>();
 		private int m_quoteLevel;
 		private bool m_nextBlockContinuesQuote;
+		private readonly List<Block> m_currentMultiBlockQuote = new List<Block>();
 		#endregion
 
 		/// <summary>
@@ -131,7 +132,10 @@ namespace ProtoScript.Quote
 					// The following handles the case where an open quote is interrupted by a section head or chapter break
 					var lastBlockAdded = m_outputBlocks.LastOrDefault();
 					if (lastBlockAdded != null && lastBlockAdded.MultiBlockQuote == MultiBlockQuote.Start)
+					{
 						lastBlockAdded.MultiBlockQuote = MultiBlockQuote.None;
+						ProcessMultiBlock();
+					}
 					m_nextBlockContinuesQuote = false;
 
 					m_outputBlocks.Add(block);
@@ -247,6 +251,8 @@ namespace ProtoScript.Quote
 				}
 				FlushBlock(block.StyleTag, m_quoteLevel > 0);
 			}
+			// In case the last set of blocks were a multi-block quote
+			ProcessMultiBlock();
 			return m_outputBlocks;
 		}
 
@@ -371,6 +377,20 @@ namespace ProtoScript.Quote
 				m_workingBlock.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.Narrator);
 			}
 
+			switch (m_workingBlock.MultiBlockQuote)
+			{
+				case MultiBlockQuote.Start:
+					ProcessMultiBlock();
+					m_currentMultiBlockQuote.Add(m_workingBlock);
+					break;
+				case MultiBlockQuote.Continuation:
+					m_currentMultiBlockQuote.Add(m_workingBlock);
+					break;
+				case MultiBlockQuote.None:
+					ProcessMultiBlock();
+					break;
+			}
+
 			m_outputBlocks.Add(m_workingBlock);
 			var lastVerse = m_workingBlock.BlockElements.OfType<Verse>().LastOrDefault();
 			int verseStartNum = m_workingBlock.InitialStartVerseNumber;
@@ -381,6 +401,63 @@ namespace ProtoScript.Quote
 				verseEndNum = ScrReference.VerseToIntEnd(lastVerse.Number);
 			}
 			m_workingBlock = new Block(styleTag, m_workingBlock.ChapterNumber, verseStartNum, verseEndNum);
+		}
+
+		private void ProcessMultiBlock()
+		{
+			if (!m_currentMultiBlockQuote.Any())
+				return;
+
+			var uniqueCharacters = m_currentMultiBlockQuote.Select(b => b.CharacterId).Distinct().ToList();
+			int numUniqueCharacters = uniqueCharacters.Count();
+			var uniqueCharacterDeliveries = m_currentMultiBlockQuote.Select(b => new CharacterDelivery(b.CharacterId, b.Delivery)).Distinct(CharacterDelivery.CharacterDeliveryComparer).ToList();
+			int numUniqueCharacterDeliveries = uniqueCharacterDeliveries.Count();
+			if (numUniqueCharacterDeliveries > 1)
+			{
+				var unclearCharacters = new [] { CharacterVerseData.AmbiguousCharacter, CharacterVerseData.UnknownCharacter };
+				if (numUniqueCharacters > unclearCharacters.Count(uniqueCharacters.Contains) + 1)
+				{
+					// More than one real character. Set to Ambiguous.
+					SetCharacterAndDeliveryForMultipleBlocks(m_currentMultiBlockQuote, CharacterVerseData.AmbiguousCharacter, null);
+				}
+				else if (numUniqueCharacters == 2 && unclearCharacters.All(uniqueCharacters.Contains))
+				{
+					// Only values are Ambiguous and Unique. Set to Ambiguous.
+					SetCharacterAndDeliveryForMultipleBlocks(m_currentMultiBlockQuote, CharacterVerseData.AmbiguousCharacter, null);
+				}
+				else if (numUniqueCharacterDeliveries > numUniqueCharacters)
+				{
+					// Multiple deliveries for the same character
+					string delivery = "";
+					bool first = true;
+					foreach (Block block in m_currentMultiBlockQuote)
+					{
+						if (first)
+							first = false;
+						else if (block.Delivery != delivery)
+							block.MultiBlockQuote = MultiBlockQuote.ChangeOfDelivery;
+						delivery = block.Delivery;
+					}
+				}
+				else
+				{
+					// Only one real character (and delivery). Set to that character (and delivery).
+					var realCharacter = uniqueCharacterDeliveries.Single(c => c.Character != CharacterVerseData.AmbiguousCharacter && c.Character != CharacterVerseData.UnknownCharacter);
+					SetCharacterAndDeliveryForMultipleBlocks(m_currentMultiBlockQuote, realCharacter.Character, realCharacter.Delivery);
+				}
+				
+			}
+				
+			m_currentMultiBlockQuote.Clear();
+		}
+
+		private void SetCharacterAndDeliveryForMultipleBlocks(IEnumerable<Block> blocks, string character, string delivery)
+		{
+			foreach (Block block in blocks)
+			{
+				block.CharacterId = character;
+				block.Delivery = delivery;
+			}
 		}
 
 		private bool IsSentenceEnding(char c)
@@ -485,5 +562,50 @@ namespace ProtoScript.Quote
 		{
 			return styleTag.StartsWith("q") || styleTag == "m";
 		}
+
+		#region CharacterDelivery utility class
+		private class CharacterDelivery
+		{
+			public readonly string Character;
+			public readonly string Delivery;
+			
+			public CharacterDelivery(string character, string delivery)
+			{
+				Character = character;
+				Delivery = delivery;
+			}
+
+			private sealed class CharacterDeliveryEqualityComparer : IEqualityComparer<CharacterDelivery>
+			{
+				public bool Equals(CharacterDelivery x, CharacterDelivery y)
+				{
+					if (ReferenceEquals(x, y))
+						return true;
+					if (ReferenceEquals(x, null))
+						return false;
+					if (ReferenceEquals(y, null))
+						return false;
+					if (x.GetType() != y.GetType())
+						return false;
+					return string.Equals(x.Character, y.Character) && string.Equals(x.Delivery, y.Delivery);
+				}
+
+				public int GetHashCode(CharacterDelivery obj)
+				{
+					unchecked
+					{
+						return ((obj.Character != null ? obj.Character.GetHashCode() : 0) * 397) ^ (obj.Delivery != null ? obj.Delivery.GetHashCode() : 0);
+					}
+				}
+			}
+
+			private static readonly IEqualityComparer<CharacterDelivery> CharacterDeliveryComparerInstance = new CharacterDeliveryEqualityComparer();
+
+			public static IEqualityComparer<CharacterDelivery> CharacterDeliveryComparer
+			{
+				get { return CharacterDeliveryComparerInstance; }
+			}
+		}
+		#endregion
 	}
 }

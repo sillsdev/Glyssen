@@ -1407,5 +1407,210 @@ namespace ProtoScriptTests.Quote
 			Assert.AreEqual(1, output.Count);
 			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[0].CharacterId);
 		}
+
+		[Test]
+		public void Parse_MultiBlockQuote_TwoCharacters_SetToAmbiguous()
+		{
+			var block1 = new Block("p", 2, 7);
+			block1.BlockElements.Add(new Verse("7"));
+			block1.BlockElements.Add(new ScriptText("«Quote."));
+			var block2 = new Block("p", 2, 8);
+			block2.BlockElements.Add(new Verse("8"));
+			block2.BlockElements.Add(new ScriptText("«Continuation of quote by a second speaker."));
+			var input = new List<Block> { block1, block2 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+
+			// Validate environment
+			Assert.AreEqual("teachers of the law/Pharisees=Pharisees/teachers of the law 1", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 2, 7).Select(cv => cv.Character).Single());
+			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 2, 8).Select(cv => cv.Character).Single());
+
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[1].CharacterId);
+		}
+
+		[Test]
+		public void Parse_MultiBlockQuote_TwoCharactersAndAmbiguous_SetToAmbiguous()
+		{
+			var block1 = new Block("p", 19, 16);
+			block1.BlockElements.Add(new Verse("16"));
+			block1.BlockElements.Add(new ScriptText("«Quote."));
+			var block2 = new Block("p", 19, 17);
+			block2.BlockElements.Add(new Verse("17"));
+			block2.BlockElements.Add(new ScriptText("«Continuation of quote by a second speaker."));
+			var block3 = new Block("p", 19, 18);
+			block3.BlockElements.Add(new Verse("18"));
+			block3.BlockElements.Add(new ScriptText("«Continuation of quote by ambiguous speaker."));
+			var input = new List<Block> { block1, block2, block3 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+
+			// Validate environment
+			Assert.AreEqual("ruler, a certain=man, rich young", ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 16).Select(cv => cv.Character).Single());
+			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 17).Select(cv => cv.Character).Single());
+			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 18).Select(cv => cv.Character).Contains("Jesus"));
+			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 18).Select(cv => cv.Character).Contains("ruler, a certain=man, rich young"));
+
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[2].CharacterId);
+		}
+
+		[Test]
+		public void Parse_MultiBlockQuote_TwoCharactersAndUnknown_SetToAmbiguous()
+		{
+			var block1 = new Block("p", 2, 7);
+			block1.BlockElements.Add(new Verse("7"));
+			block1.BlockElements.Add(new ScriptText("«Quote."));
+			var block2 = new Block("p", 2, 8);
+			block2.BlockElements.Add(new Verse("8"));
+			block2.BlockElements.Add(new ScriptText("«Continuation of quote by a second speaker."));
+			var block3 = new Block("p", 2, 9);
+			block3.BlockElements.Add(new Verse("9"));
+			block3.BlockElements.Add(new ScriptText("«Continuation of quote by an unknown speaker."));
+			var input = new List<Block> { block1, block2, block3 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+
+			// Validate environment
+			Assert.AreEqual("teachers of the law/Pharisees=Pharisees/teachers of the law 1", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 2, 7).Select(cv => cv.Character).Single());
+			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 2, 8).Select(cv => cv.Character).Single());
+			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters("MRK", 2, 9).Any());
+
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[2].CharacterId);
+		}
+
+		[Test]
+		public void Parse_MultiBlockQuote_AmbiguousAndCharacter_SetToCharacter()
+		{
+			var block1 = new Block("p", 19, 17);
+			block1.BlockElements.Add(new Verse("17"));
+			block1.BlockElements.Add(new ScriptText("«Quote."));
+			var block2 = new Block("p", 19, 18);
+			block2.BlockElements.Add(new Verse("18"));
+			block2.BlockElements.Add(new ScriptText("«Continuation of quote by ambiguous speaker."));
+			var input = new List<Block> { block1, block2 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+
+			// Validate environment
+			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 17).Select(cv => cv.Character).Single());
+			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 18).Select(cv => cv.Character).Contains("Jesus"));
+			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 18).Select(cv => cv.Character).Contains("ruler, a certain=man, rich young"));
+
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+		}
+
+		[Test]
+		public void Parse_MultiBlockQuote_UnknownAndCharacter_SetToCharacter()
+		{
+			var block1 = new Block("p", 19, 8);
+			block1.BlockElements.Add(new Verse("8"));
+			block1.BlockElements.Add(new ScriptText("«Quote."));
+			var block2 = new Block("p", 19, 9);
+			block2.BlockElements.Add(new Verse("9"));
+			block2.BlockElements.Add(new ScriptText("«Continuation of quote by unknown speaker."));
+			var input = new List<Block> { block1, block2 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+
+			// Validate environment
+			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 8).Select(cv => cv.Character).Single());
+			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 9).Any());
+
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+		}
+
+		[Test]
+		public void Parse_MultiBlockQuote_AmbiguousAndUnknown_SetToAmbiguous()
+		{
+			var block1 = new Block("p", 19, 18);
+			block1.BlockElements.Add(new Verse("18"));
+			block1.BlockElements.Add(new ScriptText("«Ambiguous quote."));
+			var block2 = new Block("p", 19, 19);
+			block2.BlockElements.Add(new Verse("19"));
+			block2.BlockElements.Add(new ScriptText("«Continuation of quote by unknown speaker."));
+			var input = new List<Block> { block1, block2 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+
+			// Validate environment
+			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 18).Select(cv => cv.Character).Contains("Jesus"));
+			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 18).Select(cv => cv.Character).Contains("ruler, a certain=man, rich young"));
+			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 19).Any());
+
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[1].CharacterId);
+		}
+
+		[Test]
+		public void Parse_MultiBlockQuote_DifferentDeliveries_SetChangeOfDelivery()
+		{
+			var block1 = new Block("p", 16, 16);
+			block1.BlockElements.Add(new Verse("16"));
+			block1.BlockElements.Add(new ScriptText("«Quote."));
+			var block2 = new Block("p", 16, 17);
+			block2.BlockElements.Add(new Verse("17"));
+			block2.BlockElements.Add(new ScriptText("«Continuation of quote by same speaker and different delivery."));
+			var input = new List<Block> { block1, block2 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+
+			// Validate environment
+			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 16, 16).Select(cv => cv.Character).Single());
+			Assert.AreEqual("giving orders", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 16, 16).Select(cv => cv.Delivery).Single());
+			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 16, 17).Select(cv => cv.Character).Single());
+			Assert.AreEqual("", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 16, 17).Select(cv => cv.Delivery).Single());
+
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual("giving orders", output[0].Delivery);
+			Assert.AreEqual(MultiBlockQuote.ChangeOfDelivery, output[1].MultiBlockQuote);
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual("", output[1].Delivery);
+		}
+
+		[Test]
+		public void Parse_MultiBlockQuote_DifferentDeliveries_AmbiguousAndCharacter_SetToCharacter()
+		{
+			var block1 = new Block("p", 1, 28);
+			block1.BlockElements.Add(new Verse("28"));
+			block1.BlockElements.Add(new ScriptText("«Quote."));
+			var block2 = new Block("p", 1, 29);
+			block2.BlockElements.Add(new Verse("29"));
+			block2.BlockElements.Add(new ScriptText("«Continuation of quote by ambiguous speaker."));
+			var input = new List<Block> { block1, block2 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+
+			// Validate environment
+			Assert.AreEqual("angel of the LORD, an", ControlCharacterVerseData.Singleton.GetCharacters("LUK", 1, 28).Select(cv => cv.Character).Single());
+			Assert.AreEqual("to Mary", ControlCharacterVerseData.Singleton.GetCharacters("LUK", 1, 28).Select(cv => cv.Delivery).Single());
+			Assert.AreEqual(1, ControlCharacterVerseData.Singleton.GetCharacters("LUK", 1, 29).Count(c => c.Character == "angel of the LORD, an" && c.Delivery == ""));
+			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters("LUK", 1, 29).Select(cv => cv.Character).Contains("Mary (Jesus' mother)"));
+
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+			Assert.AreEqual("angel of the LORD, an", output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+			Assert.AreEqual("angel of the LORD, an", output[1].CharacterId);
+		}
 	}
 }

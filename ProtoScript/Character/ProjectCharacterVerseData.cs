@@ -44,7 +44,7 @@ namespace ProtoScript.Character
 
 		private void RemoveDataAlsoInControlFile()
 		{
-			RemoveAll(ControlCharacterVerseData.Singleton.GetAllQuoteInfo(), new BcvCharacterDeliveryComparer());
+			RemoveAll(ControlCharacterVerseData.Singleton.GetAllQuoteInfo(), new BcvCharacterDeliveryEqualityComparer());
 		}
 	}
 }
