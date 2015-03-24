@@ -249,7 +249,6 @@ namespace ProtoScript
 			{
 				using (var bundle = new Bundle.Bundle(existingProject.m_metadata.OriginalPathOfDblFile))
 				{
-					// See if we already have a project for this bundle and open it instead.
 					var upgradedProject = new Project(bundle.Metadata);
 					upgradedProject.QuoteSystem = existingProject.m_metadata.QuoteSystem;
 					// Prior to Parser version 17, project metadata didn't keep the Books collection.
