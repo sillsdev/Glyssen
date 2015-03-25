@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SIL.ScriptureUtils;
 
 namespace ProtoScript.Character
 {
@@ -12,10 +13,15 @@ namespace ProtoScript.Character
 			m_project = project;
 		}
 
-		public IEnumerable<CharacterVerse> GetCharacters(string bookCode, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0)
+		public IEnumerable<CharacterVerse> GetCharacters(string bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0)
 		{
-			IEnumerable<CharacterVerse> project = m_project.ProjectCharacterVerseData.GetCharacters(bookCode, chapter, initialStartVerse, initialEndVerse, finalVerse);
-			IEnumerable<CharacterVerse> control = ControlCharacterVerseData.Singleton.GetCharacters(bookCode, chapter, initialStartVerse, initialEndVerse, finalVerse);
+			return GetCharacters(BCVRef.BookToNumber(bookId), chapter, initialStartVerse, initialEndVerse, finalVerse);
+		}
+
+		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0)
+		{
+			IEnumerable<CharacterVerse> project = m_project.ProjectCharacterVerseData.GetCharacters(bookId, chapter, initialStartVerse, initialEndVerse, finalVerse);
+			IEnumerable<CharacterVerse> control = ControlCharacterVerseData.Singleton.GetCharacters(bookId, chapter, initialStartVerse, initialEndVerse, finalVerse);
 			return project.Union(control);
 		}
 

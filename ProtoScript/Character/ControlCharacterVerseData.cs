@@ -43,7 +43,7 @@ namespace ProtoScript.Character
 			throw new ApplicationException("A new character cannot be added to the control file directly");
 		}
 
-		protected override ISet<CharacterVerse> ProcessLine(string[] items, int lineNumber)
+		protected override IList<CharacterVerse> ProcessLine(string[] items, int lineNumber)
 		{
 			if (lineNumber == 0)
 			{

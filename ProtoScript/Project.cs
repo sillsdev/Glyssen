@@ -475,6 +475,7 @@ namespace ProtoScript
 			if (e.Error != null)
 				throw e.Error;
 
+			m_metadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
 			Analyze();
 			Save();
 		}

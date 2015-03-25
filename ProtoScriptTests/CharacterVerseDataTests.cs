@@ -63,29 +63,12 @@ namespace ProtoScriptTests
 		}
 
 		[Test]
-		public void GetCharacters_MoreThanOneWithSomeDuplicates_ReturnsUnique()
-		{
-			var characters = ControlCharacterVerseData.Singleton.GetCharacters("MRK", 6, 37).ToList();
-			Assert.AreEqual(3, characters.Count());
-			Assert.AreEqual(1, characters.Count(c => c.Character == "Jesus" && c.Delivery == ""));
-			Assert.AreEqual(1, characters.Count(c => c.Character == "Jesus" && c.Delivery == "questioning"));
-			Assert.AreEqual(1, characters.Count(c => c.Character == "Philip"));
-		}
-
-		[Test]
 		public void GetCharacters_MultipleEntriesForSameCharacterWithDifferentDeliveries_ReturnsOneResultPerDelivery()
 		{
 			var characters = ControlCharacterVerseData.Singleton.GetCharacters("MRK", 15, 44).ToList();
 			Assert.AreEqual(2, characters.Count());
 			Assert.AreEqual(characters[0].Character, characters[1].Character);
 			Assert.AreNotEqual(characters[0].Delivery, characters[1].Delivery);
-		}
-
-		[Test]
-		public void GetCharacters_MultipleEntriesForSameCharacter_ReturnsSingleCharacter()
-		{
-			var character = ControlCharacterVerseData.Singleton.GetCharacters("MRK", 16, 3).Single();
-			Assert.AreEqual("Mary Magdalene", character.Character);
 		}
 
 		[Test]
