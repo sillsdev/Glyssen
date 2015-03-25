@@ -40,7 +40,12 @@ namespace ProtoScript.Character
 
 		protected override void AddCharacterVerse(CharacterVerse cv)
 		{
-			throw new ApplicationException("A new character cannot be added to the control file directly");
+			throw new ApplicationException("The control file cannot be modified programmatically.");
+		}
+
+		protected override void RemoveAll(IEnumerable<CharacterVerse> cvsToRemove, IEqualityComparer<CharacterVerse> comparer)
+		{
+			throw new ApplicationException("The control file cannot be modified programmatically.");
 		}
 
 		protected override IList<CharacterVerse> ProcessLine(string[] items, int lineNumber)

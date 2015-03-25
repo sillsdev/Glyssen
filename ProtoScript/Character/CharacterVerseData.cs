@@ -189,7 +189,7 @@ namespace ProtoScript.Character
 			return m_uniqueDeliveries ?? (m_uniqueDeliveries = new SortedSet<string>(m_data.Select(cv => cv.Delivery).Where(d => !string.IsNullOrEmpty(d))));
 		}
 
-		public void RemoveAll(IEnumerable<CharacterVerse> cvsToRemove, IEqualityComparer<CharacterVerse> comparer)
+		protected virtual void RemoveAll(IEnumerable<CharacterVerse> cvsToRemove, IEqualityComparer<CharacterVerse> comparer)
 		{
 			var intersection = m_data.Intersect(cvsToRemove, comparer).ToList();
 			foreach (CharacterVerse cv in intersection)
