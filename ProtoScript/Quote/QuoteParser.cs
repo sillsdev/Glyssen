@@ -369,7 +369,7 @@ namespace ProtoScript.Quote
 					m_workingBlock.MultiBlockQuote = MultiBlockQuote.Start;
 
 				m_workingBlock.SetCharacterAndDelivery(
-					m_cvInfo.GetCharacters(m_bookId, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber, m_workingBlock.InitialEndVerseNumber));
+					m_cvInfo.GetCharacters(m_bookId, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber, m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerse));
 			}
 			else
 			{

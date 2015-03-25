@@ -4,7 +4,7 @@ namespace ProtoScript.Character
 {
 	public interface ICharacterVerseInfo
 	{
-		IEnumerable<CharacterVerse> GetCharacters(string bookCode, int chapter, int startVerse, int endVerse = 0);
+		IEnumerable<CharacterVerse> GetCharacters(string bookCode, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0);
 
 		IEnumerable<CharacterVerse> GetAllQuoteInfo();
 

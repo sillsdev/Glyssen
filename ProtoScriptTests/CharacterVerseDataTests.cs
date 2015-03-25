@@ -87,5 +87,21 @@ namespace ProtoScriptTests
 			var character = ControlCharacterVerseData.Singleton.GetCharacters("MRK", 16, 3).Single();
 			Assert.AreEqual("Mary Magdalene", character.Character);
 		}
+
+		[Test]
+		public void GetCharacters_MultipleCharactersInOneButNotAllVerses_ReturnsSingleCharacter()
+		{
+			var character = ControlCharacterVerseData.Singleton.GetCharacters("1SA", 6, 4, 0, 6).Single();
+			Assert.AreEqual("Philistine priests and diviners", character.Character);
+		}
+
+		[Test]
+		public void GetCharacters_MultipleCharactersInMultipleVerses_ReturnsAmbiguous()
+		{
+			var characters = ControlCharacterVerseData.Singleton.GetCharacters("1SA", 8, 21, 0, 22);
+			Assert.AreEqual(2, characters.Count());
+			Assert.AreEqual(1, characters.Count(c => c.Character == "God"));
+			Assert.AreEqual(1, characters.Count(c => c.Character == "Samuel"));
+		}
 	}
 }

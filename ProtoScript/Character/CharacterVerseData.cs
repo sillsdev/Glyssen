@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using SIL.Extensions;
 using SIL.ScriptureUtils;
 
 namespace ProtoScript.Character
@@ -104,11 +103,35 @@ namespace ProtoScript.Character
 		private IEnumerable<CharacterVerse> m_uniqueCharacterAndDeliveries;
 		private IEnumerable<string> m_uniqueDeliveries;
 
-		public IEnumerable<CharacterVerse> GetCharacters(string bookCode, int chapter, int startVerse, int endVerse = 0)
+		public IEnumerable<CharacterVerse> GetCharacters(string bookCode, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0)
 		{
-			if (startVerse > 0 && endVerse == 0)
-				return m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter && cv.Verse == startVerse);
-			return m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter && cv.Verse >= startVerse && cv.Verse <= endVerse);
+			IEnumerable<CharacterVerse> result;
+
+			if (initialStartVerse > 0 && (initialEndVerse == 0 || initialStartVerse == initialEndVerse))
+				result = m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter && cv.Verse == initialStartVerse);
+			else
+				result = m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter && cv.Verse >= initialStartVerse && cv.Verse <= initialEndVerse);
+			if (result.Count() == 1)
+				return result;
+
+			var nextVerse = Math.Max(initialStartVerse, initialEndVerse) + 1;
+			while (nextVerse <= finalVerse)
+			{
+				IEnumerable<CharacterVerse> nextResult = m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter && cv.Verse == nextVerse);
+				if (!nextResult.Any())
+				{
+					nextVerse++;
+					continue;
+				}
+				var intersection = nextResult.Intersect(result, new CharacterDeliveryEqualityComparer());
+				if (intersection.Count() == 1)
+				{
+					result = intersection;
+					break;
+				}
+				nextVerse++;
+			}
+			return result;
 		}
 
 		public IEnumerable<CharacterVerse> GetAllQuoteInfo()

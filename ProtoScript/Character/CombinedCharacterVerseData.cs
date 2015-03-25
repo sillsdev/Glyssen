@@ -12,10 +12,10 @@ namespace ProtoScript.Character
 			m_project = project;
 		}
 
-		public IEnumerable<CharacterVerse> GetCharacters(string bookCode, int chapter, int startVerse, int endVerse = 0)
+		public IEnumerable<CharacterVerse> GetCharacters(string bookCode, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0)
 		{
-			IEnumerable<CharacterVerse> project = m_project.ProjectCharacterVerseData.GetCharacters(bookCode, chapter, startVerse, endVerse);
-			IEnumerable<CharacterVerse> control = ControlCharacterVerseData.Singleton.GetCharacters(bookCode, chapter, startVerse, endVerse);
+			IEnumerable<CharacterVerse> project = m_project.ProjectCharacterVerseData.GetCharacters(bookCode, chapter, initialStartVerse, initialEndVerse, finalVerse);
+			IEnumerable<CharacterVerse> control = ControlCharacterVerseData.Singleton.GetCharacters(bookCode, chapter, initialStartVerse, initialEndVerse, finalVerse);
 			return project.Union(control);
 		}
 
