@@ -235,6 +235,38 @@ namespace ProtoScript
 			}
 		}
 
+		public string ProjectSummary
+		{
+			get
+			{
+				var sb = new StringBuilder(Name);
+				if (!string.IsNullOrEmpty(LanguageIsoCode))
+					sb.Append(" (").Append(LanguageIsoCode).Append(")");
+				return sb.ToString();
+			}
+		}
+
+		public string SettingsSummary
+		{
+			get
+			{
+				var sb = new StringBuilder();
+				foreach (var level in QuoteSystem.NormalLevels)
+					sb.Append(level.Open).Append(" ").Append(level.Continue).Append(" ").Append(level.Close).Append(" / ");
+				sb.Length -= 3;
+				if (!string.IsNullOrEmpty(QuoteSystem.QuotationDashMarker))
+					sb.Append(" / ").Append(QuoteSystem.QuotationDashMarker);
+				if (!string.IsNullOrEmpty(QuoteSystem.QuotationDashEndMarker))
+					sb.Append(" ").Append(QuoteSystem.QuotationDashEndMarker);
+				return sb.ToString();
+			}
+		}
+
+		public string BookSelectionSummary
+		{
+			get { return ""; }
+		}
+
 		internal void ClearProjectStatus()
 		{
 			Status = new ProjectStatus();

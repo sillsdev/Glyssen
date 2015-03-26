@@ -301,6 +301,7 @@
     <None Include="Resources\DecreaseSize.png" />
     <None Include="Resources\IncreaseSize.png" />
     <None Include="Resources\PgIcon.ico" />
+    <None Include="Resources\green-check.png" />
     <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />
   </ItemGroup>

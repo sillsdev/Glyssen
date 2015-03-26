@@ -7,16 +7,15 @@ using L10NSharp;
 using L10NSharp.UI;
 using ProtoScript.Dialogs;
 using ProtoScript.Properties;
-using SIL.IO;
-using SIL.Windows.Forms.Miscellaneous;
 
 namespace ProtoScript
 {
 	public partial class SandboxForm : Form
 	{
 		private Project m_project;
-		private string m_bundleIdFmt;
-		private string m_LanguageIdFmt;
+		private string m_projectInfoFmt;
+		private string m_settingsInfoFmt;
+		private string m_bookSelectionInfoFmt;
 		private string m_projectLoadedFmt;
 		private string m_percentAssigned;
 
@@ -24,6 +23,10 @@ namespace ProtoScript
 		{
 			InitializeComponent();
 			HandleStringsLocalized();
+
+			SetupUILanguageMenu();
+			m_toolStrip.Renderer = new NoBorderToolStripRenderer();
+			m_uiLanguageMenu.ToolTipText = LocalizationManager.GetString("MainForm.UILanguage", "User-interface Language");
 
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 		}
@@ -78,21 +81,22 @@ namespace ProtoScript
 
 		protected void HandleStringsLocalized()
 		{
-			m_bundleIdFmt = m_lblBundleId.Text;
-			m_LanguageIdFmt = m_lblLanguage.Text;
+			m_projectInfoFmt = m_lblProjectInfo.Text;
+			m_settingsInfoFmt = m_lblSettingsInfo.Text;
+			m_bookSelectionInfoFmt = m_lblBookSelectionInfo.Text;
 			m_projectLoadedFmt = m_lblProjectLoaded.Text;
 			m_percentAssigned = m_lblPercentAssigned.Text;
 		}
 
-		private void SetReadOnly(bool readOnly)
+		private void UpdateButtons(bool readOnly)
 		{
 			m_btnOpenProject.Enabled = !readOnly;
+			m_imgCheckOpen.Visible = m_project != null;
 			m_btnSettings.Enabled = !readOnly && m_project != null;
 			m_btnSelectBooks.Enabled = !readOnly && m_project != null;
 			m_btnAssign.Enabled = !readOnly && m_project != null;
 			m_btnExportToTabSeparated.Enabled = !readOnly && m_project != null;
-			m_btnExit.Enabled = !readOnly;
-			m_btnLocalize.Enabled = !readOnly;
+			m_lnkExit.Enabled = !readOnly;
 			m_linkChangeQuotationSystem.Enabled = !readOnly && m_project != null;
 		}
 
@@ -132,11 +136,6 @@ namespace ProtoScript
 				}
 				return result;
 			}
-		}
-
-		private void m_btnLocalize_Click(object sender, EventArgs e)
-		{
-			LocalizationManager.ShowLocalizationDialogBox("");
 		}
 
 		private void SandboxForm_Load(object sender, EventArgs e)
@@ -188,7 +187,7 @@ namespace ProtoScript
 			}
 			catch (ApplicationException ex)
 			{
-				StringBuilder bldr = new StringBuilder(ex.Message);
+				var bldr = new StringBuilder(ex.Message);
 				if (ex.InnerException != null)
 				{
 					bldr.Append(Environment.NewLine);
@@ -204,8 +203,10 @@ namespace ProtoScript
 
 		private void UpdateDisplayOfProjectInfo()
 		{
-			m_lblBundleId.Text = string.Format(m_bundleIdFmt, m_project != null ? m_project.Name : String.Empty);
-			m_lblLanguage.Text = string.Format(m_LanguageIdFmt, m_project != null ? m_project.LanguageIsoCode : String.Empty);
+			UpdateProjectState();
+			m_lblProjectInfo.Text = string.Format(m_projectInfoFmt, m_project != null ? m_project.ProjectSummary : String.Empty);
+			m_lblSettingsInfo.Text = string.Format(m_settingsInfoFmt, m_project != null ? m_project.SettingsSummary : String.Empty);
+			m_lblBookSelectionInfo.Text = string.Format(m_bookSelectionInfoFmt, m_project != null ? m_project.BookSelectionSummary : String.Empty);
 			UpdateDisplayOfProjectLoaded(m_project != null ? m_project.PercentInitialized : 0);
 			UpdateDisplayOfPercentAssigned();
 			UpdateDisplayOfQuoteSystemInfo();
@@ -225,12 +226,13 @@ namespace ProtoScript
 			if (m_project != null && m_project.ProjectAnalysis != null)
 				percentAssigned = m_project.ProjectAnalysis.UserPercentAssigned;
 			m_lblPercentAssigned.Text = string.Format(m_percentAssigned, percentAssigned);
+			m_imgCheckAssign.Visible = percentAssigned == 100d;
 		}
 
 		private void UpdateProjectState()
 		{
 			if (m_project != null)
-				SetReadOnly((m_project.ProjectState & ProjectState.ReadyForUserInteraction) == 0);
+				UpdateButtons((m_project.ProjectState & ProjectState.ReadyForUserInteraction) == 0);
 		}
 
 		private void UpdateDisplayOfQuoteSystemInfo()
@@ -309,6 +311,36 @@ namespace ProtoScript
 			}
 		}
 
+		private void SetupUILanguageMenu()
+		{
+			m_uiLanguageMenu.DropDownItems.Clear();
+			foreach (var lang in LocalizationManager.GetUILanguages(true))
+			{
+				var item = m_uiLanguageMenu.DropDownItems.Add(lang.NativeName);
+				item.Tag = lang;
+				item.Click += ((a, b) =>
+				{
+					LocalizationManager.SetUILanguage(((CultureInfo)item.Tag).IetfLanguageTag, true);
+					Settings.Default.UserInterfaceLanguage = ((CultureInfo)item.Tag).IetfLanguageTag;
+					item.Select();
+					m_uiLanguageMenu.Text = ((CultureInfo)item.Tag).NativeName;
+				});
+				if (((CultureInfo)item.Tag).IetfLanguageTag == Settings.Default.UserInterfaceLanguage)
+				{
+					m_uiLanguageMenu.Text = ((CultureInfo)item.Tag).NativeName;
+				}
+			}
+
+			m_uiLanguageMenu.DropDownItems.Add(new ToolStripSeparator());
+			var menu = m_uiLanguageMenu.DropDownItems.Add(LocalizationManager.GetString("MainForm.MoreMenuItem",
+				"More...", "Last item in menu of UI languages"));
+			menu.Click += ((a, b) =>
+			{
+				Program.LocalizationManager.ShowLocalizationDialogBox(false);
+				SetupUILanguageMenu();
+			});
+		}
+
 		private void HandleChangeQuotationMarks_Click(object sender, EventArgs e)
 		{
 			bool reparseOkay = true;
@@ -366,17 +398,16 @@ namespace ProtoScript
 			}
 		}
 
-		private void m_btnExit_Click(object sender, EventArgs e)
+		private void m_lnkExit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			// Save is handled in FormClosing event
 			Close();
 		}
 
-		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		public class NoBorderToolStripRenderer : ToolStripProfessionalRenderer
 		{
-			using (var dlg = new SILAboutBox(FileLocator.GetFileDistributedWithApplication("aboutbox.htm")))
+			protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
 			{
-				dlg.ShowDialog();
 			}
 		}
 	}

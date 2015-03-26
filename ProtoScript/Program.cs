@@ -86,13 +86,15 @@ namespace ProtoScript
 		//	Analytics.ReportException(e.Exception);
 		//}
 
+		public static LocalizationManager LocalizationManager { get; private set; }
+
 		private static void SetUpLocalization()
 		{
 			string installedStringFileFolder = FileLocator.GetDirectoryDistributedWithApplication("localization");
 			string targetTmxFilePath = Path.Combine(kCompany, kProduct);
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
 
-			LocalizationManager.Create(desiredUiLangId, "ProtoscriptGenerator", Application.ProductName, Application.ProductVersion,
+			LocalizationManager = LocalizationManager.Create(desiredUiLangId, "ProtoscriptGenerator", Application.ProductName, Application.ProductVersion,
 				installedStringFileFolder, targetTmxFilePath, Resources.PgIcon, IssuesEmailAddress, "ProtoScript");
 
 			// For now, do not set up localization for Palaso
