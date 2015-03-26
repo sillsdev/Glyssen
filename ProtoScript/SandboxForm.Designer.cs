@@ -68,7 +68,7 @@
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnOpenProject, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnOpenProject, "MainForm.OpenProject");
 			this.m_btnOpenProject.Location = new System.Drawing.Point(44, 82);
-			this.m_btnOpenProject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.m_btnOpenProject.Margin = new System.Windows.Forms.Padding(4);
 			this.m_btnOpenProject.Name = "m_btnOpenProject";
 			this.m_btnOpenProject.Size = new System.Drawing.Size(201, 32);
 			this.m_btnOpenProject.TabIndex = 0;
@@ -119,7 +119,7 @@
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnExportToTabSeparated, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnExportToTabSeparated, "MainForm.Export");
 			this.m_btnExportToTabSeparated.Location = new System.Drawing.Point(44, 269);
-			this.m_btnExportToTabSeparated.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.m_btnExportToTabSeparated.Margin = new System.Windows.Forms.Padding(4);
 			this.m_btnExportToTabSeparated.Name = "m_btnExportToTabSeparated";
 			this.m_btnExportToTabSeparated.Size = new System.Drawing.Size(201, 32);
 			this.m_btnExportToTabSeparated.TabIndex = 6;
@@ -135,7 +135,7 @@
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnAssign, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnAssign, "MainForm.AssignCharacters");
 			this.m_btnAssign.Location = new System.Drawing.Point(44, 202);
-			this.m_btnAssign.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.m_btnAssign.Margin = new System.Windows.Forms.Padding(4);
 			this.m_btnAssign.Name = "m_btnAssign";
 			this.m_btnAssign.Size = new System.Drawing.Size(201, 32);
 			this.m_btnAssign.TabIndex = 8;
@@ -151,7 +151,7 @@
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnSelectBooks, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnSelectBooks, "MainForm.SelectBooks");
 			this.m_btnSelectBooks.Location = new System.Drawing.Point(44, 162);
-			this.m_btnSelectBooks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.m_btnSelectBooks.Margin = new System.Windows.Forms.Padding(4);
 			this.m_btnSelectBooks.Name = "m_btnSelectBooks";
 			this.m_btnSelectBooks.Size = new System.Drawing.Size(201, 32);
 			this.m_btnSelectBooks.TabIndex = 9;
@@ -219,7 +219,7 @@
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnSettings, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnSettings, "MainForm.ProjectSettings");
 			this.m_btnSettings.Location = new System.Drawing.Point(44, 122);
-			this.m_btnSettings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.m_btnSettings.Margin = new System.Windows.Forms.Padding(4);
 			this.m_btnSettings.Name = "m_btnSettings";
 			this.m_btnSettings.Size = new System.Drawing.Size(201, 32);
 			this.m_btnSettings.TabIndex = 12;
@@ -305,6 +305,7 @@
 			this.m_btnAbout.Name = "m_btnAbout";
 			this.m_btnAbout.Size = new System.Drawing.Size(56, 20);
 			this.m_btnAbout.Text = "About...";
+			this.m_btnAbout.Click += new System.EventHandler(this.m_btnAbout_Click);
 			// 
 			// m_uiLanguageMenu
 			// 
@@ -361,7 +362,7 @@
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_imgCheckOpen, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckOpen, "MainForm.pictureBox1");
 			this.m_imgCheckOpen.Location = new System.Drawing.Point(252, 82);
-			this.m_imgCheckOpen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.m_imgCheckOpen.Margin = new System.Windows.Forms.Padding(4);
 			this.m_imgCheckOpen.Name = "m_imgCheckOpen";
 			this.m_imgCheckOpen.Size = new System.Drawing.Size(33, 32);
 			this.m_imgCheckOpen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -445,7 +446,7 @@
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this, "MainForm.WindowTitle");
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "SandboxForm";
 			this.Text = "Protoscript Generator";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SandboxForm_FormClosing);
