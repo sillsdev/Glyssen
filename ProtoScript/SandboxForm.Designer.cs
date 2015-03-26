@@ -44,6 +44,7 @@
 			this.m_lblProjectLoaded = new System.Windows.Forms.Label();
 			this.m_lblPercentAssigned = new System.Windows.Forms.Label();
 			this.m_btnExit = new System.Windows.Forms.Button();
+			this.linkLabel1 = new System.Windows.Forms.LinkLabel();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -255,12 +256,31 @@
 			this.m_btnExit.UseVisualStyleBackColor = false;
 			this.m_btnExit.Click += new System.EventHandler(this.m_btnExit_Click);
 			// 
+			// linkLabel1
+			// 
+			this.linkLabel1.AutoSize = true;
+			this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.linkLabel1, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.linkLabel1, null);
+			this.l10NSharpExtender1.SetLocalizationPriority(this.linkLabel1, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.l10NSharpExtender1.SetLocalizingId(this.linkLabel1, "SandboxForm.SandboxForm.m_linkChangeQuotationSystem");
+			this.linkLabel1.Location = new System.Drawing.Point(494, 9);
+			this.linkLabel1.Name = "linkLabel1";
+			this.linkLabel1.Size = new System.Drawing.Size(43, 16);
+			this.linkLabel1.TabIndex = 19;
+			this.linkLabel1.TabStop = true;
+			this.linkLabel1.Text = "About";
+			this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+			// 
 			// SandboxForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(559, 262);
+			this.Controls.Add(this.linkLabel1);
 			this.Controls.Add(this.m_btnExit);
 			this.Controls.Add(this.m_lblPercentAssigned);
 			this.Controls.Add(this.m_lblProjectLoaded);
@@ -306,6 +326,7 @@
 		private System.Windows.Forms.Label m_lblProjectLoaded;
 		private System.Windows.Forms.Label m_lblPercentAssigned;
 		private System.Windows.Forms.Button m_btnExit;
+		private System.Windows.Forms.LinkLabel linkLabel1;
 	}
 }
 
