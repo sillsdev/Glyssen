@@ -25,6 +25,11 @@ namespace ProtoScript.Bundle
 	[XmlRoot("DBLMetadata")]
 	public class DblMetadata : DblMetadataBase
 	{
+		/// <summary>This is only needed as a temporary place to store the recording project name when the user metadata
+		/// is created for a project that does not have a bundle - this can go away if we stop supporting those.</summary>
+		[XmlIgnore]
+		public string PgRecordingProjectName;
+
 		/// <summary>This is not part of the original DBL metadata. We add this when we parse the USX to create
 		/// a script. If significant changes to the parser are made and the parser version in the program does
 		/// not match the stored parser version, then we know to re-parse the original USX data.</summary>
@@ -149,6 +154,12 @@ namespace ProtoScript.Bundle
 			get { return language == null ? 0 : language.FontSizeUiAdjustment; }
 			set { language.FontSizeUiAdjustment = value; }
 		}
+
+		/// <summary>This is not part of the original DBL metadata. If a project does not come with
+		/// a versification file, this is the name of the standard versification to be used.</summary>
+		[XmlAttribute("versification")]
+		[DefaultValue("English")]
+		public string Versification;
 
 		private int m_fontSizeInPointsTemp;
 		private string m_fontFamilyTemp;

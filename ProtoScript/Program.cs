@@ -3,10 +3,12 @@ using System.Configuration;
 using System.IO;
 using System.Windows.Forms;
 using L10NSharp;
+using Paratext;
 using ProtoScript.Properties;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Windows.Forms.Reporting;
+using ConfigurationErrorsException = System.Configuration.ConfigurationErrorsException;
 
 namespace ProtoScript
 {
@@ -34,17 +36,11 @@ namespace ProtoScript
 			if ((Control.ModifierKeys & Keys.Shift) > 0 && !string.IsNullOrEmpty(userConfigSettingsPath))
 				HandleDeleteUserSettings(userConfigSettingsPath);
 
-			// TODO (PG-117): This is temporary code to initialize Paratext versification table
-			try
-			{
-				Paratext.ScrTextCollection.Initialize();
-			}
-			catch (Exception)
-			{
-				MessageBox.Show(
-					"It appears that Paratext is not installed on this computer. You can still use Protoscript Generator, but some verse navigation stuff won't work right. This is temporary. See Jira issue PG-117.");
-			}
-
+			// Initialize Paratext versification table based on the vrs files we know ship
+			var vrsFolder = Path.GetDirectoryName(FileLocator.GetFileDistributedWithApplication("eng.vrs"));
+			foreach (var vrsFile in Directory.GetFiles(vrsFolder, "*.vrs"))
+				Versification.Table.Load(vrsFile);
+			
 			// TODO (PG-18) Add analytics
 
 			Application.Run(new SandboxForm());

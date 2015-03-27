@@ -81,7 +81,7 @@ namespace ProtoScriptTests.Dialogs
 			while (project.ProjectState != ProjectState.FullyInitialized)
 				Thread.Sleep(100);
 
-			return Project.Load(Project.GetProjectFilePath(kTest, kTest));
+			return Project.Load(Project.GetProjectFilePath(kTest, kTest, Project.GetDefaultRecordingProjectName(kTest)));
 		}
 
 		[Test]

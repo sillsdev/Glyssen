@@ -47,27 +47,29 @@ namespace ProtoScript.Dialogs
 			m_listExistingProjects.Items.Clear();
 			m_existingProjectPaths.Clear();
 			DblMetadata itemToSelect = null;
-			foreach (var projectFolder in Directory.GetDirectories(Project.ProjectsBaseFolder))
+			foreach (var languageFolder in Directory.GetDirectories(Project.ProjectsBaseFolder))
 			{
-				foreach (var versionFolder in Directory.GetDirectories(projectFolder))
+				foreach (var publicationFolder in Directory.GetDirectories(languageFolder))
 				{
-					// ENHANCE: Deal with the possibility of multiple versions of a project.
-					// Do we want to show all versions or just the most recent one?
-					var path = Directory.GetFiles(versionFolder, "*" + Project.kProjectFileExtension).FirstOrDefault();
-					if (path != null)
+					foreach (var recordingProjectFolder in Directory.GetDirectories(publicationFolder))
 					{
-						Exception exception;
-						var metadata = DblMetadata.Load(path, out exception);
-						if (exception != null)
-							continue;
-						if (metadata.HiddenByDefault)
-							continue;
+						// TODO (PG-169): Enhance display to distinguish between multiple recording projects for a particular publication.
+						var path = Directory.GetFiles(recordingProjectFolder, "*" + Project.kProjectFileExtension).FirstOrDefault();
+						if (path != null)
+						{
+							Exception exception;
+							var metadata = DblMetadata.Load(path, out exception);
+							if (exception != null)
+								continue;
+							if (metadata.HiddenByDefault)
+								continue;
 
-						m_listExistingProjects.Items.Add(metadata);
-						m_existingProjectPaths.Add(path);
+							m_listExistingProjects.Items.Add(metadata);
+							m_existingProjectPaths.Add(path);
 
-						if (m_currentProject != null && m_currentProject.Id == metadata.id)
-							itemToSelect = metadata;
+							if (m_currentProject != null && m_currentProject.Id == metadata.id)
+								itemToSelect = metadata;
+						}
 					}
 				}
 			}

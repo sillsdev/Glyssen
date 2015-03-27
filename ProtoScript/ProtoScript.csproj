@@ -161,6 +161,8 @@
       <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
+    <Compile Include="DataMigrator.cs" />
+    <Compile Include="ProtoscriptGeneratorData.cs" />
     <Compile Include="Dialogs\AssignCharacterDialog.cs">
       <SubType>Form</SubType>
     </Compile>
