@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
 using L10NSharp;
@@ -320,6 +321,10 @@ namespace ProtoScript
 				return;
 			}
 			m_guessPercentComplete = 100;
+
+			if (IsSampleProject)
+				IsQuoteSystemUserConfirmed = true;
+
 			if (!IsQuoteSystemUserConfirmed)
 			{
 				m_quotePercentComplete = 0;
@@ -669,6 +674,11 @@ namespace ProtoScript
 			}
 		}
 
+		private bool IsSampleProject
+		{
+			get { return Id == "Sample" && LanguageIsoCode == "sample"; }
+		}
+
 		public static void CreateSampleProjectIfNeeded()
 		{
 			const string kSample = "sample";
@@ -693,7 +703,24 @@ namespace ProtoScript
 			sampleMark.LoadXml(Resources.SampleMRK);
 			UsxDocument mark = new UsxDocument(sampleMark);
 
-			new Project(sampleMetadata, new[] { mark }, SfmLoader.GetUsfmStylesheet());
+			var sampleProject = new Project(sampleMetadata, new[] { mark }, SfmLoader.GetUsfmStylesheet());
+
+			// Wait for guesser to finish
+			while (sampleProject.ProjectState != ProjectState.NeedsQuoteSystemConfirmation)
+			{
+				Thread.Sleep(100);
+				Application.DoEvents();
+			}
+
+			sampleProject.IsQuoteSystemUserConfirmed = true;
+			sampleProject.QuoteSystem = sampleProject.ConfirmedQuoteSystem;
+
+			// Wait for quote parse to finish
+			while (sampleProject.ProjectState != ProjectState.FullyInitialized)
+			{
+				Thread.Sleep(100);
+				Application.DoEvents();
+			}
 		}
 	}
 
