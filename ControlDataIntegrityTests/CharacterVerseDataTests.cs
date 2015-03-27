@@ -72,6 +72,14 @@ namespace ControlDataIntegrityTests
 		}
 
 		[Test]
+		public void DataIntegrity_NoDuplicateData()
+		{
+			ISet<CharacterVerse> uniqueCharacterVerses = new HashSet<CharacterVerse>();
+			foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
+				Assert.IsTrue(uniqueCharacterVerses.Add(cv), "Duplicate Character-Verse: " + cv.BcvRef + ", " + cv.Character);
+		}
+
+		[Test]
 		public void DataIntegrity_AllCharacterIdsAndDefaultCharactersHaveCharacterDetail()
 		{
 			IEnumerable<string> charactersHavingDetail = CharacterDetailData.Singleton.GetAll().Select(d => d.Character);

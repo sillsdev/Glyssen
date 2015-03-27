@@ -118,16 +118,12 @@ namespace ProtoScript.Dialogs
 			m_cboEndQuotationDash.Items.Clear();
 			m_cboEndQuotationDash.Items.Add(LocalizationManager.GetString("QuotationMarksDialog.EndQuotationDashWithParagraphOnly", "End of paragraph (only)"));
 			m_cboEndQuotationDash.Items.Add(SameAsStartDashText);
-//			m_cboEndQuotationDash.Items.Add(LocalizationManager.GetString("QuotationMarksDialog.EndQuotationDashWithAnyPunctuation", "Any punctuation mark"));
 
 			var quotationDashEndMarker = currentSystem.QuotationDashEndMarker;
 			if (string.IsNullOrEmpty(quotationDashEndMarker))
 				m_cboEndQuotationDash.SelectedIndex = 0;
 			else if (quotationDashEndMarker == quotationDashMarker)
 				m_cboEndQuotationDash.SelectedIndex = 1;
-			else if (quotationDashEndMarker == QuoteSystem.AnyPunctuation)
-//				m_cboEndQuotationDash.SelectedIndex = 2;
-				m_cboEndQuotationDash.SelectedIndex = 0;
 			else
 				m_cboEndQuotationDash.Text = quotationDashEndMarker;
 		}
@@ -267,7 +263,6 @@ namespace ProtoScript.Dialogs
 					{
 						case 0: break;
 						case 1: quotationDashEndMarker = quotationDashMarker; break;
-						case 2: quotationDashEndMarker = QuoteSystem.AnyPunctuation; break;
 						default:
 							if (!String.IsNullOrWhiteSpace(m_cboEndQuotationDash.Text))
 								quotationDashEndMarker = m_cboEndQuotationDash.Text;

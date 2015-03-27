@@ -13,7 +13,10 @@ namespace ProtoScript.Quote
 	[XmlRoot]
 	public class QuoteSystem
 	{
-		public static string AnyPunctuation
+		/// <summary>
+		/// This is deprecated and should only be used for upgrading from old data
+		/// </summary>
+		private static string AnyPunctuation_Deprecated
 		{
 			get { return SIL.Extensions.StringExtensions.kObjReplacementChar.ToString(CultureInfo.InvariantCulture); }
 		}
@@ -168,6 +171,8 @@ namespace ProtoScript.Quote
 			set
 			{
 				QuotationMark dialog = AllLevels.FirstOrDefault(l => l.Level == 1 && l.Type == QuotationMarkingSystemType.Narrative);
+				if (value == AnyPunctuation_Deprecated)
+					value = null;
 				if (dialog == null)
 				{
 					AllLevels.Add(new QuotationMark(null, value, null, 1, QuotationMarkingSystemType.Narrative));

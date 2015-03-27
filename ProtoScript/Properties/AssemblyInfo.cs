@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ProtoScript")]
+[assembly: AssemblyTitle("Protoscript Generator")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("FCBH and SIL International")]
 [assembly: AssemblyProduct("Protoscript Generator")]
-[assembly: AssemblyCopyright("Copyright © 2014 SIL International and Faith Comes By Hearing")]
+[assembly: AssemblyCopyright("Copyright © 2014-2015 Faith Comes By Hearing and SIL International")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

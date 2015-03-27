@@ -7,6 +7,8 @@ using L10NSharp;
 using L10NSharp.UI;
 using ProtoScript.Dialogs;
 using ProtoScript.Properties;
+using SIL.IO;
+using SIL.Windows.Forms.Miscellaneous;
 
 namespace ProtoScript
 {
@@ -372,6 +374,14 @@ namespace ProtoScript
 		{
 			// Save is handled in FormClosing event
 			Close();
+		}
+
+		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			using (var dlg = new SILAboutBox(FileLocator.GetFileDistributedWithApplication("aboutbox.htm")))
+			{
+				dlg.ShowDialog();
+			}
 		}
 	}
 }

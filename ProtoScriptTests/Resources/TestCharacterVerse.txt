@@ -2019,6 +2019,7 @@ RUT	4	17	women of Bethlehem
 1SA	6	3	Philistine priests and diviners		
 1SA	6	4	Philistine priests and diviners		
 1SA	6	4	Philistines		
+1SA	6	6	Philistine priests and diviners		
 1SA	6	7	Philistine priests and diviners		
 1SA	6	20	Beth Shemesh, men of		
 1SA	6	21	Beth Shemesh, men of		
@@ -2032,6 +2033,8 @@ RUT	4	17	women of Bethlehem
 1SA	8	7	God		God (the LORD)
 1SA	8	11	Samuel		
 1SA	8	19	people		
+1SA	8	21	God		God (the LORD)
+1SA	8	21	Samuel		
 1SA	8	22	God		God (the LORD)
 1SA	8	22	Samuel		
 1SA	9	3	Kish, father of Saul		
@@ -7997,7 +8000,7 @@ MRK	6	18	John the Baptist	rebuke		Normal
 MRK	6	22	Herod Antipas (the tetrarch)	drunk		Dialogue
 MRK	6	23	Herod Antipas (the tetrarch)	drunk		Dialogue
 MRK	6	24	Herodias			Dialogue
-MRK	6	24	Herodias' daughter			Dialogue
+MRK	6	24	Herodias' daughter		alias	Dialogue
 MRK	6	25	Herodias' daughter			Dialogue
 MRK	6	26	Herod Antipas (the tetrarch)			Normal
 MRK	6	27	Herod Antipas (the tetrarch)			Normal

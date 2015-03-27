@@ -122,7 +122,7 @@ namespace ProtoScriptTests.Dialogs
 		}
 
 		[Test]
-		public void GetUniqueCharacters_AmbiguousQuoteFilter_GetsAllCharactersInMark()
+		public void GetUniqueCharacters_AmbiguousQuoteFilter_GetsFilterCharactersAndReferenceCharacters()
 		{
 			FindRefInMark(5, 9);
 			var characters = m_model.GetUniqueCharacters("zeru").ToList();
@@ -131,6 +131,19 @@ namespace ProtoScriptTests.Dialogs
 			Assert.IsTrue(characters.Any(c => c.CharacterId == "Jesus"));
 			Assert.IsTrue(characters.Any(c => c.CharacterId == "man with evil spirit"));
 			Assert.IsTrue(characters[3].IsNarrator);
+		}
+
+		[Test]
+		public void GetCharactersForCurrentReference_AmbiguousQuote_SortByAlias()
+		{
+			FindRefInMark(6, 24);
+			var characters = m_model.GetCharactersForCurrentReference().ToList();
+			Assert.AreEqual(3, characters.Count);
+			Assert.AreEqual("Herodias' daughter", characters[0].CharacterId);
+			Assert.AreEqual("alias", characters[0].Alias);
+			Assert.AreEqual("Herodias", characters[1].CharacterId);
+			Assert.IsNull(characters[1].Alias);
+			Assert.IsTrue(characters[2].IsNarrator);
 		}
 
 		[Test]

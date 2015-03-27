@@ -5,7 +5,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using ProtoScript.Character;
 using SIL.ScriptureUtils;
-using Utilities;
 
 namespace ProtoScript.Quote
 {
@@ -16,8 +15,7 @@ namespace ProtoScript.Quote
 		private readonly int m_bookNum;
 		private readonly IEnumerable<Block> m_inputBlocks;
 		private readonly QuoteSystem m_quoteSystem;
-		private readonly Regex m_regexSplitQuoteTokens;
-		private string m_quoteCharacters;
+		private readonly List<Regex> m_regexes = new List<Regex>();
 
 		#region working members
 		// These members are used by several methods. Making them class-level prevents passing them repeatedly
@@ -46,65 +44,54 @@ namespace ProtoScript.Quote
 			m_bookNum = BCVRef.BookToNumber(bookId);
 			m_inputBlocks = blocks;
 			m_quoteSystem = quoteSystem;
-			m_regexSplitQuoteTokens = GetRegExForSplittingQuotes();
+			GetRegExesForSplittingQuotes();
 		}
 
-		private Regex GetRegExForSplittingQuotes()
+		private void GetRegExesForSplittingQuotes()
 		{
-			var splitters = new HashSet<string>();
+			var splitters = new SortedSet<string>(new SplitterComparer());
 			var quoteChars = new HashSet<char>();
+			var regexExpressions = new List<string>(m_quoteSystem.NormalLevels.Count);
 
-			foreach (var level in m_quoteSystem.NormalLevels)
+			for (int level = 0; level < m_quoteSystem.NormalLevels.Count; level++)
 			{
-				splitters.Add(level.Open);
-				splitters.Add(level.Close);
-				if (!string.IsNullOrWhiteSpace(level.Continue))
-					splitters.Add(level.Continue);	
+				var quoteSystemLevel = m_quoteSystem.NormalLevels[level];
+				splitters.Add(quoteSystemLevel.Open);
+				splitters.Add(quoteSystemLevel.Close);
+				if (!string.IsNullOrWhiteSpace(quoteSystemLevel.Continue))
+					splitters.Add(quoteSystemLevel.Continue);
+
+
+				if (level == 0 && !string.IsNullOrEmpty(m_quoteSystem.QuotationDashMarker))
+				{
+					splitters.Add(m_quoteSystem.QuotationDashMarker);
+					if (!string.IsNullOrEmpty(m_quoteSystem.QuotationDashEndMarker))
+						splitters.Add(m_quoteSystem.QuotationDashEndMarker);
+				}
+				
+				var sbQuoteMatcher = new StringBuilder();
+
+				foreach (var qm in splitters)
+				{
+					sbQuoteMatcher.Append("(?:");
+					sbQuoteMatcher.Append(Regex.Escape(qm));
+					sbQuoteMatcher.Append(")|");
+				}
+				sbQuoteMatcher.Length--;
+
+				var quoteMatcher = sbQuoteMatcher.ToString();
+				// quoteMatcher includes all the possible markers; e.g. (?:«)|(?:‹)|(?:›)|(?:»).
+				// Need to group because they could be more than one character each.
+				// ?: => non-matching group
+				// \w => word-forming character
+				regexExpressions.Add(String.Format(@"((?:(?:{0})(?:[^\w{1}])*))", quoteMatcher, "{0}"));
 			}
 
 			foreach (var ch in splitters.SelectMany(qm => qm.Where(c => !Char.IsWhiteSpace(c))))
-			{
 				quoteChars.Add(ch);
-			}
-			m_quoteCharacters = string.Join(string.Empty, quoteChars);
 
-			if (!string.IsNullOrEmpty(m_quoteSystem.QuotationDashMarker))
-			{
-				splitters.Add(m_quoteSystem.QuotationDashMarker);
-				foreach (char ch in m_quoteSystem.QuotationDashMarker)
-					quoteChars.Add(ch);
-				if (!string.IsNullOrEmpty(m_quoteSystem.QuotationDashEndMarker) &&
-					m_quoteSystem.QuotationDashEndMarker != QuoteSystem.AnyPunctuation)
-				{
-					splitters.Add(m_quoteSystem.QuotationDashEndMarker);
-					foreach (char ch in m_quoteSystem.QuotationDashEndMarker)
-						quoteChars.Add(ch);
-				}
-			}
-
-			var sbQuoteMatcher = new StringBuilder();
-
-			foreach (var qm in splitters)
-			{
-				sbQuoteMatcher.Append("(?:");
-				sbQuoteMatcher.Append(Regex.Escape(qm));
-				sbQuoteMatcher.Append(")|");
-			}
-			sbQuoteMatcher.Length--;
-
-			string punctuation = "";
-			if (m_quoteSystem.QuotationDashEndMarker == QuoteSystem.AnyPunctuation)
-				// (?!\w) is to ensure we only get word-final punctuation
-				punctuation = string.Format(@"|(?:[^\w\s\d{0}](?!\w)\s*)", Regex.Escape(m_quoteCharacters));
-
-			var quoteMatcher = sbQuoteMatcher.ToString();
-			// quoteMatcher includes all the possible markers; e.g. (?:«)|(?:‹)|(?:›)|(?:»).
-			// Need to group because they could be more than one character each.
-			// The outer () means we want to include the delimiter in the results
-			// ?: => non-matching group
-			// \s => whitespace
-			// \w => word-forming character
-			return new Regex(String.Format(@"((?:(?:{0})(?:[^\w{1}])*){2})", quoteMatcher, Regex.Escape(string.Join(string.Empty, quoteChars)), punctuation), RegexOptions.Compiled);
+			foreach (var expr in regexExpressions)
+				m_regexes.Add(new Regex(String.Format(expr, Regex.Escape(string.Join(string.Empty, quoteChars))), RegexOptions.Compiled));				
 		}
 
 		/// <summary>
@@ -147,7 +134,7 @@ namespace ProtoScript.Quote
 				{
 					m_quoteLevel--;
 					blockInWhichDialogueQuoteStarted = null;
-					potentialDialogueContinuer = m_quoteSystem.QuotationDashEndMarker != null && m_quoteSystem.QuotationDashEndMarker != QuoteSystem.AnyPunctuation;
+					potentialDialogueContinuer = m_quoteSystem.QuotationDashEndMarker != null;
 				}
 
 				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber) { IsParagraphStart = block.IsParagraphStart };
@@ -169,64 +156,75 @@ namespace ProtoScript.Quote
 					}
 					sb.Clear();
 
-					foreach (var token in m_regexSplitQuoteTokens.Split(scriptText.Content).Where(t => t.Length > 0))
+					var content = scriptText.Content;
+					int pos = 0;
+					while (pos < content.Length)
 					{
-						if (atBeginningOfBlock)
+						var regex = m_regexes[m_quoteLevel >= m_regexes.Count ? m_regexes.Count - 1 : m_quoteLevel];
+						var match = regex.Match(content, pos);
+						if (match.Success)
 						{
-							atBeginningOfBlock = false;
-
-							if (m_quoteLevel > 0 && token.StartsWith(ContinuerForCurrentLevel))
+							if (match.Index > pos)
 							{
-								sb.Append(token);
-								continue;
+								sb.Append(content.Substring(pos, match.Index - pos));
 							}
-							if (m_quoteLevel == 0)
+
+							pos = match.Index + match.Length;
+
+							var token = match.Value;
+
+							if (atBeginningOfBlock)
 							{
-								string continuerForNextLevel = ContinuerForNextLevel;
-								if (string.IsNullOrEmpty(continuerForNextLevel) || !token.StartsWith(continuerForNextLevel))
+								atBeginningOfBlock = false;
+
+								if (m_quoteLevel > 0 && token.StartsWith(ContinuerForCurrentLevel))
+								{
+									int i = ContinuerForCurrentLevel.Length;
+									while (i < token.Length && Char.IsWhiteSpace(token[i]))
+										i++;
+									sb.Append(token.Substring(0, i));
+									if (token.Length == i)
+										continue;
+									token = token.Substring(i);
+								}
+								if (m_quoteLevel == 0)
+								{
+									string continuerForNextLevel = ContinuerForNextLevel;
+									if (string.IsNullOrEmpty(continuerForNextLevel) || !token.StartsWith(continuerForNextLevel))
+										potentialDialogueContinuer = false;
+								}
+								else
+								{
 									potentialDialogueContinuer = false;
+								}
 							}
-							else
-							{
-								potentialDialogueContinuer = false;
-							}
-						}
 
-						if (m_quoteLevel > 0 && token.StartsWith(CloserForCurrentLevel) && blockInWhichDialogueQuoteStarted == null)
-						{
-							sb.Append(token);
-							if (--m_quoteLevel == 0)
-								FlushStringBuilderAndBlock(sb, block.StyleTag, true);
-						}
-						else if (m_quoteSystem.NormalLevels.Count > m_quoteLevel && token.StartsWith(OpenerForNextLevel) && blockInWhichDialogueQuoteStarted == null)
-						{
-							if (m_quoteLevel == 0)
-								FlushStringBuilderAndBlock(sb, block.StyleTag, false);
-							sb.Append(token);
-							m_quoteLevel++;
-						}
-						else if (m_quoteLevel == 0 && m_quoteSystem.QuotationDashMarker != null && token.StartsWith(m_quoteSystem.QuotationDashMarker))
-						{
-							blockInWhichDialogueQuoteStarted = block;
-							blockEndedWithSentenceEndingPunctuation = false;
-							bool specialCaseWithColon = token.StartsWith(":");
-							if (specialCaseWithColon)
-								sb.Append(token);
-							FlushStringBuilderAndBlock(sb, block.StyleTag, false);
-							if (!specialCaseWithColon)
-								sb.Append(token);
-							m_quoteLevel++;
-						}
-						else if (potentialDialogueContinuer || (m_quoteLevel == 1 && blockInWhichDialogueQuoteStarted != null))
-						{
-							if (m_quoteSystem.QuotationDashEndMarker == QuoteSystem.AnyPunctuation && IsNonQuotePunctuation(token[0]))
+							if (m_quoteLevel > 0 && token.StartsWith(CloserForCurrentLevel) && blockInWhichDialogueQuoteStarted == null)
 							{
-								m_quoteLevel--;
-								blockInWhichDialogueQuoteStarted = null;
 								sb.Append(token);
-								FlushStringBuilderAndBlock(sb, block.StyleTag, true);
+								if (--m_quoteLevel == 0)
+									FlushStringBuilderAndBlock(sb, block.StyleTag, true);
 							}
-							else
+							else if (m_quoteSystem.NormalLevels.Count > m_quoteLevel && token.StartsWith(OpenerForNextLevel) && blockInWhichDialogueQuoteStarted == null)
+							{
+								if (m_quoteLevel == 0)
+									FlushStringBuilderAndBlock(sb, block.StyleTag, false);
+								sb.Append(token);
+								m_quoteLevel++;
+							}
+							else if (m_quoteLevel == 0 && m_quoteSystem.QuotationDashMarker != null && token.StartsWith(m_quoteSystem.QuotationDashMarker))
+							{
+								blockInWhichDialogueQuoteStarted = block;
+								blockEndedWithSentenceEndingPunctuation = false;
+								bool specialCaseWithColon = token.StartsWith(":");
+								if (specialCaseWithColon)
+									sb.Append(token);
+								FlushStringBuilderAndBlock(sb, block.StyleTag, false);
+								if (!specialCaseWithColon)
+									sb.Append(token);
+								m_quoteLevel++;
+							}
+							else if (potentialDialogueContinuer || (m_quoteLevel == 1 && blockInWhichDialogueQuoteStarted != null))
 							{
 								if (!string.IsNullOrEmpty(m_quoteSystem.QuotationDashEndMarker) && token.StartsWith(m_quoteSystem.QuotationDashEndMarker, StringComparison.Ordinal))
 								{
@@ -240,10 +238,18 @@ namespace ProtoScript.Quote
 								}
 								sb.Append(token);
 							}
+							else
+							{
+								sb.Append(token);
+							}
 						}
 						else
 						{
-							sb.Append(token);
+							var remainingText = content.Substring(pos);
+							if (m_quoteLevel == 1 && block == blockInWhichDialogueQuoteStarted && EndsWithSentenceEndingPunctuation(remainingText))
+								blockEndedWithSentenceEndingPunctuation = true;
+							sb.Append(remainingText);
+							break;
 						}
 					}
 					FlushStringBuilderToBlockElement(sb);
@@ -280,11 +286,6 @@ namespace ProtoScript.Quote
 				i--;
 			}
 			return false;
-		}
-
-		private bool IsNonQuotePunctuation(char c)
-		{
-			return char.IsPunctuation(c) && !m_quoteCharacters.Contains(c);
 		}
 
 		/// <summary>
@@ -368,7 +369,7 @@ namespace ProtoScript.Quote
 					m_workingBlock.MultiBlockQuote = MultiBlockQuote.Start;
 
 				m_workingBlock.SetCharacterAndDelivery(
-					m_cvInfo.GetCharacters(m_bookId, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber, m_workingBlock.InitialEndVerseNumber));
+					m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber, m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerse));
 			}
 			else
 			{
@@ -606,5 +607,28 @@ namespace ProtoScript.Quote
 			}
 		}
 		#endregion
+
+		public class SplitterComparer : IComparer<string>
+		{
+			int IComparer<string>.Compare(string x, string y)
+			{
+				if (x.Contains(" ") && !y.Contains(" "))
+					return -1;
+				if (!x.Contains(" ") && y.Contains(" "))
+					return 1;
+				int result;
+				if (x.Contains(" ") && y.Contains(" "))
+				{
+					result = -x.Length.CompareTo(y.Length);
+					if (result != 0)
+						return result;
+					return String.Compare(x, y, StringComparison.InvariantCulture);
+				}
+				result = x.Length.CompareTo(y.Length);
+				if (result != 0)
+					return result;
+				return String.Compare(x, y, StringComparison.InvariantCulture);
+			}
+		}
 	}
 }

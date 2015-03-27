@@ -77,6 +77,7 @@ namespace ProtoScript.Character
 
 		public BCVRef BcvRef { get { return m_bcvRef; } }
 		public string BookCode { get { return BCVRef.NumberToBookCode(m_bcvRef.Book); } }
+		public int Book { get { return m_bcvRef.Book; } }
 		public int Chapter { get { return m_bcvRef.Chapter; } }
 		public int Verse { get { return m_bcvRef.Verse; } }
 		public string Character { get { return m_character; } }

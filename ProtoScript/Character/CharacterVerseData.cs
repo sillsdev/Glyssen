@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using SIL.Extensions;
 using SIL.ScriptureUtils;
 
 namespace ProtoScript.Character
@@ -100,15 +99,51 @@ namespace ProtoScript.Character
 		/// <summary>Character ID prefix for intro material</summary>
 		protected const string kIntroPrefix = "intro-";
 
-		private ISet<CharacterVerse> m_data = new HashSet<CharacterVerse>();
+		private IList<CharacterVerse> m_data = new List<CharacterVerse>();
+		private ILookup<int, CharacterVerse> m_lookup;
 		private IEnumerable<CharacterVerse> m_uniqueCharacterAndDeliveries;
 		private IEnumerable<string> m_uniqueDeliveries;
 
-		public IEnumerable<CharacterVerse> GetCharacters(string bookCode, int chapter, int startVerse, int endVerse = 0)
+		public IEnumerable<CharacterVerse> GetCharacters(string bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0)
 		{
-			if (startVerse > 0 && endVerse == 0)
-				return m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter && cv.Verse == startVerse);
-			return m_data.Where(cv => cv.BookCode == bookCode && cv.Chapter == chapter && cv.Verse >= startVerse && cv.Verse <= endVerse);
+			return GetCharacters(BCVRef.BookToNumber(bookId), chapter, initialStartVerse, initialEndVerse, finalVerse);
+		}
+
+		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0)
+		{
+			IEnumerable<CharacterVerse> result;
+
+			if (initialEndVerse == 0 || initialStartVerse == initialEndVerse)
+				result = m_lookup[new BCVRef(bookId, chapter, initialStartVerse)];
+			else
+			{
+				int start = new BCVRef(bookId, chapter, initialStartVerse).BBCCCVVV;
+				int end = new BCVRef(bookId, chapter, initialEndVerse).BBCCCVVV;
+				result = Enumerable.Empty<CharacterVerse>();
+				for (int i = start; i <= end; i++)
+					result = result.Union(m_lookup[i]);
+			}
+			if (finalVerse == 0 || result.Count() == 1)
+				return result;
+
+			var nextVerse = Math.Max(initialStartVerse, initialEndVerse) + 1;
+			while (nextVerse <= finalVerse)
+			{
+				IEnumerable<CharacterVerse> nextResult = m_lookup[new BCVRef(bookId, chapter, nextVerse)];
+				if (!nextResult.Any())
+				{
+					nextVerse++;
+					continue;
+				}
+				var intersection = nextResult.Intersect(result, new CharacterDeliveryEqualityComparer());
+				if (intersection.Count() == 1)
+				{
+					result = intersection;
+					break;
+				}
+				nextVerse++;
+			}
+			return result;
 		}
 
 		public IEnumerable<CharacterVerse> GetAllQuoteInfo()
@@ -124,6 +159,7 @@ namespace ProtoScript.Character
 		protected virtual void AddCharacterVerse(CharacterVerse cv)
 		{
 			m_data.Add(cv);
+			m_lookup = m_data.ToLookup(c => c.BcvRef.BBCCCVVV);
 			m_uniqueCharacterAndDeliveries = null;
 			m_uniqueDeliveries = null;
 		}
@@ -153,37 +189,39 @@ namespace ProtoScript.Character
 			return m_uniqueDeliveries ?? (m_uniqueDeliveries = new SortedSet<string>(m_data.Select(cv => cv.Delivery).Where(d => !string.IsNullOrEmpty(d))));
 		}
 
-		public void RemoveAll(IEnumerable<CharacterVerse> cvsToRemove, IEqualityComparer<CharacterVerse> comparer)
+		protected virtual void RemoveAll(IEnumerable<CharacterVerse> cvsToRemove, IEqualityComparer<CharacterVerse> comparer)
 		{
 			var intersection = m_data.Intersect(cvsToRemove, comparer).ToList();
 			foreach (CharacterVerse cv in intersection)
 				m_data.Remove(cv);
 
+			m_lookup = m_data.ToLookup(c => c.BcvRef.BBCCCVVV);
 			m_uniqueCharacterAndDeliveries = null;
 			m_uniqueDeliveries = null;
 		}
 
 		public void LoadData(string tabDelimitedCharacterVerseData)
 		{
-			var set = new HashSet<CharacterVerse>();
+			var data = new List<CharacterVerse>();
 			int lineNumber = 0;
 			foreach (var line in tabDelimitedCharacterVerseData.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries))
 			{
 				if (line.Length == 0 || line[0] == '#')
 					continue;
 				string[] items = line.Split(new[] { "\t" }, StringSplitOptions.None);
-				ISet<CharacterVerse> cvs = ProcessLine(items, lineNumber++);
+				IList<CharacterVerse> cvs = ProcessLine(items, lineNumber++);
 				if (cvs != null)
-					set.UnionWith(cvs);
+					data.AddRange(cvs);
 			}
-			m_data = set;
+			m_data = data;
+			m_lookup = data.ToLookup(c => c.BcvRef.BBCCCVVV);
 			m_uniqueCharacterAndDeliveries = null;
 			m_uniqueDeliveries = null;
 		}
 
-		protected virtual ISet<CharacterVerse> ProcessLine(string[] items, int lineNumber)
+		protected virtual IList<CharacterVerse> ProcessLine(string[] items, int lineNumber)
 		{
-			var list = new HashSet<CharacterVerse>();
+			var list = new List<CharacterVerse>();
 
 			if (items.Length < kiQuoteType)
 				throw new ApplicationException("Bad format in CharacterVerseDataBase! Line #: " + lineNumber + "; Line contents: " + string.Join("\t", items));
