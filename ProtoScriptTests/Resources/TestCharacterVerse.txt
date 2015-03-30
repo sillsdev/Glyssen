@@ -8000,7 +8000,7 @@ MRK	6	18	John the Baptist	rebuke		Normal
 MRK	6	22	Herod Antipas (the tetrarch)	drunk		Dialogue
 MRK	6	23	Herod Antipas (the tetrarch)	drunk		Dialogue
 MRK	6	24	Herodias			Dialogue
-MRK	6	24	Herodias' daughter			Dialogue
+MRK	6	24	Herodias' daughter		alias	Dialogue
 MRK	6	25	Herodias' daughter			Dialogue
 MRK	6	26	Herod Antipas (the tetrarch)			Normal
 MRK	6	27	Herod Antipas (the tetrarch)			Normal

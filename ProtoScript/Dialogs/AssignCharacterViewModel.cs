@@ -11,6 +11,7 @@ namespace ProtoScript.Dialogs
 		private readonly CombinedCharacterVerseData m_combinedCharacterVerseData;
 		private readonly CharacterIdComparer m_characterComparer = new CharacterIdComparer();
 		private readonly DeliveryComparer m_deliveryComparer = new DeliveryComparer();
+		private readonly AliasComparer m_aliasComparer = new AliasComparer();
 		private int m_assignedBlocks;
 		private HashSet<CharacterVerse> m_currentCharacters;
 		private List<Delivery> m_currentDeliveries = new List<Delivery>();
@@ -83,6 +84,7 @@ namespace ProtoScript.Dialogs
 
 			var listToReturn = new List<Character>(new SortedSet<Character>(
 				m_currentCharacters.Select(cv => new Character(cv.Character, cv.Alias, cv.ProjectSpecific)), m_characterComparer));
+			listToReturn.Sort(m_aliasComparer);
 
 			if (listToReturn.All(c => !c.IsNarrator))
 				listToReturn.Add(Character.Narrator);
@@ -96,9 +98,11 @@ namespace ProtoScript.Dialogs
 				{
 					m_currentCharacters.Add(character);
 				}
-				
-				listToReturn.AddRange(new SortedSet<Character>(m_currentCharacters.Select(cv =>
-					new Character(cv.Character, cv.Alias)), m_characterComparer).Where(c => !listToReturn.Contains(c)));
+
+				var listToAdd = new SortedSet<Character>(m_currentCharacters.Select(cv =>
+					new Character(cv.Character, cv.Alias)), m_characterComparer).Where(c => !listToReturn.Contains(c)).ToList();
+				listToAdd.Sort(m_aliasComparer);
+				listToReturn.AddRange(listToAdd);
 			}
 
 			if (m_currentCharacters.Count == 0 && expandIfNone)
@@ -113,8 +117,10 @@ namespace ProtoScript.Dialogs
 					}
 				}
 
-				listToReturn.AddRange(new SortedSet<Character>(m_currentCharacters.Select(cv =>
-					new Character(cv.Character, cv.Alias)), m_characterComparer).Where(c => !listToReturn.Contains(c)));
+				var listToAdd = new SortedSet<Character>(m_currentCharacters.Select(cv =>
+					new Character(cv.Character, cv.Alias)), m_characterComparer).Where(c => !listToReturn.Contains(c)).ToList();
+				listToAdd.Sort(m_aliasComparer);
+				listToReturn.AddRange(listToAdd);
 			}
 
 			return listToReturn;
@@ -139,6 +145,7 @@ namespace ProtoScript.Dialogs
 
 			var listToReturn = new List<Character>(new SortedSet<Character>(m_currentCharacters.Select(cv => new Character(cv.Character, cv.Alias,
 				!charactersForCurrentRef.Contains(cv) || cv.ProjectSpecific)), m_characterComparer));
+			listToReturn.Sort(m_aliasComparer);
 
 			// PG-88: Now add (at the end of list) any items from charactersForCurrentRef (plus the narrator) that are not in the list.
 			listToReturn.AddRange(charactersForCurrentRef.Where(cv => listToReturn.All(ec => ec.CharacterId != cv.Character))
@@ -349,6 +356,21 @@ namespace ProtoScript.Dialogs
 		{
 			int IComparer<Character>.Compare(Character x, Character y)
 			{
+				return String.Compare(x.CharacterId, y.CharacterId, StringComparison.InvariantCultureIgnoreCase);
+			}
+		}
+		#endregion
+
+		#region AliasComparer class
+		public class AliasComparer : IComparer<Character>
+		{
+			int IComparer<Character>.Compare(Character x, Character y)
+			{
+				string xTextToCompare = string.IsNullOrEmpty(x.Alias) ? x.CharacterId : x.Alias;
+				string yTextToCompare = string.IsNullOrEmpty(y.Alias) ? y.CharacterId : y.Alias;
+				int result = String.Compare(xTextToCompare, yTextToCompare, StringComparison.InvariantCultureIgnoreCase);
+				if (result != 0)
+					return result;
 				return String.Compare(x.CharacterId, y.CharacterId, StringComparison.InvariantCultureIgnoreCase);
 			}
 		}

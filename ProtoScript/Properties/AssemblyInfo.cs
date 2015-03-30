@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Protoscript Generator")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("FCBH and SIL International")]
+[assembly: AssemblyCompany("FCBH-SIL")]
 [assembly: AssemblyProduct("Protoscript Generator")]
 [assembly: AssemblyCopyright("Copyright © 2014-2015 Faith Comes By Hearing and SIL International")]
 [assembly: AssemblyTrademark("")]
