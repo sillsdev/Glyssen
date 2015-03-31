@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -17,7 +18,6 @@ using ProtoScript.Properties;
 using ProtoScript.Quote;
 using SIL.Reporting;
 using SIL.ScriptureUtils;
-using SIL.Windows.Forms.WritingSystems;
 using SIL.WritingSystems;
 using SIL.Xml;
 using Canon = ProtoScript.Bundle.Canon;
@@ -34,12 +34,14 @@ namespace ProtoScript
 		public const string kDefaultFontPrimary = "Charis SIL";
 		public const string kDefaultFontSecondary = "Times New Roman";
 		public const int kDefaultFontSize = 14;
+		private const string kSample = "sample";
 
 		private const double kUsxPercent = 0.25;
 		private const double kGuessPercent = 0.10;
 		private const double kQuotePercent = 0.65;
 
 		private readonly DblMetadata m_metadata;
+		private string m_recordingProjectName;
 		private QuoteSystem m_defaultQuoteSystem = QuoteSystem.Default;
 		private readonly List<BookScript> m_books = new List<BookScript>();
 		private int m_usxPercentComplete;
@@ -49,10 +51,12 @@ namespace ProtoScript
 		private ProjectAnalysis m_analysis;
 		private WritingSystemDefinition m_wsDefinition;
 		private IWritingSystemRepository m_wsRepository;
+		private Paratext.ScrVers m_vers;
 
-		public Project(DblMetadata metadata)
+		public Project(DblMetadata metadata, string recordingProjectName = null)
 		{
 			m_metadata = metadata;
+			m_recordingProjectName = recordingProjectName ?? GetDefaultRecordingProjectName(m_metadata.identification.name);
 			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath);
 		}
 
@@ -63,11 +67,15 @@ namespace ProtoScript
 			PopulateAndParseBooks(bundle);
 		}
 
+		/// <summary>
+		/// Used only for sample project and in tests.
+		/// </summary>
 		public Project(DblMetadata metadata, IEnumerable<UsxDocument> books, IStylesheet stylesheet) : this(metadata)
 		{
-			// TODO (PG-117): Allow caller to pass in a versification.
-			//File.Copy(FileLocator.GetFileDistributedWithApplication("eng.vrs"), VersificationFilePath);
 			AddAndParseBooks(books, stylesheet);
+
+			Directory.CreateDirectory(ProjectFolder);
+			File.WriteAllText(VersificationFilePath, Resources.EnglishVersification);
 		}
 
 		public event EventHandler<ProgressChangedEventArgs> ProgressChanged;
@@ -82,6 +90,22 @@ namespace ProtoScript
 			}
 		}
 
+		public static IEnumerable<string> AllPublicationFolders
+		{
+			get
+			{
+				return Directory.GetDirectories(ProjectsBaseFolder).SelectMany(Directory.GetDirectories);
+			}
+		}
+
+		public static IEnumerable<string> AllRecordingProjectFolders
+		{
+			get 
+			{
+				return AllPublicationFolders.SelectMany(Directory.GetDirectories);
+			}
+		}
+
 		public string Id
 		{
 			get { return m_metadata.id; }
@@ -89,17 +113,22 @@ namespace ProtoScript
 
 		public string Name
 		{
-			get
-			{
-				if (m_metadata.identification == null) //Some old Sample projects will fall into this category
-					return Id;
-				return m_metadata.identification.name;
-			}
+			get { return m_recordingProjectName; }
+		}
+
+		public string PublicationName
+		{
+			get { return m_metadata.identification == null ? null : m_metadata.identification.name; }
 		}
 
 		public string LanguageIsoCode
 		{
 			get { return m_metadata.language.iso; }
+		}
+
+		public string LanguageName
+		{
+			get { return m_metadata.language.name; }
 		}
 
 		public string FontFamily
@@ -127,11 +156,12 @@ namespace ProtoScript
 		{
 			get
 			{
-				if (VersificationFilePath != null)
+				if (m_vers == null)
 				{
-					// TODO (PG-117): return custom versification.
+					m_vers = Paratext.Versification.Table.Load(VersificationFilePath, LocalizationManager.GetString("DefaultCustomVersificationName",
+						"custom", "Used as the versification name when a the versification file does not contain a name."));
 				}
-				return Paratext.ScrVers.English;
+				return m_vers;
 			}
 		}
 
@@ -195,38 +225,24 @@ namespace ProtoScript
 
 		public string OriginalPathOfDblFile { get { return m_metadata.OriginalPathOfDblFile; } }
 
-		public ProjectCharacterVerseData ProjectCharacterVerseData;
+		public readonly ProjectCharacterVerseData ProjectCharacterVerseData;
 
-		public ProjectMetadataViewModel ProjectMetadataViewModel
+		public void UpdateSettings(ProjectMetadataViewModel model)
 		{
-			get
+			var newPath = GetProjectFolderPath(model.IsoCode, model.PublicationId, model.RecordingProjectName);
+			if (newPath != ProjectFolder)
 			{
-				var wsModel = new WritingSystemSetupModel(WritingSystem)
-				{
-					CurrentDefaultFontName = FontFamily,
-					CurrentDefaultFontSize = FontSizeInPoints,
-					CurrentRightToLeftScript = RightToLeftScript
-				};
-				var model = new ProjectMetadataViewModel(wsModel)
-				{
-					LanguageName = m_metadata.language.name,
-					IsoCode = m_metadata.language.iso,
-					ProjectId = Id,
-					ProjectName = m_metadata.identification == null ? null : m_metadata.identification.name
-				};
-				return model;
+				Directory.Move(ProjectFolder, newPath);
+				m_recordingProjectName = model.RecordingProjectName;
+				m_wsRepository = null;
 			}
-			set
-			{
-				ProjectMetadataViewModel model = value;
-				m_metadata.id = model.ProjectId;
-				m_metadata.language.iso = model.IsoCode;
-				m_metadata.identification.name = model.ProjectName;
-				m_metadata.language.name = model.LanguageName;
-				m_metadata.FontFamily = model.WsModel.CurrentDefaultFontName;
-				m_metadata.FontSizeInPoints = (int)model.WsModel.CurrentDefaultFontSize;
-				m_metadata.language.scriptDirection = model.WsModel.CurrentRightToLeftScript ? "RTL" : "LTR";
-			}
+			//m_metadata.id = model.PublicationId;
+			//m_metadata.language.iso = model.IsoCode;
+			//m_metadata.identification.name = model.PublicationName;
+			//m_metadata.language.name = model.LanguageName;
+			m_metadata.FontFamily = model.WsModel.CurrentDefaultFontName;
+			m_metadata.FontSizeInPoints = (int) model.WsModel.CurrentDefaultFontSize;
+			m_metadata.language.scriptDirection = model.WsModel.CurrentRightToLeftScript ? "RTL" : "LTR";
 		}
 
 		public int PercentInitialized { get; private set; }
@@ -292,11 +308,11 @@ namespace ProtoScript
 			Project existingProject = LoadExistingProject(projectFilePath);
 
 			if (existingProject.m_metadata.PgUsxParserVersion != Settings.Default.PgUsxParserVersion &&
-				File.Exists(existingProject.m_metadata.OriginalPathOfDblFile))
+				File.Exists(existingProject.OriginalPathOfDblFile))
 			{
-				using (var bundle = new Bundle.Bundle(existingProject.m_metadata.OriginalPathOfDblFile))
+				using (var bundle = new Bundle.Bundle(existingProject.OriginalPathOfDblFile))
 				{
-					var upgradedProject = new Project(bundle.Metadata);
+					var upgradedProject = new Project(bundle.Metadata, existingProject.m_recordingProjectName);
 					upgradedProject.QuoteSystem = existingProject.m_metadata.QuoteSystem;
 					// Prior to Parser version 17, project metadata didn't keep the Books collection.
 					if (existingProject.m_metadata.AvailableBooks != null && existingProject.m_metadata.AvailableBooks.Any())
@@ -322,7 +338,12 @@ namespace ProtoScript
 				return;
 			}
 			metadata.HiddenByDefault = hidden;
-			new Project(metadata).Save();
+			new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath)).Save();
+		}
+
+		private static string GetRecordingProjectNameFromProjectFilePath(string path)
+		{
+			return Path.GetFileName(Path.GetDirectoryName(path));
 		}
 
 		private int UpdatePercentInitialized()
@@ -340,7 +361,7 @@ namespace ProtoScript
 					LocalizationManager.GetString("File.ProjectMetadataInvalid", "Project could not be loaded: {0}"), projectFilePath);
 				return null;
 			}
-			Project project = new Project(metadata);
+			Project project = new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath));
 			var projectDir = Path.GetDirectoryName(projectFilePath);
 			Debug.Assert(projectDir != null);
 			string[] files = Directory.GetFiles(projectDir, "???" + kBookScriptFileExtension);
@@ -541,9 +562,34 @@ namespace ProtoScript
 			OnReport(pe);
 		}
 
-		public static string GetProjectFilePath(string langId, string bundleId)
+		public static string GetProjectFilePath(string langId, string publicationId, string recordingProjectId)
 		{
-			return Path.Combine(ProjectsBaseFolder, langId, bundleId, langId + kProjectFileExtension);
+			return Path.Combine(GetProjectFolderPath(langId, publicationId, recordingProjectId), langId + kProjectFileExtension);
+		}
+
+		public static string GetProjectFolderPath(string langId, string publicationId, string recordingProjectId)
+		{
+			return Path.Combine(ProjectsBaseFolder, langId, publicationId, recordingProjectId);
+		}
+
+		public string ProjectFilePath
+		{
+			get { return GetProjectFilePath(m_metadata.language.ToString(), m_metadata.id, m_recordingProjectName); }
+		}
+
+		private string ProjectCharacterVerseDataPath
+		{
+			get { return Path.Combine(ProjectFolder, kProjectCharacterVerseFileName); }
+		}
+
+		private string VersificationFilePath
+		{
+			get { return Path.Combine(ProjectFolder, kVersificationFileName); }
+		}
+
+		private string ProjectFolder
+		{
+			get { return GetProjectFolderPath(m_metadata.language.ToString(), m_metadata.id, m_recordingProjectName); }
 		}
 
 		public void Analyze()
@@ -555,7 +601,7 @@ namespace ProtoScript
 		{
 			Directory.CreateDirectory(ProjectFolder);
 
-			var projectPath = GetProjectFilePath(m_metadata.language.ToString(), m_metadata.id);
+			var projectPath = ProjectFilePath;
 			Exception error;
 			XmlSerializationHelper.SerializeToFile(projectPath, m_metadata, out error);
 			if (error != null)
@@ -577,7 +623,7 @@ namespace ProtoScript
 			ProjectState = !IsQuoteSystemUserConfirmed ? ProjectState.NeedsQuoteSystemConfirmation : ProjectState.FullyInitialized;
 		}
 
-		private WritingSystemDefinition WritingSystem
+		public WritingSystemDefinition WritingSystem
 		{
 			get
 			{
@@ -640,9 +686,9 @@ namespace ProtoScript
 		{
 			m_books.Clear();
 
-			if (File.Exists(m_metadata.OriginalPathOfDblFile) && QuoteSystem != null)
+			if (File.Exists(OriginalPathOfDblFile) && QuoteSystem != null)
 			{
-				using (var bundle = new Bundle.Bundle(m_metadata.OriginalPathOfDblFile))
+				using (var bundle = new Bundle.Bundle(OriginalPathOfDblFile))
 					PopulateAndParseBooks(bundle);
 			}
 			else if (File.Exists(m_metadata.OriginalPathOfSfmFile) && QuoteSystem != null)
@@ -660,21 +706,6 @@ namespace ProtoScript
 			}
 		}
 
-		private string ProjectCharacterVerseDataPath
-		{
-			get { return Path.Combine(ProjectFolder, kProjectCharacterVerseFileName); }
-		}
-
-		private string VersificationFilePath
-		{
-			get { return Path.Combine(ProjectFolder, kVersificationFileName); }
-		}
-
-		private string ProjectFolder
-		{
-			get { return Path.Combine(ProjectsBaseFolder, m_metadata.language.ToString(), m_metadata.id); }
-		}
-
 		private IWritingSystemRepository WritingSystemRepository
 		{
 			get
@@ -689,9 +720,7 @@ namespace ProtoScript
 		{
 			if (QuoteSystem == null)
 				return false;
-			if (File.Exists(m_metadata.OriginalPathOfDblFile))
-				return true;
-			if (File.Exists(m_metadata.OriginalPathOfSfmFile))
+			if (File.Exists(OriginalPathOfDblFile) || File.Exists(m_metadata.OriginalPathOfSfmFile))
 				return true;
 			if (Directory.Exists(m_metadata.OriginalPathOfSfmDirectory))
 			{
@@ -728,11 +757,14 @@ namespace ProtoScript
 			get { return Id == "Sample" && LanguageIsoCode == "sample"; }
 		}
 
+		public static string SampleProjectFilePath
+		{
+			get { return GetProjectFilePath(kSample, kSample, GetDefaultRecordingProjectName(kSample)); }
+		}
+
 		public static void CreateSampleProjectIfNeeded()
 		{
-			const string kSample = "sample";
-			var samplePath = GetProjectFilePath(kSample, kSample);
-			if (File.Exists(samplePath))
+			if (File.Exists(SampleProjectFilePath))
 				return;
 			var sampleMetadata = new DblMetadata();
 			sampleMetadata.AvailableBooks = new List<Book>();
@@ -771,6 +803,11 @@ namespace ProtoScript
 				Thread.Sleep(100);
 				Application.DoEvents();
 			}
+		}
+
+		internal static string GetDefaultRecordingProjectName(string publicationName)
+		{
+			return String.Format("{0} {1}", publicationName, LocalizationManager.GetString("RecordingProjectDefaultSuffix", "Audio"));
 		}
 	}
 

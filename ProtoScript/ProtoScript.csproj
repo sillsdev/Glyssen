@@ -161,6 +161,8 @@
       <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
+    <Compile Include="DataMigrator.cs" />
+    <Compile Include="ProtoscriptGeneratorData.cs" />
     <Compile Include="Dialogs\AssignCharacterDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,6 +293,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\sample.vrs" />
     <None Include="Resources\yellow-ok-icon.png" />
     <None Include="Resources\112_Plus_Green_16x16_72.png" />
     <Content Include="Resources\CharacterIdMap.txt" />
@@ -301,6 +304,7 @@
     <None Include="Resources\DecreaseSize.png" />
     <None Include="Resources\IncreaseSize.png" />
     <None Include="Resources\PgIcon.ico" />
+    <None Include="Resources\EnglishVersification.txt" />
     <None Include="Resources\green-check.png" />
     <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />

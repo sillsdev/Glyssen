@@ -36,8 +36,6 @@
 			this.m_btnOk = new System.Windows.Forms.Button();
 			this.m_btnCancel = new System.Windows.Forms.Button();
 			this.m_linkParatextProject = new System.Windows.Forms.LinkLabel();
-			this.m_linkSFFolder = new System.Windows.Forms.LinkLabel();
-			this.m_linkSingleSFBook = new System.Windows.Forms.LinkLabel();
 			this.m_linkRemoveProject = new System.Windows.Forms.LinkLabel();
 			this.m_tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
 			this.m_listExistingProjects = new System.Windows.Forms.ListBox();
@@ -54,7 +52,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(lblNewProject, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(lblNewProject, null);
 			this.m_l10NSharpExtender.SetLocalizingId(lblNewProject, "OpenProjectDialog.NewProject");
-			lblNewProject.Location = new System.Drawing.Point(0, 161);
+			lblNewProject.Location = new System.Drawing.Point(0, 205);
 			lblNewProject.Margin = new System.Windows.Forms.Padding(0, 20, 0, 10);
 			lblNewProject.Name = "lblNewProject";
 			lblNewProject.Size = new System.Drawing.Size(179, 18);
@@ -89,7 +87,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkTextReleaseBundle, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkTextReleaseBundle, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkTextReleaseBundle, "DialogBoxes.OpenProjectDlg.m_linkTextReleaseBundle");
-			this.m_linkTextReleaseBundle.Location = new System.Drawing.Point(0, 189);
+			this.m_linkTextReleaseBundle.Location = new System.Drawing.Point(0, 233);
 			this.m_linkTextReleaseBundle.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
 			this.m_linkTextReleaseBundle.Name = "m_linkTextReleaseBundle";
 			this.m_linkTextReleaseBundle.Size = new System.Drawing.Size(143, 18);
@@ -140,49 +138,13 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkParatextProject, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkParatextProject, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkParatextProject, "DialogBoxes.OpenProjectDlg.m_linkParatextProject");
-			this.m_linkParatextProject.Location = new System.Drawing.Point(0, 211);
+			this.m_linkParatextProject.Location = new System.Drawing.Point(0, 255);
 			this.m_linkParatextProject.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
 			this.m_linkParatextProject.Name = "m_linkParatextProject";
 			this.m_linkParatextProject.Size = new System.Drawing.Size(111, 18);
 			this.m_linkParatextProject.TabIndex = 4;
 			this.m_linkParatextProject.TabStop = true;
 			this.m_linkParatextProject.Text = "Paratext project";
-			// 
-			// m_linkSFFolder
-			// 
-			this.m_linkSFFolder.AutoSize = true;
-			this.m_linkSFFolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_linkSFFolder.LinkColor = System.Drawing.Color.White;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkSFFolder, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkSFFolder, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_linkSFFolder, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkSFFolder, "DialogBoxes.OpenProjectDlg.m_linkSFFolder");
-			this.m_linkSFFolder.Location = new System.Drawing.Point(0, 233);
-			this.m_linkSFFolder.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
-			this.m_linkSFFolder.Name = "m_linkSFFolder";
-			this.m_linkSFFolder.Size = new System.Drawing.Size(212, 18);
-			this.m_linkSFFolder.TabIndex = 5;
-			this.m_linkSFFolder.TabStop = true;
-			this.m_linkSFFolder.Text = "Folder of Standard Format files";
-			this.m_linkSFFolder.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkSFFolder_LinkClicked);
-			// 
-			// m_linkSingleSFBook
-			// 
-			this.m_linkSingleSFBook.AutoSize = true;
-			this.m_linkSingleSFBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_linkSingleSFBook.LinkColor = System.Drawing.Color.White;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkSingleSFBook, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkSingleSFBook, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_linkSingleSFBook, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkSingleSFBook, "DialogBoxes.OpenProjectDlg.m_linkSingleSFBook");
-			this.m_linkSingleSFBook.Location = new System.Drawing.Point(0, 255);
-			this.m_linkSingleSFBook.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
-			this.m_linkSingleSFBook.Name = "m_linkSingleSFBook";
-			this.m_linkSingleSFBook.Size = new System.Drawing.Size(260, 18);
-			this.m_linkSingleSFBook.TabIndex = 6;
-			this.m_linkSingleSFBook.TabStop = true;
-			this.m_linkSingleSFBook.Text = "Single Book from Standard Format file";
-			this.m_linkSingleSFBook.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkSingleSFBook_LinkClicked);
 			// 
 			// m_linkRemoveProject
 			// 
@@ -193,7 +155,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkRemoveProject, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkRemoveProject, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkRemoveProject, "OpenProjectDialog.RemoveProject");
-			this.m_linkRemoveProject.Location = new System.Drawing.Point(254, 128);
+			this.m_linkRemoveProject.Location = new System.Drawing.Point(254, 172);
 			this.m_linkRemoveProject.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
 			this.m_linkRemoveProject.Name = "m_linkRemoveProject";
 			this.m_linkRemoveProject.Size = new System.Drawing.Size(120, 13);
@@ -211,9 +173,7 @@
 			this.m_tableLayoutPanelMain.ColumnCount = 1;
 			this.m_tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.m_tableLayoutPanelMain.Controls.Add(this.m_listExistingProjects, 0, 1);
-			this.m_tableLayoutPanelMain.Controls.Add(this.m_linkSingleSFBook, 0, 7);
 			this.m_tableLayoutPanelMain.Controls.Add(this.m_linkRemoveProject, 0, 2);
-			this.m_tableLayoutPanelMain.Controls.Add(this.m_linkSFFolder, 0, 6);
 			this.m_tableLayoutPanelMain.Controls.Add(this.lblExistingProject, 0, 0);
 			this.m_tableLayoutPanelMain.Controls.Add(this.m_linkParatextProject, 0, 5);
 			this.m_tableLayoutPanelMain.Controls.Add(lblNewProject, 0, 3);
@@ -221,15 +181,14 @@
 			this.m_tableLayoutPanelMain.Location = new System.Drawing.Point(15, 15);
 			this.m_tableLayoutPanelMain.Margin = new System.Windows.Forms.Padding(0);
 			this.m_tableLayoutPanelMain.Name = "m_tableLayoutPanelMain";
-			this.m_tableLayoutPanelMain.RowCount = 8;
+			this.m_tableLayoutPanelMain.RowCount = 6;
 			this.m_tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.m_tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.m_tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.m_tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.m_tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.m_tableLayoutPanelMain.Size = new System.Drawing.Size(374, 277);
 			this.m_tableLayoutPanelMain.TabIndex = 0;
@@ -244,7 +203,7 @@
 			this.m_listExistingProjects.Location = new System.Drawing.Point(0, 25);
 			this.m_listExistingProjects.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
 			this.m_listExistingProjects.Name = "m_listExistingProjects";
-			this.m_listExistingProjects.Size = new System.Drawing.Size(374, 100);
+			this.m_listExistingProjects.Size = new System.Drawing.Size(374, 144);
 			this.m_listExistingProjects.TabIndex = 1;
 			this.m_listExistingProjects.SelectedIndexChanged += new System.EventHandler(this.m_listExistingProjects_SelectedIndexChanged);
 			this.m_listExistingProjects.DoubleClick += new System.EventHandler(this.m_listExistingProjects_DoubleClick);
@@ -283,14 +242,12 @@
 
 		private L10NSharp.UI.L10NSharpExtender m_l10NSharpExtender;
 		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanelMain;
-		private System.Windows.Forms.LinkLabel m_linkSFFolder;
 		private System.Windows.Forms.LinkLabel m_linkParatextProject;
 		private System.Windows.Forms.Label lblExistingProject;
 		private System.Windows.Forms.ListBox m_listExistingProjects;
 		private System.Windows.Forms.LinkLabel m_linkTextReleaseBundle;
 		private System.Windows.Forms.Button m_btnOk;
 		private System.Windows.Forms.Button m_btnCancel;
-		private System.Windows.Forms.LinkLabel m_linkSingleSFBook;
 		private System.Windows.Forms.LinkLabel m_linkRemoveProject;
 	}
 }

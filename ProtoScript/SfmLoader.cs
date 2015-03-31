@@ -99,7 +99,8 @@ namespace ProtoScript
 			string projectId;
 			string isoCode;
 			string languageName;
-			string projectName;
+			string publicationName;
+			string recordingProjectName;
 			var wsDefinition = new WritingSystemDefinition();
 			var wsModel = new WritingSystemSetupModel(wsDefinition);
 			stylesheet.FontFamily = FontHelper.GetSupportsRegular(Project.kDefaultFontPrimary) ? Project.kDefaultFontPrimary : Project.kDefaultFontSecondary;
@@ -112,19 +113,21 @@ namespace ProtoScript
 				if (dlg.ShowDialog() == DialogResult.Cancel)
 					return null;
 
-				projectId = dlg.ProjectMetadataViewModel.ProjectId;
-				isoCode = dlg.ProjectMetadataViewModel.IsoCode;
-				projectName = dlg.ProjectMetadataViewModel.ProjectName;
-				languageName = dlg.ProjectMetadataViewModel.LanguageName;
-				stylesheet.FontFamily = dlg.ProjectMetadataViewModel.WsModel.CurrentDefaultFontName;
-				stylesheet.FontSizeInPoints = (int)dlg.ProjectMetadataViewModel.WsModel.CurrentDefaultFontSize;
+				recordingProjectName = model.RecordingProjectName;
+				projectId = model.PublicationId;
+				isoCode = model.IsoCode;
+				languageName = model.LanguageName;
+				publicationName = model.PublicationName;
+				stylesheet.FontFamily = model.WsModel.CurrentDefaultFontName;
+				stylesheet.FontSizeInPoints = (int)model.WsModel.CurrentDefaultFontSize;
 			}
 
 			var availableBooks = books.Select(b => new Book { Code = b.BookId }).ToList();
 			var metadata = new DblMetadata
 			{
 				id = projectId,
-				identification = new DblMetadataIdentification { name = projectName },
+				//PgRecordingProjectName = recordingProjectName,
+				identification = new DblMetadataIdentification { name = publicationName },
 				language = new DblMetadataLanguage { iso = isoCode, name = languageName, scriptDirection = wsModel.CurrentRightToLeftScript ? "RTL" : "LTR" },
 				AvailableBooks = availableBooks,
 				FontFamily = stylesheet.FontFamily,

@@ -119,11 +119,10 @@ namespace ProtoScript.Bundle
 
 		public void CopyVersificationFile(string destinationPath)
 		{
-			const string filename = "versification.vrs";
-			string versificationPath = Path.Combine(m_pathToUnzippedDirectory, filename);
+			string versificationPath = Path.Combine(m_pathToUnzippedDirectory, Project.kVersificationFileName);
 
 			if (!File.Exists(versificationPath))
-				return; // TODO(PG-117): Later, we'll have to ask the user to choose one of the standard versifications (in the "metadata" dialog?)
+				return; // REVIEW (PG-117): Waiting to hear back from Eric whether this is possible. If so, what to do?
 
 			File.Copy(versificationPath, destinationPath);
 		}

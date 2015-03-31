@@ -10,13 +10,12 @@ namespace ProtoScript.Dialogs
 	{
 		private ProjectMetadataViewModel m_model;
 		private readonly bool m_initialSave;
-		public ProjectMetadataDlg(ProjectMetadataViewModel model, bool initialSave = false, bool readOnly = false)
+
+		public ProjectMetadataDlg(ProjectMetadataViewModel model, bool initialSave = false)
 		{
 			InitializeComponent();
-			if (readOnly)
-				SetReadOnly();
+			SetReadOnly();
 			ProjectMetadataViewModel = model;
-			m_wsFontControl.BindToModel(model.WsModel);
 			m_initialSave = initialSave;
 			if (!m_initialSave)
 			{
@@ -24,25 +23,68 @@ namespace ProtoScript.Dialogs
 				m_txtIso639_2_Code.Enabled = false;
 			}
 			UpdateProjectId(null, null);
+
+			//bool vrsSelected = false;
+			//if (!string.IsNullOrEmpty(model.VersificationFilePath) && File.Exists(model.VersificationFilePath))
+			//{
+			//	m_cboVersification.Items.Add(
+			//		Versification.Table.VersificationTables().Single(v => v.PathName == model.VersificationFilePath));
+			//	m_cboVersification.SelectedIndex = 0;
+			//	vrsSelected = true;
+			//}
+
+			//foreach (var vrs in Paratext.Versification.Table.VersificationTables())
+			//{
+			//	if (!vrs.PathName.StartsWith(Project.ProjectsBaseFolder))
+			//	{
+			//		var i = m_cboVersification.Items.Add(vrs.Name);
+			//		if (!vrsSelected && vrs.Name == model.VersificationName)
+			//		{
+			//			m_cboVersification.SelectedIndex = i;
+			//			vrsSelected = true;
+			//		}
+			//	}
+			//}
+			//if (!readOnly)
+			//	m_cboVersification.Items.Add(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.OtherVersification",
+			//		"Other..."));
+
+			//LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 		}
 
-		public ProjectMetadataViewModel ProjectMetadataViewModel {
-			get
-			{
-				m_model.LanguageName = LanguageName;
-				m_model.IsoCode = IsoCode;
-				m_model.ProjectName = ProjectName;
-				m_model.ProjectId = ProjectId;
-				return m_model;
-			}
-			private set
+		//private void HandleStringsLocalized()
+		//{
+		//	if (m_cboVersification.Items[m_cboVersification.Items.Count - 1] is string)
+		//	{
+		//		m_cboVersification.Items[m_cboVersification.Items.Count - 1] =
+		//			m_cboVersification.Items.Add(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.OtherVersification",
+		//				"Other..."));
+		//	}
+		//}
+
+		private ProjectMetadataViewModel ProjectMetadataViewModel
+		{
+			set
 			{
 				m_model = value;
+				RecordingProjectName = value.RecordingProjectName;
 				LanguageName = value.LanguageName;
 				IsoCode = value.IsoCode;
-				ProjectName = value.ProjectName;
-				ProjectId = value.ProjectId;
+				PublicationName = value.PublicationName;
+				PublicationId = value.PublicationId;
+				m_txtVersification.Text = value.Versification.Name;
+
+				m_wsFontControl.BindToModel(m_model.WsModel);
+
+				if (!string.IsNullOrWhiteSpace(m_model.SampleText))
+					m_wsFontControl.TestAreaText = m_model.SampleText;
 			}
+		}
+
+		private string RecordingProjectName
+		{
+			get { return m_txtRecordingProjectName.Text; }
+			set { m_txtRecordingProjectName.Text = value; }
 		}
 
 		private string LanguageName
@@ -57,33 +99,34 @@ namespace ProtoScript.Dialogs
 			set { m_txtIso639_2_Code.Text = value; }
 		}
 
-		private string ProjectName
+		private string PublicationName
 		{
-			get { return m_txtProjectName.Text; }
-			set { m_txtProjectName.Text = value; }
+			get { return m_txtPublicationName.Text; }
+			set { m_txtPublicationName.Text = value; }
 		}
 
-		private string ProjectId
+		private string PublicationId
 		{
-			get { return m_txtProjectId.Text; }
-			set { m_txtProjectId.Text = value; }
+			get { return m_txtPublicationId.Text; }
+			set { m_txtPublicationId.Text = value; }
 		}
 
 		private void SetReadOnly()
 		{
 			m_txtLanguageName.Enabled = false;
 			m_txtIso639_2_Code.Enabled = false;
-			m_txtProjectName.Enabled = false;
+			m_txtPublicationName.Enabled = false;
 			m_chkOverride.Visible = false;
-			m_wsFontControl.ReadOnly = true;
-			m_btnOk.Enabled = false;
+//			m_wsFontControl.ReadOnly = true;
+//			m_btnOk.Enabled = false;
+			m_txtVersification.Enabled = false;
 		}
 
 		private void UpdateProjectId(object sender, EventArgs e)
 		{
 			if (!m_initialSave)
 				return;
-			if (!m_txtProjectId.Enabled)
+			if (!m_txtPublicationId.Enabled)
 			{
 				StringBuilder bldr = new StringBuilder("sfm");
 				
@@ -92,42 +135,91 @@ namespace ProtoScript.Dialogs
 					bldr.Append("_");
 					bldr.Append(m_txtIso639_2_Code.Text);
 				}
-				if (!string.IsNullOrWhiteSpace(m_txtProjectName.Text))
+				if (!string.IsNullOrWhiteSpace(m_txtPublicationName.Text))
 				{
 					bldr.Append("_");
-					bldr.Append(m_txtProjectName.Text);
+					bldr.Append(m_txtPublicationName.Text);
 				}
-				if (bldr.ToString() == "sfm" || File.Exists(Project.GetProjectFilePath(IsoCode, bldr.ToString())))
+				var publicationId = bldr.ToString();
+				while (publicationId == "sfm" || File.Exists(Project.GetProjectFilePath(IsoCode, publicationId, RecordingProjectName)))
 				{
 					// If the user didn't supply anything helpful to distinguish this project from any other SFM project
 					// or we already have a project with this same language and project name, tack on something to make it
 					// unique.
-					bldr.Append(DateTime.Now.Ticks);
+					publicationId = bldr.ToString() + DateTime.Now.Ticks;
 				}
-				m_txtProjectId.Text = bldr.ToString();
+				m_txtPublicationId.Text = publicationId;
 			}
 		}
 
 		private void m_chkOverride_CheckedChanged(object sender, EventArgs e)
 		{
-			m_txtProjectId.Enabled = m_chkOverride.Checked;
+			m_txtPublicationId.Enabled = m_chkOverride.Checked;
 			UpdateProjectId(sender, e);
 		}
 
 		private void HandleOkButtonClick(object sender, EventArgs e)
 		{
-			if (m_initialSave && File.Exists(Project.GetProjectFilePath(IsoCode, m_txtProjectId.Text)))
+			if (m_initialSave && File.Exists(Project.GetProjectFilePath(IsoCode, PublicationId, RecordingProjectName)))
 			{
-				var msg =string.Format(LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.OverwriteProjectPrompt",
+				var msg =string.Format(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.OverwriteProjectPrompt",
 					"A {0} project with an ID of {1} already exists for this language. Do you want to overwrite it?"),
-					ProductName, m_txtProjectId.Text);
-				if (MessageBox.Show(this, msg, ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) ==
+					ProductName, m_txtPublicationId.Text);
+				if (MessageBox.Show(this, msg, ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) !=
 					DialogResult.Yes)
 				{
-					DialogResult = DialogResult.OK;
-					Close();
+					return;
 				}
 			}
+
+			m_model.RecordingProjectName = RecordingProjectName;
+			//m_model.LanguageName = LanguageName;
+			//m_model.IsoCode = IsoCode;
+			//m_model.PublicationName = PublicationName;
+			//m_model.PublicationId = PublicationId;
+			
+			DialogResult = DialogResult.OK;
+			Close();
 		}
+
+		//private void m_cboVersification_SelectedIndexChanged(object sender, EventArgs e)
+		//{
+			//var lastItemIndex = m_cboVersification.Items.Count - 1;
+			//if (m_cboVersification.Items[lastItemIndex] is string && m_cboVersification.SelectedIndex == lastItemIndex)
+			//{
+			//	using (var dlg = new OpenFileDialog())
+			//	{
+			//		var defaultDir = OpenProjectDlg.ParatextProjectsFolder;
+			//		if (defaultDir != null)
+			//			dlg.InitialDirectory = defaultDir;
+
+			//		dlg.Title = LocalizationManager.GetString("SelectVersificationDialog.Title", "Open Project"),
+			//	InitialDirectory = defaultDir,
+			//	Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}|{4} ({5})|{5}",
+			//		LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ResourceBundleFileTypeLabel", "Text Resource Bundle files"),
+			//		"*" + kResourceBundleExtension,
+			//		LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ProjectFilesLabel", "Protoscript Generator Project Files"),
+			//		"*" + Project.kProjectFileExtension,
+			//		LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"),
+			//		"*.*"),
+			//	DefaultExt = kResourceBundleExtension
+
+			//		if (dlg.ShowDialog() == DialogResult.OK)
+			//		{
+			//			SelectedProject = dlg.FileName;
+			//			var folder = Path.GetDirectoryName(SelectedProject);
+			//			if (folder != null)
+			//			{
+			//				folder = Path.GetDirectoryName(folder);
+			//				if (folder != null)
+			//					Settings.Default.DefaultSfmDirectory = folder;
+			//			}
+			//			Type = ProjectType.StandardFormatBook;
+			//			DialogResult = DialogResult.OK;
+			//			Close();
+			//		}
+			//	}
+			//}
+		//}
 	}
 }

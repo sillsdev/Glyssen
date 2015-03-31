@@ -29,6 +29,8 @@ namespace ProtoScript
 
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+
+			DataMigrator.UpgradeToCurrentDataFormatVersion();
 		}
 
 		private void SetProject(Project project)
@@ -127,12 +129,12 @@ namespace ProtoScript
 						case OpenProjectDlg.ProjectType.TextReleaseBundle:
 							LoadBundle(dlg.SelectedProject);
 							break;
-						case OpenProjectDlg.ProjectType.StandardFormatBook:
-							LoadSfmBook(dlg.SelectedProject);
-							break;
-						case OpenProjectDlg.ProjectType.StandardFormatFolder:
-							LoadSfmFolder(dlg.SelectedProject);
-							break;
+						//case OpenProjectDlg.ProjectType.StandardFormatBook:
+							//LoadSfmBook(dlg.SelectedProject);
+							//break;
+						//case OpenProjectDlg.ProjectType.StandardFormatFolder:
+							//LoadSfmFolder(dlg.SelectedProject);
+							//break;
 						default:
 							MessageBox.Show("Sorry - not implemented yet");
 							break;
@@ -172,7 +174,8 @@ namespace ProtoScript
 			}
 
 			// See if we already have a project for this bundle and open it instead.
-			var projFilePath = Project.GetProjectFilePath(bundle.Language, bundle.Id);
+			// TODO (PG-169): Give option of opening existing project or creating new one
+			var projFilePath = Project.GetProjectFilePath(bundle.Language, bundle.Id, Project.GetDefaultRecordingProjectName(bundle.Metadata.identification.name));
 			if (File.Exists(projFilePath))
 			{
 				LoadProject(projFilePath);
@@ -393,13 +396,13 @@ namespace ProtoScript
 
 		private void m_btnSettings_Click(object sender, EventArgs e)
 		{
-			bool readOnly = File.Exists(m_project.OriginalPathOfDblFile);
-			using (var dlg = new ProjectMetadataDlg(m_project.ProjectMetadataViewModel, false, readOnly))
+			var model = new ProjectMetadataViewModel(m_project);
+			using (var dlg = new ProjectMetadataDlg(model))
 			{
 				if (dlg.ShowDialog() == DialogResult.Cancel)
 					return;
 
-				m_project.ProjectMetadataViewModel = dlg.ProjectMetadataViewModel;
+				m_project.UpdateSettings(model);
 			}
 		}
 
