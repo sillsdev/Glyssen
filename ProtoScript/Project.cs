@@ -4,12 +4,12 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
 using L10NSharp;
+using Paratext;
 using ProtoScript.Analysis;
 using ProtoScript.Bundle;
 using ProtoScript.Character;
@@ -17,6 +17,7 @@ using ProtoScript.Properties;
 using ProtoScript.Quote;
 using SIL.Reporting;
 using SIL.ScriptureUtils;
+using SIL.Windows.Forms.FileSystem;
 using SIL.WritingSystems;
 using SIL.Xml;
 using Canon = ProtoScript.Bundle.Canon;
@@ -63,6 +64,15 @@ namespace ProtoScript
 		{
 			Directory.CreateDirectory(ProjectFolder);
 			bundle.CopyVersificationFile(VersificationFilePath);
+			try
+			{
+				m_vers = LoadVersification(VersificationFilePath);
+			}
+			catch (InvalidVersificationLineException)
+			{
+				DeleteProjectFolderAndEmptyContainingFolders(ProjectFolder);
+				throw;
+			}
 			PopulateAndParseBooks(bundle);
 		}
 
@@ -156,12 +166,15 @@ namespace ProtoScript
 			get
 			{
 				if (m_vers == null)
-				{
-					m_vers = Paratext.Versification.Table.Load(VersificationFilePath, LocalizationManager.GetString("DefaultCustomVersificationName",
-						"custom", "Used as the versification name when a the versification file does not contain a name."));
-				}
+					m_vers = LoadVersification(VersificationFilePath);
 				return m_vers;
 			}
+		}
+
+		public static Paratext.ScrVers LoadVersification(string vrsPath)
+		{
+			return Paratext.Versification.Table.Load(vrsPath, LocalizationManager.GetString("DefaultCustomVersificationName",
+				"custom", "Used as the versification name when a the versification file does not contain a name."));
 		}
 
 		public ProjectStatus Status
@@ -293,6 +306,23 @@ namespace ProtoScript
 			}
 			metadata.HiddenByDefault = hidden;
 			new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath)).Save();
+		}
+
+		public static void DeleteProjectFolderAndEmptyContainingFolders(string projectFolder, bool confirmAndRecycle = false)
+		{
+			if (confirmAndRecycle)
+			{
+				if (!ConfirmRecycleDialog.ConfirmThenRecycle(string.Format("Standard format project \"{0}\"", projectFolder), projectFolder))
+					return;
+			}
+			else if (Directory.Exists(projectFolder))
+				Directory.Delete(projectFolder, true);
+			var parent = Path.GetDirectoryName(projectFolder);
+			if (Directory.Exists(parent) && !Directory.GetFileSystemEntries(parent).Any())
+				Directory.Delete(parent);
+			parent = Path.GetDirectoryName(parent);
+			if (Directory.Exists(parent) && !Directory.GetFileSystemEntries(parent).Any())
+				Directory.Delete(parent);
 		}
 
 		private static string GetRecordingProjectNameFromProjectFilePath(string path)

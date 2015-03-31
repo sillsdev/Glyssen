@@ -3,9 +3,9 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using L10NSharp;
+using Paratext;
 using ProtoScript.Bundle;
 using ProtoScript.Properties;
-using SIL.Windows.Forms.FileSystem;
 
 namespace ProtoScript
 {
@@ -23,7 +23,7 @@ namespace ProtoScript
 
 		private static bool UpgradeToCurrentDataFormatVersion(ApplicationMetadata info)
 		{
-			if (info.DataVersion >= Properties.Settings.Default.DataFormatVersion)
+			if (info.DataVersion >= Settings.Default.DataFormatVersion)
 				return false;
 
 			switch (info.DataVersion)
@@ -58,9 +58,9 @@ namespace ProtoScript
 							Directory.CreateDirectory(recordingProjectFolder);
 							foreach (var file in filesToMove)
 								File.Move(file, Path.Combine(recordingProjectFolder, Path.GetFileName(file)));
-							if (Properties.Settings.Default.CurrentProject == projectFilePath)
+							if (Settings.Default.CurrentProject == projectFilePath)
 							{
-								Properties.Settings.Default.CurrentProject = Path.Combine(recordingProjectFolder,
+								Settings.Default.CurrentProject = Path.Combine(recordingProjectFolder,
 									Path.GetFileName(projectFilePath));
 							}
 						}
@@ -87,24 +87,46 @@ namespace ProtoScript
 									var origBundlePath = metadata.OriginalPathOfDblFile;
 									if (string.IsNullOrEmpty(origBundlePath))
 									{
-										ConfirmRecycleDialog.ConfirmThenRecycle(string.Format("Standard format project \"{0}\"",
-											recordingProjectFolder), recordingProjectFolder);
+										try
+										{
+											Project.DeleteProjectFolderAndEmptyContainingFolders(recordingProjectFolder, true);
+										}
+										catch (Exception)
+										{
+											// Oh, well, we tried. Not the end of the world.
+										}
 									}
 									else
 									{
 										var bundle = new Bundle.Bundle(origBundlePath);
+										var errorlogPath = Path.Combine(recordingProjectFolder, "errorlog.txt");
+										Versification.Table.HandleVersificationLineError = ex =>
+										{
+											var msg = string.Format(LocalizationManager.GetString("DataMigration.InvalidVersificationFile",
+												"Invalid versification file encountered during data migration. Errors must be fixed or subsequent " +
+												"attempts to open this project will fail.\r\n" +
+												"Project: {0}\r\n" +
+												"Text release Bundle: {1}\r\n" +
+												"Versification file: {2}\r\n" +
+												"Error: {3}"),
+												projectFilePath, origBundlePath, versificationPath, ex.Message);
+											MessageBox.Show(msg, Program.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+											File.WriteAllText(errorlogPath, msg);
+										};
 										bundle.CopyVersificationFile(versificationPath);
+										Project.LoadVersification(versificationPath);
 									}
 								}
 							}
 						}
 					}
+					Versification.Table.HandleVersificationLineError = null;
 					break;
 				default:
 					throw new Exception("No migration found from the existing data version!");
 			}
 
-			info.DataVersion = Properties.Settings.Default.DataFormatVersion;
+			info.DataVersion = Settings.Default.DataFormatVersion;
 			return true;
 		}
 	}

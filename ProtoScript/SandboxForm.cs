@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using L10NSharp;
 using L10NSharp.UI;
+using Paratext;
 using ProtoScript.Dialogs;
 using ProtoScript.Properties;
 using SIL.IO;
@@ -178,7 +179,27 @@ namespace ProtoScript
 				LoadProject(projFilePath);
 				return;
 			}
-			SetProject(new Project(bundle));
+
+			Versification.Table.HandleVersificationLineError = null;
+			try
+			{
+				SetProject(new Project(bundle));
+			}
+			catch (InvalidVersificationLineException ex)
+			{
+				var error = ex.Message;
+				int i = error.IndexOf("\n", StringComparison.Ordinal);
+				if (i > 0)
+					error = error.Substring(0, i);
+				var msg = string.Format(LocalizationManager.GetString("Project.InvalidVersificationFile",
+					"Invalid versification file in text release bundle. Unable to create project.\r\n" +
+					"Text release Bundle: {0}\r\n" +
+					"Versification file: {1}\r\n" +
+					"Error: {2}"),
+					bundlePath, Project.kVersificationFileName, error);
+				MessageBox.Show(msg, Program.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				SetProject(null);
+			}
 
 			bundle.Dispose();
 		}

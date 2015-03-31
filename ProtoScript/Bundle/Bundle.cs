@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using L10NSharp;
+using Paratext;
 using ProtoScript.Character;
 using ProtoScript.Properties;
-using ProtoScript.Utilities;
 using SIL.Reporting;
 using SIL.Xml;
+using Zip = ProtoScript.Utilities.Zip;
 
 namespace ProtoScript.Bundle
 {
@@ -33,8 +34,8 @@ namespace ProtoScript.Bundle
 					Environment.NewLine + m_pathToZippedBundle, ex);
 			}
 
-			m_stylesheet = LoadStylesheet();
 			m_dblMetadata = LoadMetadata();
+			m_stylesheet = LoadStylesheet();
 
 			ExtractCanons();
 		}
@@ -46,6 +47,15 @@ namespace ProtoScript.Bundle
 
 			if (!File.Exists(metadataPath))
 			{
+				bool sourceBundle = filename.Contains("source") || Directory.Exists(Path.Combine(m_pathToUnzippedDirectory, "gather"));
+				if (sourceBundle)
+				{
+					throw new ApplicationException(
+						string.Format(LocalizationManager.GetString("File.SourceReleaseBundle",
+							"This bundle appears to be a source bundle. Only Text Release Bundles are currently supported."), filename) +
+						Environment.NewLine + m_pathToZippedBundle);
+
+				}
 				throw new ApplicationException(
 					string.Format(LocalizationManager.GetString("File.FileMissingFromBundle",
 						"Required {0} file not found. File is not a valid Text Release Bundle:"), filename) +
@@ -86,9 +96,6 @@ namespace ProtoScript.Bundle
 			dblMetadata.PgUsxParserVersion = Settings.Default.PgUsxParserVersion;
 			dblMetadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
 
-			dblMetadata.FontFamily = Stylesheet.FontFamily;
-			dblMetadata.FontSizeInPoints = Stylesheet.FontSizeInPoints;
-
 			return dblMetadata;
 		}
 
@@ -114,6 +121,10 @@ namespace ProtoScript.Bundle
 						"Unable to read stylesheet. File is not a valid Text Release Bundle:") +
 					Environment.NewLine + m_pathToZippedBundle, exception);
 			}
+
+			m_dblMetadata.FontFamily = Stylesheet.FontFamily;
+			m_dblMetadata.FontSizeInPoints = Stylesheet.FontSizeInPoints;
+
 			return stylesheet;
 		}
 
