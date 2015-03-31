@@ -494,6 +494,25 @@ namespace ProtoScript.Dialogs
 				return ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber, block.InitialStartVerseNumber,
 					block.LastVerse).Any(c => c.IsExpected);
 			}
+			if ((Mode & BlocksToDisplay.MissingExpectedQuote) > 0)
+			{
+				if (block.IsQuote || (block.CharacterIsStandard && !block.CharacterIs(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator)))
+					return false;
+				IEnumerable<BCVRef> versesWithPotentialMissingQuote = 
+					ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber, block.InitialStartVerseNumber,
+					block.LastVerse).Where(c => c.IsExpected).Select(c => c.BcvRef);
+				if (!versesWithPotentialMissingQuote.Any())
+					return false;
+				foreach (BCVRef verse in versesWithPotentialMissingQuote)
+				{
+					if (m_navigator.PeekBackwardWithinBookWhile(b => b.ChapterNumber == verse.Chapter &&
+					                                                 b.LastVerse == verse.Verse).All(b => !b.IsQuote) &&
+					    m_navigator.PeekForwardWithinBookWhile(b => b.ChapterNumber == verse.Chapter &&
+					                                                b.InitialStartVerseNumber == verse.Verse).All(b => !b.IsQuote))
+						return true;
+				}
+				return false;
+			}
 			if ((Mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) > 0)
 			{
 				if (!block.IsQuote)
