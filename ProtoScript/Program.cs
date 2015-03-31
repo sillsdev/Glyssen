@@ -38,7 +38,7 @@ namespace ProtoScript
 			
 			// TODO (PG-18) Add analytics
 
-			Application.Run(new SandboxForm());
+			Application.Run(new MainForm());
 		}
 
 		public static string GetUserConfigFilePath()

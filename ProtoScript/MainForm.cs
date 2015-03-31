@@ -12,12 +12,12 @@ using SIL.Windows.Forms.Miscellaneous;
 
 namespace ProtoScript
 {
-	public partial class SandboxForm : Form
+	public partial class MainForm : Form
 	{
 		private Project m_project;
 		private string m_percentAssignedFmt;
 
-		public SandboxForm()
+		public MainForm()
 		{
 			InitializeComponent();
 

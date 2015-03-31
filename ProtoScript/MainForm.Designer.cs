@@ -1,6 +1,6 @@
 ﻿namespace ProtoScript
 {
-	partial class SandboxForm
+	partial class MainForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SandboxForm));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.m_btnOpenProject = new System.Windows.Forms.Button();
 			this.m_L10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_lblProjectInfo = new System.Windows.Forms.Label();
@@ -410,7 +410,7 @@
 			this.m_imgCheckAssign.TabStop = false;
 			this.m_imgCheckAssign.Visible = false;
 			// 
-			// SandboxForm
+			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -442,7 +442,7 @@
 			this.m_L10NSharpExtender.SetLocalizingId(this, "MainForm.WindowTitle");
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.MinimumSize = new System.Drawing.Size(793, 444);
-			this.Name = "SandboxForm";
+			this.Name = "MainForm";
 			this.Text = "Protoscript Generator";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
 			this.Load += new System.EventHandler(this.MainForm_Load);
