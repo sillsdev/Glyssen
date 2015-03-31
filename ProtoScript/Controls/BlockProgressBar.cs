@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using L10NSharp;
 
 namespace ProtoScript.Controls
 {
@@ -17,9 +18,10 @@ namespace ProtoScript.Controls
 			base.OnPaint(e);
 
 			Graphics g = e.Graphics;
-			double percentComplete = (double)Value / Maximum * 100;
+			double percentComplete = Maximum == 0 ? 100 : (double)Value / Maximum * 100;
 			int blocksRemaining = Maximum - Value;
-			string text = string.Format("{0:N1}% Complete; {1} Blocks Remaining", percentComplete, blocksRemaining);
+			string text = string.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.BlockProgressFmt",
+				"{0:N1}% Complete; {1} Blocks Remaining"), percentComplete, blocksRemaining);
 			using (var f = new Font(FontFamily.GenericSansSerif, 9, FontStyle.Bold))
 			{
 				SizeF len = g.MeasureString(text, f);

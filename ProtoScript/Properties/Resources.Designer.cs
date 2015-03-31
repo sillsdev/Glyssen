@@ -84,7 +84,7 @@ namespace ProtoScript.Properties {
         ///Abraham	7	FALSE	Male		
         ///Abraham&apos;s chief servant	8	FALSE	Male		
         ///Absalom	10	FALSE	Male		
-        ///Absalom&apos;s men	11	TRU [rest of string was truncated]&quot;;.
+        ///Absalom/Israel, men  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CharacterIdMap {
             get {
@@ -93,20 +93,14 @@ namespace ProtoScript.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	40
-        ///#	C	V	Character ID	Delivery	Alias	Dialogue	Default Character	Parallel Passage
-        ///GEN	1	3	God		God (the LORD)	FALSE		
-        ///GEN	1	5	narrator-GEN			FALSE		
-        ///GEN	1	6	God		God (the LORD)	FALSE		
-        ///GEN	1	8	narrator-GEN			FALSE		
-        ///GEN	1	9	God		God (the LORD)	FALSE		
-        ///GEN	1	10	narrator-GEN			FALSE		
-        ///GEN	1	11	God		God (the LORD)	FALSE		
-        ///GEN	1	14	God		God (the LORD)	FALSE		
-        ///GEN	1	20	God		God (the LORD)	FALSE		
-        ///GEN	1	22	God		God (the LORD)	FALSE		
-        ///GEN	1	24	God		God (the LORD)	FALSE		
-        ///GEN	1	26	G [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Control File Version	65
+        ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
+        ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
+        ///# PSA will be handled as complete units, each psalm will be spoken by one voice								
+        ///# SNG we will need to review again								
+        ///# ISA more review necessary on who is speaking: God or the Isaiah								
+        ///# JER possibly no markup of this book… will need to review								
+        ///# EZK [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CharacterVerseData {
             get {
@@ -121,6 +115,24 @@ namespace ProtoScript.Properties {
             get {
                 object obj = ResourceManager.GetObject("DecreaseSize", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # Versification  &quot;English&quot;
+        ///# Version=1.9
+        ///#
+        ///# modifications by Reinier de Blois 13/March/2012
+        ///# modified mappings Psalms by adding verse #0 to the mappings
+        ///# many of the subscripts that are part of verses 1,2 in the original text end up as verse #0 in English translations
+        ///
+        ///# modifications by Studge 26/June/2009
+        ///# book definitions are for all books printed in any English of Spanish Bible
+        ///# this includes books for Protestant, Catholic and Protestant-Catholic-EasternOrthodox Interconfessional editions        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string EnglishVersification {
+            get {
+                return ResourceManager.GetString("EnglishVersification", resourceCulture);
             }
         }
         

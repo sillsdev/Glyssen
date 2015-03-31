@@ -36,7 +36,6 @@ namespace ProtoScript.Dialogs
 			m_scriptureReference.VerseControl.ShowEmptyBooks = false;
 
 			m_scriptureReference.VerseControl.AllowVerseSegments = false;
-			// TODO (PG-117): Set versification according to project
 			m_scriptureReference.VerseControl.Versification = m_navigatorViewModel.Versification;
 			m_scriptureReference.VerseControl.VerseRefChanged += m_scriptureReference_VerseRefChanged;
 
