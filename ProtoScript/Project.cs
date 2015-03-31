@@ -4,13 +4,11 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
 using L10NSharp;
-using Paratext;
 using ProtoScript.Analysis;
 using ProtoScript.Bundle;
 using ProtoScript.Character;
@@ -268,8 +266,8 @@ namespace ProtoScript
 					sb.Append(", ").Append(m_metadata.language.name);
 				if (!string.IsNullOrEmpty(LanguageIsoCode))
 					sb.Append(" (").Append(LanguageIsoCode).Append(")");
-				if (!string.IsNullOrEmpty(Name))
-					sb.Append(", ").Append(Name);
+				if (!string.IsNullOrEmpty(PublicationName))
+					sb.Append(", ").Append(PublicationName);
 				if (!string.IsNullOrEmpty(Id))
 					sb.Append(" (").Append(Id).Append(")");
 				return sb.ToString();
