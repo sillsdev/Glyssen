@@ -115,12 +115,14 @@ namespace ProtoScript.Dialogs
 			var mode = m_viewModel.Mode;
 			if ((mode & BlocksToDisplay.NeedAssignments) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 0;
-			else if ((mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) != 0)
+			else if ((mode & BlocksToDisplay.MissingExpectedQuote) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 1;
-			else if ((mode & BlocksToDisplay.AllExpectedQuotes) != 0)
+			else if ((mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 2;
-			else if ((mode & BlocksToDisplay.AllScripture) != 0)
+			else if ((mode & BlocksToDisplay.AllExpectedQuotes) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 3;
+			else if ((mode & BlocksToDisplay.AllScripture) != 0)
+				m_toolStripComboBoxFilter.SelectedIndex = 4;
 			else
 				throw new InvalidEnumArgumentException("mode", (int)mode, typeof(BlocksToDisplay));
 
@@ -554,8 +556,9 @@ namespace ProtoScript.Dialogs
 			switch (m_toolStripComboBoxFilter.SelectedIndex)
 			{
 				case 0: mode = BlocksToDisplay.NeedAssignments; break;
-				case 1: mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers; break;
-				case 2: mode = BlocksToDisplay.AllExpectedQuotes; break;
+				case 1: mode = BlocksToDisplay.MissingExpectedQuote; break;
+				case 2: mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers; break;
+				case 3: mode = BlocksToDisplay.AllExpectedQuotes; break;
 				default: mode = BlocksToDisplay.AllScripture; break;
 			}
 

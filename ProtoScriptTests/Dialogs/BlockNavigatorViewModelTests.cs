@@ -8,7 +8,6 @@ using ProtoScript;
 using ProtoScript.Bundle;
 using ProtoScript.Character;
 using ProtoScript.Dialogs;
-using ProtoScript.Properties;
 
 namespace ProtoScriptTests.Dialogs
 {
@@ -106,6 +105,42 @@ namespace ProtoScriptTests.Dialogs
 				m_model.LoadNextRelevantBlock();
 			} while (!m_model.CanNavigateToNextRelevantBlock);
 			Assert.IsFalse(m_model.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Continuation);
+		}
+
+		[Test]
+		public void SetMode_MissingExpectedQuote_LoadsBlocksWithMissingExpectedQuotes()
+		{
+			m_model.Mode = BlocksToDisplay.MissingExpectedQuote;
+
+			// Missing quote is for verse 20
+			Assert.AreEqual("MRK", m_model.CurrentBookId);
+			Assert.AreEqual(1, m_model.CurrentBlock.ChapterNumber);
+			Assert.AreEqual(18, m_model.CurrentBlock.InitialStartVerseNumber);
+			Assert.AreEqual(20, m_model.CurrentBlock.LastVerse);
+
+			m_model.LoadNextRelevantBlock();
+
+			// Missing quote is for verse 30
+			Assert.AreEqual("MRK", m_model.CurrentBookId);
+			Assert.AreEqual(1, m_model.CurrentBlock.ChapterNumber);
+			Assert.AreEqual(29, m_model.CurrentBlock.InitialStartVerseNumber);
+			Assert.AreEqual(31, m_model.CurrentBlock.LastVerse);
+
+			m_model.LoadNextRelevantBlock();
+
+			// Missing quote is for verse 15
+			Assert.AreEqual("MRK", m_model.CurrentBookId);
+			Assert.AreEqual(2, m_model.CurrentBlock.ChapterNumber);
+			Assert.AreEqual(15, m_model.CurrentBlock.InitialStartVerseNumber);
+			Assert.AreEqual(16, m_model.CurrentBlock.LastVerse);
+
+			m_model.LoadNextRelevantBlock();
+
+			// Missing quote is for verse 9
+			Assert.AreEqual("MRK", m_model.CurrentBookId);
+			Assert.AreEqual(3, m_model.CurrentBlock.ChapterNumber);
+			Assert.AreEqual(7, m_model.CurrentBlock.InitialStartVerseNumber);
+			Assert.AreEqual(11, m_model.CurrentBlock.LastVerse);
 		}
 
 		[Test]
