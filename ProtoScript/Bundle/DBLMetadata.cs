@@ -89,6 +89,10 @@ namespace ProtoScript.Bundle
 		[DefaultValue(false)]
 		public bool IsQuoteSystemUserConfirmed;
 
+		[XmlElement("isBookSelectionUserConfirmed")]
+		[DefaultValue(false)]
+		public bool IsBookSelectionUserConfirmed;
+
 		/// <summary>
 		/// This is not part of the original DBL metadata. This data is now stored as part of the "language" data. 
 		/// </summary>

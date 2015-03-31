@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
-using ProtoScript.Bundle;
 using SIL.ScriptureUtils;
 
 namespace ProtoScript.Dialogs
@@ -31,6 +29,7 @@ namespace ProtoScript.Dialogs
 		{
 			foreach (var book in m_project.AvailableBooks)
 				book.IncludeInScript = m_bookChooserControl.SelectedBooks.IsSelected(BCVRef.BookToNumber(book.Code));
+			m_project.IsBookSelectionUserConfirmed = true;
 		}
 	}
 }

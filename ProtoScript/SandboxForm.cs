@@ -15,21 +15,19 @@ namespace ProtoScript
 	public partial class SandboxForm : Form
 	{
 		private Project m_project;
-		private string m_projectInfoFmt;
-		private string m_settingsInfoFmt;
-		private string m_bookSelectionInfoFmt;
-		private string m_projectLoadedFmt;
-		private string m_percentAssigned;
+		private string m_percentAssignedFmt;
 
 		public SandboxForm()
 		{
 			InitializeComponent();
-			HandleStringsLocalized();
+
+			InitializeLocalizableFormats();
 
 			SetupUILanguageMenu();
 			m_toolStrip.Renderer = new NoBorderToolStripRenderer();
 			m_uiLanguageMenu.ToolTipText = LocalizationManager.GetString("MainForm.UILanguage", "User-interface Language");
 
+			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 		}
 
@@ -40,7 +38,6 @@ namespace ProtoScript
 			{
 				m_project.ProjectStateChanged += (sender, args) => FinishSetProjectIfReady();
 				m_project.ProjectStateChanged += (sender, args) => UpdateProjectState();
-				m_project.ProgressChanged += (sender, args) => UpdateDisplayOfProjectLoaded(args.ProgressPercentage);
 			}
 
 			bool validProject = m_project != null;
@@ -81,25 +78,30 @@ namespace ProtoScript
 			}
 		}
 
+		private void InitializeLocalizableFormats()
+		{
+		}
+
 		protected void HandleStringsLocalized()
 		{
-			m_projectInfoFmt = m_lblProjectInfo.Text;
-			m_settingsInfoFmt = m_lblSettingsInfo.Text;
-			m_bookSelectionInfoFmt = m_lblBookSelectionInfo.Text;
-			m_projectLoadedFmt = m_lblProjectLoaded.Text;
-			m_percentAssigned = m_lblPercentAssigned.Text;
+			m_percentAssignedFmt = m_lblPercentAssigned.Text;
+			UpdateLocalizedText();
 		}
 
 		private void UpdateButtons(bool readOnly)
 		{
+			bool validProject = m_project != null;
 			m_btnOpenProject.Enabled = !readOnly;
-			m_imgCheckOpen.Visible = m_project != null;
-			m_btnSettings.Enabled = !readOnly && m_project != null;
-			m_btnSelectBooks.Enabled = !readOnly && m_project != null;
-			m_btnAssign.Enabled = !readOnly && m_project != null;
-			m_btnExportToTabSeparated.Enabled = !readOnly && m_project != null;
+			m_imgCheckOpen.Visible = validProject;
+			m_btnSettings.Enabled = !readOnly && validProject;
+			m_imgCheckSettings.Visible = m_btnSettings.Enabled && m_project.IsQuoteSystemUserConfirmed;
+			m_btnSelectBooks.Enabled = !readOnly && validProject && m_project.IsQuoteSystemUserConfirmed;
+			m_imgCheckBooks.Visible = m_btnSelectBooks.Enabled && m_project.IsBookSelectionUserConfirmed;
+			m_btnAssign.Enabled = !readOnly && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
+			m_imgCheckAssign.Visible = m_btnAssign.Enabled && m_project.ProjectAnalysis.UserPercentAssigned == 100d;
+			m_btnExportToTabSeparated.Enabled = !readOnly && m_imgCheckAssign.Visible;
 			m_lnkExit.Enabled = !readOnly;
-			m_linkChangeQuotationSystem.Enabled = !readOnly && m_project != null;
+			m_linkChangeQuotationSystem.Enabled = !readOnly && validProject;
 		}
 
 		private void HandleOpenProject_Click(object sender, EventArgs e)
@@ -140,7 +142,7 @@ namespace ProtoScript
 			}
 		}
 
-		private void SandboxForm_Load(object sender, EventArgs e)
+		private void MainForm_Load(object sender, EventArgs e)
 		{
 			if (string.IsNullOrEmpty(Settings.Default.CurrentProject) || !File.Exists(Settings.Default.CurrentProject))
 			{
@@ -206,29 +208,30 @@ namespace ProtoScript
 		private void UpdateDisplayOfProjectInfo()
 		{
 			UpdateProjectState();
-			m_lblProjectInfo.Text = string.Format(m_projectInfoFmt, m_project != null ? m_project.ProjectSummary : String.Empty);
-			m_lblSettingsInfo.Text = string.Format(m_settingsInfoFmt, m_project != null ? m_project.SettingsSummary : String.Empty);
-			m_lblBookSelectionInfo.Text = string.Format(m_bookSelectionInfoFmt, m_project != null ? m_project.BookSelectionSummary : String.Empty);
-			UpdateDisplayOfProjectLoaded(m_project != null ? m_project.PercentInitialized : 0);
-			UpdateDisplayOfPercentAssigned();
+			UpdateLocalizedText();
 			UpdateDisplayOfQuoteSystemInfo();
 		}
 
-		private void UpdateDisplayOfProjectLoaded(int percent)
+		private void UpdateLocalizedText()
 		{
-			double assignedAutomatically = 0;
-			if (m_project != null && m_project.ProjectAnalysis != null)
-				assignedAutomatically = m_project.ProjectAnalysis.TotalPercentAssigned;
-			m_lblProjectLoaded.Text = string.Format(m_projectLoadedFmt, percent.ToString(CultureInfo.InvariantCulture), assignedAutomatically);
+			m_lblProjectInfo.Text = m_project != null ? m_project.ProjectSummary : String.Empty;
+			m_lblSettingsInfo.Text = m_project != null && m_project.IsQuoteSystemUserConfirmed ? m_project.SettingsSummary : String.Empty;
+			m_lblBookSelectionInfo.Text = m_project != null && m_project.IsBookSelectionUserConfirmed ? m_project.BookSelectionSummary : String.Empty;
+			UpdateDisplayOfPercentAssigned();
 		}
 
 		private void UpdateDisplayOfPercentAssigned()
 		{
+			if (!m_btnAssign.Enabled)
+			{
+				m_lblPercentAssigned.Text = string.Empty;
+				return;
+			}
+
 			double percentAssigned = 0;
 			if (m_project != null && m_project.ProjectAnalysis != null)
 				percentAssigned = m_project.ProjectAnalysis.UserPercentAssigned;
-			m_lblPercentAssigned.Text = string.Format(m_percentAssigned, percentAssigned);
-			m_imgCheckAssign.Visible = percentAssigned == 100d;
+			m_lblPercentAssigned.Text = percentAssigned > 0 ? string.Format(m_percentAssignedFmt, percentAssigned) : string.Empty;
 		}
 
 		private void UpdateProjectState()
@@ -242,7 +245,7 @@ namespace ProtoScript
 			m_lblSelectedQuotationMarks.Text = m_project != null ? m_project.QuoteSystem.ToString() : String.Empty;
 		}
 	
-		private void SandboxForm_FormClosing(object sender, FormClosingEventArgs e)
+		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			SaveCurrentProject();
 			Settings.Default.Save();

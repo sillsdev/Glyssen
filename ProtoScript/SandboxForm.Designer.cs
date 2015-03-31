@@ -41,7 +41,6 @@
 			this.m_lblQuotationMarksSystem = new System.Windows.Forms.Label();
 			this.m_linkChangeQuotationSystem = new System.Windows.Forms.LinkLabel();
 			this.m_btnSettings = new System.Windows.Forms.Button();
-			this.m_lblProjectLoaded = new System.Windows.Forms.Label();
 			this.m_lblPercentAssigned = new System.Windows.Forms.Label();
 			this.m_lblSelectNextTask = new System.Windows.Forms.Label();
 			this.m_toolStrip = new System.Windows.Forms.ToolStrip();
@@ -84,7 +83,9 @@
 			// 
 			// m_lblProjectInfo
 			// 
-			this.m_lblProjectInfo.AutoSize = true;
+			this.m_lblProjectInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_lblProjectInfo.AutoEllipsis = true;
 			this.m_lblProjectInfo.ForeColor = System.Drawing.Color.White;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblProjectInfo, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblProjectInfo, null);
@@ -93,21 +94,24 @@
 			this.m_lblProjectInfo.Location = new System.Drawing.Point(296, 89);
 			this.m_lblProjectInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.m_lblProjectInfo.Name = "m_lblProjectInfo";
-			this.m_lblProjectInfo.Size = new System.Drawing.Size(26, 18);
+			this.m_lblProjectInfo.Size = new System.Drawing.Size(468, 18);
 			this.m_lblProjectInfo.TabIndex = 3;
 			this.m_lblProjectInfo.Text = "{0}";
 			// 
 			// m_lblSettingsInfo
 			// 
-			this.m_lblSettingsInfo.AutoSize = true;
+			this.m_lblSettingsInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_lblSettingsInfo.AutoEllipsis = true;
 			this.m_lblSettingsInfo.ForeColor = System.Drawing.Color.White;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblSettingsInfo, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblSettingsInfo, null);
+			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_lblSettingsInfo, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblSettingsInfo, "MainForm.MainForm.m_lblLanguage");
 			this.m_lblSettingsInfo.Location = new System.Drawing.Point(296, 129);
 			this.m_lblSettingsInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.m_lblSettingsInfo.Name = "m_lblSettingsInfo";
-			this.m_lblSettingsInfo.Size = new System.Drawing.Size(26, 18);
+			this.m_lblSettingsInfo.Size = new System.Drawing.Size(468, 18);
 			this.m_lblSettingsInfo.TabIndex = 5;
 			this.m_lblSettingsInfo.Text = "{0}";
 			// 
@@ -122,7 +126,7 @@
 			this.m_btnExportToTabSeparated.Margin = new System.Windows.Forms.Padding(4);
 			this.m_btnExportToTabSeparated.Name = "m_btnExportToTabSeparated";
 			this.m_btnExportToTabSeparated.Size = new System.Drawing.Size(201, 32);
-			this.m_btnExportToTabSeparated.TabIndex = 6;
+			this.m_btnExportToTabSeparated.TabIndex = 4;
 			this.m_btnExportToTabSeparated.Text = "(5) Export...";
 			this.m_btnExportToTabSeparated.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.m_btnExportToTabSeparated.UseVisualStyleBackColor = false;
@@ -138,7 +142,7 @@
 			this.m_btnAssign.Margin = new System.Windows.Forms.Padding(4);
 			this.m_btnAssign.Name = "m_btnAssign";
 			this.m_btnAssign.Size = new System.Drawing.Size(201, 32);
-			this.m_btnAssign.TabIndex = 8;
+			this.m_btnAssign.TabIndex = 3;
 			this.m_btnAssign.Text = "(4) Assign Characters...";
 			this.m_btnAssign.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.m_btnAssign.UseVisualStyleBackColor = false;
@@ -154,7 +158,7 @@
 			this.m_btnSelectBooks.Margin = new System.Windows.Forms.Padding(4);
 			this.m_btnSelectBooks.Name = "m_btnSelectBooks";
 			this.m_btnSelectBooks.Size = new System.Drawing.Size(201, 32);
-			this.m_btnSelectBooks.TabIndex = 9;
+			this.m_btnSelectBooks.TabIndex = 2;
 			this.m_btnSelectBooks.Text = "(3) Select Books...";
 			this.m_btnSelectBooks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.m_btnSelectBooks.UseVisualStyleBackColor = false;
@@ -169,7 +173,7 @@
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblSelectedQuotationMarks, null);
 			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_lblSelectedQuotationMarks, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblSelectedQuotationMarks, "MainForm.label1");
-			this.m_lblSelectedQuotationMarks.Location = new System.Drawing.Point(615, 298);
+			this.m_lblSelectedQuotationMarks.Location = new System.Drawing.Point(615, 375);
 			this.m_lblSelectedQuotationMarks.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.m_lblSelectedQuotationMarks.Name = "m_lblSelectedQuotationMarks";
 			this.m_lblSelectedQuotationMarks.Size = new System.Drawing.Size(20, 24);
@@ -185,7 +189,7 @@
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblQuotationMarksSystem, null);
 			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_lblQuotationMarksSystem, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblQuotationMarksSystem, "MainForm.label1");
-			this.m_lblQuotationMarksSystem.Location = new System.Drawing.Point(484, 302);
+			this.m_lblQuotationMarksSystem.Location = new System.Drawing.Point(484, 379);
 			this.m_lblQuotationMarksSystem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.m_lblQuotationMarksSystem.Name = "m_lblQuotationMarksSystem";
 			this.m_lblQuotationMarksSystem.Size = new System.Drawing.Size(123, 18);
@@ -203,11 +207,11 @@
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_linkChangeQuotationSystem, null);
 			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_linkChangeQuotationSystem, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_linkChangeQuotationSystem, "MainForm.MainForm.m_linkChangeQuotationSystem");
-			this.m_linkChangeQuotationSystem.Location = new System.Drawing.Point(708, 302);
+			this.m_linkChangeQuotationSystem.Location = new System.Drawing.Point(708, 379);
 			this.m_linkChangeQuotationSystem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.m_linkChangeQuotationSystem.Name = "m_linkChangeQuotationSystem";
 			this.m_linkChangeQuotationSystem.Size = new System.Drawing.Size(56, 18);
-			this.m_linkChangeQuotationSystem.TabIndex = 11;
+			this.m_linkChangeQuotationSystem.TabIndex = 7;
 			this.m_linkChangeQuotationSystem.TabStop = true;
 			this.m_linkChangeQuotationSystem.Text = "change";
 			this.m_linkChangeQuotationSystem.Click += new System.EventHandler(this.HandleChangeQuotationMarks_Click);
@@ -222,29 +226,17 @@
 			this.m_btnSettings.Margin = new System.Windows.Forms.Padding(4);
 			this.m_btnSettings.Name = "m_btnSettings";
 			this.m_btnSettings.Size = new System.Drawing.Size(201, 32);
-			this.m_btnSettings.TabIndex = 12;
+			this.m_btnSettings.TabIndex = 1;
 			this.m_btnSettings.Text = "(2) Project Settings...";
 			this.m_btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.m_btnSettings.UseVisualStyleBackColor = false;
 			this.m_btnSettings.Click += new System.EventHandler(this.m_btnSettings_Click);
 			// 
-			// m_lblProjectLoaded
-			// 
-			this.m_lblProjectLoaded.AutoSize = true;
-			this.m_lblProjectLoaded.ForeColor = System.Drawing.Color.White;
-			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblProjectLoaded, null);
-			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblProjectLoaded, null);
-			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblProjectLoaded, "MainForm.MainForm.m_lblLanguage");
-			this.m_lblProjectLoaded.Location = new System.Drawing.Point(430, 379);
-			this.m_lblProjectLoaded.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.m_lblProjectLoaded.Name = "m_lblProjectLoaded";
-			this.m_lblProjectLoaded.Size = new System.Drawing.Size(334, 18);
-			this.m_lblProjectLoaded.TabIndex = 16;
-			this.m_lblProjectLoaded.Text = "{0}% loaded   ({1:N1}% of all blocks are assigned)";
-			// 
 			// m_lblPercentAssigned
 			// 
-			this.m_lblPercentAssigned.AutoSize = true;
+			this.m_lblPercentAssigned.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_lblPercentAssigned.AutoEllipsis = true;
 			this.m_lblPercentAssigned.ForeColor = System.Drawing.Color.White;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblPercentAssigned, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblPercentAssigned, "{0:N1} is a number with one decimal point");
@@ -252,7 +244,7 @@
 			this.m_lblPercentAssigned.Location = new System.Drawing.Point(296, 209);
 			this.m_lblPercentAssigned.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.m_lblPercentAssigned.Name = "m_lblPercentAssigned";
-			this.m_lblPercentAssigned.Size = new System.Drawing.Size(127, 18);
+			this.m_lblPercentAssigned.Size = new System.Drawing.Size(468, 18);
 			this.m_lblPercentAssigned.TabIndex = 17;
 			this.m_lblPercentAssigned.Text = "{0:N1}% complete";
 			// 
@@ -286,7 +278,7 @@
 			this.m_toolStrip.Name = "m_toolStrip";
 			this.m_toolStrip.Padding = new System.Windows.Forms.Padding(22, 14, 30, 0);
 			this.m_toolStrip.Size = new System.Drawing.Size(777, 37);
-			this.m_toolStrip.TabIndex = 22;
+			this.m_toolStrip.TabIndex = 6;
 			this.m_toolStrip.Text = "toolStrip1";
 			// 
 			// m_btnAbout
@@ -336,32 +328,35 @@
 			this.m_lnkExit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.m_lnkExit.Name = "m_lnkExit";
 			this.m_lnkExit.Size = new System.Drawing.Size(32, 18);
-			this.m_lnkExit.TabIndex = 23;
+			this.m_lnkExit.TabIndex = 5;
 			this.m_lnkExit.TabStop = true;
 			this.m_lnkExit.Text = "Exit";
 			this.m_lnkExit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_lnkExit_LinkClicked);
 			// 
 			// m_lblBookSelectionInfo
 			// 
-			this.m_lblBookSelectionInfo.AutoSize = true;
+			this.m_lblBookSelectionInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_lblBookSelectionInfo.AutoEllipsis = true;
 			this.m_lblBookSelectionInfo.ForeColor = System.Drawing.Color.White;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblBookSelectionInfo, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblBookSelectionInfo, null);
+			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_lblBookSelectionInfo, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblBookSelectionInfo, "MainForm.MainForm.m_lblLanguage");
 			this.m_lblBookSelectionInfo.Location = new System.Drawing.Point(296, 169);
 			this.m_lblBookSelectionInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.m_lblBookSelectionInfo.Name = "m_lblBookSelectionInfo";
-			this.m_lblBookSelectionInfo.Size = new System.Drawing.Size(26, 18);
+			this.m_lblBookSelectionInfo.Size = new System.Drawing.Size(468, 18);
 			this.m_lblBookSelectionInfo.TabIndex = 24;
 			this.m_lblBookSelectionInfo.Text = "{0}";
 			// 
 			// m_imgCheckOpen
 			// 
 			this.m_imgCheckOpen.Image = global::ProtoScript.Properties.Resources.green_check;
-			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckOpen, null);
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckOpen, "Sufficiently completed to move on to following tasks");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_imgCheckOpen, null);
-			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckOpen, "MainForm.pictureBox1");
-			this.m_imgCheckOpen.Location = new System.Drawing.Point(252, 82);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckOpen, "MainForm.SufficientlyCompleted");
+			this.m_imgCheckOpen.Location = new System.Drawing.Point(249, 86);
 			this.m_imgCheckOpen.Margin = new System.Windows.Forms.Padding(4);
 			this.m_imgCheckOpen.Name = "m_imgCheckOpen";
 			this.m_imgCheckOpen.Size = new System.Drawing.Size(33, 32);
@@ -373,10 +368,10 @@
 			// m_imgCheckSettings
 			// 
 			this.m_imgCheckSettings.Image = global::ProtoScript.Properties.Resources.green_check;
-			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckSettings, null);
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckSettings, "Sufficiently completed to move on to following tasks");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_imgCheckSettings, null);
-			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckSettings, "MainForm.pictureBox1");
-			this.m_imgCheckSettings.Location = new System.Drawing.Point(252, 122);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckSettings, "MainForm.SufficientlyCompleted");
+			this.m_imgCheckSettings.Location = new System.Drawing.Point(249, 126);
 			this.m_imgCheckSettings.Margin = new System.Windows.Forms.Padding(4);
 			this.m_imgCheckSettings.Name = "m_imgCheckSettings";
 			this.m_imgCheckSettings.Size = new System.Drawing.Size(33, 32);
@@ -388,10 +383,10 @@
 			// m_imgCheckBooks
 			// 
 			this.m_imgCheckBooks.Image = global::ProtoScript.Properties.Resources.green_check;
-			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckBooks, null);
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckBooks, "Sufficiently completed to move on to following tasks");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_imgCheckBooks, null);
-			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckBooks, "MainForm.pictureBox1");
-			this.m_imgCheckBooks.Location = new System.Drawing.Point(252, 162);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckBooks, "MainForm.SufficientlyCompleted");
+			this.m_imgCheckBooks.Location = new System.Drawing.Point(249, 166);
 			this.m_imgCheckBooks.Margin = new System.Windows.Forms.Padding(4);
 			this.m_imgCheckBooks.Name = "m_imgCheckBooks";
 			this.m_imgCheckBooks.Size = new System.Drawing.Size(33, 32);
@@ -403,10 +398,10 @@
 			// m_imgCheckAssign
 			// 
 			this.m_imgCheckAssign.Image = global::ProtoScript.Properties.Resources.green_check;
-			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckAssign, null);
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckAssign, "Sufficiently completed to move on to following tasks");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_imgCheckAssign, null);
-			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckAssign, "MainForm.pictureBox1");
-			this.m_imgCheckAssign.Location = new System.Drawing.Point(252, 202);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckAssign, "MainForm.SufficientlyCompleted");
+			this.m_imgCheckAssign.Location = new System.Drawing.Point(249, 206);
 			this.m_imgCheckAssign.Margin = new System.Windows.Forms.Padding(4);
 			this.m_imgCheckAssign.Name = "m_imgCheckAssign";
 			this.m_imgCheckAssign.Size = new System.Drawing.Size(33, 32);
@@ -430,7 +425,6 @@
 			this.Controls.Add(this.m_toolStrip);
 			this.Controls.Add(this.m_lblSelectNextTask);
 			this.Controls.Add(this.m_lblPercentAssigned);
-			this.Controls.Add(this.m_lblProjectLoaded);
 			this.Controls.Add(this.m_btnSettings);
 			this.Controls.Add(this.m_btnSelectBooks);
 			this.Controls.Add(this.m_linkChangeQuotationSystem);
@@ -447,10 +441,11 @@
 			this.m_L10NSharpExtender.SetLocalizationComment(this, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this, "MainForm.WindowTitle");
 			this.Margin = new System.Windows.Forms.Padding(4);
+			this.MinimumSize = new System.Drawing.Size(793, 444);
 			this.Name = "SandboxForm";
 			this.Text = "Protoscript Generator";
-			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SandboxForm_FormClosing);
-			this.Load += new System.EventHandler(this.SandboxForm_Load);
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+			this.Load += new System.EventHandler(this.MainForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.m_L10NSharpExtender)).EndInit();
 			this.m_toolStrip.ResumeLayout(false);
 			this.m_toolStrip.PerformLayout();
@@ -476,7 +471,6 @@
 		private System.Windows.Forms.Label m_lblQuotationMarksSystem;
 		private System.Windows.Forms.LinkLabel m_linkChangeQuotationSystem;
 		private System.Windows.Forms.Button m_btnSettings;
-		private System.Windows.Forms.Label m_lblProjectLoaded;
 		private System.Windows.Forms.Label m_lblPercentAssigned;
 		private System.Windows.Forms.Label m_lblSelectNextTask;
 		private System.Windows.Forms.ToolStrip m_toolStrip;

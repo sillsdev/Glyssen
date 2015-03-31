@@ -299,7 +299,7 @@
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Project Metadata";
+			this.Text = "Project Settings";
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			this.m_tableLayoutMain.ResumeLayout(false);
 			this.m_tableLayoutMain.PerformLayout();
