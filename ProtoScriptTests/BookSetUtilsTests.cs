@@ -2,7 +2,6 @@
 using System.Linq;
 using NUnit.Framework;
 using Paratext;
-using Paratext.Users;
 using ProtoScript;
 
 namespace ProtoScriptTests

@@ -18,9 +18,9 @@ namespace ProtoScript
 
 		private string m_bookLevelChapterLabel;
 		private bool m_chapterNodeFound;
-		private int m_currentChapter = 0;
-		private int m_currentStartVerse = 0;
-		private int m_currentEndVerse = 0;
+		private int m_currentChapter;
+		private int m_currentStartVerse;
+		private int m_currentEndVerse;
 
 		public UsxParser(string bookId, IStylesheet stylesheet, XmlNodeList nodeList)
 		{

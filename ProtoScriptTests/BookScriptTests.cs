@@ -13,8 +13,8 @@ namespace ProtoScriptTests
 	class BookScriptTests
 	{
 		private int m_curSetupChapter = 1;
-		private int m_curSetupVerse = 0;
-		private string m_curStyleTag = null;
+		private int m_curSetupVerse;
+		private string m_curStyleTag;
 
 		#region GetVerseText Tests
 		[Test]

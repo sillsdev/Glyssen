@@ -178,7 +178,7 @@ namespace ProtoScript.Controls
 					// 22 is the magic number which happens to make these display in the correct place
 					int x = m_blocksDisplayBrowser.Location.X + m_blocksDisplayBrowser.Size.Width - 22;
 					int y = m_blocksDisplayBrowser.Location.Y + e.ClientY - m_blocksDisplayBrowser.Margin.Top;
-					m_toolTip.Show(divElement.Parent.GetAttribute(AssignCharacterViewModel.kDataCharacter), this, x, y);
+					m_toolTip.Show(divElement.Parent.GetAttribute(BlockNavigatorViewModel.kDataCharacter), this, x, y);
 				}
 			}
 		}

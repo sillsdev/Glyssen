@@ -6,7 +6,6 @@ using System.Text.RegularExpressions;
 using NUnit.Framework;
 using ProtoScript.Character;
 using ProtoScript.Properties;
-using SIL.ScriptureUtils;
 
 namespace ControlDataIntegrityTests
 {
