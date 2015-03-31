@@ -119,6 +119,16 @@ namespace ProtoScript.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap green_check {
+            get {
+                object obj = ResourceManager.GetObject("green_check", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to # Versification  &quot;English&quot;
         ///# Version=1.9
         ///#
@@ -128,7 +138,8 @@ namespace ProtoScript.Properties {
         ///
         ///# modifications by Studge 26/June/2009
         ///# book definitions are for all books printed in any English of Spanish Bible
-        ///# this includes books for Protestant, Catholic and Protestant-Catholic-EasternOrthodox Interconfessional editions        /// [rest of string was truncated]&quot;;.
+        ///# this includes books for Protestant, Catholic and Protestant-Catholic-EasternOrthodox Interconfessional editions
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EnglishVersification {
             get {

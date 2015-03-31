@@ -215,6 +215,12 @@ namespace ProtoScript
 			set { m_metadata.IsQuoteSystemUserConfirmed = value; }
 		}
 
+		public bool IsBookSelectionUserConfirmed
+		{
+			get { return m_metadata.IsBookSelectionUserConfirmed; }
+			set { m_metadata.IsBookSelectionUserConfirmed = value; }
+		}
+
 		public IReadOnlyList<BookScript> Books { get { return m_books; } }
 
 		public IReadOnlyList<BookScript> IncludedBooks
@@ -264,6 +270,45 @@ namespace ProtoScript
 				OnStateChanged(new ProjectStateChangedEventArgs { ProjectState = m_projectState });
 			}
 		}
+
+		public string ProjectSummary
+		{
+			get
+			{
+				var sb = new StringBuilder(Name);
+				if (!string.IsNullOrEmpty(m_metadata.language.name))
+					sb.Append(", ").Append(m_metadata.language.name);
+				if (!string.IsNullOrEmpty(LanguageIsoCode))
+					sb.Append(" (").Append(LanguageIsoCode).Append(")");
+				if (!string.IsNullOrEmpty(PublicationName))
+					sb.Append(", ").Append(PublicationName);
+				if (!string.IsNullOrEmpty(Id))
+					sb.Append(" (").Append(Id).Append(")");
+				return sb.ToString();
+			}
+		}
+
+		public string SettingsSummary
+		{
+			get
+			{
+				var sb = new StringBuilder();
+				foreach (var level in QuoteSystem.NormalLevels)
+					sb.Append(level.Open).Append(" ").Append(level.Continue).Append(" ").Append(level.Close).Append(" / ");
+				sb.Length -= 3;
+				if (!string.IsNullOrEmpty(QuoteSystem.QuotationDashMarker))
+					sb.Append(" / ").Append(QuoteSystem.QuotationDashMarker);
+				if (!string.IsNullOrEmpty(QuoteSystem.QuotationDashEndMarker))
+					sb.Append(" ").Append(QuoteSystem.QuotationDashEndMarker);
+				sb.Append(", ").Append(FontFamily);
+				sb.Append(", ").Append(FontSizeInPoints).Append(LocalizationManager.GetString("WritingSystem.Points", "pt", "Units appended to font size to represent points"));
+				sb.Append(", ").Append(RightToLeftScript ? LocalizationManager.GetString("WritingSystem.RightToLeft", "Right-to-left", "Describes a writing system") :
+					LocalizationManager.GetString("WritingSystem.LeftToRight", "Left-to-right", "Describes a writing system"));
+				return sb.ToString();
+			}
+		}
+
+		public string BookSelectionSummary { get { return IncludedBooks.BookSummary(); } }
 
 		internal void ClearProjectStatus()
 		{
@@ -374,7 +419,10 @@ namespace ProtoScript
 			m_guessPercentComplete = 100;
 
 			if (IsSampleProject)
+			{
 				IsQuoteSystemUserConfirmed = true;
+				IsBookSelectionUserConfirmed = true;
+			}
 
 			if (!IsQuoteSystemUserConfirmed)
 			{
@@ -775,6 +823,7 @@ namespace ProtoScript
 			}
 
 			sampleProject.IsQuoteSystemUserConfirmed = true;
+			sampleProject.IsBookSelectionUserConfirmed = true;
 			sampleProject.QuoteSystem = sampleProject.ConfirmedQuoteSystem;
 
 			// Wait for quote parse to finish

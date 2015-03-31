@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Configuration;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using L10NSharp;
+using L10NSharp.UI;
 using Paratext;
 using ProtoScript.Properties;
 using SIL.IO;
@@ -38,7 +40,7 @@ namespace ProtoScript
 			
 			// TODO (PG-18) Add analytics
 
-			Application.Run(new SandboxForm());
+			Application.Run(new MainForm());
 		}
 
 		public static string GetUserConfigFilePath()
@@ -77,14 +79,25 @@ namespace ProtoScript
 		//	Analytics.ReportException(e.Exception);
 		//}
 
+		public static LocalizationManager LocalizationManager { get; private set; }
+
 		private static void SetUpLocalization()
 		{
 			string installedStringFileFolder = FileLocator.GetDirectoryDistributedWithApplication("localization");
 			string targetTmxFilePath = Path.Combine(kCompany, kProduct);
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
 
-			LocalizationManager.Create(desiredUiLangId, "ProtoscriptGenerator", Application.ProductName, Application.ProductVersion,
+			LocalizationManager = LocalizationManager.Create(desiredUiLangId, "ProtoscriptGenerator", Application.ProductName, Application.ProductVersion,
 				installedStringFileFolder, targetTmxFilePath, Resources.PgIcon, IssuesEmailAddress, "ProtoScript");
+
+			if (string.IsNullOrEmpty(desiredUiLangId))
+				if (LocalizationManager.GetUILanguages(true).Count() > 1)
+					using (var dlg = new LanguageChoosingSimpleDialog(Resources.PgIcon))
+						if (DialogResult.OK == dlg.ShowDialog())
+						{
+							LocalizationManager.SetUILanguage(dlg.SelectedLanguage, true);
+							Settings.Default.UserInterfaceLanguage = dlg.SelectedLanguage;
+						}
 
 			// For now, do not set up localization for Palaso
 			// TODO, should we?
