@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Paratext;
 using SIL.Windows.Forms.WritingSystems;
 
 namespace ProtoScript
@@ -19,12 +20,12 @@ namespace ProtoScript
 				CurrentRightToLeftScript = project.RightToLeftScript
 			};
 
+			RecordingProjectName = project.Name;
 			LanguageName = project.LanguageName;
 			IsoCode = project.LanguageIsoCode;
 			PublicationId = project.Id;
 			PublicationName = project.PublicationName;
-			VersificationFilePath = project.VersificationFilePath;
-			VersificationName = project.VersificationName;
+			Versification = project.Versification;
 
 			var block = project.IncludedBooks.SelectMany(book => book.GetScriptBlocks().Where(b => b.BlockElements.OfType<Verse>().Any()))
 					.FirstOrDefault();
@@ -39,7 +40,6 @@ namespace ProtoScript
 		public string RecordingProjectName { get; set; }
 		public string PublicationId { get; set; }
 		public string SampleText { get; set; }
-		public string VersificationFilePath { get; set; }
-		public string VersificationName { get; set; }
+		public ScrVers Versification { get; set; }
 	}
 }

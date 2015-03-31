@@ -8,6 +8,7 @@ using ProtoScript;
 using ProtoScript.Bundle;
 using ProtoScript.Character;
 using ProtoScript.Dialogs;
+using ProtoScript.Properties;
 
 namespace ProtoScriptTests.Dialogs
 {
@@ -53,16 +54,17 @@ namespace ProtoScriptTests.Dialogs
 			DeleteTestProjectFolder();
 			var sampleMetadata = new DblMetadata();
 			sampleMetadata.AvailableBooks = new List<Book>();
-			var bookOfMarkMetadata = new Book();
-			bookOfMarkMetadata.Code = "MRK";
-			bookOfMarkMetadata.IncludeInScript = true;
-			bookOfMarkMetadata.LongName = "Gospel of Mark";
-			bookOfMarkMetadata.ShortName = "Mark";
-			sampleMetadata.AvailableBooks.Add(bookOfMarkMetadata);
+			var bookOfMark = new Book();
+			bookOfMark.Code = "MRK";
+			bookOfMark.IncludeInScript = true;
+			bookOfMark.LongName = "Gospel of Mark";
+			bookOfMark.ShortName = "Mark";
+			sampleMetadata.AvailableBooks.Add(bookOfMark);
 			sampleMetadata.FontFamily = "Times New Roman";
 			sampleMetadata.FontSizeInPoints = 12;
 			sampleMetadata.id = kTest;
 			sampleMetadata.language = new DblMetadataLanguage { iso = kTest };
+			sampleMetadata.identification = new DblMetadataIdentification { name = "test~~" };
 
 			XmlDocument sampleMark = new XmlDocument();
 			sampleMark.LoadXml(Properties.Resources.TestMRK);

@@ -35,11 +35,6 @@ namespace ProtoScript
 
 			if ((Control.ModifierKeys & Keys.Shift) > 0 && !string.IsNullOrEmpty(userConfigSettingsPath))
 				HandleDeleteUserSettings(userConfigSettingsPath);
-
-			// Initialize Paratext versification table based on the vrs files we know ship
-			var vrsFolder = Path.GetDirectoryName(FileLocator.GetFileDistributedWithApplication("eng.vrs"));
-			foreach (var vrsFile in Directory.GetFiles(vrsFolder, "*.vrs"))
-				Versification.Table.Load(vrsFile);
 			
 			// TODO (PG-18) Add analytics
 

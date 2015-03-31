@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using L10NSharp;
@@ -11,11 +10,11 @@ namespace ProtoScript.Dialogs
 	{
 		private ProjectMetadataViewModel m_model;
 		private readonly bool m_initialSave;
-		public ProjectMetadataDlg(ProjectMetadataViewModel model, bool initialSave = false, bool readOnly = false)
+
+		public ProjectMetadataDlg(ProjectMetadataViewModel model, bool initialSave = false)
 		{
 			InitializeComponent();
-			if (readOnly)
-				SetReadOnly();
+			SetReadOnly();
 			ProjectMetadataViewModel = model;
 			m_initialSave = initialSave;
 			if (!m_initialSave)
@@ -25,31 +24,43 @@ namespace ProtoScript.Dialogs
 			}
 			UpdateProjectId(null, null);
 
-			bool vrsSelected = false;
-			if (!string.IsNullOrEmpty(model.VersificationFilePath) && File.Exists(model.VersificationFilePath))
-			{
-				m_cboVersification.Items.Add(
-					Paratext.Versification.Table.VersificationTables().Single(v => v.PathName == model.VersificationFilePath));
-				m_cboVersification.SelectedIndex = 0;
-				vrsSelected = true;
-			}
+			//bool vrsSelected = false;
+			//if (!string.IsNullOrEmpty(model.VersificationFilePath) && File.Exists(model.VersificationFilePath))
+			//{
+			//	m_cboVersification.Items.Add(
+			//		Versification.Table.VersificationTables().Single(v => v.PathName == model.VersificationFilePath));
+			//	m_cboVersification.SelectedIndex = 0;
+			//	vrsSelected = true;
+			//}
 
-			foreach (var vrs in Paratext.Versification.Table.VersificationTables())
-			{
-				if (!vrs.PathName.StartsWith(Project.ProjectsBaseFolder))
-				{
-					var i = m_cboVersification.Items.Add(vrs.Name);
-					if (!vrsSelected && vrs.Name == model.VersificationName)
-					{
-						m_cboVersification.SelectedIndex = i;
-						vrsSelected = true;
-					}
-				}
-			}
+			//foreach (var vrs in Paratext.Versification.Table.VersificationTables())
+			//{
+			//	if (!vrs.PathName.StartsWith(Project.ProjectsBaseFolder))
+			//	{
+			//		var i = m_cboVersification.Items.Add(vrs.Name);
+			//		if (!vrsSelected && vrs.Name == model.VersificationName)
+			//		{
+			//			m_cboVersification.SelectedIndex = i;
+			//			vrsSelected = true;
+			//		}
+			//	}
+			//}
+			//if (!readOnly)
+			//	m_cboVersification.Items.Add(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.OtherVersification",
+			//		"Other..."));
 
-			if (!readOnly)
-				m_cboVersification.Items.Add(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.OtherVersification", "Other..."));
+			//LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 		}
+
+		//private void HandleStringsLocalized()
+		//{
+		//	if (m_cboVersification.Items[m_cboVersification.Items.Count - 1] is string)
+		//	{
+		//		m_cboVersification.Items[m_cboVersification.Items.Count - 1] =
+		//			m_cboVersification.Items.Add(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.OtherVersification",
+		//				"Other..."));
+		//	}
+		//}
 
 		private ProjectMetadataViewModel ProjectMetadataViewModel
 		{
@@ -61,6 +72,7 @@ namespace ProtoScript.Dialogs
 				IsoCode = value.IsoCode;
 				PublicationName = value.PublicationName;
 				PublicationId = value.PublicationId;
+				m_txtVersification.Text = value.Versification.Name;
 
 				m_wsFontControl.BindToModel(m_model.WsModel);
 
@@ -106,7 +118,8 @@ namespace ProtoScript.Dialogs
 			m_txtPublicationName.Enabled = false;
 			m_chkOverride.Visible = false;
 //			m_wsFontControl.ReadOnly = true;
-			m_btnOk.Enabled = false;
+//			m_btnOk.Enabled = false;
+			m_txtVersification.Enabled = false;
 		}
 
 		private void UpdateProjectId(object sender, EventArgs e)
@@ -160,13 +173,53 @@ namespace ProtoScript.Dialogs
 			}
 
 			m_model.RecordingProjectName = RecordingProjectName;
-			m_model.LanguageName = LanguageName;
-			m_model.IsoCode = IsoCode;
-			m_model.PublicationName = PublicationName;
-			m_model.PublicationId = PublicationId;
+			//m_model.LanguageName = LanguageName;
+			//m_model.IsoCode = IsoCode;
+			//m_model.PublicationName = PublicationName;
+			//m_model.PublicationId = PublicationId;
 			
 			DialogResult = DialogResult.OK;
 			Close();
 		}
+
+		//private void m_cboVersification_SelectedIndexChanged(object sender, EventArgs e)
+		//{
+			//var lastItemIndex = m_cboVersification.Items.Count - 1;
+			//if (m_cboVersification.Items[lastItemIndex] is string && m_cboVersification.SelectedIndex == lastItemIndex)
+			//{
+			//	using (var dlg = new OpenFileDialog())
+			//	{
+			//		var defaultDir = OpenProjectDlg.ParatextProjectsFolder;
+			//		if (defaultDir != null)
+			//			dlg.InitialDirectory = defaultDir;
+
+			//		dlg.Title = LocalizationManager.GetString("SelectVersificationDialog.Title", "Open Project"),
+			//	InitialDirectory = defaultDir,
+			//	Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}|{4} ({5})|{5}",
+			//		LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ResourceBundleFileTypeLabel", "Text Resource Bundle files"),
+			//		"*" + kResourceBundleExtension,
+			//		LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ProjectFilesLabel", "Protoscript Generator Project Files"),
+			//		"*" + Project.kProjectFileExtension,
+			//		LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"),
+			//		"*.*"),
+			//	DefaultExt = kResourceBundleExtension
+
+			//		if (dlg.ShowDialog() == DialogResult.OK)
+			//		{
+			//			SelectedProject = dlg.FileName;
+			//			var folder = Path.GetDirectoryName(SelectedProject);
+			//			if (folder != null)
+			//			{
+			//				folder = Path.GetDirectoryName(folder);
+			//				if (folder != null)
+			//					Settings.Default.DefaultSfmDirectory = folder;
+			//			}
+			//			Type = ProjectType.StandardFormatBook;
+			//			DialogResult = DialogResult.OK;
+			//			Close();
+			//		}
+			//	}
+			//}
+		//}
 	}
 }

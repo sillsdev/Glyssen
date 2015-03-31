@@ -48,15 +48,15 @@
 			this.m_lblMetadataSeparator = new System.Windows.Forms.Label();
 			this.m_lblWritingSystem = new System.Windows.Forms.Label();
 			this.m_lblWsSeparator = new System.Windows.Forms.Label();
+			this.m_label = new System.Windows.Forms.Label();
+			this.m_lblScripture = new System.Windows.Forms.Label();
+			this.m_lblVersification = new System.Windows.Forms.Label();
+			this.m_txtVersification = new System.Windows.Forms.TextBox();
 			this.m_tableLayoutMain = new System.Windows.Forms.TableLayoutPanel();
 			this.m_tableLayoutProjectId = new System.Windows.Forms.TableLayoutPanel();
 			this.m_panelMetadataLabelAndSeparator = new System.Windows.Forms.Panel();
 			this.m_panelWritingSystemLabelAndSeparator = new System.Windows.Forms.Panel();
 			this.m_panelVersificationLabelAndSeparator = new System.Windows.Forms.Panel();
-			this.m_label = new System.Windows.Forms.Label();
-			this.m_lblVersification = new System.Windows.Forms.Label();
-			this.m_lblSelectOrNavigateVersification = new System.Windows.Forms.Label();
-			this.m_cboVersification = new System.Windows.Forms.ComboBox();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.m_tableLayoutMain.SuspendLayout();
 			this.m_tableLayoutProjectId.SuspendLayout();
@@ -242,7 +242,7 @@
 			this.m_wsFontControl.Location = new System.Drawing.Point(4, 216);
 			this.m_wsFontControl.Margin = new System.Windows.Forms.Padding(4);
 			this.m_wsFontControl.Name = "m_wsFontControl";
-			this.m_wsFontControl.Size = new System.Drawing.Size(489, 147);
+			this.m_wsFontControl.Size = new System.Drawing.Size(489, 141);
 			this.m_wsFontControl.TabIndex = 7;
 			this.m_wsFontControl.TestAreaText = "";
 			// 
@@ -335,6 +335,60 @@
 			this.m_lblWsSeparator.Size = new System.Drawing.Size(475, 2);
 			this.m_lblWsSeparator.TabIndex = 16;
 			// 
+			// m_label
+			// 
+			this.m_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_label, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_label, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_label, "DialogBoxes.ProjectMetadataDlg.label1");
+			this.m_label.Location = new System.Drawing.Point(8, 11);
+			this.m_label.Name = "m_label";
+			this.m_label.Size = new System.Drawing.Size(475, 2);
+			this.m_label.TabIndex = 0;
+			// 
+			// m_lblScripture
+			// 
+			this.m_lblScripture.AutoSize = true;
+			this.m_lblScripture.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+			this.m_lblScripture.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblScripture, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblScripture, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblScripture, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblScripture, "DialogBoxes.ProjectMetadataDlg.ProjectMetadataDlg.m_lblScripture");
+			this.m_lblScripture.Location = new System.Drawing.Point(0, 0);
+			this.m_lblScripture.Name = "m_lblScripture";
+			this.m_lblScripture.Size = new System.Drawing.Size(67, 18);
+			this.m_lblScripture.TabIndex = 1;
+			this.m_lblScripture.Text = "Scripture";
+			this.m_lblScripture.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+			// 
+			// m_lblVersification
+			// 
+			this.m_lblVersification.AutoSize = true;
+			this.m_lblVersification.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+			this.m_lblVersification.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblVersification, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblVersification, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblVersification, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblVersification, "DialogBoxes.ProjectMetadataDlg.ProjectMetadataDlg.m_lblVersification");
+			this.m_lblVersification.Location = new System.Drawing.Point(3, 396);
+			this.m_lblVersification.Name = "m_lblVersification";
+			this.m_lblVersification.Size = new System.Drawing.Size(92, 18);
+			this.m_lblVersification.TabIndex = 17;
+			this.m_lblVersification.Text = "Versification:";
+			// 
+			// m_txtVersification
+			// 
+			this.m_txtVersification.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtVersification, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtVersification, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtVersification, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtVersification, "DialogBoxes.ProjectMetadataDlg.ProjectMetadataDlg.m_txtVersification");
+			this.m_txtVersification.Location = new System.Drawing.Point(216, 399);
+			this.m_txtVersification.Name = "m_txtVersification";
+			this.m_txtVersification.Size = new System.Drawing.Size(278, 20);
+			this.m_txtVersification.TabIndex = 18;
+			// 
 			// m_tableLayoutMain
 			// 
 			this.m_tableLayoutMain.ColumnCount = 2;
@@ -354,8 +408,8 @@
 			this.m_tableLayoutMain.Controls.Add(this.m_panelMetadataLabelAndSeparator, 0, 1);
 			this.m_tableLayoutMain.Controls.Add(this.m_panelWritingSystemLabelAndSeparator, 0, 7);
 			this.m_tableLayoutMain.Controls.Add(this.m_panelVersificationLabelAndSeparator, 0, 9);
-			this.m_tableLayoutMain.Controls.Add(this.m_lblSelectOrNavigateVersification, 0, 10);
-			this.m_tableLayoutMain.Controls.Add(this.m_cboVersification, 1, 10);
+			this.m_tableLayoutMain.Controls.Add(this.m_lblVersification, 0, 10);
+			this.m_tableLayoutMain.Controls.Add(this.m_txtVersification, 1, 10);
 			this.m_tableLayoutMain.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_tableLayoutMain.Location = new System.Drawing.Point(15, 15);
 			this.m_tableLayoutMain.Name = "m_tableLayoutMain";
@@ -370,7 +424,7 @@
 			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutMain.Size = new System.Drawing.Size(497, 422);
 			this.m_tableLayoutMain.TabIndex = 0;
 			// 
@@ -425,66 +479,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_tableLayoutMain.SetColumnSpan(this.m_panelVersificationLabelAndSeparator, 2);
-			this.m_panelVersificationLabelAndSeparator.Controls.Add(this.m_lblVersification);
+			this.m_panelVersificationLabelAndSeparator.Controls.Add(this.m_lblScripture);
 			this.m_panelVersificationLabelAndSeparator.Controls.Add(this.m_label);
-			this.m_panelVersificationLabelAndSeparator.Location = new System.Drawing.Point(3, 375);
+			this.m_panelVersificationLabelAndSeparator.Location = new System.Drawing.Point(3, 369);
 			this.m_panelVersificationLabelAndSeparator.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
 			this.m_panelVersificationLabelAndSeparator.Name = "m_panelVersificationLabelAndSeparator";
 			this.m_panelVersificationLabelAndSeparator.Size = new System.Drawing.Size(491, 24);
 			this.m_panelVersificationLabelAndSeparator.TabIndex = 16;
-			// 
-			// m_label
-			// 
-			this.m_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_label, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_label, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_label, "DialogBoxes.ProjectMetadataDlg.label1");
-			this.m_label.Location = new System.Drawing.Point(8, 11);
-			this.m_label.Name = "m_label";
-			this.m_label.Size = new System.Drawing.Size(475, 2);
-			this.m_label.TabIndex = 0;
-			// 
-			// m_lblVersification
-			// 
-			this.m_lblVersification.AutoSize = true;
-			this.m_lblVersification.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-			this.m_lblVersification.ForeColor = System.Drawing.Color.White;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblVersification, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblVersification, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblVersification, "DialogBoxes.ProjectMetadataDlg.label1");
-			this.m_lblVersification.Location = new System.Drawing.Point(0, 0);
-			this.m_lblVersification.Name = "m_lblVersification";
-			this.m_lblVersification.Size = new System.Drawing.Size(67, 18);
-			this.m_lblVersification.TabIndex = 1;
-			this.m_lblVersification.Text = "Scripture";
-			this.m_lblVersification.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-			// 
-			// m_lblSelectOrNavigateVersification
-			// 
-			this.m_lblSelectOrNavigateVersification.AutoSize = true;
-			this.m_lblSelectOrNavigateVersification.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-			this.m_lblSelectOrNavigateVersification.ForeColor = System.Drawing.Color.White;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblSelectOrNavigateVersification, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblSelectOrNavigateVersification, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblSelectOrNavigateVersification, "DialogBoxes.ProjectMetadataDlg.ProjectMetadataDlg.m_lblSelectOrNavigateVersificat" +
-        "ion");
-			this.m_lblSelectOrNavigateVersification.Location = new System.Drawing.Point(3, 402);
-			this.m_lblSelectOrNavigateVersification.Name = "m_lblSelectOrNavigateVersification";
-			this.m_lblSelectOrNavigateVersification.Size = new System.Drawing.Size(92, 18);
-			this.m_lblSelectOrNavigateVersification.TabIndex = 17;
-			this.m_lblSelectOrNavigateVersification.Text = "Versification:";
-			// 
-			// m_cboVersification
-			// 
-			this.m_cboVersification.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_cboVersification.FormattingEnabled = true;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_cboVersification, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_cboVersification, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_cboVersification, "DialogBoxes.ProjectMetadataDlg.comboBox1");
-			this.m_cboVersification.Location = new System.Drawing.Point(216, 405);
-			this.m_cboVersification.Name = "m_cboVersification";
-			this.m_cboVersification.Size = new System.Drawing.Size(278, 21);
-			this.m_cboVersification.TabIndex = 18;
 			// 
 			// ProjectMetadataDlg
 			// 
@@ -550,9 +551,9 @@
 		private System.Windows.Forms.Label m_lblWritingSystem;
 		private System.Windows.Forms.Label m_lblWsSeparator;
 		private System.Windows.Forms.Panel m_panelVersificationLabelAndSeparator;
-		private System.Windows.Forms.Label m_lblVersification;
+		private System.Windows.Forms.Label m_lblScripture;
 		private System.Windows.Forms.Label m_label;
-		private System.Windows.Forms.Label m_lblSelectOrNavigateVersification;
-		private System.Windows.Forms.ComboBox m_cboVersification;
+		private System.Windows.Forms.Label m_lblVersification;
+		private System.Windows.Forms.TextBox m_txtVersification;
 	}
 }

@@ -126,7 +126,7 @@ namespace ProtoScript
 			var metadata = new DblMetadata
 			{
 				id = projectId,
-				PgRecordingProjectName = recordingProjectName,
+				//PgRecordingProjectName = recordingProjectName,
 				identification = new DblMetadataIdentification { name = publicationName },
 				language = new DblMetadataLanguage { iso = isoCode, name = languageName, scriptDirection = wsModel.CurrentRightToLeftScript ? "RTL" : "LTR" },
 				AvailableBooks = availableBooks,

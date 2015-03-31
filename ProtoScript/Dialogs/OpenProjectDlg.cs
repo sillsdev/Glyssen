@@ -47,30 +47,24 @@ namespace ProtoScript.Dialogs
 			m_listExistingProjects.Items.Clear();
 			m_existingProjectPaths.Clear();
 			DblMetadata itemToSelect = null;
-			foreach (var languageFolder in Directory.GetDirectories(Project.ProjectsBaseFolder))
+			foreach (var recordingProjectFolder in Project.AllRecordingProjectFolders)
 			{
-				foreach (var publicationFolder in Directory.GetDirectories(languageFolder))
+				// TODO (PG-169): Enhance display to distinguish between multiple recording projects for a particular publication.
+				var path = Directory.GetFiles(recordingProjectFolder, "*" + Project.kProjectFileExtension).FirstOrDefault();
+				if (path != null)
 				{
-					foreach (var recordingProjectFolder in Directory.GetDirectories(publicationFolder))
-					{
-						// TODO (PG-169): Enhance display to distinguish between multiple recording projects for a particular publication.
-						var path = Directory.GetFiles(recordingProjectFolder, "*" + Project.kProjectFileExtension).FirstOrDefault();
-						if (path != null)
-						{
-							Exception exception;
-							var metadata = DblMetadata.Load(path, out exception);
-							if (exception != null)
-								continue;
-							if (metadata.HiddenByDefault)
-								continue;
+					Exception exception;
+					var metadata = DblMetadata.Load(path, out exception);
+					if (exception != null)
+						continue;
+					if (metadata.HiddenByDefault)
+						continue;
 
-							m_listExistingProjects.Items.Add(metadata);
-							m_existingProjectPaths.Add(path);
+					m_listExistingProjects.Items.Add(metadata);
+					m_existingProjectPaths.Add(path);
 
-							if (m_currentProject != null && m_currentProject.Id == metadata.id)
-								itemToSelect = metadata;
-						}
-					}
+					if (m_currentProject != null && m_currentProject.Id == metadata.id)
+						itemToSelect = metadata;
 				}
 			}
 			if (itemToSelect != null)

@@ -64,7 +64,6 @@ namespace ProtoScript.Dialogs
 			Disposed += AssignCharacterDialog_Disposed;
 
 			m_scriptureReference.VerseControl.AllowVerseSegments = false;
-			// TODO (PG-117): Set versification according to project
 			m_scriptureReference.VerseControl.Versification = m_viewModel.Versification;
 			m_scriptureReference.VerseControl.VerseRefChanged += m_scriptureReference_VerseRefChanged;
 			m_scriptureReference.VerseControl.Disposed += (sender, args) =>

@@ -121,12 +121,12 @@ namespace ProtoScript
 						case OpenProjectDlg.ProjectType.TextReleaseBundle:
 							LoadBundle(dlg.SelectedProject);
 							break;
-						case OpenProjectDlg.ProjectType.StandardFormatBook:
-							LoadSfmBook(dlg.SelectedProject);
-							break;
-						case OpenProjectDlg.ProjectType.StandardFormatFolder:
-							LoadSfmFolder(dlg.SelectedProject);
-							break;
+						//case OpenProjectDlg.ProjectType.StandardFormatBook:
+							//LoadSfmBook(dlg.SelectedProject);
+							//break;
+						//case OpenProjectDlg.ProjectType.StandardFormatFolder:
+							//LoadSfmFolder(dlg.SelectedProject);
+							//break;
 						default:
 							MessageBox.Show("Sorry - not implemented yet");
 							break;
@@ -359,9 +359,8 @@ namespace ProtoScript
 
 		private void m_btnSettings_Click(object sender, EventArgs e)
 		{
-			bool readOnly = File.Exists(m_project.OriginalPathOfDblFile);
 			var model = new ProjectMetadataViewModel(m_project);
-			using (var dlg = new ProjectMetadataDlg(model, false, readOnly))
+			using (var dlg = new ProjectMetadataDlg(model))
 			{
 				if (dlg.ShowDialog() == DialogResult.Cancel)
 					return;

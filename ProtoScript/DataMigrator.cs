@@ -1,8 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 using L10NSharp;
 using ProtoScript.Bundle;
+using ProtoScript.Properties;
+using SIL.Windows.Forms.FileSystem;
 
 namespace ProtoScript
 {
@@ -26,41 +29,72 @@ namespace ProtoScript
 			switch (info.DataVersion)
 			{
 				case 0:
-					foreach (var languageFolder in Directory.GetDirectories(Project.ProjectsBaseFolder))
+					foreach (var publicationFolder in Project.AllPublicationFolders)
 					{
-						foreach (var publicationFolder in Directory.GetDirectories(languageFolder))
-						{
-							var filesToMove = Directory.GetFiles(publicationFolder);
-							if (!filesToMove.Any())
-								continue;
+						var filesToMove = Directory.GetFiles(publicationFolder);
+						if (!filesToMove.Any())
+							continue;
 
-							var projectFilePath = Directory.GetFiles(publicationFolder, "*" + Project.kProjectFileExtension).FirstOrDefault();
+						var projectFilePath = Directory.GetFiles(publicationFolder, "*" + Project.kProjectFileExtension).FirstOrDefault();
+						if (projectFilePath != null)
+						{
+							Exception exception;
+							var metadata = DblMetadata.Load(projectFilePath, out exception);
+							string recordingProjectName;
+							if (exception != null)
+							{
+								// Just add a directory layer and don't worry about it for now.
+								recordingProjectName = Path.GetFileName(publicationFolder);
+							}
+							else
+							{
+								if (metadata.identification != null && !string.IsNullOrEmpty(metadata.identification.name))
+									recordingProjectName = metadata.identification.name;
+								else
+									recordingProjectName = metadata.id;
+							}
+							recordingProjectName = Project.GetDefaultRecordingProjectName(recordingProjectName);
+							var recordingProjectFolder = Path.Combine(publicationFolder, recordingProjectName);
+							Directory.CreateDirectory(recordingProjectFolder);
+							foreach (var file in filesToMove)
+								File.Move(file, Path.Combine(recordingProjectFolder, Path.GetFileName(file)));
+							if (Properties.Settings.Default.CurrentProject == projectFilePath)
+							{
+								Properties.Settings.Default.CurrentProject = Path.Combine(recordingProjectFolder,
+									Path.GetFileName(projectFilePath));
+							}
+						}
+					}
+					goto case 1;
+				case 1:
+					foreach (var recordingProjectFolder in Project.AllRecordingProjectFolders.ToList())
+					{
+						var versificationPath = Path.Combine(recordingProjectFolder, Project.kVersificationFileName);
+						if (!File.Exists(versificationPath))
+						{
+							var projectFilePath = Directory.GetFiles(recordingProjectFolder, "*" + Project.kProjectFileExtension).FirstOrDefault();
+ 
 							if (projectFilePath != null)
 							{
-								Exception exception;
-								var metadata = DblMetadata.Load(projectFilePath, out exception);
-								string recordingProjectName;
-								if (exception != null)
+								if (projectFilePath.Equals(Project.SampleProjectFilePath, StringComparison.OrdinalIgnoreCase))
 								{
-									// Just add a directory layer and don't worry about it for now.
-									recordingProjectName = Path.GetFileName(publicationFolder);
+									File.WriteAllText(versificationPath, Resources.EnglishVersification);
 								}
 								else
 								{
-									if (metadata.identification != null && !string.IsNullOrEmpty(metadata.identification.name))
-										recordingProjectName = metadata.identification.name;
+									Exception exception;
+									var metadata = DblMetadata.Load(projectFilePath, out exception);
+									var origBundlePath = metadata.OriginalPathOfDblFile;
+									if (string.IsNullOrEmpty(origBundlePath))
+									{
+										ConfirmRecycleDialog.ConfirmThenRecycle(string.Format("Standard format project \"{0}\"",
+											recordingProjectFolder), recordingProjectFolder);
+									}
 									else
-										recordingProjectName = metadata.id;
-								}
-								recordingProjectName = Project.GetDefaultRecordingProjectName(recordingProjectName);
-								var recordingProjectFolder = Path.Combine(publicationFolder, recordingProjectName);
-								Directory.CreateDirectory(recordingProjectFolder);
-								foreach (var file in filesToMove)
-									File.Move(file, Path.Combine(recordingProjectFolder, Path.GetFileName(file)));
-								if (Properties.Settings.Default.CurrentProject == projectFilePath)
-								{
-									Properties.Settings.Default.CurrentProject = Path.Combine(recordingProjectFolder,
-										Path.GetFileName(projectFilePath));
+									{
+										var bundle = new Bundle.Bundle(origBundlePath);
+										bundle.CopyVersificationFile(versificationPath);
+									}
 								}
 							}
 						}

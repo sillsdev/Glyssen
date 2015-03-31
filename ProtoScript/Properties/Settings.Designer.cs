@@ -155,7 +155,7 @@ namespace ProtoScript.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
         public int DataFormatVersion {
             get {
                 return ((int)(this["DataFormatVersion"]));

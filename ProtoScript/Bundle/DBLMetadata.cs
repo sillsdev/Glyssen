@@ -25,10 +25,10 @@ namespace ProtoScript.Bundle
 	[XmlRoot("DBLMetadata")]
 	public class DblMetadata : DblMetadataBase
 	{
-		/// <summary>This is only needed as a temporary place to store the recording project name when the user metadata
-		/// is created for a project that does not have a bundle - this can go away if we stop supporting those.</summary>
-		[XmlIgnore]
-		public string PgRecordingProjectName;
+		///// <summary>This is only needed as a temporary place to store the recording project name when the user metadata
+		///// is created for a project that does not have a bundle - this can go away if we stop supporting those.</summary>
+		//[XmlIgnore]
+		//public string PgRecordingProjectName;
 
 		/// <summary>This is not part of the original DBL metadata. We add this when we parse the USX to create
 		/// a script. If significant changes to the parser are made and the parser version in the program does
