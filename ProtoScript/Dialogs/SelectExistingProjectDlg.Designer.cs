@@ -84,6 +84,7 @@
 			this.m_listExistingProjects.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_listExistingProjects.IncludeHiddenProjects = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_listExistingProjects, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_listExistingProjects, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_listExistingProjects, L10NSharp.LocalizationPriority.NotLocalizable);

@@ -292,14 +292,7 @@ namespace ProtoScript
 		{
 			get
 			{
-				var sb = new StringBuilder();
-				foreach (var level in QuoteSystem.NormalLevels)
-					sb.Append(level.Open).Append(" ").Append(level.Continue).Append(" ").Append(level.Close).Append(" / ");
-				sb.Length -= 3;
-				if (!string.IsNullOrEmpty(QuoteSystem.QuotationDashMarker))
-					sb.Append(" / ").Append(QuoteSystem.QuotationDashMarker);
-				if (!string.IsNullOrEmpty(QuoteSystem.QuotationDashEndMarker))
-					sb.Append(" ").Append(QuoteSystem.QuotationDashEndMarker);
+				var sb = new StringBuilder(QuoteSystem.ToString());
 				sb.Append(", ").Append(FontFamily);
 				sb.Append(", ").Append(FontSizeInPoints).Append(LocalizationManager.GetString("WritingSystem.Points", "pt", "Units appended to font size to represent points"));
 				sb.Append(", ").Append(RightToLeftScript ? LocalizationManager.GetString("WritingSystem.RightToLeft", "Right-to-left", "Describes a writing system") :

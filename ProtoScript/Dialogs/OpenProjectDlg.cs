@@ -20,6 +20,7 @@ namespace ProtoScript.Dialogs
 		}
 
 		private readonly Project m_currentProject;
+
 		public OpenProjectDlg(Project currentProject, bool welcome = false)
 		{
 			m_currentProject = currentProject;
@@ -27,6 +28,7 @@ namespace ProtoScript.Dialogs
 			if (welcome)
 				ShowInTaskbar = true;
 			m_listExistingProjects.SelectedProject = m_currentProject.ProjectFilePath;
+			m_listExistingProjects.AddReadOnlyProject(m_currentProject);
 		}
 
 		[DefaultValue(ProjectType.ExistingProject)]
@@ -130,10 +132,10 @@ namespace ProtoScript.Dialogs
 		private void HandleSelectedProjectChanged(object sender, EventArgs e)
 		{
 			SelectedProject = m_listExistingProjects.SelectedProject;
-			m_linkRemoveProject.Enabled = m_btnOk.Enabled = SelectedProject != null;
+			m_btnOk.Enabled = SelectedProject != null;
 		}
 
-		private void m_listExistingProjects_DoubleClick(object sender, EventArgs e)
+		private void HandleExistingProjectsDoubleClick(object sender, EventArgs e)
 		{
 			if (m_btnOk.Enabled)
 			{
@@ -142,19 +144,14 @@ namespace ProtoScript.Dialogs
 			}
 		}
 
-		private void m_linkRemoveProject_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		private void HandleShowHiddenProjectsCheckedChanged(object sender, EventArgs e)
 		{
-			if (m_listExistingProjects.SelectedProject == null)
-				return;
-			if (m_currentProject != null && m_currentProject.ProjectFilePath == m_listExistingProjects.SelectedProject)
-			{
-				string title = LocalizationManager.GetString("Project.CannotRemoveCaption", "Cannot Remove from List");
-				string msg = LocalizationManager.GetString("Project.CannotRemove", "Cannot remove the selected project because it is currently open");
-				MessageBox.Show(msg, title);
-				return;
-			}
-			Project.SetHiddenFlag(m_listExistingProjects.SelectedProject, true);
-			m_listExistingProjects.LoadExistingProjects();
+			m_listExistingProjects.IncludeHiddenProjects = m_chkShowInactiveProjects.Checked;
+		}
+
+		private void HandleExistingProjectsListLoaded(object sender, EventArgs e)
+		{
+			m_chkShowInactiveProjects.Visible = m_listExistingProjects.HiddenProjectsExist;
 		}
 	}
 }

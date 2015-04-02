@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using L10NSharp;
 using ProtoScript.Bundle;
 
 namespace ProtoScript.Controls
@@ -10,10 +12,14 @@ namespace ProtoScript.Controls
 	public partial class ExistingProjectsList : UserControl
 	{
 		public event EventHandler SelectedProjectChanged;
+		public event EventHandler ListLoaded;
 
 		private string m_selectedProject;
 		private string m_filterIcuLocale;
 		private string m_filterBundleId;
+		private bool m_includeHiddenProjects;
+		private bool m_hiddenProjectsExist;
+		private List<string> m_readOnlyProjects = new List<string>();
 
 		public ExistingProjectsList()
 		{
@@ -40,6 +46,29 @@ namespace ProtoScript.Controls
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+		public void AddReadOnlyProject(Project project)
+		{
+			m_readOnlyProjects.Add(project.ProjectFilePath);
+		}
+
+		public bool IncludeHiddenProjects
+		{
+			get { return m_includeHiddenProjects; }
+			set
+			{
+				m_includeHiddenProjects = value;
+				if (IsHandleCreated)
+					LoadExistingProjects();
+			}
+		}
+
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+		public bool HiddenProjectsExist
+		{
+			get { return m_hiddenProjectsExist; }
+		}
+
 		protected override void OnLoad(EventArgs e)
 		{
 			base.OnLoad(e);
@@ -48,7 +77,12 @@ namespace ProtoScript.Controls
 
 		public void LoadExistingProjects()
 		{
-			m_list.SelectionChanged -= m_list_SelectionChanged;
+			m_list.SelectionChanged -= HandleSelectionChanged;
+			m_list.CellValuePushed -= HandleCellValuePushed;
+			m_list.CellValidating -= HandleCellValidating;
+
+			m_list.Rows.Clear();
+			m_hiddenProjectsExist = false;
 			foreach (var recordingProjectFolder in Project.AllRecordingProjectFolders)
 			{
 				var path = Directory.GetFiles(recordingProjectFolder, "*" + Project.kProjectFileExtension).FirstOrDefault();
@@ -59,7 +93,11 @@ namespace ProtoScript.Controls
 					if (exception != null)
 						continue;
 					if (metadata.HiddenByDefault)
-						continue;
+					{
+						m_hiddenProjectsExist = true;
+						if (!IncludeHiddenProjects)
+							continue;
+					}
 
 					if ((m_filterIcuLocale != null && m_filterIcuLocale != metadata.language.iso) ||
 						(m_filterBundleId != null && m_filterBundleId != metadata.id))
@@ -70,6 +108,7 @@ namespace ProtoScript.Controls
 						metadata.language,
 						Path.GetFileName(recordingProjectFolder),
 						Path.GetFileName(metadata.OriginalPathOfDblFile),
+						metadata.HiddenByDefault,
 						path
 					});
 
@@ -77,7 +116,15 @@ namespace ProtoScript.Controls
 						m_list.Rows[iRow].Selected = true;
 				}
 			}
-			m_list.SelectionChanged += m_list_SelectionChanged;
+
+			m_list.Sort(m_list.SortedColumn ?? colLanguage,
+				m_list.SortOrder == SortOrder.Descending ? ListSortDirection.Descending : ListSortDirection.Ascending);
+			m_list.SelectionChanged += HandleSelectionChanged;
+			m_list.CellValuePushed += HandleCellValuePushed;
+			m_list.CellValidating += HandleCellValidating;
+
+			if (ListLoaded != null)
+				ListLoaded(this, new EventArgs());
 		}
 
 		public void SetFilter(string icuLocale, string bundleId)
@@ -88,7 +135,7 @@ namespace ProtoScript.Controls
 				LoadExistingProjects();
 		}
 
-		private void m_list_SelectionChanged(object sender, EventArgs e)
+		private void HandleSelectionChanged(object sender, EventArgs e)
 		{
 			if (DesignMode || m_list.SelectedRows.Count < 1 || m_list.SelectedRows[0].Index < 0)
 				SelectedProject = null;
@@ -99,9 +146,34 @@ namespace ProtoScript.Controls
 				SelectedProjectChanged(this, new EventArgs());
 		}
 
-		private void m_list_DoubleClick(object sender, EventArgs e)
+		private void HandleDoubleClick(object sender, EventArgs e)
 		{
 			OnDoubleClick(new EventArgs());
+		}
+
+		private void HandleCellValuePushed(object sender, DataGridViewCellValueEventArgs e)
+		{
+			if (e.ColumnIndex != colInactive.Index)
+				throw new InvalidOperationException("Unexpected change in read-only column!");
+
+			var row = m_list.Rows[e.RowIndex];
+			var inactive = (bool)row.Cells[e.ColumnIndex].Value;
+
+			Project.SetHiddenFlag(SelectedProject, inactive);
+		}
+
+		private void HandleCellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+		{
+			if (e.ColumnIndex != colInactive.Index)
+				return;
+
+			if (m_readOnlyProjects.Contains(m_list.Rows[e.RowIndex].Cells[colProjectPath.Index].Value))
+			{
+				string title = LocalizationManager.GetString("Project.CannotRemoveCaption", "Cannot Remove from List");
+				string msg = LocalizationManager.GetString("Project.CannotRemove", "Cannot remove the selected project because it is currently open");
+				MessageBox.Show(msg, title);
+				e.Cancel = true;
+			}
 		}
 	}
 }

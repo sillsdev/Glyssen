@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 using ProtoScript.Properties;
@@ -215,7 +216,16 @@ namespace ProtoScript.Quote
 
 		public override string ToString()
 		{
-			return FirstLevel.Open + "  " + FirstLevel.Close;
+			var sb = new StringBuilder();
+			foreach (var level in NormalLevels)
+				sb.Append(level.Open).Append(" ").Append(level.Continue).Append(" ").Append(level.Close).Append(" / ");
+			if (sb.Length >= 3)
+				sb.Length -= 3;
+			if (!string.IsNullOrEmpty(QuotationDashMarker))
+				sb.Append(" / ").Append(QuotationDashMarker);
+			if (!string.IsNullOrEmpty(QuotationDashEndMarker))
+				sb.Append(" ").Append(QuotationDashEndMarker);
+			return sb.ToString();
 		}
 
 		#region Equals methods overrides

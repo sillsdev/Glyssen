@@ -33,6 +33,7 @@
 			this.colLanguage = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colRecordingProjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colBundleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colInactive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.colProjectPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.m_list)).BeginInit();
 			this.SuspendLayout();
@@ -62,6 +63,7 @@
             this.colLanguage,
             this.colRecordingProjectName,
             this.colBundleName,
+            this.colInactive,
             this.colProjectPath});
 			this.m_list.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_list.DrawTextBoxEditControlBorder = false;
@@ -73,7 +75,6 @@
 			this.m_list.Name = "m_list";
 			this.m_list.PaintFullRowFocusRectangle = true;
 			this.m_list.PaintHeaderAcrossFullGridWidth = true;
-			this.m_list.ReadOnly = true;
 			this.m_list.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			this.m_list.RowHeadersVisible = false;
 			this.m_list.RowHeadersWidth = 22;
@@ -88,7 +89,7 @@
 			this.m_list.TabIndex = 0;
 			this.m_list.TextBoxEditControlBorderColor = System.Drawing.Color.Silver;
 			this.m_list.WaterMark = "!";
-			this.m_list.DoubleClick += new System.EventHandler(this.m_list_DoubleClick);
+			this.m_list.DoubleClick += new System.EventHandler(this.HandleDoubleClick);
 			// 
 			// colLanguage
 			// 
@@ -112,6 +113,14 @@
 			this.colBundleName.HeaderText = "Original Bundle Filename";
 			this.colBundleName.Name = "colBundleName";
 			this.colBundleName.ReadOnly = true;
+			// 
+			// colInactive
+			// 
+			this.colInactive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.colInactive.HeaderText = "Inactive";
+			this.colInactive.Name = "colInactive";
+			this.colInactive.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.colInactive.Width = 73;
 			// 
 			// colProjectPath
 			// 
@@ -140,6 +149,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn colLanguage;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colRecordingProjectName;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colBundleName;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn colInactive;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colProjectPath;
 	}
 }
