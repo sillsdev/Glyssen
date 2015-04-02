@@ -211,24 +211,10 @@ namespace ProtoScript.Bundle
 		{
 			if (language.iso == "sample")
 				return id;
-			string languagePart;
-			if (string.IsNullOrEmpty(language.name))
-				languagePart = language.iso;
-			else
-				languagePart = string.Format("{0} ({1})", language.name, language.iso);
 
-			string identificationPart;
-			if (identification == null)
-				identificationPart = id;
-			else
-			{
-				if (identification.nameLocal == identification.name)
-					identificationPart = identification.nameLocal;
-				else
-					identificationPart = String.Format("{0} ({1})", identification.nameLocal, identification.name);
-			}
+			string identificationPart = identification == null ? id : identification.ToString();
 
-			return String.Format("{0} - {1}", languagePart, identificationPart);
+			return String.Format("{0} - {1}", language, identificationPart);
 		}
 	}
 
@@ -247,6 +233,11 @@ namespace ProtoScript.Bundle
 
 		[XmlElement("systemId")]
 		public HashSet<DblMetadataSystemId> systemIds;
+
+		public override string ToString()
+		{
+			return nameLocal == name ? nameLocal : String.Format("{0} ({1})", nameLocal, name);
+		}
 	}
 
 	public class DblMetadataLanguage
@@ -289,7 +280,7 @@ namespace ProtoScript.Bundle
 
 		public override string ToString()
 		{
-			return iso;
+			return string.IsNullOrEmpty(name) ? iso : string.Format("{0} ({1})", name, iso);
 		}
 	}
 

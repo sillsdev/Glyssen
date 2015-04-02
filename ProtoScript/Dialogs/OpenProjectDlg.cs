@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 using L10NSharp;
 using Microsoft.Win32;
-using ProtoScript.Bundle;
 using ProtoScript.Properties;
 
 namespace ProtoScript.Dialogs
@@ -21,7 +19,6 @@ namespace ProtoScript.Dialogs
 			StandardFormatBook,
 		}
 
-		private readonly List<string> m_existingProjectPaths = new List<string>();
 		private readonly Project m_currentProject;
 		public OpenProjectDlg(Project currentProject, bool welcome = false)
 		{
@@ -29,47 +26,13 @@ namespace ProtoScript.Dialogs
 			InitializeComponent();
 			if (welcome)
 				ShowInTaskbar = true;
+			m_listExistingProjects.SelectedProject = m_currentProject.ProjectFilePath;
 		}
 
+		[DefaultValue(ProjectType.ExistingProject)]
 		public ProjectType Type { get; private set; }
 
 		public string SelectedProject { get; private set; }
-
-		protected override void OnLoad(EventArgs e)
-		{
-			base.OnLoad(e);
-			LoadExistingProjects();
-		}
-
-		private void LoadExistingProjects()
-		{
-			m_listExistingProjects.SelectedIndex = -1;
-			m_listExistingProjects.Items.Clear();
-			m_existingProjectPaths.Clear();
-			DblMetadata itemToSelect = null;
-			foreach (var recordingProjectFolder in Project.AllRecordingProjectFolders)
-			{
-				// TODO (PG-169): Enhance display to distinguish between multiple recording projects for a particular publication.
-				var path = Directory.GetFiles(recordingProjectFolder, "*" + Project.kProjectFileExtension).FirstOrDefault();
-				if (path != null)
-				{
-					Exception exception;
-					var metadata = DblMetadata.Load(path, out exception);
-					if (exception != null)
-						continue;
-					if (metadata.HiddenByDefault)
-						continue;
-
-					m_listExistingProjects.Items.Add(metadata);
-					m_existingProjectPaths.Add(path);
-
-					if (m_currentProject != null && m_currentProject.Id == metadata.id)
-						itemToSelect = metadata;
-				}
-			}
-			if (itemToSelect != null)
-				m_listExistingProjects.SelectedItem = itemToSelect;
-		}
 
 		private void m_linkTextReleaseBundle_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
@@ -164,39 +127,34 @@ namespace ProtoScript.Dialogs
 			}
 		}
 
-		private void m_listExistingProjects_SelectedIndexChanged(object sender, EventArgs e)
+		private void HandleSelectedProjectChanged(object sender, EventArgs e)
 		{
-			m_btnOk.Enabled = m_listExistingProjects.SelectedIndex >= 0;
-			m_linkRemoveProject.Enabled = m_listExistingProjects.SelectedIndex >= 0;
-		}
-
-		private void m_btnOk_Click(object sender, EventArgs e)
-		{
-			Type = ProjectType.ExistingProject;
-			SelectedProject = m_existingProjectPaths[m_listExistingProjects.SelectedIndex];
+			SelectedProject = m_listExistingProjects.SelectedProject;
+			m_linkRemoveProject.Enabled = m_btnOk.Enabled = SelectedProject != null;
 		}
 
 		private void m_listExistingProjects_DoubleClick(object sender, EventArgs e)
 		{
-			Type = ProjectType.ExistingProject;
-			SelectedProject = m_existingProjectPaths[m_listExistingProjects.SelectedIndex];
-			DialogResult = DialogResult.OK;
-			Close();
+			if (m_btnOk.Enabled)
+			{
+				DialogResult = DialogResult.OK;
+				Close();
+			}
 		}
 
 		private void m_linkRemoveProject_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			if (m_listExistingProjects.SelectedIndex < 0)
+			if (m_listExistingProjects.SelectedProject == null)
 				return;
-			if (m_currentProject != null && m_currentProject.Id == ((DblMetadata)m_listExistingProjects.SelectedItem).id)
+			if (m_currentProject != null && m_currentProject.ProjectFilePath == m_listExistingProjects.SelectedProject)
 			{
 				string title = LocalizationManager.GetString("Project.CannotRemoveCaption", "Cannot Remove from List");
 				string msg = LocalizationManager.GetString("Project.CannotRemove", "Cannot remove the selected project because it is currently open");
 				MessageBox.Show(msg, title);
 				return;
 			}
-			Project.SetHiddenFlag(m_existingProjectPaths[m_listExistingProjects.SelectedIndex], true);
-			LoadExistingProjects();
+			Project.SetHiddenFlag(m_listExistingProjects.SelectedProject, true);
+			m_listExistingProjects.LoadExistingProjects();
 		}
 	}
 }

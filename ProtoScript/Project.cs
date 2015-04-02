@@ -60,7 +60,7 @@ namespace ProtoScript
 			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath);
 		}
 
-		public Project(Bundle.Bundle bundle) : this(bundle.Metadata)
+		public Project(Bundle.Bundle bundle, string recordingProjectName = null) : this(bundle.Metadata, recordingProjectName)
 		{
 			Directory.CreateDirectory(ProjectFolder);
 			bundle.CopyVersificationFile(VersificationFilePath);
@@ -596,14 +596,24 @@ namespace ProtoScript
 			return Path.Combine(GetProjectFolderPath(langId, publicationId, recordingProjectId), langId + kProjectFileExtension);
 		}
 
+		public static string GetDefaultProjectFilePath(Bundle.Bundle bundle)
+		{
+			return GetProjectFilePath(bundle.Language, bundle.Id, GetDefaultRecordingProjectName(bundle));
+		}
+
 		public static string GetProjectFolderPath(string langId, string publicationId, string recordingProjectId)
 		{
 			return Path.Combine(ProjectsBaseFolder, langId, publicationId, recordingProjectId);
 		}
 
+		public static string GetPublicationFolderPath(Bundle.Bundle bundle)
+		{
+			return Path.Combine(ProjectsBaseFolder, bundle.Language, bundle.Id);
+		}
+
 		public string ProjectFilePath
 		{
-			get { return GetProjectFilePath(m_metadata.language.ToString(), m_metadata.id, m_recordingProjectName); }
+			get { return GetProjectFilePath(m_metadata.language.iso, m_metadata.id, m_recordingProjectName); }
 		}
 
 		private string ProjectCharacterVerseDataPath
@@ -618,7 +628,7 @@ namespace ProtoScript
 
 		private string ProjectFolder
 		{
-			get { return GetProjectFolderPath(m_metadata.language.ToString(), m_metadata.id, m_recordingProjectName); }
+			get { return GetProjectFolderPath(m_metadata.language.iso, m_metadata.id, m_recordingProjectName); }
 		}
 
 		public void Analyze()
@@ -837,6 +847,11 @@ namespace ProtoScript
 		internal static string GetDefaultRecordingProjectName(string publicationName)
 		{
 			return String.Format("{0} {1}", publicationName, LocalizationManager.GetString("RecordingProjectDefaultSuffix", "Audio"));
+		}
+
+		internal static string GetDefaultRecordingProjectName(Bundle.Bundle bundle)
+		{
+			return GetDefaultRecordingProjectName(bundle.Metadata.identification.name);
 		}
 	}
 

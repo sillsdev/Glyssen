@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using L10NSharp;
@@ -174,19 +175,31 @@ namespace ProtoScript
 				return;
 			}
 
-			// See if we already have a project for this bundle and open it instead.
-			// TODO (PG-169): Give option of opening existing project or creating new one
-			var projFilePath = Project.GetProjectFilePath(bundle.Language, bundle.Id, Project.GetDefaultRecordingProjectName(bundle.Metadata.identification.name));
+			string projFilePath;
+			// See if we already have project(s) for this bundle and give the user the option of opening an existing project instead.
+			var publicationFolder = Project.GetPublicationFolderPath(bundle);
+			if (Directory.GetDirectories(publicationFolder).Any(f => Directory.GetFiles(f, "*" + Project.kProjectFileExtension).Any()))
+			{
+				using (var dlg = new SelectExistingProjectDlg(bundle))
+				{
+					dlg.ShowDialog(this);
+					projFilePath = dlg.SelectedProject;
+				}
+			}
+			else
+				projFilePath = Project.GetDefaultProjectFilePath(bundle);
+			
 			if (File.Exists(projFilePath))
 			{
 				LoadProject(projFilePath);
 				return;
 			}
 
+			var recordingProjectName = Path.GetFileName(Path.GetDirectoryName(projFilePath));
 			Versification.Table.HandleVersificationLineError = null;
 			try
 			{
-				SetProject(new Project(bundle));
+				SetProject(new Project(bundle, recordingProjectName));
 			}
 			catch (InvalidVersificationLineException ex)
 			{

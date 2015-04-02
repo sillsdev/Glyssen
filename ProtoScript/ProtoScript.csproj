@@ -72,6 +72,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\NetLoc.dll</HintPath>
     </Reference>
+    <Reference Include="Palaso, Version=2.6.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2" />
+    <Reference Include="PalasoUIWindowsForms, Version=2.6.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\output\Debug\PalasoUIWindowsForms.dll</HintPath>
+    </Reference>
     <Reference Include="ParatextShared, Version=7.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\ParatextShared.dll</HintPath>
@@ -148,6 +153,12 @@
       <DependentUpon>Browser.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ControlExtensions.cs" />
+    <Compile Include="Controls\ExistingProjectsList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ExistingProjectsList.Designer.cs">
+      <DependentUpon>ExistingProjectsList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ProgressBarUnanimated.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -162,6 +173,12 @@
     </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
     <Compile Include="DataMigrator.cs" />
+    <Compile Include="Dialogs\SelectExistingProjectDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\SelectExistingProjectDlg.Designer.cs">
+      <DependentUpon>SelectExistingProjectDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProtoscriptGeneratorData.cs" />
     <Compile Include="Dialogs\AssignCharacterDialog.cs">
       <SubType>Form</SubType>
@@ -226,11 +243,17 @@
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ExistingProjectsList.resx">
+      <DependentUpon>ExistingProjectsList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ScriptBlocksViewer.resx">
       <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AssignCharacterDialog.resx">
       <DependentUpon>AssignCharacterDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\SelectExistingProjectDlg.resx">
+      <DependentUpon>SelectExistingProjectDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\OpenProjectDlg.resx">
       <DependentUpon>OpenProjectDlg.cs</DependentUpon>

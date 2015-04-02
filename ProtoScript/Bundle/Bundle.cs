@@ -122,8 +122,8 @@ namespace ProtoScript.Bundle
 					Environment.NewLine + m_pathToZippedBundle, exception);
 			}
 
-			m_dblMetadata.FontFamily = Stylesheet.FontFamily;
-			m_dblMetadata.FontSizeInPoints = Stylesheet.FontSizeInPoints;
+			m_dblMetadata.FontFamily = stylesheet.FontFamily;
+			m_dblMetadata.FontSizeInPoints = stylesheet.FontSizeInPoints;
 
 			return stylesheet;
 		}
@@ -150,7 +150,7 @@ namespace ProtoScript.Bundle
 
 		public string Language
 		{
-			get { return m_dblMetadata.language.ToString(); }
+			get { return m_dblMetadata.language.iso; }
 		}
 
 		public IDictionary<int, Canon> Canons
