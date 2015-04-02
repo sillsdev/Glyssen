@@ -10,7 +10,6 @@ using ProtoScript.Character;
 using SIL.ScriptureUtils;
 using ScrVers = Paratext.ScrVers;
 
-
 namespace ProtoScript.Dialogs
 {
 	[Flags]

@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using L10NSharp;
-using Paratext;
 using ProtoScript.Character;
 using ProtoScript.Properties;
+using ProtoScript.Utilities;
 using SIL.Reporting;
 using SIL.Xml;
-using Zip = ProtoScript.Utilities.Zip;
 
 namespace ProtoScript.Bundle
 {

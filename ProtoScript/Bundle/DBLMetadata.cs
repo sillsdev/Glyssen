@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
-using Paratext;
 using ProtoScript.Dialogs;
 using ProtoScript.Properties;
 using ProtoScript.Quote;

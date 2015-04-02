@@ -203,7 +203,7 @@ namespace ProtoScriptTests.Dialogs
 		[Test]
 		public void GetIndexOfClosestRelevantBlock_MinGreaterThanMax_ReturnsNegative1()
 		{
-			Assert.AreEqual(-1, AssignCharacterViewModel.GetIndexOfClosestRelevantBlock(
+			Assert.AreEqual(-1, BlockNavigatorViewModel.GetIndexOfClosestRelevantBlock(
 				new List<BookBlockIndices>(), new BookBlockIndices(1, 2), true, 1, 0));
 		}
 
@@ -218,7 +218,7 @@ namespace ProtoScriptTests.Dialogs
 			relevantBlocks.Add(new BookBlockIndices(2, 8));
 			relevantBlocks.Add(new BookBlockIndices(2, 14));
 			relevantBlocks.Add(new BookBlockIndices(3, 2));
-			Assert.AreEqual(4, AssignCharacterViewModel.GetIndexOfClosestRelevantBlock(
+			Assert.AreEqual(4, BlockNavigatorViewModel.GetIndexOfClosestRelevantBlock(
 				relevantBlocks, new BookBlockIndices(2, 10), true, 0, relevantBlocks.Count - 1));
 		}
 
@@ -228,7 +228,7 @@ namespace ProtoScriptTests.Dialogs
 			var relevantBlocks = new List<BookBlockIndices>();
 			relevantBlocks.Add(new BookBlockIndices(2, 14));
 			relevantBlocks.Add(new BookBlockIndices(3, 2));
-			Assert.AreEqual(-1, AssignCharacterViewModel.GetIndexOfClosestRelevantBlock(
+			Assert.AreEqual(-1, BlockNavigatorViewModel.GetIndexOfClosestRelevantBlock(
 				relevantBlocks, new BookBlockIndices(1, 3), true, 0, relevantBlocks.Count - 1));
 		}
 
@@ -243,7 +243,7 @@ namespace ProtoScriptTests.Dialogs
 			relevantBlocks.Add(new BookBlockIndices(2, 8));
 			relevantBlocks.Add(new BookBlockIndices(2, 14));
 			relevantBlocks.Add(new BookBlockIndices(3, 2));
-			Assert.AreEqual(2, AssignCharacterViewModel.GetIndexOfClosestRelevantBlock(
+			Assert.AreEqual(2, BlockNavigatorViewModel.GetIndexOfClosestRelevantBlock(
 				relevantBlocks, new BookBlockIndices(1, 21), false, 0, relevantBlocks.Count - 1));
 		}
 
@@ -258,7 +258,7 @@ namespace ProtoScriptTests.Dialogs
 			relevantBlocks.Add(new BookBlockIndices(2, 8));
 			relevantBlocks.Add(new BookBlockIndices(2, 14));
 			relevantBlocks.Add(new BookBlockIndices(3, 2));
-			Assert.AreEqual(-1, AssignCharacterViewModel.GetIndexOfClosestRelevantBlock(
+			Assert.AreEqual(-1, BlockNavigatorViewModel.GetIndexOfClosestRelevantBlock(
 				relevantBlocks, new BookBlockIndices(3, 3), false, 0, relevantBlocks.Count - 1));
 		}
 

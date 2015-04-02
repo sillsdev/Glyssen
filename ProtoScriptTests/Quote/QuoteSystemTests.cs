@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using Palaso.TestUtilities;
 using ProtoScript.Quote;
 using SIL.WritingSystems;
 using SIL.Xml;

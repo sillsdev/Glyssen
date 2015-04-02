@@ -1,6 +1,5 @@
 ﻿using System.Xml;
 using NUnit.Framework;
-using ProtoScript;
 using ProtoScript.Bundle;
 
 namespace ProtoScriptTests

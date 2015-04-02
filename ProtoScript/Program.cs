@@ -5,12 +5,10 @@ using System.Linq;
 using System.Windows.Forms;
 using L10NSharp;
 using L10NSharp.UI;
-using Paratext;
 using ProtoScript.Properties;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Windows.Forms.Reporting;
-using ConfigurationErrorsException = System.Configuration.ConfigurationErrorsException;
 
 namespace ProtoScript
 {
