@@ -21,14 +21,16 @@ namespace ProtoScript.Dialogs
 
 		private readonly Project m_currentProject;
 
-		public OpenProjectDlg(Project currentProject, bool welcome = false)
+		public OpenProjectDlg(Project currentProject)
 		{
 			m_currentProject = currentProject;
 			InitializeComponent();
-			if (welcome)
-				ShowInTaskbar = true;
-			m_listExistingProjects.SelectedProject = m_currentProject.ProjectFilePath;
-			m_listExistingProjects.AddReadOnlyProject(m_currentProject);
+
+			if (m_currentProject != null)
+			{
+				m_listExistingProjects.SelectedProject = m_currentProject.ProjectFilePath;
+				m_listExistingProjects.AddReadOnlyProject(m_currentProject);
+			}
 		}
 
 		[DefaultValue(ProjectType.ExistingProject)]
