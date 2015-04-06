@@ -114,11 +114,11 @@ namespace ProtoScript
 			ShowOpenProjectDialog();
 		}
 
-		private DialogResult ShowOpenProjectDialog(bool welcome = false)
+		private void ShowOpenProjectDialog()
 		{
 			Project.CreateSampleProjectIfNeeded();
 
-			using (var dlg = new OpenProjectDlg(m_project, welcome))
+			using (var dlg = new OpenProjectDlg(m_project))
 			{
 				var result = dlg.ShowDialog(this);
 				if (result == DialogResult.OK)
@@ -142,21 +142,15 @@ namespace ProtoScript
 							break;
 					}
 				}
-				return result;
 			}
 		}
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
 			if (string.IsNullOrEmpty(Settings.Default.CurrentProject) || !File.Exists(Settings.Default.CurrentProject))
-			{
-				if (ShowOpenProjectDialog(true) != DialogResult.OK)
-					Close();
-			}
+				SetProject(null);
 			else
-			{
 				LoadProject(Settings.Default.CurrentProject);
-			}
 		}
 
 		private void LoadProject(string filePath)
