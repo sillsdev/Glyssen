@@ -193,6 +193,10 @@ namespace ProtoScript.Bundle
 		[XmlArrayItem("book")]
 		public List<Book> AvailableBooks { get; set; }
 
+		[XmlArray("contents")]
+		[XmlArrayItem("bookList")]
+		public List<DblMetadataCanon> Canons { get; set; }
+
 		public string GetAsXml()
 		{
 			return XmlSerializationHelper.SerializeToString(this);
@@ -344,6 +348,35 @@ namespace ProtoScript.Bundle
 	{
 		public string dateArchived;
 		public string dateUpdated;
+	}
+
+	public class DblMetadataCanon
+	{
+		[XmlAttribute("default")]
+		public bool Default { get; set; }
+		[XmlAttribute("id")]
+		public string CanonId { get; set; }
+		[XmlElement("name")]
+		public string Name { get; set; }
+		[XmlElement("nameLocal")]
+		public string NameLocal { get; set; }
+		[XmlElement("abbreviation")]
+		public string Abbreviation { get; set; }
+		[XmlElement("abbreviationLocal")]
+		public string AbbreviationLocal { get; set; }
+		[XmlElement("description")]
+		public string Description { get; set; }
+		[XmlElement("descriptionLocal")]
+		public string DescriptionLocal { get; set; }
+		[XmlArray("books")]
+		[XmlArrayItem("book")]
+		public List<DblMetadataCanonBook> CanonBooks { get; set; }
+	}
+
+	public class DblMetadataCanonBook
+	{
+		[XmlAttribute("code")]
+		public string Code { get; set; }
 	}
 
 	public class Book

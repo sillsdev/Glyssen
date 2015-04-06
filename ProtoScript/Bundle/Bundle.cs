@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
+using System.Linq;
 using L10NSharp;
 using ProtoScript.Character;
 using ProtoScript.Properties;
@@ -15,7 +15,7 @@ namespace ProtoScript.Bundle
 	{
 		private readonly DblMetadata m_dblMetadata;
 		private readonly UsxStylesheet m_stylesheet;
-		private readonly IDictionary<int, Canon> m_canons = new Dictionary<int, Canon>();
+		private readonly IDictionary<string, UsxDocument> m_books = new Dictionary<string, UsxDocument>();
 		private readonly string m_pathToZippedBundle;
 		private string m_pathToUnzippedDirectory;
 
@@ -36,7 +36,7 @@ namespace ProtoScript.Bundle
 			m_dblMetadata = LoadMetadata();
 			m_stylesheet = LoadStylesheet();
 
-			ExtractCanons();
+			ExtractBooks();
 		}
 
 		private DblMetadata LoadMetadata()
@@ -152,33 +152,38 @@ namespace ProtoScript.Bundle
 			get { return m_dblMetadata.language.iso; }
 		}
 
-		public IDictionary<int, Canon> Canons
-		{
-			get { return m_canons; }
-		}
-
 		public UsxStylesheet Stylesheet
 		{
 			get { return m_stylesheet; }
 		}
 
-		public bool TryGetCanon(int canonId, out Canon canon)
+		public bool TryGetBook(string bookId, out UsxDocument book)
 		{
-			return m_canons.TryGetValue(canonId, out canon);
+			return m_books.TryGetValue(bookId, out book);
 		}
 
-		//TODO (PG-36) This method either needs to be greatly improved or replaced
-		private void ExtractCanons()
+		private void ExtractBooks()
 		{
-			foreach (string dir in Directory.GetDirectories(m_pathToUnzippedDirectory, "USX_*"))
+			DblMetadataCanon defaultCanon = Metadata.Canons.FirstOrDefault(c => c.Default);
+			if (defaultCanon != null)
+				ExtractBooksInCanon(GetPathToCanon(defaultCanon.CanonId));
+			foreach (DblMetadataCanon canon in Metadata.Canons.Where(c => !c.Default).OrderBy(c => c.CanonId))
+				ExtractBooksInCanon(GetPathToCanon(canon.CanonId));
+		}
+
+		private string GetPathToCanon(string canonId)
+		{
+			return Path.Combine(m_pathToUnzippedDirectory, "USX_" + canonId);
+		}
+
+		private void ExtractBooksInCanon(string pathToCanon)
+		{
+			foreach (string filePath in Directory.GetFiles(pathToCanon, "*.usx"))
 			{
-				int canonId;
-				if (Int32.TryParse(dir[dir.Length - 1].ToString(CultureInfo.InvariantCulture), out canonId))
-				{
-					var canon = new Canon(canonId);
-					canon.ExtractBooks(dir);
-					m_canons.Add(canonId, canon);
-				}
+				var fi = new FileInfo(filePath);
+				string bookId = Path.GetFileNameWithoutExtension(fi.Name);
+				if (bookId.Length == 3 && !m_books.ContainsKey(bookId))
+					m_books.Add(bookId, new UsxDocument(filePath));
 			}
 		}
 
