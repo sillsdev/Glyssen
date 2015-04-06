@@ -70,7 +70,7 @@ namespace ProtoScript.Dialogs
 				m_scriptureReference.VerseControl.VerseRefChanged -= m_scriptureReference_VerseRefChanged;
 
 			m_blocksViewer.Initialize(m_viewModel,
-				block => AssignCharacterViewModel.Character.GetCharacterIdForUi(block.CharacterId, CurrentContextCharacters),
+				AssignCharacterViewModel.Character.GetCharacterIdForUi,
 				block => block.Delivery);
 			m_viewModel.CurrentBlockChanged += LoadBlock;
 

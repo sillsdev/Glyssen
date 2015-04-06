@@ -22,7 +22,7 @@ namespace ProtoScript.Controls
 		private const int kContextBlocksForward = 10;
 
 		private BlockNavigatorViewModel m_viewModel;
-		private Func<Block, string> m_getCharacterIdForUi;
+		private Func<string, string> m_getCharacterIdForUi;
 		private Func<Block, string> m_getDelivery;
 		private ToolTip m_toolTip;
 		private ScriptBlocksViewType m_viewType;
@@ -33,7 +33,7 @@ namespace ProtoScript.Controls
 			InitializeComponent();
 		}
 
-		public void Initialize(BlockNavigatorViewModel viewModel, Func<Block, string> getCharacterIdForUi = null, Func<Block, string> getDelivery = null)
+		public void Initialize(BlockNavigatorViewModel viewModel, Func<string, string> getCharacterIdForUi = null, Func<Block, string> getDelivery = null)
 		{
 			m_viewModel = viewModel;
 			m_getCharacterIdForUi = getCharacterIdForUi;
@@ -150,7 +150,7 @@ namespace ProtoScript.Controls
 			if (e.ColumnIndex == colCharacter.Index)
 			{
 				Debug.Assert(m_getCharacterIdForUi != null);
-				e.Value = m_getCharacterIdForUi(block);
+				e.Value = m_getCharacterIdForUi(block.CharacterId);
 			}
 			else if (e.ColumnIndex == colDelivery.Index)
 			{
@@ -175,10 +175,11 @@ namespace ProtoScript.Controls
 				if (divElement.Parent.ClassName == BlockNavigatorViewModel.kCssClassContext)
 				{
 					m_toolTip = new ToolTip { IsBalloon = true };
-					// 22 is the magic number which happens to make these display in the correct place
-					int x = m_blocksDisplayBrowser.Location.X + m_blocksDisplayBrowser.Size.Width - 22;
-					int y = m_blocksDisplayBrowser.Location.Y + e.ClientY - m_blocksDisplayBrowser.Margin.Top;
-					m_toolTip.Show(divElement.Parent.GetAttribute(BlockNavigatorViewModel.kDataCharacter), this, x, y);
+					// 42 and 43 are the magic numbers which happens to make these display in the correct place
+					// REVIEW: it would be nice to figure out a better way to place these which is more robust. These numbers have changed several times already
+					int x = m_blocksDisplayBrowser.Location.X + m_blocksDisplayBrowser.Size.Width - 42;
+					int y = m_blocksDisplayBrowser.Location.Y + e.ClientY - m_blocksDisplayBrowser.Margin.Top - 43;
+					m_toolTip.Show(m_getCharacterIdForUi(divElement.Parent.GetAttribute(BlockNavigatorViewModel.kDataCharacter)), this, x, y);
 				}
 			}
 		}

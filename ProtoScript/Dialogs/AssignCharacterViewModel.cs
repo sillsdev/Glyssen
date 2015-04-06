@@ -14,6 +14,7 @@ namespace ProtoScript.Dialogs
 		private readonly AliasComparer m_aliasComparer = new AliasComparer();
 		private int m_assignedBlocks;
 		private HashSet<CharacterVerse> m_currentCharacters;
+		private IEnumerable<Character> m_generatedCharacterList;
 		private List<Delivery> m_currentDeliveries = new List<Delivery>();
 
 		public event EventHandler AssignedBlocksIncremented;
@@ -46,7 +47,7 @@ namespace ProtoScript.Dialogs
 		public void SetUiStrings(string narrator, string bookChapterCharacter, string introCharacter,
 			string extraCharacter, string normalDelivery)
 		{
-			Character.SetUiStrings(narrator, bookChapterCharacter, introCharacter, extraCharacter, () => CurrentBookId);
+			Character.SetUiStrings(narrator, bookChapterCharacter, introCharacter, extraCharacter, () => CurrentBookId, GetCurrentRelevantAlias);
 			Delivery.SetNormalDelivery(normalDelivery);
 		}
 
@@ -123,7 +124,7 @@ namespace ProtoScript.Dialogs
 				listToReturn.AddRange(listToAdd);
 			}
 
-			return listToReturn;
+			return m_generatedCharacterList = listToReturn;
 		}
 
 		public IEnumerable<Character> GetUniqueCharacters(string filterText = null)
@@ -258,6 +259,20 @@ namespace ProtoScript.Dialogs
 			m_projectCharacterVerseData.Add(cv);
 		}
 
+		private string GetCurrentRelevantAlias(string characterId)
+		{
+			foreach (Character character in m_generatedCharacterList)
+			{
+				if (character.CharacterId == characterId)
+				{
+					if (!string.IsNullOrEmpty(character.Alias))
+						return character.Alias;
+					break;
+				}
+			}
+			return null;
+		}
+
 		#region Character class
 		public class Character
 		{
@@ -270,6 +285,7 @@ namespace ProtoScript.Dialogs
 			private readonly string m_alias;
 			private readonly bool m_projectSpecific;
 			private static Func<string> s_funcToGetBookId;
+			private static Func<string, string> s_funcToGetRelevantAlias;
 
 			public static Character Narrator { get { return s_narrator; } }
 
@@ -279,9 +295,10 @@ namespace ProtoScript.Dialogs
 			public bool IsNarrator { get { return Equals(s_narrator); } }
 
 			public static void SetUiStrings(string narrator, string bookChapterCharacter, string introCharacter,
-				string extraCharacter, Func<string> funcToGetBookId)
+				string extraCharacter, Func<string> funcToGetBookId, Func<string, string> funcToGetRelevantAlias)
 			{
 				s_funcToGetBookId = funcToGetBookId;
+				s_funcToGetRelevantAlias = funcToGetRelevantAlias;
 				s_narrator = new Character(narrator, null, false);
 				s_bookChapterCharacter = bookChapterCharacter;
 				s_introCharacter = introCharacter;
@@ -303,16 +320,21 @@ namespace ProtoScript.Dialogs
 				return Alias ?? CharacterId;
 			}
 
-			public static string GetCharacterIdForUi(string characterId, IEnumerable<Character> charactersInContext)
+			public static string GetCharacterIdForUi(string characterId)
 			{
-				// TODO: PG-112
 				switch (CharacterVerseData.GetStandardCharacterType(characterId))
 				{
 					case CharacterVerseData.StandardCharacter.Narrator: return s_narrator.ToString();
 					case CharacterVerseData.StandardCharacter.Intro: return String.Format(s_introCharacter, s_funcToGetBookId());
 					case CharacterVerseData.StandardCharacter.ExtraBiblical: return String.Format(s_extraCharacter, s_funcToGetBookId());
 					case CharacterVerseData.StandardCharacter.BookOrChapter: return String.Format(s_bookChapterCharacter, s_funcToGetBookId());
-					default: return characterId == CharacterVerseData.AmbiguousCharacter || characterId == CharacterVerseData.UnknownCharacter ? "" : characterId;
+					default: 
+						if (characterId == CharacterVerseData.AmbiguousCharacter || characterId == CharacterVerseData.UnknownCharacter)
+							return "";
+						string relevantAlias = s_funcToGetRelevantAlias(characterId);
+						if (relevantAlias != null)
+							return characterId + " [" + relevantAlias + "]";
+						return characterId;
 				}
 			}
 
