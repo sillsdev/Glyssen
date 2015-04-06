@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			this.m_list = new Palaso.UI.WindowsForms.Widgets.BetterGrid.BetterGrid();
+			this.m_list = new SIL.Windows.Forms.Widgets.BetterGrid.BetterGrid();
 			this.colLanguage = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colRecordingProjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colBundleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -145,7 +145,7 @@
 
 		#endregion
 
-		private Palaso.UI.WindowsForms.Widgets.BetterGrid.BetterGrid m_list;
+		private SIL.Windows.Forms.Widgets.BetterGrid.BetterGrid m_list;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colLanguage;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colRecordingProjectName;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colBundleName;
