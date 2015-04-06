@@ -534,10 +534,21 @@ namespace ProtoScript.Dialogs
 			int selectedIndexOneBased;
 			Int32.TryParse(e.KeyChar.ToString(CultureInfo.InvariantCulture), out selectedIndexOneBased);
 			if (selectedIndexOneBased < 1 || selectedIndexOneBased > 5)
-				return;
-
-			if (m_listBoxCharacters.Items.Count >= selectedIndexOneBased)
-				m_listBoxCharacters.SelectedIndex = selectedIndexOneBased - 1; //listBox is zero-based
+			{
+				// Might be trying to select character by the first letter (e.g. s for Saul)
+				if (Char.IsLetter(e.KeyChar))
+				{
+					var charactersStartingWithSelectedLetter =
+						CurrentContextCharacters.Where(c => c.ToString().StartsWith(e.KeyChar.ToString(CultureInfo.InvariantCulture), true, CultureInfo.InvariantCulture));
+					if (charactersStartingWithSelectedLetter.Count() == 1)
+						m_listBoxCharacters.SelectedItem = charactersStartingWithSelectedLetter.First();
+				}
+			}
+			else
+			{
+				if (m_listBoxCharacters.Items.Count >= selectedIndexOneBased)
+					m_listBoxCharacters.SelectedIndex = selectedIndexOneBased - 1; //listBox is zero-based
+			}
 		}
 
 		private void AssignCharacterDialog_KeyDown(object sender, KeyEventArgs e)
