@@ -27,6 +27,7 @@ namespace ProtoScript.Dialogs
 	{
 		private readonly AssignCharacterViewModel m_viewModel;
 		private string m_xOfYFmt;
+		private string m_singleVoiceCheckboxFmt;
 		private bool m_promptToCloseWhenAssignmentsAreComplete = true;
 
 		private void HandleStringsLocalized()
@@ -39,6 +40,7 @@ namespace ProtoScript.Dialogs
 				LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.NormalDelivery", "normal"));
 
 			m_xOfYFmt = m_labelXofY.Text;
+			m_singleVoiceCheckboxFmt = m_chkSingleVoice.Text;
 		}
 
 		public AssignCharacterDialog(AssignCharacterViewModel viewModel)
@@ -152,6 +154,7 @@ namespace ProtoScript.Dialogs
 			m_labelXofY.Visible = m_viewModel.IsCurrentBlockRelevant;
 			Debug.Assert(m_viewModel.RelevantBlockCount >= m_viewModel.CurrentBlockDisplayIndex);
 			m_labelXofY.Text = string.Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
+			m_chkSingleVoice.Text = string.Format(m_singleVoiceCheckboxFmt, m_viewModel.CurrentBookId);
 
 			SendScrReference(m_viewModel.GetBlockReference(m_viewModel.CurrentBlock));
 
@@ -160,6 +163,8 @@ namespace ProtoScript.Dialogs
 
 			LoadCharacterListBox(m_viewModel.GetCharactersForCurrentReference());
 			UpdateShortcutDisplay();
+
+			m_chkSingleVoice.Checked = m_viewModel.IsCurrentBookSingleVoice;
 		}
 
 		private void UpdateShortcutDisplay()
@@ -631,6 +636,11 @@ namespace ProtoScript.Dialogs
 		private void m_scriptureReference_VerseRefChanged(object sender, PropertyChangedEventArgs e)
 		{
 			m_viewModel.TryLoadBlock(m_scriptureReference.VerseControl.VerseRef);
+		}
+
+		private void m_chkSingleVoice_CheckedChanged(object sender, EventArgs e)
+		{
+			m_viewModel.SetCurrentBookSingleVoice(m_chkSingleVoice.Checked);
 		}
 		#endregion
 	}

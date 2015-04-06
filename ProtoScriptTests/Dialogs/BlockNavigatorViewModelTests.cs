@@ -183,7 +183,7 @@ namespace ProtoScriptTests.Dialogs
 			FindRefInMark(1, 17);
 			var block1 = m_model.CurrentBlock;
 			m_model.LoadNextRelevantBlock();
-			var block2 = m_model.CurrentBlock;
+			//var block2 = m_model.CurrentBlock;
 
 			m_model.Mode = BlocksToDisplay.AllExpectedQuotes;
 

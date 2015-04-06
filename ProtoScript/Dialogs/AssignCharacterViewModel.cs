@@ -7,6 +7,7 @@ namespace ProtoScript.Dialogs
 {
 	public class AssignCharacterViewModel : BlockNavigatorViewModel
 	{
+		#region Data members and events
 		private readonly ProjectCharacterVerseData m_projectCharacterVerseData;
 		private readonly CombinedCharacterVerseData m_combinedCharacterVerseData;
 		private readonly CharacterIdComparer m_characterComparer = new CharacterIdComparer();
@@ -17,7 +18,9 @@ namespace ProtoScript.Dialogs
 		private List<Delivery> m_currentDeliveries = new List<Delivery>();
 
 		public event EventHandler AssignedBlocksIncremented;
+		#endregion
 
+		#region Constructors
 		public AssignCharacterViewModel(Project project)
 			: this(project, project.Status.AssignCharacterMode != 0 ? project.Status.AssignCharacterMode : BlocksToDisplay.NeedAssignments, project.Status.AssignCharacterBlock)
 		{
@@ -29,9 +32,10 @@ namespace ProtoScript.Dialogs
 			m_projectCharacterVerseData = project.ProjectCharacterVerseData;
 			m_combinedCharacterVerseData = new CombinedCharacterVerseData(project);
 		}
+		#endregion
 
+		#region Public properties
 		public int AssignedBlockCount { get { return m_assignedBlocks; } }
-		public CharacterIdComparer CharacterComparer { get { return m_characterComparer; } }
 
 		public override BlocksToDisplay Mode
 		{
@@ -43,6 +47,17 @@ namespace ProtoScript.Dialogs
 			}
 		}
 
+		public bool AreAllAssignmentsComplete
+		{
+			get { return m_assignedBlocks == m_relevantBlocks.Count; }
+		}
+
+		public bool IsCurrentBookSingleVoice
+		{
+			get { return CurrentBook.SingleVoice; }
+		}
+		#endregion
+
 		public void SetUiStrings(string narrator, string bookChapterCharacter, string introCharacter,
 			string extraCharacter, string normalDelivery)
 		{
@@ -50,6 +65,19 @@ namespace ProtoScript.Dialogs
 			Delivery.SetNormalDelivery(normalDelivery);
 		}
 
+		public void SetCurrentBookSingleVoice(bool singleVoice)
+		{
+			if (CurrentBook.SingleVoice == singleVoice)
+				return;
+			CurrentBook.SingleVoice = singleVoice;
+			if (singleVoice)
+			{
+				AssignNarratorForRemainingBlocksInCurrentBook();
+				LoadNextRelevantBlockInSubsequentBook();
+			}
+		}
+
+		#region Overridden methods
 		protected override void PopulateRelevantBlocks()
 		{
 			m_assignedBlocks = 0;
@@ -66,12 +94,9 @@ namespace ProtoScript.Dialogs
 		{
 			m_project.Status.AssignCharacterBlock = GetCurrentBlockIndices();
 		}
+		#endregion
 
-		public bool AreAllAssignmentsComplete
-		{
-			get { return m_assignedBlocks == m_relevantBlocks.Count; }
-		}
-
+		#region Methods to get characters and deliveries
 		public HashSet<CharacterVerse> GetUniqueCharactersForCurrentReference()
 		{
 			return new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetCharacters(CurrentBookId,
@@ -191,7 +216,9 @@ namespace ProtoScript.Dialogs
 
 			return deliveries;
 		}
+		#endregion
 
+		#region Character/delivery assignment methods
 		public bool IsModified(Character newCharacter, Delivery newDelivery)
 		{
 			Block currentBlock = CurrentBlock;
@@ -257,6 +284,17 @@ namespace ProtoScript.Dialogs
 				character.ProjectSpecific || delivery.ProjectSpecific);
 			m_projectCharacterVerseData.Add(cv);
 		}
+
+		private void AssignNarratorForRemainingBlocksInCurrentBook()
+		{
+			var bookId = CurrentBookId;
+			foreach (var block in CurrentBook.GetScriptBlocks().Where(b => b.CharacterIsUnclear()))
+			{
+				block.SetStandardCharacter(bookId, CharacterVerseData.StandardCharacter.Narrator);
+				block.UserConfirmed = true;
+			}
+		}
+		#endregion
 
 		#region Character class
 		public class Character
@@ -449,7 +487,5 @@ namespace ProtoScript.Dialogs
 			}
 		}
 		#endregion
-
-
 	}
 }
