@@ -61,6 +61,8 @@ namespace ProtoScript.Dialogs
 		public event EventHandler UiFontSizeChanged;
 		public event EventHandler CurrentBlockChanged;
 
+		protected BookScript CurrentBook { get { return m_navigator.CurrentBook; } }
+
 		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.AllScripture) : this(project, mode, null)
 		{
 		}
@@ -79,7 +81,10 @@ namespace ProtoScript.Dialogs
 			Mode = mode;
 
 			if (startingIndices != null && !startingIndices.IsUndefined)
+			{
 				m_navigator.SetIndices(startingIndices);
+				m_currentBlockIndex = m_relevantBlocks.IndexOf(startingIndices);
+			}
 		}
 
 		#region IDisposable Members
@@ -159,23 +164,33 @@ namespace ProtoScript.Dialogs
 				PopulateRelevantBlocks();
 
 				if (IsRelevant(m_navigator.CurrentBlock))
-					m_currentBlockIndex = 0;
-				else if (RelevantBlockCount > 0)
 				{
-					m_currentBlockIndex = -1;
-					if (m_temporarilyIncludedBlock != null)
+					m_currentBlockIndex = 0;
+					m_temporarilyIncludedBlock = null;
+				}
+				else
+				{
+					if (RelevantBlockCount > 0)
 					{
-						// Block that was temporarily included in previous filter might now match the new filter
-						var i = m_relevantBlocks.IndexOf(m_temporarilyIncludedBlock);
-						if (i >= 0)
+						m_currentBlockIndex = -1;
+						if (m_temporarilyIncludedBlock != null)
 						{
-							m_currentBlockIndex = i;
-							m_temporarilyIncludedBlock = null;
-							SetBlock(m_relevantBlocks[m_currentBlockIndex]);
-							return;
+							// Block that was temporarily included in previous filter might now match the new filter
+							var i = m_relevantBlocks.IndexOf(m_temporarilyIncludedBlock);
+							if (i >= 0)
+							{
+								m_currentBlockIndex = i;
+								m_temporarilyIncludedBlock = null;
+								SetBlock(m_relevantBlocks[m_currentBlockIndex]);
+								return;
+							}
 						}
+						LoadNextRelevantBlock();
 					}
-					LoadNextRelevantBlock();
+					else
+					{
+						m_temporarilyIncludedBlock = m_navigator.GetIndices();
+					}
 				}
 			}
 		}
@@ -254,7 +269,7 @@ namespace ProtoScript.Dialogs
 			var bldr = new StringBuilder();
 			foreach (Block block in blocks)
 			{
-				bldr.Append("<div class='").Append(kCssClassContext).Append("' ").Append(kDataCharacter).Append("='").Append(block.CharacterId).Append("'>");
+				bldr.Append("<div class=\"").Append(kCssClassContext).Append("\" ").Append(kDataCharacter).Append("=\"").Append(block.CharacterId).Append("\">");
 				foreach (Block innerBlock in GetAllBlocksWithSameQuote(block))
 					bldr.Append(BuildHtml(innerBlock));
 				bldr.Append("</div>");
@@ -381,6 +396,28 @@ namespace ProtoScript.Dialogs
 			m_temporarilyIncludedBlock = m_currentBlockIndex < 0 ? indices : null;
 			SetBlock(indices);
 			return true;
+		}
+
+		protected void LoadNextRelevantBlockInSubsequentBook()
+		{
+			if (m_navigator.IsLastBook(CurrentBook))
+				return;
+
+			var currentBookIndex = m_navigator.GetIndicesOfSpecificBlock(CurrentBlock).BookIndex;
+
+			var blockIndex = (IsCurrentBlockRelevant) ? m_currentBlockIndex + 1 :
+				GetIndexOfClosestRelevantBlock(m_relevantBlocks, m_temporarilyIncludedBlock, false, 0, RelevantBlockCount - 1);
+
+			var bookBlockIndices = m_relevantBlocks[blockIndex];
+			while (bookBlockIndices.BookIndex == currentBookIndex)
+			{
+				if (++blockIndex >= m_relevantBlocks.Count)
+					return;
+				bookBlockIndices = m_relevantBlocks[blockIndex];
+			}
+
+			m_currentBlockIndex = blockIndex;
+			SetBlock(bookBlockIndices);
 		}
 
 		public void LoadNextRelevantBlock()

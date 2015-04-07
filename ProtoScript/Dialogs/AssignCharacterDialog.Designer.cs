@@ -74,6 +74,7 @@ namespace ProtoScript.Dialogs
 			this.m_pnlCharacterAndDeliverySelection = new System.Windows.Forms.TableLayoutPanel();
 			this.m_splitContainer = new System.Windows.Forms.SplitContainer();
 			this.tableLayoutPanelNavigationControls = new System.Windows.Forms.TableLayoutPanel();
+			this.m_chkSingleVoice = new System.Windows.Forms.CheckBox();
 			this.m_blocksViewer = new ProtoScript.Controls.ScriptBlocksViewer();
 			this.m_progressBar = new ProtoScript.Controls.BlockProgressBar();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
@@ -139,7 +140,7 @@ namespace ProtoScript.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAssign, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAssign, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAssign, "DialogBoxes.AssignCharacterDialog.AssignCharacter");
-			this.m_btnAssign.Location = new System.Drawing.Point(204, 442);
+			this.m_btnAssign.Location = new System.Drawing.Point(206, 417);
 			this.m_btnAssign.Name = "m_btnAssign";
 			this.m_btnAssign.Size = new System.Drawing.Size(95, 23);
 			this.m_btnAssign.TabIndex = 2;
@@ -730,6 +731,7 @@ namespace ProtoScript.Dialogs
 			// 
 			// m_splitContainer.Panel2
 			// 
+			this.m_splitContainer.Panel2.Controls.Add(this.m_chkSingleVoice);
 			this.m_splitContainer.Panel2.Controls.Add(this.tableLayoutPanelNavigationControls);
 			this.m_splitContainer.Panel2.Controls.Add(this.m_pnlCharacterAndDeliverySelection);
 			this.m_splitContainer.Panel2.Controls.Add(this.m_btnAssign);
@@ -756,6 +758,22 @@ namespace ProtoScript.Dialogs
 			this.tableLayoutPanelNavigationControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanelNavigationControls.Size = new System.Drawing.Size(274, 33);
 			this.tableLayoutPanelNavigationControls.TabIndex = 30;
+			// 
+			// m_chkSingleVoice
+			// 
+			this.m_chkSingleVoice.AutoSize = true;
+			this.m_chkSingleVoice.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_chkSingleVoice, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_chkSingleVoice, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_chkSingleVoice, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkSingleVoice, "DialogBoxes.AssignCharacterDialog.AssignCharacterDialog.m_chkSingleVoice");
+			this.m_chkSingleVoice.Location = new System.Drawing.Point(24, 446);
+			this.m_chkSingleVoice.Name = "m_chkSingleVoice";
+			this.m_chkSingleVoice.Size = new System.Drawing.Size(301, 17);
+			this.m_chkSingleVoice.TabIndex = 31;
+			this.m_chkSingleVoice.Text = "This book ({0}) will be recorded using a single voice talent.";
+			this.m_chkSingleVoice.UseVisualStyleBackColor = true;
+			this.m_chkSingleVoice.CheckedChanged += new System.EventHandler(this.m_chkSingleVoice_CheckedChanged);
 			// 
 			// m_blocksViewer
 			// 
@@ -828,6 +846,7 @@ namespace ProtoScript.Dialogs
 			this.m_pnlCharacterAndDeliverySelection.PerformLayout();
 			this.m_splitContainer.Panel1.ResumeLayout(false);
 			this.m_splitContainer.Panel2.ResumeLayout(false);
+			this.m_splitContainer.Panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_splitContainer)).EndInit();
 			this.m_splitContainer.ResumeLayout(false);
 			this.tableLayoutPanelNavigationControls.ResumeLayout(false);
@@ -884,5 +903,6 @@ namespace ProtoScript.Dialogs
 		private Paratext.ToolStripVerseControl m_scriptureReference;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanelNavigationControls;
+		private System.Windows.Forms.CheckBox m_chkSingleVoice;
 	}
 }

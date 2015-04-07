@@ -7,10 +7,11 @@ using ProtoScript.Dialogs;
 namespace ProtoScriptTests.Dialogs
 {
 	[TestFixture]
-	class AssignCharacterViewModelTests
+	internal class AssignCharacterViewModelTests
 	{
 		private Project m_testProject;
 		private AssignCharacterViewModel m_model;
+		private bool m_fullProjectRefreshRequired;
 
 		[TestFixtureSetUp]
 		public void TestFixtureSetUp()
@@ -32,6 +33,17 @@ namespace ProtoScriptTests.Dialogs
 				"normal");
 			m_model.BackwardContextBlockCount = 10;
 			m_model.ForwardContextBlockCount = 10;
+		}
+
+		[TearDown]
+		public void Teardown()
+		{
+			if (m_fullProjectRefreshRequired)
+			{
+				TestFixtureTearDown();
+				TestFixtureSetUp();
+				m_fullProjectRefreshRequired = false;
+			}
 		}
 
 		[TestFixtureTearDown]
@@ -256,6 +268,25 @@ namespace ProtoScriptTests.Dialogs
 		{
 			m_model.CurrentBlock.Delivery = null;
 			Assert.IsTrue(m_model.IsModified(new AssignCharacterViewModel.Character("Ralph W Emerson"), null));
+		}
+
+		[Test]
+		public void SetCurrentBookSingleVoice_TrueNoSubsequentBooks_RemainingBlocksAssignedToNarratorAndCurrentBlockIsUnchanged()
+		{
+			m_fullProjectRefreshRequired = true;
+			var currentBlock = m_model.CurrentBlock;
+			m_model.SetCurrentBookSingleVoice(true);
+			foreach (var block in m_testProject.IncludedBooks[0].GetScriptBlocks())
+			{
+				Assert.IsFalse(block.CharacterIsUnclear(), block.GetText(true));
+				if (block.UserConfirmed)
+					Assert.IsTrue(block.CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator), block.GetText(true));
+			}
+			Assert.AreEqual(currentBlock, m_model.CurrentBlock);
+			m_model.Mode = BlocksToDisplay.NeedAssignments | BlocksToDisplay.ExcludeUserConfirmed;
+			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
+			Assert.IsFalse(m_model.CanNavigateToPreviousRelevantBlock);
+			Assert.IsFalse(m_model.CanNavigateToNextRelevantBlock);
 		}
 
 		private void FindRefInMark(int chapter, int verse)
