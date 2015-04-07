@@ -269,7 +269,7 @@ namespace ProtoScript.Dialogs
 			var bldr = new StringBuilder();
 			foreach (Block block in blocks)
 			{
-				bldr.Append("<div class='").Append(kCssClassContext).Append("' ").Append(kDataCharacter).Append("='").Append(block.CharacterId).Append("'>");
+				bldr.Append("<div class=\"").Append(kCssClassContext).Append("\" ").Append(kDataCharacter).Append("=\"").Append(block.CharacterId).Append("\">");
 				foreach (Block innerBlock in GetAllBlocksWithSameQuote(block))
 					bldr.Append(BuildHtml(innerBlock));
 				bldr.Append("</div>");
