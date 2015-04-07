@@ -172,7 +172,8 @@ namespace ProtoScript
 			string projFilePath;
 			// See if we already have project(s) for this bundle and give the user the option of opening an existing project instead.
 			var publicationFolder = Project.GetPublicationFolderPath(bundle);
-			if (Directory.GetDirectories(publicationFolder).Any(f => Directory.GetFiles(f, "*" + Project.kProjectFileExtension).Any()))
+			if (Directory.Exists(publicationFolder) && 
+				Directory.GetDirectories(publicationFolder).Any(f => Directory.GetFiles(f, "*" + Project.kProjectFileExtension).Any()))
 			{
 				using (var dlg = new SelectExistingProjectDlg(bundle))
 				{

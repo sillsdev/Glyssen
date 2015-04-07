@@ -20,7 +20,6 @@ using SIL.ScriptureUtils;
 using SIL.Windows.Forms.FileSystem;
 using SIL.WritingSystems;
 using SIL.Xml;
-using Canon = ProtoScript.Bundle.Canon;
 
 namespace ProtoScript
 {
@@ -448,23 +447,15 @@ namespace ProtoScript
 
 		private void PopulateAndParseBooks(Bundle.Bundle bundle)
 		{
-			Canon canon = null;
-			// TODO PG-36
-			// This is a hack until we fully implement canons
-			for (int i = 0; i < 100; i++)
-				if (bundle.TryGetCanon(i, out canon))
-					break;
-			if (canon == null)
-				throw new ArgumentException("The bundle must contain at least one canon with an ID between 0 and 99.");
-			AddAndParseBooks(GetUsxBooksToInclude(canon), bundle.Stylesheet);
+			AddAndParseBooks(GetUsxBooksToInclude(bundle), bundle.Stylesheet);
 		}
 
-		private IEnumerable<UsxDocument> GetUsxBooksToInclude(Canon canon)
+		private IEnumerable<UsxDocument> GetUsxBooksToInclude(Bundle.Bundle bundle)
 		{
 			foreach (var book in m_metadata.AvailableBooks.Where(b => b.IncludeInScript))
 			{
 				UsxDocument usxBook;
-				if (canon.TryGetBook(book.Code, out usxBook))
+				if (bundle.TryGetBook(book.Code, out usxBook))
 					yield return usxBook;
 			}
 		}
