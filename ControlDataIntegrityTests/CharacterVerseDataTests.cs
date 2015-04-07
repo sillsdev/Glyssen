@@ -75,8 +75,35 @@ namespace ControlDataIntegrityTests
 		public void DataIntegrity_NoDuplicateData()
 		{
 			ISet<CharacterVerse> uniqueCharacterVerses = new HashSet<CharacterVerse>();
+			IList<CharacterVerse> duplicateCharacterVerses = new List<CharacterVerse>();
 			foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
-				Assert.IsTrue(uniqueCharacterVerses.Add(cv), "Duplicate Character-Verse: " + cv.BcvRef + ", " + cv.Character);
+				if (!uniqueCharacterVerses.Add(cv))
+					duplicateCharacterVerses.Add(cv);
+
+			Assert.False(duplicateCharacterVerses.Any(),
+				"Duplicate Character-Verse data:" + 
+				Environment.NewLine + 
+				duplicateCharacterVerses.Select(cv => cv.BcvRef + ", " + cv.Character).OnePerLineWithIndent());
+		}
+
+		[Test]
+		public void DataIntegrity_NoDuplicateWhereOnlyDifferenceIsNormalVsNonnormalDelivery()
+		{
+			// PG-152: Currently, the program does not handle duplicates where the
+			// only difference is between normal (blank) delivery and a specified delivery
+			ISet<CharacterVerse> uniqueCharacterVerses = new HashSet<CharacterVerse>(new BcvCharacterEqualityComparer());
+			IList<CharacterVerse> duplicateCharacterVerses = new List<CharacterVerse>();
+			foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo()
+				.OrderBy(cv => cv.BcvRef).ThenBy(cv => string.IsNullOrEmpty(cv.Delivery)))
+			{
+				if (!uniqueCharacterVerses.Add(cv) && string.IsNullOrEmpty(cv.Delivery))
+					duplicateCharacterVerses.Add(cv);
+			}
+
+			Assert.False(duplicateCharacterVerses.Any(),
+				"Duplicate Character-Verse data:" +
+				Environment.NewLine +
+				duplicateCharacterVerses.Select(cv => cv.BcvRef + ", " + cv.Character).OnePerLineWithIndent());
 		}
 
 		[Test]

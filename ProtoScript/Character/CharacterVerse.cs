@@ -118,7 +118,11 @@ namespace ProtoScript.Character
 		#region Equality Members
 		protected bool Equals(CharacterVerse other)
 		{
-			return Equals(m_bcvRef, other.m_bcvRef) && string.Equals(Character, other.Character) && string.Equals(Delivery, other.Delivery) && string.Equals(Alias, other.Alias) && QuoteType == other.QuoteType;
+			return Equals(m_bcvRef, other.m_bcvRef) && 
+				string.Equals(Character, other.Character) && 
+				string.Equals(Delivery, other.Delivery) && 
+				string.Equals(Alias, other.Alias) && 
+				QuoteType == other.QuoteType;
 		}
 
 		public override bool Equals(object obj)
@@ -170,6 +174,24 @@ namespace ProtoScript.Character
 				int hashCode = (obj.BcvRef != null ? obj.BcvRef.GetHashCode() : 0);
 				hashCode = (hashCode * 397) ^ (obj.Character != null ? obj.Character.GetHashCode() : 0);
 				hashCode = (hashCode * 397) ^ (obj.Delivery != null ? obj.Delivery.GetHashCode() : 0);
+				return hashCode;
+			}
+		}
+	}
+
+	public class BcvCharacterEqualityComparer : IEqualityComparer<CharacterVerse>
+	{
+		public bool Equals(CharacterVerse x, CharacterVerse y)
+		{
+			return x.BcvRef.Equals(y.BcvRef) && x.Character.Equals(y.Character);
+		}
+
+		public int GetHashCode(CharacterVerse obj)
+		{
+			unchecked
+			{
+				int hashCode = (obj.BcvRef != null ? obj.BcvRef.GetHashCode() : 0);
+				hashCode = (hashCode * 397) ^ (obj.Character != null ? obj.Character.GetHashCode() : 0);
 				return hashCode;
 			}
 		}
