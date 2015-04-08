@@ -78,7 +78,7 @@ namespace ProtoScript.Controls
 		public void LoadExistingProjects()
 		{
 			m_list.SelectionChanged -= HandleSelectionChanged;
-			m_list.CellValuePushed -= HandleCellValuePushed;
+			m_list.CellValueChanged -= HandleCellValueChanged;
 			m_list.CellValidating -= HandleCellValidating;
 
 			m_list.Rows.Clear();
@@ -103,7 +103,7 @@ namespace ProtoScript.Controls
 						(m_filterBundleId != null && m_filterBundleId != metadata.id))
 						continue;
 
-					int iRow = m_list.AddRow(new object[]
+					int iRow = m_list.Rows.Add(new object[]
 					{
 						metadata.language,
 						Path.GetFileName(recordingProjectFolder),
@@ -120,7 +120,7 @@ namespace ProtoScript.Controls
 			m_list.Sort(m_list.SortedColumn ?? colLanguage,
 				m_list.SortOrder == SortOrder.Descending ? ListSortDirection.Descending : ListSortDirection.Ascending);
 			m_list.SelectionChanged += HandleSelectionChanged;
-			m_list.CellValuePushed += HandleCellValuePushed;
+			m_list.CellValueChanged += HandleCellValueChanged;
 			m_list.CellValidating += HandleCellValidating;
 
 			if (ListLoaded != null)
@@ -151,7 +151,7 @@ namespace ProtoScript.Controls
 			OnDoubleClick(new EventArgs());
 		}
 
-		private void HandleCellValuePushed(object sender, DataGridViewCellValueEventArgs e)
+		private void HandleCellValueChanged(object sender, DataGridViewCellEventArgs e)
 		{
 			if (e.ColumnIndex != colInactive.Index)
 				throw new InvalidOperationException("Unexpected change in read-only column!");
@@ -167,11 +167,12 @@ namespace ProtoScript.Controls
 			if (e.ColumnIndex != colInactive.Index)
 				return;
 
-			if (m_readOnlyProjects.Contains(m_list.Rows[e.RowIndex].Cells[colProjectPath.Index].Value))
+			if ((bool)e.FormattedValue && m_readOnlyProjects.Contains(m_list.Rows[e.RowIndex].Cells[colProjectPath.Index].Value))
 			{
 				string title = LocalizationManager.GetString("Project.CannotRemoveCaption", "Cannot Remove from List");
 				string msg = LocalizationManager.GetString("Project.CannotRemove", "Cannot remove the selected project because it is currently open");
 				MessageBox.Show(msg, title);
+				m_list.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false;
 				e.Cancel = true;
 			}
 		}

@@ -1,4 +1,7 @@
-﻿namespace ProtoScript.Controls
+﻿using System.Security.AccessControl;
+using Gecko;
+
+namespace ProtoScript.Controls
 {
 	partial class ExistingProjectsList
 	{
@@ -29,7 +32,7 @@
 		private void InitializeComponent()
 		{
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			this.m_list = new SIL.Windows.Forms.Widgets.BetterGrid.BetterGrid();
+			this.m_list = new System.Windows.Forms.DataGridView();
 			this.colLanguage = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colRecordingProjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colBundleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,29 +69,18 @@
             this.colInactive,
             this.colProjectPath});
 			this.m_list.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_list.DrawTextBoxEditControlBorder = false;
 			this.m_list.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.m_list.FullRowFocusRectangleColor = System.Drawing.SystemColors.ControlDark;
 			this.m_list.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
 			this.m_list.Location = new System.Drawing.Point(0, 0);
 			this.m_list.MultiSelect = false;
 			this.m_list.Name = "m_list";
-			this.m_list.PaintFullRowFocusRectangle = true;
-			this.m_list.PaintHeaderAcrossFullGridWidth = true;
 			this.m_list.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			this.m_list.RowHeadersVisible = false;
 			this.m_list.RowHeadersWidth = 22;
-			this.m_list.SelectedCellBackColor = System.Drawing.Color.Empty;
-			this.m_list.SelectedCellForeColor = System.Drawing.Color.Empty;
-			this.m_list.SelectedRowBackColor = System.Drawing.Color.Empty;
-			this.m_list.SelectedRowForeColor = System.Drawing.Color.Empty;
 			this.m_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.m_list.ShowEditingIcon = false;
-			this.m_list.ShowWaterMarkWhenDirty = false;
 			this.m_list.Size = new System.Drawing.Size(368, 147);
 			this.m_list.TabIndex = 0;
-			this.m_list.TextBoxEditControlBorderColor = System.Drawing.Color.Silver;
-			this.m_list.WaterMark = "!";
 			this.m_list.DoubleClick += new System.EventHandler(this.HandleDoubleClick);
 			// 
 			// colLanguage
@@ -145,7 +137,7 @@
 
 		#endregion
 
-		private SIL.Windows.Forms.Widgets.BetterGrid.BetterGrid m_list;
+		private System.Windows.Forms.DataGridView m_list;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colLanguage;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colRecordingProjectName;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colBundleName;
