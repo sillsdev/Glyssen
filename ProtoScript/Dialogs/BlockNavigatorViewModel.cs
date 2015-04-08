@@ -82,7 +82,7 @@ namespace ProtoScript.Dialogs
 
 			if (startingIndices != null && !startingIndices.IsUndefined)
 			{
-				m_navigator.SetIndices(startingIndices);
+				SetBlock(startingIndices);
 				m_currentBlockIndex = m_relevantBlocks.IndexOf(startingIndices);
 			}
 		}

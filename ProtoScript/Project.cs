@@ -34,6 +34,7 @@ namespace ProtoScript
 		public const string kDefaultFontSecondary = "Times New Roman";
 		public const int kDefaultFontSize = 14;
 		private const string kSample = "sample";
+		private const string kSampleProjectName = "Sample Project";
 
 		private const double kUsxPercent = 0.25;
 		private const double kGuessPercent = 0.10;
@@ -777,12 +778,12 @@ namespace ProtoScript
 
 		private bool IsSampleProject
 		{
-			get { return Id == "Sample" && LanguageIsoCode == "sample"; }
+			get { return Id.Equals(kSample, StringComparison.OrdinalIgnoreCase) && LanguageIsoCode == kSample; }
 		}
 
 		public static string SampleProjectFilePath
 		{
-			get { return GetProjectFilePath(kSample, kSample, GetDefaultRecordingProjectName(kSample)); }
+			get { return GetProjectFilePath(kSample, kSample, GetDefaultRecordingProjectName(kSampleProjectName)); }
 		}
 
 		public static void CreateSampleProjectIfNeeded()
@@ -799,9 +800,9 @@ namespace ProtoScript
 			sampleMetadata.AvailableBooks.Add(bookOfMark);
 			sampleMetadata.FontFamily = "Times New Roman";
 			sampleMetadata.FontSizeInPoints = 12;
-			sampleMetadata.id = "Sample";
+			sampleMetadata.id = kSample;
 			sampleMetadata.language = new DblMetadataLanguage {iso = kSample};
-			sampleMetadata.identification = new DblMetadataIdentification { name = "Sample Project", nameLocal = "Sample Project"};
+			sampleMetadata.identification = new DblMetadataIdentification { name = kSampleProjectName, nameLocal = kSampleProjectName};
 
 			XmlDocument sampleMark = new XmlDocument();
 			sampleMark.LoadXml(Resources.SampleMRK);

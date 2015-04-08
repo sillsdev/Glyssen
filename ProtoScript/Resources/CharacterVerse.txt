@@ -9990,7 +9990,7 @@ MAT	14	15	disciples	taking charge		Dialogue		MAT 14.15;MRK 6.35-36;LUK 9.12
 MAT	14	16	Jesus			Dialogue		
 MAT	14	17	Andrew		disciples	Dialogue		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
 MAT	14	18	Jesus	giving orders		Dialogue		
-MAT	14	19	Jesus			Indirect		
+MAT	14	19	Jesus	ordering		Indirect		
 MAT	14	19	Jesus	praying		Indirect		
 MAT	14	26	disciples			Dialogue		
 MAT	14	27	Jesus	forcefully		Dialogue		
@@ -12766,7 +12766,6 @@ ACT	21	34	crowd	shouting		Indirect
 ACT	21	36	crowd	shouting		Normal		
 ACT	21	37	commander			Dialogue		
 ACT	21	37	Paul			Dialogue		
-ACT	21	37	Paul	called out		Dialogue		
 ACT	21	38	commander			Normal		
 ACT	21	39	Paul			Dialogue		
 ACT	21	40	commander			Indirect		
