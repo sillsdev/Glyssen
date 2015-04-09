@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using Paratext;
 using ProtoScript.Character;
@@ -43,6 +44,8 @@ namespace ProtoScript.Dialogs
 										".section-header{{text-align:center;font-weight:bold}}" +
 										".chapter-label{{font-weight:bold;font-size:150%}}";
 		internal const string kMainQuoteElementId = "main-quote-text";
+
+		private static readonly Regex RegexVerseNumber = new Regex("\\[(\\d+)\\]", RegexOptions.Compiled);
 
 		private bool m_showVerseNumbers = true; // May make this configurable later
 		private Font m_font;
@@ -281,7 +284,7 @@ namespace ProtoScript.Dialogs
 
 		private string SuperscriptVerseNumbers(string text)
 		{
-			return text.Replace("[", "<sup>").Replace("]", "</sup>");
+			return RegexVerseNumber.Replace(text, "<sup>$1</sup>");
 		}
 
 		private string BuildStyle()
