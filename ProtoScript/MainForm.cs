@@ -431,6 +431,7 @@ namespace ProtoScript
 
 				m_project.UpdateSettings(model);
 			}
+			UpdateDisplayOfProjectInfo();
 		}
 
 		private void m_lnkExit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
