@@ -3,6 +3,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using L10NSharp;
+using SIL.IO;
 
 namespace ProtoScript.Dialogs
 {
@@ -160,16 +161,17 @@ namespace ProtoScript.Dialogs
 
 		private void HandleOkButtonClick(object sender, EventArgs e)
 		{
-			if (m_initialSave && File.Exists(Project.GetProjectFilePath(IsoCode, PublicationId, RecordingProjectName)))
+			if (m_model.RecordingProjectName != RecordingProjectName && File.Exists(Project.GetProjectFilePath(IsoCode, PublicationId, RecordingProjectName)))
 			{
 				var msg =string.Format(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.OverwriteProjectPrompt",
-					"A {0} project with an ID of {1} already exists for this language. Do you want to overwrite it?"),
-					ProductName, m_txtPublicationId.Text);
-				if (MessageBox.Show(this, msg, ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) !=
-					DialogResult.Yes)
+					"A {0} project with an ID of {1} and a Recording Project Name of {2} already exists for this language. Do you want to overwrite it?"),
+					ProductName, m_txtPublicationId.Text, RecordingProjectName);
+				if (MessageBox.Show(this, msg, ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) != DialogResult.Yes)
 				{
+					DialogResult = DialogResult.None;
 					return;
 				}
+				DirectoryUtilities.DeleteDirectoryRobust(Project.GetProjectFolderPath(IsoCode, PublicationId, RecordingProjectName));
 			}
 
 			m_model.RecordingProjectName = RecordingProjectName;

@@ -426,7 +426,7 @@ namespace ProtoScript
 			var model = new ProjectMetadataViewModel(m_project);
 			using (var dlg = new ProjectMetadataDlg(model))
 			{
-				if (dlg.ShowDialog() == DialogResult.Cancel)
+				if (dlg.ShowDialog() != DialogResult.OK)
 					return;
 
 				m_project.UpdateSettings(model);
