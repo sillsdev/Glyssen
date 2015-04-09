@@ -220,7 +220,7 @@ namespace ProtoScript.Dialogs
 			}
 			if (m_project.IsQuoteSystemUserConfirmed && m_project.ConfirmedQuoteSystem != null && m_project.ConfirmedQuoteSystem != currentQuoteSystem)
 			{
-				string msg = LocalizationManager.GetString("ProjectSettingsDialog.ConfirmReparseMessage", "Changing the quote system will require a reparse of the text. Are you sure?");
+				string msg = LocalizationManager.GetString("ProjectSettingsDialog.ConfirmReparseMessage", "Changing the quote system will require a reparse of the text.  An attempt will be made to preserve the work you have already completed, but some character assignments might be lost.  A backup of your project will be created before this occurs." + Environment.NewLine + Environment.NewLine + "Are you sure you want to change the quote system?");
 				string title = LocalizationManager.GetString("ProjectSettingsDialog.ConfirmReparse", "Confirm Reparse");
 				if (MessageBox.Show(msg, title, MessageBoxButtons.YesNo) != DialogResult.Yes)
 				{

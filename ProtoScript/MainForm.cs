@@ -116,8 +116,6 @@ namespace ProtoScript
 
 		private void ShowOpenProjectDialog()
 		{
-			Project.CreateSampleProjectIfNeeded();
-
 			using (var dlg = new OpenProjectDlg(m_project))
 			{
 				var result = dlg.ShowDialog(this);

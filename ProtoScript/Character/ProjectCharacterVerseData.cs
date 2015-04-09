@@ -11,6 +11,8 @@ namespace ProtoScript.Character
 		{
 			if (File.Exists(fullPath))
 				LoadData(File.ReadAllText(fullPath));
+			else
+				LoadData("");
 		}
 
 		public virtual void Add(CharacterVerse cv)
