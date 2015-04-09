@@ -58,7 +58,8 @@ namespace ProtoScript
 			m_metadata = metadata;
 			m_recordingProjectName = recordingProjectName ?? GetDefaultRecordingProjectName(m_metadata.identification.name);
 			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath);
-			LoadWritingSystem();
+			if (m_metadata.QuoteSystem == null)
+				LoadWritingSystem();
 		}
 
 		public Project(Bundle.Bundle bundle, string recordingProjectName = null) : this(bundle.Metadata, recordingProjectName)
@@ -219,7 +220,12 @@ namespace ProtoScript
 
 		public QuoteSystem ConfirmedQuoteSystem
 		{
-			get { return m_metadata.QuoteSystem; }
+			get
+			{
+				if (m_metadata.QuoteSystem != null && m_metadata.QuoteSystem.AllLevels.Any())
+					return m_metadata.QuoteSystem;
+				return null;
+			}
 		}
 
 		public bool IsQuoteSystemUserConfirmed
