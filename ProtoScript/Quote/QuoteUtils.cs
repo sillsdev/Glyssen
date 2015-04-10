@@ -13,15 +13,42 @@ namespace ProtoScript.Quote
 		private static readonly Dictionary<MatchedPair, MatchedPair[]> Level2Possibilities = new Dictionary<MatchedPair, MatchedPair[]>
 		{
 			{new MatchedPair("“", "”", false), new []{new MatchedPair("‘", "’", false)}},
-			{new MatchedPair("«", "»", false), new []{new MatchedPair("“", "”", false), new MatchedPair("‹", "›", false)}},
+			{new MatchedPair("‘", "’", false), new []{new MatchedPair("“", "”", false)}},
+			{new MatchedPair("«", "»", false), new []
+			{
+				new MatchedPair("“", "”", false),
+				new MatchedPair("‹", "›", false),
+				new MatchedPair("«", "»", false),
+				new MatchedPair("„", "“", false),
+				new MatchedPair("’", "’", false),
+				new MatchedPair("‘", "’", false)
+			}},
 			{new MatchedPair("»", "«", false), new []{new MatchedPair("›", "‹", false)}},
 			{new MatchedPair("”", "”", false), new []{new MatchedPair("’", "’", false)}},
 			{new MatchedPair("\"", "\"", false), new []{new MatchedPair("'", "'", false)}},
-			{new MatchedPair("„", "“", false), new []{new MatchedPair("‚", "‘", false)}},
-			{new MatchedPair("„", "”", false), new []{new MatchedPair("»", "«", false)}},
+			{new MatchedPair("„", "“", false), new []
+			{
+				new MatchedPair("‚", "‘", false),
+				new MatchedPair("‘", "’", false),
+				new MatchedPair("’", "’", false),
+				new MatchedPair("‚", "’", false),
+				new MatchedPair("’", "‚", false),
+				new MatchedPair("»", "«", false),
+				new MatchedPair("’", "‘", false),
+				new MatchedPair("«", "»", false)
+			}},
+			{new MatchedPair("„", "”", false), new []
+			{
+				new MatchedPair("»", "«", false),
+				new MatchedPair("‚", "’", false),
+				new MatchedPair("‘", "’", false),
+				new MatchedPair("’", "’", false),
+				new MatchedPair("»", "«", false),
+				new MatchedPair("«", "»", false)
+			}},
 			{new MatchedPair("‚", "’", false), new []{new MatchedPair("„", "”", false)}},
 			{new MatchedPair("「", "」", false), new []{new MatchedPair("『", "』", false)}},
-			{new MatchedPair("<<", ">>", false), new []{new MatchedPair("“", "”", false), new MatchedPair("<", ">", false)}}
+			{new MatchedPair("<<", ">>", false), new []{new MatchedPair("<", ">", false)}}, 
 		};
 
 		public static object[] AllDefaultSymbols()
@@ -41,7 +68,7 @@ namespace ProtoScript.Quote
 			Level2Possibilities.TryGetValue(level1Mp, out level2Possibilities);
 			if (level2Possibilities == null)
 				return null;
-			return level2Possibilities.Select(q => new QuotationMark(q.Open, q.Close, q.Open, 2, level1.Type)).ToArray();
+			return level2Possibilities.Select(q => new QuotationMark(q.Open, q.Close, level1.Continue + q.Open, 2, level1.Type)).ToArray();
 		}
 
 		public static QuotationMark GetLevel2Default(QuotationMark level1)
@@ -52,11 +79,6 @@ namespace ProtoScript.Quote
 			if (level2 == null)
 				return null;
 			return new QuotationMark(level2.Open, level2.Close, level2.Open, 2, level1.Type);
-		}
-
-		public static string GenerateLevel2ContinuerByConcatenation(QuoteSystem system, string level2Continuer)
-		{
-			return system.FirstLevel.Continue + level2Continuer;
 		}
 
 		public static QuotationMark GenerateLevel3(QuoteSystem system, bool concatenateContinuers)

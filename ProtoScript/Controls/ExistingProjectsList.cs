@@ -172,7 +172,7 @@ namespace ProtoScript.Controls
 				string title = LocalizationManager.GetString("Project.CannotRemoveCaption", "Cannot Remove from List");
 				string msg = LocalizationManager.GetString("Project.CannotRemove", "Cannot remove the selected project because it is currently open");
 				MessageBox.Show(msg, title);
-				m_list.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false;
+				m_list.RefreshEdit();
 				e.Cancel = true;
 			}
 		}

@@ -173,6 +173,8 @@ namespace ProtoScript.Quote
 
 							var token = match.Value;
 
+							atBeginningOfBlock &= match.Index == 0;
+
 							if (atBeginningOfBlock)
 							{
 								atBeginningOfBlock = false;

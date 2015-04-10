@@ -24,13 +24,13 @@ namespace ProtoScriptTests.Quote
 		{
 			var level1 = new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal);
 			var level2Possibilities = QuoteUtils.GetLevel2Possibilities(level1);
-			Assert.AreEqual(2, level2Possibilities.Count());
-			var level2A = level2Possibilities.First();
-			Assert.AreEqual("“", level2A.Open);
-			Assert.AreEqual("”", level2A.Close);
-			var level2B = level2Possibilities[1];
-			Assert.AreEqual("‹", level2B.Open);
-			Assert.AreEqual("›", level2B.Close);
+			Assert.AreEqual(6, level2Possibilities.Count());
+			Assert.AreEqual(1, level2Possibilities.Count(p => p.Open.Equals("“") && p.Close.Equals("”") && p.Continue.Equals("«“")));
+			Assert.AreEqual(1, level2Possibilities.Count(p => p.Open.Equals("‹") && p.Close.Equals("›") && p.Continue.Equals("«‹")));
+			Assert.AreEqual(1, level2Possibilities.Count(p => p.Open.Equals("«") && p.Close.Equals("»") && p.Continue.Equals("««")));
+			Assert.AreEqual(1, level2Possibilities.Count(p => p.Open.Equals("„") && p.Close.Equals("“") && p.Continue.Equals("«„")));
+			Assert.AreEqual(1, level2Possibilities.Count(p => p.Open.Equals("’") && p.Close.Equals("’") && p.Continue.Equals("«’")));
+			Assert.AreEqual(1, level2Possibilities.Count(p => p.Open.Equals("‘") && p.Close.Equals("’") && p.Continue.Equals("«‘")));
 		}
 
 		[Test]

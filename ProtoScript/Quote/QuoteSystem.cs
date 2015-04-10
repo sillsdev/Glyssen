@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,6 @@ namespace ProtoScript.Quote
 		}
 
 		private static List<QuoteSystem> s_systems;
-		private static List<QuoteSystem> s_uniquelyGuessableSystems;
 
 		static QuoteSystem()
 		{
@@ -33,9 +33,25 @@ namespace ProtoScript.Quote
 			doc.LoadXml(Resources.QuoteSystemData);
 			foreach (XmlNode node in doc.SafeSelectNodes("//QuoteSystem"))
 				s_systems.Add(XmlSerializationHelper.DeserializeFromString<QuoteSystem>(node.OuterXml));
+
+			var systemsWithAllLevels = new List<QuoteSystem>();
+			foreach (var quoteSystem in s_systems)
+			{
+				foreach (var level2 in QuoteUtils.GetLevel2Possibilities(quoteSystem.FirstLevel))
+				{
+					var qs = new QuoteSystem(quoteSystem);
+					if (!string.IsNullOrWhiteSpace(quoteSystem.Name))
+						qs.Name = String.Format("{0} with levels 2 ({1}/{2}) and 3.", quoteSystem.Name, level2.Open, level2.Close);
+					qs.AllLevels.Add(level2);
+					qs.AllLevels.Add(QuoteUtils.GenerateLevel3(qs, true));
+					systemsWithAllLevels.Add(qs);
+				}
+			}
+			s_systems.AddRange(systemsWithAllLevels);
 		}
 
-		private BulkObservableList<QuotationMark> m_allLevels; 
+		private BulkObservableList<QuotationMark> m_allLevels;
+		private string m_majorLanguage;
 
 		public QuoteSystem()
 		{
@@ -66,30 +82,7 @@ namespace ProtoScript.Quote
 
 		public static IEnumerable<QuoteSystem> UniquelyGuessableSystems
 		{
-			get
-			{
-				if (s_uniquelyGuessableSystems == null)
-				{
-					s_uniquelyGuessableSystems = AllUniqueFirstLevelSystems.ToList();
-					var comparer = new FirstLevelQuoteSystemComparer();
-					foreach (var qs in s_systems.Where(q => q.QuotationDashMarker != null))
-					{
-						if (!s_uniquelyGuessableSystems.Any(s => comparer.Equals(s, qs) && s.QuotationDashMarker == qs.QuotationDashMarker))
-						{
-							var minimallySpecifiedSystem = GetOrCreateQuoteSystem(qs.FirstLevel, qs.QuotationDashMarker, null);
-							if (string.IsNullOrEmpty(minimallySpecifiedSystem.Name))
-								minimallySpecifiedSystem = qs;
-							s_uniquelyGuessableSystems.Add(minimallySpecifiedSystem);
-						}
-					}
-				}
-				return s_uniquelyGuessableSystems;
-			}
-		}
-
-		public static IEnumerable<QuoteSystem> AllUniqueFirstLevelSystems
-		{
-			get { return s_systems.Where(q => q.QuotationDashMarker == null).Distinct(new FirstLevelQuoteSystemComparer()); }
+			get { return s_systems; }
 		}
 
 		public static QuoteSystem GetOrCreateQuoteSystem(QuotationMark firstLevel, string quotationDashMarker, string quotationDashEndMarker)
@@ -102,7 +95,19 @@ namespace ProtoScript.Quote
 
 		public string Name { get; set; }
 
-		public string MajorLanguage { get; set; }
+		public string MajorLanguage
+		{
+			get { return m_majorLanguage; }
+			set 
+			{
+				m_majorLanguage = value;
+				if (value == "French" && AllLevels.Any())
+				{
+					AllLevels[0] = new QuotationMark(AllLevels[0].Open, AllLevels[0].Close, AllLevels[0].Close, 1,
+						QuotationMarkingSystemType.Normal);
+				}
+			}
+		}
 
 		[XmlIgnore]
 		public BulkObservableList<QuotationMark> AllLevels
@@ -127,9 +132,15 @@ namespace ProtoScript.Quote
 			set
 			{
 				if (AllLevels.Count == 0)
-					AllLevels.Add(new QuotationMark(value, null, value, 1, QuotationMarkingSystemType.Normal));
+				{
+					var cont = MajorLanguage == "French" ? null : value;
+					AllLevels.Add(new QuotationMark(value, null, cont, 1, QuotationMarkingSystemType.Normal));
+				}
 				else
-					AllLevels[0] = new QuotationMark(value, AllLevels[0].Close, value, 1, QuotationMarkingSystemType.Normal);
+				{
+					var cont = MajorLanguage == "French" ? AllLevels[0].Close : value;
+					AllLevels[0] = new QuotationMark(value, AllLevels[0].Close, cont, 1, QuotationMarkingSystemType.Normal);
+				}
 			}
 		}
 
@@ -140,9 +151,16 @@ namespace ProtoScript.Quote
 			set
 			{
 				if (AllLevels.Count == 0)
-					AllLevels.Add(new QuotationMark(null, value, null, 1, QuotationMarkingSystemType.Normal));
+				{
+					var cont = MajorLanguage == "French" ? value : null;
+					AllLevels.Add(new QuotationMark(null, value, cont, 1, QuotationMarkingSystemType.Normal));
+				}
 				else
-					AllLevels[0] = new QuotationMark(AllLevels[0].Open, value, AllLevels[0].Continue, 1, QuotationMarkingSystemType.Normal);
+				{
+					var cont = MajorLanguage == "French" ? value : AllLevels[0].Continue;
+					AllLevels[0] = new QuotationMark(AllLevels[0].Open, value, cont, 1,
+						QuotationMarkingSystemType.Normal);
+				}
 			}
 		}
 
@@ -209,10 +227,10 @@ namespace ProtoScript.Quote
 			}
 		}
 
-		public QuoteSystem GetCorrespondingFirstLevelQuoteSystem()
-		{
-			return AllUniqueFirstLevelSystems.FirstOrDefault(f => f.FirstLevel.Open == FirstLevel.Open && f.FirstLevel.Close == FirstLevel.Close);
-		}
+		//public QuoteSystem GetCorrespondingFirstLevelQuoteSystem()
+		//{
+		//	return AllUniqueFirstLevelSystems.FirstOrDefault(f => f.FirstLevel.Open == FirstLevel.Open && f.FirstLevel.Close == FirstLevel.Close);
+		//}
 
 		public override string ToString()
 		{
@@ -270,18 +288,5 @@ namespace ProtoScript.Quote
 			return !Equals(left, right);
 		}
 		#endregion
-	}
-
-	public class FirstLevelQuoteSystemComparer : IEqualityComparer<QuoteSystem>
-	{
-		public bool Equals(QuoteSystem x, QuoteSystem y)
-		{
-			return Equals(x.FirstLevel, y.FirstLevel);
-		}
-
-		public int GetHashCode(QuoteSystem obj)
-		{
-			return obj.GetHashCode();
-		}
 	}
 }

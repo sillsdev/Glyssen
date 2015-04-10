@@ -42,28 +42,56 @@ namespace ProtoScriptTests.Quote
 		}
 
 		/// <summary>
-		/// This is more of an acceptance test since it depends on randomly, generated test data (to attempt
+		/// This is more of an acceptance test since it depends on randomly generated test data (to attempt
 		/// to simulate real data), and the interworking of the QuoteSystemGuesser and the CharacterVerseData class.
 		/// </summary>
 		[Test]
-		//[Category("SkipOnTeamCity")]
-		public void Guess_AllFirstLevelQuoteSystemsWithHighlyConsistentData_CorrectlyIdentifiesSystemWithCertainty()
+		public void Guess_AllFirstLevelQuoteSystemsWithMultipleSecondLevelPossibilitiesWithHighlyConsistentData_CorrectlyIdentifiesSystemWithUncertainty()
 		{
-			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => String.IsNullOrEmpty(qs.QuotationDashMarker)))
+			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => String.IsNullOrEmpty(qs.QuotationDashMarker) &&
+				qs.NormalLevels.Count == 1 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() > 1))
+			{
+				RunTest(quoteSystem, true, false);
+			}
+		}
+
+		/// <summary>
+		/// This is more of an acceptance test since it depends on randomly generated test data (to attempt
+		/// to simulate real data), and the interworking of the QuoteSystemGuesser and the CharacterVerseData class.
+		/// </summary>
+		[Test]
+		public void Guess_AllSinglePossibilityMultipleLevelQuoteSystemsWithHighlyConsistentData_CorrectlyIdentifiesSystemWithCertainty()
+		{
+			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => String.IsNullOrEmpty(qs.QuotationDashMarker) &&
+				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() == 1))
 			{
 				RunTest(quoteSystem, true, true);
 			}
 		}
 
 		/// <summary>
-		/// This is more of an acceptance test since it depends on randomly, generated test data (to attempt
+		/// This is more of an acceptance test since it depends on randomly generated test data (to attempt
 		/// to simulate real data), and the interworking of the QuoteSystemGuesser and the CharacterVerseData class.
 		/// </summary>
 		[Test]
-		//[Category("SkipOnTeamCity")]
-		public void Guess_SystemsWithDialogueQuotesWithHighlyConsistentData_CorrectlyIdentifiesSystemWithUncertainty()
+		public void Guess_AllFirstLevelQuoteSystemsWithMultipleSecondLevelPossibilitiesAndDialogueQuotesWithHighlyConsistentData_CorrectlyIdentifiesSystemWithUncertainty()
 		{
-			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => !String.IsNullOrEmpty(qs.QuotationDashMarker)))
+			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => !String.IsNullOrEmpty(qs.QuotationDashMarker) &&
+				qs.NormalLevels.Count == 1 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() > 1))
+			{
+				RunTest(quoteSystem, true, false);
+			}
+		}
+
+		/// <summary>
+		/// This is more of an acceptance test since it depends on randomly generated test data (to attempt
+		/// to simulate real data), and the interworking of the QuoteSystemGuesser and the CharacterVerseData class.
+		/// </summary>
+		[Test]
+		public void Guess_AllSinglePossibilityMultipleLevelQuoteSystemsWithDialogueQuotesWithHighlyConsistentData_CorrectlyIdentifiesSystemWithUncertainty()
+		{
+			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => !String.IsNullOrEmpty(qs.QuotationDashMarker) &&
+				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() == 1))
 			{
 				RunTest(quoteSystem, true, false);
 			}
@@ -72,14 +100,14 @@ namespace ProtoScriptTests.Quote
 		[Test]
 		public void Guess_DoubleCurlyQuotesWithLessConsistentData_CorrectlyIdentifiesSystemWithUncertainty()
 		{
-			var quoteSystem = QuoteSystem.UniquelyGuessableSystems.Single(qs => qs.Name == "Quotation marks, double");
+			var quoteSystem = QuoteSystem.UniquelyGuessableSystems.Single(qs => qs.Name == "Quotation marks, double with levels 2 (‘/’) and 3.");
 			RunTest(quoteSystem, false, false);
 		}
 
 		[Test]
 		public void Guess_StraightQuotesWithLessConsistentData_CorrectlyIdentifiesSystemWithCertainty()
 		{
-			var quoteSystem = QuoteSystem.UniquelyGuessableSystems.Single(qs => qs.FirstLevel.Open == "\"");
+			var quoteSystem = QuoteSystem.UniquelyGuessableSystems.Single(qs => qs.FirstLevel.Open == "\"" && qs.NormalLevels.Count > 1);
 			RunTest(quoteSystem, false, true);
 		}
 
@@ -94,13 +122,12 @@ namespace ProtoScriptTests.Quote
 			Console.WriteLine("   took " + sw.ElapsedMilliseconds + " milliseconds.");
 			if (expectedCertain)
 			{
-				Assert.AreEqual(quoteSystem.FirstLevel, guessedQuoteSystem.FirstLevel, "Expected " + quoteSystem.FirstLevel + ", but was " + guessedQuoteSystem.FirstLevel);
+				Assert.AreEqual(quoteSystem, guessedQuoteSystem, "Expected " + quoteSystem.FirstLevel + ", but was " + guessedQuoteSystem.FirstLevel);
 				Assert.IsTrue(certain);
 			}
 			else
 			{
-				var comparer = new FirstLevelQuoteSystemComparer();
-				Assert.IsTrue(comparer.Equals(quoteSystem, guessedQuoteSystem), "Expected " + quoteSystem + ", but was " + guessedQuoteSystem);
+				Assert.AreEqual(quoteSystem, guessedQuoteSystem, "Expected " + quoteSystem + ", but was " + guessedQuoteSystem);
 			}
 		}
 
@@ -158,14 +185,10 @@ namespace ProtoScriptTests.Quote
 			var verseText = new StringBuilder();
 
 			var characters = ControlCharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse)
-				.Where(c => c.Character != "scripture" && !CharacterVerseData.IsCharacterOfType(c.Character, CharacterVerseData.StandardCharacter.Narrator)).ToList();
-			bool quoteStartExpected = characters.Count > 0;
+				.Where(c => !CharacterVerseData.IsCharacterOfType(c.Character, CharacterVerseData.StandardCharacter.Narrator)).ToList();
 			// If previous verse had same character talking, it's probably a longer discourse, so minimize the number of start quotes.
-			if (verse > 1 && characters.Count == 1 && ControlCharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse - 1)
-				.SequenceEqual(characters) && verse % 5 != 0)
-			{
-				quoteStartExpected = false;
-			}
+			bool quoteStartExpected = (!(verse > 1 && characters.Count == 1 && ControlCharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse - 1)
+				.SequenceEqual(characters) && verse % 5 != 0));
 
 			// The following attempts to more-or-less simulate real data.
 			// When this method is called for verses that are expected to begin a quote, not having

@@ -19,7 +19,7 @@
 		<EndQuoteMarker>”</EndQuoteMarker>
     <QuotationDashMarker>―</QuotationDashMarker>
 	</QuoteSystem>
-  	<QuoteSystem>
+  <!-- These differ only by QuotationDashEndMarker so they can't be readily distinguished in the guesser from the preceding systems<QuoteSystem>
 		<Name>Virgolette (with opening and closing 2014 Quotation dash)</Name>
 		<MajorLanguage>Italian</MajorLanguage>
 		<StartQuoteMarker>“</StartQuoteMarker>
@@ -34,7 +34,7 @@
 		<EndQuoteMarker>”</EndQuoteMarker>
     <QuotationDashMarker>―</QuotationDashMarker>
     <QuotationDashEndMarker>―</QuotationDashEndMarker>
-	</QuoteSystem>
+	</QuoteSystem>-->
 	<QuoteSystem>
 		<Name>Guillemets</Name>
 		<MajorLanguage>French</MajorLanguage>
@@ -97,7 +97,7 @@
 		<EndQuoteMarker>»</EndQuoteMarker>
     <QuotationDashMarker>―</QuotationDashMarker>
 	</QuoteSystem>-->
-	<QuoteSystem>
+	<!--These differ only by QuotationDashEndMarker so they can't be readily distinguished in the guesser from French<QuoteSystem>
 		<Name>Comillas latinas (with opening and closing 2014 Quotation dash)</Name>
 		<MajorLanguage>Spanish/Russian</MajorLanguage>
 		<StartQuoteMarker>«</StartQuoteMarker>
@@ -112,7 +112,7 @@
 		<EndQuoteMarker>»</EndQuoteMarker>
     <QuotationDashMarker>―</QuotationDashMarker>
     <QuotationDashEndMarker>―</QuotationDashEndMarker>
-	</QuoteSystem>
+	</QuoteSystem>-->
 	<QuoteSystem>
 		<Name>Quotation marks, single</Name>
 		<MajorLanguage>English, UK</MajorLanguage>
