@@ -16,8 +16,8 @@ namespace ProtoScript.Quote
 		private const int kMinSample = 15;
 		private const int kMinQuotationDashSample = 15;
 		private const double kMinPercent = .70;
-		private const double kMinQuotationDashPercent = .25;
-		private const double kQuotationDashFailPercent = .10;
+		private const double kMinQuotationDashPercent = .35;
+		private const double kQuotationDashFailPercent = .27;
 		private const double kMaxCompetitorPercent = .6;
 		private const int kMaxFollowingVersesToSearchForEndQuote = 7;
 		private const int kMaxTimeLimit = 48000000;
@@ -87,7 +87,10 @@ namespace ProtoScript.Quote
 					followingVerses.Clear();
 					int maxFollowingVersesToSearch = kMaxFollowingVersesToSearchForEndQuote;
 #if SHOWTESTINFO
-					Debug.WriteLine("Evaluating {0} {1}:{2} - contents: {3}", book.BookId, quote.Chapter, quote.Verse, text);
+					if (quote.IsDialogue)
+						Debug.WriteLine("Evaluating {0} {1}:{2} - contents (DIALOGUE=TRUE): {3}", book.BookId, quote.Chapter, quote.Verse, text);
+					else
+						Debug.WriteLine("Evaluating {0} {1}:{2} - contents: {3}", book.BookId, quote.Chapter, quote.Verse, text);
 #endif
 					foreach (var quoteSystem in viableSystems)
 					{
@@ -193,10 +196,16 @@ namespace ProtoScript.Quote
 								c.FirstLevel.Close == competitors[0].FirstLevel.Close))
 							{
 								var contendersWithQDash = competitors.Where(c => !String.IsNullOrEmpty(c.QuotationDashMarker)).ToList();
-								if (contendersWithQDash.TrueForAll(
-									c => quotationDashCounts[c] < kQuotationDashFailPercent * totalDialoqueQuoteVersesAnalyzed))
+								var failureThresholdForQDCount = kQuotationDashFailPercent * totalDialoqueQuoteVersesAnalyzed;
+								if (contendersWithQDash.TrueForAll(c => quotationDashCounts[c] < failureThresholdForQDCount))
 								{
+#if SHOWTESTINFO
+									Debug.Write("No systems with QD over minimum threshold (" + failureThresholdForQDCount + "). Competitors reduced from " + competitors.Count);
+#endif
 									competitors = competitors.Where(c => String.IsNullOrEmpty(c.QuotationDashMarker)).ToList();
+#if SHOWTESTINFO
+									Debug.WriteLine(" to " + competitors.Count);
+#endif
 
 									// We're probably (unless we reset this to false below) down to either a single contender (in
 									// which case we can be pretty certain) or two contenders, in which case we can safely use the
@@ -206,8 +215,28 @@ namespace ProtoScript.Quote
 								}
 								else
 								{
+#if SHOWTESTINFO
+									Debug.WriteLine("Only considering contenders with QD. Of " + competitors.Count + " competitors, there are " +
+										contendersWithQDash.Count + " contenders with QD count over minimum threshold (" + failureThresholdForQDCount + ").");
+#endif
+									var minQDCount = kMinQuotationDashPercent * totalDialoqueQuoteVersesAnalyzed;
 									competitors = contendersWithQDash.Where(c => scores[c] == bestScore &&
-										quotationDashCounts[c] > kMinQuotationDashPercent * totalDialoqueQuoteVersesAnalyzed).ToList();
+										quotationDashCounts[c] >= minQDCount).ToList();
+#if SHOWTESTINFO
+									switch (competitors.Count)
+									{
+										case 0:
+											Debug.WriteLine("Of those, none had the best score (" + bestScore + ") and had a QD count above the minimum (" + minQDCount + ")");
+											break;
+										case 1:
+											Debug.WriteLine("Of those, one had the best score (" + bestScore + ") and had a QD count above the minimum (" + minQDCount + ")");
+											break;
+										default:
+											Debug.WriteLine("Of those, " + competitors.Count + " were tied for the best score (" + bestScore + ") and had a QD count above the minimum (" + minQDCount + ")");
+											break;
+
+									}
+#endif
 								}
 
 								if (competitors.Any())
@@ -216,7 +245,14 @@ namespace ProtoScript.Quote
 									// we didn't find anything in the data to help us choose among the options.
 									if (competitors.Count(qs => qs.NormalLevels.Count > 1) > 1)
 									{
+#if SHOWTESTINFO
+										Debug.Write("Multiple systems with 2nd and 3rd levels specified. Competitors reduced from " + competitors.Count);
+#endif
 										competitors = competitors.Where(qs => qs.NormalLevels.Count() == 1).ToList();
+#if SHOWTESTINFO
+										Debug.WriteLine(" to " + competitors.Count);
+#endif
+
 										certain = false;
 									}
 
@@ -226,6 +262,11 @@ namespace ProtoScript.Quote
 
 										if (competitors.Count == 1)
 											return competitors[0];
+#if SHOWTESTINFO
+										Debug.WriteLine("SURVIVORS:");
+										foreach (var system in competitors)
+											Debug.WriteLine(system.Name + "(" + system + ")\tScore: " + scores[system]);
+#endif
 										return competitors.FirstOrDefault(qs => qs.NormalLevels.Count() > 1) ?? competitors.First();
 									}
 								}
