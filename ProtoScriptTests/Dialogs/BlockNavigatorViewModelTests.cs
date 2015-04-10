@@ -8,6 +8,8 @@ using ProtoScript;
 using ProtoScript.Bundle;
 using ProtoScript.Character;
 using ProtoScript.Dialogs;
+using ProtoScript.Quote;
+using SIL.WritingSystems;
 
 namespace ProtoScriptTests.Dialogs
 {
@@ -64,6 +66,8 @@ namespace ProtoScriptTests.Dialogs
 			sampleMetadata.id = kTest;
 			sampleMetadata.language = new DblMetadataLanguage { iso = kTest };
 			sampleMetadata.identification = new DblMetadataIdentification { name = "test~~" };
+			sampleMetadata.IsQuoteSystemUserConfirmed = true;
+			sampleMetadata.QuoteSystem = GetTestQuoteSystem();
 
 			XmlDocument sampleMark = new XmlDocument();
 			sampleMark.LoadXml(Properties.Resources.TestMRK);
@@ -71,18 +75,20 @@ namespace ProtoScriptTests.Dialogs
 
 			var project = new Project(sampleMetadata, new[] { mark }, SfmLoader.GetUsfmStylesheet());
 
-			// Wait for guesser to finish
-			while (project.ProjectState != ProjectState.NeedsQuoteSystemConfirmation)
-				Thread.Sleep(100);
-
-			project.IsQuoteSystemUserConfirmed = true;
-			project.QuoteSystem = project.ConfirmedQuoteSystem;
-			
 			// Wait for quote parse to finish
 			while (project.ProjectState != ProjectState.FullyInitialized)
 				Thread.Sleep(100);
 
 			return Project.Load(Project.GetProjectFilePath(kTest, kTest, Project.GetDefaultRecordingProjectName(kTest)));
+		}
+
+		private static QuoteSystem GetTestQuoteSystem()
+		{
+			QuoteSystem testQuoteSystem = new QuoteSystem();
+			testQuoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal));
+			testQuoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“‘", 2, QuotationMarkingSystemType.Normal));
+			testQuoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“‘“", 3, QuotationMarkingSystemType.Normal));
+			return testQuoteSystem;
 		}
 
 		[Test]

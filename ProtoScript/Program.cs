@@ -27,6 +27,9 @@ namespace ProtoScript
 			Application.SetCompatibleTextRenderingDefault(false);
 
 			SetUpErrorHandling();
+
+			Project.CreateSampleProjectIfNeeded();
+
 			SetUpLocalization();
 
 			// The following not only gets the location of the settings file;

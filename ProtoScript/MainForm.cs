@@ -116,8 +116,6 @@ namespace ProtoScript
 
 		private void ShowOpenProjectDialog()
 		{
-			Project.CreateSampleProjectIfNeeded();
-
 			using (var dlg = new OpenProjectDlg(m_project))
 			{
 				var result = dlg.ShowDialog(this);
@@ -428,11 +426,12 @@ namespace ProtoScript
 			var model = new ProjectMetadataViewModel(m_project);
 			using (var dlg = new ProjectMetadataDlg(model))
 			{
-				if (dlg.ShowDialog() == DialogResult.Cancel)
+				if (dlg.ShowDialog() != DialogResult.OK)
 					return;
 
 				m_project.UpdateSettings(model);
 			}
+			UpdateDisplayOfProjectInfo();
 		}
 
 		private void m_lnkExit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

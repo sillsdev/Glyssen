@@ -5,7 +5,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
 using L10NSharp;
@@ -15,6 +14,7 @@ using ProtoScript.Bundle;
 using ProtoScript.Character;
 using ProtoScript.Properties;
 using ProtoScript.Quote;
+using SIL.IO;
 using SIL.Reporting;
 using SIL.ScriptureUtils;
 using SIL.Windows.Forms.FileSystem;
@@ -58,6 +58,8 @@ namespace ProtoScript
 			m_metadata = metadata;
 			m_recordingProjectName = recordingProjectName ?? GetDefaultRecordingProjectName(m_metadata.identification.name);
 			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath);
+			if (m_metadata.QuoteSystem == null)
+				LoadWritingSystem();
 		}
 
 		public Project(Bundle.Bundle bundle, string recordingProjectName = null) : this(bundle.Metadata, recordingProjectName)
@@ -195,18 +197,35 @@ namespace ProtoScript
 			{
 				bool quoteSystemBeingSetForFirstTime = ConfirmedQuoteSystem == null;
 				bool quoteSystemChanged = ConfirmedQuoteSystem != value;
-				m_metadata.QuoteSystem = value;
 
 				if (IsQuoteSystemUserConfirmed && ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
+				{
+					m_metadata.QuoteSystem = value;
 					DoQuoteParse();
+				}
 				else if (quoteSystemChanged && !quoteSystemBeingSetForFirstTime)
+				{
+					// These need to happen in this order
+					Save();
+					CreateBackup("Backup before quote system change");
+					m_metadata.QuoteSystem = value;
 					HandleQuoteSystemChanged();
+				}
+				else
+				{
+					m_metadata.QuoteSystem = value;
+				}
 			}
 		}
 
 		public QuoteSystem ConfirmedQuoteSystem
 		{
-			get { return m_metadata.QuoteSystem; }
+			get
+			{
+				if (m_metadata.QuoteSystem != null && m_metadata.QuoteSystem.AllLevels.Any())
+					return m_metadata.QuoteSystem;
+				return null;
+			}
 		}
 
 		public bool IsQuoteSystemUserConfirmed
@@ -303,6 +322,11 @@ namespace ProtoScript
 
 		public string BookSelectionSummary { get { return IncludedBooks.BookSummary(); } }
 
+		/// <summary>
+		/// If this is set, the user decisions in it will be applied when the quote parser is done
+		/// </summary>
+		private Project UserDecisionsProject { get; set; }
+
 		internal void ClearProjectStatus()
 		{
 			Status = new ProjectStatus();
@@ -317,13 +341,10 @@ namespace ProtoScript
 			{
 				using (var bundle = new Bundle.Bundle(existingProject.OriginalPathOfDblFile))
 				{
-					var upgradedProject = new Project(bundle.Metadata, existingProject.m_recordingProjectName);
-					upgradedProject.QuoteSystem = existingProject.m_metadata.QuoteSystem;
-					// Prior to Parser version 17, project metadata didn't keep the Books collection.
-					if (existingProject.m_metadata.AvailableBooks != null && existingProject.m_metadata.AvailableBooks.Any())
-						upgradedProject.m_metadata.AvailableBooks = existingProject.m_metadata.AvailableBooks;
+					var upgradedProject = new Project(existingProject.m_metadata, existingProject.m_recordingProjectName);
+					upgradedProject.UserDecisionsProject = existingProject;
 					upgradedProject.PopulateAndParseBooks(bundle);
-					upgradedProject.ApplyUserDecisions(existingProject);
+					upgradedProject.m_metadata.PgUsxParserVersion = Settings.Default.PgUsxParserVersion;
 					return upgradedProject;
 				}
 			}
@@ -566,6 +587,11 @@ namespace ProtoScript
 
 			m_metadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
 			Analyze();
+			if (UserDecisionsProject != null)
+			{
+				ApplyUserDecisions(UserDecisionsProject);
+				UserDecisionsProject = null;
+			}
 			Save();
 		}
 
@@ -708,25 +734,42 @@ namespace ProtoScript
 
 		private void HandleQuoteSystemChanged()
 		{
+			Project copyOfExistingProject = new Project(m_metadata, Name);
+			copyOfExistingProject.m_books.AddRange(m_books);
+
 			m_books.Clear();
 
 			if (File.Exists(OriginalPathOfDblFile) && QuoteSystem != null)
 			{
+				UserDecisionsProject = copyOfExistingProject;
 				using (var bundle = new Bundle.Bundle(OriginalPathOfDblFile))
 					PopulateAndParseBooks(bundle);
-			}
-			else if (File.Exists(m_metadata.OriginalPathOfSfmFile) && QuoteSystem != null)
-			{
-				AddAndParseBooks(new[] { SfmLoader.LoadSfmBook(m_metadata.OriginalPathOfSfmFile) }, SfmLoader.GetUsfmStylesheet());
-			}
-			else if (Directory.Exists(m_metadata.OriginalPathOfSfmDirectory) && QuoteSystem != null)
-			{
-				AddAndParseBooks(SfmLoader.LoadSfmFolder(m_metadata.OriginalPathOfSfmDirectory), SfmLoader.GetUsfmStylesheet());
 			}
 			else
 			{
 				//TODO
 				throw new ApplicationException();
+			}
+		}
+
+		private void CreateBackup(string textToAppendToRecordingProjectName, bool hidden = true)
+		{
+			string newDirectoryPath = GetProjectFolderPath(LanguageIsoCode, Id, Name + " - " + textToAppendToRecordingProjectName);
+			if (Directory.Exists(newDirectoryPath))
+			{
+				string fmt = newDirectoryPath + " ({0})";
+				int n = 1;
+				do
+				{
+					newDirectoryPath = String.Format(fmt, n++);
+				} while (Directory.Exists(newDirectoryPath));
+			}
+			DirectoryUtilities.CopyDirectoryContents(ProjectFolder, newDirectoryPath);
+			if (hidden)
+			{
+				var newFilePath = Directory.GetFiles(newDirectoryPath, "*" + kProjectFileExtension).FirstOrDefault();
+				if (newFilePath != null)
+					SetHiddenFlag(newFilePath, true);
 			}
 		}
 
@@ -736,6 +779,8 @@ namespace ProtoScript
 			{
 				if (m_wsRepository != null)
 					return m_wsRepository;
+				if (!Directory.Exists(ProjectFolder))
+					Directory.CreateDirectory(ProjectFolder);
 				return m_wsRepository = LdmlInFolderWritingSystemRepository.Initialize(ProjectFolder);
 			}
 		}
@@ -803,30 +848,24 @@ namespace ProtoScript
 			sampleMetadata.id = kSample;
 			sampleMetadata.language = new DblMetadataLanguage {iso = kSample};
 			sampleMetadata.identification = new DblMetadataIdentification { name = kSampleProjectName, nameLocal = kSampleProjectName};
+			sampleMetadata.IsQuoteSystemUserConfirmed = true;
+			sampleMetadata.IsBookSelectionUserConfirmed = true;
+			sampleMetadata.QuoteSystem = GetSampleQuoteSystem();
 
 			XmlDocument sampleMark = new XmlDocument();
 			sampleMark.LoadXml(Resources.SampleMRK);
 			UsxDocument mark = new UsxDocument(sampleMark);
 
-			var sampleProject = new Project(sampleMetadata, new[] { mark }, SfmLoader.GetUsfmStylesheet());
+			new Project(sampleMetadata, new[] { mark }, SfmLoader.GetUsfmStylesheet());
+		}
 
-			// Wait for guesser to finish
-			while (sampleProject.ProjectState != ProjectState.NeedsQuoteSystemConfirmation)
-			{
-				Thread.Sleep(100);
-				Application.DoEvents();
-			}
-
-			sampleProject.IsQuoteSystemUserConfirmed = true;
-			sampleProject.IsBookSelectionUserConfirmed = true;
-			sampleProject.QuoteSystem = sampleProject.ConfirmedQuoteSystem;
-
-			// Wait for quote parse to finish
-			while (sampleProject.ProjectState != ProjectState.FullyInitialized)
-			{
-				Thread.Sleep(100);
-				Application.DoEvents();
-			}
+		private static QuoteSystem GetSampleQuoteSystem()
+		{
+			QuoteSystem sampleQuoteSystem = new QuoteSystem();
+			sampleQuoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal));
+			sampleQuoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“‘", 2, QuotationMarkingSystemType.Normal));
+			sampleQuoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“‘“", 3, QuotationMarkingSystemType.Normal));
+			return sampleQuoteSystem;
 		}
 
 		internal static string GetDefaultRecordingProjectName(string publicationName)
