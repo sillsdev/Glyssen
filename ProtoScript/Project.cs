@@ -459,6 +459,7 @@ namespace ProtoScript
 				if (sourceBookScript != null)
 					targetBookScript.ApplyUserDecisions(sourceBookScript);
 			}
+			Analyze();
 		}
 
 		private void PopulateAndParseBooks(Bundle.Bundle bundle)
