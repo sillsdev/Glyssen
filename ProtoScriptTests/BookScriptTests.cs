@@ -90,6 +90,22 @@ namespace ProtoScriptTests
 		}
 
 		[Test]
+		public void GetVerseText_RequestedLastVerseInChapterOneOfTwo_ReturnsVerseContents()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			mrkBlocks.Add(NewSingleVersePara(1).AddVerse(2).AddVerse(3).AddVerse(4));
+			mrkBlocks.Add(NewSingleVersePara(5).AddVerse(6).AddVerse(7, "This is it!"));
+			mrkBlocks.Add(NewChapterBlock(2));
+			mrkBlocks.Add(NewSingleVersePara(1));
+			mrkBlocks.Add(NewSingleVersePara(2).AddVerse(3));
+			mrkBlocks.Add(NewSingleVersePara(4).AddVerse(5).AddVerse(6));
+			mrkBlocks.Add(NewSingleVersePara(7).AddVerse(8));
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			Assert.AreEqual("This is it!", bookScript.GetVerseText(1, 7));
+		}
+
+		[Test]
 		public void GetVerseText_RequestedVerseIsPartOfVerseBridge_ReturnsVerseBridgeContents()
 		{
 			var mrkBlocks = new List<Block>();

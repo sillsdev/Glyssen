@@ -134,7 +134,7 @@ namespace ProtoScript.Bundle
 			if (!File.Exists(versificationPath))
 				return; // REVIEW (PG-117): Waiting to hear back from Eric whether this is possible. If so, what to do?
 
-			File.Copy(versificationPath, destinationPath);
+			File.Copy(versificationPath, destinationPath, true);
 		}
 
 		public DblMetadata Metadata

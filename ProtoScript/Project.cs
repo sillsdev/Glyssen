@@ -42,7 +42,6 @@ namespace ProtoScript
 
 		private readonly DblMetadata m_metadata;
 		private string m_recordingProjectName;
-		private QuoteSystem m_defaultQuoteSystem = QuoteSystem.Default;
 		private readonly List<BookScript> m_books = new List<BookScript>();
 		private int m_usxPercentComplete;
 		private int m_guessPercentComplete;
@@ -192,11 +191,16 @@ namespace ProtoScript
 
 		public QuoteSystem QuoteSystem
 		{
-			get { return m_metadata.QuoteSystem ?? m_defaultQuoteSystem; }
+			get
+			{
+				if (m_metadata.QuoteSystem != null && m_metadata.QuoteSystem.AllLevels.Any())
+					return m_metadata.QuoteSystem;
+				return null;
+			}
 			set
 			{
-				bool quoteSystemBeingSetForFirstTime = ConfirmedQuoteSystem == null;
-				bool quoteSystemChanged = ConfirmedQuoteSystem != value;
+				bool quoteSystemBeingSetForFirstTime = QuoteSystem == null;
+				bool quoteSystemChanged = m_metadata.QuoteSystem != value;
 
 				if (IsQuoteSystemUserConfirmed && ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
 				{
@@ -215,16 +219,6 @@ namespace ProtoScript
 				{
 					m_metadata.QuoteSystem = value;
 				}
-			}
-		}
-
-		public QuoteSystem ConfirmedQuoteSystem
-		{
-			get
-			{
-				if (m_metadata.QuoteSystem != null && m_metadata.QuoteSystem.AllLevels.Any())
-					return m_metadata.QuoteSystem;
-				return null;
 			}
 		}
 
@@ -424,7 +418,7 @@ namespace ProtoScript
 
 			m_usxPercentComplete = 100;
 			int controlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
-			if (ConfirmedQuoteSystem == null)
+			if (QuoteSystem == null)
 			{
 				GuessAtQuoteSystem();
 				m_metadata.ControlFileVersion = controlFileVersion;
@@ -514,7 +508,7 @@ namespace ProtoScript
 			resultList.Sort((a, b) => BCVRef.BookToNumber(a.BookId).CompareTo(BCVRef.BookToNumber(b.BookId)));
 			m_books.AddRange(resultList);
 
-			if (ConfirmedQuoteSystem == null)
+			if (QuoteSystem == null)
 				GuessAtQuoteSystem();
 			else if (IsQuoteSystemUserConfirmed)
 				DoQuoteParse();
@@ -540,8 +534,7 @@ namespace ProtoScript
 		private void GuessWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
 			bool certain;
-			m_defaultQuoteSystem = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, m_books, out certain, sender as BackgroundWorker);
-			e.Result = certain;
+			e.Result = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, m_books, out certain, sender as BackgroundWorker); ;
 		}
 
 		private void GuessWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -549,11 +542,8 @@ namespace ProtoScript
 			if (e.Error != null)
 				throw e.Error;
 
-			if ((bool)e.Result) //certain
-			{
-				IsQuoteSystemUserConfirmed = false;
-				QuoteSystem = m_defaultQuoteSystem;
-			}
+			IsQuoteSystemUserConfirmed = false;
+			QuoteSystem = (QuoteSystem)e.Result;
 			
 			Save();
 		}
@@ -696,8 +686,8 @@ namespace ProtoScript
 		{
 			WritingSystemDefinition ws = WritingSystem;
 			ws.QuotationMarks.Clear();
-			if (ConfirmedQuoteSystem != null)
-				ws.QuotationMarks.AddRange(ConfirmedQuoteSystem.AllLevels);
+			if (QuoteSystem != null)
+				ws.QuotationMarks.AddRange(QuoteSystem.AllLevels);
 
 			WritingSystemRepository.Save();
 		}

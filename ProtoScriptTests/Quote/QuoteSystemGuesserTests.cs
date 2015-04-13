@@ -1,4 +1,5 @@
-﻿using System;
+﻿//#define USE_RANDOM_SEED
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -51,7 +52,7 @@ namespace ProtoScriptTests.Quote
 			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => String.IsNullOrEmpty(qs.QuotationDashMarker) &&
 				qs.NormalLevels.Count == 1 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() > 1))
 			{
-				RunTest(quoteSystem, true, false);
+				RunTest(quoteSystem, true, false, false);
 			}
 		}
 
@@ -65,7 +66,7 @@ namespace ProtoScriptTests.Quote
 			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => String.IsNullOrEmpty(qs.QuotationDashMarker) &&
 				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() == 1))
 			{
-				RunTest(quoteSystem, true, true);
+				RunTest(quoteSystem, true, false, true);
 			}
 		}
 
@@ -79,7 +80,7 @@ namespace ProtoScriptTests.Quote
 			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => !String.IsNullOrEmpty(qs.QuotationDashMarker) &&
 				qs.NormalLevels.Count == 1 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() > 1))
 			{
-				RunTest(quoteSystem, true, false);
+				RunTest(quoteSystem, true, false, false);
 			}
 		}
 
@@ -88,12 +89,26 @@ namespace ProtoScriptTests.Quote
 		/// to simulate real data), and the interworking of the QuoteSystemGuesser and the CharacterVerseData class.
 		/// </summary>
 		[Test]
-		public void Guess_AllSinglePossibilityMultipleLevelQuoteSystemsWithDialogueQuotesWithHighlyConsistentData_CorrectlyIdentifiesSystemWithUncertainty()
+		public void Guess_AllSinglePossibilityMultipleLevelQuoteSystemsWithDialogueQuotesWithHighlyConsistentDataNoSecondLevelQuotesInData_CorrectlyIdentifiesSystemWithUncertainty()
 		{
 			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => !String.IsNullOrEmpty(qs.QuotationDashMarker) &&
 				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() == 1))
 			{
-				RunTest(quoteSystem, true, false);
+				RunTest(quoteSystem, true, false, false);
+			}
+		}
+
+		/// <summary>
+		/// This is more of an acceptance test since it depends on randomly generated test data (to attempt
+		/// to simulate real data), and the interworking of the QuoteSystemGuesser and the CharacterVerseData class.
+		/// </summary>
+		[Test]
+		public void Guess_AllMultiplePossibilityMultipleLevelQuoteSystemsWithDialogueQuotesWithHighlyConsistentDataAndSecondLevelQuotesInData_CorrectlyIdentifiesSystemWithUncertainty()
+		{
+			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => !String.IsNullOrEmpty(qs.QuotationDashMarker) &&
+				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() > 1))
+			{
+				RunTest(quoteSystem, true, true, false);
 			}
 		}
 
@@ -101,23 +116,23 @@ namespace ProtoScriptTests.Quote
 		public void Guess_DoubleCurlyQuotesWithLessConsistentData_CorrectlyIdentifiesSystemWithUncertainty()
 		{
 			var quoteSystem = QuoteSystem.UniquelyGuessableSystems.Single(qs => qs.Name == "Quotation marks, double with levels 2 (‘/’) and 3.");
-			RunTest(quoteSystem, false, false);
+			RunTest(quoteSystem, false, false, false);
 		}
 
 		[Test]
 		public void Guess_StraightQuotesWithLessConsistentData_CorrectlyIdentifiesSystemWithCertainty()
 		{
 			var quoteSystem = QuoteSystem.UniquelyGuessableSystems.Single(qs => qs.FirstLevel.Open == "\"" && qs.NormalLevels.Count > 1);
-			RunTest(quoteSystem, false, true);
+			RunTest(quoteSystem, false, false, true);
 		}
 
-		private void RunTest(QuoteSystem quoteSystem, bool highlyConsistentData, bool expectedCertain)
+		private void RunTest(QuoteSystem quoteSystem, bool highlyConsistentData, bool includeSecondLevelQuotes, bool expectedCertain)
 		{
 			Console.WriteLine("Attempting to guess " + quoteSystem.Name + "(" + quoteSystem + ")");
 			var sw = new Stopwatch();
 			sw.Start();
 			bool certain;
-			var guessedQuoteSystem = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, MockedBookForQuoteSystem.GetMockedBooks(quoteSystem, highlyConsistentData), out certain);
+			var guessedQuoteSystem = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, MockedBookForQuoteSystem.GetMockedBooks(quoteSystem, highlyConsistentData, includeSecondLevelQuotes), out certain);
 			sw.Stop();
 			Console.WriteLine("   took " + sw.ElapsedMilliseconds + " milliseconds.");
 			if (expectedCertain)
@@ -149,20 +164,33 @@ namespace ProtoScriptTests.Quote
 	{
 		private readonly QuoteSystem m_desiredQuoteSystem;
 		private readonly bool m_highlyConsistentData;
-		private Random m_random = new Random(300);
+		private readonly bool m_includeSecondLevelQuotes;
+		private Random m_random;
+		private bool m_secondLevelQuoteCloserPending;
+#if USE_RANDOM_SEED
+		static int s_seedBase = (int)DateTime.Now.Ticks;
+#endif
 
-		public static List<IScrBook> GetMockedBooks(QuoteSystem desiredQuoteSystem, bool highlyConsistentData = false)
+		public static List<IScrBook> GetMockedBooks(QuoteSystem desiredQuoteSystem, bool highlyConsistentData = false, bool includeSecondLevelQuotes = false)
 		{
 			var mockedBooks = new List<IScrBook>();
 			for (int i = 1; i <= BCVRef.LastBook; i++)
-				mockedBooks.Add(new MockedBookForQuoteSystem(i, desiredQuoteSystem, highlyConsistentData));
+				mockedBooks.Add(new MockedBookForQuoteSystem(i, desiredQuoteSystem, highlyConsistentData, includeSecondLevelQuotes));
 			return mockedBooks;
 		}
 
-		public MockedBookForQuoteSystem(int bookNum, QuoteSystem desiredQuoteSystem, bool highlyConsistentData)
+		public MockedBookForQuoteSystem(int bookNum, QuoteSystem desiredQuoteSystem, bool highlyConsistentData, bool includeSecondLevelQuotes)
 		{
+#if USE_RANDOM_SEED
+			Debug.WriteLine("Seed base = " + s_seedBase);
+			var seed = s_seedBase + bookNum;
+#else
+			var seed = 300 + bookNum;
+#endif
+			m_random = new Random(seed);
 			m_desiredQuoteSystem = desiredQuoteSystem;
 			m_highlyConsistentData = highlyConsistentData;
+			m_includeSecondLevelQuotes = includeSecondLevelQuotes && m_desiredQuoteSystem.NormalLevels.Count > 1;
 			BookId = BCVRef.NumberToBookCode(bookNum);
 		}
 
@@ -186,14 +214,17 @@ namespace ProtoScriptTests.Quote
 
 			var characters = ControlCharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse).ToList();
 			// If previous verse had same character talking, it's probably a longer discourse, so minimize the number of start quotes.
-			bool quoteStartExpected = (!(verse > 1 && characters.Count == 1 && ControlCharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse - 1)
-				.SequenceEqual(characters) && verse % 5 != 0));
+			bool quoteStartExpected = (verse == 1 || characters.Count > 1 || !ControlCharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse - 1)
+				.SequenceEqual(characters) || verse % 5 == 0);
 
 			// The following attempts to more-or-less simulate real data.
 			// When this method is called for verses that are expected to begin a quote, not having
 			// a start quote needs to be fairly rare.
 			QuotePosition startQuote = quoteStartExpected ? QuotePosition.MiddleOfVerse : QuotePosition.None;
 			QuotePosition endQuote = QuotePosition.None;
+
+			if (m_secondLevelQuoteCloserPending && startQuote != QuotePosition.None)
+				m_secondLevelQuoteCloserPending = false;
 
 			if (m_highlyConsistentData)
 				RandomizeHighlyConsistent(quoteStartExpected, ref startQuote, ref endQuote);
@@ -229,8 +260,14 @@ namespace ProtoScriptTests.Quote
 				}
 			}
 
+			int startQuotePos = -1;
+			int endQuotePos = -1;
+
 			if (startQuote == QuotePosition.StartOfVerse)
+			{
 				verseText.Append(startQuoteMarker);
+				startQuotePos = verseText.Length;
+			}
 			if (endQuote == QuotePosition.StartOfVerse)
 				verseText.Append(endQuoteMarker);
 
@@ -244,11 +281,13 @@ namespace ProtoScriptTests.Quote
 			if (startQuote == QuotePosition.MiddleOfVerse)
 			{
 				verseText.Append(startQuoteMarker);
+				startQuotePos = verseText.Length;
 				verseText.Append(BlockTestExtensions.RandomString());
 			}
 
 			if (endQuote == QuotePosition.MiddleOfVerse || endQuote == QuotePosition.OutOfOrder)
 			{
+				endQuotePos = verseText.Length;
 				verseText.Append(endQuoteMarker);
 				verseText.Append(BlockTestExtensions.RandomString());
 			}
@@ -256,13 +295,47 @@ namespace ProtoScriptTests.Quote
 			if (startQuote == QuotePosition.OutOfOrder)
 			{
 				verseText.Append(startQuoteMarker);
+				startQuotePos = verseText.Length;
 				verseText.Append(BlockTestExtensions.RandomString());
 			}
 
 			if (startQuote == QuotePosition.EndOfVerse)
 				verseText.Append(startQuoteMarker);
 			if (endQuote == QuotePosition.EndOfVerse)
+			{
+				endQuotePos = verseText.Length;
 				verseText.Append(endQuoteMarker);
+			}
+
+			if (m_includeSecondLevelQuotes && startQuoteMarker != m_desiredQuoteSystem.QuotationDashMarker)
+			{
+				float likelihoodFactor = m_highlyConsistentData ? 2F : 4F;
+
+				if (startQuotePos > 0 && endQuotePos > startQuotePos)
+				{
+					var pos = m_random.Next(startQuotePos, (int)(verseText.Length * likelihoodFactor));
+					if (pos + 3 < endQuotePos)
+					{
+						verseText.Insert(pos, m_desiredQuoteSystem.NormalLevels[1].Open);
+
+						if (characters.Count == 1 && ControlCharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse + 1)
+							.SequenceEqual(characters) && (verse + 1) % 5 == 0)
+							likelihoodFactor = 1;
+
+						pos = m_random.Next(pos + 2, (int)(endQuotePos + (endQuotePos - pos) * likelihoodFactor));
+						if (pos < endQuotePos)
+							verseText.Insert(pos, m_desiredQuoteSystem.NormalLevels[1].Close);
+						else
+							m_secondLevelQuoteCloserPending = true;
+					}
+				}
+				else if (m_secondLevelQuoteCloserPending)
+				{
+					int pos = m_random.Next(startQuotePos, verseText.Length);
+					if (pos < endQuotePos)
+						verseText.Insert(pos, m_desiredQuoteSystem.NormalLevels[1].Close);
+				}
+			}
 
 			return verseText.ToString();
 		}

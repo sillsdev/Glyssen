@@ -66,20 +66,6 @@ namespace ProtoScript
 		private void FinishSetProject()
 		{
 			UpdateDisplayOfProjectInfo();
-
-			if (m_project != null)
-			{
-				if (m_project.ConfirmedQuoteSystem == null)
-				{
-					var msg = string.Format(LocalizationManager.GetString("Project.NeedQuoteSystem",
-						"{0} was unable to identify the quotation marks used in this project. " +
-						"The quotation system is needed to automatically identify quotations. " +
-						"Would you like to display the {1} dialog box now in order to select the correct quotation system for this project?"),
-						ProductName, LocalizationManager.GetString("ProjectSettingsDialog.ProjectSettings", "Project Settings"));
-					if (MessageBox.Show(msg, ProductName, MessageBoxButtons.YesNo) == DialogResult.Yes)
-						HandleChangeQuotationMarks_Click(null, null);
-				}
-			}
 		}
 
 		private void InitializeLocalizableFormats()

@@ -97,6 +97,8 @@ namespace ProtoScript
 			for (int index = iFirstBlockToExamine; index < m_blockCount; index++)
 			{
 				var block = m_blocks[index];
+				if (block.ChapterNumber != chapter)
+					break;
 				foreach (var element in block.BlockElements)
 				{
 					Verse verseElement = element as Verse;
