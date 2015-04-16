@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using L10NSharp;
 using ProtoScript.Bundle;
+using SIL.Windows.Forms.PortableSettingsProvider;
 
 namespace ProtoScript.Controls
 {
@@ -67,6 +68,17 @@ namespace ProtoScript.Controls
 		public bool HiddenProjectsExist
 		{
 			get { return m_hiddenProjectsExist; }
+		}
+
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+		public GridSettings GridSettings
+		{
+			get { return GridSettings.Create(m_list); }
+			set
+			{
+				if (value != null)
+					value.InitializeGrid(m_list);
+			}
 		}
 
 		protected override void OnLoad(EventArgs e)

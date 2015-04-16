@@ -31,7 +31,6 @@ namespace ProtoScript.Controls
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.m_list = new System.Windows.Forms.DataGridView();
 			this.colLanguage = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colRecordingProjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,14 +52,6 @@ namespace ProtoScript.Controls
 			this.m_list.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.m_list.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.m_list.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
-			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.m_list.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.m_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.m_list.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colLanguage,
@@ -103,6 +94,7 @@ namespace ProtoScript.Controls
 			// 
 			this.colBundleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.colBundleName.HeaderText = "Original Bundle Filename";
+			this.colBundleName.MinimumWidth = 40;
 			this.colBundleName.Name = "colBundleName";
 			this.colBundleName.ReadOnly = true;
 			// 

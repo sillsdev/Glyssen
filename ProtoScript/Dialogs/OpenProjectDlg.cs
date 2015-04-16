@@ -4,7 +4,9 @@ using System.IO;
 using System.Windows.Forms;
 using L10NSharp;
 using Microsoft.Win32;
+using ProtoScript.Controls;
 using ProtoScript.Properties;
+using SIL.Windows.Forms.PortableSettingsProvider;
 
 namespace ProtoScript.Dialogs
 {
@@ -25,6 +27,9 @@ namespace ProtoScript.Dialogs
 		{
 			m_currentProject = currentProject;
 			InitializeComponent();
+
+			if (Settings.Default.OpenProjectDlgFormSettings == null)
+				Settings.Default.OpenProjectDlgFormSettings = FormSettings.Create(this);
 
 			if (m_currentProject != null)
 			{
@@ -87,6 +92,19 @@ namespace ProtoScript.Dialogs
 				}
 				return null;
 			}
+		}
+
+		protected override void OnLoad(EventArgs e)
+		{
+			Settings.Default.OpenProjectDlgFormSettings.InitializeForm(this);
+			base.OnLoad(e);
+			m_listExistingProjects.GridSettings = Settings.Default.OpenProjectDlgGridSettings;
+		}
+
+		protected override void OnClosing(CancelEventArgs e)
+		{
+			Settings.Default.OpenProjectDlgGridSettings = m_listExistingProjects.GridSettings;
+			base.OnClosing(e);
 		}
 
 		private void m_linkSingleSFBook_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
