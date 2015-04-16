@@ -20,6 +20,7 @@ namespace ProtoScript.Controls
 		private string m_filterBundleId;
 		private bool m_includeHiddenProjects;
 		private bool m_hiddenProjectsExist;
+		private bool m_gridInitializedFromSettings;
 		private List<string> m_readOnlyProjects = new List<string>();
 
 		public ExistingProjectsList()
@@ -76,8 +77,11 @@ namespace ProtoScript.Controls
 			get { return GridSettings.Create(m_list); }
 			set
 			{
-				if (value != null)
-					value.InitializeGrid(m_list);
+				if (value == null)
+					return;
+
+				value.InitializeGrid(m_list);
+				m_gridInitializedFromSettings = true;
 			}
 		}
 
@@ -85,6 +89,20 @@ namespace ProtoScript.Controls
 		{
 			base.OnLoad(e);
 			LoadExistingProjects();
+
+			// The very first time, we want the columns to autosize, then use the user settings
+			if (!m_gridInitializedFromSettings)
+			{
+				foreach (DataGridViewColumn col in m_list.Columns)
+					col.AutoSizeMode = col == colBundleName ? DataGridViewAutoSizeColumnMode.Fill : DataGridViewAutoSizeColumnMode.AllCells;
+
+				for (int i = 0; i < m_list.Columns.Count; i++)
+				{
+					int colw = m_list.Columns[i].Width;
+					m_list.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+					m_list.Columns[i].Width = colw;
+				}
+			}
 		}
 
 		public void LoadExistingProjects()
@@ -131,6 +149,7 @@ namespace ProtoScript.Controls
 
 			m_list.Sort(m_list.SortedColumn ?? colLanguage,
 				m_list.SortOrder == SortOrder.Descending ? ListSortDirection.Descending : ListSortDirection.Ascending);
+
 			m_list.SelectionChanged += HandleSelectionChanged;
 			m_list.CellValueChanged += HandleCellValueChanged;
 			m_list.CellValidating += HandleCellValidating;

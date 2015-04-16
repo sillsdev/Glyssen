@@ -46,7 +46,7 @@ namespace ProtoScript.Controls
 			this.m_list.AllowUserToDeleteRows = false;
 			this.m_list.AllowUserToOrderColumns = true;
 			this.m_list.AllowUserToResizeRows = false;
-			this.m_list.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+			this.m_list.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.m_list.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
 			this.m_list.BackgroundColor = System.Drawing.SystemColors.Window;
 			this.m_list.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -76,32 +76,36 @@ namespace ProtoScript.Controls
 			// 
 			// colLanguage
 			// 
-			this.colLanguage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.colLanguage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
 			this.colLanguage.HeaderText = "Language";
+			this.colLanguage.MinimumWidth = 50;
 			this.colLanguage.Name = "colLanguage";
 			this.colLanguage.ReadOnly = true;
 			this.colLanguage.Width = 84;
 			// 
 			// colRecordingProjectName
 			// 
-			this.colRecordingProjectName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.colRecordingProjectName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
 			this.colRecordingProjectName.HeaderText = "Recording Project";
+			this.colRecordingProjectName.MinimumWidth = 50;
 			this.colRecordingProjectName.Name = "colRecordingProjectName";
 			this.colRecordingProjectName.ReadOnly = true;
 			this.colRecordingProjectName.Width = 115;
 			// 
 			// colBundleName
 			// 
-			this.colBundleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.colBundleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
 			this.colBundleName.HeaderText = "Original Bundle Filename";
-			this.colBundleName.MinimumWidth = 40;
+			this.colBundleName.MinimumWidth = 50;
 			this.colBundleName.Name = "colBundleName";
 			this.colBundleName.ReadOnly = true;
+			this.colBundleName.Width = 94;
 			// 
 			// colInactive
 			// 
-			this.colInactive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.colInactive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
 			this.colInactive.HeaderText = "Inactive";
+			this.colInactive.MinimumWidth = 50;
 			this.colInactive.Name = "colInactive";
 			this.colInactive.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			this.colInactive.Width = 73;
@@ -112,7 +116,6 @@ namespace ProtoScript.Controls
 			this.colProjectPath.Name = "colProjectPath";
 			this.colProjectPath.ReadOnly = true;
 			this.colProjectPath.Visible = false;
-			this.colProjectPath.Width = 93;
 			// 
 			// ExistingProjectsList
 			// 
