@@ -2,10 +2,12 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
+using ProtoScript.Bundle;
 using ProtoScript.Controls;
 using ProtoScript.Quote;
 using SIL.ObjectModel;
@@ -61,8 +63,28 @@ namespace ProtoScript.Dialogs
 
 		private void HandleStringsLocalized()
 		{
+			SetPromptText();
 			SetupQuoteMarksComboBoxes(CurrentQuoteSystem);
 			m_xOfYFmt = m_labelXofY.Text;
+		}
+
+		private void SetPromptText()
+		{
+			string promptText = "";
+			switch (m_project.QuoteSystemStatus)
+			{
+				case QuoteSystemStatus.Obtained:
+					promptText = LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.BundleQuoteMarks", "Quote mark information was provided by the text bundle and should not normally be changed.");
+					break;
+				case QuoteSystemStatus.Guessed:
+					promptText = string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.CarefullyReviewQuoteMarks", "Carefully review the quote mark settings. Update them if necessary so {0} can correctly break the text into speaking parts.", "{0} is the product name"), Program.kProduct);
+					break;
+				case QuoteSystemStatus.Reviewed:
+				case QuoteSystemStatus.UserSet:
+					promptText = string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.ChangeQuoteMarks", "If necessary, change the quote mark settings so {0} can correctly break the text into speaking parts.", "{0} is the product name"), Program.kProduct);
+					break;
+			}
+			m_lblPrompt.Text = promptText;
 		}
 
 		private void SetupQuoteMarksComboBoxes(QuoteSystem currentSystem)
@@ -105,8 +127,8 @@ namespace ProtoScript.Dialogs
 			var quotationDashMarker = currentSystem.QuotationDashMarker;
 			m_chkDialogueQuotations.Checked = !String.IsNullOrEmpty(quotationDashMarker);
 			m_cboQuotationDash.Items.Clear();
-			m_cboQuotationDash.Items.Add(string.Format(LocalizationManager.GetString("QuotationMarksDialog.QuotationDash", "Quotation dash ({0})"), "U+2015"));
-			m_cboQuotationDash.Items.Add(string.Format(LocalizationManager.GetString("QuotationMarksDialog.EmDash", "Em-dash ({0})"), "U+2014"));
+			m_cboQuotationDash.Items.Add(string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.QuotationDash", "Quotation dash ({0})"), "U+2015"));
+			m_cboQuotationDash.Items.Add(string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.EmDash", "Em-dash ({0})"), "U+2014"));
 			switch (quotationDashMarker)
 			{
 				case "\u2015": m_cboQuotationDash.SelectedIndex = 0; break;
@@ -115,7 +137,7 @@ namespace ProtoScript.Dialogs
 			}
 
 			m_cboEndQuotationDash.Items.Clear();
-			m_cboEndQuotationDash.Items.Add(LocalizationManager.GetString("QuotationMarksDialog.EndQuotationDashWithParagraphOnly", "End of paragraph (only)"));
+			m_cboEndQuotationDash.Items.Add(LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.EndQuotationDashWithParagraphOnly", "End of paragraph (only)"));
 			m_cboEndQuotationDash.Items.Add(SameAsStartDashText);
 
 			var quotationDashEndMarker = currentSystem.QuotationDashEndMarker;
@@ -156,10 +178,10 @@ namespace ProtoScript.Dialogs
 				}
 
 				if (String.IsNullOrWhiteSpace(quotationDashMarker))
-					return LocalizationManager.GetString("QuotationMarksDialog.EndQuotationDashWithStartDash",
+					return LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.EndQuotationDashWithStartDash",
 						"Same as start quotation dash");
 					
-				return string.Format(LocalizationManager.GetString("QuotationMarksDialog.EndQuotationDashWithStartDash",
+				return string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.EndQuotationDashWithStartDash",
 					"Same as start quotation dash ({0})"), quotationDashMarker);
 			}
 		}
@@ -169,7 +191,7 @@ namespace ProtoScript.Dialogs
 			var level1 = quoteSystem.FirstLevel;
 			if (level1 == null || string.IsNullOrEmpty(level1.Open) || string.IsNullOrEmpty(level1.Close))
 			{
-				validationMessage = LocalizationManager.GetString("QuotationMarksDialog.Level1OpenCloseRequired", "Level 1 Open and Close are required.");
+				validationMessage = LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.Level1OpenCloseRequired", "Level 1 Open and Close are required.");
 				return false;
 			}
 			validationMessage = null;
@@ -192,10 +214,10 @@ namespace ProtoScript.Dialogs
 					TextFormatFlags.Left);
 				var quotesWidth = TextRenderer.MeasureText(e.Graphics, text, m_comboQuoteMarks.Font).Width;
 
-				string majorLanguage = LocalizationManager.GetDynamicString("ProtoscriptGenerator",
+				string majorLanguage = LocalizationManager.GetDynamicString(Program.kApplicationId,
 					"QuotationMarks.MajorLanguage" + selectedQuoteSystem.MajorLanguage, selectedQuoteSystem.MajorLanguage);
 
-				text = string.Format(LocalizationManager.GetString("QuotationMarksDialog.QuoteUsageFormat", "(commonly used in {0})",
+				text = string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.QuoteUsageFormat", "(commonly used in {0})",
 				"Parameter is the name of a language and/or country"), majorLanguage);
 
 				var bounds = new Rectangle(e.Bounds.Left + quotesWidth, e.Bounds.Top, e.Bounds.Width - quotesWidth, e.Bounds.Height);
@@ -214,14 +236,16 @@ namespace ProtoScript.Dialogs
 			string validationMessage;
 			if (!ValidateQuoteSystem(currentQuoteSystem, out validationMessage))
 			{
-				MessageBox.Show(validationMessage, LocalizationManager.GetString("QuotationMarksDialog.QuoteSystemInvalid", "Quote System Invalid"));
+				MessageBox.Show(validationMessage, LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.QuoteSystemInvalid", "Quote System Invalid"));
 				DialogResult = DialogResult.None;
 				return;
 			}
-			if (m_project.IsQuoteSystemUserConfirmed && m_project.QuoteSystem != null && m_project.QuoteSystem != currentQuoteSystem)
+			if (m_project.Books.SelectMany(b => b.Blocks).Any(bl => bl.UserConfirmed) && m_project.IsQuoteSystemReadyForParse && m_project.QuoteSystem != null && m_project.QuoteSystem != currentQuoteSystem)
 			{
-				string msg = LocalizationManager.GetString("ProjectSettingsDialog.ConfirmReparseMessage", "Changing the quote system will require a reparse of the text.  An attempt will be made to preserve the work you have already completed, but some character assignments might be lost.  A backup of your project will be created before this occurs." + Environment.NewLine + Environment.NewLine + "Are you sure you want to change the quote system?");
-				string title = LocalizationManager.GetString("ProjectSettingsDialog.ConfirmReparse", "Confirm Reparse");
+				string part1 = LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.QuoteSystemChangePart1", "Changing the quote system will require the text to broken up into speaking parts again.  An attempt will be made to preserve the work you have already completed, but some character assignments might be lost.  A backup of your project will be created before this occurs.");
+				string part2 = LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.QuoteSystemChangePart2", "Are you sure you want to change the quote system?");
+				string msg = part1 + Environment.NewLine + Environment.NewLine + part2;
+				string title = LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.ConfirmQuoteSystemChange", "Confirm Quote System Change");
 				if (MessageBox.Show(msg, title, MessageBoxButtons.YesNo) != DialogResult.Yes)
 				{
 					SetupQuoteMarksComboBoxes(m_project.QuoteSystem);
@@ -229,7 +253,8 @@ namespace ProtoScript.Dialogs
 					return;
 				}
 			}
-			m_project.IsQuoteSystemUserConfirmed = true;
+			m_project.QuoteSystemStatus = m_project.QuoteSystemStatus == QuoteSystemStatus.UserSet || m_project.QuoteSystem != currentQuoteSystem ? 
+				QuoteSystemStatus.UserSet : QuoteSystemStatus.Reviewed;
 			m_project.QuoteSystem = currentQuoteSystem;
 		}
 
@@ -413,11 +438,5 @@ namespace ProtoScript.Dialogs
 		}
 		#endregion
 
-		//#region Block Navigation event handlers
-		//private void OnDocumentCompleted(object sender, GeckoDocumentCompletedEventArgs e)
-		//{
-		//	m_blocksDisplayBrowser.ScrollElementIntoView(BlockNavigatorViewModel.kMainQuoteElementId, -225);
-		//}
-		//#endregion
 	}
 }

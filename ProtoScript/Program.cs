@@ -16,6 +16,7 @@ namespace ProtoScript
 	{
 		public const string kCompany = "FCBH-SIL";
 		public const string kProduct = "Protoscript Generator";
+		public const string kApplicationId = "ProtoscriptGenerator";
 
 		/// <summary>
 		/// The main entry point for the application.
@@ -88,7 +89,7 @@ namespace ProtoScript
 			string targetTmxFilePath = Path.Combine(kCompany, kProduct);
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
 
-			LocalizationManager = LocalizationManager.Create(desiredUiLangId, "ProtoscriptGenerator", Application.ProductName, Application.ProductVersion,
+			LocalizationManager = LocalizationManager.Create(desiredUiLangId, kApplicationId, Application.ProductName, Application.ProductVersion,
 				installedStringFileFolder, targetTmxFilePath, Resources.PgIcon, IssuesEmailAddress, "ProtoScript");
 
 			if (string.IsNullOrEmpty(desiredUiLangId))

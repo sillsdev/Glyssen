@@ -12,6 +12,7 @@ using Paratext;
 using ProtoScript.Analysis;
 using ProtoScript.Bundle;
 using ProtoScript.Character;
+using ProtoScript.Dialogs;
 using ProtoScript.Properties;
 using ProtoScript.Quote;
 using SIL.IO;
@@ -202,7 +203,7 @@ namespace ProtoScript
 				bool quoteSystemBeingSetForFirstTime = QuoteSystem == null;
 				bool quoteSystemChanged = m_metadata.QuoteSystem != value;
 
-				if (IsQuoteSystemUserConfirmed && ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
+				if (IsQuoteSystemReadyForParse && ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
 				{
 					m_metadata.QuoteSystem = value;
 					DoQuoteParse();
@@ -222,16 +223,29 @@ namespace ProtoScript
 			}
 		}
 
-		public bool IsQuoteSystemUserConfirmed
+		public QuoteSystemStatus QuoteSystemStatus
 		{
-			get { return m_metadata.IsQuoteSystemUserConfirmed; }
-			set { m_metadata.IsQuoteSystemUserConfirmed = value; }
+			get { return m_metadata.ProjectStatus.QuoteSystemStatus; }
+			set { m_metadata.ProjectStatus.QuoteSystemStatus = value; }
 		}
 
-		public bool IsBookSelectionUserConfirmed
+		public bool IsQuoteSystemReadyForParse { get { return (QuoteSystemStatus & QuoteSystemStatus.ParseReady) != 0; } }
+
+		public DateTime QuoteSystemDate
 		{
-			get { return m_metadata.IsBookSelectionUserConfirmed; }
-			set { m_metadata.IsBookSelectionUserConfirmed = value; }
+			get { return m_metadata.ProjectStatus.QuoteSystemDate; }
+		}
+
+		public BookSelectionStatus BookSelectionStatus
+		{
+			get { return m_metadata.ProjectStatus.BookSelectionStatus; }
+			set { m_metadata.ProjectStatus.BookSelectionStatus = value; }
+		}
+
+		public ProjectSettingsStatus ProjectSettingsStatus
+		{
+			get { return m_metadata.ProjectStatus.ProjectSettingsStatus; }
+			set { m_metadata.ProjectStatus.ProjectSettingsStatus = value; }
 		}
 
 		public IReadOnlyList<BookScript> Books { get { return m_books; } }
@@ -321,9 +335,10 @@ namespace ProtoScript
 		/// </summary>
 		private Project UserDecisionsProject { get; set; }
 
-		internal void ClearProjectStatus()
+		internal void ClearAssignCharacterStatus()
 		{
-			Status = new ProjectStatus();
+			Status.AssignCharacterMode = BlocksToDisplay.NeedAssignments;
+			Status.AssignCharacterBlock = new BookBlockIndices();
 		}
 
 		public static Project Load(string projectFilePath)
@@ -428,11 +443,12 @@ namespace ProtoScript
 
 			if (IsSampleProject)
 			{
-				IsQuoteSystemUserConfirmed = true;
-				IsBookSelectionUserConfirmed = true;
+				ProjectSettingsStatus = ProjectSettingsStatus.Reviewed;
+				QuoteSystemStatus = QuoteSystemStatus.Obtained;
+				BookSelectionStatus = BookSelectionStatus.Reviewed;
 			}
 
-			if (!IsQuoteSystemUserConfirmed)
+			if (!IsQuoteSystemReadyForParse)
 			{
 				m_quotePercentComplete = 0;
 				UpdatePercentInitialized();
@@ -511,7 +527,7 @@ namespace ProtoScript
 
 			if (QuoteSystem == null)
 				GuessAtQuoteSystem();
-			else if (IsQuoteSystemUserConfirmed)
+			else if (IsQuoteSystemReadyForParse)
 				DoQuoteParse();
 		}
 
@@ -543,7 +559,7 @@ namespace ProtoScript
 			if (e.Error != null)
 				throw e.Error;
 
-			IsQuoteSystemUserConfirmed = false;
+			QuoteSystemStatus = QuoteSystemStatus.Guessed;
 			QuoteSystem = (QuoteSystem)e.Result;
 			
 			Save();
@@ -661,7 +677,7 @@ namespace ProtoScript
 			}
 			ProjectCharacterVerseData.WriteToFile(ProjectCharacterVerseDataPath);
 			SaveWritingSystem();
-			ProjectState = !IsQuoteSystemUserConfirmed ? ProjectState.NeedsQuoteSystemConfirmation : ProjectState.FullyInitialized;
+			ProjectState = !IsQuoteSystemReadyForParse ? ProjectState.NeedsQuoteSystemConfirmation : ProjectState.FullyInitialized;
 		}
 
 		public WritingSystemDefinition WritingSystem
@@ -839,8 +855,9 @@ namespace ProtoScript
 			sampleMetadata.id = kSample;
 			sampleMetadata.language = new DblMetadataLanguage {iso = kSample};
 			sampleMetadata.identification = new DblMetadataIdentification { name = kSampleProjectName, nameLocal = kSampleProjectName};
-			sampleMetadata.IsQuoteSystemUserConfirmed = true;
-			sampleMetadata.IsBookSelectionUserConfirmed = true;
+			sampleMetadata.ProjectStatus.ProjectSettingsStatus = ProjectSettingsStatus.Reviewed;
+			sampleMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
+			sampleMetadata.ProjectStatus.BookSelectionStatus = BookSelectionStatus.Reviewed;
 			sampleMetadata.QuoteSystem = GetSampleQuoteSystem();
 
 			XmlDocument sampleMark = new XmlDocument();

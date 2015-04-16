@@ -66,7 +66,7 @@ namespace ProtoScriptTests.Dialogs
 			sampleMetadata.id = kTest;
 			sampleMetadata.language = new DblMetadataLanguage { iso = kTest };
 			sampleMetadata.identification = new DblMetadataIdentification { name = "test~~" };
-			sampleMetadata.IsQuoteSystemUserConfirmed = true;
+			sampleMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
 			sampleMetadata.QuoteSystem = GetTestQuoteSystem();
 
 			XmlDocument sampleMark = new XmlDocument();

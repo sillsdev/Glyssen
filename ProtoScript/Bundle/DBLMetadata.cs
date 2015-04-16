@@ -91,11 +91,30 @@ namespace ProtoScript.Bundle
 
 		[XmlElement("isQuoteSystemUserConfirmed")]
 		[DefaultValue(false)]
-		public bool IsQuoteSystemUserConfirmed;
+		public bool IsQuoteSystemUserConfirmed_DeprecatedXml
+		{
+			get { return false; }
+			set
+			{
+				if (value)
+				{
+					ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Reviewed;
+					ProjectStatus.ProjectSettingsStatus = ProjectSettingsStatus.Reviewed;
+				}
+			}
+		}
 
 		[XmlElement("isBookSelectionUserConfirmed")]
 		[DefaultValue(false)]
-		public bool IsBookSelectionUserConfirmed;
+		public bool IsBookSelectionUserConfirmed_DeprecatedXml
+		{
+			get { return false; }
+			set
+			{
+				if (value)
+					ProjectStatus.BookSelectionStatus = BookSelectionStatus.Reviewed;
+			}
+		}
 
 		/// <summary>
 		/// This is not part of the original DBL metadata. This data is now stored as part of the "language" data. 
@@ -223,10 +242,38 @@ namespace ProtoScript.Bundle
 
 	public class ProjectStatus
 	{
+		private QuoteSystemStatus m_quoteSystemStatus = QuoteSystemStatus.Unknown;
+		
 		[XmlElement("assignCharacterBlock")]
 		public BookBlockIndices AssignCharacterBlock;
+
 		[XmlElement("assignCharacterMode")]
 		public BlocksToDisplay AssignCharacterMode;
+
+		[XmlElement("quoteSystemStatus")]
+		[DefaultValue(QuoteSystemStatus.Unknown)]
+		public QuoteSystemStatus QuoteSystemStatus
+		{
+			get { return m_quoteSystemStatus; }
+			set
+			{
+				if (m_quoteSystemStatus == value)
+					return;
+				m_quoteSystemStatus = value;
+				QuoteSystemDate = DateTime.Now;
+			}
+		}
+
+		[XmlElement("quoteSystemDate")]
+		public DateTime QuoteSystemDate { get; set; }
+
+		[XmlElement("bookSelectionStatus")]
+		[DefaultValue(BookSelectionStatus.UnReviewed)]
+		public BookSelectionStatus BookSelectionStatus { get; set; }
+
+		[XmlElement("projectSettingsStatus")]
+		[DefaultValue(ProjectSettingsStatus.UnReviewed)]
+		public ProjectSettingsStatus ProjectSettingsStatus { get; set; }
 	}
 
 	public class DblMetadataIdentification
@@ -401,5 +448,29 @@ namespace ProtoScript.Bundle
 
 		[XmlElement("abbr")]
 		public string Abbreviation { get; set; }
+	}
+
+	[Flags]
+	public enum QuoteSystemStatus
+	{
+		Unknown = 1,
+		Guessed = 2,
+		Reviewed = 4,
+		Obtained = 8,
+		UserSet = 16,
+		NotParseReady = Unknown | Guessed,
+		ParseReady = Reviewed | Obtained | UserSet
+	}
+
+	public enum BookSelectionStatus
+	{
+		UnReviewed,
+		Reviewed
+	}
+
+	public enum ProjectSettingsStatus
+	{
+		UnReviewed,
+		Reviewed
 	}
 }

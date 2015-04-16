@@ -25,7 +25,7 @@ namespace ProtoScript.Dialogs
 				Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}|{4} ({5})|{5}",
 					LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ResourceBundleFileTypeLabel", "Text Resource Bundle files"),
 					"*" + kResourceBundleExtension,
-					LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ProjectFilesLabel", "Protoscript Generator Project Files"),
+					string.Format(LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ProjectFilesLabel", "{0} Project Files", "{0} is the product name"), Program.kProduct),
 					"*" + Project.kProjectFileExtension,
 					LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"),
 					"*.*"),

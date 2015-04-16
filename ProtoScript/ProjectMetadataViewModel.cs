@@ -13,6 +13,8 @@ namespace ProtoScript
 
 		public ProjectMetadataViewModel(Project project)
 		{
+			Project = project;
+
 			WsModel = new WritingSystemSetupModel(project.WritingSystem)
 			{
 				CurrentDefaultFontName = project.FontFamily,
@@ -33,6 +35,7 @@ namespace ProtoScript
 				SampleText = block.GetText(false);
 		}
 
+		public Project Project { get; private set; }
 		public WritingSystemSetupModel WsModel { get; private set; }
 		public string LanguageName { get; set; }
 		public string IsoCode { get; set; }

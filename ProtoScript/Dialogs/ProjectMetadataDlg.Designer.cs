@@ -52,17 +52,24 @@
 			this.m_lblScripture = new System.Windows.Forms.Label();
 			this.m_lblVersification = new System.Windows.Forms.Label();
 			this.m_txtVersification = new System.Windows.Forms.TextBox();
+			this.m_lblQuoteMarks = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.m_lblQuoteMarkReview = new System.Windows.Forms.Label();
+			this.m_btnQuoteMarkSettings = new System.Windows.Forms.Button();
+			this.m_lblQuoteMarkSummary = new System.Windows.Forms.Label();
 			this.m_tableLayoutMain = new System.Windows.Forms.TableLayoutPanel();
 			this.m_tableLayoutProjectId = new System.Windows.Forms.TableLayoutPanel();
 			this.m_panelMetadataLabelAndSeparator = new System.Windows.Forms.Panel();
 			this.m_panelWritingSystemLabelAndSeparator = new System.Windows.Forms.Panel();
 			this.m_panelVersificationLabelAndSeparator = new System.Windows.Forms.Panel();
+			this.panel1 = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.m_tableLayoutMain.SuspendLayout();
 			this.m_tableLayoutProjectId.SuspendLayout();
 			this.m_panelMetadataLabelAndSeparator.SuspendLayout();
 			this.m_panelWritingSystemLabelAndSeparator.SuspendLayout();
 			this.m_panelVersificationLabelAndSeparator.SuspendLayout();
+			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// m_l10NSharpExtender
@@ -78,7 +85,7 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_btnCancel, L10NSharp.LocalizationPriority.High);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnCancel, "Common.Cancel");
-			this.m_btnCancel.Location = new System.Drawing.Point(437, 453);
+			this.m_btnCancel.Location = new System.Drawing.Point(437, 555);
 			this.m_btnCancel.Name = "m_btnCancel";
 			this.m_btnCancel.Size = new System.Drawing.Size(75, 23);
 			this.m_btnCancel.TabIndex = 2;
@@ -221,7 +228,7 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_btnOk, L10NSharp.LocalizationPriority.High);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnOk, "Common.OK");
-			this.m_btnOk.Location = new System.Drawing.Point(356, 453);
+			this.m_btnOk.Location = new System.Drawing.Point(356, 555);
 			this.m_btnOk.Name = "m_btnOk";
 			this.m_btnOk.Size = new System.Drawing.Size(75, 23);
 			this.m_btnOk.TabIndex = 1;
@@ -239,7 +246,7 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_wsFontControl, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_wsFontControl, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_wsFontControl, "DialogBoxes.ProjectMetadataDlg.WSFontControl");
-			this.m_wsFontControl.Location = new System.Drawing.Point(4, 216);
+			this.m_wsFontControl.Location = new System.Drawing.Point(4, 318);
 			this.m_wsFontControl.Margin = new System.Windows.Forms.Padding(4);
 			this.m_wsFontControl.Name = "m_wsFontControl";
 			this.m_wsFontControl.Size = new System.Drawing.Size(489, 141);
@@ -297,7 +304,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblMetadataSeparator, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblMetadataSeparator, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblMetadataSeparator, "DialogBoxes.ProjectMetadataDlg.label1");
-			this.m_lblMetadataSeparator.Location = new System.Drawing.Point(10, 16);
+			this.m_lblMetadataSeparator.Location = new System.Drawing.Point(10, 11);
 			this.m_lblMetadataSeparator.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.m_lblMetadataSeparator.Name = "m_lblMetadataSeparator";
 			this.m_lblMetadataSeparator.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
@@ -371,7 +378,7 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblVersification, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblVersification, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblVersification, "DialogBoxes.ProjectMetadataDlg.ProjectMetadataDlg.m_lblVersification");
-			this.m_lblVersification.Location = new System.Drawing.Point(3, 396);
+			this.m_lblVersification.Location = new System.Drawing.Point(3, 498);
 			this.m_lblVersification.Name = "m_lblVersification";
 			this.m_lblVersification.Size = new System.Drawing.Size(92, 18);
 			this.m_lblVersification.TabIndex = 17;
@@ -384,10 +391,88 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtVersification, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtVersification, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtVersification, "DialogBoxes.ProjectMetadataDlg.ProjectMetadataDlg.m_txtVersification");
-			this.m_txtVersification.Location = new System.Drawing.Point(216, 399);
+			this.m_txtVersification.Location = new System.Drawing.Point(216, 501);
 			this.m_txtVersification.Name = "m_txtVersification";
 			this.m_txtVersification.Size = new System.Drawing.Size(278, 20);
 			this.m_txtVersification.TabIndex = 18;
+			// 
+			// m_lblQuoteMarks
+			// 
+			this.m_lblQuoteMarks.AutoSize = true;
+			this.m_lblQuoteMarks.Dock = System.Windows.Forms.DockStyle.Left;
+			this.m_lblQuoteMarks.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+			this.m_lblQuoteMarks.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblQuoteMarks, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblQuoteMarks, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblQuoteMarks, "DialogBoxes.ProjectMetadataDlg.QuoteMarks");
+			this.m_lblQuoteMarks.Location = new System.Drawing.Point(0, 0);
+			this.m_lblQuoteMarks.Name = "m_lblQuoteMarks";
+			this.m_lblQuoteMarks.Size = new System.Drawing.Size(95, 18);
+			this.m_lblQuoteMarks.TabIndex = 15;
+			this.m_lblQuoteMarks.Text = "Quote Marks";
+			this.m_lblQuoteMarks.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+			// 
+			// label2
+			// 
+			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label2, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.label2, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.label2, "DialogBoxes.ProjectMetadataDlg.label1");
+			this.label2.Location = new System.Drawing.Point(8, 11);
+			this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+			this.label2.Name = "label2";
+			this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+			this.label2.Size = new System.Drawing.Size(475, 2);
+			this.label2.TabIndex = 16;
+			// 
+			// m_lblQuoteMarkReview
+			// 
+			this.m_lblQuoteMarkReview.AutoSize = true;
+			this.m_tableLayoutMain.SetColumnSpan(this.m_lblQuoteMarkReview, 2);
+			this.m_lblQuoteMarkReview.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+			this.m_lblQuoteMarkReview.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblQuoteMarkReview, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblQuoteMarkReview, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblQuoteMarkReview, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblQuoteMarkReview, "DialogBoxes.ProjectMetadataDlg.label1");
+			this.m_lblQuoteMarkReview.Location = new System.Drawing.Point(3, 212);
+			this.m_lblQuoteMarkReview.Name = "m_lblQuoteMarkReview";
+			this.m_lblQuoteMarkReview.Size = new System.Drawing.Size(88, 18);
+			this.m_lblQuoteMarkReview.TabIndex = 20;
+			this.m_lblQuoteMarkReview.Text = "Review Text";
+			// 
+			// m_btnQuoteMarkSettings
+			// 
+			this.m_btnQuoteMarkSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_btnQuoteMarkSettings.AutoSize = true;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnQuoteMarkSettings, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnQuoteMarkSettings, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnQuoteMarkSettings, "DialogBoxes.ProjectMetadataDlg.ReviewChangeQuoteMarkSettings");
+			this.m_btnQuoteMarkSettings.Location = new System.Drawing.Point(293, 233);
+			this.m_btnQuoteMarkSettings.Name = "m_btnQuoteMarkSettings";
+			this.m_btnQuoteMarkSettings.Size = new System.Drawing.Size(201, 23);
+			this.m_btnQuoteMarkSettings.TabIndex = 21;
+			this.m_btnQuoteMarkSettings.Text = "Review / Change Quote Mark Settings";
+			this.m_btnQuoteMarkSettings.UseVisualStyleBackColor = true;
+			this.m_btnQuoteMarkSettings.Click += new System.EventHandler(this.m_btnQuoteMarkSettings_Click);
+			// 
+			// m_lblQuoteMarkSummary
+			// 
+			this.m_lblQuoteMarkSummary.AutoSize = true;
+			this.m_tableLayoutMain.SetColumnSpan(this.m_lblQuoteMarkSummary, 2);
+			this.m_lblQuoteMarkSummary.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+			this.m_lblQuoteMarkSummary.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblQuoteMarkSummary, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblQuoteMarkSummary, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblQuoteMarkSummary, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblQuoteMarkSummary, "DialogBoxes.ProjectMetadataDlg.label1");
+			this.m_lblQuoteMarkSummary.Location = new System.Drawing.Point(3, 259);
+			this.m_lblQuoteMarkSummary.Name = "m_lblQuoteMarkSummary";
+			this.m_lblQuoteMarkSummary.Size = new System.Drawing.Size(132, 20);
+			this.m_lblQuoteMarkSummary.TabIndex = 22;
+			this.m_lblQuoteMarkSummary.Text = "Summary Text";
 			// 
 			// m_tableLayoutMain
 			// 
@@ -404,16 +489,20 @@
 			this.m_tableLayoutMain.Controls.Add(this.m_txtLanguageName, 1, 2);
 			this.m_tableLayoutMain.Controls.Add(this.m_lblIso639_2_Code, 0, 3);
 			this.m_tableLayoutMain.Controls.Add(this.m_lblPublicationName, 0, 5);
-			this.m_tableLayoutMain.Controls.Add(this.m_wsFontControl, 0, 8);
+			this.m_tableLayoutMain.Controls.Add(this.m_wsFontControl, 0, 12);
 			this.m_tableLayoutMain.Controls.Add(this.m_panelMetadataLabelAndSeparator, 0, 1);
-			this.m_tableLayoutMain.Controls.Add(this.m_panelWritingSystemLabelAndSeparator, 0, 7);
-			this.m_tableLayoutMain.Controls.Add(this.m_panelVersificationLabelAndSeparator, 0, 9);
-			this.m_tableLayoutMain.Controls.Add(this.m_lblVersification, 0, 10);
-			this.m_tableLayoutMain.Controls.Add(this.m_txtVersification, 1, 10);
+			this.m_tableLayoutMain.Controls.Add(this.m_panelWritingSystemLabelAndSeparator, 0, 11);
+			this.m_tableLayoutMain.Controls.Add(this.m_panelVersificationLabelAndSeparator, 0, 13);
+			this.m_tableLayoutMain.Controls.Add(this.m_lblVersification, 0, 14);
+			this.m_tableLayoutMain.Controls.Add(this.m_txtVersification, 1, 14);
+			this.m_tableLayoutMain.Controls.Add(this.panel1, 0, 7);
+			this.m_tableLayoutMain.Controls.Add(this.m_lblQuoteMarkReview, 0, 8);
+			this.m_tableLayoutMain.Controls.Add(this.m_btnQuoteMarkSettings, 1, 9);
+			this.m_tableLayoutMain.Controls.Add(this.m_lblQuoteMarkSummary, 0, 10);
 			this.m_tableLayoutMain.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_tableLayoutMain.Location = new System.Drawing.Point(15, 15);
 			this.m_tableLayoutMain.Name = "m_tableLayoutMain";
-			this.m_tableLayoutMain.RowCount = 11;
+			this.m_tableLayoutMain.RowCount = 15;
 			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -422,10 +511,14 @@
 			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.m_tableLayoutMain.Size = new System.Drawing.Size(497, 422);
+			this.m_tableLayoutMain.Size = new System.Drawing.Size(497, 524);
 			this.m_tableLayoutMain.TabIndex = 0;
 			// 
 			// m_tableLayoutProjectId
@@ -467,7 +560,7 @@
 			this.m_tableLayoutMain.SetColumnSpan(this.m_panelWritingSystemLabelAndSeparator, 2);
 			this.m_panelWritingSystemLabelAndSeparator.Controls.Add(this.m_lblWritingSystem);
 			this.m_panelWritingSystemLabelAndSeparator.Controls.Add(this.m_lblWsSeparator);
-			this.m_panelWritingSystemLabelAndSeparator.Location = new System.Drawing.Point(3, 185);
+			this.m_panelWritingSystemLabelAndSeparator.Location = new System.Drawing.Point(3, 287);
 			this.m_panelWritingSystemLabelAndSeparator.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
 			this.m_panelWritingSystemLabelAndSeparator.Name = "m_panelWritingSystemLabelAndSeparator";
 			this.m_panelWritingSystemLabelAndSeparator.Size = new System.Drawing.Size(491, 24);
@@ -481,11 +574,25 @@
 			this.m_tableLayoutMain.SetColumnSpan(this.m_panelVersificationLabelAndSeparator, 2);
 			this.m_panelVersificationLabelAndSeparator.Controls.Add(this.m_lblScripture);
 			this.m_panelVersificationLabelAndSeparator.Controls.Add(this.m_label);
-			this.m_panelVersificationLabelAndSeparator.Location = new System.Drawing.Point(3, 369);
+			this.m_panelVersificationLabelAndSeparator.Location = new System.Drawing.Point(3, 471);
 			this.m_panelVersificationLabelAndSeparator.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
 			this.m_panelVersificationLabelAndSeparator.Name = "m_panelVersificationLabelAndSeparator";
 			this.m_panelVersificationLabelAndSeparator.Size = new System.Drawing.Size(491, 24);
 			this.m_panelVersificationLabelAndSeparator.TabIndex = 16;
+			// 
+			// panel1
+			// 
+			this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_tableLayoutMain.SetColumnSpan(this.panel1, 2);
+			this.panel1.Controls.Add(this.m_lblQuoteMarks);
+			this.panel1.Controls.Add(this.label2);
+			this.panel1.Location = new System.Drawing.Point(3, 185);
+			this.panel1.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(491, 24);
+			this.panel1.TabIndex = 19;
 			// 
 			// ProjectMetadataDlg
 			// 
@@ -494,7 +601,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.CancelButton = this.m_btnCancel;
-			this.ClientSize = new System.Drawing.Size(527, 492);
+			this.ClientSize = new System.Drawing.Size(527, 594);
 			this.Controls.Add(this.m_btnOk);
 			this.Controls.Add(this.m_tableLayoutMain);
 			this.Controls.Add(this.m_btnCancel);
@@ -503,7 +610,7 @@
 			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.ProjectMetadataDlg.WindowTitle");
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(543, 410);
+			this.MinimumSize = new System.Drawing.Size(543, 632);
 			this.Name = "ProjectMetadataDlg";
 			this.Padding = new System.Windows.Forms.Padding(15, 15, 15, 55);
 			this.ShowIcon = false;
@@ -521,6 +628,8 @@
 			this.m_panelWritingSystemLabelAndSeparator.PerformLayout();
 			this.m_panelVersificationLabelAndSeparator.ResumeLayout(false);
 			this.m_panelVersificationLabelAndSeparator.PerformLayout();
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -555,5 +664,11 @@
 		private System.Windows.Forms.Label m_label;
 		private System.Windows.Forms.Label m_lblVersification;
 		private System.Windows.Forms.TextBox m_txtVersification;
+		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Label m_lblQuoteMarks;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label m_lblQuoteMarkReview;
+		private System.Windows.Forms.Button m_btnQuoteMarkSettings;
+		private System.Windows.Forms.Label m_lblQuoteMarkSummary;
 	}
 }

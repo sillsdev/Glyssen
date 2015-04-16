@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using L10NSharp;
+using ProtoScript.Bundle;
 using SIL.IO;
 
 namespace ProtoScript.Dialogs
@@ -24,6 +26,7 @@ namespace ProtoScript.Dialogs
 				m_txtIso639_2_Code.Enabled = false;
 			}
 			UpdateProjectId(null, null);
+			UpdateDisplay();
 
 			//bool vrsSelected = false;
 			//if (!string.IsNullOrEmpty(model.VersificationFilePath) && File.Exists(model.VersificationFilePath))
@@ -74,6 +77,7 @@ namespace ProtoScript.Dialogs
 				PublicationName = value.PublicationName;
 				PublicationId = value.PublicationId;
 				m_txtVersification.Text = value.Versification.Name;
+				m_lblQuoteMarkSummary.Text = value.Project.QuoteSystem.ToString();
 
 				m_wsFontControl.BindToModel(m_model.WsModel);
 
@@ -153,6 +157,32 @@ namespace ProtoScript.Dialogs
 			}
 		}
 
+		private void UpdateDisplay()
+		{
+			m_lblQuoteMarkSummary.Text = m_model.Project.QuoteSystem.ToString();
+
+			m_lblQuoteMarkReview.ForeColor = Color.White;
+
+			string quoteMarkReviewText = "";
+			switch (m_model.Project.QuoteSystemStatus)
+			{
+				case QuoteSystemStatus.Obtained:
+					quoteMarkReviewText = LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.ReviewQuoteMarks", "You may review the quote mark settings.");
+					break;
+				case QuoteSystemStatus.Guessed:
+					quoteMarkReviewText = LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.CarefullyReviewQuoteMarks", "Carefully review the quote mark settings.");
+					m_lblQuoteMarkReview.ForeColor = Color.Yellow;
+					break;
+				case QuoteSystemStatus.Reviewed:
+					quoteMarkReviewText = string.Format(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.QuoteMarksReviewed", "Quote mark settings were reviewed on {0}.", "{0} is a date"), m_model.Project.QuoteSystemDate.ToString("yyyy-MM-dd"));
+					break;
+				case QuoteSystemStatus.UserSet:
+					quoteMarkReviewText = string.Format(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.QuoteMarksUpdated", "Quote mark settings were updated on {0}.", "{0} is a date"), m_model.Project.QuoteSystemDate.ToString("yyyy-MM-dd"));
+					break;
+			}
+			m_lblQuoteMarkReview.Text = quoteMarkReviewText;
+		}
+
 		private void m_chkOverride_CheckedChanged(object sender, EventArgs e)
 		{
 			m_txtPublicationId.Enabled = m_chkOverride.Checked;
@@ -180,8 +210,28 @@ namespace ProtoScript.Dialogs
 			//m_model.PublicationName = PublicationName;
 			//m_model.PublicationId = PublicationId;
 			
+			m_model.Project.ProjectSettingsStatus = ProjectSettingsStatus.Reviewed;
 			DialogResult = DialogResult.OK;
 			Close();
+		}
+
+		private void m_btnQuoteMarkSettings_Click(object sender, EventArgs e)
+		{
+			bool reparseOkay = true;
+			if (!m_model.Project.IsReparseOkay())
+			{
+				string msg = LocalizationManager.GetString("Project.UnableToModifyQuoteSystemMessage",
+					"The original source of the project is no longer in its original location or has been significantly modified. " +
+					"The quote system cannot be modified since that would require a reparse of the original text.");
+				string title = LocalizationManager.GetString("Project.UnableToModifyQuoteSystem", "Unable to Modify Quote System");
+				MessageBox.Show(msg, title);
+				reparseOkay = false;
+			}
+
+			using (var viewModel = new BlockNavigatorViewModel(m_model.Project, BlocksToDisplay.AllExpectedQuotes))
+				using (var dlg = new QuotationMarksDialog(m_model.Project, viewModel, !reparseOkay))
+					if (dlg.ShowDialog(this) == DialogResult.OK)
+						UpdateDisplay();
 		}
 
 		//private void m_cboVersification_SelectedIndexChanged(object sender, EventArgs e)

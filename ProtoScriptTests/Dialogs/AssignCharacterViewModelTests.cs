@@ -24,7 +24,7 @@ namespace ProtoScriptTests.Dialogs
 		[SetUp]
 		public void SetUp()
 		{
-			m_testProject.ClearProjectStatus(); //Otherwise tests interfere with each other in an undesirable way
+			m_testProject.ClearAssignCharacterStatus(); //Otherwise tests interfere with each other in an undesirable way
 			m_model = new AssignCharacterViewModel(m_testProject);
 			m_model.SetUiStrings("narrator ({0})",
 				"book title or chapter ({0})",
