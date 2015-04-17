@@ -29,6 +29,8 @@ namespace ProtoScript.Dialogs
 		private string m_xOfYFmt;
 		private string m_singleVoiceCheckboxFmt;
 		private bool m_promptToCloseWhenAssignmentsAreComplete = true;
+		int m_characterListHoveredIndex = -1;
+		private readonly ToolTip m_characterListToolTip = new ToolTip();
 
 		private void HandleStringsLocalized()
 		{
@@ -652,6 +654,26 @@ namespace ProtoScript.Dialogs
 		private void m_chkSingleVoice_CheckedChanged(object sender, EventArgs e)
 		{
 			m_viewModel.SetCurrentBookSingleVoice(m_chkSingleVoice.Checked);
+		}
+
+		private void m_listBoxCharacters_MouseMove(object sender, MouseEventArgs e)
+		{
+			int newHoveredIndex = m_listBoxCharacters.IndexFromPoint(e.Location);
+
+			if (m_characterListHoveredIndex != newHoveredIndex)
+			{
+				m_characterListHoveredIndex = newHoveredIndex;
+				if (m_characterListHoveredIndex > -1)
+				{
+					m_characterListToolTip.Active = false;
+					var hoveredCharacter = ((AssignCharacterViewModel.Character)m_listBoxCharacters.Items[m_characterListHoveredIndex]);
+					if (!string.IsNullOrEmpty(hoveredCharacter.Alias))
+					{
+						m_characterListToolTip.SetToolTip(m_listBoxCharacters, hoveredCharacter.CharacterId);
+						m_characterListToolTip.Active = true;
+					}
+				}
+			}
 		}
 		#endregion
 	}

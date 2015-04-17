@@ -610,6 +610,7 @@ namespace ProtoScript.Dialogs
 			this.m_listBoxCharacters.Size = new System.Drawing.Size(274, 140);
 			this.m_listBoxCharacters.TabIndex = 0;
 			this.m_listBoxCharacters.SelectedIndexChanged += new System.EventHandler(this.m_listBoxCharacters_SelectedIndexChanged);
+			this.m_listBoxCharacters.MouseMove += new System.Windows.Forms.MouseEventHandler(this.m_listBoxCharacters_MouseMove);
 			// 
 			// m_listBoxDeliveries
 			// 
