@@ -61,7 +61,8 @@ namespace ProtoScript
 			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath);
 			if (m_metadata.QuoteSystem == null)
 				LoadWritingSystem();
-			m_vers = LoadVersification(VersificationFilePath);
+			if (File.Exists(VersificationFilePath))
+				m_vers = LoadVersification(VersificationFilePath);
 		}
 
 		public Project(Bundle.Bundle bundle, string recordingProjectName = null) : this(bundle.Metadata, recordingProjectName)
