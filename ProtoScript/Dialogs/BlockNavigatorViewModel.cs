@@ -566,14 +566,14 @@ namespace ProtoScript.Dialogs
 				// Check surrounding blocks to count quote blocks for same verse.
 				actualquotes += m_navigator.PeekBackwardWithinBookWhile(b => b.ChapterNumber == block.ChapterNumber &&
 					b.InitialStartVerseNumber == block.InitialStartVerseNumber)
-					.Count(b => b.IsQuote);
+					.Count(b => b.IsQuote && (b.MultiBlockQuote == MultiBlockQuote.Start || b.MultiBlockQuote == MultiBlockQuote.None));
 
 				if (actualquotes > expectedSpeakers)
 					return true;
 
 				actualquotes += m_navigator.PeekForwardWithinBookWhile(b => b.ChapterNumber == block.ChapterNumber &&
 					b.InitialStartVerseNumber == block.InitialStartVerseNumber)
-					.Count(b => b.IsQuote);
+					.Count(b => b.IsQuote && (b.MultiBlockQuote == MultiBlockQuote.Start || b.MultiBlockQuote == MultiBlockQuote.None));
 
 				return (actualquotes > expectedSpeakers);
 			}
