@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
 using NUnit.Framework;
 using ProtoScript;
 using ProtoScript.Character;
@@ -49,6 +50,7 @@ namespace ProtoScriptTests.Dialogs
 		[TestFixtureTearDown]
 		public void TestFixtureTearDown()
 		{
+			m_testProject = null;
 			BlockNavigatorViewModelTests.DeleteTestProjectFolder();
 		}
 

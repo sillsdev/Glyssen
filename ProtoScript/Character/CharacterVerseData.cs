@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Paratext;
 using SIL.ScriptureUtils;
+using ScrVers = Paratext.ScrVers;
 
 namespace ProtoScript.Character
 {
@@ -104,17 +106,30 @@ namespace ProtoScript.Character
 		private IEnumerable<CharacterVerse> m_uniqueCharacterAndDeliveries;
 		private IEnumerable<string> m_uniqueDeliveries;
 
-		public IEnumerable<CharacterVerse> GetCharacters(string bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0)
+		/// <summary>
+		/// Prefer the int bookId counterpart method for performance reasons (this method has to perform a book Id lookup)
+		/// </summary>
+		public IEnumerable<CharacterVerse> GetCharacters(string bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0, ScrVers versification = null)
 		{
-			return GetCharacters(BCVRef.BookToNumber(bookId), chapter, initialStartVerse, initialEndVerse, finalVerse);
+			return GetCharacters(BCVRef.BookToNumber(bookId), chapter, initialStartVerse, initialEndVerse, finalVerse, versification);
 		}
 
-		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0)
+		/// <summary>
+		/// This method is preferred over the string bookId counterpart for performance reasons (so we don't have to look up the book number)
+		/// </summary>
+		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0, ScrVers versification = null)
 		{
+			if (versification == null)
+				versification = ScrVers.English;
+
 			IEnumerable<CharacterVerse> result;
 
 			if (initialEndVerse == 0 || initialStartVerse == initialEndVerse)
-				result = m_lookup[new BCVRef(bookId, chapter, initialStartVerse)];
+			{
+				var verseRef = new VerseRef(bookId, chapter, initialStartVerse, versification);
+				verseRef.ChangeVersification(ScrVers.English);
+				result = m_lookup[verseRef.BBBCCCVVV];
+			}
 			else
 			{
 				int start = new BCVRef(bookId, chapter, initialStartVerse).BBCCCVVV;
@@ -129,7 +144,9 @@ namespace ProtoScript.Character
 			var nextVerse = Math.Max(initialStartVerse, initialEndVerse) + 1;
 			while (nextVerse <= finalVerse)
 			{
-				IEnumerable<CharacterVerse> nextResult = m_lookup[new BCVRef(bookId, chapter, nextVerse)];
+				var verseRef = new VerseRef(bookId, chapter, nextVerse, versification);
+				verseRef.ChangeVersification(ScrVers.English);
+				IEnumerable<CharacterVerse> nextResult = m_lookup[verseRef.BBBCCCVVV];
 				if (!nextResult.Any())
 				{
 					nextVerse++;

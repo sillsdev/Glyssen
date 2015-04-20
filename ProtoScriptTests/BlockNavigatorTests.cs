@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
+using Paratext;
 using ProtoScript;
 using SIL.ScriptureUtils;
 
@@ -542,28 +543,28 @@ namespace ProtoScriptTests
 		[Test]
 		public void GetIndicesOfFirstBlockAtReference_BookNotIncluded_ReturnsNull()
 		{
-			var result = m_navigator.GetIndicesOfFirstBlockAtReference(new BCVRef(65, 1, 2));
+			var result = m_navigator.GetIndicesOfFirstBlockAtReference(new VerseRef(65, 1, 2));
 			Assert.IsNull(result);
 		}
 
 		[Test]
 		public void GetIndicesOfFirstBlockAtReference_ChapterNotFound_ReturnsNull()
 		{
-			var result = m_navigator.GetIndicesOfFirstBlockAtReference(new BCVRef(BCVRef.BookToNumber("LUK"), 3, 7));
+			var result = m_navigator.GetIndicesOfFirstBlockAtReference(new VerseRef(BCVRef.BookToNumber("LUK"), 3, 7));
 			Assert.IsNull(result);
 		}
 
 		[Test]
 		public void GetIndicesOfFirstBlockAtReference_VerseNotFound_ReturnsNull()
 		{
-			var result = m_navigator.GetIndicesOfFirstBlockAtReference(new BCVRef(BCVRef.BookToNumber("LUK"), 2, 17));
+			var result = m_navigator.GetIndicesOfFirstBlockAtReference(new VerseRef(BCVRef.BookToNumber("LUK"), 2, 17));
 			Assert.IsNull(result);
 		}
 
 		[Test]
 		public void GetIndicesOfFirstBlockAtReference_InFirstBook_ReturnsIndices()
 		{
-			var result = m_navigator.GetIndicesOfFirstBlockAtReference(new BCVRef(BCVRef.BookToNumber("LUK"), 1, 1));
+			var result = m_navigator.GetIndicesOfFirstBlockAtReference(new VerseRef(BCVRef.BookToNumber("LUK"), 1, 1));
 			Assert.AreEqual(0, result.BookIndex);
 			Assert.AreEqual(1, result.BlockIndex);
 		}
@@ -571,7 +572,7 @@ namespace ProtoScriptTests
 		[Test]
 		public void GetIndicesOfFirstBlockAtReference_TwoBlockAtSameReference_ReturnsIndicesForFirstMatch()
 		{
-			var result = m_navigator.GetIndicesOfFirstBlockAtReference(new BCVRef(BCVRef.BookToNumber("ROM"), 5, 7));
+			var result = m_navigator.GetIndicesOfFirstBlockAtReference(new VerseRef(BCVRef.BookToNumber("ROM"), 5, 7));
 			Assert.AreEqual(1, result.BookIndex);
 			Assert.AreEqual(2, result.BlockIndex);
 		}

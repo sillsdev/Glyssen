@@ -10,6 +10,7 @@ using ProtoScript.Character;
 using ProtoScript.Quote;
 using Rhino.Mocks;
 using SIL.ScriptureUtils;
+using ScrVers = Paratext.ScrVers;
 
 namespace ProtoScriptTests.Quote
 {
@@ -20,7 +21,7 @@ namespace ProtoScriptTests.Quote
 		public void Guess_NoBooks_ReturnsDefaultQuoteSystem()
 		{
 			bool certain;
-			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, new List<IScrBook>(), out certain));
+			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, new List<IScrBook>(), ScrVers.English, out certain));
 			Assert.IsFalse(certain);
 		}
 
@@ -38,7 +39,7 @@ namespace ProtoScriptTests.Quote
 			}
 
 			bool certain;
-			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, mockedBooks, out certain));
+			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, mockedBooks, ScrVers.English, out certain));
 			Assert.IsFalse(certain);
 		}
 
@@ -132,7 +133,7 @@ namespace ProtoScriptTests.Quote
 			var sw = new Stopwatch();
 			sw.Start();
 			bool certain;
-			var guessedQuoteSystem = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, MockedBookForQuoteSystem.GetMockedBooks(quoteSystem, highlyConsistentData, includeSecondLevelQuotes), out certain);
+			var guessedQuoteSystem = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, MockedBookForQuoteSystem.GetMockedBooks(quoteSystem, highlyConsistentData, includeSecondLevelQuotes), ScrVers.English, out certain);
 			sw.Stop();
 			Console.WriteLine("   took " + sw.ElapsedMilliseconds + " milliseconds.");
 			if (expectedCertain)
@@ -153,7 +154,7 @@ namespace ProtoScriptTests.Quote
 			var sw = new Stopwatch();
 			sw.Start();
 			bool certain;
-			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, MockedBookForQuoteSystem.GetMockedBooks(null), out certain));
+			Assert.AreEqual(QuoteSystem.Default, QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, MockedBookForQuoteSystem.GetMockedBooks(null), ScrVers.English, out certain));
 			sw.Stop();
 			Assert.IsTrue(sw.ElapsedMilliseconds < 5200, "Actual time (ms): " + sw.ElapsedMilliseconds);
 			Assert.IsFalse(certain);

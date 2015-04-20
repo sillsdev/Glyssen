@@ -20,6 +20,7 @@ using ProtoScript.Controls;
 using SIL.ScriptureControls;
 using SIL.ScriptureUtils;
 using SIL.Windows.Forms.PortableSettingsProvider;
+using ScrVers = Paratext.ScrVers;
 
 namespace ProtoScript.Dialogs
 {
@@ -148,17 +149,17 @@ namespace ProtoScript.Dialogs
 
 		private void UpdateDisplay()
 		{
-			var blockRef = m_viewModel.GetBlockReference(m_viewModel.CurrentBlock);
-			var versesInBlock = m_viewModel.CurrentBlock.LastVerse - blockRef.Verse;
-			var displayedRefMinusBlockStartRef = m_scriptureReference.VerseControl.VerseRef.BBBCCCVVV - blockRef.BBCCCVVV;
+			var blockRef = m_viewModel.GetBlockVerseRef();
+			int versesInBlock = m_viewModel.CurrentBlock.LastVerse - blockRef.VerseNum;
+			var displayedRefMinusBlockStartRef = m_scriptureReference.VerseControl.VerseRef.BBBCCCVVV - blockRef.BBBCCCVVV;
 			if (displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInBlock)
-				m_scriptureReference.VerseControl.VerseRef = new VerseRef(m_viewModel.GetBlockReference(m_viewModel.CurrentBlock), Paratext.ScrVers.English);
+				m_scriptureReference.VerseControl.VerseRef = m_viewModel.GetBlockVerseRef();
 			m_labelXofY.Visible = m_viewModel.IsCurrentBlockRelevant;
 			Debug.Assert(m_viewModel.RelevantBlockCount >= m_viewModel.CurrentBlockDisplayIndex);
 			m_labelXofY.Text = string.Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
 			m_chkSingleVoice.Text = string.Format(m_singleVoiceCheckboxFmt, m_viewModel.CurrentBookId);
 
-			SendScrReference(m_viewModel.GetBlockReference(m_viewModel.CurrentBlock));
+			SendScrReference(m_viewModel.GetBlockVerseRef());
 
 			HideCharacterFilter();
 			m_btnAssign.Enabled = false;
@@ -366,10 +367,13 @@ namespace ProtoScript.Dialogs
 		/// to navigate to the same Scripture reference
 		/// </summary>
 		/// <param name="currRef"></param>
-		private void SendScrReference(BCVRef currRef)
+		private void SendScrReference(VerseRef currRef)
 		{
 			if (currRef != null && currRef.Valid)
+			{
+				currRef.ChangeVersification(ScrVers.English);
 				SantaFeFocusMessageHandler.SendFocusMessage(currRef.ToString());
+			}
 		}
 
 		private void ShowCharactersInBook()

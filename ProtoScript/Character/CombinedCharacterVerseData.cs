@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SIL.ScriptureUtils;
+using ScrVers = Paratext.ScrVers;
 
 namespace ProtoScript.Character
 {
@@ -13,15 +14,21 @@ namespace ProtoScript.Character
 			m_project = project;
 		}
 
-		public IEnumerable<CharacterVerse> GetCharacters(string bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0)
+		/// <summary>
+		/// Prefer the int bookId counterpart method for performance reasons (this method has to perform a book Id lookup)
+		/// </summary>
+		public IEnumerable<CharacterVerse> GetCharacters(string bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0, ScrVers versification = null)
 		{
-			return GetCharacters(BCVRef.BookToNumber(bookId), chapter, initialStartVerse, initialEndVerse, finalVerse);
+			return GetCharacters(BCVRef.BookToNumber(bookId), chapter, initialStartVerse, initialEndVerse, finalVerse, versification);
 		}
 
-		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0)
+		/// <summary>
+		/// This method is preferred over the string bookId counterpart for performance reasons (so we don't have to look up the book number)
+		/// </summary>
+		public IEnumerable<CharacterVerse> GetCharacters(int bookId, int chapter, int initialStartVerse, int initialEndVerse = 0, int finalVerse = 0, ScrVers versification = null)
 		{
-			IEnumerable<CharacterVerse> project = m_project.ProjectCharacterVerseData.GetCharacters(bookId, chapter, initialStartVerse, initialEndVerse, finalVerse);
-			IEnumerable<CharacterVerse> control = ControlCharacterVerseData.Singleton.GetCharacters(bookId, chapter, initialStartVerse, initialEndVerse, finalVerse);
+			IEnumerable<CharacterVerse> project = m_project.ProjectCharacterVerseData.GetCharacters(bookId, chapter, initialStartVerse, initialEndVerse, finalVerse, versification);
+			IEnumerable<CharacterVerse> control = ControlCharacterVerseData.Singleton.GetCharacters(bookId, chapter, initialStartVerse, initialEndVerse, finalVerse, versification);
 			return project.Union(control);
 		}
 

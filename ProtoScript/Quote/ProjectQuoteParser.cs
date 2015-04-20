@@ -27,7 +27,7 @@ namespace ProtoScript.Quote
 			int completedProjectBlocks = 0;
 			Parallel.ForEach(blocksInBook.Keys, book =>
 			{
-				book.Blocks = new QuoteParser(cvInfo, book.BookId, blocksInBook[book], project.QuoteSystem).Parse().ToList();
+				book.Blocks = new QuoteParser(cvInfo, book.BookId, blocksInBook[book], project.QuoteSystem, project.Versification).Parse().ToList();
 				completedProjectBlocks += numBlocksPerBook[book.BookId];
 				projectWorker.ReportProgress(MathUtilities.Percent(completedProjectBlocks, allProjectBlocks, 99));
 			});

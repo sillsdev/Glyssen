@@ -373,11 +373,11 @@ namespace ProtoScript.Dialogs
 
 		private void UpdateDisplay()
 		{
-			var blockRef = m_navigatorViewModel.GetBlockReference(m_navigatorViewModel.CurrentBlock);
-			var versesInBlock = m_navigatorViewModel.CurrentBlock.LastVerse - blockRef.Verse;
-			var displayedRefMinusBlockStartRef = m_scriptureReference.VerseControl.VerseRef.BBBCCCVVV - blockRef.BBCCCVVV;
+			var blockRef = m_navigatorViewModel.GetBlockVerseRef();
+			int versesInBlock = m_navigatorViewModel.CurrentBlock.LastVerse - blockRef.VerseNum;
+			var displayedRefMinusBlockStartRef = m_scriptureReference.VerseControl.VerseRef.BBBCCCVVV - blockRef.BBBCCCVVV;
 			if (displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInBlock)
-				m_scriptureReference.VerseControl.VerseRef = new VerseRef(m_navigatorViewModel.GetBlockReference(m_navigatorViewModel.CurrentBlock), ScrVers.English);
+				m_scriptureReference.VerseControl.VerseRef = m_navigatorViewModel.GetBlockVerseRef();
 			m_labelXofY.Visible = m_navigatorViewModel.IsCurrentBlockRelevant;
 			Debug.Assert(m_navigatorViewModel.RelevantBlockCount >= m_navigatorViewModel.CurrentBlockDisplayIndex);
 			m_labelXofY.Text = string.Format(m_xOfYFmt, m_navigatorViewModel.CurrentBlockDisplayIndex, m_navigatorViewModel.RelevantBlockCount);

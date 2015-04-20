@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using ProtoScript.Character;
+using SIL.ScriptureUtils;
+using ScrVers = Paratext.ScrVers;
 
 namespace ProtoScript.Dialogs
 {
@@ -101,7 +103,7 @@ namespace ProtoScript.Dialogs
 		public HashSet<CharacterVerse> GetUniqueCharactersForCurrentReference()
 		{
 			return new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetCharacters(CurrentBookId,
-				CurrentBlock.ChapterNumber, CurrentBlock.InitialStartVerseNumber, CurrentBlock.InitialEndVerseNumber));
+				CurrentBlock.ChapterNumber, CurrentBlock.InitialStartVerseNumber, CurrentBlock.InitialEndVerseNumber, versification: Versification));
 		}
 
 		public IEnumerable<Character> GetCharactersForCurrentReference(bool expandIfNone = true)
@@ -120,7 +122,7 @@ namespace ProtoScript.Dialogs
 				// This will get any expected characters from other verses in the current block.
 				var block = CurrentBlock;
 				foreach (var character in m_combinedCharacterVerseData.GetCharacters(CurrentBookId, block.ChapterNumber,
-						block.InitialStartVerseNumber, block.LastVerse))
+						block.InitialStartVerseNumber, block.LastVerse, versification: Versification))
 				{
 					m_currentCharacters.Add(character);
 				}
@@ -137,7 +139,7 @@ namespace ProtoScript.Dialogs
 				foreach (var block in ContextBlocksBackward.Union(ContextBlocksForward))
 				{
 					foreach (var character in m_combinedCharacterVerseData.GetCharacters(CurrentBookId, block.ChapterNumber,
-						block.InitialStartVerseNumber, block.InitialEndVerseNumber))
+						block.InitialStartVerseNumber, block.InitialEndVerseNumber, versification: Versification))
 					{
 						m_currentCharacters.Add(character);
 					}
@@ -276,7 +278,7 @@ namespace ProtoScript.Dialogs
 		private void AddRecordToProjectCharacterVerseData(Block block, Character character, Delivery delivery)
 		{
 			var cv = new CharacterVerse(
-				GetBlockReference(block),
+				new BCVRef(GetBlockVerseRef(block, ScrVers.English).BBBCCCVVV),
 				character.IsNarrator
 						? CharacterVerseData.GetStandardCharacterId(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator)
 						: character.CharacterId,

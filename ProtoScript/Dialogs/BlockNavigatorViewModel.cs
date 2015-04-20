@@ -333,22 +333,20 @@ namespace ProtoScript.Dialogs
 		public string GetBlockReferenceString(Block block = null)
 		{
 			block = block ?? m_navigator.CurrentBlock;
-			var startRef = GetBlockReference(block);
+			var startRef = new BCVRef(BCVRef.BookToNumber(CurrentBookId), block.ChapterNumber, block.InitialStartVerseNumber);
 			var lastVerseInBlock = block.LastVerse;
 			var endRef = (lastVerseInBlock <= block.InitialStartVerseNumber) ? startRef :
 				new BCVRef(startRef.Book, startRef.Chapter, lastVerseInBlock);
 			return BCVRef.MakeReferenceString(startRef, endRef, ":", "-");
 		}
 
-		public BCVRef GetBlockReference(Block block)
-		{
-			return new BCVRef(BCVRef.BookToNumber(CurrentBookId), block.ChapterNumber, block.InitialStartVerseNumber);
-		}
-
-		public VerseRef GetBlockVerseRef(Block block = null)
+		public VerseRef GetBlockVerseRef(Block block = null, ScrVers targetVersification = null)
 		{
 			block = block ?? m_navigator.CurrentBlock;
-			return new VerseRef(BCVRef.BookToNumber(CurrentBookId), block.ChapterNumber, block.InitialStartVerseNumber, Versification);
+			var verseRef =  new VerseRef(BCVRef.BookToNumber(CurrentBookId), block.ChapterNumber, block.InitialStartVerseNumber, Versification);
+			if (targetVersification != null)
+				verseRef.ChangeVersification(targetVersification);
+			return verseRef;
 		}
 		#endregion
 
@@ -392,7 +390,7 @@ namespace ProtoScript.Dialogs
 
 		public bool TryLoadBlock(VerseRef verseRef)
 		{
-			var indices = m_navigator.GetIndicesOfFirstBlockAtReference(new BCVRef(verseRef.BBBCCCVVV));
+			var indices = m_navigator.GetIndicesOfFirstBlockAtReference(verseRef);
 			if (indices == null)
 				return false;
 			m_currentBlockIndex = m_relevantBlocks.IndexOf(indices);
@@ -531,7 +529,7 @@ namespace ProtoScript.Dialogs
 				if (!GetIsBlockScripture(block))
 					return false;
 				return ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber, block.InitialStartVerseNumber,
-					block.LastVerse).Any(c => c.IsExpected);
+					block.LastVerse, versification: Versification).Any(c => c.IsExpected);
 			}
 			if ((Mode & BlocksToDisplay.MissingExpectedQuote) > 0)
 			{
@@ -539,7 +537,7 @@ namespace ProtoScript.Dialogs
 					return false;
 				IEnumerable<BCVRef> versesWithPotentialMissingQuote = 
 					ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber, block.InitialStartVerseNumber,
-					block.LastVerse).Where(c => c.IsExpected).Select(c => c.BcvRef);
+					block.LastVerse, versification: Versification).Where(c => c.IsExpected).Select(c => c.BcvRef);
 				if (!versesWithPotentialMissingQuote.Any())
 					return false;
 				foreach (BCVRef verse in versesWithPotentialMissingQuote)
@@ -558,7 +556,7 @@ namespace ProtoScript.Dialogs
 					return false;
 
 				var expectedSpeakers = ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber, block.InitialStartVerseNumber,
-					block.InitialEndVerseNumber).Distinct(new CharacterEqualityComparer()).Count();
+					block.InitialEndVerseNumber, versification: Versification).Distinct(new CharacterEqualityComparer()).Count();
 
 				var actualquotes = 1; // this is the quote represented by the given block.
 

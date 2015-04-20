@@ -8,6 +8,7 @@ using System.Linq;
 using ProtoScript.Character;
 using ProtoScript.Utilities;
 using SIL.ScriptureUtils;
+using ScrVers = Paratext.ScrVers;
 
 namespace ProtoScript.Quote
 {
@@ -36,7 +37,7 @@ namespace ProtoScript.Quote
 				bestScore = scores[quoteSystem];
 		}
 
-		public static QuoteSystem Guess<T>(ICharacterVerseInfo cvInfo, List<T> bookList, out bool certain, BackgroundWorker worker = null) where T : IScrBook
+		public static QuoteSystem Guess<T>(ICharacterVerseInfo cvInfo, List<T> bookList, ScrVers versification, out bool certain, BackgroundWorker worker = null) where T : IScrBook
 		{
 			certain = false;
 			var bookCount = bookList.Count();
@@ -143,7 +144,7 @@ namespace ProtoScript.Quote
 							{
 								for (int i = 1; i <= maxFollowingVersesToSearch; i++)
 								{
-									if (!cvInfo.GetCharacters(book.BookId, quote.Chapter, quote.Verse + i).Any())
+									if (!cvInfo.GetCharacters(book.BookId, quote.Chapter, quote.Verse + i, versification: versification).Any())
 										break;
 									string followingText;
 									if (followingVerses.Count >= i )

@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
 using L10NSharp;
@@ -42,8 +43,9 @@ namespace ProtoScript
 		private const double kQuotePercent = 0.65;
 
 		private readonly DblMetadata m_metadata;
-		private string m_recordingProjectName;
 		private readonly List<BookScript> m_books = new List<BookScript>();
+		private readonly Paratext.ScrVers m_vers;
+		private string m_recordingProjectName;
 		private int m_usxPercentComplete;
 		private int m_guessPercentComplete;
 		private int m_quotePercentComplete;
@@ -51,7 +53,6 @@ namespace ProtoScript
 		private ProjectAnalysis m_analysis;
 		private WritingSystemDefinition m_wsDefinition;
 		private IWritingSystemRepository m_wsRepository;
-		private Paratext.ScrVers m_vers;
 
 		public Project(DblMetadata metadata, string recordingProjectName = null)
 		{
@@ -60,6 +61,7 @@ namespace ProtoScript
 			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath);
 			if (m_metadata.QuoteSystem == null)
 				LoadWritingSystem();
+			m_vers = LoadVersification(VersificationFilePath);
 		}
 
 		public Project(Bundle.Bundle bundle, string recordingProjectName = null) : this(bundle.Metadata, recordingProjectName)
@@ -87,6 +89,7 @@ namespace ProtoScript
 
 			Directory.CreateDirectory(ProjectFolder);
 			File.WriteAllText(VersificationFilePath, Resources.EnglishVersification);
+			m_vers = LoadVersification(VersificationFilePath);
 		}
 
 		public event EventHandler<ProgressChangedEventArgs> ProgressChanged;
@@ -165,12 +168,7 @@ namespace ProtoScript
 
 		public Paratext.ScrVers Versification
 		{
-			get
-			{
-				if (m_vers == null)
-					m_vers = LoadVersification(VersificationFilePath);
-				return m_vers;
-			}
+			get  { return m_vers; }
 		}
 
 		public static Paratext.ScrVers LoadVersification(string vrsPath)
@@ -182,7 +180,6 @@ namespace ProtoScript
 		public ProjectStatus Status
 		{
 			get { return m_metadata.ProjectStatus; }
-			private set { m_metadata.ProjectStatus = value; }
 		}
 
 		public ProjectAnalysis ProjectAnalysis
@@ -458,7 +455,7 @@ namespace ProtoScript
 			m_quotePercentComplete = 100;
 			if (m_metadata.ControlFileVersion != controlFileVersion)
 			{
-				new CharacterAssigner(new CombinedCharacterVerseData(this)).AssignAll(m_books);
+				new CharacterAssigner(new CombinedCharacterVerseData(this)).AssignAll(m_books, Versification);
 				m_metadata.ControlFileVersion = controlFileVersion;
 			}
 			UpdatePercentInitialized();
@@ -551,7 +548,7 @@ namespace ProtoScript
 		private void GuessWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
 			bool certain;
-			e.Result = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, m_books, out certain, sender as BackgroundWorker); ;
+			e.Result = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, m_books, Versification, out certain, sender as BackgroundWorker); ;
 		}
 
 		private void GuessWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -590,7 +587,10 @@ namespace ProtoScript
 		private void QuoteWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
 			if (e.Error != null)
+			{
+				Debug.WriteLine(e.Error.InnerException.Message + e.Error.InnerException.StackTrace);
 				throw e.Error;
+			}
 
 			m_metadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
 			Analyze();
