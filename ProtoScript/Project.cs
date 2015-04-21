@@ -657,8 +657,6 @@ namespace ProtoScript
 
 		public void Save()
 		{
-			var stopwatch = Stopwatch.StartNew();
-			
 			Directory.CreateDirectory(ProjectFolder);
 
 			var projectPath = ProjectFilePath;
@@ -675,18 +673,14 @@ namespace ProtoScript
 			SaveProjectCharacterVerseData();
 			SaveWritingSystem();
 			ProjectState = !IsQuoteSystemReadyForParse ? ProjectState.NeedsQuoteSystemConfirmation : ProjectState.FullyInitialized;
-			
-			Debug.WriteLine("Time taken to save the project: " + stopwatch.Elapsed);
 		}
 
 		public void SaveBook(BookScript book)
 		{
-			var stopwatch = Stopwatch.StartNew();
 			Exception error;
 			XmlSerializationHelper.SerializeToFile(Path.ChangeExtension(Path.Combine(ProjectFolder, book.BookId), "xml"), book, out error);
 			if (error != null)
 				MessageBox.Show(error.Message);
-			Debug.WriteLine("Time taken to save the book (" + book.BookId + "): " + stopwatch.Elapsed);
 		}
 
 		public void SaveProjectCharacterVerseData()
