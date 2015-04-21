@@ -75,9 +75,13 @@ namespace ProtoScript.Dialogs
 			CurrentBook.SingleVoice = singleVoice;
 			if (singleVoice)
 			{
+				// Order is important
 				AssignNarratorForRemainingBlocksInCurrentBook();
+				m_project.SaveBook(CurrentBook);
 				LoadNextRelevantBlockInSubsequentBook();
 			}
+			else
+				m_project.SaveBook(CurrentBook);
 		}
 
 		#region Overridden methods
@@ -273,6 +277,8 @@ namespace ProtoScript.Dialogs
 
 			foreach (Block block in GetAllBlocksWithSameQuote(CurrentBlock))
 				SetCharacterAndDelivery(block, selectedCharacter, selectedDelivery);
+
+			m_project.SaveBook(CurrentBook);
 		}
 
 		private void AddRecordToProjectCharacterVerseData(Block block, Character character, Delivery delivery)
@@ -286,6 +292,8 @@ namespace ProtoScript.Dialogs
 				character.Alias,
 				character.ProjectSpecific || delivery.ProjectSpecific);
 			m_projectCharacterVerseData.Add(cv);
+
+			m_project.SaveProjectCharacterVerseData();
 		}
 
 		private string GetCurrentRelevantAlias(string characterId)

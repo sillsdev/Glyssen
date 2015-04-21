@@ -657,6 +657,8 @@ namespace ProtoScript
 
 		public void Save()
 		{
+			var stopwatch = Stopwatch.StartNew();
+			
 			Directory.CreateDirectory(ProjectFolder);
 
 			var projectPath = ProjectFilePath;
@@ -668,17 +670,28 @@ namespace ProtoScript
 				return;
 			}
 			Settings.Default.CurrentProject = projectPath;
-			var projectFolder = Path.GetDirectoryName(projectPath);
 			foreach (var book in m_books)
-			{
-				var filePath = Path.ChangeExtension(Path.Combine(projectFolder, book.BookId), "xml");
-				XmlSerializationHelper.SerializeToFile(filePath, book, out error);
-				if (error != null)
-					MessageBox.Show(error.Message);
-			}
-			ProjectCharacterVerseData.WriteToFile(ProjectCharacterVerseDataPath);
+				SaveBook(book);
+			SaveProjectCharacterVerseData();
 			SaveWritingSystem();
 			ProjectState = !IsQuoteSystemReadyForParse ? ProjectState.NeedsQuoteSystemConfirmation : ProjectState.FullyInitialized;
+			
+			Debug.WriteLine("Time taken to save the project: " + stopwatch.Elapsed);
+		}
+
+		public void SaveBook(BookScript book)
+		{
+			var stopwatch = Stopwatch.StartNew();
+			Exception error;
+			XmlSerializationHelper.SerializeToFile(Path.ChangeExtension(Path.Combine(ProjectFolder, book.BookId), "xml"), book, out error);
+			if (error != null)
+				MessageBox.Show(error.Message);
+			Debug.WriteLine("Time taken to save the book (" + book.BookId + "): " + stopwatch.Elapsed);
+		}
+
+		public void SaveProjectCharacterVerseData()
+		{
+			ProjectCharacterVerseData.WriteToFile(ProjectCharacterVerseDataPath);
 		}
 
 		public WritingSystemDefinition WritingSystem
