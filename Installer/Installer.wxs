@@ -83,6 +83,10 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 
           </Component>
 
+          <Component Id="ProtoScript.pdb" Guid="{36b433dd-6260-48cb-8649-eb30f0b2fe27}">
+            <File Id="ProtoScript.pdb" Name="ProtoScript.pdb" KeyPath="yes" Source="..\output\release\ProtoScript.pdb" />
+          </Component>
+
           <Component Id="ProtoScript.exe.config" Guid="{5173C7E9-39FD-4438-B1C1-BA187907AA35}">
             <File Id="ProtoScript.exe.config" Name="ProtoScript.exe.config" KeyPath="yes" Source="..\output\release\ProtoScript.exe.config" />
           </Component>
@@ -91,40 +95,80 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="SIL.Core.dll" Name="SIL.Core.dll" KeyPath="yes" Source="..\output\release\SIL.Core.dll" />
           </Component>
 
+          <Component Id="SIL.Core.pdb" Guid="{f4954c64-33f6-48e4-a6bc-453cc552925d}">
+            <File Id="SIL.Core.pdb" Name="SIL.Core.pdb" KeyPath="yes" Source="..\output\release\SIL.Core.pdb" />
+          </Component>
+
           <Component Id="SIL.Windows.Forms.dll" Guid="{ea18bc71-5da1-49e5-a126-ead84ad1d287}">
             <File Id="SIL.Windows.Forms.dll" Name="SIL.Windows.Forms.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.dll" />
+          </Component>
+
+          <Component Id="SIL.Windows.Forms.pdb" Guid="{98277eee-bb92-47ac-a967-0ae65a25ae6e}">
+            <File Id="SIL.Windows.Forms.pdb" Name="SIL.Windows.Forms.pdb" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.pdb" />
           </Component>
 
           <Component Id="SIL.Windows.Forms.GeckoBrowserAdapter.dll" Guid="{d5efb16d-09a1-41e4-b46b-7bd1cc44abfd}">
             <File Id="SIL.Windows.Forms.GeckoBrowserAdapter.dll" Name="SIL.Windows.Forms.GeckoBrowserAdapter.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.GeckoBrowserAdapter.dll" />
           </Component>
 
+          <Component Id="SIL.Windows.Forms.GeckoBrowserAdapter.pdb" Guid="{9b296fcb-4d8c-48a0-8c1c-29a2324cee46}">
+            <File Id="SIL.Windows.Forms.GeckoBrowserAdapter.pdb" Name="SIL.Windows.Forms.GeckoBrowserAdapter.pdb" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.GeckoBrowserAdapter.pdb" />
+          </Component>
+
           <Component Id="SIL.Windows.Forms.Keyboarding.dll" Guid="{c7e9afe7-3d60-4171-a11e-73f68ba455d2}">
             <File Id="SIL.Windows.Forms.Keyboarding.dll" Name="SIL.Windows.Forms.Keyboarding.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.Keyboarding.dll" />
+          </Component>
+
+          <Component Id="SIL.Windows.Forms.Keyboarding.pdb" Guid="{b042f205-62a9-4980-96b9-923c53d5432c}">
+            <File Id="SIL.Windows.Forms.Keyboarding.pdb" Name="SIL.Windows.Forms.Keyboarding.pdb" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.Keyboarding.pdb" />
           </Component>
 
           <Component Id="SIL.WritingSystems.dll" Guid="{2e0d8b57-3d08-45e7-be4c-01adc1838449}">
             <File Id="SIL.WritingSystems.dll" Name="SIL.WritingSystems.dll" KeyPath="yes" Source="..\output\release\SIL.WritingSystems.dll" />
           </Component>
 
+          <Component Id="SIL.WritingSystems.pdb" Guid="{8dc07d50-101c-4f4f-8012-71ea0f8f01b2}">
+            <File Id="SIL.WritingSystems.pdb" Name="SIL.WritingSystems.pdb" KeyPath="yes" Source="..\output\release\SIL.WritingSystems.pdb" />
+          </Component>
+
           <Component Id="SIL.Windows.Forms.WritingSystems.dll" Guid="{d80fbd4c-4bfa-42f3-81cc-95210a0fa402}">
             <File Id="SIL.Windows.Forms.WritingSystems.dll" Name="SIL.Windows.Forms.WritingSystems.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.WritingSystems.dll" />
+          </Component>
+
+          <Component Id="SIL.Windows.Forms.WritingSystems.pdb" Guid="{c4ac3141-061d-4c1c-b4a3-e2ccdeca7a29}">
+            <File Id="SIL.Windows.Forms.WritingSystems.pdb" Name="SIL.Windows.Forms.WritingSystems.pdb" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.WritingSystems.pdb" />
           </Component>
 
           <Component Id="SIL.ScriptureUtils.dll" Guid="{386eb5b9-c3ef-4640-9400-e5efb3fc83c4}">
             <File Id="SIL.ScriptureUtils.dll" Name="SIL.ScriptureUtils.dll" KeyPath="yes" Source="..\output\release\SIL.ScriptureUtils.dll" />
           </Component>
 
+          <Component Id="SIL.ScriptureUtils.pdb" Guid="{d321b0a0-9e51-401f-a020-fb0d985cbe62}">
+            <File Id="SIL.ScriptureUtils.pdb" Name="SIL.ScriptureUtils.pdb" KeyPath="yes" Source="..\output\release\SIL.ScriptureUtils.pdb" />
+          </Component>
+
           <Component Id="SIL.ScriptureControls.dll" Guid="{3211eeca-71be-4e26-a4fa-22b9e15a15ad}">
             <File Id="SIL.ScriptureControls.dll" Name="SIL.ScriptureControls.dll" KeyPath="yes" Source="..\output\release\SIL.ScriptureControls.dll" />
+          </Component>
+
+          <Component Id="SIL.ScriptureControls.pdb" Guid="{53fcb487-efda-4cf7-80a8-cd73af8b7f28}">
+            <File Id="SIL.ScriptureControls.pdb" Name="SIL.ScriptureControls.pdb" KeyPath="yes" Source="..\output\release\SIL.ScriptureControls.pdb" />
           </Component>
 
           <Component Id="Geckofx_Core.dll" Guid="{55db00fb-4a1f-437e-a14e-22c562aecd5a}">
             <File Id="Geckofx_Core.dll" Name="Geckofx-Core.dll" KeyPath="yes" Source="..\output\release\Geckofx-Core.dll" />
           </Component>
 
+          <Component Id="Geckofx_Core.pdb" Guid="{c09b154c-2494-45ca-a42d-d978117f0141}">
+            <File Id="Geckofx_Core.pdb" Name="Geckofx-Core.pdb" KeyPath="yes" Source="..\output\release\Geckofx-Core.pdb" />
+          </Component>
+
           <Component Id="Geckofx_Winforms.dll" Guid="{69cbecdc-dfc8-4f96-a947-5fca98f72c04}">
             <File Id="Geckofx_Winforms.dll" Name="Geckofx-Winforms.dll" KeyPath="yes" Source="..\output\release\Geckofx-Winforms.dll" />
+          </Component>
+
+          <Component Id="Geckofx_Winforms.pdb" Guid="{13dbf7d2-8f14-40e3-a6cf-8f1a9fcff9cc}">
+            <File Id="Geckofx_Winforms.pdb" Name="Geckofx-Winforms.pdb" KeyPath="yes" Source="..\output\release\Geckofx-Winforms.pdb" />
           </Component>
 
           <Component Id="icu.net.dll" Guid="{a145070d-4fae-49ab-a7f5-4980895f62ba}">
@@ -133,6 +177,10 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 
           <Component Id="ParatextShared.dll" Guid="{8a047a21-cabf-4fe4-ab4e-40da9e23f9ce}">
             <File Id="ParatextShared.dll" Name="ParatextShared.dll" KeyPath="yes" Source="..\output\release\ParatextShared.dll" />
+          </Component>
+
+          <Component Id="ParatextShared.pdb" Guid="{0a3ab828-7c0f-42c8-9d32-2361acdd0b0f}">
+            <File Id="ParatextShared.pdb" Name="ParatextShared.pdb" KeyPath="yes" Source="..\output\release\ParatextShared.pdb" />
           </Component>
 
           <!--Needed for ParatextShared-->
@@ -151,10 +199,26 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
           <Component Id="Ionic.Zip.dll" Guid="{EA956C01-1047-414D-AFDB-9AEE2B0B064F}">
             <File Id="Ionic.Zip.dll" Name="Ionic.Zip.dll" KeyPath="yes" Source="..\output\release\Ionic.Zip.dll" />
           </Component>
+          <Component Id="Palaso.pdb" Guid="{11d5b0d2-f512-4d57-ba95-c8f75df8760a}">
+            <File Id="Palaso.pdb" Name="Palaso.pdb" KeyPath="yes" Source="..\output\release\Palaso.pdb" />
+          </Component>
+          <Component Id="PalasoUIWindowsForms.pdb" Guid="{22a8ef9e-488c-40f8-94ee-92f7cde96487}">
+            <File Id="PalasoUIWindowsForms.pdb" Name="PalasoUIWindowsForms.pdb" KeyPath="yes" Source="..\lib\dotnet\PalasoUIWindowsForms.pdb" />
+          </Component>
+          <Component Id="NetLoc.pdb" Guid="{69b72021-5d29-4499-9752-f90346e9fe2f}">
+            <File Id="NetLoc.pdb" Name="NetLoc.pdb" KeyPath="yes" Source="..\output\release\NetLoc.pdb" />
+          </Component>
+          <Component Id="Utilities.pdb" Guid="{6e04ff42-2c96-49a7-aada-bb56771f2a41}">
+            <File Id="Utilities.pdb" Name="Utilities.pdb" KeyPath="yes" Source="..\output\release\Utilities.pdb" />
+          </Component>
           <!--End Needed for ParatextShared-->
 
           <Component Id="L10NSharp.dll" Guid="{59DBC21F-581C-4FA4-AF2F-EBDAC3A7697B}">
             <File Id="L10NSharp.dll" Name="L10NSharp.dll" KeyPath="yes" Source="..\output\release\L10NSharp.dll" />
+          </Component>
+
+          <Component Id="L10NSharp.pdb" Guid="{c6477c66-b26f-4362-8c1e-6d77b0c70494}">
+            <File Id="L10NSharp.pdb" Name="L10NSharp.pdb" KeyPath="yes" Source="..\output\release\L10NSharp.pdb" />
           </Component>
 
           <Component Id="ICSharpCode.SharpZipLib.dll" Guid="{4B1E06ED-B1E2-4936-ADD9-0480421AB547}">
@@ -189,6 +253,24 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="ICSharpCode.SharpZipLib.dll"/>
       <ComponentRef Id="ProtoScript.exe" />
       <ComponentRef Id="ProtoScript.exe.config" />
+
+      <ComponentRef Id="SIL.Core.pdb"/>
+      <ComponentRef Id="SIL.Windows.Forms.pdb"/>
+      <ComponentRef Id="SIL.Windows.Forms.GeckoBrowserAdapter.pdb"/>
+      <ComponentRef Id="SIL.Windows.Forms.Keyboarding.pdb"/>
+      <ComponentRef Id="SIL.WritingSystems.pdb"/>
+      <ComponentRef Id="SIL.Windows.Forms.WritingSystems.pdb"/>
+      <ComponentRef Id="SIL.ScriptureUtils.pdb"/>
+      <ComponentRef Id="SIL.ScriptureControls.pdb"/>
+      <ComponentRef Id="Geckofx_Core.pdb"/>
+      <ComponentRef Id="Geckofx_Winforms.pdb"/>
+      <ComponentRef Id="ParatextShared.pdb"/>
+      <ComponentRef Id="Palaso.pdb"/>
+      <ComponentRef Id="PalasoUIWindowsForms.pdb"/>
+      <ComponentRef Id="NetLoc.pdb"/>
+      <ComponentRef Id="Utilities.pdb"/>
+      <ComponentRef Id="L10NSharp.pdb"/>
+      <ComponentRef Id="ProtoScript.pdb" />
       
       <ComponentGroupRef Id="DistFiles"/>
       <ComponentGroupRef Id="XulRunner" />

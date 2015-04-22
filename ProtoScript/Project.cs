@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
 using L10NSharp;
@@ -12,6 +13,7 @@ using Paratext;
 using ProtoScript.Analysis;
 using ProtoScript.Bundle;
 using ProtoScript.Character;
+using ProtoScript.Dialogs;
 using ProtoScript.Properties;
 using ProtoScript.Quote;
 using SIL.IO;
@@ -41,8 +43,9 @@ namespace ProtoScript
 		private const double kQuotePercent = 0.65;
 
 		private readonly DblMetadata m_metadata;
-		private string m_recordingProjectName;
 		private readonly List<BookScript> m_books = new List<BookScript>();
+		private readonly Paratext.ScrVers m_vers;
+		private string m_recordingProjectName;
 		private int m_usxPercentComplete;
 		private int m_guessPercentComplete;
 		private int m_quotePercentComplete;
@@ -50,7 +53,6 @@ namespace ProtoScript
 		private ProjectAnalysis m_analysis;
 		private WritingSystemDefinition m_wsDefinition;
 		private IWritingSystemRepository m_wsRepository;
-		private Paratext.ScrVers m_vers;
 
 		public Project(DblMetadata metadata, string recordingProjectName = null)
 		{
@@ -59,6 +61,8 @@ namespace ProtoScript
 			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath);
 			if (m_metadata.QuoteSystem == null)
 				LoadWritingSystem();
+			if (File.Exists(VersificationFilePath))
+				m_vers = LoadVersification(VersificationFilePath);
 		}
 
 		public Project(Bundle.Bundle bundle, string recordingProjectName = null) : this(bundle.Metadata, recordingProjectName)
@@ -86,6 +90,7 @@ namespace ProtoScript
 
 			Directory.CreateDirectory(ProjectFolder);
 			File.WriteAllText(VersificationFilePath, Resources.EnglishVersification);
+			m_vers = LoadVersification(VersificationFilePath);
 		}
 
 		public event EventHandler<ProgressChangedEventArgs> ProgressChanged;
@@ -164,12 +169,7 @@ namespace ProtoScript
 
 		public Paratext.ScrVers Versification
 		{
-			get
-			{
-				if (m_vers == null)
-					m_vers = LoadVersification(VersificationFilePath);
-				return m_vers;
-			}
+			get  { return m_vers; }
 		}
 
 		public static Paratext.ScrVers LoadVersification(string vrsPath)
@@ -181,7 +181,6 @@ namespace ProtoScript
 		public ProjectStatus Status
 		{
 			get { return m_metadata.ProjectStatus; }
-			private set { m_metadata.ProjectStatus = value; }
 		}
 
 		public ProjectAnalysis ProjectAnalysis
@@ -202,7 +201,7 @@ namespace ProtoScript
 				bool quoteSystemBeingSetForFirstTime = QuoteSystem == null;
 				bool quoteSystemChanged = m_metadata.QuoteSystem != value;
 
-				if (IsQuoteSystemUserConfirmed && ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
+				if (IsQuoteSystemReadyForParse && ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
 				{
 					m_metadata.QuoteSystem = value;
 					DoQuoteParse();
@@ -222,16 +221,29 @@ namespace ProtoScript
 			}
 		}
 
-		public bool IsQuoteSystemUserConfirmed
+		public QuoteSystemStatus QuoteSystemStatus
 		{
-			get { return m_metadata.IsQuoteSystemUserConfirmed; }
-			set { m_metadata.IsQuoteSystemUserConfirmed = value; }
+			get { return m_metadata.ProjectStatus.QuoteSystemStatus; }
+			set { m_metadata.ProjectStatus.QuoteSystemStatus = value; }
 		}
 
-		public bool IsBookSelectionUserConfirmed
+		public bool IsQuoteSystemReadyForParse { get { return (QuoteSystemStatus & QuoteSystemStatus.ParseReady) != 0; } }
+
+		public DateTime QuoteSystemDate
 		{
-			get { return m_metadata.IsBookSelectionUserConfirmed; }
-			set { m_metadata.IsBookSelectionUserConfirmed = value; }
+			get { return m_metadata.ProjectStatus.QuoteSystemDate; }
+		}
+
+		public BookSelectionStatus BookSelectionStatus
+		{
+			get { return m_metadata.ProjectStatus.BookSelectionStatus; }
+			set { m_metadata.ProjectStatus.BookSelectionStatus = value; }
+		}
+
+		public ProjectSettingsStatus ProjectSettingsStatus
+		{
+			get { return m_metadata.ProjectStatus.ProjectSettingsStatus; }
+			set { m_metadata.ProjectStatus.ProjectSettingsStatus = value; }
 		}
 
 		public IReadOnlyList<BookScript> Books { get { return m_books; } }
@@ -321,9 +333,10 @@ namespace ProtoScript
 		/// </summary>
 		private Project UserDecisionsProject { get; set; }
 
-		internal void ClearProjectStatus()
+		internal void ClearAssignCharacterStatus()
 		{
-			Status = new ProjectStatus();
+			Status.AssignCharacterMode = BlocksToDisplay.NeedAssignments;
+			Status.AssignCharacterBlock = new BookBlockIndices();
 		}
 
 		public static Project Load(string projectFilePath)
@@ -428,11 +441,12 @@ namespace ProtoScript
 
 			if (IsSampleProject)
 			{
-				IsQuoteSystemUserConfirmed = true;
-				IsBookSelectionUserConfirmed = true;
+				ProjectSettingsStatus = ProjectSettingsStatus.Reviewed;
+				QuoteSystemStatus = QuoteSystemStatus.Obtained;
+				BookSelectionStatus = BookSelectionStatus.Reviewed;
 			}
 
-			if (!IsQuoteSystemUserConfirmed)
+			if (!IsQuoteSystemReadyForParse)
 			{
 				m_quotePercentComplete = 0;
 				UpdatePercentInitialized();
@@ -442,7 +456,7 @@ namespace ProtoScript
 			m_quotePercentComplete = 100;
 			if (m_metadata.ControlFileVersion != controlFileVersion)
 			{
-				new CharacterAssigner(new CombinedCharacterVerseData(this)).AssignAll(m_books);
+				new CharacterAssigner(new CombinedCharacterVerseData(this)).AssignAll(m_books, Versification);
 				m_metadata.ControlFileVersion = controlFileVersion;
 			}
 			UpdatePercentInitialized();
@@ -511,7 +525,7 @@ namespace ProtoScript
 
 			if (QuoteSystem == null)
 				GuessAtQuoteSystem();
-			else if (IsQuoteSystemUserConfirmed)
+			else if (IsQuoteSystemReadyForParse)
 				DoQuoteParse();
 		}
 
@@ -535,7 +549,7 @@ namespace ProtoScript
 		private void GuessWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
 			bool certain;
-			e.Result = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, m_books, out certain, sender as BackgroundWorker); ;
+			e.Result = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, m_books, Versification, out certain, sender as BackgroundWorker); ;
 		}
 
 		private void GuessWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -543,7 +557,7 @@ namespace ProtoScript
 			if (e.Error != null)
 				throw e.Error;
 
-			IsQuoteSystemUserConfirmed = false;
+			QuoteSystemStatus = QuoteSystemStatus.Guessed;
 			QuoteSystem = (QuoteSystem)e.Result;
 			
 			Save();
@@ -574,7 +588,10 @@ namespace ProtoScript
 		private void QuoteWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
 			if (e.Error != null)
+			{
+				Debug.WriteLine(e.Error.InnerException.Message + e.Error.InnerException.StackTrace);
 				throw e.Error;
+			}
 
 			m_metadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
 			Analyze();
@@ -651,17 +668,24 @@ namespace ProtoScript
 				return;
 			}
 			Settings.Default.CurrentProject = projectPath;
-			var projectFolder = Path.GetDirectoryName(projectPath);
 			foreach (var book in m_books)
-			{
-				var filePath = Path.ChangeExtension(Path.Combine(projectFolder, book.BookId), "xml");
-				XmlSerializationHelper.SerializeToFile(filePath, book, out error);
-				if (error != null)
-					MessageBox.Show(error.Message);
-			}
-			ProjectCharacterVerseData.WriteToFile(ProjectCharacterVerseDataPath);
+				SaveBook(book);
+			SaveProjectCharacterVerseData();
 			SaveWritingSystem();
-			ProjectState = !IsQuoteSystemUserConfirmed ? ProjectState.NeedsQuoteSystemConfirmation : ProjectState.FullyInitialized;
+			ProjectState = !IsQuoteSystemReadyForParse ? ProjectState.NeedsQuoteSystemConfirmation : ProjectState.FullyInitialized;
+		}
+
+		public void SaveBook(BookScript book)
+		{
+			Exception error;
+			XmlSerializationHelper.SerializeToFile(Path.ChangeExtension(Path.Combine(ProjectFolder, book.BookId), "xml"), book, out error);
+			if (error != null)
+				MessageBox.Show(error.Message);
+		}
+
+		public void SaveProjectCharacterVerseData()
+		{
+			ProjectCharacterVerseData.WriteToFile(ProjectCharacterVerseDataPath);
 		}
 
 		public WritingSystemDefinition WritingSystem
@@ -839,8 +863,9 @@ namespace ProtoScript
 			sampleMetadata.id = kSample;
 			sampleMetadata.language = new DblMetadataLanguage {iso = kSample};
 			sampleMetadata.identification = new DblMetadataIdentification { name = kSampleProjectName, nameLocal = kSampleProjectName};
-			sampleMetadata.IsQuoteSystemUserConfirmed = true;
-			sampleMetadata.IsBookSelectionUserConfirmed = true;
+			sampleMetadata.ProjectStatus.ProjectSettingsStatus = ProjectSettingsStatus.Reviewed;
+			sampleMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
+			sampleMetadata.ProjectStatus.BookSelectionStatus = BookSelectionStatus.Reviewed;
 			sampleMetadata.QuoteSystem = GetSampleQuoteSystem();
 
 			XmlDocument sampleMark = new XmlDocument();

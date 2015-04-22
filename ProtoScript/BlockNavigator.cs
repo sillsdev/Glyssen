@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
+using Paratext;
 using SIL.ScriptureUtils;
 
 namespace ProtoScript
@@ -87,9 +88,9 @@ namespace ProtoScript
 			throw new ArgumentOutOfRangeException("block", block.ToString(), "Block not found in any book!");
 		}
 
-		public BookBlockIndices GetIndicesOfFirstBlockAtReference(BCVRef bcvRef)
+		public BookBlockIndices GetIndicesOfFirstBlockAtReference(VerseRef verseRef)
 		{
-			var bookId = BCVRef.NumberToBookCode(bcvRef.Book);
+			var bookId = verseRef.Book;
 			int bookIndex = -1;
 			BookScript book = null;
 			for (int i = 0; i < m_books.Count; i++)
@@ -106,7 +107,7 @@ namespace ProtoScript
 				return null;
 
 			var blockIndex = book.Blocks.IndexOf(
-				a => a.ChapterNumber == bcvRef.Chapter && a.InitialStartVerseNumber <= bcvRef.Verse && a.LastVerse >= bcvRef.Verse);
+				a => a.ChapterNumber == verseRef.ChapterNum && a.InitialStartVerseNumber <= verseRef.VerseNum && a.LastVerse >= verseRef.VerseNum);
 
 			return blockIndex == -1 ? null : new BookBlockIndices(bookIndex, blockIndex);
 		}

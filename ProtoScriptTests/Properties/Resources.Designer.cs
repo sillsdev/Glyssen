@@ -104,5 +104,23 @@ namespace ProtoScriptTests.Properties {
                 return ResourceManager.GetString("TestMRK", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # Versification  &quot;English&quot;
+        ///# Version=1.9
+        ///#
+        ///# modifications by Reinier de Blois 13/March/2012
+        ///# modified mappings Psalms by adding verse #0 to the mappings
+        ///# many of the subscripts that are part of verses 1,2 in the original text end up as verse #0 in English translations
+        ///
+        ///# modifications by Studge 26/June/2009
+        ///# book definitions are for all books printed in any English of Spanish Bible
+        ///# this includes books for Protestant, Catholic and Protestant-Catholic-EasternOrthodox Interconfessional editions        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TestVersification {
+            get {
+                return ResourceManager.GetString("TestVersification", resourceCulture);
+            }
+        }
     }
 }

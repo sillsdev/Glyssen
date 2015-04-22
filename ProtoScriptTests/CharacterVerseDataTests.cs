@@ -1,6 +1,10 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
 using NUnit.Framework;
+using Paratext;
 using ProtoScript.Character;
+using ProtoScriptTests.Properties;
+using SIL.IO;
 
 namespace ProtoScriptTests
 {
@@ -11,11 +15,19 @@ namespace ProtoScriptTests
 	[TestFixture]
 	class CharacterVerseDataTests
 	{
+		private ScrVers m_testVersification;
+
 		[TestFixtureSetUp]
 		public void FixtureSetup()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+
+			using (TempFile tempFile = new TempFile())
+			{
+				File.WriteAllText(tempFile.Path, Resources.TestVersification);
+				m_testVersification = Versification.Table.Load(tempFile.Path);
+			}
 		}
 
 		[Test]
@@ -84,6 +96,23 @@ namespace ProtoScriptTests
 			Assert.AreEqual(2, characters.Count());
 			Assert.AreEqual(1, characters.Count(c => c.Character == "God"));
 			Assert.AreEqual(1, characters.Count(c => c.Character == "Samuel"));
+		}
+
+		[Test]
+		public void GetCharacters_NonEnglishVersification()
+		{
+			// Prove the test is valid
+			var character = ControlCharacterVerseData.Singleton.GetCharacters(1, 32, 6).Single();
+			Assert.AreEqual("messengers of Jacob", character.Character);
+			var verseRef = new VerseRef(1, 32, 6, ScrVers.English);
+			verseRef.ChangeVersification(m_testVersification);
+			Assert.AreEqual(1, verseRef.BookNum);
+			Assert.AreEqual(32, verseRef.ChapterNum);
+			Assert.AreEqual(7, verseRef.VerseNum);
+			
+			// Run the test
+			character = ControlCharacterVerseData.Singleton.GetCharacters(verseRef.BookNum, verseRef.ChapterNum, verseRef.VerseNum, versification: m_testVersification).Single();
+			Assert.AreEqual("messengers of Jacob", character.Character);
 		}
 	}
 }

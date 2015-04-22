@@ -37,9 +37,6 @@
 			this.m_btnExportToTabSeparated = new System.Windows.Forms.Button();
 			this.m_btnAssign = new System.Windows.Forms.Button();
 			this.m_btnSelectBooks = new System.Windows.Forms.Button();
-			this.m_lblSelectedQuotationMarks = new System.Windows.Forms.Label();
-			this.m_lblQuotationMarksSystem = new System.Windows.Forms.Label();
-			this.m_linkChangeQuotationSystem = new System.Windows.Forms.LinkLabel();
 			this.m_btnSettings = new System.Windows.Forms.Button();
 			this.m_lblPercentAssigned = new System.Windows.Forms.Label();
 			this.m_lblSelectNextTask = new System.Windows.Forms.Label();
@@ -163,58 +160,6 @@
 			this.m_btnSelectBooks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.m_btnSelectBooks.UseVisualStyleBackColor = false;
 			this.m_btnSelectBooks.Click += new System.EventHandler(this.m_btnSelectBooks_Click);
-			// 
-			// m_lblSelectedQuotationMarks
-			// 
-			this.m_lblSelectedQuotationMarks.AutoSize = true;
-			this.m_lblSelectedQuotationMarks.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_lblSelectedQuotationMarks.ForeColor = System.Drawing.Color.White;
-			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblSelectedQuotationMarks, null);
-			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblSelectedQuotationMarks, null);
-			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_lblSelectedQuotationMarks, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblSelectedQuotationMarks, "MainForm.label1");
-			this.m_lblSelectedQuotationMarks.Location = new System.Drawing.Point(615, 375);
-			this.m_lblSelectedQuotationMarks.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.m_lblSelectedQuotationMarks.Name = "m_lblSelectedQuotationMarks";
-			this.m_lblSelectedQuotationMarks.Size = new System.Drawing.Size(20, 24);
-			this.m_lblSelectedQuotationMarks.TabIndex = 9;
-			this.m_lblSelectedQuotationMarks.Text = "#";
-			// 
-			// m_lblQuotationMarksSystem
-			// 
-			this.m_lblQuotationMarksSystem.AutoSize = true;
-			this.m_lblQuotationMarksSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_lblQuotationMarksSystem.ForeColor = System.Drawing.Color.White;
-			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblQuotationMarksSystem, null);
-			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblQuotationMarksSystem, null);
-			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_lblQuotationMarksSystem, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblQuotationMarksSystem, "MainForm.label1");
-			this.m_lblQuotationMarksSystem.Location = new System.Drawing.Point(484, 379);
-			this.m_lblQuotationMarksSystem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.m_lblQuotationMarksSystem.Name = "m_lblQuotationMarksSystem";
-			this.m_lblQuotationMarksSystem.Size = new System.Drawing.Size(123, 18);
-			this.m_lblQuotationMarksSystem.TabIndex = 10;
-			this.m_lblQuotationMarksSystem.Text = "Quotation Marks:";
-			// 
-			// m_linkChangeQuotationSystem
-			// 
-			this.m_linkChangeQuotationSystem.AutoSize = true;
-			this.m_linkChangeQuotationSystem.Enabled = false;
-			this.m_linkChangeQuotationSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-			this.m_linkChangeQuotationSystem.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.m_linkChangeQuotationSystem.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_linkChangeQuotationSystem, null);
-			this.m_L10NSharpExtender.SetLocalizationComment(this.m_linkChangeQuotationSystem, null);
-			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_linkChangeQuotationSystem, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_L10NSharpExtender.SetLocalizingId(this.m_linkChangeQuotationSystem, "MainForm.MainForm.m_linkChangeQuotationSystem");
-			this.m_linkChangeQuotationSystem.Location = new System.Drawing.Point(708, 379);
-			this.m_linkChangeQuotationSystem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.m_linkChangeQuotationSystem.Name = "m_linkChangeQuotationSystem";
-			this.m_linkChangeQuotationSystem.Size = new System.Drawing.Size(56, 18);
-			this.m_linkChangeQuotationSystem.TabIndex = 7;
-			this.m_linkChangeQuotationSystem.TabStop = true;
-			this.m_linkChangeQuotationSystem.Text = "change";
-			this.m_linkChangeQuotationSystem.Click += new System.EventHandler(this.HandleChangeQuotationMarks_Click);
 			// 
 			// m_btnSettings
 			// 
@@ -427,9 +372,6 @@
 			this.Controls.Add(this.m_lblPercentAssigned);
 			this.Controls.Add(this.m_btnSettings);
 			this.Controls.Add(this.m_btnSelectBooks);
-			this.Controls.Add(this.m_linkChangeQuotationSystem);
-			this.Controls.Add(this.m_lblQuotationMarksSystem);
-			this.Controls.Add(this.m_lblSelectedQuotationMarks);
 			this.Controls.Add(this.m_btnAssign);
 			this.Controls.Add(this.m_btnExportToTabSeparated);
 			this.Controls.Add(this.m_lblSettingsInfo);
@@ -467,9 +409,6 @@
 		private System.Windows.Forms.Button m_btnExportToTabSeparated;
 		private System.Windows.Forms.Button m_btnAssign;
 		private System.Windows.Forms.Button m_btnSelectBooks;
-		private System.Windows.Forms.Label m_lblSelectedQuotationMarks;
-		private System.Windows.Forms.Label m_lblQuotationMarksSystem;
-		private System.Windows.Forms.LinkLabel m_linkChangeQuotationSystem;
 		private System.Windows.Forms.Button m_btnSettings;
 		private System.Windows.Forms.Label m_lblPercentAssigned;
 		private System.Windows.Forms.Label m_lblSelectNextTask;

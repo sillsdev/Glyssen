@@ -18,8 +18,8 @@ using Paratext;
 using ProtoScript.Character;
 using ProtoScript.Controls;
 using SIL.ScriptureControls;
-using SIL.ScriptureUtils;
 using SIL.Windows.Forms.PortableSettingsProvider;
+using ScrVers = Paratext.ScrVers;
 
 namespace ProtoScript.Dialogs
 {
@@ -29,6 +29,9 @@ namespace ProtoScript.Dialogs
 		private string m_xOfYFmt;
 		private string m_singleVoiceCheckboxFmt;
 		private bool m_promptToCloseWhenAssignmentsAreComplete = true;
+		int m_characterListHoveredIndex = -1;
+		private readonly ToolTip m_characterListToolTip = new ToolTip();
+		private bool m_formLoading;
 
 		private void HandleStringsLocalized()
 		{
@@ -146,17 +149,17 @@ namespace ProtoScript.Dialogs
 
 		private void UpdateDisplay()
 		{
-			var blockRef = m_viewModel.GetBlockReference(m_viewModel.CurrentBlock);
-			var versesInBlock = m_viewModel.CurrentBlock.LastVerse - blockRef.Verse;
-			var displayedRefMinusBlockStartRef = m_scriptureReference.VerseControl.VerseRef.BBBCCCVVV - blockRef.BBCCCVVV;
+			var blockRef = m_viewModel.GetBlockVerseRef();
+			int versesInBlock = m_viewModel.CurrentBlock.LastVerse - blockRef.VerseNum;
+			var displayedRefMinusBlockStartRef = m_scriptureReference.VerseControl.VerseRef.BBBCCCVVV - blockRef.BBBCCCVVV;
 			if (displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInBlock)
-				m_scriptureReference.VerseControl.VerseRef = new VerseRef(m_viewModel.GetBlockReference(m_viewModel.CurrentBlock), Paratext.ScrVers.English);
+				m_scriptureReference.VerseControl.VerseRef = m_viewModel.GetBlockVerseRef();
 			m_labelXofY.Visible = m_viewModel.IsCurrentBlockRelevant;
 			Debug.Assert(m_viewModel.RelevantBlockCount >= m_viewModel.CurrentBlockDisplayIndex);
 			m_labelXofY.Text = string.Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
 			m_chkSingleVoice.Text = string.Format(m_singleVoiceCheckboxFmt, m_viewModel.CurrentBookId);
 
-			SendScrReference(m_viewModel.GetBlockReference(m_viewModel.CurrentBlock));
+			SendScrReference(m_viewModel.GetBlockVerseRef());
 
 			HideCharacterFilter();
 			m_btnAssign.Enabled = false;
@@ -366,10 +369,13 @@ namespace ProtoScript.Dialogs
 		/// to navigate to the same Scripture reference
 		/// </summary>
 		/// <param name="currRef"></param>
-		private void SendScrReference(BCVRef currRef)
+		private void SendScrReference(VerseRef currRef)
 		{
 			if (currRef != null && currRef.Valid)
+			{
+				currRef.ChangeVersification(ScrVers.English);
 				SantaFeFocusMessageHandler.SendFocusMessage(currRef.ToString());
+			}
 		}
 
 		private void ShowCharactersInBook()
@@ -412,9 +418,17 @@ namespace ProtoScript.Dialogs
 		/// ------------------------------------------------------------------------------------
 		protected override void OnLoad(EventArgs e)
 		{
+			m_formLoading = true;
 			Properties.Settings.Default.AssignCharacterDialogFormSettings.InitializeForm(this);
 			base.OnLoad(e);
 			m_blocksViewer.BlocksGridSettings = Properties.Settings.Default.AssignCharactersBlockContextGrid;
+			if (Properties.Settings.Default.AssignCharactersSliderLocation > 0)
+				m_splitContainer.SplitterDistance = Properties.Settings.Default.AssignCharactersSliderLocation;
+		}
+
+		private void AssignCharacterDialog_Shown(object sender, EventArgs e)
+		{
+			m_formLoading = false;
 		}
 
 		void AssignCharacterDialog_Disposed(object sender, EventArgs e)
@@ -665,6 +679,32 @@ namespace ProtoScript.Dialogs
 		private void m_chkSingleVoice_CheckedChanged(object sender, EventArgs e)
 		{
 			m_viewModel.SetCurrentBookSingleVoice(m_chkSingleVoice.Checked);
+		}
+
+		private void m_listBoxCharacters_MouseMove(object sender, MouseEventArgs e)
+		{
+			int newHoveredIndex = m_listBoxCharacters.IndexFromPoint(e.Location);
+
+			if (m_characterListHoveredIndex != newHoveredIndex)
+			{
+				m_characterListHoveredIndex = newHoveredIndex;
+				if (m_characterListHoveredIndex > -1)
+				{
+					m_characterListToolTip.Active = false;
+					var hoveredCharacter = ((AssignCharacterViewModel.Character)m_listBoxCharacters.Items[m_characterListHoveredIndex]);
+					if (!string.IsNullOrEmpty(hoveredCharacter.Alias))
+					{
+						m_characterListToolTip.SetToolTip(m_listBoxCharacters, hoveredCharacter.CharacterId);
+						m_characterListToolTip.Active = true;
+					}
+				}
+			}
+		}
+
+		private void m_splitContainer_SplitterMoved(object sender, SplitterEventArgs e)
+		{
+			if (!m_formLoading)
+				Properties.Settings.Default.AssignCharactersSliderLocation = e.SplitX;
 		}
 		#endregion
 

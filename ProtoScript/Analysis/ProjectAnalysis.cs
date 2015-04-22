@@ -57,14 +57,12 @@ namespace ProtoScript.Analysis
 		private void ReportInConsole()
 		{
 			Console.WriteLine("*************************************************************");
-			Console.WriteLine();
-			Console.WriteLine(m_projectToAnalyze.LanguageIsoCode);
+			Console.WriteLine("Language iso code: " + m_projectToAnalyze.LanguageIsoCode);
 			Console.WriteLine("Blocks assigned automatically: {0:N2}%", TotalPercentAssigned);
 			double narrator = MathUtilities.PercentAsDouble(NarratorBlocks, TotalBlocks);
 			Console.WriteLine("Narrator: {0:N2}%", narrator);
 			double unknown = MathUtilities.PercentAsDouble(UnknownBlocks, TotalBlocks);
 			Console.WriteLine("Unknown: {0:N2}%", unknown);
-			Console.WriteLine();
 			Console.WriteLine("*************************************************************");
 		}
 	}

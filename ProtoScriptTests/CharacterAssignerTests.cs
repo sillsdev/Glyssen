@@ -4,6 +4,7 @@ using ProtoScript.Character;
 using Rhino.Mocks;
 using SIL.ScriptureUtils;
 using SIL.Xml;
+using ScrVers = Paratext.ScrVers;
 
 namespace ProtoScriptTests
 {
@@ -34,7 +35,7 @@ namespace ProtoScriptTests
 		{
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
 			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 4)).Return(new[] { new CharacterVerse(new BCVRef(41, 1, 4), "John the Baptist", null, null, false) });
-			new CharacterAssigner(cvInfo).Assign(m_bookScript);
+			new CharacterAssigner(cvInfo).Assign(m_bookScript, ScrVers.English);
 			Assert.AreEqual("Made Up Guy", m_bookScript[1].CharacterId);
 		}
 
@@ -42,8 +43,8 @@ namespace ProtoScriptTests
 		public void Assign_OverwriteUserConfirmedTrue_DoesOverwrite()
 		{
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
-			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 4, 0, 4)).Return(new[] { new CharacterVerse(new BCVRef(41, 1, 4), "John the Baptist", null, null, false) });
-			new CharacterAssigner(cvInfo).Assign(m_bookScript, true);
+			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 4, 0, 4, ScrVers.English)).Return(new[] { new CharacterVerse(new BCVRef(41, 1, 4), "John the Baptist", null, null, false) });
+			new CharacterAssigner(cvInfo).Assign(m_bookScript, ScrVers.English, true);
 			Assert.AreEqual("John the Baptist", m_bookScript[1].CharacterId);
 		}
 
@@ -51,8 +52,8 @@ namespace ProtoScriptTests
 		public void Assign_BlockIsStandardCharacter_DoesNotOverwrite()
 		{
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
-			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 4, 0, 4)).Return(new[] { new CharacterVerse(new BCVRef(41, 1, 4), "John the Baptist", null, null, false)});
-			new CharacterAssigner(cvInfo).Assign(m_bookScript, true);
+			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 4, 0, 4, ScrVers.English)).Return(new[] { new CharacterVerse(new BCVRef(41, 1, 4), "John the Baptist", null, null, false) });
+			new CharacterAssigner(cvInfo).Assign(m_bookScript, ScrVers.English, true);
 			Assert.AreEqual("narrator-MRK", m_bookScript[0].CharacterId);
 		}
 	}

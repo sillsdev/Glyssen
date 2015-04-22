@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -9,6 +10,7 @@ using ProtoScript.Bundle;
 using ProtoScript.Character;
 using ProtoScript.Dialogs;
 using ProtoScript.Quote;
+using SIL.IO;
 using SIL.WritingSystems;
 
 namespace ProtoScriptTests.Dialogs
@@ -47,7 +49,7 @@ namespace ProtoScriptTests.Dialogs
 		{
 			var testProjFolder = Path.Combine(Project.ProjectsBaseFolder, kTest);
 			if (Directory.Exists(testProjFolder))
-				Directory.Delete(testProjFolder, true);
+				DirectoryUtilities.DeleteDirectoryRobust(testProjFolder);
 		}
 
 		public static Project CreateTestProject()
@@ -66,7 +68,7 @@ namespace ProtoScriptTests.Dialogs
 			sampleMetadata.id = kTest;
 			sampleMetadata.language = new DblMetadataLanguage { iso = kTest };
 			sampleMetadata.identification = new DblMetadataIdentification { name = "test~~" };
-			sampleMetadata.IsQuoteSystemUserConfirmed = true;
+			sampleMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
 			sampleMetadata.QuoteSystem = GetTestQuoteSystem();
 
 			XmlDocument sampleMark = new XmlDocument();

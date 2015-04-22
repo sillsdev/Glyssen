@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
 using NUnit.Framework;
 using ProtoScript;
 using ProtoScript.Character;
@@ -24,7 +25,7 @@ namespace ProtoScriptTests.Dialogs
 		[SetUp]
 		public void SetUp()
 		{
-			m_testProject.ClearProjectStatus(); //Otherwise tests interfere with each other in an undesirable way
+			m_testProject.ClearAssignCharacterStatus(); //Otherwise tests interfere with each other in an undesirable way
 			m_model = new AssignCharacterViewModel(m_testProject);
 			m_model.SetUiStrings("narrator ({0})",
 				"book title or chapter ({0})",
@@ -49,6 +50,7 @@ namespace ProtoScriptTests.Dialogs
 		[TestFixtureTearDown]
 		public void TestFixtureTearDown()
 		{
+			m_testProject = null;
 			BlockNavigatorViewModelTests.DeleteTestProjectFolder();
 		}
 

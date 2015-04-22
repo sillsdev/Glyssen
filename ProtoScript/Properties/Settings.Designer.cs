@@ -161,5 +161,51 @@ namespace ProtoScript.Properties {
                 return ((int)(this["DataFormatVersion"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::SIL.Windows.Forms.PortableSettingsProvider.FormSettings OpenProjectDlgFormSettings {
+            get {
+                return ((global::SIL.Windows.Forms.PortableSettingsProvider.FormSettings)(this["OpenProjectDlgFormSettings"]));
+            }
+            set {
+                this["OpenProjectDlgFormSettings"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::SIL.Windows.Forms.PortableSettingsProvider.GridSettings OpenProjectDlgGridSettings {
+            get {
+                return ((global::SIL.Windows.Forms.PortableSettingsProvider.GridSettings)(this["OpenProjectDlgGridSettings"]));
+            }
+            set {
+                this["OpenProjectDlgGridSettings"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool NeedUpgrade {
+            get {
+                return ((bool)(this["NeedUpgrade"]));
+            }
+            set {
+                this["NeedUpgrade"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int AssignCharactersSliderLocation {
+            get {
+                return ((int)(this["AssignCharactersSliderLocation"]));
+            }
+            set {
+                this["AssignCharactersSliderLocation"] = value;
+            }
+        }
     }
 }

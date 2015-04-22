@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
+using ProtoScript.Bundle;
 using ProtoScript.Dialogs;
 using ProtoScript.Properties;
 using SIL.IO;
@@ -44,12 +45,7 @@ namespace ProtoScript
 				m_project.ProjectStateChanged += (sender, args) => UpdateProjectState();
 			}
 
-			bool validProject = m_project != null;
-			m_linkChangeQuotationSystem.Enabled = validProject;
-			m_btnSelectBooks.Enabled = validProject;
-			m_btnSettings.Enabled = validProject;
-			m_btnAssign.Enabled = validProject;
-			m_btnExportToTabSeparated.Enabled = validProject;
+			ResetUi();
 
 			if (m_project != null && (m_project.ProjectState & ProjectState.ReadyForUserInteraction) == 0)
 				return; //FinishSetProject will be called by the event handler
@@ -84,14 +80,25 @@ namespace ProtoScript
 			m_btnOpenProject.Enabled = !readOnly;
 			m_imgCheckOpen.Visible = validProject;
 			m_btnSettings.Enabled = !readOnly && validProject;
-			m_imgCheckSettings.Visible = m_btnSettings.Enabled && m_project.IsQuoteSystemUserConfirmed;
-			m_btnSelectBooks.Enabled = !readOnly && validProject && m_project.IsQuoteSystemUserConfirmed;
-			m_imgCheckBooks.Visible = m_btnSelectBooks.Enabled && m_project.IsBookSelectionUserConfirmed;
+			m_imgCheckSettings.Visible = m_btnSettings.Enabled && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed && m_project.IsQuoteSystemReadyForParse;
+			m_btnSelectBooks.Enabled = !readOnly && validProject && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed;
+			m_imgCheckBooks.Visible = m_btnSelectBooks.Enabled && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed;
 			m_btnAssign.Enabled = !readOnly && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
 			m_imgCheckAssign.Visible = m_btnAssign.Enabled && m_project.ProjectAnalysis.UserPercentAssigned == 100d;
 			m_btnExportToTabSeparated.Enabled = !readOnly && m_imgCheckAssign.Visible;
 			m_lnkExit.Enabled = !readOnly;
-			m_linkChangeQuotationSystem.Enabled = !readOnly && validProject;
+		}
+
+		private void ResetUi()
+		{
+			m_btnSelectBooks.Enabled = false;
+			m_btnSettings.Enabled = false;
+			m_btnAssign.Enabled = false;
+			m_btnExportToTabSeparated.Enabled = false;
+			m_imgCheckOpen.Visible = false;
+			m_imgCheckSettings.Visible = false;
+			m_imgCheckBooks.Visible = false;
+			m_imgCheckAssign.Visible = false;
 		}
 
 		private void HandleOpenProject_Click(object sender, EventArgs e)
@@ -225,14 +232,19 @@ namespace ProtoScript
 		{
 			UpdateProjectState();
 			UpdateLocalizedText();
-			UpdateDisplayOfQuoteSystemInfo();
 		}
 
-		private void UpdateLocalizedText()
+		public void UpdateLocalizedText()
 		{
 			m_lblProjectInfo.Text = m_project != null ? m_project.ProjectSummary : String.Empty;
-			m_lblSettingsInfo.Text = m_project != null && m_project.IsQuoteSystemUserConfirmed ? m_project.SettingsSummary : String.Empty;
-			m_lblBookSelectionInfo.Text = m_project != null && m_project.IsBookSelectionUserConfirmed ? m_project.BookSelectionSummary : String.Empty;
+
+			if (m_project != null && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed)
+				m_lblSettingsInfo.Text = m_project.IsQuoteSystemReadyForParse ? m_project.SettingsSummary : LocalizationManager.GetString("MainForm.QuoteMarksNeedReview", "Quote marks need to be reviewed");
+			else
+				m_lblSettingsInfo.Text = String.Empty;
+
+			m_lblBookSelectionInfo.Text = m_project != null && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed ? m_project.BookSelectionSummary : String.Empty;
+			
 			UpdateDisplayOfPercentAssigned();
 		}
 
@@ -254,11 +266,6 @@ namespace ProtoScript
 		{
 			if (m_project != null)
 				UpdateButtons((m_project.ProjectState & ProjectState.ReadyForUserInteraction) == 0);
-		}
-
-		private void UpdateDisplayOfQuoteSystemInfo()
-		{
-			m_lblSelectedQuotationMarks.Text = m_project != null ? m_project.QuoteSystem.ToString() : String.Empty;
 		}
 	
 		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -362,29 +369,6 @@ namespace ProtoScript
 			});
 		}
 
-		private void HandleChangeQuotationMarks_Click(object sender, EventArgs e)
-		{
-			bool reparseOkay = true;
-			if (!m_project.IsReparseOkay())
-			{
-				string msg = LocalizationManager.GetString("Project.UnableToModifyQuoteSystemMessage", 
-					"The original source of the project is no longer in its original location or has been significantly modified. " +
-					"The quote system cannot be modified since that would require a reparse of the original text.");
-				string title = LocalizationManager.GetString("Project.UnableToModifyQuoteSystem", "Unable to Modify Quote System");
-				MessageBox.Show(msg, title);
-				reparseOkay = false;
-			}
-
-			using (var viewModel = new BlockNavigatorViewModel(m_project, BlocksToDisplay.AllExpectedQuotes))
-			{
-				using (var dlg = new QuotationMarksDialog(m_project, viewModel, !reparseOkay))
-				{
-					if (dlg.ShowDialog(this) == DialogResult.OK)
-						UpdateDisplayOfQuoteSystemInfo();
-				}
-			}
-		}
-
 		private void m_btnAssign_Click(object sender, EventArgs e)
 		{
 			using (var viewModel = new AssignCharacterViewModel(m_project))
@@ -401,7 +385,7 @@ namespace ProtoScript
 			using (var dlg = new ScriptureRangeSelectionDialog(m_project))
 				if (dlg.ShowDialog() == DialogResult.OK)
 				{
-					m_project.ClearProjectStatus();
+					m_project.ClearAssignCharacterStatus();
 					m_project.Analyze();
 					UpdateDisplayOfProjectInfo();
 				}

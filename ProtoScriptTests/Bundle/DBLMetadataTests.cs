@@ -130,6 +130,7 @@ namespace ProtoScriptTests.Bundle
 <DBLMetadata id=""id"" controlfileversion=""0"">
   <projectStatus>
     <assignCharacterMode />
+    <quoteSystemDate>0001-01-01T00:00:00</quoteSystemDate>
   </projectStatus>
   <identification>
     <name>name</name>

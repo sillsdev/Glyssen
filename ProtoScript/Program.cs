@@ -16,6 +16,7 @@ namespace ProtoScript
 	{
 		public const string kCompany = "FCBH-SIL";
 		public const string kProduct = "Protoscript Generator";
+		public const string kApplicationId = "ProtoscriptGenerator";
 
 		/// <summary>
 		/// The main entry point for the application.
@@ -25,6 +26,16 @@ namespace ProtoScript
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
+
+			//bring in settings from any previous version
+			if (Settings.Default.NeedUpgrade)
+			{
+				//see http://stackoverflow.com/questions/3498561/net-applicationsettingsbase-should-i-call-upgrade-every-time-i-load
+				Settings.Default.Upgrade();
+				Settings.Default.Reload();
+				Settings.Default.NeedUpgrade = false;
+				Settings.Default.Save();
+			}
 
 			SetUpErrorHandling();
 
@@ -88,7 +99,7 @@ namespace ProtoScript
 			string targetTmxFilePath = Path.Combine(kCompany, kProduct);
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
 
-			LocalizationManager = LocalizationManager.Create(desiredUiLangId, "ProtoscriptGenerator", Application.ProductName, Application.ProductVersion,
+			LocalizationManager = LocalizationManager.Create(desiredUiLangId, kApplicationId, Application.ProductName, Application.ProductVersion,
 				installedStringFileFolder, targetTmxFilePath, Resources.PgIcon, IssuesEmailAddress, "ProtoScript");
 
 			if (string.IsNullOrEmpty(desiredUiLangId))

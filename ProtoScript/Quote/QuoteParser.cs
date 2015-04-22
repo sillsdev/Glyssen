@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using ProtoScript.Character;
 using SIL.ScriptureUtils;
+using ScrVers = Paratext.ScrVers;
 
 namespace ProtoScript.Quote
 {
@@ -15,6 +16,7 @@ namespace ProtoScript.Quote
 		private readonly int m_bookNum;
 		private readonly IEnumerable<Block> m_inputBlocks;
 		private readonly QuoteSystem m_quoteSystem;
+		private readonly ScrVers m_versification;
 		private readonly List<Regex> m_regexes = new List<Regex>();
 
 		#region working members
@@ -26,24 +28,15 @@ namespace ProtoScript.Quote
 		private bool m_nextBlockContinuesQuote;
 		private readonly List<Block> m_currentMultiBlockQuote = new List<Block>();
 		#endregion
-
-		/// <summary>
-		/// Create a QuoteParser using the default QuoteSystem
-		/// </summary>
-		/// <param name="cvInfo"></param>
-		/// <param name="bookId"></param>
-		/// <param name="blocks"></param>
-		public QuoteParser(ICharacterVerseInfo cvInfo, string bookId, IEnumerable<Block> blocks) : this(cvInfo, bookId, blocks, QuoteSystem.Default)
-		{
-		}
-
-		public QuoteParser(ICharacterVerseInfo cvInfo, string bookId, IEnumerable<Block> blocks, QuoteSystem quoteSystem)
+		
+		public QuoteParser(ICharacterVerseInfo cvInfo, string bookId, IEnumerable<Block> blocks, QuoteSystem quoteSystem = null, ScrVers versification = null)
 		{
 			m_cvInfo = cvInfo;
 			m_bookId = bookId;
 			m_bookNum = BCVRef.BookToNumber(bookId);
 			m_inputBlocks = blocks;
-			m_quoteSystem = quoteSystem;
+			m_quoteSystem = quoteSystem ?? QuoteSystem.Default;
+			m_versification = versification ?? ScrVers.English;
 			GetRegExesForSplittingQuotes();
 		}
 
@@ -371,7 +364,7 @@ namespace ProtoScript.Quote
 					m_workingBlock.MultiBlockQuote = MultiBlockQuote.Start;
 
 				m_workingBlock.SetCharacterAndDelivery(
-					m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber, m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerse));
+					m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber, m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerse, m_versification));
 			}
 			else
 			{
