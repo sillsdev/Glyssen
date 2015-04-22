@@ -44,5 +44,8 @@
     <Setting Name="OpenProjectDlgGridSettings" Type="SIL.Windows.Forms.PortableSettingsProvider.GridSettings" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="NeedUpgrade" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
