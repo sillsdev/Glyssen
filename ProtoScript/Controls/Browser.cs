@@ -15,6 +15,7 @@ namespace ProtoScript.Controls
 
 		public new event EventHandler<DomMouseEventArgs> OnMouseMove;
 		public event EventHandler<DomMouseEventArgs> OnMouseOver;
+		public new event EventHandler<DomMouseEventArgs> OnMouseClick;
 		public event EventHandler<DomMouseEventArgs> OnMouseOut;
 		public event EventHandler<GeckoDocumentCompletedEventArgs> OnDocumentCompleted;
 
@@ -35,6 +36,7 @@ namespace ProtoScript.Controls
 				m_geckoBrowser = (GeckoWebBrowser)browser.NativeBrowser;
 				m_geckoBrowser.DomMouseMove += HandleDomMouseMove;
 				m_geckoBrowser.DomMouseOver += HandleDomMouseOver;
+				m_geckoBrowser.DomClick += HandleDomMouseClick;
 				m_geckoBrowser.DomMouseOut += HandleDomMouseOut;
 				m_geckoBrowser.DocumentCompleted += HandleDocumentCompleted;
 			}
@@ -67,6 +69,11 @@ namespace ProtoScript.Controls
 			}
 		}
 
+		public GeckoWindow Window
+		{
+			get { return m_geckoBrowser.Window; }
+		}
+
 		#region browser events
 		private void HandleDomMouseMove(object sender, DomMouseEventArgs e)
 		{
@@ -78,6 +85,13 @@ namespace ProtoScript.Controls
 		private void HandleDomMouseOver(object sender, DomMouseEventArgs e)
 		{
 			EventHandler<DomMouseEventArgs> handler = OnMouseOver;
+			if (handler != null)
+				handler(this, e);
+		}
+
+		private void HandleDomMouseClick(object sender, DomMouseEventArgs e)
+		{
+			EventHandler<DomMouseEventArgs> handler = OnMouseClick;
 			if (handler != null)
 				handler(this, e);
 		}

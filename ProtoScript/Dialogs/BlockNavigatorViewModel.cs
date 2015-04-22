@@ -28,7 +28,7 @@ namespace ProtoScript.Dialogs
 		HotSpots = MissingExpectedQuote | MoreQuotesThanExpectedSpeakers | KnownTroubleSpots,
 	}
 
-	public class BlockNavigatorViewModel : IDisposable
+	public class BlockNavigatorViewModel : IWritingSystemDisplayInfo, IDisposable
 	{
 		protected readonly Project m_project;
 		internal const string kDataCharacter = "data-character";
@@ -36,16 +36,13 @@ namespace ProtoScript.Dialogs
 								  "<style>{0}</style></head><body {1}>{2}</body></html>";
 		private const string kHtmlLineBreak = "<div class='block-spacer'></div>";
 		internal const string kCssClassContext = "context";
-		private const string kCssFrame = "body{{font-family:{0};font-size:{1}pt}}" +
+		private const string kCssFrame = Block.kCssFrame +
 										".highlight{{background-color:yellow}}" +
 										"." + kCssClassContext + ":hover{{background-color:#FFFFA0}}" +
 										".block-spacer{{height:30px}}" +
-										".right-to-left{{direction:rtl}}" +
 										".section-header{{text-align:center;font-weight:bold}}" +
 										".chapter-label{{font-weight:bold;font-size:150%}}";
 		internal const string kMainQuoteElementId = "main-quote-text";
-
-		private static readonly Regex RegexVerseNumber = new Regex("\\[(\\d+)\\]", RegexOptions.Compiled);
 
 		private bool m_showVerseNumbers = true; // May make this configurable later
 		private Font m_font;
@@ -129,6 +126,16 @@ namespace ProtoScript.Dialogs
 				if (UiFontSizeChanged != null)
 					UiFontSizeChanged(this, new EventArgs());
 			}
+		}
+
+		public string FontFamily
+		{
+			get { return m_fontFamily; }
+		}
+
+		public int FontSize
+		{
+			get { return m_baseFontSizeInPoints + m_fontSizeUiAdjustment; }
 		}
 
 		public int CurrentBlockIndexInBook
@@ -231,7 +238,7 @@ namespace ProtoScript.Dialogs
 			bldr.Append("<div id=\"");
 			bldr.Append(kMainQuoteElementId);
 			bldr.Append("\" class=\"highlight\">");
-			bldr.Append(SuperscriptVerseNumbers(mainText));
+			bldr.Append(mainText);
 			bldr.Append("</div>");
 			if (!String.IsNullOrEmpty(followingText))
 				bldr.Append(kHtmlLineBreak).Append(followingText);
@@ -249,7 +256,7 @@ namespace ProtoScript.Dialogs
 
 		private string BuildHtml(Block block)
 		{
-			string text = SuperscriptVerseNumbers(HttpUtility.HtmlEncode(block.GetText(m_showVerseNumbers)));
+			string text = block.GetTextAsHtml(m_showVerseNumbers);
 			var bldr = new StringBuilder();
 			bldr.Append("<div");
 			if (block.StyleTag.StartsWith("s"))
@@ -264,7 +271,7 @@ namespace ProtoScript.Dialogs
 
 		private string BuildCurrentBlockHtml()
 		{
-			return BuildHtml(GetAllBlocksWithSameQuote(m_navigator.CurrentBlock));
+			return BuildHtml(GetAllBlocksWithSameQuote(CurrentBlock));
 		}
 
 		private string BuildContextBlocksHtml(IEnumerable<Block> blocks)
@@ -282,19 +289,14 @@ namespace ProtoScript.Dialogs
 			return bldr.ToString();
 		}
 
-		private string SuperscriptVerseNumbers(string text)
-		{
-			return RegexVerseNumber.Replace(text, "<sup>$1</sup>");
-		}
-
 		private string BuildStyle()
 		{
-			return String.Format(kCssFrame, m_fontFamily, m_baseFontSizeInPoints + m_fontSizeUiAdjustment);
+			return String.Format(kCssFrame, m_fontFamily, FontSize);
 		}
 		#endregion
 
 		#region Methods for dealing with multi-block quotes
-		protected IEnumerable<Block> GetAllBlocksWithSameQuote(Block baseLineBlock)
+		public IEnumerable<Block> GetAllBlocksWithSameQuote(Block baseLineBlock)
 		{
 			switch (baseLineBlock.MultiBlockQuote)
 			{
@@ -535,7 +537,7 @@ namespace ProtoScript.Dialogs
 			}
 			if ((Mode & BlocksToDisplay.MissingExpectedQuote) > 0)
 			{
-				if (block.IsQuote || (block.CharacterIsStandard && !block.CharacterIs(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator)))
+				if (block.IsQuote || CharacterVerseData.IsCharacterStandard(block.CharacterId, false))
 					return false;
 				IEnumerable<BCVRef> versesWithPotentialMissingQuote = 
 					ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber, block.InitialStartVerseNumber,
@@ -582,6 +584,16 @@ namespace ProtoScript.Dialogs
 			if ((Mode & BlocksToDisplay.AllScripture) > 0)
 				return GetIsBlockScripture(block);
 			return false;
+		}
+
+		protected void AddToRelevantBlocksIfNeeded(Block newOrModifiedBlock)
+		{
+			if (IsRelevant(newOrModifiedBlock))
+			{
+				m_relevantBlocks.Insert(m_currentBlockIndex + 1, m_navigator.GetIndicesOfSpecificBlock(newOrModifiedBlock));
+				RelevantBlockAdded(newOrModifiedBlock);
+			}
+			HandleCurrentBlockChanged();
 		}
 
 		/// <summary>

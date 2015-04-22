@@ -165,6 +165,8 @@ namespace ProtoScript.Dialogs
 			UpdateShortcutDisplay();
 
 			m_chkSingleVoice.Checked = m_viewModel.IsCurrentBookSingleVoice;
+
+			m_menuBtnSplitBlock.Enabled = !CharacterVerseData.IsCharacterStandard(m_viewModel.CurrentBlock.CharacterId, false);
 		}
 
 		private void UpdateShortcutDisplay()
@@ -634,6 +636,17 @@ namespace ProtoScript.Dialogs
 				button.Checked = true;
 		}
 
+		private void HandleSplitBlocksClick(object sender, EventArgs e)
+		{
+			using (var dlg = new SplitBlockDlg(m_viewModel, m_viewModel.GetAllBlocksWithSameQuote(m_viewModel.CurrentBlock)))
+			{
+				if (dlg.ShowDialog(this) == DialogResult.OK)
+				{
+					m_viewModel.SplitBlock(dlg.BlockToSplit, dlg.VerseToSplit, dlg.CharacterOffsetToSplit);
+				}
+			}
+		}
+
 		private void IncreaseFont(object sender, EventArgs e)
 		{
 			m_blocksViewer.IncreaseFont();
@@ -654,5 +667,6 @@ namespace ProtoScript.Dialogs
 			m_viewModel.SetCurrentBookSingleVoice(m_chkSingleVoice.Checked);
 		}
 		#endregion
+
 	}
 }

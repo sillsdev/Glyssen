@@ -1,7 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Web;
+using System.Windows.Forms;
 using System.Xml.Serialization;
 using ProtoScript.Character;
 using SIL.ScriptureUtils;
@@ -14,6 +19,10 @@ namespace ProtoScript
 	{
 		/// <summary>Blocks which has not yet been parsed to identify contents/character</summary>
 		public static readonly string NotSet = null;
+
+		public const string kCssFrame = "body{{font-family:{0};font-size:{1}pt}}" +
+						".right-to-left{{direction:rtl}}" +
+						".scripttext {{display:inline}}";
 
 		private int m_initialStartVerseNumber;
 		private int m_initialEndVerseNumber;
@@ -126,6 +135,7 @@ namespace ProtoScript
 		public string GetText(bool includeVerseNumbers)
 		{
 			StringBuilder bldr = new StringBuilder();
+
 			foreach (var blockElement in BlockElements)
 			{
 				Verse verse = blockElement as Verse;
@@ -148,17 +158,64 @@ namespace ProtoScript
 			return bldr.ToString();
 		}
 
+		public string GetTextAsHtml(bool showVerseNumbers, string verseToInsertExtra = null, int offsetToInsertExtra = -1, string extra = null)
+		{
+			StringBuilder bldr = new StringBuilder();
+
+			var currVerse = InitialEndVerseNumber == 0 ? InitialStartVerseNumber.ToString(CultureInfo.InvariantCulture) :
+				InitialStartVerseNumber + "-" + InitialEndVerseNumber;
+
+			foreach (var blockElement in BlockElements)
+			{
+				Verse verse = blockElement as Verse;
+				if (verse != null)
+				{
+					if (showVerseNumbers)
+					{
+						bldr.Append("<sup>");
+						bldr.Append(verse.Number);
+						bldr.Append("&#160;</sup>");
+					}
+					currVerse = verse.Number;
+				}
+				else
+				{
+					ScriptText text = blockElement as ScriptText;
+					if (text != null)
+					{
+						var encodedContent = HttpUtility.HtmlEncode(text.Content);
+						if (verseToInsertExtra == currVerse)
+						{
+							if (offsetToInsertExtra < 0 || offsetToInsertExtra > encodedContent.Length)
+							{
+								throw new ArgumentOutOfRangeException("offsetToInsertExtra", offsetToInsertExtra,
+									"Value must be greater than or equal to 0 and less than or equal to the length (" + encodedContent.Length +
+									") of the encoded content of verse " + currVerse);
+							}
+							if (extra == null)
+								throw new ArgumentNullException("extra");
+							encodedContent = encodedContent.Insert(offsetToInsertExtra, extra);
+						}
+						var content = String.Format("<div id=\"{0}\" class=\"scripttext\">{1}</div>", currVerse,
+							encodedContent);
+						bldr.Append(content);
+					}
+				}
+			}
+
+			return bldr.ToString();
+		}
+
 		public override string ToString()
 		{
 			return string.IsNullOrEmpty(CharacterId) ? GetText(true) : string.Format("{0}: {1}", CharacterId, GetText(true));
 		}
 
 		/// <summary>
-		/// Gets whether this block is a quote. Currently this is reliable as it stands. Once we allow the user to
-		/// assign characters to blocks that we failed to detect as quotes, there's the (slight) possibility that they
+		/// Gets whether this block is a quote. It's not 100% reliable since there's the (slight) possibility that the user
 		/// could assign the character for a block and then assign it back to Narrator. This would result in UserConfrimed
 		/// being set to true even though it was a "non-quote" (unmarked) narrator block. Depending on how this
-		/// property ghets used in the future, we might need to actually store an additional piece of information about
+		/// property gets used in the future, we might need to actually store an additional piece of information about
 		/// the block to distinguish this case and prevent a false positive. (For the current planned usage, an occasional
 		/// false positive will not be a big deal.)
 		/// </summary>

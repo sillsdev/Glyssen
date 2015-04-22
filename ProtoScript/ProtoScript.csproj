@@ -168,11 +168,23 @@
     </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
     <Compile Include="DataMigrator.cs" />
+    <Compile Include="Dialogs\IWritingSystemDisplayInfo.cs" />
     <Compile Include="Dialogs\SelectExistingProjectDlg.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\SelectExistingProjectDlg.Designer.cs">
       <DependentUpon>SelectExistingProjectDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SplitBlockDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\SplitBlockDlg.Designer.cs">
+      <DependentUpon>SplitBlockDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ProtoscriptGeneratorData.cs" />
     <Compile Include="Dialogs\AssignCharacterDialog.cs">
@@ -262,19 +274,17 @@
     <EmbeddedResource Include="Dialogs\ProjectMetadataDlg.resx">
       <DependentUpon>ProjectMetadataDlg.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\SplitBlockDlg.resx">
+      <DependentUpon>SplitBlockDlg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -311,6 +321,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\SplitLocation.png" />
+    <None Include="Resources\split point.cur" />
+    <None Include="Resources\SplitBlock.png" />
     <None Include="Resources\sample.vrs" />
     <None Include="Resources\yellow-ok-icon.png" />
     <None Include="Resources\112_Plus_Green_16x16_72.png" />

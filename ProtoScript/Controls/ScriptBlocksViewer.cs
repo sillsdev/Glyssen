@@ -163,24 +163,23 @@ namespace ProtoScript.Controls
 		#region Browser events
 		private void OnMouseOver(object sender, DomMouseEventArgs e)
 		{
-			if (e.Target == null || m_getCharacterIdForUi == null)
+			if (e.Target == null || m_getCharacterIdForUi == null || !m_blocksDisplayBrowser.Visible)
 				return;
-			if (m_blocksDisplayBrowser.Visible)
-			{
-				var geckoElement = e.Target.CastToGeckoElement();
-				var divElement = geckoElement as GeckoDivElement;
-				if (divElement == null)
-					return;
 
-				if (divElement.Parent.ClassName == BlockNavigatorViewModel.kCssClassContext)
-				{
-					m_toolTip = new ToolTip { IsBalloon = true };
-					// 42 and 43 are the magic numbers which happens to make these display in the correct place
-					// REVIEW: it would be nice to figure out a better way to place these which is more robust. These numbers have changed several times already
-					int x = m_blocksDisplayBrowser.Location.X + m_blocksDisplayBrowser.Size.Width - 42;
-					int y = m_blocksDisplayBrowser.Location.Y + e.ClientY - m_blocksDisplayBrowser.Margin.Top - 43;
-					m_toolTip.Show(m_getCharacterIdForUi(divElement.Parent.GetAttribute(BlockNavigatorViewModel.kDataCharacter)), this, x, y);
-				}
+			var geckoElement = e.Target.CastToGeckoElement();
+			var divElement = geckoElement as GeckoDivElement;
+			if (divElement == null)
+				return;
+
+			if (divElement.Parent.ClassName == BlockNavigatorViewModel.kCssClassContext)
+			{
+				m_toolTip = new ToolTip {IsBalloon = true};
+				// 42 and 43 are the magic numbers which happens to make these display in the correct place
+				// REVIEW: it would be nice to figure out a better way to place these which is more robust. These numbers have changed several times already
+				int x = m_blocksDisplayBrowser.Location.X + m_blocksDisplayBrowser.Size.Width - 42;
+				int y = m_blocksDisplayBrowser.Location.Y + e.ClientY - m_blocksDisplayBrowser.Margin.Top - 43;
+				m_toolTip.Show(m_getCharacterIdForUi(divElement.Parent.GetAttribute(BlockNavigatorViewModel.kDataCharacter)), this,
+					x, y);
 			}
 		}
 
