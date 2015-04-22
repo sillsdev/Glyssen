@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using DesktopAnalytics;
 using L10NSharp;
 using L10NSharp.UI;
 using ProtoScript.Properties;
@@ -27,22 +29,33 @@ namespace ProtoScript
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 
-			SetUpErrorHandling();
+			//TODO set real keys - this key is just pointing to a test account on mixpanel - andrew-polk/protoscript-test-dev
+#if DEBUG
+			using (new Analytics("BhtwjdH3oj1n8nMjd53pPRireKxB3BQl", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }, true))
+#else
+			string feedbackSetting = Environment.GetEnvironmentVariable("FEEDBACK");
 
-			Project.CreateSampleProjectIfNeeded();
+			//default is to allow tracking
+			var allowTracking = string.IsNullOrEmpty(feedbackSetting) || feedbackSetting.ToLower() == "yes" || feedbackSetting.ToLower() == "true";
 
-			SetUpLocalization();
+			using (new Analytics("BhtwjdH3oj1n8nMjd53pPRireKxB3BQl", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }, allowTracking))
+#endif
+			{
+				SetUpErrorHandling();
 
-			// The following not only gets the location of the settings file;
-			// it also detects corruption and deletes it if needed so we don't crash. 
-			string userConfigSettingsPath = GetUserConfigFilePath();
+				Project.CreateSampleProjectIfNeeded();
 
-			if ((Control.ModifierKeys & Keys.Shift) > 0 && !string.IsNullOrEmpty(userConfigSettingsPath))
-				HandleDeleteUserSettings(userConfigSettingsPath);
-			
-			// TODO (PG-18) Add analytics
+				SetUpLocalization();
 
-			Application.Run(new MainForm());
+				// The following not only gets the location of the settings file;
+				// it also detects corruption and deletes it if needed so we don't crash. 
+				string userConfigSettingsPath = GetUserConfigFilePath();
+
+				if ((Control.ModifierKeys & Keys.Shift) > 0 && !string.IsNullOrEmpty(userConfigSettingsPath))
+					HandleDeleteUserSettings(userConfigSettingsPath);
+
+				Application.Run(new MainForm());
+			}
 		}
 
 		public static string GetUserConfigFilePath()
@@ -70,16 +83,16 @@ namespace ProtoScript
 		private static void SetUpErrorHandling()
 		{
 			ErrorReport.SetErrorReporter(new WinFormsErrorReporter());
-			ErrorReport.EmailAddress = "protoscript_generator@sil.org";
+			ErrorReport.EmailAddress = IssuesEmailAddress;
 			ErrorReport.AddStandardProperties();
 			ExceptionHandler.Init(new WinFormsExceptionHandler());
-			// TODO (Analytics): ExceptionHandler.AddDelegate(ReportError);
+			ExceptionHandler.AddDelegate(ReportError);
 		}
 
-		//private static void ReportError(object sender, CancelExceptionHandlingEventArgs e)
-		//{
-		//	Analytics.ReportException(e.Exception);
-		//}
+		private static void ReportError(object sender, CancelExceptionHandlingEventArgs e)
+		{
+			Analytics.ReportException(e.Exception);
+		}
 
 		public static LocalizationManager LocalizationManager { get; private set; }
 
@@ -97,6 +110,8 @@ namespace ProtoScript
 					using (var dlg = new LanguageChoosingSimpleDialog(Resources.PgIcon))
 						if (DialogResult.OK == dlg.ShowDialog())
 						{
+							Analytics.Track("SetUiLanguage", new Dictionary<string, string> { { "uiLanguage", dlg.SelectedLanguage }, { "initialStartup", "true" } });
+			
 							LocalizationManager.SetUILanguage(dlg.SelectedLanguage, true);
 							Settings.Default.UserInterfaceLanguage = dlg.SelectedLanguage;
 						}
@@ -110,8 +125,8 @@ namespace ProtoScript
 		/// </summary>
 		public static string IssuesEmailAddress
 		{
-			// TODO get an email address generated
-			get { return "issues@protoscript.palaso.org"; }
+			// TODO (PG-26) get an email address generated which matches the application's real name
+			get { return "protoscript_generator@sil.org"; }
 		}
 	}
 }

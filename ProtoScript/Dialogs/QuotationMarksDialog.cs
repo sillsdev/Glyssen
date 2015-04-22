@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using DesktopAnalytics;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
@@ -253,8 +255,18 @@ namespace ProtoScript.Dialogs
 					return;
 				}
 			}
-			m_project.QuoteSystemStatus = m_project.QuoteSystemStatus == QuoteSystemStatus.UserSet || m_project.QuoteSystem != currentQuoteSystem ? 
-				QuoteSystemStatus.UserSet : QuoteSystemStatus.Reviewed;
+			if (m_project.QuoteSystemStatus != QuoteSystemStatus.UserSet)
+			{
+				m_project.QuoteSystemStatus = m_project.QuoteSystem != currentQuoteSystem ? QuoteSystemStatus.UserSet : QuoteSystemStatus.Reviewed;
+
+				// We only want to know if they change it from the one we guessed
+				if (m_project.QuoteSystemStatus == QuoteSystemStatus.UserSet)
+					Analytics.Track("QuoteSystemChanged", new Dictionary<string, string>
+					{
+						{ "old", m_project.QuoteSystem != null ? m_project.QuoteSystem.ToString() : String.Empty },
+						{ "new", currentQuoteSystem.ToString() }
+					});
+			}
 			m_project.QuoteSystem = currentQuoteSystem;
 		}
 
@@ -419,7 +431,11 @@ namespace ProtoScript.Dialogs
 		{
 			var button = (ToolStripButton)sender;
 			if (!button.Checked)
+			{
 				button.Checked = true;
+
+				Analytics.Track("SwitchView", new Dictionary<string, string> { { "dialog", Name }, { "view", button.ToString() } });
+			}
 		}
 
 		private void IncreaseFont(object sender, EventArgs e)

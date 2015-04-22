@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using DesktopAnalytics;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
@@ -637,7 +638,11 @@ namespace ProtoScript.Dialogs
 		{
 			var button = (ToolStripButton)sender;
 			if (!button.Checked)
+			{
 				button.Checked = true;
+
+				Analytics.Track("SwitchView", new Dictionary<string, string> { { "dialog", Name }, { "view", button.ToString() } });
+			}
 		}
 
 		private void IncreaseFont(object sender, EventArgs e)

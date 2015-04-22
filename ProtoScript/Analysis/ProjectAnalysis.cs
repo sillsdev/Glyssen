@@ -21,6 +21,7 @@ namespace ProtoScript.Analysis
 		public int UserAssignedBlocks { get; private set; }
 		public int NeedsAssignment { get; private set; }
 		public double UserPercentAssigned { get; private set; }
+		public double PercentUnknown { get; private set; }
 
 		public void AnalyzeQuoteParse()
 		{
@@ -49,6 +50,7 @@ namespace ProtoScript.Analysis
 			}
 			TotalPercentAssigned = MathUtilities.PercentAsDouble(TotalBlocks - (UnknownBlocks + AmbiguousBlocks), TotalBlocks);
 			UserPercentAssigned = MathUtilities.PercentAsDouble(UserAssignedBlocks, NeedsAssignment);
+			PercentUnknown = MathUtilities.PercentAsDouble(UnknownBlocks, TotalBlocks);
 #if DEBUG
 			ReportInConsole();
 #endif
@@ -61,8 +63,7 @@ namespace ProtoScript.Analysis
 			Console.WriteLine("Blocks assigned automatically: {0:N2}%", TotalPercentAssigned);
 			double narrator = MathUtilities.PercentAsDouble(NarratorBlocks, TotalBlocks);
 			Console.WriteLine("Narrator: {0:N2}%", narrator);
-			double unknown = MathUtilities.PercentAsDouble(UnknownBlocks, TotalBlocks);
-			Console.WriteLine("Unknown: {0:N2}%", unknown);
+			Console.WriteLine("Unknown: {0:N2}%", PercentUnknown);
 			Console.WriteLine("*************************************************************");
 		}
 	}

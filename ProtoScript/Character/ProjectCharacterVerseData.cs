@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using DesktopAnalytics;
 using SIL.ScriptureUtils;
 
 namespace ProtoScript.Character
@@ -18,6 +20,13 @@ namespace ProtoScript.Character
 		public virtual void Add(CharacterVerse cv)
 		{
 			AddCharacterVerse(cv);
+
+			Analytics.Track("AddCharacter", new Dictionary<string, string>
+			{
+				{"verseReference", cv.BcvRef.AsString},
+				{"characterId", cv.Character}, 
+				{"delivery", cv.Delivery}
+			});
 		}
 
 		public void WriteToFile(string fullPath)
