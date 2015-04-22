@@ -18,7 +18,6 @@ using Paratext;
 using ProtoScript.Character;
 using ProtoScript.Controls;
 using SIL.ScriptureControls;
-using SIL.ScriptureUtils;
 using SIL.Windows.Forms.PortableSettingsProvider;
 using ScrVers = Paratext.ScrVers;
 
@@ -32,6 +31,7 @@ namespace ProtoScript.Dialogs
 		private bool m_promptToCloseWhenAssignmentsAreComplete = true;
 		int m_characterListHoveredIndex = -1;
 		private readonly ToolTip m_characterListToolTip = new ToolTip();
+		private bool m_formLoading;
 
 		private void HandleStringsLocalized()
 		{
@@ -416,9 +416,17 @@ namespace ProtoScript.Dialogs
 		/// ------------------------------------------------------------------------------------
 		protected override void OnLoad(EventArgs e)
 		{
+			m_formLoading = true;
 			Properties.Settings.Default.AssignCharacterDialogFormSettings.InitializeForm(this);
 			base.OnLoad(e);
 			m_blocksViewer.BlocksGridSettings = Properties.Settings.Default.AssignCharactersBlockContextGrid;
+			if (Properties.Settings.Default.AssignCharactersSliderLocation > 0)
+				m_splitContainer.SplitterDistance = Properties.Settings.Default.AssignCharactersSliderLocation;
+		}
+
+		private void AssignCharacterDialog_Shown(object sender, EventArgs e)
+		{
+			m_formLoading = false;
 		}
 
 		void AssignCharacterDialog_Disposed(object sender, EventArgs e)
@@ -678,6 +686,12 @@ namespace ProtoScript.Dialogs
 					}
 				}
 			}
+		}
+
+		private void m_splitContainer_SplitterMoved(object sender, SplitterEventArgs e)
+		{
+			if (!m_formLoading)
+				Properties.Settings.Default.AssignCharactersSliderLocation = e.SplitX;
 		}
 		#endregion
 	}

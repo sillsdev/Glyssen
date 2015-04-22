@@ -762,6 +762,7 @@ namespace ProtoScript.Dialogs
 			this.m_splitContainer.Size = new System.Drawing.Size(635, 519);
 			this.m_splitContainer.SplitterDistance = 313;
 			this.m_splitContainer.TabIndex = 30;
+			this.m_splitContainer.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.m_splitContainer_SplitterMoved);
 			// 
 			// tableLayoutPanelNavigationControls
 			// 
@@ -831,6 +832,7 @@ namespace ProtoScript.Dialogs
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Assign Characters";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AssignCharacterDialog_FormClosing);
+			this.Shown += new System.EventHandler(this.AssignCharacterDialog_Shown);
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AssignCharacterDialog_KeyDown);
 			this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AssignCharacterDialog_KeyPress);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();

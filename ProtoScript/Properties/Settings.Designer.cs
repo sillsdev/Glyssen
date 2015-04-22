@@ -195,5 +195,17 @@ namespace ProtoScript.Properties {
                 this["NeedUpgrade"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int AssignCharactersSliderLocation {
+            get {
+                return ((int)(this["AssignCharactersSliderLocation"]));
+            }
+            set {
+                this["AssignCharactersSliderLocation"] = value;
+            }
+        }
     }
 }
