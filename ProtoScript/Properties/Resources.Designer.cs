@@ -240,31 +240,11 @@ namespace ProtoScript.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] split_point {
-            get {
-                object obj = ResourceManager.GetObject("split_point", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap SplitBlock {
             get {
                 object obj = ResourceManager.GetObject("SplitBlock", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap SplitLocation {
-            get {
-                object obj = ResourceManager.GetObject("SplitLocation", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

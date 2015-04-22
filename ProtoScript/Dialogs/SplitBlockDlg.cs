@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,11 +8,13 @@ using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
 using ProtoScript.Properties;
+using ProtoScript.Utilities;
 
 namespace ProtoScript.Dialogs
 {
 	public partial class SplitBlockDlg : Form
 	{
+		private string m_style;
 		private readonly List<Block> m_originalBlocks;
 		private readonly string m_fontFamily;
 		private readonly int m_fontSize;
@@ -23,8 +23,6 @@ namespace ProtoScript.Dialogs
 		public string VerseToSplit { get; private set; }
 		public int CharacterOffsetToSplit { get; private set; }
 		private string m_htmlFilePath;
-		private readonly string m_breakIconFilePath;
-		private readonly string m_imageElement;
 
 		public SplitBlockDlg(IWritingSystemDisplayInfo wsInfo, IEnumerable<Block> originalBlocks)
 		{
@@ -34,17 +32,11 @@ namespace ProtoScript.Dialogs
 			m_fontSize = wsInfo.FontSize;
 			InitializeComponent();
 
-			m_breakIconFilePath = Path.GetTempFileName();
-			Resources.SplitLocation.Save(m_breakIconFilePath, ImageFormat.Png);
-			m_imageElement = String.Format(@"<img src=""file://{0}""/>", m_breakIconFilePath);
-
 			m_blocksDisplayBrowser.Disposed += m_blocksDisplayBrowser_Disposed;
 		}
 
 		void m_blocksDisplayBrowser_Disposed(object sender, EventArgs e)
 		{
-			if (m_breakIconFilePath != null)
-				File.Delete(m_breakIconFilePath);
 			if (m_htmlFilePath != null)
 				File.Delete(m_htmlFilePath);
 		}
@@ -52,14 +44,17 @@ namespace ProtoScript.Dialogs
 		protected override void OnLoad(EventArgs e)
 		{
 			base.OnLoad(e);
-			m_htmlFilePath = Path.GetTempFileName();
+			m_htmlFilePath = Path.ChangeExtension(Path.GetTempFileName(), "htm");
+			m_style = string.Format(Block.kCssFrame, m_fontFamily, m_fontSize) + "body {cursor:col-resize;}";
+			
 			SetHtml();
-			//using (var stream = new MemoryStream(Resources.split_point))
-			//	m_blocksDisplayBrowser.Cursor = new Cursor(stream);
 		}
 
 		private void SetHtml()
 		{
+			const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
+									"<style>{0}</style></head><body {1}>{2}</body></html>";
+
 			var bldr = new StringBuilder();
 			for (int index = 0; index < m_originalBlocks.Count; index++)
 			{
@@ -67,20 +62,18 @@ namespace ProtoScript.Dialogs
 				bldr.Append(BuildHtml(block, index));
 			}
 
-			File.WriteAllText(m_htmlFilePath, bldr.ToString());
+			var bodyAttributes = m_rightToLeftScript ? "class=\"right-to-left\"" : "";
+			File.WriteAllText(m_htmlFilePath, String.Format(kHtmlFrame, m_style, bodyAttributes, bldr));
 			m_blocksDisplayBrowser.Navigate(m_htmlFilePath);
 		}
 
 		private string BuildHtml(Block block, int id)
 		{
-			const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
-									"<style>{0}</style></head><body {1}>{2}</body></html>";
-
 			var bldr = new StringBuilder();
 			bldr.AppendFormat("<div id=\"{0}\" class=\"block\"", id);
 			bldr.Append(">");
 			if (BlockToSplit == block && VerseToSplit != null)
-				bldr.Append(block.GetTextAsHtml(true, VerseToSplit, CharacterOffsetToSplit, m_imageElement));
+				bldr.Append(block.GetTextAsHtml(true, VerseToSplit, CharacterOffsetToSplit, "<hr/>"));
 			else
 			{
 				if (BlockToSplit == block && VerseToSplit == null)
@@ -91,22 +84,41 @@ namespace ProtoScript.Dialogs
 				bldr.Append(block.GetTextAsHtml(true));
 			}
 			bldr.Append("</div>");
-			var style = string.Format(Block.kCssFrame, m_fontFamily, m_fontSize);
-			var bodyAttributes = m_rightToLeftScript ? "class=\"right-to-left\"" : "";
-			return String.Format(kHtmlFrame, style, bodyAttributes, bldr);
+			return bldr.ToString();
 		}
 
 		private void InsertSplitLocation(object sender, DomMouseEventArgs e)
 		{
+			if (DetermineSplitLocation(e.Target))
+			{
+				SetHtml();
+				m_btnOk.Enabled = true;
+				m_lblInvalidSplitLocation.Visible = false;
+			}
+			else
+				m_lblInvalidSplitLocation.Visible = true;
+		}
+
+		private bool DetermineSplitLocation(DomEventTarget target)
+		{
 			var selection = m_blocksDisplayBrowser.Window.Selection;
-			var newOffset =  selection.AnchorOffset;
+			var newOffset = selection.AnchorOffset;
 
-			if (!m_blocksDisplayBrowser.Visible || e.Target == null)
-				return;
+			if (!m_blocksDisplayBrowser.Visible || target == null)
+				return false;
 
-			var targetElement = e.Target.CastToGeckoElement() as GeckoDivElement;
+			var geckoElement = target.CastToGeckoElement();
+			var targetElement = geckoElement as GeckoDivElement;
 			if (targetElement == null)
-				return;
+			{
+				if (geckoElement is GeckoHtmlElement)
+				{
+					targetElement = ((GeckoHtmlElement)geckoElement).Parent as GeckoDivElement;
+					newOffset = 0;
+				}
+				if (targetElement == null)
+					return false;
+			}
 
 			int blockIndex;
 
@@ -117,11 +129,11 @@ namespace ProtoScript.Dialogs
 				{
 					// For simplicity, make it so a split at the end of a block is really a split at the start of the following block.
 					if (++blockIndex == m_originalBlocks.Count)
-						return; // Can't split at very end of last verse in last block
+						return false; // Can't split at very end of last verse in last block
 					newOffset = 0;
 				}
 				else if (blockIndex == 0)
-					return; // Can't split at start of first block.
+					return false; // Can't split at start of first block.
 
 				VerseToSplit = null; // We're actually splitting between blocks of a multi-block quote
 			}
@@ -131,16 +143,18 @@ namespace ProtoScript.Dialogs
 				{
 					var indexInBlock = targetElement.ParentElement.ChildNodes.IndexOf(targetElement);
 					if (indexInBlock > 0)
-						return;
-					VerseToSplit = null;
+						return false;
 					blockIndex = int.Parse(targetElement.Parent.Id);
+					if (blockIndex == 0)
+						return false; // Can't split at start of first block.
+					VerseToSplit = null;
 				}
 				else
 				{
 					blockIndex = int.Parse(targetElement.Parent.Id);
 
 					if (blockIndex == m_originalBlocks.Count - 1 && newOffset == selection.AnchorNode.NodeValue.Length)
-						return; // Can't split at very end of last verse in last block
+						return false; // Can't split at very end of last verse in last block
 
 					VerseToSplit = targetElement.Id;
 					var childNodes = selection.AnchorNode.ParentNode.ChildNodes;
@@ -150,15 +164,11 @@ namespace ProtoScript.Dialogs
 				}
 			}
 			else
-				return;
+				return false;
 
 			BlockToSplit = m_originalBlocks[blockIndex];
-
 			CharacterOffsetToSplit = newOffset;
-			
-			SetHtml();
-
-			m_btnOk.Enabled = true;
+			return true;
 		}
 	}
 }

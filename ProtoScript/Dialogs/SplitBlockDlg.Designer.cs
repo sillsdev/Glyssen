@@ -34,6 +34,7 @@
 			this.m_lblInstructions = new System.Windows.Forms.Label();
 			this.m_btnCancel = new System.Windows.Forms.Button();
 			this.m_btnOk = new System.Windows.Forms.Button();
+			this.m_lblInvalidSplitLocation = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -101,6 +102,21 @@
 			this.m_btnOk.Text = "OK";
 			this.m_btnOk.UseVisualStyleBackColor = true;
 			// 
+			// m_lblInvalidSplitLocation
+			// 
+			this.m_lblInvalidSplitLocation.AutoSize = true;
+			this.m_lblInvalidSplitLocation.ForeColor = System.Drawing.Color.Red;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblInvalidSplitLocation, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblInvalidSplitLocation, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblInvalidSplitLocation, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblInvalidSplitLocation, "DialogBoxes.SplitBlockDlg.SplitBlockDlg.m_lblInvalidSplitLocation");
+			this.m_lblInvalidSplitLocation.Location = new System.Drawing.Point(13, 215);
+			this.m_lblInvalidSplitLocation.Name = "m_lblInvalidSplitLocation";
+			this.m_lblInvalidSplitLocation.Size = new System.Drawing.Size(165, 13);
+			this.m_lblInvalidSplitLocation.TabIndex = 5;
+			this.m_lblInvalidSplitLocation.Text = "This is not a valid location to split.";
+			this.m_lblInvalidSplitLocation.Visible = false;
+			// 
 			// SplitBlockDlg
 			// 
 			this.AcceptButton = this.m_btnOk;
@@ -108,6 +124,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.m_btnCancel;
 			this.ClientSize = new System.Drawing.Size(438, 262);
+			this.Controls.Add(this.m_lblInvalidSplitLocation);
 			this.Controls.Add(this.m_btnOk);
 			this.Controls.Add(this.m_btnCancel);
 			this.Controls.Add(this.m_lblInstructions);
@@ -136,5 +153,6 @@
 		private System.Windows.Forms.Label m_lblInstructions;
 		private System.Windows.Forms.Button m_btnCancel;
 		private System.Windows.Forms.Button m_btnOk;
+		private System.Windows.Forms.Label m_lblInvalidSplitLocation;
 	}
 }
