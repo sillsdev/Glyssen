@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -32,6 +33,7 @@ namespace ProtoScript.Dialogs
 		int m_characterListHoveredIndex = -1;
 		private readonly ToolTip m_characterListToolTip = new ToolTip();
 		private bool m_formLoading;
+		private Font m_originalDefaultFontForLists;
 
 		private void HandleStringsLocalized()
 		{
@@ -84,7 +86,11 @@ namespace ProtoScript.Dialogs
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 
+			m_originalDefaultFontForLists = m_listBoxCharacters.Font;
+			SetFontsFromViewModel();
+
 			m_viewModel.AssignedBlocksIncremented += m_viewModel_AssignedBlocksIncremented;
+			m_viewModel.UiFontSizeChanged += (sender, args) => SetFontsFromViewModel();
 
 			m_blocksViewer.VisibleChanged += LoadBlock;
 			m_blocksViewer.Disposed += (sender, args) => m_blocksViewer.VisibleChanged -= LoadBlock;
@@ -414,6 +420,15 @@ namespace ProtoScript.Dialogs
 			m_listBoxDeliveries.SelectedItem = newItem;
 		}
 
+		private void SetFontsFromViewModel()
+		{
+			float newFontSize = Math.Max(m_originalDefaultFontForLists.SizeInPoints + m_viewModel.FontSizeUiAdjustment, BlockNavigatorViewModel.kMinFontSize);
+			Font newFont = new Font(m_originalDefaultFontForLists.FontFamily, newFontSize, m_originalDefaultFontForLists.Style);
+			m_listBoxCharacters.Font = newFont;
+			m_listBoxDeliveries.Font = newFont;
+			m_pnlShortcuts.Height = m_listBoxCharacters.ItemHeight * 5;
+		}
+
 		#region Form events
 		/// ------------------------------------------------------------------------------------
 		protected override void OnLoad(EventArgs e)
@@ -424,6 +439,8 @@ namespace ProtoScript.Dialogs
 			m_blocksViewer.BlocksGridSettings = Properties.Settings.Default.AssignCharactersBlockContextGrid;
 			if (Properties.Settings.Default.AssignCharactersSliderLocation > 0)
 				m_splitContainer.SplitterDistance = Properties.Settings.Default.AssignCharactersSliderLocation;
+
+			m_pnlShortcuts.Height = m_listBoxCharacters.ItemHeight * 5;
 		}
 
 		private void AssignCharacterDialog_Shown(object sender, EventArgs e)

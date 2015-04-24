@@ -156,7 +156,7 @@ namespace ProtoScript.Controls
 		{
 			m_colText.DefaultCellStyle.Font = m_viewModel.Font;
 			DefaultCellStyle.Font = new Font(m_originalDefaultFont.FontFamily,
-				m_originalDefaultFont.SizeInPoints + m_viewModel.FontSizeUiAdjustment, m_originalDefaultFont.Style);
+				Math.Max(m_originalDefaultFont.SizeInPoints + m_viewModel.FontSizeUiAdjustment, BlockNavigatorViewModel.kMinFontSize), m_originalDefaultFont.Style);
 		}
 
 		private void ScrollDesiredRowsIntoView(int firstRow, int lastRow)
