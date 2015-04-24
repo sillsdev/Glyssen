@@ -777,7 +777,7 @@ namespace ProtoScript.Dialogs
 			this.m_splitContainer.Panel2.Controls.Add(this.tableLayoutPanelNavigationControls);
 			this.m_splitContainer.Panel2.Controls.Add(this.m_pnlCharacterAndDeliverySelection);
 			this.m_splitContainer.Panel2.Padding = new System.Windows.Forms.Padding(0, 12, 12, 12);
-			this.m_splitContainer.Panel2MinSize = 250;
+			this.m_splitContainer.Panel2MinSize = 280;
 			this.m_splitContainer.Size = new System.Drawing.Size(651, 519);
 			this.m_splitContainer.SplitterDistance = 320;
 			this.m_splitContainer.TabIndex = 30;
