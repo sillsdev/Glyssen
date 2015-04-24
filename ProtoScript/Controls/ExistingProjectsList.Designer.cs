@@ -60,7 +60,6 @@ namespace ProtoScript.Controls
             this.colInactive,
             this.colProjectPath});
 			this.m_list.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_list.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.m_list.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
 			this.m_list.Location = new System.Drawing.Point(0, 0);
 			this.m_list.MultiSelect = false;

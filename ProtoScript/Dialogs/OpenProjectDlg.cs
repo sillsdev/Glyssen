@@ -34,8 +34,11 @@ namespace ProtoScript.Dialogs
 			if (m_currentProject != null)
 			{
 				m_listExistingProjects.SelectedProject = m_currentProject.ProjectFilePath;
+				SelectedProject = m_currentProject.ProjectFilePath;
 				m_listExistingProjects.AddReadOnlyProject(m_currentProject);
 			}
+			else
+				m_btnOk.Enabled = false;
 		}
 
 		[DefaultValue(ProjectType.ExistingProject)]
@@ -99,6 +102,9 @@ namespace ProtoScript.Dialogs
 			Settings.Default.OpenProjectDlgFormSettings.InitializeForm(this);
 			base.OnLoad(e);
 			m_listExistingProjects.GridSettings = Settings.Default.OpenProjectDlgGridSettings;
+
+			if (m_listExistingProjects.SelectedProject != null)
+				m_btnOk.Enabled = true;
 		}
 
 		protected override void OnClosing(CancelEventArgs e)
