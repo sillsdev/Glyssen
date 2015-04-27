@@ -33,6 +33,7 @@ namespace ProtoScript.Bundle
 		/// a script. If significant changes to the parser are made and the parser version in the program does
 		/// not match the stored parser version, then we know to re-parse the original USX data.</summary>
 		[XmlAttribute("usxparserversion")]
+		[DefaultValue(0)]
 		public int PgUsxParserVersion;
 
 		/// <summary>This is not part of the original DBL metadata. 
