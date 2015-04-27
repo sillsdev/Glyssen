@@ -107,7 +107,7 @@ namespace ProtoScript
 									break;
 								case "char":
 									IStyle charStyle = m_stylesheet.GetStyle((new UsxNode(childNode)).StyleTag);
-									if (charStyle.IsPublishable)
+									if (!charStyle.IsInlineQuotationReference && charStyle.IsPublishable)
 										sb.Append(childNode.InnerText);
 									break;
 								case "#text":
