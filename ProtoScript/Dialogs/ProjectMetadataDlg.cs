@@ -217,15 +217,28 @@ namespace ProtoScript.Dialogs
 
 		private void m_btnQuoteMarkSettings_Click(object sender, EventArgs e)
 		{
-			bool reparseOkay = true;
-			if (!m_model.Project.IsReparseOkay())
+			bool reparseOkay = false;
+			if (m_model.Project.IsSampleProject)
 			{
-				string msg = LocalizationManager.GetString("Project.UnableToModifyQuoteSystemMessage",
-					"The original source of the project is no longer in its original location or has been significantly modified. " +
-					"The quote system cannot be modified since that would require a reparse of the original text.");
-				string title = LocalizationManager.GetString("Project.UnableToModifyQuoteSystem", "Unable to Modify Quote System");
+				string msg = LocalizationManager.GetString("Project.CannotChangeSampleMsg", "The Quote Mark Settings cannot be modified for the Sample project.");
+				string title = LocalizationManager.GetString("Project.CannotChangeSample", "Cannot Change Sample Project");
 				MessageBox.Show(msg, title);
-				reparseOkay = false;
+			}
+			else
+			{
+				if (!m_model.Project.IsReparseOkay())
+				{
+					string msg = string.Format(LocalizationManager.GetString("Project.UnableToLocateTextBundleMsg",
+						"The original text bundle for the project is no longer in its original location ({0}). " +
+						"The Quote Mark Settings cannot be modified without access to the original text bundle."), m_model.Project.OriginalPathOfDblFile) +
+					             Environment.NewLine + Environment.NewLine +
+								 LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text bundle yourself?");
+					string title = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
+					if (DialogResult.Yes == MessageBox.Show(msg, title, MessageBoxButtons.YesNo))
+						reparseOkay = SelectProjectDialog.GiveUserChanceToFindOriginalBundle(m_model.Project);
+				}
+				else
+					reparseOkay = true;
 			}
 
 			using (var viewModel = new BlockNavigatorViewModel(m_model.Project, BlocksToDisplay.AllExpectedQuotes))
