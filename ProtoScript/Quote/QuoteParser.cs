@@ -77,14 +77,18 @@ namespace ProtoScript.Quote
 				// Need to group because they could be more than one character each.
 				// ?: => non-matching group
 				// \w => word-forming character
-				regexExpressions.Add(String.Format(@"((?:(?:{0})(?:[^\w{1}])*))", quoteMatcher, "{0}"));
+				regexExpressions.Add(String.Format(@"((?:(?:{0})(?:[^\w{1}])*))", quoteMatcher, "{0}{1}"));
 			}
 
 			foreach (var ch in splitters.SelectMany(qm => qm.Where(c => !Char.IsWhiteSpace(c))))
 				quoteChars.Add(ch);
 
 			foreach (var expr in regexExpressions)
-				m_regexes.Add(new Regex(String.Format(expr, Regex.Escape(string.Join(string.Empty, quoteChars))), RegexOptions.Compiled));				
+			{
+				m_regexes.Add(new Regex(String.Format(expr,
+					Regex.Escape(string.Join(string.Empty, quoteChars)),
+					Regex.Escape(@"(\[\{")), RegexOptions.Compiled));
+			}
 		}
 
 		/// <summary>
@@ -291,11 +295,15 @@ namespace ProtoScript.Quote
 		{
 			if (sb.Length > 0 && string.IsNullOrWhiteSpace(sb.ToString()))
 				sb.Clear();
-			else if (sb.Length > 0)
+			else
 			{
-				MoveTrailingElementsIfNecessary();
-				m_workingBlock.BlockElements.Add(new ScriptText(sb.ToString()));
-				sb.Clear();
+				var text = sb.ToString();
+				if (text.Any(Char.IsLetterOrDigit)) // If not, just keep anything (probably opening punctuation) in the builder to be included with the next bit of text.
+				{
+					MoveTrailingElementsIfNecessary();
+					m_workingBlock.BlockElements.Add(new ScriptText(text));
+					sb.Clear();
+				}
 			}
 		}
 

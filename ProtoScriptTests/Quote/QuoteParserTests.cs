@@ -1084,6 +1084,34 @@ namespace ProtoScriptTests.Quote
 		}
 
 		[Test]
+		public void Parse_OpeningParenthesisAfterQuote_OpeningParenthesisGoesWithFollowingBlock()
+		{
+			var block1 = new Block("p", 1, 23) { IsParagraphStart = true };
+			block1.BlockElements.Add(new ScriptText("“Na njə́a mənə, wuntə digəlyi dzəgə kə́lə hwi, a njə dzəgə ye zəgwi rə kə za, a mbəlyi dzəgə ka zəgwi tsa Immanuʼel.” (“Immanuʼel” tsa ná, njə́ nee, “tá myi Hyalatəmwə,” əkwə.)"));
+			var input = new List<Block> { block1 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(5, output.Count);
+			Assert.AreEqual("“Na njə́a mənə, wuntə digəlyi dzəgə kə́lə hwi, a njə dzəgə ye zəgwi rə kə za, a mbəlyi dzəgə ka zəgwi tsa Immanuʼel.” ", output[0].GetText(true));
+			Assert.AreEqual("(“Immanuʼel” ", output[1].GetText(true));
+			Assert.AreEqual("tsa ná, njə́ nee, ", output[2].GetText(true));
+			Assert.AreEqual("“tá myi Hyalatəmwə,” ", output[3].GetText(true));
+			Assert.AreEqual("əkwə.)", output[4].GetText(true));
+		}
+
+		[Test]
+		public void Parse_PeriodFollowingClosingQuoteInLastBlock_PeriodGoesWithQuote()
+		{
+			var block1 = new Block("p", 1, 23) { IsParagraphStart = true };
+			block1.BlockElements.Add(new ScriptText("“Na njə́a mənə, wuntə digəlyi dzəgə”."));
+			var input = new List<Block> { block1 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(1, output.Count);
+			Assert.AreEqual("“Na njə́a mənə, wuntə digəlyi dzəgə”.", output[0].GetText(true));
+		}
+
+		[Test]
 		public void Parse_MultiBlockQuote()
 		{
 			var block1 = new Block("q1", 1, 23) { IsParagraphStart = true };
