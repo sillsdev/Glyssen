@@ -34,6 +34,8 @@ namespace ProtoScript.Analysis
 			{
 				foreach (Block block in book.GetScriptBlocks(false))
 				{
+					if (block.MultiBlockQuote == MultiBlockQuote.Continuation || block.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
+						continue;
 					TotalBlocks++;
 					if (block.CharacterIs(book.BookId, CharacterVerseData.StandardCharacter.Narrator))
 						NarratorBlocks++;

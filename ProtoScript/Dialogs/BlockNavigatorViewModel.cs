@@ -4,8 +4,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Web;
 using Paratext;
 using ProtoScript.Character;
 using SIL.ScriptureUtils;
@@ -31,6 +29,7 @@ namespace ProtoScript.Dialogs
 	public class BlockNavigatorViewModel : IWritingSystemDisplayInfo, IDisposable
 	{
 		protected readonly Project m_project;
+		internal const int kMinFontSize = 3;
 		internal const string kDataCharacter = "data-character";
 		private const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
 								  "<style>{0}</style></head><body {1}>{2}</body></html>";
@@ -121,7 +120,7 @@ namespace ProtoScript.Dialogs
 				if (m_font != null)
 					m_font.Dispose();
 				m_fontSizeUiAdjustment = value;
-				m_font = new Font(m_fontFamily, m_baseFontSizeInPoints + m_fontSizeUiAdjustment);
+				m_font = new Font(m_fontFamily, Math.Max(m_baseFontSizeInPoints + m_fontSizeUiAdjustment, kMinFontSize));
 
 				if (UiFontSizeChanged != null)
 					UiFontSizeChanged(this, new EventArgs());

@@ -47,7 +47,6 @@
 			// lblExistingProject
 			// 
 			this.lblExistingProject.AutoSize = true;
-			this.lblExistingProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblExistingProject.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.lblExistingProject, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.lblExistingProject, null);
@@ -57,7 +56,7 @@
 			this.lblExistingProject.Location = new System.Drawing.Point(0, 0);
 			this.lblExistingProject.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
 			this.lblExistingProject.Name = "lblExistingProject";
-			this.lblExistingProject.Size = new System.Drawing.Size(462, 36);
+			this.lblExistingProject.Size = new System.Drawing.Size(469, 26);
 			this.lblExistingProject.TabIndex = 0;
 			this.lblExistingProject.Text = "The selected bundle is already associated with the following projects. To open an" +
     " existing project, select it and click OK.";
@@ -90,9 +89,9 @@
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_listExistingProjects, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_listExistingProjects, "DialogBoxes.SelectExistingProjectDialog.SelectExistingProjectDlg.ExistingProjects" +
         "List");
-			this.m_listExistingProjects.Location = new System.Drawing.Point(3, 43);
+			this.m_listExistingProjects.Location = new System.Drawing.Point(3, 33);
 			this.m_listExistingProjects.Name = "m_listExistingProjects";
-			this.m_listExistingProjects.Size = new System.Drawing.Size(466, 122);
+			this.m_listExistingProjects.Size = new System.Drawing.Size(466, 132);
 			this.m_listExistingProjects.TabIndex = 5;
 			this.m_listExistingProjects.SelectedProjectChanged += new System.EventHandler(this.HandleSelectedProjectChanged);
 			this.m_listExistingProjects.DoubleClick += new System.EventHandler(this.m_listExistingProjects_DoubleClick);
@@ -100,14 +99,13 @@
 			// m_linkCreateNewProject
 			// 
 			this.m_linkCreateNewProject.AutoSize = true;
-			this.m_linkCreateNewProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_linkCreateNewProject.LinkColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkCreateNewProject, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkCreateNewProject, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkCreateNewProject, "DialogBoxes.SelectExistingProjectDialog.linkLabel1");
 			this.m_linkCreateNewProject.Location = new System.Drawing.Point(3, 168);
 			this.m_linkCreateNewProject.Name = "m_linkCreateNewProject";
-			this.m_linkCreateNewProject.Size = new System.Drawing.Size(306, 18);
+			this.m_linkCreateNewProject.Size = new System.Drawing.Size(221, 13);
 			this.m_linkCreateNewProject.TabIndex = 6;
 			this.m_linkCreateNewProject.TabStop = true;
 			this.m_linkCreateNewProject.Text = "Create a new recording project for this bundle";

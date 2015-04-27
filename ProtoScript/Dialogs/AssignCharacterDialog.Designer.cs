@@ -66,18 +66,18 @@ namespace ProtoScript.Dialogs
 			this.m_scriptureReference = new Paratext.ToolStripVerseControl();
 			this.m_menuBtnSplitBlock = new System.Windows.Forms.ToolStripButton();
 			this.m_chkSingleVoice = new System.Windows.Forms.CheckBox();
-			this.m_blocksViewer = new ProtoScript.Controls.ScriptBlocksViewer();
-			this.m_progressBar = new ProtoScript.Controls.BlockProgressBar();
 			this.m_listBoxCharacters = new System.Windows.Forms.ListBox();
 			this.m_listBoxDeliveries = new System.Windows.Forms.ListBox();
 			this.m_pnlCharacterFilter = new System.Windows.Forms.Panel();
 			this.tableLayoutPanelCharacter = new System.Windows.Forms.TableLayoutPanel();
 			this.m_pnlDeliveryFilter = new System.Windows.Forms.Panel();
 			this.tableLayoutPanelDelivery = new System.Windows.Forms.TableLayoutPanel();
-			this.m_pnlShortcuts = new System.Windows.Forms.Panel();
+			this.m_pnlShortcuts = new System.Windows.Forms.TableLayoutPanel();
 			this.m_pnlCharacterAndDeliverySelection = new System.Windows.Forms.TableLayoutPanel();
 			this.m_splitContainer = new System.Windows.Forms.SplitContainer();
 			this.tableLayoutPanelNavigationControls = new System.Windows.Forms.TableLayoutPanel();
+			this.m_blocksViewer = new ProtoScript.Controls.ScriptBlocksViewer();
+			this.m_progressBar = new ProtoScript.Controls.BlockProgressBar();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnCharacterFilter)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnDeliveryFilter)).BeginInit();
@@ -154,7 +154,6 @@ namespace ProtoScript.Dialogs
 			// m_labelWhoSpeaks
 			// 
 			this.m_labelWhoSpeaks.AutoSize = true;
-			this.m_labelWhoSpeaks.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_labelWhoSpeaks.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_labelWhoSpeaks, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_labelWhoSpeaks, null);
@@ -189,7 +188,7 @@ namespace ProtoScript.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreChar, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llMoreChar, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_llMoreChar, "DialogBoxes.AssignCharacterDialog.MoreCharacters");
-			this.m_llMoreChar.Location = new System.Drawing.Point(21, 191);
+			this.m_llMoreChar.Location = new System.Drawing.Point(21, 196);
 			this.m_llMoreChar.Name = "m_llMoreChar";
 			this.m_llMoreChar.Size = new System.Drawing.Size(85, 13);
 			this.m_llMoreChar.TabIndex = 13;
@@ -202,15 +201,14 @@ namespace ProtoScript.Dialogs
 			// 
 			this.m_txtCharacterFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_txtCharacterFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.m_txtCharacterFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtCharacterFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtCharacterFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtCharacterFilter, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtCharacterFilter, "DialogBoxes.AssignCharacterDialog.m_txtCharacterFilter");
-			this.m_txtCharacterFilter.Location = new System.Drawing.Point(0, 0);
+			this.m_txtCharacterFilter.Location = new System.Drawing.Point(0, 2);
 			this.m_txtCharacterFilter.Margin = new System.Windows.Forms.Padding(0);
 			this.m_txtCharacterFilter.Name = "m_txtCharacterFilter";
-			this.m_txtCharacterFilter.Size = new System.Drawing.Size(241, 17);
+			this.m_txtCharacterFilter.Size = new System.Drawing.Size(241, 13);
 			this.m_txtCharacterFilter.TabIndex = 14;
 			this.m_txtCharacterFilter.TextChanged += new System.EventHandler(this.m_txtCharacterFilter_TextChanged);
 			// 
@@ -218,29 +216,27 @@ namespace ProtoScript.Dialogs
 			// 
 			this.m_lblCharacter.AutoSize = true;
 			this.m_pnlCharacterAndDeliverySelection.SetColumnSpan(this.m_lblCharacter, 2);
-			this.m_lblCharacter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_lblCharacter.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblCharacter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblCharacter, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblCharacter, "DialogBoxes.AssignCharacterDialog.Character");
 			this.m_lblCharacter.Location = new System.Drawing.Point(21, 0);
 			this.m_lblCharacter.Name = "m_lblCharacter";
-			this.m_lblCharacter.Size = new System.Drawing.Size(73, 18);
+			this.m_lblCharacter.Size = new System.Drawing.Size(53, 13);
 			this.m_lblCharacter.TabIndex = 16;
 			this.m_lblCharacter.Text = "Character";
 			// 
 			// m_lblDelivery
 			// 
 			this.m_lblDelivery.AutoSize = true;
-			this.m_lblDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_lblDelivery.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblDelivery, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblDelivery, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblDelivery, "DialogBoxes.AssignCharacterDialog.Delivery");
-			this.m_lblDelivery.Location = new System.Drawing.Point(21, 204);
+			this.m_lblDelivery.Location = new System.Drawing.Point(21, 209);
 			this.m_lblDelivery.Name = "m_lblDelivery";
 			this.m_lblDelivery.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-			this.m_lblDelivery.Size = new System.Drawing.Size(60, 28);
+			this.m_lblDelivery.Size = new System.Drawing.Size(45, 23);
 			this.m_lblDelivery.TabIndex = 17;
 			this.m_lblDelivery.Text = "Delivery";
 			this.m_lblDelivery.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -266,15 +262,14 @@ namespace ProtoScript.Dialogs
 			// 
 			this.m_txtDeliveryFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_txtDeliveryFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.m_txtDeliveryFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtDeliveryFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtDeliveryFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtDeliveryFilter, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtDeliveryFilter, "DialogBoxes.AssignCharacterDialog.m_txtDeliveryFilter");
-			this.m_txtDeliveryFilter.Location = new System.Drawing.Point(0, 0);
+			this.m_txtDeliveryFilter.Location = new System.Drawing.Point(0, 2);
 			this.m_txtDeliveryFilter.Margin = new System.Windows.Forms.Padding(0);
 			this.m_txtDeliveryFilter.Name = "m_txtDeliveryFilter";
-			this.m_txtDeliveryFilter.Size = new System.Drawing.Size(241, 17);
+			this.m_txtDeliveryFilter.Size = new System.Drawing.Size(241, 13);
 			this.m_txtDeliveryFilter.TabIndex = 19;
 			this.m_txtDeliveryFilter.TextChanged += new System.EventHandler(this.m_txtDeliveryFilter_TextChanged);
 			// 
@@ -324,7 +319,7 @@ namespace ProtoScript.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAddCharacter, "Add New Character");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAddCharacter, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAddCharacter, "DialogBoxes.AssignCharacterDialog.AddCharacter");
-			this.m_btnAddCharacter.Location = new System.Drawing.Point(287, 21);
+			this.m_btnAddCharacter.Location = new System.Drawing.Point(287, 16);
 			this.m_btnAddCharacter.Margin = new System.Windows.Forms.Padding(0);
 			this.m_btnAddCharacter.Name = "m_btnAddCharacter";
 			this.m_btnAddCharacter.Size = new System.Drawing.Size(20, 20);
@@ -334,8 +329,9 @@ namespace ProtoScript.Dialogs
 			// 
 			// m_btnAddDelivery
 			// 
+			this.m_btnAddDelivery.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_btnAddDelivery.BackgroundImage = global::ProtoScript.Properties.Resources._112_Plus_Green_16x16_72;
-			this.m_btnAddDelivery.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.m_btnAddDelivery.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.m_btnAddDelivery.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_btnAddDelivery.FlatAppearance.BorderSize = 2;
 			this.m_btnAddDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -343,7 +339,7 @@ namespace ProtoScript.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAddDelivery, "Add New Delivery");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAddDelivery, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAddDelivery, "DialogBoxes.AssignCharacterDialog.AddDelivery");
-			this.m_btnAddDelivery.Location = new System.Drawing.Point(287, 232);
+			this.m_btnAddDelivery.Location = new System.Drawing.Point(287, 235);
 			this.m_btnAddDelivery.Margin = new System.Windows.Forms.Padding(0);
 			this.m_btnAddDelivery.Name = "m_btnAddDelivery";
 			this.m_btnAddDelivery.Size = new System.Drawing.Size(20, 20);
@@ -353,73 +349,76 @@ namespace ProtoScript.Dialogs
 			// 
 			// m_lblShortcut1
 			// 
-			this.m_lblShortcut1.AutoSize = true;
-			this.m_lblShortcut1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_lblShortcut1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.m_lblShortcut1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_lblShortcut1.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblShortcut1, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblShortcut1, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblShortcut1, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut1, "DialogBoxes.AssignCharacterDialog.label1");
-			this.m_lblShortcut1.Location = new System.Drawing.Point(3, 3);
+			this.m_lblShortcut1.Location = new System.Drawing.Point(3, 7);
 			this.m_lblShortcut1.Name = "m_lblShortcut1";
-			this.m_lblShortcut1.Size = new System.Drawing.Size(10, 12);
+			this.m_lblShortcut1.Size = new System.Drawing.Size(13, 13);
 			this.m_lblShortcut1.TabIndex = 26;
 			this.m_lblShortcut1.Text = "1";
 			// 
 			// m_lblShortcut2
 			// 
-			this.m_lblShortcut2.AutoSize = true;
-			this.m_lblShortcut2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_lblShortcut2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.m_lblShortcut2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_lblShortcut2.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblShortcut2, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblShortcut2, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblShortcut2, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut2, "DialogBoxes.AssignCharacterDialog.label1");
-			this.m_lblShortcut2.Location = new System.Drawing.Point(3, 22);
+			this.m_lblShortcut2.Location = new System.Drawing.Point(3, 35);
 			this.m_lblShortcut2.Name = "m_lblShortcut2";
-			this.m_lblShortcut2.Size = new System.Drawing.Size(10, 12);
+			this.m_lblShortcut2.Size = new System.Drawing.Size(13, 13);
 			this.m_lblShortcut2.TabIndex = 27;
 			this.m_lblShortcut2.Text = "2";
 			// 
 			// m_lblShortcut3
 			// 
-			this.m_lblShortcut3.AutoSize = true;
-			this.m_lblShortcut3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_lblShortcut3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.m_lblShortcut3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_lblShortcut3.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblShortcut3, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblShortcut3, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblShortcut3, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut3, "DialogBoxes.AssignCharacterDialog.label1");
-			this.m_lblShortcut3.Location = new System.Drawing.Point(3, 41);
+			this.m_lblShortcut3.Location = new System.Drawing.Point(3, 63);
 			this.m_lblShortcut3.Name = "m_lblShortcut3";
-			this.m_lblShortcut3.Size = new System.Drawing.Size(10, 12);
+			this.m_lblShortcut3.Size = new System.Drawing.Size(13, 13);
 			this.m_lblShortcut3.TabIndex = 28;
 			this.m_lblShortcut3.Text = "3";
 			// 
 			// m_lblShortcut4
 			// 
-			this.m_lblShortcut4.AutoSize = true;
-			this.m_lblShortcut4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_lblShortcut4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.m_lblShortcut4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_lblShortcut4.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblShortcut4, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblShortcut4, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblShortcut4, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut4, "DialogBoxes.AssignCharacterDialog.label1");
-			this.m_lblShortcut4.Location = new System.Drawing.Point(3, 60);
+			this.m_lblShortcut4.Location = new System.Drawing.Point(3, 91);
 			this.m_lblShortcut4.Name = "m_lblShortcut4";
-			this.m_lblShortcut4.Size = new System.Drawing.Size(10, 12);
+			this.m_lblShortcut4.Size = new System.Drawing.Size(13, 13);
 			this.m_lblShortcut4.TabIndex = 29;
 			this.m_lblShortcut4.Text = "4";
 			// 
 			// m_lblShortcut5
 			// 
-			this.m_lblShortcut5.AutoSize = true;
-			this.m_lblShortcut5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_lblShortcut5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.m_lblShortcut5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_lblShortcut5.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblShortcut5, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblShortcut5, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblShortcut5, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut5, "DialogBoxes.AssignCharacterDialog.label1");
-			this.m_lblShortcut5.Location = new System.Drawing.Point(3, 79);
+			this.m_lblShortcut5.Location = new System.Drawing.Point(3, 119);
 			this.m_lblShortcut5.Name = "m_lblShortcut5";
-			this.m_lblShortcut5.Size = new System.Drawing.Size(10, 12);
+			this.m_lblShortcut5.Size = new System.Drawing.Size(13, 13);
 			this.m_lblShortcut5.TabIndex = 30;
 			this.m_lblShortcut5.Text = "5";
 			// 
@@ -612,44 +611,16 @@ namespace ProtoScript.Dialogs
 			this.m_chkSingleVoice.UseVisualStyleBackColor = true;
 			this.m_chkSingleVoice.CheckedChanged += new System.EventHandler(this.m_chkSingleVoice_CheckedChanged);
 			// 
-			// m_blocksViewer
-			// 
-			this.m_blocksViewer.AccessibleDescription = "";
-			this.m_blocksViewer.BackColor = System.Drawing.Color.Transparent;
-			this.m_blocksViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksViewer, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksViewer, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksViewer, "DialogBoxes.AssignCharacterDialog.AssignCharacterDialog.ScriptBlocksViewer");
-			this.m_blocksViewer.Location = new System.Drawing.Point(12, 12);
-			this.m_blocksViewer.Name = "m_blocksViewer";
-			this.m_blocksViewer.Size = new System.Drawing.Size(308, 495);
-			this.m_blocksViewer.TabIndex = 11;
-			this.m_blocksViewer.Text = "Who speaks this part?";
-			this.m_blocksViewer.ViewType = ProtoScript.Controls.ScriptBlocksViewType.Html;
-			// 
-			// m_progressBar
-			// 
-			this.m_progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_progressBar, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_progressBar, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_progressBar, "DialogBoxes.AssignCharacterDialog.m_progressBar");
-			this.m_progressBar.Location = new System.Drawing.Point(0, 544);
-			this.m_progressBar.Name = "m_progressBar";
-			this.m_progressBar.Size = new System.Drawing.Size(651, 17);
-			this.m_progressBar.TabIndex = 12;
-			// 
 			// m_listBoxCharacters
 			// 
 			this.m_listBoxCharacters.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.m_pnlCharacterAndDeliverySelection.SetColumnSpan(this.m_listBoxCharacters, 2);
 			this.m_listBoxCharacters.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_listBoxCharacters.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_listBoxCharacters.FormattingEnabled = true;
 			this.m_listBoxCharacters.IntegralHeight = false;
-			this.m_listBoxCharacters.ItemHeight = 18;
-			this.m_listBoxCharacters.Location = new System.Drawing.Point(21, 48);
+			this.m_listBoxCharacters.Location = new System.Drawing.Point(21, 43);
 			this.m_listBoxCharacters.Name = "m_listBoxCharacters";
-			this.m_listBoxCharacters.Size = new System.Drawing.Size(283, 140);
+			this.m_listBoxCharacters.Size = new System.Drawing.Size(283, 150);
 			this.m_listBoxCharacters.TabIndex = 0;
 			this.m_listBoxCharacters.SelectedIndexChanged += new System.EventHandler(this.m_listBoxCharacters_SelectedIndexChanged);
 			this.m_listBoxCharacters.MouseMove += new System.Windows.Forms.MouseEventHandler(this.m_listBoxCharacters_MouseMove);
@@ -659,10 +630,8 @@ namespace ProtoScript.Dialogs
 			this.m_listBoxDeliveries.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.m_pnlCharacterAndDeliverySelection.SetColumnSpan(this.m_listBoxDeliveries, 2);
 			this.m_listBoxDeliveries.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_listBoxDeliveries.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_listBoxDeliveries.FormattingEnabled = true;
 			this.m_listBoxDeliveries.IntegralHeight = false;
-			this.m_listBoxDeliveries.ItemHeight = 18;
 			this.m_listBoxDeliveries.Location = new System.Drawing.Point(21, 262);
 			this.m_listBoxDeliveries.Name = "m_listBoxDeliveries";
 			this.m_listBoxDeliveries.Size = new System.Drawing.Size(283, 90);
@@ -678,7 +647,7 @@ namespace ProtoScript.Dialogs
 			this.m_pnlCharacterFilter.BackColor = System.Drawing.Color.White;
 			this.m_pnlCharacterFilter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.m_pnlCharacterFilter.Controls.Add(this.tableLayoutPanelCharacter);
-			this.m_pnlCharacterFilter.Location = new System.Drawing.Point(21, 21);
+			this.m_pnlCharacterFilter.Location = new System.Drawing.Point(21, 16);
 			this.m_pnlCharacterFilter.Name = "m_pnlCharacterFilter";
 			this.m_pnlCharacterFilter.Size = new System.Drawing.Size(263, 21);
 			this.m_pnlCharacterFilter.TabIndex = 21;
@@ -734,14 +703,22 @@ namespace ProtoScript.Dialogs
 			// 
 			// m_pnlShortcuts
 			// 
-			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut5);
-			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut4);
-			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut3);
-			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut2);
-			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut1);
-			this.m_pnlShortcuts.Location = new System.Drawing.Point(3, 48);
+			this.m_pnlShortcuts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_pnlShortcuts.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut5, 0, 4);
+			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut1, 0, 0);
+			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut2, 0, 1);
+			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut4, 0, 3);
+			this.m_pnlShortcuts.Controls.Add(this.m_lblShortcut3, 0, 2);
+			this.m_pnlShortcuts.Location = new System.Drawing.Point(3, 43);
 			this.m_pnlShortcuts.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
 			this.m_pnlShortcuts.Name = "m_pnlShortcuts";
+			this.m_pnlShortcuts.RowCount = 5;
+			this.m_pnlShortcuts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+			this.m_pnlShortcuts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+			this.m_pnlShortcuts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+			this.m_pnlShortcuts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+			this.m_pnlShortcuts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
 			this.m_pnlShortcuts.Size = new System.Drawing.Size(15, 140);
 			this.m_pnlShortcuts.TabIndex = 28;
 			// 
@@ -800,7 +777,7 @@ namespace ProtoScript.Dialogs
 			this.m_splitContainer.Panel2.Controls.Add(this.tableLayoutPanelNavigationControls);
 			this.m_splitContainer.Panel2.Controls.Add(this.m_pnlCharacterAndDeliverySelection);
 			this.m_splitContainer.Panel2.Padding = new System.Windows.Forms.Padding(0, 12, 12, 12);
-			this.m_splitContainer.Panel2MinSize = 250;
+			this.m_splitContainer.Panel2MinSize = 280;
 			this.m_splitContainer.Size = new System.Drawing.Size(651, 519);
 			this.m_splitContainer.SplitterDistance = 320;
 			this.m_splitContainer.TabIndex = 30;
@@ -823,6 +800,32 @@ namespace ProtoScript.Dialogs
 			this.tableLayoutPanelNavigationControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanelNavigationControls.Size = new System.Drawing.Size(274, 33);
 			this.tableLayoutPanelNavigationControls.TabIndex = 30;
+			// 
+			// m_blocksViewer
+			// 
+			this.m_blocksViewer.AccessibleDescription = "";
+			this.m_blocksViewer.BackColor = System.Drawing.Color.Transparent;
+			this.m_blocksViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksViewer, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksViewer, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksViewer, "DialogBoxes.AssignCharacterDialog.AssignCharacterDialog.ScriptBlocksViewer");
+			this.m_blocksViewer.Location = new System.Drawing.Point(12, 12);
+			this.m_blocksViewer.Name = "m_blocksViewer";
+			this.m_blocksViewer.Size = new System.Drawing.Size(308, 495);
+			this.m_blocksViewer.TabIndex = 11;
+			this.m_blocksViewer.Text = "Who speaks this part?";
+			this.m_blocksViewer.ViewType = ProtoScript.Controls.ScriptBlocksViewType.Html;
+			// 
+			// m_progressBar
+			// 
+			this.m_progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_progressBar, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_progressBar, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_progressBar, "DialogBoxes.AssignCharacterDialog.m_progressBar");
+			this.m_progressBar.Location = new System.Drawing.Point(0, 544);
+			this.m_progressBar.Name = "m_progressBar";
+			this.m_progressBar.Size = new System.Drawing.Size(651, 17);
+			this.m_progressBar.TabIndex = 12;
 			// 
 			// AssignCharacterDialog
 			// 
@@ -865,7 +868,6 @@ namespace ProtoScript.Dialogs
 			this.tableLayoutPanelDelivery.ResumeLayout(false);
 			this.tableLayoutPanelDelivery.PerformLayout();
 			this.m_pnlShortcuts.ResumeLayout(false);
-			this.m_pnlShortcuts.PerformLayout();
 			this.m_pnlCharacterAndDeliverySelection.ResumeLayout(false);
 			this.m_pnlCharacterAndDeliverySelection.PerformLayout();
 			this.m_splitContainer.Panel1.ResumeLayout(false);
@@ -904,7 +906,7 @@ namespace ProtoScript.Dialogs
 		private System.Windows.Forms.Button m_btnAddDelivery;
 		private System.Windows.Forms.Label m_lblShortcut1;
 		private System.Windows.Forms.Label m_lblShortcut2;
-		private System.Windows.Forms.Panel m_pnlShortcuts;
+		private System.Windows.Forms.TableLayoutPanel m_pnlShortcuts;
 		private System.Windows.Forms.Label m_lblShortcut3;
 		private System.Windows.Forms.Label m_lblShortcut5;
 		private System.Windows.Forms.Label m_lblShortcut4;
