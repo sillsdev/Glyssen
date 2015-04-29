@@ -244,8 +244,8 @@
     <Compile Include="Style.cs" />
     <Compile Include="UsxParser.cs" />
     <Compile Include="UsxStylesheet.cs" />
-    <Compile Include="Extensions.cs" />
     <Compile Include="Utilities\MathUtilities.cs" />
+    <Compile Include="Utilities\StringExtensions.cs" />
     <Compile Include="Utilities\Zip.cs" />
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>

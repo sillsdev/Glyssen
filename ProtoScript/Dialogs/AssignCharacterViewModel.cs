@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ProtoScript.Character;
+using ProtoScript.Utilities;
 using SIL.ScriptureUtils;
 using ScrVers = Paratext.ScrVers;
 
