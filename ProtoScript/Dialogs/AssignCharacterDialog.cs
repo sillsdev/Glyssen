@@ -347,19 +347,25 @@ namespace ProtoScript.Dialogs
 
 			if (IsDirty())
 			{
+				string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChanges", "Unsaved Changes");
 				if (m_btnAssign.Enabled)
 				{
-					string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChanges", "Unsaved Changes");
 					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChangesMessage",
 						"The Character and Delivery selections have not been submitted. Do you want to save your changes before navigating?");
 					if (MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
 						SaveSelections();
 				}
+				else if (m_listBoxCharacters.SelectedIndex < 0)
+				{
+					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.NoSelectionMessage",
+						"You have not selected a Character and Delivery. Would you like to leave without changing the assignment?");
+					result = MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) ==
+						DialogResult.Yes;
+				}
 				else
 				{
 					Debug.Assert(m_listBoxCharacters.SelectedIndex > -1 && m_listBoxDeliveries.SelectedIndex < 0);
-					string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChanges", "Unsaved Changes");
-					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChangesMessage",
+					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.NoDeliveryMessage",
 						"You have selected a Character but no Delivery. Would you like to discard your selection and leave without changing the assignment?");
 					result = MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) ==
 						DialogResult.Yes;
@@ -569,18 +575,26 @@ namespace ProtoScript.Dialogs
 			if (selectedIndexOneBased < 1 || selectedIndexOneBased > 5)
 			{
 				// Might be trying to select character by the first letter (e.g. s for Saul)
-				if (Char.IsLetter(e.KeyChar))
-				{
-					var charactersStartingWithSelectedLetter =
-						CurrentContextCharacters.Where(c => c.ToString().StartsWith(e.KeyChar.ToString(CultureInfo.InvariantCulture), true, CultureInfo.InvariantCulture));
-					if (charactersStartingWithSelectedLetter.Count() == 1)
-						m_listBoxCharacters.SelectedItem = charactersStartingWithSelectedLetter.First();
-				}
+				HandleCharacterSelectionKeyPress(e);
+				e.Handled = true;
 			}
 			else
 			{
 				if (m_listBoxCharacters.Items.Count >= selectedIndexOneBased)
 					m_listBoxCharacters.SelectedIndex = selectedIndexOneBased - 1; //listBox is zero-based
+			}
+		}
+
+		private void HandleCharacterSelectionKeyPress(KeyPressEventArgs e)
+		{
+			if (Char.IsLetter(e.KeyChar))
+			{
+				var charactersStartingWithSelectedLetter =
+					CurrentContextCharacters.Where(c => c.ToString().StartsWith(e.KeyChar.ToString(CultureInfo.InvariantCulture), true, CultureInfo.InvariantCulture));
+				if (charactersStartingWithSelectedLetter.Count() == 1)
+					m_listBoxCharacters.SelectedItem = charactersStartingWithSelectedLetter.Single();
+				else
+					m_listBoxCharacters.SelectedItem = null;
 			}
 		}
 
@@ -722,6 +736,12 @@ namespace ProtoScript.Dialogs
 		{
 			if (!m_formLoading)
 				Properties.Settings.Default.AssignCharactersSliderLocation = e.SplitX;
+		}
+
+		private void m_listBoxCharacters_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			HandleCharacterSelectionKeyPress(e);
+			e.Handled = true;
 		}
 		#endregion
 
