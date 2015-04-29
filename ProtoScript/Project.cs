@@ -260,7 +260,11 @@ namespace ProtoScript
 
 		public IReadOnlyList<Book> AvailableBooks { get { return m_metadata.AvailableBooks; } }
 
-		public string OriginalPathOfDblFile { get { return m_metadata.OriginalPathOfDblFile; } }
+		public string OriginalPathOfDblFile
+		{
+			get { return m_metadata.OriginalPathOfDblFile; }
+			set { m_metadata.OriginalPathOfDblFile = value; }
+		}
 
 		public readonly ProjectCharacterVerseData ProjectCharacterVerseData;
 
@@ -344,19 +348,35 @@ namespace ProtoScript
 		{
 			Project existingProject = LoadExistingProject(projectFilePath);
 
-			if (existingProject.m_metadata.PgUsxParserVersion != Settings.Default.PgUsxParserVersion &&
-				File.Exists(existingProject.OriginalPathOfDblFile))
+			if (existingProject.m_metadata.PgUsxParserVersion != Settings.Default.PgUsxParserVersion)
 			{
-				using (var bundle = new Bundle.Bundle(existingProject.OriginalPathOfDblFile))
+				bool upgradeProject = true;
+				if (!File.Exists(existingProject.OriginalPathOfDblFile))
 				{
-					var upgradedProject = new Project(existingProject.m_metadata, existingProject.m_recordingProjectName);
-					upgradedProject.UserDecisionsProject = existingProject;
-					upgradedProject.PopulateAndParseBooks(bundle);
-					upgradedProject.m_metadata.PgUsxParserVersion = Settings.Default.PgUsxParserVersion;
-					return upgradedProject;
+					upgradeProject = false;
+					if (Settings.Default.PgUsxParserVersion > existingProject.m_metadata.ParserUpgradeOptOutVersion)
+					{
+						string msg = string.Format(LocalizationManager.GetString("Project.ParserUpgradeBundleMissingMsg", "The splitting engine has been upgraded. To make use of the new engine, the original text bundle must be available, but it is not in the original location ({0})."), existingProject.OriginalPathOfDblFile) +
+							Environment.NewLine + Environment.NewLine + 
+							LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text bundle yourself?");
+						string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
+						if (DialogResult.Yes == MessageBox.Show(msg, caption, MessageBoxButtons.YesNo))
+							upgradeProject = SelectProjectDialog.GiveUserChanceToFindOriginalBundle(existingProject);
+						if (!upgradeProject)
+							existingProject.m_metadata.ParserUpgradeOptOutVersion = Settings.Default.PgUsxParserVersion;
+					}
 				}
+				if (upgradeProject)
+					using (var bundle = new Bundle.Bundle(existingProject.OriginalPathOfDblFile))
+					{
+						var upgradedProject = new Project(existingProject.m_metadata, existingProject.m_recordingProjectName);
+						upgradedProject.UserDecisionsProject = existingProject;
+						upgradedProject.PopulateAndParseBooks(bundle);
+						upgradedProject.m_metadata.PgUsxParserVersion = Settings.Default.PgUsxParserVersion;
+						return upgradedProject;
+					}
 			}
-			
+
 			existingProject.InitializeLoadedProject();
 			return existingProject;
 		}
@@ -523,6 +543,7 @@ namespace ProtoScript
 			var resultList = result.ToList();
 			resultList.Sort((a, b) => BCVRef.BookToNumber(a.BookId).CompareTo(BCVRef.BookToNumber(b.BookId)));
 			m_books.AddRange(resultList);
+			m_metadata.PgUsxParserVersion = Settings.Default.PgUsxParserVersion;
 
 			if (QuoteSystem == null)
 				GuessAtQuoteSystem();
@@ -807,17 +828,17 @@ namespace ProtoScript
 		{
 			if (QuoteSystem == null)
 				return false;
-			if (File.Exists(OriginalPathOfDblFile) || File.Exists(m_metadata.OriginalPathOfSfmFile))
+			if (File.Exists(OriginalPathOfDblFile))
 				return true;
-			if (Directory.Exists(m_metadata.OriginalPathOfSfmDirectory))
-			{
-				// Ensure the books present originally are the same as those present now
-				List<UsxDocument> booksInFolder = SfmLoader.LoadSfmFolder(m_metadata.OriginalPathOfSfmDirectory);
-				if (booksInFolder.Count != m_metadata.AvailableBooks.Count)
-					return false;
-				List<string> bookIdsInFolder = booksInFolder.Select(b => b.BookId).ToList();
-				return m_metadata.AvailableBooks.All(book => bookIdsInFolder.Contains(book.Code));
-			}
+//			if (Directory.Exists(m_metadata.OriginalPathOfSfmDirectory))
+//			{
+//				// Ensure the books present originally are the same as those present now
+//				List<UsxDocument> booksInFolder = SfmLoader.LoadSfmFolder(m_metadata.OriginalPathOfSfmDirectory);
+//				if (booksInFolder.Count != m_metadata.AvailableBooks.Count)
+//					return false;
+//				List<string> bookIdsInFolder = booksInFolder.Select(b => b.BookId).ToList();
+//				return m_metadata.AvailableBooks.All(book => bookIdsInFolder.Contains(book.Code));
+//			}
 			return false;
 		}
 
@@ -827,7 +848,7 @@ namespace ProtoScript
 				ProgressChanged(this, e);
 		}
 
-		private bool IsSampleProject
+		public bool IsSampleProject
 		{
 			get { return Id.Equals(kSample, StringComparison.OrdinalIgnoreCase) && LanguageIsoCode == kSample; }
 		}

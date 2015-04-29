@@ -23,6 +23,11 @@ namespace ProtoScript
 			get { return Id == "r"; }
 		}
 
+		public bool IsInlineQuotationReference
+		{
+			get { return Id == "rq"; }
+		}
+
 		public bool HoldsBookNameOrAbbreviation
 		{
 			get

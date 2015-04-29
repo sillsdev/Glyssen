@@ -1,7 +1,8 @@
-Rebuilding this requires ruby and https://github.com/chrisvire/BuildUpdate
-Here's the command line I used:
+(Re)building buildUpdate.sh requires ruby and https://github.com/chrisvire/BuildUpdate
+Here's the command line commands I used:
 
-<your path to buildupdate.rb>\buildupdate.rb -t bt431 -f buildUpdate.sh -r ..
+cd <path to where you want to generate buildUpdate.sh>
+<your path to buildupdate.rb (part of BuildUpdate repo above)>\buildupdate.rb -t bt431 -f buildUpdate.sh -r ..
 
 Explanation:
 

@@ -74,9 +74,9 @@ namespace ProtoScript.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("26")]
-        public string PgUsxParserVersion {
+        public int PgUsxParserVersion {
             get {
-                return ((string)(this["PgUsxParserVersion"]));
+                return ((int)(this["PgUsxParserVersion"]));
             }
             set {
                 this["PgUsxParserVersion"] = value;

@@ -13,6 +13,8 @@ namespace ProtoScript.Bundle
 {
 	public class Bundle : IDisposable
 	{
+		public const string kResourceBundleExtension = ".zip";
+
 		private readonly DblMetadata m_dblMetadata;
 		private readonly UsxStylesheet m_stylesheet;
 		private readonly IDictionary<string, UsxDocument> m_books = new Dictionary<string, UsxDocument>();

@@ -14,6 +14,7 @@
 		bool IsPublishable { get; }
 		bool IsChapterLabel { get; }
 		bool IsParallelPassageReference { get; }
+		bool IsInlineQuotationReference { get; }
 		bool HoldsBookNameOrAbbreviation { get; }
 	}
 }
