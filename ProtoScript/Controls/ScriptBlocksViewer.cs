@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
 using Gecko.Events;
+using L10NSharp;
 using ProtoScript.Dialogs;
 using SIL.Windows.Forms.PortableSettingsProvider;
 
@@ -119,10 +120,14 @@ namespace ProtoScript.Controls
 
 		public void Clear()
 		{
-			if (m_blocksDisplayBrowser.Visible)
-				m_blocksDisplayBrowser.DisplayHtml(String.Empty);
-			else
-				m_dataGridViewBlocks.Clear();
+			m_blocksDisplayBrowser.DisplayHtml(String.Empty);
+			m_dataGridViewBlocks.Clear();
+		}
+
+		public void ShowNothingMatchesFilterMessage()
+		{
+			string msg = LocalizationManager.GetString("DialogBoxes.ScriptBlocksViewer.NoMatches", "Nothing matches the current filter.");
+			MessageBox.Show(this, msg, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 		#endregion
 

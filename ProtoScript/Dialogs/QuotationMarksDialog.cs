@@ -8,9 +8,11 @@ using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
 using ProtoScript.Bundle;
+using ProtoScript.Character;
 using ProtoScript.Controls;
 using ProtoScript.Quote;
 using SIL.ObjectModel;
+using SIL.ScriptureUtils;
 using SIL.WritingSystems;
 
 namespace ProtoScript.Dialogs
@@ -20,6 +22,7 @@ namespace ProtoScript.Dialogs
 		private readonly Project m_project;
 		private readonly BlockNavigatorViewModel m_navigatorViewModel;
 		private string m_xOfYFmt;
+		private string m_versesWithMissingExpectedQuotesFilterItem;
 
 		internal QuotationMarksDialog(Project project, BlockNavigatorViewModel navigatorViewModel, bool readOnly)
 		{
@@ -63,6 +66,13 @@ namespace ProtoScript.Dialogs
 
 		private void HandleStringsLocalized()
 		{
+			if (m_navigatorViewModel.Mode != BlocksToDisplay.MissingExpectedQuote &&
+				((m_project.QuoteSystemStatus & QuoteSystemStatus.NotParseReady) > 0 || m_project.QuoteSystemStatus == QuoteSystemStatus.Guessed))
+			{
+				m_versesWithMissingExpectedQuotesFilterItem = m_toolStripComboBoxFilter.Items[1].ToString();
+				m_toolStripComboBoxFilter.Items.RemoveAt(1);
+			}
+
 			SetPromptText();
 			SetupQuoteMarksComboBoxes(CurrentQuoteSystem);
 			m_xOfYFmt = m_labelXofY.Text;
@@ -237,7 +247,6 @@ namespace ProtoScript.Dialogs
 			if (!ValidateQuoteSystem(currentQuoteSystem, out validationMessage))
 			{
 				MessageBox.Show(validationMessage, LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.QuoteSystemInvalid", "Quote System Invalid"));
-				DialogResult = DialogResult.None;
 				return;
 			}
 			if (m_project.Books.SelectMany(b => b.Blocks).Any(bl => bl.UserConfirmed) && m_project.IsQuoteSystemReadyForParse && m_project.QuoteSystem != null && m_project.QuoteSystem != currentQuoteSystem)
@@ -249,13 +258,73 @@ namespace ProtoScript.Dialogs
 				if (MessageBox.Show(msg, title, MessageBoxButtons.YesNo) != DialogResult.Yes)
 				{
 					SetupQuoteMarksComboBoxes(m_project.QuoteSystem);
-					DialogResult = DialogResult.None;
 					return;
 				}
 			}
 			m_project.QuoteSystemStatus = m_project.QuoteSystemStatus == QuoteSystemStatus.UserSet || m_project.QuoteSystem != currentQuoteSystem ? 
 				QuoteSystemStatus.UserSet : QuoteSystemStatus.Reviewed;
+
+			if (m_project.QuoteSystem == currentQuoteSystem)
+			{
+				HandleAnalysisCompleted(this, null);
+				return;
+			}
+
+			m_project.AnalysisCompleted += HandleAnalysisCompleted;
 			m_project.QuoteSystem = currentQuoteSystem;
+		}
+
+		private void HandleAnalysisCompleted(object sender, EventArgs e)
+		{
+			int totalExpectedQuotesInIncludedChapters = 0;
+			int totalVersesWithExpectedQuotes = 0;
+
+			var expectedQuotes = ControlCharacterVerseData.Singleton.ExpectedQuotes;
+			foreach (var book in expectedQuotes.Keys)
+			{
+				var bookScript = m_project.Books.FirstOrDefault(b => BCVRef.BookToNumber(b.BookId) == book);
+				if (bookScript == null)
+					continue;
+				foreach (var chapter in expectedQuotes[book])
+				{
+					bool chapterCounted = false;
+					foreach (var verseWithExpectedQuote in chapter.Value)
+					{
+						var blocks = bookScript.GetBlocksForVerse(chapter.Key, verseWithExpectedQuote).ToList();
+						if (!chapterCounted && blocks.Any())
+						{
+							totalExpectedQuotesInIncludedChapters += chapter.Value.Count;
+							chapterCounted = true;
+						}
+						if (blocks.Any(b => b.IsQuote))
+							totalVersesWithExpectedQuotes++;
+					}
+				}
+			}
+
+			double percentageOfExpectedQuotesFound = (double)totalVersesWithExpectedQuotes / totalExpectedQuotesInIncludedChapters;
+
+			if (percentageOfExpectedQuotesFound < .95)
+			{
+				var msg = LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.PossibleQuoteSystemProblem",
+					"Only {0}% of verses with expected quotes were found to have quotes. Usually this means the quote mark " +
+					"settings are incorrect or many instances of direct speech in the text are not indicated using quotation marks. " +
+					"Would you like to review the verses where quotes were expected but not found?");
+				if (MessageBox.Show(msg, Text, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+				{
+					if (m_versesWithMissingExpectedQuotesFilterItem != null)
+					{
+						Debug.Assert(m_toolStripComboBoxFilter.Items.Count == 2);
+						m_toolStripComboBoxFilter.Items.Insert(1, m_versesWithMissingExpectedQuotesFilterItem);
+					}
+					m_toolStripComboBoxFilter.SelectedIndex = 1;
+					return;
+				}
+
+			}
+
+			DialogResult = DialogResult.OK;
+			Close();
 		}
 
 		public QuoteSystem CurrentQuoteSystem
@@ -335,6 +404,11 @@ namespace ProtoScript.Dialogs
 			switch (m_toolStripComboBoxFilter.SelectedIndex)
 			{
 				case 0: mode = BlocksToDisplay.AllExpectedQuotes; break;
+				case 1:
+					mode = m_toolStripComboBoxFilter.Items.Count > 2 ?
+						BlocksToDisplay.MissingExpectedQuote :
+						BlocksToDisplay.AllScripture;
+					break;
 				default: mode = BlocksToDisplay.AllScripture; break;
 			}
 
@@ -346,11 +420,9 @@ namespace ProtoScript.Dialogs
 			}
 			else
 			{
-				m_blocksViewer.Clear();
 				m_labelXofY.Visible = false;
-				
-				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.NoMatches", "Nothing matches your current filter.");
-				MessageBox.Show(this, msg, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				UpdateNavigationButtonState();
+				m_blocksViewer.ShowNothingMatchesFilterMessage();
 			}
 		}
 
@@ -359,10 +431,15 @@ namespace ProtoScript.Dialogs
 			var mode = m_navigatorViewModel.Mode;
 			if ((mode & BlocksToDisplay.AllExpectedQuotes) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 0;
-			else if ((mode & BlocksToDisplay.AllScripture) != 0)
+			else if ((mode & BlocksToDisplay.MissingExpectedQuote) != 0)
+			{
+				Debug.Assert(m_toolStripComboBoxFilter.Items.Count > 2);
 				m_toolStripComboBoxFilter.SelectedIndex = 1;
+			}
+			else if ((mode & BlocksToDisplay.AllScripture) != 0)
+				m_toolStripComboBoxFilter.SelectedIndex = m_toolStripComboBoxFilter.Items.Count - 1;
 			else
-				throw new InvalidEnumArgumentException("mode", (int)mode, typeof(BlocksToDisplay));
+				throw new InvalidEnumArgumentException("mode", (int) mode, typeof (BlocksToDisplay));
 		}
 
 		public void LoadBlock()

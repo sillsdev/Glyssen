@@ -111,7 +111,6 @@
 			// 
 			this.m_btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_btnOk.BackColor = System.Drawing.Color.Transparent;
-			this.m_btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_btnOk, L10NSharp.LocalizationPriority.High);
@@ -375,6 +374,7 @@
 			this.m_toolStripComboBoxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.m_toolStripComboBoxFilter.Items.AddRange(new object[] {
             "Verses with expected quotes",
+            "Verses with missing expected quotes",
             "All Scripture"});
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripComboBoxFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripComboBoxFilter, null);

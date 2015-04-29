@@ -127,6 +127,26 @@ namespace ProtoScript
 			return bldr.ToString();
 		}
 
+		public IEnumerable<Block> GetBlocksForVerse(int chapter, int verse)
+		{
+			if (BookId == "LUK" && chapter == 1 && verse == 75)
+				Debug.WriteLine("Here");
+			var iFirstBlockToExamine = GetIndexOfFirstBlockForVerse(chapter, verse);
+			if (iFirstBlockToExamine >= 0)
+			{
+				for (int index = iFirstBlockToExamine; index < m_blockCount; index++)
+				{
+					var block = m_blocks[index];
+					if (block.ChapterNumber != chapter)
+						break;
+					if (block.BlockElements.OfType<Verse>().Any(v => verse >= v.StartVerse && verse <= v.EndVerse))
+						yield return block;
+					else
+						break;
+				}
+			}
+		}
+
 		public Block GetFirstBlockForVerse(int chapter, int verse)
 		{
 			var iFirstBlockToExamine = GetIndexOfFirstBlockForVerse(chapter, verse);
@@ -177,7 +197,7 @@ namespace ProtoScript
 					m_chapterStartBlockIndices[chapter] = index;
 					chapterStartFound = true;
 				}
-				if (block.InitialStartVerseNumber < verse)
+				if (block.InitialStartVerseNumber < verse && block.InitialEndVerseNumber < verse)
 					continue;
 				iFirstBlockToExamine = index;
 				if (block.InitialStartVerseNumber > verse || !(block.BlockElements.First() is Verse))

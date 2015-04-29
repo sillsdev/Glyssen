@@ -5,7 +5,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
 using L10NSharp;
@@ -54,6 +53,10 @@ namespace ProtoScript
 		private WritingSystemDefinition m_wsDefinition;
 		private IWritingSystemRepository m_wsRepository;
 
+		public event EventHandler<ProgressChangedEventArgs> ProgressChanged;
+		public event EventHandler<ProjectStateChangedEventArgs> ProjectStateChanged;
+		public event EventHandler AnalysisCompleted;
+
 		public Project(DblMetadata metadata, string recordingProjectName = null)
 		{
 			m_metadata = metadata;
@@ -92,9 +95,6 @@ namespace ProtoScript
 			File.WriteAllText(VersificationFilePath, Resources.EnglishVersification);
 			m_vers = LoadVersification(VersificationFilePath);
 		}
-
-		public event EventHandler<ProgressChangedEventArgs> ProgressChanged;
-		public event EventHandler<ProjectStateChangedEventArgs> ProjectStateChanged;
 
 		public static string ProjectsBaseFolder
 		{
@@ -292,7 +292,8 @@ namespace ProtoScript
 				if (m_projectState == value)
 					return;
 				m_projectState = value;
-				OnStateChanged(new ProjectStateChangedEventArgs { ProjectState = m_projectState });
+				if (ProjectStateChanged != null)
+					ProjectStateChanged(this, new ProjectStateChangedEventArgs { ProjectState = m_projectState });
 			}
 		}
 
@@ -653,6 +654,8 @@ namespace ProtoScript
 		public void Analyze()
 		{
 			ProjectAnalysis.AnalyzeQuoteParse();
+			if (AnalysisCompleted != null)
+				AnalysisCompleted(this, new EventArgs());
 		}
 
 		public void Save()
@@ -820,20 +823,8 @@ namespace ProtoScript
 
 		private void OnReport(ProgressChangedEventArgs e)
 		{
-			EventHandler<ProgressChangedEventArgs> handler = ProgressChanged;
-			if (handler != null)
-			{
-				handler(this, e);
-			}
-		}
-
-		private void OnStateChanged(ProjectStateChangedEventArgs e)
-		{
-			EventHandler<ProjectStateChangedEventArgs> handler = ProjectStateChanged;
-			if (handler != null)
-			{
-				handler(this, e);
-			}
+			if (ProgressChanged != null)
+				ProgressChanged(this, e);
 		}
 
 		private bool IsSampleProject

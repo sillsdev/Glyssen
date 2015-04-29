@@ -443,6 +443,13 @@ namespace ProtoScript.Dialogs
 			m_pnlShortcuts.Height = m_listBoxCharacters.ItemHeight * 5;
 		}
 
+		protected override void OnShown(EventArgs e)
+		{
+			base.OnShown(e);
+			if (m_viewModel.RelevantBlockCount == 0)
+				m_blocksViewer.ShowNothingMatchesFilterMessage();
+		}
+
 		private void AssignCharacterDialog_Shown(object sender, EventArgs e)
 		{
 			m_formLoading = false;
@@ -622,13 +629,9 @@ namespace ProtoScript.Dialogs
 			}
 			else
 			{
-				m_blocksViewer.Clear();
 				m_labelXofY.Visible = false;
-				m_listBoxCharacters.Items.Clear();
-				m_listBoxDeliveries.Items.Clear();
-
-				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.NoMatches", "Nothing matches your current filter.");
-				MessageBox.Show(this, msg, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				UpdateNavigationButtonState();
+				m_blocksViewer.ShowNothingMatchesFilterMessage();
 			}
 
 			UpdateProgressBarForMode();

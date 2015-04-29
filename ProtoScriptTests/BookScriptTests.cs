@@ -14,6 +14,7 @@ namespace ProtoScriptTests
 	{
 		private int m_curSetupChapter = 1;
 		private int m_curSetupVerse;
+		private int m_curSetupVerseEnd = 0;
 		private string m_curStyleTag;
 
 		#region GetVerseText Tests
@@ -241,6 +242,40 @@ namespace ProtoScriptTests
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var firstBlockForVerse1_3 = bookScript.GetFirstBlockForVerse(1, 3);
 			Assert.IsTrue(firstBlockForVerse1_3.GetText(true).EndsWith("[3]\u00A0This is it!"));
+		}
+		#endregion
+
+		#region GetBlocksForVerse Tests
+		[Test]
+		public void GetBlocksForVerse_SecondVerseInBridge_ReturnsBlockWithVerse()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			mrkBlocks.Add(NewSingleVersePara(73));
+			Block expected;
+			mrkBlocks.Add(expected = NewVerseBridgePara(74, 75));
+			mrkBlocks.Add(NewSingleVersePara(76));
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var list = bookScript.GetBlocksForVerse(1, 75).ToList();
+			Assert.AreEqual(1, list.Count);
+			Assert.AreEqual(expected, list[0]);
+		}
+
+		[Test]
+		public void GetBlocksForVerse_SecondVerseInBridgeWithFollowingParasForSameVerseBridge_ReturnsBlockWithVerse()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			mrkBlocks.Add(NewSingleVersePara(73));
+			Block expected;
+			mrkBlocks.Add(expected = NewVerseBridgePara(74, 75));
+			mrkBlocks.Add(NewPara("q1", "more"));
+			mrkBlocks.Add(NewPara("q2", "even more"));
+			mrkBlocks.Add(NewSingleVersePara(76));
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var list = bookScript.GetBlocksForVerse(1, 75).ToList();
+			Assert.AreEqual(1, list.Count);
+			Assert.AreEqual(expected, list[0]);
 		}
 		#endregion
 
@@ -776,9 +811,21 @@ namespace ProtoScriptTests
 		private Block NewSingleVersePara(int verseNum, string text = null)
 		{
 			m_curSetupVerse = verseNum;
+			m_curSetupVerseEnd = 0;
 			var block = new Block("p", m_curSetupChapter, verseNum).AddVerse(verseNum, text);
 			block.IsParagraphStart = true;
 			m_curStyleTag = "p";
+			return block;
+		}
+
+		private Block NewVerseBridgePara(int verseNumStart, int verseNumEnd, string text = null)
+		{
+			var block = new Block("p", m_curSetupChapter, verseNumStart, verseNumEnd).AddVerse(
+				string.Format("{0}-{1}", verseNumStart, verseNumEnd), text);
+			block.IsParagraphStart = true;
+			m_curStyleTag = "p";
+			m_curSetupVerse = verseNumStart;
+			m_curSetupVerseEnd = verseNumEnd;
 			return block;
 		}
 
@@ -793,7 +840,7 @@ namespace ProtoScriptTests
 		private Block NewBlock(string text)
 		{
 			Debug.Assert(m_curStyleTag != null);
-			var block = new Block(m_curStyleTag, m_curSetupChapter, m_curSetupVerse);
+			var block = new Block(m_curStyleTag, m_curSetupChapter, m_curSetupVerse, m_curSetupVerseEnd);
 			block.BlockElements.Add(new ScriptText(text));
 			return block;
 		}

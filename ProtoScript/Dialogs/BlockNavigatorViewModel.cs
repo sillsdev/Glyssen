@@ -170,6 +170,8 @@ namespace ProtoScript.Dialogs
 
 				m_mode = value;
 
+				var selectedBlock = m_navigator.CurrentBlock;
+
 				PopulateRelevantBlocks();
 
 				if (IsRelevant(m_navigator.CurrentBlock))
@@ -196,9 +198,14 @@ namespace ProtoScript.Dialogs
 						}
 						LoadNextRelevantBlock();
 					}
+					else if (selectedBlock != null)
+					{
+						m_temporarilyIncludedBlock = m_navigator.GetIndicesOfSpecificBlock(selectedBlock);
+						m_navigator.SetIndices(m_temporarilyIncludedBlock);
+					}
 					else
 					{
-						m_temporarilyIncludedBlock = m_navigator.GetIndices();
+						m_temporarilyIncludedBlock =  m_navigator.GetIndices();
 					}
 				}
 			}

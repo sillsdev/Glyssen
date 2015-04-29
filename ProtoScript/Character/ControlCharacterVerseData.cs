@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using ProtoScript.Properties;
 using SIL.ScriptureUtils;
+using Spart.Actions;
 
 namespace ProtoScript.Character
 {
 	public class ControlCharacterVerseData : CharacterVerseData
 	{
 		private static ControlCharacterVerseData s_singleton;
+		private Dictionary<int, Dictionary<int, HashSet<int>>> m_expectedQuotes;
 
 		internal static string TabDelimitedCharacterVerseData { get; set; }
 
@@ -23,6 +26,16 @@ namespace ProtoScript.Character
 		public static ControlCharacterVerseData Singleton
 		{
 			get { return s_singleton ?? (s_singleton = new ControlCharacterVerseData()); }
+		}
+
+		public Dictionary<int, Dictionary<int, HashSet<int>>> ExpectedQuotes
+		{
+			get
+			{
+				if (m_expectedQuotes == null)
+					InitializeExpectedQuotes();
+				return m_expectedQuotes;
+			}
 		}
 
 		public int ControlFileVersion { get; private set; }
@@ -82,6 +95,24 @@ namespace ProtoScript.Character
 			return new CharacterVerse(bcvRef, items[3], items[4], items[5], false, quoteType,
 				(items.Length > kiDefaultCharacter) ? items[kiDefaultCharacter] : null,
 				(items.Length > kiParallelPassageInfo) ? items[kiParallelPassageInfo] : null);
+		}
+
+		private void InitializeExpectedQuotes()
+		{
+			m_expectedQuotes = new Dictionary<int, Dictionary<int, HashSet<int>>>(66);
+
+			foreach (var expectedQuote in Singleton.GetAllQuoteInfo().Where(c => c.IsExpected))
+			{
+				Dictionary<int, HashSet<int>> expectedQuotesInBook;
+				if (!m_expectedQuotes.TryGetValue(expectedQuote.Book, out expectedQuotesInBook))
+					m_expectedQuotes.Add(expectedQuote.Book, expectedQuotesInBook = new Dictionary<int, HashSet<int>>());
+
+				HashSet<int> versesWithExpectedQuotesInChapter;
+				if (!expectedQuotesInBook.TryGetValue(expectedQuote.Chapter, out versesWithExpectedQuotesInChapter))
+					expectedQuotesInBook.Add(expectedQuote.Chapter, versesWithExpectedQuotesInChapter = new HashSet<int>());
+
+				versesWithExpectedQuotesInChapter.Add(expectedQuote.Verse);
+			}
 		}
 	}
 }

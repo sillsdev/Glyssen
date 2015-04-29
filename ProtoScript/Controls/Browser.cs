@@ -55,7 +55,10 @@ namespace ProtoScript.Controls
 
 		public void ScrollElementIntoView(string elementId, int adjustment = 0)
 		{
-			var div = new GeckoDivElement(m_geckoBrowser.Document.GetElementById(elementId).DomObject);
+			var element = m_geckoBrowser.Document.GetElementById(elementId);
+			if (element == null)
+				return;
+			var div = new GeckoDivElement(element.DomObject);
 			div.ScrollIntoView(true);
 			div.Parent.ScrollTop += adjustment;
 		}
