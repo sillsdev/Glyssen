@@ -18,6 +18,7 @@ using L10NSharp.UI;
 using Paratext;
 using ProtoScript.Character;
 using ProtoScript.Controls;
+using ProtoScript.Utilities;
 using SIL.ScriptureControls;
 using SIL.Windows.Forms.PortableSettingsProvider;
 using ScrVers = Paratext.ScrVers;
@@ -165,7 +166,7 @@ namespace ProtoScript.Dialogs
 			m_labelXofY.Text = string.Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
 			m_chkSingleVoice.Text = string.Format(m_singleVoiceCheckboxFmt, m_viewModel.CurrentBookId);
 
-			SendScrReference(m_viewModel.GetBlockVerseRef());
+			m_viewModel.GetBlockVerseRef().SendScrReference();
 
 			HideCharacterFilter();
 			m_btnAssign.Enabled = false;
@@ -374,20 +375,6 @@ namespace ProtoScript.Dialogs
 				Focus();
 			}
 			return result;
-		}
-
-		/// <summary>
-		/// Sends a "Santa Fe" focus message which can be used by other applications (such as Paratext)
-		/// to navigate to the same Scripture reference
-		/// </summary>
-		/// <param name="currRef"></param>
-		private void SendScrReference(VerseRef currRef)
-		{
-			if (currRef != null && currRef.Valid)
-			{
-				currRef.ChangeVersification(ScrVers.English);
-				SantaFeFocusMessageHandler.SendFocusMessage(currRef.ToString());
-			}
 		}
 
 		private void ShowCharactersInBook()

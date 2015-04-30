@@ -129,8 +129,6 @@ namespace ProtoScript
 
 		public IEnumerable<Block> GetBlocksForVerse(int chapter, int verse)
 		{
-			if (BookId == "LUK" && chapter == 1 && verse == 75)
-				Debug.WriteLine("Here");
 			var iFirstBlockToExamine = GetIndexOfFirstBlockForVerse(chapter, verse);
 			if (iFirstBlockToExamine >= 0)
 			{

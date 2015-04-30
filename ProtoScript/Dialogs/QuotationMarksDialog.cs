@@ -11,6 +11,7 @@ using ProtoScript.Bundle;
 using ProtoScript.Character;
 using ProtoScript.Controls;
 using ProtoScript.Quote;
+using ProtoScript.Utilities;
 using SIL.ObjectModel;
 using SIL.ScriptureUtils;
 using SIL.WritingSystems;
@@ -302,14 +303,14 @@ namespace ProtoScript.Dialogs
 				}
 			}
 
-			double percentageOfExpectedQuotesFound = (double)totalVersesWithExpectedQuotes / totalExpectedQuotesInIncludedChapters;
+			double percentageOfExpectedQuotesFound = totalVersesWithExpectedQuotes * 100.0 / totalExpectedQuotesInIncludedChapters;
 
-			if (percentageOfExpectedQuotesFound < .95)
+			if (percentageOfExpectedQuotesFound < 95)
 			{
-				var msg = LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.PossibleQuoteSystemProblem",
-					"Only {0}% of verses with expected quotes were found to have quotes. Usually this means the quote mark " +
+				var msg = String.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.PossibleQuoteSystemProblem",
+					"Only {0:F1}% of verses with expected quotes were found to have quotes. Usually this means the quote mark " +
 					"settings are incorrect or many instances of direct speech in the text are not indicated using quotation marks. " +
-					"Would you like to review the verses where quotes were expected but not found?");
+					"Would you like to review the verses where quotes were expected but not found?"), percentageOfExpectedQuotesFound);
 				if (MessageBox.Show(msg, Text, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
 				{
 					if (m_versesWithMissingExpectedQuotesFilterItem != null)
@@ -458,6 +459,8 @@ namespace ProtoScript.Dialogs
 			m_labelXofY.Visible = m_navigatorViewModel.IsCurrentBlockRelevant;
 			Debug.Assert(m_navigatorViewModel.RelevantBlockCount >= m_navigatorViewModel.CurrentBlockDisplayIndex);
 			m_labelXofY.Text = string.Format(m_xOfYFmt, m_navigatorViewModel.CurrentBlockDisplayIndex, m_navigatorViewModel.RelevantBlockCount);
+
+			m_navigatorViewModel.GetBlockVerseRef().SendScrReference();
 		}
 
 		private void UpdateNavigationButtonState()
