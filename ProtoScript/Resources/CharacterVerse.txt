@@ -1,4 +1,4 @@
-Control File Version	67
+Control File Version	68
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -10810,6 +10810,7 @@ MAT	17	19	disciples	upset		Dialogue
 MAT	17	20	Jesus			Dialogue		
 MAT	17	21	Jesus			Dialogue		
 MAT	17	22	Jesus			Normal		
+MAT	17	23	Jesus			Normal		
 MAT	17	24	collectors of temple tax	demanding		Dialogue		
 MAT	17	25	Jesus	questioning		Dialogue		
 MAT	17	25	Peter (Simon)			Dialogue		
@@ -10893,6 +10894,7 @@ MAT	20	14	Jesus			Normal
 MAT	20	15	Jesus			Normal		
 MAT	20	16	Jesus			Normal		
 MAT	20	18	Jesus			Normal		
+MAT	20	19	Jesus			Normal		
 MAT	20	20	mother of James/John (sons of Zebedee)			Indirect		
 MAT	20	21	Jesus			Dialogue		
 MAT	20	21	mother of James/John (sons of Zebedee)			Dialogue		
@@ -11643,6 +11645,7 @@ MRK	13	32	Jesus			Normal
 MRK	13	33	Jesus			Normal		
 MRK	13	34	Jesus			Normal		
 MRK	13	35	Jesus			Normal		
+MRK	13	36	Jesus			Normal		
 MRK	13	37	Jesus			Normal		
 MRK	14	2	chief priests/teachers of religious law/elders		chief priests/teachers of the law	Normal		MAT 26.5;MRK 14.2
 # Judas Iscariot was the main spokesman, if the accounts in Matthew 26 and Mark 14 are held to be the same as the one in John 12.								
@@ -11715,6 +11718,7 @@ MRK	15	22	narrator-MRK			Quotation
 MRK	15	26	sign on the cross			Quotation		
 MRK	15	28	scripture			Quotation		
 MRK	15	29	passers by	insulting		Dialogue		
+MRK	15	30	passers by	insulting		Normal		
 MRK	15	31	chief priests/teachers of religious law/elders	sneering	chief priests/teachers of the law 	Dialogue		MAT 27.42;MRK 15.31-32;LUK 23.35
 MRK	15	32	chief priests/teachers of religious law/elders	sneering	chief priests/teachers of the law	Normal		MAT 27.42;MRK 15.31-32;LUK 23.35
 MRK	15	34	Jesus			Normal		
@@ -12083,6 +12087,7 @@ LUK	10	37	expert in religious law			Dialogue	Good Priest
 LUK	10	37	Jesus			Dialogue		
 LUK	10	40	Martha			Dialogue		
 LUK	10	41	Jesus	compassionately		Dialogue		
+LUK	10	42	Jesus	compassionately		Normal		
 LUK	11	1	disciples		disciples, one of His	Dialogue		
 LUK	11	2	Jesus	instructing		Dialogue		
 LUK	11	3	Jesus	instructing		Normal		
@@ -12377,6 +12382,7 @@ LUK	18	26	disciples	shocked	those who heard	Dialogue		MAT 19.25;MRK 10.26;LUK 18
 LUK	18	27	Jesus			Dialogue		
 LUK	18	28	Peter (Simon)	perplexed		Dialogue		
 LUK	18	29	Jesus			Dialogue		
+LUK	18	30	Jesus			Normal		
 LUK	18	31	Jesus			Normal		
 LUK	18	32	Jesus			Normal		
 LUK	18	33	Jesus			Normal		
@@ -12395,6 +12401,7 @@ LUK	19	5	Jesus	giving orders		Dialogue
 LUK	19	7	people, all the	muttering		Normal		
 LUK	19	8	Zaccheaus			Dialogue		
 LUK	19	9	Jesus			Dialogue		
+LUK	19	10	Jesus			Normal		
 LUK	19	12	Jesus			Normal		
 LUK	19	13	Jesus			Normal		
 LUK	19	14	Jesus			Normal		
@@ -12708,6 +12715,7 @@ JHN	4	15	woman, Samaritan			Dialogue
 JHN	4	16	Jesus			Dialogue		
 JHN	4	17	Jesus			Dialogue		
 JHN	4	17	woman, Samaritan			Dialogue		
+JHN	4	18	Jesus			Normal		
 JHN	4	19	woman, Samaritan			Dialogue		
 JHN	4	20	woman, Samaritan			Normal		
 JHN	4	21	Jesus			Dialogue		
@@ -12757,6 +12765,7 @@ JHN	5	25	Jesus			Normal
 JHN	5	26	Jesus			Normal		
 JHN	5	27	Jesus			Normal		
 JHN	5	28	Jesus			Normal		
+JHN	5	29	Jesus			Normal		
 JHN	5	30	Jesus			Normal		
 JHN	5	31	Jesus			Normal		
 JHN	5	32	Jesus			Normal		
@@ -13007,6 +13016,7 @@ JHN	11	11	Jesus			Dialogue
 JHN	11	12	disciples	sad		Dialogue		
 JHN	11	13	Jesus			Indirect		
 JHN	11	14	Jesus			Dialogue		
+JHN	11	15	Jesus			Normal		
 JHN	11	16	Thomas	resigned		Dialogue		
 JHN	11	17	person who told Jesus how long Lazuras had been dead			Indirect		
 JHN	11	21	Martha			Dialogue		
@@ -13033,6 +13043,7 @@ JHN	11	44	Jesus	giving orders		Dialogue
 JHN	11	47	Sanhedrin/chief priests/Pharisees			Dialogue		
 JHN	11	48	Sanhedrin/chief priests/Pharisees			Dialogue		
 JHN	11	49	Caiaphas	indignant	Caiaphas, high priest	Dialogue		
+JHN	11	50	Caiaphas	indignant	Caiaphas, high priest	Normal		
 JHN	11	51	Caiaphas		Caiaphas, high priest	Indirect		
 JHN	11	56	Jews			Normal		
 JHN	12	5	Judas Iscariot	rebuking		Dialogue		MAT 26.8-9;MRK 14.4-5;JHN 12.5
@@ -13557,6 +13568,7 @@ ACT	10	17	Peter (Simon)			Indirect
 ACT	10	17	men from Cornelius			Indirect		
 ACT	10	18	men from Cornelius			Indirect		
 ACT	10	19	Holy Spirit, the		Spirit, the	Normal		
+ACT	10	20	Holy Spirit, the		Spirit, the	Normal		
 ACT	10	21	Peter (Simon)			Dialogue		
 ACT	10	22	men from Cornelius	respectful		Dialogue		
 ACT	10	23	Peter (Simon)			Indirect		
@@ -13655,6 +13667,7 @@ ACT	15	7	Peter (Simon)			Dialogue
 ACT	15	8	Peter (Simon)			Normal		
 ACT	15	9	Peter (Simon)			Normal		
 ACT	15	10	Peter (Simon)			Normal		
+ACT	15	11	Peter (Simon)			Normal		
 ACT	15	13	James			Normal		
 ACT	15	14	James			Normal		
 ACT	15	15	James			Normal		
@@ -14110,7 +14123,12 @@ ROM	16	22	Tertius			Indirect
 GAL	1	23	report concerning Paul			Normal		
 GAL	2	14	Paul			Normal		
 GAL	2	15	Paul			Normal		
+GAL	2	16	Paul			Normal		
 GAL	2	17	Paul			Normal		
+GAL	2	18	Paul			Normal		
+GAL	2	19	Paul			Normal		
+GAL	2	20	Paul			Normal		
+GAL	2	21	Paul			Normal		
 GAL	3	6	scripture			Quotation		
 GAL	3	8	scripture			Quotation		
 GAL	3	10	scripture			Quotation		
@@ -14361,6 +14379,7 @@ REV	9	11	narrator-REV			Quotation
 REV	9	14	voice from altar			Normal		
 REV	10	4	God		voice from heaven (God)	Normal		
 REV	10	6	angel standing on sea and land			Normal		
+REV	10	7	angel standing on sea and land			Normal		
 REV	10	8	God		voice from heaven (God)	Normal		
 REV	10	9	angel standing on sea and land			Normal		
 REV	10	11	angel standing on sea and land			Normal		
@@ -14427,8 +14446,11 @@ REV	18	10	kings of the earth			Normal
 REV	18	10	voice from heaven, another			Normal		
 REV	18	11	voice from heaven, another			Normal		
 REV	18	12	voice from heaven, another			Normal		
+REV	18	13	voice from heaven, another			Normal		
 REV	18	14	merchants of the earth			Normal		
 REV	18	14	voice from heaven, another			Normal		
+REV	18	15	voice from heaven, another			Normal		
+REV	18	15	merchants of the earth			Normal		
 REV	18	16	merchants of the earth	wailing		Normal		
 REV	18	16	voice from heaven, another	wailing		Normal		
 REV	18	17	merchants of the earth	wailing		Normal		
