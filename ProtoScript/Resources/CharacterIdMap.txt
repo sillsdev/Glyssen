@@ -1065,6 +1065,7 @@ weakling	988	FALSE
 what is formed	989	FALSE			
 whoever has doubts		FALSE			
 wicked men of Gibeah	990	TRUE			
+wicked, the		TRUE			
 widow (from company of prophets)	991	FALSE	Female		
 widow at Zarephath	992	FALSE	Female		
 wise men of Pharaoh	993	TRUE	Male		
