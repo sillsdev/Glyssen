@@ -8,7 +8,7 @@ Abimelech, King of the Philistines (in Gerar)		FALSE	Male
 Abimelech, son of Gideon		FALSE	Male		
 Abishai, Joab's brother	5	FALSE	Male		
 Abner	6	FALSE	Male		
-Abraham	7	FALSE	Male		
+Abraham (Abram)	7	FALSE	Male		
 Abraham's chief servant	8	FALSE	Male		
 Absalom	10	FALSE	Male		
 Absalom/Israel, men of		TRUE	Male		
@@ -49,6 +49,7 @@ angel flying directly overhead	472	FALSE
 angel flying directly overhead, second	1473	FALSE			
 angel flying directly overhead, third	474	FALSE			
 angel of the LORD, an	1471	FALSE	Male		
+angel of the LORD, the		FALSE	Male		Default speaker should be Jesus
 angel or messenger (Greek variant: someone speaking to John)	953	FALSE			
 angel over waters	2909	FALSE			
 angel standing in sun	476	FALSE			
@@ -107,6 +108,7 @@ Bartimaeus	1014	FALSE	Male
 Baruch	63	FALSE	Male		
 Barzillai	1063	FALSE	Male		
 Bathsheba	64	FALSE	Female		
+beast, the		FALSE			
 believers who were Pharisees	500	TRUE	Male		
 believers, circumcised (in Jerusalem)	502	TRUE	Male		
 believers, one hundred twenty	503	TRUE			
@@ -161,8 +163,8 @@ chief priests/officers of temple guard	530	TRUE	Male
 chief priests/Pharisees	525	TRUE	Male		
 chief priests/rulers/the people	531	TRUE	Male		
 chief priests/Sanhedrin	526	TRUE	Male		
-chief priests/teachers of the law		TRUE	Male		
-chief priests/teachers of the law/elders	533	TRUE	Male		
+chief priests/teachers of religious law		TRUE	Male		
+chief priests/teachers of religious law/elders	533	TRUE	Male		
 children	1530	TRUE		child	
 children of Zion (Jerusalem)	1531	TRUE		child	
 citizens of Shechem	1532	TRUE			
@@ -172,6 +174,7 @@ Cleopas' companion (on road to Emmaus)	798	FALSE	Unknown
 Cleopas/companion (on road to Emmaus)		TRUE			
 collectors of temple tax	535	TRUE			
 commander	536	FALSE			
+commander of LORD's army		FALSE	Male		Default character should be Jesus
 company of the prophets	542	TRUE			
 company of the prophets (Bethel)	538	TRUE			
 company of the prophets (Jericho)	539	TRUE			
@@ -181,7 +184,7 @@ concubine's husband	543	FALSE	Male
 conquerors of beast, image & his name	544	TRUE			
 conquerors of Lo Debar		TRUE	Male		
 Cornelius	83	FALSE	Male		
-council of elders:chief priests/teachers of the law	545	TRUE	Male		
+council of elders:chief priests/teachers of religious law	545	TRUE	Male		
 craftsman	547	FALSE	Male		
 craftsmen/workmen	548	TRUE	Male		
 Cretan prophet	84	FALSE	Male		
@@ -278,7 +281,7 @@ evil men/troublemakers	590	TRUE
 evil spirit	591	FALSE			
 evil spirits	1591	TRUE			
 exiles	592	TRUE			
-expert in the law		FALSE	Male		
+expert in religious law		FALSE	Male		
 explorers, ten	1594	TRUE	Male		
 eye	601	FALSE			
 Ezekiel	138	FALSE	Male		
@@ -294,6 +297,7 @@ father of demon-possessed boy	606	FALSE	Male
 Felix	140	FALSE	Male		
 Festus	141	FALSE	Male		
 Field commander from King of Assyria	142	FALSE	Male		
+figure like that of a man (in vision of God)		FALSE	Male		Default character should be Jesus
 flatterers		TRUE			
 followers of Jesus	1607	TRUE			
 fool	608	FALSE			
@@ -340,6 +344,7 @@ Harbona, eunuch attending Xerxes, king	167	FALSE	Male
 harvesters	616	TRUE			
 Hazael of Aram	168	FALSE			
 head	617	FALSE			
+heads of all the families/priests/Levites		TRUE	Male		
 hearers	618	TRUE			
 herald	619	FALSE			
 herdsman	620	FALSE	Male		
@@ -352,7 +357,7 @@ Hezekiah, king of Judah	175	FALSE	Male
 high priest	622	FALSE	Male		
 high priest's servant (relative of the man whose ear Peter cut off)		FALSE	Male		
 high priest's servant/those standing near	623	TRUE	Male		
-high priests/men of their family/rulers, elders, teachers of the law		TRUE	Male		
+high priests/men of their family/rulers, elders, teachers of religious law		TRUE	Male		
 Hilkiah, high priest	176	FALSE	Male		
 him who hears	625	FALSE	Male		
 Hirah, the Adullamite	177	FALSE			
@@ -471,8 +476,8 @@ Johanan/all the army officers		TRUE	Male
 Johanan/all the army officers/all the people		TRUE	Male		
 John	1272	FALSE	Male		
 John the Baptist	1273	FALSE	Male		
-John's disciples	581	TRUE	Male		
-John's disciples/a certain Jew		TRUE	Male		
+disciples of John the Baptist	581	TRUE	Male		
+disciples of John the Baptist/a certain Jew		TRUE	Male		
 Jonadab	275	FALSE	Male		
 Jonah	276	FALSE	Male		
 Jonathan	277	FALSE	Male		
@@ -482,6 +487,7 @@ Joram, king of Israel	280	FALSE	Male
 Joseph	282	FALSE	Male		
 Joseph of Arimathea	281	FALSE	Male		
 Joseph, people of	284	FALSE			
+Joseph's brothers		TRUE	Male		Different from Jacob's sons because it cannot be Joseph
 Joshua	285	FALSE	Male		
 Joshua, old	286	FALSE	Male		
 Joshua/Caleb		TRUE	Male		
@@ -519,6 +525,7 @@ leaders	648	TRUE
 leaders in Ephraim (Azariah/Berekiah/Jehizkiah/Amasa)	647	TRUE	Male		
 Leah	309	FALSE	Female		
 leper	682	FALSE			
+leper (man)		FALSE	Male		
 leper, thankful Samaritan	681	FALSE			
 letter from apostles and elders	649	FALSE			
 Levi	235	FALSE	Male		
@@ -535,7 +542,7 @@ lover	318	FALSE	Male
 lover/beloved		TRUE	Both		
 Lydia	319	FALSE	Female		
 Macedonian	320	FALSE			
-magi	653	TRUE	Male		
+magi (wise men from East)	653	TRUE	Male		
 Magicians	321	TRUE			
 Magistrates, chief	322	TRUE	Male		
 maidens	654	TRUE	Female		
@@ -600,6 +607,7 @@ men of Pharaoh	708	TRUE	Male
 men of Sodom (wicked)	709	TRUE	Male		
 men of the city (Bethel)	710	TRUE	Male		
 men of the city (Jericho)	1710	TRUE	Male		
+men who have gone astray		TRUE	Male		
 men who were guarding	711	TRUE	Male		
 men with leprosy, four	712	TRUE	Male		
 men, large force of	713	TRUE	Male		
@@ -657,7 +665,7 @@ Moses/Eleazar		TRUE	Male
 Moses/Israelites		TRUE	Pref: Male		
 Moses/Priests		TRUE	Male		
 mother of cured man, blind from birth	806	FALSE	Female		
-mother of Zebedee's sons	745	FALSE	Female		
+mother of James/John (sons of Zebedee)	745	FALSE	Female		
 multitude from all nations, tribes, peoples, languages	746	TRUE			
 Naaman	1345	FALSE	Male		
 Naaman's servants	1346	TRUE	Male		
@@ -747,18 +755,19 @@ officials/people		TRUE
 old man of Gibeah	789	FALSE	Male		
 older daughter of Lot	790	FALSE	Female		
 one at table with him	791	FALSE			
-one of the experts in the law		FALSE	Male		
+one of the experts in religious law		FALSE	Male		
 one of you (follower of Paul)	1791	FALSE			
 one of you (hypothetical)	792	TRUE			
 one other who looked like a man	793	FALSE			
 one who brings good news		TRUE			
 one who looked like a man	795	FALSE			
+one with garments stained crimson (Christ?)		FALSE	Male		Default character should be Jesus
 onlookers	796	TRUE			
 Oppressors of poor	366	TRUE			
 Oppressors of poor (women)	365	TRUE			
 Orpah		FALSE	Female		
 Orpah/Ruth	367	TRUE	Female		
-other guests at Pharisee(Simon)'s house	799	TRUE			
+other guests at Pharisee (Simon)'s house	799	TRUE			
 others	802	TRUE			
 others (testing Jesus)	801	TRUE			
 owners of colt	803	TRUE			
@@ -815,12 +824,12 @@ Pharaoh (2nd)		FALSE	Male
 Pharaoh (3rd)		FALSE	Male		
 Pharaoh's daughter	379	FALSE	Female		
 Pharaoh's officials	380	TRUE	Male		
-Pharisee(expert in the law)		FALSE	Male		
-Pharisee(Simon)	373	FALSE	Male		
+Pharisee (expert in religious law)		FALSE	Male		
+Pharisee (Simon)	373	FALSE	Male		
 Pharisees	1377	TRUE	Male		
 Pharisees, other	374	TRUE	Male		
 Pharisees, some	2377	TRUE	Male		
-Pharisees/teachers of the law	378	TRUE	Male		
+Pharisees/teachers of religious law	378	TRUE	Male		
 Philip	381	FALSE	Male		
 Philistine commanders	382	TRUE	Male		
 Philistine priests and diviners	383	TRUE	Male		
@@ -828,7 +837,7 @@ Philistines	384	TRUE	Male
 Philistines, rulers of	385	TRUE	Male		
 Phineas	386	FALSE	Male		
 Phineas/leaders		TRUE	Male		
-pig herdsmen		TRUE	Male		
+herdsmen of pigs		TRUE	Male		
 Pilate	387	FALSE	Male		
 Pilate's wife	1388	FALSE	Female		
 pine trees/cedars of Lebanon	846	TRUE			
@@ -921,7 +930,6 @@ scoffers	886	TRUE
 scoundrels	887	TRUE			
 scouts of Ben-Hadad, king of Aram	888	TRUE	Male		
 scripture	890	FALSE			
-scripture (Moses quoting God)	889	FALSE			
 sea	892	FALSE			
 second person to accuse Peter (man)		FALSE	Male		
 Sennacherib, king of Assyria	421	FALSE	Male		
@@ -1012,9 +1020,9 @@ Tamar, daughter-in-law of Judah	443	FALSE	Female
 Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	444	TRUE	Male		
 tax collectors	943	TRUE	Male		
 teacher (Preacher)	945	FALSE	Male		
-teacher of the law	944	FALSE	Male		
-teachers of the law	593	TRUE	Male		
-teachers of the law/Pharisees	377	TRUE	Male		
+teacher of religious law	944	FALSE	Male		
+teachers of religious law	593	TRUE	Male		
+teachers of religious law/Pharisees	377	TRUE	Male		
 temple guards	949	TRUE	Male		
 temple police	950	TRUE	Male		
 ten men with leprosy	951	TRUE	Male		
@@ -1025,7 +1033,6 @@ Thomas/Nathaniel/James/John/2 disciples		TRUE	Male
 those hiding from the LORD	955	TRUE			
 those sitting with Festus, Herod Agrippa II and Bernice	956	TRUE			
 those standing near	957	TRUE			
-those who had seen the demon-possessed man cured		TRUE			
 those who seek God	958	TRUE			
 three men (two angels and the LORD)		TRUE	Male		
 Tobiah, enemy	448	FALSE	Male		
@@ -1067,6 +1074,7 @@ woman in Bahurim	1004	FALSE	Female
 woman in crowd	996	FALSE	Female		
 woman in famine	997	FALSE	Female		
 woman medium	998	FALSE	Female		
+woman who could not straighten up		FALSE	Female		
 woman, bleeding for twelve years	1001	FALSE	Female		
 woman, caught in adultery	1002	FALSE	Female		
 woman, Samaritan	999	FALSE	Female		

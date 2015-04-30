@@ -244,7 +244,9 @@ namespace ProtoScript.Character
 				throw new ApplicationException("Bad format in CharacterVerseDataBase! Line #: " + lineNumber + "; Line contents: " + string.Join("\t", items));
 			Debug.Assert(items.Length <= kMaxItems);
 
-			int chapter = Int32.Parse(items[1]);
+			int chapter;
+			if (!Int32.TryParse(items[1], out chapter))
+				Debug.Assert(false, string.Format("Invalid chapter number ({0}) on line {1}: {2}", items[1], lineNumber, items[0]));
 			for (int verse = ScrReference.VerseToIntStart(items[2]); verse <= ScrReference.VerseToIntEnd(items[2]); verse++)
 				list.Add(CreateCharacterVerse(new BCVRef(BCVRef.BookToNumber(items[0]), chapter, verse), items));
 
