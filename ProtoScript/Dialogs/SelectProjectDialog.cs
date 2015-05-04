@@ -2,7 +2,10 @@
 using System.IO;
 using System.Windows.Forms;
 using L10NSharp;
+using ProtoScript.Bundle;
 using ProtoScript.Properties;
+using SIL.DblBundle;
+using SIL.DblBundle.Text;
 
 namespace ProtoScript.Dialogs
 {
@@ -28,11 +31,11 @@ namespace ProtoScript.Dialogs
 				InitialDirectory = defaultDir,
 				Filter = string.Format("{0} ({1})|{1}|{2}{3} ({4})|{4}",
 					LocalizationManager.GetString("DialogBoxes.SelectProjectDialog.ResourceBundleFileTypeLabel", "Text Resource Bundle files"),
-					"*" + Bundle.Bundle.kResourceBundleExtension,
+					"*" + DblBundleFileUtils.kDblBundleExtension,
 					projectFiles,
 					LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"),
 					"*.*"),
-				DefaultExt = Bundle.Bundle.kResourceBundleExtension
+				DefaultExt = DblBundleFileUtils.kDblBundleExtension
 			};
 		}
 
@@ -64,11 +67,11 @@ namespace ProtoScript.Dialogs
 					string invalidMessage = LocalizationManager.GetString("File.InvalidBundleMsg", "The selected file is not a valid text bundle. Would you like to try again?");
 					string invalidCaption = LocalizationManager.GetString("File.InvalidBundleMsg", "Invalid Bundle");
 					string bundlePath = dlg.FileName;
-					if (Path.GetExtension(bundlePath) == Bundle.Bundle.kResourceBundleExtension)
+					if (Path.GetExtension(bundlePath) == DblBundleFileUtils.kDblBundleExtension)
 					{
 						try
 						{
-							var bundle = new Bundle.Bundle(bundlePath);
+							var bundle = new PgBundle(bundlePath);
 							if (bundle.Id != project.Id)
 							{
 								string message = LocalizationManager.GetString("File.WrongBundleMsg", "The ID of the selected text bundle does not match this project. Would you like to try again?");

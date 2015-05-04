@@ -2,7 +2,7 @@
 using System.Linq;
 using L10NSharp;
 using Paratext;
-using ProtoScript.Bundle;
+using SIL.DblBundle.Text;
 using SIL.ScriptureUtils;
 
 namespace ProtoScript

@@ -119,26 +119,26 @@ namespace ProtoScript.Controls
 				if (path != null)
 				{
 					Exception exception;
-					var metadata = DblMetadata.Load(path, out exception);
+					var metadata = PgDblTextMetadata.Load<PgDblTextMetadata>(path, out exception);
 					if (exception != null)
 						continue;
-					if (metadata.HiddenByDefault)
+					if (metadata.Inactive)
 					{
 						m_hiddenProjectsExist = true;
 						if (!IncludeHiddenProjects)
 							continue;
 					}
 
-					if ((m_filterIcuLocale != null && m_filterIcuLocale != metadata.language.iso) ||
-						(m_filterBundleId != null && m_filterBundleId != metadata.id))
+					if ((m_filterIcuLocale != null && m_filterIcuLocale != metadata.Language.Iso) ||
+						(m_filterBundleId != null && m_filterBundleId != metadata.Id))
 						continue;
 
 					int iRow = m_list.Rows.Add(new object[]
 					{
-						metadata.language,
+						metadata.Language,
 						Path.GetFileName(recordingProjectFolder),
 						Path.GetFileName(metadata.OriginalPathOfDblFile),
-						metadata.HiddenByDefault,
+						metadata.Inactive,
 						path
 					});
 

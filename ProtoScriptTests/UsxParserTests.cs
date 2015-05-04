@@ -2,18 +2,20 @@
 using System.Xml;
 using NUnit.Framework;
 using ProtoScript;
-using ProtoScript.Bundle;
 using ProtoScript.Character;
+using SIL.DblBundle;
+using SIL.DblBundle.Usx;
+using SIL.DblBundle.Tests.Usx;
 
 namespace ProtoScriptTests
 {
 	[TestFixture]
 	class UsxParserTests
 	{
-		const string usxFrameWithGlobalChapterLabel = UsxDocumentTests.usxFrameStart +
+		const string kUsxFrameWithGlobalChapterLabel = UsxDocumentTests.kUsxFrameStart +
 			"<para style=\"cl\">Global-Chapter</para>" +
-			UsxDocumentTests.usxChapter1AndContentPlaceholder +
-			UsxDocumentTests.usxFrameEnd;
+			UsxDocumentTests.kUsxChapter1AndContentPlaceholder +
+			UsxDocumentTests.kUsxFrameEnd;
 
 		[Test]
 		public void Parse_SingleNarratorParagraphWithVerseNumbers_GeneratesSingleNarratorBlock()
@@ -204,7 +206,7 @@ namespace ProtoScriptTests
 		[Test]
 		public void Parse_GlobalChapterLabel()
 		{
-			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"s1\">Lok ma Jon Labatija otito</para>", usxFrameWithGlobalChapterLabel);
+			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"s1\">Lok ma Jon Labatija otito</para>", kUsxFrameWithGlobalChapterLabel);
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
@@ -405,12 +407,12 @@ namespace ProtoScriptTests
 		public void Parse_TitleFollowedByChapter_TitleIsSimplified()
 		{
 			var doc = UsxDocumentTests.CreateDocFromString(
-				UsxDocumentTests.usxFrameStart +
+				UsxDocumentTests.kUsxFrameStart +
 				"<para style=\"h\">header</para>" +
 				"<para style=\"mt2\">The Gospel According to</para>" +
 				"<para style=\"mt1\">Mark</para>" +
 				"<chapter number=\"1\" style=\"c\" />" +
-				UsxDocumentTests.usxFrameEnd);
+				UsxDocumentTests.kUsxFrameEnd);
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
@@ -423,12 +425,12 @@ namespace ProtoScriptTests
 		public void Parse_TitleNotFollowedByChapter_TitleIsSimplified()
 		{
 			var doc = UsxDocumentTests.CreateDocFromString(
-				UsxDocumentTests.usxFrameStart +
+				UsxDocumentTests.kUsxFrameStart +
 				"<para style=\"h\">header</para>" +
 				"<para style=\"mt2\">The Gospel According to</para>" +
 				"<para style=\"mt1\">Mark</para>" +
 				"<para style=\"s1\">section</para>" +
-				UsxDocumentTests.usxFrameEnd);
+				UsxDocumentTests.kUsxFrameEnd);
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
@@ -441,13 +443,13 @@ namespace ProtoScriptTests
 		public void Parse_TwoChapters_TitleIsSimplified()
 		{
 			var doc = UsxDocumentTests.CreateDocFromString(
-				UsxDocumentTests.usxFrameStart +
+				UsxDocumentTests.kUsxFrameStart +
 				"<para style=\"h\">header</para>" +
 				"<para style=\"mt2\">The Gospel According to</para>" +
 				"<para style=\"mt1\">Mark</para>" +
 				"<chapter number=\"1\" style=\"c\" />" +
 				"<chapter number=\"2\" style=\"c\" />" +
-				UsxDocumentTests.usxFrameEnd);
+				UsxDocumentTests.kUsxFrameEnd);
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(3, blocks.Count);

@@ -1,18 +1,20 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using ProtoScript.Bundle;
+using SIL.DblBundle;
 
 namespace ProtoScript.Dialogs
 {
 	public partial class SelectExistingProjectDlg : Form
 	{
-		private readonly Bundle.Bundle m_bundle;
+		private readonly Bundle<PgDblTextMetadata, PgDblMetadataLanguage> m_bundle;
 
-		public SelectExistingProjectDlg(Bundle.Bundle bundle)
+		public SelectExistingProjectDlg(Bundle<PgDblTextMetadata, PgDblMetadataLanguage> bundle)
 		{
 			m_bundle = bundle;
 			InitializeComponent();
-			m_listExistingProjects.SetFilter(bundle.Language, bundle.Id);
+			m_listExistingProjects.SetFilter(bundle.LanguageIso, bundle.Id);
 		}
 
 		public string SelectedProject { get; private set; }
@@ -39,7 +41,7 @@ namespace ProtoScript.Dialogs
 				SelectedProject = defaultRecordingProjectName;
 			else
 			{
-				string fmt = Project.GetProjectFilePath(m_bundle.Language, m_bundle.Id, Project.GetDefaultRecordingProjectName(m_bundle) +
+				string fmt = Project.GetProjectFilePath(m_bundle.LanguageIso, m_bundle.Id, Project.GetDefaultRecordingProjectName(m_bundle) +
 					" ({0})");
 				int n = 1;
 				do
