@@ -561,7 +561,7 @@ namespace ProtoScript.Dialogs
 
 		private void AssignCharacterDialog_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			if (!m_pnlShortcuts.Visible || m_txtCharacterFilter.Focused || m_txtDeliveryFilter.Focused || m_scriptureReference.Focused )
+			if (!m_pnlShortcuts.Visible || m_txtCharacterFilter.Focused || m_txtDeliveryFilter.Focused || m_scriptureReference.VerseControl.ContainsFocus)
 				return;
 
 			int selectedIndexOneBased;
