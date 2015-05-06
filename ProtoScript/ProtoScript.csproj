@@ -62,10 +62,6 @@
     <Reference Include="Geckofx-Winforms">
       <HintPath>..\lib\dotnet\Geckofx-Winforms.dll</HintPath>
     </Reference>
-    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\dotnet\Ionic.Zip.dll</HintPath>
-    </Reference>
     <Reference Include="L10NSharp">
       <HintPath>..\lib\dotnet\L10NSharp.dll</HintPath>
     </Reference>
@@ -81,7 +77,8 @@
     <Reference Include="SIL.Core">
       <HintPath>..\lib\dotnet\SIL.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.DblBundle">
+    <Reference Include="SIL.DblBundle, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.DblBundle.dll</HintPath>
     </Reference>
     <Reference Include="SIL.ScriptureControls, Version=7.3.0.23701, Culture=neutral, processorArchitecture=MSIL">

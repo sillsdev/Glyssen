@@ -131,6 +131,14 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="SIL.WritingSystems.pdb" Name="SIL.WritingSystems.pdb" KeyPath="yes" Source="..\output\release\SIL.WritingSystems.pdb" />
           </Component>
 
+          <Component Id="SIL.DblBundle.dll" Guid="{4e2e8963-1413-411f-96b7-9190ca968b7c}">
+            <File Id="SIL.DblBundle.dll" Name="SIL.DblBundle.dll" KeyPath="yes" Source="..\output\release\SIL.DblBundle.dll" />
+          </Component>
+
+          <Component Id="SIL.DblBundle.pdb" Guid="{7ebcedc8-9eee-4413-9146-b50865a1efba}">
+            <File Id="SIL.DblBundle.pdb" Name="SIL.DblBundle.pdb" KeyPath="yes" Source="..\output\release\SIL.DblBundle.pdb" />
+          </Component>
+
           <Component Id="SIL.Windows.Forms.WritingSystems.dll" Guid="{d80fbd4c-4bfa-42f3-81cc-95210a0fa402}">
             <File Id="SIL.Windows.Forms.WritingSystems.dll" Name="SIL.Windows.Forms.WritingSystems.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.WritingSystems.dll" />
           </Component>
@@ -233,6 +241,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="SIL.Windows.Forms.GeckoBrowserAdapter.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.Keyboarding.dll"/>
       <ComponentRef Id="SIL.WritingSystems.dll"/>
+      <ComponentRef Id="SIL.DblBundle.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.WritingSystems.dll"/>
       <ComponentRef Id="SIL.ScriptureUtils.dll"/>
       <ComponentRef Id="SIL.ScriptureControls.dll"/>
@@ -254,6 +263,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="SIL.Windows.Forms.GeckoBrowserAdapter.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.Keyboarding.pdb"/>
       <ComponentRef Id="SIL.WritingSystems.pdb"/>
+      <ComponentRef Id="SIL.DblBundle.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.WritingSystems.pdb"/>
       <ComponentRef Id="SIL.ScriptureUtils.pdb"/>
       <ComponentRef Id="SIL.ScriptureControls.pdb"/>
