@@ -145,6 +145,7 @@ captain, first	509	FALSE	Male
 captain, second	1511	FALSE	Male		
 captain, third	1512	FALSE	Male		
 captain/crew	512	TRUE	Male		
+captors, our		TRUE			
 centurion at crucifixion	513	FALSE	Male		
 centurion at Paul's flogging	514	FALSE	Male		
 centurion on ship with Paul	515	FALSE	Male		
@@ -229,6 +230,7 @@ eagle crying with loud voice	1581	FALSE
 ear	582	FALSE			
 Ebed-Melech (official of king of Judea)	100	FALSE			
 Edom	102	FALSE			
+Edomites		TRUE			
 Eglon, king of Moab	103	FALSE	Male		
 Egyptian (slave of Amalekite)	104	FALSE			
 Egyptians	105	TRUE			
@@ -370,6 +372,7 @@ Horseman, first	184	FALSE	Male
 Horseman, second	185	FALSE	Male		
 Horses (in vision)	186	TRUE			
 Hosea	187	FALSE	Male		
+house of Aaron, the		TRUE	Male		
 Huldah, prophetess	188	FALSE	Female		
 husband of concubine	629	FALSE			
 husband of Shunammite	628	FALSE			
@@ -667,6 +670,7 @@ Moses/Priests		TRUE	Male
 mother of cured man, blind from birth	806	FALSE	Female		
 mother of James/John (sons of Zebedee)	745	FALSE	Female		
 multitude from all nations, tribes, peoples, languages	746	TRUE			
+musicians		TRUE			
 Naaman	1345	FALSE	Male		
 Naaman's servants	1346	TRUE	Male		
 Nabal	347	FALSE	Male		
@@ -918,6 +922,7 @@ saying about Anakites	874	FALSE
 saying about blind and lame	879	FALSE			
 saying about captivity and death by the sword		FALSE			Possibly a reference to Jeremiah 15:2, Jeremiah 43:11 or Matthew 26:52			
 saying about going beyond what is written	880	FALSE			
+saying about Gentile nations		TRUE			
 saying about Nimrod	875	FALSE			
 saying about Saul	876	FALSE			
 saying about seer	881	FALSE			
@@ -1033,6 +1038,7 @@ Thomas/Nathaniel/James/John/2 disciples		TRUE	Male
 those hiding from the LORD	955	TRUE			
 those sitting with Festus, Herod Agrippa II and Bernice	956	TRUE			
 those standing near	957	TRUE			
+those who fear the Lord		TRUE			
 those who seek God	958	TRUE			
 three men (two angels and the LORD)		TRUE	Male		
 Tobiah, enemy	448	FALSE	Male		

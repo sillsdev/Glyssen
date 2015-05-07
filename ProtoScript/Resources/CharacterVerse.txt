@@ -680,7 +680,7 @@ GEN	41	52	Joseph			Normal
 GEN	41	55	Pharaoh (2nd)		Pharaoh	Normal		
 GEN	42	1	Jacob			Normal		
 GEN	42	2	Jacob			Normal		
-GEN	42	4	Jacob			Normal		
+GEN	42	4	Jacob			Indirect		
 GEN	42	7	Joseph			Normal		
 GEN	42	7	Jacob's sons		Joseph's brothers	Normal	Reuben	
 GEN	42	9	Joseph			Normal		
@@ -2456,42 +2456,42 @@ NUM	1	12	God		God (the LORD)	Normal
 NUM	1	13	God		God (the LORD)	Normal		
 NUM	1	14	God		God (the LORD)	Normal		
 NUM	1	15	God		God (the LORD)	Normal		
-NUM	1	16	God		God (the LORD)	Normal		
+NUM	1	16	God		God (the LORD)	Potential		
 NUM	1	49	God		God (the LORD)	Normal		
 NUM	1	50	God		God (the LORD)	Normal		
 NUM	1	51	God		God (the LORD)	Normal		
 NUM	1	52	God		God (the LORD)	Normal		
 NUM	1	53	God		God (the LORD)	Normal		
 NUM	2	2	God		God (the LORD)	Normal		
-NUM	2	3	God		God (the LORD)	Normal		
-NUM	2	4	God		God (the LORD)	Normal		
-NUM	2	5	God		God (the LORD)	Normal		
-NUM	2	6	God		God (the LORD)	Normal		
-NUM	2	7	God		God (the LORD)	Normal		
-NUM	2	8	God		God (the LORD)	Normal		
-NUM	2	9	God		God (the LORD)	Normal		
-NUM	2	10	God		God (the LORD)	Normal		
-NUM	2	11	God		God (the LORD)	Normal		
-NUM	2	12	God		God (the LORD)	Normal		
-NUM	2	13	God		God (the LORD)	Normal		
-NUM	2	14	God		God (the LORD)	Normal		
-NUM	2	15	God		God (the LORD)	Normal		
-NUM	2	16	God		God (the LORD)	Normal		
-NUM	2	17	God		God (the LORD)	Normal		
-NUM	2	18	God		God (the LORD)	Normal		
-NUM	2	19	God		God (the LORD)	Normal		
-NUM	2	20	God		God (the LORD)	Normal		
-NUM	2	21	God		God (the LORD)	Normal		
-NUM	2	22	God		God (the LORD)	Normal		
-NUM	2	23	God		God (the LORD)	Normal		
-NUM	2	24	God		God (the LORD)	Normal		
-NUM	2	25	God		God (the LORD)	Normal		
-NUM	2	26	God		God (the LORD)	Normal		
-NUM	2	27	God		God (the LORD)	Normal		
-NUM	2	28	God		God (the LORD)	Normal		
-NUM	2	29	God		God (the LORD)	Normal		
-NUM	2	30	God		God (the LORD)	Normal		
-NUM	2	31	God		God (the LORD)	Normal		
+NUM	2	3	God		God (the LORD)	Potential		
+NUM	2	4	God		God (the LORD)	Potential		
+NUM	2	5	God		God (the LORD)	Potential		
+NUM	2	6	God		God (the LORD)	Potential		
+NUM	2	7	God		God (the LORD)	Potential		
+NUM	2	8	God		God (the LORD)	Potential		
+NUM	2	9	God		God (the LORD)	Potential		
+NUM	2	10	God		God (the LORD)	Potential		
+NUM	2	11	God		God (the LORD)	Potential		
+NUM	2	12	God		God (the LORD)	Potential		
+NUM	2	13	God		God (the LORD)	Potential		
+NUM	2	14	God		God (the LORD)	Potential		
+NUM	2	15	God		God (the LORD)	Potential		
+NUM	2	16	God		God (the LORD)	Potential		
+NUM	2	17	God		God (the LORD)	Potential		
+NUM	2	18	God		God (the LORD)	Potential		
+NUM	2	19	God		God (the LORD)	Potential		
+NUM	2	20	God		God (the LORD)	Potential		
+NUM	2	21	God		God (the LORD)	Potential		
+NUM	2	22	God		God (the LORD)	Potential		
+NUM	2	23	God		God (the LORD)	Potential		
+NUM	2	24	God		God (the LORD)	Potential		
+NUM	2	25	God		God (the LORD)	Potential		
+NUM	2	26	God		God (the LORD)	Potential		
+NUM	2	27	God		God (the LORD)	Potential		
+NUM	2	28	God		God (the LORD)	Potential		
+NUM	2	29	God		God (the LORD)	Potential		
+NUM	2	30	God		God (the LORD)	Potential		
+NUM	2	31	God		God (the LORD)	Potential		
 NUM	3	6	God		God (the LORD)	Normal		
 NUM	3	7	God		God (the LORD)	Normal		
 NUM	3	8	God		God (the LORD)	Normal		
@@ -6141,20 +6141,20 @@ EZR	4	2	Sanballat		Enemies of Judah and Benjamin	Normal
 EZR	4	3	Zerubbabel/Jeshua/rest of heads of families			Normal		
 EZR	4	9	Rehum, commanding officer/Shimshai, secretary	letter		Implicit		
 EZR	4	10	Rehum, commanding officer/Shimshai, secretary	letter		Implicit		
-EZR	4	11	Rehum, commanding officer/Shimshai, secretary	letter		Normal		
+EZR	4	11	Rehum, commanding officer/Shimshai, secretary	letter		Potential		
 EZR	4	12	Rehum, commanding officer/Shimshai, secretary	letter		Implicit		
 EZR	4	13	Rehum, commanding officer/Shimshai, secretary	letter		Implicit		
 EZR	4	14	Rehum, commanding officer/Shimshai, secretary	letter		Implicit		
 EZR	4	15	Rehum, commanding officer/Shimshai, secretary	letter		Implicit		
 EZR	4	16	Rehum, commanding officer/Shimshai, secretary	letter		Implicit		
-EZR	4	17	Artaxerxes, king of Persia	letter		Normal		
+EZR	4	17	Artaxerxes, king of Persia	letter		Potential		
 EZR	4	18	Artaxerxes, king of Persia	letter		Implicit		
 EZR	4	19	Artaxerxes, king of Persia	letter		Implicit		
 EZR	4	20	Artaxerxes, king of Persia	letter		Implicit		
 EZR	4	21	Artaxerxes, king of Persia	letter		Implicit		
 EZR	5	3	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates			Normal		
 EZR	5	4	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates			Normal		
-EZR	5	7	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Normal		
+EZR	5	7	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Potential		
 EZR	5	8	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Implicit		
 EZR	5	9	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Implicit		
 EZR	5	10	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Implicit		
@@ -6165,7 +6165,7 @@ EZR	5	14	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter	
 EZR	5	15	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Implicit		
 EZR	5	16	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Implicit		
 EZR	5	17	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Implicit		
-EZR	6	2	Darius	decree	Darius, king	Normal		
+EZR	6	2	Darius	decree	Darius, king	Potential		
 EZR	6	3	Darius	decree	Darius, king	Implicit		
 EZR	6	4	Darius	decree	Darius, king	Implicit		
 EZR	6	5	Darius	decree	Darius, king	Implicit		
@@ -7406,6 +7406,7 @@ PSA	2	9	God		God (the LORD)	Normal
 PSA	3	2	David's enemies		David's foes, many	Normal		
 PSA	4	6	David's enemies		David's foes, many	Normal		
 PSA	4	6	men, many			Normal		
+PSA	9	0	narrator-PSA			Quotation		
 PSA	10	6	man, wicked			Hypothetical		
 PSA	10	11	man, wicked			Hypothetical		
 PSA	10	13	man, wicked			Hypothetical		
@@ -7417,7 +7418,7 @@ PSA	12	5	God		God (the LORD)	Normal
 PSA	13	4	David's enemies		David's enemy	Normal		
 PSA	14	1	fool			Normal		
 PSA	16	2	David			Normal		
-PSA	22	1	narrator-PSA			Quotation		
+PSA	22	0	narrator-PSA			Quotation		
 PSA	22	8	men/people	mocking		Normal		
 PSA	27	8	David			Normal		
 PSA	29	9	all in temple	praising		Normal		
@@ -7454,7 +7455,7 @@ PSA	41	8	David's enemies	whispering		Normal
 PSA	42	3	David's enemies			Normal		
 PSA	42	9	David	praying		Normal		
 PSA	42	10	David's enemies			Normal		
-PSA	45	1	narrator-PSA			Quotation		
+PSA	45	0	narrator-PSA			Quotation		
 PSA	46	10	God		God (the LORD)	Normal		
 PSA	50	5	God		God (the LORD)	Normal		
 PSA	50	7	God		God (the LORD)(the Mightly One)	Normal		
@@ -7474,20 +7475,20 @@ PSA	50	20	God		God (the LORD)(the Mighty One)	Normal
 PSA	50	21	God		God (the LORD)(the Mighty One)	Normal		
 PSA	50	22	God		God (the LORD)(the Mighty One)	Normal		
 PSA	50	23	God		God (the LORD)(the Mighty One)	Normal		
-PSA	52	1	Doeg the Edomite			Normal		
+PSA	52	0	Doeg the Edomite			Quotation		
 PSA	52	7	people, righteous	laughing		Normal		
 PSA	53	1	fool			Normal		
-PSA	54	1	Ziphites			Normal		
+PSA	54	0	Ziphites			Quotation		
 PSA	55	6	David			Normal		
 PSA	55	7	David			Normal		
 PSA	55	8	David			Normal		
-PSA	56	1	narrator-PSA			Quotation		
-PSA	57	1	narrator-PSA			Quotation		
-PSA	58	1	narrator-PSA			Quotation		
+PSA	56	0	narrator-PSA			Quotation		
+PSA	57	0	narrator-PSA			Quotation		
+PSA	58	0	narrator-PSA			Quotation		
 PSA	58	11	men			Hypothetical		
-PSA	59	1	narrator-PSA			Quotation		
+PSA	59	0	narrator-PSA			Quotation		
 PSA	59	7	David's enemies			Normal		
-PSA	60	1	narrator-PSA			Quotation		
+PSA	60	0	narrator-PSA			Quotation		
 PSA	60	6	God		God (the LORD)	Normal		
 PSA	60	7	God		God (the LORD)	Normal		
 PSA	60	8	God		God (the LORD)	Normal		
@@ -7499,26 +7500,26 @@ PSA	68	12	proclaimers of God's word			Normal
 PSA	68	13	proclaimers of God's word			Normal		
 PSA	68	22	God		God (the LORD)	Normal		
 PSA	68	23	God		God (the LORD)	Normal		
-PSA	69	1	narrator-PSA			Quotation		
+PSA	69	0	narrator-PSA			Quotation		
 PSA	70	3	David's enemies			Normal		
 PSA	70	4	those who seek God			Normal		
 PSA	71	11	David's enemies			Normal		
 PSA	73	11	people, arrogant wicked			Normal		
 PSA	73	15	narrator-PSA			Hypothetical		
 PSA	74	8	Enemies of God			Normal		
-PSA	75	1	narrator-PSA			Quotation		
+PSA	75	0	narrator-PSA			Quotation		
 PSA	75	2	God		God (the LORD)	Normal		
 PSA	75	3	God		God (the LORD)	Normal		
 PSA	75	4	God		God (the LORD)	Normal		
 PSA	75	5	God		God (the LORD)	Normal		
-PSA	77	7	God		God (the LORD)	Normal		
-PSA	77	8	God		God (the LORD)	Normal		
+PSA	77	7	Asaph			Normal		
+PSA	77	8	Asaph			Normal		
 PSA	77	9	Asaph			Normal		
 PSA	77	10	Asaph			Normal		
 PSA	78	19	Israelite community	unbelief		Normal		
 PSA	78	20	Israelite community	unbelief		Normal		
 PSA	79	10	Nations, the		nations	Normal		
-PSA	80	1	narrator-PSA			Quotation		
+PSA	80	0	narrator-PSA			Quotation		
 PSA	81	6	God		God (the LORD)	Normal		
 PSA	81	7	God		God (the LORD)	Normal		
 PSA	81	8	God		God (the LORD)	Normal		
@@ -7539,9 +7540,12 @@ PSA	82	6	God		God (the LORD)	Normal
 PSA	82	7	God		God (the LORD)	Normal		
 PSA	83	4	Enemies of Israel			Normal		
 PSA	83	12	Enemies of Israel			Normal		
-PSA	87	4	Enemies of Israel			Normal		
+PSA	87	4	God			Normal		
+PSA	87	4	saying about Gentile nations			Normal		
+PSA	87	5	God			Normal		
 PSA	87	5	saying about Zion			Normal		
 PSA	87	6	God		God (the LORD) will write	Normal		
+PSA	87	7	musicians			Normal		
 PSA	89	3	God		God (the LORD)	Normal		
 PSA	89	4	God		God (the LORD)	Normal		
 PSA	89	19	God		God (the LORD)	Normal		
@@ -7571,6 +7575,32 @@ PSA	92	15	people, righteous			Normal
 PSA	94	7	wicked, the			Normal		
 PSA	95	10	God		God (the LORD)	Normal		
 PSA	95	11	God		God (the LORD)	Normal		
+PSA	105	11	God		God (the LORD)	Quotation		
+PSA	105	15	God		God (the LORD)	Quotation		
+PSA	106	48	people, all the			Hypothetical		
+PSA	108	7	God		God (the LORD)	Normal		
+PSA	108	8	God		God (the LORD)	Normal		
+PSA	108	9	God		God (the LORD)	Normal		
+PSA	110	1	God		God (the LORD)	Normal		
+PSA	110	4	God		God (the LORD)	Normal		
+PSA	115	2	Nations, the			Hypothetical		
+PSA	118	2	Israel			Hypothetical		
+PSA	118	3	house of Aaron, the			Hypothetical		
+PSA	118	4	those who fear the Lord			Hypothetical		
+PSA	132	3	David			Normal		
+PSA	132	4	David			Normal		
+PSA	132	5	David			Normal		
+PSA	132	11	God		God (the LORD)	Normal		
+PSA	132	12	God		God (the LORD)	Normal		
+PSA	132	14	God		God (the LORD)	Normal		
+PSA	132	15	God		God (the LORD)	Normal		
+PSA	132	16	God		God (the LORD)	Normal		
+PSA	132	17	God		God (the LORD)	Normal		
+PSA	132	18	God		God (the LORD)	Normal		
+PSA	137	3	captors, our			Normal		
+PSA	137	7	Edomites			Normal		
+PSA	138	1	narrator-PSA			Normal		
+PSA	141	7	wicked, the			Hypothetical		
 ECC	1	2	teacher (Preacher)			Normal		
 ECC	1	10	someone			Normal		
 ECC	1	16	teacher (Preacher)			Normal		
@@ -12554,7 +12584,7 @@ MRK	8	27	Jesus	questioning		Dialogue
 MRK	8	28	disciples	excited		Dialogue		
 MRK	8	29	Jesus	questioning		Dialogue		
 MRK	8	29	Peter (Simon)	declare		Dialogue		
-MRK	8	30	Jesus	warning		Dialogue		
+MRK	8	30	Jesus	warning		Indirect		
 MRK	8	31	Jesus	instructing		Indirect		
 MRK	8	32	Peter (Simon)			Indirect		
 MRK	8	33	Jesus	rebuking		Dialogue		

@@ -33,7 +33,8 @@ namespace ControlDataIntegrityTests
 				var match = regex.Match(line);
 				Assert.IsTrue(match.Success, "Failed to match line: " + line);
 
-				var bookNum = BCVRef.BookToNumber(match.Result("${bookId}"));
+				var bookId = match.Result("${bookId}");
+				var bookNum = BCVRef.BookToNumber(bookId);
 				Assert.IsTrue(bookNum > 0, "Line: " + line);
 				Assert.IsTrue(bookNum <= 66, "Line: " + line);
 
@@ -42,7 +43,7 @@ namespace ControlDataIntegrityTests
 				Assert.IsTrue(chapter <= 150, "Line: " + line);
 
 				var verse = Int32.Parse(match.Result("${verse}"));
-				Assert.IsTrue(verse > 0, "Line: " + line);
+				Assert.IsTrue(verse > 0 || verse == 0 && bookId == "PSA", "Line: " + line);
 				Assert.IsTrue(verse <= 152, "Line: " + line);
 
 				var sEndVerse = match.Result("${endVerse}");
