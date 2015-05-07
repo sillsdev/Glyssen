@@ -274,7 +274,24 @@ namespace ProtoScriptTests
 			mrkBlocks.Add(NewSingleVersePara(76));
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var list = bookScript.GetBlocksForVerse(1, 75).ToList();
-			Assert.AreEqual(1, list.Count);
+			Assert.AreEqual(3, list.Count);
+			Assert.AreEqual(expected, list[0]);
+		}
+
+		[Test]
+		public void GetBlocksForVerse_MultipleBlocksForVerseButSecondBlockDoesNotHaveAnotherVerseNumber_ReturnsAllBlocksForVerse()
+		{
+			var revBlocks = new List<Block>();
+			revBlocks.Add(NewChapterBlock(15));
+			revBlocks.Add(NewSingleVersePara(2));
+			Block expected;
+			revBlocks.Add(expected = NewSingleVersePara(3));
+			revBlocks.Add(NewPara("q1", "more"));
+			revBlocks.Add(NewPara("q2", "even more"));
+			revBlocks.Add(NewSingleVersePara(4));
+			var bookScript = new BookScript("REV", revBlocks);
+			var list = bookScript.GetBlocksForVerse(15, 3).ToList();
+			Assert.AreEqual(3, list.Count);
 			Assert.AreEqual(expected, list[0]);
 		}
 		#endregion

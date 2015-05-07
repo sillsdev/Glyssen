@@ -139,6 +139,8 @@ namespace ProtoScript
 						break;
 					if (block.BlockElements.OfType<Verse>().Any(v => verse >= v.StartVerse && verse <= v.EndVerse))
 						yield return block;
+					else if (block.InitialStartVerseNumber == verse || (block.InitialEndVerseNumber != 0 && block.InitialStartVerseNumber < verse && block.InitialEndVerseNumber >= verse))
+						yield return block;
 					else
 						break;
 				}

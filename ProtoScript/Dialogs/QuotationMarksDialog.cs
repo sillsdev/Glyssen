@@ -15,6 +15,7 @@ using ProtoScript.Utilities;
 using SIL.ObjectModel;
 using SIL.ScriptureUtils;
 using SIL.WritingSystems;
+using ScrVers = Paratext.ScrVers;
 
 namespace ProtoScript.Dialogs
 {
@@ -30,6 +31,7 @@ namespace ProtoScript.Dialogs
 			InitializeComponent();
 
 			m_project = project;
+			m_project.AnalysisCompleted += HandleAnalysisCompleted;
 			m_navigatorViewModel = navigatorViewModel;
 	
 			if (Properties.Settings.Default.QuoteMarksDialogShowGridView)
@@ -271,7 +273,6 @@ namespace ProtoScript.Dialogs
 				return;
 			}
 
-			m_project.AnalysisCompleted += HandleAnalysisCompleted;
 			m_project.QuoteSystem = currentQuoteSystem;
 		}
 
@@ -291,7 +292,9 @@ namespace ProtoScript.Dialogs
 					bool chapterCounted = false;
 					foreach (var verseWithExpectedQuote in chapter.Value)
 					{
-						var blocks = bookScript.GetBlocksForVerse(chapter.Key, verseWithExpectedQuote).ToList();
+						var referenceForExpectedQuote = new VerseRef(book, chapter.Key, verseWithExpectedQuote, ScrVers.English);
+						referenceForExpectedQuote.ChangeVersification(m_project.Versification);
+						var blocks = bookScript.GetBlocksForVerse(referenceForExpectedQuote.ChapterNum, referenceForExpectedQuote.VerseNum).ToList();
 						if (!chapterCounted && blocks.Any())
 						{
 							totalExpectedQuotesInIncludedChapters += chapter.Value.Count;

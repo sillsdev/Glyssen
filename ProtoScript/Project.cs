@@ -261,7 +261,17 @@ namespace ProtoScript
 			}
 		}
 
-		public IReadOnlyList<Book> AvailableBooks { get { return m_metadata.AvailableBooks; } }
+		public IReadOnlyList<Book> AvailableBooks
+		{ 
+			get
+			{ 
+				return m_metadata.AvailableBooks.Where(b =>
+				{
+					var bookNum = BCVRef.BookToNumber(b.Code);
+					return bookNum >= 1 && bookNum <= BCVRef.LastBook;
+				}).ToList(); 
+			} 
+		}
 
 		public string OriginalPathOfDblFile
 		{
@@ -507,7 +517,7 @@ namespace ProtoScript
 
 		private IEnumerable<UsxDocument> GetUsxBooksToInclude(ITextBundle bundle)
 		{
-			foreach (var book in m_metadata.AvailableBooks.Where(b => b.IncludeInScript))
+			foreach (var book in AvailableBooks.Where(b => b.IncludeInScript))
 			{
 				UsxDocument usxBook;
 				if (bundle.TryGetBook(book.Code, out usxBook))
@@ -620,12 +630,14 @@ namespace ProtoScript
 			}
 
 			m_metadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
-			Analyze();
 			if (UserDecisionsProject != null)
 			{
 				ApplyUserDecisions(UserDecisionsProject);
 				UserDecisionsProject = null;
 			}
+			else
+				Analyze();
+
 			Save();
 		}
 
