@@ -235,6 +235,14 @@ namespace ProtoScript.Dialogs
 		private void m_btnOk_Click(object sender, EventArgs e)
 		{
 			QuoteSystem currentQuoteSystem = CurrentQuoteSystem;
+
+			if (currentQuoteSystem == m_project.QuoteSystem)
+			{
+				if ((m_project.QuoteSystemStatus & QuoteSystemStatus.NotParseReady) > 0)
+					m_project.QuoteSystemStatus = QuoteSystemStatus.Reviewed;
+				return;
+			}
+
 			string validationMessage;
 			if (!ValidateQuoteSystem(currentQuoteSystem, out validationMessage))
 			{
@@ -242,7 +250,7 @@ namespace ProtoScript.Dialogs
 				DialogResult = DialogResult.None;
 				return;
 			}
-			if (m_project.Books.SelectMany(b => b.Blocks).Any(bl => bl.UserConfirmed) && m_project.IsQuoteSystemReadyForParse && m_project.QuoteSystem != null && m_project.QuoteSystem != currentQuoteSystem)
+			if (m_project.Books.SelectMany(b => b.Blocks).Any(bl => bl.UserConfirmed) && m_project.IsQuoteSystemReadyForParse && m_project.QuoteSystem != null)
 			{
 				string part1 = LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.QuoteSystemChangePart1", "Changing the quote system will require the text to broken up into speaking parts again.  An attempt will be made to preserve the work you have already completed, but some character assignments might be lost.  A backup of your project will be created before this occurs.");
 				string part2 = LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.QuoteSystemChangePart2", "Are you sure you want to change the quote system?");
@@ -255,18 +263,23 @@ namespace ProtoScript.Dialogs
 					return;
 				}
 			}
-			if (m_project.QuoteSystemStatus != QuoteSystemStatus.UserSet)
-			{
-				m_project.QuoteSystemStatus = m_project.QuoteSystem != currentQuoteSystem ? QuoteSystemStatus.UserSet : QuoteSystemStatus.Reviewed;
 
-				// We only want to know if they change it from the one we guessed
-				if (m_project.QuoteSystemStatus == QuoteSystemStatus.UserSet)
-					Analytics.Track("QuoteSystemChanged", new Dictionary<string, string>
-					{
-						{ "old", m_project.QuoteSystem != null ? m_project.QuoteSystem.ToString() : String.Empty },
-						{ "new", currentQuoteSystem.ToString() }
-					});
-			}
+			if (m_project.QuoteSystemStatus == QuoteSystemStatus.Obtained) 
+				Analytics.Track("ObtainedQuoteSystemChanged", new Dictionary<string, string>
+				{
+					{ "old", m_project.QuoteSystem != null ? m_project.QuoteSystem.ToString() : String.Empty },
+					{ "new", currentQuoteSystem.ToString() }
+				});
+			else if (m_project.QuoteSystemStatus != QuoteSystemStatus.UserSet)
+				Analytics.Track("GuessedQuoteSystemChanged", new Dictionary<string, string>
+				{
+					{ "old", m_project.QuoteSystem != null ? m_project.QuoteSystem.ToString() : String.Empty },
+					{ "new", currentQuoteSystem.ToString() }
+				});
+
+			// Want to set the status even if already UserSet because that triggers setting QuoteSystemDate
+			m_project.QuoteSystemStatus = QuoteSystemStatus.UserSet;
+			
 			m_project.QuoteSystem = currentQuoteSystem;
 		}
 
