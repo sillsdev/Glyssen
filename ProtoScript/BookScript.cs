@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
+using System.Net.Mime;
 using System.Text;
 using System.Xml.Serialization;
 
@@ -124,6 +127,24 @@ namespace ProtoScript
 			return bldr.ToString();
 		}
 
+		public IEnumerable<Block> GetBlocksForVerse(int chapter, int verse)
+		{
+			var iFirstBlockToExamine = GetIndexOfFirstBlockForVerse(chapter, verse);
+			if (iFirstBlockToExamine >= 0)
+			{
+				for (int index = iFirstBlockToExamine; index < m_blockCount; index++)
+				{
+					var block = m_blocks[index];
+					if (block.ChapterNumber != chapter)
+						break;
+					if (block.BlockElements.OfType<Verse>().Any(v => verse >= v.StartVerse && verse <= v.EndVerse))
+						yield return block;
+					else
+						break;
+				}
+			}
+		}
+
 		public Block GetFirstBlockForVerse(int chapter, int verse)
 		{
 			var iFirstBlockToExamine = GetIndexOfFirstBlockForVerse(chapter, verse);
@@ -174,7 +195,7 @@ namespace ProtoScript
 					m_chapterStartBlockIndices[chapter] = index;
 					chapterStartFound = true;
 				}
-				if (block.InitialStartVerseNumber < verse)
+				if (block.InitialStartVerseNumber < verse && block.InitialEndVerseNumber < verse)
 					continue;
 				iFirstBlockToExamine = index;
 				if (block.InitialStartVerseNumber > verse || !(block.BlockElements.First() is Verse))
@@ -241,6 +262,102 @@ namespace ProtoScript
 						m_blocks[iTarget].ChapterNumber == sourceBlock.ChapterNumber &&
 						m_blocks[iTarget].InitialStartVerseNumber == sourceBlock.InitialStartVerseNumber);
 			}
+		}
+
+		public Block SplitBlock(Block blockToSplit, string verseToSplit, int characterOffsetToSplit)
+		{
+			var iBlock = m_blocks.IndexOf(blockToSplit);
+
+			if (iBlock < 0)
+				throw new ArgumentException("Block not found in the list for " + BookId, "blockToSplit");
+
+			if (verseToSplit == null && characterOffsetToSplit == 0)
+			{
+				SplitBeforeBlock(iBlock);
+				return blockToSplit;
+			}
+
+			var currVerse = blockToSplit.InitialEndVerseNumber == 0
+				? blockToSplit.InitialStartVerseNumber.ToString(CultureInfo.InvariantCulture)
+				: blockToSplit.InitialStartVerseNumber + "-" + blockToSplit.InitialEndVerseNumber;
+
+			Block newBlock = null;
+			int indexOfFirstElementToRemove = -1;
+
+			for (int i = 0; i < blockToSplit.BlockElements.Count; i++)
+			{
+				var blockElement = blockToSplit.BlockElements[i];
+
+				if (newBlock != null)
+				{
+					if (indexOfFirstElementToRemove < 0)
+						indexOfFirstElementToRemove = i;
+					newBlock.BlockElements.Add(blockElement);
+					continue;
+				}
+
+				Verse verse = blockElement as Verse;
+				if (verse != null)
+					currVerse = verse.Number;
+				else if (verseToSplit == currVerse)
+				{
+					ScriptText text = blockElement as ScriptText;
+
+					if (text == null)
+						continue;
+
+					var content = text.Content;
+
+					if (characterOffsetToSplit <= 0 || characterOffsetToSplit >= content.Length)
+					{
+						throw new ArgumentOutOfRangeException("characterOffsetToSplit", characterOffsetToSplit,
+							"Value must be greater than 0 and less than or equal to the length (" + content.Length +
+							") of the text of verse " + currVerse + ".");
+					}
+
+					var verseNumParts = verseToSplit.Split(new []{'-'}, 2, StringSplitOptions.None);
+					int initialStartVerse = int.Parse(verseNumParts[0]);
+					int initialEndVerse = verseNumParts.Length == 2 ? int.Parse(verseNumParts[1]) : 0;
+					newBlock = new Block(blockToSplit.StyleTag, blockToSplit.ChapterNumber,
+						initialStartVerse, initialEndVerse);
+					newBlock.BlockElements.Add(new ScriptText(content.Substring(characterOffsetToSplit)));
+					text.Content = content.Substring(0, characterOffsetToSplit);
+					m_blocks.Insert(iBlock + 1, newBlock);
+					foreach (
+						var chapterNum in m_chapterStartBlockIndices.Keys.Where(chapterNum => chapterNum > blockToSplit.ChapterNumber))
+						m_chapterStartBlockIndices[chapterNum]++;
+
+					m_blockCount++;
+				}
+			}
+
+			if (newBlock == null)
+				throw new ArgumentException("Verse not found in given block.", "verseToSplit");
+
+			if (indexOfFirstElementToRemove >= 0)
+			{
+				while (indexOfFirstElementToRemove < blockToSplit.BlockElements.Count)
+					blockToSplit.BlockElements.RemoveAt(indexOfFirstElementToRemove);
+			}
+
+			return newBlock;
+		}
+
+		private void SplitBeforeBlock(int indexOfBlockToSplit)
+		{
+			if (indexOfBlockToSplit == 0 || m_blocks[indexOfBlockToSplit].MultiBlockQuote == MultiBlockQuote.None ||
+				m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote == MultiBlockQuote.None)
+			{
+				throw new InvalidOperationException("Split allowed only between blocks that are part of a multi-block quote");
+			}
+
+			if (m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote == MultiBlockQuote.Start)
+				m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote = MultiBlockQuote.None;
+
+			if (indexOfBlockToSplit < m_blockCount - 1 && m_blocks[indexOfBlockToSplit + 1].MultiBlockQuote == MultiBlockQuote.Continuation)
+				m_blocks[indexOfBlockToSplit].MultiBlockQuote = MultiBlockQuote.Start;
+			else
+				m_blocks[indexOfBlockToSplit].MultiBlockQuote = MultiBlockQuote.None;
 		}
 	}
 }

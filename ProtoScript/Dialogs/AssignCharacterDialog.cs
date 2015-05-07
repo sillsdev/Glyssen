@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -18,8 +19,8 @@ using L10NSharp.UI;
 using Paratext;
 using ProtoScript.Character;
 using ProtoScript.Controls;
+using ProtoScript.Utilities;
 using SIL.ScriptureControls;
-using SIL.ScriptureUtils;
 using SIL.Windows.Forms.PortableSettingsProvider;
 using ScrVers = Paratext.ScrVers;
 
@@ -33,6 +34,8 @@ namespace ProtoScript.Dialogs
 		private bool m_promptToCloseWhenAssignmentsAreComplete = true;
 		int m_characterListHoveredIndex = -1;
 		private readonly ToolTip m_characterListToolTip = new ToolTip();
+		private bool m_formLoading;
+		private Font m_originalDefaultFontForLists;
 
 		private void HandleStringsLocalized()
 		{
@@ -85,7 +88,11 @@ namespace ProtoScript.Dialogs
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 
+			m_originalDefaultFontForLists = m_listBoxCharacters.Font;
+			SetFontsFromViewModel();
+
 			m_viewModel.AssignedBlocksIncremented += m_viewModel_AssignedBlocksIncremented;
+			m_viewModel.UiFontSizeChanged += (sender, args) => SetFontsFromViewModel();
 
 			m_blocksViewer.VisibleChanged += LoadBlock;
 			m_blocksViewer.Disposed += (sender, args) => m_blocksViewer.VisibleChanged -= LoadBlock;
@@ -160,7 +167,7 @@ namespace ProtoScript.Dialogs
 			m_labelXofY.Text = string.Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
 			m_chkSingleVoice.Text = string.Format(m_singleVoiceCheckboxFmt, m_viewModel.CurrentBookId);
 
-			SendScrReference(m_viewModel.GetBlockVerseRef());
+			m_viewModel.GetBlockVerseRef().SendScrReference();
 
 			HideCharacterFilter();
 			m_btnAssign.Enabled = false;
@@ -169,6 +176,8 @@ namespace ProtoScript.Dialogs
 			UpdateShortcutDisplay();
 
 			m_chkSingleVoice.Checked = m_viewModel.IsCurrentBookSingleVoice;
+
+			m_menuBtnSplitBlock.Enabled = !CharacterVerseData.IsCharacterStandard(m_viewModel.CurrentBlock.CharacterId, false);
 		}
 
 		private void UpdateShortcutDisplay()
@@ -340,19 +349,25 @@ namespace ProtoScript.Dialogs
 
 			if (IsDirty())
 			{
+				string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChanges", "Unsaved Changes");
 				if (m_btnAssign.Enabled)
 				{
-					string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChanges", "Unsaved Changes");
 					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChangesMessage",
 						"The Character and Delivery selections have not been submitted. Do you want to save your changes before navigating?");
 					if (MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
 						SaveSelections();
 				}
+				else if (m_listBoxCharacters.SelectedIndex < 0)
+				{
+					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.NoSelectionMessage",
+						"You have not selected a Character and Delivery. Would you like to leave without changing the assignment?");
+					result = MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) ==
+						DialogResult.Yes;
+				}
 				else
 				{
 					Debug.Assert(m_listBoxCharacters.SelectedIndex > -1 && m_listBoxDeliveries.SelectedIndex < 0);
-					string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChanges", "Unsaved Changes");
-					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChangesMessage",
+					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.NoDeliveryMessage",
 						"You have selected a Character but no Delivery. Would you like to discard your selection and leave without changing the assignment?");
 					result = MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) ==
 						DialogResult.Yes;
@@ -361,20 +376,6 @@ namespace ProtoScript.Dialogs
 				Focus();
 			}
 			return result;
-		}
-
-		/// <summary>
-		/// Sends a "Santa Fe" focus message which can be used by other applications (such as Paratext)
-		/// to navigate to the same Scripture reference
-		/// </summary>
-		/// <param name="currRef"></param>
-		private void SendScrReference(VerseRef currRef)
-		{
-			if (currRef != null && currRef.Valid)
-			{
-				currRef.ChangeVersification(ScrVers.English);
-				SantaFeFocusMessageHandler.SendFocusMessage(currRef.ToString());
-			}
 		}
 
 		private void ShowCharactersInBook()
@@ -413,13 +414,39 @@ namespace ProtoScript.Dialogs
 			m_listBoxDeliveries.SelectedItem = newItem;
 		}
 
+		private void SetFontsFromViewModel()
+		{
+			float newFontSize = Math.Max(m_originalDefaultFontForLists.SizeInPoints + m_viewModel.FontSizeUiAdjustment, BlockNavigatorViewModel.kMinFontSize);
+			Font newFont = new Font(m_originalDefaultFontForLists.FontFamily, newFontSize, m_originalDefaultFontForLists.Style);
+			m_listBoxCharacters.Font = newFont;
+			m_listBoxDeliveries.Font = newFont;
+			m_pnlShortcuts.Height = m_listBoxCharacters.ItemHeight * 5;
+		}
+
 		#region Form events
 		/// ------------------------------------------------------------------------------------
 		protected override void OnLoad(EventArgs e)
 		{
+			m_formLoading = true;
 			Properties.Settings.Default.AssignCharacterDialogFormSettings.InitializeForm(this);
 			base.OnLoad(e);
 			m_blocksViewer.BlocksGridSettings = Properties.Settings.Default.AssignCharactersBlockContextGrid;
+			if (Properties.Settings.Default.AssignCharactersSliderLocation > 0)
+				m_splitContainer.SplitterDistance = Properties.Settings.Default.AssignCharactersSliderLocation;
+
+			m_pnlShortcuts.Height = m_listBoxCharacters.ItemHeight * 5;
+		}
+
+		protected override void OnShown(EventArgs e)
+		{
+			base.OnShown(e);
+			if (m_viewModel.RelevantBlockCount == 0)
+				m_blocksViewer.ShowNothingMatchesFilterMessage();
+		}
+
+		private void AssignCharacterDialog_Shown(object sender, EventArgs e)
+		{
+			m_formLoading = false;
 		}
 
 		void AssignCharacterDialog_Disposed(object sender, EventArgs e)
@@ -535,7 +562,7 @@ namespace ProtoScript.Dialogs
 
 		private void AssignCharacterDialog_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			if (!m_pnlShortcuts.Visible || m_txtCharacterFilter.Focused || m_txtDeliveryFilter.Focused || m_scriptureReference.Focused )
+			if (m_txtCharacterFilter.Focused || m_txtDeliveryFilter.Focused || m_scriptureReference.VerseControl.ContainsFocus)
 				return;
 
 			int selectedIndexOneBased;
@@ -543,18 +570,26 @@ namespace ProtoScript.Dialogs
 			if (selectedIndexOneBased < 1 || selectedIndexOneBased > 5)
 			{
 				// Might be trying to select character by the first letter (e.g. s for Saul)
-				if (Char.IsLetter(e.KeyChar))
-				{
-					var charactersStartingWithSelectedLetter =
-						CurrentContextCharacters.Where(c => c.ToString().StartsWith(e.KeyChar.ToString(CultureInfo.InvariantCulture), true, CultureInfo.InvariantCulture));
-					if (charactersStartingWithSelectedLetter.Count() == 1)
-						m_listBoxCharacters.SelectedItem = charactersStartingWithSelectedLetter.First();
-				}
+				HandleCharacterSelectionKeyPress(e);
+				e.Handled = true;
 			}
-			else
+			else if (m_pnlShortcuts.Visible)
 			{
 				if (m_listBoxCharacters.Items.Count >= selectedIndexOneBased)
 					m_listBoxCharacters.SelectedIndex = selectedIndexOneBased - 1; //listBox is zero-based
+			}
+		}
+
+		private void HandleCharacterSelectionKeyPress(KeyPressEventArgs e)
+		{
+			if (Char.IsLetter(e.KeyChar))
+			{
+				var charactersStartingWithSelectedLetter =
+					CurrentContextCharacters.Where(c => c.ToString().StartsWith(e.KeyChar.ToString(CultureInfo.InvariantCulture), true, CultureInfo.InvariantCulture));
+				if (charactersStartingWithSelectedLetter.Count() == 1)
+					m_listBoxCharacters.SelectedItem = charactersStartingWithSelectedLetter.Single();
+				else
+					m_listBoxCharacters.SelectedItem = null;
 			}
 		}
 
@@ -596,13 +631,9 @@ namespace ProtoScript.Dialogs
 			}
 			else
 			{
-				m_blocksViewer.Clear();
 				m_labelXofY.Visible = false;
-				m_listBoxCharacters.Items.Clear();
-				m_listBoxDeliveries.Items.Clear();
-
-				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.NoMatches", "Nothing matches your current filter.");
-				MessageBox.Show(this, msg, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				UpdateNavigationButtonState();
+				m_blocksViewer.ShowNothingMatchesFilterMessage();
 			}
 
 			UpdateProgressBarForMode();
@@ -645,6 +676,17 @@ namespace ProtoScript.Dialogs
 			}
 		}
 
+		private void HandleSplitBlocksClick(object sender, EventArgs e)
+		{
+			using (var dlg = new SplitBlockDlg(m_viewModel, m_viewModel.GetAllBlocksWithSameQuote(m_viewModel.CurrentBlock)))
+			{
+				if (dlg.ShowDialog(this) == DialogResult.OK)
+				{
+					m_viewModel.SplitBlock(dlg.BlockToSplit, dlg.VerseToSplit, dlg.CharacterOffsetToSplit);
+				}
+			}
+		}
+
 		private void IncreaseFont(object sender, EventArgs e)
 		{
 			m_blocksViewer.IncreaseFont();
@@ -684,6 +726,19 @@ namespace ProtoScript.Dialogs
 				}
 			}
 		}
+
+		private void m_splitContainer_SplitterMoved(object sender, SplitterEventArgs e)
+		{
+			if (!m_formLoading)
+				Properties.Settings.Default.AssignCharactersSliderLocation = e.SplitX;
+		}
+
+		private void m_listBoxCharacters_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			HandleCharacterSelectionKeyPress(e);
+			e.Handled = true;
+		}
 		#endregion
+
 	}
 }

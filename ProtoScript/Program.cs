@@ -29,6 +29,16 @@ namespace ProtoScript
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 
+			//bring in settings from any previous version
+			if (Settings.Default.NeedUpgrade)
+			{
+				//see http://stackoverflow.com/questions/3498561/net-applicationsettingsbase-should-i-call-upgrade-every-time-i-load
+				Settings.Default.Upgrade();
+				Settings.Default.Reload();
+				Settings.Default.NeedUpgrade = false;
+				Settings.Default.Save();
+			}
+
 			//TODO set real keys - this key is just pointing to a test account on mixpanel - andrew-polk/protoscript-test-dev
 #if DEBUG
 			using (new Analytics("BhtwjdH3oj1n8nMjd53pPRireKxB3BQl", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }, true))

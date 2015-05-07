@@ -156,7 +156,7 @@ namespace ProtoScript.Controls
 		{
 			m_colText.DefaultCellStyle.Font = m_viewModel.Font;
 			DefaultCellStyle.Font = new Font(m_originalDefaultFont.FontFamily,
-				m_originalDefaultFont.SizeInPoints + m_viewModel.FontSizeUiAdjustment, m_originalDefaultFont.Style);
+				Math.Max(m_originalDefaultFont.SizeInPoints + m_viewModel.FontSizeUiAdjustment, BlockNavigatorViewModel.kMinFontSize), m_originalDefaultFont.Style);
 		}
 
 		private void ScrollDesiredRowsIntoView(int firstRow, int lastRow)
@@ -164,8 +164,10 @@ namespace ProtoScript.Controls
 			int precedingContextRows = 4;
 			int followingContextRows = Math.Min(2, RowCount - lastRow - 1);
 			var lastRowLocation = GetCellDisplayRectangle(0, lastRow + followingContextRows, false);
-			while ((lastRowLocation.Height == 0 || (firstRow != lastRow &&
-				lastRowLocation.Y + lastRowLocation.Height > ClientRectangle.Height)) && precedingContextRows >= 0)
+			while (FirstDisplayedCell.RowIndex > firstRow || (lastRowLocation.Height == 0 || (firstRow != lastRow &&
+				lastRowLocation.Y + lastRowLocation.Height > ClientRectangle.Height) ||
+				GetCellDisplayRectangle(0, firstRow, true).Height < GetCellDisplayRectangle(0, firstRow, false).Height) &&
+				precedingContextRows >= 0)
 			{
 				var firstRowOfContextToMakeVisible = Math.Max(0, firstRow - precedingContextRows--);
 				FirstDisplayedScrollingRowIndex = firstRowOfContextToMakeVisible;

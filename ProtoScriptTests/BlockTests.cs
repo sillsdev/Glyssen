@@ -99,6 +99,39 @@ namespace ProtoScriptTests
 		}
 
 		[Test]
+		public void GetTextAsHtml_TextContainsSquareBrackets_OnlyVerseNumbersAreSuperscripted()
+		{
+			var block = new Block("p", 4, 3);
+			block.BlockElements.Add(new ScriptText("Text of verse three, part two [2]. "));
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Text of vers [sic] four. "));
+			block.BlockElements.Add(new Verse("5"));
+			block.BlockElements.Add(new ScriptText("Text of verse five."));
+
+			Assert.AreEqual("<div id=\"3\" class=\"scripttext\">Text of verse three, part two [2]. " +
+							"</div><sup>4&#160;</sup><div id=\"4\" class=\"scripttext\">Text of vers [sic] four. </div><sup>5&#160;</sup>" +
+							"<div id=\"5\" class=\"scripttext\">Text of verse five.</div>",
+				block.GetTextAsHtml(true));
+		}
+
+
+		[Test]
+		public void GetTextAsHtml_ExtraParameters_InsertsImgElement()
+		{
+			var block = new Block("p", 4, 3);
+			block.BlockElements.Add(new ScriptText("Text of verse three, part two [2]. "));
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Text of vers [sic] four. "));
+			block.BlockElements.Add(new Verse("5"));
+			block.BlockElements.Add(new ScriptText("Text of verse five."));
+
+			Assert.AreEqual("<div id=\"3\" class=\"scripttext\">Text of verse three, part two [2]. " +
+							"</div><sup>4&#160;</sup><div id=\"4\" class=\"scripttext\">Text <img src=\"blah\"/>of vers [sic] four. </div><sup>5&#160;</sup>" +
+							"<div id=\"5\" class=\"scripttext\">Text of verse five.</div>",
+				block.GetTextAsHtml(true, "4", 5, "<img src=\"blah\"/>"));
+		}
+
+		[Test]
 		public void SetCharacterAndDelivery_SingleCharacter_SetsCharacterAndDelivery()
 		{
 			var block = new Block("p", 4, 4);

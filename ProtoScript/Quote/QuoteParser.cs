@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using ProtoScript.Character;
+using ProtoScript.Utilities;
 using SIL.ScriptureUtils;
 using ScrVers = Paratext.ScrVers;
 
@@ -11,6 +15,31 @@ namespace ProtoScript.Quote
 {
 	public class QuoteParser
 	{
+		public static void ParseProject(Project project, BackgroundWorker projectWorker)
+		{
+			var cvInfo = new CombinedCharacterVerseData(project);
+
+			var numBlocksPerBook = new ConcurrentDictionary<string, int>();
+			var blocksInBook = new ConcurrentDictionary<BookScript, IReadOnlyList<Block>>();
+			Parallel.ForEach(project.Books, book =>
+			{
+				var nodeList = book.GetScriptBlocks();
+				blocksInBook.AddOrUpdate(book, nodeList, (script, list) => nodeList);
+				numBlocksPerBook.AddOrUpdate(book.BookId, nodeList.Count, (s, i) => nodeList.Count);
+			});
+			int allProjectBlocks = numBlocksPerBook.Values.Sum();
+
+			int completedProjectBlocks = 0;
+			Parallel.ForEach(blocksInBook.Keys, book =>
+			{
+				book.Blocks = new QuoteParser(cvInfo, book.BookId, blocksInBook[book], project.QuoteSystem, project.Versification).Parse().ToList();
+				completedProjectBlocks += numBlocksPerBook[book.BookId];
+				projectWorker.ReportProgress(MathUtilities.Percent(completedProjectBlocks, allProjectBlocks, 99));
+			});
+
+			projectWorker.ReportProgress(100);
+		}
+
 		private readonly ICharacterVerseInfo m_cvInfo;
 		private readonly string m_bookId;
 		private readonly int m_bookNum;
@@ -77,14 +106,18 @@ namespace ProtoScript.Quote
 				// Need to group because they could be more than one character each.
 				// ?: => non-matching group
 				// \w => word-forming character
-				regexExpressions.Add(String.Format(@"((?:(?:{0})(?:[^\w{1}])*))", quoteMatcher, "{0}"));
+				regexExpressions.Add(String.Format(@"((?:(?:{0})(?:[^\w{1}])*))", quoteMatcher, "{0}{1}"));
 			}
 
 			foreach (var ch in splitters.SelectMany(qm => qm.Where(c => !Char.IsWhiteSpace(c))))
 				quoteChars.Add(ch);
 
 			foreach (var expr in regexExpressions)
-				m_regexes.Add(new Regex(String.Format(expr, Regex.Escape(string.Join(string.Empty, quoteChars))), RegexOptions.Compiled));				
+			{
+				m_regexes.Add(new Regex(String.Format(expr,
+					Regex.Escape(string.Join(string.Empty, quoteChars)),
+					Regex.Escape(@"(\[\{")), RegexOptions.Compiled));
+			}
 		}
 
 		/// <summary>
@@ -291,11 +324,15 @@ namespace ProtoScript.Quote
 		{
 			if (sb.Length > 0 && string.IsNullOrWhiteSpace(sb.ToString()))
 				sb.Clear();
-			else if (sb.Length > 0)
+			else
 			{
-				MoveTrailingElementsIfNecessary();
-				m_workingBlock.BlockElements.Add(new ScriptText(sb.ToString()));
-				sb.Clear();
+				var text = sb.ToString();
+				if (text.Any(Char.IsLetterOrDigit)) // If not, just keep anything (probably opening punctuation) in the builder to be included with the next bit of text.
+				{
+					MoveTrailingElementsIfNecessary();
+					m_workingBlock.BlockElements.Add(new ScriptText(text));
+					sb.Clear();
+				}
 			}
 		}
 

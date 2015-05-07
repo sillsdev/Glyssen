@@ -9,6 +9,8 @@ using L10NSharp;
 using Paratext;
 using ProtoScript.Bundle;
 using ProtoScript.Properties;
+using SIL.DblBundle;
+using SIL.DblBundle.Text;
 
 namespace ProtoScript
 {
@@ -48,7 +50,7 @@ namespace ProtoScript
 						if (projectFilePath != null)
 						{
 							Exception exception;
-							var metadata = DblMetadata.Load(projectFilePath, out exception);
+							var metadata = PgDblTextMetadata.Load<PgDblTextMetadata>(projectFilePath, out exception);
 							string recordingProjectName;
 							if (exception != null)
 							{
@@ -57,10 +59,10 @@ namespace ProtoScript
 							}
 							else
 							{
-								if (metadata.identification != null && !string.IsNullOrEmpty(metadata.identification.name))
-									recordingProjectName = metadata.identification.name;
+								if (metadata.Identification != null && !string.IsNullOrEmpty(metadata.Identification.Name))
+									recordingProjectName = metadata.Identification.Name;
 								else
-									recordingProjectName = metadata.id;
+									recordingProjectName = metadata.Id;
 							}
 							recordingProjectName = Project.GetDefaultRecordingProjectName(recordingProjectName);
 							var recordingProjectFolder = Path.Combine(publicationFolder, recordingProjectName);
@@ -78,7 +80,7 @@ namespace ProtoScript
 				case 1:
 					foreach (var recordingProjectFolder in Project.AllRecordingProjectFolders.ToList())
 					{
-						var versificationPath = Path.Combine(recordingProjectFolder, Project.kVersificationFileName);
+						var versificationPath = Path.Combine(recordingProjectFolder, DblBundleFileUtils.kVersificationFileName);
 						if (!File.Exists(versificationPath))
 						{
 							var projectFilePath = Directory.GetFiles(recordingProjectFolder, "*" + Project.kProjectFileExtension).FirstOrDefault();
@@ -92,7 +94,7 @@ namespace ProtoScript
 								else
 								{
 									Exception exception;
-									var metadata = DblMetadata.Load(projectFilePath, out exception);
+									var metadata = PgDblTextMetadata.Load<PgDblTextMetadata>(projectFilePath, out exception);
 									var origBundlePath = metadata.OriginalPathOfDblFile;
 									if (string.IsNullOrEmpty(origBundlePath))
 									{
@@ -107,7 +109,7 @@ namespace ProtoScript
 									}
 									else
 									{
-										var bundle = new Bundle.Bundle(origBundlePath);
+										var bundle = new PgBundle(origBundlePath);
 										var errorlogPath = Path.Combine(recordingProjectFolder, "errorlog.txt");
 										Versification.Table.HandleVersificationLineError = ex =>
 										{

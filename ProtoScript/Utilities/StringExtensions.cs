@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace ProtoScript
+namespace ProtoScript.Utilities
 {
-	public static class Extensions
+	public static class StringExtensions
 	{
 		public static bool Contains(this string source, string toCheck, StringComparison comp)
 		{

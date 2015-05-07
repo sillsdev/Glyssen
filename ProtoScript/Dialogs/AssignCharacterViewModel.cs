@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using DesktopAnalytics;
 using ProtoScript.Character;
+using ProtoScript.Utilities;
 using SIL.ScriptureUtils;
 using ScrVers = Paratext.ScrVers;
 
@@ -176,7 +177,7 @@ namespace ProtoScript.Dialogs
 
 				filterText = filterText.Trim();
 				m_currentCharacters.RemoveWhere(c => !c.Character.Contains(filterText, StringComparison.OrdinalIgnoreCase) &&
-					!c.Alias.Contains(filterText, StringComparison.OrdinalIgnoreCase));
+					(c.Alias == null || !c.Alias.Contains(filterText, StringComparison.OrdinalIgnoreCase)));
 			}
 
 			var listToReturn = new List<Character>(new SortedSet<Character>(m_currentCharacters.Select(cv => new Character(cv.Character, cv.Alias,
@@ -332,6 +333,13 @@ namespace ProtoScript.Dialogs
 				block.SetStandardCharacter(bookId, CharacterVerseData.StandardCharacter.Narrator);
 				block.UserConfirmed = true;
 			}
+		}
+		#endregion
+
+		#region Block editing methods
+		public void SplitBlock(Block blockToSplit, string verseToSplit, int characterOffsetToSplit)
+		{
+			AddToRelevantBlocksIfNeeded(CurrentBook.SplitBlock(blockToSplit, verseToSplit, characterOffsetToSplit));
 		}
 		#endregion
 

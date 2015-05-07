@@ -131,6 +131,14 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="SIL.WritingSystems.pdb" Name="SIL.WritingSystems.pdb" KeyPath="yes" Source="..\output\release\SIL.WritingSystems.pdb" />
           </Component>
 
+          <Component Id="SIL.DblBundle.dll" Guid="{4e2e8963-1413-411f-96b7-9190ca968b7c}">
+            <File Id="SIL.DblBundle.dll" Name="SIL.DblBundle.dll" KeyPath="yes" Source="..\output\release\SIL.DblBundle.dll" />
+          </Component>
+
+          <Component Id="SIL.DblBundle.pdb" Guid="{7ebcedc8-9eee-4413-9146-b50865a1efba}">
+            <File Id="SIL.DblBundle.pdb" Name="SIL.DblBundle.pdb" KeyPath="yes" Source="..\output\release\SIL.DblBundle.pdb" />
+          </Component>
+
           <Component Id="SIL.Windows.Forms.WritingSystems.dll" Guid="{d80fbd4c-4bfa-42f3-81cc-95210a0fa402}">
             <File Id="SIL.Windows.Forms.WritingSystems.dll" Name="SIL.Windows.Forms.WritingSystems.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.WritingSystems.dll" />
           </Component>
@@ -221,10 +229,6 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="L10NSharp.pdb" Name="L10NSharp.pdb" KeyPath="yes" Source="..\output\release\L10NSharp.pdb" />
           </Component>
 
-          <Component Id="ICSharpCode.SharpZipLib.dll" Guid="{4B1E06ED-B1E2-4936-ADD9-0480421AB547}">
-            <File Id="ICSharpCode.SharpZipLib.dll" Name="ICSharpCode.SharpZipLib.dll" KeyPath="yes" Source="..\output\release\ICSharpCode.SharpZipLib.dll" />
-          </Component>
-
           <Component Id="Analytics.NET.dll" Guid="{908f0bda-1c18-4c4f-ae2c-778bb2ae5b34}">
             <File Id="Analytics.NET.dll" Name="Analytics.NET.dll" KeyPath="yes" Source="..\output\release\Analytics.NET.dll" />
           </Component>
@@ -249,6 +253,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="SIL.Windows.Forms.GeckoBrowserAdapter.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.Keyboarding.dll"/>
       <ComponentRef Id="SIL.WritingSystems.dll"/>
+      <ComponentRef Id="SIL.DblBundle.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.WritingSystems.dll"/>
       <ComponentRef Id="SIL.ScriptureUtils.dll"/>
       <ComponentRef Id="SIL.ScriptureControls.dll"/>
@@ -262,7 +267,6 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="Utilities.dll"/>
       <ComponentRef Id="Ionic.Zip.dll"/>
       <ComponentRef Id="L10NSharp.dll"/>
-      <ComponentRef Id="ICSharpCode.SharpZipLib.dll"/>
       <ComponentRef Id="Analytics.NET.dll"/>
       <ComponentRef Id="DesktopAnalytics.dll"/>
       <ComponentRef Id="Newtonsoft.Json.dll"/>
@@ -274,6 +278,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="SIL.Windows.Forms.GeckoBrowserAdapter.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.Keyboarding.pdb"/>
       <ComponentRef Id="SIL.WritingSystems.pdb"/>
+      <ComponentRef Id="SIL.DblBundle.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.WritingSystems.pdb"/>
       <ComponentRef Id="SIL.ScriptureUtils.pdb"/>
       <ComponentRef Id="SIL.ScriptureControls.pdb"/>

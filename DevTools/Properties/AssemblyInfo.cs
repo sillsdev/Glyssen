@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("DevTools")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
+[assembly: AssemblyCompany("FCBH-SIL")]
 [assembly: AssemblyProduct("DevTools")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2014")]
+[assembly: AssemblyCopyright("Copyright © 2014-2015 Faith Comes By Hearing and SIL International")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

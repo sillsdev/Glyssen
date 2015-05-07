@@ -7,6 +7,9 @@ using L10NSharp;
 using Paratext;
 using ProtoScript.Bundle;
 using ProtoScript.Dialogs;
+using SIL.DblBundle;
+using SIL.DblBundle.Text;
+using SIL.DblBundle.Usx;
 using SIL.IO;
 using SIL.Windows.Forms;
 using SIL.Windows.Forms.WritingSystems;
@@ -94,7 +97,7 @@ namespace ProtoScript
 			return new ScrStylesheetAdapter(GetUsfmScrStylesheet()); 
 		}
 
-		private static DblMetadata GenerateMetadataForSfmProject(IEnumerable<UsxDocument> books, ScrStylesheetAdapter stylesheet, string defaultLanguageName = null)
+		private static PgDblTextMetadata GenerateMetadataForSfmProject(IEnumerable<UsxDocument> books, ScrStylesheetAdapter stylesheet, string defaultLanguageName = null)
 		{
 			string projectId;
 			string isoCode;
@@ -123,12 +126,12 @@ namespace ProtoScript
 			}
 
 			var availableBooks = books.Select(b => new Book { Code = b.BookId }).ToList();
-			var metadata = new DblMetadata
+			var metadata = new PgDblTextMetadata
 			{
-				id = projectId,
+				Id = projectId,
 				//PgRecordingProjectName = recordingProjectName,
-				identification = new DblMetadataIdentification { name = publicationName },
-				language = new DblMetadataLanguage { iso = isoCode, name = languageName, scriptDirection = wsModel.CurrentRightToLeftScript ? "RTL" : "LTR" },
+				Identification = new DblMetadataIdentification { Name = publicationName },
+				Language = new PgDblMetadataLanguage { Iso = isoCode, Name = languageName, ScriptDirection = wsModel.CurrentRightToLeftScript ? "RTL" : "LTR" },
 				AvailableBooks = availableBooks,
 				FontFamily = stylesheet.FontFamily,
 				FontSizeInPoints = stylesheet.FontSizeInPoints

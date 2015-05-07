@@ -22,13 +22,11 @@ namespace ProtoScript.Controls
 			int blocksRemaining = Maximum - Value;
 			string text = string.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.BlockProgressFmt",
 				"{0:N1}% Complete; {1} Blocks Remaining"), percentComplete, blocksRemaining);
-			using (var f = new Font(FontFamily.GenericSansSerif, 9, FontStyle.Bold))
-			{
-				SizeF len = g.MeasureString(text, f);
-				// Calculate the location of the text (the middle of progress bar)
-				var location = new Point(Convert.ToInt32((Width / 2) - len.Width / 2), Convert.ToInt32((Height / 2) - len.Height / 2));
-				g.DrawString(text, f, Brushes.Black, location);
-			}
+
+			SizeF len = g.MeasureString(text, Font);
+			// Calculate the location of the text (the middle of progress bar)
+			var location = new Point(Convert.ToInt32((Width / 2) - len.Width / 2), Convert.ToInt32((Height / 2) - len.Height / 2));
+			g.DrawString(text, Font, Brushes.Black, location);
 		}
 
 		// Avoids flicker of text on bar

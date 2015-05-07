@@ -43,6 +43,7 @@
 			// 
 			// m_btnOk
 			// 
+			this.m_btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
@@ -69,6 +70,7 @@
 			// 
 			// m_btnCancel
 			// 
+			this.m_btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancel, null);
@@ -85,13 +87,17 @@
 			this.AcceptButton = this.m_btnOk;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(580, 345);
 			this.Controls.Add(this.m_btnCancel);
 			this.Controls.Add(this.m_btnOk);
 			this.Controls.Add(this.m_bookChooserControl);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.ScriptureRangeSelectionDialog.WindowTitle");
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "ScriptureRangeSelectionDialog";
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;

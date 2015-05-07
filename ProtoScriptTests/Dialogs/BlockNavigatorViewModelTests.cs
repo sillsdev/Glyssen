@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -10,6 +9,9 @@ using ProtoScript.Bundle;
 using ProtoScript.Character;
 using ProtoScript.Dialogs;
 using ProtoScript.Quote;
+using SIL.DblBundle;
+using SIL.DblBundle.Text;
+using SIL.DblBundle.Usx;
 using SIL.IO;
 using SIL.WritingSystems;
 
@@ -55,7 +57,7 @@ namespace ProtoScriptTests.Dialogs
 		public static Project CreateTestProject()
 		{
 			DeleteTestProjectFolder();
-			var sampleMetadata = new DblMetadata();
+			var sampleMetadata = new PgDblTextMetadata();
 			sampleMetadata.AvailableBooks = new List<Book>();
 			var bookOfMark = new Book();
 			bookOfMark.Code = "MRK";
@@ -65,9 +67,9 @@ namespace ProtoScriptTests.Dialogs
 			sampleMetadata.AvailableBooks.Add(bookOfMark);
 			sampleMetadata.FontFamily = "Times New Roman";
 			sampleMetadata.FontSizeInPoints = 12;
-			sampleMetadata.id = kTest;
-			sampleMetadata.language = new DblMetadataLanguage { iso = kTest };
-			sampleMetadata.identification = new DblMetadataIdentification { name = "test~~" };
+			sampleMetadata.Id = kTest;
+			sampleMetadata.Language = new PgDblMetadataLanguage{ Iso = kTest };
+			sampleMetadata.Identification = new DblMetadataIdentification { Name = "test~~" };
 			sampleMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
 			sampleMetadata.QuoteSystem = GetTestQuoteSystem();
 

@@ -73,10 +73,10 @@ namespace ProtoScript.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("25")]
-        public string PgUsxParserVersion {
+        [global::System.Configuration.DefaultSettingValueAttribute("26")]
+        public int PgUsxParserVersion {
             get {
-                return ((string)(this["PgUsxParserVersion"]));
+                return ((int)(this["PgUsxParserVersion"]));
             }
             set {
                 this["PgUsxParserVersion"] = value;
@@ -181,6 +181,30 @@ namespace ProtoScript.Properties {
             }
             set {
                 this["OpenProjectDlgGridSettings"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool NeedUpgrade {
+            get {
+                return ((bool)(this["NeedUpgrade"]));
+            }
+            set {
+                this["NeedUpgrade"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int AssignCharactersSliderLocation {
+            get {
+                return ((int)(this["AssignCharactersSliderLocation"]));
+            }
+            set {
+                this["AssignCharactersSliderLocation"] = value;
             }
         }
     }

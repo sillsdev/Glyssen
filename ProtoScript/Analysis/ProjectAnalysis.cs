@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using ProtoScript.Character;
 using ProtoScript.Utilities;
 
@@ -35,6 +37,8 @@ namespace ProtoScript.Analysis
 			{
 				foreach (Block block in book.GetScriptBlocks(false))
 				{
+					if (block.MultiBlockQuote == MultiBlockQuote.Continuation || block.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
+						continue;
 					TotalBlocks++;
 					if (block.CharacterIs(book.BookId, CharacterVerseData.StandardCharacter.Narrator))
 						NarratorBlocks++;

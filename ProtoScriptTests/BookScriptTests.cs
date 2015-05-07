@@ -14,6 +14,7 @@ namespace ProtoScriptTests
 	{
 		private int m_curSetupChapter = 1;
 		private int m_curSetupVerse;
+		private int m_curSetupVerseEnd = 0;
 		private string m_curStyleTag;
 
 		#region GetVerseText Tests
@@ -241,6 +242,40 @@ namespace ProtoScriptTests
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var firstBlockForVerse1_3 = bookScript.GetFirstBlockForVerse(1, 3);
 			Assert.IsTrue(firstBlockForVerse1_3.GetText(true).EndsWith("[3]\u00A0This is it!"));
+		}
+		#endregion
+
+		#region GetBlocksForVerse Tests
+		[Test]
+		public void GetBlocksForVerse_SecondVerseInBridge_ReturnsBlockWithVerse()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			mrkBlocks.Add(NewSingleVersePara(73));
+			Block expected;
+			mrkBlocks.Add(expected = NewVerseBridgePara(74, 75));
+			mrkBlocks.Add(NewSingleVersePara(76));
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var list = bookScript.GetBlocksForVerse(1, 75).ToList();
+			Assert.AreEqual(1, list.Count);
+			Assert.AreEqual(expected, list[0]);
+		}
+
+		[Test]
+		public void GetBlocksForVerse_SecondVerseInBridgeWithFollowingParasForSameVerseBridge_ReturnsBlockWithVerse()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			mrkBlocks.Add(NewSingleVersePara(73));
+			Block expected;
+			mrkBlocks.Add(expected = NewVerseBridgePara(74, 75));
+			mrkBlocks.Add(NewPara("q1", "more"));
+			mrkBlocks.Add(NewPara("q2", "even more"));
+			mrkBlocks.Add(NewSingleVersePara(76));
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var list = bookScript.GetBlocksForVerse(1, 75).ToList();
+			Assert.AreEqual(1, list.Count);
+			Assert.AreEqual(expected, list[0]);
 		}
 		#endregion
 
@@ -506,6 +541,253 @@ namespace ProtoScriptTests
 		}
 		#endregion
 
+		#region SplitBlock Tests
+		[Test]
+		public void SplitBlock_BlockNotInList_ThrowsArgumentException()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			mrkBlocks.Add(NewSingleVersePara(1));
+			mrkBlocks.Add(NewSingleVersePara(2));
+			mrkBlocks.Add(NewSingleVersePara(3));
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			Assert.Throws<ArgumentException>(() => bookScript.SplitBlock(NewSingleVersePara(5, "Split here, dude."), "5", 11));
+			Assert.IsTrue(bookScript.GetScriptBlocks().SequenceEqual(mrkBlocks));
+		}
+
+		[Test]
+		public void SplitBlock_VerseNotInBlock_ThrowsArgumentException()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			mrkBlocks.Add(NewSingleVersePara(1));
+			var blockForVerse2 = NewSingleVersePara(2, "It doesn't matter what this is.");
+			mrkBlocks.Add(blockForVerse2);
+			mrkBlocks.Add(NewSingleVersePara(3));
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			Assert.Throws<ArgumentException>(() => bookScript.SplitBlock(blockForVerse2, "3", 11));
+			Assert.IsTrue(bookScript.GetScriptBlocks().SequenceEqual(mrkBlocks));
+		}
+
+		[Test]
+		public void SplitBlock_CharacterOffsetNotInVerse_ThrowsArgumentOutOfRangeException()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			mrkBlocks.Add(NewSingleVersePara(1));
+			var blockForVerse2 = NewSingleVersePara(2, "Short.");
+			mrkBlocks.Add(blockForVerse2);
+			mrkBlocks.Add(NewSingleVersePara(3));
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			Assert.Throws<ArgumentOutOfRangeException>(() => bookScript.SplitBlock(blockForVerse2, "2", 400));
+			Assert.IsTrue(bookScript.GetScriptBlocks().SequenceEqual(mrkBlocks));
+		}
+
+		[Test]
+		public void SplitBlock_SingleVerseBlock_SplitsBlockAtSpecifiedOffset()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(5));
+			//                                        0         1         2         3         4         5         6         7         8
+			//                                        012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+			var blockToSplit = NewSingleVersePara(36, "Ignoring what they said, Jesus told the synagogue ruler: Don't be afraid; just believe.");
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "36", 57);
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(blocks[2], newBlock);
+			Assert.AreEqual("[36]\u00A0Ignoring what they said, Jesus told the synagogue ruler: ", blocks[1].GetText(true));
+			Assert.AreEqual(36, newBlock.InitialStartVerseNumber);
+			Assert.AreEqual(0, newBlock.InitialEndVerseNumber);
+			Assert.AreEqual("Don't be afraid; just believe.", newBlock.GetText(true));
+		}
+
+		[Test]
+		public void SplitBlock_MultiVerseBlock_SubsequentVersesMovedToNewBlock()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(5));
+			//                                        0         1         2         3         4         5         6         7         8
+			//                                        012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+			var blockToSplit = NewSingleVersePara(36, "Ignoring what they said, Jesus told the synagogue ruler: Don't be afraid; just believe. ");
+			blockToSplit.AddVerse("37-38", "This is the text of following verses. ");
+			blockToSplit.AddVerse("39", "This is the text of final verse. ");
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "36", 57);
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(blocks[2], newBlock);
+			Assert.AreEqual("[36]\u00A0Ignoring what they said, Jesus told the synagogue ruler: ", blocks[1].GetText(true));
+			Assert.AreEqual(36, newBlock.InitialStartVerseNumber);
+			Assert.AreEqual(0, newBlock.InitialEndVerseNumber);
+			Assert.AreEqual("Don't be afraid; just believe. [37-38]\u00A0This is the text of following verses. [39]\u00A0This is the text of final verse. ", newBlock.GetText(true));
+		}
+
+		[Test]
+		public void SplitBlock_SplitInSecondVerseInBlock_SubsequentVersesMovedToNewBlock()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(5));
+			var blockToSplit = NewSingleVersePara(35, "This is the first verse. ");
+			//                          0         1         2         3         4         5         6         7         8
+			//                          012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+			blockToSplit.AddVerse("36", "Ignoring what they said, Jesus told the synagogue ruler: Don't be afraid; just believe. ");
+			blockToSplit.AddVerse("37", "This is the final verse. ");
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "36", 57);
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(blocks[2], newBlock);
+			Assert.AreEqual("[35]\u00A0This is the first verse. [36]\u00A0Ignoring what they said, Jesus told the synagogue ruler: ", blocks[1].GetText(true));
+			Assert.AreEqual(36, newBlock.InitialStartVerseNumber);
+			Assert.AreEqual(0, newBlock.InitialEndVerseNumber);
+			Assert.AreEqual("Don't be afraid; just believe. [37]\u00A0This is the final verse. ", newBlock.GetText(true));
+		}
+
+		[Test]
+		public void SplitBlock_SplitInVerseBridge_NewBlockHasCorrectStartAndEndVerse()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(5));
+			var blockToSplit = NewSingleVersePara(35, "This is the first verse. ");
+			//                             0                                                                                                   1
+			//                             0         1         2         3         4         5         6         7         8         9         0         1         2         3         4         5         6
+			//                             0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012
+			blockToSplit.AddVerse("36-37", "Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ");
+			blockToSplit.AddVerse("38", "This is the final verse. ");
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "36-37", 128);
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(blocks[2], newBlock);
+			Assert.AreEqual("[35]\u00A0This is the first verse. [36-37]\u00A0Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: ", blocks[1].GetText(true));
+			Assert.AreEqual(36, newBlock.InitialStartVerseNumber);
+			Assert.AreEqual(37, newBlock.InitialEndVerseNumber);
+			Assert.AreEqual("Don't be afraid; just believe. [38]\u00A0This is the final verse. ", newBlock.GetText(true));
+		}
+
+		[Test] public void SplitBlock_AttemptToSplitBetweenBlocksThatAreNotPartOfMultiBlockQuote_ThrowsInvalidOperationException()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			mrkBlocks.Add(NewSingleVersePara(1));
+			var splitBeforeBlock = NewSingleVersePara(2);
+			mrkBlocks.Add(splitBeforeBlock);
+			mrkBlocks.Add(NewSingleVersePara(3));
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			Assert.Throws<InvalidOperationException>(() => bookScript.SplitBlock(splitBeforeBlock, null, 0));
+			Assert.IsTrue(bookScript.GetScriptBlocks().SequenceEqual(mrkBlocks));
+		}
+
+		[Test]
+		public void SplitBlock_SplitAfterFirstBlockInMultiBlockQuote_FirstBlockChangedToNone()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			var block2 = NewSingleVersePara(1).AddVerse("2-34");
+			block2.MultiBlockQuote = MultiBlockQuote.Start;
+			mrkBlocks.Add(block2);
+			var blockToSplitBefore = NewSingleVersePara(35, "This is the first verse. ");
+			blockToSplitBefore.AddVerse("36-37", "Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ");
+			blockToSplitBefore.MultiBlockQuote = MultiBlockQuote.Continuation;
+			mrkBlocks.Add(blockToSplitBefore);
+			var block4 = NewSingleVersePara(38).AddVerse(39);
+			block4.MultiBlockQuote = MultiBlockQuote.Continuation;
+			mrkBlocks.Add(block4);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			Assert.AreEqual(4, bookScript.GetScriptBlocks().Count);
+			Assert.AreEqual(blockToSplitBefore, bookScript.SplitBlock(blockToSplitBefore, null, 0));
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(4, blocks.Count);
+			Assert.AreEqual(MultiBlockQuote.None, block2.MultiBlockQuote);
+			Assert.AreEqual("[35]\u00A0This is the first verse. [36-37]\u00A0Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ", blocks[2].GetText(true));
+			Assert.AreEqual(MultiBlockQuote.Start, blockToSplitBefore.MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, block4.MultiBlockQuote);
+		}
+
+		[Test]
+		public void SplitBlock_SplitBetweenBlocksInMultiBlockQuote_BlockAtStartOfSplitChangedToStart()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			var block2 = NewSingleVersePara(1).AddVerse("2");
+			block2.MultiBlockQuote = MultiBlockQuote.Start;
+			mrkBlocks.Add(block2);
+			var block3 = NewSingleVersePara(1).AddVerse("3-34");
+			block3.MultiBlockQuote = MultiBlockQuote.Continuation;
+			mrkBlocks.Add(block3);
+			var blockToSplitBefore = NewSingleVersePara(35, "This is the first verse. ");
+			blockToSplitBefore.AddVerse("36-37", "Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ");
+			blockToSplitBefore.MultiBlockQuote = MultiBlockQuote.Continuation;
+			mrkBlocks.Add(blockToSplitBefore);
+			var block5 = NewSingleVersePara(38).AddVerse(39);
+			block5.MultiBlockQuote = MultiBlockQuote.Continuation;
+			mrkBlocks.Add(block5);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			Assert.AreEqual(5, bookScript.GetScriptBlocks().Count);
+			Assert.AreEqual(blockToSplitBefore, bookScript.SplitBlock(blockToSplitBefore, null, 0));
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(5, blocks.Count);
+			Assert.AreEqual(MultiBlockQuote.Start, block2.MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, block3.MultiBlockQuote);
+			Assert.AreEqual("[35]\u00A0This is the first verse. [36-37]\u00A0Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ", blocks[3].GetText(true));
+			Assert.AreEqual(MultiBlockQuote.Start, blockToSplitBefore.MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, block5.MultiBlockQuote);
+		}
+
+		[Test]
+		public void SplitBlock_SplitBeforeLastBlockInMultiBlockQuote_BlockChangedToNone()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			var block2 = NewSingleVersePara(1).AddVerse("2-32");
+			block2.MultiBlockQuote = MultiBlockQuote.Start;
+			mrkBlocks.Add(block2);
+			var block3 = NewSingleVersePara(33).AddVerse(34);
+			block3.MultiBlockQuote = MultiBlockQuote.Continuation;
+			mrkBlocks.Add(block3);
+			var blockToSplitBefore = NewSingleVersePara(35, "This is the first verse. ");
+			blockToSplitBefore.AddVerse("36-37", "Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ");
+			blockToSplitBefore.MultiBlockQuote = MultiBlockQuote.Continuation;
+			mrkBlocks.Add(blockToSplitBefore);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			Assert.AreEqual(4, bookScript.GetScriptBlocks().Count);
+			Assert.AreEqual(blockToSplitBefore, bookScript.SplitBlock(blockToSplitBefore, null, 0));
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(4, blocks.Count);
+			Assert.AreEqual(MultiBlockQuote.Start, block2.MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, block3.MultiBlockQuote);
+			Assert.AreEqual("[35]\u00A0This is the first verse. [36-37]\u00A0Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ", blocks[3].GetText(true));
+			Assert.AreEqual(MultiBlockQuote.None, blockToSplitBefore.MultiBlockQuote);
+		}
+
+		[Test]
+		public void SplitBlock_SplitBetweenBlocksInTwoBlockQuote_BothBlocksChangedToNone()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			var block2 = NewSingleVersePara(1).AddVerse("2-34");
+			block2.MultiBlockQuote = MultiBlockQuote.Start;
+			mrkBlocks.Add(block2);
+			var blockToSplitBefore = NewSingleVersePara(35, "This is the first verse. ");
+			blockToSplitBefore.AddVerse("36-37", "Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ");
+			blockToSplitBefore.MultiBlockQuote = MultiBlockQuote.Continuation;
+			mrkBlocks.Add(blockToSplitBefore);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			Assert.AreEqual(3, bookScript.GetScriptBlocks().Count);
+			Assert.AreEqual(blockToSplitBefore, bookScript.SplitBlock(blockToSplitBefore, null, 0));
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(MultiBlockQuote.None, block2.MultiBlockQuote);
+			Assert.AreEqual("[35]\u00A0This is the first verse. [36-37]\u00A0Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ", blocks[2].GetText(true));
+			Assert.AreEqual(MultiBlockQuote.None, blockToSplitBefore.MultiBlockQuote);
+		}
+		#endregion
+
 		#region Private Helper methods
 		private Block NewTitleBlock(string text)
 		{
@@ -529,9 +811,21 @@ namespace ProtoScriptTests
 		private Block NewSingleVersePara(int verseNum, string text = null)
 		{
 			m_curSetupVerse = verseNum;
+			m_curSetupVerseEnd = 0;
 			var block = new Block("p", m_curSetupChapter, verseNum).AddVerse(verseNum, text);
 			block.IsParagraphStart = true;
 			m_curStyleTag = "p";
+			return block;
+		}
+
+		private Block NewVerseBridgePara(int verseNumStart, int verseNumEnd, string text = null)
+		{
+			var block = new Block("p", m_curSetupChapter, verseNumStart, verseNumEnd).AddVerse(
+				string.Format("{0}-{1}", verseNumStart, verseNumEnd), text);
+			block.IsParagraphStart = true;
+			m_curStyleTag = "p";
+			m_curSetupVerse = verseNumStart;
+			m_curSetupVerseEnd = verseNumEnd;
 			return block;
 		}
 
@@ -546,7 +840,7 @@ namespace ProtoScriptTests
 		private Block NewBlock(string text)
 		{
 			Debug.Assert(m_curStyleTag != null);
-			var block = new Block(m_curStyleTag, m_curSetupChapter, m_curSetupVerse);
+			var block = new Block(m_curStyleTag, m_curSetupChapter, m_curSetupVerse, m_curSetupVerseEnd);
 			block.BlockElements.Add(new ScriptText(text));
 			return block;
 		}

@@ -12,6 +12,7 @@ using Paratext;
 using ProtoScript.Bundle;
 using ProtoScript.Dialogs;
 using ProtoScript.Properties;
+using SIL.DblBundle;
 using SIL.IO;
 using SIL.Windows.Forms.Miscellaneous;
 
@@ -162,9 +163,9 @@ namespace ProtoScript
 
 		private void LoadBundle(string bundlePath)
 		{
-			Bundle.Bundle bundle = null;
+			PgBundle bundle = null;
 
-			if (!LoadAndHandleApplicationExceptions(() => { bundle = new Bundle.Bundle(bundlePath); }))
+			if (!LoadAndHandleApplicationExceptions(() => { bundle = new PgBundle(bundlePath); }))
 			{
 				SetProject(null);
 				return;
@@ -188,6 +189,7 @@ namespace ProtoScript
 			if (File.Exists(projFilePath))
 			{
 				LoadProject(projFilePath);
+				bundle.Dispose();
 				return;
 			}
 
@@ -208,7 +210,7 @@ namespace ProtoScript
 					"Text release Bundle: {0}\r\n" +
 					"Versification file: {1}\r\n" +
 					"Error: {2}"),
-					bundlePath, Project.kVersificationFileName, error);
+					bundlePath, DblBundleFileUtils.kVersificationFileName, error);
 				MessageBox.Show(msg, Program.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				SetProject(null);
 			}
