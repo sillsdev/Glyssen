@@ -561,7 +561,7 @@ namespace ProtoScript.Dialogs
 
 		private void AssignCharacterDialog_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			if (!m_pnlShortcuts.Visible || m_txtCharacterFilter.Focused || m_txtDeliveryFilter.Focused || m_scriptureReference.Focused )
+			if (m_txtCharacterFilter.Focused || m_txtDeliveryFilter.Focused || m_scriptureReference.VerseControl.ContainsFocus)
 				return;
 
 			int selectedIndexOneBased;
@@ -572,7 +572,7 @@ namespace ProtoScript.Dialogs
 				HandleCharacterSelectionKeyPress(e);
 				e.Handled = true;
 			}
-			else
+			else if (m_pnlShortcuts.Visible)
 			{
 				if (m_listBoxCharacters.Items.Count >= selectedIndexOneBased)
 					m_listBoxCharacters.SelectedIndex = selectedIndexOneBased - 1; //listBox is zero-based

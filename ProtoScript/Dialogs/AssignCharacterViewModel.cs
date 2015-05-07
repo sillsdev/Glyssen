@@ -173,7 +173,7 @@ namespace ProtoScript.Dialogs
 
 				filterText = filterText.Trim();
 				m_currentCharacters.RemoveWhere(c => !c.Character.Contains(filterText, StringComparison.OrdinalIgnoreCase) &&
-					!c.Alias.Contains(filterText, StringComparison.OrdinalIgnoreCase));
+					(c.Alias == null || !c.Alias.Contains(filterText, StringComparison.OrdinalIgnoreCase)));
 			}
 
 			var listToReturn = new List<Character>(new SortedSet<Character>(m_currentCharacters.Select(cv => new Character(cv.Character, cv.Alias,
