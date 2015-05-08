@@ -47,6 +47,7 @@ namespace ProtoScript.Quote
 		private readonly QuoteSystem m_quoteSystem;
 		private readonly ScrVers m_versification;
 		private readonly List<Regex> m_regexes = new List<Regex>();
+		private readonly Regex m_regexStartsWithSpecialOpeningPunctuation = new Regex(@"^(\(|\\\[|\\\{)", RegexOptions.Compiled);
 
 		#region working members
 		// These members are used by several methods. Making them class-level prevents passing them repeatedly
@@ -166,6 +167,7 @@ namespace ProtoScript.Quote
 				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber) { IsParagraphStart = block.IsParagraphStart };
 
 				bool atBeginningOfBlock = true;
+				bool specialOpeningPunctuation = false;
 				foreach (BlockElement element in block.BlockElements)
 				{
 					var scriptText = element as ScriptText;
@@ -192,6 +194,7 @@ namespace ProtoScript.Quote
 						{
 							if (match.Index > pos)
 							{
+								specialOpeningPunctuation = m_regexStartsWithSpecialOpeningPunctuation.Match(content).Success;
 								sb.Append(content.Substring(pos, match.Index - pos));
 							}
 
@@ -199,11 +202,13 @@ namespace ProtoScript.Quote
 
 							var token = match.Value;
 
-							atBeginningOfBlock &= match.Index == 0;
+							if (!specialOpeningPunctuation)
+								atBeginningOfBlock &= match.Index == 0;
 
 							if (atBeginningOfBlock)
 							{
-								atBeginningOfBlock = false;
+								if (!specialOpeningPunctuation)
+									atBeginningOfBlock = false;
 
 								if (m_quoteLevel > 0 && token.StartsWith(ContinuerForCurrentLevel))
 								{
