@@ -246,6 +246,20 @@ namespace ProtoScript.Dialogs
 		private void m_btnOk_Click(object sender, EventArgs e)
 		{
 			QuoteSystem currentQuoteSystem = CurrentQuoteSystem;
+
+			if (currentQuoteSystem == m_project.QuoteSystem)
+			{
+				if ((m_project.QuoteSystemStatus & QuoteSystemStatus.NotParseReady) > 0)
+				{
+					m_project.QuoteSystemStatus = QuoteSystemStatus.Reviewed;
+					// Kicks off the quote parse (which we haven't run yet)
+					m_project.QuoteSystem = currentQuoteSystem;
+				}
+				else
+					HandleAnalysisCompleted(this, null);
+				return;
+			}
+
 			string validationMessage;
 			if (!ValidateQuoteSystem(currentQuoteSystem, out validationMessage))
 			{
@@ -264,14 +278,9 @@ namespace ProtoScript.Dialogs
 					return;
 				}
 			}
-			m_project.QuoteSystemStatus = m_project.QuoteSystemStatus == QuoteSystemStatus.UserSet || m_project.QuoteSystem != currentQuoteSystem ? 
-				QuoteSystemStatus.UserSet : QuoteSystemStatus.Reviewed;
 
-			if (m_project.QuoteSystem == currentQuoteSystem)
-			{
-				HandleAnalysisCompleted(this, null);
-				return;
-			}
+			// Want to set the status even if already UserSet because that triggers setting QuoteSystemDate
+			m_project.QuoteSystemStatus = QuoteSystemStatus.UserSet;
 
 			m_project.QuoteSystem = currentQuoteSystem;
 		}
