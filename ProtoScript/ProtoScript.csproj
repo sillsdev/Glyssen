@@ -322,7 +322,7 @@
     <None Include="Resources\sample.vrs" />
     <None Include="Resources\yellow-ok-icon.png" />
     <None Include="Resources\112_Plus_Green_16x16_72.png" />
-    <Content Include="Resources\CharacterIdMap.txt" />
+    <None Include="Resources\CharacterDetail.txt" />
     <Content Include="Resources\CharacterVerse.txt" />
     <None Include="Resources\data-grid-icon.png" />
     <None Include="Resources\grid-icon.png" />

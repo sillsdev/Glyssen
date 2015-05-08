@@ -15,8 +15,8 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_RequiredFieldsHaveValidFormatAndThereAreNoDuplicateLines()
 		{
-			Regex regex = new Regex("^[^\t]+\t(\\d*)\t((TRUE)|(FALSE))\t((Male)|(Female)|(Both)|(Unknown)|(Pref: Male)|(Pref: Female))?\t[^\t]*\t[^\t]*", RegexOptions.Compiled);
-			string[] allLines = Resources.CharacterIdMap.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+			Regex regex = new Regex("^[^\t]+\t((TRUE)|(FALSE))\t((Male)|(Female)|(Both)|(Unknown)|(Pref: Male)|(Pref: Female))?\t[^\t]*\t[^\t]*", RegexOptions.Compiled);
+			string[] allLines = Resources.CharacterDetail.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
 			var set = new HashSet<string>();
 			foreach (var line in allLines.Skip(1))

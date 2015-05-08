@@ -71,36 +71,37 @@ namespace ProtoScript.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to #Character ID	Code (discard)	Multiple Speakers	Gender	Age	Comment
-        ///Aaron	1	FALSE	Male		
-        ///Abigail	2	FALSE	Female		
-        ///Abijah, king of Judah	3	FALSE	Male		
-        ///Abimelech, King of Gerar	4	FALSE	Male		
-        ///Abimelech, King of Gerar/Phicol		TRUE	Male		
-        ///Abimelech, King of the Philistines (in Gerar)		FALSE	Male		
-        ///Abimelech, son of Gideon		FALSE	Male		
-        ///Abishai, Joab&apos;s brother	5	FALSE	Male		
-        ///Abner	6	FALSE	Male		
-        ///Abraham	7	FALSE	Male		
-        ///Abraham&apos;s chief servant	8	FALSE	Male		
-        ///Absalom	10	FALSE	Male		
-        ///Absalom/Israel, men  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to #Character ID	Multiple Speakers	Gender	Age	Comment
+        ///Aaron	FALSE	Male		
+        ///Abigail	FALSE	Female		
+        ///Abijah, king of Judah	FALSE	Male		
+        ///Abimelech, King of Gerar	FALSE	Male		
+        ///Abimelech, King of Gerar/Phicol	TRUE	Male		
+        ///Abimelech, King of the Philistines (in Gerar)	FALSE	Male		
+        ///Abimelech, son of Gideon	FALSE	Male		
+        ///Abishai, Joab&apos;s brother	FALSE	Male		
+        ///Abner	FALSE	Male		
+        ///Abraham (Abram)	FALSE	Male		
+        ///Abraham&apos;s chief servant	FALSE	Male		
+        ///Absalom	FALSE	Male		
+        ///Absalom/Israel, men of	TRUE	Male		
+        ///Absalom&apos;s men [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string CharacterIdMap {
+        internal static string CharacterDetail {
             get {
-                return ResourceManager.GetString("CharacterIdMap", resourceCulture);
+                return ResourceManager.GetString("CharacterDetail", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	65
+        ///   Looks up a localized string similar to Control File Version	70
         ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
         ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
         ///# PSA will be handled as complete units, each psalm will be spoken by one voice								
         ///# SNG we will need to review again								
         ///# ISA more review necessary on who is speaking: God or the Isaiah								
-        ///# JER possibly no markup of this book… will need to review								
-        ///# EZK [rest of string was truncated]&quot;;.
+        ///# JER possibly no markup of this book... will need to review								
+        ///# E [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CharacterVerseData {
             get {

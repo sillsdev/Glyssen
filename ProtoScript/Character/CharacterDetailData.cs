@@ -15,7 +15,7 @@ namespace ProtoScript.Character
 		{
 			// Tests can set this before accessing the Singleton.
 			if (TabDelimitedCharacterDetailData == null)
-				TabDelimitedCharacterDetailData = Resources.CharacterIdMap;
+				TabDelimitedCharacterDetailData = Resources.CharacterDetail;
 			LoadData(TabDelimitedCharacterDetailData);
 		}
 
@@ -50,10 +50,10 @@ namespace ProtoScript.Character
 			return new CharacterDetail
 			{
 				Character = items[0],
-				MultipleSpeakers = items[2].Equals("True", StringComparison.OrdinalIgnoreCase),
-				Gender = items[3],
-				Age = items[4],
-				Comment = items[5]
+				MultipleSpeakers = items[1].Equals("True", StringComparison.OrdinalIgnoreCase),
+				Gender = items[2],
+				Age = items[3],
+				Comment = items[4]
 			};
 		}
 	}

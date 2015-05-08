@@ -1,4 +1,4 @@
-Control File Version	69
+Control File Version	70
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -7961,7 +7961,7 @@ ISA	30	13	God		God (Holy One of Israel)	Normal
 ISA	30	14	God		God (Holy One of Israel)	Normal		
 ISA	30	15	God		God (The Sovereign LORD, the Holy One of Israel)	Normal		
 ISA	30	16	God		God (The Sovereign LORD, the Holy One of Israel)	Potential		
-ISA	30	16	you (rebelious people)			Quotation		
+ISA	30	16	you (rebellious people)			Quotation		
 ISA	30	17	God		God (The Sovereign LORD, the Holy One of Israel)	Normal		
 ISA	30	21	God		voice, a (God?)	Normal		
 ISA	30	22	you (people of Zion, restored)			Hypothetical		
