@@ -101,6 +101,7 @@ namespace ProtoScript.Character
 		/// <summary>Character ID prefix for intro material</summary>
 		protected const string kIntroPrefix = "intro-";
 
+		private readonly CharacterDeliveryEqualityComparer m_characterDeliveryEqualityComparer = new CharacterDeliveryEqualityComparer();
 		private IList<CharacterVerse> m_data = new List<CharacterVerse>();
 		private ILookup<int, CharacterVerse> m_lookup;
 		private IEnumerable<CharacterVerse> m_uniqueCharacterAndDeliveries;
@@ -152,7 +153,13 @@ namespace ProtoScript.Character
 					nextVerse++;
 					continue;
 				}
-				var intersection = nextResult.Intersect(result, new CharacterDeliveryEqualityComparer());
+				if (!result.Any())
+				{
+					result = nextResult;
+					nextVerse++;
+					continue;	
+				}
+				var intersection = nextResult.Intersect(result, m_characterDeliveryEqualityComparer);
 				if (intersection.Count() == 1)
 				{
 					result = intersection;
