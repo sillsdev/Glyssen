@@ -11506,6 +11506,7 @@ MAT	2	6	chief priests/teachers of religious law			Normal	Good Priest
 MAT	2	7	narrator-MAT			Quotation		
 MAT	2	7	Herod the Great			Indirect		
 MAT	2	8	Herod the Great	sly		Dialogue		
+MAT	2	12	dream			Indirect		
 MAT	2	13	angel of the LORD, an	commanding		Normal		
 MAT	2	15	scripture			Quotation	God	
 MAT	2	16	Herod the Great			Indirect		
@@ -11683,6 +11684,7 @@ MAT	9	17	Jesus			Normal
 MAT	9	18	Jairus (synagogue leader)	pleading	synagogue leader	Dialogue		MAT 9.18;MRK 5.23;LUK 8.41
 MAT	9	21	woman, bleeding for twelve years	thinking		Normal		MAT 9.21;MRK 5.28,33;LUK 8.47
 MAT	9	22	Jesus			Dialogue		
+MAT	9	23	crowd			Indirect		
 MAT	9	24	Jesus	giving orders		Dialogue		
 MAT	9	27	blind men, two	shouting		Dialogue		
 MAT	9	28	blind men, two	quieter		Dialogue		
@@ -11798,6 +11800,8 @@ MAT	12	42	Jesus	rebuking		Normal
 MAT	12	43	Jesus			Normal		
 MAT	12	44	Jesus			Normal		
 MAT	12	45	Jesus			Normal		
+MAT	12	46	Jesus			Indirect		
+MAT	12	46	Jesus' family		Jesus' mother and brothers	Indirect		
 MAT	12	47	crowd	announcing	someone	Dialogue		MAT 12.47;MRK 3.32;LUK 8.20
 MAT	12	48	Jesus	questioning		Dialogue		
 MAT	12	49	Jesus			Dialogue		
@@ -11945,6 +11949,7 @@ MAT	17	15	father of demon-possessed boy	distraught	a man (father of demon-posses
 MAT	17	16	father of demon-possessed boy	distraught	a man (father of demon-possessed boy)	Dialogue		MAT 17.15-16;MRK 9.17-18,22;LUK 9.38-40
 MAT	17	17	Jesus	exasperated		Dialogue		
 MAT	17	17	Jesus	giving orders		Dialogue		
+MAT	17	18	Jesus	rebuking		Indirect		
 MAT	17	19	disciples	upset		Dialogue		
 MAT	17	20	Jesus			Dialogue		
 MAT	17	21	Jesus			Dialogue		
@@ -12344,7 +12349,9 @@ MAT	27	23	crowd	screaming		Dialogue	mob	MAT 27.23;MRK 15.14;LUK 23.21
 MAT	27	23	Pilate	to crowd		Dialogue		
 MAT	27	24	Pilate	to crowd		Dialogue		
 MAT	27	25	people, all the	shouting		Dialogue		
+MAT	27	26	Pilate			Indirect		
 MAT	27	29	soldiers, Roman	mocking		Dialogue		
+MAT	27	32	soldiers, Roman	giving orders		Indirect		
 MAT	27	33	narrator-MAT			Quotation		
 MAT	27	35	scripture			Quotation		
 MAT	27	37	sign on the cross			Quotation		
@@ -12355,7 +12362,10 @@ MAT	27	46	Jesus	deeply distressed		Normal
 MAT	27	46	narrator-MAT			Quotation		
 MAT	27	47	bystanders at Calvary	uneasy	some of the bystanders	Dialogue		MAT 27.47;MRK 15.35
 MAT	27	49	bystanders, rest	jeering		Dialogue		
+MAT	27	50	Jesus	crying		Indirect		
 MAT	27	54	centurion at crucifixion	amazed		Dialogue		
+MAT	27	58	Joseph of Arimathea			Indirect		
+MAT	27	58	Pilate			Indirect		
 MAT	27	63	teachers of religious law/Pharisees	negotiating	chief 	Dialogue		
 MAT	27	64	teachers of religious law/Pharisees	negotiating	chief 	Dialogue		
 MAT	27	65	Pilate	impatient		Dialogue		
@@ -12490,7 +12500,10 @@ MRK	5	33	woman, bleeding for twelve years			Indirect		MAT 9.21;MRK 5.28,33;LUK 8
 MRK	5	34	Jesus	giving orders		Dialogue		
 MRK	5	35	men from Jairus' house	sad		Dialogue		MRK 5.35;LUK 8.49
 MRK	5	36	Jesus			Dialogue		
+MRK	5	38	crowd			Indirect		
 MRK	5	39	Jesus	questioning		Dialogue		
+MRK	5	40	crowd			Indirect		
+MRK	5	40	Jesus			Indirect		
 MRK	5	41	Jesus	giving orders		Dialogue		
 MRK	5	41	narrator-MRK			Quotation		
 MRK	5	43	Jesus			Indirect		
@@ -12527,6 +12540,7 @@ MRK	6	39	Jesus			Indirect
 MRK	6	45	Jesus			Indirect		
 MRK	6	49	disciples	terrified		Indirect		
 MRK	6	50	Jesus	reassuring		Normal		
+MRK	6	54	crowd		people	Indirect		
 MRK	6	56	people, sick			Indirect		
 MRK	7	2	narrator-MRK			Quotation		
 MRK	7	5	teachers of religious law/Pharisees	critical	Pharisees and teachers of the law	Dialogue		MAT 15.2;MRK 7.5
@@ -12577,6 +12591,7 @@ MRK	8	19	disciples	hesitant		Dialogue
 MRK	8	20	disciples			Dialogue		
 MRK	8	20	Jesus	questioning		Dialogue		
 MRK	8	21	Jesus	questioning		Dialogue		
+MRK	8	22	people, some	begging		Indirect		
 MRK	8	23	Jesus	questioning		Normal		
 MRK	8	24	blind man			Dialogue		
 MRK	8	26	Jesus	giving orders		Dialogue		
@@ -12601,6 +12616,7 @@ MRK	9	10	narrator-MRK			Quotation
 MRK	9	11	Peter (Simon)/James/John	puzzled		Dialogue	John	MAT 17.10;MRK 9.11
 MRK	9	12	Jesus			Dialogue		
 MRK	9	13	Jesus			Dialogue		
+MRK	9	15	people, all the			Indirect		
 MRK	9	16	Jesus	questioning		Dialogue		
 MRK	9	17	father of demon-possessed boy		man in crowd (father of demon-possessed boy)	Dialogue		MAT 17.15-16;MRK 9.17-18,22;LUK 9.38-40
 MRK	9	18	father of demon-possessed boy		man in crowd (father of demon-possessed boy)	Dialogue		MAT 17.15-16;MRK 9.17-18,22;LUK 9.38-40
@@ -12852,7 +12868,9 @@ MRK	15	12	Pilate	to crowd		Dialogue
 MRK	15	13	crowd	shouting		Dialogue	mob	MAT 27.22;MRK 15.13
 MRK	15	14	crowd	shouting		Dialogue	mob	MAT 27.23;MRK 15.14;LUK 23.21
 MRK	15	14	Pilate	to crowd		Dialogue		
+MRK	15	15	Pilate			Indirect		
 MRK	15	18	soldiers, Roman	mocking		Dialogue		
+MRK	15	21	soldiers, Roman	giving orders		Indirect		
 MRK	15	22	narrator-MRK			Quotation		
 MRK	15	26	sign on the cross			Quotation		
 MRK	15	28	scripture			Quotation		
@@ -12864,6 +12882,7 @@ MRK	15	34	Jesus			Normal
 MRK	15	34	narrator-MRK			Quotation		
 MRK	15	35	bystanders at Calvary	uneasy	some of the bystanders	Dialogue		MAT 27.47;MRK 15.35
 MRK	15	36	man with sponge	jeering		Dialogue		
+MRK	15	37	Jesus	crying		Indirect		
 MRK	15	39	centurion at crucifixion	amazed		Dialogue		
 MRK	15	43	Joseph of Arimathea			Indirect		
 MRK	15	44	Pilate			Indirect		
@@ -12872,6 +12891,9 @@ MRK	15	45	Pilate			Indirect
 MRK	16	3	Mary Magdalene/Mary mother of James/Salome			Normal	Mary Magdalene	
 MRK	16	6	angels in white, two		young man in white robe (angel)	Dialogue		MAT 28.5-6;MRK 16.6;LUK 24.6
 MRK	16	7	angels in white, two		young man in white robe (angel)	Dialogue		MAT 28.7;MRK 16.7
+MRK	16	10	Mary Magdalene			Indirect		
+MRK	16	11	Mary Magdalene			Indirect		
+MRK	16	11	disciples		those who had been with him	Indirect		
 MRK	16	14	Jesus			Indirect		
 MRK	16	15	Jesus			Potential		
 MRK	16	16	Jesus			Potential		
@@ -13128,6 +13150,7 @@ LUK	8	36	herdsmen of pigs		those that saw demon possessed man cured	Indirect
 LUK	8	37	Gadarene (or Gerasenes) people	fearful	people of the region of the Gerasenes	Indirect		MAT 8.34;MRK 5.17;LUK 8.37
 LUK	8	38	man who had had demons			Indirect		
 LUK	8	39	Jesus			Dialogue		
+LUK	8	40	crowd			Indirect		
 LUK	8	41	Jairus (synagogue leader)	pleading		Indirect		MAT 9.18;MRK 5.23;LUK 8.41
 LUK	8	45	Jesus	questioning		Dialogue		
 LUK	8	45	Peter (Simon)	perplexed		Dialogue		
@@ -13171,6 +13194,7 @@ LUK	9	39	father of demon-possessed boy	distraught	man in crowd (father of demon-
 LUK	9	40	father of demon-possessed boy	distraught	man in crowd (father of demon-possessed boy)	Dialogue		MAT 17.15-16;MRK 9.17-18,22;LUK 9.38-40
 LUK	9	41	Jesus	exasperated		Dialogue		
 LUK	9	41	Jesus	giving orders		Dialogue		
+LUK	9	42	Jesus	rebuking		Indirect		
 LUK	9	43	everyone in crowd	praising		Indirect		
 LUK	9	44	Jesus			Dialogue		
 LUK	9	46	disciples	arguing		Indirect		
@@ -13735,6 +13759,7 @@ LUK	23	42	criminal on cross, another	repentant		Dialogue
 LUK	23	43	Jesus			Dialogue		
 LUK	23	46	Jesus			Dialogue		
 LUK	23	47	centurion at crucifixion	amazed		Dialogue		
+LUK	23	52	Joseph of Arimathea			Indirect		
 LUK	24	4	Mary Magdalene/Mary mother of James/Salome			Indirect	Mary Magdalene	
 LUK	24	5	angels in white, two		men (angels) in clothes that gleamed like lightning, two	Dialogue		
 LUK	24	6	angels in white, two		men (angels) in clothes that gleamed like lightning, two	Dialogue		MAT 28.5-6;MRK 16.6;LUK 24.6
@@ -14374,6 +14399,7 @@ JHN	18	8	Jesus			Dialogue
 JHN	18	9	Jesus			Normal		
 JHN	18	11	Jesus			Dialogue		
 JHN	18	14	Caiaphas		Caiaphas, high priest	Indirect		
+JHN	18	16	John		the other disciple (John)	Indirect		
 JHN	18	17	servant girl at high priest's courtyard		servant girl who watched the door	Dialogue		MAT 26.69;MRK 14.67;LUK 22.56;JHN 18.17
 JHN	18	17	Peter (Simon)	denial		Dialogue		
 JHN	18	19	high priest		Annas, high priest	Indirect		
@@ -14565,6 +14591,7 @@ ACT	4	27	Peter (Simon)/John/own people			Normal
 ACT	4	28	Peter (Simon)/John/own people			Normal		
 ACT	4	29	Peter (Simon)/John/own people			Normal		
 ACT	4	30	Peter (Simon)/John/own people			Normal		
+ACT	4	32	no one			Hypothetical		
 ACT	4	36	narrator-ACT			Quotation		
 ACT	5	3	Peter (Simon)	rebuking		Dialogue		
 ACT	5	4	Peter (Simon)	rebuking		Normal		
@@ -14588,6 +14615,7 @@ ACT	5	38	Gamaliel			Normal
 ACT	5	39	Gamaliel			Normal		
 ACT	5	40	council of elders:chief priests/teachers of religious law			Indirect		
 ACT	5	42	apostles			Indirect		
+ACT	6	1	Grecian Jews			Indirect		
 ACT	6	2	disciples			Normal		
 ACT	6	3	disciples			Normal		
 ACT	6	4	disciples			Normal		
@@ -14694,6 +14722,7 @@ ACT	9	34	Peter (Simon)			Dialogue
 ACT	9	36	narrator-ACT			Quotation		
 ACT	9	38	disciples, two men (from Joppa)	urgent		Normal		
 ACT	9	40	Peter (Simon)			Normal		
+ACT	9	41	Peter (Simon)			Indirect		
 ACT	10	1	narrator-ACT			Quotation		
 ACT	10	3	angel of the LORD, an		angel of God, an	Normal		
 ACT	10	4	angel of the LORD, an		angel of God, an	Normal		
@@ -14747,6 +14776,7 @@ ACT	11	17	Peter (Simon)			Normal
 ACT	11	18	believers, circumcised (in Jerusalem)	rejoicing		Dialogue		
 ACT	11	23	Barnabas			Indirect		
 ACT	11	28	Agabus the prophet			Indirect		
+ACT	11	29	disciples			Indirect		
 ACT	12	7	angel of the LORD, an	commanding		Normal		
 ACT	12	8	angel of the LORD, an	commanding		Normal		
 ACT	12	11	Peter (Simon)	speaking or thinking to himself		Normal		
@@ -14758,7 +14788,9 @@ ACT	12	17	Peter (Simon)			Dialogue
 ACT	12	18	soldiers	perplexed		Indirect		
 ACT	12	19	Herod Agrippa II			Indirect		
 ACT	12	22	people	shouting		Normal		
+ACT	13	1	narrator-ACT			Quotation		
 ACT	13	2	Holy Spirit, the		Holy Spirit	Normal		
+ACT	13	3	prophets and teachers at Antioch			Indirect		
 ACT	13	10	Paul	rebuking		Normal		
 ACT	13	11	Paul	rebuking		Normal		
 ACT	13	15	synagogue rulers	gracious		Normal	Good Priest	
@@ -14793,9 +14825,11 @@ ACT	13	43	Paul/Barnabas			Indirect	Paul
 ACT	13	46	Paul/Barnabas	boldly		Normal	Paul	
 ACT	13	47	Paul/Barnabas	boldly		Normal	Paul	
 ACT	13	48	Gentiles			Indirect		
+ACT	14	5	Gentiles, Jews, and leaders at Iconium			Indirect		
 ACT	14	10	Paul	calling out		Dialogue		
 ACT	14	11	crowd	excited		Dialogue		
-ACT	14	12	narrator-ACT			Potential		
+ACT	14	12	narrator-ACT			Quotation		
+ACT	14	13	narrator-ACT			Quotation		
 ACT	14	15	Barnabas/Paul	preaching		Dialogue	Paul	
 ACT	14	16	Barnabas/Paul	preaching		Normal	Paul	
 ACT	14	17	Barnabas/Paul	preaching		Normal	Paul	
@@ -14816,6 +14850,7 @@ ACT	15	18	James			Normal
 ACT	15	19	James			Normal		
 ACT	15	20	James			Normal		
 ACT	15	21	James			Normal		
+ACT	15	22	apostles, elders, and whole church at Jerusalem			Indirect		
 ACT	15	23	letter from apostles and elders			Potential		
 ACT	15	24	letter from apostles and elders			Potential		
 ACT	15	25	letter from apostles and elders			Potential		
@@ -14824,6 +14859,7 @@ ACT	15	27	letter from apostles and elders			Potential
 ACT	15	28	letter from apostles and elders			Potential		
 ACT	15	29	letter from apostles and elders			Potential		
 ACT	15	33	brothers at Antioch, the	blessing		Indirect		
+ACT	15	34	Silas			Indirect		
 ACT	15	36	Paul			Normal		
 ACT	15	37	Barnabas			Indirect		
 ACT	15	38	Paul			Indirect		
@@ -14849,6 +14885,7 @@ ACT	16	39	Magistrates, chief			Indirect
 ACT	17	3	Paul			Normal		
 ACT	17	6	mob			Normal		
 ACT	17	7	mob			Normal		
+ACT	17	15	Paul	commanding		Indirect		
 ACT	17	18	Epicurean and Stoic philosophers, other	superior		Normal		
 ACT	17	18	Epicurean and Stoic philosophers, some	superior		Normal		
 ACT	17	19	Epicurean and Stoic philosophers	curious		Dialogue		
@@ -14898,6 +14935,9 @@ ACT	19	38	city clerk	diplomatic		Normal
 ACT	19	39	city clerk	diplomatic		Normal		
 ACT	19	40	city clerk	diplomatic		Normal		
 ACT	19	41	city clerk			Indirect		
+ACT	20	1	Paul			Indirect		
+ACT	20	3	Jews			Indirect		
+ACT	20	3	Paul			Indirect		
 ACT	20	10	Paul	calling out		Dialogue		
 ACT	20	16	Paul			Indirect		
 ACT	20	18	Paul			Normal		
@@ -14960,6 +15000,7 @@ ACT	22	19	Paul	preaching		Normal
 ACT	22	20	Paul	preaching		Normal		
 ACT	22	21	Paul	preaching		Normal		
 ACT	22	22	crowd	screaming		Normal		
+ACT	22	24	commander			Indirect		
 ACT	22	25	Paul	sternly		Dialogue		
 ACT	22	26	centurion at Paul's flogging	anxious		Dialogue		
 ACT	22	27	commander			Dialogue		
@@ -14974,6 +15015,7 @@ ACT	23	4	those standing near	angry		Dialogue
 ACT	23	5	Paul			Dialogue		
 ACT	23	6	Paul	calling out		Dialogue		
 ACT	23	9	teachers of religious law	arguing	teachers of the law, some who were Pharisees	Dialogue		
+ACT	23	10	commander	ordering		Indirect		
 ACT	23	11	Jesus	in a vision		Normal		
 ACT	23	14	Jews, more than forty in conspiracy	plotting		Dialogue		
 ACT	23	15	Jews, more than forty in conspiracy	plotting		Dialogue		
@@ -15014,6 +15056,7 @@ ACT	24	19	Paul			Normal
 ACT	24	20	Paul			Normal		
 ACT	24	21	Paul			Normal		
 ACT	24	22	Felix			Dialogue		
+ACT	24	23	Felix	ordering		Indirect		
 ACT	24	25	Felix	afraid		Normal		
 ACT	25	3	chief priests and Jewish leaders			Indirect		
 ACT	25	4	Festus			Normal		
@@ -15081,15 +15124,19 @@ ACT	27	23	Paul			Normal
 ACT	27	24	Paul			Normal		
 ACT	27	25	Paul			Normal		
 ACT	27	26	Paul			Normal		
+ACT	27	27	sailors			Indirect		
 ACT	27	31	Paul	warning		Normal		
 ACT	27	33	Paul	encouraging		Normal		
 ACT	27	34	Paul	encouraging		Normal		
 ACT	27	39	captain/crew			Indirect		
+ACT	27	42	soldiers			Indirect		
 ACT	27	43	centurion on ship with Paul			Indirect		
 ACT	28	4	islanders	suspicious		Normal		
 ACT	28	6	islanders			Indirect		
 ACT	28	11	narrator-ACT			Potential		
 ACT	28	14	brothers at Puteoli, some			Indirect		
+ACT	28	15	brothers at Puteoli, some			Indirect		
+ACT	28	15	Paul			Indirect		
 ACT	28	17	Paul			Dialogue		
 ACT	28	18	Paul			Normal		
 ACT	28	19	Paul			Normal		
@@ -15106,6 +15153,9 @@ ROM	2	6	scripture			Quotation
 # Check ROM 2:15  - Is this a mistake? Doesn't appear that Jews or Gentiles should be speaking here.								
 ROM	2	15	Gentiles			Indirect		
 ROM	2	15	Jews	accusing		Indirect		
+ROM	2	21	you (hypothetical)			Hypothetical		
+ROM	2	22	you (hypothetical)			Hypothetical		
+ROM	2	23	you (hypothetical)			Hypothetical		
 ROM	2	24	scripture			Quotation		
 ROM	3	1	Jews	speaking ironically		Potential		
 ROM	3	2	Paul			Potential		
@@ -15242,6 +15292,7 @@ ROM	16	22	Tertius			Indirect
 2CO	1	18	narrator-2CO			Quotation		
 2CO	1	19	narrator-2CO			Quotation		
 2CO	1	20	narrator-2CO			Quotation		
+2CO	2	13	Paul			Indirect		
 2CO	3	16	scripture			Quotation		
 2CO	4	6	scripture			Quotation		
 2CO	4	13	scripture			Quotation		
@@ -15250,6 +15301,9 @@ ROM	16	22	Tertius			Indirect
 2CO	6	17	scripture			Quotation		
 2CO	6	18	scripture			Quotation		
 2CO	8	15	scripture			Quotation		
+2CO	8	17	Titus			Indirect		
+2CO	9	2	Paul			Indirect		
+2CO	9	7	one, each			Hypothetical		
 2CO	9	9	scripture			Quotation		
 2CO	10	1	narrator-2CO			Quotation		
 2CO	10	10	some people (quoted by Paul)			Normal		
@@ -15259,6 +15313,10 @@ ROM	16	22	Tertius			Indirect
 2CO	12	11	narrator-2CO			Quotation		
 2CO	12	16	someone (hypothetical argument)			Hypothetical		
 2CO	13	1	scripture			Quotation		
+GAL	1	6	narrator-GAL			Quotation		
+GAL	1	7	narrator-GAL			Quotation		
+GAL	1	8	narrator-GAL			Quotation		
+GAL	1	9	narrator-GAL			Quotation		
 GAL	1	23	report concerning Paul			Normal		
 GAL	2	14	Paul			Normal		
 GAL	2	15	Paul			Normal		
@@ -15279,6 +15337,7 @@ GAL	3	16	God			Quotation
 GAL	3	17	God		God (the LORD)	Potential		
 GAL	3	22	scripture			Indirect		
 GAL	4	6	Holy Spirit, the		the Spirit (of God's Son)	Normal		
+GAL	4	25	narrator-GAL			Quotation		
 GAL	4	27	scripture			Quotation		
 GAL	4	30	scripture			Quotation		
 GAL	5	3	narrator-GAL			Quotation		
@@ -15300,11 +15359,13 @@ COL	4	17	Paul			Normal
 1TH	4	12	unbelievers			Indirect		
 1TH	5	3	people			Normal		
 1TH	5	27	Paul			Potential		
+2TH	2	4	man of lawlessness			Indirect		
 2TH	3	10	rule given by Paul			Normal		
 1TI	1	15	narrator-1TI			Quotation		
 1TI	3	16	hymn, early credal			Quotation		
 1TI	4	3	false teachers			Hypothetical		
 1TI	5	18	scripture			Quotation		
+1TI	6	20	narrator-1TI			Quotation		
 2TI	2	11	saying, true			Quotation		
 2TI	2	12	saying, true			Quotation		
 2TI	2	13	saying, true			Quotation		
@@ -15353,8 +15414,13 @@ HEB	8	10	God		scripture (God)	Quotation
 HEB	8	11	God		scripture (God)	Quotation		
 HEB	8	12	God		scripture (God)	Quotation		
 HEB	8	13	narrator-HEB			Quotation		
+HEB	9	2	narrator-HEB			Quotation		
+HEB	9	3	narrator-HEB			Quotation		
+HEB	9	4	narrator-HEB			Quotation		
 HEB	9	7	high priest			Indirect		
 HEB	9	20	scripture			Quotation		
+HEB	9	24	narrator-HEB			Quotation		
+HEB	9	25	narrator-HEB			Quotation		
 HEB	10	5	Jesus		Jesus in Hebrews	Quotation		
 HEB	10	6	Jesus		Jesus in Hebrews	Quotation		
 HEB	10	7	Jesus		Jesus in Hebrews	Quotation		
@@ -15370,17 +15436,21 @@ HEB	11	18	God		scripture (God)	Quotation
 HEB	12	5	scripture			Quotation		
 HEB	12	6	scripture			Quotation		
 HEB	12	13	scripture			Quotation		
+HEB	12	19	those who heard	begging		Indirect		
 HEB	12	20	God		scripture (God)	Quotation		
 HEB	12	21	scripture			Quotation		
+HEB	12	22	narrator-HEB			Quotation		
 HEB	12	26	God		scripture (God)	Quotation		
 HEB	12	27	narrator-HEB			Quotation		
 HEB	12	29	scripture			Quotation		
 HEB	13	5	God		scripture (God)	Quotation		
 HEB	13	6	scripture			Quotation		
+HEB	13	11	narrator-HEB			Quotation		
 JAS	1	13	no one			Hypothetical		
 JAS	2	3	someone			Hypothetical		
 JAS	2	8	scripture			Quotation		
 JAS	2	11	scripture			Quotation		
+JAS	2	14	someone			Hypothetical		
 JAS	2	16	one of you (hypothetical)			Hypothetical		
 JAS	2	18	someone (hypothetical argument)			Hypothetical		
 JAS	2	23	scripture			Quotation		
@@ -15390,6 +15460,7 @@ JAS	4	6	scripture			Quotation
 JAS	4	13	someone			Hypothetical		
 JAS	4	15	you ought to say			Hypothetical		
 JAS	5	12	narrator-JAS			Hypothetical		
+JAS	5	17	Elijah	praying		Indirect		
 1PE	1	16	scripture			Quotation		
 1PE	1	24	scripture			Quotation		
 1PE	1	25	scripture			Quotation		
@@ -15417,6 +15488,9 @@ JAS	5	12	narrator-JAS			Hypothetical
 1JN	4	20	anyone			Hypothetical		
 1JN	4	21	Jesus			Quotation		
 2JN	1	6	Jesus		Jesus in 2 John	Quotation		
+2JN	1	10	anyone			Hypothetical		
+2JN	1	11	anyone			Hypothetical		
+JUD	1	8	dreamers			Indirect		
 JUD	1	9	Michael (archangel)			Normal		
 JUD	1	14	Enoch			Normal		
 JUD	1	15	Enoch			Normal		
@@ -15529,6 +15603,7 @@ REV	11	12	God		voice from heaven (God), loud	Normal
 REV	11	15	voices in heaven, loud			Normal		
 REV	11	17	twenty-four elders			Normal		
 REV	11	18	twenty-four elders			Normal		
+REV	11	19	narrator-REV			Quotation		
 REV	12	10	voice in heaven, loud			Normal		
 REV	12	11	voice in heaven, loud			Normal		
 REV	12	12	voice in heaven, loud			Normal		
@@ -15613,6 +15688,8 @@ REV	19	7	voice of great crowd, like roar of many waters, loud thunderclaps			Nor
 REV	19	8	voice of great crowd, like roar of many waters, loud thunderclaps			Normal		
 REV	19	9	angel (one of the seven)			Normal		
 REV	19	10	angel (one of the seven)			Normal		
+REV	19	11	narrator-REV			Quotation		
+REV	19	11	Jesus			Indirect		
 REV	19	13	narrator-REV			Quotation		
 REV	19	15	scripture			Quotation		
 REV	19	16	narrator-REV			Quotation		

@@ -226,6 +226,7 @@ disciples of John Baptist, two (Andrew and another)	575	TRUE	Male
 disciples, some	574	TRUE			
 disciples, two men (from Joppa)		TRUE	Male		
 Doeg the Edomite	99	FALSE	Male		
+dream		FALSE			
 eagle crying with loud voice	1581	FALSE			
 ear	582	FALSE			
 Ebed-Melech (official of king of Judea)	100	FALSE			
@@ -330,6 +331,7 @@ God	2000	FALSE	Male
 Goliath	158	FALSE	Male		
 Good Priest	372	FALSE	Male		Many quotes resolve to this pseudo-character by default
 great company of heavenly host	1615	TRUE			
+Grecian Jews		TRUE			
 Greeks	159	TRUE			
 Habakkuk		FALSE	Male		
 Hadad the Edomite	160	FALSE			
@@ -976,6 +978,7 @@ Shobi		FALSE	Male
 Shobi/Makir/Barzillai		TRUE	Male		
 Shua (Judah's wife)		FALSE	Female		
 sign on the cross	2907	FALSE			
+Silas		FALSE	Male		
 Simeon	237	FALSE	Male		
 Simeon-old	430	FALSE	Male	old			
 Simon (magician)	431	FALSE	Male		
@@ -1113,3 +1116,11 @@ Zion	461	FALSE
 Ziphites	1461	TRUE			
 Zipporah	462	FALSE	Female		
 Zophar the Naamathite	463	FALSE			
+prophets and teachers at Antioch		TRUE			
+Gentiles, Jews, and leaders at Iconium		TRUE			
+apostles, elders, and whole church at Jerusalem		TRUE			
+Titus		FALSE	Male		
+man of lawlessness		FALSE	Male		
+those who heard		TRUE			
+dreamers		TRUE			
+one, each		TRUE			
