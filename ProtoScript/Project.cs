@@ -361,7 +361,7 @@ namespace ProtoScript
 		{
 			Project existingProject = LoadExistingProject(projectFilePath);
 
-			if (existingProject.m_metadata.PgUsxParserVersion != Settings.Default.PgUsxParserVersion)
+			if (!existingProject.IsSampleProject && existingProject.m_metadata.PgUsxParserVersion != Settings.Default.PgUsxParserVersion)
 			{
 				bool upgradeProject = true;
 				if (!File.Exists(existingProject.OriginalPathOfDblFile))
