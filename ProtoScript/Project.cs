@@ -736,7 +736,7 @@ namespace ProtoScript
 					return m_wsDefinition;
 
 				string languagecode = LanguageIsoCode;
-				if (!IetfLanguageTagHelper.IsValid(languagecode))
+				if (!IetfLanguageTag.IsValid(languagecode))
 					languagecode = WellKnownSubtags.UnlistedLanguage;
 
 				if (!WritingSystemRepository.TryGet(languagecode, out m_wsDefinition))
