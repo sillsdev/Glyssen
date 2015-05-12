@@ -204,8 +204,8 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
           <Component Id="Utilities.dll" Guid="{28303157-060A-4ACD-A3B8-B55F42B91550}">
             <File Id="Utilities.dll" Name="Utilities.dll" KeyPath="yes" Source="..\output\release\Utilities.dll" />
           </Component>
-          <Component Id="Ionic.Zip.dll" Guid="{EA956C01-1047-414D-AFDB-9AEE2B0B064F}">
-            <File Id="Ionic.Zip.dll" Name="Ionic.Zip.dll" KeyPath="yes" Source="..\output\release\Ionic.Zip.dll" />
+          <Component Id="ICSharpCode.SharpZipLib.dll" Guid="{4B1E06ED-B1E2-4936-ADD9-0480421AB547}">
+            <File Id="ICSharpCode.SharpZipLib.dll" Name="ICSharpCode.SharpZipLib.dll" KeyPath="yes" Source="..\output\release\ICSharpCode.SharpZipLib.dll" />
           </Component>
           <Component Id="Palaso.pdb" Guid="{11d5b0d2-f512-4d57-ba95-c8f75df8760a}">
             <File Id="Palaso.pdb" Name="Palaso.pdb" KeyPath="yes" Source="..\output\release\Palaso.pdb" />
@@ -253,7 +253,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="PalasoUIWindowsForms.dll"/>
       <ComponentRef Id="NetLoc.dll"/>
       <ComponentRef Id="Utilities.dll"/>
-      <ComponentRef Id="Ionic.Zip.dll"/>
+      <ComponentRef Id="ICSharpCode.SharpZipLib.dll"/>
       <ComponentRef Id="L10NSharp.dll"/>
       <ComponentRef Id="ProtoScript.exe" />
       <ComponentRef Id="ProtoScript.exe.config" />
