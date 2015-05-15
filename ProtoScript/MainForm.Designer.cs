@@ -1,4 +1,4 @@
-﻿namespace ProtoScript
+﻿namespace Glyssen
 {
 	partial class MainForm
 	{
@@ -74,7 +74,7 @@
 			// 
 			// m_L10NSharpExtender
 			// 
-			this.m_L10NSharpExtender.LocalizationManagerId = "ProtoscriptGenerator";
+			this.m_L10NSharpExtender.LocalizationManagerId = "Glyssen";
 			this.m_L10NSharpExtender.PrefixForNewItems = "MainForm";
 			// 
 			// m_lblProjectInfo
@@ -284,7 +284,7 @@
 			// 
 			// m_imgCheckOpen
 			// 
-			this.m_imgCheckOpen.Image = global::ProtoScript.Properties.Resources.green_check;
+			this.m_imgCheckOpen.Image = global::Glyssen.Properties.Resources.green_check;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckOpen, "Sufficiently completed to move on to following tasks");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_imgCheckOpen, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckOpen, "MainForm.SufficientlyCompleted");
@@ -298,7 +298,7 @@
 			// 
 			// m_imgCheckSettings
 			// 
-			this.m_imgCheckSettings.Image = global::ProtoScript.Properties.Resources.green_check;
+			this.m_imgCheckSettings.Image = global::Glyssen.Properties.Resources.green_check;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckSettings, "Sufficiently completed to move on to following tasks");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_imgCheckSettings, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckSettings, "MainForm.SufficientlyCompleted");
@@ -312,7 +312,7 @@
 			// 
 			// m_imgCheckBooks
 			// 
-			this.m_imgCheckBooks.Image = global::ProtoScript.Properties.Resources.green_check;
+			this.m_imgCheckBooks.Image = global::Glyssen.Properties.Resources.green_check;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckBooks, "Sufficiently completed to move on to following tasks");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_imgCheckBooks, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckBooks, "MainForm.SufficientlyCompleted");
@@ -326,7 +326,7 @@
 			// 
 			// m_imgCheckAssign
 			// 
-			this.m_imgCheckAssign.Image = global::ProtoScript.Properties.Resources.green_check;
+			this.m_imgCheckAssign.Image = global::Glyssen.Properties.Resources.green_check;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckAssign, "Sufficiently completed to move on to following tasks");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_imgCheckAssign, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckAssign, "MainForm.SufficientlyCompleted");
@@ -360,13 +360,13 @@
 			this.Controls.Add(this.m_lblSettingsInfo);
 			this.Controls.Add(this.m_lblProjectInfo);
 			this.Controls.Add(this.m_btnOpenProject);
-			this.Icon = global::ProtoScript.Properties.Resources.PgIcon;
+			this.Icon = global::Glyssen.Properties.Resources.PgIcon;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this, "MainForm.WindowTitle");
 			this.MinimumSize = new System.Drawing.Size(534, 331);
 			this.Name = "MainForm";
-			this.Text = "Protoscript Generator";
+			this.Text = "Glyssen";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
 			this.Load += new System.EventHandler(this.MainForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.m_L10NSharpExtender)).EndInit();

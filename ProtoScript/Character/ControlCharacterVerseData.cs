@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using ProtoScript.Properties;
+using Glyssen.Properties;
 using SIL.ScriptureUtils;
 using Spart.Actions;
 
-namespace ProtoScript.Character
+namespace Glyssen.Character
 {
 	public class ControlCharacterVerseData : CharacterVerseData
 	{

@@ -1,4 +1,4 @@
-﻿namespace ProtoScript.Controls
+﻿namespace Glyssen.Controls
 {
 	partial class BlockProgressBar
 	{

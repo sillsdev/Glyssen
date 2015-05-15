@@ -1,13 +1,14 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using Glyssen;
 using L10NSharp;
-using ProtoScript.Bundle;
-using ProtoScript.Properties;
+using Glyssen.Bundle;
+using Glyssen.Properties;
 using SIL.DblBundle;
 using SIL.DblBundle.Text;
 
-namespace ProtoScript.Dialogs
+namespace Glyssen.Dialogs
 {
 	public class SelectProjectDialog : IDisposable
 	{

@@ -4,11 +4,12 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Glyssen;
 using L10NSharp;
-using ProtoScript.Bundle;
+using Glyssen.Bundle;
 using SIL.Windows.Forms.PortableSettingsProvider;
 
-namespace ProtoScript.Controls
+namespace Glyssen.Controls
 {
 	public partial class ExistingProjectsList : UserControl
 	{

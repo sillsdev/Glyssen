@@ -3,13 +3,12 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Xml;
+using Glyssen;
 using NUnit.Framework;
-using ProtoScript;
-using ProtoScript.Bundle;
-using ProtoScript.Character;
-using ProtoScript.Dialogs;
-using ProtoScript.Quote;
-using SIL.DblBundle;
+using Glyssen.Bundle;
+using Glyssen.Character;
+using Glyssen.Dialogs;
+using Glyssen.Quote;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.IO;
@@ -49,7 +48,7 @@ namespace ProtoScriptTests.Dialogs
 
 		public static void DeleteTestProjectFolder()
 		{
-			var testProjFolder = Path.Combine(Project.ProjectsBaseFolder, kTest);
+			var testProjFolder = Path.Combine(Program.BaseDataFolder, kTest);
 			if (Directory.Exists(testProjFolder))
 				DirectoryUtilities.DeleteDirectoryRobust(testProjFolder);
 		}

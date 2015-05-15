@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using NUnit.Framework;
-using ProtoScript.Controls;
+using Glyssen.Controls;
 
 namespace ProtoScriptTests.Controls
 {

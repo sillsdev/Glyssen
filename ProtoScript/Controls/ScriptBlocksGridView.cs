@@ -2,9 +2,9 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using ProtoScript.Dialogs;
+using Glyssen.Dialogs;
 
-namespace ProtoScript.Controls
+namespace Glyssen.Controls
 {
 	public class ScriptBlocksGridView : DataGridView
 	{

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ProtoScript.Utilities
+namespace Glyssen.Utilities
 {
 	public static class StringExtensions
 	{

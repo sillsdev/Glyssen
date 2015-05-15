@@ -1,5 +1,5 @@
 ﻿
-namespace ProtoScript
+namespace Glyssen
 {
 	public interface IScrBook
 	{

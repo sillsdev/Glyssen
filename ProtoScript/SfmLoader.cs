@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Glyssen;
 using L10NSharp;
 using Paratext;
-using ProtoScript.Bundle;
-using ProtoScript.Dialogs;
+using Glyssen.Bundle;
+using Glyssen.Dialogs;
 using SIL.DblBundle;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
@@ -15,7 +16,7 @@ using SIL.Windows.Forms;
 using SIL.Windows.Forms.WritingSystems;
 using SIL.WritingSystems;
 
-namespace ProtoScript
+namespace Glyssen
 {
 	public static class SfmLoader
 	{

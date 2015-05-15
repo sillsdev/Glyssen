@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using ProtoScript.Character;
+using Glyssen.Character;
 
 namespace DevTools
 {
@@ -239,10 +239,10 @@ namespace DevTools
 			File.WriteAllText(Path.Combine(kBaseDirForHelperOutput, "UniqueDeliveries.txt"), TabDelimited(deliveries));
 		}
 
-		private static void FindDeliveries(IEnumerable<ProtoScript.Character.CharacterVerse> allCv)
+		private static void FindDeliveries(IEnumerable<Glyssen.Character.CharacterVerse> allCv)
 		{
 			var deliveries = new SortedSet<string>();
-			foreach (ProtoScript.Character.CharacterVerse cv in allCv)
+			foreach (Glyssen.Character.CharacterVerse cv in allCv)
 				deliveries.Add(cv.Delivery);
 			File.WriteAllText(Path.Combine(kBaseDirForHelperOutput, "UniqueDeliveries.txt"), TabDelimited(deliveries));
 		}

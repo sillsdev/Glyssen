@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
-using ProtoScript;
-using ProtoScript.Character;
+using Glyssen;
+using Glyssen.Character;
 using Rhino.Mocks;
 using SIL.ScriptureUtils;
 using SIL.Xml;

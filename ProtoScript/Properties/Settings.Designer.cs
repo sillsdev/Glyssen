@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProtoScript.Properties {
+namespace Glyssen.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -74,12 +74,12 @@ namespace ProtoScript.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("26")]
-        public int PgUsxParserVersion {
+        public int ParserVersion {
             get {
-                return ((int)(this["PgUsxParserVersion"]));
+                return ((int)(this["ParserVersion"]));
             }
             set {
-                this["PgUsxParserVersion"] = value;
+                this["ParserVersion"] = value;
             }
         }
         
@@ -155,7 +155,7 @@ namespace ProtoScript.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
         public int DataFormatVersion {
             get {
                 return ((int)(this["DataFormatVersion"]));
@@ -205,6 +205,18 @@ namespace ProtoScript.Properties {
             }
             set {
                 this["AssignCharactersSliderLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int SampleVersion {
+            get {
+                return ((int)(this["SampleVersion"]));
+            }
+            set {
+                this["SampleVersion"] = value;
             }
         }
     }

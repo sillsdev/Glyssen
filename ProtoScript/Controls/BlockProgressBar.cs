@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using L10NSharp;
 
-namespace ProtoScript.Controls
+namespace Glyssen.Controls
 {
 	public partial class BlockProgressBar : ProgressBarUnanimated
 	{

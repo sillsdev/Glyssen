@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using NUnit.Framework;
-using ProtoScript.Quote;
+using Glyssen.Quote;
 using SIL.WritingSystems;
 
 namespace ProtoScriptTests.Quote

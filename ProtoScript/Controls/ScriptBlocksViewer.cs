@@ -6,10 +6,10 @@ using Gecko;
 using Gecko.DOM;
 using Gecko.Events;
 using L10NSharp;
-using ProtoScript.Dialogs;
+using Glyssen.Dialogs;
 using SIL.Windows.Forms.PortableSettingsProvider;
 
-namespace ProtoScript.Controls
+namespace Glyssen.Controls
 {
 	public enum ScriptBlocksViewType
 	{

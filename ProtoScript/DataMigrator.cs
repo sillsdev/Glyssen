@@ -2,17 +2,18 @@
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Glyssen.Properties;
 using L10NSharp;
 using Paratext;
-using ProtoScript.Bundle;
-using ProtoScript.Properties;
+using Glyssen;
+using Glyssen.Bundle;
 using SIL.DblBundle;
-using SIL.DblBundle.Text;
 
-namespace ProtoScript
+namespace Glyssen
 {
 	internal static class DataMigrator
 	{
+		private const string kOldProjectExtension = ".pgproj";
 		public static void UpgradeToCurrentDataFormatVersion()
 		{
 			Exception error;
@@ -37,7 +38,7 @@ namespace ProtoScript
 						if (!filesToMove.Any())
 							continue;
 
-						var projectFilePath = Directory.GetFiles(publicationFolder, "*" + Project.kProjectFileExtension).FirstOrDefault();
+						var projectFilePath = Directory.GetFiles(publicationFolder, "*" + kOldProjectExtension).FirstOrDefault();
 						if (projectFilePath != null)
 						{
 							Exception exception;
@@ -74,7 +75,7 @@ namespace ProtoScript
 						var versificationPath = Path.Combine(recordingProjectFolder, DblBundleFileUtils.kVersificationFileName);
 						if (!File.Exists(versificationPath))
 						{
-							var projectFilePath = Directory.GetFiles(recordingProjectFolder, "*" + Project.kProjectFileExtension).FirstOrDefault();
+							var projectFilePath = Directory.GetFiles(recordingProjectFolder, "*" + kOldProjectExtension).FirstOrDefault();
  
 							if (projectFilePath != null)
 							{
@@ -123,6 +124,15 @@ namespace ProtoScript
 						}
 					}
 					Versification.Table.HandleVersificationLineError = null;
+					goto case 2;
+				case 2:
+					foreach (var pgProjFile in Project.AllRecordingProjectFolders.SelectMany(d => Directory.GetFiles(d, "*" + kOldProjectExtension)))
+					{
+						var newName = Path.ChangeExtension(pgProjFile, Project.kProjectFileExtension);
+						File.Move(pgProjFile, newName);
+						if (Settings.Default.CurrentProject == pgProjFile)
+							Settings.Default.CurrentProject = newName;
+					}
 					break;
 				default:
 					throw new Exception("No migration found from the existing data version!");

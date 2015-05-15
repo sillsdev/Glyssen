@@ -1,7 +1,7 @@
 ﻿using System.Security.AccessControl;
 using Gecko;
 
-namespace ProtoScript.Controls
+namespace Glyssen.Controls
 {
 	partial class ExistingProjectsList
 	{

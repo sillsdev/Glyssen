@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace ProtoScript.Controls
+namespace Glyssen.Controls
 {
 	static class ControlExtensions
 	{

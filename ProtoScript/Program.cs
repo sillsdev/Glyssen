@@ -5,18 +5,18 @@ using System.Linq;
 using System.Windows.Forms;
 using L10NSharp;
 using L10NSharp.UI;
-using ProtoScript.Properties;
+using Glyssen.Properties;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Windows.Forms.Reporting;
 
-namespace ProtoScript
+namespace Glyssen
 {
 	static class Program
 	{
 		public const string kCompany = "FCBH-SIL";
-		public const string kProduct = "Protoscript Generator";
-		public const string kApplicationId = "ProtoscriptGenerator";
+		public const string kProduct = "Glyssen";
+		public const string kApplicationId = "Glyssen";
 
 		/// <summary>
 		/// The main entry point for the application.
@@ -39,6 +39,13 @@ namespace ProtoScript
 
 			SetUpErrorHandling();
 
+			var oldPgBaseFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+				kCompany, "Protoscript Generator");
+			if (Directory.Exists(oldPgBaseFolder) && !Directory.Exists(BaseDataFolder))
+				Directory.Move(oldPgBaseFolder, BaseDataFolder);
+
+			DataMigrator.UpgradeToCurrentDataFormatVersion();
+
 			Project.CreateSampleProjectIfNeeded();
 
 			SetUpLocalization();
@@ -53,6 +60,15 @@ namespace ProtoScript
 			// TODO (PG-18) Add analytics
 
 			Application.Run(new MainForm());
+		}
+
+		public static string BaseDataFolder
+		{
+			get
+			{
+				return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+					kCompany, kProduct);
+			}
 		}
 
 		public static string GetUserConfigFilePath()
@@ -80,7 +96,7 @@ namespace ProtoScript
 		private static void SetUpErrorHandling()
 		{
 			ErrorReport.SetErrorReporter(new WinFormsErrorReporter());
-			ErrorReport.EmailAddress = "protoscript_generator@sil.org";
+			ErrorReport.EmailAddress = IssuesEmailAddress;
 			ErrorReport.AddStandardProperties();
 			ExceptionHandler.Init(new WinFormsExceptionHandler());
 			// TODO (Analytics): ExceptionHandler.AddDelegate(ReportError);
@@ -121,7 +137,7 @@ namespace ProtoScript
 		public static string IssuesEmailAddress
 		{
 			// TODO get an email address generated
-			get { return "issues@protoscript.palaso.org"; }
+			get { return "protoscript_generator@sil.org"; }
 		}
 	}
 }

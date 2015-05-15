@@ -7,10 +7,10 @@ using System.Text;
 using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
-using ProtoScript.Properties;
-using ProtoScript.Utilities;
+using Glyssen.Properties;
+using Glyssen.Utilities;
 
-namespace ProtoScript.Dialogs
+namespace Glyssen.Dialogs
 {
 	public partial class SplitBlockDlg : Form
 	{

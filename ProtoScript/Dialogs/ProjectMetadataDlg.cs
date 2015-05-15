@@ -3,11 +3,12 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using Glyssen;
 using L10NSharp;
-using ProtoScript.Bundle;
+using Glyssen.Bundle;
 using SIL.IO;
 
-namespace ProtoScript.Dialogs
+namespace Glyssen.Dialogs
 {
 	public partial class ProjectMetadataDlg : Form
 	{
@@ -263,7 +264,7 @@ namespace ProtoScript.Dialogs
 			//	Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}|{4} ({5})|{5}",
 			//		LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ResourceBundleFileTypeLabel", "Text Resource Bundle files"),
 			//		"*" + kResourceBundleExtension,
-			//		LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ProjectFilesLabel", "Protoscript Generator Project Files"),
+			//		LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ProjectFilesLabel", "Glyssen Project Files"),
 			//		"*" + Project.kProjectFileExtension,
 			//		LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"),
 			//		"*.*"),

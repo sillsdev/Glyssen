@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using SIL.ScriptureUtils;
 
-namespace ProtoScript.Character
+namespace Glyssen.Character
 {
 	public class ProjectCharacterVerseData : CharacterVerseData
 	{

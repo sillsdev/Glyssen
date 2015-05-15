@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 using Paratext;
 using SIL.ScriptureUtils;
 
-namespace ProtoScript
+namespace Glyssen
 {
 	public class BlockNavigator
 	{

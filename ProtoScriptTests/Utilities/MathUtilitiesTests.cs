@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using ProtoScript.Utilities;
+using Glyssen.Utilities;
 
 namespace ProtoScriptTests.Utilities
 {

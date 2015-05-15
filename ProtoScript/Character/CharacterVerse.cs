@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using SIL.ScriptureUtils;
 
-namespace ProtoScript.Character
+namespace Glyssen.Character
 {
 	public enum QuoteType
 	{

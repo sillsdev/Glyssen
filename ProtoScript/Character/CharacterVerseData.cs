@@ -6,7 +6,7 @@ using Paratext;
 using SIL.ScriptureUtils;
 using ScrVers = Paratext.ScrVers;
 
-namespace ProtoScript.Character
+namespace Glyssen.Character
 {
 	public abstract class CharacterVerseData : ICharacterVerseInfo
 	{

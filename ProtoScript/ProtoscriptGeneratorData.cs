@@ -3,7 +3,7 @@ using System.IO;
 using System.Xml.Serialization;
 using SIL.Xml;
 
-namespace ProtoScript
+namespace Glyssen
 {
 	[XmlRoot("ProtoscriptGeneratorMetadata")]
 	public class ApplicationMetadata
@@ -31,7 +31,7 @@ namespace ProtoScript
 
 		private static string FilePath
 		{
-			get { return Path.Combine(Project.ProjectsBaseFolder, kFilename); }
+			get { return Path.Combine(Program.BaseDataFolder, kFilename); }
 		}
 	}
 }

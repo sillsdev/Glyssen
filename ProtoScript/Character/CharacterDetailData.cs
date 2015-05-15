@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using ProtoScript.Properties;
+using Glyssen.Properties;
 
-namespace ProtoScript.Character
+namespace Glyssen.Character
 {
 	public class CharacterDetailData
 	{

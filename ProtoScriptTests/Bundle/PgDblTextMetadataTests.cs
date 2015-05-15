@@ -2,7 +2,7 @@
 using System.Xml.Serialization;
 using NUnit.Framework;
 using Palaso.TestUtilities;
-using ProtoScript.Bundle;
+using Glyssen.Bundle;
 
 namespace ProtoScriptTests.Bundle
 {

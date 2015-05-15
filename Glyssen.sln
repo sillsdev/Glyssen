@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtoScript", "ProtoScript\ProtoScript.csproj", "{45321F2E-174C-482A-BDA1-BF199366FBD6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glyssen", "ProtoScript\Glyssen.csproj", "{45321F2E-174C-482A-BDA1-BF199366FBD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtoScriptTests", "ProtoScriptTests\ProtoScriptTests.csproj", "{82A5F002-6E73-49AF-9B98-80C8086C77EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyssenTests", "ProtoScriptTests\GlyssenTests.csproj", "{82A5F002-6E73-49AF-9B98-80C8086C77EE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevTools", "DevTools\DevTools.csproj", "{25EA56F0-139C-42D4-932E-F8515CEC6666}"
 EndProject

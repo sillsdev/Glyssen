@@ -9,12 +9,12 @@ using System.Windows.Forms;
 using System.Xml;
 using L10NSharp;
 using Paratext;
-using ProtoScript.Analysis;
-using ProtoScript.Bundle;
-using ProtoScript.Character;
-using ProtoScript.Dialogs;
-using ProtoScript.Properties;
-using ProtoScript.Quote;
+using Glyssen.Analysis;
+using Glyssen.Bundle;
+using Glyssen.Character;
+using Glyssen.Dialogs;
+using Glyssen.Properties;
+using Glyssen.Quote;
 using SIL.DblBundle;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
@@ -25,11 +25,11 @@ using SIL.Windows.Forms.FileSystem;
 using SIL.WritingSystems;
 using SIL.Xml;
 
-namespace ProtoScript
+namespace Glyssen
 {
 	public class Project
 	{
-		public const string kProjectFileExtension = ".pgproj";
+		public const string kProjectFileExtension = ".glyssen";
 		public const string kBookScriptFileExtension = ".xml";
 		public const string kLdmlFileExtension = ".ldml";
 		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
@@ -361,13 +361,13 @@ namespace ProtoScript
 		{
 			Project existingProject = LoadExistingProject(projectFilePath);
 
-			if (!existingProject.IsSampleProject && existingProject.m_metadata.PgUsxParserVersion != Settings.Default.PgUsxParserVersion)
+			if (!existingProject.IsSampleProject && existingProject.m_metadata.PgUsxParserVersion != Settings.Default.ParserVersion)
 			{
 				bool upgradeProject = true;
 				if (!File.Exists(existingProject.OriginalPathOfDblFile))
 				{
 					upgradeProject = false;
-					if (Settings.Default.PgUsxParserVersion > existingProject.m_metadata.ParserUpgradeOptOutVersion)
+					if (Settings.Default.ParserVersion > existingProject.m_metadata.ParserUpgradeOptOutVersion)
 					{
 						string msg = string.Format(LocalizationManager.GetString("Project.ParserUpgradeBundleMissingMsg", "The splitting engine has been upgraded. To make use of the new engine, the original text bundle must be available, but it is not in the original location ({0})."), existingProject.OriginalPathOfDblFile) +
 							Environment.NewLine + Environment.NewLine + 
@@ -376,7 +376,7 @@ namespace ProtoScript
 						if (DialogResult.Yes == MessageBox.Show(msg, caption, MessageBoxButtons.YesNo))
 							upgradeProject = SelectProjectDialog.GiveUserChanceToFindOriginalBundle(existingProject);
 						if (!upgradeProject)
-							existingProject.m_metadata.ParserUpgradeOptOutVersion = Settings.Default.PgUsxParserVersion;
+							existingProject.m_metadata.ParserUpgradeOptOutVersion = Settings.Default.ParserVersion;
 					}
 				}
 				if (upgradeProject)
@@ -385,7 +385,7 @@ namespace ProtoScript
 						var upgradedProject = new Project(existingProject.m_metadata, existingProject.m_recordingProjectName);
 						upgradedProject.UserDecisionsProject = existingProject;
 						upgradedProject.PopulateAndParseBooks(bundle);
-						upgradedProject.m_metadata.PgUsxParserVersion = Settings.Default.PgUsxParserVersion;
+						upgradedProject.m_metadata.PgUsxParserVersion = Settings.Default.ParserVersion;
 						return upgradedProject;
 					}
 			}
@@ -556,7 +556,7 @@ namespace ProtoScript
 			var resultList = result.ToList();
 			resultList.Sort((a, b) => BCVRef.BookToNumber(a.BookId).CompareTo(BCVRef.BookToNumber(b.BookId)));
 			m_books.AddRange(resultList);
-			m_metadata.PgUsxParserVersion = Settings.Default.PgUsxParserVersion;
+			m_metadata.PgUsxParserVersion = Settings.Default.ParserVersion;
 			m_metadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
 
 			if (QuoteSystem == null)

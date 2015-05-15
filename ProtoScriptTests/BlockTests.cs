@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using Palaso.TestUtilities;
-using ProtoScript;
-using ProtoScript.Character;
+using Glyssen;
+using Glyssen.Character;
 using SIL.ScriptureUtils;
 
 namespace ProtoScriptTests

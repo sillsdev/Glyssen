@@ -8,11 +8,11 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using ProtoScript.Character;
+using Glyssen.Character;
 using SIL.ScriptureUtils;
 using SIL.Xml;
 
-namespace ProtoScript
+namespace Glyssen
 {
 	[XmlRoot("block")]
 	public class Block

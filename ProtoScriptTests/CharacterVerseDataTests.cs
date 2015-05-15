@@ -2,7 +2,7 @@
 using System.Linq;
 using NUnit.Framework;
 using Paratext;
-using ProtoScript.Character;
+using Glyssen.Character;
 using ProtoScriptTests.Properties;
 using SIL.IO;
 

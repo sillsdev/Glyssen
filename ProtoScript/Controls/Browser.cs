@@ -7,7 +7,7 @@ using Gecko.DOM;
 using Gecko.Events;
 using SIL.Windows.Forms.HtmlBrowser;
 
-namespace ProtoScript.Controls
+namespace Glyssen.Controls
 {
 	public partial class Browser : UserControl
 	{

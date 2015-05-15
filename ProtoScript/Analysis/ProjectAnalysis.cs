@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ProtoScript.Character;
-using ProtoScript.Utilities;
+using Glyssen;
+using Glyssen.Character;
+using Glyssen.Utilities;
 
-namespace ProtoScript.Analysis
+namespace Glyssen.Analysis
 {
 	public class ProjectAnalysis
 	{

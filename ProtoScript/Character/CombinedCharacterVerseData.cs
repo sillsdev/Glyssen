@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Glyssen;
 using SIL.ScriptureUtils;
 using ScrVers = Paratext.ScrVers;
 
-namespace ProtoScript.Character
+namespace Glyssen.Character
 {
 	class CombinedCharacterVerseData : ICharacterVerseInfo
 	{

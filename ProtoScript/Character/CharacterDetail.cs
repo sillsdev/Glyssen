@@ -1,4 +1,4 @@
-﻿namespace ProtoScript.Character
+﻿namespace Glyssen.Character
 {
 	public class CharacterDetail
 	{

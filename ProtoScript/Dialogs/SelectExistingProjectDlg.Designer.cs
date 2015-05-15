@@ -1,4 +1,4 @@
-﻿namespace ProtoScript.Dialogs
+﻿namespace Glyssen.Dialogs
 {
 	partial class SelectExistingProjectDlg
 	{
@@ -32,7 +32,7 @@
 			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.lblExistingProject = new System.Windows.Forms.Label();
 			this.m_btnOk = new System.Windows.Forms.Button();
-			this.m_listExistingProjects = new ProtoScript.Controls.ExistingProjectsList();
+			this.m_listExistingProjects = new Glyssen.Controls.ExistingProjectsList();
 			this.m_linkCreateNewProject = new System.Windows.Forms.LinkLabel();
 			this.m_tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
@@ -41,7 +41,7 @@
 			// 
 			// m_l10NSharpExtender
 			// 
-			this.m_l10NSharpExtender.LocalizationManagerId = "ProtoscriptGenerator";
+			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
 			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.SelectExistingProjectDialog";
 			// 
 			// lblExistingProject

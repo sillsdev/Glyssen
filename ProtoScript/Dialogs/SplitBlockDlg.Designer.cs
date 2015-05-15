@@ -1,4 +1,4 @@
-﻿namespace ProtoScript.Dialogs
+﻿namespace Glyssen.Dialogs
 {
 	partial class SplitBlockDlg
 	{
@@ -30,7 +30,7 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
-			this.m_blocksDisplayBrowser = new ProtoScript.Controls.Browser();
+			this.m_blocksDisplayBrowser = new Glyssen.Controls.Browser();
 			this.m_lblInstructions = new System.Windows.Forms.Label();
 			this.m_btnCancel = new System.Windows.Forms.Button();
 			this.m_btnOk = new System.Windows.Forms.Button();
@@ -40,7 +40,7 @@
 			// 
 			// m_l10NSharpExtender
 			// 
-			this.m_l10NSharpExtender.LocalizationManagerId = "ProtoscriptGenerator";
+			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
 			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.SplitBlockDlg";
 			// 
 			// m_blocksDisplayBrowser

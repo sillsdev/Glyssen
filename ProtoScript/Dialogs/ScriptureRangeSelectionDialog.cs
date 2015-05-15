@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
-using ProtoScript.Bundle;
+using Glyssen;
+using Glyssen.Bundle;
 using SIL.ScriptureUtils;
 
-namespace ProtoScript.Dialogs
+namespace Glyssen.Dialogs
 {
 	public partial class ScriptureRangeSelectionDialog : Form
 	{

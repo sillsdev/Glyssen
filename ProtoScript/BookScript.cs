@@ -7,7 +7,7 @@ using System.Net.Mime;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace ProtoScript
+namespace Glyssen
 {
 	[XmlRoot("book")]
 	public class BookScript : IScrBook

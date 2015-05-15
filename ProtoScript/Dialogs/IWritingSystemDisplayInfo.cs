@@ -1,4 +1,4 @@
-﻿namespace ProtoScript.Dialogs
+﻿namespace Glyssen.Dialogs
 {
 	public interface IWritingSystemDisplayInfo
 	{

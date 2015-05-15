@@ -1,4 +1,4 @@
-﻿namespace ProtoScript.Dialogs
+﻿namespace Glyssen.Dialogs
 {
 	partial class QuotationMarksDialog
 	{
@@ -80,7 +80,7 @@
 			this.m_tableLayoutPanelDataBrowser = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.m_pnlLevels = new System.Windows.Forms.TableLayoutPanel();
-			this.m_blocksViewer = new ProtoScript.Controls.ScriptBlocksViewer();
+			this.m_blocksViewer = new Glyssen.Controls.ScriptBlocksViewer();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.m_toolStrip.SuspendLayout();
 			this.m_pnlDialogeQuotes.SuspendLayout();
@@ -127,7 +127,7 @@
 			// 
 			// m_l10NSharpExtender
 			// 
-			this.m_l10NSharpExtender.LocalizationManagerId = "ProtoscriptGenerator";
+			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
 			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.QuotationMarksDialog";
 			// 
 			// m_comboQuoteMarks
@@ -292,7 +292,7 @@
 			this.m_toolStripButtonHtmlView.Checked = true;
 			this.m_toolStripButtonHtmlView.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.m_toolStripButtonHtmlView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.m_toolStripButtonHtmlView.Image = global::ProtoScript.Properties.Resources.html_view;
+			this.m_toolStripButtonHtmlView.Image = global::Glyssen.Properties.Resources.html_view;
 			this.m_toolStripButtonHtmlView.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonHtmlView, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonHtmlView, null);
@@ -309,7 +309,7 @@
 			// m_toolStripButtonGridView
 			// 
 			this.m_toolStripButtonGridView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.m_toolStripButtonGridView.Image = global::ProtoScript.Properties.Resources.grid_icon;
+			this.m_toolStripButtonGridView.Image = global::Glyssen.Properties.Resources.grid_icon;
 			this.m_toolStripButtonGridView.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonGridView, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonGridView, null);
@@ -331,7 +331,7 @@
 			// 
 			this.m_toolStripButtonLargerFont.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			this.m_toolStripButtonLargerFont.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_toolStripButtonLargerFont.Image = global::ProtoScript.Properties.Resources.IncreaseSize;
+			this.m_toolStripButtonLargerFont.Image = global::Glyssen.Properties.Resources.IncreaseSize;
 			this.m_toolStripButtonLargerFont.ImageTransparentColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonLargerFont, "Increase size of text");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonLargerFont, null);
@@ -346,7 +346,7 @@
 			this.m_toolStripButtonSmallerFont.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.m_toolStripButtonSmallerFont.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			this.m_toolStripButtonSmallerFont.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_toolStripButtonSmallerFont.Image = global::ProtoScript.Properties.Resources.DecreaseSize;
+			this.m_toolStripButtonSmallerFont.Image = global::Glyssen.Properties.Resources.DecreaseSize;
 			this.m_toolStripButtonSmallerFont.ImageTransparentColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonSmallerFont, "Decrease size of text");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonSmallerFont, null);
@@ -825,7 +825,7 @@
 			this.m_blocksViewer.Size = new System.Drawing.Size(258, 384);
 			this.m_blocksViewer.TabIndex = 0;
 			this.m_blocksViewer.Text = "Project Data:";
-			this.m_blocksViewer.ViewType = ProtoScript.Controls.ScriptBlocksViewType.Html;
+			this.m_blocksViewer.ViewType = Glyssen.Controls.ScriptBlocksViewType.Html;
 			// 
 			// QuotationMarksDialog
 			// 

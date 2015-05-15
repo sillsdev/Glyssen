@@ -1,6 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
-using ProtoScript.Dialogs;
+using Glyssen.Dialogs;
 
 namespace ProtoScriptTests.Dialogs
 {

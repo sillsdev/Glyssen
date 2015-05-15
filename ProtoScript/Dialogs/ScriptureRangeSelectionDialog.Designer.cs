@@ -1,4 +1,4 @@
-﻿namespace ProtoScript.Dialogs
+﻿namespace Glyssen.Dialogs
 {
 	partial class ScriptureRangeSelectionDialog
 	{
@@ -38,7 +38,7 @@
 			// 
 			// m_l10NSharpExtender
 			// 
-			this.m_l10NSharpExtender.LocalizationManagerId = "ProtoscriptGenerator";
+			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
 			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.ScriptureRangeSelectionDialog";
 			// 
 			// m_btnOk

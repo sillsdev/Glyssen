@@ -2,13 +2,14 @@
 using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
+using Glyssen;
 using L10NSharp;
 using Microsoft.Win32;
-using ProtoScript.Controls;
-using ProtoScript.Properties;
+using Glyssen.Controls;
+using Glyssen.Properties;
 using SIL.Windows.Forms.PortableSettingsProvider;
 
-namespace ProtoScript.Dialogs
+namespace Glyssen.Dialogs
 {
 	public partial class OpenProjectDlg : Form
 	{

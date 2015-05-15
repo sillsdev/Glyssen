@@ -1,10 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using ProtoScript.Bundle;
+using Glyssen;
+using Glyssen.Bundle;
 using SIL.DblBundle;
 
-namespace ProtoScript.Dialogs
+namespace Glyssen.Dialogs
 {
 	public partial class SelectExistingProjectDlg : Form
 	{

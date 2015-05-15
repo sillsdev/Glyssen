@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
-using ProtoScript.Character;
-using ProtoScript.Utilities;
+using Glyssen.Character;
+using Glyssen.Utilities;
 using SIL.ScriptureUtils;
 using ScrVers = Paratext.ScrVers;
 
-namespace ProtoScript.Quote
+namespace Glyssen.Quote
 {
 	public class QuoteSystemGuesser
 	{

@@ -4,17 +4,18 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Glyssen.Properties;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
-using ProtoScript.Bundle;
-using ProtoScript.Dialogs;
-using ProtoScript.Properties;
+using Glyssen;
+using Glyssen.Bundle;
+using Glyssen.Dialogs;
 using SIL.DblBundle;
 using SIL.IO;
 using SIL.Windows.Forms.Miscellaneous;
 
-namespace ProtoScript
+namespace Glyssen
 {
 	public partial class MainForm : Form
 	{
@@ -33,8 +34,6 @@ namespace ProtoScript
 
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
-
-			DataMigrator.UpgradeToCurrentDataFormatVersion();
 		}
 
 		private void SetProject(Project project)

@@ -4,7 +4,7 @@ using System.Linq;
 using L10NSharp;
 using SIL.WritingSystems;
 
-namespace ProtoScript.Quote
+namespace Glyssen.Quote
 {
 	public static class QuoteUtils
 	{

@@ -1,8 +1,9 @@
 ﻿using System.Linq;
+using Glyssen;
 using Paratext;
 using SIL.Windows.Forms.WritingSystems;
 
-namespace ProtoScript
+namespace Glyssen
 {
 	public class ProjectMetadataViewModel
 	{

@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace ProtoScript.Controls
+namespace Glyssen.Controls
 {
 	public class ProgressBarUnanimated : ProgressBar
 	{

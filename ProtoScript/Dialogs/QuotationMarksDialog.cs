@@ -4,20 +4,21 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Glyssen;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
-using ProtoScript.Bundle;
-using ProtoScript.Character;
-using ProtoScript.Controls;
-using ProtoScript.Quote;
-using ProtoScript.Utilities;
+using Glyssen.Bundle;
+using Glyssen.Character;
+using Glyssen.Controls;
+using Glyssen.Quote;
+using Glyssen.Utilities;
 using SIL.ObjectModel;
 using SIL.ScriptureUtils;
 using SIL.WritingSystems;
 using ScrVers = Paratext.ScrVers;
 
-namespace ProtoScript.Dialogs
+namespace Glyssen.Dialogs
 {
 	public partial class QuotationMarksDialog : Form
 	{

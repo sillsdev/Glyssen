@@ -5,7 +5,7 @@ using Paratext;
 using SIL.DblBundle;
 using SIL.DblBundle.Usx;
 
-namespace ProtoScript
+namespace Glyssen
 {
 	public class ScrStylesheetAdapter : IStylesheet
 	{

@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using System.Linq;
+using Glyssen;
 using NUnit.Framework;
-using ProtoScript;
-using ProtoScript.Character;
+using Glyssen.Character;
 using SIL.IO;
 
 namespace ProtoScriptTests

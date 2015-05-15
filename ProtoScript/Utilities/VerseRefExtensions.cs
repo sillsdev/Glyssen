@@ -1,7 +1,7 @@
 ﻿using Paratext;
 using SIL.ScriptureControls;
 
-namespace ProtoScript.Utilities
+namespace Glyssen.Utilities
 {
 	public static class VerseRefExtensions
 	{

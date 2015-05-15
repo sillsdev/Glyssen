@@ -4,8 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
-using ProtoScript;
-using ProtoScript.Character;
+using Glyssen;
+using Glyssen.Character;
 
 namespace ProtoScriptTests
 {

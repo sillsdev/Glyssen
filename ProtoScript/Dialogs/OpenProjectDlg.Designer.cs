@@ -1,4 +1,4 @@
-﻿namespace ProtoScript.Dialogs
+﻿namespace Glyssen.Dialogs
 {
 	partial class OpenProjectDlg
 	{
@@ -36,14 +36,14 @@
 			this.m_btnCancel = new System.Windows.Forms.Button();
 			this.m_chkShowInactiveProjects = new System.Windows.Forms.CheckBox();
 			this.m_tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
-			this.m_listExistingProjects = new ProtoScript.Controls.ExistingProjectsList();
+			this.m_listExistingProjects = new Glyssen.Controls.ExistingProjectsList();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.m_tableLayoutPanelMain.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// m_l10NSharpExtender
 			// 
-			this.m_l10NSharpExtender.LocalizationManagerId = "ProtoscriptGenerator";
+			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
 			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.OpenProjectDialog";
 			// 
 			// lblExistingProject

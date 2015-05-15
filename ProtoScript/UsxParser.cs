@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using ProtoScript.Character;
-using ProtoScript.Utilities;
+using Glyssen.Character;
+using Glyssen.Utilities;
 using SIL.DblBundle;
 using SIL.DblBundle.Usx;
 using SIL.ScriptureUtils;
 
-namespace ProtoScript
+namespace Glyssen
 {
 	public class UsxParser
 	{

@@ -5,7 +5,7 @@ using Paratext;
 using SIL.DblBundle.Text;
 using SIL.ScriptureUtils;
 
-namespace ProtoScript
+namespace Glyssen
 {
 	public static class BookSetUtils
 	{

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProtoScript.Properties {
+namespace Glyssen.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace ProtoScript.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ProtoScript.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Glyssen.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -81,10 +81,10 @@ namespace ProtoScript.Properties {
         ///Abimelech, son of Gideon		FALSE	Male		
         ///Abishai, Joab&apos;s brother	5	FALSE	Male		
         ///Abner	6	FALSE	Male		
-        ///Abraham	7	FALSE	Male		
+        ///Abraham (Abram)	7	FALSE	Male		
         ///Abraham&apos;s chief servant	8	FALSE	Male		
         ///Absalom	10	FALSE	Male		
-        ///Absalom/Israel, men  [rest of string was truncated]&quot;;.
+        ///Absalom/Isra [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CharacterIdMap {
             get {
@@ -93,14 +93,14 @@ namespace ProtoScript.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	65
+        ///   Looks up a localized string similar to Control File Version	69
         ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
         ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
         ///# PSA will be handled as complete units, each psalm will be spoken by one voice								
         ///# SNG we will need to review again								
         ///# ISA more review necessary on who is speaking: God or the Isaiah								
-        ///# JER possibly no markup of this book… will need to review								
-        ///# EZK [rest of string was truncated]&quot;;.
+        ///# JER possibly no markup of this book... will need to review								
+        ///# E [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CharacterVerseData {
             get {

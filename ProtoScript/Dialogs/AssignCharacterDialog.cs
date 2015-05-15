@@ -16,14 +16,14 @@ using System.Windows.Forms;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
-using ProtoScript.Character;
-using ProtoScript.Controls;
-using ProtoScript.Utilities;
+using Glyssen.Character;
+using Glyssen.Controls;
+using Glyssen.Utilities;
 using SIL.ScriptureControls;
 using SIL.Windows.Forms.PortableSettingsProvider;
 using ScrVers = Paratext.ScrVers;
 
-namespace ProtoScript.Dialogs
+namespace Glyssen.Dialogs
 {
 	public partial class AssignCharacterDialog : Form
 	{

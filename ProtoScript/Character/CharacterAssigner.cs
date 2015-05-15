@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Paratext;
 
-namespace ProtoScript.Character
+namespace Glyssen.Character
 {
 	public class CharacterAssigner
 	{

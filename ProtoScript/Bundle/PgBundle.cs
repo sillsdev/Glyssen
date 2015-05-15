@@ -1,6 +1,6 @@
 ﻿using SIL.DblBundle.Text;
 
-namespace ProtoScript.Bundle
+namespace Glyssen.Bundle
 {
 	public class PgBundle : TextBundle<PgDblTextMetadata, PgDblMetadataLanguage>
 	{

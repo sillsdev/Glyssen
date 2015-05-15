@@ -4,12 +4,13 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using Glyssen;
 using Paratext;
-using ProtoScript.Character;
+using Glyssen.Character;
 using SIL.ScriptureUtils;
 using ScrVers = Paratext.ScrVers;
 
-namespace ProtoScript.Dialogs
+namespace Glyssen.Dialogs
 {
 	[Flags]
 	public enum BlocksToDisplay

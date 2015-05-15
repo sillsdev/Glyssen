@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ProtoScript.Character;
-using ProtoScript.Utilities;
+using Glyssen;
+using Glyssen.Character;
+using Glyssen.Utilities;
 using SIL.ScriptureUtils;
 using ScrVers = Paratext.ScrVers;
 
-namespace ProtoScript.Dialogs
+namespace Glyssen.Dialogs
 {
 	public class AssignCharacterViewModel : BlockNavigatorViewModel
 	{

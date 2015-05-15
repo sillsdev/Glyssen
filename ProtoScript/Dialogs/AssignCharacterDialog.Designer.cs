@@ -1,6 +1,6 @@
-﻿using ProtoScript.Controls;
+﻿using Glyssen.Controls;
 
-namespace ProtoScript.Dialogs
+namespace Glyssen.Dialogs
 {
 	partial class AssignCharacterDialog
 	{
@@ -76,8 +76,8 @@ namespace ProtoScript.Dialogs
 			this.m_pnlCharacterAndDeliverySelection = new System.Windows.Forms.TableLayoutPanel();
 			this.m_splitContainer = new System.Windows.Forms.SplitContainer();
 			this.tableLayoutPanelNavigationControls = new System.Windows.Forms.TableLayoutPanel();
-			this.m_blocksViewer = new ProtoScript.Controls.ScriptBlocksViewer();
-			this.m_progressBar = new ProtoScript.Controls.BlockProgressBar();
+			this.m_blocksViewer = new Glyssen.Controls.ScriptBlocksViewer();
+			this.m_progressBar = new Glyssen.Controls.BlockProgressBar();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnCharacterFilter)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnDeliveryFilter)).BeginInit();
@@ -97,7 +97,7 @@ namespace ProtoScript.Dialogs
 			// 
 			// m_l10NSharpExtender
 			// 
-			this.m_l10NSharpExtender.LocalizationManagerId = "ProtoscriptGenerator";
+			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
 			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.AssignCharacterDialog";
 			// 
 			// m_btnNext
@@ -278,7 +278,7 @@ namespace ProtoScript.Dialogs
 			this.m_icnCharacterFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_icnCharacterFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.m_icnCharacterFilter.Image = global::ProtoScript.Properties.Resources.search_glyph;
+			this.m_icnCharacterFilter.Image = global::Glyssen.Properties.Resources.search_glyph;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_icnCharacterFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_icnCharacterFilter, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_icnCharacterFilter, "DialogBoxes.AssignCharacterDialog.pictureBox1");
@@ -295,7 +295,7 @@ namespace ProtoScript.Dialogs
 			// 
 			this.m_icnDeliveryFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_icnDeliveryFilter.Image = global::ProtoScript.Properties.Resources.search_glyph;
+			this.m_icnDeliveryFilter.Image = global::Glyssen.Properties.Resources.search_glyph;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_icnDeliveryFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_icnDeliveryFilter, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_icnDeliveryFilter, "DialogBoxes.AssignCharacterDialog.pictureBox1");
@@ -310,7 +310,7 @@ namespace ProtoScript.Dialogs
 			// m_btnAddCharacter
 			// 
 			this.m_btnAddCharacter.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.m_btnAddCharacter.BackgroundImage = global::ProtoScript.Properties.Resources._112_Plus_Green_16x16_72;
+			this.m_btnAddCharacter.BackgroundImage = global::Glyssen.Properties.Resources._112_Plus_Green_16x16_72;
 			this.m_btnAddCharacter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.m_btnAddCharacter.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_btnAddCharacter.FlatAppearance.BorderSize = 2;
@@ -330,7 +330,7 @@ namespace ProtoScript.Dialogs
 			// m_btnAddDelivery
 			// 
 			this.m_btnAddDelivery.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.m_btnAddDelivery.BackgroundImage = global::ProtoScript.Properties.Resources._112_Plus_Green_16x16_72;
+			this.m_btnAddDelivery.BackgroundImage = global::Glyssen.Properties.Resources._112_Plus_Green_16x16_72;
 			this.m_btnAddDelivery.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.m_btnAddDelivery.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_btnAddDelivery.FlatAppearance.BorderSize = 2;
@@ -451,7 +451,7 @@ namespace ProtoScript.Dialogs
 			this.m_toolStripButtonHtmlView.Checked = true;
 			this.m_toolStripButtonHtmlView.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.m_toolStripButtonHtmlView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.m_toolStripButtonHtmlView.Image = global::ProtoScript.Properties.Resources.html_view;
+			this.m_toolStripButtonHtmlView.Image = global::Glyssen.Properties.Resources.html_view;
 			this.m_toolStripButtonHtmlView.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonHtmlView, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonHtmlView, null);
@@ -468,7 +468,7 @@ namespace ProtoScript.Dialogs
 			// m_toolStripButtonGridView
 			// 
 			this.m_toolStripButtonGridView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.m_toolStripButtonGridView.Image = global::ProtoScript.Properties.Resources.grid_icon;
+			this.m_toolStripButtonGridView.Image = global::Glyssen.Properties.Resources.grid_icon;
 			this.m_toolStripButtonGridView.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonGridView, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonGridView, null);
@@ -490,7 +490,7 @@ namespace ProtoScript.Dialogs
 			// 
 			this.m_toolStripButtonLargerFont.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			this.m_toolStripButtonLargerFont.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_toolStripButtonLargerFont.Image = global::ProtoScript.Properties.Resources.IncreaseSize;
+			this.m_toolStripButtonLargerFont.Image = global::Glyssen.Properties.Resources.IncreaseSize;
 			this.m_toolStripButtonLargerFont.ImageTransparentColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonLargerFont, "Increase size of text");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonLargerFont, null);
@@ -505,7 +505,7 @@ namespace ProtoScript.Dialogs
 			this.m_toolStripButtonSmallerFont.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.m_toolStripButtonSmallerFont.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			this.m_toolStripButtonSmallerFont.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_toolStripButtonSmallerFont.Image = global::ProtoScript.Properties.Resources.DecreaseSize;
+			this.m_toolStripButtonSmallerFont.Image = global::Glyssen.Properties.Resources.DecreaseSize;
 			this.m_toolStripButtonSmallerFont.ImageTransparentColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonSmallerFont, "Decrease size of text");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonSmallerFont, null);
@@ -551,7 +551,7 @@ namespace ProtoScript.Dialogs
 			// 
 			this.m_toolStripButtonExcludeUserConfirmed.CheckOnClick = true;
 			this.m_toolStripButtonExcludeUserConfirmed.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.m_toolStripButtonExcludeUserConfirmed.Image = global::ProtoScript.Properties.Resources.yellow_ok_icon;
+			this.m_toolStripButtonExcludeUserConfirmed.Image = global::Glyssen.Properties.Resources.yellow_ok_icon;
 			this.m_toolStripButtonExcludeUserConfirmed.ImageTransparentColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonExcludeUserConfirmed, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonExcludeUserConfirmed, null);
@@ -583,7 +583,7 @@ namespace ProtoScript.Dialogs
 			// m_menuBtnSplitBlock
 			// 
 			this.m_menuBtnSplitBlock.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.m_menuBtnSplitBlock.Image = global::ProtoScript.Properties.Resources.SplitBlock;
+			this.m_menuBtnSplitBlock.Image = global::Glyssen.Properties.Resources.SplitBlock;
 			this.m_menuBtnSplitBlock.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_menuBtnSplitBlock, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_menuBtnSplitBlock, null);
@@ -815,7 +815,7 @@ namespace ProtoScript.Dialogs
 			this.m_blocksViewer.Size = new System.Drawing.Size(308, 495);
 			this.m_blocksViewer.TabIndex = 11;
 			this.m_blocksViewer.Text = "Who speaks this part?";
-			this.m_blocksViewer.ViewType = ProtoScript.Controls.ScriptBlocksViewType.Html;
+			this.m_blocksViewer.ViewType = Glyssen.Controls.ScriptBlocksViewType.Html;
 			// 
 			// m_progressBar
 			// 
@@ -892,7 +892,7 @@ namespace ProtoScript.Dialogs
 		private System.Windows.Forms.ListBox m_listBoxDeliveries;
 		private System.Windows.Forms.Label m_labelWhoSpeaks;
 		private System.Windows.Forms.Label m_labelXofY;
-		private ProtoScript.Controls.BlockProgressBar m_progressBar;
+		private Glyssen.Controls.BlockProgressBar m_progressBar;
 		private System.Windows.Forms.LinkLabel m_llMoreChar;
 		private System.Windows.Forms.TextBox m_txtCharacterFilter;
 		private System.Windows.Forms.Label m_lblCharacter;
@@ -913,7 +913,7 @@ namespace ProtoScript.Dialogs
 		private System.Windows.Forms.Label m_lblShortcut4;
 		private System.Windows.Forms.TableLayoutPanel m_pnlCharacterAndDeliverySelection;
 		private System.Windows.Forms.SplitContainer m_splitContainer;
-		private ProtoScript.Controls.ScriptBlocksViewer m_blocksViewer;
+		private Glyssen.Controls.ScriptBlocksViewer m_blocksViewer;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanelDelivery;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanelCharacter;
 		private System.Windows.Forms.ToolStrip m_toolStrip;

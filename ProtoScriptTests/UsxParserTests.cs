@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Xml;
 using NUnit.Framework;
-using ProtoScript;
-using ProtoScript.Character;
+using Glyssen;
+using Glyssen.Character;
 using SIL.DblBundle;
 using SIL.DblBundle.Usx;
 using SIL.DblBundle.Tests.Usx;

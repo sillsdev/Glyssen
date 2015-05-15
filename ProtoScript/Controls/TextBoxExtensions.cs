@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace ProtoScript.Controls
+namespace Glyssen.Controls
 {
 	public static class TextBoxExtensions
 	{

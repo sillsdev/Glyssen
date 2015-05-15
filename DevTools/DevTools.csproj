@@ -81,9 +81,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProtoScript\ProtoScript.csproj">
+    <ProjectReference Include="..\ProtoScript\Glyssen.csproj">
       <Project>{45321f2e-174c-482a-bda1-bf199366fbd6}</Project>
-      <Name>ProtoScript</Name>
+      <Name>Glyssen</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

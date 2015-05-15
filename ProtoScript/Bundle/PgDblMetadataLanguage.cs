@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Xml.Serialization;
-using ProtoScript.Properties;
+using Glyssen.Properties;
 using SIL.DblBundle.Text;
 
-namespace ProtoScript.Bundle
+namespace Glyssen.Bundle
 {
 	[XmlRoot("DBLMetadata")]
 	public class PgDblMetadataLanguage : DblMetadataLanguage

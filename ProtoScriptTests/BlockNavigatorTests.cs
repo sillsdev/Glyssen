@@ -2,7 +2,7 @@
 using System.Linq;
 using NUnit.Framework;
 using Paratext;
-using ProtoScript;
+using Glyssen;
 using SIL.ScriptureUtils;
 
 namespace ProtoScriptTests

@@ -1,4 +1,4 @@
-﻿namespace ProtoScript.Controls
+﻿namespace Glyssen.Controls
 {
 	partial class ScriptBlocksViewer
 	{
@@ -32,12 +32,12 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.m_panel = new System.Windows.Forms.Panel();
-			this.m_dataGridViewBlocks = new ProtoScript.Controls.ScriptBlocksGridView();
+			this.m_dataGridViewBlocks = new Controls.ScriptBlocksGridView();
 			this.colReference = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colCharacter = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colDelivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colText = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.m_blocksDisplayBrowser = new ProtoScript.Controls.Browser();
+			this.m_blocksDisplayBrowser = new Glyssen.Controls.Browser();
 			this.m_title = new System.Windows.Forms.Label();
 			this.m_panel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_dataGridViewBlocks)).BeginInit();

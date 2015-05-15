@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using ProtoScript.Quote;
+using Glyssen.Quote;
 using SIL.WritingSystems;
 using SIL.Xml;
 

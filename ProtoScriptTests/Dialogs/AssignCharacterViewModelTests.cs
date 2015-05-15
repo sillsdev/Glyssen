@@ -1,9 +1,8 @@
-﻿using System.Diagnostics;
-using System.Linq;
+﻿using System.Linq;
+using Glyssen;
 using NUnit.Framework;
-using ProtoScript;
-using ProtoScript.Character;
-using ProtoScript.Dialogs;
+using Glyssen.Character;
+using Glyssen.Dialogs;
 
 namespace ProtoScriptTests.Dialogs
 {
