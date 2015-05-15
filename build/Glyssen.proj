@@ -1,8 +1,8 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<RootDir>$(teamcity_build_checkoutDir)</RootDir>
-		<Solution>ProtoScript.sln</Solution>
-		<ApplicationName>Protoscript Generator</ApplicationName>
+		<Solution>Glyssen.sln</Solution>
+		<ApplicationName>Glyssen</ApplicationName>
 		<Configuration>Release</Configuration>
 	</PropertyGroup>
 
@@ -35,10 +35,10 @@
 	<CreateProperty Value="$(Version).$(BuildHash)">
 		<Output PropertyName="FullVersion" TaskParameter="Value"/>
 	</CreateProperty>
-	<CreateProperty Value="ProtoscriptGeneratorInstaller.$(Version).msi" Condition=" '$(Label)' == '' ">
+	<CreateProperty Value="GlyssenInstaller.$(Version).msi" Condition=" '$(Label)' == '' ">
 		<Output PropertyName="InstallerFileName" TaskParameter="Value"/>
 	</CreateProperty>
-	<CreateProperty Value="ProtoscriptGeneratorInstaller.$(Version).$(Label).msi" Condition=" '$(Label)' != '' ">
+	<CreateProperty Value="GlyssenInstaller.$(Version).$(Label).msi" Condition=" '$(Label)' != '' ">
 		<Output PropertyName="InstallerFileName" TaskParameter="Value"/>
 	</CreateProperty>
 	<Message Text="Version: $(Version)" Importance="high"/>
@@ -88,13 +88,13 @@
 		<!-- remove an existing one with the same name, if necessary -->
 		<Delete Files="$(RootDir)\output\installer\$(InstallerFileName)" TreatErrorsAsWarnings="false" />
 
-		<Copy SourceFiles="$(RootDir)\output\installer\ProtoscriptGeneratorInstaller.msi"
+		<Copy SourceFiles="$(RootDir)\output\installer\GlyssenInstaller.msi"
 			DestinationFiles="$(RootDir)\output\installer\$(InstallerFileName)"
 		/>
 		<Message Text="Copied installer to $(RootDir)\output\installer\$(InstallerFileName)" Importance="high"/>
 
 		<!-- remove the installer which has no version number (wouldn't need this if the copy above was a move, instead) -->
-		<Delete Files="$(RootDir)\output\installer\ProtoscriptGeneratorInstaller.msi" TreatErrorsAsWarnings="false" />
+		<Delete Files="$(RootDir)\output\installer\GlyssenInstaller.msi" TreatErrorsAsWarnings="false" />
 
 	</Target>
 

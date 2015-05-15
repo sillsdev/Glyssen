@@ -14,7 +14,7 @@ http://blogs.msdn.com/robmen/archive/2003/10/04/56479.aspx -->
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension"
       xmlns:fire="http://schemas.microsoft.com/wix/FirewallExtension">
 
-  <Product Id="$(var.Property_ProductCode)" Name="Protoscript Generator $(var.Property_ProductVersion)" Language="1033"
+  <Product Id="$(var.Property_ProductCode)" Name="Glyssen $(var.Property_ProductVersion)" Language="1033"
              Version="$(var.Property_ProductVersion)" Manufacturer="FCBH-SIL"
              UpgradeCode="$(var.Property_UpgradeCode)">
 
@@ -24,7 +24,7 @@ http://blogs.msdn.com/robmen/archive/2003/10/04/56479.aspx -->
         with no palaso at all, as afterInstallInitialize was doing. But it's not clear whether even this will work, as it depends on when the "costing" happens:
         http://msdn.microsoft.com/en-us/library/aa371197.aspx -->
     <MajorUpgrade   Schedule="afterInstallValidate"
-  DowngradeErrorMessage="A later version of Protoscript Generator is already installed. If you really want to downgrade, first uninstall Protoscript Generator, then do this install again."/>
+  DowngradeErrorMessage="A later version of Glyssen is already installed. If you really want to downgrade, first uninstall Glyssen, then do this install again."/>
 
     <Upgrade Id ="$(var.Property_UpgradeCode)" >
       <UpgradeVersion Minimum ="$(var.Property_ProductVersion)" OnlyDetect ="yes" Property ="NEWVERSIONDETECTED" />
@@ -38,7 +38,7 @@ rest of the app the first time the icon is run.  If this is not behavior you
 are trying to support, you're better off using non-advertised shortcuts. "-->
 
     <PropertyRef Id="NETFRAMEWORK45" />
-    <Condition Message="Before Protoscript Generator can install on older computers, you need to install Microsoft's free .NET Framework 4.5.">
+    <Condition Message="Before Glyssen can install on older computers, you need to install Microsoft's free .NET Framework 4.5.">
       Installed OR NETFRAMEWORK45
     </Condition>
 
@@ -48,7 +48,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
     <Directory Id="TARGETDIR" Name="SourceDir">
 
         <Directory Id="CommonAppDataFolder">
-            <Directory Id="ProtoscriptGeneratorCommonAppData" Name="ProtoscriptGenerator">
+            <Directory Id="GlyssenCommonAppData" Name="Glyssen">
               <Directory Id="SampleDataDir" Name="Samples">
               </Directory>
             </Directory>
@@ -57,10 +57,10 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
         <Directory Id="DesktopFolder" Name="Desktop"/>
         
       <Directory Id='ProgramMenuFolder' Name='Programs'>
-        <Directory Id='ProtoscriptGeneratorShortcutDir' Name='Protoscript Generator'>
+        <Directory Id='GlyssenShortcutDir' Name='Glyssen'>
           <Component Id ='removeShortcutDir' Guid ="{B8000306-EB15-4458-8264-97C1F888AD1E}">
             <RemoveFolder Id ="shortcutDirRemover" On ="uninstall"/>
-            <RegistryKey Id="keyPathForRemoveShortcutDir" Action ="createAndRemoveOnUninstall" Root="HKCU" Key="SOFTWARE\ProtoscriptGenerator\Components\ProtoscriptGeneratorShortcutDir">
+            <RegistryKey Id="keyPathForRemoveShortcutDir" Action ="createAndRemoveOnUninstall" Root="HKCU" Key="SOFTWARE\Glyssen\Components\GlyssenShortcutDir">
               <RegistryValue Type ="string" Value =""  Action ="write" KeyPath ="yes"/>
             </RegistryKey>
           </Component>
@@ -69,26 +69,26 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       </Directory>
       <Directory Id="ProgramFilesFolder" Name="PFiles">
 
-        <Directory Id="ProgramDir" Name="Protoscript Generator">
+        <Directory Id="ProgramDir" Name="Glyssen">
           <Directory Id="XulRunnerDir" Name="XulRunner"/>
           
-          <Component Id="ProtoScript.exe" Guid="{A3493892-C68A-4f01-93BC-5F92B380CF89}">
-            <Registry Root="HKCU" Key="SOFTWARE\ProtoscriptGenerator\Components\ProtoScript.exe" KeyPath="yes" />
-            <File Id="ProtoScript.exe" Name="ProtoScript.exe"  Source="..\output\release\ProtoScript.exe" />
+          <Component Id="Glyssen.exe" Guid="{A3493892-C68A-4f01-93BC-5F92B380CF89}">
+            <Registry Root="HKCU" Key="SOFTWARE\Glyssen\Components\Glyssen.exe" KeyPath="yes" />
+            <File Id="Glyssen.exe" Name="Glyssen.exe"  Source="..\output\release\Glyssen.exe" />
 
-            <Shortcut Id="startmenuShortcut" Directory="ProtoscriptGeneratorShortcutDir" Name="Protoscript Generator"
-                 WorkingDirectory="ProgramDir" Target="[!ProtoScript.exe]" Icon="ProtoScript.exe" />
-            <Shortcut Id="desktopShortcut" Directory="DesktopFolder" Name="Protoscript Generator"
-                 WorkingDirectory="INSTALLDIR" Target="[!ProtoScript.exe]" Icon="ProtoScript.exe" />
+            <Shortcut Id="startmenuShortcut" Directory="GlyssenShortcutDir" Name="Glyssen"
+                 WorkingDirectory="ProgramDir" Target="[!Glyssen.exe]" Icon="Glyssen.exe" />
+            <Shortcut Id="desktopShortcut" Directory="DesktopFolder" Name="Glyssen"
+                 WorkingDirectory="INSTALLDIR" Target="[!Glyssen.exe]" Icon="Glyssen.exe" />
 
           </Component>
 
-          <Component Id="ProtoScript.pdb" Guid="{36b433dd-6260-48cb-8649-eb30f0b2fe27}">
-            <File Id="ProtoScript.pdb" Name="ProtoScript.pdb" KeyPath="yes" Source="..\output\release\ProtoScript.pdb" />
+          <Component Id="Glyssen.pdb" Guid="{36b433dd-6260-48cb-8649-eb30f0b2fe27}">
+            <File Id="Glyssen.pdb" Name="Glyssen.pdb" KeyPath="yes" Source="..\output\release\Glyssen.pdb" />
           </Component>
 
-          <Component Id="ProtoScript.exe.config" Guid="{5173C7E9-39FD-4438-B1C1-BA187907AA35}">
-            <File Id="ProtoScript.exe.config" Name="ProtoScript.exe.config" KeyPath="yes" Source="..\output\release\ProtoScript.exe.config" />
+          <Component Id="Glyssen.exe.config" Guid="{5173C7E9-39FD-4438-B1C1-BA187907AA35}">
+            <File Id="Glyssen.exe.config" Name="Glyssen.exe.config" KeyPath="yes" Source="..\output\release\Glyssen.exe.config" />
           </Component>
 
           <Component Id="SIL.Core.dll" Guid="{b85eba03-ba56-40b9-9c7f-ae166748f6f5}">
@@ -259,8 +259,8 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 	  <ComponentRef Id="Ionic.Zip.dll"/>
       <ComponentRef Id="ICSharpCode.SharpZipLib.dll"/>
       <ComponentRef Id="L10NSharp.dll"/>
-      <ComponentRef Id="ProtoScript.exe" />
-      <ComponentRef Id="ProtoScript.exe.config" />
+      <ComponentRef Id="Glyssen.exe" />
+      <ComponentRef Id="Glyssen.exe.config" />
 
       <ComponentRef Id="SIL.Core.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.pdb"/>
@@ -279,28 +279,28 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="NetLoc.pdb"/>
       <ComponentRef Id="Utilities.pdb"/>
       <ComponentRef Id="L10NSharp.pdb"/>
-      <ComponentRef Id="ProtoScript.pdb" />
+      <ComponentRef Id="Glyssen.pdb" />
       
       <ComponentGroupRef Id="DistFiles"/>
       <ComponentGroupRef Id="XulRunner" />
       
     </Feature>
     <Media Id="1" Cabinet="product.cab" EmbedCab="yes" />
-    <Icon Id="ProtoScript.exe" SourceFile ="..\output\release\ProtoScript.exe" />
-    <Property Id="ARPPRODUCTICON" Value="ProtoScript.exe" />
+    <Icon Id="Glyssen.exe" SourceFile ="..\output\release\Glyssen.exe" />
+    <Property Id="ARPPRODUCTICON" Value="Glyssen.exe" />
     <!-- what you see in add/remove programs control panel -->
 
 
 
-    <CustomAction Id="LaunchProtoscriptGenerator"
-                  FileKey="ProtoScript.exe"
+    <CustomAction Id="LaunchGlyssen"
+                  FileKey="Glyssen.exe"
                   ExeCommand=""
                   Return="asyncNoWait"/>
 
     <InstallExecuteSequence>
 
       <!--We need the condition here so that we only launch the executable when we make an installation but not when we remove the product-->
-          <Custom Action='LaunchProtoscriptGenerator' After="InstallFinalize">NOT Installed</Custom>
+          <Custom Action='LaunchGlyssen' After="InstallFinalize">NOT Installed</Custom>
         </InstallExecuteSequence>
   </Product>
 </Wix>
