@@ -234,9 +234,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
     </Directory>
 
 	<Component Id="CreateGlyssenAppDataFolder" Directory="GlyssenCommonAppData">
-      <CreateFolder>
-	    <util:PermissionEx User="Users" GenericAll="yes" />
-	  </CreateFolder>
+      <CreateFolder />
 	</Component>
 
     <Feature Id="ProductFeature" Level="1" Title="Basic Stuff">
