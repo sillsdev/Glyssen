@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+
+using DesktopAnalytics;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Utilities;
@@ -84,6 +87,8 @@ namespace Glyssen.Dialogs
 			}
 			else
 				m_project.SaveBook(CurrentBook);
+
+			Analytics.Track("SetSingleVoice", new Dictionary<string, string> { { "book", CurrentBookId }, { "singleVoice", singleVoice.ToString() } });
 		}
 
 		#region Overridden methods
@@ -255,6 +260,16 @@ namespace Glyssen.Dialogs
 
 		private void SetCharacterAndDelivery(Block block, Character selectedCharacter, Delivery selectedDelivery)
 		{
+			// If the user sets a non-narrator to a block we marked as narrator, we want to track it
+			if (!selectedCharacter.IsNarrator && !block.IsQuote)
+				Analytics.Track("NarratorToQuote", new Dictionary<string, string>
+				{
+					{ "book", CurrentBookId },
+					{ "chapter", block.ChapterNumber.ToString(CultureInfo.InvariantCulture) },
+					{ "initialStartVerse", block.InitialStartVerseNumber.ToString(CultureInfo.InvariantCulture) },
+					{ "character", selectedCharacter.CharacterId }
+				});
+			
 			if (selectedCharacter.ProjectSpecific || selectedDelivery.ProjectSpecific)
 				AddRecordToProjectCharacterVerseData(block, selectedCharacter, selectedDelivery);
 

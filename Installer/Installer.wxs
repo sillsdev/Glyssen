@@ -231,6 +231,18 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="L10NSharp.pdb" Name="L10NSharp.pdb" KeyPath="yes" Source="..\output\release\L10NSharp.pdb" />
           </Component>
 
+          <Component Id="Analytics.NET.dll" Guid="{908f0bda-1c18-4c4f-ae2c-778bb2ae5b34}">
+            <File Id="Analytics.NET.dll" Name="Analytics.NET.dll" KeyPath="yes" Source="..\output\release\Analytics.NET.dll" />
+          </Component>
+
+          <Component Id="DesktopAnalytics.dll" Guid="{45850fe5-ff09-472c-97fd-a05c970ede0e}">
+            <File Id="DesktopAnalytics.dll" Name="DesktopAnalytics.dll" KeyPath="yes" Source="..\output\release\DesktopAnalytics.dll" />
+          </Component>
+
+          <Component Id="Newtonsoft.Json.dll" Guid="{ed358f71-1c89-4570-9387-fea8f669bb3a}">
+            <File Id="Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" KeyPath="yes" Source="..\output\release\Newtonsoft.Json.dll" />
+          </Component>
+
         </Directory>
       </Directory>
     </Directory>
@@ -264,6 +276,11 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="L10NSharp.dll"/>
       <ComponentRef Id="Glyssen.exe" />
       <ComponentRef Id="Glyssen.exe.config" />
+      <ComponentRef Id="Analytics.NET.dll"/>
+      <ComponentRef Id="DesktopAnalytics.dll"/>
+      <ComponentRef Id="Newtonsoft.Json.dll"/>
+      <ComponentRef Id="ProtoScript.exe" />
+      <ComponentRef Id="ProtoScript.exe.config" />
 
       <ComponentRef Id="SIL.Core.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.pdb"/>

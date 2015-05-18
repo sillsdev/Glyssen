@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DesktopAnalytics;
 using Glyssen.Properties;
 using L10NSharp;
 using L10NSharp.UI;
@@ -62,6 +64,14 @@ namespace Glyssen
 		private void FinishSetProject()
 		{
 			UpdateDisplayOfProjectInfo();
+
+			if (m_project != null)
+				Analytics.Track("LoadProject", new Dictionary<string, string>
+				{
+					{ "language", m_project.LanguageIsoCode },
+					{ "ID", m_project.Id },
+					{ "recordingProjectName", m_project.Name },
+				});
 		}
 
 		private void InitializeLocalizableFormats()
@@ -307,6 +317,7 @@ namespace Glyssen
 					try
 					{
 						m_project.ExportTabDelimited(dlg.FileName);
+						Analytics.Track("Export");
 					}
 					catch(Exception ex)
 					{
@@ -347,14 +358,17 @@ namespace Glyssen
 			{
 				var item = m_uiLanguageMenu.DropDownItems.Add(lang.NativeName);
 				item.Tag = lang;
+				string languageId = ((CultureInfo)item.Tag).IetfLanguageTag;
 				item.Click += ((a, b) =>
 				{
-					LocalizationManager.SetUILanguage(((CultureInfo)item.Tag).IetfLanguageTag, true);
-					Settings.Default.UserInterfaceLanguage = ((CultureInfo)item.Tag).IetfLanguageTag;
+					Analytics.Track("SetUiLanguage", new Dictionary<string, string> { { "uiLanguage", languageId }, { "initialStartup", "true" } });
+
+					LocalizationManager.SetUILanguage(languageId, true);
+					Settings.Default.UserInterfaceLanguage = languageId;
 					item.Select();
 					m_uiLanguageMenu.Text = ((CultureInfo)item.Tag).NativeName;
 				});
-				if (((CultureInfo)item.Tag).IetfLanguageTag == Settings.Default.UserInterfaceLanguage)
+				if (languageId == Settings.Default.UserInterfaceLanguage)
 				{
 					m_uiLanguageMenu.Text = ((CultureInfo)item.Tag).NativeName;
 				}

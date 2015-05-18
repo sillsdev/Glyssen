@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using DesktopAnalytics;
 using Glyssen.Properties;
 using L10NSharp;
 using Paratext;
@@ -28,6 +31,12 @@ namespace Glyssen
 		{
 			if (info.DataVersion >= Settings.Default.DataFormatVersion)
 				return false;
+
+			Analytics.Track("DataVersionUpgrade", new Dictionary<string, string>
+			{
+				{ "old", info.DataVersion.ToString(CultureInfo.InvariantCulture) },
+				{ "new", Settings.Default.DataFormatVersion.ToString(CultureInfo.InvariantCulture) }
+			});
 
 			switch (info.DataVersion)
 			{

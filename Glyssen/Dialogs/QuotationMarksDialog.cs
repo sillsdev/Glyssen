@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen;
+using DesktopAnalytics;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
@@ -267,7 +269,7 @@ namespace Glyssen.Dialogs
 				MessageBox.Show(validationMessage, LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.QuoteSystemInvalid", "Quote System Invalid"));
 				return;
 			}
-			if (m_project.Books.SelectMany(b => b.Blocks).Any(bl => bl.UserConfirmed) && m_project.IsQuoteSystemReadyForParse && m_project.QuoteSystem != null && m_project.QuoteSystem != currentQuoteSystem)
+			if (m_project.Books.SelectMany(b => b.Blocks).Any(bl => bl.UserConfirmed) && m_project.IsQuoteSystemReadyForParse && m_project.QuoteSystem != null)
 			{
 				string part1 = LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.QuoteSystemChangePart1", "Changing the quote system will require the text to broken up into speaking parts again.  An attempt will be made to preserve the work you have already completed, but some character assignments might be lost.  A backup of your project will be created before this occurs.");
 				string part2 = LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.QuoteSystemChangePart2", "Are you sure you want to change the quote system?");
@@ -280,9 +282,23 @@ namespace Glyssen.Dialogs
 				}
 			}
 
+			if (m_project.QuoteSystemStatus == QuoteSystemStatus.Obtained) 
+				Analytics.Track("ObtainedQuoteSystemChanged", new Dictionary<string, string>
+				{
+					{ "old", m_project.QuoteSystem != null ? m_project.QuoteSystem.ToString() : String.Empty },
+					{ "new", currentQuoteSystem.ToString() }
+				});
+			else if (m_project.QuoteSystemStatus != QuoteSystemStatus.UserSet)
+				Analytics.Track("GuessedQuoteSystemChanged", new Dictionary<string, string>
+				{
+					{ "old", m_project.QuoteSystem != null ? m_project.QuoteSystem.ToString() : String.Empty },
+					{ "new", currentQuoteSystem.ToString() }
+				});
+
 			// Want to set the status even if already UserSet because that triggers setting QuoteSystemDate
 			m_project.QuoteSystemStatus = QuoteSystemStatus.UserSet;
-
+			
+			m_project.AnalysisCompleted += HandleAnalysisCompleted;
 			m_project.QuoteSystem = currentQuoteSystem;
 		}
 
@@ -512,7 +528,11 @@ namespace Glyssen.Dialogs
 		{
 			var button = (ToolStripButton)sender;
 			if (!button.Checked)
+			{
 				button.Checked = true;
+
+				Analytics.Track("SwitchView", new Dictionary<string, string> { { "dialog", Name }, { "view", button.ToString() } });
+		}
 		}
 
 		private void IncreaseFont(object sender, EventArgs e)

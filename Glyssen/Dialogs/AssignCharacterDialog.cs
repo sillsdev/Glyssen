@@ -13,6 +13,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using DesktopAnalytics;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
@@ -668,7 +669,11 @@ namespace Glyssen.Dialogs
 		{
 			var button = (ToolStripButton)sender;
 			if (!button.Checked)
+			{
 				button.Checked = true;
+
+				Analytics.Track("SwitchView", new Dictionary<string, string> { { "dialog", Name }, { "view", button.ToString() } });
+			}
 		}
 
 		private void HandleSplitBlocksClick(object sender, EventArgs e)

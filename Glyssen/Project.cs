@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
+using DesktopAnalytics;
 using L10NSharp;
 using Paratext;
 using Glyssen.Analysis;
@@ -383,6 +385,16 @@ namespace Glyssen
 					using (var bundle = new PgBundle(existingProject.OriginalPathOfDblFile))
 					{
 						var upgradedProject = new Project(existingProject.m_metadata, existingProject.m_recordingProjectName);
+
+						Analytics.Track("UpgradeProject", new Dictionary<string, string>
+						{
+							{ "language", existingProject.LanguageIsoCode },
+							{ "ID", existingProject.Id },
+							{ "recordingProjectName", existingProject.Name },
+							{ "oldParserVersion", existingProject.m_metadata.PgUsxParserVersion.ToString(CultureInfo.InvariantCulture) },
+							{ "newParserVersion", Settings.Default.PgUsxParserVersion.ToString(CultureInfo.InvariantCulture) }
+						});
+
 						upgradedProject.UserDecisionsProject = existingProject;
 						upgradedProject.PopulateAndParseBooks(bundle);
 						upgradedProject.m_metadata.PgUsxParserVersion = Settings.Default.ParserVersion;
@@ -691,6 +703,18 @@ namespace Glyssen
 		public void Analyze()
 		{
 			ProjectAnalysis.AnalyzeQuoteParse();
+
+			Analytics.Track("ProjectAnalysis", new Dictionary<string, string>
+			{
+				{ "language", LanguageIsoCode },
+				{ "ID", Id },
+				{ "recordingProjectName", Name },
+				{ "TotalBlocks", ProjectAnalysis.TotalBlocks.ToString(CultureInfo.InvariantCulture) },
+				{ "UserPercentAssigned", ProjectAnalysis.UserPercentAssigned.ToString(CultureInfo.InvariantCulture) },
+				{ "TotalPercentAssigned", ProjectAnalysis.TotalPercentAssigned.ToString(CultureInfo.InvariantCulture) },
+				{ "PercentUnknown", ProjectAnalysis.PercentUnknown.ToString(CultureInfo.InvariantCulture) }
+			});
+			
 			if (AnalysisCompleted != null)
 				AnalysisCompleted(this, new EventArgs());
 		}
