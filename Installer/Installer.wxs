@@ -48,7 +48,9 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
     <Directory Id="TARGETDIR" Name="SourceDir">
 
         <Directory Id="CommonAppDataFolder">
-            <Directory Id="GlyssenCommonAppData" Name="Glyssen" />
+		  <Directory Id="FCBHSILCommonAppData" Name="FCBH-SIL">
+            <Directory Id="GlyssenCommonAppData" Name="Glyssen"/>
+          </Directory>
         </Directory>
 
         <Directory Id="DesktopFolder" Name="Desktop"/>
@@ -233,7 +235,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       </Directory>
     </Directory>
 
-	<Component Id="CreateGlyssenAppDataFolder" Directory="GlyssenCommonAppData">
+	<Component Id="CreateGlyssenAppDataFolder" Guid="{C5B67418-083A-4AE5-85E3-B0E23EAFD342}" Directory="GlyssenCommonAppData">
       <CreateFolder />
 	</Component>
 
