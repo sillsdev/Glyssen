@@ -45,7 +45,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
     <!--because of bug, this needs to be 1 -->
     <Property Id ="ALLUSERS">1</Property>
 
-    <Directory Id="TARGETDIR" Name="SourceDir">
+    <Directory Id="TARGETDIR">
 
         <Directory Id="CommonAppDataFolder">
             <Directory Id="GlyssenCommonAppData" Name="Glyssen" />
@@ -68,10 +68,6 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 
         <Directory Id="ProgramDir" Name="Glyssen">
           <Directory Id="XulRunnerDir" Name="XulRunner"/>
-          
-		  <Component Id="CreateGlyssenAppDataFolder" Directory="GlyssenCommonAppData">
-            <CreateFolder />
-		  </Component>
 
           <Component Id="Glyssen.exe" Guid="{A3493892-C68A-4f01-93BC-5F92B380CF89}">
             <Registry Root="HKCU" Key="SOFTWARE\Glyssen\Components\Glyssen.exe" KeyPath="yes" />
@@ -237,8 +233,14 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       </Directory>
     </Directory>
 
+	<Component Id="CreateGlyssenAppDataFolder" Directory="GlyssenCommonAppData">
+      <CreateFolder>
+	    <util:PermissionEx User="Users" GenericAll="yes" />
+	  </CreateFolder>
+	</Component>
 
     <Feature Id="ProductFeature" Level="1" Title="Basic Stuff">
+	  <ComponentRef Id="CreateGlyssenAppDataFolder"/>
       <ComponentRef Id ="removeShortcutDir"/>
       <ComponentRef Id="SIL.Core.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.dll"/>
