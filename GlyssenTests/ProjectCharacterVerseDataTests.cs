@@ -1,11 +1,11 @@
 ﻿using System.IO;
 using System.Linq;
 using Glyssen;
-using NUnit.Framework;
 using Glyssen.Character;
+using NUnit.Framework;
 using SIL.IO;
 
-namespace ProtoScriptTests
+namespace GlyssenTests
 {
 	[TestFixture]
 	class ProjectCharacterVerseDataTests

@@ -1,13 +1,13 @@
 ﻿using System.Linq;
 using System.Xml;
-using NUnit.Framework;
 using Glyssen;
 using Glyssen.Character;
+using NUnit.Framework;
 using SIL.DblBundle;
-using SIL.DblBundle.Usx;
 using SIL.DblBundle.Tests.Usx;
+using SIL.DblBundle.Usx;
 
-namespace ProtoScriptTests
+namespace GlyssenTests
 {
 	[TestFixture]
 	class UsxParserTests

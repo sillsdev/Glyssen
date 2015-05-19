@@ -1,15 +1,15 @@
 ﻿using System.IO;
 using System.Xml.Serialization;
+using Glyssen.Bundle;
 using NUnit.Framework;
 using Palaso.TestUtilities;
-using Glyssen.Bundle;
 
-namespace ProtoScriptTests.Bundle
+namespace GlyssenTests.Bundle
 {
-	class PgDblTextMetadataTests
+	class GlyssenDblTextMetadataTests
 	{
-		private PgDblTextMetadata m_metadata;
-		private PgDblTextMetadata m_metadataWithDeprecatedFields;
+		private GlyssenDblTextMetadata m_metadata;
+		private GlyssenDblTextMetadata m_metadataWithDeprecatedFields;
 
 		private const string TestXml =
 @"<?xml version=""1.0"" encoding=""UTF-8""?>
@@ -46,11 +46,11 @@ namespace ProtoScriptTests.Bundle
 		[TestFixtureSetUp]
 		public void TestFixtureSetup()
 		{
-			var xs = new XmlSerializer(typeof(PgDblTextMetadata));
+			var xs = new XmlSerializer(typeof(GlyssenDblTextMetadata));
 			using (TextReader reader = new StringReader(TestXml))
-				m_metadata = (PgDblTextMetadata)xs.Deserialize(reader);
+				m_metadata = (GlyssenDblTextMetadata)xs.Deserialize(reader);
 			using (TextReader reader = new StringReader(TestWithDeprecatedFieldsXml))
-				m_metadataWithDeprecatedFields = (PgDblTextMetadata)xs.Deserialize(reader);
+				m_metadataWithDeprecatedFields = (GlyssenDblTextMetadata)xs.Deserialize(reader);
 		}
 
 		[Test]
@@ -103,11 +103,11 @@ namespace ProtoScriptTests.Bundle
 		[Test]
 		public void Serialize()
 		{
-			var metadata = new PgDblTextMetadata()
+			var metadata = new GlyssenDblTextMetadata()
 			{
 				Id = "id",
 				Revision = 1,
-				Language = new PgDblMetadataLanguage(),
+				Language = new GlyssenDblMetadataLanguage(),
 			};
 
 			const string expectedResult =

@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using Glyssen;
-using NUnit.Framework;
 using Glyssen.Character;
 using Glyssen.Dialogs;
+using NUnit.Framework;
 
-namespace ProtoScriptTests.Dialogs
+namespace GlyssenTests.Dialogs
 {
 	[TestFixture]
 	internal class AssignCharacterViewModelTests

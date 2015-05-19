@@ -6,7 +6,7 @@ using SIL.DblBundle.Text;
 namespace Glyssen.Bundle
 {
 	[XmlRoot("DBLMetadata")]
-	public class PgDblMetadataLanguage : DblMetadataLanguage
+	public class GlyssenDblMetadataLanguage : DblMetadataLanguage
 	{
 		private int m_fontSizeInPoints;
 

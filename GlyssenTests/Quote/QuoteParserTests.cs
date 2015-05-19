@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Quote;
+using NUnit.Framework;
 using SIL.WritingSystems;
 
-namespace ProtoScriptTests.Quote
+namespace GlyssenTests.Quote
 {
 	[TestFixture]
 	public class QuoteParserTests

@@ -9,9 +9,9 @@ namespace Glyssen.Dialogs
 {
 	public partial class SelectExistingProjectDlg : Form
 	{
-		private readonly Bundle<PgDblTextMetadata, PgDblMetadataLanguage> m_bundle;
+		private readonly Bundle<GlyssenDblTextMetadata, GlyssenDblMetadataLanguage> m_bundle;
 
-		public SelectExistingProjectDlg(Bundle<PgDblTextMetadata, PgDblMetadataLanguage> bundle)
+		public SelectExistingProjectDlg(Bundle<GlyssenDblTextMetadata, GlyssenDblMetadataLanguage> bundle)
 		{
 			m_bundle = bundle;
 			InitializeComponent();

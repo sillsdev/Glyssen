@@ -62,10 +62,10 @@ cd -
 
 
 # *** Results ***
-# build: Protoscript Generator-win-default Continuous (bt431)
-# project: Protoscript Generator
+# build: Glyssen-win-default Continuous (bt431)
+# project: Glyssen
 # URL: http://build.palaso.org/viewType.html?buildTypeId=bt431
-# VCS: https://github.com/sillsdev/ProtoScriptGenerator.git [master]
+# VCS: https://github.com/sillsdev/Glyssen.git [master]
 # dependencies:
 # [0] build: geckofx29-win32-continuous (bt399)
 #     project: GeckoFx

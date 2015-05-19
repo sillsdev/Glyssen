@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--This file is generated and then updated by an MSBuild task.  It preserves the automatically-generated guids assigned files that will be installed on user machines. So it should be held in source control.-->
 <InstallerMetadata>
-  <File Id="rogramDir.localization.ProtoscriptGenerator.en.tmx" Guid="cc24f678-72d8-460b-b74d-aaf5e9b2e559" />
+  <File Id="rogramDir.localization.Glyssen.en.tmx" Guid="cc24f678-72d8-460b-b74d-aaf5e9b2e559" />
+  <File Id="ProgramDir.localization.Glyssen.en.tmx" Guid="727a69ca-6cfd-4a54-bf9d-ca97ad55b57c" />
 </InstallerMetadata>

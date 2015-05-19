@@ -1,8 +1,8 @@
 ﻿using System;
-using NUnit.Framework;
 using Glyssen.Dialogs;
+using NUnit.Framework;
 
-namespace ProtoScriptTests.Dialogs
+namespace GlyssenTests.Dialogs
 {
 	[TestFixture]
 	public class SelectBundleDialogTests

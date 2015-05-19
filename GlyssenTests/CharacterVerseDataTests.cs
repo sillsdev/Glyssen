@@ -1,12 +1,12 @@
 ﻿using System.IO;
 using System.Linq;
+using Glyssen.Character;
+using GlyssenTests.Properties;
 using NUnit.Framework;
 using Paratext;
-using Glyssen.Character;
-using ProtoScriptTests.Properties;
 using SIL.IO;
 
-namespace ProtoScriptTests
+namespace GlyssenTests
 {
 	/// <summary>
 	/// Not that these tests purport to test the GetCharacters method, but in fact that is just a simple LINQ statement;

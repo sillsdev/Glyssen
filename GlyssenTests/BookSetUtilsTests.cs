@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Glyssen;
 using NUnit.Framework;
 using Paratext;
-using Glyssen;
 
-namespace ProtoScriptTests
+namespace GlyssenTests
 {
 	[TestFixture]
 	public class BookSetUtilsTests

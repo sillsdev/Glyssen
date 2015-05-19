@@ -1,10 +1,10 @@
-﻿using NUnit.Framework;
-using Palaso.TestUtilities;
-using Glyssen;
+﻿using Glyssen;
 using Glyssen.Character;
+using NUnit.Framework;
+using Palaso.TestUtilities;
 using SIL.ScriptureUtils;
 
-namespace ProtoScriptTests
+namespace GlyssenTests
 {
 	[TestFixture]
 	class BlockTests

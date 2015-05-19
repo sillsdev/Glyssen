@@ -98,7 +98,7 @@ namespace Glyssen
 			return new ScrStylesheetAdapter(GetUsfmScrStylesheet()); 
 		}
 
-		private static PgDblTextMetadata GenerateMetadataForSfmProject(IEnumerable<UsxDocument> books, ScrStylesheetAdapter stylesheet, string defaultLanguageName = null)
+		private static GlyssenDblTextMetadata GenerateMetadataForSfmProject(IEnumerable<UsxDocument> books, ScrStylesheetAdapter stylesheet, string defaultLanguageName = null)
 		{
 			string projectId;
 			string isoCode;
@@ -127,12 +127,12 @@ namespace Glyssen
 			}
 
 			var availableBooks = books.Select(b => new Book { Code = b.BookId }).ToList();
-			var metadata = new PgDblTextMetadata
+			var metadata = new GlyssenDblTextMetadata
 			{
 				Id = projectId,
 				//PgRecordingProjectName = recordingProjectName,
 				Identification = new DblMetadataIdentification { Name = publicationName },
-				Language = new PgDblMetadataLanguage { Iso = isoCode, Name = languageName, ScriptDirection = wsModel.CurrentRightToLeftScript ? "RTL" : "LTR" },
+				Language = new GlyssenDblMetadataLanguage { Iso = isoCode, Name = languageName, ScriptDirection = wsModel.CurrentRightToLeftScript ? "RTL" : "LTR" },
 				AvailableBooks = availableBooks,
 				FontFamily = stylesheet.FontFamily,
 				FontSizeInPoints = stylesheet.FontSizeInPoints

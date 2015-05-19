@@ -45,7 +45,7 @@ namespace Glyssen
 		private const double kGuessPercent = 0.10;
 		private const double kQuotePercent = 0.65;
 
-		private readonly PgDblTextMetadata m_metadata;
+		private readonly GlyssenDblTextMetadata m_metadata;
 		private readonly List<BookScript> m_books = new List<BookScript>();
 		private readonly Paratext.ScrVers m_vers;
 		private string m_recordingProjectName;
@@ -61,7 +61,7 @@ namespace Glyssen
 		public event EventHandler<ProjectStateChangedEventArgs> ProjectStateChanged;
 		public event EventHandler AnalysisCompleted;
 
-		public Project(PgDblTextMetadata metadata, string recordingProjectName = null)
+		public Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null)
 		{
 			m_metadata = metadata;
 			m_recordingProjectName = recordingProjectName ?? GetDefaultRecordingProjectName(m_metadata.Identification.Name);
@@ -72,7 +72,7 @@ namespace Glyssen
 				m_vers = LoadVersification(VersificationFilePath);
 		}
 
-		public Project(PgBundle bundle, string recordingProjectName = null) :
+		public Project(GlyssenBundle bundle, string recordingProjectName = null) :
 			this(bundle.Metadata, recordingProjectName)
 		{
 			Directory.CreateDirectory(ProjectFolder);
@@ -92,7 +92,7 @@ namespace Glyssen
 		/// <summary>
 		/// Used only for sample project and in tests.
 		/// </summary>
-		public Project(PgDblTextMetadata metadata, IEnumerable<UsxDocument> books, IStylesheet stylesheet) : this(metadata)
+		public Project(GlyssenDblTextMetadata metadata, IEnumerable<UsxDocument> books, IStylesheet stylesheet) : this(metadata)
 		{
 			AddAndParseBooks(books, stylesheet);
 
@@ -363,7 +363,7 @@ namespace Glyssen
 		{
 			Project existingProject = LoadExistingProject(projectFilePath);
 
-			if (!existingProject.IsSampleProject && existingProject.m_metadata.PgUsxParserVersion != Settings.Default.ParserVersion)
+			if (!existingProject.IsSampleProject && existingProject.m_metadata.ParserVersion != Settings.Default.ParserVersion)
 			{
 				bool upgradeProject = true;
 				if (!File.Exists(existingProject.OriginalPathOfDblFile))
@@ -382,7 +382,7 @@ namespace Glyssen
 					}
 				}
 				if (upgradeProject)
-					using (var bundle = new PgBundle(existingProject.OriginalPathOfDblFile))
+					using (var bundle = new GlyssenBundle(existingProject.OriginalPathOfDblFile))
 					{
 						var upgradedProject = new Project(existingProject.m_metadata, existingProject.m_recordingProjectName);
 
@@ -391,13 +391,13 @@ namespace Glyssen
 							{ "language", existingProject.LanguageIsoCode },
 							{ "ID", existingProject.Id },
 							{ "recordingProjectName", existingProject.Name },
-							{ "oldParserVersion", existingProject.m_metadata.PgUsxParserVersion.ToString(CultureInfo.InvariantCulture) },
+							{ "oldParserVersion", existingProject.m_metadata.ParserVersion.ToString(CultureInfo.InvariantCulture) },
 							{ "newParserVersion", Settings.Default.ParserVersion.ToString(CultureInfo.InvariantCulture) }
 						});
 
 						upgradedProject.UserDecisionsProject = existingProject;
 						upgradedProject.PopulateAndParseBooks(bundle);
-						upgradedProject.m_metadata.PgUsxParserVersion = Settings.Default.ParserVersion;
+						upgradedProject.m_metadata.ParserVersion = Settings.Default.ParserVersion;
 						return upgradedProject;
 					}
 			}
@@ -409,7 +409,7 @@ namespace Glyssen
 		public static void SetHiddenFlag(string projectFilePath, bool hidden)
 		{
 			Exception exception;
-			var metadata = PgDblTextMetadata.Load<PgDblTextMetadata>(projectFilePath, out exception);
+			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out exception);
 			if (exception != null)
 			{
 				ErrorReport.ReportNonFatalExceptionWithMessage(exception,
@@ -450,7 +450,7 @@ namespace Glyssen
 		private static Project LoadExistingProject(string projectFilePath)
 		{
 			Exception exception;
-			var metadata = PgDblTextMetadata.Load<PgDblTextMetadata>(projectFilePath, out exception);
+			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out exception);
 			if (exception != null)
 			{
 				ErrorReport.ReportNonFatalExceptionWithMessage(exception,
@@ -568,7 +568,7 @@ namespace Glyssen
 			var resultList = result.ToList();
 			resultList.Sort((a, b) => BCVRef.BookToNumber(a.BookId).CompareTo(BCVRef.BookToNumber(b.BookId)));
 			m_books.AddRange(resultList);
-			m_metadata.PgUsxParserVersion = Settings.Default.ParserVersion;
+			m_metadata.ParserVersion = Settings.Default.ParserVersion;
 			m_metadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
 
 			if (QuoteSystem == null)
@@ -821,7 +821,7 @@ namespace Glyssen
 			if (File.Exists(OriginalPathOfDblFile) && QuoteSystem != null)
 			{
 				UserDecisionsProject = copyOfExistingProject;
-				using (var bundle = new PgBundle(OriginalPathOfDblFile))
+				using (var bundle = new GlyssenBundle(OriginalPathOfDblFile))
 					PopulateAndParseBooks(bundle);
 			}
 			else
@@ -902,7 +902,7 @@ namespace Glyssen
 		{
 			if (File.Exists(SampleProjectFilePath))
 				return;
-			var sampleMetadata = new PgDblTextMetadata();
+			var sampleMetadata = new GlyssenDblTextMetadata();
 			sampleMetadata.AvailableBooks = new List<Book>();
 			var bookOfMark = new Book();
 			bookOfMark.Code = "MRK";
@@ -913,7 +913,7 @@ namespace Glyssen
 			sampleMetadata.FontFamily = "Times New Roman";
 			sampleMetadata.FontSizeInPoints = 12;
 			sampleMetadata.Id = kSample;
-			sampleMetadata.Language = new PgDblMetadataLanguage {Iso = kSample};
+			sampleMetadata.Language = new GlyssenDblMetadataLanguage {Iso = kSample};
 			sampleMetadata.Identification = new DblMetadataIdentification { Name = kSampleProjectName, NameLocal = kSampleProjectName};
 			sampleMetadata.ProjectStatus.ProjectSettingsStatus = ProjectSettingsStatus.Reviewed;
 			sampleMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;

@@ -4,17 +4,17 @@ using System.Linq;
 using System.Threading;
 using System.Xml;
 using Glyssen;
-using NUnit.Framework;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Quote;
+using NUnit.Framework;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.IO;
 using SIL.WritingSystems;
 
-namespace ProtoScriptTests.Dialogs
+namespace GlyssenTests.Dialogs
 {
 	[TestFixture]
 	class BlockNavigatorViewModelTests
@@ -56,7 +56,7 @@ namespace ProtoScriptTests.Dialogs
 		public static Project CreateTestProject()
 		{
 			DeleteTestProjectFolder();
-			var sampleMetadata = new PgDblTextMetadata();
+			var sampleMetadata = new GlyssenDblTextMetadata();
 			sampleMetadata.AvailableBooks = new List<Book>();
 			var bookOfMark = new Book();
 			bookOfMark.Code = "MRK";
@@ -67,7 +67,7 @@ namespace ProtoScriptTests.Dialogs
 			sampleMetadata.FontFamily = "Times New Roman";
 			sampleMetadata.FontSizeInPoints = 12;
 			sampleMetadata.Id = kTest;
-			sampleMetadata.Language = new PgDblMetadataLanguage{ Iso = kTest };
+			sampleMetadata.Language = new GlyssenDblMetadataLanguage{ Iso = kTest };
 			sampleMetadata.Identification = new DblMetadataIdentification { Name = "test~~" };
 			sampleMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
 			sampleMetadata.QuoteSystem = GetTestQuoteSystem();

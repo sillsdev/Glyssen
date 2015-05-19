@@ -72,7 +72,7 @@ namespace Glyssen.Dialogs
 					{
 						try
 						{
-							var bundle = new PgBundle(bundlePath);
+							var bundle = new GlyssenBundle(bundlePath);
 							if (bundle.Id != project.Id)
 							{
 								string message = LocalizationManager.GetString("File.WrongBundleMsg", "The ID of the selected text bundle does not match this project. Would you like to try again?");

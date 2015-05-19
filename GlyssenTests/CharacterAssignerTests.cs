@@ -1,12 +1,12 @@
-﻿using NUnit.Framework;
-using Glyssen;
+﻿using Glyssen;
 using Glyssen.Character;
+using NUnit.Framework;
 using Rhino.Mocks;
 using SIL.ScriptureUtils;
 using SIL.Xml;
 using ScrVers = Paratext.ScrVers;
 
-namespace ProtoScriptTests
+namespace GlyssenTests
 {
 	[TestFixture]
 	class CharacterAssignerTests

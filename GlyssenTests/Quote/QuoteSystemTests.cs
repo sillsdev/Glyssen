@@ -1,9 +1,9 @@
-﻿using NUnit.Framework;
-using Glyssen.Quote;
+﻿using Glyssen.Quote;
+using NUnit.Framework;
 using SIL.WritingSystems;
 using SIL.Xml;
 
-namespace ProtoScriptTests.Quote
+namespace GlyssenTests.Quote
 {
 	[TestFixture]
 	class QuoteSystemTests

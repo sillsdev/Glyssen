@@ -1,18 +1,19 @@
 ﻿//#define USE_RANDOM_SEED
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using NUnit.Framework;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Quote;
+using NUnit.Framework;
 using Rhino.Mocks;
 using SIL.ScriptureUtils;
 using ScrVers = Paratext.ScrVers;
 
-namespace ProtoScriptTests.Quote
+namespace GlyssenTests.Quote
 {
 	[TestFixture]
 	class QuoteSystemGuesserTests

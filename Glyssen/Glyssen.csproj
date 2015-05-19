@@ -12,6 +12,9 @@
     <AssemblyName>Glyssen</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,11 +27,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -137,9 +137,9 @@
     <Compile Include="BookScript.cs" />
     <Compile Include="BookSetUtils.cs" />
     <Compile Include="Block.cs" />
-    <Compile Include="Bundle\PgDblMetadataLanguage.cs" />
-    <Compile Include="Bundle\PgDblTextMetadata.cs" />
-    <Compile Include="Bundle\PgBundle.cs" />
+    <Compile Include="Bundle\GlyssenDblMetadataLanguage.cs" />
+    <Compile Include="Bundle\GlyssenDblTextMetadata.cs" />
+    <Compile Include="Bundle\GlyssenBundle.cs" />
     <Compile Include="Character\CharacterAssigner.cs" />
     <Compile Include="Character\CharacterDetail.cs" />
     <Compile Include="Character\CharacterDetailData.cs" />
@@ -200,7 +200,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ProtoscriptGeneratorData.cs" />
+    <Compile Include="ApplicationMetadata.cs" />
     <Compile Include="Dialogs\AssignCharacterDialog.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -9,14 +9,14 @@ using SIL.Xml;
 namespace Glyssen.Bundle
 {
 	[XmlRoot("DBLMetadata")]
-	public class PgDblTextMetadata : DblTextMetadata<PgDblMetadataLanguage>
+	public class GlyssenDblTextMetadata : DblTextMetadata<GlyssenDblMetadataLanguage>
 	{
 		private int m_fontSizeInPointsTemp;
 		private string m_fontFamilyTemp;
 
 		#region public Properties
 		[XmlElement("language")]
-		public override PgDblMetadataLanguage Language
+		public override GlyssenDblMetadataLanguage Language
 		{
 			set
 			{
@@ -44,7 +44,7 @@ namespace Glyssen.Bundle
 		/// not match the stored parser version, then we know to re-parse the original USX data.</summary>
 		[XmlAttribute("usxparserversion")]
 		[DefaultValue(0)]
-		public int PgUsxParserVersion;
+		public int ParserVersion;
 
 		/// <summary>
 		/// If we attempt to upgrade the project, and the user decides to opt out, 
@@ -157,7 +157,7 @@ namespace Glyssen.Bundle
 		{
 			base.InitializeMetadata();
 			if (Language == null && (m_fontFamilyTemp != default(string) || m_fontSizeInPointsTemp != default(int)))
-				Language = new PgDblMetadataLanguage();
+				Language = new GlyssenDblMetadataLanguage();
 		}
 
 		#region Deprecated properties used only for deserialization of projects with an old version of the data

@@ -13,7 +13,7 @@ The source contains a script for downloading dependencies from TeamCity.
 
 From the build directory, run the buildUpdate.sh script:
 
-	cd {ProtoscriptGeneratorRoot}/build
+	cd {GlyssenRoot}/build
 	./buildUpdate.sh
 
 To automatically generate buildUpdate.sh from a setup on TeamCity, see

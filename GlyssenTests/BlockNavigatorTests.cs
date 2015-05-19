@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Glyssen;
 using NUnit.Framework;
 using Paratext;
-using Glyssen;
 using SIL.ScriptureUtils;
 
-namespace ProtoScriptTests
+namespace GlyssenTests
 {
 	[TestFixture]
 	class BlockNavigatorTests

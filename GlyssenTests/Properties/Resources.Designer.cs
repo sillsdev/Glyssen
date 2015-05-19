@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProtoScriptTests.Properties {
+namespace GlyssenTests.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace ProtoScriptTests.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ProtoScriptTests.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GlyssenTests.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -106,16 +106,18 @@ namespace ProtoScriptTests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to # Versification  &quot;English&quot;
+        ///   Looks up a localized string similar to # Versification  &quot;Test&quot;
         ///# Version=1.9
         ///#
-        ///# modifications by Reinier de Blois 13/March/2012
-        ///# modified mappings Psalms by adding verse #0 to the mappings
-        ///# many of the subscripts that are part of verses 1,2 in the original text end up as verse #0 in English translations
-        ///
-        ///# modifications by Studge 26/June/2009
-        ///# book definitions are for all books printed in any English of Spanish Bible
-        ///# this includes books for Protestant, Catholic and Protestant-Catholic-EasternOrthodox Interconfessional editions        /// [rest of string was truncated]&quot;;.
+        ///# List of books, chapters, verses
+        ///# One line per book.
+        ///# One entry for each chapter.
+        ///# Verse number is the maximum verse number for that chapter.
+        ///# See the lines containing =&apos;s below for verse mappings.
+        ///#
+        ///#--------------------------------------------------
+        ///# Old Testament
+        ///GEN 1:31 2:25 3:24 4:26 5:32 6:22 7:24 8:22 9:29 10:32 11:32 12:20 13:18 14:24 15:21 16:16 17:27 18:33 19:38 20:18 21:34 22:24 23:20 24:67 25:34 26:35 27:46 28:22 29:35 30:43 31:54 32:33 3 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TestVersification {
             get {

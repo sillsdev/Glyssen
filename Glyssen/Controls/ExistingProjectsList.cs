@@ -120,7 +120,7 @@ namespace Glyssen.Controls
 				if (path != null)
 				{
 					Exception exception;
-					var metadata = PgDblTextMetadata.Load<PgDblTextMetadata>(path, out exception);
+					var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(path, out exception);
 					if (exception != null)
 						continue;
 					if (metadata.Inactive)

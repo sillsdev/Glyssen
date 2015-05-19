@@ -162,9 +162,9 @@ namespace Glyssen
 
 		private void LoadBundle(string bundlePath)
 		{
-			PgBundle bundle = null;
+			GlyssenBundle bundle = null;
 
-			if (!LoadAndHandleApplicationExceptions(() => { bundle = new PgBundle(bundlePath); }))
+			if (!LoadAndHandleApplicationExceptions(() => { bundle = new GlyssenBundle(bundlePath); }))
 			{
 				SetProject(null);
 				return;

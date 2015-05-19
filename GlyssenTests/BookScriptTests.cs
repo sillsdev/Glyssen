@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using NUnit.Framework;
 using Glyssen;
 using Glyssen.Character;
+using NUnit.Framework;
 
-namespace ProtoScriptTests
+namespace GlyssenTests
 {
 	[TestFixture]
 	class BookScriptTests

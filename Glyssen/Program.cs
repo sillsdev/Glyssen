@@ -20,6 +20,8 @@ namespace Glyssen
 		public const string kProduct = "Glyssen";
 		public const string kApplicationId = "Glyssen";
 
+		private const string kOldProductName = "Protoscript Generator";
+
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
@@ -53,7 +55,7 @@ namespace Glyssen
 				SetUpErrorHandling();
 
 				var oldPgBaseFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-					kCompany, "Protoscript Generator");
+					kCompany, kOldProductName);
 				if (Directory.Exists(oldPgBaseFolder) && !Directory.Exists(BaseDataFolder))
 					Directory.Move(oldPgBaseFolder, BaseDataFolder);
 
@@ -128,7 +130,7 @@ namespace Glyssen
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
 
 			LocalizationManager = LocalizationManager.Create(desiredUiLangId, kApplicationId, Application.ProductName, Application.ProductVersion,
-				installedStringFileFolder, targetTmxFilePath, Resources.PgIcon, IssuesEmailAddress, "ProtoScript");
+				installedStringFileFolder, targetTmxFilePath, Resources.PgIcon, IssuesEmailAddress, "Glyssen");
 
 			if (string.IsNullOrEmpty(desiredUiLangId))
 				if (LocalizationManager.GetUILanguages(true).Count() > 1)

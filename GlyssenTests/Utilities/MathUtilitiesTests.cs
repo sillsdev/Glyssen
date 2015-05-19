@@ -1,7 +1,7 @@
-﻿using NUnit.Framework;
-using Glyssen.Utilities;
+﻿using Glyssen.Utilities;
+using NUnit.Framework;
 
-namespace ProtoScriptTests.Utilities
+namespace GlyssenTests.Utilities
 {
 	[TestFixture]
 	public class MathUtilitiesTests

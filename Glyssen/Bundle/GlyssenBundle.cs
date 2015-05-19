@@ -2,9 +2,9 @@
 
 namespace Glyssen.Bundle
 {
-	public class PgBundle : TextBundle<PgDblTextMetadata, PgDblMetadataLanguage>
+	public class GlyssenBundle : TextBundle<GlyssenDblTextMetadata, GlyssenDblMetadataLanguage>
 	{
-		public PgBundle(string pathToZippedBundle) : base(pathToZippedBundle)
+		public GlyssenBundle(string pathToZippedBundle) : base(pathToZippedBundle)
 		{
 			Metadata.OriginalPathOfDblFile = BundlePath;
 			Metadata.FontFamily = Stylesheet.FontFamily;

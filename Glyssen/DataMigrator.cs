@@ -51,7 +51,7 @@ namespace Glyssen
 						if (projectFilePath != null)
 						{
 							Exception exception;
-							var metadata = PgDblTextMetadata.Load<PgDblTextMetadata>(projectFilePath, out exception);
+							var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out exception);
 							string recordingProjectName;
 							if (exception != null)
 							{
@@ -95,7 +95,7 @@ namespace Glyssen
 								else
 								{
 									Exception exception;
-									var metadata = PgDblTextMetadata.Load<PgDblTextMetadata>(projectFilePath, out exception);
+									var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out exception);
 									var origBundlePath = metadata.OriginalPathOfDblFile;
 									if (string.IsNullOrEmpty(origBundlePath))
 									{
@@ -110,7 +110,7 @@ namespace Glyssen
 									}
 									else
 									{
-										var bundle = new PgBundle(origBundlePath);
+										var bundle = new GlyssenBundle(origBundlePath);
 										var errorlogPath = Path.Combine(recordingProjectFolder, "errorlog.txt");
 										Versification.Table.HandleVersificationLineError = ex =>
 										{
