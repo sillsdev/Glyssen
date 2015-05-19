@@ -39,40 +39,39 @@ namespace Glyssen
 				Settings.Default.Save();
 			}
 
-			//TODO set real keys - this key is just pointing to a test account on mixpanel - andrew-polk/protoscript-test-dev
 #if DEBUG
-			using (new Analytics("BhtwjdH3oj1n8nMjd53pPRireKxB3BQl", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }, true))
+			using (new Analytics("jBh7Qg4jw2nRFE8j8EY1FDipzin3RFIP", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }, true))
 #else
 			string feedbackSetting = Environment.GetEnvironmentVariable("FEEDBACK");
 
 			//default is to allow tracking
 			var allowTracking = string.IsNullOrEmpty(feedbackSetting) || feedbackSetting.ToLower() == "yes" || feedbackSetting.ToLower() == "true";
 
-			using (new Analytics("BhtwjdH3oj1n8nMjd53pPRireKxB3BQl", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }, allowTracking))
+			using (new Analytics("WEyYj2BOnZAP9kplKmo2BDPvfyofbMZy", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }, allowTracking))
 #endif
 			{
-			SetUpErrorHandling();
+				SetUpErrorHandling();
 
-			var oldPgBaseFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-				kCompany, "Protoscript Generator");
-			if (Directory.Exists(oldPgBaseFolder) && !Directory.Exists(BaseDataFolder))
-				Directory.Move(oldPgBaseFolder, BaseDataFolder);
+				var oldPgBaseFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+					kCompany, "Protoscript Generator");
+				if (Directory.Exists(oldPgBaseFolder) && !Directory.Exists(BaseDataFolder))
+					Directory.Move(oldPgBaseFolder, BaseDataFolder);
 
-			DataMigrator.UpgradeToCurrentDataFormatVersion();
+				DataMigrator.UpgradeToCurrentDataFormatVersion();
 
-			Project.CreateSampleProjectIfNeeded();
+				Project.CreateSampleProjectIfNeeded();
 
-			SetUpLocalization();
+				SetUpLocalization();
 
-			// The following not only gets the location of the settings file;
-			// it also detects corruption and deletes it if needed so we don't crash. 
-			string userConfigSettingsPath = GetUserConfigFilePath();
+				// The following not only gets the location of the settings file;
+				// it also detects corruption and deletes it if needed so we don't crash. 
+				string userConfigSettingsPath = GetUserConfigFilePath();
 
-			if ((Control.ModifierKeys & Keys.Shift) > 0 && !string.IsNullOrEmpty(userConfigSettingsPath))
-				HandleDeleteUserSettings(userConfigSettingsPath);
+				if ((Control.ModifierKeys & Keys.Shift) > 0 && !string.IsNullOrEmpty(userConfigSettingsPath))
+					HandleDeleteUserSettings(userConfigSettingsPath);
 			
-			Application.Run(new MainForm());
-		}
+				Application.Run(new MainForm());
+			}
 		}
 
 		public static string BaseDataFolder

@@ -392,7 +392,7 @@ namespace Glyssen
 							{ "ID", existingProject.Id },
 							{ "recordingProjectName", existingProject.Name },
 							{ "oldParserVersion", existingProject.m_metadata.PgUsxParserVersion.ToString(CultureInfo.InvariantCulture) },
-							{ "newParserVersion", Settings.Default.PgUsxParserVersion.ToString(CultureInfo.InvariantCulture) }
+							{ "newParserVersion", Settings.Default.ParserVersion.ToString(CultureInfo.InvariantCulture) }
 						});
 
 						upgradedProject.UserDecisionsProject = existingProject;
