@@ -152,8 +152,7 @@ namespace Glyssen
 		/// </summary>
 		public static string IssuesEmailAddress
 		{
-			// TODO (PG-26) get an email address generated which matches the application's real name
-			get { return "protoscript_generator@sil.org"; }
+			get { return "glyssen-support_lsdev@sil.org"; }
 		}
 	}
 }
