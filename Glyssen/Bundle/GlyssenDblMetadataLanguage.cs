@@ -11,13 +11,13 @@ namespace Glyssen.Bundle
 		private int m_fontSizeInPoints;
 
 		/// <summary>
-		/// This is pulled in from the stylesheet or set via the ProjectMetadataDlg.
+		/// This is pulled in from the stylesheet or set via the ProjectSettingsDlg.
 		/// </summary>
 		[XmlElement("fontFamily")]
 		public string FontFamily { get; set; }
 
 		/// <summary>
-		/// This is pulled in from the stylesheet or set via the ProjectMetadataDlg.
+		/// This is pulled in from the stylesheet or set via the ProjectSettingsDlg.
 		/// </summary>
 		[XmlElement("fontSizeInPoints")]
 		public int FontSizeInPoints

@@ -112,7 +112,7 @@ namespace Glyssen
 			wsModel.CurrentDefaultFontSize = stylesheet.FontSizeInPoints = Project.kDefaultFontSize;
 			var model = new ProjectMetadataViewModel(wsModel) { LanguageName = defaultLanguageName };
 
-			using (var dlg = new ProjectMetadataDlg(model, true))
+			using (var dlg = new ProjectSettingsDlg(model, true))
 			{
 				if (dlg.ShowDialog() == DialogResult.Cancel)
 					return null;

@@ -8,7 +8,7 @@ namespace Glyssen.Quote
 {
 	public static class QuoteUtils
 	{
-		public static readonly string None = LocalizationManager.GetString("QuoteUtils.None", "None");
+		public static readonly string None = LocalizationManager.GetString("Common.None", "None");
 		private static readonly object[] DefaultSymbols = { "“", "”", "‘", "’", "«", "»", "‹", "›", "„", "‚", "「", "」", "『", "』", "<<", ">>", "<", ">", None };
 		private static readonly Dictionary<MatchedPair, MatchedPair[]> Level2Possibilities = new Dictionary<MatchedPair, MatchedPair[]>
 		{

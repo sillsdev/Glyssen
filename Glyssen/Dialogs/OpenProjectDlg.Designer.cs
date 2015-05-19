@@ -35,8 +35,8 @@
 			this.m_btnOk = new System.Windows.Forms.Button();
 			this.m_btnCancel = new System.Windows.Forms.Button();
 			this.m_chkShowInactiveProjects = new System.Windows.Forms.CheckBox();
-			this.m_tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
 			this.m_listExistingProjects = new Glyssen.Controls.ExistingProjectsList();
+			this.m_tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.m_tableLayoutPanelMain.SuspendLayout();
 			this.SuspendLayout();
@@ -44,7 +44,7 @@
 			// m_l10NSharpExtender
 			// 
 			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
-			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.OpenProjectDialog";
+			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.OpenProjectDlg";
 			// 
 			// lblExistingProject
 			// 
@@ -52,7 +52,7 @@
 			this.lblExistingProject.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.lblExistingProject, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.lblExistingProject, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.lblExistingProject, "OpenProjectDialog.SelectProject");
+			this.m_l10NSharpExtender.SetLocalizingId(this.lblExistingProject, "DialogBoxes.OpenProjectDlg.SelectProject");
 			this.lblExistingProject.Location = new System.Drawing.Point(0, 0);
 			this.lblExistingProject.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
 			this.lblExistingProject.Name = "lblExistingProject";
@@ -115,7 +115,7 @@
 			this.m_chkShowInactiveProjects.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_chkShowInactiveProjects, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_chkShowInactiveProjects, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkShowInactiveProjects, "DialogBoxes.OpenProjectDialog.OpenProjectDlg.m_chkShowInactiveProjects");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkShowInactiveProjects, "DialogBoxes.OpenProjectDlg.ShowInactiveProjects");
 			this.m_chkShowInactiveProjects.Location = new System.Drawing.Point(345, 240);
 			this.m_chkShowInactiveProjects.Name = "m_chkShowInactiveProjects";
 			this.m_chkShowInactiveProjects.Size = new System.Drawing.Size(133, 17);
@@ -124,6 +124,23 @@
 			this.m_chkShowInactiveProjects.UseVisualStyleBackColor = true;
 			this.m_chkShowInactiveProjects.Visible = false;
 			this.m_chkShowInactiveProjects.CheckedChanged += new System.EventHandler(this.HandleShowHiddenProjectsCheckedChanged);
+			// 
+			// m_listExistingProjects
+			// 
+			this.m_listExistingProjects.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_listExistingProjects.IncludeHiddenProjects = false;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_listExistingProjects, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_listExistingProjects, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_listExistingProjects, "DialogBoxes.OpenProjectDlg.ExistingProjectsList");
+			this.m_listExistingProjects.Location = new System.Drawing.Point(3, 20);
+			this.m_listExistingProjects.Name = "m_listExistingProjects";
+			this.m_listExistingProjects.Size = new System.Drawing.Size(475, 214);
+			this.m_listExistingProjects.TabIndex = 5;
+			this.m_listExistingProjects.SelectedProjectChanged += new System.EventHandler(this.HandleSelectedProjectChanged);
+			this.m_listExistingProjects.ListLoaded += new System.EventHandler(this.HandleExistingProjectsListLoaded);
+			this.m_listExistingProjects.DoubleClick += new System.EventHandler(this.HandleExistingProjectsDoubleClick);
 			// 
 			// m_tableLayoutPanelMain
 			// 
@@ -149,23 +166,6 @@
 			this.m_tableLayoutPanelMain.Size = new System.Drawing.Size(481, 277);
 			this.m_tableLayoutPanelMain.TabIndex = 0;
 			// 
-			// m_listExistingProjects
-			// 
-			this.m_listExistingProjects.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_listExistingProjects.IncludeHiddenProjects = false;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_listExistingProjects, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_listExistingProjects, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_listExistingProjects, "DialogBoxes.OpenProjectDialog.ExistingProjectsList");
-			this.m_listExistingProjects.Location = new System.Drawing.Point(3, 20);
-			this.m_listExistingProjects.Name = "m_listExistingProjects";
-			this.m_listExistingProjects.Size = new System.Drawing.Size(475, 214);
-			this.m_listExistingProjects.TabIndex = 5;
-			this.m_listExistingProjects.SelectedProjectChanged += new System.EventHandler(this.HandleSelectedProjectChanged);
-			this.m_listExistingProjects.ListLoaded += new System.EventHandler(this.HandleExistingProjectsListLoaded);
-			this.m_listExistingProjects.DoubleClick += new System.EventHandler(this.HandleExistingProjectsDoubleClick);
-			// 
 			// OpenProjectDlg
 			// 
 			this.AcceptButton = this.m_btnOk;
@@ -179,7 +179,7 @@
 			this.Controls.Add(this.m_tableLayoutPanelMain);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this, "OpenProjectDialog.WindowTitle");
+			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.OpenProjectDlg.WindowTitle");
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(420, 382);

@@ -22,14 +22,14 @@ using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Dialogs
 {
-	public partial class QuotationMarksDialog : Form
+	public partial class QuotationMarksDlg : Form
 	{
 		private readonly Project m_project;
 		private readonly BlockNavigatorViewModel m_navigatorViewModel;
 		private string m_xOfYFmt;
 		private string m_versesWithMissingExpectedQuotesFilterItem;
 
-		internal QuotationMarksDialog(Project project, BlockNavigatorViewModel navigatorViewModel, bool readOnly)
+		internal QuotationMarksDlg(Project project, BlockNavigatorViewModel navigatorViewModel, bool readOnly)
 		{
 			InitializeComponent();
 
@@ -90,14 +90,14 @@ namespace Glyssen.Dialogs
 			switch (m_project.QuoteSystemStatus)
 			{
 				case QuoteSystemStatus.Obtained:
-					promptText = LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.BundleQuoteMarks", "Quote mark information was provided by the text bundle and should not normally be changed.");
+					promptText = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.BundleQuoteMarks", "Quote mark information was provided by the text bundle and should not normally be changed.");
 					break;
 				case QuoteSystemStatus.Guessed:
-					promptText = string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.CarefullyReviewQuoteMarks", "Carefully review the quote mark settings. Update them if necessary so {0} can correctly break the text into speaking parts.", "{0} is the product name"), Program.kProduct);
+					promptText = string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.CarefullyReviewQuoteMarks", "Carefully review the quote mark settings. Update them if necessary so {0} can correctly break the text into speaking parts.", "{0} is the product name"), Program.kProduct);
 					break;
 				case QuoteSystemStatus.Reviewed:
 				case QuoteSystemStatus.UserSet:
-					promptText = string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.ChangeQuoteMarks", "If necessary, change the quote mark settings so {0} can correctly break the text into speaking parts.", "{0} is the product name"), Program.kProduct);
+					promptText = string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.ChangeQuoteMarks", "If necessary, change the quote mark settings so {0} can correctly break the text into speaking parts.", "{0} is the product name"), Program.kProduct);
 					break;
 			}
 			m_lblPrompt.Text = promptText;
@@ -143,8 +143,8 @@ namespace Glyssen.Dialogs
 			var quotationDashMarker = currentSystem.QuotationDashMarker;
 			m_chkDialogueQuotations.Checked = !String.IsNullOrEmpty(quotationDashMarker);
 			m_cboQuotationDash.Items.Clear();
-			m_cboQuotationDash.Items.Add(string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.QuotationDash", "Quotation dash ({0})"), "U+2015"));
-			m_cboQuotationDash.Items.Add(string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.EmDash", "Em-dash ({0})"), "U+2014"));
+			m_cboQuotationDash.Items.Add(string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuotationDash", "Quotation dash ({0})"), "U+2015"));
+			m_cboQuotationDash.Items.Add(string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.EmDash", "Em-dash ({0})"), "U+2014"));
 			switch (quotationDashMarker)
 			{
 				case "\u2015": m_cboQuotationDash.SelectedIndex = 0; break;
@@ -153,7 +153,7 @@ namespace Glyssen.Dialogs
 			}
 
 			m_cboEndQuotationDash.Items.Clear();
-			m_cboEndQuotationDash.Items.Add(LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.EndQuotationDashWithParagraphOnly", "End of paragraph (only)"));
+			m_cboEndQuotationDash.Items.Add(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.EndQuotationDashWithParagraphOnly", "End of paragraph (only)"));
 			m_cboEndQuotationDash.Items.Add(SameAsStartDashText);
 
 			var quotationDashEndMarker = currentSystem.QuotationDashEndMarker;
@@ -194,10 +194,10 @@ namespace Glyssen.Dialogs
 				}
 
 				if (String.IsNullOrWhiteSpace(quotationDashMarker))
-					return LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.EndQuotationDashWithStartDash",
+					return LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.EndQuotationDashWithStartDash",
 						"Same as start quotation dash");
 					
-				return string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.EndQuotationDashWithStartDash",
+				return string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.EndQuotationDashWithStartDash",
 					"Same as start quotation dash ({0})"), quotationDashMarker);
 			}
 		}
@@ -207,7 +207,7 @@ namespace Glyssen.Dialogs
 			var level1 = quoteSystem.FirstLevel;
 			if (level1 == null || string.IsNullOrEmpty(level1.Open) || string.IsNullOrEmpty(level1.Close))
 			{
-				validationMessage = LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.Level1OpenCloseRequired", "Level 1 Open and Close are required.");
+				validationMessage = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.Level1OpenCloseRequired", "Level 1 Open and Close are required.");
 				return false;
 			}
 			validationMessage = null;
@@ -233,7 +233,7 @@ namespace Glyssen.Dialogs
 				string majorLanguage = LocalizationManager.GetDynamicString(Program.kApplicationId,
 					"QuotationMarks.MajorLanguage" + selectedQuoteSystem.MajorLanguage, selectedQuoteSystem.MajorLanguage);
 
-				text = string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.QuoteUsageFormat", "(commonly used in {0})",
+				text = string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteUsageFormat", "(commonly used in {0})",
 				"Parameter is the name of a language and/or country"), majorLanguage);
 
 				var bounds = new Rectangle(e.Bounds.Left + quotesWidth, e.Bounds.Top, e.Bounds.Width - quotesWidth, e.Bounds.Height);
@@ -266,15 +266,15 @@ namespace Glyssen.Dialogs
 			string validationMessage;
 			if (!ValidateQuoteSystem(currentQuoteSystem, out validationMessage))
 			{
-				MessageBox.Show(validationMessage, LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.QuoteSystemInvalid", "Quote System Invalid"));
+				MessageBox.Show(validationMessage, LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemInvalid", "Quote System Invalid"));
 				return;
 			}
 			if (m_project.Books.SelectMany(b => b.Blocks).Any(bl => bl.UserConfirmed) && m_project.IsQuoteSystemReadyForParse && m_project.QuoteSystem != null)
 			{
-				string part1 = LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.QuoteSystemChangePart1", "Changing the quote system will require the text to broken up into speaking parts again.  An attempt will be made to preserve the work you have already completed, but some character assignments might be lost.  A backup of your project will be created before this occurs.");
-				string part2 = LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.QuoteSystemChangePart2", "Are you sure you want to change the quote system?");
+				string part1 = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemChangePart1", "Changing the quote system will require the text to broken up into speaking parts again.  An attempt will be made to preserve the work you have already completed, but some character assignments might be lost.  A backup of your project will be created before this occurs.");
+				string part2 = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemChangePart2", "Are you sure you want to change the quote system?");
 				string msg = part1 + Environment.NewLine + Environment.NewLine + part2;
-				string title = LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.ConfirmQuoteSystemChange", "Confirm Quote System Change");
+				string title = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.ConfirmQuoteSystemChange", "Confirm Quote System Change");
 				if (MessageBox.Show(msg, title, MessageBoxButtons.YesNo) != DialogResult.Yes)
 				{
 					SetupQuoteMarksComboBoxes(m_project.QuoteSystem);
@@ -336,7 +336,7 @@ namespace Glyssen.Dialogs
 
 			if (percentageOfExpectedQuotesFound < 95)
 			{
-				var msg = String.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDialog.PossibleQuoteSystemProblem",
+				var msg = String.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.PossibleQuoteSystemProblem",
 					"Only {0:F1}% of verses with expected quotes were found to have quotes. Usually this means the quote mark " +
 					"settings are incorrect or many instances of direct speech in the text are not indicated using quotation marks. " +
 					"Would you like to review the verses where quotes were expected but not found?"), percentageOfExpectedQuotesFound);

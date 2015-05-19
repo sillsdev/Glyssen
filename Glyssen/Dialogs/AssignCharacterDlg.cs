@@ -26,7 +26,7 @@ using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Dialogs
 {
-	public partial class AssignCharacterDialog : Form
+	public partial class AssignCharacterDlg : Form
 	{
 		private readonly AssignCharacterViewModel m_viewModel;
 		private string m_xOfYFmt;
@@ -40,17 +40,17 @@ namespace Glyssen.Dialogs
 		private void HandleStringsLocalized()
 		{
 			m_viewModel.SetUiStrings(
-				LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.Narrator", "narrator ({0})"),
-				LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.BookChapterCharacter", "book title or chapter ({0})"),
-				LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.IntroCharacter", "introduction ({0})"),
-				LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.ExtraCharacter", "section head ({0})"),
-				LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.NormalDelivery", "normal"));
+				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.Narrator", "narrator ({0})"),
+				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BookChapterCharacter", "book title or chapter ({0})"),
+				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.IntroCharacter", "introduction ({0})"),
+				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.ExtraCharacter", "section head ({0})"),
+				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.NormalDelivery", "normal"));
 
 			m_xOfYFmt = m_labelXofY.Text;
 			m_singleVoiceCheckboxFmt = m_chkSingleVoice.Text;
 		}
 
-		public AssignCharacterDialog(AssignCharacterViewModel viewModel)
+		public AssignCharacterDlg(AssignCharacterViewModel viewModel)
 		{
 			InitializeComponent();
 
@@ -349,17 +349,17 @@ namespace Glyssen.Dialogs
 
 			if (IsDirty())
 			{
-				string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChanges", "Unsaved Changes");
+				string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedChanges", "Unsaved Changes");
 				if (m_btnAssign.Enabled)
 				{
-					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.UnsavedChangesMessage",
+					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedChangesMessage",
 						"The Character and Delivery selections have not been submitted. Do you want to save your changes before navigating?");
 					if (MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
 						SaveSelections();
 				}
 				else if (m_listBoxCharacters.SelectedIndex < 0)
 				{
-					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.NoSelectionMessage",
+					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.NoSelectionMessage",
 						"You have not selected a Character and Delivery. Would you like to leave without changing the assignment?");
 					result = MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) ==
 						DialogResult.Yes;
@@ -367,7 +367,7 @@ namespace Glyssen.Dialogs
 				else
 				{
 					Debug.Assert(m_listBoxCharacters.SelectedIndex > -1 && m_listBoxDeliveries.SelectedIndex < 0);
-					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.NoDeliveryMessage",
+					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.NoDeliveryMessage",
 						"You have selected a Character but no Delivery. Would you like to discard your selection and leave without changing the assignment?");
 					result = MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) ==
 						DialogResult.Yes;
@@ -481,8 +481,8 @@ namespace Glyssen.Dialogs
 			SaveSelections();
 			if (m_viewModel.AreAllAssignmentsComplete && m_promptToCloseWhenAssignmentsAreComplete)
 			{
-				string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.AssignmentsComplete", "Assignments Complete");
-				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.CloseDialogMessage", "All assignments have been made. Would you like to return to the main window?");
+				string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.AssignmentsComplete", "Assignments Complete");
+				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.CloseDialogMessage", "All assignments have been made. Would you like to return to the main window?");
 				if (MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
 				{
 					Close();

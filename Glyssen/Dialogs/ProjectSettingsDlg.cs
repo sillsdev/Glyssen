@@ -10,12 +10,12 @@ using SIL.IO;
 
 namespace Glyssen.Dialogs
 {
-	public partial class ProjectMetadataDlg : Form
+	public partial class ProjectSettingsDlg : Form
 	{
 		private ProjectMetadataViewModel m_model;
 		private readonly bool m_initialSave;
 
-		public ProjectMetadataDlg(ProjectMetadataViewModel model, bool initialSave = false)
+		public ProjectSettingsDlg(ProjectMetadataViewModel model, bool initialSave = false)
 		{
 			InitializeComponent();
 			SetReadOnly();
@@ -236,14 +236,14 @@ namespace Glyssen.Dialogs
 								 LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text bundle yourself?");
 					string title = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
 					if (DialogResult.Yes == MessageBox.Show(msg, title, MessageBoxButtons.YesNo))
-						reparseOkay = SelectProjectDialog.GiveUserChanceToFindOriginalBundle(m_model.Project);
+						reparseOkay = SelectProjectDlg.GiveUserChanceToFindOriginalBundle(m_model.Project);
 				}
 				else
 					reparseOkay = true;
 			}
 
 			using (var viewModel = new BlockNavigatorViewModel(m_model.Project, BlocksToDisplay.AllExpectedQuotes))
-				using (var dlg = new QuotationMarksDialog(m_model.Project, viewModel, !reparseOkay))
+				using (var dlg = new QuotationMarksDlg(m_model.Project, viewModel, !reparseOkay))
 					if (dlg.ShowDialog(this) == DialogResult.OK)
 						UpdateDisplay();
 		}

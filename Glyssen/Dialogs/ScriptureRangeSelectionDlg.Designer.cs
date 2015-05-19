@@ -1,6 +1,6 @@
 ﻿namespace Glyssen.Dialogs
 {
-	partial class ScriptureRangeSelectionDialog
+	partial class ScriptureRangeSelectionDlg
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -39,7 +39,7 @@
 			// m_l10NSharpExtender
 			// 
 			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
-			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.ScriptureRangeSelectionDialog";
+			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.ScriptureRangeSelectionDlg";
 			// 
 			// m_btnOk
 			// 
@@ -62,7 +62,7 @@
 			this.m_bookChooserControl.HideExtraMaterialButton = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_bookChooserControl, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_bookChooserControl, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_bookChooserControl, "DialogBoxes.ScriptureRangeSelectionDialog.BookChooserControl");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_bookChooserControl, "DialogBoxes.ScriptureRangeSelectionDlg.BookChooserControl");
 			this.m_bookChooserControl.Location = new System.Drawing.Point(13, 13);
 			this.m_bookChooserControl.Name = "m_bookChooserControl";
 			this.m_bookChooserControl.Size = new System.Drawing.Size(555, 288);
@@ -82,7 +82,7 @@
 			this.m_btnCancel.Text = "Cancel";
 			this.m_btnCancel.UseVisualStyleBackColor = true;
 			// 
-			// ScriptureRangeSelectionDialog
+			// ScriptureRangeSelectionDlg
 			// 
 			this.AcceptButton = this.m_btnOk;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -95,10 +95,10 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.ScriptureRangeSelectionDialog.WindowTitle");
+			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.ScriptureRangeSelectionDlg.WindowTitle");
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.Name = "ScriptureRangeSelectionDialog";
+			this.Name = "ScriptureRangeSelectionDlg";
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

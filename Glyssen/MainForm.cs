@@ -388,7 +388,7 @@ namespace Glyssen
 		{
 			using (var viewModel = new AssignCharacterViewModel(m_project))
 			{
-				using (var dlg = new AssignCharacterDialog(viewModel))
+				using (var dlg = new AssignCharacterDlg(viewModel))
 					dlg.ShowDialog();
 			}
 			m_project.Analyze();
@@ -397,7 +397,7 @@ namespace Glyssen
 
 		private void m_btnSelectBooks_Click(object sender, EventArgs e)
 		{
-			using (var dlg = new ScriptureRangeSelectionDialog(m_project))
+			using (var dlg = new ScriptureRangeSelectionDlg(m_project))
 				if (dlg.ShowDialog() == DialogResult.OK)
 				{
 					m_project.ClearAssignCharacterStatus();
@@ -409,7 +409,7 @@ namespace Glyssen
 		private void m_btnSettings_Click(object sender, EventArgs e)
 		{
 			var model = new ProjectMetadataViewModel(m_project);
-			using (var dlg = new ProjectMetadataDlg(model))
+			using (var dlg = new ProjectSettingsDlg(model))
 			{
 				if (dlg.ShowDialog() != DialogResult.OK)
 					return;

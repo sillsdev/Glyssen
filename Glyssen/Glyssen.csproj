@@ -201,11 +201,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ApplicationMetadata.cs" />
-    <Compile Include="Dialogs\AssignCharacterDialog.cs">
+    <Compile Include="Dialogs\AssignCharacterDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\AssignCharacterDialog.Designer.cs">
-      <DependentUpon>AssignCharacterDialog.cs</DependentUpon>
+    <Compile Include="Dialogs\AssignCharacterDlg.Designer.cs">
+      <DependentUpon>AssignCharacterDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\AssignCharacterViewModel.cs" />
     <Compile Include="Dialogs\BlockNavigatorViewModel.cs" />
@@ -215,24 +215,24 @@
     <Compile Include="Dialogs\OpenProjectDlg.Designer.cs">
       <DependentUpon>OpenProjectDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\QuotationMarksDialog.cs">
+    <Compile Include="Dialogs\QuotationMarksDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\QuotationMarksDialog.Designer.cs">
-      <DependentUpon>QuotationMarksDialog.cs</DependentUpon>
+    <Compile Include="Dialogs\QuotationMarksDlg.Designer.cs">
+      <DependentUpon>QuotationMarksDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\ScriptureRangeSelectionDialog.cs">
+    <Compile Include="Dialogs\ScriptureRangeSelectionDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\ScriptureRangeSelectionDialog.Designer.cs">
-      <DependentUpon>ScriptureRangeSelectionDialog.cs</DependentUpon>
+    <Compile Include="Dialogs\ScriptureRangeSelectionDlg.Designer.cs">
+      <DependentUpon>ScriptureRangeSelectionDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\SelectProjectDialog.cs" />
-    <Compile Include="Dialogs\ProjectMetadataDlg.cs">
+    <Compile Include="Dialogs\SelectProjectDlg.cs" />
+    <Compile Include="Dialogs\ProjectSettingsDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\ProjectMetadataDlg.Designer.cs">
-      <DependentUpon>ProjectMetadataDlg.cs</DependentUpon>
+    <Compile Include="Dialogs\ProjectSettingsDlg.Designer.cs">
+      <DependentUpon>ProjectSettingsDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="IScrBook.cs" />
     <Compile Include="MultiBlockQuote.cs" />
@@ -265,8 +265,8 @@
     <EmbeddedResource Include="Controls\ScriptBlocksViewer.resx">
       <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\AssignCharacterDialog.resx">
-      <DependentUpon>AssignCharacterDialog.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\AssignCharacterDlg.resx">
+      <DependentUpon>AssignCharacterDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SelectExistingProjectDlg.resx">
       <DependentUpon>SelectExistingProjectDlg.cs</DependentUpon>
@@ -274,14 +274,14 @@
     <EmbeddedResource Include="Dialogs\OpenProjectDlg.resx">
       <DependentUpon>OpenProjectDlg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\QuotationMarksDialog.resx">
-      <DependentUpon>QuotationMarksDialog.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\QuotationMarksDlg.resx">
+      <DependentUpon>QuotationMarksDlg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ScriptureRangeSelectionDialog.resx">
-      <DependentUpon>ScriptureRangeSelectionDialog.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\ScriptureRangeSelectionDlg.resx">
+      <DependentUpon>ScriptureRangeSelectionDlg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ProjectMetadataDlg.resx">
-      <DependentUpon>ProjectMetadataDlg.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\ProjectSettingsDlg.resx">
+      <DependentUpon>ProjectSettingsDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SplitBlockDlg.resx">
       <DependentUpon>SplitBlockDlg.cs</DependentUpon>

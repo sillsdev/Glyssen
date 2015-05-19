@@ -5,13 +5,13 @@ using NUnit.Framework;
 namespace GlyssenTests.Dialogs
 {
 	[TestFixture]
-	public class SelectBundleDialogTests
+	public class SelectProjectDlgTests
 	{
 		[Test, Ignore("By hand only")]
 		[STAThread]
 		public void ShowDialog()
 		{
-			using (var dlg = new SelectProjectDialog())
+			using (var dlg = new SelectProjectDlg())
 			{
 				dlg.ShowDialog();
 			}

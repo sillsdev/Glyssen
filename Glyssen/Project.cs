@@ -179,7 +179,7 @@ namespace Glyssen
 
 		public static Paratext.ScrVers LoadVersification(string vrsPath)
 		{
-			return Paratext.Versification.Table.Load(vrsPath, LocalizationManager.GetString("DefaultCustomVersificationName",
+			return Paratext.Versification.Table.Load(vrsPath, LocalizationManager.GetString("Project.DefaultCustomVersificationName",
 				"custom", "Used as the versification name when a the versification file does not contain a name."));
 		}
 
@@ -376,7 +376,7 @@ namespace Glyssen
 							LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text bundle yourself?");
 						string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
 						if (DialogResult.Yes == MessageBox.Show(msg, caption, MessageBoxButtons.YesNo))
-							upgradeProject = SelectProjectDialog.GiveUserChanceToFindOriginalBundle(existingProject);
+							upgradeProject = SelectProjectDlg.GiveUserChanceToFindOriginalBundle(existingProject);
 						if (!upgradeProject)
 							existingProject.m_metadata.ParserUpgradeOptOutVersion = Settings.Default.ParserVersion;
 					}
@@ -938,7 +938,7 @@ namespace Glyssen
 
 		internal static string GetDefaultRecordingProjectName(string publicationName)
 		{
-			return String.Format("{0} {1}", publicationName, LocalizationManager.GetString("RecordingProjectDefaultSuffix", "Audio"));
+			return String.Format("{0} {1}", publicationName, LocalizationManager.GetString("Project.RecordingProjectDefaultSuffix", "Audio"));
 		}
 
 		internal static string GetDefaultRecordingProjectName(IBundle bundle)

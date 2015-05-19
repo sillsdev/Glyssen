@@ -2,7 +2,7 @@
 
 namespace Glyssen.Dialogs
 {
-	partial class AssignCharacterDialog
+	partial class AssignCharacterDlg
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -98,7 +98,7 @@ namespace Glyssen.Dialogs
 			// m_l10NSharpExtender
 			// 
 			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
-			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.AssignCharacterDialog";
+			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.AssignCharacterDlg";
 			// 
 			// m_btnNext
 			// 
@@ -141,7 +141,7 @@ namespace Glyssen.Dialogs
 			this.m_btnAssign.Enabled = false;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAssign, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAssign, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAssign, "DialogBoxes.AssignCharacterDialog.AssignCharacter");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAssign, "DialogBoxes.AssignCharacterDlg.AssignCharacter");
 			this.m_btnAssign.Location = new System.Drawing.Point(212, 371);
 			this.m_btnAssign.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
 			this.m_btnAssign.Name = "m_btnAssign";
@@ -157,7 +157,7 @@ namespace Glyssen.Dialogs
 			this.m_labelWhoSpeaks.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_labelWhoSpeaks, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_labelWhoSpeaks, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelWhoSpeaks, "DialogBoxes.AssignCharacterDialog.WhoSpeaks");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelWhoSpeaks, "DialogBoxes.AssignCharacterDlg.WhoSpeaks");
 			this.m_labelWhoSpeaks.Location = new System.Drawing.Point(3, 0);
 			this.m_labelWhoSpeaks.Name = "m_labelWhoSpeaks";
 			this.m_labelWhoSpeaks.Size = new System.Drawing.Size(156, 18);
@@ -171,7 +171,7 @@ namespace Glyssen.Dialogs
 			this.m_labelXofY.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_labelXofY, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_labelXofY, "{0} is the current block number; {1} is the total number of blocks.");
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelXofY, "DialogBoxes.AssignCharacterDialog.XofY");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelXofY, "DialogBoxes.AssignCharacterDlg.XofY");
 			this.m_labelXofY.Location = new System.Drawing.Point(103, 5);
 			this.m_labelXofY.MinimumSize = new System.Drawing.Size(90, 28);
 			this.m_labelXofY.Name = "m_labelXofY";
@@ -187,7 +187,7 @@ namespace Glyssen.Dialogs
 			this.m_llMoreChar.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreChar, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llMoreChar, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_llMoreChar, "DialogBoxes.AssignCharacterDialog.MoreCharacters");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_llMoreChar, "DialogBoxes.AssignCharacterDlg.MoreCharacters");
 			this.m_llMoreChar.Location = new System.Drawing.Point(21, 196);
 			this.m_llMoreChar.Name = "m_llMoreChar";
 			this.m_llMoreChar.Size = new System.Drawing.Size(85, 13);
@@ -204,7 +204,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtCharacterFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtCharacterFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtCharacterFilter, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtCharacterFilter, "DialogBoxes.AssignCharacterDialog.m_txtCharacterFilter");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtCharacterFilter, "DialogBoxes.AssignCharacterDlg.m_txtCharacterFilter");
 			this.m_txtCharacterFilter.Location = new System.Drawing.Point(0, 2);
 			this.m_txtCharacterFilter.Margin = new System.Windows.Forms.Padding(0);
 			this.m_txtCharacterFilter.Name = "m_txtCharacterFilter";
@@ -219,7 +219,7 @@ namespace Glyssen.Dialogs
 			this.m_lblCharacter.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblCharacter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblCharacter, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblCharacter, "DialogBoxes.AssignCharacterDialog.Character");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblCharacter, "DialogBoxes.AssignCharacterDlg.Character");
 			this.m_lblCharacter.Location = new System.Drawing.Point(21, 0);
 			this.m_lblCharacter.Name = "m_lblCharacter";
 			this.m_lblCharacter.Size = new System.Drawing.Size(53, 13);
@@ -232,7 +232,7 @@ namespace Glyssen.Dialogs
 			this.m_lblDelivery.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblDelivery, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblDelivery, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblDelivery, "DialogBoxes.AssignCharacterDialog.Delivery");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblDelivery, "DialogBoxes.AssignCharacterDlg.Delivery");
 			this.m_lblDelivery.Location = new System.Drawing.Point(21, 209);
 			this.m_lblDelivery.Name = "m_lblDelivery";
 			this.m_lblDelivery.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
@@ -249,7 +249,7 @@ namespace Glyssen.Dialogs
 			this.m_llMoreDel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreDel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llMoreDel, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_llMoreDel, "DialogBoxes.AssignCharacterDialog.MoreDeliveries");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_llMoreDel, "DialogBoxes.AssignCharacterDlg.MoreDeliveries");
 			this.m_llMoreDel.Location = new System.Drawing.Point(21, 355);
 			this.m_llMoreDel.Name = "m_llMoreDel";
 			this.m_llMoreDel.Size = new System.Drawing.Size(80, 13);
@@ -265,7 +265,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtDeliveryFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtDeliveryFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtDeliveryFilter, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtDeliveryFilter, "DialogBoxes.AssignCharacterDialog.m_txtDeliveryFilter");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtDeliveryFilter, "DialogBoxes.AssignCharacterDlg.m_txtDeliveryFilter");
 			this.m_txtDeliveryFilter.Location = new System.Drawing.Point(0, 2);
 			this.m_txtDeliveryFilter.Margin = new System.Windows.Forms.Padding(0);
 			this.m_txtDeliveryFilter.Name = "m_txtDeliveryFilter";
@@ -281,7 +281,7 @@ namespace Glyssen.Dialogs
 			this.m_icnCharacterFilter.Image = global::Glyssen.Properties.Resources.search_glyph;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_icnCharacterFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_icnCharacterFilter, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_icnCharacterFilter, "DialogBoxes.AssignCharacterDialog.pictureBox1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_icnCharacterFilter, "DialogBoxes.AssignCharacterDlg.pictureBox1");
 			this.m_icnCharacterFilter.Location = new System.Drawing.Point(241, 0);
 			this.m_icnCharacterFilter.Margin = new System.Windows.Forms.Padding(0);
 			this.m_icnCharacterFilter.Name = "m_icnCharacterFilter";
@@ -298,7 +298,7 @@ namespace Glyssen.Dialogs
 			this.m_icnDeliveryFilter.Image = global::Glyssen.Properties.Resources.search_glyph;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_icnDeliveryFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_icnDeliveryFilter, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_icnDeliveryFilter, "DialogBoxes.AssignCharacterDialog.pictureBox1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_icnDeliveryFilter, "DialogBoxes.AssignCharacterDlg.pictureBox1");
 			this.m_icnDeliveryFilter.Location = new System.Drawing.Point(241, 0);
 			this.m_icnDeliveryFilter.Margin = new System.Windows.Forms.Padding(0);
 			this.m_icnDeliveryFilter.Name = "m_icnDeliveryFilter";
@@ -318,7 +318,7 @@ namespace Glyssen.Dialogs
 			this.m_btnAddCharacter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAddCharacter, "Add New Character");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAddCharacter, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAddCharacter, "DialogBoxes.AssignCharacterDialog.AddCharacter");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAddCharacter, "DialogBoxes.AssignCharacterDlg.AddCharacter");
 			this.m_btnAddCharacter.Location = new System.Drawing.Point(287, 16);
 			this.m_btnAddCharacter.Margin = new System.Windows.Forms.Padding(0);
 			this.m_btnAddCharacter.Name = "m_btnAddCharacter";
@@ -338,7 +338,7 @@ namespace Glyssen.Dialogs
 			this.m_btnAddDelivery.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAddDelivery, "Add New Delivery");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAddDelivery, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAddDelivery, "DialogBoxes.AssignCharacterDialog.AddDelivery");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAddDelivery, "DialogBoxes.AssignCharacterDlg.AddDelivery");
 			this.m_btnAddDelivery.Location = new System.Drawing.Point(287, 235);
 			this.m_btnAddDelivery.Margin = new System.Windows.Forms.Padding(0);
 			this.m_btnAddDelivery.Name = "m_btnAddDelivery";
@@ -355,7 +355,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblShortcut1, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblShortcut1, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblShortcut1, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut1, "DialogBoxes.AssignCharacterDialog.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut1, "DialogBoxes.AssignCharacterDlg.label1");
 			this.m_lblShortcut1.Location = new System.Drawing.Point(3, 7);
 			this.m_lblShortcut1.Name = "m_lblShortcut1";
 			this.m_lblShortcut1.Size = new System.Drawing.Size(13, 13);
@@ -370,7 +370,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblShortcut2, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblShortcut2, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblShortcut2, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut2, "DialogBoxes.AssignCharacterDialog.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut2, "DialogBoxes.AssignCharacterDlg.label1");
 			this.m_lblShortcut2.Location = new System.Drawing.Point(3, 35);
 			this.m_lblShortcut2.Name = "m_lblShortcut2";
 			this.m_lblShortcut2.Size = new System.Drawing.Size(13, 13);
@@ -385,7 +385,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblShortcut3, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblShortcut3, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblShortcut3, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut3, "DialogBoxes.AssignCharacterDialog.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut3, "DialogBoxes.AssignCharacterDlg.label1");
 			this.m_lblShortcut3.Location = new System.Drawing.Point(3, 63);
 			this.m_lblShortcut3.Name = "m_lblShortcut3";
 			this.m_lblShortcut3.Size = new System.Drawing.Size(13, 13);
@@ -400,7 +400,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblShortcut4, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblShortcut4, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblShortcut4, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut4, "DialogBoxes.AssignCharacterDialog.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut4, "DialogBoxes.AssignCharacterDlg.label1");
 			this.m_lblShortcut4.Location = new System.Drawing.Point(3, 91);
 			this.m_lblShortcut4.Name = "m_lblShortcut4";
 			this.m_lblShortcut4.Size = new System.Drawing.Size(13, 13);
@@ -415,7 +415,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblShortcut5, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblShortcut5, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblShortcut5, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut5, "DialogBoxes.AssignCharacterDialog.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblShortcut5, "DialogBoxes.AssignCharacterDlg.label1");
 			this.m_lblShortcut5.Location = new System.Drawing.Point(3, 119);
 			this.m_lblShortcut5.Name = "m_lblShortcut5";
 			this.m_lblShortcut5.Size = new System.Drawing.Size(13, 13);
@@ -440,7 +440,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStrip, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStrip, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStrip, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStrip, "DialogBoxes.AssignCharacterDialog.m_toolStrip");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStrip, "DialogBoxes.AssignCharacterDlg.m_toolStrip");
 			this.m_toolStrip.Location = new System.Drawing.Point(0, 0);
 			this.m_toolStrip.Name = "m_toolStrip";
 			this.m_toolStrip.Size = new System.Drawing.Size(651, 25);
@@ -456,7 +456,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonHtmlView, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonHtmlView, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStripButtonHtmlView, L10NSharp.LocalizationPriority.MediumHigh);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonHtmlView, "DialogBoxes.BlockNavigationControls.m_toolStripButtonHtmlView");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonHtmlView, "DialogBoxes.BlockNavigationControls.FormattedView");
 			this.m_toolStripButtonHtmlView.Name = "m_toolStripButtonHtmlView";
 			this.m_toolStripButtonHtmlView.Size = new System.Drawing.Size(23, 22);
 			this.m_toolStripButtonHtmlView.Text = "Formatted view";
@@ -473,7 +473,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonGridView, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonGridView, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStripButtonGridView, L10NSharp.LocalizationPriority.MediumHigh);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonGridView, "DialogBoxes.BlockNavigationControls.m_toolStripButtonGridView");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonGridView, "DialogBoxes.BlockNavigationControls.GridView");
 			this.m_toolStripButtonGridView.Name = "m_toolStripButtonGridView";
 			this.m_toolStripButtonGridView.Size = new System.Drawing.Size(23, 22);
 			this.m_toolStripButtonGridView.Text = "Grid view";
@@ -494,7 +494,7 @@ namespace Glyssen.Dialogs
 			this.m_toolStripButtonLargerFont.ImageTransparentColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonLargerFont, "Increase size of text");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonLargerFont, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonLargerFont, "DialogBoxes.BlockNavigationControls.m_toolStripButtonLargerFont");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonLargerFont, "DialogBoxes.BlockNavigationControls.IncreaseTextSize");
 			this.m_toolStripButtonLargerFont.Name = "m_toolStripButtonLargerFont";
 			this.m_toolStripButtonLargerFont.Size = new System.Drawing.Size(23, 22);
 			this.m_toolStripButtonLargerFont.Text = "Increase size of text";
@@ -509,7 +509,7 @@ namespace Glyssen.Dialogs
 			this.m_toolStripButtonSmallerFont.ImageTransparentColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonSmallerFont, "Decrease size of text");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonSmallerFont, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonSmallerFont, "DialogBoxes.BlockNavigationControls.m_toolStripButtonSmallerFont");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonSmallerFont, "DialogBoxes.BlockNavigationControls.DecreaseTextSize");
 			this.m_toolStripButtonSmallerFont.Name = "m_toolStripButtonSmallerFont";
 			this.m_toolStripButtonSmallerFont.Size = new System.Drawing.Size(23, 22);
 			this.m_toolStripButtonSmallerFont.Text = "Decrease size of text";
@@ -542,7 +542,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripComboBoxFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripComboBoxFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStripComboBoxFilter, L10NSharp.LocalizationPriority.MediumHigh);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripComboBoxFilter, "DialogBoxes.AssignCharacterDialog.m_toolStripComboBoxFilter");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripComboBoxFilter, "DialogBoxes.BlockNavigationControls.Filter");
 			this.m_toolStripComboBoxFilter.Name = "m_toolStripComboBoxFilter";
 			this.m_toolStripComboBoxFilter.Size = new System.Drawing.Size(225, 25);
 			this.m_toolStripComboBoxFilter.SelectedIndexChanged += new System.EventHandler(this.HandleFilterChanged);
@@ -556,7 +556,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonExcludeUserConfirmed, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonExcludeUserConfirmed, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStripButtonExcludeUserConfirmed, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonExcludeUserConfirmed, "DialogBoxes.AssignCharacterDialog.m_toolStripButtonExcludeUserConfirmed");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonExcludeUserConfirmed, "DialogBoxes.AssignCharacterDlg.m_toolStripButtonExcludeUserConfirmed");
 			this.m_toolStripButtonExcludeUserConfirmed.Name = "m_toolStripButtonExcludeUserConfirmed";
 			this.m_toolStripButtonExcludeUserConfirmed.Size = new System.Drawing.Size(23, 22);
 			this.m_toolStripButtonExcludeUserConfirmed.Text = "Exclude confirmed";
@@ -588,7 +588,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_menuBtnSplitBlock, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_menuBtnSplitBlock, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_menuBtnSplitBlock, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_menuBtnSplitBlock, "DialogBoxes.AssignCharacterDialog.AssignCharacterDialog.m_menuBtnSplitBlock");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_menuBtnSplitBlock, "DialogBoxes.AssignCharacterDlg.m_menuBtnSplitBlock");
 			this.m_menuBtnSplitBlock.Name = "m_menuBtnSplitBlock";
 			this.m_menuBtnSplitBlock.Size = new System.Drawing.Size(23, 22);
 			this.m_menuBtnSplitBlock.Text = "Split";
@@ -602,7 +602,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_chkSingleVoice, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_chkSingleVoice, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_chkSingleVoice, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkSingleVoice, "DialogBoxes.AssignCharacterDialog.AssignCharacterDialog.m_chkSingleVoice");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkSingleVoice, "DialogBoxes.AssignCharacterDlg.m_chkSingleVoice");
 			this.m_chkSingleVoice.Location = new System.Drawing.Point(21, 400);
 			this.m_chkSingleVoice.Name = "m_chkSingleVoice";
 			this.m_chkSingleVoice.Size = new System.Drawing.Size(248, 17);
@@ -809,7 +809,7 @@ namespace Glyssen.Dialogs
 			this.m_blocksViewer.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksViewer, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksViewer, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksViewer, "DialogBoxes.AssignCharacterDialog.AssignCharacterDialog.ScriptBlocksViewer");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksViewer, "DialogBoxes.AssignCharacterDlg.ScriptBlocksViewer");
 			this.m_blocksViewer.Location = new System.Drawing.Point(12, 12);
 			this.m_blocksViewer.Name = "m_blocksViewer";
 			this.m_blocksViewer.Size = new System.Drawing.Size(308, 495);
@@ -822,7 +822,7 @@ namespace Glyssen.Dialogs
 			this.m_progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_progressBar, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_progressBar, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_progressBar, "DialogBoxes.AssignCharacterDialog.m_progressBar");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_progressBar, "DialogBoxes.AssignCharacterDlg.m_progressBar");
 			this.m_progressBar.Location = new System.Drawing.Point(0, 544);
 			this.m_progressBar.Name = "m_progressBar";
 			this.m_progressBar.Size = new System.Drawing.Size(651, 17);
@@ -842,10 +842,10 @@ namespace Glyssen.Dialogs
 			this.KeyPreview = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.AssignCharacterDialog.AssignCharacter");
+			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.AssignCharacterDlg.AssignCharacter");
 			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(651, 599);
-			this.Name = "AssignCharacterDialog";
+			this.Name = "AssignCharacterDlg";
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;

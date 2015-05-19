@@ -8,16 +8,16 @@ using SIL.ScriptureUtils;
 
 namespace Glyssen.Dialogs
 {
-	public partial class ScriptureRangeSelectionDialog : Form
+	public partial class ScriptureRangeSelectionDlg : Form
 	{
 		private readonly Project m_project;
 
-		public ScriptureRangeSelectionDialog()
+		public ScriptureRangeSelectionDlg()
 		{
 			InitializeComponent();
 		}
 
-		public ScriptureRangeSelectionDialog(Project project) : this()
+		public ScriptureRangeSelectionDlg(Project project) : this()
 		{
 			m_project = project;
 			m_bookChooserControl.Setup(project.AvailableBooks.ToBookSet(), project.IncludedBooks.ToBookSet());

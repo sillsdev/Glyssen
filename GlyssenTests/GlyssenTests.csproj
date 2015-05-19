@@ -100,7 +100,7 @@
     <Compile Include="Quote\QuoteSystemGuesserTests.cs" />
     <Compile Include="Quote\QuoteSystemTests.cs" />
     <Compile Include="UsxParserTests.cs" />
-    <Compile Include="Dialogs\SelectBundleDialogTests.cs" />
+    <Compile Include="Dialogs\SelectProjectDlgTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\MathUtilitiesTests.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

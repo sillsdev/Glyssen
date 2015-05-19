@@ -101,7 +101,7 @@ namespace Glyssen.Bundle
 
 		/// <summary>
 		/// The font family for the language associated with this project.
-		/// This is pulled in from the stylesheet or set via the ProjectMetadataDlg.
+		/// This is pulled in from the stylesheet or set via the ProjectSettingsDlg.
 		/// </summary>
 		[XmlIgnore]
 		public string FontFamily
@@ -118,7 +118,7 @@ namespace Glyssen.Bundle
 
 		/// <summary>
 		/// The font size for the language associated with this project.
-		/// This is pulled in from the stylesheet or set via the ProjectMetadataDlg.
+		/// This is pulled in from the stylesheet or set via the ProjectSettingsDlg.
 		/// </summary>
 		[XmlIgnore]
 		public int FontSizeInPoints

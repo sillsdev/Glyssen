@@ -20,7 +20,7 @@ namespace Glyssen.Controls
 			Graphics g = e.Graphics;
 			double percentComplete = Maximum == 0 ? 100 : (double)Value / Maximum * 100;
 			int blocksRemaining = Maximum - Value;
-			string text = string.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDialog.BlockProgressFmt",
+			string text = string.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BlockProgressFmt",
 				"{0:N1}% Complete; {1} Blocks Remaining"), percentComplete, blocksRemaining);
 
 			SizeF len = g.MeasureString(text, Font);

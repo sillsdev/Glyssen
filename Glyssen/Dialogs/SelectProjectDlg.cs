@@ -10,11 +10,11 @@ using SIL.DblBundle.Text;
 
 namespace Glyssen.Dialogs
 {
-	public class SelectProjectDialog : IDisposable
+	public class SelectProjectDlg : IDisposable
 	{
 		private readonly OpenFileDialog m_fileDialog;
 
-		public SelectProjectDialog(bool allowProjectFiles = true)
+		public SelectProjectDlg(bool allowProjectFiles = true)
 		{
 			var defaultDir = Settings.Default.DefaultBundleDirectory;
 			if (string.IsNullOrEmpty(defaultDir) || !Directory.Exists(defaultDir))
@@ -24,14 +24,14 @@ namespace Glyssen.Dialogs
 			string projectFiles = "";
 			if (allowProjectFiles)
 				projectFiles = string.Format("{0} ({1})|{1}|",
-					string.Format(LocalizationManager.GetString("DialogBoxes.SelectProjectDialog.ProjectFilesLabel", "{0} Project Files", "{0} is the product name"), Program.kProduct),
+					string.Format(LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ProjectFilesLabel", "{0} Project Files", "{0} is the product name"), Program.kProduct),
 					"*" + Project.kProjectFileExtension);
 			m_fileDialog = new OpenFileDialog
 			{
-				Title = LocalizationManager.GetString("DialogBoxes.SelectProjectDialog.Title", "Open Project"),
+				Title = LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.Title", "Open Project"),
 				InitialDirectory = defaultDir,
 				Filter = string.Format("{0} ({1})|{1}|{2}{3} ({4})|{4}",
-					LocalizationManager.GetString("DialogBoxes.SelectProjectDialog.ResourceBundleFileTypeLabel", "Text Resource Bundle files"),
+					LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ResourceBundleFileTypeLabel", "Text Resource Bundle files"),
 					"*" + DblBundleFileUtils.kDblBundleExtension,
 					projectFiles,
 					LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"),
@@ -62,7 +62,7 @@ namespace Glyssen.Dialogs
 
 		public static bool GiveUserChanceToFindOriginalBundle(Project project)
 		{
-			using (var dlg = new SelectProjectDialog(false))
+			using (var dlg = new SelectProjectDlg(false))
 				if (dlg.ShowDialog() == DialogResult.OK)
 				{
 					string invalidMessage = LocalizationManager.GetString("File.InvalidBundleMsg", "The selected file is not a valid text bundle. Would you like to try again?");

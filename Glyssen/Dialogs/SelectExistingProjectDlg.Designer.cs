@@ -42,7 +42,7 @@
 			// m_l10NSharpExtender
 			// 
 			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
-			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.SelectExistingProjectDialog";
+			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.SelectExistingProjectDlg";
 			// 
 			// lblExistingProject
 			// 
@@ -51,7 +51,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.lblExistingProject, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.lblExistingProject, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.lblExistingProject, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.lblExistingProject, "DialogBoxes.SelectExistingProjectDialog.SelectExistingProjectDlg.lblExistingProje" +
+			this.m_l10NSharpExtender.SetLocalizingId(this.lblExistingProject, "DialogBoxes.SelectExistingProjectDlg.lblExistingProje" +
         "ct");
 			this.lblExistingProject.Location = new System.Drawing.Point(0, 0);
 			this.lblExistingProject.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
@@ -87,7 +87,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_listExistingProjects, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_listExistingProjects, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_listExistingProjects, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_listExistingProjects, "DialogBoxes.SelectExistingProjectDialog.SelectExistingProjectDlg.ExistingProjects" +
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_listExistingProjects, "DialogBoxes.SelectExistingProjectDlg.ExistingProjects" +
         "List");
 			this.m_listExistingProjects.Location = new System.Drawing.Point(3, 33);
 			this.m_listExistingProjects.Name = "m_listExistingProjects";
@@ -102,7 +102,7 @@
 			this.m_linkCreateNewProject.LinkColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkCreateNewProject, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkCreateNewProject, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkCreateNewProject, "DialogBoxes.SelectExistingProjectDialog.linkLabel1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkCreateNewProject, "DialogBoxes.SelectExistingProjectDlg.CreateNew");
 			this.m_linkCreateNewProject.Location = new System.Drawing.Point(3, 168);
 			this.m_linkCreateNewProject.Name = "m_linkCreateNewProject";
 			this.m_linkCreateNewProject.Size = new System.Drawing.Size(221, 13);

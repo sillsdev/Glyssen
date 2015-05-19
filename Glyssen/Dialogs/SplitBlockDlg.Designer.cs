@@ -30,11 +30,11 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
-			this.m_blocksDisplayBrowser = new Glyssen.Controls.Browser();
 			this.m_lblInstructions = new System.Windows.Forms.Label();
 			this.m_btnCancel = new System.Windows.Forms.Button();
 			this.m_btnOk = new System.Windows.Forms.Button();
 			this.m_lblInvalidSplitLocation = new System.Windows.Forms.Label();
+			this.m_blocksDisplayBrowser = new Glyssen.Controls.Browser();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -43,28 +43,12 @@
 			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
 			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.SplitBlockDlg";
 			// 
-			// m_blocksDisplayBrowser
-			// 
-			this.m_blocksDisplayBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_blocksDisplayBrowser.AutoSize = true;
-			this.m_blocksDisplayBrowser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksDisplayBrowser, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksDisplayBrowser, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksDisplayBrowser, "DialogBoxes.SplitBlockDlg.Browser");
-			this.m_blocksDisplayBrowser.Location = new System.Drawing.Point(12, 39);
-			this.m_blocksDisplayBrowser.Name = "m_blocksDisplayBrowser";
-			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(414, 169);
-			this.m_blocksDisplayBrowser.TabIndex = 1;
-			this.m_blocksDisplayBrowser.OnMouseClick += new System.EventHandler<Gecko.DomMouseEventArgs>(this.InsertSplitLocation);
-			// 
 			// m_lblInstructions
 			// 
 			this.m_lblInstructions.AutoSize = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblInstructions, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblInstructions, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblInstructions, "DialogBoxes.SplitBlockDlg.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblInstructions, "DialogBoxes.SplitBlockDlg.ClickSplitLocation");
 			this.m_lblInstructions.Location = new System.Drawing.Point(12, 13);
 			this.m_lblInstructions.Name = "m_lblInstructions";
 			this.m_lblInstructions.Size = new System.Drawing.Size(249, 13);
@@ -108,14 +92,29 @@
 			this.m_lblInvalidSplitLocation.ForeColor = System.Drawing.Color.Red;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblInvalidSplitLocation, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblInvalidSplitLocation, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblInvalidSplitLocation, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblInvalidSplitLocation, "DialogBoxes.SplitBlockDlg.SplitBlockDlg.m_lblInvalidSplitLocation");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblInvalidSplitLocation, "DialogBoxes.SplitBlockDlg.InvalidSplitLocation");
 			this.m_lblInvalidSplitLocation.Location = new System.Drawing.Point(13, 215);
 			this.m_lblInvalidSplitLocation.Name = "m_lblInvalidSplitLocation";
 			this.m_lblInvalidSplitLocation.Size = new System.Drawing.Size(165, 13);
 			this.m_lblInvalidSplitLocation.TabIndex = 5;
 			this.m_lblInvalidSplitLocation.Text = "This is not a valid location to split.";
 			this.m_lblInvalidSplitLocation.Visible = false;
+			// 
+			// m_blocksDisplayBrowser
+			// 
+			this.m_blocksDisplayBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_blocksDisplayBrowser.AutoSize = true;
+			this.m_blocksDisplayBrowser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksDisplayBrowser, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksDisplayBrowser, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksDisplayBrowser, "DialogBoxes.SplitBlockDlg.Browser");
+			this.m_blocksDisplayBrowser.Location = new System.Drawing.Point(12, 39);
+			this.m_blocksDisplayBrowser.Name = "m_blocksDisplayBrowser";
+			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(414, 169);
+			this.m_blocksDisplayBrowser.TabIndex = 1;
+			this.m_blocksDisplayBrowser.OnMouseClick += new System.EventHandler<Gecko.DomMouseEventArgs>(this.InsertSplitLocation);
 			// 
 			// SplitBlockDlg
 			// 
@@ -131,7 +130,7 @@
 			this.Controls.Add(this.m_blocksDisplayBrowser);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this, "SplitBlockDlg.WindowTitle");
+			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.SplitBlockDlg.WindowTitle");
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(454, 300);

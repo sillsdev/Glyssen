@@ -1,6 +1,6 @@
 ﻿namespace Glyssen.Dialogs
 {
-	partial class ProjectMetadataDlg
+	partial class ProjectSettingsDlg
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -75,7 +75,7 @@
 			// m_l10NSharpExtender
 			// 
 			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
-			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.ProjectMetadataDlg";
+			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.ProjectSettingsDlg";
 			// 
 			// m_btnCancel
 			// 
@@ -99,7 +99,7 @@
 			this.m_lblLanguageName.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblLanguageName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblLanguageName, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblLanguageName, "DialogBoxes.ProjectMetadataDlg.m_lblLanguageName");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblLanguageName, "DialogBoxes.ProjectSettingsDlg.LanguageName");
 			this.m_lblLanguageName.Location = new System.Drawing.Point(3, 67);
 			this.m_lblLanguageName.Name = "m_lblLanguageName";
 			this.m_lblLanguageName.Size = new System.Drawing.Size(89, 13);
@@ -113,7 +113,7 @@
 			this.m_lblIso639_2_Code.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblIso639_2_Code, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblIso639_2_Code, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblIso639_2_Code, "DialogBoxes.ProjectMetadataDlg.m_lblIso639_2_Code");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblIso639_2_Code, "DialogBoxes.ProjectSettingsDlg.EthnologueCode");
 			this.m_lblIso639_2_Code.Location = new System.Drawing.Point(3, 93);
 			this.m_lblIso639_2_Code.Name = "m_lblIso639_2_Code";
 			this.m_lblIso639_2_Code.Size = new System.Drawing.Size(149, 13);
@@ -127,7 +127,7 @@
 			this.m_lblPublicationName.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblPublicationName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblPublicationName, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblPublicationName, "DialogBoxes.ProjectMetadataDlg.ProjectMetadataDlg.m_lblPublicationName");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblPublicationName, "DialogBoxes.ProjectSettingsDlg.PublicationName");
 			this.m_lblPublicationName.Location = new System.Drawing.Point(3, 129);
 			this.m_lblPublicationName.Name = "m_lblPublicationName";
 			this.m_lblPublicationName.Size = new System.Drawing.Size(93, 13);
@@ -141,7 +141,7 @@
 			this.m_lblPublicationId.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblPublicationId, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblPublicationId, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblPublicationId, "DialogBoxes.ProjectMetadataDlg.ProjectMetadataDlg.m_lblPublicationId");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblPublicationId, "DialogBoxes.ProjectSettingsDlg.PublicationId");
 			this.m_lblPublicationId.Location = new System.Drawing.Point(3, 155);
 			this.m_lblPublicationId.Name = "m_lblPublicationId";
 			this.m_lblPublicationId.Size = new System.Drawing.Size(74, 13);
@@ -154,7 +154,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtLanguageName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtLanguageName, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtLanguageName, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtLanguageName, "DialogBoxes.ProjectMetadataDlg.m_txtLanguageName");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtLanguageName, "DialogBoxes.ProjectSettingsDlg.m_txtLanguageName");
 			this.m_txtLanguageName.Location = new System.Drawing.Point(158, 64);
 			this.m_txtLanguageName.Name = "m_txtLanguageName";
 			this.m_txtLanguageName.Size = new System.Drawing.Size(336, 20);
@@ -166,7 +166,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtIso639_2_Code, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtIso639_2_Code, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtIso639_2_Code, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtIso639_2_Code, "DialogBoxes.ProjectMetadataDlg.m_txtIso639_2_Code");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtIso639_2_Code, "DialogBoxes.ProjectSettingsDlg.m_txtIso639_2_Code");
 			this.m_txtIso639_2_Code.Location = new System.Drawing.Point(158, 90);
 			this.m_txtIso639_2_Code.MaxLength = 3;
 			this.m_txtIso639_2_Code.Name = "m_txtIso639_2_Code";
@@ -181,7 +181,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtPublicationName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtPublicationName, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtPublicationName, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtPublicationName, "DialogBoxes.ProjectMetadataDlg.m_txtProjectName");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtPublicationName, "DialogBoxes.ProjectSettingsDlg.m_txtProjectName");
 			this.m_txtPublicationName.Location = new System.Drawing.Point(158, 126);
 			this.m_txtPublicationName.Name = "m_txtPublicationName";
 			this.m_txtPublicationName.Size = new System.Drawing.Size(336, 20);
@@ -195,7 +195,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtPublicationId, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtPublicationId, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtPublicationId, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtPublicationId, "DialogBoxes.ProjectMetadataDlg.ProjectMetadataDlg.m_txtPublicationId");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtPublicationId, "DialogBoxes.ProjectSettingsDlg.m_txtPublicationId");
 			this.m_txtPublicationId.Location = new System.Drawing.Point(3, 3);
 			this.m_txtPublicationId.Name = "m_txtPublicationId";
 			this.m_txtPublicationId.Size = new System.Drawing.Size(264, 20);
@@ -207,7 +207,7 @@
 			this.m_chkOverride.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_chkOverride, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_chkOverride, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkOverride, "DialogBoxes.ProjectMetadataDlg.checkBox1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkOverride, "DialogBoxes.ProjectSettingsDlg.Override");
 			this.m_chkOverride.Location = new System.Drawing.Point(273, 3);
 			this.m_chkOverride.Name = "m_chkOverride";
 			this.m_chkOverride.Size = new System.Drawing.Size(66, 17);
@@ -240,7 +240,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_wsFontControl, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_wsFontControl, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_wsFontControl, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_wsFontControl, "DialogBoxes.ProjectMetadataDlg.WSFontControl");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_wsFontControl, "DialogBoxes.ProjectSettingsDlg.WSFontControl");
 			this.m_wsFontControl.Location = new System.Drawing.Point(4, 311);
 			this.m_wsFontControl.Margin = new System.Windows.Forms.Padding(4);
 			this.m_wsFontControl.Name = "m_wsFontControl";
@@ -255,7 +255,7 @@
 			this.m_lblRecordingProjectName.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblRecordingProjectName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblRecordingProjectName, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblRecordingProjectName, "DialogBoxes.ProjectMetadataDlg.ProjectMetadataDlg.m_lblRecordingProjectName");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblRecordingProjectName, "DialogBoxes.ProjectSettingsDlg.RecordingProjectName");
 			this.m_lblRecordingProjectName.Location = new System.Drawing.Point(3, 6);
 			this.m_lblRecordingProjectName.Name = "m_lblRecordingProjectName";
 			this.m_lblRecordingProjectName.Size = new System.Drawing.Size(126, 13);
@@ -268,7 +268,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtRecordingProjectName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtRecordingProjectName, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtRecordingProjectName, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtRecordingProjectName, "DialogBoxes.ProjectMetadataDlg.m_txtProjectName");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtRecordingProjectName, "DialogBoxes.ProjectSettingsDlg.m_txtProjectName");
 			this.m_txtRecordingProjectName.Location = new System.Drawing.Point(158, 3);
 			this.m_txtRecordingProjectName.Name = "m_txtRecordingProjectName";
 			this.m_txtRecordingProjectName.Size = new System.Drawing.Size(336, 20);
@@ -281,7 +281,7 @@
 			this.m_lblMetadata.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblMetadata, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblMetadata, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblMetadata, "DialogBoxes.ProjectMetadataDlg.m_lblLanguageName");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblMetadata, "DialogBoxes.ProjectSettingsDlg.Metadata");
 			this.m_lblMetadata.Location = new System.Drawing.Point(0, 0);
 			this.m_lblMetadata.Name = "m_lblMetadata";
 			this.m_lblMetadata.Size = new System.Drawing.Size(52, 13);
@@ -296,7 +296,7 @@
 			this.m_lblMetadataSeparator.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblMetadataSeparator, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblMetadataSeparator, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblMetadataSeparator, "DialogBoxes.ProjectMetadataDlg.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblMetadataSeparator, "DialogBoxes.ProjectSettingsDlg.label1");
 			this.m_lblMetadataSeparator.Location = new System.Drawing.Point(10, 11);
 			this.m_lblMetadataSeparator.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.m_lblMetadataSeparator.Name = "m_lblMetadataSeparator";
@@ -311,7 +311,7 @@
 			this.m_lblWritingSystem.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblWritingSystem, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblWritingSystem, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblWritingSystem, "DialogBoxes.ProjectMetadataDlg.m_lblLanguageName");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblWritingSystem, "DialogBoxes.ProjectSettingsDlg.Writing System");
 			this.m_lblWritingSystem.Location = new System.Drawing.Point(0, 0);
 			this.m_lblWritingSystem.Name = "m_lblWritingSystem";
 			this.m_lblWritingSystem.Size = new System.Drawing.Size(77, 13);
@@ -326,7 +326,7 @@
 			this.m_lblWsSeparator.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblWsSeparator, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblWsSeparator, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblWsSeparator, "DialogBoxes.ProjectMetadataDlg.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblWsSeparator, "DialogBoxes.ProjectSettingsDlg.label1");
 			this.m_lblWsSeparator.Location = new System.Drawing.Point(8, 11);
 			this.m_lblWsSeparator.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.m_lblWsSeparator.Name = "m_lblWsSeparator";
@@ -339,7 +339,7 @@
 			this.m_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_label, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_label, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_label, "DialogBoxes.ProjectMetadataDlg.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_label, "DialogBoxes.ProjectSettingsDlg.label1");
 			this.m_label.Location = new System.Drawing.Point(8, 11);
 			this.m_label.Name = "m_label";
 			this.m_label.Size = new System.Drawing.Size(475, 2);
@@ -352,7 +352,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblScripture, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblScripture, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblScripture, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblScripture, "DialogBoxes.ProjectMetadataDlg.ProjectMetadataDlg.m_lblScripture");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblScripture, "DialogBoxes.ProjectSettingsDlg.Scripture");
 			this.m_lblScripture.Location = new System.Drawing.Point(0, 0);
 			this.m_lblScripture.Name = "m_lblScripture";
 			this.m_lblScripture.Size = new System.Drawing.Size(49, 13);
@@ -367,7 +367,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblVersification, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblVersification, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblVersification, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblVersification, "DialogBoxes.ProjectMetadataDlg.ProjectMetadataDlg.m_lblVersification");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblVersification, "DialogBoxes.ProjectSettingsDlg.Versification");
 			this.m_lblVersification.Location = new System.Drawing.Point(3, 498);
 			this.m_lblVersification.Name = "m_lblVersification";
 			this.m_lblVersification.Size = new System.Drawing.Size(67, 13);
@@ -380,7 +380,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtVersification, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtVersification, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtVersification, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtVersification, "DialogBoxes.ProjectMetadataDlg.ProjectMetadataDlg.m_txtVersification");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtVersification, "DialogBoxes.ProjectSettingsDlg.m_txtVersification");
 			this.m_txtVersification.Location = new System.Drawing.Point(158, 501);
 			this.m_txtVersification.Name = "m_txtVersification";
 			this.m_txtVersification.Size = new System.Drawing.Size(336, 20);
@@ -393,7 +393,7 @@
 			this.m_lblQuoteMarks.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblQuoteMarks, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblQuoteMarks, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblQuoteMarks, "DialogBoxes.ProjectMetadataDlg.QuoteMarks");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblQuoteMarks, "DialogBoxes.ProjectSettingsDlg.QuoteMarks");
 			this.m_lblQuoteMarks.Location = new System.Drawing.Point(0, 0);
 			this.m_lblQuoteMarks.Name = "m_lblQuoteMarks";
 			this.m_lblQuoteMarks.Size = new System.Drawing.Size(68, 13);
@@ -408,7 +408,7 @@
 			this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label2, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label2, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.label2, "DialogBoxes.ProjectMetadataDlg.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.label2, "DialogBoxes.ProjectSettingsDlg.label1");
 			this.label2.Location = new System.Drawing.Point(8, 11);
 			this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.label2.Name = "label2";
@@ -424,7 +424,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblQuoteMarkReview, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblQuoteMarkReview, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblQuoteMarkReview, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblQuoteMarkReview, "DialogBoxes.ProjectMetadataDlg.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblQuoteMarkReview, "DialogBoxes.ProjectSettingsDlg.label1");
 			this.m_lblQuoteMarkReview.Location = new System.Drawing.Point(3, 210);
 			this.m_lblQuoteMarkReview.Name = "m_lblQuoteMarkReview";
 			this.m_lblQuoteMarkReview.Size = new System.Drawing.Size(67, 13);
@@ -437,7 +437,7 @@
 			this.m_btnQuoteMarkSettings.AutoSize = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnQuoteMarkSettings, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnQuoteMarkSettings, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnQuoteMarkSettings, "DialogBoxes.ProjectMetadataDlg.ReviewChangeQuoteMarkSettings");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnQuoteMarkSettings, "DialogBoxes.ProjectSettingsDlg.ReviewChangeQuoteMarkSettings");
 			this.m_btnQuoteMarkSettings.Location = new System.Drawing.Point(293, 226);
 			this.m_btnQuoteMarkSettings.Name = "m_btnQuoteMarkSettings";
 			this.m_btnQuoteMarkSettings.Size = new System.Drawing.Size(201, 23);
@@ -455,7 +455,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblQuoteMarkSummary, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblQuoteMarkSummary, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblQuoteMarkSummary, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblQuoteMarkSummary, "DialogBoxes.ProjectMetadataDlg.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblQuoteMarkSummary, "DialogBoxes.ProjectSettingsDlg.label1");
 			this.m_lblQuoteMarkSummary.Location = new System.Drawing.Point(3, 252);
 			this.m_lblQuoteMarkSummary.Name = "m_lblQuoteMarkSummary";
 			this.m_lblQuoteMarkSummary.Size = new System.Drawing.Size(132, 20);
@@ -582,7 +582,7 @@
 			this.panel1.Size = new System.Drawing.Size(491, 24);
 			this.panel1.TabIndex = 19;
 			// 
-			// ProjectMetadataDlg
+			// ProjectSettingsDlg
 			// 
 			this.AcceptButton = this.m_btnOk;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -595,11 +595,11 @@
 			this.Controls.Add(this.m_btnCancel);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.ProjectMetadataDlg.WindowTitle");
+			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.ProjectSettingsDlg.WindowTitle");
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(543, 632);
-			this.Name = "ProjectMetadataDlg";
+			this.Name = "ProjectSettingsDlg";
 			this.Padding = new System.Windows.Forms.Padding(15, 15, 15, 55);
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;

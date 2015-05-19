@@ -49,7 +49,7 @@ namespace Glyssen.Dialogs
 
 		private void m_linkTextReleaseBundle_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			using (var dlg = new SelectProjectDialog())
+			using (var dlg = new SelectProjectDlg())
 			{
 				if (dlg.ShowDialog() == DialogResult.OK)
 				{
