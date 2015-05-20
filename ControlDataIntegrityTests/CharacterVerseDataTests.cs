@@ -12,6 +12,13 @@ namespace ControlDataIntegrityTests
 	[TestFixture]
 	public class CharacterVerseDataTests
 	{
+		[TestFixtureSetUp]
+		public void TestFixtureSetUp()
+		{
+			// Fixes issue where other test project was interfering with the running of this one (by setting the data to test data).
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
+		}
+
 		[Test]
 		public void DataIntegrity_ValidControlVersionPresent()
 		{

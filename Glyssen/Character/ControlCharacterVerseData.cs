@@ -4,16 +4,24 @@ using System.IO;
 using System.Linq;
 using Glyssen.Properties;
 using SIL.ScriptureUtils;
-using Spart.Actions;
 
 namespace Glyssen.Character
 {
 	public class ControlCharacterVerseData : CharacterVerseData
 	{
 		private static ControlCharacterVerseData s_singleton;
+		private static string s_tabDelimitedCharacterVerseData;
 		private Dictionary<int, Dictionary<int, HashSet<int>>> m_expectedQuotes;
 
-		internal static string TabDelimitedCharacterVerseData { get; set; }
+		internal static string TabDelimitedCharacterVerseData
+		{
+			get { return s_tabDelimitedCharacterVerseData; }
+			set
+			{
+				s_tabDelimitedCharacterVerseData = value;
+				s_singleton = null;
+			}
+		}
 
 		private ControlCharacterVerseData()
 		{
