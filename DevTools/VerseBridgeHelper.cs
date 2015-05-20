@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using ProtoScript.Character;
+using Glyssen.Character;
 
 namespace DevTools
 {
@@ -20,7 +20,7 @@ namespace DevTools
 			var allQuoteInfo = ControlCharacterVerseData.Singleton.GetAllQuoteInfo();
 
 			var sb = new StringBuilder();
-			foreach (ProtoScript.Character.CharacterVerse cv in allQuoteInfo)
+			foreach (Glyssen.Character.CharacterVerse cv in allQuoteInfo)
 			{
 				sb.Append(cv.BookCode).Append(TAB)
 					.Append(cv.Chapter).Append(TAB).Append(cv.Verse).Append(TAB).Append(cv.Character).Append(TAB)

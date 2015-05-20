@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using NUnit.Framework;
-using ProtoScript.Character;
-using ProtoScript.Properties;
+using Glyssen.Character;
+using Glyssen.Properties;
 using SIL.ScriptureUtils;
 
 namespace ControlDataIntegrityTests

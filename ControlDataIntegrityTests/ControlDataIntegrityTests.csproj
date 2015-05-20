@@ -64,9 +64,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProtoScript\ProtoScript.csproj">
+    <ProjectReference Include="..\Glyssen\Glyssen.csproj">
       <Project>{45321f2e-174c-482a-bda1-bf199366fbd6}</Project>
-      <Name>ProtoScript</Name>
+      <Name>Glyssen</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
