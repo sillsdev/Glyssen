@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-
 using DesktopAnalytics;
-using Glyssen;
 using Glyssen.Character;
 using Glyssen.Utilities;
 using SIL.ScriptureUtils;

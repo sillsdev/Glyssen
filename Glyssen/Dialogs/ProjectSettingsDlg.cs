@@ -3,9 +3,8 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using Glyssen;
-using L10NSharp;
 using Glyssen.Bundle;
+using L10NSharp;
 using SIL.IO;
 
 namespace Glyssen.Dialogs

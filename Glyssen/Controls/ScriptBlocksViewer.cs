@@ -5,8 +5,8 @@ using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
 using Gecko.Events;
-using L10NSharp;
 using Glyssen.Dialogs;
+using L10NSharp;
 using SIL.Windows.Forms.PortableSettingsProvider;
 
 namespace Glyssen.Controls

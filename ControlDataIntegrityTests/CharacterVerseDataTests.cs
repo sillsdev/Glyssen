@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using NUnit.Framework;
 using Glyssen.Character;
 using Glyssen.Properties;
+using NUnit.Framework;
 using SIL.ScriptureUtils;
 
 namespace ControlDataIntegrityTests

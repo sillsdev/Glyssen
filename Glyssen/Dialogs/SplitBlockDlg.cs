@@ -7,8 +7,6 @@ using System.Text;
 using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
-using Glyssen.Properties;
-using Glyssen.Utilities;
 
 namespace Glyssen.Dialogs
 {

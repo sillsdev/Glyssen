@@ -4,9 +4,8 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using Glyssen;
-using Paratext;
 using Glyssen.Character;
+using Paratext;
 using SIL.ScriptureUtils;
 using ScrVers = Paratext.ScrVers;
 

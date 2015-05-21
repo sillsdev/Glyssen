@@ -1,12 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using Glyssen;
-using L10NSharp;
 using Glyssen.Bundle;
 using Glyssen.Properties;
+using L10NSharp;
 using SIL.DblBundle;
-using SIL.DblBundle.Text;
 
 namespace Glyssen.Dialogs
 {

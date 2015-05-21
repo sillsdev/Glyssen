@@ -5,11 +5,10 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using DesktopAnalytics;
+using Glyssen.Bundle;
 using Glyssen.Properties;
 using L10NSharp;
 using Paratext;
-using Glyssen;
-using Glyssen.Bundle;
 using SIL.DblBundle;
 
 namespace Glyssen
