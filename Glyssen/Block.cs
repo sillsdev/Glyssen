@@ -4,9 +4,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Web;
-using System.Windows.Forms;
 using System.Xml.Serialization;
 using Glyssen.Character;
 using SIL.ScriptureUtils;
@@ -158,7 +156,7 @@ namespace Glyssen
 			return bldr.ToString();
 		}
 
-		public string GetTextAsHtml(bool showVerseNumbers, string verseToInsertExtra = null, int offsetToInsertExtra = -1, string extra = null)
+		public string GetTextAsHtml(bool showVerseNumbers, bool rightToLeftScript, string verseToInsertExtra = null, int offsetToInsertExtra = -1, string extra = null)
 		{
 			StringBuilder bldr = new StringBuilder();
 
@@ -173,8 +171,13 @@ namespace Glyssen
 					if (showVerseNumbers)
 					{
 						bldr.Append("<sup>");
+						if (rightToLeftScript)
+							bldr.Append("&rlm;");
 						bldr.Append(verse.Number);
-						bldr.Append("&#160;</sup>");
+						bldr.Append("&#160;");
+						if (rightToLeftScript)
+							bldr.Append("&rlm;");
+						bldr.Append("</sup>");
 					}
 					currVerse = verse.Number;
 				}

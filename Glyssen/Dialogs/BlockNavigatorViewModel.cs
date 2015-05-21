@@ -263,7 +263,7 @@ namespace Glyssen.Dialogs
 
 		private string BuildHtml(Block block)
 		{
-			string text = block.GetTextAsHtml(m_showVerseNumbers);
+			string text = block.GetTextAsHtml(m_showVerseNumbers, m_rightToLeftScript);
 			var bldr = new StringBuilder();
 			bldr.Append("<div");
 			if (block.StyleTag.StartsWith("s"))

@@ -73,7 +73,7 @@ namespace Glyssen.Dialogs
 			bldr.AppendFormat("<div id=\"{0}\" class=\"block\"", id);
 			bldr.Append(">");
 			if (BlockToSplit == block && VerseToSplit != null)
-				bldr.Append(block.GetTextAsHtml(true, VerseToSplit, CharacterOffsetToSplit, "<hr/>"));
+				bldr.Append(block.GetTextAsHtml(true, m_rightToLeftScript, VerseToSplit, CharacterOffsetToSplit, "<hr/>"));
 			else
 			{
 				if (BlockToSplit == block && VerseToSplit == null)
@@ -81,7 +81,7 @@ namespace Glyssen.Dialogs
 					Debug.Assert(CharacterOffsetToSplit == 0);
 						bldr.Append("<hr/>");
 				}
-				bldr.Append(block.GetTextAsHtml(true));
+				bldr.Append(block.GetTextAsHtml(true, m_rightToLeftScript));
 			}
 			bldr.Append("</div>");
 			return bldr.ToString();
