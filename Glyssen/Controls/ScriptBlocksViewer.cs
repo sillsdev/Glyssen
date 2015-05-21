@@ -134,8 +134,8 @@ namespace Glyssen.Controls
 		#region private methods
 		private void ChangeViewType(Control viewBeingShown, Control viewBeingHidden)
 		{
-			viewBeingShown.Visible = true;
 			viewBeingHidden.Visible = false;
+			viewBeingShown.Visible = true;
 		}
 
 		private void UpdateContextBlocksDisplay(object sender, EventArgs args)
@@ -144,7 +144,7 @@ namespace Glyssen.Controls
 			{
 				if (m_blocksDisplayBrowser.Visible)
 					m_blocksDisplayBrowser.DisplayHtml(m_viewModel.Html);
-				else
+				else if (m_dataGridViewBlocks.Visible)
 					m_dataGridViewBlocks.UpdateContext();
 			}, true);
 		}
