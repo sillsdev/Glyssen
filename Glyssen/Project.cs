@@ -15,6 +15,7 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Quote;
+using Glyssen.Utilities;
 using L10NSharp;
 using Paratext;
 using SIL.DblBundle;
@@ -860,7 +861,7 @@ namespace Glyssen
 					return m_wsRepository;
 				if (!Directory.Exists(ProjectFolder))
 					Directory.CreateDirectory(ProjectFolder);
-				return m_wsRepository = LdmlInFolderWritingSystemRepository.Initialize(ProjectFolder);
+				return m_wsRepository = LdmlInFolderWritingSystemRepository.Initialize(FileSystemUtils.GetShortName(ProjectFolder));
 			}
 		}
 

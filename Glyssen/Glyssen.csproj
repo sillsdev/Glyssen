@@ -253,6 +253,7 @@
     <Compile Include="ScrStylesheetAdapter.cs" />
     <Compile Include="SfmLoader.cs" />
     <Compile Include="UsxParser.cs" />
+    <Compile Include="Utilities\FileSystemUtils.cs" />
     <Compile Include="Utilities\MathUtilities.cs" />
     <Compile Include="Utilities\StringExtensions.cs" />
     <Compile Include="Utilities\VerseRefExtensions.cs" />
