@@ -63,20 +63,31 @@ namespace Glyssen.Dialogs
 
 		protected BookScript CurrentBook { get { return m_navigator.CurrentBook; } }
 
-		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.AllScripture) : this(project, mode, null)
+		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.AllScripture, ProjectMetadataViewModel metadataViewModel = null)
+			: this(project, mode, null, metadataViewModel)
 		{
 		}
 
-		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode, BookBlockIndices startingIndices)
+		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode, BookBlockIndices startingIndices, ProjectMetadataViewModel metadataViewModel = null)
 		{
 			m_project = project;
 			m_navigator = new BlockNavigator(project.IncludedBooks);
 			m_includedBooks = project.IncludedBooks.Select(b => b.BookId);
-			m_fontFamily = project.FontFamily;
-			m_baseFontSizeInPoints = project.FontSizeInPoints;
-			FontSizeUiAdjustment = project.FontSizeUiAdjustment;
-			m_rightToLeftScript = project.RightToLeftScript;
 			Versification = project.Versification;
+
+			if (metadataViewModel != null)
+			{
+				m_fontFamily = metadataViewModel.WsModel.CurrentDefaultFontName;
+				m_baseFontSizeInPoints = (int)metadataViewModel.WsModel.CurrentDefaultFontSize;
+				m_rightToLeftScript = metadataViewModel.WsModel.CurrentRightToLeftScript;
+			}
+			else
+			{
+				m_fontFamily = project.FontFamily;
+				m_baseFontSizeInPoints = project.FontSizeInPoints;
+				m_rightToLeftScript = project.RightToLeftScript;
+			}
+			FontSizeUiAdjustment = project.FontSizeUiAdjustment;
 
 			Mode = mode;
 
