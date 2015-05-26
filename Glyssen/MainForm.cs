@@ -173,26 +173,47 @@ namespace Glyssen
 			string projFilePath;
 			// See if we already have project(s) for this bundle and give the user the option of opening an existing project instead.
 			var publicationFolder = Project.GetPublicationFolderPath(bundle);
-			if (Directory.Exists(publicationFolder) && 
-				Directory.GetDirectories(publicationFolder).Any(f => Directory.GetFiles(f, "*" + Project.kProjectFileExtension).Any()))
+			if (Directory.Exists(publicationFolder) &&
+				Directory.GetDirectories(publicationFolder).Any(f => Directory.GetFiles(f, "*" + Project.kProjectFileExtension)
+					.Any(filename => GlyssenDblTextMetadata.GetRevision(filename) == bundle.Metadata.Revision)))
 			{
 				using (var dlg = new SelectExistingProjectDlg(bundle))
 				{
 					dlg.ShowDialog(this);
+					if (dlg.SelectedProject == null)
+					{
+						// User clicked the red X. Let's just pretend this whole nightmare never happened.
+						return;
+					}
 					projFilePath = dlg.SelectedProject;
+
 				}
 			}
 			else
 				projFilePath = Project.GetDefaultProjectFilePath(bundle);
-			
-			if (File.Exists(projFilePath))
-			{
-				LoadProject(projFilePath);
-				bundle.Dispose();
-				return;
-			}
 
 			var recordingProjectName = Path.GetFileName(Path.GetDirectoryName(projFilePath));
+			if (File.Exists(projFilePath))
+			{
+				if (GlyssenDblTextMetadata.GetRevision(projFilePath) == bundle.Metadata.Revision)
+				{
+					LoadProject(projFilePath);
+					bundle.Dispose();
+					return;
+				}
+				// If we get here, then the Select Existing Project dialog was not displayed, but there is
+				// already a project with the same path (i.e., for a different revision). So we need to
+				// generate a unique revision-specific project path
+				var baserecordingProjectName = recordingProjectName;
+				recordingProjectName = string.Format("{0} (Rev {1})", baserecordingProjectName, bundle.Metadata.Revision);
+				var path = Project.GetProjectFilePath(bundle.LanguageIso, bundle.Id, recordingProjectName);
+				for (int i = 1; File.Exists(path); i++)
+				{
+					recordingProjectName = string.Format("{0} (Rev {1}.{2})", baserecordingProjectName, bundle.Metadata.Revision, i);
+					path = Project.GetProjectFilePath(bundle.LanguageIso, bundle.Id, recordingProjectName);
+				}
+			}
+			
 			Versification.Table.HandleVersificationLineError = null;
 			try
 			{

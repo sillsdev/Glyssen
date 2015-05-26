@@ -160,6 +160,13 @@ namespace Glyssen.Bundle
 				Language = new GlyssenDblMetadataLanguage();
 		}
 
+		public static int GetRevision(string filename)
+		{
+			Exception exception;
+			var metadata = XmlSerializationHelper.DeserializeFromFile<GlyssenDblTextMetadata>(filename, out exception);
+			return metadata != null ? metadata.Revision : -1;
+		}
+
 		#region Deprecated properties used only for deserialization of projects with an old version of the data
 		/// <summary>
 		/// This data is now stored in LDML.
