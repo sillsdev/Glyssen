@@ -5705,9 +5705,9 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	20	17	Isaiah		Isaiah, the prophet (word of the LORD)	Normal		
 2KI	20	18	Isaiah		Isaiah, the prophet (word of the LORD)	Normal		
 2KI	20	19	Hezekiah, king of Judah			Normal		
-2KI	21	4	God		God (the LORD) 	Quotation		
-2KI	21	7	God		God (the LORD) 	Quotation		
-2KI	21	8	God		God (the LORD) 	Quotation		
+2KI	21	4	God		God (the LORD)	Quotation		
+2KI	21	7	God		God (the LORD)	Quotation		
+2KI	21	8	God		God (the LORD)	Quotation		
 2KI	21	11	prophets (speaking the word of the LORD)			Normal		
 2KI	21	12	prophets (speaking the word of the LORD)			Normal		
 2KI	21	13	prophets (speaking the word of the LORD)			Normal		
@@ -8526,8 +8526,8 @@ JER	5	8	God		God (the LORD)	Normal
 JER	5	9	God		God (the LORD)	Normal		
 JER	5	10	God		God (the LORD)	Normal		
 JER	5	11	God		God (the LORD)	Normal		
-JER	5	12	Israel		 	Quotation		
-JER	5	13	Israel		 	Quotation		
+JER	5	12	Israel			Quotation		
+JER	5	13	Israel			Quotation		
 JER	5	14	God		God (the LORD God Almighty)	Normal		
 JER	5	15	God		God (the LORD)	Normal		
 JER	5	16	God		God (the LORD)	Normal		
@@ -8807,7 +8807,7 @@ JER	19	10	God		God (the LORD)	Normal
 JER	19	11	God		God (the LORD)	Normal		
 JER	19	12	God		God (the LORD)	Normal		
 JER	19	13	God		God (the LORD)	Normal		
-JER	19	15	Jeremiah		 	Normal		
+JER	19	15	Jeremiah			Normal		
 JER	19	15	God		God (the LORD Almighty)	Normal		
 JER	20	3	Jeremiah			Normal		
 JER	20	4	Jeremiah			Normal		
@@ -11654,7 +11654,7 @@ MAT	8	12	Jesus			Dialogue
 MAT	8	13	Jesus	giving orders		Dialogue		
 MAT	8	17	scripture			Quotation	Isaiah	
 MAT	8	18	Jesus	giving orders		Indirect		
-MAT	8	19	teacher of religious law	eager	teachers of religious law, one of the 	Dialogue		MAT 8.19;LUK 9.57
+MAT	8	19	teacher of religious law	eager	teachers of religious law, one of the	Dialogue		MAT 8.19;LUK 9.57
 MAT	8	20	Jesus	questioning		Dialogue		
 MAT	8	21	disciple who wanted to bury his father	making excuse	disciple, another	Dialogue		MAT 8.21;LUK 9.59
 MAT	8	22	Jesus	giving orders		Dialogue		
@@ -12366,8 +12366,8 @@ MAT	27	50	Jesus	crying		Indirect
 MAT	27	54	centurion at crucifixion	amazed		Dialogue		
 MAT	27	58	Joseph of Arimathea			Indirect		
 MAT	27	58	Pilate			Indirect		
-MAT	27	63	teachers of religious law/Pharisees	negotiating	chief 	Dialogue		
-MAT	27	64	teachers of religious law/Pharisees	negotiating	chief 	Dialogue		
+MAT	27	63	teachers of religious law/Pharisees	negotiating	chief	Dialogue		
+MAT	27	64	teachers of religious law/Pharisees	negotiating	chief	Dialogue		
 MAT	27	65	Pilate	impatient		Dialogue		
 MAT	28	5	angels in white, two		angel	Dialogue		MAT 28.5-6;MRK 16.6;LUK 24.6
 MAT	28	6	angels in white, two		angel	Dialogue		MAT 28.5-6;MRK 16.6;LUK 24.6
@@ -12876,7 +12876,7 @@ MRK	15	26	sign on the cross			Quotation
 MRK	15	28	scripture			Quotation		
 MRK	15	29	passers by	insulting		Dialogue		
 MRK	15	30	passers by	insulting		Normal		
-MRK	15	31	chief priests/teachers of religious law/elders	sneering	chief priests/teachers of the law 	Dialogue		MAT 27.42;MRK 15.31-32;LUK 23.35
+MRK	15	31	chief priests/teachers of religious law/elders	sneering	chief priests/teachers of the law	Dialogue		MAT 27.42;MRK 15.31-32;LUK 23.35
 MRK	15	32	chief priests/teachers of religious law/elders	sneering	chief priests/teachers of the law	Normal		MAT 27.42;MRK 15.31-32;LUK 23.35
 MRK	15	34	Jesus			Normal		
 MRK	15	34	narrator-MRK			Quotation		

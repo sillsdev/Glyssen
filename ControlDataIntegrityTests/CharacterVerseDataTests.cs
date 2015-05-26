@@ -29,6 +29,7 @@ namespace ControlDataIntegrityTests
 		public void DataIntegrity_RequiredFieldsHaveValidFormatAndThereAreNoDuplicateLines()
 		{
 			Regex regex = new Regex("^(?<bookId>...)\t(?<chapter>\\d+)\t(?<verse>\\d+)(-(?<endVerse>\\d+))?\t(?<character>[^\t]+)\t(?<delivery>[^\t]*)\t(?<alias>[^\t]*)\t(?<type>(Normal)|(Dialogue)|(Implicit)|(Indirect)|(Potential)|(Quotation)|(Hypothetical)|(FALSE))(\t(?<defaultCharacter>[^\t]*))?", RegexOptions.Compiled);
+			Regex extraSpacesRegex = new Regex("^ |\t | \t| $", RegexOptions.Compiled);
 			string[] allLines = Resources.CharacterVerseData.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
 			var set = new HashSet<string>();
@@ -76,6 +77,9 @@ namespace ControlDataIntegrityTests
 
 				var matchResult = match.Result("$&");
 				Assert.IsTrue(set.Add(matchResult), "Duplicate line: " + matchResult);
+
+				var extraSpacesMatch = extraSpacesRegex.Match(line);
+				Assert.IsFalse(extraSpacesMatch.Success, "Line with extra space(s): " + line);
 			}
 		}
 

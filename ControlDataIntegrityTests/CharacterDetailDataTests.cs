@@ -23,6 +23,7 @@ namespace ControlDataIntegrityTests
 		public void DataIntegrity_RequiredFieldsHaveValidFormatAndThereAreNoDuplicateLines()
 		{
 			Regex regex = new Regex("^[^\t]+\t((TRUE)|(FALSE))\t((Male)|(Female)|(Both)|(Unknown)|(Pref: Male)|(Pref: Female))?\t[^\t]*\t[^\t]*", RegexOptions.Compiled);
+			Regex extraSpacesRegex = new Regex("^ |\t | \t| $", RegexOptions.Compiled);
 			string[] allLines = Resources.CharacterDetail.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
 			var set = new HashSet<string>();
@@ -36,6 +37,9 @@ namespace ControlDataIntegrityTests
 
 				var matchResult = match.Result("$&");
 				Assert.IsTrue(set.Add(matchResult), "Duplicate line: " + matchResult);
+
+				var extraSpacesMatch = extraSpacesRegex.Match(line);
+				Assert.IsFalse(extraSpacesMatch.Success, "Line with extra space(s): " + line);
 			}
 		}
 
