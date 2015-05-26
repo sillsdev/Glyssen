@@ -14,15 +14,13 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using DesktopAnalytics;
-using L10NSharp;
-using L10NSharp.UI;
-using Paratext;
 using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Utilities;
-using SIL.ScriptureControls;
+using L10NSharp;
+using L10NSharp.UI;
+using Paratext;
 using SIL.Windows.Forms.PortableSettingsProvider;
-using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Dialogs
 {

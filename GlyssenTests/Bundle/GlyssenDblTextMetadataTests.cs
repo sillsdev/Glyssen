@@ -103,7 +103,7 @@ namespace GlyssenTests.Bundle
 		[Test]
 		public void Serialize()
 		{
-			var metadata = new GlyssenDblTextMetadata()
+			var metadata = new GlyssenDblTextMetadata
 			{
 				Id = "id",
 				Revision = 1,

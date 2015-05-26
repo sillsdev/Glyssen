@@ -3,9 +3,8 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using Glyssen;
-using L10NSharp;
 using Glyssen.Bundle;
+using L10NSharp;
 using SIL.IO;
 
 namespace Glyssen.Dialogs
@@ -242,7 +241,7 @@ namespace Glyssen.Dialogs
 					reparseOkay = true;
 			}
 
-			using (var viewModel = new BlockNavigatorViewModel(m_model.Project, BlocksToDisplay.AllExpectedQuotes))
+			using (var viewModel = new BlockNavigatorViewModel(m_model.Project, BlocksToDisplay.AllExpectedQuotes, m_model))
 				using (var dlg = new QuotationMarksDlg(m_model.Project, viewModel, !reparseOkay))
 					if (dlg.ShowDialog(this) == DialogResult.OK)
 						UpdateDisplay();

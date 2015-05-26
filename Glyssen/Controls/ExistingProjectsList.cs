@@ -4,9 +4,8 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using Glyssen;
-using L10NSharp;
 using Glyssen.Bundle;
+using L10NSharp;
 using SIL.Windows.Forms.PortableSettingsProvider;
 
 namespace Glyssen.Controls

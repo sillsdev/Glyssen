@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Glyssen;
 using Paratext;
 using SIL.Windows.Forms.WritingSystems;
 

@@ -4,9 +4,8 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using Glyssen;
-using Paratext;
 using Glyssen.Character;
+using Paratext;
 using SIL.ScriptureUtils;
 using ScrVers = Paratext.ScrVers;
 
@@ -63,20 +62,31 @@ namespace Glyssen.Dialogs
 
 		protected BookScript CurrentBook { get { return m_navigator.CurrentBook; } }
 
-		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.AllScripture) : this(project, mode, null)
+		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.AllScripture, ProjectMetadataViewModel metadataViewModel = null)
+			: this(project, mode, null, metadataViewModel)
 		{
 		}
 
-		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode, BookBlockIndices startingIndices)
+		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode, BookBlockIndices startingIndices, ProjectMetadataViewModel metadataViewModel = null)
 		{
 			m_project = project;
 			m_navigator = new BlockNavigator(project.IncludedBooks);
 			m_includedBooks = project.IncludedBooks.Select(b => b.BookId);
-			m_fontFamily = project.FontFamily;
-			m_baseFontSizeInPoints = project.FontSizeInPoints;
-			FontSizeUiAdjustment = project.FontSizeUiAdjustment;
-			m_rightToLeftScript = project.RightToLeftScript;
 			Versification = project.Versification;
+
+			if (metadataViewModel != null)
+			{
+				m_fontFamily = metadataViewModel.WsModel.CurrentDefaultFontName;
+				m_baseFontSizeInPoints = (int)metadataViewModel.WsModel.CurrentDefaultFontSize;
+				m_rightToLeftScript = metadataViewModel.WsModel.CurrentRightToLeftScript;
+			}
+			else
+			{
+				m_fontFamily = project.FontFamily;
+				m_baseFontSizeInPoints = project.FontSizeInPoints;
+				m_rightToLeftScript = project.RightToLeftScript;
+			}
+			FontSizeUiAdjustment = project.FontSizeUiAdjustment;
 
 			Mode = mode;
 
@@ -263,7 +273,7 @@ namespace Glyssen.Dialogs
 
 		private string BuildHtml(Block block)
 		{
-			string text = block.GetTextAsHtml(m_showVerseNumbers);
+			string text = block.GetTextAsHtml(m_showVerseNumbers, m_rightToLeftScript);
 			var bldr = new StringBuilder();
 			bldr.Append("<div");
 			if (block.StyleTag.StartsWith("s"))

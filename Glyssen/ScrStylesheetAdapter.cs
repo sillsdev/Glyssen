@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.Linq;
 using Paratext;
 using SIL.DblBundle;
-using SIL.DblBundle.Usx;
 
 namespace Glyssen
 {

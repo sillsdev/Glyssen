@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using DesktopAnalytics;
-using Glyssen;
 using Glyssen.Bundle;
 using SIL.ScriptureUtils;
 

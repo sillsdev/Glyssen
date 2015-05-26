@@ -2,11 +2,9 @@
 using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
-using Glyssen;
+using Glyssen.Properties;
 using L10NSharp;
 using Microsoft.Win32;
-using Glyssen.Controls;
-using Glyssen.Properties;
 using SIL.Windows.Forms.PortableSettingsProvider;
 
 namespace Glyssen.Dialogs

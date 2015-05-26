@@ -9,14 +9,15 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using DesktopAnalytics;
-using L10NSharp;
-using Paratext;
 using Glyssen.Analysis;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Quote;
+using Glyssen.Utilities;
+using L10NSharp;
+using Paratext;
 using SIL.DblBundle;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
@@ -860,7 +861,7 @@ namespace Glyssen
 					return m_wsRepository;
 				if (!Directory.Exists(ProjectFolder))
 					Directory.CreateDirectory(ProjectFolder);
-				return m_wsRepository = LdmlInFolderWritingSystemRepository.Initialize(ProjectFolder);
+				return m_wsRepository = LdmlInFolderWritingSystemRepository.Initialize(FileSystemUtils.GetShortName(ProjectFolder));
 			}
 		}
 

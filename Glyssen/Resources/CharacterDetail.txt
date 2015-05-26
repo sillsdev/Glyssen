@@ -682,7 +682,7 @@ Naaman	FALSE	Male
 Naaman's servants	TRUE	Male		
 Nabal	FALSE	Male		
 Naboth	FALSE	Male		
-Nahash the Ammonite	FALSE													 Joel saying what the weakling should say
+Nahash the Ammonite	FALSE													Joel saying what the weakling should say
 Naomi	FALSE	Female		
 narrator-1CH	FALSE			
 narrator-1CO	FALSE			

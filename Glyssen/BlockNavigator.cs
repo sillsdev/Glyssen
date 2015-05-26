@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
 using Paratext;
-using SIL.ScriptureUtils;
 
 namespace Glyssen
 {
