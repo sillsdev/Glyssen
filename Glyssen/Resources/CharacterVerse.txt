@@ -11644,9 +11644,9 @@ MAT	7	27	Jesus	preaching		Normal
 MAT	8	2	leper	pleading		Dialogue		MAT 8.2;MRK 1.40;LUK 5.12
 MAT	8	3	Jesus			Dialogue		
 MAT	8	4	Jesus	giving orders		Dialogue		
-MAT	8	6	centurion with great faith	entreating		Dialogue		MAT 8.8;LUK 7.6
+MAT	8	6	centurion with great faith	entreating		Dialogue		
 MAT	8	7	Jesus			Dialogue		
-MAT	8	8	centurion with great faith	humbly		Dialogue		
+MAT	8	8	centurion with great faith	humbly		Dialogue		MAT 8.8-9;LUK 7.6-8
 MAT	8	9	centurion with great faith	humbly		Normal		MAT 8.9;LUK 7.8
 MAT	8	10	Jesus			Dialogue		
 MAT	8	11	Jesus			Dialogue		
@@ -12050,16 +12050,16 @@ MAT	20	25	Jesus			Dialogue
 MAT	20	26	Jesus			Normal		
 MAT	20	27	Jesus			Normal		
 MAT	20	28	Jesus			Normal		
-MAT	20	30	crowd			Indirect		MAT 20.30;MRK 10.47;LUK 18.37
+MAT	20	30	crowd at Jericho			Indirect		MAT 20.30;MRK 10.47;LUK 18.37
 MAT	20	30	blind men, two	shouting		Dialogue	Bartimaeus (a blind man)	MAT 20.30;MRK 10.47;LUK 18.38
-MAT	20	31	crowd	rebuking		Indirect		MAT 20.31;MRK 10.48;LUK 18.39
+MAT	20	31	crowd, many in the	rebuking	crowd at Jericho	Indirect		MAT 20.31;MRK 10.48;LUK 18.39
 MAT	20	31	blind men, two	shouting		Dialogue	Bartimaeus (a blind man)	MAT 20.31;MRK 10.48;LUK 18.39
 MAT	20	32	Jesus			Dialogue		
 MAT	20	33	blind men, two	begging		Dialogue	Bartimaeus (a blind man)	MAT 20.33;MRK 10.51;LUK 18.41
 MAT	21	2	Jesus			Normal		
 MAT	21	3	Jesus			Normal		
 MAT	21	5	scripture			Quotation	Zechariah	
-MAT	21	9	crowd near mount of Olives	praising		Dialogue		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13
+MAT	21	9	crowd preparing for Passover Feast	praising	crowd	Dialogue		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13
 MAT	21	10	people of Jerusalem		the whole city	Dialogue		
 MAT	21	11	crowd	praising		Dialogue		
 MAT	21	13	Jesus			Dialogue		
@@ -12070,12 +12070,12 @@ MAT	21	19	Jesus			Dialogue
 MAT	21	20	disciples			Dialogue		
 MAT	21	21	Jesus			Dialogue		
 MAT	21	22	Jesus			Normal		
-MAT	21	23	chief priests/elders	challenging	chief priests and the elders of the people	Dialogue		MAT 21.23;MRK 11.28;LUK 20.2
+MAT	21	23	chief priests/teachers of religious law/elders	challenging	chief priests and the elders of the people	Dialogue		MAT 21.23;MRK 11.28;LUK 20.2
 MAT	21	24	Jesus			Dialogue		
 MAT	21	25	Jesus			Normal		
-MAT	21	25	chief priests/elders	to themselves	chief priests and the elders of the people	Normal		MAT 21.25;MRK 11.31;LUK 20.5
-MAT	21	26	chief priests/elders	to themselves	chief priests and the elders of the people	Normal		MAT 21.26;MRK 11.32;LUK 20.6
-MAT	21	27	chief priests/elders		chief priests and the elders of the people	Dialogue		MAT 21.27;MRK 11.33;LUK 20.7
+MAT	21	25	chief priests/teachers of religious law/elders	to themselves	chief priests and the elders of the people	Normal		MAT 21.25;MRK 11.31;LUK 20.5
+MAT	21	26	chief priests/teachers of religious law/elders	to themselves	chief priests and the elders of the people	Normal		MAT 21.26;MRK 11.32;LUK 20.6
+MAT	21	27	chief priests/teachers of religious law/elders		chief priests and the elders of the people	Dialogue		MAT 21.27;MRK 11.33;LUK 20.7
 MAT	21	27	Jesus			Dialogue		MAT 21.27;MRK 11.33;LUK 20.8
 MAT	21	28	Jesus			Dialogue		
 MAT	21	29	Jesus			Normal		
@@ -12286,7 +12286,7 @@ MAT	26	18	Jesus			Normal
 MAT	26	21	Jesus			Dialogue		MAT 26.21;MRK 14.18
 MAT	26	22	disciples	sad		Dialogue		MAT 26.22;MRK 14.19;LUK 22.23
 MAT	26	23	Jesus			Dialogue		MAT 26.23;MRK 14.20
-MAT	26	24	Jesus			Dialogue		MAT 26.23;MRK 14.20
+MAT	26	24	Jesus			Dialogue		
 MAT	26	25	Jesus			Dialogue		
 MAT	26	25	Judas Iscariot	fake innocence		Dialogue		
 MAT	26	26	Jesus			Dialogue		
@@ -12324,7 +12324,7 @@ MAT	26	66	chief priests/Sanhedrin		chief priests/whole Sanhedrin	Dialogue		MAT 2
 MAT	26	68	chief priests/Sanhedrin	mocking	chief priests/whole Sanhedrin	Dialogue		MAT 26.68;MRK 14.65
 MAT	26	69	servant girl at high priest's courtyard			Dialogue		MAT 26.69;MRK 14.67;LUK 22.56;JHN 18.17
 MAT	26	70	Peter (Simon)	denial		Dialogue		
-MAT	26	71	servant girl, another			Dialogue		MAT 26.71;MRK 14.69;LUK 22.58;JHN 18.25
+MAT	26	71	servant girl, another			Dialogue		*different speakers;MAT 26.71;MRK 14.69;LUK 22.58;JHN 18.25
 MAT	26	72	Peter (Simon)	denial, stronger		Dialogue		
 MAT	26	73	high priest's servant/those standing near	accusing	those standing near	Dialogue	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
 MAT	26	74	Peter (Simon)	denial, strongest		Dialogue		
@@ -12400,7 +12400,7 @@ MRK	1	41	Jesus	compassionately		Dialogue
 MRK	1	43	Jesus	warning		Indirect		
 MRK	1	44	Jesus			Normal		
 MRK	2	5	Jesus			Dialogue		
-MRK	2	7	teachers of religious law	thinking		Normal		MRK 2.7;LUK 5.21
+MRK	2	7	teachers of religious law/Pharisees	thinking	teachers of religious law	Normal		MRK 2.7;LUK 5.21
 MRK	2	8	Jesus	rebuking		Dialogue		
 MRK	2	9	Jesus			Normal		
 MRK	2	10	Jesus			Normal		
@@ -12624,7 +12624,7 @@ MRK	9	18	father of demon-possessed boy		man in crowd (father of demon-possessed 
 MRK	9	19	Jesus	exasperated		Dialogue		
 MRK	9	19	Jesus	giving orders		Dialogue		
 MRK	9	21	Jesus	questioning		Dialogue		
-MRK	9	21	father of demon-possessed boy	distraught		Dialogue		MAT 17.15-16;MRK 9.17-18,22;LUK 9.38-40
+MRK	9	21	father of demon-possessed boy	distraught		Dialogue		
 MRK	9	22	father of demon-possessed boy	distraught		Dialogue		MAT 17.15-16;MRK 9.17-18,22;LUK 9.38-40
 MRK	9	23	Jesus			Dialogue		
 MRK	9	24	father of demon-possessed boy			Dialogue		
@@ -12694,7 +12694,7 @@ MRK	10	44	Jesus			Normal
 MRK	10	45	Jesus			Normal		
 MRK	10	46	narrator-MRK			Quotation		
 MRK	10	46	Bartimaeus (a blind man)	begging		Indirect		MRK 10.46;LUK 18.35
-MRK	10	47	crowd			Indirect		MAT 20.30;MRK 10.47;LUK 18.37
+MRK	10	47	crowd at Jericho			Indirect		MAT 20.30;MRK 10.47;LUK 18.37
 MRK	10	47	Bartimaeus (a blind man)	shouting		Dialogue		MAT 20.30;MRK 10.47;LUK 18.38
 MRK	10	48	crowd, many in the	rebuking		Dialogue		MAT 20.31;MRK 10.48;LUK 18.39
 MRK	10	48	Bartimaeus (a blind man)	shouting		Dialogue		MAT 20.31;MRK 10.48;LUK 18.39
@@ -12708,8 +12708,8 @@ MRK	11	3	Jesus			Normal
 MRK	11	5	owners of colt	suspicious	people standing there	Normal		MRK 11.5;LUK 19.33
 MRK	11	6	disciples		disciples, two of His	Indirect		
 MRK	11	6	people			Indirect		
-MRK	11	9	crowd near mount of Olives	praising		Dialogue		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13
-MRK	11	10	crowd near mount of Olives	praising		Dialogue		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13
+MRK	11	9	crowd preparing for Passover Feast	praising	crowd	Dialogue		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13
+MRK	11	10	crowd preparing for Passover Feast	praising	crowd	Dialogue		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13
 MRK	11	14	Jesus			Normal		
 MRK	11	17	Jesus			Normal		
 MRK	11	21	Peter (Simon)	amazed		Dialogue		
@@ -12853,7 +12853,7 @@ MRK	14	64	chief priests/Sanhedrin			Dialogue		MAT 26.66;MRK 14.64
 MRK	14	65	chief priests/Sanhedrin	mocking		Dialogue		MAT 26.68;MRK 14.65
 MRK	14	67	servant girl at high priest's courtyard		one of the servant girls of the high priest	Dialogue		MAT 26.69;MRK 14.67;LUK 22.56;JHN 18.17
 MRK	14	68	Peter (Simon)	denial		Dialogue		
-MRK	14	69	servant girl at high priest's courtyard		servant girl	Dialogue		MAT 26.71;MRK 14.69;LUK 22.58;JHN 18.25
+MRK	14	69	servant girl at high priest's courtyard		servant girl	Dialogue		*different speakers;MAT 26.71;MRK 14.69;LUK 22.58;JHN 18.25
 MRK	14	70	Peter (Simon)	denial, stronger		Dialogue		
 MRK	14	70	high priest's servant/those standing near	accusing	those standing near	Dialogue	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
 MRK	14	71	Peter (Simon)	denial, strongest		Dialogue		
@@ -12877,8 +12877,8 @@ MRK	15	26	sign on the cross			Quotation
 MRK	15	28	scripture			Quotation		
 MRK	15	29	passers by	insulting		Dialogue		
 MRK	15	30	passers by	insulting		Normal		
-MRK	15	31	chief priests/teachers of religious law	sneering		Dialogue		MAT 27.42;MRK 15.31-32;LUK 23.35
-MRK	15	32	chief priests/teachers of religious law	sneering		Normal		MAT 27.42;MRK 15.31-32;LUK 23.35
+MRK	15	31	chief priests/teachers of religious law/elders	sneering		Dialogue		MAT 27.42;MRK 15.31-32;LUK 23.35
+MRK	15	32	chief priests/teachers of religious law/elders	sneering		Normal		MAT 27.42;MRK 15.31-32;LUK 23.35
 MRK	15	34	Jesus			Normal		
 MRK	15	34	narrator-MRK			Quotation		
 MRK	15	35	bystanders at Calvary, some	uneasy	some of the bystanders	Dialogue		MAT 27.47;MRK 15.35
@@ -13081,9 +13081,9 @@ LUK	6	48	Jesus			Normal
 LUK	6	49	Jesus			Normal		
 LUK	7	4	elders of the Jews	interceding		Dialogue	Good Priest	
 LUK	7	5	elders of the Jews	interceding		Dialogue	Good Priest	
-LUK	7	6	centurion with great faith	polite		Normal		MAT 8.8;LUK 7.6
-LUK	7	7	centurion with great faith	polite		Normal		
-LUK	7	8	centurion with great faith	polite		Normal		MAT 8.9;LUK 7.8
+LUK	7	6	centurion with great faith	polite		Normal		MAT 8.8-9;LUK 7.6-8
+LUK	7	7	centurion with great faith	polite		Normal		MAT 8.8-9;LUK 7.6-8
+LUK	7	8	centurion with great faith	polite		Normal		MAT 8.8-9;LUK 7.6-8
 LUK	7	9	Jesus			Dialogue		
 LUK	7	13	Jesus	compassionately		Dialogue		
 LUK	7	14	Jesus	giving orders		Dialogue		
@@ -13143,7 +13143,7 @@ LUK	8	28	demons/demon-possessed man (Legion)			Dialogue		MAT 8:29,31; MRK 5.7,9,
 LUK	8	29	Jesus			Indirect		
 LUK	8	30	demons/demon-possessed man (Legion)			Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 LUK	8	30	Jesus	questioning		Dialogue		
-LUK	8	31	demons/demon-possessed man (Legion)	begging		Indirect		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
+LUK	8	31	demons/demon-possessed man (Legion)	begging		Indirect		
 LUK	8	32	demons/demon-possessed man (Legion)	begging		Indirect		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 LUK	8	32	Jesus			Indirect		
 LUK	8	34	herdsmen of pigs			Indirect		
@@ -13552,9 +13552,9 @@ LUK	18	32	Jesus			Normal
 LUK	18	33	Jesus			Normal		
 LUK	18	35	Bartimaeus (a blind man)	begging		Indirect		MRK 10.46;LUK 18.35
 LUK	18	36	Bartimaeus (a blind man)			Indirect		
-LUK	18	37	crowd			Dialogue		MAT 20.30;MRK 10.47;LUK 18.37
+LUK	18	37	crowd at Jericho			Dialogue		MAT 20.30;MRK 10.47;LUK 18.37
 LUK	18	38	Bartimaeus (a blind man)	shouting		Dialogue		MAT 20.30;MRK 10.47;LUK 18.38
-LUK	18	39	crowd	rebuking		Dialogue		MAT 20.31;MRK 10.48;LUK 18.39
+LUK	18	39	crowd, many in the	rebuking	crowd at Jericho	Dialogue		MAT 20.31;MRK 10.48;LUK 18.39
 LUK	18	39	Bartimaeus (a blind man)	shouting		Dialogue		MAT 20.31;MRK 10.48;LUK 18.39
 LUK	18	40	Jesus	giving orders		Indirect		
 LUK	18	41	Jesus	questioning		Dialogue		
@@ -13587,7 +13587,7 @@ LUK	19	30	Jesus			Normal
 LUK	19	31	Jesus			Normal		
 LUK	19	33	owners of colt	suspicious		Dialogue		MRK 11.5;LUK 19.33
 LUK	19	34	disciples		disciples, two of His	Dialogue		
-LUK	19	38	crowd near mount of Olives	praising	whole crowd of disciples	Dialogue		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13
+LUK	19	38	crowd preparing for Passover Feast	praising	whole crowd of disciples	Dialogue		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13
 LUK	19	39	Pharisees	demanding		Dialogue		
 LUK	19	40	Jesus			Dialogue		
 LUK	19	42	Jesus			Normal		
@@ -13715,7 +13715,7 @@ LUK	22	52	Jesus			Dialogue
 LUK	22	53	Jesus			Normal		
 LUK	22	56	servant girl at high priest's courtyard		servant girl	Dialogue		MAT 26.69;MRK 14.67;LUK 22.56;JHN 18.17
 LUK	22	57	Peter (Simon)	denial		Dialogue		
-LUK	22	58	second person to accuse Peter (man)	accusing	someone else (man)	Dialogue		MAT 26.71;MRK 14.69;LUK 22.58;JHN 18.25
+LUK	22	58	second person to accuse Peter (man)	accusing	someone else (man)	Dialogue		*different speakers;MAT 26.71;MRK 14.69;LUK 22.58;JHN 18.25
 LUK	22	58	Peter (Simon)	denial, stronger		Dialogue		
 LUK	22	59	high priest's servant/those standing near	accusing	another (person in the courtyard)	Dialogue	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
 LUK	22	60	Peter (Simon)	denial, strongest		Dialogue		
@@ -13740,7 +13740,7 @@ LUK	23	15	Pilate	to crowd		Normal
 LUK	23	16	Pilate	to crowd		Normal		
 LUK	23	18	crowd	shouting	whole crowd	Dialogue		
 LUK	23	20	Pilate			Indirect		
-LUK	23	21	crowd		whole crowd	Dialogue	mob	MAT 27.23;MRK 15.14;LUK 23.21
+LUK	23	21	crowd before Pilate		whole crowd	Dialogue	mob	MAT 27.23;MRK 15.14;LUK 23.21
 LUK	23	22	Pilate	to crowd		Dialogue		
 LUK	23	23	crowd			Indirect		
 LUK	23	24	Pilate			Indirect		
@@ -14409,7 +14409,7 @@ JHN	18	20	Jesus			Dialogue
 JHN	18	21	Jesus			Dialogue		
 JHN	18	22	officials of high priest, one of the	gruff		Dialogue		
 JHN	18	23	Jesus			Dialogue		
-JHN	18	25	people in high priest's courtyard		they (people accusing Peter)	Dialogue	second person to accuse Peter (man)	MAT 26.71;MRK 14.69;LUK 22.58;JHN 18.25
+JHN	18	25	people in high priest's courtyard		they (people accusing Peter)	Dialogue	second person to accuse Peter (man)	*different speakers;MAT 26.71;MRK 14.69;LUK 22.58;JHN 18.25
 JHN	18	25	Peter (Simon)	denial, stronger		Dialogue		
 JHN	18	26	high priest's servant (relative of the man whose ear Peter cut off)	accusing		Dialogue		MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
 JHN	18	27	Peter (Simon)	denial, strongest		Indirect		

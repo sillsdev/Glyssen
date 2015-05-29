@@ -47,7 +47,7 @@ namespace Glyssen.Character
 		Potential,
 		/// <summary>
 		/// Speech not attributed to a real, historical figure. This includes things that someone
-		/// might say, predicted future speech*, hypothetical words expressing and attitude held
+		/// might say, predicted future speech*, hypothetical words expressing an attitude held
 		/// by a group, words attributed to personified objects, etc. *Note: future speech attributed
 		/// to a character in the context of a narrative-style vision (that can be presented
 		/// dramatically) need not be regarded as hypothetical.

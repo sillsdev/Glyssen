@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Glyssen.Character;
 using Glyssen.Properties;
+using Glyssen.Utilities;
 using NUnit.Framework;
+using Paratext;
 using SIL.ScriptureUtils;
 
 namespace ControlDataIntegrityTests
@@ -28,7 +30,7 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_RequiredFieldsHaveValidFormatAndThereAreNoDuplicateLines()
 		{
-			Regex regex = new Regex("^(?<bookId>...)\t(?<chapter>\\d+)\t(?<verse>\\d+)(-(?<endVerse>\\d+))?\t(?<character>[^\t]+)\t(?<delivery>[^\t]*)\t(?<alias>[^\t]*)\t(?<type>(Normal)|(Dialogue)|(Implicit)|(Indirect)|(Potential)|(Quotation)|(Hypothetical)|(FALSE))(\t(?<defaultCharacter>[^\t]*))?", RegexOptions.Compiled);
+			Regex regex = new Regex("^(?<bookId>...)\t(?<chapter>\\d+)\t(?<verse>\\d+)(-(?<endVerse>\\d+))?\t(?<character>[^\t]+)\t(?<delivery>[^\t]*)\t(?<alias>[^\t]*)\t(?<type>(Normal)|(Dialogue)|(Implicit)|(Indirect)|(Potential)|(Quotation)|(Hypothetical)|(FALSE))(\t(?<defaultCharacter>))?(\t(?<parallelPassageRef>))?", RegexOptions.Compiled);
 			Regex extraSpacesRegex = new Regex("^ |\t | \t| $", RegexOptions.Compiled);
 			string[] allLines = Resources.CharacterVerseData.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -139,6 +141,41 @@ namespace ControlDataIntegrityTests
 				"Default characters in Character-Verse data but not in Character-Detail:" +
 				Environment.NewLine +
 				missingDefaultCharacters.OnePerLineWithIndent());
+		}
+
+		[Test]
+		public void DataIntegrity_ParallelPassageReferences()
+		{
+			var referenceDoesntMatchLineFailures = new List<string>();
+			var charactersNotEqualFailures = new List<string>();
+
+			var allParallelPassageData = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Where(c => !string.IsNullOrEmpty(c.ParallelPassageReferences));
+			foreach (CharacterVerse cv in allParallelPassageData)
+			{
+				bool checkCharacters = !cv.ParallelPassageReferences.StartsWith("*");
+				ISet<BCVRef> parallelPassageVersesForCurrentDatum = new HashSet<BCVRef>();
+				foreach (var reference in cv.ParallelPassageReferences.Split(';'))
+				{
+					if (reference.StartsWith("*"))
+						continue;
+					var verseRefs = new VerseRef(reference.Trim().Replace(".", ":")).AllVerses();
+					foreach (var verseRef in verseRefs)
+						parallelPassageVersesForCurrentDatum.Add(new BCVRef(verseRef.BBBCCCVVV));
+				}
+
+				if (!parallelPassageVersesForCurrentDatum.Contains(cv.BcvRef))
+					referenceDoesntMatchLineFailures.Add(string.Format("{0}  =>  {1}", cv.BcvRef, cv.ParallelPassageReferences));
+
+				if (checkCharacters && !allParallelPassageData.Any(p => p.BookCode != cv.BookCode &&
+					(p.Character == cv.Character || p.Character == cv.DefaultCharacter || p.DefaultCharacter == cv.Character) && 
+					parallelPassageVersesForCurrentDatum.Contains(p.BcvRef)))
+					charactersNotEqualFailures.Add(string.Format("{0}  =>  {1}  =>  {2}", cv.BcvRef, cv.Character, cv.ParallelPassageReferences));
+			}
+
+			Assert.IsTrue(!referenceDoesntMatchLineFailures.Any(), "Parallel passage reference does not match the reference for this line:" + Environment.NewLine + 
+				referenceDoesntMatchLineFailures.OnePerLineWithIndent());
+			Assert.IsTrue(!charactersNotEqualFailures.Any(), "Characters do not match for one or more parallel passages:" + Environment.NewLine + 
+				charactersNotEqualFailures.OnePerLineWithIndent());
 		}
 	}
 }
