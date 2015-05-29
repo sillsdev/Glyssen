@@ -424,7 +424,7 @@ Jabesh, elders of	TRUE	Male
 Jabesh, men of	TRUE	Male		
 Jabez	FALSE	Male		
 Jabez's mother	FALSE	Female		
-Jacob	FALSE	Male		
+Jacob (Israel)	FALSE	Male		
 Jacob's son (the one who discovered his silver in his sack)	TRUE	Male		
 Jacob's sons	TRUE	Male		
 Jacob's sons (not Simeon, Joseph, or Benjamin)	TRUE	Male		
@@ -985,8 +985,8 @@ singers from the ends of the earth	TRUE
 singers, and relatives	TRUE			
 sinners	TRUE			
 Sisera	FALSE	Male		
-Slave driver	FALSE			
-Slave girls	TRUE	Female		
+slave driver	FALSE			
+slave girls	TRUE	Female		
 soldier at the cross	FALSE	Male		
 Israelite fighting men	TRUE	Male		
 soldiers	TRUE	Male		

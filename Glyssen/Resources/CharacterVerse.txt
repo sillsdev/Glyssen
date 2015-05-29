@@ -346,9 +346,9 @@ GEN	24	65	Abraham's chief servant			Normal
 GEN	25	22	Rebekah			Normal		
 GEN	25	23	God		God (the LORD)	Normal		
 GEN	25	30	Esau			Normal		
-GEN	25	31	Jacob			Normal		
+GEN	25	31	Jacob (Israel)			Normal		
 GEN	25	32	Esau			Normal		
-GEN	25	33	Jacob			Normal		
+GEN	25	33	Jacob (Israel)			Normal		
 GEN	26	2	God		God (the LORD)	Normal		
 GEN	26	3	God		God (the LORD)	Normal		
 GEN	26	4	God		God (the LORD)	Normal		
@@ -380,17 +380,17 @@ GEN	27	7	Rebekah			Normal
 GEN	27	8	Rebekah			Normal		
 GEN	27	9	Rebekah			Normal		
 GEN	27	10	Rebekah			Normal		
-GEN	27	11	Jacob			Normal		
-GEN	27	12	Jacob			Normal		
+GEN	27	11	Jacob (Israel)			Normal		
+GEN	27	12	Jacob (Israel)			Normal		
 GEN	27	13	Rebekah			Normal		
 GEN	27	18	Isaac (old)			Normal		
-GEN	27	18	Jacob			Normal		
-GEN	27	19	Jacob			Normal		
+GEN	27	18	Jacob (Israel)			Normal		
+GEN	27	19	Jacob (Israel)			Normal		
 GEN	27	20	Isaac (old)			Normal		
 GEN	27	21	Isaac (old)			Normal		
 GEN	27	22	Isaac (old)			Normal		
 GEN	27	24	Isaac (old)			Normal		
-GEN	27	24	Jacob			Normal		
+GEN	27	24	Jacob (Israel)			Normal		
 GEN	27	25	Isaac (old)			Normal		
 GEN	27	26	Isaac (old)			Normal		
 GEN	27	27	Isaac (old)			Normal		
@@ -421,26 +421,26 @@ GEN	28	6	Isaac (old)			Quotation	narrator-GEN
 GEN	28	13	God		God (LORD stood in dream)	Normal		
 GEN	28	14	God		God (LORD stood in dream)	Normal		
 GEN	28	15	God		God (LORD stood in dream)	Normal		
-GEN	28	16	Jacob			Normal		
-GEN	28	17	Jacob			Normal		
-GEN	28	20	Jacob			Normal		
-GEN	28	21	Jacob			Normal		
-GEN	28	22	Jacob			Normal		
-GEN	29	4	Jacob			Dialogue		
+GEN	28	16	Jacob (Israel)			Normal		
+GEN	28	17	Jacob (Israel)			Normal		
+GEN	28	20	Jacob (Israel)			Normal		
+GEN	28	21	Jacob (Israel)			Normal		
+GEN	28	22	Jacob (Israel)			Normal		
+GEN	29	4	Jacob (Israel)			Dialogue		
 GEN	29	4	shepherds at well			Dialogue		
-GEN	29	5	Jacob			Dialogue		
+GEN	29	5	Jacob (Israel)			Dialogue		
 GEN	29	5	shepherds at well			Dialogue		
-GEN	29	6	Jacob			Dialogue		
+GEN	29	6	Jacob (Israel)			Dialogue		
 GEN	29	6	shepherds at well			Dialogue		
-GEN	29	7	Jacob			Dialogue		
+GEN	29	7	Jacob (Israel)			Dialogue		
 GEN	29	8	shepherds at well			Dialogue		
 GEN	29	14	Laban			Normal		
 GEN	29	15	Laban			Normal		
-GEN	29	18	Jacob			Normal		
+GEN	29	18	Jacob (Israel)			Normal		
 GEN	29	19	Laban			Normal		
-GEN	29	20	Jacob			Indirect		
-GEN	29	21	Jacob			Normal		
-GEN	29	25	Jacob			Normal		
+GEN	29	20	Jacob (Israel)			Indirect		
+GEN	29	21	Jacob (Israel)			Normal		
+GEN	29	25	Jacob (Israel)			Normal		
 GEN	29	26	Laban			Normal		
 GEN	29	27	Laban			Normal		
 GEN	29	32	Leah			Normal		
@@ -448,7 +448,7 @@ GEN	29	33	Leah			Normal
 GEN	29	34	Leah			Normal		
 GEN	29	35	Leah			Normal		
 GEN	30	1	Rachel			Normal		
-GEN	30	2	Jacob			Normal		
+GEN	30	2	Jacob (Israel)			Normal		
 GEN	30	3	Rachel			Normal		
 GEN	30	6	Rachel			Normal		
 GEN	30	8	Rachel			Normal		
@@ -462,28 +462,28 @@ GEN	30	18	Leah			Normal
 GEN	30	20	Leah			Normal		
 GEN	30	23	Rachel			Normal		
 GEN	30	24	Rachel			Normal		
-GEN	30	25	Jacob			Normal		
-GEN	30	26	Jacob			Normal		
+GEN	30	25	Jacob (Israel)			Normal		
+GEN	30	26	Jacob (Israel)			Normal		
 GEN	30	27	Laban			Normal		
 GEN	30	28	Laban			Normal		
-GEN	30	29	Jacob			Normal		
-GEN	30	30	Jacob			Normal		
+GEN	30	29	Jacob (Israel)			Normal		
+GEN	30	30	Jacob (Israel)			Normal		
 GEN	30	31	Laban			Normal		
-GEN	30	31	Jacob			Normal		
-GEN	30	32	Jacob			Normal		
-GEN	30	33	Jacob			Normal		
+GEN	30	31	Jacob (Israel)			Normal		
+GEN	30	32	Jacob (Israel)			Normal		
+GEN	30	33	Jacob (Israel)			Normal		
 GEN	30	34	Laban			Normal		
 GEN	31	1	Laban's sons			Normal		
 GEN	31	3	God		God (the LORD)	Normal		
-GEN	31	5	Jacob			Normal		
-GEN	31	6	Jacob			Normal		
-GEN	31	7	Jacob			Normal		
-GEN	31	8	Jacob			Normal		
-GEN	31	9	Jacob			Normal		
-GEN	31	10	Jacob			Normal		
-GEN	31	11	Jacob			Normal		
-GEN	31	12	Jacob			Normal		
-GEN	31	13	Jacob			Normal		
+GEN	31	5	Jacob (Israel)			Normal		
+GEN	31	6	Jacob (Israel)			Normal		
+GEN	31	7	Jacob (Israel)			Normal		
+GEN	31	8	Jacob (Israel)			Normal		
+GEN	31	9	Jacob (Israel)			Normal		
+GEN	31	10	Jacob (Israel)			Normal		
+GEN	31	11	Jacob (Israel)			Normal		
+GEN	31	12	Jacob (Israel)			Normal		
+GEN	31	13	Jacob (Israel)			Normal		
 GEN	31	14	Rachel/Leah			Normal	Rachel	
 GEN	31	15	Rachel/Leah			Normal	Rachel	
 GEN	31	16	Rachel/Leah			Normal	Rachel	
@@ -493,20 +493,20 @@ GEN	31	27	Laban			Normal
 GEN	31	28	Laban			Normal		
 GEN	31	29	Laban			Normal		
 GEN	31	30	Laban			Normal		
-GEN	31	31	Jacob			Normal		
-GEN	31	32	Jacob			Normal		
+GEN	31	31	Jacob (Israel)			Normal		
+GEN	31	32	Jacob (Israel)			Normal		
 GEN	31	35	Rachel			Normal		
-GEN	31	36	Jacob			Normal		
-GEN	31	37	Jacob			Normal		
-GEN	31	38	Jacob			Normal		
-GEN	31	39	Jacob			Normal		
-GEN	31	40	Jacob			Normal		
-GEN	31	41	Jacob			Normal		
-GEN	31	42	Jacob			Normal		
+GEN	31	36	Jacob (Israel)			Normal		
+GEN	31	37	Jacob (Israel)			Normal		
+GEN	31	38	Jacob (Israel)			Normal		
+GEN	31	39	Jacob (Israel)			Normal		
+GEN	31	40	Jacob (Israel)			Normal		
+GEN	31	41	Jacob (Israel)			Normal		
+GEN	31	42	Jacob (Israel)			Normal		
 GEN	31	43	Laban			Normal		
 GEN	31	44	Laban			Normal		
-GEN	31	46	Jacob			Normal		
-GEN	31	47	Jacob			Indirect		
+GEN	31	46	Jacob (Israel)			Normal		
+GEN	31	47	Jacob (Israel)			Indirect		
 GEN	31	47	Laban			Indirect		
 GEN	31	47	narrator-GEN			Quotation		
 GEN	31	48	Laban			Normal		
@@ -515,39 +515,39 @@ GEN	31	50	Laban			Normal
 GEN	31	51	Laban			Normal		
 GEN	31	52	Laban			Normal		
 GEN	31	53	Laban			Normal		
-GEN	32	2	Jacob			Normal		
-GEN	32	4	Jacob			Normal		
-GEN	32	5	Jacob			Normal		
+GEN	32	2	Jacob (Israel)			Normal		
+GEN	32	4	Jacob (Israel)			Normal		
+GEN	32	5	Jacob (Israel)			Normal		
 GEN	32	6	messengers sent by Jacob			Normal		
-GEN	32	8	Jacob	thought		Normal		
-GEN	32	9	Jacob	praying		Normal		
-GEN	32	10	Jacob	praying		Normal		
-GEN	32	11	Jacob	praying		Normal		
-GEN	32	12	Jacob	praying		Normal		
-GEN	32	16	Jacob			Normal		
-GEN	32	17	Jacob			Normal		
-GEN	32	18	Jacob			Normal		
-GEN	32	19	Jacob			Normal		
-GEN	32	20	Jacob	thought		Normal		
+GEN	32	8	Jacob (Israel)	thought		Normal		
+GEN	32	9	Jacob (Israel)	praying		Normal		
+GEN	32	10	Jacob (Israel)	praying		Normal		
+GEN	32	11	Jacob (Israel)	praying		Normal		
+GEN	32	12	Jacob (Israel)	praying		Normal		
+GEN	32	16	Jacob (Israel)			Normal		
+GEN	32	17	Jacob (Israel)			Normal		
+GEN	32	18	Jacob (Israel)			Normal		
+GEN	32	19	Jacob (Israel)			Normal		
+GEN	32	20	Jacob (Israel)	thought		Normal		
 GEN	32	26	angel who wrestled with Jacob		the man (angel)	Normal		
-GEN	32	26	Jacob			Normal		
+GEN	32	26	Jacob (Israel)			Normal		
 GEN	32	27	angel who wrestled with Jacob			Normal		
-GEN	32	27	Jacob			Normal		
+GEN	32	27	Jacob (Israel)			Normal		
 GEN	32	28	angel who wrestled with Jacob		the man (angel)	Normal		
-GEN	32	29	Jacob			Normal		
+GEN	32	29	Jacob (Israel)			Normal		
 GEN	32	29	angel who wrestled with Jacob		the man (angel)	Normal		
-GEN	32	30	Jacob			Normal		
+GEN	32	30	Jacob (Israel)			Normal		
 GEN	33	5	Esau			Normal		
-GEN	33	5	Jacob			Normal		
-GEN	33	8	Jacob			Normal		
+GEN	33	5	Jacob (Israel)			Normal		
+GEN	33	8	Jacob (Israel)			Normal		
 GEN	33	8	Esau			Normal		
 GEN	33	9	Esau			Normal		
-GEN	33	10	Jacob			Normal		
-GEN	33	11	Jacob			Normal		
+GEN	33	10	Jacob (Israel)			Normal		
+GEN	33	11	Jacob (Israel)			Normal		
 GEN	33	12	Esau			Normal		
-GEN	33	13	Jacob			Normal		
-GEN	33	14	Jacob			Normal		
-GEN	33	15	Jacob			Normal		
+GEN	33	13	Jacob (Israel)			Normal		
+GEN	33	14	Jacob (Israel)			Normal		
+GEN	33	15	Jacob (Israel)			Normal		
 GEN	33	15	Esau			Normal		
 GEN	34	4	Shechem, son of Hamor			Normal		
 GEN	34	8	Hamor			Normal		
@@ -562,11 +562,11 @@ GEN	34	17	Jacob's sons			Normal	Levi
 GEN	34	21	Hamor/Shechem			Normal	Hamor	
 GEN	34	22	Hamor/Shechem			Normal	Hamor	
 GEN	34	23	Hamor/Shechem			Normal	Shechem	
-GEN	34	30	Jacob			Normal		
+GEN	34	30	Jacob (Israel)			Normal		
 GEN	34	31	Simeon/Levi			Normal	Simeon	
 GEN	35	1	God		God (the LORD)	Normal		
-GEN	35	2	Jacob			Normal		
-GEN	35	3	Jacob			Normal		
+GEN	35	2	Jacob (Israel)			Normal		
+GEN	35	3	Jacob (Israel)			Normal		
 GEN	35	10	God	blessing	God (LORD appeared)	Normal		
 GEN	35	11	God		God (LORD appeared)	Normal		
 GEN	35	12	God		God (LORD appeared)	Normal		
@@ -575,10 +575,10 @@ GEN	37	6	Joseph			Normal
 GEN	37	7	Joseph			Normal		
 GEN	37	8	Joseph's brothers			Normal	Simeon	
 GEN	37	9	Joseph			Normal		
-GEN	37	10	Jacob			Normal		
-GEN	37	13	Jacob			Normal		
+GEN	37	10	Jacob (Israel)			Normal		
+GEN	37	13	Jacob (Israel)			Normal		
 GEN	37	13	Joseph			Normal		
-GEN	37	14	Jacob			Normal		
+GEN	37	14	Jacob (Israel)			Normal		
 GEN	37	15	man (at Shechem)			Normal		
 GEN	37	16	Joseph			Normal		
 GEN	37	17	man (at Shechem)			Normal		
@@ -591,8 +591,8 @@ GEN	37	27	Judah			Normal
 GEN	37	27	Jacob's sons			Indirect		
 GEN	37	30	Reuben			Normal		
 GEN	37	32	Jacob's sons			Normal	Simeon	
-GEN	37	33	Jacob			Normal		
-GEN	37	35	Jacob			Normal		
+GEN	37	33	Jacob (Israel)			Normal		
+GEN	37	35	Jacob (Israel)			Normal		
 GEN	38	3	Shua (Judah's wife)			Indirect		
 GEN	38	3	narrator-GEN			Quotation		
 GEN	38	4	Shua (Judah's wife)			Indirect		
@@ -678,9 +678,9 @@ GEN	41	44	Pharaoh (2nd)		Pharaoh	Normal
 GEN	41	51	Joseph			Normal		
 GEN	41	52	Joseph			Normal		
 GEN	41	55	Pharaoh (2nd)		Pharaoh	Normal		
-GEN	42	1	Jacob			Normal		
-GEN	42	2	Jacob			Normal		
-GEN	42	4	Jacob			Indirect		
+GEN	42	1	Jacob (Israel)			Normal		
+GEN	42	2	Jacob (Israel)			Normal		
+GEN	42	4	Jacob (Israel)			Indirect		
 GEN	42	7	Joseph			Normal		
 GEN	42	7	Jacob's sons		Joseph's brothers	Normal	Reuben	
 GEN	42	9	Joseph			Normal		
@@ -707,22 +707,22 @@ GEN	42	31	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben
 GEN	42	32	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
 GEN	42	33	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
 GEN	42	34	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
-GEN	42	36	Jacob			Normal		
+GEN	42	36	Jacob (Israel)			Normal		
 GEN	42	37	Reuben			Normal		
-GEN	42	38	Jacob			Normal		
-GEN	43	2	Jacob			Normal		
+GEN	42	38	Jacob (Israel)			Normal		
+GEN	43	2	Jacob (Israel)			Normal		
 GEN	43	3	Judah			Normal		
 GEN	43	4	Judah			Normal		
 GEN	43	5	Judah			Normal		
-GEN	43	6	Jacob			Normal		
+GEN	43	6	Jacob (Israel)			Normal		
 GEN	43	7	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
 GEN	43	8	Judah			Normal		
 GEN	43	9	Judah			Normal		
 GEN	43	10	Judah			Normal		
-GEN	43	11	Jacob			Normal		
-GEN	43	12	Jacob			Normal		
-GEN	43	13	Jacob			Normal		
-GEN	43	14	Jacob			Normal		
+GEN	43	11	Jacob (Israel)			Normal		
+GEN	43	12	Jacob (Israel)			Normal		
+GEN	43	13	Jacob (Israel)			Normal		
+GEN	43	14	Jacob (Israel)			Normal		
 GEN	43	16	Joseph			Normal		
 GEN	43	18	Jacob's sons (not Simeon, Joseph, or Benjamin)	thought		Normal	Levi	
 GEN	43	20	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
@@ -784,12 +784,12 @@ GEN	45	19	Pharaoh (2nd)		Pharaoh	Normal
 GEN	45	20	Pharaoh (2nd)		Pharaoh	Normal		
 GEN	45	24	Joseph			Normal		
 GEN	45	26	Joseph's brothers			Normal	Benjamin	
-GEN	45	28	Jacob			Normal		
+GEN	45	28	Jacob (Israel)			Normal		
 GEN	46	2	God		God (in vision at night)	Normal		
-GEN	46	2	Jacob			Normal		
+GEN	46	2	Jacob (Israel)			Normal		
 GEN	46	3	God		God (in vision at night)	Normal		
 GEN	46	4	God		God (in vision at night)	Normal		
-GEN	46	30	Jacob			Normal		
+GEN	46	30	Jacob (Israel)			Normal		
 GEN	46	31	Joseph			Normal		
 GEN	46	32	Joseph			Normal		
 GEN	46	33	Joseph			Normal		
@@ -802,7 +802,7 @@ GEN	47	5	Pharaoh (2nd)		Pharaoh	Normal
 GEN	47	6	Pharaoh (2nd)		Pharaoh	Normal		
 GEN	47	7	Joseph			Indirect		
 GEN	47	8	Pharaoh (2nd)		Pharaoh	Normal		
-GEN	47	9	Jacob			Normal		
+GEN	47	9	Jacob (Israel)			Normal		
 GEN	47	10	Joseph			Indirect		
 GEN	47	15	Egyptians, all the			Normal		
 GEN	47	16	Joseph			Normal		
@@ -811,59 +811,59 @@ GEN	47	19	Egyptians, all the			Normal
 GEN	47	23	Joseph			Normal		
 GEN	47	24	Joseph			Normal		
 GEN	47	25	Egyptians, all the			Normal		
-GEN	47	29	Jacob			Normal		
-GEN	47	30	Jacob			Normal		
+GEN	47	29	Jacob (Israel)			Normal		
+GEN	47	30	Jacob (Israel)			Normal		
 GEN	47	30	Joseph			Normal		
-GEN	47	31	Jacob			Normal		
+GEN	47	31	Jacob (Israel)			Normal		
 GEN	48	1	news giver to Joseph			Normal		
 GEN	48	2	news giver to Jacob			Normal		
-GEN	48	3	Jacob			Normal		
-GEN	48	4	Jacob			Normal		
-GEN	48	5	Jacob			Normal		
-GEN	48	6	Jacob			Normal		
-GEN	48	7	Jacob			Normal		
-GEN	48	8	Jacob			Normal		
+GEN	48	3	Jacob (Israel)			Normal		
+GEN	48	4	Jacob (Israel)			Normal		
+GEN	48	5	Jacob (Israel)			Normal		
+GEN	48	6	Jacob (Israel)			Normal		
+GEN	48	7	Jacob (Israel)			Normal		
+GEN	48	8	Jacob (Israel)			Normal		
 GEN	48	9	Joseph			Normal		
-GEN	48	9	Jacob			Normal		
-GEN	48	11	Jacob			Normal		
-GEN	48	15	Jacob			Normal		
-GEN	48	16	Jacob			Normal		
+GEN	48	9	Jacob (Israel)			Normal		
+GEN	48	11	Jacob (Israel)			Normal		
+GEN	48	15	Jacob (Israel)			Normal		
+GEN	48	16	Jacob (Israel)			Normal		
 GEN	48	18	Joseph			Normal		
-GEN	48	19	Jacob			Normal		
-GEN	48	20	Jacob			Normal		
-GEN	48	21	Jacob			Normal		
-GEN	48	22	Jacob			Normal		
-GEN	49	1	Jacob			Normal		
-GEN	49	2	Jacob			Normal		
-GEN	49	3	Jacob			Normal		
-GEN	49	4	Jacob			Normal		
-GEN	49	5	Jacob			Normal		
-GEN	49	6	Jacob			Normal		
-GEN	49	7	Jacob			Normal		
-GEN	49	8	Jacob			Normal		
-GEN	49	9	Jacob			Normal		
-GEN	49	10	Jacob			Normal		
-GEN	49	11	Jacob			Normal		
-GEN	49	12	Jacob			Normal		
-GEN	49	13	Jacob			Normal		
-GEN	49	14	Jacob			Normal		
-GEN	49	15	Jacob			Normal		
-GEN	49	16	Jacob			Normal		
-GEN	49	17	Jacob			Normal		
-GEN	49	18	Jacob			Normal		
-GEN	49	19	Jacob			Normal		
-GEN	49	20	Jacob			Normal		
-GEN	49	21	Jacob			Normal		
-GEN	49	22	Jacob			Normal		
-GEN	49	23	Jacob			Normal		
-GEN	49	24	Jacob			Normal		
-GEN	49	25	Jacob			Normal		
-GEN	49	26	Jacob			Normal		
-GEN	49	27	Jacob			Normal		
-GEN	49	29	Jacob			Normal		
-GEN	49	30	Jacob			Normal		
-GEN	49	31	Jacob			Normal		
-GEN	49	32	Jacob			Normal		
+GEN	48	19	Jacob (Israel)			Normal		
+GEN	48	20	Jacob (Israel)			Normal		
+GEN	48	21	Jacob (Israel)			Normal		
+GEN	48	22	Jacob (Israel)			Normal		
+GEN	49	1	Jacob (Israel)			Normal		
+GEN	49	2	Jacob (Israel)			Normal		
+GEN	49	3	Jacob (Israel)			Normal		
+GEN	49	4	Jacob (Israel)			Normal		
+GEN	49	5	Jacob (Israel)			Normal		
+GEN	49	6	Jacob (Israel)			Normal		
+GEN	49	7	Jacob (Israel)			Normal		
+GEN	49	8	Jacob (Israel)			Normal		
+GEN	49	9	Jacob (Israel)			Normal		
+GEN	49	10	Jacob (Israel)			Normal		
+GEN	49	11	Jacob (Israel)			Normal		
+GEN	49	12	Jacob (Israel)			Normal		
+GEN	49	13	Jacob (Israel)			Normal		
+GEN	49	14	Jacob (Israel)			Normal		
+GEN	49	15	Jacob (Israel)			Normal		
+GEN	49	16	Jacob (Israel)			Normal		
+GEN	49	17	Jacob (Israel)			Normal		
+GEN	49	18	Jacob (Israel)			Normal		
+GEN	49	19	Jacob (Israel)			Normal		
+GEN	49	20	Jacob (Israel)			Normal		
+GEN	49	21	Jacob (Israel)			Normal		
+GEN	49	22	Jacob (Israel)			Normal		
+GEN	49	23	Jacob (Israel)			Normal		
+GEN	49	24	Jacob (Israel)			Normal		
+GEN	49	25	Jacob (Israel)			Normal		
+GEN	49	26	Jacob (Israel)			Normal		
+GEN	49	27	Jacob (Israel)			Normal		
+GEN	49	29	Jacob (Israel)			Normal		
+GEN	49	30	Jacob (Israel)			Normal		
+GEN	49	31	Jacob (Israel)			Normal		
+GEN	49	32	Jacob (Israel)			Normal		
 GEN	50	2	Joseph			Indirect		
 GEN	50	4	Joseph			Normal		
 GEN	50	5	Joseph			Normal		
@@ -953,10 +953,10 @@ EXO	5	5	Pharaoh (3rd)		Pharaoh	Normal
 EXO	5	7	Pharaoh (3rd)		Pharaoh	Normal		
 EXO	5	8	Pharaoh (3rd)		Pharaoh	Normal		
 EXO	5	9	Pharaoh (3rd)		Pharaoh	Normal		
-EXO	5	10	Slave driver			Normal		
-EXO	5	11	Slave driver			Normal		
-EXO	5	13	Slave driver			Normal		
-EXO	5	14	Slave driver			Normal		
+EXO	5	10	slave driver			Normal		
+EXO	5	11	slave driver			Normal		
+EXO	5	13	slave driver			Normal		
+EXO	5	14	slave driver			Normal		
 EXO	5	15	Israelite foreman			Normal		
 EXO	5	16	Israelite foreman			Normal		
 EXO	5	17	Pharaoh (3rd)		Pharaoh	Normal		
@@ -11234,7 +11234,7 @@ MIC	7	15	God		God (the LORD)	Normal
 NAM	1	12	God		God (the LORD)	Normal		
 NAM	1	13	God		God (the LORD)	Normal		
 NAM	1	14	God		God (the LORD)	Normal		
-NAM	2	8	Slave girls			Normal		
+NAM	2	8	slave girls			Normal		
 NAM	2	13	God		God (the LORD Almighty)	Normal		
 NAM	3	5	God		God (the LORD Almighty)	Normal		
 NAM	3	6	God		God (the LORD Almighty)	Normal		
