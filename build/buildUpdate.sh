@@ -62,10 +62,10 @@ cd -
 
 
 # *** Results ***
-# build: Protoscript Generator-win-default Continuous (bt431)
-# project: Protoscript Generator
+# build: Glyssen-win-default Continuous (bt431)
+# project: Glyssen
 # URL: http://build.palaso.org/viewType.html?buildTypeId=bt431
-# VCS: https://github.com/sillsdev/ProtoScriptGenerator.git [master]
+# VCS: https://github.com/sillsdev/Glyssen.git [master]
 # dependencies:
 # [0] build: geckofx29-win32-continuous (bt399)
 #     project: GeckoFx
@@ -92,7 +92,7 @@ cd -
 #     URL: http://build.palaso.org/viewType.html?buildTypeId=bt440
 #     clean: false
 #     revision: latest.lastSuccessful
-#     paths: {"Palaso.BuildTasks.dll"=>"build/", "icu.net.dll"=>"lib/dotnet", "icu.net.dll.config"=>"lib/dotnet", "icudt54.dll"=>"lib/dotnet", "icuin54.dll"=>"lib/dotnet", "icuuc54.dll"=>"lib/dotnet", "L10NSharp.dll"=>"lib/dotnet", "L10NSharp.pdb"=>"lib/dotnet", "SIL.Core.dll"=>"lib/dotnet", "SIL.Core.pdb"=>"lib/dotnet", "SIL.Windows.Forms.dll"=>"lib/dotnet", "SIL.Windows.Forms.pdb"=>"lib/dotnet", "SIL.Windows.Forms.GeckoBrowserAdapter.dll"=>"lib/dotnet", "SIL.Windows.Forms.GeckoBrowserAdapter.pdb"=>"lib/dotnet", "SIL.Windows.Forms.Keyboarding.dll"=>"lib/dotnet", "SIL.Windows.Forms.Keyboarding.pdb"=>"lib/dotnet", "Palaso.TestUtilities.dll"=>"lib/dotnet", "SIL.ScriptureUtils.dll"=>"lib/dotnet", "SIL.ScriptureUtils.pdb"=>"lib/dotnet", "SIL.ScriptureControls.dll"=>"lib/dotnet", "SIL.ScriptureControls.pdb"=>"lib/dotnet", "SIL.Windows.Forms.WritingSystems.dll"=>"lib/dotnet", "SIL.Windows.Forms.WritingSystems.pdb"=>"lib/dotnet", "SIL.WritingSystems.dll"=>"lib/dotnet", "SIL.WritingSystems.pdb"=>"lib/dotnet", "SIL.DblBundle.dll"=>"lib/dotnet", "SIL.DblBundle.pdb"=>"lib/dotnet", "SIL.DblBundle.Tests.dll"=>"lib/dotnet", "SIL.DblBundle.Tests.pdb"=>"lib/dotnet"}
+#     paths: {"Palaso.BuildTasks.dll"=>"build/", "icu.net.dll"=>"lib/dotnet", "icu.net.dll.config"=>"lib/dotnet", "icudt54.dll"=>"lib/dotnet", "icuin54.dll"=>"lib/dotnet", "icuuc54.dll"=>"lib/dotnet", "L10NSharp.dll"=>"lib/dotnet", "L10NSharp.pdb"=>"lib/dotnet", "SIL.Core.dll"=>"lib/dotnet", "SIL.Core.pdb"=>"lib/dotnet", "SIL.Windows.Forms.dll"=>"lib/dotnet", "SIL.Windows.Forms.pdb"=>"lib/dotnet", "SIL.Windows.Forms.GeckoBrowserAdapter.dll"=>"lib/dotnet", "SIL.Windows.Forms.GeckoBrowserAdapter.pdb"=>"lib/dotnet", "SIL.Windows.Forms.Keyboarding.dll"=>"lib/dotnet", "SIL.Windows.Forms.Keyboarding.pdb"=>"lib/dotnet", "Palaso.TestUtilities.dll"=>"lib/dotnet", "SIL.ScriptureUtils.dll"=>"lib/dotnet", "SIL.ScriptureUtils.pdb"=>"lib/dotnet", "SIL.ScriptureControls.dll"=>"lib/dotnet", "SIL.ScriptureControls.pdb"=>"lib/dotnet", "SIL.Windows.Forms.WritingSystems.dll"=>"lib/dotnet", "SIL.Windows.Forms.WritingSystems.pdb"=>"lib/dotnet", "SIL.WritingSystems.dll"=>"lib/dotnet", "SIL.WritingSystems.pdb"=>"lib/dotnet", "SIL.DblBundle.dll"=>"lib/dotnet", "SIL.DblBundle.pdb"=>"lib/dotnet", "SIL.DblBundle.Tests.dll"=>"lib/dotnet", "SIL.DblBundle.Tests.pdb"=>"lib/dotnet", "ICSharpCode.SharpZipLib.dll"=>"lib/dotnet"}
 #     VCS: https://github.com/sillsdev/libpalaso.git [SILWritingSystems]
 
 # make sure output directories exist
@@ -141,6 +141,7 @@ copy_auto http://build.palaso.org/guestAuth/repository/download/bt440/latest.las
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt440/latest.lastSuccessful/SIL.DblBundle.pdb ../lib/dotnet/SIL.DblBundle.pdb
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt440/latest.lastSuccessful/SIL.DblBundle.Tests.dll ../lib/dotnet/SIL.DblBundle.Tests.dll
 copy_auto http://build.palaso.org/guestAuth/repository/download/bt440/latest.lastSuccessful/SIL.DblBundle.Tests.pdb ../lib/dotnet/SIL.DblBundle.Tests.pdb
+copy_auto http://build.palaso.org/guestAuth/repository/download/bt440/latest.lastSuccessful/ICSharpCode.SharpZipLib.dll ../lib/dotnet/ICSharpCode.SharpZipLib.dll
 # extract downloaded zip files
 unzip -uqo ../Downloads/xulrunner-29.0.1.en-US.win32.zip -d ../lib
 # End of script

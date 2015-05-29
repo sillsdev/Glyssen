@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Glyssen.Character;
+using Glyssen.Properties;
 using NUnit.Framework;
-using ProtoScript.Character;
-using ProtoScript.Properties;
 using SIL.ScriptureUtils;
 
 namespace ControlDataIntegrityTests
@@ -12,6 +12,13 @@ namespace ControlDataIntegrityTests
 	[TestFixture]
 	public class CharacterVerseDataTests
 	{
+		[TestFixtureSetUp]
+		public void TestFixtureSetUp()
+		{
+			// Fixes issue where other test project was interfering with the running of this one (by setting the data to test data).
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
+		}
+
 		[Test]
 		public void DataIntegrity_ValidControlVersionPresent()
 		{
@@ -22,6 +29,7 @@ namespace ControlDataIntegrityTests
 		public void DataIntegrity_RequiredFieldsHaveValidFormatAndThereAreNoDuplicateLines()
 		{
 			Regex regex = new Regex("^(?<bookId>...)\t(?<chapter>\\d+)\t(?<verse>\\d+)(-(?<endVerse>\\d+))?\t(?<character>[^\t]+)\t(?<delivery>[^\t]*)\t(?<alias>[^\t]*)\t(?<type>(Normal)|(Dialogue)|(Implicit)|(Indirect)|(Potential)|(Quotation)|(Hypothetical)|(FALSE))(\t(?<defaultCharacter>[^\t]*))?", RegexOptions.Compiled);
+			Regex extraSpacesRegex = new Regex("^ |\t | \t| $", RegexOptions.Compiled);
 			string[] allLines = Resources.CharacterVerseData.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
 			var set = new HashSet<string>();
@@ -33,7 +41,8 @@ namespace ControlDataIntegrityTests
 				var match = regex.Match(line);
 				Assert.IsTrue(match.Success, "Failed to match line: " + line);
 
-				var bookNum = BCVRef.BookToNumber(match.Result("${bookId}"));
+				var bookId = match.Result("${bookId}");
+				var bookNum = BCVRef.BookToNumber(bookId);
 				Assert.IsTrue(bookNum > 0, "Line: " + line);
 				Assert.IsTrue(bookNum <= 66, "Line: " + line);
 
@@ -42,7 +51,7 @@ namespace ControlDataIntegrityTests
 				Assert.IsTrue(chapter <= 150, "Line: " + line);
 
 				var verse = Int32.Parse(match.Result("${verse}"));
-				Assert.IsTrue(verse > 0, "Line: " + line);
+				Assert.IsTrue(verse > 0 || verse == 0 && bookId == "PSA", "Line: " + line);
 				Assert.IsTrue(verse <= 152, "Line: " + line);
 
 				var sEndVerse = match.Result("${endVerse}");
@@ -68,6 +77,9 @@ namespace ControlDataIntegrityTests
 
 				var matchResult = match.Result("$&");
 				Assert.IsTrue(set.Add(matchResult), "Duplicate line: " + matchResult);
+
+				var extraSpacesMatch = extraSpacesRegex.Match(line);
+				Assert.IsFalse(extraSpacesMatch.Success, "Line with extra space(s): " + line);
 			}
 		}
 
