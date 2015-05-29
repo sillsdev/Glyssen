@@ -122,8 +122,8 @@ namespace ControlDataIntegrityTests
 		public void DataIntegrity_AllCharacterIdsAndDefaultCharactersHaveCharacterDetail()
 		{
 			IEnumerable<string> charactersHavingDetail = CharacterDetailData.Singleton.GetAll().Select(d => d.Character);
-			ISet<string> missingCharacters = new HashSet<string>();
-			ISet<string> missingDefaultCharacters = new HashSet<string>();
+			ISet<string> missingCharacters = new SortedSet<string>();
+			ISet<string> missingDefaultCharacters = new SortedSet<string>();
 			foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
 			{
 				if (!charactersHavingDetail.Contains(cv.Character))
