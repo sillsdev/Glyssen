@@ -66,7 +66,7 @@ namespace Glyssen
 		public event EventHandler<ProjectStateChangedEventArgs> ProjectStateChanged;
 		public event EventHandler AnalysisCompleted;
 
-		public Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null, bool installFonts = true)
+		public Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null, bool installFonts = false)
 		{
 			m_metadata = metadata;
 			m_recordingProjectName = recordingProjectName ?? GetDefaultRecordingProjectName(m_metadata.Identification.Name);
@@ -79,7 +79,7 @@ namespace Glyssen
 				InstallFontsIfNecessary();
 		}
 
-		public Project(GlyssenBundle bundle, string recordingProjectName = null) : this(bundle.Metadata, recordingProjectName, false)
+		public Project(GlyssenBundle bundle, string recordingProjectName = null) : this(bundle.Metadata, recordingProjectName)
 		{
 			Directory.CreateDirectory(ProjectFolder);
 			bundle.CopyFontFiles(LanguageFolder);
@@ -465,7 +465,7 @@ namespace Glyssen
 					LocalizationManager.GetString("File.ProjectMetadataInvalid", "Project could not be loaded: {0}"), projectFilePath);
 				return null;
 			}
-			Project project = new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath));
+			Project project = new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath), true);
 			var projectDir = Path.GetDirectoryName(projectFilePath);
 			Debug.Assert(projectDir != null);
 			string[] files = Directory.GetFiles(projectDir, "???" + kBookScriptFileExtension);
