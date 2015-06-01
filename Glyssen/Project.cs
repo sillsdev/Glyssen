@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing.Text;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -24,6 +25,7 @@ using SIL.DblBundle.Usx;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.ScriptureUtils;
+using SIL.Windows.Forms;
 using SIL.Windows.Forms.FileSystem;
 using SIL.WritingSystems;
 using SIL.Xml;
@@ -57,12 +59,14 @@ namespace Glyssen
 		private ProjectAnalysis m_analysis;
 		private WritingSystemDefinition m_wsDefinition;
 		private IWritingSystemRepository m_wsRepository;
+		// Don't want to hound the user more than once per launch per project
+		private bool m_fontInstallationAttempted;
 
 		public event EventHandler<ProgressChangedEventArgs> ProgressChanged;
 		public event EventHandler<ProjectStateChangedEventArgs> ProjectStateChanged;
 		public event EventHandler AnalysisCompleted;
 
-		public Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null)
+		public Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null, bool installFonts = true)
 		{
 			m_metadata = metadata;
 			m_recordingProjectName = recordingProjectName ?? GetDefaultRecordingProjectName(m_metadata.Identification.Name);
@@ -71,12 +75,15 @@ namespace Glyssen
 				LoadWritingSystem();
 			if (File.Exists(VersificationFilePath))
 				m_vers = LoadVersification(VersificationFilePath);
+			if (installFonts)
+				InstallFontsIfNecessary();
 		}
 
-		public Project(GlyssenBundle bundle, string recordingProjectName = null) :
-			this(bundle.Metadata, recordingProjectName)
+		public Project(GlyssenBundle bundle, string recordingProjectName = null) : this(bundle.Metadata, recordingProjectName, false)
 		{
 			Directory.CreateDirectory(ProjectFolder);
+			bundle.CopyFontFiles(LanguageFolder);
+			InstallFontsIfNecessary();
 			bundle.CopyVersificationFile(VersificationFilePath);
 			try
 			{
@@ -681,6 +688,16 @@ namespace Glyssen
 			return Path.Combine(ProjectsBaseFolder, bundle.LanguageIso, bundle.Id);
 		}
 
+		public static string GetLanguageFolderPath(IBundle bundle)
+		{
+			return Path.Combine(ProjectsBaseFolder, bundle.LanguageIso);
+		}
+
+		public static string GetLanguageFolderPath(string langId)
+		{
+			return Path.Combine(ProjectsBaseFolder, langId);
+		}
+
 		public string ProjectFilePath
 		{
 			get { return GetProjectFilePath(m_metadata.Language.Iso, m_metadata.Id, m_recordingProjectName); }
@@ -699,6 +716,11 @@ namespace Glyssen
 		private string ProjectFolder
 		{
 			get { return GetProjectFolderPath(m_metadata.Language.Iso, m_metadata.Id, m_recordingProjectName); }
+		}
+
+		private string LanguageFolder
+		{
+			get { return GetLanguageFolderPath(m_metadata.Language.Iso); }
 		}
 
 		public void Analyze()
@@ -945,6 +967,48 @@ namespace Glyssen
 		internal static string GetDefaultRecordingProjectName(IBundle bundle)
 		{
 			return GetDefaultRecordingProjectName(bundle.Name);
+		}
+
+		private void InstallFontsIfNecessary()
+		{
+			if (m_fontInstallationAttempted || FontHelper.FontInstalled(m_metadata.FontFamily))
+				return;
+
+			List<string> ttfFilesToInstall = new List<string>();
+			// There could be more than one if different styles (Regular, Italics, etc.) are in different files
+			foreach (var ttfFile in Directory.GetFiles(LanguageFolder, "*.ttf"))
+			{
+				using (PrivateFontCollection fontCol = new PrivateFontCollection())
+				{
+					fontCol.AddFontFile(ttfFile);
+					if (fontCol.Families[0].Name == m_metadata.FontFamily)
+						ttfFilesToInstall.Add(ttfFile);
+				}
+			}
+			int count = ttfFilesToInstall.Count;
+			if (count > 0)
+			{
+				m_fontInstallationAttempted = true;
+				
+				if (count > 1)
+					MessageBox.Show(string.Format(LocalizationManager.GetString("Font.InstallInstructionsMultipleStyles", "The font ({0}) used by this project has not been installed on this machine. We will now launch multiple font preview windows, one for each font style. In the top left of each window, click Install. After installing each font style, you will need to restart {1} to make use of the font."), m_metadata.FontFamily, Program.kProduct));
+				else
+					MessageBox.Show(string.Format(LocalizationManager.GetString("Font.InstallInstructions", "The font used by this project ({0}) has not been installed on this machine. We will now launch a font preview window. In the top left, click Install. After installing the font, you will need to restart {1} to make use of it."), m_metadata.FontFamily, Program.kProduct));
+
+				foreach (var ttfFile in ttfFilesToInstall)
+				{
+					try
+					{
+						Process.Start(ttfFile);
+					}
+					catch (Exception)
+					{
+						MessageBox.Show(string.Format(LocalizationManager.GetString("Font.UnableToLaunchFontPreview", "There was a problem launching the font preview. Please install the font manually. {0}"), ttfFile));
+					}
+				}
+			}
+			else
+				MessageBox.Show(string.Format(LocalizationManager.GetString("Font.FontFilesNotFound", "The font ({0}) used by this project has not been installed on this machine, and {1} could not find the relevant font files. Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. After installing the font, you will need to restart {1} to make use of it."), m_metadata.FontFamily, Program.kProduct));
 		}
 	}
 
