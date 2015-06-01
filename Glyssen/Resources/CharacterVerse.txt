@@ -11778,7 +11778,7 @@ MAT	12	18	scripture			Quotation	God
 MAT	12	19	scripture			Quotation	God	
 MAT	12	20	scripture			Quotation	God	
 MAT	12	21	scripture			Quotation	God	
-MAT	12	23	people saw healing of blind/mute, all the	astonished		Normal		
+MAT	12	23	people who saw healing of blind/mute, all the	astonished		Normal		
 MAT	12	24	Pharisees			Normal		
 MAT	12	25	Jesus			Normal		
 MAT	12	26	Jesus			Normal		

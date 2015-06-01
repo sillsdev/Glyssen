@@ -1136,7 +1136,7 @@ people from Tyre/Sidon	TRUE
 people of Samaria, all the	TRUE			
 people in Jericho, all the	TRUE			
 people in temple courts, all the	TRUE			
-people saw healing of blind/mute, all the	TRUE			
+people who saw healing of blind/mute, all the	TRUE			
 people near Jordan River	TRUE			
 crowd after mute healed	TRUE			
 crowd at Festival of Tabernacles in Jerusalem, many in the	TRUE			
