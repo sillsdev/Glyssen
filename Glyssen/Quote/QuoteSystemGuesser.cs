@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
 using Glyssen.Utilities;
-using SIL.ScriptureUtils;
+using SIL.Scripture;
 using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Quote

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Bundle;
-using SIL.ScriptureUtils;
+using SIL.Scripture;
 
 namespace Glyssen.Dialogs
 {

@@ -1,8 +1,8 @@
 ﻿using Glyssen;
 using Glyssen.Character;
 using NUnit.Framework;
-using Palaso.TestUtilities;
-using SIL.ScriptureUtils;
+using SIL.TestUtilities;
+using SIL.Scripture;
 
 namespace GlyssenTests
 {

@@ -7,7 +7,7 @@ using System.Text;
 using System.Web;
 using System.Xml.Serialization;
 using Glyssen.Character;
-using SIL.ScriptureUtils;
+using SIL.Scripture;
 using SIL.Xml;
 
 namespace Glyssen

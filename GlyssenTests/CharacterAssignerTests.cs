@@ -2,7 +2,7 @@
 using Glyssen.Character;
 using NUnit.Framework;
 using Rhino.Mocks;
-using SIL.ScriptureUtils;
+using SIL.Scripture;
 using SIL.Xml;
 using ScrVers = Paratext.ScrVers;
 

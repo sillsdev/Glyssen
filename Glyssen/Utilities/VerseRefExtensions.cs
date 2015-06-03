@@ -1,5 +1,5 @@
 ﻿using Paratext;
-using SIL.ScriptureControls;
+using SIL.Windows.Forms.Scripture;
 
 namespace Glyssen.Utilities
 {

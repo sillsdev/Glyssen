@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
-using SIL.ScriptureUtils;
+using SIL.Scripture;
 
 namespace DevTools
 {

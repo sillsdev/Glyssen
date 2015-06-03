@@ -11,7 +11,7 @@ using Glyssen.Character;
 using Glyssen.Utilities;
 using SIL.DblBundle;
 using SIL.DblBundle.Usx;
-using SIL.ScriptureUtils;
+using SIL.Scripture;
 
 namespace Glyssen
 {

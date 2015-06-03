@@ -2,7 +2,7 @@
 using System.Xml.Serialization;
 using Glyssen.Bundle;
 using NUnit.Framework;
-using Palaso.TestUtilities;
+using SIL.TestUtilities;
 
 namespace GlyssenTests.Bundle
 {

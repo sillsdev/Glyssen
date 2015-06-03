@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Paratext;
-using SIL.ScriptureUtils;
+using SIL.Scripture;
 using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Character

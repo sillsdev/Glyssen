@@ -10,7 +10,7 @@ using Glyssen.Character;
 using Glyssen.Quote;
 using NUnit.Framework;
 using Rhino.Mocks;
-using SIL.ScriptureUtils;
+using SIL.Scripture;
 using ScrVers = Paratext.ScrVers;
 
 namespace GlyssenTests.Quote

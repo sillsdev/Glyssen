@@ -15,7 +15,7 @@ using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
 using SIL.ObjectModel;
-using SIL.ScriptureUtils;
+using SIL.Scripture;
 using SIL.WritingSystems;
 using ScrVers = Paratext.ScrVers;
 

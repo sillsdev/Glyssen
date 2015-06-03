@@ -42,9 +42,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="Palaso.TestUtilities">
-      <HintPath>..\lib\dotnet\Palaso.TestUtilities.dll</HintPath>
-    </Reference>
     <Reference Include="ParatextShared, Version=7.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\ParatextShared.dll</HintPath>
@@ -64,9 +61,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.DblBundle.Tests.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.ScriptureUtils, Version=7.3.0.18505, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SIL.Scripture, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\dotnet\SIL.ScriptureUtils.dll</HintPath>
+      <HintPath>..\lib\dotnet\SIL.Scripture.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.TestUtilities">
+      <HintPath>..\lib\dotnet\SIL.TestUtilities.dll</HintPath>
     </Reference>
     <Reference Include="SIL.WritingSystems, Version=2.6.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>

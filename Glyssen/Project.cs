@@ -24,7 +24,7 @@ using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.IO;
 using SIL.Reporting;
-using SIL.ScriptureUtils;
+using SIL.Scripture;
 using SIL.Windows.Forms;
 using SIL.Windows.Forms.FileSystem;
 using SIL.WritingSystems;

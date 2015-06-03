@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using DesktopAnalytics;
-using SIL.ScriptureUtils;
+using SIL.Scripture;
 
 namespace Glyssen.Character
 {

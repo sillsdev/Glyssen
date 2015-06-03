@@ -7,7 +7,7 @@ using Glyssen.Properties;
 using Glyssen.Utilities;
 using NUnit.Framework;
 using Paratext;
-using SIL.ScriptureUtils;
+using SIL.Scripture;
 
 namespace ControlDataIntegrityTests
 {

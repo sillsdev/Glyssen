@@ -5,7 +5,7 @@ using System.Linq;
 using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Utilities;
-using SIL.ScriptureUtils;
+using SIL.Scripture;
 using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Dialogs

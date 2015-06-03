@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using SIL.ScriptureUtils;
+using SIL.Scripture;
 
 namespace Glyssen.Character
 {
