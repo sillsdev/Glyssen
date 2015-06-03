@@ -31,7 +31,6 @@ Ahijah, the prophet	FALSE	Male
 Ahimaaz (messenger)	FALSE	Male		
 Ahimelech the priest (son of Ahitub)	FALSE	Male		
 Ahithophel	FALSE	Male		
-Egyptians, all the	TRUE			
 all in Nazareth synagogue	TRUE			
 all in temple	TRUE			
 all seeking God	TRUE			
@@ -76,9 +75,9 @@ another of you (follower of Apollos)	FALSE
 answer from Israel	TRUE			
 anyone	FALSE			
 anyone with complaint for king	FALSE			
+Apollos	FALSE	Male		
 apostles	TRUE	Male		
 apostles, elders, and whole church at Jerusalem	TRUE			
-Apollos	FALSE	Male		
 Aramean soldiers	TRUE	Male		
 Araunah, the Jebusite	FALSE	Male		
 Arioch	FALSE	Male		
@@ -162,9 +161,11 @@ chief cupbearer of Egypt	FALSE	Male
 chief cupbearer of Egypt/chief baker of Egypt	TRUE	Male		
 chief official	FALSE	Male		
 chief priests	TRUE	Male		
-chief priests/Jewish leaders	TRUE	Male		
+chief priests/crowd	TRUE			
 chief priests/elders	TRUE	Male		
+chief priests/Jewish leaders	TRUE	Male		
 chief priests/officers of temple guard	TRUE	Male		
+chief priests/officials	TRUE	Male		
 chief priests/Pharisees	TRUE	Male		
 chief priests/Sanhedrin	TRUE	Male		
 chief priests/teachers of religious law	TRUE	Male		
@@ -184,7 +185,6 @@ company of the prophets (Bethel)	TRUE
 company of the prophets (Jericho)	TRUE			
 company of the prophets, one of (the LORD says) (young man)	FALSE	Male	young man	
 company of the prophets, one of (young man)	FALSE	Male	young man	
-Levite husband of concubine	FALSE	Male		
 conquerors of beast, image & his name	TRUE			
 conquerors of Lo Debar	TRUE	Male		
 Cornelius	FALSE	Male		
@@ -192,13 +192,26 @@ council of elders/chief priests/teachers of religious law	TRUE	Male
 craftsman	FALSE	Male		
 craftsmen/workmen	TRUE	Male		
 Cretan prophet	FALSE	Male		
-criminal on cross, repentant	FALSE	Male		
 criminal on cross, insulting	FALSE	Male		
+criminal on cross, repentant	FALSE	Male		
 crippled man	FALSE	Male		
 crowd	TRUE			
+crowd after mute healed	TRUE			
+crowd at Festival of Tabernacles in Jerusalem, many in the	TRUE			
+crowd at Festival of Tabernacles in Jerusalem, others	TRUE			
+crowd at Festival of Tabernacles in Jerusalem, some	TRUE			
+crowd at Festival of Tabernacles in Jerusalem, still others	TRUE			
+crowd at Festival of Tabernacles in Jerusalem, the	TRUE			
+crowd at Jericho	TRUE			
+crowd before Pilate	TRUE			
+crowd in Jerusalem	TRUE			
+crowd in Jerusalem on Pentecost	TRUE			
+crowd in Lystra	TRUE			
+crowd near sea of Galilee	TRUE			
+crowd preparing for Passover Feast	TRUE			
+crowd preparing for Passover Feast, others	TRUE			
 crowd, large (witnessed healing of widow's son)	TRUE			
 crowd, many in the	TRUE			
-crowd at Festival of Tabernacles in Jerusalem, others	TRUE			
 crowd, some in	TRUE			
 cured man, blind from birth	FALSE	Male		
 Cyrus, king of Persia	FALSE	Male		
@@ -209,7 +222,6 @@ Darius	FALSE	Male
 Dathan	FALSE	Male		
 Dathan/Abiram	TRUE	Male		
 daughter of Zion	FALSE	Female		
-Phineas' wife (daughter-in-law of Eli)	FALSE	Female		
 daughters of Zelophehad	TRUE	Female		
 David	FALSE	Male		
 David's enemies	TRUE	Male		
@@ -225,12 +237,14 @@ demons/demon-possessed man (Legion)	TRUE
 disciple who wanted to bury his father	FALSE	Male		
 disciples	TRUE	Male		
 disciples (but not Thomas)	TRUE	Male		
+disciples in Ephesus, some	TRUE			
 disciples of John Baptist, two (Andrew and another)	TRUE	Male		
 disciples of John the Baptist	TRUE	Male		
 disciples of John the Baptist/a Jew	TRUE	Male		
 disciples, some	TRUE			
 disciples, two men (from Joppa)	TRUE	Male		
 Doeg the Edomite	FALSE	Male		
+donkey (female)	FALSE	Female		
 dream	FALSE			
 dreamers	TRUE			
 eagle crying with loud voice	FALSE			
@@ -241,6 +255,7 @@ Edomites	TRUE
 Eglon, king of Moab	FALSE	Male		
 Egyptian (slave of Amalekite)	FALSE			
 Egyptians	TRUE			
+Egyptians, all the	TRUE			
 Ehud, Israelite deliverer	FALSE	Male		
 Ekron, people of	TRUE			
 elders	TRUE	Male		
@@ -284,13 +299,16 @@ Ethiopian officer of Queen Candace	FALSE	Male
 Eve	FALSE	Female		
 every created thing	TRUE			
 everyone	TRUE			
-crowd near sea of Galilee	TRUE			
 everyone in Judean hills who heard	TRUE			
+everyone seeing healing of paralyzed man	TRUE			
+everyone who saw healing of paralytic	TRUE			
+everyone who witnessed deliverance/healing of boy	TRUE			
 evil men/troublemakers	TRUE			
 evil spirit in possessed man	FALSE			
 evil spirits	TRUE			
 exiles	TRUE			
 expert in religious law	FALSE	Male		
+experts in religious law, one of the	FALSE	Male		
 explorers, ten	TRUE	Male		
 eye	FALSE			
 Ezekiel	FALSE	Male		
@@ -315,7 +333,6 @@ foreman	FALSE	Male
 fortune telling slave girl	FALSE	Female		
 four living creatures	TRUE			
 four living creatures/twenty-four elders	TRUE	Male		
-person who informed Tamar, daughter-in-law of Judah	FALSE			
 Gaal, son of Ebed	FALSE	Male		
 Gabriel	FALSE	Male		
 Gad	FALSE	Male		
@@ -340,6 +357,7 @@ Good Priest	FALSE	Male		Many quotes resolve to this pseudo-character by default
 great company of heavenly host	TRUE			
 Grecian Jews	TRUE			
 Greeks	TRUE			
+guards at high priests' house	TRUE	Male		
 Habakkuk	FALSE	Male		
 Hadad the Edomite	FALSE			
 Hagar, the Egyptian	FALSE	Female		
@@ -360,7 +378,6 @@ hearers	TRUE
 herald	FALSE			
 herdsman	FALSE	Male		
 herdsmen of pigs	TRUE	Male		
-King Herod Agrippa II	FALSE	Male		
 Herod Antipas (the tetrarch)	FALSE	Male		
 Herod the Great	FALSE	Male		
 Herodias	FALSE	Female		
@@ -377,6 +394,7 @@ Hiram, king of Tyre	FALSE	Male
 Hittites	TRUE			
 Hobab, Moses brother-in-law	FALSE			
 holy one (in vision)	FALSE			
+Holy Spirit and the bride	TRUE	Male		
 Holy Spirit, the	FALSE	Male		
 Horseman, first	FALSE	Male		
 Horseman, second	FALSE	Male		
@@ -401,7 +419,6 @@ Isaiah	FALSE	Male
 Ish-Bosheth, son of Saul	FALSE	Male		
 Ishmael, son of Nethaniah (murderer)	FALSE	Male		
 islanders	TRUE			
-Malta islanders	TRUE			
 Israel	TRUE			
 Israel, all	TRUE			
 Israel, all leaders of	TRUE	Male		
@@ -409,13 +426,18 @@ Israel, all the tribes	TRUE
 Israel, elders of	TRUE	Male		
 Israel, leaders of/King Rehoboam	TRUE	Male		
 Israel, men of	TRUE	Male		
+Israelite army commanding officers	TRUE	Male		
 Israelite assembly	TRUE			
 Israelite assembly, elders of	TRUE	Male		
 Israelite community	TRUE			
+Israelite fighting men	TRUE	Male		
 Israelite foreman	FALSE	Male		
 Israelite messengers to Jabesh	TRUE			
+Israelite officers	TRUE	Male		
 Israelite soldier (in Saul's army)	FALSE	Male		
 Israelite soldiers	TRUE	Male		
+Israelite spies from Joshua, two men	TRUE	Male		
+Israelite spy from house of Joseph	FALSE			
 Israelites	TRUE			
 Israelites (excluding Benjamites)	TRUE			
 Israelites, some	TRUE			
@@ -445,8 +467,8 @@ Jehu, son of Nimshi	FALSE	Male
 Jehucal/Zephaniah, priest	TRUE	Male		
 Jehudi	FALSE			
 Jephthah	FALSE	Male		
-Jephthah's half-brothers	TRUE	Male		
 Jephthah's daughter	FALSE	Female	youth	
+Jephthah's half-brothers	TRUE	Male		
 Jereboam/all Israel	TRUE			
 Jeremiah	FALSE	Male		
 Jeremiah's enemies	TRUE	Male		
@@ -458,13 +480,16 @@ Jesus (child)	FALSE	Male	youth (12)
 Jesus' brothers	TRUE			
 Jesus' family	TRUE			
 Jethro (Reuel), Moses' father-in-law	FALSE	Male		
-Jews, the	TRUE			
-Jews with Mary/Martha	TRUE			
 Jews of Cyrene, Alexandria, Cilicia & Asia	TRUE			
+Jews who had believed Jesus	TRUE			
+Jews with Mary/Martha	TRUE			
 Jews with Mary/Martha, some	TRUE			
 Jews, God-fearing from every nation	TRUE			
 Jews, God-fearing from every nation, some	TRUE			
+Jews, many	TRUE			
 Jews, more than forty in conspiracy	TRUE			
+Jews, other	TRUE			
+Jews, the	TRUE			
 Jews/Mary/Martha	TRUE	Both		
 Jews/priests/nobles/officials	TRUE			
 Jezebel	FALSE	Female		
@@ -500,8 +525,10 @@ Judah, all	TRUE	Both
 Judah, men of	TRUE	Male		
 Judah, people in	TRUE			
 Judaizers	TRUE	Male		
-Judas, apostle (not Judas Iscariot)	FALSE	Male		
 Judas Iscariot	FALSE	Male		
+Judas, apostle (not Judas Iscariot)	FALSE	Male		
+King Agrippa/Festus/Bernice/those sitting with them	TRUE			
+King Herod Agrippa II	FALSE	Male		
 King of Ammonites	FALSE	Male		
 King of Aram	FALSE	Male		
 King of Assyria	FALSE	Male		
@@ -528,8 +555,10 @@ leaders in Ephraim (Azariah/Berekiah/Jehizkiah/Amasa)	TRUE	Male
 Leah	FALSE	Female		
 leper	FALSE	Male		
 leper, thankful Samaritan	FALSE	Male		
+lepers, ten	TRUE	Male		
 letter from apostles and elders	FALSE			
 Levi	FALSE	Male		
+Levite husband of concubine	FALSE	Male		
 Levite, young, from Bethlehem	FALSE	Male	young man	
 Levites	TRUE	Male		
 Levites, family heads of	TRUE	Male		
@@ -547,6 +576,7 @@ magi (wise men from East)	TRUE	Male
 Magicians	TRUE			
 Magistrates, chief	TRUE	Male		
 maidens	TRUE	Female		
+Malta islanders	TRUE			
 man (at Shechem)	FALSE	Male		
 man (Hebrew fighting)	FALSE	Male		
 man (hypothetical)	FALSE	Male		
@@ -581,10 +611,10 @@ man's voice from the Ulai (in vision)	FALSE	Male
 many in crowd	TRUE			
 many Samaritans	TRUE			
 Martha	FALSE	Female		
-Mary, Jesus' mother	FALSE	Female		
-Mary, sister of Martha	FALSE	Female		
 Mary Magdalene	FALSE	Female		
 Mary Magdalene/Mary mother of James/Salome	TRUE	Female		
+Mary, Jesus' mother	FALSE	Female		
+Mary, sister of Martha	FALSE	Female		
 Mary/Martha	TRUE	Female		
 master of the banquet	FALSE	Male		
 Melchizedek, king of Salem (priest of God Most High)	FALSE	Male		
@@ -605,12 +635,10 @@ men of David	TRUE	Male
 men of David, one	TRUE	Male		
 men of Enaim	TRUE	Male		
 men of Gerar	TRUE	Male		
-Pharaoh (2nd)'s men	TRUE	Male		
 men of Sodom (wicked)	TRUE	Male		
 men of the city (Bethel)	TRUE	Male		
 men of the city (Jericho)	TRUE	Male		
 men who have gone astray	TRUE	Male		
-guards at high priests' house	TRUE	Male		
 men with leprosy, four	TRUE	Male		
 men, large force of	TRUE	Male		
 men, many	TRUE	Male		
@@ -635,24 +663,27 @@ messenger, another	FALSE
 messenger, Cushite	FALSE			
 messenger, still another	FALSE			
 messenger, yet another	FALSE			
+messengers from Jephthah	TRUE	Pref: Male		
+messengers Israel sent to Amorite king Sihon	TRUE	Pref: Male		
+messengers Moses sent to king of Edom	TRUE			
 messengers of Ahaziah	TRUE	Male		
 messengers of Ben-Hadad. king of Aram	TRUE	Male		
 messengers of Jabesh	TRUE	Male		
-messengers sent by Jacob	TRUE	Male		
 messengers of Saul	TRUE	Male		
+messengers sent by Jacob	TRUE	Male		
 Micah	FALSE	Male		
 Micah's mother	FALSE	Female		
 Micaiah, prophet of the LORD	FALSE			
-Michael (archangel)	FALSE	Male		
+Michael (archangel)	FALSE	Male												Joel saying what the weakling should say
 Michal, David's wife	FALSE	Female		
 Midianite soldier who had a dream	FALSE	Male		
 Midianite soldier who interprets dream	FALSE	Male		
 midwife of Rachel	FALSE	Female		
 midwife of Tamar, daughter-in-law of Judah	FALSE	Female		
 midwives, Shiphrah/Puah	TRUE	Female		
-Miriam/Aaron	TRUE	Both		
 Miriam	FALSE	Female		
 Miriam (young)	FALSE	Female	child	
+Miriam/Aaron	TRUE	Both		
 Moabite officials	TRUE	Male		
 Moabite officials, more distinguished	TRUE	Male		
 Moabites	TRUE			
@@ -660,7 +691,6 @@ Moabitesses (female)	TRUE	Female
 mob	TRUE			
 Mordecai, cousin of Esther	FALSE	Male		
 Moses	FALSE	Male		
-messengers Moses sent to king of Edom	TRUE			
 Moses/Aaron	TRUE	Male		
 Moses/Elders of Israel	TRUE	Male		
 Moses/Eleazar the priest, son of Aaron	TRUE	Male		
@@ -674,7 +704,7 @@ Naaman	FALSE	Male
 Naaman's servants	TRUE	Male		
 Nabal	FALSE	Male		
 Naboth	FALSE	Male		
-Nahash the Ammonite	FALSE													Joel saying what the weakling should say
+Nahash the Ammonite	FALSE			
 Naomi	FALSE	Female		
 narrator-1CH	FALSE			
 narrator-1CO	FALSE			
@@ -729,6 +759,7 @@ neighbors of man blind from birth, some	TRUE
 neighbors/relatives of Zechariah/Elizabeth	TRUE			
 news giver to Jacob	FALSE			
 news giver to Joseph	FALSE			
+news to Pharoah's palace	FALSE			
 Nicodemus	FALSE	Male		
 Ninevah	TRUE			
 no one	FALSE			
@@ -742,25 +773,23 @@ officer of King Jehoshaphat of Israel	FALSE	Male
 officer of King Joram of Israel	FALSE	Male		
 officer of king of Israel, on whose arm the king leaned	FALSE	Male		
 officer of king of Israel, on whose arm the king leaned (post mortem)	FALSE	Male		
-Israelite officers	TRUE	Male		
 officers of King of Aram	TRUE	Male		
 officers of magistrates	TRUE	Male		
 official, royal (father)	FALSE	Male		
 officials of Ben-Hadad, king of Aram	TRUE	Male		
 officials of David	TRUE	Male		
+officials of high priest, one of the	FALSE	Male		
 officials of Samaria	TRUE	Male		
 officials of Succoth	TRUE	Male		
 officials, Ephesus (friends of Paul)	TRUE	Male		
-officials of high priest, one of the	FALSE	Male		
 officials, royal, to Xerxes, king	TRUE	Male		
 officials/all the people	TRUE	Male		
 officials/people	TRUE			
 old man of Gibeah	FALSE	Male	old	
 older daughter of Lot	FALSE	Female		
 one at table of Pharisee (expert in religious law)	FALSE	Male		
-experts in religious law, one of the	FALSE	Male		
-one of you (follower of Paul)	FALSE			
 one of you	TRUE			
+one of you (follower of Paul)	FALSE			
 one other who looked like a man	FALSE			
 one who brings good news	TRUE			
 one who looked like a man	FALSE			
@@ -785,13 +814,23 @@ Paul's travelling companions, Luke and	TRUE
 people	TRUE			
 people at cistern	TRUE			
 people at coronation of King Joash	TRUE			
-people praying at John Mark's mother's house	TRUE			
+people at Jairus' house	TRUE			
+people from Tyre/Sidon	TRUE			
+people in Capernaum	TRUE			
 people in crowd by Sea of Galilee	TRUE			
 people in high priest's courtyard	TRUE	Both		Group consisted of at least a servant girl and a man
+people in Jericho, all the	TRUE			
+people in Pisidian Antioch synagogue	TRUE			
+people in temple courts, all the	TRUE			
+people in the temple	TRUE			
+people near Jordan River	TRUE			
 people of Decapolis	TRUE			
 people of Jerusalem	TRUE			
 people of Jerusalem, some	TRUE			
+people of Samaria, all the	TRUE			
+people praying at John Mark's mother's house	TRUE			
 people who knew Saul	TRUE			
+people who saw healing of blind/mute, all the	TRUE			
 people, all the	TRUE			
 people, arrogant wicked	TRUE			
 people, God's	TRUE			
@@ -805,10 +844,14 @@ people, some	TRUE
 people, still others	TRUE			
 peoples, many	TRUE			
 person asking someone to read a sealed book	FALSE			
+person near Lazarus' grave who informed Jesus	FALSE			
 person sacrificing	FALSE			
+person who informed Judah	FALSE			
+person who informed people of Gaza	FALSE			
+person who informed Tamar, daughter-in-law of Judah	FALSE			
+person who informed townsmen of Ophrah	FALSE			
 person who told David about Philistines	FALSE			
 person who told David of Nathan's arrival	FALSE			
-person near Lazarus' grave who informed Jesus	FALSE			
 person who told Joshua where the kings were hiding	FALSE			
 person who told King of Aram of Elisha's arrival	FALSE			
 person who told Samuel where Saul was	FALSE			
@@ -821,8 +864,10 @@ Peter (Simon)/James/John	TRUE	Male
 Peter (Simon)/James/John/Andrew	TRUE	Male		
 Peter (Simon)/John	TRUE	Male		
 Peter (Simon)/John/own people	TRUE	Male		
+Peter (Simon)/Thomas/Nathaniel/James/John/2 other disciples	TRUE	Male		
 Pharaoh (1st)	FALSE	Male		
 Pharaoh (2nd)	FALSE	Male		
+Pharaoh (2nd)'s men	TRUE	Male		
 Pharaoh (3rd)	FALSE	Male		
 Pharaoh's daughter	FALSE	Female		
 Pharaoh's officials	TRUE	Male		
@@ -831,6 +876,7 @@ Pharisee (Simon)	FALSE	Male
 Pharisees	TRUE	Male		
 Pharisees, other	TRUE	Male		
 Pharisees, some	TRUE	Male		
+Pharisees/Sadducees	TRUE	Male		
 Pharisees/teachers of religious law	TRUE	Male		
 Philip	FALSE	Male		
 Philistine commanders	TRUE	Male		
@@ -839,6 +885,7 @@ Philistines	TRUE	Male
 Philistines, rulers of	TRUE	Male		
 Phineas the priest	FALSE	Male		
 Phineas the priest/chiefs of 10 tribes	TRUE	Male		not Reuben, Gad, half tribe of Manasseh
+Phineas' wife (daughter-in-law of Eli)	FALSE	Female		
 Pilate	FALSE	Male		
 Pilate's wife	FALSE	Female		
 pine trees/cedars of Lebanon	TRUE			
@@ -846,6 +893,7 @@ poets	TRUE
 Potiphar's wife	FALSE	Female		
 priest	FALSE	Male		
 priests/Levites	TRUE	Male		
+priests/Levites sent from the Jews	TRUE	Male		
 priests/Levites/people	TRUE	Male		
 proclaimers of God's word	TRUE			
 proclamation	FALSE			
@@ -935,6 +983,7 @@ scoundrels	TRUE
 scouts of Ben-Hadad, king of Aram	TRUE	Male		
 scripture	FALSE			
 sea	FALSE			
+sea captains, seafarers, sailors	TRUE	Male		
 second person to accuse Peter (man)	FALSE	Male		
 Sennacherib, king of Assyria	FALSE	Male		
 Sennacherib's messengers	TRUE	Male		
@@ -960,7 +1009,6 @@ seventy-two	TRUE
 Shadrach/Meshach/Abednego	TRUE	Male		
 Shaphan, secretary	FALSE	Male		
 Sharezer/Regem-Melech/men of Bethel	TRUE	Male		
-donkey (female)	FALSE	Female		
 Sheba, son of Bicri	FALSE	Male		
 Shecaniah, son of Jehiel	FALSE	Male		
 Shechem	FALSE	Male		
@@ -970,14 +1018,13 @@ Shephatiah/Gedaliah/Jehucal/Pashur (officials)	TRUE	Male
 shepherds at well	TRUE			
 shepherds outside Bethlehem	TRUE			
 Shimei	FALSE			
-Simeon/Levi	TRUE	Male		
-sea captains, seafarers, sailors	TRUE	Male		
 Shobi	FALSE	Male		
 Shobi/Makir/Barzillai	TRUE	Male		
 Shua (Judah's wife)	FALSE	Female		
 sign on the cross	FALSE			
 Silas	FALSE	Male		
 Simeon	FALSE	Male		
+Simeon/Levi	TRUE	Male		
 Simeon-old	FALSE	Male	old	
 Simon (magician/sorcerer)	FALSE	Male		
 singers	TRUE			
@@ -988,7 +1035,6 @@ Sisera	FALSE	Male
 slave driver	FALSE			
 slave girls	TRUE	Female		
 soldier at the cross	FALSE	Male		
-Israelite fighting men	TRUE	Male		
 soldiers	TRUE	Male		
 soldiers, Assyrian	TRUE	Male		
 soldiers, Roman	TRUE	Male		
@@ -1009,13 +1055,11 @@ son of Shelomith (whose father was an Egyptian)	FALSE	Male
 son of Shunammite	FALSE	Male		
 son of widow	FALSE	Male		
 song (of the prostitute)	FALSE	Female		
-sons of prophet in Bethel	TRUE	Male		
 sons of Korah	TRUE	Male		
+sons of prophet in Bethel	TRUE	Male		
 souls of those killed for word of God	TRUE			
 spies (Pharisees/Herodians)	TRUE	Male		
 spies from Joshua, men	TRUE	Male		
-Holy Spirit and the bride	TRUE	Male		
-Israelite spy from house of Joseph	FALSE			
 Stephen	FALSE	Male		
 steward of Joseph's house	FALSE	Male		
 still another (follower of Christ)	FALSE			
@@ -1031,13 +1075,11 @@ teachers of religious law	TRUE	Male
 teachers of religious law/Pharisees	TRUE	Male		
 temple guards	TRUE	Male		
 temple police	TRUE	Male		
-lepers, ten	TRUE	Male		
 Tertius	FALSE	Male		
 Tertullus-Lawyer	FALSE	Male		
 Thomas	FALSE	Male		
 Thomas/Nathaniel/James/John/2 other disciples	TRUE	Male		
 those hiding from the LORD	TRUE			
-King Agrippa/Festus/Bernice/those sitting with them	TRUE			
 those standing near Paul in Sanhedrin	TRUE			
 those who call on God	TRUE			
 those who fear the Lord	TRUE			
@@ -1117,45 +1159,3 @@ Zion	FALSE
 Ziphites	TRUE			
 Zipporah, Moses' wife	FALSE	Female		
 Zophar the Naamathite	FALSE			
-messengers from Jephthah	TRUE	Pref: Male		
-messengers Israel sent to Amorite king Sihon	TRUE	Pref: Male		
-news to Pharoah's palace	FALSE			
-Peter (Simon)/Thomas/Nathaniel/James/John/2 other disciples	TRUE	Male		
-person who informed Judah	FALSE			
-person who informed people of Gaza	FALSE			
-person who informed townsmen of Ophrah	FALSE			
-disciples in Ephesus, some	TRUE			
-Israelite army commanding officers	TRUE	Male			
-Jews who had believed Jesus	TRUE			
-Israelite spies from Joshua, two men	TRUE	Male			
-Pharisees/Sadducees	TRUE	Male			
-people at Jairus' house	TRUE			
-people in Capernaum	TRUE			
-people in the temple	TRUE			
-people from Tyre/Sidon	TRUE			
-people of Samaria, all the	TRUE			
-people in Jericho, all the	TRUE			
-people in temple courts, all the	TRUE			
-people who saw healing of blind/mute, all the	TRUE			
-people near Jordan River	TRUE			
-crowd after mute healed	TRUE			
-crowd at Festival of Tabernacles in Jerusalem, many in the	TRUE			
-crowd at Festival of Tabernacles in Jerusalem, some	TRUE			
-crowd at Festival of Tabernacles in Jerusalem, still others	TRUE			
-crowd at Festival of Tabernacles in Jerusalem, the	TRUE			
-crowd at Jericho	TRUE			
-crowd before Pilate	TRUE			
-crowd in Jerusalem	TRUE			
-crowd in Jerusalem on Pentecost	TRUE			
-crowd in Lystra	TRUE			
-crowd preparing for Passover Feast	TRUE			
-crowd preparing for Passover Feast, others	TRUE			
-everyone seeing healing of paralyzed man	TRUE			
-everyone who witnessed deliverance/healing of boy	TRUE			
-everyone who saw healing of paralytic	TRUE			
-priests/Levites sent from the Jews	TRUE	Male		
-chief priests/officials	TRUE	Male		
-chief priests/crowd	TRUE			
-people in Pisidian Antioch synagogue	TRUE			
-Jews, many	TRUE			
-Jews, other	TRUE			
