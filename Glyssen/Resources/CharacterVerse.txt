@@ -6243,7 +6243,7 @@ NEH	4	2	Sanballat	angry	Sanballat, enemy	Normal
 NEH	4	3	Tobiah, enemy	mocking		Normal		
 NEH	4	10	Judah, people in			Normal		
 NEH	4	11	Sanballat		Enemies of Judah and Benjamin	Normal		
-NEH	4	12	Jews	desperate		Normal		
+NEH	4	12	Jews, the	desperate		Normal		
 NEH	4	14	Nehemiah			Normal		
 NEH	4	19	Nehemiah			Normal		
 NEH	4	20	Nehemiah			Normal		
@@ -12935,11 +12935,14 @@ LUK	1	52	Mary, Jesus' mother			Normal
 LUK	1	53	Mary, Jesus' mother			Normal		
 LUK	1	54	Mary, Jesus' mother			Normal		
 LUK	1	55	Mary, Jesus' mother			Normal		
+LUK	1	58	neighbors/relatives of Zechariah/Elizabeth			Indirect		
+LUK	1	59	neighbors/relatives of Zechariah/Elizabeth			Indirect		
 LUK	1	60	Elizabeth			Dialogue		
 LUK	1	61	neighbors/relatives of Zechariah/Elizabeth			Dialogue		
-LUK	1	62	Jews			Indirect		
+LUK	1	62	neighbors/relatives of Zechariah/Elizabeth			Indirect		
 LUK	1	63	narrator-LUK			Quotation		
 LUK	1	64	Zechariah			Indirect		
+LUK	1	65	everyone in Judean hills who heard			Indirect		
 LUK	1	66	everyone in Judean hills who heard			Normal		
 LUK	1	68	Zechariah	praising		Normal		
 LUK	1	69	Zechariah	praising		Normal		
@@ -13835,9 +13838,9 @@ JHN	2	8	Jesus			Dialogue
 JHN	2	10	master of the banquet	complimenting		Dialogue		
 JHN	2	16	Jesus	giving orders		Dialogue		
 JHN	2	17	scripture			Quotation	David	
-JHN	2	18	Jews			Dialogue		
+JHN	2	18	Jews, the			Dialogue		
 JHN	2	19	Jesus			Dialogue		
-JHN	2	20	Jews			Dialogue		
+JHN	2	20	Jews, the			Dialogue		
 JHN	3	2	Nicodemus			Dialogue		
 JHN	3	3	Jesus			Dialogue		
 JHN	3	4	Nicodemus			Dialogue		
@@ -13915,9 +13918,9 @@ JHN	4	53	Jesus	giving orders		Normal
 JHN	5	6	Jesus	questioning		Dialogue		
 JHN	5	7	invalid for 38 years	whining		Dialogue		
 JHN	5	8	Jesus	giving orders		Dialogue		
-JHN	5	10	Jews	rebuking		Dialogue		
+JHN	5	10	Jews, the	rebuking		Dialogue		
 JHN	5	11	invalid for 38 years			Dialogue		
-JHN	5	12	Jews	angry		Dialogue		
+JHN	5	12	Jews, the	angry		Dialogue		
 JHN	5	14	Jesus			Dialogue		
 JHN	5	15	invalid for 38 years			Indirect		
 JHN	5	17	Jesus			Dialogue		
@@ -13974,7 +13977,7 @@ JHN	6	38	Jesus			Normal
 JHN	6	39	Jesus			Normal		
 JHN	6	40	Jesus			Normal		
 JHN	6	41	Jesus			Normal		
-JHN	6	42	Jews	grumbling		Normal		
+JHN	6	42	Jews, the	grumbling		Normal		
 JHN	6	43	Jesus			Dialogue		
 JHN	6	44	Jesus			Normal		
 JHN	6	45	Jesus			Normal		
@@ -13984,7 +13987,7 @@ JHN	6	48	Jesus			Normal
 JHN	6	49	Jesus			Normal		
 JHN	6	50	Jesus			Normal		
 JHN	6	51	Jesus			Normal		
-JHN	6	52	Jews			Normal		
+JHN	6	52	Jews, the			Normal		
 JHN	6	53	Jesus			Dialogue		
 JHN	6	54	Jesus			Normal		
 JHN	6	55	Jesus			Normal		
@@ -14006,10 +14009,10 @@ JHN	7	4	Jesus' brothers	challenging		Dialogue
 JHN	7	6	Jesus			Dialogue		
 JHN	7	7	Jesus			Normal		
 JHN	7	8	Jesus			Normal		
-JHN	7	11	Jews			Normal		
+JHN	7	11	Jews, the			Normal		
 JHN	7	12	crowd at Festival of Tabernacles in Jerusalem, some	praising Jesus		Normal		
 JHN	7	12	crowd at Festival of Tabernacles in Jerusalem, others	against Jesus		Normal		
-JHN	7	15	Jews			Normal		
+JHN	7	15	Jews, the			Normal		
 JHN	7	16	Jesus			Dialogue		
 JHN	7	17	Jesus			Normal		
 JHN	7	18	Jesus			Normal		
@@ -14027,8 +14030,8 @@ JHN	7	29	Jesus			Normal
 JHN	7	31	crowd at Festival of Tabernacles in Jerusalem, many in the	defending Jesus		Normal		
 JHN	7	33	Jesus			Dialogue		
 JHN	7	34	Jesus			Normal		
-JHN	7	35	Jews			Dialogue		
-JHN	7	36	Jews			Dialogue		
+JHN	7	35	Jews, the			Dialogue		
+JHN	7	36	Jews, the			Dialogue		
 JHN	7	37	Jesus			Dialogue		
 JHN	7	38	Jesus			Normal		
 JHN	7	40	crowd at Festival of Tabernacles in Jerusalem, some	defending Jesus		Normal		
@@ -14058,11 +14061,11 @@ JHN	8	18	Jesus			Normal
 JHN	8	19	Jesus			Dialogue		
 JHN	8	19	Pharisees			Dialogue		
 JHN	8	21	Jesus			Dialogue		
-JHN	8	22	Jews			Normal		
+JHN	8	22	Jews, the			Normal		
 JHN	8	23	Jesus			Dialogue		
 JHN	8	24	Jesus			Normal		
 JHN	8	25	Jesus			Dialogue		
-JHN	8	25	Jews	impatient		Dialogue		
+JHN	8	25	Jews, the	impatient		Dialogue		
 JHN	8	26	Jesus			Normal		
 JHN	8	28	Jesus			Dialogue		
 JHN	8	29	Jesus			Normal		
@@ -14085,16 +14088,16 @@ JHN	8	44	Jesus			Normal
 JHN	8	45	Jesus			Normal		
 JHN	8	46	Jesus			Normal		
 JHN	8	47	Jesus			Normal		
-JHN	8	48	Jews	angry		Dialogue		
+JHN	8	48	Jews, the	angry		Dialogue		
 JHN	8	49	Jesus			Dialogue		
 JHN	8	50	Jesus			Normal		
 JHN	8	51	Jesus			Normal		
-JHN	8	52	Jews	outraged		Dialogue		
-JHN	8	53	Jews	outraged		Normal		
+JHN	8	52	Jews, the	outraged		Dialogue		
+JHN	8	53	Jews, the	outraged		Normal		
 JHN	8	54	Jesus			Dialogue		
 JHN	8	55	Jesus			Normal		
 JHN	8	56	Jesus			Normal		
-JHN	8	57	Jews			Dialogue		
+JHN	8	57	Jews, the			Dialogue		
 JHN	8	58	Jesus			Dialogue		
 JHN	9	2	disciples	accusing		Dialogue		
 JHN	9	3	Jesus			Dialogue		
@@ -14116,21 +14119,21 @@ JHN	9	16	Pharisees, some			Normal
 JHN	9	16	Pharisees, other			Normal		
 JHN	9	17	cured man, blind from birth			Dialogue		
 JHN	9	17	Pharisees			Dialogue		
-JHN	9	19	Jews	challenging		Dialogue		
+JHN	9	19	Jews, the	challenging		Dialogue		
 JHN	9	20	parents of cured man, blind from birth	cautious		Dialogue	father of cured man, blind from birth	
 JHN	9	21	parents of cured man, blind from birth			Normal	mother of cured man, blind from birth	
 JHN	9	23	parents of cured man, blind from birth			Quotation	mother of cured man, blind from birth	
-JHN	9	24	Jews	challenging		Dialogue		
+JHN	9	24	Jews, the	challenging		Dialogue		
 JHN	9	25	cured man, blind from birth			Dialogue		
-JHN	9	26	Jews			Dialogue		
+JHN	9	26	Jews, the			Dialogue		
 JHN	9	27	cured man, blind from birth			Dialogue		
-JHN	9	28	Jews	harsh		Dialogue		
-JHN	9	29	Jews	harsh		Normal		
+JHN	9	28	Jews, the	harsh		Dialogue		
+JHN	9	29	Jews, the	harsh		Normal		
 JHN	9	30	cured man, blind from birth			Dialogue		
 JHN	9	31	cured man, blind from birth			Normal		
 JHN	9	32	cured man, blind from birth			Normal		
 JHN	9	33	cured man, blind from birth			Normal		
-JHN	9	34	Jews	harsh		Dialogue		
+JHN	9	34	Jews, the	harsh		Dialogue		
 JHN	9	35	Jesus	questioning		Dialogue		
 JHN	9	36	cured man, blind from birth			Dialogue		
 JHN	9	37	Jesus			Dialogue		
@@ -14157,7 +14160,7 @@ JHN	10	17	Jesus			Normal
 JHN	10	18	Jesus			Normal		
 JHN	10	20	Jews, many	contempt		Normal		
 JHN	10	21	Jews, other			Normal		
-JHN	10	24	Jews			Dialogue		
+JHN	10	24	Jews, the			Dialogue		
 JHN	10	25	Jesus			Dialogue		
 JHN	10	26	Jesus			Normal		
 JHN	10	27	Jesus			Normal		
@@ -14165,7 +14168,7 @@ JHN	10	28	Jesus			Normal
 JHN	10	29	Jesus			Normal		
 JHN	10	30	Jesus			Normal		
 JHN	10	32	Jesus			Dialogue		
-JHN	10	33	Jews			Dialogue		
+JHN	10	33	Jews, the			Dialogue		
 JHN	10	34	Jesus			Dialogue		
 JHN	10	35	Jesus			Normal		
 JHN	10	36	Jesus			Normal		
@@ -14211,7 +14214,7 @@ JHN	11	48	chief priests/Pharisees			Dialogue
 JHN	11	49	Caiaphas, the high priest	indignant		Dialogue		
 JHN	11	50	Caiaphas, the high priest	indignant		Normal		
 JHN	11	51	Caiaphas, the high priest			Indirect		
-JHN	11	56	Jews		Jews from the country, many	Normal		
+JHN	11	56	Jews, the		Jews from the country, many	Normal		
 JHN	12	5	Judas Iscariot	rebuking		Dialogue		MAT 26.8-9;MRK 14.4-5;JHN 12.5
 JHN	12	7	Jesus			Dialogue		
 JHN	12	8	Jesus			Normal		
@@ -14414,8 +14417,8 @@ JHN	18	25	Peter (Simon)	denial, stronger		Dialogue
 JHN	18	26	high priest's servant (relative of the man whose ear Peter cut off)	accusing		Dialogue		MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
 JHN	18	27	Peter (Simon)	denial, strongest		Indirect		
 JHN	18	29	Pilate	to crowd		Dialogue		
-JHN	18	30	Jews	offended		Dialogue		
-JHN	18	31	Jews			Dialogue		
+JHN	18	30	Jews, the	offended		Dialogue		
+JHN	18	31	Jews, the			Dialogue		
 JHN	18	31	Pilate	to crowd		Dialogue		
 JHN	18	33	Pilate	to Jesus		Dialogue		
 JHN	18	34	Jesus	questioning		Dialogue		
@@ -14426,19 +14429,19 @@ JHN	18	37	Pilate	to Jesus		Dialogue
 JHN	18	38	Pilate	to Jesus		Dialogue		
 JHN	18	38	Pilate	to crowd		Dialogue		
 JHN	18	39	Pilate			Dialogue		
-JHN	18	40	Jews			Dialogue		
+JHN	18	40	Jews, the			Dialogue		
 JHN	19	3	soldiers, Roman	mocking		Dialogue		
 JHN	19	4	Pilate	to crowd		Dialogue		
 JHN	19	5	Pilate	to crowd		Dialogue		
 JHN	19	6	chief priests/officials	shouting		Dialogue		
 JHN	19	6	Pilate	to crowd		Dialogue		
-JHN	19	7	Jews	insisting		Dialogue		
+JHN	19	7	Jews, the	insisting		Dialogue		
 JHN	19	9	Pilate	to Jesus		Dialogue		
 JHN	19	10	Pilate	to Jesus		Dialogue		
 JHN	19	11	Jesus			Dialogue		
-JHN	19	12	Jews	insisting		Dialogue		
+JHN	19	12	Jews, the	insisting		Dialogue		
 JHN	19	14	Pilate	to crowd		Dialogue		
-JHN	19	15	Jews	shouting		Dialogue		
+JHN	19	15	Jews, the	shouting		Dialogue		
 JHN	19	15	Pilate	to crowd		Dialogue		
 JHN	19	15	chief priests	shouting		Dialogue		
 JHN	19	17	narrator-JHN			Quotation		
@@ -14908,7 +14911,7 @@ ACT	18	5	Paul			Indirect
 ACT	18	6	Paul	rebuking		Normal		
 ACT	18	9	Jesus	in a vision		Normal		
 ACT	18	10	Jesus	in a vision		Normal		
-ACT	18	13	Jews	angry		Dialogue		
+ACT	18	13	Jews, the	angry		Dialogue		
 ACT	18	14	Gallio, proconsul of Achaia	sternly		Dialogue		
 ACT	18	15	Gallio, proconsul of Achaia	sternly		Normal		
 ACT	18	18	Paul			Indirect		
@@ -14938,7 +14941,7 @@ ACT	19	39	city clerk of Ephesus	diplomatic		Normal
 ACT	19	40	city clerk of Ephesus	diplomatic		Normal		
 ACT	19	41	city clerk of Ephesus			Indirect		
 ACT	20	1	Paul			Indirect		
-ACT	20	3	Jews			Indirect		
+ACT	20	3	Jews, the			Indirect		
 ACT	20	3	Paul			Indirect		
 ACT	20	10	Paul	calling out		Dialogue		
 ACT	20	16	Paul			Indirect		
@@ -14971,7 +14974,7 @@ ACT	21	22	James/all the elders			Normal	James
 ACT	21	23	James/all the elders			Normal	James	
 ACT	21	24	James/all the elders			Normal	James	
 ACT	21	25	James/all the elders			Normal	James	
-ACT	21	28	Jews	shouting		Normal		
+ACT	21	28	Jews, the	shouting		Normal		
 ACT	21	33	commander of Roman troops in Jerusalem			Indirect		
 ACT	21	34	crowd	shouting		Indirect		
 ACT	21	36	crowd	shouting		Normal		
@@ -15044,7 +15047,7 @@ ACT	24	5	Tertullus-Lawyer	accusing		Normal
 ACT	24	6	Tertullus-Lawyer	accusing		Normal		
 ACT	24	7	Tertullus-Lawyer	accusing		Normal		
 ACT	24	8	Tertullus-Lawyer	accusing		Normal		
-ACT	24	9	Jews			Indirect		
+ACT	24	9	Jews, the			Indirect		
 ACT	24	10	Paul			Normal		
 ACT	24	11	Paul			Normal		
 ACT	24	12	Paul			Normal		
@@ -15143,24 +15146,24 @@ ACT	28	17	Paul			Dialogue
 ACT	28	18	Paul			Normal		
 ACT	28	19	Paul			Normal		
 ACT	28	20	Paul			Normal		
-ACT	28	21	Jews		Jews, leaders of the	Dialogue		
-ACT	28	22	Jews		Jews, leaders of the	Dialogue		
+ACT	28	21	Jews, the		Jews, leaders of the	Dialogue		
+ACT	28	22	Jews, the		Jews, leaders of the	Dialogue		
 ACT	28	25	Paul			Normal		
 ACT	28	26	Paul			Normal		
 ACT	28	27	Paul			Normal		
 ACT	28	28	Paul			Normal		
 ROM	1	17	scripture			Quotation	God	
-ROM	2	1	Jews	accusing		Hypothetical		
+ROM	2	1	Jews, the	accusing		Hypothetical		
 ROM	2	6	scripture			Quotation	David	
 ROM	2	24	scripture			Quotation	God	
-ROM	3	1	Jews	speaking ironically		Hypothetical		
+ROM	3	1	Jews, the	speaking ironically		Hypothetical		
 ROM	2	21	you (hypothetical)			Hypothetical		
 ROM	2	22	you (hypothetical)			Hypothetical		
 ROM	2	23	you (hypothetical)			Hypothetical		
 ROM	3	2	Paul			Potential		
-ROM	3	3	Jews	speaking ironically		Hypothetical		
+ROM	3	3	Jews, the	speaking ironically		Hypothetical		
 ROM	3	4	scripture			Quotation	David	
-ROM	3	5	Jews	speaking ironically		Hypothetical		
+ROM	3	5	Jews, the	speaking ironically		Hypothetical		
 ROM	3	7	someone	arguing		Hypothetical		
 ROM	3	8	Paul			Hypothetical		
 ROM	3	10	scripture			Quotation	David	

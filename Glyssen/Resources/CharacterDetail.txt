@@ -458,7 +458,7 @@ Jesus (child)	FALSE	Male	youth (12)
 Jesus' brothers	TRUE			
 Jesus' family	TRUE			
 Jethro (Reuel), Moses' father-in-law	FALSE	Male		
-Jews	TRUE			
+Jews, the	TRUE			
 Jews with Mary/Martha	TRUE			
 Jews of Cyrene, Alexandria, Cilicia & Asia	TRUE			
 Jews with Mary/Martha, some	TRUE			
