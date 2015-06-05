@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using DesktopAnalytics;
 using Glyssen.Bundle;
+using Glyssen.Properties;
 using L10NSharp;
 using SIL.IO;
 
@@ -12,59 +15,15 @@ namespace Glyssen.Dialogs
 	public partial class ProjectSettingsDlg : Form
 	{
 		private ProjectMetadataViewModel m_model;
-		private readonly bool m_initialSave;
 
-		public ProjectSettingsDlg(ProjectMetadataViewModel model, bool initialSave = false)
+		public ProjectSettingsDlg(ProjectMetadataViewModel model)
 		{
 			InitializeComponent();
-			SetReadOnly();
 			ProjectMetadataViewModel = model;
-			m_initialSave = initialSave;
-			if (!m_initialSave)
-			{
-				m_chkOverride.Visible = false;
-				m_txtIso639_2_Code.Enabled = false;
-			}
-			UpdateProjectId(null, null);
 			UpdateDisplay();
-
-			//bool vrsSelected = false;
-			//if (!string.IsNullOrEmpty(model.VersificationFilePath) && File.Exists(model.VersificationFilePath))
-			//{
-			//	m_cboVersification.Items.Add(
-			//		Versification.Table.VersificationTables().Single(v => v.PathName == model.VersificationFilePath));
-			//	m_cboVersification.SelectedIndex = 0;
-			//	vrsSelected = true;
-			//}
-
-			//foreach (var vrs in Paratext.Versification.Table.VersificationTables())
-			//{
-			//	if (!vrs.PathName.StartsWith(Project.ProjectsBaseFolder))
-			//	{
-			//		var i = m_cboVersification.Items.Add(vrs.Name);
-			//		if (!vrsSelected && vrs.Name == model.VersificationName)
-			//		{
-			//			m_cboVersification.SelectedIndex = i;
-			//			vrsSelected = true;
-			//		}
-			//	}
-			//}
-			//if (!readOnly)
-			//	m_cboVersification.Items.Add(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.OtherVersification",
-			//		"Other..."));
-
-			//LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 		}
 
-		//private void HandleStringsLocalized()
-		//{
-		//	if (m_cboVersification.Items[m_cboVersification.Items.Count - 1] is string)
-		//	{
-		//		m_cboVersification.Items[m_cboVersification.Items.Count - 1] =
-		//			m_cboVersification.Items.Add(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.OtherVersification",
-		//				"Other..."));
-		//	}
-		//}
+		public GlyssenBundle UpdatedBundle { get; private set; }
 
 		private ProjectMetadataViewModel ProjectMetadataViewModel
 		{
@@ -72,6 +31,7 @@ namespace Glyssen.Dialogs
 			{
 				m_model = value;
 				RecordingProjectName = value.RecordingProjectName;
+				m_txtOriginalBundlePath.Text = value.BundlePath;
 				LanguageName = value.LanguageName;
 				IsoCode = value.IsoCode;
 				PublicationName = value.PublicationName;
@@ -94,7 +54,6 @@ namespace Glyssen.Dialogs
 
 		private string LanguageName
 		{
-			get { return m_txtLanguageName.Text; }
 			set { m_txtLanguageName.Text = value ?? string.Empty; }
 		}
 
@@ -106,7 +65,6 @@ namespace Glyssen.Dialogs
 
 		private string PublicationName
 		{
-			get { return m_txtPublicationName.Text; }
 			set { m_txtPublicationName.Text = value; }
 		}
 
@@ -114,47 +72,6 @@ namespace Glyssen.Dialogs
 		{
 			get { return m_txtPublicationId.Text; }
 			set { m_txtPublicationId.Text = value; }
-		}
-
-		private void SetReadOnly()
-		{
-			m_txtLanguageName.Enabled = false;
-			m_txtIso639_2_Code.Enabled = false;
-			m_txtPublicationName.Enabled = false;
-			m_chkOverride.Visible = false;
-//			m_wsFontControl.ReadOnly = true;
-//			m_btnOk.Enabled = false;
-			m_txtVersification.Enabled = false;
-		}
-
-		private void UpdateProjectId(object sender, EventArgs e)
-		{
-			if (!m_initialSave)
-				return;
-			if (!m_txtPublicationId.Enabled)
-			{
-				StringBuilder bldr = new StringBuilder("sfm");
-				
-				if (!string.IsNullOrWhiteSpace(m_txtIso639_2_Code.Text))
-				{
-					bldr.Append("_");
-					bldr.Append(m_txtIso639_2_Code.Text);
-				}
-				if (!string.IsNullOrWhiteSpace(m_txtPublicationName.Text))
-				{
-					bldr.Append("_");
-					bldr.Append(m_txtPublicationName.Text);
-				}
-				var publicationId = bldr.ToString();
-				while (publicationId == "sfm" || File.Exists(Project.GetProjectFilePath(IsoCode, publicationId, RecordingProjectName)))
-				{
-					// If the user didn't supply anything helpful to distinguish this project from any other SFM project
-					// or we already have a project with this same language and project name, tack on something to make it
-					// unique.
-					publicationId = bldr.ToString() + DateTime.Now.Ticks;
-				}
-				m_txtPublicationId.Text = publicationId;
-			}
 		}
 
 		private void UpdateDisplay()
@@ -183,12 +100,6 @@ namespace Glyssen.Dialogs
 			m_lblQuoteMarkReview.Text = quoteMarkReviewText;
 		}
 
-		private void m_chkOverride_CheckedChanged(object sender, EventArgs e)
-		{
-			m_txtPublicationId.Enabled = m_chkOverride.Checked;
-			UpdateProjectId(sender, e);
-		}
-
 		private void HandleOkButtonClick(object sender, EventArgs e)
 		{
 			if (m_model.RecordingProjectName != RecordingProjectName && File.Exists(Project.GetProjectFilePath(IsoCode, PublicationId, RecordingProjectName)))
@@ -205,10 +116,6 @@ namespace Glyssen.Dialogs
 			}
 
 			m_model.RecordingProjectName = RecordingProjectName;
-			//m_model.LanguageName = LanguageName;
-			//m_model.IsoCode = IsoCode;
-			//m_model.PublicationName = PublicationName;
-			//m_model.PublicationId = PublicationId;
 			
 			m_model.Project.ProjectSettingsStatus = ProjectSettingsStatus.Reviewed;
 			DialogResult = DialogResult.OK;
@@ -230,7 +137,7 @@ namespace Glyssen.Dialogs
 				{
 					string msg = string.Format(LocalizationManager.GetString("Project.UnableToLocateTextBundleMsg",
 						"The original text bundle for the project is no longer in its original location ({0}). " +
-						"The Quote Mark Settings cannot be modified without access to the original text bundle."), m_model.Project.OriginalPathOfDblFile) +
+						"The Quote Mark Settings cannot be modified without access to the original text bundle."), m_model.Project.OriginalBundlePath) +
 					             Environment.NewLine + Environment.NewLine +
 								 LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text bundle yourself?");
 					string title = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
@@ -247,44 +154,99 @@ namespace Glyssen.Dialogs
 						UpdateDisplay();
 		}
 
-		//private void m_cboVersification_SelectedIndexChanged(object sender, EventArgs e)
-		//{
-			//var lastItemIndex = m_cboVersification.Items.Count - 1;
-			//if (m_cboVersification.Items[lastItemIndex] is string && m_cboVersification.SelectedIndex == lastItemIndex)
-			//{
-			//	using (var dlg = new OpenFileDialog())
-			//	{
-			//		var defaultDir = OpenProjectDlg.ParatextProjectsFolder;
-			//		if (defaultDir != null)
-			//			dlg.InitialDirectory = defaultDir;
+		private void m_btnUpdateFromBundle_Click(object sender, EventArgs e)
+		{
+			using (var dlg = new SelectProjectDlg(false, m_model.BundlePath))
+			{
+				if (dlg.ShowDialog() == DialogResult.OK)
+				{
+					var selectedBundlePath = dlg.FileName;
+					var bundle = new GlyssenBundle(selectedBundlePath);
+					if (ConfirmProjectUpdateFromBundle(bundle))
+					{
+						m_model.BundlePath = dlg.FileName;
+						UpdatedBundle = bundle;
+						HandleOkButtonClick(sender, e);
+					}
+					else
+					{
+						Analytics.Track("CancelledUpdateProjectFromBundleData", new Dictionary<string, string>
+						{
+							{"bundleLanguage", bundle.LanguageIso},
+							{"projectLanguage", m_model.IsoCode},
+							{"bundleID", bundle.Id},
+							{"projectID", m_model.PublicationId},
+							{"recordingProjectName", m_model.RecordingProjectName},
+							{"bundlePathChanged", (m_model.BundlePath != selectedBundlePath).ToString()}
+						});
+						bundle.Dispose();
+					}
+				}
+			}
+		}
 
-			//		dlg.Title = LocalizationManager.GetString("SelectVersificationDialog.Title", "Open Project"),
-			//	InitialDirectory = defaultDir,
-			//	Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}|{4} ({5})|{5}",
-			//		LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ResourceBundleFileTypeLabel", "Text Resource Bundle files"),
-			//		"*" + kResourceBundleExtension,
-			//		LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ProjectFilesLabel", "Glyssen Project Files"),
-			//		"*" + Project.kProjectFileExtension,
-			//		LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"),
-			//		"*.*"),
-			//	DefaultExt = kResourceBundleExtension
+		private bool ConfirmProjectUpdateFromBundle(GlyssenBundle bundle)
+		{
+			StringBuilder msg = new StringBuilder();
+			var oldValueFormat = LocalizationManager.GetString("Project.UpdateFromBundle.OldValue",
+				"Old value: {0}");
+			var newValueFormat = LocalizationManager.GetString("Project.UpdateFromBundle.NewValue",
+				"New value: {0}");
+			
+			if (bundle.LanguageIso != m_model.IsoCode)
+			{
+				msg.Append(Environment.NewLine);
+				msg.Append(LocalizationManager.GetString("Project.UpdateFromBundle.Language", "Language"));
+				msg.Append(Environment.NewLine);
+				msg.Append("    ");
+				var oldLanguage = string.IsNullOrEmpty(m_model.LanguageName) ? m_model.IsoCode : string.Format("{0} ({1})", m_model.LanguageName, m_model.IsoCode);
+				msg.AppendFormat(oldValueFormat, oldLanguage);
+				msg.Append(Environment.NewLine);
+				msg.Append("    ");
+				msg.AppendFormat(newValueFormat, bundle.LanguageAsString);
+				msg.Append(Environment.NewLine);
+			}
 
-			//		if (dlg.ShowDialog() == DialogResult.OK)
-			//		{
-			//			SelectedProject = dlg.FileName;
-			//			var folder = Path.GetDirectoryName(SelectedProject);
-			//			if (folder != null)
-			//			{
-			//				folder = Path.GetDirectoryName(folder);
-			//				if (folder != null)
-			//					Settings.Default.DefaultSfmDirectory = folder;
-			//			}
-			//			Type = ProjectType.StandardFormatBook;
-			//			DialogResult = DialogResult.OK;
-			//			Close();
-			//		}
-			//	}
-			//}
-		//}
+			if (bundle.Id != m_model.PublicationId)
+			{
+				msg.Append(Environment.NewLine);
+				msg.Append(LocalizationManager.GetString("Project.UpdateFromBundle.Id", "ID"));
+				msg.Append(Environment.NewLine);
+				msg.Append("    ");
+				msg.AppendFormat(oldValueFormat, m_model.PublicationId);
+				msg.Append(Environment.NewLine);
+				msg.Append("    ");
+				msg.AppendFormat(newValueFormat, bundle.Id);
+				msg.Append(Environment.NewLine);
+			}
+
+			if (msg.Length > 0)
+			{
+				msg.Insert(0, Environment.NewLine);
+				msg.Insert(0, LocalizationManager.GetString("Project.UpdateFromBundle.UpdatedBundleMismatch",
+					"The metadata of the selected text release bundle does not match the current project. If you continue with this update, the following metadata will be changed:"));
+
+				// This isn't necessarily "required" or "expected", but it seems useful to report
+				if (bundle.Name != m_model.PublicationName)
+				{
+					msg.Append(Environment.NewLine);
+					msg.Append(LocalizationManager.GetString("Project.UpdateFromBundle.PublicationName", "Publication name"));
+					msg.Append(Environment.NewLine);
+					msg.Append("    ");
+					msg.AppendFormat(oldValueFormat, m_model.PublicationName);
+					msg.Append(Environment.NewLine);
+					msg.Append("    ");
+					msg.AppendFormat(newValueFormat, bundle.Name);
+					msg.Append(Environment.NewLine);
+				}
+				msg.Append(Environment.NewLine);
+				msg.Append(LocalizationManager.GetString("Project.UpdateFromBundle.AllowUpdate",
+					"Do you want to continue with this update?"));
+				return MessageBox.Show(this, msg.ToString(), LocalizationManager.GetString("", "Confirm Update"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) ==
+					DialogResult.Yes;
+			}
+			return true;
+		}
+
 	}
 }

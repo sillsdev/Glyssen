@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Globalization;
+using System.Linq;
 using System.Xml.Serialization;
 using Glyssen.Dialogs;
 using Glyssen.Quote;
@@ -55,24 +57,10 @@ namespace Glyssen.Bundle
 
 		/// <summary>
 		/// We add this when we parse the USX to create a script. 
-		/// This tells us the original (local) path of the DBL file used to create this project.
+		/// This tells us the original (local) path of the Text Release Bundle file used to create this project.
 		/// </summary>
 		[XmlAttribute("origdblpath")]
-		public string OriginalPathOfDblFile;
-
-		/// <summary>
-		/// We add this when we parse an SFM file to create a script. 
-		/// This tells us the original (local) path of the SFM file used to create this project.
-		/// </summary>
-		[XmlAttribute("origsfmfile")]
-		public string OriginalPathOfSfmFile;
-
-		/// <summary>
-		/// We add this when we parse a directory of SFM files to create a script. 
-		/// This tells us the original (local) path of the directory used to create this project.
-		/// </summary>
-		[XmlAttribute("origsfmdir")]
-		public string OriginalPathOfSfmDirectory;
+		public string OriginalPathBundlePath;
 
 		/// <summary>
 		/// We use this to know if character assignments should be reprocessed.
@@ -146,6 +134,24 @@ namespace Glyssen.Bundle
 		[XmlAttribute("versification")]
 		[DefaultValue("English")]
 		public string Versification;
+
+		/// <summary>
+		/// Gets the revision number from a standard DBL bundle. If this bundle is an ad-hoc bundle created by Paratext,
+		/// this will instead be the (Mercurial) changeset id (which is a GUID)
+		/// </summary>
+		public string RevisionOrChangesetId
+		{
+			get
+			{
+				if (Revision == 0 && Identification != null)
+				{
+					var paratext = Identification.SystemIds.FirstOrDefault(si => si.Type == "paratext");
+					if (paratext != null && !String.IsNullOrEmpty(paratext.ChangeSetId))
+						return paratext.ChangeSetId;
+				}
+				return Revision.ToString(CultureInfo.InvariantCulture);
+			}
+		}
 		#endregion
 
 		public new string GetAsXml()
@@ -160,11 +166,11 @@ namespace Glyssen.Bundle
 				Language = new GlyssenDblMetadataLanguage();
 		}
 
-		public static int GetRevision(string filename)
+		public static string GetRevisionOrChangesetId(string filename)
 		{
 			Exception exception;
 			var metadata = XmlSerializationHelper.DeserializeFromFile<GlyssenDblTextMetadata>(filename, out exception);
-			return metadata != null ? metadata.Revision : -1;
+			return metadata != null ? metadata.RevisionOrChangesetId : null;
 		}
 
 		#region Deprecated properties used only for deserialization of projects with an old version of the data
@@ -226,6 +232,27 @@ namespace Glyssen.Bundle
 			set { FontSizeInPoints = value; }
 		}
 		#endregion
+
+		/// <summary>
+		/// "Clone" only the bits of metadata that the user can modify in Glyssen.
+		/// </summary>
+		public void CopyGlyssenModifiableSettings(GlyssenDblTextMetadata source)
+		{
+			ProjectStatus = source.ProjectStatus;
+			// TODO (PG-230): if this metadata contains quote system info, then we probably do not want to overwrite it.
+			// Also, the portions of the ProjectStatus related to the quote system need to be set (or not) accordingly.
+			//if ((ProjectStatus.QuoteSystemStatus & QuoteSystemStatus.Obtained) == 0)
+				QuoteSystem = source.QuoteSystem;
+			FontFamily = source.FontFamily;
+			FontSizeInPoints = source.FontSizeInPoints;
+			Language.ScriptDirection = source.Language.ScriptDirection;
+			foreach (var book in AvailableBooks)
+			{
+				var sourceProjectBook = source.AvailableBooks.FirstOrDefault(b => book.Code == b.Code);
+				if (sourceProjectBook != null)
+					book.IncludeInScript = sourceProjectBook.IncludeInScript;
+			}
+		}
 	}
 
 	public class ProjectStatus

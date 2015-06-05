@@ -12,9 +12,10 @@ namespace Glyssen.Dialogs
 	{
 		private readonly OpenFileDialog m_fileDialog;
 
-		public SelectProjectDlg(bool allowProjectFiles = true)
+		public SelectProjectDlg(bool allowProjectFiles = true, string defaultFile = null)
 		{
-			var defaultDir = Settings.Default.DefaultBundleDirectory;
+			FileName = File.Exists(defaultFile) ? Path.GetFileName(defaultFile) : null;
+			var defaultDir = (defaultFile != null ? Path.GetDirectoryName(defaultFile) : Settings.Default.DefaultBundleDirectory);
 			if (string.IsNullOrEmpty(defaultDir) || !Directory.Exists(defaultDir))
 			{
 				defaultDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -28,6 +29,7 @@ namespace Glyssen.Dialogs
 			{
 				Title = LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.Title", "Open Project"),
 				InitialDirectory = defaultDir,
+				FileName = FileName,
 				Filter = string.Format("{0} ({1})|{1}|{2}{3} ({4})|{4}",
 					LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ResourceBundleFileTypeLabel", "Text Resource Bundle files"),
 					"*" + DblBundleFileUtils.kDblBundleExtension,
@@ -78,7 +80,7 @@ namespace Glyssen.Dialogs
 								return ErrorMessageWithRetry(message, caption, project);
 							}
 
-							project.OriginalPathOfDblFile = bundlePath;
+							project.OriginalBundlePath = bundlePath;
 							return true;
 						}
 						catch

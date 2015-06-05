@@ -95,7 +95,7 @@ namespace Glyssen
 								{
 									Exception exception;
 									var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out exception);
-									var origBundlePath = metadata.OriginalPathOfDblFile;
+									var origBundlePath = metadata.OriginalPathBundlePath;
 									if (string.IsNullOrEmpty(origBundlePath))
 									{
 										try

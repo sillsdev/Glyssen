@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 using Glyssen.Properties;
-using L10NSharp;
 using Microsoft.Win32;
 using SIL.Windows.Forms.PortableSettingsProvider;
 
@@ -16,8 +15,6 @@ namespace Glyssen.Dialogs
 			ExistingProject,
 			TextReleaseBundle,
 			ParatextProject,
-			StandardFormatFolder,
-			StandardFormatBook,
 		}
 
 		private readonly Project m_currentProject;
@@ -62,16 +59,6 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		private string DefaultSfmDirectory
-		{
-			get
-			{
-				if (!string.IsNullOrWhiteSpace(Settings.Default.DefaultSfmDirectory))
-					return Settings.Default.DefaultSfmDirectory;
-				return ParatextProjectsFolder;
-			}
-		}
-
 		public static string ParatextProjectsFolder
 		{
 			get
@@ -110,48 +97,6 @@ namespace Glyssen.Dialogs
 		{
 			Settings.Default.OpenProjectDlgGridSettings = m_listExistingProjects.GridSettings;
 			base.OnClosing(e);
-		}
-
-		private void m_linkSingleSFBook_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
-			using (var dlg = new OpenFileDialog())
-			{
-				dlg.InitialDirectory = DefaultSfmDirectory;
-
-				if (dlg.ShowDialog() == DialogResult.OK)
-				{
-					SelectedProject = dlg.FileName;
-					var folder = Path.GetDirectoryName(SelectedProject);
-					if (folder != null)
-					{
-						folder = Path.GetDirectoryName(folder);
-						if (folder != null)
-							Settings.Default.DefaultSfmDirectory = folder;
-					}
-					Type = ProjectType.StandardFormatBook;
-					DialogResult = DialogResult.OK;
-					Close();
-				}
-			}
-		}
-
-		private void m_linkSFFolder_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
-			using (var dlg = new FolderBrowserDialog())
-			{
-				dlg.Reset();
-				dlg.RootFolder = Environment.SpecialFolder.Desktop;
-				dlg.Description = LocalizationManager.GetString("DialogBoxes.OpenProjectDlg.SelectFolderOfSfFiles", "Select the folder containing the project's Standard Format files.");
-				dlg.SelectedPath = DefaultSfmDirectory;
-				dlg.ShowNewFolderButton = false;
-				if (dlg.ShowDialog() == DialogResult.OK)
-				{
-					SelectedProject = dlg.SelectedPath;
-					Type = ProjectType.StandardFormatFolder;
-					DialogResult = DialogResult.OK;
-					Close();
-				}
-			}
 		}
 
 		private void HandleSelectedProjectChanged(object sender, EventArgs e)

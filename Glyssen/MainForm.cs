@@ -39,12 +39,13 @@ namespace Glyssen
 
 		private void SetProject(Project project)
 		{
-			m_project = project;
 			if (m_project != null)
-			{
-				m_project.ProjectStateChanged += (sender, args) => FinishSetProjectIfReady();
-				m_project.ProjectStateChanged += (sender, args) => UpdateProjectState();
-			}
+				m_project.ProjectStateChanged -= FinishSetProjectIfReady;
+			
+			m_project = project;
+		
+			if (m_project != null)
+				m_project.ProjectStateChanged += FinishSetProjectIfReady;
 
 			ResetUi();
 
@@ -54,10 +55,12 @@ namespace Glyssen
 			FinishSetProject();
 		}
 
-		private void FinishSetProjectIfReady()
+		private void FinishSetProjectIfReady(object sender, EventArgs e)
 		{
 			if (m_project != null && (m_project.ProjectState & ProjectState.ReadyForUserInteraction) > 0)
 				FinishSetProject();
+			else
+				UpdateProjectState();
 		}
 
 		private void FinishSetProject()
@@ -131,12 +134,6 @@ namespace Glyssen
 						case OpenProjectDlg.ProjectType.TextReleaseBundle:
 							LoadBundle(dlg.SelectedProject);
 							break;
-						//case OpenProjectDlg.ProjectType.StandardFormatBook:
-							//LoadSfmBook(dlg.SelectedProject);
-							//break;
-						//case OpenProjectDlg.ProjectType.StandardFormatFolder:
-							//LoadSfmFolder(dlg.SelectedProject);
-							//break;
 						default:
 							MessageBox.Show("Sorry - not implemented yet");
 							break;
@@ -174,7 +171,7 @@ namespace Glyssen
 			var publicationFolder = Project.GetPublicationFolderPath(bundle);
 			if (Directory.Exists(publicationFolder) &&
 				Directory.GetDirectories(publicationFolder).Any(f => Directory.GetFiles(f, "*" + Project.kProjectFileExtension)
-					.Any(filename => GlyssenDblTextMetadata.GetRevision(filename) == bundle.Metadata.Revision)))
+					.Any(filename => GlyssenDblTextMetadata.GetRevisionOrChangesetId(filename) == bundle.Metadata.RevisionOrChangesetId)))
 			{
 				using (var dlg = new SelectExistingProjectDlg(bundle))
 				{
@@ -194,7 +191,7 @@ namespace Glyssen
 			var recordingProjectName = Path.GetFileName(Path.GetDirectoryName(projFilePath));
 			if (File.Exists(projFilePath))
 			{
-				if (GlyssenDblTextMetadata.GetRevision(projFilePath) == bundle.Metadata.Revision)
+				if (GlyssenDblTextMetadata.GetRevisionOrChangesetId(projFilePath) == bundle.Metadata.RevisionOrChangesetId)
 				{
 					LoadProject(projFilePath);
 					bundle.Dispose();
@@ -230,7 +227,7 @@ namespace Glyssen
 					"Versification file: {1}\r\n" +
 					"Error: {2}"),
 					bundlePath, DblBundleFileUtils.kVersificationFileName, error);
-				MessageBox.Show(msg, Program.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show(this, msg, Program.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				SetProject(null);
 			}
 
@@ -252,7 +249,7 @@ namespace Glyssen
 					bldr.Append(ex.InnerException);
 				}
 
-				MessageBox.Show(bldr.ToString(), ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				MessageBox.Show(this, bldr.ToString(), ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				UpdateDisplayOfProjectInfo();
 				return false;
 			}
@@ -341,33 +338,9 @@ namespace Glyssen
 					}
 					catch(Exception ex)
 					{
-						MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+						MessageBox.Show(this, ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 					}
 				}
-			}
-		}
-
-		private void LoadSfmBook(string sfmFilePath)
-		{
-			try
-			{
-				SetProject(SfmLoader.LoadSfmBookAndMetadata(sfmFilePath));
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-			}
-		}
-
-		private void LoadSfmFolder(string sfmFolderPath)
-		{
-			try
-			{
-				SetProject(SfmLoader.LoadSfmFolderAndMetadata(sfmFolderPath));
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 			}
 		}
 
@@ -431,10 +404,24 @@ namespace Glyssen
 			var model = new ProjectMetadataViewModel(m_project);
 			using (var dlg = new ProjectSettingsDlg(model))
 			{
-				if (dlg.ShowDialog() != DialogResult.OK)
+				if (dlg.ShowDialog(this) != DialogResult.OK)
 					return;
 
 				m_project.UpdateSettings(model);
+
+				if (dlg.UpdatedBundle != null)
+				{
+					Analytics.Track("UpdateProjectFromBundleData", new Dictionary<string, string>
+					{
+						{"language", m_project.LanguageIsoCode},
+						{"ID", m_project.Id},
+						{"recordingProjectName", m_project.Name},
+						{"bundlePathChanged", (m_project.OriginalBundlePath != model.BundlePath).ToString()}
+					});
+					var project = m_project.UpdateProjectFromBundleData(dlg.UpdatedBundle);
+					project.OriginalBundlePath = model.BundlePath;
+					LoadProject(project.ProjectFilePath);
+				}
 			}
 			UpdateDisplayOfProjectInfo();
 		}

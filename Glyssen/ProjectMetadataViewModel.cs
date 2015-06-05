@@ -23,6 +23,7 @@ namespace Glyssen
 			};
 
 			RecordingProjectName = project.Name;
+			BundlePath = project.OriginalBundlePath;
 			LanguageName = project.LanguageName;
 			IsoCode = project.LanguageIsoCode;
 			PublicationId = project.Id;
@@ -41,6 +42,7 @@ namespace Glyssen
 		public string IsoCode { get; set; }
 		public string PublicationName { get; set; }
 		public string RecordingProjectName { get; set; }
+		public string BundlePath { get; set; }
 		public string PublicationId { get; set; }
 		public string SampleText { get; set; }
 		public ScrVers Versification { get; set; }

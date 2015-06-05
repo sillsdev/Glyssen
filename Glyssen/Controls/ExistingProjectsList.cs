@@ -137,7 +137,7 @@ namespace Glyssen.Controls
 					{
 						metadata.Language,
 						Path.GetFileName(recordingProjectFolder),
-						Path.GetFileName(metadata.OriginalPathOfDblFile),
+						Path.GetFileName(metadata.OriginalPathBundlePath),
 						metadata.Inactive,
 						path
 					});
@@ -149,6 +149,11 @@ namespace Glyssen.Controls
 
 			m_list.Sort(m_list.SortedColumn ?? colLanguage,
 				m_list.SortOrder == SortOrder.Descending ? ListSortDirection.Descending : ListSortDirection.Ascending);
+
+			if (SelectedProject == null)
+				m_list.ClearSelection();
+			else
+				m_list.FirstDisplayedScrollingRowIndex = m_list.SelectedRows[0].Index;
 
 			m_list.SelectionChanged += HandleSelectionChanged;
 			m_list.CellValueChanged += HandleCellValueChanged;

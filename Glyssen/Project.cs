@@ -33,12 +33,8 @@ namespace Glyssen
 	public class Project
 	{
 		public const string kProjectFileExtension = ".glyssen";
-		public const string kBookScriptFileExtension = ".xml";
-		public const string kLdmlFileExtension = ".ldml";
+		private const string kBookScriptFileExtension = ".xml";
 		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
-		public const string kDefaultFontPrimary = "Charis SIL";
-		public const string kDefaultFontSecondary = "Times New Roman";
-		public const int kDefaultFontSize = 14;
 		private const string kSample = "sample";
 		private const string kSampleProjectName = "Sample Project";
 
@@ -62,7 +58,7 @@ namespace Glyssen
 		public event EventHandler<ProjectStateChangedEventArgs> ProjectStateChanged;
 		public event EventHandler AnalysisCompleted;
 
-		public Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null)
+		private Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null)
 		{
 			m_metadata = metadata;
 			m_recordingProjectName = recordingProjectName ?? GetDefaultRecordingProjectName(m_metadata.Identification.Name);
@@ -73,7 +69,7 @@ namespace Glyssen
 				m_vers = LoadVersification(VersificationFilePath);
 		}
 
-		public Project(GlyssenBundle bundle, string recordingProjectName = null) :
+		public Project(GlyssenBundle bundle, string recordingProjectName = null, Project projectBeingUpdated = null) :
 			this(bundle.Metadata, recordingProjectName)
 		{
 			Directory.CreateDirectory(ProjectFolder);
@@ -87,6 +83,7 @@ namespace Glyssen
 				DeleteProjectFolderAndEmptyContainingFolders(ProjectFolder);
 				throw;
 			}
+			UserDecisionsProject = projectBeingUpdated;
 			PopulateAndParseBooks(bundle);
 		}
 
@@ -102,7 +99,7 @@ namespace Glyssen
 			m_vers = LoadVersification(VersificationFilePath);
 		}
 
-		public static string ProjectsBaseFolder
+		private static string ProjectsBaseFolder
 		{
 			get
 			{
@@ -276,10 +273,10 @@ namespace Glyssen
 			} 
 		}
 
-		public string OriginalPathOfDblFile
+		public string OriginalBundlePath
 		{
-			get { return m_metadata.OriginalPathOfDblFile; }
-			set { m_metadata.OriginalPathOfDblFile = value; }
+			get { return m_metadata.OriginalPathBundlePath; }
+			set { m_metadata.OriginalPathBundlePath = value; }
 		}
 
 		public readonly ProjectCharacterVerseData ProjectCharacterVerseData;
@@ -293,16 +290,28 @@ namespace Glyssen
 				m_recordingProjectName = model.RecordingProjectName;
 				m_wsRepository = null;
 			}
-			//m_metadata.id = model.PublicationId;
-			//m_metadata.language.iso = model.IsoCode;
-			//m_metadata.identification.name = model.PublicationName;
-			//m_metadata.language.name = model.LanguageName;
 			m_metadata.FontFamily = model.WsModel.CurrentDefaultFontName;
 			m_metadata.FontSizeInPoints = (int) model.WsModel.CurrentDefaultFontSize;
 			m_metadata.Language.ScriptDirection = model.WsModel.CurrentRightToLeftScript ? "RTL" : "LTR";
 		}
 
-		public int PercentInitialized { get; private set; }
+		public Project UpdateProjectFromBundleData(GlyssenBundle bundle)
+		{
+			// If we're updating the projectb in place, we need to make a backup. Otherwise, if it's moving to a new
+			// location, just mark the existing one as inactive.
+			bool moving = (ProjectFilePath != GetProjectFilePath(bundle.LanguageIso, bundle.Id, m_recordingProjectName));
+			if (moving)
+				m_metadata.Inactive = true;
+			Save();
+			if (!moving)
+				CreateBackup("Backup before updating from new bundle");
+
+			bundle.Metadata.CopyGlyssenModifiableSettings(m_metadata);
+
+			return new Project(bundle, m_recordingProjectName);
+		}
+
+		private int PercentInitialized { get; set; }
 
 		public ProjectState ProjectState
 		{
@@ -367,12 +376,12 @@ namespace Glyssen
 			if (!existingProject.IsSampleProject && existingProject.m_metadata.ParserVersion != Settings.Default.ParserVersion)
 			{
 				bool upgradeProject = true;
-				if (!File.Exists(existingProject.OriginalPathOfDblFile))
+				if (!File.Exists(existingProject.OriginalBundlePath))
 				{
 					upgradeProject = false;
 					if (Settings.Default.ParserVersion > existingProject.m_metadata.ParserUpgradeOptOutVersion)
 					{
-						string msg = string.Format(LocalizationManager.GetString("Project.ParserUpgradeBundleMissingMsg", "The splitting engine has been upgraded. To make use of the new engine, the original text bundle must be available, but it is not in the original location ({0})."), existingProject.OriginalPathOfDblFile) +
+						string msg = string.Format(LocalizationManager.GetString("Project.ParserUpgradeBundleMissingMsg", "The splitting engine has been upgraded. To make use of the new engine, the original text bundle must be available, but it is not in the original location ({0})."), existingProject.OriginalBundlePath) +
 							Environment.NewLine + Environment.NewLine + 
 							LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text bundle yourself?");
 						string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
@@ -383,17 +392,18 @@ namespace Glyssen
 					}
 				}
 				if (upgradeProject)
-					using (var bundle = new GlyssenBundle(existingProject.OriginalPathOfDblFile))
+				{
+					using (var bundle = new GlyssenBundle(existingProject.OriginalBundlePath))
 					{
 						var upgradedProject = new Project(existingProject.m_metadata, existingProject.m_recordingProjectName);
 
 						Analytics.Track("UpgradeProject", new Dictionary<string, string>
 						{
-							{ "language", existingProject.LanguageIsoCode },
-							{ "ID", existingProject.Id },
-							{ "recordingProjectName", existingProject.Name },
-							{ "oldParserVersion", existingProject.m_metadata.ParserVersion.ToString(CultureInfo.InvariantCulture) },
-							{ "newParserVersion", Settings.Default.ParserVersion.ToString(CultureInfo.InvariantCulture) }
+							{"language", existingProject.LanguageIsoCode},
+							{"ID", existingProject.Id},
+							{"recordingProjectName", existingProject.Name},
+							{"oldParserVersion", existingProject.m_metadata.ParserVersion.ToString(CultureInfo.InvariantCulture)},
+							{"newParserVersion", Settings.Default.ParserVersion.ToString(CultureInfo.InvariantCulture)}
 						});
 
 						upgradedProject.UserDecisionsProject = existingProject;
@@ -401,6 +411,7 @@ namespace Glyssen
 						upgradedProject.m_metadata.ParserVersion = Settings.Default.ParserVersion;
 						return upgradedProject;
 					}
+				}
 			}
 
 			existingProject.InitializeLoadedProject();
@@ -513,10 +524,10 @@ namespace Glyssen
 
 		private void ApplyUserDecisions(Project sourceProject)
 		{
-			for (int iBook = 0; iBook < m_books.Count; iBook++)
+			foreach (var targetBookScript in m_books)
 			{
-				var targetBookScript = m_books[iBook];
-				var sourceBookScript = sourceProject.m_books.SingleOrDefault(b => b.BookId == targetBookScript.BookId);
+				BookScript script = targetBookScript;
+				var sourceBookScript = sourceProject.m_books.SingleOrDefault(b => b.BookId == script.BookId);
 				if (sourceBookScript != null)
 					targetBookScript.ApplyUserDecisions(sourceBookScript);
 			}
@@ -552,7 +563,7 @@ namespace Glyssen
 
 		private void UsxWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
-			var parameters = e.Argument as object[];
+			var parameters = (object[])e.Argument;
 			var books = (IEnumerable<UsxDocument>)parameters[0];
 			var stylesheet = (IStylesheet)parameters[1];
 
@@ -598,7 +609,7 @@ namespace Glyssen
 		private void GuessWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
 			bool certain;
-			e.Result = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, m_books, Versification, out certain, sender as BackgroundWorker); ;
+			e.Result = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, m_books, Versification, out certain, sender as BackgroundWorker);
 		}
 
 		private void GuessWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -784,6 +795,7 @@ namespace Glyssen
 
 		private void LoadWritingSystem()
 		{
+			// TODO (PG-230): Here or maybe somewhere else, we need to set the quote status to Obtained if we get it from the bundle.
 			WritingSystemDefinition ws = WritingSystem;
 			if (m_metadata.QuoteSystem == null)
 				m_metadata.QuoteSystem = new QuoteSystem();
@@ -819,21 +831,23 @@ namespace Glyssen
 
 			m_books.Clear();
 
-			if (File.Exists(OriginalPathOfDblFile) && QuoteSystem != null)
+			if (File.Exists(OriginalBundlePath) && QuoteSystem != null)
 			{
 				UserDecisionsProject = copyOfExistingProject;
-				using (var bundle = new GlyssenBundle(OriginalPathOfDblFile))
+				using (var bundle = new GlyssenBundle(OriginalBundlePath))
 					PopulateAndParseBooks(bundle);
 			}
 			else
 			{
-				//TODO
+				// This is prevented by logic elsewhere
 				throw new ApplicationException();
 			}
 		}
 
 		private void CreateBackup(string textToAppendToRecordingProjectName, bool hidden = true)
 		{
+			if (!m_books.Any(b => b.GetScriptBlocks().Any(sb => sb.UserConfirmed)))
+				return;
 			string newDirectoryPath = GetProjectFolderPath(LanguageIsoCode, Id, Name + " - " + textToAppendToRecordingProjectName);
 			if (Directory.Exists(newDirectoryPath))
 			{
@@ -869,17 +883,8 @@ namespace Glyssen
 		{
 			if (QuoteSystem == null)
 				return false;
-			if (File.Exists(OriginalPathOfDblFile))
+			if (File.Exists(OriginalBundlePath))
 				return true;
-//			if (Directory.Exists(m_metadata.OriginalPathOfSfmDirectory))
-//			{
-//				// Ensure the books present originally are the same as those present now
-//				List<UsxDocument> booksInFolder = SfmLoader.LoadSfmFolder(m_metadata.OriginalPathOfSfmDirectory);
-//				if (booksInFolder.Count != m_metadata.AvailableBooks.Count)
-//					return false;
-//				List<string> bookIdsInFolder = booksInFolder.Select(b => b.BookId).ToList();
-//				return m_metadata.AvailableBooks.All(book => bookIdsInFolder.Contains(book.Code));
-//			}
 			return false;
 		}
 

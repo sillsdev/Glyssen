@@ -129,12 +129,21 @@ namespace Glyssen.Properties {
         ///
         ///# modifications by Studge 26/June/2009
         ///# book definitions are for all books printed in any English of Spanish Bible
-        ///# this includes books for Protestant, Catholic and Protestant-Catholic-EasternOrthodox Interconfessional editions
-        /// [rest of string was truncated]&quot;;.
+        ///# this includes books for Protestant, Catholic and Protestant-Catholic-EasternOrthodox Interconfessional editions        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EnglishVersification {
             get {
                 return ResourceManager.GetString("EnglishVersification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon glyssenIcon {
+            get {
+                object obj = ResourceManager.GetObject("glyssenIcon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -175,16 +184,6 @@ namespace Glyssen.Properties {
             get {
                 object obj = ResourceManager.GetObject("IncreaseSize", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon PgIcon {
-            get {
-                object obj = ResourceManager.GetObject("PgIcon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
             }
         }
         

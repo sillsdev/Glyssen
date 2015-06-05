@@ -53,7 +53,7 @@
     <StartupObject>Glyssen.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\PgIcon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\glyssen.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Analytics.NET">
@@ -345,9 +345,9 @@
     <None Include="Resources\html-view.png" />
     <None Include="Resources\DecreaseSize.png" />
     <None Include="Resources\IncreaseSize.png" />
-    <None Include="Resources\PgIcon.ico" />
     <None Include="Resources\EnglishVersification.txt" />
     <None Include="Resources\green-check.png" />
+    <None Include="Resources\glyssen.ico" />
     <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />
   </ItemGroup>

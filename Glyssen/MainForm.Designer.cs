@@ -360,7 +360,7 @@
 			this.Controls.Add(this.m_lblSettingsInfo);
 			this.Controls.Add(this.m_lblProjectInfo);
 			this.Controls.Add(this.m_btnOpenProject);
-			this.Icon = global::Glyssen.Properties.Resources.PgIcon;
+			this.Icon = global::Glyssen.Properties.Resources.glyssenIcon;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this, "MainForm.WindowTitle");

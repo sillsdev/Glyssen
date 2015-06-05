@@ -130,11 +130,11 @@ namespace Glyssen
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
 
 			LocalizationManager = LocalizationManager.Create(desiredUiLangId, kApplicationId, Application.ProductName, Application.ProductVersion,
-				installedStringFileFolder, targetTmxFilePath, Resources.PgIcon, IssuesEmailAddress, "Glyssen");
+				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress, "Glyssen");
 
 			if (string.IsNullOrEmpty(desiredUiLangId))
 				if (LocalizationManager.GetUILanguages(true).Count() > 1)
-					using (var dlg = new LanguageChoosingSimpleDialog(Resources.PgIcon))
+					using (var dlg = new LanguageChoosingSimpleDialog(Resources.glyssenIcon))
 						if (DialogResult.OK == dlg.ShowDialog())
 						{
 							Analytics.Track("SetUiLanguage", new Dictionary<string, string> { { "uiLanguage", dlg.SelectedLanguage }, { "initialStartup", "true" } });
