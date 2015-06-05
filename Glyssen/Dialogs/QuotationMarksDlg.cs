@@ -15,7 +15,7 @@ using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
 using SIL.ObjectModel;
-using SIL.ScriptureUtils;
+using SIL.Scripture;
 using SIL.WritingSystems;
 using ScrVers = Paratext.ScrVers;
 
@@ -362,10 +362,12 @@ namespace Glyssen.Dialogs
 			{
 				var levels = new BulkObservableList<QuotationMark>();
 				levels.Add(new QuotationMark(NoneBecomesBlank(m_cbLevel1Begin.Text), NoneBecomesBlank(m_cbLevel1End.Text), NoneBecomesBlank(m_cbLevel1Continue.Text), 1, QuotationMarkingSystemType.Normal));
-				if (!string.IsNullOrEmpty(m_cbLevel2Begin.Text))
-					levels.Add(new QuotationMark(NoneBecomesBlank(m_cbLevel2Begin.Text), NoneBecomesBlank(m_cbLevel2End.Text), NoneBecomesBlank(m_cbLevel2Continue.Text), 2, QuotationMarkingSystemType.Normal));
-				if (!string.IsNullOrEmpty(m_cbLevel3Begin.Text))
-					levels.Add(new QuotationMark(NoneBecomesBlank(m_cbLevel3Begin.Text), NoneBecomesBlank(m_cbLevel3End.Text), NoneBecomesBlank(m_cbLevel3Continue.Text), 3, QuotationMarkingSystemType.Normal));
+				string level2Open = NoneBecomesBlank(m_cbLevel2Begin.Text);
+				if (!string.IsNullOrEmpty(level2Open))
+					levels.Add(new QuotationMark(level2Open, NoneBecomesBlank(m_cbLevel2End.Text), NoneBecomesBlank(m_cbLevel2Continue.Text), 2, QuotationMarkingSystemType.Normal));
+				string level3Open = NoneBecomesBlank(m_cbLevel3Begin.Text);
+				if (!string.IsNullOrEmpty(level3Open))
+					levels.Add(new QuotationMark(level3Open, NoneBecomesBlank(m_cbLevel3End.Text), NoneBecomesBlank(m_cbLevel3Continue.Text), 3, QuotationMarkingSystemType.Normal));
 
 				if (m_chkDialogueQuotations.Checked)
 				{

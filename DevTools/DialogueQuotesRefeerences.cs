@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using SIL.ScriptureUtils;
+using SIL.Scripture;
 
 namespace DevTools
 {

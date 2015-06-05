@@ -48,7 +48,7 @@ namespace ControlDataIntegrityTests
 		{
 			var charactersIds = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Select(d => d.Character).ToList();
 			var defaultCharacters = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Select(d => d.DefaultCharacter).ToList();
-			ISet<string> missingCharacters = new HashSet<string>();
+			ISet<string> missingCharacters = new SortedSet<string>();
 			foreach (string character in CharacterDetailData.Singleton.GetAll().Select(d => d.Character))
 			{
 				if (!CharacterVerseData.IsCharacterOfType(character, CharacterVerseData.StandardCharacter.Narrator) &&

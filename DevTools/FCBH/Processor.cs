@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Glyssen.Character;
-using SIL.ScriptureUtils;
+using SIL.Scripture;
 
 namespace DevTools.FCBH
 {

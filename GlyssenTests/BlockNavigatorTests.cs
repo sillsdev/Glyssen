@@ -3,7 +3,7 @@ using System.Linq;
 using Glyssen;
 using NUnit.Framework;
 using Paratext;
-using SIL.ScriptureUtils;
+using SIL.Scripture;
 
 namespace GlyssenTests
 {

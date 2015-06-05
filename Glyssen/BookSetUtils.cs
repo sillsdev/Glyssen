@@ -3,7 +3,7 @@ using System.Linq;
 using L10NSharp;
 using Paratext;
 using SIL.DblBundle.Text;
-using SIL.ScriptureUtils;
+using SIL.Scripture;
 
 namespace Glyssen
 {

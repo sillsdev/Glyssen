@@ -146,20 +146,20 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="SIL.Windows.Forms.WritingSystems.pdb" Name="SIL.Windows.Forms.WritingSystems.pdb" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.WritingSystems.pdb" />
           </Component>
 
-          <Component Id="SIL.ScriptureUtils.dll" Guid="{386eb5b9-c3ef-4640-9400-e5efb3fc83c4}">
-            <File Id="SIL.ScriptureUtils.dll" Name="SIL.ScriptureUtils.dll" KeyPath="yes" Source="..\output\release\SIL.ScriptureUtils.dll" />
+          <Component Id="SIL.Scripture.dll" Guid="{386eb5b9-c3ef-4640-9400-e5efb3fc83c4}">
+            <File Id="SIL.Scripture.dll" Name="SIL.Scripture.dll" KeyPath="yes" Source="..\output\release\SIL.Scripture.dll" />
           </Component>
 
-          <Component Id="SIL.ScriptureUtils.pdb" Guid="{d321b0a0-9e51-401f-a020-fb0d985cbe62}">
-            <File Id="SIL.ScriptureUtils.pdb" Name="SIL.ScriptureUtils.pdb" KeyPath="yes" Source="..\output\release\SIL.ScriptureUtils.pdb" />
+          <Component Id="SIL.Scripture.pdb" Guid="{d321b0a0-9e51-401f-a020-fb0d985cbe62}">
+            <File Id="SIL.Scripture.pdb" Name="SIL.Scripture.pdb" KeyPath="yes" Source="..\output\release\SIL.Scripture.pdb" />
           </Component>
 
-          <Component Id="SIL.ScriptureControls.dll" Guid="{3211eeca-71be-4e26-a4fa-22b9e15a15ad}">
-            <File Id="SIL.ScriptureControls.dll" Name="SIL.ScriptureControls.dll" KeyPath="yes" Source="..\output\release\SIL.ScriptureControls.dll" />
+          <Component Id="SIL.Windows.Forms.Scripture.dll" Guid="{3211eeca-71be-4e26-a4fa-22b9e15a15ad}">
+            <File Id="SIL.Windows.Forms.Scripture.dll" Name="SIL.Windows.Forms.Scripture.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.Scripture.dll" />
           </Component>
 
-          <Component Id="SIL.ScriptureControls.pdb" Guid="{53fcb487-efda-4cf7-80a8-cd73af8b7f28}">
-            <File Id="SIL.ScriptureControls.pdb" Name="SIL.ScriptureControls.pdb" KeyPath="yes" Source="..\output\release\SIL.ScriptureControls.pdb" />
+          <Component Id="SIL.Windows.Forms.Scripture.pdb" Guid="{53fcb487-efda-4cf7-80a8-cd73af8b7f28}">
+            <File Id="SIL.Windows.Forms.Scripture.pdb" Name="SIL.Windows.Forms.Scripture.pdb" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.Scripture.pdb" />
           </Component>
 
           <Component Id="Geckofx_Core.dll" Guid="{55db00fb-4a1f-437e-a14e-22c562aecd5a}">
@@ -261,8 +261,8 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="SIL.WritingSystems.dll"/>
       <ComponentRef Id="SIL.DblBundle.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.WritingSystems.dll"/>
-      <ComponentRef Id="SIL.ScriptureUtils.dll"/>
-      <ComponentRef Id="SIL.ScriptureControls.dll"/>
+      <ComponentRef Id="SIL.Scripture.dll"/>
+      <ComponentRef Id="SIL.Windows.Forms.Scripture.dll"/>
       <ComponentRef Id="Geckofx_Core.dll"/>
       <ComponentRef Id="Geckofx_Winforms.dll"/>
       <ComponentRef Id="icu.net.dll"/>
@@ -287,8 +287,8 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="SIL.WritingSystems.pdb"/>
       <ComponentRef Id="SIL.DblBundle.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.WritingSystems.pdb"/>
-      <ComponentRef Id="SIL.ScriptureUtils.pdb"/>
-      <ComponentRef Id="SIL.ScriptureControls.pdb"/>
+      <ComponentRef Id="SIL.Scripture.pdb"/>
+      <ComponentRef Id="SIL.Windows.Forms.Scripture.pdb"/>
       <ComponentRef Id="Geckofx_Core.pdb"/>
       <ComponentRef Id="Geckofx_Winforms.pdb"/>
       <ComponentRef Id="ParatextShared.pdb"/>
