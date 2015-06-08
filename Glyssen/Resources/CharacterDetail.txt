@@ -692,10 +692,10 @@ mob	TRUE
 Mordecai, cousin of Esther	FALSE	Male		
 Moses	FALSE	Male		
 Moses/Aaron	TRUE	Male		
-Moses/Elders of Israel	TRUE	Male		
+Moses/elders of Israel	TRUE	Male		
 Moses/Eleazar the priest, son of Aaron	TRUE	Male		
 Moses/Israelites	TRUE	Pref: Male		
-Moses/Priests	TRUE	Male		
+Moses/priests	TRUE	Male		
 mother of cured man, blind from birth	FALSE	Female		
 mother of James/John (sons of Zebedee)	FALSE	Female		
 multitude from all nations, tribes, peoples, languages	TRUE			
