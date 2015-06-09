@@ -2652,7 +2652,7 @@ NUM	11	23	God		God (the LORD)	Normal
 NUM	11	27	young man	excited		Normal		
 NUM	11	28	Joshua			Normal		
 NUM	11	29	Moses			Normal		
-NUM	12	2	Miriam/Aaron			Normal	Aaron	
+NUM	12	2	Miriam/Aaron			Normal	Miriam	
 NUM	12	4	God		God (the LORD)	Normal		
 NUM	12	6	God		God (the LORD)	Normal		
 NUM	12	7	God		God (the LORD)	Normal		
