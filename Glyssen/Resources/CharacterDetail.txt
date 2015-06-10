@@ -674,7 +674,7 @@ messengers sent by Jacob	TRUE	Male
 Micah	FALSE	Male		
 Micah's mother	FALSE	Female		
 Micaiah, prophet of the LORD	FALSE			
-Michael (archangel)	FALSE	Male												Joel saying what the weakling should say
+Michael (archangel)	FALSE	Male		
 Michal, David's wife	FALSE	Female		
 Midianite soldier who had a dream	FALSE	Male		
 Midianite soldier who interprets dream	FALSE	Male		
@@ -692,10 +692,10 @@ mob	TRUE
 Mordecai, cousin of Esther	FALSE	Male		
 Moses	FALSE	Male		
 Moses/Aaron	TRUE	Male		
-Moses/Elders of Israel	TRUE	Male		
+Moses/elders of Israel	TRUE	Male		
 Moses/Eleazar the priest, son of Aaron	TRUE	Male		
 Moses/Israelites	TRUE	Pref: Male		
-Moses/Priests	TRUE	Male		
+Moses/priests	TRUE	Male		
 mother of cured man, blind from birth	FALSE	Female		
 mother of James/John (sons of Zebedee)	FALSE	Female		
 multitude from all nations, tribes, peoples, languages	TRUE			
@@ -805,7 +805,7 @@ others	TRUE
 others (testing Jesus)	TRUE			
 owners of colt	TRUE			
 owners of fortune telling slave girl	TRUE			
-parents of cured man, blind from birth	TRUE	Both		May want to assign one or more of these lines to famle, as appropriate
+parents of cured man, blind from birth	TRUE	Both		May want to assign one or more of these lines to female, as appropriate
 Pashur/Zephaniah	TRUE			
 passers by	TRUE			
 Paul	FALSE	Male		

@@ -2652,7 +2652,7 @@ NUM	11	23	God		God (the LORD)	Normal
 NUM	11	27	young man	excited		Normal		
 NUM	11	28	Joshua			Normal		
 NUM	11	29	Moses			Normal		
-NUM	12	2	Miriam/Aaron			Normal	Aaron	
+NUM	12	2	Miriam/Aaron			Normal	Miriam	
 NUM	12	4	God		God (the LORD)	Normal		
 NUM	12	6	God		God (the LORD)	Normal		
 NUM	12	7	God		God (the LORD)	Normal		
@@ -3305,17 +3305,21 @@ DEU	26	10	Moses		Moses saying what Israel should say	Normal
 DEU	26	13	Moses		Moses saying what Israel should say	Normal		
 DEU	26	14	Moses		Moses saying what Israel should say	Normal		
 DEU	26	15	Moses		Moses saying what Israel should say	Normal		
-DEU	27	1	Moses/Elders of Israel			Normal	Moses	
-DEU	27	2	Moses/Elders of Israel			Normal	Moses	
-DEU	27	3	Moses/Elders of Israel			Normal	Moses	
-DEU	27	4	Moses/Elders of Israel			Normal	Moses	
-DEU	27	5	Moses/Elders of Israel			Normal	Moses	
-DEU	27	6	Moses/Elders of Israel			Normal	Moses	
-DEU	27	7	Moses/Elders of Israel			Normal	Moses	
-DEU	27	8	Moses/Elders of Israel			Normal	Moses	
-DEU	27	9	Moses/Priests			Normal	Moses	
-DEU	27	10	Moses/Priests			Normal	Moses	
-DEU	27	15	Moses		Moses saying what Levites should say	Normal		
+DEU	27	1	Moses/elders of Israel			Normal	Moses	
+DEU	27	2	Moses/elders of Israel			Normal	Moses	
+DEU	27	3	Moses/elders of Israel			Normal	Moses	
+DEU	27	4	Moses/elders of Israel			Normal	Moses	
+DEU	27	5	Moses/elders of Israel			Normal	Moses	
+DEU	27	6	Moses/elders of Israel			Normal	Moses	
+DEU	27	7	Moses/elders of Israel			Normal	Moses	
+DEU	27	8	Moses/elders of Israel			Normal	Moses	
+DEU	27	9	Moses/priests			Normal	Moses	
+DEU	27	10	Moses/priests			Normal	Moses	
+DEU	27	11	Moses			Indirect		
+DEU	27	12	Moses			Normal		
+DEU	27	13	Moses			Normal		
+DEU	27	14	Moses			Normal		
+DEU	27	15	Moses			Normal		
 DEU	27	16	Moses			Normal		
 DEU	27	17	Moses			Normal		
 DEU	27	18	Moses			Normal		
@@ -3619,9 +3623,9 @@ JOS	24	12	Joshua (old)			Normal
 JOS	24	13	Joshua (old)			Normal		
 JOS	24	14	Joshua (old)			Normal		
 JOS	24	15	Joshua (old)			Normal		
-JOS	24	16	people			Normal		
-JOS	24	17	people			Normal		
-JOS	24	18	people			Normal		
+JOS	24	16	Israelites		Israel, the people of	Normal		
+JOS	24	17	Israelites		Israel, the people of	Normal		
+JOS	24	18	Israelites		Israel, the people of	Normal		
 JOS	24	19	Joshua (old)			Normal		
 JOS	24	20	Joshua (old)			Normal		
 JOS	24	21	Israelites		Israel, the people of	Normal		
