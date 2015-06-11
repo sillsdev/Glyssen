@@ -242,7 +242,7 @@ namespace Glyssen.Dialogs
 				msg.Append(Environment.NewLine);
 				msg.Append(LocalizationManager.GetString("Project.UpdateFromBundle.AllowUpdate",
 					"Do you want to continue with this update?"));
-				return MessageBox.Show(this, msg.ToString(), LocalizationManager.GetString("", "Confirm Update"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) ==
+				return MessageBox.Show(this, msg.ToString(), LocalizationManager.GetString("Project.UpdateFromBundle.ConfirmUpdate", "Confirm Update"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) ==
 					DialogResult.Yes;
 			}
 			return true;
