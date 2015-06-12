@@ -330,7 +330,6 @@
 			this.m_txtOriginalBundlePath.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_txtOriginalBundlePath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.m_tableLayoutMain.SetColumnSpan(this.m_txtOriginalBundlePath, 2);
 			this.m_txtOriginalBundlePath.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtOriginalBundlePath, null);
@@ -396,7 +395,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_lblQuoteMarkSummary.AutoSize = true;
-			this.m_lblQuoteMarkSummary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.m_lblQuoteMarkSummary.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
 			this.m_lblQuoteMarkSummary.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblQuoteMarkSummary, null);
@@ -405,7 +403,7 @@
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblQuoteMarkSummary, "DialogBoxes.ProjectSettingsDlg.label1");
 			this.m_lblQuoteMarkSummary.Location = new System.Drawing.Point(158, 243);
 			this.m_lblQuoteMarkSummary.Name = "m_lblQuoteMarkSummary";
-			this.m_lblQuoteMarkSummary.Size = new System.Drawing.Size(134, 29);
+			this.m_lblQuoteMarkSummary.Size = new System.Drawing.Size(207, 29);
 			this.m_lblQuoteMarkSummary.TabIndex = 22;
 			this.m_lblQuoteMarkSummary.Text = "Summary Text";
 			// 
