@@ -14978,7 +14978,7 @@ ACT	21	22	James/all the elders			Normal	James
 ACT	21	23	James/all the elders			Normal	James	
 ACT	21	24	James/all the elders			Normal	James	
 ACT	21	25	James/all the elders			Normal	James	
-ACT	21	28	Jews, the	shouting		Normal		
+ACT	21	28	Jews from Asia	shouting		Normal		
 ACT	21	33	commander of Roman troops in Jerusalem			Indirect		
 ACT	21	34	crowd	shouting		Indirect		
 ACT	21	36	crowd	shouting		Normal		
@@ -15150,8 +15150,8 @@ ACT	28	17	Paul			Dialogue
 ACT	28	18	Paul			Normal		
 ACT	28	19	Paul			Normal		
 ACT	28	20	Paul			Normal		
-ACT	28	21	Jews, the		Jews, leaders of the	Dialogue		
-ACT	28	22	Jews, the		Jews, leaders of the	Dialogue		
+ACT	28	21	Jews, leaders of the (in Rome)		Jews, leaders of the	Dialogue		
+ACT	28	22	Jews, leaders of the (in Rome)		Jews, leaders of the	Dialogue		
 ACT	28	25	Paul			Normal		
 ACT	28	26	Paul			Normal		
 ACT	28	27	Paul			Normal		

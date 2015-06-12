@@ -481,6 +481,7 @@ Jesus' brothers	TRUE
 Jesus' family	TRUE			
 Jethro (Reuel), Moses' father-in-law	FALSE	Male		
 Jews of Cyrene, Alexandria, Cilicia & Asia	TRUE			
+Jews from Asia	TRUE			
 Jews who had believed Jesus	TRUE			
 Jews with Mary/Martha	TRUE			
 Jews with Mary/Martha, some	TRUE			
@@ -490,6 +491,7 @@ Jews, many	TRUE
 Jews, more than forty in conspiracy	TRUE			
 Jews, other	TRUE			
 Jews, the	TRUE			
+Jews, leaders of the (in Rome)	TRUE			
 Jews/Mary/Martha	TRUE	Both		
 Jews/priests/nobles/officials	TRUE			
 Jezebel	FALSE	Female		
