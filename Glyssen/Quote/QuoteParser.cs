@@ -76,14 +76,25 @@ namespace Glyssen.Quote
 			var quoteChars = new HashSet<char>();
 			var regexExpressions = new List<string>(m_quoteSystem.NormalLevels.Count);
 
-			for (int level = 0; level < m_quoteSystem.NormalLevels.Count; level++)
+			for (int level = 0; level < m_quoteSystem.NormalLevels.Count + 1; level++)
 			{
-				var quoteSystemLevel = m_quoteSystem.NormalLevels[level];
-				splitters.Add(quoteSystemLevel.Open);
-				splitters.Add(quoteSystemLevel.Close);
-				if (!string.IsNullOrWhiteSpace(quoteSystemLevel.Continue))
-					splitters.Add(quoteSystemLevel.Continue);
-
+				if (level != m_quoteSystem.NormalLevels.Count)
+				{
+					var quoteSystemLevel = m_quoteSystem.NormalLevels[level];
+					splitters.Add(quoteSystemLevel.Open);
+					if (!string.IsNullOrWhiteSpace(quoteSystemLevel.Continue))
+						splitters.Add(quoteSystemLevel.Continue);
+					if (level != 0)
+					{
+						var quoteSystemLevelMinusOne = m_quoteSystem.NormalLevels[level - 1];
+						splitters.Add(quoteSystemLevelMinusOne.Close);
+					}
+				}
+				else
+				{
+					var quoteSystemLevelMinusOne = m_quoteSystem.NormalLevels[level - 1];
+					splitters.Add(quoteSystemLevelMinusOne.Close);
+				}
 
 				if (level == 0 && !string.IsNullOrEmpty(m_quoteSystem.QuotationDashMarker))
 				{

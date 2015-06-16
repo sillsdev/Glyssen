@@ -481,6 +481,22 @@ namespace GlyssenTests.Quote
 		}
 
 		[Test]
+		public void Parse_MultipleCharacters_Level1CloseStartsWithLevel2Close_Level1CloseImmediatelyFollowsLevel2Close_ProperlyClosesLevel1Quote()
+		{
+			var quoteSystem = new QuoteSystem(new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("<", ">", "<", 2, QuotationMarkingSystemType.Normal));
+			var block = new Block("p");
+			block.BlockElements.Add(new ScriptText("He said, <<She said <Go!> and <Get!> >> and then he finished."));
+			var input = new List<Block> { block };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.AreEqual("<<She said <Go!> and <Get!> >> ", output[1].GetText(false));
+			Assert.AreEqual("and then he finished.", output[2].GetText(false));
+			Assert.AreEqual("narrator-MRK", output[2].CharacterId);
+		}
+
+		[Test]
 		public void Parse_StartAndEnd_TwoDifferentCharacters_QuoteAtBeginning()
 		{
 			var quoteSystem = new QuoteSystem(new QuotationMark("&*", "^~", "&*", 1, QuotationMarkingSystemType.Normal));
