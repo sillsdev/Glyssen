@@ -59,30 +59,6 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		public static string ParatextProjectsFolder
-		{
-			get
-			{
-				const string ParatextRegistryKey = @"HKEY_LOCAL_MACHINE\SOFTWARE\ScrChecks\1.0\Settings_Directory";
-				var path = Registry.GetValue(ParatextRegistryKey, "", null);
-				if (path != null)
-				{
-					if (Directory.Exists(path.ToString()))
-						return path.ToString();
-				}
-				else
-				{
-					foreach (var drive in Environment.GetLogicalDrives())
-					{
-						string possibleLocation = Path.Combine(drive, "My Paratext Projects");
-						if (Directory.Exists(possibleLocation))
-							return possibleLocation;
-					}
-				}
-				return null;
-			}
-		}
-
 		protected override void OnLoad(EventArgs e)
 		{
 			Settings.Default.OpenProjectDlgFormSettings.InitializeForm(this);
