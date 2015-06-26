@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using L10NSharp;
 using SIL.Scripture;
 
 namespace Glyssen.Character
@@ -75,6 +76,11 @@ namespace Glyssen.Character
 		private readonly bool m_projectSpecific;
 		private readonly QuoteType m_quoteType;
 
+		private string m_localizedCharacter;
+		private string m_localizedAlias;
+
+		private bool m_localized;
+
 		public BCVRef BcvRef { get { return m_bcvRef; } }
 		public string BookCode { get { return BCVRef.NumberToBookCode(m_bcvRef.Book); } }
 		public int Book { get { return m_bcvRef.Book; } }
@@ -87,6 +93,24 @@ namespace Glyssen.Character
 		public bool IsDialogue { get { return m_quoteType == QuoteType.Dialogue; } }
 		public bool IsExpected { get { return m_quoteType == QuoteType.Dialogue || m_quoteType == QuoteType.Normal; } }
 		public string DefaultCharacter { get { return m_defaultCharacter; } }
+		public string LocalizedCharacter
+		{
+			get
+			{
+				if (!m_localized)
+					Localize();
+				return m_localizedCharacter;
+			}
+		}
+		public string LocalizedAlias
+		{
+			get
+			{
+				if (!m_localized)
+					Localize();
+				return m_localizedAlias;
+			}
+		}
 		public string ParallelPassageReferences { get { return m_parallelPassageReferences; } }
 		public bool ProjectSpecific { get { return m_projectSpecific; } }
 
@@ -113,6 +137,18 @@ namespace Glyssen.Character
 			if (string.IsNullOrEmpty(Delivery))
 				return Character;
 			return string.Format("{0} [{1}]", Character, Delivery);
+		}
+
+		public void ResetLocalization()
+		{
+			m_localized = false;
+		}
+
+		private void Localize()
+		{
+			m_localizedCharacter = LocalizationManager.GetDynamicString(Program.kApplicationId, "CharacterName." + m_character, m_character);
+			m_localizedAlias = string.IsNullOrWhiteSpace(m_alias) ? null : LocalizationManager.GetDynamicString(Program.kApplicationId, "CharacterName." + m_alias, m_alias);
+			m_localized = true;
 		}
 
 		#region Equality Members
