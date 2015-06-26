@@ -193,6 +193,12 @@
     <Compile Include="Dialogs\SplitBlockDlg.Designer.cs">
       <DependentUpon>SplitBlockDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\VoiceActorInformationDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\VoiceActorInformationDlg.Designer.cs">
+      <DependentUpon>VoiceActorInformationDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -284,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SplitBlockDlg.resx">
       <DependentUpon>SplitBlockDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\VoiceActorInformationDlg.resx">
+      <DependentUpon>VoiceActorInformationDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

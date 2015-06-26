@@ -98,6 +98,8 @@ namespace Glyssen
 			m_btnAssign.Enabled = !readOnly && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
 			m_imgCheckAssign.Visible = m_btnAssign.Enabled && m_project.ProjectAnalysis.UserPercentAssigned == 100d;
 			m_btnExportToTabSeparated.Enabled = !readOnly && m_imgCheckAssign.Visible;
+			m_btnAssignVoiceActors.Visible = Environment.GetEnvironmentVariable("Glyssen_ProtoscriptOnly", EnvironmentVariableTarget.User) == null;
+			m_btnAssignVoiceActors.Enabled = m_btnExportToTabSeparated.Enabled;
 			m_lnkExit.Enabled = !readOnly;
 		}
 
@@ -438,6 +440,12 @@ namespace Glyssen
 			{
 				dlg.ShowDialog();
 			}
+		}
+
+		private void m_btnAssignVoiceActors_Click(object sender, EventArgs e)
+		{
+			using (var dlg = new VoiceActorInformationDlg())
+				dlg.ShowDialog();
 		}
 
 		public class NoBorderToolStripRenderer : ToolStripProfessionalRenderer
