@@ -40,6 +40,8 @@ namespace DevTools.TermTranslator
 			{
 				newTmx = XmlSerializationHelper.DeserializeFromFile<TmxFormat>(outputFileName);
 
+				newTmx.Header.SrcLang = langAbbr.ToLower();
+
 				var tus = newTmx.Body.Tus;
 
 				tus.RemoveAll(t => t.Tuid.StartsWith("CharacterName."));
@@ -47,6 +49,8 @@ namespace DevTools.TermTranslator
 			else
 			{
 				newTmx = new TmxFormat();
+
+				newTmx.Header.SrcLang = langAbbr.ToLower();
 
 				newTmx.Header.Props = new Prop[2];
 				newTmx.Header.Props[0] = new Prop("x-appversion", "0.1.0.0");

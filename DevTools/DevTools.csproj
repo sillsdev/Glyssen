@@ -70,7 +70,7 @@
     <Compile Include="TermTranslator\BiblicalTerms.cs" />
     <Compile Include="TermTranslator\BiblicalTermsList.cs" />
     <Compile Include="TermTranslator\Processor.cs" />
-    <Compile Include="TermTranslator\tmxFormat.cs" />
+    <Compile Include="TermTranslator\TmxFormat.cs" />
     <Compile Include="VerseBridgeHelper.cs" />
   </ItemGroup>
   <ItemGroup>
