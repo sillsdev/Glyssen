@@ -163,45 +163,54 @@ namespace Glyssen.Controls
 				e.Value = m_getDelivery(block);
 			}
 		}
+
+		private void HideToolTip()
+		{
+			if(m_toolTip != null)
+			{
+				m_toolTip.Hide(this);
+				m_toolTip.Dispose();
+				m_toolTip = null;
+			}
+		}
 		#endregion
 
 		#region Browser events
 		private void OnMouseOver(object sender, DomMouseEventArgs e)
 		{
 			if (e.Target == null || m_getCharacterIdForUi == null || !m_blocksDisplayBrowser.Visible)
+			{
+				HideToolTip();
 				return;
+			}
 
 			var geckoElement = e.Target.CastToGeckoElement();
-			var divElement = geckoElement as GeckoDivElement;
-			if (divElement == null)
-				return;
+			var checkElement = geckoElement as GeckoHtmlElement;
 
-			if (divElement.Parent.ClassName == BlockNavigatorViewModel.kCssClassContext)
+			for (int i = 0; i < 10; i++)
 			{
-				m_toolTip = new ToolTip {IsBalloon = true};
+				if(checkElement == null)
+				{
+					HideToolTip();
+					return;
+				}
+				else if(checkElement.ClassName != BlockNavigatorViewModel.kCssClassContext)
+					checkElement = checkElement.Parent;
+				else
+					break;
+			}
+
+			if (m_toolTip == null)
+			{
+				m_toolTip = new ToolTip { IsBalloon = true };
+				string toolTipText = m_getCharacterIdForUi(checkElement.GetAttribute(BlockNavigatorViewModel.kDataCharacter));
+
 				// 42 and 43 are the magic numbers which happens to make these display in the correct place
 				// REVIEW: it would be nice to figure out a better way to place these which is more robust. These numbers have changed several times already
 				int x = m_blocksDisplayBrowser.Location.X + m_blocksDisplayBrowser.Size.Width - 42;
 				int y = m_blocksDisplayBrowser.Location.Y + e.ClientY - m_blocksDisplayBrowser.Margin.Top - 43;
-				m_toolTip.Show(m_getCharacterIdForUi(divElement.Parent.GetAttribute(BlockNavigatorViewModel.kDataCharacter)), this,
-					x, y);
-			}
-		}
 
-		private void OnMouseOut(object sender, DomMouseEventArgs e)
-		{
-			if (e.Target == null || m_toolTip == null)
-				return;
-			var geckoElement = e.Target.CastToGeckoElement();
-			var divElement = geckoElement as GeckoDivElement;
-			if (divElement == null)
-				return;
-
-			if (divElement.Parent.ClassName == BlockNavigatorViewModel.kCssClassContext)
-			{
-				m_toolTip.Hide(this);
-				m_toolTip.Dispose();
-				m_toolTip = null;
+				m_toolTip.Show(toolTipText, this, x, y);
 			}
 		}
 

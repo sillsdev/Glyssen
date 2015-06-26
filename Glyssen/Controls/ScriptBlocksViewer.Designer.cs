@@ -32,7 +32,7 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.m_panel = new System.Windows.Forms.Panel();
-			this.m_dataGridViewBlocks = new Controls.ScriptBlocksGridView();
+			this.m_dataGridViewBlocks = new Glyssen.Controls.ScriptBlocksGridView();
 			this.colReference = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colCharacter = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colDelivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -154,7 +154,6 @@
 			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(250, 326);
 			this.m_blocksDisplayBrowser.TabIndex = 0;
 			this.m_blocksDisplayBrowser.OnMouseOver += new System.EventHandler<Gecko.DomMouseEventArgs>(this.OnMouseOver);
-			this.m_blocksDisplayBrowser.OnMouseOut += new System.EventHandler<Gecko.DomMouseEventArgs>(this.OnMouseOut);
 			this.m_blocksDisplayBrowser.OnDocumentCompleted += new System.EventHandler<Gecko.Events.GeckoDocumentCompletedEventArgs>(this.OnDocumentCompleted);
 			// 
 			// m_title
