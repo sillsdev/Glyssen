@@ -6,8 +6,9 @@
 		{
 //			CharacterListProcessing.Process();
 //			BiblicalTerms.Processor.Process();
-			FCBH.Processor.Process();
+//			FCBH.Processor.Process();
 //			VerseBridgeHelper.RemoveAllVerseBridges();
+			TermTranslator.Processor.Process();
 		}
 	}
 }

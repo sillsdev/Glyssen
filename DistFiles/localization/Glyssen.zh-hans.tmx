@@ -1,0 +1,1134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header srclang="en" adminlang="en" creationtool="Palaso Localization Manager" creationtoolversion="2.0.35.0" segtype="block" datatype="unknown" o-tmf="PalasoTMXUtils">
+    <prop type="x-appversion">0.1.0.0</prop>
+    <prop type="x-hardlinebreakreplacement">\n</prop>
+  </header>
+  <body>
+    <tu tuid="CharacterName.Aaron">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Aaron</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>亚伦</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Abigail">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Abigail</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>《现》爱比该</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Abimelech">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Abimelech</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>亚比米勒</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Abner">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Abner</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>押尼珥</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Absalom">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Absalom</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>押沙龙</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Achan">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Achan</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>亚干</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Achish">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Achish</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>亚吉</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Adam">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Adam</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>亚当</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Adoni-Bezek">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Adoni-Bezek</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>亚多尼．比色</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ahithophel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ahithophel</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>亚希多弗</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.altar">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>altar</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>＜阳＞祭坛</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Amaziah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Amaziah</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>亚玛谢</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Amnon">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Amnon</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>暗嫩</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Amos">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Amos</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>阿摩司</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Andrew">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Andrew</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>安得烈</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.angel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>angel</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>＜阳＞天使；使者</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Apollos">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Apollos</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>亚波罗</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Asaph">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Asaph</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>亚萨</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.astrologers">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>astrologers</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>占星者</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Athaliah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Athaliah</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>亚她利雅</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Babylon">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Babylon</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>巴比伦</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Balaam">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Balaam</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>巴兰</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Balak">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Balak</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>巴勒</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Barak">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Barak</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>巴拉</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Barnabas">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Barnabas</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>巴拿巴</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Baruch">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Baruch</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>巴录</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Barzillai">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Barzillai</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>巴西莱</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Bathsheba">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Bathsheba</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>《现》拔示芭</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Boaz">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Boaz</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>波阿斯</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Cain">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Cain</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>该隐</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Caleb">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Caleb</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>迦勒</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Cornelius">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Cornelius</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>哥尼流</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Daniel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Daniel</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>但以理</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.David">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>David</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>大卫</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Delilah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Delilah</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>《现》黛利拉</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Edom">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Edom</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>以东</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Eli">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Eli</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>以利</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Elijah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Elijah</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>以利亚</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Elisha">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Elisha</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>以利沙</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Elizabeth">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Elizabeth</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>伊利莎白</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Elkanah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Elkanah</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>以利加拿</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Enoch">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Enoch</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>以诺</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Esau">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Esau</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>以扫</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Eve">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Eve</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>夏娃</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ezekiel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ezekiel</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>以西结</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.fool">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>fool</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>愚妄／无知</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gabriel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gabriel</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>加百列</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gamaliel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gamaliel</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>迦玛列</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gehazi">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gehazi</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>基哈西</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Goliath">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Goliath</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>歌利亚</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Habakkuk">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Habakkuk</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>哈巴谷</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Hamor">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Hamor</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>哈抹</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Hanani">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Hanani</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>哈拿尼</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Hannah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Hannah</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>《现》哈娜</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Herodias">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Herodias</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>希罗底</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Hosea">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Hosea</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>何西阿</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Isaac">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Isaac</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>以撒</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Isaiah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Isaiah</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>以赛亚</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Israel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Israel</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>《现》以色列</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ittai">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ittai</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>以太</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jabez">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jabez</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>雅比斯</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jael">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jael</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>雅亿</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.James">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>James</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>雅各</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jehoiada">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jehoiada</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>耶何耶大</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jephthah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jephthah</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>耶弗他</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jeremiah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jeremiah</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>耶利米</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jeroboam">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jeroboam</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>耶罗波安</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jesse">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jesse</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>耶西</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jesus">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jesus</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>耶稣</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jezebel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jezebel</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>《现》耶洗碧</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Joab">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Joab</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>约押</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Job">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Job</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>约伯</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Johanan">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Johanan</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>约哈难</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.John">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>John</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>约翰</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jonah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jonah</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>约拿</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jonathan">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jonathan</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>约拿单</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Joseph">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Joseph</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>《现》以色列人</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Joshua">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Joshua</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>约书亚</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Judah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Judah</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>犹大</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Laban">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Laban</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>拉班</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Leah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Leah</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>《现》丽亚</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Lot">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Lot</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>罗得</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Macedonian">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Macedonian</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>马其顿人</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Martha">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Martha</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>马大</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Mephibosheth">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Mephibosheth</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>米非波设</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Micah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Micah</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>米迦</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Miriam">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Miriam</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>《现》美莉安</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Naaman">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Naaman</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>乃幔</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nabal">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nabal</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>《现》拿霸</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Naboth">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Naboth</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>拿伯</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Naomi">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Naomi</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>《现》拿娥美</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nathan">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nathan</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>拿单</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nathanael">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nathanael</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>拿但业</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nebuzaradan">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nebuzaradan</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>尼布撒拉旦</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nehemiah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nehemiah</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>尼希米</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nicodemus">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nicodemus</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>尼哥德慕</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Noah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Noah</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>挪亚</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.people">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>people</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Philip">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Philip</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>腓力</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.priest">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>priest</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>祭司</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.proclamation">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>proclamation</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>＜中＞所讲的道，信息，宣道</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.prophet">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>prophet</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>先知</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Rachel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Rachel</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>《现》蕾洁</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Rahab">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Rahab</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>喇合</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Rebekah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Rebekah</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>《现》丽百加</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Rehoboam">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Rehoboam</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>罗波安</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Reuben">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Reuben</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>吕便</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Rhoda">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Rhoda</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>罗大</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.ruler">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>ruler</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>＜阴＞起初，首先，根源，第一因；统制的势力，执政者</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ruth">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ruth</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>路得</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Samson">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Samson</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>参孙</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Sanballat">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Sanballat</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>参巴拉</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Shemaiah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Shemaiah</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>示玛雅</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Shimei">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Shimei</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>示每</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Sisera">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Sisera</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>西西拉</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.synagogue ruler">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>synagogue ruler</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>＜阳＞会堂主管</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Tempter">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Tempter</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>那试探人的</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Tertius">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Tertius</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>德提</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Thomas">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Thomas</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>多马</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Titus">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Titus</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>提多</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Uriah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Uriah</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>乌利亚</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Zechariah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Zechariah</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>撒迦利雅</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ziba">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ziba</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>洗巴</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Zion">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Zion</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>《现》锡安</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ziphites">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ziphites</seg>
+      </tuv>
+      <tuv xml:lang="zh-hans">
+        <seg>西弗</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>
