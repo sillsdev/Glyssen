@@ -17,7 +17,7 @@ namespace DevTools.TermTranslator
 			IEnumerable<Glyssen.Character.CharacterVerse> quoteInfo = ControlCharacterVerseData.Singleton.GetAllQuoteInfo();
 
 			SortedSet<string> names = new SortedSet<string>();
-			names.UnionWith(quoteInfo.Select(t => t.NonlocalizedAlias));
+			names.UnionWith(quoteInfo.Select(t => t.Alias));
 			names.UnionWith(quoteInfo.Select(t => t.Character));
 			names.Remove("");
 			names.Remove(null);
