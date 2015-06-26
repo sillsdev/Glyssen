@@ -10,100 +10,94 @@ namespace DevTools.TermTranslator
 {
 	public class Processor
 	{
+		private static readonly List<string> LanguagesToProcess = new List<string>{"En", "Es", "Fr", "Pt", "zh-Hans", "zh-Hant"}; 
+
 		public static void Process()
 		{
-			string langAbbr = "zh-Hant";
-			string outputFileName = "..\\..\\..\\DistFiles\\localization\\Glyssen." + langAbbr.ToLower() + ".tmx";
-
 			IEnumerable<Glyssen.Character.CharacterVerse> quoteInfo = ControlCharacterVerseData.Singleton.GetAllQuoteInfo();
 
 			SortedSet<string> names = new SortedSet<string>();
-
-			names.UnionWith(quoteInfo.Select(t => t.Alias));
-
+			names.UnionWith(quoteInfo.Select(t => t.NonlocalizedAlias));
 			names.UnionWith(quoteInfo.Select(t => t.Character));
-
 			names.Remove("");
-
-			Console.WriteLine(quoteInfo);
+			names.Remove(null);
 
 			BiblicalTermsLocalizations englishTermsList = XmlSerializationHelper.DeserializeFromFile<BiblicalTermsLocalizations>("..\\..\\Resources\\BiblicalTermsEn.xml");
-			List<Localization> filteredList = englishTermsList.Terms.Locals;
-
-			BiblicalTermsLocalizations localTermsList = XmlSerializationHelper.DeserializeFromFile<BiblicalTermsLocalizations>("..\\..\\Resources\\BiblicalTerms" + langAbbr + ".xml");
-
-
-
-			TmxFormat newTmx;
-
-			if (File.Exists(outputFileName))
+			
+			foreach (string langAbbr in LanguagesToProcess)
 			{
-				newTmx = XmlSerializationHelper.DeserializeFromFile<TmxFormat>(outputFileName);
+				BiblicalTermsLocalizations localTermsList = XmlSerializationHelper.DeserializeFromFile<BiblicalTermsLocalizations>("..\\..\\Resources\\BiblicalTerms" + langAbbr + ".xml");
 
-				newTmx.Header.SrcLang = langAbbr.ToLower();
+				string modifiedLangAbbr = Char.ToLowerInvariant(langAbbr[0]) + langAbbr.Substring(1);
 
-				var tus = newTmx.Body.Tus;
+				string outputFileName = "..\\..\\..\\DistFiles\\localization\\Glyssen." + modifiedLangAbbr + ".tmx";
 
-				tus.RemoveAll(t => t.Tuid.StartsWith("CharacterName."));
-			}
-			else
-			{
-				newTmx = new TmxFormat();
-
-				newTmx.Header.SrcLang = langAbbr.ToLower();
-
-				newTmx.Header.Props = new Prop[2];
-				newTmx.Header.Props[0] = new Prop("x-appversion", "0.1.0.0");
-				newTmx.Header.Props[1] = new Prop("x-hardlinebreakreplacement", "\\n");
-			}
-
-			Regex notChineseGlossChineseGloss = new Regex("(（|。).+");
-
-			foreach (string name in names)
-			{
-				Tu tmxTermEntry = new Tu("CharacterName." + name);
-
-				tmxTermEntry.Prop = new Prop("x-dynamic", "true");
-
-				Tuv englishTuv = new Tuv("en", name);
-
-				tmxTermEntry.Tuvs.Add(englishTuv);
-
-				if (langAbbr == "En")
+				TmxFormat newTmx;
+				if (File.Exists(outputFileName))
 				{
-					if (!name.Contains("narrator"))
-					{
-						newTmx.Body.Tus.Add(tmxTermEntry);
-					}
+					newTmx = XmlSerializationHelper.DeserializeFromFile<TmxFormat>(outputFileName);
+
+					var tus = newTmx.Body.Tus;
+
+					tus.RemoveAll(t => t.Tuid.StartsWith("CharacterName."));
 				}
 				else
 				{
-					Localization term = englishTermsList.Terms.Locals.Find(t => t.Gloss == name);
+					newTmx = new TmxFormat();
+					newTmx.Header.SrcLang = modifiedLangAbbr;
+					newTmx.Header.Props = new Prop[2];
+					newTmx.Header.Props[0] = new Prop("x-appversion", "0.1.0.0");
+					newTmx.Header.Props[1] = new Prop("x-hardlinebreakreplacement", "\\n");
+				}
 
-					if (term != null)
+				Regex notChineseGlossChineseGloss = new Regex("(（|。).+");
+
+				foreach (string name in names)
+				{
+					Tu tmxTermEntry = new Tu("CharacterName." + name);
+
+					tmxTermEntry.Prop = new Prop("x-dynamic", "true");
+
+					Tuv englishTuv = new Tuv("en", name);
+
+					tmxTermEntry.Tuvs.Add(englishTuv);
+
+					if (modifiedLangAbbr == "en")
 					{
-						string termId = term.Id;
-
-						Localization localTerm = localTermsList.Terms.Locals.Find(t => t.Id == termId);
-
-						if (localTerm != null)
+						if (!name.Contains("narrator"))
 						{
-							string localGloss = localTerm.Gloss;
+							newTmx.Body.Tus.Add(tmxTermEntry);
+						}
+					}
+					else
+					{
+						Localization term = englishTermsList.Terms.Locals.Find(t => t.Gloss == name);
 
-							string testOut = notChineseGlossChineseGloss.Replace(localGloss, "");
+						if (term != null)
+						{
+							string termId = term.Id;
 
-							if (localGloss != "")
+							Localization localTerm = localTermsList.Terms.Locals.Find(t => t.Id == termId);
+
+							if (localTerm != null)
 							{
-								tmxTermEntry.Tuvs.Add(new Tuv(langAbbr.ToLower(), testOut));
+								string localGloss = localTerm.Gloss;
 
-								newTmx.Body.Tus.Add(tmxTermEntry);
+								string testOut = notChineseGlossChineseGloss.Replace(localGloss, "");
+
+								if (localGloss != "")
+								{
+									tmxTermEntry.Tuvs.Add(new Tuv(modifiedLangAbbr, testOut));
+
+									newTmx.Body.Tus.Add(tmxTermEntry);
+								}
 							}
 						}
 					}
 				}
-			}
 
-			XmlSerializationHelper.SerializeToFile<TmxFormat>(outputFileName, newTmx);
+				XmlSerializationHelper.SerializeToFile<TmxFormat>(outputFileName, newTmx);
+			}
 		}
 	}
 }

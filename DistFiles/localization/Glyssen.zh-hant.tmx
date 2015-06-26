@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tmx version="1.4">
-  <header srclang="zh-hant" adminlang="en" creationtool="Palaso Localization Manager" creationtoolversion="2.0.35.0" segtype="block" datatype="unknown" o-tmf="PalasoTMXUtils">
+  <header srclang="zh-Hant" adminlang="en" creationtool="Palaso Localization Manager" creationtoolversion="2.0.35.0" segtype="block" datatype="unknown" o-tmf="PalasoTMXUtils">
     <prop type="x-appversion">0.1.0.0</prop>
     <prop type="x-hardlinebreakreplacement">\n</prop>
   </header>
@@ -10,7 +10,7 @@
       <tuv xml:lang="en">
         <seg>Aaron</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>亞倫</seg>
       </tuv>
     </tu>
@@ -19,7 +19,7 @@
       <tuv xml:lang="en">
         <seg>Abigail</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>《現》愛比該</seg>
       </tuv>
     </tu>
@@ -28,7 +28,7 @@
       <tuv xml:lang="en">
         <seg>Abimelech</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>亞比米勒</seg>
       </tuv>
     </tu>
@@ -37,7 +37,7 @@
       <tuv xml:lang="en">
         <seg>Abner</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>押尼珥</seg>
       </tuv>
     </tu>
@@ -46,7 +46,7 @@
       <tuv xml:lang="en">
         <seg>Absalom</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>押沙龍</seg>
       </tuv>
     </tu>
@@ -55,7 +55,7 @@
       <tuv xml:lang="en">
         <seg>Achan</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>亞干</seg>
       </tuv>
     </tu>
@@ -64,7 +64,7 @@
       <tuv xml:lang="en">
         <seg>Achish</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>亞吉</seg>
       </tuv>
     </tu>
@@ -73,7 +73,7 @@
       <tuv xml:lang="en">
         <seg>Adam</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>亞當</seg>
       </tuv>
     </tu>
@@ -82,7 +82,7 @@
       <tuv xml:lang="en">
         <seg>Adoni-Bezek</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>亞多尼‧比色</seg>
       </tuv>
     </tu>
@@ -91,7 +91,7 @@
       <tuv xml:lang="en">
         <seg>Ahithophel</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>亞希多弗</seg>
       </tuv>
     </tu>
@@ -100,7 +100,7 @@
       <tuv xml:lang="en">
         <seg>altar</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>＜陽＞祭壇</seg>
       </tuv>
     </tu>
@@ -109,7 +109,7 @@
       <tuv xml:lang="en">
         <seg>Amaziah</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>亞瑪謝</seg>
       </tuv>
     </tu>
@@ -118,7 +118,7 @@
       <tuv xml:lang="en">
         <seg>Amnon</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>暗嫩</seg>
       </tuv>
     </tu>
@@ -127,7 +127,7 @@
       <tuv xml:lang="en">
         <seg>Amos</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>阿摩司</seg>
       </tuv>
     </tu>
@@ -136,7 +136,7 @@
       <tuv xml:lang="en">
         <seg>Andrew</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>安得烈</seg>
       </tuv>
     </tu>
@@ -145,7 +145,7 @@
       <tuv xml:lang="en">
         <seg>angel</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>＜陽＞天使；使者</seg>
       </tuv>
     </tu>
@@ -154,7 +154,7 @@
       <tuv xml:lang="en">
         <seg>Apollos</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>亞波羅</seg>
       </tuv>
     </tu>
@@ -163,7 +163,7 @@
       <tuv xml:lang="en">
         <seg>Asaph</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>亞薩</seg>
       </tuv>
     </tu>
@@ -172,7 +172,7 @@
       <tuv xml:lang="en">
         <seg>astrologers</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>占星者</seg>
       </tuv>
     </tu>
@@ -181,7 +181,7 @@
       <tuv xml:lang="en">
         <seg>Athaliah</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>亞她利雅</seg>
       </tuv>
     </tu>
@@ -190,7 +190,7 @@
       <tuv xml:lang="en">
         <seg>Babylon</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>巴比倫</seg>
       </tuv>
     </tu>
@@ -199,7 +199,7 @@
       <tuv xml:lang="en">
         <seg>Balaam</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>巴蘭</seg>
       </tuv>
     </tu>
@@ -208,7 +208,7 @@
       <tuv xml:lang="en">
         <seg>Balak</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>巴勒</seg>
       </tuv>
     </tu>
@@ -217,7 +217,7 @@
       <tuv xml:lang="en">
         <seg>Barak</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>巴拉</seg>
       </tuv>
     </tu>
@@ -226,7 +226,7 @@
       <tuv xml:lang="en">
         <seg>Barnabas</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>巴拿巴</seg>
       </tuv>
     </tu>
@@ -235,7 +235,7 @@
       <tuv xml:lang="en">
         <seg>Baruch</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>巴錄</seg>
       </tuv>
     </tu>
@@ -244,7 +244,7 @@
       <tuv xml:lang="en">
         <seg>Barzillai</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>巴西萊</seg>
       </tuv>
     </tu>
@@ -253,7 +253,7 @@
       <tuv xml:lang="en">
         <seg>Bathsheba</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>《現》拔示芭</seg>
       </tuv>
     </tu>
@@ -262,7 +262,7 @@
       <tuv xml:lang="en">
         <seg>Boaz</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>波阿斯</seg>
       </tuv>
     </tu>
@@ -271,7 +271,7 @@
       <tuv xml:lang="en">
         <seg>Cain</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>該隱</seg>
       </tuv>
     </tu>
@@ -280,7 +280,7 @@
       <tuv xml:lang="en">
         <seg>Caleb</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>迦勒</seg>
       </tuv>
     </tu>
@@ -289,7 +289,7 @@
       <tuv xml:lang="en">
         <seg>Cornelius</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>哥尼流</seg>
       </tuv>
     </tu>
@@ -298,7 +298,7 @@
       <tuv xml:lang="en">
         <seg>Daniel</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>但以理</seg>
       </tuv>
     </tu>
@@ -307,7 +307,7 @@
       <tuv xml:lang="en">
         <seg>David</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>大衛</seg>
       </tuv>
     </tu>
@@ -316,7 +316,7 @@
       <tuv xml:lang="en">
         <seg>Delilah</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>《現》黛利拉</seg>
       </tuv>
     </tu>
@@ -325,7 +325,7 @@
       <tuv xml:lang="en">
         <seg>Edom</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>以東</seg>
       </tuv>
     </tu>
@@ -334,7 +334,7 @@
       <tuv xml:lang="en">
         <seg>Eli</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>以利</seg>
       </tuv>
     </tu>
@@ -343,7 +343,7 @@
       <tuv xml:lang="en">
         <seg>Elijah</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>以利亞</seg>
       </tuv>
     </tu>
@@ -352,7 +352,7 @@
       <tuv xml:lang="en">
         <seg>Elisha</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>以利沙</seg>
       </tuv>
     </tu>
@@ -361,7 +361,7 @@
       <tuv xml:lang="en">
         <seg>Elizabeth</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>伊利莎白</seg>
       </tuv>
     </tu>
@@ -370,7 +370,7 @@
       <tuv xml:lang="en">
         <seg>Elkanah</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>以利加拿</seg>
       </tuv>
     </tu>
@@ -379,7 +379,7 @@
       <tuv xml:lang="en">
         <seg>Enoch</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>以諾</seg>
       </tuv>
     </tu>
@@ -388,7 +388,7 @@
       <tuv xml:lang="en">
         <seg>Esau</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>以掃</seg>
       </tuv>
     </tu>
@@ -397,7 +397,7 @@
       <tuv xml:lang="en">
         <seg>Eve</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>夏娃</seg>
       </tuv>
     </tu>
@@ -406,7 +406,7 @@
       <tuv xml:lang="en">
         <seg>Ezekiel</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>以西結</seg>
       </tuv>
     </tu>
@@ -415,7 +415,7 @@
       <tuv xml:lang="en">
         <seg>fool</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>愚妄／無知</seg>
       </tuv>
     </tu>
@@ -424,7 +424,7 @@
       <tuv xml:lang="en">
         <seg>Gabriel</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>加百列</seg>
       </tuv>
     </tu>
@@ -433,7 +433,7 @@
       <tuv xml:lang="en">
         <seg>Gamaliel</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>迦瑪列</seg>
       </tuv>
     </tu>
@@ -442,7 +442,7 @@
       <tuv xml:lang="en">
         <seg>Gehazi</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>基哈西</seg>
       </tuv>
     </tu>
@@ -451,7 +451,7 @@
       <tuv xml:lang="en">
         <seg>Goliath</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>歌利亞</seg>
       </tuv>
     </tu>
@@ -460,7 +460,7 @@
       <tuv xml:lang="en">
         <seg>Habakkuk</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>哈巴谷</seg>
       </tuv>
     </tu>
@@ -469,7 +469,7 @@
       <tuv xml:lang="en">
         <seg>Hamor</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>哈抹</seg>
       </tuv>
     </tu>
@@ -478,7 +478,7 @@
       <tuv xml:lang="en">
         <seg>Hanani</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>哈拿尼</seg>
       </tuv>
     </tu>
@@ -487,7 +487,7 @@
       <tuv xml:lang="en">
         <seg>Hannah</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>《現》哈娜</seg>
       </tuv>
     </tu>
@@ -496,7 +496,7 @@
       <tuv xml:lang="en">
         <seg>Herodias</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>希羅底</seg>
       </tuv>
     </tu>
@@ -505,7 +505,7 @@
       <tuv xml:lang="en">
         <seg>Hosea</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>何西阿</seg>
       </tuv>
     </tu>
@@ -514,7 +514,7 @@
       <tuv xml:lang="en">
         <seg>Isaac</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>以撒</seg>
       </tuv>
     </tu>
@@ -523,7 +523,7 @@
       <tuv xml:lang="en">
         <seg>Isaiah</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>以賽亞</seg>
       </tuv>
     </tu>
@@ -532,7 +532,7 @@
       <tuv xml:lang="en">
         <seg>Israel</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>《現》以色列</seg>
       </tuv>
     </tu>
@@ -541,7 +541,7 @@
       <tuv xml:lang="en">
         <seg>Ittai</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>以太</seg>
       </tuv>
     </tu>
@@ -550,7 +550,7 @@
       <tuv xml:lang="en">
         <seg>Jabez</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>雅比斯</seg>
       </tuv>
     </tu>
@@ -559,7 +559,7 @@
       <tuv xml:lang="en">
         <seg>Jael</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>雅億</seg>
       </tuv>
     </tu>
@@ -568,7 +568,7 @@
       <tuv xml:lang="en">
         <seg>James</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>雅各</seg>
       </tuv>
     </tu>
@@ -577,7 +577,7 @@
       <tuv xml:lang="en">
         <seg>Jehoiada</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>耶何耶大</seg>
       </tuv>
     </tu>
@@ -586,7 +586,7 @@
       <tuv xml:lang="en">
         <seg>Jephthah</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>耶弗他</seg>
       </tuv>
     </tu>
@@ -595,7 +595,7 @@
       <tuv xml:lang="en">
         <seg>Jeremiah</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>耶利米</seg>
       </tuv>
     </tu>
@@ -604,7 +604,7 @@
       <tuv xml:lang="en">
         <seg>Jeroboam</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>耶羅波安</seg>
       </tuv>
     </tu>
@@ -613,7 +613,7 @@
       <tuv xml:lang="en">
         <seg>Jesse</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>耶西</seg>
       </tuv>
     </tu>
@@ -622,7 +622,7 @@
       <tuv xml:lang="en">
         <seg>Jesus</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>耶穌</seg>
       </tuv>
     </tu>
@@ -631,7 +631,7 @@
       <tuv xml:lang="en">
         <seg>Jezebel</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>《現》耶洗碧</seg>
       </tuv>
     </tu>
@@ -640,7 +640,7 @@
       <tuv xml:lang="en">
         <seg>Joab</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>約押</seg>
       </tuv>
     </tu>
@@ -649,7 +649,7 @@
       <tuv xml:lang="en">
         <seg>Job</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>約伯</seg>
       </tuv>
     </tu>
@@ -658,7 +658,7 @@
       <tuv xml:lang="en">
         <seg>Johanan</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>約哈難</seg>
       </tuv>
     </tu>
@@ -667,7 +667,7 @@
       <tuv xml:lang="en">
         <seg>John</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>約翰</seg>
       </tuv>
     </tu>
@@ -676,7 +676,7 @@
       <tuv xml:lang="en">
         <seg>Jonah</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>約拿</seg>
       </tuv>
     </tu>
@@ -685,7 +685,7 @@
       <tuv xml:lang="en">
         <seg>Jonathan</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>約拿單</seg>
       </tuv>
     </tu>
@@ -694,7 +694,7 @@
       <tuv xml:lang="en">
         <seg>Joseph</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>《現》以色列人</seg>
       </tuv>
     </tu>
@@ -703,7 +703,7 @@
       <tuv xml:lang="en">
         <seg>Joshua</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>約書亞</seg>
       </tuv>
     </tu>
@@ -712,7 +712,7 @@
       <tuv xml:lang="en">
         <seg>Judah</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>猶大</seg>
       </tuv>
     </tu>
@@ -721,7 +721,7 @@
       <tuv xml:lang="en">
         <seg>Laban</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>拉班</seg>
       </tuv>
     </tu>
@@ -730,7 +730,7 @@
       <tuv xml:lang="en">
         <seg>Leah</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>《現》麗亞</seg>
       </tuv>
     </tu>
@@ -739,7 +739,7 @@
       <tuv xml:lang="en">
         <seg>Lot</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>羅得</seg>
       </tuv>
     </tu>
@@ -748,7 +748,7 @@
       <tuv xml:lang="en">
         <seg>Lydia</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>呂底亞</seg>
       </tuv>
     </tu>
@@ -757,7 +757,7 @@
       <tuv xml:lang="en">
         <seg>Macedonian</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>馬其頓人</seg>
       </tuv>
     </tu>
@@ -766,7 +766,7 @@
       <tuv xml:lang="en">
         <seg>Martha</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>馬大</seg>
       </tuv>
     </tu>
@@ -775,7 +775,7 @@
       <tuv xml:lang="en">
         <seg>Mephibosheth</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>米非波設</seg>
       </tuv>
     </tu>
@@ -784,7 +784,7 @@
       <tuv xml:lang="en">
         <seg>Micah</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>米迦</seg>
       </tuv>
     </tu>
@@ -793,7 +793,7 @@
       <tuv xml:lang="en">
         <seg>Miriam</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>《現》美莉安</seg>
       </tuv>
     </tu>
@@ -802,7 +802,7 @@
       <tuv xml:lang="en">
         <seg>Naaman</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>乃幔</seg>
       </tuv>
     </tu>
@@ -811,7 +811,7 @@
       <tuv xml:lang="en">
         <seg>Nabal</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>《現》拿霸</seg>
       </tuv>
     </tu>
@@ -820,7 +820,7 @@
       <tuv xml:lang="en">
         <seg>Naboth</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>拿伯</seg>
       </tuv>
     </tu>
@@ -829,7 +829,7 @@
       <tuv xml:lang="en">
         <seg>Naomi</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>《現》拿娥美</seg>
       </tuv>
     </tu>
@@ -838,7 +838,7 @@
       <tuv xml:lang="en">
         <seg>Nathan</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>拿單</seg>
       </tuv>
     </tu>
@@ -847,7 +847,7 @@
       <tuv xml:lang="en">
         <seg>Nathanael</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>拿但業</seg>
       </tuv>
     </tu>
@@ -856,7 +856,7 @@
       <tuv xml:lang="en">
         <seg>Nebuzaradan</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>尼布撒拉旦</seg>
       </tuv>
     </tu>
@@ -865,7 +865,7 @@
       <tuv xml:lang="en">
         <seg>Nehemiah</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>尼希米</seg>
       </tuv>
     </tu>
@@ -874,7 +874,7 @@
       <tuv xml:lang="en">
         <seg>Nicodemus</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>尼哥德慕</seg>
       </tuv>
     </tu>
@@ -883,7 +883,7 @@
       <tuv xml:lang="en">
         <seg>Noah</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>挪亞</seg>
       </tuv>
     </tu>
@@ -892,7 +892,7 @@
       <tuv xml:lang="en">
         <seg>Paul</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>保羅</seg>
       </tuv>
     </tu>
@@ -901,7 +901,7 @@
       <tuv xml:lang="en">
         <seg>people</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>＜陽＞人民，百姓，民間；群眾；國家；猶太人或教會，常稱為：上帝的子民</seg>
       </tuv>
     </tu>
@@ -910,7 +910,7 @@
       <tuv xml:lang="en">
         <seg>Philip</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>腓力</seg>
       </tuv>
     </tu>
@@ -919,7 +919,7 @@
       <tuv xml:lang="en">
         <seg>Pilate</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>彼拉多</seg>
       </tuv>
     </tu>
@@ -928,7 +928,7 @@
       <tuv xml:lang="en">
         <seg>priest</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>祭司</seg>
       </tuv>
     </tu>
@@ -937,7 +937,7 @@
       <tuv xml:lang="en">
         <seg>proclamation</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>＜中＞所講的道，信息，宣道</seg>
       </tuv>
     </tu>
@@ -946,7 +946,7 @@
       <tuv xml:lang="en">
         <seg>prophet</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>先知</seg>
       </tuv>
     </tu>
@@ -955,7 +955,7 @@
       <tuv xml:lang="en">
         <seg>Rachel</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>《現》蕾潔</seg>
       </tuv>
     </tu>
@@ -964,7 +964,7 @@
       <tuv xml:lang="en">
         <seg>Rahab</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>喇合</seg>
       </tuv>
     </tu>
@@ -973,7 +973,7 @@
       <tuv xml:lang="en">
         <seg>Rebekah</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>《現》麗百加</seg>
       </tuv>
     </tu>
@@ -982,7 +982,7 @@
       <tuv xml:lang="en">
         <seg>Rehoboam</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>羅波安</seg>
       </tuv>
     </tu>
@@ -991,7 +991,7 @@
       <tuv xml:lang="en">
         <seg>Reuben</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>呂便</seg>
       </tuv>
     </tu>
@@ -1000,7 +1000,7 @@
       <tuv xml:lang="en">
         <seg>Rhoda</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>羅大</seg>
       </tuv>
     </tu>
@@ -1009,7 +1009,7 @@
       <tuv xml:lang="en">
         <seg>ruler</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>＜陰＞起初，首先，根源，第一因；統制的勢力，執政者</seg>
       </tuv>
     </tu>
@@ -1018,7 +1018,7 @@
       <tuv xml:lang="en">
         <seg>Ruth</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>路得</seg>
       </tuv>
     </tu>
@@ -1027,7 +1027,7 @@
       <tuv xml:lang="en">
         <seg>Samson</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>參孫</seg>
       </tuv>
     </tu>
@@ -1036,7 +1036,7 @@
       <tuv xml:lang="en">
         <seg>Samuel</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>撒母耳</seg>
       </tuv>
     </tu>
@@ -1045,7 +1045,7 @@
       <tuv xml:lang="en">
         <seg>Sanballat</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>參巴拉</seg>
       </tuv>
     </tu>
@@ -1054,7 +1054,7 @@
       <tuv xml:lang="en">
         <seg>Saul</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>掃羅</seg>
       </tuv>
     </tu>
@@ -1063,7 +1063,7 @@
       <tuv xml:lang="en">
         <seg>Shemaiah</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>示瑪雅</seg>
       </tuv>
     </tu>
@@ -1072,7 +1072,7 @@
       <tuv xml:lang="en">
         <seg>Shimei</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>示每</seg>
       </tuv>
     </tu>
@@ -1081,7 +1081,7 @@
       <tuv xml:lang="en">
         <seg>Silas</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>西拉</seg>
       </tuv>
     </tu>
@@ -1090,7 +1090,7 @@
       <tuv xml:lang="en">
         <seg>Sisera</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>西西拉</seg>
       </tuv>
     </tu>
@@ -1099,7 +1099,7 @@
       <tuv xml:lang="en">
         <seg>Stephen</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>司提反</seg>
       </tuv>
     </tu>
@@ -1108,7 +1108,7 @@
       <tuv xml:lang="en">
         <seg>synagogue ruler</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>＜陽＞會堂主管</seg>
       </tuv>
     </tu>
@@ -1117,7 +1117,7 @@
       <tuv xml:lang="en">
         <seg>Tempter</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>那試探人的</seg>
       </tuv>
     </tu>
@@ -1126,7 +1126,7 @@
       <tuv xml:lang="en">
         <seg>Tertius</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>德提</seg>
       </tuv>
     </tu>
@@ -1135,7 +1135,7 @@
       <tuv xml:lang="en">
         <seg>Thomas</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>多馬</seg>
       </tuv>
     </tu>
@@ -1144,7 +1144,7 @@
       <tuv xml:lang="en">
         <seg>Titus</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>提多</seg>
       </tuv>
     </tu>
@@ -1153,7 +1153,7 @@
       <tuv xml:lang="en">
         <seg>Uriah</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>烏利亞</seg>
       </tuv>
     </tu>
@@ -1162,7 +1162,7 @@
       <tuv xml:lang="en">
         <seg>Zechariah</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>撒迦利雅</seg>
       </tuv>
     </tu>
@@ -1171,7 +1171,7 @@
       <tuv xml:lang="en">
         <seg>Ziba</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>洗巴</seg>
       </tuv>
     </tu>
@@ -1180,7 +1180,7 @@
       <tuv xml:lang="en">
         <seg>Zion</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>《現》錫安</seg>
       </tuv>
     </tu>
@@ -1189,7 +1189,7 @@
       <tuv xml:lang="en">
         <seg>Ziphites</seg>
       </tuv>
-      <tuv xml:lang="zh-hant">
+      <tuv xml:lang="zh-Hant">
         <seg>西弗</seg>
       </tuv>
     </tu>
