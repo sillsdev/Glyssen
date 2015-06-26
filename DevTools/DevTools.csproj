@@ -67,6 +67,10 @@
     <Compile Include="FCBH\TemplateDatum.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TermTranslator\BiblicalTerms.cs" />
+    <Compile Include="TermTranslator\BiblicalTermsList.cs" />
+    <Compile Include="TermTranslator\Processor.cs" />
+    <Compile Include="TermTranslator\tmxFormat.cs" />
     <Compile Include="VerseBridgeHelper.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -87,7 +91,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\DialogQuotes.txt" />
-    <Content Include="Resources\BiblicalTerms.xml" />
+    <Content Include="Resources\BiblicalTerms.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Resources\FCBH_NT_Template_simplified.txt" />
     <Content Include="Resources\FCBH_OT_Template_simplified.txt" />
     <Content Include="Resources\modified_Character-VoiceTalent.txt" />
