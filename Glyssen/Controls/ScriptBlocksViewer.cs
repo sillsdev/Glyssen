@@ -166,7 +166,7 @@ namespace Glyssen.Controls
 
 		private void HideToolTip()
 		{
-			if(m_toolTip != null)
+			if (m_toolTip != null)
 			{
 				m_toolTip.Hide(this);
 				m_toolTip.Dispose();
@@ -189,12 +189,12 @@ namespace Glyssen.Controls
 
 			for (int i = 0; i < 10; i++)
 			{
-				if(checkElement == null)
+				if (checkElement == null)
 				{
 					HideToolTip();
 					return;
 				}
-				else if(checkElement.ClassName != BlockNavigatorViewModel.kCssClassContext)
+				else if (checkElement.ClassName != BlockNavigatorViewModel.kCssClassContext)
 					checkElement = checkElement.Parent;
 				else
 					break;
