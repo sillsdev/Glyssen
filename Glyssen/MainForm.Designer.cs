@@ -49,6 +49,7 @@
 			this.m_imgCheckSettings = new System.Windows.Forms.PictureBox();
 			this.m_imgCheckBooks = new System.Windows.Forms.PictureBox();
 			this.m_imgCheckAssign = new System.Windows.Forms.PictureBox();
+			this.m_btnAssignVoiceActors = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.m_L10NSharpExtender)).BeginInit();
 			this.m_toolStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckOpen)).BeginInit();
@@ -338,12 +339,29 @@
 			this.m_imgCheckAssign.TabStop = false;
 			this.m_imgCheckAssign.Visible = false;
 			// 
+			// m_btnAssignVoiceActors
+			// 
+			this.m_btnAssignVoiceActors.BackColor = System.Drawing.Color.Transparent;
+			this.m_btnAssignVoiceActors.Enabled = false;
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnAssignVoiceActors, "Enter Voice Actor information and assign to Character Group.");
+			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnAssignVoiceActors, null);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnAssignVoiceActors, "MainForm.AssignVoiceActors");
+			this.m_btnAssignVoiceActors.Location = new System.Drawing.Point(29, 223);
+			this.m_btnAssignVoiceActors.Name = "m_btnAssignVoiceActors";
+			this.m_btnAssignVoiceActors.Size = new System.Drawing.Size(134, 23);
+			this.m_btnAssignVoiceActors.TabIndex = 5;
+			this.m_btnAssignVoiceActors.Text = "(6) Assign Voice Actors";
+			this.m_btnAssignVoiceActors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.m_btnAssignVoiceActors.UseVisualStyleBackColor = false;
+			this.m_btnAssignVoiceActors.Click += new System.EventHandler(this.m_btnAssignVoiceActors_Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(518, 293);
+			this.Controls.Add(this.m_btnAssignVoiceActors);
 			this.Controls.Add(this.m_imgCheckAssign);
 			this.Controls.Add(this.m_imgCheckBooks);
 			this.Controls.Add(this.m_imgCheckSettings);
@@ -402,6 +420,7 @@
 		private System.Windows.Forms.PictureBox m_imgCheckSettings;
 		private System.Windows.Forms.PictureBox m_imgCheckBooks;
 		private System.Windows.Forms.PictureBox m_imgCheckAssign;
+		private System.Windows.Forms.Button m_btnAssignVoiceActors;
 	}
 }
 
