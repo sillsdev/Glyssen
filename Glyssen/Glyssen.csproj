@@ -170,6 +170,9 @@
       <DependentUpon>Browser.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ControlExtensions.cs" />
+    <Compile Include="Controls\DataGridViewOverrideEnter.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\ExistingProjectsList.cs">
       <SubType>UserControl</SubType>
     </Compile>
