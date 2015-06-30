@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Glyssen.Character;
 using GlyssenTests.Properties;
 using NUnit.Framework;
@@ -24,6 +25,18 @@ namespace GlyssenTests.Character
 		public void TestFixtureTearDown()
 		{
 			m_tempFile.Dispose();
+		}
+
+		[Test]
+		public void NumberOfActors__TooFew_ThrowsArgumentException()
+		{
+			Assert.Throws<ArgumentException>(() => m_charGroupSource.GetTemplate(0));
+		}
+
+		[Test]
+		public void NumberOfActors__TooMany_ThrowsArgumentException()
+		{
+			Assert.Throws<ArgumentException>(() => m_charGroupSource.GetTemplate(29));
 		}
 
 		[Test]
