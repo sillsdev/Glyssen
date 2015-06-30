@@ -5,6 +5,22 @@
     <prop type="x-hardlinebreakreplacement">\n</prop>
   </header>
   <body>
+    <tu tuid="BookSelection.NewTestament">
+      <tuv xml:lang="en">
+        <seg>New Testament</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nuevo Testamento</seg>
+      </tuv>
+    </tu>
+    <tu tuid="BookSelection.OldTestament">
+      <tuv xml:lang="en">
+        <seg>Old Testament</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Antiguo Testamento</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Aaron">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -95,15 +111,6 @@
         <seg>Ahitófel</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.altar">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>altar</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>altar</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Amaziah">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -140,15 +147,6 @@
         <seg>Andrés</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.angel">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>ángel</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Apollos">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -165,15 +163,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Asaf</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.astrologers">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>astrologers</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>caldeo</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Athaliah">
@@ -293,15 +282,6 @@
         <seg>Cornelio</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.craftsman">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>craftsman</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>artífice, artesano</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Daniel">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -419,15 +399,6 @@
         <seg>Hezequiel</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.fool">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>fool</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>tonto, necio</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Gabriel">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -500,24 +471,6 @@
         <seg>Ana</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.head">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>head</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>cabeza</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.herald">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>herald</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>heraldo, mensajero</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Herodias">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -525,15 +478,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Herodías</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.high priest">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>high priest</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>sumo sacerdote</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Hosea">
@@ -932,15 +876,6 @@
         <seg>Pablo</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.people">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>pueblo</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Philip">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -966,33 +901,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Pilato</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.priest">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>priest</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>sacerdote</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.proclamation">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>proclamation</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>proclamación</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.prophet">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>prophet</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>profeta</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Rachel">
@@ -1049,15 +957,6 @@
         <seg>Rode</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.ruler">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>ruler</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>principado</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Ruth">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1103,15 +1002,6 @@
         <seg>Saulo</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.seventy-two">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>seventy-two</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>setenta y dos</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Shemaiah">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1155,15 +1045,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Esteban</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.synagogue ruler">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>synagogue ruler</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>jefe de la sinagoga</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Tempter">
@@ -1245,6 +1126,832 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Zifitas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.altar">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>altar</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>altar</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.angel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>angel</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>ángel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.astrologers">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>astrologers</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>caldeo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.craftsman">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>craftsman</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>artífice, artesano</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.crowd">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>crowd</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>multitud</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.fool">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>fool</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>tonto, necio</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.head">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>head</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>cabeza</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.herald">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>herald</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>heraldo, mensajero</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.high priest">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>high priest</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>sumo sacerdote</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.leaders">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>leaders</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>líderes</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.leper">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>leper</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>leproso</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.maidens">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>maidens</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>doncellas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.man">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>man</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>hombre</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.man (young)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>man (young)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>hombre (joven)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.men">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>men</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>hombres</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.men of Ashdod">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>men of Ashdod</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>hombres de Asdod</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.men of Babel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>men of Babel</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>hombres de Babel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.men of David">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>men of David</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>hombres de David</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.messenger">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>messenger</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>mensajero</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.messenger to Saul">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>messenger to Saul</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>mensajero a Saúl</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.people">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>people</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>pueblo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.priest">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>priest</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>sacerdote</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.proclamation">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>proclamation</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>proclamación</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.prophet">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>prophet</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>profeta</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.ruler">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>ruler</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>principado</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.seventy-two">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>seventy-two</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>setenta y dos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.synagogue ruler">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>synagogue ruler</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>jefe de la sinagoga</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.Cancel">
+      <tuv xml:lang="en">
+        <seg>Cancel</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Cancelar</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.Next">
+      <tuv xml:lang="en">
+        <seg>Next</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Siguiente</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.None">
+      <tuv xml:lang="en">
+        <seg>None</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Ninguno</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.OK">
+      <tuv xml:lang="en">
+        <seg>OK</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Aceptar</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.AddCharacter_ToolTip_">
+      <tuv xml:lang="en">
+        <seg>Add New Character</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Añadir nuevo personaje</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.AddDelivery_ToolTip_">
+      <tuv xml:lang="en">
+        <seg>Add New Delivery</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Añadir nuevo modo de expresión</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.AssignCharacter">
+      <tuv xml:lang="en">
+        <seg>Assign Character</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Asignar personaje</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.AssignmentsComplete">
+      <tuv xml:lang="en">
+        <seg>Assignments Complete</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Asignaciones completas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.BlockProgressFmt">
+      <tuv xml:lang="en">
+        <seg>{0:N1}% Complete; {1} Blocks Remaining</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>{0:N1} % completo;  {1} bloques restantes</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.BookChapterCharacter">
+      <tuv xml:lang="en">
+        <seg>book title or chapter ({0})</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>título de libro o número de capítulo ({0})</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.Character">
+      <tuv xml:lang="en">
+        <seg>Character</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Personaje</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.CloseDialogMessage">
+      <tuv xml:lang="en">
+        <seg>All assignments have been made. Would you like to return to the main window?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Se ha completado la tarea de hacer las asignaciones. Desea regresar a la ventana principal?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.Delivery">
+      <tuv xml:lang="en">
+        <seg>Delivery</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Modo de expresión</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.ExtraCharacter">
+      <tuv xml:lang="en">
+        <seg>section head ({0})</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>encabezado de sección ({0})</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.IntroCharacter">
+      <tuv xml:lang="en">
+        <seg>introduction ({0})</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>introducción ({0})</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.MoreCharacters">
+      <tuv xml:lang="en">
+        <seg>More Characters</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Más personajes</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.MoreDeliveries">
+      <tuv xml:lang="en">
+        <seg>More Deliveries</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Más modos de expresión</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.Narrator">
+      <tuv xml:lang="en">
+        <seg>narrator ({0})</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>narrador ({0})</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.NormalDelivery">
+      <tuv xml:lang="en">
+        <seg>normal</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>normal</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.ScriptBlocksViewer">
+      <tuv xml:lang="en">
+        <seg>Who speaks this part?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>¿Quién habla esta parte?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.UnsavedChanges">
+      <tuv xml:lang="en">
+        <seg>Unsaved Changes</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Cambios no guardados</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.WhoSpeaks">
+      <tuv xml:lang="en">
+        <seg>Who speaks this part?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>¿Quién habla esta parte?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.AssignCharacterDlg.XofY">
+      <note>{0} is the current block number; {1} is the total number of blocks.</note>
+      <tuv xml:lang="en">
+        <seg>{0} of {1}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>{0} de {1}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.BlockNavigationControls.DecreaseTextSize">
+      <tuv xml:lang="en">
+        <seg>Decrease size of text</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Disminuir tamaño de texto</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.BlockNavigationControls.DecreaseTextSize_ToolTip_">
+      <tuv xml:lang="en">
+        <seg>Decrease size of text</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Disminuir tamaño de texto</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.BlockNavigationControls.FormattedView">
+      <tuv xml:lang="en">
+        <seg>Formatted view</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Vista con formato</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.BlockNavigationControls.GridView">
+      <tuv xml:lang="en">
+        <seg>Grid view</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Vista de cuadrícula</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.BlockNavigationControls.IncreaseTextSize">
+      <tuv xml:lang="en">
+        <seg>Increase size of text</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Aumentar tamaño de texto</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.BlockNavigationControls.IncreaseTextSize_ToolTip_">
+      <tuv xml:lang="en">
+        <seg>Increase size of text</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Aumentar tamaño de texto</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.FileDlg.AllFilesLabel">
+      <tuv xml:lang="en">
+        <seg>All Files</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Todos los archivos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.OpenProjectDlg.SelectProject">
+      <tuv xml:lang="en">
+        <seg>Select existing project:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Seleccione un proyecto existente:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.OpenProjectDlg.ShowInactiveProjects">
+      <tuv xml:lang="en">
+        <seg>Show inactive projects</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Mostrar proyectos inactivos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.OpenProjectDlg.WindowTitle">
+      <tuv xml:lang="en">
+        <seg>Open Project</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Abrir Proyecto</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ProjectSettingsDlg.EthnologueCode">
+      <tuv xml:lang="en">
+        <seg>Ethnologue (ISO 639-2) Code:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Código de lenguaje definido en  ISO 639-2:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ProjectSettingsDlg.PublicationName">
+      <tuv xml:lang="en">
+        <seg>Publication Name:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nombre de la publicación:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ProjectSettingsDlg.WindowTitle">
+      <tuv xml:lang="en">
+        <seg>Project Settings</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Configuración del proyecto</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.Level1">
+      <tuv xml:lang="en">
+        <seg>Level 1:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>1r nivel:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.Level2">
+      <tuv xml:lang="en">
+        <seg>Level 2:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>2o nivel:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.Level3">
+      <tuv xml:lang="en">
+        <seg>Level 3:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>3r nivel:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.QuotationDash">
+      <tuv xml:lang="en">
+        <seg>Quotation dash ({0})</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Guión de diálogo ({0})</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.ScriptBlocksViewer">
+      <tuv xml:lang="en">
+        <seg>Project Data:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Datos del proyecto:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.ScriptureRangeSelectionDlg.WindowTitle">
+      <tuv xml:lang="en">
+        <seg>Select Books</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Seleccionar libros</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.SelectProjectDlg.Title">
+      <tuv xml:lang="en">
+        <seg>Open Project</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Abrir proyecto</seg>
+      </tuv>
+    </tu>
+    <tu tuid="File.WrongBundle">
+      <tuv xml:lang="en">
+        <seg>Wrong Bundle</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Paquete incorrecto</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.About">
+      <tuv xml:lang="en">
+        <seg>About...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Acerca de...</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.AssignCharacters">
+      <tuv xml:lang="en">
+        <seg>(4) Assign Characters...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>(4) Asignar personajes...</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.AssignCharacters_ToolTip_">
+      <tuv xml:lang="en">
+        <seg>Select a Character ID for each block in the recording script</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Seleccionar el personaje que habla en cada bloque en el guión de grabación</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.Exit">
+      <tuv xml:lang="en">
+        <seg>Exit</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Salir</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.Export">
+      <tuv xml:lang="en">
+        <seg>(5) Export...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>(5) Exportar...</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.Export_ToolTip_">
+      <tuv xml:lang="en">
+        <seg>Export to a tab-separated values file</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Exportar a un archivo de valores separados por tabulaciones</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.MoreMenuItem">
+      <note>Last item in menu of UI languages</note>
+      <tuv xml:lang="en">
+        <seg>More...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Más...</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.OpenProject">
+      <tuv xml:lang="en">
+        <seg>(1) Open Project...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>(1) Abrir proyecto...</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.OpenProject_ToolTip_">
+      <tuv xml:lang="en">
+        <seg>Choose a recording project to work on</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Elegir o crear un proyecto de grabación</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.PercentComplete">
+      <note>{0:N1} is a number with one decimal point</note>
+      <tuv xml:lang="en">
+        <seg>{0:N1}% complete</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>{0:N1} % completo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.ProjectSettings">
+      <tuv xml:lang="en">
+        <seg>(2) Project Settings...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>(2) Configuración del proyecto...</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.ProjectSettings_ToolTip_">
+      <tuv xml:lang="en">
+        <seg>Change the settings used to generate the recording script</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Cambiar la configuración para generar la el guión de grabación</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.SelectBooks">
+      <tuv xml:lang="en">
+        <seg>(3) Select Books...</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>(3) Seleccionar libros...</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.SelectBooks_ToolTip_">
+      <tuv xml:lang="en">
+        <seg>Choose which books to include in the recording script</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Elegir culaes libros incluir en el guión de grabación</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.SelectTask">
+      <tuv xml:lang="en">
+        <seg>Select the next task you want to do:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Seleccione la siguiente tarea que hacer:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.DefaultCustomVersificationName">
+      <note>Used as the versification name when a the versification file does not contain a name.</note>
+      <tuv xml:lang="en">
+        <seg>custom</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>personalizado</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.RecordingProjectDefaultSuffix">
+      <tuv xml:lang="en">
+        <seg>Audio</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Audio</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.UpdateFromBundle.AllowUpdate">
+      <tuv xml:lang="en">
+        <seg>Do you want to continue with this update?</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>¿Desea continuar con esta actualización?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.UpdateFromBundle.ConfirmUpdate">
+      <tuv xml:lang="en">
+        <seg>Confirm Update</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Confirmar la actualización</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.UpdateFromBundle.Id">
+      <tuv xml:lang="en">
+        <seg>ID</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>ID</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.UpdateFromBundle.Language">
+      <tuv xml:lang="en">
+        <seg>Language</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Idioma</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.UpdateFromBundle.NewValue">
+      <tuv xml:lang="en">
+        <seg>New value: {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Valor nuevo: {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.UpdateFromBundle.OldValue">
+      <tuv xml:lang="en">
+        <seg>Old value: {0}</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Valor anterior: {0}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.UpdateFromBundle.PublicationName">
+      <tuv xml:lang="en">
+        <seg>Publication name</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nombre de la publicación</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Project.UpdateFromBundle.UpdatedBundleMismatch">
+      <tuv xml:lang="en">
+        <seg>The metadata of the selected text release bundle does not match the current project. If you continue with this update, the following metadata will be changed:</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Los metadatos del paquete de descarga de texto seleccionado no coinciden con el proyecto actual. Si se continúa con esta actualización, se cambiarán los siguientes metadatos:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="WritingSystem.LeftToRight">
+      <note>Describes a writing system</note>
+      <tuv xml:lang="en">
+        <seg>Left-to-right</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>De izquierda a derecha</seg>
+      </tuv>
+    </tu>
+    <tu tuid="WritingSystem.Points">
+      <note>Units appended to font size to represent points</note>
+      <tuv xml:lang="en">
+        <seg>pt</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>pto</seg>
+      </tuv>
+    </tu>
+    <tu tuid="WritingSystem.RightToLeft">
+      <note>Describes a writing system</note>
+      <tuv xml:lang="en">
+        <seg>Right-to-left</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>De derecha a izquierda</seg>
       </tuv>
     </tu>
   </body>
