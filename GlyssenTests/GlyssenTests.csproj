@@ -88,13 +88,15 @@
     <Compile Include="BlockTests.cs" />
     <Compile Include="BookSetUtilsTests.cs" />
     <Compile Include="Bundle\GlyssenDblTextMetadataTests.cs" />
-    <Compile Include="CharacterAssignerTests.cs" />
-    <Compile Include="CharacterVerseDataTests.cs" />
+    <Compile Include="Character\CharacterAssignerTests.cs" />
+    <Compile Include="Character\CharacterGroupTemplateExcelFileTests.cs" />
+    <Compile Include="Character\CharacterGroupTemplateTests.cs" />
+    <Compile Include="Character\CharacterVerseDataTests.cs" />
+    <Compile Include="Character\ProjectCharacterVerseDataTests.cs" />
     <Compile Include="Controls\BrowserTests.cs" />
     <Compile Include="BookScriptTests.cs" />
     <Compile Include="Dialogs\BlockNavigatorViewModelTests.cs" />
     <Compile Include="Dialogs\AssignCharacterViewModelTests.cs" />
-    <Compile Include="ProjectCharacterVerseDataTests.cs" />
     <Compile Include="Quote\QuoteUtilsTests.cs" />
     <Compile Include="Quote\QuoteParserTests.cs" />
     <Compile Include="Quote\QuoteSystemGuesserTests.cs" />
@@ -132,6 +134,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\TestCharacterGroups.xlsx" />
     <None Include="Resources\TestCharacterVerse.txt" />
   </ItemGroup>
   <ItemGroup>

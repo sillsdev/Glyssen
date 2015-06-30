@@ -75,6 +75,9 @@
     <Reference Include="L10NSharp">
       <HintPath>..\lib\dotnet\L10NSharp.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="NetLoc, Version=7.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\NetLoc.dll</HintPath>
@@ -141,10 +144,14 @@
     <Compile Include="Character\CharacterAssigner.cs" />
     <Compile Include="Character\CharacterDetail.cs" />
     <Compile Include="Character\CharacterDetailData.cs" />
+    <Compile Include="Character\CharacterGroup.cs" />
+    <Compile Include="Character\CharacterGroupTemplate.cs" />
+    <Compile Include="Character\CharacterGroupTemplateExcelFile.cs" />
     <Compile Include="Character\CharacterVerse.cs" />
     <Compile Include="Character\CharacterVerseData.cs" />
     <Compile Include="Character\CombinedCharacterVerseData.cs" />
     <Compile Include="Character\ControlCharacterVerseData.cs" />
+    <Compile Include="Character\ICharacterGroupSource.cs" />
     <Compile Include="Character\ICharacterVerseInfo.cs" />
     <Compile Include="Character\ProjectCharacterVerseData.cs" />
     <Compile Include="Controls\BlockProgressBar.cs">
