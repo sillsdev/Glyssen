@@ -101,6 +101,9 @@
     <Reference Include="SIL.Windows.Forms">
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.dll</HintPath>
     </Reference>
+    <Reference Include="SIL.Windows.Forms.DblBundle">
+      <HintPath>..\lib\dotnet\SIL.Windows.Forms.DblBundle.dll</HintPath>
+    </Reference>
     <Reference Include="SIL.Windows.Forms.GeckoBrowserAdapter">
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.GeckoBrowserAdapter.dll</HintPath>
     </Reference>

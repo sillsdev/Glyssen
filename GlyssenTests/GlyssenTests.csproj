@@ -68,6 +68,10 @@
     <Reference Include="SIL.TestUtilities">
       <HintPath>..\lib\dotnet\SIL.TestUtilities.dll</HintPath>
     </Reference>
+    <Reference Include="SIL.Windows.Forms.DblBundle, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\dotnet\SIL.Windows.Forms.DblBundle.dll</HintPath>
+    </Reference>
     <Reference Include="SIL.WritingSystems, Version=2.6.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.WritingSystems.dll</HintPath>

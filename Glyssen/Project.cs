@@ -269,16 +269,9 @@ namespace Glyssen
 			}
 		}
 
-		public IReadOnlyList<Book> AvailableBooks
+		public SIL.ObjectModel.IReadOnlyList<Book> AvailableBooks
 		{ 
-			get
-			{ 
-				return m_metadata.AvailableBooks.Where(b =>
-				{
-					var bookNum = BCVRef.BookToNumber(b.Code);
-					return bookNum >= 1 && bookNum <= BCVRef.LastBook;
-				}).ToList(); 
-			} 
+			get { return m_metadata.AvailableBibleBooks; } 
 		}
 
 		public string OriginalBundlePath
@@ -544,17 +537,7 @@ namespace Glyssen
 
 		private void PopulateAndParseBooks(ITextBundle bundle)
 		{
-			AddAndParseBooks(GetUsxBooksToInclude(bundle), bundle.Stylesheet);
-		}
-
-		private IEnumerable<UsxDocument> GetUsxBooksToInclude(ITextBundle bundle)
-		{
-			foreach (var book in AvailableBooks.Where(b => b.IncludeInScript))
-			{
-				UsxDocument usxBook;
-				if (bundle.TryGetBook(book.Code, out usxBook))
-					yield return usxBook;
-			}
+			AddAndParseBooks(bundle.UsxBooksToInclude, bundle.Stylesheet);
 		}
 
 		private void AddAndParseBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet)

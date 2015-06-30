@@ -73,7 +73,7 @@ namespace Glyssen.Bundle
 		/// </summary>
 		[XmlAttribute("hiddenbydefault")]
 		[DefaultValue(false)]
-		public bool Inactive;
+		public bool Inactive { get; set; }
 
 		private QuoteSystem m_quoteSystem;
 

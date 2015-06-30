@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 using Glyssen.Properties;
-using Microsoft.Win32;
 using SIL.Windows.Forms.PortableSettingsProvider;
 
 namespace Glyssen.Dialogs
@@ -17,21 +16,18 @@ namespace Glyssen.Dialogs
 			ParatextProject,
 		}
 
-		private readonly Project m_currentProject;
-
 		public OpenProjectDlg(Project currentProject)
 		{
-			m_currentProject = currentProject;
 			InitializeComponent();
 
 			if (Settings.Default.OpenProjectDlgFormSettings == null)
 				Settings.Default.OpenProjectDlgFormSettings = FormSettings.Create(this);
 
-			if (m_currentProject != null)
+			if (currentProject != null)
 			{
-				m_listExistingProjects.SelectedProject = m_currentProject.ProjectFilePath;
-				SelectedProject = m_currentProject.ProjectFilePath;
-				m_listExistingProjects.AddReadOnlyProject(m_currentProject);
+				m_listExistingProjects.SelectedProject = currentProject.ProjectFilePath;
+				SelectedProject = currentProject.ProjectFilePath;
+				m_listExistingProjects.AddReadOnlyProject(currentProject);
 			}
 			else
 				m_btnOk.Enabled = false;

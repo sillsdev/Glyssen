@@ -113,7 +113,7 @@
 			// 
 			this.m_btnExportToTabSeparated.BackColor = System.Drawing.Color.Transparent;
 			this.m_btnExportToTabSeparated.Enabled = false;
-			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnExportToTabSeparated, "Export to spreadsheet file");
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnExportToTabSeparated, "Export to a tab-separated values file");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnExportToTabSeparated, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnExportToTabSeparated, "MainForm.Export");
 			this.m_btnExportToTabSeparated.Location = new System.Drawing.Point(29, 194);
@@ -363,6 +363,7 @@
 			this.Icon = global::Glyssen.Properties.Resources.glyssenIcon;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this, null);
+			this.m_L10NSharpExtender.SetLocalizationPriority(this, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_L10NSharpExtender.SetLocalizingId(this, "MainForm.WindowTitle");
 			this.MinimumSize = new System.Drawing.Size(534, 331);
 			this.Name = "MainForm";

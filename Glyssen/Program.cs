@@ -130,7 +130,7 @@ namespace Glyssen
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
 
 			LocalizationManager = LocalizationManager.Create(desiredUiLangId, kApplicationId, Application.ProductName, Application.ProductVersion,
-				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress, "Glyssen");
+				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress, "Glyssen", "SIL.Windows.Forms.DblBundle");
 
 			if (string.IsNullOrEmpty(desiredUiLangId))
 				if (LocalizationManager.GetUILanguages(true).Count() > 1)
