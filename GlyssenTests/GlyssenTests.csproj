@@ -38,6 +38,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
@@ -92,13 +95,15 @@
     <Compile Include="BlockTests.cs" />
     <Compile Include="BookSetUtilsTests.cs" />
     <Compile Include="Bundle\GlyssenDblTextMetadataTests.cs" />
-    <Compile Include="CharacterAssignerTests.cs" />
-    <Compile Include="CharacterVerseDataTests.cs" />
+    <Compile Include="Character\CharacterAssignerTests.cs" />
+    <Compile Include="Character\CharacterGroupTemplateExcelFileTests.cs" />
+    <Compile Include="Character\CharacterGroupTemplateTests.cs" />
+    <Compile Include="Character\CharacterVerseDataTests.cs" />
+    <Compile Include="Character\ProjectCharacterVerseDataTests.cs" />
     <Compile Include="Controls\BrowserTests.cs" />
     <Compile Include="BookScriptTests.cs" />
     <Compile Include="Dialogs\BlockNavigatorViewModelTests.cs" />
     <Compile Include="Dialogs\AssignCharacterViewModelTests.cs" />
-    <Compile Include="ProjectCharacterVerseDataTests.cs" />
     <Compile Include="Quote\QuoteUtilsTests.cs" />
     <Compile Include="Quote\QuoteParserTests.cs" />
     <Compile Include="Quote\QuoteSystemGuesserTests.cs" />
@@ -136,6 +141,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\TestCharacterGroups.xlsx" />
     <None Include="Resources\TestCharacterVerse.txt" />
   </ItemGroup>
   <ItemGroup>

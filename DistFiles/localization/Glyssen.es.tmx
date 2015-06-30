@@ -1,0 +1,1251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header srclang="es" adminlang="en" creationtool="Palaso Localization Manager" creationtoolversion="2.0.35.0" segtype="block" datatype="unknown" o-tmf="PalasoTMXUtils">
+    <prop type="x-appversion">0.1.0.0</prop>
+    <prop type="x-hardlinebreakreplacement">\n</prop>
+  </header>
+  <body>
+    <tu tuid="CharacterName.Aaron">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Aaron</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Aarón</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Abigail">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Abigail</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Abigail</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Abimelech">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Abimelech</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Abimélec</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Abner">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Abner</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Abner</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Absalom">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Absalom</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Absalón</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Achan">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Achan</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Acán</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Achish">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Achish</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Aquís</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Adam">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Adam</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Adán</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Adoni-Bezek">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Adoni-Bezek</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Adonisédec</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ahithophel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ahithophel</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Ahitófel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.altar">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>altar</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>altar</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Amaziah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Amaziah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Amasías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Amnon">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Amnon</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Amnón</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Amos">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Amos</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Amós</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Andrew">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Andrew</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Andrés</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.angel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>angel</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>ángel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Apollos">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Apollos</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Apolo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Asaph">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Asaph</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Asaf</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.astrologers">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>astrologers</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>caldeo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Athaliah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Athaliah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Atalía</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Babylon">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Babylon</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Babilonia</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Balaam">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Balaam</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Balaam</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Balak">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Balak</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Balac</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Barak">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Barak</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Barac</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Barnabas">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Barnabas</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Bernabé</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Baruch">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Baruch</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Baruc</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Barzillai">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Barzillai</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Barzilai</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Bathsheba">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Bathsheba</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Betsabé</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Boaz">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Boaz</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Booz</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Cain">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Cain</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Caín</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Caleb">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Caleb</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Caleb</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Cornelius">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Cornelius</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Cornelio</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.craftsman">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>craftsman</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>artífice, artesano</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Daniel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Daniel</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Daniel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.David">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>David</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>David</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Delilah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Delilah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Dalila</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Edom">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Edom</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Edom</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Eli">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Eli</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Elí</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Elijah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Elijah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Elías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Elisha">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Elisha</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Eliseo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Elizabeth">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Elizabeth</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Isabel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Elkanah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Elkanah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Elcaná</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Enoch">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Enoch</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Henoc</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Esau">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Esau</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Esaú</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Eve">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Eve</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Eva</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ezekiel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ezekiel</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Hezequiel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.fool">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>fool</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>tonto, necio</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gabriel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gabriel</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Gabriel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gamaliel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gamaliel</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Gamaliel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gehazi">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gehazi</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Guehazí</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Goliath">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Goliath</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Goliat</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Habakkuk">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Habakkuk</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Habacuc</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Hamor">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Hamor</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Hamor</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Hanani">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Hanani</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Hananí</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Hannah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Hannah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Ana</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.head">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>head</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>cabeza</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.herald">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>herald</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>heraldo, mensajero</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Herodias">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Herodias</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Herodías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.high priest">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>high priest</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>sumo sacerdote</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Hosea">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Hosea</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Oseas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Isaac">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Isaac</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Isaac</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Isaiah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Isaiah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Isaías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Israel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Israel</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Israel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ittai">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ittai</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Itai</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jabez">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jabez</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Jabés</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jael">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jael</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Jael</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.James">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>James</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Santiago</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jehoiada">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jehoiada</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Joiadá</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jephthah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jephthah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Jefté</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jeremiah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jeremiah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Jeremías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jeroboam">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jeroboam</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Jeroboam</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jesse">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jesse</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Jesé</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jesus">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jesus</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Jesús</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jezebel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jezebel</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Jezabel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Joab">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Joab</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Joab</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Job">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Job</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Job</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Johanan">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Johanan</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Johanán</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.John">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>John</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Juan</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jonah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jonah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Jonás</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jonathan">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jonathan</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Jonatán</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Joseph">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Joseph</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>José</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Joshua">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Joshua</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Josué</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Judah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Judah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Judá</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Laban">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Laban</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Labán</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Leah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Leah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Lía</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Lot">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Lot</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Lot</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Lydia">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Lydia</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Lidia</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Macedonian">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Macedonian</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Macedonio</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Martha">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Martha</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Marta</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Mephibosheth">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Mephibosheth</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Mefi-bóset</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Micah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Micah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Micaías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Miriam">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Miriam</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>María</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Naaman">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Naaman</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Naamán</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nabal">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nabal</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nabal</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Naboth">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Naboth</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nabot</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Naomi">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Naomi</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Noemí</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nathan">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nathan</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Natán</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nathanael">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nathanael</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Natanael</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nebuzaradan">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nebuzaradan</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nebuzaradán</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nehemiah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nehemiah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nehemías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nicodemus">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nicodemus</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nicodemo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Noah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Noah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Noé</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Paul">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Paul</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Pablo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.people">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>people</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>pueblo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Philip">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Philip</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Felipe</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Philistines">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Philistines</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Filisteo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Pilate">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Pilate</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Pilato</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.priest">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>priest</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>sacerdote</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.proclamation">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>proclamation</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>proclamación</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.prophet">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>prophet</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>profeta</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Rachel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Rachel</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Raquel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Rahab">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Rahab</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Rahab</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Rebekah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Rebekah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Rebeca</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Rehoboam">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Rehoboam</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Roboam</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Reuben">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Reuben</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Rubén</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Rhoda">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Rhoda</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Rode</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.ruler">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>ruler</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>principado</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ruth">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ruth</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Rut</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Samson">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Samson</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Sansón</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Samuel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Samuel</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Samuel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Sanballat">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Sanballat</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Sambalat</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Saul">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Saul</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Saulo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.seventy-two">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>seventy-two</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>setenta y dos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Shemaiah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Shemaiah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Semaías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Shimei">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Shimei</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Simí</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Silas">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Silas</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Silas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Sisera">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Sisera</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Sísara</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Stephen">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Stephen</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Esteban</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.synagogue ruler">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>synagogue ruler</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>jefe de la sinagoga</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Tempter">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Tempter</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>tentador</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Tertius">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Tertius</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Tercio</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Thomas">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Thomas</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Tomás</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Titus">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Titus</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Ticio</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Uriah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Uriah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Urías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Zechariah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Zechariah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Zacarías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ziba">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ziba</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Sibá</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Zion">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Zion</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Sión</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ziphites">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ziphites</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Zifitas</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

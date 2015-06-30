@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using DesktopAnalytics;
+using L10NSharp.UI;
 using SIL.Scripture;
 
 namespace Glyssen.Character
@@ -15,6 +16,8 @@ namespace Glyssen.Character
 				LoadData(File.ReadAllText(fullPath));
 			else
 				LoadData("");
+
+			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 		}
 
 		public virtual void Add(CharacterVerse cv)

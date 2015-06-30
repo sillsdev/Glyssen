@@ -261,5 +261,11 @@ namespace Glyssen.Character
 		}
 
 		protected abstract CharacterVerse CreateCharacterVerse(BCVRef bcvRef, string[] items);
+
+		protected void HandleStringsLocalized()
+		{
+			foreach (CharacterVerse cv in GetAllQuoteInfo())
+				cv.ResetLocalization();
+		}
 	}
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Glyssen.Properties;
+using L10NSharp.UI;
 using SIL.Scripture;
 
 namespace Glyssen.Character
@@ -29,6 +30,7 @@ namespace Glyssen.Character
 			if (TabDelimitedCharacterVerseData == null)
 				TabDelimitedCharacterVerseData = Resources.CharacterVerseData;
 			LoadAll();
+			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 		}
 
 		public static ControlCharacterVerseData Singleton

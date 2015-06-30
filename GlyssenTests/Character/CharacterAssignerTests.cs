@@ -6,7 +6,7 @@ using SIL.Scripture;
 using SIL.Xml;
 using ScrVers = Paratext.ScrVers;
 
-namespace GlyssenTests
+namespace GlyssenTests.Character
 {
 	[TestFixture]
 	class CharacterAssignerTests

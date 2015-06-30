@@ -5,6 +5,7 @@ using System.Linq;
 using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Utilities;
+using L10NSharp;
 using SIL.Scripture;
 using ScrVers = Paratext.ScrVers;
 
@@ -120,7 +121,7 @@ namespace Glyssen.Dialogs
 			m_currentCharacters = GetUniqueCharactersForCurrentReference();
 
 			var listToReturn = new List<Character>(new SortedSet<Character>(
-				m_currentCharacters.Select(cv => new Character(cv.Character, cv.Alias, cv.ProjectSpecific)), m_characterComparer));
+				m_currentCharacters.Select(cv => new Character(cv.Character, cv.LocalizedCharacter, cv.Alias, cv.LocalizedAlias, cv.ProjectSpecific)), m_characterComparer));
 			listToReturn.Sort(m_aliasComparer);
 
 			if (listToReturn.All(c => !c.IsNarrator))
@@ -137,7 +138,7 @@ namespace Glyssen.Dialogs
 				}
 
 				var listToAdd = new SortedSet<Character>(m_currentCharacters.Select(cv =>
-					new Character(cv.Character, cv.Alias)), m_characterComparer).Where(c => !listToReturn.Contains(c)).ToList();
+					new Character(cv.Character, cv.LocalizedCharacter, cv.Alias, cv.LocalizedAlias)), m_characterComparer).Where(c => !listToReturn.Contains(c)).ToList();
 				listToAdd.Sort(m_aliasComparer);
 				listToReturn.AddRange(listToAdd);
 			}
@@ -155,7 +156,7 @@ namespace Glyssen.Dialogs
 				}
 
 				var listToAdd = new SortedSet<Character>(m_currentCharacters.Select(cv =>
-					new Character(cv.Character, cv.Alias)), m_characterComparer).Where(c => !listToReturn.Contains(c)).ToList();
+					new Character(cv.Character, cv.LocalizedCharacter, cv.Alias, cv.LocalizedAlias)), m_characterComparer).Where(c => !listToReturn.Contains(c)).ToList();
 				listToAdd.Sort(m_aliasComparer);
 				listToReturn.AddRange(listToAdd);
 			}
@@ -176,17 +177,18 @@ namespace Glyssen.Dialogs
 				m_currentCharacters = new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetUniqueCharacterAndDeliveries());
 
 				filterText = filterText.Trim();
-				m_currentCharacters.RemoveWhere(c => !c.Character.Contains(filterText, StringComparison.OrdinalIgnoreCase) &&
-					(c.Alias == null || !c.Alias.Contains(filterText, StringComparison.OrdinalIgnoreCase)));
+				m_currentCharacters.RemoveWhere(c => !c.LocalizedCharacter.Contains(filterText, StringComparison.OrdinalIgnoreCase) &&
+					(c.LocalizedAlias == null || !c.LocalizedAlias.Contains(filterText, StringComparison.OrdinalIgnoreCase)));
 			}
 
-			var listToReturn = new List<Character>(new SortedSet<Character>(m_currentCharacters.Select(cv => new Character(cv.Character, cv.Alias,
-				!charactersForCurrentRef.Contains(cv) || cv.ProjectSpecific)), m_characterComparer));
+			var listToReturn = new List<Character>(new SortedSet<Character>(
+				m_currentCharacters.Select(cv => new Character(cv.Character, cv.LocalizedCharacter, cv.Alias, cv.LocalizedAlias, 
+					!charactersForCurrentRef.Contains(cv) || cv.ProjectSpecific)), m_characterComparer));
 			listToReturn.Sort(m_aliasComparer);
 
 			// PG-88: Now add (at the end of list) any items from charactersForCurrentRef (plus the narrator) that are not in the list.
 			listToReturn.AddRange(charactersForCurrentRef.Where(cv => listToReturn.All(ec => ec.CharacterId != cv.Character))
-				.Select(cv => new Character(cv.Character, cv.Alias, cv.ProjectSpecific)));
+				.Select(cv => new Character(cv.Character, cv.LocalizedCharacter, cv.Alias, cv.LocalizedAlias, cv.ProjectSpecific)));
 
 			if (listToReturn.All(c => !c.IsNarrator))
 				listToReturn.Add(Character.Narrator);
@@ -317,8 +319,8 @@ namespace Glyssen.Dialogs
 			{
 				if (character.CharacterId == characterId)
 				{
-					if (!string.IsNullOrEmpty(character.Alias))
-						return character.Alias;
+					if (!string.IsNullOrEmpty(character.LocalizedAlias))
+						return character.LocalizedAlias;
 					break;
 				}
 			}
@@ -352,6 +354,8 @@ namespace Glyssen.Dialogs
 			private static string s_extraCharacter;
 
 			private readonly string m_characterId;
+			private readonly string m_localizedCharacterId;
+			private readonly string m_localizedAlias;
 			private readonly string m_alias;
 			private readonly bool m_projectSpecific;
 			private static Func<string> s_funcToGetBookId;
@@ -360,26 +364,32 @@ namespace Glyssen.Dialogs
 			public static Character Narrator { get { return s_narrator; } }
 
 			public string CharacterId { get { return m_characterId; } }
+			public string LocalizedCharacterId { get { return m_localizedCharacterId; } }
 			public string Alias { get { return m_alias; } }
+			public string LocalizedAlias { get { return m_localizedAlias; } }
 			public bool ProjectSpecific { get { return m_projectSpecific; } }
 			public bool IsNarrator { get { return Equals(s_narrator); } }
+
+			public string LocalizedDisplay { get { return ToLocalizedString(); } }
 
 			public static void SetUiStrings(string narrator, string bookChapterCharacter, string introCharacter,
 				string extraCharacter, Func<string> funcToGetBookId, Func<string, string> funcToGetRelevantAlias)
 			{
 				s_funcToGetBookId = funcToGetBookId;
 				s_funcToGetRelevantAlias = funcToGetRelevantAlias;
-				s_narrator = new Character(narrator, null, false);
+				s_narrator = new Character(narrator, null, null, null, false);
 				s_bookChapterCharacter = bookChapterCharacter;
 				s_introCharacter = introCharacter;
 				s_extraCharacter = extraCharacter;
 			}
 
-			internal Character(string characterId, string alias = null, bool projectSpecific = true)
+			internal Character(string characterId, string localizedCharacterId = null, string alias = null, string localizedAlias = null, bool projectSpecific = true)
 			{
 				m_characterId = CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator) ?
-					s_narrator.CharacterId : characterId;	
+					s_narrator.CharacterId : characterId;
+				m_localizedCharacterId = localizedCharacterId ?? characterId;
 				m_alias = String.IsNullOrWhiteSpace(alias) ? null : alias;
+				m_localizedAlias = String.IsNullOrWhiteSpace(localizedAlias) ? null : localizedAlias;
 				m_projectSpecific = projectSpecific;
 			}
 
@@ -387,7 +397,14 @@ namespace Glyssen.Dialogs
 			{
 				if (IsNarrator)
 					return String.Format(CharacterId, s_funcToGetBookId());
-				return Alias ?? CharacterId;
+				return LocalizedAlias ?? CharacterId;
+			}
+
+			public string ToLocalizedString()
+			{
+				if (IsNarrator)
+					return ToString();
+				return LocalizedAlias ?? LocalizedCharacterId;
 			}
 
 			public static string GetCharacterIdForUi(string characterId)
@@ -402,6 +419,7 @@ namespace Glyssen.Dialogs
 						if (characterId == CharacterVerseData.AmbiguousCharacter || characterId == CharacterVerseData.UnknownCharacter)
 							return "";
 						string relevantAlias = s_funcToGetRelevantAlias(characterId);
+						characterId = LocalizationManager.GetDynamicString(Program.kApplicationId, "CharacterName." + characterId, characterId);
 						if (relevantAlias != null)
 							return characterId + " [" + relevantAlias + "]";
 						return characterId;

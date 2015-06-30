@@ -5,7 +5,7 @@ using Glyssen.Character;
 using NUnit.Framework;
 using SIL.IO;
 
-namespace GlyssenTests
+namespace GlyssenTests.Character
 {
 	[TestFixture]
 	class ProjectCharacterVerseDataTests

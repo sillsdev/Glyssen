@@ -86,6 +86,7 @@ namespace Glyssen.Dialogs
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 
+			m_listBoxCharacters.DisplayMember = "LocalizedDisplay";
 			m_originalDefaultFontForLists = m_listBoxCharacters.Font;
 			SetFontsFromViewModel();
 
@@ -716,9 +717,9 @@ namespace Glyssen.Dialogs
 				{
 					m_characterListToolTip.Active = false;
 					var hoveredCharacter = ((AssignCharacterViewModel.Character)m_listBoxCharacters.Items[m_characterListHoveredIndex]);
-					if (!string.IsNullOrEmpty(hoveredCharacter.Alias))
+					if (!string.IsNullOrEmpty(hoveredCharacter.LocalizedAlias))
 					{
-						m_characterListToolTip.SetToolTip(m_listBoxCharacters, hoveredCharacter.CharacterId);
+						m_characterListToolTip.SetToolTip(m_listBoxCharacters, hoveredCharacter.LocalizedCharacterId);
 						m_characterListToolTip.Active = true;
 					}
 				}
