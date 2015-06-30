@@ -1,7 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Runtime.InteropServices;
-using Microsoft.Office.Interop.Excel;
-using Application = Microsoft.Office.Interop.Excel.Application;
+using OfficeOpenXml;
 
 namespace Glyssen.Character
 {
@@ -22,28 +22,24 @@ namespace Glyssen.Character
 		public CharacterGroupTemplate GetTemplate(int numberOfActors)
 		{
 			if (numberOfActors < 1 || numberOfActors > 28)
-				throw new ArgumentException("Number of readers must between 1 and 28, inclusive.", "numberOfActors");
-
-			var xlApp = new Application();
-			Workbook xlWorkBook = xlApp.Workbooks.Open(m_filePath, 0, true);
-			Worksheet xlWorkSheet = (Worksheet)xlWorkBook.Worksheets.Item[1];
-            Range range = xlWorkSheet.UsedRange;
+				throw new ArgumentException("Number of readers must be between 1 and 28, inclusive.", "numberOfActors");
 
 			CharacterGroupTemplate template = new CharacterGroupTemplate();
-			for (int row = FirstRowWithData; row <= range.Rows.Count; row++)
+
+			using (ExcelPackage excelPackage = new ExcelPackage(new FileInfo(m_filePath)))
+			using (ExcelWorksheet ws = excelPackage.Workbook.Worksheets[1])
 			{
-				string characterId = (string)(range.Cells[row, CharacterIdColumn] as Range).Value2;
-				//string characterId = (string)(range.Cells[row, CharacterIdColumn] as Range).Value2 + "|" + (double)(range.Cells[row, SerialNumberColumn] as Range).Value2;
-				int groupNumber = (int)(range.Cells[row, numberOfActors + ColumnsBeforeGroupNumbers] as Range).Value2;
-				template.AddCharacterToGroup(characterId, groupNumber);
+				int row = FirstRowWithData;
+				while (true)
+				{
+					string characterId = (string)(ws.Cells[row, CharacterIdColumn].Value);
+					if (string.IsNullOrWhiteSpace(characterId))
+						break;
+					double groupNumber = (double)ws.Cells[row, numberOfActors + ColumnsBeforeGroupNumbers].Value;
+					template.AddCharacterToGroup(characterId, Convert.ToInt32(groupNumber));
+					row++;
+				}
 			}
-
-            xlWorkBook.Close(true, null, null);
-            xlApp.Quit();
-
-			ReleaseObject(xlWorkSheet);
-			ReleaseObject(xlWorkBook);
-			ReleaseObject(xlApp);
 
 			return template;
 		}

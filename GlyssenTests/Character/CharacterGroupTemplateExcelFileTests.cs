@@ -52,5 +52,23 @@ namespace GlyssenTests.Character
 			Assert.IsTrue(template.CharacterGroups.TryGetValue(15, out group));
 			Assert.IsTrue(group.CharacterIds.Contains("John the Baptist"));
 		}
+
+		[Test]
+		public void GetTemplate_GetsFirstRow()
+		{
+			CharacterGroupTemplate template = m_charGroupSource.GetTemplate(1);
+			CharacterGroup group;
+			Assert.IsTrue(template.CharacterGroups.TryGetValue(1, out group));
+			Assert.IsTrue(group.CharacterIds.Contains("Narr_001: Matthew"));
+		}
+
+		[Test]
+		public void GetTemplate_GetsLastRow()
+		{
+			CharacterGroupTemplate template = m_charGroupSource.GetTemplate(28);
+			CharacterGroup group;
+			Assert.IsTrue(template.CharacterGroups.TryGetValue(8, out group));
+			Assert.IsTrue(group.CharacterIds.Contains("Religious Leader_04"));
+		}
 	}
 }

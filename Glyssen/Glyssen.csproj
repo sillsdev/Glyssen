@@ -62,6 +62,9 @@
     <Reference Include="DesktopAnalytics">
       <HintPath>..\packages\DesktopAnalytics.1.1.5\lib\net40\DesktopAnalytics.dll</HintPath>
     </Reference>
+    <Reference Include="EPPlus">
+      <HintPath>..\packages\EPPlus.4.0.4\lib\net20\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="Geckofx-Core">
       <HintPath>..\lib\dotnet\Geckofx-Core.dll</HintPath>
     </Reference>
@@ -74,9 +77,6 @@
     </Reference>
     <Reference Include="L10NSharp">
       <HintPath>..\lib\dotnet\L10NSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="NetLoc, Version=7.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
