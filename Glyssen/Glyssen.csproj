@@ -375,15 +375,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\SplitLocation.png" />
-    <None Include="Resources\split point.cur" />
     <None Include="Resources\SplitBlock.png" />
-    <None Include="Resources\sample.vrs" />
     <None Include="Resources\yellow-ok-icon.png" />
     <None Include="Resources\112_Plus_Green_16x16_72.png" />
     <None Include="Resources\CharacterDetail.txt" />
     <Content Include="Resources\CharacterVerse.txt" />
-    <None Include="Resources\data-grid-icon.png" />
     <None Include="Resources\grid-icon.png" />
     <None Include="Resources\html-view.png" />
     <None Include="Resources\DecreaseSize.png" />

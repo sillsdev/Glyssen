@@ -130,7 +130,7 @@ namespace Glyssen
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
 
 			LocalizationManager = LocalizationManager.Create(desiredUiLangId, kApplicationId, Application.ProductName, Application.ProductVersion,
-				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress, "Glyssen", "SIL.Windows.Forms.DblBundle");
+				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress, "Glyssen");
 
 			if (string.IsNullOrEmpty(desiredUiLangId))
 				if (LocalizationManager.GetUILanguages(true).Count() > 1)
@@ -143,8 +143,10 @@ namespace Glyssen
 							Settings.Default.UserInterfaceLanguage = dlg.SelectedLanguage;
 						}
 
-			// For now, do not set up localization for Palaso
-			// TODO, should we?
+			var uiLanguage = LocalizationManager.UILanguageId;
+			LocalizationManager.Create(uiLanguage, "Palaso", "Palaso", Application.ProductVersion,
+				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress,
+				"SIL.Windows.Forms.WritingSystems", "SIL.Windows.Forms.DblBundle", "SIL.Windows.Forms.Miscellaneous");
 		}
 
 		/// <summary>
