@@ -170,6 +170,9 @@
       <DependentUpon>Browser.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ControlExtensions.cs" />
+    <Compile Include="Controls\DataGridViewOverrideEnter.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\ExistingProjectsList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -189,6 +192,12 @@
       <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
+    <Compile Include="Controls\VoiceActorInformationGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\VoiceActorInformationGrid.Designer.cs">
+      <DependentUpon>VoiceActorInformationGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataMigrator.cs" />
     <Compile Include="Dialogs\IWritingSystemDisplayInfo.cs" />
     <Compile Include="Dialogs\SelectExistingProjectDlg.cs">
@@ -202,6 +211,12 @@
     </Compile>
     <Compile Include="Dialogs\SplitBlockDlg.Designer.cs">
       <DependentUpon>SplitBlockDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\VoiceActorAssignmentDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\VoiceActorAssignmentDlg.Designer.cs">
+      <DependentUpon>VoiceActorAssignmentDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\VoiceActorInformationDlg.cs">
       <SubType>Form</SubType>
@@ -271,14 +286,22 @@
     <Compile Include="Utilities\MathUtilities.cs" />
     <Compile Include="Utilities\StringExtensions.cs" />
     <Compile Include="Utilities\VerseRefExtensions.cs" />
+    <Compile Include="VoiceActor\VoiceActorEntity.cs" />
+    <Compile Include="VoiceActor\VoiceActorList.cs" />
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DataGridViewOverrideEnter.resx">
+      <DependentUpon>DataGridViewOverrideEnter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ExistingProjectsList.resx">
       <DependentUpon>ExistingProjectsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ScriptBlocksViewer.resx">
       <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\VoiceActorInformationGrid.resx">
+      <DependentUpon>VoiceActorInformationGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AssignCharacterDlg.resx">
       <DependentUpon>AssignCharacterDlg.cs</DependentUpon>
@@ -300,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SplitBlockDlg.resx">
       <DependentUpon>SplitBlockDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\VoiceActorAssignmentDlg.resx">
+      <DependentUpon>VoiceActorAssignmentDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\VoiceActorInformationDlg.resx">
       <DependentUpon>VoiceActorInformationDlg.cs</DependentUpon>

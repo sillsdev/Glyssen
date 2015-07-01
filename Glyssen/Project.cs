@@ -17,6 +17,7 @@ using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Quote;
 using Glyssen.Utilities;
+using Glyssen.VoiceActor;
 using L10NSharp;
 using Paratext;
 using SIL.DblBundle;
@@ -37,6 +38,7 @@ namespace Glyssen
 		public const string kProjectFileExtension = ".glyssen";
 		private const string kBookScriptFileExtension = ".xml";
 		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
+		private const string kVoiceActorInformationFileName = "VoiceActorInformation.xml";
 		private const string kSample = "sample";
 		private const string kSampleProjectName = "Sample Project";
 
@@ -768,6 +770,16 @@ namespace Glyssen
 		public void SaveProjectCharacterVerseData()
 		{
 			ProjectCharacterVerseData.WriteToFile(ProjectCharacterVerseDataPath);
+		}
+
+		public void SaveVoiceActorInformationData(VoiceActorList voiceActorInfo)
+		{
+			voiceActorInfo.SaveToFile(Path.Combine(ProjectFolder, kVoiceActorInformationFileName));
+		}
+
+		public VoiceActorList LoadVoiceActorInformationData()
+		{
+			return VoiceActorList.LoadVoiceActorListFromFile(Path.Combine(ProjectFolder, kVoiceActorInformationFileName));
 		}
 
 		public WritingSystemDefinition WritingSystem

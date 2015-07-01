@@ -444,8 +444,16 @@ namespace Glyssen
 
 		private void m_btnAssignVoiceActors_Click(object sender, EventArgs e)
 		{
-			using (var dlg = new VoiceActorInformationDlg())
-				dlg.ShowDialog();
+			bool next = false;
+
+			using (var dlg = new VoiceActorInformationDlg(m_project))
+				next = dlg.ShowDialog() == DialogResult.OK;
+
+			if (next)
+			{
+				using (var dlg = new VoiceActorAssignmentDlg(m_project))
+					dlg.ShowDialog();
+			}
 		}
 
 		public class NoBorderToolStripRenderer : ToolStripProfessionalRenderer
