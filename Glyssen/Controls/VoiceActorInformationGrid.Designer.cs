@@ -117,7 +117,7 @@
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_dataGrid, "VoiceActorInformationDlg.m_dataGrid");
-			this.m_dataGrid.Location = new System.Drawing.Point(0, 6);
+			this.m_dataGrid.Location = new System.Drawing.Point(0, 0);
 			this.m_dataGrid.Name = "m_dataGrid";
 			this.m_dataGrid.PaintHeaderAcrossFullGridWidth = true;
 			this.m_dataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -133,7 +133,7 @@
 			this.m_dataGrid.SelectedRowForeColor = System.Drawing.Color.Empty;
 			this.m_dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.m_dataGrid.ShowWaterMarkWhenDirty = false;
-			this.m_dataGrid.Size = new System.Drawing.Size(384, 238);
+			this.m_dataGrid.Size = new System.Drawing.Size(384, 244);
 			this.m_dataGrid.TabIndex = 4;
 			this.m_dataGrid.TextBoxEditControlBorderColor = System.Drawing.Color.Empty;
 			this.m_dataGrid.WaterMark = "!";
@@ -148,19 +148,20 @@
 			// 
 			// Column2
 			// 
-			this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+			this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.Column2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.Column2.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Gender!Gender";
 			this.Column2.Items.AddRange(new object[] {
             "F - Female",
             "M - Male"});
+			this.Column2.MinimumWidth = 90;
 			this.Column2.Name = "Column2";
 			this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			this.Column2.Width = 342;
 			// 
 			// Column3
 			// 
-			this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+			this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
 			this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
 			this.Column3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -169,11 +170,12 @@
             "O - Old",
             "Y - Young",
             "C - Child"});
+			this.Column3.MinimumWidth = 90;
 			this.Column3.Name = "Column3";
 			this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			this.Column3.Width = 308;
 			// 
-			// VoiceActorInformationGrid2
+			// VoiceActorInformationGrid
 			// 
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.Controls.Add(this.m_dataGrid);
@@ -181,7 +183,7 @@
 			this.l10NSharpExtender1.SetLocalizationComment(this, null);
 			this.l10NSharpExtender1.SetLocalizingId(this, "DialogBoxes.VoiceActorInformation.VoiceActorInformationGrid2.VoiceActorInformatio" +
         "nGrid2");
-			this.Name = "VoiceActorInformationGrid2";
+			this.Name = "VoiceActorInformationGrid";
 			this.Size = new System.Drawing.Size(384, 244);
 			this.contextMenu.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).EndInit();
