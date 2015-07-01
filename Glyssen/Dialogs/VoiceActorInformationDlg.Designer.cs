@@ -54,10 +54,11 @@
 			// 
 			// m_btnSave
 			// 
+			this.m_btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnSave, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnSave, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnSave, "DialogBoxes.VoiceActorInformation.Save");
-			this.m_btnSave.Location = new System.Drawing.Point(209, 293);
+			this.m_btnSave.Location = new System.Drawing.Point(332, 299);
 			this.m_btnSave.Name = "m_btnSave";
 			this.m_btnSave.Size = new System.Drawing.Size(75, 23);
 			this.m_btnSave.TabIndex = 1;
@@ -67,11 +68,12 @@
 			// 
 			// m_btnNext
 			// 
+			this.m_btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_btnNext.Enabled = false;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnNext, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnNext, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnNext, "Common.Next");
-			this.m_btnNext.Location = new System.Drawing.Point(336, 293);
+			this.m_btnNext.Location = new System.Drawing.Point(413, 299);
 			this.m_btnNext.Name = "m_btnNext";
 			this.m_btnNext.Size = new System.Drawing.Size(75, 23);
 			this.m_btnNext.TabIndex = 2;
@@ -86,13 +88,16 @@
 			// 
 			// m_dataGrid
 			// 
+			this.m_dataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_dataGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_dataGrid, "DialogBoxes.VoiceActorInformation.voiceActorInformationGrid21");
-			this.m_dataGrid.Location = new System.Drawing.Point(58, 48);
+			this.m_dataGrid.Location = new System.Drawing.Point(12, 29);
 			this.m_dataGrid.Name = "m_dataGrid";
-			this.m_dataGrid.Size = new System.Drawing.Size(381, 226);
+			this.m_dataGrid.Size = new System.Drawing.Size(476, 264);
 			this.m_dataGrid.TabIndex = 3;
 			// 
 			// VoiceActorInformationDlg
@@ -109,6 +114,7 @@
 			this.l10NSharpExtender1.SetLocalizableToolTip(this, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this, null);
 			this.l10NSharpExtender1.SetLocalizingId(this, "DialogBoxes.VoiceActorInformation.WindowTitle");
+			this.MinimumSize = new System.Drawing.Size(300, 200);
 			this.Name = "VoiceActorInformationDlg";
 			this.Text = "Voice Actor Information";
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).EndInit();
