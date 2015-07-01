@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using SIL.Windows.Forms.Widgets.BetterGrid;
 
 namespace Glyssen.Controls
 {
-	//DataGridView with Enter moving to right (instead of down)
+	/// <summary>
+	/// DataGridView with Enter moving to right (instead of down)
+	/// </summary>
 	public class DataGridViewOverrideEnter : BetterGrid
 	{
 		public DataGridViewOverrideEnter()
@@ -37,22 +34,17 @@ namespace Glyssen.Controls
 				nextColumn = CurrentCell.ColumnIndex + 1;
 				nextRow = CurrentCell.RowIndex;
 			}
-			else
+			else if (CurrentCell.RowIndex + 1 < RowCount)
 			{
 				nextColumn = 0;
 				nextRow = CurrentCell.RowIndex + 1;
 			}
+			else
+			{
+				return;
+			}
 
 			CurrentCell = Rows[nextRow].Cells[nextColumn];
-		}
-
-		private void InitializeComponent()
-		{
-			((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
-			this.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this)).EndInit();
-			this.ResumeLayout(false);
-
 		}
 	}
 }
