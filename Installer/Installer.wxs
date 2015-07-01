@@ -138,6 +138,14 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="SIL.DblBundle.pdb" Name="SIL.DblBundle.pdb" KeyPath="yes" Source="..\output\release\SIL.DblBundle.pdb" />
           </Component>
 
+          <Component Id="SIL.Windows.Forms.DblBundle.dll" Guid="{9c400b77-dc96-475b-8b6a-2a3a9af001f7}">
+            <File Id="SIL.Windows.Forms.DblBundle.dll" Name="SIL.Windows.Forms.DblBundle.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.DblBundle.dll" />
+          </Component>
+
+          <Component Id="SIL.Windows.Forms.DblBundle.pdb" Guid="{0917a125-6bab-42bc-8aaf-a1cb79167cdd}">
+            <File Id="SIL.Windows.Forms.DblBundle.pdb" Name="SIL.Windows.Forms.DblBundle.pdb" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.DblBundle.pdb" />
+          </Component>
+
           <Component Id="SIL.Windows.Forms.WritingSystems.dll" Guid="{d80fbd4c-4bfa-42f3-81cc-95210a0fa402}">
             <File Id="SIL.Windows.Forms.WritingSystems.dll" Name="SIL.Windows.Forms.WritingSystems.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.WritingSystems.dll" />
           </Component>
@@ -243,6 +251,10 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" KeyPath="yes" Source="..\output\release\Newtonsoft.Json.dll" />
           </Component>
 
+          <Component Id="EPPlus.dll" Guid="{c3f465db-6bea-4579-9378-e49b53e43b89}">
+            <File Id="EPPlus.dll" Name="EPPlus.dll" KeyPath="yes" Source="..\output\release\EPPlus.dll" />
+          </Component>
+
         </Directory>
       </Directory>
     </Directory>
@@ -260,6 +272,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="SIL.Windows.Forms.Keyboarding.dll"/>
       <ComponentRef Id="SIL.WritingSystems.dll"/>
       <ComponentRef Id="SIL.DblBundle.dll"/>
+      <ComponentRef Id="SIL.Windows.Forms.DblBundle.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.WritingSystems.dll"/>
       <ComponentRef Id="SIL.Scripture.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.Scripture.dll"/>
@@ -279,6 +292,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="Analytics.NET.dll"/>
       <ComponentRef Id="DesktopAnalytics.dll"/>
       <ComponentRef Id="Newtonsoft.Json.dll"/>
+      <ComponentRef Id="EPPlus.dll"/>
 
       <ComponentRef Id="SIL.Core.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.pdb"/>
@@ -286,6 +300,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="SIL.Windows.Forms.Keyboarding.pdb"/>
       <ComponentRef Id="SIL.WritingSystems.pdb"/>
       <ComponentRef Id="SIL.DblBundle.pdb"/>
+      <ComponentRef Id="SIL.Windows.Forms.DblBundle.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.WritingSystems.pdb"/>
       <ComponentRef Id="SIL.Scripture.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.Scripture.pdb"/>
