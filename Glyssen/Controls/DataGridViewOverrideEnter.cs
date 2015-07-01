@@ -9,7 +9,7 @@ using SIL.Windows.Forms.Widgets.BetterGrid;
 namespace Glyssen.Controls
 {
 	//DataGridView with Enter moving to right (instead of down)
-	class DataGridViewOverrideEnter : BetterGrid
+	public class DataGridViewOverrideEnter : BetterGrid
 	{
 		public DataGridViewOverrideEnter()
 		{
@@ -44,6 +44,15 @@ namespace Glyssen.Controls
 			}
 
 			CurrentCell = Rows[nextRow].Cells[nextColumn];
+		}
+
+		private void InitializeComponent()
+		{
+			((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+			this.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+			this.ResumeLayout(false);
+
 		}
 	}
 }

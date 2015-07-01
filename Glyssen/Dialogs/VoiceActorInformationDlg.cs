@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using L10NSharp;
+using Glyssen.VoiceActor;
 
 using System.Diagnostics;
 
@@ -14,32 +16,15 @@ namespace Glyssen.Dialogs
 {
 	public partial class VoiceActorInformationDlg : Form
 	{
-		public VoiceActorInformationDlg()
+		private Project m_project { get; set; }
+
+		public VoiceActorInformationDlg(Project project)
 		{
 			InitializeComponent();
-		}
 
-		private void RemoveSelectedRows(bool confirmWithUser)
-		{
-			bool deleteConfirmed = !confirmWithUser;
+			m_project = project;
 
-			if (confirmWithUser)
-			{
-				deleteConfirmed = MessageBox.Show("Are you sure you want to delete these rows?", "Confirm", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes;
-			}
-
-			if (deleteConfirmed)
-			{
-				for (int i = m_dataGrid.SelectedRows.Count - 1; i >= 0; i--)
-				{
-					m_dataGrid.Rows.Remove(m_dataGrid.SelectedRows[i]);
-				}
-
-				if(m_dataGrid.RowCount <= 1)
-				{
-					m_btnNext.Enabled = false;
-				}
-			}
+			m_dataGrid.RowsAdded += m_dataGrid_RowsAdded;
 		}
 
 		//Todo: Selecting combo box item should move to next field
@@ -62,25 +47,23 @@ namespace Glyssen.Dialogs
 		//	m_dataGrid.MoveToNextField();
 		//}
 
-		private void m_dataGrid_KeyDown(object sender, KeyEventArgs e)
-		{
-			if (e.KeyData == Keys.Delete)
-			{
-				RemoveSelectedRows(true);
-			}
-		}
-
-		private void m_dataGridContextMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-		{
-			if (e.ClickedItem == m_deleteRowsToolStripMenuItem)
-			{
-				RemoveSelectedRows(true);
-			}
-		}
-
 		private void m_dataGrid_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
 		{
 			m_btnNext.Enabled = true;
+		}
+
+		private void m_btnSave_Click(object sender, EventArgs e)
+		{
+			m_dataGrid.SaveVoiceActorInformation(m_project);
+			DialogResult = DialogResult.Cancel;
+			Close();
+		}
+
+		private void m_btnNext_Click(object sender, EventArgs e)
+		{
+			m_dataGrid.SaveVoiceActorInformation(m_project);
+			DialogResult = DialogResult.OK;
+			Close();
 		}
 	}
 }
