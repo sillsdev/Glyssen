@@ -25,26 +25,33 @@ namespace Glyssen.Controls
 			return base.ProcessCmdKey(ref msg, keyData);
 		}
 
-		public void MoveToNextField()
+		public void MoveToNextField(DataGridViewCell baseCell = null)
 		{
+			if (baseCell == null)
+				baseCell = CurrentCell;
+
 			int nextColumn, nextRow;
 
-			if (CurrentCell.ColumnIndex + 1 < ColumnCount)
+			if (baseCell.ColumnIndex + 1 < ColumnCount)
 			{
-				nextColumn = CurrentCell.ColumnIndex + 1;
-				nextRow = CurrentCell.RowIndex;
+				nextColumn = baseCell.ColumnIndex + 1;
+				nextRow = baseCell.RowIndex;
 			}
-			else if (CurrentCell.RowIndex + 1 < RowCount)
+			else if (baseCell.RowIndex + 1 < RowCount)
 			{
 				nextColumn = 0;
-				nextRow = CurrentCell.RowIndex + 1;
+				nextRow = baseCell.RowIndex + 1;
 			}
 			else
 			{
 				return;
 			}
 
-			CurrentCell = Rows[nextRow].Cells[nextColumn];
+			var nextCell = Rows[nextRow].Cells[nextColumn];
+			if (nextCell.Visible)
+				CurrentCell = Rows[nextRow].Cells[nextColumn];
+			else
+				MoveToNextField(nextCell);
 		}
 	}
 }

@@ -143,6 +143,7 @@
 			// 
 			// ActorId
 			// 
+			this.ActorId.DataPropertyName = "Id";
 			this.ActorId.HeaderText = "ID";
 			this.ActorId.Name = "ActorId";
 			this.ActorId.Visible = false;
@@ -150,6 +151,7 @@
 			// ActorName
 			// 
 			this.ActorName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ActorName.DataPropertyName = "Name";
 			this.ActorName.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Name!Name";
 			this.ActorName.Name = "ActorName";
 			this.ActorName.ToolTipText = "Enter Voice Actor first and last name";
@@ -157,6 +159,7 @@
 			// ActorGender
 			// 
 			this.ActorGender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.ActorGender.DataPropertyName = "Gender";
 			this.ActorGender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.ActorGender.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Gender!Gender";
 			this.ActorGender.Items.AddRange(new object[] {
@@ -170,6 +173,7 @@
 			// ActorAge
 			// 
 			this.ActorAge.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.ActorAge.DataPropertyName = "Age";
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
 			this.ActorAge.DefaultCellStyle = dataGridViewCellStyle3;
 			this.ActorAge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

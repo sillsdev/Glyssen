@@ -1,16 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using L10NSharp;
-using Glyssen.VoiceActor;
-
-using System.Diagnostics;
 
 namespace Glyssen.Dialogs
 {
@@ -24,7 +13,9 @@ namespace Glyssen.Dialogs
 
 			m_project = project;
 
-			m_dataGrid.RowsAdded += m_dataGrid_RowsAdded;
+			m_dataGrid.Initialize(m_project);
+			m_dataGrid.RowsRemoved += m_dataGrid_RowsRemoved;
+			m_dataGrid.UserAddedRow += m_dataGrid_UserAddedRow;
 		}
 
 		//Todo: Selecting combo box item should move to next field
@@ -47,21 +38,27 @@ namespace Glyssen.Dialogs
 		//	m_dataGrid.MoveToNextField();
 		//}
 
-		private void m_dataGrid_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+		private void m_dataGrid_UserAddedRow(object sender, DataGridViewRowEventArgs e)
 		{
 			m_btnNext.Enabled = true;
 		}
 
+		private void m_dataGrid_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+		{
+			if (e.RowCount == 1)
+				m_btnNext.Enabled = false;
+		}
+
 		private void m_btnSave_Click(object sender, EventArgs e)
 		{
-			m_dataGrid.SaveVoiceActorInformation(m_project);
+			m_dataGrid.SaveVoiceActorInformation();
 			DialogResult = DialogResult.Cancel;
 			Close();
 		}
 
 		private void m_btnNext_Click(object sender, EventArgs e)
 		{
-			m_dataGrid.SaveVoiceActorInformation(m_project);
+			m_dataGrid.SaveVoiceActorInformation();
 			DialogResult = DialogResult.OK;
 			Close();
 		}

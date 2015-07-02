@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
+﻿using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Glyssen.VoiceActor;
 using L10NSharp;
@@ -14,57 +8,51 @@ namespace Glyssen.Controls
 {
 	public partial class VoiceActorInformationGrid : UserControl
 	{
-		public event System.Windows.Forms.DataGridViewRowsAddedEventHandler RowsAdded;
+		public event DataGridViewRowsRemovedEventHandler RowsRemoved;
+		public event DataGridViewRowEventHandler UserAddedRow;
 		private int m_currentId;
+		private Project m_project;
+		private BindingList<VoiceActorEntity> m_bindingList;
 
 		public VoiceActorInformationGrid()
 		{
-			//RowsAdded = new DataGridViewRowsAddedEventHandler();
 			InitializeComponent();
 
 			m_currentId = 0;
 
-			m_dataGrid[0, 0].Value = m_currentId++;
-
-			m_dataGrid.RowsAdded += AssignAndIncrementId;
-			m_dataGrid.RowsAdded += RaiseRowsAddedEvent;
+			m_dataGrid.UserAddedRow += HandleUserAddedRow;
+			m_dataGrid.RowsRemoved += HandleRowsRemoved;
 		}
 
-		private void AssignAndIncrementId(object sender, DataGridViewRowsAddedEventArgs e)
+		public void Initialize(Project project)
 		{
-			m_dataGrid[0, m_dataGrid.RowCount - 1].Value = m_currentId++;
+			m_project = project;
+			LoadVoiceActorInformation();
 		}
 
-		public void SaveVoiceActorInformation(Project project)
+		public void SaveVoiceActorInformation()
 		{
 			VoiceActorList voiceActorInfo = new VoiceActorList();
-
-			for (int i = 0; i < m_dataGrid.RowCount; i++)
-			{
-				VoiceActorEntity currentActor = new VoiceActorEntity();
-
-				string[] rowValues = new string[m_dataGrid.ColumnCount];
-				for (int j = 0; j < m_dataGrid.ColumnCount; j++)
-				{
-					object dataMember = m_dataGrid[j, i].Value;
-					rowValues[j] = dataMember == null ? null : dataMember.ToString();
-				}
-
-				currentActor.Id = rowValues[0];
-				currentActor.Name = rowValues[1];
-				currentActor.Gender = rowValues[2];
-				currentActor.Age = rowValues[3];
-
-				if (!currentActor.isEmpty())
-				{
-					voiceActorInfo.Actors.Add(currentActor);
-				}
-			}
-
-			project.SaveVoiceActorInformationData(voiceActorInfo);
+			voiceActorInfo.Actors = m_bindingList.ToList();
+			m_project.SaveVoiceActorInformationData(voiceActorInfo);
 		}
 
-		public void RemoveSelectedRows(bool confirmWithUser)
+		private void LoadVoiceActorInformation()
+		{
+			var actors = m_project.LoadVoiceActorInformationData().Actors;
+			if (actors.Any())
+				m_currentId = actors.Max(a => a.Id) + 1;
+			m_bindingList = new BindingList<VoiceActorEntity>(actors);
+			m_dataGrid.DataSource = m_bindingList;
+			m_bindingList.AddingNew += HandleAddingNew;
+		}
+
+		private void HandleAddingNew(object sender, AddingNewEventArgs e)
+		{
+			e.NewObject = new VoiceActorEntity { Id = m_currentId++ };
+		}
+
+		private void RemoveSelectedRows(bool confirmWithUser)
 		{
 			bool deleteConfirmed = !confirmWithUser;
 
@@ -72,7 +60,7 @@ namespace Glyssen.Controls
 			{
 				string dlgMessage = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.Message", "Are you sure you want to delete the selected rows?");
 				string dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.Title", "Confirm");
-				deleteConfirmed = MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes;
+				deleteConfirmed = MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
 			}
 
 			if (deleteConfirmed)
@@ -100,13 +88,18 @@ namespace Glyssen.Controls
 			}
 		}
 
-		private void RaiseRowsAddedEvent(object sender, DataGridViewRowsAddedEventArgs e)
+		private void HandleUserAddedRow(object sender, DataGridViewRowEventArgs e)
 		{
-			DataGridViewRowsAddedEventHandler handler = RowsAdded;
-			if(handler != null)
-			{
+			DataGridViewRowEventHandler handler = UserAddedRow;
+			if (handler != null)
 				handler(sender, e);
-			}
+		}
+
+		private void HandleRowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+		{
+			DataGridViewRowsRemovedEventHandler handler = RowsRemoved;
+			if (handler != null)
+				handler(sender, e);
 		}
 	}
 }
