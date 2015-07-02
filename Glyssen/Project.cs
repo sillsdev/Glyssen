@@ -59,6 +59,7 @@ namespace Glyssen
 		private IWritingSystemRepository m_wsRepository;
 		// Don't want to hound the user more than once per launch per project
 		private bool m_fontInstallationAttempted;
+		private VoiceActorList m_voiceActorList;
 
 		public event EventHandler<ProgressChangedEventArgs> ProgressChanged;
 		public event EventHandler<ProjectStateChangedEventArgs> ProjectStateChanged;
@@ -365,6 +366,11 @@ namespace Glyssen
 		/// If this is set, the user decisions in it will be applied when the quote parser is done
 		/// </summary>
 		private Project UserDecisionsProject { get; set; }
+
+		public VoiceActorList VoiceActorList
+		{
+			get { return m_voiceActorList ?? (m_voiceActorList = LoadVoiceActorInformationData()); }
+		}
 
 		internal void ClearAssignCharacterStatus()
 		{
@@ -772,12 +778,12 @@ namespace Glyssen
 			ProjectCharacterVerseData.WriteToFile(ProjectCharacterVerseDataPath);
 		}
 
-		public void SaveVoiceActorInformationData(VoiceActorList voiceActorInfo)
+		public void SaveVoiceActorInformationData()
 		{
-			voiceActorInfo.SaveToFile(Path.Combine(ProjectFolder, kVoiceActorInformationFileName));
+			m_voiceActorList.SaveToFile(Path.Combine(ProjectFolder, kVoiceActorInformationFileName));
 		}
 
-		public VoiceActorList LoadVoiceActorInformationData()
+		private VoiceActorList LoadVoiceActorInformationData()
 		{
 			return VoiceActorList.LoadVoiceActorListFromFile(Path.Combine(ProjectFolder, kVoiceActorInformationFileName));
 		}

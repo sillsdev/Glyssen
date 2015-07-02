@@ -32,14 +32,12 @@ namespace Glyssen.Controls
 
 		public void SaveVoiceActorInformation()
 		{
-			VoiceActorList voiceActorInfo = new VoiceActorList();
-			voiceActorInfo.Actors = m_bindingList.ToList();
-			m_project.SaveVoiceActorInformationData(voiceActorInfo);
+			m_project.SaveVoiceActorInformationData();
 		}
 
 		private void LoadVoiceActorInformation()
 		{
-			var actors = m_project.LoadVoiceActorInformationData().Actors;
+			var actors = m_project.VoiceActorList.Actors;
 			if (actors.Any())
 				m_currentId = actors.Max(a => a.Id) + 1;
 			m_bindingList = new BindingList<VoiceActorEntity>(actors);
