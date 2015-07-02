@@ -15,13 +15,24 @@ namespace Glyssen.Controls
 	public partial class VoiceActorInformationGrid : UserControl
 	{
 		public event System.Windows.Forms.DataGridViewRowsAddedEventHandler RowsAdded;
+		private int m_currentId;
 
 		public VoiceActorInformationGrid()
 		{
 			//RowsAdded = new DataGridViewRowsAddedEventHandler();
 			InitializeComponent();
 
+			m_currentId = 0;
+
+			m_dataGrid[0, 0].Value = m_currentId++;
+
+			m_dataGrid.RowsAdded += AssignAndIncrementId;
 			m_dataGrid.RowsAdded += RaiseRowsAddedEvent;
+		}
+
+		private void AssignAndIncrementId(object sender, DataGridViewRowsAddedEventArgs e)
+		{
+			m_dataGrid[0, m_dataGrid.RowCount - 1].Value = m_currentId++;
 		}
 
 		public void SaveVoiceActorInformation(Project project)
@@ -39,9 +50,10 @@ namespace Glyssen.Controls
 					rowValues[j] = dataMember == null ? null : dataMember.ToString();
 				}
 
-				currentActor.Name = rowValues[0];
-				currentActor.Gender = rowValues[1];
-				currentActor.Age = rowValues[2];
+				currentActor.Id = rowValues[0];
+				currentActor.Name = rowValues[1];
+				currentActor.Gender = rowValues[2];
+				currentActor.Age = rowValues[3];
 
 				if (!currentActor.isEmpty())
 				{
