@@ -38,9 +38,10 @@
 			this.m_deleteRowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_dataGrid = new Glyssen.Controls.DataGridViewOverrideEnter();
-			this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.Column3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.ActorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ActorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ActorGender = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.ActorAge = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			this.contextMenu.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_dataGrid)).BeginInit();
@@ -105,9 +106,10 @@
 			this.m_dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.m_dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.m_dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
+            this.ActorId,
+            this.ActorName,
+            this.ActorGender,
+            this.ActorAge});
 			this.m_dataGrid.ContextMenuStrip = this.contextMenu;
 			this.m_dataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_dataGrid.DrawTextBoxEditControlBorder = false;
@@ -139,41 +141,47 @@
 			this.m_dataGrid.WaterMark = "!";
 			this.m_dataGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HandleKeyDown);
 			// 
-			// Column1
+			// ActorId
 			// 
-			this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.Column1.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Name!Name";
-			this.Column1.Name = "Column1";
-			this.Column1.ToolTipText = "Enter Voice Actor first and last name";
+			this.ActorId.HeaderText = "ID";
+			this.ActorId.Name = "ActorId";
+			this.ActorId.Visible = false;
 			// 
-			// Column2
+			// ActorName
 			// 
-			this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.Column2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.Column2.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Gender!Gender";
-			this.Column2.Items.AddRange(new object[] {
+			this.ActorName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.ActorName.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Name!Name";
+			this.ActorName.Name = "ActorName";
+			this.ActorName.ToolTipText = "Enter Voice Actor first and last name";
+			// 
+			// ActorGender
+			// 
+			this.ActorGender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.ActorGender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.ActorGender.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Gender!Gender";
+			this.ActorGender.Items.AddRange(new object[] {
             "F - Female",
             "M - Male"});
-			this.Column2.MinimumWidth = 90;
-			this.Column2.Name = "Column2";
-			this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			this.Column2.Width = 342;
+			this.ActorGender.MinimumWidth = 90;
+			this.ActorGender.Name = "ActorGender";
+			this.ActorGender.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.ActorGender.Width = 342;
 			// 
-			// Column3
+			// ActorAge
 			// 
-			this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.ActorAge.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-			this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
-			this.Column3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.Column3.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Age!Age";
-			this.Column3.Items.AddRange(new object[] {
+			this.ActorAge.DefaultCellStyle = dataGridViewCellStyle3;
+			this.ActorAge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.ActorAge.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Age!Age";
+			this.ActorAge.Items.AddRange(new object[] {
             "O - Old",
             "Y - Young",
             "C - Child"});
-			this.Column3.MinimumWidth = 90;
-			this.Column3.Name = "Column3";
-			this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			this.Column3.Width = 308;
+			this.ActorAge.MinimumWidth = 90;
+			this.ActorAge.Name = "ActorAge";
+			this.ActorAge.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.ActorAge.Width = 308;
 			// 
 			// VoiceActorInformationGrid
 			// 
@@ -199,8 +207,9 @@
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem m_deleteRowsToolStripMenuItem;
 		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-		private System.Windows.Forms.DataGridViewComboBoxColumn Column2;
-		private System.Windows.Forms.DataGridViewComboBoxColumn Column3;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ActorId;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ActorName;
+		private System.Windows.Forms.DataGridViewComboBoxColumn ActorGender;
+		private System.Windows.Forms.DataGridViewComboBoxColumn ActorAge;
 	}
 }

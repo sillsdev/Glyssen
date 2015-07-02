@@ -17,6 +17,9 @@ namespace Glyssen.VoiceActor
 		[XmlText]
 		public string Name { get; set; }
 
+		[XmlAttribute("Id")]
+		public string Id { get; set; }
+
 		[XmlAttribute("Gender")]
 		public string Gender { get; set; }
 
