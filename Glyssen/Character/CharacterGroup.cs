@@ -6,6 +6,7 @@ namespace Glyssen.Character
 	{
 		public HashSet<string> CharacterIds { get; private set; }
 		public int GroupNumber { get; private set; }
+		public int VoiceActorAssignedId { get; set; }
 
 		public CharacterGroup(int groupNumber)
 		{

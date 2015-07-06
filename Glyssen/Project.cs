@@ -372,6 +372,8 @@ namespace Glyssen
 			get { return m_voiceActorList ?? (m_voiceActorList = LoadVoiceActorInformationData()); }
 		}
 
+		public List<CharacterGroup> CharacterGroups { get; private set; }
+
 		internal void ClearAssignCharacterStatus()
 		{
 			Status.AssignCharacterMode = BlocksToDisplay.NeedAssignments;
@@ -791,6 +793,14 @@ namespace Glyssen
 			return new VoiceActorList();
 		}
 
+		public VoiceActor.VoiceActor GetVoiceActorForCharacter(string characterId)
+		{
+			var charGroup = CharacterGroups.FirstOrDefault(cg => cg.CharacterIds.Contains(characterId));
+			if (charGroup == null)
+				return null;
+			return VoiceActorList.Actors.FirstOrDefault(a => a.Id == charGroup.VoiceActorAssignedId);
+		}
+
 		public WritingSystemDefinition WritingSystem
 		{
 			get
@@ -838,17 +848,7 @@ namespace Glyssen
 
 		public void ExportTabDelimited(string fileName)
 		{
-			int blockNumber = 1;
-			using (var stream = new StreamWriter(fileName, false, Encoding.UTF8))
-			{
-				foreach (var book in IncludedBooks)
-				{
-					foreach (var block in book.GetScriptBlocks(true))
-					{
-						stream.WriteLine((blockNumber++) + "\t" + block.GetAsTabDelimited(book.BookId));
-					}
-				}
-			}
+			new ProjectExport(this, CharacterGroups.Any(cg => cg.VoiceActorAssignedId != -1)).GenerateFile(fileName);
 		}
 
 		private void HandleQuoteSystemChanged()
