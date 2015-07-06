@@ -785,7 +785,10 @@ namespace Glyssen
 
 		private VoiceActorList LoadVoiceActorInformationData()
 		{
-			return VoiceActorList.LoadVoiceActorListFromFile(Path.Combine(ProjectFolder, kVoiceActorInformationFileName));
+			string path = Path.Combine(ProjectFolder, kVoiceActorInformationFileName);
+			if (File.Exists(path))
+				return VoiceActorList.LoadVoiceActorListFromFile(path);
+			return new VoiceActorList();
 		}
 
 		public WritingSystemDefinition WritingSystem
