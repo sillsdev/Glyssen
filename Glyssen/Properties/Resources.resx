@@ -163,4 +163,10 @@
   <data name="glyssenIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\glyssen.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CharacterGroups" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CharacterGroups.xlsx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CharacterGroups_FCBH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CharacterGroups_FCBH.xlsx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

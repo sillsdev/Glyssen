@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.ObjectModel;
+using System.Collections.Generic;
 
 namespace Glyssen.Controls
 {
@@ -44,6 +45,11 @@ namespace Glyssen.Controls
 			m_bindingList = new SortableBindingList<VoiceActorEntity>(actors);
 			m_dataGrid.DataSource = m_bindingList;
 			m_bindingList.AddingNew += HandleAddingNew;
+		}
+
+		public VoiceActorEntity SelectedVoiceActorEntity
+		{
+			get { return m_dataGrid.SelectedRows[0].DataBoundItem as VoiceActorEntity; }
 		}
 
 		private void HandleAddingNew(object sender, AddingNewEventArgs e)

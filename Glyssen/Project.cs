@@ -39,6 +39,7 @@ namespace Glyssen
 		private const string kBookScriptFileExtension = ".xml";
 		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
 		private const string kVoiceActorInformationFileName = "VoiceActorInformation.xml";
+		private const string kCharacterGroupFileName = "CharacterGroups.xml";
 		private const string kSample = "sample";
 		private const string kSampleProjectName = "Sample Project";
 
@@ -60,6 +61,7 @@ namespace Glyssen
 		// Don't want to hound the user more than once per launch per project
 		private bool m_fontInstallationAttempted;
 		private VoiceActorList m_voiceActorList;
+		private CharacterGroupList m_characterGroupList;
 
 		public event EventHandler<ProgressChangedEventArgs> ProgressChanged;
 		public event EventHandler<ProjectStateChangedEventArgs> ProjectStateChanged;
@@ -372,6 +374,11 @@ namespace Glyssen
 			get { return m_voiceActorList ?? (m_voiceActorList = LoadVoiceActorInformationData()); }
 		}
 
+		public CharacterGroupList CharacterGroupList
+		{
+			get { return m_characterGroupList ?? (m_characterGroupList = LoadCharacterGroupData()); }
+		}
+
 		internal void ClearAssignCharacterStatus()
 		{
 			Status.AssignCharacterMode = BlocksToDisplay.NeedAssignments;
@@ -546,6 +553,14 @@ namespace Glyssen
 		private void PopulateAndParseBooks(ITextBundle bundle)
 		{
 			AddAndParseBooks(bundle.UsxBooksToInclude, bundle.Stylesheet);
+		}
+
+		private void PopulateCharacterGroupAssignees(CharacterGroupList characterGroupList)
+		{
+			foreach (CharacterGroup group in characterGroupList.CharacterGroups)
+			{
+				group.AssignVoiceActor(VoiceActorList.Actors.FirstOrDefault(t => t.Id == group.VoiceActorAssignedId));
+			}
 		}
 
 		private void AddAndParseBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet)
@@ -778,9 +793,26 @@ namespace Glyssen
 			ProjectCharacterVerseData.WriteToFile(ProjectCharacterVerseDataPath);
 		}
 
+		public void SaveCharacterGroupData()
+		{
+			m_characterGroupList.SaveToFile(Path.Combine(ProjectFolder, kCharacterGroupFileName));
+		}
+
 		public void SaveVoiceActorInformationData()
 		{
 			m_voiceActorList.SaveToFile(Path.Combine(ProjectFolder, kVoiceActorInformationFileName));
+		}
+
+		public CharacterGroupList LoadCharacterGroupData()
+		{
+			string path = Path.Combine(ProjectFolder, kCharacterGroupFileName);
+			if (File.Exists(path))
+			{
+				var characterGroupList = CharacterGroupList.LoadCharacterGroupListFromFile(path);
+				PopulateCharacterGroupAssignees(characterGroupList);
+				return characterGroupList;
+			}
+			return new CharacterGroupList();
 		}
 
 		private VoiceActorList LoadVoiceActorInformationData()
