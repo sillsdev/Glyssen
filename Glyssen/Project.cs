@@ -825,7 +825,7 @@ namespace Glyssen
 
 		public VoiceActor.VoiceActor GetVoiceActorForCharacter(string characterId)
 		{
-			var charGroup = CharacterGroups.FirstOrDefault(cg => cg.CharacterIds.Contains(characterId));
+			var charGroup = CharacterGroupList.CharacterGroups.FirstOrDefault(cg => cg.CharacterIds.Contains(characterId));
 			if (charGroup == null)
 				return null;
 			return VoiceActorList.Actors.FirstOrDefault(a => a.Id == charGroup.VoiceActorAssignedId);
@@ -878,7 +878,7 @@ namespace Glyssen
 
 		public void ExportTabDelimited(string fileName)
 		{
-			new ProjectExport(this, CharacterGroups.Any(cg => cg.VoiceActorAssignedId != -1)).GenerateFile(fileName);
+			new ProjectExport(this, CharacterGroupList.CharacterGroups.Any(cg => cg.VoiceActorAssignedId != -1)).GenerateFile(fileName);
 		}
 
 		private void HandleQuoteSystemChanged()

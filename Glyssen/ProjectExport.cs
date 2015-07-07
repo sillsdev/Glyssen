@@ -28,7 +28,7 @@ namespace Glyssen
 					{
 						if (m_includeVoiceActors)
 						{
-							VoiceActor voiceActor = m_project.GetVoiceActorForCharacter(block.CharacterId);
+							VoiceActor.VoiceActor voiceActor = m_project.GetVoiceActorForCharacter(block.CharacterId);
 							string voiceActorName = voiceActor != null ? voiceActor.Name : null;
 							stream.WriteLine(GetExportLineForBlock(block, blockNumber++, book.BookId, voiceActorName ?? ""));
 						}

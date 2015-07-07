@@ -8,7 +8,7 @@ namespace Glyssen.Character
 	public class CharacterGroup
 	{
 		private bool m_isActorAssigned;
-		private VoiceActorEntity m_actorAssigned;
+		private VoiceActor.VoiceActor m_actorAssigned;
 
 		//For Serialization
 		public CharacterGroup()
@@ -22,7 +22,7 @@ namespace Glyssen.Character
 			GroupNumber = groupNumber;
 		}
 
-		public void AssignVoiceActor(VoiceActorEntity actor)
+		public void AssignVoiceActor(VoiceActor.VoiceActor actor)
 		{
 			if (actor == null)
 			{
@@ -69,7 +69,7 @@ namespace Glyssen.Character
 			get { return m_actorAssigned == null ? -1 : m_actorAssigned.Id; }
 			set
 			{
-				m_actorAssigned = new VoiceActorEntity();
+				m_actorAssigned = new VoiceActor.VoiceActor();
 				m_actorAssigned.Id = value;
 				m_isActorAssigned = true;
 				if (value < 0)

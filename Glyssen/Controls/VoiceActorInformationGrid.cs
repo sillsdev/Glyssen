@@ -48,9 +48,9 @@ namespace Glyssen.Controls
 			m_bindingList.AddingNew += HandleAddingNew;
 		}
 
-		public VoiceActorEntity SelectedVoiceActorEntity
+		public VoiceActor.VoiceActor SelectedVoiceActorEntity
 		{
-			get { return m_dataGrid.SelectedRows[0].DataBoundItem as VoiceActorEntity; }
+			get { return m_dataGrid.SelectedRows[0].DataBoundItem as VoiceActor.VoiceActor; }
 		}
 
 		private void HandleAddingNew(object sender, AddingNewEventArgs e)

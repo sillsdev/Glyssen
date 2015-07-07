@@ -68,7 +68,7 @@ namespace Glyssen.Dialogs
 
 		private void AssignSelectedActorToSelectedGroup()
 		{
-			VoiceActorEntity assignee = m_voiceActorGrid.SelectedVoiceActorEntity;
+			VoiceActor.VoiceActor assignee = m_voiceActorGrid.SelectedVoiceActorEntity;
 
 			CharacterGroup entry = m_characterGroupGrid.SelectedRows[0].DataBoundItem as CharacterGroup;
 			entry.AssignVoiceActor(assignee);
