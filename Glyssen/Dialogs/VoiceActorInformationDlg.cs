@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Glyssen.Controls;
 
 namespace Glyssen.Dialogs
 {
@@ -45,7 +46,8 @@ namespace Glyssen.Dialogs
 
 		private void m_dataGrid_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
 		{
-			if (e.RowCount == 1)
+			DataGridViewOverrideEnter innerGrid = sender as DataGridViewOverrideEnter;
+			if (innerGrid.RowCount == 1)
 				m_btnNext.Enabled = false;
 		}
 
