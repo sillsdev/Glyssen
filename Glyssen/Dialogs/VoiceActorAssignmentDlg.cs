@@ -46,7 +46,7 @@ namespace Glyssen.Dialogs
 				{
 					File.WriteAllBytes(tempFile.Path, Resources.CharacterGroups);
 					m_charGroupSource = new CharacterGroupTemplateExcelFile(tempFile.Path);
-					m_charGroupTemplate = m_charGroupSource.GetTemplate(4);
+					m_charGroupTemplate = m_charGroupSource.GetTemplate(m_project.VoiceActorList.Actors.Count);
 				}
 
 				foreach (KeyValuePair<int, CharacterGroup> pair in m_charGroupTemplate.CharacterGroups)
