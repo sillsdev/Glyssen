@@ -444,10 +444,13 @@ namespace Glyssen
 
 		private void m_btnAssignVoiceActors_Click(object sender, EventArgs e)
 		{
-			bool next = false;
+			bool next = true;
 
-			using (var dlg = new VoiceActorInformationDlg(m_project))
-				next = dlg.ShowDialog() == DialogResult.OK;
+			if (m_project.VoiceActorList.Actors.Count == 0)
+			{
+				using (var dlg = new VoiceActorInformationDlg(m_project))
+					next = dlg.ShowDialog() == DialogResult.OK;
+			}
 
 			if (next)
 			{
