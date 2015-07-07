@@ -1905,12 +1905,6 @@
         <seg>Elijah</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Elijah the prophet">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Elijah the prophet</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Eliphaz the Temanite">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1971,34 +1965,34 @@
         <seg>Elkanah</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Enemies (scoffing)">
+    <tu tuid="CharacterName.enemies (scoffing)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Enemies (scoffing)</seg>
+        <seg>enemies (scoffing)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Enemies of God">
+    <tu tuid="CharacterName.enemies of God">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Enemies of God</seg>
+        <seg>enemies of God</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Enemies of Israel">
+    <tu tuid="CharacterName.enemies of Israel">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Enemies of Israel</seg>
+        <seg>enemies of Israel</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Enemies of Judah and Benjamin">
+    <tu tuid="CharacterName.enemies of Judah and Benjamin">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Enemies of Judah and Benjamin</seg>
+        <seg>enemies of Judah and Benjamin</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Enemy">
+    <tu tuid="CharacterName.enemy">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Enemy</seg>
+        <seg>enemy</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Enoch">

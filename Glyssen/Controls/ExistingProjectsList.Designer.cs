@@ -31,38 +31,54 @@ namespace Glyssen.Controls
 		/// </summary>
 		private void InitializeComponent()
 		{
-			colBundleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			colInactive = new System.Windows.Forms.DataGridViewTextBoxColumn();
-
+			this.components = new System.ComponentModel.Container();
+			this.colBundleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colInactive = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
+			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.SuspendLayout();
 
 			m_list.Columns.AddRange(colBundleName, colInactive);
-
+			// 
+			// m_list
+			// 
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_list, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_list, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_list, "ProjectsList");
+			// 
+			// colBundleName
+			// 
 			colBundleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			colBundleName.HeaderText = "Original Bundle Filename";
+			colBundleName.HeaderText = "_L10N_:DialogBoxes.OpenProjectDlg.ProjectsList.OriginalBundleFilename!Original Bundle Filename";
 			colBundleName.MinimumWidth = 50;
 			colBundleName.Name = "colBundleName";
 			colBundleName.ReadOnly = true;
 			colBundleName.Width = 94;
-
+			// 
+			// colInactive
+			// 
 			colInactive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			colInactive.HeaderText = "Inactive";
+			colInactive.HeaderText = "_L10N_:DialogBoxes.OpenProjectDlg.ProjectsList.Inactive!Inactive";
 			colInactive.MinimumWidth = 50;
 			colInactive.Name = "colInactive";
 			colInactive.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			colInactive.Width = 73;
-
+			// 
+			// locExtender
+			// 
+			this.l10NSharpExtender1.LocalizationManagerId = "Glyssen";
 			// 
 			// ExistingProjectsList
 			// 
 			this.Name = "ExistingProjectsList";
 			this.Size = new System.Drawing.Size(368, 147);
 			this.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).EndInit();
 		}
 		#endregion
 
 		private System.Windows.Forms.DataGridViewTextBoxColumn colBundleName;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colInactive;
-
+		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
 	}
 }

@@ -282,9 +282,9 @@ Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/other officials	TRUE	Male
 Elisha's messenger	FALSE			
 Elizabeth	FALSE	Female		
 Elkanah	FALSE			
-Enemies of God	TRUE			
-Enemies of Israel	TRUE			
-Enemy	FALSE			
+enemies of God	TRUE			
+enemies of Israel	TRUE			
+enemy	FALSE			
 Enoch	FALSE	Male		
 Ephraimites	TRUE			
 Ephron the Hittite	FALSE	Male		

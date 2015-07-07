@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tmx version="1.4">
-  <header srclang="es" adminlang="en" creationtool="Palaso Localization Manager" creationtoolversion="2.0.35.0" segtype="block" datatype="unknown" o-tmf="PalasoTMXUtils">
+  <header srclang="es" adminlang="en" creationtool="Palaso Localization Manager" creationtoolversion="2.0.5661.24690" segtype="block" datatype="unknown" o-tmf="PalasoTMXUtils">
     <prop type="x-appversion">0.1.0.0</prop>
     <prop type="x-hardlinebreakreplacement">\n</prop>
   </header>
   <body>
+    <tu tuid="BookSelection.AllBooks">
+      <tuv xml:lang="en">
+        <seg>All Books</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Todos los libros</seg>
+      </tuv>
+    </tu>
     <tu tuid="BookSelection.NewTestament">
       <tuv xml:lang="en">
         <seg>New Testament</seg>
@@ -55,6 +63,15 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Abner</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Abraham (Abram)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Abraham (Abram)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Abraham (Abram)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Absalom">
@@ -219,6 +236,15 @@
         <seg>Bernabé</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Bartimaeus (a blind man)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Bartimaeus (a blind man)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Bartimeo (ciego)</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Baruch">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -246,6 +272,15 @@
         <seg>Betsabé</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Benjamites">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Benjamites</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Benjamitas</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Boaz">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -271,6 +306,24 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Caleb</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Caleb (old)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Caleb (old)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Caleb (anciano)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Canaanites">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Canaanites</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Cananeos</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Cornelius">
@@ -327,6 +380,15 @@
         <seg>Elí</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Eli (very old)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Eli (very old)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Eli (muy anciano)</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Elijah">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -343,6 +405,15 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Eliseo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Elisha's servant">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Elisha's servant</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>el siervo de Eliseo</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Elizabeth">
@@ -1146,6 +1217,24 @@
         <seg>ángel</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.angel (one of the seven)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>angel (one of the seven)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>ángel (uno de los siete)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.apostles">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>apostles</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>apóstoles</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.astrologers">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1153,6 +1242,96 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>caldeo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.beloved">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>beloved</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>amada (esposa)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.blind man">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>blind man</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>ciego</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.blind men, two">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>blind men, two</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>ciegos (dos)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.captain">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>captain</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>capitán</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.chief priests">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>chief priests</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>principales sacerdotes</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.chief priests and the elders of the people">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>chief priests and the elders of the people</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>principales sacerdotes y los ancianos del pueblo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.chief priests/crowd">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>chief priests/crowd</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>principales sacerdotes/multitud</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.chief priests/elders">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>chief priests/elders</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>principales sacerdotes/ancianos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.chief priests/elders of people">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>chief priests/elders of people</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>principales sacerdotes/ancianos del pueblo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.children">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>children</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>niños</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.craftsman">
@@ -1171,6 +1350,60 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>multitud</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.crowd at Jericho">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>crowd at Jericho</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>multitud en Jericó</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.demons">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>demons</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>demonios</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.disciples">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>disciples</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>discípulos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.disciples (those in the boat)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>disciples (those in the boat)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>discípulos (en la barca)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.ear">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>ear</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>oído</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.elders">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>elders</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>ancianos</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.fool">
@@ -1612,6 +1845,22 @@
         <seg>Todos los archivos</seg>
       </tuv>
     </tu>
+    <tu tuid="DialogBoxes.OpenProjectDlg.ProjectsList.Inactive">
+      <tuv xml:lang="en">
+        <seg>Inactive</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Inactivo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.OpenProjectDlg.ProjectsList.OriginalBundleFilename">
+      <tuv xml:lang="en">
+        <seg>Original Bundle Filename</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nombre del Paquete Original</seg>
+      </tuv>
+    </tu>
     <tu tuid="DialogBoxes.OpenProjectDlg.SelectProject">
       <tuv xml:lang="en">
         <seg>Select existing project:</seg>
@@ -1658,6 +1907,30 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Configuración del proyecto</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.Begin">
+      <tuv xml:lang="en">
+        <seg>Begin</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Inicio</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.Continue">
+      <tuv xml:lang="en">
+        <seg>Continue</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Continuador</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.QuotationMarksDlg.End">
+      <tuv xml:lang="en">
+        <seg>End</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Final</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.QuotationMarksDlg.Level1">
@@ -1714,6 +1987,14 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Abrir proyecto</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DialogBoxes.VoiceActorInformation.Age">
+      <tuv xml:lang="en">
+        <seg>Age</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Edad</seg>
       </tuv>
     </tu>
     <tu tuid="File.WrongBundle">
@@ -1811,7 +2092,7 @@
         <seg>(2) Project Settings...</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>(2) Configuración del proyecto...</seg>
+        <seg>(2) Configuración...</seg>
       </tuv>
     </tu>
     <tu tuid="MainForm.ProjectSettings_ToolTip_">
