@@ -33,6 +33,12 @@ namespace Glyssen.Character
 			m_actorAssigned = actor;
 		}
 
+		public void RemoveVoiceActor()
+		{
+			m_isActorAssigned = false;
+			m_actorAssigned = null;
+		}
+
 		[XmlElement]
 		public int GroupNumber { get; set; }
 

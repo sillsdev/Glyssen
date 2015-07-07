@@ -12,6 +12,7 @@ namespace Glyssen.Controls
 	{
 		public event DataGridViewRowsRemovedEventHandler RowsRemoved;
 		public event DataGridViewRowEventHandler UserAddedRow;
+		public event DataGridViewCellMouseEventHandler CellDoubleClicked;
 		private int m_currentId;
 		private Project m_project;
 		private SortableBindingList<VoiceActorEntity> m_bindingList;
@@ -24,6 +25,7 @@ namespace Glyssen.Controls
 
 			m_dataGrid.UserAddedRow += HandleUserAddedRow;
 			m_dataGrid.RowsRemoved += HandleRowsRemoved;
+			m_dataGrid.CellMouseDoubleClick += HandleDoubleClick;
 		}
 
 		public void Initialize(Project project)
@@ -72,7 +74,8 @@ namespace Glyssen.Controls
 			{
 				for (int i = m_dataGrid.SelectedRows.Count - 1; i >= 0; i--)
 				{
-					m_dataGrid.Rows.Remove(m_dataGrid.SelectedRows[i]);
+					if (m_dataGrid.SelectedRows[i].Index != m_dataGrid.RowCount - 1)
+						m_dataGrid.Rows.Remove(m_dataGrid.SelectedRows[i]);
 				}
 			}
 		}
@@ -104,6 +107,13 @@ namespace Glyssen.Controls
 		{
 			DataGridViewRowsRemovedEventHandler handler = RowsRemoved;
 			if (handler != null)
+				handler(sender, e);
+		}
+
+		private void HandleDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			DataGridViewCellMouseEventHandler handler = CellDoubleClicked;
+			if (CellDoubleClicked != null)
 				handler(sender, e);
 		}
 	}

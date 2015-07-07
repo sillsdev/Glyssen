@@ -30,20 +30,22 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoiceActorAssignmentDlg));
 			this.m_btnAssignActor = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.m_btnSave = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.m_characterGroupGrid = new SIL.Windows.Forms.Widgets.BetterGrid.BetterGrid();
-			this.m_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-			this.m_voiceActorGrid = new Glyssen.Controls.VoiceActorInformationGrid();
-			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.GroupNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.m_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.m_voiceActorGrid = new Glyssen.Controls.VoiceActorInformationGrid();
 			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).BeginInit();
 			this.m_tableLayoutPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
@@ -110,19 +112,21 @@
 			this.m_characterGroupGrid.AllowUserToDeleteRows = false;
 			this.m_characterGroupGrid.AllowUserToOrderColumns = true;
 			this.m_characterGroupGrid.AllowUserToResizeRows = false;
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+			this.m_characterGroupGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.m_characterGroupGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.m_characterGroupGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
 			this.m_characterGroupGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_characterGroupGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.m_characterGroupGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
-			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.m_characterGroupGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
+			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.m_characterGroupGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.m_characterGroupGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.m_characterGroupGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupNumber,
@@ -130,16 +134,23 @@
             this.Column3,
             this.Column4,
             this.Column5});
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
+			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.m_characterGroupGrid.DefaultCellStyle = dataGridViewCellStyle3;
 			this.m_characterGroupGrid.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_characterGroupGrid.DrawTextBoxEditControlBorder = false;
 			this.m_characterGroupGrid.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.m_characterGroupGrid.FullRowFocusRectangleColor = System.Drawing.SystemColors.ControlDark;
-			this.m_characterGroupGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
+			this.m_characterGroupGrid.GridColor = System.Drawing.Color.Black;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_characterGroupGrid, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_characterGroupGrid, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_characterGroupGrid, "DialogBoxes.VoiceActorAssignment.VoiceActorAssignmentDlg.betterGrid1");
 			this.m_characterGroupGrid.Location = new System.Drawing.Point(3, 3);
-			this.m_characterGroupGrid.MultiSelect = false;
 			this.m_characterGroupGrid.Name = "m_characterGroupGrid";
 			this.m_characterGroupGrid.PaintHeaderAcrossFullGridWidth = true;
 			this.m_characterGroupGrid.ReadOnly = true;
@@ -157,47 +168,8 @@
 			this.m_characterGroupGrid.TabIndex = 5;
 			this.m_characterGroupGrid.TextBoxEditControlBorderColor = System.Drawing.Color.Silver;
 			this.m_characterGroupGrid.WaterMark = "!";
-			// 
-			// m_tableLayoutPanel
-			// 
-			this.m_tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_tableLayoutPanel.ColumnCount = 3;
-			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81F));
-			this.m_tableLayoutPanel.Controls.Add(this.m_characterGroupGrid, 0, 0);
-			this.m_tableLayoutPanel.Controls.Add(this.m_voiceActorGrid, 1, 0);
-			this.m_tableLayoutPanel.Controls.Add(this.button2, 2, 2);
-			this.m_tableLayoutPanel.Controls.Add(this.m_btnSave, 1, 2);
-			this.m_tableLayoutPanel.Controls.Add(this.m_btnAssignActor, 1, 1);
-			this.m_tableLayoutPanel.Location = new System.Drawing.Point(15, 31);
-			this.m_tableLayoutPanel.Name = "m_tableLayoutPanel";
-			this.m_tableLayoutPanel.RowCount = 3;
-			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
-			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.m_tableLayoutPanel.Size = new System.Drawing.Size(597, 399);
-			this.m_tableLayoutPanel.TabIndex = 6;
-			// 
-			// m_voiceActorGrid
-			// 
-			this.m_voiceActorGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
-			this.m_voiceActorGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_voiceActorGrid, null);
-			this.l10NSharpExtender1.SetLocalizationComment(this.m_voiceActorGrid, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_voiceActorGrid, "DialogBoxes.VoiceActorAssignment.VoiceActorAssignmentDlg.VoiceActorInformationGri" +
-        "d2");
-			this.m_voiceActorGrid.Location = new System.Drawing.Point(364, 3);
-			this.m_voiceActorGrid.Name = "m_voiceActorGrid";
-			this.m_voiceActorGrid.Size = new System.Drawing.Size(148, 312);
-			this.m_voiceActorGrid.TabIndex = 0;
-			// 
-			// l10NSharpExtender1
-			// 
-			this.l10NSharpExtender1.LocalizationManagerId = "Glyssen";
-			this.l10NSharpExtender1.PrefixForNewItems = "DialogBoxes.VoiceActorAssignment";
+			this.m_characterGroupGrid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.m_characterGroupGrid_CellMouseDoubleClick);
+			this.m_characterGroupGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.m_characterGroupGrid_KeyDown);
 			// 
 			// GroupNumber
 			// 
@@ -237,6 +209,47 @@
 			this.Column5.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignment.ActorAssigned!Actor Assigned";
 			this.Column5.Name = "Column5";
 			this.Column5.ReadOnly = true;
+			// 
+			// m_tableLayoutPanel
+			// 
+			this.m_tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_tableLayoutPanel.ColumnCount = 3;
+			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81F));
+			this.m_tableLayoutPanel.Controls.Add(this.m_characterGroupGrid, 0, 0);
+			this.m_tableLayoutPanel.Controls.Add(this.m_voiceActorGrid, 1, 0);
+			this.m_tableLayoutPanel.Controls.Add(this.button2, 2, 2);
+			this.m_tableLayoutPanel.Controls.Add(this.m_btnSave, 1, 2);
+			this.m_tableLayoutPanel.Controls.Add(this.m_btnAssignActor, 1, 1);
+			this.m_tableLayoutPanel.Location = new System.Drawing.Point(15, 31);
+			this.m_tableLayoutPanel.Name = "m_tableLayoutPanel";
+			this.m_tableLayoutPanel.RowCount = 3;
+			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.m_tableLayoutPanel.Size = new System.Drawing.Size(597, 399);
+			this.m_tableLayoutPanel.TabIndex = 6;
+			// 
+			// l10NSharpExtender1
+			// 
+			this.l10NSharpExtender1.LocalizationManagerId = "Glyssen";
+			this.l10NSharpExtender1.PrefixForNewItems = "DialogBoxes.VoiceActorAssignment";
+			// 
+			// m_voiceActorGrid
+			// 
+			this.m_voiceActorGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_voiceActorGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_voiceActorGrid, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_voiceActorGrid, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_voiceActorGrid, "DialogBoxes.VoiceActorAssignment.VoiceActorAssignmentDlg.VoiceActorInformationGri" +
+        "d2");
+			this.m_voiceActorGrid.Location = new System.Drawing.Point(364, 3);
+			this.m_voiceActorGrid.Name = "m_voiceActorGrid";
+			this.m_voiceActorGrid.Size = new System.Drawing.Size(148, 312);
+			this.m_voiceActorGrid.TabIndex = 0;
 			// 
 			// VoiceActorAssignmentDlg
 			// 

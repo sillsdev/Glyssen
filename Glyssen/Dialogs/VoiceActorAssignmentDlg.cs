@@ -4,6 +4,7 @@ using Glyssen.VoiceActor;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using SIL.IO;
 using SIL.ObjectModel;
@@ -24,6 +25,7 @@ namespace Glyssen.Dialogs
 			m_project = project;
 
 			m_voiceActorGrid.Initialize(m_project);
+			m_voiceActorGrid.CellDoubleClicked += m_voiceActorGrid_CellDoubleClicked;
 
 			var characterGroups = m_project.CharacterGroupList.CharacterGroups;
 
@@ -56,6 +58,7 @@ namespace Glyssen.Dialogs
 			}
 
 			m_characterGroupGrid.DataSource = m_charActorPairs;
+			m_characterGroupGrid.MultiSelect = true;
 		}
 
 		private void SaveAssignments()
@@ -63,20 +66,47 @@ namespace Glyssen.Dialogs
 			m_project.SaveCharacterGroupData();
 		}
 
-		private void m_btnAssignActor_Click(object sender, EventArgs e)
+		private void AssignSelectedActorToSelectedGroup()
 		{
 			VoiceActorEntity assignee = m_voiceActorGrid.SelectedVoiceActorEntity;
 
 			CharacterGroup entry = m_characterGroupGrid.SelectedRows[0].DataBoundItem as CharacterGroup;
-
 			entry.AssignVoiceActor(assignee);
 
-			m_characterGroupGrid.Refresh();
+			m_characterGroupGrid.Refresh();			
+		}
+
+		private void m_btnAssignActor_Click(object sender, EventArgs e)
+		{
+			AssignSelectedActorToSelectedGroup();
 		}
 
 		private void m_btnSave_Click(object sender, EventArgs e)
 		{
 			SaveAssignments();
+		}
+
+		private void m_characterGroupGrid_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			AssignSelectedActorToSelectedGroup();
+		}
+
+		private void m_voiceActorGrid_CellDoubleClicked(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			AssignSelectedActorToSelectedGroup();
+		}
+
+		private void m_characterGroupGrid_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyData == Keys.Delete)
+			{
+				for (int i = 0; i < m_characterGroupGrid.SelectedRows.Count; i++)
+				{
+					CharacterGroup entry = m_characterGroupGrid.SelectedRows[i].DataBoundItem as CharacterGroup;
+					entry.RemoveVoiceActor();					
+				}
+				m_characterGroupGrid.Refresh();
+			}
 		}
 	}
 }

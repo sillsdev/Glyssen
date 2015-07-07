@@ -379,7 +379,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SplitBlock.png" />
-    <None Include="Resources\TestCharacterGroups.xlsx" />
     <None Include="Resources\yellow-ok-icon.png" />
     <None Include="Resources\112_Plus_Green_16x16_72.png" />
     <None Include="Resources\CharacterDetail.txt" />
