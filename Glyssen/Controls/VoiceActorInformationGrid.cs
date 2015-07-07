@@ -76,6 +76,7 @@ namespace Glyssen.Controls
 					if (m_dataGrid.SelectedRows[i].Index != m_dataGrid.RowCount - 1)
 						m_dataGrid.Rows.Remove(m_dataGrid.SelectedRows[i]);
 				}
+				SaveVoiceActorInformation();
 			}
 		}
 
@@ -114,6 +115,11 @@ namespace Glyssen.Controls
 			DataGridViewCellMouseEventHandler handler = CellDoubleClicked;
 			if (CellDoubleClicked != null)
 				handler(sender, e);
+		}
+
+		private void m_dataGrid_CurrentCellChanged(object sender, System.EventArgs e)
+		{
+			SaveVoiceActorInformation();
 		}
 	}
 }

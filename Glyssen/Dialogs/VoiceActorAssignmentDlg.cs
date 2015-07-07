@@ -73,6 +73,8 @@ namespace Glyssen.Dialogs
 			CharacterGroup entry = m_characterGroupGrid.SelectedRows[0].DataBoundItem as CharacterGroup;
 			entry.AssignVoiceActor(assignee);
 
+			SaveAssignments();
+
 			m_characterGroupGrid.Refresh();			
 		}
 
@@ -105,6 +107,9 @@ namespace Glyssen.Dialogs
 					CharacterGroup entry = m_characterGroupGrid.SelectedRows[i].DataBoundItem as CharacterGroup;
 					entry.RemoveVoiceActor();					
 				}
+
+				SaveAssignments();
+
 				m_characterGroupGrid.Refresh();
 			}
 		}
