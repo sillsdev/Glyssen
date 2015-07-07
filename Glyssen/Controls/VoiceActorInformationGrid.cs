@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using L10NSharp;
@@ -51,6 +52,29 @@ namespace Glyssen.Controls
 		public VoiceActor.VoiceActor SelectedVoiceActorEntity
 		{
 			get { return m_dataGrid.SelectedRows[0].DataBoundItem as VoiceActor.VoiceActor; }
+		}
+
+		private void m_dataGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+		{
+			DataGridViewCell cell = m_dataGrid.CurrentCell;
+
+			ComboBox box = e.Control as ComboBox;
+
+			if (cell.ColumnIndex > 0)
+			{
+				box.SelectedIndexChanged -= box_SelectedIndexChanged;
+				box.SelectedIndexChanged += box_SelectedIndexChanged;
+			}
+		}
+
+		private void box_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			ComboBox box = sender as ComboBox;
+
+			//Cell value was not saved without this
+			m_dataGrid.CurrentCell.Value = box.SelectedItem;
+
+			m_dataGrid.MoveToNextField();
 		}
 
 		private void HandleAddingNew(object sender, AddingNewEventArgs e)
