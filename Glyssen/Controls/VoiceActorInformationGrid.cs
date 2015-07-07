@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
-using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.ObjectModel;
 using System.Collections.Generic;
@@ -15,7 +14,7 @@ namespace Glyssen.Controls
 		public event DataGridViewCellMouseEventHandler CellDoubleClicked;
 		private int m_currentId;
 		private Project m_project;
-		private SortableBindingList<VoiceActorEntity> m_bindingList;
+		private SortableBindingList<VoiceActor.VoiceActor> m_bindingList;
 
 		public VoiceActorInformationGrid()
 		{
@@ -44,7 +43,7 @@ namespace Glyssen.Controls
 			var actors = m_project.VoiceActorList.Actors;
 			if (actors.Any())
 				m_currentId = actors.Max(a => a.Id) + 1;
-			m_bindingList = new SortableBindingList<VoiceActorEntity>(actors);
+			m_bindingList = new SortableBindingList<VoiceActor.VoiceActor>(actors);
 			m_dataGrid.DataSource = m_bindingList;
 			m_bindingList.AddingNew += HandleAddingNew;
 		}
@@ -56,7 +55,7 @@ namespace Glyssen.Controls
 
 		private void HandleAddingNew(object sender, AddingNewEventArgs e)
 		{
-			e.NewObject = new VoiceActorEntity { Id = m_currentId++ };
+			e.NewObject = new VoiceActor.VoiceActor { Id = m_currentId++ };
 		}
 
 		private void RemoveSelectedRows(bool confirmWithUser)
