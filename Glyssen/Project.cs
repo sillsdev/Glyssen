@@ -876,9 +876,52 @@ namespace Glyssen
 			}
 		}
 
-		public void ExportTabDelimited(string fileName)
+		public void ExportTabDelimited(Control owner, string fileName, bool showSaveFileDialog = true)
 		{
-			new ProjectExport(this, CharacterGroupList.CharacterGroups.Any(cg => cg.VoiceActorAssignedId != -1)).GenerateFile(fileName);
+			bool proceedWithSave = true;
+
+			if (showSaveFileDialog)
+			{
+				var defaultDir = Settings.Default.DefaultExportDirectory;
+				if (string.IsNullOrEmpty(defaultDir))
+				{
+					defaultDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+				}
+
+				using (var dlg = new SaveFileDialog())
+				{
+					dlg.Title = LocalizationManager.GetString("DialogBoxes.ExportDlg.Title", "Export Tab-Delimited Data");
+					dlg.OverwritePrompt = true;
+					dlg.InitialDirectory = defaultDir;
+					dlg.FileName = fileName;
+					dlg.Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}",
+						LocalizationManager.GetString("DialogBoxes.ExportDlg.TabDelimitedFileTypeLabel", "Tab-delimited files"),
+						"*.txt",
+						LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"),
+						"*.*");
+					dlg.DefaultExt = ".txt";
+
+					proceedWithSave = dlg.ShowDialog(owner) == DialogResult.OK;
+					if (proceedWithSave)
+					{
+						Settings.Default.DefaultExportDirectory = Path.GetDirectoryName(dlg.FileName);
+						fileName = dlg.FileName;
+					}
+				}
+			}
+
+			if (proceedWithSave)
+			{
+				try
+				{
+					new ProjectExport(this, CharacterGroupList.CharacterGroups.Any(cg => cg.VoiceActorAssignedId != -1)).GenerateFile(fileName);
+					Analytics.Track("Export");
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(owner, ex.Message, owner.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				}
+			}
 		}
 
 		private void HandleQuoteSystemChanged()

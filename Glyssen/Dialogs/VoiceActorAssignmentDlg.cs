@@ -108,5 +108,11 @@ namespace Glyssen.Dialogs
 				m_characterGroupGrid.Refresh();
 			}
 		}
+
+		private void m_btnExport_Click(object sender, EventArgs e)
+		{
+			SaveAssignments();
+			m_project.ExportTabDelimited(this, "MRK.txt", true);
+		}
 	}
 }

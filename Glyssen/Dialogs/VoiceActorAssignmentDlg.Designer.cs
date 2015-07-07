@@ -34,7 +34,7 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoiceActorAssignmentDlg));
 			this.m_btnAssignActor = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
+			this.m_btnExport = new System.Windows.Forms.Button();
 			this.m_btnSave = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.m_characterGroupGrid = new SIL.Windows.Forms.Widgets.BetterGrid.BetterGrid();
@@ -44,8 +44,8 @@
 			this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.m_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_voiceActorGrid = new Glyssen.Controls.VoiceActorInformationGrid();
+			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).BeginInit();
 			this.m_tableLayoutPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
@@ -65,18 +65,19 @@
 			this.m_btnAssignActor.UseVisualStyleBackColor = true;
 			this.m_btnAssignActor.Click += new System.EventHandler(this.m_btnAssignActor_Click);
 			// 
-			// button2
+			// m_btnExport
 			// 
-			this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-			this.l10NSharpExtender1.SetLocalizableToolTip(this.button2, null);
-			this.l10NSharpExtender1.SetLocalizationComment(this.button2, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.button2, "DialogBoxes.VoiceActorAssignment.VoiceActorAssignmentDlg.button2");
-			this.button2.Location = new System.Drawing.Point(519, 372);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(75, 23);
-			this.button2.TabIndex = 2;
-			this.button2.Text = "Export";
-			this.button2.UseVisualStyleBackColor = true;
+			this.m_btnExport.Anchor = System.Windows.Forms.AnchorStyles.Right;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnExport, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnExport, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_btnExport, "DialogBoxes.VoiceActorAssignment.VoiceActorAssignmentDlg.button2");
+			this.m_btnExport.Location = new System.Drawing.Point(519, 372);
+			this.m_btnExport.Name = "m_btnExport";
+			this.m_btnExport.Size = new System.Drawing.Size(75, 23);
+			this.m_btnExport.TabIndex = 2;
+			this.m_btnExport.Text = "Export";
+			this.m_btnExport.UseVisualStyleBackColor = true;
+			this.m_btnExport.Click += new System.EventHandler(this.m_btnExport_Click);
 			// 
 			// m_btnSave
 			// 
@@ -151,6 +152,7 @@
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_characterGroupGrid, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_characterGroupGrid, "DialogBoxes.VoiceActorAssignment.VoiceActorAssignmentDlg.betterGrid1");
 			this.m_characterGroupGrid.Location = new System.Drawing.Point(3, 3);
+			this.m_characterGroupGrid.MultiSelect = false;
 			this.m_characterGroupGrid.Name = "m_characterGroupGrid";
 			this.m_characterGroupGrid.PaintHeaderAcrossFullGridWidth = true;
 			this.m_characterGroupGrid.ReadOnly = true;
@@ -221,7 +223,7 @@
 			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81F));
 			this.m_tableLayoutPanel.Controls.Add(this.m_characterGroupGrid, 0, 0);
 			this.m_tableLayoutPanel.Controls.Add(this.m_voiceActorGrid, 1, 0);
-			this.m_tableLayoutPanel.Controls.Add(this.button2, 2, 2);
+			this.m_tableLayoutPanel.Controls.Add(this.m_btnExport, 2, 2);
 			this.m_tableLayoutPanel.Controls.Add(this.m_btnSave, 1, 2);
 			this.m_tableLayoutPanel.Controls.Add(this.m_btnAssignActor, 1, 1);
 			this.m_tableLayoutPanel.Location = new System.Drawing.Point(15, 31);
@@ -232,11 +234,6 @@
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.m_tableLayoutPanel.Size = new System.Drawing.Size(597, 399);
 			this.m_tableLayoutPanel.TabIndex = 6;
-			// 
-			// l10NSharpExtender1
-			// 
-			this.l10NSharpExtender1.LocalizationManagerId = "Glyssen";
-			this.l10NSharpExtender1.PrefixForNewItems = "DialogBoxes.VoiceActorAssignment";
 			// 
 			// m_voiceActorGrid
 			// 
@@ -250,6 +247,11 @@
 			this.m_voiceActorGrid.Name = "m_voiceActorGrid";
 			this.m_voiceActorGrid.Size = new System.Drawing.Size(148, 312);
 			this.m_voiceActorGrid.TabIndex = 0;
+			// 
+			// l10NSharpExtender1
+			// 
+			this.l10NSharpExtender1.LocalizationManagerId = "Glyssen";
+			this.l10NSharpExtender1.PrefixForNewItems = "DialogBoxes.VoiceActorAssignment";
 			// 
 			// VoiceActorAssignmentDlg
 			// 
@@ -276,7 +278,7 @@
 
 		private Controls.VoiceActorInformationGrid m_voiceActorGrid;
 		private System.Windows.Forms.Button m_btnAssignActor;
-		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button m_btnExport;
 		private System.Windows.Forms.Button m_btnSave;
 		private System.Windows.Forms.Label label1;
 		private SIL.Windows.Forms.Widgets.BetterGrid.BetterGrid m_characterGroupGrid;
