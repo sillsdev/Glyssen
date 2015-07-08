@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Glyssen.Controls;
 
 namespace Glyssen.Dialogs
 {
@@ -19,26 +20,6 @@ namespace Glyssen.Dialogs
 
 			m_btnNext.Enabled = m_dataGrid.RowCount > 1; // If 1, only one empty row
 		}
-
-		//Todo: Selecting combo box item should move to next field
-		//private void m_dataGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-		//{
-		//	DataGridViewCell cell = m_dataGrid.CurrentCell;
-
-		//	ComboBox box = e.Control as ComboBox;
-
-		//	if (cell.ColumnIndex > 0)
-		//	{
-		//		//Todo: Selecting combo box item should move to next field
-		//		box.SelectedIndexChanged -= box_SelectedIndexChanged;
-		//		box.SelectedIndexChanged += box_SelectedIndexChanged;
-		//	}
-		//}
-
-		//private void box_SelectedIndexChanged(object sender, EventArgs e)
-		//{
-		//	m_dataGrid.MoveToNextField();
-		//}
 
 		private void m_dataGrid_UserAddedRow(object sender, DataGridViewRowEventArgs e)
 		{

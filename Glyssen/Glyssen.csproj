@@ -224,6 +224,7 @@
     <Compile Include="Dialogs\VoiceActorInformationDlg.Designer.cs">
       <DependentUpon>VoiceActorInformationDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProjectExport.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -286,7 +287,8 @@
     <Compile Include="Utilities\MathUtilities.cs" />
     <Compile Include="Utilities\StringExtensions.cs" />
     <Compile Include="Utilities\VerseRefExtensions.cs" />
-    <Compile Include="VoiceActor\VoiceActorEntity.cs" />
+    <Compile Include="Character\CharacterGroupList.cs" />
+    <Compile Include="VoiceActor\VoiceActor.cs" />
     <Compile Include="VoiceActor\VoiceActorList.cs" />
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
@@ -370,6 +372,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\CharacterGroups.xlsx" />
+    <None Include="Resources\CharacterGroups_FCBH.xlsx" />
     <None Include="Resources\quoteSystems.xml">
       <SubType>Designer</SubType>
     </None>

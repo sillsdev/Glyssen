@@ -39,6 +39,7 @@ namespace Glyssen
 		private const string kBookScriptFileExtension = ".xml";
 		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
 		private const string kVoiceActorInformationFileName = "VoiceActorInformation.xml";
+		private const string kCharacterGroupFileName = "CharacterGroups.xml";
 		private const string kSample = "sample";
 		private const string kSampleProjectName = "Sample Project";
 
@@ -60,6 +61,7 @@ namespace Glyssen
 		// Don't want to hound the user more than once per launch per project
 		private bool m_fontInstallationAttempted;
 		private VoiceActorList m_voiceActorList;
+		private CharacterGroupList m_characterGroupList;
 
 		public event EventHandler<ProgressChangedEventArgs> ProgressChanged;
 		public event EventHandler<ProjectStateChangedEventArgs> ProjectStateChanged;
@@ -301,7 +303,7 @@ namespace Glyssen
 
 		public Project UpdateProjectFromBundleData(GlyssenBundle bundle)
 		{
-			// If we're updating the projectb in place, we need to make a backup. Otherwise, if it's moving to a new
+			// If we're updating the project in place, we need to make a backup. Otherwise, if it's moving to a new
 			// location, just mark the existing one as inactive.
 			bool moving = (ProjectFilePath != GetProjectFilePath(bundle.LanguageIso, bundle.Id, m_recordingProjectName));
 			if (moving)
@@ -370,6 +372,11 @@ namespace Glyssen
 		public VoiceActorList VoiceActorList
 		{
 			get { return m_voiceActorList ?? (m_voiceActorList = LoadVoiceActorInformationData()); }
+		}
+
+		public CharacterGroupList CharacterGroupList
+		{
+			get { return m_characterGroupList ?? (m_characterGroupList = LoadCharacterGroupData()); }
 		}
 
 		internal void ClearAssignCharacterStatus()
@@ -546,6 +553,14 @@ namespace Glyssen
 		private void PopulateAndParseBooks(ITextBundle bundle)
 		{
 			AddAndParseBooks(bundle.UsxBooksToInclude, bundle.Stylesheet);
+		}
+
+		private void PopulateCharacterGroupAssignees(CharacterGroupList characterGroupList)
+		{
+			foreach (CharacterGroup group in characterGroupList.CharacterGroups)
+			{
+				group.AssignVoiceActor(VoiceActorList.Actors.FirstOrDefault(t => t.Id == group.VoiceActorAssignedId));
+			}
 		}
 
 		private void AddAndParseBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet)
@@ -778,9 +793,26 @@ namespace Glyssen
 			ProjectCharacterVerseData.WriteToFile(ProjectCharacterVerseDataPath);
 		}
 
+		public void SaveCharacterGroupData()
+		{
+			m_characterGroupList.SaveToFile(Path.Combine(ProjectFolder, kCharacterGroupFileName));
+		}
+
 		public void SaveVoiceActorInformationData()
 		{
 			m_voiceActorList.SaveToFile(Path.Combine(ProjectFolder, kVoiceActorInformationFileName));
+		}
+
+		public CharacterGroupList LoadCharacterGroupData()
+		{
+			string path = Path.Combine(ProjectFolder, kCharacterGroupFileName);
+			if (File.Exists(path))
+			{
+				var characterGroupList = CharacterGroupList.LoadCharacterGroupListFromFile(path);
+				PopulateCharacterGroupAssignees(characterGroupList);
+				return characterGroupList;
+			}
+			return new CharacterGroupList();
 		}
 
 		private VoiceActorList LoadVoiceActorInformationData()
@@ -789,6 +821,14 @@ namespace Glyssen
 			if (File.Exists(path))
 				return VoiceActorList.LoadVoiceActorListFromFile(path);
 			return new VoiceActorList();
+		}
+
+		public VoiceActor.VoiceActor GetVoiceActorForCharacter(string characterId)
+		{
+			var charGroup = CharacterGroupList.CharacterGroups.FirstOrDefault(cg => cg.CharacterIds.Contains(characterId));
+			if (charGroup == null)
+				return null;
+			return VoiceActorList.Actors.FirstOrDefault(a => a.Id == charGroup.VoiceActorAssignedId);
 		}
 
 		public WritingSystemDefinition WritingSystem
@@ -833,21 +873,6 @@ namespace Glyssen
 			{
 				m_metadata.QuoteSystem.AllLevels.Clear();
 				m_metadata.QuoteSystem.AllLevels.AddRange(ws.QuotationMarks);
-			}
-		}
-
-		public void ExportTabDelimited(string fileName)
-		{
-			int blockNumber = 1;
-			using (var stream = new StreamWriter(fileName, false, Encoding.UTF8))
-			{
-				foreach (var book in IncludedBooks)
-				{
-					foreach (var block in book.GetScriptBlocks(true))
-					{
-						stream.WriteLine((blockNumber++) + "\t" + block.GetAsTabDelimited(book.BookId));
-					}
-				}
 			}
 		}
 

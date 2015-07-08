@@ -139,6 +139,8 @@
 			this.m_dataGrid.TabIndex = 4;
 			this.m_dataGrid.TextBoxEditControlBorderColor = System.Drawing.Color.Empty;
 			this.m_dataGrid.WaterMark = "!";
+			this.m_dataGrid.CurrentCellChanged += new System.EventHandler(this.m_dataGrid_CurrentCellChanged);
+			this.m_dataGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.m_dataGrid_EditingControlShowing);
 			this.m_dataGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HandleKeyDown);
 			// 
 			// ActorId

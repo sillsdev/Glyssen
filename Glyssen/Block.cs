@@ -248,27 +248,6 @@ namespace Glyssen
 			return XmlSerializationHelper.SerializeToString(this, !includeXmlDeclaration);
 		}
 
-		public string GetAsTabDelimited(string bookId)
-		{
-			StringBuilder builder = new StringBuilder();
-			builder.Append(StyleTag);
-			builder.Append('\t');
-			builder.Append(bookId);
-			builder.Append('\t');
-			builder.Append(ChapterNumber);
-			builder.Append('\t');
-			builder.Append(InitialStartVerseNumber);
-			builder.Append('\t');
-			builder.Append(CharacterId);
-			builder.Append('\t');
-			builder.Append(Delivery);
-			builder.Append('\t');
-			builder.Append(GetText(true));
-			builder.Append('\t');
-			builder.Append(GetText(false).Length);
-			return builder.ToString();
-		}
-
 		public void SetCharacterAndDelivery(IEnumerable<CharacterVerse> characters)
 		{
 			var characterList = characters.ToList();

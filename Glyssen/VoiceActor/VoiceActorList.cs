@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 using SIL.Xml;
 
@@ -13,11 +10,11 @@ namespace Glyssen.VoiceActor
 	{
 		public VoiceActorList()
 		{
-			Actors = new List<VoiceActorEntity>();
+			Actors = new List<VoiceActor>();
 		}
 
 		[XmlElement("VoiceActor")]
-		public List<VoiceActorEntity> Actors { get; set; }
+		public List<VoiceActor> Actors { get; set; }
 
 		public void SaveToFile(string filename)
 		{
