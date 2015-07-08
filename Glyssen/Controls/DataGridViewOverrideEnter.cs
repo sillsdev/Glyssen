@@ -49,7 +49,9 @@ namespace Glyssen.Controls
 
 			var nextCell = Rows[nextRow].Cells[nextColumn];
 			if (nextCell.Visible)
-				CurrentCell = Rows[nextRow].Cells[nextColumn];
+			{
+				CurrentCell = nextCell;
+			}
 			else
 				MoveToNextField(nextCell);
 		}

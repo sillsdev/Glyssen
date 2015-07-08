@@ -15,6 +15,7 @@ namespace Glyssen.Controls
 		private int m_currentId;
 		private Project m_project;
 		private SortableBindingList<VoiceActor.VoiceActor> m_bindingList;
+		private ComboBox m_currentComboBox;
 
 		public VoiceActorInformationGrid()
 		{
@@ -58,12 +59,14 @@ namespace Glyssen.Controls
 		{
 			DataGridViewCell cell = m_dataGrid.CurrentCell;
 
-			ComboBox box = e.Control as ComboBox;
-
 			if (cell.ColumnIndex > 0)
 			{
-				box.SelectedIndexChanged -= box_SelectedIndexChanged;
-				box.SelectedIndexChanged += box_SelectedIndexChanged;
+				m_currentComboBox = e.Control as ComboBox;
+				m_currentComboBox.SelectedIndexChanged += box_SelectedIndexChanged;
+			}
+			else
+			{
+				m_currentComboBox = null;
 			}
 		}
 
@@ -138,13 +141,21 @@ namespace Glyssen.Controls
 		private void HandleDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
 		{
 			DataGridViewCellMouseEventHandler handler = CellDoubleClicked;
-			if (CellDoubleClicked != null)
+			if (handler != null)
 				handler(sender, e);
 		}
 
 		private void m_dataGrid_CurrentCellChanged(object sender, System.EventArgs e)
 		{
 			SaveVoiceActorInformation();
+		}
+
+		private void m_dataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+		{
+			if (m_currentComboBox != null)
+			{
+				m_currentComboBox.SelectedIndexChanged -= box_SelectedIndexChanged;
+			}
 		}
 	}
 }
