@@ -134,7 +134,6 @@ namespace Glyssen.Controls
 			if (handler != null)
 				handler(sender, e);
 		}
-		}
 
 		private void HandleDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
 		{
@@ -146,5 +145,6 @@ namespace Glyssen.Controls
 		private void m_dataGrid_CurrentCellChanged(object sender, System.EventArgs e)
 		{
 			SaveVoiceActorInformation();
+		}
 	}
 }
