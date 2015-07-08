@@ -9,8 +9,8 @@ namespace Glyssen.Controls
 {
 	public partial class VoiceActorInformationGrid : UserControl
 	{
-		public event DataGridViewRowsRemovedEventHandler RowsRemoved;
 		public event DataGridViewRowEventHandler UserAddedRow;
+		public event DataGridViewRowsRemovedEventHandler UserRemovedRows;
 		public event DataGridViewCellMouseEventHandler CellDoubleClicked;
 		private int m_currentId;
 		private Project m_project;
@@ -23,9 +23,10 @@ namespace Glyssen.Controls
 			m_currentId = 0;
 
 			m_dataGrid.UserAddedRow += HandleUserAddedRow;
-			m_dataGrid.RowsRemoved += HandleRowsRemoved;
 			m_dataGrid.CellMouseDoubleClick += HandleDoubleClick;
 		}
+
+		public int RowCount { get { return m_dataGrid.RowCount; } }
 
 		public void Initialize(Project project)
 		{
@@ -83,6 +84,9 @@ namespace Glyssen.Controls
 
 		private void RemoveSelectedRows(bool confirmWithUser)
 		{
+			if (m_dataGrid.SelectedRows.Count == 0)
+				return;
+
 			bool deleteConfirmed = !confirmWithUser;
 
 			if (confirmWithUser)
@@ -94,12 +98,17 @@ namespace Glyssen.Controls
 
 			if (deleteConfirmed)
 			{
+				int indexOfFirstRowToRemove = m_dataGrid.SelectedRows[0].Index;
 				for (int i = m_dataGrid.SelectedRows.Count - 1; i >= 0; i--)
 				{
 					if (m_dataGrid.SelectedRows[i].Index != m_dataGrid.RowCount - 1)
 						m_dataGrid.Rows.Remove(m_dataGrid.SelectedRows[i]);
 				}
 				SaveVoiceActorInformation();
+
+				DataGridViewRowsRemovedEventHandler handler = UserRemovedRows;
+				if (handler != null)
+					handler(m_dataGrid, new DataGridViewRowsRemovedEventArgs(indexOfFirstRowToRemove, m_dataGrid.RowCount));
 			}
 		}
 
@@ -125,12 +134,6 @@ namespace Glyssen.Controls
 			if (handler != null)
 				handler(sender, e);
 		}
-
-		private void HandleRowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
-		{
-			DataGridViewRowsRemovedEventHandler handler = RowsRemoved;
-			if (handler != null)
-				handler(sender, e);
 		}
 
 		private void HandleDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -143,6 +146,5 @@ namespace Glyssen.Controls
 		private void m_dataGrid_CurrentCellChanged(object sender, System.EventArgs e)
 		{
 			SaveVoiceActorInformation();
-		}
 	}
 }
