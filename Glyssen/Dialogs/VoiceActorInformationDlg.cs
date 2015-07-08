@@ -14,8 +14,10 @@ namespace Glyssen.Dialogs
 			m_project = project;
 
 			m_dataGrid.Initialize(m_project);
-			m_dataGrid.RowsRemoved += m_dataGrid_RowsRemoved;
 			m_dataGrid.UserAddedRow += m_dataGrid_UserAddedRow;
+			m_dataGrid.UserRemovedRows += m_dataGrid_UserRemovedRows;
+
+			m_btnNext.Enabled = m_dataGrid.RowCount > 1; // If 1, only one empty row
 		}
 
 		//Todo: Selecting combo box item should move to next field
@@ -43,9 +45,9 @@ namespace Glyssen.Dialogs
 			m_btnNext.Enabled = true;
 		}
 
-		private void m_dataGrid_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+		private void m_dataGrid_UserRemovedRows(object sender, DataGridViewRowsRemovedEventArgs e)
 		{
-			if (e.RowCount == 1)
+			if (e.RowCount == 1) // If 1, only one empty row
 				m_btnNext.Enabled = false;
 		}
 
