@@ -312,7 +312,7 @@ namespace Glyssen
 
 		private void HandleExportToTabSeparated_Click(object sender, EventArgs e)
 		{
-			m_project.ExportTabDelimited(this, "MRK.txt", true);
+			new ProjectExport(m_project).Export(this);
 		}
 
 		private void SetupUILanguageMenu()

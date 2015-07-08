@@ -4,7 +4,6 @@ using System.Linq;
 using System.Windows.Forms;
 using L10NSharp;
 using SIL.ObjectModel;
-using System.Collections.Generic;
 
 namespace Glyssen.Controls
 {

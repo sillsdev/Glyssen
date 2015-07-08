@@ -303,7 +303,7 @@ namespace Glyssen
 
 		public Project UpdateProjectFromBundleData(GlyssenBundle bundle)
 		{
-			// If we're updating the projectb in place, we need to make a backup. Otherwise, if it's moving to a new
+			// If we're updating the project in place, we need to make a backup. Otherwise, if it's moving to a new
 			// location, just mark the existing one as inactive.
 			bool moving = (ProjectFilePath != GetProjectFilePath(bundle.LanguageIso, bundle.Id, m_recordingProjectName));
 			if (moving)
@@ -873,54 +873,6 @@ namespace Glyssen
 			{
 				m_metadata.QuoteSystem.AllLevels.Clear();
 				m_metadata.QuoteSystem.AllLevels.AddRange(ws.QuotationMarks);
-			}
-		}
-
-		public void ExportTabDelimited(Control owner, string fileName, bool showSaveFileDialog = true)
-		{
-			bool proceedWithSave = true;
-
-			if (showSaveFileDialog)
-			{
-				var defaultDir = Settings.Default.DefaultExportDirectory;
-				if (string.IsNullOrEmpty(defaultDir))
-				{
-					defaultDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-				}
-
-				using (var dlg = new SaveFileDialog())
-				{
-					dlg.Title = LocalizationManager.GetString("DialogBoxes.ExportDlg.Title", "Export Tab-Delimited Data");
-					dlg.OverwritePrompt = true;
-					dlg.InitialDirectory = defaultDir;
-					dlg.FileName = fileName;
-					dlg.Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}",
-						LocalizationManager.GetString("DialogBoxes.ExportDlg.TabDelimitedFileTypeLabel", "Tab-delimited files"),
-						"*.txt",
-						LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"),
-						"*.*");
-					dlg.DefaultExt = ".txt";
-
-					proceedWithSave = dlg.ShowDialog(owner) == DialogResult.OK;
-					if (proceedWithSave)
-					{
-						Settings.Default.DefaultExportDirectory = Path.GetDirectoryName(dlg.FileName);
-						fileName = dlg.FileName;
-					}
-				}
-			}
-
-			if (proceedWithSave)
-			{
-				try
-				{
-					new ProjectExport(this, CharacterGroupList.CharacterGroups.Any(cg => cg.VoiceActorAssignedId != -1)).GenerateFile(fileName);
-					Analytics.Track("Export");
-				}
-				catch (Exception ex)
-				{
-					MessageBox.Show(owner, ex.Message, owner.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-				}
 			}
 		}
 

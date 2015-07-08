@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Serialization;
 using SIL.Xml;
 
@@ -22,6 +23,11 @@ namespace Glyssen.Character
 		public static CharacterGroupList LoadCharacterGroupListFromFile(string filename)
 		{
 			return XmlSerializationHelper.DeserializeFromFile<CharacterGroupList>(filename);
+		}
+
+		public bool HasVoiceActorAssigned()
+		{
+			return CharacterGroups.Any(cg => cg.VoiceActorAssignedId != -1);
 		}
 	}
 }

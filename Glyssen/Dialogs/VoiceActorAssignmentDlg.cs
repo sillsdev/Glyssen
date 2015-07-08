@@ -1,6 +1,5 @@
 ﻿using Glyssen.Character;
 using Glyssen.Properties;
-using Glyssen.VoiceActor;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -117,7 +116,7 @@ namespace Glyssen.Dialogs
 		private void m_btnExport_Click(object sender, EventArgs e)
 		{
 			SaveAssignments();
-			m_project.ExportTabDelimited(this, "MRK.txt", true);
+			new ProjectExport(m_project).Export(this);
 		}
 	}
 }

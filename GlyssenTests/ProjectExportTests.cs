@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace GlyssenTests
 {
 	[TestFixture]
-	class ProjectExport
+	class ProjectExportTests
 	{
 		[Test]
 		public void GetExportLineForBlock_VerseAndTextElements_ExpectedColumnsIncludingJoinedText()
@@ -20,9 +20,9 @@ namespace GlyssenTests
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			Assert.AreEqual("0\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				Glyssen.ProjectExport.GetExportLineForBlock(block, 0, "MRK"));
+				ProjectExport.GetExportLineForBlock(block, 0, "MRK"));
 			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				Glyssen.ProjectExport.GetExportLineForBlock(block, 0, "MRK", "ActorGuy1"));
+				ProjectExport.GetExportLineForBlock(block, 0, "MRK", "ActorGuy1"));
 		}
 
 		[Test]
@@ -37,9 +37,9 @@ namespace GlyssenTests
 
 			int textLength = "Text of verse three, part two. ".Length + "Text of verse four. ".Length + "Text of verse five.".Length;
 			Assert.AreEqual("0\tp\tMRK\t4\t3\t\t\tText of verse three, part two. [4]\u00A0Text of verse four. [5]\u00A0Text of verse five.\t" + textLength,
-				Glyssen.ProjectExport.GetExportLineForBlock(block, 0, "MRK"));
+				ProjectExport.GetExportLineForBlock(block, 0, "MRK"));
 			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t3\t\t\tText of verse three, part two. [4]\u00A0Text of verse four. [5]\u00A0Text of verse five.\t" + textLength,
-				Glyssen.ProjectExport.GetExportLineForBlock(block, 0, "MRK", "ActorGuy1"));
+				ProjectExport.GetExportLineForBlock(block, 0, "MRK", "ActorGuy1"));
 		}
 	}
 }

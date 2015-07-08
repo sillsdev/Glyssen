@@ -1,6 +1,12 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Text;
-using Glyssen.VoiceActor;
+using System.Windows.Forms;
+using DesktopAnalytics;
+using Glyssen.Properties;
+using L10NSharp;
+using SIL.Reporting;
 
 namespace Glyssen
 {
@@ -11,13 +17,49 @@ namespace Glyssen
 		private readonly Project m_project;
 		private readonly bool m_includeVoiceActors;
 
-		public ProjectExport(Project project, bool includeVoiceActors = true)
+		public ProjectExport(Project project)
 		{
 			m_project = project;
-			m_includeVoiceActors = includeVoiceActors;
+			m_includeVoiceActors = m_project.CharacterGroupList.HasVoiceActorAssigned();
 		}
 
-		public void GenerateFile(string path)
+		public void Export(IWin32Window owner)
+		{
+			var defaultDir = Settings.Default.DefaultExportDirectory;
+			if (string.IsNullOrEmpty(defaultDir))
+			{
+				defaultDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+			}
+
+			using (var dlg = new SaveFileDialog())
+			{
+				dlg.Title = LocalizationManager.GetString("DialogBoxes.ExportDlg.Title", "Export Tab-Delimited Data");
+				dlg.OverwritePrompt = true;
+				dlg.InitialDirectory = defaultDir;
+				dlg.FileName = "MRK.txt";
+				dlg.Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}",
+					LocalizationManager.GetString("DialogBoxes.ExportDlg.TabDelimitedFileTypeLabel", "Tab-delimited files"), "*.txt",
+					LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"), "*.*");
+				dlg.DefaultExt = ".txt";
+				if (dlg.ShowDialog(owner) == DialogResult.OK)
+				{
+					Settings.Default.DefaultExportDirectory = Path.GetDirectoryName(dlg.FileName);
+					try
+					{
+						GenerateFile(dlg.FileName);
+						Analytics.Track("Export",
+							new Dictionary<string, string> { { "includeVoiceActors", m_includeVoiceActors.ToString() } });
+					}
+					catch (Exception ex)
+					{
+						ErrorReport.ReportNonFatalExceptionWithMessage(ex, 
+							string.Format(LocalizationManager.GetString("File.CouldNotExport", "Could not export data to {0}", "{0} is a file name."), dlg.FileName));
+					}
+				}
+			}
+		}
+
+		private void GenerateFile(string path)
 		{
 			int blockNumber = 1;
 			using (var stream = new StreamWriter(path, false, Encoding.UTF8))
