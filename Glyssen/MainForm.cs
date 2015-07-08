@@ -312,38 +312,7 @@ namespace Glyssen
 
 		private void HandleExportToTabSeparated_Click(object sender, EventArgs e)
 		{
-			var defaultDir = Settings.Default.DefaultExportDirectory;
-			if (string.IsNullOrEmpty(defaultDir))
-			{
-				defaultDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-			}
-
-			using (var dlg = new SaveFileDialog())
-			{
-				dlg.Title = LocalizationManager.GetString("DialogBoxes.ExportDlg.Title", "Export Tab-Delimited Data");
-				dlg.OverwritePrompt = true;
-				dlg.InitialDirectory = defaultDir;
-				dlg.FileName = "MRK.txt";
-				dlg.Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}",
-					LocalizationManager.GetString("DialogBoxes.ExportDlg.TabDelimitedFileTypeLabel", "Tab-delimited files"),
-					"*.txt",
-					LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"),
-					"*.*");
-				dlg.DefaultExt = ".txt";
-				if (dlg.ShowDialog(this) == DialogResult.OK)
-				{
-					Settings.Default.DefaultExportDirectory = Path.GetDirectoryName(dlg.FileName);
-					try
-					{
-						m_project.ExportTabDelimited(dlg.FileName);
-						Analytics.Track("Export");
-					}
-					catch(Exception ex)
-					{
-						MessageBox.Show(this, ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-					}
-				}
-			}
+			new ProjectExport(m_project).Export(this);
 		}
 
 		private void SetupUILanguageMenu()
@@ -444,10 +413,13 @@ namespace Glyssen
 
 		private void m_btnAssignVoiceActors_Click(object sender, EventArgs e)
 		{
-			bool next = false;
+			bool next = true;
 
-			using (var dlg = new VoiceActorInformationDlg(m_project))
-				next = dlg.ShowDialog() == DialogResult.OK;
+			if (m_project.VoiceActorList.Actors.Count == 0)
+			{
+				using (var dlg = new VoiceActorInformationDlg(m_project))
+					next = dlg.ShowDialog() == DialogResult.OK;
+			}
 
 			if (next)
 			{
