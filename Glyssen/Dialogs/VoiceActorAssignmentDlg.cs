@@ -24,15 +24,6 @@ namespace Glyssen.Dialogs
 			m_voiceActorGrid.CellDoubleClicked += m_voiceActorGrid_CellDoubleClicked;
 			m_voiceActorGrid.UserRemovedRows += m_voiceActorGrid_UserRemovedRows;
 
-			//REVIEW: We should be able to do this in designer and/or modify the layout
-			//Expand some controls to fill out table panel layout
-			Control groupTable = m_tableLayoutPanel.GetControlFromPosition(0, 0);
-			m_tableLayoutPanel.SetRowSpan(groupTable, 3);
-			Control actorTable = m_tableLayoutPanel.GetControlFromPosition(1, 0);
-			m_tableLayoutPanel.SetColumnSpan(actorTable, 2);
-			Control middleButton = m_tableLayoutPanel.GetControlFromPosition(1, 1);
-			m_tableLayoutPanel.SetColumnSpan(middleButton, 2);
-
 			var characterGroups = new SortableBindingList<CharacterGroup>(m_project.CharacterGroupList.CharacterGroups);
 			if (characterGroups.Count == 0)
 			{
