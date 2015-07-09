@@ -120,6 +120,7 @@
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_dataGrid, "VoiceActorInformationDlg.m_dataGrid");
 			this.m_dataGrid.Location = new System.Drawing.Point(0, 0);
+			this.m_dataGrid.Margin = new System.Windows.Forms.Padding(0);
 			this.m_dataGrid.Name = "m_dataGrid";
 			this.m_dataGrid.PaintHeaderAcrossFullGridWidth = true;
 			this.m_dataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -198,6 +199,7 @@
 			this.l10NSharpExtender1.SetLocalizationComment(this, null);
 			this.l10NSharpExtender1.SetLocalizingId(this, "DialogBoxes.VoiceActorInformation.VoiceActorInformationGrid2.VoiceActorInformatio" +
         "nGrid2");
+			this.Margin = new System.Windows.Forms.Padding(0);
 			this.Name = "VoiceActorInformationGrid";
 			this.Size = new System.Drawing.Size(384, 244);
 			this.contextMenu.ResumeLayout(false);
