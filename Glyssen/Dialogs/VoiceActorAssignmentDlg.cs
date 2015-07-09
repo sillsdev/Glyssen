@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using Glyssen.Character;
@@ -22,6 +23,7 @@ namespace Glyssen.Dialogs
 
 			m_voiceActorGrid.Initialize(m_project);
 			m_voiceActorGrid.CellDoubleClicked += m_voiceActorGrid_CellDoubleClicked;
+			m_voiceActorGrid.GridMouseMove += m_voiceActorGrid_MouseMove;
 			m_voiceActorGrid.UserRemovedRows += m_voiceActorGrid_UserRemovedRows;
 
 			var characterGroups = new SortableBindingList<CharacterGroup>(m_project.CharacterGroupList.CharacterGroups);
@@ -106,6 +108,39 @@ namespace Glyssen.Dialogs
 		{
 			SaveAssignments();
 			new ProjectExport(m_project).Export(this);
+		}
+
+		private void m_voiceActorGrid_MouseMove(object sender, MouseEventArgs e)
+		{
+			if (e.Button == MouseButtons.Left)
+			{
+				if (m_voiceActorGrid.SelectedVoiceActorEntity != null && m_voiceActorGrid.SelectedRows.Count == 1)
+				{
+					DoDragDrop(m_voiceActorGrid.SelectedVoiceActorEntity, DragDropEffects.Copy);
+				}
+			}
+		}
+
+		private void m_characterGroupGrid_DragOver(object sender, DragEventArgs e)
+		{
+			if (!e.Data.GetDataPresent(typeof(VoiceActor.VoiceActor)))
+			{
+				e.Effect = DragDropEffects.None;
+				return;
+			}
+			e.Effect = DragDropEffects.Copy;
+		}
+
+		private void m_characterGroupGrid_DragDrop(object sender, DragEventArgs e)
+		{
+			Point p = m_characterGroupGrid.PointToClient(new Point(e.X, e.Y));
+			var hitInfo = m_characterGroupGrid.HitTest(p.X, p.Y);
+			if (hitInfo.Type == DataGridViewHitTestType.Cell)
+			{
+				m_characterGroupGrid.ClearSelection();
+				m_characterGroupGrid.Rows[hitInfo.RowIndex].Selected = true;
+				AssignSelectedActorToSelectedGroup();
+			}
 		}
 	}
 }
