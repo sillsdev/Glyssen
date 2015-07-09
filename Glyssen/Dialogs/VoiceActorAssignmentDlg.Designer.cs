@@ -54,10 +54,11 @@
 			// m_btnAssignActor
 			// 
 			this.m_btnAssignActor.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.m_tableLayoutPanel.SetColumnSpan(this.m_btnAssignActor, 2);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnAssignActor, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnAssignActor, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnAssignActor, "DialogBoxes.VoiceActorAssignment.VoiceActorAssignmentDlg.button1");
-			this.m_btnAssignActor.Location = new System.Drawing.Point(374, 321);
+			this.m_btnAssignActor.Location = new System.Drawing.Point(415, 321);
 			this.m_btnAssignActor.Name = "m_btnAssignActor";
 			this.m_btnAssignActor.Size = new System.Drawing.Size(128, 23);
 			this.m_btnAssignActor.TabIndex = 1;
@@ -159,6 +160,7 @@
 			this.m_characterGroupGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			this.m_characterGroupGrid.RowHeadersVisible = false;
 			this.m_characterGroupGrid.RowHeadersWidth = 22;
+			this.m_tableLayoutPanel.SetRowSpan(this.m_characterGroupGrid, 3);
 			this.m_characterGroupGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.m_characterGroupGrid.SelectedCellBackColor = System.Drawing.Color.Empty;
 			this.m_characterGroupGrid.SelectedCellForeColor = System.Drawing.Color.Empty;
@@ -166,7 +168,7 @@
 			this.m_characterGroupGrid.SelectedRowForeColor = System.Drawing.Color.Empty;
 			this.m_characterGroupGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.m_characterGroupGrid.ShowWaterMarkWhenDirty = false;
-			this.m_characterGroupGrid.Size = new System.Drawing.Size(355, 312);
+			this.m_characterGroupGrid.Size = new System.Drawing.Size(355, 393);
 			this.m_characterGroupGrid.TabIndex = 5;
 			this.m_characterGroupGrid.TextBoxEditControlBorderColor = System.Drawing.Color.Silver;
 			this.m_characterGroupGrid.WaterMark = "!";
@@ -238,6 +240,7 @@
 			// m_voiceActorGrid
 			// 
 			this.m_voiceActorGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_tableLayoutPanel.SetColumnSpan(this.m_voiceActorGrid, 2);
 			this.m_voiceActorGrid.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_voiceActorGrid, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_voiceActorGrid, null);
@@ -245,7 +248,7 @@
         "d2");
 			this.m_voiceActorGrid.Location = new System.Drawing.Point(364, 3);
 			this.m_voiceActorGrid.Name = "m_voiceActorGrid";
-			this.m_voiceActorGrid.Size = new System.Drawing.Size(148, 312);
+			this.m_voiceActorGrid.Size = new System.Drawing.Size(230, 312);
 			this.m_voiceActorGrid.TabIndex = 0;
 			// 
 			// l10NSharpExtender1
