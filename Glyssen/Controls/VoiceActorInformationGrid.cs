@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
@@ -94,9 +95,39 @@ namespace Glyssen.Controls
 
 			if (confirmWithUser)
 			{
-				string dlgMessage = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.Message", "Are you sure you want to delete the selected rows?");
-				string dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.Title", "Confirm");
-				deleteConfirmed = MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
+				List<VoiceActor.VoiceActor> selectedVoiceActorsWithAssignments = new List<VoiceActor.VoiceActor>();
+				foreach (DataGridViewRow row in m_dataGrid.SelectedRows)
+				{
+					VoiceActor.VoiceActor voiceActor = row.DataBoundItem as VoiceActor.VoiceActor;
+					if (voiceActor == null)
+						continue;
+					if (m_project.CharacterGroupList.HasVoiceActorAssigned(voiceActor.Id))
+					{
+						selectedVoiceActorsWithAssignments.Add(voiceActor);
+					}
+				}
+				if (selectedVoiceActorsWithAssignments.Any())
+				{
+					string assignedMsg = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.Message", "One or more of the selected actors is assigned to a character group. Deleting the actor will remove the assignment as well. Are you sure you want to delete the selected actors?");
+					string assignedTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.Title", "Voice Actor(s) Assigned");
+					if (MessageBox.Show(assignedMsg, assignedTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
+					{
+						foreach (var voiceActor in selectedVoiceActorsWithAssignments)
+							m_project.CharacterGroupList.RemoveVoiceActor(voiceActor.Id);
+						m_project.SaveCharacterGroupData();
+						deleteConfirmed = true;
+					}
+					else
+					{
+						return;
+					}
+				}
+				else
+				{
+					string dlgMessage = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.Message", "Are you sure you want to delete the selected rows?");
+					string dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.Title", "Confirm");
+					deleteConfirmed = MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
+				}
 			}
 
 			if (deleteConfirmed)

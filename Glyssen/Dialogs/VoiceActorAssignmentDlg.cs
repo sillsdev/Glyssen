@@ -1,10 +1,10 @@
-﻿using Glyssen.Character;
-using Glyssen.Properties;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
+using Glyssen.Character;
+using Glyssen.Properties;
 using SIL.IO;
 using SIL.ObjectModel;
 
@@ -12,10 +12,7 @@ namespace Glyssen.Dialogs
 {
 	public partial class VoiceActorAssignmentDlg : Form
 	{
-		private Project m_project;
-		private ICharacterGroupSource m_charGroupSource;
-		private CharacterGroupTemplate m_charGroupTemplate;
-		private SortableBindingList<CharacterGroup> m_charActorPairs;
+		private readonly Project m_project;
 
 		public VoiceActorAssignmentDlg(Project project)
 		{
@@ -25,11 +22,9 @@ namespace Glyssen.Dialogs
 
 			m_voiceActorGrid.Initialize(m_project);
 			m_voiceActorGrid.CellDoubleClicked += m_voiceActorGrid_CellDoubleClicked;
+			m_voiceActorGrid.UserRemovedRows += m_voiceActorGrid_UserRemovedRows;
 
-			var characterGroups = m_project.CharacterGroupList.CharacterGroups;
-
-			m_charActorPairs = new SortableBindingList<CharacterGroup>(characterGroups);
-
+			//REVIEW: We should be able to do this in designer and/or modify the layout
 			//Expand some controls to fill out table panel layout
 			Control groupTable = m_tableLayoutPanel.GetControlFromPosition(0, 0);
 			m_tableLayoutPanel.SetRowSpan(groupTable, 3);
@@ -38,26 +33,24 @@ namespace Glyssen.Dialogs
 			Control middleButton = m_tableLayoutPanel.GetControlFromPosition(1, 1);
 			m_tableLayoutPanel.SetColumnSpan(middleButton, 2);
 
-
-			if (m_charActorPairs.Count == 0)
+			var characterGroups = new SortableBindingList<CharacterGroup>(m_project.CharacterGroupList.CharacterGroups);
+			if (characterGroups.Count == 0)
 			{
+				CharacterGroupTemplate charGroupTemplate;
 				using (TempFile tempFile = new TempFile())
 				{
 					File.WriteAllBytes(tempFile.Path, Resources.CharacterGroups);
-					m_charGroupSource = new CharacterGroupTemplateExcelFile(tempFile.Path);
-					m_charGroupTemplate = m_charGroupSource.GetTemplate(m_project.VoiceActorList.Actors.Count);
+					ICharacterGroupSource charGroupSource = new CharacterGroupTemplateExcelFile(tempFile.Path);
+					charGroupTemplate = charGroupSource.GetTemplate(m_project.VoiceActorList.Actors.Count);
 				}
 
-				foreach (KeyValuePair<int, CharacterGroup> pair in m_charGroupTemplate.CharacterGroups)
-				{
-					CharacterGroup group = pair.Value;
-
-					m_charActorPairs.Add(group);
-				}
+				foreach (KeyValuePair<int, CharacterGroup> pair in charGroupTemplate.CharacterGroups)
+					characterGroups.Add(pair.Value);
 			}
 
-			m_characterGroupGrid.DataSource = m_charActorPairs;
+			m_characterGroupGrid.DataSource = characterGroups;
 			m_characterGroupGrid.MultiSelect = true;
+			m_characterGroupGrid.Sort(m_characterGroupGrid.Columns["GroupNumber"], ListSortDirection.Ascending);
 		}
 
 		private void SaveAssignments()
@@ -67,10 +60,10 @@ namespace Glyssen.Dialogs
 
 		private void AssignSelectedActorToSelectedGroup()
 		{
-			VoiceActor.VoiceActor assignee = m_voiceActorGrid.SelectedVoiceActorEntity;
-
-			CharacterGroup entry = m_characterGroupGrid.SelectedRows[0].DataBoundItem as CharacterGroup;
-			entry.AssignVoiceActor(assignee);
+			CharacterGroup group = m_characterGroupGrid.SelectedRows[0].DataBoundItem as CharacterGroup;
+			if (group == null)
+				return;
+			group.AssignVoiceActor(m_voiceActorGrid.SelectedVoiceActorEntity);
 
 			SaveAssignments();
 
@@ -95,6 +88,11 @@ namespace Glyssen.Dialogs
 		private void m_voiceActorGrid_CellDoubleClicked(object sender, DataGridViewCellMouseEventArgs e)
 		{
 			AssignSelectedActorToSelectedGroup();
+		}
+
+		private void m_voiceActorGrid_UserRemovedRows(object sender, DataGridViewRowsRemovedEventArgs e)
+		{
+			m_characterGroupGrid.Refresh();
 		}
 
 		private void m_characterGroupGrid_KeyDown(object sender, KeyEventArgs e)
