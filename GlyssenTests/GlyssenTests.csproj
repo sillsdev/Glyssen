@@ -93,6 +93,7 @@
     <Compile Include="BookSetUtilsTests.cs" />
     <Compile Include="Bundle\GlyssenDblTextMetadataTests.cs" />
     <Compile Include="Character\CharacterAssignerTests.cs" />
+    <Compile Include="Character\CharacterGroupListTests.cs" />
     <Compile Include="Character\CharacterGroupTemplateExcelFileTests.cs" />
     <Compile Include="Character\CharacterGroupTemplateTests.cs" />
     <Compile Include="Character\CharacterVerseDataTests.cs" />

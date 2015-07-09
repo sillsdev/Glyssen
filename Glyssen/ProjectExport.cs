@@ -20,7 +20,7 @@ namespace Glyssen
 		public ProjectExport(Project project)
 		{
 			m_project = project;
-			m_includeVoiceActors = m_project.CharacterGroupList.HasVoiceActorAssigned();
+			m_includeVoiceActors = m_project.CharacterGroupList.AnyVoiceActorAssigned();
 		}
 
 		public void Export(IWin32Window owner)

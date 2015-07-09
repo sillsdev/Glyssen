@@ -25,9 +25,20 @@ namespace Glyssen.Character
 			return XmlSerializationHelper.DeserializeFromFile<CharacterGroupList>(filename);
 		}
 
-		public bool HasVoiceActorAssigned()
+		/// <summary>
+		/// <returns>true if any CharacterGroup has any voice actor assigned, false otherwise</returns>
+		/// </summary>
+		public bool AnyVoiceActorAssigned()
 		{
 			return CharacterGroups.Any(cg => cg.VoiceActorAssignedId != -1);
+		}
+
+		/// <summary>
+		/// <returns>true if any CharacterGroup has the specified voice actor assigned, false otherwise</returns>
+		/// </summary>
+		public bool HasVoiceActorAssigned(int voiceActorId)
+		{
+			return CharacterGroups.Any(cg => cg.VoiceActorAssignedId == voiceActorId);
 		}
 	}
 }
