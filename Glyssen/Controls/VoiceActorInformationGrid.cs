@@ -13,6 +13,7 @@ namespace Glyssen.Controls
 		public event DataGridViewRowEventHandler UserAddedRow;
 		public event DataGridViewRowsRemovedEventHandler UserRemovedRows;
 		public event DataGridViewCellMouseEventHandler CellDoubleClicked;
+		public event MouseEventHandler GridMouseMove;
 		private int m_currentId;
 		private Project m_project;
 		private SortableBindingList<VoiceActor.VoiceActor> m_bindingList;
@@ -26,9 +27,20 @@ namespace Glyssen.Controls
 
 			m_dataGrid.UserAddedRow += HandleUserAddedRow;
 			m_dataGrid.CellMouseDoubleClick += HandleDoubleClick;
+			m_dataGrid.MouseMove += HandleMouseMove;
 		}
 
 		public int RowCount { get { return m_dataGrid.RowCount; } }
+
+		public VoiceActor.VoiceActor SelectedVoiceActorEntity
+		{
+			get { return m_dataGrid.SelectedRows[0].DataBoundItem as VoiceActor.VoiceActor; }
+		}
+
+		public DataGridViewSelectedRowCollection SelectedRows
+		{
+			get { return m_dataGrid.SelectedRows; }
+		}
 
 		public void Initialize(Project project)
 		{
@@ -49,11 +61,6 @@ namespace Glyssen.Controls
 			m_bindingList = new SortableBindingList<VoiceActor.VoiceActor>(actors);
 			m_dataGrid.DataSource = m_bindingList;
 			m_bindingList.AddingNew += HandleAddingNew;
-		}
-
-		public VoiceActor.VoiceActor SelectedVoiceActorEntity
-		{
-			get { return m_dataGrid.SelectedRows[0].DataBoundItem as VoiceActor.VoiceActor; }
 		}
 
 		private void m_dataGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -172,6 +179,13 @@ namespace Glyssen.Controls
 		private void HandleDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
 		{
 			DataGridViewCellMouseEventHandler handler = CellDoubleClicked;
+			if (handler != null)
+				handler(sender, e);
+		}
+
+		private void HandleMouseMove(object sender, MouseEventArgs e)
+		{
+			MouseEventHandler handler = GridMouseMove;
 			if (handler != null)
 				handler(sender, e);
 		}
