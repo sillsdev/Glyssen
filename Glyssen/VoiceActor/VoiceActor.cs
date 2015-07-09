@@ -17,9 +17,9 @@ namespace Glyssen.VoiceActor
 		[XmlAttribute("Age")]
 		public string Age { get; set; }
 
-		public bool IsEmpty()
+		public bool HasMeaningfulData()
 		{
-			return Name == null && Gender == null && Age == null;
+			return Name != null || Gender != null || Age != null;
 		}
 
 		#region IEquatable<T> members

@@ -27,33 +27,11 @@ namespace Glyssen.Controls
 
 		public void MoveToNextField(DataGridViewCell baseCell = null)
 		{
-			if (baseCell == null)
-				baseCell = CurrentCell;
-
-			int nextColumn, nextRow;
-
-			if (baseCell.ColumnIndex + 1 < ColumnCount)
-			{
-				nextColumn = baseCell.ColumnIndex + 1;
-				nextRow = baseCell.RowIndex;
-			}
-			else if (baseCell.RowIndex + 1 < RowCount)
-			{
-				nextColumn = 0;
-				nextRow = baseCell.RowIndex + 1;
-			}
-			else
-			{
+			if (Columns.GetLastColumn(DataGridViewElementStates.Visible, DataGridViewElementStates.None) == CurrentCell.OwningColumn &&
+			    CurrentRow != null &&
+			    Rows.GetLastRow(DataGridViewElementStates.Visible) == CurrentRow.Index)
 				return;
-			}
-
-			var nextCell = Rows[nextRow].Cells[nextColumn];
-			if (nextCell.Visible)
-			{
-				CurrentCell = nextCell;
-			}
-			else
-				MoveToNextField(nextCell);
+			SendKeys.Send("{TAB}");
 		}
 	}
 }

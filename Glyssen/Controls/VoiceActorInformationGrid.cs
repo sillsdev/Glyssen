@@ -59,7 +59,7 @@ namespace Glyssen.Controls
 		{
 			DataGridViewCell cell = m_dataGrid.CurrentCell;
 
-			if (cell.ColumnIndex > 0)
+			if (cell.OwningColumn == m_dataGrid.Columns["ActorGender"] || cell.OwningColumn == m_dataGrid.Columns["ActorAge"])
 			{
 				m_currentComboBox = e.Control as ComboBox;
 				m_currentComboBox.SelectedIndexChanged += box_SelectedIndexChanged;
