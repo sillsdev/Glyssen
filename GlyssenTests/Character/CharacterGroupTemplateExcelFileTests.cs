@@ -28,15 +28,16 @@ namespace GlyssenTests.Character
 		}
 
 		[Test]
-		public void NumberOfActors__TooFew_ThrowsArgumentException()
+		public void NumberOfActors_TooFew_ThrowsArgumentException()
 		{
 			Assert.Throws<ArgumentException>(() => m_charGroupSource.GetTemplate(0));
 		}
 
 		[Test]
-		public void NumberOfActors__TooMany_ThrowsArgumentException()
+		public void GetTemplate_NumberOfActors_TooMany_GetsMaxAvailable()
 		{
-			Assert.Throws<ArgumentException>(() => m_charGroupSource.GetTemplate(29));
+			CharacterGroupTemplate template = m_charGroupSource.GetTemplate(29);
+			Assert.AreEqual(28, template.CharacterGroups.Count);
 		}
 
 		[Test]
