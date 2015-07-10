@@ -116,7 +116,11 @@ namespace Glyssen.Dialogs
 			{
 				if (m_voiceActorGrid.SelectedVoiceActorEntity != null && m_voiceActorGrid.SelectedRows.Count == 1)
 				{
-					DoDragDrop(m_voiceActorGrid.SelectedVoiceActorEntity, DragDropEffects.Copy);
+					var hitInfo = m_voiceActorGrid.HitTest(e.X, e.Y);
+					if (hitInfo.Type == DataGridViewHitTestType.Cell)
+					{
+						DoDragDrop(m_voiceActorGrid.SelectedVoiceActorEntity, DragDropEffects.Copy);
+					}
 				}
 			}
 		}
