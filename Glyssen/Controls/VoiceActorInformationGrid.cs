@@ -53,6 +53,11 @@ namespace Glyssen.Controls
 			m_project.SaveVoiceActorInformationData();
 		}
 
+		public DataGridView.HitTestInfo HitTest(int x, int y)
+		{
+			return m_dataGrid.HitTest(x, y);
+		}
+
 		private void LoadVoiceActorInformation()
 		{
 			var actors = m_project.VoiceActorList.Actors;
