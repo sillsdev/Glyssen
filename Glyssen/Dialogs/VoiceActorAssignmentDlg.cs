@@ -15,6 +15,9 @@ namespace Glyssen.Dialogs
 	{
 		private readonly Project m_project;
 
+		//Double to force a decimal value in calculation
+		private const double kKeyStrokesPerHour = 6000;
+
 		public VoiceActorAssignmentDlg(Project project)
 		{
 			InitializeComponent();
@@ -39,6 +42,28 @@ namespace Glyssen.Dialogs
 
 				foreach (KeyValuePair<int, CharacterGroup> pair in charGroupTemplate.CharacterGroups)
 					characterGroups.Add(pair.Value);
+
+				Dictionary<string, int> keyStrokesByCharacterId = new Dictionary<string, int>();
+				foreach (var book in m_project.IncludedBooks)
+				{
+					foreach (var block in book.GetScriptBlocks(true))
+					{
+						if(!keyStrokesByCharacterId.ContainsKey(block.CharacterId))
+							keyStrokesByCharacterId.Add(block.CharacterId, 0);
+						keyStrokesByCharacterId[block.CharacterId] += block.GetText(false).Length;
+					}
+				}
+
+				foreach (var group in characterGroups)
+				{
+					int keyStrokes = 0;
+					foreach (var characterId in group.CharacterIds)
+					{
+						if (keyStrokesByCharacterId.ContainsKey(characterId))
+							keyStrokes += keyStrokesByCharacterId[characterId];
+					}
+					group.EstimatedHours = (keyStrokes/kKeyStrokesPerHour).ToString("0.00");
+				}
 			}
 
 			m_characterGroupGrid.DataSource = characterGroups;
