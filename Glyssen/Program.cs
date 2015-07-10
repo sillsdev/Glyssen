@@ -20,6 +20,8 @@ namespace Glyssen
 		public const string kProduct = "Glyssen";
 		public const string kApplicationId = "Glyssen";
 
+		public const int kKeyStrokesPerHour = 6000;
+
 		private const string kOldProductName = "Protoscript Generator";
 
 		/// <summary>
