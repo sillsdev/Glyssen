@@ -62,7 +62,7 @@ namespace Glyssen.Dialogs
 						if (keyStrokesByCharacterId.ContainsKey(characterId))
 							keyStrokes += keyStrokesByCharacterId[characterId];
 					}
-					group.EstimatedHours = (keyStrokes/kKeyStrokesPerHour).ToString("0.00");
+					group.EstimatedHours = keyStrokes/kKeyStrokesPerHour;
 				}
 			}
 

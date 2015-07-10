@@ -59,7 +59,7 @@ namespace Glyssen.Character
 		}
 
 		[XmlElement]
-		public string EstimatedHours { get; set; }
+		public double EstimatedHours { get; set; }
 
 		[XmlElement]
 		[Browsable(false)]
