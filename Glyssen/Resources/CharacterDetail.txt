@@ -634,7 +634,7 @@ men of Anathoth	TRUE	Male
 men of Ashdod	TRUE	Male		
 men of Babel	TRUE	Male		
 men of David	TRUE	Male		
-men of David, one	TRUE	Male		
+men of David, one	FALSE	Male		
 men of Enaim	TRUE	Male		
 men of Gerar	TRUE	Male		
 men of Sodom (wicked)	TRUE	Male		
