@@ -129,6 +129,7 @@
 			// m_btnAssign
 			// 
 			this.m_btnAssign.BackColor = System.Drawing.Color.Transparent;
+			this.m_btnAssign.Enabled = false;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnAssign, "Select a Character ID for each block in the recording script");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnAssign, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnAssign, "MainForm.AssignCharacters");
@@ -144,6 +145,7 @@
 			// m_btnSelectBooks
 			// 
 			this.m_btnSelectBooks.BackColor = System.Drawing.Color.Transparent;
+			this.m_btnSelectBooks.Enabled = false;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnSelectBooks, "Choose which books to include in the recording script");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnSelectBooks, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnSelectBooks, "MainForm.SelectBooks");
@@ -159,6 +161,7 @@
 			// m_btnSettings
 			// 
 			this.m_btnSettings.BackColor = System.Drawing.Color.Transparent;
+			this.m_btnSettings.Enabled = false;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnSettings, "Change the settings used to generate the recording script");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnSettings, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnSettings, "MainForm.ProjectSettings");
