@@ -41,6 +41,8 @@ namespace Glyssen.Dialogs
 					characterGroups.Add(pair.Value);
 			}
 
+			m_project.CharacterGroupList.PopulateEstimatedHours(m_project.IncludedBooks);
+
 			m_characterGroupGrid.DataSource = characterGroups;
 			m_characterGroupGrid.MultiSelect = true;
 			m_characterGroupGrid.Sort(m_characterGroupGrid.Columns["GroupNumber"], ListSortDirection.Ascending);
