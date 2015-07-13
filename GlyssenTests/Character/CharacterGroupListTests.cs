@@ -25,7 +25,7 @@ namespace GlyssenTests.Character
 		{
 			var list = new CharacterGroupList();
 			var group = new CharacterGroup(1);
-			group.AssignVoiceActor(new VoiceActor { Id = 0, Name = "A" });
+			group.AssignVoiceActor(new Glyssen.VoiceActor.VoiceActor { Id = 0, Name = "A" });
 			list.CharacterGroups.Add(group);
 
 			Assert.IsTrue(list.AnyVoiceActorAssigned());
@@ -45,7 +45,7 @@ namespace GlyssenTests.Character
 		{
 			var list = new CharacterGroupList();
 			var group = new CharacterGroup(1);
-			group.AssignVoiceActor(new VoiceActor { Id = 0, Name = "A" });
+			group.AssignVoiceActor(new Glyssen.VoiceActor.VoiceActor { Id = 0, Name = "A" });
 			list.CharacterGroups.Add(group);
 
 			Assert.IsFalse(list.HasVoiceActorAssigned(1));
@@ -56,7 +56,7 @@ namespace GlyssenTests.Character
 		{
 			var list = new CharacterGroupList();
 			var group = new CharacterGroup(1);
-			group.AssignVoiceActor(new VoiceActor { Id = 1, Name = "A" });
+			group.AssignVoiceActor(new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "A" });
 			list.CharacterGroups.Add(group);
 
 			Assert.IsTrue(list.HasVoiceActorAssigned(1));
@@ -69,8 +69,8 @@ namespace GlyssenTests.Character
 			var group1 = new CharacterGroup(1);
 			var group2 = new CharacterGroup(2);
 			var group3 = new CharacterGroup(3);
-			var voiceActor1 = new VoiceActor { Id = 1, Name = "A" };
-			var voiceActor2 = new VoiceActor { Id = 2, Name = "B" };
+			var voiceActor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "A" };
+			var voiceActor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "B" };
 			group1.AssignVoiceActor(voiceActor1);
 			list.CharacterGroups.Add(group1);
 			group2.AssignVoiceActor(voiceActor1);
@@ -92,8 +92,8 @@ namespace GlyssenTests.Character
 			{
 				CharacterIds = { "A", "B" }
 			};
-			var voiceActor1 = new VoiceActor { Id = 1, Name = "A" };
-			var voiceActor2 = new VoiceActor { Id = 2, Name = "B" };
+			var voiceActor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "A" };
+			var voiceActor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "B" };
 			group1.AssignVoiceActor(voiceActor1);
 			group1.AssignVoiceActor(voiceActor2);
 			list.CharacterGroups.Add(group1);
@@ -102,8 +102,8 @@ namespace GlyssenTests.Character
 			{
 				CharacterIds = { "C", "D" }
 			};
-			var voiceActor3 = new VoiceActor { Id = 3, Name = "C" };
-			var voiceActor4 = new VoiceActor { Id = 4, Name = "D" };
+			var voiceActor3 = new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "C" };
+			var voiceActor4 = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "D" };
 			group2.AssignVoiceActor(voiceActor3);
 			group2.AssignVoiceActor(voiceActor4);
 			list.CharacterGroups.Add(group2);

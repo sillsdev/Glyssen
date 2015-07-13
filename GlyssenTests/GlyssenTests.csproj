@@ -111,6 +111,8 @@
     <Compile Include="Dialogs\SelectProjectDlgTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\MathUtilitiesTests.cs" />
+    <Compile Include="VoiceActor\VoiceActorListTests.cs" />
+    <Compile Include="VoiceActor\VoiceActorTests.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
