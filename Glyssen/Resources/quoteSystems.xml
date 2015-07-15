@@ -126,6 +126,12 @@
 		<EndQuoteMarker>"</EndQuoteMarker>
 	</QuoteSystem>
 	<QuoteSystem>
+		<Name>מֵירְכָאוֹת (Curly)</Name>
+		<MajorLanguage>Hebrew (Curly)</MajorLanguage>
+		<StartQuoteMarker>”</StartQuoteMarker>
+		<EndQuoteMarker>“</EndQuoteMarker>
+	</QuoteSystem>
+	<QuoteSystem>
 		<Name>Citation marks</Name>
 		<MajorLanguage>Finnish/Swedish</MajorLanguage>
 		<StartQuoteMarker>”</StartQuoteMarker>
