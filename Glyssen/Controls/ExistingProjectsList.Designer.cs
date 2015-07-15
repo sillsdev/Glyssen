@@ -33,7 +33,7 @@ namespace Glyssen.Controls
 		{
 			this.components = new System.ComponentModel.Container();
 			this.colBundleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.colInactive = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colInactive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.SuspendLayout();
@@ -78,7 +78,7 @@ namespace Glyssen.Controls
 		#endregion
 
 		private System.Windows.Forms.DataGridViewTextBoxColumn colBundleName;
-		private System.Windows.Forms.DataGridViewTextBoxColumn colInactive;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn colInactive;
 		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
 	}
 }

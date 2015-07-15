@@ -201,7 +201,10 @@ namespace Glyssen
 				}
 				// If we get here, then the Select Existing Project dialog was not displayed, but there is
 				// already a project with the same path (i.e., for a different revision). So we need to
-				// generate a unique revision-specific project path
+				// generate a unique revision-specific project path.
+				// TODO (PG-222): Before blindly creating a new project, we probably need to prompt the
+				// user to see if they want to upgrade an existing project instead. If there are multiple
+				// candidate projects, we'll need to present a list.
 				var baserecordingProjectName = recordingProjectName;
 				recordingProjectName = string.Format("{0} (Rev {1})", baserecordingProjectName, bundle.Metadata.Revision);
 				var path = Project.GetProjectFilePath(bundle.LanguageIso, bundle.Id, recordingProjectName);
