@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Glyssen.Character;
 using Glyssen.Utilities;
+using SIL.Extensions;
 using SIL.Scripture;
 using ScrVers = Paratext.ScrVers;
 
@@ -72,36 +73,46 @@ namespace Glyssen.Quote
 
 		private void GetRegExesForSplittingQuotes()
 		{
-			var splitters = new SortedSet<string>(new SplitterComparer());
+			IList<string> splitters;
 			var quoteChars = new HashSet<char>();
 			var regexExpressions = new List<string>(m_quoteSystem.NormalLevels.Count);
 
+			// At level x, we need continuer x, closer x, opener x+1.  Continuer must be first.
 			for (int level = 0; level < m_quoteSystem.NormalLevels.Count; level++)
 			{
-				var quoteSystemLevel = m_quoteSystem.NormalLevels[level];
-				splitters.Add(quoteSystemLevel.Open);
-				if (!string.IsNullOrWhiteSpace(quoteSystemLevel.Continue))
-					splitters.Add(quoteSystemLevel.Continue);
+				splitters = new List<string>();
 				if (level > 0)
 				{
 					var quoteSystemLevelMinusOne = m_quoteSystem.NormalLevels[level - 1];
+					if (!string.IsNullOrWhiteSpace(quoteSystemLevelMinusOne.Continue))
+						splitters.Add(quoteSystemLevelMinusOne.Continue);
 					splitters.Add(quoteSystemLevelMinusOne.Close);
 				}
-				else if (!string.IsNullOrEmpty(m_quoteSystem.QuotationDashMarker))
-				{
-					splitters.Add(m_quoteSystem.QuotationDashMarker);
-					if (!string.IsNullOrEmpty(m_quoteSystem.QuotationDashEndMarker))
-						splitters.Add(m_quoteSystem.QuotationDashEndMarker);
-				}
+				splitters.Add(m_quoteSystem.NormalLevels[level].Open);
+				if (level <= 0)
+					AddQuotationDashes(splitters);
 
 				regexExpressions.Add(BuildQuoteMatcherRegex(splitters));
 			}
 
+			// Final regex handles when we are inside the innermost level
+			splitters = new List<string>();
 			splitters.Add(m_quoteSystem.NormalLevels.Last().Close);
+			splitters.Add(m_quoteSystem.NormalLevels.Last().Continue);
+			if (m_quoteSystem.NormalLevels.Count == 1)
+				AddQuotationDashes(splitters);
 			regexExpressions.Add(BuildQuoteMatcherRegex(splitters));
 
-			foreach (var ch in splitters.SelectMany(qm => qm.Where(c => !Char.IsWhiteSpace(c))))
-				quoteChars.Add(ch);
+			// Get all unique characters which make up all quote marks
+			StringBuilder sbAllCharacters = new StringBuilder();
+			foreach (var quoteSystemLevel in m_quoteSystem.AllLevels)
+			{
+				sbAllCharacters.Append(quoteSystemLevel.Open);
+				sbAllCharacters.Append(quoteSystemLevel.Close);
+				if (!String.IsNullOrWhiteSpace(quoteSystemLevel.Continue))
+					sbAllCharacters.Append(quoteSystemLevel.Continue);
+			}
+			quoteChars.AddRange(sbAllCharacters.ToString().Where(c => !char.IsWhiteSpace(c)));
 
 			foreach (var expr in regexExpressions)
 			{
@@ -111,7 +122,19 @@ namespace Glyssen.Quote
 			}
 		}
 
-		private static string BuildQuoteMatcherRegex(SortedSet<string> splitters)
+		private void AddQuotationDashes(IList<string> splitters)
+		{
+			if (!string.IsNullOrEmpty(m_quoteSystem.QuotationDashMarker))
+			{
+				splitters.Add(m_quoteSystem.QuotationDashMarker);
+				if (!string.IsNullOrEmpty(m_quoteSystem.QuotationDashEndMarker))
+				{
+					splitters.Add(m_quoteSystem.QuotationDashEndMarker);
+				}
+			}
+		}
+
+		private static string BuildQuoteMatcherRegex(IList<string> splitters)
 		{
 			var sbQuoteMatcher = new StringBuilder();
 
@@ -654,28 +677,5 @@ namespace Glyssen.Quote
 			}
 		}
 		#endregion
-
-		public class SplitterComparer : IComparer<string>
-		{
-			int IComparer<string>.Compare(string x, string y)
-			{
-				if (x.Contains(" ") && !y.Contains(" "))
-					return -1;
-				if (!x.Contains(" ") && y.Contains(" "))
-					return 1;
-				int result;
-				if (x.Contains(" ") && y.Contains(" "))
-				{
-					result = -x.Length.CompareTo(y.Length);
-					if (result != 0)
-						return result;
-					return String.Compare(x, y, StringComparison.InvariantCulture);
-				}
-				result = x.Length.CompareTo(y.Length);
-				if (result != 0)
-					return result;
-				return String.Compare(x, y, StringComparison.InvariantCulture);
-			}
-		}
 	}
 }
