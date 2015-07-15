@@ -61,14 +61,32 @@ namespace GlyssenTests.Quote
 		/// <summary>
 		/// This is more of an acceptance test since it depends on randomly generated test data (to attempt
 		/// to simulate real data), and the interworking of the QuoteSystemGuesser and the CharacterVerseData class.
+		/// 
+		/// "מֵירְכָאוֹת (Curly) with levels 2 (’/‘) and 3." has to be excluded here because it is so similar to "Citation marks with levels 2 (’/’) and 3."
+		/// We still test it in the test which doesn't require certainty.
 		/// </summary>
 		[Test]
-		public void Guess_AllSinglePossibilityMultipleLevelQuoteSystemsWithHighlyConsistentData_CorrectlyIdentifiesSystemWithCertainty()
+		public void Guess_MostSinglePossibilityMultipleLevelQuoteSystemsWithHighlyConsistentData_CorrectlyIdentifiesSystemWithCertainty()
+		{
+			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => String.IsNullOrEmpty(qs.QuotationDashMarker) &&
+				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() == 1 &&
+				qs.Name != "מֵירְכָאוֹת (Curly) with levels 2 (’/‘) and 3."))
+			{
+				RunTest(quoteSystem, true, false, true);
+			}
+		}
+
+		/// <summary>
+		/// This is more of an acceptance test since it depends on randomly generated test data (to attempt
+		/// to simulate real data), and the interworking of the QuoteSystemGuesser and the CharacterVerseData class.
+		/// </summary>
+		[Test]
+		public void Guess_AllSinglePossibilityMultipleLevelQuoteSystemsWithHighlyConsistentData_CorrectlyIdentifiesSystemWithoutCertainty()
 		{
 			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => String.IsNullOrEmpty(qs.QuotationDashMarker) &&
 				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() == 1))
 			{
-				RunTest(quoteSystem, true, false, true);
+				RunTest(quoteSystem, true, false, false);
 			}
 		}
 
@@ -140,7 +158,7 @@ namespace GlyssenTests.Quote
 			if (expectedCertain)
 			{
 				Assert.AreEqual(quoteSystem, guessedQuoteSystem, "Expected " + quoteSystem.FirstLevel + ", but was " + guessedQuoteSystem.FirstLevel);
-				Assert.IsTrue(certain);
+				Assert.IsTrue(certain, "Quote system was not guessed with sufficient certainty: " + quoteSystem.Name + "(" + quoteSystem + ")");
 			}
 			else
 			{
