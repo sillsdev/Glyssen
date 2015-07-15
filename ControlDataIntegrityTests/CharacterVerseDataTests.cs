@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Glyssen.Character;
 using Glyssen.Properties;
-using Glyssen.Utilities;
 using NUnit.Framework;
 using Paratext;
 using SIL.Scripture;
@@ -121,15 +121,40 @@ namespace ControlDataIntegrityTests
 		}
 
 		[Test]
+		public void DataIntegrity_NoAliasEqualToCharacterId()
+		{
+			List<CharacterVerse> entriesWhereAliasEqualsCharacterId = new List<CharacterVerse>();
+			foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
+			{
+				if (cv.Alias == cv.Character)
+					entriesWhereAliasEqualsCharacterId.Add(cv);
+			}
+
+			Assert.False(entriesWhereAliasEqualsCharacterId.Any(),
+				"Character-Verse data where Alias equals Character ID:" +
+				Environment.NewLine +
+				entriesWhereAliasEqualsCharacterId.Select(cv => cv.BcvRef + ", " + cv.Character + ", " + cv.Alias).OnePerLineWithIndent());
+		}
+
+		[Test]
 		public void DataIntegrity_AllCharacterIdsAndDefaultCharactersHaveCharacterDetail()
 		{
-			IEnumerable<string> charactersHavingDetail = CharacterDetailData.Singleton.GetAll().Select(d => d.Character);
+			var charactersHavingDetail = CharacterDetailData.Singleton.GetAll().Select(d => d.Character).ToList();
 			ISet<string> missingCharacters = new SortedSet<string>();
 			ISet<string> missingDefaultCharacters = new SortedSet<string>();
 			foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
 			{
 				if (!charactersHavingDetail.Contains(cv.Character))
-					missingCharacters.Add(cv.Character);
+				{
+					var characters = cv.Character.Split('/');
+					if (characters.Length > 1)
+					{
+						foreach (var character in characters.Where(character => !charactersHavingDetail.Contains(character)))
+							missingCharacters.Add(character);
+					}
+					else
+						missingCharacters.Add(cv.Character);
+				}
 				if (!(string.IsNullOrEmpty(cv.DefaultCharacter) || charactersHavingDetail.Contains(cv.DefaultCharacter)))
 					missingDefaultCharacters.Add(cv.DefaultCharacter);
 			}
@@ -142,6 +167,37 @@ namespace ControlDataIntegrityTests
 				Environment.NewLine +
 				missingDefaultCharacters.OnePerLineWithIndent());
 		}
+
+		//[Test]
+		//public void DataIntegrity_AllCharacterIdsWithSlashesResolveToRealCharacters()
+		//{
+		//	var charactersHavingDetail = CharacterDetailData.Singleton.GetAll().Select(d => d.Character).ToList();
+		//	HashSet<string> characterIdsWithProblems = new HashSet<string>();
+		//	foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
+		//	{
+		//		var characters = cv.Character.Split('/');
+		//		if (characters.Length > 1)
+		//		{
+		//			foreach (var character in characters)
+		//			{
+		//				if (!charactersHavingDetail.Contains(character))
+		//				{
+		//					Console.WriteLine("Character ID " + cv.Character + " in " +
+		//						cv.BookCode + " " + cv.Chapter + ":" + cv.Verse +
+		//						"   has a character, " + character + ", which does not have an entry in character details.");
+		//					characterIdsWithProblems.Add(cv.Character);
+		//				}
+		//			}
+		//		}
+		//		//if (cv.Character.Contains("/") && String.IsNullOrEmpty(cv.DefaultCharacter))
+		//		//{
+		//		//	Console.WriteLine("Character " + cv.BookCode + " " + cv.Chapter + ":" + cv.Verse + "   " +
+		//		//		cv.Character + " does not have a default character.");
+		//		//	problems++;
+		//		//}
+		//	}
+		//	Assert.AreEqual(0, characterIdsWithProblems.Count, "Number of unique character IDs with problems.");
+		//}
 
 		[Test]
 		public void DataIntegrity_ParallelPassageReferences()

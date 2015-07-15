@@ -170,26 +170,26 @@ GEN	16	10	angel of the LORD, the			Normal	Jesus
 GEN	16	11	angel of the LORD, the			Normal	Jesus	
 GEN	16	12	angel of the LORD, the			Normal	Jesus	
 GEN	16	13	Hagar, the Egyptian			Normal		
-GEN	17	1	God		God (LORD appeared)	Normal		
-GEN	17	2	God		God (LORD appeared)	Normal		
-GEN	17	4	God		God (LORD appeared)	Normal		
-GEN	17	5	God		God (LORD appeared)	Normal		
-GEN	17	6	God		God (LORD appeared)	Normal		
-GEN	17	7	God		God (LORD appeared)	Normal		
-GEN	17	8	God		God (LORD appeared)	Normal		
-GEN	17	9	God		God (LORD appeared)	Normal		
-GEN	17	10	God		God (LORD appeared)	Normal		
-GEN	17	11	God		God (LORD appeared)	Normal		
-GEN	17	12	God		God (LORD appeared)	Normal		
-GEN	17	13	God		God (LORD appeared)	Normal		
-GEN	17	14	God		God (LORD appeared)	Normal		
-GEN	17	15	God		God (LORD appeared)	Normal		
-GEN	17	16	God		God (LORD appeared)	Normal		
+GEN	17	1	God		God (the LORD)	Normal		
+GEN	17	2	God		God (the LORD)	Normal		
+GEN	17	4	God		God (the LORD)	Normal		
+GEN	17	5	God		God (the LORD)	Normal		
+GEN	17	6	God		God (the LORD)	Normal		
+GEN	17	7	God		God (the LORD)	Normal		
+GEN	17	8	God		God (the LORD)	Normal		
+GEN	17	9	God		God (the LORD)	Normal		
+GEN	17	10	God		God (the LORD)	Normal		
+GEN	17	11	God		God (the LORD)	Normal		
+GEN	17	12	God		God (the LORD)	Normal		
+GEN	17	13	God		God (the LORD)	Normal		
+GEN	17	14	God		God (the LORD)	Normal		
+GEN	17	15	God		God (the LORD)	Normal		
+GEN	17	16	God		God (the LORD)	Normal		
 GEN	17	17	Abraham (Abram)			Normal		
 GEN	17	18	Abraham (Abram)			Normal		
-GEN	17	19	God		God (LORD appeared)	Normal		
-GEN	17	20	God		God (LORD appeared)	Normal		
-GEN	17	21	God		God (LORD appeared)	Normal		
+GEN	17	19	God		God (the LORD)	Normal		
+GEN	17	20	God		God (the LORD)	Normal		
+GEN	17	21	God		God (the LORD)	Normal		
 GEN	18	3	Abraham (Abram)			Normal		
 GEN	18	4	Abraham (Abram)			Normal		
 GEN	18	5	Abraham (Abram)			Normal		
@@ -197,32 +197,32 @@ GEN	18	5	three men (two angels and the LORD)		God (The Lord appeared) (three men
 GEN	18	6	Abraham (Abram)			Normal		
 GEN	18	9	Abraham (Abram)			Normal		
 GEN	18	9	three men (two angels and the LORD)		God (The Lord appeared) (three men)	Normal	angels at Sodom, two	
-GEN	18	10	God		God (LORD appeared)	Normal		
+GEN	18	10	God		God (the LORD)	Normal		
 GEN	18	12	Sarah (Sarai) (old)			Normal		
-GEN	18	13	God		God (LORD appeared)	Normal		
-GEN	18	14	God		God (LORD appeared)	Normal		
-GEN	18	15	God		God (LORD appeared)	Normal		
+GEN	18	13	God		God (the LORD)	Normal		
+GEN	18	14	God		God (the LORD)	Normal		
+GEN	18	15	God		God (the LORD)	Normal		
 GEN	18	15	Sarah (Sarai) (old)			Normal		
-GEN	18	17	God		God (LORD appeared)	Normal		
-GEN	18	18	God		God (LORD appeared)	Normal		
-GEN	18	19	God		God (LORD appeared)	Normal		
-GEN	18	20	God		God (LORD appeared)	Normal		
-GEN	18	21	God		God (LORD appeared)	Normal		
+GEN	18	17	God		God (the LORD)	Normal		
+GEN	18	18	God		God (the LORD)	Normal		
+GEN	18	19	God		God (the LORD)	Normal		
+GEN	18	20	God		God (the LORD)	Normal		
+GEN	18	21	God		God (the LORD)	Normal		
 GEN	18	23	Abraham (Abram)			Normal		
 GEN	18	24	Abraham (Abram)			Normal		
 GEN	18	25	Abraham (Abram)			Normal		
-GEN	18	26	God		God (LORD appeared)	Normal		
+GEN	18	26	God		God (the LORD)	Normal		
 GEN	18	27	Abraham (Abram)			Normal		
 GEN	18	28	Abraham (Abram)			Normal		
-GEN	18	28	God		God (LORD appeared)	Normal		
+GEN	18	28	God		God (the LORD)	Normal		
 GEN	18	29	Abraham (Abram)			Normal		
-GEN	18	29	God		God (LORD appeared)	Normal		
+GEN	18	29	God		God (the LORD)	Normal		
 GEN	18	30	Abraham (Abram)			Normal		
-GEN	18	30	God		God (LORD appeared)	Normal		
+GEN	18	30	God		God (the LORD)	Normal		
 GEN	18	31	Abraham (Abram)			Normal		
-GEN	18	31	God		God (LORD appeared)	Normal		
+GEN	18	31	God		God (the LORD)	Normal		
 GEN	18	32	Abraham (Abram)			Normal		
-GEN	18	32	God		God (LORD appeared)	Normal		
+GEN	18	32	God		God (the LORD)	Normal		
 GEN	19	2	angels at Sodom, two		angels appeared like men, two	Normal		
 GEN	19	2	Lot			Normal		
 GEN	19	3	angels at Sodom, two		angels appeared like men, two	Indirect		
@@ -555,21 +555,21 @@ GEN	34	9	Hamor			Normal
 GEN	34	10	Hamor			Normal		
 GEN	34	11	Shechem, son of Hamor			Normal		
 GEN	34	12	Shechem, son of Hamor			Normal		
-GEN	34	14	Jacob's sons			Normal	Simeon	
-GEN	34	15	Jacob's sons			Normal	Simeon	
-GEN	34	16	Jacob's sons			Normal	Levi	
-GEN	34	17	Jacob's sons			Normal	Levi	
-GEN	34	21	Hamor/Shechem			Normal	Hamor	
-GEN	34	22	Hamor/Shechem			Normal	Hamor	
-GEN	34	23	Hamor/Shechem			Normal	Shechem	
+GEN	34	14	Simeon/Levi		Jacob's sons	Normal	Simeon	
+GEN	34	15	Simeon/Levi		Jacob's sons	Normal	Simeon	
+GEN	34	16	Simeon/Levi		Jacob's sons	Normal	Levi	
+GEN	34	17	Simeon/Levi		Jacob's sons	Normal	Levi	
+GEN	34	21	Hamor/Shechem, son of Hamor			Normal	Hamor	
+GEN	34	22	Hamor/Shechem, son of Hamor			Normal	Hamor	
+GEN	34	23	Hamor/Shechem, son of Hamor			Normal	Shechem, son of Hamor	
 GEN	34	30	Jacob (Israel)			Normal		
 GEN	34	31	Simeon/Levi			Normal	Simeon	
 GEN	35	1	God		God (the LORD)	Normal		
 GEN	35	2	Jacob (Israel)			Normal		
 GEN	35	3	Jacob (Israel)			Normal		
-GEN	35	10	God	blessing	God (LORD appeared)	Normal		
-GEN	35	11	God		God (LORD appeared)	Normal		
-GEN	35	12	God		God (LORD appeared)	Normal		
+GEN	35	10	God	blessing	God (the LORD)	Normal		
+GEN	35	11	God		God (the LORD)	Normal		
+GEN	35	12	God		God (the LORD)	Normal		
 GEN	35	17	midwife of Rachel			Normal		
 GEN	37	6	Joseph			Normal		
 GEN	37	7	Joseph			Normal		
@@ -699,7 +699,7 @@ GEN	42	21	Jacob's sons			Normal	Judah
 GEN	42	22	Reuben			Normal		
 GEN	42	24	Joseph			Indirect		
 GEN	42	25	Joseph			Indirect		
-GEN	42	28	Jacob's son (the one who discovered his silver in his sack)			Normal	Dan	
+GEN	42	28	Jacob's son (one who discovered his silver in his sack)		brother who discovered his silver in his sack	Normal	Dan	
 GEN	42	28	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Levi	
 #either Reuben or Judah OK
 GEN	42	30	Jacob's sons (not Simeon, Joseph, or Benjamin)			Normal	Reuben	
@@ -882,7 +882,7 @@ EXO	1	9	Pharaoh (3rd)		Pharaoh	Normal
 EXO	1	10	Pharaoh (3rd)		Pharaoh	Normal		
 EXO	1	16	Pharaoh (3rd)		Pharaoh	Normal		
 EXO	1	18	Pharaoh (3rd)		Pharaoh	Normal		
-EXO	1	19	midwives, Shiphrah/Puah			Normal		
+EXO	1	19	Shiphrah (midwife)/Puah (midwife)		midwives (Shiphrah and Puah)	Normal	Shiphrah (midwife)	
 EXO	1	22	Pharaoh (3rd)	giving orders	Pharaoh	Normal		
 EXO	2	6	Pharaoh's daughter			Normal		
 EXO	2	7	Miriam (young)			Normal		
@@ -1001,7 +1001,7 @@ EXO	8	10	Pharaoh (3rd)		Pharaoh	Normal
 EXO	8	10	Moses			Normal		
 EXO	8	11	Moses			Normal		
 EXO	8	16	God		God (the LORD)	Normal		
-EXO	8	19	Magicians			Normal		
+EXO	8	19	magicians			Normal		
 EXO	8	20	God		God (the LORD)	Normal		
 EXO	8	21	God		God (the LORD)	Normal		
 EXO	8	22	God		God (the LORD)	Normal		
@@ -2741,7 +2741,7 @@ NUM	15	38	God		God (the LORD)	Normal
 NUM	15	39	God		God (the LORD)	Normal		
 NUM	15	40	God		God (the LORD)	Normal		
 NUM	15	41	God		God (the LORD)	Normal		
-NUM	16	3	Korah/Dathan/Abiram/250 Israelite leaders	arrogantly		Normal	Korah	
+NUM	16	3	Korah/Dathan/Abiram/On/250 Israelite leaders	arrogantly		Normal	Korah	
 NUM	16	5	Moses			Normal		
 NUM	16	6	Moses			Normal		
 NUM	16	7	Moses			Normal		
@@ -3439,7 +3439,7 @@ JOS	2	10	Rahab			Normal
 JOS	2	11	Rahab			Normal		
 JOS	2	12	Rahab			Normal		
 JOS	2	13	Rahab			Normal		
-JOS	2	14	spies from Joshua, men			Normal		
+JOS	2	14	Israelite spies from Joshua, two men		men (spies)	Normal		
 JOS	2	16	Rahab			Normal		
 JOS	2	17	Israelite spies from Joshua, two men			Normal		
 JOS	2	18	Israelite spies from Joshua, two men			Normal		
@@ -3489,7 +3489,7 @@ JOS	6	19	Joshua			Normal
 JOS	6	22	Joshua			Normal		
 JOS	6	26	Joshua			Normal		
 JOS	7	2	Joshua			Normal		
-JOS	7	3	spies from Joshua, men			Normal		
+JOS	7	3	spies to Ai			Normal		
 JOS	7	7	Joshua			Normal		
 JOS	7	8	Joshua			Normal		
 JOS	7	9	Joshua			Normal		
@@ -3520,9 +3520,9 @@ JOS	9	10	Gibeonites			Normal
 JOS	9	11	Gibeonites			Normal		
 JOS	9	12	Gibeonites			Normal		
 JOS	9	13	Gibeonites			Normal		
-JOS	9	19	Israel, all leaders of			Normal		
-JOS	9	20	Israel, all leaders of			Normal		
-JOS	9	21	Israel, all leaders of			Normal		
+JOS	9	19	Israel, leaders of			Normal		
+JOS	9	20	Israel, leaders of			Normal		
+JOS	9	21	Israel, leaders of			Normal		
 JOS	9	22	Joshua			Normal		
 JOS	9	23	Joshua			Normal		
 JOS	9	24	Gibeonites			Normal		
@@ -3586,12 +3586,12 @@ JOS	22	19	Phineas the priest/chiefs of 10 tribes			Normal	Phineas the priest
 JOS	22	20	Phineas the priest/chiefs of 10 tribes			Normal	Phineas the priest	
 JOS	22	22	Reubenites/Gadites/half-tribe of Manasseh			Normal	Reuben	
 JOS	22	23	Reubenites/Gadites/half-tribe of Manasseh			Normal	Reuben	
-JOS	22	24	Reubenites/Gadites/half-tribe of Manasseh			Normal	Gad	
-JOS	22	25	Reubenites/Gadites/half-tribe of Manasseh			Normal	Gad	
-JOS	22	26	Reubenites/Gadites/half-tribe of Manasseh			Normal	Gad	
-JOS	22	27	Reubenites/Gadites/half-tribe of Manasseh			Normal	Gad	
-JOS	22	28	Reubenites/Gadites/half-tribe of Manasseh			Normal	Manasseh	
-JOS	22	29	Reubenites/Gadites/half-tribe of Manasseh			Normal	Manasseh	
+JOS	22	24	Reubenites/Gadites/half-tribe of Manasseh			Normal	Gadites	
+JOS	22	25	Reubenites/Gadites/half-tribe of Manasseh			Normal	Gadites	
+JOS	22	26	Reubenites/Gadites/half-tribe of Manasseh			Normal	Gadites	
+JOS	22	27	Reubenites/Gadites/half-tribe of Manasseh			Normal	Gadites	
+JOS	22	28	Reubenites/Gadites/half-tribe of Manasseh			Normal	half-tribe of Manasseh	
+JOS	22	29	Reubenites/Gadites/half-tribe of Manasseh			Normal	half-tribe of Manasseh	
 JOS	22	31	Phineas the priest			Normal		
 JOS	22	32	Phineas the priest/chiefs of 10 tribes		Phineas the priest/leaders	Indirect	Phineas the priest	
 JOS	23	2	Joshua (old)			Normal		
@@ -3654,45 +3654,45 @@ JDG	3	19	Ehud, Israelite deliverer			Normal
 JDG	3	20	Ehud, Israelite deliverer			Normal		
 JDG	3	24	servants of Eglon, king of Moab			Normal		
 JDG	3	28	Ehud, Israelite deliverer			Normal		
-JDG	4	6	Deborah, prophetess			Normal		
-JDG	4	7	Deborah, prophetess			Normal		
+JDG	4	6	Deborah		Deborah, prophetess	Normal		
+JDG	4	7	Deborah		Deborah, prophetess	Normal		
 JDG	4	8	Barak			Normal		
-JDG	4	9	Deborah, prophetess			Normal		
-JDG	4	14	Deborah, prophetess			Normal		
+JDG	4	9	Deborah		Deborah, prophetess	Normal		
+JDG	4	14	Deborah		Deborah, prophetess	Normal		
 JDG	4	18	Jael			Normal		
 JDG	4	19	Sisera			Normal		
 JDG	4	20	Sisera			Normal		
 JDG	4	22	Jael			Normal		
-JDG	5	2	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	3	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	4	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	5	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	6	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	7	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	8	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	9	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	10	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	11	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	12	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	13	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	14	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	15	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	16	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	17	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	18	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	19	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	20	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	21	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	22	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	23	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	24	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	25	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	26	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	27	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	28	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	29	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	30	Deborah/Barak			Implicit	Deborah, prophetess	
-JDG	5	31	Deborah/Barak			Implicit	Deborah, prophetess	
+JDG	5	2	Deborah/Barak			Implicit	Deborah	
+JDG	5	3	Deborah/Barak			Implicit	Deborah	
+JDG	5	4	Deborah/Barak			Implicit	Deborah	
+JDG	5	5	Deborah/Barak			Implicit	Deborah	
+JDG	5	6	Deborah/Barak			Implicit	Deborah	
+JDG	5	7	Deborah/Barak			Implicit	Deborah	
+JDG	5	8	Deborah/Barak			Implicit	Deborah	
+JDG	5	9	Deborah/Barak			Implicit	Deborah	
+JDG	5	10	Deborah/Barak			Implicit	Deborah	
+JDG	5	11	Deborah/Barak			Implicit	Deborah	
+JDG	5	12	Deborah/Barak			Implicit	Deborah	
+JDG	5	13	Deborah/Barak			Implicit	Deborah	
+JDG	5	14	Deborah/Barak			Implicit	Deborah	
+JDG	5	15	Deborah/Barak			Implicit	Deborah	
+JDG	5	16	Deborah/Barak			Implicit	Deborah	
+JDG	5	17	Deborah/Barak			Implicit	Deborah	
+JDG	5	18	Deborah/Barak			Implicit	Deborah	
+JDG	5	19	Deborah/Barak			Implicit	Deborah	
+JDG	5	20	Deborah/Barak			Implicit	Deborah	
+JDG	5	21	Deborah/Barak			Implicit	Deborah	
+JDG	5	22	Deborah/Barak			Implicit	Deborah	
+JDG	5	23	Deborah/Barak			Implicit	Deborah	
+JDG	5	24	Deborah/Barak			Implicit	Deborah	
+JDG	5	25	Deborah/Barak			Implicit	Deborah	
+JDG	5	26	Deborah/Barak			Implicit	Deborah	
+JDG	5	27	Deborah/Barak			Implicit	Deborah	
+JDG	5	28	Deborah/Barak			Implicit	Deborah	
+JDG	5	29	Deborah/Barak			Implicit	Deborah	
+JDG	5	30	Deborah/Barak			Implicit	Deborah	
+JDG	5	31	Deborah/Barak			Implicit	Deborah	
 JDG	6	8	prophet			Normal		
 JDG	6	9	prophet			Normal		
 JDG	6	10	prophet			Normal		
@@ -3836,7 +3836,7 @@ JDG	13	18	angel of the LORD, the			Normal	Jesus
 JDG	13	22	Manoah, father of Samson			Normal		
 JDG	13	23	Manoah's wife, mother of Samson			Normal		
 JDG	14	2	Samson			Normal		
-JDG	14	3	Manoah, father of Samson/Manoah's wife		father and mother of Samson	Normal	Manoah, father of Samson	
+JDG	14	3	Manoah, father of Samson/Manoah's wife, mother of Samson		father and mother of Samson	Normal	Manoah, father of Samson	
 JDG	14	3	Samson			Normal		
 JDG	14	12	Samson			Normal		
 JDG	14	13	Samson's 30 companions			Normal		
@@ -4075,7 +4075,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	3	16	Samuel (boy)			Normal		
 1SA	3	17	Eli (very old)			Normal		
 1SA	3	18	Eli (very old)			Normal		
-1SA	4	3	Israel, elders of			Normal		
+1SA	4	3	elders of Israel			Normal		
 1SA	4	6	Philistines			Normal		
 1SA	4	7	Philistines			Normal		
 1SA	4	8	Philistines			Normal		
@@ -4108,8 +4108,8 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	7	6	Israelites			Normal		
 1SA	7	8	Israelites			Normal		
 1SA	7	12	Samuel			Normal		
-1SA	8	5	Israel, elders of			Normal		
-1SA	8	6	Israel, elders of			Normal		
+1SA	8	5	elders of Israel			Normal		
+1SA	8	6	elders of Israel			Normal		
 1SA	8	7	God		God (the LORD)	Normal		
 1SA	8	8	God		God (the LORD)	Normal		
 1SA	8	9	God		God (the LORD)	Normal		
@@ -4390,7 +4390,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	21	14	Achish			Normal		
 1SA	21	15	Achish			Normal		
 1SA	22	3	David			Normal		
-1SA	22	5	prophet Gad			Normal		
+1SA	22	5	Gad, the prophet, David's seer			Normal		
 1SA	22	7	Saul			Normal		
 1SA	22	8	Saul			Normal		
 1SA	22	9	Doeg the Edomite			Normal		
@@ -4539,7 +4539,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	30	15	David			Normal		
 1SA	30	15	Egyptian (slave of Amalekite)			Normal		
 1SA	30	20	David's men			Normal		
-1SA	30	22	evil men/troublemakers			Normal		
+1SA	30	22	evil men and troublemakers			Normal		
 1SA	30	23	David			Normal		
 1SA	30	24	David			Normal		
 1SA	30	26	David			Normal		
@@ -5169,7 +5169,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	11	37	Ahijah, the prophet	word of the LORD		Normal		
 1KI	11	38	Ahijah, the prophet	word of the LORD		Normal		
 1KI	11	39	Ahijah, the prophet	word of the LORD		Normal		
-1KI	12	4	Jereboam/all Israel			Normal		
+1KI	12	4	Jeroboam/Israel, all			Normal		
 1KI	12	5	Rehoboam		Rehoboam, king	Normal		
 1KI	12	6	Rehoboam		Rehoboam, king	Normal		
 1KI	12	7	elders			Normal		
@@ -5377,7 +5377,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	22	31	King of Aram			Normal		
 1KI	22	32	chariot commanders of Aram	thought		Normal		
 1KI	22	34	Ahab, king of Israel			Normal		
-1KI	22	36	Army cry			Normal		
+1KI	22	36	army cry			Normal		
 1KI	22	49	Ahaziah, king of Israel			Normal		
 2KI	1	2	Ahaziah, king of Israel			Normal		
 2KI	1	3	angel of the LORD, the			Normal	Jesus	
@@ -5563,11 +5563,11 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	9	8	company of the prophets, one of (the LORD says) (young man)			Normal		
 2KI	9	9	company of the prophets, one of (the LORD says) (young man)			Normal		
 2KI	9	10	company of the prophets, one of (the LORD says) (young man)			Normal		
-2KI	9	11	Army officer, one of			Normal		
+2KI	9	11	army officer, one of			Normal		
 2KI	9	11	Jehu, son of Nimshi			Normal		
-2KI	9	12	Army officers			Normal		
+2KI	9	12	army officers			Normal		
 2KI	9	12	Jehu, son of Nimshi			Normal		
-2KI	9	13	Army officers			Normal		
+2KI	9	13	army officers			Normal		
 2KI	9	15	Jehu, son of Nimshi			Normal		
 2KI	9	17	Joram, king of Israel			Normal		
 2KI	9	17	Lookout			Normal		
@@ -5665,8 +5665,8 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	18	34	Field commander from King of Assyria			Normal		
 2KI	18	35	Field commander from King of Assyria			Normal		
 2KI	18	36	Hezekiah, king of Judah			Normal		
-2KI	19	3	Eliakim/Shebna/leading priests			Normal	Eliakim	
-2KI	19	4	Eliakim/Shebna/leading priests			Normal	Eliakim	
+2KI	19	3	Eliakim/Shebna/chief priests			Normal	Eliakim	
+2KI	19	4	Eliakim/Shebna/chief priests			Normal	Eliakim	
 2KI	19	6	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
 2KI	19	7	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
 2KI	19	10	Sennacherib, king of Assyria			Normal		
@@ -5972,7 +5972,7 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	11	3	God		word of the LORD came to Shemaiah	Normal		
 2CH	11	4	God		word of the LORD came to Shemaiah	Normal		
 2CH	12	5	Shemaiah		Shemaiah, prophet (the LORD says)	Normal		
-2CH	12	6	Israel, leaders of/King Rehoboam			Normal		
+2CH	12	6	Israel, leaders of/Rehoboam		leaders of Israel and the king (Rehoboam)	Normal		
 2CH	12	7	God		word of the LORD came to Shemaiah	Normal		
 2CH	12	8	God		word of the LORD came to Shemaiah	Normal		
 2CH	13	4	Abijah, king of Judah			Normal		
@@ -5993,9 +5993,9 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	15	6	Azariah, son of Oded			Normal		
 2CH	15	7	Azariah, son of Oded			Normal		
 2CH	16	3	Asa, king of Judah			Normal		
-2CH	16	7	Hanani		Hanani the seer	Normal		
-2CH	16	8	Hanani		Hanani the seer	Normal		
-2CH	16	9	Hanani		Hanani the seer	Normal		
+2CH	16	7	Hanani the seer			Normal		
+2CH	16	8	Hanani the seer			Normal		
+2CH	16	9	Hanani the seer			Normal		
 2CH	18	3	Ahab, king of Israel			Normal		
 2CH	18	3	Jehoshaphat, king of Judah			Normal		
 2CH	18	4	Jehoshaphat, king of Judah			Normal		
@@ -6082,7 +6082,8 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	28	9	Oded, prophet of the Lord			Normal		
 2CH	28	10	Oded, prophet of the Lord			Normal		
 2CH	28	11	Oded, prophet of the Lord			Normal		
-2CH	28	13	leaders in Ephraim (Azariah/Berekiah/Jehizkiah/Amasa)			Normal		
+2CH	28	13	Azariah, son of Jehohanan/Berekiah/Jehizkiah/Amasa		leaders in Ephraim (Azariah/Berekiah/Jehizkiah/Amasa)	Normal		
+
 2CH	28	23	Ahaz, king of Judah	thought		Normal		
 2CH	29	5	Hezekiah, king of Judah			Normal		
 2CH	29	6	Hezekiah, king of Judah			Normal		
@@ -6100,7 +6101,7 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	30	9	Hezekiah, king of Judah	letter		Normal		
 2CH	30	18	Hezekiah, king of Judah			Normal		
 2CH	30	19	Hezekiah, king of Judah			Normal		
-2CH	31	10	Azariah the priest		Azariah the chief priest	Normal		
+2CH	31	10	Azariah the chief priest			Normal		
 2CH	32	4	men, large force of			Normal		
 2CH	32	7	Hezekiah, king of Judah			Normal		
 2CH	32	8	Hezekiah, king of Judah			Normal		
@@ -6141,7 +6142,7 @@ EZR	1	2	Cyrus, king of Persia	written proclamation		Implicit
 EZR	1	3	Cyrus, king of Persia	written proclamation		Implicit		
 EZR	1	4	Cyrus, king of Persia	written proclamation		Implicit		
 EZR	3	11	priests/Levites	singing		Normal		
-EZR	4	2	Sanballat		enemies of Judah and Benjamin	Normal		
+EZR	4	2	enemies of Judah and Benjamin			Normal		
 EZR	4	3	Zerubbabel/Jeshua/rest of heads of families			Normal		
 EZR	4	9	Rehum, commanding officer/Shimshai, secretary	letter		Implicit		
 EZR	4	10	Rehum, commanding officer/Shimshai, secretary	letter		Implicit		
@@ -6224,7 +6225,7 @@ EZR	10	11	Ezra, priest and teacher			Normal
 EZR	10	12	assembly, whole			Normal		
 EZR	10	13	assembly, whole			Normal		
 EZR	10	14	assembly, whole			Normal		
-NEH	1	3	Hanani		Hanani, brother of Nehemiah/men of Judah, some	Normal		
+NEH	1	3	Hanani/Judah, men of		Hanani/men of Judah	Normal	Hanani	
 NEH	1	5	Nehemiah	praying		Normal		
 NEH	1	6	Nehemiah	praying		Normal		
 NEH	1	7	Nehemiah	praying		Normal		
@@ -6240,45 +6241,44 @@ NEH	2	6	Artaxerxes, king of Persia			Normal
 NEH	2	7	Nehemiah			Normal		
 NEH	2	8	Nehemiah			Normal		
 NEH	2	17	Nehemiah			Normal		
-NEH	2	18	Jews/priests/nobles/officials			Normal		
-NEH	2	19	Sanballat/Tobiah/Geshem, enemies	mocking		Normal	Sanballat	
+NEH	2	18	Jews, the/priests/nobles and officials (Jewish)			Normal		
+NEH	2	19	Sanballat the Horonite/Tobiah the Ammonite official/Geshem the Arab	mocking		Normal	Sanballat the Horonite	
 NEH	2	20	Nehemiah			Normal		
-NEH	4	2	Sanballat	angry	Sanballat, enemy	Normal		
-NEH	4	3	Tobiah, enemy	mocking		Normal		
+NEH	4	2	Sanballat the Horonite	angry	Sanballat	Normal		
+NEH	4	3	Tobiah the Ammonite official	mocking	Tobiah the Ammonite	Normal		
 NEH	4	10	Judah, people in			Normal		
-NEH	4	11	Sanballat		enemies of Judah and Benjamin	Normal		
+NEH	4	11	Sanballat the Horonite/Tobiah the Ammonite official/Geshem the Arab/men of Ashdod	mocking	enemies of Judah and Benjamin (Sanballat, etc.)	Normal	Sanballat the Horonite	
 NEH	4	12	Jews, the	desperate		Normal		
 NEH	4	14	Nehemiah			Normal		
 NEH	4	19	Nehemiah			Normal		
 NEH	4	20	Nehemiah			Normal		
 NEH	4	22	Nehemiah			Normal		
-NEH	5	2	men/their wives	desperate		Normal		
-NEH	5	3	men/their wives, other	desperate		Normal		
-NEH	5	4	men/wives, still others	desperate		Normal		
-NEH	5	5	men/wives, still others	desperate		Normal		
+NEH	5	2	men/wives	desperate	men/their wives	Normal		
+NEH	5	3	men, other/wives, other	desperate	men/their wives, other	Normal		
+NEH	5	4-5	men, still others/wives, still others	desperate	men/wives, still others	Normal		
 NEH	5	7	Nehemiah			Normal		
 NEH	5	8	Nehemiah			Normal		
 NEH	5	9	Nehemiah			Normal		
 NEH	5	10	Nehemiah			Normal		
 NEH	5	11	Nehemiah			Normal		
-NEH	5	12	Nobles/officials			Normal		
+NEH	5	12	nobles and officials (Jewish)			Normal		
 NEH	5	13	assembly, whole			Normal		
 NEH	5	13	Nehemiah			Normal		
-NEH	6	2	Sanballat/Geshem, enemies	message, scheming		Normal	Sanballat	
+NEH	6	2	Sanballat the Horonite/Geshem the Arab	message, scheming	Sanballat/Geshem	Normal	Sanballat the Horonite	
 NEH	6	3	Nehemiah	message		Normal		
-NEH	6	6	Sanballat	letter	Sanballat, enemy	Normal		
-NEH	6	7	Sanballat	letter	Sanballat, enemy	Normal		
+NEH	6	6	Sanballat the Horonite	letter	Sanballat	Normal		
+NEH	6	7	Sanballat the Horonite	letter	Sanballat	Normal		
 NEH	6	8	Nehemiah	message		Normal		
 NEH	6	9	Nehemiah	praying		Normal		
-NEH	6	9	Sanballat/Geshem, enemies	thinking		Normal	Sanballat	
+NEH	6	9	Sanballat the Horonite/Geshem the Arab	thinking	enemies of Judah and Benjamin (Sanballat, etc.)	Normal	Sanballat the Horonite	
 NEH	6	10	Shemaiah		Shemaiah, son of Delaiah, false prophet	Normal		
 NEH	6	11	Nehemiah			Normal		
 NEH	7	3	Nehemiah			Normal		
 NEH	8	6	people, all the	praising		Normal		
-NEH	8	9	Nehemiah/Ezra/Levites			Normal	Nehemiah	
+NEH	8	9	Nehemiah/Ezra, priest and teacher/Levites		Nehemiah/Ezra/Levites	Normal	Nehemiah	
 NEH	8	10	Nehemiah			Normal		
 NEH	8	11	Levites			Normal		
-NEH	8	15	heads of all the families/priests/Levites			Normal	priests/Levites	
+NEH	8	15	heads of all the families/priests/Levites			Normal		
 NEH	9	5	Levites	call to worship		Normal		
 NEH	9	5	Levites	praying		Normal		
 NEH	9	6	Levites	praying		Normal		
@@ -6314,18 +6314,18 @@ NEH	9	35	Levites	praying		Normal
 NEH	9	36	Levites	praying		Normal		
 NEH	9	37	Levites	praying		Normal		
 NEH	9	38	Nehemiah/Levites/Israelites			Normal	Nehemiah	
-NEH	10	28	priests/Levites/people			Normal	priests/Levites	
-NEH	10	29	priests/Levites/people			Normal	priests/Levites	
-NEH	10	30	priests/Levites/people			Normal	priests/Levites	
-NEH	10	31	priests/Levites/people			Normal	priests/Levites	
-NEH	10	32	priests/Levites/people			Normal	priests/Levites	
-NEH	10	33	priests/Levites/people			Normal	priests/Levites	
-NEH	10	34	priests/Levites/people			Normal	priests/Levites	
-NEH	10	35	priests/Levites/people			Normal	priests/Levites	
-NEH	10	36	priests/Levites/people			Normal	priests/Levites	
-NEH	10	37	priests/Levites/people			Normal	priests/Levites	
-NEH	10	38	priests/Levites/people			Normal	priests/Levites	
-NEH	10	39	priests/Levites/people			Normal	priests/Levites	
+NEH	10	28	priests/Levites/people			Normal		
+NEH	10	29	priests/Levites/people			Normal		
+NEH	10	30	priests/Levites/people			Normal		
+NEH	10	31	priests/Levites/people			Normal		
+NEH	10	32	priests/Levites/people			Normal		
+NEH	10	33	priests/Levites/people			Normal		
+NEH	10	34	priests/Levites/people			Normal		
+NEH	10	35	priests/Levites/people			Normal		
+NEH	10	36	priests/Levites/people			Normal		
+NEH	10	37	priests/Levites/people			Normal		
+NEH	10	38	priests/Levites/people			Normal		
+NEH	10	39	priests/Levites/people			Normal		
 NEH	13	11	Nehemiah			Normal		
 NEH	13	17	Nehemiah			Normal		
 NEH	13	18	Nehemiah			Normal		
@@ -7522,7 +7522,7 @@ PSA	77	9	Asaph			Normal
 PSA	77	10	Asaph			Normal		
 PSA	78	19	Israelite community	unbelief		Normal		
 PSA	78	20	Israelite community	unbelief		Normal		
-PSA	79	10	Nations, the		nations	Normal		
+PSA	79	10	nations, the		nations	Normal		
 PSA	80	0	narrator-PSA			Quotation		
 PSA	81	6	God		God (the LORD)	Normal		
 PSA	81	7	God		God (the LORD)	Normal		
@@ -7587,7 +7587,7 @@ PSA	108	8	God		God (the LORD)	Normal
 PSA	108	9	God		God (the LORD)	Normal		
 PSA	110	1	God		God (the LORD)	Normal		
 PSA	110	4	God		God (the LORD)	Normal		
-PSA	115	2	Nations, the			Hypothetical		
+PSA	115	2	nations, the			Hypothetical		
 PSA	118	2	Israel			Hypothetical		
 PSA	118	3	house of Aaron, the			Hypothetical		
 PSA	118	4	those who fear the Lord			Hypothetical		
@@ -7665,8 +7665,7 @@ SNG	2	12	lover			Normal
 SNG	2	13	beloved			Normal		
 SNG	2	13	lover			Normal		
 SNG	2	14	lover			Implicit		
-SNG	2	15	maidens			Normal		
-SNG	2	15	lover/beloved			Normal		
+SNG	2	15	lover/beloved/maidens			Implicit		
 SNG	2	16	beloved			Implicit		
 SNG	2	17	beloved			Implicit		
 SNG	3	1	beloved			Implicit		
@@ -7869,7 +7868,7 @@ ISA	12	3	narrator-ISA			Hypothetical
 ISA	12	4	Israel			Hypothetical		
 ISA	12	5	Israel			Hypothetical		
 ISA	12	6	Israel			Hypothetical		
-ISA	14	8	pine trees/cedars of Lebanon			Hypothetical		
+ISA	14	8	pine trees and cedars of Lebanon			Hypothetical		
 ISA	14	10	kings over the nations			Hypothetical		
 ISA	14	13	King of Babylon			Quotation		
 ISA	14	14	King of Babylon			Quotation		
@@ -7998,8 +7997,8 @@ ISA	36	18	Field commander from King of Assyria			Normal
 ISA	36	19	Field commander from King of Assyria			Normal		
 ISA	36	20	Field commander from King of Assyria			Normal		
 ISA	36	21	Hezekiah, king of Judah			Normal		
-ISA	37	3	Eliakim/Shebna/leading priests			Normal	Eliakim	
-ISA	37	4	Eliakim/Shebna/leading priests			Normal	Eliakim	
+ISA	37	3	Eliakim/Shebna/chief priests			Normal	Eliakim	
+ISA	37	4	Eliakim/Shebna/chief priests			Normal	Eliakim	
 ISA	37	6	Isaiah		Isaiah, the prophet	Normal		
 ISA	37	7	Isaiah		Isaiah, the prophet	Normal		
 ISA	37	10	Sennacherib's messengers			Normal		
@@ -8826,7 +8825,7 @@ JER	20	9	Jeremiah			Implicit
 JER	20	10	Jeremiah			Implicit		
 JER	20	10	Jeremiah's enemies			Hypothetical		
 JER	20	15	messenger			Quotation		
-JER	21	2	Pashur/Zephaniah			Normal		
+JER	21	2	Pashur/Zephaniah, priest			Normal		
 JER	21	3	Jeremiah			Normal		
 JER	21	4	Jeremiah			Normal		
 JER	21	4	God		God (the LORD)	Normal		
@@ -8953,7 +8952,7 @@ JER	26	12	Jeremiah			Normal
 JER	26	13	Jeremiah			Normal		
 JER	26	14	Jeremiah			Normal		
 JER	26	15	Jeremiah			Normal		
-JER	26	16	officials/all the people			Normal		
+JER	26	16	officials/people, all the			Normal		
 JER	26	18	elders of the land			Normal		
 JER	26	19	elders of the land			Normal		
 JER	27	2	God		God (the LORD)(word of the LORD came)	Normal		
@@ -9178,11 +9177,11 @@ JER	36	5	Jeremiah			Normal
 JER	36	6	Jeremiah			Normal		
 JER	36	7	Jeremiah			Normal		
 JER	36	14	Jehudi			Normal		
-JER	36	15	Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/other officials			Normal		
-JER	36	16	Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/other officials			Normal		
-JER	36	17	Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/other officials			Normal		
+JER	36	15	Elishama/Delaiah/Elnathan/Gemariah/Zedekiah, son of Hananiah/officials		Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/officials	Normal		
+JER	36	16	Elishama/Delaiah/Elnathan/Gemariah/Zedekiah, son of Hananiah/officials		Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/officials	Normal		
+JER	36	17	Elishama/Delaiah/Elnathan/Gemariah/Zedekiah, son of Hananiah/officials		Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/officials	Normal		
 JER	36	18	Baruch			Normal		
-JER	36	19	Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/other officials			Normal		
+JER	36	19	Elishama/Delaiah/Elnathan/Gemariah/Zedekiah, son of Hananiah/officials		Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/officials	Normal		
 JER	36	28	God		God (the LORD)(word of the LORD came)	Normal		
 JER	36	29	God		God (the LORD)(word of the LORD came)	Normal		
 JER	36	30	God		God (the LORD)(word of the LORD came)	Normal		
@@ -9202,7 +9201,7 @@ JER	37	20	Jeremiah			Normal
 JER	37	21	Zedekiah, king of Judah			Indirect		
 JER	38	2	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	38	3	Jeremiah		Jeremiah (the LORD says)	Normal		
-JER	38	4	Shephatiah/Gedaliah/Jehucal/Pashur (officials)			Normal		
+JER	38	4	Shephatiah/Gedaliah, son of Pashur/Jehucal/Pashur		officials (Shephatiah, Gedaliah, Jehucal, and Pashur)	Normal		
 JER	38	5	Zedekiah, king of Judah			Normal		
 JER	38	9	Ebed-Melech (official of king of Judea)			Normal		
 JER	38	10	Zedekiah, king of Judah			Normal		
@@ -9230,16 +9229,16 @@ JER	40	4	Nebuzaradan		Nebuzaradan, commander for king of Babylon	Normal
 JER	40	5	Nebuzaradan		Nebuzaradan, commander for king of Babylon	Normal		
 JER	40	9	Gedaliah, governor of Judah			Normal		
 JER	40	10	Gedaliah, governor of Judah			Normal		
-JER	40	14	Johanan/all the army officers			Normal	Johanan	
+JER	40	14	Johanan/army officers			Normal	Johanan	
 JER	40	15	Johanan			Normal		
 JER	40	16	Gedaliah, governor of Judah			Normal		
 JER	41	6	Ishmael, son of Nethaniah (murderer)			Normal		
 JER	41	8	men in mourning, ten of eighty			Normal		
-JER	42	2	Johanan/all the army officers/all the people			Normal	Johanan	
-JER	42	3	Johanan/all the army officers/all the people			Normal	Johanan	
+JER	42	2	Johanan/army officers/people, all the		all the army officers, including Johanan and Jezaniah/all the people	Normal	Johanan	
+JER	42	3	Johanan/army officers/people, all the		all the army officers, including Johanan and Jezaniah/all the people	Normal	Johanan	
 JER	42	4	Jeremiah			Normal		
-JER	42	5	Johanan/all the army officers/all the people			Normal	Johanan	
-JER	42	6	Johanan/all the army officers/all the people			Normal	Johanan	
+JER	42	5	Johanan/army officers/people, all the		all the army officers, including Johanan and Jezaniah/all the people	Normal	Johanan	
+JER	42	6	Johanan/army officers/people, all the		all the army officers, including Johanan and Jezaniah/all the people	Normal	Johanan	
 JER	42	9	Jeremiah		Jeremiah (word of the LORD came)	Normal		
 JER	42	10	Jeremiah		Jeremiah (word of the LORD came)	Normal		
 JER	42	11	Jeremiah		Jeremiah (word of the LORD came)	Normal		
@@ -9254,8 +9253,8 @@ JER	42	19	Jeremiah		Jeremiah (word of the LORD came)	Normal
 JER	42	20	Jeremiah		Jeremiah (word of the LORD came)	Normal		
 JER	42	21	Jeremiah		Jeremiah (word of the LORD came)	Normal		
 JER	42	22	Jeremiah		Jeremiah (word of the LORD came)	Normal		
-JER	43	2	Azariah/Johanan/arrogant men		Azariah, Johanan and all the arrogant men	Normal	Johanan	
-JER	43	3	Azariah/Johanan/arrogant men		Azariah, Johanan and all the arrogant men	Normal	Johanan	
+JER	43	2	Azariah, son of Hoshaiah/Johanan/arrogant men		Azariah, Johanan and all the arrogant men	Normal	Johanan	
+JER	43	3	Azariah, son of Hoshaiah/Johanan/arrogant men		Azariah, Johanan and all the arrogant men	Normal	Johanan	
 JER	43	9	God		God (the LORD)(word of the LORD came)	Normal		
 JER	43	10	God		God (the LORD)(word of the LORD came)	Normal		
 JER	43	11	God		God (the LORD)(word of the LORD came)	Normal		
@@ -10700,14 +10699,14 @@ DAN	5	25	Daniel			Normal
 DAN	5	26	Daniel			Normal		
 DAN	5	27	Daniel			Normal		
 DAN	5	28	Daniel			Normal		
-DAN	6	5	Satraps			Normal		
-DAN	6	6	Satraps/Administrators			Normal	Satraps	
-DAN	6	7	Satraps/Administrators			Normal	Satraps	
-DAN	6	8	Satraps/Administrators			Normal	Satraps	
+DAN	6	5	satraps			Normal		
+DAN	6	6	satraps/three administrators			Normal	satraps	
+DAN	6	7	satraps/three administrators			Normal	satraps	
+DAN	6	8	satraps/three administrators			Normal	satraps	
 DAN	6	12	Darius		Darius, king of Medes and Persians	Normal		
-DAN	6	12	Satraps/Administrators			Normal	Satraps	
-DAN	6	13	Satraps/Administrators			Normal	Satraps	
-DAN	6	15	Satraps/Administrators			Normal	Satraps	
+DAN	6	12	satraps/three administrators			Normal	satraps	
+DAN	6	13	satraps/three administrators			Normal	satraps	
+DAN	6	15	satraps/three administrators			Normal	satraps	
 DAN	6	16	Darius		Darius, king of Medes and Persians	Normal		
 DAN	6	20	Darius		Darius, king of Medes and Persians	Normal		
 DAN	6	21	Daniel			Normal		
@@ -11157,14 +11156,14 @@ OBA	1	16	God		God (the LORD)	Normal
 OBA	1	17	God		God (the LORD)	Normal		
 OBA	1	18	God		God (the LORD)	Normal		
 JON	1	2	God		God (the LORD)(word of the LORD came)	Normal		
-JON	1	6	captain			Normal		
-JON	1	7	sailors			Normal		
-JON	1	8	sailors			Normal		
+JON	1	6	captain, ship to Tarshish		captain	Normal		
+JON	1	7	sailors, ship to Tarshish		sailors	Normal		
+JON	1	8	sailors, ship to Tarshish		sailors	Normal		
 JON	1	9	Jonah			Normal		
-JON	1	10	sailors			Normal		
-JON	1	11	sailors			Normal		
+JON	1	10	sailors, ship to Tarshish		sailors	Normal		
+JON	1	11	sailors, ship to Tarshish		sailors	Normal		
 JON	1	12	Jonah			Normal		
-JON	1	14	sailors			Normal		
+JON	1	14	sailors, ship to Tarshish		sailors	Normal		
 JON	2	2	Jonah	praying		Normal		
 JON	2	3	Jonah	praying		Normal		
 JON	2	4	Jonah	praying		Normal		
@@ -11190,9 +11189,9 @@ MIC	1	6	God		God (the LORD)	Normal
 MIC	1	7	God		God (the LORD)	Normal		
 MIC	2	3	God		God (the LORD)	Normal		
 MIC	2	4	God		God (the LORD)	Normal		
-MIC	2	6	false prophets/people (as quoted by God/Micah)			Quotation		
+MIC	2	6	false prophets			Quotation		
 MIC	2	7	God		God (the LORD)	Normal		
-MIC	2	7	false prophets/people (as quoted by God/Micah)			Hypothetical		
+MIC	2	7	false prophets			Hypothetical		
 MIC	2	8	God		God (the LORD)	Normal		
 MIC	2	9	God		God (the LORD)	Normal		
 MIC	2	10	God		God (the LORD)	Normal		
@@ -11207,11 +11206,11 @@ MIC	3	6	God		God (the LORD)	Normal
 MIC	3	7	God		God (the LORD)	Normal		
 MIC	3	8	Micah			Potential		
 MIC	3	11	priests/Levites		priests/prophets	Normal		
-MIC	4	2	Nations, the		nations, many	Normal		
+MIC	4	2	nations, the		nations, many	Normal		
 MIC	4	6	God		God (the LORD)	Normal		
 MIC	4	7	God		God (the LORD)	Normal		
 MIC	4	8	God		God (the LORD)	Normal		
-MIC	4	11	Nations, the		nations, many	Normal		
+MIC	4	11	nations, the		nations, many	Normal		
 MIC	4	13	God		God (the LORD)	Normal		
 MIC	5	2	God		God (the LORD)	Normal		
 MIC	5	10	God		God (the LORD)	Normal		
@@ -11666,8 +11665,8 @@ MAT	8	25	disciples	terrified		Dialogue		MAT 8.25; LUK 8.24
 MAT	8	26	Jesus	giving orders		Dialogue		
 MAT	8	27	disciples	amazed		Normal		MAT 8.27; LUK 8:25
 # Demon-possessed man/men in Gadara 2015-01-29 jaa								
-MAT	8	29	demons/demon-possessed man (Legion)	screaming	demon-possessed men, two	Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
-MAT	8	31	demons/demon-possessed man (Legion)	begging	demons	Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
+MAT	8	29	demons (Legion)/man delivered from Legion of demons	screaming	demon-possessed men, two	Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
+MAT	8	31	demons (Legion)/man delivered from Legion of demons	begging	demons	Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 MAT	8	32	Jesus	giving orders		Dialogue		
 MAT	8	33	herdsmen of pigs			Indirect		
 MAT	8	34	Gadarene (or Gerasenes) people	pleading	the whole town (of the region of the Gadarenes)	Indirect		MAT 8.34;MRK 5.17;LUK 8.37
@@ -11782,7 +11781,7 @@ MAT	12	18	scripture			Quotation	God
 MAT	12	19	scripture			Quotation	God	
 MAT	12	20	scripture			Quotation	God	
 MAT	12	21	scripture			Quotation	God	
-MAT	12	23	people who saw healing of blind/mute, all the	astonished		Normal		
+MAT	12	23	people who saw healing of demon-possessed man who was blind and mute	astonished	all the people	Normal		
 MAT	12	24	Pharisees			Normal		
 MAT	12	25	Jesus			Normal		
 MAT	12	26	Jesus			Normal		
@@ -12044,11 +12043,11 @@ MAT	20	15	Jesus			Normal
 MAT	20	16	Jesus			Normal		
 MAT	20	18	Jesus			Normal		
 MAT	20	19	Jesus			Normal		
-MAT	20	20	mother of James/John (sons of Zebedee)			Indirect		
+MAT	20	20	mother of the sons of Zebedee (James and John)			Indirect		
 MAT	20	21	Jesus			Dialogue		
-MAT	20	21	mother of James/John (sons of Zebedee)			Dialogue		
+MAT	20	21	mother of the sons of Zebedee (James and John)			Dialogue		
 MAT	20	22	Jesus			Dialogue		
-MAT	20	22	James/John (sons of Zebedee)	boldly		Dialogue	John	
+MAT	20	22	James/John	boldly	sons of Zebedee (James/John)	Dialogue	John	
 MAT	20	23	Jesus			Dialogue		
 MAT	20	25	Jesus			Dialogue		
 MAT	20	26	Jesus			Normal		
@@ -12114,12 +12113,12 @@ MAT	22	11	Jesus			Normal
 MAT	22	12	Jesus			Normal		
 MAT	22	13	Jesus			Normal		
 MAT	22	14	Jesus			Normal		
-MAT	22	16	spies (Pharisees/Herodians)		disciples of Pharisees/Herodians	Dialogue		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
-MAT	22	17	spies (Pharisees/Herodians)		disciples of Pharisees/Herodians	Dialogue		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
+MAT	22	16	spies (from Pharisees and Herodians)		disciples of Pharisees/Herodians	Dialogue		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
+MAT	22	17	spies (from Pharisees and Herodians)		disciples of Pharisees/Herodians	Dialogue		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
 MAT	22	18	Jesus	rebuking		Dialogue		
 MAT	22	19	Jesus	rebuking		Dialogue		
 MAT	22	20	Jesus	questioning		Dialogue		
-MAT	22	21	spies (Pharisees/Herodians)		disciples of Pharisees/Herodians	Dialogue		MAT 22.21;MRK 12.16;LUK 20.24
+MAT	22	21	spies (from Pharisees and Herodians)		disciples of Pharisees/Herodians	Dialogue		MAT 22.21;MRK 12.16;LUK 20.24
 MAT	22	21	Jesus			Dialogue		
 MAT	22	24	Sadducees			Dialogue		
 MAT	22	25	Sadducees			Normal		
@@ -12330,7 +12329,7 @@ MAT	26	69	servant girl at high priest's courtyard			Dialogue		MAT 26.69;MRK 14.6
 MAT	26	70	Peter (Simon)	denial		Dialogue		
 MAT	26	71	servant girl, another			Dialogue		*different speakers;MAT 26.71;MRK 14.69;LUK 22.58;JHN 18.25
 MAT	26	72	Peter (Simon)	denial, stronger		Dialogue		
-MAT	26	73	high priest's servant/those standing near	accusing	those standing near	Dialogue	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
+MAT	26	73	high priest's servant (relative of the man whose ear Peter cut off)/those standing near	accusing	those standing near	Dialogue	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
 MAT	26	74	Peter (Simon)	denial, strongest		Dialogue		
 MAT	26	75	Jesus			Normal		
 MAT	27	4	chief priests/elders	impatient		Dialogue		
@@ -12483,20 +12482,20 @@ MRK	4	39	Jesus	forcefully		Dialogue
 MRK	4	40	Jesus	questioning		Dialogue		
 MRK	4	41	disciples	awe		Dialogue		
 # Demon-possessed man/men in Gadara 2015-01-29 jaa								
-MRK	5	7	demons/demon-possessed man (Legion)	shrieking		Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
+MRK	5	7	demons (Legion)/man delivered from Legion of demons	shrieking	demon-possessed man	Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 MRK	5	8	Jesus			Normal		
 MRK	5	9	Jesus	questioning		Dialogue		
 # Demon-possessed man/men in Gadara 2015-01-29 jaa								
-MRK	5	9	demons/demon-possessed man (Legion)	begging		Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
-MRK	5	10	demons/demon-possessed man (Legion)	begging		Indirect		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
-MRK	5	12	demons/demon-possessed man (Legion)	begging		Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
+MRK	5	9	demons (Legion)/man delivered from Legion of demons	begging		Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
+MRK	5	10	demons (Legion)/man delivered from Legion of demons	begging		Indirect		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
+MRK	5	12	demons (Legion)/man delivered from Legion of demons	begging	demons (Legion)	Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 MRK	5	13	Jesus			Indirect		
 MRK	5	15	narrator-MRK			Quotation		
 MRK	5	16	herdsmen of pigs		those that saw demon-possessed man cured	Indirect		
 MRK	5	17	Gadarene (or Gerasenes) people	pleading	the people (of the region of the Gerasenes)	Indirect		MAT 8.34;MRK 5.17;LUK 8.37
-MRK	5	18	man who had been demon-possessed (Legion)			Indirect		
+MRK	5	18	man delivered from Legion of demons			Indirect		
 MRK	5	19	Jesus	giving orders		Dialogue		
-MRK	5	20	man who had been demon-possessed (Legion)			Indirect		
+MRK	5	20	man delivered from Legion of demons			Indirect		
 MRK	5	23	Jairus (synagogue leader)	pleading		Dialogue		MAT 9.18;MRK 5.23;LUK 8.41
 MRK	5	28	woman, bleeding for twelve years	thinking		Normal		MAT 9.21;MRK 5.28,33;LUK 8.47
 MRK	5	30	Jesus	questioning		Dialogue		
@@ -12538,7 +12537,7 @@ MRK	6	31	Jesus			Dialogue
 MRK	6	35	disciples	taking charge		Dialogue		MAT 14.15;MRK 6.35-36;LUK 9.12
 MRK	6	36	disciples	taking charge		Normal		
 MRK	6	37	Jesus			Dialogue		
-MRK	6	37	Philip	frustrated	disciples	Dialogue		MRK 6.37;JHN 6.7
+MRK	6	37	Philip (apostle)	frustrated	disciples	Dialogue		MRK 6.37;JHN 6.7
 MRK	6	38	Andrew		disciples	Dialogue		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
 MRK	6	38	Jesus	questioning		Dialogue		
 MRK	6	39	Jesus			Indirect		
@@ -12685,12 +12684,12 @@ MRK	10	30	Jesus			Normal
 MRK	10	31	Jesus			Normal		
 MRK	10	33	Jesus			Normal		
 MRK	10	34	Jesus			Normal		
-MRK	10	35	James/John (sons of Zebedee)	boldly		Dialogue	John	
+MRK	10	35	James/John	boldly	James/John (sons of Zebedee)	Dialogue	John	
 MRK	10	36	Jesus			Dialogue		
-MRK	10	37	James/John (sons of Zebedee)	boldly		Dialogue	John	
+MRK	10	37	James/John	boldly	James/John (sons of Zebedee)	Dialogue	John	
 MRK	10	38	Jesus			Dialogue		
 MRK	10	39	Jesus			Dialogue		
-MRK	10	39	James/John (sons of Zebedee)	boldly		Dialogue	John	
+MRK	10	39	James/John	boldly	James/John (sons of Zebedee)	Dialogue	John	
 MRK	10	40	Jesus			Normal		
 MRK	10	42	Jesus			Dialogue		
 MRK	10	43	Jesus			Normal		
@@ -12740,11 +12739,11 @@ MRK	12	8	Jesus	preaching		Normal
 MRK	12	9	Jesus	preaching		Normal		
 MRK	12	10	Jesus	preaching		Normal		
 MRK	12	11	Jesus	preaching		Normal		
-MRK	12	14	spies (Pharisees/Herodians)		Pharisees/Herodians	Dialogue		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
-MRK	12	15	spies (Pharisees/Herodians)		Pharisees/Herodians	Dialogue		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
+MRK	12	14	spies (from Pharisees and Herodians)		Pharisees/Herodians	Dialogue		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
+MRK	12	15	spies (from Pharisees and Herodians)		Pharisees/Herodians	Dialogue		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
 MRK	12	15	Jesus			Dialogue		
 MRK	12	16	Jesus	questioning		Dialogue		
-MRK	12	16	spies (Pharisees/Herodians)		Pharisees/Herodians	Dialogue		MAT 22.21;MRK 12.16;LUK 20.24
+MRK	12	16	spies (from Pharisees and Herodians)		Pharisees/Herodians	Dialogue		MAT 22.21;MRK 12.16;LUK 20.24
 MRK	12	17	Jesus			Dialogue		
 MRK	12	18	Sadducees			Indirect		
 MRK	12	19	Sadducees			Dialogue		
@@ -12859,7 +12858,7 @@ MRK	14	67	servant girl at high priest's courtyard		one of the servant girls of t
 MRK	14	68	Peter (Simon)	denial		Dialogue		
 MRK	14	69	servant girl at high priest's courtyard		servant girl	Dialogue		*different speakers;MAT 26.71;MRK 14.69;LUK 22.58;JHN 18.25
 MRK	14	70	Peter (Simon)	denial, stronger		Dialogue		
-MRK	14	70	high priest's servant/those standing near	accusing	those standing near	Dialogue	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
+MRK	14	70	high priest's servant (relative of the man whose ear Peter cut off)/those standing near	accusing	those standing near	Dialogue	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
 MRK	14	71	Peter (Simon)	denial, strongest		Dialogue		
 MRK	14	72	Jesus			Normal		
 MRK	15	2	Jesus			Dialogue		
@@ -12939,11 +12938,11 @@ LUK	1	52	Mary, Jesus' mother			Normal
 LUK	1	53	Mary, Jesus' mother			Normal		
 LUK	1	54	Mary, Jesus' mother			Normal		
 LUK	1	55	Mary, Jesus' mother			Normal		
-LUK	1	58	neighbors/relatives of Zechariah/Elizabeth			Indirect		
-LUK	1	59	neighbors/relatives of Zechariah/Elizabeth			Indirect		
+LUK	1	58	neighbors and relatives of Elizabeth (and Zechariah)			Indirect		
+LUK	1	59	neighbors and relatives of Elizabeth (and Zechariah)			Indirect		
 LUK	1	60	Elizabeth			Dialogue		
-LUK	1	61	neighbors/relatives of Zechariah/Elizabeth			Dialogue		
-LUK	1	62	neighbors/relatives of Zechariah/Elizabeth			Indirect		
+LUK	1	61	neighbors and relatives of Elizabeth (and Zechariah)			Dialogue		
+LUK	1	62	neighbors and relatives of Elizabeth (and Zechariah)			Indirect		
 LUK	1	63	narrator-LUK			Quotation		
 LUK	1	64	Zechariah			Indirect		
 LUK	1	65	everyone in Judean hills who heard			Indirect		
@@ -12969,12 +12968,8 @@ LUK	2	15	shepherds outside Bethlehem	awe		Normal
 LUK	2	23	scripture			Quotation	God	
 LUK	2	24	scripture			Quotation	God	
 LUK	2	26	Holy Spirit, the		Holy Spirit	Indirect		
-LUK	2	29	Simeon-old			Normal		
-LUK	2	30	Simeon-old			Normal		
-LUK	2	31	Simeon-old			Normal		
-LUK	2	32	Simeon-old			Normal		
-LUK	2	34	Simeon-old			Normal		
-LUK	2	35	Simeon-old			Normal		
+LUK	2	29-32	Simeon (devout man in Jerusalem)			Implicit		
+LUK	2	34-35	Simeon (devout man in Jerusalem)			Normal		
 LUK	2	38	Anna, prophetess			Indirect		
 LUK	2	48	Mary, Jesus' mother			Dialogue		
 LUK	2	49	Jesus (child)			Dialogue		
@@ -13145,18 +13140,18 @@ LUK	8	24	disciples	terrified		Dialogue		MAT 8.25; LUK 8.24
 LUK	8	24	Jesus	giving orders		Indirect		
 LUK	8	25	disciples	amazed		Dialogue		MAT 8.27; LUK 8:25
 LUK	8	25	Jesus	questioning		Dialogue		
-LUK	8	27	demons/demon-possessed man (Legion)			Indirect		
-LUK	8	28	demons/demon-possessed man (Legion)			Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
+LUK	8	27	demons (Legion)/man delivered from Legion of demons		demon-possessed man	Indirect		
+LUK	8	28	demons (Legion)/man delivered from Legion of demons		demon-possessed man	Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 LUK	8	29	Jesus			Indirect		
-LUK	8	30	demons/demon-possessed man (Legion)			Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
+LUK	8	30	demons (Legion)/man delivered from Legion of demons		demon-possessed man	Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 LUK	8	30	Jesus	questioning		Dialogue		
-LUK	8	31	demons/demon-possessed man (Legion)	begging		Indirect		
-LUK	8	32	demons/demon-possessed man (Legion)	begging		Indirect		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
+LUK	8	31	demons (Legion)/man delivered from Legion of demons		demons (Legion) man	Indirect		
+LUK	8	32	demons (Legion)/man delivered from Legion of demons	begging	demons (Legion)	Indirect		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 LUK	8	32	Jesus			Indirect		
 LUK	8	34	herdsmen of pigs			Indirect		
 LUK	8	36	herdsmen of pigs		those that saw demon possessed man cured	Indirect		
 LUK	8	37	Gadarene (or Gerasenes) people	fearful	people of the region of the Gerasenes	Indirect		MAT 8.34;MRK 5.17;LUK 8.37
-LUK	8	38	man who had been demon-possessed (Legion)			Indirect		
+LUK	8	38	man delivered from Legion of demons			Indirect		
 LUK	8	39	Jesus			Dialogue		
 LUK	8	40	crowd			Indirect		
 LUK	8	41	Jairus (synagogue leader)	pleading		Indirect		MAT 9.18;MRK 5.23;LUK 8.41
@@ -13203,13 +13198,13 @@ LUK	9	40	father of demon-possessed boy	distraught	man in crowd (father of demon-
 LUK	9	41	Jesus	exasperated		Dialogue		
 LUK	9	41	Jesus	giving orders		Dialogue		
 LUK	9	42	Jesus	rebuking		Indirect		
-LUK	9	43	everyone who witnessed deliverance/healing of boy	praising		Indirect		
+LUK	9	43	everyone who witnessed healing of boy	praising		Indirect		
 LUK	9	44	Jesus			Dialogue		
 LUK	9	46	disciples	arguing		Indirect		
 LUK	9	48	Jesus			Dialogue		
 LUK	9	49	John		John (disciple whom Jesus loved)	Dialogue		
 LUK	9	50	Jesus			Dialogue		
-LUK	9	54	James/John (sons of Zebedee)			Dialogue	John	
+LUK	9	54	James/John			Dialogue	John	
 LUK	9	55	Jesus	rebuking		Indirect		
 LUK	9	57	teacher of religious law	eager	someone	Dialogue		MAT 8.19;LUK 9.57
 LUK	9	58	Jesus			Dialogue		
@@ -13619,12 +13614,12 @@ LUK	20	16	Jesus			Dialogue
 LUK	20	16	people in the temple			Dialogue		
 LUK	20	17	Jesus			Dialogue		
 LUK	20	18	Jesus			Normal		
-LUK	20	21	spies (Pharisees/Herodians)		spies (from the teachers of the law and chief priests)	Dialogue		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
-LUK	20	22	spies (Pharisees/Herodians)		spies (from the teachers of the law and chief priests)	Normal		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
+LUK	20	21	spies (from Pharisees and Herodians)		spies (from the teachers of the law and chief priests)	Dialogue		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
+LUK	20	22	spies (from Pharisees and Herodians)		spies (from the teachers of the law and chief priests)	Normal		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
 LUK	20	23	Jesus			Indirect		
 LUK	20	24	Jesus			Dialogue		
 # The Message has the spies' reply in verse 25 instead of verse 24.								
-LUK	20	24	spies (Pharisees/Herodians)		spies (from the teachers of the law and chief priests)	Dialogue		MAT 22.21;MRK 12.16;LUK 20.24
+LUK	20	24	spies (from Pharisees and Herodians)		spies (from the teachers of the law and chief priests)	Dialogue		MAT 22.21;MRK 12.16;LUK 20.24
 LUK	20	25	Jesus			Dialogue		
 LUK	20	27	Sadducees			Indirect		
 LUK	20	28	Sadducees			Dialogue		
@@ -13724,7 +13719,7 @@ LUK	22	56	servant girl at high priest's courtyard		servant girl	Dialogue		MAT 26
 LUK	22	57	Peter (Simon)	denial		Dialogue		
 LUK	22	58	second person to accuse Peter (man)	accusing	someone else (man)	Dialogue		*different speakers;MAT 26.71;MRK 14.69;LUK 22.58;JHN 18.25
 LUK	22	58	Peter (Simon)	denial, stronger		Dialogue		
-LUK	22	59	high priest's servant/those standing near	accusing	another (person in the courtyard)	Dialogue	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
+LUK	22	59	high priest's servant (relative of the man whose ear Peter cut off)/those standing near	accusing	another (person in the courtyard)	Dialogue	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
 LUK	22	60	Peter (Simon)	denial, strongest		Dialogue		
 LUK	22	61	Jesus			Normal		
 LUK	22	64	guards at high priests' house	mocking		Dialogue		
@@ -13775,20 +13770,20 @@ LUK	24	6	angels in white, two		men (angels) in clothes that gleamed like lightni
 LUK	24	7	angels in white, two		men (angels) in clothes that gleamed like lightning, two	Dialogue		
 LUK	24	8	Mary Magdalene/Mary mother of James/Salome			Indirect	Mary Magdalene	
 LUK	24	17	Jesus	questioning		Dialogue		
-LUK	24	18	Cleopas/companion (on road to Emmaus)			Dialogue	Cleopas	
-LUK	24	19	Cleopas/companion (on road to Emmaus)			Dialogue	Cleopas	
+LUK	24	18	Cleopas			Dialogue		
+LUK	24	19	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Dialogue	Cleopas	
 LUK	24	19	Jesus			Dialogue		
-LUK	24	20	Cleopas/companion (on road to Emmaus)			Normal	Cleopas	
-LUK	24	21	Cleopas/companion (on road to Emmaus)			Normal	Cleopas	
-LUK	24	22	Cleopas/companion (on road to Emmaus)			Normal	Cleopas' companion (on road to Emmaus)	
-LUK	24	23	Cleopas/companion (on road to Emmaus)			Normal	Cleopas' companion (on road to Emmaus)	
-LUK	24	24	Cleopas/companion (on road to Emmaus)			Normal	Cleopas' companion (on road to Emmaus)	
+LUK	24	20	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas	
+LUK	24	21	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas	
+LUK	24	22	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas' companion (on road to Emmaus)	
+LUK	24	23	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas' companion (on road to Emmaus)	
+LUK	24	24	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Normal	Cleopas' companion (on road to Emmaus)	
 LUK	24	25	Jesus			Dialogue		
 LUK	24	26	Jesus			Normal		
-LUK	24	29	Cleopas/companion (on road to Emmaus)	urging		Dialogue	Cleopas	
+LUK	24	29	Cleopas/Cleopas' companion (on road to Emmaus)	urging	Cleopas and his companion (on road to Emmaus)	Dialogue	Cleopas	
 LUK	24	29	Jesus			Indirect		
-LUK	24	32	Cleopas/companion (on road to Emmaus)			Dialogue	Cleopas' companion (on road to Emmaus)	
-LUK	24	34	Eleven/those with them			Dialogue		
+LUK	24	32	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Dialogue	Cleopas' companion (on road to Emmaus)	
+LUK	24	34	Eleven/those with the Eleven			Dialogue	John	
 LUK	24	36	Jesus			Dialogue		
 LUK	24	38	Jesus			Dialogue		
 LUK	24	39	Jesus			Normal		
@@ -13800,13 +13795,13 @@ LUK	24	48	Jesus			Normal
 LUK	24	49	Jesus			Normal		
 LUK	24	50	Jesus			Indirect		
 JHN	1	15	John the Baptist			Normal		
-JHN	1	19	priests/Levites sent from the Jews			Indirect		
+JHN	1	19	priests/Levites			Indirect		
 JHN	1	20	John the Baptist			Dialogue		
 JHN	1	21	John the Baptist			Dialogue		
-JHN	1	21	priests/Levites sent from the Jews			Dialogue		
-JHN	1	22	priests/Levites sent from the Jews			Dialogue		
+JHN	1	21	priests/Levites			Dialogue		
+JHN	1	22	priests/Levites			Dialogue		
 JHN	1	23	John the Baptist			Dialogue		
-JHN	1	25	priests/Levites sent from the Jews		messengers sent from Pharisees (the Jews)	Dialogue		
+JHN	1	25	priests/Levites		messengers sent from Pharisees (the Jews)	Dialogue		
 JHN	1	26	John the Baptist			Dialogue		
 JHN	1	27	John the Baptist			Normal		
 JHN	1	29	John the Baptist			Normal		
@@ -13816,7 +13811,7 @@ JHN	1	32	John the Baptist			Normal
 JHN	1	33	John the Baptist			Normal		
 JHN	1	34	John the Baptist			Normal		
 JHN	1	36	John the Baptist			Dialogue		
-JHN	1	38	disciples of John Baptist, two (Andrew and another)	curious		Dialogue		
+JHN	1	38	Andrew/another disciple of John Baptist	curious	disciples of John Baptist, two (Andrew and another)	Dialogue	Andrew	
 JHN	1	38	Jesus	questioning		Dialogue		
 JHN	1	38	narrator-JHN			Quotation		
 JHN	1	39	Jesus			Dialogue		
@@ -13825,9 +13820,9 @@ JHN	1	41	narrator-JHN			Quotation
 JHN	1	42	Jesus			Dialogue		
 JHN	1	42	narrator-JHN			Quotation		
 JHN	1	43	Jesus	inviting		Dialogue		
-JHN	1	45	Philip	excited	Philip (apostle)	Dialogue		
+JHN	1	45	Philip (apostle)	excited	Philip	Dialogue		
 JHN	1	46	Nathanael			Dialogue		
-JHN	1	46	Philip		Philip (apostle)	Dialogue		
+JHN	1	46	Philip (apostle)		Philip	Dialogue		
 JHN	1	47	Jesus			Dialogue		
 JHN	1	48	Jesus			Dialogue		
 JHN	1	48	Nathanael	puzzled		Dialogue		
@@ -13958,7 +13953,7 @@ JHN	5	45	Jesus			Normal
 JHN	5	46	Jesus			Normal		
 JHN	5	47	Jesus			Normal		
 JHN	6	5	Jesus			Dialogue		
-JHN	6	7	Philip			Dialogue		MRK 6.37;JHN 6.7
+JHN	6	7	Philip (apostle)		Philip	Dialogue		MRK 6.37;JHN 6.7
 JHN	6	9	Andrew		Andrew, Simon Peter's brother	Dialogue		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
 JHN	6	10	Jesus			Dialogue		
 JHN	6	12	Jesus			Dialogue		
@@ -14179,7 +14174,7 @@ JHN	10	36	Jesus			Normal
 JHN	10	37	Jesus			Normal		
 JHN	10	38	Jesus			Normal		
 JHN	10	41	people near Jordan River			Normal		
-JHN	11	3	Mary/Martha			Normal		
+JHN	11	3	Mary, sister of Martha/Martha			Normal		
 JHN	11	4	Jesus			Normal		
 JHN	11	7	Jesus			Dialogue		
 JHN	11	8	disciples		disciples, Jesus'	Dialogue		
@@ -14200,12 +14195,12 @@ JHN	11	25	Jesus			Dialogue
 JHN	11	26	Jesus			Normal		
 JHN	11	27	Martha			Dialogue		
 JHN	11	28	Martha			Dialogue		
-JHN	11	31	Jews with Mary/Martha			Indirect		
+JHN	11	31	Jews who had been with Mary and Martha			Indirect		
 JHN	11	32	Mary, sister of Martha			Dialogue		
 JHN	11	34	Jesus	questioning		Dialogue		
-JHN	11	34	Jews/Mary/Martha			Dialogue	Mary, sister of Martha	
-JHN	11	36	Jews with Mary/Martha			Dialogue		
-JHN	11	37	Jews with Mary/Martha, some	skeptical		Dialogue		
+JHN	11	34	Jews, the/Mary, sister of Martha/Martha			Dialogue	Mary, sister of Martha	
+JHN	11	36	Jews who had been with Mary and Martha			Dialogue		
+JHN	11	37	Jews who had been with Mary and Martha, some	skeptical		Dialogue		
 JHN	11	39	Jesus			Dialogue		
 JHN	11	39	Martha			Dialogue		
 JHN	11	40	Jesus			Dialogue		
@@ -14288,7 +14283,7 @@ JHN	14	4	Jesus			Normal
 JHN	14	5	Thomas	frustrated		Dialogue		
 JHN	14	6	Jesus			Dialogue		
 JHN	14	7	Jesus			Normal		
-JHN	14	8	Philip		Philip (apostle)	Dialogue		
+JHN	14	8	Philip (apostle)		Philip	Dialogue		
 JHN	14	9	Jesus			Normal		
 JHN	14	10	Jesus			Normal		
 JHN	14	11	Jesus			Normal		
@@ -14411,7 +14406,7 @@ JHN	18	14	Caiaphas, the high priest			Indirect
 JHN	18	16	John		the other disciple (John)	Indirect		
 JHN	18	17	servant girl at high priest's courtyard		servant girl who watched the door	Dialogue		MAT 26.69;MRK 14.67;LUK 22.56;JHN 18.17
 JHN	18	17	Peter (Simon)	denial		Dialogue		
-JHN	18	19	Annas, father-in-law of Caiaphas		Annas, high priest	Indirect		
+JHN	18	19	Ananias (Annas), the high priest (father-in-law of Caiaphas)		Annas, high priest	Indirect		
 JHN	18	20	Jesus			Dialogue		
 JHN	18	21	Jesus			Dialogue		
 JHN	18	22	officials of high priest, one of the	gruff		Dialogue		
@@ -14579,27 +14574,21 @@ ACT	3	23	Peter (Simon)			Normal
 ACT	3	24	Peter (Simon)			Normal		
 ACT	3	25	Peter (Simon)			Normal		
 ACT	3	26	Peter (Simon)			Normal		
-ACT	4	7	high priests/men of their family/rulers, elders, teachers of religious law		men in the Sanhedrin	Dialogue	Annas, father-in-law of Caiaphas	
+ACT	4	7	Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin		men in the Sanhedrin	Dialogue	Ananias (Annas), the high priest (father-in-law of Caiaphas)	
 ACT	4	8	Peter (Simon)			Dialogue		
 ACT	4	9	Peter (Simon)			Normal		
 ACT	4	10	Peter (Simon)			Normal		
 ACT	4	11	Peter (Simon)			Normal		
 ACT	4	12	Peter (Simon)			Normal		
-ACT	4	13	high priests/men of their family/rulers, elders, teachers of religious law		men in the Sanhedrin	Indirect	Annas, father-in-law of Caiaphas	
-ACT	4	15	high priests/men of their family/rulers, elders, teachers of religious law		men in the Sanhedrin	Indirect	Annas, father-in-law of Caiaphas	
-ACT	4	16	high priests/men of their family/rulers, elders, teachers of religious law		men in the Sanhedrin	Normal	Annas, father-in-law of Caiaphas	
-ACT	4	17	high priests/men of their family/rulers, elders, teachers of religious law		men in the Sanhedrin	Normal	Annas, father-in-law of Caiaphas	
-ACT	4	18	high priests/men of their family/rulers, elders, teachers of religious law		men in the Sanhedrin	Indirect	Annas, father-in-law of Caiaphas	
+ACT	4	13	Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin		men in the Sanhedrin	Indirect	Ananias (Annas), the high priest (father-in-law of Caiaphas)	
+ACT	4	15	Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin		men in the Sanhedrin	Indirect	Ananias (Annas), the high priest (father-in-law of Caiaphas)	
+ACT	4	16	Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin		men in the Sanhedrin	Normal	Ananias (Annas), the high priest (father-in-law of Caiaphas)	
+ACT	4	17	Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin		men in the Sanhedrin	Normal	Ananias (Annas), the high priest (father-in-law of Caiaphas)	
+ACT	4	18	Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin		men in the Sanhedrin	Indirect	Ananias (Annas), the high priest (father-in-law of Caiaphas)	
 ACT	4	19	Peter (Simon)/John			Dialogue	Peter (Simon)	
 ACT	4	20	Peter (Simon)/John			Normal	John	
 ACT	4	23	Peter (Simon)/John			Indirect	Peter (Simon)	
-ACT	4	24	Peter (Simon)/John/own people			Normal		
-ACT	4	25	Peter (Simon)/John/own people			Normal		
-ACT	4	26	Peter (Simon)/John/own people			Normal		
-ACT	4	27	Peter (Simon)/John/own people			Normal		
-ACT	4	28	Peter (Simon)/John/own people			Normal		
-ACT	4	29	Peter (Simon)/John/own people			Normal		
-ACT	4	30	Peter (Simon)/John/own people			Normal		
+ACT	4	24-30	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
 ACT	4	32	no one			Hypothetical		
 ACT	4	36	narrator-ACT			Quotation		
 ACT	5	3	Peter (Simon)	rebuking		Dialogue		
@@ -14611,7 +14600,7 @@ ACT	5	20	angel of the LORD, an	commanding		Normal
 ACT	5	23	temple police	perplexed		Normal		
 ACT	5	24	captain of the temple guard/chief priests			Indirect		
 ACT	5	25	person who told the guards and priests where the apostles were	excited		Normal		
-ACT	5	28	high priest			Dialogue		
+ACT	5	28	Ananias (Annas), the high priest (father-in-law of Caiaphas)		high priest	Dialogue		
 ACT	5	29	Peter (Simon)			Dialogue		
 ACT	5	30	Peter (Simon)			Normal		
 ACT	5	31	Peter (Simon)			Normal		
@@ -14632,7 +14621,7 @@ ACT	6	9	narrator-ACT			Quotation
 ACT	6	11	Jews of Cyrene, Alexandria, Cilicia & Asia	accusing		Normal		
 ACT	6	13	false witnesses			Normal		
 ACT	6	14	false witnesses			Normal		
-ACT	7	1	high priest			Normal		
+ACT	7	1	Ananias (Annas), the high priest (father-in-law of Caiaphas)		high priest	Normal		
 ACT	7	2	Stephen			Normal		
 ACT	7	3	Stephen			Normal		
 ACT	7	4	Stephen			Normal		
@@ -14690,24 +14679,24 @@ ACT	7	57	Sanhedrin/chief priests/Pharisees			Indirect
 ACT	7	59	Stephen			Normal		
 ACT	7	60	Stephen	calling out		Normal		
 ACT	8	10	people of Samaria, all the			Normal		
-ACT	8	19	Simon (magician/sorcerer)			Normal		
+ACT	8	19	Simon (sorcerer)			Normal		
 ACT	8	20	Peter (Simon)	rebuking		Dialogue		
 ACT	8	21	Peter (Simon)	rebuking		Normal		
 ACT	8	22	Peter (Simon)	rebuking		Normal		
 ACT	8	23	Peter (Simon)	rebuking		Normal		
-ACT	8	24	Simon (magician/sorcerer)			Dialogue		
+ACT	8	24	Simon (sorcerer)			Dialogue		
 ACT	8	26	angel of the LORD, an			Normal		
 ACT	8	27	narrator-ACT			Quotation		
 ACT	8	29	Holy Spirit, the			Normal		
-ACT	8	30	Philip		Philip (the evangelist)	Dialogue		
+ACT	8	30	Philip (the evangelist)		Philip	Dialogue		
 ACT	8	31	Ethiopian officer of Queen Candace			Dialogue		
 ACT	8	32	scripture			Quotation	Isaiah	
 ACT	8	33	scripture			Quotation	Isaiah	
 ACT	8	34	Ethiopian officer of Queen Candace			Dialogue		
-ACT	8	35	Philip		Philip (the evangelist)	Indirect		
+ACT	8	35	Philip (the evangelist)		Philip	Indirect		
 ACT	8	36	Ethiopian officer of Queen Candace			Dialogue		
 ACT	8	37	Ethiopian officer of Queen Candace			Indirect		
-ACT	8	37	Philip		Philip (the evangelist)	Potential		
+ACT	8	37	Philip (the evangelist)		Philip	Potential		
 ACT	9	1	Paul		Saul (Paul)	Indirect		
 ACT	9	2	Paul		Saul (Paul)	Indirect		
 ACT	9	4	Jesus	questioning		Normal		
@@ -14796,7 +14785,7 @@ ACT	12	15	people praying at John Mark's mother's house			Dialogue
 ACT	12	17	Peter (Simon)			Dialogue		
 ACT	12	18	soldiers	perplexed		Indirect		
 ACT	12	19	King Herod Agrippa II			Indirect		
-ACT	12	22	people from Tyre/Sidon	shouting		Normal		
+ACT	12	22	people of Tyre and Sidon	shouting		Normal		
 ACT	13	1	narrator-ACT			Quotation		
 ACT	13	2	Holy Spirit, the		Holy Spirit	Normal		
 ACT	13	3	prophets and teachers at Antioch			Indirect		
@@ -14890,7 +14879,7 @@ ACT	16	31	Paul		Paul and Silas	Dialogue
 ACT	16	35	officers of magistrates			Normal		
 ACT	16	36	jailer in Philippi	respectful		Dialogue		
 ACT	16	37	Paul	upset		Dialogue		
-ACT	16	39	Magistrates, chief			Indirect		
+ACT	16	39	magistrates, chief			Indirect		
 ACT	17	3	Paul			Normal		
 ACT	17	6	mob			Normal		
 ACT	17	7	mob			Normal		
@@ -14933,10 +14922,10 @@ ACT	19	21	Paul			Normal
 ACT	19	25	Demetrius the silversmith			Normal		
 ACT	19	26	Demetrius the silversmith			Normal		
 ACT	19	27	Demetrius the silversmith			Normal		
-ACT	19	28	craftsmen/workmen	furious		Normal		
+ACT	19	28	craftsmen and workmen	furious		Normal		
 ACT	19	31	officials, Ephesus (friends of Paul)			Indirect		
-ACT	19	33	craftsmen/workmen	furious		Indirect		
-ACT	19	34	craftsmen/workmen	furious		Normal		
+ACT	19	33	craftsmen and workmen	furious		Indirect		
+ACT	19	34	craftsmen and workmen	furious		Normal		
 ACT	19	35	city clerk of Ephesus	diplomatic		Normal		
 ACT	19	36	city clerk of Ephesus	diplomatic		Normal		
 ACT	19	37	city clerk of Ephesus	diplomatic		Normal		
@@ -15018,7 +15007,7 @@ ACT	22	28	commander of Roman troops in Jerusalem			Dialogue
 ACT	22	28	Paul			Dialogue		
 ACT	22	29	commander of Roman troops in Jerusalem			Indirect		
 ACT	23	1	Paul	sternly		Dialogue		
-ACT	23	2	Ananias, the high priest	commanding		Indirect		
+ACT	23	2	Ananias (Annas), the high priest (father-in-law of Caiaphas)	commanding	Ananias, the high priest	Indirect		
 ACT	23	3	Paul	rebuking		Dialogue		
 ACT	23	4	those standing near Paul in Sanhedrin	angry		Dialogue		
 ACT	23	5	Paul			Dialogue		
@@ -15121,11 +15110,11 @@ ACT	26	26	Paul			Normal
 ACT	26	27	Paul			Normal		
 ACT	26	28	King Herod Agrippa II			Dialogue		
 ACT	26	29	Paul			Dialogue		
-ACT	26	31	King Agrippa/Festus/Bernice/those sitting with them			Dialogue	Bernice	
+ACT	26	31	King Herod Agrippa II/Festus, governor of Judea/Bernice		King Agrippa/Festus/Bernice/those sitting with them	Dialogue	Bernice	
 ACT	26	32	King Herod Agrippa II			Dialogue		
 ACT	27	1	narrator-ACT			Quotation		
 ACT	27	10	Paul	warning		Normal		
-ACT	27	12	captain/crew			Indirect		
+ACT	27	12	captain, ship to Italy (Rome)/sailors, ship to Italy (Rome)		majority (ship's crew)	Indirect		
 ACT	27	14	narrator-ACT			Quotation		
 ACT	27	21	Paul			Normal		
 ACT	27	22	Paul			Normal		
@@ -15133,11 +15122,11 @@ ACT	27	23	Paul			Normal
 ACT	27	24	Paul			Normal		
 ACT	27	25	Paul			Normal		
 ACT	27	26	Paul			Normal		
-ACT	27	27	sailors			Indirect		
+ACT	27	27	sailors, ship to Italy (Rome)		sailors	Indirect		
 ACT	27	31	Paul	warning		Normal		
 ACT	27	33	Paul	encouraging		Normal		
 ACT	27	34	Paul	encouraging		Normal		
-ACT	27	39	captain/crew			Indirect		
+ACT	27	39	captain, ship to Italy (Rome)/sailors, ship to Italy (Rome)		ship's crew	Indirect		
 ACT	27	42	soldiers			Indirect		
 ACT	27	43	centurion on ship with Paul			Indirect		
 ACT	28	4	Malta islanders	suspicious		Normal		
@@ -15245,17 +15234,17 @@ ROM	15	11	scripture			Quotation	psalmist
 ROM	15	12	scripture			Quotation	Isaiah	
 ROM	15	21	scripture			Quotation	Isaiah	
 ROM	16	22	Tertius			Indirect		
-1CO	1	12	another (follower of Apollos)	boasting		Normal		
-1CO	1	12	another (follower of Peter/Cephas)	boasting		Normal		
-1CO	1	12	one of you (follower of Paul)	boasting		Normal		
-1CO	1	12	still another (follower of Christ)	boasting		Normal		
+1CO	1	12	follower of Apollos	boasting		Normal		
+1CO	1	12	follower of Cephas (Peter)	boasting		Normal		
+1CO	1	12	follower of Paul	boasting		Normal		
+1CO	1	12	follower of Christ	boasting		Normal		
 1CO	1	15	narrator-1CO			Hypothetical		
 1CO	1	19	scripture			Quotation	God	
 1CO	1	31	scripture			Quotation	God	
 1CO	2	9	scripture			Quotation	Isaiah	
 1CO	2	16	scripture			Quotation	Isaiah	
-1CO	3	4	another of you (follower of Apollos)			Hypothetical		
-1CO	3	4	one of you (follower of Paul)			Hypothetical		
+1CO	3	4	follower of Apollos			Hypothetical		
+1CO	3	4	follower of Paul			Hypothetical		
 1CO	3	18	narrator-1CO			Quotation		
 1CO	3	19	scripture			Quotation	Eliphaz the Temanite	
 1CO	3	20	scripture			Quotation	psalmist	
@@ -15306,7 +15295,7 @@ ROM	16	22	Tertius			Indirect
 2CO	8	15	scripture			Quotation		
 2CO	8	17	Titus			Indirect		
 2CO	9	2	Paul			Indirect		
-2CO	9	7	one, each			Hypothetical		
+2CO	9	7	each one			Hypothetical		
 2CO	9	9	scripture			Quotation	psalmist	
 2CO	10	1	narrator-2CO			Quotation		
 2CO	10	10	some people (quoted by Paul)			Normal		
@@ -15564,7 +15553,7 @@ REV	5	2	angel, powerful	loud		Normal
 REV	5	5	elders, one of the			Normal		
 REV	5	9	four living creatures/twenty-four elders			Normal		
 REV	5	10	four living creatures/twenty-four elders			Normal		
-REV	5	12	angels, living creatures, elders (thousands of thousands)			Normal		
+REV	5	12	angels, many			Normal		
 REV	5	13	every created thing			Normal		
 REV	5	14	four living creatures			Normal		
 REV	6	1	living creature, first	loud		Normal		
@@ -15716,6 +15705,6 @@ REV	22	14	Jesus			Normal
 REV	22	15	Jesus			Normal		
 REV	22	16	Jesus			Normal		
 REV	22	17	him who hears			Normal		
-REV	22	17	Holy Spirit and the bride			Normal		
+REV	22	17	Holy Spirit, the/bride, the (refering to the Church)		Holy Spirit and the bride	Normal		
 REV	22	18	John			Potential		
 REV	22	20	Jesus			Normal		

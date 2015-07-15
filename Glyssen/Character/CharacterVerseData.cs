@@ -248,8 +248,9 @@ namespace Glyssen.Character
 			var list = new List<CharacterVerse>();
 
 			if (items.Length < kiQuoteType)
-				throw new ApplicationException("Bad format in CharacterVerseDataBase! Line #: " + lineNumber + "; Line contents: " + string.Join("\t", items));
-			Debug.Assert(items.Length <= kMaxItems);
+				throw new ApplicationException("Bad format in CharacterVerse control file! Line #: " + lineNumber + "; Line contents: " + string.Join("\t", items));
+			if (items.Length > kMaxItems)
+				throw new ApplicationException("Incorrect number of fields in CharacterVerse control file! Line #: " + lineNumber + "; Line contents: " + string.Join("\t", items));
 
 			int chapter;
 			if (!Int32.TryParse(items[1], out chapter))
