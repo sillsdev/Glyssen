@@ -39,9 +39,9 @@ namespace Glyssen.Dialogs
 
 				foreach (KeyValuePair<int, CharacterGroup> pair in charGroupTemplate.CharacterGroups)
 					characterGroups.Add(pair.Value);
-			}
 
-			m_project.CharacterGroupList.PopulateEstimatedHours(m_project.IncludedBooks);
+				m_project.CharacterGroupList.PopulateEstimatedHours(m_project.IncludedBooks);
+			}
 
 			m_characterGroupGrid.DataSource = characterGroups;
 			m_characterGroupGrid.MultiSelect = true;
