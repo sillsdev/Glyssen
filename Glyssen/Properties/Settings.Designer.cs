@@ -73,7 +73,7 @@ namespace Glyssen.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("27")]
+        [global::System.Configuration.DefaultSettingValueAttribute("28")]
         public int ParserVersion {
             get {
                 return ((int)(this["ParserVersion"]));
