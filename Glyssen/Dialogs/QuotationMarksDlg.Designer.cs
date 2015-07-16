@@ -1,4 +1,6 @@
-﻿namespace Glyssen.Dialogs
+﻿using L10NSharp.UI;
+
+namespace Glyssen.Dialogs
 {
 	partial class QuotationMarksDlg
 	{
@@ -18,6 +20,7 @@
 				if (components != null)
 					components.Dispose();
 				m_project.AnalysisCompleted -= HandleAnalysisCompleted;
+				LocalizeItemDlg.StringsLocalized -= HandleStringsLocalized;
 			}
 			base.Dispose(disposing);
 		}

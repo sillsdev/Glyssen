@@ -68,8 +68,6 @@ namespace Glyssen.Dialogs
 			m_scriptureReference.VerseControl.BooksPresentSet = books;
 			m_scriptureReference.VerseControl.ShowEmptyBooks = false;
 
-			Disposed += AssignCharacterDialog_Disposed;
-
 			m_scriptureReference.VerseControl.AllowVerseSegments = false;
 			m_scriptureReference.VerseControl.Versification = m_viewModel.Versification;
 			m_scriptureReference.VerseControl.VerseRefChanged += m_scriptureReference_VerseRefChanged;
@@ -446,15 +444,6 @@ namespace Glyssen.Dialogs
 		private void AssignCharacterDialog_Shown(object sender, EventArgs e)
 		{
 			m_formLoading = false;
-		}
-
-		void AssignCharacterDialog_Disposed(object sender, EventArgs e)
-		{
-			m_viewModel.CurrentBlockChanged -= LoadBlock;
-			LocalizeItemDlg.StringsLocalized -= HandleStringsLocalized;
-			m_viewModel.AssignedBlocksIncremented -= m_viewModel_AssignedBlocksIncremented;
-
-			Disposed -= AssignCharacterDialog_Disposed;
 		}
 		
 		protected override void OnClosing(CancelEventArgs e)

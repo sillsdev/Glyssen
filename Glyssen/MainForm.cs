@@ -34,7 +34,7 @@ namespace Glyssen
 			m_uiLanguageMenu.ToolTipText = LocalizationManager.GetString("MainForm.UILanguage", "User-interface Language");
 
 			HandleStringsLocalized();
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized; // Don't need to unsubscribe since this object will be around as long as the program is running.
 		}
 
 		private void SetProject(Project project)
@@ -84,6 +84,8 @@ namespace Glyssen
 		{
 			m_percentAssignedFmt = m_lblPercentAssigned.Text;
 			UpdateLocalizedText();
+			if (m_project != null)
+				m_project.ProjectCharacterVerseData.HandleStringsLocalized();
 		}
 
 		private void UpdateButtons(bool readOnly)

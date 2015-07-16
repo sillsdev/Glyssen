@@ -1,4 +1,5 @@
 ﻿using Glyssen.Controls;
+using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
 {
@@ -15,9 +16,14 @@ namespace Glyssen.Dialogs
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing)
 		{
-			if (disposing && (components != null))
+			if (disposing)
 			{
-				components.Dispose();
+				m_viewModel.CurrentBlockChanged -= LoadBlock;
+				LocalizeItemDlg.StringsLocalized -= HandleStringsLocalized;
+				m_viewModel.AssignedBlocksIncremented -= m_viewModel_AssignedBlocksIncremented;
+
+				if (components != null)
+					components.Dispose();
 			}
 			base.Dispose(disposing);
 		}

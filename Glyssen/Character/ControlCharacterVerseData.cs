@@ -30,7 +30,7 @@ namespace Glyssen.Character
 			if (TabDelimitedCharacterVerseData == null)
 				TabDelimitedCharacterVerseData = Resources.CharacterVerseData;
 			LoadAll();
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized; // Don't need to unsubscribe since this object will be around as long as the program is running.
 		}
 
 		public static ControlCharacterVerseData Singleton

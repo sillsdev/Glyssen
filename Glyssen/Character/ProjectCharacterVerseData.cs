@@ -16,8 +16,6 @@ namespace Glyssen.Character
 				LoadData(File.ReadAllText(fullPath));
 			else
 				LoadData("");
-
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 		}
 
 		public virtual void Add(CharacterVerse cv)
