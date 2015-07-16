@@ -39,15 +39,15 @@
 			this.m_btnSave = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.m_characterGroupGrid = new SIL.Windows.Forms.Widgets.BetterGrid.BetterGrid();
-			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
-			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-			this.m_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-			this.m_voiceActorGrid = new Glyssen.Controls.VoiceActorInformationGrid();
 			this.GroupNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.m_voiceActorGrid = new Glyssen.Controls.VoiceActorInformationGrid();
+			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.m_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -63,8 +63,8 @@
 			this.m_btnAssignActor.AutoSize = true;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnAssignActor, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnAssignActor, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_btnAssignActor, "DialogBoxes.VoiceActorAssignment.VoiceActorAssignmentDlg.button1");
-			this.m_btnAssignActor.Location = new System.Drawing.Point(107, 341);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_btnAssignActor, "DialogBoxes.VoiceActorAssignmentDlg.AssignActor");
+			this.m_btnAssignActor.Location = new System.Drawing.Point(95, 341);
 			this.m_btnAssignActor.Name = "m_btnAssignActor";
 			this.m_btnAssignActor.Size = new System.Drawing.Size(128, 23);
 			this.m_btnAssignActor.TabIndex = 1;
@@ -77,8 +77,8 @@
 			this.m_btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnExport, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnExport, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_btnExport, "DialogBoxes.VoiceActorAssignment.VoiceActorAssignmentDlg.button2");
-			this.m_btnExport.Location = new System.Drawing.Point(160, 373);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_btnExport, "DialogBoxes.VoiceActorAssignmentDlg.Export");
+			this.m_btnExport.Location = new System.Drawing.Point(148, 373);
 			this.m_btnExport.Name = "m_btnExport";
 			this.m_btnExport.Size = new System.Drawing.Size(75, 23);
 			this.m_btnExport.TabIndex = 2;
@@ -91,8 +91,8 @@
 			this.m_btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnSave, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnSave, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_btnSave, "DialogBoxes.VoiceActorAssignment.VoiceActorAssignmentDlg.button3");
-			this.m_btnSave.Location = new System.Drawing.Point(79, 373);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_btnSave, "DialogBoxes.VoiceActorAssignmentDlg.Save");
+			this.m_btnSave.Location = new System.Drawing.Point(67, 373);
 			this.m_btnSave.Name = "m_btnSave";
 			this.m_btnSave.Size = new System.Drawing.Size(75, 23);
 			this.m_btnSave.TabIndex = 3;
@@ -106,7 +106,7 @@
 			this.label1.ForeColor = System.Drawing.Color.White;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.label1, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.label1, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.label1, "DialogBoxes.VoiceActorAssignment.VoiceActorAssignmentDlg.label1");
+			this.l10NSharpExtender1.SetLocalizingId(this.label1, "DialogBoxes.VoiceActorAssignmentDlg.AssignActors");
 			this.label1.Location = new System.Drawing.Point(12, 12);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(120, 13);
@@ -158,7 +158,8 @@
 			this.m_characterGroupGrid.GridColor = System.Drawing.Color.Black;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_characterGroupGrid, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_characterGroupGrid, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_characterGroupGrid, "DialogBoxes.VoiceActorAssignment.VoiceActorAssignmentDlg.betterGrid1");
+			this.l10NSharpExtender1.SetLocalizationPriority(this.m_characterGroupGrid, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_characterGroupGrid, "DialogBoxes.VoiceActorAssignmentDlg.betterGrid1");
 			this.m_characterGroupGrid.Location = new System.Drawing.Point(0, 0);
 			this.m_characterGroupGrid.MultiSelect = false;
 			this.m_characterGroupGrid.Name = "m_characterGroupGrid";
@@ -183,10 +184,66 @@
 			this.m_characterGroupGrid.DragOver += new System.Windows.Forms.DragEventHandler(this.m_characterGroupGrid_DragOver);
 			this.m_characterGroupGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.m_characterGroupGrid_KeyDown);
 			// 
+			// GroupNumber
+			// 
+			this.GroupNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+			this.GroupNumber.DataPropertyName = "GroupNumber";
+			this.GroupNumber.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.GroupNumber!Group #";
+			this.GroupNumber.Name = "GroupNumber";
+			this.GroupNumber.ReadOnly = true;
+			this.GroupNumber.Width = 386;
+			// 
+			// Column2
+			// 
+			this.Column2.DataPropertyName = "CharactersString";
+			this.Column2.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Characters!Characters";
+			this.Column2.Name = "Column2";
+			this.Column2.ReadOnly = true;
+			// 
+			// Column3
+			// 
+			this.Column3.DataPropertyName = "RequiredAttributes";
+			this.Column3.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.RequiredAttributes!Required";
+			this.Column3.Name = "Column3";
+			this.Column3.ReadOnly = true;
+			// 
+			// Column4
+			// 
+			this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.Column4.DataPropertyName = "EstimatedHours";
+			dataGridViewCellStyle3.Format = "N2";
+			dataGridViewCellStyle3.NullValue = null;
+			this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
+			this.Column4.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Hours!Hours";
+			this.Column4.Name = "Column4";
+			this.Column4.ReadOnly = true;
+			this.Column4.Width = 330;
+			// 
+			// Column5
+			// 
+			this.Column5.DataPropertyName = "VoiceActorAssignedName";
+			this.Column5.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.ActorAssigned!Actor Assigned";
+			this.Column5.Name = "Column5";
+			this.Column5.ReadOnly = true;
+			// 
 			// l10NSharpExtender1
 			// 
 			this.l10NSharpExtender1.LocalizationManagerId = "Glyssen";
-			this.l10NSharpExtender1.PrefixForNewItems = "DialogBoxes.VoiceActorAssignment";
+			this.l10NSharpExtender1.PrefixForNewItems = "DialogBoxes.VoiceActorAssignmentDlg";
+			// 
+			// m_voiceActorGrid
+			// 
+			this.m_voiceActorGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_voiceActorGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_voiceActorGrid, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_voiceActorGrid, null);
+			this.l10NSharpExtender1.SetLocalizationPriority(this.m_voiceActorGrid, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_voiceActorGrid, "DialogBoxes.VoiceActorAssignmentDlg.VoiceActorInformationGrid");
+			this.m_voiceActorGrid.Location = new System.Drawing.Point(3, 0);
+			this.m_voiceActorGrid.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+			this.m_voiceActorGrid.Name = "m_voiceActorGrid";
+			this.m_voiceActorGrid.Size = new System.Drawing.Size(220, 325);
+			this.m_voiceActorGrid.TabIndex = 0;
 			// 
 			// splitContainer1
 			// 
@@ -228,64 +285,8 @@
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.m_tableLayoutPanel.Size = new System.Drawing.Size(238, 367);
+			this.m_tableLayoutPanel.Size = new System.Drawing.Size(226, 367);
 			this.m_tableLayoutPanel.TabIndex = 6;
-			// 
-			// m_voiceActorGrid
-			// 
-			this.m_voiceActorGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
-			this.m_voiceActorGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_voiceActorGrid, null);
-			this.l10NSharpExtender1.SetLocalizationComment(this.m_voiceActorGrid, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_voiceActorGrid, "DialogBoxes.VoiceActorAssignment.VoiceActorAssignmentDlg.VoiceActorInformationGri" +
-        "d2");
-			this.m_voiceActorGrid.Location = new System.Drawing.Point(3, 0);
-			this.m_voiceActorGrid.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-			this.m_voiceActorGrid.Name = "m_voiceActorGrid";
-			this.m_voiceActorGrid.Size = new System.Drawing.Size(232, 325);
-			this.m_voiceActorGrid.TabIndex = 0;
-			// 
-			// GroupNumber
-			// 
-			this.GroupNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-			this.GroupNumber.DataPropertyName = "GroupNumber";
-			this.GroupNumber.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignment.GroupNumber!Group #";
-			this.GroupNumber.Name = "GroupNumber";
-			this.GroupNumber.ReadOnly = true;
-			this.GroupNumber.Width = 386;
-			// 
-			// Column2
-			// 
-			this.Column2.DataPropertyName = "CharactersString";
-			this.Column2.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignment.Characters!Characters";
-			this.Column2.Name = "Column2";
-			this.Column2.ReadOnly = true;
-			// 
-			// Column3
-			// 
-			this.Column3.DataPropertyName = "RequiredAttributes";
-			this.Column3.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignment.RequiredAttributes!Required";
-			this.Column3.Name = "Column3";
-			this.Column3.ReadOnly = true;
-			// 
-			// Column4
-			// 
-			this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.Column4.DataPropertyName = "EstimatedHours";
-			dataGridViewCellStyle3.Format = "N2";
-			dataGridViewCellStyle3.NullValue = null;
-			this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
-			this.Column4.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignment.Hours!Hours";
-			this.Column4.Name = "Column4";
-			this.Column4.ReadOnly = true;
-			this.Column4.Width = 330;
-			// 
-			// Column5
-			// 
-			this.Column5.DataPropertyName = "VoiceActorAssignedName";
-			this.Column5.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignment.ActorAssigned!Actor Assigned";
-			this.Column5.Name = "Column5";
-			this.Column5.ReadOnly = true;
 			// 
 			// VoiceActorAssignmentDlg
 			// 
@@ -296,7 +297,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.l10NSharpExtender1.SetLocalizableToolTip(this, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this, null);
-			this.l10NSharpExtender1.SetLocalizingId(this, "VoiceActorAssignmentDlg.WindowTitle");
+			this.l10NSharpExtender1.SetLocalizingId(this, "DialogBoxes.VoiceActorAssignmentDlg.WindowTitle");
 			this.MinimumSize = new System.Drawing.Size(640, 480);
 			this.Name = "VoiceActorAssignmentDlg";
 			this.Text = "Voice Actor Assignment";
