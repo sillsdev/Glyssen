@@ -27,6 +27,8 @@ namespace Glyssen
 		{
 			InitializeComponent();
 
+			Disposed += HandleDisposed;
+
 			InitializeLocalizableFormats();
 
 			SetupUILanguageMenu();
@@ -80,7 +82,14 @@ namespace Glyssen
 		{
 		}
 
-		protected void HandleStringsLocalized()
+		private void HandleDisposed(object sender, EventArgs eventArgs)
+		{
+			LocalizeItemDlg.StringsLocalized -= HandleStringsLocalized;
+
+			Disposed -= HandleDisposed;
+		}
+
+		private void HandleStringsLocalized()
 		{
 			m_percentAssignedFmt = m_lblPercentAssigned.Text;
 			UpdateLocalizedText();

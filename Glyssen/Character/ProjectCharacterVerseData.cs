@@ -8,7 +8,7 @@ using SIL.Scripture;
 
 namespace Glyssen.Character
 {
-	public class ProjectCharacterVerseData : CharacterVerseData
+	public class ProjectCharacterVerseData : CharacterVerseData, IDisposable
 	{
 		public ProjectCharacterVerseData(string fullPath)
 		{
@@ -59,6 +59,11 @@ namespace Glyssen.Character
 		private void RemoveDataAlsoInControlFile()
 		{
 			RemoveAll(ControlCharacterVerseData.Singleton.GetAllQuoteInfo(), new BcvCharacterDeliveryEqualityComparer());
+		}
+
+		public void Dispose()
+		{
+			LocalizeItemDlg.StringsLocalized -= HandleStringsLocalized;
 		}
 	}
 }
