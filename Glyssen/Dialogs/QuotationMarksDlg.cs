@@ -32,6 +32,8 @@ namespace Glyssen.Dialogs
 		{
 			InitializeComponent();
 
+			Disposed += HandleDisposed;
+
 			m_project = project;
 			m_project.AnalysisCompleted += HandleAnalysisCompleted;
 			m_navigatorViewModel = navigatorViewModel;
@@ -67,6 +69,13 @@ namespace Glyssen.Dialogs
 
 			if (readOnly)
 				MakeReadOnly();
+		}
+
+		private void HandleDisposed(object sender, EventArgs e)
+		{
+			LocalizeItemDlg.StringsLocalized -= HandleStringsLocalized;
+
+			Disposed -= HandleDisposed;
 		}
 
 		private void HandleStringsLocalized()

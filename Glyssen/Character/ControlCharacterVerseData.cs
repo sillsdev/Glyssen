@@ -8,7 +8,7 @@ using SIL.Scripture;
 
 namespace Glyssen.Character
 {
-	public class ControlCharacterVerseData : CharacterVerseData
+	public class ControlCharacterVerseData : CharacterVerseData, IDisposable
 	{
 		private static ControlCharacterVerseData s_singleton;
 		private static string s_tabDelimitedCharacterVerseData;
@@ -123,6 +123,11 @@ namespace Glyssen.Character
 
 				versesWithExpectedQuotesInChapter.Add(expectedQuote.Verse);
 			}
+		}
+
+		public void Dispose()
+		{
+			LocalizeItemDlg.StringsLocalized -= HandleStringsLocalized;
 		}
 	}
 }
