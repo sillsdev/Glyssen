@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 using Glyssen.Character;
@@ -37,11 +38,39 @@ namespace Glyssen.Dialogs
 					charGroupTemplate = charGroupSource.GetTemplate(m_project.VoiceActorList.Actors.Count);
 				}
 
+				Dictionary<string, CharacterGroup> characterIdToCharacterGroup = new Dictionary<string, CharacterGroup>();
+
 				foreach (KeyValuePair<int, CharacterGroup> pair in charGroupTemplate.CharacterGroups)
-					characterGroups.Add(pair.Value);
+				{
+					var group = pair.Value;
+
+					characterGroups.Add(group);
+
+					foreach (string id in group.CharacterIds)
+					{
+						characterIdToCharacterGroup.Add(id, group);
+					}
+				}
+
+				var characterDetails = CharacterDetailData.Singleton.GetAll();
+
+				foreach (var detail in characterDetails)
+				{
+					if (characterIdToCharacterGroup.ContainsKey(detail.Character))
+					{
+						var group = characterIdToCharacterGroup[detail.Character];
+
+						if (detail.Gender != "")
+							group.GenderAttributes.Add(detail.Gender);
+						if (detail.Age != "")
+							group.AgeAttributes.Add(detail.Age);
+					}
+
+				}
 
 				m_project.CharacterGroupList.PopulateEstimatedHours(m_project.IncludedBooks);
 			}
+			m_project.CharacterGroupList.PopulateRequiredAttributes();
 
 			m_characterGroupGrid.DataSource = characterGroups;
 			m_characterGroupGrid.MultiSelect = true;

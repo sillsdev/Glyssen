@@ -1,23 +1,72 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace Glyssen.Character
 {
 	public class CharacterGroup
 	{
+		private List<DataEntry> m_requiredAttributes; 
 		private bool m_isActorAssigned;
 		private VoiceActor.VoiceActor m_actorAssigned;
+
+		public class DataSet: HashSet<DataEntry>
+		{
+			private readonly Dictionary<string, DataEntry> m_entryNameToDataEntry;
+
+			public DataSet()
+			{
+				m_entryNameToDataEntry = new Dictionary<string, DataEntry>();
+			}
+
+			public void Add(string entryName)
+			{
+				if (!m_entryNameToDataEntry.ContainsKey(entryName))
+				{
+					var newEntry = new DataEntry(entryName);
+					Add(newEntry);
+					m_entryNameToDataEntry.Add(entryName, newEntry);
+				}
+
+				m_entryNameToDataEntry[entryName].Count++;
+			}
+		}
+
+		public class DataEntry
+		{
+			public DataEntry()
+			{
+				
+			}
+
+			public DataEntry(string name, int count = 0)
+			{
+				Name = name;
+				Count = count;
+			}
+
+			[XmlText]
+			public string Name { get; set; }
+			[XmlAttribute("Count")]
+			public int Count { get; set; }
+		}
 
 		//For Serialization
 		public CharacterGroup()
 		{
 			CharacterIds = new HashSet<string>();
+			GenderAttributes = new DataSet();
+			AgeAttributes = new DataSet();
+			m_requiredAttributes = new List<DataEntry>();
 		}
 
 		public CharacterGroup(int groupNumber)
 		{
 			CharacterIds = new HashSet<string>();
+			GenderAttributes = new DataSet();
+			AgeAttributes = new DataSet();
+			m_requiredAttributes = new List<DataEntry>();
 			GroupNumber = groupNumber;
 		}
 
@@ -30,6 +79,13 @@ namespace Glyssen.Character
 
 			m_isActorAssigned = true;
 			m_actorAssigned = actor;
+		}
+
+		public void PopulateRequiredAttributes()
+		{
+			m_requiredAttributes.Clear();
+			m_requiredAttributes.InsertRange(m_requiredAttributes.Count, GenderAttributes.OrderByDescending(t => t.Count));
+			m_requiredAttributes.InsertRange(m_requiredAttributes.Count, AgeAttributes.OrderByDescending(t => t.Count));			
 		}
 
 		public void RemoveVoiceActor()
@@ -52,10 +108,20 @@ namespace Glyssen.Character
 			get { return string.Join("; ", CharacterIds); }
 		}
 
+		[XmlArray("Genders")]
+		[XmlArrayItem("Gender")]
+		[Browsable(false)]
+		public DataSet GenderAttributes { get; set; }
+
+		[XmlArray("Ages")]
+		[XmlArrayItem("Age")]
+		[Browsable(false)]
+		public DataSet AgeAttributes { get; set; }
+
 		[XmlIgnore]
-		public string RequiredAttributes
+		public string RequiredAttributesString
 		{
-			get { return ""; }
+			get { return string.Join("; ", m_requiredAttributes.Select(t => t.Name + " [" + t.Count + "]")); }
 		}
 
 		[XmlElement]
