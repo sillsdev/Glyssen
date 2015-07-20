@@ -687,42 +687,6 @@ Nabal	1	Male
 Naboth	1	Male		
 Nahash the Ammonite	1			
 Naomi	1	Female		
-narrator-1CH	1			
-narrator-1CO	1			
-narrator-1JN	1	Male		
-narrator-1KI	1			
-narrator-1PE	1			
-narrator-1TI	1	Male		
-narrator-2CH	1			
-narrator-2CO	1			
-narrator-2TI	1	Male		
-narrator-ACT	1			
-narrator-AMO	1			
-narrator-DAN	1			
-narrator-ECC	1			
-narrator-EPH	1			
-narrator-EXO	1			
-narrator-EZK	1			
-narrator-EZR	1			
-narrator-GAL	1			
-narrator-GEN	1			
-narrator-HAB	1			
-narrator-HEB	1			
-narrator-ISA	1			
-narrator-JAS	1			
-narrator-JER	1			
-narrator-JHN	1			
-narrator-JOS	1			
-narrator-LUK	1			
-narrator-MAL	1			
-narrator-MAT	1			
-narrator-MRK	1			
-narrator-PSA	1			
-narrator-REV	1			
-narrator-ROM	1			
-narrator-TIT	1			
-narrator-ZEC	1			
-narrator-ZEP	1			
 Nathan	1			
 Nathanael	1			
 Nathaniel	1	Male		
