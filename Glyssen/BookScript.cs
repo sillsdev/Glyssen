@@ -323,8 +323,8 @@ namespace Glyssen
 					newBlock.BlockElements.Add(new ScriptText(content.Substring(characterOffsetToSplit)));
 					text.Content = content.Substring(0, characterOffsetToSplit);
 					m_blocks.Insert(iBlock + 1, newBlock);
-					foreach (
-						var chapterNum in m_chapterStartBlockIndices.Keys.Where(chapterNum => chapterNum > blockToSplit.ChapterNumber))
+					var chapterNumbersToIncrement = m_chapterStartBlockIndices.Keys.Where(chapterNum => chapterNum > blockToSplit.ChapterNumber).ToList();
+					foreach (var chapterNum in chapterNumbersToIncrement)
 						m_chapterStartBlockIndices[chapterNum]++;
 
 					m_blockCount++;
