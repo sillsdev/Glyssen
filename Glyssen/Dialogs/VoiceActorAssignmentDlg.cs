@@ -82,7 +82,12 @@ namespace Glyssen.Dialogs
 
 		private void m_voiceActorGrid_CellDoubleClicked(object sender, DataGridViewCellMouseEventArgs e)
 		{
-			AssignSelectedActorToSelectedGroup();
+			var grid = sender as DataGridView;
+
+			if (grid.Columns[e.ColumnIndex].DataPropertyName == "Name")
+			{
+				AssignSelectedActorToSelectedGroup();
+			}
 		}
 
 		private void m_voiceActorGrid_UserRemovedRows(object sender, DataGridViewRowsRemovedEventArgs e)
