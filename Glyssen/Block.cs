@@ -22,6 +22,9 @@ namespace Glyssen
 						".right-to-left{{direction:rtl}}" +
 						".scripttext {{display:inline}}";
 
+		/// <summary>Random string which will (hopefully) never appear in real text</summary>
+		private const string kAwooga = "^~^";
+
 		private int m_initialStartVerseNumber;
 		private int m_initialEndVerseNumber;
 		private int m_chapterNumber;
@@ -197,7 +200,7 @@ namespace Glyssen
 							}
 							if (extra == null)
 								throw new ArgumentNullException("extra");
-							encodedContent = encodedContent.Insert(offsetToInsertExtra, extra);
+							encodedContent = HttpUtility.HtmlEncode(text.Content.Insert(offsetToInsertExtra, kAwooga)).Replace(kAwooga, extra);
 						}
 						var content = String.Format("<div id=\"{0}\" class=\"scripttext\">{1}</div>", currVerse,
 							encodedContent);
