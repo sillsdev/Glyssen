@@ -77,7 +77,7 @@ namespace Glyssen.Dialogs
 
 		private void m_characterGroupGrid_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
 		{
-			if (e.RowIndex >= 0)
+			if (e.RowIndex >= 0 && e.Button == MouseButtons.Left)
 				AssignSelectedActorToSelectedGroup();
 		}
 
@@ -85,7 +85,7 @@ namespace Glyssen.Dialogs
 		{
 			var grid = sender as DataGridView;
 
-			if (grid.Columns[e.ColumnIndex].DataPropertyName == "Name" && e.RowIndex >= 0)
+			if (grid.Columns[e.ColumnIndex].DataPropertyName == "Name" && e.RowIndex >= 0 && e.Button == MouseButtons.Left)
 				AssignSelectedActorToSelectedGroup();
 		}
 
