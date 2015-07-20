@@ -142,13 +142,11 @@ namespace ControlDataIntegrityTests
 			var charactersHavingDetail = CharacterDetailData.Singleton.GetAll().Select(d => d.Character).ToList();
 			ISet<string> missingCharacters = new SortedSet<string>();
 			ISet<string> missingDefaultCharacters = new SortedSet<string>();
-			Regex narratorRegex = new Regex("(narrator)", RegexOptions.Compiled);
 			foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
 			{
 				if (!charactersHavingDetail.Contains(cv.Character))
 				{
-					var narratorMatch = narratorRegex.Match(cv.Character);
-					if (narratorMatch.Success)
+					if (CharacterVerseData.IsCharacterStandard(cv.Character))
 						continue;
 
 					var characters = cv.Character.Split('/');
@@ -162,8 +160,7 @@ namespace ControlDataIntegrityTests
 				}
 				if (!(string.IsNullOrEmpty(cv.DefaultCharacter) || charactersHavingDetail.Contains(cv.DefaultCharacter)))
 				{
-					var narratorMatch = narratorRegex.Match(cv.DefaultCharacter);
-					if (narratorMatch.Success)
+					if (CharacterVerseData.IsCharacterStandard(cv.DefaultCharacter))
 						continue;
 
 					missingDefaultCharacters.Add(cv.DefaultCharacter);
