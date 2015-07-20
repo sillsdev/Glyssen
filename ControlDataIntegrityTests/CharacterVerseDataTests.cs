@@ -146,6 +146,9 @@ namespace ControlDataIntegrityTests
 			{
 				if (!charactersHavingDetail.Contains(cv.Character))
 				{
+					if (CharacterVerseData.IsCharacterStandard(cv.Character))
+						continue;
+
 					var characters = cv.Character.Split('/');
 					if (characters.Length > 1)
 					{
@@ -156,7 +159,12 @@ namespace ControlDataIntegrityTests
 						missingCharacters.Add(cv.Character);
 				}
 				if (!(string.IsNullOrEmpty(cv.DefaultCharacter) || charactersHavingDetail.Contains(cv.DefaultCharacter)))
+				{
+					if (CharacterVerseData.IsCharacterStandard(cv.DefaultCharacter))
+						continue;
+
 					missingDefaultCharacters.Add(cv.DefaultCharacter);
+				}
 			}
 			Assert.False(missingCharacters.Any() || missingDefaultCharacters.Any(),
 				"Characters in Character-Verse data but not in Character-Detail:" +
