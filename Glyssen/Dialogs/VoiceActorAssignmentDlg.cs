@@ -7,6 +7,7 @@ using System.IO;
 using System.Windows.Forms;
 using Glyssen.Character;
 using Glyssen.Properties;
+using L10NSharp;
 using SIL.IO;
 using SIL.ObjectModel;
 
@@ -149,15 +150,21 @@ namespace Glyssen.Dialogs
 		{
 			if (e.KeyData == Keys.Delete)
 			{
-				for (int i = 0; i < m_characterGroupGrid.SelectedRows.Count; i++)
+				string dlgMessage = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.DeleteRowsDialog.Message", "Are you sure you want to un-assign the actors from the selected groups?");
+				string dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.DeleteRowsDialog.Title", "Confirm");
+				if (MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
 				{
-					CharacterGroup entry = m_characterGroupGrid.SelectedRows[i].DataBoundItem as CharacterGroup;
-					entry.RemoveVoiceActor();					
+
+					for (int i = 0; i < m_characterGroupGrid.SelectedRows.Count; i++)
+					{
+						CharacterGroup entry = m_characterGroupGrid.SelectedRows[i].DataBoundItem as CharacterGroup;
+						entry.RemoveVoiceActor();
+					}
+
+					SaveAssignments();
+
+					m_characterGroupGrid.Refresh();
 				}
-
-				SaveAssignments();
-
-				m_characterGroupGrid.Refresh();
 			}
 		}
 
