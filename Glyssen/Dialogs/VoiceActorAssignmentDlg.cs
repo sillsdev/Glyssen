@@ -15,18 +15,21 @@ namespace Glyssen.Dialogs
 	public partial class VoiceActorAssignmentDlg : Form
 	{
 		private readonly Project m_project;
+		private bool m_canAssign;
 
 		public VoiceActorAssignmentDlg(Project project)
 		{
 			InitializeComponent();
 
 			m_project = project;
+			m_canAssign = true;
 
 			m_voiceActorGrid.Initialize(m_project);
 			m_voiceActorGrid.CellUpdated += m_voiceActorGrid_CellUpdated;
 			m_voiceActorGrid.CellDoubleClicked += m_voiceActorGrid_CellDoubleClicked;
 			m_voiceActorGrid.GridMouseMove += m_voiceActorGrid_MouseMove;
 			m_voiceActorGrid.UserRemovedRows += m_voiceActorGrid_UserRemovedRows;
+			m_voiceActorGrid.SelectionChanged += m_eitherGrid_SelectionChanged;
 
 			var characterGroups = new SortableBindingList<CharacterGroup>(m_project.CharacterGroupList.CharacterGroups);
 			if (characterGroups.Count == 0)
@@ -84,6 +87,9 @@ namespace Glyssen.Dialogs
 
 		private void AssignSelectedActorToSelectedGroup()
 		{
+			if (!m_canAssign)
+				return;
+
 			CharacterGroup group = m_characterGroupGrid.SelectedRows[0].DataBoundItem as CharacterGroup;
 			if (group == null)
 				return;
@@ -130,6 +136,13 @@ namespace Glyssen.Dialogs
 		private void m_voiceActorGrid_UserRemovedRows(object sender, DataGridViewRowsRemovedEventArgs e)
 		{
 			m_characterGroupGrid.Refresh();
+		}
+
+		private void m_eitherGrid_SelectionChanged(object sender, EventArgs e)
+		{
+			m_canAssign = m_voiceActorGrid.SelectedRows.Count == 1 && m_characterGroupGrid.SelectedRows.Count == 1;
+
+			m_btnAssignActor.Enabled = m_canAssign;
 		}
 
 		private void m_characterGroupGrid_KeyDown(object sender, KeyEventArgs e)
