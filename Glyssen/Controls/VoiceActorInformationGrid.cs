@@ -10,6 +10,7 @@ namespace Glyssen.Controls
 {
 	public partial class VoiceActorInformationGrid : UserControl
 	{
+		public event DataGridViewCellEventHandler CellUpdated;
 		public event DataGridViewRowEventHandler UserAddedRow;
 		public event DataGridViewRowsRemovedEventHandler UserRemovedRows;
 		public event DataGridViewCellMouseEventHandler CellDoubleClicked;
@@ -166,6 +167,13 @@ namespace Glyssen.Controls
 			}
 		}
 
+		private void HandleCellUpdated(DataGridViewCellEventArgs e)
+		{
+			DataGridViewCellEventHandler handler = CellUpdated;
+			if (handler != null)
+				handler(m_dataGrid, e);
+		}
+
 		private void HandleKeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyData == Keys.Delete)
@@ -206,6 +214,8 @@ namespace Glyssen.Controls
 			{
 				m_currentComboBox.SelectedIndexChanged -= box_SelectedIndexChanged;
 			}
+
+			HandleCellUpdated(e);
 		}
 	}
 }
