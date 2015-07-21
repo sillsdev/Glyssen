@@ -190,5 +190,16 @@ namespace Glyssen.Dialogs
 				AssignSelectedActorToSelectedGroup();
 			}
 		}
+
+		private void VoiceActorAssignmentDlg_KeyUp(object sender, KeyEventArgs e)
+		{
+			if (e.KeyData == Keys.F6)
+			{
+				if (m_voiceActorGrid.ContainsFocus)
+					SendKeys.Send("^+{TAB}");
+				else if (m_characterGroupGrid.ContainsFocus)
+					SendKeys.Send("^{TAB}");
+			}
+		}
 	}
 }
