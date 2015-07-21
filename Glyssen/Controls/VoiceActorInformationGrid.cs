@@ -15,6 +15,7 @@ namespace Glyssen.Controls
 		public event DataGridViewRowsRemovedEventHandler UserRemovedRows;
 		public event DataGridViewCellMouseEventHandler CellDoubleClicked;
 		public event MouseEventHandler GridMouseMove;
+		public event EventHandler SelectionChanged;
 		private int m_currentId;
 		private Project m_project;
 		private SortableBindingList<VoiceActor.VoiceActor> m_bindingList;
@@ -216,6 +217,13 @@ namespace Glyssen.Controls
 			}
 
 			HandleCellUpdated(e);
+		}
+
+		private void m_dataGrid_SelectionChanged(object sender, EventArgs e)
+		{
+			EventHandler handler = SelectionChanged;
+			if (handler != null)
+				handler(sender, e);
 		}
 	}
 }
