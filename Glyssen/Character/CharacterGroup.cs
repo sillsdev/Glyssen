@@ -61,12 +61,8 @@ namespace Glyssen.Character
 			m_requiredAttributes = new List<DataEntry>();
 		}
 
-		public CharacterGroup(int groupNumber)
+		public CharacterGroup(int groupNumber) : this()
 		{
-			CharacterIds = new HashSet<string>();
-			GenderAttributes = new DataSet();
-			AgeAttributes = new DataSet();
-			m_requiredAttributes = new List<DataEntry>();
 			GroupNumber = groupNumber;
 		}
 

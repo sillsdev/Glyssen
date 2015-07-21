@@ -40,10 +40,8 @@ namespace Glyssen.Dialogs
 
 				Dictionary<string, CharacterGroup> characterIdToCharacterGroup = new Dictionary<string, CharacterGroup>();
 
-				foreach (KeyValuePair<int, CharacterGroup> pair in charGroupTemplate.CharacterGroups)
+				foreach (CharacterGroup group in charGroupTemplate.CharacterGroups.Values)
 				{
-					var group = pair.Value;
-
 					characterGroups.Add(group);
 
 					foreach (string id in group.CharacterIds)
