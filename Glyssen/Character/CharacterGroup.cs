@@ -7,58 +7,17 @@ namespace Glyssen.Character
 {
 	public class CharacterGroup
 	{
-		private List<DataEntry> m_requiredAttributes; 
+		private List<CharacterGroupAttribute> m_requiredAttributes; 
 		private bool m_isActorAssigned;
 		private VoiceActor.VoiceActor m_actorAssigned;
-
-		public class DataSet: HashSet<DataEntry>
-		{
-			private readonly Dictionary<string, DataEntry> m_entryNameToDataEntry;
-
-			public DataSet()
-			{
-				m_entryNameToDataEntry = new Dictionary<string, DataEntry>();
-			}
-
-			public void Add(string entryName)
-			{
-				if (!m_entryNameToDataEntry.ContainsKey(entryName))
-				{
-					var newEntry = new DataEntry(entryName);
-					Add(newEntry);
-					m_entryNameToDataEntry.Add(entryName, newEntry);
-				}
-
-				m_entryNameToDataEntry[entryName].Count++;
-			}
-		}
-
-		public class DataEntry
-		{
-			public DataEntry()
-			{
-				
-			}
-
-			public DataEntry(string name, int count = 0)
-			{
-				Name = name;
-				Count = count;
-			}
-
-			[XmlText]
-			public string Name { get; set; }
-			[XmlAttribute("Count")]
-			public int Count { get; set; }
-		}
 
 		//For Serialization
 		public CharacterGroup()
 		{
 			CharacterIds = new HashSet<string>();
-			GenderAttributes = new DataSet();
-			AgeAttributes = new DataSet();
-			m_requiredAttributes = new List<DataEntry>();
+			GenderAttributes = new CharacterGroupAttributeSet();
+			AgeAttributes = new CharacterGroupAttributeSet();
+			m_requiredAttributes = new List<CharacterGroupAttribute>();
 		}
 
 		public CharacterGroup(int groupNumber) : this()
@@ -107,12 +66,12 @@ namespace Glyssen.Character
 		[XmlArray("Genders")]
 		[XmlArrayItem("Gender")]
 		[Browsable(false)]
-		public DataSet GenderAttributes { get; set; }
+		public CharacterGroupAttributeSet GenderAttributes { get; set; }
 
 		[XmlArray("Ages")]
 		[XmlArrayItem("Age")]
 		[Browsable(false)]
-		public DataSet AgeAttributes { get; set; }
+		public CharacterGroupAttributeSet AgeAttributes { get; set; }
 
 		[XmlIgnore]
 		public string RequiredAttributesString
@@ -146,4 +105,49 @@ namespace Glyssen.Character
 			get { return m_isActorAssigned ? m_actorAssigned.Name : ""; }
 		}
 	}
+
+	#region CharacterGroupAttribute Definition
+
+	public class CharacterGroupAttributeSet : HashSet<CharacterGroupAttribute>
+	{
+		private readonly Dictionary<string, CharacterGroupAttribute> m_entryNameToDataEntry;
+
+		public CharacterGroupAttributeSet()
+		{
+			m_entryNameToDataEntry = new Dictionary<string, CharacterGroupAttribute>();
+		}
+
+		public void Add(string entryName)
+		{
+			if (!m_entryNameToDataEntry.ContainsKey(entryName))
+			{
+				var newEntry = new CharacterGroupAttribute(entryName);
+				Add(newEntry);
+				m_entryNameToDataEntry.Add(entryName, newEntry);
+			}
+
+			m_entryNameToDataEntry[entryName].Count++;
+		}
+	}
+
+	public class CharacterGroupAttribute
+	{
+		public CharacterGroupAttribute()
+		{
+
+		}
+
+		public CharacterGroupAttribute(string name, int count = 0)
+		{
+			Name = name;
+			Count = count;
+		}
+
+		[XmlText]
+		public string Name { get; set; }
+		[XmlAttribute("Count")]
+		public int Count { get; set; }
+	}
+
+	#endregion
 }
