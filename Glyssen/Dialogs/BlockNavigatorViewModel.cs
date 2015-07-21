@@ -605,7 +605,13 @@ namespace Glyssen.Dialogs
 		{
 			if (IsRelevant(newOrModifiedBlock))
 			{
-				m_relevantBlocks.Insert(m_currentBlockIndex + 1, m_navigator.GetIndicesOfSpecificBlock(newOrModifiedBlock));
+				var indicesOfNewOrModifiedBlock = m_navigator.GetIndicesOfSpecificBlock(newOrModifiedBlock);
+				var blocksIndicesNeedingUpdate = m_relevantBlocks.Where(
+					r => r.BookIndex == indicesOfNewOrModifiedBlock.BookIndex && 
+						r.BlockIndex >= indicesOfNewOrModifiedBlock.BlockIndex);
+				foreach (var block in blocksIndicesNeedingUpdate)
+					block.BlockIndex++;
+				m_relevantBlocks.Insert(m_currentBlockIndex + 1, indicesOfNewOrModifiedBlock);
 				RelevantBlockAdded(newOrModifiedBlock);
 			}
 			HandleCurrentBlockChanged();

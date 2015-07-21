@@ -339,9 +339,11 @@ namespace Glyssen.Dialogs
 		#endregion
 
 		#region Block editing methods
-		public void SplitBlock(Block blockToSplit, string verseToSplit, int characterOffsetToSplit)
+		public Block SplitBlock(Block blockToSplit, string verseToSplit, int characterOffsetToSplit)
 		{
-			AddToRelevantBlocksIfNeeded(CurrentBook.SplitBlock(blockToSplit, verseToSplit, characterOffsetToSplit));
+			Block newBlock = CurrentBook.SplitBlock(blockToSplit, verseToSplit, characterOffsetToSplit);
+			AddToRelevantBlocksIfNeeded(newBlock);
+			return newBlock;
 		}
 		#endregion
 

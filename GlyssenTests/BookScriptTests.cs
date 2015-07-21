@@ -805,6 +805,23 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void SplitBlock_BothBlocksHaveOriginalCharacterIdAndUserConfirmed()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			var blockToSplit = NewSingleVersePara(1).AddVerse("2", "Some text");
+			blockToSplit.CharacterId = "Bill";
+			blockToSplit.UserConfirmed = true;
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "2", 5);
+			Assert.AreEqual("Bill", blockToSplit.CharacterId);
+			Assert.AreEqual("Bill", newBlock.CharacterId);
+			Assert.IsTrue(blockToSplit.UserConfirmed);
+			Assert.IsTrue(newBlock.UserConfirmed);
+		}
+
+		[Test]
 		public void SplitBlock_GetFirstBlockForVerse_SplitBlockInPreviousChapterAfterCallingGetFirstBlockForVerseInSubsequentChapter()
 		{
 			var mrkBlocks = new List<Block>();
