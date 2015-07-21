@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace Glyssen.Character
 {
 	public class CharacterGroup
 	{
+		private List<CharacterGroupAttribute> m_requiredAttributes; 
 		private bool m_isActorAssigned;
 		private VoiceActor.VoiceActor m_actorAssigned;
 
@@ -13,11 +15,13 @@ namespace Glyssen.Character
 		public CharacterGroup()
 		{
 			CharacterIds = new HashSet<string>();
+			GenderAttributes = new CharacterGroupAttributeSet();
+			AgeAttributes = new CharacterGroupAttributeSet();
+			m_requiredAttributes = new List<CharacterGroupAttribute>();
 		}
 
-		public CharacterGroup(int groupNumber)
+		public CharacterGroup(int groupNumber) : this()
 		{
-			CharacterIds = new HashSet<string>();
 			GroupNumber = groupNumber;
 		}
 
@@ -30,6 +34,13 @@ namespace Glyssen.Character
 
 			m_isActorAssigned = true;
 			m_actorAssigned = actor;
+		}
+
+		public void PopulateRequiredAttributes()
+		{
+			m_requiredAttributes.Clear();
+			m_requiredAttributes.InsertRange(m_requiredAttributes.Count, GenderAttributes.OrderByDescending(t => t.Count));
+			m_requiredAttributes.InsertRange(m_requiredAttributes.Count, AgeAttributes.OrderByDescending(t => t.Count));			
 		}
 
 		public void RemoveVoiceActor()
@@ -52,10 +63,20 @@ namespace Glyssen.Character
 			get { return string.Join("; ", CharacterIds); }
 		}
 
+		[XmlArray("Genders")]
+		[XmlArrayItem("Gender")]
+		[Browsable(false)]
+		public CharacterGroupAttributeSet GenderAttributes { get; set; }
+
+		[XmlArray("Ages")]
+		[XmlArrayItem("Age")]
+		[Browsable(false)]
+		public CharacterGroupAttributeSet AgeAttributes { get; set; }
+
 		[XmlIgnore]
-		public string RequiredAttributes
+		public string RequiredAttributesString
 		{
-			get { return ""; }
+			get { return string.Join("; ", m_requiredAttributes.Select(t => t.Name + " [" + t.Count + "]")); }
 		}
 
 		[XmlElement]
@@ -84,4 +105,49 @@ namespace Glyssen.Character
 			get { return m_isActorAssigned ? m_actorAssigned.Name : ""; }
 		}
 	}
+
+	#region CharacterGroupAttribute Definition
+
+	public class CharacterGroupAttributeSet : HashSet<CharacterGroupAttribute>
+	{
+		private readonly Dictionary<string, CharacterGroupAttribute> m_entryNameToDataEntry;
+
+		public CharacterGroupAttributeSet()
+		{
+			m_entryNameToDataEntry = new Dictionary<string, CharacterGroupAttribute>();
+		}
+
+		public void Add(string entryName)
+		{
+			if (!m_entryNameToDataEntry.ContainsKey(entryName))
+			{
+				var newEntry = new CharacterGroupAttribute(entryName);
+				Add(newEntry);
+				m_entryNameToDataEntry.Add(entryName, newEntry);
+			}
+
+			m_entryNameToDataEntry[entryName].Count++;
+		}
+	}
+
+	public class CharacterGroupAttribute
+	{
+		public CharacterGroupAttribute()
+		{
+
+		}
+
+		public CharacterGroupAttribute(string name, int count = 0)
+		{
+			Name = name;
+			Count = count;
+		}
+
+		[XmlText]
+		public string Name { get; set; }
+		[XmlAttribute("Count")]
+		public int Count { get; set; }
+	}
+
+	#endregion
 }
