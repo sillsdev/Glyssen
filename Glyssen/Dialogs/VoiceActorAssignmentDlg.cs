@@ -23,7 +23,7 @@ namespace Glyssen.Dialogs
 			m_project = project;
 
 			m_voiceActorGrid.Initialize(m_project);
-			m_voiceActorGrid.TableUpdated += m_voiceActorGrid_TableUpdated;
+			m_voiceActorGrid.CellUpdated += m_voiceActorGrid_CellUpdated;
 			m_voiceActorGrid.CellDoubleClicked += m_voiceActorGrid_CellDoubleClicked;
 			m_voiceActorGrid.GridMouseMove += m_voiceActorGrid_MouseMove;
 			m_voiceActorGrid.UserRemovedRows += m_voiceActorGrid_UserRemovedRows;
@@ -104,9 +104,11 @@ namespace Glyssen.Dialogs
 			SaveAssignments();
 		}
 
-		private void m_voiceActorGrid_TableUpdated(object sender, EventArgs e)
+		private void m_voiceActorGrid_CellUpdated(object sender, DataGridViewCellEventArgs e)
 		{
-			m_characterGroupGrid.Refresh();
+			var grid = sender as DataGridView;
+			if (grid.Columns[e.ColumnIndex].DataPropertyName == "Name")
+				m_characterGroupGrid.Refresh();
 		}
 
 		private void m_characterGroupGrid_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
