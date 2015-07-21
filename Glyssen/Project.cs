@@ -279,6 +279,25 @@ namespace Glyssen
 			get { return m_metadata.AvailableBibleBooks; } 
 		}
 
+		public IEnumerable<string> IncludedCharacterIds
+		{
+			//Ideally, we shouldn't have to regenerate this set every time this property is accessed;
+			//however, it is possible that IncludedBooks changes (in ScriptureRangeSelectionDlg.cs).
+			//Also, we have to ensure that the set is immutable if it is to persist.
+			get
+			{
+				HashSet<string> returnHashSet = new HashSet<string>();
+				foreach (var book in IncludedBooks)
+				{
+					foreach (var block in book.GetScriptBlocks(true))
+					{
+						returnHashSet.Add(block.CharacterId);
+					}
+				}
+				return returnHashSet;
+			}
+		}
+
 		public string OriginalBundlePath
 		{
 			get { return m_metadata.OriginalPathBundlePath; }

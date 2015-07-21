@@ -42,6 +42,8 @@ namespace Glyssen.Dialogs
 
 				foreach (CharacterGroup group in charGroupTemplate.CharacterGroups.Values)
 				{
+					group.CharacterIds.IntersectWith(m_project.IncludedCharacterIds);
+
 					characterGroups.Add(group);
 
 					foreach (string id in group.CharacterIds)
@@ -63,7 +65,6 @@ namespace Glyssen.Dialogs
 						if (detail.Age != "")
 							group.AgeAttributes.Add(detail.Age);
 					}
-
 				}
 
 				m_project.CharacterGroupList.PopulateEstimatedHours(m_project.IncludedBooks);
