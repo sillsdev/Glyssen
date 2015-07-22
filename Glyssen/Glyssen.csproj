@@ -74,6 +74,22 @@
     <Reference Include="Geckofx-Winforms">
       <HintPath>..\lib\dotnet\Geckofx-Winforms.dll</HintPath>
     </Reference>
+    <None Include="..\lib\dotnet\icudt54.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>icudt54.dll</Link>
+    </None>
+    <None Include="..\lib\dotnet\icuin54.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>icuin54.dll</Link>
+    </None>
+    <None Include="..\lib\dotnet\icuuc54.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>icuuc54.dll</Link>
+    </None>
+    <None Include="..\lib\dotnet\icu.net.dll.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>icu.net.dll.config</Link>
+    </None>
     <Reference Include="L10NSharp">
       <HintPath>..\lib\dotnet\L10NSharp.dll</HintPath>
     </Reference>

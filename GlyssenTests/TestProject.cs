@@ -48,9 +48,11 @@ namespace GlyssenTests
 			sampleMetadata.Language = new GlyssenDblMetadataLanguage { Iso = kTest };
 			sampleMetadata.Identification = new DblMetadataIdentification { Name = kTest };
 			sampleMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
-			sampleMetadata.QuoteSystem = GetTestQuoteSystem();
 
-			var project = new Project(sampleMetadata, books, SfmLoader.GetUsfmStylesheet());
+			var sampleWs = new WritingSystemDefinition();
+			sampleWs.QuotationMarks.AddRange(GetTestQuoteSystem().AllLevels);
+
+			var project = new Project(sampleMetadata, books, SfmLoader.GetUsfmStylesheet(), sampleWs);
 
 			// Wait for quote parse to finish
 			while (project.ProjectState != ProjectState.FullyInitialized)
