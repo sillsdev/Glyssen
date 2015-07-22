@@ -19,7 +19,7 @@ namespace GlyssenTests.Dialogs
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
-			m_testProject = BlockNavigatorViewModelTests.CreateTestProject();
+			m_testProject = TestProject.CreateTestProject();
 		}
 
 		[SetUp]
@@ -51,7 +51,7 @@ namespace GlyssenTests.Dialogs
 		public void TestFixtureTearDown()
 		{
 			m_testProject = null;
-			BlockNavigatorViewModelTests.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjectFolder();
 		}
 
 		[Test]
