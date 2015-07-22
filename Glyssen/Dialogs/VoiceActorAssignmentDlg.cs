@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Character;
 using Glyssen.Properties;
@@ -177,8 +178,17 @@ namespace Glyssen.Dialogs
 
 		private void m_btnExport_Click(object sender, EventArgs e)
 		{
-			SaveAssignments();
-			new ProjectExport(m_project).Export(this);
+			var characterGroups = m_characterGroupGrid.DataSource as SortableBindingList<CharacterGroup>;
+
+			bool assignmentsComplete = characterGroups.All(t => t.IsVoiceActorAssigned);
+
+			string dlgMessage = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ExportIncompleteScript.Message", "Some of the character groups have no voice talent assigned. Are you sure you want to export an incomplete script?\n(Note: You can export the script again as many times as you want.)");
+			string dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ExportIncompleteScript.Title", "Export Incomplete Script?");
+			if (assignmentsComplete || MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
+			{
+				SaveAssignments();
+				new ProjectExport(m_project).Export(this);
+			}
 		}
 
 		private void m_voiceActorGrid_MouseMove(object sender, MouseEventArgs e)
@@ -229,8 +239,14 @@ namespace Glyssen.Dialogs
 					CharacterGroup sourceGroup = m_characterGroupGrid.SelectedRows[0].DataBoundItem as CharacterGroup;
 					CharacterGroup destinationGroup = m_characterGroupGrid.Rows[hitInfo.RowIndex].DataBoundItem as CharacterGroup;
 
-					destinationGroup.AssignVoiceActor(sourceGroup.VoiceActorAssigned);
-					sourceGroup.RemoveVoiceActor();
+					VoiceActor.VoiceActor sourceActor = sourceGroup.VoiceActorAssigned;
+					VoiceActor.VoiceActor destinationActor = destinationGroup.VoiceActorAssigned;
+
+					destinationGroup.AssignVoiceActor(sourceActor);
+					if (destinationActor != null)
+						sourceGroup.AssignVoiceActor(destinationActor);
+					else
+						sourceGroup.RemoveVoiceActor();
 
 					m_characterGroupGrid.ClearSelection();
 					m_characterGroupGrid.Rows[hitInfo.RowIndex].Selected = true;
