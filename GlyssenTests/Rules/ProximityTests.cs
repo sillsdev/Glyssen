@@ -80,7 +80,7 @@ namespace GlyssenTests.Rules
 		}
 
 		[Test]
-		public void CalculateMinimumProximity_JesusAndTeachersOfTheLaw_FirstTwoBlocksThenOneThenMore_ReturnsOne()
+		public void CalculateMinimumProximity_JesusAndTeachersOfTheLaw_ReturnsOne()
 		{
 			HashSet<string> characterIds = new HashSet<string>();
 
@@ -94,31 +94,17 @@ namespace GlyssenTests.Rules
 		}
 
 		[Test]
-		public void CalculateMinimumProximity_NeighborsAndJames_CharacterIdsWithinSlashes()
+		public void CalculateMinimumProximity_JohnAndPeter_ReturnsSix()
 		{
 			HashSet<string> characterIds = new HashSet<string>();
 
-			//11 blocks between lines 3104 and 3152 in MRK.xml
-			characterIds.Add("teachers of the law");
-			characterIds.Add("Herodians");
-			characterIds.Add("centurion=centurion");
+			//Mark 2:14-17
+			characterIds.Add("John");
+			characterIds.Add("Peter (Simon)");
 
 			int minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
-			Assert.AreEqual(minProximity, 11);
-		}
-
-		[Test]
-		public void CalculateMinimumProximity_CharacterIdsGroupedTogether()
-		{
-			HashSet<string> characterIds = new HashSet<string>();
-
-			characterIds.Add("teachers of the law");
-			characterIds.Add("Pharisees=Pharisees");
-
-			int minProximity = m_proximity.CalculateMinimumProximity(characterIds);
-
-			Assert.Greater(minProximity, 0);			
+			Assert.AreEqual(minProximity, 6);
 		}
 	}
 }

@@ -25,36 +25,22 @@ namespace Glyssen.Rules
 			{
 				foreach (var block in book.Blocks)
 				{
-					if (block.ChapterNumber == 11 && block.InitialStartVerseNumber > 20)
-					{
-						
-					}
-					var characters = block.CharacterId.Split('/');
-					bool foundCharacter = false;
-					foreach (var characterId in characters)
-					{
-						if (characterId == prevCharacterId)
-						{
-							foundCharacter = true;
-						}
-						else if (characterIds.Contains(characterId))
-						{
-							if (foundFirst)
-							{
-								if (currentBlockCount < minProximity || minProximity < 0)
-								{
-									minProximity = currentBlockCount;
-								}
-							}
-							foundFirst = true;
-							foundCharacter = true;
-							prevCharacterId = characterId;
-							break;
-						}
-					}
-					if (foundCharacter)
+					if (block.CharacterId == prevCharacterId)
 					{
 						currentBlockCount = 0;
+					}
+					else if (characterIds.Contains(block.CharacterId))
+					{
+						if (foundFirst)
+						{
+							if (currentBlockCount < minProximity || minProximity < 0)
+							{
+								minProximity = currentBlockCount;
+							}
+						}
+						foundFirst = true;
+						currentBlockCount = 0;
+						prevCharacterId = block.CharacterId;
 					}
 					else
 					{
