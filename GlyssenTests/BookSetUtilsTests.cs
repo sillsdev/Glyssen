@@ -3,6 +3,7 @@ using System.Linq;
 using Glyssen;
 using NUnit.Framework;
 using Paratext;
+using SIL.DblBundle.Text;
 
 namespace GlyssenTests
 {
@@ -28,6 +29,32 @@ namespace GlyssenTests
 			Assert.IsTrue(ntBookIds.Contains("MAT"));
 			Assert.IsTrue(ntBookIds.Contains("TIT"));
 			Assert.IsTrue(ntBookIds.Contains("REV"));
+		}
+
+		[Test]
+		public void ToBookSet_FromBookScripts()
+		{
+			var books = new List<string> { "MRK", "LUK", "1TH" };
+			IEnumerable<BookScript> bookScripts = books.ToBookScriptEnumerable();
+			BookSet bookSet = bookScripts.ToBookSet();
+			IEnumerable<string> bookIds = bookSet.SelectedBookIds;
+			Assert.AreEqual(3, bookIds.Count());
+			Assert.IsTrue(bookIds.Contains("MRK"));
+			Assert.IsTrue(bookIds.Contains("LUK"));
+			Assert.IsTrue(bookIds.Contains("1TH"));
+		}
+
+		[Test]
+		public void ToBookSet_FromBooks()
+		{
+			var books = new List<string> { "MRK", "LUK", "1TH" };
+			IEnumerable<Book> bookScripts = books.ToBookEnumerable();
+			BookSet bookSet = bookScripts.ToBookSet();
+			IEnumerable<string> bookIds = bookSet.SelectedBookIds;
+			Assert.AreEqual(3, bookIds.Count());
+			Assert.IsTrue(bookIds.Contains("MRK"));
+			Assert.IsTrue(bookIds.Contains("LUK"));
+			Assert.IsTrue(bookIds.Contains("1TH"));
 		}
 
 		[Test]
@@ -117,6 +144,24 @@ namespace GlyssenTests
 			books.AddRange(BookSetUtils.NewTestament.SelectedBookIds);
 			books.Remove("GAL");
 			Assert.AreEqual("Old Testament, MAT-2CO, EPH-REV", books.BookSummary());
+		}
+	}
+
+	public static class BookSetUtilsTestsExtensions
+	{
+		public static string BookSummary(this IEnumerable<string> bookStrs)
+		{
+			return bookStrs.Select(b => new BookScript(b, Enumerable.Empty<Block>())).BookSummary();
+		}
+
+		public static IEnumerable<BookScript> ToBookScriptEnumerable(this IEnumerable<string> bookStrs)
+		{
+			return bookStrs.Select(b => new BookScript(b, Enumerable.Empty<Block>()));
+		}
+
+		public static IEnumerable<Book> ToBookEnumerable(this IEnumerable<string> bookStrs)
+		{
+			return bookStrs.Select(b => new Book{Code = b});
 		}
 	}
 }

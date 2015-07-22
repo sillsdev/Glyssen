@@ -36,14 +36,6 @@ namespace Glyssen
 			return bookSet.CustomSummary();
 		}
 
-		public static string BookSummary(this IEnumerable<string> books)
-		{
-			var bookSet = new BookSet();
-			foreach (string bookId in books)
-				bookSet.Add(bookId);
-			return bookSet.CustomSummary();
-		}
-
 		public static string CustomSummary(this BookSet bookSet)
 		{
 			var components = new List<string>();
@@ -83,9 +75,7 @@ namespace Glyssen
 				}
 				else
 				{
-					if (start == null && previous != null)
-						result.Add(previous);
-					else if (start != null)
+					if (start != null)
 					{
 						if (start == previous)
 							result.Add(start);
