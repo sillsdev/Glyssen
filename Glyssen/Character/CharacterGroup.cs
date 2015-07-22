@@ -82,6 +82,13 @@ namespace Glyssen.Character
 		[XmlElement]
 		public double EstimatedHours { get; set; }
 
+		[XmlIgnore]
+		[Browsable(false)]
+		public VoiceActor.VoiceActor VoiceActorAssigned
+		{
+			get { return m_actorAssigned; }
+		}
+
 		[XmlElement]
 		[Browsable(false)]
 		public int VoiceActorAssignedId

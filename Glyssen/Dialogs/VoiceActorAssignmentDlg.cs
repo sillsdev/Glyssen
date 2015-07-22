@@ -18,6 +18,13 @@ namespace Glyssen.Dialogs
 		private readonly Project m_project;
 		private bool m_canAssign;
 
+		private enum DragSource
+		{
+			CharacterGroupGrid,
+			VoiceActorGrid
+		};
+		private DragSource m_dragSource;  
+
 		public VoiceActorAssignmentDlg(Project project)
 		{
 			InitializeComponent();
@@ -183,6 +190,7 @@ namespace Glyssen.Dialogs
 					var hitInfo = m_voiceActorGrid.HitTest(e.X, e.Y);
 					if (hitInfo.Type == DataGridViewHitTestType.Cell)
 					{
+						m_dragSource = DragSource.VoiceActorGrid;
 						DoDragDrop(m_voiceActorGrid.SelectedVoiceActorEntity, DragDropEffects.Copy);
 					}
 				}
@@ -191,7 +199,7 @@ namespace Glyssen.Dialogs
 
 		private void m_characterGroupGrid_DragOver(object sender, DragEventArgs e)
 		{
-			if (!e.Data.GetDataPresent(typeof(VoiceActor.VoiceActor)))
+			if (!(e.Data.GetDataPresent(typeof(VoiceActor.VoiceActor)) || e.Data.GetDataPresent(typeof(CharacterGroup))))
 			{
 				e.Effect = DragDropEffects.None;
 				return;
@@ -205,9 +213,26 @@ namespace Glyssen.Dialogs
 			var hitInfo = m_characterGroupGrid.HitTest(p.X, p.Y);
 			if (hitInfo.Type == DataGridViewHitTestType.Cell)
 			{
-				m_characterGroupGrid.ClearSelection();
-				m_characterGroupGrid.Rows[hitInfo.RowIndex].Selected = true;
-				AssignSelectedActorToSelectedGroup();
+				if (m_dragSource == DragSource.VoiceActorGrid)
+				{
+					m_characterGroupGrid.ClearSelection();
+					m_characterGroupGrid.Rows[hitInfo.RowIndex].Selected = true;
+					AssignSelectedActorToSelectedGroup();
+				}
+				else if (m_dragSource == DragSource.CharacterGroupGrid)
+				{
+					CharacterGroup sourceGroup = m_characterGroupGrid.SelectedRows[0].DataBoundItem as CharacterGroup;
+					CharacterGroup destinationGroup = m_characterGroupGrid.Rows[hitInfo.RowIndex].DataBoundItem as CharacterGroup;
+
+					destinationGroup.AssignVoiceActor(sourceGroup.VoiceActorAssigned);
+					sourceGroup.RemoveVoiceActor();
+
+					m_characterGroupGrid.ClearSelection();
+					m_characterGroupGrid.Rows[hitInfo.RowIndex].Selected = true;
+
+					SaveAssignments();
+					m_characterGroupGrid.Refresh();				
+				}
 			}
 		}
 
@@ -219,6 +244,22 @@ namespace Glyssen.Dialogs
 					SendKeys.Send("^+{TAB}");
 				else if (m_characterGroupGrid.ContainsFocus)
 					SendKeys.Send("^{TAB}");
+			}
+		}
+
+		private void m_characterGroupGrid_MouseMove(object sender, MouseEventArgs e)
+		{
+			if (e.Button == MouseButtons.Left)
+			{
+				if (m_characterGroupGrid.SelectedRows.Count == 1)
+				{
+					var hitInfo = m_characterGroupGrid.HitTest(e.X, e.Y);
+					if (hitInfo.Type == DataGridViewHitTestType.Cell && m_characterGroupGrid.Columns[hitInfo.ColumnIndex].DataPropertyName == "VoiceActorAssignedName")
+					{
+						m_dragSource = DragSource.CharacterGroupGrid;
+						DoDragDrop(m_characterGroupGrid.SelectedRows[0].DataBoundItem, DragDropEffects.Copy);
+					}
+				}
 			}
 		}
 	}
