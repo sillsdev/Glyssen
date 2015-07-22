@@ -185,13 +185,18 @@ namespace Glyssen.Dialogs
 		{
 			if (e.Button == MouseButtons.Left)
 			{
-				if (m_voiceActorGrid.SelectedVoiceActorEntity != null && m_voiceActorGrid.SelectedRows.Count == 1)
+				var hitInfo = m_voiceActorGrid.HitTest(e.X, e.Y);
+				if (hitInfo.Type == DataGridViewHitTestType.Cell)
 				{
-					var hitInfo = m_voiceActorGrid.HitTest(e.X, e.Y);
-					if (hitInfo.Type == DataGridViewHitTestType.Cell)
+					var sourceActor = m_voiceActorGrid.SelectedVoiceActorEntity;
+					if (sourceActor != null && sourceActor.HasMeaningfulData())
 					{
 						m_dragSource = DragSource.VoiceActorGrid;
-						DoDragDrop(m_voiceActorGrid.SelectedVoiceActorEntity, DragDropEffects.Copy);
+						DoDragDrop(sourceActor, DragDropEffects.Copy);
+					}
+					else
+					{
+						DoDragDrop(0, DragDropEffects.None);
 					}
 				}
 			}
@@ -251,13 +256,18 @@ namespace Glyssen.Dialogs
 		{
 			if (e.Button == MouseButtons.Left)
 			{
-				if (m_characterGroupGrid.SelectedRows.Count == 1)
+				var hitInfo = m_characterGroupGrid.HitTest(e.X, e.Y);
+				if (hitInfo.Type == DataGridViewHitTestType.Cell && m_characterGroupGrid.Columns[hitInfo.ColumnIndex].DataPropertyName == "VoiceActorAssignedName")
 				{
-					var hitInfo = m_characterGroupGrid.HitTest(e.X, e.Y);
-					if (hitInfo.Type == DataGridViewHitTestType.Cell && m_characterGroupGrid.Columns[hitInfo.ColumnIndex].DataPropertyName == "VoiceActorAssignedName")
+					CharacterGroup sourceGroup = m_characterGroupGrid.SelectedRows[0].DataBoundItem as CharacterGroup;
+					if (sourceGroup.IsVoiceActorAssigned)
 					{
 						m_dragSource = DragSource.CharacterGroupGrid;
-						DoDragDrop(m_characterGroupGrid.SelectedRows[0].DataBoundItem, DragDropEffects.Copy);
+						DoDragDrop(sourceGroup, DragDropEffects.Copy);
+					}
+					else
+					{
+						DoDragDrop(0, DragDropEffects.None);
 					}
 				}
 			}

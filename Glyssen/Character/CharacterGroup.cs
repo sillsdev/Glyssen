@@ -84,6 +84,13 @@ namespace Glyssen.Character
 
 		[XmlIgnore]
 		[Browsable(false)]
+		public bool IsVoiceActorAssigned 
+		{
+			get { return m_isActorAssigned; }
+		}
+
+		[XmlIgnore]
+		[Browsable(false)]
 		public VoiceActor.VoiceActor VoiceActorAssigned
 		{
 			get { return m_actorAssigned; }
