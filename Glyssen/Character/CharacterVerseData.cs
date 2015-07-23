@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using L10NSharp;
 using Paratext;
 using SIL.Scripture;
 using ScrVers = Paratext.ScrVers;
@@ -73,6 +74,28 @@ namespace Glyssen.Character
 		public static bool IsCharacterOfType(string characterId, StandardCharacter standardCharacterType)
 		{
 			return characterId.StartsWith(GetCharacterPrefix(standardCharacterType));
+		}
+
+		public static string GetCharacterNameForUi(string characterId)
+		{
+			switch (GetStandardCharacterType(characterId))
+			{
+				case StandardCharacter.Narrator: 
+					return String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.Narrator", "narrator ({0})"), GetBookNameFromStandardCharacterId(characterId));
+				case StandardCharacter.Intro: 
+					return String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.IntroCharacter", "introduction ({0})"), GetBookNameFromStandardCharacterId(characterId));
+				case StandardCharacter.ExtraBiblical: 
+					return String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.ExtraCharacter", "section head ({0})"), GetBookNameFromStandardCharacterId(characterId));
+				case StandardCharacter.BookOrChapter: 
+					return String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BookChapterCharacter", "book title or chapter ({0})"), GetBookNameFromStandardCharacterId(characterId));
+				default:
+					return LocalizationManager.GetDynamicString(Program.kApplicationId, "CharacterName." + characterId, characterId);
+			}
+		}
+
+		private static string GetBookNameFromStandardCharacterId(string characterId)
+		{
+			return characterId.Substring(characterId.Length - 3);
 		}
 
 		private static string GetCharacterPrefix(StandardCharacter standardCharacterType)

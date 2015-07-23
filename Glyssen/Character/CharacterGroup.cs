@@ -60,7 +60,7 @@ namespace Glyssen.Character
 		[XmlIgnore]
 		public string CharactersString
 		{
-			get { return string.Join("; ", CharacterIds); }
+			get { return string.Join("; ", CharacterIds.Select(CharacterVerseData.GetCharacterNameForUi)); }
 		}
 
 		[XmlArray("Genders")]
@@ -81,6 +81,20 @@ namespace Glyssen.Character
 
 		[XmlElement]
 		public double EstimatedHours { get; set; }
+
+		[XmlIgnore]
+		[Browsable(false)]
+		public bool IsVoiceActorAssigned 
+		{
+			get { return m_isActorAssigned; }
+		}
+
+		[XmlIgnore]
+		[Browsable(false)]
+		public VoiceActor.VoiceActor VoiceActorAssigned
+		{
+			get { return m_actorAssigned; }
+		}
 
 		[XmlElement]
 		[Browsable(false)]

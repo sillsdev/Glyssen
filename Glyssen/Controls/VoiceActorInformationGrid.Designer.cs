@@ -86,7 +86,6 @@
 			// 
 			this.m_dataGrid.AllowUserToDeleteRows = false;
 			this.m_dataGrid.AllowUserToOrderColumns = true;
-			this.m_dataGrid.AllowUserToResizeColumns = false;
 			this.m_dataGrid.AllowUserToResizeRows = false;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
 			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
@@ -155,7 +154,6 @@
 			// 
 			// ActorName
 			// 
-			this.ActorName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.ActorName.DataPropertyName = "Name";
 			this.ActorName.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Name!Name";
 			this.ActorName.Name = "ActorName";
@@ -163,7 +161,6 @@
 			// 
 			// ActorGender
 			// 
-			this.ActorGender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.ActorGender.DataPropertyName = "Gender";
 			this.ActorGender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.ActorGender.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Gender!Gender";
@@ -173,11 +170,9 @@
 			this.ActorGender.MinimumWidth = 90;
 			this.ActorGender.Name = "ActorGender";
 			this.ActorGender.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			this.ActorGender.Width = 342;
 			// 
 			// ActorAge
 			// 
-			this.ActorAge.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.ActorAge.DataPropertyName = "Age";
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
 			this.ActorAge.DefaultCellStyle = dataGridViewCellStyle3;
@@ -190,7 +185,6 @@
 			this.ActorAge.MinimumWidth = 90;
 			this.ActorAge.Name = "ActorAge";
 			this.ActorAge.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			this.ActorAge.Width = 308;
 			// 
 			// VoiceActorInformationGrid
 			// 

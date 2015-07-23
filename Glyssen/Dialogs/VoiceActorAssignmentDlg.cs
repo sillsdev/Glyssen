@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Character;
 using Glyssen.Properties;
+using L10NSharp;
 using SIL.IO;
 using SIL.ObjectModel;
 
@@ -16,6 +18,13 @@ namespace Glyssen.Dialogs
 	{
 		private readonly Project m_project;
 		private bool m_canAssign;
+
+		private enum DragSource
+		{
+			CharacterGroupGrid,
+			VoiceActorGrid
+		};
+		private DragSource m_dragSource;  
 
 		public VoiceActorAssignmentDlg(Project project)
 		{
@@ -149,34 +158,55 @@ namespace Glyssen.Dialogs
 		{
 			if (e.KeyData == Keys.Delete)
 			{
-				for (int i = 0; i < m_characterGroupGrid.SelectedRows.Count; i++)
+				string dlgMessage = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.DeleteRowsDialog.Message", "Are you sure you want to un-assign the actors from the selected groups?");
+				string dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.DeleteRowsDialog.Title", "Confirm");
+				if (MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
 				{
-					CharacterGroup entry = m_characterGroupGrid.SelectedRows[i].DataBoundItem as CharacterGroup;
-					entry.RemoveVoiceActor();					
+
+					for (int i = 0; i < m_characterGroupGrid.SelectedRows.Count; i++)
+					{
+						CharacterGroup entry = m_characterGroupGrid.SelectedRows[i].DataBoundItem as CharacterGroup;
+						entry.RemoveVoiceActor();
+					}
+
+					SaveAssignments();
+
+					m_characterGroupGrid.Refresh();
 				}
-
-				SaveAssignments();
-
-				m_characterGroupGrid.Refresh();
 			}
 		}
 
 		private void m_btnExport_Click(object sender, EventArgs e)
 		{
-			SaveAssignments();
-			new ProjectExport(m_project).Export(this);
+			var characterGroups = m_characterGroupGrid.DataSource as SortableBindingList<CharacterGroup>;
+
+			bool assignmentsComplete = characterGroups.All(t => t.IsVoiceActorAssigned);
+
+			string dlgMessage = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ExportIncompleteScript.Message", "Some of the character groups have no voice talent assigned. Are you sure you want to export an incomplete script?\n(Note: You can export the script again as many times as you want.)");
+			string dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ExportIncompleteScript.Title", "Export Incomplete Script?");
+			if (assignmentsComplete || MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
+			{
+				SaveAssignments();
+				new ProjectExport(m_project).Export(this);
+			}
 		}
 
 		private void m_voiceActorGrid_MouseMove(object sender, MouseEventArgs e)
 		{
 			if (e.Button == MouseButtons.Left)
 			{
-				if (m_voiceActorGrid.SelectedVoiceActorEntity != null && m_voiceActorGrid.SelectedRows.Count == 1)
+				var hitInfo = m_voiceActorGrid.HitTest(e.X, e.Y);
+				if (hitInfo.Type == DataGridViewHitTestType.Cell)
 				{
-					var hitInfo = m_voiceActorGrid.HitTest(e.X, e.Y);
-					if (hitInfo.Type == DataGridViewHitTestType.Cell)
+					var sourceActor = m_voiceActorGrid.SelectedVoiceActorEntity;
+					if (sourceActor != null && sourceActor.HasMeaningfulData())
 					{
-						DoDragDrop(m_voiceActorGrid.SelectedVoiceActorEntity, DragDropEffects.Copy);
+						m_dragSource = DragSource.VoiceActorGrid;
+						DoDragDrop(sourceActor, DragDropEffects.Copy);
+					}
+					else
+					{
+						DoDragDrop(0, DragDropEffects.None);
 					}
 				}
 			}
@@ -184,7 +214,7 @@ namespace Glyssen.Dialogs
 
 		private void m_characterGroupGrid_DragOver(object sender, DragEventArgs e)
 		{
-			if (!e.Data.GetDataPresent(typeof(VoiceActor.VoiceActor)))
+			if (!(e.Data.GetDataPresent(typeof(VoiceActor.VoiceActor)) || e.Data.GetDataPresent(typeof(CharacterGroup))))
 			{
 				e.Effect = DragDropEffects.None;
 				return;
@@ -198,9 +228,32 @@ namespace Glyssen.Dialogs
 			var hitInfo = m_characterGroupGrid.HitTest(p.X, p.Y);
 			if (hitInfo.Type == DataGridViewHitTestType.Cell)
 			{
-				m_characterGroupGrid.ClearSelection();
-				m_characterGroupGrid.Rows[hitInfo.RowIndex].Selected = true;
-				AssignSelectedActorToSelectedGroup();
+				if (m_dragSource == DragSource.VoiceActorGrid)
+				{
+					m_characterGroupGrid.ClearSelection();
+					m_characterGroupGrid.Rows[hitInfo.RowIndex].Selected = true;
+					AssignSelectedActorToSelectedGroup();
+				}
+				else if (m_dragSource == DragSource.CharacterGroupGrid)
+				{
+					CharacterGroup sourceGroup = m_characterGroupGrid.SelectedRows[0].DataBoundItem as CharacterGroup;
+					CharacterGroup destinationGroup = m_characterGroupGrid.Rows[hitInfo.RowIndex].DataBoundItem as CharacterGroup;
+
+					VoiceActor.VoiceActor sourceActor = sourceGroup.VoiceActorAssigned;
+					VoiceActor.VoiceActor destinationActor = destinationGroup.VoiceActorAssigned;
+
+					destinationGroup.AssignVoiceActor(sourceActor);
+					if (destinationActor != null)
+						sourceGroup.AssignVoiceActor(destinationActor);
+					else
+						sourceGroup.RemoveVoiceActor();
+
+					m_characterGroupGrid.ClearSelection();
+					m_characterGroupGrid.Rows[hitInfo.RowIndex].Selected = true;
+
+					SaveAssignments();
+					m_characterGroupGrid.Refresh();				
+				}
 			}
 		}
 
@@ -212,6 +265,27 @@ namespace Glyssen.Dialogs
 					SendKeys.Send("^+{TAB}");
 				else if (m_characterGroupGrid.ContainsFocus)
 					SendKeys.Send("^{TAB}");
+			}
+		}
+
+		private void m_characterGroupGrid_MouseMove(object sender, MouseEventArgs e)
+		{
+			if (e.Button == MouseButtons.Left)
+			{
+				var hitInfo = m_characterGroupGrid.HitTest(e.X, e.Y);
+				if (hitInfo.Type == DataGridViewHitTestType.Cell && m_characterGroupGrid.Columns[hitInfo.ColumnIndex].DataPropertyName == "VoiceActorAssignedName")
+				{
+					CharacterGroup sourceGroup = m_characterGroupGrid.SelectedRows[0].DataBoundItem as CharacterGroup;
+					if (sourceGroup.IsVoiceActorAssigned)
+					{
+						m_dragSource = DragSource.CharacterGroupGrid;
+						DoDragDrop(sourceGroup, DragDropEffects.Copy);
+					}
+					else
+					{
+						DoDragDrop(0, DragDropEffects.None);
+					}
+				}
 			}
 		}
 	}
