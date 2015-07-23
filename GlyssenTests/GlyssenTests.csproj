@@ -107,6 +107,8 @@
     <Compile Include="Quote\QuoteParserTests.cs" />
     <Compile Include="Quote\QuoteSystemGuesserTests.cs" />
     <Compile Include="Quote\QuoteSystemTests.cs" />
+    <Compile Include="Rules\ProximityTests.cs" />
+    <Compile Include="TestProject.cs" />
     <Compile Include="UsxParserTests.cs" />
     <Compile Include="Dialogs\SelectProjectDlgTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
