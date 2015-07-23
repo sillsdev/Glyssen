@@ -418,15 +418,13 @@ namespace Glyssen
 
 		private void m_btnAssignVoiceActors_Click(object sender, EventArgs e)
 		{
-			bool next = true;
-
-			if (m_project.VoiceActorList.Actors.Count == 0)
+			if (m_project.VoiceActorStatus == VoiceActorStatus.UnProvided)
 			{
 				using (var dlg = new VoiceActorInformationDlg(m_project))
-					next = dlg.ShowDialog() == DialogResult.OK;
+					dlg.ShowDialog();
 			}
 
-			if (next)
+			if (m_project.VoiceActorStatus == VoiceActorStatus.Provided)
 			{
 				using (var dlg = new VoiceActorAssignmentDlg(m_project))
 					dlg.ShowDialog();
