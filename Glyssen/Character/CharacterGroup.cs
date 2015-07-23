@@ -60,7 +60,7 @@ namespace Glyssen.Character
 		[XmlIgnore]
 		public string CharactersString
 		{
-			get { return string.Join("; ", CharacterIds); }
+			get { return string.Join("; ", CharacterIds.Select(CharacterVerseData.GetCharacterNameForUi)); }
 		}
 
 		[XmlArray("Genders")]
