@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using L10NSharp;
@@ -158,6 +159,12 @@ namespace Glyssen.Controls
 				if (handler != null)
 					handler(m_dataGrid, new DataGridViewRowsRemovedEventArgs(indexOfFirstRowToRemove, m_dataGrid.RowCount));
 			}
+		}
+
+		public Color BackgroundColor
+		{
+			get { return m_dataGrid.BackgroundColor; }
+			set { m_dataGrid.BackgroundColor = value; }
 		}
 
 		private void contextMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
