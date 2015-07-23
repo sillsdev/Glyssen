@@ -36,7 +36,7 @@ namespace GlyssenTests.Rules
 		[TestFixtureTearDown]
 		public void TestFixtureTearDown()
 		{
-			//TestProject.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjectFolder();
 		}
 
 		[Test]
