@@ -289,6 +289,10 @@ namespace Glyssen.Bundle
 		[XmlElement("projectSettingsStatus")]
 		[DefaultValue(ProjectSettingsStatus.UnReviewed)]
 		public ProjectSettingsStatus ProjectSettingsStatus { get; set; }
+
+		[XmlElement("voiceActorStatus")]
+		[DefaultValue(VoiceActorStatus.UnProvided)]
+		public VoiceActorStatus VoiceActorStatus { get; set; }
 	}
 
 	[Flags]
@@ -313,5 +317,11 @@ namespace Glyssen.Bundle
 	{
 		UnReviewed,
 		Reviewed
+	}
+
+	public enum VoiceActorStatus
+	{
+		UnProvided,
+		Provided
 	}
 }

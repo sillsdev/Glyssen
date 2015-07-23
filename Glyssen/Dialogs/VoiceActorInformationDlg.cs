@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Glyssen.Bundle;
 using Glyssen.Controls;
 
 namespace Glyssen.Dialogs
@@ -35,6 +36,7 @@ namespace Glyssen.Dialogs
 		private void m_btnSave_Click(object sender, EventArgs e)
 		{
 			m_dataGrid.SaveVoiceActorInformation();
+			m_project.VoiceActorStatus = VoiceActorStatus.UnProvided;
 			DialogResult = DialogResult.Cancel;
 			Close();
 		}
@@ -42,6 +44,7 @@ namespace Glyssen.Dialogs
 		private void m_btnNext_Click(object sender, EventArgs e)
 		{
 			m_dataGrid.SaveVoiceActorInformation();
+			m_project.VoiceActorStatus = VoiceActorStatus.Provided;
 			DialogResult = DialogResult.OK;
 			Close();
 		}
