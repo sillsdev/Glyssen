@@ -5600,7 +5600,7 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	10	9	Jehu, son of Nimshi			Normal		
 2KI	10	10	Jehu, son of Nimshi			Normal		
 2KI	10	13	Jehu, son of Nimshi			Normal		
-2KI	10	13	Relatives of Ahaziah, king of Judah			Normal		
+2KI	10	13	relatives of Ahaziah, king of Judah			Normal		
 2KI	10	14	Jehu, son of Nimshi			Normal		
 2KI	10	15	Jehonadab, son of Recab			Normal		
 2KI	10	15	Jehu, son of Nimshi			Normal		
@@ -11067,7 +11067,7 @@ AMO	3	12	God		God (the LORD)	Normal
 AMO	3	13	God		God (the LORD, the LORD God Almighty)	Normal		
 AMO	3	14	God		God (the LORD)	Normal		
 AMO	3	15	God		God (the LORD)	Normal		
-AMO	4	1	Oppressors of poor (women)			Hypothetical		
+AMO	4	1	oppressors of poor (women)			Hypothetical		
 AMO	4	2	God		God (The Sovereign LORD)	Normal		
 AMO	4	3	God		God (The Sovereign LORD)	Normal		
 AMO	4	4	God		God (The Sovereign LORD)	Normal		
@@ -11115,7 +11115,7 @@ AMO	7	17	Amos			Normal
 AMO	8	2	Amos			Normal		
 AMO	8	2	God		God (The Sovereign LORD)	Normal		
 AMO	8	3	God		God (The Sovereign LORD)	Normal		
-AMO	8	5	Oppressors of poor			Normal		
+AMO	8	5	oppressors of poor			Normal		
 AMO	8	7	God		God (the LORD)	Normal		
 AMO	8	8	God		God (the LORD)	Normal		
 AMO	8	9	God		God (The Sovereign LORD)	Normal		
@@ -15033,13 +15033,13 @@ ACT	23	30	commander of Roman troops in Jerusalem	letter	commander's letter	Poten
 ACT	23	34	Paul			Indirect		
 ACT	23	34	Felix, governor of Judea			Indirect		
 ACT	23	35	Felix, governor of Judea	with authority		Normal		
-ACT	24	2	Tertullus-Lawyer			Normal		
-ACT	24	3	Tertullus-Lawyer			Normal		
-ACT	24	4	Tertullus-Lawyer			Normal		
-ACT	24	5	Tertullus-Lawyer	accusing		Normal		
-ACT	24	6	Tertullus-Lawyer	accusing		Normal		
-ACT	24	7	Tertullus-Lawyer	accusing		Normal		
-ACT	24	8	Tertullus-Lawyer	accusing		Normal		
+ACT	24	2	Tertullus, lawyer			Normal		
+ACT	24	3	Tertullus, lawyer			Normal		
+ACT	24	4	Tertullus, lawyer			Normal		
+ACT	24	5	Tertullus, lawyer	accusing		Normal		
+ACT	24	6	Tertullus, lawyer	accusing		Normal		
+ACT	24	7	Tertullus, lawyer	accusing		Normal		
+ACT	24	8	Tertullus, lawyer	accusing		Normal		
 ACT	24	9	Jews, the			Indirect		
 ACT	24	10	Paul			Normal		
 ACT	24	11	Paul			Normal		

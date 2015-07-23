@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Glyssen.Character;
@@ -8,95 +9,184 @@ using System.Text.RegularExpressions;
 
 namespace DevTools.TermTranslator
 {
-	public class Processor
+	public static class Processor
 	{
-		private static readonly List<string> LanguagesToProcess = new List<string>{"En", "Es", "Fr", "Pt", "zh-Hans", "zh-Hant"}; 
+		// #############################
+		// ######### IMPORTANT #########
+		// #############################
+		// The following three variables need to be updated as appropriate whenever:
+		// A) New/modified localizations of the Biblical Terms files (from Paratext) become available.
+		// B) New HUMAN localizations of TMX files are done for Glyssen.
+		private static readonly List<string> LanguagesToProcess = new List<string> { "Es", "Fr", "Pt", "zh-Hans", "zh-Hant" };
+		private static readonly List<string> LanguagesWithCustomizedTranslations = new List<string> {"es"};
+		private static readonly bool ProcessingUpdatedBiblicalTermsFiles = false;
+
+		private static readonly Regex s_partOfChineseOrFrenchGlossThatIsNotTheGloss = new Regex("((（|。).+)|(\\[1\\] )", RegexOptions.Compiled);
+		private static readonly SortedSet<string> s_names = new SortedSet<string>();
+		private static BiblicalTermsLocalizations s_englishTermsList;
+		private static List<Tu> s_englishTranslationUnits;
+		private static readonly Dictionary<string, TmxFormat> s_conflictingLocalizations = new Dictionary<string, TmxFormat>(); 
+
+		private const string kLocalizationFolder = @"..\..\..\DistFiles\localization";
 
 		public static void Process()
 		{
-			IEnumerable<Glyssen.Character.CharacterVerse> quoteInfo = ControlCharacterVerseData.Singleton.GetAllQuoteInfo();
+			foreach (var cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
+			{
+				var s = cv.LocalizedAlias;
+				AddNames(cv.Character);
+				if (!string.IsNullOrEmpty(cv.Alias))
+					AddNames(cv.Alias);
+				if (!string.IsNullOrEmpty(cv.DefaultCharacter))
+					AddNames(cv.DefaultCharacter);
+			}
 
-			SortedSet<string> names = new SortedSet<string>();
-			names.UnionWith(quoteInfo.Select(t => t.Alias));
-			names.UnionWith(quoteInfo.Select(t => t.Character));
-			names.Remove("");
-			names.Remove(null);
+			s_englishTermsList = DeserializeBiblicalTermsForLanguage("En");
 
-			BiblicalTermsLocalizations englishTermsList = XmlSerializationHelper.DeserializeFromFile<BiblicalTermsLocalizations>("..\\..\\Resources\\BiblicalTermsEn.xml");
-			
+			s_englishTranslationUnits = ProcessLanguage("en", AddEnglishTerm);
+
 			foreach (string langAbbr in LanguagesToProcess)
 			{
-				BiblicalTermsLocalizations localTermsList = XmlSerializationHelper.DeserializeFromFile<BiblicalTermsLocalizations>("..\\..\\Resources\\BiblicalTerms" + langAbbr + ".xml");
+				BiblicalTermsLocalizations localTermsList = DeserializeBiblicalTermsForLanguage(langAbbr);
+				var modifiedLangAbbr = Char.ToLowerInvariant(langAbbr[0]) + langAbbr.Substring(1);
+				Action<TmxFormat, Tu, Tuv> processLocalizedGloss = LanguagesWithCustomizedTranslations.Contains(modifiedLangAbbr)
+					? (Action<TmxFormat, Tu, Tuv>)UpdateEntryWithLocalizedGloss : AddEntryWithLocalizedGloss;
+				ProcessLanguage(modifiedLangAbbr,
+					(tmx, tu, name) => { AddLocalizedTerm(tmx, modifiedLangAbbr, localTermsList, tu, name, processLocalizedGloss); });
+			}
 
-				string modifiedLangAbbr = Char.ToLowerInvariant(langAbbr[0]) + langAbbr.Substring(1);
+			foreach (var conflictingLocalization in s_conflictingLocalizations)
+			{
+				var path = Path.Combine(kLocalizationFolder, "LocalizationsFromParatextBiblicalTerms." + conflictingLocalization.Key + ".tmx");
+				XmlSerializationHelper.SerializeToFile(path, conflictingLocalization.Value);
+			}
+		}
 
-				string outputFileName = "..\\..\\..\\DistFiles\\localization\\Glyssen." + modifiedLangAbbr + ".tmx";
+		private static void AddNames(string character)
+		{
+			foreach (string individual in character.Split('/'))
+				s_names.Add(individual);
+		}
 
-				TmxFormat newTmx;
-				if (File.Exists(outputFileName))
-				{
-					newTmx = XmlSerializationHelper.DeserializeFromFile<TmxFormat>(outputFileName);
+		private static List<Tu> ProcessLanguage(string modifiedLangAbbr, Action<TmxFormat, Tu, string> AddTerm)
+		{
+			string outputFileName = Path.Combine(kLocalizationFolder, "Glyssen." + modifiedLangAbbr + ".tmx");
 
-					var tus = newTmx.Body.Tus;
+			TmxFormat newTmx;
+			if (File.Exists(outputFileName))
+			{
+				newTmx = XmlSerializationHelper.DeserializeFromFile<TmxFormat>(outputFileName);
 
-					tus.RemoveAll(t => t.Tuid.StartsWith("CharacterName."));
-				}
+				var tus = newTmx.Body.Tus;
+
+				// If this is not a language that has been worked on by a localizer, we can safely blow
+				// away everything and start from scratch. Otherwise, we only want to remove translation units
+				// which no longer exist in English.
+				if (LanguagesWithCustomizedTranslations.Contains(modifiedLangAbbr))
+					tus.RemoveAll(lt => lt.Tuid.StartsWith("CharacterName.") && !s_englishTranslationUnits.Any(ent => ent.Tuid == lt.Tuid));
 				else
+					tus.RemoveAll(t => t.Tuid.StartsWith("CharacterName."));
+			}
+			else
+			{
+				newTmx = new TmxFormat();
+				newTmx.Header.SrcLang = modifiedLangAbbr;
+				newTmx.Header.Props = new Prop[2];
+				newTmx.Header.Props[0] = new Prop("x-appversion", "0.1.0.0");
+				newTmx.Header.Props[1] = new Prop("x-hardlinebreakreplacement", "\\n");
+			}
+
+			foreach (string name in s_names)
+			{
+				Tu tmxTermEntry = new Tu("CharacterName." + name) { Prop = new Prop("x-dynamic", "true") };
+				tmxTermEntry.Tuvs.Add(new Tuv("en", name));
+
+				AddTerm(newTmx, tmxTermEntry, name);
+			}
+
+			XmlSerializationHelper.SerializeToFile(outputFileName, newTmx);
+
+			return newTmx.Body.Tus;
+		}
+
+		private static BiblicalTermsLocalizations DeserializeBiblicalTermsForLanguage(string langAbbr)
+		{
+			return XmlSerializationHelper.DeserializeFromFile<BiblicalTermsLocalizations>(
+				"..\\..\\Resources\\BiblicalTerms" + langAbbr + ".xml");
+		}
+
+		private static void AddEnglishTerm(TmxFormat newTmx, Tu tmxTermEntry, string name)
+		{
+			if (!name.Contains("narrator"))
+				newTmx.Body.Tus.Add(tmxTermEntry);
+		}
+
+		private static void AddLocalizedTerm(TmxFormat newTmx, string modifiedLangAbbr, BiblicalTermsLocalizations localTermsList,
+			Tu tmxTermEntry, string name, Action<TmxFormat, Tu, Tuv> ProcessLocalizedGloss)
+		{
+			Localization term = s_englishTermsList.Terms.Locals.Find(t => t.Gloss == name);
+			//if (term == null && Char.IsUpper(name[0]))
+			//{
+			//	var parts = name.Split(new []{' ', ','}, 2);
+			//	if (parts.Length > 1 && !parts[1].StartsWith("men"))
+			//		term = englishTermsList.Terms.Locals.Find(t => t.Gloss == parts[0]);
+			//}
+
+			if (term != null)
+			{
+				string termId = term.Id;
+
+				Localization localTerm = localTermsList.Terms.Locals.Find(t => t.Id == termId);
+
+				if (localTerm != null)
 				{
-					newTmx = new TmxFormat();
-					newTmx.Header.SrcLang = modifiedLangAbbr;
-					newTmx.Header.Props = new Prop[2];
-					newTmx.Header.Props[0] = new Prop("x-appversion", "0.1.0.0");
-					newTmx.Header.Props[1] = new Prop("x-hardlinebreakreplacement", "\\n");
+					string localGloss = s_partOfChineseOrFrenchGlossThatIsNotTheGloss.Replace(localTerm.Gloss, "");
+
+					if (localGloss != "")
+					{
+						var newTuv = new Tuv(modifiedLangAbbr, localGloss);
+						ProcessLocalizedGloss(newTmx, tmxTermEntry, newTuv);
+					}
 				}
+			}
+		}
 
-				Regex notChineseGlossChineseGloss = new Regex("(（|。).+");
+		private static void AddEntryWithLocalizedGloss(TmxFormat newTmx, Tu tmxTermEntry, Tuv newTuv)
+		{
+			tmxTermEntry.Tuvs.Add(newTuv);
+			newTmx.Body.Tus.Add(tmxTermEntry);
+		}
 
-				foreach (string name in names)
+		private static void UpdateEntryWithLocalizedGloss(TmxFormat newTmx, Tu tmxTermEntry, Tuv newTuv)
+		{
+			var existingTranslationUnit = newTmx.Body.Tus.FirstOrDefault(t => t.Tuid == tmxTermEntry.Tuid);
+			Tuv existingtuv = null;
+			if (existingTranslationUnit != null)
+			{
+				existingtuv = existingTranslationUnit.Tuvs.FirstOrDefault(t => t.Lang == newTuv.Lang);
+			}
+			if (existingtuv != null)
+			{
+				if (ProcessingUpdatedBiblicalTermsFiles && existingtuv.LocalizedTerm != newTuv.LocalizedTerm)
 				{
-					Tu tmxTermEntry = new Tu("CharacterName." + name);
-
-					tmxTermEntry.Prop = new Prop("x-dynamic", "true");
-
-					Tuv englishTuv = new Tuv("en", name);
-
-					tmxTermEntry.Tuvs.Add(englishTuv);
-
-					if (modifiedLangAbbr == "en")
-					{
-						if (!name.Contains("narrator"))
-						{
-							newTmx.Body.Tus.Add(tmxTermEntry);
-						}
-					}
-					else
-					{
-						Localization term = englishTermsList.Terms.Locals.Find(t => t.Gloss == name);
-
-						if (term != null)
-						{
-							string termId = term.Id;
-
-							Localization localTerm = localTermsList.Terms.Locals.Find(t => t.Id == termId);
-
-							if (localTerm != null)
-							{
-								string localGloss = localTerm.Gloss;
-
-								string testOut = notChineseGlossChineseGloss.Replace(localGloss, "");
-
-								if (localGloss != "")
-								{
-									tmxTermEntry.Tuvs.Add(new Tuv(modifiedLangAbbr, testOut));
-
-									newTmx.Body.Tus.Add(tmxTermEntry);
-								}
-							}
-						}
-					}
+					// Unless we're processing new updates to the Paratext Biblical Terms, any conflicts must come
+					// from previous human localization work, so we'll just leave them as they are and not even bother
+					// reporting them.
+					TmxFormat paratextTmxFormat;
+					if (!s_conflictingLocalizations.TryGetValue(newTuv.Lang, out paratextTmxFormat))
+						s_conflictingLocalizations[newTuv.Lang] = paratextTmxFormat = new TmxFormat(newTmx);
+					paratextTmxFormat.Body.Tus.First((t => t.Tuid == tmxTermEntry.Tuid))
+						.Tuvs.First(t => t.Lang == newTuv.Lang)
+						.LocalizedTerm = newTuv.LocalizedTerm;
 				}
+			}
+			else
+			{
+				AddEntryWithLocalizedGloss(newTmx, tmxTermEntry, newTuv);
 
-				XmlSerializationHelper.SerializeToFile<TmxFormat>(outputFileName, newTmx);
+				TmxFormat conflictingTmx;
+				if (ProcessingUpdatedBiblicalTermsFiles && s_conflictingLocalizations.TryGetValue(newTuv.Lang, out conflictingTmx))
+					conflictingTmx.Body.Tus.Add(tmxTermEntry.Clone());
 			}
 		}
 	}

@@ -17,6 +17,13 @@ namespace DevTools.TermTranslator
 			Body = new TmxBody();
 		}
 
+		public TmxFormat(TmxFormat copyFrom)
+		{
+			Version = copyFrom.Version;
+			Header = copyFrom.Header.Clone();
+			Body = copyFrom.Body.Clone();
+		}
+
 		[XmlAttribute("version")]
 		public string Version { get; set; }
 
@@ -38,6 +45,15 @@ namespace DevTools.TermTranslator
 			SegType = "block";
 			DataType = "unknown";
 			OTMF = "PalasoTMXUtils";
+		}
+
+		public TmxHeader Clone()
+		{
+			var clone = (TmxHeader)MemberwiseClone();
+			clone.Props = new Prop[Props.Length];
+			for (int index = 0; index < Props.Length; index++)
+				clone.Props[index] = Props[index].Clone();
+			return clone;
 		}
 
 		[XmlAttribute("srclang")]
@@ -70,10 +86,16 @@ namespace DevTools.TermTranslator
 		public Prop()
 		{
 		}
+
 		public Prop(string propType, string inner)
 		{
 			PropType = propType;
 			InnerText = inner;
+		}
+
+		public Prop Clone()
+		{
+			return new Prop(PropType, InnerText);
 		}
 
 		[XmlAttribute("type")]
@@ -88,6 +110,14 @@ namespace DevTools.TermTranslator
 		public TmxBody()
 		{
 			Tus = new List<Tu>();
+		}
+
+		public TmxBody Clone()
+		{
+			var clone = new TmxBody();
+			foreach (var tu in Tus)
+				clone.Tus.Add(tu.Clone());
+			return clone;
 		}
 
 		[XmlElement("tu")]
@@ -106,6 +136,20 @@ namespace DevTools.TermTranslator
 			Tuvs = new List<Tuv>();
 			Tuid = id;
 		}
+
+		public Tu Clone()
+		{
+			var clone = new Tu(Tuid);
+			clone.Note = Note;
+			if (Prop != null)
+				clone.Prop = Prop.Clone();
+			foreach (var tuv in Tuvs)
+				clone.Tuvs.Add(new Tuv(tuv.Lang, tuv.LocalizedTerm));
+			return clone;
+		}
+
+		[XmlElement("note")]
+		public string Note { get; set; }
 
 		[XmlElement("prop")]
 		public Prop Prop { get; set; }

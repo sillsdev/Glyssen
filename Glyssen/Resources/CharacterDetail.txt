@@ -40,7 +40,7 @@ all in temple	-1
 all seeking God	-1			
 all the elders	-1	Male		elders of the church in Jerusalem
 all who heard (in synagogues)	-1			
-altar	1			
+altar	1	Neuter		
 Amasa	1	Male		leader in Ephraim
 Amasai, chief of thirty (Spirit came upon)	1	Male		
 Amaziah	1	Male		
@@ -117,7 +117,7 @@ Bathsheba	1	Female
 beast, the	1			
 believers who were Pharisees	-1	Male		
 believers, circumcised (in Jerusalem)	-1	Male		
-believers, one hundred twenty	120			
+believers, one hundred twenty	120	Pref: Male		Probably spoken by Peter or one of the other eleven disciples
 beloved	1	Female		
 Belshazzar, king of Babylon	1	Male		
 Benaiah, son of Jehoiada	1	Male		
@@ -137,7 +137,7 @@ Birsha, king of Gomorrah	1	Male
 blind man	1	Male		
 blind men, two	2	Male		
 Boaz	1	Male		
-Book of the Wars of the LORD	1			
+Book of the Wars of the LORD	1	Neuter		
 brothers at Antioch, the	-1	Male		
 brothers at Puteoli, some	-1	Male		
 bystanders at Calvary, some	-1			
@@ -175,7 +175,7 @@ city clerk of Ephesus	1	Male
 Cleopas	1	Male		
 Cleopas' companion (on road to Emmaus)	1	Either		
 collectors of temple tax	-1			
-commander of Roman troops in Jerusalem	1			
+commander of Roman troops in Jerusalem	1	Male		
 commander of the LORD's army	1	Male		Default character should be Jesus
 company of the prophets	-1			
 company of the prophets (Bethel)	-1			
@@ -228,7 +228,7 @@ Deborah	1	Female		prophetess
 Delaiah	1	Male		son of Shemaiah
 Delilah	1	Female		
 Demetrius the silversmith	1	Male		
-demons (Legion)	-1			
+demons (Legion)	-1	Male		
 demons coming out of people	-1			
 disciple who wanted to bury his father	1	Male		
 disciples	11	Male		
@@ -274,7 +274,7 @@ Elisha (LORD has shown me)	1	Male
 Elishama	1	Male		scribe
 Elisha's messenger	1			
 Elizabeth	1	Female		
-Elkanah	1			
+Elkanah	1	Male		
 Elnathan	1	Male		son of Achbor
 enemies of God	-1			
 enemies of Israel	-1			
@@ -298,8 +298,8 @@ everyone in Judean hills who heard	-1
 everyone seeing healing of paralyzed man	-1			
 everyone who saw healing of paralytic	-1			
 everyone who witnessed healing of boy	-1			
-evil men and troublemakers	-1			
-evil spirit in possessed man	1			
+evil men and troublemakers	-1	Male		
+evil spirit in possessed man	1	Male		
 evil spirits	-1			
 exiles	-1			
 expert in religious law	1	Male		
@@ -359,20 +359,20 @@ Grecian Jews	-1
 Greeks	-1			
 guards at high priests' house	-1	Male		
 Habakkuk	1	Male		
-Hadad the Edomite	1			
+Hadad the Edomite	1	Male		
 Hagar, the Egyptian	1	Female		
 Haggai (word of the LORD)	1	Male		
 half-tribe of Manasseh	-1	Male		
 Haman, highest noble to Xerxes, king	1	Male		
 Hamor	1	Male		
 Hanamel (Jeremiah's cousin)	1	Male		
-Hanani	1			brother of Nehemiah
-Hanani the seer	1			father of Jehu
-Hananiah, false prophet	1			
+Hanani	1	Male		brother of Nehemiah
+Hanani the seer	1	Male		father of Jehu
+Hananiah, false prophet	1	Male		
 Hannah	1	Female		
 Harbona, eunuch attending Xerxes, king	1	Male		
 harvesters	-1			
-Hazael of Aram	1			
+Hazael of Aram	1	Male		
 head	1			
 heads of all the families	-1	Male		
 hearers	-1			
@@ -388,10 +388,10 @@ high priest	1	Male		Not a particular (historial) high priest, but rather an arbi
 high priest's servant (relative of the man whose ear Peter cut off)	1	Male		
 Hilkiah, high priest	1	Male		
 him who hears	1	Male		
-Hirah, the Adullamite	1			
+Hirah, the Adullamite	1	Male		
 Hiram, king of Tyre	1	Male		
 Hittites	-1			
-Hobab, Moses brother-in-law	1			
+Hobab, Moses brother-in-law	1	Male		
 holy one (in vision)	1			
 bride, the (refering to the Church)	-1	Pref: Female		
 Holy Spirit, the	1	Male		
@@ -401,7 +401,7 @@ Horses (in vision)	-1
 Hosea	1	Male		
 house of Aaron, the	-1	Male		
 Huldah, prophetess	1	Female		
-husband of Shunammite	1			
+husband of Shunammite	1	Male		
 Hushai, David's friend	1	Male		
 hymn, early credal	1			
 idolators	-1			
@@ -410,8 +410,8 @@ idolators from Judah (women)	-1	Female
 informer	-1			
 inscription on forehead of Babylon	1	Pref: Female		
 invaders	-1	Male		
-invalid for 38 years	1			
-Irijah, captain of the guard of Judah	1			
+invalid for 38 years	1	Male		
+Irijah, captain of the guard of Judah	1	Male		
 Isaac	1	Male		
 Isaac (old)	1	Male	old	
 Isaiah	1	Male		
@@ -438,7 +438,7 @@ Israelite spy from house of Joseph	1
 Israelites	-1			
 Israelites (excluding Benjamites)	-1			
 Israelites, some	-1			
-Ittai	1			
+Ittai	1	Male		
 Jabesh, elders of	-1	Male		
 Jabesh, men of	-1	Male		
 Jabez	1	Male		
@@ -448,7 +448,7 @@ Jacob's son (one who discovered his silver in his sack)	1	Male		Not Simeon, Jose
 Jacob's sons	10	Male		Not Joseph or Banjamin
 Jacob's sons (not Simeon, Joseph, or Benjamin)	9	Male		
 Jael	1	Female		
-Jahaziel (Spirit of the Lord on)	1			
+Jahaziel (Spirit of the Lord on)	1	Male		
 jailer in Philippi	1	Male		
 Jairus (synagogue leader)	1	Male		
 James	1	Male		
@@ -461,7 +461,7 @@ Jehoshaphat, king of Judah	1	Male
 Jehu, son of Hanani	1	Male		
 Jehu, son of Nimshi	1	Male		
 Jehucal	1	Male		son of Shelemiah
-Jehudi	1			
+Jehudi	1	Male		
 Jephthah	1	Male		
 Jephthah's daughter	1	Female	youth	
 Jephthah's half-brothers	-1	Male		
@@ -472,7 +472,7 @@ Jeshua	1	Male
 Jesse	1	Male		
 Jesus	1	Male		
 Jesus (child)	1	Male	youth (12)	
-Jesus' brothers	4			
+Jesus' brothers	4	Male		
 Jesus' family	-1			
 Jethro (Reuel), Moses' father-in-law	1	Male		
 Jewish leaders	-1	Male		
@@ -561,7 +561,7 @@ Lookout	1
 Lot	1	Male		
 lover	1	Male		
 Lydia	1	Female		
-Macedonian	1			
+Macedonian	1	Male		
 magi (wise men from East)	-1	Male		
 magicians	-1			
 magistrates, chief	-1	Male		
@@ -661,7 +661,7 @@ messengers of Saul	-1	Male
 messengers sent by Jacob	-1	Male		
 Micah	1	Male		
 Micah's mother	1	Female		
-Micaiah, prophet of the LORD	1			
+Micaiah, prophet of the LORD	1	Male		
 Michael (archangel)	1	Male		
 Michal, David's wife	1	Female		
 Midianite soldier who had a dream	1	Male		
@@ -685,10 +685,10 @@ Naaman	1	Male
 Naaman's servants	-1	Male		
 Nabal	1	Male		
 Naboth	1	Male		
-Nahash the Ammonite	1			
+Nahash the Ammonite	1	Male		
 Naomi	1	Female		
-Nathan	1			
-Nathanael	1			
+Nathan	1	Male		
+Nathanael	1	Male		
 Nathaniel	1	Male		
 nations	-1			
 nations, people of the	-1			
@@ -736,22 +736,22 @@ older daughter of Lot	1	Female
 On	1	Male		son of Peleth (Reubenite)
 one at table of Pharisee (expert in religious law)	1	Male		
 one of you	-1			
-one other who looked like a man	1			
+one other who looked like a man	1	Male		
 one who brings good news	-1			
-one who looked like a man	1			
+one who looked like a man	1	Male		
 one with garments stained crimson (Christ?)	1	Male		Default character should be Jesus
 each one	1			
 onlookers	-1			
-Oppressors of poor	-1			
-Oppressors of poor (women)	-1	Female		
+oppressors of poor	-1			
+oppressors of poor (women)	-1	Female		
 Orpah	1	Female		
-other guests at Pharisee (Simon)'s house	-1			
+other guests at Pharisee (Simon)'s house	-1	Male		
 others	-1			
 others (testing Jesus)	-1			
 owners of colt	-1			
 owners of fortune telling slave girl	-1			
 parents of cured man, blind from birth	2	Either		May want to assign one or more of these lines to female, as appropriate
-Pashur	1			son of Malkijah
+Pashur	1	Male		son of Malkijah
 passers by	-1			
 Paul	1	Male		
 Paul's travelling companions, Luke and	-1			
@@ -826,7 +826,7 @@ Phineas the priest	1	Male
 Phineas' wife (daughter-in-law of Eli)	1	Female		
 Pilate	1	Male		
 Pilate's wife	1	Female		
-pine trees and cedars of Lebanon	-1			
+pine trees and cedars of Lebanon	-1	Neuter		
 poets	-1			
 Potiphar's wife	1	Female		
 priest	1	Male		
@@ -835,15 +835,15 @@ proclaimers of God's word	-1
 proclamation	1			
 prophet	1			
 prophet in Bethel	1	Male	old	
-prophet of the LORD	1			
-prophet who confronts Ahab	1			
+prophet of the LORD	1	Male		
+prophet who confronts Ahab	1	Male		
 prophets	-1			
 prophets (speaking the word of the LORD)	-1			
 prophets and teachers at Antioch	-1			
 prophets of Baal	-1			
 prophets, 400 false	400			
-prostitute, one	1			
-prostitute, other	1			
+prostitute, one	1	Female		
+prostitute, other	1	Female		
 psalmist	-1			
 Puah (midwife)	1	Female		
 queen of Babylon	1	Female		
@@ -854,12 +854,12 @@ reader	1
 Rebekah	1	Female		
 rebels	-1			
 Recab	1	Male		
-Recabite family, men of	-1			
+Recabite family, men of	-1	Male		
 Regem-Melech	1	Male		
 Rehoboam	1	Male		
 Rehum, commanding officer	1	Male		
 relative	1	Male		
-Relatives of Ahaziah, king of Judah	-1			
+relatives of Ahaziah, king of Judah	-1			
 reply to the slain believers (in heavenly vision)	1			
 report concerning Paul	1			
 report to King of Aram	1			
@@ -893,7 +893,7 @@ Satan (Devil)	1	Male
 satraps	-1	Male		
 Saul	1	Male		
 Saul (old)	1	Male		
-Saul's announcement	1			
+Saul's announcement	1	Male		
 Saul's attendants	-1	Male		
 Saul's messengers	-1	Male		
 Saul's servant	1	Male		
@@ -947,13 +947,13 @@ Sheba, son of Bicri	1	Male
 Shebna	1	Male		
 Shecaniah, son of Jehiel	1	Male		
 Shechem, son of Hamor	1	Male	young man	
-Shemaiah	1			
+Shemaiah	1	Male		
 Shemeber, king of Zeboiim	1	Male		
 Shephatiah	1	Male		son of Mattan
 shepherds at well	-1			
 shepherds outside Bethlehem	-1			
 Shethar-Bozenai	1	Male		
-Shimei	1			
+Shimei	1	Male		
 Shimshai, secretary	1	Male		
 Shinab, king of Admah	1	Male		
 Shiphrah (midwife)	1	Female		
@@ -1010,7 +1010,7 @@ teachers of religious law	-1	Male
 temple guards	-1	Male		
 temple police	-1	Male		
 Tertius	1	Male		
-Tertullus-Lawyer	1	Male		
+Tertullus, lawyer	1	Male		
 Thomas	1	Male		
 those hiding from the LORD	-1			
 those standing near	-1	Male		accusers of Peter in courtyard
@@ -1092,11 +1092,11 @@ Zechariah	1	Male
 Zedekiah, king of Judah	1	Male		
 Zedekiah, son of Hananiah	1	Male		
 Zedekiah, son of Kenaanah, false prophet	1	Male		
-Zephaniah, priest	1			son of Maaseiah
+Zephaniah, priest	1	Male		son of Maaseiah
 Zeresh, wife of Haman	1	Female		
 Zerubbabel	1	Male		
 Ziba	1	Male		
 Zion	1			
 Ziphites	-1			
 Zipporah, Moses' wife	1	Female		
-Zophar the Naamathite	1			
+Zophar the Naamathite	1	Male		

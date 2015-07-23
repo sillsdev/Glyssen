@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using L10NSharp;
+using SIL.Extensions;
 using SIL.Scripture;
 
 namespace Glyssen.Character
@@ -146,9 +148,21 @@ namespace Glyssen.Character
 
 		private void Localize()
 		{
-			m_localizedCharacter = LocalizationManager.GetDynamicString(Program.kApplicationId, "CharacterName." + m_character, m_character);
-			m_localizedAlias = string.IsNullOrWhiteSpace(m_alias) ? null : LocalizationManager.GetDynamicString(Program.kApplicationId, "CharacterName." + m_alias, m_alias);
+			m_localizedCharacter = GetLocalizedCharacterString(m_character);
+			m_localizedAlias = string.IsNullOrWhiteSpace(m_alias) ? null : GetLocalizedCharacterString(m_alias);
 			m_localized = true;
+		}
+
+		// If an ID or Alias consists of multiple individual characters (or groups), separated by slashes,
+		// each individual is localized separately.
+		private string GetLocalizedCharacterString(string character)
+		{
+			return String.Join("/", character.Split('/').Select(GetLocalizedIndividualCharacterString));
+		}
+
+		private string GetLocalizedIndividualCharacterString(string character)
+		{
+			return LocalizationManager.GetDynamicString(Program.kApplicationId, "CharacterName." + character, character);
 		}
 
 		#region Equality Members
