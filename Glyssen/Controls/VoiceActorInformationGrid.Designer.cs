@@ -31,8 +31,9 @@
 			this.components = new System.ComponentModel.Container();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_deleteRowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -125,9 +126,9 @@
 			this.m_dataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			this.m_dataGrid.RowHeadersVisible = false;
 			this.m_dataGrid.RowHeadersWidth = 22;
-			dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
-			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-			this.m_dataGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
+			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+			this.m_dataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
 			this.m_dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.m_dataGrid.SelectedCellBackColor = System.Drawing.Color.Empty;
 			this.m_dataGrid.SelectedCellForeColor = System.Drawing.Color.Empty;
@@ -155,6 +156,8 @@
 			// ActorName
 			// 
 			this.ActorName.DataPropertyName = "Name";
+			dataGridViewCellStyle3.NullValue = "[new actor]";
+			this.ActorName.DefaultCellStyle = dataGridViewCellStyle3;
 			this.ActorName.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Name!Name";
 			this.ActorName.Name = "ActorName";
 			this.ActorName.ToolTipText = "Enter Voice Actor first and last name";
@@ -174,8 +177,8 @@
 			// ActorAge
 			// 
 			this.ActorAge.DataPropertyName = "Age";
-			dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-			this.ActorAge.DefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+			this.ActorAge.DefaultCellStyle = dataGridViewCellStyle4;
 			this.ActorAge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.ActorAge.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Age!Age";
 			this.ActorAge.Items.AddRange(new object[] {
