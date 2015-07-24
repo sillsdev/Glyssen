@@ -146,7 +146,7 @@ Caesar Augustus	1	Male
 Caiaphas, the high priest	1	Male		
 Cain	1	Male		
 Caleb	1	Male		
-Caleb (old)	1	Male	old (85)	
+Caleb (old)	1	Male	Elder	
 Canaanite (Syrophoenician) mother of possessed girl	1	Female		
 Canaanites	-1			
 captain of the temple guard	1	Male		
@@ -168,8 +168,8 @@ chief cupbearer of Egypt	1	Male
 chief official	1	Male		
 chief priests	-1	Male		
 chiefs of 10 tribes	10	Male		not Reuben, Gad, half tribe of Manasseh
-children	-1		child	
-children of Zion (Jerusalem)	-1		child	
+children	-1		Child	
+children of Zion (Jerusalem)	-1		Child	
 citizens of Shechem	-1			
 city clerk of Ephesus	1	Male		
 Cleopas	1	Male		
@@ -180,8 +180,8 @@ commander of the LORD's army	1	Male		Default character should be Jesus
 company of the prophets	-1			
 company of the prophets (Bethel)	-1			
 company of the prophets (Jericho)	-1			
-company of the prophets, one of (the LORD says) (young man)	1	Male	young man	
-company of the prophets, one of (young man)	1	Male	young man	
+company of the prophets, one of (the LORD says) (young man)	1	Male		young man
+company of the prophets, one of (young man)	1	Male		young man
 conquerors of beast, image & his name	-1			
 conquerors of Lo Debar	-1	Male		
 Cornelius	1	Male		
@@ -262,7 +262,7 @@ elders, one of the	1	Male
 Eleazar the priest, son of Aaron	1	Male		
 Eleven	11	Male		This should be spoken by one of the 11 disciples (excluding Judas Iscariot). The wording suggests that it was not Simon Peter.
 Eli	1	Male		
-Eli (very old)	1	Male	old	
+Eli (very old)	1	Male	Elder	
 Eliab, David's brother	1	Male		
 Eliakim	1	Male		
 Eliezer, prophet of the Lord	1	Male		
@@ -413,7 +413,7 @@ invaders	-1	Male
 invalid for 38 years	1	Male		
 Irijah, captain of the guard of Judah	1	Male		
 Isaac	1	Male		
-Isaac (old)	1	Male	old	
+Isaac (old)	1	Male	Elder	
 Isaiah	1	Male		
 Ish-Bosheth, son of Saul	1	Male		
 Ishmael, son of Nethaniah (murderer)	1	Male		
@@ -463,7 +463,7 @@ Jehu, son of Nimshi	1	Male
 Jehucal	1	Male		son of Shelemiah
 Jehudi	1	Male		
 Jephthah	1	Male		
-Jephthah's daughter	1	Female	youth	
+Jephthah's daughter	1	Female		youth
 Jephthah's half-brothers	-1	Male		
 Jeremiah	1	Male		
 Jeremiah's enemies	-1	Male		
@@ -471,7 +471,7 @@ Jeroboam	1	Male
 Jeshua	1	Male		
 Jesse	1	Male		
 Jesus	1	Male		
-Jesus (child)	1	Male	youth (12)	
+Jesus (child)	1	Male	Child	youth (12)
 Jesus' brothers	4	Male		
 Jesus' family	-1			
 Jethro (Reuel), Moses' father-in-law	1	Male		
@@ -512,7 +512,7 @@ Joseph of Arimathea	1	Male
 Joseph, people of	1			
 Joseph's brothers	11	Male		Different from Jacob's sons because it cannot be Joseph
 Joshua	1	Male		
-Joshua (old)	1	Male	old	
+Joshua (old)	1	Male	Elder	
 Josiah, king of Judah	1	Male		
 Jotham, son of Gideon (Jerubbaal)	1	Male		
 Judah	1	Male		
@@ -550,7 +550,7 @@ lepers, ten	10	Male
 letter from apostles and elders	1			
 Levi	1	Male		
 Levite husband of concubine	1	Male		
-Levite, young, from Bethlehem	1	Male	young man	
+Levite, young, from Bethlehem	1	Male		young man
 Levites	-1	Male		
 Levites, family heads of	-1	Male		
 living creature, first	1			
@@ -575,7 +575,7 @@ man all alone	1	Male
 man answered David	1	Male		
 man delivered from Legion of demons	1	Male		Account in Matthew 8 indicates that there were two men, but since other accounts only have 1, best to keep as single voice.
 man escaped from Jerusalem	1	Male		
-man from Saul's camp (young)	1	Male	young man	
+man from Saul's camp (young)	1	Male		young man
 man in linen above river	1	Male		
 man in linen with writing kit (in vision)	1	Male		
 man like bronze with measuring rod (vision of God)	1	Male		
@@ -669,7 +669,7 @@ Midianite soldier who interprets dream	1	Male
 midwife of Rachel	1	Female		
 midwife of Tamar, daughter-in-law of Judah	1	Female		
 Miriam	1	Female		
-Miriam (young)	1	Female	child	
+Miriam (young)	1	Female	Child	
 Moabite officials	-1	Male		
 Moabite officials, more distinguished	-1	Male		
 Moabites	-1			
@@ -731,7 +731,7 @@ officials of Succoth	-1	Male
 officials of Trans-Euphrates	-1	Male		
 officials, Ephesus (friends of Paul)	-1	Male		
 officials, royal, to Xerxes, king	-1	Male		
-old man of Gibeah	1	Male	old	
+old man of Gibeah	1	Male	Elder	
 older daughter of Lot	1	Female		
 On	1	Male		son of Peleth (Reubenite)
 one at table of Pharisee (expert in religious law)	1	Male		
@@ -834,7 +834,7 @@ priests	-1	Male
 proclaimers of God's word	-1			
 proclamation	1			
 prophet	1			
-prophet in Bethel	1	Male	old	
+prophet in Bethel	1	Male	Elder	
 prophet of the LORD	1	Male		
 prophet who confronts Ahab	1	Male		
 prophets	-1			
@@ -867,8 +867,8 @@ report to King of Assyria	1
 rest of heads of families	-1	Male		
 Reuben	1	Male		
 Reubenites	-1	Male		
-Rhoda	1	Female	possibly young girl/teen	
-rich young ruler	1	Male	young man	
+Rhoda	1	Female		possibly young girl/teen
+rich young ruler	1	Male		young man
 rule given by Paul	1			
 rulers of people in Jerusalem	-1			
 rules of the world	1			
@@ -882,13 +882,13 @@ Samson's 30 companions	30	Male
 Samson's father-in-law	1	Male		
 Samson's Philistine wife	1	Female		
 Samuel	1	Male		
-Samuel (boy)	1	Male	child	
-Samuel (old)	1	Male	old	
+Samuel (boy)	1	Male	Child	
+Samuel (old)	1	Male	Elder	
 Sanballat the Horonite	1	Male		
 Sanhedrin	-1	Male		
 Sapphira (wife of Ananias of Jerusalem)	1	Female		
 Sarah (Sarai)	1	Female		
-Sarah (Sarai) (old)	1	Female	old	
+Sarah (Sarai) (old)	1	Female	Elder	
 Satan (Devil)	1	Male		
 satraps	-1	Male		
 Saul	1	Male		
@@ -929,7 +929,7 @@ servant girl at high priest's courtyard	1	Female
 servant girl, another	1	Female		
 servant of concubine's husband	1			
 servant of Elijah	1	Male		
-servant of Naaman's wife (young girl)	1	Female	child/youth	
+servant of Naaman's wife (young girl)	1	Female	Child
 servant of Nabal	1			
 servant of priest	1			
 servant of Saul	1			
@@ -946,7 +946,7 @@ Sharezer	1	Male
 Sheba, son of Bicri	1	Male		
 Shebna	1	Male		
 Shecaniah, son of Jehiel	1	Male		
-Shechem, son of Hamor	1	Male	young man	
+Shechem, son of Hamor	1	Male		young man
 Shemaiah	1	Male		
 Shemeber, king of Zeboiim	1	Male		
 Shephatiah	1	Male		son of Mattan
@@ -962,7 +962,7 @@ Shua (Judah's wife)	1	Female
 sign on the cross	1	Neuter		
 Silas	1	Male		
 Simeon	1	Male		
-Simeon (devout man in Jerusalem)	1	Male	old	
+Simeon (devout man in Jerusalem)	1	Male	Elder	
 Simon (sorcerer)	1	Male		
 singers	-1			
 singers from the ends of the earth	-1			
@@ -985,8 +985,8 @@ someone hiding	1
 someone in crowd	1			
 someone in Jerusalem	1			
 someone in Saul's army	1	Male		
-son (child) in Israel (hypothetical)	1	Male	child/youth	
-son of Paul's sister (young man)	1	Male	young man	
+son (child) in Israel (hypothetical)	1	Male	Child	
+son of Paul's sister (young man)	1	Male		young man
 son of Shelomith (whose father was an Egyptian)	1	Male		
 son of Shunammite	1	Male		
 son of widow	1	Male		
@@ -1081,9 +1081,9 @@ you (hypothetical)	-1
 you (people of Zion, restored)	-1			
 you (rebellious people)	-1			
 you ought to say	1			
-young man	1	Male	youth	
-young men (advisors of Rehoboam)	-1	Male	young man	
-youths	-1		youth	
+young man	1	Male		youth
+young men (advisors of Rehoboam)	-1	Male		young man
+youths	-1			youth
 Zaccheaus	1	Male		
 Zalmunna	1	Male		
 Zebah	1	Male		
