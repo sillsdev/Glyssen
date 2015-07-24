@@ -49,9 +49,10 @@ namespace Glyssen.Dialogs
 			this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.m_voiceActorGrid = new Glyssen.Controls.VoiceActorInformationGrid();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
+			this.m_linkClose = new System.Windows.Forms.LinkLabel();
+			this.m_voiceActorGrid = new Glyssen.Controls.VoiceActorInformationGrid();
 			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -281,21 +282,6 @@ namespace Glyssen.Dialogs
 			this.Column5.Name = "Column5";
 			this.Column5.ReadOnly = true;
 			// 
-			// m_voiceActorGrid
-			// 
-			this.m_voiceActorGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
-			this.m_voiceActorGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
-			this.m_voiceActorGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_voiceActorGrid, null);
-			this.l10NSharpExtender1.SetLocalizationComment(this.m_voiceActorGrid, null);
-			this.l10NSharpExtender1.SetLocalizationPriority(this.m_voiceActorGrid, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_voiceActorGrid, "DialogBoxes.VoiceActorAssignmentDlg.VoiceActorInformationGrid");
-			this.m_voiceActorGrid.Location = new System.Drawing.Point(0, 20);
-			this.m_voiceActorGrid.Margin = new System.Windows.Forms.Padding(0);
-			this.m_voiceActorGrid.Name = "m_voiceActorGrid";
-			this.m_voiceActorGrid.Size = new System.Drawing.Size(311, 421);
-			this.m_voiceActorGrid.TabIndex = 1;
-			// 
 			// label2
 			// 
 			this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -324,10 +310,41 @@ namespace Glyssen.Dialogs
 			this.label3.TabIndex = 2;
 			this.label3.Text = "Voice Actors";
 			// 
+			// m_linkClose
+			// 
+			this.m_linkClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_linkClose.AutoSize = true;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_linkClose, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_linkClose, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_linkClose, "DialogBoxes.VoiceActorAssignmentDlg.Close");
+			this.m_linkClose.Location = new System.Drawing.Point(705, 477);
+			this.m_linkClose.Name = "m_linkClose";
+			this.m_linkClose.Size = new System.Drawing.Size(33, 13);
+			this.m_linkClose.TabIndex = 5;
+			this.m_linkClose.TabStop = true;
+			this.m_linkClose.Text = "Close";
+			this.m_linkClose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkClose_LinkClicked);
+			// 
+			// m_voiceActorGrid
+			// 
+			this.m_voiceActorGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_voiceActorGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_voiceActorGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_voiceActorGrid, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_voiceActorGrid, null);
+			this.l10NSharpExtender1.SetLocalizationPriority(this.m_voiceActorGrid, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_voiceActorGrid, "DialogBoxes.VoiceActorAssignmentDlg.VoiceActorInformationGrid");
+			this.m_voiceActorGrid.Location = new System.Drawing.Point(0, 20);
+			this.m_voiceActorGrid.Margin = new System.Windows.Forms.Padding(0);
+			this.m_voiceActorGrid.Name = "m_voiceActorGrid";
+			this.m_voiceActorGrid.Size = new System.Drawing.Size(311, 421);
+			this.m_voiceActorGrid.TabIndex = 1;
+			// 
 			// VoiceActorAssignmentDlg
 			// 
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(750, 507);
+			this.Controls.Add(this.m_linkClose);
 			this.Controls.Add(this.m_btnAssignActor);
 			this.Controls.Add(this.m_btnUpdateGroup);
 			this.Controls.Add(this.splitContainer1);
@@ -377,6 +394,7 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.LinkLabel m_linkClose;
 
 	}
 }

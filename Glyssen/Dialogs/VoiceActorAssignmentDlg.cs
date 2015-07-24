@@ -307,5 +307,11 @@ namespace Glyssen.Dialogs
 			Refresh();
 			m_btnAssignActor.Focus();
 		}
+
+		private void m_linkClose_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			SaveAssignments();
+			Close();
+		}
 	}
 }
