@@ -123,8 +123,19 @@ namespace Glyssen.Controls
 				}
 				if (selectedVoiceActorsWithAssignments.Any())
 				{
-					string assignedMsg = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.Message", "One or more of the selected actors is assigned to a character group. Deleting the actor will remove the assignment as well. Are you sure you want to delete the selected actors?");
-					string assignedTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.Title", "Voice Actor(s) Assigned");
+					string assignedMsg;
+					string assignedTitle;
+					if (selectedVoiceActorsWithAssignments.Count > 1)
+					{
+						assignedMsg = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.MessagePlural", "One or more of the selected actors is assigned to a character group. Deleting the actor will remove the assignment as well. Are you sure you want to delete the selected actors?");
+						assignedTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.TitlePlural", "Voice Actors Assigned");
+					}
+					else
+					{
+						assignedMsg = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.MessageSingular", "The selected actor is assigned to a character group. Deleting the actor will remove the assignment as well. Are you sure you want to delete the selected actor?");
+						assignedTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.TitleSingular", "Voice Actor Assigned");
+					}
+
 					if (MessageBox.Show(assignedMsg, assignedTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
 					{
 						foreach (var voiceActor in selectedVoiceActorsWithAssignments)
@@ -139,8 +150,17 @@ namespace Glyssen.Controls
 				}
 				else
 				{
-					string dlgMessage = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.Message", "Are you sure you want to delete the selected actors?");
+					string dlgMessage;
 					string dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.Title", "Confirm");
+					
+					if (SelectedRows.Count > 1)
+					{
+						dlgMessage = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.MessagePlural", "Are you sure you want to delete the selected actors?");
+					}
+					else
+					{
+						dlgMessage = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.MessageSingular", "Are you sure you want to delete the selected actor?");
+					}
 					deleteConfirmed = MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
 				}
 			}
@@ -169,7 +189,7 @@ namespace Glyssen.Controls
 
 		private void contextMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
 		{
-			if (e.ClickedItem == toolStripMenuItem1)
+			if (e.ClickedItem == m_contextMenu_itemDeleteActors)
 			{
 				RemoveSelectedRows(true);
 			}
@@ -228,6 +248,18 @@ namespace Glyssen.Controls
 			EventHandler handler = SelectionChanged;
 			if (handler != null)
 				handler(sender, e);
+		}
+
+		private void m_contextMenu_Opening(object sender, CancelEventArgs e)
+		{
+			if (SelectedRows.Count > 1)
+			{
+				m_contextMenu_itemDeleteActors.Text = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.ContextMenu.DeleteActors", "Delete Actors");
+			}
+			else
+			{
+				m_contextMenu_itemDeleteActors.Text = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.ContextMenu.DeleteActor", "Delete Actor");
+			}
 		}
 	}
 }

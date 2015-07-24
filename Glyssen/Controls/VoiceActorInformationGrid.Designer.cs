@@ -34,8 +34,8 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.m_contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.m_contextMenu_itemDeleteActors = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_deleteRowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_dataGrid = new Glyssen.Controls.DataGridViewOverrideEnter();
@@ -43,32 +43,33 @@
 			this.ActorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ActorGender = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			this.ActorAge = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.contextMenu.SuspendLayout();
+			this.m_contextMenu.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_dataGrid)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// contextMenu
+			// m_contextMenu
 			// 
-			this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-			this.l10NSharpExtender1.SetLocalizableToolTip(this.contextMenu, null);
-			this.l10NSharpExtender1.SetLocalizationComment(this.contextMenu, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.contextMenu, "DialogBoxes.VoiceActorInformation.DataGridContextMenu");
-			this.contextMenu.Name = "contextMenuStrip1";
-			this.contextMenu.ShowImageMargin = false;
-			this.contextMenu.Size = new System.Drawing.Size(128, 48);
-			this.contextMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenu_ItemClicked);
+			this.m_contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.m_contextMenu_itemDeleteActors});
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_contextMenu, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_contextMenu, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_contextMenu, "DialogBoxes.VoiceActorInformation.DataGridContextMenu");
+			this.m_contextMenu.Name = "contextMenuStrip1";
+			this.m_contextMenu.ShowImageMargin = false;
+			this.m_contextMenu.Size = new System.Drawing.Size(128, 48);
+			this.m_contextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.m_contextMenu_Opening);
+			this.m_contextMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenu_ItemClicked);
 			// 
-			// toolStripMenuItem1
+			// m_contextMenu_itemDeleteActors
 			// 
-			this.toolStripMenuItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.l10NSharpExtender1.SetLocalizableToolTip(this.toolStripMenuItem1, null);
-			this.l10NSharpExtender1.SetLocalizationComment(this.toolStripMenuItem1, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.toolStripMenuItem1, "DialogBoxes.VoiceActorInformation.DeleteRowsMenuItem");
-			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(127, 22);
-			this.toolStripMenuItem1.Text = "Delete Actor(s)";
+			this.m_contextMenu_itemDeleteActors.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_contextMenu_itemDeleteActors, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_contextMenu_itemDeleteActors, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_contextMenu_itemDeleteActors, "DialogBoxes.VoiceActorInformation.ContextMenu.DeleteActors");
+			this.m_contextMenu_itemDeleteActors.Name = "m_contextMenu_itemDeleteActors";
+			this.m_contextMenu_itemDeleteActors.Size = new System.Drawing.Size(127, 22);
+			this.m_contextMenu_itemDeleteActors.Text = "Delete Actors";
 			// 
 			// m_deleteRowsToolStripMenuItem
 			// 
@@ -110,7 +111,7 @@
             this.ActorName,
             this.ActorGender,
             this.ActorAge});
-			this.m_dataGrid.ContextMenuStrip = this.contextMenu;
+			this.m_dataGrid.ContextMenuStrip = this.m_contextMenu;
 			this.m_dataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_dataGrid.DrawTextBoxEditControlBorder = false;
 			this.m_dataGrid.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -200,7 +201,7 @@
 			this.Margin = new System.Windows.Forms.Padding(0);
 			this.Name = "VoiceActorInformationGrid";
 			this.Size = new System.Drawing.Size(384, 244);
-			this.contextMenu.ResumeLayout(false);
+			this.m_contextMenu.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_dataGrid)).EndInit();
 			this.ResumeLayout(false);
@@ -210,8 +211,8 @@
 		#endregion
 
 		private Glyssen.Controls.DataGridViewOverrideEnter m_dataGrid;
-		private System.Windows.Forms.ContextMenuStrip contextMenu;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+		private System.Windows.Forms.ContextMenuStrip m_contextMenu;
+		private System.Windows.Forms.ToolStripMenuItem m_contextMenu_itemDeleteActors;
 		private System.Windows.Forms.ToolStripMenuItem m_deleteRowsToolStripMenuItem;
 		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ActorId;
