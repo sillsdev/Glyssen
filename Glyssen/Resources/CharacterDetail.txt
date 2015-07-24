@@ -929,7 +929,7 @@ servant girl at high priest's courtyard	1	Female
 servant girl, another	1	Female		
 servant of concubine's husband	1			
 servant of Elijah	1	Male		
-servant of Naaman's wife (young girl)	1	Female	Child
+servant of Naaman's wife (young girl)	1	Female	Child	
 servant of Nabal	1			
 servant of priest	1			
 servant of Saul	1			
