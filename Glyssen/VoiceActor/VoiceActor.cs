@@ -5,6 +5,11 @@ namespace Glyssen.VoiceActor
 {
 	public class VoiceActor : IEquatable<VoiceActor>
 	{
+		public VoiceActor()
+		{
+			Name = "";
+		}
+
 		[XmlText]
 		public string Name { get; set; }
 
