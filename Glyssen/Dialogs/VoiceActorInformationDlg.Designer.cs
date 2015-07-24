@@ -47,7 +47,7 @@
 			this.l10NSharpExtender1.SetLocalizingId(this.label1, "DialogBoxes.VoiceActorInformation.EnterVoiceActors");
 			this.label1.Location = new System.Drawing.Point(12, 9);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(105, 15);
+			this.label1.Size = new System.Drawing.Size(95, 13);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Enter Voice Actors";
 			// 
@@ -91,10 +91,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_dataGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_dataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_dataGrid, "DialogBoxes.VoiceActorInformation.voiceActorInformationGrid21");
 			this.m_dataGrid.Location = new System.Drawing.Point(12, 29);
+			this.m_dataGrid.Margin = new System.Windows.Forms.Padding(0);
 			this.m_dataGrid.Name = "m_dataGrid";
 			this.m_dataGrid.Size = new System.Drawing.Size(476, 264);
 			this.m_dataGrid.TabIndex = 3;
@@ -113,8 +115,11 @@
 			this.l10NSharpExtender1.SetLocalizableToolTip(this, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this, null);
 			this.l10NSharpExtender1.SetLocalizingId(this, "DialogBoxes.VoiceActorInformation.WindowTitle");
+			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(300, 200);
 			this.Name = "VoiceActorInformationDlg";
+			this.ShowInTaskbar = false;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Voice Actor Information";
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).EndInit();
 			this.ResumeLayout(false);
