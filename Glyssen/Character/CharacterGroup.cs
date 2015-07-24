@@ -76,7 +76,7 @@ namespace Glyssen.Character
 		[XmlIgnore]
 		public string RequiredAttributesString
 		{
-			get { return string.Join("; ", m_requiredAttributes.Select(t => t.Name + " [" + t.Count + "]")); }
+			get { return m_requiredAttributes.Count == 0 ? null : string.Join("; ", m_requiredAttributes.Select(t => t.Name + " [" + t.Count + "]")); }
 		}
 
 		[XmlElement]
