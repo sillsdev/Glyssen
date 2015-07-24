@@ -109,6 +109,7 @@ namespace Glyssen
 			m_btnSettings.Enabled = false;
 			m_btnAssign.Enabled = false;
 			m_btnExportToTabSeparated.Enabled = false;
+			m_btnAssignVoiceActors.Enabled = false;
 			m_imgCheckOpen.Visible = false;
 			m_imgCheckSettings.Visible = false;
 			m_imgCheckBooks.Visible = false;
