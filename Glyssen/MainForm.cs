@@ -22,12 +22,11 @@ namespace Glyssen
 	{
 		private Project m_project;
 		private string m_percentAssignedFmt;
+		private string m_exportButtonFmt;
 
 		public MainForm()
 		{
 			InitializeComponent();
-
-			InitializeLocalizableFormats();
 
 			SetupUILanguageMenu();
 			m_toolStrip.Renderer = new NoBorderToolStripRenderer();
@@ -76,13 +75,10 @@ namespace Glyssen
 				});
 		}
 
-		private void InitializeLocalizableFormats()
-		{
-		}
-
 		protected void HandleStringsLocalized()
 		{
 			m_percentAssignedFmt = m_lblPercentAssigned.Text;
+			m_exportButtonFmt = m_btnExportToTabSeparated.Text;
 			UpdateLocalizedText();
 			if (m_project != null)
 				m_project.ProjectCharacterVerseData.HandleStringsLocalized();
@@ -279,7 +275,9 @@ namespace Glyssen
 				m_lblSettingsInfo.Text = String.Empty;
 
 			m_lblBookSelectionInfo.Text = m_project != null && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed ? m_project.BookSelectionSummary : String.Empty;
-			
+
+			m_btnExportToTabSeparated.Text = string.Format(m_exportButtonFmt, m_btnAssignVoiceActors.Visible ? "6" : "5");
+
 			UpdateDisplayOfPercentAssigned();
 		}
 
