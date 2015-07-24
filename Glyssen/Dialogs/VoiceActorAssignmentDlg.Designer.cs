@@ -45,18 +45,18 @@
 			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_btnUpdateGroup = new System.Windows.Forms.Button();
-			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-			this.m_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.m_voiceActorGrid = new Glyssen.Controls.VoiceActorInformationGrid();
+			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.m_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
-			this.m_tableLayoutPanel.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
+			this.m_tableLayoutPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// m_btnAssignActor
@@ -80,7 +80,7 @@
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnExport, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnExport, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnExport, "DialogBoxes.VoiceActorAssignmentDlg.Export");
-			this.m_btnExport.Location = new System.Drawing.Point(227, 438);
+			this.m_btnExport.Location = new System.Drawing.Point(215, 438);
 			this.m_btnExport.Name = "m_btnExport";
 			this.m_btnExport.Size = new System.Drawing.Size(75, 23);
 			this.m_btnExport.TabIndex = 5;
@@ -237,6 +237,23 @@
 			this.m_btnUpdateGroup.Text = "Update/Edit the Character Group(s)";
 			this.m_btnUpdateGroup.UseVisualStyleBackColor = true;
 			// 
+			// m_voiceActorGrid
+			// 
+			this.m_voiceActorGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_voiceActorGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_voiceActorGrid.BackgroundColor = System.Drawing.SystemColors.Window;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_voiceActorGrid, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_voiceActorGrid, null);
+			this.l10NSharpExtender1.SetLocalizationPriority(this.m_voiceActorGrid, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_voiceActorGrid, "DialogBoxes.VoiceActorAssignmentDlg.VoiceActorInformationGrid");
+			this.m_voiceActorGrid.Location = new System.Drawing.Point(0, 0);
+			this.m_voiceActorGrid.Margin = new System.Windows.Forms.Padding(0);
+			this.m_voiceActorGrid.Name = "m_voiceActorGrid";
+			this.m_voiceActorGrid.Size = new System.Drawing.Size(305, 403);
+			this.m_voiceActorGrid.TabIndex = 2;
+			// 
 			// splitContainer1
 			// 
 			this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -261,6 +278,21 @@
 			this.splitContainer1.TabIndex = 0;
 			this.splitContainer1.TabStop = false;
 			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.ColumnCount = 1;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Controls.Add(this.m_characterGroupGrid, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.m_btnUpdateGroup, 0, 1);
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 2;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(408, 464);
+			this.tableLayoutPanel1.TabIndex = 3;
+			// 
 			// m_tableLayoutPanel
 			// 
 			this.m_tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -279,38 +311,6 @@
 			this.m_tableLayoutPanel.Size = new System.Drawing.Size(305, 432);
 			this.m_tableLayoutPanel.TabIndex = 2;
 			// 
-			// tableLayoutPanel1
-			// 
-			this.tableLayoutPanel1.ColumnCount = 1;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Controls.Add(this.m_characterGroupGrid, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.m_btnUpdateGroup, 0, 1);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 2;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(408, 464);
-			this.tableLayoutPanel1.TabIndex = 3;
-			// 
-			// m_voiceActorGrid
-			// 
-			this.m_voiceActorGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_voiceActorGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
-			this.m_voiceActorGrid.BackgroundColor = System.Drawing.SystemColors.Window;
-			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_voiceActorGrid, null);
-			this.l10NSharpExtender1.SetLocalizationComment(this.m_voiceActorGrid, null);
-			this.l10NSharpExtender1.SetLocalizationPriority(this.m_voiceActorGrid, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_voiceActorGrid, "DialogBoxes.VoiceActorAssignmentDlg.VoiceActorInformationGrid");
-			this.m_voiceActorGrid.Location = new System.Drawing.Point(3, 3);
-			this.m_voiceActorGrid.Margin = new System.Windows.Forms.Padding(0);
-			this.m_voiceActorGrid.Name = "m_voiceActorGrid";
-			this.m_voiceActorGrid.Size = new System.Drawing.Size(299, 400);
-			this.m_voiceActorGrid.TabIndex = 2;
-			// 
 			// VoiceActorAssignmentDlg
 			// 
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
@@ -322,8 +322,11 @@
 			this.l10NSharpExtender1.SetLocalizableToolTip(this, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this, null);
 			this.l10NSharpExtender1.SetLocalizingId(this, "DialogBoxes.VoiceActorAssignmentDlg.WindowTitle");
+			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(640, 480);
 			this.Name = "VoiceActorAssignmentDlg";
+			this.ShowInTaskbar = false;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Voice Actor Assignment";
 			this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.VoiceActorAssignmentDlg_KeyUp);
 			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).EndInit();
@@ -333,10 +336,10 @@
 			this.splitContainer1.Panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
-			this.m_tableLayoutPanel.ResumeLayout(false);
-			this.m_tableLayoutPanel.PerformLayout();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
+			this.m_tableLayoutPanel.ResumeLayout(false);
+			this.m_tableLayoutPanel.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

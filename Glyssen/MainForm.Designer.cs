@@ -117,11 +117,11 @@
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnExportToTabSeparated, "Export to a tab-separated values file");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnExportToTabSeparated, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnExportToTabSeparated, "MainForm.Export");
-			this.m_btnExportToTabSeparated.Location = new System.Drawing.Point(29, 194);
+			this.m_btnExportToTabSeparated.Location = new System.Drawing.Point(29, 204);
 			this.m_btnExportToTabSeparated.Name = "m_btnExportToTabSeparated";
 			this.m_btnExportToTabSeparated.Size = new System.Drawing.Size(134, 23);
-			this.m_btnExportToTabSeparated.TabIndex = 4;
-			this.m_btnExportToTabSeparated.Text = "(5) Export...";
+			this.m_btnExportToTabSeparated.TabIndex = 5;
+			this.m_btnExportToTabSeparated.Text = "({0}) Export...";
 			this.m_btnExportToTabSeparated.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.m_btnExportToTabSeparated.UseVisualStyleBackColor = false;
 			this.m_btnExportToTabSeparated.Click += new System.EventHandler(this.HandleExportToTabSeparated_Click);
@@ -217,7 +217,7 @@
 			this.m_toolStrip.Name = "m_toolStrip";
 			this.m_toolStrip.Padding = new System.Windows.Forms.Padding(15, 10, 20, 0);
 			this.m_toolStrip.Size = new System.Drawing.Size(518, 32);
-			this.m_toolStrip.TabIndex = 6;
+			this.m_toolStrip.TabIndex = 7;
 			this.m_toolStrip.Text = "toolStrip1";
 			// 
 			// m_btnAbout
@@ -262,10 +262,10 @@
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lnkExit, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lnkExit, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lnkExit, "MainForm.Exit");
-			this.m_lnkExit.Location = new System.Drawing.Point(32, 248);
+			this.m_lnkExit.Location = new System.Drawing.Point(471, 209);
 			this.m_lnkExit.Name = "m_lnkExit";
 			this.m_lnkExit.Size = new System.Drawing.Size(24, 13);
-			this.m_lnkExit.TabIndex = 5;
+			this.m_lnkExit.TabIndex = 6;
 			this.m_lnkExit.TabStop = true;
 			this.m_lnkExit.Text = "Exit";
 			this.m_lnkExit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_lnkExit_LinkClicked);
@@ -349,11 +349,11 @@
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnAssignVoiceActors, "Enter Voice Actor information and assign to Character Group.");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnAssignVoiceActors, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnAssignVoiceActors, "MainForm.AssignVoiceActors");
-			this.m_btnAssignVoiceActors.Location = new System.Drawing.Point(29, 223);
+			this.m_btnAssignVoiceActors.Location = new System.Drawing.Point(29, 175);
 			this.m_btnAssignVoiceActors.Name = "m_btnAssignVoiceActors";
 			this.m_btnAssignVoiceActors.Size = new System.Drawing.Size(134, 23);
-			this.m_btnAssignVoiceActors.TabIndex = 5;
-			this.m_btnAssignVoiceActors.Text = "(6) Assign Voice Actors";
+			this.m_btnAssignVoiceActors.TabIndex = 4;
+			this.m_btnAssignVoiceActors.Text = "(5) Assign Voice Actors";
 			this.m_btnAssignVoiceActors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.m_btnAssignVoiceActors.UseVisualStyleBackColor = false;
 			this.m_btnAssignVoiceActors.Click += new System.EventHandler(this.m_btnAssignVoiceActors_Click);
@@ -363,7 +363,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
-			this.ClientSize = new System.Drawing.Size(518, 293);
+			this.ClientSize = new System.Drawing.Size(518, 256);
 			this.Controls.Add(this.m_btnAssignVoiceActors);
 			this.Controls.Add(this.m_imgCheckAssign);
 			this.Controls.Add(this.m_imgCheckBooks);
@@ -386,7 +386,7 @@
 			this.m_L10NSharpExtender.SetLocalizationComment(this, null);
 			this.m_L10NSharpExtender.SetLocalizationPriority(this, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_L10NSharpExtender.SetLocalizingId(this, "MainForm.WindowTitle");
-			this.MinimumSize = new System.Drawing.Size(534, 331);
+			this.MinimumSize = new System.Drawing.Size(534, 294);
 			this.Name = "MainForm";
 			this.Text = "Glyssen";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);

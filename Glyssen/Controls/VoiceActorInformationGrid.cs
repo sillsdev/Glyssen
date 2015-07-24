@@ -78,7 +78,9 @@ namespace Glyssen.Controls
 			if (cell.OwningColumn == m_dataGrid.Columns["ActorGender"] || cell.OwningColumn == m_dataGrid.Columns["ActorAge"])
 			{
 				m_currentComboBox = e.Control as ComboBox;
-				m_currentComboBox.SelectedIndexChanged += box_SelectedIndexChanged;
+
+				m_currentComboBox.KeyPress -= box_KeyPress;
+				m_currentComboBox.KeyPress += box_KeyPress;
 			}
 			else
 			{
@@ -86,14 +88,12 @@ namespace Glyssen.Controls
 			}
 		}
 
-		private void box_SelectedIndexChanged(object sender, EventArgs e)
+		private void box_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			ComboBox box = sender as ComboBox;
-
-			//Cell value was not saved without this
-			m_dataGrid.CurrentCell.Value = box.SelectedItem;
-
-			m_dataGrid.MoveToNextField();
+			if (char.IsLetter(e.KeyChar))
+			{
+				m_dataGrid.MoveToNextField();
+			}
 		}
 
 		private void HandleAddingNew(object sender, AddingNewEventArgs e)
@@ -213,16 +213,13 @@ namespace Glyssen.Controls
 
 		private void m_dataGrid_CurrentCellChanged(object sender, System.EventArgs e)
 		{
+			//Open combobox (or no effect on regular text box input)
+			SendKeys.Send("{F4}");
 			SaveVoiceActorInformation();
 		}
 
 		private void m_dataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
 		{
-			if (m_currentComboBox != null)
-			{
-				m_currentComboBox.SelectedIndexChanged -= box_SelectedIndexChanged;
-			}
-
 			HandleCellUpdated(e);
 		}
 

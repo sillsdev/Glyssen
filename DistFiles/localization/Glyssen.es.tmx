@@ -2039,10 +2039,10 @@
     </tu>
     <tu tuid="MainForm.Export">
       <tuv xml:lang="en">
-        <seg>(5) Export...</seg>
+        <seg>({0}) Export...</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>(5) Exportar...</seg>
+        <seg>({0}) Exportar...</seg>
       </tuv>
     </tu>
     <tu tuid="MainForm.Export_ToolTip_">

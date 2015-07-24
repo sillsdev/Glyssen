@@ -82,6 +82,8 @@ namespace Glyssen.Dialogs
 			this.m_pnlCharacterAndDeliverySelection = new System.Windows.Forms.TableLayoutPanel();
 			this.m_splitContainer = new System.Windows.Forms.SplitContainer();
 			this.tableLayoutPanelNavigationControls = new System.Windows.Forms.TableLayoutPanel();
+			this.m_llClose = new System.Windows.Forms.LinkLabel();
+			this.m_lblSaved = new System.Windows.Forms.Label();
 			this.m_blocksViewer = new Glyssen.Controls.ScriptBlocksViewer();
 			this.m_progressBar = new Glyssen.Controls.BlockProgressBar();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
@@ -148,7 +150,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAssign, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAssign, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAssign, "DialogBoxes.AssignCharacterDlg.AssignCharacter");
-			this.m_btnAssign.Location = new System.Drawing.Point(212, 371);
+			this.m_btnAssign.Location = new System.Drawing.Point(212, 367);
 			this.m_btnAssign.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
 			this.m_btnAssign.Name = "m_btnAssign";
 			this.m_btnAssign.Size = new System.Drawing.Size(95, 23);
@@ -194,7 +196,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreChar, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llMoreChar, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_llMoreChar, "DialogBoxes.AssignCharacterDlg.MoreCharacters");
-			this.m_llMoreChar.Location = new System.Drawing.Point(21, 196);
+			this.m_llMoreChar.Location = new System.Drawing.Point(21, 192);
 			this.m_llMoreChar.Name = "m_llMoreChar";
 			this.m_llMoreChar.Size = new System.Drawing.Size(85, 13);
 			this.m_llMoreChar.TabIndex = 13;
@@ -239,7 +241,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblDelivery, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblDelivery, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblDelivery, "DialogBoxes.AssignCharacterDlg.Delivery");
-			this.m_lblDelivery.Location = new System.Drawing.Point(21, 209);
+			this.m_lblDelivery.Location = new System.Drawing.Point(21, 205);
 			this.m_lblDelivery.Name = "m_lblDelivery";
 			this.m_lblDelivery.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
 			this.m_lblDelivery.Size = new System.Drawing.Size(45, 23);
@@ -256,7 +258,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreDel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llMoreDel, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_llMoreDel, "DialogBoxes.AssignCharacterDlg.MoreDeliveries");
-			this.m_llMoreDel.Location = new System.Drawing.Point(21, 355);
+			this.m_llMoreDel.Location = new System.Drawing.Point(21, 351);
 			this.m_llMoreDel.Name = "m_llMoreDel";
 			this.m_llMoreDel.Size = new System.Drawing.Size(80, 13);
 			this.m_llMoreDel.TabIndex = 18;
@@ -345,7 +347,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAddDelivery, "Add New Delivery");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAddDelivery, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAddDelivery, "DialogBoxes.AssignCharacterDlg.AddDelivery");
-			this.m_btnAddDelivery.Location = new System.Drawing.Point(287, 235);
+			this.m_btnAddDelivery.Location = new System.Drawing.Point(287, 231);
 			this.m_btnAddDelivery.Margin = new System.Windows.Forms.Padding(0);
 			this.m_btnAddDelivery.Name = "m_btnAddDelivery";
 			this.m_btnAddDelivery.Size = new System.Drawing.Size(20, 20);
@@ -609,7 +611,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_chkSingleVoice, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_chkSingleVoice, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkSingleVoice, "DialogBoxes.AssignCharacterDlg.m_chkSingleVoice");
-			this.m_chkSingleVoice.Location = new System.Drawing.Point(21, 400);
+			this.m_chkSingleVoice.Location = new System.Drawing.Point(21, 396);
 			this.m_chkSingleVoice.Name = "m_chkSingleVoice";
 			this.m_chkSingleVoice.Size = new System.Drawing.Size(248, 17);
 			this.m_chkSingleVoice.TabIndex = 31;
@@ -626,7 +628,7 @@ namespace Glyssen.Dialogs
 			this.m_listBoxCharacters.IntegralHeight = false;
 			this.m_listBoxCharacters.Location = new System.Drawing.Point(21, 43);
 			this.m_listBoxCharacters.Name = "m_listBoxCharacters";
-			this.m_listBoxCharacters.Size = new System.Drawing.Size(283, 150);
+			this.m_listBoxCharacters.Size = new System.Drawing.Size(283, 146);
 			this.m_listBoxCharacters.TabIndex = 0;
 			this.m_listBoxCharacters.SelectedIndexChanged += new System.EventHandler(this.m_listBoxCharacters_SelectedIndexChanged);
 			this.m_listBoxCharacters.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.m_listBoxCharacters_KeyPress);
@@ -639,7 +641,7 @@ namespace Glyssen.Dialogs
 			this.m_listBoxDeliveries.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_listBoxDeliveries.FormattingEnabled = true;
 			this.m_listBoxDeliveries.IntegralHeight = false;
-			this.m_listBoxDeliveries.Location = new System.Drawing.Point(21, 262);
+			this.m_listBoxDeliveries.Location = new System.Drawing.Point(21, 258);
 			this.m_listBoxDeliveries.Name = "m_listBoxDeliveries";
 			this.m_listBoxDeliveries.Size = new System.Drawing.Size(283, 90);
 			this.m_listBoxDeliveries.TabIndex = 1;
@@ -685,7 +687,7 @@ namespace Glyssen.Dialogs
 			this.m_pnlDeliveryFilter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.m_pnlDeliveryFilter.Controls.Add(this.tableLayoutPanelDelivery);
 			this.m_pnlDeliveryFilter.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_pnlDeliveryFilter.Location = new System.Drawing.Point(21, 235);
+			this.m_pnlDeliveryFilter.Location = new System.Drawing.Point(21, 231);
 			this.m_pnlDeliveryFilter.Name = "m_pnlDeliveryFilter";
 			this.m_pnlDeliveryFilter.Size = new System.Drawing.Size(263, 21);
 			this.m_pnlDeliveryFilter.TabIndex = 23;
@@ -764,7 +766,7 @@ namespace Glyssen.Dialogs
 			this.m_pnlCharacterAndDeliverySelection.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_pnlCharacterAndDeliverySelection.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_pnlCharacterAndDeliverySelection.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.m_pnlCharacterAndDeliverySelection.Size = new System.Drawing.Size(307, 420);
+			this.m_pnlCharacterAndDeliverySelection.Size = new System.Drawing.Size(307, 416);
 			this.m_pnlCharacterAndDeliverySelection.TabIndex = 29;
 			// 
 			// m_splitContainer
@@ -781,11 +783,13 @@ namespace Glyssen.Dialogs
 			// 
 			// m_splitContainer.Panel2
 			// 
+			this.m_splitContainer.Panel2.Controls.Add(this.m_lblSaved);
+			this.m_splitContainer.Panel2.Controls.Add(this.m_llClose);
 			this.m_splitContainer.Panel2.Controls.Add(this.tableLayoutPanelNavigationControls);
 			this.m_splitContainer.Panel2.Controls.Add(this.m_pnlCharacterAndDeliverySelection);
 			this.m_splitContainer.Panel2.Padding = new System.Windows.Forms.Padding(0, 12, 12, 12);
 			this.m_splitContainer.Panel2MinSize = 280;
-			this.m_splitContainer.Size = new System.Drawing.Size(651, 519);
+			this.m_splitContainer.Size = new System.Drawing.Size(651, 529);
 			this.m_splitContainer.SplitterDistance = 320;
 			this.m_splitContainer.TabIndex = 30;
 			this.m_splitContainer.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.m_splitContainer_SplitterMoved);
@@ -800,13 +804,46 @@ namespace Glyssen.Dialogs
 			this.tableLayoutPanelNavigationControls.Controls.Add(this.m_btnPrevious, 0, 0);
 			this.tableLayoutPanelNavigationControls.Controls.Add(this.m_labelXofY, 1, 0);
 			this.tableLayoutPanelNavigationControls.Controls.Add(this.m_btnNext, 2, 0);
-			this.tableLayoutPanelNavigationControls.Location = new System.Drawing.Point(33, 471);
+			this.tableLayoutPanelNavigationControls.Location = new System.Drawing.Point(33, 463);
 			this.tableLayoutPanelNavigationControls.Margin = new System.Windows.Forms.Padding(0);
 			this.tableLayoutPanelNavigationControls.Name = "tableLayoutPanelNavigationControls";
 			this.tableLayoutPanelNavigationControls.RowCount = 1;
 			this.tableLayoutPanelNavigationControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanelNavigationControls.Size = new System.Drawing.Size(274, 33);
 			this.tableLayoutPanelNavigationControls.TabIndex = 30;
+			// 
+			// m_llClose
+			// 
+			this.m_llClose.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.m_llClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_llClose.AutoSize = true;
+			this.m_llClose.BackColor = System.Drawing.Color.Transparent;
+			this.m_llClose.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+			this.m_llClose.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llClose, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llClose, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_llClose, "DialogBoxes.AssignCharacterDlg.Close");
+			this.m_llClose.Location = new System.Drawing.Point(274, 504);
+			this.m_llClose.Name = "m_llClose";
+			this.m_llClose.Size = new System.Drawing.Size(33, 13);
+			this.m_llClose.TabIndex = 31;
+			this.m_llClose.TabStop = true;
+			this.m_llClose.Text = "Close";
+			this.m_llClose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_llClose_LinkClicked);
+			// 
+			// m_lblSaved
+			// 
+			this.m_lblSaved.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.m_lblSaved.AutoSize = true;
+			this.m_lblSaved.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblSaved, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblSaved, "");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblSaved, "DialogBoxes.AssignCharacterDlg.AllChangesSaved");
+			this.m_lblSaved.Location = new System.Drawing.Point(21, 504);
+			this.m_lblSaved.Name = "m_lblSaved";
+			this.m_lblSaved.Size = new System.Drawing.Size(97, 13);
+			this.m_lblSaved.TabIndex = 32;
+			this.m_lblSaved.Text = "All Changes Saved";
 			// 
 			// m_blocksViewer
 			// 
@@ -818,7 +855,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksViewer, "DialogBoxes.AssignCharacterDlg.ScriptBlocksViewer");
 			this.m_blocksViewer.Location = new System.Drawing.Point(12, 12);
 			this.m_blocksViewer.Name = "m_blocksViewer";
-			this.m_blocksViewer.Size = new System.Drawing.Size(308, 495);
+			this.m_blocksViewer.Size = new System.Drawing.Size(308, 505);
 			this.m_blocksViewer.TabIndex = 11;
 			this.m_blocksViewer.Text = "Who speaks this part?";
 			this.m_blocksViewer.ViewType = Glyssen.Controls.ScriptBlocksViewType.Html;
@@ -829,18 +866,18 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_progressBar, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_progressBar, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_progressBar, "DialogBoxes.AssignCharacterDlg.m_progressBar");
-			this.m_progressBar.Location = new System.Drawing.Point(0, 544);
+			this.m_progressBar.Location = new System.Drawing.Point(0, 554);
 			this.m_progressBar.Name = "m_progressBar";
 			this.m_progressBar.Size = new System.Drawing.Size(651, 17);
 			this.m_progressBar.TabIndex = 12;
 			// 
-			// AssignCharacterDialog
+			// AssignCharacterDlg
 			// 
 			this.AcceptButton = this.m_btnAssign;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
-			this.ClientSize = new System.Drawing.Size(651, 561);
+			this.ClientSize = new System.Drawing.Size(651, 571);
 			this.Controls.Add(this.m_splitContainer);
 			this.Controls.Add(this.m_progressBar);
 			this.Controls.Add(this.m_toolStrip);
@@ -879,6 +916,7 @@ namespace Glyssen.Dialogs
 			this.m_pnlCharacterAndDeliverySelection.PerformLayout();
 			this.m_splitContainer.Panel1.ResumeLayout(false);
 			this.m_splitContainer.Panel2.ResumeLayout(false);
+			this.m_splitContainer.Panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_splitContainer)).EndInit();
 			this.m_splitContainer.ResumeLayout(false);
 			this.tableLayoutPanelNavigationControls.ResumeLayout(false);
@@ -937,5 +975,7 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanelNavigationControls;
 		private System.Windows.Forms.CheckBox m_chkSingleVoice;
 		private System.Windows.Forms.ToolStripButton m_menuBtnSplitBlock;
+		private System.Windows.Forms.Label m_lblSaved;
+		private System.Windows.Forms.LinkLabel m_llClose;
 	}
 }

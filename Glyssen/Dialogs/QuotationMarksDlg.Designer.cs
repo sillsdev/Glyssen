@@ -78,12 +78,12 @@ namespace Glyssen.Dialogs
 			this.m_cbLevel3Continue = new System.Windows.Forms.ComboBox();
 			this.m_lblPrompt = new System.Windows.Forms.Label();
 			this.m_lblHorizontalSeparator1 = new System.Windows.Forms.Label();
+			this.m_blocksViewer = new Glyssen.Controls.ScriptBlocksViewer();
 			this.m_pnlDialogeQuotes = new System.Windows.Forms.Panel();
 			this.m_splitContainer = new System.Windows.Forms.SplitContainer();
 			this.m_tableLayoutPanelDataBrowser = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.m_pnlLevels = new System.Windows.Forms.TableLayoutPanel();
-			this.m_blocksViewer = new Glyssen.Controls.ScriptBlocksViewer();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.m_toolStrip.SuspendLayout();
 			this.m_pnlDialogeQuotes.SuspendLayout();
@@ -704,6 +704,21 @@ namespace Glyssen.Dialogs
 			this.m_lblHorizontalSeparator1.Size = new System.Drawing.Size(473, 2);
 			this.m_lblHorizontalSeparator1.TabIndex = 20;
 			// 
+			// m_blocksViewer
+			// 
+			this.m_blocksViewer.BackColor = System.Drawing.Color.Transparent;
+			this.m_tableLayoutPanelDataBrowser.SetColumnSpan(this.m_blocksViewer, 3);
+			this.m_blocksViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksViewer, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksViewer, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksViewer, "DialogBoxes.QuotationMarksDlg.ScriptBlocksViewer");
+			this.m_blocksViewer.Location = new System.Drawing.Point(3, 3);
+			this.m_blocksViewer.Name = "m_blocksViewer";
+			this.m_blocksViewer.Size = new System.Drawing.Size(258, 384);
+			this.m_blocksViewer.TabIndex = 0;
+			this.m_blocksViewer.Text = "Project Data:";
+			this.m_blocksViewer.ViewType = Glyssen.Controls.ScriptBlocksViewType.Html;
+			// 
 			// m_pnlDialogeQuotes
 			// 
 			this.m_pnlDialogeQuotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -815,21 +830,6 @@ namespace Glyssen.Dialogs
 			this.m_pnlLevels.Size = new System.Drawing.Size(473, 165);
 			this.m_pnlLevels.TabIndex = 18;
 			// 
-			// m_blocksViewer
-			// 
-			this.m_blocksViewer.BackColor = System.Drawing.Color.Transparent;
-			this.m_tableLayoutPanelDataBrowser.SetColumnSpan(this.m_blocksViewer, 3);
-			this.m_blocksViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksViewer, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksViewer, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksViewer, "DialogBoxes.QuotationMarksDlg.ScriptBlocksViewer");
-			this.m_blocksViewer.Location = new System.Drawing.Point(3, 3);
-			this.m_blocksViewer.Name = "m_blocksViewer";
-			this.m_blocksViewer.Size = new System.Drawing.Size(258, 384);
-			this.m_blocksViewer.TabIndex = 0;
-			this.m_blocksViewer.Text = "Project Data:";
-			this.m_blocksViewer.ViewType = Glyssen.Controls.ScriptBlocksViewType.Html;
-			// 
 			// QuotationMarksDlg
 			// 
 			this.AcceptButton = this.m_btnOk;
@@ -847,6 +847,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.QuotationMarksDlg.WindowTitle");
+			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(826, 471);
 			this.Name = "QuotationMarksDlg";
 			this.ShowIcon = false;

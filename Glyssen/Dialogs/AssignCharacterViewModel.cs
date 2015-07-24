@@ -25,6 +25,7 @@ namespace Glyssen.Dialogs
 		private List<Delivery> m_currentDeliveries = new List<Delivery>();
 
 		public event EventHandler AssignedBlocksIncremented;
+		public event EventHandler CurrentBookSaved;
 		#endregion
 
 		#region Constructors
@@ -86,8 +87,15 @@ namespace Glyssen.Dialogs
 			}
 			else
 				m_project.SaveBook(CurrentBook);
+			OnSaveCurrentBook();
 
 			Analytics.Track("SetSingleVoice", new Dictionary<string, string> { { "book", CurrentBookId }, { "singleVoice", singleVoice.ToString() } });
+		}
+
+		private void OnSaveCurrentBook()
+		{
+			if (CurrentBookSaved != null)
+				CurrentBookSaved(this, EventArgs.Empty);
 		}
 
 		#region Overridden methods
@@ -296,6 +304,7 @@ namespace Glyssen.Dialogs
 				SetCharacterAndDelivery(block, selectedCharacter, selectedDelivery);
 
 			m_project.SaveBook(CurrentBook);
+			OnSaveCurrentBook();
 		}
 
 		private void AddRecordToProjectCharacterVerseData(Block block, Character character, Delivery delivery)
