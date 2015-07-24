@@ -45,10 +45,10 @@
 			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_btnUpdateGroup = new System.Windows.Forms.Button();
+			this.m_voiceActorGrid = new Glyssen.Controls.VoiceActorInformationGrid();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.m_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-			this.m_voiceActorGrid = new Glyssen.Controls.VoiceActorInformationGrid();
 			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -80,7 +80,7 @@
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnExport, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnExport, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnExport, "DialogBoxes.VoiceActorAssignmentDlg.Export");
-			this.m_btnExport.Location = new System.Drawing.Point(221, 438);
+			this.m_btnExport.Location = new System.Drawing.Point(215, 438);
 			this.m_btnExport.Name = "m_btnExport";
 			this.m_btnExport.Size = new System.Drawing.Size(75, 23);
 			this.m_btnExport.TabIndex = 5;
@@ -237,6 +237,23 @@
 			this.m_btnUpdateGroup.Text = "Update/Edit the Character Group(s)";
 			this.m_btnUpdateGroup.UseVisualStyleBackColor = true;
 			// 
+			// m_voiceActorGrid
+			// 
+			this.m_voiceActorGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_voiceActorGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_voiceActorGrid.BackgroundColor = System.Drawing.SystemColors.Window;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_voiceActorGrid, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_voiceActorGrid, null);
+			this.l10NSharpExtender1.SetLocalizationPriority(this.m_voiceActorGrid, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_voiceActorGrid, "DialogBoxes.VoiceActorAssignmentDlg.VoiceActorInformationGrid");
+			this.m_voiceActorGrid.Location = new System.Drawing.Point(0, 0);
+			this.m_voiceActorGrid.Margin = new System.Windows.Forms.Padding(0);
+			this.m_voiceActorGrid.Name = "m_voiceActorGrid";
+			this.m_voiceActorGrid.Size = new System.Drawing.Size(305, 403);
+			this.m_voiceActorGrid.TabIndex = 2;
+			// 
 			// splitContainer1
 			// 
 			this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -291,25 +308,8 @@
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.m_tableLayoutPanel.Size = new System.Drawing.Size(299, 432);
+			this.m_tableLayoutPanel.Size = new System.Drawing.Size(305, 432);
 			this.m_tableLayoutPanel.TabIndex = 2;
-			// 
-			// m_voiceActorGrid
-			// 
-			this.m_voiceActorGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_voiceActorGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
-			this.m_voiceActorGrid.BackgroundColor = System.Drawing.SystemColors.Window;
-			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_voiceActorGrid, null);
-			this.l10NSharpExtender1.SetLocalizationComment(this.m_voiceActorGrid, null);
-			this.l10NSharpExtender1.SetLocalizationPriority(this.m_voiceActorGrid, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_voiceActorGrid, "DialogBoxes.VoiceActorAssignmentDlg.VoiceActorInformationGrid");
-			this.m_voiceActorGrid.Location = new System.Drawing.Point(0, 0);
-			this.m_voiceActorGrid.Margin = new System.Windows.Forms.Padding(0);
-			this.m_voiceActorGrid.Name = "m_voiceActorGrid";
-			this.m_voiceActorGrid.Size = new System.Drawing.Size(299, 403);
-			this.m_voiceActorGrid.TabIndex = 2;
 			// 
 			// VoiceActorAssignmentDlg
 			// 
