@@ -30,6 +30,8 @@ namespace Glyssen.Dialogs
 		{
 			InitializeComponent();
 
+			WindowState = FormWindowState.Maximized;
+
 			m_project = project;
 			m_canAssign = true;
 
