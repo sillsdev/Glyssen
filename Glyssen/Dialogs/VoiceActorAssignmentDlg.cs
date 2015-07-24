@@ -109,6 +109,12 @@ namespace Glyssen.Dialogs
 			m_characterGroupGrid.Refresh();			
 		}
 
+		private void AlignBtnAssignActorToSplitter()
+		{
+			int xDist = splitContainer1.SplitterDistance;
+			m_btnAssignActor.Location = new Point(xDist + 19, m_btnAssignActor.Location.Y);
+		}
+
 		private void m_btnAssignActor_Click(object sender, EventArgs e)
 		{
 			AssignSelectedActorToSelectedGroup();
@@ -261,10 +267,10 @@ namespace Glyssen.Dialogs
 		{
 			if (e.KeyData == Keys.F6)
 			{
-				if (m_voiceActorGrid.ContainsFocus)
-					SendKeys.Send("^+{TAB}");
-				else if (m_characterGroupGrid.ContainsFocus)
-					SendKeys.Send("^{TAB}");
+				if (m_characterGroupGrid.ContainsFocus)
+					m_voiceActorGrid.Focus();
+				else
+					m_characterGroupGrid.Focus();
 			}
 		}
 
@@ -287,6 +293,17 @@ namespace Glyssen.Dialogs
 					}
 				}
 			}
+		}
+
+		private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+		{
+			AlignBtnAssignActorToSplitter();
+		}
+
+		private void splitContainer1_MouseUp(object sender, MouseEventArgs e)
+		{
+			Refresh();
+			m_btnAssignActor.Focus();
 		}
 	}
 }
