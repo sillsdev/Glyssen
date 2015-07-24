@@ -50,6 +50,7 @@
 			this.m_imgCheckBooks = new System.Windows.Forms.PictureBox();
 			this.m_imgCheckAssign = new System.Windows.Forms.PictureBox();
 			this.m_btnAssignVoiceActors = new System.Windows.Forms.Button();
+			this.m_lblActorsAssigned = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.m_L10NSharpExtender)).BeginInit();
 			this.m_toolStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckOpen)).BeginInit();
@@ -117,11 +118,11 @@
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnExportToTabSeparated, "Export to a tab-separated values file");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnExportToTabSeparated, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnExportToTabSeparated, "MainForm.Export");
-			this.m_btnExportToTabSeparated.Location = new System.Drawing.Point(29, 194);
+			this.m_btnExportToTabSeparated.Location = new System.Drawing.Point(29, 204);
 			this.m_btnExportToTabSeparated.Name = "m_btnExportToTabSeparated";
 			this.m_btnExportToTabSeparated.Size = new System.Drawing.Size(134, 23);
-			this.m_btnExportToTabSeparated.TabIndex = 4;
-			this.m_btnExportToTabSeparated.Text = "(5) Export...";
+			this.m_btnExportToTabSeparated.TabIndex = 5;
+			this.m_btnExportToTabSeparated.Text = "({0}) Export...";
 			this.m_btnExportToTabSeparated.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.m_btnExportToTabSeparated.UseVisualStyleBackColor = false;
 			this.m_btnExportToTabSeparated.Click += new System.EventHandler(this.HandleExportToTabSeparated_Click);
@@ -217,7 +218,7 @@
 			this.m_toolStrip.Name = "m_toolStrip";
 			this.m_toolStrip.Padding = new System.Windows.Forms.Padding(15, 10, 20, 0);
 			this.m_toolStrip.Size = new System.Drawing.Size(518, 32);
-			this.m_toolStrip.TabIndex = 6;
+			this.m_toolStrip.TabIndex = 7;
 			this.m_toolStrip.Text = "toolStrip1";
 			// 
 			// m_btnAbout
@@ -262,10 +263,10 @@
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lnkExit, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lnkExit, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lnkExit, "MainForm.Exit");
-			this.m_lnkExit.Location = new System.Drawing.Point(32, 248);
+			this.m_lnkExit.Location = new System.Drawing.Point(471, 209);
 			this.m_lnkExit.Name = "m_lnkExit";
 			this.m_lnkExit.Size = new System.Drawing.Size(24, 13);
-			this.m_lnkExit.TabIndex = 5;
+			this.m_lnkExit.TabIndex = 6;
 			this.m_lnkExit.TabStop = true;
 			this.m_lnkExit.Text = "Exit";
 			this.m_lnkExit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_lnkExit_LinkClicked);
@@ -349,21 +350,37 @@
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnAssignVoiceActors, "Enter Voice Actor information and assign to Character Group.");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnAssignVoiceActors, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnAssignVoiceActors, "MainForm.AssignVoiceActors");
-			this.m_btnAssignVoiceActors.Location = new System.Drawing.Point(29, 223);
+			this.m_btnAssignVoiceActors.Location = new System.Drawing.Point(29, 175);
 			this.m_btnAssignVoiceActors.Name = "m_btnAssignVoiceActors";
 			this.m_btnAssignVoiceActors.Size = new System.Drawing.Size(134, 23);
-			this.m_btnAssignVoiceActors.TabIndex = 5;
-			this.m_btnAssignVoiceActors.Text = "(6) Assign Voice Actors";
+			this.m_btnAssignVoiceActors.TabIndex = 4;
+			this.m_btnAssignVoiceActors.Text = "(5) Assign Voice Actors...";
 			this.m_btnAssignVoiceActors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.m_btnAssignVoiceActors.UseVisualStyleBackColor = false;
 			this.m_btnAssignVoiceActors.Click += new System.EventHandler(this.m_btnAssignVoiceActors_Click);
+			// 
+			// m_lblActorsAssigned
+			// 
+			this.m_lblActorsAssigned.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_lblActorsAssigned.AutoEllipsis = true;
+			this.m_lblActorsAssigned.ForeColor = System.Drawing.Color.White;
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblActorsAssigned, null);
+			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblActorsAssigned, "{0} and {1} are numbers");
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblActorsAssigned, "MainForm.ActorsAssigned");
+			this.m_lblActorsAssigned.Location = new System.Drawing.Point(197, 180);
+			this.m_lblActorsAssigned.Name = "m_lblActorsAssigned";
+			this.m_lblActorsAssigned.Size = new System.Drawing.Size(312, 13);
+			this.m_lblActorsAssigned.TabIndex = 30;
+			this.m_lblActorsAssigned.Text = "{0} voice actors identified, {1} assigned";
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
-			this.ClientSize = new System.Drawing.Size(518, 293);
+			this.ClientSize = new System.Drawing.Size(518, 256);
+			this.Controls.Add(this.m_lblActorsAssigned);
 			this.Controls.Add(this.m_btnAssignVoiceActors);
 			this.Controls.Add(this.m_imgCheckAssign);
 			this.Controls.Add(this.m_imgCheckBooks);
@@ -386,7 +403,7 @@
 			this.m_L10NSharpExtender.SetLocalizationComment(this, null);
 			this.m_L10NSharpExtender.SetLocalizationPriority(this, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_L10NSharpExtender.SetLocalizingId(this, "MainForm.WindowTitle");
-			this.MinimumSize = new System.Drawing.Size(534, 331);
+			this.MinimumSize = new System.Drawing.Size(534, 294);
 			this.Name = "MainForm";
 			this.Text = "Glyssen";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
@@ -425,6 +442,7 @@
 		private System.Windows.Forms.PictureBox m_imgCheckBooks;
 		private System.Windows.Forms.PictureBox m_imgCheckAssign;
 		private System.Windows.Forms.Button m_btnAssignVoiceActors;
+		private System.Windows.Forms.Label m_lblActorsAssigned;
 	}
 }
 
