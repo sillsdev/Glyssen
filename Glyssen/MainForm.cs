@@ -22,6 +22,7 @@ namespace Glyssen
 	{
 		private Project m_project;
 		private string m_percentAssignedFmt;
+		private string m_actorsAssignedFmt;
 		private string m_exportButtonFmt;
 
 		public MainForm()
@@ -78,6 +79,7 @@ namespace Glyssen
 		protected void HandleStringsLocalized()
 		{
 			m_percentAssignedFmt = m_lblPercentAssigned.Text;
+			m_actorsAssignedFmt = m_lblActorsAssigned.Text;
 			m_exportButtonFmt = m_btnExportToTabSeparated.Text;
 			UpdateLocalizedText();
 			if (m_project != null)
@@ -276,9 +278,24 @@ namespace Glyssen
 
 			m_lblBookSelectionInfo.Text = m_project != null && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed ? m_project.BookSelectionSummary : String.Empty;
 
+			UpdateDisplayOfActorsAssigned();
+
 			m_btnExportToTabSeparated.Text = string.Format(m_exportButtonFmt, m_btnAssignVoiceActors.Visible ? "6" : "5");
 
 			UpdateDisplayOfPercentAssigned();
+		}
+
+		private void UpdateDisplayOfActorsAssigned()
+		{
+			if (!m_btnAssignVoiceActors.Visible || !m_btnAssignVoiceActors.Enabled || m_project == null)
+			{
+				m_lblActorsAssigned.Text = string.Empty;
+				return;
+			}
+
+			int actors = m_project.VoiceActorList.Actors.Count;
+			int assigned = m_project.CharacterGroupList.CountVoiceActorsAssigned();
+			m_lblActorsAssigned.Text = string.Format(m_actorsAssignedFmt, actors, assigned);
 		}
 
 		private void UpdateDisplayOfPercentAssigned()
@@ -427,6 +444,7 @@ namespace Glyssen
 				using (var dlg = new VoiceActorAssignmentDlg(m_project))
 					dlg.ShowDialog();
 			}
+			UpdateDisplayOfProjectInfo();
 		}
 
 		public class NoBorderToolStripRenderer : ToolStripProfessionalRenderer
