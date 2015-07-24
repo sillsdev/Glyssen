@@ -57,7 +57,7 @@
 			this.l10NSharpExtender1.SetLocalizingId(this.contextMenu, "DialogBoxes.VoiceActorInformation.DataGridContextMenu");
 			this.contextMenu.Name = "contextMenuStrip1";
 			this.contextMenu.ShowImageMargin = false;
-			this.contextMenu.Size = new System.Drawing.Size(122, 26);
+			this.contextMenu.Size = new System.Drawing.Size(128, 48);
 			this.contextMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenu_ItemClicked);
 			// 
 			// toolStripMenuItem1
@@ -67,8 +67,8 @@
 			this.l10NSharpExtender1.SetLocalizationComment(this.toolStripMenuItem1, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.toolStripMenuItem1, "DialogBoxes.VoiceActorInformation.DeleteRowsMenuItem");
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
-			this.toolStripMenuItem1.Text = "Delete Row(s)";
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(127, 22);
+			this.toolStripMenuItem1.Text = "Delete Actor(s)";
 			// 
 			// m_deleteRowsToolStripMenuItem
 			// 
