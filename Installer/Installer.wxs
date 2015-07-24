@@ -199,12 +199,6 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
           </Component>
 
           <!--Needed for ParatextShared-->
-          <Component Id="Palaso.dll" Guid="{A46C492A-304B-47b8-A13A-7CE4896B5643}">
-            <File Id="Palaso.dll" Name="Palaso.dll" KeyPath="yes" Source="..\output\release\Palaso.dll" />
-          </Component>
-          <Component Id="PalasoUIWindowsForms.dll" Guid="{1cacb7f4-7c49-43b6-a5cf-589954860844}">
-            <File Id="PalasoUIWindowsForms.dll" Name="PalasoUIWindowsForms.dll" KeyPath="yes" Source="..\lib\dotnet\PalasoUIWindowsForms.dll" />
-          </Component>
           <Component Id="NetLoc.dll" Guid="{350690e2-f5b9-47ba-a882-79037f7660fb}">
             <File Id="NetLoc.dll" Name="NetLoc.dll" KeyPath="yes" Source="..\output\release\NetLoc.dll" />
           </Component>
@@ -216,12 +210,6 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
           </Component>
           <Component Id="ICSharpCode.SharpZipLib.dll" Guid="{4B1E06ED-B1E2-4936-ADD9-0480421AB547}">
             <File Id="ICSharpCode.SharpZipLib.dll" Name="ICSharpCode.SharpZipLib.dll" KeyPath="yes" Source="..\output\release\ICSharpCode.SharpZipLib.dll" />
-          </Component>
-          <Component Id="Palaso.pdb" Guid="{11d5b0d2-f512-4d57-ba95-c8f75df8760a}">
-            <File Id="Palaso.pdb" Name="Palaso.pdb" KeyPath="yes" Source="..\output\release\Palaso.pdb" />
-          </Component>
-          <Component Id="PalasoUIWindowsForms.pdb" Guid="{22a8ef9e-488c-40f8-94ee-92f7cde96487}">
-            <File Id="PalasoUIWindowsForms.pdb" Name="PalasoUIWindowsForms.pdb" KeyPath="yes" Source="..\lib\dotnet\PalasoUIWindowsForms.pdb" />
           </Component>
           <Component Id="NetLoc.pdb" Guid="{69b72021-5d29-4499-9752-f90346e9fe2f}">
             <File Id="NetLoc.pdb" Name="NetLoc.pdb" KeyPath="yes" Source="..\output\release\NetLoc.pdb" />
@@ -280,8 +268,6 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="Geckofx_Winforms.dll"/>
       <ComponentRef Id="icu.net.dll"/>
       <ComponentRef Id="ParatextShared.dll"/>
-      <ComponentRef Id="Palaso.dll"/>
-      <ComponentRef Id="PalasoUIWindowsForms.dll"/>
       <ComponentRef Id="NetLoc.dll"/>
       <ComponentRef Id="Utilities.dll"/>
       <ComponentRef Id="Ionic.Zip.dll"/>
@@ -307,8 +293,6 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="Geckofx_Core.pdb"/>
       <ComponentRef Id="Geckofx_Winforms.pdb"/>
       <ComponentRef Id="ParatextShared.pdb"/>
-      <ComponentRef Id="Palaso.pdb"/>
-      <ComponentRef Id="PalasoUIWindowsForms.pdb"/>
       <ComponentRef Id="NetLoc.pdb"/>
       <ComponentRef Id="Utilities.pdb"/>
       <ComponentRef Id="L10NSharp.pdb"/>
