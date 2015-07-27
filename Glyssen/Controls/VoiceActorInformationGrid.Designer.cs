@@ -57,7 +57,7 @@
 			this.l10NSharpExtender1.SetLocalizingId(this.m_contextMenu, "DialogBoxes.VoiceActorInformation.DataGridContextMenu");
 			this.m_contextMenu.Name = "contextMenuStrip1";
 			this.m_contextMenu.ShowImageMargin = false;
-			this.m_contextMenu.Size = new System.Drawing.Size(128, 48);
+			this.m_contextMenu.Size = new System.Drawing.Size(120, 26);
 			this.m_contextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.m_contextMenu_Opening);
 			this.m_contextMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenu_ItemClicked);
 			// 
@@ -68,7 +68,7 @@
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_contextMenu_itemDeleteActors, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_contextMenu_itemDeleteActors, "DialogBoxes.VoiceActorInformation.ContextMenu.DeleteActors");
 			this.m_contextMenu_itemDeleteActors.Name = "m_contextMenu_itemDeleteActors";
-			this.m_contextMenu_itemDeleteActors.Size = new System.Drawing.Size(127, 22);
+			this.m_contextMenu_itemDeleteActors.Size = new System.Drawing.Size(119, 22);
 			this.m_contextMenu_itemDeleteActors.Text = "Delete Actors";
 			// 
 			// m_deleteRowsToolStripMenuItem
@@ -114,6 +114,7 @@
 			this.m_dataGrid.ContextMenuStrip = this.m_contextMenu;
 			this.m_dataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_dataGrid.DrawTextBoxEditControlBorder = false;
+			this.m_dataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
 			this.m_dataGrid.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.m_dataGrid.FullRowFocusRectangleColor = System.Drawing.Color.Empty;
 			this.m_dataGrid.GridColor = System.Drawing.Color.Black;
@@ -156,6 +157,7 @@
 			// 
 			// ActorName
 			// 
+			this.ActorName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.ActorName.DataPropertyName = "Name";
 			dataGridViewCellStyle3.NullValue = "[new actor]";
 			this.ActorName.DefaultCellStyle = dataGridViewCellStyle3;
@@ -165,6 +167,7 @@
 			// 
 			// ActorGender
 			// 
+			this.ActorGender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.ActorGender.DataPropertyName = "Gender";
 			this.ActorGender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.ActorGender.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Gender!Gender";
@@ -174,9 +177,11 @@
 			this.ActorGender.MinimumWidth = 90;
 			this.ActorGender.Name = "ActorGender";
 			this.ActorGender.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.ActorGender.Width = 342;
 			// 
 			// ActorAge
 			// 
+			this.ActorAge.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.ActorAge.DataPropertyName = "Age";
 			dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
 			this.ActorAge.DefaultCellStyle = dataGridViewCellStyle4;
@@ -189,6 +194,7 @@
 			this.ActorAge.MinimumWidth = 90;
 			this.ActorAge.Name = "ActorAge";
 			this.ActorAge.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.ActorAge.Width = 308;
 			// 
 			// VoiceActorInformationGrid
 			// 
