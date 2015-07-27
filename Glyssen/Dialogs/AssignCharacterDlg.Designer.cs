@@ -72,6 +72,10 @@ namespace Glyssen.Dialogs
 			this.m_scriptureReference = new Paratext.ToolStripVerseControl();
 			this.m_menuBtnSplitBlock = new System.Windows.Forms.ToolStripButton();
 			this.m_chkSingleVoice = new System.Windows.Forms.CheckBox();
+			this.m_llClose = new System.Windows.Forms.LinkLabel();
+			this.m_blocksViewer = new Glyssen.Controls.ScriptBlocksViewer();
+			this.m_progressBar = new Glyssen.Controls.BlockProgressBar();
+			this.m_saveStatus = new Glyssen.Controls.SaveStatus();
 			this.m_listBoxCharacters = new System.Windows.Forms.ListBox();
 			this.m_listBoxDeliveries = new System.Windows.Forms.ListBox();
 			this.m_pnlCharacterFilter = new System.Windows.Forms.Panel();
@@ -82,10 +86,6 @@ namespace Glyssen.Dialogs
 			this.m_pnlCharacterAndDeliverySelection = new System.Windows.Forms.TableLayoutPanel();
 			this.m_splitContainer = new System.Windows.Forms.SplitContainer();
 			this.tableLayoutPanelNavigationControls = new System.Windows.Forms.TableLayoutPanel();
-			this.m_llClose = new System.Windows.Forms.LinkLabel();
-			this.m_lblSaved = new System.Windows.Forms.Label();
-			this.m_blocksViewer = new Glyssen.Controls.ScriptBlocksViewer();
-			this.m_progressBar = new Glyssen.Controls.BlockProgressBar();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnCharacterFilter)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnDeliveryFilter)).BeginInit();
@@ -619,6 +619,66 @@ namespace Glyssen.Dialogs
 			this.m_chkSingleVoice.UseVisualStyleBackColor = true;
 			this.m_chkSingleVoice.CheckedChanged += new System.EventHandler(this.m_chkSingleVoice_CheckedChanged);
 			// 
+			// m_llClose
+			// 
+			this.m_llClose.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.m_llClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_llClose.AutoSize = true;
+			this.m_llClose.BackColor = System.Drawing.Color.Transparent;
+			this.m_llClose.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+			this.m_llClose.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llClose, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llClose, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_llClose, "DialogBoxes.AssignCharacterDlg.Close");
+			this.m_llClose.Location = new System.Drawing.Point(274, 504);
+			this.m_llClose.Name = "m_llClose";
+			this.m_llClose.Size = new System.Drawing.Size(33, 13);
+			this.m_llClose.TabIndex = 31;
+			this.m_llClose.TabStop = true;
+			this.m_llClose.Text = "Close";
+			this.m_llClose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_llClose_LinkClicked);
+			// 
+			// m_blocksViewer
+			// 
+			this.m_blocksViewer.AccessibleDescription = "";
+			this.m_blocksViewer.BackColor = System.Drawing.Color.Transparent;
+			this.m_blocksViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksViewer, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksViewer, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksViewer, "DialogBoxes.AssignCharacterDlg.ScriptBlocksViewer");
+			this.m_blocksViewer.Location = new System.Drawing.Point(12, 12);
+			this.m_blocksViewer.Name = "m_blocksViewer";
+			this.m_blocksViewer.Size = new System.Drawing.Size(308, 505);
+			this.m_blocksViewer.TabIndex = 11;
+			this.m_blocksViewer.Text = "Who speaks this part?";
+			this.m_blocksViewer.ViewType = Glyssen.Controls.ScriptBlocksViewType.Html;
+			// 
+			// m_progressBar
+			// 
+			this.m_progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_progressBar, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_progressBar, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_progressBar, "DialogBoxes.AssignCharacterDlg.m_progressBar");
+			this.m_progressBar.Location = new System.Drawing.Point(0, 554);
+			this.m_progressBar.Name = "m_progressBar";
+			this.m_progressBar.Size = new System.Drawing.Size(651, 17);
+			this.m_progressBar.TabIndex = 12;
+			// 
+			// m_saveStatus
+			// 
+			this.m_saveStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.m_saveStatus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.m_saveStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_saveStatus.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_saveStatus.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_saveStatus, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_saveStatus, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_saveStatus, "DialogBoxes.AssignCharacterDlg.SaveStatus");
+			this.m_saveStatus.Location = new System.Drawing.Point(24, 502);
+			this.m_saveStatus.Name = "m_saveStatus";
+			this.m_saveStatus.Size = new System.Drawing.Size(99, 15);
+			this.m_saveStatus.TabIndex = 33;
+			// 
 			// m_listBoxCharacters
 			// 
 			this.m_listBoxCharacters.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -783,7 +843,7 @@ namespace Glyssen.Dialogs
 			// 
 			// m_splitContainer.Panel2
 			// 
-			this.m_splitContainer.Panel2.Controls.Add(this.m_lblSaved);
+			this.m_splitContainer.Panel2.Controls.Add(this.m_saveStatus);
 			this.m_splitContainer.Panel2.Controls.Add(this.m_llClose);
 			this.m_splitContainer.Panel2.Controls.Add(this.tableLayoutPanelNavigationControls);
 			this.m_splitContainer.Panel2.Controls.Add(this.m_pnlCharacterAndDeliverySelection);
@@ -811,65 +871,6 @@ namespace Glyssen.Dialogs
 			this.tableLayoutPanelNavigationControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanelNavigationControls.Size = new System.Drawing.Size(274, 33);
 			this.tableLayoutPanelNavigationControls.TabIndex = 30;
-			// 
-			// m_llClose
-			// 
-			this.m_llClose.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-			this.m_llClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_llClose.AutoSize = true;
-			this.m_llClose.BackColor = System.Drawing.Color.Transparent;
-			this.m_llClose.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.m_llClose.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llClose, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llClose, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_llClose, "DialogBoxes.AssignCharacterDlg.Close");
-			this.m_llClose.Location = new System.Drawing.Point(274, 504);
-			this.m_llClose.Name = "m_llClose";
-			this.m_llClose.Size = new System.Drawing.Size(33, 13);
-			this.m_llClose.TabIndex = 31;
-			this.m_llClose.TabStop = true;
-			this.m_llClose.Text = "Close";
-			this.m_llClose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_llClose_LinkClicked);
-			// 
-			// m_lblSaved
-			// 
-			this.m_lblSaved.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.m_lblSaved.AutoSize = true;
-			this.m_lblSaved.ForeColor = System.Drawing.Color.White;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblSaved, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblSaved, "");
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblSaved, "DialogBoxes.AssignCharacterDlg.AllChangesSaved");
-			this.m_lblSaved.Location = new System.Drawing.Point(21, 504);
-			this.m_lblSaved.Name = "m_lblSaved";
-			this.m_lblSaved.Size = new System.Drawing.Size(97, 13);
-			this.m_lblSaved.TabIndex = 32;
-			this.m_lblSaved.Text = "All Changes Saved";
-			// 
-			// m_blocksViewer
-			// 
-			this.m_blocksViewer.AccessibleDescription = "";
-			this.m_blocksViewer.BackColor = System.Drawing.Color.Transparent;
-			this.m_blocksViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksViewer, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksViewer, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksViewer, "DialogBoxes.AssignCharacterDlg.ScriptBlocksViewer");
-			this.m_blocksViewer.Location = new System.Drawing.Point(12, 12);
-			this.m_blocksViewer.Name = "m_blocksViewer";
-			this.m_blocksViewer.Size = new System.Drawing.Size(308, 505);
-			this.m_blocksViewer.TabIndex = 11;
-			this.m_blocksViewer.Text = "Who speaks this part?";
-			this.m_blocksViewer.ViewType = Glyssen.Controls.ScriptBlocksViewType.Html;
-			// 
-			// m_progressBar
-			// 
-			this.m_progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_progressBar, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_progressBar, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_progressBar, "DialogBoxes.AssignCharacterDlg.m_progressBar");
-			this.m_progressBar.Location = new System.Drawing.Point(0, 554);
-			this.m_progressBar.Name = "m_progressBar";
-			this.m_progressBar.Size = new System.Drawing.Size(651, 17);
-			this.m_progressBar.TabIndex = 12;
 			// 
 			// AssignCharacterDlg
 			// 
@@ -975,7 +976,7 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanelNavigationControls;
 		private System.Windows.Forms.CheckBox m_chkSingleVoice;
 		private System.Windows.Forms.ToolStripButton m_menuBtnSplitBlock;
-		private System.Windows.Forms.Label m_lblSaved;
 		private System.Windows.Forms.LinkLabel m_llClose;
+		private SaveStatus m_saveStatus;
 	}
 }

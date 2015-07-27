@@ -16,10 +16,17 @@ namespace Glyssen.Dialogs
 			m_project = project;
 
 			m_dataGrid.Initialize(m_project);
+
+			m_dataGrid.Saved += m_dataGrid_Saved;
 			m_dataGrid.UserAddedRow += m_dataGrid_UserAddedRow;
 			m_dataGrid.UserRemovedRows += m_dataGrid_UserRemovedRows;
 
 			m_btnNext.Enabled = m_dataGrid.RowCount > 1; // If 1, only one empty row
+		}
+
+		private void m_dataGrid_Saved(object sender, EventArgs e)
+		{
+			m_saveStatus.OnSaved();
 		}
 
 		private void m_dataGrid_UserAddedRow(object sender, DataGridViewRowEventArgs e)

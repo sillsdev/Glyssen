@@ -35,6 +35,7 @@
 			this.m_btnNext = new System.Windows.Forms.Button();
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_dataGrid = new Glyssen.Controls.VoiceActorInformationGrid();
+			this.m_saveStatus = new Glyssen.Controls.SaveStatus();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -101,12 +102,27 @@
 			this.m_dataGrid.Size = new System.Drawing.Size(476, 264);
 			this.m_dataGrid.TabIndex = 3;
 			// 
+			// m_saveStatus
+			// 
+			this.m_saveStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.m_saveStatus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.m_saveStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_saveStatus.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_saveStatus, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_saveStatus, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_saveStatus, "DialogBoxes.VoiceActorInformation.SaveStatus");
+			this.m_saveStatus.Location = new System.Drawing.Point(15, 307);
+			this.m_saveStatus.Name = "m_saveStatus";
+			this.m_saveStatus.Size = new System.Drawing.Size(99, 15);
+			this.m_saveStatus.TabIndex = 4;
+			// 
 			// VoiceActorInformationDlg
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(500, 334);
+			this.Controls.Add(this.m_saveStatus);
 			this.Controls.Add(this.m_dataGrid);
 			this.Controls.Add(this.m_btnNext);
 			this.Controls.Add(this.m_btnSave);
@@ -134,5 +150,6 @@
 		private System.Windows.Forms.Button m_btnNext;
 		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
 		private Controls.VoiceActorInformationGrid m_dataGrid;
+		private Controls.SaveStatus m_saveStatus;
 	}
 }
