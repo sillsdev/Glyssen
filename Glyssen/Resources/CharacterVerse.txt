@@ -3642,7 +3642,7 @@ JDG	1	12	Caleb			Normal
 JDG	1	14	Acsah, Caleb's daughter			Indirect		
 JDG	1	14	Caleb			Normal		
 JDG	1	15	Acsah, Caleb's daughter			Normal		
-JDG	1	24	Israelite spy from house of Joseph			Normal		
+JDG	1	24	Israelite spies from house of Joseph			Normal		
 JDG	2	1	angel of the LORD, the			Normal	Jesus	
 JDG	2	2	angel of the LORD, the			Normal	Jesus	
 JDG	2	3	angel of the LORD, the			Normal	Jesus	
@@ -4174,7 +4174,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	11	7	messengers of Saul			Normal		
 1SA	11	9	Saul/Israel, men of			Normal	Saul	
 1SA	11	9	messengers of Jabesh			Indirect		
-1SA	11	10	Israelite messengers to Jabesh			Normal		
+1SA	11	10	men of Jabesh			Normal		
 1SA	11	12	Israelites			Normal		
 1SA	11	13	Saul			Normal		
 1SA	11	14	Samuel			Normal		
@@ -5549,7 +5549,7 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	8	10	Elisha			Normal		
 2KI	8	12	Elisha			Normal		
 2KI	8	12	Hazael of Aram			Normal		
-2KI	8	13	Elisha (LORD has shown me)			Normal		
+2KI	8	13	Elisha			Normal		
 2KI	8	13	Hazael of Aram			Normal		
 2KI	8	14	Ben-Hadad, king of Aram			Normal		
 2KI	8	14	Hazael of Aram			Normal		
@@ -8683,7 +8683,7 @@ JER	11	19	men of Anathoth			Normal
 JER	11	21	God		God (the LORD)(word of the LORD)	Normal		
 JER	11	22	God		God (the LORD)(word of the LORD)	Normal		
 JER	11	23	God		God (the LORD)(word of the LORD)	Normal		
-JER	12	4	Jeremiah		Jeremiah quoting his enemies	Normal		
+JER	12	4	Jeremiah		Jeremiah quoting the wicked who live in the land	Normal		
 JER	12	5	God		God (the LORD)	Normal		
 JER	12	6	God		God (the LORD)	Normal		
 JER	12	7	God		God (the LORD)	Normal		
