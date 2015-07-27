@@ -50,14 +50,17 @@ namespace Glyssen.Dialogs
 			this.label3 = new System.Windows.Forms.Label();
 			this.m_linkClose = new System.Windows.Forms.LinkLabel();
 			this.m_linkEdit = new System.Windows.Forms.LinkLabel();
+			this.m_helpIcon = new System.Windows.Forms.PictureBox();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.m_saveStatus = new Glyssen.Controls.SaveStatus();
 			this.m_voiceActorGrid = new Glyssen.Controls.VoiceActorInformationGrid();
+			this.m_toolTip = new System.Windows.Forms.ToolTip(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_helpIcon)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -90,9 +93,9 @@ namespace Glyssen.Dialogs
 			this.l10NSharpExtender1.SetLocalizingId(this.label1, "DialogBoxes.VoiceActorAssignmentDlg.AssignActors");
 			this.label1.Location = new System.Drawing.Point(12, 9);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(120, 13);
+			this.label1.Size = new System.Drawing.Size(199, 13);
 			this.label1.TabIndex = 0;
-			this.label1.Text = "Assign Actors to Groups";
+			this.label1.Text = "Assign Voice Actors to Character Groups";
 			// 
 			// m_characterGroupGrid
 			// 
@@ -289,6 +292,21 @@ namespace Glyssen.Dialogs
 			this.m_linkEdit.Text = "Edit";
 			this.m_linkEdit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkEdit_LinkClicked);
 			// 
+			// m_helpIcon
+			// 
+			this.m_helpIcon.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.m_helpIcon.Image = global::Glyssen.Properties.Resources.helpSmall;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_helpIcon, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_helpIcon, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_helpIcon, "DialogBoxes.VoiceActorAssignmentDlg.pictureBox1");
+			this.m_helpIcon.Location = new System.Drawing.Point(216, 9);
+			this.m_helpIcon.Name = "m_helpIcon";
+			this.m_helpIcon.Size = new System.Drawing.Size(19, 23);
+			this.m_helpIcon.TabIndex = 7;
+			this.m_helpIcon.TabStop = false;
+			this.m_helpIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.m_helpIcon_MouseClick);
+			this.m_helpIcon.MouseLeave += new System.EventHandler(this.m_helpIcon_MouseLeave);
+			// 
 			// tableLayoutPanel1
 			// 
 			this.tableLayoutPanel1.ColumnCount = 1;
@@ -393,6 +411,7 @@ namespace Glyssen.Dialogs
 			// 
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(624, 442);
+			this.Controls.Add(this.m_helpIcon);
 			this.Controls.Add(this.m_saveStatus);
 			this.Controls.Add(this.m_linkClose);
 			this.Controls.Add(this.m_btnAssignActor);
@@ -413,6 +432,7 @@ namespace Glyssen.Dialogs
 			this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.VoiceActorAssignmentDlg_KeyUp);
 			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_helpIcon)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			this.tableLayoutPanel2.ResumeLayout(false);
@@ -449,6 +469,8 @@ namespace Glyssen.Dialogs
 		private Controls.SaveStatus m_saveStatus;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.LinkLabel m_linkEdit;
+		private System.Windows.Forms.PictureBox m_helpIcon;
+		private System.Windows.Forms.ToolTip m_toolTip;
 
 	}
 }

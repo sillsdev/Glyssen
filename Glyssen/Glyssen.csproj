@@ -403,6 +403,7 @@
     <None Include="Resources\EnglishVersification.txt" />
     <None Include="Resources\green-check.png" />
     <None Include="Resources\glyssen.ico" />
+    <None Include="Resources\helpSmall.png" />
     <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />
   </ItemGroup>
