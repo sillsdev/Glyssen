@@ -5,6 +5,11 @@ namespace Glyssen.VoiceActor
 {
 	public class VoiceActor : IEquatable<VoiceActor>
 	{
+		public VoiceActor()
+		{
+			Name = "";
+		}
+
 		[XmlText]
 		public string Name { get; set; }
 
@@ -19,7 +24,7 @@ namespace Glyssen.VoiceActor
 
 		public bool HasMeaningfulData()
 		{
-			return Name != null || Gender != null || Age != null;
+			return !string.IsNullOrEmpty(Name) || Gender != null || Age != null;
 		}
 
 		#region IEquatable<T> members

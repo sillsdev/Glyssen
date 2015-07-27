@@ -1,4 +1,6 @@
-﻿namespace Glyssen.Dialogs
+﻿using System;
+
+namespace Glyssen.Dialogs
 {
 	partial class VoiceActorAssignmentDlg
 	{
@@ -35,20 +37,22 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoiceActorAssignmentDlg));
 			this.m_btnAssignActor = new System.Windows.Forms.Button();
-			this.m_btnExport = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.m_characterGroupGrid = new SIL.Windows.Forms.Widgets.BetterGrid.BetterGrid();
+			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.m_btnUpdateGroup = new System.Windows.Forms.Button();
+			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.GroupNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
-			this.m_btnUpdateGroup = new System.Windows.Forms.Button();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.m_linkClose = new System.Windows.Forms.LinkLabel();
 			this.m_voiceActorGrid = new Glyssen.Controls.VoiceActorInformationGrid();
-			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.m_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -56,7 +60,7 @@
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
-			this.m_tableLayoutPanel.SuspendLayout();
+			this.tableLayoutPanel2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// m_btnAssignActor
@@ -65,28 +69,13 @@
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnAssignActor, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnAssignActor, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnAssignActor, "DialogBoxes.VoiceActorAssignmentDlg.AssignActor");
-			this.m_btnAssignActor.Location = new System.Drawing.Point(3, 406);
+			this.m_btnAssignActor.Location = new System.Drawing.Point(376, 134);
 			this.m_btnAssignActor.Name = "m_btnAssignActor";
-			this.m_btnAssignActor.Size = new System.Drawing.Size(128, 23);
-			this.m_btnAssignActor.TabIndex = 3;
-			this.m_btnAssignActor.Text = "Assign Actor to Group";
+			this.m_btnAssignActor.Size = new System.Drawing.Size(48, 36);
+			this.m_btnAssignActor.TabIndex = 2;
+			this.m_btnAssignActor.Text = "Assign\r\n<<";
 			this.m_btnAssignActor.UseVisualStyleBackColor = true;
 			this.m_btnAssignActor.Click += new System.EventHandler(this.m_btnAssignActor_Click);
-			// 
-			// m_btnExport
-			// 
-			this.m_btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_btnExport.AutoSize = true;
-			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnExport, null);
-			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnExport, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_btnExport, "DialogBoxes.VoiceActorAssignmentDlg.Export");
-			this.m_btnExport.Location = new System.Drawing.Point(215, 438);
-			this.m_btnExport.Name = "m_btnExport";
-			this.m_btnExport.Size = new System.Drawing.Size(75, 23);
-			this.m_btnExport.TabIndex = 5;
-			this.m_btnExport.Text = "Export";
-			this.m_btnExport.UseVisualStyleBackColor = true;
-			this.m_btnExport.Click += new System.EventHandler(this.m_btnExport_Click);
 			// 
 			// label1
 			// 
@@ -95,7 +84,7 @@
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.label1, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.label1, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.label1, "DialogBoxes.VoiceActorAssignmentDlg.AssignActors");
-			this.label1.Location = new System.Drawing.Point(12, 12);
+			this.label1.Location = new System.Drawing.Point(12, 9);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(120, 13);
 			this.label1.TabIndex = 0;
@@ -110,12 +99,9 @@
 			this.m_characterGroupGrid.AllowUserToResizeRows = false;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
 			this.m_characterGroupGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-			this.m_characterGroupGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_characterGroupGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.m_characterGroupGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-			this.m_characterGroupGrid.BackgroundColor = System.Drawing.SystemColors.Window;
+			this.m_characterGroupGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_characterGroupGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.m_characterGroupGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -142,6 +128,7 @@
 			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
 			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.m_characterGroupGrid.DefaultCellStyle = dataGridViewCellStyle4;
+			this.m_characterGroupGrid.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_characterGroupGrid.DrawTextBoxEditControlBorder = false;
 			this.m_characterGroupGrid.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.m_characterGroupGrid.FullRowFocusRectangleColor = System.Drawing.SystemColors.ControlDark;
@@ -150,7 +137,7 @@
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_characterGroupGrid, null);
 			this.l10NSharpExtender1.SetLocalizationPriority(this.m_characterGroupGrid, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_characterGroupGrid, "DialogBoxes.VoiceActorAssignmentDlg.betterGrid1");
-			this.m_characterGroupGrid.Location = new System.Drawing.Point(0, 0);
+			this.m_characterGroupGrid.Location = new System.Drawing.Point(0, 20);
 			this.m_characterGroupGrid.Margin = new System.Windows.Forms.Padding(0);
 			this.m_characterGroupGrid.MultiSelect = false;
 			this.m_characterGroupGrid.Name = "m_characterGroupGrid";
@@ -166,8 +153,8 @@
 			this.m_characterGroupGrid.SelectedRowForeColor = System.Drawing.Color.Empty;
 			this.m_characterGroupGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.m_characterGroupGrid.ShowWaterMarkWhenDirty = false;
-			this.m_characterGroupGrid.Size = new System.Drawing.Size(408, 435);
-			this.m_characterGroupGrid.TabIndex = 1;
+			this.m_characterGroupGrid.Size = new System.Drawing.Size(357, 421);
+			this.m_characterGroupGrid.TabIndex = 0;
 			this.m_characterGroupGrid.TextBoxEditControlBorderColor = System.Drawing.Color.Silver;
 			this.m_characterGroupGrid.WaterMark = "!";
 			this.m_characterGroupGrid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.m_characterGroupGrid_CellMouseDoubleClick);
@@ -176,6 +163,82 @@
 			this.m_characterGroupGrid.DragOver += new System.Windows.Forms.DragEventHandler(this.m_characterGroupGrid_DragOver);
 			this.m_characterGroupGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.m_characterGroupGrid_KeyDown);
 			this.m_characterGroupGrid.MouseMove += new System.Windows.Forms.MouseEventHandler(this.m_characterGroupGrid_MouseMove);
+			// 
+			// l10NSharpExtender1
+			// 
+			this.l10NSharpExtender1.LocalizationManagerId = "Glyssen";
+			this.l10NSharpExtender1.PrefixForNewItems = "DialogBoxes.VoiceActorAssignmentDlg";
+			// 
+			// m_btnUpdateGroup
+			// 
+			this.m_btnUpdateGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.m_btnUpdateGroup.AutoSize = true;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnUpdateGroup, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnUpdateGroup, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_btnUpdateGroup, "DialogBoxes.VoiceActorAssignmentDlg.UpdateGroup");
+			this.m_btnUpdateGroup.Location = new System.Drawing.Point(15, 472);
+			this.m_btnUpdateGroup.Name = "m_btnUpdateGroup";
+			this.m_btnUpdateGroup.Size = new System.Drawing.Size(185, 23);
+			this.m_btnUpdateGroup.TabIndex = 4;
+			this.m_btnUpdateGroup.Text = "Update/Edit the Character Group(s)";
+			this.m_btnUpdateGroup.UseVisualStyleBackColor = true;
+			// 
+			// splitContainer1
+			// 
+			this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.splitContainer1.Location = new System.Drawing.Point(15, 25);
+			this.splitContainer1.Name = "splitContainer1";
+			// 
+			// splitContainer1.Panel1
+			// 
+			this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
+			this.splitContainer1.Panel1.Margin = new System.Windows.Forms.Padding(3);
+			this.splitContainer1.Panel1MinSize = 300;
+			// 
+			// splitContainer1.Panel2
+			// 
+			this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
+			this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(3);
+			this.splitContainer1.Panel2MinSize = 300;
+			this.splitContainer1.Size = new System.Drawing.Size(723, 441);
+			this.splitContainer1.SplitterDistance = 357;
+			this.splitContainer1.SplitterWidth = 55;
+			this.splitContainer1.TabIndex = 0;
+			this.splitContainer1.TabStop = false;
+			this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
+			this.splitContainer1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitContainer1_MouseUp);
+			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.ColumnCount = 1;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Controls.Add(this.m_characterGroupGrid, 0, 1);
+			this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 2;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(357, 441);
+			this.tableLayoutPanel1.TabIndex = 0;
+			// 
+			// tableLayoutPanel2
+			// 
+			this.tableLayoutPanel2.ColumnCount = 1;
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel2.Controls.Add(this.m_voiceActorGrid, 0, 1);
+			this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
+			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+			this.tableLayoutPanel2.RowCount = 2;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(311, 441);
+			this.tableLayoutPanel2.TabIndex = 2;
 			// 
 			// GroupNumber
 			// 
@@ -219,102 +282,71 @@
 			this.Column5.Name = "Column5";
 			this.Column5.ReadOnly = true;
 			// 
-			// l10NSharpExtender1
+			// label2
 			// 
-			this.l10NSharpExtender1.LocalizationManagerId = "Glyssen";
-			this.l10NSharpExtender1.PrefixForNewItems = "DialogBoxes.VoiceActorAssignmentDlg";
+			this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.label2.AutoSize = true;
+			this.label2.ForeColor = System.Drawing.Color.White;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.label2, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.label2, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.label2, "DialogBoxes.VoiceActorAssignmentDlg.label2");
+			this.label2.Location = new System.Drawing.Point(133, 3);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(90, 13);
+			this.label2.TabIndex = 1;
+			this.label2.Text = "Character Groups";
 			// 
-			// m_btnUpdateGroup
+			// label3
 			// 
-			this.m_btnUpdateGroup.AutoSize = true;
-			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnUpdateGroup, null);
-			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnUpdateGroup, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_btnUpdateGroup, "DialogBoxes.VoiceActorAssignmentDlg.UpdateGroup");
-			this.m_btnUpdateGroup.Location = new System.Drawing.Point(3, 438);
-			this.m_btnUpdateGroup.Name = "m_btnUpdateGroup";
-			this.m_btnUpdateGroup.Size = new System.Drawing.Size(185, 23);
-			this.m_btnUpdateGroup.TabIndex = 2;
-			this.m_btnUpdateGroup.Text = "Update/Edit the Character Group(s)";
-			this.m_btnUpdateGroup.UseVisualStyleBackColor = true;
+			this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.label3.AutoSize = true;
+			this.label3.ForeColor = System.Drawing.Color.White;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.label3, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.label3, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.label3, "DialogBoxes.VoiceActorAssignmentDlg.label3");
+			this.label3.Location = new System.Drawing.Point(122, 3);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(67, 13);
+			this.label3.TabIndex = 2;
+			this.label3.Text = "Voice Actors";
+			// 
+			// m_linkClose
+			// 
+			this.m_linkClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_linkClose.AutoSize = true;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_linkClose, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_linkClose, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_linkClose, "DialogBoxes.VoiceActorAssignmentDlg.Close");
+			this.m_linkClose.Location = new System.Drawing.Point(705, 477);
+			this.m_linkClose.Name = "m_linkClose";
+			this.m_linkClose.Size = new System.Drawing.Size(33, 13);
+			this.m_linkClose.TabIndex = 5;
+			this.m_linkClose.TabStop = true;
+			this.m_linkClose.Text = "Close";
+			this.m_linkClose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkClose_LinkClicked);
 			// 
 			// m_voiceActorGrid
 			// 
-			this.m_voiceActorGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_voiceActorGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
-			this.m_voiceActorGrid.BackgroundColor = System.Drawing.SystemColors.Window;
+			this.m_voiceActorGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_voiceActorGrid.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_voiceActorGrid, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_voiceActorGrid, null);
 			this.l10NSharpExtender1.SetLocalizationPriority(this.m_voiceActorGrid, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_voiceActorGrid, "DialogBoxes.VoiceActorAssignmentDlg.VoiceActorInformationGrid");
-			this.m_voiceActorGrid.Location = new System.Drawing.Point(0, 0);
+			this.m_voiceActorGrid.Location = new System.Drawing.Point(0, 20);
 			this.m_voiceActorGrid.Margin = new System.Windows.Forms.Padding(0);
 			this.m_voiceActorGrid.Name = "m_voiceActorGrid";
-			this.m_voiceActorGrid.Size = new System.Drawing.Size(305, 403);
-			this.m_voiceActorGrid.TabIndex = 2;
-			// 
-			// splitContainer1
-			// 
-			this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.splitContainer1.Location = new System.Drawing.Point(15, 31);
-			this.splitContainer1.Name = "splitContainer1";
-			// 
-			// splitContainer1.Panel1
-			// 
-			this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
-			this.splitContainer1.Panel1.Margin = new System.Windows.Forms.Padding(3);
-			// 
-			// splitContainer1.Panel2
-			// 
-			this.splitContainer1.Panel2.Controls.Add(this.m_tableLayoutPanel);
-			this.splitContainer1.Panel2.Controls.Add(this.m_btnExport);
-			this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(3);
-			this.splitContainer1.Size = new System.Drawing.Size(723, 464);
-			this.splitContainer1.SplitterDistance = 408;
-			this.splitContainer1.SplitterWidth = 10;
-			this.splitContainer1.TabIndex = 0;
-			this.splitContainer1.TabStop = false;
-			// 
-			// tableLayoutPanel1
-			// 
-			this.tableLayoutPanel1.ColumnCount = 1;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Controls.Add(this.m_characterGroupGrid, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.m_btnUpdateGroup, 0, 1);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 2;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(408, 464);
-			this.tableLayoutPanel1.TabIndex = 3;
-			// 
-			// m_tableLayoutPanel
-			// 
-			this.m_tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_tableLayoutPanel.ColumnCount = 1;
-			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.m_tableLayoutPanel.Controls.Add(this.m_voiceActorGrid, 0, 0);
-			this.m_tableLayoutPanel.Controls.Add(this.m_btnAssignActor, 0, 1);
-			this.m_tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-			this.m_tableLayoutPanel.Name = "m_tableLayoutPanel";
-			this.m_tableLayoutPanel.RowCount = 2;
-			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.m_tableLayoutPanel.Size = new System.Drawing.Size(305, 432);
-			this.m_tableLayoutPanel.TabIndex = 2;
+			this.m_voiceActorGrid.Size = new System.Drawing.Size(311, 421);
+			this.m_voiceActorGrid.TabIndex = 1;
 			// 
 			// VoiceActorAssignmentDlg
 			// 
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(750, 507);
+			this.Controls.Add(this.m_linkClose);
+			this.Controls.Add(this.m_btnAssignActor);
+			this.Controls.Add(this.m_btnUpdateGroup);
 			this.Controls.Add(this.splitContainer1);
 			this.Controls.Add(this.label1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -333,13 +365,12 @@
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).EndInit();
 			this.splitContainer1.Panel1.ResumeLayout(false);
 			this.splitContainer1.Panel2.ResumeLayout(false);
-			this.splitContainer1.Panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
-			this.m_tableLayoutPanel.ResumeLayout(false);
-			this.m_tableLayoutPanel.PerformLayout();
+			this.tableLayoutPanel2.ResumeLayout(false);
+			this.tableLayoutPanel2.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -349,19 +380,21 @@
 
 		private Controls.VoiceActorInformationGrid m_voiceActorGrid;
 		private System.Windows.Forms.Button m_btnAssignActor;
-		private System.Windows.Forms.Button m_btnExport;
 		private System.Windows.Forms.Label label1;
 		private SIL.Windows.Forms.Widgets.BetterGrid.BetterGrid m_characterGroupGrid;
 		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
 		private System.Windows.Forms.SplitContainer splitContainer1;
-		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanel;
 		private System.Windows.Forms.Button m_btnUpdateGroup;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.DataGridViewTextBoxColumn GroupNumber;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.LinkLabel m_linkClose;
 
 	}
 }
