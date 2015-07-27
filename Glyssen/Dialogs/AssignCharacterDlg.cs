@@ -31,7 +31,6 @@ namespace Glyssen.Dialogs
 		private readonly AssignCharacterViewModel m_viewModel;
 		private string m_xOfYFmt;
 		private string m_singleVoiceCheckboxFmt;
-		private string m_savedLabelFmt;
 		private bool m_promptToCloseWhenAssignmentsAreComplete = true;
 		int m_characterListHoveredIndex = -1;
 		private readonly ToolTip m_characterListToolTip = new ToolTip();
@@ -49,7 +48,6 @@ namespace Glyssen.Dialogs
 
 			m_xOfYFmt = m_labelXofY.Text;
 			m_singleVoiceCheckboxFmt = m_chkSingleVoice.Text;
-			m_savedLabelFmt = m_lblSaved.Text;
 		}
 
 		public AssignCharacterDlg(AssignCharacterViewModel viewModel)
@@ -428,27 +426,7 @@ namespace Glyssen.Dialogs
 
 		private void UpdateSavedText(object obj, EventArgs e)
 		{
-			m_lblSaved.Text = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.Saving", "Saving...");
-			m_lblSaved.ForeColor = Color.Yellow;
-			var timer = new Timer(2000);
-			timer.Elapsed += ((sender, args) =>
-			{
-				((Timer)sender).Enabled = false;
-				if (m_lblSaved.InvokeRequired)
-				{
-					m_lblSaved.BeginInvoke((MethodInvoker)(() =>
-					{
-						m_lblSaved.Text = m_savedLabelFmt;
-						m_lblSaved.ForeColor = Color.White;
-					}));
-				}
-				else
-				{
-					m_lblSaved.Text = m_savedLabelFmt;
-					m_lblSaved.ForeColor = Color.White;
-				}
-			});
-			timer.Enabled = true;
+			m_saveStatus.OnSaving();
 		}
 
 		#region Form events
