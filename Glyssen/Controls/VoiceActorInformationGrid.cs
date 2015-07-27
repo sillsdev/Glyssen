@@ -11,7 +11,7 @@ namespace Glyssen.Controls
 {
 	public partial class VoiceActorInformationGrid : UserControl
 	{
-		public event EventHandler Save;
+		public event EventHandler Saved;
 		public event DataGridViewCellEventHandler CellUpdated;
 		public event DataGridViewRowEventHandler UserAddedRow;
 		public event DataGridViewRowsRemovedEventHandler UserRemovedRows;
@@ -54,12 +54,12 @@ namespace Glyssen.Controls
 
 		public void SaveVoiceActorInformation()
 		{
-			if (Save != null)
-			{
-				Save(m_dataGrid, EventArgs.Empty);
-			}
-
 			m_project.SaveVoiceActorInformationData();
+
+			if (Saved != null)
+			{
+				Saved(m_dataGrid, EventArgs.Empty);
+			}
 		}
 
 		public DataGridView.HitTestInfo HitTest(int x, int y)

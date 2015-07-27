@@ -426,7 +426,7 @@ namespace Glyssen.Dialogs
 
 		private void UpdateSavedText(object obj, EventArgs e)
 		{
-			m_saveStatus.OnSaving();
+			m_saveStatus.OnSaved();
 		}
 
 		#region Form events
