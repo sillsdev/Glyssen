@@ -11,6 +11,7 @@ namespace Glyssen.Controls
 {
 	public partial class VoiceActorInformationGrid : UserControl
 	{
+		public event EventHandler Save;
 		public event DataGridViewCellEventHandler CellUpdated;
 		public event DataGridViewRowEventHandler UserAddedRow;
 		public event DataGridViewRowsRemovedEventHandler UserRemovedRows;
@@ -53,6 +54,11 @@ namespace Glyssen.Controls
 
 		public void SaveVoiceActorInformation()
 		{
+			if (Save != null)
+			{
+				Save(m_dataGrid, EventArgs.Empty);
+			}
+
 			m_project.SaveVoiceActorInformationData();
 		}
 
@@ -235,12 +241,12 @@ namespace Glyssen.Controls
 		{
 			//Open combobox (or no effect on regular text box input)
 			SendKeys.Send("{F4}");
-			SaveVoiceActorInformation();
 		}
 
 		private void m_dataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
 		{
 			HandleCellUpdated(e);
+			SaveVoiceActorInformation();
 		}
 
 		private void m_dataGrid_SelectionChanged(object sender, EventArgs e)

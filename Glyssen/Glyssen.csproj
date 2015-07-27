@@ -184,6 +184,12 @@
     <Compile Include="Controls\ProgressBarUnanimated.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\SaveStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SaveStatus.Designer.cs">
+      <DependentUpon>SaveStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ScriptBlocksGridView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -301,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ExistingProjectsList.resx">
       <DependentUpon>ExistingProjectsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SaveStatus.resx">
+      <DependentUpon>SaveStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ScriptBlocksViewer.resx">
       <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>

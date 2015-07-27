@@ -36,6 +36,7 @@ namespace Glyssen.Dialogs
 			m_canAssign = true;
 
 			m_voiceActorGrid.Initialize(m_project);
+			m_voiceActorGrid.Save += m_voiceActorGrid_Save;
 			m_voiceActorGrid.CellUpdated += m_voiceActorGrid_CellUpdated;
 			m_voiceActorGrid.CellDoubleClicked += m_voiceActorGrid_CellDoubleClicked;
 			m_voiceActorGrid.GridMouseMove += m_voiceActorGrid_MouseMove;
@@ -94,6 +95,7 @@ namespace Glyssen.Dialogs
 		private void SaveAssignments()
 		{
 			m_project.SaveCharacterGroupData();
+			m_saveStatus.OnSaving();
 		}
 
 		private void AssignSelectedActorToSelectedGroup()
@@ -127,6 +129,11 @@ namespace Glyssen.Dialogs
 			SaveAssignments();
 		}
 
+		private void m_voiceActorGrid_Save(object sender, EventArgs e)
+		{
+			m_saveStatus.OnSaving();
+		}
+		
 		private void m_voiceActorGrid_CellUpdated(object sender, DataGridViewCellEventArgs e)
 		{
 			var grid = sender as DataGridView;
