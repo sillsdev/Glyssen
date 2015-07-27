@@ -7,15 +7,15 @@ Abimelech, King of Gerar/Phicol	TRUE	Male
 Abimelech, King of the Philistines (in Gerar)	FALSE	Male		
 Abimelech, son of Gideon (Jerubbaal)	FALSE	Male		
 Abishai, Joab's brother	FALSE	Male		
-Abner	FALSE	Male		
+Abner, commander of Saul's army	FALSE	Male		
 Abraham (Abram)	FALSE	Male		
 Abraham's chief servant	FALSE	Male		
-Absalom	FALSE	Male		
-Absalom/Israel, men of	TRUE	Male		
+Absalom, son of David	FALSE	Male		
+Absalom, son of David/Israel, men of	TRUE	Male		
 Absalom's men	TRUE	Male		
 Absalom's secret messengers	TRUE	Male		
 Achan	FALSE	Male		
-Achish	FALSE	Male		
+Achish, king of Gath	FALSE	Male		
 Acsah, Caleb's daughter	FALSE	Female		
 Adam	FALSE	Male		
 Adoni-Bezek	FALSE	Male		
@@ -27,6 +27,7 @@ Agag, king of Amalekites	FALSE	Male
 Ahab, king of Israel	FALSE	Male		
 Ahaz, king of Judah	FALSE	Male		
 Ahaziah, king of Israel	FALSE	Male		
+Ahijah the priest	FALSE	Male		
 Ahijah, the prophet	FALSE	Male		
 Ahimaaz (messenger)	FALSE	Male		
 Ahimelech the priest (son of Ahitub)	FALSE	Male		
@@ -37,9 +38,10 @@ all seeking God	TRUE
 all who heard (in synagogues)	TRUE			
 altar	FALSE			
 Amasai, chief of thirty (Spirit came upon)	FALSE	Male		
-Amaziah	FALSE	Male		
+Amaziah, king of Judah	FALSE	Male		
+Amaziah, priest of Bethel	FALSE	Male		
 Ammonite nobles	TRUE	Male		
-Amnon	FALSE	Male		
+Amnon, son of David	FALSE	Male		
 Amos	FALSE	Male		
 Ananias of Damascus	FALSE	Male		
 Ananias, the high priest	FALSE	Male		
@@ -139,7 +141,6 @@ Caesar Augustus	FALSE	Male
 Caiaphas, the high priest	FALSE	Male		
 Cain	FALSE	Male		
 Caleb	FALSE	Male		
-Caleb (old)	FALSE	Male	old (85)	
 Canaanite (Syrophoenician) mother of possessed girl	FALSE	Female		
 Canaanites	TRUE			
 captain	FALSE	Male		
@@ -218,12 +219,14 @@ Cyrus, king of Persia	FALSE	Male
 Dan	FALSE	Male		
 Daniel	FALSE	Male		
 Danites	TRUE			
-Darius	FALSE	Male		
+Darius, king	FALSE	Male		
+Darius, king of Medes and Persians	FALSE	Male		
 Dathan	FALSE	Male		
 Dathan/Abiram	TRUE	Male		
 daughter of Zion	FALSE	Female		
 daughters of Zelophehad	TRUE	Female		
 David	FALSE	Male		
+David (old)	FALSE	Male	Elder	
 David's enemies	TRUE	Male		
 David's men	TRUE	Male		
 David's servants	TRUE			
@@ -263,7 +266,7 @@ elders of the Jews	TRUE	Male
 elders of the land	TRUE	Male		
 elders, Ephesian	TRUE	Male		
 elders, one of the	FALSE	Male		
-elders/people	TRUE	Male		
+elders/people of Israel	TRUE	Male		
 Eleazar the priest, son of Aaron	FALSE	Male		
 Eleven/those with them	TRUE			
 Eli	FALSE	Male		
@@ -278,12 +281,14 @@ Elijah	FALSE	Male
 Eliphaz the Temanite	FALSE	Male		
 Elisha	FALSE	Male		
 Elisha (LORD has shown me)	FALSE	Male		
+Elisha (old)	FALSE	Male	Elder	
 Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/other officials	TRUE	Male		
 Elisha's messenger	FALSE			
 Elizabeth	FALSE	Female		
 Elkanah	FALSE			
 Enemies of God	TRUE			
 Enemies of Israel	TRUE			
+enemies of Judah and Benjamin	TRUE	Pref: Male		
 Enemy	FALSE			
 Enoch	FALSE	Male		
 Ephraimites	TRUE			
@@ -349,10 +354,11 @@ Gentiles, Jews, and leaders at Iconium	TRUE
 Gibeonites	TRUE			
 Gideon (Jerubbaal)	FALSE	Male		
 Gilead, elders of	TRUE	Male		
+Gilead, leaders of	TRUE	Male		
 Gilead, men of	TRUE	Male		
 girls	TRUE	Female		
 God	FALSE	Male		
-Goliath	FALSE	Male		
+Goliath, Philistine champion	FALSE	Male		
 Good Priest	FALSE	Male		Many quotes resolve to this pseudo-character by default
 great company of heavenly host	TRUE			
 Grecian Jews	TRUE			
@@ -363,10 +369,11 @@ Hadad the Edomite	FALSE
 Hagar, the Egyptian	FALSE	Female		
 Haggai (word of the LORD)	FALSE	Male		
 Haman, highest noble to Xerxes, king	FALSE	Male		
-Hamor	FALSE	Male		
-Hamor/Shechem	TRUE	Male		
+Hamor, Hivite ruler	FALSE	Male		
+Hamor, Hivite ruler/Shechem	TRUE	Male		
 Hanamel (Jeremiah's cousin)	FALSE	Male		
-Hanani	FALSE			
+Hanani the seer	FALSE			
+Hanani, brother of Nehemiah/men of Judah, some	TRUE	Male		
 Hananiah, false prophet	FALSE			
 Hannah	FALSE	Female		
 Harbona, eunuch attending Xerxes, king	FALSE	Male		
@@ -424,7 +431,7 @@ Israel, all	TRUE
 Israel, all leaders of	TRUE	Male		
 Israel, all the tribes	TRUE			
 Israel, elders of	TRUE	Male		
-Israel, leaders of/King Rehoboam	TRUE	Male		
+Israel, leaders of/Rehoboam, king	TRUE	Male		
 Israel, men of	TRUE	Male		
 Israelite army commanding officers	TRUE	Male		
 Israelite assembly	TRUE			
@@ -432,10 +439,9 @@ Israelite assembly, elders of	TRUE	Male
 Israelite community	TRUE			
 Israelite fighting men	TRUE	Male		
 Israelite foreman	FALSE	Male		
-Israelite messengers to Jabesh	TRUE			
+Israelite men	TRUE	Male		
 Israelite officers	TRUE	Male		
-Israelite soldier (in Saul's army)	FALSE	Male		
-Israelite soldiers	TRUE	Male		
+Israelite soldier in Saul's army	FALSE	Male		
 Israelite spies from Joshua, two men	TRUE	Male		
 Israelite spy from house of Joseph	FALSE			
 Israelites	TRUE			
@@ -459,7 +465,8 @@ James/all the elders	TRUE	Male
 James/John (sons of Zebedee)	TRUE	Male		
 Jebusites	TRUE			
 Jehoash, king of Israel	FALSE	Male		
-Jehoiada	FALSE	Male		
+Jehoiada the priest	FALSE	Male		
+Jehoiada the priest/Johoiada's sons	TRUE	Male		
 Jehonadab, son of Recab	FALSE	Male		
 Jehoshaphat, king of Judah	FALSE	Male		
 Jehu, son of Hanani	FALSE	Male		
@@ -480,18 +487,18 @@ Jesus (child)	FALSE	Male	youth (12)
 Jesus' brothers	TRUE			
 Jesus' family	TRUE			
 Jethro (Reuel), Moses' father-in-law	FALSE	Male		
-Jews of Cyrene, Alexandria, Cilicia & Asia	TRUE			
 Jews from Asia	TRUE			
+Jews of Cyrene, Alexandria, Cilicia & Asia	TRUE			
 Jews who had believed Jesus	TRUE			
 Jews with Mary/Martha	TRUE			
 Jews with Mary/Martha, some	TRUE			
 Jews, God-fearing from every nation	TRUE			
 Jews, God-fearing from every nation, some	TRUE			
+Jews, leaders of the (in Rome)	TRUE			
 Jews, many	TRUE			
 Jews, more than forty in conspiracy	TRUE			
 Jews, other	TRUE			
 Jews, the	TRUE			
-Jews, leaders of the (in Rome)	TRUE			
 Jews/Mary/Martha	TRUE	Both		
 Jews/priests/nobles/officials	TRUE			
 Jezebel	FALSE	Female		
@@ -545,9 +552,8 @@ Kish, father of Saul	FALSE	Male
 Korah	FALSE	Male		
 Korah/Dathan/Abiram/250 Israelite leaders	TRUE	Male		
 Laban	FALSE	Male		
-Laban/Bethuel (Laban's father)	TRUE	Male		
-Laban/Laban's mother	TRUE			
-Laban's mother	FALSE	Female		
+Laban/Bethuel, Rebekah's father	TRUE	Male		
+Laban/Rebekah's mother	TRUE			
 Laban's sons	TRUE	Male		
 Lamech (descendent of Cain)	FALSE	Male		
 Lamech (descendent of Seth)	FALSE	Male		
@@ -633,21 +639,22 @@ men in Nazareth synagogue	TRUE	Male
 men of Anathoth	TRUE	Male		
 men of Ashdod	TRUE	Male		
 men of Babel	TRUE	Male		
+men of Bethel	TRUE	Male		
 men of David	TRUE	Male		
 men of David, one	TRUE	Male		
 men of Enaim	TRUE	Male		
 men of Gerar	TRUE	Male		
+men of Jabesh	TRUE			
+men of Jericho	TRUE	Male		
 men of Sodom (wicked)	TRUE	Male		
-men of the city (Bethel)	TRUE	Male		
-men of the city (Jericho)	TRUE	Male		
 men who have gone astray	TRUE	Male		
 men with leprosy, four	TRUE	Male		
 men, large force of	TRUE	Male		
 men, many	TRUE	Male		
 men, some	TRUE	Male		
 men/people	TRUE			
-men/their wives	TRUE	Both		
 men/their wives, other	TRUE	Both		
+men/their wives, some	TRUE	Both		
 men/wives, still others	TRUE	Both		
 Mephibosheth	FALSE	Male		
 merchants of the earth	TRUE			
@@ -673,6 +680,8 @@ messengers of Ben-Hadad. king of Aram	TRUE	Male
 messengers of Jabesh	TRUE	Male		
 messengers of Saul	TRUE	Male		
 messengers sent by Jacob	TRUE	Male		
+messengers to Jezebel	TRUE	Male		
+messengers to Saul	TRUE	Pref: Male		
 Micah	FALSE	Male		
 Micah's mother	FALSE	Female		
 Micaiah, prophet of the LORD	FALSE			
@@ -758,7 +767,7 @@ Nehemiah/Levites/Israelites	TRUE	Male
 neighbors of man blind from birth	TRUE			
 neighbors of man blind from birth, others	TRUE			
 neighbors of man blind from birth, some	TRUE			
-neighbors/relatives of Zechariah/Elizabeth	TRUE			
+neighbors/relatives of Zacharias (Zechariah)/Elizabeth	TRUE			
 news giver to Jacob	FALSE			
 news giver to Joseph	FALSE			
 news to Pharoah's palace	FALSE			
@@ -787,7 +796,7 @@ officials, Ephesus (friends of Paul)	TRUE	Male
 officials, royal, to Xerxes, king	TRUE	Male		
 officials/all the people	TRUE	Male		
 officials/people	TRUE			
-old man of Gibeah	FALSE	Male	old	
+old man in Gibeah	FALSE	Male	old	
 older daughter of Lot	FALSE	Female		
 one at table of Pharisee (expert in religious law)	FALSE	Male		
 one of you	TRUE			
@@ -831,7 +840,7 @@ people of Jerusalem	TRUE
 people of Jerusalem, some	TRUE			
 people of Samaria, all the	TRUE			
 people praying at John Mark's mother's house	TRUE			
-people who knew Saul	TRUE			
+people who had known Saul	TRUE			
 people who saw healing of blind/mute, all the	TRUE			
 people, all the	TRUE			
 people, arrogant wicked	TRUE			
@@ -871,6 +880,8 @@ Pharaoh (1st)	FALSE	Male
 Pharaoh (2nd)	FALSE	Male		
 Pharaoh (2nd)'s men	TRUE	Male		
 Pharaoh (3rd)	FALSE	Male		
+Pharaoh (3rd)/Pharaoh's officials	TRUE	Male		
+Pharaoh (6th)	FALSE	Male		
 Pharaoh's daughter	FALSE	Female		
 Pharaoh's officials	TRUE	Male		
 Pharisee (expert in religious law)	FALSE	Male		
@@ -883,8 +894,8 @@ Pharisees/teachers of religious law	TRUE	Male
 Philip	FALSE	Male		
 Philistine commanders	TRUE	Male		
 Philistine priests and fortune tellers	TRUE	Male		
+Philistine rulers	TRUE	Male		
 Philistines	TRUE	Male		
-Philistines, rulers of	TRUE	Male		
 Phineas the priest	FALSE	Male		
 Phineas the priest/chiefs of 10 tribes	TRUE	Male		not Reuben, Gad, half tribe of Manasseh
 Phineas' wife (daughter-in-law of Eli)	FALSE	Female		
@@ -893,7 +904,6 @@ Pilate's wife	FALSE	Female
 pine trees/cedars of Lebanon	TRUE			
 poets	TRUE			
 Potiphar's wife	FALSE	Female		
-priest	FALSE	Male		
 priests/Levites	TRUE	Male		
 priests/Levites sent from the Jews	TRUE	Male		
 priests/Levites/people	TRUE	Male		
@@ -919,10 +929,11 @@ Rachel/Leah	TRUE	Female
 Rahab	FALSE	Female		
 reader	FALSE			
 Rebekah	FALSE	Female		
+Rebekah's mother	FALSE	Female		
 rebels	TRUE			
 Recab/Baanah	TRUE			
 Recabite family, men of	TRUE			
-Rehoboam	FALSE	Male		
+Rehoboam, king	FALSE	Male		
 Rehum, commanding officer/Shimshai, secretary	TRUE	Male		
 relative	FALSE	Male		
 Relatives of Ahaziah, king of Judah	TRUE			
@@ -941,12 +952,12 @@ Ruth	FALSE	Female
 Sadducees	TRUE	Male		
 sailors	TRUE	Male		
 Samson	FALSE	Male		
-Samson's 30 companions	TRUE	Male		
+Samson's 30 Philistine companions	TRUE	Male		
 Samson's father-in-law	FALSE	Male		
 Samson's Philistine wife	FALSE	Female		
 Samuel	FALSE	Male		
 Samuel (boy)	FALSE	Male	child	
-Samuel (old)	FALSE	Male	old	
+Samuel (dead)	FALSE	Male	old	
 Sanballat	FALSE	Male		
 Sanballat/Geshem, enemies	TRUE	Male		
 Sanballat/Tobiah/Geshem, enemies	TRUE	Male		
@@ -958,12 +969,11 @@ Satan (Devil)	FALSE	Male
 Satraps	TRUE	Male		
 Satraps/Administrators	TRUE	Male		
 Saul	FALSE	Male		
-Saul (old)	FALSE	Male		
 Saul/Israel, men of	TRUE	Male		
 Saul/Saul's servant	TRUE	Male		
 Saul's announcement	FALSE			
 Saul's attendants	TRUE	Male		
-Saul's messengers	TRUE	Male		
+Saul's messengers to Jesse	TRUE	Male		
 Saul's servant	FALSE	Male		
 Saul's uncle	FALSE	Male		
 saying (proverb)	FALSE			
@@ -1023,6 +1033,7 @@ Shimei	FALSE
 Shobi	FALSE	Male		
 Shobi/Makir/Barzillai	TRUE	Male		
 Shua (Judah's wife)	FALSE	Female		
+Shunammite woman	FALSE	Female		well-to-do
 sign on the cross	FALSE			
 Silas	FALSE	Male		
 Simeon	FALSE	Male		
@@ -1050,11 +1061,10 @@ someone from Seir	FALSE
 someone hiding	FALSE			
 someone in crowd	FALSE			
 someone in Jerusalem	FALSE			
-someone in Saul's army	TRUE	Male		
 son (child) in Israel (hypothetical)	FALSE	Male	child/youth	
 son of Paul's sister (young man)	FALSE	Male	young man	
 son of Shelomith (whose father was an Egyptian)	FALSE	Male		
-son of Shunammite	FALSE	Male		
+son of Shunammite	FALSE	Male	Child	
 son of widow	FALSE	Male		
 song (of the prostitute)	FALSE	Female		
 sons of Korah	TRUE	Male		
@@ -1133,7 +1143,6 @@ woman who could not straighten up	FALSE	Female
 woman, bleeding for twelve years	FALSE	Female		
 woman, caught in adultery	FALSE	Female		
 woman, Samaritan	FALSE	Female		
-woman, Shunammite	FALSE	Female		
 woman, wise	FALSE	Female		
 women of Bethlehem	TRUE	Female		
 women, dancing	TRUE	Female		
@@ -1149,14 +1158,16 @@ young man	FALSE	Male	youth
 young men (advisors of Rehoboam)	TRUE	Male	young man	
 youths	TRUE		youth	
 Zaccheaus	FALSE	Male		
+Zacharias (Zechariah)	FALSE	Male		
 Zebah/Zalmunna	TRUE			
 Zebul, governor of Shechem	FALSE	Male		
 Zechariah	FALSE	Male		
+Zechariah, son of Jehoiada the priest	FALSE	Male		
 Zedekiah, king of Judah	FALSE	Male		
 Zedekiah, son of Kenaanah, false prophet	FALSE	Male		
 Zeresh, wife of Haman/friends of Haman	TRUE	Female		
 Zerubbabel/Jeshua/rest of heads of families	TRUE	Male		
-Ziba	TRUE	Male		
+Ziba, servant of Saul's household	TRUE	Male		
 Zion	FALSE			
 Ziphites	TRUE			
 Zipporah, Moses' wife	FALSE	Female		

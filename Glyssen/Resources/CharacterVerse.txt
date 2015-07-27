@@ -1,4 +1,4 @@
-Control File Version	71
+Control File Version	72
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -23,10 +23,10 @@ GEN	1	5	narrator-GEN			Quotation
 GEN	1	5	God			Indirect		
 GEN	1	6	God		God (the LORD)	Normal		
 GEN	1	8	narrator-GEN			Quotation		
-GEN	1	8	God			Indirect		
+GEN	1	8	God		God (the LORD)	Indirect		
 GEN	1	9	God		God (the LORD)	Normal		
 GEN	1	10	narrator-GEN			Quotation		
-GEN	1	10	God			Indirect		
+GEN	1	10	God		God (the LORD)	Indirect		
 GEN	1	11	God		God (the LORD)	Normal		
 GEN	1	14	God		God (the LORD)	Normal		
 GEN	1	15	God		God (the LORD)	Normal		
@@ -332,15 +332,15 @@ GEN	24	46	Abraham's chief servant			Normal
 GEN	24	47	Abraham's chief servant			Normal		
 GEN	24	48	Abraham's chief servant			Normal		
 GEN	24	49	Abraham's chief servant			Normal		
-GEN	24	50	Laban/Bethuel (Laban's father)			Normal	Laban	
-GEN	24	51	Laban/Bethuel (Laban's father)			Normal	Laban	
+GEN	24	50	Laban/Bethuel, Rebekah's father			Normal	Laban	
+GEN	24	51	Laban/Bethuel, Rebekah's father			Normal	Laban	
 GEN	24	54	Abraham's chief servant			Normal		
-GEN	24	55	Laban/Laban's mother			Normal	Laban's mother	
+GEN	24	55	Laban/Rebekah's mother			Normal	Rebekah's mother	
 GEN	24	56	Abraham's chief servant			Normal		
-GEN	24	57	Laban/Laban's mother			Normal	Laban	
-GEN	24	58	Laban/Laban's mother			Normal	Laban	
+GEN	24	57	Laban/Rebekah's mother			Normal	Laban	
+GEN	24	58	Laban/Rebekah's mother			Normal	Laban	
 GEN	24	58	Rebekah			Normal		
-GEN	24	60	Laban/Laban's mother			Normal	Laban	
+GEN	24	60	Laban/Rebekah's mother			Normal	Laban	
 GEN	24	65	Rebekah			Normal		
 GEN	24	65	Abraham's chief servant			Normal		
 GEN	25	22	Rebekah			Normal		
@@ -531,7 +531,7 @@ GEN	32	19	Jacob (Israel)			Normal
 GEN	32	20	Jacob (Israel)	thought		Normal		
 GEN	32	26	angel who wrestled with Jacob		the man (angel)	Normal		
 GEN	32	26	Jacob (Israel)			Normal		
-GEN	32	27	angel who wrestled with Jacob			Normal		
+GEN	32	27	angel who wrestled with Jacob		the man (angel)	Normal		
 GEN	32	27	Jacob (Israel)			Normal		
 GEN	32	28	angel who wrestled with Jacob		the man (angel)	Normal		
 GEN	32	29	Jacob (Israel)			Normal		
@@ -550,18 +550,18 @@ GEN	33	14	Jacob (Israel)			Normal
 GEN	33	15	Jacob (Israel)			Normal		
 GEN	33	15	Esau			Normal		
 GEN	34	4	Shechem, son of Hamor			Normal		
-GEN	34	8	Hamor			Normal		
-GEN	34	9	Hamor			Normal		
-GEN	34	10	Hamor			Normal		
+GEN	34	8	Hamor, Hivite ruler			Normal		
+GEN	34	9	Hamor, Hivite ruler			Normal		
+GEN	34	10	Hamor, Hivite ruler			Normal		
 GEN	34	11	Shechem, son of Hamor			Normal		
 GEN	34	12	Shechem, son of Hamor			Normal		
 GEN	34	14	Jacob's sons			Normal	Simeon	
 GEN	34	15	Jacob's sons			Normal	Simeon	
 GEN	34	16	Jacob's sons			Normal	Levi	
 GEN	34	17	Jacob's sons			Normal	Levi	
-GEN	34	21	Hamor/Shechem			Normal	Hamor	
-GEN	34	22	Hamor/Shechem			Normal	Hamor	
-GEN	34	23	Hamor/Shechem			Normal	Shechem	
+GEN	34	21	Hamor, Hivite ruler/Shechem			Normal	Hamor, Hivite ruler	
+GEN	34	22	Hamor, Hivite ruler/Shechem			Normal	Hamor, Hivite ruler	
+GEN	34	23	Hamor, Hivite ruler/Shechem			Normal	Shechem	
 GEN	34	30	Jacob (Israel)			Normal		
 GEN	34	31	Simeon/Levi			Normal	Simeon	
 GEN	35	1	God		God (the LORD)	Normal		
@@ -1114,7 +1114,7 @@ EXO	13	19	Joseph			Quotation
 EXO	14	2	God		God (the LORD)	Normal		
 EXO	14	3	God		God (the LORD)	Normal		
 EXO	14	4	God		God (the LORD)	Normal		
-EXO	14	5	Pharaoh (3rd)		Pharaoh	Normal		
+EXO	14	5	Pharaoh (3rd)/Pharaoh's officials		Pharaoh/Pharaoh's officials	Normal		
 EXO	14	11	Israelites	terrified		Normal		
 EXO	14	12	Israelites	terrified		Normal		
 EXO	14	13	Moses			Normal		
@@ -2311,6 +2311,7 @@ LEV	24	19	God		God (the LORD)	Normal
 LEV	24	20	God		God (the LORD)	Normal		
 LEV	24	21	God		God (the LORD)	Normal		
 LEV	24	22	God		God (the LORD)	Normal		
+LEV	24	23	Moses			Indirect		
 LEV	24	23	God		God (the LORD)	Indirect		
 LEV	25	2	God		God (the LORD)	Implicit		
 LEV	25	3	God		God (the LORD)	Implicit		
@@ -2851,7 +2852,7 @@ NUM	21	8	God		God (the LORD)	Normal
 NUM	21	14	Book of the Wars of the LORD			Normal		
 NUM	21	15	Book of the Wars of the LORD	sang		Normal	Moses	
 NUM	21	16	God		God (the LORD)	Normal		
-NUM	21	17	Israel			Normal		
+NUM	21	17	Israel	singing		Normal		
 NUM	21	18	Israel	singing		Normal		
 NUM	21	22	messengers Israel sent to Amorite king Sihon			Normal		
 NUM	21	27	poets			Normal		
@@ -3546,15 +3547,15 @@ JOS	13	5	God		God (the LORD)	Normal
 JOS	13	6	God		God (the LORD)	Normal		
 JOS	13	7	God		God (the LORD)	Normal		
 JOS	13	21	narrator-JOS			Quotation		
-JOS	14	6	Caleb (old)			Normal		
-JOS	14	7	Caleb (old)			Normal		
-JOS	14	8	Caleb (old)			Normal		
-JOS	14	9	Caleb (old)			Normal		
-JOS	14	10	Caleb (old)			Normal		
-JOS	14	11	Caleb (old)			Normal		
-JOS	14	12	Caleb (old)			Normal		
-JOS	15	16	Caleb (old)			Normal		
-JOS	15	18	Caleb (old)			Normal		
+JOS	14	6	Caleb			Normal		
+JOS	14	7	Caleb			Normal		
+JOS	14	8	Caleb			Normal		
+JOS	14	9	Caleb			Normal		
+JOS	14	10	Caleb			Normal		
+JOS	14	11	Caleb			Normal		
+JOS	14	12	Caleb			Normal		
+JOS	15	16	Caleb			Normal		
+JOS	15	18	Caleb			Normal		
 JOS	15	19	Acsah, Caleb's daughter			Normal		
 JOS	17	4	daughters of Zelophehad		Mahlah/Noah/Hoglah/Milcah/Tirzah, daughters of Zelophehad	Normal		
 JOS	17	14	Joseph, people of			Normal		
@@ -3781,7 +3782,7 @@ JDG	10	12	God		God (the LORD)	Normal
 JDG	10	13	God		God (the LORD)	Normal		
 JDG	10	14	God		God (the LORD)	Normal		
 JDG	10	15	Israelites			Normal		
-JDG	10	18	Gilead, elders of			Normal		
+JDG	10	18	Gilead, leaders of			Normal		
 JDG	11	2	Jephthah's half-brothers			Normal		
 JDG	11	6	Gilead, elders of			Normal		
 JDG	11	7	Jephthah			Normal		
@@ -3839,13 +3840,13 @@ JDG	14	2	Samson			Normal
 JDG	14	3	Manoah, father of Samson/Manoah's wife		father and mother of Samson	Normal	Manoah, father of Samson	
 JDG	14	3	Samson			Normal		
 JDG	14	12	Samson			Normal		
-JDG	14	13	Samson's 30 companions			Normal		
+JDG	14	13	Samson's 30 Philistine companions			Normal		
 JDG	14	14	Samson			Normal		
-JDG	14	15	Samson's 30 companions			Normal		
+JDG	14	15	Samson's 30 Philistine companions			Normal		
 JDG	14	16	Samson			Normal		
 JDG	14	16	Samson's Philistine wife			Normal		
 JDG	14	18	Samson			Normal		
-JDG	14	18	Samson's 30 companions		men of the town (Philistines)	Normal		
+JDG	14	18	Samson's 30 Philistine companions		men of the town (Philistines)	Normal		
 JDG	15	1	Samson			Normal		
 JDG	15	2	Samson's father-in-law			Normal		
 JDG	15	3	Samson			Normal		
@@ -3863,7 +3864,7 @@ JDG	15	16	Samson			Normal
 JDG	15	18	Samson			Normal		
 JDG	16	2	person who informed people of Gaza			Normal		
 JDG	16	2	Gaza, people of (wicked)			Normal		
-JDG	16	5	Philistines, rulers of			Normal		
+JDG	16	5	Philistine rulers			Normal		
 JDG	16	6	Delilah			Normal		
 JDG	16	7	Samson			Normal		
 JDG	16	9	Delilah			Normal		
@@ -3878,7 +3879,7 @@ JDG	16	17	Samson			Normal
 JDG	16	18	Delilah			Normal		
 JDG	16	20	Delilah			Normal		
 JDG	16	20	Samson			Normal		
-JDG	16	23	Philistines, rulers of			Normal		
+JDG	16	23	Philistine rulers			Normal		
 JDG	16	24	Philistines			Normal		
 JDG	16	25	Philistines			Normal		
 JDG	16	26	Samson			Normal		
@@ -3912,13 +3913,13 @@ JDG	19	9	father of concubine			Normal
 JDG	19	11	servant of concubine's husband			Normal		
 JDG	19	12	Levite husband of concubine			Normal		
 JDG	19	13	Levite husband of concubine			Normal		
-JDG	19	17	old man of Gibeah			Normal		
-JDG	19	18	wicked men of Gibeah			Normal		
-JDG	19	19	wicked men of Gibeah			Normal		
-JDG	19	20	old man of Gibeah			Normal		
+JDG	19	17	old man in Gibeah			Normal		
+JDG	19	18	Levite husband of concubine			Normal		
+JDG	19	19	Levite husband of concubine			Normal		
+JDG	19	20	old man in Gibeah			Normal		
 JDG	19	22	wicked men of Gibeah			Normal		
-JDG	19	23	old man of Gibeah			Normal		
-JDG	19	24	old man of Gibeah			Normal		
+JDG	19	23	old man in Gibeah			Normal		
+JDG	19	24	old man in Gibeah			Normal		
 JDG	19	28	Levite husband of concubine			Normal		
 JDG	19	30	Israelites		everyone who saw it	Normal		
 JDG	20	3	Israelites			Normal		
@@ -4089,7 +4090,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	4	22	Phineas' wife (daughter-in-law of Eli)	mourning		Normal		
 1SA	5	7	men of Ashdod			Normal		
 1SA	5	8	men of Ashdod			Normal		
-1SA	5	8	Philistines, rulers of			Normal		
+1SA	5	8	Philistine rulers			Normal		
 1SA	5	10	Ekron, people of			Normal		
 1SA	5	11	Ekron, people of			Normal		
 1SA	6	2	Philistines			Normal		
@@ -4153,7 +4154,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	10	6	Samuel			Normal		
 1SA	10	7	Samuel			Normal		
 1SA	10	8	Samuel			Normal		
-1SA	10	11	people who knew Saul			Normal		
+1SA	10	11	people who had known Saul			Normal		
 1SA	10	12	man of Gibeah			Normal		
 1SA	10	12	saying about Saul			Quotation		
 1SA	10	14	Saul			Normal		
@@ -4174,7 +4175,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	11	7	messengers of Saul			Normal		
 1SA	11	9	Saul/Israel, men of			Normal	Saul	
 1SA	11	9	messengers of Jabesh			Indirect		
-1SA	11	10	Israelite messengers to Jabesh			Normal		
+1SA	11	10	men of Jabesh			Normal		
 1SA	11	12	Israelites			Normal		
 1SA	11	13	Saul			Normal		
 1SA	11	14	Samuel			Normal		
@@ -4225,26 +4226,26 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	14	18	Saul			Normal		
 1SA	14	19	Saul			Normal		
 1SA	14	24	Saul			Normal		
-1SA	14	28	Israelite soldier (in Saul's army)			Normal		
+1SA	14	28	Israelite soldier in Saul's army			Normal		
 1SA	14	29	Jonathan			Normal		
 1SA	14	30	Jonathan			Normal		
-1SA	14	33	someone in Saul's army			Normal		
+1SA	14	33	messengers to Saul			Normal		
 1SA	14	33	Saul			Normal		
 1SA	14	34	Saul			Normal		
-1SA	14	36	Israelite soldiers			Normal		
-1SA	14	36	priest			Normal		
+1SA	14	36	Israelite men			Normal		
+1SA	14	36	Ahijah the priest			Normal		
 1SA	14	36	Saul			Normal		
 1SA	14	37	Saul			Normal		
 1SA	14	38	Saul			Normal		
 1SA	14	39	Saul			Normal		
-1SA	14	40	Israelite soldiers			Normal		
+1SA	14	40	Israelite men			Normal		
 1SA	14	40	Saul			Normal		
 1SA	14	41	Saul			Normal		
 1SA	14	42	Saul			Normal		
 1SA	14	43	Jonathan			Normal		
 1SA	14	43	Saul			Normal		
 1SA	14	44	Saul			Normal		
-1SA	14	45	Israelite soldiers			Normal		
+1SA	14	45	Israelite men			Normal		
 1SA	15	1	Samuel			Normal		
 1SA	15	2	Samuel			Normal		
 1SA	15	3	Samuel			Normal		
@@ -4290,17 +4291,17 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	16	16	Saul's attendants			Normal		
 1SA	16	17	Saul			Normal		
 1SA	16	18	Saul's servant			Normal		
-1SA	16	19	Saul's messengers			Normal		
-1SA	16	22	Saul's messengers			Normal		
-1SA	17	8	Goliath			Normal		
-1SA	17	9	Goliath			Normal		
-1SA	17	10	Goliath			Normal		
+1SA	16	19	Saul's messengers to Jesse			Normal		
+1SA	16	22	Saul's messengers to Jesse			Normal		
+1SA	17	8	Goliath, Philistine champion			Normal		
+1SA	17	9	Goliath, Philistine champion			Normal		
+1SA	17	10	Goliath, Philistine champion			Normal		
 1SA	17	17	Jesse			Normal		
 1SA	17	18	Jesse			Normal		
 1SA	17	19	Jesse			Normal		
 1SA	17	25	Israelites			Normal		
 1SA	17	26	David			Normal		
-1SA	17	27	Israelite soldiers			Normal		
+1SA	17	27	Israelite men			Normal		
 1SA	17	28	Eliab, David's brother			Normal		
 1SA	17	29	David			Normal		
 1SA	17	32	David			Normal		
@@ -4311,12 +4312,12 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	17	37	Saul			Normal		
 1SA	17	37	David			Normal		
 1SA	17	39	David			Normal		
-1SA	17	43	Goliath			Normal		
-1SA	17	44	Goliath			Normal		
+1SA	17	43	Goliath, Philistine champion			Normal		
+1SA	17	44	Goliath, Philistine champion			Normal		
 1SA	17	45	David			Normal		
 1SA	17	46	David			Normal		
 1SA	17	47	David			Normal		
-1SA	17	55	Abner			Normal		
+1SA	17	55	Abner, commander of Saul's army			Normal		
 1SA	17	55	Saul			Normal		
 1SA	17	56	Saul			Normal		
 1SA	17	58	David			Normal		
@@ -4387,8 +4388,8 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	21	9	Ahimelech the priest (son of Ahitub)			Normal		
 1SA	21	9	David			Normal		
 1SA	21	11	servants of Achish, king of Gath			Normal		
-1SA	21	14	Achish			Normal		
-1SA	21	15	Achish			Normal		
+1SA	21	14	Achish, king of Gath			Normal		
+1SA	21	15	Achish, king of Gath			Normal		
 1SA	22	3	David			Normal		
 1SA	22	5	prophet Gad			Normal		
 1SA	22	7	Saul			Normal		
@@ -4477,7 +4478,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	26	9	David			Normal		
 1SA	26	10	David			Normal		
 1SA	26	11	David			Normal		
-1SA	26	14	Abner			Normal		
+1SA	26	14	Abner, commander of Saul's army			Normal		
 1SA	26	14	David			Normal		
 1SA	26	15	David			Normal		
 1SA	26	16	David			Normal		
@@ -4493,43 +4494,43 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	26	25	Saul			Normal		
 1SA	27	1	David	thought		Normal		
 1SA	27	5	David			Normal		
-1SA	27	10	Achish			Normal		
+1SA	27	10	Achish, king of Gath			Normal		
 1SA	27	10	David			Normal		
 1SA	27	11	David	thought		Normal		
-1SA	27	12	Achish	said to himself		Normal		
-1SA	28	1	Achish			Normal		
-1SA	28	2	Achish			Normal		
+1SA	27	12	Achish, king of Gath	said to himself		Normal		
+1SA	28	1	Achish, king of Gath			Normal		
+1SA	28	2	Achish, king of Gath			Normal		
 1SA	28	2	David			Normal		
-1SA	28	7	Saul (old)			Normal		
+1SA	28	7	Saul			Normal		
 1SA	28	7	Saul's attendants			Normal		
-1SA	28	8	Saul (old)			Normal		
+1SA	28	8	Saul			Normal		
 1SA	28	9	woman medium			Normal		
-1SA	28	10	Saul (old)			Normal		
+1SA	28	10	Saul			Normal		
 1SA	28	11	woman medium			Normal		
-1SA	28	11	Saul (old)			Normal		
+1SA	28	11	Saul			Normal		
 1SA	28	12	woman medium			Normal		
-1SA	28	13	Saul (old)			Normal		
+1SA	28	13	Saul			Normal		
 1SA	28	13	woman medium			Normal		
-1SA	28	14	Saul (old)			Normal		
+1SA	28	14	Saul			Normal		
 1SA	28	14	woman medium			Normal		
-1SA	28	15	Samuel (old)			Normal		
-1SA	28	15	Saul (old)			Normal		
-1SA	28	16	Samuel (old)			Normal		
-1SA	28	17	Samuel (old)			Normal		
-1SA	28	18	Samuel (old)			Normal		
-1SA	28	19	Samuel (old)			Normal		
+1SA	28	15	Samuel (dead)			Normal		
+1SA	28	15	Saul			Normal		
+1SA	28	16	Samuel (dead)			Normal		
+1SA	28	17	Samuel (dead)			Normal		
+1SA	28	18	Samuel (dead)			Normal		
+1SA	28	19	Samuel (dead)			Normal		
 1SA	28	21	woman medium			Normal		
 1SA	28	22	woman medium			Normal		
-1SA	28	23	Saul (old)			Normal		
-1SA	29	3	Achish			Normal		
+1SA	28	23	Saul			Normal		
+1SA	29	3	Achish, king of Gath			Normal		
 1SA	29	3	Philistine commanders			Normal		
 1SA	29	4	Philistine commanders			Normal		
 1SA	29	5	Philistine commanders			Normal		
-1SA	29	6	Achish			Normal		
-1SA	29	7	Achish			Normal		
+1SA	29	6	Achish, king of Gath			Normal		
+1SA	29	7	Achish, king of Gath			Normal		
 1SA	29	8	David			Normal		
-1SA	29	9	Achish			Normal		
-1SA	29	10	Achish			Normal		
+1SA	29	9	Achish, king of Gath			Normal		
+1SA	29	10	Achish, king of Gath			Normal		
 1SA	30	7	David			Normal		
 1SA	30	8	David			Normal		
 1SA	30	8	God		God (the LORD)	Normal		
@@ -4543,7 +4544,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	30	23	David			Normal		
 1SA	30	24	David			Normal		
 1SA	30	26	David			Normal		
-1SA	31	4	Saul (old)			Normal		
+1SA	31	4	Saul	critically wounded		Normal		
 2SA	1	3	David		David, king	Normal		
 2SA	1	3	man from Saul's camp (young)			Normal		
 2SA	1	4	David		David, king	Normal		
@@ -4573,25 +4574,25 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	2	5	David			Normal		
 2SA	2	6	David			Normal		
 2SA	2	7	David			Normal		
-2SA	2	14	Abner			Normal		
+2SA	2	14	Abner, commander of Saul's army			Normal		
 2SA	2	14	Joab			Normal		
-2SA	2	20	Abner			Normal		
+2SA	2	20	Abner, commander of Saul's army			Normal		
 2SA	2	20	Asahel, brother of Joab			Normal		
-2SA	2	21	Abner			Normal		
-2SA	2	22	Abner			Normal		
-2SA	2	26	Abner			Normal		
+2SA	2	21	Abner, commander of Saul's army			Normal		
+2SA	2	22	Abner, commander of Saul's army			Normal		
+2SA	2	26	Abner, commander of Saul's army			Normal		
 2SA	2	27	Joab			Normal		
 2SA	3	7	Ish-Bosheth, son of Saul			Normal		
-2SA	3	8	Abner			Normal		
-2SA	3	9	Abner			Normal		
-2SA	3	10	Abner			Normal		
-2SA	3	12	Abner			Normal		
+2SA	3	8	Abner, commander of Saul's army			Normal		
+2SA	3	9	Abner, commander of Saul's army			Normal		
+2SA	3	10	Abner, commander of Saul's army			Normal		
+2SA	3	12	Abner, commander of Saul's army			Normal		
 2SA	3	13	David			Normal		
 2SA	3	14	David			Normal		
-2SA	3	16	Abner			Normal		
-2SA	3	17	Abner			Normal		
-2SA	3	18	Abner			Normal		
-2SA	3	21	Abner			Normal		
+2SA	3	16	Abner, commander of Saul's army			Normal		
+2SA	3	17	Abner, commander of Saul's army			Normal		
+2SA	3	18	Abner, commander of Saul's army			Normal		
+2SA	3	21	Abner, commander of Saul's army			Normal		
 2SA	3	24	Joab			Normal		
 2SA	3	25	Joab			Normal		
 2SA	3	28	David		David, king	Normal		
@@ -4650,11 +4651,11 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	7	29	David		David, king	Normal		
 2SA	9	1	David		David, king	Normal		
 2SA	9	2	David		David, king	Dialogue		
-2SA	9	2	Ziba			Dialogue		
+2SA	9	2	Ziba, servant of Saul's household			Dialogue		
 2SA	9	3	David		David, king	Dialogue		
-2SA	9	3	Ziba			Dialogue		
+2SA	9	3	Ziba, servant of Saul's household			Dialogue		
 2SA	9	4	David		David, king	Dialogue		
-2SA	9	4	Ziba			Normal		
+2SA	9	4	Ziba, servant of Saul's household			Normal		
 2SA	9	5	David		David, king	Indirect		
 2SA	9	6	David		David, king	Dialogue		
 2SA	9	6	Mephibosheth			Dialogue		
@@ -4662,7 +4663,7 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	9	8	Mephibosheth			Dialogue		
 2SA	9	9	David		David, king	Dialogue		
 2SA	9	10	David		David, king	Dialogue		
-2SA	9	11	Ziba			Dialogue		
+2SA	9	11	Ziba, servant of Saul's household			Dialogue		
 2SA	10	2	David	thought	David, king	Normal		
 2SA	10	3	Ammonite nobles			Normal		
 2SA	10	5	David		David, king	Normal		
@@ -4706,25 +4707,25 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	12	23	David		David, king	Normal		
 2SA	12	27	Joab			Normal		
 2SA	12	28	Joab			Normal		
-2SA	13	4	Amnon			Normal		
+2SA	13	4	Amnon, son of David			Normal		
 2SA	13	4	Jonadab	shrewd		Normal		
 2SA	13	5	Jonadab	shrewd		Normal		
-2SA	13	6	Amnon			Normal		
+2SA	13	6	Amnon, son of David			Normal		
 2SA	13	7	David		David, king	Normal		
-2SA	13	9	Amnon			Normal		
-2SA	13	10	Amnon			Normal		
-2SA	13	11	Amnon			Normal		
+2SA	13	9	Amnon, son of David			Normal		
+2SA	13	10	Amnon, son of David			Normal		
+2SA	13	11	Amnon, son of David			Normal		
 2SA	13	12	Tamar, daughter of David			Normal		
 2SA	13	13	Tamar, daughter of David			Normal		
-2SA	13	15	Amnon			Normal		
+2SA	13	15	Amnon, son of David			Normal		
 2SA	13	16	Tamar, daughter of David			Normal		
-2SA	13	17	Amnon			Normal		
-2SA	13	20	Absalom			Normal		
-2SA	13	24	Absalom			Normal		
+2SA	13	17	Amnon, son of David			Normal		
+2SA	13	20	Absalom, son of David			Normal		
+2SA	13	24	Absalom, son of David			Normal		
 2SA	13	25	David		David, king	Normal		
-2SA	13	26	Absalom			Normal		
+2SA	13	26	Absalom, son of David			Normal		
 2SA	13	26	David		David, king	Normal		
-2SA	13	28	Absalom			Normal		
+2SA	13	28	Absalom, son of David			Normal		
 2SA	13	30	man reporting to David			Normal		
 2SA	13	32	Jonadab	shrewd		Normal		
 2SA	13	33	Jonadab	shrewd		Normal		
@@ -4757,17 +4758,17 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	14	21	David		David, king	Dialogue		
 2SA	14	22	Joab			Dialogue		
 2SA	14	24	David		David, king	Indirect		
-2SA	14	30	Absalom			Dialogue		
+2SA	14	30	Absalom, son of David			Dialogue		
 2SA	14	31	Joab			Dialogue		
-2SA	14	32	Absalom			Dialogue		
+2SA	14	32	Absalom, son of David			Dialogue		
 2SA	14	33	Joab			Indirect		
 2SA	14	33	David		David, king	Indirect		
-2SA	15	2	Absalom			Normal		
+2SA	15	2	Absalom, son of David			Normal		
 2SA	15	2	anyone with complaint for king			Normal		
-2SA	15	3	Absalom			Normal		
-2SA	15	4	Absalom			Normal		
-2SA	15	7	Absalom			Normal		
-2SA	15	8	Absalom			Normal		
+2SA	15	3	Absalom, son of David			Normal		
+2SA	15	4	Absalom, son of David			Normal		
+2SA	15	7	Absalom, son of David			Normal		
+2SA	15	8	Absalom, son of David			Normal		
 2SA	15	9	David		David, king	Normal		
 2SA	15	10	Absalom's secret messengers			Normal		
 2SA	15	13	messenger to David			Normal		
@@ -4788,11 +4789,11 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	15	35	David		David, king	Normal		
 2SA	15	36	David		David, king	Normal		
 2SA	16	2	David		David, king	Dialogue		
-2SA	16	2	Ziba			Dialogue		
+2SA	16	2	Ziba, servant of Saul's household			Dialogue		
 2SA	16	3	David		David, king	Dialogue		
-2SA	16	3	Ziba			Dialogue		
+2SA	16	3	Ziba, servant of Saul's household			Dialogue		
 2SA	16	4	David		David, king	Dialogue		
-2SA	16	4	Ziba			Dialogue		
+2SA	16	4	Ziba, servant of Saul's household			Dialogue		
 2SA	16	7	Shimei			Normal		
 2SA	16	8	Shimei			Normal		
 2SA	16	9	Abishai, Joab's brother			Normal		
@@ -4800,16 +4801,16 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	16	11	David		David, king	Normal		
 2SA	16	12	David		David, king	Normal		
 2SA	16	16	Hushai, David's friend			Normal		
-2SA	16	17	Absalom			Dialogue		
+2SA	16	17	Absalom, son of David			Dialogue		
 2SA	16	18	Hushai, David's friend			Dialogue		
 2SA	16	19	Hushai, David's friend			Dialogue		
-2SA	16	20	Absalom			Dialogue		
+2SA	16	20	Absalom, son of David			Dialogue		
 2SA	16	21	Ahithophel			Dialogue		
 2SA	17	1	Ahithophel			Normal		
 2SA	17	2	Ahithophel			Normal		
 2SA	17	3	Ahithophel			Normal		
-2SA	17	5	Absalom			Normal		
-2SA	17	6	Absalom			Normal		
+2SA	17	5	Absalom, son of David			Normal		
+2SA	17	6	Absalom, son of David			Normal		
 2SA	17	7	Hushai, David's friend			Normal		
 2SA	17	8	Hushai, David's friend			Normal		
 2SA	17	9	Hushai, David's friend			Normal		
@@ -4817,7 +4818,7 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	17	11	Hushai, David's friend			Normal		
 2SA	17	12	Hushai, David's friend			Normal		
 2SA	17	13	Hushai, David's friend			Normal		
-2SA	17	14	Absalom/Israel, men of			Normal	Absalom	
+2SA	17	14	Absalom, son of David/Israel, men of			Normal	Absalom, son of David	
 2SA	17	15	Hushai, David's friend			Normal		
 2SA	17	16	Hushai, David's friend			Normal		
 2SA	17	20	Absalom's men			Normal		
@@ -4833,7 +4834,7 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	18	12	men of David, one			Normal		
 2SA	18	13	men of David, one			Normal		
 2SA	18	14	Joab			Normal		
-2SA	18	18	Absalom			Normal		
+2SA	18	18	Absalom, son of David			Normal		
 2SA	18	19	Ahimaaz (messenger)			Normal		
 2SA	18	20	Joab			Normal		
 2SA	18	21	Joab			Normal		
@@ -4994,7 +4995,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	1	12	Nathan		Nathan, the prophet	Normal		
 1KI	1	13	Nathan		Nathan, the prophet	Normal		
 1KI	1	14	Nathan		Nathan, the prophet	Normal		
-1KI	1	16	David	very old	David, king	Normal		
+1KI	1	16	David (old)	very old	David, king	Normal		
 1KI	1	17	Bathsheba			Normal		
 1KI	1	18	Bathsheba			Normal		
 1KI	1	19	Bathsheba			Normal		
@@ -5005,14 +5006,14 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	1	25	Nathan		Nathan, the prophet	Normal		
 1KI	1	26	Nathan		Nathan, the prophet	Normal		
 1KI	1	27	Nathan		Nathan, the prophet	Normal		
-1KI	1	28	David	very old	David, king	Normal		
-1KI	1	29	David	very old	David, king	Normal		
-1KI	1	30	David	very old	David, king	Normal		
+1KI	1	28	David (old)	very old	David, king	Normal		
+1KI	1	29	David (old)	very old	David, king	Normal		
+1KI	1	30	David (old)	very old	David, king	Normal		
 1KI	1	31	Bathsheba			Normal		
-1KI	1	32	David	very old	David, king	Normal		
-1KI	1	33	David	very old	David, king	Normal		
-1KI	1	34	David	very old	David, king	Normal		
-1KI	1	35	David	very old	David, king	Normal		
+1KI	1	32	David (old)	very old	David, king	Normal		
+1KI	1	33	David (old)	very old	David, king	Normal		
+1KI	1	34	David (old)	very old	David, king	Normal		
+1KI	1	35	David (old)	very old	David, king	Normal		
 1KI	1	36	Benaiah, son of Jehoiada			Normal		
 1KI	1	37	Benaiah, son of Jehoiada			Normal		
 1KI	1	39	people, all the	shouting		Normal		
@@ -5027,14 +5028,14 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	1	51	informer		informer (to Solomon)	Normal		
 1KI	1	52	Solomon, king			Normal		
 1KI	1	53	Solomon, king			Normal		
-1KI	2	2	David	very old	David, king	Normal		
-1KI	2	3	David	very old	David, king	Normal		
-1KI	2	4	David	very old	David, king	Normal		
-1KI	2	5	David	very old	David, king	Normal		
-1KI	2	6	David	very old	David, king	Normal		
-1KI	2	7	David	very old	David, king	Normal		
-1KI	2	8	David	very old	David, king	Normal		
-1KI	2	9	David	very old	David, king	Normal		
+1KI	2	2	David (old)	very old	David, king	Normal		
+1KI	2	3	David (old)	very old	David, king	Normal		
+1KI	2	4	David (old)	very old	David, king	Normal		
+1KI	2	5	David (old)	very old	David, king	Normal		
+1KI	2	6	David (old)	very old	David, king	Normal		
+1KI	2	7	David (old)	very old	David, king	Normal		
+1KI	2	8	David (old)	very old	David, king	Normal		
+1KI	2	9	David (old)	very old	David, king	Normal		
 1KI	2	13	Adonijah, son of David			Normal		
 1KI	2	13	Bathsheba			Normal		
 1KI	2	14	Adonijah, son of David			Normal		
@@ -5159,7 +5160,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	11	13	God		God (the LORD)	Normal		
 1KI	11	21	Hadad the Edomite			Normal		
 1KI	11	22	Hadad the Edomite			Normal		
-1KI	11	22	Pharaoh (3rd)		Pharaoh	Normal		
+1KI	11	22	Pharaoh (6th)		Pharaoh	Normal		
 1KI	11	31	Ahijah, the prophet	word of the LORD		Normal		
 1KI	11	32	Ahijah, the prophet	word of the LORD		Normal		
 1KI	11	33	Ahijah, the prophet	word of the LORD		Normal		
@@ -5170,14 +5171,14 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	11	38	Ahijah, the prophet	word of the LORD		Normal		
 1KI	11	39	Ahijah, the prophet	word of the LORD		Normal		
 1KI	12	4	Jereboam/all Israel			Normal		
-1KI	12	5	Rehoboam		Rehoboam, king	Normal		
-1KI	12	6	Rehoboam		Rehoboam, king	Normal		
+1KI	12	5	Rehoboam, king			Normal		
+1KI	12	6	Rehoboam, king			Normal		
 1KI	12	7	elders			Normal		
-1KI	12	9	Rehoboam		Rehoboam, king	Normal		
+1KI	12	9	Rehoboam, king			Normal		
 1KI	12	10	young men (advisors of Rehoboam)			Normal		1KI 12.10;2CH 10.10
 1KI	12	11	young men (advisors of Rehoboam)			Normal		1KI 12.11;2CH 10.11
-1KI	12	12	Rehoboam		Rehoboam, king	Quotation	narrator-1KI	
-1KI	12	14	Rehoboam		Rehoboam, king	Normal		
+1KI	12	12	Rehoboam, king			Quotation	narrator-1KI	
+1KI	12	14	Rehoboam, king			Normal		
 1KI	12	16	Israel, all			Normal		
 1KI	12	23	God		God (the LORD)(word of the LORD came)	Normal		
 1KI	12	24	God		God (the LORD)(word of the LORD came)	Normal		
@@ -5194,11 +5195,11 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	13	12	prophet in Bethel			Normal		
 1KI	13	13	prophet in Bethel			Normal		
 1KI	13	14	man of God from Judah			Normal		
-1KI	13	14	prophet in Bethel			Normal		
-1KI	13	15	prophet in Bethel			Normal		
+1KI	13	14	prophet in Bethel	deceitful		Normal		
+1KI	13	15	prophet in Bethel	deceitful		Normal		
 1KI	13	16	man of God from Judah			Normal		
 1KI	13	17	man of God from Judah			Normal		
-1KI	13	18	prophet in Bethel			Normal		
+1KI	13	18	prophet in Bethel	deceitful		Normal		
 1KI	13	21	prophet in Bethel	word of the LORD		Normal		
 1KI	13	22	prophet in Bethel	word of the LORD		Normal		
 1KI	13	26	prophet in Bethel			Normal		
@@ -5296,7 +5297,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	20	5	messengers of Ben-Hadad. king of Aram			Normal		
 1KI	20	6	messengers of Ben-Hadad. king of Aram			Normal		
 1KI	20	7	Ahab, king of Israel			Normal		
-1KI	20	8	elders/people			Normal		
+1KI	20	8	elders/people of Israel			Normal		
 1KI	20	9	Ahab, king of Israel			Normal		
 1KI	20	10	messengers of Ben-Hadad. king of Aram			Normal		
 1KI	20	11	Ahab, king of Israel			Normal		
@@ -5333,7 +5334,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	21	9	Jezebel			Normal		
 1KI	21	10	Jezebel			Normal		
 1KI	21	13	scoundrels			Normal		
-1KI	21	14	elders/people		elders/nobles of city	Normal		
+1KI	21	14	messengers to Jezebel			Normal		
 1KI	21	15	Jezebel			Normal		
 1KI	21	18	God		God (the LORD)(word of the LORD came)	Normal		
 1KI	21	19	God		God (the LORD)(word of the LORD came)	Normal		
@@ -5363,7 +5364,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	22	16	Ahab, king of Israel			Normal		
 1KI	22	17	Micaiah, prophet of the LORD			Normal		
 1KI	22	18	Ahab, king of Israel			Normal		
-1KI	22	19	Micaiah, prophet of the LORD	word of the LORD		Normal		
+1KI	22	19	Micaiah, prophet of the LORD			Normal		
 1KI	22	20	Micaiah, prophet of the LORD			Normal		
 1KI	22	21	Micaiah, prophet of the LORD			Normal		
 1KI	22	22	Micaiah, prophet of the LORD			Normal		
@@ -5415,7 +5416,7 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	2	16	Elisha			Normal		
 2KI	2	17	Elisha			Normal		
 2KI	2	18	Elisha			Normal		
-2KI	2	19	men of the city (Jericho)			Normal		
+2KI	2	19	men of Jericho			Normal		
 2KI	2	20	Elisha			Normal		
 2KI	2	21	Elisha		Elisha (the LORD says)	Normal		
 2KI	2	23	youths	jeering		Normal		
@@ -5444,28 +5445,28 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	4	6	son of widow			Dialogue		
 2KI	4	6	widow (from company of prophets)			Dialogue		
 2KI	4	7	Elisha			Dialogue		
-2KI	4	9	woman, Shunammite	well-to-do		Normal		
-2KI	4	10	woman, Shunammite	well-to-do		Normal		
+2KI	4	9	Shunammite woman			Normal		
+2KI	4	10	Shunammite woman			Normal		
 2KI	4	12	Elisha			Dialogue		
 2KI	4	13	Elisha			Dialogue		
-2KI	4	13	woman, Shunammite	well-to-do		Dialogue		
+2KI	4	13	Shunammite woman			Dialogue		
 2KI	4	14	Elisha			Dialogue		
 2KI	4	14	Gehazi		Gehazi, servant of Elisha	Dialogue		
 2KI	4	15	Elisha			Dialogue		
 2KI	4	16	Elisha			Dialogue		
-2KI	4	16	woman, Shunammite	well-to-do		Dialogue		
+2KI	4	16	Shunammite woman			Dialogue		
 2KI	4	19	husband of Shunammite		father (husband of Shunammite)	Normal		
 2KI	4	19	son of Shunammite			Normal		
-2KI	4	22	woman, Shunammite	well-to-do		Dialogue		
+2KI	4	22	Shunammite woman			Dialogue		
 2KI	4	23	husband of Shunammite			Dialogue		
-2KI	4	23	woman, Shunammite	well-to-do		Dialogue		
-2KI	4	24	woman, Shunammite	well-to-do		Dialogue		
+2KI	4	23	Shunammite woman			Dialogue		
+2KI	4	24	Shunammite woman			Dialogue		
 2KI	4	25	Elisha			Normal		
-2KI	4	26	woman, Shunammite	well-to-do		Normal		
+2KI	4	26	Shunammite woman			Normal		
 2KI	4	27	Elisha			Dialogue		
-2KI	4	28	woman, Shunammite	well-to-do		Dialogue		
+2KI	4	28	Shunammite woman			Dialogue		
 2KI	4	29	Elisha			Normal		
-2KI	4	30	woman, Shunammite	well-to-do		Dialogue		
+2KI	4	30	Shunammite woman			Dialogue		
 2KI	4	31	Gehazi		Gehazi, servant of Elisha	Normal		
 2KI	4	36	Elisha			Normal		
 2KI	4	38	Elisha			Normal		
@@ -5498,6 +5499,7 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	5	27	Elisha			Normal		
 2KI	6	1	company of the prophets			Normal		
 2KI	6	2	Elisha			Normal		
+2KI	6	2	company of the prophets			Normal		
 2KI	6	3	company of the prophets		company of the prophets, one of	Normal		
 2KI	6	3	Elisha			Normal		
 2KI	6	5	company of the prophets		company of the prophets, one of	Normal		
@@ -5613,24 +5615,24 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	10	24	Jehu, son of Nimshi			Normal		
 2KI	10	25	Jehu, son of Nimshi			Normal		
 2KI	10	30	God		God (the LORD)	Normal		
-2KI	11	5	Jehoiada		Jehoiada the priest	Normal		
-2KI	11	6	Jehoiada		Jehoiada the priest	Normal		
-2KI	11	7	Jehoiada		Jehoiada the priest	Normal		
-2KI	11	8	Jehoiada		Jehoiada the priest	Normal		
+2KI	11	5	Jehoiada the priest			Normal		
+2KI	11	6	Jehoiada the priest			Normal		
+2KI	11	7	Jehoiada the priest			Normal		
+2KI	11	8	Jehoiada the priest			Normal		
 2KI	11	12	people at coronation of King Joash	shouting		Normal		
 2KI	11	14	Athaliah, mother of Ahaziah (Queen)		Athaliah	Normal		
-2KI	11	15	Jehoiada		Jehoiada the priest	Normal		
+2KI	11	15	Jehoiada the priest			Normal		
 2KI	12	4	Joash, king of Judah			Normal		
 2KI	12	5	Joash, king of Judah			Normal		
 2KI	12	7	Joash, king of Judah			Normal		
 2KI	13	14	Jehoash, king of Israel			Normal		
-2KI	13	15	Elisha			Normal		
-2KI	13	16	Elisha			Normal		
-2KI	13	17	Elisha			Normal		
-2KI	13	18	Elisha			Normal		
-2KI	13	19	Elisha			Normal		
+2KI	13	15	Elisha (old)			Normal		
+2KI	13	16	Elisha (old)			Normal		
+2KI	13	17	Elisha (old)			Normal		
+2KI	13	18	Elisha (old)			Normal		
+2KI	13	19	Elisha (old)			Normal		
 2KI	14	6	law of Moses where LORD commanded			Normal		
-2KI	14	8	Amaziah		Amaziah, king of Judah	Normal		
+2KI	14	8	Amaziah, king of Judah			Normal		
 2KI	14	9	Jehoash, king of Israel			Normal		
 2KI	14	10	Jehoash, king of Israel			Normal		
 2KI	15	12	God		word of the LORD fulfilled	Normal		
@@ -5732,7 +5734,7 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	22	19	Huldah, prophetess		Huldah, prophetess (the LORD says)	Normal		
 2KI	22	20	Huldah, prophetess		Huldah, prophetess (the LORD says)	Normal		
 2KI	23	17	Josiah, king of Judah			Normal		
-2KI	23	17	men of the city (Bethel)			Normal		
+2KI	23	17	men of Bethel			Normal		
 2KI	23	18	Josiah, king of Judah			Normal		
 2KI	23	21	Josiah, king of Judah			Normal		
 2KI	23	27	God		God (the LORD)	Normal		
@@ -5748,7 +5750,7 @@ RUT	4	17	women of Bethlehem			Normal
 1CH	11	19	David			Normal		
 1CH	12	17	David			Normal		
 1CH	12	18	Amasai, chief of thirty (Spirit came upon)			Normal		
-1CH	12	19	Philistines, rulers of			Normal		
+1CH	12	19	Philistine rulers			Normal		
 1CH	13	2	David		David, king	Normal		
 1CH	13	3	David		David, king	Normal		
 1CH	13	12	David		David, king	Normal		
@@ -5960,19 +5962,19 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	9	7	queen of Sheba			Normal		
 2CH	9	8	queen of Sheba			Normal		
 2CH	10	4	Jeroboam/Israel, all			Normal	Jeroboam	
-2CH	10	5	Rehoboam		Rehoboam, king	Normal		
-2CH	10	6	Rehoboam		Rehoboam, king	Normal		
+2CH	10	5	Rehoboam, king			Normal		
+2CH	10	6	Rehoboam, king			Normal		
 2CH	10	7	elders			Normal		
-2CH	10	9	Rehoboam		Rehoboam, king	Normal		
+2CH	10	9	Rehoboam, king			Normal		
 2CH	10	10	young men (advisors of Rehoboam)			Normal		1KI 12.10;2CH 10.10
 2CH	10	11	young men (advisors of Rehoboam)			Normal		1KI 12.11;2CH 10.11
-2CH	10	12	Rehoboam		King Rehoboam	Quotation	narrator-2CH	
-2CH	10	14	Rehoboam		Rehoboam, king	Normal		
+2CH	10	12	Rehoboam, king			Quotation	narrator-2CH	
+2CH	10	14	Rehoboam, king			Normal		
 2CH	10	16	Israel, all			Normal		
 2CH	11	3	God		word of the LORD came to Shemaiah	Normal		
 2CH	11	4	God		word of the LORD came to Shemaiah	Normal		
 2CH	12	5	Shemaiah		Shemaiah, prophet (the LORD says)	Normal		
-2CH	12	6	Israel, leaders of/King Rehoboam			Normal		
+2CH	12	6	Israel, leaders of/Rehoboam, king			Normal		
 2CH	12	7	God		word of the LORD came to Shemaiah	Normal		
 2CH	12	8	God		word of the LORD came to Shemaiah	Normal		
 2CH	13	4	Abijah, king of Judah			Normal		
@@ -5993,9 +5995,9 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	15	6	Azariah, son of Oded			Normal		
 2CH	15	7	Azariah, son of Oded			Normal		
 2CH	16	3	Asa, king of Judah			Normal		
-2CH	16	7	Hanani		Hanani the seer	Normal		
-2CH	16	8	Hanani		Hanani the seer	Normal		
-2CH	16	9	Hanani		Hanani the seer	Normal		
+2CH	16	7	Hanani the seer			Normal		
+2CH	16	8	Hanani the seer			Normal		
+2CH	16	9	Hanani the seer			Normal		
 2CH	18	3	Ahab, king of Israel			Normal		
 2CH	18	3	Jehoshaphat, king of Judah			Normal		
 2CH	18	4	Jehoshaphat, king of Judah			Normal		
@@ -6054,27 +6056,27 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	21	14	Elijah	letter	Elijah the prophet	Normal		
 2CH	21	15	Elijah	letter	Elijah the prophet	Normal		
 2CH	22	9	men, some			Normal		
-2CH	23	3	Jehoiada		Jehoiada the priest	Normal		
-2CH	23	4	Jehoiada		Jehoiada the priest	Normal		
-2CH	23	5	Jehoiada		Jehoiada the priest	Normal		
-2CH	23	6	Jehoiada		Jehoiada the priest	Normal		
-2CH	23	7	Jehoiada		Jehoiada the priest	Normal		
-2CH	23	11	Jehoiada		Jehoiada the priest/his sons	Normal		
+2CH	23	3	Jehoiada the priest			Normal		
+2CH	23	4	Jehoiada the priest			Normal		
+2CH	23	5	Jehoiada the priest			Normal		
+2CH	23	6	Jehoiada the priest			Normal		
+2CH	23	7	Jehoiada the priest			Normal		
+2CH	23	11	Jehoiada the priest/Johoiada's sons			Normal	Jehoiada the priest	
 2CH	23	13	Athaliah, mother of Ahaziah (Queen)	angry	Athaliah, queen	Normal		
-2CH	23	14	Jehoiada		Jehoiada the priest	Normal		
+2CH	23	14	Jehoiada the priest			Normal		
 2CH	24	5	Joash, king of Judah			Normal		
 2CH	24	6	Joash, king of Judah			Normal		
-2CH	24	20	Zechariah		Zechariah, son of Jehoiada the priest (Spirit of God upon)	Normal		
-2CH	24	22	Zechariah		Zechariah, son of Jehoiada the priest	Normal		
-2CH	25	4	law of Moses where LORD commanded			Normal		
+2CH	24	20	Zechariah, son of Jehoiada the priest			Normal		
+2CH	24	22	Zechariah, son of Jehoiada the priest			Normal		
+2CH	25	4	scripture		scripture (law of Moses)	Quotation	Moses	
 2CH	25	7	man of God (prophet to Amaziah)			Normal		
 2CH	25	8	man of God (prophet to Amaziah)			Normal		
-2CH	25	9	Amaziah		Amaziah, king of Judah	Normal		
+2CH	25	9	Amaziah, king of Judah			Normal		
 2CH	25	9	man of God (prophet to Amaziah)			Normal		
 2CH	25	15	prophet of the LORD		prophet, a	Normal		
-2CH	25	16	Amaziah		Amaziah, king of Judah	Normal		
+2CH	25	16	Amaziah, king of Judah			Normal		
 2CH	25	16	prophet of the LORD		prophet, a	Normal		
-2CH	25	17	Amaziah		Amaziah, king of Judah	Normal		
+2CH	25	17	Amaziah, king of Judah			Normal		
 2CH	25	18	Jehoash, king of Israel			Normal		
 2CH	25	19	Jehoash, king of Israel			Normal		
 2CH	26	18	Azariah the priest/eighty other priests	courageous		Normal	Azariah the priest	
@@ -6141,7 +6143,7 @@ EZR	1	2	Cyrus, king of Persia	written proclamation		Implicit
 EZR	1	3	Cyrus, king of Persia	written proclamation		Implicit		
 EZR	1	4	Cyrus, king of Persia	written proclamation		Implicit		
 EZR	3	11	priests/Levites	singing		Normal		
-EZR	4	2	Sanballat		Enemies of Judah and Benjamin	Normal		
+EZR	4	2	enemies of Judah and Benjamin			Normal		
 EZR	4	3	Zerubbabel/Jeshua/rest of heads of families			Normal		
 EZR	4	9	Rehum, commanding officer/Shimshai, secretary	letter		Implicit		
 EZR	4	10	Rehum, commanding officer/Shimshai, secretary	letter		Implicit		
@@ -6156,6 +6158,7 @@ EZR	4	18	Artaxerxes, king of Persia	letter		Implicit
 EZR	4	19	Artaxerxes, king of Persia	letter		Implicit		
 EZR	4	20	Artaxerxes, king of Persia	letter		Implicit		
 EZR	4	21	Artaxerxes, king of Persia	letter		Implicit		
+EZR	4	22	Artaxerxes, king of Persia	letter		Implicit		
 EZR	5	3	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates			Normal		
 EZR	5	4	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates			Normal		
 EZR	5	7	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Potential		
@@ -6169,17 +6172,17 @@ EZR	5	14	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter	
 EZR	5	15	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Implicit		
 EZR	5	16	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Implicit		
 EZR	5	17	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Implicit		
-EZR	6	2	Darius	decree	Darius, king	Potential		
-EZR	6	3	Darius	decree	Darius, king	Implicit		
-EZR	6	4	Darius	decree	Darius, king	Implicit		
-EZR	6	5	Darius	decree	Darius, king	Implicit		
-EZR	6	6	Darius	decree	Darius, king	Implicit		
-EZR	6	7	Darius	decree	Darius, king	Implicit		
-EZR	6	8	Darius	decree	Darius, king	Implicit		
-EZR	6	9	Darius	decree	Darius, king	Implicit		
-EZR	6	10	Darius	decree	Darius, king	Implicit		
-EZR	6	11	Darius	decree	Darius, king	Implicit		
-EZR	6	12	Darius	decree	Darius, king	Implicit		
+EZR	6	2	Darius, king	decree		Potential		
+EZR	6	3	Darius, king	decree		Implicit		
+EZR	6	4	Darius, king	decree		Implicit		
+EZR	6	5	Darius, king	decree		Implicit		
+EZR	6	6	Darius, king	decree		Implicit		
+EZR	6	7	Darius, king	decree		Implicit		
+EZR	6	8	Darius, king	decree		Implicit		
+EZR	6	9	Darius, king	decree		Implicit		
+EZR	6	10	Darius, king	decree		Implicit		
+EZR	6	11	Darius, king	decree		Implicit		
+EZR	6	12	Darius, king	decree		Implicit		
 EZR	7	12	Artaxerxes, king of Persia	letter		Implicit		
 EZR	7	13	Artaxerxes, king of Persia	letter		Implicit		
 EZR	7	14	Artaxerxes, king of Persia	letter		Implicit		
@@ -6224,7 +6227,7 @@ EZR	10	11	Ezra, priest and teacher			Normal
 EZR	10	12	assembly, whole			Normal		
 EZR	10	13	assembly, whole			Normal		
 EZR	10	14	assembly, whole			Normal		
-NEH	1	3	Hanani		Hanani, brother of Nehemiah/men of Judah, some	Normal		
+NEH	1	3	Hanani, brother of Nehemiah/men of Judah, some			Normal		
 NEH	1	5	Nehemiah	praying		Normal		
 NEH	1	6	Nehemiah	praying		Normal		
 NEH	1	7	Nehemiah	praying		Normal		
@@ -6243,16 +6246,16 @@ NEH	2	17	Nehemiah			Normal
 NEH	2	18	Jews/priests/nobles/officials			Normal		
 NEH	2	19	Sanballat/Tobiah/Geshem, enemies	mocking		Normal	Sanballat	
 NEH	2	20	Nehemiah			Normal		
-NEH	4	2	Sanballat	angry	Sanballat, enemy	Normal		
+NEH	4	2	Sanballat	angry		Normal		
 NEH	4	3	Tobiah, enemy	mocking		Normal		
 NEH	4	10	Judah, people in			Normal		
-NEH	4	11	Sanballat		Enemies of Judah and Benjamin	Normal		
+NEH	4	11	enemies of Judah and Benjamin			Normal	Sanballat	
 NEH	4	12	Jews, the	desperate		Normal		
 NEH	4	14	Nehemiah			Normal		
 NEH	4	19	Nehemiah			Normal		
 NEH	4	20	Nehemiah			Normal		
 NEH	4	22	Nehemiah			Normal		
-NEH	5	2	men/their wives	desperate		Normal		
+NEH	5	2	men/their wives, some	desperate		Normal		
 NEH	5	3	men/their wives, other	desperate		Normal		
 NEH	5	4	men/wives, still others	desperate		Normal		
 NEH	5	5	men/wives, still others	desperate		Normal		
@@ -6266,8 +6269,8 @@ NEH	5	13	assembly, whole			Normal
 NEH	5	13	Nehemiah			Normal		
 NEH	6	2	Sanballat/Geshem, enemies	message, scheming		Normal	Sanballat	
 NEH	6	3	Nehemiah	message		Normal		
-NEH	6	6	Sanballat	letter	Sanballat, enemy	Normal		
-NEH	6	7	Sanballat	letter	Sanballat, enemy	Normal		
+NEH	6	6	Sanballat	letter		Normal		
+NEH	6	7	Sanballat	letter		Normal		
 NEH	6	8	Nehemiah	message		Normal		
 NEH	6	9	Nehemiah	praying		Normal		
 NEH	6	9	Sanballat/Geshem, enemies	thinking		Normal	Sanballat	
@@ -10704,17 +10707,17 @@ DAN	6	5	Satraps			Normal
 DAN	6	6	Satraps/Administrators			Normal	Satraps	
 DAN	6	7	Satraps/Administrators			Normal	Satraps	
 DAN	6	8	Satraps/Administrators			Normal	Satraps	
-DAN	6	12	Darius		Darius, king of Medes and Persians	Normal		
+DAN	6	12	Darius, king of Medes and Persians			Normal		
 DAN	6	12	Satraps/Administrators			Normal	Satraps	
 DAN	6	13	Satraps/Administrators			Normal	Satraps	
 DAN	6	15	Satraps/Administrators			Normal	Satraps	
-DAN	6	16	Darius		Darius, king of Medes and Persians	Normal		
-DAN	6	20	Darius		Darius, king of Medes and Persians	Normal		
+DAN	6	16	Darius, king of Medes and Persians			Normal		
+DAN	6	20	Darius, king of Medes and Persians			Normal		
 DAN	6	21	Daniel			Normal		
 DAN	6	22	Daniel			Normal		
-DAN	6	25	Darius	letter	Darius, king of Medes and Persians	Normal		
-DAN	6	26	Darius	letter	Darius, king of Medes and Persians	Normal		
-DAN	6	27	Darius	letter	Darius, king of Medes and Persians	Normal		
+DAN	6	25	Darius, king of Medes and Persians	letter		Normal		
+DAN	6	26	Darius, king of Medes and Persians	letter		Normal		
+DAN	6	27	Darius, king of Medes and Persians	letter		Normal		
 DAN	7	2	Daniel	vision		Normal		
 DAN	7	3	Daniel	vision		Normal		
 DAN	7	4	Daniel	vision		Normal		
@@ -11105,10 +11108,10 @@ AMO	7	6	God		God (The Sovereign LORD)	Normal
 AMO	7	8	Amos			Normal		
 AMO	7	8	God		God (the LORD)	Normal		
 AMO	7	9	God		God (the LORD)	Normal		
-AMO	7	10	Amaziah		Amaziah, priest of Bethel	Normal		
-AMO	7	11	Amaziah		Amaziah, priest of Bethel	Normal		
-AMO	7	12	Amaziah		Amaziah, priest of Bethel	Normal		
-AMO	7	13	Amaziah		Amaziah, priest of Bethel	Normal		
+AMO	7	10	Amaziah, priest of Bethel			Normal		
+AMO	7	11	Amaziah, priest of Bethel			Normal		
+AMO	7	12	Amaziah, priest of Bethel			Normal		
+AMO	7	13	Amaziah, priest of Bethel			Normal		
 AMO	7	14	Amos			Normal		
 AMO	7	15	Amos			Normal		
 AMO	7	16	Amos			Normal		
@@ -12909,7 +12912,7 @@ LUK	1	14	angel of the LORD, an			Normal
 LUK	1	15	angel of the LORD, an			Normal		
 LUK	1	16	angel of the LORD, an			Normal		
 LUK	1	17	angel of the LORD, an			Normal		
-LUK	1	18	Zechariah			Dialogue		
+LUK	1	18	Zacharias (Zechariah)			Dialogue		
 LUK	1	19	angel of the LORD, an			Dialogue		
 LUK	1	20	angel of the LORD, an			Normal		
 LUK	1	21	people	wondering		Indirect		
@@ -12939,27 +12942,27 @@ LUK	1	52	Mary, Jesus' mother			Normal
 LUK	1	53	Mary, Jesus' mother			Normal		
 LUK	1	54	Mary, Jesus' mother			Normal		
 LUK	1	55	Mary, Jesus' mother			Normal		
-LUK	1	58	neighbors/relatives of Zechariah/Elizabeth			Indirect		
-LUK	1	59	neighbors/relatives of Zechariah/Elizabeth			Indirect		
+LUK	1	58	neighbors/relatives of Zacharias (Zechariah)/Elizabeth			Indirect		
+LUK	1	59	neighbors/relatives of Zacharias (Zechariah)/Elizabeth			Indirect		
 LUK	1	60	Elizabeth			Dialogue		
-LUK	1	61	neighbors/relatives of Zechariah/Elizabeth			Dialogue		
-LUK	1	62	neighbors/relatives of Zechariah/Elizabeth			Indirect		
+LUK	1	61	neighbors/relatives of Zacharias (Zechariah)/Elizabeth			Dialogue		
+LUK	1	62	neighbors/relatives of Zacharias (Zechariah)/Elizabeth			Indirect		
 LUK	1	63	narrator-LUK			Quotation		
-LUK	1	64	Zechariah			Indirect		
+LUK	1	64	Zacharias (Zechariah)			Indirect		
 LUK	1	65	everyone in Judean hills who heard			Indirect		
 LUK	1	66	everyone in Judean hills who heard			Normal		
-LUK	1	68	Zechariah	praising		Normal		
-LUK	1	69	Zechariah	praising		Normal		
-LUK	1	70	Zechariah	praising		Normal		
-LUK	1	71	Zechariah	praising		Normal		
-LUK	1	72	Zechariah	praising		Normal		
-LUK	1	73	Zechariah	praising		Normal		
-LUK	1	74	Zechariah	praising		Normal		
-LUK	1	75	Zechariah	praising		Normal		
-LUK	1	76	Zechariah	praising		Normal		
-LUK	1	77	Zechariah	praising		Normal		
-LUK	1	78	Zechariah	praising		Normal		
-LUK	1	79	Zechariah	praising		Normal		
+LUK	1	68	Zacharias (Zechariah)	praising		Normal		
+LUK	1	69	Zacharias (Zechariah)	praising		Normal		
+LUK	1	70	Zacharias (Zechariah)	praising		Normal		
+LUK	1	71	Zacharias (Zechariah)	praising		Normal		
+LUK	1	72	Zacharias (Zechariah)	praising		Normal		
+LUK	1	73	Zacharias (Zechariah)	praising		Normal		
+LUK	1	74	Zacharias (Zechariah)	praising		Normal		
+LUK	1	75	Zacharias (Zechariah)	praising		Normal		
+LUK	1	76	Zacharias (Zechariah)	praising		Normal		
+LUK	1	77	Zacharias (Zechariah)	praising		Normal		
+LUK	1	78	Zacharias (Zechariah)	praising		Normal		
+LUK	1	79	Zacharias (Zechariah)	praising		Normal		
 LUK	2	1	Caesar Augustus			Indirect		
 LUK	2	10	angel of the LORD, an			Normal		
 LUK	2	11	angel of the LORD, an			Normal		
@@ -15159,11 +15162,11 @@ ACT	28	28	Paul			Normal
 ROM	1	17	scripture			Quotation	God	
 ROM	2	1	Jews, the	accusing		Hypothetical		
 ROM	2	6	scripture			Quotation	David	
-ROM	2	24	scripture			Quotation	God	
-ROM	3	1	Jews, the	speaking ironically		Hypothetical		
 ROM	2	21	you (hypothetical)			Hypothetical		
 ROM	2	22	you (hypothetical)			Hypothetical		
 ROM	2	23	you (hypothetical)			Hypothetical		
+ROM	2	24	scripture			Quotation	God	
+ROM	3	1	Jews, the	speaking ironically		Hypothetical		
 ROM	3	2	Paul			Potential		
 ROM	3	3	Jews, the	speaking ironically		Hypothetical		
 ROM	3	4	scripture			Quotation	David	
@@ -15443,8 +15446,8 @@ HEB	12	13	scripture			Quotation
 HEB	12	19	those who heard	begging		Indirect		
 HEB	12	20	scripture			Quotation	God	
 HEB	12	21	scripture			Quotation	Moses	
-HEB	12	26	scripture			Quotation	God	
 HEB	12	22	narrator-HEB			Quotation		
+HEB	12	26	scripture			Quotation	God	
 HEB	12	27	narrator-HEB			Quotation		
 HEB	12	29	scripture			Quotation	Moses	
 HEB	13	5	scripture			Quotation	God	
