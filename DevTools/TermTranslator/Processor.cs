@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Glyssen.Character;
@@ -124,19 +123,12 @@ namespace DevTools.TermTranslator
 		private static void AddLocalizedTerm(TmxFormat newTmx, string modifiedLangAbbr, BiblicalTermsLocalizations localTermsList,
 			Tu tmxTermEntry, string name, Action<TmxFormat, Tu, Tuv> ProcessLocalizedGloss)
 		{
-			Localization term = s_englishTermsList.Terms.Locals.Find(t => t.Gloss == name);
-			//if (term == null && Char.IsUpper(name[0]))
-			//{
-			//	var parts = name.Split(new []{' ', ','}, 2);
-			//	if (parts.Length > 1 && !parts[1].StartsWith("men"))
-			//		term = englishTermsList.Terms.Locals.Find(t => t.Gloss == parts[0]);
-			//}
+			string[] parts = name.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
+			Localization term = s_englishTermsList.Terms.Locals.Find(t => t.Gloss == parts[0]);
 			if (term != null)
 			{
-				string termId = term.Id;
-
-				Localization localTerm = localTermsList.Terms.Locals.Find(t => t.Id == termId);
+				Localization localTerm = localTermsList.Terms.Locals.Find(t => t.Id == term.Id);
 
 				if (localTerm != null)
 				{
@@ -144,7 +136,49 @@ namespace DevTools.TermTranslator
 
 					if (localGloss != "")
 					{
-						var newTuv = new Tuv(modifiedLangAbbr, localGloss);
+						parts[0] = localGloss;
+
+						if (Char.IsUpper(name[0]) && parts.Length > 1)
+						{
+							for (int i = 1; i < parts.Length; i++)
+							{
+								var englishTerm = parts[i];
+								bool openingParenthesis = false;
+								bool closingParenthesis = false;
+								if (englishTerm.StartsWith("("))
+								{
+									englishTerm = englishTerm.Substring(1);
+									openingParenthesis = true;
+								}
+								if (englishTerm.EndsWith(")"))
+								{
+									englishTerm = englishTerm.Remove(englishTerm.Length - 1);
+									closingParenthesis = true;
+								}
+								term = s_englishTermsList.Terms.Locals.Find(t => t.Gloss == parts[i]);
+								if (term != null)
+								{
+									localTerm = localTermsList.Terms.Locals.Find(t => t.Id == term.Id);
+
+									if (localTerm != null)
+									{
+										localGloss = s_partOfChineseOrFrenchGlossThatIsNotTheGloss.Replace(localTerm.Gloss, "");
+										if (localGloss != "")
+										{
+											if (openingParenthesis)
+												localGloss = "(" + localGloss;
+											if (closingParenthesis)
+												localGloss += ")";
+											parts[i] = localGloss;
+											continue;
+										}
+									}
+								}
+								parts[i] = "***" + parts[i] + "***";
+							}
+						}
+
+						var newTuv = new Tuv(modifiedLangAbbr, String.Join(" ", parts));
 						ProcessLocalizedGloss(newTmx, tmxTermEntry, newTuv);
 					}
 				}

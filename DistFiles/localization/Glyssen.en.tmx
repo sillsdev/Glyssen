@@ -1971,12 +1971,6 @@
         <seg>Elisha (had said)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Elisha (LORD has shown me)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Elisha (LORD has shown me)</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Elisha (the LORD says)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3501,12 +3495,6 @@
         <seg>Israelite foreman</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Israelite messengers to Jabesh">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Israelite messengers to Jabesh</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Israelite officers">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3531,16 +3519,16 @@
         <seg>Israelite soldiers</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Israelite spies from house of Joseph">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Israelite spies from house of Joseph</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Israelite spies from Joshua, two men">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>Israelite spies from Joshua, two men</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Israelite spy from house of Joseph">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Israelite spy from house of Joseph</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Israelites">
@@ -3759,16 +3747,16 @@
         <seg>Jeremiah (word of the LORD)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Jeremiah quoting his enemies">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jeremiah quoting his enemies</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Jeremiah quoting the prophets">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>Jeremiah quoting the prophets</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jeremiah quoting the wicked who live in the land">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jeremiah quoting the wicked who live in the land</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Jeremiah's enemies">
@@ -4903,6 +4891,12 @@
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>men of Gerar</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.men of Jabesh">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>men of Jabesh</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.men of Judah">
