@@ -46,6 +46,12 @@ namespace Glyssen.Controls
 			get { return m_dataGrid.SelectedRows; }
 		}
 
+		public bool ReadOnly
+		{
+			get { return m_dataGrid.ReadOnly; }
+			set { m_dataGrid.ReadOnly = value; }
+		}
+
 		public void Initialize(Project project)
 		{
 			m_project = project;
@@ -65,6 +71,17 @@ namespace Glyssen.Controls
 		public DataGridView.HitTestInfo HitTest(int x, int y)
 		{
 			return m_dataGrid.HitTest(x, y);
+		}
+
+		public DataGridViewEditMode EditMode
+		{
+			get { return m_dataGrid.EditMode; }
+			set { m_dataGrid.EditMode = value; }
+		}
+
+		public bool EndEdit()
+		{
+			return m_dataGrid.EndEdit();
 		}
 
 		private void LoadVoiceActorInformation()

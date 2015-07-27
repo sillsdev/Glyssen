@@ -33,10 +33,13 @@ namespace Glyssen.Dialogs
 
 			WindowState = FormWindowState.Maximized;
 
+			AlignBtnAssignActorToSplitter();
+
 			m_project = project;
 			m_canAssign = true;
 
 			m_voiceActorGrid.Initialize(m_project);
+			m_voiceActorGrid.ReadOnly = true;
 
 			m_voiceActorGrid.Saved += m_voiceActorGrid_Saved;
 			m_voiceActorGrid.CellUpdated += m_voiceActorGrid_CellUpdated;
@@ -155,6 +158,9 @@ namespace Glyssen.Dialogs
 		{
 			var grid = sender as DataGridView;
 
+			if (grid.IsCurrentCellInEditMode)
+				return;
+
 			if (grid.Columns[e.ColumnIndex].DataPropertyName == "Name" && e.RowIndex >= 0 && e.Button == MouseButtons.Left)
 				AssignSelectedActorToSelectedGroup();
 		}
@@ -210,7 +216,7 @@ namespace Glyssen.Dialogs
 
 		private void m_voiceActorGrid_MouseMove(object sender, MouseEventArgs e)
 		{
-			if (e.Button == MouseButtons.Left)
+			if (m_voiceActorGrid.ReadOnly && e.Button == MouseButtons.Left)
 			{
 				var hitInfo = m_voiceActorGrid.HitTest(e.X, e.Y);
 				if (hitInfo.Type == DataGridViewHitTestType.Cell)
@@ -321,6 +327,22 @@ namespace Glyssen.Dialogs
 		{
 			SaveAssignments();
 			Close();
+		}
+
+		private void m_linkEdit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			m_voiceActorGrid.ReadOnly = false;
+			//Restore EditMode overwritten in m_voiceActorGrid_Leave
+			m_voiceActorGrid.EditMode = DataGridViewEditMode.EditOnEnter;
+			m_voiceActorGrid.Focus();
+		}
+
+		private void m_voiceActorGrid_Leave(object sender, EventArgs e)
+		{
+			m_voiceActorGrid.ReadOnly = true;
+			//EndEdit is insufficient in and of itself
+			m_voiceActorGrid.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
+			m_voiceActorGrid.EndEdit();
 		}
 	}
 }
