@@ -118,10 +118,50 @@ namespace Glyssen.Dialogs
 			m_characterGroupGrid.Refresh();			
 		}
 
+		private void UnAssignActorsFromSelectedGroups()
+		{
+			bool multipleGroupsSelected = m_characterGroupGrid.SelectedRows.Count > 1;
+
+			string dlgMessage = multipleGroupsSelected
+				? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.DeleteGroupsDialog.MessagePlural",
+					"Are you sure you want to un-assign the actors from the selected groups?")
+				: LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.DeleteGroupsDialog.MessageSingular",
+					"Are you sure you want to un-assign the actor from the selected group?");
+			string dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.DeleteGroupsDialog.Title", "Confirm");
+			if (MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
+			{
+				for (int i = 0; i < m_characterGroupGrid.SelectedRows.Count; i++)
+				{
+					CharacterGroup entry = m_characterGroupGrid.SelectedRows[i].DataBoundItem as CharacterGroup;
+					entry.RemoveVoiceActor();
+				}
+
+				SaveAssignments();
+
+				m_characterGroupGrid.Refresh();
+			}			
+		}
+
 		private void AlignBtnAssignActorToSplitter()
 		{
 			int xDist = splitContainer1.SplitterDistance;
 			m_btnAssignActor.Location = new Point(xDist + 19, m_btnAssignActor.Location.Y);
+		}
+
+		private void m_voiceActorGrid_EnterEditingMode()
+		{
+			m_voiceActorGrid.ReadOnly = false;
+			//Restore EditMode overwritten in m_voiceActorGrid_Leave
+			m_voiceActorGrid.EditMode = DataGridViewEditMode.EditOnEnter;
+			m_voiceActorGrid.Focus();			
+		}
+
+		private void m_voiceActorGrid_ExitEditingMode()
+		{
+			m_voiceActorGrid.ReadOnly = true;
+			//EndEdit is insufficient in and of itself
+			m_voiceActorGrid.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
+			m_voiceActorGrid.EndEdit();
 		}
 
 		private void m_btnAssignActor_Click(object sender, EventArgs e)
@@ -181,21 +221,7 @@ namespace Glyssen.Dialogs
 		{
 			if (e.KeyData == Keys.Delete)
 			{
-				string dlgMessage = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.DeleteRowsDialog.Message", "Are you sure you want to un-assign the actors from the selected groups?");
-				string dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.DeleteRowsDialog.Title", "Confirm");
-				if (MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
-				{
-
-					for (int i = 0; i < m_characterGroupGrid.SelectedRows.Count; i++)
-					{
-						CharacterGroup entry = m_characterGroupGrid.SelectedRows[i].DataBoundItem as CharacterGroup;
-						entry.RemoveVoiceActor();
-					}
-
-					SaveAssignments();
-
-					m_characterGroupGrid.Refresh();
-				}
+				UnAssignActorsFromSelectedGroups();
 			}
 		}
 
@@ -331,18 +357,12 @@ namespace Glyssen.Dialogs
 
 		private void m_linkEdit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			m_voiceActorGrid.ReadOnly = false;
-			//Restore EditMode overwritten in m_voiceActorGrid_Leave
-			m_voiceActorGrid.EditMode = DataGridViewEditMode.EditOnEnter;
-			m_voiceActorGrid.Focus();
+			m_voiceActorGrid_EnterEditingMode();
 		}
 
 		private void m_voiceActorGrid_Leave(object sender, EventArgs e)
 		{
-			m_voiceActorGrid.ReadOnly = true;
-			//EndEdit is insufficient in and of itself
-			m_voiceActorGrid.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
-			m_voiceActorGrid.EndEdit();
+			m_voiceActorGrid_ExitEditingMode();
 		}
 
 		private void m_helpIcon_MouseClick(object sender, MouseEventArgs e)
@@ -359,6 +379,62 @@ namespace Glyssen.Dialogs
 		private void m_helpIcon_MouseLeave(object sender, EventArgs e)
 		{
 			m_toolTip.Hide(this);
+		}
+
+		private void m_assignActorToGroupToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			AssignSelectedActorToSelectedGroup();
+		}
+
+		private void m_unAssignActorFromGroupToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			UnAssignActorsFromSelectedGroups();
+		}
+
+		private void m_splitGroupToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			//Todo
+		}
+
+		private void m_contextMenuCharacterGroups_Opening(object sender, CancelEventArgs e)
+		{
+			bool multipleGroupsSelected = m_characterGroupGrid.SelectedRows.Count > 1;
+			bool multipleActorsSelected = m_voiceActorGrid.SelectedRows.Count > 1;
+
+			m_assignActorToGroupToolStripMenuItem.Enabled = !multipleGroupsSelected && !multipleActorsSelected;
+
+			m_unAssignActorFromGroupToolStripMenuItem.Text = multipleGroupsSelected
+				? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.UnassignMultipleGroups",
+					"Un-Assign Actors from Selected Groups")
+				: LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.UnassignSingleGroup",
+					"Un-Assign Actor from Selected Group");
+
+			m_splitGroupToolStripMenuItem.Enabled = !multipleGroupsSelected;
+		}
+
+		private void m_editActorToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			m_voiceActorGrid_EnterEditingMode();
+		}
+
+		private void m_deleteActorToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			SendKeys.Send("{DEL}");
+		}
+
+		private void m_contextMenuVoiceActors_Opening(object sender, CancelEventArgs e)
+		{
+			bool multipleGroupsSelected = m_characterGroupGrid.SelectedRows.Count > 1;
+			bool multipleActorsSelected = m_voiceActorGrid.SelectedRows.Count > 1;
+
+			m_assignActorToGroupToolStripMenuItem2.Enabled = !multipleActorsSelected && !multipleGroupsSelected;
+			m_editActorToolStripMenuItem.Enabled = !multipleActorsSelected && !multipleGroupsSelected;
+
+			m_deleteActorToolStripMenuItem.Text = multipleActorsSelected
+				? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.DeleteMultipleActors",
+					"Delete Selected Actors")
+				: LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.DeleteSingleActor",
+					"Delete Selected Actor");
 		}
 	}
 }
