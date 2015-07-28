@@ -52,6 +52,12 @@ namespace Glyssen.Controls
 			set { m_dataGrid.ReadOnly = value; }
 		}
 
+		public override ContextMenuStrip ContextMenuStrip
+		{
+			get { return m_dataGrid.ContextMenuStrip; }
+			set { m_dataGrid.ContextMenuStrip = value; }
+		}
+
 		public void Initialize(Project project)
 		{
 			m_project = project;

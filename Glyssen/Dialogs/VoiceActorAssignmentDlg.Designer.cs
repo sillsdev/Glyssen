@@ -44,6 +44,10 @@ namespace Glyssen.Dialogs
 			this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.m_contextMenuCharacterGroups = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.m_assignActorToGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.m_unAssignActorFromGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.m_splitGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_btnUpdateGroup = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
@@ -51,16 +55,22 @@ namespace Glyssen.Dialogs
 			this.m_linkClose = new System.Windows.Forms.LinkLabel();
 			this.m_linkEdit = new System.Windows.Forms.LinkLabel();
 			this.m_helpIcon = new System.Windows.Forms.PictureBox();
+			this.m_contextMenuVoiceActors = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.m_assignActorToGroupToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.m_editActorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.m_deleteActorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.m_toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.m_saveStatus = new Glyssen.Controls.SaveStatus();
 			this.m_voiceActorGrid = new Glyssen.Controls.VoiceActorInformationGrid();
-			this.m_toolTip = new System.Windows.Forms.ToolTip(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).BeginInit();
+			this.m_contextMenuCharacterGroups.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_helpIcon)).BeginInit();
+			this.m_contextMenuVoiceActors.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -75,7 +85,7 @@ namespace Glyssen.Dialogs
 			this.m_btnAssignActor.AutoSize = true;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnAssignActor, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnAssignActor, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_btnAssignActor, "DialogBoxes.VoiceActorAssignmentDlg.AssignActor");
+			this.l10NSharpExtender1.SetLocalizingId(this.m_btnAssignActor, "DialogBoxes.VoiceActorAssignmentDlg.AssignActorButton");
 			this.m_btnAssignActor.Location = new System.Drawing.Point(318, 134);
 			this.m_btnAssignActor.Name = "m_btnAssignActor";
 			this.m_btnAssignActor.Size = new System.Drawing.Size(48, 36);
@@ -126,6 +136,7 @@ namespace Glyssen.Dialogs
             this.Column3,
             this.Column4,
             this.Column5});
+			this.m_characterGroupGrid.ContextMenuStrip = this.m_contextMenuCharacterGroups;
 			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
 			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -213,6 +224,51 @@ namespace Glyssen.Dialogs
 			this.Column5.Name = "Column5";
 			this.Column5.ReadOnly = true;
 			// 
+			// m_contextMenuCharacterGroups
+			// 
+			this.m_contextMenuCharacterGroups.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.m_assignActorToGroupToolStripMenuItem,
+            this.m_unAssignActorFromGroupToolStripMenuItem,
+            this.m_splitGroupToolStripMenuItem});
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_contextMenuCharacterGroups, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_contextMenuCharacterGroups, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_contextMenuCharacterGroups, "DialogBoxes.VoiceActorAssignmentDlg.contextMenuStrip1");
+			this.m_contextMenuCharacterGroups.Name = "m_contextMenuCharacterGroups";
+			this.m_contextMenuCharacterGroups.Size = new System.Drawing.Size(286, 70);
+			this.m_contextMenuCharacterGroups.Opening += new System.ComponentModel.CancelEventHandler(this.m_contextMenuCharacterGroups_Opening);
+			// 
+			// m_assignActorToGroupToolStripMenuItem
+			// 
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_assignActorToGroupToolStripMenuItem, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_assignActorToGroupToolStripMenuItem, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_assignActorToGroupToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.AssignSelectedActorToSelectedGro" +
+        "up");
+			this.m_assignActorToGroupToolStripMenuItem.Name = "m_assignActorToGroupToolStripMenuItem";
+			this.m_assignActorToGroupToolStripMenuItem.Size = new System.Drawing.Size(285, 22);
+			this.m_assignActorToGroupToolStripMenuItem.Text = "Assign Selected Actor to Selected Group";
+			this.m_assignActorToGroupToolStripMenuItem.Click += new System.EventHandler(this.m_assignActorToGroupToolStripMenuItem_Click);
+			// 
+			// m_unAssignActorFromGroupToolStripMenuItem
+			// 
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_unAssignActorFromGroupToolStripMenuItem, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_unAssignActorFromGroupToolStripMenuItem, null);
+			this.l10NSharpExtender1.SetLocalizationPriority(this.m_unAssignActorFromGroupToolStripMenuItem, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_unAssignActorFromGroupToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.unAssignActorFromGroupToolStripMenuItem");
+			this.m_unAssignActorFromGroupToolStripMenuItem.Name = "m_unAssignActorFromGroupToolStripMenuItem";
+			this.m_unAssignActorFromGroupToolStripMenuItem.Size = new System.Drawing.Size(285, 22);
+			this.m_unAssignActorFromGroupToolStripMenuItem.Text = "Un-Assign Actor from Selected Group";
+			this.m_unAssignActorFromGroupToolStripMenuItem.Click += new System.EventHandler(this.m_unAssignActorFromGroupToolStripMenuItem_Click);
+			// 
+			// m_splitGroupToolStripMenuItem
+			// 
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_splitGroupToolStripMenuItem, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_splitGroupToolStripMenuItem, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_splitGroupToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.SplitSelectedGroup");
+			this.m_splitGroupToolStripMenuItem.Name = "m_splitGroupToolStripMenuItem";
+			this.m_splitGroupToolStripMenuItem.Size = new System.Drawing.Size(285, 22);
+			this.m_splitGroupToolStripMenuItem.Text = "Split Selected Group";
+			this.m_splitGroupToolStripMenuItem.Click += new System.EventHandler(this.m_splitGroupToolStripMenuItem_Click);
+			// 
 			// l10NSharpExtender1
 			// 
 			this.l10NSharpExtender1.LocalizationManagerId = "Glyssen";
@@ -239,7 +295,7 @@ namespace Glyssen.Dialogs
 			this.label2.ForeColor = System.Drawing.Color.White;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.label2, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.label2, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.label2, "DialogBoxes.VoiceActorAssignmentDlg.label2");
+			this.l10NSharpExtender1.SetLocalizingId(this.label2, "DialogBoxes.VoiceActorAssignmentDlg.CharacterGroupsTitle");
 			this.label2.Location = new System.Drawing.Point(105, 3);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(90, 13);
@@ -253,7 +309,7 @@ namespace Glyssen.Dialogs
 			this.label3.ForeColor = System.Drawing.Color.White;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.label3, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.label3, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.label3, "DialogBoxes.VoiceActorAssignmentDlg.label3");
+			this.l10NSharpExtender1.SetLocalizingId(this.label3, "DialogBoxes.VoiceActorAssignmentDlg.VoiceActorsTitle");
 			this.label3.Location = new System.Drawing.Point(87, 0);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(67, 13);
@@ -306,6 +362,51 @@ namespace Glyssen.Dialogs
 			this.m_helpIcon.TabStop = false;
 			this.m_helpIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.m_helpIcon_MouseClick);
 			this.m_helpIcon.MouseLeave += new System.EventHandler(this.m_helpIcon_MouseLeave);
+			// 
+			// m_contextMenuVoiceActors
+			// 
+			this.m_contextMenuVoiceActors.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.m_assignActorToGroupToolStripMenuItem2,
+            this.m_editActorToolStripMenuItem,
+            this.m_deleteActorToolStripMenuItem});
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_contextMenuVoiceActors, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_contextMenuVoiceActors, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_contextMenuVoiceActors, "DialogBoxes.VoiceActorAssignmentDlg.contextMenuStrip1");
+			this.m_contextMenuVoiceActors.Name = "m_contextMenuVoiceActors";
+			this.m_contextMenuVoiceActors.Size = new System.Drawing.Size(318, 70);
+			this.m_contextMenuVoiceActors.Opening += new System.ComponentModel.CancelEventHandler(this.m_contextMenuVoiceActors_Opening);
+			// 
+			// m_assignActorToGroupToolStripMenuItem2
+			// 
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_assignActorToGroupToolStripMenuItem2, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_assignActorToGroupToolStripMenuItem2, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_assignActorToGroupToolStripMenuItem2, "DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.AssignSelectedActorToSelectedGro" +
+        "up");
+			this.m_assignActorToGroupToolStripMenuItem2.Name = "m_assignActorToGroupToolStripMenuItem2";
+			this.m_assignActorToGroupToolStripMenuItem2.Size = new System.Drawing.Size(317, 22);
+			this.m_assignActorToGroupToolStripMenuItem2.Text = "Assign Selected Voice Actor to Selected Group";
+			this.m_assignActorToGroupToolStripMenuItem2.Click += new System.EventHandler(this.m_assignActorToGroupToolStripMenuItem_Click);
+			// 
+			// m_editActorToolStripMenuItem
+			// 
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_editActorToolStripMenuItem, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_editActorToolStripMenuItem, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_editActorToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.EditSelectedActor");
+			this.m_editActorToolStripMenuItem.Name = "m_editActorToolStripMenuItem";
+			this.m_editActorToolStripMenuItem.Size = new System.Drawing.Size(317, 22);
+			this.m_editActorToolStripMenuItem.Text = "Edit Selected Voice Actor";
+			this.m_editActorToolStripMenuItem.Click += new System.EventHandler(this.m_editActorToolStripMenuItem_Click);
+			// 
+			// m_deleteActorToolStripMenuItem
+			// 
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_deleteActorToolStripMenuItem, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_deleteActorToolStripMenuItem, null);
+			this.l10NSharpExtender1.SetLocalizationPriority(this.m_deleteActorToolStripMenuItem, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_deleteActorToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.deleteSelectedVoiceActorToolStripMenuItem");
+			this.m_deleteActorToolStripMenuItem.Name = "m_deleteActorToolStripMenuItem";
+			this.m_deleteActorToolStripMenuItem.Size = new System.Drawing.Size(317, 22);
+			this.m_deleteActorToolStripMenuItem.Text = "Delete Selected Voice Actor";
+			this.m_deleteActorToolStripMenuItem.Click += new System.EventHandler(this.m_deleteActorToolStripMenuItem_Click);
 			// 
 			// tableLayoutPanel1
 			// 
@@ -393,6 +494,7 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_voiceActorGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_voiceActorGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_voiceActorGrid.ContextMenuStrip = this.m_contextMenuVoiceActors;
 			this.m_voiceActorGrid.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_voiceActorGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_voiceActorGrid, null);
@@ -431,8 +533,10 @@ namespace Glyssen.Dialogs
 			this.Text = "Voice Actor Assignment";
 			this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.VoiceActorAssignmentDlg_KeyUp);
 			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).EndInit();
+			this.m_contextMenuCharacterGroups.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_helpIcon)).EndInit();
+			this.m_contextMenuVoiceActors.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			this.tableLayoutPanel2.ResumeLayout(false);
@@ -471,6 +575,14 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.LinkLabel m_linkEdit;
 		private System.Windows.Forms.PictureBox m_helpIcon;
 		private System.Windows.Forms.ToolTip m_toolTip;
+		private System.Windows.Forms.ContextMenuStrip m_contextMenuCharacterGroups;
+		private System.Windows.Forms.ToolStripMenuItem m_assignActorToGroupToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem m_unAssignActorFromGroupToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem m_splitGroupToolStripMenuItem;
+		private System.Windows.Forms.ContextMenuStrip m_contextMenuVoiceActors;
+		private System.Windows.Forms.ToolStripMenuItem m_assignActorToGroupToolStripMenuItem2;
+		private System.Windows.Forms.ToolStripMenuItem m_editActorToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem m_deleteActorToolStripMenuItem;
 
 	}
 }
