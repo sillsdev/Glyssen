@@ -32,7 +32,7 @@ Ahab, king of Israel	1	Male
 Ahaz, king of Judah	1	Male		
 Ahaziah, king of Israel	1	Male		
 Ahijah the priest	1	Male		
-Ahijah, the prophet	1	Male		
+Ahijah the prophet	1	Male		
 Ahimaaz (messenger)	1	Male		
 Ahimelech the priest (son of Ahitub)	1	Male		
 Ahithophel	1	Male		
@@ -140,6 +140,7 @@ blind man	1	Male
 blind men, two	2	Male		
 Boaz	1	Male		
 Book of the Wars of the LORD	1	Neuter		
+bride, the (refering to the Church)	-1	Pref: Female		
 brothers at Antioch, the	-1	Male		
 brothers at Puteoli, some	-1	Male		
 bystanders at Calvary, some	-1			
@@ -244,6 +245,7 @@ Doeg the Edomite	1	Male
 donkey (female)	1	Female		
 dream	1			
 dreamers	-1	Either		
+each one	1			
 eagle crying with loud voice	1	Pref: Male		
 ear	1	Neuter		
 Ebed-Melech (official of king of Judea)	1	Male		
@@ -370,8 +372,8 @@ half-tribe of Manasseh	-1	Male
 Haman, highest noble to Xerxes, king	1	Male		
 Hamor, Hivite ruler	1	Male		
 Hanamel (Jeremiah's cousin)	1	Male		
-Hanani, brother of Nehemiah	1	Male		
 Hanani the seer	1	Male		father of Jehu
+Hanani, brother of Nehemiah	1	Male		
 Hananiah, false prophet	1	Male		
 Hannah	1	Female		
 Harbona, eunuch attending Xerxes, king	1	Male		
@@ -397,7 +399,6 @@ Hiram, king of Tyre	1	Male
 Hittites	-1			
 Hobab, Moses brother-in-law	1	Male		
 holy one (in vision)	1			
-bride, the (refering to the Church)	-1	Pref: Female		
 Holy Spirit, the	1	Male		
 Horseman, first	1	Male		
 Horseman, second	1	Male		
@@ -436,8 +437,8 @@ Israelite foreman	1	Male
 Israelite men	-1	Male		
 Israelite officers	-1	Male		
 Israelite soldier in Saul's army	1	Male		
-Israelite spies from Joshua, two men	2	Male		
 Israelite spies from house of Joseph	-1	Male		
+Israelite spies from Joshua, two men	2	Male		
 Israelites	-1			
 Israelites (excluding Benjamites)	-1			
 Israelites, some	-1			
@@ -503,8 +504,8 @@ Job's wife	1	Female
 Joel saying what the priests should say	1	Male		
 Johanan	1	Male		son of Kareah
 John	1	Male		
-John, Alexander, and other men of the high priest's family	-1	Male		
 John the Baptist	1	Male		
+John, Alexander, and other men of the high priest's family	-1	Male		
 Jonadab	1	Male		
 Jonah	1	Male		
 Jonathan	1	Male		
@@ -745,7 +746,6 @@ one other who looked like a man	1	Male
 one who brings good news	-1			
 one who looked like a man	1	Male		
 one with garments stained crimson (Christ?)	1	Male		Default character should be Jesus
-each one	1			
 onlookers	-1			
 oppressors of poor	-1			
 oppressors of poor (women)	-1	Female		
@@ -826,8 +826,8 @@ Philip (apostle)	1	Male
 Philip (the evangelist)	1	Male		
 Philistine commanders	-1	Male		
 Philistine priests and fortune tellers	-1	Male		
-Philistines	-1	Male		
 Philistine rulers	-1	Male		
+Philistines	-1	Male		
 Phineas the priest	1	Male		
 Phineas' wife (daughter-in-law of Eli)	1	Female		
 Pilate	1	Male		

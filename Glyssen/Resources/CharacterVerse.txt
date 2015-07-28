@@ -5161,15 +5161,15 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	11	21	Hadad the Edomite			Normal		
 1KI	11	22	Hadad the Edomite			Normal		
 1KI	11	22	Pharaoh (6th)		Pharaoh	Normal		
-1KI	11	31	Ahijah, the prophet	word of the LORD		Normal		
-1KI	11	32	Ahijah, the prophet	word of the LORD		Normal		
-1KI	11	33	Ahijah, the prophet	word of the LORD		Normal		
-1KI	11	34	Ahijah, the prophet	word of the LORD		Normal		
-1KI	11	35	Ahijah, the prophet	word of the LORD		Normal		
-1KI	11	36	Ahijah, the prophet	word of the LORD		Normal		
-1KI	11	37	Ahijah, the prophet	word of the LORD		Normal		
-1KI	11	38	Ahijah, the prophet	word of the LORD		Normal		
-1KI	11	39	Ahijah, the prophet	word of the LORD		Normal		
+1KI	11	31	Ahijah the prophet	word of the LORD		Normal		
+1KI	11	32	Ahijah the prophet	word of the LORD		Normal		
+1KI	11	33	Ahijah the prophet	word of the LORD		Normal		
+1KI	11	34	Ahijah the prophet	word of the LORD		Normal		
+1KI	11	35	Ahijah the prophet	word of the LORD		Normal		
+1KI	11	36	Ahijah the prophet	word of the LORD		Normal		
+1KI	11	37	Ahijah the prophet	word of the LORD		Normal		
+1KI	11	38	Ahijah the prophet	word of the LORD		Normal		
+1KI	11	39	Ahijah the prophet	word of the LORD		Normal		
 1KI	12	4	Jeroboam/Israel, all			Normal		
 1KI	12	5	Rehoboam, king			Normal		
 1KI	12	6	Rehoboam, king			Normal		
@@ -5210,17 +5210,17 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	14	2	Jeroboam		Jeroboam, king of Israel	Normal		
 1KI	14	3	Jeroboam		Jeroboam, king of Israel	Normal		
 1KI	14	5	God		God (the LORD)	Normal		
-1KI	14	6	Ahijah, the prophet			Normal		
-1KI	14	7	Ahijah, the prophet			Normal		
-1KI	14	8	Ahijah, the prophet			Normal		
-1KI	14	9	Ahijah, the prophet			Normal		
-1KI	14	10	Ahijah, the prophet			Normal		
-1KI	14	11	Ahijah, the prophet			Normal		
-1KI	14	12	Ahijah, the prophet			Normal		
-1KI	14	13	Ahijah, the prophet			Normal		
-1KI	14	14	Ahijah, the prophet			Normal		
-1KI	14	15	Ahijah, the prophet			Normal		
-1KI	14	16	Ahijah, the prophet			Normal		
+1KI	14	6	Ahijah the prophet			Normal		
+1KI	14	7	Ahijah the prophet			Normal		
+1KI	14	8	Ahijah the prophet			Normal		
+1KI	14	9	Ahijah the prophet			Normal		
+1KI	14	10	Ahijah the prophet			Normal		
+1KI	14	11	Ahijah the prophet			Normal		
+1KI	14	12	Ahijah the prophet			Normal		
+1KI	14	13	Ahijah the prophet			Normal		
+1KI	14	14	Ahijah the prophet			Normal		
+1KI	14	15	Ahijah the prophet			Normal		
+1KI	14	16	Ahijah the prophet			Normal		
 1KI	15	19	Asa, king of Judah			Normal		
 1KI	16	2	Jehu, son of Hanani	word of the LORD		Normal		
 1KI	16	3	Jehu, son of Hanani	word of the LORD		Normal		
