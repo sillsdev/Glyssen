@@ -1,4 +1,4 @@
-Control File Version	72
+Control File Version	73
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -6085,7 +6085,6 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	28	10	Oded, prophet of the Lord			Normal		
 2CH	28	11	Oded, prophet of the Lord			Normal		
 2CH	28	13	Azariah, son of Jehohanan/Berekiah/Jehizkiah/Amasa		leaders in Ephraim (Azariah/Berekiah/Jehizkiah/Amasa)	Normal		
-
 2CH	28	23	Ahaz, king of Judah	thought		Normal		
 2CH	29	5	Hezekiah, king of Judah			Normal		
 2CH	29	6	Hezekiah, king of Judah			Normal		
@@ -6258,7 +6257,8 @@ NEH	4	20	Nehemiah			Normal
 NEH	4	22	Nehemiah			Normal		
 NEH	5	2	men/wives	desperate	men/their wives	Normal		
 NEH	5	3	men, other/wives, other	desperate	men/their wives, other	Normal		
-NEH	5	4-5	men, still others/wives, still others	desperate	men/wives, still others	Normal		
+NEH	5	4	men, still others/wives, still others	desperate	men/wives, still others	Normal		
+NEH	5	5	men, still others/wives, still others	desperate	men/wives, still others	Normal		
 NEH	5	7	Nehemiah			Normal		
 NEH	5	8	Nehemiah			Normal		
 NEH	5	9	Nehemiah			Normal		
@@ -12971,8 +12971,12 @@ LUK	2	15	shepherds outside Bethlehem	awe		Normal
 LUK	2	23	scripture			Quotation	God	
 LUK	2	24	scripture			Quotation	God	
 LUK	2	26	Holy Spirit, the		Holy Spirit	Indirect		
-LUK	2	29-32	Simeon (devout man in Jerusalem)			Implicit		
-LUK	2	34-35	Simeon (devout man in Jerusalem)			Normal		
+LUK	2	29	Simeon (devout man in Jerusalem)			Implicit		
+LUK	2	30	Simeon (devout man in Jerusalem)			Implicit		
+LUK	2	31	Simeon (devout man in Jerusalem)			Implicit		
+LUK	2	32	Simeon (devout man in Jerusalem)			Implicit		
+LUK	2	34	Simeon (devout man in Jerusalem)			Normal		
+LUK	2	35	Simeon (devout man in Jerusalem)			Normal		
 LUK	2	38	Anna, prophetess			Indirect		
 LUK	2	48	Mary, Jesus' mother			Dialogue		
 LUK	2	49	Jesus (child)			Dialogue		
@@ -14591,7 +14595,13 @@ ACT	4	18	Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, 
 ACT	4	19	Peter (Simon)/John			Dialogue	Peter (Simon)	
 ACT	4	20	Peter (Simon)/John			Normal	John	
 ACT	4	23	Peter (Simon)/John			Indirect	Peter (Simon)	
-ACT	4	24-30	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
+ACT	4	24	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
+ACT	4	25	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
+ACT	4	26	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
+ACT	4	27	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
+ACT	4	28	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
+ACT	4	29	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
+ACT	4	30	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
 ACT	4	32	no one			Hypothetical		
 ACT	4	36	narrator-ACT			Quotation		
 ACT	5	3	Peter (Simon)	rebuking		Dialogue		
