@@ -676,7 +676,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_saveStatus, "DialogBoxes.AssignCharacterDlg.SaveStatus");
 			this.m_saveStatus.Location = new System.Drawing.Point(24, 502);
 			this.m_saveStatus.Name = "m_saveStatus";
-			this.m_saveStatus.Size = new System.Drawing.Size(99, 15);
+			this.m_saveStatus.Size = new System.Drawing.Size(202, 15);
 			this.m_saveStatus.TabIndex = 33;
 			// 
 			// m_listBoxCharacters

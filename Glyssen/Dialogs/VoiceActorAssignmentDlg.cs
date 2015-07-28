@@ -198,7 +198,7 @@ namespace Glyssen.Dialogs
 		{
 			var grid = sender as DataGridView;
 
-			if (grid.IsCurrentCellInEditMode)
+			if (!grid.ReadOnly)
 				return;
 
 			if (grid.Columns[e.ColumnIndex].DataPropertyName == "Name" && e.RowIndex >= 0 && e.Button == MouseButtons.Left)

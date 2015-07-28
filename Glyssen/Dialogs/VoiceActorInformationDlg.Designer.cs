@@ -31,7 +31,6 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoiceActorInformationDlg));
 			this.label1 = new System.Windows.Forms.Label();
-			this.m_btnSave = new System.Windows.Forms.Button();
 			this.m_btnNext = new System.Windows.Forms.Button();
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_dataGrid = new Glyssen.Controls.VoiceActorInformationGrid();
@@ -51,20 +50,6 @@
 			this.label1.Size = new System.Drawing.Size(95, 13);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Enter Voice Actors";
-			// 
-			// m_btnSave
-			// 
-			this.m_btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnSave, null);
-			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnSave, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_btnSave, "DialogBoxes.VoiceActorInformation.Save");
-			this.m_btnSave.Location = new System.Drawing.Point(332, 299);
-			this.m_btnSave.Name = "m_btnSave";
-			this.m_btnSave.Size = new System.Drawing.Size(75, 23);
-			this.m_btnSave.TabIndex = 1;
-			this.m_btnSave.Text = "Save";
-			this.m_btnSave.UseVisualStyleBackColor = true;
-			this.m_btnSave.Click += new System.EventHandler(this.m_btnSave_Click);
 			// 
 			// m_btnNext
 			// 
@@ -101,7 +86,7 @@
 			this.m_dataGrid.Margin = new System.Windows.Forms.Padding(0);
 			this.m_dataGrid.Name = "m_dataGrid";
 			this.m_dataGrid.ReadOnly = false;
-			this.m_dataGrid.Size = new System.Drawing.Size(476, 264);
+			this.m_dataGrid.Size = new System.Drawing.Size(476, 189);
 			this.m_dataGrid.TabIndex = 3;
 			// 
 			// m_saveStatus
@@ -128,7 +113,6 @@
 			this.Controls.Add(this.m_saveStatus);
 			this.Controls.Add(this.m_dataGrid);
 			this.Controls.Add(this.m_btnNext);
-			this.Controls.Add(this.m_btnSave);
 			this.Controls.Add(this.label1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.l10NSharpExtender1.SetLocalizableToolTip(this, null);
@@ -149,7 +133,6 @@
 		#endregion
 
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Button m_btnSave;
 		private System.Windows.Forms.Button m_btnNext;
 		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
 		private Controls.VoiceActorInformationGrid m_dataGrid;
