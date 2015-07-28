@@ -262,8 +262,18 @@ namespace Glyssen.Controls
 
 		private void m_dataGrid_CurrentCellChanged(object sender, System.EventArgs e)
 		{
-			//Open combobox (or no effect on regular text box input)
-			SendKeys.Send("{F4}");
+			if (m_dataGrid.CurrentCell == null)
+				return;
+			if (m_dataGrid.CurrentCell.OwningColumn.DataPropertyName == "Name")
+			{
+				m_dataGrid.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
+			}
+			else
+			{
+				m_dataGrid.EditMode = DataGridViewEditMode.EditOnEnter;
+				//Open combobox (or no effect on regular text box input)
+				SendKeys.Send("{F4}");
+			}
 		}
 
 		private void m_dataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)

@@ -25,7 +25,7 @@ namespace Glyssen.Controls
 			InitializeComponent();
 
 			m_savedLabelFmt = m_lbl.Text;
-			m_justSavedLabelFmt = LocalizationManager.GetString("Common.SaveStatus.JustSaved", "Saved at {0}");
+			m_justSavedLabelFmt = LocalizationManager.GetString("Common.SaveStatus.JustSaved", "Saved on {0:d} at {0:t}");
 			m_savingLabelFmt = LocalizationManager.GetString("Common.SaveStatus.Saving", "Saving...");
 			m_savingLongWaitLabelFmt = LocalizationManager.GetString("Common.SaveStatus.SavingLongWait", "Saving... (taking longer than expected)");
 		}
