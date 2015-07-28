@@ -40,20 +40,20 @@ namespace Glyssen.Dialogs
 				m_btnNext.Enabled = false;
 		}
 
-		private void m_btnSave_Click(object sender, EventArgs e)
-		{
-			m_dataGrid.SaveVoiceActorInformation();
-			m_project.VoiceActorStatus = VoiceActorStatus.UnProvided;
-			DialogResult = DialogResult.Cancel;
-			Close();
-		}
-
 		private void m_btnNext_Click(object sender, EventArgs e)
 		{
 			m_dataGrid.SaveVoiceActorInformation();
 			m_project.VoiceActorStatus = VoiceActorStatus.Provided;
 			DialogResult = DialogResult.OK;
 			Close();
+		}
+
+		private void m_linkClose_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			m_dataGrid.SaveVoiceActorInformation();
+			m_project.VoiceActorStatus = VoiceActorStatus.UnProvided;
+			DialogResult = DialogResult.Cancel;
+			Close();			
 		}
 	}
 }

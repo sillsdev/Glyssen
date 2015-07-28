@@ -199,7 +199,16 @@ namespace Glyssen.Dialogs
 				return;
 
 			if (grid.Columns[e.ColumnIndex].DataPropertyName == "Name" && e.RowIndex >= 0 && e.Button == MouseButtons.Left)
-				AssignSelectedActorToSelectedGroup();
+			{
+				if (grid.Rows[e.RowIndex].IsNewRow)
+				{
+					m_voiceActorGrid_EnterEditingMode();
+				}
+				else
+				{
+					AssignSelectedActorToSelectedGroup();
+				}
+			}
 		}
 
 		private void m_voiceActorGrid_UserRemovedRows(object sender, DataGridViewRowsRemovedEventArgs e)
