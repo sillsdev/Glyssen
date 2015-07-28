@@ -20,6 +20,8 @@ namespace Glyssen
 		public const string kProduct = "Glyssen";
 		public const string kApplicationId = "Glyssen";
 
+		public const int kKeyStrokesPerHour = 6000;
+
 		private const string kOldProductName = "Protoscript Generator";
 
 		/// <summary>
@@ -143,8 +145,10 @@ namespace Glyssen
 							Settings.Default.UserInterfaceLanguage = dlg.SelectedLanguage;
 						}
 
-			// For now, do not set up localization for Palaso
-			// TODO, should we?
+			var uiLanguage = LocalizationManager.UILanguageId;
+			LocalizationManager.Create(uiLanguage, "Palaso", "Palaso", Application.ProductVersion,
+				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress,
+				"SIL.Windows.Forms.WritingSystems", "SIL.Windows.Forms.DblBundle", "SIL.Windows.Forms.Miscellaneous");
 		}
 
 		/// <summary>

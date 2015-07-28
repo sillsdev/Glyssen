@@ -29,6 +29,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -39,6 +40,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -48,6 +50,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>Glyssen.Program</StartupObject>
@@ -61,6 +64,9 @@
     </Reference>
     <Reference Include="DesktopAnalytics">
       <HintPath>..\packages\DesktopAnalytics.1.1.5\lib\net40\DesktopAnalytics.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus">
+      <HintPath>..\packages\EPPlus.4.0.4\lib\net20\EPPlus.dll</HintPath>
     </Reference>
     <Reference Include="Geckofx-Core">
       <HintPath>..\lib\dotnet\Geckofx-Core.dll</HintPath>
@@ -83,7 +89,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Palaso, Version=2.6.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2" />
     <Reference Include="ParatextShared, Version=7.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\ParatextShared.dll</HintPath>
@@ -100,6 +105,9 @@
     </Reference>
     <Reference Include="SIL.Windows.Forms">
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.Windows.Forms.DblBundle">
+      <HintPath>..\lib\dotnet\SIL.Windows.Forms.DblBundle.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms.GeckoBrowserAdapter">
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.GeckoBrowserAdapter.dll</HintPath>
@@ -141,10 +149,14 @@
     <Compile Include="Character\CharacterAssigner.cs" />
     <Compile Include="Character\CharacterDetail.cs" />
     <Compile Include="Character\CharacterDetailData.cs" />
+    <Compile Include="Character\CharacterGroup.cs" />
+    <Compile Include="Character\CharacterGroupTemplate.cs" />
+    <Compile Include="Character\CharacterGroupTemplateExcelFile.cs" />
     <Compile Include="Character\CharacterVerse.cs" />
     <Compile Include="Character\CharacterVerseData.cs" />
     <Compile Include="Character\CombinedCharacterVerseData.cs" />
     <Compile Include="Character\ControlCharacterVerseData.cs" />
+    <Compile Include="Character\ICharacterGroupSource.cs" />
     <Compile Include="Character\ICharacterVerseInfo.cs" />
     <Compile Include="Character\ProjectCharacterVerseData.cs" />
     <Compile Include="Controls\BlockProgressBar.cs">
@@ -160,6 +172,9 @@
       <DependentUpon>Browser.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ControlExtensions.cs" />
+    <Compile Include="Controls\DataGridViewOverrideEnter.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\ExistingProjectsList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -168,6 +183,12 @@
     </Compile>
     <Compile Include="Controls\ProgressBarUnanimated.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SaveStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SaveStatus.Designer.cs">
+      <DependentUpon>SaveStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ScriptBlocksGridView.cs">
       <SubType>Component</SubType>
@@ -179,6 +200,12 @@
       <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
+    <Compile Include="Controls\VoiceActorInformationGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\VoiceActorInformationGrid.Designer.cs">
+      <DependentUpon>VoiceActorInformationGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataMigrator.cs" />
     <Compile Include="Dialogs\IWritingSystemDisplayInfo.cs" />
     <Compile Include="Dialogs\SelectExistingProjectDlg.cs">
@@ -193,6 +220,19 @@
     <Compile Include="Dialogs\SplitBlockDlg.Designer.cs">
       <DependentUpon>SplitBlockDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\VoiceActorAssignmentDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\VoiceActorAssignmentDlg.Designer.cs">
+      <DependentUpon>VoiceActorAssignmentDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\VoiceActorInformationDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\VoiceActorInformationDlg.Designer.cs">
+      <DependentUpon>VoiceActorInformationDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectExport.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -248,6 +288,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rules\Proximity.cs" />
     <Compile Include="ScrStylesheetAdapter.cs" />
     <Compile Include="SfmLoader.cs" />
     <Compile Include="UsxParser.cs" />
@@ -255,14 +296,26 @@
     <Compile Include="Utilities\MathUtilities.cs" />
     <Compile Include="Utilities\StringExtensions.cs" />
     <Compile Include="Utilities\VerseRefExtensions.cs" />
+    <Compile Include="Character\CharacterGroupList.cs" />
+    <Compile Include="VoiceActor\VoiceActor.cs" />
+    <Compile Include="VoiceActor\VoiceActorList.cs" />
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DataGridViewOverrideEnter.resx">
+      <DependentUpon>DataGridViewOverrideEnter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ExistingProjectsList.resx">
       <DependentUpon>ExistingProjectsList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SaveStatus.resx">
+      <DependentUpon>SaveStatus.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ScriptBlocksViewer.resx">
       <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\VoiceActorInformationGrid.resx">
+      <DependentUpon>VoiceActorInformationGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AssignCharacterDlg.resx">
       <DependentUpon>AssignCharacterDlg.cs</DependentUpon>
@@ -284,6 +337,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SplitBlockDlg.resx">
       <DependentUpon>SplitBlockDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\VoiceActorAssignmentDlg.resx">
+      <DependentUpon>VoiceActorAssignmentDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\VoiceActorInformationDlg.resx">
+      <DependentUpon>VoiceActorInformationDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -325,20 +384,18 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\CharacterGroups.xlsx" />
+    <None Include="Resources\CharacterGroups_FCBH.xlsx" />
     <None Include="Resources\quoteSystems.xml">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\SplitLocation.png" />
-    <None Include="Resources\split point.cur" />
     <None Include="Resources\SplitBlock.png" />
-    <None Include="Resources\sample.vrs" />
     <None Include="Resources\yellow-ok-icon.png" />
     <None Include="Resources\112_Plus_Green_16x16_72.png" />
     <None Include="Resources\CharacterDetail.txt" />
     <Content Include="Resources\CharacterVerse.txt" />
-    <None Include="Resources\data-grid-icon.png" />
     <None Include="Resources\grid-icon.png" />
     <None Include="Resources\html-view.png" />
     <None Include="Resources\DecreaseSize.png" />

@@ -16,11 +16,13 @@ using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Controls;
+using Glyssen.Properties;
 using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
 using SIL.Windows.Forms.PortableSettingsProvider;
+using Timer = System.Timers.Timer;
 
 namespace Glyssen.Dialogs
 {
@@ -33,7 +35,7 @@ namespace Glyssen.Dialogs
 		int m_characterListHoveredIndex = -1;
 		private readonly ToolTip m_characterListToolTip = new ToolTip();
 		private bool m_formLoading;
-		private Font m_originalDefaultFontForLists;
+		private readonly Font m_originalDefaultFontForLists;
 
 		private void HandleStringsLocalized()
 		{
@@ -54,12 +56,12 @@ namespace Glyssen.Dialogs
 
 			m_viewModel = viewModel;
 
-			if (Properties.Settings.Default.AssignCharacterDialogFormSettings == null)
-				Properties.Settings.Default.AssignCharacterDialogFormSettings = FormSettings.Create(this);
+			if (Settings.Default.AssignCharacterDialogFormSettings == null)
+				Settings.Default.AssignCharacterDialogFormSettings = FormSettings.Create(this);
 
 			m_txtCharacterFilter.CorrectHeight();
 			m_txtDeliveryFilter.CorrectHeight();
-			if (Properties.Settings.Default.AssignCharactersShowGridView)
+			if (Settings.Default.AssignCharactersShowGridView)
 				m_toolStripButtonGridView.Checked = true;
 
 			var books = new BookSet();
@@ -67,8 +69,6 @@ namespace Glyssen.Dialogs
 				books.Add(bookId);
 			m_scriptureReference.VerseControl.BooksPresentSet = books;
 			m_scriptureReference.VerseControl.ShowEmptyBooks = false;
-
-			Disposed += AssignCharacterDialog_Disposed;
 
 			m_scriptureReference.VerseControl.AllowVerseSegments = false;
 			m_scriptureReference.VerseControl.Versification = m_viewModel.Versification;
@@ -86,6 +86,7 @@ namespace Glyssen.Dialogs
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 
+			m_listBoxCharacters.DisplayMember = "LocalizedDisplay";
 			m_originalDefaultFontForLists = m_listBoxCharacters.Font;
 			SetFontsFromViewModel();
 
@@ -96,6 +97,8 @@ namespace Glyssen.Dialogs
 			m_blocksViewer.Disposed += (sender, args) => m_blocksViewer.VisibleChanged -= LoadBlock;
 
 			SetFilterControlsFromMode();
+
+			m_viewModel.CurrentBookSaved += UpdateSavedText;
 		}
 
 		void m_viewModel_AssignedBlocksIncremented(object sender, EventArgs e)
@@ -421,16 +424,21 @@ namespace Glyssen.Dialogs
 			m_pnlShortcuts.Height = m_listBoxCharacters.ItemHeight * 5;
 		}
 
+		private void UpdateSavedText(object obj, EventArgs e)
+		{
+			m_saveStatus.OnSaved();
+		}
+
 		#region Form events
 		/// ------------------------------------------------------------------------------------
 		protected override void OnLoad(EventArgs e)
 		{
 			m_formLoading = true;
-			Properties.Settings.Default.AssignCharacterDialogFormSettings.InitializeForm(this);
+			Settings.Default.AssignCharacterDialogFormSettings.InitializeForm(this);
 			base.OnLoad(e);
-			m_blocksViewer.BlocksGridSettings = Properties.Settings.Default.AssignCharactersBlockContextGrid;
-			if (Properties.Settings.Default.AssignCharactersSliderLocation > 0)
-				m_splitContainer.SplitterDistance = Properties.Settings.Default.AssignCharactersSliderLocation;
+			m_blocksViewer.BlocksGridSettings = Settings.Default.AssignCharactersBlockContextGrid;
+			if (Settings.Default.AssignCharactersSliderLocation > 0)
+				m_splitContainer.SplitterDistance = Settings.Default.AssignCharactersSliderLocation;
 
 			m_pnlShortcuts.Height = m_listBoxCharacters.ItemHeight * 5;
 		}
@@ -446,19 +454,10 @@ namespace Glyssen.Dialogs
 		{
 			m_formLoading = false;
 		}
-
-		void AssignCharacterDialog_Disposed(object sender, EventArgs e)
-		{
-			m_viewModel.CurrentBlockChanged -= LoadBlock;
-			LocalizeItemDlg.StringsLocalized -= HandleStringsLocalized;
-			m_viewModel.AssignedBlocksIncremented -= m_viewModel_AssignedBlocksIncremented;
-
-			Disposed -= AssignCharacterDialog_Disposed;
-		}
 		
 		protected override void OnClosing(CancelEventArgs e)
 		{
-			Properties.Settings.Default.AssignCharactersBlockContextGrid = m_blocksViewer.BlocksGridSettings;
+			Settings.Default.AssignCharactersBlockContextGrid = m_blocksViewer.BlocksGridSettings;
 			base.OnClosing(e);
 		}
 
@@ -646,7 +645,7 @@ namespace Glyssen.Dialogs
 				Debug.Assert(!m_toolStripButtonGridView.Checked);
 
 				m_blocksViewer.ViewType = ScriptBlocksViewType.Html;
-				Properties.Settings.Default.AssignCharactersShowGridView = false;
+				Settings.Default.AssignCharactersShowGridView = false;
 			}
 		}
 
@@ -659,7 +658,7 @@ namespace Glyssen.Dialogs
 				Debug.Assert(!m_toolStripButtonHtmlView.Checked);
 
 				m_blocksViewer.ViewType = ScriptBlocksViewType.Grid;
-				Properties.Settings.Default.AssignCharactersShowGridView = true;
+				Settings.Default.AssignCharactersShowGridView = true;
 			}
 		}
 
@@ -716,9 +715,9 @@ namespace Glyssen.Dialogs
 				{
 					m_characterListToolTip.Active = false;
 					var hoveredCharacter = ((AssignCharacterViewModel.Character)m_listBoxCharacters.Items[m_characterListHoveredIndex]);
-					if (!string.IsNullOrEmpty(hoveredCharacter.Alias))
+					if (!string.IsNullOrEmpty(hoveredCharacter.LocalizedAlias))
 					{
-						m_characterListToolTip.SetToolTip(m_listBoxCharacters, hoveredCharacter.CharacterId);
+						m_characterListToolTip.SetToolTip(m_listBoxCharacters, hoveredCharacter.LocalizedCharacterId);
 						m_characterListToolTip.Active = true;
 					}
 				}
@@ -728,13 +727,18 @@ namespace Glyssen.Dialogs
 		private void m_splitContainer_SplitterMoved(object sender, SplitterEventArgs e)
 		{
 			if (!m_formLoading)
-				Properties.Settings.Default.AssignCharactersSliderLocation = e.SplitX;
+				Settings.Default.AssignCharactersSliderLocation = e.SplitX;
 		}
 
 		private void m_listBoxCharacters_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			HandleCharacterSelectionKeyPress(e);
 			e.Handled = true;
+		}
+
+		private void m_llClose_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			Close();
 		}
 		#endregion
 

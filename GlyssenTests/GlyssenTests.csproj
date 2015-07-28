@@ -49,15 +49,15 @@
     <Reference Include="Rhino.Mocks">
       <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Core, Version=2.6.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+    <Reference Include="SIL.Core, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.DblBundle, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SIL.DblBundle, Version=3.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.DblBundle.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.DblBundle.Tests, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+    <Reference Include="SIL.DblBundle.Tests, Version=3.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.DblBundle.Tests.dll</HintPath>
     </Reference>
@@ -65,10 +65,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.Scripture.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.TestUtilities">
+    <Reference Include="SIL.TestUtilities, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.TestUtilities.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.WritingSystems, Version=2.6.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=x86">
+    <Reference Include="SIL.Windows.Forms.DblBundle, Version=3.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\dotnet\SIL.Windows.Forms.DblBundle.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.WritingSystems, Version=3.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.WritingSystems.dll</HintPath>
     </Reference>
@@ -88,21 +93,29 @@
     <Compile Include="BlockTests.cs" />
     <Compile Include="BookSetUtilsTests.cs" />
     <Compile Include="Bundle\GlyssenDblTextMetadataTests.cs" />
-    <Compile Include="CharacterAssignerTests.cs" />
-    <Compile Include="CharacterVerseDataTests.cs" />
+    <Compile Include="Character\CharacterAssignerTests.cs" />
+    <Compile Include="Character\CharacterGroupListTests.cs" />
+    <Compile Include="Character\CharacterGroupTemplateExcelFileTests.cs" />
+    <Compile Include="Character\CharacterGroupTemplateTests.cs" />
+    <Compile Include="Character\CharacterVerseDataTests.cs" />
+    <Compile Include="Character\ProjectCharacterVerseDataTests.cs" />
     <Compile Include="Controls\BrowserTests.cs" />
     <Compile Include="BookScriptTests.cs" />
     <Compile Include="Dialogs\BlockNavigatorViewModelTests.cs" />
     <Compile Include="Dialogs\AssignCharacterViewModelTests.cs" />
-    <Compile Include="ProjectCharacterVerseDataTests.cs" />
+    <Compile Include="ProjectExportTests.cs" />
     <Compile Include="Quote\QuoteUtilsTests.cs" />
     <Compile Include="Quote\QuoteParserTests.cs" />
     <Compile Include="Quote\QuoteSystemGuesserTests.cs" />
     <Compile Include="Quote\QuoteSystemTests.cs" />
+    <Compile Include="Rules\ProximityTests.cs" />
+    <Compile Include="TestProject.cs" />
     <Compile Include="UsxParserTests.cs" />
     <Compile Include="Dialogs\SelectProjectDlgTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\MathUtilitiesTests.cs" />
+    <Compile Include="VoiceActor\VoiceActorListTests.cs" />
+    <Compile Include="VoiceActor\VoiceActorTests.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -132,6 +145,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\TestCharacterGroups.xlsx" />
     <None Include="Resources\TestCharacterVerse.txt" />
   </ItemGroup>
   <ItemGroup>

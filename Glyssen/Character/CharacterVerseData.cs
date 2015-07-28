@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using L10NSharp;
 using Paratext;
 using SIL.Scripture;
 using ScrVers = Paratext.ScrVers;
@@ -73,6 +74,28 @@ namespace Glyssen.Character
 		public static bool IsCharacterOfType(string characterId, StandardCharacter standardCharacterType)
 		{
 			return characterId.StartsWith(GetCharacterPrefix(standardCharacterType));
+		}
+
+		public static string GetCharacterNameForUi(string characterId)
+		{
+			switch (GetStandardCharacterType(characterId))
+			{
+				case StandardCharacter.Narrator: 
+					return String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.Narrator", "narrator ({0})"), GetBookNameFromStandardCharacterId(characterId));
+				case StandardCharacter.Intro: 
+					return String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.IntroCharacter", "introduction ({0})"), GetBookNameFromStandardCharacterId(characterId));
+				case StandardCharacter.ExtraBiblical: 
+					return String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.ExtraCharacter", "section head ({0})"), GetBookNameFromStandardCharacterId(characterId));
+				case StandardCharacter.BookOrChapter: 
+					return String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BookChapterCharacter", "book title or chapter ({0})"), GetBookNameFromStandardCharacterId(characterId));
+				default:
+					return LocalizationManager.GetDynamicString(Program.kApplicationId, "CharacterName." + characterId, characterId);
+			}
+		}
+
+		private static string GetBookNameFromStandardCharacterId(string characterId)
+		{
+			return characterId.Substring(characterId.Length - 3);
 		}
 
 		private static string GetCharacterPrefix(StandardCharacter standardCharacterType)
@@ -248,8 +271,9 @@ namespace Glyssen.Character
 			var list = new List<CharacterVerse>();
 
 			if (items.Length < kiQuoteType)
-				throw new ApplicationException("Bad format in CharacterVerseDataBase! Line #: " + lineNumber + "; Line contents: " + string.Join("\t", items));
-			Debug.Assert(items.Length <= kMaxItems);
+				throw new ApplicationException("Bad format in CharacterVerse control file! Line #: " + lineNumber + "; Line contents: " + string.Join("\t", items));
+			if (items.Length > kMaxItems)
+				throw new ApplicationException("Incorrect number of fields in CharacterVerse control file! Line #: " + lineNumber + "; Line contents: " + string.Join("\t", items));
 
 			int chapter;
 			if (!Int32.TryParse(items[1], out chapter))
@@ -261,5 +285,11 @@ namespace Glyssen.Character
 		}
 
 		protected abstract CharacterVerse CreateCharacterVerse(BCVRef bcvRef, string[] items);
+
+		public void HandleStringsLocalized()
+		{
+			foreach (CharacterVerse cv in GetAllQuoteInfo())
+				cv.ResetLocalization();
+		}
 	}
 }

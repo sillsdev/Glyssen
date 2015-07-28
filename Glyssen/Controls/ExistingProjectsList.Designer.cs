@@ -31,111 +31,54 @@ namespace Glyssen.Controls
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.m_list = new System.Windows.Forms.DataGridView();
-			this.colLanguage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.colRecordingProjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.components = new System.ComponentModel.Container();
 			this.colBundleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colInactive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-			this.colProjectPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			((System.ComponentModel.ISupportInitialize)(this.m_list)).BeginInit();
+			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
+			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.SuspendLayout();
+
+			m_list.Columns.AddRange(colBundleName, colInactive);
 			// 
 			// m_list
 			// 
-			this.m_list.AllowUserToAddRows = false;
-			this.m_list.AllowUserToDeleteRows = false;
-			this.m_list.AllowUserToOrderColumns = true;
-			this.m_list.AllowUserToResizeRows = false;
-			this.m_list.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.m_list.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-			this.m_list.BackgroundColor = System.Drawing.SystemColors.Window;
-			this.m_list.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.m_list.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-			this.m_list.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			this.m_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.m_list.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colLanguage,
-            this.colRecordingProjectName,
-            this.colBundleName,
-            this.colInactive,
-            this.colProjectPath});
-			this.m_list.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_list.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-			this.m_list.Location = new System.Drawing.Point(0, 0);
-			this.m_list.MultiSelect = false;
-			this.m_list.Name = "m_list";
-			this.m_list.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			this.m_list.RowHeadersVisible = false;
-			this.m_list.RowHeadersWidth = 22;
-			this.m_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.m_list.ShowEditingIcon = false;
-			this.m_list.Size = new System.Drawing.Size(368, 147);
-			this.m_list.TabIndex = 0;
-			this.m_list.DoubleClick += new System.EventHandler(this.HandleDoubleClick);
-			// 
-			// colLanguage
-			// 
-			this.colLanguage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.colLanguage.HeaderText = "Language";
-			this.colLanguage.MinimumWidth = 50;
-			this.colLanguage.Name = "colLanguage";
-			this.colLanguage.ReadOnly = true;
-			this.colLanguage.Width = 84;
-			// 
-			// colRecordingProjectName
-			// 
-			this.colRecordingProjectName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.colRecordingProjectName.HeaderText = "Recording Project";
-			this.colRecordingProjectName.MinimumWidth = 50;
-			this.colRecordingProjectName.Name = "colRecordingProjectName";
-			this.colRecordingProjectName.ReadOnly = true;
-			this.colRecordingProjectName.Width = 115;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_list, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_list, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_list, "ProjectsList");
 			// 
 			// colBundleName
 			// 
-			this.colBundleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.colBundleName.HeaderText = "Original Bundle Filename";
-			this.colBundleName.MinimumWidth = 50;
-			this.colBundleName.Name = "colBundleName";
-			this.colBundleName.ReadOnly = true;
-			this.colBundleName.Width = 94;
+			colBundleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			colBundleName.HeaderText = "_L10N_:DialogBoxes.OpenProjectDlg.ProjectsList.OriginalBundleFilename!Original Bundle Filename";
+			colBundleName.MinimumWidth = 50;
+			colBundleName.Name = "colBundleName";
+			colBundleName.ReadOnly = true;
+			colBundleName.Width = 94;
 			// 
 			// colInactive
 			// 
-			this.colInactive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.colInactive.HeaderText = "Inactive";
-			this.colInactive.MinimumWidth = 50;
-			this.colInactive.Name = "colInactive";
-			this.colInactive.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			this.colInactive.Width = 73;
+			colInactive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			colInactive.HeaderText = "_L10N_:DialogBoxes.OpenProjectDlg.ProjectsList.Inactive!Inactive";
+			colInactive.MinimumWidth = 50;
+			colInactive.Name = "colInactive";
+			colInactive.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			colInactive.Width = 73;
 			// 
-			// colProjectPath
+			// locExtender
 			// 
-			this.colProjectPath.HeaderText = "ProjectPath";
-			this.colProjectPath.Name = "colProjectPath";
-			this.colProjectPath.ReadOnly = true;
-			this.colProjectPath.Visible = false;
+			this.l10NSharpExtender1.LocalizationManagerId = "Glyssen";
 			// 
 			// ExistingProjectsList
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.m_list);
-			this.DoubleBuffered = true;
 			this.Name = "ExistingProjectsList";
 			this.Size = new System.Drawing.Size(368, 147);
-			((System.ComponentModel.ISupportInitialize)(this.m_list)).EndInit();
 			this.ResumeLayout(false);
-
+			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).EndInit();
 		}
-
 		#endregion
 
-		private System.Windows.Forms.DataGridView m_list;
-		private System.Windows.Forms.DataGridViewTextBoxColumn colLanguage;
-		private System.Windows.Forms.DataGridViewTextBoxColumn colRecordingProjectName;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colBundleName;
 		private System.Windows.Forms.DataGridViewCheckBoxColumn colInactive;
-		private System.Windows.Forms.DataGridViewTextBoxColumn colProjectPath;
+		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
 	}
 }

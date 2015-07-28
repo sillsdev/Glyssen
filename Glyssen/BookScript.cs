@@ -320,11 +320,13 @@ namespace Glyssen
 					int initialEndVerse = verseNumParts.Length == 2 ? int.Parse(verseNumParts[1]) : 0;
 					newBlock = new Block(blockToSplit.StyleTag, blockToSplit.ChapterNumber,
 						initialStartVerse, initialEndVerse);
+					newBlock.CharacterId = blockToSplit.CharacterId;
+					newBlock.UserConfirmed = blockToSplit.UserConfirmed;
 					newBlock.BlockElements.Add(new ScriptText(content.Substring(characterOffsetToSplit)));
 					text.Content = content.Substring(0, characterOffsetToSplit);
 					m_blocks.Insert(iBlock + 1, newBlock);
-					foreach (
-						var chapterNum in m_chapterStartBlockIndices.Keys.Where(chapterNum => chapterNum > blockToSplit.ChapterNumber))
+					var chapterNumbersToIncrement = m_chapterStartBlockIndices.Keys.Where(chapterNum => chapterNum > blockToSplit.ChapterNumber).ToList();
+					foreach (var chapterNum in chapterNumbersToIncrement)
 						m_chapterStartBlockIndices[chapterNum]++;
 
 					m_blockCount++;

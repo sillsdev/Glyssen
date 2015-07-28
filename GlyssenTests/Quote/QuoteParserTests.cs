@@ -307,7 +307,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("« ‹Go!", output[1].GetText(false));
 			Assert.AreEqual("« ‹Get!› »", output[2].GetText(false));
 			Assert.AreEqual("Thus he ended.", output[3].GetText(false));
-			Assert.IsTrue(output[3].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("LUK", CharacterVerseData.StandardCharacter.Narrator), output[3].CharacterId);
 		}
 
 		[Test]
@@ -478,6 +478,72 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual("<<Go!>>", output[1].GetText(false));
+		}
+
+		[Test]
+		public void Parse_MultipleCharacters_Level1CloseStartsWithLevel2Close_Level1CloseImmediatelyFollowsLevel2Close_ProperlyClosesLevel1Quote()
+		{
+			var quoteSystem = new QuoteSystem(new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("<", ">", "<", 2, QuotationMarkingSystemType.Normal));
+			var block = new Block("p");
+			block.BlockElements.Add(new ScriptText("He said, <<She said <Go!> and <Get!> >> and then he finished."));
+			var input = new List<Block> { block };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.AreEqual("<<She said <Go!> and <Get!> >> ", output[1].GetText(false));
+			Assert.AreEqual("and then he finished.", output[2].GetText(false));
+			Assert.AreEqual("narrator-MRK", output[2].CharacterId);
+		}
+
+		[Test]
+		public void Parse_MultipleCharacters_Level1ContinuerStartsWithLevel2Open_ProperlyClosesLevel1Quote()
+		{
+			var quoteSystem = new QuoteSystem(new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("<", ">", "<", 2, QuotationMarkingSystemType.Normal));
+			var block = new Block("p");
+			block.BlockElements.Add(new ScriptText("He said, <<She said <Go!> and "));
+			var block2 = new Block("p");
+			block2.BlockElements.Add(new ScriptText("<<Continue>> "));
+			var block3 = new Block("p");
+			block3.BlockElements.Add(new ScriptText("Not a quote."));
+			var input = new List<Block> { block, block2, block3 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.AreEqual("<<She said <Go!> and ", output[1].GetText(false));
+			Assert.AreEqual("<<Continue>> ", output[2].GetText(false));
+			Assert.AreEqual("Not a quote.", output[3].GetText(false));
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator), output[3].CharacterId);
+		}
+
+		[Test]
+		public void Parse_MultipleCharacters_3Levels_ProperlyClosesLevel1Quote()
+		{
+			var quoteSystem = new QuoteSystem(new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("<", ">", "<<<", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("<<", ">>", "<<<<<", 3, QuotationMarkingSystemType.Normal));
+			var block1 = new Block("p");
+			block1.BlockElements.Add(new ScriptText("A gye 'ushu kong le, "));
+			var block2 = new Block("p");
+			block2.BlockElements.Add(new ScriptText("<<Udebid ugyang a ma de le: "));
+			var block3 = new Block("q1");
+			block3.BlockElements.Add(new ScriptText("<Unim a de Atyagi le: <<Be bel kwu-m "));
+			var block6 = new Block("q2");
+			block6.BlockElements.Add(new ScriptText("abee fe he itang.>> > "));
+			var block7 = new Block("m");
+			block7.BlockElements.Add(new ScriptText("Gbe Udebid or a ma ko Ukristi le Atyam, ki nya sha ná a, ufe ù ha fel igia ima?>> "));
+			var block8 = new Block("p");
+			block8.BlockElements.Add(new ScriptText("Undi ken or lè he."));
+			var input = new List<Block> { block1, block2, block3, block6, block7, block8 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(6, output.Count);
+			Assert.AreEqual("A gye 'ushu kong le, ", output[0].GetText(false));
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator), output[0].CharacterId);
+			Assert.AreEqual("<<Udebid ugyang a ma de le: ", output[1].GetText(false));
+			Assert.AreNotEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator), output[1].CharacterId);
+			Assert.AreEqual("Undi ken or lè he.", output[5].GetText(false));
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator), output[5].CharacterId);
 		}
 
 		[Test]
@@ -851,6 +917,7 @@ namespace GlyssenTests.Quote
 		{
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“ ‘", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“ ‘ “", 3, QuotationMarkingSystemType.Normal));
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, “She said, ‘They said, “No way!” rudely,’” politely."));
 			var input = new List<Block> { block };

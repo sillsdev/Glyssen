@@ -71,21 +71,20 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to #Character ID	Multiple Speakers	Gender	Age	Comment
-        ///Aaron	FALSE	Male		
-        ///Abigail	FALSE	Female		
-        ///Abijah, king of Judah	FALSE	Male		
-        ///Abimelech, King of Gerar	FALSE	Male		
-        ///Abimelech, King of Gerar/Phicol	TRUE	Male		
-        ///Abimelech, King of the Philistines (in Gerar)	FALSE	Male		
-        ///Abimelech, son of Gideon	FALSE	Male		
-        ///Abishai, Joab&apos;s brother	FALSE	Male		
-        ///Abner	FALSE	Male		
-        ///Abraham (Abram)	FALSE	Male		
-        ///Abraham&apos;s chief servant	FALSE	Male		
-        ///Absalom	FALSE	Male		
-        ///Absalom/Israel, men of	TRUE	Male		
-        ///Absalom&apos;s men [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to #Character ID	Max Speakers	Gender	Age	Comment
+        ///2 other disciples	2	Male		Not Peter (Simon), Thomas, Nathaniel, James, or John
+        ///250 Israelite leaders	250	Male		
+        ///a Jew	1	Male		
+        ///Aaron	1	Male		
+        ///Abednego	1	Male		original Hebrew name: Azariah
+        ///Abigail	1	Female		
+        ///Abijah, king of Judah	1	Male		
+        ///Abimelech, King of Gerar	1	Male		
+        ///Abimelech, King of the Philistines (in Gerar)	1	Male		
+        ///Abimelech, son of Gideon (Jerubbaal)	1	Male		
+        ///Abiram	1	Male		
+        ///Abiram	1	Male		son of Eliab (Reubenite)
+        ///Abishai, Joab&apos;s brother [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CharacterDetail {
             get {
@@ -94,7 +93,27 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	70
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] CharacterGroups {
+            get {
+                object obj = ResourceManager.GetObject("CharacterGroups", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] CharacterGroups_FCBH {
+            get {
+                object obj = ResourceManager.GetObject("CharacterGroups_FCBH", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control File Version	71
         ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
         ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
         ///# PSA will be handled as complete units, each psalm will be spoken by one voice								

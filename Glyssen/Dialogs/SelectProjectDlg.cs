@@ -1,63 +1,38 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Windows.Forms;
 using Glyssen.Bundle;
 using Glyssen.Properties;
 using L10NSharp;
 using SIL.DblBundle;
+using SIL.Windows.Forms.DblBundle;
 
 namespace Glyssen.Dialogs
 {
-	public class SelectProjectDlg : IDisposable
+	public class SelectProjectDlg : SelectProjectDlgBase
 	{
-		private readonly OpenFileDialog m_fileDialog;
-
-		public SelectProjectDlg(bool allowProjectFiles = true, string defaultFile = null)
+		public SelectProjectDlg(bool allowProjectFiles = true, string defaultFile = null) : base(allowProjectFiles, defaultFile)
 		{
-			FileName = File.Exists(defaultFile) ? Path.GetFileName(defaultFile) : null;
-			var defaultDir = (defaultFile != null ? Path.GetDirectoryName(defaultFile) : Settings.Default.DefaultBundleDirectory);
-			if (string.IsNullOrEmpty(defaultDir) || !Directory.Exists(defaultDir))
-			{
-				defaultDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-			}
-			string projectFiles = "";
-			if (allowProjectFiles)
-				projectFiles = string.Format("{0} ({1})|{1}|",
-					string.Format(LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ProjectFilesLabel", "{0} Project Files", "{0} is the product name"), Program.kProduct),
-					"*" + Project.kProjectFileExtension);
-			m_fileDialog = new OpenFileDialog
-			{
-				Title = LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.Title", "Open Project"),
-				InitialDirectory = defaultDir,
-				FileName = FileName,
-				Filter = string.Format("{0} ({1})|{1}|{2}{3} ({4})|{4}",
-					LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.ResourceBundleFileTypeLabel", "Text Resource Bundle files"),
-					"*" + DblBundleFileUtils.kDblBundleExtension,
-					projectFiles,
-					LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"),
-					"*.*"),
-				DefaultExt = DblBundleFileUtils.kDblBundleExtension
-			};
 		}
 
-		public DialogResult ShowDialog()
+		protected override string DefaultBundleDirectory
 		{
-			var result = m_fileDialog.ShowDialog();
-			if (result == DialogResult.OK)
-			{
-				FileName = m_fileDialog.FileName;
-				var dir = Path.GetDirectoryName(FileName);
-				if (!string.IsNullOrEmpty(dir))
-					Settings.Default.DefaultBundleDirectory = dir;
-			}
-			return result;
+			get { return Settings.Default.DefaultBundleDirectory; }
+			set { Settings.Default.DefaultBundleDirectory = value; }
 		}
 
-		public string FileName { get; private set; }
-
-		public void Dispose()
+		protected override string ProjectFileExtension
 		{
-			m_fileDialog.Dispose();
+			get { return Project.kProjectFileExtension; }
+		}
+
+		protected override string Title
+		{
+			get { return LocalizationManager.GetString("DialogBoxes.SelectProjectDlg.Title", "Open Project"); }
+		}
+
+		protected override string ProductName
+		{
+			get { return Program.kProduct; }
 		}
 
 		public static bool GiveUserChanceToFindOriginalBundle(Project project)

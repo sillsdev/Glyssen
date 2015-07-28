@@ -17,6 +17,7 @@ using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Quote;
 using Glyssen.Utilities;
+using Glyssen.VoiceActor;
 using L10NSharp;
 using Paratext;
 using SIL.DblBundle;
@@ -37,6 +38,8 @@ namespace Glyssen
 		public const string kProjectFileExtension = ".glyssen";
 		private const string kBookScriptFileExtension = ".xml";
 		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
+		private const string kVoiceActorInformationFileName = "VoiceActorInformation.xml";
+		private const string kCharacterGroupFileName = "CharacterGroups.xml";
 		private const string kSample = "sample";
 		private const string kSampleProjectName = "Sample Project";
 
@@ -57,6 +60,8 @@ namespace Glyssen
 		private IWritingSystemRepository m_wsRepository;
 		// Don't want to hound the user more than once per launch per project
 		private bool m_fontInstallationAttempted;
+		private VoiceActorList m_voiceActorList;
+		private CharacterGroupList m_characterGroupList;
 
 		public event EventHandler<ProgressChangedEventArgs> ProgressChanged;
 		public event EventHandler<ProjectStateChangedEventArgs> ProjectStateChanged;
@@ -257,6 +262,12 @@ namespace Glyssen
 			set { m_metadata.ProjectStatus.ProjectSettingsStatus = value; }
 		}
 
+		public VoiceActorStatus VoiceActorStatus
+		{
+			get { return m_metadata.ProjectStatus.VoiceActorStatus; }
+			set { m_metadata.ProjectStatus.VoiceActorStatus = value; }
+		}
+
 		public IReadOnlyList<BookScript> Books { get { return m_books; } }
 
 		public IReadOnlyList<BookScript> IncludedBooks
@@ -269,16 +280,28 @@ namespace Glyssen
 			}
 		}
 
-		public IReadOnlyList<Book> AvailableBooks
+		public SIL.ObjectModel.IReadOnlyList<Book> AvailableBooks
 		{ 
+			get { return m_metadata.AvailableBibleBooks; } 
+		}
+
+		public IEnumerable<string> IncludedCharacterIds
+		{
+			//Ideally, we shouldn't have to regenerate this set every time this property is accessed;
+			//however, it is possible that IncludedBooks changes (in ScriptureRangeSelectionDlg.cs).
+			//Also, we have to ensure that the set is immutable if it is to persist.
 			get
-			{ 
-				return m_metadata.AvailableBooks.Where(b =>
+			{
+				HashSet<string> returnHashSet = new HashSet<string>();
+				foreach (var book in IncludedBooks)
 				{
-					var bookNum = BCVRef.BookToNumber(b.Code);
-					return bookNum >= 1 && bookNum <= BCVRef.LastBook;
-				}).ToList(); 
-			} 
+					foreach (var block in book.GetScriptBlocks(true))
+					{
+						returnHashSet.Add(block.CharacterId);
+					}
+				}
+				return returnHashSet;
+			}
 		}
 
 		public string OriginalBundlePath
@@ -305,7 +328,7 @@ namespace Glyssen
 
 		public Project UpdateProjectFromBundleData(GlyssenBundle bundle)
 		{
-			// If we're updating the projectb in place, we need to make a backup. Otherwise, if it's moving to a new
+			// If we're updating the project in place, we need to make a backup. Otherwise, if it's moving to a new
 			// location, just mark the existing one as inactive.
 			bool moving = (ProjectFilePath != GetProjectFilePath(bundle.LanguageIso, bundle.Id, m_recordingProjectName));
 			if (moving)
@@ -370,6 +393,16 @@ namespace Glyssen
 		/// If this is set, the user decisions in it will be applied when the quote parser is done
 		/// </summary>
 		private Project UserDecisionsProject { get; set; }
+
+		public VoiceActorList VoiceActorList
+		{
+			get { return m_voiceActorList ?? (m_voiceActorList = LoadVoiceActorInformationData()); }
+		}
+
+		public CharacterGroupList CharacterGroupList
+		{
+			get { return m_characterGroupList ?? (m_characterGroupList = LoadCharacterGroupData()); }
+		}
 
 		internal void ClearAssignCharacterStatus()
 		{
@@ -544,16 +577,14 @@ namespace Glyssen
 
 		private void PopulateAndParseBooks(ITextBundle bundle)
 		{
-			AddAndParseBooks(GetUsxBooksToInclude(bundle), bundle.Stylesheet);
+			AddAndParseBooks(bundle.UsxBooksToInclude, bundle.Stylesheet);
 		}
 
-		private IEnumerable<UsxDocument> GetUsxBooksToInclude(ITextBundle bundle)
+		private void PopulateCharacterGroupAssignees(CharacterGroupList characterGroupList)
 		{
-			foreach (var book in AvailableBooks.Where(b => b.IncludeInScript))
+			foreach (CharacterGroup group in characterGroupList.CharacterGroups)
 			{
-				UsxDocument usxBook;
-				if (bundle.TryGetBook(book.Code, out usxBook))
-					yield return usxBook;
+				group.AssignVoiceActor(VoiceActorList.Actors.FirstOrDefault(t => t.Id == group.VoiceActorAssignedId));
 			}
 		}
 
@@ -787,6 +818,44 @@ namespace Glyssen
 			ProjectCharacterVerseData.WriteToFile(ProjectCharacterVerseDataPath);
 		}
 
+		public void SaveCharacterGroupData()
+		{
+			m_characterGroupList.SaveToFile(Path.Combine(ProjectFolder, kCharacterGroupFileName));
+		}
+
+		public void SaveVoiceActorInformationData()
+		{
+			m_voiceActorList.SaveToFile(Path.Combine(ProjectFolder, kVoiceActorInformationFileName));
+		}
+
+		public CharacterGroupList LoadCharacterGroupData()
+		{
+			string path = Path.Combine(ProjectFolder, kCharacterGroupFileName);
+			if (File.Exists(path))
+			{
+				var characterGroupList = CharacterGroupList.LoadCharacterGroupListFromFile(path);
+				PopulateCharacterGroupAssignees(characterGroupList);
+				return characterGroupList;
+			}
+			return new CharacterGroupList();
+		}
+
+		private VoiceActorList LoadVoiceActorInformationData()
+		{
+			string path = Path.Combine(ProjectFolder, kVoiceActorInformationFileName);
+			if (File.Exists(path))
+				return VoiceActorList.LoadVoiceActorListFromFile(path);
+			return new VoiceActorList();
+		}
+
+		public VoiceActor.VoiceActor GetVoiceActorForCharacter(string characterId)
+		{
+			var charGroup = CharacterGroupList.CharacterGroups.FirstOrDefault(cg => cg.CharacterIds.Contains(characterId));
+			if (charGroup == null)
+				return null;
+			return VoiceActorList.Actors.FirstOrDefault(a => a.Id == charGroup.VoiceActorAssignedId);
+		}
+
 		public WritingSystemDefinition WritingSystem
 		{
 			get
@@ -829,21 +898,6 @@ namespace Glyssen
 			{
 				m_metadata.QuoteSystem.AllLevels.Clear();
 				m_metadata.QuoteSystem.AllLevels.AddRange(ws.QuotationMarks);
-			}
-		}
-
-		public void ExportTabDelimited(string fileName)
-		{
-			int blockNumber = 1;
-			using (var stream = new StreamWriter(fileName, false, Encoding.UTF8))
-			{
-				foreach (var book in IncludedBooks)
-				{
-					foreach (var block in book.GetScriptBlocks(true))
-					{
-						stream.WriteLine((blockNumber++) + "\t" + block.GetAsTabDelimited(book.BookId));
-					}
-				}
 			}
 		}
 

@@ -803,6 +803,46 @@ namespace GlyssenTests
 			Assert.AreEqual("[35]\u00A0This is the first verse. [36-37]\u00A0Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ", blocks[2].GetText(true));
 			Assert.AreEqual(MultiBlockQuote.None, blockToSplitBefore.MultiBlockQuote);
 		}
+
+		[Test]
+		public void SplitBlock_BothBlocksHaveOriginalCharacterIdAndUserConfirmed()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			var blockToSplit = NewSingleVersePara(1).AddVerse("2", "Some text");
+			blockToSplit.CharacterId = "Bill";
+			blockToSplit.UserConfirmed = true;
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "2", 5);
+			Assert.AreEqual("Bill", blockToSplit.CharacterId);
+			Assert.AreEqual("Bill", newBlock.CharacterId);
+			Assert.IsTrue(blockToSplit.UserConfirmed);
+			Assert.IsTrue(newBlock.UserConfirmed);
+		}
+
+		[Test]
+		public void SplitBlock_GetFirstBlockForVerse_SplitBlockInPreviousChapterAfterCallingGetFirstBlockForVerseInSubsequentChapter()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			var blockToSplit = NewSingleVersePara(1).AddVerse("1", "Block to split");
+			mrkBlocks.Add(blockToSplit);
+			mrkBlocks.Add(NewChapterBlock(2));
+			var block2 = NewSingleVersePara(1).AddVerse("1", "A verse in a subsequent chapter");
+			mrkBlocks.Add(block2);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			Assert.AreEqual(4, bookScript.GetScriptBlocks().Count);
+
+			// Call GetFirstBlockForVerse on a chapter after the block we are splitting.
+			// There was a bug in the code which updates an index in the split code.
+			// That index is not set up until we call this.
+			var blockResultBeforeSplit = bookScript.GetFirstBlockForVerse(2, 1);
+			bookScript.SplitBlock(blockToSplit, "1", 5);
+
+			var blockResultAfterSplit = bookScript.GetFirstBlockForVerse(2, 1);
+			Assert.AreEqual(blockResultBeforeSplit, blockResultAfterSplit);
+		}
 		#endregion
 
 		#region Private Helper methods

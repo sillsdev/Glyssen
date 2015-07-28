@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Dialogs;
@@ -18,7 +19,7 @@ namespace GlyssenTests.Dialogs
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
-			m_testProject = BlockNavigatorViewModelTests.CreateTestProject();
+			m_testProject = TestProject.CreateTestProject();
 		}
 
 		[SetUp]
@@ -50,7 +51,7 @@ namespace GlyssenTests.Dialogs
 		public void TestFixtureTearDown()
 		{
 			m_testProject = null;
-			BlockNavigatorViewModelTests.DeleteTestProjectFolder();
+			TestProject.DeleteTestProjectFolder();
 		}
 
 		[Test]
@@ -288,6 +289,29 @@ namespace GlyssenTests.Dialogs
 			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
 			Assert.IsFalse(m_model.CanNavigateToPreviousRelevantBlock);
 			Assert.IsFalse(m_model.CanNavigateToNextRelevantBlock);
+		}
+
+		[Test]
+		public void SplitBlock_RelevantBlocksUpdated()
+		{
+			m_fullProjectRefreshRequired = true;
+			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			var currentBlock = m_model.CurrentBlock;
+			m_model.LoadNextRelevantBlock();
+			var nextBlock = m_model.CurrentBlock;
+			m_model.LoadNextRelevantBlock();
+			var nextNextBlock = m_model.CurrentBlock;
+			m_model.LoadPreviousRelevantBlock();
+			m_model.LoadPreviousRelevantBlock();
+			Assert.AreEqual(currentBlock, m_model.CurrentBlock);
+
+			var newBlock = m_model.SplitBlock(currentBlock, "2", 6);
+			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(newBlock, m_model.CurrentBlock);
+			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(nextBlock, m_model.CurrentBlock);
+			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(nextNextBlock, m_model.CurrentBlock);
 		}
 
 		private void FindRefInMark(int chapter, int verse)

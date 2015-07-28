@@ -22,6 +22,9 @@ namespace Glyssen
 						".right-to-left{{direction:rtl}}" +
 						".scripttext {{display:inline}}";
 
+		/// <summary>Random string which will (hopefully) never appear in real text</summary>
+		private const string kAwooga = "^~^";
+
 		private int m_initialStartVerseNumber;
 		private int m_initialEndVerseNumber;
 		private int m_chapterNumber;
@@ -197,7 +200,7 @@ namespace Glyssen
 							}
 							if (extra == null)
 								throw new ArgumentNullException("extra");
-							encodedContent = encodedContent.Insert(offsetToInsertExtra, extra);
+							encodedContent = HttpUtility.HtmlEncode(text.Content.Insert(offsetToInsertExtra, kAwooga)).Replace(kAwooga, extra);
 						}
 						var content = String.Format("<div id=\"{0}\" class=\"scripttext\">{1}</div>", currVerse,
 							encodedContent);
@@ -246,27 +249,6 @@ namespace Glyssen
 		public string GetAsXml(bool includeXmlDeclaration = true)
 		{
 			return XmlSerializationHelper.SerializeToString(this, !includeXmlDeclaration);
-		}
-
-		public string GetAsTabDelimited(string bookId)
-		{
-			StringBuilder builder = new StringBuilder();
-			builder.Append(StyleTag);
-			builder.Append('\t');
-			builder.Append(bookId);
-			builder.Append('\t');
-			builder.Append(ChapterNumber);
-			builder.Append('\t');
-			builder.Append(InitialStartVerseNumber);
-			builder.Append('\t');
-			builder.Append(CharacterId);
-			builder.Append('\t');
-			builder.Append(Delivery);
-			builder.Append('\t');
-			builder.Append(GetText(true));
-			builder.Append('\t');
-			builder.Append(GetText(false).Length);
-			return builder.ToString();
 		}
 
 		public void SetCharacterAndDelivery(IEnumerable<CharacterVerse> characters)

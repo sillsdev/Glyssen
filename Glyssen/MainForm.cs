@@ -22,19 +22,19 @@ namespace Glyssen
 	{
 		private Project m_project;
 		private string m_percentAssignedFmt;
+		private string m_actorsAssignedFmt;
+		private string m_exportButtonFmt;
 
 		public MainForm()
 		{
 			InitializeComponent();
-
-			InitializeLocalizableFormats();
 
 			SetupUILanguageMenu();
 			m_toolStrip.Renderer = new NoBorderToolStripRenderer();
 			m_uiLanguageMenu.ToolTipText = LocalizationManager.GetString("MainForm.UILanguage", "User-interface Language");
 
 			HandleStringsLocalized();
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized; // Don't need to unsubscribe since this object will be around as long as the program is running.
 		}
 
 		private void SetProject(Project project)
@@ -76,14 +76,14 @@ namespace Glyssen
 				});
 		}
 
-		private void InitializeLocalizableFormats()
-		{
-		}
-
 		protected void HandleStringsLocalized()
 		{
 			m_percentAssignedFmt = m_lblPercentAssigned.Text;
+			m_actorsAssignedFmt = m_lblActorsAssigned.Text;
+			m_exportButtonFmt = m_btnExportToTabSeparated.Text;
 			UpdateLocalizedText();
+			if (m_project != null)
+				m_project.ProjectCharacterVerseData.HandleStringsLocalized();
 		}
 
 		private void UpdateButtons(bool readOnly)
@@ -98,6 +98,8 @@ namespace Glyssen
 			m_btnAssign.Enabled = !readOnly && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
 			m_imgCheckAssign.Visible = m_btnAssign.Enabled && m_project.ProjectAnalysis.UserPercentAssigned == 100d;
 			m_btnExportToTabSeparated.Enabled = !readOnly && m_imgCheckAssign.Visible;
+			m_btnAssignVoiceActors.Visible = Environment.GetEnvironmentVariable("Glyssen_ProtoscriptOnly", EnvironmentVariableTarget.User) == null;
+			m_btnAssignVoiceActors.Enabled = m_btnExportToTabSeparated.Enabled;
 			m_lnkExit.Enabled = !readOnly;
 		}
 
@@ -107,6 +109,7 @@ namespace Glyssen
 			m_btnSettings.Enabled = false;
 			m_btnAssign.Enabled = false;
 			m_btnExportToTabSeparated.Enabled = false;
+			m_btnAssignVoiceActors.Enabled = false;
 			m_imgCheckOpen.Visible = false;
 			m_imgCheckSettings.Visible = false;
 			m_imgCheckBooks.Visible = false;
@@ -199,7 +202,10 @@ namespace Glyssen
 				}
 				// If we get here, then the Select Existing Project dialog was not displayed, but there is
 				// already a project with the same path (i.e., for a different revision). So we need to
-				// generate a unique revision-specific project path
+				// generate a unique revision-specific project path.
+				// TODO (PG-222): Before blindly creating a new project, we probably need to prompt the
+				// user to see if they want to upgrade an existing project instead. If there are multiple
+				// candidate projects, we'll need to present a list.
 				var baserecordingProjectName = recordingProjectName;
 				recordingProjectName = string.Format("{0} (Rev {1})", baserecordingProjectName, bundle.Metadata.Revision);
 				var path = Project.GetProjectFilePath(bundle.LanguageIso, bundle.Id, recordingProjectName);
@@ -272,8 +278,25 @@ namespace Glyssen
 				m_lblSettingsInfo.Text = String.Empty;
 
 			m_lblBookSelectionInfo.Text = m_project != null && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed ? m_project.BookSelectionSummary : String.Empty;
-			
+
+			UpdateDisplayOfActorsAssigned();
+
+			m_btnExportToTabSeparated.Text = string.Format(m_exportButtonFmt, m_btnAssignVoiceActors.Visible ? "6" : "5");
+
 			UpdateDisplayOfPercentAssigned();
+		}
+
+		private void UpdateDisplayOfActorsAssigned()
+		{
+			if (!m_btnAssignVoiceActors.Visible || !m_btnAssignVoiceActors.Enabled || m_project == null)
+			{
+				m_lblActorsAssigned.Text = string.Empty;
+				return;
+			}
+
+			int actors = m_project.VoiceActorList.Actors.Count;
+			int assigned = m_project.CharacterGroupList.CountVoiceActorsAssigned();
+			m_lblActorsAssigned.Text = string.Format(m_actorsAssignedFmt, actors, assigned);
 		}
 
 		private void UpdateDisplayOfPercentAssigned()
@@ -310,38 +333,7 @@ namespace Glyssen
 
 		private void HandleExportToTabSeparated_Click(object sender, EventArgs e)
 		{
-			var defaultDir = Settings.Default.DefaultExportDirectory;
-			if (string.IsNullOrEmpty(defaultDir))
-			{
-				defaultDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-			}
-
-			using (var dlg = new SaveFileDialog())
-			{
-				dlg.Title = LocalizationManager.GetString("DialogBoxes.ExportDlg.Title", "Export Tab-Delimited Data");
-				dlg.OverwritePrompt = true;
-				dlg.InitialDirectory = defaultDir;
-				dlg.FileName = "MRK.txt";
-				dlg.Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}",
-					LocalizationManager.GetString("DialogBoxes.ExportDlg.TabDelimitedFileTypeLabel", "Tab-delimited files"),
-					"*.txt",
-					LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"),
-					"*.*");
-				dlg.DefaultExt = ".txt";
-				if (dlg.ShowDialog(this) == DialogResult.OK)
-				{
-					Settings.Default.DefaultExportDirectory = Path.GetDirectoryName(dlg.FileName);
-					try
-					{
-						m_project.ExportTabDelimited(dlg.FileName);
-						Analytics.Track("Export");
-					}
-					catch(Exception ex)
-					{
-						MessageBox.Show(this, ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-					}
-				}
-			}
+			new ProjectExport(m_project).Export(this);
 		}
 
 		private void SetupUILanguageMenu()
@@ -438,6 +430,22 @@ namespace Glyssen
 			{
 				dlg.ShowDialog();
 			}
+		}
+
+		private void m_btnAssignVoiceActors_Click(object sender, EventArgs e)
+		{
+			if (m_project.VoiceActorStatus == VoiceActorStatus.UnProvided)
+			{
+				using (var dlg = new VoiceActorInformationDlg(m_project))
+					dlg.ShowDialog();
+			}
+
+			if (m_project.VoiceActorStatus == VoiceActorStatus.Provided)
+			{
+				using (var dlg = new VoiceActorAssignmentDlg(m_project))
+					dlg.ShowDialog();
+			}
+			UpdateDisplayOfProjectInfo();
 		}
 
 		public class NoBorderToolStripRenderer : ToolStripProfessionalRenderer

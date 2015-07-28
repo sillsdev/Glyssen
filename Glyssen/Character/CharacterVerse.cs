@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using L10NSharp;
+using SIL.Extensions;
 using SIL.Scripture;
 
 namespace Glyssen.Character
@@ -75,6 +78,11 @@ namespace Glyssen.Character
 		private readonly bool m_projectSpecific;
 		private readonly QuoteType m_quoteType;
 
+		private string m_localizedCharacter;
+		private string m_localizedAlias;
+
+		private bool m_localized;
+
 		public BCVRef BcvRef { get { return m_bcvRef; } }
 		public string BookCode { get { return BCVRef.NumberToBookCode(m_bcvRef.Book); } }
 		public int Book { get { return m_bcvRef.Book; } }
@@ -87,6 +95,24 @@ namespace Glyssen.Character
 		public bool IsDialogue { get { return m_quoteType == QuoteType.Dialogue; } }
 		public bool IsExpected { get { return m_quoteType == QuoteType.Dialogue || m_quoteType == QuoteType.Normal; } }
 		public string DefaultCharacter { get { return m_defaultCharacter; } }
+		public string LocalizedCharacter
+		{
+			get
+			{
+				if (!m_localized)
+					Localize();
+				return m_localizedCharacter;
+			}
+		}
+		public string LocalizedAlias
+		{
+			get
+			{
+				if (!m_localized)
+					Localize();
+				return m_localizedAlias;
+			}
+		}
 		public string ParallelPassageReferences { get { return m_parallelPassageReferences; } }
 		public bool ProjectSpecific { get { return m_projectSpecific; } }
 
@@ -113,6 +139,30 @@ namespace Glyssen.Character
 			if (string.IsNullOrEmpty(Delivery))
 				return Character;
 			return string.Format("{0} [{1}]", Character, Delivery);
+		}
+
+		public void ResetLocalization()
+		{
+			m_localized = false;
+		}
+
+		private void Localize()
+		{
+			m_localizedCharacter = GetLocalizedCharacterString(m_character);
+			m_localizedAlias = string.IsNullOrWhiteSpace(m_alias) ? null : GetLocalizedCharacterString(m_alias);
+			m_localized = true;
+		}
+
+		// If an ID or Alias consists of multiple individual characters (or groups), separated by slashes,
+		// each individual is localized separately.
+		private string GetLocalizedCharacterString(string character)
+		{
+			return String.Join("/", character.Split('/').Select(GetLocalizedIndividualCharacterString));
+		}
+
+		private string GetLocalizedIndividualCharacterString(string character)
+		{
+			return LocalizationManager.GetDynamicString(Program.kApplicationId, "CharacterName." + character, character);
 		}
 
 		#region Equality Members

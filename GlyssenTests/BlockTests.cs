@@ -1,4 +1,5 @@
-﻿using Glyssen;
+﻿using System;
+using Glyssen;
 using Glyssen.Character;
 using NUnit.Framework;
 using SIL.TestUtilities;
@@ -67,35 +68,13 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void GetAsTabDelimited_VerseAndTextElements_ExpectedColumnsIncludingJoinedText()
-		{
-			var block = new Block("p", 4);
-			block.IsParagraphStart = true;
-			block.CharacterId = "Fred";
-			block.Delivery = "With great gusto and quivering frustration";
-			block.BlockElements.Add(new Verse("1"));
-			block.BlockElements.Add(new ScriptText("Text of verse one. "));
-			block.BlockElements.Add(new Verse("2"));
-			block.BlockElements.Add(new ScriptText("Text of verse two."));
-
-			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			Assert.AreEqual("p\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				block.GetAsTabDelimited("MRK"));
-		}
-
-		[Test]
-		public void GetAsTabDelimited_TextBeginsMidVerse_ResultHasCorrectVerseInfo()
+		public void GetTextAsHtml_ContainsCharactersWhichNeedToBeEscaped()
 		{
 			var block = new Block("p", 4, 3);
-			block.BlockElements.Add(new ScriptText("Text of verse three, part two. "));
-			block.BlockElements.Add(new Verse("4"));
-			block.BlockElements.Add(new ScriptText("Text of verse four. "));
-			block.BlockElements.Add(new Verse("5"));
-			block.BlockElements.Add(new ScriptText("Text of verse five."));
+			block.BlockElements.Add(new ScriptText(@"The dog'cat says, <<Woof!>> & ""Meow."""));
 
-			int textLength = "Text of verse three, part two. ".Length + "Text of verse four. ".Length + "Text of verse five.".Length;
-			Assert.AreEqual("p\tMRK\t4\t3\t\t\tText of verse three, part two. [4]\u00A0Text of verse four. [5]\u00A0Text of verse five.\t" + textLength,
-				block.GetAsTabDelimited("MRK"));
+			Assert.AreEqual("<div id=\"3\" class=\"scripttext\">The dog&#39;cat says, &lt;&lt;Woof!&gt;&gt; &amp; &quot;Meow.&quot;</div>",
+				block.GetTextAsHtml(true, false));
 		}
 
 		[Test]
@@ -114,6 +93,34 @@ namespace GlyssenTests
 				block.GetTextAsHtml(true, false));
 		}
 
+		[Test]
+		public void GetTextAsHtml_RightToLeftScript_RtlMarkersAddedCorrectly()
+		{
+			var block = new Block("p", 4, 3);
+			block.BlockElements.Add(new ScriptText("Text of verse three, part two. "));
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Text of verse four. "));
+
+			Assert.AreEqual("<div id=\"3\" class=\"scripttext\">Text of verse three, part two. </div>" +
+							"<sup>&rlm;4&#160;&rlm;</sup><div id=\"4\" class=\"scripttext\">Text of verse four. </div>",
+				block.GetTextAsHtml(true, true));
+		}
+
+		[Test]
+		public void GetTextAsHtml_OffsetTooHigh_ThrowsArgumentOutOfRangeException()
+		{
+			var block = new Block("p", 4, 3);
+			block.BlockElements.Add(new ScriptText("Text"));
+			Assert.Throws<ArgumentOutOfRangeException>(() => block.GetTextAsHtml(true, false, "3", 5, "<div></div>"));
+		}
+
+		[Test]
+		public void GetTextAsHtml_NullExtra_ThrowsArgumentNullException()
+		{
+			var block = new Block("p", 4, 3);
+			block.BlockElements.Add(new ScriptText("Text"));
+			Assert.Throws<ArgumentNullException>(() => block.GetTextAsHtml(true, false, "3", 4));
+		}
 
 		[Test]
 		public void GetTextAsHtml_ExtraParameters_InsertsImgElement()
@@ -129,6 +136,22 @@ namespace GlyssenTests
 							"</div><sup>4&#160;</sup><div id=\"4\" class=\"scripttext\">Text <img src=\"blah\"/>of vers [sic] four. </div><sup>5&#160;</sup>" +
 							"<div id=\"5\" class=\"scripttext\">Text of verse five.</div>",
 				block.GetTextAsHtml(true, false, "4", 5, "<img src=\"blah\"/>"));
+		}
+
+		[Test]
+		public void GetTextAsHtml_SpecialCharactersInText_InsertsInCorrectLocation()
+		{
+			var block = new Block("p", 4, 3);
+			block.BlockElements.Add(new ScriptText("Нылыс эз кув, сiйö узьö"));
+			Assert.AreEqual("<div id=\"3\" class=\"scripttext\">Нылыс эз кув, сiй&#246; <hr/>узь&#246;</div>", block.GetTextAsHtml(false, false, "3", 19, "<hr/>"));
+		}
+
+		[Test]
+		public void GetTextAsHtml_ExpectedSpecialCharacters_InsertsInCorrectLocation()
+		{
+			var block = new Block("p", 4, 3);
+			block.BlockElements.Add(new ScriptText("A & <<B>> C"));
+			Assert.AreEqual("<div id=\"3\" class=\"scripttext\">A &amp; &lt;&lt;B&gt;&gt; <hr/>C</div>", block.GetTextAsHtml(false, false, "3", 10, "<hr/>"));
 		}
 
 		[Test]

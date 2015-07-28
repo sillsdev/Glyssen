@@ -1,1174 +1,1108 @@
-#Character ID	Multiple Speakers	Gender	Age	Comment
-Aaron	FALSE	Male		
-Abigail	FALSE	Female		
-Abijah, king of Judah	FALSE	Male		
-Abimelech, King of Gerar	FALSE	Male		
-Abimelech, King of Gerar/Phicol	TRUE	Male		
-Abimelech, King of the Philistines (in Gerar)	FALSE	Male		
-Abimelech, son of Gideon (Jerubbaal)	FALSE	Male		
-Abishai, Joab's brother	FALSE	Male		
-Abner, commander of Saul's army	FALSE	Male		
-Abraham (Abram)	FALSE	Male		
-Abraham's chief servant	FALSE	Male		
-Absalom, son of David	FALSE	Male		
-Absalom, son of David/Israel, men of	TRUE	Male		
-Absalom's men	TRUE	Male		
-Absalom's secret messengers	TRUE	Male		
-Achan	FALSE	Male		
-Achish, king of Gath	FALSE	Male		
-Acsah, Caleb's daughter	FALSE	Female		
-Adam	FALSE	Male		
-Adoni-Bezek	FALSE	Male		
-Adonijah, son of David	FALSE	Male		
-Adoni-Zedek, king of Jerusalem	FALSE	Male		
-Advisers to king	TRUE	Male		
-Agabus the prophet	FALSE	Male		
-Agag, king of Amalekites	FALSE	Male		
-Ahab, king of Israel	FALSE	Male		
-Ahaz, king of Judah	FALSE	Male		
-Ahaziah, king of Israel	FALSE	Male		
-Ahijah the priest	FALSE	Male		
-Ahijah, the prophet	FALSE	Male		
-Ahimaaz (messenger)	FALSE	Male		
-Ahimelech the priest (son of Ahitub)	FALSE	Male		
-Ahithophel	FALSE	Male		
-all in Nazareth synagogue	TRUE			
-all in temple	TRUE			
-all seeking God	TRUE			
-all who heard (in synagogues)	TRUE			
-altar	FALSE			
-Amasai, chief of thirty (Spirit came upon)	FALSE	Male		
-Amaziah, king of Judah	FALSE	Male		
-Amaziah, priest of Bethel	FALSE	Male		
-Ammonite nobles	TRUE	Male		
-Amnon, son of David	FALSE	Male		
-Amos	FALSE	Male		
-Ananias of Damascus	FALSE	Male		
-Ananias, the high priest	FALSE	Male		
-Andrew	FALSE	Male		
-angel (one of the seven)	FALSE			
-angel flying directly overhead	FALSE			
-angel flying directly overhead, second	FALSE			
-angel flying directly overhead, third	FALSE			
-angel of the LORD, an	FALSE	Male		
-angel of the LORD, the	FALSE	Male		Default speaker should be Jesus
-angel or messenger (Greek variant: someone speaking to John)	FALSE			
-angel over waters	FALSE			
-angel standing in sun	FALSE			
-angel standing on sea and land	FALSE			
-angel who talked with Zechariah	FALSE			
-angel who wrestled with Jacob	FALSE	Male		
-angel, another (vision)	FALSE			
-angel, another, coming down from heaven	FALSE			
-angel, coming out of temple	FALSE			
-angel, coming out of temple, another	FALSE			
-angel, powerful	FALSE			
-angels at Sodom, two	TRUE	Male		
-angels in white, two	TRUE	Male		
-angels, all the	TRUE			
-angels, living creatures, elders (thousands of thousands)	TRUE			
-anger of the LORD	FALSE	Male		Could be either God or David
-Anna, prophetess	FALSE	Female		
-Annas, father-in-law of Caiaphas	FALSE	Male		
-another (follower of Apollos)	FALSE			
-another (follower of Peter/Cephas)	FALSE			
-another holy one (in vision)	FALSE			
-another of you (follower of Apollos)	FALSE			
-answer from Israel	TRUE			
-anyone	FALSE			
-anyone with complaint for king	FALSE			
-Apollos	FALSE	Male		
-apostles	TRUE	Male		
-apostles, elders, and whole church at Jerusalem	TRUE			
-Aramean soldiers	TRUE	Male		
-Araunah, the Jebusite	FALSE	Male		
-Arioch	FALSE	Male		
-Army cry	TRUE	Male		
-Army officer, one of	FALSE	Male		
-Army officers	TRUE	Male		
-Artaxerxes, king of Persia	FALSE	Male		
-Asa, king of Judah	FALSE	Male		
-Asahel, brother of Joab	FALSE	Male		
-Asaph	FALSE	Male		
-assembly, whole	TRUE			
-astrologers	TRUE	Male		
-Athaliah, mother of Ahaziah (Queen)	FALSE	Female		
-attendants to Xerxes, king	TRUE	Male		
-attendents of Phineas' wife	TRUE	Female		
-authorities, governing	TRUE	Male		
-authorities, Philippi	TRUE	Male		
-Azariah the priest	FALSE	Male		
-Azariah the priest/eighty other priests	TRUE	Male		
-Azariah, son of Oded	FALSE	Male		
-Azariah/Johanan/arrogant men	TRUE	Male		
-Babylon	FALSE			
-Balaam	FALSE	Male		
-Balak	FALSE	Male		
-Barak	FALSE	Male		
-Barnabas	FALSE	Male		
-Barnabas/Paul	TRUE	Male		
-Bartimaeus (a blind man)	FALSE	Male		
-Baruch	FALSE	Male		
-Barzillai	FALSE	Male		
-Bathsheba	FALSE	Female		
-beast, the	FALSE			
-believers who were Pharisees	TRUE	Male		
-believers, circumcised (in Jerusalem)	TRUE	Male		
-believers, one hundred twenty	TRUE			
-beloved	FALSE	Female		
-Belshazzar, king of Babylon	FALSE	Male		
-Benaiah, son of Jehoiada	FALSE	Male		
-Ben-Hadad, king of Aram	FALSE	Male		
-Benjamin	FALSE	Male		
-Benjamite messenger to Eli	FALSE	Male		
-Benjamites	TRUE			
-Bera, king of Sodom	FALSE	Male		
-Bera, king of Sodom/Birsha, king of Gomorrah/Shinab, king of Admah/Shemeber, king of Zeboiim/king of Bela	TRUE	Male		
-Bernice	FALSE	Female		
-Beth Shemesh, men of	TRUE	Male		
-Beth Shemesh, messenger from	FALSE	Pref: Male		
-Bethlehem, elders of	TRUE	Male		
-Bildad the Shuhite	FALSE	Male		
-blind man	FALSE	Male		
-blind men, two	TRUE	Male		
-Boaz	FALSE	Male		
-Book of the Wars of the LORD	FALSE			
-brothers at Antioch, the	TRUE	Male		
-brothers at Puteoli, some	TRUE	Male		
-bystanders at Calvary, some	TRUE			
-bystanders at Calvary, the rest	TRUE			
-Caesar Augustus	FALSE	Male		
-Caiaphas, the high priest	FALSE	Male		
-Cain	FALSE	Male		
-Caleb	FALSE	Male		
-Canaanite (Syrophoenician) mother of possessed girl	FALSE	Female		
-Canaanites	TRUE			
-captain	FALSE	Male		
-captain of the temple guard/chief priests	TRUE	Male		
-captain, first	FALSE	Male		
-captain, second	FALSE	Male		
-captain, third	FALSE	Male		
-captain/crew	TRUE	Male		
-captors, our	TRUE			
-centurion at crucifixion	FALSE	Male		
-centurion at Paul's flogging	FALSE	Male		
-centurion on ship with Paul	FALSE	Male		
-centurion summoned by Pilate	FALSE	Male		
-centurion with great faith	FALSE	Male		
-centurion, one of the	FALSE	Male		
-chariot commanders of Aram	TRUE	Male		
-chief baker of Egypt	FALSE	Male		
-chief cupbearer of Egypt	FALSE	Male		
-chief cupbearer of Egypt/chief baker of Egypt	TRUE	Male		
-chief official	FALSE	Male		
-chief priests	TRUE	Male		
-chief priests/crowd	TRUE			
-chief priests/elders	TRUE	Male		
-chief priests/Jewish leaders	TRUE	Male		
-chief priests/officers of temple guard	TRUE	Male		
-chief priests/officials	TRUE	Male		
-chief priests/Pharisees	TRUE	Male		
-chief priests/Sanhedrin	TRUE	Male		
-chief priests/teachers of religious law	TRUE	Male		
-chief priests/teachers of religious law/elders	TRUE	Male		
-children	TRUE		child	
-children of Zion (Jerusalem)	TRUE		child	
-citizens of Shechem	TRUE			
-city clerk of Ephesus	FALSE	Male		
-Cleopas	FALSE	Male		
-Cleopas' companion (on road to Emmaus)	FALSE	Unknown		
-Cleopas/companion (on road to Emmaus)	TRUE			
-collectors of temple tax	TRUE			
-commander of Roman troops in Jerusalem	FALSE			
-commander of the LORD's army	FALSE	Male		Default character should be Jesus
-company of the prophets	TRUE			
-company of the prophets (Bethel)	TRUE			
-company of the prophets (Jericho)	TRUE			
-company of the prophets, one of (the LORD says) (young man)	FALSE	Male	young man	
-company of the prophets, one of (young man)	FALSE	Male	young man	
-conquerors of beast, image & his name	TRUE			
-conquerors of Lo Debar	TRUE	Male		
-Cornelius	FALSE	Male		
-council of elders/chief priests/teachers of religious law	TRUE	Male		
-craftsman	FALSE	Male		
-craftsmen/workmen	TRUE	Male		
-Cretan prophet	FALSE	Male		
-criminal on cross, insulting	FALSE	Male		
-criminal on cross, repentant	FALSE	Male		
-crippled man	FALSE	Male		
-crowd	TRUE			
-crowd after mute healed	TRUE			
-crowd at Festival of Tabernacles in Jerusalem, many in the	TRUE			
-crowd at Festival of Tabernacles in Jerusalem, others	TRUE			
-crowd at Festival of Tabernacles in Jerusalem, some	TRUE			
-crowd at Festival of Tabernacles in Jerusalem, still others	TRUE			
-crowd at Festival of Tabernacles in Jerusalem, the	TRUE			
-crowd at Jericho	TRUE			
-crowd before Pilate	TRUE			
-crowd in Jerusalem	TRUE			
-crowd in Jerusalem on Pentecost	TRUE			
-crowd in Lystra	TRUE			
-crowd near sea of Galilee	TRUE			
-crowd preparing for Passover Feast	TRUE			
-crowd preparing for Passover Feast, others	TRUE			
-crowd, large (witnessed healing of widow's son)	TRUE			
-crowd, many in the	TRUE			
-crowd, some in	TRUE			
-cured man, blind from birth	FALSE	Male		
-Cyrus, king of Persia	FALSE	Male		
-Dan	FALSE	Male		
-Daniel	FALSE	Male		
-Danites	TRUE			
-Darius, king	FALSE	Male		
-Darius, king of Medes and Persians	FALSE	Male		
-Dathan	FALSE	Male		
-Dathan/Abiram	TRUE	Male		
-daughter of Zion	FALSE	Female		
-daughters of Zelophehad	TRUE	Female		
-David	FALSE	Male		
-David (old)	FALSE	Male	Elder	
-David's enemies	TRUE	Male		
-David's men	TRUE	Male		
-David's servants	TRUE			
-David's supporters	TRUE			
-Deborah, prophetess	FALSE	Female		
-Deborah/Barak	TRUE	Both		
-Delilah	FALSE	Female		
-Demetrius the silversmith	FALSE	Male		
-demons coming out of people	TRUE			
-demons/demon-possessed man (Legion)	TRUE			
-disciple who wanted to bury his father	FALSE	Male		
-disciples	TRUE	Male		
-disciples (but not Thomas)	TRUE	Male		
-disciples in Ephesus, some	TRUE			
-disciples of John Baptist, two (Andrew and another)	TRUE	Male		
-disciples of John the Baptist	TRUE	Male		
-disciples of John the Baptist/a Jew	TRUE	Male		
-disciples, some	TRUE			
-disciples, two men (from Joppa)	TRUE	Male		
-Doeg the Edomite	FALSE	Male		
-donkey (female)	FALSE	Female		
-dream	FALSE			
-dreamers	TRUE			
-eagle crying with loud voice	FALSE			
-ear	FALSE			
-Ebed-Melech (official of king of Judea)	FALSE			
-Edom	FALSE			
-Edomites	TRUE			
-Eglon, king of Moab	FALSE	Male		
-Egyptian (slave of Amalekite)	FALSE			
-Egyptians	TRUE			
-Egyptians, all the	TRUE			
-Ehud, Israelite deliverer	FALSE	Male		
-Ekron, people of	TRUE			
-elders	TRUE	Male		
-elders of the Jews	TRUE	Male		
-elders of the land	TRUE	Male		
-elders, Ephesian	TRUE	Male		
-elders, one of the	FALSE	Male		
-elders/people of Israel	TRUE	Male		
-Eleazar the priest, son of Aaron	FALSE	Male		
-Eleven/those with them	TRUE			
-Eli	FALSE	Male		
-Eli (very old)	FALSE	Male	old	
-Eliab, David's brother	FALSE	Male		
-Eliakim	FALSE	Male		
-Eliakim/Shebna/Joah	TRUE	Male		
-Eliakim/Shebna/leading priests	TRUE	Male		
-Eliezer, prophet of the Lord	FALSE	Male		
-Elihu, son of Barakel	FALSE	Male		
-Elijah	FALSE	Male		
-Eliphaz the Temanite	FALSE	Male		
-Elisha	FALSE	Male		
-Elisha (LORD has shown me)	FALSE	Male		
-Elisha (old)	FALSE	Male	Elder	
-Elishama/Delaiah/Elnathan/Gemariah/Zedekiah/other officials	TRUE	Male		
-Elisha's messenger	FALSE			
-Elizabeth	FALSE	Female		
-Elkanah	FALSE			
-Enemies of God	TRUE			
-Enemies of Israel	TRUE			
-enemies of Judah and Benjamin	TRUE	Pref: Male		
-Enemy	FALSE			
-Enoch	FALSE	Male		
-Ephraimites	TRUE			
-Ephron the Hittite	FALSE	Male		
-Epicurean and Stoic philosophers	TRUE			
-Epicurean and Stoic philosophers, interested	TRUE			
-Epicurean and Stoic philosophers, other	TRUE			
-Epicurean and Stoic philosophers, sneering	TRUE			
-Epicurean and Stoic philosophers, some	TRUE			
-Esau	FALSE	Male		
-Esther, queen	FALSE	Female		
-Ethiopian officer of Queen Candace	FALSE	Male		
-Eve	FALSE	Female		
-every created thing	TRUE			
-everyone	TRUE			
-everyone in Judean hills who heard	TRUE			
-everyone seeing healing of paralyzed man	TRUE			
-everyone who saw healing of paralytic	TRUE			
-everyone who witnessed deliverance/healing of boy	TRUE			
-evil men/troublemakers	TRUE			
-evil spirit in possessed man	FALSE			
-evil spirits	TRUE			
-exiles	TRUE			
-expert in religious law	FALSE	Male		
-experts in religious law, one of the	FALSE	Male		
-explorers, ten	TRUE	Male		
-eye	FALSE			
-Ezekiel	FALSE	Male		
-Ezra, priest and teacher	FALSE	Male		
-false prophets	TRUE	Male		
-false prophets/people (as quoted by God/Micah)	TRUE			
-false teachers	TRUE			
-false witnesses	TRUE			
-family heads of Gilead	TRUE	Male		
-father of concubine	FALSE	Male		
-father of cured man, blind from birth	FALSE	Male		
-father of demon-possessed boy	FALSE	Male		
-Felix, governor of Judea	FALSE	Male		
-Festus, governor of Judea	FALSE	Male		
-Field commander from King of Assyria	FALSE	Male		
-figure like that of a man (in vision of God)	FALSE	Male		Default character should be Jesus
-flatterers	TRUE			
-followers of Jesus	TRUE			
-fool	FALSE			
-foot	FALSE			
-foreman	FALSE	Male		
-fortune telling slave girl	FALSE	Female		
-four living creatures	TRUE			
-four living creatures/twenty-four elders	TRUE	Male		
-Gaal, son of Ebed	FALSE	Male		
-Gabriel	FALSE	Male		
-Gad	FALSE	Male		
-Gad, the prophet, David's seer	FALSE	Male		
-Gadarene (or Gerasenes) people	TRUE			
-Gadites/Reubenites	TRUE	Male		
-Gallio, proconsul of Achaia	FALSE	Male		
-Gamaliel	FALSE	Male		
-Gaza, people of (wicked)	TRUE			
-Gedaliah, governor of Judah	FALSE	Male		
-Gehazi	FALSE	Male		
-Gentiles	TRUE			
-Gentiles, Jews, and leaders at Iconium	TRUE			
-Gibeonites	TRUE			
-Gideon (Jerubbaal)	FALSE	Male		
-Gilead, elders of	TRUE	Male		
-Gilead, leaders of	TRUE	Male		
-Gilead, men of	TRUE	Male		
-girls	TRUE	Female		
-God	FALSE	Male		
-Goliath, Philistine champion	FALSE	Male		
-Good Priest	FALSE	Male		Many quotes resolve to this pseudo-character by default
-great company of heavenly host	TRUE			
-Grecian Jews	TRUE			
-Greeks	TRUE			
-guards at high priests' house	TRUE	Male		
-Habakkuk	FALSE	Male		
-Hadad the Edomite	FALSE			
-Hagar, the Egyptian	FALSE	Female		
-Haggai (word of the LORD)	FALSE	Male		
-Haman, highest noble to Xerxes, king	FALSE	Male		
-Hamor, Hivite ruler	FALSE	Male		
-Hamor, Hivite ruler/Shechem	TRUE	Male		
-Hanamel (Jeremiah's cousin)	FALSE	Male		
-Hanani the seer	FALSE			
-Hanani, brother of Nehemiah/men of Judah, some	TRUE	Male		
-Hananiah, false prophet	FALSE			
-Hannah	FALSE	Female		
-Harbona, eunuch attending Xerxes, king	FALSE	Male		
-harvesters	TRUE			
-Hazael of Aram	FALSE			
-head	FALSE			
-heads of all the families/priests/Levites	TRUE	Male		
-hearers	TRUE			
-herald	FALSE			
-herdsman	FALSE	Male		
-herdsmen of pigs	TRUE	Male		
-Herod Antipas (the tetrarch)	FALSE	Male		
-Herod the Great	FALSE	Male		
-Herodias	FALSE	Female		
-Herodias' daughter	FALSE	Female		
-Hezekiah, king of Judah	FALSE	Male		
-high priest	FALSE	Male		
-high priest's servant (relative of the man whose ear Peter cut off)	FALSE	Male		
-high priest's servant/those standing near	TRUE	Male		
-high priests/men of their family/rulers, elders, teachers of religious law	TRUE	Male		
-Hilkiah, high priest	FALSE	Male		
-him who hears	FALSE	Male		
-Hirah, the Adullamite	FALSE			
-Hiram, king of Tyre	FALSE	Male		
-Hittites	TRUE			
-Hobab, Moses brother-in-law	FALSE			
-holy one (in vision)	FALSE			
-Holy Spirit and the bride	TRUE	Male		
-Holy Spirit, the	FALSE	Male		
-Horseman, first	FALSE	Male		
-Horseman, second	FALSE	Male		
-Horses (in vision)	TRUE			
-Hosea	FALSE	Male		
-house of Aaron, the	TRUE	Male		
-Huldah, prophetess	FALSE	Female		
-husband of Shunammite	FALSE			
-Hushai, David's friend	FALSE	Male		
-hymn, early credal	FALSE			
-idolators	TRUE			
-idolators from Judah (men)	TRUE	Male		
-idolators from Judah (women)	TRUE	Female		
-informer	TRUE			
-inscription on forehead of Babylon	FALSE	Pref: Female		
-invaders	TRUE			
-invalid for 38 years	FALSE			
-Irijah, captain of the guard of Judah	FALSE			
-Isaac	FALSE	Male		
-Isaac (old)	FALSE	Male	old	
-Isaiah	FALSE	Male		
-Ish-Bosheth, son of Saul	FALSE	Male		
-Ishmael, son of Nethaniah (murderer)	FALSE	Male		
-islanders	TRUE			
-Israel	TRUE			
-Israel, all	TRUE			
-Israel, all leaders of	TRUE	Male		
-Israel, all the tribes	TRUE			
-Israel, elders of	TRUE	Male		
-Israel, leaders of/Rehoboam, king	TRUE	Male		
-Israel, men of	TRUE	Male		
-Israelite army commanding officers	TRUE	Male		
-Israelite assembly	TRUE			
-Israelite assembly, elders of	TRUE	Male		
-Israelite community	TRUE			
-Israelite fighting men	TRUE	Male		
-Israelite foreman	FALSE	Male		
-Israelite men	TRUE	Male		
-Israelite officers	TRUE	Male		
-Israelite soldier in Saul's army	FALSE	Male		
-Israelite spies from Joshua, two men	TRUE	Male		
-Israelite spy from house of Joseph	FALSE			
-Israelites	TRUE			
-Israelites (excluding Benjamites)	TRUE			
-Israelites, some	TRUE			
-Ittai	FALSE			
-Jabesh, elders of	TRUE	Male		
-Jabesh, men of	TRUE	Male		
-Jabez	FALSE	Male		
-Jabez's mother	FALSE	Female		
-Jacob (Israel)	FALSE	Male		
-Jacob's son (the one who discovered his silver in his sack)	TRUE	Male		
-Jacob's sons	TRUE	Male		
-Jacob's sons (not Simeon, Joseph, or Benjamin)	TRUE	Male		
-Jael	FALSE	Female		
-Jahaziel (Spirit of the Lord on)	FALSE			
-jailer in Philippi	FALSE	Male		
-Jairus (synagogue leader)	FALSE	Male		
-James	FALSE	Male		
-James/all the elders	TRUE	Male		
-James/John (sons of Zebedee)	TRUE	Male		
-Jebusites	TRUE			
-Jehoash, king of Israel	FALSE	Male		
-Jehoiada the priest	FALSE	Male		
-Jehoiada the priest/Johoiada's sons	TRUE	Male		
-Jehonadab, son of Recab	FALSE	Male		
-Jehoshaphat, king of Judah	FALSE	Male		
-Jehu, son of Hanani	FALSE	Male		
-Jehu, son of Nimshi	FALSE	Male		
-Jehucal/Zephaniah, priest	TRUE	Male		
-Jehudi	FALSE			
-Jephthah	FALSE	Male		
-Jephthah's daughter	FALSE	Female	youth	
-Jephthah's half-brothers	TRUE	Male		
-Jereboam/all Israel	TRUE			
-Jeremiah	FALSE	Male		
-Jeremiah's enemies	TRUE	Male		
-Jeroboam	FALSE	Male		
-Jeroboam/Israel, all	TRUE	Male		
-Jesse	FALSE	Male		
-Jesus	FALSE	Male		
-Jesus (child)	FALSE	Male	youth (12)	
-Jesus' brothers	TRUE			
-Jesus' family	TRUE			
-Jethro (Reuel), Moses' father-in-law	FALSE	Male		
-Jews from Asia	TRUE			
-Jews of Cyrene, Alexandria, Cilicia & Asia	TRUE			
-Jews who had believed Jesus	TRUE			
-Jews with Mary/Martha	TRUE			
-Jews with Mary/Martha, some	TRUE			
-Jews, God-fearing from every nation	TRUE			
-Jews, God-fearing from every nation, some	TRUE			
-Jews, leaders of the (in Rome)	TRUE			
-Jews, many	TRUE			
-Jews, more than forty in conspiracy	TRUE			
-Jews, other	TRUE			
-Jews, the	TRUE			
-Jews/Mary/Martha	TRUE	Both		
-Jews/priests/nobles/officials	TRUE			
-Jezebel	FALSE	Female		
-Joab	FALSE	Male		
-Joab's men, one of	FALSE	Male		
-Joash, father of Gideon (Jerubbaal)	FALSE	Male		
-Joash, king of Judah	FALSE	Male		
-Job	FALSE	Male		
-Job's wife	FALSE	Female		
-Joel saying what the priests should say	FALSE	Male		
-Johanan	FALSE	Male		
-Johanan/all the army officers	TRUE	Male		
-Johanan/all the army officers/all the people	TRUE	Male		
-John	FALSE	Male		
-John the Baptist	FALSE	Male		
-Jonadab	FALSE	Male		
-Jonah	FALSE	Male		
-Jonathan	FALSE	Male		
-Jonathan, son of Abiathar	FALSE	Male		
-Jonathan's armor bearer	FALSE	Male		
-Joram, king of Israel	FALSE	Male		
-Joseph	FALSE	Male		
-Joseph of Arimathea	FALSE	Male		
-Joseph, people of	FALSE			
-Joseph's brothers	TRUE	Male		Different from Jacob's sons because it cannot be Joseph
-Joshua	FALSE	Male		
-Joshua (old)	FALSE	Male	old	
-Joshua/Caleb	TRUE	Male		
-Josiah, king of Judah	FALSE	Male		
-Jotham, son of Gideon (Jerubbaal)	FALSE	Male		
-Judah	FALSE	Male		
-Judah, all	TRUE	Both		
-Judah, men of	TRUE	Male		
-Judah, people in	TRUE			
-Judaizers	TRUE	Male		
-Judas Iscariot	FALSE	Male		
-Judas, apostle (not Judas Iscariot)	FALSE	Male		
-King Agrippa/Festus/Bernice/those sitting with them	TRUE			
-King Herod Agrippa II	FALSE	Male		
-King of Ammonites	FALSE	Male		
-King of Aram	FALSE	Male		
-King of Assyria	FALSE	Male		
-King of Babylon	FALSE	Male		
-King of Jericho	FALSE	Male		
-King of Nineveh	FALSE	Male		
-kings of the earth	TRUE	Male		
-kings over the nations	TRUE	Male		
-kings, princes, generals, rich, powerful, slave and free	TRUE	Male		
-kinsman-redeemer	FALSE	Male		
-Kish, father of Saul	FALSE	Male		
-Korah	FALSE	Male		
-Korah/Dathan/Abiram/250 Israelite leaders	TRUE	Male		
-Laban	FALSE	Male		
-Laban/Bethuel, Rebekah's father	TRUE	Male		
-Laban/Rebekah's mother	TRUE			
-Laban's sons	TRUE	Male		
-Lamech (descendent of Cain)	FALSE	Male		
-Lamech (descendent of Seth)	FALSE	Male		
-law of Moses where LORD commanded	FALSE			
-leaders	TRUE			
-leaders in Ephraim (Azariah/Berekiah/Jehizkiah/Amasa)	TRUE	Male		
-Leah	FALSE	Female		
-leper	FALSE	Male		
-leper, thankful Samaritan	FALSE	Male		
-lepers, ten	TRUE	Male		
-letter from apostles and elders	FALSE			
-Levi	FALSE	Male		
-Levite husband of concubine	FALSE	Male		
-Levite, young, from Bethlehem	FALSE	Male	young man	
-Levites	TRUE	Male		
-Levites, family heads of	TRUE	Male		
-living creature, first	FALSE			
-living creature, fourth	FALSE			
-living creature, second	FALSE			
-living creature, third	FALSE			
-Lookout	FALSE			
-Lot	FALSE	Male		
-lover	FALSE	Male		
-lover/beloved	TRUE	Both		
-Lydia	FALSE	Female		
-Macedonian	FALSE			
-magi (wise men from East)	TRUE	Male		
-Magicians	TRUE			
-Magistrates, chief	TRUE	Male		
-maidens	TRUE	Female		
-Malta islanders	TRUE			
-man (at Shechem)	FALSE	Male		
-man (Hebrew fighting)	FALSE	Male		
-man (hypothetical)	FALSE	Male		
-man all alone	FALSE	Male		
-man answered David	FALSE	Male		
-man escaped from Jerusalem	FALSE	Male		
-man from Saul's camp (young)	FALSE	Male	young man	
-man in linen above river	FALSE	Male		
-man in linen with writing kit (in vision)	FALSE	Male		
-man like bronze with measuring rod (vision of God)	FALSE	Male		
-man of Gibeah	FALSE	Male		
-man of God (prophet to Amaziah)	FALSE	Male		
-man of God (prophet to Eli)	FALSE	Male		
-man of God from Judah	FALSE	Male		
-man of lawlessness	FALSE	Male		
-man possessed by evil spirit	FALSE	Male		
-man reporting to David	FALSE	Male		
-man standing among myrtle trees	FALSE	Male		
-man who had been demon-possessed (Legion)	FALSE	Male		
-man who says 'I know him'	FALSE	Male		
-man who says 'we remain in union with God'	FALSE	Male		
-man with measuring line (vision)	FALSE	Male		
-man with sponge	FALSE	Male		
-man, still another	FALSE	Male		
-man, wicked	FALSE	Male		
-Manasseh	FALSE	Male		
-Manoah, father of Samson	FALSE	Male		
-Manoah, father of Samson/Manoah's wife	TRUE	Both		
-Manoah's wife, mother of Samson	FALSE	Female		
-man's brother	FALSE	Male		
-man's voice from the Ulai (in vision)	FALSE	Male		
-many in crowd	TRUE			
-many Samaritans	TRUE			
-Martha	FALSE	Female		
-Mary Magdalene	FALSE	Female		
-Mary Magdalene/Mary mother of James/Salome	TRUE	Female		
-Mary, Jesus' mother	FALSE	Female		
-Mary, sister of Martha	FALSE	Female		
-Mary/Martha	TRUE	Female		
-master of the banquet	FALSE	Male		
-Melchizedek, king of Salem (priest of God Most High)	FALSE	Male		
-Memucan, noble advisor to Xerxes, king	FALSE	Male		
-men	TRUE	Male		
-men appointed to sing and praise	TRUE	Male		
-men dressed in white, two (angels)	TRUE	Male		
-men from Cornelius	TRUE	Male		
-men from Jairus' house	TRUE	Male		
-men from Judea, some	TRUE	Male		
-men in Capernaum synagogue	TRUE	Male		
-men in mourning, ten of eighty	TRUE	Male		
-men in Nazareth synagogue	TRUE	Male		
-men of Anathoth	TRUE	Male		
-men of Ashdod	TRUE	Male		
-men of Babel	TRUE	Male		
-men of Bethel	TRUE	Male		
-men of David	TRUE	Male		
-men of David, one	TRUE	Male		
-men of Enaim	TRUE	Male		
-men of Gerar	TRUE	Male		
-men of Jabesh	TRUE			
-men of Jericho	TRUE	Male		
-men of Sodom (wicked)	TRUE	Male		
-men who have gone astray	TRUE	Male		
-men with leprosy, four	TRUE	Male		
-men, large force of	TRUE	Male		
-men, many	TRUE	Male		
-men, some	TRUE	Male		
-men/people	TRUE			
-men/their wives, other	TRUE	Both		
-men/their wives, some	TRUE	Both		
-men/wives, still others	TRUE	Both		
-Mephibosheth	FALSE	Male		
-merchants of the earth	TRUE			
-message from Tamar, daughter-in-law of Judah	FALSE	Pref: Female		
-message to Saul	FALSE			
-messenger	TRUE			
-messenger from battle to David	FALSE	Male		
-messenger from guardians of Ahab's children	FALSE	Male		
-messenger of Ahab, king of Israel	FALSE	Male		
-messenger to Abraham	FALSE	Male		
-messenger to David	FALSE	Male		
-messenger to King of Jericho	FALSE	Male		
-messenger to Saul	FALSE	Male		
-messenger, another	FALSE			
-messenger, Cushite	FALSE			
-messenger, still another	FALSE			
-messenger, yet another	FALSE			
-messengers from Jephthah	TRUE	Pref: Male		
-messengers Israel sent to Amorite king Sihon	TRUE	Pref: Male		
-messengers Moses sent to king of Edom	TRUE			
-messengers of Ahaziah	TRUE	Male		
-messengers of Ben-Hadad. king of Aram	TRUE	Male		
-messengers of Jabesh	TRUE	Male		
-messengers of Saul	TRUE	Male		
-messengers sent by Jacob	TRUE	Male		
-messengers to Jezebel	TRUE	Male		
-messengers to Saul	TRUE	Pref: Male		
-Micah	FALSE	Male		
-Micah's mother	FALSE	Female		
-Micaiah, prophet of the LORD	FALSE			
-Michael (archangel)	FALSE	Male		
-Michal, David's wife	FALSE	Female		
-Midianite soldier who had a dream	FALSE	Male		
-Midianite soldier who interprets dream	FALSE	Male		
-midwife of Rachel	FALSE	Female		
-midwife of Tamar, daughter-in-law of Judah	FALSE	Female		
-midwives, Shiphrah/Puah	TRUE	Female		
-Miriam	FALSE	Female		
-Miriam (young)	FALSE	Female	child	
-Miriam/Aaron	TRUE	Both		
-Moabite officials	TRUE	Male		
-Moabite officials, more distinguished	TRUE	Male		
-Moabites	TRUE			
-Moabitesses (female)	TRUE	Female		
-mob	TRUE			
-Mordecai, cousin of Esther	FALSE	Male		
-Moses	FALSE	Male		
-Moses/Aaron	TRUE	Male		
-Moses/elders of Israel	TRUE	Male		
-Moses/Eleazar the priest, son of Aaron	TRUE	Male		
-Moses/Israelites	TRUE	Pref: Male		
-Moses/priests	TRUE	Male		
-mother of cured man, blind from birth	FALSE	Female		
-mother of James/John (sons of Zebedee)	FALSE	Female		
-multitude from all nations, tribes, peoples, languages	TRUE			
-musicians	TRUE			
-Naaman	FALSE	Male		
-Naaman's servants	TRUE	Male		
-Nabal	FALSE	Male		
-Naboth	FALSE	Male		
-Nahash the Ammonite	FALSE			
-Naomi	FALSE	Female		
-narrator-1CH	FALSE			
-narrator-1CO	FALSE			
-narrator-1JN	FALSE	Male		
-narrator-1KI	FALSE			
-narrator-1PE	FALSE			
-narrator-1TI	FALSE	Male		
-narrator-2CH	FALSE			
-narrator-2CO	FALSE			
-narrator-2TI	FALSE	Male		
-narrator-ACT	FALSE			
-narrator-AMO	FALSE			
-narrator-DAN	FALSE			
-narrator-ECC	FALSE			
-narrator-EPH	FALSE			
-narrator-EXO	FALSE			
-narrator-EZK	FALSE			
-narrator-EZR	FALSE			
-narrator-GAL	FALSE			
-narrator-GEN	FALSE			
-narrator-HAB	FALSE			
-narrator-HEB	FALSE			
-narrator-ISA	FALSE			
-narrator-JAS	FALSE			
-narrator-JER	FALSE			
-narrator-JHN	FALSE			
-narrator-JOS	FALSE			
-narrator-LUK	FALSE			
-narrator-MAL	FALSE			
-narrator-MAT	FALSE			
-narrator-MRK	FALSE			
-narrator-PSA	FALSE			
-narrator-REV	FALSE			
-narrator-ROM	FALSE			
-narrator-TIT	FALSE			
-narrator-ZEC	FALSE			
-narrator-ZEP	FALSE			
-Nathan	FALSE			
-Nathanael	FALSE			
-nations	TRUE			
-nations, people of the	TRUE			
-Nations, the	TRUE			
-Nebuchadnezzar, king of Babylon	FALSE	Male		
-Nebuzaradan	FALSE	Male		
-Neco, king of Egypt	FALSE	Male		
-Nehemiah	FALSE	Male		
-Nehemiah/Ezra/Levites	TRUE	Male		
-Nehemiah/Levites/Israelites	TRUE	Male		
-neighbors of man blind from birth	TRUE			
-neighbors of man blind from birth, others	TRUE			
-neighbors of man blind from birth, some	TRUE			
-neighbors/relatives of Zacharias (Zechariah)/Elizabeth	TRUE			
-news giver to Jacob	FALSE			
-news giver to Joseph	FALSE			
-news to Pharoah's palace	FALSE			
-Nicodemus	FALSE	Male		
-Ninevah	TRUE			
-no one	FALSE			
-no one says	FALSE			
-Noah	FALSE	Male		
-Nobles/officials	TRUE	Male		
-non-reader	FALSE			
-Obadiah, manager of Ahab's palace	FALSE	Male		
-Oded, prophet of the Lord	FALSE	Male		
-officer of King Jehoshaphat of Israel	FALSE	Male		
-officer of King Joram of Israel	FALSE	Male		
-officer of king of Israel, on whose arm the king leaned	FALSE	Male		
-officer of king of Israel, on whose arm the king leaned (post mortem)	FALSE	Male		
-officers of King of Aram	TRUE	Male		
-officers of magistrates	TRUE	Male		
-official, royal (father)	FALSE	Male		
-officials of Ben-Hadad, king of Aram	TRUE	Male		
-officials of David	TRUE	Male		
-officials of high priest, one of the	FALSE	Male		
-officials of Samaria	TRUE	Male		
-officials of Succoth	TRUE	Male		
-officials, Ephesus (friends of Paul)	TRUE	Male		
-officials, royal, to Xerxes, king	TRUE	Male		
-officials/all the people	TRUE	Male		
-officials/people	TRUE			
-old man in Gibeah	FALSE	Male	old	
-older daughter of Lot	FALSE	Female		
-one at table of Pharisee (expert in religious law)	FALSE	Male		
-one of you	TRUE			
-one of you (follower of Paul)	FALSE			
-one other who looked like a man	FALSE			
-one who brings good news	TRUE			
-one who looked like a man	FALSE			
-one with garments stained crimson (Christ?)	FALSE	Male		Default character should be Jesus
-one, each	TRUE			
-onlookers	TRUE			
-Oppressors of poor	TRUE			
-Oppressors of poor (women)	TRUE			
-Orpah	FALSE	Female		
-Orpah/Ruth	TRUE	Female		
-other guests at Pharisee (Simon)'s house	TRUE			
-others	TRUE			
-others (testing Jesus)	TRUE			
-owners of colt	TRUE			
-owners of fortune telling slave girl	TRUE			
-parents of cured man, blind from birth	TRUE	Both		May want to assign one or more of these lines to female, as appropriate
-Pashur/Zephaniah	TRUE			
-passers by	TRUE			
-Paul	FALSE	Male		
-Paul/Barnabas	TRUE	Male		
-Paul's travelling companions, Luke and	TRUE			
-people	TRUE			
-people at cistern	TRUE			
-people at coronation of King Joash	TRUE			
-people at Jairus' house	TRUE			
-people from Tyre/Sidon	TRUE			
-people in Capernaum	TRUE			
-people in crowd by Sea of Galilee	TRUE			
-people in high priest's courtyard	TRUE	Both		Group consisted of at least a servant girl and a man
-people in Jericho, all the	TRUE			
-people in Pisidian Antioch synagogue	TRUE			
-people in temple courts, all the	TRUE			
-people in the temple	TRUE			
-people near Jordan River	TRUE			
-people of Decapolis	TRUE			
-people of Jerusalem	TRUE			
-people of Jerusalem, some	TRUE			
-people of Samaria, all the	TRUE			
-people praying at John Mark's mother's house	TRUE			
-people who had known Saul	TRUE			
-people who saw healing of blind/mute, all the	TRUE			
-people, all the	TRUE			
-people, arrogant wicked	TRUE			
-people, God's	TRUE			
-people, hurried	TRUE			
-people, Israel, tribes of	TRUE			
-people, many (at Gennesaret)	TRUE			
-people, other	TRUE			
-people, righteous	TRUE			
-people, sick	TRUE			
-people, some	TRUE			
-people, still others	TRUE			
-peoples, many	TRUE			
-person asking someone to read a sealed book	FALSE			
-person near Lazarus' grave who informed Jesus	FALSE			
-person sacrificing	FALSE			
-person who informed Judah	FALSE			
-person who informed people of Gaza	FALSE			
-person who informed Tamar, daughter-in-law of Judah	FALSE			
-person who informed townsmen of Ophrah	FALSE			
-person who told David about Philistines	FALSE			
-person who told David of Nathan's arrival	FALSE			
-person who told Joshua where the kings were hiding	FALSE			
-person who told King of Aram of Elisha's arrival	FALSE			
-person who told Samuel where Saul was	FALSE			
-person who told Saul where David was	FALSE			
-person who told Shimei where his servants were	FALSE			
-person who told the guards and priests where the apostles were	FALSE			
-person without the gift of tongues	FALSE			
-Peter (Simon)	FALSE	Male		
-Peter (Simon)/James/John	TRUE	Male		
-Peter (Simon)/James/John/Andrew	TRUE	Male		
-Peter (Simon)/John	TRUE	Male		
-Peter (Simon)/John/own people	TRUE	Male		
-Peter (Simon)/Thomas/Nathaniel/James/John/2 other disciples	TRUE	Male		
-Pharaoh (1st)	FALSE	Male		
-Pharaoh (2nd)	FALSE	Male		
-Pharaoh (2nd)'s men	TRUE	Male		
-Pharaoh (3rd)	FALSE	Male		
-Pharaoh (3rd)/Pharaoh's officials	TRUE	Male		
-Pharaoh (6th)	FALSE	Male		
-Pharaoh's daughter	FALSE	Female		
-Pharaoh's officials	TRUE	Male		
-Pharisee (expert in religious law)	FALSE	Male		
-Pharisee (Simon)	FALSE	Male		
-Pharisees	TRUE	Male		
-Pharisees, other	TRUE	Male		
-Pharisees, some	TRUE	Male		
-Pharisees/Sadducees	TRUE	Male		
-Pharisees/teachers of religious law	TRUE	Male		
-Philip	FALSE	Male		
-Philistine commanders	TRUE	Male		
-Philistine priests and fortune tellers	TRUE	Male		
-Philistine rulers	TRUE	Male		
-Philistines	TRUE	Male		
-Phineas the priest	FALSE	Male		
-Phineas the priest/chiefs of 10 tribes	TRUE	Male		not Reuben, Gad, half tribe of Manasseh
-Phineas' wife (daughter-in-law of Eli)	FALSE	Female		
-Pilate	FALSE	Male		
-Pilate's wife	FALSE	Female		
-pine trees/cedars of Lebanon	TRUE			
-poets	TRUE			
-Potiphar's wife	FALSE	Female		
-priests/Levites	TRUE	Male		
-priests/Levites sent from the Jews	TRUE	Male		
-priests/Levites/people	TRUE	Male		
-proclaimers of God's word	TRUE			
-proclamation	FALSE			
-prophet	FALSE			
-prophet Gad	FALSE	Male		
-prophet in Bethel	FALSE	Male	old	
-prophet of the LORD	FALSE			
-prophet who confronts Ahab	FALSE			
-prophets (speaking the word of the LORD)	TRUE			
-prophets and teachers at Antioch	TRUE			
-prophets of Baal	TRUE			
-prophets, 400 false	TRUE			
-prophets/priests	TRUE			
-prostitute, one	FALSE			
-prostitute, other	FALSE			
-psalmist	TRUE			
-queen of Babylon	FALSE	Female		
-queen of Sheba	FALSE	Female		
-Rachel	FALSE	Female		
-Rachel/Leah	TRUE	Female		
-Rahab	FALSE	Female		
-reader	FALSE			
-Rebekah	FALSE	Female		
-Rebekah's mother	FALSE	Female		
-rebels	TRUE			
-Recab/Baanah	TRUE			
-Recabite family, men of	TRUE			
-Rehoboam, king	FALSE	Male		
-Rehum, commanding officer/Shimshai, secretary	TRUE	Male		
-relative	FALSE	Male		
-Relatives of Ahaziah, king of Judah	TRUE			
-reply to the slain believers (in heavenly vision)	FALSE			
-report concerning Paul	FALSE			
-report to King of Aram	FALSE			
-report to King of Assyria	FALSE			
-Reuben	FALSE	Male		
-Reubenites/Gadites/half-tribe of Manasseh	TRUE	Male		
-Rhoda	FALSE	Female	possibly young girl/teen	
-rich young ruler	FALSE	Male	young man	
-rule given by Paul	FALSE			
-rulers of people in Jerusalem	TRUE			
-rules of the world	FALSE			
-Ruth	FALSE	Female		
-Sadducees	TRUE	Male		
-sailors	TRUE	Male		
-Samson	FALSE	Male		
-Samson's 30 Philistine companions	TRUE	Male		
-Samson's father-in-law	FALSE	Male		
-Samson's Philistine wife	FALSE	Female		
-Samuel	FALSE	Male		
-Samuel (boy)	FALSE	Male	child	
-Samuel (dead)	FALSE	Male	old	
-Sanballat	FALSE	Male		
-Sanballat/Geshem, enemies	TRUE	Male		
-Sanballat/Tobiah/Geshem, enemies	TRUE	Male		
-Sanhedrin/chief priests/Pharisees	TRUE	Male		
-Sapphira (wife of Ananias of Jerusalem)	FALSE	Female		
-Sarah (Sarai)	FALSE	Female		
-Sarah (Sarai) (old)	FALSE	Female	old	
-Satan (Devil)	FALSE	Male		
-Satraps	TRUE	Male		
-Satraps/Administrators	TRUE	Male		
-Saul	FALSE	Male		
-Saul/Israel, men of	TRUE	Male		
-Saul/Saul's servant	TRUE	Male		
-Saul's announcement	FALSE			
-Saul's attendants	TRUE	Male		
-Saul's messengers to Jesse	TRUE	Male		
-Saul's servant	FALSE	Male		
-Saul's uncle	FALSE	Male		
-saying (proverb)	FALSE			
-saying about Anakites	FALSE			
-saying about blind and lame	FALSE			
-saying about captivity and death by the sword	FALSE			Possibly a reference to Jeremiah 15:2, Jeremiah 43:11 or Matthew 26:52
-saying about Gentile nations	TRUE			
-saying about going beyond what is written	FALSE			
-saying about Nimrod	FALSE			
-saying about Saul	FALSE			
-saying about seer	FALSE			
-saying about sow	FALSE			
-saying about what controls you	FALSE			
-saying about yeast	FALSE			
-saying about Zion	FALSE			
-saying, true	FALSE			
-scoffers	TRUE			
-scoundrels	TRUE			
-scouts of Ben-Hadad, king of Aram	TRUE	Male		
-scripture	FALSE			
-sea	FALSE			
-sea captains, seafarers, sailors	TRUE	Male		
-second person to accuse Peter (man)	FALSE	Male		
-Sennacherib, king of Assyria	FALSE	Male		
-Sennacherib's messengers	TRUE	Male		
-Sennacherib's officers	TRUE	Male		
-seraph, one of the	FALSE			
-seraphs	TRUE			
-serpent	FALSE			
-servant girl at high priest's courtyard	FALSE	Female		
-servant girl, another	FALSE	Female		
-servant of concubine's husband	FALSE			
-servant of Elijah	FALSE	Male		
-servant of Naaman's wife (young girl)	FALSE	Female	child/youth	
-servant of Nabal	FALSE			
-servant of priest	FALSE			
-servant of Saul	FALSE			
-servants of Achish, king of Gath	TRUE			
-servants of David	TRUE			
-servants of Eglon, king of Moab	TRUE			
-servants of Isaac	TRUE			
-servants of royal official (father)	TRUE			
-seven sons of Sceva	TRUE	Male		
-seventy-two	TRUE			
-Shadrach/Meshach/Abednego	TRUE	Male		
-Shaphan, secretary	FALSE	Male		
-Sharezer/Regem-Melech/men of Bethel	TRUE	Male		
-Sheba, son of Bicri	FALSE	Male		
-Shecaniah, son of Jehiel	FALSE	Male		
-Shechem	FALSE	Male		
-Shechem, son of Hamor	FALSE	Male	young man	
-Shemaiah	FALSE			
-Shephatiah/Gedaliah/Jehucal/Pashur (officials)	TRUE	Male		
-shepherds at well	TRUE			
-shepherds outside Bethlehem	TRUE			
-Shimei	FALSE			
-Shobi	FALSE	Male		
-Shobi/Makir/Barzillai	TRUE	Male		
-Shua (Judah's wife)	FALSE	Female		
-Shunammite woman	FALSE	Female		well-to-do
-sign on the cross	FALSE			
-Silas	FALSE	Male		
-Simeon	FALSE	Male		
-Simeon/Levi	TRUE	Male		
-Simeon-old	FALSE	Male	old	
-Simon (magician/sorcerer)	FALSE	Male		
-singers	TRUE			
-singers from the ends of the earth	TRUE			
-singers, and relatives	TRUE			
-sinners	TRUE			
-Sisera	FALSE	Male		
-slave driver	FALSE			
-slave girls	TRUE	Female		
-soldier at the cross	FALSE	Male		
-soldiers	TRUE	Male		
-soldiers, Assyrian	TRUE	Male		
-soldiers, Roman	TRUE	Male		
-soldiers, some (near Jordan River)	TRUE	Male		
-soldiers/officials from chief priests/Pharisees	TRUE	Male		
-Solomon, king	FALSE	Male		
-some people (quoted by Paul)	TRUE			
-someone	TRUE			
-someone (hypothetical argument)	TRUE			
-someone from Seir	FALSE			
-someone hiding	FALSE			
-someone in crowd	FALSE			
-someone in Jerusalem	FALSE			
-son (child) in Israel (hypothetical)	FALSE	Male	child/youth	
-son of Paul's sister (young man)	FALSE	Male	young man	
-son of Shelomith (whose father was an Egyptian)	FALSE	Male		
-son of Shunammite	FALSE	Male	Child	
-son of widow	FALSE	Male		
-song (of the prostitute)	FALSE	Female		
-sons of Korah	TRUE	Male		
-sons of prophet in Bethel	TRUE	Male		
-souls of those killed for word of God	TRUE			
-spies (Pharisees/Herodians)	TRUE	Male		
-spies from Joshua, men	TRUE	Male		
-Stephen	FALSE	Male		
-steward of Joseph's house	FALSE	Male		
-still another (follower of Christ)	FALSE			
-synagogue ruler	FALSE	Male		
-synagogue rulers in Pisidian Antioch	TRUE	Male		
-Tamar, daughter of David	FALSE	Female		
-Tamar, daughter-in-law of Judah	FALSE	Female		
-Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	TRUE	Male		
-tax collectors	TRUE	Male		
-teacher (Preacher)	FALSE	Male		
-teacher of religious law	FALSE	Male		
-teachers of religious law	TRUE	Male		
-teachers of religious law/Pharisees	TRUE	Male		
-temple guards	TRUE	Male		
-temple police	TRUE	Male		
-Tertius	FALSE	Male		
-Tertullus-Lawyer	FALSE	Male		
-Thomas	FALSE	Male		
-Thomas/Nathaniel/James/John/2 other disciples	TRUE	Male		
-those hiding from the LORD	TRUE			
-those standing near Paul in Sanhedrin	TRUE			
-those who call on God	TRUE			
-those who fear the Lord	TRUE			
-those who heard	TRUE			
-those who seek God	TRUE			
-three men (two angels and the LORD)	TRUE	Male		
-Titus	FALSE	Male		
-Tobiah, enemy	FALSE	Male		
-townsmen of Ophrah	TRUE	Male		
-troublemakers	TRUE	Male		
-twenty-four elders	TRUE	Male		
-twenty-four elders/four living creatures	TRUE	Male		
-unbeliever who comes under conviction	FALSE			
-unbelievers	TRUE			
-Uriah	FALSE	Male		
-voice from altar	FALSE			
-voice from among living creatures	FALSE			
-voice from cloud	FALSE			
-voice from heaven (God?)	TRUE	Male		Possibly God speaking (not identified)
-voice from heaven, another	FALSE			
-voice from temple	FALSE			
-voice from throne	FALSE			
-voice in heaven	TRUE			
-voice in heaven, loud	FALSE			
-voice of great crowd in heaven, loud	TRUE			
-voice of great crowd, like roar of many waters, loud thunderclaps	TRUE			
-voice of one calling, a (preparing way for Christ)	FALSE			
-voice of one speaking (in vision of God)	FALSE			
-voices in heaven, loud	TRUE			
-warriors from Zorah and Eshtaol, five	TRUE	Male		
-watchman	FALSE	Male		
-watchmen of Israel	TRUE	Male		
-we (believers)	TRUE			
-weakling	FALSE			
-what is formed	FALSE			
-whoever has doubts	FALSE			
-wicked men of Gibeah	TRUE			
-wicked, the	TRUE			
-widow (from company of prophets)	FALSE	Female		
-widow at Zarephath	FALSE	Female		
-wise men of Pharaoh	TRUE	Male		
-witnesses, false	TRUE			
-woman from Tekoa	FALSE	Female		
-woman in Bahurim	FALSE	Female		
-woman in crowd	FALSE	Female		
-woman in famine	FALSE	Female		
-woman medium	FALSE	Female		
-woman who could not straighten up	FALSE	Female		
-woman, bleeding for twelve years	FALSE	Female		
-woman, caught in adultery	FALSE	Female		
-woman, Samaritan	FALSE	Female		
-woman, wise	FALSE	Female		
-women of Bethlehem	TRUE	Female		
-women, dancing	TRUE	Female		
-women, seven	TRUE	Female		
-worshippers of the beast	TRUE			
-Xerxes, king of Persia and Media (Ahasuerus)	FALSE	Male		
-you (hypothetical Gentile)	FALSE			
-you (hypothetical)	TRUE			
-you (people of Zion, restored)	TRUE			
-you (rebellious people)	TRUE			
-you ought to say	FALSE			
-young man	FALSE	Male	youth	
-young men (advisors of Rehoboam)	TRUE	Male	young man	
-youths	TRUE		youth	
-Zaccheaus	FALSE	Male		
-Zacharias (Zechariah)	FALSE	Male		
-Zebah/Zalmunna	TRUE			
-Zebul, governor of Shechem	FALSE	Male		
-Zechariah	FALSE	Male		
-Zechariah, son of Jehoiada the priest	FALSE	Male		
-Zedekiah, king of Judah	FALSE	Male		
-Zedekiah, son of Kenaanah, false prophet	FALSE	Male		
-Zeresh, wife of Haman/friends of Haman	TRUE	Female		
-Zerubbabel/Jeshua/rest of heads of families	TRUE	Male		
-Ziba, servant of Saul's household	TRUE	Male		
-Zion	FALSE			
-Ziphites	TRUE			
-Zipporah, Moses' wife	FALSE	Female		
-Zophar the Naamathite	FALSE			
+#Character ID	Max Speakers	Gender	Age	Comment
+2 other disciples	2	Male		Not Peter (Simon), Thomas, Nathaniel, James, or John
+250 Israelite leaders	250	Male		
+a Jew	1	Male		
+Aaron	1	Male		
+Abednego	1	Male		original Hebrew name: Azariah
+Abigail	1	Female		
+Abijah, king of Judah	1	Male		
+Abimelech, King of Gerar	1	Male		
+Abimelech, King of the Philistines (in Gerar)	1	Male		
+Abimelech, son of Gideon (Jerubbaal)	1	Male		
+Abiram	1	Male		
+Abiram	1	Male		son of Eliab (Reubenite)
+Abishai, Joab's brother	1	Male		
+Abner, commander of Saul's army	1	Male		
+Abraham (Abram)	1	Male		
+Abraham's chief servant	1	Male		
+Absalom, son of David	1	Male		
+Absalom's men	-1	Male		
+Absalom's secret messengers	-1	Male		
+Achan	1	Male		
+Achish, king of Gath	1	Male		
+Acsah, Caleb's daughter	1	Female		
+Adam	1	Male		
+Adoni-Bezek	1	Male		
+Adonijah, son of David	1	Male		
+Adoni-Zedek, king of Jerusalem	1	Male		
+advisers to king	-1	Male		
+Agabus the prophet	1	Male		
+Agag, king of Amalekites	1	Male		
+Ahab, king of Israel	1	Male		
+Ahaz, king of Judah	1	Male		
+Ahaziah, king of Israel	1	Male		
+Ahijah the priest	1	Male		
+Ahijah, the prophet	1	Male		
+Ahimaaz (messenger)	1	Male		
+Ahimelech the priest (son of Ahitub)	1	Male		
+Ahithophel	1	Male		
+all in Nazareth synagogue	-1			
+all in temple	-1			
+all seeking God	-1			
+all the elders	-1	Male		elders of the church in Jerusalem
+all who heard (in synagogues)	-1			
+altar	1	Neuter		
+Amasa	1	Male		leader in Ephraim
+Amasai, chief of thirty (Spirit came upon)	1	Male		
+Amaziah, king of Judah	1	Male		
+Amaziah, priest of Bethel	1	Male		
+Ammonite nobles	-1	Male		
+Amnon, son of David	1	Male		
+Amos	1	Male		
+Ananias (Annas), the high priest (father-in-law of Caiaphas)	1	Male		
+Ananias of Damascus	1	Male		
+Andrew	1	Male		
+angel (one of the seven)	1			
+angel flying directly overhead	1			
+angel flying directly overhead, second	1			
+angel flying directly overhead, third	1			
+angel of the LORD, an	1	Male		
+angel of the LORD, the	1	Male		Default speaker should be Jesus
+angel or messenger (Greek variant: someone speaking to John)	1			
+angel over waters	1			
+angel standing in sun	1			
+angel standing on sea and land	1			
+angel who talked with Zechariah	1			
+angel who wrestled with Jacob	1	Male		
+angel, another (vision)	1			
+angel, another, coming down from heaven	1			
+angel, coming out of temple	1			
+angel, coming out of temple, another	1			
+angel, powerful	1			
+angels at Sodom, two	2	Male		
+angels in white, two	2	Male		
+angels, all the	-1			
+angels, many	-1			
+anger of the LORD	1	Male		Could be either God or David
+Anna, prophetess	1	Female		
+another disciple of John Baptist	1	Male		Became disciple of Jesus (not Andrew, Simon Peter, Philip, Nathanael, or Matthew)
+another holy one (in vision)	1			
+answer from Israel	1			
+anyone	1			
+anyone with complaint for king	1			
+Apollos	1	Male		
+apostles	11	Male		Not Judas Iscariot
+apostles, elders, and whole church at Jerusalem	-1			
+Aramean soldiers	-1	Male		
+Araunah, the Jebusite	1	Male		
+Arioch	1	Male		
+army cry	-1	Male		
+army officer, one of	1	Male		
+army officers	-1	Male		
+arrogant men	-1	Male		
+Artaxerxes, king of Persia	1	Male		
+Asa, king of Judah	1	Male		
+Asahel, brother of Joab	1	Male		
+Asaph	1	Male		
+assembly, whole	-1			
+astrologers	-1	Male		
+Athaliah, mother of Ahaziah (Queen)	1	Female		
+attendants to Xerxes, king	-1	Male		
+attendents of Phineas' wife	-1	Female		
+authorities, governing	-1	Male		
+authorities, Philippi	-1	Male		
+Azariah the chief priest	1	Male		from the family of Zadok
+Azariah the priest	1	Male		(during reign of Uzziah)
+Azariah, son of Hoshaiah	1	Male		
+Azariah, son of Jehohanan	1	Male		leader in Ephraim
+Azariah, son of Oded	1	Male		
+Baanah	1	Male		
+Babylon	1			
+Balaam	1	Male		
+Balak	1	Male		
+Barak	1	Male		
+Barnabas	1	Male		
+Bartimaeus (a blind man)	1	Male		
+Baruch	1	Male		
+Barzillai	1	Male		Gileadite
+Bathsheba	1	Female		
+beast, the	1			
+believers who were Pharisees	-1	Male		
+believers, circumcised (in Jerusalem)	-1	Male		
+believers, one hundred twenty	120	Pref: Male		Probably spoken by Peter or one of the other eleven disciples
+beloved	1	Female		
+Belshazzar, king of Babylon	1	Male		
+Benaiah, son of Jehoiada	1	Male		
+Ben-Hadad, king of Aram	1	Male		
+Benjamin	1	Male		
+Benjamite messenger to Eli	1	Male		
+Benjamites	-1			
+Bera, king of Sodom	1	Male		
+Berekiah	1	Male		leader in Ephraim
+Bernice	1	Female		
+Beth Shemesh, men of	-1	Male		
+Beth Shemesh, messenger from	1	Pref: Male		
+Bethlehem, elders of	-1	Male		
+Bethuel, Rebekah's father	1	Male		
+Bildad the Shuhite	1	Male		
+Birsha, king of Gomorrah	1	Male		
+blind man	1	Male		
+blind men, two	2	Male		
+Boaz	1	Male		
+Book of the Wars of the LORD	1	Neuter		
+brothers at Antioch, the	-1	Male		
+brothers at Puteoli, some	-1	Male		
+bystanders at Calvary, some	-1			
+bystanders at Calvary, the rest	-1			
+Caesar Augustus	1	Male		
+Caiaphas, the high priest	1	Male		
+Cain	1	Male		
+Caleb	1	Male		
+Canaanite (Syrophoenician) mother of possessed girl	1	Female		
+Canaanites	-1			
+captain of the temple guard	1	Male		
+captain, first	1	Male		
+captain, second	1	Male		
+captain, ship to Italy (Rome)	1	Male		
+captain, ship to Tarshish	1	Male		
+captain, third	1	Male		
+captors, our	-1			
+centurion at crucifixion	1	Male		
+centurion at Paul's flogging	1	Male		
+centurion on ship with Paul	1	Male		
+centurion summoned by Pilate	1	Male		
+centurion with great faith	1	Male		
+centurion, one of the	1	Male		
+chariot commanders of Aram	-1	Male		
+chief baker of Egypt	1	Male		
+chief cupbearer of Egypt	1	Male		
+chief official	1	Male		
+chief priests	-1	Male		
+chiefs of 10 tribes	10	Male		not Reuben, Gad, half tribe of Manasseh
+children	-1		Child	
+children of Zion (Jerusalem)	-1		Child	
+citizens of Shechem	-1			
+city clerk of Ephesus	1	Male		
+Cleopas	1	Male		
+Cleopas' companion (on road to Emmaus)	1	Either		
+collectors of temple tax	-1			
+commander of Roman troops in Jerusalem	1	Male		
+commander of the LORD's army	1	Male		Default character should be Jesus
+company of the prophets	-1			
+company of the prophets (Bethel)	-1			
+company of the prophets (Jericho)	-1			
+company of the prophets, one of (the LORD says) (young man)	1	Male		young man
+company of the prophets, one of (young man)	1	Male		young man
+conquerors of beast, image & his name	-1			
+conquerors of Lo Debar	-1	Male		
+Cornelius	1	Male		
+council of elders	-1	Male		
+craftsman	1	Male		
+craftsmen and workmen	-1	Male		
+Cretan prophet	1	Male		
+criminal on cross, insulting	1	Male		
+criminal on cross, repentant	1	Male		
+crippled man	1	Male		
+crowd	-1			
+crowd after mute healed	-1			
+crowd at Festival of Tabernacles in Jerusalem, many in the	-1			
+crowd at Festival of Tabernacles in Jerusalem, others	-1			
+crowd at Festival of Tabernacles in Jerusalem, some	-1			
+crowd at Festival of Tabernacles in Jerusalem, still others	-1			
+crowd at Festival of Tabernacles in Jerusalem, the	-1			
+crowd at Jericho	-1			
+crowd before Pilate	-1			
+crowd in Jerusalem	-1			
+crowd in Jerusalem on Pentecost	-1			
+crowd in Lystra	-1			
+crowd near sea of Galilee	-1			
+crowd preparing for Passover Feast	-1			
+crowd preparing for Passover Feast, others	-1			
+crowd, large (witnessed healing of widow's son)	-1			
+crowd, many in the	-1			
+crowd, some in	-1			
+cured man, blind from birth	1	Male		
+Cyrus, king of Persia	1	Male		
+Dan	1	Male		
+Daniel	1	Male		
+Danites	-1			
+Darius, king	1	Male		
+Darius, king of Medes and Persians	1	Male		
+Dathan	1	Male		son of Eliab (Reubenite)
+daughter of Zion	1	Female		
+daughters of Zelophehad	-1	Female		
+David	1	Male		
+David (old)	1	Male	Elder	
+David's enemies	-1	Male		
+David's men	-1	Male		
+David's servants	-1			
+David's supporters	-1			
+Deborah	1	Female		prophetess
+Delaiah	1	Male		son of Shemaiah
+Delilah	1	Female		
+Demetrius the silversmith	1	Male		
+demons (Legion)	-1	Male		
+demons coming out of people	-1			
+disciple who wanted to bury his father	1	Male		
+disciples	11	Male		
+disciples (but not Thomas)	10	Male		
+disciples in Ephesus, some	-1			
+disciples of John the Baptist	-1	Male		
+disciples, some	-1			
+disciples, two men (from Joppa)	2	Male		
+Doeg the Edomite	1	Male		
+donkey (female)	1	Female		
+dream	1			
+dreamers	-1	Either		
+eagle crying with loud voice	1	Pref: Male		
+ear	1	Neuter		
+Ebed-Melech (official of king of Judea)	1	Male		
+Edom	1	Male		
+Edomites	-1			
+Eglon, king of Moab	1	Male		
+Egyptian (slave of Amalekite)	1			
+Egyptians	-1			
+Egyptians, all the	-1			
+Ehud, Israelite deliverer	1	Male		
+eighty other priests	80	Male		
+Ekron, people of	-1			
+elders	-1	Male		
+elders of Israel	-1	Male		
+elders of the Jews	-1	Male		
+elders of the land	-1	Male		
+elders, Ephesian	-1	Male		
+elders, one of the	1	Male		
+Eleazar the priest, son of Aaron	1	Male		
+Eleven	11	Male		This should be spoken by one of the 11 disciples (excluding Judas Iscariot). The wording suggests that it was not Simon Peter.
+Eli	1	Male		
+Eli (very old)	1	Male	Elder	
+Eliab, David's brother	1	Male		
+Eliakim	1	Male		
+Eliezer, prophet of the Lord	1	Male		
+Elihu, son of Barakel	1	Male		
+Elijah	1	Male		
+Eliphaz the Temanite	1	Male		
+Elisha	1	Male		
+Elisha (old)	1	Male	Elder	
+Elishama	1	Male		scribe
+Elisha's messenger	1			
+Elizabeth	1	Female		
+Elkanah	1	Male		
+Elnathan	1	Male		son of Achbor
+enemies of God	-1			
+enemies of Israel	-1			
+enemies of Judah and Benjamin	-1	Male		
+enemy	1			
+Enoch	1	Male		
+Ephraimites	-1			
+Ephron the Hittite	1	Male		
+Epicurean and Stoic philosophers	-1			
+Epicurean and Stoic philosophers, interested	-1			
+Epicurean and Stoic philosophers, other	-1			
+Epicurean and Stoic philosophers, sneering	-1			
+Epicurean and Stoic philosophers, some	-1			
+Esau	1	Male		
+Esther, queen	1	Female		
+Ethiopian officer of Queen Candace	1	Male		
+Eve	1	Female		
+every created thing	-1			
+everyone	-1			
+everyone in Judean hills who heard	-1			
+everyone seeing healing of paralyzed man	-1			
+everyone who saw healing of paralytic	-1			
+everyone who witnessed healing of boy	-1			
+evil men and troublemakers	-1	Male		
+evil spirit in possessed man	1	Male		
+evil spirits	-1			
+exiles	-1			
+expert in religious law	1	Male		
+experts in religious law, one of the	1	Male		
+explorers, ten	10	Male		
+eye	1			
+Ezekiel	1	Male		
+Ezra, priest and teacher	1	Male		
+false prophets	-1	Male		
+false teachers	-1			
+false witnesses	-1			
+family heads of Gilead	-1	Male		
+father of concubine	1	Male		
+father of cured man, blind from birth	1	Male		
+father of demon-possessed boy	1	Male		
+Felix, governor of Judea	1	Male		
+Festus, governor of Judea	1	Male		
+Field commander from King of Assyria	1	Male		
+figure like that of a man (in vision of God)	1	Male		Default character should be Jesus
+flatterers	-1			
+follower of Apollos	1			
+follower of Cephas (Peter)	1			
+follower of Christ	1			
+follower of Paul	1			
+followers of Jesus	-1			
+fool	1			
+foot	1			
+foreman	1	Male		
+fortune telling slave girl	1	Female		
+four living creatures	4			
+friends of Haman	-1	Pref: Male		
+Gaal, son of Ebed	1	Male		
+Gabriel	1	Male		
+Gad, the prophet, David's seer	1	Male		
+Gadarene (or Gerasenes) people	-1			
+Gadites	-1	Male		
+Gallio, proconsul of Achaia	1	Male		
+Gamaliel	1	Male		
+Gaza, people of (wicked)	-1			
+Gedaliah, governor of Judah	1	Male		son of Ahikam, son of Shaphan
+Gedaliah, son of Pashur	1	Male		
+Gehazi	1	Male		
+Gemariah	1	Male		son of Shaphan
+Gentiles	-1			
+Gentiles, Jews, and leaders at Iconium	-1			
+Geshem the Arab	1	Male		
+Gibeonites	-1			
+Gideon (Jerubbaal)	1	Male		
+Gilead, elders of	-1	Male		
+Gilead, leaders of	-1	Male		
+Gilead, men of	-1	Male		
+girls	-1	Female		
+God	1	Male		
+Goliath, Philistine champion	1	Male		
+Good Priest	1	Male		Many quotes resolve to this pseudo-character by default
+great company of heavenly host	-1			
+Grecian Jews	-1			
+Greeks	-1			
+guards at high priests' house	-1	Male		
+Habakkuk	1	Male		
+Hadad the Edomite	1	Male		
+Hagar, the Egyptian	1	Female		
+Haggai (word of the LORD)	1	Male		
+half-tribe of Manasseh	-1	Male		
+Haman, highest noble to Xerxes, king	1	Male		
+Hamor, Hivite ruler	1	Male		
+Hanamel (Jeremiah's cousin)	1	Male		
+Hanani, brother of Nehemiah	1	Male		
+Hanani the seer	1	Male		father of Jehu
+Hananiah, false prophet	1	Male		
+Hannah	1	Female		
+Harbona, eunuch attending Xerxes, king	1	Male		
+harvesters	-1			
+Hazael of Aram	1	Male		
+head	1			
+heads of all the families	-1	Male		
+hearers	-1			
+herald	1			
+herdsman	1	Male		
+herdsmen of pigs	-1	Male		
+Herod Antipas (the tetrarch)	1	Male		
+Herod the Great	1	Male		
+Herodias	1	Female		
+Herodias' daughter	1	Female		
+Hezekiah, king of Judah	1	Male		
+high priest	1	Male		Not a particular (historial) high priest, but rather an arbitrary (hypothetical) holder of that office
+high priest's servant (relative of the man whose ear Peter cut off)	1	Male		
+Hilkiah, high priest	1	Male		
+him who hears	1	Male		
+Hirah, the Adullamite	1	Male		
+Hiram, king of Tyre	1	Male		
+Hittites	-1			
+Hobab, Moses brother-in-law	1	Male		
+holy one (in vision)	1			
+bride, the (refering to the Church)	-1	Pref: Female		
+Holy Spirit, the	1	Male		
+Horseman, first	1	Male		
+Horseman, second	1	Male		
+Horses (in vision)	-1			
+Hosea	1	Male		
+house of Aaron, the	-1	Male		
+Huldah, prophetess	1	Female		
+husband of Shunammite	1	Male		
+Hushai, David's friend	1	Male		
+hymn, early credal	1			
+idolators	-1			
+idolators from Judah (men)	-1	Male		
+idolators from Judah (women)	-1	Female		
+informer	-1			
+inscription on forehead of Babylon	1	Pref: Female		
+invaders	-1	Male		
+invalid for 38 years	1	Male		
+Irijah, captain of the guard of Judah	1	Male		
+Isaac	1	Male		
+Isaac (old)	1	Male	Elder	
+Isaiah	1	Male		
+Ish-Bosheth, son of Saul	1	Male		
+Ishmael, son of Nethaniah (murderer)	1	Male		
+islanders	-1			
+Israel	-1			
+Israel, all	-1			
+Israel, all the tribes	-1			
+Israel, leaders of	-1	Male		
+Israel, men of	-1	Male		
+Israelite army commanding officers	-1	Male		
+Israelite assembly	-1			
+Israelite assembly, elders of	-1	Male		
+Israelite community	-1			
+Israelite fighting men	-1	Male		
+Israelite foreman	1	Male		
+Israelite men	-1	Male		
+Israelite officers	-1	Male		
+Israelite soldier in Saul's army	1	Male		
+Israelite spies from Joshua, two men	2	Male		
+Israelite spies from house of Joseph	-1	Male		
+Israelites	-1			
+Israelites (excluding Benjamites)	-1			
+Israelites, some	-1			
+Ittai	1	Male		
+Jabesh, elders of	-1	Male		
+Jabesh, men of	-1	Male		
+Jabez	1	Male		
+Jabez's mother	1	Female		
+Jacob (Israel)	1	Male		
+Jacob's son (one who discovered his silver in his sack)	1	Male		Not Simeon, Joseph, or Benjamin
+Jacob's sons	10	Male		Not Joseph or Banjamin
+Jacob's sons (not Simeon, Joseph, or Benjamin)	9	Male		
+Jael	1	Female		
+Jahaziel (Spirit of the Lord on)	1	Male		
+jailer in Philippi	1	Male		
+Jairus (synagogue leader)	1	Male		
+James	1	Male		
+Jebusites	-1			
+Jehizkiah	1	Male		leader in Ephraim
+Jehoash, king of Israel	1	Male		
+Jehoiada the priest	1	Male		
+Jehoiada's sons	-1	Male		
+Jehonadab, son of Recab	1	Male		
+Jehoshaphat, king of Judah	1	Male		
+Jehu, son of Hanani	1	Male		
+Jehu, son of Nimshi	1	Male		
+Jehucal	1	Male		son of Shelemiah
+Jehudi	1	Male		
+Jephthah	1	Male		
+Jephthah's daughter	1	Female		youth
+Jephthah's half-brothers	-1	Male		
+Jeremiah	1	Male		
+Jeremiah's enemies	-1	Male		
+Jeroboam	1	Male		
+Jeshua	1	Male		
+Jesse	1	Male		
+Jesus	1	Male		
+Jesus (child)	1	Male	Child	youth (12)
+Jesus' brothers	4	Male		
+Jesus' family	-1			
+Jethro (Reuel), Moses' father-in-law	1	Male		
+Jewish leaders	-1	Male		
+Jews from Asia	-1			
+Jews of Cyrene, Alexandria, Cilicia & Asia	-1			
+Jews who had been with Mary and Martha	-1			
+Jews who had been with Mary and Martha, some	-1			
+Jews who had believed Jesus	-1			
+Jews, God-fearing from every nation	-1			
+Jews, God-fearing from every nation, some	-1			
+Jews, leaders of the (in Rome)	-1			
+Jews, many	-1			
+Jews, more than forty in conspiracy	-1			
+Jews, other	-1			
+Jews, the	-1			
+Jezebel	1	Female		
+Joab	1	Male		
+Joab's men, one of	1	Male		
+Joah	1	Male		
+Joash, father of Gideon (Jerubbaal)	1	Male		
+Joash, king of Judah	1	Male		
+Job	1	Male		
+Job's wife	1	Female		
+Joel saying what the priests should say	1	Male		
+Johanan	1	Male		son of Kareah
+John	1	Male		
+John, Alexander, and other men of the high priest's family	-1	Male		
+John the Baptist	1	Male		
+Jonadab	1	Male		
+Jonah	1	Male		
+Jonathan	1	Male		
+Jonathan, son of Abiathar	1	Male		
+Jonathan's armor bearer	1	Male		
+Joram, king of Israel	1	Male		
+Joseph	1	Male		
+Joseph of Arimathea	1	Male		
+Joseph, people of	1			
+Joseph's brothers	11	Male		Different from Jacob's sons because it cannot be Joseph
+Joshua	1	Male		
+Joshua (old)	1	Male	Elder	
+Josiah, king of Judah	1	Male		
+Jotham, son of Gideon (Jerubbaal)	1	Male		
+Judah	1	Male		
+Judah, all	-1	Either		Personification of Judah as adulteress
+Judah, men of	-1	Male		
+Judah, people in	-1			
+Judaizers	-1	Male		
+Judas Iscariot	1	Male		
+Judas, apostle (not Judas Iscariot)	1	Male		
+King Herod Agrippa II	1	Male		
+King of Ammonites	1	Male		
+King of Aram	1	Male		
+King of Assyria	1	Male		
+King of Babylon	1	Male		
+king of Bela	1	Male		
+King of Jericho	1	Male		
+King of Nineveh	1	Male		
+kings of the earth	-1	Male		
+kings over the nations	-1	Male		
+kings, princes, generals, rich, powerful, slave and free	-1	Male		
+kinsman-redeemer	1	Male		
+Kish, father of Saul	1	Male		
+Korah	1	Male		son of Izhar, son of Kohath, son of Levi
+Laban	1	Male		
+Laban's sons	-1	Male		
+Lamech (descendent of Cain)	1	Male		
+Lamech (descendent of Seth)	1	Male		
+law of Moses where LORD commanded	1			
+leaders	-1			
+Leah	1	Female		
+leper	1	Male		
+leper, thankful Samaritan	1	Male		
+lepers, ten	10	Male		
+letter from apostles and elders	1			
+Levi	1	Male		
+Levite husband of concubine	1	Male		
+Levite, young, from Bethlehem	1	Male		young man
+Levites	-1	Male		
+Levites, family heads of	-1	Male		
+living creature, first	1			
+living creature, fourth	1			
+living creature, second	1			
+living creature, third	1			
+Lookout	1			
+Lot	1	Male		
+lover	1	Male		
+Lydia	1	Female		
+Macedonian	1	Male		
+magi (wise men from East)	-1	Male		
+magicians	-1			
+magistrates, chief	-1	Male		
+maidens	-1	Female		
+Makir	1	Male		son of Ammiel from Lo Debar
+Malta islanders	-1			
+man (at Shechem)	1	Male		
+man (Hebrew fighting)	1	Male		
+man (hypothetical)	1	Male		
+man all alone	1	Male		
+man answered David	1	Male		
+man delivered from Legion of demons	1	Male		Account in Matthew 8 indicates that there were two men, but since other accounts only have 1, best to keep as single voice.
+man escaped from Jerusalem	1	Male		
+man from Saul's camp (young)	1	Male		young man
+man in linen above river	1	Male		
+man in linen with writing kit (in vision)	1	Male		
+man like bronze with measuring rod (vision of God)	1	Male		
+man of Gibeah	1	Male		
+man of God (prophet to Amaziah)	1	Male		
+man of God (prophet to Eli)	1	Male		
+man of God from Judah	1	Male		
+man of lawlessness	1	Male		
+man possessed by evil spirit	1	Male		
+man reporting to David	1	Male		
+man standing among myrtle trees	1	Male		
+man who says 'I know him'	1	Male		
+man who says 'we remain in union with God'	1	Male		
+man with measuring line (vision)	1	Male		
+man with sponge	1	Male		
+man, still another	1	Male		
+man, wicked	1	Male		
+Manoah, father of Samson	1	Male		
+Manoah's wife, mother of Samson	1	Female		
+man's brother	1	Male		
+man's voice from the Ulai (in vision)	1	Male		
+many in crowd	-1			
+many Samaritans	-1			
+Martha	1	Female		
+Mary Magdalene	1	Female		
+Mary mother of James	1	Female		
+Mary, Jesus' mother	1	Female		
+Mary, sister of Martha	1	Female		
+master of the banquet	1	Male		
+Melchizedek, king of Salem (priest of God Most High)	1	Male		
+Memucan, noble advisor to Xerxes, king	1	Male		
+men	-1	Male		
+men appointed to sing and praise	-1	Male		
+men dressed in white, two (angels)	2	Male		
+men from Cornelius	3	Male		
+men from Jairus' house	-1	Male		
+men from Judea, some	-1	Male		
+men in Capernaum synagogue	-1	Male		
+men in mourning, ten of eighty	10	Male		
+men in Nazareth synagogue	-1	Male		
+men of Anathoth	-1	Male		
+men of Ashdod	-1	Male		
+men of Babel	-1	Male		
+men of Bethel	-1	Male		
+men of David	-1	Male		
+men of David, one	1	Male		
+men of Enaim	-1	Male		
+men of Gerar	-1	Male		
+men of Jabesh	-1			
+men of Jericho	-1	Male		
+men of Sodom (wicked)	-1	Male		
+men who have gone astray	-1	Male		
+men with leprosy, four	4	Male		
+men, large force of	-1	Male		
+men, many	-1	Male		
+men, other	-1	Male		
+men, some	-1	Male		
+men, still others	-1	Male		
+Mephibosheth	1	Male		
+merchants of the earth	-1			
+Meshach	1	Male		original Hebrew name: Mishael
+message from Tamar, daughter-in-law of Judah	1	Pref: Female		
+message to Saul	1			
+messenger	-1			
+messenger from battle to David	1	Male		
+messenger from guardians of Ahab's children	1	Male		
+messenger of Ahab, king of Israel	1	Male		
+messenger to Abraham	1	Male		
+messenger to David	1	Male		
+messenger to King of Jericho	1	Male		
+messenger to Saul	1	Male		
+messenger, another	1			
+messenger, Cushite	1			
+messenger, still another	1			
+messenger, yet another	1			
+messengers from Jephthah	-1	Pref: Male		
+messengers Israel sent to Amorite king Sihon	-1	Pref: Male		
+messengers Moses sent to king of Edom	-1			
+messengers of Ahaziah	-1	Male		
+messengers of Ben-Hadad. king of Aram	-1	Male		
+messengers of Jabesh	-1	Male		
+messengers of Saul	-1	Male		
+messengers sent by Jacob	-1	Male		
+messengers to Jezebel	-1	Male		
+messengers to Saul	-1	Pref: Male		
+Micah	1	Male		
+Micah's mother	1	Female		
+Micaiah, prophet of the LORD	1	Male		
+Michael (archangel)	1	Male		
+Michal, David's wife	1	Female		
+Midianite soldier who had a dream	1	Male		
+Midianite soldier who interprets dream	1	Male		
+midwife of Rachel	1	Female		
+midwife of Tamar, daughter-in-law of Judah	1	Female		
+Miriam	1	Female		
+Miriam (young)	1	Female	Child	
+Moabite officials	-1	Male		
+Moabite officials, more distinguished	-1	Male		
+Moabites	-1			
+Moabitesses (female)	-1	Female		
+mob	-1			
+Mordecai, cousin of Esther	1	Male		
+Moses	1	Male		
+mother of cured man, blind from birth	1	Female		
+mother of the sons of Zebedee (James and John)	1	Female		
+multitude from all nations, tribes, peoples, languages	-1			
+musicians	-1			
+Naaman	1	Male		
+Naaman's servants	-1	Male		
+Nabal	1	Male		
+Naboth	1	Male		
+Nahash the Ammonite	1	Male		
+Naomi	1	Female		
+Nathan	1	Male		
+Nathanael	1	Male		
+Nathaniel	1	Male		
+nations	-1			
+nations, people of the	-1			
+nations, the	-1			
+Nebuchadnezzar, king of Babylon	1	Male		
+Nebuzaradan	1	Male		
+Neco, king of Egypt	1	Male		
+Nehemiah	1	Male		
+neighbors and relatives of Elizabeth and Zacharias (Zechariah)	-1			
+neighbors of man blind from birth	-1			
+neighbors of man blind from birth, others	-1			
+neighbors of man blind from birth, some	-1			
+news giver to Jacob	1			
+news giver to Joseph	1			
+news to Pharoah's palace	1			
+Nicodemus	1	Male		
+Ninevah	-1			
+no one	1			
+no one says	1			
+Noah	1	Male		
+nobles and officials (Jewish)	-1	Male		
+non-reader	1			
+Obadiah, manager of Ahab's palace	1	Male		
+Oded, prophet of the Lord	1	Male		
+officer of King Jehoshaphat of Israel	1	Male		
+officer of King Joram of Israel	1	Male		
+officer of king of Israel, on whose arm the king leaned	1	Male		
+officer of king of Israel, on whose arm the king leaned (post mortem)	1	Male		
+officers of King of Aram	-1	Male		
+officers of magistrates	-1	Male		
+officers of temple guard	-1	Male		
+official, royal (father)	1	Male		
+officials	-1	Male		
+officials from chief priests	-1	Male		
+officials of Ben-Hadad, king of Aram	-1	Male		
+officials of David	-1	Male		
+officials of high priest, one of the	1	Male		
+officials of Samaria	-1	Male		
+officials of Succoth	-1	Male		
+officials of Trans-Euphrates	-1	Male		
+officials, Ephesus (friends of Paul)	-1	Male		
+officials, royal, to Xerxes, king	-1	Male		
+old man in Gibeah	1	Male	Elder	
+older daughter of Lot	1	Female		
+On	1	Male		son of Peleth (Reubenite)
+one at table of Pharisee (expert in religious law)	1	Male		
+one of you	-1			
+one other who looked like a man	1	Male		
+one who brings good news	-1			
+one who looked like a man	1	Male		
+one with garments stained crimson (Christ?)	1	Male		Default character should be Jesus
+each one	1			
+onlookers	-1			
+oppressors of poor	-1			
+oppressors of poor (women)	-1	Female		
+Orpah	1	Female		
+other guests at Pharisee (Simon)'s house	-1	Male		
+others	-1			
+others (testing Jesus)	-1			
+owners of colt	-1			
+owners of fortune telling slave girl	-1			
+parents of cured man, blind from birth	2	Either		May want to assign one or more of these lines to female, as appropriate
+Pashur	1	Male		son of Malkijah
+passers by	-1			
+Paul	1	Male		
+Paul's travelling companions, Luke and	-1			
+people	-1			
+people at cistern	-1			
+people at coronation of King Joash	-1			
+people at Jairus' house	-1			
+people in Capernaum	-1			
+people in crowd by Sea of Galilee	-1			
+people in high priest's courtyard	-1	Either		Group consisted of at least a servant girl and a man
+people in Jericho, all the	-1			
+people in Pisidian Antioch synagogue	-1			
+people in temple courts, all the	-1			
+people in the temple	-1			
+people near Jordan River	-1			
+people of Decapolis	-1			
+people of Jerusalem	-1			
+people of Jerusalem, some	-1			
+people of Samaria, all the	-1			
+people of Tyre and Sidon	-1			
+people praying at John Mark's mother's house	-1			
+people who had known Saul	-1			
+people who saw healing of demon-possessed man who was blind and mute	-1			
+people, all the	-1			
+people, arrogant wicked	-1			
+people, God's	-1			
+people, hurried	-1			
+people, Israel, tribes of	-1			
+people, many (at Gennesaret)	-1			
+people, other	-1			
+people, righteous	-1			
+people, sick	-1			
+people, some	-1			
+people, still others	-1			
+peoples, many	-1			
+person asking someone to read a sealed book	1			
+person near Lazarus' grave who informed Jesus	1			
+person sacrificing	1			
+person who informed Judah	1			
+person who informed people of Gaza	1			
+person who informed Tamar, daughter-in-law of Judah	1			
+person who informed townsmen of Ophrah	1			
+person who told David about Philistines	1			
+person who told David of Nathan's arrival	1			
+person who told Joshua where the kings were hiding	1			
+person who told King of Aram of Elisha's arrival	1			
+person who told Samuel where Saul was	1			
+person who told Saul where David was	1			
+person who told Shimei where his servants were	1			
+person who told the guards and priests where the apostles were	1			
+person without the gift of tongues	1			
+Peter (Simon)	1	Male		
+Pharaoh (1st)	1	Male		
+Pharaoh (2nd)	1	Male		
+Pharaoh (2nd)'s men	-1	Male		
+Pharaoh (3rd)	1	Male		
+Pharaoh (6th)	1	Male		
+Pharaoh's daughter	1	Female		
+Pharaoh's officials	-1	Male		
+Pharisee (expert in religious law)	1	Male		
+Pharisee (Simon)	1	Male		
+Pharisees	-1	Male		
+Pharisees, other	-1	Male		
+Pharisees, some	-1	Male		
+Phicol	1	Male		
+Philip (apostle)	1	Male		
+Philip (the evangelist)	1	Male		
+Philistine commanders	-1	Male		
+Philistine priests and fortune tellers	-1	Male		
+Philistines	-1	Male		
+Philistine rulers	-1	Male		
+Phineas the priest	1	Male		
+Phineas' wife (daughter-in-law of Eli)	1	Female		
+Pilate	1	Male		
+Pilate's wife	1	Female		
+pine trees and cedars of Lebanon	-1	Neuter		
+poets	-1			
+Potiphar's wife	1	Female		
+priests	-1	Male		
+proclaimers of God's word	-1			
+proclamation	1			
+prophet	1			
+prophet in Bethel	1	Male	Elder	
+prophet of the LORD	1	Male		
+prophet who confronts Ahab	1	Male		
+prophets	-1			
+prophets (speaking the word of the LORD)	-1			
+prophets and teachers at Antioch	-1			
+prophets of Baal	-1			
+prophets, 400 false	400			
+prostitute, one	1	Female		
+prostitute, other	1	Female		
+psalmist	-1			
+Puah (midwife)	1	Female		
+queen of Babylon	1	Female		
+queen of Sheba	1	Female		
+Rachel	1	Female		
+Rahab	1	Female		
+reader	1			
+Rebekah	1	Female		
+Rebekah's mother	1	Female		
+rebels	-1			
+Recab	1	Male		
+Recabite family, men of	-1	Male		
+Regem-Melech	1	Male		
+Rehoboam, king	1	Male		
+Rehum, commanding officer	1	Male		
+relative	1	Male		
+relatives of Ahaziah, king of Judah	-1			
+reply to the slain believers (in heavenly vision)	1			
+report concerning Paul	1			
+report to King of Aram	1			
+report to King of Assyria	1			
+rest of heads of families	-1	Male		
+Reuben	1	Male		
+Reubenites	-1	Male		
+Rhoda	1	Female		possibly young girl/teen
+rich young ruler	1	Male		young man
+rule given by Paul	1			
+rulers of people in Jerusalem	-1			
+rules of the world	1			
+Ruth	1	Female		
+Sadducees	-1	Male		
+sailors, ship to Italy (Rome)	-1	Male		
+sailors, ship to Tarshish	-1	Male		
+Salome	1	Female		
+Samson	1	Male		
+Samson's 30 Philistine companions	30	Male		
+Samson's father-in-law	1	Male		
+Samson's Philistine wife	1	Female		
+Samuel	1	Male		
+Samuel (boy)	1	Male	Child	
+Samuel (dead)	1	Male	Elder	
+Sanballat the Horonite	1	Male		
+Sanhedrin	-1	Male		
+Sapphira (wife of Ananias of Jerusalem)	1	Female		
+Sarah (Sarai)	1	Female		
+Sarah (Sarai) (old)	1	Female	Elder	
+Satan (Devil)	1	Male		
+satraps	-1	Male		
+Saul	1	Male		
+Saul's announcement	1	Male		
+Saul's attendants	-1	Male		
+Saul's messengers to Jesse	-1	Male		
+Saul's servant	1	Male		
+Saul's uncle	1	Male		
+saying (proverb)	1			
+saying about Anakites	1			
+saying about blind and lame	1			
+saying about captivity and death by the sword	1			Possibly a reference to Jeremiah 15:2, Jeremiah 43:11 or Matthew 26:52
+saying about Gentile nations	1			
+saying about going beyond what is written	1			
+saying about Nimrod	1			
+saying about Saul	1			
+saying about seer	1			
+saying about sow	1			
+saying about what controls you	1			
+saying about yeast	1			
+saying about Zion	1			
+saying, true	1			
+scoffers	-1			
+scoundrels	-1			
+scouts of Ben-Hadad, king of Aram	-1	Male		
+scripture	1			
+sea	1			
+sea captains, seafarers, sailors	-1	Male		
+second person to accuse Peter (man)	1	Male		
+Sennacherib, king of Assyria	1	Male		
+Sennacherib's messengers	-1	Male		
+Sennacherib's officers	-1	Male		
+seraph, one of the	1			
+seraphs	-1			
+serpent	1			
+servant girl at high priest's courtyard	1	Female		
+servant girl, another	1	Female		
+servant of concubine's husband	1			
+servant of Elijah	1	Male		
+servant of Naaman's wife (young girl)	1	Female	Child	
+servant of Nabal	1			
+servant of priest	1			
+servant of Saul	1			
+servants of Achish, king of Gath	-1			
+servants of David	-1			
+servants of Eglon, king of Moab	-1			
+servants of Isaac	-1			
+servants of royal official (father)	-1			
+seven sons of Sceva	7	Male		
+seventy-two	72			
+Shadrach	1	Male		original Hebrew name: Hananiah
+Shaphan, secretary	1	Male		
+Sharezer	1	Male		
+Sheba, son of Bicri	1	Male		
+Shebna	1	Male		
+Shecaniah, son of Jehiel	1	Male		
+Shechem, son of Hamor	1	Male		young man
+Shemaiah	1	Male		
+Shemeber, king of Zeboiim	1	Male		
+Shephatiah	1	Male		son of Mattan
+shepherds at well	-1			
+shepherds outside Bethlehem	-1			
+Shethar-Bozenai	1	Male		
+Shimei	1	Male		
+Shimshai, secretary	1	Male		
+Shinab, king of Admah	1	Male		
+Shiphrah (midwife)	1	Female		
+Shobi	1	Male		son of Nahash from Rabbah of the Ammonites
+Shua (Judah's wife)	1	Female		
+Shunammite woman	1	Female		well-to-do
+sign on the cross	1	Neuter		
+Silas	1	Male		
+Simeon	1	Male		
+Simeon (devout man in Jerusalem)	1	Male	Elder	
+Simon (sorcerer)	1	Male		
+singers	-1			
+singers from the ends of the earth	-1			
+singers, and relatives	-1			
+sinners	-1			
+Sisera	1	Male		
+slave driver	1			
+slave girls	-1	Female		
+soldier at the cross	1	Male		
+soldiers	-1	Male		
+soldiers, Assyrian	-1	Male		
+soldiers, Roman	-1	Male		
+soldiers, some (near Jordan River)	-1	Male		
+Solomon, king	1	Male		
+some people (quoted by Paul)	-1			
+someone	-1			
+someone (hypothetical argument)	-1			
+someone from Seir	1			
+someone hiding	1			
+someone in crowd	1			
+someone in Jerusalem	1			
+son (child) in Israel (hypothetical)	1	Male	Child	
+son of Paul's sister (young man)	1	Male		young man
+son of Shelomith (whose father was an Egyptian)	1	Male		
+son of Shunammite	1	Male	Child	
+son of widow	1	Male		
+song (of the prostitute)	1	Female		
+sons of Korah	-1	Male		
+sons of prophet in Bethel	-1	Male		
+souls of those killed for word of God	-1			
+spies (from Pharisees and Herodians)	-1	Male		
+spies to Ai	-1	Male		
+Stephen	1	Male		
+steward of Joseph's house	1	Male		
+synagogue ruler	1	Male		
+synagogue rulers in Pisidian Antioch	-1	Male		
+Tamar, daughter of David	1	Female		
+Tamar, daughter-in-law of Judah	1	Female		
+Tattenai, governor	1	Male		
+tax collectors	-1	Male		
+teacher (Preacher)	1	Male		
+teacher of religious law	1	Male		
+teachers of religious law	-1	Male		
+temple guards	-1	Male		
+temple police	-1	Male		
+Tertius	1	Male		
+Tertullus, lawyer	1	Male		
+Thomas	1	Male		
+those hiding from the LORD	-1			
+those standing near	-1	Male		accusers of Peter in courtyard
+those standing near Paul in Sanhedrin	-1			
+those who call on God	-1			
+those who fear the Lord	-1			
+those who heard	-1			
+those who seek God	-1			
+those with the Eleven	-1			
+three administrators	3	Male		
+three men (two angels and the LORD)	3	Male		
+Titus	1	Male		
+Tobiah the Ammonite official	1	Male		
+townsmen of Ophrah	-1	Male		
+troublemakers	-1	Male		
+twenty-four elders	24	Male		
+unbeliever who comes under conviction	1			
+unbelievers	-1			
+Uriah	1	Male		
+voice from altar	1			
+voice from among living creatures	1			
+voice from cloud	1			
+voice from heaven (God?)	1	Male		Possibly God speaking (not identified)
+voice from heaven, another	1			
+voice from temple	1			
+voice from throne	1			
+voice in heaven	13			
+voice in heaven, loud	1			
+voice of great crowd in heaven, loud	-1			
+voice of great crowd, like roar of many waters, loud thunderclaps	-1			
+voice of one calling, a (preparing way for Christ)	1			
+voice of one speaking (in vision of God)	1			
+voices in heaven, loud	-1			
+warriors from Zorah and Eshtaol, five	5	Male		
+watchman	1	Male		
+watchmen of Israel	-1	Male		
+we (believers)	-1			
+weakling	1			
+what is formed	1			
+whoever has doubts	1			
+wicked men of Gibeah	-1			
+wicked, the	-1			
+widow (from company of prophets)	1	Female		
+widow at Zarephath	1	Female		
+wise men of Pharaoh	-1	Male		
+witnesses, false	-1			
+wives	-1	Female		
+wives, other	-1	Female		
+wives, still others	-1	Female		
+woman from Tekoa	1	Female		
+woman in Bahurim	1	Female		
+woman in crowd	1	Female		
+woman in famine	1	Female		
+woman medium	1	Female		
+woman who could not straighten up	1	Female		
+woman, bleeding for twelve years	1	Female		
+woman, caught in adultery	1	Female		
+woman, Samaritan	1	Female		
+woman, wise	1	Female		
+women of Bethlehem	-1	Female		
+women, dancing	-1	Female		
+women, seven	7	Female		
+worshippers of the beast	-1			
+Xerxes, king of Persia and Media (Ahasuerus)	1	Male		
+you (hypothetical Gentile)	1			
+you (hypothetical)	-1			
+you (people of Zion, restored)	-1			
+you (rebellious people)	-1			
+you ought to say	1			
+young man	1	Male		youth
+young men (advisors of Rehoboam)	-1	Male		young man
+youths	-1			youth
+Zaccheaus	1	Male		
+Zacharias (Zechariah)	1	Male		
+Zalmunna	1	Male		
+Zebah	1	Male		
+Zebul, governor of Shechem	1	Male		
+Zechariah	1	Male		
+Zechariah, son of Jehoiada the priest	1	Male		
+Zedekiah, king of Judah	1	Male		
+Zedekiah, son of Hananiah	1	Male		
+Zedekiah, son of Kenaanah, false prophet	1	Male		
+Zephaniah, priest	1	Male		son of Maaseiah
+Zeresh, wife of Haman	1	Female		
+Zerubbabel	1	Male		
+Ziba, servant of Saul's household	1	Male		
+Zion	1			
+Ziphites	-1			
+Zipporah, Moses' wife	1	Female		
+Zophar the Naamathite	1	Male		

@@ -22,7 +22,7 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_RequiredFieldsHaveValidFormatAndThereAreNoDuplicateLines()
 		{
-			Regex regex = new Regex("^[^\t]+\t((TRUE)|(FALSE))\t((Male)|(Female)|(Both)|(Unknown)|(Pref: Male)|(Pref: Female))?\t[^\t]*\t[^\t]*$", RegexOptions.Compiled);
+			Regex regex = new Regex("^[^\t/]+\t\\-?\\d+\t((Male)|(Female)|(Either)|(Neuter)|(Pref: Male)|(Pref: Female))?\t[^\t]*\t[^\t]*$", RegexOptions.Compiled);
 			Regex extraSpacesRegex = new Regex("^ |\t | \t| $", RegexOptions.Compiled);
 			string[] allLines = Resources.CharacterDetail.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -46,14 +46,18 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_AllNonNarratorCharacterDetailsHaveCharacterIdOrDefaultCharacter()
 		{
-			var charactersIds = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Select(d => d.Character).ToList();
+			var characterIds = new List<string>(ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Select(d => d.Character)
+				.SelectMany(characters => characters.Split('/')));
+
 			var defaultCharacters = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Select(d => d.DefaultCharacter).ToList();
 			ISet<string> missingCharacters = new SortedSet<string>();
 			foreach (string character in CharacterDetailData.Singleton.GetAll().Select(d => d.Character))
 			{
 				if (!CharacterVerseData.IsCharacterOfType(character, CharacterVerseData.StandardCharacter.Narrator) &&
-					(!(charactersIds.Contains(character) || defaultCharacters.Contains(character))))
+					(!(characterIds.Contains(character) || defaultCharacters.Contains(character))))
+				{
 					missingCharacters.Add(character);
+				}
 			}
 			Assert.False(missingCharacters.Any(),
 				"Characters in Character-Detail data but not in Character-Verse data:" +
