@@ -1,4 +1,4 @@
-Control File Version	73
+Control File Version	74
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -7659,14 +7659,10 @@ SNG	2	7	lover			Normal
 SNG	2	7	beloved			Normal		
 SNG	2	8	beloved			Implicit		
 SNG	2	9	beloved			Implicit		
-SNG	2	10	beloved			Normal		
-SNG	2	10	lover			Normal		
-SNG	2	11	beloved			Normal		
-SNG	2	11	lover			Normal		
-SNG	2	12	beloved			Normal		
-SNG	2	12	lover			Normal		
-SNG	2	13	beloved			Normal		
-SNG	2	13	lover			Normal		
+SNG	2	10	beloved			Implicit		
+SNG	2	11	beloved			Implicit		
+SNG	2	12	beloved			Implicit		
+SNG	2	13	beloved			Implicit		
 SNG	2	14	lover			Implicit		
 SNG	2	15	lover/beloved/maidens			Implicit		
 SNG	2	16	beloved			Implicit		
@@ -7707,6 +7703,7 @@ SNG	4	15	lover			Implicit
 SNG	4	16	beloved			Implicit		
 SNG	5	1	lover			Normal		
 SNG	5	1	maidens			Normal		
+SNG	5	1	God			Normal		
 SNG	5	2	beloved			Normal		
 SNG	5	2	lover			Normal		
 SNG	5	3	beloved			Implicit		
@@ -7761,8 +7758,8 @@ SNG	8	5	lover			Normal
 SNG	8	5	maidens			Normal		
 SNG	8	6	beloved			Implicit		
 SNG	8	7	beloved			Implicit		
-SNG	8	8	maidens			Implicit		
-SNG	8	9	maidens			Implicit		
+SNG	8	8	brothers of beloved			Implicit		
+SNG	8	9	brothers of beloved			Implicit		
 SNG	8	10	beloved			Implicit		
 SNG	8	11	beloved			Implicit		
 SNG	8	12	beloved			Implicit		

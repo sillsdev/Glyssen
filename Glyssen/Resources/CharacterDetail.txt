@@ -143,6 +143,7 @@ Book of the Wars of the LORD	1	Neuter
 bride, the (refering to the Church)	-1	Pref: Female		
 brothers at Antioch, the	-1	Male		
 brothers at Puteoli, some	-1	Male		
+brothers of beloved	-1	Male		
 bystanders at Calvary, some	-1			
 bystanders at Calvary, the rest	-1			
 Caesar Augustus	1	Male		
