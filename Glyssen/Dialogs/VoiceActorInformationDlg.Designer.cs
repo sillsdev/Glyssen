@@ -35,6 +35,7 @@
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_dataGrid = new Glyssen.Controls.VoiceActorInformationGrid();
 			this.m_saveStatus = new Glyssen.Controls.SaveStatus();
+			this.m_linkClose = new System.Windows.Forms.LinkLabel();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -58,7 +59,7 @@
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnNext, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnNext, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnNext, "Common.Next");
-			this.m_btnNext.Location = new System.Drawing.Point(413, 299);
+			this.m_btnNext.Location = new System.Drawing.Point(413, 281);
 			this.m_btnNext.Name = "m_btnNext";
 			this.m_btnNext.Size = new System.Drawing.Size(75, 23);
 			this.m_btnNext.TabIndex = 2;
@@ -86,7 +87,7 @@
 			this.m_dataGrid.Margin = new System.Windows.Forms.Padding(0);
 			this.m_dataGrid.Name = "m_dataGrid";
 			this.m_dataGrid.ReadOnly = false;
-			this.m_dataGrid.Size = new System.Drawing.Size(476, 189);
+			this.m_dataGrid.Size = new System.Drawing.Size(476, 249);
 			this.m_dataGrid.TabIndex = 3;
 			// 
 			// m_saveStatus
@@ -99,10 +100,26 @@
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_saveStatus, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_saveStatus, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_saveStatus, "DialogBoxes.VoiceActorInformation.SaveStatus");
-			this.m_saveStatus.Location = new System.Drawing.Point(15, 307);
+			this.m_saveStatus.Location = new System.Drawing.Point(12, 312);
 			this.m_saveStatus.Name = "m_saveStatus";
 			this.m_saveStatus.Size = new System.Drawing.Size(224, 15);
 			this.m_saveStatus.TabIndex = 4;
+			// 
+			// m_linkClose
+			// 
+			this.m_linkClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_linkClose.AutoSize = true;
+			this.m_linkClose.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_linkClose, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_linkClose, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_linkClose, "DialogBoxes.VoiceActorInformation.linkLabel1");
+			this.m_linkClose.Location = new System.Drawing.Point(455, 312);
+			this.m_linkClose.Name = "m_linkClose";
+			this.m_linkClose.Size = new System.Drawing.Size(33, 13);
+			this.m_linkClose.TabIndex = 5;
+			this.m_linkClose.TabStop = true;
+			this.m_linkClose.Text = "Close";
+			this.m_linkClose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkClose_LinkClicked);
 			// 
 			// VoiceActorInformationDlg
 			// 
@@ -110,6 +127,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(500, 334);
+			this.Controls.Add(this.m_linkClose);
 			this.Controls.Add(this.m_saveStatus);
 			this.Controls.Add(this.m_dataGrid);
 			this.Controls.Add(this.m_btnNext);
@@ -137,5 +155,6 @@
 		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
 		private Controls.VoiceActorInformationGrid m_dataGrid;
 		private Controls.SaveStatus m_saveStatus;
+		private System.Windows.Forms.LinkLabel m_linkClose;
 	}
 }
