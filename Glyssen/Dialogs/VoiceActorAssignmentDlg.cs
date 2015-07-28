@@ -38,16 +38,6 @@ namespace Glyssen.Dialogs
 			m_project = project;
 			m_canAssign = true;
 
-			m_voiceActorGrid.Initialize(m_project);
-			m_voiceActorGrid.ReadOnly = true;
-
-			m_voiceActorGrid.Saved += m_voiceActorGrid_Saved;
-			m_voiceActorGrid.CellUpdated += m_voiceActorGrid_CellUpdated;
-			m_voiceActorGrid.CellDoubleClicked += m_voiceActorGrid_CellDoubleClicked;
-			m_voiceActorGrid.GridMouseMove += m_voiceActorGrid_MouseMove;
-			m_voiceActorGrid.UserRemovedRows += m_voiceActorGrid_UserRemovedRows;
-			m_voiceActorGrid.SelectionChanged += m_eitherGrid_SelectionChanged;
-
 			var characterGroups = new SortableBindingList<CharacterGroup>(m_project.CharacterGroupList.CharacterGroups);
 			if (characterGroups.Count == 0)
 			{
@@ -95,6 +85,16 @@ namespace Glyssen.Dialogs
 			m_characterGroupGrid.DataSource = characterGroups;
 			m_characterGroupGrid.MultiSelect = true;
 			m_characterGroupGrid.Sort(m_characterGroupGrid.Columns["GroupNumber"], ListSortDirection.Ascending);
+
+			m_voiceActorGrid.CharacterGroupsWithAssignedActors = characterGroups;
+			m_voiceActorGrid.Initialize(m_project);
+			m_voiceActorGrid.ReadOnly = true;
+			m_voiceActorGrid.Saved += m_voiceActorGrid_Saved;
+			m_voiceActorGrid.CellUpdated += m_voiceActorGrid_CellUpdated;
+			m_voiceActorGrid.CellDoubleClicked += m_voiceActorGrid_CellDoubleClicked;
+			m_voiceActorGrid.GridMouseMove += m_voiceActorGrid_MouseMove;
+			m_voiceActorGrid.UserRemovedRows += m_voiceActorGrid_UserRemovedRows;
+			m_voiceActorGrid.SelectionChanged += m_eitherGrid_SelectionChanged;
 		}
 
 		private void SaveAssignments()
@@ -115,7 +115,8 @@ namespace Glyssen.Dialogs
 
 			SaveAssignments();
 
-			m_characterGroupGrid.Refresh();			
+			m_characterGroupGrid.Refresh();
+			m_voiceActorGrid.RefreshSort();
 		}
 
 		private void UnAssignActorsFromSelectedGroups()
@@ -139,6 +140,7 @@ namespace Glyssen.Dialogs
 				SaveAssignments();
 
 				m_characterGroupGrid.Refresh();
+				m_voiceActorGrid.RefreshSort();
 			}			
 		}
 
@@ -167,11 +169,6 @@ namespace Glyssen.Dialogs
 		private void m_btnAssignActor_Click(object sender, EventArgs e)
 		{
 			AssignSelectedActorToSelectedGroup();
-		}
-
-		private void m_btnSave_Click(object sender, EventArgs e)
-		{
-			SaveAssignments();
 		}
 
 		private void m_voiceActorGrid_Saved(object sender, EventArgs e)

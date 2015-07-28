@@ -4,8 +4,9 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Glyssen.Character;
+using Glyssen.VoiceActor;
 using L10NSharp;
-using SIL.ObjectModel;
 
 namespace Glyssen.Controls
 {
@@ -20,8 +21,9 @@ namespace Glyssen.Controls
 		public event EventHandler SelectionChanged;
 		private int m_currentId;
 		private Project m_project;
-		private SortableBindingList<VoiceActor.VoiceActor> m_bindingList;
+		private VoiceActorSortableBindingList m_bindingList;
 		private ComboBox m_currentComboBox;
+		private readonly Font m_italicsFont;
 
 		public VoiceActorInformationGrid()
 		{
@@ -32,6 +34,10 @@ namespace Glyssen.Controls
 			m_dataGrid.UserAddedRow += HandleUserAddedRow;
 			m_dataGrid.CellMouseDoubleClick += HandleDoubleClick;
 			m_dataGrid.MouseMove += HandleMouseMove;
+			m_dataGrid.CellFormatting += HandleCellFormatting;
+
+			Font originalGridFont = m_dataGrid.Font;
+			m_italicsFont = new Font(originalGridFont.FontFamily, originalGridFont.Size, originalGridFont.Style | FontStyle.Italic);
 		}
 
 		public int RowCount { get { return m_dataGrid.RowCount; } }
@@ -57,6 +63,8 @@ namespace Glyssen.Controls
 			get { return m_dataGrid.ContextMenuStrip; }
 			set { m_dataGrid.ContextMenuStrip = value; }
 		}
+
+		public IEnumerable<CharacterGroup> CharacterGroupsWithAssignedActors { get; set; }
 
 		public void Initialize(Project project)
 		{
@@ -95,9 +103,12 @@ namespace Glyssen.Controls
 			var actors = m_project.VoiceActorList.Actors;
 			if (actors.Any())
 				m_currentId = actors.Max(a => a.Id) + 1;
-			m_bindingList = new SortableBindingList<VoiceActor.VoiceActor>(actors);
+			m_bindingList = new VoiceActorSortableBindingList(actors);
+			m_bindingList.CharacterGroups = CharacterGroupsWithAssignedActors;
 			m_dataGrid.DataSource = m_bindingList;
 			m_bindingList.AddingNew += HandleAddingNew;
+
+			m_dataGrid.Sort(m_dataGrid.Columns["ActorName"], ListSortDirection.Ascending);
 		}
 
 		private void m_dataGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -210,6 +221,11 @@ namespace Glyssen.Controls
 			}
 		}
 
+		public void RefreshSort()
+		{
+			m_dataGrid.Sort(m_dataGrid.SortedColumn, m_dataGrid.SortOrder == SortOrder.Ascending ? ListSortDirection.Ascending : ListSortDirection.Descending);
+		}
+
 		public Color BackgroundColor
 		{
 			get { return m_dataGrid.BackgroundColor; }
@@ -260,7 +276,26 @@ namespace Glyssen.Controls
 				handler(sender, e);
 		}
 
-		private void m_dataGrid_CurrentCellChanged(object sender, System.EventArgs e)
+		private void HandleCellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+		{
+			VoiceActor.VoiceActor actor = m_dataGrid.Rows[e.RowIndex].DataBoundItem as VoiceActor.VoiceActor;
+			if (actor == null || CharacterGroupsWithAssignedActors == null || !CharacterGroupsWithAssignedActors.Any())
+			{
+				e.FormattingApplied = false;
+				return;
+			}
+			if (CharacterGroupsWithAssignedActors.Any(cg => cg.VoiceActorAssigned == actor))
+			{
+				e.CellStyle.Font = m_italicsFont;
+				e.CellStyle.ForeColor = Color.DimGray;
+			}
+			else
+			{
+				e.FormattingApplied = false;
+			}
+		}
+
+		private void m_dataGrid_CurrentCellChanged(object sender, EventArgs e)
 		{
 			if (m_dataGrid.CurrentCell == null)
 				return;

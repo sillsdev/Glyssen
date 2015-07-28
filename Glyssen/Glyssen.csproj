@@ -299,6 +299,7 @@
     <Compile Include="Character\CharacterGroupList.cs" />
     <Compile Include="VoiceActor\VoiceActor.cs" />
     <Compile Include="VoiceActor\VoiceActorList.cs" />
+    <Compile Include="VoiceActor\VoiceActorSortableBindingList.cs" />
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
     </EmbeddedResource>
