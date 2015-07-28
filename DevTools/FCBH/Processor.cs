@@ -17,8 +17,8 @@ namespace DevTools.FCBH
 			Directory.CreateDirectory("..\\..\\Resources\\temporary");
 			var sb = new StringBuilder();
 
-			CompareAndCombineLists(true, sb);
-			File.WriteAllText("..\\..\\Resources\\temporary\\control_plus_FCBH.txt", sb.ToString());
+//			CompareAndCombineLists(true, sb);
+//			File.WriteAllText("..\\..\\Resources\\temporary\\control_plus_FCBH.txt", sb.ToString());
 
 			sb.Clear();
 			CompareAndCombineLists(false, sb);
@@ -88,14 +88,27 @@ namespace DevTools.FCBH
 					if (hasControl)
 						foreach (Glyssen.Character.CharacterVerse cv in controlList)
 						{
-							sb.Append(cv.BookCode).Append(TAB)
-							.Append(cv.Chapter).Append(TAB).Append(cv.Verse).Append(TAB).Append(cv.Character).Append(TAB)
-							.Append(TAB).Append(cv.Delivery).Append(TAB).Append(cv.Alias).Append(TAB)
-							.Append(cv.QuoteType).Append(TAB).Append(cv.DefaultCharacter).Append(TAB).Append(cv.ParallelPassageReferences)
-							.Append(Environment.NewLine);
+							if (hasFcbh && fcbhList.Select(f => f.CharacterId).Contains(cv.Character))
+							{
+								sb.Append(cv.BookCode).Append(TAB)
+									.Append(cv.Chapter).Append(TAB).Append(cv.Verse).Append(TAB).Append(cv.Character).Append(TAB)
+									.Append(cv.Character).Append(TAB).Append(cv.Delivery).Append(TAB).Append(cv.Alias).Append(TAB)
+									.Append(cv.QuoteType).Append(TAB).Append(cv.DefaultCharacter).Append(TAB).Append(cv.ParallelPassageReferences)
+									.Append(Environment.NewLine);
+								foreach (TemplateDatum d in fcbhList.Where(f => f.CharacterId == cv.Character))
+									d.IsProcessed = true;
+							}
+							else
+							{
+								sb.Append(cv.BookCode).Append(TAB)
+									.Append(cv.Chapter).Append(TAB).Append(cv.Verse).Append(TAB).Append(cv.Character).Append(TAB)
+									.Append(TAB).Append(cv.Delivery).Append(TAB).Append(cv.Alias).Append(TAB)
+									.Append(cv.QuoteType).Append(TAB).Append(cv.DefaultCharacter).Append(TAB).Append(cv.ParallelPassageReferences)
+									.Append(Environment.NewLine);
+							}
 						}
 					if (hasFcbh)
-						foreach (TemplateDatum d in fcbhList)
+						foreach (TemplateDatum d in fcbhList.Where(f => !f.IsProcessed))
 						{
 							if (!d.BcvRef.BookIsValid)
 								Debug.Fail("Invalid book: " + d.BcvRef);

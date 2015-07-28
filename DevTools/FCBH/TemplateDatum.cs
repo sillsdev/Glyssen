@@ -12,6 +12,7 @@ namespace DevTools.FCBH
 
 		public BCVRef BcvRef { get; set; }
 		public string CharacterId { get; set; }
+		public bool IsProcessed { get; set; }
 
 		public string ToTabSeparated()
 		{
