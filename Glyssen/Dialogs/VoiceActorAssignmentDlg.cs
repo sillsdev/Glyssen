@@ -344,5 +344,21 @@ namespace Glyssen.Dialogs
 			m_voiceActorGrid.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
 			m_voiceActorGrid.EndEdit();
 		}
+
+		private void m_helpIcon_MouseClick(object sender, MouseEventArgs e)
+		{
+			var pic = sender as PictureBox;
+			m_toolTip.Show("In this window, you can assign voice actors to speak the parts of a group of Biblical characters.\n" +
+							"To assign an actor to a group, use one of the assignment methods below:" +
+							"\n1) Select a group and an actor and click \"Assign\"" +
+							"\n2) Select a group and an actor and double-click the character group or voice actor's name" +
+							"\n3) Drag an actor's name into the corresponding \"Actor Assigned\" column of a character group",
+				pic, new Point(e.X + 10, e.Y + 5));
+		}
+
+		private void m_helpIcon_MouseLeave(object sender, EventArgs e)
+		{
+			m_toolTip.Hide(this);
+		}
 	}
 }
