@@ -79,6 +79,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_dataGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_dataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_dataGrid.CharacterGroupsWithAssignedActors = null;
 			this.m_dataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_dataGrid, null);
@@ -93,6 +94,7 @@
 			// m_saveStatus
 			// 
 			this.m_saveStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.m_saveStatus.AutoSize = true;
 			this.m_saveStatus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.m_saveStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_saveStatus.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
@@ -100,9 +102,9 @@
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_saveStatus, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_saveStatus, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_saveStatus, "DialogBoxes.VoiceActorInformation.SaveStatus");
-			this.m_saveStatus.Location = new System.Drawing.Point(12, 312);
+			this.m_saveStatus.Location = new System.Drawing.Point(15, 312);
 			this.m_saveStatus.Name = "m_saveStatus";
-			this.m_saveStatus.Size = new System.Drawing.Size(224, 15);
+			this.m_saveStatus.Size = new System.Drawing.Size(97, 13);
 			this.m_saveStatus.TabIndex = 4;
 			// 
 			// m_linkClose
