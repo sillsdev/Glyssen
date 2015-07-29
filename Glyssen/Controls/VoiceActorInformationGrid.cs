@@ -29,6 +29,8 @@ namespace Glyssen.Controls
 		{
 			InitializeComponent();
 
+			m_dataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
 			m_currentId = 0;
 
 			m_dataGrid.UserAddedRow += HandleUserAddedRow;

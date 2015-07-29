@@ -93,7 +93,6 @@
 			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
 			this.m_dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.m_dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.m_dataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
 			this.m_dataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.m_dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
