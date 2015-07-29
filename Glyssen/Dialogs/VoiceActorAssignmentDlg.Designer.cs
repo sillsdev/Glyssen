@@ -408,6 +408,22 @@ namespace Glyssen.Dialogs
 			this.m_deleteActorToolStripMenuItem.Text = "Delete Selected Voice Actor";
 			this.m_deleteActorToolStripMenuItem.Click += new System.EventHandler(this.m_deleteActorToolStripMenuItem_Click);
 			// 
+			// m_saveStatus
+			// 
+			this.m_saveStatus.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.m_saveStatus.AutoSize = true;
+			this.m_saveStatus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.m_saveStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_saveStatus.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_saveStatus.ForeColor = System.Drawing.Color.White;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_saveStatus, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_saveStatus, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_saveStatus, "DialogBoxes.VoiceActorAssignmentDlg.SaveStatus");
+			this.m_saveStatus.Location = new System.Drawing.Point(373, 412);
+			this.m_saveStatus.Name = "m_saveStatus";
+			this.m_saveStatus.Size = new System.Drawing.Size(97, 13);
+			this.m_saveStatus.TabIndex = 6;
+			// 
 			// tableLayoutPanel1
 			// 
 			this.tableLayoutPanel1.ColumnCount = 1;
@@ -475,20 +491,6 @@ namespace Glyssen.Dialogs
 			this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
 			this.splitContainer1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitContainer1_MouseUp);
 			// 
-			// m_saveStatus
-			// 
-			this.m_saveStatus.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.m_saveStatus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.m_saveStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
-			this.m_saveStatus.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
-			this.m_saveStatus.ForeColor = System.Drawing.Color.White;
-			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_saveStatus, null);
-			this.l10NSharpExtender1.SetLocalizationComment(this.m_saveStatus, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_saveStatus, "DialogBoxes.VoiceActorAssignmentDlg.SaveStatus");
-			this.m_saveStatus.Location = new System.Drawing.Point(373, 412);
-			this.m_saveStatus.Name = "m_saveStatus";
-			this.m_saveStatus.Size = new System.Drawing.Size(182, 18);
-			this.m_saveStatus.TabIndex = 6;
 			// 
 			// m_voiceActorGrid
 			// 
@@ -508,7 +510,6 @@ namespace Glyssen.Dialogs
 			this.m_voiceActorGrid.Size = new System.Drawing.Size(242, 356);
 			this.m_voiceActorGrid.TabIndex = 1;
 			this.m_voiceActorGrid.Leave += new System.EventHandler(this.m_voiceActorGrid_Leave);
-			// 
 			// VoiceActorAssignmentDlg
 			// 
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
