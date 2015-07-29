@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using OfficeOpenXml;
 
@@ -26,6 +27,7 @@ namespace Glyssen.Character
 				numberOfActors = MaxNumberOfActors;
 
 			CharacterGroupTemplate template = new CharacterGroupTemplate();
+			var characterIds = new HashSet<string>();
 
 			using (ExcelPackage excelPackage = new ExcelPackage(new FileInfo(m_filePath)))
 			using (ExcelWorksheet ws = excelPackage.Workbook.Worksheets[1])
@@ -40,8 +42,12 @@ namespace Glyssen.Character
 					string characterId = (string)(ws.Cells[row, CharacterIdColumn].Value);
 					if (string.IsNullOrWhiteSpace(characterId))
 						break;
-					double groupNumber = (double)ws.Cells[row, numberOfActors + ColumnsBeforeGroupNumbers].Value;
-					template.AddCharacterToGroup(characterId, Convert.ToInt32(groupNumber));
+					if (!characterIds.Contains(characterId))
+					{
+						characterIds.Add(characterId);
+						double groupNumber = (double)ws.Cells[row, numberOfActors + ColumnsBeforeGroupNumbers].Value;
+						template.AddCharacterToGroup(characterId, Convert.ToInt32(groupNumber));
+					}
 					row++;
 				}
 			}
