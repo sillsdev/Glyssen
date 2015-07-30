@@ -12537,7 +12537,7 @@ MRK	6	31	Jesus			Dialogue
 MRK	6	35	disciples	taking charge		Dialogue		MAT 14.15;MRK 6.35-36;LUK 9.12
 MRK	6	36	disciples	taking charge		Normal		
 MRK	6	37	Jesus			Dialogue		
-MRK	6	37	Philip (apostle)	frustrated	disciples	Dialogue		MRK 6.37;JHN 6.7
+MRK	6	37	Philip the apostle	frustrated	disciples	Dialogue		MRK 6.37;JHN 6.7
 MRK	6	38	Andrew		disciples	Dialogue		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
 MRK	6	38	Jesus	questioning		Dialogue		
 MRK	6	39	Jesus			Indirect		
@@ -12969,12 +12969,12 @@ LUK	2	15	shepherds outside Bethlehem	awe		Normal
 LUK	2	23	scripture			Quotation	God	
 LUK	2	24	scripture			Quotation	God	
 LUK	2	26	Holy Spirit, the		Holy Spirit	Indirect		
-LUK	2	29	Simeon (devout man in Jerusalem)			Implicit		
-LUK	2	30	Simeon (devout man in Jerusalem)			Implicit		
-LUK	2	31	Simeon (devout man in Jerusalem)			Implicit		
-LUK	2	32	Simeon (devout man in Jerusalem)			Implicit		
-LUK	2	34	Simeon (devout man in Jerusalem)			Normal		
-LUK	2	35	Simeon (devout man in Jerusalem)			Normal		
+LUK	2	29	Simeon, devout man in Jerusalem			Implicit		
+LUK	2	30	Simeon, devout man in Jerusalem			Implicit		
+LUK	2	31	Simeon, devout man in Jerusalem			Implicit		
+LUK	2	32	Simeon, devout man in Jerusalem			Implicit		
+LUK	2	34	Simeon, devout man in Jerusalem			Normal		
+LUK	2	35	Simeon, devout man in Jerusalem			Normal		
 LUK	2	38	Anna, prophetess			Indirect		
 LUK	2	48	Mary, Jesus' mother			Dialogue		
 LUK	2	49	Jesus (child)			Dialogue		
@@ -13825,9 +13825,9 @@ JHN	1	41	narrator-JHN			Quotation
 JHN	1	42	Jesus			Dialogue		
 JHN	1	42	narrator-JHN			Quotation		
 JHN	1	43	Jesus	inviting		Dialogue		
-JHN	1	45	Philip (apostle)	excited	Philip	Dialogue		
+JHN	1	45	Philip the apostle	excited	Philip	Dialogue		
 JHN	1	46	Nathanael			Dialogue		
-JHN	1	46	Philip (apostle)		Philip	Dialogue		
+JHN	1	46	Philip the apostle		Philip	Dialogue		
 JHN	1	47	Jesus			Dialogue		
 JHN	1	48	Jesus			Dialogue		
 JHN	1	48	Nathanael	puzzled		Dialogue		
@@ -13958,7 +13958,7 @@ JHN	5	45	Jesus			Normal
 JHN	5	46	Jesus			Normal		
 JHN	5	47	Jesus			Normal		
 JHN	6	5	Jesus			Dialogue		
-JHN	6	7	Philip (apostle)		Philip	Dialogue		MRK 6.37;JHN 6.7
+JHN	6	7	Philip the apostle		Philip	Dialogue		MRK 6.37;JHN 6.7
 JHN	6	9	Andrew		Andrew, Simon Peter's brother	Dialogue		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
 JHN	6	10	Jesus			Dialogue		
 JHN	6	12	Jesus			Dialogue		
@@ -14288,7 +14288,7 @@ JHN	14	4	Jesus			Normal
 JHN	14	5	Thomas	frustrated		Dialogue		
 JHN	14	6	Jesus			Dialogue		
 JHN	14	7	Jesus			Normal		
-JHN	14	8	Philip (apostle)		Philip	Dialogue		
+JHN	14	8	Philip the apostle		Philip	Dialogue		
 JHN	14	9	Jesus			Normal		
 JHN	14	10	Jesus			Normal		
 JHN	14	11	Jesus			Normal		
@@ -14605,7 +14605,7 @@ ACT	4	36	narrator-ACT			Quotation
 ACT	5	3	Peter (Simon)	rebuking		Dialogue		
 ACT	5	4	Peter (Simon)	rebuking		Normal		
 ACT	5	8	Peter (Simon)			Dialogue		
-ACT	5	8	Sapphira (wife of Ananias of Jerusalem)			Dialogue		
+ACT	5	8	Sapphira, wife of Ananias of Jerusalem			Dialogue		
 ACT	5	9	Peter (Simon)			Dialogue		
 ACT	5	20	angel of the LORD, an	commanding		Normal		
 ACT	5	23	temple police	perplexed		Normal		
@@ -14690,24 +14690,24 @@ ACT	7	57	Sanhedrin/chief priests/Pharisees			Indirect
 ACT	7	59	Stephen			Normal		
 ACT	7	60	Stephen	calling out		Normal		
 ACT	8	10	people of Samaria, all the			Normal		
-ACT	8	19	Simon (sorcerer)			Normal		
+ACT	8	19	Simon, sorcerer			Normal		
 ACT	8	20	Peter (Simon)	rebuking		Dialogue		
 ACT	8	21	Peter (Simon)	rebuking		Normal		
 ACT	8	22	Peter (Simon)	rebuking		Normal		
 ACT	8	23	Peter (Simon)	rebuking		Normal		
-ACT	8	24	Simon (sorcerer)			Dialogue		
+ACT	8	24	Simon, sorcerer			Dialogue		
 ACT	8	26	angel of the LORD, an			Normal		
 ACT	8	27	narrator-ACT			Quotation		
 ACT	8	29	Holy Spirit, the			Normal		
-ACT	8	30	Philip (the evangelist)		Philip	Dialogue		
+ACT	8	30	Philip the evangelist		Philip	Dialogue		
 ACT	8	31	Ethiopian officer of Queen Candace			Dialogue		
 ACT	8	32	scripture			Quotation	Isaiah	
 ACT	8	33	scripture			Quotation	Isaiah	
 ACT	8	34	Ethiopian officer of Queen Candace			Dialogue		
-ACT	8	35	Philip (the evangelist)		Philip	Indirect		
+ACT	8	35	Philip the evangelist		Philip	Indirect		
 ACT	8	36	Ethiopian officer of Queen Candace			Dialogue		
 ACT	8	37	Ethiopian officer of Queen Candace			Indirect		
-ACT	8	37	Philip (the evangelist)		Philip	Potential		
+ACT	8	37	Philip the evangelist		Philip	Potential		
 ACT	9	1	Paul		Saul (Paul)	Indirect		
 ACT	9	2	Paul		Saul (Paul)	Indirect		
 ACT	9	4	Jesus	questioning		Normal		
@@ -15494,7 +15494,7 @@ JAS	5	17	Elijah	praying		Indirect
 2JN	1	10	anyone			Hypothetical		
 2JN	1	11	anyone			Hypothetical		
 JUD	1	8	dreamers			Indirect		
-JUD	1	9	Michael (archangel)			Normal		
+JUD	1	9	Michael, archangel			Normal		
 JUD	1	14	Enoch			Normal		
 JUD	1	15	Enoch			Normal		
 JUD	1	18	apostles			Normal		

@@ -668,7 +668,7 @@ messengers to Saul	-1	Pref: Male
 Micah	1	Male		
 Micah's mother	1	Female		
 Micaiah, prophet of the LORD	1	Male		
-Michael (archangel)	1	Male		
+Michael, archangel	1	Male		
 Michal, David's wife	1	Female		
 Midianite soldier who had a dream	1	Male		
 Midianite soldier who interprets dream	1	Male		
@@ -822,8 +822,8 @@ Pharisees	-1	Male
 Pharisees, other	-1	Male		
 Pharisees, some	-1	Male		
 Phicol	1	Male		
-Philip (apostle)	1	Male		
-Philip (the evangelist)	1	Male		
+Philip the apostle	1	Male		
+Philip the evangelist	1	Male		
 Philistine commanders	-1	Male		
 Philistine priests and fortune tellers	-1	Male		
 Philistine rulers	-1	Male		
@@ -873,7 +873,7 @@ report to King of Assyria	1
 rest of heads of families	-1	Male		
 Reuben	1	Male		
 Reubenites	-1	Male		
-Rhoda	1	Female		possibly young girl/teen
+Rhoda	1	Female	Young Adult	possibly young girl/teen
 rich young ruler	1	Male	Young Adult	
 rule given by Paul	1			
 rulers of people in Jerusalem	-1			
@@ -892,7 +892,7 @@ Samuel (boy)	1	Male	Child
 Samuel (dead)	1	Male	Elder	
 Sanballat the Horonite	1	Male		
 Sanhedrin	-1	Male		
-Sapphira (wife of Ananias of Jerusalem)	1	Female		
+Sapphira, wife of Ananias of Jerusalem	1	Female		
 Sarah (Sarai)	1	Female		
 Sarah (Sarai) (old)	1	Female	Elder	
 Satan (Devil)	1	Male		
@@ -968,8 +968,8 @@ Shunammite woman	1	Female		well-to-do
 sign on the cross	1	Neuter		
 Silas	1	Male		
 Simeon	1	Male		
-Simeon (devout man in Jerusalem)	1	Male	Elder	
-Simon (sorcerer)	1	Male		
+Simeon, devout man in Jerusalem	1	Male	Elder	
+Simon, sorcerer	1	Male		
 singers	-1			
 singers from the ends of the earth	-1			
 singers, and relatives	-1			
