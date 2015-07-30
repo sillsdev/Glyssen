@@ -162,6 +162,14 @@ namespace Glyssen.Character
 	#region CharacterIdHashSet Definition
 		public class CharacterIdHashSet : HashSet<string>
 		{
+			public CharacterIdHashSet() : base()
+			{
+			}
+
+			public CharacterIdHashSet(IEnumerable<string> sourcEnumerable) : base(sourcEnumerable)
+			{
+			}
+
 			public override string ToString()
 			{
 				return string.Join("; ", this.Select(CharacterVerseData.GetCharacterNameForUi));

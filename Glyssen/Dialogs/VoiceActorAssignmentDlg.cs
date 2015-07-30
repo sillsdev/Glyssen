@@ -100,7 +100,7 @@ namespace Glyssen.Dialogs
 
 			// Add an extra group for any characters which weren't in the template
 			var unmatchedCharacters = m_project.IncludedCharacterIds.Except(matchedCharacterIds);
-			var unmatchedCharacterGroup = new CharacterGroup { GroupNumber = 999, CharacterIds = new HashSet<string>(unmatchedCharacters) };
+			var unmatchedCharacterGroup = new CharacterGroup { GroupNumber = 999, CharacterIds = new CharacterIdHashSet(unmatchedCharacters) };
 			characterGroups.Add(unmatchedCharacterGroup);
 			foreach (string characterId in unmatchedCharacterGroup.CharacterIds)
 				if (!characterIdToCharacterGroup.ContainsKey(characterId))
