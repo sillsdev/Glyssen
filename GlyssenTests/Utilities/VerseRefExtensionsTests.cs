@@ -19,7 +19,7 @@ namespace GlyssenTests.Utilities
 			VerseRef vr = new VerseRef(040028018);
 			vr.SendScrReference();
 
-			Thread.Sleep(1000);
+			Thread.Sleep(2000);
 
 			Assert.AreEqual(vr, DummyForm.MessageReceived);
 
