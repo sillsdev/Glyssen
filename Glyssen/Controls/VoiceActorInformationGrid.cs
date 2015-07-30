@@ -29,6 +29,7 @@ namespace Glyssen.Controls
 		{
 			InitializeComponent();
 
+			//Ensures that rows stay the height we set in the designer (specifically to match the character groups grid)
 			m_dataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 
 			m_currentId = 0;

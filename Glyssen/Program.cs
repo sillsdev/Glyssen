@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using DesktopAnalytics;
-using Glyssen.Dialogs;
 using Glyssen.Properties;
 using L10NSharp;
 using L10NSharp.UI;
