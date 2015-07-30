@@ -12616,6 +12616,7 @@ MRK	9	1	Jesus			Dialogue
 MRK	9	5	Peter (Simon)	afraid		Dialogue		
 MRK	9	7	God		voice from cloud (God)	Normal		
 MRK	9	9	Jesus			Indirect		
+MRK	9	10	Peter (Simon)/James/John	puzzled		Indirect		
 MRK	9	10	narrator-MRK			Quotation		
 MRK	9	11	Peter (Simon)/James/John	puzzled		Dialogue	John	MAT 17.10;MRK 9.11
 MRK	9	12	Jesus			Dialogue		
