@@ -173,7 +173,8 @@ namespace Glyssen.Controls
 			using (var brush = new SolidBrush(e.ForeColor))
 			{
 				e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-				e.Graphics.DrawString(text, e.Font, brush, e.Bounds);
+				//The +1 lines the text up closer to its default (for TextBox)
+				e.Graphics.DrawString(text, e.Font, brush, e.Bounds.X + 1, e.Bounds.Y + 1);
 			}
 		}
 	}

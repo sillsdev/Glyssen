@@ -253,12 +253,6 @@ namespace Glyssen.Dialogs
 		private void m_characterGroupGrid_SelectionChanged(object sender, EventArgs e)
 		{
 			m_eitherGrid_SelectionChanged(sender, e);
-
-			//This is the small event where the user tries to multiselect on the characters column
-			if (m_characterGroupGrid.SelectedRows.Count > 1)
-			{
-				m_switchToCellSelectOnMouseUp = false;
-			}
 		}
 
 		private void m_characterGroupGrid_KeyDown(object sender, KeyEventArgs e)
@@ -389,8 +383,14 @@ namespace Glyssen.Dialogs
 
 		private void splitContainer1_MouseUp(object sender, MouseEventArgs e)
 		{
-			Refresh();
+			//A disabled control is un-focusable
+			bool btnIsEnabled = m_btnAssignActor.Enabled;
+			m_btnAssignActor.Enabled = true;
+
+			//Focus on Assign button to remove awkward focus rectangle around splitter
 			m_btnAssignActor.Focus();
+
+			m_btnAssignActor.Enabled = btnIsEnabled;
 		}
 
 		private void m_linkClose_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -487,6 +487,8 @@ namespace Glyssen.Dialogs
 			m_characterGroupGrid.Rows[e.RowIndex].Height = 22;
 			m_characterGroupGrid.ReadOnly = true;
 			m_characterGroupGrid.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
+			m_characterGroupGrid.ClearSelection();
+			m_characterGroupGrid.Rows[e.RowIndex].Selected = true;
 		}
 
 		private void m_characterGroupGrid_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -504,8 +506,17 @@ namespace Glyssen.Dialogs
 				//Without the +1, an extra row is drawn, and the list starts scrolled down one item
 				m_characterGroupGrid.Rows[e.RowIndex].Height = Math.Max(21, Math.Min(estimatedHeight, 200)) + 1;
 
+				int dRows = e.RowIndex - m_characterGroupGrid.FirstDisplayedScrollingRowIndex;
+
+				if (Math.Abs(dRows) >= 5)
+				{
+					m_characterGroupGrid.FirstDisplayedScrollingRowIndex = e.RowIndex - 5;
+				}
+
 				m_characterGroupGrid.ReadOnly = false;
 				m_characterGroupGrid.EditMode = DataGridViewEditMode.EditOnEnter;
+
+				m_characterGroupGrid.MultiSelect = false;
 			}			
 		}
 
@@ -514,7 +525,7 @@ namespace Glyssen.Dialogs
 			if (m_switchToCellSelectOnMouseUp)
 			{
 				m_characterGroupGrid.SelectionMode = DataGridViewSelectionMode.CellSelect;
-
+				m_characterGroupGrid.MultiSelect = true;
 				m_switchToCellSelectOnMouseUp = false;
 			}
 		}
