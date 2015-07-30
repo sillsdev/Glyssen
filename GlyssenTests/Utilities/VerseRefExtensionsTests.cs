@@ -10,7 +10,7 @@ namespace GlyssenTests.Utilities
 {
 	class VerseRefExtensionsTests
 	{
-		[Test]
+		[Test, Ignore("By Hand Only")]
 		public void SendScrReference()
 		{
 			DummyForm.Start();
@@ -19,7 +19,7 @@ namespace GlyssenTests.Utilities
 			VerseRef vr = new VerseRef(040028018);
 			vr.SendScrReference();
 
-			Thread.Sleep(2000);
+			Thread.Sleep(1000);
 
 			Assert.AreEqual(vr, DummyForm.MessageReceived);
 
