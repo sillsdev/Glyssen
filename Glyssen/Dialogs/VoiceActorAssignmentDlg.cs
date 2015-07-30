@@ -501,14 +501,15 @@ namespace Glyssen.Dialogs
 				m_characterGroupGrid.CurrentCell = m_characterGroupGrid[e.ColumnIndex, e.RowIndex];
 
 				var data = m_characterGroupGrid.CurrentCell.Value as HashSet<string>;
-				int estimatedHeight = data.Count*21;
+				int estimatedRowHeight = data.Count*21;
+				int maxRowHeight = 200;
 
 				//Without the +1, an extra row is drawn, and the list starts scrolled down one item
-				m_characterGroupGrid.Rows[e.RowIndex].Height = Math.Max(21, Math.Min(estimatedHeight, 200)) + 1;
+				m_characterGroupGrid.Rows[e.RowIndex].Height = Math.Max(21, Math.Min(estimatedRowHeight, maxRowHeight)) + 1;
 
+				//Scroll table if expanded row will be hidden
 				int dRows = e.RowIndex - m_characterGroupGrid.FirstDisplayedScrollingRowIndex;
-
-				if (Math.Abs(dRows) >= 5)
+				if (dRows*22 + maxRowHeight >= m_characterGroupGrid.Height - m_characterGroupGrid.ColumnHeadersHeight)
 				{
 					m_characterGroupGrid.FirstDisplayedScrollingRowIndex = e.RowIndex - 5;
 				}
