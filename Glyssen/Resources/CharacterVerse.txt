@@ -1,4 +1,4 @@
-Control File Version	74
+Control File Version	75
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -15593,16 +15593,16 @@ REV	8	11	narrator-REV			Quotation
 REV	8	13	eagle crying with loud voice			Normal		
 REV	9	11	narrator-REV			Quotation		
 REV	9	14	voice from altar			Normal		
-REV	10	4	God		voice from heaven (God)	Normal		
+REV	10	4	voice from heaven (God?)		voice from heaven	Normal	God	
 REV	10	6	angel standing on sea and land			Normal		
 REV	10	7	angel standing on sea and land			Normal		
-REV	10	8	God		voice from heaven (God)	Normal		
+REV	10	8	voice from heaven (God?)		voice from heaven	Normal	God	
 REV	10	9	angel standing on sea and land			Normal		
 REV	10	11	angel standing on sea and land			Normal		
 REV	11	1	angel or messenger (Greek variant: someone speaking to John)			Normal		
 REV	11	2	angel or messenger (Greek variant: someone speaking to John)			Normal		
 REV	11	3	angel or messenger (Greek variant: someone speaking to John)			Normal		
-REV	11	12	God		voice from heaven (God), loud	Normal		
+REV	11	12	voice from heaven (God?)		voice from heaven, loud	Normal	God	
 REV	11	15	voices in heaven, loud			Normal		
 REV	11	17	twenty-four elders			Normal		
 REV	11	18	twenty-four elders			Normal		
