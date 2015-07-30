@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
+using Glyssen.Utilities;
 
 namespace Glyssen.Character
 {
@@ -14,7 +15,7 @@ namespace Glyssen.Character
 		//For Serialization
 		public CharacterGroup()
 		{
-			CharacterIds = new HashSet<string>();
+			CharacterIds = new CharacterIdHashSet();
 			GenderAttributes = new CharacterGroupAttributeSet();
 			AgeAttributes = new CharacterGroupAttributeSet();
 			m_requiredAttributes = new List<CharacterGroupAttribute>();
@@ -54,14 +55,7 @@ namespace Glyssen.Character
 
 		[XmlArray("CharacterIds")]
 		[XmlArrayItem("CharacterId")]
-		[Browsable(false)]
-		public HashSet<string> CharacterIds { get; set; }
-	
-		[XmlIgnore]
-		public string CharactersString
-		{
-			get { return string.Join("; ", CharacterIds.Select(CharacterVerseData.GetCharacterNameForUi).OrderBy(c => c)); }
-		}
+		public CharacterIdHashSet CharacterIds { get; set; }
 
 		[XmlArray("Genders")]
 		[XmlArrayItem("Gender")]
@@ -163,5 +157,28 @@ namespace Glyssen.Character
 		public int Count { get; set; }
 	}
 
+	#endregion
+
+	#region CharacterIdHashSet Definition
+		public class CharacterIdHashSet : HashSet<string>
+		{
+			public CharacterIdHashSet() : base()
+			{
+			}
+
+			public CharacterIdHashSet(IEnumerable<string> sourcEnumerable) : base(sourcEnumerable)
+			{
+			}
+
+			public override string ToString()
+			{
+				return string.Join("; ", ToList());
+			}
+
+			public List<string> ToList()
+			{
+				return this.Select(CharacterVerseData.GetCharacterNameForUi).OrderBy(c => c).ToList();
+			}
+		}
 	#endregion
 }

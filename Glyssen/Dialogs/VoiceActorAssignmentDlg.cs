@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Character;
+using Glyssen.Controls;
 using Glyssen.Properties;
 using L10NSharp;
 using SIL.Extensions;
@@ -20,6 +21,7 @@ namespace Glyssen.Dialogs
 	{
 		private readonly Project m_project;
 		private bool m_canAssign;
+		private bool m_switchToCellSelectOnMouseUp;
 
 		private enum DragSource
 		{
@@ -31,6 +33,8 @@ namespace Glyssen.Dialogs
 		public VoiceActorAssignmentDlg(Project project)
 		{
 			InitializeComponent();
+
+			m_characterGroupGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 
 			WindowState = FormWindowState.Maximized;
 
@@ -96,7 +100,7 @@ namespace Glyssen.Dialogs
 
 			// Add an extra group for any characters which weren't in the template
 			var unmatchedCharacters = m_project.IncludedCharacterIds.Except(matchedCharacterIds);
-			var unmatchedCharacterGroup = new CharacterGroup { GroupNumber = 999, CharacterIds = new HashSet<string>(unmatchedCharacters) };
+			var unmatchedCharacterGroup = new CharacterGroup { GroupNumber = 999, CharacterIds = new CharacterIdHashSet(unmatchedCharacters) };
 			characterGroups.Add(unmatchedCharacterGroup);
 			foreach (string characterId in unmatchedCharacterGroup.CharacterIds)
 				if (!characterIdToCharacterGroup.ContainsKey(characterId))
@@ -246,6 +250,11 @@ namespace Glyssen.Dialogs
 			m_btnAssignActor.Enabled = m_canAssign;
 		}
 
+		private void m_characterGroupGrid_SelectionChanged(object sender, EventArgs e)
+		{
+			m_eitherGrid_SelectionChanged(sender, e);
+		}
+
 		private void m_characterGroupGrid_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyData == Keys.Delete)
@@ -374,8 +383,14 @@ namespace Glyssen.Dialogs
 
 		private void splitContainer1_MouseUp(object sender, MouseEventArgs e)
 		{
-			Refresh();
+			//A disabled control is un-focusable
+			bool btnIsEnabled = m_btnAssignActor.Enabled;
+			m_btnAssignActor.Enabled = true;
+
+			//Focus on Assign button to remove awkward focus rectangle around splitter
 			m_btnAssignActor.Focus();
+
+			m_btnAssignActor.Enabled = btnIsEnabled;
 		}
 
 		private void m_linkClose_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -464,6 +479,56 @@ namespace Glyssen.Dialogs
 					"Delete Selected Actors")
 				: LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.DeleteSingleActor",
 					"Delete Selected Actor");
+		}
+
+		private void m_characterGroupGrid_CellLeave(object sender, DataGridViewCellEventArgs e)
+		{
+			m_characterGroupGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+			m_characterGroupGrid.Rows[e.RowIndex].Height = 22;
+			m_characterGroupGrid.ReadOnly = true;
+			m_characterGroupGrid.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
+			m_characterGroupGrid.ClearSelection();
+			m_characterGroupGrid.Rows[e.RowIndex].Selected = true;
+		}
+
+		private void m_characterGroupGrid_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && m_characterGroupGrid.Columns[e.ColumnIndex].DataPropertyName == "CharacterIds")
+			{
+				//By default, the whole row remains selected when the cell is first clicked
+				m_switchToCellSelectOnMouseUp = true;
+
+				m_characterGroupGrid.CurrentCell = m_characterGroupGrid[e.ColumnIndex, e.RowIndex];
+
+				var data = m_characterGroupGrid.CurrentCell.Value as HashSet<string>;
+				int estimatedRowHeight = data.Count*21;
+				int maxRowHeight = 200;
+
+				//Without the +1, an extra row is drawn, and the list starts scrolled down one item
+				m_characterGroupGrid.Rows[e.RowIndex].Height = Math.Max(21, Math.Min(estimatedRowHeight, maxRowHeight)) + 1;
+
+				//Scroll table if expanded row will be hidden
+				int dRows = e.RowIndex - m_characterGroupGrid.FirstDisplayedScrollingRowIndex;
+				if (dRows*22 + maxRowHeight >= m_characterGroupGrid.Height - m_characterGroupGrid.ColumnHeadersHeight)
+				{
+					m_characterGroupGrid.FirstDisplayedScrollingRowIndex = e.RowIndex - 5;
+				}
+
+				m_characterGroupGrid.ReadOnly = false;
+				m_characterGroupGrid.EditMode = DataGridViewEditMode.EditOnEnter;
+
+				m_characterGroupGrid.MultiSelect = false;
+			}			
+		}
+
+		private void m_characterGroupGrid_MouseUp(object sender, MouseEventArgs e)
+		{
+			if (m_switchToCellSelectOnMouseUp)
+			{
+				m_characterGroupGrid.SelectionMode = DataGridViewSelectionMode.CellSelect;
+				m_characterGroupGrid.MultiSelect = true;
+				m_switchToCellSelectOnMouseUp = false;
+			}
 		}
 	}
 }
