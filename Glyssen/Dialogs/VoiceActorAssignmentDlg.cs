@@ -22,6 +22,7 @@ namespace Glyssen.Dialogs
 		private readonly Project m_project;
 		private bool m_canAssign;
 		private bool m_switchToCellSelectOnMouseUp;
+		private DataGridViewCellStyle m_wordWrapCellStyle;
 
 		private enum DragSource
 		{
@@ -33,6 +34,9 @@ namespace Glyssen.Dialogs
 		public VoiceActorAssignmentDlg(Project project)
 		{
 			InitializeComponent();
+
+			m_wordWrapCellStyle = new DataGridViewCellStyle();
+			m_wordWrapCellStyle.WrapMode = DataGridViewTriState.True;
 
 			m_characterGroupGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 
@@ -483,12 +487,16 @@ namespace Glyssen.Dialogs
 
 		private void m_characterGroupGrid_CellLeave(object sender, DataGridViewCellEventArgs e)
 		{
-			m_characterGroupGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			m_characterGroupGrid.Rows[e.RowIndex].Height = 22;
-			m_characterGroupGrid.ReadOnly = true;
-			m_characterGroupGrid.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
-			m_characterGroupGrid.ClearSelection();
-			m_characterGroupGrid.Rows[e.RowIndex].Selected = true;
+			if (m_characterGroupGrid.Columns[e.ColumnIndex].DataPropertyName == "CharacterIds")
+			{
+				m_characterGroupGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+				m_characterGroupGrid.Rows[e.RowIndex].Height = 22;
+				m_characterGroupGrid.Rows[e.RowIndex].DefaultCellStyle = null;
+				m_characterGroupGrid.ReadOnly = true;
+				m_characterGroupGrid.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
+				m_characterGroupGrid.ClearSelection();
+				m_characterGroupGrid.Rows[e.RowIndex].Selected = true;
+			}
 		}
 
 		private void m_characterGroupGrid_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -506,6 +514,7 @@ namespace Glyssen.Dialogs
 
 				//Without the +1, an extra row is drawn, and the list starts scrolled down one item
 				m_characterGroupGrid.Rows[e.RowIndex].Height = Math.Max(21, Math.Min(estimatedRowHeight, maxRowHeight)) + 1;
+				m_characterGroupGrid.Rows[e.RowIndex].DefaultCellStyle = m_wordWrapCellStyle;
 
 				//Scroll table if expanded row will be hidden
 				int dRows = e.RowIndex - m_characterGroupGrid.FirstDisplayedScrollingRowIndex;
