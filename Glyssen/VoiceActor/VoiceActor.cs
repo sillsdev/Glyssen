@@ -5,6 +5,8 @@ namespace Glyssen.VoiceActor
 {
 	public class VoiceActor : IEquatable<VoiceActor>
 	{
+		private string m_age;
+
 		public VoiceActor()
 		{
 			Name = "";
@@ -20,7 +22,26 @@ namespace Glyssen.VoiceActor
 		public string Gender { get; set; }
 
 		[XmlAttribute("Age")]
-		public string Age { get; set; }
+		public string Age
+		{
+			get { return m_age; }
+			set
+			{
+				// Handle previous version of data
+				switch (value)
+				{
+					case "O - Old":
+						m_age = "E - Elder";
+						break;
+					case "Y - Young":
+						m_age = "M - Middle Adult";
+						break;
+					default:
+						m_age = value;
+						break;
+				}
+			}
+		}
 
 		public bool HasMeaningfulData()
 		{

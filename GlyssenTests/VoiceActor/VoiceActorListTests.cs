@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Linq;
-using System.Xml.XPath;
+﻿using System.Collections.Generic;
 using Glyssen.VoiceActor;
 using NUnit.Framework;
 using SIL.IO;
@@ -30,7 +26,7 @@ namespace GlyssenTests.VoiceActor
 				AssertThatXmlIn.File(tempFile.Path)
 					.HasSpecifiedNumberOfMatchesForXpath("/VoiceActors/VoiceActor", 2);
 				AssertThatXmlIn.File(tempFile.Path)
-					.HasSpecifiedNumberOfMatchesForXpath("/VoiceActors/VoiceActor[@Id='0' and @Gender='M - Male' and @Age='O - Old' and text()='A']", 1);
+					.HasSpecifiedNumberOfMatchesForXpath("/VoiceActors/VoiceActor[@Id='0' and @Gender='M - Male' and @Age='E - Elder' and text()='A']", 1);
 				AssertThatXmlIn.File(tempFile.Path)
 					.HasSpecifiedNumberOfMatchesForXpath("/VoiceActors/VoiceActor[@Id='1' and not(@Gender) and not(@Age) and text()='B']", 1);
 

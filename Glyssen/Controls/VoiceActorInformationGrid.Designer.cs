@@ -186,15 +186,16 @@
 			dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
 			this.ActorAge.DefaultCellStyle = dataGridViewCellStyle4;
 			this.ActorAge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.ActorAge.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Age!Age";
+			this.ActorAge.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.VoiceAge!Voice Age";
 			this.ActorAge.Items.AddRange(new object[] {
-            "O - Old",
-            "Y - Young",
+            "E - Elder",
+            "M - Middle Adult",
+            "Y - Young Adult",
             "C - Child"});
 			this.ActorAge.MinimumWidth = 90;
 			this.ActorAge.Name = "ActorAge";
 			this.ActorAge.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			this.ActorAge.Width = 308;
+			this.ActorAge.Width = 369;
 			// 
 			// VoiceActorInformationGrid
 			// 
