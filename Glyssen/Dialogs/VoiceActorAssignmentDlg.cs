@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Properties;
+using Glyssen.Rules;
 using L10NSharp;
 using SIL.Extensions;
 using SIL.IO;
@@ -52,6 +53,12 @@ namespace Glyssen.Dialogs
 				characterGroups = new SortableBindingList<CharacterGroup>(m_project.CharacterGroupList.CharacterGroups);
 			else
 				characterGroups = CreateInitialGroupsFromTemplate();
+
+#if DEBUG
+			var p = new Proximity(m_project);
+			foreach (var group in characterGroups.OrderBy(g => g.GroupNumber))
+				Debug.WriteLine(group.GroupNumber + ": " + p.CalculateMinimumProximity(group.CharacterIds));
+#endif
 			
 			m_project.CharacterGroupList.PopulateRequiredAttributes();
 
