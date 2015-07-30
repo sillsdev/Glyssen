@@ -106,7 +106,8 @@ namespace Glyssen.Controls
 		{
 			Font = dataGridViewCellStyle.Font;
 			ForeColor = dataGridViewCellStyle.ForeColor;
-			BackColor = dataGridViewCellStyle.BackColor;
+			//.NET appears to just pass in the default cell style for the whole datagridview
+			BackColor = Color.White;
 		}
 
 		public int EditingControlRowIndex { get; set; }
