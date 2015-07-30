@@ -667,6 +667,7 @@ namespace Glyssen.Dialogs
 			// m_saveStatus
 			// 
 			this.m_saveStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.m_saveStatus.AutoSize = true;
 			this.m_saveStatus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.m_saveStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_saveStatus.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
@@ -674,9 +675,9 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_saveStatus, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_saveStatus, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_saveStatus, "DialogBoxes.AssignCharacterDlg.SaveStatus");
-			this.m_saveStatus.Location = new System.Drawing.Point(24, 502);
+			this.m_saveStatus.Location = new System.Drawing.Point(24, 504);
 			this.m_saveStatus.Name = "m_saveStatus";
-			this.m_saveStatus.Size = new System.Drawing.Size(202, 15);
+			this.m_saveStatus.Size = new System.Drawing.Size(97, 13);
 			this.m_saveStatus.TabIndex = 33;
 			// 
 			// m_listBoxCharacters

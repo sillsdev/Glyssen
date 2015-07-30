@@ -9,7 +9,6 @@ Abijah, king of Judah	1	Male
 Abimelech, King of Gerar	1	Male		
 Abimelech, King of the Philistines (in Gerar)	1	Male		
 Abimelech, son of Gideon (Jerubbaal)	1	Male		
-Abiram	1	Male		
 Abiram	1	Male		son of Eliab (Reubenite)
 Abishai, Joab's brother	1	Male		
 Abner, commander of Saul's army	1	Male		
@@ -183,8 +182,8 @@ commander of the LORD's army	1	Male		Default character should be Jesus
 company of the prophets	-1			
 company of the prophets (Bethel)	-1			
 company of the prophets (Jericho)	-1			
-company of the prophets, one of (the LORD says) (young man)	1	Male		young man
-company of the prophets, one of (young man)	1	Male		young man
+company of the prophets, one of (the LORD says) (young man)	1	Male	Young Adult	
+company of the prophets, one of (young man)	1	Male	Young Adult	
 conquerors of beast, image & his name	-1			
 conquerors of Lo Debar	-1	Male		
 Cornelius	1	Male		
@@ -469,7 +468,7 @@ Jehu, son of Nimshi	1	Male
 Jehucal	1	Male		son of Shelemiah
 Jehudi	1	Male		
 Jephthah	1	Male		
-Jephthah's daughter	1	Female		youth
+Jephthah's daughter	1	Female	Young Adult	youth
 Jephthah's half-brothers	-1	Male		
 Jeremiah	1	Male		
 Jeremiah's enemies	-1	Male		
@@ -555,7 +554,7 @@ lepers, ten	10	Male
 letter from apostles and elders	1			
 Levi	1	Male		
 Levite husband of concubine	1	Male		
-Levite, young, from Bethlehem	1	Male		young man
+Levite, young, from Bethlehem	1	Male	Young Adult	
 Levites	-1	Male		
 Levites, family heads of	-1	Male		
 living creature, first	1			
@@ -580,7 +579,7 @@ man all alone	1	Male
 man answered David	1	Male		
 man delivered from Legion of demons	1	Male		Account in Matthew 8 indicates that there were two men, but since other accounts only have 1, best to keep as single voice.
 man escaped from Jerusalem	1	Male		
-man from Saul's camp (young)	1	Male		young man
+man from Saul's camp (young)	1	Male	Young Adult	
 man in linen above river	1	Male		
 man in linen with writing kit (in vision)	1	Male		
 man like bronze with measuring rod (vision of God)	1	Male		
@@ -875,7 +874,7 @@ rest of heads of families	-1	Male
 Reuben	1	Male		
 Reubenites	-1	Male		
 Rhoda	1	Female		possibly young girl/teen
-rich young ruler	1	Male		young man
+rich young ruler	1	Male	Young Adult	
 rule given by Paul	1			
 rulers of people in Jerusalem	-1			
 rules of the world	1			
@@ -952,7 +951,7 @@ Sharezer	1	Male
 Sheba, son of Bicri	1	Male		
 Shebna	1	Male		
 Shecaniah, son of Jehiel	1	Male		
-Shechem, son of Hamor	1	Male		young man
+Shechem, son of Hamor	1	Male	Young Adult	
 Shemaiah	1	Male		
 Shemeber, king of Zeboiim	1	Male		
 Shephatiah	1	Male		son of Mattan
@@ -992,7 +991,7 @@ someone hiding	1
 someone in crowd	1			
 someone in Jerusalem	1			
 son (child) in Israel (hypothetical)	1	Male	Child	
-son of Paul's sister (young man)	1	Male		young man
+son of Paul's sister (young man)	1	Male	Young Adult	
 son of Shelomith (whose father was an Egyptian)	1	Male		
 son of Shunammite	1	Male	Child	
 son of widow	1	Male		
@@ -1086,9 +1085,9 @@ you (hypothetical)	-1
 you (people of Zion, restored)	-1			
 you (rebellious people)	-1			
 you ought to say	1			
-young man	1	Male		youth
-young men (advisors of Rehoboam)	-1	Male		young man
-youths	-1			youth
+young man	1	Male	Young Adult	
+young men (advisors of Rehoboam)	-1	Male	Young Adult	
+youths	-1		Young Adult	
 Zaccheaus	1	Male		
 Zacharias (Zechariah)	1	Male		
 Zalmunna	1	Male		

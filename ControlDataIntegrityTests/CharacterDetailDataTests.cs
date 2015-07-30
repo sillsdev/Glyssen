@@ -22,7 +22,7 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_RequiredFieldsHaveValidFormatAndThereAreNoDuplicateLines()
 		{
-			Regex regex = new Regex("^[^\t/]+\t\\-?\\d+\t((Male)|(Female)|(Either)|(Neuter)|(Pref: Male)|(Pref: Female))?\t[^\t]*\t[^\t]*$", RegexOptions.Compiled);
+			Regex regex = new Regex("^[^\t/]+\t\\-?\\d+\t((Male)|(Female)|(Either)|(Neuter)|(Pref: Male)|(Pref: Female))?\t((Child)|(Young Adult)|(Middle Adult)|(Elder))*\t[^\t]*$", RegexOptions.Compiled);
 			Regex extraSpacesRegex = new Regex("^ |\t | \t| $", RegexOptions.Compiled);
 			string[] allLines = Resources.CharacterDetail.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -64,6 +64,16 @@ namespace ControlDataIntegrityTests
 				Environment.NewLine +
 				missingCharacters.OnePerLineWithIndent());
 		}
+
+		[Test]
+		public void DataIntegrity_NoDuplicateCharacterIds()
+		{
+			var duplicateCharacterIds = CharacterDetailData.Singleton.GetAll().Select(d => d.Character).FindDuplicates();
+			Assert.IsFalse(duplicateCharacterIds.Any(), 
+				"Duplicate character IDs in Character-Detail data:" +
+				Environment.NewLine +
+				duplicateCharacterIds.OnePerLineWithIndent());
+		}
 	}
 
 	internal static class TestOutputExtensions
@@ -74,6 +84,13 @@ namespace ControlDataIntegrityTests
 			foreach (string item in enumerable)
 				sb.Append("\t").Append(item).Append(Environment.NewLine);
 			return sb.ToString();
+		}
+
+		internal static IEnumerable<T> FindDuplicates<T>(this IEnumerable<T> enumerable)
+		{
+			var hashset = new HashSet<T>();
+			// Without ToList, re-enumerating causes more to be added because it is still based on the original enumerable
+			return enumerable.Where(cur => !hashset.Add(cur)).ToList();
 		}
 	}
 }

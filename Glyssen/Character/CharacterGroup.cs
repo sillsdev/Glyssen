@@ -169,7 +169,7 @@ namespace Glyssen.Character
 
 			public List<string> ToList()
 			{
-				return this.Select(CharacterVerseData.GetCharacterNameForUi).ToList();
+				return this.Select(CharacterVerseData.GetCharacterNameForUi).OrderBy(c => c).ToList();
 			}
 		}
 	#endregion

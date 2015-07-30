@@ -11,6 +11,7 @@ using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Properties;
 using L10NSharp;
+using SIL.Extensions;
 using SIL.IO;
 using SIL.ObjectModel;
 
@@ -42,48 +43,12 @@ namespace Glyssen.Dialogs
 			m_project = project;
 			m_canAssign = true;
 
-			var characterGroups = new SortableBindingList<CharacterGroup>(m_project.CharacterGroupList.CharacterGroups);
-			if (characterGroups.Count == 0)
-			{
-				CharacterGroupTemplate charGroupTemplate;
-				using (TempFile tempFile = new TempFile())
-				{
-					File.WriteAllBytes(tempFile.Path, Resources.CharacterGroups);
-					ICharacterGroupSource charGroupSource = new CharacterGroupTemplateExcelFile(tempFile.Path);
-					charGroupTemplate = charGroupSource.GetTemplate(m_project.VoiceActorList.Actors.Count);
-				}
-
-				Dictionary<string, CharacterGroup> characterIdToCharacterGroup = new Dictionary<string, CharacterGroup>();
-
-				foreach (CharacterGroup group in charGroupTemplate.CharacterGroups.Values)
-				{
-					group.CharacterIds.IntersectWith(m_project.IncludedCharacterIds);
-
-					characterGroups.Add(group);
-
-					foreach (string id in group.CharacterIds)
-					{
-						characterIdToCharacterGroup.Add(id, group);
-					}
-				}
-
-				var characterDetails = CharacterDetailData.Singleton.GetAll();
-
-				foreach (var detail in characterDetails)
-				{
-					if (characterIdToCharacterGroup.ContainsKey(detail.Character))
-					{
-						var group = characterIdToCharacterGroup[detail.Character];
-
-						if (detail.Gender != "")
-							group.GenderAttributes.Add(detail.Gender);
-						if (detail.Age != "")
-							group.AgeAttributes.Add(detail.Age);
-					}
-				}
-
-				m_project.CharacterGroupList.PopulateEstimatedHours(m_project.IncludedBooks);
-			}
+			SortableBindingList<CharacterGroup> characterGroups;
+			if (m_project.CharacterGroupList.CharacterGroups.Any())
+				characterGroups = new SortableBindingList<CharacterGroup>(m_project.CharacterGroupList.CharacterGroups);
+			else
+				characterGroups = CreateInitialGroupsFromTemplate();
+			
 			m_project.CharacterGroupList.PopulateRequiredAttributes();
 
 			m_characterGroupGrid.DataSource = characterGroups;
@@ -99,6 +64,64 @@ namespace Glyssen.Dialogs
 			m_voiceActorGrid.GridMouseMove += m_voiceActorGrid_MouseMove;
 			m_voiceActorGrid.UserRemovedRows += m_voiceActorGrid_UserRemovedRows;
 			m_voiceActorGrid.SelectionChanged += m_eitherGrid_SelectionChanged;
+		}
+
+		private SortableBindingList<CharacterGroup> CreateInitialGroupsFromTemplate()
+		{
+			var characterGroups = new SortableBindingList<CharacterGroup>(m_project.CharacterGroupList.CharacterGroups);
+
+			CharacterGroupTemplate charGroupTemplate;
+			using (TempFile tempFile = new TempFile())
+			{
+				File.WriteAllBytes(tempFile.Path, Resources.CharacterGroups);
+				ICharacterGroupSource charGroupSource = new CharacterGroupTemplateExcelFile(tempFile.Path);
+				charGroupTemplate = charGroupSource.GetTemplate(m_project.VoiceActorList.Actors.Count);
+			}
+
+			var characterIdToCharacterGroup = new Dictionary<string, CharacterGroup>();
+			ISet<string> matchedCharacterIds = new HashSet<string>();
+
+			foreach (CharacterGroup group in charGroupTemplate.CharacterGroups.Values)
+			{
+				@group.CharacterIds.IntersectWith(m_project.IncludedCharacterIds);
+
+				if (!@group.CharacterIds.Any())
+					continue;
+
+				characterGroups.Add(@group);
+
+				foreach (string characterId in @group.CharacterIds)
+				{
+					if (!characterIdToCharacterGroup.ContainsKey(characterId))
+						characterIdToCharacterGroup.Add(characterId, @group);
+				}
+				matchedCharacterIds.AddRange(@group.CharacterIds);
+			}
+
+			// Add an extra group for any characters which weren't in the template
+			var unmatchedCharacters = m_project.IncludedCharacterIds.Except(matchedCharacterIds);
+			var unmatchedCharacterGroup = new CharacterGroup { GroupNumber = 999, CharacterIds = new HashSet<string>(unmatchedCharacters) };
+			characterGroups.Add(unmatchedCharacterGroup);
+			foreach (string characterId in unmatchedCharacterGroup.CharacterIds)
+				if (!characterIdToCharacterGroup.ContainsKey(characterId))
+					characterIdToCharacterGroup.Add(characterId, unmatchedCharacterGroup);
+
+			foreach (var detail in CharacterDetailData.Singleton.GetAll())
+			{
+				if (characterIdToCharacterGroup.ContainsKey(detail.Character))
+				{
+					var group = characterIdToCharacterGroup[detail.Character];
+
+					if (detail.Gender != "")
+						@group.GenderAttributes.Add(detail.Gender);
+					if (detail.Age != "")
+						@group.AgeAttributes.Add(detail.Age);
+				}
+			}
+
+			m_project.CharacterGroupList.PopulateEstimatedHours(m_project.IncludedBooks);
+
+			return characterGroups;
 		}
 
 		private void SaveAssignments()
