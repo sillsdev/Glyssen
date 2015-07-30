@@ -294,12 +294,9 @@ namespace Glyssen
 			{
 				HashSet<string> returnHashSet = new HashSet<string>();
 				foreach (var book in IncludedBooks)
-				{
 					foreach (var block in book.GetScriptBlocks(true))
-					{
-						returnHashSet.Add(block.CharacterId);
-					}
-				}
+						if (!block.CharacterIsUnclear())
+							returnHashSet.Add(block.CharacterId);
 				return returnHashSet;
 			}
 		}
