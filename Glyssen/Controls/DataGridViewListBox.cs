@@ -43,7 +43,6 @@ namespace Glyssen.Controls
 
 		public override void InitializeEditingControl(int rowIndex, object initialFormattedValue, DataGridViewCellStyle dataGridViewCellStyle)
 		{
-			// Set the value of the editing control to the current cell value. 
 			base.InitializeEditingControl(rowIndex, initialFormattedValue, dataGridViewCellStyle);
 
 			ListBoxEditingControl ctl = DataGridView.EditingControl as ListBoxEditingControl;
@@ -94,16 +93,15 @@ namespace Glyssen.Controls
 			ItemHeight = 21;
 		}
 
-		// Implements the IDataGridViewEditingControl.EditingControlFormattedValue property. 
+		#region IDataGridViewEditingControl Implementations
+
 		public object EditingControlFormattedValue { get; set; }
 
-		// Implements the IDataGridViewEditingControl.GetEditingControlFormattedValue method. 
 		public object GetEditingControlFormattedValue(DataGridViewDataErrorContexts context)
 		{
 			return EditingControlFormattedValue;
 		}
 
-		// Implements the IDataGridViewEditingControl.ApplyCellStyleToEditingControl method. 
 		public void ApplyCellStyleToEditingControl(DataGridViewCellStyle dataGridViewCellStyle)
 		{
 			Font = dataGridViewCellStyle.Font;
@@ -111,10 +109,8 @@ namespace Glyssen.Controls
 			BackColor = dataGridViewCellStyle.BackColor;
 		}
 
-		// Implements the IDataGridViewEditingControl.EditingControlRowIndex property. 
 		public int EditingControlRowIndex { get; set; }
 
-		// Implements the IDataGridViewEditingControl.EditingControlWantsInputKey method. 
 		public bool EditingControlWantsInputKey(Keys key, bool dataGridViewWantsInputKey)
 		{
 			switch (key & Keys.KeyCode)
@@ -127,13 +123,10 @@ namespace Glyssen.Controls
 			}
 		}
 
-		// Implements the IDataGridViewEditingControl.PrepareEditingControlForEdit method. 
 		public void PrepareEditingControlForEdit(bool selectAll)
 		{
-			// No preparation needs to be done.
 		}
 
-		// Implements the IDataGridViewEditingControl.RepositionEditingControlOnValueChange property. 
 		public bool RepositionEditingControlOnValueChange
 		{
 			get
@@ -142,13 +135,10 @@ namespace Glyssen.Controls
 			}
 		}
 
-		// Implements the IDataGridViewEditingControl.EditingControlDataGridView property. 
 		public DataGridView EditingControlDataGridView { get; set; }
 
-		// Implements the IDataGridViewEditingControl.EditingControlValueChanged property. 
 		public bool EditingControlValueChanged { get; set; }
 
-		// Implements the IDataGridViewEditingControl.EditingPanelCursor property. 
 		public Cursor EditingPanelCursor
 		{
 			get
@@ -156,6 +146,8 @@ namespace Glyssen.Controls
 				return Cursor;
 			}
 		}
+
+		#endregion
 
 		//A similar override was in the microsoft's example code, but this currently raises a type error 
 		//because the DataSource is a List while the higher-level source may actually be a different type (e.g. HashSet)
