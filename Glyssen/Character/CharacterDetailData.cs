@@ -50,10 +50,11 @@ namespace Glyssen.Character
 			return new CharacterDetail
 			{
 				Character = items[0],
-				MultipleSpeakers = items[1].Equals("True", StringComparison.OrdinalIgnoreCase),
+				MaxSpeakers = Int32.Parse(items[1]),
 				Gender = items[2],
 				Age = items[3],
-				Comment = items[4]
+				Status = items[4].Equals("Y", StringComparison.OrdinalIgnoreCase) || items[4].Equals("True", StringComparison.OrdinalIgnoreCase),
+				Comment = items[5]
 			};
 		}
 	}

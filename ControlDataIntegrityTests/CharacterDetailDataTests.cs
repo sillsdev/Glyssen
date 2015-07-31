@@ -22,7 +22,7 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_RequiredFieldsHaveValidFormatAndThereAreNoDuplicateLines()
 		{
-			Regex regex = new Regex("^[^\t/]+\t\\-?\\d+\t((Male)|(Female)|(Either)|(Neuter)|(Pref: Male)|(Pref: Female))?\t((Child)|(Young Adult)|(Middle Adult)|(Elder))*\t[^\t]*$", RegexOptions.Compiled);
+			Regex regex = new Regex("^[^\t/]+\t\\-?\\d+\t((Male)|(Female)|(Either)|(Neuter)|(Pref: Male)|(Pref: Female))?\t((Child)|(Young Adult)|(Middle Adult)|(Elder))*\tY?\t[^\t]*$", RegexOptions.Compiled);
 			Regex extraSpacesRegex = new Regex("^ |\t | \t| $", RegexOptions.Compiled);
 			string[] allLines = Resources.CharacterDetail.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 

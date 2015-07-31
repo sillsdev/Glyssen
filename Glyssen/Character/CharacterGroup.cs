@@ -2,13 +2,12 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
-using Glyssen.Utilities;
 
 namespace Glyssen.Character
 {
 	public class CharacterGroup
 	{
-		private List<CharacterGroupAttribute> m_requiredAttributes; 
+		private readonly List<CharacterGroupAttribute> m_attributesDisplay;
 		private bool m_isActorAssigned;
 		private VoiceActor.VoiceActor m_actorAssigned;
 
@@ -18,7 +17,7 @@ namespace Glyssen.Character
 			CharacterIds = new CharacterIdHashSet();
 			GenderAttributes = new CharacterGroupAttributeSet();
 			AgeAttributes = new CharacterGroupAttributeSet();
-			m_requiredAttributes = new List<CharacterGroupAttribute>();
+			m_attributesDisplay = new List<CharacterGroupAttribute>();
 		}
 
 		public CharacterGroup(int groupNumber) : this()
@@ -37,11 +36,11 @@ namespace Glyssen.Character
 			m_actorAssigned = actor;
 		}
 
-		public void PopulateRequiredAttributes()
+		public void PopulateAttributesDisplay()
 		{
-			m_requiredAttributes.Clear();
-			m_requiredAttributes.InsertRange(m_requiredAttributes.Count, GenderAttributes.OrderByDescending(t => t.Count));
-			m_requiredAttributes.InsertRange(m_requiredAttributes.Count, AgeAttributes.OrderByDescending(t => t.Count));			
+			m_attributesDisplay.Clear();
+			m_attributesDisplay.AddRange(GenderAttributes.Where(g => g.Name != "Either").OrderByDescending(t => t.Count));
+			m_attributesDisplay.AddRange(AgeAttributes.Where(g => g.Name != "Middle Adult").OrderByDescending(t => t.Count));			
 		}
 
 		public void RemoveVoiceActor()
@@ -68,9 +67,19 @@ namespace Glyssen.Character
 		public CharacterGroupAttributeSet AgeAttributes { get; set; }
 
 		[XmlIgnore]
-		public string RequiredAttributesString
+		public string AttributesDisplay
 		{
-			get { return m_requiredAttributes.Count == 0 ? null : string.Join("; ", m_requiredAttributes.Select(t => t.Name + " [" + t.Count + "]")); }
+			get { return m_attributesDisplay.Count == 0 ? null : string.Join("; ", m_attributesDisplay.Select(t => t.Name + " [" + t.Count + "]")); }
+		}
+
+		[XmlElement]
+		[Browsable(false)]
+		public bool Status { get; set; }
+
+		[XmlIgnore]
+		public string StatusDisplay
+		{
+			get { return Status ? "Y" : ""; }
 		}
 
 		[XmlElement]
