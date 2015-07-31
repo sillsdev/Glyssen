@@ -25,6 +25,8 @@ namespace Glyssen.Character
 		protected const int kiParallelPassageInfo = kiDefaultCharacter + 1;
 		protected const int kMaxItems = kiParallelPassageInfo + 1;
 
+		private static Dictionary<string, string> m_singletonLocalizedCharacterIdToCharacterIdDictionary; 
+
 		public enum StandardCharacter
 		{
 			NonStandard,
@@ -78,18 +80,39 @@ namespace Glyssen.Character
 
 		public static string GetCharacterNameForUi(string characterId)
 		{
+			string localizedCharacterId;
+
 			switch (GetStandardCharacterType(characterId))
 			{
 				case StandardCharacter.Narrator: 
-					return String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.Narrator", "narrator ({0})"), GetBookNameFromStandardCharacterId(characterId));
+					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.Narrator", "narrator ({0})"), GetBookNameFromStandardCharacterId(characterId));
+					break;
 				case StandardCharacter.Intro: 
-					return String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.IntroCharacter", "introduction ({0})"), GetBookNameFromStandardCharacterId(characterId));
+					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.IntroCharacter", "introduction ({0})"), GetBookNameFromStandardCharacterId(characterId));
+					break;
 				case StandardCharacter.ExtraBiblical: 
-					return String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.ExtraCharacter", "section head ({0})"), GetBookNameFromStandardCharacterId(characterId));
+					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.ExtraCharacter", "section head ({0})"), GetBookNameFromStandardCharacterId(characterId));
+					break;
 				case StandardCharacter.BookOrChapter: 
-					return String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BookChapterCharacter", "book title or chapter ({0})"), GetBookNameFromStandardCharacterId(characterId));
+					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BookChapterCharacter", "book title or chapter ({0})"), GetBookNameFromStandardCharacterId(characterId));
+					break;
 				default:
-					return LocalizationManager.GetDynamicString(Program.kApplicationId, "CharacterName." + characterId, characterId);
+					localizedCharacterId = LocalizationManager.GetDynamicString(Program.kApplicationId, "CharacterName." + characterId, characterId);
+					break;
+			}
+			if (!SingletonLocalizedCharacterIdToCharacterIdDictionary.ContainsKey(localizedCharacterId))
+				SingletonLocalizedCharacterIdToCharacterIdDictionary.Add(localizedCharacterId, characterId);
+
+			return localizedCharacterId;
+		}
+
+		public static Dictionary<string, string> SingletonLocalizedCharacterIdToCharacterIdDictionary
+		{
+			get
+			{
+				return
+					m_singletonLocalizedCharacterIdToCharacterIdDictionary ?? (m_singletonLocalizedCharacterIdToCharacterIdDictionary =
+						new Dictionary<string, string>());
 			}
 		}
 

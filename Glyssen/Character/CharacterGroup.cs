@@ -166,7 +166,7 @@ namespace Glyssen.Character
 			{
 			}
 
-			public CharacterIdHashSet(IEnumerable<string> sourcEnumerable) : base(sourcEnumerable)
+			public CharacterIdHashSet(IEnumerable<string> sourceEnumerable) : base(sourceEnumerable)
 			{
 			}
 

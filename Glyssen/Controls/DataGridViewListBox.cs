@@ -50,19 +50,7 @@ namespace Glyssen.Controls
 
 			if (Value != null)
 			{
-				//A custom type may be used with a "ToList" method
-				var type = Value.GetType();
-				var method = type.GetMethod("ToList");
-
-				if (method != null)
-				{
-					m_control.DataSource = method.Invoke(Value, null);
-				}
-				else
-				{
-					var items = Value as IEnumerable<string>;
-					m_control.DataSource = items.ToList();
-				}
+				m_control.Data = Value;
 			}
 		}
 
@@ -81,6 +69,8 @@ namespace Glyssen.Controls
 
 	class ListBoxEditingControl : ListBox, IDataGridViewEditingControl
 	{
+		private object m_dataOriginal;
+
 		public ListBoxEditingControl()
 		{
 			BorderStyle = BorderStyle.None;
@@ -91,6 +81,31 @@ namespace Glyssen.Controls
 
 			IntegralHeight = false;
 			ItemHeight = 21;
+
+			MouseMove += m_MouseMove;
+		}
+
+		public object Data
+		{
+			get { return m_dataOriginal; }
+			set
+			{
+				m_dataOriginal = value;
+
+				//A custom type may be used with a "ToList" method
+				var type = value.GetType();
+				var method = type.GetMethod("ToList");
+
+				if (method != null)
+				{
+					DataSource = method.Invoke(value, null);
+				}
+				else
+				{
+					var items = value as IEnumerable<string>;
+					DataSource = items.ToList();
+				}
+			}
 		}
 
 		#region IDataGridViewEditingControl Implementations
@@ -176,6 +191,14 @@ namespace Glyssen.Controls
 				e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
 				//The +1 lines the text up closer to its default (for TextBox)
 				e.Graphics.DrawString(text, e.Font, brush, e.Bounds.X + 1, e.Bounds.Y + 1);
+			}
+		}
+
+		private void m_MouseMove(object sender, MouseEventArgs e)
+		{
+			if (e.Button == MouseButtons.Left)
+			{
+				DoDragDrop(SelectedItem, DragDropEffects.Move);
 			}
 		}
 	}

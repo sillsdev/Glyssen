@@ -25,16 +25,23 @@ namespace Glyssen.Dialogs
 		private bool m_switchToCellSelectOnMouseUp;
 		private DataGridViewCellStyle m_wordWrapCellStyle;
 
+//		private Dictionary<string, string> m_localizedIdToId; 
+		private SortableBindingList<CharacterGroup> m_characterGroups;
+
 		private enum DragSource
 		{
 			CharacterGroupGrid,
-			VoiceActorGrid
+			VoiceActorGrid,
+			Unknown,
+			Other
 		};
 		private DragSource m_dragSource;  
 
 		public VoiceActorAssignmentDlg(Project project)
 		{
 			InitializeComponent();
+
+//			m_localizedIdToId = new Dictionary<string, string>();
 
 			m_wordWrapCellStyle = new DataGridViewCellStyle();
 			m_wordWrapCellStyle.WrapMode = DataGridViewTriState.True;
@@ -48,25 +55,24 @@ namespace Glyssen.Dialogs
 			m_project = project;
 			m_canAssign = true;
 
-			SortableBindingList<CharacterGroup> characterGroups;
 			if (m_project.CharacterGroupList.CharacterGroups.Any())
-				characterGroups = new SortableBindingList<CharacterGroup>(m_project.CharacterGroupList.CharacterGroups);
+				m_characterGroups = new SortableBindingList<CharacterGroup>(m_project.CharacterGroupList.CharacterGroups);
 			else
-				characterGroups = CreateInitialGroupsFromTemplate();
+				m_characterGroups = CreateInitialGroupsFromTemplate();
 
 #if DEBUG
 			var p = new Proximity(m_project);
-			foreach (var group in characterGroups.OrderBy(g => g.GroupNumber))
+			foreach (var group in m_characterGroups.OrderBy(g => g.GroupNumber))
 				Debug.WriteLine(group.GroupNumber + ": " + p.CalculateMinimumProximity(group.CharacterIds));
 #endif
 			
 			m_project.CharacterGroupList.PopulateRequiredAttributes();
 
-			m_characterGroupGrid.DataSource = characterGroups;
+			m_characterGroupGrid.DataSource = m_characterGroups;
 			m_characterGroupGrid.MultiSelect = true;
 			m_characterGroupGrid.Sort(m_characterGroupGrid.Columns["GroupNumber"], ListSortDirection.Ascending);
 
-			m_voiceActorGrid.CharacterGroupsWithAssignedActors = characterGroups;
+			m_voiceActorGrid.CharacterGroupsWithAssignedActors = m_characterGroups;
 			m_voiceActorGrid.Initialize(m_project);
 			m_voiceActorGrid.ReadOnly = true;
 			m_voiceActorGrid.Saved += m_voiceActorGrid_Saved;
@@ -104,7 +110,11 @@ namespace Glyssen.Dialogs
 				foreach (string characterId in @group.CharacterIds)
 				{
 					if (!characterIdToCharacterGroup.ContainsKey(characterId))
+					{
 						characterIdToCharacterGroup.Add(characterId, @group);
+
+//						m_localizedIdToId.Add(CharacterVerseData.GetCharacterNameForUi(characterId), characterId);
+					}
 				}
 				matchedCharacterIds.AddRange(@group.CharacterIds);
 			}
@@ -186,6 +196,77 @@ namespace Glyssen.Dialogs
 		{
 			int xDist = splitContainer1.SplitterDistance;
 			m_btnAssignActor.Location = new Point(xDist + 19, m_btnAssignActor.Location.Y);
+		}
+
+		private void ExpandCurrentRow()
+		{
+			//By default, the whole row remains selected when the cell is first clicked
+			m_switchToCellSelectOnMouseUp = true;
+
+			var currentRow = m_characterGroupGrid.CurrentCell.OwningRow;
+
+			m_characterGroupGrid.CurrentCell = currentRow.Cells["CharacterIds"];
+
+			var data = m_characterGroupGrid.CurrentCell.Value as HashSet<string>;
+			int estimatedRowHeight = data.Count * 21;
+			int maxRowHeight = 200;
+
+			//Without the +1, an extra row is drawn, and the list starts scrolled down one item
+			currentRow.Height = Math.Max(21, Math.Min(estimatedRowHeight, maxRowHeight)) + 1;
+			currentRow.DefaultCellStyle = m_wordWrapCellStyle;
+
+			//Scroll table if expanded row will be hidden
+			int dRows = currentRow.Index - m_characterGroupGrid.FirstDisplayedScrollingRowIndex;
+			if (dRows * 22 + maxRowHeight >= m_characterGroupGrid.Height - m_characterGroupGrid.ColumnHeadersHeight)
+			{
+				m_characterGroupGrid.FirstDisplayedScrollingRowIndex = currentRow.Index - 5;
+			}
+
+			m_characterGroupGrid.ReadOnly = false;
+			m_characterGroupGrid.EditMode = DataGridViewEditMode.EditOnEnter;
+
+			m_characterGroupGrid.MultiSelect = false;			
+		}
+
+		private bool MoveCharacterFromTo(string characterId, CharacterGroup sourceGroup, CharacterGroup destGroup, bool confirmWithUser = true)
+		{
+			if (sourceGroup == destGroup)
+				return false;
+
+			HashSet<string> testGroup = new CharacterIdHashSet(destGroup.CharacterIds);
+			testGroup.Add(characterId);
+
+			Proximity proximity = new Proximity(m_project);
+			MinimumProximity results = proximity.CalculateMinimumProximity(testGroup);
+
+			bool multipleCharactersInGroup = results.NumberOfBlocks >= 0;
+
+			string dlgMessageFormat =
+				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message",
+					"You are about to move {0} from group #{1} into group #{2}." +
+					" As a result, group #{2} will have a minimum proximity of {3} blocks between {4} and {5} in the verses {6} and {7}." +
+					"\n\nDo you want to continue moving this character?");
+
+			string dlgMessage = string.Format(dlgMessageFormat, CharacterVerseData.GetCharacterNameForUi(characterId), 
+				sourceGroup.GroupNumber, destGroup.GroupNumber,
+				results.NumberOfBlocks,
+				CharacterVerseData.GetCharacterNameForUi(results.FirstBlock.CharacterId), 
+				CharacterVerseData.GetCharacterNameForUi(results.SecondBlock.CharacterId),
+				results.FirstBook.BookId + " " + results.FirstBlock.ChapterNumber + ":" +
+				results.FirstBlock.InitialStartVerseNumber,
+				results.SecondBook.BookId + " " + results.SecondBlock.ChapterNumber + ":" +
+				results.SecondBlock.InitialStartVerseNumber);
+			string dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Title", "Confirm");
+			if (!confirmWithUser || MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
+			{
+				sourceGroup.CharacterIds.Remove(characterId);
+
+				destGroup.CharacterIds.Add(characterId);
+
+				return true;
+			}
+
+			return false;
 		}
 
 		private void m_voiceActorGrid_EnterEditingMode()
@@ -312,6 +393,13 @@ namespace Glyssen.Dialogs
 
 		private void m_characterGroupGrid_DragOver(object sender, DragEventArgs e)
 		{
+			Point p = m_characterGroupGrid.PointToClient(new Point(e.X, e.Y));
+			var hitInfo = m_characterGroupGrid.HitTest(p.X, p.Y);
+			if (e.Data.GetDataPresent(typeof(string)) && m_characterGroupGrid.Columns[hitInfo.ColumnIndex].DataPropertyName == "CharacterIds")
+			{
+				e.Effect = DragDropEffects.Move;
+				return;
+			}
 			if (!(e.Data.GetDataPresent(typeof(VoiceActor.VoiceActor)) || e.Data.GetDataPresent(typeof(CharacterGroup))))
 			{
 				e.Effect = DragDropEffects.None;
@@ -326,6 +414,21 @@ namespace Glyssen.Dialogs
 			var hitInfo = m_characterGroupGrid.HitTest(p.X, p.Y);
 			if (hitInfo.Type == DataGridViewHitTestType.Cell)
 			{
+				if (e.Data.GetDataPresent(typeof(string)) && m_characterGroupGrid.Columns[hitInfo.ColumnIndex].DataPropertyName == "CharacterIds")
+				{
+					string dropCharacterId = CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary[e.Data.GetData(DataFormats.StringFormat).ToString()];
+					CharacterGroup dragGroup = m_characterGroups.FirstOrDefault(t => t.CharacterIds.Contains(dropCharacterId));
+					CharacterGroup dropGroup = m_characterGroupGrid.Rows[hitInfo.RowIndex].DataBoundItem as CharacterGroup;
+					if (dragGroup == null)
+						return;
+
+					if (MoveCharacterFromTo(dropCharacterId, dragGroup, dropGroup))
+					{
+						m_characterGroupGrid.CurrentCell = m_characterGroupGrid[hitInfo.ColumnIndex, hitInfo.RowIndex];
+						ExpandCurrentRow();
+					}
+					return;
+				}
 				if (m_dragSource == DragSource.VoiceActorGrid)
 				{
 					m_characterGroupGrid.ClearSelection();
@@ -371,17 +474,20 @@ namespace Glyssen.Dialogs
 			if (e.Button == MouseButtons.Left)
 			{
 				var hitInfo = m_characterGroupGrid.HitTest(e.X, e.Y);
-				if (hitInfo.Type == DataGridViewHitTestType.Cell && m_characterGroupGrid.Columns[hitInfo.ColumnIndex].DataPropertyName == "VoiceActorAssignedName")
+				if (hitInfo.Type == DataGridViewHitTestType.Cell)
 				{
-					CharacterGroup sourceGroup = m_characterGroupGrid.SelectedRows[0].DataBoundItem as CharacterGroup;
-					if (sourceGroup.IsVoiceActorAssigned)
+					if (m_characterGroupGrid.Columns[hitInfo.ColumnIndex].DataPropertyName == "VoiceActorAssignedName")
 					{
-						m_dragSource = DragSource.CharacterGroupGrid;
-						DoDragDrop(sourceGroup, DragDropEffects.Copy);
-					}
-					else
-					{
-						DoDragDrop(0, DragDropEffects.None);
+						CharacterGroup sourceGroup = m_characterGroupGrid.SelectedRows[0].DataBoundItem as CharacterGroup;
+						if (sourceGroup.IsVoiceActorAssigned)
+						{
+							m_dragSource = DragSource.CharacterGroupGrid;
+							DoDragDrop(sourceGroup, DragDropEffects.Copy);
+						}
+						else
+						{
+							DoDragDrop(0, DragDropEffects.None);
+						}
 					}
 				}
 			}
@@ -510,31 +616,10 @@ namespace Glyssen.Dialogs
 		{
 			if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && m_characterGroupGrid.Columns[e.ColumnIndex].DataPropertyName == "CharacterIds")
 			{
-				//By default, the whole row remains selected when the cell is first clicked
-				m_switchToCellSelectOnMouseUp = true;
-
 				m_characterGroupGrid.CurrentCell = m_characterGroupGrid[e.ColumnIndex, e.RowIndex];
 
-				var data = m_characterGroupGrid.CurrentCell.Value as HashSet<string>;
-				int estimatedRowHeight = data.Count*21;
-				int maxRowHeight = 200;
-
-				//Without the +1, an extra row is drawn, and the list starts scrolled down one item
-				m_characterGroupGrid.Rows[e.RowIndex].Height = Math.Max(21, Math.Min(estimatedRowHeight, maxRowHeight)) + 1;
-				m_characterGroupGrid.Rows[e.RowIndex].DefaultCellStyle = m_wordWrapCellStyle;
-
-				//Scroll table if expanded row will be hidden
-				int dRows = e.RowIndex - m_characterGroupGrid.FirstDisplayedScrollingRowIndex;
-				if (dRows*22 + maxRowHeight >= m_characterGroupGrid.Height - m_characterGroupGrid.ColumnHeadersHeight)
-				{
-					m_characterGroupGrid.FirstDisplayedScrollingRowIndex = e.RowIndex - 5;
-				}
-
-				m_characterGroupGrid.ReadOnly = false;
-				m_characterGroupGrid.EditMode = DataGridViewEditMode.EditOnEnter;
-
-				m_characterGroupGrid.MultiSelect = false;
-			}			
+				ExpandCurrentRow();
+			}
 		}
 
 		private void m_characterGroupGrid_MouseUp(object sender, MouseEventArgs e)
