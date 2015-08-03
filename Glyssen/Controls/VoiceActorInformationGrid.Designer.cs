@@ -227,6 +227,7 @@
 			this.ActorStatus.Name = "ActorStatus";
 			this.ActorStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
 			this.ActorStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.ActorStatus.Visible = false;
 			this.ActorStatus.Width = 330;
 			// 
 			// VoiceActorInformationGrid
