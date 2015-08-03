@@ -25,23 +25,18 @@ namespace Glyssen.Dialogs
 		private bool m_switchToCellSelectOnMouseUp;
 		private DataGridViewCellStyle m_wordWrapCellStyle;
 
-//		private Dictionary<string, string> m_localizedIdToId; 
 		private SortableBindingList<CharacterGroup> m_characterGroups;
 
 		private enum DragSource
 		{
 			CharacterGroupGrid,
-			VoiceActorGrid,
-			Unknown,
-			Other
+			VoiceActorGrid
 		};
 		private DragSource m_dragSource;  
 
 		public VoiceActorAssignmentDlg(Project project)
 		{
 			InitializeComponent();
-
-//			m_localizedIdToId = new Dictionary<string, string>();
 
 			m_wordWrapCellStyle = new DataGridViewCellStyle();
 			m_wordWrapCellStyle.WrapMode = DataGridViewTriState.True;
@@ -110,11 +105,7 @@ namespace Glyssen.Dialogs
 				foreach (string characterId in @group.CharacterIds)
 				{
 					if (!characterIdToCharacterGroup.ContainsKey(characterId))
-					{
 						characterIdToCharacterGroup.Add(characterId, @group);
-
-//						m_localizedIdToId.Add(CharacterVerseData.GetCharacterNameForUi(characterId), characterId);
-					}
 				}
 				matchedCharacterIds.AddRange(@group.CharacterIds);
 			}
@@ -263,10 +254,19 @@ namespace Glyssen.Dialogs
 
 				destGroup.CharacterIds.Add(characterId);
 
+				RemoveUnusedGroups();
+
 				return true;
 			}
+			
+			RemoveUnusedGroups();
 
 			return false;
+		}
+
+		private void RemoveUnusedGroups()
+		{
+			m_characterGroups.RemoveAll(t => t.CharacterIds.Count == 0);
 		}
 
 		private void m_voiceActorGrid_EnterEditingMode()
@@ -337,9 +337,7 @@ namespace Glyssen.Dialogs
 
 		private void m_eitherGrid_SelectionChanged(object sender, EventArgs e)
 		{
-			m_canAssign = m_voiceActorGrid.SelectedRows.Count == 1 && m_characterGroupGrid.SelectedRows.Count == 1;
 
-			m_btnAssignActor.Enabled = m_canAssign;
 		}
 
 		private void m_characterGroupGrid_SelectionChanged(object sender, EventArgs e)
@@ -357,17 +355,7 @@ namespace Glyssen.Dialogs
 
 		private void m_btnExport_Click(object sender, EventArgs e)
 		{
-			var characterGroups = m_characterGroupGrid.DataSource as SortableBindingList<CharacterGroup>;
 
-			bool assignmentsComplete = characterGroups.All(t => t.IsVoiceActorAssigned);
-
-			string dlgMessage = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ExportIncompleteScript.Message", "Some of the character groups have no voice talent assigned. Are you sure you want to export an incomplete script?\n(Note: You can export the script again as many times as you want.)");
-			string dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ExportIncompleteScript.Title", "Export Incomplete Script?");
-			if (assignmentsComplete || MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
-			{
-				SaveAssignments();
-				new ProjectExport(m_project).Export(this);
-			}
 		}
 
 		private void m_voiceActorGrid_MouseMove(object sender, MouseEventArgs e)
@@ -395,8 +383,15 @@ namespace Glyssen.Dialogs
 		{
 			Point p = m_characterGroupGrid.PointToClient(new Point(e.X, e.Y));
 			var hitInfo = m_characterGroupGrid.HitTest(p.X, p.Y);
-			if (e.Data.GetDataPresent(typeof(string)) && m_characterGroupGrid.Columns[hitInfo.ColumnIndex].DataPropertyName == "CharacterIds")
+			if (hitInfo.Type == DataGridViewHitTestType.Cell && e.Data.GetDataPresent(typeof(string)) && m_characterGroupGrid.Columns[hitInfo.ColumnIndex].DataPropertyName == "CharacterIds")
 			{
+				m_characterGroupGrid.EditingControl.QueryContinueDrag -= m_characterGroupGrid_DragEnd_DisallowUserToAddRows;
+
+				if (!m_characterGroupGrid.Rows[hitInfo.RowIndex].IsNewRow)
+					m_characterGroupGrid.EditingControl.QueryContinueDrag += m_characterGroupGrid_DragEnd_DisallowUserToAddRows;
+
+				m_characterGroupGrid.AllowUserToAddRows = true;
+
 				e.Effect = DragDropEffects.Move;
 				return;
 			}
@@ -416,6 +411,16 @@ namespace Glyssen.Dialogs
 			{
 				if (e.Data.GetDataPresent(typeof(string)) && m_characterGroupGrid.Columns[hitInfo.ColumnIndex].DataPropertyName == "CharacterIds")
 				{
+					if (m_characterGroupGrid.Rows[hitInfo.RowIndex].IsNewRow)
+					{
+						int newGroupNumber = 1;
+
+						while (m_characterGroups.Any(t => t.GroupNumber == newGroupNumber))
+							newGroupNumber++;
+
+						m_characterGroups.Add(new CharacterGroup(newGroupNumber));;
+					}
+
 					string dropCharacterId = CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary[e.Data.GetData(DataFormats.StringFormat).ToString()];
 					CharacterGroup dragGroup = m_characterGroups.FirstOrDefault(t => t.CharacterIds.Contains(dropCharacterId));
 					CharacterGroup dropGroup = m_characterGroupGrid.Rows[hitInfo.RowIndex].DataBoundItem as CharacterGroup;
@@ -427,6 +432,8 @@ namespace Glyssen.Dialogs
 						m_characterGroupGrid.CurrentCell = m_characterGroupGrid[hitInfo.ColumnIndex, hitInfo.RowIndex];
 						ExpandCurrentRow();
 					}
+
+					m_characterGroupGrid.AllowUserToAddRows = false;
 					return;
 				}
 				if (m_dragSource == DragSource.VoiceActorGrid)
@@ -602,7 +609,6 @@ namespace Glyssen.Dialogs
 		{
 			if (m_characterGroupGrid.Columns[e.ColumnIndex].DataPropertyName == "CharacterIds")
 			{
-				m_characterGroupGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 				m_characterGroupGrid.Rows[e.RowIndex].Height = 22;
 				m_characterGroupGrid.Rows[e.RowIndex].DefaultCellStyle = null;
 				m_characterGroupGrid.ReadOnly = true;
@@ -626,10 +632,15 @@ namespace Glyssen.Dialogs
 		{
 			if (m_switchToCellSelectOnMouseUp)
 			{
-				m_characterGroupGrid.SelectionMode = DataGridViewSelectionMode.CellSelect;
 				m_characterGroupGrid.MultiSelect = true;
 				m_switchToCellSelectOnMouseUp = false;
 			}
+		}
+
+		private void m_characterGroupGrid_DragEnd_DisallowUserToAddRows(object sender, QueryContinueDragEventArgs e)
+		{
+			if (e.Action == DragAction.Cancel || e.Action == DragAction.Drop)
+				m_characterGroupGrid.AllowUserToAddRows = false;
 		}
 	}
 }

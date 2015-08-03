@@ -539,7 +539,6 @@ namespace Glyssen.Dialogs
 			this.CharacterIds.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Characters!Characters";
 			this.CharacterIds.Name = "CharacterIds";
 			this.CharacterIds.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.CharacterIds.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			// 
 			// Column3
 			// 

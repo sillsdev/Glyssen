@@ -92,6 +92,9 @@ namespace Glyssen.Rules
 
 		public override string ToString()
 		{
+			if (FirstBlock == null || SecondBlock == null)
+				return "[no characters in group]";
+
 			var sb = new StringBuilder();
 			sb.Append(NumberOfBlocks).Append("  |  ")
 				.Append(FirstBook.BookId).Append(" ").Append(FirstBlock.ChapterNumber).Append(":").Append(FirstBlock.InitialStartVerseNumber)
