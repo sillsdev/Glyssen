@@ -347,7 +347,7 @@
 			// 
 			this.m_btnAssignVoiceActors.BackColor = System.Drawing.Color.Transparent;
 			this.m_btnAssignVoiceActors.Enabled = false;
-			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnAssignVoiceActors, "Enter Voice Actor information and assign to Character Group.");
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnAssignVoiceActors, "Enter Voice Actor information and assign Voice Actors to Character Groups");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnAssignVoiceActors, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnAssignVoiceActors, "MainForm.AssignVoiceActors");
 			this.m_btnAssignVoiceActors.Location = new System.Drawing.Point(29, 175);

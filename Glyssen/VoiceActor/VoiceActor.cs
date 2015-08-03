@@ -43,6 +43,12 @@ namespace Glyssen.VoiceActor
 			}
 		}
 
+		[XmlAttribute("VoiceQuality")]
+		public string VoiceQuality { get; set; }
+
+		[XmlAttribute("Status")]
+		public bool Status { get; set; }
+
 		public bool HasMeaningfulData()
 		{
 			return !string.IsNullOrEmpty(Name) || Gender != null || Age != null;

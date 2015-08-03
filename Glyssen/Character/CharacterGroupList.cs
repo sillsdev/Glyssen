@@ -78,11 +78,11 @@ namespace Glyssen.Character
 			}
 		}
 
-		public void PopulateRequiredAttributes()
+		public void PopulateAttributesDisplay()
 		{
 			foreach (var group in CharacterGroups)
 			{
-				group.PopulateRequiredAttributes();
+				group.PopulateAttributesDisplay();
 			}
 		}
 	}

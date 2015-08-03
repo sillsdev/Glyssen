@@ -61,7 +61,7 @@ namespace Glyssen.Dialogs
 				Debug.WriteLine(group.GroupNumber + ": " + p.CalculateMinimumProximity(group.CharacterIds));
 #endif
 			
-			m_project.CharacterGroupList.PopulateRequiredAttributes();
+			m_project.CharacterGroupList.PopulateAttributesDisplay();
 
 			m_characterGroupGrid.DataSource = m_characterGroups;
 			m_characterGroupGrid.MultiSelect = true;
@@ -92,48 +92,58 @@ namespace Glyssen.Dialogs
 
 			var characterIdToCharacterGroup = new Dictionary<string, CharacterGroup>();
 			ISet<string> matchedCharacterIds = new HashSet<string>();
+			ISet<CharacterDetail> standardCharacterDetails = new HashSet<CharacterDetail>();
 
 			foreach (CharacterGroup group in charGroupTemplate.CharacterGroups.Values)
 			{
-				@group.CharacterIds.IntersectWith(m_project.IncludedCharacterIds);
+				group.CharacterIds.IntersectWith(m_project.IncludedCharacterIds);
 
-				if (!@group.CharacterIds.Any())
+				if (!group.CharacterIds.Any())
 					continue;
 
-				characterGroups.Add(@group);
+				characterGroups.Add(group);
 
-				foreach (string characterId in @group.CharacterIds)
-				{
-					if (!characterIdToCharacterGroup.ContainsKey(characterId))
-						characterIdToCharacterGroup.Add(characterId, @group);
-				}
-				matchedCharacterIds.AddRange(@group.CharacterIds);
+				ProcessCharacterIds(group, characterIdToCharacterGroup, standardCharacterDetails);
+				matchedCharacterIds.AddRange(group.CharacterIds);
 			}
 
 			// Add an extra group for any characters which weren't in the template
 			var unmatchedCharacters = m_project.IncludedCharacterIds.Except(matchedCharacterIds);
 			var unmatchedCharacterGroup = new CharacterGroup { GroupNumber = 999, CharacterIds = new CharacterIdHashSet(unmatchedCharacters) };
 			characterGroups.Add(unmatchedCharacterGroup);
-			foreach (string characterId in unmatchedCharacterGroup.CharacterIds)
-				if (!characterIdToCharacterGroup.ContainsKey(characterId))
-					characterIdToCharacterGroup.Add(characterId, unmatchedCharacterGroup);
+			ProcessCharacterIds(unmatchedCharacterGroup, characterIdToCharacterGroup, standardCharacterDetails);
 
-			foreach (var detail in CharacterDetailData.Singleton.GetAll())
+			foreach (var detail in CharacterDetailData.Singleton.GetAll().Union(standardCharacterDetails))
 			{
 				if (characterIdToCharacterGroup.ContainsKey(detail.Character))
 				{
 					var group = characterIdToCharacterGroup[detail.Character];
 
-					if (detail.Gender != "")
-						@group.GenderAttributes.Add(detail.Gender);
-					if (detail.Age != "")
-						@group.AgeAttributes.Add(detail.Age);
+					if (!string.IsNullOrWhiteSpace(detail.Gender))
+						group.GenderAttributes.Add(detail.Gender);
+					if (!string.IsNullOrWhiteSpace(detail.Age))
+						group.AgeAttributes.Add(detail.Age);
+					if (detail.Status)
+						group.Status = true;
 				}
 			}
 
 			m_project.CharacterGroupList.PopulateEstimatedHours(m_project.IncludedBooks);
 
 			return characterGroups;
+		}
+
+		private void ProcessCharacterIds(CharacterGroup group, Dictionary<string, CharacterGroup> characterIdToCharacterGroup, ISet<CharacterDetail> standardCharacterDetails)
+		{
+			foreach (string characterId in group.CharacterIds)
+			{
+				if (!characterIdToCharacterGroup.ContainsKey(characterId))
+					characterIdToCharacterGroup.Add(characterId, group);
+				if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator))
+					standardCharacterDetails.Add(new CharacterDetail { Character = characterId, Gender = "Either", Age = "Middle Adult", Status = true });
+				else if (CharacterVerseData.IsCharacterStandard(characterId, false))
+					standardCharacterDetails.Add(new CharacterDetail { Character = characterId, Gender = "Either", Age = "Middle Adult" });
+			}
 		}
 
 		private void SaveAssignments()

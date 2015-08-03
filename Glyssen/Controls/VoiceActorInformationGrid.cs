@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -22,7 +23,6 @@ namespace Glyssen.Controls
 		private int m_currentId;
 		private Project m_project;
 		private VoiceActorSortableBindingList m_bindingList;
-		private ComboBox m_currentComboBox;
 		private readonly Font m_italicsFont;
 
 		public VoiceActorInformationGrid()
@@ -116,23 +116,20 @@ namespace Glyssen.Controls
 
 		private void m_dataGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
 		{
-			DataGridViewCell cell = m_dataGrid.CurrentCell;
-
-			if (cell.OwningColumn == m_dataGrid.Columns["ActorGender"] || cell.OwningColumn == m_dataGrid.Columns["ActorAge"])
+			var currentComboBox = e.Control as ComboBox;
+			if (currentComboBox != null)
 			{
-				m_currentComboBox = e.Control as ComboBox;
+				currentComboBox.KeyPress -= Combobox_KeyPress;
+				currentComboBox.KeyPress += Combobox_KeyPress;
 
-				m_currentComboBox.KeyPress -= box_KeyPress;
-				m_currentComboBox.KeyPress += box_KeyPress;
-			}
-			else
-			{
-				m_currentComboBox = null;
+				if (currentComboBox.SelectedIndex == -1)
+					currentComboBox.SelectedIndex = 0;
 			}
 		}
 
-		private void box_KeyPress(object sender, KeyPressEventArgs e)
+		private void Combobox_KeyPress(object sender, KeyPressEventArgs e)
 		{
+			Debug.Assert(sender is ComboBox);
 			if (char.IsLetter(e.KeyChar))
 			{
 				m_dataGrid.MoveToNextField();

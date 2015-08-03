@@ -59,7 +59,7 @@
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnNext, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnNext, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnNext, "Common.Next");
-			this.m_btnNext.Location = new System.Drawing.Point(413, 281);
+			this.m_btnNext.Location = new System.Drawing.Point(522, 360);
 			this.m_btnNext.Name = "m_btnNext";
 			this.m_btnNext.Size = new System.Drawing.Size(75, 23);
 			this.m_btnNext.TabIndex = 2;
@@ -88,7 +88,7 @@
 			this.m_dataGrid.Margin = new System.Windows.Forms.Padding(0);
 			this.m_dataGrid.Name = "m_dataGrid";
 			this.m_dataGrid.ReadOnly = false;
-			this.m_dataGrid.Size = new System.Drawing.Size(476, 249);
+			this.m_dataGrid.Size = new System.Drawing.Size(585, 328);
 			this.m_dataGrid.TabIndex = 3;
 			// 
 			// m_saveStatus
@@ -102,7 +102,7 @@
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_saveStatus, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_saveStatus, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_saveStatus, "DialogBoxes.VoiceActorInformation.SaveStatus");
-			this.m_saveStatus.Location = new System.Drawing.Point(15, 312);
+			this.m_saveStatus.Location = new System.Drawing.Point(15, 391);
 			this.m_saveStatus.Name = "m_saveStatus";
 			this.m_saveStatus.Size = new System.Drawing.Size(97, 13);
 			this.m_saveStatus.TabIndex = 4;
@@ -115,7 +115,7 @@
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_linkClose, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_linkClose, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_linkClose, "DialogBoxes.VoiceActorInformation.linkLabel1");
-			this.m_linkClose.Location = new System.Drawing.Point(455, 312);
+			this.m_linkClose.Location = new System.Drawing.Point(564, 391);
 			this.m_linkClose.Name = "m_linkClose";
 			this.m_linkClose.Size = new System.Drawing.Size(33, 13);
 			this.m_linkClose.TabIndex = 5;
@@ -128,7 +128,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
-			this.ClientSize = new System.Drawing.Size(500, 334);
+			this.ClientSize = new System.Drawing.Size(609, 413);
 			this.Controls.Add(this.m_linkClose);
 			this.Controls.Add(this.m_saveStatus);
 			this.Controls.Add(this.m_dataGrid);
@@ -139,7 +139,7 @@
 			this.l10NSharpExtender1.SetLocalizationComment(this, null);
 			this.l10NSharpExtender1.SetLocalizingId(this, "DialogBoxes.VoiceActorInformation.WindowTitle");
 			this.MinimizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(300, 200);
+			this.MinimumSize = new System.Drawing.Size(450, 300);
 			this.Name = "VoiceActorInformationDlg";
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
