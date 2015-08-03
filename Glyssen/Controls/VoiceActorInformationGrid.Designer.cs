@@ -176,8 +176,8 @@
 			this.ActorGender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.ActorGender.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Gender!Gender";
 			this.ActorGender.Items.AddRange(new object[] {
-            "F - Female",
-            "M - Male"});
+            "M - Male",
+            "F - Female"});
 			this.ActorGender.MinimumWidth = 90;
 			this.ActorGender.Name = "ActorGender";
 			this.ActorGender.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -192,8 +192,8 @@
 			this.ActorAge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.ActorAge.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.VoiceAge!Voice Age";
 			this.ActorAge.Items.AddRange(new object[] {
-            "E - Elder",
             "M - Middle Adult",
+            "E - Elder",
             "Y - Young Adult",
             "C - Child"});
 			this.ActorAge.MinimumWidth = 90;
@@ -208,12 +208,12 @@
 			this.ActorQuality.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.ActorQuality.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.VoiceQuality!Voice Quality";
 			this.ActorQuality.Items.AddRange(new object[] {
-            "Normal",
-            "Dramatic",
-            "Authoritative/Firm",
-            "Weak",
-            "Deceptive",
-            "Clear"});
+            "N - Normal",
+            "D - Dramatic",
+            "A - Authoritative/Firm",
+            "W - Weak",
+            "D - Deceptive",
+            "C - Clear"});
 			this.ActorQuality.MinimumWidth = 90;
 			this.ActorQuality.Name = "ActorQuality";
 			this.ActorQuality.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
