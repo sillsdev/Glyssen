@@ -458,8 +458,17 @@ namespace Glyssen.Dialogs
 
 		private void LoadClosestRelevantBlock(bool prev)
 		{
-			m_currentBlockIndex = GetIndexOfClosestRelevantBlock(m_relevantBlocks, m_temporarilyIncludedBlock, prev, 0, RelevantBlockCount - 1);
-			m_temporarilyIncludedBlock = null;
+			if (m_temporarilyIncludedBlock == null)
+				m_currentBlockIndex = 0;
+			else
+			{
+				m_currentBlockIndex = GetIndexOfClosestRelevantBlock(m_relevantBlocks, m_temporarilyIncludedBlock, prev, 0, RelevantBlockCount - 1);
+				m_temporarilyIncludedBlock = null;
+			}
+
+			if (m_currentBlockIndex < 0)
+				m_currentBlockIndex = 0;
+
 			SetBlock(m_relevantBlocks[m_currentBlockIndex]);
 		}
 
