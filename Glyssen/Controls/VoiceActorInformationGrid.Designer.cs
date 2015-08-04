@@ -116,6 +116,14 @@
             this.ActorQuality,
             this.ActorStatus});
 			this.m_dataGrid.ContextMenuStrip = this.m_contextMenu;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ControlLight;
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F);
+			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.m_dataGrid.DefaultCellStyle = dataGridViewCellStyle5;
 			this.m_dataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_dataGrid.DrawTextBoxEditControlBorder = false;
 			this.m_dataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
@@ -132,9 +140,6 @@
 			this.m_dataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			this.m_dataGrid.RowHeadersVisible = false;
 			this.m_dataGrid.RowHeadersWidth = 22;
-			dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
-			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-			this.m_dataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
 			this.m_dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.m_dataGrid.SelectedCellBackColor = System.Drawing.Color.Empty;
 			this.m_dataGrid.SelectedCellForeColor = System.Drawing.Color.Empty;
