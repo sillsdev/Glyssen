@@ -203,6 +203,8 @@
       <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
+    <Compile Include="Controls\VoiceActorInformationViewModel.cs" />
+    <Compile Include="Dialogs\VoiceActorAssignmentViewModel.cs" />
     <Compile Include="Controls\VoiceActorInformationGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
