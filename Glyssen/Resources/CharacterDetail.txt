@@ -310,7 +310,7 @@ exiles	-1
 expert in religious law	1	Male			
 experts in religious law, one of the	1	Male			
 explorers, ten	10	Male			
-eye	1				
+eye	1	Neuter			
 Ezekiel	1	Male			
 Ezra, priest and teacher	1	Male			
 false prophets	-1	Male			
@@ -331,7 +331,7 @@ follower of Christ	1
 follower of Paul	1				
 followers of Jesus	-1				
 fool	1				
-foot	1				
+foot	1	Neuter			
 foreman	1	Male			
 fortune telling slave girl	1	Female			
 four living creatures	4				
@@ -379,7 +379,7 @@ Hannah	1	Female
 Harbona, eunuch attending Xerxes, king	1	Male			
 harvesters	-1				
 Hazael of Aram	1	Male			
-head	1				
+head	1	Neuter			
 heads of all the families	-1	Male			
 hearers	-1				
 herald	1				
@@ -561,7 +561,8 @@ living creature, first	1
 living creature, fourth	1				
 living creature, second	1				
 living creature, third	1				
-Lookout	1				
+lookout	1				
+lookout in Jezreel	1	Male			
 Lot	1	Male			
 lover	1	Male			
 Lydia	1	Female			

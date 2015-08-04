@@ -5572,13 +5572,13 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	9	13	army officers			Normal		
 2KI	9	15	Jehu, son of Nimshi			Normal		
 2KI	9	17	Joram, king of Israel			Normal		
-2KI	9	17	Lookout			Normal		
+2KI	9	17	lookout in Jezreel			Normal		
 2KI	9	18	Horseman, first			Normal		
 2KI	9	18	Jehu, son of Nimshi			Normal		
-2KI	9	18	Lookout			Normal		
+2KI	9	18	lookout in Jezreel			Normal		
 2KI	9	19	Horseman, second			Normal		
 2KI	9	19	Jehu, son of Nimshi			Normal		
-2KI	9	20	Lookout			Normal		
+2KI	9	20	lookout in Jezreel			Normal		
 2KI	9	21	Joram, king of Israel			Normal		
 2KI	9	22	Jehu, son of Nimshi			Normal		
 2KI	9	22	Joram, king of Israel			Normal		
@@ -7903,8 +7903,8 @@ ISA	20	5	God		God (the LORD)	Normal
 ISA	20	6	God		God (the LORD)	Normal		
 ISA	21	6	God		God (the LORD)	Normal		
 ISA	21	7	God		God (the LORD)	Normal		
-ISA	21	8	Lookout			Normal		
-ISA	21	9	Lookout			Normal		
+ISA	21	8	lookout			Normal		
+ISA	21	9	lookout			Normal		
 ISA	21	11	someone from Seir			Normal		
 ISA	21	12	watchman			Normal		
 ISA	21	16	God		God (the LORD)	Normal		
