@@ -15,7 +15,7 @@ namespace Glyssen.Dialogs
 
 			m_project = project;
 
-			m_dataGrid.Initialize(m_project);
+			m_dataGrid.Initialize(m_project, false);
 
 			m_dataGrid.Saved += m_dataGrid_Saved;
 			m_dataGrid.UserAddedRow += m_dataGrid_UserAddedRow;

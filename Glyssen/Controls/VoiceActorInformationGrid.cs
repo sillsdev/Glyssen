@@ -69,10 +69,10 @@ namespace Glyssen.Controls
 
 		public IEnumerable<CharacterGroup> CharacterGroupsWithAssignedActors { get; set; }
 
-		public void Initialize(Project project)
+		public void Initialize(Project project, bool sort = true)
 		{
 			m_project = project;
-			LoadVoiceActorInformation();
+			LoadVoiceActorInformation(sort);
 		}
 
 		public void SaveVoiceActorInformation()
@@ -101,7 +101,7 @@ namespace Glyssen.Controls
 			return m_dataGrid.EndEdit();
 		}
 
-		private void LoadVoiceActorInformation()
+		private void LoadVoiceActorInformation(bool sort = true)
 		{
 			var actors = m_project.VoiceActorList.Actors;
 			if (actors.Any())
@@ -111,7 +111,8 @@ namespace Glyssen.Controls
 			m_dataGrid.DataSource = m_bindingList;
 			m_bindingList.AddingNew += HandleAddingNew;
 
-			m_dataGrid.Sort(m_dataGrid.Columns["ActorName"], ListSortDirection.Ascending);
+			if (sort)
+				m_dataGrid.Sort(m_dataGrid.Columns["ActorName"], ListSortDirection.Ascending);
 		}
 
 		private void m_dataGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
