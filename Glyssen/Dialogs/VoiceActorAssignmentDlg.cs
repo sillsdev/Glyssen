@@ -447,6 +447,34 @@ namespace Glyssen.Dialogs
 				m_characterGroupGrid.AllowUserToAddRows = false;
 		}
 
+		private void HandleCharacterIdDrop(string characterId, int rowIndex)
+		{
+			if (m_characterGroupGrid.Rows[rowIndex].IsNewRow)
+			{
+				int newGroupNumber = 1;
+
+				while (m_characterGroups.Any(t => t.GroupNumber == newGroupNumber))
+					newGroupNumber++;
+
+				m_characterGroups.Add(new CharacterGroup(newGroupNumber));
+			}
+
+			string dropCharacterId = CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary[characterId];
+			CharacterGroup dragGroup = m_characterGroups.FirstOrDefault(t => t.CharacterIds.Contains(dropCharacterId));
+			DataGridViewRow dropRow = m_characterGroupGrid.Rows[rowIndex];
+			CharacterGroup dropGroup = dropRow.DataBoundItem as CharacterGroup;
+			if (dragGroup == null)
+				return;
+
+			if (MoveCharacterFromTo(dropCharacterId, dragGroup, dropGroup))
+			{
+				m_characterGroupGrid.CurrentCell = dropRow.Cells["CharacterIds"];
+				ExpandCurrentRow();
+			}
+
+			m_characterGroupGrid.AllowUserToAddRows = false;
+		}
+
 		private void m_characterGroupGrid_DragDrop(object sender, DragEventArgs e)
 		{
 			Point p = m_characterGroupGrid.PointToClient(new Point(e.X, e.Y));
@@ -455,30 +483,7 @@ namespace Glyssen.Dialogs
 			{
 				if (e.Data.GetDataPresent(typeof(string)) && m_characterGroupGrid.Columns[hitInfo.ColumnIndex].DataPropertyName == "CharacterIds")
 				{
-					if (m_characterGroupGrid.Rows[hitInfo.RowIndex].IsNewRow)
-					{
-						int newGroupNumber = 1;
-
-						while (m_characterGroups.Any(t => t.GroupNumber == newGroupNumber))
-							newGroupNumber++;
-
-						m_characterGroups.Add(new CharacterGroup(newGroupNumber));
-					}
-
-					string dropCharacterId = CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary[e.Data.GetData(DataFormats.StringFormat).ToString()];
-					CharacterGroup dragGroup = m_characterGroups.FirstOrDefault(t => t.CharacterIds.Contains(dropCharacterId));
-					DataGridViewRow dropRow = m_characterGroupGrid.Rows[hitInfo.RowIndex];
-					CharacterGroup dropGroup = dropRow.DataBoundItem as CharacterGroup;
-					if (dragGroup == null)
-						return;
-
-					if (MoveCharacterFromTo(dropCharacterId, dragGroup, dropGroup))
-					{
-						m_characterGroupGrid.CurrentCell = dropRow.Cells["CharacterIds"];
-						ExpandCurrentRow();
-					}
-
-					m_characterGroupGrid.AllowUserToAddRows = false;
+					HandleCharacterIdDrop(e.Data.GetData(DataFormats.StringFormat).ToString(), hitInfo.RowIndex);
 					return;
 				}
 				if (m_dragSource == DragSource.VoiceActorGrid)
