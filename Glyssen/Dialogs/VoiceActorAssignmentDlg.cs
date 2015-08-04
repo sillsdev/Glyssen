@@ -22,7 +22,6 @@ namespace Glyssen.Dialogs
 	{
 		private readonly Project m_project;
 		private bool m_canAssign;
-		private bool m_switchToCellSelectOnMouseUp;
 		private DataGridViewCellStyle m_wordWrapCellStyle;
 
 		private SortableBindingList<CharacterGroup> m_characterGroups;
@@ -201,9 +200,6 @@ namespace Glyssen.Dialogs
 
 		private void ExpandCurrentRow()
 		{
-			//By default, the whole row remains selected when the cell is first clicked
-			m_switchToCellSelectOnMouseUp = true;
-
 			var currentRow = m_characterGroupGrid.CurrentCell.OwningRow;
 
 			m_characterGroupGrid.CurrentCell = currentRow.Cells["CharacterIds"];
@@ -224,23 +220,26 @@ namespace Glyssen.Dialogs
 			}
 
 			m_characterGroupGrid.ReadOnly = false;
-			m_characterGroupGrid.EditMode = DataGridViewEditMode.EditOnEnter;
+
+			if (!m_characterGroupGrid.IsCurrentCellInEditMode)
+				m_characterGroupGrid.EditMode = DataGridViewEditMode.EditOnEnter;
 
 			m_characterGroupGrid.MultiSelect = false;			
 		}
 
 		private bool MoveCharacterFromTo(string characterId, CharacterGroup sourceGroup, CharacterGroup destGroup, bool confirmWithUser = true)
 		{
-			if (sourceGroup == destGroup)
+			if (sourceGroup == destGroup || (sourceGroup.CharacterIds.Count <= 1 && destGroup.CharacterIds.Count == 0))
+			{
+				RemoveUnusedGroups();
 				return false;
+			}
 
 			HashSet<string> testGroup = new CharacterIdHashSet(destGroup.CharacterIds);
 			testGroup.Add(characterId);
 
 			Proximity proximity = new Proximity(m_project);
 			MinimumProximity results = proximity.CalculateMinimumProximity(testGroup);
-
-			bool multipleCharactersInGroup = results.NumberOfBlocks >= 0;
 
 			string dlgMessageFormat =
 				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message",
@@ -258,6 +257,7 @@ namespace Glyssen.Dialogs
 				results.SecondBook.BookId + " " + results.SecondBlock.ChapterNumber + ":" +
 				results.SecondBlock.InitialStartVerseNumber);
 			string dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Title", "Confirm");
+
 			if (!confirmWithUser || MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
 			{
 				sourceGroup.CharacterIds.Remove(characterId);
@@ -265,6 +265,9 @@ namespace Glyssen.Dialogs
 				destGroup.CharacterIds.Add(characterId);
 
 				RemoveUnusedGroups();
+				//Todo: regenerate attributes
+				m_project.CharacterGroupList.PopulateEstimatedHours(m_project.IncludedBooks);
+				SaveAssignments();
 
 				return true;
 			}
@@ -347,7 +350,9 @@ namespace Glyssen.Dialogs
 
 		private void m_eitherGrid_SelectionChanged(object sender, EventArgs e)
 		{
+			m_canAssign = m_voiceActorGrid.SelectedRows.Count == 1 && m_characterGroupGrid.SelectedRows.Count == 1;
 
+			m_btnAssignActor.Enabled = m_canAssign;
 		}
 
 		private void m_characterGroupGrid_SelectionChanged(object sender, EventArgs e)
@@ -365,7 +370,17 @@ namespace Glyssen.Dialogs
 
 		private void m_btnExport_Click(object sender, EventArgs e)
 		{
+			var characterGroups = m_characterGroupGrid.DataSource as SortableBindingList<CharacterGroup>;
+ 
+			bool assignmentsComplete = characterGroups.All(t => t.IsVoiceActorAssigned);
 
+			string dlgMessage = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ExportIncompleteScript.Message", "Some of the character groups have no voice talent assigned. Are you sure you want to export an incomplete script?\n(Note: You can export the script again as many times as you want.)");
+			string dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ExportIncompleteScript.Title", "Export Incomplete Script?");
+			if (assignmentsComplete || MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
+			{
+				SaveAssignments();
+				new ProjectExport(m_project).Export(this);
+			}
 		}
 
 		private void m_voiceActorGrid_MouseMove(object sender, MouseEventArgs e)
@@ -395,8 +410,8 @@ namespace Glyssen.Dialogs
 			var hitInfo = m_characterGroupGrid.HitTest(p.X, p.Y);
 			if (hitInfo.Type == DataGridViewHitTestType.Cell && e.Data.GetDataPresent(typeof(string)) && m_characterGroupGrid.Columns[hitInfo.ColumnIndex].DataPropertyName == "CharacterIds")
 			{
+				//Follow the status of the drag-n-drop to remove new row on completion
 				m_characterGroupGrid.EditingControl.QueryContinueDrag -= m_characterGroupGrid_DragEnd_DisallowUserToAddRows;
-
 				if (!m_characterGroupGrid.Rows[hitInfo.RowIndex].IsNewRow)
 					m_characterGroupGrid.EditingControl.QueryContinueDrag += m_characterGroupGrid_DragEnd_DisallowUserToAddRows;
 
@@ -411,6 +426,12 @@ namespace Glyssen.Dialogs
 				return;
 			}
 			e.Effect = DragDropEffects.Copy;
+		}
+
+		private void m_characterGroupGrid_DragEnd_DisallowUserToAddRows(object sender, QueryContinueDragEventArgs e)
+		{
+			if (e.Action == DragAction.Cancel || e.Action == DragAction.Drop)
+				m_characterGroupGrid.AllowUserToAddRows = false;
 		}
 
 		private void m_characterGroupGrid_DragDrop(object sender, DragEventArgs e)
@@ -428,18 +449,22 @@ namespace Glyssen.Dialogs
 						while (m_characterGroups.Any(t => t.GroupNumber == newGroupNumber))
 							newGroupNumber++;
 
-						m_characterGroups.Add(new CharacterGroup(newGroupNumber));;
+						m_characterGroups.Add(new CharacterGroup(newGroupNumber));
 					}
 
 					string dropCharacterId = CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary[e.Data.GetData(DataFormats.StringFormat).ToString()];
 					CharacterGroup dragGroup = m_characterGroups.FirstOrDefault(t => t.CharacterIds.Contains(dropCharacterId));
-					CharacterGroup dropGroup = m_characterGroupGrid.Rows[hitInfo.RowIndex].DataBoundItem as CharacterGroup;
+					DataGridViewRow dropRow = m_characterGroupGrid.Rows[hitInfo.RowIndex];
+					CharacterGroup dropGroup = dropRow.DataBoundItem as CharacterGroup;
 					if (dragGroup == null)
 						return;
 
+					m_characterGroupGrid.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
+					m_characterGroupGrid.EndEdit();
+
 					if (MoveCharacterFromTo(dropCharacterId, dragGroup, dropGroup))
 					{
-						m_characterGroupGrid.CurrentCell = m_characterGroupGrid[hitInfo.ColumnIndex, hitInfo.RowIndex];
+						m_characterGroupGrid.CurrentCell = dropRow.Cells["CharacterIds"];
 						ExpandCurrentRow();
 					}
 
@@ -505,6 +530,15 @@ namespace Glyssen.Dialogs
 						{
 							DoDragDrop(0, DragDropEffects.None);
 						}
+						return;
+					}
+					if (m_characterGroupGrid.Columns[hitInfo.ColumnIndex].DataPropertyName == "CharacterIds")
+					{
+						//Although the DataGridViewListBox usually handles the drag and drop, it only does so when the cell has focus.
+						//In this case, the user starts dragging the first character ID even before selecting the row
+						var group = m_characterGroupGrid.Rows[hitInfo.RowIndex].DataBoundItem as CharacterGroup;
+						string characterId = group.CharacterIds.ToList().FirstOrDefault();
+						DoDragDrop(characterId, DragDropEffects.Move);
 					}
 				}
 			}
@@ -624,6 +658,7 @@ namespace Glyssen.Dialogs
 				m_characterGroupGrid.ReadOnly = true;
 				m_characterGroupGrid.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
 				m_characterGroupGrid.ClearSelection();
+				m_characterGroupGrid.MultiSelect = true;
 				m_characterGroupGrid.Rows[e.RowIndex].Selected = true;
 			}
 		}
@@ -636,21 +671,6 @@ namespace Glyssen.Dialogs
 
 				ExpandCurrentRow();
 			}
-		}
-
-		private void m_characterGroupGrid_MouseUp(object sender, MouseEventArgs e)
-		{
-			if (m_switchToCellSelectOnMouseUp)
-			{
-				m_characterGroupGrid.MultiSelect = true;
-				m_switchToCellSelectOnMouseUp = false;
-			}
-		}
-
-		private void m_characterGroupGrid_DragEnd_DisallowUserToAddRows(object sender, QueryContinueDragEventArgs e)
-		{
-			if (e.Action == DragAction.Cancel || e.Action == DragAction.Drop)
-				m_characterGroupGrid.AllowUserToAddRows = false;
 		}
 	}
 }

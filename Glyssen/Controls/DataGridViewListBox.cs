@@ -194,6 +194,11 @@ namespace Glyssen.Controls
 			}
 		}
 
+		public void OnMouseMove()
+		{
+			OnMouseMove(new MouseEventArgs(MouseButtons.Left, 0, -1, -1, 0));
+		}
+
 		private void m_MouseMove(object sender, MouseEventArgs e)
 		{
 			if (e.Button == MouseButtons.Left)
