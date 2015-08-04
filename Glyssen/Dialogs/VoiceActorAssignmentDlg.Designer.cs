@@ -222,6 +222,7 @@ namespace Glyssen.Dialogs
 			this.CharStatus.FillWeight = 115.4822F;
 			this.CharStatus.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Status!Status";
 			this.CharStatus.Name = "CharStatus";
+			this.CharStatus.Visible = false;
 			this.CharStatus.Width = 348;
 			// 
 			// Column4
