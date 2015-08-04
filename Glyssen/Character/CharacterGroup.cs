@@ -145,6 +145,12 @@ namespace Glyssen.Character
 
 			m_entryNameToDataEntry[entryName].Count++;
 		}
+
+		public new void Clear()
+		{
+			base.Clear();
+			m_entryNameToDataEntry.Clear();
+		}
 	}
 
 	public class CharacterGroupAttribute
@@ -175,7 +181,7 @@ namespace Glyssen.Character
 			{
 			}
 
-			public CharacterIdHashSet(IEnumerable<string> sourcEnumerable) : base(sourcEnumerable)
+			public CharacterIdHashSet(IEnumerable<string> sourceEnumerable) : base(sourceEnumerable)
 			{
 			}
 
