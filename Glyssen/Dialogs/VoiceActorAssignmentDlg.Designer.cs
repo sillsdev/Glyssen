@@ -148,7 +148,7 @@ namespace Glyssen.Dialogs
             this.Column5});
 			this.m_characterGroupGrid.ContextMenuStrip = this.m_contextMenuCharacterGroups;
 			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-			dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
+			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ControlLight;
 			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
 			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
 			dataGridViewCellStyle4.NullValue = null;

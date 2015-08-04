@@ -288,7 +288,7 @@ namespace Glyssen.Controls
 			if (CharacterGroupsWithAssignedActors.Any(cg => cg.VoiceActorAssigned == actor))
 			{
 				e.CellStyle.Font = m_italicsFont;
-				e.CellStyle.ForeColor = Color.DimGray;
+				e.CellStyle.ForeColor = Color.Gray;
 			}
 			else
 			{
