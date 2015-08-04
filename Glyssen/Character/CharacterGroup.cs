@@ -145,6 +145,12 @@ namespace Glyssen.Character
 
 			m_entryNameToDataEntry[entryName].Count++;
 		}
+
+		public new void Clear()
+		{
+			base.Clear();
+			m_entryNameToDataEntry.Clear();
+		}
 	}
 
 	public class CharacterGroupAttribute

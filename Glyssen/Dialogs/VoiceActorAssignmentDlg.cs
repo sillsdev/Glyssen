@@ -52,7 +52,7 @@ namespace Glyssen.Dialogs
 			if (m_project.CharacterGroupList.CharacterGroups.Any())
 				m_characterGroups = new SortableBindingList<CharacterGroup>(m_project.CharacterGroupList.CharacterGroups);
 			else
-				m_characterGroups = CreateInitialGroupsFromTemplate();
+				CreateInitialGroupsFromTemplate();
 
 #if DEBUG
 			var p = new Proximity(m_project);
@@ -77,9 +77,9 @@ namespace Glyssen.Dialogs
 			m_voiceActorGrid.SelectionChanged += m_eitherGrid_SelectionChanged;
 		}
 
-		private SortableBindingList<CharacterGroup> CreateInitialGroupsFromTemplate()
+		private void CreateInitialGroupsFromTemplate()
 		{
-			var characterGroups = new SortableBindingList<CharacterGroup>(m_project.CharacterGroupList.CharacterGroups);
+			m_characterGroups = new SortableBindingList<CharacterGroup>(m_project.CharacterGroupList.CharacterGroups);
 
 			CharacterGroupTemplate charGroupTemplate;
 			using (TempFile tempFile = new TempFile())
@@ -89,9 +89,7 @@ namespace Glyssen.Dialogs
 				charGroupTemplate = charGroupSource.GetTemplate(m_project.VoiceActorList.Actors.Count);
 			}
 
-			var characterIdToCharacterGroup = new Dictionary<string, CharacterGroup>();
 			ISet<string> matchedCharacterIds = new HashSet<string>();
-			ISet<CharacterDetail> standardCharacterDetails = new HashSet<CharacterDetail>();
 
 			foreach (CharacterGroup group in charGroupTemplate.CharacterGroups.Values)
 			{
@@ -100,17 +98,45 @@ namespace Glyssen.Dialogs
 				if (!group.CharacterIds.Any())
 					continue;
 
-				characterGroups.Add(group);
+				m_characterGroups.Add(group);
 
-				ProcessCharacterIds(group, characterIdToCharacterGroup, standardCharacterDetails);
 				matchedCharacterIds.AddRange(group.CharacterIds);
 			}
 
 			// Add an extra group for any characters which weren't in the template
 			var unmatchedCharacters = m_project.IncludedCharacterIds.Except(matchedCharacterIds);
 			var unmatchedCharacterGroup = new CharacterGroup { GroupNumber = 999, CharacterIds = new CharacterIdHashSet(unmatchedCharacters) };
-			characterGroups.Add(unmatchedCharacterGroup);
-			ProcessCharacterIds(unmatchedCharacterGroup, characterIdToCharacterGroup, standardCharacterDetails);
+			m_characterGroups.Add(unmatchedCharacterGroup);
+
+			GenerateAttributes();
+			m_project.CharacterGroupList.PopulateEstimatedHours(m_project.IncludedBooks);
+		}
+
+		private void ProcessCharacterIds(CharacterGroup group, Dictionary<string, CharacterGroup> characterIdToCharacterGroup, ISet<CharacterDetail> standardCharacterDetails)
+		{
+			foreach (string characterId in group.CharacterIds)
+			{
+				if (!characterIdToCharacterGroup.ContainsKey(characterId))
+					characterIdToCharacterGroup.Add(characterId, group);
+				if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator))
+					standardCharacterDetails.Add(new CharacterDetail { Character = characterId, Gender = "Either", Age = "Middle Adult", Status = true });
+				else if (CharacterVerseData.IsCharacterStandard(characterId, false))
+					standardCharacterDetails.Add(new CharacterDetail { Character = characterId, Gender = "Either", Age = "Middle Adult" });
+			}
+		}
+
+		private void GenerateAttributes()
+		{
+			var characterIdToCharacterGroup = new Dictionary<string, CharacterGroup>();
+			ISet<CharacterDetail> standardCharacterDetails = new HashSet<CharacterDetail>();
+
+			foreach (CharacterGroup group in m_characterGroups)
+			{
+				ProcessCharacterIds(group, characterIdToCharacterGroup, standardCharacterDetails);
+				group.AgeAttributes.Clear();
+				group.GenderAttributes.Clear();
+				group.Status = false;
+			}
 
 			foreach (var detail in CharacterDetailData.Singleton.GetAll().Union(standardCharacterDetails))
 			{
@@ -127,22 +153,7 @@ namespace Glyssen.Dialogs
 				}
 			}
 
-			m_project.CharacterGroupList.PopulateEstimatedHours(m_project.IncludedBooks);
-
-			return characterGroups;
-		}
-
-		private void ProcessCharacterIds(CharacterGroup group, Dictionary<string, CharacterGroup> characterIdToCharacterGroup, ISet<CharacterDetail> standardCharacterDetails)
-		{
-			foreach (string characterId in group.CharacterIds)
-			{
-				if (!characterIdToCharacterGroup.ContainsKey(characterId))
-					characterIdToCharacterGroup.Add(characterId, group);
-				if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator))
-					standardCharacterDetails.Add(new CharacterDetail { Character = characterId, Gender = "Either", Age = "Middle Adult", Status = true });
-				else if (CharacterVerseData.IsCharacterStandard(characterId, false))
-					standardCharacterDetails.Add(new CharacterDetail { Character = characterId, Gender = "Either", Age = "Middle Adult" });
-			}
+			m_project.CharacterGroupList.PopulateAttributesDisplay();
 		}
 
 		private void SaveAssignments()
@@ -224,7 +235,9 @@ namespace Glyssen.Dialogs
 			if (!m_characterGroupGrid.IsCurrentCellInEditMode)
 				m_characterGroupGrid.EditMode = DataGridViewEditMode.EditOnEnter;
 
-			m_characterGroupGrid.MultiSelect = false;			
+			m_characterGroupGrid.MultiSelect = false;
+
+			currentRow.Selected = true;
 		}
 
 		private bool MoveCharacterFromTo(string characterId, CharacterGroup sourceGroup, CharacterGroup destGroup, bool confirmWithUser = true)
@@ -265,7 +278,7 @@ namespace Glyssen.Dialogs
 				destGroup.CharacterIds.Add(characterId);
 
 				RemoveUnusedGroups();
-				//Todo: regenerate attributes
+				GenerateAttributes();
 				m_project.CharacterGroupList.PopulateEstimatedHours(m_project.IncludedBooks);
 				SaveAssignments();
 
@@ -459,9 +472,6 @@ namespace Glyssen.Dialogs
 					if (dragGroup == null)
 						return;
 
-					m_characterGroupGrid.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
-					m_characterGroupGrid.EndEdit();
-
 					if (MoveCharacterFromTo(dropCharacterId, dragGroup, dropGroup))
 					{
 						m_characterGroupGrid.CurrentCell = dropRow.Cells["CharacterIds"];
@@ -538,7 +548,12 @@ namespace Glyssen.Dialogs
 						//In this case, the user starts dragging the first character ID even before selecting the row
 						var group = m_characterGroupGrid.Rows[hitInfo.RowIndex].DataBoundItem as CharacterGroup;
 						string characterId = group.CharacterIds.ToList().FirstOrDefault();
-						DoDragDrop(characterId, DragDropEffects.Move);
+						if (group.CharacterIds.Count == 1)
+						{
+							//Without refreshing, the rows selected displays weirdly
+							Refresh();
+							DoDragDrop(characterId, DragDropEffects.Move);
+						}
 					}
 				}
 			}
