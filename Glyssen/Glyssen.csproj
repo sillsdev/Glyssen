@@ -211,6 +211,7 @@
     </Compile>
     <Compile Include="DataMigrator.cs" />
     <Compile Include="Dialogs\IWritingSystemDisplayInfo.cs" />
+    <Compile Include="Dialogs\ProjectSettingsViewModel.cs" />
     <Compile Include="Dialogs\SelectExistingProjectDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,7 +279,6 @@
     <Compile Include="IScrBook.cs" />
     <Compile Include="MultiBlockQuote.cs" />
     <Compile Include="Project.cs" />
-    <Compile Include="ProjectMetadataViewModel.cs" />
     <Compile Include="Quote\QuoteUtils.cs" />
     <Compile Include="Quote\QuoteParser.cs" />
     <Compile Include="Quote\QuoteSystem.cs" />

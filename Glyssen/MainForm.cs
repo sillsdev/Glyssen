@@ -393,7 +393,7 @@ namespace Glyssen
 
 		private void m_btnSettings_Click(object sender, EventArgs e)
 		{
-			var model = new ProjectMetadataViewModel(m_project);
+			var model = new ProjectSettingsViewModel(m_project);
 			using (var dlg = new ProjectSettingsDlg(model))
 			{
 				if (dlg.ShowDialog(this) != DialogResult.OK)

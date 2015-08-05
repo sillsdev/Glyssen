@@ -309,7 +309,7 @@ namespace Glyssen
 
 		public readonly ProjectCharacterVerseData ProjectCharacterVerseData;
 
-		public void UpdateSettings(ProjectMetadataViewModel model)
+		public void UpdateSettings(ProjectSettingsViewModel model)
 		{
 			var newPath = GetProjectFolderPath(model.IsoCode, model.PublicationId, model.RecordingProjectName);
 			if (newPath != ProjectFolder)

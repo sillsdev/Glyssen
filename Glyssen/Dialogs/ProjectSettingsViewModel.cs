@@ -2,16 +2,16 @@
 using Paratext;
 using SIL.Windows.Forms.WritingSystems;
 
-namespace Glyssen
+namespace Glyssen.Dialogs
 {
-	public class ProjectMetadataViewModel
+	public class ProjectSettingsViewModel
 	{
-		public ProjectMetadataViewModel(WritingSystemSetupModel wsModel)
+		public ProjectSettingsViewModel(WritingSystemSetupModel wsModel)
 		{
 			WsModel = wsModel;
 		}
 
-		public ProjectMetadataViewModel(Project project)
+		public ProjectSettingsViewModel(Project project)
 		{
 			Project = project;
 

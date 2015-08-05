@@ -14,18 +14,18 @@ namespace Glyssen.Dialogs
 {
 	public partial class ProjectSettingsDlg : Form
 	{
-		private ProjectMetadataViewModel m_model;
+		private ProjectSettingsViewModel m_model;
 
-		public ProjectSettingsDlg(ProjectMetadataViewModel model)
+		public ProjectSettingsDlg(ProjectSettingsViewModel model)
 		{
 			InitializeComponent();
-			ProjectMetadataViewModel = model;
+			ProjectSettingsViewModel = model;
 			UpdateDisplay();
 		}
 
 		public GlyssenBundle UpdatedBundle { get; private set; }
 
-		private ProjectMetadataViewModel ProjectMetadataViewModel
+		private ProjectSettingsViewModel ProjectSettingsViewModel
 		{
 			set
 			{

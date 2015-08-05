@@ -62,23 +62,23 @@ namespace Glyssen.Dialogs
 
 		protected BookScript CurrentBook { get { return m_navigator.CurrentBook; } }
 
-		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.AllScripture, ProjectMetadataViewModel metadataViewModel = null)
-			: this(project, mode, null, metadataViewModel)
+		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.AllScripture, ProjectSettingsViewModel settingsViewModel = null)
+			: this(project, mode, null, settingsViewModel)
 		{
 		}
 
-		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode, BookBlockIndices startingIndices, ProjectMetadataViewModel metadataViewModel = null)
+		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode, BookBlockIndices startingIndices, ProjectSettingsViewModel settingsViewModel = null)
 		{
 			m_project = project;
 			m_navigator = new BlockNavigator(project.IncludedBooks);
 			m_includedBooks = project.IncludedBooks.Select(b => b.BookId);
 			Versification = project.Versification;
 
-			if (metadataViewModel != null)
+			if (settingsViewModel != null)
 			{
-				m_fontFamily = metadataViewModel.WsModel.CurrentDefaultFontName;
-				m_baseFontSizeInPoints = (int)metadataViewModel.WsModel.CurrentDefaultFontSize;
-				m_rightToLeftScript = metadataViewModel.WsModel.CurrentRightToLeftScript;
+				m_fontFamily = settingsViewModel.WsModel.CurrentDefaultFontName;
+				m_baseFontSizeInPoints = (int)settingsViewModel.WsModel.CurrentDefaultFontSize;
+				m_rightToLeftScript = settingsViewModel.WsModel.CurrentRightToLeftScript;
 			}
 			else
 			{
