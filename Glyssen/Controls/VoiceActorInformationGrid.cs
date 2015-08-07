@@ -43,11 +43,22 @@ namespace Glyssen.Controls
 			m_italicsFont = new Font(originalGridFont.FontFamily, originalGridFont.Size, originalGridFont.Style | FontStyle.Italic);
 		}
 
+		protected override void OnClientSizeChanged(EventArgs e)
+		{
+			m_dataGrid.ClientSize = ClientSize;
+			base.OnClientSizeChanged(e);
+		}
+
 		public int RowCount { get { return m_dataGrid.RowCount; } }
 
 		public VoiceActor.VoiceActor SelectedVoiceActorEntity
 		{
-			get { return m_dataGrid.SelectedRows[0].DataBoundItem as VoiceActor.VoiceActor; }
+			get 
+			{
+				if (m_dataGrid.SelectedRows.Count == 0)
+					return null;
+				return m_dataGrid.SelectedRows[0].DataBoundItem as VoiceActor.VoiceActor; 
+			}
 		}
 
 		public DataGridViewSelectedRowCollection SelectedRows

@@ -39,11 +39,12 @@ namespace Glyssen.Dialogs
 			m_wordWrapCellStyle.WrapMode = DataGridViewTriState.True;
 
 			m_characterGroupGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+			//m_characterGroupGrid.AutoSize = true;
 
 			WindowState = FormWindowState.Maximized;
 
 			AlignBtnAssignActorToSplitter();
-
+			//AlignBtnUpdateGroupToLeftGrid();
 
 			m_characterGroups = m_actorAssignmentViewModel.CharacterGroups;
 
@@ -100,6 +101,11 @@ namespace Glyssen.Dialogs
 		{
 			int xDist = splitContainer1.SplitterDistance;
 			m_btnAssignActor.Location = new Point(xDist + 19, m_btnAssignActor.Location.Y);
+		}
+
+		private void AlignBtnUpdateGroupToLeftGrid()
+		{
+			m_btnUpdateGroup.Top = 100;
 		}
 
 		private void m_btnAssignActor_Click(object sender, EventArgs e)
@@ -339,7 +345,7 @@ namespace Glyssen.Dialogs
 			int dRows = currentRow.Index - m_characterGroupGrid.FirstDisplayedScrollingRowIndex;
 			if (dRows * 22 + maxRowHeight >= m_characterGroupGrid.Height - m_characterGroupGrid.ColumnHeadersHeight)
 			{
-				m_characterGroupGrid.FirstDisplayedScrollingRowIndex = currentRow.Index - 5;
+				m_characterGroupGrid.FirstDisplayedScrollingRowIndex = currentRow.Index;
 			}
 
 			m_characterGroupGrid.ReadOnly = false;
@@ -350,6 +356,8 @@ namespace Glyssen.Dialogs
 			m_characterGroupGrid.MultiSelect = false;
 
 			currentRow.Selected = true;
+
+			m_characterGroupGrid.PerformLayout();
 		}
 
 		private void m_actorAssignmentViewModel_Saved(object sender, EventArgs e)
@@ -386,7 +394,6 @@ namespace Glyssen.Dialogs
 				m_characterGroupGrid.Rows[e.RowIndex].DefaultCellStyle = null;
 				m_characterGroupGrid.ReadOnly = true;
 				m_characterGroupGrid.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
-				m_characterGroupGrid.ClearSelection();
 				m_characterGroupGrid.MultiSelect = true;
 				m_characterGroupGrid.Rows[e.RowIndex].Selected = true;
 			}
@@ -437,6 +444,10 @@ namespace Glyssen.Dialogs
 			if (m_characterGroupGrid.Rows[rowIndex].IsNewRow)
 			{
 				m_actorAssignmentViewModel.AddNewGroup();
+
+				DataGridViewRow row = m_characterGroupGrid.Rows[m_characterGroupGrid.Rows.Count - 1];
+				if(!row.Visible)
+				{ }
 			}
 
 			string dropCharacterId = CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary[characterId];
