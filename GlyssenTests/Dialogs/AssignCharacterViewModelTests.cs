@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Linq;
+﻿using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Dialogs;
@@ -190,6 +189,65 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void GetDeliveriesForCharacter_CharacterWithNoDeliveries_GetsOnlyNormalDelivery()
+		{
+			FindRefInMark(5, 9);
+			m_model.GetCharactersForCurrentReference();
+			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("man with evil spirit"));
+			Assert.AreEqual(1, deliveries.Count());
+			Assert.AreEqual(AssignCharacterViewModel.Delivery.Normal, deliveries.First());
+		}
+
+		[Test]
+		public void GetDeliveriesForCharacter_CharacterWithOneDelivery_GetsDeliveryAndNormal()
+		{
+			FindRefInMark(5, 9);
+			m_model.GetCharactersForCurrentReference();
+			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("Jesus"));
+			Assert.AreEqual(2, deliveries.Count());
+			Assert.Contains(new AssignCharacterViewModel.Delivery("questioning"), deliveries.ToList());
+			Assert.Contains(AssignCharacterViewModel.Delivery.Normal, deliveries.ToList());
+		}
+
+		[Test]
+		public void GetUniqueDeliveries_NoFilterText_ReturnsAll()
+		{
+			var uniqueDeliveries = m_model.GetUniqueDeliveries();
+			Assert.AreEqual(251, uniqueDeliveries.Count());
+		}
+
+		[Test]
+		public void GetUniqueDeliveries_FilterText_ReturnsDeliveriesWithFilterText()
+		{
+			var uniqueDeliveries = m_model.GetUniqueDeliveries("amazed");
+			Assert.AreEqual(2, uniqueDeliveries.Count());
+		}
+
+		[Test]
+		public void GetUniqueDeliveries_HasCurrentDeliveries_NoFilterText_ReturnsAll()
+		{
+			m_model.Mode = BlocksToDisplay.AllScripture;
+			FindRefInMark(5, 7);
+			m_model.GetCharactersForCurrentReference();
+			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("man with evil spirit"));
+			Assert.AreEqual(2, deliveries.Count());
+			var uniqueDeliveries = m_model.GetUniqueDeliveries();
+			Assert.AreEqual(252, uniqueDeliveries.Count());
+		}
+
+		[Test]
+		public void GetUniqueDeliveries_HasCurrentDeliveries_FilterText_ReturnsDeliveriesWithFilterText()
+		{
+			m_model.Mode = BlocksToDisplay.AllScripture;
+			FindRefInMark(5, 7);
+			m_model.GetCharactersForCurrentReference();
+			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("man with evil spirit"));
+			Assert.AreEqual(2, deliveries.Count());
+			var uniqueDeliveries = m_model.GetUniqueDeliveries("shriek");
+			Assert.AreEqual(2, uniqueDeliveries.Count());
+		}
+
+		[Test]
 		public void IsModified_NormalDeliveryNoChange_ReturnsFalse()
 		{
 			var block1 = m_model.CurrentBlock;
@@ -273,6 +331,53 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void IsModified_StandardCharacter_ReturnsFalse()
+		{
+			var block1 = m_model.CurrentBlock;
+			block1.CharacterId = "extra-MRK";
+			block1.Delivery = "foo";
+			Assert.IsFalse(m_model.IsModified(new AssignCharacterViewModel.Character("extra-MRK"), null));
+		}
+
+		[Test]
+		public void IsModified_ChangeToNarrator_ReturnsTrue()
+		{
+			var block1 = m_model.CurrentBlock;
+			block1.CharacterId = "Theodore";
+			block1.Delivery = null;
+			Assert.IsTrue(m_model.IsModified(new AssignCharacterViewModel.Character("narrator-MRK"), null));
+		}
+
+		[Test]
+		public void IsModified_SameNarrator_ReturnsFalse()
+		{
+			var block1 = m_model.CurrentBlock;
+			block1.CharacterId = "narrator-MRK";
+			block1.Delivery = null;
+			Assert.IsFalse(m_model.IsModified(new AssignCharacterViewModel.Character("narrator-MRK"), AssignCharacterViewModel.Delivery.Normal));
+		}
+
+		[Test]
+		public void SetCurrentBookSingleVoice_SetTrueFromTrue_IsTrue()
+		{
+			m_fullProjectRefreshRequired = true;
+			m_model.SetCurrentBookSingleVoice(true);
+			Assert.IsTrue(m_model.IsCurrentBookSingleVoice);
+			m_model.SetCurrentBookSingleVoice(true);
+			Assert.IsTrue(m_model.IsCurrentBookSingleVoice);
+		}
+
+		[Test]
+		public void SetCurrentBookSingleVoice_SetFalseFromTrue_IsFalse()
+		{
+			m_fullProjectRefreshRequired = true;
+			m_model.SetCurrentBookSingleVoice(true);
+			Assert.IsTrue(m_model.IsCurrentBookSingleVoice);
+			m_model.SetCurrentBookSingleVoice(false);
+			Assert.IsFalse(m_model.IsCurrentBookSingleVoice);
+		}
+
+		[Test]
 		public void SetCurrentBookSingleVoice_TrueNoSubsequentBooks_RemainingBlocksAssignedToNarratorAndCurrentBlockIsUnchanged()
 		{
 			m_fullProjectRefreshRequired = true;
@@ -289,6 +394,15 @@ namespace GlyssenTests.Dialogs
 			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
 			Assert.IsFalse(m_model.CanNavigateToPreviousRelevantBlock);
 			Assert.IsFalse(m_model.CanNavigateToNextRelevantBlock);
+		}
+
+		[Test]
+		public void AreAllAssignmentsComplete_FalseBeforeTrueAfterSettingSingleVoice()
+		{
+			m_fullProjectRefreshRequired = true;
+			Assert.IsFalse(m_model.AreAllAssignmentsComplete);
+			m_model.SetCurrentBookSingleVoice(true);
+			Assert.IsTrue(m_model.AreAllAssignmentsComplete);
 		}
 
 		[Test]
@@ -316,7 +430,7 @@ namespace GlyssenTests.Dialogs
 
 		private void FindRefInMark(int chapter, int verse)
 		{
-			while (m_model.CurrentBlock.ChapterNumber <= chapter && m_model.CurrentBlock.InitialStartVerseNumber != verse)
+			while (m_model.CurrentBlock.ChapterNumber != chapter || m_model.CurrentBlock.InitialStartVerseNumber != verse)
 				m_model.LoadNextRelevantBlock();
 			Assert.AreEqual("MRK", m_model.CurrentBookId);
 			Assert.AreEqual(chapter, m_model.CurrentBlock.ChapterNumber);

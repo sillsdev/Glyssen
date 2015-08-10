@@ -1,18 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Threading;
-using System.Xml;
 using Glyssen;
-using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
-using Glyssen.Quote;
+using GlyssenTests.Properties;
 using NUnit.Framework;
-using SIL.DblBundle.Text;
-using SIL.DblBundle.Usx;
-using SIL.IO;
-using SIL.WritingSystems;
 
 namespace GlyssenTests.Dialogs
 {
@@ -26,8 +18,8 @@ namespace GlyssenTests.Dialogs
 		public void TestFixtureSetUp()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
-			m_testProject = TestProject.CreateTestProject();
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			m_testProject = TestProject.CreateTestProject(true);
 		}
 
 		[SetUp]
@@ -64,6 +56,21 @@ namespace GlyssenTests.Dialogs
 				m_model.LoadNextRelevantBlock();
 			} while (!m_model.CanNavigateToNextRelevantBlock);
 			Assert.IsFalse(m_model.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Continuation);
+		}
+
+		[Test]
+		public void LoadNextRelevantBlockInSubsequentBook_HasFurtherBooks_HasNoFurtherRelevantBlocks_CallingMethodDoesNothing()
+		{
+			// Validate our setup
+			Assert.AreEqual(2, m_testProject.IncludedBooks.Count);
+			while (m_model.CanNavigateToNextRelevantBlock)
+				m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(m_testProject.IncludedBooks[0].BookId, m_model.CurrentBookId);
+			
+			// Run test
+			var currentBlockBeforeCall = m_model.CurrentBlock;
+			m_model.LoadNextRelevantBlockInSubsequentBook();
+			Assert.AreEqual(currentBlockBeforeCall, m_model.CurrentBlock);
 		}
 
 		[Test]

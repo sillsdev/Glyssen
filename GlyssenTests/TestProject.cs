@@ -23,7 +23,7 @@ namespace GlyssenTests
 				DirectoryUtilities.DeleteDirectoryRobust(testProjFolder);
 		}
 
-		public static Project CreateTestProject()
+		public static Project CreateTestProject(bool includeJude = false)
 		{
 			DeleteTestProjectFolder();
 			var sampleMetadata = new GlyssenDblTextMetadata();
@@ -34,6 +34,26 @@ namespace GlyssenTests
 			bookOfMark.LongName = "Gospel of Mark";
 			bookOfMark.ShortName = "Mark";
 			sampleMetadata.AvailableBooks.Add(bookOfMark);
+
+			var books = new List<UsxDocument>();
+			XmlDocument sampleMark = new XmlDocument();
+			sampleMark.LoadXml(Properties.Resources.TestMRK);
+			books.Add(new UsxDocument(sampleMark));
+
+			if (includeJude)
+			{
+				var bookOfJude = new Book();
+				bookOfJude.Code = "JUD";
+				bookOfJude.IncludeInScript = true;
+				bookOfJude.LongName = "Jude";
+				bookOfJude.ShortName = "Jude";
+				sampleMetadata.AvailableBooks.Add(bookOfJude);
+
+				XmlDocument sampleJude = new XmlDocument();
+				sampleJude.LoadXml(Properties.Resources.TestJUD);
+				books.Add(new UsxDocument(sampleJude));
+			}
+
 			sampleMetadata.FontFamily = "Times New Roman";
 			sampleMetadata.FontSizeInPoints = 12;
 			sampleMetadata.Id = kTest;
@@ -42,11 +62,7 @@ namespace GlyssenTests
 			sampleMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
 			sampleMetadata.QuoteSystem = GetTestQuoteSystem();
 
-			XmlDocument sampleMark = new XmlDocument();
-			sampleMark.LoadXml(Properties.Resources.TestMRK);
-			UsxDocument mark = new UsxDocument(sampleMark);
-
-			var project = new Project(sampleMetadata, new[] { mark }, SfmLoader.GetUsfmStylesheet());
+			var project = new Project(sampleMetadata, books, SfmLoader.GetUsfmStylesheet());
 
 			// Wait for quote parse to finish
 			while (project.ProjectState != ProjectState.FullyInitialized)

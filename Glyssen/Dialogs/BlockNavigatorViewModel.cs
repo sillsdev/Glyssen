@@ -418,8 +418,11 @@ namespace Glyssen.Dialogs
 			return true;
 		}
 
-		protected void LoadNextRelevantBlockInSubsequentBook()
+		// Internal for testing
+		protected internal void LoadNextRelevantBlockInSubsequentBook()
 		{
+			if (!CanNavigateToNextRelevantBlock)
+				return;
 			if (m_navigator.IsLastBook(CurrentBook))
 				return;
 
@@ -539,7 +542,7 @@ namespace Glyssen.Dialogs
 			m_navigator.NavigateToFirstBlock();
 		}
 
-		protected  virtual void RelevantBlockAdded(Block block)
+		protected virtual void RelevantBlockAdded(Block block)
 		{
 			// No-op in base class
 		}

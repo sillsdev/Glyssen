@@ -158,6 +158,7 @@
     <None Include="Resources\TestMRK.xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\TestJUD.xml" />
     <Content Include="Resources\TestVersification.txt" />
   </ItemGroup>
   <ItemGroup />

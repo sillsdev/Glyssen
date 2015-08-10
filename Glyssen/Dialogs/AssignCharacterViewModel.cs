@@ -98,6 +98,12 @@ namespace Glyssen.Dialogs
 				CurrentBookSaved(this, EventArgs.Empty);
 		}
 
+		private void OnAssignedBlocksIncremented()
+		{
+			if (AssignedBlocksIncremented != null)
+				AssignedBlocksIncremented(this, new EventArgs());
+		}
+
 		#region Overridden methods
 		protected override void PopulateRelevantBlocks()
 		{
@@ -296,8 +302,7 @@ namespace Glyssen.Dialogs
 			if (!CurrentBlock.UserConfirmed)
 			{
 				m_assignedBlocks++;
-				if (AssignedBlocksIncremented != null)
-					AssignedBlocksIncremented(this, new EventArgs());
+				OnAssignedBlocksIncremented();
 			}
 
 			foreach (Block block in GetAllBlocksWithSameQuote(CurrentBlock))
@@ -343,6 +348,12 @@ namespace Glyssen.Dialogs
 			{
 				block.SetStandardCharacter(bookId, CharacterVerseData.StandardCharacter.Narrator);
 				block.UserConfirmed = true;
+
+				if (block.MultiBlockQuote != MultiBlockQuote.Continuation)
+				{
+					m_assignedBlocks++;
+					OnAssignedBlocksIncremented();
+				}
 			}
 		}
 		#endregion
