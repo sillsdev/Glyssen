@@ -191,47 +191,61 @@ namespace Glyssen.Dialogs
 				return false;
 			}
 
-			HashSet<string> testGroup = new CharacterIdHashSet(destGroup.CharacterIds);
-			testGroup.Add(characterId);
-
-			var proximity = new Proximity(m_project);
-			var results = proximity.CalculateMinimumProximity(testGroup);
-
-			var dlgMessageFormat =
-				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message",
-					"You are about to move {0} from group #{1} into group #{2}." +
-					" As a result, group #{2} will have a minimum proximity of {3} blocks between {4} and {5} in the verses {6} and {7}." +
-					"\n\nDo you want to continue moving this character?");
-
-			var dlgMessage = string.Format(dlgMessageFormat, CharacterVerseData.GetCharacterNameForUi(characterId),
-				sourceGroup.GroupNumber, destGroup.GroupNumber,
-				results.NumberOfBlocks,
-				CharacterVerseData.GetCharacterNameForUi(results.FirstBlock.CharacterId),
-				CharacterVerseData.GetCharacterNameForUi(results.SecondBlock.CharacterId),
-				results.FirstBook.BookId + " " + results.FirstBlock.ChapterNumber + ":" +
-				results.FirstBlock.InitialStartVerseNumber,
-				results.SecondBook.BookId + " " + results.SecondBlock.ChapterNumber + ":" +
-				results.SecondBlock.InitialStartVerseNumber);
-			var dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Title",
-				"Confirm");
-
-			if (!confirmWithUser || MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
+			if (confirmWithUser)
 			{
-				sourceGroup.CharacterIds.Remove(characterId);
+				var proximity = new Proximity(m_project);
 
-				destGroup.CharacterIds.Add(characterId);
+				HashSet<string> testGroup = new CharacterIdHashSet(destGroup.CharacterIds);
+				var resultsBefore = proximity.CalculateMinimumProximity(testGroup);
+				int proximityBefore = resultsBefore.NumberOfBlocks;
 
-				RemoveUnusedGroups();
-				GenerateAttributes();
-				m_project.CharacterGroupList.PopulateEstimatedHours(m_project.IncludedBooks);
-				SaveAssignments();
+				testGroup.Add(characterId);
+				var resultsAfter = proximity.CalculateMinimumProximity(testGroup);
+				int proximityAfter = resultsAfter.NumberOfBlocks;
 
-				return true;
+				if ((proximityBefore == -1 || proximityBefore > proximityAfter) &&
+					proximityAfter >= 0 &&
+					proximityAfter <= Proximity.kDefaultMinimumProximity)
+				{
+
+					var dlgMessageFormat1 =
+						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
+							"You are about to move {0} from group #{1} into group #{2}." +
+							" As a result, group #{2} will have a minimum proximity of {3} blocks between {4} and {5} in the verses {6} and {7}.");
+					var dlgMessageFormat2 =
+						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part2",
+							"Do you want to continue moving this character?");
+
+					var dlgMessage = string.Format(dlgMessageFormat1 + Environment.NewLine + Environment.NewLine + dlgMessageFormat2,
+						"[" + CharacterVerseData.GetCharacterNameForUi(characterId) + "]",
+						sourceGroup.GroupNumber, destGroup.GroupNumber,
+						resultsAfter.NumberOfBlocks,
+						"[" + CharacterVerseData.GetCharacterNameForUi(resultsAfter.FirstBlock.CharacterId) + "]",
+						"[" + CharacterVerseData.GetCharacterNameForUi(resultsAfter.SecondBlock.CharacterId) + "]",
+						resultsAfter.FirstBook.BookId + " " + resultsAfter.FirstBlock.ChapterNumber + ":" +
+						resultsAfter.FirstBlock.InitialStartVerseNumber,
+						resultsAfter.SecondBook.BookId + " " + resultsAfter.SecondBlock.ChapterNumber + ":" +
+						resultsAfter.SecondBlock.InitialStartVerseNumber);
+					var dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Title",
+						"Confirm");
+
+					if (MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) != DialogResult.Yes)
+					{
+						RemoveUnusedGroups();
+						return false;
+					}
+				}
 			}
 
-			RemoveUnusedGroups();
+			sourceGroup.CharacterIds.Remove(characterId);
+			destGroup.CharacterIds.Add(characterId);
 
-			return false;
+			RemoveUnusedGroups();
+			GenerateAttributes();
+			m_project.CharacterGroupList.PopulateEstimatedHours(m_project.IncludedBooks);
+			SaveAssignments();
+
+			return true;
 		}
 
 		public void RemoveUnusedGroups()

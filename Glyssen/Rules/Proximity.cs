@@ -6,6 +6,7 @@ namespace Glyssen.Rules
 {
 	public class Proximity
 	{
+		public const int kDefaultMinimumProximity = 30;
 		private readonly Project m_project;
 
 		public Proximity(Project project)
