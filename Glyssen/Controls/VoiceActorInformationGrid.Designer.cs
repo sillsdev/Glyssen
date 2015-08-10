@@ -107,7 +107,7 @@
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.m_dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-			this.m_dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.m_dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.m_dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ActorId,
             this.ActorName,
@@ -217,7 +217,7 @@
 			this.ActorQuality.MinimumWidth = 90;
 			this.ActorQuality.Name = "ActorQuality";
 			this.ActorQuality.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			this.ActorQuality.Width = 365;
+			this.ActorQuality.Width = 403;
 			// 
 			// ActorStatus
 			// 
