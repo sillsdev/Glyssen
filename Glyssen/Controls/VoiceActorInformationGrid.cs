@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Glyssen.Character;
 using Glyssen.VoiceActor;
 using L10NSharp;
+using SIL.Extensions;
 
 namespace Glyssen.Controls
 {
@@ -20,19 +21,18 @@ namespace Glyssen.Controls
 		public event DataGridViewCellMouseEventHandler CellDoubleClicked;
 		public event MouseEventHandler GridMouseMove;
 		public event EventHandler SelectionChanged;
-		private int m_currentId;
-		private Project m_project;
-		private VoiceActorSortableBindingList m_bindingList;
+		private readonly VoiceActorInformationViewModel m_actorInformationViewModel;
 		private readonly Font m_italicsFont;
 
 		public VoiceActorInformationGrid()
 		{
 			InitializeComponent();
 
+			m_actorInformationViewModel = new VoiceActorInformationViewModel();
+			m_actorInformationViewModel.Saved += m_actorInformationViewModel_Saved;
+
 			//Ensures that rows stay the height we set in the designer (specifically to match the character groups grid)
 			m_dataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-
-			m_currentId = 0;
 
 			m_dataGrid.UserAddedRow += HandleUserAddedRow;
 			m_dataGrid.CellMouseDoubleClick += HandleDoubleClick;
@@ -67,22 +67,25 @@ namespace Glyssen.Controls
 			set { m_dataGrid.ContextMenuStrip = value; }
 		}
 
-		public IEnumerable<CharacterGroup> CharacterGroupsWithAssignedActors { get; set; }
+		public IEnumerable<CharacterGroup> CharacterGroupsWithAssignedActors
+		{
+			get { return m_actorInformationViewModel.CharacterGroupsWithAssignedActors; }
+			set { m_actorInformationViewModel.CharacterGroupsWithAssignedActors = value; }
+		}
 
 		public void Initialize(Project project, bool sort = true)
 		{
-			m_project = project;
-			LoadVoiceActorInformation(sort);
+			m_actorInformationViewModel.Initialize(project);
+
+			m_dataGrid.DataSource = m_actorInformationViewModel.BindingList;
+
+			if (sort)
+				m_dataGrid.Sort(m_dataGrid.Columns["ActorName"], ListSortDirection.Ascending);
 		}
 
 		public void SaveVoiceActorInformation()
 		{
-			m_project.SaveVoiceActorInformationData();
-
-			if (Saved != null)
-			{
-				Saved(m_dataGrid, EventArgs.Empty);
-			}
+			m_actorInformationViewModel.SaveVoiceActorInformation();
 		}
 
 		public DataGridView.HitTestInfo HitTest(int x, int y)
@@ -99,20 +102,6 @@ namespace Glyssen.Controls
 		public bool EndEdit()
 		{
 			return m_dataGrid.EndEdit();
-		}
-
-		private void LoadVoiceActorInformation(bool sort = true)
-		{
-			var actors = m_project.VoiceActorList.Actors;
-			if (actors.Any())
-				m_currentId = actors.Max(a => a.Id) + 1;
-			m_bindingList = new VoiceActorSortableBindingList(actors);
-			m_bindingList.CharacterGroups = CharacterGroupsWithAssignedActors;
-			m_dataGrid.DataSource = m_bindingList;
-			m_bindingList.AddingNew += HandleAddingNew;
-
-			if (sort)
-				m_dataGrid.Sort(m_dataGrid.Columns["ActorName"], ListSortDirection.Ascending);
 		}
 
 		private void m_dataGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -137,88 +126,20 @@ namespace Glyssen.Controls
 			}
 		}
 
-		private void HandleAddingNew(object sender, AddingNewEventArgs e)
-		{
-			e.NewObject = new VoiceActor.VoiceActor { Id = m_currentId++ };
-		}
-
 		private void RemoveSelectedRows(bool confirmWithUser)
 		{
-			if (m_dataGrid.SelectedRows.Count == 0)
-				return;
-
-			bool deleteConfirmed = !confirmWithUser;
-
-			if (confirmWithUser)
+			var actorsToRemove = new HashSet<VoiceActor.VoiceActor>();
+			foreach (DataGridViewRow row in m_dataGrid.SelectedRows)
 			{
-				List<VoiceActor.VoiceActor> selectedVoiceActorsWithAssignments = new List<VoiceActor.VoiceActor>();
-				foreach (DataGridViewRow row in m_dataGrid.SelectedRows)
-				{
-					VoiceActor.VoiceActor voiceActor = row.DataBoundItem as VoiceActor.VoiceActor;
-					if (voiceActor == null)
-						continue;
-					if (m_project.CharacterGroupList.HasVoiceActorAssigned(voiceActor.Id))
-					{
-						selectedVoiceActorsWithAssignments.Add(voiceActor);
-					}
-				}
-				if (selectedVoiceActorsWithAssignments.Any())
-				{
-					string assignedMsg;
-					string assignedTitle;
-					if (selectedVoiceActorsWithAssignments.Count > 1)
-					{
-						assignedMsg = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.MessagePlural", "One or more of the selected actors is assigned to a character group. Deleting the actor will remove the assignment as well. Are you sure you want to delete the selected actors?");
-						assignedTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.TitlePlural", "Voice Actors Assigned");
-					}
-					else
-					{
-						assignedMsg = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.MessageSingular", "The selected actor is assigned to a character group. Deleting the actor will remove the assignment as well. Are you sure you want to delete the selected actor?");
-						assignedTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.TitleSingular", "Voice Actor Assigned");
-					}
-
-					if (MessageBox.Show(assignedMsg, assignedTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
-					{
-						foreach (var voiceActor in selectedVoiceActorsWithAssignments)
-							m_project.CharacterGroupList.RemoveVoiceActor(voiceActor.Id);
-						m_project.SaveCharacterGroupData();
-						deleteConfirmed = true;
-					}
-					else
-					{
-						return;
-					}
-				}
-				else
-				{
-					string dlgMessage;
-					string dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.Title", "Confirm");
-					
-					if (SelectedRows.Count > 1)
-					{
-						dlgMessage = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.MessagePlural", "Are you sure you want to delete the selected actors?");
-					}
-					else
-					{
-						dlgMessage = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.MessageSingular", "Are you sure you want to delete the selected actor?");
-					}
-					deleteConfirmed = MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
-				}
+				actorsToRemove.Add(row.DataBoundItem as VoiceActor.VoiceActor);
 			}
 
-			if (deleteConfirmed)
+			if (m_actorInformationViewModel.DeleteVoiceActors(actorsToRemove, confirmWithUser))
 			{
 				int indexOfFirstRowToRemove = m_dataGrid.SelectedRows[0].Index;
-				for (int i = m_dataGrid.SelectedRows.Count - 1; i >= 0; i--)
-				{
-					if (m_dataGrid.SelectedRows[i].Index != m_dataGrid.RowCount - 1)
-						m_dataGrid.Rows.Remove(m_dataGrid.SelectedRows[i]);
-				}
-				SaveVoiceActorInformation();
-
 				DataGridViewRowsRemovedEventHandler handler = UserRemovedRows;
 				if (handler != null)
-					handler(m_dataGrid, new DataGridViewRowsRemovedEventArgs(indexOfFirstRowToRemove, m_dataGrid.RowCount));
+					handler(m_dataGrid, new DataGridViewRowsRemovedEventArgs(indexOfFirstRowToRemove, m_dataGrid.RowCount));				
 			}
 		}
 
@@ -296,6 +217,12 @@ namespace Glyssen.Controls
 			}
 		}
 
+		private void m_actorInformationViewModel_Saved(object sender, EventArgs e)
+		{
+			if (Saved != null)
+				Saved(sender, e);
+		}
+
 		private void m_dataGrid_CurrentCellChanged(object sender, EventArgs e)
 		{
 			if (m_dataGrid.CurrentCell == null)
@@ -315,7 +242,7 @@ namespace Glyssen.Controls
 		private void m_dataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
 		{
 			HandleCellUpdated(e);
-			SaveVoiceActorInformation();
+			m_actorInformationViewModel.SaveVoiceActorInformation();
 		}
 
 		private void m_dataGrid_SelectionChanged(object sender, EventArgs e)
