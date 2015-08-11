@@ -194,13 +194,13 @@
         <seg>亚迦布 ***the*** 先知</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Agag, king of Amalekites">
+    <tu tuid="CharacterName.Agag, king of the Amalekites">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Agag, king of Amalekites</seg>
+        <seg>Agag, king of the Amalekites</seg>
       </tuv>
       <tuv xml:lang="zh-Hans">
-        <seg>亚甲, 王 ***of*** ***Amalekites***</seg>
+        <seg>亚甲, 王 ***of*** ***the*** ***Amalekites***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Ahab, king of Israel">
@@ -302,13 +302,13 @@
         <seg>亚玛撒)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Amasai, chief of thirty (Spirit came upon)">
+    <tu tuid="CharacterName.Amasai, chief of thirty">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Amasai, chief of thirty (Spirit came upon)</seg>
+        <seg>Amasai, chief of thirty</seg>
       </tuv>
       <tuv xml:lang="zh-Hans">
-        <seg>亚玛赛, ***chief*** ***of*** ***thirty*** ***(Spirit*** ***came*** ***upon)***</seg>
+        <seg>亚玛赛, ***chief*** ***of*** ***thirty***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Amaziah, king of Judah">

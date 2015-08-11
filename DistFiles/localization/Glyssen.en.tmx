@@ -15,6 +15,12 @@
         <seg>OK</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName. guard">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg> guard</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.2 other disciples">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -201,10 +207,10 @@
         <seg>Agabus the prophet</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Agag, king of Amalekites">
+    <tu tuid="CharacterName.Agag, king of the Amalekites">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Agag, king of Amalekites</seg>
+        <seg>Agag, king of the Amalekites</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Ahab, king of Israel">
@@ -315,10 +321,10 @@
         <seg>Amasa)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Amasai, chief of thirty (Spirit came upon)">
+    <tu tuid="CharacterName.Amasai, chief of thirty">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Amasai, chief of thirty (Spirit came upon)</seg>
+        <seg>Amasai, chief of thirty</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Amaziah, king of Judah">
@@ -2961,10 +2967,10 @@
         <seg>Hadad the Edomite</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Hagar, the Egyptian">
+    <tu tuid="CharacterName.Hagar, Sarai’s maid">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Hagar, the Egyptian</seg>
+        <seg>Hagar, Sarai’s maid</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Haggai (word of the LORD)">
@@ -3255,12 +3261,6 @@
         <seg>Huldah, prophetess</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Huldah, prophetess (the LORD says)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Huldah, prophetess (the LORD says)</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.husband of Shunammite">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3379,30 +3379,6 @@
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>Isaiah, the prophet</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Isaiah, the prophet (sign)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Isaiah, the prophet (sign)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Isaiah, the prophet (the LORD says)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Isaiah, the prophet (the LORD says)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Isaiah, the prophet (word of the LORD came)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Isaiah, the prophet (word of the LORD came)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Isaiah, the prophet (word of the LORD)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Isaiah, the prophet (word of the LORD)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Ish-Bosheth, son of Saul">
@@ -5487,18 +5463,6 @@
         <seg>Nebuzaradan</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Nebuzaradan, Babylonian commander of imperial guard">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Nebuzaradan, Babylonian commander of imperial guard</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Nebuzaradan, commander for king of Babylon">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Nebuzaradan, commander for king of Babylon</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Neco, king of Egypt">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -5635,6 +5599,12 @@
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>officer of king of Israel, on whose arm the king leaned (post mortem)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.officers">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>officers</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.officers of King of Aram">
@@ -7203,12 +7173,6 @@
         <seg>Shemaiah</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Shemaiah, prophet (the LORD says)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Shemaiah, prophet (the LORD says)</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Shemaiah, son of Delaiah, false prophet">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -7663,12 +7627,6 @@
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>temple guards</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.temple police">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>temple police</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Tempter">
