@@ -4064,141 +4064,6 @@
         <seg>Saul (Paul)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.saying (proverb)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying (proverb)</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal (proverb)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about Anakites">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about Anakites</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about Anakites</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about blind and lame">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about blind and lame</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about blind and lame</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about captivity and death by the sword">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about captivity and death by the sword</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about captivity and death by the sword</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about Gentile nations">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about Gentile nations</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about Gentile nations</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about going beyond what is written">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about going beyond what is written</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about going beyond what is written</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about Nimrod">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about Nimrod</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about Nimrod</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about Saul">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about Saul</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about Saül</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about seer">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about seer</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about seer</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about sow">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about sow</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about sow</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about what controls you">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about what controls you</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about what controls you</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about yeast">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about yeast</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about yeast</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about Zion">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about Zion</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about Zion</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying, true">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying, true</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal, true</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.second person to accuse Peter (man)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>second person to accuse Peter (man)</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>deuxième person to accuse Peter (man)</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Sennacherib, king of Assyria">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4215,96 +4080,6 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>type de serpent (FF 72.73) // [2] séraphin // [3] Saraph, one of the</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant girl">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant girl</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>serviteur girl</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant girl at high priest's courtyard">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant girl at high priest's courtyard</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>serviteur girl at high priest's courtyard</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant girl who watched the door">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant girl who watched the door</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>serviteur girl who watched the door</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant girl, another">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant girl, another</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>serviteur girl, another</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant of concubine's husband">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant of concubine's husband</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>serviteur of concubine's husband</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant of Elijah">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant of Elijah</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>serviteur of Elijah</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant of Naaman's wife (young girl)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant of Naaman's wife (young girl)</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>serviteur of Naaman's wife (young girl)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant of Nabal">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant of Nabal</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>serviteur of Nabal</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant of priest">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant of priest</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>serviteur of priest</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant of Saul">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant of Saul</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>serviteur of Saül</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.seventy-two">
@@ -4451,15 +4226,6 @@
         <seg>Chounem ***woman***</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.sign on the cross">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>sign on the cross</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>sign on the cross</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Silas">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4550,15 +4316,6 @@
         <seg>tax collectors</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.temple guards">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>temple guards</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>temple guards</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Tempter">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4574,7 +4331,7 @@
         <seg>Tertius</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Tertius (ROM.16:22)</seg>
+        <seg>Tertius</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Tertullus, lawyer">
@@ -4583,7 +4340,7 @@
         <seg>Tertullus, lawyer</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Tertulle (ACT.24:1,2), ***lawyer***</seg>
+        <seg>Tertulle, ***lawyer***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Thomas">
@@ -4629,15 +4386,6 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Tobia ***the*** Ammonite ***official***</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.twenty-four elders">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>twenty-four elders</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>vingt-quatre elders</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Uriah">
@@ -4701,15 +4449,6 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Zacharie ***(the*** ***LORD*** ***says)***</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Zechariah (vision)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Zechariah (vision)</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>Zacharie (vision)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Zechariah (word of the LORD)">
