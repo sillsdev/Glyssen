@@ -410,204 +410,6 @@
         <seg>＜阳＞天使；使者</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.angel (one of the seven)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel (one of the seven)</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者 (one of the seven)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel flying directly overhead">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel flying directly overhead</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者 flying directly overhead</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel flying directly overhead, second">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel flying directly overhead, second</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者 flying directly overhead, second</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel flying directly overhead, third">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel flying directly overhead, third</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者 flying directly overhead, third</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel from the rising sun with seal of living God">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel from the rising sun with seal of living God</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者 from the rising sun with seal of living God</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel Gabriel, sent by God">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel Gabriel, sent by God</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者 Gabriel, sent by God</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel of God, an">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel of God, an</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者 of God, an</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel of God, the">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel of God, the</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者 of God, the</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel of the LORD, an">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel of the LORD, an</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者 of the LORD, an</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel of the LORD, the">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel of the LORD, the</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者 of the LORD, the</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel or messenger (Greek variant: someone speaking to John)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel or messenger (Greek variant: someone speaking to John)</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者 or messenger (Greek variant: someone speaking to John)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel over waters">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel over waters</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者 over waters</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel standing in sun">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel standing in sun</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者 standing in sun</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel standing on sea and land">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel standing on sea and land</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者 standing on sea and land</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel who talked with Zechariah">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel who talked with Zechariah</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者 who talked with Zechariah</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel who talked with Zechariah (vision)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel who talked with Zechariah (vision)</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者 who talked with Zechariah (vision)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel who wrestled with Jacob">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel who wrestled with Jacob</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者 who wrestled with Jacob</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel, another (vision)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel, another (vision)</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者, another (vision)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel, another, coming down from heaven">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel, another, coming down from heaven</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者, another, coming down from heaven</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel, coming out of temple">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel, coming out of temple</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者, coming out of temple</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel, coming out of temple, another">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel, coming out of temple, another</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者, coming out of temple, another</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel, powerful">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel, powerful</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞天使；使者, powerful</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Anna, prophetess">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1004,15 +806,6 @@
         <seg>迦南人 ***(Syrophoenician)*** ***mother*** ***of*** ***possessed*** ***girl***</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.chariot commanders of Aram">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>chariot commanders of Aram</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜中＞战车，四轮马车 commanders of Aram</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Cleopas">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1047,6 +840,15 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>哥尼流</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.council of elders">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>council of elders</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hans">
+        <seg>＜中＞长老团</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Cretan prophet">
@@ -1166,33 +968,6 @@
         <seg>《现》底米特 ***the*** ***silversmith***</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.disciple who wanted to bury his father">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>disciple who wanted to bury his father</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞门徒，学生，追随者 who wanted to bury his father</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.disciple whom Jesus loved">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>disciple whom Jesus loved</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞门徒，学生，追随者 whom Jesus loved</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.disciple, another">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>disciple, another</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞门徒，学生，追随者, another</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Doeg the Edomite">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1200,15 +975,6 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>多益 ***the*** 以东</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.donkey (female)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>donkey (female)</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>公驴 (female)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Edom">
@@ -1871,24 +1637,6 @@
         <seg>希西家, 王 ***of*** 犹大</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.high priest">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>high priest</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜形＞高的；骄傲的，高傲的；ἐν ὑψηλοῖς 在天上 priest</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.high priest's servant (relative of the man whose ear Peter cut off)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>high priest's servant (relative of the man whose ear Peter cut off)</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜形＞高的；骄傲的，高傲的；ἐν ὑψηλοῖς 在天上 priest's servant (relative of the man whose ear Peter cut off)</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Hilkiah, high priest">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1923,15 +1671,6 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>曷拉</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.holy one (in vision)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>holy one (in vision)</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>圣洁／圣 one (in vision)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Hosea">
@@ -2861,15 +2600,6 @@
         <seg>犹大, ***apostle*** ***(not*** 犹大 加略人)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.king of Bela">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>king of Bela</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>王 of Bela</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Kish, father of Saul">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -2913,15 +2643,6 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>拉麦 ***(descendent*** ***of*** 塞特)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.law of Moses where LORD commanded">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>law of Moses where LORD commanded</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞法律；条例，法则 of Moses where LORD commanded</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Leah">
@@ -3320,294 +3041,6 @@
         <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.people at cistern">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people at cistern</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 at cistern</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people at coronation of King Joash">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people at coronation of King Joash</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 at coronation of King Joash</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people at Jairus' house">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people at Jairus' house</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 at Jairus' house</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people in Capernaum">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people in Capernaum</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 in Capernaum</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people in crowd by Sea of Galilee">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people in crowd by Sea of Galilee</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 in crowd by Sea of Galilee</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people in high priest's courtyard">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people in high priest's courtyard</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 in high priest's courtyard</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people in Jericho, all the">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people in Jericho, all the</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 in Jericho, all the</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people in Pisidian Antioch synagogue">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people in Pisidian Antioch synagogue</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 in Pisidian Antioch synagogue</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people in temple courts, all the">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people in temple courts, all the</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 in temple courts, all the</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people in the temple">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people in the temple</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 in the temple</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people near Jordan River">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people near Jordan River</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 near Jordan River</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people of Decapolis">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people of Decapolis</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 of Decapolis</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people of Jerusalem">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people of Jerusalem</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 of Jerusalem</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people of Jerusalem, some">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people of Jerusalem, some</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 of Jerusalem, some</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people of Samaria, all the">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people of Samaria, all the</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 of Samaria, all the</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people of the region of the Gerasenes">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people of the region of the Gerasenes</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 of the region of the Gerasenes</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people of Tyre and Sidon">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people of Tyre and Sidon</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 of Tyre and Sidon</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people praying at John Mark's mother's house">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people praying at John Mark's mother's house</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 praying at John Mark's mother's house</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people standing there">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people standing there</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 standing there</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people who had known Saul">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people who had known Saul</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 who had known Saul</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people who saw healing of demon-possessed man who was blind and mute">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people who saw healing of demon-possessed man who was blind and mute</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民 who saw healing of demon-possessed man who was blind and mute</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people, all the">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people, all the</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民, all the</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people, arrogant wicked">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people, arrogant wicked</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民, arrogant wicked</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people, God's">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people, God's</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民, God's</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people, hurried">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people, hurried</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民, hurried</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people, Israel, tribes of">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people, Israel, tribes of</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民, Israel, tribes of</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people, many (at Gennesaret)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people, many (at Gennesaret)</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民, many (at Gennesaret)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people, other">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people, other</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民, other</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people, righteous">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people, righteous</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民, righteous</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people, sick">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people, sick</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民, sick</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people, some">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people, some</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民, some</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people, still others">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people, still others</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞人民，百姓，民间；群众；国家；犹太人或教会，常称为：上帝的子民, still others</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Pharisee (expert in religious law)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3716,42 +3149,6 @@
         <seg>先知</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.prophet in Bethel">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>prophet in Bethel</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>先知 in Bethel</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.prophet of the LORD">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>prophet of the LORD</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>先知 of the LORD</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.prophet who confronts Ahab">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>prophet who confronts Ahab</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>先知 who confronts Ahab</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.prophet, a">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>prophet, a</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>先知, a</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Puah (midwife)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3759,24 +3156,6 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>普瓦 ***(midwife)***</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.queen of Babylon">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>queen of Babylon</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>王后／主母 of Babylon</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.queen of Sheba">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>queen of Sheba</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>王后／主母 of Sheba</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Rachel">
@@ -3914,132 +3293,6 @@
         <seg>《现》莎拉 (《现》莎莱) ***(old)***</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.saying (proverb)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying (proverb)</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>说 (proverb)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about Anakites">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about Anakites</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>说 about Anakites</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about blind and lame">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about blind and lame</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>说 about blind and lame</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about captivity and death by the sword">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about captivity and death by the sword</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>说 about captivity and death by the sword</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about Gentile nations">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about Gentile nations</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>说 about Gentile nations</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about going beyond what is written">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about going beyond what is written</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>说 about going beyond what is written</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about Nimrod">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about Nimrod</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>说 about Nimrod</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about Saul">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about Saul</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>说 about Saul</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about seer">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about seer</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>说 about seer</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about sow">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about sow</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>说 about sow</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about what controls you">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about what controls you</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>说 about what controls you</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about yeast">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about yeast</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>说 about yeast</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about Zion">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about Zion</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>说 about Zion</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying, true">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying, true</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>说, true</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Sennacherib, king of Assyria">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4047,105 +3300,6 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>西拿基立, 王 ***of*** ***Assyria***</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.seraph, one of the">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>seraph, one of the</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>撒拉弗, one of the</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant girl">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant girl</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞仆人 girl</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant girl at high priest's courtyard">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant girl at high priest's courtyard</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞仆人 girl at high priest's courtyard</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant girl who watched the door">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant girl who watched the door</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞仆人 girl who watched the door</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant girl, another">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant girl, another</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞仆人 girl, another</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant of concubine's husband">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant of concubine's husband</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞仆人 of concubine's husband</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant of Elijah">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant of Elijah</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞仆人 of Elijah</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant of Naaman's wife (young girl)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant of Naaman's wife (young girl)</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞仆人 of Naaman's wife (young girl)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant of Nabal">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant of Nabal</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞仆人 of Nabal</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant of priest">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant of priest</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞仆人 of priest</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant of Saul">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant of Saul</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞仆人 of Saul</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Shaphan, secretary">
@@ -4292,15 +3446,6 @@
         <seg>书念妇人 ***woman***</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.sign on the cross">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>sign on the cross</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜中＞神迹，记号，暗号；凭据；笔迹；表征，预兆，异兆 on the cross</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Simeon">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4337,6 +3482,15 @@
         <seg>所罗门, 王</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.synagogue ruler">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>synagogue ruler</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hans">
+        <seg>＜阳＞会堂主管</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Tamar, daughter of David">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4362,24 +3516,6 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>达乃, ***governor***</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.tax collectors">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>tax collectors</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜阳＞税，贡钱 collectors</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.temple guards">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>temple guards</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>＜中＞圣殿；圣殿区 guards</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Tempter">
@@ -4461,15 +3597,6 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>乌利亚</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.vineyard owner (God?)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>vineyard owner (God?)</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>葡萄园 owner (God?)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Zalmunna">

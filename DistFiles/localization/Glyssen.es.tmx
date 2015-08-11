@@ -1484,7 +1484,7 @@
         <seg>seventy-two</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>setenta y dos</seg>
+        <seg>los setenta y dos</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.synagogue ruler">
@@ -2559,49 +2559,13 @@
         <seg>Ananías de Damasco</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.angel flying directly overhead">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel flying directly overhead</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>ángel flying directly overhead</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel flying directly overhead, second">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel flying directly overhead, second</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>ángel flying directly overhead, second</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel flying directly overhead, third">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel flying directly overhead, third</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>ángel flying directly overhead, third</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel from the rising sun with seal of living God">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel from the rising sun with seal of living God</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>ángel from the rising sun with seal of living God</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.angel Gabriel, sent by God">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>angel Gabriel, sent by God</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>ángel Gabriel, sent by God</seg>
+        <seg>ángel Gabriel, enviado por Dios</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.angel of God, an">
@@ -2610,7 +2574,7 @@
         <seg>angel of God, an</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>ángel of God, an</seg>
+        <seg>ángel de Dios</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.angel of God, the">
@@ -2619,7 +2583,7 @@
         <seg>angel of God, the</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>ángel of God, the</seg>
+        <seg>ángel de Dios</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.angel of the LORD, an">
@@ -2628,7 +2592,7 @@
         <seg>angel of the LORD, an</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>ángel of the LORD, an</seg>
+        <seg>ángel del Señor</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.angel of the LORD, the">
@@ -2637,43 +2601,7 @@
         <seg>angel of the LORD, the</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>ángel of the LORD, the</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel or messenger (Greek variant: someone speaking to John)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel or messenger (Greek variant: someone speaking to John)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>ángel or messenger (Greek variant: someone speaking to John)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel over waters">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel over waters</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>ángel over waters</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel standing in sun">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel standing in sun</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>ángel standing in sun</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel standing on sea and land">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel standing on sea and land</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>ángel standing on sea and land</seg>
+        <seg>ángel del Señor</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.angel who talked with Zechariah">
@@ -2682,7 +2610,7 @@
         <seg>angel who talked with Zechariah</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>ángel who talked with Zechariah</seg>
+        <seg>ángel que habló con Zacarías</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.angel who talked with Zechariah (vision)">
@@ -2691,7 +2619,7 @@
         <seg>angel who talked with Zechariah (vision)</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>ángel who talked with Zechariah (vision)</seg>
+        <seg>ángel que habló con Zacarías (en una visión)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.angel who wrestled with Jacob">
@@ -2700,7 +2628,7 @@
         <seg>angel who wrestled with Jacob</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>ángel who wrestled with Jacob</seg>
+        <seg>ángel que luchó con Jacob</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Azariah the chief priest">
@@ -2745,7 +2673,7 @@
         <seg>brother who discovered his silver in his sack</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>hermano who discovered his silver in his sack</seg>
+        <seg>hermano que descubrió su plata en su saco</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Canaanite (Syrophoenician) mother of possessed girl">
@@ -2799,7 +2727,7 @@
         <seg>disciple who wanted to bury his father</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>discípulo who wanted to bury his father</seg>
+        <seg>discípulo que quería enterrar a su padre</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.disciple whom Jesus loved">
@@ -2808,7 +2736,7 @@
         <seg>disciple whom Jesus loved</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>discípulo whom Jesus loved</seg>
+        <seg>discípulo a quien Jesús amaba</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Doeg the Edomite">
@@ -2826,7 +2754,7 @@
         <seg>donkey (female)</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>asno, burro (female)</seg>
+        <seg>asna</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Egyptian (slave of Amalekite)">
@@ -2844,7 +2772,7 @@
         <seg>eighty other priests</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>ochenta other priests</seg>
+        <seg>otros ochenta sacerdotes</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Eleazar the priest, son of Aaron">
@@ -2980,24 +2908,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Herodes el grande</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.high priest's servant (relative of the man whose ear Peter cut off)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>high priest's servant (relative of the man whose ear Peter cut off)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>alto priest's servant (relative of the man whose ear Peter cut off)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.holy one (in vision)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>holy one (in vision)</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>santo one (in vision)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Hosea saying what Israel should say">
@@ -3357,7 +3267,7 @@
         <seg>king of Bela</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>rey of Bela</seg>
+        <seg>rey de Bela (Zoar)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Lamech (descendent of Cain)">
@@ -3376,15 +3286,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Lámec (descendiente de Set)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.law of Moses where LORD commanded">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>law of Moses where LORD commanded</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>ley of Moses where LORD commanded</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Malta islanders">
@@ -3477,103 +3378,13 @@
         <seg>Pablo y Silas</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.people at cistern">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people at cistern</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>pueblo at cistern</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people at coronation of King Joash">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people at coronation of King Joash</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>pueblo at coronation of King Joash</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people at Jairus' house">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people at Jairus' house</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>pueblo at Jairus' house</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.people in Capernaum">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>people in Capernaum</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>pueblo in Capernaum</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people in crowd by Sea of Galilee">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people in crowd by Sea of Galilee</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>pueblo in crowd by Sea of Galilee</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people in high priest's courtyard">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people in high priest's courtyard</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>pueblo in high priest's courtyard</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people in Jericho, all the">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people in Jericho, all the</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>pueblo in Jericho, all the</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people in Pisidian Antioch synagogue">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people in Pisidian Antioch synagogue</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>pueblo in Pisidian Antioch synagogue</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people in temple courts, all the">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people in temple courts, all the</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>pueblo in temple courts, all the</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people in the temple">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people in the temple</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>pueblo in the temple</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people near Jordan River">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people near Jordan River</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>pueblo near Jordan River</seg>
+        <seg>pueblo de Capernaum</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.people of Decapolis">
@@ -3582,7 +3393,7 @@
         <seg>people of Decapolis</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>pueblo of Decapolis</seg>
+        <seg>pueblo de Decapolis</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.people of Jerusalem">
@@ -3591,7 +3402,7 @@
         <seg>people of Jerusalem</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>pueblo of Jerusalem</seg>
+        <seg>pueblo de Jerusalem</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.people of Jerusalem, some">
@@ -3600,7 +3411,7 @@
         <seg>people of Jerusalem, some</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>pueblo of Jerusalem, some</seg>
+        <seg>pueblo de Jerusalem, algunos</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.people of Samaria, all the">
@@ -3609,7 +3420,7 @@
         <seg>people of Samaria, all the</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>pueblo of Samaria, all the</seg>
+        <seg>todo el pueblo de Samaria</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.people of the region of the Gerasenes">
@@ -3618,7 +3429,7 @@
         <seg>people of the region of the Gerasenes</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>pueblo of the region of the Gerasenes</seg>
+        <seg>pueblo de la región de los Gerasenes</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.people of Tyre and Sidon">
@@ -3627,34 +3438,7 @@
         <seg>people of Tyre and Sidon</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>pueblo of Tyre and Sidon</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people praying at John Mark's mother's house">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people praying at John Mark's mother's house</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>pueblo praying at John Mark's mother's house</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people standing there">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people standing there</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>pueblo standing there</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people who saw healing of demon-possessed man who was blind and mute">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people who saw healing of demon-possessed man who was blind and mute</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>pueblo who saw healing of demon-possessed man who was blind and mute</seg>
+        <seg>pueblo de Tiro y Sidón</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Peter (Simon)">
@@ -3735,7 +3519,7 @@
         <seg>prophet in Bethel</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>profeta in Bethel</seg>
+        <seg>profeta en Betel</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.prophet of the LORD">
@@ -3744,7 +3528,7 @@
         <seg>prophet of the LORD</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>profeta of the LORD</seg>
+        <seg>profeta del Señor</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.prophet who confronts Ahab">
@@ -3753,7 +3537,7 @@
         <seg>prophet who confronts Ahab</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>profeta who confronts Ahab</seg>
+        <seg>profeta que confronta al rey Acab</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.proverb about a dog">
@@ -3762,7 +3546,7 @@
         <seg>proverb about a dog</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>proverbio, comparación about a dog</seg>
+        <seg>proverbio acerca de un perro</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Puah (midwife)">
@@ -3780,7 +3564,7 @@
         <seg>queen of Babylon</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>reina of Babylon</seg>
+        <seg>reina de Babilonia</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.queen of Sheba">
@@ -3789,7 +3573,7 @@
         <seg>queen of Sheba</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>reina of Sheba</seg>
+        <seg>reina de Sabá</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Samuel (boy)">
@@ -4149,7 +3933,7 @@
         <seg>young man</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>joven, nuevo man</seg>
+        <seg>joven</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.young man in white robe (angel)">
@@ -4158,7 +3942,7 @@
         <seg>young man in white robe (angel)</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>joven, nuevo man in white robe (angel)</seg>
+        <seg>joven con vestiduras blancas (ángel)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.young men (advisors of Rehoboam)">
@@ -4167,7 +3951,7 @@
         <seg>young men (advisors of Rehoboam)</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>joven, nuevo men (advisors of Rehoboam)</seg>
+        <seg>jovenes (consejeros de Roboám)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Zechariah (the LORD says)">
@@ -4257,7 +4041,7 @@
         <seg>people who had known Saul</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>pueblo who had known Saul</seg>
+        <seg>los que habían conocido a Saúl</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Philistine rulers">
