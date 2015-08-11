@@ -4001,5 +4001,14 @@
         <seg>Zedekiah, king ***of*** Judah</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.high priest">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>high priest</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>sumo sacerdote</seg>
+      </tuv>
+    </tu>
   </body>
 </tmx>
