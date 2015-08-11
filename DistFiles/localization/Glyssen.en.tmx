@@ -3507,12 +3507,6 @@
         <seg>Israelite foreman</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Israelite men">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Israelite men</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Israelite officers">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3553,6 +3547,12 @@
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>Israelites (excluding Benjamites)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Israelites (soldiers)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Israelites (soldiers)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Israelites, all">
@@ -4789,6 +4789,12 @@
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>men (angels) in clothes that gleamed like lightning, two</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.men (soldiers) standing near David">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>men (soldiers) standing near David</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.men (spies)">

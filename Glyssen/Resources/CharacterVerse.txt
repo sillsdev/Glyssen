@@ -163,13 +163,13 @@ GEN	15	21	God		God (word of the LORD came in a vision)	Normal
 GEN	16	2	Sarah (Sarai)			Normal		
 GEN	16	5	Sarah (Sarai)			Normal		
 GEN	16	6	Abraham (Abram)			Normal		
-GEN	16	8	Hagar, the Egyptian			Normal		
+GEN	16	8	Hagar, Sarai’s maid			Normal		
 GEN	16	8	angel of the LORD, the			Normal	Jesus	
 GEN	16	9	angel of the LORD, the			Normal	Jesus	
 GEN	16	10	angel of the LORD, the			Normal	Jesus	
 GEN	16	11	angel of the LORD, the			Normal	Jesus	
 GEN	16	12	angel of the LORD, the			Normal	Jesus	
-GEN	16	13	Hagar, the Egyptian			Normal		
+GEN	16	13	Hagar, Sarai’s maid			Normal		
 GEN	17	1	God		God (the LORD)	Normal		
 GEN	17	2	God		God (the LORD)	Normal		
 GEN	17	4	God		God (the LORD)	Normal		
@@ -261,7 +261,7 @@ GEN	21	7	Sarah (Sarai) (old)			Normal
 GEN	21	10	Sarah (Sarai) (old)			Normal		
 GEN	21	12	God		God (the LORD)	Normal		
 GEN	21	13	God		God (the LORD)	Normal		
-GEN	21	16	Hagar, the Egyptian			Normal		
+GEN	21	16	Hagar, Sarai’s maid			Normal		
 GEN	21	17	angel of the LORD, the		angel of God, the	Normal	Jesus	
 GEN	21	18	angel of the LORD, the		angel of God, the	Normal	Jesus	
 GEN	21	22	Abimelech, King of Gerar/Phicol		Abimelech and Phicol	Normal		
@@ -4232,20 +4232,20 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	14	33	messengers to Saul			Normal		
 1SA	14	33	Saul			Normal		
 1SA	14	34	Saul			Normal		
-1SA	14	36	Israelite men			Normal		
+1SA	14	36	Israelites (soldiers)			Normal		
 1SA	14	36	Ahijah the priest			Normal		
 1SA	14	36	Saul			Normal		
 1SA	14	37	Saul			Normal		
 1SA	14	38	Saul			Normal		
 1SA	14	39	Saul			Normal		
-1SA	14	40	Israelite men			Normal		
+1SA	14	40	Israelites (soldiers)			Normal		
 1SA	14	40	Saul			Normal		
 1SA	14	41	Saul			Normal		
 1SA	14	42	Saul			Normal		
 1SA	14	43	Jonathan			Normal		
 1SA	14	43	Saul			Normal		
 1SA	14	44	Saul			Normal		
-1SA	14	45	Israelite men			Normal		
+1SA	14	45	Israelites (soldiers)			Normal		
 1SA	15	1	Samuel			Normal		
 1SA	15	2	Samuel			Normal		
 1SA	15	3	Samuel			Normal		
@@ -4270,7 +4270,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	15	28	Samuel			Normal		
 1SA	15	29	Samuel			Normal		
 1SA	15	30	Saul			Normal		
-1SA	15	32	Agag, king of Amalekites			Normal		
+1SA	15	32	Agag, king of the Amalekites			Normal		
 1SA	15	32	Samuel			Normal		
 1SA	15	33	Samuel			Normal		
 1SA	16	1	God		God (the LORD)	Normal		
@@ -4299,9 +4299,9 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	17	17	Jesse			Normal		
 1SA	17	18	Jesse			Normal		
 1SA	17	19	Jesse			Normal		
-1SA	17	25	Israelites			Normal		
+1SA	17	25	Israelites (soldiers)			Normal		
 1SA	17	26	David			Normal		
-1SA	17	27	Israelite men			Normal		
+1SA	17	27	men (soldiers) standing near David			Normal		
 1SA	17	28	Eliab, David's brother			Normal		
 1SA	17	29	David			Normal		
 1SA	17	32	David			Normal		
@@ -5669,8 +5669,8 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	18	36	Hezekiah, king of Judah			Normal		
 2KI	19	3	Eliakim/Shebna/chief priests			Normal	Eliakim	
 2KI	19	4	Eliakim/Shebna/chief priests			Normal	Eliakim	
-2KI	19	6	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-2KI	19	7	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
+2KI	19	6	Isaiah			Normal		
+2KI	19	7	Isaiah			Normal		
 2KI	19	10	Sennacherib, king of Assyria			Normal		
 2KI	19	11	Sennacherib, king of Assyria			Normal		
 2KI	19	12	Sennacherib, king of Assyria			Normal		
@@ -5680,36 +5680,36 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	19	17	Hezekiah, king of Judah			Normal		
 2KI	19	18	Hezekiah, king of Judah			Normal		
 2KI	19	19	Hezekiah, king of Judah			Normal		
-2KI	19	20	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-2KI	19	21	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-2KI	19	22	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-2KI	19	23	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-2KI	19	24	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-2KI	19	25	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-2KI	19	26	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-2KI	19	27	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-2KI	19	28	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-2KI	19	29	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-2KI	19	30	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-2KI	19	31	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-2KI	19	32	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-2KI	19	33	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-2KI	19	34	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-2KI	20	1	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
+2KI	19	20	Isaiah			Normal		
+2KI	19	21	Isaiah			Normal		
+2KI	19	22	Isaiah			Normal		
+2KI	19	23	Isaiah			Normal		
+2KI	19	24	Isaiah			Normal		
+2KI	19	25	Isaiah			Normal		
+2KI	19	26	Isaiah			Normal		
+2KI	19	27	Isaiah			Normal		
+2KI	19	28	Isaiah			Normal		
+2KI	19	29	Isaiah			Normal		
+2KI	19	30	Isaiah			Normal		
+2KI	19	31	Isaiah			Normal		
+2KI	19	32	Isaiah			Normal		
+2KI	19	33	Isaiah			Normal		
+2KI	19	34	Isaiah			Normal		
+2KI	20	1	Isaiah			Normal		
 2KI	20	3	Hezekiah, king of Judah			Normal		
 2KI	20	5	God		word of the LORD	Normal		
 2KI	20	6	God		word of the LORD	Normal		
 2KI	20	7	Isaiah		Isaiah, the prophet	Normal		
 2KI	20	8	Hezekiah, king of Judah			Normal		
-2KI	20	9	Isaiah		Isaiah, the prophet (sign)	Normal		
+2KI	20	9	Isaiah			Normal		
 2KI	20	10	Hezekiah, king of Judah			Normal		
 2KI	20	14	Hezekiah, king of Judah			Normal		
 2KI	20	14	Isaiah		Isaiah, the prophet	Normal		
 2KI	20	15	Hezekiah, king of Judah			Normal		
 2KI	20	15	Isaiah		Isaiah, the prophet	Normal		
-2KI	20	16	Isaiah		Isaiah, the prophet (word of the LORD)	Normal		
-2KI	20	17	Isaiah		Isaiah, the prophet (word of the LORD)	Normal		
-2KI	20	18	Isaiah		Isaiah, the prophet (word of the LORD)	Normal		
+2KI	20	16	Isaiah			Normal		
+2KI	20	17	Isaiah			Normal		
+2KI	20	18	Isaiah			Normal		
 2KI	20	19	Hezekiah, king of Judah			Normal		
 2KI	21	4	God		God (the LORD)	Quotation		
 2KI	21	7	God		God (the LORD)	Quotation		
@@ -5727,12 +5727,12 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	22	9	Shaphan, secretary			Normal		
 2KI	22	10	Shaphan, secretary			Normal		
 2KI	22	13	Josiah, king of Judah			Normal		
-2KI	22	15	Huldah, prophetess		Huldah, prophetess (the LORD says)	Normal		
-2KI	22	16	Huldah, prophetess		Huldah, prophetess (the LORD says)	Normal		
-2KI	22	17	Huldah, prophetess		Huldah, prophetess (the LORD says)	Normal		
-2KI	22	18	Huldah, prophetess		Huldah, prophetess (the LORD says)	Normal		
-2KI	22	19	Huldah, prophetess		Huldah, prophetess (the LORD says)	Normal		
-2KI	22	20	Huldah, prophetess		Huldah, prophetess (the LORD says)	Normal		
+2KI	22	15	Huldah, prophetess			Normal		
+2KI	22	16	Huldah, prophetess			Normal		
+2KI	22	17	Huldah, prophetess			Normal		
+2KI	22	18	Huldah, prophetess			Normal		
+2KI	22	19	Huldah, prophetess			Normal		
+2KI	22	20	Huldah, prophetess			Normal		
 2KI	23	17	Josiah, king of Judah			Normal		
 2KI	23	17	men of Bethel			Normal		
 2KI	23	18	Josiah, king of Judah			Normal		
@@ -5749,7 +5749,7 @@ RUT	4	17	women of Bethlehem			Normal
 1CH	11	17	David			Normal		
 1CH	11	19	David			Normal		
 1CH	12	17	David			Normal		
-1CH	12	18	Amasai, chief of thirty (Spirit came upon)			Normal		
+1CH	12	18	Amasai, chief of thirty			Normal		
 1CH	12	19	Philistine rulers			Normal		
 1CH	13	2	David		David, king	Normal		
 1CH	13	3	David		David, king	Normal		
@@ -5973,7 +5973,7 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	10	16	Israel, all			Normal		
 2CH	11	3	God		word of the LORD came to Shemaiah	Normal		
 2CH	11	4	God		word of the LORD came to Shemaiah	Normal		
-2CH	12	5	Shemaiah		Shemaiah, prophet (the LORD says)	Normal		
+2CH	12	5	Shemaiah			Normal		
 2CH	12	6	Israel, leaders of/Rehoboam, king		leaders of Israel and the king (Rehoboam)	Normal		
 2CH	12	7	God		word of the LORD came to Shemaiah	Normal		
 2CH	12	8	God		word of the LORD came to Shemaiah	Normal		
@@ -7896,7 +7896,7 @@ ISA	19	3	God		God (the LORD, the LORD Almighty)	Normal
 ISA	19	4	God		God (the LORD, the LORD Almighty)	Normal		
 ISA	19	11	wise men of Pharaoh			Hypothetical		
 ISA	19	25	God		God (the LORD Almighty)	Normal		
-ISA	20	2	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
+ISA	20	2	God		God (the LORD)	Normal		
 ISA	20	3	God		God (the LORD)	Normal		
 ISA	20	4	God		God (the LORD)	Normal		
 ISA	20	5	God		God (the LORD)	Normal		
@@ -8010,27 +8010,27 @@ ISA	37	17	Hezekiah, king of Judah			Normal
 ISA	37	18	Hezekiah, king of Judah			Normal		
 ISA	37	19	Hezekiah, king of Judah			Normal		
 ISA	37	20	Hezekiah, king of Judah			Normal		
-ISA	37	21	Isaiah		Isaiah, the prophet (word of the LORD)	Normal		
-ISA	37	22	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-ISA	37	23	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-ISA	37	24	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-ISA	37	25	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-ISA	37	26	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-ISA	37	27	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-ISA	37	28	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-ISA	37	29	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-ISA	37	30	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-ISA	37	31	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-ISA	37	32	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-ISA	37	33	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-ISA	37	34	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-ISA	37	35	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
-ISA	38	1	Isaiah		Isaiah, the prophet (the LORD says)	Normal		
+ISA	37	21	Isaiah			Normal		
+ISA	37	22	Isaiah			Normal		
+ISA	37	23	Isaiah			Normal		
+ISA	37	24	Isaiah			Normal		
+ISA	37	25	Isaiah			Normal		
+ISA	37	26	Isaiah			Normal		
+ISA	37	27	Isaiah			Normal		
+ISA	37	28	Isaiah			Normal		
+ISA	37	29	Isaiah			Normal		
+ISA	37	30	Isaiah			Normal		
+ISA	37	31	Isaiah			Normal		
+ISA	37	32	Isaiah			Normal		
+ISA	37	33	Isaiah			Normal		
+ISA	37	34	Isaiah			Normal		
+ISA	37	35	Isaiah			Normal		
+ISA	38	1	Isaiah			Normal		
 ISA	38	3	Hezekiah, king of Judah			Normal		
-ISA	38	5	Isaiah		Isaiah, the prophet (word of the LORD came)	Normal		
-ISA	38	6	Isaiah		Isaiah, the prophet (word of the LORD came)	Normal		
-ISA	38	7	Isaiah		Isaiah, the prophet (word of the LORD came)	Normal		
-ISA	38	8	Isaiah		Isaiah, the prophet (word of the LORD came)	Normal		
+ISA	38	5	God		God (the LORD)	Normal		
+ISA	38	6	God		God (the LORD)	Normal		
+ISA	38	7	God		God (the LORD)	Normal		
+ISA	38	8	God		God (the LORD)	Normal		
 ISA	38	10	Hezekiah, king of Judah	writing		Normal		
 ISA	38	11	Hezekiah, king of Judah	writing		Normal		
 ISA	38	12	Hezekiah, king of Judah	writing		Normal		
@@ -8050,9 +8050,9 @@ ISA	39	3	Hezekiah, king of Judah			Normal
 ISA	39	3	Isaiah		Isaiah, the prophet	Normal		
 ISA	39	4	Hezekiah, king of Judah			Normal		
 ISA	39	4	Isaiah		Isaiah, the prophet	Normal		
-ISA	39	5	Isaiah		Isaiah, the prophet (word of the LORD)	Normal		
-ISA	39	6	Isaiah		Isaiah, the prophet (word of the LORD)	Normal		
-ISA	39	7	Isaiah		Isaiah, the prophet (word of the LORD)	Normal		
+ISA	39	5	Isaiah			Normal		
+ISA	39	6	Isaiah			Normal		
+ISA	39	7	Isaiah			Normal		
 ISA	39	8	Hezekiah, king of Judah	response to Isaiah		Normal		
 ISA	39	8	Hezekiah, king of Judah	thought		Normal		
 ISA	40	3	voice of one calling, a (preparing way for Christ)			Normal		
@@ -9219,14 +9219,14 @@ JER	38	23	Jeremiah			Normal
 JER	38	24	Zedekiah, king of Judah			Normal		
 JER	38	25	Zedekiah, king of Judah			Normal		
 JER	38	26	Zedekiah, king of Judah			Normal		
-JER	39	12	Nebuzaradan		Nebuzaradan, Babylonian commander of imperial guard	Normal		
+JER	39	12	Nebuzaradan		 guard	Normal		
 JER	39	16	God		God (the LORD)(word of the LORD came)	Normal		
 JER	39	17	God		God (the LORD)(word of the LORD came)	Normal		
 JER	39	18	God		God (the LORD)(word of the LORD came)	Normal		
-JER	40	2	Nebuzaradan		Nebuzaradan, commander for king of Babylon	Normal		
-JER	40	3	Nebuzaradan		Nebuzaradan, commander for king of Babylon	Normal		
-JER	40	4	Nebuzaradan		Nebuzaradan, commander for king of Babylon	Normal		
-JER	40	5	Nebuzaradan		Nebuzaradan, commander for king of Babylon	Normal		
+JER	40	2	Nebuzaradan			Normal		
+JER	40	3	Nebuzaradan			Normal		
+JER	40	4	Nebuzaradan			Normal		
+JER	40	5	Nebuzaradan			Normal		
 JER	40	9	Gedaliah, governor of Judah			Normal		
 JER	40	10	Gedaliah, governor of Judah			Normal		
 JER	40	14	Johanan/army officers			Normal	Johanan	
@@ -14608,7 +14608,7 @@ ACT	5	8	Peter (Simon)			Dialogue
 ACT	5	8	Sapphira, wife of Ananias of Jerusalem			Dialogue		
 ACT	5	9	Peter (Simon)			Dialogue		
 ACT	5	20	angel of the LORD, an	commanding		Normal		
-ACT	5	23	temple police	perplexed		Normal		
+ACT	5	23	officers	perplexed		Normal		
 ACT	5	24	captain of the temple guard/chief priests			Indirect		
 ACT	5	25	person who told the guards and priests where the apostles were	excited		Normal		
 ACT	5	28	Ananias (Annas), the high priest (father-in-law of Caiaphas)		high priest	Dialogue		

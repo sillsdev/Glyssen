@@ -125,7 +125,17 @@ namespace DevTools.TermTranslator
 		{
 			string[] parts = name.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-			Localization term = s_englishTermsList.Terms.Locals.Find(t => t.Gloss == parts[0]);
+			string englishGloss = parts[0];
+			string endingPunct;
+			if (Char.IsPunctuation(englishGloss.Last()))
+			{
+				endingPunct = englishGloss.Last().ToString();
+				englishGloss = englishGloss.Remove(englishGloss.Length - 1);
+			}
+			else
+				endingPunct = null;
+
+			Localization term = s_englishTermsList.Terms.Locals.Find(t => t.Gloss == englishGloss);
 			if (term != null)
 			{
 				Localization localTerm = localTermsList.Terms.Locals.Find(t => t.Id == term.Id);
@@ -136,26 +146,29 @@ namespace DevTools.TermTranslator
 
 					if (localGloss != "")
 					{
+						if (endingPunct != null)
+							localGloss += endingPunct;
 						parts[0] = localGloss;
 
 						if (Char.IsUpper(name[0]) && parts.Length > 1)
 						{
 							for (int i = 1; i < parts.Length; i++)
 							{
-								var englishTerm = parts[i];
+								englishGloss = parts[i];
 								bool openingParenthesis = false;
-								bool closingParenthesis = false;
-								if (englishTerm.StartsWith("("))
+								if (englishGloss.StartsWith("("))
 								{
-									englishTerm = englishTerm.Substring(1);
+									englishGloss = englishGloss.Substring(1);
 									openingParenthesis = true;
 								}
-								if (englishTerm.EndsWith(")"))
+								if (Char.IsPunctuation(englishGloss.Last()))
 								{
-									englishTerm = englishTerm.Remove(englishTerm.Length - 1);
-									closingParenthesis = true;
+									endingPunct = englishGloss.Last().ToString();
+									englishGloss = englishGloss.Remove(englishGloss.Length - 1);
 								}
-								term = s_englishTermsList.Terms.Locals.Find(t => t.Gloss == parts[i]);
+								else
+									endingPunct = null;
+								term = s_englishTermsList.Terms.Locals.Find(t => t.Gloss == englishGloss);
 								if (term != null)
 								{
 									localTerm = localTermsList.Terms.Locals.Find(t => t.Id == term.Id);
@@ -167,8 +180,8 @@ namespace DevTools.TermTranslator
 										{
 											if (openingParenthesis)
 												localGloss = "(" + localGloss;
-											if (closingParenthesis)
-												localGloss += ")";
+											if (endingPunct != null)
+												localGloss += endingPunct;
 											parts[i] = localGloss;
 											continue;
 										}
