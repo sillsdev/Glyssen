@@ -26,7 +26,7 @@ Adonijah, son of David	1	Male
 Adoni-Zedek, king of Jerusalem	1	Male			
 advisers to king	-1	Male			
 Agabus the prophet	1	Male			
-Agag, king of Amalekites	1	Male			
+Agag, king of the Amalekites	1	Male			
 Ahab, king of Israel	1	Male			
 Ahaz, king of Judah	1	Male			
 Ahaziah, king of Israel	1	Male			
@@ -42,7 +42,7 @@ all the elders	-1	Male			elders of the church in Jerusalem
 all who heard (in synagogues)	-1				
 altar	1	Neuter			
 Amasa	1	Male			leader in Ephraim
-Amasai, chief of thirty (Spirit came upon)	1	Male			
+Amasai, chief of thirty	1	Male			
 Amaziah, king of Judah	1	Male			
 Amaziah, priest of Bethel	1	Male			
 Ammonite nobles	-1	Male			
@@ -366,7 +366,7 @@ Greeks	-1
 guards at high priests' house	-1	Male			
 Habakkuk	1	Male			
 Hadad the Edomite	1	Male			
-Hagar, the Egyptian	1	Female			
+Hagar, Sarai's maid	1	Female			
 Haggai (word of the LORD)	1	Male			
 half-tribe of Manasseh	-1	Male			
 Haman, highest noble to Xerxes, king	1	Male			
@@ -434,7 +434,7 @@ Israelite assembly, elders of	-1	Male
 Israelite community	-1				
 Israelite fighting men	-1	Male			
 Israelite foreman	1	Male			
-Israelite men	-1	Male			
+Israelites (soldiers)	-1	Male			
 Israelite officers	-1	Male			
 Israelite soldier in Saul's army	1	Male			
 Israelite spies from house of Joseph	-1	Male			
@@ -632,6 +632,7 @@ men of Gerar	-1	Male
 men of Jabesh	-1				
 men of Jericho	-1	Male			
 men of Sodom (wicked)	-1	Male			
+men (soldiers) standing near David	-1	Male			
 men who have gone astray	-1	Male			
 men with leprosy, four	4	Male			
 men, large force of	-1	Male			
@@ -724,6 +725,7 @@ officer of King Jehoshaphat of Israel	1	Male
 officer of King Joram of Israel	1	Male			
 officer of king of Israel, on whose arm the king leaned	1	Male			
 officer of king of Israel, on whose arm the king leaned (post mortem)	1	Male			
+officers	-1	Male			
 officers of King of Aram	-1	Male			
 officers of magistrates	-1	Male			
 officers of temple guard	-1	Male			
@@ -1014,7 +1016,6 @@ teacher (Preacher)	1	Male
 teacher of religious law	1	Male			
 teachers of religious law	-1	Male			
 temple guards	-1	Male			
-temple police	-1	Male			
 Tertius	1	Male			
 Tertullus, lawyer	1	Male			
 Thomas	1	Male			
