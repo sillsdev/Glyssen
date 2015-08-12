@@ -1472,13 +1472,13 @@
         <seg>Hadad ***the*** Édomite</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Hagar, Sarai’s maid">
+    <tu tuid="CharacterName.Hagar, Sarai's maid">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Hagar, Sarai’s maid</seg>
+        <seg>Hagar, Sarai's maid</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Agar, ***Sarai’s*** ***maid***</seg>
+        <seg>Agar, ***Sarai's*** ***maid***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Haman, highest noble to Xerxes, king">

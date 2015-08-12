@@ -4773,13 +4773,13 @@
         <seg>Goliat, paladín de los filisteos</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Hagar, Sarai’s maid">
+    <tu tuid="CharacterName.Hagar, Sarai's maid">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Hagar, Sarai’s maid</seg>
+        <seg>Hagar, Sarai's maid</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Agar, sierva de Saray</seg>
+        <seg>Agar, ***Sarai's*** ***maid***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Haman, highest noble to Xerxes, king">

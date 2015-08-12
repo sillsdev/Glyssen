@@ -3956,13 +3956,13 @@
         <seg>conselho de anciãos</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Hagar, Sarai’s maid">
+    <tu tuid="CharacterName.Hagar, Sarai's maid">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Hagar, Sarai’s maid</seg>
+        <seg>Hagar, Sarai's maid</seg>
       </tuv>
       <tuv xml:lang="pt">
-        <seg>Hagar, ***Sarai’s*** ***maid***</seg>
+        <seg>Hagar, ***Sarai's*** ***maid***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Sennacherib, king of Assyria">

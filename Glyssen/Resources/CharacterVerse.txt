@@ -163,13 +163,13 @@ GEN	15	21	God		God (word of the LORD came in a vision)	Normal
 GEN	16	2	Sarah (Sarai)			Normal		
 GEN	16	5	Sarah (Sarai)			Normal		
 GEN	16	6	Abraham (Abram)			Normal		
-GEN	16	8	Hagar, Sarai’s maid			Normal		
+GEN	16	8	Hagar, Sarai's maid			Normal		
 GEN	16	8	angel of the LORD, the			Normal	Jesus	
 GEN	16	9	angel of the LORD, the			Normal	Jesus	
 GEN	16	10	angel of the LORD, the			Normal	Jesus	
 GEN	16	11	angel of the LORD, the			Normal	Jesus	
 GEN	16	12	angel of the LORD, the			Normal	Jesus	
-GEN	16	13	Hagar, Sarai’s maid			Normal		
+GEN	16	13	Hagar, Sarai's maid			Normal		
 GEN	17	1	God		God (the LORD)	Normal		
 GEN	17	2	God		God (the LORD)	Normal		
 GEN	17	4	God		God (the LORD)	Normal		
@@ -261,7 +261,7 @@ GEN	21	7	Sarah (Sarai) (old)			Normal
 GEN	21	10	Sarah (Sarai) (old)			Normal		
 GEN	21	12	God		God (the LORD)	Normal		
 GEN	21	13	God		God (the LORD)	Normal		
-GEN	21	16	Hagar, Sarai’s maid			Normal		
+GEN	21	16	Hagar, Sarai's maid			Normal		
 GEN	21	17	angel of the LORD, the		angel of God, the	Normal	Jesus	
 GEN	21	18	angel of the LORD, the		angel of God, the	Normal	Jesus	
 GEN	21	22	Abimelech, King of Gerar/Phicol		Abimelech and Phicol	Normal		
@@ -9219,7 +9219,7 @@ JER	38	23	Jeremiah			Normal
 JER	38	24	Zedekiah, king of Judah			Normal		
 JER	38	25	Zedekiah, king of Judah			Normal		
 JER	38	26	Zedekiah, king of Judah			Normal		
-JER	39	12	Nebuzaradan		 guard	Normal		
+JER	39	12	Nebuzaradan			Normal		
 JER	39	16	God		God (the LORD)(word of the LORD came)	Normal		
 JER	39	17	God		God (the LORD)(word of the LORD came)	Normal		
 JER	39	18	God		God (the LORD)(word of the LORD came)	Normal		

@@ -15,12 +15,6 @@
         <seg>OK</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName. guard">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg> guard</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.2 other disciples">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -2967,10 +2961,10 @@
         <seg>Hadad the Edomite</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Hagar, Sarai’s maid">
+    <tu tuid="CharacterName.Hagar, Sarai's maid">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Hagar, Sarai’s maid</seg>
+        <seg>Hagar, Sarai's maid</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Haggai (word of the LORD)">
