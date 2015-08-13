@@ -17,7 +17,7 @@ namespace DevTools.TermTranslator
 		// A) New/modified localizations of the Biblical Terms files (from Paratext) become available.
 		// B) New HUMAN localizations of TMX files are done for Glyssen.
 		private static readonly List<string> LanguagesToProcess = new List<string> { "Es", "Fr", "Pt", "zh-Hans", "zh-Hant" };
-		private static readonly List<string> LanguagesWithCustomizedTranslations = new List<string> {"es"};
+		private static readonly List<string> LanguagesWithCustomizedTranslations = new List<string> {"es", "fr", "pt"};
 		private static readonly bool ProcessingUpdatedBiblicalTermsFiles = false;
 
 		private static readonly Regex s_partOfChineseOrFrenchGlossThatIsNotTheGloss = new Regex("((（|。).+)|(\\[1\\] )", RegexOptions.Compiled);
@@ -123,9 +123,23 @@ namespace DevTools.TermTranslator
 		private static void AddLocalizedTerm(TmxFormat newTmx, string modifiedLangAbbr, BiblicalTermsLocalizations localTermsList,
 			Tu tmxTermEntry, string name, Action<TmxFormat, Tu, Tuv> ProcessLocalizedGloss)
 		{
-			string[] parts = name.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+			// We only want to break a character ID into separate words for individual localization if it begins with a
+			// proper name.
+			int maxParts = Char.IsUpper(name[0]) ? Int32.MaxValue : 1;
 
-			Localization term = s_englishTermsList.Terms.Locals.Find(t => t.Gloss == parts[0]);
+			string[] parts = name.Split(new[] { ' ' }, maxParts, StringSplitOptions.RemoveEmptyEntries);
+
+			string englishGloss = parts[0];
+			string endingPunct;
+			if (Char.IsPunctuation(englishGloss.Last()))
+			{
+				endingPunct = englishGloss.Last().ToString();
+				englishGloss = englishGloss.Remove(englishGloss.Length - 1);
+			}
+			else
+				endingPunct = null;
+
+			Localization term = s_englishTermsList.Terms.Locals.Find(t => t.Gloss == englishGloss);
 			if (term != null)
 			{
 				Localization localTerm = localTermsList.Terms.Locals.Find(t => t.Id == term.Id);
@@ -136,26 +150,29 @@ namespace DevTools.TermTranslator
 
 					if (localGloss != "")
 					{
+						if (endingPunct != null)
+							localGloss += endingPunct;
 						parts[0] = localGloss;
 
-						if (Char.IsUpper(name[0]) && parts.Length > 1)
+						if (parts.Length > 1)
 						{
 							for (int i = 1; i < parts.Length; i++)
 							{
-								var englishTerm = parts[i];
+								englishGloss = parts[i];
 								bool openingParenthesis = false;
-								bool closingParenthesis = false;
-								if (englishTerm.StartsWith("("))
+								if (englishGloss.StartsWith("("))
 								{
-									englishTerm = englishTerm.Substring(1);
+									englishGloss = englishGloss.Substring(1);
 									openingParenthesis = true;
 								}
-								if (englishTerm.EndsWith(")"))
+								if (Char.IsPunctuation(englishGloss.Last()))
 								{
-									englishTerm = englishTerm.Remove(englishTerm.Length - 1);
-									closingParenthesis = true;
+									endingPunct = englishGloss.Last().ToString();
+									englishGloss = englishGloss.Remove(englishGloss.Length - 1);
 								}
-								term = s_englishTermsList.Terms.Locals.Find(t => t.Gloss == parts[i]);
+								else
+									endingPunct = null;
+								term = s_englishTermsList.Terms.Locals.Find(t => t.Gloss == englishGloss);
 								if (term != null)
 								{
 									localTerm = localTermsList.Terms.Locals.Find(t => t.Id == term.Id);
@@ -167,8 +184,8 @@ namespace DevTools.TermTranslator
 										{
 											if (openingParenthesis)
 												localGloss = "(" + localGloss;
-											if (closingParenthesis)
-												localGloss += ")";
+											if (endingPunct != null)
+												localGloss += endingPunct;
 											parts[i] = localGloss;
 											continue;
 										}

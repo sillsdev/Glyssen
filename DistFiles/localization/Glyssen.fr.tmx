@@ -23,6 +23,15 @@
         <seg>Abigaïl</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Abijah, king of Judah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Abijah, king of Judah</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Abia, roi // [2] Mélek ***of*** Juda</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Abimelech">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -41,6 +50,42 @@
         <seg>Abimélek ***and*** Pikol</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Abimelech, King of Gerar">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Abimelech, King of Gerar</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Abimélek, ***King*** ***of*** Guérar</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Abimelech, King of the Philistines">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Abimelech, King of the Philistines</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Abimélek, ***King*** ***of*** ***the*** ***Philistines***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Abimelech, King of the Philistines (in Gerar)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Abimelech, King of the Philistines (in Gerar)</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Abimélek, ***King*** ***of*** ***the*** ***Philistines*** ***(in*** Guérar)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Abimelech, son of Gideon (Jerubbaal)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Abimelech, son of Gideon (Jerubbaal)</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Abimélek, ***son*** ***of*** Gédéon (Yeroubaal)</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Abiram">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -50,13 +95,22 @@
         <seg>Abirâm</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Abner">
+    <tu tuid="CharacterName.Abishai, Joab's brother">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Abner</seg>
+        <seg>Abishai, Joab's brother</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Abner</seg>
+        <seg>Abichaï, ***Joab's*** ***brother***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Abner, commander of Saul's army">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Abner, commander of Saul's army</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Abner, ***commander*** ***of*** ***Saul's*** ***army***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Abraham (Abram)">
@@ -65,16 +119,16 @@
         <seg>Abraham (Abram)</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Abraham ***(Abram)***</seg>
+        <seg>Abraham (Abram)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Absalom">
+    <tu tuid="CharacterName.Absalom, son of David">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Absalom</seg>
+        <seg>Absalom, son of David</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Abichalom</seg>
+        <seg>Abichalom, ***son*** ***of*** David</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Achan">
@@ -86,13 +140,13 @@
         <seg>Akan</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Achish">
+    <tu tuid="CharacterName.Achish, king of Gath">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Achish</seg>
+        <seg>Achish, king of Gath</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Akich</seg>
+        <seg>Akich, roi // [2] Mélek ***of*** Gath</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Adam">
@@ -113,6 +167,24 @@
         <seg>Adoni-Bézec</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Adonijah, son of David">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Adonijah, son of David</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Adonia, ***son*** ***of*** David</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Adoni-Zedek, king of Jerusalem">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Adoni-Zedek, king of Jerusalem</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Adoni-Sédec, roi // [2] Mélek ***of*** ***Jerusalem***</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Agabus the prophet">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -120,6 +192,51 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Agabus ***the*** prophète</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ahab, king of Israel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ahab, king of Israel</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Achab, roi // [2] Mélek ***of*** Israël</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ahaz, king of Judah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ahaz, king of Judah</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Ahaz, roi // [2] Mélek ***of*** Juda</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ahaziah, king of Israel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ahaziah, king of Israel</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Ahazia, roi // [2] Mélek ***of*** Israël</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ahijah the priest">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ahijah the priest</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Ahia ***the*** prêtre, sacrificateur</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ahijah the prophet">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ahijah the prophet</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Ahia ***the*** prophète</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Ahimaaz (messenger)">
@@ -137,7 +254,7 @@
         <seg>Ahimelech the priest (son of Ahitub)</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Ahimélek ***the*** prêtre, sacrificateur ***(son*** ***of*** ***Ahitub)***</seg>
+        <seg>Ahimélek ***the*** prêtre, sacrificateur ***(son*** ***of*** Ahitoub)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Ahithophel">
@@ -167,13 +284,31 @@
         <seg>Amassa</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Amaziah">
+    <tu tuid="CharacterName.Amasa)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Amaziah</seg>
+        <seg>Amasa)</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Amassia</seg>
+        <seg>Amassa)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Amaziah, king of Judah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Amaziah, king of Judah</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Amassia, roi // [2] Mélek ***of*** Juda</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Amaziah, priest of Bethel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Amaziah, priest of Bethel</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Amassia, prêtre, sacrificateur ***of*** Béthel</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Ammonite nobles">
@@ -185,13 +320,13 @@
         <seg>Ammonite ***nobles***</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Amnon">
+    <tu tuid="CharacterName.Amnon, son of David">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Amnon</seg>
+        <seg>Amnon, son of David</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Amnôn</seg>
+        <seg>Amnôn, ***son*** ***of*** David</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Amos">
@@ -209,7 +344,7 @@
         <seg>Ananias (Annas), the high priest (father-in-law of Caiaphas)</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Ananias: (1) mari de Sapphira ***(Annas),*** ***the*** high prêtre, sacrificateur ***(father-in-law*** ***of*** ***Caiaphas)***</seg>
+        <seg>Ananias: (1) mari de Sapphira ***(Annas),*** ***the*** high prêtre, sacrificateur ***(father-in-law*** ***of*** Caïphe)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Ananias of Damascus">
@@ -221,6 +356,15 @@
         <seg>Ananias: (1) mari de Sapphira ***of*** Damas</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Ananias, the high priest">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ananias, the high priest</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Ananias: (1) mari de Sapphira, ***the*** high prêtre, sacrificateur</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Andrew">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -228,6 +372,15 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>André</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Andrew, Simon Peter's brother">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Andrew, Simon Peter's brother</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>André,  // Simon: (1) Simon Pierre ***Peter's*** ***brother***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.angel">
@@ -239,157 +392,22 @@
         <seg>angel</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.angel (one of the seven)">
+    <tu tuid="CharacterName.Anna, prophetess">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>angel (one of the seven)</seg>
+        <seg>Anna, prophetess</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>angel (one of the seven)</seg>
+        <seg>Anne, prophétesse</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.angel flying directly overhead">
+    <tu tuid="CharacterName.Annas, high priest">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>angel flying directly overhead</seg>
+        <seg>Annas, high priest</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>angel flying directly overhead</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel flying directly overhead, second">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel flying directly overhead, second</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>angel flying directly overhead, second</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel flying directly overhead, third">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel flying directly overhead, third</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>angel flying directly overhead, third</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel from the rising sun with seal of living God">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel from the rising sun with seal of living God</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>angel from the rising sun with seal of living God</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel Gabriel, sent by God">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel Gabriel, sent by God</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>angel Gabriel, sent by God</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel of God, an">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel of God, an</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>angel of God, an</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel of God, the">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel of God, the</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>angel of God, the</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel of the LORD, an">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel of the LORD, an</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>angel of the LORD, an</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel of the LORD, the">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel of the LORD, the</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>angel of the LORD, the</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel or messenger (Greek variant: someone speaking to John)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel or messenger (Greek variant: someone speaking to John)</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>angel or messenger (Greek variant: someone speaking to John)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel over waters">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel over waters</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>angel over waters</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel standing in sun">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel standing in sun</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>angel standing in sun</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel standing on sea and land">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel standing on sea and land</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>angel standing on sea and land</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel who talked with Zechariah">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel who talked with Zechariah</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>angel who talked with Zechariah</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel who talked with Zechariah (vision)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel who talked with Zechariah (vision)</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>angel who talked with Zechariah (vision)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel who wrestled with Jacob">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel who wrestled with Jacob</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>angel who wrestled with Jacob</seg>
+        <seg>Hanne, high prêtre, sacrificateur</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Apollos">
@@ -399,6 +417,42 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Apollos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Araunah, the Jebusite">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Araunah, the Jebusite</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Aravna, ***the*** Jébusite</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Artaxerxes, king of Persia">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Artaxerxes, king of Persia</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Artaxerxès, roi // [2] Mélek ***of*** ***Persia***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Asa, king of Judah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Asa, king of Judah</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Asa, roi // [2] Mélek ***of*** Juda</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Asahel, brother of Joab">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Asahel, brother of Joab</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Assaël, ***brother*** ***of*** Joab</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Asaph">
@@ -428,6 +482,24 @@
         <seg>Athalie</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Athaliah, mother of Ahaziah (Queen)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Athaliah, mother of Ahaziah (Queen)</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Athalie, ***mother*** ***of*** Ahazia ***(Queen)***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Athaliah, queen">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Athaliah, queen</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Athalie, queen</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Azariah the chief priest">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -444,6 +516,42 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Yezania ***the*** prêtre, sacrificateur</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Azariah, Johanan and all the arrogant men">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Azariah, Johanan and all the arrogant men</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Yezania, Yohanan ***and*** ***all*** ***the*** ***arrogant*** ***men***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Azariah, son of Hoshaiah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Azariah, son of Hoshaiah</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Yezania, ***son*** ***of*** Hochaya</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Azariah, son of Jehohanan">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Azariah, son of Jehohanan</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Yezania, ***son*** ***of*** Yohanan</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Azariah, son of Oded">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Azariah, son of Oded</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Yezania, ***son*** ***of*** Oded</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Baanah">
@@ -545,6 +653,24 @@
         <seg>Batchéba</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Benaiah, son of Jehoiada">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Benaiah, son of Jehoiada</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Benaya, ***son*** ***of*** Yoyada</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ben-Hadad, king of Aram">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ben-Hadad, king of Aram</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Ben-Hadad, roi // [2] Mélek ***of*** Aram, Syrie</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Benjamin">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -552,6 +678,15 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Benjamin</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Bera, king of Sodom">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Bera, king of Sodom</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Beéra, roi // [2] Mélek ***of*** Sodome</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Berekiah">
@@ -572,13 +707,22 @@
         <seg>Bérénice</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Bethuel (Laban's father)">
+    <tu tuid="CharacterName.Bethlehem, elders of">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Bethuel (Laban's father)</seg>
+        <seg>Bethlehem, elders of</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Betouel ***(Laban's*** ***father)***</seg>
+        <seg>Bethléem, ***elders*** ***of***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Bethuel, Rebekah's father">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Bethuel, Rebekah's father</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Betouel, ***Rebekah's*** ***father***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Bildad the Shuhite">
@@ -590,6 +734,15 @@
         <seg>Bildad ***the*** Chouha</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Birsha, king of Gomorrah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Birsha, king of Gomorrah</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Bircha, roi // [2] Mélek ***of*** Gomorrhe</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Boaz">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -597,6 +750,15 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Booz</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Caiaphas, the high priest">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Caiaphas, the high priest</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Caïphe, ***the*** high prêtre, sacrificateur</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Cain">
@@ -617,31 +779,13 @@
         <seg>Caleb</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Caleb (old)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Caleb (old)</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>Caleb ***(old)***</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Canaanite (Syrophoenician) mother of possessed girl">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>Canaanite (Syrophoenician) mother of possessed girl</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Cananéen ***(Syrophoenician)*** ***mother*** ***of*** ***possessed*** ***girl***</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.chariot commanders of Aram">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>chariot commanders of Aram</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>chariot, char commanders of Aram</seg>
+        <seg>Cananéen (Phénicie de Syrie) ***mother*** ***of*** ***possessed*** ***girl***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Cleopas">
@@ -659,7 +803,16 @@
         <seg>Cleopas and his companion (on road to Emmaus)</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Cléopas ***and*** ***his*** ***companion*** ***(on*** ***road*** ***to*** ***Emmaus)***</seg>
+        <seg>Cléopas ***and*** ***his*** ***companion*** ***(on*** ***road*** ***to*** Emmaüs)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Cleopas' companion (on road to Emmaus)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Cleopas' companion (on road to Emmaus)</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Cléopas' ***companion*** ***(on*** ***road*** ***to*** Emmaüs)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Cornelius">
@@ -677,7 +830,16 @@
         <seg>Cretan prophet</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>de Crète, Crétois prophète</seg>
+        <seg>prophète crétois</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Cyrus, king of Persia">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Cyrus, king of Persia</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Cyrus, roi // [2] Mélek ***of*** ***Persia***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Dan">
@@ -716,6 +878,24 @@
         <seg>David</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.David (old)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>David (old)</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>David ***(old)***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.David, king">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>David, king</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>David, roi // [2] Mélek</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Deborah">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -723,6 +903,15 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Débora</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Deborah, prophetess">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Deborah, prophetess</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Débora, prophétesse</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Delaiah">
@@ -752,24 +941,6 @@
         <seg>Démétrius ***the*** ***silversmith***</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.disciple who wanted to bury his father">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>disciple who wanted to bury his father</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>disciple, élève, partisan who wanted to bury his father</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.disciple whom Jesus loved">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>disciple whom Jesus loved</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>disciple, élève, partisan whom Jesus loved</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Doeg the Edomite">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -785,7 +956,7 @@
         <seg>donkey (female)</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>âne, ânesse, bête (female)</seg>
+        <seg>ânesse</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Edom">
@@ -797,22 +968,40 @@
         <seg>Édom</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Eglon, king of Moab">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Eglon, king of Moab</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Églon, roi // [2] Mélek ***of*** Moab</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Egyptian (slave of Amalekite)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>Egyptian (slave of Amalekite)</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Égyptien ***(slave*** ***of*** ***Amalekite)***</seg>
+        <seg>Égyptien ***(slave*** ***of*** Amalécite)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.eighty other priests">
+    <tu tuid="CharacterName.Ehud, Israelite deliverer">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>eighty other priests</seg>
+        <seg>Ehud, Israelite deliverer</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>quatre-vingts other priests</seg>
+        <seg>Éhoud, Israélite ***deliverer***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ekron, people of">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ekron, people of</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Écron, people ***of***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Eleazar the priest, son of Aaron">
@@ -821,7 +1010,7 @@
         <seg>Eleazar the priest, son of Aaron</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Élazar ***the*** ***priest,*** ***son*** ***of*** Aaron</seg>
+        <seg>Élazar ***the*** prêtre, sacrificateur, ***son*** ***of*** Aaron</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Eli">
@@ -842,6 +1031,15 @@
         <seg>Héli ***(very*** ***old)***</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Eliab, David's brother">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Eliab, David's brother</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Éliab, ***David's*** ***brother***</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Eliakim">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -849,6 +1047,24 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Éliaquim</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Eliezer, prophet of the Lord">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Eliezer, prophet of the Lord</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Éliézer, prophète ***of*** ***the*** ***Lord***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Elihu, son of Barakel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Elihu, son of Barakel</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Élihou, ***son*** ***of*** ***Barakel***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Elijah">
@@ -885,6 +1101,15 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Élisée ***(had*** ***said)***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Elisha (old)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Elisha (old)</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Élisée ***(old)***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Elisha (the LORD says)">
@@ -959,6 +1184,24 @@
         <seg>Éfraïm</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Ephraim, men of">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ephraim, men of</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Éfraïm, ***men*** ***of***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ephraim, survivor of">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ephraim, survivor of</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Éfraïm, ***survivor*** ***of***</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Ephron the Hittite">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -975,6 +1218,15 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Ésaü</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Esther, queen">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Esther, queen</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Esther, queen</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Ethiopian officer of Queen Candace">
@@ -1013,6 +1265,15 @@
         <seg>Ézékiel ***(in*** vision ***of*** ***God)***</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Felix, governor of Judea">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Felix, governor of Judea</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Félix, ***governor*** ***of*** Judée</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Festus">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1022,6 +1283,15 @@
         <seg>Festus (successeur de Felix comme procurateurr de Palestine)</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Festus, governor of Judea">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Festus, governor of Judea</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Festus (successeur de Felix comme procurateurr de Palestine), ***governor*** ***of*** Judée</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.fool">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1029,6 +1299,15 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>stupide, délaissé</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gaal, son of Ebed">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gaal, son of Ebed</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Gaal, ***son*** ***of*** Ébed</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Gabriel">
@@ -1049,6 +1328,15 @@
         <seg>Gadarénien ***(or*** ***Gerasenes)*** people</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Gallio, proconsul of Achaia">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gallio, proconsul of Achaia</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Gallion, ***proconsul*** ***of*** Achaïe</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Gamaliel">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1058,6 +1346,42 @@
         <seg>Gamliel</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Gamaliel, a Pharisee on Sanhedrin">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gamaliel, a Pharisee on Sanhedrin</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Gamliel, ***a*** Pharisien ***on*** ***Sanhedrin***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gaza, people of (wicked)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gaza, people of (wicked)</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Gaza, people ***of*** ***(wicked)***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gedaliah, governor of Judah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gedaliah, governor of Judah</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Guedalia, ***governor*** ***of*** Juda</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gedaliah, son of Pashur">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gedaliah, son of Pashur</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Guedalia, ***son*** ***of*** ***Pashur***</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Gehazi">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1065,6 +1389,15 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Guéhazi</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gehazi, servant of Elisha">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gehazi, servant of Elisha</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Guéhazi, serviteur ***of*** Élisée</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Gemariah">
@@ -1082,16 +1415,43 @@
         <seg>Gideon (Jerubbaal)</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Gédéon ***(Jerubbaal)***</seg>
+        <seg>Gédéon (Yeroubaal)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Goliath">
+    <tu tuid="CharacterName.Gilead, elders of">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Goliath</seg>
+        <seg>Gilead, elders of</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Goliath</seg>
+        <seg>Galaad, ***elders*** ***of***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gilead, leaders of">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gilead, leaders of</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Galaad, ***leaders*** ***of***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gilead, men of">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gilead, men of</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Galaad, ***men*** ***of***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Goliath, Philistine champion">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Goliath, Philistine champion</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Goliath, Philistin ***champion***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Habakkuk">
@@ -1112,13 +1472,31 @@
         <seg>Hadad ***the*** Édomite</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Hamor">
+    <tu tuid="CharacterName.Hagar, Sarai's maid">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Hamor</seg>
+        <seg>Hagar, Sarai's maid</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>âne (FF 5.6) // [2] Hamor</seg>
+        <seg>Agar, ***Sarai's*** ***maid***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Haman, highest noble to Xerxes, king">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Haman, highest noble to Xerxes, king</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Haman, ***highest*** ***noble*** ***to*** ***Xerxes,*** roi // [2] Mélek</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Hamor, Hivite ruler">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Hamor, Hivite ruler</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>âne (FF 5.6) // [2] Hamor, Hévien ruler</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Hanamel (Jeremiah's cousin)">
@@ -1146,6 +1524,24 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Hanani ***the*** ***seer***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Hanani, brother of Nehemiah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Hanani, brother of Nehemiah</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Hanani, ***brother*** ***of*** Nehémia</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Hananiah, false prophet">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Hananiah, false prophet</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Hanania, ***false*** prophète</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Hannah">
@@ -1202,22 +1598,49 @@
         <seg>Hérodiade</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.high priest">
+    <tu tuid="CharacterName.Herodias' daughter">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>high priest</seg>
+        <seg>Herodias' daughter</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>high priest</seg>
+        <seg>Hérodiade' ***daughter***</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.high priest's servant (relative of the man whose ear Peter cut off)">
+    <tu tuid="CharacterName.Hezekiah, king of Judah">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>high priest's servant (relative of the man whose ear Peter cut off)</seg>
+        <seg>Hezekiah, king of Judah</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>high priest's servant (relative of the man whose ear Peter cut off)</seg>
+        <seg>Ézékias, roi // [2] Mélek ***of*** Juda</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Hilkiah, high priest">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Hilkiah, high priest</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Hilquia, high prêtre, sacrificateur</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Hirah, the Adullamite">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Hirah, the Adullamite</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Hira, ***the*** d'Adoullam</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Hobab, Moses brother-in-law">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Hobab, Moses brother-in-law</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Hobab, ***Moses*** ***brother-in-law***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Hoglah">
@@ -1227,15 +1650,6 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Hogla</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.holy one (in vision)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>holy one (in vision)</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>saint one (in vision)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Hosea">
@@ -1274,6 +1688,33 @@
         <seg>Osée proverbe, parole // [2] Machal ***what*** ***wicked*** ***will*** ***say***</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Huldah, prophetess">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Huldah, prophetess</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Houlda, prophétesse</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Hushai, David's friend">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Hushai, David's friend</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Houchaï, ***David's*** friend</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Irijah, captain of the guard of Judah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Irijah, captain of the guard of Judah</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Iria, ***captain*** ***of*** ***the*** ***guard*** ***of*** Juda</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Isaac">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1301,6 +1742,33 @@
         <seg>Ésaïe</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Isaiah, the prophet">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Isaiah, the prophet</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Ésaïe, ***the*** prophète</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ish-Bosheth, son of Saul">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ish-Bosheth, son of Saul</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Ichebaal, ***son*** ***of*** Saül</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ishmael, son of Nethaniah (murderer)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ishmael, son of Nethaniah (murderer)</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Ismaël, ***son*** ***of*** Netania ***(murderer)***</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Israel">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1308,6 +1776,60 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Israël</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Israel, all">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Israel, all</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Israël, ***all***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Israel, all the men of">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Israel, all the men of</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Israël, ***all*** ***the*** ***men*** ***of***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Israel, all the tribes">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Israel, all the tribes</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Israël, ***all*** ***the*** ***tribes***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Israel, leaders of">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Israel, leaders of</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Israël, ***leaders*** ***of***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Israel, men of">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Israel, men of</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Israël, ***men*** ***of***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Israel, the people of">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Israel, the people of</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Israël, ***the*** people ***of***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Israelite army commanding officers">
@@ -1388,25 +1910,16 @@
         <seg>Israelite people, the</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Israélite ***people,*** ***the***</seg>
+        <seg>Israélite people, ***the***</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Israelite soldier (in Saul's army)">
+    <tu tuid="CharacterName.Israelite soldier in Saul's army">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Israelite soldier (in Saul's army)</seg>
+        <seg>Israelite soldier in Saul's army</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Israélite ***soldier*** ***(in*** ***Saul's*** ***army)***</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Israelite soldiers">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Israelite soldiers</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>Israélite ***soldiers***</seg>
+        <seg>Israélite ***soldier*** ***in*** ***Saul's*** ***army***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Israelite spies from house of Joseph">
@@ -1424,7 +1937,7 @@
         <seg>Israelite spies from Joshua, two men</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Israélite ***spies*** ***from*** ***Joshua,*** ***two*** ***men***</seg>
+        <seg>Israélite ***spies*** ***from*** Josué, ***two*** ***men***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Ittai">
@@ -1434,6 +1947,24 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Ittaï</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jabesh, elders of">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jabesh, elders of</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Yabech, ***elders*** ***of***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jabesh, men of">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jabesh, men of</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Yabech, ***men*** ***of***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Jabez">
@@ -1451,7 +1982,7 @@
         <seg>Jacob (Israel)</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Jacob ***(Israel)***</seg>
+        <seg>Jacob (Israël)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Jael">
@@ -1499,13 +2030,13 @@
         <seg>Ézékias</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Jehoiada">
+    <tu tuid="CharacterName.Jehoash, king of Israel">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Jehoiada</seg>
+        <seg>Jehoash, king of Israel</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Yoyada</seg>
+        <seg>Joas, roi // [2] Mélek ***of*** Israël</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Jehoiada the priest">
@@ -1515,6 +2046,42 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Yoyada ***the*** prêtre, sacrificateur</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jehonadab, son of Recab">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jehonadab, son of Recab</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Yonadab, ***son*** ***of*** ***Recab***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jehoshaphat, king of Judah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jehoshaphat, king of Judah</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Josaphat, roi // [2] Mélek ***of*** Juda</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jehu, son of Hanani">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jehu, son of Hanani</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Yéhou, ***son*** ***of*** Hanani</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jehu, son of Nimshi">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jehu, son of Nimshi</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Yéhou, ***son*** ***of*** Nimchi</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Jehucal">
@@ -1598,6 +2165,15 @@
         <seg>Jéroboam</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Jeroboam, king of Israel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jeroboam, king of Israel</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Jéroboam, roi // [2] Mélek ***of*** Israël</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Jeshua">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1634,6 +2210,33 @@
         <seg>Jésus ***(child)***</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Jesus' brothers">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jesus' brothers</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Jésus' ***brothers***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jesus' disciples">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jesus' disciples</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Jésus' ***disciples***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jesus' family">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jesus' family</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Jésus' ***family***</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Jesus in 2 John">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1650,6 +2253,15 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Jésus ***in*** ***Hebrews***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jesus' mother and brothers">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jesus' mother and brothers</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Jésus' ***mother*** ***and*** ***brothers***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Jethro (Reuel), Moses' father-in-law">
@@ -1706,6 +2318,24 @@
         <seg>Yoa</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Joash, father of Gideon (Jerubbaal)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Joash, father of Gideon (Jerubbaal)</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Yoach, ***father*** ***of*** Gédéon (Yeroubaal)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Joash, king of Judah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Joash, king of Judah</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Yoach, roi // [2] Mélek ***of*** Juda</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Job">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1748,7 +2378,7 @@
         <seg>John (disciple whom Jesus loved)</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Jean, Jean-Baptiste ***(disciple*** ***whom*** Jésus ***loved)***</seg>
+        <seg>Jean, Jean-Baptiste (disciple, élève, partisan ***whom*** Jésus ***loved)***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.John (sons of Zebedee)">
@@ -1757,7 +2387,7 @@
         <seg>John (sons of Zebedee)</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Jean, Jean-Baptiste ***(sons*** ***of*** ***Zebedee)***</seg>
+        <seg>Jean, Jean-Baptiste ***(sons*** ***of*** Zébédée)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.John (who had asked the Lord who was going to betray Him)">
@@ -1778,6 +2408,24 @@
         <seg>Jean, Jean-Baptiste ***the*** Baptiste (Jean)</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.John)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>John)</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Jean, Jean-Baptiste)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.John, Alexander, and other men of the high priest's family">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>John, Alexander, and other men of the high priest's family</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Jean, Jean-Baptiste, Alexandre, ***and*** ***other*** ***men*** ***of*** ***the*** high ***priest's*** ***family***</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Jonah">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1794,6 +2442,24 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Jonatan</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jonathan, son of Abiathar">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jonathan, son of Abiathar</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Jonatan, ***son*** ***of*** Abiatar</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Joram, king of Israel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Joram, king of Israel</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Yoram, roi // [2] Mélek ***of*** Israël</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Joseph">
@@ -1814,6 +2480,15 @@
         <seg>Joseph ***of*** Arimathée</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Joseph, people of">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Joseph, people of</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Joseph, people ***of***</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Joshua">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1832,6 +2507,24 @@
         <seg>Josué ***(old)***</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Josiah, king of Judah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Josiah, king of Judah</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Yosia, roi // [2] Mélek ***of*** Juda</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Jotham, son of Gideon (Jerubbaal)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jotham, son of Gideon (Jerubbaal)</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Yotam, ***son*** ***of*** Gédéon (Yeroubaal)</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Judah">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1839,6 +2532,33 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Juda</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Judah, all">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Judah, all</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Juda, ***all***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Judah, men of">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Judah, men of</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Juda, ***men*** ***of***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Judah, people in">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Judah, people in</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Juda, people ***in***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Judas Iscariot">
@@ -1850,13 +2570,31 @@
         <seg>(1) Judas: (a) fils de Jacob, sa tribu, son territoire (1 C-6) Iscariote</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Judas, apostle (not Judas Iscariot)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Judas, apostle (not Judas Iscariot)</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>(1) Judas: (a) fils de Jacob, sa tribu, son territoire (1 C-6), ***apostle*** ***(not*** (1) Judas: (a) fils de Jacob, sa tribu, son territoire (1 C-6) Iscariote)</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.king of Bela">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>king of Bela</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>roi // [2] Mélek of Bela</seg>
+        <seg>roi de Béla</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Kish, father of Saul">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Kish, father of Saul</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Quich, ***father*** ***of*** Saül</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Korah">
@@ -1874,7 +2612,7 @@
         <seg>Laban</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>blanc // [2] Laban</seg>
+        <seg>Laban</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Lamech (descendent of Cain)">
@@ -1883,7 +2621,7 @@
         <seg>Lamech (descendent of Cain)</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Lémek ***(descendent*** ***of*** ***Cain)***</seg>
+        <seg>Lémek ***(descendent*** ***of*** Caïn)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Lamech (descendent of Seth)">
@@ -1892,16 +2630,7 @@
         <seg>Lamech (descendent of Seth)</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Lémek ***(descendent*** ***of*** ***Seth)***</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.law of Moses where LORD commanded">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>law of Moses where LORD commanded</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>law of Moses where LORD commanded</seg>
+        <seg>Lémek ***(descendent*** ***of*** postérieur // [2] base // [3] Seth)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Leah">
@@ -1958,6 +2687,15 @@
         <seg>Malte ***islanders***</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Manoah, father of Samson">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Manoah, father of Samson</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Manoa, ***father*** ***of*** Samson</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Martha">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1985,6 +2723,42 @@
         <seg>Marie ***mother*** ***of*** Jacques</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Mary, Jesus' mother">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Mary, Jesus' mother</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Marie, Jésus' ***mother***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Mary, sister of Martha">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Mary, sister of Martha</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Marie, ***sister*** ***of*** Marthe</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Melchizedek, king of Salem (priest of God Most High)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Melchizedek, king of Salem (priest of God Most High)</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Melkisédec, roi // [2] Mélek ***of*** intact, complet, de la paix // [2] Salem (prêtre, sacrificateur ***of*** ***God*** ***Most*** ***High)***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Memucan, noble advisor to Xerxes, king">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Memucan, noble advisor to Xerxes, king</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Memoukan, ***noble*** ***advisor*** ***to*** ***Xerxes,*** roi // [2] Mélek</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Mephibosheth">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -2003,13 +2777,31 @@
         <seg>Mika</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Michael (archangel)">
+    <tu tuid="CharacterName.Micaiah, prophet of the LORD">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Michael (archangel)</seg>
+        <seg>Micaiah, prophet of the LORD</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Mikaël ***(archangel)***</seg>
+        <seg>Mikaya, prophète ***of*** ***the*** ***LORD***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Michael, archangel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Michael, archangel</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Mikaël, ***archangel***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Michal, David's wife">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Michal, David's wife</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Mikal, ***David's*** ***wife***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Midianite soldier who had a dream">
@@ -2075,6 +2867,15 @@
         <seg>Moabite ***officials,*** ***more*** ***distinguished***</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Mordecai, cousin of Esther">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Mordecai, cousin of Esther</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Mordokaï, ***cousin*** ***of*** Esther</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Naaman">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -2129,6 +2930,15 @@
         <seg>Natan</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Nathan, the prophet">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nathan, the prophet</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Natan, ***the*** prophète</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Nathanael">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -2145,6 +2955,15 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Nebouzaradan</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Neco, king of Egypt">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Neco, king of Egypt</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Néco, roi // [2] Mélek ***of*** Égypte</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Nehemiah">
@@ -2172,6 +2991,24 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Noé</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Obadiah, manager of Ahab's palace">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Obadiah, manager of Ahab's palace</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Obadia, ***manager*** ***of*** ***Ahab's*** palace</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Oded, prophet of the Lord">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Oded, prophet of the Lord</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Oded, prophète ***of*** ***the*** ***Lord***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.On">
@@ -2216,196 +3053,7 @@
         <seg>people</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>people</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people at cistern">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people at cistern</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people at cistern</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people at coronation of King Joash">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people at coronation of King Joash</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people at coronation of King Joash</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people at Jairus' house">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people at Jairus' house</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people at Jairus' house</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people in Capernaum">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people in Capernaum</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people in Capernaum</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people in crowd by Sea of Galilee">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people in crowd by Sea of Galilee</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people in crowd by Sea of Galilee</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people in high priest's courtyard">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people in high priest's courtyard</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people in high priest's courtyard</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people in Jericho, all the">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people in Jericho, all the</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people in Jericho, all the</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people in Pisidian Antioch synagogue">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people in Pisidian Antioch synagogue</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people in Pisidian Antioch synagogue</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people in temple courts, all the">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people in temple courts, all the</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people in temple courts, all the</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people in the temple">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people in the temple</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people in the temple</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people near Jordan River">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people near Jordan River</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people near Jordan River</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people of Decapolis">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people of Decapolis</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people of Decapolis</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people of Jerusalem">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people of Jerusalem</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people of Jerusalem</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people of Jerusalem, some">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people of Jerusalem, some</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people of Jerusalem, some</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people of Samaria, all the">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people of Samaria, all the</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people of Samaria, all the</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people of the region of the Gerasenes">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people of the region of the Gerasenes</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people of the region of the Gerasenes</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people of Tyre and Sidon">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people of Tyre and Sidon</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people of Tyre and Sidon</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people praying at John Mark's mother's house">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people praying at John Mark's mother's house</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people praying at John Mark's mother's house</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people standing there">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people standing there</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people standing there</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people who knew Saul">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people who knew Saul</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people who knew Saul</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.people who saw healing of demon-possessed man who was blind and mute">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>people who saw healing of demon-possessed man who was blind and mute</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>people who saw healing of demon-possessed man who was blind and mute</seg>
+        <seg>personnes</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Peter (Simon)">
@@ -2414,7 +3062,7 @@
         <seg>Peter (Simon)</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Pierre ***(Simon)***</seg>
+        <seg>Pierre ( // Simon: (1) Simon Pierre)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Peter (Simon) and companions">
@@ -2423,7 +3071,7 @@
         <seg>Peter (Simon) and companions</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Pierre ***(Simon)*** ***and*** ***companions***</seg>
+        <seg>Pierre ( // Simon: (1) Simon Pierre) ***and*** ***companions***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Peter (Simon), with Eleven">
@@ -2450,7 +3098,7 @@
         <seg>Pharisee (expert in religious law)</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Pharisien ***(expert*** ***in*** ***religious*** ***law)***</seg>
+        <seg>Pharisien ***(expert*** ***in*** ***religious*** law)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Pharisee (Simon)">
@@ -2459,7 +3107,16 @@
         <seg>Pharisee (Simon)</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Pharisien ***(Simon)***</seg>
+        <seg>Pharisien ( // Simon: (1) Simon Pierre)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Pharisee, a">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Pharisee, a</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Pharisien, ***a***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Phicol">
@@ -2480,22 +3137,22 @@
         <seg>Philippe</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Philip (apostle)">
+    <tu tuid="CharacterName.Philip the apostle">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Philip (apostle)</seg>
+        <seg>Philip the apostle</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Philippe ***(apostle)***</seg>
+        <seg>Philippe ***the*** ***apostle***</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Philip (the evangelist)">
+    <tu tuid="CharacterName.Philip the evangelist">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Philip (the evangelist)</seg>
+        <seg>Philip the evangelist</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Philippe ***(the*** ***evangelist)***</seg>
+        <seg>Philippe ***the*** ***evangelist***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Philistine commanders">
@@ -2516,6 +3173,15 @@
         <seg>Philistin ***priests*** ***and*** ***fortune*** ***tellers***</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Philistine rulers">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Philistine rulers</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Philistin ***rulers***</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Pilate">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -2523,15 +3189,6 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Pilate</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.priest">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>priest</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>prêtre, sacrificateur</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.proclamation">
@@ -2558,25 +3215,7 @@
         <seg>prophet in Bethel</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>prophète in Bethel</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.prophet of the LORD">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>prophet of the LORD</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>prophète of the LORD</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.prophet who confronts Ahab">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>prophet who confronts Ahab</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>prophète who confronts Ahab</seg>
+        <seg>prophète en Bethel</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Puah (midwife)">
@@ -2588,31 +3227,13 @@
         <seg>Pouva ***(midwife)***</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.queen of Babylon">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>queen of Babylon</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>queen of Babylon</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.queen of Sheba">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>queen of Sheba</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>queen of Sheba</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Rachel">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>Rachel</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>brebis (mouton femelle</seg>
+        <seg>Rachel</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Rahab">
@@ -2621,7 +3242,7 @@
         <seg>Rahab</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>large, étendu // [2] Rahab</seg>
+        <seg>Rahab</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Rebekah">
@@ -2642,13 +3263,13 @@
         <seg>Béthel</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Rehoboam">
+    <tu tuid="CharacterName.Rehoboam, king">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Rehoboam</seg>
+        <seg>Rehoboam, king</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Roboam</seg>
+        <seg>Roboam, roi // [2] Mélek</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Reuben">
@@ -2696,6 +3317,15 @@
         <seg>Salomé</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Samaria, people of">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Samaria, people of</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Samarie, people ***of***</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Samson">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -2723,13 +3353,13 @@
         <seg>Samuel ***(boy)***</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Samuel (old)">
+    <tu tuid="CharacterName.Samuel (dead)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Samuel (old)</seg>
+        <seg>Samuel (dead)</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Samuel ***(old)***</seg>
+        <seg>Samuel ***(dead)***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Sanballat">
@@ -2750,13 +3380,13 @@
         <seg>Saneballath ***the*** Horonite</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Sapphira (wife of Ananias of Jerusalem)">
+    <tu tuid="CharacterName.Sapphira, wife of Ananias of Jerusalem">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Sapphira (wife of Ananias of Jerusalem)</seg>
+        <seg>Sapphira, wife of Ananias of Jerusalem</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Saphira ***(wife*** ***of*** Ananias: (1) mari de Sapphira ***of*** ***Jerusalem)***</seg>
+        <seg>Saphira, ***wife*** ***of*** Ananias: (1) mari de Sapphira ***of*** ***Jerusalem***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Sarah (Sarai)">
@@ -2765,7 +3395,7 @@
         <seg>Sarah (Sarai)</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Sara ***(Sarai)***</seg>
+        <seg>Sara (Saraï)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Sarah (Sarai) (old)">
@@ -2774,7 +3404,7 @@
         <seg>Sarah (Sarai) (old)</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Sara ***(Sarai)*** ***(old)***</seg>
+        <seg>Sara (Saraï) ***(old)***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Satan (Devil)">
@@ -2792,16 +3422,7 @@
         <seg>Saul</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Saul: (1) Nom hébreu de l'apôtre Paul</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Saul (old)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Saul (old)</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>Saul: (1) Nom hébreu de l'apôtre Paul ***(old)***</seg>
+        <seg>Saül</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Saul (Paul)">
@@ -2810,223 +3431,16 @@
         <seg>Saul (Paul)</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Saul: (1) Nom hébreu de l'apôtre Paul ***(Paul)***</seg>
+        <seg>Saul (Paul)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.saying (proverb)">
+    <tu tuid="CharacterName.Sennacherib, king of Assyria">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>saying (proverb)</seg>
+        <seg>Sennacherib, king of Assyria</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal (proverb)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about Anakites">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about Anakites</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about Anakites</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about blind and lame">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about blind and lame</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about blind and lame</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about captivity and death by the sword">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about captivity and death by the sword</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about captivity and death by the sword</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about Gentile nations">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about Gentile nations</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about Gentile nations</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about going beyond what is written">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about going beyond what is written</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about going beyond what is written</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about Nimrod">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about Nimrod</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about Nimrod</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about Saul">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about Saul</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about Saul</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about seer">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about seer</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about seer</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about sow">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about sow</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about sow</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about what controls you">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about what controls you</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about what controls you</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about yeast">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about yeast</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about yeast</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.saying about Zion">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>saying about Zion</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>proverbe, parole // [2] Machal about Zion</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.second person to accuse Peter (man)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>second person to accuse Peter (man)</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>deuxième person to accuse Peter (man)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant girl">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant girl</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>serviteur girl</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant girl at high priest's courtyard">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant girl at high priest's courtyard</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>serviteur girl at high priest's courtyard</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant girl who watched the door">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant girl who watched the door</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>serviteur girl who watched the door</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant girl, another">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant girl, another</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>serviteur girl, another</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant of concubine's husband">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant of concubine's husband</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>serviteur of concubine's husband</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant of Elijah">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant of Elijah</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>serviteur of Elijah</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant of Naaman's wife (young girl)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant of Naaman's wife (young girl)</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>serviteur of Naaman's wife (young girl)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant of Nabal">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant of Nabal</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>serviteur of Nabal</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant of priest">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant of priest</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>serviteur of priest</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.servant of Saul">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>servant of Saul</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>serviteur of Saul</seg>
+        <seg>Sennakérib, roi // [2] Mélek ***of*** ***Assyria***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.seventy-two">
@@ -3038,6 +3452,15 @@
         <seg>soixante-douze</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Shaphan, secretary">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Shaphan, secretary</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Chafan, ***secretary***</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Sharezer">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3047,6 +3470,33 @@
         <seg>Saresser</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Sheba, son of Bicri">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Sheba, son of Bicri</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Chéba, ***son*** ***of*** ***Bicri***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Shecaniah, son of Jehiel">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Shecaniah, son of Jehiel</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Chekania, ***son*** ***of*** Yéhiel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Shechem, son of Hamor">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Shechem, son of Hamor</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Chékem, ***son*** ***of*** âne (FF 5.6) // [2] Hamor</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Shemaiah">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3054,6 +3504,24 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Chemaya</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Shemaiah, son of Delaiah, false prophet">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Shemaiah, son of Delaiah, false prophet</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Chemaya, ***son*** ***of*** Delaya, ***false*** prophète</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Shemeber, king of Zeboiim">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Shemeber, king of Zeboiim</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Chéméber, roi // [2] Mélek ***of*** Seboïm</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Shephatiah">
@@ -3072,6 +3540,15 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Chiméi</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Shinab, king of Admah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Shinab, king of Admah</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Chinab, roi // [2] Mélek ***of*** Adma</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Shiphrah (midwife)">
@@ -3101,13 +3578,13 @@
         <seg>Choua ***(Judah's*** ***wife)***</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.sign on the cross">
+    <tu tuid="CharacterName.Shunammite woman">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>sign on the cross</seg>
+        <seg>Shunammite woman</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>sign on the cross</seg>
+        <seg>Chounem ***woman***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Silas">
@@ -3128,22 +3605,22 @@
         <seg>Siméon</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Simeon (devout man in Jerusalem)">
+    <tu tuid="CharacterName.Simeon, devout man in Jerusalem">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Simeon (devout man in Jerusalem)</seg>
+        <seg>Simeon, devout man in Jerusalem</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Siméon ***(devout*** ***man*** ***in*** ***Jerusalem)***</seg>
+        <seg>Siméon, ***devout*** ***man*** ***in*** ***Jerusalem***</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Simon (sorcerer)">
+    <tu tuid="CharacterName.Simon, sorcerer">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Simon (sorcerer)</seg>
+        <seg>Simon, sorcerer</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg> // Simon: (1) Simon Pierre ***(sorcerer)***</seg>
+        <seg> // Simon: (1) Simon Pierre, ***sorcerer***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Sisera">
@@ -3155,6 +3632,15 @@
         <seg>Sisra</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Solomon, king">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Solomon, king</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Salomon, roi // [2] Mélek</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Stephen">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3164,31 +3650,22 @@
         <seg>Étienne</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.tax collectors">
+    <tu tuid="CharacterName.Tamar, daughter of David">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>tax collectors</seg>
+        <seg>Tamar, daughter of David</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>tax collectors</seg>
+        <seg>Tamar, ***daughter*** ***of*** David</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.temple guards">
+    <tu tuid="CharacterName.Tamar, daughter-in-law of Judah">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>temple guards</seg>
+        <seg>Tamar, daughter-in-law of Judah</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>temple guards</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.temple police">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>temple police</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>temple police</seg>
+        <seg>Tamar, ***daughter-in-law*** ***of*** Juda</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Tempter">
@@ -3206,7 +3683,16 @@
         <seg>Tertius</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Tertius (ROM.16:22)</seg>
+        <seg>Tertius</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Tertullus, lawyer">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Tertullus, lawyer</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Tertulle, ***lawyer***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Thomas">
@@ -3216,6 +3702,15 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Thomas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Tirzah, daughters of Zelophehad">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Tirzah, daughters of Zelophehad</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Tirsa, ***daughters*** ***of*** Selofad</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Titus">
@@ -3245,15 +3740,6 @@
         <seg>Tobia ***the*** Ammonite ***official***</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.twenty-four elders">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>twenty-four elders</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>vingt-quatre elders</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Uriah">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3261,15 +3747,6 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Urie</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.vineyard owner (God?)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>vineyard owner (God?)</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>vigne (FF 188.190) owner (God?)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Zalmunna">
@@ -3290,6 +3767,15 @@
         <seg>Zéba</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Zebul, governor of Shechem">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Zebul, governor of Shechem</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Zéboul, ***governor*** ***of*** Chékem</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Zechariah">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3308,15 +3794,6 @@
         <seg>Zacharie ***(the*** ***LORD*** ***says)***</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Zechariah (vision)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Zechariah (vision)</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>Zacharie ***(vision)***</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Zechariah (word of the LORD)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3324,6 +3801,15 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Zacharie ***(word*** ***of*** ***the*** ***LORD)***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Zechariah, son of Jehoiada the priest">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Zechariah, son of Jehoiada the priest</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Zacharie, ***son*** ***of*** Yoyada ***the*** prêtre, sacrificateur</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Zedekiah">
@@ -3335,13 +3821,58 @@
         <seg>Sidequia</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Ziba">
+    <tu tuid="CharacterName.Zedekiah, king of Judah">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Ziba</seg>
+        <seg>Zedekiah, king of Judah</seg>
       </tuv>
       <tuv xml:lang="fr">
-        <seg>Siba</seg>
+        <seg>Sidequia, roi ***of*** Juda</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Zedekiah, son of Hananiah">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Zedekiah, son of Hananiah</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Sidequia, ***son*** ***of*** Hanania</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Zedekiah, son of Kenaanah, false prophet">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Zedekiah, son of Kenaanah, false prophet</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Sidequia, ***son*** ***of*** ***Kenaanah,*** ***false*** prophète</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Zephaniah, priest">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Zephaniah, priest</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Sefania, prêtre, sacrificateur</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Zeresh, wife of Haman">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Zeresh, wife of Haman</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Zérech, ***wife*** ***of*** Haman</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ziba, servant of Saul's household">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ziba, servant of Saul's household</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Siba, serviteur ***of*** ***Saul's*** ***household***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Zion">
@@ -3362,6 +3893,15 @@
         <seg>de Zif</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Zipporah, Moses' wife">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Zipporah, Moses' wife</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Séfora, ***Moses'*** ***wife***</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Zophar the Naamathite">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3369,6 +3909,51 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Sofar ***the*** de Naama</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Agag, king of the Amalekites">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Agag, king of the Amalekites</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Agag, roi ***of*** ***the*** ***Amalekites***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Amasai, chief of thirty">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Amasai, chief of thirty</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Amassaï, ***chief*** ***of*** trente</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.council of elders">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>council of elders</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>collège des anciens (du plus haut conseil juif ou d'un conseil d'église)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.synagogue ruler">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>synagogue ruler</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>chef de la synagogue</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Zechariah (vision)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Zechariah (vision)</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Zacharie (vision)</seg>
       </tuv>
     </tu>
   </body>
