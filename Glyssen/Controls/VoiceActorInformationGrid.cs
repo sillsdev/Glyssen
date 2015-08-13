@@ -43,12 +43,6 @@ namespace Glyssen.Controls
 			m_italicsFont = new Font(originalGridFont.FontFamily, originalGridFont.Size, originalGridFont.Style | FontStyle.Italic);
 		}
 
-		//protected override void OnClientSizeChanged(EventArgs e)
-		//{
-		//	m_dataGrid.ClientSize = ClientSize;
-		//	base.OnClientSizeChanged(e);
-		//}
-
 		public int RowCount { get { return m_dataGrid.RowCount; } }
 
 		public VoiceActor.VoiceActor SelectedVoiceActorEntity

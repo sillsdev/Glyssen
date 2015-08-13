@@ -39,12 +39,10 @@ namespace Glyssen.Dialogs
 			m_wordWrapCellStyle.WrapMode = DataGridViewTriState.True;
 
 			m_characterGroupGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-			//m_characterGroupGrid.AutoSize = true;
 
 			WindowState = FormWindowState.Maximized;
 
 			AlignBtnAssignActorToSplitter();
-			//AlignBtnUpdateGroupToLeftGrid();
 
 			m_characterGroups = m_actorAssignmentViewModel.CharacterGroups;
 
@@ -101,11 +99,6 @@ namespace Glyssen.Dialogs
 		{
 			int xDist = splitContainer1.SplitterDistance;
 			m_btnAssignActor.Location = new Point(xDist + 19, m_btnAssignActor.Location.Y);
-		}
-
-		private void AlignBtnUpdateGroupToLeftGrid()
-		{
-			m_btnUpdateGroup.Top = 100;
 		}
 
 		private void m_btnAssignActor_Click(object sender, EventArgs e)
@@ -444,10 +437,6 @@ namespace Glyssen.Dialogs
 			if (m_characterGroupGrid.Rows[rowIndex].IsNewRow)
 			{
 				m_actorAssignmentViewModel.AddNewGroup();
-
-				DataGridViewRow row = m_characterGroupGrid.Rows[m_characterGroupGrid.Rows.Count - 1];
-				if(!row.Visible)
-				{ }
 			}
 
 			string dropCharacterId = CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary[characterId];
