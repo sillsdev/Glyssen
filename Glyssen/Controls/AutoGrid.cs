@@ -15,33 +15,51 @@ namespace Glyssen.Controls
 	/// <para>1) The height of an AutoGrid is only as big as it has rows, but its height will max out at the point where its bottom alignment matches its bottom alignment as set in the Designer.</para>
 	/// <para>The primary use case of this feature is to allow controls to float underneath a DataGridView's last row.</para>
 	/// <para>To use this feature, put the AutoGrid into a TableLayoutPanel in a row with Autosizing. Size the AutoGrid inside to whatever maximum size it may grow to.</para>
+	/// <para>If the AutoGrid is nested within a UserControl, anchor it in the UserControl and specify the ParentLayersAffected (i.e. the number of layers between the AutoGrid and the TableLayoutPanel).</para>
 	/// <para>2) AutoGrid will auto-scroll when dragging at the top or bottom.</para>
 	/// </summary>
 	public class AutoGrid : DataGridViewOverrideEnter
 	{
-		public delegate void RowDroppedEventHangler(object source, DataGridViewRow sourceRow, DataGridViewRow destinationRow);
-
-		private bool m_parentInitSized;
-		private Control m_parentResizeListen;
-		private bool m_scrolling;
-		private System.Threading.Timer m_scrollTimer;
-
 		public AutoGrid()
 		{
-			m_parentInitSized = false;
+			m_independentParentInitSized = false;
+			m_lastAffectedInitSized = false;
+			m_initSized = false;
 
 			ParentLayersAffected = 0;
 		}
 
-		[DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden)]
-		public int MinBottomMargin { get; private set; }
+		#region AutoSize
+
+		private bool m_independentParentInitSized;
+		private bool m_lastAffectedInitSized;
+		private bool m_initSized;
+		private int m_initHeight;
+		private int m_parentExtraHeight;
+		private Control m_independentParentResizeListen;
+		private Control m_lastAffectedResizeListen;
+		private bool m_setGridHeightActive;
+		private int m_minBottomMargin;
+
+		private int MinBottomMargin
+		{
+			get
+			{
+				return m_minBottomMargin;
+			}
+			set
+			{
+				m_setGridHeightActive = true;
+				m_minBottomMargin = value;
+			}
+		}
 
 		private int MaxHeight
 		{
 			get
 			{
 				if (ParentWithIndependentSize == null)
-					return 100;
+					return -1;
 				return ParentWithIndependentSize.Height - MinBottomMargin - LastAffected.Top;
 			}
 		}
@@ -70,94 +88,51 @@ namespace Glyssen.Controls
 		{
 			get
 			{
-				Control cParent = this;
+				Control cControl = this;
 				int layer = 0;
-				while (cParent.Parent != null && layer < ParentLayersAffected)
+				while (cControl.Parent != null && layer < ParentLayersAffected)
 				{
-					cParent = cParent.Parent;
+					cControl = cControl.Parent;
 					layer++;
 				}
-				return cParent;
+				return cControl;
 			}	
 		}
 
-		private Control ParentResizeListen
+		private Control IndependentParentResizeListen
 		{
 			get
 			{
-				return m_parentResizeListen;
+				return m_independentParentResizeListen;
 			}
 			set
 			{
-				if (m_parentResizeListen != null)
-					m_parentResizeListen.ClientSizeChanged -= HandleParentResize;
+				if (m_independentParentResizeListen != null)
+					m_independentParentResizeListen.ClientSizeChanged -= HandleIndependentParentResize;
 
-				m_parentInitSized = false;
-				m_parentResizeListen = value;
-				if (m_parentResizeListen != null)
-					m_parentResizeListen.ClientSizeChanged += HandleParentResize;
+				m_independentParentInitSized = false;
+				m_independentParentResizeListen = value;
+				if (m_independentParentResizeListen != null)
+					m_independentParentResizeListen.ClientSizeChanged += HandleIndependentParentResize;
 			}
 		}
 
-		protected void OnParentChanging()
+		private Control LastAffectedResizeListen
 		{
-
-		}
-
-		protected override void OnParentChanged(EventArgs e)
-		{
-			ParentResizeListen = null;
-			if (ParentWithIndependentSize == null)
+			get
 			{
-				if (LastAffected != this)
-					LastAffected.ParentChanged += HandleParentChanged;
+				return m_lastAffectedResizeListen;
 			}
-			else
+			set
 			{
-				MinBottomMargin = ParentWithIndependentSize.Height - LastAffected.Bottom;
+				if (m_lastAffectedResizeListen != null)
+					m_lastAffectedResizeListen.ClientSizeChanged -= HandleLastAffectedResize;
 
-				ParentResizeListen = ParentWithIndependentSize;
+				m_lastAffectedInitSized = false;
+				m_lastAffectedResizeListen = value;
+				if (m_lastAffectedResizeListen != null)
+					m_lastAffectedResizeListen.ClientSizeChanged += HandleLastAffectedResize;
 			}
-			base.OnParentChanged(e);
-		}
-
-		private void HandleParentChanged(object sender, EventArgs e)
-		{
-			var someControl = sender as Control;
-
-			ParentResizeListen = null;
-
-			OnParentChanged(e);
-		}
-
-		private void HandleParentResize(object sender, EventArgs e)
-		{
-			if (!m_parentInitSized)
-			{
-				MinBottomMargin = ParentWithIndependentSize.Height - LastAffected.Bottom;
-
-				m_parentInitSized = true;
-			}
-
-			SetGridHeight();
-		}
-
-		protected override void OnRowHeightChanged(DataGridViewRowEventArgs e)
-		{
-			SetGridHeight();
-			base.OnRowHeightChanged(e);
-		}
-
-		protected override void OnRowsAdded(DataGridViewRowsAddedEventArgs e)
-		{
-			SetGridHeight();
-			base.OnRowsAdded(e);
-		}
-
-		protected override void OnRowsRemoved(DataGridViewRowsRemovedEventArgs e)
-		{
-			SetGridHeight();
-			base.OnRowsRemoved(e);
 		}
 
 		protected override void OnHandleCreated(EventArgs e)
@@ -166,20 +141,92 @@ namespace Glyssen.Controls
 			base.OnHandleCreated(e);
 		}
 
+		protected override void OnClientSizeChanged(EventArgs e)
+		{
+			if (!m_initSized)
+			{
+				m_initHeight = Height;
+				m_initSized = true;
+			}
+			base.OnClientSizeChanged(e);
+		}
+
+		protected override void OnParentChanged(EventArgs e)
+		{
+			IndependentParentResizeListen = null;
+			if (ParentWithIndependentSize == null)
+			{
+				if (LastAffected != this)
+				{
+					LastAffected.ParentChanged += HandleParentChanged;
+					LastAffectedResizeListen = LastAffected;
+				}
+			}
+			else
+			{
+				m_initHeight = Height;
+				IndependentParentResizeListen = ParentWithIndependentSize;
+			}
+			base.OnParentChanged(e);
+		}
+
+		private void HandleParentChanged(object sender, EventArgs e)
+		{
+			IndependentParentResizeListen = null;
+			OnParentChanged(e);
+		}
+
+		private void HandleLastAffectedResize(object sender, EventArgs e)
+		{
+			if (!m_lastAffectedInitSized)
+			{
+				m_parentExtraHeight = LastAffected.Height - m_initHeight;
+				m_lastAffectedInitSized = true;
+			}
+		}
+
+		private void HandleIndependentParentResize(object sender, EventArgs e)
+		{
+			if (!m_independentParentInitSized)
+			{
+				MinBottomMargin = ParentWithIndependentSize.Height - LastAffected.Bottom;
+				m_independentParentInitSized = true;
+			}
+
+			SetGridHeight();
+		}
+
+		#region Standard Events Trigger SetGridHeight
+		protected override void OnRowHeightChanged(DataGridViewRowEventArgs e)
+		{
+			SetGridHeight();
+			base.OnRowHeightChanged(e);
+		}
+		protected override void OnRowsAdded(DataGridViewRowsAddedEventArgs e)
+		{
+			SetGridHeight();
+			base.OnRowsAdded(e);
+		}
+		protected override void OnRowsRemoved(DataGridViewRowsRemovedEventArgs e)
+		{
+			SetGridHeight();
+			base.OnRowsRemoved(e);
+		}
+		#endregion
+
 		private void SetGridHeight()
 		{
+			if (!m_setGridHeightActive || !Program.IsRunning)
+				return;
+
+			m_initSized = true;
+			m_independentParentInitSized = true;
+			m_lastAffectedInitSized = true;
+
 			//Prevents flicker
-			Control cParent = Parent;
-			while (cParent != null && cParent != ParentWithIndependentSize)
-			{
-				//cParent.SuspendLayout();
-				cParent = cParent.Parent;
-			}
 			if (ParentWithIndependentSize != null)
 				ParentWithIndependentSize.SuspendLayout();
 
-			if (DesignMode) 
-				return;
 			int height = ColumnHeadersHeight + 2;
 			if (HorizontalScrollBar.Visible) 
 				height += SystemInformation.HorizontalScrollBarHeight;
@@ -190,62 +237,27 @@ namespace Glyssen.Controls
 					break;
 			}
 
-			var newSize = new Size(ClientSize.Width, height);
-
-			int dy = height - ClientSize.Height;
-			ClientSize = newSize;
-
-			//Refresh();
-
-			PerformLayout();
-//			Size = newSize;
-
-			cParent = Parent;
-			int layer = 1;
-			while (cParent != null && layer <= ParentLayersAffected)
+			Control cControl = this;
+			int iLayer = 0;
+			while (iLayer < ParentLayersAffected && cControl.Parent != null)
 			{
-//				cParent.ClientSize = new Size(cParent.ClientSize.Width, cParent.ClientSize.Height + dy);
-				cParent.ClientSize = newSize;
-				//cParent.Refresh();
-				cParent.PerformLayout();
-//				cParent.Size = newSize;
-				cParent = cParent.Parent;
-				layer++;
+				cControl = cControl.Parent;
+				iLayer++;
 			}
 
-			//if (height < MaxHeight && RowCount > 1) 
-			//	FirstDisplayedScrollingRowIndex = 0;
+			cControl.ClientSize = new Size(cControl.ClientSize.Width, height + m_parentExtraHeight);
 
-			if (ClientSize.Height < 100)
-			{
-				Debug.WriteLine("too short");
-			}
-			if (Parent != null && Parent.ClientSize.Height < 100)
-			{
-				Debug.WriteLine("too short");
-			}
-
-			cParent = Parent;
-			while (cParent != null && cParent != ParentWithIndependentSize)
-			{
-				//cParent.ResumeLayout();
-				cParent = cParent.Parent;
-			}
 			if (ParentWithIndependentSize != null)
-			{
-				//ParentWithIndependentSize.PerformLayout();
 				ParentWithIndependentSize.ResumeLayout();
-			}
-
-			if (ClientSize.Height < 100)
-			{
-				Debug.WriteLine("too short");
-			}
-			if (Parent != null && Parent.ClientSize.Height < 100)
-			{
-				Debug.WriteLine("too short");
-			}
 		}
+
+		#endregion
+
+		#region AutoScroll
+
+		public delegate void RowDroppedEventHangler(object source, DataGridViewRow sourceRow, DataGridViewRow destinationRow);
+		private bool m_scrolling;
+		private System.Threading.Timer m_scrollTimer;
 
 		protected override void OnDragOver(DragEventArgs drgevent)
 		{
@@ -335,5 +347,7 @@ namespace Glyssen.Controls
 				m_scrolling = false;
 			}
 		}
+
+		#endregion
 	}
 }

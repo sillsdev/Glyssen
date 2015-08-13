@@ -169,7 +169,7 @@ namespace Glyssen.Dialogs
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnUpdateGroup, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnUpdateGroup, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnUpdateGroup, "DialogBoxes.VoiceActorAssignmentDlg.UpdateGroup");
-			this.m_btnUpdateGroup.Location = new System.Drawing.Point(3, 349);
+			this.m_btnUpdateGroup.Location = new System.Drawing.Point(3, 375);
 			this.m_btnUpdateGroup.Name = "m_btnUpdateGroup";
 			this.m_btnUpdateGroup.Size = new System.Drawing.Size(185, 23);
 			this.m_btnUpdateGroup.TabIndex = 4;
@@ -426,13 +426,9 @@ namespace Glyssen.Dialogs
 			// 
 			// m_voiceActorGrid
 			// 
-			this.m_voiceActorGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+			this.m_voiceActorGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_voiceActorGrid.AutoSize = true;
-			this.m_voiceActorGrid.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.m_voiceActorGrid.BackColor = System.Drawing.Color.Gray;
-			this.m_voiceActorGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+			this.m_voiceActorGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_voiceActorGrid.CharacterGroupsWithAssignedActors = null;
 			this.m_voiceActorGrid.ContextMenuStrip = this.m_contextMenuVoiceActors;
 			this.m_voiceActorGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
@@ -574,7 +570,6 @@ namespace Glyssen.Dialogs
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			this.tableLayoutPanel2.ResumeLayout(false);
-			this.tableLayoutPanel2.PerformLayout();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.panel2.ResumeLayout(false);
