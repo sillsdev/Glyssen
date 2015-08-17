@@ -47,7 +47,12 @@ namespace Glyssen.Controls
 
 		public VoiceActor.VoiceActor SelectedVoiceActorEntity
 		{
-			get { return m_dataGrid.SelectedRows[0].DataBoundItem as VoiceActor.VoiceActor; }
+			get 
+			{
+				if (m_dataGrid.SelectedRows.Count == 0)
+					return null;
+				return m_dataGrid.SelectedRows[0].DataBoundItem as VoiceActor.VoiceActor; 
+			}
 		}
 
 		public DataGridViewSelectedRowCollection SelectedRows

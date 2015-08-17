@@ -24,12 +24,21 @@ namespace Glyssen
 
 		private const string kOldProductName = "Protoscript Generator";
 
+		// From https://stackoverflow.com/questions/73515/how-to-tell-if-net-code-is-being-run-by-visual-studio-designer
+		/// <summary>
+		/// <para>If false, we can assume that something like the Designer or Designer Serializer is trying to run the code.</para>
+		/// <para>Basically, this is an alternative to Control.DesignMode that works better.</para>
+ 		/// </summary>
+		public static bool IsRunning { get; set; }
+
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
 		[STAThread]
 		static void Main()
 		{
+			Program.IsRunning = true;
+
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 

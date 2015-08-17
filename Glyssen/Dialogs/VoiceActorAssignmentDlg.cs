@@ -44,7 +44,6 @@ namespace Glyssen.Dialogs
 
 			AlignBtnAssignActorToSplitter();
 
-
 			m_characterGroups = m_actorAssignmentViewModel.CharacterGroups;
 
 			m_characterGroupGrid.DataSource = m_characterGroups;
@@ -339,7 +338,7 @@ namespace Glyssen.Dialogs
 			int dRows = currentRow.Index - m_characterGroupGrid.FirstDisplayedScrollingRowIndex;
 			if (dRows * 22 + maxRowHeight >= m_characterGroupGrid.Height - m_characterGroupGrid.ColumnHeadersHeight)
 			{
-				m_characterGroupGrid.FirstDisplayedScrollingRowIndex = currentRow.Index - 5;
+				m_characterGroupGrid.FirstDisplayedScrollingRowIndex = currentRow.Index;
 			}
 
 			m_characterGroupGrid.ReadOnly = false;
@@ -350,6 +349,8 @@ namespace Glyssen.Dialogs
 			m_characterGroupGrid.MultiSelect = false;
 
 			currentRow.Selected = true;
+
+			m_characterGroupGrid.PerformLayout();
 		}
 
 		private void m_actorAssignmentViewModel_Saved(object sender, EventArgs e)
@@ -386,7 +387,6 @@ namespace Glyssen.Dialogs
 				m_characterGroupGrid.Rows[e.RowIndex].DefaultCellStyle = null;
 				m_characterGroupGrid.ReadOnly = true;
 				m_characterGroupGrid.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
-				m_characterGroupGrid.ClearSelection();
 				m_characterGroupGrid.MultiSelect = true;
 				m_characterGroupGrid.Rows[e.RowIndex].Selected = true;
 			}
