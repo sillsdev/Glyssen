@@ -309,10 +309,10 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 
 
 
-    <CustomAction Id="LaunchGlyssen"
+    <!--CustomAction Id="LaunchGlyssen"
                   FileKey="Glyssen.exe"
                   ExeCommand=""
-                  Return="asyncNoWait"/>
+                  Return="asyncNoWait"/-->
 
     <InstallExecuteSequence>
 
