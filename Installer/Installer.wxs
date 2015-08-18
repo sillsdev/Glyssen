@@ -309,15 +309,15 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 
 
 
-    <!--CustomAction Id="LaunchGlyssen"
+    <CustomAction Id="LaunchGlyssen"
                   FileKey="Glyssen.exe"
                   ExeCommand=""
-                  Return="asyncNoWait"/-->
+                  Return="asyncNoWait"/>
 
-    <!--InstallExecuteSequence-->
+    <InstallExecuteSequence>
 
       <!--We need the condition here so that we only launch the executable when we make an installation but not when we remove the product-->
-          <!--Custom Action='LaunchGlyssen' After="InstallFinalize">NOT Installed</Custom-->
-        <!--/InstallExecuteSequence-->
+          <Custom Action='LaunchGlyssen' After="InstallFinalize">NOT Installed</Custom>
+        </InstallExecuteSequence>
   </Product>
 </Wix>
