@@ -47,8 +47,8 @@ namespace GlyssenTests.Character
 		[Test]
 		public void GetCharacter_VerseBridge_StartVerse()
 		{
-			var character = ControlCharacterVerseData.Singleton.GetCharacters("MRK", 15, 38).Single();
-			Assert.AreEqual("centurion=centurion/other guards|army officer", character.Character);
+			var character = ControlCharacterVerseData.Singleton.GetCharacters("LUK", 1, 43).Single();
+			Assert.AreEqual("Elizabeth", character.Character);
 		}
 
 		[Test]
@@ -61,8 +61,8 @@ namespace GlyssenTests.Character
 		[Test]
 		public void GetCharacter_VerseBridge_EndVerse()
 		{
-			var character = ControlCharacterVerseData.Singleton.GetCharacters("MRK", 16, 4).Single();
-			Assert.AreEqual("Mary Magdalene", character.Character);
+			var character = ControlCharacterVerseData.Singleton.GetCharacters("LUK", 1, 55).Single();
+			Assert.AreEqual("Mary (Jesus' mother)", character.Character);
 		}
 
 		[Test]
@@ -85,15 +85,6 @@ namespace GlyssenTests.Character
 			Assert.AreEqual(2, characters.Count());
 			Assert.AreEqual(1, characters.Count(c => c.Character == "Herodias"));
 			Assert.AreEqual(1, characters.Count(c => c.Character == "Herodias' daughter"));
-		}
-
-		[Test]
-		public void GetCharacters_TwoEntriesForSameCharacterWithDifferentDeliveries_ReturnsOneResultPerDelivery()
-		{
-			var characters = ControlCharacterVerseData.Singleton.GetCharacters("MRK", 15, 44).ToList();
-			Assert.AreEqual(2, characters.Count());
-			Assert.AreEqual(characters[0].Character, characters[1].Character);
-			Assert.AreNotEqual(characters[0].Delivery, characters[1].Delivery);
 		}
 
 		[Test]

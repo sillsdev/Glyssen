@@ -77,13 +77,5 @@ namespace Glyssen.Character
 				group.EstimatedHours = keyStrokes / (double)Program.kKeyStrokesPerHour;
 			}
 		}
-
-		public void PopulateAttributesDisplay()
-		{
-			foreach (var group in CharacterGroups)
-			{
-				group.PopulateAttributesDisplay();
-			}
-		}
 	}
 }

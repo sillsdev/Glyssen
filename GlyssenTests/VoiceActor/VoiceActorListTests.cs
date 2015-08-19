@@ -17,7 +17,7 @@ namespace GlyssenTests.VoiceActor
 				VoiceActorList list = new VoiceActorList();
 				list.Actors = new List<Glyssen.VoiceActor.VoiceActor>
 				{
-					new Glyssen.VoiceActor.VoiceActor{Id = 0, Name = "A", Gender = "M - Male", Age = "O - Old"},
+					new Glyssen.VoiceActor.VoiceActor{Id = 0, Name = "A", Gender = ActorGender.Female, Age = ActorAge.Elder},
 					new Glyssen.VoiceActor.VoiceActor{Id = 1, Name = "B"}
 				};
 
@@ -26,14 +26,38 @@ namespace GlyssenTests.VoiceActor
 				AssertThatXmlIn.File(tempFile.Path)
 					.HasSpecifiedNumberOfMatchesForXpath("/VoiceActors/VoiceActor", 2);
 				AssertThatXmlIn.File(tempFile.Path)
-					.HasSpecifiedNumberOfMatchesForXpath("/VoiceActors/VoiceActor[@Id='0' and @Gender='M - Male' and @Age='E - Elder' and text()='A']", 1);
+					.HasSpecifiedNumberOfMatchesForXpath("/VoiceActors/VoiceActor[@Id='0' and @Gender='Female' and @Age='Elder' and text()='A']", 1);
 				AssertThatXmlIn.File(tempFile.Path)
-					.HasSpecifiedNumberOfMatchesForXpath("/VoiceActors/VoiceActor[@Id='1' and not(@Gender) and not(@Age) and text()='B']", 1);
+					.HasSpecifiedNumberOfMatchesForXpath("/VoiceActors/VoiceActor[@Id='1' and @Gender='Male' and @Age='Adult' and text()='B']", 1);
 
 				// Reads from file correctly
 				VoiceActorList listFromFile = VoiceActorList.LoadVoiceActorListFromFile(tempFile.Path);
 				Assert.AreEqual(list.Actors, listFromFile.Actors);
 			}
+		}
+
+		[Test]
+		public void MigrateDeprecatedGenderAndAgeStrings()
+		{
+			var actor = new Glyssen.VoiceActor.VoiceActor { Id = 0, Name = "A", GenderDeprecatedString = "M - Male", AgeDeprecatedString = "O - Old" };
+			Assert.AreEqual(ActorAge.Elder, actor.Age);
+			Assert.AreEqual(ActorGender.Male, actor.Gender);
+
+			actor = new Glyssen.VoiceActor.VoiceActor { Id = 0, Name = "B", GenderDeprecatedString = "F - Female", AgeDeprecatedString = "E - Elder" };
+			Assert.AreEqual(ActorAge.Elder, actor.Age);
+			Assert.AreEqual(ActorGender.Female, actor.Gender);
+
+			actor = new Glyssen.VoiceActor.VoiceActor { Id = 0, Name = "C", AgeDeprecatedString = "C - Child" };
+			Assert.AreEqual(ActorAge.Child, actor.Age);
+
+			actor = new Glyssen.VoiceActor.VoiceActor { Id = 0, Name = "D", AgeDeprecatedString = "M - Middle Adult" };
+			Assert.AreEqual(ActorAge.Adult, actor.Age);
+
+			actor = new Glyssen.VoiceActor.VoiceActor { Id = 0, Name = "E", AgeDeprecatedString = "Y - Young" };
+			Assert.AreEqual(ActorAge.YoungAdult, actor.Age);
+
+			actor = new Glyssen.VoiceActor.VoiceActor { Id = 0, Name = "E", AgeDeprecatedString = "Y - Young Adult" };
+			Assert.AreEqual(ActorAge.YoungAdult, actor.Age);
 		}
 	}
 }

@@ -24,13 +24,12 @@ namespace Glyssen.Dialogs
 			m_project = project;
 			CanAssign = true;
 
-			if (m_project.CharacterGroupList.CharacterGroups.Any())
-				CharacterGroups = new SortableBindingList<CharacterGroup>(m_project.CharacterGroupList.CharacterGroups);
-			else
-				CreateInitialGroupsFromTemplate();
+			CharacterGroups = new SortableBindingList<CharacterGroup>(m_project.CharacterGroupList.CharacterGroups);
+			if (!CharacterGroups.Any())
+				CharacterGroups.AddRange(new CharacterGroupGenerator(project).GenerateCharacterGroups());
 
-			GenerateAttributes();
-			m_project.CharacterGroupList.PopulateAttributesDisplay();
+			CharacterGroupAttribute<CharacterGender>.GetUiStringForValue = GetUiStringForCharacterGender;
+			CharacterGroupAttribute<CharacterAge>.GetUiStringForValue = GetUiStringForCharacterAge;
 			m_project.CharacterGroupList.PopulateEstimatedHours(m_project.IncludedBooks);
 
 #if DEBUG
@@ -40,14 +39,36 @@ namespace Glyssen.Dialogs
 #endif
 		}
 
+		private static string GetUiStringForCharacterGender(CharacterGender characterGender)
+		{
+			switch (characterGender)
+			{
+				case CharacterGender.Male: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.Male", "Male");
+				case CharacterGender.Female: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.Female", "Female");
+				case CharacterGender.PreferMale: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.PreferMale", "Pref: Male");
+				case CharacterGender.PreferFemale: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.PreferFemale", "Pref: Female");
+				case CharacterGender.Neuter: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.Neuter", "Neuter");
+				default: return string.Empty;
+			}
+		}
+
+		private static string GetUiStringForCharacterAge(CharacterAge characterAge)
+		{
+			switch (characterAge)
+			{
+				case CharacterAge.Child: return LocalizationManager.GetString("Age.Child", "Child");
+				case CharacterAge.Elder: return LocalizationManager.GetString("Age.Elder", "Elder");
+				case CharacterAge.YoungAdult: return LocalizationManager.GetString("Age.YoungAdult", "Young Adult");
+				default: return string.Empty;
+			}
+		}
+
 		public bool CanAssign { get; set; }
 
 		public SortableBindingList<CharacterGroup> CharacterGroups { get; set; }
 
 		private void CreateInitialGroupsFromTemplate()
 		{
-			CharacterGroups = new SortableBindingList<CharacterGroup>(m_project.CharacterGroupList.CharacterGroups);
-
 			CharacterGroupTemplate charGroupTemplate;
 			using (var tempFile = new TempFile())
 			{
@@ -80,24 +101,11 @@ namespace Glyssen.Dialogs
 			CharacterGroups.Add(unmatchedCharacterGroup);
 		}
 
-		private void ProcessCharacterIds(CharacterGroup group, Dictionary<string, CharacterGroup> characterIdToCharacterGroup,
-			ISet<CharacterDetail> standardCharacterDetails)
+		private void ProcessCharacterIds(CharacterGroup group, Dictionary<string, CharacterGroup> characterIdToCharacterGroup)
 		{
 			foreach (var characterId in group.CharacterIds)
-			{
 				if (!characterIdToCharacterGroup.ContainsKey(characterId))
 					characterIdToCharacterGroup.Add(characterId, group);
-				if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator))
-					standardCharacterDetails.Add(new CharacterDetail
-					{
-						Character = characterId,
-						Gender = "Either",
-						Age = "Middle Adult",
-						Status = true
-					});
-				else if (CharacterVerseData.IsCharacterStandard(characterId, false))
-					standardCharacterDetails.Add(new CharacterDetail {Character = characterId, Gender = "Either", Age = "Middle Adult"});
-			}
 		}
 
 		public void AddNewGroup()
@@ -108,37 +116,6 @@ namespace Glyssen.Dialogs
 				newGroupNumber++;
 
 			CharacterGroups.Add(new CharacterGroup(newGroupNumber));			
-		}
-
-		private void GenerateAttributes()
-		{
-			var characterIdToCharacterGroup = new Dictionary<string, CharacterGroup>();
-			ISet<CharacterDetail> standardCharacterDetails = new HashSet<CharacterDetail>();
-
-			foreach (var group in CharacterGroups)
-			{
-				ProcessCharacterIds(group, characterIdToCharacterGroup, standardCharacterDetails);
-				group.AgeAttributes.Clear();
-				group.GenderAttributes.Clear();
-				group.Status = false;
-			}
-
-			foreach (var detail in CharacterDetailData.Singleton.GetAll().Union(standardCharacterDetails))
-			{
-				if (characterIdToCharacterGroup.ContainsKey(detail.Character))
-				{
-					var group = characterIdToCharacterGroup[detail.Character];
-
-					if (!string.IsNullOrWhiteSpace(detail.Gender))
-						group.GenderAttributes.Add(detail.Gender);
-					if (!string.IsNullOrWhiteSpace(detail.Age))
-						group.AgeAttributes.Add(detail.Age);
-					if (detail.Status)
-						group.Status = true;
-				}
-			}
-
-			m_project.CharacterGroupList.PopulateAttributesDisplay();
 		}
 
 		public void SaveAssignments()
@@ -195,7 +172,7 @@ namespace Glyssen.Dialogs
 			{
 				var proximity = new Proximity(m_project);
 
-				HashSet<string> testGroup = new CharacterIdHashSet(destGroup.CharacterIds);
+				var testGroup = new CharacterIdHashSet(destGroup.CharacterIds);
 				var resultsBefore = proximity.CalculateMinimumProximity(testGroup);
 				int proximityBefore = resultsBefore.NumberOfBlocks;
 
@@ -241,7 +218,6 @@ namespace Glyssen.Dialogs
 			destGroup.CharacterIds.Add(characterId);
 
 			RemoveUnusedGroups();
-			GenerateAttributes();
 			m_project.CharacterGroupList.PopulateEstimatedHours(m_project.IncludedBooks);
 			SaveAssignments();
 

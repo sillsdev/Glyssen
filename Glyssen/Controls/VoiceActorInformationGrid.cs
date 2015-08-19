@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -29,6 +30,21 @@ namespace Glyssen.Controls
 			InitializeComponent();
 
 			m_actorInformationViewModel = new VoiceActorInformationViewModel();
+
+			m_dataGrid.DataError += m_dataGrid_DataError;
+
+			ActorGender.DataSource = m_actorInformationViewModel.GetGenderDataTable();
+			ActorGender.ValueMember = "ID";
+			ActorGender.DisplayMember = "Name";
+
+			ActorAge.DataSource = m_actorInformationViewModel.GetAgeDataTable();
+			ActorAge.ValueMember = "ID";
+			ActorAge.DisplayMember = "Name";
+
+			ActorQuality.DataSource = m_actorInformationViewModel.GetVoiceQualityDataTable();
+			ActorQuality.ValueMember = "ID";
+			ActorQuality.DisplayMember = "Name";
+
 			m_actorInformationViewModel.Saved += m_actorInformationViewModel_Saved;
 
 			//Ensures that rows stay the height we set in the designer (specifically to match the character groups grid)
@@ -41,6 +57,11 @@ namespace Glyssen.Controls
 
 			Font originalGridFont = m_dataGrid.Font;
 			m_italicsFont = new Font(originalGridFont.FontFamily, originalGridFont.Size, originalGridFont.Style | FontStyle.Italic);
+		}
+
+		void m_dataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+		{
+			throw e.Exception;
 		}
 
 		public int RowCount { get { return m_dataGrid.RowCount; } }

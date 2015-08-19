@@ -1543,7 +1543,7 @@ namespace GlyssenTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			// Validate environment
-			Assert.AreEqual("teachers of the law/Pharisees=Pharisees/teachers of the law 1", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 2, 7).Select(cv => cv.Character).Single());
+			Assert.AreEqual("teachers of religious law/Pharisees", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 2, 7).Select(cv => cv.Character).Single());
 			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 2, 8).Select(cv => cv.Character).Single());
 
 			Assert.AreEqual(2, output.Count);
@@ -1599,7 +1599,7 @@ namespace GlyssenTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			// Validate environment
-			Assert.AreEqual("teachers of the law/Pharisees=Pharisees/teachers of the law 1", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 2, 7).Select(cv => cv.Character).Single());
+			Assert.AreEqual("teachers of religious law/Pharisees", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 2, 7).Select(cv => cv.Character).Single());
 			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 2, 8).Select(cv => cv.Character).Single());
 			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters("MRK", 2, 9).Any());
 

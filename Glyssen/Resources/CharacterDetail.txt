@@ -118,7 +118,7 @@ Bathsheba	1	Female
 beast, the	1				
 believers who were Pharisees	-1	Male			
 believers, circumcised (in Jerusalem)	-1	Male			
-believers, one hundred twenty	120	Pref: Male			Probably spoken by Peter or one of the other eleven disciples
+believers, one hundred twenty	120	PreferMale			Probably spoken by Peter or one of the other eleven disciples
 beloved	1	Female			
 Belshazzar, king of Babylon	1	Male			
 Benaiah, son of Jehoiada	1	Male			
@@ -130,7 +130,7 @@ Bera, king of Sodom	1	Male
 Berekiah	1	Male			leader in Ephraim
 Bernice	1	Female			
 Beth Shemesh, men of	-1	Male			
-Beth Shemesh, messenger from	1	Pref: Male			
+Beth Shemesh, messenger from	1	PreferMale			
 Bethlehem, elders of	-1	Male			
 Bethuel, Rebekah's father	1	Male			
 Bildad the Shuhite	1	Male			
@@ -139,7 +139,7 @@ blind man	1	Male
 blind men, two	2	Male			
 Boaz	1	Male			
 Book of the Wars of the LORD	1	Neuter			
-bride, the (referring to the Church)	-1	Pref: Female			
+bride, the (referring to the Church)	-1	PreferFemale			
 brothers at Antioch, the	-1	Male			
 brothers at Puteoli, some	-1	Male			
 brothers of beloved	-1	Male			
@@ -182,8 +182,8 @@ commander of the LORD's army	1	Male			Default character should be Jesus
 company of the prophets	-1				
 company of the prophets (Bethel)	-1				
 company of the prophets (Jericho)	-1				
-company of the prophets, one of (the LORD says) (young man)	1	Male	Young Adult		
-company of the prophets, one of (young man)	1	Male	Young Adult		
+company of the prophets, one of (the LORD says) (young man)	1	Male	YoungAdult		
+company of the prophets, one of (young man)	1	Male	YoungAdult		
 conquerors of beast, image & his name	-1				
 conquerors of Lo Debar	-1	Male			
 Cornelius	1	Male			
@@ -246,7 +246,7 @@ donkey (female)	1	Female
 dream	1				
 dreamers	-1	Either			
 each one	1				
-eagle crying with loud voice	1	Pref: Male			
+eagle crying with loud voice	1	PreferMale			
 ear	1	Neuter			
 Ebed-Melech (official of king of Judea)	1	Male			
 Edom	1	Male			
@@ -335,7 +335,7 @@ foot	1	Neuter
 foreman	1	Male			
 fortune telling slave girl	1	Female			
 four living creatures	4				
-friends of Haman	-1	Pref: Male			
+friends of Haman	-1	PreferMale			
 Gaal, son of Ebed	1	Male			
 Gabriel	1	Male			
 Gad, the prophet, David's seer	1	Male			
@@ -413,7 +413,7 @@ idolaters	-1
 idolaters from Judah (men)	-1	Male			
 idolaters from Judah (women)	-1	Female			
 informer	-1				
-inscription on forehead of Babylon	1	Pref: Female			
+inscription on forehead of Babylon	1	PreferFemale			
 invaders	-1	Male			
 invalid for 38 years	1	Male			
 Irijah, captain of the guard of Judah	1	Male			
@@ -468,7 +468,7 @@ Jehu, son of Nimshi	1	Male
 Jehucal	1	Male			son of Shelemiah
 Jehudi	1	Male			
 Jephthah	1	Male			
-Jephthah's daughter	1	Female	Young Adult		youth
+Jephthah's daughter	1	Female	YoungAdult		youth
 Jephthah's half-brothers	-1	Male			
 Jeremiah	1	Male			
 Jeremiah's enemies	-1	Male			
@@ -554,7 +554,7 @@ lepers, ten	10	Male
 letter from apostles and elders	1				
 Levi	1	Male			
 Levite husband of concubine	1	Male			
-Levite, young, from Bethlehem	1	Male	Young Adult		
+Levite, young, from Bethlehem	1	Male	YoungAdult		
 Levites	-1	Male			
 Levites, family heads of	-1	Male			
 living creature, first	1				
@@ -580,7 +580,7 @@ man all alone	1	Male
 man answered David	1	Male			
 man delivered from Legion of demons	1	Male			Account in Matthew 8 indicates that there were two men, but since other accounts only have 1, best to keep as single voice.
 man escaped from Jerusalem	1	Male			
-man from Saul's camp (young)	1	Male	Young Adult		
+man from Saul's camp (young)	1	Male	YoungAdult		
 man in linen above river	1	Male			
 man in linen with writing kit (in vision)	1	Male			
 man like bronze with measuring rod (vision of God)	1	Male			
@@ -643,7 +643,7 @@ men, still others	-1	Male
 Mephibosheth	1	Male			
 merchants of the earth	-1				
 Meshach	1	Male			original Hebrew name: Mishael
-message from Tamar, daughter-in-law of Judah	1	Pref: Female			
+message from Tamar, daughter-in-law of Judah	1	PreferFemale			
 message to Saul	1				
 messenger	-1				
 messenger from battle to David	1	Male			
@@ -657,8 +657,8 @@ messenger, another	1
 messenger, Cushite	1				
 messenger, still another	1				
 messenger, yet another	1				
-messengers from Jephthah	-1	Pref: Male			
-messengers Israel sent to Amorite king Sihon	-1	Pref: Male			
+messengers from Jephthah	-1	PreferMale			
+messengers Israel sent to Amorite king Sihon	-1	PreferMale			
 messengers Moses sent to king of Edom	-1				
 messengers of Ahaziah	-1	Male			
 messengers of Ben-Hadad. king of Aram	-1	Male			
@@ -666,7 +666,7 @@ messengers of Jabesh	-1	Male
 messengers of Saul	-1	Male			
 messengers sent by Jacob	-1	Male			
 messengers to Jezebel	-1	Male			
-messengers to Saul	-1	Pref: Male			
+messengers to Saul	-1	PreferMale			
 Micah	1	Male			
 Micah's mother	1	Female			
 Micaiah, prophet of the LORD	1	Male			
@@ -875,8 +875,8 @@ report to King of Assyria	1
 rest of heads of families	-1	Male			
 Reuben	1	Male			
 Reubenites	-1	Male			
-Rhoda	1	Female	Young Adult		possibly young girl/teen
-rich young ruler	1	Male	Young Adult		
+Rhoda	1	Female	YoungAdult		possibly young girl/teen
+rich young ruler	1	Male	YoungAdult		
 rule given by Paul	1				
 rulers of people in Jerusalem	-1				
 rules of the world	1				
@@ -953,7 +953,7 @@ Sharezer	1	Male
 Sheba, son of Bicri	1	Male			
 Shebna	1	Male			
 Shecaniah, son of Jehiel	1	Male			
-Shechem, son of Hamor	1	Male	Young Adult		
+Shechem, son of Hamor	1	Male	YoungAdult		
 Shemaiah	1	Male			
 Shemeber, king of Zeboiim	1	Male			
 Shephatiah	1	Male			son of Mattan
@@ -993,7 +993,7 @@ someone hiding	1
 someone in crowd	1				
 someone in Jerusalem	1				
 son (child) in Israel (hypothetical)	1	Male	Child		
-son of Paul's sister (young man)	1	Male	Young Adult		
+son of Paul's sister (young man)	1	Male	YoungAdult		
 son of Shelomith (whose father was an Egyptian)	1	Male			
 son of Shunammite	1	Male	Child		
 son of widow	1	Male			
@@ -1036,6 +1036,7 @@ twenty-four elders	24	Male
 unbeliever who comes under conviction	1				
 unbelievers	-1				
 Uriah	1	Male			
+voice behind you	1	PreferMale			
 voice from altar	1				
 voice from among living creatures	1				
 voice from cloud	1				
@@ -1047,8 +1048,9 @@ voice in heaven	13
 voice in heaven, loud	1				
 voice of great crowd in heaven, loud	-1				
 voice of great crowd, like roar of many waters, loud thunderclaps	-1				
-voice of one calling, a (preparing way for Christ)	1				
+voice of one calling (preparing way for Christ)	1				
 voice of one speaking (in vision of God)	1				
+voice (God?)	1	PreferMale			
 voices in heaven, loud	-1				
 warriors from Zorah and Eshtaol, five	5	Male			
 watchman	1	Male			
@@ -1086,9 +1088,9 @@ you (hypothetical)	-1
 you (people of Zion, restored)	-1				
 you (rebellious people)	-1				
 you ought to say	1				
-young man	1	Male	Young Adult		
-young men (advisors of Rehoboam)	-1	Male	Young Adult		
-youths	-1		Young Adult		
+young man	1	Male	YoungAdult		
+young men (advisors of Rehoboam)	-1	Male	YoungAdult		
+youths	-1		YoungAdult		
 Zaccheaus	1	Male			
 Zacharias (Zechariah)	1	Male			
 Zalmunna	1	Male			

@@ -18,7 +18,7 @@ namespace GlyssenTests.Dialogs
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
-			m_testProject = TestProject.CreateTestProject();
+			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
 		}
 
 		[SetUp]
@@ -90,7 +90,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void GetCharactersForCurrentReference_UnexpectedQuoteWithContext_GetsNarratorOnly()
 		{
-			// Note: Default forward/backward cvontext is 10 blocks.
+			// Note: Default forward/backward context is 10 blocks.
 			var characters = m_model.GetCharactersForCurrentReference().ToList();
 			Assert.AreEqual(1, characters.Count);
 			Assert.IsTrue(characters[0].IsNarrator);
@@ -115,9 +115,9 @@ namespace GlyssenTests.Dialogs
 			FindRefInMark(5, 9);
 			var characters = m_model.GetCharactersForCurrentReference().ToList();
 			Assert.AreEqual(3, characters.Count);
-			Assert.AreEqual("Jesus", characters[0].CharacterId);
+			Assert.AreEqual("demons (Legion)/man delivered from Legion of demons", characters[0].CharacterId);
 			Assert.IsFalse(characters[0].ProjectSpecific);
-			Assert.AreEqual("man with evil spirit", characters[1].CharacterId);
+			Assert.AreEqual("Jesus", characters[1].CharacterId);
 			Assert.IsFalse(characters[1].ProjectSpecific);
 			Assert.IsTrue(characters[2].IsNarrator);
 			Assert.IsFalse(characters[2].ProjectSpecific);
@@ -128,10 +128,10 @@ namespace GlyssenTests.Dialogs
 		{
 			FindRefInMark(5, 9);
 			var characters = m_model.GetUniqueCharacters().ToList();
-			Assert.AreEqual(100, characters.Count);
+			Assert.AreEqual(79, characters.Count);
 			Assert.IsTrue(characters.Any(c => c.IsNarrator));
 			Assert.IsTrue(characters.Any(c => c.CharacterId == "Jesus"));
-			Assert.IsTrue(characters.Any(c => c.CharacterId == "man with evil spirit"));
+			Assert.IsTrue(characters.Any(c => c.CharacterId == "demons (Legion)/man delivered from Legion of demons"));
 		}
 
 		[Test]
@@ -142,7 +142,7 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(4, characters.Count);
 			Assert.AreEqual("Zerubbabel/Jeshua/rest of heads of families", characters[0].CharacterId);
 			Assert.IsTrue(characters.Any(c => c.CharacterId == "Jesus"));
-			Assert.IsTrue(characters.Any(c => c.CharacterId == "man with evil spirit"));
+			Assert.IsTrue(characters.Any(c => c.CharacterId == "demons (Legion)/man delivered from Legion of demons"));
 			Assert.IsTrue(characters[3].IsNarrator);
 		}
 
@@ -213,7 +213,7 @@ namespace GlyssenTests.Dialogs
 		public void GetUniqueDeliveries_NoFilterText_ReturnsAll()
 		{
 			var uniqueDeliveries = m_model.GetUniqueDeliveries();
-			Assert.AreEqual(251, uniqueDeliveries.Count());
+			Assert.AreEqual(257, uniqueDeliveries.Count());
 		}
 
 		[Test]
@@ -229,10 +229,10 @@ namespace GlyssenTests.Dialogs
 			m_model.Mode = BlocksToDisplay.AllScripture;
 			FindRefInMark(5, 7);
 			m_model.GetCharactersForCurrentReference();
-			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("man with evil spirit"));
+			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("demons (Legion)/man delivered from Legion of demons"));
 			Assert.AreEqual(2, deliveries.Count());
 			var uniqueDeliveries = m_model.GetUniqueDeliveries();
-			Assert.AreEqual(252, uniqueDeliveries.Count());
+			Assert.AreEqual(258, uniqueDeliveries.Count());
 		}
 
 		[Test]
@@ -241,9 +241,9 @@ namespace GlyssenTests.Dialogs
 			m_model.Mode = BlocksToDisplay.AllScripture;
 			FindRefInMark(5, 7);
 			m_model.GetCharactersForCurrentReference();
-			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("man with evil spirit"));
+			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("demons (Legion)/man delivered from Legion of demons"));
 			Assert.AreEqual(2, deliveries.Count());
-			var uniqueDeliveries = m_model.GetUniqueDeliveries("shriek");
+			var uniqueDeliveries = m_model.GetUniqueDeliveries("shrieking");
 			Assert.AreEqual(2, uniqueDeliveries.Count());
 		}
 

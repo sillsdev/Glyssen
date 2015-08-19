@@ -296,6 +296,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rules\CharacterAgeMatchingOptions.cs" />
+    <Compile Include="Rules\CharacterGenderMatchingOptions.cs" />
+    <Compile Include="Rules\CharacterGroupGenerator.cs" />
     <Compile Include="Rules\Proximity.cs" />
     <Compile Include="ScrStylesheetAdapter.cs" />
     <Compile Include="SfmLoader.cs" />

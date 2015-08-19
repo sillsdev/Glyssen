@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Glyssen.Rules
@@ -17,11 +17,11 @@ namespace Glyssen.Rules
 		/// <summary>
 		/// Calculate the minimum number of blocks between two character ids in given collection
 		/// </summary>
-		public MinimumProximity CalculateMinimumProximity(IEnumerable<string> characterIds)
+		public MinimumProximity CalculateMinimumProximity(ISet<string> characterIds, bool handleEachBookSeparately = true)
 		{
 			bool foundFirst = false;
 			int currentBlockCount = 0;
-			int minProximity = -1;
+			int minProximity = Int32.MaxValue;
 			string prevCharacterId = "";
 			BookScript firstBook = null;
 			Block firstBlock = null;
@@ -31,6 +31,9 @@ namespace Glyssen.Rules
 			Block prevBlock = null;
 			foreach (var book in m_project.IncludedBooks)
 			{
+				if (handleEachBookSeparately)
+					currentBlockCount += 50;
+
 				foreach (var block in book.Blocks)
 				{
 					if (block.CharacterId == prevCharacterId)
@@ -43,13 +46,16 @@ namespace Glyssen.Rules
 					{
 						if (foundFirst)
 						{
-							if (currentBlockCount < minProximity || minProximity < 0)
+							if (currentBlockCount < minProximity)
 							{
 								minProximity = currentBlockCount;
 								firstBook = prevBook;
 								firstBlock = prevBlock;
 								secondBook = book;
 								secondBlock = block;
+
+								if (minProximity == 0)
+									goto CreateObjectAndReturn;
 							}
 						}
 						else
@@ -72,6 +78,7 @@ namespace Glyssen.Rules
 				}
 			}
 
+			CreateObjectAndReturn:
 			return new MinimumProximity
 			{
 				NumberOfBlocks = minProximity,
@@ -97,7 +104,7 @@ namespace Glyssen.Rules
 				return "[no characters in group]";
 
 			var sb = new StringBuilder();
-			sb.Append(NumberOfBlocks).Append("  |  ")
+			sb.Append(NumberOfBlocks == Int32.MaxValue ? "MAX" : NumberOfBlocks.ToString()).Append("  |  ")
 				.Append(FirstBook.BookId).Append(" ").Append(FirstBlock.ChapterNumber).Append(":").Append(FirstBlock.InitialStartVerseNumber)
 				.Append(" (").Append(FirstBlock.CharacterId).Append(")")
 				.Append(" - ")
