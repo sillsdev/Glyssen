@@ -213,9 +213,13 @@ namespace GlyssenTests
 			Assert.AreEqual(1, blocks[0].ChapterNumber);
 			Assert.AreEqual(0, blocks[0].InitialStartVerseNumber);
 			Assert.AreEqual("Global-Chapter 1", blocks[0].GetText(false));
+			Assert.AreEqual("BC-MRK", blocks[0].CharacterId);
+			Assert.True(blocks[0].IsParagraphStart);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(0, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("Lok ma Jon Labatija otito", blocks[1].GetText(false));
+			Assert.IsNull(blocks[1].CharacterId);
+			Assert.True(blocks[1].IsParagraphStart);
 		}
 
 		[Test]
@@ -228,9 +232,13 @@ namespace GlyssenTests
 			Assert.AreEqual(1, blocks[0].ChapterNumber);
 			Assert.AreEqual(0, blocks[0].InitialStartVerseNumber);
 			Assert.AreEqual("Specific-Chapter One", blocks[0].GetText(false));
+			Assert.AreEqual("BC-MRK", blocks[0].CharacterId);
+			Assert.True(blocks[0].IsParagraphStart);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(0, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("Lok ma Jon Labatija otito", blocks[1].GetText(false));
+			Assert.IsNull(blocks[1].CharacterId);
+			Assert.True(blocks[1].IsParagraphStart);
 		}
 
 		[Test]
