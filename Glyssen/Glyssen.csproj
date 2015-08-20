@@ -159,6 +159,9 @@
     <Compile Include="Character\ICharacterGroupSource.cs" />
     <Compile Include="Character\ICharacterVerseInfo.cs" />
     <Compile Include="Character\ProjectCharacterVerseData.cs" />
+    <Compile Include="Controls\AutoGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\BlockProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>

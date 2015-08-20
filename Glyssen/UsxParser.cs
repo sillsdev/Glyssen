@@ -208,7 +208,8 @@ namespace Glyssen
 
 			if (m_bookLevelChapterLabel == null)
 			{
-				block = new Block(usxNode.StyleTag, m_currentChapter);
+				block = new Block(usxNode.StyleTag, m_currentChapter) { IsParagraphStart = true };
+				block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.BookOrChapter);
 				block.BlockElements.Add(new ScriptText(nodeText));
 				m_currentStartVerse = 0;
 				m_currentEndVerse = 0;

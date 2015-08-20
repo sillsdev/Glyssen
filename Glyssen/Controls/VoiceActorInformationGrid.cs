@@ -47,7 +47,12 @@ namespace Glyssen.Controls
 
 		public VoiceActor.VoiceActor SelectedVoiceActorEntity
 		{
-			get { return m_dataGrid.SelectedRows[0].DataBoundItem as VoiceActor.VoiceActor; }
+			get 
+			{
+				if (m_dataGrid.SelectedRows.Count == 0)
+					return null;
+				return m_dataGrid.SelectedRows[0].DataBoundItem as VoiceActor.VoiceActor; 
+			}
 		}
 
 		public DataGridViewSelectedRowCollection SelectedRows
@@ -262,6 +267,11 @@ namespace Glyssen.Controls
 			{
 				m_contextMenu_itemDeleteActors.Text = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.ContextMenu.DeleteActor", "Delete Actor");
 			}
+		}
+
+		private void m_dataGrid_Leave(object sender, EventArgs e)
+		{
+			EndEdit();
 		}
 	}
 }

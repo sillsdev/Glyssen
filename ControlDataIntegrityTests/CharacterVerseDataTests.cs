@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Glyssen.Character;
@@ -175,37 +174,6 @@ namespace ControlDataIntegrityTests
 				Environment.NewLine +
 				missingDefaultCharacters.OnePerLineWithIndent());
 		}
-
-		//[Test]
-		//public void DataIntegrity_AllCharacterIdsWithSlashesResolveToRealCharacters()
-		//{
-		//	var charactersHavingDetail = CharacterDetailData.Singleton.GetAll().Select(d => d.Character).ToList();
-		//	HashSet<string> characterIdsWithProblems = new HashSet<string>();
-		//	foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
-		//	{
-		//		var characters = cv.Character.Split('/');
-		//		if (characters.Length > 1)
-		//		{
-		//			foreach (var character in characters)
-		//			{
-		//				if (!charactersHavingDetail.Contains(character))
-		//				{
-		//					Console.WriteLine("Character ID " + cv.Character + " in " +
-		//						cv.BookCode + " " + cv.Chapter + ":" + cv.Verse +
-		//						"   has a character, " + character + ", which does not have an entry in character details.");
-		//					characterIdsWithProblems.Add(cv.Character);
-		//				}
-		//			}
-		//		}
-		//		//if (cv.Character.Contains("/") && String.IsNullOrEmpty(cv.DefaultCharacter))
-		//		//{
-		//		//	Console.WriteLine("Character " + cv.BookCode + " " + cv.Chapter + ":" + cv.Verse + "   " +
-		//		//		cv.Character + " does not have a default character.");
-		//		//	problems++;
-		//		//}
-		//	}
-		//	Assert.AreEqual(0, characterIdsWithProblems.Count, "Number of unique character IDs with problems.");
-		//}
 
 		[Test]
 		public void DataIntegrity_ParallelPassageReferences()

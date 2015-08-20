@@ -1,4 +1,4 @@
-Control File Version	76
+Control File Version	77
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -3219,7 +3219,7 @@ DEU	3	25	Moses			Normal
 DEU	3	26	Moses			Normal		
 DEU	3	27	Moses			Normal		
 DEU	3	28	Moses			Normal		
-DEU	4	6	Moses		Moses prophecying what the nations will say	Normal		
+DEU	4	6	Moses		Moses prophesying what the nations will say	Normal		
 DEU	4	10	Moses			Normal		
 DEU	5	6	God		God (the LORD)	Normal		
 DEU	5	7	God		God (the LORD)	Normal		
@@ -3368,18 +3368,18 @@ DEU	32	20	Moses		Moses quoting God (the LORD)	Normal
 DEU	32	21	Moses		Moses quoting God (the LORD)	Normal		
 DEU	32	22	Moses		Moses quoting God (the LORD)	Normal		
 DEU	32	23	Moses		Moses prophesying what God will say	Normal		
-DEU	32	24	Moses		Moses prophecying what God will say	Normal		
-DEU	32	25	Moses		Moses prophecying what God will say	Normal		
-DEU	32	26	Moses		Moses prophecying what God will say	Normal		
-DEU	32	27	Moses		Moses prophecying what God will say	Normal		
+DEU	32	24	Moses		Moses prophesying what God will say	Normal		
+DEU	32	25	Moses		Moses prophesying what God will say	Normal		
+DEU	32	26	Moses		Moses prophesying what God will say	Normal		
+DEU	32	27	Moses		Moses prophesying what God will say	Normal		
 DEU	32	34	Moses		Moses quoting God (the LORD)	Normal		
 DEU	32	35	Moses		Moses quoting God (the LORD)	Normal		
-DEU	32	37	Moses		Moses prophecying what God will say	Normal		
-DEU	32	38	Moses		Moses prophecying what God will say	Normal		
+DEU	32	37	Moses		Moses prophesying what God will say	Normal		
+DEU	32	38	Moses		Moses prophesying what God will say	Normal		
 DEU	32	39	Moses		Moses quoting God (the LORD)	Normal		
-DEU	32	40	Moses		Moses prophecying what God will say	Normal		
-DEU	32	41	Moses		Moses prophecying what God will say	Normal		
-DEU	32	42	Moses		Moses prophecying what God will say	Normal		
+DEU	32	40	Moses		Moses prophesying what God will say	Normal		
+DEU	32	41	Moses		Moses prophesying what God will say	Normal		
+DEU	32	42	Moses		Moses prophesying what God will say	Normal		
 DEU	32	46	Moses			Normal		
 DEU	32	47	Moses			Normal		
 DEU	32	49	God		God (the LORD)	Normal		
@@ -5540,7 +5540,7 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	7	14	Joram, king of Israel			Normal		
 2KI	7	18	Elisha		Elisha (had said)	Quotation		
 2KI	7	19	Elisha		Elisha (had said)	Quotation		
-2KI	7	19	officer of king of Israel, on whose arm the king leaned (post mortem)			Quotation		
+2KI	7	19	officer of king of Israel, on whose arm the king leaned			Quotation		
 2KI	8	1	Elisha		Elisha (had said)	Normal		
 2KI	8	4	Joram, king of Israel			Normal		
 2KI	8	5	Gehazi		Gehazi, servant of Elisha	Normal		
@@ -5943,7 +5943,7 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	6	40	Solomon, king			Normal		
 2CH	6	41	Solomon, king			Normal		
 2CH	6	42	Solomon, king			Normal		
-2CH	7	3	Israel	worshipping God		Normal		
+2CH	7	3	Israel	worshiping God		Normal		
 2CH	7	6	priests/Levites			Normal		
 2CH	7	12	God		God (LORD appeared in dream at night)	Normal		
 2CH	7	13	God		God (LORD appeared in dream at night)	Normal		
@@ -7465,7 +7465,7 @@ PSA	42	10	David's enemies			Normal
 PSA	45	0	narrator-PSA			Quotation		
 PSA	46	10	God		God (the LORD)	Normal		
 PSA	50	5	God		God (the LORD)	Normal		
-PSA	50	7	God		God (the LORD)(the Mightly One)	Normal		
+PSA	50	7	God		God (the LORD)(the Mighty One)	Normal		
 PSA	50	8	God		God (the LORD)(the Mighty One)	Normal		
 PSA	50	9	God		God (the LORD)(the Mighty One)	Normal		
 PSA	50	10	God		God (the LORD)(the Mighty One)	Normal		
@@ -9273,10 +9273,10 @@ JER	44	11	God		God (the LORD)(word of the LORD came)	Normal
 JER	44	12	God		God (the LORD)(word of the LORD came)	Normal		
 JER	44	13	God		God (the LORD)(word of the LORD came)	Normal		
 JER	44	14	God		God (the LORD)(word of the LORD came)	Normal		
-JER	44	16	idolators from Judah (men)			Normal		
-JER	44	17	idolators from Judah (men)			Normal		
-JER	44	18	idolators from Judah (men)			Normal		
-JER	44	19	idolators from Judah (women)			Normal		
+JER	44	16	idolaters from Judah (men)			Normal		
+JER	44	17	idolaters from Judah (men)			Normal		
+JER	44	18	idolaters from Judah (men)			Normal		
+JER	44	19	idolaters from Judah (women)			Normal		
 JER	44	21	Jeremiah			Normal		
 JER	44	22	Jeremiah			Normal		
 JER	44	23	Jeremiah			Normal		
@@ -10979,7 +10979,7 @@ HOS	11	11	God		word of the LORD spoken through Hosea	Normal
 HOS	12	8	Hosea		Hosea saying what wicked will say	Normal		
 HOS	12	9	God		word of the LORD spoken through Hosea	Normal		
 HOS	12	10	God		word of the LORD spoken through Hosea	Normal		
-HOS	13	2	idolators			Normal		
+HOS	13	2	idolaters			Normal		
 HOS	13	4	God		word of the LORD spoken through Hosea	Normal		
 HOS	13	5	God		word of the LORD spoken through Hosea	Normal		
 HOS	13	6	God		word of the LORD spoken through Hosea	Normal		
@@ -14971,7 +14971,7 @@ ACT	20	38	elders, Ephesian			Indirect
 ACT	21	4	disciples		Holy Spirit through disciples	Indirect		
 ACT	21	11	Agabus the prophet	proclaim		Dialogue		
 ACT	21	13	Paul	sad		Dialogue		
-ACT	21	14	Paul's travelling companions, Luke and	resigned		Dialogue		
+ACT	21	14	Paul's traveling companions, Luke and	resigned		Dialogue		
 ACT	21	20	James/all the elders			Normal	James	
 ACT	21	21	James/all the elders			Normal	James	
 ACT	21	22	James/all the elders			Normal	James	
@@ -15365,7 +15365,7 @@ COL	4	17	Paul			Normal
 2TH	2	4	man of lawlessness			Indirect		
 2TH	3	10	rule given by Paul			Normal		
 1TI	1	15	narrator-1TI			Quotation		
-1TI	3	16	hymn, early credal			Quotation		
+1TI	3	16	hymn, early creedal			Quotation		
 1TI	4	3	false teachers			Hypothetical		
 1TI	5	18	scripture			Quotation		
 1TI	6	20	narrator-1TI			Quotation		
@@ -15610,7 +15610,7 @@ REV	11	19	narrator-REV			Quotation
 REV	12	10	voice in heaven, loud			Normal		
 REV	12	11	voice in heaven, loud			Normal		
 REV	12	12	voice in heaven, loud			Normal		
-REV	13	4	worshippers of the beast			Normal		
+REV	13	4	worshipers of the beast			Normal		
 REV	13	9	voice in heaven			Potential		
 REV	13	10	saying about captivity and death by the sword			Potential	God	
 REV	13	10	scripture		scripture (God)	Potential	God	
@@ -15716,6 +15716,6 @@ REV	22	14	Jesus			Normal
 REV	22	15	Jesus			Normal		
 REV	22	16	Jesus			Normal		
 REV	22	17	him who hears			Normal		
-REV	22	17	Holy Spirit, the/bride, the (refering to the Church)		Holy Spirit and the bride	Normal		
+REV	22	17	Holy Spirit, the/bride, the (referring to the Church)		Holy Spirit and the bride	Normal		
 REV	22	18	John			Potential		
 REV	22	20	Jesus			Normal		

@@ -41,5 +41,24 @@ namespace GlyssenTests
 			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t3\t\t\tText of verse three, part two. [4]\u00A0Text of verse four. [5]\u00A0Text of verse five.\t" + textLength,
 				ProjectExport.GetExportLineForBlock(block, 0, "MRK", "ActorGuy1"));
 		}
+
+		[Test]
+		public void GetExportLineForBlock_SpecifyNarratorCharacter_OutputContainsNarrator()
+		{
+			var block = new Block("p", 4);
+			block.IsParagraphStart = true;
+			block.CharacterId = "Fred";
+			block.Delivery = "With great gusto and quivering frustration";
+			block.BlockElements.Add(new Verse("1"));
+			block.BlockElements.Add(new ScriptText("Text of verse one. "));
+			block.BlockElements.Add(new Verse("2"));
+			block.BlockElements.Add(new ScriptText("Text of verse two."));
+
+			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
+			Assert.AreEqual("0\tp\tMRK\t4\t1\tnarrator-MRK\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
+				ProjectExport.GetExportLineForBlock(block, 0, "MRK", null, "narrator-MRK"));
+			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tnarrator-MRK\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
+				ProjectExport.GetExportLineForBlock(block, 0, "MRK", "ActorGuy1", "narrator-MRK"));
+		}
 	}
 }

@@ -118,7 +118,7 @@ namespace Glyssen.Controls
 		private void ShowSaved()
 		{
 			m_lbl.Text = String.Format(m_justSavedLabelFmt, DateTime.Now);
-			m_lbl.ForeColor = Color.Green;
+			m_lbl.ForeColor = Color.LawnGreen;
 
 			if (m_timer != null)
 				m_timer.Close();

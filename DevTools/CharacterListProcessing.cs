@@ -18,7 +18,17 @@ namespace DevTools
 		{
 //			var allCv = ProcessJimFiles();
 //			allCv = FindAliases(allCv);
-			FindDeliveries(ControlCharacterVerseData.Singleton.GetAllQuoteInfo());
+//			FindDeliveries(ControlCharacterVerseData.Singleton.GetAllQuoteInfo());
+			GetAllNtCharacters();
+		}
+
+		private static void GetAllNtCharacters()
+		{
+			var NtCharacters = new SortedSet<string>();
+			foreach (var cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
+				if (cv.Book > 39 && !cv.Character.Contains('/'))
+					NtCharacters.Add(cv.Character);
+			Debug.WriteLine(TabDelimited(NtCharacters));
 		}
 
 		static List<CharacterVerse> FindAliases(List<CharacterVerse> characterVerses)

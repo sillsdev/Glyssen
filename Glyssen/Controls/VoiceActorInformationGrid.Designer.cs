@@ -38,7 +38,7 @@
 			this.m_contextMenu_itemDeleteActors = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_deleteRowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
-			this.m_dataGrid = new Glyssen.Controls.DataGridViewOverrideEnter();
+			this.m_dataGrid = new Glyssen.Controls.AutoGrid();
 			this.ActorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ActorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ActorGender = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -91,9 +91,12 @@
 			this.m_dataGrid.AllowUserToDeleteRows = false;
 			this.m_dataGrid.AllowUserToOrderColumns = true;
 			this.m_dataGrid.AllowUserToResizeRows = false;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
 			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
 			this.m_dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			this.m_dataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.m_dataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
 			this.m_dataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
@@ -105,9 +108,8 @@
 			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
 			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.m_dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-			this.m_dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.m_dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ActorId,
             this.ActorName,
@@ -116,7 +118,14 @@
             this.ActorQuality,
             this.ActorStatus});
 			this.m_dataGrid.ContextMenuStrip = this.m_contextMenu;
-			this.m_dataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F);
+			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.m_dataGrid.DefaultCellStyle = dataGridViewCellStyle5;
 			this.m_dataGrid.DrawTextBoxEditControlBorder = false;
 			this.m_dataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
 			this.m_dataGrid.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -129,12 +138,10 @@
 			this.m_dataGrid.Margin = new System.Windows.Forms.Padding(0);
 			this.m_dataGrid.Name = "m_dataGrid";
 			this.m_dataGrid.PaintHeaderAcrossFullGridWidth = true;
+			this.m_dataGrid.ParentLayersAffected = 1;
 			this.m_dataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			this.m_dataGrid.RowHeadersVisible = false;
 			this.m_dataGrid.RowHeadersWidth = 22;
-			dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro;
-			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-			this.m_dataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
 			this.m_dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.m_dataGrid.SelectedCellBackColor = System.Drawing.Color.Empty;
 			this.m_dataGrid.SelectedCellForeColor = System.Drawing.Color.Empty;
@@ -151,6 +158,7 @@
 			this.m_dataGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.m_dataGrid_EditingControlShowing);
 			this.m_dataGrid.SelectionChanged += new System.EventHandler(this.m_dataGrid_SelectionChanged);
 			this.m_dataGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HandleKeyDown);
+			this.m_dataGrid.Leave += new System.EventHandler(this.m_dataGrid_Leave);
 			// 
 			// ActorId
 			// 
@@ -232,7 +240,6 @@
 			// 
 			// VoiceActorInformationGrid
 			// 
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.Controls.Add(this.m_dataGrid);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this, null);
@@ -250,7 +257,7 @@
 
 		#endregion
 
-		private Glyssen.Controls.DataGridViewOverrideEnter m_dataGrid;
+		private Glyssen.Controls.AutoGrid m_dataGrid;
 		private System.Windows.Forms.ContextMenuStrip m_contextMenu;
 		private System.Windows.Forms.ToolStripMenuItem m_contextMenu_itemDeleteActors;
 		private System.Windows.Forms.ToolStripMenuItem m_deleteRowsToolStripMenuItem;

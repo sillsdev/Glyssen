@@ -68,12 +68,17 @@ namespace Glyssen
 			UpdateDisplayOfProjectInfo();
 
 			if (m_project != null)
+			{
+				Settings.Default.CurrentProject = m_project.ProjectFilePath;
+				Settings.Default.Save();
+
 				Analytics.Track("LoadProject", new Dictionary<string, string>
 				{
 					{ "language", m_project.LanguageIsoCode },
 					{ "ID", m_project.Id },
 					{ "recordingProjectName", m_project.Name },
 				});
+			}
 		}
 
 		protected void HandleStringsLocalized()
@@ -372,12 +377,11 @@ namespace Glyssen
 		private void m_btnAssign_Click(object sender, EventArgs e)
 		{
 			using (var viewModel = new AssignCharacterViewModel(m_project))
-			{
 				using (var dlg = new AssignCharacterDlg(viewModel))
 					dlg.ShowDialog();
-			}
 			m_project.Analyze();
 			UpdateDisplayOfProjectInfo();
+			SaveCurrentProject();
 		}
 
 		private void m_btnSelectBooks_Click(object sender, EventArgs e)
@@ -388,6 +392,7 @@ namespace Glyssen
 					m_project.ClearAssignCharacterStatus();
 					m_project.Analyze();
 					UpdateDisplayOfProjectInfo();
+					SaveCurrentProject();
 				}
 		}
 
@@ -400,6 +405,7 @@ namespace Glyssen
 					return;
 
 				m_project.UpdateSettings(model);
+				SaveCurrentProject();
 
 				if (dlg.UpdatedBundle != null)
 				{
@@ -438,12 +444,14 @@ namespace Glyssen
 			{
 				using (var dlg = new VoiceActorInformationDlg(m_project))
 					dlg.ShowDialog();
+				SaveCurrentProject();
 			}
 
 			if (m_project.VoiceActorStatus == VoiceActorStatus.Provided)
 			{
 				using (var dlg = new VoiceActorAssignmentDlg(m_project))
 					dlg.ShowDialog();
+				SaveCurrentProject();
 			}
 			UpdateDisplayOfProjectInfo();
 		}

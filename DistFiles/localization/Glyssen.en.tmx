@@ -993,10 +993,10 @@
         <seg>Book of the Wars of the LORD</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.bride, the (refering to the Church)">
+    <tu tuid="CharacterName.bride, the (referring to the Church)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>bride, the (refering to the Church)</seg>
+        <seg>bride, the (referring to the Church)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.brother who discovered his silver in his sack">
@@ -2727,12 +2727,6 @@
         <seg>God (the LORD)(in vision of God)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.God (the LORD)(the Mightly One)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>God (the LORD)(the Mightly One)</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.God (the LORD)(the Mighty One)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3267,28 +3261,28 @@
         <seg>Hushai, David's friend</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.hymn, early credal">
+    <tu tuid="CharacterName.hymn, early creedal">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>hymn, early credal</seg>
+        <seg>hymn, early creedal</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.idolators">
+    <tu tuid="CharacterName.idolaters">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>idolators</seg>
+        <seg>idolaters</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.idolators from Judah (men)">
+    <tu tuid="CharacterName.idolaters from Judah (men)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>idolators from Judah (men)</seg>
+        <seg>idolaters from Judah (men)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.idolators from Judah (women)">
+    <tu tuid="CharacterName.idolaters from Judah (women)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>idolators from Judah (women)</seg>
+        <seg>idolaters from Judah (women)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.informer">
@@ -5241,22 +5235,16 @@
         <seg>Moses (at LORD's command)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Moses prophecying what God will say">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Moses prophecying what God will say</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Moses prophecying what the nations will say">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Moses prophecying what the nations will say</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Moses prophesying what God will say">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>Moses prophesying what God will say</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Moses prophesying what the nations will say">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Moses prophesying what the nations will say</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Moses quoting God (the LORD)">
@@ -5589,12 +5577,6 @@
         <seg>officer of king of Israel, on whose arm the king leaned</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.officer of king of Israel, on whose arm the king leaned (post mortem)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>officer of king of Israel, on whose arm the king leaned (post mortem)</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.officers">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -5847,10 +5829,10 @@
         <seg>Paul and Silas</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Paul's travelling companions, Luke and">
+    <tu tuid="CharacterName.Paul's traveling companions, Luke and">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Paul's travelling companions, Luke and</seg>
+        <seg>Paul's traveling companions, Luke and</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.people">
@@ -8265,10 +8247,10 @@
         <seg>word of the LORD spoken through Hosea</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.worshippers of the beast">
+    <tu tuid="CharacterName.worshipers of the beast">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>worshippers of the beast</seg>
+        <seg>worshipers of the beast</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Xerxes, king of Persia and Media (Ahasuerus)">

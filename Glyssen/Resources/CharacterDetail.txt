@@ -139,7 +139,7 @@ blind man	1	Male
 blind men, two	2	Male			
 Boaz	1	Male			
 Book of the Wars of the LORD	1	Neuter			
-bride, the (refering to the Church)	-1	Pref: Female			
+bride, the (referring to the Church)	-1	Pref: Female			
 brothers at Antioch, the	-1	Male			
 brothers at Puteoli, some	-1	Male			
 brothers of beloved	-1	Male			
@@ -390,7 +390,7 @@ Herod the Great	1	Male
 Herodias	1	Female			
 Herodias' daughter	1	Female			
 Hezekiah, king of Judah	1	Male			
-high priest	1	Male			Not a particular (historial) high priest, but rather an arbitrary (hypothetical) holder of that office
+high priest	1	Male			Not a particular (historical) high priest, but rather an arbitrary (hypothetical) holder of that office
 high priest's servant (relative of the man whose ear Peter cut off)	1	Male			
 Hilkiah, high priest	1	Male			
 him who hears	1	Male			
@@ -408,10 +408,10 @@ house of Aaron, the	-1	Male
 Huldah, prophetess	1	Female			
 husband of Shunammite	1	Male			
 Hushai, David's friend	1	Male			
-hymn, early credal	1				
-idolators	-1				
-idolators from Judah (men)	-1	Male			
-idolators from Judah (women)	-1	Female			
+hymn, early creedal	1				
+idolaters	-1				
+idolaters from Judah (men)	-1	Male			
+idolaters from Judah (women)	-1	Female			
 informer	-1				
 inscription on forehead of Babylon	1	Pref: Female			
 invaders	-1	Male			
@@ -724,7 +724,6 @@ Oded, prophet of the Lord	1	Male
 officer of King Jehoshaphat of Israel	1	Male			
 officer of King Joram of Israel	1	Male			
 officer of king of Israel, on whose arm the king leaned	1	Male			
-officer of king of Israel, on whose arm the king leaned (post mortem)	1	Male			
 officers	-1	Male			
 officers of King of Aram	-1	Male			
 officers of magistrates	-1	Male			
@@ -762,7 +761,7 @@ parents of cured man, blind from birth	2	Either			May want to assign one or more
 Pashur	1	Male			son of Malkijah
 passers by	-1				
 Paul	1	Male			
-Paul's travelling companions, Luke and	-1				
+Paul's traveling companions, Luke and	-1				
 people	-1				
 people at cistern	-1				
 people at coronation of King Joash	-1				
@@ -1080,7 +1079,7 @@ woman, wise	1	Female
 women of Bethlehem	-1	Female			
 women, dancing	-1	Female			
 women, seven	7	Female			
-worshippers of the beast	-1				
+worshipers of the beast	-1				
 Xerxes, king of Persia and Media (Ahasuerus)	1	Male			
 you (hypothetical Gentile)	1				
 you (hypothetical)	-1				
