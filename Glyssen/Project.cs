@@ -65,6 +65,7 @@ namespace Glyssen
 
 		public event EventHandler<ProgressChangedEventArgs> ProgressChanged;
 		public event EventHandler<ProjectStateChangedEventArgs> ProjectStateChanged;
+		public event EventHandler QuoteParseCompleted;
 		public event EventHandler AnalysisCompleted;
 
 		private Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null, bool installFonts = false)
@@ -699,6 +700,9 @@ namespace Glyssen
 				Analyze();
 
 			Save();
+
+			if (QuoteParseCompleted != null)
+				QuoteParseCompleted(this, new EventArgs());
 		}
 
 		private void QuoteWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)

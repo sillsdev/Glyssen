@@ -219,5 +219,23 @@ namespace Glyssen.Properties {
                 this["SampleVersion"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("95")]
+        public double TargetPercentageOfQuotesFound {
+            get {
+                return ((double)(this["TargetPercentageOfQuotesFound"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public double MaxAcceptablePercentageOfUnknownQuotes {
+            get {
+                return ((double)(this["MaxAcceptablePercentageOfUnknownQuotes"]));
+            }
+        }
     }
 }

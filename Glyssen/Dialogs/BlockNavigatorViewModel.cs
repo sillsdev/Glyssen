@@ -22,6 +22,7 @@ namespace Glyssen.Dialogs
 		AllScripture = 32, // If this bit is set, ignore everything else (except Exclude user-confirmed)- show all editable (i.e., Scripture) blocks
 		AllExpectedQuotes = 64,
 		ExcludeUserConfirmed = 128,
+		AllQuotes = 256,
 		NeedAssignments = Unexpected | Ambiguous,
 		HotSpots = MissingExpectedQuote | MoreQuotesThanExpectedSpeakers | KnownTroubleSpots,
 	}
@@ -49,7 +50,7 @@ namespace Glyssen.Dialogs
 		private readonly int m_baseFontSizeInPoints;
 		private int m_fontSizeUiAdjustment;
 		private readonly bool m_rightToLeftScript;
-		private readonly BlockNavigator m_navigator;
+		private BlockNavigator m_navigator;
 		private readonly IEnumerable<string> m_includedBooks;
 		protected List<BookBlockIndices> m_relevantBlocks;
 		private BookBlockIndices m_temporarilyIncludedBlock;
@@ -70,7 +71,14 @@ namespace Glyssen.Dialogs
 		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode, BookBlockIndices startingIndices, ProjectSettingsViewModel settingsViewModel = null)
 		{
 			m_project = project;
-			m_navigator = new BlockNavigator(project.IncludedBooks);
+			m_project.QuoteParseCompleted += (s, e) =>
+			{
+				m_navigator = new BlockNavigator(m_project.IncludedBooks);
+				ResetFilter(null);
+			};
+
+			m_navigator = new BlockNavigator(m_project.IncludedBooks);
+
 			m_includedBooks = project.IncludedBooks.Select(b => b.BookId);
 			Versification = project.Versification;
 
@@ -180,44 +188,46 @@ namespace Glyssen.Dialogs
 					return;
 
 				m_mode = value;
+				ResetFilter(m_navigator.CurrentBlock);
+			}
+		}
 
-				var selectedBlock = m_navigator.CurrentBlock;
+		private void ResetFilter(Block selectedBlock)
+		{
+			PopulateRelevantBlocks();
 
-				PopulateRelevantBlocks();
-
-				if (IsRelevant(m_navigator.CurrentBlock))
+			if (IsRelevant(m_navigator.CurrentBlock))
+			{
+				m_currentBlockIndex = 0;
+				m_temporarilyIncludedBlock = null;
+			}
+			else
+			{
+				if (RelevantBlockCount > 0)
 				{
-					m_currentBlockIndex = 0;
-					m_temporarilyIncludedBlock = null;
+					m_currentBlockIndex = -1;
+					if (m_temporarilyIncludedBlock != null)
+					{
+						// Block that was temporarily included in previous filter might now match the new filter
+						var i = m_relevantBlocks.IndexOf(m_temporarilyIncludedBlock);
+						if (i >= 0)
+						{
+							m_currentBlockIndex = i;
+							m_temporarilyIncludedBlock = null;
+							SetBlock(m_relevantBlocks[m_currentBlockIndex]);
+							return;
+						}
+					}
+					LoadNextRelevantBlock();
+				}
+				else if (selectedBlock != null)
+				{
+					m_temporarilyIncludedBlock = m_navigator.GetIndicesOfSpecificBlock(selectedBlock);
+					m_navigator.SetIndices(m_temporarilyIncludedBlock);
 				}
 				else
 				{
-					if (RelevantBlockCount > 0)
-					{
-						m_currentBlockIndex = -1;
-						if (m_temporarilyIncludedBlock != null)
-						{
-							// Block that was temporarily included in previous filter might now match the new filter
-							var i = m_relevantBlocks.IndexOf(m_temporarilyIncludedBlock);
-							if (i >= 0)
-							{
-								m_currentBlockIndex = i;
-								m_temporarilyIncludedBlock = null;
-								SetBlock(m_relevantBlocks[m_currentBlockIndex]);
-								return;
-							}
-						}
-						LoadNextRelevantBlock();
-					}
-					else if (selectedBlock != null)
-					{
-						m_temporarilyIncludedBlock = m_navigator.GetIndicesOfSpecificBlock(selectedBlock);
-						m_navigator.SetIndices(m_temporarilyIncludedBlock);
-					}
-					else
-					{
-						m_temporarilyIncludedBlock =  m_navigator.GetIndices();
-					}
+					m_temporarilyIncludedBlock = m_navigator.GetIndices();
 				}
 			}
 		}
@@ -610,6 +620,8 @@ namespace Glyssen.Dialogs
 			}
 			if ((Mode & BlocksToDisplay.AllScripture) > 0)
 				return GetIsBlockScripture(block);
+			if ((Mode & BlocksToDisplay.AllQuotes) > 0)
+				return block.IsQuote;
 			return false;
 		}
 

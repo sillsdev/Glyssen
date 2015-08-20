@@ -204,6 +204,18 @@
     </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
     <Compile Include="Controls\VoiceActorInformationViewModel.cs" />
+    <Compile Include="Dialogs\TooManyUnexpectedQuotesFoundDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\TooManyUnexpectedQuotesFoundDlg.Designer.cs">
+      <DependentUpon>TooManyUnexpectedQuotesFoundDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\PercentageOfExpectedQuotesFoundTooLowDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\PercentageOfExpectedQuotesFoundTooLowDlg.Designer.cs">
+      <DependentUpon>PercentageOfExpectedQuotesFoundTooLowDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\VoiceActorAssignmentViewModel.cs" />
     <Compile Include="Controls\VoiceActorInformationGrid.cs">
       <SubType>UserControl</SubType>
@@ -326,6 +338,12 @@
     <EmbeddedResource Include="Dialogs\AssignCharacterDlg.resx">
       <DependentUpon>AssignCharacterDlg.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\TooManyUnexpectedQuotesFoundDlg.resx">
+      <DependentUpon>TooManyUnexpectedQuotesFoundDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\PercentageOfExpectedQuotesFoundTooLowDlg.resx">
+      <DependentUpon>PercentageOfExpectedQuotesFoundTooLowDlg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SelectExistingProjectDlg.resx">
       <DependentUpon>SelectExistingProjectDlg.cs</DependentUpon>
     </EmbeddedResource>
@@ -358,6 +376,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

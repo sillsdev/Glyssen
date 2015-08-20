@@ -26,13 +26,15 @@ namespace Glyssen.Dialogs
 		private readonly Project m_project;
 		private readonly BlockNavigatorViewModel m_navigatorViewModel;
 		private string m_xOfYFmt;
-		private string m_versesWithMissingExpectedQuotesFilterItem;
+		private object m_versesWithMissingExpectedQuotesFilterItem;
+		private object m_allQuotesFilterItem;
 
 		internal QuotationMarksDlg(Project project, BlockNavigatorViewModel navigatorViewModel, bool readOnly)
 		{
 			InitializeComponent();
 
 			m_project = project;
+			m_project.AnalysisCompleted -= HandleAnalysisCompleted;
 			m_project.AnalysisCompleted += HandleAnalysisCompleted;
 			m_navigatorViewModel = navigatorViewModel;
 	
@@ -71,10 +73,13 @@ namespace Glyssen.Dialogs
 
 		private void HandleStringsLocalized()
 		{
+			m_versesWithMissingExpectedQuotesFilterItem = m_toolStripComboBoxFilter.Items[1];
+			m_allQuotesFilterItem = m_toolStripComboBoxFilter.Items[2];
+
 			if (m_navigatorViewModel.Mode != BlocksToDisplay.MissingExpectedQuote &&
 				((m_project.QuoteSystemStatus & QuoteSystemStatus.NotParseReady) > 0 || m_project.QuoteSystemStatus == QuoteSystemStatus.Guessed))
 			{
-				m_versesWithMissingExpectedQuotesFilterItem = m_toolStripComboBoxFilter.Items[1].ToString();
+				m_toolStripComboBoxFilter.Items.RemoveAt(2);
 				m_toolStripComboBoxFilter.Items.RemoveAt(1);
 			}
 
@@ -297,7 +302,6 @@ namespace Glyssen.Dialogs
 			// Want to set the status even if already UserSet because that triggers setting QuoteSystemDate
 			m_project.QuoteSystemStatus = QuoteSystemStatus.UserSet;
 			
-			m_project.AnalysisCompleted += HandleAnalysisCompleted;
 			m_project.QuoteSystem = currentQuoteSystem;
 		}
 
@@ -333,23 +337,37 @@ namespace Glyssen.Dialogs
 
 			double percentageOfExpectedQuotesFound = totalVersesWithExpectedQuotes * 100.0 / totalExpectedQuotesInIncludedChapters;
 
-			if (percentageOfExpectedQuotesFound < 95)
+			if (percentageOfExpectedQuotesFound < Properties.Settings.Default.TargetPercentageOfQuotesFound)
 			{
-				var msg = String.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.PossibleQuoteSystemProblem",
-					"Only {0:F1}% of verses with expected quotes were found to have quotes. Usually this means the quote mark " +
-					"settings are incorrect or many instances of direct speech in the text are not indicated using quotation marks. " +
-					"Would you like to review the verses where quotes were expected but not found?"), percentageOfExpectedQuotesFound);
-				if (MessageBox.Show(msg, Text, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+				using (var dlg = new PercentageOfExpectedQuotesFoundTooLowDlg(Text, percentageOfExpectedQuotesFound))
 				{
-					if (m_versesWithMissingExpectedQuotesFilterItem != null)
+					dlg.ShowDialog();
+					if (dlg.UserWantsToReview)
 					{
-						Debug.Assert(m_toolStripComboBoxFilter.Items.Count == 2);
-						m_toolStripComboBoxFilter.Items.Insert(1, m_versesWithMissingExpectedQuotesFilterItem);
+						if (!m_toolStripComboBoxFilter.Items.Contains(m_versesWithMissingExpectedQuotesFilterItem))
+						{
+							m_toolStripComboBoxFilter.Items.Insert(1, m_versesWithMissingExpectedQuotesFilterItem);
+						}
+						m_toolStripComboBoxFilter.SelectedItem = m_versesWithMissingExpectedQuotesFilterItem;
+						return;
 					}
-					m_toolStripComboBoxFilter.SelectedIndex = 1;
-					return;
 				}
-
+			}
+			else if (m_project.ProjectAnalysis.PercentUnknown > Properties.Settings.Default.MaxAcceptablePercentageOfUnknownQuotes)
+			{
+				using (var dlg = new TooManyUnexpectedQuotesFoundDlg(Text, m_project.ProjectAnalysis.PercentUnknown))
+				{
+					dlg.ShowDialog();
+					if (dlg.UserWantsToReview)
+					{
+						if (!m_toolStripComboBoxFilter.Items.Contains(m_allQuotesFilterItem))
+						{
+							m_toolStripComboBoxFilter.Items.Insert(m_toolStripComboBoxFilter.Items.Count - 1, m_allQuotesFilterItem);
+						}
+						m_toolStripComboBoxFilter.SelectedItem = m_allQuotesFilterItem;
+						return;
+					}
+				}
 			}
 
 			DialogResult = DialogResult.OK;
@@ -435,12 +453,15 @@ namespace Glyssen.Dialogs
 			switch (m_toolStripComboBoxFilter.SelectedIndex)
 			{
 				case 0: mode = BlocksToDisplay.AllExpectedQuotes; break;
-				case 1:
-					mode = m_toolStripComboBoxFilter.Items.Count > 2 ?
-						BlocksToDisplay.MissingExpectedQuote :
-						BlocksToDisplay.AllScripture;
+				case 4: mode = BlocksToDisplay.AllScripture; break;
+				default:
+					if (m_toolStripComboBoxFilter.SelectedItem == m_versesWithMissingExpectedQuotesFilterItem)
+						mode = BlocksToDisplay.MissingExpectedQuote;
+					else if (m_toolStripComboBoxFilter.SelectedItem == m_allQuotesFilterItem)
+						mode = BlocksToDisplay.AllQuotes;
+					else
+						mode = BlocksToDisplay.AllScripture;
 					break;
-				default: mode = BlocksToDisplay.AllScripture; break;
 			}
 
 			m_navigatorViewModel.Mode = mode;

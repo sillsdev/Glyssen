@@ -139,7 +139,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void SetMode_AllExpectedQuotes_UserConfirmedBlockSkipped()
 		{
-			// TODO (PG-70, part 1): When Jim has finished his part of PG-42, we need to add the new IsExpected field into the data.
+			// TODO (PG-70, part 1): We need to add the new IsExpected field into the data.
 			// When we do that, we should also update the TestCharacterVerse.txt to add this new column of data. The easiest way would
 			// be to do a reg-ex Replace, as follows:
 			// Find:True
@@ -156,6 +156,20 @@ namespace GlyssenTests.Dialogs
 			Assert.IsTrue(m_model.RelevantBlockCount > 0);
 			Assert.AreEqual("MRK 1:16-17", m_model.GetBlockReferenceString());
 			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(block1, m_model.CurrentBlock);
+		}
+
+		[Test]
+		public void SetMode_AllQuotes_NonQuoteBlocksSkipped()
+		{
+			m_model.Mode = BlocksToDisplay.AllQuotes;
+			FindRefInMark(1, 17);
+			var block1 = m_model.CurrentBlock;
+			Assert.AreEqual("Jesus", block1.CharacterId);
+			m_model.LoadNextRelevantBlock();
+
+			Assert.AreEqual("MRK 1:24", m_model.GetBlockReferenceString());
+			m_model.LoadPreviousRelevantBlock();
 			Assert.AreEqual(block1, m_model.CurrentBlock);
 		}
 
