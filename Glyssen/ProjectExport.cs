@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using DesktopAnalytics;
+using Glyssen.Character;
 using Glyssen.Properties;
 using L10NSharp;
 using SIL.Reporting;
@@ -66,22 +67,25 @@ namespace Glyssen
 			{
 				foreach (var book in m_project.IncludedBooks)
 				{
+					string characterIdOverride = null;
+					if (book.SingleVoice)
+						characterIdOverride = CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator);
 					foreach (var block in book.GetScriptBlocks(true))
 					{
 						if (m_includeVoiceActors)
 						{
-							VoiceActor.VoiceActor voiceActor = m_project.GetVoiceActorForCharacter(block.CharacterId);
+							VoiceActor.VoiceActor voiceActor = m_project.GetVoiceActorForCharacter(characterIdOverride ?? block.CharacterId);
 							string voiceActorName = voiceActor != null ? voiceActor.Name : null;
-							stream.WriteLine(GetExportLineForBlock(block, blockNumber++, book.BookId, voiceActorName ?? ""));
+							stream.WriteLine(GetExportLineForBlock(block, blockNumber++, book.BookId, voiceActorName ?? "", characterIdOverride));
 						}
 						else
-							stream.WriteLine(GetExportLineForBlock(block, blockNumber++, book.BookId));
+							stream.WriteLine(GetExportLineForBlock(block, blockNumber++, book.BookId, null, characterIdOverride));
 					}
 				}
 			}
 		}
 
-		public static string GetExportLineForBlock(Block block, int blockNumber, string bookId, string voiceActor = null)
+		internal static string GetExportLineForBlock(Block block, int blockNumber, string bookId, string voiceActor = null, string characterIdOverride = null)
 		{
 			StringBuilder builder = new StringBuilder();
 			builder.Append(blockNumber);
@@ -99,7 +103,10 @@ namespace Glyssen
 			builder.Append(Separator);
 			builder.Append(block.InitialStartVerseNumber);
 			builder.Append(Separator);
-			builder.Append(block.CharacterId);
+			if (characterIdOverride != null)
+				builder.Append(characterIdOverride);
+			else
+				builder.Append(block.CharacterId);
 			builder.Append(Separator);
 			builder.Append(block.Delivery);
 			builder.Append(Separator);
