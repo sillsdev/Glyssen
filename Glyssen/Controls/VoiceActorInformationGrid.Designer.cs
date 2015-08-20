@@ -158,6 +158,7 @@
 			this.m_dataGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.m_dataGrid_EditingControlShowing);
 			this.m_dataGrid.SelectionChanged += new System.EventHandler(this.m_dataGrid_SelectionChanged);
 			this.m_dataGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HandleKeyDown);
+			this.m_dataGrid.Leave += new System.EventHandler(this.m_dataGrid_Leave);
 			// 
 			// ActorId
 			// 

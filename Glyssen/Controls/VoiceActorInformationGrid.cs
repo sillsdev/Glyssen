@@ -268,5 +268,10 @@ namespace Glyssen.Controls
 				m_contextMenu_itemDeleteActors.Text = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.ContextMenu.DeleteActor", "Delete Actor");
 			}
 		}
+
+		private void m_dataGrid_Leave(object sender, EventArgs e)
+		{
+			EndEdit();
+		}
 	}
 }
