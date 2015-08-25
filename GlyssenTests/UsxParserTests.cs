@@ -514,6 +514,22 @@ namespace GlyssenTests
 			Assert.AreEqual(3, blocks[2].InitialEndVerseNumber);
 		}
 
+		[Test]
+		public void Parse_NodeWithNoChildren_IgnoresNode()
+		{
+			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
+				"<verse number=\"1\" style=\"v\" />এই হল যীশু খ্রীষ্টের বংশ তালিকা৷ ইনি ছিলেন রাজা দায়ূদের বংশধর, দায়ূদ ছিলেন অব্রাহামের বংশধর৷</para>" +
+				"<para style=\"b\" />" +
+				"<para style=\"li\">" +
+				"<verse number=\"2\" style=\"v\" />অব্রাহামের ছেলে ইসহাক৷</para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual("c", blocks[0].StyleTag);
+			Assert.AreEqual("p", blocks[1].StyleTag);
+			Assert.AreEqual("li", blocks[2].StyleTag);
+		}
+
 		private UsxParser GetUsxParser(XmlDocument doc)
 		{
 			return new UsxParser("MRK", new TestStylesheet(), new UsxDocument(doc).GetChaptersAndParas());

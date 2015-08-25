@@ -76,6 +76,9 @@ namespace Glyssen
 							continue;
 						break;
 					case "para":
+						if (!node.HasChildNodes)
+							continue;
+
 						var usxPara = new UsxNode(node);
 						IStyle style = m_stylesheet.GetStyle(usxPara.StyleTag);
 						if (style.IsChapterLabel)
