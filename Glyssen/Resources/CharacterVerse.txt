@@ -11956,7 +11956,7 @@ MAT	17	17	Jesus	giving orders		Dialogue
 MAT	17	18	Jesus	rebuking		Indirect		
 MAT	17	19	disciples	upset		Dialogue		
 MAT	17	20	Jesus			Dialogue		
-MAT	17	21	Jesus			Dialogue		
+MAT	17	21	Jesus			Potential		
 MAT	17	22	Jesus			Normal		
 MAT	17	23	Jesus			Normal		
 MAT	17	24	collectors of temple tax	demanding		Dialogue		
