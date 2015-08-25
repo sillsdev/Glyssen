@@ -61,6 +61,26 @@ namespace GlyssenTests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;usx version=&quot;2.0&quot;&gt;
+        ///  &lt;book code=&quot;ACT&quot; style=&quot;id&quot;&gt;Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013&lt;/book&gt;
+        ///  &lt;para style=&quot;h&quot;&gt;TIC PA LUKWENA&lt;/para&gt;
+        ///  &lt;para style=&quot;toc1&quot;&gt;Tic Pa Lukwena&lt;/para&gt;
+        ///  &lt;para style=&quot;toc2&quot;&gt;Tic Pa Lukwena&lt;/para&gt;
+        ///  &lt;para style=&quot;toc3&quot;&gt;Tic&lt;/para&gt;
+        ///  &lt;para style=&quot;mt1&quot;&gt;TIC PA LUKWENA&lt;/para&gt;
+        ///  &lt;chapter number=&quot;1&quot; style=&quot;c&quot; /&gt;
+        ///  &lt;para style=&quot;s1&quot;&gt;Lubaŋa ociko pi bino pa Cwiny Maleŋ&lt;/para&gt;
+        ///  &lt;para style=&quot;p&quot;&gt;
+        ///    &lt;verse n [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TestACT {
+            get {
+                return ResourceManager.GetString("TestACT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] TestCharacterGroups {
@@ -113,6 +133,27 @@ namespace GlyssenTests.Properties {
         internal static string TestJUD {
             get {
                 return ResourceManager.GetString("TestJUD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;usx version=&quot;2.0&quot;&gt;
+        ///  &lt;book code=&quot;LUK&quot; style=&quot;id&quot;&gt;Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013&lt;/book&gt;
+        ///  &lt;para style=&quot;h&quot;&gt;LUKA&lt;/para&gt;
+        ///  &lt;para style=&quot;toc1&quot;&gt;Jiri Ma Luka Ocoyo&lt;/para&gt;
+        ///  &lt;para style=&quot;toc2&quot;&gt;Luka&lt;/para&gt;
+        ///  &lt;para style=&quot;toc3&quot;&gt;Luka&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;JIRI ma&lt;/para&gt;
+        ///  &lt;para style=&quot;mt1&quot;&gt;LUKA&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;ocoyo&lt;/para&gt;
+        ///  &lt;chapter number=&quot;1&quot; style=&quot;c&quot; /&gt;
+        ///  &lt;para style=&quot;s1&quot;&gt;Lok bot Teopilo&lt;/para&gt;
+        ///  &lt;para [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TestLUK {
+            get {
+                return ResourceManager.GetString("TestLUK", resourceCulture);
             }
         }
         

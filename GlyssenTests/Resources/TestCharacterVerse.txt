@@ -7386,7 +7386,7 @@ MAT	9	15	Jesus			Dialogue
 MAT	9	16	Jesus			Normal
 MAT	9	17	Jesus			Normal
 MAT	9	18	Jairus=ruler, a	pleading		Dialogue
-MAT	9	21	woman, bleeding for 12 years	thinking to herself		Normal
+MAT	9	21	woman, bleeding for twelve years	thinking to herself		Normal
 MAT	9	22	Jesus			Dialogue
 MAT	9	24	Jesus	giving orders		Dialogue
 MAT	9	27	blind men, two	shouting		Dialogue
@@ -7559,12 +7559,12 @@ MAT	15	14	Jesus			Normal
 MAT	15	15	Peter (Simon)	puzzled		Dialogue
 MAT	15	16	Jesus			Dialogue
 MAT	15	17	Jesus			Normal
-MAT	15	22	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl	pleading		Dialogue
+MAT	15	22	Canaanite (Syrophoenician) mother of possessed girl	pleading		Dialogue
 MAT	15	23	disciples, His 3	impatient		Dialogue
 MAT	15	24	Jesus			Dialogue
-MAT	15	25	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl	pleading		Dialogue
+MAT	15	25	Canaanite (Syrophoenician) mother of possessed girl	pleading		Dialogue
 MAT	15	26	Jesus	testing faith		Dialogue
-MAT	15	27	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl			Dialogue
+MAT	15	27	Canaanite (Syrophoenician) mother of possessed girl			Dialogue
 MAT	15	28	Jesus			Dialogue
 MAT	15	32	Jesus	compassionately		Dialogue
 MAT	15	33	disciples, His 3	impatient		Dialogue
@@ -7840,7 +7840,7 @@ MAT	26	64	Jesus			Dialogue
 MAT	26	65	Caiaphas	screaming	high priest	Dialogue
 MAT	26	66	chief priests/Sanhedrin=chief priests/whole Sanhedrin 3			Dialogue
 MAT	26	68	chief priests/Sanhedrin=chief priests/whole Sanhedrin 2			Dialogue
-MAT	26	69	girl at high priest's courtyard=servant girl			Dialogue
+MAT	26	69	servant girl at high priest's courtyard			Dialogue
 MAT	26	70	Peter (Simon)	denial		Dialogue
 MAT	26	71	servant girl		servant girl, another=someone else	Dialogue
 MAT	26	72	Peter (Simon)	stronger denial		Dialogue
@@ -7883,432 +7883,519 @@ MAT	28	9	Jesus			Normal
 MAT	28	10	Jesus			Dialogue
 MAT	28	13	chief priests/elders 2	bribing		Normal
 MAT	28	18	Jesus			Dialogue
-MRK	1	17	Jesus			Dialogue
-MRK	1	20	Jesus			Normal
-MRK	1	24	man possessed by evil spirit			Dialogue
-MRK	1	25	Jesus	giving orders		Dialogue
-MRK	1	27	men in synagogue 1	amazed		Normal
-MRK	1	30	people, some			Normal
-MRK	1	37	Peter (Simon)	exclaimed	Peter (Simon) and companions	Dialogue
-MRK	1	38	Jesus			Dialogue
-MRK	1	40	man with leprosy 2	pleading		Dialogue
-MRK	1	41	Jesus	compassionately		Dialogue
-MRK	1	44	Jesus			Normal
-MRK	2	5	Jesus			Dialogue
-MRK	2	7	teachers of the law/Pharisees=Pharisees/teachers of the law 1	angry		Normal
-MRK	2	8	Jesus	rebuking		Dialogue
-MRK	2	11	Jesus	giving orders		Normal
-MRK	2	12	everyone in crowd	praising God		Dialogue
-MRK	2	14	Jesus	inviting		Dialogue
-MRK	2	15	narrator-MRK			Normal
-MRK	2	16	teachers of the law	contempt	teachers of the law (Pharisees)	Dialogue
-MRK	2	17	Jesus			Dialogue
-MRK	2	18	people, some 1	critical		Dialogue
-MRK	2	19	Jesus			Dialogue
-MRK	2	20	Jesus			Normal
-MRK	2	21	Jesus			Normal
-MRK	2	22	Jesus			Normal
-MRK	2	24	Pharisees 3	accusing		Dialogue
-MRK	2	25	Jesus			Dialogue
-MRK	2	27	Jesus			Normal
-MRK	3	3	Jesus	giving orders		Dialogue
-MRK	3	4	Jesus			Dialogue
-MRK	3	5	Jesus	giving orders		Dialogue
-MRK	3	9	Jesus	giving orders		Normal
-MRK	3	11	evil spirits			Normal
-MRK	3	12	Jesus			Normal
-MRK	3	14	Jesus			Normal
-MRK	3	17	narrator-MRK			Normal
-MRK	3	21	Jesus' family			Normal
-MRK	3	22	teachers of the law 1	insulting		Normal
-MRK	3	23	Jesus			Normal
-MRK	3	24	Jesus			Normal
-MRK	3	25	Jesus			Normal
-MRK	3	26	Jesus			Normal
-MRK	3	27	Jesus			Normal
-MRK	3	28	Jesus			Normal
-MRK	3	30	teachers of the law/Pharisees=Pharisees/teachers of the law 2	insulting		Normal
-MRK	3	31	Jesus' family			Normal
-MRK	3	32	someone=they (in crowd)	announcing		Dialogue
-MRK	3	33	Jesus	questioning		Dialogue
-MRK	3	34	Jesus			Dialogue
-MRK	4	3	Jesus	preaching		Normal
-MRK	4	5	Jesus			Normal
-MRK	4	7	Jesus			Normal
-MRK	4	8	Jesus			Normal
-MRK	4	9	Jesus	warning		Normal
-MRK	4	10	disciples, the			Normal
-MRK	4	11	Jesus			Normal
-MRK	4	12	Jesus			Normal
-MRK	4	13	Jesus	questioning		Normal
-MRK	4	14	Jesus	instructing		Normal
-MRK	4	15	Jesus			Normal
-MRK	4	16	Jesus			Normal
-MRK	4	17	Jesus			Normal
-MRK	4	18	Jesus			Normal
-MRK	4	19	Jesus			Normal
-MRK	4	20	Jesus			Normal
-MRK	4	21	Jesus			Normal
-MRK	4	22	Jesus			Normal
-MRK	4	24	Jesus			Normal
-MRK	4	26	Jesus	instructing		Normal
-MRK	4	28	Jesus			Normal
-MRK	4	30	Jesus	instructing		Normal
-MRK	4	35	Jesus	giving orders		Dialogue
-MRK	4	38	disciples, the 3	terrified		Dialogue
-MRK	4	39	Jesus	forcefully		Dialogue
-MRK	4	40	Jesus	questioning		Dialogue
-MRK	4	41	disciples, the 1	awe		Dialogue
-MRK	5	7	man with evil spirit	shrieking		Dialogue
-MRK	5	8	Jesus			Normal
-MRK	5	9	Jesus	questioning		Dialogue
-MRK	5	9	man with evil spirit			Dialogue
-MRK	5	10	man with evil spirit			Normal
-MRK	5	12	demons	begging		Dialogue
-MRK	5	15	narrator-MRK			Normal
-MRK	5	17	people, Gadarene			Normal
-MRK	5	18	man who had had demons			Normal
-MRK	5	19	Jesus	giving orders		Dialogue
-MRK	5	23	Jairus=ruler, a	pleading		Dialogue
-MRK	5	28	woman, bleeding for 12 years	thinking to herself		Normal
-MRK	5	30	Jesus	questioning		Dialogue
-MRK	5	31	disciples, Jesus'	perplexed		Dialogue
-MRK	5	34	Jesus	giving orders		Dialogue
-MRK	5	35	men from Jairus house	sad		Dialogue
-MRK	5	36	Jesus			Dialogue
-MRK	5	39	Jesus	questioning		Dialogue
-MRK	5	41	Jesus	giving orders		Dialogue
-MRK	5	41	narrator-MRK			Dialogue
-MRK	5	43	Jesus			Normal
-MRK	6	2	men in synagogue 2	amazed		Dialogue
-MRK	6	3	people 1	amazed		Normal
-MRK	6	4	Jesus			Dialogue
-MRK	6	7	Jesus	giving orders		Normal
-MRK	6	8	Jesus			Normal
-MRK	6	9	Jesus			Normal
-MRK	6	10	Jesus			Normal
-MRK	6	10	Jesus	instructing		Normal
-MRK	6	11	Jesus			Normal
-MRK	6	11	Jesus			Normal
-MRK	6	12	disciples, the 1			Normal
-MRK	6	14	people, some 1	excited		Normal
-MRK	6	15	people, other 1	guessing		Normal
-MRK	6	15	people, still other 1			Normal
-MRK	6	16	Herod Antipas (the tetrarch)	fearful		Normal
-MRK	6	17	Herod Antipas (the tetrarch)			Normal
-MRK	6	18	John the Baptist	rebuke		Normal
-MRK	6	22	Herod Antipas (the tetrarch)	drunk		Dialogue
-MRK	6	23	Herod Antipas (the tetrarch)	drunk		Dialogue
-MRK	6	24	Herodias			Dialogue
-MRK	6	24	Herodias' daughter		alias	Dialogue
-MRK	6	25	Herodias' daughter			Dialogue
-MRK	6	26	Herod Antipas (the tetrarch)			Normal
-MRK	6	27	Herod Antipas (the tetrarch)			Normal
-MRK	6	31	Jesus			Dialogue
-MRK	6	35	disciples, the=disciples, His	taking charge		Dialogue
-MRK	6	37	Jesus			Dialogue
-MRK	6	37	Philip	frustrated	Philip=disciples, the=disciples, His	Dialogue
-MRK	6	37,38	Jesus			Dialogue
-MRK	6	37-38	Jesus	questioning		Dialogue
-MRK	6	37,38	Jesus	questioning		Dialogue
-MRK	6	38	Andrew		Andrew=disciples, the=disciples, His	Dialogue
-MRK	6	38	Jesus	questioning		Dialogue
-MRK	6	39	Jesus			Normal
-MRK	6	49	disciples, the 3	terrified		Normal
-MRK	6	50	Jesus	reassuring		Normal
-MRK	6	56	people, sick			Normal
-MRK	7	2	narrator-MRK			Normal
-MRK	7	5	teachers of the law/Pharisees=Pharisees/teachers of the law 1	critical		Dialogue
-MRK	7	6	Jesus	rebuking		Dialogue
-MRK	7	7	Jesus	rebuking		Normal
-MRK	7	8	Jesus	rebuking		Normal
-MRK	7	9	Jesus	rebuking		Normal
-MRK	7	10	Jesus	rebuking		Normal
-MRK	7	11	Jesus	rebuking		Normal
-MRK	7	12	Jesus	rebuking		Normal
-MRK	7	13	Jesus	rebuking		Normal
-MRK	7	14	Jesus	warning		Dialogue
-MRK	7	15	Jesus			Normal
-MRK	7	16	Jesus			Normal
-MRK	7	17	disciples, His 1	puzzled		Normal
-MRK	7	18	Jesus			Dialogue
-MRK	7	19	narrator-MRK			Normal
-MRK	7	20	Jesus	instructing		Dialogue
-MRK	7	26	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl			Normal
-MRK	7	27	Jesus	instructing		Dialogue
-MRK	7	28	Canaanite mother of possessed girl=Syrophoenician mother of possessed girl			Dialogue
-MRK	7	29	Jesus			Dialogue
-MRK	7	32	neighbors/others who had seen blind man begging			Normal
-MRK	7	34	Jesus	giving orders		Normal
-MRK	7	34	narrator-MRK			Normal
-MRK	7	36	Jesus	warning		Normal
-MRK	7	36	people, some			Normal
-MRK	7	37	people 2			Normal
-MRK	8	2	Jesus			Dialogue
-MRK	8	4	disciples, the 3	questioning		Dialogue
-MRK	8	5	disciples, His			Dialogue
-MRK	8	5	Jesus	questioning		Dialogue
-MRK	8	6	Jesus	giving orders		Normal
-MRK	8	11	Pharisees			Normal
-MRK	8	12	Jesus	exasperated		Normal
-MRK	8	15	Jesus	warning		Dialogue
-MRK	8	16	disciples, the 3	defensive		Normal
-MRK	8	17	Jesus	rebuking		Dialogue
-MRK	8	19	disciples, the 2	hesitant		Dialogue
-MRK	8	20	disciples, the 1			Dialogue
-MRK	8	20	Jesus	questioning		Dialogue
-MRK	8	21	Jesus	questioning		Dialogue
-MRK	8	23	Jesus	questioning		Normal
-MRK	8	24	blind man			Dialogue
-MRK	8	26	Jesus	giving orders		Dialogue
-MRK	8	27	Jesus	questioning		Dialogue
-MRK	8	28	disciples, the 3	excited		Dialogue
-MRK	8	29	Jesus	questioning		Dialogue
-MRK	8	29	Peter (Simon)	declare		Dialogue
-MRK	8	30	Jesus	warning		Dialogue
-MRK	8	31	Jesus	instructing		Normal
-MRK	8	32	Peter (Simon)			Normal
-MRK	8	33	Jesus	rebuking		Dialogue
-MRK	8	34	Jesus	instructing		Dialogue
-MRK	8	35	Jesus			Normal
-MRK	8	36	Jesus			Normal
-MRK	8	38	Jesus			Normal
-MRK	9	1	Jesus			Dialogue
-MRK	9	5	Peter (Simon)	afraid		Dialogue
-MRK	9	7	voice from cloud			Normal
-MRK	9	9	Jesus			Normal
-MRK	9	10	narrator-MRK			Normal
-MRK	9	11	John	puzzled	Peter (Simon)/James/John=disciples, the|John	Dialogue
-MRK	9	12	Jesus			Dialogue
-MRK	9	13	Jesus			Dialogue
-MRK	9	16	Jesus	questioning		Dialogue
-MRK	9	17	father of possessed boy=man in crowd			Dialogue
-MRK	9	19	Jesus	exasperated		Dialogue
-MRK	9	21	father of possessed boy=man in crowd	distraught		Dialogue
-MRK	9	21	Jesus	questioning		Dialogue
-MRK	9	22	father of possessed boy=man in crowd	distraught		Normal
-MRK	9	23	Jesus			Dialogue
-MRK	9	24	father of possessed boy=man in crowd			Dialogue
-MRK	9	25	Jesus	giving orders		Dialogue
-MRK	9	26	many in crowd			Normal
-MRK	9	28	disciples, His 3	upset		Dialogue
-MRK	9	29	Jesus			Dialogue
-MRK	9	31	Jesus			Normal
-MRK	9	33	Jesus	questioning		Normal
-MRK	9	35	Jesus	instructing		Normal
-MRK	9	37	Jesus	instructing		Normal
-MRK	9	38	John		John (disciple whom Jesus loved)	Dialogue
-MRK	9	39	Jesus			Dialogue
-MRK	9	40	Jesus			Normal
-MRK	9	41	Jesus			Normal
-MRK	9	42	Jesus	instructing		Normal
-MRK	9	43	Jesus			Normal
-MRK	9	44	Jesus			Normal
-MRK	9	45	Jesus			Normal
-MRK	9	46	Jesus			Normal
-MRK	9	47	Jesus			Normal
-MRK	9	48	Jesus			Normal
-MRK	9	49	Jesus			Normal
-MRK	9	50	Jesus			Normal
-MRK	9	50	Jesus			Normal
-MRK	10	2	Pharisees, some 3	questioning		Normal
-MRK	10	3	Jesus	questioning		Dialogue
-MRK	10	4	Pharisees, some			Dialogue
-MRK	10	5	Jesus			Dialogue
-MRK	10	6	Jesus			Normal
-MRK	10	8	Jesus			Normal
-MRK	10	10	disciples, the			Normal
-MRK	10	11	Jesus			Dialogue
-MRK	10	14	Jesus			Normal
-MRK	10	16	Jesus			Normal
-MRK	10	17	ruler, a certain=man, rich young	respectful		Dialogue
-MRK	10	18	Jesus			Dialogue
-MRK	10	19	Jesus			Normal
-MRK	10	20	ruler, a certain=man, rich young	upset		Dialogue
-MRK	10	21	Jesus			Dialogue
-MRK	10	23	Jesus			Dialogue
-MRK	10	24	Jesus			Dialogue
-MRK	10	26	disciples, the=those who heard	shocked		Normal
-MRK	10	27	Jesus			Dialogue
-MRK	10	28	Peter (Simon)			Dialogue
-MRK	10	29	Jesus			Dialogue
-MRK	10	31	Jesus			Normal
-MRK	10	33	Jesus			Normal
-MRK	10	35	John	boldly	James/John (sons of Zebedee)|John	Dialogue
-MRK	10	36	Jesus			Dialogue
-MRK	10	37	John	boldly	James/John (sons of Zebedee)|John	Dialogue
-MRK	10	38	Jesus			Dialogue
-MRK	10	39	Jesus			Dialogue
-MRK	10	39	John	boldly	James/John (sons of Zebedee)|John	Dialogue
-MRK	10	42	Jesus			Dialogue
-MRK	10	43	Jesus			Normal
-MRK	10	45	Jesus			Normal
-MRK	10	47	Bartimaeus	shouting	Bartimaeus, blind=blind man, a	Dialogue
-MRK	10	48	Bartimaeus	shouting	Bartimaeus, blind=blind man, a	Dialogue
-MRK	10	48	crowd, many in the			Dialogue
-MRK	10	49	crowd, large 2			Dialogue
-MRK	10	49	Jesus			Dialogue
-MRK	10	51	Bartimaeus	pleading	Bartimaeus, blind=blind man, a	Dialogue
-MRK	10	51	Jesus			Dialogue
-MRK	10	52	Jesus			Dialogue
-MRK	11	2	Jesus			Normal
-MRK	11	5	owner of colt=people, some standing there	suspicious		Normal
-MRK	11	6	disciples, 2 men			Normal
-MRK	11	6	some people			Normal
-MRK	11	9	disciples, whole crowd of=people, many=crowd, great|crowd	praising		Dialogue
-MRK	11	10	disciples, whole crowd of=people, many=crowd, great|crowd	praising		Dialogue
-MRK	11	14	Jesus			Normal
-MRK	11	17	Jesus			Normal
-MRK	11	21	Peter (Simon)	amazed		Dialogue
-MRK	11	22	Jesus			Dialogue
-MRK	11	23	Jesus			Normal
-MRK	11	24	Jesus			Normal
-MRK	11	25	Jesus			Normal
-MRK	11	28	chief priests/teachers of the law/elders=chief priests/elders of people 1	challenge		Dialogue
-MRK	11	29	Jesus			Dialogue
-MRK	11	30	Jesus	questioning		Normal
-MRK	11	31	chief priests/teachers of the law/elders=chief priests/elders of people 1	to themselves		Normal
-MRK	11	33	chief priests/teachers of the law/elders=chief priests/elders of people 2			Dialogue
-MRK	11	33	Jesus			Dialogue
-MRK	12	1	Jesus	preaching		Normal
-MRK	12	2	Jesus			Normal
-MRK	12	4	Jesus	preaching		Normal
-MRK	12	5	Jesus	preaching		Normal
-MRK	12	6	Jesus			Normal
-MRK	12	7	Jesus			Normal
-MRK	12	9	Jesus			Normal
-MRK	12	10	Jesus	preaching		Normal
-MRK	12	14	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			Dialogue
-MRK	12	15	Jesus			Dialogue
-MRK	12	16	Jesus	questioning		Dialogue
-MRK	12	16	spies of teachers of the law/chief priests=Pharisees, disciples of/Herodians			Dialogue
-MRK	12	17	Jesus			Dialogue
-MRK	12	18	Sadducees			Normal
-MRK	12	19	Sadducees			Dialogue
-MRK	12	20	Sadducees			Normal
-MRK	12	23	Sadducees			Normal
-MRK	12	24	Jesus			Dialogue
-MRK	12	26	Jesus			Normal
-MRK	12	28	Good Priest	respectful	teachers of the law, one=expert in the law, an|Good Priest	Dialogue
-MRK	12	29	Jesus			Dialogue
-MRK	12	32	Good Priest	complimenting	teachers of the law, one=expert in the law, an|Good Priest	Dialogue
-MRK	12	34	Jesus			Dialogue
-MRK	12	35	Jesus			Dialogue
-MRK	12	36	Jesus			Normal
-MRK	12	37	Jesus			Normal
-MRK	12	38	Jesus	warning		Normal
-MRK	12	40	Jesus			Normal
-MRK	12	43	Jesus	giving orders		Normal
-MRK	13	1	disciples, one of His	awe		Dialogue
-MRK	13	2	Jesus			Dialogue
-MRK	13	4	John		Peter (Simon)/James/John/Andrew=disciples=they	Dialogue
-MRK	13	5	Jesus			Normal
-MRK	13	6	Jesus			Normal
-MRK	13	7	Jesus			Normal
-MRK	13	8	Jesus			Normal
-MRK	13	9	Jesus			Normal
-MRK	13	10	Jesus			Normal
-MRK	13	11	Jesus			Normal
-MRK	13	12	Jesus			Normal
-MRK	13	13	Jesus			Normal
-MRK	13	14	Jesus			Normal
-MRK	13	15	Jesus			Normal
-MRK	13	17	Jesus			Normal
-MRK	13	21	Jesus			Normal
-MRK	13	22	Jesus			Normal
-MRK	13	24	Jesus			Normal
-MRK	13	25	Jesus			Normal
-MRK	13	26	Jesus			Normal
-MRK	13	27	Jesus			Normal
-MRK	13	28	Jesus			Normal
-MRK	13	30	Jesus			Normal
-MRK	13	31	Jesus			Normal
-MRK	13	32	Jesus			Normal
-MRK	13	33	Jesus			Normal
-MRK	13	34	Jesus			Normal
-MRK	13	35	Jesus			Normal
-MRK	14	2	chief priests/teachers of the law=chief priests/elders of people			Normal
-MRK	14	4	Judas Iscariot	indignant	Judas Iscariot=some in home of Simon, leper	Dialogue
-MRK	14	5	some in home of Simon, leper			Normal
-MRK	14	6	Jesus			Dialogue
-MRK	14	9	Jesus			Normal
-MRK	14	10	Judas Iscariot			Normal
-MRK	14	11	Jewish authorities			Normal
-MRK	14	12	John		Peter (Simon)/John=disciples (Jesus')|disciples	Dialogue
-MRK	14	13	Jesus			Dialogue
-MRK	14	18	Jesus			Dialogue
-MRK	14	19	disciples, His 2	sad		Dialogue
-MRK	14	19	disciples, His 4			Dialogue
-MRK	14	20	Jesus			Dialogue
-MRK	14	22	Jesus			Dialogue
-MRK	14	23	Jesus			Normal
-MRK	14	24	Jesus			Dialogue
-MRK	14	25	Jesus			Normal
-MRK	14	27	Jesus			Dialogue
-MRK	14	28	Jesus			Normal
-MRK	14	29	Peter (Simon)	declare		Dialogue
-MRK	14	30	Jesus			Dialogue
-MRK	14	31	Peter (Simon)	passionate		Dialogue
-MRK	14	32	Jesus			Normal
-MRK	14	33	Jesus			Normal
-MRK	14	34	Jesus	deeply distressed		Dialogue
-MRK	14	36	Jesus			Normal
-MRK	14	37	Jesus	questioning		Dialogue
-MRK	14	38	Jesus			Normal
-MRK	14	41	Jesus			Normal
-MRK	14	44	Judas Iscariot	plotting		Normal
-MRK	14	45	Judas Iscariot	fake respect		Dialogue
-MRK	14	48	Jesus	questioning		Dialogue
-MRK	14	58	witnesses, Normal, two=witnesses, some Normal	mocking		Dialogue
-MRK	14	60	Caiaphas	demanding	high priest	Dialogue
-MRK	14	61	Caiaphas	demanding	high priest	Dialogue
-MRK	14	62	Jesus			Dialogue
-MRK	14	63	Caiaphas	screaming	high priest	Dialogue
-MRK	14	64	high priest			Normal
-MRK	14	65	chief priests/Sanhedrin=chief priests/whole Sanhedrin 1	mocking		Dialogue
-MRK	14	67	girl at high priest's courtyard=servant girl			Dialogue
-MRK	14	68	Peter (Simon)	denial		Dialogue
-MRK	14	69	servant girl		servant girl, another=someone else	Dialogue
-MRK	14	70	high priest's servant (man), one=those standing near=another	accusing		Dialogue
-MRK	14	70	Peter (Simon)	defensive		Dialogue
-MRK	14	71	Peter (Simon)	swearing		Dialogue
-MRK	14	72	Jesus			Normal
-MRK	15	2	Jesus			Dialogue
-MRK	15	2	Pilate	to Jesus		Dialogue
-MRK	15	4	Pilate	to Jesus		Dialogue
-MRK	15	8	crowd			Normal
-MRK	15	9	Pilate	to crowd		Dialogue
-MRK	15	11	chief priests			Normal
-MRK	15	11	crowd			Normal
-MRK	15	12	Pilate	to crowd		Dialogue
-MRK	15	13	crowd 8	shouting		Dialogue
-MRK	15	14	crowd 9	shouting louder		Dialogue
-MRK	15	14	Pilate	to crowd		Dialogue
-MRK	15	18	soldiers 1	mocking		Dialogue
-MRK	15	22	narrator-MRK			Normal
-MRK	15	26	sign on the cross			Normal
-MRK	15	28	scripture			Normal
-MRK	15	29	passers by	insulting		Dialogue
-MRK	15	31	rulers=chief priests/teachers of the law/elders	sneering		Dialogue
-MRK	15	32	rulers=chief priests/teachers of the law/elders	sneering		Normal
-MRK	15	34	Jesus			Normal
-MRK	15	34	narrator-MRK			Normal
-MRK	15	35	bystanders=some standing near	uneasy		Dialogue
-MRK	15	36	man, one	jeering		Dialogue
-MRK	15	38,39	centurion=centurion/other guards|army officer	amazed	
-MRK	15	39	centurion=centurion/other guards|army officer	amazed		Dialogue
-MRK	15	43	Joseph of Arimathea			Normal
-MRK	15	43	Pilate	surprised		Normal
-MRK	15	44	Pilate			Normal
-MRK	15	44	Pilate	surprised		Normal
-MRK	15	45	centurion			Normal
-MRK	15	45	Pilate			Normal
-MRK	16	3	Mary Magdalene		Mary Magdalene/Mary mother of James/Salome
-MRK	16	3-4	Mary Magdalene		Mary Magdalene/Mary mother of James/Salome
-MRK	16	6	angel in white=man dressed in white robe, young			Dialogue
-MRK	16	15	Jesus	giving orders		Normal
-MRK	16	16	Jesus	giving orders		Normal
-MRK	16	17	Jesus			Normal
+MRK	1	17	Jesus			Dialogue		
+MRK	1	20	Jesus			Normal		
+MRK	1	24	man possessed by evil spirit			Dialogue		
+MRK	1	25	Jesus	giving orders		Dialogue		
+MRK	1	27	men in Capernaum synagogue	amazed		Normal		
+MRK	1	30	people in Capernaum			Normal		
+MRK	1	37	Peter (Simon)	exclaimed	Peter (Simon) and companions	Dialogue		
+MRK	1	38	Jesus			Dialogue		
+MRK	1	40	leper	pleading		Dialogue		MAT 8.2;MRK 1.40;LUK 5.12
+MRK	1	41	Jesus	compassionately		Dialogue		
+MRK	1	43	Jesus	warning		Indirect		
+MRK	1	44	Jesus			Normal		
+MRK	2	5	Jesus			Dialogue		
+MRK	2	7	teachers of religious law/Pharisees	thinking	teachers of religious law	Normal		MRK 2.7;LUK 5.21
+MRK	2	8	Jesus	rebuking		Dialogue		
+MRK	2	10	Jesus			Normal		
+MRK	2	11	Jesus	giving orders		Normal		
+MRK	2	12	everyone who saw healing of paralytic	praising		Dialogue		
+MRK	2	14	Jesus	inviting		Dialogue		
+MRK	2	15	narrator-MRK			Normal		
+MRK	2	16	teachers of religious law	contempt	teachers of religious law (Pharisees)	Dialogue		
+MRK	2	17	Jesus			Dialogue		
+MRK	2	18	people, some	critical		Dialogue		
+MRK	2	19	Jesus			Dialogue		
+MRK	2	20	Jesus			Normal		
+MRK	2	21	Jesus			Normal		
+MRK	2	22	Jesus			Normal		
+MRK	2	24	Pharisees, some	accusing		Dialogue		
+MRK	2	25	Jesus			Dialogue		
+MRK	2	26	Jesus			Normal		
+MRK	2	27	Jesus			Normal		
+MRK	2	28	Jesus			Normal		
+MRK	3	3	Jesus	giving orders		Dialogue		
+MRK	3	4	Jesus			Dialogue		
+MRK	3	5	Jesus	giving orders		Dialogue		
+MRK	3	9	Jesus	giving orders		Normal		
+MRK	3	11	evil spirits			Normal		
+MRK	3	12	Jesus			Indirect		
+MRK	3	14	Jesus			Indirect		
+MRK	3	17	narrator-MRK			Quotation		
+MRK	3	21	Jesus' family			Normal		
+MRK	3	22	teachers of religious law	insulting	teachers of religious law (from Jerusalem)	Normal		
+MRK	3	23	Jesus			Normal		
+MRK	3	24	Jesus			Normal		
+MRK	3	25	Jesus			Normal		
+MRK	3	26	Jesus			Normal		
+MRK	3	27	Jesus			Normal		
+MRK	3	28	Jesus			Normal		
+MRK	3	29	Jesus			Normal		
+MRK	3	30	teachers of religious law	insulting	teachers of religious law (from Jerusalem)	Normal		
+MRK	3	31	Jesus' family			Indirect		
+MRK	3	32	crowd	announcing		Dialogue		MAT 12.47;MRK 3.32;LUK 8.20
+MRK	3	33	Jesus	questioning		Dialogue		
+MRK	3	34	Jesus			Dialogue		
+MRK	3	35	Jesus			Normal		
+MRK	4	3	Jesus			Normal		
+MRK	4	4	Jesus			Normal		
+MRK	4	5	Jesus			Normal		
+MRK	4	6	Jesus			Normal		
+MRK	4	7	Jesus			Normal		
+MRK	4	8	Jesus			Normal		
+MRK	4	9	Jesus			Normal		
+MRK	4	10	disciples			Indirect		
+MRK	4	11	Jesus			Normal		
+MRK	4	12	Jesus			Normal		
+MRK	4	13	Jesus			Normal		
+MRK	4	14	Jesus			Normal		
+MRK	4	15	Jesus			Normal		
+MRK	4	16	Jesus			Normal		
+MRK	4	17	Jesus			Normal		
+MRK	4	18	Jesus			Normal		
+MRK	4	19	Jesus			Normal		
+MRK	4	20	Jesus			Normal		
+MRK	4	21	Jesus			Normal		
+MRK	4	22	Jesus			Normal		
+MRK	4	23	Jesus			Normal		
+MRK	4	24	Jesus			Normal		
+MRK	4	25	Jesus			Normal		
+MRK	4	26	Jesus			Normal		
+MRK	4	27	Jesus			Normal		
+MRK	4	28	Jesus			Normal		
+MRK	4	29	Jesus			Normal		
+MRK	4	30	Jesus			Normal		
+MRK	4	31	Jesus			Normal		
+MRK	4	32	Jesus			Normal		
+MRK	4	35	Jesus	giving orders		Dialogue		
+MRK	4	38	disciples	terrified		Dialogue		
+MRK	4	39	Jesus	forcefully		Dialogue		
+MRK	4	40	Jesus	questioning		Dialogue		
+MRK	4	41	disciples	awe		Dialogue		
+# Demon-possessed man/men in Gadara 2015-01-29 jaa								
+MRK	5	7	demons (Legion)/man delivered from Legion of demons	shrieking	demon-possessed man	Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
+MRK	5	8	Jesus			Normal		
+MRK	5	9	Jesus	questioning		Dialogue		
+# Demon-possessed man/men in Gadara 2015-01-29 jaa								
+MRK	5	9	demons (Legion)/man delivered from Legion of demons	begging		Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
+MRK	5	10	demons (Legion)/man delivered from Legion of demons	begging		Indirect		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
+MRK	5	12	demons (Legion)/man delivered from Legion of demons	begging	demons (Legion)	Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
+MRK	5	13	Jesus			Indirect		
+MRK	5	15	narrator-MRK			Quotation		
+MRK	5	16	herdsmen of pigs		those that saw demon-possessed man cured	Indirect		
+MRK	5	17	Gadarene (or Gerasenes) people	pleading	the people (of the region of the Gerasenes)	Indirect		MAT 8.34;MRK 5.17;LUK 8.37
+MRK	5	18	man delivered from Legion of demons			Indirect		
+MRK	5	19	Jesus	giving orders		Dialogue		
+MRK	5	20	man delivered from Legion of demons			Indirect		
+MRK	5	23	Jairus (synagogue leader)	pleading		Dialogue		MAT 9.18;MRK 5.23;LUK 8.41
+MRK	5	28	woman, bleeding for twelve years	thinking		Normal		MAT 9.21;MRK 5.28,33;LUK 8.47
+MRK	5	30	Jesus	questioning		Dialogue		
+MRK	5	31	disciples	perplexed	disciples, Jesus'	Dialogue		
+MRK	5	33	woman, bleeding for twelve years			Indirect		MAT 9.21;MRK 5.28,33;LUK 8.47
+MRK	5	34	Jesus	giving orders		Dialogue		
+MRK	5	35	men from Jairus' house	sad		Dialogue		MRK 5.35;LUK 8.49
+MRK	5	36	Jesus			Dialogue		
+MRK	5	38	crowd			Indirect		
+MRK	5	39	Jesus	questioning		Dialogue		
+MRK	5	40	crowd			Indirect		
+MRK	5	40	Jesus			Indirect		
+MRK	5	41	Jesus	giving orders		Dialogue		
+MRK	5	41	narrator-MRK			Quotation		
+MRK	5	43	Jesus			Indirect		
+MRK	6	2	men in Nazareth synagogue	amazed		Dialogue		
+MRK	6	3	men in Nazareth synagogue	amazed		Dialogue		
+MRK	6	4	Jesus			Dialogue		
+MRK	6	7	Jesus	giving orders		Indirect		
+MRK	6	8	Jesus			Normal		
+MRK	6	9	Jesus			Normal		
+MRK	6	10	Jesus			Normal		
+MRK	6	11	Jesus			Normal		
+MRK	6	12	disciples			Indirect		
+MRK	6	14	people, some	excited		Normal		
+MRK	6	15	people, other	guessing		Normal		
+MRK	6	15	people, still others			Normal		
+MRK	6	16	Herod Antipas (the tetrarch)	fearful		Normal		
+MRK	6	17	Herod Antipas (the tetrarch)			Indirect		
+MRK	6	18	John the Baptist	rebuking		Normal		
+MRK	6	22	Herod Antipas (the tetrarch)	drunk		Dialogue		
+MRK	6	23	Herod Antipas (the tetrarch)	drunk		Dialogue		
+MRK	6	24	Herodias			Dialogue		
+MRK	6	24	Herodias' daughter		alias	Dialogue		
+MRK	6	25	Herodias' daughter			Dialogue		
+MRK	6	26	Herod Antipas (the tetrarch)			Indirect		
+MRK	6	27	Herod Antipas (the tetrarch)			Indirect		
+MRK	6	31	Jesus			Dialogue		
+MRK	6	35	disciples	taking charge		Dialogue		MAT 14.15;MRK 6.35-36;LUK 9.12
+MRK	6	36	disciples	taking charge		Normal		
+MRK	6	37	Jesus			Dialogue		
+MRK	6	37	Philip the apostle	frustrated	disciples	Dialogue		MRK 6.37;JHN 6.7
+MRK	6	38	Andrew		disciples	Dialogue		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
+MRK	6	38	Jesus	questioning		Dialogue		
+MRK	6	39	Jesus			Indirect		
+MRK	6	45	Jesus			Indirect		
+MRK	6	49	disciples	terrified		Indirect		
+MRK	6	50	Jesus	reassuring		Normal		
+MRK	6	54	crowd		people	Indirect		
+MRK	6	56	people, sick			Indirect		
+MRK	7	2	narrator-MRK			Quotation		
+MRK	7	5	Pharisees/teachers of religious law	critical		Dialogue		MAT 15.2;MRK 7.5
+MRK	7	6	Jesus	rebuking		Dialogue		
+MRK	7	7	Jesus	rebuking		Normal		
+MRK	7	8	Jesus	rebuking		Normal		
+MRK	7	9	Jesus	rebuking		Normal		
+MRK	7	10	Jesus	rebuking		Normal		
+MRK	7	11	Jesus	rebuking		Normal		
+MRK	7	12	Jesus	rebuking		Normal		
+MRK	7	13	Jesus	rebuking		Normal		
+MRK	7	14	Jesus			Normal		
+MRK	7	15	Jesus			Normal		
+MRK	7	16	Jesus			Potential		
+MRK	7	17	disciples	puzzled		Indirect		
+MRK	7	18	Jesus			Dialogue		
+MRK	7	19	Jesus			Dialogue		
+MRK	7	19	narrator-MRK			Quotation		
+MRK	7	20	Jesus	instructing		Dialogue		
+MRK	7	21	Jesus	instructing		Normal		
+MRK	7	22	Jesus	instructing		Normal		
+MRK	7	23	Jesus	instructing		Normal		
+MRK	7	26	Canaanite (Syrophoenician) mother of possessed girl			Indirect		MAT 15.22;MRK 7.26
+MRK	7	27	Jesus	instructing		Dialogue		
+MRK	7	28	Canaanite (Syrophoenician) mother of possessed girl			Dialogue		
+MRK	7	29	Jesus			Dialogue		
+MRK	7	32	people of Decapolis			Indirect		
+MRK	7	34	Jesus	giving orders		Normal		
+MRK	7	34	narrator-MRK			Quotation		
+MRK	7	36	Jesus	warning		Indirect		
+MRK	7	36	people of Decapolis			Indirect		
+MRK	7	37	people of Decapolis			Normal		
+MRK	8	2	Jesus			Dialogue		
+MRK	8	3	Jesus			Normal		
+MRK	8	4	disciples	questioning		Dialogue		
+MRK	8	5	disciples			Dialogue		
+MRK	8	5	Jesus	questioning		Dialogue		
+MRK	8	6	Jesus	giving orders		Indirect		
+MRK	8	7	Jesus			Indirect		
+MRK	8	11	Pharisees			Indirect		
+MRK	8	12	Jesus	exasperated		Normal		
+MRK	8	15	Jesus	warning		Dialogue		
+MRK	8	16	disciples	defensive		Normal		
+MRK	8	17	Jesus	rebuking		Dialogue		
+MRK	8	18	Jesus			Normal		
+MRK	8	19	Jesus			Normal		
+MRK	8	19	disciples	hesitant		Dialogue		
+MRK	8	20	disciples			Dialogue		
+MRK	8	20	Jesus	questioning		Dialogue		
+MRK	8	21	Jesus	questioning		Dialogue		
+MRK	8	22	people, some	begging		Indirect		
+MRK	8	23	Jesus	questioning		Normal		
+MRK	8	24	blind man			Dialogue		
+MRK	8	26	Jesus	giving orders		Dialogue		
+MRK	8	27	Jesus	questioning		Dialogue		
+MRK	8	28	disciples	excited		Dialogue		
+MRK	8	29	Jesus	questioning		Dialogue		
+MRK	8	29	Peter (Simon)	declare		Dialogue		
+MRK	8	30	Jesus	warning		Indirect		
+MRK	8	31	Jesus	instructing		Indirect		
+MRK	8	32	Peter (Simon)			Indirect		
+MRK	8	33	Jesus	rebuking		Dialogue		
+MRK	8	34	Jesus			Dialogue		
+MRK	8	35	Jesus			Dialogue		
+MRK	8	36	Jesus			Dialogue		
+MRK	8	37	Jesus			Dialogue		
+MRK	8	38	Jesus			Dialogue		
+MRK	9	1	Jesus			Dialogue		
+MRK	9	5	Peter (Simon)	afraid		Dialogue		
+MRK	9	7	God		voice from cloud (God)	Normal		
+MRK	9	9	Jesus			Indirect		
+MRK	9	10	Peter (Simon)/James/John	puzzled		Indirect		
+MRK	9	10	narrator-MRK			Quotation		
+MRK	9	11	Peter (Simon)/James/John	puzzled		Dialogue	John	MAT 17.10;MRK 9.11
+MRK	9	12	Jesus			Dialogue		
+MRK	9	13	Jesus			Dialogue		
+MRK	9	15	people, all the			Indirect		
+MRK	9	16	Jesus	questioning		Dialogue		
+MRK	9	17	father of demon-possessed boy		man in crowd (father of demon-possessed boy)	Dialogue		MAT 17.15-16;MRK 9.17-18,22;LUK 9.38-40
+MRK	9	18	father of demon-possessed boy		man in crowd (father of demon-possessed boy)	Dialogue		MAT 17.15-16;MRK 9.17-18,22;LUK 9.38-40
+MRK	9	19	Jesus	exasperated		Dialogue		
+MRK	9	19	Jesus	giving orders		Dialogue		
+MRK	9	21	Jesus	questioning		Dialogue		
+MRK	9	21	father of demon-possessed boy	distraught		Dialogue		
+MRK	9	22	father of demon-possessed boy	distraught		Dialogue		MAT 17.15-16;MRK 9.17-18,22;LUK 9.38-40
+MRK	9	23	Jesus			Dialogue		
+MRK	9	24	father of demon-possessed boy			Dialogue		
+MRK	9	25	Jesus	giving orders		Dialogue		
+MRK	9	26	many in crowd	murmuring		Normal		
+MRK	9	28	disciples	upset		Dialogue		
+MRK	9	29	Jesus			Dialogue		
+MRK	9	31	Jesus			Normal		
+MRK	9	33	Jesus	questioning		Normal		
+MRK	9	34	disciples	arguing		Indirect		
+MRK	9	35	Jesus	instructing		Normal		
+MRK	9	37	Jesus	instructing		Normal		
+MRK	9	38	John		John (disciple whom Jesus loved)	Dialogue		
+MRK	9	39	Jesus			Dialogue		
+MRK	9	40	Jesus			Normal		
+MRK	9	41	Jesus			Normal		
+MRK	9	42	Jesus			Normal		
+MRK	9	43	Jesus			Normal		
+MRK	9	44	Jesus			Normal		
+MRK	9	45	Jesus			Normal		
+MRK	9	46	Jesus			Normal		
+MRK	9	47	Jesus			Normal		
+MRK	9	48	Jesus			Normal		
+MRK	9	49	Jesus			Normal		
+MRK	9	50	Jesus			Normal		
+MRK	10	2	Pharisees, some	questioning		Normal		
+MRK	10	3	Jesus	questioning		Dialogue		
+MRK	10	4	Pharisees, some			Dialogue		
+MRK	10	5	Jesus			Dialogue		
+MRK	10	6	Jesus			Normal		
+MRK	10	7	Jesus			Normal		
+MRK	10	8	Jesus			Normal		
+MRK	10	9	Jesus			Normal		
+MRK	10	10	disciples			Indirect		
+MRK	10	11	Jesus			Dialogue		
+MRK	10	12	Jesus			Normal		
+MRK	10	13	disciples			Indirect		
+MRK	10	14	Jesus			Normal		
+MRK	10	15	Jesus			Normal		
+MRK	10	16	Jesus			Indirect		
+MRK	10	17	rich young ruler	respectful	man	Dialogue		MAT 19.16;MRK 10.17;LUK 18.18
+MRK	10	18	Jesus			Dialogue		
+MRK	10	19	Jesus			Normal		
+MRK	10	20	rich young ruler	upset	man	Dialogue		MAT 19.20;MRK 10.20;LUK 18.21
+MRK	10	21	Jesus			Dialogue		
+MRK	10	23	Jesus			Dialogue		
+MRK	10	24	Jesus			Dialogue		
+MRK	10	25	Jesus			Normal		
+MRK	10	26	disciples	shocked		Normal		MAT 19.25;MRK 10.26;LUK 18.26
+MRK	10	27	Jesus			Dialogue		
+MRK	10	28	Peter (Simon)			Dialogue		
+MRK	10	29	Jesus			Dialogue		
+MRK	10	30	Jesus			Normal		
+MRK	10	31	Jesus			Normal		
+MRK	10	33	Jesus			Normal		
+MRK	10	34	Jesus			Normal		
+MRK	10	35	James/John	boldly	James/John (sons of Zebedee)	Dialogue	John	
+MRK	10	36	Jesus			Dialogue		
+MRK	10	37	James/John	boldly	James/John (sons of Zebedee)	Dialogue	John	
+MRK	10	38	Jesus			Dialogue		
+MRK	10	39	Jesus			Dialogue		
+MRK	10	39	James/John	boldly	James/John (sons of Zebedee)	Dialogue	John	
+MRK	10	40	Jesus			Normal		
+MRK	10	42	Jesus			Dialogue		
+MRK	10	43	Jesus			Normal		
+MRK	10	44	Jesus			Normal		
+MRK	10	45	Jesus			Normal		
+MRK	10	46	narrator-MRK			Quotation		
+MRK	10	46	Bartimaeus (a blind man)	begging		Indirect		MRK 10.46;LUK 18.35
+MRK	10	47	crowd at Jericho			Indirect		MAT 20.30;MRK 10.47;LUK 18.37
+MRK	10	47	Bartimaeus (a blind man)	shouting		Dialogue		MAT 20.30;MRK 10.47;LUK 18.38
+MRK	10	48	crowd, many in the	rebuking		Dialogue		MAT 20.31;MRK 10.48;LUK 18.39
+MRK	10	48	Bartimaeus (a blind man)	shouting		Dialogue		MAT 20.31;MRK 10.48;LUK 18.39
+MRK	10	49	crowd at Jericho	encouraging		Dialogue		
+MRK	10	49	Jesus			Dialogue		
+MRK	10	51	Bartimaeus (a blind man)	pleading		Dialogue		MAT 20.33;MRK 10.51;LUK 18.41
+MRK	10	51	Jesus			Dialogue		
+MRK	10	52	Jesus			Dialogue		
+MRK	11	2	Jesus			Normal		
+MRK	11	3	Jesus			Normal		
+MRK	11	5	owners of colt	suspicious	people standing there	Normal		MRK 11.5;LUK 19.33
+MRK	11	6	disciples		disciples, two of His	Indirect		
+MRK	11	6	people			Indirect		
+MRK	11	9	crowd preparing for Passover Feast	praising	crowd	Dialogue		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13
+MRK	11	10	crowd preparing for Passover Feast	praising	crowd	Dialogue		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13
+MRK	11	14	Jesus			Normal		
+MRK	11	17	Jesus			Normal		
+MRK	11	21	Peter (Simon)	amazed		Dialogue		
+MRK	11	22	Jesus			Dialogue		
+MRK	11	23	Jesus			Normal		
+MRK	11	24	Jesus			Normal		
+MRK	11	25	Jesus			Normal		
+MRK	11	26	Jesus			Normal		
+MRK	11	28	chief priests/teachers of religious law/elders	challenging		Dialogue		MAT 21.23;MRK 11.28;LUK 20.2
+MRK	11	29	Jesus			Dialogue		
+MRK	11	30	Jesus			Dialogue		
+MRK	11	31	chief priests/teachers of religious law/elders	to themselves		Normal		MAT 21.25;MRK 11.31;LUK 20.5
+MRK	11	32	chief priests/teachers of religious law/elders	to themselves		Normal		MAT 21.26;MRK 11.32;LUK 20.6
+MRK	11	33	chief priests/teachers of religious law/elders			Dialogue		MAT 21.27;MRK 11.33;LUK 20.7
+MRK	11	33	Jesus			Dialogue		MAT 21.27;MRK 11.33;LUK 20.8
+MRK	12	1	Jesus	preaching		Normal		
+MRK	12	2	Jesus	preaching		Normal		
+MRK	12	3	Jesus	preaching		Normal		
+MRK	12	4	Jesus	preaching		Normal		
+MRK	12	5	Jesus	preaching		Normal		
+MRK	12	6	Jesus	preaching		Normal		
+MRK	12	7	Jesus	preaching		Normal		
+MRK	12	8	Jesus	preaching		Normal		
+MRK	12	9	Jesus	preaching		Normal		
+MRK	12	10	Jesus	preaching		Normal		
+MRK	12	11	Jesus	preaching		Normal		
+MRK	12	14	spies (from Pharisees and Herodians)		Pharisees/Herodians	Dialogue		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
+MRK	12	15	spies (from Pharisees and Herodians)		Pharisees/Herodians	Dialogue		MAT 22.16-17;MRK 12.14-15;LUK 20.21-22
+MRK	12	15	Jesus			Dialogue		
+MRK	12	16	Jesus	questioning		Dialogue		
+MRK	12	16	spies (from Pharisees and Herodians)		Pharisees/Herodians	Dialogue		MAT 22.21;MRK 12.16;LUK 20.24
+MRK	12	17	Jesus			Dialogue		
+MRK	12	18	Sadducees			Indirect		
+MRK	12	19	Sadducees			Dialogue		
+MRK	12	20	Sadducees			Normal		
+MRK	12	21	Sadducees			Normal		
+MRK	12	22	Sadducees			Normal		
+MRK	12	23	Sadducees			Normal		
+MRK	12	24	Jesus			Dialogue		
+MRK	12	25	Jesus			Normal		
+MRK	12	26	Jesus			Normal		
+MRK	12	27	Jesus			Normal		
+MRK	12	28	expert in religious law	respectful		Dialogue	Good Priest	
+MRK	12	29	Jesus			Dialogue		
+MRK	12	30	Jesus			Normal		
+MRK	12	31	Jesus			Normal		
+MRK	12	32	expert in religious law	approving		Dialogue	Good Priest	
+MRK	12	33	expert in religious law			Normal	Good Priest	
+MRK	12	34	Jesus			Dialogue		
+MRK	12	35	Jesus			Dialogue		
+MRK	12	36	Jesus			Normal		
+MRK	12	37	Jesus			Normal		
+MRK	12	38	Jesus			Normal		
+MRK	12	39	Jesus			Normal		
+MRK	12	40	Jesus			Normal		
+MRK	12	43	Jesus			Normal		
+MRK	12	44	Jesus			Normal		
+MRK	13	1	disciples	awe	disciples, one of His	Dialogue		
+MRK	13	2	Jesus			Dialogue		
+MRK	13	4	Peter (Simon)/James/John/Andrew			Dialogue	Peter (Simon)	MAT 24.3;MRK 13.4;LUK 21.7
+MRK	13	5	Jesus			Normal		
+MRK	13	6	Jesus			Normal		
+MRK	13	7	Jesus			Normal		
+MRK	13	8	Jesus			Normal		
+MRK	13	9	Jesus			Normal		
+MRK	13	10	Jesus			Normal		
+MRK	13	11	Jesus			Normal		
+MRK	13	12	Jesus			Normal		
+MRK	13	13	Jesus			Normal		
+MRK	13	14	Jesus			Normal		
+MRK	13	15	Jesus			Normal		
+MRK	13	16	Jesus			Normal		
+MRK	13	17	Jesus			Normal		
+MRK	13	18	Jesus			Normal		
+MRK	13	19	Jesus			Normal		
+MRK	13	20	Jesus			Normal		
+MRK	13	21	Jesus			Normal		
+MRK	13	22	Jesus			Normal		
+MRK	13	23	Jesus			Normal		
+MRK	13	24	Jesus			Normal		
+MRK	13	25	Jesus			Normal		
+MRK	13	26	Jesus			Normal		
+MRK	13	27	Jesus			Normal		
+MRK	13	28	Jesus			Normal		
+MRK	13	29	Jesus			Normal		
+MRK	13	30	Jesus			Normal		
+MRK	13	31	Jesus			Normal		
+MRK	13	32	Jesus			Normal		
+MRK	13	33	Jesus			Normal		
+MRK	13	34	Jesus			Normal		
+MRK	13	35	Jesus			Normal		
+MRK	13	36	Jesus			Normal		
+MRK	13	37	Jesus			Normal		
+MRK	14	2	chief priests/teachers of religious law/elders		chief priests/teachers of the law	Normal		MAT 26.5;MRK 14.2
+# Judas Iscariot was the main spokesman, if the accounts in Matthew 26 and Mark 14 are held to be the same as the one in John 12.								
+MRK	14	4	disciples	scolding	some in home of Simon the leper	Dialogue	Judas Iscariot	MAT 26.8-9;MRK 14.4-5;JHN 12.5
+MRK	14	5	disciples	scolding	some in home of Simon the leper	Normal	Judas Iscariot	MAT 26.8-9;MRK 14.4-5;JHN 12.5
+MRK	14	6	Jesus			Dialogue		
+MRK	14	7	Jesus			Normal		
+MRK	14	8	Jesus			Normal		
+MRK	14	9	Jesus			Normal		
+MRK	14	10	Judas Iscariot			Indirect		
+MRK	14	11	chief priests			Indirect		
+MRK	14	12	Peter (Simon)/John		Jesus' disciples	Dialogue	John	MAT 26.17;MRK 14.12;LUK 22.9
+MRK	14	13	Jesus			Dialogue		
+MRK	14	14	Jesus			Dialogue		
+MRK	14	15	Jesus			Dialogue		
+MRK	14	18	Jesus			Dialogue		MAT 26.21;MRK 14.18
+MRK	14	19	disciples	sad		Dialogue		MAT 26.22;MRK 14.19;LUK 22.23
+MRK	14	20	Jesus			Dialogue		MAT 26.23;MRK 14.20
+MRK	14	21	Jesus			Dialogue		
+MRK	14	22	Jesus			Dialogue		
+MRK	14	23	Jesus			Indirect		
+MRK	14	24	Jesus			Dialogue		
+MRK	14	25	Jesus			Normal		
+MRK	14	27	Jesus			Dialogue		
+MRK	14	28	Jesus			Normal		
+MRK	14	29	Peter (Simon)	declare		Dialogue		
+MRK	14	30	Jesus			Dialogue		
+MRK	14	31	Peter (Simon)	passionate		Dialogue		
+MRK	14	32	Jesus			Normal		
+MRK	14	33	Jesus			Indirect		
+MRK	14	34	Jesus	deeply distressed		Dialogue		
+MRK	14	35	Jesus			Indirect		
+MRK	14	36	Jesus			Normal		
+MRK	14	37	Jesus			Normal		
+MRK	14	38	Jesus			Normal		
+MRK	14	41	Jesus			Normal		
+MRK	14	42	Jesus			Normal		
+MRK	14	44	Judas Iscariot	plotting		Normal		
+MRK	14	45	Judas Iscariot	fake respect		Dialogue		
+MRK	14	48	Jesus	questioning		Dialogue		
+MRK	14	49	Jesus			Normal		
+MRK	14	58	witnesses, false	mocking		Dialogue		MAT 26.61;MRK 14.58
+MRK	14	60	Caiaphas, the high priest	demanding		Dialogue		
+MRK	14	61	Caiaphas, the high priest	demanding		Dialogue		
+MRK	14	62	Jesus			Dialogue		
+MRK	14	63	Caiaphas, the high priest	screaming		Dialogue		
+MRK	14	64	Caiaphas, the high priest			Normal		
+MRK	14	64	chief priests/Sanhedrin			Dialogue		MAT 26.66;MRK 14.64
+MRK	14	65	chief priests/Sanhedrin	mocking		Dialogue		MAT 26.68;MRK 14.65
+MRK	14	67	servant girl at high priest's courtyard		one of the servant girls of the high priest	Dialogue		MAT 26.69;MRK 14.67;LUK 22.56;JHN 18.17
+MRK	14	68	Peter (Simon)	denial		Dialogue		
+MRK	14	69	servant girl at high priest's courtyard		servant girl	Dialogue		*different speakers;MAT 26.71;MRK 14.69;LUK 22.58;JHN 18.25
+MRK	14	70	Peter (Simon)	denial, stronger		Dialogue		
+MRK	14	70	high priest's servant (relative of the man whose ear Peter cut off)/those standing near	accusing	those standing near	Dialogue	high priest's servant (relative of the man whose ear Peter cut off)	MAT 26.73;MRK 14.70;LUK 22.59;JHN 18.26
+MRK	14	71	Peter (Simon)	denial, strongest		Dialogue		
+MRK	14	72	Jesus			Normal		
+MRK	15	2	Jesus			Dialogue		
+MRK	15	2	Pilate	to Jesus		Dialogue		
+MRK	15	4	Pilate	to Jesus		Dialogue		
+MRK	15	8	crowd before Pilate			Indirect		
+MRK	15	9	Pilate	to crowd		Dialogue		
+MRK	15	11	chief priests			Indirect		
+MRK	15	11	crowd before Pilate			Indirect		
+MRK	15	12	Pilate	to crowd		Dialogue		
+MRK	15	13	crowd before Pilate	shouting		Dialogue	mob	MAT 27.22;MRK 15.13
+MRK	15	14	crowd before Pilate	shouting		Dialogue	mob	MAT 27.23;MRK 15.14;LUK 23.21
+MRK	15	14	Pilate	to crowd		Dialogue		
+MRK	15	15	Pilate			Indirect		
+MRK	15	18	soldiers, Roman	mocking		Dialogue		
+MRK	15	21	soldiers, Roman	giving orders		Indirect		
+MRK	15	22	narrator-MRK			Quotation		
+MRK	15	26	sign on the cross			Quotation		
+MRK	15	28	scripture			Quotation		
+MRK	15	29	passers by	insulting		Dialogue		
+MRK	15	30	passers by	insulting		Normal		
+MRK	15	31	chief priests/teachers of religious law/elders	sneering		Dialogue		MAT 27.42;MRK 15.31-32;LUK 23.35
+MRK	15	32	chief priests/teachers of religious law/elders	sneering		Normal		MAT 27.42;MRK 15.31-32;LUK 23.35
+MRK	15	34	Jesus			Normal		
+MRK	15	34	narrator-MRK			Quotation		
+MRK	15	35	bystanders at Calvary, some	uneasy	some of the bystanders	Dialogue		MAT 27.47;MRK 15.35
+MRK	15	36	man with sponge	jeering		Dialogue		
+MRK	15	37	Jesus	crying		Indirect		
+MRK	15	39	centurion at crucifixion	amazed		Dialogue		
+MRK	15	43	Joseph of Arimathea			Indirect		
+MRK	15	44	Pilate			Indirect		
+MRK	15	45	centurion summoned by Pilate			Indirect		
+MRK	15	45	Pilate			Indirect		
+MRK	16	3	Mary Magdalene/Mary mother of James/Salome			Normal	Mary Magdalene	
+MRK	16	6	angels in white, two		young man in white robe (angel)	Dialogue		MAT 28.5-6;MRK 16.6;LUK 24.6
+MRK	16	7	angels in white, two		young man in white robe (angel)	Dialogue		MAT 28.7;MRK 16.7
+MRK	16	10	Mary Magdalene			Indirect		
+MRK	16	11	Mary Magdalene			Indirect		
+MRK	16	11	disciples		those who had been with him	Indirect		
+MRK	16	14	Jesus			Indirect		
+MRK	16	15	Jesus	giving orders		Potential		
+MRK	16	16	Jesus	giving orders		Potential		
+MRK	16	17	Jesus			Potential		
+MRK	16	18	Jesus			Potential		
 LUK	1	13	angel of the LORD, an			Dialogue
 LUK	1	14	angel of the LORD, an			Normal
 LUK	1	15	angel of the LORD, an			Normal
@@ -8324,8 +8411,7 @@ LUK	1	34	Mary (Jesus' mother)			Dialogue
 LUK	1	35	angel of the LORD, an		angel Gabriel, sent by God	Dialogue
 LUK	1	38	Mary (Jesus' mother)			Dialogue
 LUK	1	42	Elizabeth			Dialogue
-LUK	1	43	Elizabeth			Normal
-LUK	1	44	Elizabeth			Normal
+LUK	1	43-44	Elizabeth			Normal
 LUK	1	46	Mary (Jesus' mother)			Normal
 LUK	1	48	Mary (Jesus' mother)			Normal
 LUK	1	49	Mary (Jesus' mother)			Normal
@@ -8333,8 +8419,7 @@ LUK	1	50	Mary (Jesus' mother)			Normal
 LUK	1	51	Mary (Jesus' mother)			Normal
 LUK	1	52	Mary (Jesus' mother)			Normal
 LUK	1	53	Mary (Jesus' mother)			Normal
-LUK	1	54	Mary (Jesus' mother)			Normal
-LUK	1	55	Mary (Jesus' mother)			Normal
+LUK	1	54-55	Mary (Jesus' mother)			Normal
 LUK	1	60	Elizabeth			Dialogue
 LUK	1	61	neighbors/relatives of Zechariah/Elizabeth			Dialogue
 LUK	1	62	Jews			Normal
@@ -9009,7 +9094,7 @@ LUK	22	48	Jesus			Dialogue
 LUK	22	49	followers of Jesus	ready to fight		Dialogue
 LUK	22	51	Jesus	forcefully		Dialogue
 LUK	22	52	Jesus			Dialogue
-LUK	22	56	girl at high priest's courtyard=servant girl			Dialogue
+LUK	22	56	servant girl at high priest's courtyard			Dialogue
 LUK	22	57	Peter (Simon)	denial		Dialogue
 LUK	22	58	Peter (Simon)	stronger		Dialogue
 LUK	22	58	servant girl	accusing	servant girl, another=someone else| servant girl	Dialogue
@@ -9539,7 +9624,7 @@ JHN	18	8	Jesus			Dialogue
 JHN	18	9	Jesus			Normal
 JHN	18	11	Jesus			Dialogue
 JHN	18	14	Caiaphas		Caiaphas, high priest	Normal
-JHN	18	17	girl at high priest's courtyard=servant girl			Dialogue
+JHN	18	17	servant girl at high priest's courtyard			Dialogue
 JHN	18	17	Peter (Simon)	denial		Dialogue
 JHN	18	20	Jesus			Dialogue
 JHN	18	22	officials, one of the	gruff		Dialogue

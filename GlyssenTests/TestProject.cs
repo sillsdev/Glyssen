@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Xml;
@@ -14,6 +15,14 @@ namespace GlyssenTests
 {
 	class TestProject
 	{
+		public enum TestBook
+		{
+			MRK,
+			LUK,
+			ACT,
+			JUD
+		}
+
 		private const string kTest = "test~~";
 
 		public static void DeleteTestProjectFolder()
@@ -23,36 +32,15 @@ namespace GlyssenTests
 				DirectoryUtilities.DeleteDirectoryRobust(testProjFolder);
 		}
 
-		public static Project CreateTestProject(bool includeJude = false)
+		public static Project CreateTestProject(params TestBook[] booksToInclude)
 		{
 			DeleteTestProjectFolder();
 			var sampleMetadata = new GlyssenDblTextMetadata();
 			sampleMetadata.AvailableBooks = new List<Book>();
-			var bookOfMark = new Book();
-			bookOfMark.Code = "MRK";
-			bookOfMark.IncludeInScript = true;
-			bookOfMark.LongName = "Gospel of Mark";
-			bookOfMark.ShortName = "Mark";
-			sampleMetadata.AvailableBooks.Add(bookOfMark);
-
 			var books = new List<UsxDocument>();
-			XmlDocument sampleMark = new XmlDocument();
-			sampleMark.LoadXml(Properties.Resources.TestMRK);
-			books.Add(new UsxDocument(sampleMark));
 
-			if (includeJude)
-			{
-				var bookOfJude = new Book();
-				bookOfJude.Code = "JUD";
-				bookOfJude.IncludeInScript = true;
-				bookOfJude.LongName = "Jude";
-				bookOfJude.ShortName = "Jude";
-				sampleMetadata.AvailableBooks.Add(bookOfJude);
-
-				XmlDocument sampleJude = new XmlDocument();
-				sampleJude.LoadXml(Properties.Resources.TestJUD);
-				books.Add(new UsxDocument(sampleJude));
-			}
+			foreach (var testBook in booksToInclude)
+				AddBook(testBook, sampleMetadata, books);
 
 			sampleMetadata.FontFamily = "Times New Roman";
 			sampleMetadata.FontSizeInPoints = 12;
@@ -78,6 +66,47 @@ namespace GlyssenTests
 			testQuoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“‘", 2, QuotationMarkingSystemType.Normal));
 			testQuoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“‘“", 3, QuotationMarkingSystemType.Normal));
 			return testQuoteSystem;
+		}
+
+		private static void AddBook(TestBook testBook, GlyssenDblTextMetadata metadata, List<UsxDocument> usxDocuments)
+		{
+			var book = new Book();
+			book.IncludeInScript = true;
+			
+			XmlDocument xmlDocument = new XmlDocument();
+
+			switch (testBook)
+			{
+				case TestBook.MRK:
+					book.Code = "MRK";
+					book.LongName = "Gospel of Mark";
+					book.ShortName = "Mark";
+					xmlDocument.LoadXml(Properties.Resources.TestMRK);
+					break;
+				case TestBook.LUK:
+					book.Code = "LUK";
+					book.LongName = "Gospel of Luke";
+					book.ShortName = "Luke";
+					xmlDocument.LoadXml(Properties.Resources.TestLUK);
+					break;
+				case TestBook.ACT:
+					book.Code = "ACT";
+					book.LongName = "The Acts of the Apostles";
+					book.ShortName = "Acts";
+					xmlDocument.LoadXml(Properties.Resources.TestACT);
+					break;
+				case TestBook.JUD:
+					book.Code = "JUD";
+					book.LongName = "Jude";
+					book.ShortName = "Jude";
+					xmlDocument.LoadXml(Properties.Resources.TestJUD);
+					break;
+				default:
+					throw new ArgumentOutOfRangeException("testBook", testBook, null);
+			}
+			metadata.AvailableBooks.Add(book);
+
+			usxDocuments.Add(new UsxDocument(xmlDocument));
 		}
 	}
 }

@@ -101,6 +101,7 @@
     <Compile Include="Character\CharacterGroupListTests.cs" />
     <Compile Include="Character\CharacterGroupTemplateExcelFileTests.cs" />
     <Compile Include="Character\CharacterGroupTemplateTests.cs" />
+    <Compile Include="Character\CharacterGroupTests.cs" />
     <Compile Include="Character\CharacterVerseDataTests.cs" />
     <Compile Include="Character\ProjectCharacterVerseDataTests.cs" />
     <Compile Include="Controls\BrowserTests.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Quote\QuoteParserTests.cs" />
     <Compile Include="Quote\QuoteSystemGuesserTests.cs" />
     <Compile Include="Quote\QuoteSystemTests.cs" />
+    <Compile Include="Rules\CharacterGroupGeneratorTests.cs" />
     <Compile Include="Rules\ProximityTests.cs" />
     <Compile Include="TestProject.cs" />
     <Compile Include="UsxParserTests.cs" />
@@ -159,6 +161,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\TestJUD.xml" />
+    <None Include="Resources\TestACT.xml" />
+    <Content Include="Resources\TestLUK.xml" />
     <Content Include="Resources\TestVersification.txt" />
   </ItemGroup>
   <ItemGroup />

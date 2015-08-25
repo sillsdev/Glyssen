@@ -1,19 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Character;
-using Glyssen.Controls;
-using Glyssen.Properties;
-using Glyssen.Rules;
 using L10NSharp;
-using SIL.Extensions;
-using SIL.IO;
 using SIL.ObjectModel;
 
 namespace Glyssen.Dialogs
@@ -21,15 +13,12 @@ namespace Glyssen.Dialogs
 	public partial class VoiceActorAssignmentDlg : Form
 	{
 		private readonly VoiceActorAssignmentViewModel m_actorAssignmentViewModel;
-		private readonly Project m_project;
 		private readonly DataGridViewCellStyle m_wordWrapCellStyle;
 
 		private readonly SortableBindingList<CharacterGroup> m_characterGroups; 
 
 		public VoiceActorAssignmentDlg(Project project)
 		{
-			m_project = project;
-
 			InitializeComponent();
 
 			m_actorAssignmentViewModel = new VoiceActorAssignmentViewModel(project);
@@ -48,7 +37,7 @@ namespace Glyssen.Dialogs
 
 			m_characterGroupGrid.DataSource = m_characterGroups;
 			m_characterGroupGrid.MultiSelect = true;
-			m_characterGroupGrid.Sort(m_characterGroupGrid.Columns["GroupNumber"], ListSortDirection.Ascending);
+			m_characterGroupGrid.Sort(m_characterGroupGrid.Columns["EstimatedHours"], ListSortDirection.Descending);
 
 			m_voiceActorGrid.CharacterGroupsWithAssignedActors = m_characterGroups;
 			m_voiceActorGrid.Initialize(project);
@@ -136,7 +125,7 @@ namespace Glyssen.Dialogs
 				if (hitInfo.Type == DataGridViewHitTestType.Cell)
 				{
 					var sourceActor = m_voiceActorGrid.SelectedVoiceActorEntity;
-					if (sourceActor != null && sourceActor.HasMeaningfulData())
+					if (sourceActor != null && sourceActor.IsValid())
 					{
 						DoDragDrop(sourceActor, DragDropEffects.Copy);
 					}
@@ -326,7 +315,7 @@ namespace Glyssen.Dialogs
 
 			m_characterGroupGrid.CurrentCell = currentRow.Cells["CharacterIds"];
 
-			var data = m_characterGroupGrid.CurrentCell.Value as HashSet<string>;
+			var data = m_characterGroupGrid.CurrentCell.Value as ISet<string>;
 			int estimatedRowHeight = data.Count * 21;
 			int maxRowHeight = 200;
 

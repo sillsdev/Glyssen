@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using Glyssen.Character;
@@ -22,7 +23,8 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_RequiredFieldsHaveValidFormatAndThereAreNoDuplicateLines()
 		{
-			Regex regex = new Regex("^[^\t/]+\t\\-?\\d+\t((Male)|(Female)|(Either)|(Neuter)|(Pref: Male)|(Pref: Female))?\t((Child)|(Young Adult)|(Middle Adult)|(Elder))*\tY?\t[^\t]*$", RegexOptions.Compiled);
+			Regex regex = new Regex("^[^\t/]+\t\\-?\\d+\t(" + typeof(CharacterGender).GetRegexEnumValuesString() + ")?\t(" +
+				typeof(CharacterAge).GetRegexEnumValuesString() + ")?\tY?\t[^\t]*$", RegexOptions.Compiled);
 			Regex extraSpacesRegex = new Regex("^ |\t | \t| $", RegexOptions.Compiled);
 			string[] allLines = Resources.CharacterDetail.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -51,9 +53,9 @@ namespace ControlDataIntegrityTests
 
 			var defaultCharacters = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().Select(d => d.DefaultCharacter).ToList();
 			ISet<string> missingCharacters = new SortedSet<string>();
-			foreach (string character in CharacterDetailData.Singleton.GetAll().Select(d => d.Character))
+			foreach (string character in CharacterDetailData.Singleton.GetAll().Select(d => d.CharacterId))
 			{
-				if (!CharacterVerseData.IsCharacterOfType(character, CharacterVerseData.StandardCharacter.Narrator) &&
+				if (!CharacterVerseData.IsCharacterStandard(character) &&
 					(!(characterIds.Contains(character) || defaultCharacters.Contains(character))))
 				{
 					missingCharacters.Add(character);
@@ -68,7 +70,7 @@ namespace ControlDataIntegrityTests
 		[Test]
 		public void DataIntegrity_NoDuplicateCharacterIds()
 		{
-			var duplicateCharacterIds = CharacterDetailData.Singleton.GetAll().Select(d => d.Character).FindDuplicates();
+			var duplicateCharacterIds = CharacterDetailData.Singleton.GetAll().Select(d => d.CharacterId).FindDuplicates();
 			Assert.IsFalse(duplicateCharacterIds.Any(), 
 				"Duplicate character IDs in Character-Detail data:" +
 				Environment.NewLine +
@@ -91,6 +93,23 @@ namespace ControlDataIntegrityTests
 			var hashset = new HashSet<T>();
 			// Without ToList, re-enumerating causes more to be added because it is still based on the original enumerable
 			return enumerable.Where(cur => !hashset.Add(cur)).ToList();
+		}
+	}
+
+	internal static class TestEnumTypeExtensions
+	{
+		internal static string GetRegexEnumValuesString(this Type type)
+		{
+			StringBuilder bldr = new StringBuilder();
+			foreach (var enumVal in Enum.GetValues(type))
+			{
+				bldr.Append("(");
+				bldr.Append(enumVal.ToString());
+				bldr.Append(")|");
+			}
+			bldr.Length--;
+
+			return bldr.ToString();
 		}
 	}
 }

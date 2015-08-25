@@ -7794,10 +7794,10 @@ ISA	3	15	God		God (the LORD, the LORD Almighty)	Normal
 ISA	3	16	God		God (the LORD)	Normal		
 ISA	3	17	God		God (the LORD)	Normal		
 ISA	4	1	women, seven			Hypothetical		
-ISA	5	3	God		vineyard owner (God?)	Normal		
-ISA	5	4	God		vineyard owner (God?)	Normal		
-ISA	5	5	God		vineyard owner (God?)	Normal		
-ISA	5	6	God		vineyard owner (God?)	Normal		
+ISA	5	3	God		God (vineyard owner)	Normal		
+ISA	5	4	God		God (vineyard owner)	Normal		
+ISA	5	5	God		God (vineyard owner)	Normal		
+ISA	5	6	God		God (vineyard owner)	Normal		
 ISA	5	9	God		God (the LORD Almighty)	Normal		
 ISA	5	10	God		God (the LORD Almighty)	Normal		
 ISA	5	19	people, hurried			Hypothetical		
@@ -7966,7 +7966,7 @@ ISA	30	15	God		God (The Sovereign LORD, the Holy One of Israel)	Normal
 ISA	30	16	God		God (The Sovereign LORD, the Holy One of Israel)	Potential		
 ISA	30	16	you (rebellious people)			Quotation		
 ISA	30	17	God		God (The Sovereign LORD, the Holy One of Israel)	Normal		
-ISA	30	21	God		voice, a (God?)	Normal		
+ISA	30	21	voice behind you			Normal	God	
 ISA	30	22	you (people of Zion, restored)			Hypothetical		
 ISA	31	4	God		God (the LORD)	Normal		
 ISA	31	5	God		God (the LORD)	Normal		
@@ -8055,13 +8055,13 @@ ISA	39	6	Isaiah			Normal
 ISA	39	7	Isaiah			Normal		
 ISA	39	8	Hezekiah, king of Judah	response to Isaiah		Normal		
 ISA	39	8	Hezekiah, king of Judah	thought		Normal		
-ISA	40	3	voice of one calling, a (preparing way for Christ)			Normal		
-ISA	40	4	voice of one calling, a (preparing way for Christ)			Normal		
-ISA	40	5	voice of one calling, a (preparing way for Christ)			Normal		
-ISA	40	6	God		voice, a (God?)	Normal		
+ISA	40	3	voice of one calling (preparing way for Christ)			Normal		
+ISA	40	4	voice of one calling (preparing way for Christ)			Normal		
+ISA	40	5	voice of one calling (preparing way for Christ)			Normal		
+ISA	40	6	voice (God?)			Normal	God	
 ISA	40	6	Isaiah		Isaiah, the prophet	Normal		
-ISA	40	7	God		voice, a (God?)	Normal		
-ISA	40	8	God		voice, a (God?)	Normal		
+ISA	40	7	voice (God?)			Normal	God	
+ISA	40	8	voice (God?)			Normal	God	
 ISA	40	9	one who brings good news			Hypothetical		
 ISA	40	25	God		God (the Holy One)	Normal		
 ISA	40	27	Israel			Hypothetical		

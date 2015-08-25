@@ -31,9 +31,9 @@ namespace DevTools.BiblicalTerms
 			//File.WriteAllLines("..\\..\\Resources\\temporary\\ProperNames.txt", filteredList.Distinct(Term.GlossComparer).Select(t => t.ToTabDelimited()));
 
 			var controlData = CharacterDetailData.Singleton.GetAll();
-			File.WriteAllLines("..\\..\\Resources\\temporary\\duplicatedInControl.txt", filteredList.Select(t => t.Gloss).Intersect(controlData.Select(c => c.Character)));
+			File.WriteAllLines("..\\..\\Resources\\temporary\\duplicatedInControl.txt", filteredList.Select(t => t.Gloss).Intersect(controlData.Select(c => c.CharacterId)));
 
-			var notInControlList = filteredList.Where(t => !controlData.Select(c => c.Character).Contains(t.Gloss));
+			var notInControlList = filteredList.Where(t => !controlData.Select(c => c.CharacterId).Contains(t.Gloss));
 			//File.WriteAllLines("..\\..\\Resources\\temporary\\notInControl.txt", notInControlList.Select(t => t.ToTabDelimited()));
 
 			var combinedWithoutDuplicates = new BiblicalTermsList { Terms = notInControlList.ToList() }.CombinedReferencesWithoutDuplicates();
