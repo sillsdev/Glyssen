@@ -120,14 +120,17 @@ namespace Glyssen.Dialogs
 			CharacterGroups.Add(unmatchedCharacterGroup);
 		}
 
-		public void AddNewGroup()
+		public CharacterGroup AddNewGroup()
 		{
 			var newGroupNumber = 1;
 
 			while (CharacterGroups.Any(t => t.GroupNumber == newGroupNumber))
 				newGroupNumber++;
 
-			CharacterGroups.Add(new CharacterGroup(newGroupNumber));			
+			CharacterGroup newGroup = new CharacterGroup(newGroupNumber);
+			CharacterGroups.Add(newGroup);
+
+			return newGroup;
 		}
 
 		public void SaveAssignments()
@@ -167,9 +170,13 @@ namespace Glyssen.Dialogs
 			SaveAssignments();
 		}
 
-		public bool MoveCharacterToGroup(string characterId, CharacterGroup destGroup, bool confirmWithUser = true)
+		public bool MoveCharactersToGroup(IList<string> characterIds, CharacterGroup destGroup, bool confirmWithUser = true)
 		{
-			CharacterGroup sourceGroup = CharacterGroups.FirstOrDefault(t => t.CharacterIds.Contains(characterId));
+			if (characterIds.Count == 0)
+				throw new ArgumentException("At least one characterId must be provided", "characterIds");
+
+			// Currently, we assume all characterIds are coming from the same source group
+			CharacterGroup sourceGroup = CharacterGroups.FirstOrDefault(t => t.CharacterIds.Contains(characterIds[0]));
 
 			if (sourceGroup == null)
 				return false;
@@ -188,7 +195,7 @@ namespace Glyssen.Dialogs
 				var resultsBefore = proximity.CalculateMinimumProximity(testGroup);
 				int proximityBefore = resultsBefore.NumberOfBlocks;
 
-				testGroup.Add(characterId);
+				testGroup.AddRange(characterIds);
 				var resultsAfter = proximity.CalculateMinimumProximity(testGroup);
 				int proximityAfter = resultsAfter.NumberOfBlocks;
 
@@ -206,7 +213,8 @@ namespace Glyssen.Dialogs
 							"Do you want to continue moving this character?");
 
 					var dlgMessage = string.Format(dlgMessageFormat1 + Environment.NewLine + Environment.NewLine + dlgMessageFormat2,
-						"[" + CharacterVerseData.GetCharacterNameForUi(characterId) + "]",
+//						"[" + CharacterVerseData.GetCharacterNameForUi(characterId) + "]",
+"multiple characters",
 						sourceGroup.GroupNumber, destGroup.GroupNumber,
 						resultsAfter.NumberOfBlocks,
 						"[" + CharacterVerseData.GetCharacterNameForUi(resultsAfter.FirstBlock.CharacterId) + "]",
@@ -226,8 +234,8 @@ namespace Glyssen.Dialogs
 				}
 			}
 
-			sourceGroup.CharacterIds.Remove(characterId);
-			destGroup.CharacterIds.Add(characterId);
+			sourceGroup.CharacterIds.ExceptWith(characterIds);
+			destGroup.CharacterIds.AddRange(characterIds);
 
 			RemoveUnusedGroups();
 			m_project.CharacterGroupList.PopulateEstimatedHours(m_project.IncludedBooks);
