@@ -52,7 +52,7 @@ namespace Glyssen.Dialogs
 			m_scriptureReference.VerseControl.VerseRefChanged += m_scriptureReference_VerseRefChanged;
 
 			m_blocksViewer.Initialize(m_navigatorViewModel);
-			m_navigatorViewModel.CurrentBlockChanged += (sender, args) => LoadBlock();
+			m_navigatorViewModel.CurrentBlockChanged += HandleCurrentBlockChanged;
 
 			SetupQuoteMarksComboBoxes(m_project.QuoteSystem);
 
@@ -69,6 +69,11 @@ namespace Glyssen.Dialogs
 
 			if (readOnly)
 				MakeReadOnly();
+		}
+
+		private void HandleCurrentBlockChanged(object sender, EventArgs eventArgs)
+		{
+			LoadBlock();
 		}
 
 		private void HandleStringsLocalized()
