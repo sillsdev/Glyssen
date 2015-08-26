@@ -17,6 +17,7 @@ namespace Glyssen.Dialogs
 	class VoiceActorAssignmentViewModel
 	{
 		private readonly Project m_project;
+		private readonly Dictionary<string, int> m_keyStrokesByCharacterId;
 		public EventHandler Saved;
 
 		public VoiceActorAssignmentViewModel(Project project)
@@ -24,13 +25,15 @@ namespace Glyssen.Dialogs
 			m_project = project;
 			CanAssign = true;
 
+			m_keyStrokesByCharacterId = m_project.GetKeyStrokesByCharacterId();
+
 			CharacterGroups = new SortableBindingList<CharacterGroup>(m_project.CharacterGroupList.CharacterGroups);
 			if (!CharacterGroups.Any())
-				CharacterGroups.AddRange(new CharacterGroupGenerator(project).GenerateCharacterGroups());
+				CharacterGroups.AddRange(new CharacterGroupGenerator(project, m_keyStrokesByCharacterId).GenerateCharacterGroups());
 
 			CharacterGroupAttribute<CharacterGender>.GetUiStringForValue = GetUiStringForCharacterGender;
 			CharacterGroupAttribute<CharacterAge>.GetUiStringForValue = GetUiStringForCharacterAge;
-			m_project.CharacterGroupList.PopulateEstimatedHours(m_project.IncludedBooks);
+			m_project.CharacterGroupList.PopulateEstimatedHours(m_keyStrokesByCharacterId);
 
 #if DEBUG
 			var p = new Proximity(m_project);
@@ -77,11 +80,16 @@ namespace Glyssen.Dialogs
 				charGroupTemplate = charGroupSource.GetTemplate(m_project.VoiceActorList.Actors.Count);
 			}
 
+			HashSet<string> includedCharacterIds = new HashSet<string>();
+			foreach (var book in m_project.IncludedBooks)
+				foreach (var block in book.GetScriptBlocks(true))
+					if (!block.CharacterIsUnclear())
+						includedCharacterIds.Add(block.CharacterId);
 			ISet<string> matchedCharacterIds = new HashSet<string>();
 
 			foreach (var group in charGroupTemplate.CharacterGroups.Values)
 			{
-				group.CharacterIds.IntersectWith(m_project.IncludedCharacterIds);
+				group.CharacterIds.IntersectWith(includedCharacterIds);
 
 				if (!group.CharacterIds.Any())
 					continue;
@@ -92,7 +100,7 @@ namespace Glyssen.Dialogs
 			}
 
 			// Add an extra group for any characters which weren't in the template
-			var unmatchedCharacters = m_project.IncludedCharacterIds.Except(matchedCharacterIds);
+			var unmatchedCharacters = includedCharacterIds.Except(matchedCharacterIds);
 			var unmatchedCharacterGroup = new CharacterGroup
 			{
 				GroupNumber = 999,
@@ -197,8 +205,8 @@ namespace Glyssen.Dialogs
 						"[" + CharacterVerseData.GetCharacterNameForUi(characterId) + "]",
 						sourceGroup.GroupNumber, destGroup.GroupNumber,
 						resultsAfter.NumberOfBlocks,
-						"[" + CharacterVerseData.GetCharacterNameForUi(resultsAfter.FirstBlock.CharacterId) + "]",
-						"[" + CharacterVerseData.GetCharacterNameForUi(resultsAfter.SecondBlock.CharacterId) + "]",
+						"[" + CharacterVerseData.GetCharacterNameForUi(resultsAfter.FirstBlock.CharacterIdInScript) + "]",
+						"[" + CharacterVerseData.GetCharacterNameForUi(resultsAfter.SecondBlock.CharacterIdInScript) + "]",
 						resultsAfter.FirstBook.BookId + " " + resultsAfter.FirstBlock.ChapterNumber + ":" +
 						resultsAfter.FirstBlock.InitialStartVerseNumber,
 						resultsAfter.SecondBook.BookId + " " + resultsAfter.SecondBlock.ChapterNumber + ":" +
@@ -218,7 +226,7 @@ namespace Glyssen.Dialogs
 			destGroup.CharacterIds.Add(characterId);
 
 			RemoveUnusedGroups();
-			m_project.CharacterGroupList.PopulateEstimatedHours(m_project.IncludedBooks);
+			m_project.CharacterGroupList.PopulateEstimatedHours(m_keyStrokesByCharacterId);
 			SaveAssignments();
 
 			return true;

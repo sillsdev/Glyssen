@@ -19,6 +19,7 @@ namespace GlyssenTests.Rules
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			m_testProject.UseDefaultForUnresolvedMultipleChoiceCharacters();
 		}
 
 		[SetUp]
@@ -43,8 +44,8 @@ namespace GlyssenTests.Rules
 			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
 			Assert.AreEqual(Int32.MaxValue, minProximity.NumberOfBlocks);
-			Assert.AreEqual("Jesus", minProximity.FirstBlock.CharacterId);
-			Assert.AreEqual("Jesus", minProximity.SecondBlock.CharacterId);
+			Assert.AreEqual("Jesus", minProximity.FirstBlock.CharacterIdInScript);
+			Assert.AreEqual("Jesus", minProximity.SecondBlock.CharacterIdInScript);
 			Assert.AreEqual("MRK", minProximity.FirstBook.BookId);
 			Assert.AreEqual("MRK", minProximity.SecondBook.BookId);
 			Assert.AreEqual(1, minProximity.FirstBlock.ChapterNumber);
@@ -64,8 +65,8 @@ namespace GlyssenTests.Rules
 			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
 			Assert.AreEqual(0, minProximity.NumberOfBlocks);
-			Assert.AreEqual("narrator-MRK", minProximity.FirstBlock.CharacterId);
-			Assert.AreEqual("Jesus", minProximity.SecondBlock.CharacterId);
+			Assert.AreEqual("narrator-MRK", minProximity.FirstBlock.CharacterIdInScript);
+			Assert.AreEqual("Jesus", minProximity.SecondBlock.CharacterIdInScript);
 			Assert.AreEqual("MRK", minProximity.FirstBook.BookId);
 			Assert.AreEqual("MRK", minProximity.SecondBook.BookId);
 			Assert.AreEqual(1, minProximity.FirstBlock.ChapterNumber);
@@ -80,14 +81,14 @@ namespace GlyssenTests.Rules
 			HashSet<string> characterIds = new HashSet<string>();
 
 			//Mark 5
-			characterIds.Add("demons (Legion)/man delivered from Legion of demons");
+			characterIds.Add("demons (Legion)");
 			characterIds.Add("woman, bleeding for twelve years");
 			characterIds.Add("people, sick");
 
 			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
 			Assert.Greater(minProximity.NumberOfBlocks, 0);
-			Assert.AreEqual("demons (Legion)/man delivered from Legion of demons", minProximity.FirstBlock.CharacterId);
+			Assert.AreEqual("demons (Legion)", minProximity.FirstBlock.CharacterIdInScript);
 			Assert.AreEqual("woman, bleeding for twelve years", minProximity.SecondBlock.CharacterId);
 			Assert.AreEqual("MRK", minProximity.FirstBook.BookId);
 			Assert.AreEqual(5, minProximity.FirstBlock.ChapterNumber);
@@ -98,7 +99,7 @@ namespace GlyssenTests.Rules
 		}
 
 		[Test]
-		public void CalculateMinimumProximity_JesusAndTeachersOfTheLaw_ReturnsOne()
+		public void CalculateMinimumProximity_JesusAndTeachersOfReligiousLaw_ReturnsOne()
 		{
 			HashSet<string> characterIds = new HashSet<string>();
 
@@ -109,14 +110,14 @@ namespace GlyssenTests.Rules
 			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
 			Assert.AreEqual(1, minProximity.NumberOfBlocks);
-			Assert.AreEqual("teachers of religious law", minProximity.FirstBlock.CharacterId);
-			Assert.AreEqual("Jesus", minProximity.SecondBlock.CharacterId);
+			Assert.AreEqual("Jesus", minProximity.FirstBlock.CharacterIdInScript);
+			Assert.AreEqual("teachers of religious law", minProximity.SecondBlock.CharacterIdInScript);
 			Assert.AreEqual("MRK", minProximity.FirstBook.BookId);
 			Assert.AreEqual("MRK", minProximity.SecondBook.BookId);
 			Assert.AreEqual(2, minProximity.FirstBlock.ChapterNumber);
 			Assert.AreEqual(2, minProximity.SecondBlock.ChapterNumber);
-			Assert.AreEqual(16, minProximity.FirstBlock.InitialStartVerseNumber);
-			Assert.AreEqual(17, minProximity.SecondBlock.InitialStartVerseNumber);
+			Assert.AreEqual(5, minProximity.FirstBlock.InitialStartVerseNumber);
+			Assert.AreEqual(7, minProximity.SecondBlock.InitialStartVerseNumber);
 		}
 
 		[Test]

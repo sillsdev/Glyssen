@@ -108,26 +108,11 @@ namespace GlyssenTests.Character
 			group2.AssignVoiceActor(voiceActor4);
 			list.CharacterGroups.Add(group2);
 
-			BookScript book = new BookScript();
-			book.Blocks = new List<Block>
-			{
-				new Block
-				{
-					BlockElements = new List<BlockElement> { new ScriptText(GetRandomStringOfLength(3500)) },
-					CharacterId = "A"
-				},
-				new Block
-				{
-					BlockElements = new List<BlockElement> { new ScriptText(GetRandomStringOfLength(4000)) },
-					CharacterId = "B"
-				},
-				new Block
-				{
-					BlockElements = new List<BlockElement> { new ScriptText(GetRandomStringOfLength(198)) },
-					CharacterId = "C"
-				}
-			};
-			list.PopulateEstimatedHours(new List<BookScript> { book });
+			var keyStrokesPerCharacter = new Dictionary<string, int>(4);
+			keyStrokesPerCharacter["A"] = 3500;
+			keyStrokesPerCharacter["B"] = 4000;
+			keyStrokesPerCharacter["C"] = 198;
+			list.PopulateEstimatedHours(keyStrokesPerCharacter);
 
 			Assert.AreEqual((3500 + 4000d) / Program.kKeyStrokesPerHour, group1.EstimatedHours);
 			Assert.AreEqual(198d / Program.kKeyStrokesPerHour, group2.EstimatedHours);

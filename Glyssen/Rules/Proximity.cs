@@ -36,13 +36,14 @@ namespace Glyssen.Rules
 
 				foreach (var block in book.Blocks)
 				{
-					if (block.CharacterId == prevCharacterId)
+					var character = block.CharacterIdInScript;
+					if (character == prevCharacterId)
 					{
 						currentBlockCount = 0;
 						prevBook = book;
 						prevBlock = block;
 					}
-					else if (characterIds.Contains(block.CharacterId))
+					else if (characterIds.Contains(character))
 					{
 						if (foundFirst)
 						{
@@ -67,7 +68,7 @@ namespace Glyssen.Rules
 						}
 						foundFirst = true;
 						currentBlockCount = 0;
-						prevCharacterId = block.CharacterId;
+						prevCharacterId = character;
 						prevBook = book;
 						prevBlock = block;
 					}
@@ -106,10 +107,10 @@ namespace Glyssen.Rules
 			var sb = new StringBuilder();
 			sb.Append(NumberOfBlocks == Int32.MaxValue ? "MAX" : NumberOfBlocks.ToString()).Append("  |  ")
 				.Append(FirstBook.BookId).Append(" ").Append(FirstBlock.ChapterNumber).Append(":").Append(FirstBlock.InitialStartVerseNumber)
-				.Append(" (").Append(FirstBlock.CharacterId).Append(")")
+				.Append(" (").Append(FirstBlock.CharacterIdInScript).Append(")")
 				.Append(" - ")
 				.Append(SecondBook.BookId).Append(" ").Append(SecondBlock.ChapterNumber).Append(":").Append(SecondBlock.InitialStartVerseNumber)
-				.Append(" (").Append(SecondBlock.CharacterId).Append(")");
+				.Append(" (").Append(SecondBlock.CharacterIdInScript).Append(")");
 			return sb.ToString();
 		}
 	}

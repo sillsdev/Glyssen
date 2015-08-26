@@ -9,7 +9,7 @@ using ScrVers = Paratext.ScrVers;
 namespace GlyssenTests.Character
 {
 	[TestFixture]
-	class CharacterAssignerTests
+	public class CharacterAssignerTests
 	{
 		private BookScript m_bookScript;
 

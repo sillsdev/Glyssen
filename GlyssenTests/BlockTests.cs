@@ -287,6 +287,44 @@ namespace GlyssenTests
 			Assert.AreEqual(19, block.LastVerse);
 		}
 
+		[Test]
+		public void UseDefaultForMultipleChoiceCharacter_NotMultipleChoice_DoNothing()
+		{
+			var block = new Block("p", 4, 38);
+			block.CharacterId = "disciples";
+			block.CharacterIdInScript = "Peter (Simon)";
+			block.UseDefaultForMultipleChoiceCharacter(BCVRef.BookToNumber("MRK"));
+			Assert.AreEqual("Peter (Simon)", block.CharacterIdInScript);
+		}
+
+		[Test]
+		public void UseDefaultForMultipleChoiceCharacter_NoExplicitDefault_UseFirst()
+		{
+			var block = new Block("p", 40, 8);
+			block.CharacterId = "chief cupbearer/chief baker";
+			block.UseDefaultForMultipleChoiceCharacter(BCVRef.BookToNumber("GEN"));
+			Assert.AreEqual("chief cupbearer", block.CharacterIdInScript);
+		}
+
+		[Test]
+		public void UseDefaultForMultipleChoiceCharacter_ExplicitDefault_UseDefault()
+		{
+			var block = new Block("p", 9, 11);
+			block.CharacterId = "Peter (Simon)/James/John";
+			block.UseDefaultForMultipleChoiceCharacter(BCVRef.BookToNumber("MRK"));
+			Assert.AreEqual("John", block.CharacterIdInScript);
+		}
+
+		[Test]
+		public void UseDefaultForMultipleChoiceCharacter_AlreadySetToAnotherVlaue_OverwriteWithDefault()
+		{
+			var block = new Block("p", 40, 8);
+			block.CharacterId = "chief cupbearer/chief baker";
+			block.CharacterIdInScript = "chief baker";
+			block.UseDefaultForMultipleChoiceCharacter(BCVRef.BookToNumber("GEN"));
+			Assert.AreEqual("chief cupbearer", block.CharacterIdInScript);
+		}
+
 		private CharacterVerse JesusQuestioning
 		{
 			get

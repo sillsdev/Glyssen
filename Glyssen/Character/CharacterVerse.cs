@@ -68,6 +68,8 @@ namespace Glyssen.Character
 
 	public class CharacterVerse
 	{
+		internal const string kMultiCharacterIdSeparator = "/";
+
 		private readonly string m_character;
 		private readonly BCVRef m_bcvRef;
 
@@ -157,7 +159,7 @@ namespace Glyssen.Character
 		// each individual is localized separately.
 		private string GetLocalizedCharacterString(string character)
 		{
-			return String.Join("/", character.Split('/').Select(GetLocalizedIndividualCharacterString));
+			return String.Join(kMultiCharacterIdSeparator, character.SplitCharacterId().Select(GetLocalizedIndividualCharacterString));
 		}
 
 		private string GetLocalizedIndividualCharacterString(string character)
@@ -208,6 +210,21 @@ namespace Glyssen.Character
 			return !Equals(left, right);
 		}
 		#endregion
+	}
+
+	public static class CharacterStringExtensions
+	{
+		private readonly static char[] s_multiCharacterIdSeparators;
+
+		static CharacterStringExtensions()
+		{
+			s_multiCharacterIdSeparators = CharacterVerse.kMultiCharacterIdSeparator.ToCharArray();
+		}
+
+		public static string[] SplitCharacterId(this string characterId, int max = Int32.MaxValue)
+		{
+			return characterId.Split(s_multiCharacterIdSeparators, max);
+		}
 	}
 
 	public class BcvCharacterDeliveryEqualityComparer : IEqualityComparer<CharacterVerse>

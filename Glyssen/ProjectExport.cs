@@ -67,25 +67,25 @@ namespace Glyssen
 			{
 				foreach (var book in m_project.IncludedBooks)
 				{
-					string characterIdOverride = null;
+					string singleVoiceNarratorOverride = null;
 					if (book.SingleVoice)
-						characterIdOverride = CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator);
+						singleVoiceNarratorOverride = CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator);
 					foreach (var block in book.GetScriptBlocks(true))
 					{
 						if (m_includeVoiceActors)
 						{
-							VoiceActor.VoiceActor voiceActor = m_project.GetVoiceActorForCharacter(characterIdOverride ?? block.CharacterId);
+							VoiceActor.VoiceActor voiceActor = m_project.GetVoiceActorForCharacter(singleVoiceNarratorOverride ?? block.CharacterIdInScript);
 							string voiceActorName = voiceActor != null ? voiceActor.Name : null;
-							stream.WriteLine(GetExportLineForBlock(block, blockNumber++, book.BookId, voiceActorName ?? "", characterIdOverride));
+							stream.WriteLine(GetExportLineForBlock(block, blockNumber++, book.BookId, voiceActorName ?? "", singleVoiceNarratorOverride));
 						}
 						else
-							stream.WriteLine(GetExportLineForBlock(block, blockNumber++, book.BookId, null, characterIdOverride));
+							stream.WriteLine(GetExportLineForBlock(block, blockNumber++, book.BookId, null, singleVoiceNarratorOverride));
 					}
 				}
 			}
 		}
 
-		internal static string GetExportLineForBlock(Block block, int blockNumber, string bookId, string voiceActor = null, string characterIdOverride = null)
+		internal static string GetExportLineForBlock(Block block, int blockNumber, string bookId, string voiceActor = null, string singleVoiceNarratorOverride = null)
 		{
 			StringBuilder builder = new StringBuilder();
 			builder.Append(blockNumber);
@@ -103,10 +103,10 @@ namespace Glyssen
 			builder.Append(Separator);
 			builder.Append(block.InitialStartVerseNumber);
 			builder.Append(Separator);
-			if (characterIdOverride != null)
-				builder.Append(characterIdOverride);
+			if (singleVoiceNarratorOverride != null)
+				builder.Append(singleVoiceNarratorOverride);
 			else
-				builder.Append(block.CharacterId);
+				builder.Append(block.CharacterIdInScript);
 			builder.Append(Separator);
 			builder.Append(block.Delivery);
 			builder.Append(Separator);

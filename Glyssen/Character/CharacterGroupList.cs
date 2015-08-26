@@ -53,26 +53,16 @@ namespace Glyssen.Character
 					group.RemoveVoiceActor();
 		}
 
-		public void PopulateEstimatedHours(IEnumerable<BookScript> books)
+		public void PopulateEstimatedHours(Dictionary<string, int> keyStrokesByCharacterId)
 		{
-			Dictionary<string, int> keyStrokesByCharacterId = new Dictionary<string, int>();
-			foreach (var book in books)
-			{
-				foreach (var block in book.GetScriptBlocks(true))
-				{
-					if (!keyStrokesByCharacterId.ContainsKey(block.CharacterId))
-						keyStrokesByCharacterId.Add(block.CharacterId, 0);
-					keyStrokesByCharacterId[block.CharacterId] += block.GetText(false).Length;
-				}
-			}
-
 			foreach (var group in CharacterGroups)
 			{
 				int keyStrokes = 0;
 				foreach (var characterId in group.CharacterIds)
 				{
-					if (keyStrokesByCharacterId.ContainsKey(characterId))
-						keyStrokes += keyStrokesByCharacterId[characterId];
+					int keystrokesForCharacter;
+					if (keyStrokesByCharacterId.TryGetValue(characterId, out keystrokesForCharacter))
+						keyStrokes += keystrokesForCharacter;
 				}
 				group.EstimatedHours = keyStrokes / (double)Program.kKeyStrokesPerHour;
 			}

@@ -9,6 +9,7 @@ namespace Glyssen.Rules
 	public class CharacterGroupGenerator
 	{
 		private readonly Project m_project;
+		private readonly Dictionary<string, int> m_keyStrokesByCharacterId;
 		private readonly Proximity m_proximity;
 
 		private static readonly SortedDictionary<int, IList<HashSet<string>>> s_charactersInClosedGroups;
@@ -24,9 +25,10 @@ namespace Glyssen.Rules
 			s_charactersInClosedGroups.Add(20, new List<HashSet<string>> { jesusSet, new HashSet<string> { "God" }, holySpiritSet, new HashSet<string> { "scripture" } });
 		}
 
-		public CharacterGroupGenerator(Project project)
+		public CharacterGroupGenerator(Project project, Dictionary<string, int> keyStrokesByCharacterId)
 		{
 			m_project = project;
+			m_keyStrokesByCharacterId = new Dictionary<string, int>(keyStrokesByCharacterId);
 			m_proximity = new Proximity(project);
 		}
 
@@ -39,22 +41,12 @@ namespace Glyssen.Rules
 			if (!actors.Any())
 				return characterGroups; // REVIEW: Maybe we should throw an exception instead.
 
-			Dictionary<string, int> keyStrokesByCharacterId = new Dictionary<string, int>();
-			foreach (var book in m_project.IncludedBooks)
-			{
-				foreach (var block in book.GetScriptBlocks())
-				{
-					if (!keyStrokesByCharacterId.ContainsKey(block.CharacterId))
-						keyStrokesByCharacterId.Add(block.CharacterId, 0);
-					keyStrokesByCharacterId[block.CharacterId] += block.GetText(false).Length;
-				}
-			}
-			var sortedDict = from entry in keyStrokesByCharacterId orderby entry.Value descending select entry;
+			var sortedDict = from entry in m_keyStrokesByCharacterId orderby entry.Value descending select entry;
 
 			List<VoiceActor.VoiceActor> actorsNeedingGroups = new List<VoiceActor.VoiceActor>();
 
 			var characterDetails = CharacterDetailData.Singleton.GetDictionary();
-			var includedCharacterDetails = characterDetails.Values.Where(c => keyStrokesByCharacterId.Keys.Contains(c.CharacterId)).ToList();
+			var includedCharacterDetails = characterDetails.Values.Where(c => m_keyStrokesByCharacterId.Keys.Contains(c.CharacterId)).ToList();
 
 			var characterDetailsUniquelyMatchedToActors = new Dictionary<CharacterDetail, List<VoiceActor.VoiceActor>>();
 			foreach (var actor in actors)
@@ -85,7 +77,6 @@ namespace Glyssen.Rules
 				group.CharacterIds.Add(character.CharacterId);
 				characterGroups.Add(group);
 				group.Closed = true;
-				keyStrokesByCharacterId.Remove(character.CharacterId);
 
 				if (matchingActors.Count == 1)
 					group.AssignVoiceActor(matchingActors.Single());

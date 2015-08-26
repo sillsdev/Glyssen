@@ -286,22 +286,6 @@ namespace Glyssen
 			get { return m_metadata.AvailableBibleBooks; } 
 		}
 
-		public IEnumerable<string> IncludedCharacterIds
-		{
-			//Ideally, we shouldn't have to regenerate this set every time this property is accessed;
-			//however, it is possible that IncludedBooks changes (in ScriptureRangeSelectionDlg.cs).
-			//Also, we have to ensure that the set is immutable if it is to persist.
-			get
-			{
-				HashSet<string> returnHashSet = new HashSet<string>();
-				foreach (var book in IncludedBooks)
-					foreach (var block in book.GetScriptBlocks(true))
-						if (!block.CharacterIsUnclear())
-							returnHashSet.Add(block.CharacterId);
-				return returnHashSet;
-			}
-		}
-
 		public string OriginalBundlePath
 		{
 			get { return m_metadata.OriginalPathBundlePath; }
@@ -1070,6 +1054,31 @@ namespace Glyssen
 			}
 			else
 				MessageBox.Show(string.Format(LocalizationManager.GetString("Font.FontFilesNotFound", "The font ({0}) used by this project has not been installed on this machine, and {1} could not find the relevant font files. Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. After installing the font, you will need to restart {1} to make use of it."), m_metadata.FontFamily, Program.kProduct));
+		}
+
+		public void UseDefaultForUnresolvedMultipleChoiceCharacters()
+		{
+			foreach (var book in IncludedBooks)
+			{
+				foreach (var block in book.GetScriptBlocks())
+					block.UseDefaultForMultipleChoiceCharacter(BCVRef.BookToNumber(book.BookId), Versification);
+			}
+		}
+
+		public Dictionary<string, int> GetKeyStrokesByCharacterId()
+		{
+			Dictionary<string, int> keyStrokesByCharacterId = new Dictionary<string, int>();
+			foreach (var book in IncludedBooks)
+			{
+				foreach (var block in book.GetScriptBlocks(true))
+				{
+					var character = block.CharacterIdInScript;
+					if (!keyStrokesByCharacterId.ContainsKey(character))
+						keyStrokesByCharacterId.Add(character, 0);
+					keyStrokesByCharacterId[character] += block.GetText(false).Length;
+				}
+			}
+			return keyStrokesByCharacterId;
 		}
 	}
 

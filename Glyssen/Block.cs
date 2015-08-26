@@ -28,6 +28,7 @@ namespace Glyssen
 		private int m_initialStartVerseNumber;
 		private int m_initialEndVerseNumber;
 		private int m_chapterNumber;
+		private string m_characterIdInScript;
 
 		public Block()
 		{
@@ -110,8 +111,26 @@ namespace Glyssen
 			set { m_initialEndVerseNumber = m_initialStartVerseNumber == value ? 0 : value; }
 		}
 
+		/// <summary>
+		/// This is the character ID assigned by Glyssen or selected by the user during Phase 1 (protoscript).
+		/// Do not use this in Phase 2 (actor assignment); Instead, use CharacterIdInScript.
+		/// </summary>
 		[XmlAttribute("characterId")]
 		public string CharacterId { get; set; }
+
+		[XmlAttribute("characterIdOverrideForScript")]
+		public string CharacterIdOverrideForScript
+		{
+			get { return m_characterIdInScript; }
+			set { CharacterIdInScript = value; }
+		}
+
+		[XmlIgnore]
+		public string CharacterIdInScript
+		{
+			get { return m_characterIdInScript ?? CharacterId; }
+			set { m_characterIdInScript = value; }
+		}
 
 		[XmlAttribute("delivery")]
 		public string Delivery { get; set; }
@@ -278,6 +297,17 @@ namespace Glyssen
 					CharacterId = CharacterVerseData.AmbiguousCharacter;
 					Delivery = null;
 				}
+			}
+		}
+
+		public void UseDefaultForMultipleChoiceCharacter(int bookNumber, Paratext.ScrVers scrVers = null)
+		{
+			var ids = CharacterId.SplitCharacterId(2);
+			if (ids.Length > 1)
+			{
+				var matchingChar = ControlCharacterVerseData.Singleton.GetCharacters(bookNumber, ChapterNumber, InitialStartVerseNumber,
+					InitialEndVerseNumber, versification: scrVers).FirstOrDefault(c => c.Character == CharacterId && !String.IsNullOrEmpty(c.DefaultCharacter));
+				CharacterIdInScript = (matchingChar == null) ? ids[0] : matchingChar.DefaultCharacter;
 			}
 		}
 	}

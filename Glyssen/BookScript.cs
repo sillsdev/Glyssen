@@ -72,7 +72,7 @@ namespace Glyssen
 				if (!block.IsParagraphStart)
 				{
 					var prevBlock = list.Last();
-					if (block.CharacterId == prevBlock.CharacterId && block.Delivery == prevBlock.Delivery)
+					if (block.CharacterIdInScript == prevBlock.CharacterIdInScript && block.Delivery == prevBlock.Delivery)
 					{
 						var newBlock = prevBlock.Clone();
 						newBlock.BlockElements = new List<BlockElement>(prevBlock.BlockElements.Count + block.BlockElements.Count);
@@ -251,6 +251,7 @@ namespace Glyssen
 						m_blocks[iTarget].BlockElements.SequenceEqual(sourceBlock.BlockElements, comparer))
 					{
 						m_blocks[iTarget].CharacterId = sourceBlock.CharacterId;
+						m_blocks[iTarget].CharacterIdOverrideForScript = sourceBlock.CharacterIdOverrideForScript;
 						m_blocks[iTarget].Delivery = sourceBlock.Delivery;
 						m_blocks[iTarget].UserConfirmed = true;
 						iTarget++;
@@ -321,6 +322,7 @@ namespace Glyssen
 					newBlock = new Block(blockToSplit.StyleTag, blockToSplit.ChapterNumber,
 						initialStartVerse, initialEndVerse);
 					newBlock.CharacterId = blockToSplit.CharacterId;
+					newBlock.CharacterIdOverrideForScript = blockToSplit.CharacterIdOverrideForScript;
 					newBlock.UserConfirmed = blockToSplit.UserConfirmed;
 					newBlock.BlockElements.Add(new ScriptText(content.Substring(characterOffsetToSplit)));
 					text.Content = content.Substring(0, characterOffsetToSplit);
