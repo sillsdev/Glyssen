@@ -443,7 +443,7 @@ namespace Glyssen
 			if (m_project.VoiceActorStatus == VoiceActorStatus.UnProvided)
 			{
 				// REVIEW: Eventually, just doing this once for the project probably won't be enough.
-				// If the user oges back and changes anything or the control file changes and the
+				// If the user goes back and changes anything or the control file changes and the
 				// data is reparsed, resulting in new multiple-choice characters, then this needs to
 				// be redone.
 				m_project.UseDefaultForUnresolvedMultipleChoiceCharacters();

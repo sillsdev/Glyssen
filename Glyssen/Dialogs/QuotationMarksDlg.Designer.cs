@@ -21,6 +21,8 @@ namespace Glyssen.Dialogs
 					components.Dispose();
 				m_project.AnalysisCompleted -= HandleAnalysisCompleted;
 				LocalizeItemDlg.StringsLocalized -= HandleStringsLocalized;
+				if (m_navigatorViewModel != null)
+					m_navigatorViewModel.CurrentBlockChanged -= HandleCurrentBlockChanged;
 			}
 			base.Dispose(disposing);
 		}
