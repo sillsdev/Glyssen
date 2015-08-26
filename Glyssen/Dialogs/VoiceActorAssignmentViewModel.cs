@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -11,6 +12,7 @@ using L10NSharp;
 using SIL.Extensions;
 using SIL.IO;
 using SIL.ObjectModel;
+using SIL.Windows.Forms.Progress;
 
 namespace Glyssen.Dialogs
 {
@@ -26,7 +28,7 @@ namespace Glyssen.Dialogs
 
 			CharacterGroups = new SortableBindingList<CharacterGroup>(m_project.CharacterGroupList.CharacterGroups);
 			if (!CharacterGroups.Any())
-				CharacterGroups.AddRange(new CharacterGroupGenerator(project).GenerateCharacterGroups());
+				GenerateGroupsWithProgress();
 
 			CharacterGroupAttribute<CharacterGender>.GetUiStringForValue = GetUiStringForCharacterGender;
 			CharacterGroupAttribute<CharacterAge>.GetUiStringForValue = GetUiStringForCharacterAge;
@@ -67,6 +69,23 @@ namespace Glyssen.Dialogs
 
 		public SortableBindingList<CharacterGroup> CharacterGroups { get; set; }
 
+		private void GenerateGroupsWithProgress()
+		{
+			using (var progressDialog = new ProgressDialog())
+			{
+				progressDialog.ShowInTaskbar = false;
+				progressDialog.Overview = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ProgressDialog.Overview", "Generating optimal character groups based on voice actor attributes.");
+				progressDialog.CanCancel = false;
+				progressDialog.BarStyle = ProgressBarStyle.Marquee;
+				BackgroundWorker worker = new BackgroundWorker();
+				worker.DoWork += (s, e) => CharacterGroups.AddRange(new CharacterGroupGenerator(m_project).GenerateCharacterGroups());
+				worker.RunWorkerCompleted += (s, e) => { if (e.Error != null) throw e.Error; };
+				progressDialog.BackgroundWorker = worker;
+				progressDialog.ShowDialog();
+			}
+		}
+
+		// Keep this method around for now in case we decide to support templates in some scenarios
 		private void CreateInitialGroupsFromTemplate()
 		{
 			CharacterGroupTemplate charGroupTemplate;
@@ -99,13 +118,6 @@ namespace Glyssen.Dialogs
 				CharacterIds = new CharacterIdHashSet(unmatchedCharacters)
 			};
 			CharacterGroups.Add(unmatchedCharacterGroup);
-		}
-
-		private void ProcessCharacterIds(CharacterGroup group, Dictionary<string, CharacterGroup> characterIdToCharacterGroup)
-		{
-			foreach (var characterId in group.CharacterIds)
-				if (!characterIdToCharacterGroup.ContainsKey(characterId))
-					characterIdToCharacterGroup.Add(characterId, group);
 		}
 
 		public void AddNewGroup()
