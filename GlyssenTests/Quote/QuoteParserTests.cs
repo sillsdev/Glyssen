@@ -1375,6 +1375,84 @@ namespace GlyssenTests.Quote
 		}
 
 		[Test]
+		public void Parse_DialogueQuoteWithNoSentenceEndingPunctuationFollowedByCloseAfterPoetry_NoEndDash_QuoteRemainsOpenUntilEndOfPoetry()
+		{
+			var block1 = new Block("p", 2, 5);
+			block1.BlockElements.Add(new ScriptText("—Belén yaktanam Judá nungkanam nuni akiinatnuitai. Cristo akiinatniuri pachis aarmauka nuwaitai:"));
+			var block2 = new Block("q2", 2, 6);
+			block2.BlockElements.Add(new Verse("6"));
+			block2.BlockElements.Add(new ScriptText("Yus chichaak: “Judá nungkanam yakat Belén tutai mianchauka achatnuitai. Antsu nu yaktanam juun apu akiinatnua nuka Israela weari ainaun inartinuitai. Tura asamtai nu yaktaka chikich yakat Judá nungkanam aa nuna nangkamasang juun atinuitai,”"));
+			var block3 = new Block("m", 2, 6);
+			block3.BlockElements.Add(new ScriptText("Yus timiayi."));
+			var block4 = new Block("p", 2, 6);
+			block4.BlockElements.Add(new ScriptText("Return of the narrator."));
+			var input = new List<Block> { block1, block2, block3, block4 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+
+			Assert.AreEqual("—Belén yaktanam Judá nungkanam nuni akiinatnuitai. Cristo akiinatniuri pachis aarmauka nuwaitai:", output[0].GetText(true));
+			Assert.AreEqual("Good Priest", output[0].CharacterId);
+			Assert.AreEqual(string.Empty, output[0].Delivery);
+			Assert.AreEqual(2, output[0].ChapterNumber);
+			Assert.AreEqual(5, output[0].InitialStartVerseNumber);
+
+			Assert.AreEqual("[6]\u00A0Yus chichaak: “Judá nungkanam yakat Belén tutai mianchauka achatnuitai. Antsu nu yaktanam juun apu akiinatnua nuka Israela weari ainaun inartinuitai. Tura asamtai nu yaktaka chikich yakat Judá nungkanam aa nuna nangkamasang juun atinuitai,”", output[1].GetText(true));
+			Assert.AreEqual("Good Priest", output[1].CharacterId);
+			Assert.AreEqual(2, output[1].ChapterNumber);
+			Assert.AreEqual(6, output[1].InitialStartVerseNumber);
+
+			Assert.AreEqual("Yus timiayi.", output[2].GetText(true));
+			Assert.AreEqual("Good Priest", output[2].CharacterId);
+			Assert.AreEqual(2, output[2].ChapterNumber);
+			Assert.AreEqual(6, output[2].InitialStartVerseNumber);
+
+			Assert.AreEqual("Return of the narrator.", output[3].GetText(true));
+			Assert.AreEqual("narrator-MAT", output[3].CharacterId);
+			Assert.AreEqual(2, output[3].ChapterNumber);
+			Assert.AreEqual(6, output[3].InitialStartVerseNumber);
+		}
+
+		[Test]
+		public void Parse_DialogueQuoteWithNoSentenceEndingPunctuationFollowedByCloseAfterPoetry_NoEndDash_QuoteStartsInPoetry_QuoteRemainsOpenUntilEndOfPoetry()
+		{
+			var block1 = new Block("q1", 2, 5);
+			block1.BlockElements.Add(new ScriptText("—Belén yaktanam Judá nungkanam nuni akiinatnuitai. Cristo akiinatniuri pachis aarmauka nuwaitai:"));
+			var block2 = new Block("q2", 2, 6);
+			block2.BlockElements.Add(new Verse("6"));
+			block2.BlockElements.Add(new ScriptText("Yus chichaak: “Judá nungkanam yakat Belén tutai mianchauka achatnuitai. Antsu nu yaktanam juun apu akiinatnua nuka Israela weari ainaun inartinuitai. Tura asamtai nu yaktaka chikich yakat Judá nungkanam aa nuna nangkamasang juun atinuitai,”"));
+			var block3 = new Block("m", 2, 6);
+			block3.BlockElements.Add(new ScriptText("Yus timiayi."));
+			var block4 = new Block("p", 2, 6);
+			block4.BlockElements.Add(new ScriptText("Return of the narrator."));
+			var input = new List<Block> { block1, block2, block3, block4 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+
+			Assert.AreEqual("—Belén yaktanam Judá nungkanam nuni akiinatnuitai. Cristo akiinatniuri pachis aarmauka nuwaitai:", output[0].GetText(true));
+			Assert.AreEqual("Good Priest", output[0].CharacterId);
+			Assert.AreEqual(string.Empty, output[0].Delivery);
+			Assert.AreEqual(2, output[0].ChapterNumber);
+			Assert.AreEqual(5, output[0].InitialStartVerseNumber);
+
+			Assert.AreEqual("[6]\u00A0Yus chichaak: “Judá nungkanam yakat Belén tutai mianchauka achatnuitai. Antsu nu yaktanam juun apu akiinatnua nuka Israela weari ainaun inartinuitai. Tura asamtai nu yaktaka chikich yakat Judá nungkanam aa nuna nangkamasang juun atinuitai,”", output[1].GetText(true));
+			Assert.AreEqual("Good Priest", output[1].CharacterId);
+			Assert.AreEqual(2, output[1].ChapterNumber);
+			Assert.AreEqual(6, output[1].InitialStartVerseNumber);
+
+			Assert.AreEqual("Yus timiayi.", output[2].GetText(true));
+			Assert.AreEqual("Good Priest", output[2].CharacterId);
+			Assert.AreEqual(2, output[2].ChapterNumber);
+			Assert.AreEqual(6, output[2].InitialStartVerseNumber);
+
+			Assert.AreEqual("Return of the narrator.", output[3].GetText(true));
+			Assert.AreEqual("narrator-MAT", output[3].CharacterId);
+			Assert.AreEqual(2, output[3].ChapterNumber);
+			Assert.AreEqual(6, output[3].InitialStartVerseNumber);
+		}
+
+		[Test]
 		public void Parse_DialogueQuoteWithNoSentenceEndingPunctuationFollowedByCloseAfterPoetry_SentenceEndingWithinPoetry_QuoteRemainsOpenUntilClosed()
 		{
 			var block1 = new Block("p", 2, 5);

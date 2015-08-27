@@ -190,7 +190,7 @@ namespace Glyssen.Quote
 
 				if (m_quoteLevel == 1 && 
 					blockInWhichDialogueQuoteStarted != null && 
-					(!IsNormalParagraphStyle(blockInWhichDialogueQuoteStarted.StyleTag) || blockEndedWithSentenceEndingPunctuation || !IsFollowOnParagraphStyle(block.StyleTag)))
+					(/*!IsNormalParagraphStyle(blockInWhichDialogueQuoteStarted.StyleTag) || */blockEndedWithSentenceEndingPunctuation || !IsFollowOnParagraphStyle(block.StyleTag)))
 				{
 					m_quoteLevel--;
 					blockInWhichDialogueQuoteStarted = null;
@@ -312,7 +312,7 @@ namespace Glyssen.Quote
 						else
 						{
 							var remainingText = content.Substring(pos);
-							if (m_quoteLevel == 1 && block == blockInWhichDialogueQuoteStarted && EndsWithSentenceEndingPunctuation(remainingText))
+							if (m_quoteLevel == 1 && /*block == blockInWhichDialogueQuoteStarted &&*/ EndsWithSentenceEndingPunctuation(remainingText))
 								blockEndedWithSentenceEndingPunctuation = true;
 							sb.Append(remainingText);
 							break;
