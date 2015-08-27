@@ -17,7 +17,7 @@ namespace Glyssen
 {
 	public class UsxParser
 	{
-		public static IEnumerable<BookScript> ParseProject(IEnumerable<UsxDocument> books, IStylesheet stylesheet, BackgroundWorker projectWorker)
+		public static List<BookScript> ParseProject(IEnumerable<UsxDocument> books, IStylesheet stylesheet, BackgroundWorker projectWorker)
 		{
 			var numBlocksPerBook = new ConcurrentDictionary<string, int>();
 			var blocksInBook = new ConcurrentDictionary<string, XmlNodeList>();
@@ -31,9 +31,10 @@ namespace Glyssen
 
 			int completedProjectBlocks = 0;
 			var result = new List<BookScript>();
-			Parallel.ForEach(blocksInBook.Keys, bookId =>
+			Parallel.ForEach(blocksInBook, book =>
 			{
-				result.Add(new BookScript(bookId, new UsxParser(bookId, stylesheet, blocksInBook[bookId]).Parse()));
+				var bookId = book.Key;
+				result.Add(new BookScript(bookId, new UsxParser(bookId, stylesheet, book.Value).Parse()));
 				completedProjectBlocks += numBlocksPerBook[bookId];
 				projectWorker.ReportProgress(MathUtilities.Percent(completedProjectBlocks, allProjectBlocks, 99));
 			});
