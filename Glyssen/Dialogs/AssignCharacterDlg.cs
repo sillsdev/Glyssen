@@ -266,6 +266,7 @@ namespace Glyssen.Dialogs
 			SelectCharacter();
 
 			m_listBoxCharacters.EndUpdate();
+			UpdateAssignButtonState();
 		}
 
 		private void SelectCharacter()
