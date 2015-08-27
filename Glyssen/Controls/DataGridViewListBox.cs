@@ -70,10 +70,13 @@ namespace Glyssen.Controls
 	class ListBoxEditingControl : ListBox, IDataGridViewEditingControl
 	{
 		private object m_dataOriginal;
+		private int[] m_selectionSave = new int[0];
+		private bool m_restoringSelection;
 
 		public ListBoxEditingControl()
 		{
 			BorderStyle = BorderStyle.None;
+			SelectionMode = SelectionMode.MultiExtended;
 
 			//Necessary in order to enforce ItemHeight
 			//See http://stackoverflow.com/questions/15298701/how-to-add-padding-between-items-in-a-listbox
@@ -82,7 +85,7 @@ namespace Glyssen.Controls
 			IntegralHeight = false;
 			ItemHeight = 21;
 
-			MouseMove += m_MouseMove;
+			MouseMove += HandleMouseMove;
 		}
 
 		public object Data
@@ -199,11 +202,60 @@ namespace Glyssen.Controls
 			OnMouseMove(new MouseEventArgs(MouseButtons.Left, 0, -1, -1, 0));
 		}
 
-		private void m_MouseMove(object sender, MouseEventArgs e)
+		private void HandleMouseMove(object sender, MouseEventArgs e)
 		{
 			if (e.Button == MouseButtons.Left)
 			{
-				DoDragDrop(SelectedItem, DragDropEffects.Move);
+				List<string> characterIds = SelectedItems.Cast<string>().ToList();
+				DoDragDrop(characterIds, DragDropEffects.Move);
+			}
+		}
+
+		protected override void OnSelectedIndexChanged(EventArgs e)
+		{
+			base.OnSelectedIndexChanged(e);
+			SaveSelection();
+		}
+
+		private void SaveSelection()
+		{
+			if (!m_restoringSelection && SelectionMode == SelectionMode.MultiExtended)
+			{
+				SelectedIndexCollection sel = SelectedIndices;
+				if (m_selectionSave.Length != sel.Count)
+				{
+					m_selectionSave = new int[sel.Count];
+				}
+				SelectedIndices.CopyTo(m_selectionSave, 0);
+			}
+		}
+
+		private void RestoreSelection(int clickedItemIndex)
+		{
+			if (SelectionMode == SelectionMode.MultiExtended &&
+				Control.ModifierKeys == Keys.None &&
+				Array.IndexOf(m_selectionSave, clickedItemIndex) >= 0)
+			{
+
+				m_restoringSelection = true;
+				foreach (int i in m_selectionSave)
+				{
+					SetSelected(i, true);
+				}
+				SetSelected(clickedItemIndex, true);
+				m_restoringSelection = false;
+			}
+		}
+
+		protected override void OnMouseDown(MouseEventArgs e)
+		{
+			base.OnMouseDown(e);
+
+			int clickedItemIndex = IndexFromPoint(e.Location);
+			if (clickedItemIndex >= 0 && MouseButtons == MouseButtons.Left &&
+				(GetSelected(clickedItemIndex) || Control.ModifierKeys == Keys.Shift))
+			{
+				RestoreSelection(clickedItemIndex);
 			}
 		}
 	}

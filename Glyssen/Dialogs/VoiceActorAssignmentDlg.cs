@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Character;
+using Glyssen.Controls;
 using L10NSharp;
 using SIL.ObjectModel;
 
@@ -247,9 +248,38 @@ namespace Glyssen.Dialogs
 
 			m_deleteActorToolStripMenuItem.Text = multipleActorsSelected
 				? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.DeleteMultipleActors",
-					"Delete Selected Actors")
+					"Delete Selected Voice Actors")
 				: LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.DeleteSingleActor",
-					"Delete Selected Actor");
+					"Delete Selected Voice Actor");
+		}
+
+		private void m_contextMenuCharacters_Opening(object sender, CancelEventArgs e)
+		{
+			ListBoxEditingControl ctrl = m_characterGroupGrid.EditingControl as ListBoxEditingControl;
+			if (ctrl == null)
+			{
+				e.Cancel = true;
+				return;
+			}
+			m_tmiCreateNewGroup.Text = ctrl.SelectedItems.Count > 1
+				? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.CreateNewGroupWithCharacters",
+					"Create a New Group with the Selected Characters")
+				: LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.CreateNewGroupWithCharacter",
+					"Create a New Group with the Selected Character");
+		}
+
+		private void m_tmiCreateNewGroup_Click(object sender, EventArgs e)
+		{
+			ListBoxEditingControl ctrl = m_characterGroupGrid.EditingControl as ListBoxEditingControl;
+			if (ctrl == null)
+				return;
+			IEnumerable<string> localizedCharacterIds = ctrl.SelectedItems.Cast<string>();
+			var characterIds = localizedCharacterIds.Select(lc => CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary[lc]);
+			if (m_actorAssignmentViewModel.MoveCharactersToGroup(characterIds.ToList(), m_actorAssignmentViewModel.AddNewGroup(), false))
+			{
+				m_characterGroupGrid.CurrentCell = m_characterGroupGrid.Rows[m_characterGroupGrid.RowCount-1].Cells["CharacterIds"];
+				ExpandCurrentCharacterGroupRow();
+			}
 		}
 
 		#region Voice Actor Grid
@@ -395,7 +425,8 @@ namespace Glyssen.Dialogs
 		{
 			Point p = m_characterGroupGrid.PointToClient(new Point(e.X, e.Y));
 			var hitInfo = m_characterGroupGrid.HitTest(p.X, p.Y);
-			if (hitInfo.Type == DataGridViewHitTestType.Cell && e.Data.GetDataPresent(typeof(string)) && m_characterGroupGrid.Columns[hitInfo.ColumnIndex].DataPropertyName == "CharacterIds")
+			if (hitInfo.Type == DataGridViewHitTestType.Cell && e.Data.GetDataPresent(typeof(List<string>)) &&
+				m_characterGroupGrid.Columns[hitInfo.ColumnIndex].DataPropertyName == "CharacterIds")
 			{
 				//Follow the status of the drag-n-drop to remove new row on completion
 				m_characterGroupGrid.EditingControl.QueryContinueDrag -= m_characterGroupGrid_DragEnd_DisallowUserToAddRows;
@@ -421,18 +452,18 @@ namespace Glyssen.Dialogs
 				m_characterGroupGrid.AllowUserToAddRows = false;
 		}
 
-		private void HandleCharacterIdDrop(string characterId, int rowIndex)
+		private void HandleCharacterIdDrop(List<string> localizedCharacterIds, int rowIndex)
 		{
 			if (m_characterGroupGrid.Rows[rowIndex].IsNewRow)
-			{
 				m_actorAssignmentViewModel.AddNewGroup();
-			}
 
-			string dropCharacterId = CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary[characterId];
+			IList<string> characterIds = new List<string>(localizedCharacterIds.Count);
+			foreach (var localizedCharacterId in localizedCharacterIds)
+				characterIds.Add(CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary[localizedCharacterId]);
 			DataGridViewRow dropRow = m_characterGroupGrid.Rows[rowIndex];
 			CharacterGroup dropGroup = dropRow.DataBoundItem as CharacterGroup;
 
-			if (m_actorAssignmentViewModel.MoveCharacterToGroup(dropCharacterId, dropGroup))
+			if (m_actorAssignmentViewModel.MoveCharactersToGroup(characterIds, dropGroup))
 			{
 				m_characterGroupGrid.CurrentCell = dropRow.Cells["CharacterIds"];
 				ExpandCurrentCharacterGroupRow();
@@ -447,9 +478,11 @@ namespace Glyssen.Dialogs
 			var hitInfo = m_characterGroupGrid.HitTest(p.X, p.Y);
 			if (hitInfo.Type == DataGridViewHitTestType.Cell)
 			{
-				if (e.Data.GetDataPresent(typeof(string)) && m_characterGroupGrid.Columns[hitInfo.ColumnIndex].DataPropertyName == "CharacterIds")
+				if (e.Data.GetDataPresent(typeof(List<string>)) && m_characterGroupGrid.Columns[hitInfo.ColumnIndex].DataPropertyName == "CharacterIds")
 				{
-					HandleCharacterIdDrop(e.Data.GetData(DataFormats.StringFormat).ToString(), hitInfo.RowIndex);
+					List<string> characterIds = e.Data.GetData(typeof(List<string>)) as List<string>;
+					if (characterIds != null)
+						HandleCharacterIdDrop(characterIds, hitInfo.RowIndex);
 					return;
 				}
 				if (e.Data.GetDataPresent(typeof(VoiceActor.VoiceActor)))
@@ -485,7 +518,7 @@ namespace Glyssen.Dialogs
 					if (m_characterGroupGrid.Columns[hitInfo.ColumnIndex].DataPropertyName == "VoiceActorAssignedName")
 					{
 						CharacterGroup sourceGroup = m_characterGroupGrid.SelectedRows[0].DataBoundItem as CharacterGroup;
-						if (sourceGroup.IsVoiceActorAssigned)
+						if (sourceGroup != null && sourceGroup.IsVoiceActorAssigned)
 						{
 							DoDragDrop(sourceGroup, DragDropEffects.Copy);
 						}
@@ -500,12 +533,14 @@ namespace Glyssen.Dialogs
 						//Although the DataGridViewListBox usually handles the drag and drop, it only does so when the cell has focus.
 						//In this case, the user starts dragging the first character ID even before selecting the row
 						var group = m_characterGroupGrid.Rows[hitInfo.RowIndex].DataBoundItem as CharacterGroup;
+						if (group == null)
+							return;
 						string characterId = group.CharacterIds.ToList().FirstOrDefault();
-						if (group.CharacterIds.Count == 1)
+						if (group.CharacterIds.Count == 1 && characterId != null)
 						{
 							//Without refreshing, the rows selected displays weirdly
 							Refresh();
-							DoDragDrop(characterId, DragDropEffects.Move);
+							DoDragDrop(new List<string>{characterId}, DragDropEffects.Move);
 						}
 					}
 				}

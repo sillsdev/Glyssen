@@ -280,7 +280,7 @@ namespace Glyssen.Dialogs
 			}
 			if (m_project.Books.SelectMany(b => b.Blocks).Any(bl => bl.UserConfirmed) && m_project.IsQuoteSystemReadyForParse && m_project.QuoteSystem != null)
 			{
-				string part1 = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemChangePart1", "Changing the quote system will require the text to broken up into speaking parts again.  An attempt will be made to preserve the work you have already completed, but some character assignments might be lost.  A backup of your project will be created before this occurs.");
+				string part1 = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemChangePart1", "Changing the quote system will require the text to be broken up into speaking parts again.  An attempt will be made to preserve the work you have already completed, but some character assignments might be lost.  A backup of your project will be created before this occurs.");
 				string part2 = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemChangePart2", "Are you sure you want to change the quote system?");
 				string msg = part1 + Environment.NewLine + Environment.NewLine + part2;
 				string title = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.ConfirmQuoteSystemChange", "Confirm Quote System Change");

@@ -598,11 +598,33 @@ namespace Glyssen
 			if (e.Error != null)
 				throw e.Error;
 			
-			var result = (IEnumerable<BookScript>)e.Result;
-			//REVIEW: more efficient to sort after the fact like this?  Or just don't run them in parallel (in ProjectUsxParser) in the first place?
-			var resultList = result.ToList();
-			resultList.Sort((a, b) => BCVRef.BookToNumber(a.BookId).CompareTo(BCVRef.BookToNumber(b.BookId)));
-			m_books.AddRange(resultList);
+			var bookScripts = (List<BookScript>)e.Result;
+
+			// This code is an attempt to figure out how we are getting null reference exceptions on the Sort call (See PG-275 & PG-287)
+			foreach (var bookScript in bookScripts)
+				if (bookScript == null || bookScript.BookId == null)
+				{
+					var nonNullBookScripts = bookScripts.Where(b => b != null).Select(b => b.BookId);
+					var nonNullBookScriptsStr = string.Join(";", nonNullBookScripts);
+					var initialMessage = bookScript == null ? "BookScript is null." : "BookScript has null BookId.";
+					throw new ApplicationException(string.Format("{0} Number of BookScripts: {1}. BookScripts which are NOT null: {2}", initialMessage, bookScripts.Count, nonNullBookScriptsStr));
+				}
+
+			try
+			{
+				//REVIEW: more efficient to sort after the fact like this?  Or just don't run them in parallel (in ProjectUsxParser) in the first place?
+				bookScripts.Sort((a, b) => BCVRef.BookToNumber(a.BookId).CompareTo(BCVRef.BookToNumber(b.BookId)));
+			}
+			catch (NullReferenceException n)
+			{
+				// This code is an attempt to figure out how we are getting null reference exceptions on the Sort call (See PG-275 & PG-287)
+				StringBuilder sb = new StringBuilder();
+				foreach (var bookScript in bookScripts)
+					sb.Append(Environment.NewLine).Append(bookScript.BookId).Append("(").Append(BCVRef.BookToNumber(bookScript.BookId)).Append(")");
+				throw new NullReferenceException("Null reference exception while sorting books." + sb, n);
+			}
+
+			m_books.AddRange(bookScripts);
 			m_metadata.ParserVersion = Settings.Default.ParserVersion;
 			m_metadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
 
