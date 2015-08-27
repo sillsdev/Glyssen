@@ -80,5 +80,25 @@ namespace GlyssenTests
 			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tMarko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
 				ProjectExport.GetExportLineForBlock(block, 0, "MRK", "ActorGuy1"));
 		}
+
+		[Test]
+		public void GetExportLineForBlock_UseCharacterIdInScriptFalse_OutputContainsUnresolvedCharacterIds()
+		{
+			var block = new Block("p", 4);
+			block.IsParagraphStart = true;
+			block.CharacterId = "Fred/Marko";
+			block.CharacterIdInScript = "Marko";
+			block.Delivery = "With great gusto and quivering frustration";
+			block.BlockElements.Add(new Verse("1"));
+			block.BlockElements.Add(new ScriptText("Text of verse one. "));
+			block.BlockElements.Add(new Verse("2"));
+			block.BlockElements.Add(new ScriptText("Text of verse two."));
+
+			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
+			Assert.AreEqual("0\tp\tMRK\t4\t1\tFred/Marko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
+				ProjectExport.GetExportLineForBlock(block, 0, "MRK", useCharacterIdInScript: false));
+			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tFred/Marko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
+				ProjectExport.GetExportLineForBlock(block, 0, "MRK", "ActorGuy1", useCharacterIdInScript: false));
+		}
 	}
 }

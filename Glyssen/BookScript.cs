@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
+using SIL.Scripture;
 
 namespace Glyssen
 {
@@ -227,10 +228,11 @@ namespace Glyssen
 					"Blocks collection changed. Blocks getter should not be used to add or remove blocks to the list. Use setter instead.");
 		}
 
-		public void ApplyUserDecisions(BookScript sourceBookScript)
+		public void ApplyUserDecisions(BookScript sourceBookScript, Paratext.ScrVers versification = null)
 		{
 			var comparer = new BlockElementContentsComparer();
 			int iTarget = 0;
+			var bookNum = BCVRef.BookToNumber(sourceBookScript.BookId);
 			foreach (var sourceBlock in sourceBookScript.m_blocks.Where(b => b.UserConfirmed))
 			{
 				if (m_blocks[iTarget].ChapterNumber < sourceBlock.ChapterNumber)
@@ -250,8 +252,13 @@ namespace Glyssen
 						m_blocks[iTarget].IsParagraphStart == sourceBlock.IsParagraphStart &&
 						m_blocks[iTarget].BlockElements.SequenceEqual(sourceBlock.BlockElements, comparer))
 					{
-						m_blocks[iTarget].CharacterId = sourceBlock.CharacterId;
-						m_blocks[iTarget].CharacterIdOverrideForScript = sourceBlock.CharacterIdOverrideForScript;
+						if (sourceBlock.CharacterIdOverrideForScript == null)
+							m_blocks[iTarget].SetCharacterAndCharacterIdInScript(sourceBlock.CharacterId, bookNum, versification);
+						else
+						{
+							m_blocks[iTarget].CharacterId = sourceBlock.CharacterId;
+							m_blocks[iTarget].CharacterIdOverrideForScript = sourceBlock.CharacterIdOverrideForScript;
+						}
 						m_blocks[iTarget].Delivery = sourceBlock.Delivery;
 						m_blocks[iTarget].UserConfirmed = true;
 						iTarget++;

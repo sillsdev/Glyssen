@@ -139,7 +139,7 @@ namespace GlyssenTests.Rules
 			foreach (var book in m_testProject.IncludedBooks)
 				foreach (var block in book.GetScriptBlocks(true))
 					if (!block.CharacterIsUnclear())
-						includedCharacterIds.Add(block.CharacterId);
+						includedCharacterIds.Add(block.CharacterIdInScript);
 			int numberOfCharactersInProject = includedCharacterIds.Count(i => CharacterDetailData.Singleton.GetDictionary().ContainsKey(i));
 			const int numberOfNarratorAndExtraBiblicalCharactersRemovedByCoalescing = 4;
 			int maxGroups = numberOfCharactersInProject - numberOfNarratorAndExtraBiblicalCharactersRemovedByCoalescing;

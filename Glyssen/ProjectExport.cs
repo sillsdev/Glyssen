@@ -76,16 +76,16 @@ namespace Glyssen
 						{
 							VoiceActor.VoiceActor voiceActor = m_project.GetVoiceActorForCharacter(singleVoiceNarratorOverride ?? block.CharacterIdInScript);
 							string voiceActorName = voiceActor != null ? voiceActor.Name : null;
-							stream.WriteLine(GetExportLineForBlock(block, blockNumber++, book.BookId, voiceActorName ?? "", singleVoiceNarratorOverride));
+							stream.WriteLine(GetExportLineForBlock(block, blockNumber++, book.BookId, voiceActorName ?? "", singleVoiceNarratorOverride, m_includeVoiceActors));
 						}
 						else
-							stream.WriteLine(GetExportLineForBlock(block, blockNumber++, book.BookId, null, singleVoiceNarratorOverride));
+							stream.WriteLine(GetExportLineForBlock(block, blockNumber++, book.BookId, null, singleVoiceNarratorOverride, m_includeVoiceActors));
 					}
 				}
 			}
 		}
 
-		internal static string GetExportLineForBlock(Block block, int blockNumber, string bookId, string voiceActor = null, string singleVoiceNarratorOverride = null)
+		internal static string GetExportLineForBlock(Block block, int blockNumber, string bookId, string voiceActor = null, string singleVoiceNarratorOverride = null, bool useCharacterIdInScript = true)
 		{
 			StringBuilder builder = new StringBuilder();
 			builder.Append(blockNumber);
@@ -106,7 +106,7 @@ namespace Glyssen
 			if (singleVoiceNarratorOverride != null)
 				builder.Append(singleVoiceNarratorOverride);
 			else
-				builder.Append(block.CharacterIdInScript);
+				builder.Append(useCharacterIdInScript ? block.CharacterIdInScript : block.CharacterId);
 			builder.Append(Separator);
 			builder.Append(block.Delivery);
 			builder.Append(Separator);

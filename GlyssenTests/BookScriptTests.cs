@@ -6,6 +6,7 @@ using System.Text;
 using Glyssen;
 using Glyssen.Character;
 using NUnit.Framework;
+using SIL.Scripture;
 
 namespace GlyssenTests
 {
@@ -553,6 +554,66 @@ namespace GlyssenTests
 					Assert.IsTrue(target[i].CharacterIsStandard);
 					Assert.IsNull(target[i].Delivery);
 					Assert.IsFalse(target[i].UserConfirmed);
+				}
+			}
+		}
+
+		[Test]
+		public void ApplyUserDecisions_UserConfirmedMultiCharacterIdWithoutCharacterInScriptSet_CharacterInScriptGetsSetToCurrentDefault()
+		{
+			var source = CreateStandardMarkScript();
+			var userConfirmedCharacterBlockIndices = new List<int>();
+			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
+			{
+				if (source[i].CharacterId == CharacterVerseData.UnknownCharacter)
+				{
+					source[i].CharacterId = "Thomas/James";
+					Assert.AreEqual(source[i].CharacterId, source[i].CharacterIdInScript, "CharacterId setter should not set CharacterInScript to default character");
+					source[i].UserConfirmed = true;
+					userConfirmedCharacterBlockIndices.Add(i);
+				}
+			}
+			Assert.IsTrue(userConfirmedCharacterBlockIndices.Count > 0);
+			var target = CreateStandardMarkScript();
+			target.ApplyUserDecisions(source);
+
+			for (int i = 0; i < target.GetScriptBlocks().Count; i++)
+			{
+				if (userConfirmedCharacterBlockIndices.Contains(i))
+				{
+					Assert.AreEqual("Thomas/James", target[i].CharacterId);
+					Assert.AreEqual("Thomas", target[i].CharacterIdInScript);
+					Assert.IsTrue(target[i].UserConfirmed);
+				}
+			}
+		}
+
+		[Test]
+		public void ApplyUserDecisions_UserConfirmedMultiCharacterIdWithCharacterInScriptSet_CharacterInScriptGetsCopied()
+		{
+			var source = CreateStandardMarkScript();
+			var userConfirmedCharacterBlockIndices = new List<int>();
+			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
+			{
+				if (source[i].CharacterId == CharacterVerseData.UnknownCharacter)
+				{
+					source[i].CharacterId = "Thomas/James";
+					source[i].CharacterIdInScript = "James";
+					source[i].UserConfirmed = true;
+					userConfirmedCharacterBlockIndices.Add(i);
+				}
+			}
+			Assert.IsTrue(userConfirmedCharacterBlockIndices.Count > 0);
+			var target = CreateStandardMarkScript();
+			target.ApplyUserDecisions(source);
+
+			for (int i = 0; i < target.GetScriptBlocks().Count; i++)
+			{
+				if (userConfirmedCharacterBlockIndices.Contains(i))
+				{
+					Assert.AreEqual("Thomas/James", target[i].CharacterId);
+					Assert.AreEqual("James", target[i].CharacterIdInScript);
+					Assert.IsTrue(target[i].UserConfirmed);
 				}
 			}
 		}

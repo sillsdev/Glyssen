@@ -114,6 +114,10 @@ namespace Glyssen
 		/// <summary>
 		/// This is the character ID assigned by Glyssen or selected by the user during Phase 1 (protoscript).
 		/// Do not use this in Phase 2 (actor assignment); Instead, use CharacterIdInScript.
+		/// This setter does not update the CharacterIdInScript value. Therefore, it can be used for
+		/// deserialization, cloning (e.g., when applying user decisions), and setting character IDs that
+		/// are guaranteed not to represent multiple characters (e.g., Standard characters). In other contexts,
+		/// use the SetCharacterIdAndCharacterIdInScript method.
 		/// </summary>
 		[XmlAttribute("characterId")]
 		public string CharacterId { get; set; }
@@ -275,7 +279,7 @@ namespace Glyssen
 			var characterList = characters.ToList();
 			if (characterList.Count == 1)
 			{
-				CharacterId = characterList[0].Character;
+				SetCharacterAndCharacterIdInScript(characterList[0].Character, () => characterList[0]);
 				Delivery = characterList[0].Delivery;
 			}
 			else if (characterList.Count == 0)
@@ -285,11 +289,11 @@ namespace Glyssen
 			}
 			else
 			{
-				// Might all represent the same Character/Delivery.  Need to check.
+				// Might all represent the same Character/Delivery. Need to check.
 				var set = new SortedSet<CharacterVerse>(characterList, new CharacterDeliveryComparer());
 				if (set.Count == 1)
 				{
-					CharacterId = set.First().Character;
+					SetCharacterAndCharacterIdInScript(characterList[0].Character, () => characterList[0]);
 					Delivery = set.First().Delivery;
 				}
 				else
@@ -300,15 +304,43 @@ namespace Glyssen
 			}
 		}
 
+		public void SetCharacterAndCharacterIdInScript(string characterId, int bookNumber, Paratext.ScrVers scrVers = null)
+		{
+			SetCharacterAndCharacterIdInScript(characterId, () => GetMatchingCharacter(bookNumber, scrVers));
+		}
+
+		private void SetCharacterAndCharacterIdInScript(string characterId, Func<CharacterVerse> getMatchingCharacterForVerse)
+		{
+			if (CharacterId == characterId && CharacterIdOverrideForScript != null)
+				return;
+			CharacterId = characterId;
+			UseDefaultForMultipleChoiceCharacter(getMatchingCharacterForVerse);
+		}
+
 		public void UseDefaultForMultipleChoiceCharacter(int bookNumber, Paratext.ScrVers scrVers = null)
+		{
+			UseDefaultForMultipleChoiceCharacter(() => GetMatchingCharacter(bookNumber, scrVers));
+		}
+
+		public void UseDefaultForMultipleChoiceCharacter(Func<CharacterVerse> getMatchingCharacterForVerse)
 		{
 			var ids = CharacterId.SplitCharacterId(2);
 			if (ids.Length > 1)
 			{
-				var matchingChar = ControlCharacterVerseData.Singleton.GetCharacters(bookNumber, ChapterNumber, InitialStartVerseNumber,
-					InitialEndVerseNumber, versification: scrVers).FirstOrDefault(c => c.Character == CharacterId && !String.IsNullOrEmpty(c.DefaultCharacter));
-				CharacterIdInScript = (matchingChar == null) ? ids[0] : matchingChar.DefaultCharacter;
+				var cv = getMatchingCharacterForVerse();
+				CharacterIdInScript = (cv != null && !String.IsNullOrEmpty(cv.DefaultCharacter) ? cv.DefaultCharacter : ids[0]);
 			}
+		}
+
+		private CharacterVerse GetMatchingCharacter(int bookNumber, Paratext.ScrVers scrVers)
+		{
+			return GetMatchingCharacter(ControlCharacterVerseData.Singleton, bookNumber, scrVers);
+		}
+
+		public CharacterVerse GetMatchingCharacter(ICharacterVerseInfo cvInfo, int bookNumber, Paratext.ScrVers scrVers)
+		{
+			return cvInfo.GetCharacters(bookNumber, ChapterNumber, InitialStartVerseNumber,
+				InitialEndVerseNumber, versification: scrVers).FirstOrDefault(c => c.Character == CharacterId);
 		}
 	}
 

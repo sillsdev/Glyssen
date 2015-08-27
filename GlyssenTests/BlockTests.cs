@@ -192,6 +192,58 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void SetCharacterAndDelivery_SingleMultipleChoiceCharacter_SetsCharacterAndCharacterIdInScript()
+		{
+			var block = new Block("p", 4, 4);
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Text of verse four. "));
+			block.SetCharacterAndDelivery(new[] { new CharacterVerse(new BCVRef(41, 4, 4), "Mary/Martha", null, null, false) });
+			Assert.AreEqual("Mary/Martha", block.CharacterId);
+			Assert.AreEqual("Mary", block.CharacterIdInScript);
+		}
+
+		[Test]
+		public void SetCharacterAndDelivery_SettingToSameMultiCharacterWithNonDefaultCharacterIdInScriptSet_CharacterIdInScriptNotChanged()
+		{
+			var block = new Block("p", 4, 4);
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Text of verse four. "));
+			block.CharacterId = "Mary/Martha";
+			block.CharacterIdInScript = "Martha";
+			block.SetCharacterAndDelivery(new[] { new CharacterVerse(new BCVRef(41, 4, 4), "Mary/Martha", null, null, false) });
+			Assert.AreEqual("Mary/Martha", block.CharacterId);
+			Assert.AreEqual("Martha", block.CharacterIdInScript);
+		}
+
+		[Test]
+		public void SetCharacterAndDelivery_SettingToSameMultiCharacterWithNoCharacterIdInScriptSet_CharacterIdInScriptGetsSet()
+		{
+			var block = new Block("p", 4, 4);
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Text of verse four. "));
+			block.CharacterId = "Mary/Martha";
+			block.SetCharacterAndDelivery(new[] { new CharacterVerse(new BCVRef(41, 4, 4), "Mary/Martha", null, null, false) });
+			Assert.AreEqual("Mary/Martha", block.CharacterId);
+			Assert.AreEqual("Mary", block.CharacterIdInScript);
+		}
+
+		[Test]
+		public void SetCharacterAndDelivery_SameMultipleChoiceCharacterWithDifferentDefaults_CharacterIdInScriptSetBasedOnFirstCvEntry()
+		{
+			var block = new Block("p", 4, 4, 6);
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Text of verses four through seven. "));
+			block.SetCharacterAndDelivery(new[]
+			{
+				new CharacterVerse(new BCVRef(41, 4, 4), "Mary/Martha/Jews", null, null, false, QuoteType.Dialogue, "Martha"),
+				new CharacterVerse(new BCVRef(41, 4, 5), "Mary/Martha/Jews", null, null, false, QuoteType.Dialogue, "Jews"),
+				new CharacterVerse(new BCVRef(41, 4, 6), "Mary/Martha/Jews", null, null, false, QuoteType.Dialogue, "Mary")
+			});
+			Assert.AreEqual("Mary/Martha/Jews", block.CharacterId);
+			Assert.AreEqual("Martha", block.CharacterIdInScript);
+		}
+
+		[Test]
 		public void IsStandardCharacter_BiblicalCharacter_ReturnsFalse()
 		{
 			var block = new Block("p", 4, 4);
@@ -323,6 +375,49 @@ namespace GlyssenTests
 			block.CharacterIdInScript = "chief baker";
 			block.UseDefaultForMultipleChoiceCharacter(BCVRef.BookToNumber("GEN"));
 			Assert.AreEqual("chief cupbearer", block.CharacterIdInScript);
+		}
+
+		[Test]
+		public void SetCharacterAndCharacterIdInScript_NotMultipleChoice_CharacterIdInScriptRemainsNull()
+		{
+			var block = new Block("p", 40, 8);
+			block.SetCharacterAndCharacterIdInScript("chief monkey", BCVRef.BookToNumber("EXO"));
+			Assert.AreEqual("chief monkey", block.CharacterId);
+			Assert.AreEqual("chief monkey", block.CharacterIdInScript);
+			Assert.IsNull(block.CharacterIdOverrideForScript);
+		}
+
+		[Test]
+		public void SetCharacterAndCharacterIdInScript_NotMultipleChoiceCharacterIdInScriptAlreadySet_CharacterIdInScriUnchanged()
+		{
+			var block = new Block("p", 40, 8);
+			block.CharacterId = "live frog";
+			block.CharacterIdInScript = "dead frog";
+			block.SetCharacterAndCharacterIdInScript("subordinate monkey", BCVRef.BookToNumber("REV"));
+			Assert.AreEqual("subordinate monkey", block.CharacterId);
+			Assert.AreEqual("dead frog", block.CharacterIdInScript);
+		}
+
+		[Test]
+		public void SetCharacterAndCharacterIdInScript_NoChangeToCharacterIdAndCharacterIdInScriptAlreadySetToAnotherValue_NoChange()
+		{
+			var block = new Block("p", 40, 8);
+			block.CharacterId = "chief cupbearer/chief baker";
+			block.CharacterIdInScript = "dead frog";
+			block.SetCharacterAndCharacterIdInScript("chief cupbearer/chief baker", BCVRef.BookToNumber("GEN"));
+			Assert.AreEqual("chief cupbearer/chief baker", block.CharacterId);
+			Assert.AreEqual("dead frog", block.CharacterIdInScript);
+		}
+
+		[Test]
+		public void SetCharacterAndCharacterIdInScript_ChangeCharacterIdAndCharacterIdInScriptAlreadySetToAnotherValue_CharacterIdInScriptChanged()
+		{
+			var block = new Block("p", 40, 8);
+			block.CharacterId = "chief cupbearer/chief baker";
+			block.CharacterIdInScript = "chief cupbearer";
+			block.SetCharacterAndCharacterIdInScript("David/Goliath", BCVRef.BookToNumber("GEN"));
+			Assert.AreEqual("David/Goliath", block.CharacterId);
+			Assert.AreEqual("David", block.CharacterIdInScript);
 		}
 
 		private CharacterVerse JesusQuestioning

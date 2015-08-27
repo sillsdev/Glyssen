@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
-using Paratext;
+using System.Linq;
+using SIL.Scripture;
+using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Character
 {
@@ -12,19 +14,25 @@ namespace Glyssen.Character
 			m_cvInfo = cvInfo;
 		}
 
-		public void AssignAll(ICollection<BookScript> bookScripts, ScrVers versification, bool overwriteUserConfirmed = false)
+		public void AssignAll(ICollection<BookScript> bookScripts, ScrVers versification, bool setDefaultForMultipleChoiceCharacters, bool overwriteUserConfirmed = false)
 		{
 			foreach (BookScript bookScript in bookScripts)
-				Assign(bookScript, versification, overwriteUserConfirmed);
+				Assign(bookScript, versification, setDefaultForMultipleChoiceCharacters, overwriteUserConfirmed);
 		}
 
-		public void Assign(BookScript bookScript, ScrVers versification, bool overwriteUserConfirmed = false)
+		public void Assign(BookScript bookScript, ScrVers versification, bool setDefaultForMultipleChoiceCharacters = false, bool overwriteUserConfirmed = false)
 		{
-			foreach (Block block in bookScript.GetScriptBlocks())
+			var bookNum = BCVRef.BookToNumber(bookScript.BookId);
+			foreach (Block block in bookScript.GetScriptBlocks().Where(b => !b.CharacterIsStandard))
 			{
-				if (block.CharacterIsStandard || (block.UserConfirmed && !overwriteUserConfirmed))
-					continue;
-				block.SetCharacterAndDelivery(m_cvInfo.GetCharacters(bookScript.BookId, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerse, versification));
+				if (!block.UserConfirmed || overwriteUserConfirmed)
+				{
+					block.SetCharacterAndDelivery(m_cvInfo.GetCharacters(bookScript.BookId, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerse, versification));
+				}
+				else if (setDefaultForMultipleChoiceCharacters)
+				{
+					block.UseDefaultForMultipleChoiceCharacter(() => block.GetMatchingCharacter(m_cvInfo, bookNum, versification));
+				}
 			}
 		}
 	}

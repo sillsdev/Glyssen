@@ -525,7 +525,7 @@ namespace Glyssen.Quote
 		{
 			foreach (Block block in blocks)
 			{
-				block.CharacterId = character;
+				block.SetCharacterAndCharacterIdInScript(character, m_bookNum, m_versification);
 				block.Delivery = delivery;
 			}
 		}

@@ -290,7 +290,7 @@ namespace Glyssen.Dialogs
 			if (selectedCharacter.IsNarrator)
 				block.SetStandardCharacter(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator);
 			else
-				block.CharacterId = selectedCharacter.CharacterId;
+				block.SetCharacterAndCharacterIdInScript(selectedCharacter.CharacterId, BCVRef.BookToNumber(CurrentBookId), m_project.Versification);
 
 			block.Delivery = selectedDelivery.IsNormal ? null : selectedDelivery.Text;
 

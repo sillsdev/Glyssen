@@ -537,7 +537,9 @@ namespace Glyssen
 			m_quotePercentComplete = 100;
 			if (m_metadata.ControlFileVersion != controlFileVersion)
 			{
-				new CharacterAssigner(new CombinedCharacterVerseData(this)).AssignAll(m_books, Versification);
+				const int kControlFileVersionWhenOnTheFlyAssignmentOfCharacterIdInScriptBegan = 78;
+				new CharacterAssigner(new CombinedCharacterVerseData(this)).AssignAll(m_books, Versification,
+					m_metadata.ControlFileVersion < kControlFileVersionWhenOnTheFlyAssignmentOfCharacterIdInScriptBegan);
 				m_metadata.ControlFileVersion = controlFileVersion;
 			}
 			UpdatePercentInitialized();
@@ -552,7 +554,7 @@ namespace Glyssen
 				BookScript script = targetBookScript;
 				var sourceBookScript = sourceProject.m_books.SingleOrDefault(b => b.BookId == script.BookId);
 				if (sourceBookScript != null)
-					targetBookScript.ApplyUserDecisions(sourceBookScript);
+					targetBookScript.ApplyUserDecisions(sourceBookScript, Versification);
 			}
 			Analyze();
 		}

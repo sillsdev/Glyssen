@@ -440,14 +440,11 @@ namespace Glyssen
 
 		private void m_btnAssignVoiceActors_Click(object sender, EventArgs e)
 		{
+			// TODO: Eventually, this should be called when the user requests that all overrides be reverted to the defaults.
+			//m_project.UseDefaultForUnresolvedMultipleChoiceCharacters();
+	
 			if (m_project.VoiceActorStatus == VoiceActorStatus.UnProvided)
 			{
-				// REVIEW: Eventually, just doing this once for the project probably won't be enough.
-				// If the user goes back and changes anything or the control file changes and the
-				// data is reparsed, resulting in new multiple-choice characters, then this needs to
-				// be redone.
-				m_project.UseDefaultForUnresolvedMultipleChoiceCharacters();
-
 				using (var dlg = new VoiceActorInformationDlg(m_project))
 					dlg.ShowDialog();
 				SaveCurrentProject();
