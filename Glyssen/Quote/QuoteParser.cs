@@ -74,7 +74,7 @@ namespace Glyssen.Quote
 		private void GetRegExesForSplittingQuotes()
 		{
 			IList<string> splitters;
-			var quoteChars = new HashSet<char>();
+			var quoteChars = new SortedSet<char>(new QuoteCharComparer());
 			var regexExpressions = new List<string>(m_quoteSystem.NormalLevels.Count);
 
 			// At level x, we need continuer x, closer x, opener x+1.  Continuer must be first.
@@ -677,5 +677,16 @@ namespace Glyssen.Quote
 			}
 		}
 		#endregion
+
+		private class QuoteCharComparer : IComparer<char>
+		{
+			public int Compare(char x, char y)
+			{
+				// Putting regular dash at the beginning makes the regex not try to treat it as a range operator
+				if (x.Equals('-'))
+					return -1;
+				return x.CompareTo(y);
+			}
+		}
 	}
 }
