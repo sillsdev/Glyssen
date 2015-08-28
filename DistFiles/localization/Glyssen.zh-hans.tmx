@@ -50,31 +50,31 @@
         <seg>亚比米勒 ***and*** 非各</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Abimelech, King of Gerar">
+    <tu tuid="CharacterName.Abimelech, king of Gerar">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Abimelech, King of Gerar</seg>
+        <seg>Abimelech, king of Gerar</seg>
       </tuv>
       <tuv xml:lang="zh-Hans">
-        <seg>亚比米勒, ***King*** ***of*** 基拉耳</seg>
+        <seg>亚比米勒, 王 ***of*** 基拉耳</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Abimelech, King of the Philistines">
+    <tu tuid="CharacterName.Abimelech, king of the Philistines">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Abimelech, King of the Philistines</seg>
+        <seg>Abimelech, king of the Philistines</seg>
       </tuv>
       <tuv xml:lang="zh-Hans">
-        <seg>亚比米勒, ***King*** ***of*** ***the*** ***Philistines***</seg>
+        <seg>亚比米勒, 王 ***of*** ***the*** ***Philistines***</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Abimelech, King of the Philistines (in Gerar)">
+    <tu tuid="CharacterName.Abimelech, king of the Philistines (in Gerar)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Abimelech, King of the Philistines (in Gerar)</seg>
+        <seg>Abimelech, king of the Philistines (in Gerar)</seg>
       </tuv>
       <tuv xml:lang="zh-Hans">
-        <seg>亚比米勒, ***King*** ***of*** ***the*** ***Philistines*** ***(in*** 基拉耳)</seg>
+        <seg>亚比米勒, 王 ***of*** ***the*** ***Philistines*** ***(in*** 基拉耳)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Abimelech, son of Gideon (Jerubbaal)">
@@ -147,6 +147,15 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>亚吉, 王 ***of*** 迦特</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Achsah, Caleb's daughter">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Achsah, Caleb's daughter</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hans">
+        <seg>押撒, ***Caleb's*** ***daughter***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Adam">
@@ -1907,13 +1916,13 @@
         <seg>以色列 ***fighting*** ***men***</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Israelite foreman">
+    <tu tuid="CharacterName.Israelite foremen">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Israelite foreman</seg>
+        <seg>Israelite foremen</seg>
       </tuv>
       <tuv xml:lang="zh-Hans">
-        <seg>以色列 ***foreman***</seg>
+        <seg>以色列 ***foremen***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Israelite officers">
@@ -2985,6 +2994,24 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>尼哥德慕</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nineveh">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nineveh</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hans">
+        <seg>尼尼微</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nineveh, the city of revelry">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nineveh, the city of revelry</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hans">
+        <seg>尼尼微, ***the*** ***city*** ***of*** ***revelry***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Noah">

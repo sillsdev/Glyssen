@@ -1,126 +1,125 @@
 #Character ID	Max Speakers	Gender	Age	Status	Comment
-2 other disciples	2	Male			Not Peter (Simon), Thomas, Nathaniel, James, or John
-250 Israelite leaders	250	Male			
-a Jew	1	Male			
-Aaron	1	Male			
-Abednego	1	Male			original Hebrew name: Azariah
-Abigail	1	Female			
-Abijah, king of Judah	1	Male			
-Abimelech, King of Gerar	1	Male			
-Abimelech, King of the Philistines (in Gerar)	1	Male			
-Abimelech, son of Gideon (Jerubbaal)	1	Male			
-Abiram	1	Male			son of Eliab (Reubenite)
-Abishai, Joab's brother	1	Male			
-Abner, commander of Saul's army	1	Male			
-Abraham (Abram)	1	Male			
-Abraham's chief servant	1	Male			
-Absalom, son of David	1	Male			
-Absalom's men	-1	Male			
-Absalom's secret messengers	-1	Male			
-Achan	1	Male			
-Achish, king of Gath	1	Male			
-Acsah, Caleb's daughter	1	Female			
-Adam	1	Male			
-Adoni-Bezek	1	Male			
-Adonijah, son of David	1	Male			
-Adoni-Zedek, king of Jerusalem	1	Male			
-advisers to king	-1	Male			
-Agabus the prophet	1	Male			
-Agag, king of the Amalekites	1	Male			
-Ahab, king of Israel	1	Male			
-Ahaz, king of Judah	1	Male			
-Ahaziah, king of Israel	1	Male			
-Ahijah the priest	1	Male			
-Ahijah the prophet	1	Male			
-Ahimaaz (messenger)	1	Male			
-Ahimelech the priest (son of Ahitub)	1	Male			
-Ahithophel	1	Male			
-all in Nazareth synagogue	-1				
-all in temple	-1				
-all seeking God	-1				
-all the elders	-1	Male			elders of the church in Jerusalem
-all who heard (in synagogues)	-1				
-altar	1	Neuter			
-Amasa	1	Male			leader in Ephraim
-Amasai, chief of thirty	1	Male			
-Amaziah, king of Judah	1	Male			
-Amaziah, priest of Bethel	1	Male			
-Ammonite nobles	-1	Male			
-Amnon, son of David	1	Male			
-Amos	1	Male			
-Ananias (Annas), the high priest (father-in-law of Caiaphas)	1	Male			
-Ananias of Damascus	1	Male			
-Andrew	1	Male			
-angel (one of the seven)	1				
-angel flying directly overhead	1				
-angel flying directly overhead, second	1				
-angel flying directly overhead, third	1				
-angel of the LORD, an	1	Male			
-angel of the LORD, the	1	Male			Default speaker should be Jesus
-angel or messenger (Greek variant: someone speaking to John)	1				
-angel over waters	1				
-angel standing in sun	1				
-angel standing on sea and land	1				
-angel who talked with Zechariah	1				
-angel who wrestled with Jacob	1	Male			
-angel, another (vision)	1				
-angel, another, coming down from heaven	1				
-angel, coming out of temple	1				
-angel, coming out of temple, another	1				
-angel, powerful	1				
-angels at Sodom, two	2	Male			
-angels in white, two	2	Male			
-angels, all the	-1				
-angels, many	-1				
-anger of the LORD	1	Male			Could be either God or David
-Anna, prophetess	1	Female			
-another disciple of John Baptist	1	Male			Became disciple of Jesus (not Andrew, Simon Peter, Philip, Nathanael, or Matthew)
-another holy one (in vision)	1				
-answer from Israel	1				
-anyone	1				
-anyone with complaint for king	1				
-Apollos	1	Male			
-apostles	11	Male			Not Judas Iscariot
-apostles, elders, and whole church at Jerusalem	-1				
-Aramean soldiers	-1	Male			
-Araunah, the Jebusite	1	Male			
-Arioch	1	Male			
-army cry	-1	Male			
-army officer, one of	1	Male			
-army officers	-1	Male			
-arrogant men	-1	Male			
-Artaxerxes, king of Persia	1	Male			
-Asa, king of Judah	1	Male			
-Asahel, brother of Joab	1	Male			
-Asaph	1	Male			
-assembly, whole	-1				
-astrologers	-1	Male			
-Athaliah, mother of Ahaziah (Queen)	1	Female			
-attendants to Xerxes, king	-1	Male			
-attendents of Phineas' wife	-1	Female			
-authorities, governing	-1	Male			
-authorities, Philippi	-1	Male			
+2 other disciples	2	Male	Adult		Not Peter (Simon), Thomas, Nathaniel, James, or John
+250 Israelite leaders	250	Male	Adult		
+a Jew	1	Male	Adult		
+Aaron	1	Male	Adult		
+Abednego	1	Male	Adult		original Hebrew name: Azariah
+Abigail	1	Female	Adult		
+Abijah, king of Judah	1	Male	Adult		
+Abimelech, king of Gerar	1	Male	Adult		
+Abimelech, king of the Philistines (in Gerar)	1	Male	Adult		
+Abimelech, son of Gideon (Jerubbaal)	1	Male	Adult		
+Abiram	1	Male	Adult		son of Eliab (Reubenite)
+Abishai, Joab's brother	1	Male	Adult		
+Abner, commander of Saul's army	1	Male	Adult		
+Abraham (Abram)	1	Male	Adult		
+Abraham's chief servant	1	Male	Adult		
+Absalom, son of David	1	Male	Adult		
+Absalom's men	-1	Male	Adult		
+Absalom's secret messengers	-1	Male	Adult		
+Achan	1	Male	Adult		
+Achish, king of Gath	1	Male	Adult		
+Achsah, Caleb's daughter	1	Female	Adult		
+Adam	1	Male	Adult		
+Adoni-Bezek	1	Male	Adult		
+Adonijah, son of David	1	Male	Adult		
+Adoni-Zedek, king of Jerusalem	1	Male	Adult		
+advisers to king	-1	Male	Adult		
+Agabus the prophet	1	Male	Adult		
+Agag, king of the Amalekites	1	Male	Adult		
+Ahab, king of Israel	1	Male	Adult		
+Ahaz, king of Judah	1	Male	Adult		
+Ahaziah, king of Israel	1	Male	Adult		
+Ahijah the priest	1	Male	Adult		
+Ahijah the prophet	1	Male	Adult		
+Ahimaaz (messenger)	1	Male	Adult		
+Ahimelech the priest (son of Ahitub)	1	Male	Adult		
+Ahithophel	1	Male	Adult		
+all in Nazareth synagogue	-1		Adult		
+all in temple	-1		Adult		
+all seeking God	-1		Adult		
+all the elders	-1	Male	Elder		elders of the church in Jerusalem
+all who heard (in synagogues)	-1		Adult		
+altar	1	Neuter	Adult		
+Amasa	1	Male	Adult		leader in Ephraim
+Amasai, chief of thirty	1	Male	Adult		
+Amaziah, king of Judah	1	Male	Adult		
+Amaziah, priest of Bethel	1	Male	Adult		
+Ammonite nobles	-1	Male	Adult		
+Amnon, son of David	1	Male	Adult		
+Amos	1	Male	Adult		
+Ananias (Annas), the high priest (father-in-law of Caiaphas)	1	Male	Elder		
+Ananias of Damascus	1	Male	Adult		
+Andrew	1	Male	Adult		
+angel (one of the seven)	1		Adult		
+angel flying directly overhead	1		Adult		
+angel flying directly overhead, second	1		Adult		
+angel flying directly overhead, third	1		Adult		
+angel of the LORD, an	1	Male	Adult		
+angel of the LORD, the	1	Male	Adult		Default speaker should be Jesus
+angel or messenger (Greek variant: someone speaking to John)	1		Adult		
+angel over waters	1		Adult		
+angel standing in sun	1		Adult		
+angel standing on sea and land	1		Adult		
+angel who talked with Zechariah	1		Adult		
+angel who wrestled with Jacob	1	Male	Adult		
+angel, another (vision)	1		Adult		
+angel, another, coming down from heaven	1		Adult		
+angel, coming out of temple	1		Adult		
+angel, coming out of temple, another	1		Adult		
+angel, powerful	1		Adult		
+angels at Sodom, two	2	Male	Adult		
+angels in white, two	2	Male	Adult		
+angels, all the	-1		Adult		
+angels, many	-1		Adult		
+Anna, prophetess	1	Female	Elder		
+another disciple of John Baptist	1	Male	Adult		Became disciple of Jesus (not Andrew, Simon Peter, Philip, Nathanael, or Matthew)
+another holy one (in vision)	1		Adult		
+answer from Israel	1		Adult		
+anyone	1		Adult		
+anyone with complaint for king	1		Adult		
+Apollos	1	Male	Adult		
+apostles	11	Male	Adult		Not Judas Iscariot
+apostles, elders, and whole church at Jerusalem	-1		Adult		
+Aramean soldiers	-1	Male	Adult		
+Araunah, the Jebusite	1	Male	Adult		
+Arioch	1	Male	Adult		
+army cry	-1	Male	Adult		
+army officer, one of	1	Male	Adult		
+army officers	-1	Male	Adult		
+arrogant men	-1	Male	Adult		
+Artaxerxes, king of Persia	1	Male	Adult		
+Asa, king of Judah	1	Male	Adult		
+Asahel, brother of Joab	1	Male	Adult		
+Asaph	1	Male	Adult		
+assembly, whole	-1		Adult		
+astrologers	-1	Male	Adult		
+Athaliah, mother of Ahaziah (Queen)	1	Female	Adult		
+attendants to Xerxes, king	-1	Male	Adult		
+attendents of Phineas' wife	-1	Female	Adult		
+authorities, governing	-1	Male	Adult		
+authorities, Philippi	-1	Male	Adult		
 Azariah the chief priest	1	Male			from the family of Zadok
 Azariah the priest	1	Male			(during reign of Uzziah)
 Azariah, son of Hoshaiah	1	Male			
 Azariah, son of Jehohanan	1	Male			leader in Ephraim
 Azariah, son of Oded	1	Male			
 Baanah	1	Male			
-Babylon	1				
-Balaam	1	Male			
-Balak	1	Male			
-Barak	1	Male			
-Barnabas	1	Male			
-Bartimaeus (a blind man)	1	Male			
-Baruch	1	Male			
-Barzillai	1	Male			Gileadite
-Bathsheba	1	Female			
-beast, the	1				
-believers who were Pharisees	-1	Male			
-believers, circumcised (in Jerusalem)	-1	Male			
-believers, one hundred twenty	120	PreferMale			Probably spoken by Peter or one of the other eleven disciples
-beloved	1	Female			
-Belshazzar, king of Babylon	1	Male			
+Babylon	1		Adult		
+Balaam	1	Male	Adult		
+Balak	1	Male	Adult		
+Barak	1	Male	Adult		
+Barnabas	1	Male	Adult		
+Bartimaeus (a blind man)	1	Male	Adult		
+Baruch	1	Male	Adult		
+Barzillai	1	Male	Adult		Gileadite
+Bathsheba	1	Female	Adult		
+beast, the	1		Adult		
+believers who were Pharisees	-1	Male	Adult		
+believers, circumcised (in Jerusalem)	-1	Male	Adult		
+believers, one hundred twenty	120	PreferMale	Adult		Probably spoken by Peter or one of the other eleven disciples
+beloved	1	Female	Adult		
+Belshazzar, king of Babylon	1	Male	Adult		
 Benaiah, son of Jehoiada	1	Male			
 Ben-Hadad, king of Aram	1	Male			
 Benjamin	1	Male			
@@ -131,98 +130,98 @@ Berekiah	1	Male			leader in Ephraim
 Bernice	1	Female			
 Beth Shemesh, men of	-1	Male			
 Beth Shemesh, messenger from	1	PreferMale			
-Bethlehem, elders of	-1	Male			
-Bethuel, Rebekah's father	1	Male			
+Bethlehem, elders of	-1	Male	Elder		
+Bethuel, Rebekah's father	1	Male	Adult		
 Bildad the Shuhite	1	Male			
 Birsha, king of Gomorrah	1	Male			
-blind man	1	Male			
-blind men, two	2	Male			
-Boaz	1	Male			
-Book of the Wars of the LORD	1	Neuter			
-bride, the (referring to the Church)	-1	PreferFemale			
-brothers at Antioch, the	-1	Male			
-brothers at Puteoli, some	-1	Male			
-brothers of beloved	-1	Male			
-bystanders at Calvary, some	-1				
-bystanders at Calvary, the rest	-1				
-Caesar Augustus	1	Male			
-Caiaphas, the high priest	1	Male			
-Cain	1	Male			
-Caleb	1	Male			
-Canaanite (Syrophoenician) mother of possessed girl	1	Female			
-Canaanites	-1				
-captain of the temple guard	1	Male			
-captain, first	1	Male			
-captain, second	1	Male			
-captain, ship to Italy (Rome)	1	Male			
-captain, ship to Tarshish	1	Male			
-captain, third	1	Male			
-captors, our	-1				
-centurion at crucifixion	1	Male			
-centurion at Paul's flogging	1	Male			
-centurion on ship with Paul	1	Male			
-centurion summoned by Pilate	1	Male			
-centurion with great faith	1	Male			
-centurion, one of the	1	Male			
-chariot commanders of Aram	-1	Male			
-chief baker of Egypt	1	Male			
-chief cupbearer of Egypt	1	Male			
+blind man	1	Male	Adult		
+blind men, two	2	Male	Adult		
+Boaz	1	Male	Adult		
+Book of the Wars of the LORD	1	Neuter	Adult		
+bride, the (referring to the Church)	-1	PreferFemale	Adult		
+brothers at Antioch, the	-1	Male	Adult		
+brothers at Puteoli, some	-1	Male	Adult		
+brothers of beloved	-1	Male	Adult		
+bystanders at Calvary, some	-1		Adult		
+bystanders at Calvary, the rest	-1		Adult		
+Caesar Augustus	1	Male	Adult		
+Caiaphas, the high priest	1	Male	Adult		
+Cain	1	Male	Adult		
+Caleb	1	Male	Adult		
+Canaanite (Syrophoenician) mother of possessed girl	1	Female	Adult		
+Canaanites	-1		Adult		
+captain of the temple guard	1	Male	Adult		
+captain, first	1	Male	Adult		
+captain, second	1	Male	Adult		
+captain, ship to Italy (Rome)	1	Male	Adult		
+captain, ship to Tarshish	1	Male	Adult		
+captain, third	1	Male	Adult		
+captors, our	-1		Adult		
+centurion at crucifixion	1	Male	Adult		
+centurion at Paul's flogging	1	Male	Adult		
+centurion on ship with Paul	1	Male	Adult		
+centurion summoned by Pilate	1	Male	Adult		
+centurion with great faith	1	Male	Adult		
+centurion, one of the	1	Male	Adult		
+chariot commanders of Aram	-1	Male	Adult		
+chief baker of Egypt	1	Male	Adult		
+chief cupbearer of Egypt	1	Male	Adult		
 chief official	1	Male			
 chief priests	-1	Male			
 chiefs of 10 tribes	10	Male			not Reuben, Gad, half tribe of Manasseh
 children	-1		Child		
 children of Zion (Jerusalem)	-1		Child		
-citizens of Shechem	-1				
-city clerk of Ephesus	1	Male			
-Cleopas	1	Male			
-Cleopas' companion (on road to Emmaus)	1	Either			
-collectors of temple tax	-1				
-commander of Roman troops in Jerusalem	1	Male			
-commander of the LORD's army	1	Male			Default character should be Jesus
-company of the prophets	-1				
-company of the prophets (Bethel)	-1				
-company of the prophets (Jericho)	-1				
+citizens of Shechem	-1		Adult		
+city clerk of Ephesus	1	Male	Adult		
+Cleopas	1	Male	Adult		
+Cleopas' companion (on road to Emmaus)	1	Either	Adult		
+collectors of temple tax	-1		Adult		
+commander of Roman troops in Jerusalem	1	Male	Adult		
+commander of the LORD's army	1	Male	Adult		Default character should be Jesus
+company of the prophets	-1		Adult		
+company of the prophets (Bethel)	-1		Adult		
+company of the prophets (Jericho)	-1		Adult		
 company of the prophets, one of (the LORD says) (young man)	1	Male	YoungAdult		
 company of the prophets, one of (young man)	1	Male	YoungAdult		
-conquerors of beast, image & his name	-1				
-conquerors of Lo Debar	-1	Male			
-Cornelius	1	Male			
-council of elders	-1	Male			
-craftsman	1	Male			
-craftsmen and workmen	-1	Male			
+conquerors of beast, image & his name	-1		Adult		
+conquerors of Lo Debar	-1	Male	Adult		
+Cornelius	1	Male	Adult		
+council of elders	-1	Male	Elder		
+craftsman	1	Male	Adult		
+craftsmen and workmen	-1	Male	Adult		
 Cretan prophet	1	Male			
-criminal on cross, insulting	1	Male			
-criminal on cross, repentant	1	Male			
-crippled man	1	Male			
-crowd	-1				
-crowd after mute healed	-1				
-crowd at Festival of Tabernacles in Jerusalem, many in the	-1				
-crowd at Festival of Tabernacles in Jerusalem, others	-1				
-crowd at Festival of Tabernacles in Jerusalem, some	-1				
-crowd at Festival of Tabernacles in Jerusalem, still others	-1				
-crowd at Festival of Tabernacles in Jerusalem, the	-1				
-crowd at Jericho	-1				
-crowd before Pilate	-1				
-crowd in Jerusalem	-1				
-crowd in Jerusalem on Pentecost	-1				
-crowd in Lystra	-1				
-crowd near sea of Galilee	-1				
-crowd preparing for Passover Feast	-1				
-crowd preparing for Passover Feast, others	-1				
-crowd, large (witnessed healing of widow's son)	-1				
-crowd, many in the	-1				
-crowd, some in	-1				
-cured man, blind from birth	1	Male			
-Cyrus, king of Persia	1	Male			
-Dan	1	Male			
-Daniel	1	Male			
-Danites	-1				
-Darius, king	1	Male			
-Darius, king of Medes and Persians	1	Male			
+criminal on cross, insulting	1	Male	Adult		
+criminal on cross, repentant	1	Male	Adult		
+crippled man	1	Male	Adult		
+crowd	-1		Adult		
+crowd after mute healed	-1		Adult		
+crowd at Festival of Tabernacles in Jerusalem, many in the	-1		Adult		
+crowd at Festival of Tabernacles in Jerusalem, others	-1		Adult		
+crowd at Festival of Tabernacles in Jerusalem, some	-1		Adult		
+crowd at Festival of Tabernacles in Jerusalem, still others	-1		Adult		
+crowd at Festival of Tabernacles in Jerusalem, the	-1		Adult		
+crowd at Jericho	-1		Adult		
+crowd before Pilate	-1		Adult		
+crowd in Jerusalem	-1		Adult		
+crowd in Jerusalem on Pentecost	-1		Adult		
+crowd in Lystra	-1		Adult		
+crowd near sea of Galilee	-1		Adult		
+crowd preparing for Passover Feast	-1		Adult		
+crowd preparing for Passover Feast, others	-1		Adult		
+crowd, large (witnessed healing of widow's son)	-1		Adult		
+crowd, many in the	-1		Adult		
+crowd, some in	-1		Adult		
+cured man, blind from birth	1	Male	Adult		
+Cyrus, king of Persia	1	Male	Adult		
+Dan	1	Male	Adult		
+Daniel	1	Male	Adult		
+Danites	-1		Adult		
+Darius, king	1	Male	Adult		
+Darius, king of Medes and Persians	1	Male	Adult		
 Dathan	1	Male			son of Eliab (Reubenite)
 daughter of Zion	1	Female			
 daughters of Zelophehad	-1	Female			
-David	1	Male			
+David	1	Male	Adult		
 David (old)	1	Male	Elder		
 David's enemies	-1	Male			
 David's men	-1	Male			
@@ -258,15 +257,15 @@ Egyptians, all the	-1
 Ehud, Israelite deliverer	1	Male			
 eighty other priests	80	Male			
 Ekron, people of	-1				
-elders	-1	Male			
-elders of Israel	-1	Male			
-elders of the Jews	-1	Male			
-elders of the land	-1	Male			
-elders, Ephesian	-1	Male			
-elders, one of the	1	Male			
-Eleazar the priest, son of Aaron	1	Male			
-Eleven	11	Male			This should be spoken by one of the 11 disciples (excluding Judas Iscariot). The wording suggests that it was not Simon Peter.
-Eli	1	Male			
+elders	-1	Male	Elder		
+elders of Israel	-1	Male	Elder		
+elders of the Jews	-1	Male	Elder		
+elders of the land	-1	Male	Elder		
+elders, Ephesian	-1	Male	Elder		
+elders, one of the	1	Male	Elder		
+Eleazar the priest, son of Aaron	1	Male	Adult		
+Eleven	11	Male	Adult		This should be spoken by one of the 11 disciples (excluding Judas Iscariot). The wording suggests that it was not Simon Peter.
+Eli	1	Male	Adult		
 Eli (very old)	1	Male	Elder		
 Eliab, David's brother	1	Male			
 Eliakim	1	Male			
@@ -274,11 +273,11 @@ Eliezer, prophet of the Lord	1	Male
 Elihu, son of Barakel	1	Male			
 Elijah	1	Male			
 Eliphaz the Temanite	1	Male			
-Elisha	1	Male			
+Elisha	1	Male	Adult		
 Elisha (old)	1	Male	Elder		
 Elishama	1	Male			scribe
 Elisha's messenger	1				
-Elizabeth	1	Female			
+Elizabeth	1	Female	Elder		
 Elkanah	1	Male			
 Elnathan	1	Male			son of Achbor
 enemies of God	-1				
@@ -293,10 +292,10 @@ Epicurean and Stoic philosophers, interested	-1
 Epicurean and Stoic philosophers, other	-1				
 Epicurean and Stoic philosophers, sneering	-1				
 Epicurean and Stoic philosophers, some	-1				
-Esau	1	Male			
-Esther, queen	1	Female			
+Esau	1	Male	Adult		
+Esther, queen	1	Female	Adult		
 Ethiopian officer of Queen Candace	1	Male			
-Eve	1	Female			
+Eve	1	Female	Adult		
 every created thing	-1				
 everyone	-1				
 everyone in Judean hills who heard	-1				
@@ -322,7 +321,7 @@ father of cured man, blind from birth	1	Male
 father of demon-possessed boy	1	Male			
 Felix, governor of Judea	1	Male			
 Festus, governor of Judea	1	Male			
-Field commander from King of Assyria	1	Male			
+field commander from king of Assyria	1	Male			
 figure like that of a man (in vision of God)	1	Male			Default character should be Jesus
 flatterers	-1				
 follower of Apollos	1				
@@ -333,7 +332,7 @@ followers of Jesus	-1
 fool	1				
 foot	1	Neuter			
 foreman	1	Male			
-fortune telling slave girl	1	Female			
+fortune telling slave girl	1	Female	YoungAdult		
 four living creatures	4				
 friends of Haman	-1	PreferMale			
 Gaal, son of Ebed	1	Male			
@@ -356,14 +355,13 @@ Gideon (Jerubbaal)	1	Male
 Gilead, elders of	-1	Male			
 Gilead, leaders of	-1	Male			
 Gilead, men of	-1	Male			
-girls	-1	Female			
 God	1	Male		Y	
-Goliath, Philistine champion	1	Male			
+Goliath, Philistine champion	1	Male	Adult		
 Good Priest	1	Male			Many quotes resolve to this pseudo-character by default
-great company of heavenly host	-1				
+great company of heavenly host	-1		Adult		
 Grecian Jews	-1				
 Greeks	-1				
-guards at high priests' house	-1	Male			
+guards at high priests' house	-1	Male	Adult		
 Habakkuk	1	Male			
 Hadad the Edomite	1	Male			
 Hagar, Sarai's maid	1	Female			
@@ -400,9 +398,9 @@ Hittites	-1
 Hobab, Moses brother-in-law	1	Male			
 holy one (in vision)	1				
 Holy Spirit, the	1	Male		Y	
-Horseman, first	1	Male			
-Horseman, second	1	Male			
-Horses (in vision)	-1				
+horseman, first	1	Male			
+horseman, second	1	Male			
+horses (in vision)	-1	Neuter			
 Hosea	1	Male			
 house of Aaron, the	-1	Male			
 Huldah, prophetess	1	Female			
@@ -417,7 +415,7 @@ inscription on forehead of Babylon	1	PreferFemale
 invaders	-1	Male			
 invalid for 38 years	1	Male			
 Irijah, captain of the guard of Judah	1	Male			
-Isaac	1	Male			
+Isaac	1	Male	Adult		
 Isaac (old)	1	Male	Elder		
 Isaiah	1	Male			
 Ish-Bosheth, son of Saul	1	Male			
@@ -430,20 +428,20 @@ Israel, leaders of	-1	Male
 Israel, men of	-1	Male			
 Israelite army commanding officers	-1	Male			
 Israelite assembly	-1				
-Israelite assembly, elders of	-1	Male			
+Israelite assembly, elders of	-1	Male	Elder		
 Israelite community	-1				
 Israelite fighting men	-1	Male			
-Israelite foreman	1	Male			
-Israelites (soldiers)	-1	Male			
+Israelite foremen	-1	Male			
 Israelite officers	-1	Male			
 Israelite soldier in Saul's army	1	Male			
 Israelite spies from house of Joseph	-1	Male			
 Israelite spies from Joshua, two men	2	Male			
 Israelites	-1				
 Israelites (excluding Benjamites)	-1				
+Israelites (soldiers)	-1	Male			
 Israelites, some	-1				
 Ittai	1	Male			
-Jabesh, elders of	-1	Male			
+Jabesh, elders of	-1	Male	Elder		
 Jabesh, men of	-1	Male			
 Jabez	1	Male			
 Jabez's mother	1	Female			
@@ -475,7 +473,7 @@ Jeremiah's enemies	-1	Male
 Jeroboam	1	Male			
 Jeshua	1	Male			
 Jesse	1	Male			
-Jesus	1	Male		Y	
+Jesus	1	Male	Adult	Y	
 Jesus (child)	1	Male	Child	Y	youth (12)
 Jesus' brothers	4	Male			
 Jesus' family	-1				
@@ -516,7 +514,7 @@ Joseph	1	Male
 Joseph of Arimathea	1	Male			
 Joseph, people of	1				
 Joseph's brothers	11	Male			Different from Jacob's sons because it cannot be Joseph
-Joshua	1	Male			
+Joshua	1	Male	Adult		
 Joshua (old)	1	Male	Elder		
 Josiah, king of Judah	1	Male			
 Jotham, son of Gideon (Jerubbaal)	1	Male			
@@ -528,13 +526,13 @@ Judaizers	-1	Male
 Judas Iscariot	1	Male			
 Judas, apostle (not Judas Iscariot)	1	Male			
 King Herod Agrippa II	1	Male			
-King of Ammonites	1	Male			
-King of Aram	1	Male			
-King of Assyria	1	Male			
-King of Babylon	1	Male			
+king of Ammonites	1	Male			
+king of Aram	1	Male			
+king of Assyria	1	Male			
+king of Babylon	1	Male			
 king of Bela	1	Male			
-King of Jericho	1	Male			
-King of Nineveh	1	Male			
+king of Jericho	1	Male			
+king of Nineveh	1	Male			
 kings of the earth	-1	Male			
 kings over the nations	-1	Male			
 kings, princes, generals, rich, powerful, slave and free	-1	Male			
@@ -570,7 +568,7 @@ Macedonian	1	Male
 magi (wise men from East)	-1	Male			
 magicians	-1				
 magistrates, chief	-1	Male			
-maidens	-1	Female			
+maidens	-1	Female	YoungAdult		
 Makir	1	Male			son of Ammiel from Lo Debar
 Malta islanders	-1				
 man (at Shechem)	1	Male			
@@ -613,8 +611,9 @@ master of the banquet	1	Male
 Melchizedek, king of Salem (priest of God Most High)	1	Male			
 Memucan, noble advisor to Xerxes, king	1	Male			
 men	-1	Male			
+men (soldiers) standing near David	-1	Male			
 men appointed to sing and praise	-1	Male			
-men dressed in white, two (angels)	2	Male			
+men dressed in white, two (angels)	2	Male	Adult		
 men from Cornelius	3	Male			
 men from Jairus' house	-1	Male			
 men from Judea, some	-1	Male			
@@ -632,7 +631,6 @@ men of Gerar	-1	Male
 men of Jabesh	-1				
 men of Jericho	-1	Male			
 men of Sodom (wicked)	-1	Male			
-men (soldiers) standing near David	-1	Male			
 men who have gone astray	-1	Male			
 men with leprosy, four	4	Male			
 men, large force of	-1	Male			
@@ -651,7 +649,7 @@ messenger from guardians of Ahab's children	1	Male
 messenger of Ahab, king of Israel	1	Male			
 messenger to Abraham	1	Male			
 messenger to David	1	Male			
-messenger to King of Jericho	1	Male			
+messenger to king of Jericho	1	Male			
 messenger to Saul	1	Male			
 messenger, another	1				
 messenger, Cushite	1				
@@ -676,7 +674,7 @@ Midianite soldier who had a dream	1	Male
 Midianite soldier who interprets dream	1	Male			
 midwife of Rachel	1	Female			
 midwife of Tamar, daughter-in-law of Judah	1	Female			
-Miriam	1	Female			
+Miriam	1	Female	Adult		
 Miriam (young)	1	Female	Child		
 Moabite officials	-1	Male			
 Moabite officials, more distinguished	-1	Male			
@@ -713,7 +711,7 @@ news giver to Jacob	1
 news giver to Joseph	1				
 news to Pharoah's palace	1				
 Nicodemus	1	Male			
-Ninevah	-1				
+Nineveh	-1				
 no one	1				
 no one says	1				
 Noah	1	Male			
@@ -725,7 +723,7 @@ officer of King Jehoshaphat of Israel	1	Male
 officer of King Joram of Israel	1	Male			
 officer of king of Israel, on whose arm the king leaned	1	Male			
 officers	-1	Male			
-officers of King of Aram	-1	Male			
+officers of king of Aram	-1	Male			
 officers of magistrates	-1	Male			
 officers of temple guard	-1	Male			
 official, royal (father)	1	Male			
@@ -804,7 +802,7 @@ person who informed townsmen of Ophrah	1
 person who told David about Philistines	1				
 person who told David of Nathan's arrival	1				
 person who told Joshua where the kings were hiding	1				
-person who told King of Aram of Elisha's arrival	1				
+person who told king of Aram of Elisha's arrival	1				
 person who told Samuel where Saul was	1				
 person who told Saul where David was	1				
 person who told Shimei where his servants were	1				
@@ -870,8 +868,8 @@ relative	1	Male
 relatives of Ahaziah, king of Judah	-1				
 reply to the slain believers (in heavenly vision)	1				
 report concerning Paul	1				
-report to King of Aram	1				
-report to King of Assyria	1				
+report to king of Aram	1				
+report to king of Assyria	1				
 rest of heads of families	-1	Male			
 Reuben	1	Male			
 Reubenites	-1	Male			
@@ -889,13 +887,13 @@ Samson	1	Male
 Samson's 30 Philistine companions	30	Male			
 Samson's father-in-law	1	Male			
 Samson's Philistine wife	1	Female			
-Samuel	1	Male			
+Samuel	1	Male	Adult		
 Samuel (boy)	1	Male	Child		
 Samuel (dead)	1	Male	Elder		
 Sanballat the Horonite	1	Male			
 Sanhedrin	-1	Male			
 Sapphira, wife of Ananias of Jerusalem	1	Female			
-Sarah (Sarai)	1	Female			
+Sarah (Sarai)	1	Female	Adult		
 Sarah (Sarai) (old)	1	Female	Elder		
 Satan (Devil)	1	Male			
 satraps	-1	Male			
@@ -923,7 +921,7 @@ scoffers	-1
 scoundrels	-1				
 scouts of Ben-Hadad, king of Aram	-1	Male			
 scripture	1				
-sea	1				
+sea	1	Neuter			
 sea captains, seafarers, sailors	-1	Male			
 second person to accuse Peter (man)	1	Male			
 Sennacherib, king of Assyria	1	Male			
@@ -931,7 +929,7 @@ Sennacherib's messengers	-1	Male
 Sennacherib's officers	-1	Male			
 seraph, one of the	1				
 seraphs	-1				
-serpent	1				
+serpent	1	Male			Gen 3 - text uses masculine pronouns
 servant girl at high priest's courtyard	1	Female			
 servant girl, another	1	Female			
 servant of concubine's husband	1				
@@ -977,13 +975,13 @@ singers from the ends of the earth	-1
 singers, and relatives	-1				
 sinners	-1				
 Sisera	1	Male			
-slave driver	1				
+slave drivers, Egyptian	-1	Male	Adult		
 slave girls	-1	Female			
-soldier at the cross	1	Male			
-soldiers	-1	Male			
-soldiers, Assyrian	-1	Male			
-soldiers, Roman	-1	Male			
-soldiers, some (near Jordan River)	-1	Male			
+soldier at the cross	1	Male	Adult		
+soldiers	-1	Male	Adult		
+soldiers, Assyrian	-1	Male	Adult		
+soldiers, Roman	-1	Male	Adult		
+soldiers, some (near Jordan River)	-1	Male	Adult		
 Solomon, king	1	Male			
 some people (quoted by Paul)	-1				
 someone	-1				
@@ -1036,6 +1034,7 @@ twenty-four elders	24	Male
 unbeliever who comes under conviction	1				
 unbelievers	-1				
 Uriah	1	Male			
+voice (God?)	1	PreferMale			
 voice behind you	1	PreferMale			
 voice from altar	1				
 voice from among living creatures	1				
@@ -1050,7 +1049,6 @@ voice of great crowd in heaven, loud	-1
 voice of great crowd, like roar of many waters, loud thunderclaps	-1				
 voice of one calling (preparing way for Christ)	1				
 voice of one speaking (in vision of God)	1				
-voice (God?)	1	PreferMale			
 voices in heaven, loud	-1				
 warriors from Zorah and Eshtaol, five	5	Male			
 watchman	1	Male			
@@ -1090,6 +1088,7 @@ you (rebellious people)	-1
 you ought to say	1				
 young man	1	Male	YoungAdult		
 young men (advisors of Rehoboam)	-1	Male	YoungAdult		
+young women (maidens)	-1	Female	YoungAdult		
 youths	-1		YoungAdult		
 Zaccheaus	1	Male			
 Zacharias (Zechariah)	1	Male			

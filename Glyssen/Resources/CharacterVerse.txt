@@ -245,17 +245,17 @@ GEN	19	32	older daughter of Lot			Normal
 GEN	19	34	older daughter of Lot			Normal		
 GEN	20	2	Abraham (Abram)			Normal		
 GEN	20	3	God		God (LORD came in dream at night)	Normal		
-GEN	20	4	Abimelech, King of Gerar			Normal		
-GEN	20	5	Abimelech, King of Gerar			Normal		
+GEN	20	4	Abimelech, king of Gerar			Normal		
+GEN	20	5	Abimelech, king of Gerar			Normal		
 GEN	20	6	God		God (LORD came in dream at night)	Normal		
 GEN	20	7	God		God (LORD came in dream at night)	Normal		
-GEN	20	9	Abimelech, King of Gerar			Normal		
-GEN	20	10	Abimelech, King of Gerar			Normal		
+GEN	20	9	Abimelech, king of Gerar			Normal		
+GEN	20	10	Abimelech, king of Gerar			Normal		
 GEN	20	11	Abraham (Abram)			Normal		
 GEN	20	12	Abraham (Abram)			Normal		
 GEN	20	13	Abraham (Abram)			Normal		
-GEN	20	15	Abimelech, King of Gerar			Normal		
-GEN	20	16	Abimelech, King of Gerar			Normal		
+GEN	20	15	Abimelech, king of Gerar			Normal		
+GEN	20	16	Abimelech, king of Gerar			Normal		
 GEN	21	6	Sarah (Sarai) (old)			Normal		
 GEN	21	7	Sarah (Sarai) (old)			Normal		
 GEN	21	10	Sarah (Sarai) (old)			Normal		
@@ -264,11 +264,11 @@ GEN	21	13	God		God (the LORD)	Normal
 GEN	21	16	Hagar, Sarai's maid			Normal		
 GEN	21	17	angel of the LORD, the		angel of God, the	Normal	Jesus	
 GEN	21	18	angel of the LORD, the		angel of God, the	Normal	Jesus	
-GEN	21	22	Abimelech, King of Gerar/Phicol		Abimelech and Phicol	Normal		
-GEN	21	23	Abimelech, King of Gerar/Phicol		Abimelech and Phicol	Normal		
+GEN	21	22	Abimelech, king of Gerar/Phicol		Abimelech and Phicol	Normal		
+GEN	21	23	Abimelech, king of Gerar/Phicol		Abimelech and Phicol	Normal		
 GEN	21	24	Abraham (Abram)			Normal		
-GEN	21	26	Abimelech, King of Gerar		Abimelech	Normal		
-GEN	21	29	Abimelech, King of Gerar		Abimelech	Normal		
+GEN	21	26	Abimelech, king of Gerar		Abimelech	Normal		
+GEN	21	29	Abimelech, king of Gerar		Abimelech	Normal		
 GEN	21	30	Abraham (Abram)			Normal		
 GEN	22	1	Abraham (Abram)			Normal		
 GEN	22	1	God		God (the LORD)	Normal		
@@ -358,17 +358,17 @@ GEN	26	7	Isaac	deceiving		Normal
 GEN	26	7	Isaac	afraid to say		Hypothetical	narrator-GEN	
 GEN	26	7	Isaac	thought		Normal		
 GEN	26	7	narrator-GEN			Hypothetical		
-GEN	26	9	Abimelech, King of the Philistines (in Gerar)		Abimelech, King of the Philistines	Normal		
+GEN	26	9	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
 GEN	26	9	Isaac			Normal		
-GEN	26	10	Abimelech, King of the Philistines (in Gerar)		Abimelech, King of the Philistines	Normal		
-GEN	26	11	Abimelech, King of the Philistines (in Gerar)		Abimelech, King of the Philistines	Normal		
-GEN	26	16	Abimelech, King of the Philistines (in Gerar)		Abimelech, King of the Philistines	Normal		
+GEN	26	10	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
+GEN	26	11	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
+GEN	26	16	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
 GEN	26	20	herdsman	angry, quarreling		Normal		
 GEN	26	22	Isaac			Normal		
 GEN	26	24	God		God (LORD appeared at night)	Normal		
 GEN	26	27	Isaac			Normal		
-GEN	26	28	Abimelech, King of the Philistines (in Gerar)		Abimelech, King of the Philistines	Normal		
-GEN	26	29	Abimelech, King of the Philistines (in Gerar)		Abimelech, King of the Philistines	Normal		
+GEN	26	28	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
+GEN	26	29	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
 GEN	26	32	servants of Isaac			Normal		
 GEN	27	1	Esau			Normal		
 GEN	27	1	Isaac (old)			Normal		
@@ -953,16 +953,16 @@ EXO	5	5	Pharaoh (3rd)		Pharaoh	Normal
 EXO	5	7	Pharaoh (3rd)		Pharaoh	Normal		
 EXO	5	8	Pharaoh (3rd)		Pharaoh	Normal		
 EXO	5	9	Pharaoh (3rd)		Pharaoh	Normal		
-EXO	5	10	slave driver			Normal		
-EXO	5	11	slave driver			Normal		
-EXO	5	13	slave driver			Normal		
-EXO	5	14	slave driver			Normal		
-EXO	5	15	Israelite foreman			Normal		
-EXO	5	16	Israelite foreman			Normal		
+EXO	5	10	slave drivers, Egyptian			Normal		
+EXO	5	11	slave drivers, Egyptian			Normal		
+EXO	5	13	slave drivers, Egyptian			Normal		
+EXO	5	14	slave drivers, Egyptian			Normal		
+EXO	5	15	Israelite foremen			Normal		
+EXO	5	16	Israelite foremen			Normal		
 EXO	5	17	Pharaoh (3rd)		Pharaoh	Normal		
 EXO	5	18	Pharaoh (3rd)		Pharaoh	Normal		
 EXO	5	19	Pharaoh (3rd)		Pharaoh	Quotation		
-EXO	5	21	Israelite foreman			Normal		
+EXO	5	21	Israelite foremen			Normal		
 EXO	5	22	Moses			Normal		
 EXO	5	23	Moses			Normal		
 EXO	6	1	God		God (the LORD)	Normal		
@@ -3431,8 +3431,8 @@ JOS	1	16	Reubenites/Gadites/half-tribe of Manasseh			Normal
 JOS	1	17	Reubenites/Gadites/half-tribe of Manasseh			Normal		
 JOS	1	18	Reubenites/Gadites/half-tribe of Manasseh			Normal		
 JOS	2	1	Joshua			Normal		
-JOS	2	2	messenger to King of Jericho			Normal		
-JOS	2	3	King of Jericho			Normal		
+JOS	2	2	messenger to king of Jericho			Normal		
+JOS	2	3	king of Jericho			Normal		
 JOS	2	4	Rahab			Normal		
 JOS	2	5	Rahab			Normal		
 JOS	2	9	Rahab			Normal		
@@ -3556,7 +3556,7 @@ JOS	14	11	Caleb			Normal
 JOS	14	12	Caleb			Normal		
 JOS	15	16	Caleb			Normal		
 JOS	15	18	Caleb			Normal		
-JOS	15	19	Acsah, Caleb's daughter			Normal		
+JOS	15	19	Achsah, Caleb's daughter			Normal		
 JOS	17	4	daughters of Zelophehad		Mahlah/Noah/Hoglah/Milcah/Tirzah, daughters of Zelophehad	Normal		
 JOS	17	14	Joseph, people of			Normal		
 JOS	17	15	Joshua			Normal		
@@ -3640,9 +3640,9 @@ JDG	1	2	God		God (the LORD)	Normal
 JDG	1	3	Judah, men of			Normal		
 JDG	1	7	Adoni-Bezek			Normal		
 JDG	1	12	Caleb			Normal		
-JDG	1	14	Acsah, Caleb's daughter			Indirect		
+JDG	1	14	Achsah, Caleb's daughter			Indirect		
 JDG	1	14	Caleb			Normal		
-JDG	1	15	Acsah, Caleb's daughter			Normal		
+JDG	1	15	Achsah, Caleb's daughter			Normal		
 JDG	1	24	Israelite spies from house of Joseph			Normal		
 JDG	2	1	angel of the LORD, the			Normal	Jesus	
 JDG	2	2	angel of the LORD, the			Normal	Jesus	
@@ -3790,7 +3790,7 @@ JDG	11	8	Gilead, elders of			Normal
 JDG	11	9	Jephthah			Normal		
 JDG	11	10	Gilead, elders of			Normal		
 JDG	11	12	Jephthah			Normal		
-JDG	11	13	King of Ammonites			Normal		
+JDG	11	13	king of Ammonites			Normal		
 JDG	11	15	messengers from Jephthah			Normal		
 JDG	11	16	messengers from Jephthah			Normal		
 JDG	11	17	messengers from Jephthah			Normal		
@@ -4134,8 +4134,8 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	9	9	saying about seer			Normal		
 1SA	9	10	Saul			Normal		
 1SA	9	11	Saul/Saul's servant			Normal	Saul	
-1SA	9	12	girls			Normal		
-1SA	9	13	girls			Normal		
+1SA	9	12	young women (maidens)			Normal		
+1SA	9	13	young women (maidens)			Normal		
 1SA	9	16	God		God (the LORD)	Normal		
 1SA	9	17	God		God (the LORD)	Normal		
 1SA	9	18	Saul			Normal		
@@ -4973,7 +4973,8 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	23	7	David		David, king	Normal		
 2SA	23	15	David		David, king	Normal		
 2SA	23	17	David		David, king	Normal		
-2SA	24	1	anger of the LORD			Normal		
+2SA	24	1	God			Normal		
+2SA	24	1	David			Normal		
 2SA	24	2	David		David, king	Normal		
 2SA	24	3	Joab			Normal		
 2SA	24	10	David		David, king	Normal		
@@ -5375,7 +5376,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	22	27	Ahab, king of Israel			Normal		
 1KI	22	28	Micaiah, prophet of the LORD			Normal		
 1KI	22	30	Ahab, king of Israel			Normal		
-1KI	22	31	King of Aram			Normal		
+1KI	22	31	king of Aram			Normal		
 1KI	22	32	chariot commanders of Aram	thought		Normal		
 1KI	22	34	Ahab, king of Israel			Normal		
 1KI	22	36	army cry			Normal		
@@ -5508,9 +5509,9 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	6	8	Ben-Hadad, king of Aram			Normal		
 2KI	6	9	Elisha			Normal		
 2KI	6	11	Ben-Hadad, king of Aram			Normal		
-2KI	6	12	officers of King of Aram			Normal		
+2KI	6	12	officers of king of Aram			Normal		
 2KI	6	13	Ben-Hadad, king of Aram			Normal		
-2KI	6	13	report to King of Aram			Normal		
+2KI	6	13	report to king of Aram			Normal		
 2KI	6	15	Gehazi		Elisha's servant	Normal		
 2KI	6	16	Elisha			Normal		
 2KI	6	17	Elisha			Normal		
@@ -5545,7 +5546,7 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	8	4	Joram, king of Israel			Normal		
 2KI	8	5	Gehazi		Gehazi, servant of Elisha	Normal		
 2KI	8	6	Joram, king of Israel			Normal		
-2KI	8	7	person who told King of Aram of Elisha's arrival			Normal		
+2KI	8	7	person who told king of Aram of Elisha's arrival			Normal		
 2KI	8	8	Ben-Hadad, king of Aram			Normal		
 2KI	8	9	Hazael of Aram			Normal		
 2KI	8	10	Elisha			Normal		
@@ -5573,10 +5574,10 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	9	15	Jehu, son of Nimshi			Normal		
 2KI	9	17	Joram, king of Israel			Normal		
 2KI	9	17	lookout in Jezreel			Normal		
-2KI	9	18	Horseman, first			Normal		
+2KI	9	18	horseman, first			Normal		
 2KI	9	18	Jehu, son of Nimshi			Normal		
 2KI	9	18	lookout in Jezreel			Normal		
-2KI	9	19	Horseman, second			Normal		
+2KI	9	19	horseman, second			Normal		
 2KI	9	19	Jehu, son of Nimshi			Normal		
 2KI	9	20	lookout in Jezreel			Normal		
 2KI	9	21	Joram, king of Israel			Normal		
@@ -5641,31 +5642,31 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	17	12	God		God (the LORD)	Quotation		
 2KI	17	13	God		God (the LORD) had warned through prophets and seers	Quotation		
 2KI	17	15	God		God (the LORD)	Quotation		
-2KI	17	26	report to King of Assyria			Normal		
-2KI	17	27	King of Assyria			Normal		
+2KI	17	26	report to king of Assyria			Normal		
+2KI	17	27	king of Assyria			Normal		
 2KI	17	35	God		God (the LORD), commandment of	Normal		
 2KI	17	36	God		God (the LORD), commandment of	Normal		
 2KI	17	37	God		God (the LORD), commandment of	Normal		
 2KI	17	38	God		God (the LORD), commandment of	Normal		
 2KI	17	39	God		God (the LORD), commandment of	Normal		
 2KI	18	14	Hezekiah, king of Judah			Normal		
-2KI	18	19	Field commander from King of Assyria			Normal		
-2KI	18	20	Field commander from King of Assyria			Normal		
-2KI	18	21	Field commander from King of Assyria			Normal		
-2KI	18	22	Field commander from King of Assyria			Normal		
-2KI	18	23	Field commander from King of Assyria			Normal		
-2KI	18	24	Field commander from King of Assyria			Normal		
-2KI	18	25	Field commander from King of Assyria			Normal		
+2KI	18	19	field commander from king of Assyria			Normal		
+2KI	18	20	field commander from king of Assyria			Normal		
+2KI	18	21	field commander from king of Assyria			Normal		
+2KI	18	22	field commander from king of Assyria			Normal		
+2KI	18	23	field commander from king of Assyria			Normal		
+2KI	18	24	field commander from king of Assyria			Normal		
+2KI	18	25	field commander from king of Assyria			Normal		
 2KI	18	26	Eliakim/Shebna/Joah			Normal	Eliakim	
-2KI	18	27	Field commander from King of Assyria			Normal		
-2KI	18	28	Field commander from King of Assyria			Normal		
-2KI	18	29	Field commander from King of Assyria			Normal		
-2KI	18	30	Field commander from King of Assyria			Normal		
-2KI	18	31	Field commander from King of Assyria			Normal		
-2KI	18	32	Field commander from King of Assyria			Normal		
-2KI	18	33	Field commander from King of Assyria			Normal		
-2KI	18	34	Field commander from King of Assyria			Normal		
-2KI	18	35	Field commander from King of Assyria			Normal		
+2KI	18	27	field commander from king of Assyria			Normal		
+2KI	18	28	field commander from king of Assyria			Normal		
+2KI	18	29	field commander from king of Assyria			Normal		
+2KI	18	30	field commander from king of Assyria			Normal		
+2KI	18	31	field commander from king of Assyria			Normal		
+2KI	18	32	field commander from king of Assyria			Normal		
+2KI	18	33	field commander from king of Assyria			Normal		
+2KI	18	34	field commander from king of Assyria			Normal		
+2KI	18	35	field commander from king of Assyria			Normal		
 2KI	18	36	Hezekiah, king of Judah			Normal		
 2KI	19	3	Eliakim/Shebna/chief priests			Normal	Eliakim	
 2KI	19	4	Eliakim/Shebna/chief priests			Normal	Eliakim	
@@ -6027,7 +6028,7 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	18	26	Ahab, king of Israel			Normal		
 2CH	18	27	Micaiah, prophet of the LORD			Normal		
 2CH	18	29	Ahab, king of Israel			Normal		
-2CH	18	30	King of Aram	commanding		Normal		
+2CH	18	30	king of Aram	commanding		Normal		
 2CH	18	31	chariot commanders of Aram	thought		Normal		
 2CH	18	33	Ahab, king of Israel			Normal		
 2CH	19	2	Jehu, son of Hanani			Normal		
@@ -7870,8 +7871,8 @@ ISA	12	5	Israel			Hypothetical
 ISA	12	6	Israel			Hypothetical		
 ISA	14	8	pine trees and cedars of Lebanon			Hypothetical		
 ISA	14	10	kings over the nations			Hypothetical		
-ISA	14	13	King of Babylon			Quotation		
-ISA	14	14	King of Babylon			Quotation		
+ISA	14	13	king of Babylon			Quotation		
+ISA	14	14	king of Babylon			Quotation		
 ISA	14	16	onlookers			Hypothetical		
 ISA	14	17	onlookers			Hypothetical		
 ISA	14	22	God		God (the LORD Almighty)	Normal		
@@ -7979,23 +7980,23 @@ ISA	33	14	sinners			Hypothetical
 ISA	33	18	you (hypothetical)	thinking		Hypothetical		
 ISA	33	24	narrator-ISA			Hypothetical		
 ISA	35	4	narrator-ISA			Hypothetical		
-ISA	36	4	Field commander from King of Assyria			Normal		
-ISA	36	5	Field commander from King of Assyria			Normal		
-ISA	36	6	Field commander from King of Assyria			Normal		
-ISA	36	7	Field commander from King of Assyria			Normal		
-ISA	36	8	Field commander from King of Assyria			Normal		
-ISA	36	9	Field commander from King of Assyria			Normal		
-ISA	36	10	Field commander from King of Assyria			Normal		
+ISA	36	4	field commander from king of Assyria			Normal		
+ISA	36	5	field commander from king of Assyria			Normal		
+ISA	36	6	field commander from king of Assyria			Normal		
+ISA	36	7	field commander from king of Assyria			Normal		
+ISA	36	8	field commander from king of Assyria			Normal		
+ISA	36	9	field commander from king of Assyria			Normal		
+ISA	36	10	field commander from king of Assyria			Normal		
 ISA	36	11	Eliakim/Shebna/Joah			Normal	Eliakim	
-ISA	36	12	Field commander from King of Assyria			Normal		
-ISA	36	13	Field commander from King of Assyria			Normal		
-ISA	36	14	Field commander from King of Assyria			Normal		
-ISA	36	15	Field commander from King of Assyria			Normal		
-ISA	36	16	Field commander from King of Assyria			Normal		
-ISA	36	17	Field commander from King of Assyria			Normal		
-ISA	36	18	Field commander from King of Assyria			Normal		
-ISA	36	19	Field commander from King of Assyria			Normal		
-ISA	36	20	Field commander from King of Assyria			Normal		
+ISA	36	12	field commander from king of Assyria			Normal		
+ISA	36	13	field commander from king of Assyria			Normal		
+ISA	36	14	field commander from king of Assyria			Normal		
+ISA	36	15	field commander from king of Assyria			Normal		
+ISA	36	16	field commander from king of Assyria			Normal		
+ISA	36	17	field commander from king of Assyria			Normal		
+ISA	36	18	field commander from king of Assyria			Normal		
+ISA	36	19	field commander from king of Assyria			Normal		
+ISA	36	20	field commander from king of Assyria			Normal		
 ISA	36	21	Hezekiah, king of Judah			Normal		
 ISA	37	3	Eliakim/Shebna/chief priests			Normal	Eliakim	
 ISA	37	4	Eliakim/Shebna/chief priests			Normal	Eliakim	
@@ -9538,6 +9539,7 @@ LAM	3	46	Jeremiah			Normal
 LAM	3	47	Jeremiah			Normal		
 LAM	3	56	Jeremiah			Normal		
 LAM	3	57	God		God (the LORD)	Normal		
+LAM	4	4	children of Zion (Jerusalem)			Indirect		
 LAM	4	15	men			Normal		
 LAM	4	15	nations, people of the			Normal		
 LAM	4	15	prophets/priests			Normal		
@@ -11174,9 +11176,9 @@ JON	2	8	Jonah	praying		Normal
 JON	2	9	Jonah	praying		Normal		
 JON	3	2	God		God (the LORD)(word of the LORD came)	Normal		
 JON	3	4	Jonah			Normal		
-JON	3	7	King of Nineveh	proclamation		Normal		
-JON	3	8	King of Nineveh	proclamation		Normal		
-JON	3	9	King of Nineveh	proclamation		Normal		
+JON	3	7	king of Nineveh	proclamation		Normal		
+JON	3	8	king of Nineveh	proclamation		Normal		
+JON	3	9	king of Nineveh	proclamation		Normal		
 JON	4	2	Jonah	praying		Normal		
 JON	4	3	Jonah	praying		Normal		
 JON	4	4	God		God (the LORD)	Normal		
@@ -11238,6 +11240,7 @@ NAM	1	12	God		God (the LORD)	Normal
 NAM	1	13	God		God (the LORD)	Normal		
 NAM	1	14	God		God (the LORD)	Normal		
 NAM	2	8	slave girls			Normal		
+NAM	2	8	Nineveh			Normal		
 NAM	2	13	God		God (the LORD Almighty)	Normal		
 NAM	3	5	God		God (the LORD Almighty)	Normal		
 NAM	3	6	God		God (the LORD Almighty)	Normal		
@@ -11290,7 +11293,7 @@ ZEP	2	5	God		God (the LORD)	Normal
 ZEP	2	8	God		God (the LORD)	Normal		
 ZEP	2	9	God		God (the LORD)	Normal		
 ZEP	2	12	God		God (the LORD)	Normal		
-ZEP	2	15	Ninevah		Ninevah, the city of revelry	Hypothetical		
+ZEP	2	15	Nineveh		Nineveh, the city of revelry	Hypothetical		
 ZEP	3	6	God		God (the LORD)	Normal		
 ZEP	3	7	God		God (the LORD)	Normal		
 ZEP	3	8	God		God (the LORD)	Normal		
@@ -11344,7 +11347,7 @@ ZEC	1	6	God		God (the LORD)(word of the LORD came)	Normal
 ZEC	1	9	angel who talked with Zechariah		angel who talked with Zechariah (vision)	Normal		
 ZEC	1	9	Zechariah		Zechariah (vision)	Normal		
 ZEC	1	10	man standing among myrtle trees	vision		Normal		
-ZEC	1	11	Horses (in vision)			Normal		
+ZEC	1	11	horses (in vision)			Normal		
 ZEC	1	12	angel of the LORD, the			Normal	Jesus	
 ZEC	1	14	angel who talked with Zechariah		angel who talked with Zechariah (vision)	Normal		
 ZEC	1	15	angel who talked with Zechariah		angel who talked with Zechariah (vision)	Normal		
@@ -15562,10 +15565,10 @@ REV	4	8	four living creatures			Normal
 REV	4	11	twenty-four elders			Normal		
 REV	5	2	angel, powerful	loud		Normal		
 REV	5	5	elders, one of the			Normal		
-REV	5	9	four living creatures/twenty-four elders			Normal		
-REV	5	10	four living creatures/twenty-four elders			Normal		
-REV	5	12	angels, many			Normal		
-REV	5	13	every created thing			Normal		
+REV	5	9	four living creatures/twenty-four elders	singing		Normal		
+REV	5	10	four living creatures/twenty-four elders	singing		Normal		
+REV	5	12	angels, many	singing		Normal		
+REV	5	13	every created thing	singing		Normal		
 REV	5	14	four living creatures			Normal		
 REV	6	1	living creature, first	loud		Normal		
 REV	6	3	living creature, second			Normal		
@@ -15627,8 +15630,8 @@ REV	14	13	Holy Spirit, the		Spirit, the	Normal
 REV	14	14	narrator-REV			Quotation		
 REV	14	15	angel, coming out of temple			Normal		
 REV	14	18	angel, coming out of temple, another			Normal		
-REV	15	3	conquerors of beast, image & his name			Normal		
-REV	15	4	conquerors of beast, image & his name			Normal		
+REV	15	3	conquerors of beast, image & his name	singing		Normal		
+REV	15	4	conquerors of beast, image & his name	singing		Normal		
 REV	16	1	voice from temple		voice from temple, loud	Normal		
 REV	16	5	angel over waters			Normal		
 REV	16	6	angel over waters			Normal		
@@ -15650,8 +15653,8 @@ REV	17	15	angel (one of the seven)			Normal
 REV	17	16	angel (one of the seven)			Normal		
 REV	17	17	angel (one of the seven)			Normal		
 REV	17	18	angel (one of the seven)			Normal		
-REV	18	2	angel, another, coming down from heaven			Normal		
-REV	18	3	angel, another, coming down from heaven			Normal		
+REV	18	2	angel, another, coming down from heaven	shouting		Normal		
+REV	18	3	angel, another, coming down from heaven	shouting		Normal		
 REV	18	4	voice from heaven, another			Normal		
 REV	18	5	voice from heaven, another			Normal		
 REV	18	6	voice from heaven, another			Normal		
@@ -15681,14 +15684,14 @@ REV	18	21	angel, powerful			Normal
 REV	18	22	angel, powerful			Normal		
 REV	18	23	angel, powerful			Normal		
 REV	18	24	angel, powerful			Normal		
-REV	19	1	voice of great crowd in heaven, loud			Normal		
-REV	19	2	voice of great crowd in heaven, loud			Normal		
-REV	19	3	voice of great crowd in heaven, loud			Normal		
+REV	19	1	voice of great crowd in heaven, loud	shouting		Normal		
+REV	19	2	voice of great crowd in heaven, loud	shouting		Normal		
+REV	19	3	voice of great crowd in heaven, loud	shouting		Normal		
 REV	19	4	twenty-four elders/four living creatures			Normal		
 REV	19	5	voice from throne			Normal		
-REV	19	6	voice of great crowd, like roar of many waters, loud thunderclaps			Normal		
-REV	19	7	voice of great crowd, like roar of many waters, loud thunderclaps			Normal		
-REV	19	8	voice of great crowd, like roar of many waters, loud thunderclaps			Normal		
+REV	19	6	voice of great crowd, like roar of many waters, loud thunderclaps	shouting		Normal		
+REV	19	7	voice of great crowd, like roar of many waters, loud thunderclaps	shouting		Normal		
+REV	19	8	voice of great crowd, like roar of many waters, loud thunderclaps	shouting		Normal		
 REV	19	9	angel (one of the seven)			Normal		
 REV	19	10	angel (one of the seven)			Normal		
 REV	19	11	narrator-REV			Quotation		
