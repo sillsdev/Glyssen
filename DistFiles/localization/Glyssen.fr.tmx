@@ -50,33 +50,6 @@
         <seg>Abimélek ***and*** Pikol</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Abimelech, King of Gerar">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Abimelech, King of Gerar</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>Abimélek, ***King*** ***of*** Guérar</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Abimelech, King of the Philistines">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Abimelech, King of the Philistines</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>Abimélek, ***King*** ***of*** ***the*** ***Philistines***</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Abimelech, King of the Philistines (in Gerar)">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Abimelech, King of the Philistines (in Gerar)</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>Abimélek, ***King*** ***of*** ***the*** ***Philistines*** ***(in*** Guérar)</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Abimelech, son of Gideon (Jerubbaal)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1884,15 +1857,6 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Israélite ***fighting*** ***men***</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Israelite foreman">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Israelite foreman</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>Israélite ***foreman***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Israelite officers">
@@ -3954,6 +3918,69 @@
       </tuv>
       <tuv xml:lang="fr">
         <seg>Zacharie (vision)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Abimelech, king of Gerar">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Abimelech, king of Gerar</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Abimélek, roi // [2] Mélek ***of*** Guérar</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Abimelech, king of the Philistines">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Abimelech, king of the Philistines</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Abimélek, roi // [2] Mélek ***of*** ***the*** ***Philistines***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Abimelech, king of the Philistines (in Gerar)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Abimelech, king of the Philistines (in Gerar)</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Abimélek, roi // [2] Mélek ***of*** ***the*** ***Philistines*** ***(in*** Guérar)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Achsah, Caleb's daughter">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Achsah, Caleb's daughter</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Axa, ***Caleb's*** ***daughter***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Israelite foremen">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Israelite foremen</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Israélite ***foremen***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nineveh">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nineveh</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Ninive</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nineveh, the city of revelry">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nineveh, the city of revelry</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Ninive, ***the*** ***city*** ***of*** ***revelry***</seg>
       </tuv>
     </tu>
   </body>

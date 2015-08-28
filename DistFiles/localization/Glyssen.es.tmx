@@ -3000,10 +3000,10 @@
         <seg>guerreros israelitas (tres escuadrones de Gedeón)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Israelite foreman">
+    <tu tuid="CharacterName.Israelite foremen">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Israelite foreman</seg>
+        <seg>Israelite foremen</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>capataces israelitas</seg>
@@ -3918,13 +3918,13 @@
         <seg>veinticuatro elders</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.vineyard owner (God?)">
+    <tu tuid="CharacterName.God (vineyard owner)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>vineyard owner (God?)</seg>
+        <seg>God (vineyard owner)</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>viñedo, viña owner (God?)</seg>
+        <seg>Dios (dueño de la viña)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.young man">
@@ -4014,7 +4014,7 @@
         <seg>David (old)</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>David ***(old)***</seg>
+        <seg>David (anciano)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Elisha (old)">
@@ -4023,7 +4023,7 @@
         <seg>Elisha (old)</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Eliseo ***(old)***</seg>
+        <seg>Eliseo (anciano)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Israelite soldier in Saul's army">
@@ -4098,28 +4098,28 @@
         <seg>Abías, rey de Judá</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Abimelech, King of Gerar">
+    <tu tuid="CharacterName.Abimelech, king of Gerar">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Abimelech, King of Gerar</seg>
+        <seg>Abimelech, king of Gerar</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Abimélec, rey de Guerar</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Abimelech, King of the Philistines">
+    <tu tuid="CharacterName.Abimelech, king of the Philistines">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Abimelech, King of the Philistines</seg>
+        <seg>Abimelech, king of the Philistines</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Abimélec, rey de los filisteos</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Abimelech, King of the Philistines (in Gerar)">
+    <tu tuid="CharacterName.Abimelech, king of the Philistines (in Gerar)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Abimelech, King of the Philistines (in Gerar)</seg>
+        <seg>Abimelech, king of the Philistines (in Gerar)</seg>
       </tuv>
       <tuv xml:lang="es">
         <seg>Abimélec, rey de los filisteos (en Guerar)</seg>
@@ -5707,6 +5707,33 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Séfora, esposa de Moisés</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Achsah, Caleb's daughter">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Achsah, Caleb's daughter</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Acsa, hija de Caleb</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nineveh">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nineveh</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nínive</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nineveh, the city of revelry">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nineveh, the city of revelry</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nínive, la ciudad alegre o orgullosa</seg>
       </tuv>
     </tu>
   </body>
