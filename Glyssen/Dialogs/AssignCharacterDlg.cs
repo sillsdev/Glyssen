@@ -13,6 +13,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Controls;
@@ -201,11 +202,10 @@ namespace Glyssen.Dialogs
 		{
 			bool characterAndDeliverySelected = m_listBoxCharacters.SelectedIndex > -1 && m_listBoxDeliveries.SelectedIndex > -1;
 			m_btnAssign.Enabled = characterAndDeliverySelected && IsDirty();
-			if (m_btnAssign.Enabled)
+			if (m_btnAssign.Enabled && !m_btnAssign.Focused)
 			{
-				if (m_btnNext.Focused)
-					m_btnAssign.Focus();
-				if (m_btnPrevious.Focused)
+				var focusedControl = this.FindFocusedControl();
+				if (focusedControl is Button || focusedControl is LinkLabel)
 					m_btnAssign.Focus();
 			}
 		}
