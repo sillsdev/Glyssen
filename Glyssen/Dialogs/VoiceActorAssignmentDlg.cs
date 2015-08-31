@@ -7,7 +7,6 @@ using System.Windows.Forms;
 using Glyssen.Character;
 using Glyssen.Controls;
 using L10NSharp;
-using SIL.ObjectModel;
 
 namespace Glyssen.Dialogs
 {
@@ -15,8 +14,6 @@ namespace Glyssen.Dialogs
 	{
 		private readonly VoiceActorAssignmentViewModel m_actorAssignmentViewModel;
 		private readonly DataGridViewCellStyle m_wordWrapCellStyle;
-
-		private readonly SortableBindingList<CharacterGroup> m_characterGroups; 
 
 		public VoiceActorAssignmentDlg(Project project)
 		{
@@ -34,13 +31,13 @@ namespace Glyssen.Dialogs
 
 			AlignBtnAssignActorToSplitter();
 
-			m_characterGroups = m_actorAssignmentViewModel.CharacterGroups;
+			var characterGroups = m_actorAssignmentViewModel.CharacterGroups;
 
-			m_characterGroupGrid.DataSource = m_characterGroups;
+			m_characterGroupGrid.DataSource = characterGroups;
 			m_characterGroupGrid.MultiSelect = true;
 			m_characterGroupGrid.Sort(m_characterGroupGrid.Columns["EstimatedHours"], ListSortDirection.Descending);
 
-			m_voiceActorGrid.CharacterGroupsWithAssignedActors = m_characterGroups;
+			m_voiceActorGrid.CharacterGroupsWithAssignedActors = characterGroups;
 			m_voiceActorGrid.Initialize(project);
 			m_voiceActorGrid.ReadOnly = true;
 			m_voiceActorGrid.Saved += m_voiceActorGrid_Saved;
@@ -279,6 +276,20 @@ namespace Glyssen.Dialogs
 			{
 				m_characterGroupGrid.CurrentCell = m_characterGroupGrid.Rows[m_characterGroupGrid.RowCount-1].Cells["CharacterIds"];
 				ExpandCurrentCharacterGroupRow();
+			}
+		}
+
+		private void m_btnUpdateGroup_Click(object sender, EventArgs e)
+		{
+			using (var updateDlg = new UpdateCharacterGroupsDlg())
+			{
+				if (updateDlg.ShowDialog() == DialogResult.OK &&
+					updateDlg.SelectedOption == UpdateCharacterGroupsDlg.SelectionType.AutoGen)
+				{
+					m_characterGroupGrid.DataSource = new BindingList<CharacterGroup>();
+					m_actorAssignmentViewModel.GenerateGroups();
+					m_characterGroupGrid.DataSource = m_actorAssignmentViewModel.CharacterGroups;
+				}
 			}
 		}
 

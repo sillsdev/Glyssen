@@ -72,6 +72,12 @@ namespace Glyssen.Dialogs
 
 		public SortableBindingList<CharacterGroup> CharacterGroups { get; set; }
 
+		public void GenerateGroups()
+		{
+			CharacterGroups.Clear();
+			GenerateGroupsWithProgress();
+		}
+
 		private void GenerateGroupsWithProgress()
 		{
 			using (var progressDialog = new ProgressDialog())

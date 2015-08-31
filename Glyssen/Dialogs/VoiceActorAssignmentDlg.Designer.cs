@@ -201,6 +201,7 @@ namespace Glyssen.Dialogs
 			this.m_btnUpdateGroup.TabIndex = 4;
 			this.m_btnUpdateGroup.Text = "Update/Edit the Character Group(s)";
 			this.m_btnUpdateGroup.UseVisualStyleBackColor = true;
+			this.m_btnUpdateGroup.Click += new System.EventHandler(this.m_btnUpdateGroup_Click);
 			// 
 			// m_lblCharacterGroups
 			// 
