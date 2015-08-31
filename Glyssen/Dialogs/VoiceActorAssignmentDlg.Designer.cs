@@ -58,12 +58,6 @@ namespace Glyssen.Dialogs
 			this.m_editActorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_deleteActorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_characterGroupGrid = new Glyssen.Controls.AutoGrid();
-			this.GroupNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.CharacterIds = new Glyssen.Controls.DataGridViewListBoxColumn();
-			this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.CharStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.EstimatedHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.m_voiceActorGrid = new Glyssen.Controls.VoiceActorInformationGrid();
 			this.m_saveStatus = new Glyssen.Controls.SaveStatus();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -72,6 +66,11 @@ namespace Glyssen.Dialogs
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.m_toolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.CharacterIds = new Glyssen.Controls.DataGridViewListBoxColumn();
+			this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.CharStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.EstimatedHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.m_contextMenuCharacters.SuspendLayout();
 			this.m_contextMenuCharacterGroups.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
@@ -347,7 +346,6 @@ namespace Glyssen.Dialogs
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.m_characterGroupGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.m_characterGroupGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.GroupNumber,
             this.CharacterIds,
             this.Column3,
             this.CharStatus,
@@ -400,56 +398,6 @@ namespace Glyssen.Dialogs
 			this.m_characterGroupGrid.DragOver += new System.Windows.Forms.DragEventHandler(this.m_characterGroupGrid_DragOver);
 			this.m_characterGroupGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.m_characterGroupGrid_KeyDown);
 			this.m_characterGroupGrid.MouseMove += new System.Windows.Forms.MouseEventHandler(this.m_characterGroupGrid_MouseMove);
-			// 
-			// GroupNumber
-			// 
-			this.GroupNumber.DataPropertyName = "GroupNumber";
-			this.GroupNumber.FillWeight = 18.8621F;
-			this.GroupNumber.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.GroupNumber!Group #";
-			this.GroupNumber.Name = "GroupNumber";
-			// 
-			// CharacterIds
-			// 
-			this.CharacterIds.ContextMenuStrip = this.m_contextMenuCharacters;
-			this.CharacterIds.DataPropertyName = "CharacterIds";
-			this.CharacterIds.FillWeight = 150.8968F;
-			this.CharacterIds.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Characters!Characters";
-			this.CharacterIds.Name = "CharacterIds";
-			this.CharacterIds.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			// 
-			// Column3
-			// 
-			this.Column3.DataPropertyName = "AttributesDisplay";
-			this.Column3.FillWeight = 75.44839F;
-			this.Column3.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Attributes!Attributes";
-			this.Column3.Name = "Column3";
-			// 
-			// CharStatus
-			// 
-			this.CharStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.CharStatus.DataPropertyName = "StatusDisplay";
-			this.CharStatus.FillWeight = 115.4822F;
-			this.CharStatus.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Status!Status";
-			this.CharStatus.Name = "CharStatus";
-			this.CharStatus.Visible = false;
-			this.CharStatus.Width = 348;
-			// 
-			// EstimatedHours
-			// 
-			this.EstimatedHours.DataPropertyName = "EstimatedHours";
-			dataGridViewCellStyle3.Format = "N2";
-			dataGridViewCellStyle3.NullValue = null;
-			this.EstimatedHours.DefaultCellStyle = dataGridViewCellStyle3;
-			this.EstimatedHours.FillWeight = 37.7242F;
-			this.EstimatedHours.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Hours!Hours";
-			this.EstimatedHours.Name = "EstimatedHours";
-			// 
-			// Column5
-			// 
-			this.Column5.DataPropertyName = "VoiceActorAssignedName";
-			this.Column5.FillWeight = 56.5863F;
-			this.Column5.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.ActorAssigned!Actor Assigned";
-			this.Column5.Name = "Column5";
 			// 
 			// m_voiceActorGrid
 			// 
@@ -572,6 +520,49 @@ namespace Glyssen.Dialogs
 			this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
 			this.splitContainer1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitContainer1_MouseUp);
 			// 
+			// CharacterIds
+			// 
+			this.CharacterIds.ContextMenuStrip = this.m_contextMenuCharacters;
+			this.CharacterIds.DataPropertyName = "CharacterIds";
+			this.CharacterIds.FillWeight = 150.8968F;
+			this.CharacterIds.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Characters!Characters";
+			this.CharacterIds.Name = "CharacterIds";
+			this.CharacterIds.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			// 
+			// Column3
+			// 
+			this.Column3.DataPropertyName = "AttributesDisplay";
+			this.Column3.FillWeight = 75.44839F;
+			this.Column3.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Attributes!Attributes";
+			this.Column3.Name = "Column3";
+			// 
+			// CharStatus
+			// 
+			this.CharStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.CharStatus.DataPropertyName = "StatusDisplay";
+			this.CharStatus.FillWeight = 115.4822F;
+			this.CharStatus.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Status!Status";
+			this.CharStatus.Name = "CharStatus";
+			this.CharStatus.Visible = false;
+			this.CharStatus.Width = 348;
+			// 
+			// EstimatedHours
+			// 
+			this.EstimatedHours.DataPropertyName = "EstimatedHours";
+			dataGridViewCellStyle3.Format = "N2";
+			dataGridViewCellStyle3.NullValue = null;
+			this.EstimatedHours.DefaultCellStyle = dataGridViewCellStyle3;
+			this.EstimatedHours.FillWeight = 37.7242F;
+			this.EstimatedHours.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Hours!Hours";
+			this.EstimatedHours.Name = "EstimatedHours";
+			// 
+			// Column5
+			// 
+			this.Column5.DataPropertyName = "VoiceActorAssignedName";
+			this.Column5.FillWeight = 56.5863F;
+			this.Column5.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.ActorAssigned!Actor Assigned";
+			this.Column5.Name = "Column5";
+			// 
 			// VoiceActorAssignmentDlg
 			// 
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
@@ -645,7 +636,6 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.Panel panel3;
 		private System.Windows.Forms.ContextMenuStrip m_contextMenuCharacters;
 		private System.Windows.Forms.ToolStripMenuItem m_tmiCreateNewGroup;
-		private System.Windows.Forms.DataGridViewTextBoxColumn GroupNumber;
 		private DataGridViewListBoxColumn CharacterIds;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
 		private System.Windows.Forms.DataGridViewTextBoxColumn CharStatus;

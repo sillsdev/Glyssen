@@ -42,6 +42,7 @@ namespace Glyssen.Character
 		}
 
 		[XmlElement]
+		[Browsable(false)]
 		public int GroupNumber { get; set; }
 
 		[XmlArray("CharacterIds")]
