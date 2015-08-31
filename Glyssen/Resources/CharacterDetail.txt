@@ -112,7 +112,7 @@ Barak	1	Male	Adult
 Barnabas	1	Male	Adult		
 Bartimaeus (a blind man)	1	Male	Adult		
 Baruch	1	Male	Adult		
-Barzillai	1	Male	Adult		Gileadite
+Barzillai	1	Male	Elder		Gileadite
 Bathsheba	1	Female	Adult		
 beast, the	1		Adult		
 believers who were Pharisees	-1	Male	Adult		
