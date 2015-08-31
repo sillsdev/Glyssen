@@ -20,9 +20,13 @@ namespace Glyssen.Character
 		{
 			XmlSerializationHelper.SerializeToFile(filename, this);
 		}
-		public static CharacterGroupList LoadCharacterGroupListFromFile(string filename)
+		public static CharacterGroupList LoadCharacterGroupListFromFile(string filename, Dictionary<string, int> keyStrokesByCharacterId)
 		{
-			return XmlSerializationHelper.DeserializeFromFile<CharacterGroupList>(filename);
+			var comparer = new CharacterByKeyStrokeComparer(keyStrokesByCharacterId);
+			var list = XmlSerializationHelper.DeserializeFromFile<CharacterGroupList>(filename);
+			foreach (var characterGroup in list.CharacterGroups)
+				characterGroup.CharacterIds.ToStringComparer = comparer;
+			return list;
 		}
 
 		/// <summary>

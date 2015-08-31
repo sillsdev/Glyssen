@@ -126,11 +126,8 @@ namespace Glyssen.Dialogs
 
 			// Add an extra group for any characters which weren't in the template
 			var unmatchedCharacters = includedCharacterIds.Except(matchedCharacterIds);
-			var unmatchedCharacterGroup = new CharacterGroup
-			{
-				GroupNumber = 999,
-				CharacterIds = new CharacterIdHashSet(unmatchedCharacters)
-			};
+			var unmatchedCharacterGroup = new CharacterGroup(999, new CharacterByKeyStrokeComparer(m_keyStrokesByCharacterId));
+			unmatchedCharacterGroup.CharacterIds.AddRange(unmatchedCharacters);
 			CharacterGroups.Add(unmatchedCharacterGroup);
 		}
 
@@ -141,7 +138,7 @@ namespace Glyssen.Dialogs
 			while (CharacterGroups.Any(t => t.GroupNumber == newGroupNumber))
 				newGroupNumber++;
 
-			CharacterGroup newGroup = new CharacterGroup(newGroupNumber);
+			CharacterGroup newGroup = new CharacterGroup(newGroupNumber, new CharacterByKeyStrokeComparer(m_keyStrokesByCharacterId));
 			CharacterGroups.Add(newGroup);
 
 			return newGroup;

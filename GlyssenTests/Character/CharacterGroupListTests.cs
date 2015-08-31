@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Text;
 using Glyssen;
 using Glyssen.Character;
-using Glyssen.VoiceActor;
 using NUnit.Framework;
 
 namespace GlyssenTests.Character
@@ -116,14 +114,6 @@ namespace GlyssenTests.Character
 
 			Assert.AreEqual((3500 + 4000d) / Program.kKeyStrokesPerHour, group1.EstimatedHours);
 			Assert.AreEqual(198d / Program.kKeyStrokesPerHour, group2.EstimatedHours);
-		}
-
-		private string GetRandomStringOfLength(int length)
-		{
-			var sb = new StringBuilder();
-			for (int i = 0; i < length; i++)
-				sb.Append("x");
-			return sb.ToString();
 		}
 	}
 }

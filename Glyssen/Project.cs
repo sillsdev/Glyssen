@@ -842,7 +842,7 @@ namespace Glyssen
 			string path = Path.Combine(ProjectFolder, kCharacterGroupFileName);
 			if (File.Exists(path))
 			{
-				var characterGroupList = CharacterGroupList.LoadCharacterGroupListFromFile(path);
+				var characterGroupList = CharacterGroupList.LoadCharacterGroupListFromFile(path, GetKeyStrokesByCharacterId());
 				PopulateCharacterGroupAssignees(characterGroupList);
 				return characterGroupList;
 			}

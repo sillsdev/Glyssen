@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
 using System.Xml.Serialization;
-using Glyssen.Dialogs;
 using Glyssen.Rules;
 
 namespace Glyssen.Character
@@ -22,9 +20,10 @@ namespace Glyssen.Character
 			CharacterIds = new CharacterIdHashSet();
 		}
 
-		public CharacterGroup(int groupNumber) : this()
+		public CharacterGroup(int groupNumber, IComparer<string> characterComparerForToString = null) : this()
 		{
 			GroupNumber = groupNumber;
+			CharacterIds.ToStringComparer = characterComparerForToString;
 		}
 
 		public void AssignVoiceActor(VoiceActor.VoiceActor actor)
@@ -286,9 +285,16 @@ namespace Glyssen.Character
 			m_hashSet = new HashSet<string>(sourceEnumerable);
 		}
 
+		public IComparer<string> ToStringComparer { get; set; } 
+
 		public override string ToString()
 		{
-			return string.Join("; ", ToList());
+			var characterList = m_hashSet.ToList();
+			if (ToStringComparer != null)
+				characterList.Sort(ToStringComparer);
+			else
+				characterList.Sort();
+			return string.Join("; ", characterList.Select(CharacterVerseData.GetCharacterNameForUi));
 		}
 
 		public List<string> ToList()
@@ -413,6 +419,25 @@ namespace Glyssen.Character
 		}
 
 		public bool IsReadOnly { get; set; }
+	}
+
+	public class CharacterByKeyStrokeComparer : IComparer<String>
+	{
+		private readonly Dictionary<string, int> m_keystrokesDictionary;
+
+		public CharacterByKeyStrokeComparer(Dictionary<string, int> keystrokesDictionary)
+		{
+			m_keystrokesDictionary = keystrokesDictionary;
+		}
+
+		public int Compare(string x, string y)
+		{
+			int xKeyStrokes;
+			int yKeyStrokes;
+			m_keystrokesDictionary.TryGetValue(x, out xKeyStrokes);
+			m_keystrokesDictionary.TryGetValue(y, out yKeyStrokes);
+			return -xKeyStrokes.CompareTo(yKeyStrokes);
+		}
 	}
 
 #endregion

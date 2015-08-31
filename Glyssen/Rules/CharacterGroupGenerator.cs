@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Character;
 using Glyssen.VoiceActor;
+using SIL.Extensions;
 
 namespace Glyssen.Rules
 {
@@ -10,6 +11,7 @@ namespace Glyssen.Rules
 	{
 		private readonly Project m_project;
 		private readonly Dictionary<string, int> m_keyStrokesByCharacterId;
+		private readonly IComparer<string> m_characterIdComparer; 
 		private readonly Proximity m_proximity;
 
 		private static readonly SortedDictionary<int, IList<HashSet<string>>> s_charactersInClosedGroups;
@@ -30,6 +32,7 @@ namespace Glyssen.Rules
 			m_project = project;
 			m_keyStrokesByCharacterId = new Dictionary<string, int>(keyStrokesByCharacterId);
 			m_proximity = new Proximity(project);
+			m_characterIdComparer = new CharacterByKeyStrokeComparer(m_keyStrokesByCharacterId);
 		}
 
 		public List<CharacterGroup> GenerateCharacterGroups()
@@ -73,7 +76,7 @@ namespace Glyssen.Rules
 				var character = characterDetailToActors.Key;
 				var matchingActors = characterDetailToActors.Value;
 
-				var group = new CharacterGroup(characterGroups.Count + 1);
+				var group = new CharacterGroup(characterGroups.Count + 1, m_characterIdComparer);
 				group.CharacterIds.Add(character.CharacterId);
 				characterGroups.Add(group);
 				group.Closed = true;
@@ -92,7 +95,7 @@ namespace Glyssen.Rules
 					CharacterGroup groupForActor;
 					if (!predeterminedActorGroups.TryGetValue(matchingActor, out groupForActor))
 					{
-						groupForActor = new CharacterGroup(characterGroups.Count + 1);
+						groupForActor = new CharacterGroup(characterGroups.Count + 1, m_characterIdComparer);
 						characterGroups.Add(groupForActor);
 						predeterminedActorGroups[matchingActor] = groupForActor;
 						groupForActor.AssignVoiceActor(matchingActor);
@@ -107,7 +110,8 @@ namespace Glyssen.Rules
 				nbrMaleAdultActors,
 				actors.Count(a => a.Gender == ActorGender.Female && a.Age != ActorAge.Child),
 				1, 1,
-				m_project.IncludedBooks[0].BookId);
+				m_project.IncludedBooks[0].BookId,
+				m_characterIdComparer);
 
 			foreach (var configuration in trialConfigurationsForNarratorsAndExtras)
 			{
@@ -116,7 +120,7 @@ namespace Glyssen.Rules
 				// TODO: This is ugly and hacky-looking, but we hope to jettison the whole group number thing soon.
 				int groupCount = characterGroups.Count;
 				characterGroups.AddRange(CreateGroupsForReservedCharacters(includedCharacterDetails, nbrMaleAdultActors, configuration,
-					() => groupCount++));
+					() => ++groupCount));
 
 				foreach (var entry in sortedDict)
 				{
@@ -153,13 +157,11 @@ namespace Glyssen.Rules
 					numMatchingCharacterGroups += configuration.m_narratorsOrExtraActors.Count(a => a.Matches(characterDetail));
 					int numMatchingActors = actorsNeedingGroups.Count(a => a.Matches(characterDetail));
 					if (configuration.RemainingUsableActors > 0 &&
-						(numMatchingActors == 0 || numMatchingCharacterGroups < numMatchingActors))
+					    (numMatchingActors == 0 || numMatchingCharacterGroups < numMatchingActors))
 					{
-						characterGroups.Add(new CharacterGroup
-						{
-							GroupNumber = characterGroups.Count + 1,
-							CharacterIds = new CharacterIdHashSet { characterId },
-						});
+						var group = new CharacterGroup(characterGroups.Count + 1, m_characterIdComparer);
+						group.CharacterIds.Add(characterId);
+						characterGroups.Add(group);
 						configuration.RemainingUsableActors--;
 					}
 					else
@@ -195,12 +197,10 @@ namespace Glyssen.Rules
 					if (charactersToPutInGroup.Any())
 					{
 						configuration.RemainingUsableActors--;
-						yield return new CharacterGroup
-						{
-							GroupNumber = nextGroupNumber(),
-							CharacterIds = new CharacterIdHashSet(charactersToPutInGroup),
-							Closed = true
-						};
+						var group = new CharacterGroup(nextGroupNumber(), new CharacterByKeyStrokeComparer(m_keyStrokesByCharacterId));
+						group.CharacterIds.AddRange(charactersToPutInGroup);
+						group.Closed = true;
+						yield return group;
 					}
 				}
 			}
@@ -258,7 +258,8 @@ namespace Glyssen.Rules
 			internal CharacterGroup NarratorGroup { get; private set; }
 			internal CharacterGroup ExtraBiblicalGroup { get; private set; }
 
-			private TrialGroupConfiguration(IEnumerable<CharacterGroup> predeterminedGroups, int nbrUnassignedActors, int n, int e, string anyBookId)
+			private TrialGroupConfiguration(IEnumerable<CharacterGroup> predeterminedGroups, int nbrUnassignedActors, int n, int e, string anyBookId, 
+				IComparer<string> characterComparer)
 			{
 				m_groups = predeterminedGroups.ToList();
 				RemainingUsableActors = nbrUnassignedActors;
@@ -273,14 +274,14 @@ namespace Glyssen.Rules
 
 					if (RemainingUsableActors > 0)
 					{
-						NarratorGroup = new CharacterGroup { GroupNumber = m_groups.Count + 1, Status = true };
+						NarratorGroup = new CharacterGroup(m_groups.Count + 1, characterComparer) { Status = true };
 						m_groups.Add(NarratorGroup);
 						RemainingUsableActors--;
 					}
 
 					if (RemainingUsableActors > 0)
 					{
-						ExtraBiblicalGroup = new CharacterGroup { GroupNumber = m_groups.Count + 1 };
+						ExtraBiblicalGroup = new CharacterGroup(m_groups.Count + 1, characterComparer);
 						m_groups.Add(ExtraBiblicalGroup);
 						RemainingUsableActors--;
 					}
@@ -303,7 +304,9 @@ namespace Glyssen.Rules
 				m_narratorsOrExtraActors.Add(new VoiceActor.VoiceActor { Gender = gender });
 			}
 
-			internal static List<TrialGroupConfiguration> GeneratePossibilities(List<CharacterGroup> predeterminedGroups, int nbrUnassignedActors, int nbrAdultMaleActors, int nbrAdultFemaleActors, int numberOfNarratorGroups, int numberOfExtraGroups, string anyBookId)
+			internal static List<TrialGroupConfiguration> GeneratePossibilities(List<CharacterGroup> predeterminedGroups, int nbrUnassignedActors, 
+				int nbrAdultMaleActors, int nbrAdultFemaleActors, int numberOfNarratorGroups, int numberOfExtraGroups, string anyBookId,
+				IComparer<string> characterComparer)
 			{
 				var nbrStandardGroups = numberOfNarratorGroups + numberOfExtraGroups;
 				var nbrConfigs = nbrStandardGroups + 1;
@@ -311,7 +314,8 @@ namespace Glyssen.Rules
 				var list = new List<TrialGroupConfiguration>(nbrConfigs);
 				for (int n = 0; n < nbrConfigs; n++)
 				{
-					var config = new TrialGroupConfiguration(predeterminedGroups, nbrUnassignedActors, numberOfNarratorGroups, numberOfExtraGroups, anyBookId);
+					var config = new TrialGroupConfiguration(predeterminedGroups, nbrUnassignedActors, numberOfNarratorGroups, numberOfExtraGroups, anyBookId,
+						characterComparer);
 
 					int nbrMalesInConfig = Math.Min(n, nbrAdultMaleActors);
 					for (int i = 0; i < nbrMalesInConfig; i++)
