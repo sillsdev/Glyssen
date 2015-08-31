@@ -547,6 +547,11 @@ namespace Glyssen.Dialogs
 				}
 			}
 		}
+
+		private void m_characterGroupGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+		{
+			throw e.Exception;
+		}
 		#endregion
 	}
 }
