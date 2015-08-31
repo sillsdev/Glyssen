@@ -331,10 +331,11 @@ namespace Glyssen.Dialogs
 
 		private void m_voiceActorGrid_ExitEditingMode()
 		{
+			if (!m_voiceActorGrid.EndEdit())
+				return;
 			m_voiceActorGrid.ReadOnly = true;
 			//EndEdit is insufficient in and of itself
 			m_voiceActorGrid.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
-			m_voiceActorGrid.EndEdit();
 		}
 		#endregion
 

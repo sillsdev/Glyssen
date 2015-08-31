@@ -15,6 +15,8 @@
 		{
 			if (disposing && (components != null))
 			{
+				if (ParentForm != null)
+					ParentForm.Closing -= ParentForm_Closing;
 				components.Dispose();
 			}
 			base.Dispose(disposing);
@@ -154,6 +156,7 @@
 			this.m_dataGrid.TextBoxEditControlBorderColor = System.Drawing.Color.Empty;
 			this.m_dataGrid.WaterMark = "!";
 			this.m_dataGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_dataGrid_CellEndEdit);
+			this.m_dataGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.m_dataGrid_CellValidating);
 			this.m_dataGrid.CurrentCellChanged += new System.EventHandler(this.m_dataGrid_CurrentCellChanged);
 			this.m_dataGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.m_dataGrid_EditingControlShowing);
 			this.m_dataGrid.SelectionChanged += new System.EventHandler(this.m_dataGrid_SelectionChanged);

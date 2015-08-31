@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Character;
-using Glyssen.VoiceActor;
 using L10NSharp;
-using SIL.Extensions;
 
 namespace Glyssen.Controls
 {
@@ -24,6 +21,7 @@ namespace Glyssen.Controls
 		public event EventHandler SelectionChanged;
 		private readonly VoiceActorInformationViewModel m_actorInformationViewModel;
 		private readonly Font m_italicsFont;
+		private bool m_inEndEdit;
 
 		public VoiceActorInformationGrid()
 		{
@@ -125,9 +123,24 @@ namespace Glyssen.Controls
 			set { m_dataGrid.EditMode = value; }
 		}
 
+		protected override void OnHandleCreated(EventArgs e)
+		{
+			base.OnHandleCreated(e);
+			if (ParentForm != null)
+				ParentForm.Closing += ParentForm_Closing;
+		}
+
+		void ParentForm_Closing(object sender, CancelEventArgs e)
+		{
+			e.Cancel = !ValidateChildren();
+		}
+
 		public bool EndEdit()
 		{
-			return m_dataGrid.EndEdit();
+			m_inEndEdit = true;
+			var result = ValidateChildren() && m_dataGrid.EndEdit();
+			m_inEndEdit = false;
+			return result;
 		}
 
 		private void m_dataGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -293,6 +306,16 @@ namespace Glyssen.Controls
 		private void m_dataGrid_Leave(object sender, EventArgs e)
 		{
 			EndEdit();
+		}
+
+		private void m_dataGrid_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+		{
+			if (e.ColumnIndex == m_dataGrid.Columns["ActorName"].Index && string.IsNullOrWhiteSpace(e.FormattedValue.ToString()))
+			{
+				e.Cancel = true;
+				if (!m_inEndEdit)
+					MessageBox.Show(LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.InvalidName", "Actor Name must be provided."));
+			}
 		}
 	}
 }
