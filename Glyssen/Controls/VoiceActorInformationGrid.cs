@@ -169,13 +169,11 @@ namespace Glyssen.Controls
 		{
 			var actorsToRemove = new HashSet<VoiceActor.VoiceActor>();
 			foreach (DataGridViewRow row in m_dataGrid.SelectedRows)
-			{
 				actorsToRemove.Add(row.DataBoundItem as VoiceActor.VoiceActor);
-			}
 
+			int indexOfFirstRowToRemove = m_dataGrid.SelectedRows[0].Index;
 			if (m_actorInformationViewModel.DeleteVoiceActors(actorsToRemove, confirmWithUser))
 			{
-				int indexOfFirstRowToRemove = m_dataGrid.SelectedRows[0].Index;
 				DataGridViewRowsRemovedEventHandler handler = UserRemovedRows;
 				if (handler != null)
 					handler(m_dataGrid, new DataGridViewRowsRemovedEventArgs(indexOfFirstRowToRemove, m_dataGrid.RowCount));				
