@@ -7,7 +7,7 @@ namespace GlyssenTests
 	class ProjectExportTests
 	{
 		[Test]
-		public void GetExportLineForBlock_VerseAndTextElements_ExpectedColumnsIncludingJoinedText()
+		public void GetTabSeparatedLine_GetExportDataForBlock_VerseAndTextElements_ExpectedColumnsIncludingJoinedText()
 		{
 			var block = new Block("p", 4);
 			block.IsParagraphStart = true;
@@ -20,13 +20,13 @@ namespace GlyssenTests
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			Assert.AreEqual("0\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExport.GetExportLineForBlock(block, 0, "MRK"));
+				ProjectExport.GetTabSeparatedLine(ProjectExport.GetExportDataForBlock(block, 0, "MRK")));
 			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExport.GetExportLineForBlock(block, 0, "MRK", "ActorGuy1"));
+				ProjectExport.GetTabSeparatedLine(ProjectExport.GetExportDataForBlock(block, 0, "MRK", "ActorGuy1")));
 		}
 
 		[Test]
-		public void GetExportLineForBlock_TextBeginsMidVerse_ResultHasCorrectVerseInfo()
+		public void GetTabSeparatedLine_GetExportDataForBlock_TextBeginsMidVerse_ResultHasCorrectVerseInfo()
 		{
 			var block = new Block("p", 4, 3);
 			block.BlockElements.Add(new ScriptText("Text of verse three, part two. "));
@@ -37,13 +37,13 @@ namespace GlyssenTests
 
 			int textLength = "Text of verse three, part two. ".Length + "Text of verse four. ".Length + "Text of verse five.".Length;
 			Assert.AreEqual("0\tp\tMRK\t4\t3\t\t\tText of verse three, part two. [4]\u00A0Text of verse four. [5]\u00A0Text of verse five.\t" + textLength,
-				ProjectExport.GetExportLineForBlock(block, 0, "MRK"));
+				ProjectExport.GetTabSeparatedLine(ProjectExport.GetExportDataForBlock(block, 0, "MRK")));
 			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t3\t\t\tText of verse three, part two. [4]\u00A0Text of verse four. [5]\u00A0Text of verse five.\t" + textLength,
-				ProjectExport.GetExportLineForBlock(block, 0, "MRK", "ActorGuy1"));
+				ProjectExport.GetTabSeparatedLine(ProjectExport.GetExportDataForBlock(block, 0, "MRK", "ActorGuy1")));
 		}
 
 		[Test]
-		public void GetExportLineForBlock_SpecifyNarratorCharacter_OutputContainsNarrator()
+		public void GetTabSeparatedLine_GetExportDataForBlock_SpecifyNarratorCharacter_OutputContainsNarrator()
 		{
 			var block = new Block("p", 4);
 			block.IsParagraphStart = true;
@@ -56,13 +56,13 @@ namespace GlyssenTests
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			Assert.AreEqual("0\tp\tMRK\t4\t1\tnarrator-MRK\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExport.GetExportLineForBlock(block, 0, "MRK", null, "narrator-MRK"));
+				ProjectExport.GetTabSeparatedLine(ProjectExport.GetExportDataForBlock(block, 0, "MRK", null, "narrator-MRK")));
 			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tnarrator-MRK\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExport.GetExportLineForBlock(block, 0, "MRK", "ActorGuy1", "narrator-MRK"));
+				ProjectExport.GetTabSeparatedLine(ProjectExport.GetExportDataForBlock(block, 0, "MRK", "ActorGuy1", "narrator-MRK")));
 		}
 
 		[Test]
-		public void GetExportLineForBlock_MultiCharacterWithResolvedId_OutputContainsCharacterIdToUseInScript()
+		public void GetTabSeparatedLine_GetExportDataForBlock_MultiCharacterWithResolvedId_OutputContainsCharacterIdToUseInScript()
 		{
 			var block = new Block("p", 4);
 			block.IsParagraphStart = true;
@@ -76,13 +76,13 @@ namespace GlyssenTests
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			Assert.AreEqual("0\tp\tMRK\t4\t1\tMarko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExport.GetExportLineForBlock(block, 0, "MRK"));
+				ProjectExport.GetTabSeparatedLine(ProjectExport.GetExportDataForBlock(block, 0, "MRK")));
 			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tMarko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExport.GetExportLineForBlock(block, 0, "MRK", "ActorGuy1"));
+				ProjectExport.GetTabSeparatedLine(ProjectExport.GetExportDataForBlock(block, 0, "MRK", "ActorGuy1")));
 		}
 
 		[Test]
-		public void GetExportLineForBlock_UseCharacterIdInScriptFalse_OutputContainsUnresolvedCharacterIds()
+		public void GetTabSeparatedLine_GetExportDataForBlock_UseCharacterIdInScriptFalse_OutputContainsUnresolvedCharacterIds()
 		{
 			var block = new Block("p", 4);
 			block.IsParagraphStart = true;
@@ -96,9 +96,9 @@ namespace GlyssenTests
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			Assert.AreEqual("0\tp\tMRK\t4\t1\tFred/Marko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExport.GetExportLineForBlock(block, 0, "MRK", useCharacterIdInScript: false));
+				ProjectExport.GetTabSeparatedLine(ProjectExport.GetExportDataForBlock(block, 0, "MRK", useCharacterIdInScript: false)));
 			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tFred/Marko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExport.GetExportLineForBlock(block, 0, "MRK", "ActorGuy1", useCharacterIdInScript: false));
+				ProjectExport.GetTabSeparatedLine(ProjectExport.GetExportDataForBlock(block, 0, "MRK", "ActorGuy1", useCharacterIdInScript: false)));
 		}
 	}
 }
