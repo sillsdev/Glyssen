@@ -167,6 +167,9 @@ namespace Glyssen.Controls
 
 		private void RemoveSelectedRows(bool confirmWithUser)
 		{
+			if (m_dataGrid.SelectedRows.Count == 0)
+				return;
+
 			var actorsToRemove = new HashSet<VoiceActor.VoiceActor>();
 			foreach (DataGridViewRow row in m_dataGrid.SelectedRows)
 				actorsToRemove.Add(row.DataBoundItem as VoiceActor.VoiceActor);
