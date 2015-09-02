@@ -108,6 +108,7 @@
     <Compile Include="BookScriptTests.cs" />
     <Compile Include="Dialogs\BlockNavigatorViewModelTests.cs" />
     <Compile Include="Dialogs\AssignCharacterViewModelTests.cs" />
+    <Compile Include="Dialogs\VoiceActorAssignmentViewModelTests.cs" />
     <Compile Include="ProjectExportTests.cs" />
     <Compile Include="Quote\QuoteUtilsTests.cs" />
     <Compile Include="Quote\QuoteParserTests.cs" />
