@@ -311,12 +311,34 @@ namespace Glyssen.Controls
 
 		private void m_dataGrid_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
 		{
-			if (e.ColumnIndex == m_dataGrid.Columns["ActorName"].Index && string.IsNullOrWhiteSpace(e.FormattedValue.ToString()))
+			if (e.ColumnIndex == m_dataGrid.Columns["ActorName"].Index)
 			{
-				e.Cancel = true;
-				if (!m_inEndEdit)
-					MessageBox.Show(LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.InvalidName", "Actor Name must be provided."));
+				if (!m_dataGrid.Rows[e.RowIndex].IsNewRow && string.IsNullOrWhiteSpace(e.FormattedValue.ToString()))
+				{
+					e.Cancel = true;
+					if (!m_inEndEdit)
+						MessageBox.Show(LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.InvalidName", "Actor Name must be provided."));
+				}
+				else if (IsDuplicateActorName(m_dataGrid.Rows[e.RowIndex], e.FormattedValue.ToString()))
+				{
+					e.Cancel = true;
+					if (!m_inEndEdit)
+						MessageBox.Show(LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DuplicateName", "Actor Name must be unique."));
+				}
 			}
+		}
+
+		private bool IsDuplicateActorName(DataGridViewRow modifiedRow, string newActorName)
+		{
+			foreach (var rowObj in m_dataGrid.Rows)
+			{
+				DataGridViewRow row = rowObj as DataGridViewRow;
+				if (row == null || row.IsNewRow || row == modifiedRow)
+					continue;
+				if (row.Cells["ActorName"].Value.ToString() == newActorName)
+					return true;
+			}
+			return false;
 		}
 	}
 }
