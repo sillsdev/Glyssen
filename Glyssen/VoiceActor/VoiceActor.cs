@@ -22,11 +22,11 @@ namespace Glyssen.VoiceActor
 	public enum VoiceQuality
 	{
 		Normal,
-        Dramatic,
-        Authoritative,
-        Weak,
-        Deceptive,
-        Clear
+		Dramatic,
+		Authoritative,
+		Weak,
+		Suspicious,
+		Clear
 	}
 
 	public class VoiceActor : IEquatable<VoiceActor>
@@ -184,7 +184,7 @@ namespace Glyssen.VoiceActor
 				case "W - Weak":
 					return VoiceQuality.Weak;
 				case "D - Deceptive":
-					return VoiceQuality.Deceptive;
+					return VoiceQuality.Suspicious;
 				case "C - Clear":
 					return VoiceQuality.Clear;
 				default: // "N - Normal"
