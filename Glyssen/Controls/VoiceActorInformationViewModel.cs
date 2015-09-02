@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Glyssen.Character;
 using Glyssen.VoiceActor;
@@ -54,7 +52,7 @@ namespace Glyssen.Controls
 			e.NewObject = new VoiceActor.VoiceActor { Id = m_currentId++ };
 		}
 
-		public bool DeleteVoiceActors(IEnumerable<VoiceActor.VoiceActor> actors, bool confirmWithUser)
+		public bool DeleteVoiceActors(ISet<VoiceActor.VoiceActor> actors, bool confirmWithUser)
 		{
 			if (!actors.Any())
 				return false;
