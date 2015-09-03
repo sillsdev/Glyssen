@@ -152,6 +152,11 @@ namespace Glyssen.Dialogs
 				Saved(this, EventArgs.Empty);
 		}
 
+		public bool IsActorAssigned(VoiceActor.VoiceActor voiceActor)
+		{
+			return m_project.CharacterGroupList.HasVoiceActorAssigned(voiceActor.Id);
+		}
+
 		public void AssignActorToGroup(VoiceActor.VoiceActor actor, CharacterGroup group)
 		{
 			if (CanAssign)
@@ -164,6 +169,12 @@ namespace Glyssen.Dialogs
 		public void UnAssignActorFromGroup(CharacterGroup group)
 		{
 			group.RemoveVoiceActor();
+			SaveAssignments();
+		}
+
+		public void UnAssignActorFromGroup(VoiceActor.VoiceActor actor)
+		{
+			m_project.CharacterGroupList.RemoveVoiceActor(actor.Id);
 			SaveAssignments();
 		}
 

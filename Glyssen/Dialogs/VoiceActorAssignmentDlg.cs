@@ -53,7 +53,18 @@ namespace Glyssen.Dialogs
 			CharacterGroup group = m_characterGroupGrid.SelectedRows[0].DataBoundItem as CharacterGroup;
 			if (group == null)
 				return;
-			m_actorAssignmentViewModel.AssignActorToGroup(m_voiceActorGrid.SelectedVoiceActorEntity, group);
+
+			VoiceActor.VoiceActor actor = m_voiceActorGrid.SelectedVoiceActorEntity;
+			if (m_actorAssignmentViewModel.IsActorAssigned(actor))
+			{
+				string text = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ActorAlreadyAssigned.Text", "The Voice Actor is already assigned to a Character Group. If you make this assignment, the other assignment will be removed.");
+				string caption = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ActorAlreadyAssigned.Caption", "Voice Actor Already Assigned");
+				if (MessageBox.Show(text, caption, MessageBoxButtons.OKCancel) != DialogResult.OK)
+					return;
+				m_actorAssignmentViewModel.UnAssignActorFromGroup(actor);
+			}
+
+			m_actorAssignmentViewModel.AssignActorToGroup(actor, group);
 
 			m_characterGroupGrid.Refresh();
 			m_voiceActorGrid.RefreshSort();
