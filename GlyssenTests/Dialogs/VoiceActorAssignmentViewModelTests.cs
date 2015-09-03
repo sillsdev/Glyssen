@@ -96,7 +96,7 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void UnassignActorFromGroup()
+		public void UnAssignActorFromGroup_ByGroup()
 		{
 			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1 };
 			var group = m_model.CharacterGroups[0];
@@ -104,6 +104,18 @@ namespace GlyssenTests.Dialogs
 			Assert.True(group.IsVoiceActorAssigned);
 
 			m_model.UnAssignActorFromGroup(group);
+			Assert.False(group.IsVoiceActorAssigned);
+		}
+
+		[Test]
+		public void UnAssignActorFromGroup_ByActor()
+		{
+			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1 };
+			var group = m_model.CharacterGroups[0];
+			m_model.AssignActorToGroup(actor1, group);
+			Assert.True(group.IsVoiceActorAssigned);
+
+			m_model.UnAssignActorFromGroup(actor1);
 			Assert.False(group.IsVoiceActorAssigned);
 		}
 
