@@ -206,6 +206,12 @@
       <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
+    <Compile Include="Controls\VoiceActorInformationGridReadonly.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\VoiceActorInformationGridReadonly.Designer.cs">
+      <DependentUpon>VoiceActorInformationGridReadonly.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\VoiceActorInformationViewModel.cs" />
     <Compile Include="Dialogs\TooManyUnexpectedQuotesFoundDlg.cs">
       <SubType>Form</SubType>
@@ -343,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ScriptBlocksViewer.resx">
       <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\VoiceActorInformationGridReadonly.resx">
+      <DependentUpon>VoiceActorInformationGridReadonly.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\VoiceActorInformationGrid.resx">
       <DependentUpon>VoiceActorInformationGrid.cs</DependentUpon>

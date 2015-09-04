@@ -14,10 +14,13 @@ namespace Glyssen.Dialogs
 	{
 		private readonly VoiceActorAssignmentViewModel m_actorAssignmentViewModel;
 		private readonly DataGridViewCellStyle m_wordWrapCellStyle;
+		private readonly Project m_project;
 
 		public VoiceActorAssignmentDlg(Project project)
 		{
 			InitializeComponent();
+
+			m_project = project;
 
 			m_actorAssignmentViewModel = new VoiceActorAssignmentViewModel(project);
 			m_actorAssignmentViewModel.Saved += m_actorAssignmentViewModel_Saved;
@@ -39,12 +42,8 @@ namespace Glyssen.Dialogs
 
 			m_voiceActorGrid.CharacterGroupsWithAssignedActors = characterGroups;
 			m_voiceActorGrid.Initialize(project);
-			m_voiceActorGrid.ReadOnly = true;
-			m_voiceActorGrid.Saved += m_voiceActorGrid_Saved;
-			m_voiceActorGrid.CellUpdated += m_voiceActorGrid_CellUpdated;
 			m_voiceActorGrid.CellDoubleClicked += m_voiceActorGrid_CellDoubleClicked;
 			m_voiceActorGrid.GridMouseMove += m_voiceActorGrid_MouseMove;
-			m_voiceActorGrid.UserRemovedRows += m_voiceActorGrid_UserRemovedRows;
 			m_voiceActorGrid.SelectionChanged += m_eitherGrid_SelectionChanged;
 		}
 
@@ -128,7 +127,7 @@ namespace Glyssen.Dialogs
 
 		private void m_voiceActorGrid_MouseMove(object sender, MouseEventArgs e)
 		{
-			if (m_voiceActorGrid.ReadOnly && e.Button == MouseButtons.Left)
+			if (e.Button == MouseButtons.Left)
 			{
 				var hitInfo = m_voiceActorGrid.HitTest(e.X, e.Y);
 				if (hitInfo.Type == DataGridViewHitTestType.Cell)
@@ -179,14 +178,11 @@ namespace Glyssen.Dialogs
 			Close();
 		}
 
-		private void m_linkEdit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		private void m_btnEditVoiceActors_Click(object sender, EventArgs e)
 		{
-			m_voiceActorGrid_EnterEditingMode();
-		}
-
-		private void m_voiceActorGrid_Leave(object sender, EventArgs e)
-		{
-			m_voiceActorGrid_ExitEditingMode();
+			using (var actorDlg = new VoiceActorInformationDlg(m_project))
+				actorDlg.ShowDialog();
+			m_voiceActorGrid.RefreshSort();
 		}
 
 		private void m_helpIcon_MouseClick(object sender, MouseEventArgs e)
@@ -236,29 +232,12 @@ namespace Glyssen.Dialogs
 			m_splitGroupToolStripMenuItem.Enabled = !multipleGroupsSelected;
 		}
 
-		private void m_editActorToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			m_voiceActorGrid_EnterEditingMode();
-		}
-
-		private void m_deleteActorToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			SendKeys.Send("{DEL}");
-		}
-
 		private void m_contextMenuVoiceActors_Opening(object sender, CancelEventArgs e)
 		{
 			bool multipleGroupsSelected = m_characterGroupGrid.SelectedRows.Count > 1;
 			bool multipleActorsSelected = m_voiceActorGrid.SelectedRows.Count > 1;
 
 			m_assignActorToGroupToolStripMenuItem2.Enabled = !multipleActorsSelected && !multipleGroupsSelected;
-			m_editActorToolStripMenuItem.Enabled = !multipleActorsSelected && !multipleGroupsSelected;
-
-			m_deleteActorToolStripMenuItem.Text = multipleActorsSelected
-				? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.DeleteMultipleActors",
-					"Delete Selected Voice Actors")
-				: LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.DeleteSingleActor",
-					"Delete Selected Voice Actor");
 		}
 
 		private void m_contextMenuCharacters_Opening(object sender, CancelEventArgs e)
@@ -305,59 +284,13 @@ namespace Glyssen.Dialogs
 		}
 
 		#region Voice Actor Grid
-		private void m_voiceActorGrid_Saved(object sender, EventArgs e)
-		{
-			m_saveStatus.OnSaved();
-		}
-
-		private void m_voiceActorGrid_CellUpdated(object sender, DataGridViewCellEventArgs e)
-		{
-			var grid = sender as DataGridView;
-			if (grid.Columns[e.ColumnIndex].DataPropertyName == "Name")
-				m_characterGroupGrid.Refresh();
-		}
-
 		private void m_voiceActorGrid_CellDoubleClicked(object sender, DataGridViewCellMouseEventArgs e)
 		{
 			var grid = sender as DataGridView;
-
-			if (!grid.ReadOnly)
+			if (grid == null)
 				return;
-
 			if (grid.Columns[e.ColumnIndex].DataPropertyName == "Name" && e.RowIndex >= 0 && e.Button == MouseButtons.Left)
-			{
-				if (grid.Rows[e.RowIndex].IsNewRow)
-				{
-					m_voiceActorGrid_EnterEditingMode();
-				}
-				else
-				{
-					AssignSelectedActorToSelectedGroup();
-				}
-			}
-		}
-
-		private void m_voiceActorGrid_UserRemovedRows(object sender, DataGridViewRowsRemovedEventArgs e)
-		{
-			m_characterGroupGrid.Refresh();
-		}
-
-
-		private void m_voiceActorGrid_EnterEditingMode()
-		{
-			m_voiceActorGrid.ReadOnly = false;
-			//Restore EditMode overwritten in m_voiceActorGrid_Leave
-			m_voiceActorGrid.EditMode = DataGridViewEditMode.EditOnEnter;
-			m_voiceActorGrid.Focus();
-		}
-
-		private void m_voiceActorGrid_ExitEditingMode()
-		{
-			if (!m_voiceActorGrid.EndEdit())
-				return;
-			m_voiceActorGrid.ReadOnly = true;
-			//EndEdit is insufficient in and of itself
-			m_voiceActorGrid.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
+				AssignSelectedActorToSelectedGroup();
 		}
 		#endregion
 

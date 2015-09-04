@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 using SIL.Xml;
 
@@ -18,7 +17,7 @@ namespace Glyssen.VoiceActor
 
 		public void SaveToFile(string filename)
 		{
-			XmlSerializationHelper.SerializeToFile<VoiceActorList>(filename, this);
+			XmlSerializationHelper.SerializeToFile(filename, this);
 		}
 
 		public static VoiceActorList LoadVoiceActorListFromFile(string filename)
