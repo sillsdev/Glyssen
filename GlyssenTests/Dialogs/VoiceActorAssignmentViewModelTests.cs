@@ -32,6 +32,12 @@ namespace GlyssenTests.Dialogs
 			m_model = new VoiceActorAssignmentViewModel(m_testProject);
 		}
 
+		[TestFixtureTearDown]
+		public void TestFixtureTearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
 		[Test]
 		public void AddNewGroup()
 		{

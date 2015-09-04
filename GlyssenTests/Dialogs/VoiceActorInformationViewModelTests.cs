@@ -29,6 +29,12 @@ namespace GlyssenTests.Dialogs
 			m_model.Initialize(m_testProject);
 		}
 
+		[TestFixtureTearDown]
+		public void TestFixtureTearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
 		[Test]
 		public void DeleteVoiceActors_ActorsDeleted()
 		{
