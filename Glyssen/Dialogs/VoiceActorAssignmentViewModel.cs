@@ -16,7 +16,7 @@ using SIL.Windows.Forms.Progress;
 
 namespace Glyssen.Dialogs
 {
-	class VoiceActorAssignmentViewModel
+	public class VoiceActorAssignmentViewModel
 	{
 		private readonly Project m_project;
 		private readonly Dictionary<string, int> m_keyStrokesByCharacterId;
@@ -264,6 +264,13 @@ namespace Glyssen.Dialogs
 			SaveAssignments();
 
 			return true;
+		}
+
+		public bool SplitGroup(CharacterGroup group, List<string> charactersToMove)
+		{
+			var newGroup = new CharacterGroup(0, new CharacterByKeyStrokeComparer(m_keyStrokesByCharacterId));
+			m_project.CharacterGroupList.CharacterGroups.Add(newGroup);
+			return MoveCharactersToGroup(charactersToMove, newGroup, false);
 		}
 
 		public void RemoveUnusedGroups()

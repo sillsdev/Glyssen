@@ -206,5 +206,49 @@ namespace GlyssenTests.Dialogs
 			m_model.GenerateGroups();
 			Assert.AreEqual(3, m_testProject.CharacterGroupList.CharacterGroups.Count);
 		}
+
+		[Test]
+		public void SplitGroup_MoveOne()
+		{
+			var characterIds = new List<string> { "John", "Andrew" };
+			var existingGroup = m_model.CharacterGroups[0];
+			existingGroup.CharacterIds = new CharacterIdHashSet(characterIds);
+
+			Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
+
+			Assert.True(m_model.SplitGroup(existingGroup, new List<string> { "John" }));
+
+			Assert.AreEqual(2, m_testProject.CharacterGroupList.CharacterGroups.Count);
+
+			var newGroup = m_testProject.CharacterGroupList.CharacterGroups[1];
+
+			Assert.False(existingGroup == newGroup);
+			Assert.True(existingGroup.CharacterIds.Contains("Andrew"));
+			Assert.False(existingGroup.CharacterIds.Contains("John"));
+			Assert.True(newGroup.CharacterIds.Contains("John"));
+		}
+
+		[Test]
+		public void SplitGroup_MoveMultiple()
+		{
+			var characterIds = new List<string> { "John", "Andrew", "Peter" };
+			var existingGroup = m_model.CharacterGroups[0];
+			existingGroup.CharacterIds = new CharacterIdHashSet(characterIds);
+
+			Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
+
+			Assert.True(m_model.SplitGroup(existingGroup, new List<string> { "John", "Peter" }));
+
+			Assert.AreEqual(2, m_testProject.CharacterGroupList.CharacterGroups.Count);
+
+			var newGroup = m_testProject.CharacterGroupList.CharacterGroups[1];
+
+			Assert.False(existingGroup == newGroup);
+			Assert.True(existingGroup.CharacterIds.Contains("Andrew"));
+			Assert.False(existingGroup.CharacterIds.Contains("John"));
+			Assert.False(existingGroup.CharacterIds.Contains("Peter"));
+			Assert.True(newGroup.CharacterIds.Contains("John"));
+			Assert.True(newGroup.CharacterIds.Contains("Peter"));
+		}
 	}
 }

@@ -213,6 +213,12 @@
       <DependentUpon>VoiceActorInformationGridReadonly.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\VoiceActorInformationViewModel.cs" />
+    <Compile Include="Dialogs\SelectExistingProjectDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\SelectExistingProjectDlg.Designer.cs">
+      <DependentUpon>SelectExistingProjectDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\TooManyUnexpectedQuotesFoundDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,11 +247,11 @@
     <Compile Include="DataMigrator.cs" />
     <Compile Include="Dialogs\IWritingSystemDisplayInfo.cs" />
     <Compile Include="Dialogs\ProjectSettingsViewModel.cs" />
-    <Compile Include="Dialogs\SelectExistingProjectDlg.cs">
+    <Compile Include="Dialogs\SplitCharacterGroupDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\SelectExistingProjectDlg.Designer.cs">
-      <DependentUpon>SelectExistingProjectDlg.cs</DependentUpon>
+    <Compile Include="Dialogs\SplitCharacterGroupDlg.Designer.cs">
+      <DependentUpon>SplitCharacterGroupDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\SplitBlockDlg.cs">
       <SubType>Form</SubType>
@@ -359,14 +365,17 @@
     <EmbeddedResource Include="Dialogs\AssignCharacterDlg.resx">
       <DependentUpon>AssignCharacterDlg.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\SelectExistingProjectDlg.resx">
+      <DependentUpon>SelectExistingProjectDlg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\TooManyUnexpectedQuotesFoundDlg.resx">
       <DependentUpon>TooManyUnexpectedQuotesFoundDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\PercentageOfExpectedQuotesFoundTooLowDlg.resx">
       <DependentUpon>PercentageOfExpectedQuotesFoundTooLowDlg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\SelectExistingProjectDlg.resx">
-      <DependentUpon>SelectExistingProjectDlg.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\SplitCharacterGroupDlg.resx">
+      <DependentUpon>SplitCharacterGroupDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\OpenProjectDlg.resx">
       <DependentUpon>OpenProjectDlg.cs</DependentUpon>

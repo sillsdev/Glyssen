@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -48,9 +49,19 @@ namespace Glyssen.Dialogs
 			m_voiceActorGrid.SelectionChanged += m_eitherGrid_SelectionChanged;
 		}
 
+		public CharacterGroup FirstSelectedCharacterGroup
+		{
+			get
+			{
+				if (m_characterGroupGrid.SelectedRows.Count == 0)
+					return null;
+				return m_characterGroupGrid.SelectedRows[0].DataBoundItem as CharacterGroup;
+			}
+		}
+
 		private void AssignSelectedActorToSelectedGroup()
 		{
-			CharacterGroup group = m_characterGroupGrid.SelectedRows[0].DataBoundItem as CharacterGroup;
+			CharacterGroup group = FirstSelectedCharacterGroup;
 			if (group == null)
 				return;
 
@@ -215,7 +226,15 @@ namespace Glyssen.Dialogs
 
 		private void m_splitGroupToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			//Todo
+			using (var splitGroupDlg = new SplitCharacterGroupDlg(FirstSelectedCharacterGroup, m_actorAssignmentViewModel))
+				if (splitGroupDlg.ShowDialog(this) == DialogResult.OK)
+				{
+					m_saveStatus.OnSaved();
+
+					// Refresh is not adding the new row for whatever reason
+					m_characterGroupGrid.DataSource = new BindingList<CharacterGroup>();
+					m_characterGroupGrid.DataSource = m_actorAssignmentViewModel.CharacterGroups;
+				}
 		}
 
 		private void m_contextMenuCharacterGroups_Opening(object sender, CancelEventArgs e)
@@ -476,7 +495,7 @@ namespace Glyssen.Dialogs
 				{
 					if (m_characterGroupGrid.Columns[hitInfo.ColumnIndex].DataPropertyName == "VoiceActorAssignedName")
 					{
-						CharacterGroup sourceGroup = m_characterGroupGrid.SelectedRows[0].DataBoundItem as CharacterGroup;
+						CharacterGroup sourceGroup = FirstSelectedCharacterGroup;
 						if (sourceGroup != null && sourceGroup.IsVoiceActorAssigned)
 						{
 							DoDragDrop(sourceGroup, DragDropEffects.Copy);

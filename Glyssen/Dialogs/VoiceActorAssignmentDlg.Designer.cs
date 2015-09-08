@@ -133,7 +133,7 @@ namespace Glyssen.Dialogs
         "nuItem");
 			this.m_tmiCreateNewGroup.Name = "m_tmiCreateNewGroup";
 			this.m_tmiCreateNewGroup.Size = new System.Drawing.Size(296, 22);
-			this.m_tmiCreateNewGroup.Text = "Create a New Group with these Characters";
+			this.m_tmiCreateNewGroup.Text = "Create a New Group with the Selected Character";
 			this.m_tmiCreateNewGroup.Click += new System.EventHandler(this.m_tmiCreateNewGroup_Click);
 			// 
 			// m_contextMenuCharacterGroups
