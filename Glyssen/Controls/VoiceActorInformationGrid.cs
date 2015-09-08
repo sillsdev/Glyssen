@@ -7,6 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Character;
 using L10NSharp;
+using SIL.Reporting;
 
 namespace Glyssen.Controls
 {
@@ -59,7 +60,7 @@ namespace Glyssen.Controls
 
 		void m_dataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
-			throw e.Exception;
+			ErrorReport.ReportFatalException(e.Exception);
 		}
 
 		public int RowCount { get { return m_dataGrid.RowCount; } }

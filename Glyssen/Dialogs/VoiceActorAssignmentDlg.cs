@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Glyssen.Character;
 using Glyssen.Controls;
 using L10NSharp;
+using SIL.Reporting;
 
 namespace Glyssen.Dialogs
 {
@@ -183,6 +184,7 @@ namespace Glyssen.Dialogs
 			using (var actorDlg = new VoiceActorInformationDlg(m_project))
 				actorDlg.ShowDialog();
 			m_voiceActorGrid.RefreshSort();
+			m_characterGroupGrid.Refresh();
 		}
 
 		private void m_helpIcon_MouseClick(object sender, MouseEventArgs e)
@@ -279,6 +281,7 @@ namespace Glyssen.Dialogs
 					m_characterGroupGrid.DataSource = new BindingList<CharacterGroup>();
 					m_actorAssignmentViewModel.GenerateGroups();
 					m_characterGroupGrid.DataSource = m_actorAssignmentViewModel.CharacterGroups;
+					m_characterGroupGrid.Refresh();
 				}
 			}
 		}
@@ -505,7 +508,7 @@ namespace Glyssen.Dialogs
 
 		private void m_characterGroupGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
-			throw e.Exception;
+			ErrorReport.ReportFatalException(e.Exception);
 		}
 		#endregion
 	}
