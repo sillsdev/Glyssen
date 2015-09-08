@@ -9,7 +9,7 @@ namespace Glyssen.Dialogs
 	{
 		private Project m_project { get; set; }
 
-		public VoiceActorInformationDlg(Project project)
+		public VoiceActorInformationDlg(Project project, bool showNext = true)
 		{
 			InitializeComponent();
 
@@ -22,6 +22,10 @@ namespace Glyssen.Dialogs
 			m_dataGrid.UserRemovedRows += m_dataGrid_UserRemovedRows;
 
 			m_btnNext.Enabled = m_dataGrid.RowCount > 1; // If 1, only one empty row
+
+			m_btnNext.Visible = showNext;
+			m_linkClose.Visible = showNext;
+			m_btnOk.Visible = !showNext;
 		}
 
 		private void m_dataGrid_Saved(object sender, EventArgs e)
@@ -52,6 +56,12 @@ namespace Glyssen.Dialogs
 			m_project.VoiceActorStatus = VoiceActorStatus.UnProvided;
 			DialogResult = DialogResult.Cancel;
 			Close();			
+		}
+
+		private void m_btnOk_Click(object sender, EventArgs e)
+		{
+			DialogResult = DialogResult.OK;
+			Close();
 		}
 	}
 }

@@ -30,31 +30,32 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoiceActorInformationDlg));
-			this.label1 = new System.Windows.Forms.Label();
+			this.m_lblInstructions = new System.Windows.Forms.Label();
 			this.m_btnNext = new System.Windows.Forms.Button();
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_dataGrid = new Glyssen.Controls.VoiceActorInformationGrid();
 			this.m_saveStatus = new Glyssen.Controls.SaveStatus();
 			this.m_linkClose = new System.Windows.Forms.LinkLabel();
+			this.m_btnOk = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.panel1 = new System.Windows.Forms.Panel();
+			this.m_panelContainingActions = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
-			this.panel1.SuspendLayout();
+			this.m_panelContainingActions.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// label1
+			// m_lblInstructions
 			// 
-			this.label1.AutoSize = true;
-			this.label1.ForeColor = System.Drawing.Color.White;
-			this.l10NSharpExtender1.SetLocalizableToolTip(this.label1, null);
-			this.l10NSharpExtender1.SetLocalizationComment(this.label1, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.label1, "DialogBoxes.VoiceActorInformation.EnterVoiceActors");
-			this.label1.Location = new System.Drawing.Point(12, 9);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(95, 13);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Enter Voice Actors";
+			this.m_lblInstructions.AutoSize = true;
+			this.m_lblInstructions.ForeColor = System.Drawing.Color.White;
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_lblInstructions, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_lblInstructions, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_lblInstructions, "DialogBoxes.VoiceActorInformation.EnterVoiceActors");
+			this.m_lblInstructions.Location = new System.Drawing.Point(12, 9);
+			this.m_lblInstructions.Name = "m_lblInstructions";
+			this.m_lblInstructions.Size = new System.Drawing.Size(95, 13);
+			this.m_lblInstructions.TabIndex = 0;
+			this.m_lblInstructions.Text = "Enter Voice Actors";
 			// 
 			// m_btnNext
 			// 
@@ -105,6 +106,7 @@
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_saveStatus, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_saveStatus, "DialogBoxes.VoiceActorInformation.SaveStatus");
 			this.m_saveStatus.Location = new System.Drawing.Point(3, 3);
+			this.m_saveStatus.Margin = new System.Windows.Forms.Padding(0);
 			this.m_saveStatus.Name = "m_saveStatus";
 			this.m_saveStatus.Size = new System.Drawing.Size(97, 13);
 			this.m_saveStatus.TabIndex = 4;
@@ -125,6 +127,20 @@
 			this.m_linkClose.Text = "Close";
 			this.m_linkClose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkClose_LinkClicked);
 			// 
+			// m_btnOk
+			// 
+			this.m_btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnOk, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnOk, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_btnOk, "Common.OK");
+			this.m_btnOk.Location = new System.Drawing.Point(504, 25);
+			this.m_btnOk.Name = "m_btnOk";
+			this.m_btnOk.Size = new System.Drawing.Size(75, 23);
+			this.m_btnOk.TabIndex = 2;
+			this.m_btnOk.Text = "OK";
+			this.m_btnOk.UseVisualStyleBackColor = true;
+			this.m_btnOk.Click += new System.EventHandler(this.m_btnOk_Click);
+			// 
 			// tableLayoutPanel1
 			// 
 			this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -133,7 +149,7 @@
 			this.tableLayoutPanel1.ColumnCount = 1;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.Controls.Add(this.m_dataGrid, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
+			this.tableLayoutPanel1.Controls.Add(this.m_panelContainingActions, 0, 1);
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 25);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 2;
@@ -142,17 +158,18 @@
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(582, 376);
 			this.tableLayoutPanel1.TabIndex = 6;
 			// 
-			// panel1
+			// m_panelContainingActions
 			// 
-			this.panel1.Controls.Add(this.m_saveStatus);
-			this.panel1.Controls.Add(this.m_linkClose);
-			this.panel1.Controls.Add(this.m_btnNext);
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel1.Location = new System.Drawing.Point(0, 325);
-			this.panel1.Margin = new System.Windows.Forms.Padding(0);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(582, 51);
-			this.panel1.TabIndex = 4;
+			this.m_panelContainingActions.Controls.Add(this.m_saveStatus);
+			this.m_panelContainingActions.Controls.Add(this.m_linkClose);
+			this.m_panelContainingActions.Controls.Add(this.m_btnNext);
+			this.m_panelContainingActions.Controls.Add(this.m_btnOk);
+			this.m_panelContainingActions.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.m_panelContainingActions.Location = new System.Drawing.Point(0, 325);
+			this.m_panelContainingActions.Margin = new System.Windows.Forms.Padding(0);
+			this.m_panelContainingActions.Name = "m_panelContainingActions";
+			this.m_panelContainingActions.Size = new System.Drawing.Size(582, 51);
+			this.m_panelContainingActions.TabIndex = 4;
 			// 
 			// VoiceActorInformationDlg
 			// 
@@ -161,7 +178,7 @@
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(609, 413);
 			this.Controls.Add(this.tableLayoutPanel1);
-			this.Controls.Add(this.label1);
+			this.Controls.Add(this.m_lblInstructions);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.l10NSharpExtender1.SetLocalizableToolTip(this, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this, null);
@@ -174,8 +191,8 @@
 			this.Text = "Voice Actor Information";
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
-			this.panel1.ResumeLayout(false);
-			this.panel1.PerformLayout();
+			this.m_panelContainingActions.ResumeLayout(false);
+			this.m_panelContainingActions.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -183,13 +200,14 @@
 
 		#endregion
 
-		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label m_lblInstructions;
 		private System.Windows.Forms.Button m_btnNext;
 		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
 		private Controls.VoiceActorInformationGrid m_dataGrid;
 		private Controls.SaveStatus m_saveStatus;
 		private System.Windows.Forms.LinkLabel m_linkClose;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Panel m_panelContainingActions;
+		private System.Windows.Forms.Button m_btnOk;
 	}
 }

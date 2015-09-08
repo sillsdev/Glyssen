@@ -192,7 +192,7 @@ namespace Glyssen.Dialogs
 
 		private void m_btnEditVoiceActors_Click(object sender, EventArgs e)
 		{
-			using (var actorDlg = new VoiceActorInformationDlg(m_project))
+			using (var actorDlg = new VoiceActorInformationDlg(m_project, false))
 				actorDlg.ShowDialog();
 			m_voiceActorGrid.RefreshSort();
 			m_characterGroupGrid.Refresh();
