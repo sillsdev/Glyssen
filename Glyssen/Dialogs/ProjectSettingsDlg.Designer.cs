@@ -403,7 +403,7 @@
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblQuoteMarkSummary, "DialogBoxes.ProjectSettingsDlg.label1");
 			this.m_lblQuoteMarkSummary.Location = new System.Drawing.Point(158, 243);
 			this.m_lblQuoteMarkSummary.Name = "m_lblQuoteMarkSummary";
-			this.m_lblQuoteMarkSummary.Size = new System.Drawing.Size(207, 29);
+			this.m_lblQuoteMarkSummary.Size = new System.Drawing.Size(132, 29);
 			this.m_lblQuoteMarkSummary.TabIndex = 22;
 			this.m_lblQuoteMarkSummary.Text = "Summary Text";
 			// 
@@ -463,7 +463,7 @@
 			this.m_lblSummary.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblSummary, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblSummary, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblSummary, "DialogBoxes.ProjectSettingsDlg.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblSummary, "DialogBoxes.ProjectSettingsDlg.Summary");
 			this.m_lblSummary.Location = new System.Drawing.Point(3, 243);
 			this.m_lblSummary.Name = "m_lblSummary";
 			this.m_lblSummary.Size = new System.Drawing.Size(53, 29);
@@ -477,7 +477,7 @@
 			this.m_btnUpdateFromBundle.AutoSize = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnUpdateFromBundle, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnUpdateFromBundle, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnUpdateFromBundle, "DialogBoxes.ProjectSettingsDlg.button1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnUpdateFromBundle, "DialogBoxes.ProjectSettingsDlg.Update");
 			this.m_btnUpdateFromBundle.Location = new System.Drawing.Point(419, 44);
 			this.m_btnUpdateFromBundle.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
 			this.m_btnUpdateFromBundle.Name = "m_btnUpdateFromBundle";

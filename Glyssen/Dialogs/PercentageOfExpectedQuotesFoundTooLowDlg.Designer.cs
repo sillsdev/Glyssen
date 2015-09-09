@@ -47,8 +47,7 @@
 			this.m_lblOnlyNPercentOfExpectedQuotesFound.AutoSize = true;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_lblOnlyNPercentOfExpectedQuotesFound, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_lblOnlyNPercentOfExpectedQuotesFound, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_lblOnlyNPercentOfExpectedQuotesFound, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.m_lblOnlyN" +
-        "PercentOfExpectedQuotesFound");
+			this.l10NSharpExtender1.SetLocalizingId(this.m_lblOnlyNPercentOfExpectedQuotesFound, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.OnlyNPercentFound");
 			this.m_lblOnlyNPercentOfExpectedQuotesFound.Location = new System.Drawing.Point(3, 0);
 			this.m_lblOnlyNPercentOfExpectedQuotesFound.Name = "m_lblOnlyNPercentOfExpectedQuotesFound";
 			this.m_lblOnlyNPercentOfExpectedQuotesFound.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
@@ -61,8 +60,7 @@
 			this.m_lblPossibleProblemsWithFirstLevelQuotes.AutoSize = true;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_lblPossibleProblemsWithFirstLevelQuotes, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_lblPossibleProblemsWithFirstLevelQuotes, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_lblPossibleProblemsWithFirstLevelQuotes, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.m_lblPossi" +
-        "bleProblemsWithFirstLevelQuotes");
+			this.l10NSharpExtender1.SetLocalizingId(this.m_lblPossibleProblemsWithFirstLevelQuotes, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.Level1Incorrect");
 			this.m_lblPossibleProblemsWithFirstLevelQuotes.Location = new System.Drawing.Point(3, 17);
 			this.m_lblPossibleProblemsWithFirstLevelQuotes.Name = "m_lblPossibleProblemsWithFirstLevelQuotes";
 			this.m_lblPossibleProblemsWithFirstLevelQuotes.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
@@ -76,8 +74,7 @@
 			this.m_rdoUseSettings.AutoSize = true;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_rdoUseSettings, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_rdoUseSettings, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_rdoUseSettings, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.m_rdoUseSe" +
-        "ttings");
+			this.l10NSharpExtender1.SetLocalizingId(this.m_rdoUseSettings, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.UseTheseSettings");
 			this.m_rdoUseSettings.Location = new System.Drawing.Point(3, 156);
 			this.m_rdoUseSettings.Name = "m_rdoUseSettings";
 			this.m_rdoUseSettings.Size = new System.Drawing.Size(188, 17);
@@ -119,8 +116,7 @@
 			this.m_lblDirectSpeechNotMarked.AutoSize = true;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_lblDirectSpeechNotMarked, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_lblDirectSpeechNotMarked, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_lblDirectSpeechNotMarked, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.m_lblDirec" +
-        "tSpeechNotMarked");
+			this.l10NSharpExtender1.SetLocalizingId(this.m_lblDirectSpeechNotMarked, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.DirectSpeechNotMarked");
 			this.m_lblDirectSpeechNotMarked.Location = new System.Drawing.Point(3, 90);
 			this.m_lblDirectSpeechNotMarked.Name = "m_lblDirectSpeechNotMarked";
 			this.m_lblDirectSpeechNotMarked.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
@@ -135,8 +131,7 @@
 			this.m_rdoReview.Checked = true;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_rdoReview, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_rdoReview, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_rdoReview, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.m_rdoRevie" +
-        "w");
+			this.l10NSharpExtender1.SetLocalizingId(this.m_rdoReview, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.LetMeReview");
 			this.m_rdoReview.Location = new System.Drawing.Point(3, 123);
 			this.m_rdoReview.Name = "m_rdoReview";
 			this.m_rdoReview.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
@@ -167,7 +162,7 @@
 			this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash.AutoSize = true;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash, "DialogBoxes.QuotationMarksDlg.label1");
+			this.l10NSharpExtender1.SetLocalizingId(this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.Level1ProbablyCorrect");
 			this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash.Location = new System.Drawing.Point(3, 47);
 			this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash.Name = "m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash";
 			this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);

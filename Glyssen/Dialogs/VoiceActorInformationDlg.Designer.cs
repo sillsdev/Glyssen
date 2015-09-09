@@ -118,7 +118,7 @@
 			this.m_linkClose.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_linkClose, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_linkClose, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_linkClose, "DialogBoxes.VoiceActorInformation.linkLabel1");
+			this.l10NSharpExtender1.SetLocalizingId(this.m_linkClose, "DialogBoxes.VoiceActorInformation.Close");
 			this.m_linkClose.Location = new System.Drawing.Point(546, 38);
 			this.m_linkClose.Name = "m_linkClose";
 			this.m_linkClose.Size = new System.Drawing.Size(33, 13);

@@ -61,9 +61,9 @@ namespace Glyssen.Dialogs
 		{
 			switch (characterAge)
 			{
-				case CharacterAge.Child: return LocalizationManager.GetString("Age.Child", "Child");
-				case CharacterAge.Elder: return LocalizationManager.GetString("Age.Elder", "Elder");
-				case CharacterAge.YoungAdult: return LocalizationManager.GetString("Age.YoungAdult", "Young Adult");
+				case CharacterAge.Child: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Child", "Child");
+				case CharacterAge.Elder: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.Elder", "Elder");
+				case CharacterAge.YoungAdult: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterAge.YoungAdult", "Young Adult");
 				default: return string.Empty;
 			}
 		}
