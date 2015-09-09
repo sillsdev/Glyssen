@@ -72,9 +72,34 @@ namespace Glyssen.Dialogs
 
 		public SortableBindingList<CharacterGroup> CharacterGroups { get; set; }
 
-		public void RegenerateGroups()
+		public void RegenerateGroups(bool attemptToMaintainAssignments)
 		{
+			// Create a copy. Cameos are handled in the generation code (because we always maintain those assignments).
+			var previousGroups = CharacterGroups.Where(g => g.IsVoiceActorAssigned && !g.IsCameoVoiceActorAssigned).ToList();
+			
 			GenerateGroupsWithProgress();
+
+			if (attemptToMaintainAssignments && previousGroups.Count > 0)
+			{
+				// We assume the parts with the most keystrokes are most important to maintain
+				var sortedDict = from entry in m_keyStrokesByCharacterId orderby entry.Value descending select entry;
+				foreach (var entry in sortedDict)
+				{
+					string characterId = entry.Key;
+					var previousGroupWithCharacter = previousGroups.FirstOrDefault(g => g.CharacterIds.Contains(characterId));
+					if (previousGroupWithCharacter != null)
+					{
+						var newlyGeneratedGroupWithCharacter = CharacterGroups.FirstOrDefault(g => !g.IsVoiceActorAssigned && g.CharacterIds.Contains(characterId));
+						if (newlyGeneratedGroupWithCharacter == null)
+							continue;
+						newlyGeneratedGroupWithCharacter.AssignVoiceActor(previousGroupWithCharacter.VoiceActorAssigned);
+						previousGroups.Remove(previousGroupWithCharacter);
+						if (previousGroups.Count == 0)
+							break;
+					}
+				}
+			}
+
 			m_project.CharacterGroupList.PopulateEstimatedHours(m_keyStrokesByCharacterId);
 		}
 

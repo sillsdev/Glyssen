@@ -306,10 +306,11 @@ namespace Glyssen.Dialogs
 			using (var updateDlg = new UpdateCharacterGroupsDlg())
 			{
 				if (updateDlg.ShowDialog() == DialogResult.OK &&
-					updateDlg.SelectedOption == UpdateCharacterGroupsDlg.SelectionType.AutoGen)
+					(updateDlg.SelectedOption == UpdateCharacterGroupsDlg.SelectionType.AutoGenAndMaintain ||
+					updateDlg.SelectedOption == UpdateCharacterGroupsDlg.SelectionType.AutoGen))
 				{
 					m_characterGroupGrid.DataSource = new BindingList<CharacterGroup>();
-					m_actorAssignmentViewModel.RegenerateGroups();
+					m_actorAssignmentViewModel.RegenerateGroups(updateDlg.SelectedOption == UpdateCharacterGroupsDlg.SelectionType.AutoGenAndMaintain);
 					m_characterGroupGrid.DataSource = m_actorAssignmentViewModel.CharacterGroups;
 					RefreshCharacterGroupSort();
 					m_voiceActorGrid.RefreshSort();

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Glyssen.Dialogs
@@ -14,6 +7,7 @@ namespace Glyssen.Dialogs
 	{
 		public enum SelectionType
 		{
+			AutoGenAndMaintain,
 			AutoGen,
 			SplitCurrent
 		}
@@ -28,9 +22,15 @@ namespace Glyssen.Dialogs
 			get
 			{
 				if (m_radioGenCharGrps.Checked)
-					return SelectionType.AutoGen;
+					return m_chkMaintainAssignments.Checked ? SelectionType.AutoGenAndMaintain : SelectionType.AutoGen;
+
 				return SelectionType.SplitCurrent;
 			}
+		}
+
+		private void m_radioGenCharGrps_CheckedChanged(object sender, EventArgs e)
+		{
+			m_chkMaintainAssignments.Enabled = m_radioGenCharGrps.Checked;
 		}
 	}
 }

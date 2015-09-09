@@ -50,6 +50,11 @@ namespace Glyssen.Character
 			return CharacterGroups.Count(cg => cg.VoiceActorAssignedId != -1);
 		}
 
+		public CharacterGroup GroupContainingCharacterId(string characterId)
+		{
+			return CharacterGroups.FirstOrDefault(g => g.CharacterIds.Contains(characterId));
+		}
+
 		public void RemoveVoiceActor(int voiceActorId)
 		{
 			foreach (var group in CharacterGroups)

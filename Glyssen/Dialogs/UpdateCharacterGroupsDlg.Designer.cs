@@ -35,6 +35,7 @@
 			this.m_radioSplitGroup = new System.Windows.Forms.RadioButton();
 			this.m_btnCancel = new System.Windows.Forms.Button();
 			this.m_btnOk = new System.Windows.Forms.Button();
+			this.m_chkMaintainAssignments = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -46,6 +47,7 @@
 			// m_radioGenCharGrps
 			// 
 			this.m_radioGenCharGrps.AutoSize = true;
+			this.m_radioGenCharGrps.Checked = true;
 			this.m_radioGenCharGrps.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_radioGenCharGrps, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_radioGenCharGrps, null);
@@ -58,6 +60,7 @@
 			this.m_radioGenCharGrps.TabStop = true;
 			this.m_radioGenCharGrps.Text = "Automatically generate character groups for the provided voice actors";
 			this.m_radioGenCharGrps.UseVisualStyleBackColor = true;
+			this.m_radioGenCharGrps.CheckedChanged += new System.EventHandler(this.m_radioGenCharGrps_CheckedChanged);
 			// 
 			// m_radioSplitGroup
 			// 
@@ -66,13 +69,13 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_radioSplitGroup, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_radioSplitGroup, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_radioSplitGroup, "DialogBoxes.UpdateCharacterGroupsDlg.ManualSplit");
-			this.m_radioSplitGroup.Location = new System.Drawing.Point(28, 78);
+			this.m_radioSplitGroup.Location = new System.Drawing.Point(28, 92);
 			this.m_radioSplitGroup.Name = "m_radioSplitGroup";
 			this.m_radioSplitGroup.Size = new System.Drawing.Size(227, 17);
 			this.m_radioSplitGroup.TabIndex = 1;
-			this.m_radioSplitGroup.TabStop = true;
 			this.m_radioSplitGroup.Text = "Manually split the selected character group";
 			this.m_radioSplitGroup.UseVisualStyleBackColor = true;
+			this.m_radioSplitGroup.Visible = false;
 			// 
 			// m_btnCancel
 			// 
@@ -102,6 +105,22 @@
 			this.m_btnOk.Text = "OK";
 			this.m_btnOk.UseVisualStyleBackColor = true;
 			// 
+			// m_chkMaintainAssignments
+			// 
+			this.m_chkMaintainAssignments.AutoSize = true;
+			this.m_chkMaintainAssignments.Checked = true;
+			this.m_chkMaintainAssignments.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.m_chkMaintainAssignments.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_chkMaintainAssignments, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_chkMaintainAssignments, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkMaintainAssignments, "DialogBoxes.UpdateCharacterGroupsDlg.MaintainAssignments");
+			this.m_chkMaintainAssignments.Location = new System.Drawing.Point(53, 54);
+			this.m_chkMaintainAssignments.Name = "m_chkMaintainAssignments";
+			this.m_chkMaintainAssignments.Size = new System.Drawing.Size(204, 17);
+			this.m_chkMaintainAssignments.TabIndex = 4;
+			this.m_chkMaintainAssignments.Text = "Attempt to maintain actor assignments";
+			this.m_chkMaintainAssignments.UseVisualStyleBackColor = true;
+			// 
 			// UpdateCharacterGroupsDlg
 			// 
 			this.AcceptButton = this.m_btnOk;
@@ -110,6 +129,7 @@
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.CancelButton = this.m_btnCancel;
 			this.ClientSize = new System.Drawing.Size(444, 221);
+			this.Controls.Add(this.m_chkMaintainAssignments);
 			this.Controls.Add(this.m_btnOk);
 			this.Controls.Add(this.m_btnCancel);
 			this.Controls.Add(this.m_radioSplitGroup);
@@ -138,5 +158,6 @@
 		private System.Windows.Forms.RadioButton m_radioSplitGroup;
 		private System.Windows.Forms.Button m_btnCancel;
 		private System.Windows.Forms.Button m_btnOk;
+		private System.Windows.Forms.CheckBox m_chkMaintainAssignments;
 	}
 }
