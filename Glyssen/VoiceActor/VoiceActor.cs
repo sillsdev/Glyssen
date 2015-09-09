@@ -96,6 +96,9 @@ namespace Glyssen.VoiceActor
 		[XmlAttribute("Status")]
 		public bool Status { get; set; }
 
+		[XmlAttribute("IsCameo")]
+		public bool IsCameo { get; set; }
+
 		public bool IsValid()
 		{
 			return !string.IsNullOrEmpty(Name);

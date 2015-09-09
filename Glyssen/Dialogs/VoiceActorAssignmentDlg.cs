@@ -298,9 +298,10 @@ namespace Glyssen.Dialogs
 					updateDlg.SelectedOption == UpdateCharacterGroupsDlg.SelectionType.AutoGen)
 				{
 					m_characterGroupGrid.DataSource = new BindingList<CharacterGroup>();
-					m_actorAssignmentViewModel.GenerateGroups();
+					m_actorAssignmentViewModel.RegenerateGroups();
 					m_characterGroupGrid.DataSource = m_actorAssignmentViewModel.CharacterGroups;
-					m_characterGroupGrid.Refresh();
+					RefreshCharacterGroupSort();
+					m_voiceActorGrid.RefreshSort();
 				}
 			}
 		}
@@ -348,6 +349,11 @@ namespace Glyssen.Dialogs
 			currentRow.Selected = true;
 
 			m_characterGroupGrid.PerformLayout();
+		}
+
+		public void RefreshCharacterGroupSort()
+		{
+			m_characterGroupGrid.Sort(m_characterGroupGrid.SortedColumn, m_characterGroupGrid.SortOrder == SortOrder.Ascending ? ListSortDirection.Ascending : ListSortDirection.Descending);
 		}
 
 		private void m_actorAssignmentViewModel_Saved(object sender, EventArgs e)

@@ -95,6 +95,13 @@ namespace Glyssen.Character
 
 		[XmlIgnore]
 		[Browsable(false)]
+		public bool IsCameoVoiceActorAssigned
+		{
+			get { return m_isActorAssigned && VoiceActorAssigned != null && VoiceActorAssigned.IsCameo; }
+		}
+
+		[XmlIgnore]
+		[Browsable(false)]
 		public VoiceActor.VoiceActor VoiceActorAssigned
 		{
 			get { return m_actorAssigned; }

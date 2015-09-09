@@ -47,6 +47,7 @@
 			this.ActorAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ActorQuality = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ActorStatus = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.Cameo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.m_contextMenu.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_dataGrid)).BeginInit();
@@ -117,7 +118,8 @@
             this.ActorGender,
             this.ActorAge,
             this.ActorQuality,
-            this.ActorStatus});
+            this.ActorStatus,
+            this.Cameo});
 			this.m_dataGrid.ContextMenuStrip = this.m_contextMenu;
 			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
@@ -225,6 +227,16 @@
 			this.ActorStatus.Visible = false;
 			this.ActorStatus.Width = 330;
 			// 
+			// Cameo
+			// 
+			this.Cameo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.Cameo.DataPropertyName = "IsCameo";
+			this.Cameo.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Cameo!Cameo";
+			this.Cameo.Name = "Cameo";
+			this.Cameo.ReadOnly = true;
+			this.Cameo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.Cameo.Width = 342;
+			// 
 			// VoiceActorInformationGridReadonly
 			// 
 			this.Controls.Add(this.m_dataGrid);
@@ -255,5 +267,6 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn ActorAge;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ActorQuality;
 		private System.Windows.Forms.DataGridViewCheckBoxColumn ActorStatus;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn Cameo;
 	}
 }

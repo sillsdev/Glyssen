@@ -24,6 +24,13 @@ namespace GlyssenTests.Rules
 			m_keyStrokesPerCharacterId = m_testProject.GetKeyStrokesByCharacterId();
 		}
 
+		[SetUp]
+		public void SetUp()
+		{
+			m_testProject.VoiceActorList.Actors.Clear();
+			m_testProject.CharacterGroupList.CharacterGroups.Clear();
+		}
+
 		[TestFixtureTearDown]
 		public void TestFixtureTearDown()
 		{
@@ -237,6 +244,54 @@ namespace GlyssenTests.Rules
 				var gender = CharacterDetailData.Singleton.GetDictionary()[c].Gender;
 				return gender != CharacterGender.Male && gender != CharacterGender.PreferMale;
 			})), 1);
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_IncludesOneCameoActor_GeneratesEmptyGroupAssignedToCameoActor()
+		{
+			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
+			actors[0].IsCameo = true;
+
+			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
+			Assert.AreEqual(10, groups.Count);
+			Assert.AreEqual(1, groups.Count(g => g.IsVoiceActorAssigned));
+			var groupWithActorAssigned = groups.First(g => g.IsVoiceActorAssigned);
+			Assert.AreEqual(actors[0], groupWithActorAssigned.VoiceActorAssigned);
+			Assert.AreEqual(0, groupWithActorAssigned.CharacterIds.Count);
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_IncludesTwoCameoActors_GeneratesEmptyGroupAssignedToEachCameoActor()
+		{
+			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
+			actors[0].IsCameo = true;
+			actors[1].IsCameo = true;
+
+			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
+			Assert.AreEqual(10, groups.Count);
+			Assert.AreEqual(2, groups.Count(g => g.IsVoiceActorAssigned));
+			var groupsWithActorAssigned = groups.Where(g => g.IsVoiceActorAssigned);
+			Assert.True(groupsWithActorAssigned.Select(g => g.VoiceActorAssigned).Contains(actors[0]));
+			Assert.True(groupsWithActorAssigned.Select(g => g.VoiceActorAssigned).Contains(actors[1]));
+			Assert.True(groupsWithActorAssigned.All(g => g.CharacterIds.Count == 0));
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToCharacter_GroupMaintained()
+		{
+			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
+			actors[0].IsCameo = true;
+
+			var assignedGroup = new CharacterGroup();
+			assignedGroup.AssignVoiceActor(actors[0]);
+			assignedGroup.CharacterIds.Add("centurion at crucifixion");
+			m_testProject.CharacterGroupList.CharacterGroups.Add(assignedGroup);
+
+			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
+			var groupWithActorAssigned = groups.First(g => g.IsVoiceActorAssigned);
+			Assert.AreEqual(1, groupWithActorAssigned.CharacterIds.Count);
+			Assert.True(groupWithActorAssigned.CharacterIds.Contains("centurion at crucifixion"));
+			Assert.False(groups.Where(g => g != groupWithActorAssigned).SelectMany(g => g.CharacterIds).Contains("centurion at crucifixion"));
 		}
 	}
 

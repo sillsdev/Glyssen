@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Dialogs;
@@ -189,7 +190,7 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void RemoveUnusedGroups()
+		public void RemoveUnusedGroups_RemovesGroupWithNoCharactersAndNoAssignedActor()
 		{
 			Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
 			m_model.RemoveUnusedGroups();
@@ -197,14 +198,53 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void GenerateGroups()
+		public void RemoveUnusedGroups_DoesNotRemoveGroupWithAssignedActor()
+		{
+			var groupWithActor = m_testProject.CharacterGroupList.CharacterGroups[0];
+			groupWithActor.AssignVoiceActor(new Glyssen.VoiceActor.VoiceActor());
+			m_model.AddNewGroup();
+			Assert.AreEqual(2, m_testProject.CharacterGroupList.CharacterGroups.Count);
+			m_model.RemoveUnusedGroups();
+			Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
+			Assert.AreEqual(groupWithActor, m_testProject.CharacterGroupList.CharacterGroups[0]);
+			Assert.True(m_testProject.CharacterGroupList.CharacterGroups[0].IsVoiceActorAssigned);
+		}
+
+		[Test]
+		public void RegenerateGroups()
 		{
 			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1 };
 			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2 };
 			var actor3 = new Glyssen.VoiceActor.VoiceActor { Id = 3 };
 			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actor1, actor2, actor3 };
-			m_model.GenerateGroups();
+			m_model.RegenerateGroups();
 			Assert.AreEqual(3, m_testProject.CharacterGroupList.CharacterGroups.Count);
+		}
+
+		[Test]
+		public void RegenerateGroups_HasCameoAssigned_MaintainsCameoGroup()
+		{
+			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1 };
+			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2 };
+			var actor3 = new Glyssen.VoiceActor.VoiceActor { Id = 3 };
+			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actor1, actor2, actor3 };
+			m_model.RegenerateGroups();
+
+			var actor4 = new Glyssen.VoiceActor.VoiceActor { Id = 4, IsCameo = true };
+			m_testProject.VoiceActorList.Actors.Add(actor4);
+			var cameoGroup = m_model.AddNewGroup();
+			cameoGroup.AssignVoiceActor(actor4);
+			m_model.MoveCharactersToGroup(new[] { "John" }, cameoGroup, false);
+
+			m_model.RegenerateGroups();
+			var groups = m_testProject.CharacterGroupList.CharacterGroups;
+			Assert.AreEqual(4, groups.Count);
+
+			cameoGroup = groups.First(g => g.VoiceActorAssigned == actor4);
+			Assert.AreEqual(actor4, cameoGroup.VoiceActorAssigned);
+			Assert.AreEqual(1, cameoGroup.CharacterIds.Count);
+			Assert.True(cameoGroup.CharacterIds.Contains("John"));
+			Assert.False(groups.Where(g => g != cameoGroup).SelectMany(g => g.CharacterIds).Contains("John"));
 		}
 
 		[Test]

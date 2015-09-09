@@ -72,10 +72,10 @@ namespace Glyssen.Dialogs
 
 		public SortableBindingList<CharacterGroup> CharacterGroups { get; set; }
 
-		public void GenerateGroups()
+		public void RegenerateGroups()
 		{
-			CharacterGroups.Clear();
 			GenerateGroupsWithProgress();
+			m_project.CharacterGroupList.PopulateEstimatedHours(m_keyStrokesByCharacterId);
 		}
 
 		private void GenerateGroupsWithProgress()
@@ -87,11 +87,18 @@ namespace Glyssen.Dialogs
 				progressDialog.CanCancel = false;
 				progressDialog.BarStyle = ProgressBarStyle.Marquee;
 				BackgroundWorker worker = new BackgroundWorker();
-				worker.DoWork += (s, e) => CharacterGroups.AddRange(new CharacterGroupGenerator(m_project, m_keyStrokesByCharacterId).GenerateCharacterGroups());
+				worker.DoWork += OnGenerateGroupsWorkerDoWork;
 				worker.RunWorkerCompleted += (s, e) => { if (e.Error != null) throw e.Error; };
 				progressDialog.BackgroundWorker = worker;
 				progressDialog.ShowDialog();
 			}
+		}
+
+		private void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)
+		{
+			var generatedGroups = new CharacterGroupGenerator(m_project, m_keyStrokesByCharacterId).GenerateCharacterGroups();
+			CharacterGroups.Clear();
+			CharacterGroups.AddRange(generatedGroups);
 		}
 
 		// Keep this method around for now in case we decide to support templates in some scenarios
@@ -275,7 +282,7 @@ namespace Glyssen.Dialogs
 
 		public void RemoveUnusedGroups()
 		{
-			CharacterGroups.RemoveAll(t => t.CharacterIds.Count == 0);
+			CharacterGroups.RemoveAll(t => t.CharacterIds.Count == 0 && !t.IsVoiceActorAssigned);
 		}
 	}
 }

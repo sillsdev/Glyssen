@@ -38,13 +38,20 @@ namespace Glyssen.Rules
 		public List<CharacterGroup> GenerateCharacterGroups()
 		{
 			List<CharacterGroup> characterGroups = new List<CharacterGroup>();
+			
+			List<VoiceActor.VoiceActor> actors = m_project.VoiceActorList.Actors;
 
-			var actors = m_project.VoiceActorList.Actors;
-
-			if (!actors.Any())
+			if (actors.Count == 0)
 				return characterGroups; // REVIEW: Maybe we should throw an exception instead.
 
-			var sortedDict = from entry in m_keyStrokesByCharacterId orderby entry.Value descending select entry;
+			actors = actors.Where(a => !a.IsCameo).ToList();
+
+			if (actors.Count == 0)
+				return CreateGroupsForCameoActors().ToList();
+
+			IEnumerable<string> excludedCharacterIds = GetCharacterIdsAssignedToCameoActor();
+
+			var sortedDict = from entry in m_keyStrokesByCharacterId where !excludedCharacterIds.Contains(entry.Key) orderby entry.Value descending select entry;
 
 			List<VoiceActor.VoiceActor> actorsNeedingGroups = new List<VoiceActor.VoiceActor>();
 
@@ -174,8 +181,34 @@ namespace Glyssen.Rules
 			// But for now, we need to make sure we don't throw an exception if the user manually changes it.
 			foreach (var group in groups)
 				group.Closed = false;
+
+			groups.AddRange(CreateGroupsForCameoActors());
 			
 			return groups;
+		}
+
+		private IEnumerable<string> GetCharacterIdsAssignedToCameoActor()
+		{
+			var characterIds = new List<string>();
+			foreach (var cameoGroup in m_project.CharacterGroupList.CharacterGroups.Where(g => g.IsCameoVoiceActorAssigned))
+				characterIds.AddRange(cameoGroup.CharacterIds);
+			return characterIds;
+		}
+
+		private IEnumerable<CharacterGroup> CreateGroupsForCameoActors()
+		{
+			int groupNumber = 0;
+			foreach (var cameoActor in m_project.VoiceActorList.Actors.Where(a => a.IsCameo))
+			{
+				if (m_project.CharacterGroupList.HasVoiceActorAssigned(cameoActor.Id))
+					yield return m_project.CharacterGroupList.CharacterGroups.First(g => g.VoiceActorAssigned == cameoActor);
+				else
+				{
+					var newGroup = new CharacterGroup(groupNumber++, m_characterIdComparer);
+					newGroup.AssignVoiceActor(cameoActor);
+					yield return newGroup;
+				}
+			}
 		}
 
 		private IEnumerable<CharacterGroup> CreateGroupsForReservedCharacters(List<CharacterDetail> includedCharacterDetails, int nbrMaleAdultActors,
