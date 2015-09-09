@@ -24,6 +24,8 @@ namespace Glyssen.Dialogs
 
 			m_project = project;
 
+			m_tmiCreateNewGroup.Tag = "CreateNewGroup";
+
 			m_actorAssignmentViewModel = new VoiceActorAssignmentViewModel(project);
 			m_actorAssignmentViewModel.Saved += m_actorAssignmentViewModel_Saved;
 
@@ -269,7 +271,16 @@ namespace Glyssen.Dialogs
 				e.Cancel = true;
 				return;
 			}
-			m_tmiCreateNewGroup.Text = ctrl.SelectedItems.Count > 1
+
+			// Can't use m_contextMenuCharacters or m_tmiCreateNewGroup here because for some reason the ones displaying are copies of those
+			ContextMenuStrip cms = sender as ContextMenuStrip;
+			if (cms == null)
+				return;
+			ToolStripMenuItem item = cms.Items.Cast<ToolStripMenuItem>().FirstOrDefault(i => i.Tag.ToString() == "CreateNewGroup");
+			if (item == null)
+				return;
+
+			item.Text = ctrl.SelectedItems.Count > 1
 				? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.CreateNewGroupWithCharacters",
 					"Create a New Group with the Selected Characters")
 				: LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.CreateNewGroupWithCharacter",
