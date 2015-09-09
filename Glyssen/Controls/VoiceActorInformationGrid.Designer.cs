@@ -213,6 +213,7 @@
 			this.ActorQuality.MinimumWidth = 90;
 			this.ActorQuality.Name = "ActorQuality";
 			this.ActorQuality.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.ActorQuality.Visible = false;
 			this.ActorQuality.Width = 403;
 			// 
 			// ActorStatus

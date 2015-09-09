@@ -210,6 +210,7 @@
 			this.ActorQuality.Name = "ActorQuality";
 			this.ActorQuality.ReadOnly = true;
 			this.ActorQuality.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.ActorQuality.Visible = false;
 			this.ActorQuality.Width = 403;
 			// 
 			// ActorStatus
