@@ -54,6 +54,7 @@
     <Compile Include="BiblicalTerms\BiblicalTermsList.cs" />
     <Compile Include="BiblicalTerms\Processor.cs" />
     <Compile Include="CharacterCharacterId.cs" />
+    <Compile Include="CharacterDetailProcessing.cs" />
     <Compile Include="CharacterListProcessing.cs" />
     <Compile Include="CharacterVerse.cs" />
     <Compile Include="ControlFiles.Designer.cs">
@@ -61,7 +62,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ControlFiles.resx</DependentUpon>
     </Compile>
-    <Compile Include="DialogueQuotesRefeerences.cs" />
+    <Compile Include="DialogueQuotesReferences.cs" />
     <Compile Include="FCBH\Processor.cs" />
     <Compile Include="FCBH\TemplateData.cs" />
     <Compile Include="FCBH\TemplateDatum.cs" />

@@ -28,6 +28,7 @@ namespace Glyssen.Character
 		public CharacterAge Age { get; set; }
 		public bool Status { get; set; }
 		public string Comment { get; set; }
+		public string ReferenceComment { get; set; }
 	}
 
 	public class CharacterGenderComparer : IComparer<CharacterGender>

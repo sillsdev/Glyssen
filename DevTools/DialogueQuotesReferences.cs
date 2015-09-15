@@ -5,11 +5,11 @@ using SIL.Scripture;
 
 namespace DevTools
 {
-	public class DialogueQuotesRefeerences
+	public class DialogueQuotesReferences
 	{
 		private readonly static HashSet<string> s_references = new HashSet<string>();
  
-		static DialogueQuotesRefeerences()
+		static DialogueQuotesReferences()
 		{
 			foreach (var line in ControlFiles.DialogQuotes.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
 			{

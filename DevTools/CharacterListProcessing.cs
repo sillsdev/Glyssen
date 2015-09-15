@@ -142,7 +142,7 @@ namespace DevTools
 
 				SetAlias(cv);
 
-				if (DialogueQuotesRefeerences.Contains(cv.Book, cv.Chapter, cv.Verse))
+				if (DialogueQuotesReferences.Contains(cv.Book, cv.Chapter, cv.Verse))
 					cv.IsDialogue = true;
 			}
 
