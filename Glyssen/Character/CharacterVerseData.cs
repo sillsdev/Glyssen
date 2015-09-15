@@ -116,7 +116,7 @@ namespace Glyssen.Character
 			}
 		}
 
-		private static string GetBookNameFromStandardCharacterId(string characterId)
+		public static string GetBookNameFromStandardCharacterId(string characterId)
 		{
 			return characterId.Substring(characterId.Length - 3);
 		}

@@ -116,8 +116,10 @@ namespace Glyssen.Rules
 			var trialConfigurationsForNarratorsAndExtras = TrialGroupConfiguration.GeneratePossibilities(characterGroups, actorsNeedingGroups.Count,
 				nbrMaleAdultActors,
 				actors.Count(a => a.Gender == ActorGender.Female && a.Age != ActorAge.Child),
-				1, 1,
-				m_project.IncludedBooks[0].BookId,
+				Math.Min(1, includedCharacterDetails.Count(c => CharacterVerseData.IsCharacterOfType(c.CharacterId, CharacterVerseData.StandardCharacter.Narrator))),
+				Math.Min(1, includedCharacterDetails.Count(c => CharacterVerseData.IsCharacterStandard(c.CharacterId, false))),
+				includedCharacterDetails.Where(c => CharacterVerseData.IsCharacterOfType(c.CharacterId, CharacterVerseData.StandardCharacter.Narrator)).Select(c => CharacterVerseData.GetBookNameFromStandardCharacterId(c.CharacterId)).FirstOrDefault(),
+				includedCharacterDetails.Where(c => CharacterVerseData.IsCharacterStandard(c.CharacterId, false)).Select(c => CharacterVerseData.GetBookNameFromStandardCharacterId(c.CharacterId)).FirstOrDefault(),
 				m_characterIdComparer);
 
 			foreach (var configuration in trialConfigurationsForNarratorsAndExtras)
@@ -291,7 +293,9 @@ namespace Glyssen.Rules
 			internal CharacterGroup NarratorGroup { get; private set; }
 			internal CharacterGroup ExtraBiblicalGroup { get; private set; }
 
-			private TrialGroupConfiguration(IEnumerable<CharacterGroup> predeterminedGroups, int nbrUnassignedActors, int n, int e, string anyBookId, 
+			private TrialGroupConfiguration(IEnumerable<CharacterGroup> predeterminedGroups, int nbrUnassignedActors,
+				int n, int e,
+				string anyNarratorBookId, string anyExtraBookId,
 				IComparer<string> characterComparer)
 			{
 				m_groups = predeterminedGroups.ToList();
@@ -305,22 +309,26 @@ namespace Glyssen.Rules
 				{
 					// TODO: Create the number of narrators and extra-biblicals requested
 
-					if (RemainingUsableActors > 0)
+					if (RemainingUsableActors > 0 && n > 0)
 					{
 						NarratorGroup = new CharacterGroup(m_groups.Count + 1, characterComparer) { Status = true };
 						m_groups.Add(NarratorGroup);
 						RemainingUsableActors--;
 					}
 
-					if (RemainingUsableActors > 0)
+					if (RemainingUsableActors > 0 && e > 0)
 					{
 						ExtraBiblicalGroup = new CharacterGroup(m_groups.Count + 1, characterComparer);
 						m_groups.Add(ExtraBiblicalGroup);
 						RemainingUsableActors--;
 					}
+					else if (e == 0)
+						ExtraBiblicalGroup = NarratorGroup;
 				}
-				NarratorGroup.CharacterIds.Add(CharacterVerseData.GetStandardCharacterId(anyBookId, CharacterVerseData.StandardCharacter.Narrator));
-				ExtraBiblicalGroup.CharacterIds.Add(CharacterVerseData.GetStandardCharacterId(anyBookId, CharacterVerseData.StandardCharacter.BookOrChapter));
+				if (NarratorGroup != null && !NarratorGroup.Closed && anyNarratorBookId != null)
+					NarratorGroup.CharacterIds.Add(CharacterVerseData.GetStandardCharacterId(anyNarratorBookId, CharacterVerseData.StandardCharacter.Narrator));
+				if (ExtraBiblicalGroup != null && !ExtraBiblicalGroup.Closed && anyExtraBookId != null)
+					ExtraBiblicalGroup.CharacterIds.Add(CharacterVerseData.GetStandardCharacterId(anyExtraBookId, CharacterVerseData.StandardCharacter.BookOrChapter));
 			}
 
 			internal bool IsBetterThan(TrialGroupConfiguration other)
@@ -338,7 +346,8 @@ namespace Glyssen.Rules
 			}
 
 			internal static List<TrialGroupConfiguration> GeneratePossibilities(List<CharacterGroup> predeterminedGroups, int nbrUnassignedActors, 
-				int nbrAdultMaleActors, int nbrAdultFemaleActors, int numberOfNarratorGroups, int numberOfExtraGroups, string anyBookId,
+				int nbrAdultMaleActors, int nbrAdultFemaleActors, int numberOfNarratorGroups, int numberOfExtraGroups,
+				string anyNarratorBookId, string anyExtraBookId,
 				IComparer<string> characterComparer)
 			{
 				var nbrStandardGroups = numberOfNarratorGroups + numberOfExtraGroups;
@@ -347,7 +356,9 @@ namespace Glyssen.Rules
 				var list = new List<TrialGroupConfiguration>(nbrConfigs);
 				for (int n = 0; n < nbrConfigs; n++)
 				{
-					var config = new TrialGroupConfiguration(predeterminedGroups, nbrUnassignedActors, numberOfNarratorGroups, numberOfExtraGroups, anyBookId,
+					var config = new TrialGroupConfiguration(predeterminedGroups, nbrUnassignedActors, 
+						numberOfNarratorGroups, numberOfExtraGroups, 
+						anyNarratorBookId, anyExtraBookId,
 						characterComparer);
 
 					int nbrMalesInConfig = Math.Min(n, nbrAdultMaleActors);

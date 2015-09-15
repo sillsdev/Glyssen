@@ -511,6 +511,76 @@ namespace GlyssenTests.Rules
 		}
 	}
 
+	[TestFixture]
+	internal class CharacterGroupGeneratorTestsWithSingleVoiceBook
+	{
+		private Project m_testProject;
+		private Dictionary<string, int> m_keyStrokesPerCharacterId;
+
+		[TestFixtureSetUp]
+		public void TextFixtureSetUp()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
+			m_testProject.IncludedBooks[0].SingleVoice = true;
+			m_keyStrokesPerCharacterId = m_testProject.GetKeyStrokesByCharacterId();
+		}
+
+		[TestFixtureTearDown]
+		public void TestFixtureTearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_OneBookSingleVoice_AllLinesAreNarrator()
+		{
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(7);
+			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
+			var groups = gen.GenerateCharacterGroups();
+			var singleGroup = groups.Single(g => g.CharacterIds.Contains("narrator-LUK"));
+			Assert.AreEqual(1, singleGroup.CharacterIds.Count);
+			Assert.AreEqual(1, groups.Count);
+		}
+	}
+
+	[TestFixture]
+	internal class CharacterGroupGeneratorTestsWithSingleVoiceBookAndNonSingleVoiceBook
+	{
+		private Project m_testProject;
+		private Dictionary<string, int> m_keyStrokesPerCharacterId;
+
+		[TestFixtureSetUp]
+		public void TextFixtureSetUp()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK, TestProject.TestBook.ACT);
+			m_testProject.IncludedBooks[0].SingleVoice = true;
+			m_keyStrokesPerCharacterId = m_testProject.GetKeyStrokesByCharacterId();
+		}
+
+		[TestFixtureTearDown]
+		public void TestFixtureTearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_OneBookSingleVoice_AllLinesAreNarrator()
+		{
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(7);
+			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
+			var groups = gen.GenerateCharacterGroups();
+			var narratorLukeGroup = groups.Single(g => g.CharacterIds.Contains("narrator-LUK"));
+			Assert.AreEqual(2, narratorLukeGroup.CharacterIds.Count);
+			Assert.True(narratorLukeGroup.CharacterIds.Contains("narrator-ACT"));
+			Assert.False(groups.Any(g => g.CharacterIds.Contains("BC-LUK")));
+			Assert.AreEqual(7, groups.Count);
+		}
+	}
+
 	class CharacterGroupGeneratorTests
 	{
 		public static List<Glyssen.VoiceActor.VoiceActor> GetVoiceActors(int numberOfAdultMales, int numberOfAdultFemales = 0, int numberOfMaleChildren = 0, int numberOfFemaleChildren = 0)

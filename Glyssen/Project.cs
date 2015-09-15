@@ -1094,9 +1094,10 @@ namespace Glyssen
 			Dictionary<string, int> keyStrokesByCharacterId = new Dictionary<string, int>();
 			foreach (var book in IncludedBooks)
 			{
+				bool singleVoice = book.SingleVoice;
 				foreach (var block in book.GetScriptBlocks(true))
 				{
-					var character = block.CharacterIdInScript;
+					var character = singleVoice ? CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator) : block.CharacterIdInScript;
 					if (!keyStrokesByCharacterId.ContainsKey(character))
 						keyStrokesByCharacterId.Add(character, 0);
 					keyStrokesByCharacterId[character] += block.GetText(false).Length;
