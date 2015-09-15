@@ -208,9 +208,6 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
           <Component Id="Ionic.Zip.dll" Guid="{EA956C01-1047-414D-AFDB-9AEE2B0B064F}">
             <File Id="Ionic.Zip.dll" Name="Ionic.Zip.dll" KeyPath="yes" Source="..\output\release\Ionic.Zip.dll" />
           </Component>
-          <Component Id="ICSharpCode.SharpZipLib.dll" Guid="{4B1E06ED-B1E2-4936-ADD9-0480421AB547}">
-            <File Id="ICSharpCode.SharpZipLib.dll" Name="ICSharpCode.SharpZipLib.dll" KeyPath="yes" Source="..\output\release\ICSharpCode.SharpZipLib.dll" />
-          </Component>
           <Component Id="NetLoc.pdb" Guid="{69b72021-5d29-4499-9752-f90346e9fe2f}">
             <File Id="NetLoc.pdb" Name="NetLoc.pdb" KeyPath="yes" Source="..\output\release\NetLoc.pdb" />
           </Component>
@@ -271,7 +268,6 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="NetLoc.dll"/>
       <ComponentRef Id="Utilities.dll"/>
       <ComponentRef Id="Ionic.Zip.dll"/>
-      <ComponentRef Id="ICSharpCode.SharpZipLib.dll"/>
       <ComponentRef Id="L10NSharp.dll"/>
       <ComponentRef Id="Glyssen.exe" />
       <ComponentRef Id="Glyssen.exe.config" />
