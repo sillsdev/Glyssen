@@ -26,6 +26,8 @@ namespace Glyssen.Controls
 		public VoiceActorSortableBindingList BindingList { get; set; }
 		public IEnumerable<CharacterGroup> CharacterGroupsWithAssignedActors { get; set; }
 
+		public int ActorCount { get { return m_project.VoiceActorList.Actors.Count; } }
+
 		public void SaveVoiceActorInformation()
 		{
 			m_project.SaveVoiceActorInformationData();

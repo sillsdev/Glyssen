@@ -100,7 +100,14 @@ namespace Glyssen.Controls
 
 		public void RefreshSort()
 		{
-			m_dataGrid.Sort(m_dataGrid.SortedColumn, m_dataGrid.SortOrder == SortOrder.Ascending ? ListSortDirection.Ascending : ListSortDirection.Descending);
+			if (m_actorInformationViewModel.ActorCount > 0)
+				m_dataGrid.Sort(m_dataGrid.SortedColumn, m_dataGrid.SortOrder == SortOrder.Ascending ? ListSortDirection.Ascending : ListSortDirection.Descending);
+			else
+			{
+				//This is obviously a hack, but I can't get it to refresh the grid when the last actor is removed
+				m_dataGrid.DataSource = new List<VoiceActor.VoiceActor>();
+				m_dataGrid.DataSource = m_actorInformationViewModel.BindingList;
+			}
 		}
 
 		public Color BackgroundColor
