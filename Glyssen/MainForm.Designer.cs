@@ -34,7 +34,7 @@
 			this.m_L10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_lblProjectInfo = new System.Windows.Forms.Label();
 			this.m_lblSettingsInfo = new System.Windows.Forms.Label();
-			this.m_btnExportToTabSeparated = new System.Windows.Forms.Button();
+			this.m_btnExport = new System.Windows.Forms.Button();
 			this.m_btnAssign = new System.Windows.Forms.Button();
 			this.m_btnSelectBooks = new System.Windows.Forms.Button();
 			this.m_btnSettings = new System.Windows.Forms.Button();
@@ -113,19 +113,19 @@
 			// 
 			// m_btnExportToTabSeparated
 			// 
-			this.m_btnExportToTabSeparated.BackColor = System.Drawing.Color.Transparent;
-			this.m_btnExportToTabSeparated.Enabled = false;
-			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnExportToTabSeparated, "Export to a tab-separated values file");
-			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnExportToTabSeparated, null);
-			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnExportToTabSeparated, "MainForm.Export");
-			this.m_btnExportToTabSeparated.Location = new System.Drawing.Point(29, 204);
-			this.m_btnExportToTabSeparated.Name = "m_btnExportToTabSeparated";
-			this.m_btnExportToTabSeparated.Size = new System.Drawing.Size(134, 23);
-			this.m_btnExportToTabSeparated.TabIndex = 5;
-			this.m_btnExportToTabSeparated.Text = "({0}) Export...";
-			this.m_btnExportToTabSeparated.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.m_btnExportToTabSeparated.UseVisualStyleBackColor = false;
-			this.m_btnExportToTabSeparated.Click += new System.EventHandler(this.HandleExportToTabSeparated_Click);
+			this.m_btnExport.BackColor = System.Drawing.Color.Transparent;
+			this.m_btnExport.Enabled = false;
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnExport, "Export to a tab-separated values file");
+			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnExport, null);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnExport, "MainForm.Export");
+			this.m_btnExport.Location = new System.Drawing.Point(29, 204);
+			this.m_btnExport.Name = "m_btnExportToTabSeparated";
+			this.m_btnExport.Size = new System.Drawing.Size(134, 23);
+			this.m_btnExport.TabIndex = 5;
+			this.m_btnExport.Text = "({0}) Export...";
+			this.m_btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.m_btnExport.UseVisualStyleBackColor = false;
+			this.m_btnExport.Click += new System.EventHandler(this.Export_Click);
 			// 
 			// m_btnAssign
 			// 
@@ -141,7 +141,7 @@
 			this.m_btnAssign.Text = "(4) Assign Characters...";
 			this.m_btnAssign.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.m_btnAssign.UseVisualStyleBackColor = false;
-			this.m_btnAssign.Click += new System.EventHandler(this.m_btnAssign_Click);
+			this.m_btnAssign.Click += new System.EventHandler(this.Assign_Click);
 			// 
 			// m_btnSelectBooks
 			// 
@@ -157,7 +157,7 @@
 			this.m_btnSelectBooks.Text = "(3) Select Books...";
 			this.m_btnSelectBooks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.m_btnSelectBooks.UseVisualStyleBackColor = false;
-			this.m_btnSelectBooks.Click += new System.EventHandler(this.m_btnSelectBooks_Click);
+			this.m_btnSelectBooks.Click += new System.EventHandler(this.SelectBooks_Click);
 			// 
 			// m_btnSettings
 			// 
@@ -173,7 +173,7 @@
 			this.m_btnSettings.Text = "(2) Project Settings...";
 			this.m_btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.m_btnSettings.UseVisualStyleBackColor = false;
-			this.m_btnSettings.Click += new System.EventHandler(this.m_btnSettings_Click);
+			this.m_btnSettings.Click += new System.EventHandler(this.Settings_Click);
 			// 
 			// m_lblPercentAssigned
 			// 
@@ -236,7 +236,7 @@
 			this.m_btnAbout.Name = "m_btnAbout";
 			this.m_btnAbout.Size = new System.Drawing.Size(53, 19);
 			this.m_btnAbout.Text = "About...";
-			this.m_btnAbout.Click += new System.EventHandler(this.m_btnAbout_Click);
+			this.m_btnAbout.Click += new System.EventHandler(this.About_Click);
 			// 
 			// m_uiLanguageMenu
 			// 
@@ -269,7 +269,7 @@
 			this.m_lnkExit.TabIndex = 6;
 			this.m_lnkExit.TabStop = true;
 			this.m_lnkExit.Text = "Exit";
-			this.m_lnkExit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_lnkExit_LinkClicked);
+			this.m_lnkExit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Exit_LinkClicked);
 			// 
 			// m_lblBookSelectionInfo
 			// 
@@ -357,7 +357,7 @@
 			this.m_btnAssignVoiceActors.Text = "(5) Assign Voice Actors...";
 			this.m_btnAssignVoiceActors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.m_btnAssignVoiceActors.UseVisualStyleBackColor = false;
-			this.m_btnAssignVoiceActors.Click += new System.EventHandler(this.m_btnAssignVoiceActors_Click);
+			this.m_btnAssignVoiceActors.Click += new System.EventHandler(this.AssignVoiceActors_Click);
 			// 
 			// m_lblActorsAssigned
 			// 
@@ -394,7 +394,7 @@
 			this.Controls.Add(this.m_btnSettings);
 			this.Controls.Add(this.m_btnSelectBooks);
 			this.Controls.Add(this.m_btnAssign);
-			this.Controls.Add(this.m_btnExportToTabSeparated);
+			this.Controls.Add(this.m_btnExport);
 			this.Controls.Add(this.m_lblSettingsInfo);
 			this.Controls.Add(this.m_lblProjectInfo);
 			this.Controls.Add(this.m_btnOpenProject);
@@ -426,7 +426,7 @@
 		private L10NSharp.UI.L10NSharpExtender m_L10NSharpExtender;
 		private System.Windows.Forms.Label m_lblProjectInfo;
 		private System.Windows.Forms.Label m_lblSettingsInfo;
-		private System.Windows.Forms.Button m_btnExportToTabSeparated;
+		private System.Windows.Forms.Button m_btnExport;
 		private System.Windows.Forms.Button m_btnAssign;
 		private System.Windows.Forms.Button m_btnSelectBooks;
 		private System.Windows.Forms.Button m_btnSettings;

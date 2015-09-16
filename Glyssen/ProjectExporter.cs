@@ -13,7 +13,7 @@ using SIL.Reporting;
 
 namespace Glyssen
 {
-	public class ProjectExport
+	public class ProjectExporter
 	{
 		public enum FileType
 		{
@@ -25,13 +25,14 @@ namespace Glyssen
 		private const string Separator = "\t";
 
 		private readonly Project m_project;
-		private readonly bool m_includeVoiceActors;
 
-		public ProjectExport(Project project)
+		public ProjectExporter(Project project)
 		{
 			m_project = project;
-			m_includeVoiceActors = m_project.CharacterGroupList.AnyVoiceActorAssigned();
+			IncludeVoiceActors = m_project.CharacterGroupList.AnyVoiceActorAssigned();
 		}
+
+		public bool IncludeVoiceActors { get; private set; }
 
 		public void Export(IWin32Window owner)
 		{
@@ -73,7 +74,7 @@ namespace Glyssen
 							new Dictionary<string, string>
 							{
 								{ "exportType", fileType.ToString() },
-								{ "includeVoiceActors", m_includeVoiceActors.ToString() }
+								{ "includeVoiceActors", IncludeVoiceActors.ToString() }
 							});
 					}
 					catch (Exception ex)
@@ -129,14 +130,14 @@ namespace Glyssen
 					singleVoiceNarratorOverride = CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator);
 				foreach (var block in book.GetScriptBlocks(true))
 				{
-					if (m_includeVoiceActors)
+					if (IncludeVoiceActors)
 					{
 						VoiceActor.VoiceActor voiceActor = m_project.GetVoiceActorForCharacter(singleVoiceNarratorOverride ?? block.CharacterIdInScript);
 						string voiceActorName = voiceActor != null ? voiceActor.Name : null;
-						data.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActorName ?? "", singleVoiceNarratorOverride, m_includeVoiceActors));
+						data.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActorName ?? "", singleVoiceNarratorOverride, IncludeVoiceActors));
 					}
 					else
-						data.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, null, singleVoiceNarratorOverride, m_includeVoiceActors));
+						data.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, null, singleVoiceNarratorOverride, IncludeVoiceActors));
 				}
 			}
 			return data;

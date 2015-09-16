@@ -124,21 +124,6 @@ namespace Glyssen.Dialogs
 			m_btnAssignActor.Enabled = m_actorAssignmentViewModel.CanAssign;
 		}
 
-//		private void m_btnExport_Click(object sender, EventArgs e)
-//		{
-//			var characterGroups = m_characterGroupGrid.DataSource as SortableBindingList<CharacterGroup>;
-// 
-//			bool assignmentsComplete = characterGroups.All(t => t.IsVoiceActorAssigned);
-//
-//			string dlgMessage = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ExportIncompleteScript.Message", "Some of the character groups have no voice talent assigned. Are you sure you want to export an incomplete script?\n(Note: You can export the script again as many times as you want.)");
-//			string dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ExportIncompleteScript.Title", "Export Incomplete Script?");
-//			if (assignmentsComplete || MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
-//			{
-//				SaveAssignments();
-//				new ProjectExport(m_project).Export(this);
-//			}
-//		}
-
 		private void m_voiceActorGrid_MouseMove(object sender, MouseEventArgs e)
 		{
 			if (e.Button == MouseButtons.Left)

@@ -271,7 +271,7 @@
     <Compile Include="Dialogs\VoiceActorInformationDlg.Designer.cs">
       <DependentUpon>VoiceActorInformationDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProjectExport.cs" />
+    <Compile Include="ProjectExporter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

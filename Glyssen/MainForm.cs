@@ -29,7 +29,7 @@ namespace Glyssen
 		{
 			InitializeComponent();
 
-			SetupUILanguageMenu();
+			SetupUiLanguageMenu();
 			m_toolStrip.Renderer = new NoBorderToolStripRenderer();
 			m_uiLanguageMenu.ToolTipText = LocalizationManager.GetString("MainForm.UILanguage", "User-interface Language");
 
@@ -85,7 +85,7 @@ namespace Glyssen
 		{
 			m_percentAssignedFmt = m_lblPercentAssigned.Text;
 			m_actorsAssignedFmt = m_lblActorsAssigned.Text;
-			m_exportButtonFmt = m_btnExportToTabSeparated.Text;
+			m_exportButtonFmt = m_btnExport.Text;
 			UpdateLocalizedText();
 			if (m_project != null)
 				m_project.ProjectCharacterVerseData.HandleStringsLocalized();
@@ -102,9 +102,9 @@ namespace Glyssen
 			m_imgCheckBooks.Visible = m_btnSelectBooks.Enabled && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed;
 			m_btnAssign.Enabled = !readOnly && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
 			m_imgCheckAssign.Visible = m_btnAssign.Enabled && m_project.ProjectAnalysis.UserPercentAssigned == 100d;
-			m_btnExportToTabSeparated.Enabled = !readOnly && m_imgCheckAssign.Visible;
+			m_btnExport.Enabled = !readOnly && m_imgCheckAssign.Visible;
 			m_btnAssignVoiceActors.Visible = Environment.GetEnvironmentVariable("Glyssen_ProtoscriptOnly", EnvironmentVariableTarget.User) == null;
-			m_btnAssignVoiceActors.Enabled = m_btnExportToTabSeparated.Enabled;
+			m_btnAssignVoiceActors.Enabled = m_btnExport.Enabled;
 			m_lnkExit.Enabled = !readOnly;
 		}
 
@@ -113,7 +113,7 @@ namespace Glyssen
 			m_btnSelectBooks.Enabled = false;
 			m_btnSettings.Enabled = false;
 			m_btnAssign.Enabled = false;
-			m_btnExportToTabSeparated.Enabled = false;
+			m_btnExport.Enabled = false;
 			m_btnAssignVoiceActors.Enabled = false;
 			m_imgCheckOpen.Visible = false;
 			m_imgCheckSettings.Visible = false;
@@ -286,7 +286,7 @@ namespace Glyssen
 
 			UpdateDisplayOfActorsAssigned();
 
-			m_btnExportToTabSeparated.Text = string.Format(m_exportButtonFmt, m_btnAssignVoiceActors.Visible ? "6" : "5");
+			m_btnExport.Text = string.Format(m_exportButtonFmt, m_btnAssignVoiceActors.Visible ? "6" : "5");
 
 			UpdateDisplayOfPercentAssigned();
 		}
@@ -336,12 +336,27 @@ namespace Glyssen
 				m_project.Save();
 		}
 
-		private void HandleExportToTabSeparated_Click(object sender, EventArgs e)
+		private void Export_Click(object sender, EventArgs e)
 		{
-			new ProjectExport(m_project).Export(this);
+			var exporter = new ProjectExporter(m_project);
+
+			bool export = true;
+			if (exporter.IncludeVoiceActors)
+			{
+				bool assignmentsComplete = m_project.CharacterGroupList.CharacterGroups.All(t => t.IsVoiceActorAssigned);
+
+				string dlgMessage = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Message", "Some of the character groups have no voice actor assigned. Are you sure you want to export an incomplete script?") +
+				                    Environment.NewLine +
+				                    LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.MessageNote", "(Note: You can export the script again as many times as you want.)");
+				string dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Title", "Export Incomplete Script?");
+
+				export = assignmentsComplete || MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
+			}
+			if (export)
+				exporter.Export(this);
 		}
 
-		private void SetupUILanguageMenu()
+		private void SetupUiLanguageMenu()
 		{
 			m_uiLanguageMenu.DropDownItems.Clear();
 			foreach (var lang in LocalizationManager.GetUILanguages(true))
@@ -370,11 +385,11 @@ namespace Glyssen
 			menu.Click += ((a, b) =>
 			{
 				Program.LocalizationManager.ShowLocalizationDialogBox(false);
-				SetupUILanguageMenu();
+				SetupUiLanguageMenu();
 			});
 		}
 
-		private void m_btnAssign_Click(object sender, EventArgs e)
+		private void Assign_Click(object sender, EventArgs e)
 		{
 			using (var viewModel = new AssignCharacterViewModel(m_project))
 				using (var dlg = new AssignCharacterDlg(viewModel))
@@ -384,7 +399,7 @@ namespace Glyssen
 			SaveCurrentProject();
 		}
 
-		private void m_btnSelectBooks_Click(object sender, EventArgs e)
+		private void SelectBooks_Click(object sender, EventArgs e)
 		{
 			using (var dlg = new ScriptureRangeSelectionDlg(m_project))
 				if (dlg.ShowDialog() == DialogResult.OK)
@@ -396,7 +411,7 @@ namespace Glyssen
 				}
 		}
 
-		private void m_btnSettings_Click(object sender, EventArgs e)
+		private void Settings_Click(object sender, EventArgs e)
 		{
 			var model = new ProjectSettingsViewModel(m_project);
 			using (var dlg = new ProjectSettingsDlg(model))
@@ -424,13 +439,13 @@ namespace Glyssen
 			UpdateDisplayOfProjectInfo();
 		}
 
-		private void m_lnkExit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		private void Exit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			// Save is handled in FormClosing event
 			Close();
 		}
 
-		private void m_btnAbout_Click(object sender, EventArgs e)
+		private void About_Click(object sender, EventArgs e)
 		{
 			using (var dlg = new SILAboutBox(FileLocator.GetFileDistributedWithApplication("aboutbox.htm")))
 			{
@@ -438,7 +453,7 @@ namespace Glyssen
 			}
 		}
 
-		private void m_btnAssignVoiceActors_Click(object sender, EventArgs e)
+		private void AssignVoiceActors_Click(object sender, EventArgs e)
 		{
 			// TODO: Eventually, this should be called when the user requests that all overrides be reverted to the defaults.
 			//m_project.UseDefaultForUnresolvedMultipleChoiceCharacters();
