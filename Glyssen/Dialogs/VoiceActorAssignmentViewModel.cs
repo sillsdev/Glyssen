@@ -99,7 +99,7 @@ namespace Glyssen.Dialogs
 		public void RegenerateGroups(bool attemptToMaintainAssignments)
 		{
 			// Create a copy. Cameos are handled in the generation code (because we always maintain those assignments).
-			var previousGroups = CharacterGroups.Where(g => g.IsVoiceActorAssigned && !g.IsCameoVoiceActorAssigned).ToList();
+			var previousGroups = CharacterGroups.Where(g => !m_project.IsCharacterGroupAssignedToCameoActor(g)).ToList();
 			
 			GenerateGroupsWithProgress();
 
@@ -116,7 +116,7 @@ namespace Glyssen.Dialogs
 						var newlyGeneratedGroupWithCharacter = CharacterGroups.FirstOrDefault(g => !g.IsVoiceActorAssigned && g.CharacterIds.Contains(characterId));
 						if (newlyGeneratedGroupWithCharacter == null)
 							continue;
-						newlyGeneratedGroupWithCharacter.AssignVoiceActor(previousGroupWithCharacter.VoiceActorAssigned);
+						newlyGeneratedGroupWithCharacter.AssignVoiceActor(previousGroupWithCharacter.VoiceActorId);
 						previousGroups.Remove(previousGroupWithCharacter);
 						if (previousGroups.Count == 0)
 							break;
@@ -210,14 +210,14 @@ namespace Glyssen.Dialogs
 
 		public bool IsActorAssigned(int voiceActorId)
 		{
-			return m_project.CharacterGroupList.HasVoiceActorAssigned(voiceActorId);
+			return voiceActorId > -1 && m_project.CharacterGroupList.HasVoiceActorAssigned(voiceActorId);
 		}
 
 		public void AssignActorToGroup(VoiceActor.VoiceActor actor, CharacterGroup group)
 		{
 			if (CanAssign)
 			{
-				group.AssignVoiceActor(actor);
+				group.AssignVoiceActor(actor.Id);
 				SaveAssignments();
 			}
 		}
@@ -236,11 +236,11 @@ namespace Glyssen.Dialogs
 
 		public void MoveActorFromGroupToGroup(CharacterGroup sourceGroup, CharacterGroup destGroup, bool swap = false)
 		{
-			VoiceActor.VoiceActor sourceActor = sourceGroup.VoiceActorAssigned;
-			VoiceActor.VoiceActor destinationActor = destGroup.VoiceActorAssigned;
+			int sourceActor = sourceGroup.VoiceActorId;
+			int destinationActor = destGroup.VoiceActorId;
 
 			destGroup.AssignVoiceActor(sourceActor);
-			if (swap && destinationActor != null)
+			if (swap && destGroup.IsVoiceActorAssigned)
 				sourceGroup.AssignVoiceActor(destinationActor);
 			else
 				sourceGroup.RemoveVoiceActor();

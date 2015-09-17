@@ -10,14 +10,14 @@ namespace Glyssen.Character
 {
 	public class CharacterGroup
 	{
-		private bool m_isActorAssigned;
-		private VoiceActor.VoiceActor m_actorAssigned;
+		private const int kNoActorAssigned = -1;
 		private bool m_closed;
 
 		//For Serialization
 		public CharacterGroup()
 		{
 			CharacterIds = new CharacterIdHashSet();
+			VoiceActorId = kNoActorAssigned;
 		}
 
 		public CharacterGroup(int groupNumber, IComparer<string> characterComparerForToString = null) : this()
@@ -26,19 +26,14 @@ namespace Glyssen.Character
 			CharacterIds.ToStringComparer = characterComparerForToString;
 		}
 
-		public void AssignVoiceActor(VoiceActor.VoiceActor actor)
+		public void AssignVoiceActor(int actorId)
 		{
-			if (actor == null)
-				return;
-
-			m_isActorAssigned = true;
-			m_actorAssigned = actor;
+			VoiceActorId = actorId;
 		}
 
 		public void RemoveVoiceActor()
 		{
-			m_isActorAssigned = false;
-			m_actorAssigned = null;
+			VoiceActorId = kNoActorAssigned;
 		}
 
 		[XmlElement]
@@ -77,7 +72,6 @@ namespace Glyssen.Character
 		[Browsable(false)]
 		public bool Status { get; set; }
 
-		[XmlIgnore]
 		public string StatusDisplay
 		{
 			get { return Status ? "Y" : ""; }
@@ -86,42 +80,15 @@ namespace Glyssen.Character
 		[XmlElement]
 		public double EstimatedHours { get; set; }
 
-		[XmlIgnore]
 		[Browsable(false)]
 		public bool IsVoiceActorAssigned
 		{
-			get { return m_isActorAssigned; }
+			get { return VoiceActorId >= 0; }
 		}
 
-		[XmlIgnore]
-		[Browsable(false)]
-		public bool IsCameoVoiceActorAssigned
-		{
-			get { return m_isActorAssigned && VoiceActorAssigned != null && VoiceActorAssigned.IsCameo; }
-		}
-
-		[XmlIgnore]
-		[Browsable(false)]
-		public VoiceActor.VoiceActor VoiceActorAssigned
-		{
-			get { return m_actorAssigned; }
-		}
-
-		[XmlElement]
-		public int VoiceActorAssignedId
-		{
-			get { return m_actorAssigned == null ? -1 : m_actorAssigned.Id; }
-			set
-			{
-				m_actorAssigned = new VoiceActor.VoiceActor();
-				m_actorAssigned.Id = value;
-				m_isActorAssigned = true;
-				if (value < 0)
-				{
-					m_isActorAssigned = false;
-				}
-			}
-		}
+		[XmlElement("VoiceActorAssignedId")]
+		[DefaultValue(-1)]
+		public int VoiceActorId { get; set; }
 
 		[Browsable(false)]
 		public bool Closed

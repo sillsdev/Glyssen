@@ -35,7 +35,6 @@ namespace Glyssen.Dialogs
 			VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null);
 			VoiceActorCol.ValueMember = "ID";
 			VoiceActorCol.DisplayMember = "Name";
-			VoiceActorCol.DataPropertyName = "VoiceActorAssignedId";
 
 			m_characterGroupGrid.DataSource = m_actorAssignmentViewModel.CharacterGroups;
 			m_characterGroupGrid.Sort(m_characterGroupGrid.Columns["EstimatedHoursCol"], ListSortDirection.Descending);
@@ -165,6 +164,7 @@ namespace Glyssen.Dialogs
 					m_characterGroupGrid.DataSource = new BindingList<CharacterGroup>();
 					m_actorAssignmentViewModel.RegenerateGroups(updateDlg.SelectedOption == UpdateCharacterGroupsDlg.SelectionType.AutoGenAndMaintain);
 					m_characterGroupGrid.DataSource = m_actorAssignmentViewModel.CharacterGroups;
+					m_actorAssignmentViewModel.SaveAssignments();
 					RefreshCharacterGroupSort();
 				}
 			}
@@ -322,35 +322,19 @@ namespace Glyssen.Dialogs
 			if (e.Button == MouseButtons.Left)
 			{
 				var hitInfo = m_characterGroupGrid.HitTest(e.X, e.Y);
-				if (hitInfo.Type == DataGridViewHitTestType.Cell)
+				if (hitInfo.Type == DataGridViewHitTestType.Cell && m_characterGroupGrid.Columns[hitInfo.ColumnIndex].Name == "CharacterIdsCol")
 				{
-					if (m_characterGroupGrid.Columns[hitInfo.ColumnIndex].Name == "VoiceActorCol")
-					{
-						CharacterGroup sourceGroup = FirstSelectedCharacterGroup;
-						if (sourceGroup != null && sourceGroup.IsVoiceActorAssigned)
-						{
-							DoDragDrop(sourceGroup, DragDropEffects.Copy);
-						}
-						else
-						{
-							DoDragDrop(0, DragDropEffects.None);
-						}
+					//Although the DataGridViewListBox usually handles the drag and drop, it only does so when the cell has focus.
+					//In this case, the user starts dragging the first character ID even before selecting the row
+					var group = m_characterGroupGrid.Rows[hitInfo.RowIndex].DataBoundItem as CharacterGroup;
+					if (group == null)
 						return;
-					}
-					if (m_characterGroupGrid.Columns[hitInfo.ColumnIndex].Name == "CharacterIdsCol")
+					string characterId = group.CharacterIds.ToList().FirstOrDefault();
+					if (group.CharacterIds.Count == 1 && characterId != null)
 					{
-						//Although the DataGridViewListBox usually handles the drag and drop, it only does so when the cell has focus.
-						//In this case, the user starts dragging the first character ID even before selecting the row
-						var group = m_characterGroupGrid.Rows[hitInfo.RowIndex].DataBoundItem as CharacterGroup;
-						if (group == null)
-							return;
-						string characterId = group.CharacterIds.ToList().FirstOrDefault();
-						if (group.CharacterIds.Count == 1 && characterId != null)
-						{
-							//Without refreshing, the rows selected displays weirdly
-							Refresh();
-							DoDragDrop(new List<string>{characterId}, DragDropEffects.Move);
-						}
+						//Without refreshing, the rows selected displays weirdly
+						Refresh();
+						DoDragDrop(new List<string> { characterId }, DragDropEffects.Move);
 					}
 				}
 			}
@@ -393,10 +377,32 @@ namespace Glyssen.Dialogs
 			}
 		}
 
+		private void m_characterGroupGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+		{
+//			if (m_characterGroupGrid.Columns[e.ColumnIndex] is DataGridViewMultiColumnComboBoxColumn)
+//			{
+//				if (m_characterGroupGrid.CurrentRow == null)
+//					return;
+//				var group = (CharacterGroup)m_characterGroupGrid.CurrentRow.DataBoundItem;
+//				if (!group.IsVoiceActorAssigned)
+////				if (e.Value.Equals(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Unassigned", "Unassigned")))
+//				{
+//					e. Value = "";
+//					e.FormattingApplied = true;
+//				}
+//			}
+		}
+
 		private void m_characterGroupGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
 			ErrorReport.ReportFatalException(e.Exception);
 		}
 		#endregion
+
+		private void VoiceActorAssignmentDlg_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			if (m_characterGroupGrid.IsCurrentCellInEditMode)
+				m_characterGroupGrid.EndEdit();
+		}
 	}
 }

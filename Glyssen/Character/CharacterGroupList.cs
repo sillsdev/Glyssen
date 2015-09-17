@@ -34,7 +34,7 @@ namespace Glyssen.Character
 		/// </summary>
 		public bool AnyVoiceActorAssigned()
 		{
-			return CharacterGroups.Any(cg => cg.VoiceActorAssignedId != -1);
+			return CharacterGroups.Any(cg => cg.VoiceActorId != -1);
 		}
 
 		/// <summary>
@@ -42,12 +42,12 @@ namespace Glyssen.Character
 		/// </summary>
 		public bool HasVoiceActorAssigned(int voiceActorId)
 		{
-			return CharacterGroups.Any(cg => cg.VoiceActorAssignedId == voiceActorId);
+			return CharacterGroups.Any(cg => cg.VoiceActorId == voiceActorId);
 		}
 
 		public int CountVoiceActorsAssigned()
 		{
-			return CharacterGroups.Count(cg => cg.VoiceActorAssignedId != -1);
+			return CharacterGroups.Count(cg => cg.VoiceActorId != -1);
 		}
 
 		public CharacterGroup GroupContainingCharacterId(string characterId)
@@ -58,7 +58,7 @@ namespace Glyssen.Character
 		public void RemoveVoiceActor(int voiceActorId)
 		{
 			foreach (var group in CharacterGroups)
-				if (group.VoiceActorAssignedId == voiceActorId)
+				if (group.VoiceActorId == voiceActorId)
 					group.RemoveVoiceActor();
 		}
 

@@ -247,7 +247,7 @@ namespace Glyssen.Controls
 				e.FormattingApplied = false;
 				return;
 			}
-			if (CharacterGroupsWithAssignedActors.Any(cg => cg.VoiceActorAssigned == actor))
+			if (CharacterGroupsWithAssignedActors.Any(cg => cg.VoiceActorId == actor.Id))
 			{
 				e.CellStyle.Font = m_italicsFont;
 				e.CellStyle.ForeColor = Color.Gray;

@@ -50,7 +50,6 @@ namespace Glyssen.Dialogs
 			this.m_btnEditVoiceActors = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.panel3 = new System.Windows.Forms.Panel();
-			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.m_toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.m_characterGroupGrid = new Glyssen.Controls.AutoGrid();
 			this.CharacterIdsCol = new Glyssen.Controls.DataGridViewListBoxColumn();
@@ -64,9 +63,6 @@ namespace Glyssen.Dialogs
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.panel3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-			this.splitContainer1.Panel1.SuspendLayout();
-			this.splitContainer1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -191,13 +187,15 @@ namespace Glyssen.Dialogs
 			// 
 			// tableLayoutPanel1
 			// 
-			this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
 			this.tableLayoutPanel1.ColumnCount = 1;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.Controls.Add(this.m_characterGroupGrid, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 1);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 25);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 2;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -213,36 +211,11 @@ namespace Glyssen.Dialogs
 			this.panel3.Controls.Add(this.m_saveStatus);
 			this.panel3.Controls.Add(this.m_btnUpdateGroup);
 			this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel3.Location = new System.Drawing.Point(0, 352);
+			this.panel3.Location = new System.Drawing.Point(0, 371);
 			this.panel3.Margin = new System.Windows.Forms.Padding(0);
 			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(832, 53);
+			this.panel3.Size = new System.Drawing.Size(832, 34);
 			this.panel3.TabIndex = 7;
-			// 
-			// splitContainer1
-			// 
-			this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.splitContainer1.Location = new System.Drawing.Point(15, 25);
-			this.splitContainer1.Name = "splitContainer1";
-			// 
-			// splitContainer1.Panel1
-			// 
-			this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
-			this.splitContainer1.Panel1.Margin = new System.Windows.Forms.Padding(3);
-			this.splitContainer1.Panel1MinSize = 300;
-			// 
-			// splitContainer1.Panel2
-			// 
-			this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(3);
-			this.splitContainer1.Panel2Collapsed = true;
-			this.splitContainer1.Panel2MinSize = 0;
-			this.splitContainer1.Size = new System.Drawing.Size(832, 405);
-			this.splitContainer1.SplitterDistance = 418;
-			this.splitContainer1.SplitterWidth = 55;
-			this.splitContainer1.TabIndex = 0;
-			this.splitContainer1.TabStop = false;
 			// 
 			// m_characterGroupGrid
 			// 
@@ -257,7 +230,7 @@ namespace Glyssen.Dialogs
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_characterGroupGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.m_characterGroupGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-			this.m_characterGroupGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_characterGroupGrid.BackgroundColor = System.Drawing.Color.Yellow;
 			this.m_characterGroupGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.m_characterGroupGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -307,11 +280,12 @@ namespace Glyssen.Dialogs
 			this.m_characterGroupGrid.SelectedRowForeColor = System.Drawing.Color.Empty;
 			this.m_characterGroupGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.m_characterGroupGrid.ShowWaterMarkWhenDirty = false;
-			this.m_characterGroupGrid.Size = new System.Drawing.Size(832, 352);
+			this.m_characterGroupGrid.Size = new System.Drawing.Size(832, 371);
 			this.m_characterGroupGrid.TabIndex = 6;
 			this.m_characterGroupGrid.TextBoxEditControlBorderColor = System.Drawing.Color.Silver;
 			this.m_characterGroupGrid.WaterMark = "!";
 			this.m_characterGroupGrid.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_characterGroupGrid_CellEnter);
+			this.m_characterGroupGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.m_characterGroupGrid_CellFormatting);
 			this.m_characterGroupGrid.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_characterGroupGrid_CellLeave);
 			this.m_characterGroupGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.m_characterGroupGrid_CellMouseDown);
 			this.m_characterGroupGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.m_characterGroupGrid_CellValidating);
@@ -371,6 +345,7 @@ namespace Glyssen.Dialogs
 			this.VoiceActorCol.ColumnNames.Add("Age");
 			this.VoiceActorCol.ColumnNames.Add("Cameo");
 			this.VoiceActorCol.ColumnWidths.Add("150");
+			this.VoiceActorCol.DataPropertyName = "VoiceActorId";
 			this.VoiceActorCol.EvenRowsBackColor = System.Drawing.SystemColors.Control;
 			this.VoiceActorCol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.VoiceActorCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.VoiceActorAssigned!Voice Actor Assigne" +
@@ -402,7 +377,7 @@ namespace Glyssen.Dialogs
 			// 
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(859, 442);
-			this.Controls.Add(this.splitContainer1);
+			this.Controls.Add(this.tableLayoutPanel1);
 			this.Controls.Add(this.m_lblInstructions);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.KeyPreview = true;
@@ -415,15 +390,13 @@ namespace Glyssen.Dialogs
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Voice Actor Assignment";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VoiceActorAssignmentDlg_FormClosing);
 			this.m_contextMenuCharacters.ResumeLayout(false);
 			this.m_contextMenuCharacterGroups.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.panel3.ResumeLayout(false);
 			this.panel3.PerformLayout();
-			this.splitContainer1.Panel1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-			this.splitContainer1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

@@ -381,6 +381,11 @@ namespace Glyssen
 			get { return m_voiceActorList ?? (m_voiceActorList = LoadVoiceActorInformationData()); }
 		}
 
+		public bool IsCharacterGroupAssignedToCameoActor(CharacterGroup group)
+		{
+			return group.IsVoiceActorAssigned && VoiceActorList.GetVoiceActorById(group.VoiceActorId).IsCameo;
+		}
+
 		public CharacterGroupList CharacterGroupList
 		{
 			get { return m_characterGroupList ?? (m_characterGroupList = LoadCharacterGroupData()); }
@@ -562,14 +567,6 @@ namespace Glyssen
 		private void PopulateAndParseBooks(ITextBundle bundle)
 		{
 			AddAndParseBooks(bundle.UsxBooksToInclude, bundle.Stylesheet);
-		}
-
-		private void PopulateCharacterGroupAssignees(CharacterGroupList characterGroupList)
-		{
-			foreach (CharacterGroup group in characterGroupList.CharacterGroups)
-			{
-				group.AssignVoiceActor(VoiceActorList.Actors.FirstOrDefault(t => t.Id == group.VoiceActorAssignedId));
-			}
 		}
 
 		private void AddAndParseBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet)
@@ -841,11 +838,7 @@ namespace Glyssen
 		{
 			string path = Path.Combine(ProjectFolder, kCharacterGroupFileName);
 			if (File.Exists(path))
-			{
-				var characterGroupList = CharacterGroupList.LoadCharacterGroupListFromFile(path, GetKeyStrokesByCharacterId());
-				PopulateCharacterGroupAssignees(characterGroupList);
-				return characterGroupList;
-			}
+				return CharacterGroupList.LoadCharacterGroupListFromFile(path, GetKeyStrokesByCharacterId());
 			return new CharacterGroupList();
 		}
 
@@ -862,7 +855,7 @@ namespace Glyssen
 			var charGroup = CharacterGroupList.CharacterGroups.FirstOrDefault(cg => cg.CharacterIds.Contains(characterId));
 			if (charGroup == null)
 				return null;
-			return VoiceActorList.Actors.FirstOrDefault(a => a.Id == charGroup.VoiceActorAssignedId);
+			return VoiceActorList.Actors.FirstOrDefault(a => a.Id == charGroup.VoiceActorId);
 		}
 
 		public WritingSystemDefinition WritingSystem

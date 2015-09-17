@@ -89,7 +89,7 @@ namespace Glyssen.Rules
 				group.Closed = true;
 
 				if (matchingActors.Count == 1)
-					group.AssignVoiceActor(matchingActors.Single());
+					group.AssignVoiceActor(matchingActors.Single().Id);
 			}
 
 			var predeterminedActorGroups = new Dictionary<VoiceActor.VoiceActor, CharacterGroup>();
@@ -105,7 +105,7 @@ namespace Glyssen.Rules
 						groupForActor = new CharacterGroup(characterGroups.Count + 1, m_characterIdComparer);
 						characterGroups.Add(groupForActor);
 						predeterminedActorGroups[matchingActor] = groupForActor;
-						groupForActor.AssignVoiceActor(matchingActor);
+						groupForActor.AssignVoiceActor(matchingActor.Id);
 						actorsNeedingGroups.Remove(matchingActor);
 					}
 					groupForActor.CharacterIds.Add(character.CharacterId);
@@ -192,7 +192,7 @@ namespace Glyssen.Rules
 		private IEnumerable<string> GetCharacterIdsAssignedToCameoActor()
 		{
 			var characterIds = new List<string>();
-			foreach (var cameoGroup in m_project.CharacterGroupList.CharacterGroups.Where(g => g.IsCameoVoiceActorAssigned))
+			foreach (var cameoGroup in m_project.CharacterGroupList.CharacterGroups.Where(m_project.IsCharacterGroupAssignedToCameoActor))
 				characterIds.AddRange(cameoGroup.CharacterIds);
 			return characterIds;
 		}
@@ -203,11 +203,11 @@ namespace Glyssen.Rules
 			foreach (var cameoActor in m_project.VoiceActorList.Actors.Where(a => a.IsCameo))
 			{
 				if (m_project.CharacterGroupList.HasVoiceActorAssigned(cameoActor.Id))
-					yield return m_project.CharacterGroupList.CharacterGroups.First(g => g.VoiceActorAssigned == cameoActor);
+					yield return m_project.CharacterGroupList.CharacterGroups.First(g => g.VoiceActorId == cameoActor.Id);
 				else
 				{
 					var newGroup = new CharacterGroup(groupNumber++, m_characterIdComparer);
-					newGroup.AssignVoiceActor(cameoActor);
+					newGroup.AssignVoiceActor(cameoActor.Id);
 					yield return newGroup;
 				}
 			}
