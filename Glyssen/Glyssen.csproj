@@ -178,6 +178,11 @@
     <Compile Include="Controls\DataGridViewListBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\DataGridViewMultiColumnComboBoxCell.cs" />
+    <Compile Include="Controls\DataGridViewMultiColumnComboBoxColumn.cs" />
+    <Compile Include="Controls\DataGridViewMultiColumnComboBoxEditingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\DataGridViewOverrideEnter.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -206,12 +211,6 @@
       <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
-    <Compile Include="Controls\VoiceActorInformationGridReadonly.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\VoiceActorInformationGridReadonly.Designer.cs">
-      <DependentUpon>VoiceActorInformationGridReadonly.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\VoiceActorInformationViewModel.cs" />
     <Compile Include="Dialogs\SelectExistingProjectDlg.cs">
       <SubType>Form</SubType>
@@ -355,9 +354,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ScriptBlocksViewer.resx">
       <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\VoiceActorInformationGridReadonly.resx">
-      <DependentUpon>VoiceActorInformationGridReadonly.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\VoiceActorInformationGrid.resx">
       <DependentUpon>VoiceActorInformationGrid.cs</DependentUpon>

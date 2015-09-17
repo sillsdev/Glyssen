@@ -108,7 +108,6 @@ namespace Glyssen.Character
 		}
 
 		[XmlElement]
-		[Browsable(false)]
 		public int VoiceActorAssignedId
 		{
 			get { return m_actorAssigned == null ? -1 : m_actorAssigned.Id; }
@@ -122,12 +121,6 @@ namespace Glyssen.Character
 					m_isActorAssigned = false;
 				}
 			}
-		}
-
-		[XmlIgnore]
-		public string VoiceActorAssignedName
-		{
-			get { return m_isActorAssigned ? m_actorAssigned.Name : ""; }
 		}
 
 		[Browsable(false)]

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
@@ -122,7 +123,7 @@ namespace GlyssenTests.Dialogs
 			m_model.AssignActorToGroup(actor1, group);
 			Assert.True(group.IsVoiceActorAssigned);
 
-			m_model.UnAssignActorFromGroup(actor1);
+			m_model.UnAssignActorFromGroup(actor1.Id);
 			Assert.False(group.IsVoiceActorAssigned);
 		}
 
@@ -359,6 +360,47 @@ namespace GlyssenTests.Dialogs
 			Assert.False(existingGroup.CharacterIds.Contains("Peter"));
 			Assert.True(newGroup.CharacterIds.Contains("John"));
 			Assert.True(newGroup.CharacterIds.Contains("Peter"));
+		}
+
+		[Test]
+		public void GetMultiColumnActorDataTable_NoActorsAssigned_GetsAllActorsInAlphbeticalOrder()
+		{
+			var actorB = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B" };
+			var actorC = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "C" };
+			var actorA = new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "A" };
+			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actorB, actorC, actorA };
+			m_model.RegenerateGroups(false);
+
+			var dataTable = m_model.GetMultiColumnActorDataTable(m_model.CharacterGroups[0]);
+			var actorList = GetActorListFromDataTable(dataTable);
+			Assert.AreEqual(null, actorList[0]); // The "Unassigned" option
+			Assert.AreEqual(actorA, actorList[1]);
+			Assert.AreEqual(actorB, actorList[2]);
+			Assert.AreEqual(actorC, actorList[3]);
+		}
+
+		[Test]
+		public void GetMultiColumnActorDataTable_ActorAssigned_AssignedActorSortsLast()
+		{
+			var actorB = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B" };
+			var actorC = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "C" };
+			var actorA = new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "A" };
+			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actorB, actorC, actorA };
+			m_model.RegenerateGroups(false);
+			var group = m_model.CharacterGroups[0];
+			m_model.AssignActorToGroup(actorA, group);
+
+			var dataTable = m_model.GetMultiColumnActorDataTable(m_model.CharacterGroups[0]);
+			var actorList = GetActorListFromDataTable(dataTable);
+			Assert.AreEqual(null, actorList[0]); // The "Unassigned" option
+			Assert.AreEqual(actorB, actorList[1]);
+			Assert.AreEqual(actorC, actorList[2]);
+			Assert.AreEqual(actorA, actorList[3]);
+		}
+
+		private List<Glyssen.VoiceActor.VoiceActor> GetActorListFromDataTable(DataTable dataTable)
+		{
+			return (from DataRow row in dataTable.Rows select m_testProject.VoiceActorList.GetVoiceActorById((int)row.ItemArray[0])).ToList();
 		}
 	}
 }
