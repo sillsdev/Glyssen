@@ -1,9 +1,7 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using SIL.Windows.Forms.Widgets.BetterGrid;
 
 namespace Glyssen.Controls
 {
@@ -36,8 +34,8 @@ namespace Glyssen.Controls
 		private bool m_initSized;
 		private int m_initHeight;
 		private int m_parentExtraHeight;
-		private Control m_independentParentResizeListen;
-		private Control m_lastAffectedResizeListen;
+		private Control m_parentWithIndependentSize;
+		private Control m_lastAffectedParent;
 		private bool m_setGridHeightActive;
 		private int m_minBottomMargin;
 
@@ -58,9 +56,9 @@ namespace Glyssen.Controls
 		{
 			get
 			{
-				if (ParentWithIndependentSize == null)
+				if (m_parentWithIndependentSize == null)
 					return -1;
-				return ParentWithIndependentSize.Height - MinBottomMargin - LastAffected.Top;
+				return m_parentWithIndependentSize.Height - MinBottomMargin - m_lastAffectedParent.Top;
 			}
 		}
 
@@ -69,74 +67,9 @@ namespace Glyssen.Controls
 		/// </summary>
 		public int ParentLayersAffected { get; set; }
 
-		private Control ParentWithIndependentSize
-		{
-			get
-			{
-				Control cParent = base.Parent;
-				int layer = 1;
-				while (cParent != null && layer <= ParentLayersAffected)
-				{
-					cParent = cParent.Parent;
-					layer++;
-				}
-				return cParent;
-			}
-		}
-
-		private Control LastAffected
-		{
-			get
-			{
-				Control cControl = this;
-				int layer = 0;
-				while (cControl.Parent != null && layer < ParentLayersAffected)
-				{
-					cControl = cControl.Parent;
-					layer++;
-				}
-				return cControl;
-			}	
-		}
-
-		private Control IndependentParentResizeListen
-		{
-			get
-			{
-				return m_independentParentResizeListen;
-			}
-			set
-			{
-				if (m_independentParentResizeListen != null)
-					m_independentParentResizeListen.ClientSizeChanged -= HandleIndependentParentResize;
-
-				m_independentParentInitSized = false;
-				m_independentParentResizeListen = value;
-				if (m_independentParentResizeListen != null)
-					m_independentParentResizeListen.ClientSizeChanged += HandleIndependentParentResize;
-			}
-		}
-
-		private Control LastAffectedResizeListen
-		{
-			get
-			{
-				return m_lastAffectedResizeListen;
-			}
-			set
-			{
-				if (m_lastAffectedResizeListen != null)
-					m_lastAffectedResizeListen.ClientSizeChanged -= HandleLastAffectedResize;
-
-				m_lastAffectedInitSized = false;
-				m_lastAffectedResizeListen = value;
-				if (m_lastAffectedResizeListen != null)
-					m_lastAffectedResizeListen.ClientSizeChanged += HandleLastAffectedResize;
-			}
-		}
-
 		protected override void OnHandleCreated(EventArgs e)
 		{
+			OnParentChanged(e);
 			BeginInvoke(new MethodInvoker(SetGridHeight));
 			base.OnHandleCreated(e);
 		}
@@ -153,26 +86,48 @@ namespace Glyssen.Controls
 
 		protected override void OnParentChanged(EventArgs e)
 		{
-			IndependentParentResizeListen = null;
-			if (ParentWithIndependentSize == null)
+			if (m_parentWithIndependentSize != null)
+				m_parentWithIndependentSize.ClientSizeChanged -= HandleIndependentParentResize;
+			m_independentParentInitSized = false;
+
+			m_parentWithIndependentSize = Parent;
+			int layer = 1;
+			while (m_parentWithIndependentSize != null && layer <= ParentLayersAffected)
 			{
-				if (LastAffected != this)
+				m_parentWithIndependentSize = m_parentWithIndependentSize.Parent;
+				layer++;
+			}
+
+			if (m_parentWithIndependentSize == null)
+			{
+				if (m_lastAffectedParent != null)
+					m_lastAffectedParent.ClientSizeChanged -= HandleLastAffectedResize;
+				m_lastAffectedInitSized = false;
+
+				m_lastAffectedParent = this;
+				layer = 0;
+				while (m_lastAffectedParent.Parent != null && layer < ParentLayersAffected)
 				{
-					LastAffected.ParentChanged += HandleParentChanged;
-					LastAffectedResizeListen = LastAffected;
+					m_lastAffectedParent = m_lastAffectedParent.Parent;
+					layer++;
+				}
+
+				if (m_lastAffectedParent != this)
+				{
+					m_lastAffectedParent.ParentChanged += HandleParentChanged;
+					m_lastAffectedParent.ClientSizeChanged += HandleLastAffectedResize;
 				}
 			}
 			else
 			{
 				m_initHeight = Height;
-				IndependentParentResizeListen = ParentWithIndependentSize;
+				m_parentWithIndependentSize.ClientSizeChanged += HandleIndependentParentResize;
 			}
 			base.OnParentChanged(e);
 		}
 
 		private void HandleParentChanged(object sender, EventArgs e)
 		{
-			IndependentParentResizeListen = null;
 			OnParentChanged(e);
 		}
 
@@ -180,16 +135,17 @@ namespace Glyssen.Controls
 		{
 			if (!m_lastAffectedInitSized)
 			{
-				m_parentExtraHeight = LastAffected.Height - m_initHeight;
+				m_parentExtraHeight = m_lastAffectedParent.Height - m_initHeight;
 				m_lastAffectedInitSized = true;
 			}
 		}
 
 		private void HandleIndependentParentResize(object sender, EventArgs e)
 		{
+			Debug.Assert(sender == m_parentWithIndependentSize);
 			if (!m_independentParentInitSized)
 			{
-				MinBottomMargin = ParentWithIndependentSize.Height - LastAffected.Bottom;
+				MinBottomMargin = m_parentWithIndependentSize.Height - m_lastAffectedParent.Bottom;
 				m_independentParentInitSized = true;
 			}
 
@@ -224,8 +180,8 @@ namespace Glyssen.Controls
 			m_lastAffectedInitSized = true;
 
 			//Prevents flicker
-			if (ParentWithIndependentSize != null)
-				ParentWithIndependentSize.SuspendLayout();
+			if (m_parentWithIndependentSize != null)
+				m_parentWithIndependentSize.SuspendLayout();
 
 			int height = ColumnHeadersHeight + 2;
 			if (HorizontalScrollBar.Visible) 
@@ -247,8 +203,8 @@ namespace Glyssen.Controls
 
 			cControl.ClientSize = new Size(cControl.ClientSize.Width, height + m_parentExtraHeight);
 
-			if (ParentWithIndependentSize != null)
-				ParentWithIndependentSize.ResumeLayout();
+			if (m_parentWithIndependentSize != null)
+				m_parentWithIndependentSize.ResumeLayout();
 		}
 
 		#endregion
