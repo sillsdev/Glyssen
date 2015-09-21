@@ -280,11 +280,25 @@ namespace Glyssen.Controls
             }
         }
 
-        #endregion
+		[Category("Appearance"), DefaultValue(false)]
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+		[Description("Value indicating whether the first item in the data source (which must be a Data Table) should be treated as a special value, visible only when the list is dropped down.")]
+		public bool HideFirstValueWhenSelected { get; set; }
 
-        #region "Methods"
+		[Category("Appearance"), DefaultValue(null)]
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+		[Description("Font used to draw the first item in the combo box.")]
+		public Font FontForFirstItem { get; set; }
 
-        /// <summary>
+	    #endregion
+
+		#region Events
+		public delegate Image GetImageForCellEventHandler(DataGridViewMultiColumnComboBoxColumn sender, int rowIndex);
+	    public event GetImageForCellEventHandler GetSpecialDropDownImageToDraw;
+		#endregion
+		#region "Methods"
+
+		/// <summary>
         /// Creates an exact copy of this column.
         /// </summary>
         /// 
@@ -300,6 +314,9 @@ namespace Glyssen.Controls
             clone.ColumnWidths = ColumnWidths;
             clone.EvenRowsBackColor = EvenRowsBackColor;
             clone.OddRowsBackColor = OddRowsBackColor;
+			clone.HideFirstValueWhenSelected = HideFirstValueWhenSelected;
+			clone.FontForFirstItem = FontForFirstItem;
+			clone.GetSpecialDropDownImageToDraw = GetSpecialDropDownImageToDraw;
             return clone;
         }
 
@@ -317,6 +334,10 @@ namespace Glyssen.Controls
             return sb.ToString();
         }
 
-        #endregion
+	    public Image GetSpecialImageToDraw(int rowIndex)
+	    {
+		    return GetSpecialDropDownImageToDraw != null ? GetSpecialDropDownImageToDraw(this, rowIndex) : null;
+	    }
+	    #endregion
     }
 }

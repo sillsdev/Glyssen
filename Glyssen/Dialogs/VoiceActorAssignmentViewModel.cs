@@ -14,6 +14,7 @@ using L10NSharp;
 using SIL.Extensions;
 using SIL.IO;
 using SIL.ObjectModel;
+using SIL.Scripture;
 using SIL.Windows.Forms.Progress;
 
 namespace Glyssen.Dialogs
@@ -265,7 +266,7 @@ namespace Glyssen.Dialogs
 				return false;
 			}
 
-			if (confirmWithUser)
+			if (confirmWithUser && destGroup.CharacterIds.Count > 0)
 			{
 				var proximity = new Proximity(m_project);
 
@@ -277,30 +278,29 @@ namespace Glyssen.Dialogs
 				var resultsAfter = proximity.CalculateMinimumProximity(testGroup);
 				int proximityAfter = resultsAfter.NumberOfBlocks;
 
-				if ((proximityBefore == -1 || proximityBefore > proximityAfter) &&
-					proximityAfter >= 0 &&
-					proximityAfter <= Proximity.kDefaultMinimumProximity)
+				if (proximityBefore > proximityAfter && proximityAfter <= Proximity.kDefaultMinimumProximity)
 				{
+					var firstReference = new BCVRef(BCVRef.BookToNumber(resultsAfter.FirstBook.BookId), resultsAfter.FirstBlock.ChapterNumber,
+						resultsAfter.FirstBlock.InitialStartVerseNumber).ToString();
 
-					var dlgMessageFormat1 =
+					var secondReference = new BCVRef(BCVRef.BookToNumber(resultsAfter.SecondBook.BookId), resultsAfter.SecondBlock.ChapterNumber,
+						resultsAfter.SecondBlock.InitialStartVerseNumber).ToString();
+
+					var dlgMessageFormat1 = (firstReference == secondReference) ?
 						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
-							"You are about to move {0} from group #{1} into group #{2}." +
-							" As a result, group #{2} will have a minimum proximity of {3} blocks between {4} and {5} in the verses {6} and {7}.");
+							"This move will result in a group with a minimum proximity of {0} blocks between [{1}] and [{2}] in {3}.") :
+						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
+							"This move will result in a group with a minimum proximity of {0} blocks between [{1}] in {3} and [{2}] in {4}.");
+					dlgMessageFormat1 = string.Format(dlgMessageFormat1,
+						resultsAfter.NumberOfBlocks,
+						CharacterVerseData.GetCharacterNameForUi(resultsAfter.FirstBlock.CharacterIdInScript),
+						CharacterVerseData.GetCharacterNameForUi(resultsAfter.SecondBlock.CharacterIdInScript),
+						firstReference, secondReference);
 					var dlgMessageFormat2 =
 						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part2",
-							"Do you want to continue moving this character?");
+							"Do you want to continue with this move?");
 
-					var dlgMessage = string.Format(dlgMessageFormat1 + Environment.NewLine + Environment.NewLine + dlgMessageFormat2,
-//						"[" + CharacterVerseData.GetCharacterNameForUi(characterId) + "]",
-"multiple characters",
-						sourceGroup.GroupNumber, destGroup.GroupNumber,
-						resultsAfter.NumberOfBlocks,
-						"[" + CharacterVerseData.GetCharacterNameForUi(resultsAfter.FirstBlock.CharacterIdInScript) + "]",
-						"[" + CharacterVerseData.GetCharacterNameForUi(resultsAfter.SecondBlock.CharacterIdInScript) + "]",
-						resultsAfter.FirstBook.BookId + " " + resultsAfter.FirstBlock.ChapterNumber + ":" +
-						resultsAfter.FirstBlock.InitialStartVerseNumber,
-						resultsAfter.SecondBook.BookId + " " + resultsAfter.SecondBlock.ChapterNumber + ":" +
-						resultsAfter.SecondBlock.InitialStartVerseNumber);
+					var dlgMessage = string.Format(dlgMessageFormat1 + Environment.NewLine + Environment.NewLine + dlgMessageFormat2);
 					var dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Title",
 						"Confirm");
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -254,26 +255,35 @@ namespace Glyssen.Controls
         /// <param name="e">A <see cref="T:System.Windows.Forms.DrawItemEventArgs"/> that contains the event data. </param>
         protected override void OnDrawItem(DrawItemEventArgs e)
         {
-            base.OnDrawItem(e);
-
-            if (e.Index < 0) return;
-
-            if (DesignMode)
+            if (e.Index < 0 || DesignMode)
+	        {
+		        base.OnDrawItem(e);
                 return;
+	        }
 
             e.DrawBackground();
 
             var boundsRect = e.Bounds;
             var lastRight = 0;
 
-            Color brushForeColor;
+			var column = OwnerCell.OwningColumn as DataGridViewMultiColumnComboBoxColumn;
+	        var drawItemSpecial = (column != null && column.HideFirstValueWhenSelected && e.Index == 0);
+
+	        if (e.State.HasFlag(DrawItemState.ComboBoxEdit))
+	        {
+		        if (drawItemSpecial)
+			        return;
+		        boundsRect.Height--;
+	        }
+
+	        Color brushForeColor;
             if ((e.State & DrawItemState.Selected) == 0)
             {
                 // Item is not selected. Use BackColorOdd & BackColorEven
                 var backColor = Convert.ToBoolean(e.Index % 2) ? BackColorOdd : BackColorEven;
                 using (var brushBackColor = new SolidBrush(backColor))
                 {
-                    e.Graphics.FillRectangle(brushBackColor, e.Bounds);
+                    e.Graphics.FillRectangle(brushBackColor, boundsRect);
                 }
                 brushForeColor = Color.Black;
             }
@@ -283,13 +293,22 @@ namespace Glyssen.Controls
                 brushForeColor = Color.White;
             }
 
+	        if (e.State.HasFlag(DrawItemState.ComboBoxEdit))
+	        {
+		        lastRight += 2;
+	        }
+
+	        Font font = Font;
+	        if (column != null && column.FontForFirstItem != null && e.Index == 0)
+		        font = column.FontForFirstItem;
+
             using (var linePen = new Pen(SystemColors.GrayText))
             {
                 using (var brush = new SolidBrush(brushForeColor))
                 {
                     if (ColumnNames.Count == 0)
                     {
-                        e.Graphics.DrawString(Convert.ToString(Items[e.Index]), Font, brush, boundsRect);
+                        e.Graphics.DrawString(Convert.ToString(Items[e.Index]), font, brush, boundsRect);
                     }
                     else
                     {
@@ -315,9 +334,9 @@ namespace Glyssen.Controls
                                 lastRight = boundsRect.Right;
 
                                 // Draw the string with the RTL object.
-                                e.Graphics.DrawString(item, Font, brush, boundsRect, rtl);
+                                e.Graphics.DrawString(item, font, brush, boundsRect, rtl);
 
-                                if (colIndex > 0)
+                                if (colIndex > 0 && !drawItemSpecial)
                                 {
                                     e.Graphics.DrawLine(linePen, boundsRect.Right, boundsRect.Top, boundsRect.Right, boundsRect.Bottom);
                                 }
@@ -327,7 +346,7 @@ namespace Glyssen.Controls
                         else
                         {
                             // Display the strings in ascending order from zero to the highest column.
-                            for (var colIndex = 0; colIndex < ColumnNames.Count; colIndex++)
+							for (var colIndex = 0; colIndex < ColumnNames.Count; colIndex++)
                             {
                                 if (Convert.ToBoolean(m_columnWidths[colIndex]))
                                 {
@@ -336,11 +355,11 @@ namespace Glyssen.Controls
                                     boundsRect.X = lastRight;
                                     boundsRect.Width = m_columnWidths[colIndex];
                                     lastRight = boundsRect.Right;
-                                    e.Graphics.DrawString(item, Font, brush, boundsRect);
+                                    e.Graphics.DrawString(item, font, brush, boundsRect);
 
-                                    if (colIndex < ColumnNames.Count - 1)
+                                    if (colIndex < ColumnNames.Count - 1 && !drawItemSpecial)
                                     {
-                                        e.Graphics.DrawLine(linePen, boundsRect.Right, boundsRect.Top, boundsRect.Right, boundsRect.Bottom);
+                                        e.Graphics.DrawLine(linePen, boundsRect.Right - 1, boundsRect.Top, boundsRect.Right - 1, boundsRect.Bottom);
                                     }
                                 }
                             }
@@ -455,49 +474,46 @@ namespace Glyssen.Controls
 
         #region "Methods"
 
-        /// <summary>
-        /// Sets what columns to be displayed and calculates the width to use to display them.
-        /// </summary>
-        private void InitializeColumns()
-        {
-            if (ColumnNames.Count == 0)
-            {
-                var propertyDescriptorCollection = DataManager.GetItemProperties();
+	    /// <summary>
+	    /// Sets what columns to be displayed and calculates the width to use to display them.
+	    /// </summary>
+	    private void InitializeColumns()
+	    {
+		    if (ColumnNames.Count == 0)
+		    {
+			    var propertyDescriptorCollection = DataManager.GetItemProperties();
+			    for (var colIndex = 0; colIndex < propertyDescriptorCollection.Count; colIndex++)
+				    ColumnNames.Add(propertyDescriptorCollection[colIndex].Name);
+		    }
 
-                TotalWidth = 0;
-                ColumnNames.Clear();
+		    TotalWidth = 0;
+		    using (var graphics = CreateGraphics())
+		    {
+			    for (var colIndex = 0; colIndex < ColumnNames.Count; colIndex++)
+			    {
+				    // If no column widths are explicitly set, calculate the width required to show the longest item.
+				    if (ColumnWidths.Count == 0)
+				    {
+					    int maxWidth = 0;
+					    foreach (var item in Items)
+					    {
+						    var value = Convert.ToString(FilterItemOnProperty(item, ColumnNames[colIndex]));
+						    var size = graphics.MeasureString(value, Font);
+						    if (size.Width > maxWidth)
+							    maxWidth = (int)Math.Ceiling(size.Width);
+					    }
+					    m_columnWidths.Add(maxWidth);
+				    }
+				    // If the index is greater than the collection of explicitly set column widths, use the default.
+				    else if (colIndex >= ColumnWidths.Count)
+				    {
+					    m_columnWidths.Add(ColumnWidthDefault);
+				    }
+				    TotalWidth += m_columnWidths[colIndex];
+			    }
+		    }
+	    }
 
-                for (var colIndex = 0; colIndex < propertyDescriptorCollection.Count; colIndex++)
-                {
-                    ColumnNames.Add(propertyDescriptorCollection[colIndex].Name);
-
-                    // If the index is greater than the collection of explicitly
-                    // set column widths, set any additional columns to the default
-                    if (colIndex >= ColumnWidths.Count)
-                    {
-                        m_columnWidths.Add(ColumnWidthDefault);
-                    }
-                    TotalWidth += m_columnWidths[colIndex];
-                }
-            }
-            else
-            {
-                TotalWidth = 0;
-
-                for (var colIndex = 0; colIndex < ColumnNames.Count; colIndex++)
-                {
-                    // If the index is greater than the collection of explicitly
-                    // set column widths, set any additional columns to the default
-                    if (colIndex >= ColumnWidths.Count)
-                    {
-                        m_columnWidths.Add(ColumnWidthDefault);
-                    }
-                    TotalWidth += m_columnWidths[colIndex];
-                }
-
-            }
-        }
-
-        #endregion
+	    #endregion
     }
 }

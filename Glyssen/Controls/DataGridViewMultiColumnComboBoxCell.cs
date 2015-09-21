@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
+using SIL.Windows.Forms;
 
 namespace Glyssen.Controls
 {
@@ -31,7 +33,48 @@ namespace Glyssen.Controls
 
         #endregion
 
-        #region "Properties"
+	    protected override void Paint(Graphics graphics, Rectangle clipBounds, Rectangle cellBounds, int rowIndex, DataGridViewElementStates elementState, object value, object formattedValue, string errorText, DataGridViewCellStyle cellStyle, DataGridViewAdvancedBorderStyle advancedBorderStyle, DataGridViewPaintParts paintParts)
+	    {
+			var column = (DataGridViewMultiColumnComboBoxColumn)OwningColumn;
+			if (column.HideFirstValueWhenSelected)
+			{
+			    var valueMember = column.ValueMember;
+			    var dataTable = column.DataSource as DataTable;
+			    if (dataTable != null && !String.IsNullOrEmpty(valueMember))
+			    {
+				    if (dataTable.Rows.Count > 0)
+				    {
+					    var firstValueInListSource = dataTable.Rows[0][valueMember];
+					    if (firstValueInListSource.Equals(value))
+					    {
+						    base.Paint(graphics, clipBounds, cellBounds, rowIndex, elementState, value, String.Empty, errorText, cellStyle, advancedBorderStyle, paintParts);
+						    return;
+					    }
+				    }
+			    }
+		    }
+		    Image image = column.GetSpecialImageToDraw(rowIndex);
+			if (image == null)
+				base.Paint(graphics, clipBounds, cellBounds, rowIndex, elementState, value, formattedValue, errorText, cellStyle, advancedBorderStyle, paintParts);
+			else
+		    {
+				paintParts ^= DataGridViewPaintParts.ContentForeground | DataGridViewPaintParts.Focus;
+				base.Paint(graphics, clipBounds, cellBounds, rowIndex, elementState, value, String.Empty, errorText, cellStyle, advancedBorderStyle, paintParts);
+
+				cellBounds.Inflate(-1, -1); // This is a hack - it will only work if borders are 1 pixel.
+			    Color foreColor = ((elementState & DataGridViewElementStates.Selected) > 0) ? cellStyle.SelectionForeColor : cellStyle.ForeColor;
+				using (var foregroundBrush = new SolidBrush(foreColor))
+					graphics.DrawString(formattedValue.ToString(), cellStyle.Font, foregroundBrush, cellBounds);
+
+				var height = image.Height;
+				var width = image.Width;
+				int top = cellBounds.Y + 2;
+				var lockImageRect = new Rectangle(cellBounds.Right - width - 2, top, width, height);
+				graphics.DrawImage(image, lockImageRect);
+		    }
+	    }
+
+	    #region "Properties"
 
         /// <summary>
         /// Define the type of the cell's editing control
@@ -125,12 +168,6 @@ namespace Glyssen.Controls
         #endregion
 
         #region "Methods"
-
-	    public override object ParseFormattedValue(object formattedValue, DataGridViewCellStyle cellStyle, TypeConverter formattedValueTypeConverter, TypeConverter valueTypeConverter)
-	    {
-		    return base.ParseFormattedValue(formattedValue, cellStyle, formattedValueTypeConverter, valueTypeConverter);
-	    }
-
 	    /// <summary>
         /// Creates an exact copy of this cell, copies all the custom properties.
         /// </summary>

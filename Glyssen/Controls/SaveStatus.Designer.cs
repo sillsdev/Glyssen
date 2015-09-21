@@ -41,11 +41,13 @@
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_lbl, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_lbl, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_lbl, "Common.SaveStatus.Saved");
-			this.m_lbl.Location = new System.Drawing.Point(-3, 0);
+			this.m_lbl.Location = new System.Drawing.Point(0, 0);
+			this.m_lbl.Margin = new System.Windows.Forms.Padding(0);
 			this.m_lbl.Name = "m_lbl";
 			this.m_lbl.Size = new System.Drawing.Size(97, 13);
 			this.m_lbl.TabIndex = 0;
 			this.m_lbl.Text = "All Changes Saved";
+			this.m_lbl.TextAlign = System.Drawing.ContentAlignment.TopRight;
 			// 
 			// l10NSharpExtender1
 			// 

@@ -159,7 +159,7 @@
     <Compile Include="Character\ICharacterGroupSource.cs" />
     <Compile Include="Character\ICharacterVerseInfo.cs" />
     <Compile Include="Character\ProjectCharacterVerseData.cs" />
-    <Compile Include="Controls\AutoGrid.cs">
+    <Compile Include="Controls\AutoScrollGrid.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\BlockProgressBar.cs">
@@ -181,9 +181,6 @@
     <Compile Include="Controls\DataGridViewMultiColumnComboBoxCell.cs" />
     <Compile Include="Controls\DataGridViewMultiColumnComboBoxColumn.cs" />
     <Compile Include="Controls\DataGridViewMultiColumnComboBoxEditingControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\DataGridViewOverrideEnter.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\ExistingProjectsList.cs">
@@ -343,9 +340,6 @@
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\DataGridViewOverrideEnter.resx">
-      <DependentUpon>DataGridViewOverrideEnter.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ExistingProjectsList.resx">
       <DependentUpon>ExistingProjectsList.cs</DependentUpon>
     </EmbeddedResource>
@@ -445,10 +439,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\UpdateGroups.png" />
+    <None Include="Resources\splitGroup.png" />
     <None Include="Resources\SplitBlock.png" />
     <None Include="Resources\yellow-ok-icon.png" />
     <None Include="Resources\112_Plus_Green_16x16_72.png" />
     <None Include="Resources\CharacterDetail.txt" />
+    <None Include="Resources\bluelock.png" />
     <Content Include="Resources\CharacterVerse.txt" />
     <None Include="Resources\grid-icon.png" />
     <None Include="Resources\html-view.png" />
@@ -458,6 +455,7 @@
     <None Include="Resources\green-check.png" />
     <None Include="Resources\glyssen.ico" />
     <None Include="Resources\helpSmall.png" />
+    <None Include="Resources\people.png" />
     <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />
   </ItemGroup>
