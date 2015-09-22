@@ -280,15 +280,20 @@ namespace Glyssen.Controls
             }
         }
 
-		[Category("Appearance"), DefaultValue(false)]
+		[Category("Data"), DefaultValue(null)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-		[Description("Value indicating whether the first item in the data source (which must be a Data Table) should be treated as a special value, visible only when the list is dropped down.")]
-		public bool HideFirstValueWhenSelected { get; set; }
+		[Description("Value indicating the column name in the data source (which must be a Data Table) which specifies the category name to be used for grouping items of the same category.")]
+		public string CategoryColumnName { get; set; }
 
 		[Category("Appearance"), DefaultValue(null)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-		[Description("Font used to draw the first item in the combo box.")]
-		public Font FontForFirstItem { get; set; }
+		[Description("Font used to draw any uncategorized items in the combo box (ignored if CategoryColumnName is not set).")]
+		public Font FontForUncategorizedItems { get; set; }
+
+		[Category("Appearance"), DefaultValue(null)]
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+		[Description("Font used to draw category labels in the combo box (ignored if CategoryColumnName is not set).")]
+		public Font FontForCategories { get; set; }
 
 	    #endregion
 
@@ -313,9 +318,11 @@ namespace Glyssen.Controls
             clone.ColumnNames = ColumnNames;
             clone.ColumnWidths = ColumnWidths;
             clone.EvenRowsBackColor = EvenRowsBackColor;
-            clone.OddRowsBackColor = OddRowsBackColor;
-			clone.HideFirstValueWhenSelected = HideFirstValueWhenSelected;
-			clone.FontForFirstItem = FontForFirstItem;
+			clone.OddRowsBackColor = OddRowsBackColor;
+			clone.MaxDropDownItems = MaxDropDownItems;
+			clone.CategoryColumnName = CategoryColumnName;
+			clone.FontForUncategorizedItems = FontForUncategorizedItems;
+			clone.FontForCategories = FontForCategories;
 			clone.GetSpecialDropDownImageToDraw = GetSpecialDropDownImageToDraw;
             return clone;
         }

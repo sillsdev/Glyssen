@@ -456,6 +456,7 @@
     <None Include="Resources\glyssen.ico" />
     <None Include="Resources\helpSmall.png" />
     <None Include="Resources\people.png" />
+    <None Include="Resources\RemoveActor.png" />
     <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />
   </ItemGroup>

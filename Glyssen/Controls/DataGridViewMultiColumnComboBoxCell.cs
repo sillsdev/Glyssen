@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
-using SIL.Windows.Forms;
 
 namespace Glyssen.Controls
 {
@@ -36,23 +34,23 @@ namespace Glyssen.Controls
 	    protected override void Paint(Graphics graphics, Rectangle clipBounds, Rectangle cellBounds, int rowIndex, DataGridViewElementStates elementState, object value, object formattedValue, string errorText, DataGridViewCellStyle cellStyle, DataGridViewAdvancedBorderStyle advancedBorderStyle, DataGridViewPaintParts paintParts)
 	    {
 			var column = (DataGridViewMultiColumnComboBoxColumn)OwningColumn;
-			if (column.HideFirstValueWhenSelected)
+			var dataTable = column.DataSource as DataTable;
+			if (column.CategoryColumnName != null && dataTable != null)
 			{
 			    var valueMember = column.ValueMember;
-			    var dataTable = column.DataSource as DataTable;
-			    if (dataTable != null && !String.IsNullOrEmpty(valueMember))
-			    {
-				    if (dataTable.Rows.Count > 0)
-				    {
-					    var firstValueInListSource = dataTable.Rows[0][valueMember];
-					    if (firstValueInListSource.Equals(value))
-					    {
-						    base.Paint(graphics, clipBounds, cellBounds, rowIndex, elementState, value, String.Empty, errorText, cellStyle, advancedBorderStyle, paintParts);
-						    return;
-					    }
-				    }
-			    }
-		    }
+				if (!String.IsNullOrEmpty(valueMember) && dataTable.Rows.Count > 0)
+				{
+					for (int i = 0; i < dataTable.Rows.Count; i++)
+					{
+						var row = dataTable.Rows[i];
+						if (row[valueMember].Equals(value) && row[column.CategoryColumnName] is DBNull)
+						{
+							base.Paint(graphics, clipBounds, cellBounds, rowIndex, elementState, value, String.Empty, errorText, cellStyle, advancedBorderStyle, paintParts);
+							return;
+						}
+					}
+				}
+			}
 		    Image image = column.GetSpecialImageToDraw(rowIndex);
 			if (image == null)
 				base.Paint(graphics, clipBounds, cellBounds, rowIndex, elementState, value, formattedValue, errorText, cellStyle, advancedBorderStyle, paintParts);
@@ -206,6 +204,7 @@ namespace Glyssen.Controls
             editingControl.ColumnWidths = ColumnWidths;
             editingControl.BackColorEven = EvenRowsBackColor;
             editingControl.BackColorOdd = OddRowsBackColor;
+	        editingControl.MaxDropDownItems = MaxDropDownItems;
             editingControl.OwnerCell = this;
 
             if (Value != null)

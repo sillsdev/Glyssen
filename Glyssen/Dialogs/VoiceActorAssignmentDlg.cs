@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -65,21 +66,10 @@ namespace Glyssen.Dialogs
 
 		private void UnAssignActorsFromSelectedGroups()
 		{
-			bool multipleGroupsSelected = m_characterGroupGrid.SelectedRows.Count > 1;
+			foreach (var group in SelectedAssignedNonCameoGroups)
+				m_actorAssignmentViewModel.UnAssignActorFromGroup(group);
 
-			string dlgMessage = multipleGroupsSelected
-				? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.DeleteGroupsDialog.MessagePlural",
-					"Are you sure you want to un-assign the actors from the selected groups?")
-				: LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.DeleteGroupsDialog.MessageSingular",
-					"Are you sure you want to un-assign the actor from the selected group?");
-			string dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.DeleteGroupsDialog.Title", "Confirm");
-			if (MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
-			{
-				foreach (var group in SelectedAssignedNonCameoGroups)
-					m_actorAssignmentViewModel.UnAssignActorFromGroup(group);
-
-				m_characterGroupGrid.Refresh();
-			}			
+			m_characterGroupGrid.Refresh();
 		}
 
 		private void HandleEditVoiceActorsClick(object sender, EventArgs e)
@@ -112,10 +102,10 @@ namespace Glyssen.Dialogs
 			bool multipleGroupsSelected = m_characterGroupGrid.SelectedRows.Count > 1;
 
 			m_unAssignActorFromGroupToolStripMenuItem.Text = multipleGroupsSelected
-				? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.UnassignMultipleGroups",
-					"Un-Assign Actors from Selected Groups")
-				: LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.UnassignSingleGroup",
-					"Un-Assign Actor from Group");
+				? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignments",
+					"Remove Voice Actor Assignments")
+				: LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment",
+					"Remove Voice Actor Assignment");
 
 			m_unAssignActorFromGroupToolStripMenuItem.Enabled = SelectedAssignedNonCameoGroups.Any();
 			m_splitGroupToolStripMenuItem.Enabled = !multipleGroupsSelected && FirstSelectedCharacterGroup.CharacterIds.Count > 1;
@@ -248,7 +238,17 @@ namespace Glyssen.Dialogs
 		{
 			if (e.KeyData == Keys.Delete)
 			{
-				UnAssignActorsFromSelectedGroups();
+				bool multipleGroupsSelected = m_characterGroupGrid.SelectedRows.Count > 1;
+
+				string dlgMessage = multipleGroupsSelected
+					? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ConfirmUnassignDialog.MessagePlural",
+						"Are you sure you want to remove the voice actor assignments from the selected character groups?")
+					: LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ConfirmUnassignDialog.MessageSingular",
+						"Are you sure you want to remove the voice actor assignment from the selected character group?");
+				string dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ConfirmUnassignDialog.Title", "Confirm");
+
+				if (MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
+					UnAssignActorsFromSelectedGroups();
 			}
 		}
 
@@ -386,16 +386,10 @@ namespace Glyssen.Dialogs
 		private void m_characterGroupGrid_CellEnter(object sender, DataGridViewCellEventArgs e)
 		{
 			if (m_characterGroupGrid.CurrentCell.EditType == typeof(DataGridViewMultiColumnComboBoxEditingControl))
-				SendKeys.Send("{F4}");
-		}
-
-		private void m_characterGroupGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-		{
-			if (m_characterGroupGrid.CurrentCell.EditType == typeof(DataGridViewMultiColumnComboBoxEditingControl) && m_characterGroupGrid.CurrentRow != null)
 			{
-				var group = (CharacterGroup)m_characterGroupGrid.CurrentRow.DataBoundItem;
-				var cell = (DataGridViewComboBoxCell)m_characterGroupGrid.CurrentCell;
-				cell.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(group);
+				if (m_characterGroupGrid.CurrentRow != null)
+					SetVoiceActorCellDataSource();
+				SendKeys.Send("{F4}");
 			}
 		}
 
@@ -444,5 +438,35 @@ namespace Glyssen.Dialogs
 			m_splitSelectedGroupButton.Enabled = m_characterGroupGrid.SelectedRows.Count == 1 && FirstSelectedCharacterGroup.CharacterIds.Count > 1;
 		}
 		#endregion
+
+		protected override void OnDeactivate(EventArgs e)
+		{
+			base.OnDeactivate(e);
+			if (m_characterGroupGrid.IsCurrentCellInEditMode)
+				m_characterGroupGrid.EndEdit();
+		}
+
+		protected override void OnActivated(EventArgs e)
+		{
+			base.OnActivated(e);
+			if (m_characterGroupGrid.CurrentCell.EditType == typeof(DataGridViewMultiColumnComboBoxEditingControl) &&
+			    m_characterGroupGrid.CurrentRow != null)
+			{
+				SetVoiceActorCellDataSource();
+			}
+		}
+
+		private void SetVoiceActorCellDataSource()
+		{
+			Debug.Assert(m_characterGroupGrid.CurrentRow != null);
+			var group = (CharacterGroup)m_characterGroupGrid.CurrentRow.DataBoundItem;
+			var cell = (DataGridViewComboBoxCell)m_characterGroupGrid.CurrentCell;
+			cell.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(group);
+		}
+
+		private void m_characterGroupGrid_Leave(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

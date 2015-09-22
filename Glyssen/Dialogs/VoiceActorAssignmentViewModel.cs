@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -338,30 +339,40 @@ namespace Glyssen.Dialogs
 		{
 			var table = new DataTable();
 			table.Columns.Add("ID", typeof(int));
+			table.Columns.Add("Category");
+			table.Columns.Add("Icon", typeof(Image));
 			table.Columns.Add("Name");
 			table.Columns.Add("Gender");
 			table.Columns.Add("Age");
 			table.Columns.Add("Cameo");
 
+			//TODO put the best matches first
+			foreach (var actor in m_project.VoiceActorList.Actors.Where(a => !m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id)).OrderBy(a => a.Name))
+				table.Rows.Add(GetDataTableRow(actor, LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AvailableVoiceActors", "Available:")));
+
 			table.Rows.Add(
 				-1,
-				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Unassigned", "Unassigned"),
+				null,
+				Resources.RemoveActor,
+				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"),
 				"",
 				"",
 				"");
 			
-			//TODO put the best matches first
-			foreach (var actor in m_project.VoiceActorList.Actors.OrderBy(a => m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id)).ThenBy(a => a.Name))
-				table.Rows.Add(GetDataTableRow(actor));
+			foreach (var actor in m_project.VoiceActorList.Actors.Where(a => m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id)).OrderBy(a => a.Name))
+				table.Rows.Add(GetDataTableRow(actor, LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AlreadyAssignedVoiceActors",
+					"Assigned to a Character Group:")));
 
 			return table;
 		}
 
-		private object[] GetDataTableRow(VoiceActor.VoiceActor actor)
+		private object[] GetDataTableRow(VoiceActor.VoiceActor actor, string category)
 		{
 			return new object[]
 			{
 				actor.Id,
+				category,
+				null,
 				actor.Name,
 				GetUiStringForActorGender(actor.Gender),
 				GetUiStringForActorAge(actor.Age),

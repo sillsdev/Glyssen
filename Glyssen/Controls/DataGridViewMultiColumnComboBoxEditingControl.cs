@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Glyssen.Controls
@@ -16,12 +18,12 @@ namespace Glyssen.Controls
     public class DataGridViewMultiColumnComboBoxEditingControl : DataGridViewComboBoxEditingControl
     {
         #region "Member Variables"
-
+	    private const int kSeparatorLineHeight = 1;
         private readonly List<Int32> m_columnWidths = new List<int>();
         private List<string> m_columnWidthStringList = new List<string>();
         private List<string> m_columnNames = new List<string>();
-
-        #endregion
+		private DataGridViewMultiColumnComboBoxCell m_ownerCell;
+	    #endregion
 
         #region "Constructor"
 
@@ -38,6 +40,7 @@ namespace Glyssen.Controls
             ColumnWidths = new List<string>();
             ColumnWidthDefault = 75;
             TotalWidth = 0;
+	        IndentSize = 18;
             ColumnNames = new List<string>();
             DrawMode = DrawMode.OwnerDrawVariable;
             DropDownStyle = ComboBoxStyle.DropDown;
@@ -161,6 +164,12 @@ namespace Glyssen.Controls
         [DefaultValue(0)]
         public int TotalWidth { get; private set; }
 
+		/// <summary>
+		/// Gets or sets the number of pixels to indent (ignored if CategoryColumnName is not specified).
+		/// </summary>
+		[DefaultValue(18)]
+		public int IndentSize { get; set; }
+
         /// <summary>
         /// Gets or sets the names of the columns to display.  The default is <see cref="System.Collections.ObjectModel.Collection&lt;String&gt;"/>.
         /// </summary>
@@ -233,12 +242,32 @@ namespace Glyssen.Controls
                 base.DropDownStyle = value;
             }
         }
-        /// <summary>
-        /// Gets or sets a value specifying the owner of this control.
-        /// </summary>
-        public DataGridViewMultiColumnComboBoxCell OwnerCell { get; set; }
 
-        #endregion
+	    /// <summary>
+	    /// Gets or sets a value specifying the owner of this control.
+	    /// </summary>
+	    public DataGridViewMultiColumnComboBoxCell OwnerCell
+	    {
+		    get { return m_ownerCell; }
+		    set
+		    {
+			    m_ownerCell = value;
+			    InitializeColumns();
+			    SetDropDownHeight();
+		    }
+	    }
+
+	    private void SetDropDownHeight()
+	    {
+			if (Items.Count > 0)
+				DropDownHeight = GetRequiredHeightForFirstNItems(MaxDropDownItems);
+	    }
+
+	    private DataGridViewMultiColumnComboBoxColumn OwningColumn
+		{
+			get { return OwnerCell == null ? null : (DataGridViewMultiColumnComboBoxColumn)OwnerCell.OwningColumn; }
+		}
+	    #endregion
 
         #region "Event Handlers"
 
@@ -247,9 +276,57 @@ namespace Glyssen.Controls
         {
             base.OnDataSourceChanged(e);
             InitializeColumns();
-        }
+			SetDropDownHeight();
+		}
 
-        /// <summary>
+	    protected override void OnMeasureItem(MeasureItemEventArgs e)
+	    {
+		    base.OnMeasureItem(e);
+		    e.ItemHeight = GetRequiredItemHeight(e.Index);
+	    }
+
+	    private int GetRequiredItemHeight(int index)
+	    {
+		    if (OwningColumn == null)
+			    return ItemHeight;
+
+		    object category;
+		    if (IsItemFirstInCategory(index, out category))
+			    return ItemHeight * 2 + kSeparatorLineHeight;
+
+		    if (OwningColumn.CategoryColumnName != null && FilterItemOnProperty(Items[index], OwningColumn.CategoryColumnName) is DBNull)
+			    return ItemHeight + kSeparatorLineHeight;
+
+			return ItemHeight;
+	    }
+
+	    private int GetRequiredHeightForFirstNItems(int n)
+	    {
+			if (n <= 0)
+				throw new ArgumentOutOfRangeException("n", "The value of n must be greater than 0.");
+			if (Items.Count == 0)
+				throw new InvalidOperationException("Non-empty Items collection must be set before calling GetRequiredHeightForFirstNItems.");
+
+			n = Math.Min(n, Items.Count);
+
+			int requiredHeight = SystemInformation.BorderSize.Height * 2;
+			for (int i = 0; i < n; i++)
+				requiredHeight += GetRequiredItemHeight(i);
+			return requiredHeight;
+	    }
+
+	    private bool IsItemFirstInCategory(int index, out object category)
+	    {
+		    if (OwningColumn != null && OwningColumn.CategoryColumnName != null)
+		    {
+			    category = FilterItemOnProperty(Items[index], OwningColumn.CategoryColumnName);
+			    return (!(category is DBNull) && (index == 0 || FilterItemOnProperty(Items[index - 1], OwningColumn.CategoryColumnName) != category));
+		    }
+		    category = null;
+		    return false;
+	    }
+
+	    /// <summary>
         /// Raises the <see cref="E:System.Windows.Forms.ComboBox.DrawItem"/> event.
         /// </summary>
         /// <param name="e">A <see cref="T:System.Windows.Forms.DrawItemEventArgs"/> that contains the event data. </param>
@@ -264,110 +341,161 @@ namespace Glyssen.Controls
             e.DrawBackground();
 
             var boundsRect = e.Bounds;
-            var lastRight = 0;
+		    Image icon = FilterItemOnProperty(Items[e.Index], "Icon") as Image;
+			var lastRight = OwningColumn.CategoryColumnName == null || e.State.HasFlag(DrawItemState.ComboBoxEdit) || icon != null ? 0 : IndentSize;
 
-			var column = OwnerCell.OwningColumn as DataGridViewMultiColumnComboBoxColumn;
-	        var drawItemSpecial = (column != null && column.HideFirstValueWhenSelected && e.Index == 0);
+			var drawUncategorizedItemSpecial = OwningColumn.CategoryColumnName != null && FilterItemOnProperty(Items[e.Index], OwningColumn.CategoryColumnName) is DBNull;
 
 	        if (e.State.HasFlag(DrawItemState.ComboBoxEdit))
 	        {
-		        if (drawItemSpecial)
+		        if (drawUncategorizedItemSpecial)
 			        return;
 		        boundsRect.Height--;
 	        }
 
-	        Color brushForeColor;
+	        Color brushForeColor = Color.Black;
             if ((e.State & DrawItemState.Selected) == 0)
             {
                 // Item is not selected. Use BackColorOdd & BackColorEven
                 var backColor = Convert.ToBoolean(e.Index % 2) ? BackColorOdd : BackColorEven;
                 using (var brushBackColor = new SolidBrush(backColor))
-                {
                     e.Graphics.FillRectangle(brushBackColor, boundsRect);
-                }
-                brushForeColor = Color.Black;
             }
-            else
-            {
-                // Item is selected. Use ForeColor = White
-                brushForeColor = Color.White;
-            }
+
+		    Font font;
+
+		    object category;
+			if (IsItemFirstInCategory(e.Index, out category) && !e.State.HasFlag(DrawItemState.ComboBoxEdit))
+		    {
+				var categoryRect = new Rectangle(boundsRect.X, boundsRect.Y, boundsRect.Width, boundsRect.Height / 2);
+				if ((e.State & DrawItemState.Selected) != 0)
+				{
+					// Item is selected. Repaint background for the category portion of the line.
+					using (var brushBackColor = new SolidBrush(Color.White))
+						e.Graphics.FillRectangle(brushBackColor, categoryRect);
+				}
+
+			    var sCategory = Convert.ToString(category);
+				font = OwningColumn.FontForCategories ?? Font;
+			    using (var brush = new SolidBrush(brushForeColor))
+			    {
+				    if (e.Index > 0)
+				    {
+					    using (var linePen = new Pen(SystemColors.GrayText))
+							e.Graphics.DrawLine(linePen, categoryRect.X, categoryRect.Y, categoryRect.Right, categoryRect.Y);
+				    }
+					categoryRect.Y += kSeparatorLineHeight;
+					categoryRect.Height -= kSeparatorLineHeight;
+					e.Graphics.DrawString(sCategory, font, brush, categoryRect);
+			    }
+			    boundsRect.Y = categoryRect.Bottom;
+			    boundsRect.Height -= categoryRect.Height;
+		    }
+
+			if ((e.State & DrawItemState.Selected) != 0)
+			{
+				// Item is selected. Use ForeColor = White
+				brushForeColor = Color.White;
+			}
 
 	        if (e.State.HasFlag(DrawItemState.ComboBoxEdit))
 	        {
 		        lastRight += 2;
-	        }
+			}
 
-	        Font font = Font;
-	        if (column != null && column.FontForFirstItem != null && e.Index == 0)
-		        font = column.FontForFirstItem;
+		    font = Font;
+		    if (drawUncategorizedItemSpecial)
+		    {
+			    if (OwningColumn.FontForUncategorizedItems != null)
+				    font = OwningColumn.FontForUncategorizedItems;
+			}
+			else if (OwningColumn.CategoryColumnName != null)
+		    {
+			    boundsRect.Width -= IndentSize;
+		    }
 
-            using (var linePen = new Pen(SystemColors.GrayText))
+		    using (var linePen = new Pen(SystemColors.GrayText))
             {
                 using (var brush = new SolidBrush(brushForeColor))
                 {
-                    if (ColumnNames.Count == 0)
-                    {
-                        e.Graphics.DrawString(Convert.ToString(Items[e.Index]), font, brush, boundsRect);
-                    }
-                    else
-                    {
-                        // If the ComboBox is displaying a RightToLeft language, draw it this way.
-                        if (RightToLeft.Equals(RightToLeft.Yes))
-                        {
-                            // Define a StringFormat object to make the string display RTL.
-                            var rtl = new StringFormat
-                            {
-                                Alignment = StringAlignment.Near,
-                                FormatFlags = StringFormatFlags.DirectionRightToLeft
-                            };
+	                if (ColumnNames.Count == 0)
+	                {
+		                e.Graphics.DrawString(Convert.ToString(Items[e.Index]), font, brush, boundsRect);
+	                }
+	                else
+	                {
+		                if (drawUncategorizedItemSpecial)
+		                {
+			                if (e.Index > 0)
+				                e.Graphics.DrawLine(linePen, boundsRect.X, boundsRect.Y, boundsRect.Right, boundsRect.Y);
+			                boundsRect.Width -= IndentSize;
+			                boundsRect.Y += kSeparatorLineHeight;
+			                boundsRect.Height -= kSeparatorLineHeight;
+		                }
 
-                            // Draw the strings in reverse order from high column index to zero column index.
-                            for (var colIndex = ColumnNames.Count - 1; colIndex >= 0; colIndex--)
-                            {
-                                if (!Convert.ToBoolean(ColumnWidths[colIndex])) continue;
+		                if (icon != null)
+		                {
+			                int top = boundsRect.Y;
+			                int height = boundsRect.Height;
+			                int left = boundsRect.X;
+			                int width = IndentSize - 2;
+			                if (icon.Height < height)
+			                {
+				                top += ((boundsRect.Height - icon.Height) / 2);
+				                height = icon.Height;
+			                }
+			                if (icon.Width < width)
+			                {
+				                left += ((boundsRect.Width - icon.Width) / 2);
+				                width = icon.Width;
+			                }
+			                e.Graphics.DrawImage(icon, left, top, width, height);
+			                lastRight += IndentSize;
+		                }
 
-                                var item = Convert.ToString(FilterItemOnProperty(Items[e.Index], ColumnNames[colIndex]));
+		                // Default (L-to-R) is to display the strings in ascending order from zero to the highest column.
+		                int loopStart = 0;
+		                Func<int, bool> notDone = i => i < ColumnNames.Count;
+		                Func<int, int> loopIncrementer = i => i + 1;
+						StringFormat format = new StringFormat();
 
-                                boundsRect.X = lastRight;
-                                boundsRect.Width = m_columnWidths[colIndex];
-                                lastRight = boundsRect.Right;
+		                // If the ComboBox is displaying a RightToLeft language, draw it this way.
+		                if (RightToLeft.Equals(RightToLeft.Yes))
+		                {
+			                // Define a StringFormat object to make the string display RTL.
+			                format = new StringFormat
+			                {
+				                Alignment = StringAlignment.Near,
+				                FormatFlags = StringFormatFlags.DirectionRightToLeft
+			                };
 
-                                // Draw the string with the RTL object.
-                                e.Graphics.DrawString(item, font, brush, boundsRect, rtl);
+			                // Draw the strings in reverse order from high column index to zero column index.
+			                loopStart = ColumnNames.Count - 1;
+			                notDone = i => i >= 0;
+			                loopIncrementer = i => i - 1;
+		                }
 
-                                if (colIndex > 0 && !drawItemSpecial)
-                                {
-                                    e.Graphics.DrawLine(linePen, boundsRect.Right, boundsRect.Top, boundsRect.Right, boundsRect.Bottom);
-                                }
-                            }
-                        }
-                        // If the ComboBox is displaying a LeftToRight language, draw it this way.
-                        else
-                        {
-                            // Display the strings in ascending order from zero to the highest column.
-							for (var colIndex = 0; colIndex < ColumnNames.Count; colIndex++)
-                            {
-                                if (Convert.ToBoolean(m_columnWidths[colIndex]))
-                                {
-                                    var item = Convert.ToString(FilterItemOnProperty(Items[e.Index], ColumnNames[colIndex]));
+						for (var colIndex = loopStart; notDone(colIndex); colIndex = loopIncrementer(colIndex))
+		                {
+			                if (m_columnWidths[colIndex] > 0)
+			                {
+				                var item = Convert.ToString(FilterItemOnProperty(Items[e.Index], ColumnNames[colIndex]));
 
-                                    boundsRect.X = lastRight;
-                                    boundsRect.Width = m_columnWidths[colIndex];
-                                    lastRight = boundsRect.Right;
-                                    e.Graphics.DrawString(item, font, brush, boundsRect);
+				                boundsRect.X = lastRight;
+				                boundsRect.Width = m_columnWidths[colIndex];
+				                lastRight = boundsRect.Right;
+				                e.Graphics.DrawString(item, font, brush, boundsRect, format);
 
-                                    if (colIndex < ColumnNames.Count - 1 && !drawItemSpecial)
-                                    {
-                                        e.Graphics.DrawLine(linePen, boundsRect.Right - 1, boundsRect.Top, boundsRect.Right - 1, boundsRect.Bottom);
-                                    }
-                                }
-                            }
-                        }
-                    }
+				                if (lastRight + 7 >= e.Bounds.Right)
+					                break;
+
+				                if (notDone(loopIncrementer(colIndex)) && !drawUncategorizedItemSpecial)
+					                e.Graphics.DrawLine(linePen, boundsRect.Right - 1, boundsRect.Top, boundsRect.Right - 1, boundsRect.Bottom);
+			                }
+		                }
+	                }
                 }
             }
-
             e.DrawFocusRectangle();
         }
 
@@ -377,18 +505,17 @@ namespace Glyssen.Controls
         /// <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data. </param>
         protected override void OnDropDown(EventArgs e)
         {
-            if (TotalWidth <= 0) return;
+            if (TotalWidth <= 0 || Items.Count == 0)
+				return;
 
-            if (Items.Count > MaxDropDownItems)
+			if (DropDownHeight < GetRequiredHeightForFirstNItems(Items.Count))
             {
                 // The vertical scrollbar is present. Add its width to the total.
                 // If you don't then RightToLeft languages will have a few characters obscured.
                 DropDownWidth = TotalWidth + SystemInformation.VerticalScrollBarWidth;
             }
             else
-            {
                 DropDownWidth = TotalWidth;
-            }
         }
         /// <summary>
         /// Raises the <see cref="E:System.Windows.Forms.Control.KeyPress"/> event.
@@ -479,11 +606,15 @@ namespace Glyssen.Controls
 	    /// </summary>
 	    private void InitializeColumns()
 	    {
+			if (OwnerCell == null || DataManager == null)
+				return;
+
 		    if (ColumnNames.Count == 0)
 		    {
 			    var propertyDescriptorCollection = DataManager.GetItemProperties();
 			    for (var colIndex = 0; colIndex < propertyDescriptorCollection.Count; colIndex++)
-				    ColumnNames.Add(propertyDescriptorCollection[colIndex].Name);
+					if (propertyDescriptorCollection[colIndex].Name != OwningColumn.CategoryColumnName)
+						ColumnNames.Add(propertyDescriptorCollection[colIndex].Name);
 		    }
 
 		    TotalWidth = 0;
@@ -512,8 +643,72 @@ namespace Glyssen.Controls
 				    TotalWidth += m_columnWidths[colIndex];
 			    }
 		    }
+		    if (OwningColumn.CategoryColumnName != null)
+			    TotalWidth += IndentSize;
 	    }
 
 	    #endregion
-    }
+
+		#region http://stackoverflow.com/questions/1245530/unable-to-set-the-dropdownheight-of-combobox
+		[DllImport("user32.dll")]
+		[return: MarshalAs(UnmanagedType.Bool)]
+		public static extern bool GetWindowRect(IntPtr hwnd, out RECT lpRect);
+
+		[DllImport("user32.dll", SetLastError = true)]
+		[return: MarshalAs(UnmanagedType.Bool)]
+		private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, uint uFlags);
+
+		[StructLayout(LayoutKind.Sequential)]
+		public struct RECT
+		{
+			public int Left;        // x position of upper-left corner
+			public int Top;         // y position of upper-left corner
+			public int Right;       // x position of lower-right corner
+			public int Bottom;      // y position of lower-right corner
+		}
+
+		public const int SWP_NOZORDER = 0x0004;
+		public const int SWP_NOACTIVATE = 0x0010;
+		public const int SWP_FRAMECHANGED = 0x0020;
+		public const int SWP_NOOWNERZORDER = 0x0200;
+
+		public const int WM_CTLCOLORLISTBOX = 0x0134;
+
+		private int _hwndDropDown = 0;
+
+		protected override void WndProc(ref Message m)
+		{
+			if (m.Msg == WM_CTLCOLORLISTBOX)
+			{
+				if (_hwndDropDown == 0)
+				{
+					_hwndDropDown = m.LParam.ToInt32();
+
+					RECT r;
+					GetWindowRect((IntPtr)_hwndDropDown, out r);
+
+					int newHeight = GetRequiredHeightForFirstNItems(MaxDropDownItems);
+
+					SetWindowPos((IntPtr)_hwndDropDown, IntPtr.Zero,
+						r.Left,
+								 r.Top,
+								 DropDownWidth,
+								 newHeight,
+								 SWP_FRAMECHANGED |
+									 SWP_NOACTIVATE |
+									 SWP_NOZORDER |
+									 SWP_NOOWNERZORDER);
+				}
+			}
+
+			base.WndProc(ref m);
+		}
+
+		protected override void OnDropDownClosed(EventArgs e)
+		{
+			_hwndDropDown = 0;
+			base.OnDropDownClosed(e);
+		}
+		#endregion
+	}
 }
