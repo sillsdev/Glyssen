@@ -373,10 +373,10 @@ namespace GlyssenTests.Dialogs
 
 			var dataTable = m_model.GetMultiColumnActorDataTable(m_model.CharacterGroups[0]);
 			var actorList = GetActorListFromDataTable(dataTable);
-			Assert.AreEqual(null, actorList[0]); // The "Unassigned" option
-			Assert.AreEqual(actorA, actorList[1]);
-			Assert.AreEqual(actorB, actorList[2]);
-			Assert.AreEqual(actorC, actorList[3]);
+			Assert.AreEqual(actorA, actorList[0]);
+			Assert.AreEqual(actorB, actorList[1]);
+			Assert.AreEqual(actorC, actorList[2]);
+			Assert.AreEqual(null, actorList[3]); // The "Unassigned" option
 		}
 
 		[Test]
@@ -392,9 +392,9 @@ namespace GlyssenTests.Dialogs
 
 			var dataTable = m_model.GetMultiColumnActorDataTable(m_model.CharacterGroups[0]);
 			var actorList = GetActorListFromDataTable(dataTable);
-			Assert.AreEqual(null, actorList[0]); // The "Unassigned" option
-			Assert.AreEqual(actorB, actorList[1]);
-			Assert.AreEqual(actorC, actorList[2]);
+			Assert.AreEqual(actorB, actorList[0]);
+			Assert.AreEqual(actorC, actorList[1]);
+			Assert.AreEqual(null, actorList[2]); // The "Unassigned" option
 			Assert.AreEqual(actorA, actorList[3]);
 		}
 
