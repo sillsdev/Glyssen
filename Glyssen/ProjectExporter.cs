@@ -111,6 +111,11 @@ namespace Glyssen
 
 		private void GenerateExcelFile(string path, List<List<object>> data)
 		{
+			// If we got this far with a path to an existing file, the user has (in theory)
+			// confirmed he wants to overwrite it.
+			// We need to delete it first or the code will attempt to modify it instead.
+			File.Delete(path);
+
 			using (var xls = new ExcelPackage(new FileInfo(path)))
 			{
 				var sheet = xls.Workbook.Worksheets.Add("Script");
