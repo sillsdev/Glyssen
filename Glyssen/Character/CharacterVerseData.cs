@@ -85,16 +85,16 @@ namespace Glyssen.Character
 			switch (GetStandardCharacterType(characterId))
 			{
 				case StandardCharacter.Narrator: 
-					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.Narrator", "narrator ({0})"), GetBookNameFromStandardCharacterId(characterId));
+					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.Narrator", kNarratorAsEnglishCharacterName), GetBookNameFromStandardCharacterId(characterId));
 					break;
-				case StandardCharacter.Intro: 
-					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.IntroCharacter", "introduction ({0})"), GetBookNameFromStandardCharacterId(characterId));
+				case StandardCharacter.Intro:
+					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.IntroCharacter", kIntroductionAsEnglishCharacterName), GetBookNameFromStandardCharacterId(characterId));
 					break;
-				case StandardCharacter.ExtraBiblical: 
-					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.ExtraCharacter", "section head ({0})"), GetBookNameFromStandardCharacterId(characterId));
+				case StandardCharacter.ExtraBiblical:
+					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.ExtraCharacter", kSectionHeadAsEnglishCharacterName), GetBookNameFromStandardCharacterId(characterId));
 					break;
-				case StandardCharacter.BookOrChapter: 
-					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BookChapterCharacter", "book title or chapter ({0})"), GetBookNameFromStandardCharacterId(characterId));
+				case StandardCharacter.BookOrChapter:
+					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BookChapterCharacter", kBookChapterAsEnglishCharacterName), GetBookNameFromStandardCharacterId(characterId));
 					break;
 				default:
 					localizedCharacterId = LocalizationManager.GetDynamicString(Program.kApplicationId, "CharacterName." + characterId, characterId);
@@ -104,6 +104,23 @@ namespace Glyssen.Character
 				SingletonLocalizedCharacterIdToCharacterIdDictionary.Add(localizedCharacterId, characterId);
 
 			return localizedCharacterId;
+		}
+
+		public static string GetStandardCharacterIdAsEnglish(string standardCharacterId)
+		{
+			switch (GetStandardCharacterType(standardCharacterId))
+			{
+				case StandardCharacter.Narrator:
+					return String.Format(kNarratorAsEnglishCharacterName, GetBookNameFromStandardCharacterId(standardCharacterId));
+				case StandardCharacter.Intro:
+					return String.Format(kIntroductionAsEnglishCharacterName, GetBookNameFromStandardCharacterId(standardCharacterId));
+				case StandardCharacter.ExtraBiblical:
+					return String.Format(kSectionHeadAsEnglishCharacterName, GetBookNameFromStandardCharacterId(standardCharacterId));
+				case StandardCharacter.BookOrChapter:
+					return String.Format(kBookChapterAsEnglishCharacterName, GetBookNameFromStandardCharacterId(standardCharacterId));
+				default:
+					throw new ArgumentException("The provided character ID is not a standard character.", "standardCharacterId");
+			}
 		}
 
 		public static Dictionary<string, string> SingletonLocalizedCharacterIdToCharacterIdDictionary
@@ -146,6 +163,11 @@ namespace Glyssen.Character
 		protected const string kExtraBiblicalPrefix = "extra-";
 		/// <summary>Character ID prefix for intro material</summary>
 		protected const string kIntroPrefix = "intro-";
+
+		private const string kNarratorAsEnglishCharacterName = "narrator ({0})";
+		private const string kIntroductionAsEnglishCharacterName = "introduction ({0})";
+		private const string kSectionHeadAsEnglishCharacterName = "section head ({0})";
+		private const string kBookChapterAsEnglishCharacterName = "book title or chapter ({0})";
 
 		private readonly CharacterDeliveryEqualityComparer m_characterDeliveryEqualityComparer = new CharacterDeliveryEqualityComparer();
 		private IList<CharacterVerse> m_data = new List<CharacterVerse>();

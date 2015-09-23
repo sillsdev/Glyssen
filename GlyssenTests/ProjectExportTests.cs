@@ -55,9 +55,9 @@ namespace GlyssenTests
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			Assert.AreEqual("0\tp\tMRK\t4\t1\tnarrator-MRK\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
+			Assert.AreEqual("0\tp\tMRK\t4\t1\tnarrator (MRK)\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
 				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, "narrator-MRK")));
-			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tnarrator-MRK\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
+			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tnarrator (MRK)\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
 				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", "ActorGuy1", "narrator-MRK")));
 		}
 

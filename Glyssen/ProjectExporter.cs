@@ -47,7 +47,7 @@ namespace Glyssen
 				dlg.Title = LocalizationManager.GetString("DialogBoxes.ExportDlg.Title", "Export Recording Script");
 				dlg.OverwritePrompt = true;
 				dlg.InitialDirectory = defaultDir;
-				dlg.FileName = m_project.PublicationName + " Recording Script";
+				dlg.FileName = m_project.PublicationName + " " + LocalizationManager.GetString("DialogBoxes.ExportDlg.RecordingScriptFileNameDefaultSuffix", "Recording Script");
 				dlg.Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}|{4} ({5})|{5}",
 					LocalizationManager.GetString("DialogBoxes.ExportDlg.ExcelFileTypeLabel", "Excel files"), "*" + ExcelFileExtension,
 					LocalizationManager.GetString("DialogBoxes.ExportDlg.TabDelimitedFileTypeLabel", "Tab-delimited files"), "*.txt",
@@ -158,10 +158,12 @@ namespace Glyssen
 			list.Add(bookId);
 			list.Add(block.ChapterNumber);
 			list.Add(block.InitialStartVerseNumber);
+			string characterId;
 			if (singleVoiceNarratorOverride != null)
-				list.Add(singleVoiceNarratorOverride);
+				characterId = singleVoiceNarratorOverride;
 			else
-				list.Add(useCharacterIdInScript ? block.CharacterIdInScript : block.CharacterId);
+				characterId = useCharacterIdInScript ? block.CharacterIdInScript : block.CharacterId;
+			list.Add(CharacterVerseData.IsCharacterStandard(characterId) ? CharacterVerseData.GetStandardCharacterIdAsEnglish(characterId) : characterId);
 			list.Add(block.Delivery);
 			list.Add(block.GetText(true));
 			list.Add(block.GetText(false).Length);
