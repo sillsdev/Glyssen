@@ -18,6 +18,7 @@ namespace Glyssen.Dialogs
 		private readonly VoiceActorAssignmentViewModel m_actorAssignmentViewModel;
 		private readonly DataGridViewCellStyle m_wordWrapCellStyle;
 		private readonly Project m_project;
+		private bool m_currentCellExpanded = false;
 
 		public VoiceActorAssignmentDlg(Project project)
 		{
@@ -220,6 +221,9 @@ namespace Glyssen.Dialogs
 			m_characterGroupGrid.Columns[CharacterIdsCol.Name].ContextMenuStrip = m_contextMenuCharacters;
 
 			m_characterGroupGrid.PerformLayout();
+
+			m_currentCellExpanded = true;
+
 			if (!m_characterGroupGrid.IsCurrentCellInEditMode)
 				m_characterGroupGrid.BeginEdit(false);
 		}
@@ -261,6 +265,7 @@ namespace Glyssen.Dialogs
 				m_characterGroupGrid.MultiSelect = true;
 				m_characterGroupGrid.Rows[e.RowIndex].Selected = true;
 				m_characterGroupGrid.Columns[CharacterIdsCol.Name].ContextMenuStrip = null;
+				m_currentCellExpanded = false;
 			}
 		}
 
@@ -449,11 +454,16 @@ namespace Glyssen.Dialogs
 		protected override void OnActivated(EventArgs e)
 		{
 			base.OnActivated(e);
+			if (m_characterGroupGrid == null || m_characterGroupGrid.CurrentCell == null)
+				return;
+
 			if (m_characterGroupGrid.CurrentCell.EditType == typeof(DataGridViewMultiColumnComboBoxEditingControl) &&
 			    m_characterGroupGrid.CurrentRow != null)
 			{
 				SetVoiceActorCellDataSource();
 			}
+			else if (m_currentCellExpanded && m_characterGroupGrid.CurrentCell.EditType == typeof(ListBoxEditingControl))
+				ExpandCurrentCharacterGroupRow();
 		}
 
 		private void SetVoiceActorCellDataSource()
@@ -462,11 +472,6 @@ namespace Glyssen.Dialogs
 			var group = (CharacterGroup)m_characterGroupGrid.CurrentRow.DataBoundItem;
 			var cell = (DataGridViewComboBoxCell)m_characterGroupGrid.CurrentCell;
 			cell.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(group);
-		}
-
-		private void m_characterGroupGrid_Leave(object sender, EventArgs e)
-		{
-
 		}
 	}
 }
