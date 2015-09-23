@@ -97,14 +97,16 @@ namespace Glyssen
 			m_btnOpenProject.Enabled = !readOnly;
 			m_imgCheckOpen.Visible = validProject;
 			m_btnSettings.Enabled = !readOnly && validProject;
-			m_imgCheckSettings.Visible = m_btnSettings.Enabled && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed && m_project.IsQuoteSystemReadyForParse;
+			m_imgCheckSettings.Visible = m_btnSettings.Enabled && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed &&
+				m_project.IsQuoteSystemReadyForParse;
 			m_btnSelectBooks.Enabled = !readOnly && validProject && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed;
 			m_imgCheckBooks.Visible = m_btnSelectBooks.Enabled && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed;
 			m_btnAssign.Enabled = !readOnly && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
-			m_imgCheckAssign.Visible = m_btnAssign.Enabled && m_project.ProjectAnalysis.UserPercentAssigned == 100d;
-			m_btnExport.Enabled = !readOnly && m_imgCheckAssign.Visible;
+			m_imgCheckAssignCharacters.Visible = m_btnAssign.Enabled && m_project.ProjectAnalysis.UserPercentAssigned == 100d;
+			m_btnExport.Enabled = !readOnly && m_imgCheckAssignCharacters.Visible;
 			m_btnAssignVoiceActors.Visible = Environment.GetEnvironmentVariable("Glyssen_ProtoscriptOnly", EnvironmentVariableTarget.User) == null;
 			m_btnAssignVoiceActors.Enabled = m_btnExport.Enabled;
+			m_imgCheckAssignActors.Visible = m_btnAssignVoiceActors.Enabled && m_project.IsVoiceActorAssignmentsComplete;
 			m_lnkExit.Enabled = !readOnly;
 		}
 
@@ -118,7 +120,8 @@ namespace Glyssen
 			m_imgCheckOpen.Visible = false;
 			m_imgCheckSettings.Visible = false;
 			m_imgCheckBooks.Visible = false;
-			m_imgCheckAssign.Visible = false;
+			m_imgCheckAssignCharacters.Visible = false;
+			m_imgCheckAssignActors.Visible = false;
 		}
 
 		private void HandleOpenProject_Click(object sender, EventArgs e)
@@ -343,14 +346,12 @@ namespace Glyssen
 			bool export = true;
 			if (exporter.IncludeVoiceActors)
 			{
-				bool assignmentsComplete = m_project.CharacterGroupList.CharacterGroups.All(t => t.IsVoiceActorAssigned);
-
 				string dlgMessage = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Message", "Some of the character groups have no voice actor assigned. Are you sure you want to export an incomplete script?") +
 				                    Environment.NewLine +
 				                    LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.MessageNote", "(Note: You can export the script again as many times as you want.)");
 				string dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Title", "Export Incomplete Script?");
 
-				export = assignmentsComplete || MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
+				export = m_project.IsVoiceActorAssignmentsComplete || MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
 			}
 			if (export)
 				exporter.Export(this);

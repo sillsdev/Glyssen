@@ -391,6 +391,15 @@ namespace Glyssen
 			get { return m_characterGroupList ?? (m_characterGroupList = LoadCharacterGroupData()); }
 		}
 
+		public bool IsVoiceActorAssignmentsComplete
+		{
+			get
+			{
+				var groups = CharacterGroupList.CharacterGroups;
+				return groups.Count > 0 && groups.All(t => t.IsVoiceActorAssigned);
+			}
+		}
+
 		internal void ClearAssignCharacterStatus()
 		{
 			Status.AssignCharacterMode = BlocksToDisplay.NeedAssignments;
