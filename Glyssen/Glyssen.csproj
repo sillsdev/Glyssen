@@ -449,6 +449,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\undo.png" />
     <None Include="Resources\SplitBlock.png" />
     <None Include="Resources\yellow-ok-icon.png" />
     <None Include="Resources\112_Plus_Green_16x16_72.png" />

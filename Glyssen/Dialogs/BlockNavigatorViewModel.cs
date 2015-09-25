@@ -102,6 +102,8 @@ namespace Glyssen.Dialogs
 			{
 				SetBlock(startingIndices);
 				m_currentBlockIndex = m_relevantBlocks.IndexOf(startingIndices);
+				if (m_currentBlockIndex < 0)
+					m_temporarilyIncludedBlock = startingIndices;
 			}
 		}
 

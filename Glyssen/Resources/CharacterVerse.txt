@@ -1,4 +1,4 @@
-Control File Version	78
+Control File Version	79
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -12544,6 +12544,7 @@ MRK	6	37	Philip the apostle	frustrated	disciples	Dialogue		MRK 6.37;JHN 6.7
 MRK	6	38	Andrew		disciples	Dialogue		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
 MRK	6	38	Jesus	questioning		Dialogue		
 MRK	6	39	Jesus			Indirect		
+MRK	6	41	Jesus	praying		Indirect		
 MRK	6	45	Jesus			Indirect		
 MRK	6	49	disciples	terrified		Indirect		
 MRK	6	50	Jesus	reassuring		Normal		
@@ -13187,6 +13188,7 @@ LUK	9	13	Andrew	frustrated	the Twelve (disciples)	Dialogue		MAT 14.17;MRK 6.38;L
 LUK	9	13	Jesus	giving orders		Dialogue		
 LUK	9	14	Jesus	giving orders		Dialogue		
 LUK	9	15	disciples	giving orders		Indirect	Andrew	
+LUK	9	16	Jesus	praying		Indirect		
 LUK	9	18	Jesus	questioning		Dialogue		
 LUK	9	19	disciples	excited		Dialogue		
 LUK	9	20	Jesus	questioning		Dialogue		
@@ -13213,7 +13215,8 @@ LUK	9	48	Jesus			Dialogue
 LUK	9	49	John		John (disciple whom Jesus loved)	Dialogue		
 LUK	9	50	Jesus			Dialogue		
 LUK	9	54	James/John			Dialogue	John	
-LUK	9	55	Jesus	rebuking		Indirect		
+LUK	9	55	Jesus	rebuking		Potential		
+LUK	9	56	Jesus	rebuking		Potential		
 LUK	9	57	teacher of religious law	eager	someone	Dialogue		MAT 8.19;LUK 9.57
 LUK	9	58	Jesus			Dialogue		
 LUK	9	59	disciple who wanted to bury his father	making excuse	another man	Dialogue		MAT 8.21;LUK 9.59
