@@ -6,16 +6,16 @@ using System.Text;
 using Glyssen;
 using Glyssen.Character;
 using NUnit.Framework;
-using SIL.Scripture;
+using SIL.Xml;
 
 namespace GlyssenTests
 {
 	[TestFixture]
 	class BookScriptTests
 	{
-		private int m_curSetupChapter = 1;
+		private int m_curSetupChapter;
 		private int m_curSetupVerse;
-		private int m_curSetupVerseEnd = 0;
+		private int m_curSetupVerseEnd;
 		private string m_curStyleTag;
 
 		#region GetVerseText Tests
@@ -359,15 +359,18 @@ namespace GlyssenTests
 		}
 		#endregion
 
-		#region ApplyUserDecisions Tests
+		#region ApplyUserDecisions Character Assignments Tests
 		[Test]
-		public void ApplyUserDecisions_NoUserDecisionsInSource_NoChangesInTarget()
+		public void ApplyUserDecisions_NoUserDecisionsOrSplitsInSource_NoChangesInTarget()
 		{
 			var source = CreateStandardMarkScript();
 			var target = CreateStandardMarkScript();
 			target.ApplyUserDecisions(source);
 			Assert.IsFalse(target.GetScriptBlocks().Any(b => b.UserConfirmed));
 			Assert.IsTrue(target.GetScriptBlocks().All(b => b.CharacterIsStandard || b.CharacterId == CharacterVerseData.UnknownCharacter));
+			Assert.True(source.GetScriptBlocks().SequenceEqual(target.GetScriptBlocks(), new BlockComparer()));
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(0, target.UnappliedSplits.Count);
 		}
 
 		[Test]
@@ -616,6 +619,265 @@ namespace GlyssenTests
 					Assert.IsTrue(target[i].UserConfirmed);
 				}
 			}
+		}
+		#endregion
+
+		#region ApplyUserDecisions Block Splits Tests
+		[Test]
+		public void ApplyUserDecisions_SplitOneBlockInTwo_TargetBlockCorrespondsToSplitSourceBlocks_SplitReapplied()
+		{
+			var source = CreateStandardMarkScript();
+			var blockToSplit = source.Blocks.First(b => b.InitialStartVerseNumber > 0);
+			source.SplitBlock(blockToSplit, "1", 5);
+
+			var target = CreateStandardMarkScript();
+
+			target.ApplyUserDecisions(source);
+			Assert.True(source.GetScriptBlocks().SequenceEqual(target.GetScriptBlocks(), new BlockComparer()));
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(0, target.UnappliedSplits.Count);
+		}
+
+		[Test]
+		public void ApplyUserDecisions_SplitOneBlockInTwo_TargetBlockAlreadyHasSplitsBecauseParserHasBeenImproved_SplitsIgnored()
+		{
+			var source = CreateStandardMarkScript();
+			var blockToSplit = source.Blocks.First(b => b.InitialStartVerseNumber > 0);
+			source.SplitBlock(blockToSplit, "1", 5);
+
+			var target = CreateStandardMarkScript();
+			var targetBlockToSplit = target.Blocks.First(b => b.InitialStartVerseNumber > 0);
+			var newTargetBlock = target.SplitBlock(targetBlockToSplit, "1", 5);
+			targetBlockToSplit.SplitId = Block.NotSplit;
+			newTargetBlock.SplitId = Block.NotSplit;
+
+			var expected = CreateStandardMarkScript();
+			var expectedBlockToSplit = expected.Blocks.First(b => b.InitialStartVerseNumber > 0);
+			var newExpectedBlock = expected.SplitBlock(expectedBlockToSplit, "1", 5);
+			expectedBlockToSplit.SplitId = Block.NotSplit;
+			newExpectedBlock.SplitId = Block.NotSplit;
+
+			target.ApplyUserDecisions(source);
+			Assert.True(expected.GetScriptBlocks().SequenceEqual(target.GetScriptBlocks(), new BlockComparer()));
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(0, target.UnappliedSplits.Count);
+		}
+
+		[Test]
+		public void ApplyUserDecisions_SplitOneBlockInTwo_TargetBlockOnlyMatchesFirstSplitBlock_SplitAddedToUnappliedSplits()
+		{
+			var source = CreateStandardMarkScript();
+			var blockToSplit = source.Blocks.Last(b => b.InitialStartVerseNumber > 0);
+			var newBlock = source.SplitBlock(blockToSplit, blockToSplit.LastVerse.ToString(), 5);
+
+			var target = CreateStandardMarkScript();
+			var blockToModify = target.Blocks.Last(b => b.InitialStartVerseNumber > 0);
+			blockToModify.AddVerse(12, "This is another verse that was added to the new bundle.");
+
+			target.ApplyUserDecisions(source);
+			Assert.AreEqual(12, blockToModify.LastVerse);
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(1, target.UnappliedSplits.Count);
+			Assert.IsTrue(target.UnappliedSplits[0].SequenceEqual(new[] { blockToSplit, newBlock }));
+		}
+
+		[Test]
+		public void ApplyUserDecisions_SplitOneBlockInTwo_ChangeInEarlierVerseInTarget_SplitReapplied()
+		{
+			var source = CreateStandardMarkScript();
+			var blockToSplit = source.Blocks.Last(b => b.InitialStartVerseNumber > 0);
+			source.SplitBlock(blockToSplit, blockToSplit.LastVerse.ToString(), 5);
+
+			var target = CreateStandardMarkScript();
+			var blockToModify = target.Blocks.First(b => b.InitialStartVerseNumber > 0);
+			blockToModify.AddVerse(6, "This is another verse that was added to the new bundle.");
+
+			target.ApplyUserDecisions(source);
+			Assert.AreEqual(6, blockToModify.LastVerse);
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(0, target.UnappliedSplits.Count);
+			Assert.AreEqual(source.Blocks.Count, target.Blocks.Count);
+			var comparer = new BlockComparer();
+			for (int i = 0; i < target.Blocks.Count; i++)
+			{
+				if (target.Blocks[i] != blockToModify)
+					Assert.IsTrue(comparer.Equals(source.Blocks[i], target.Blocks[i]));
+			}
+		}
+
+		[Test]
+		public void ApplyUserDecisions_SplitOneBlockInThree_TargetBlockCorrespondsToSplitSourceBlocks_SplitReapplied()
+		{
+			var source = CreateStandardMarkScript();
+			var blockToSplit = source.Blocks.First(b => b.InitialStartVerseNumber > 0);
+			var newBlockToSplit = source.SplitBlock(blockToSplit, "1", 10);
+			source.SplitBlock(newBlockToSplit, "1", 5);
+
+			var target = CreateStandardMarkScript();
+
+			target.ApplyUserDecisions(source);
+			Assert.True(source.GetScriptBlocks().SequenceEqual(target.GetScriptBlocks(), new BlockComparer()));
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(0, target.UnappliedSplits.Count);
+		}
+
+		[Test]
+		public void ApplyUserDecisions_SplitSecondBlockInVerse_TargetBlockAlreadyHasSplitsBecauseParserHasBeenImproved_SplitsIgnored()
+		{
+			var source = CreateStandardMarkScript();
+			Block blockToSplit = GetSecondBlockInVerse(source);
+			source.SplitBlock(blockToSplit, blockToSplit.InitialStartVerseNumber.ToString(), 40);
+
+			var target = CreateStandardMarkScript();
+			Block targetBlockToSplit = GetSecondBlockInVerse(target);
+			var newTargetBlock = target.SplitBlock(targetBlockToSplit, targetBlockToSplit.InitialStartVerseNumber.ToString(), 40);
+			targetBlockToSplit.SplitId = Block.NotSplit;
+			newTargetBlock.SplitId = Block.NotSplit;
+
+			var expected = CreateStandardMarkScript();
+			var expectedBlockToSplit = GetSecondBlockInVerse(expected);
+			var newExpectedBlock = expected.SplitBlock(expectedBlockToSplit, expectedBlockToSplit.InitialStartVerseNumber.ToString(), 40);
+			expectedBlockToSplit.SplitId = Block.NotSplit;
+			newExpectedBlock.SplitId = Block.NotSplit;
+
+			target.ApplyUserDecisions(source);
+			Assert.True(expected.GetScriptBlocks().SequenceEqual(target.GetScriptBlocks(), new BlockComparer()));
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(0, target.UnappliedSplits.Count);
+		}
+
+		[Test]
+		public void ApplyUserDecisions_SplitSecondBlockInVerse_TargetBlockCorrespondsToSplitSourceBlocks_SplitReapplied()
+		{
+			var source = CreateStandardMarkScript();
+			Block blockToSplit = GetSecondBlockInVerse(source);
+			source.SplitBlock(blockToSplit, blockToSplit.InitialStartVerseNumber.ToString(), 40);
+
+			var target = CreateStandardMarkScript();
+
+			target.ApplyUserDecisions(source);
+			Assert.True(source.Blocks.SequenceEqual(target.Blocks, new BlockComparer()));
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(0, target.UnappliedSplits.Count);
+		}
+
+		[Test]
+		public void ApplyUserDecisions_SplitSecondBlockInVerse_TargetBlockDoesNotMatch_SplitAddedToUnappliedSplits()
+		{
+			var source = CreateStandardMarkScript();
+			Block blockToSplit = GetSecondBlockInVerse(source);
+			var newBlock = source.SplitBlock(blockToSplit, blockToSplit.InitialStartVerseNumber.ToString(), 40);
+
+			var target = CreateStandardMarkScript();
+			Block blockToModify = GetSecondBlockInVerse(target);
+			var firstScriptTextInSecondVerse = blockToModify.BlockElements.OfType<ScriptText>().First();
+			firstScriptTextInSecondVerse.Content = firstScriptTextInSecondVerse.Content.Insert(5, "blah");
+
+			target.ApplyUserDecisions(source);
+			Assert.IsTrue(blockToModify.BlockElements.OfType<ScriptText>().First().Content.Contains("blah"));
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(1, target.UnappliedSplits.Count);
+			Assert.IsTrue(target.UnappliedSplits[0].SequenceEqual(new[] { blockToSplit, newBlock }));
+		}
+
+		private Block GetSecondBlockInVerse(BookScript bookScript)
+		{
+			Block blockToSplit = null;
+			int currentVerse = -1;
+			foreach (var block in bookScript.Blocks.Where(b => b.InitialStartVerseNumber > 0))
+			{
+				if (block.InitialStartVerseNumber == currentVerse)
+				{
+					blockToSplit = block;
+					break;
+				}
+				currentVerse = block.InitialStartVerseNumber;
+			}
+			Assert.IsNotNull(blockToSplit);
+			return blockToSplit;
+		}
+
+		[Test]
+		public void ApplyUserDecisions_SplitMultipleVersesInBlock_TargetBlockAlreadyHasSplitsBecauseParserHasBeenImproved_SplitsIgnored()
+		{
+			var source = CreateStandardMarkScript();
+			Block blockToSplit = source.Blocks.First(b => b.InitialEndVerseNumber != b.LastVerse);
+			foreach (var verse in blockToSplit.BlockElements.OfType<Verse>().Select(v => v.StartVerse).ToList())
+				blockToSplit = source.SplitBlock(blockToSplit, verse.ToString(), 4);
+
+			var target = CreateStandardMarkScript();
+			blockToSplit = target.Blocks.First(b => b.InitialEndVerseNumber != b.LastVerse);
+			foreach (var verse in blockToSplit.BlockElements.OfType<Verse>().Select(v => v.StartVerse).ToList())
+			{
+				var newBlock = target.SplitBlock(blockToSplit, verse.ToString(), 4);
+				blockToSplit.SplitId = Block.NotSplit;
+				newBlock.SplitId = Block.NotSplit;
+				blockToSplit = newBlock;
+			}
+
+			var expected = CreateStandardMarkScript();
+			blockToSplit = expected.Blocks.First(b => b.InitialEndVerseNumber != b.LastVerse);
+			foreach (var verse in blockToSplit.BlockElements.OfType<Verse>().Select(v => v.StartVerse).ToList())
+			{
+				var newBlock = expected.SplitBlock(blockToSplit, verse.ToString(), 4);
+				blockToSplit.SplitId = Block.NotSplit;
+				newBlock.SplitId = Block.NotSplit;
+				blockToSplit = newBlock;
+			}
+
+			target.ApplyUserDecisions(source);
+			Assert.True(expected.GetScriptBlocks().SequenceEqual(target.GetScriptBlocks(), new BlockComparer()));
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(0, target.UnappliedSplits.Count);
+		}
+
+		[Test]
+		public void ApplyUserDecisions_SplitMultipleVersesInBlock_TargetBlockCorrespondsToSplitSourceBlocks_SplitReapplied()
+		{
+			var source = CreateStandardMarkScript();
+			Block blockToSplit = source.Blocks.First(b => b.InitialEndVerseNumber != b.LastVerse);
+			foreach (var verse in blockToSplit.BlockElements.OfType<Verse>().Select(v => v.StartVerse).ToList())
+				blockToSplit = source.SplitBlock(blockToSplit, verse.ToString(), 4);
+
+			var target = CreateStandardMarkScript();
+
+			target.ApplyUserDecisions(source);
+			Assert.True(source.Blocks.SequenceEqual(target.Blocks, new BlockComparer()));
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(0, target.UnappliedSplits.Count);
+		}
+
+		[Test]
+		public void ApplyUserDecisions_SplitMultipleVersesInBlock_TargetBlockDoesNotMatchLastPieceOfSplit_SplitAddedToUnappliedSplits()
+		{
+			var source = CreateStandardMarkScript();
+			List<Block> splits = new List<Block>();
+			Block blockToSplit = source.Blocks.First(b => b.InitialEndVerseNumber != b.LastVerse);
+			splits.Add(blockToSplit);
+			foreach (var verse in blockToSplit.BlockElements.OfType<Verse>().Select(v => v.StartVerse).ToList())
+			{
+				blockToSplit = source.SplitBlock(blockToSplit, verse.ToString(), 4);
+				splits.Add(blockToSplit);
+			}
+
+			var target = CreateStandardMarkScript();
+			blockToSplit = target.Blocks.First(b => b.InitialEndVerseNumber != b.LastVerse);
+			Block newBlock = null;
+			foreach (var verse in blockToSplit.BlockElements.OfType<Verse>().Select(v => v.StartVerse).ToList())
+			{
+				newBlock = target.SplitBlock(blockToSplit, verse.ToString(), 4);
+				blockToSplit.SplitId = Block.NotSplit;
+				newBlock.SplitId = Block.NotSplit;
+				blockToSplit = newBlock;
+			}
+			var last = newBlock.BlockElements.OfType<ScriptText>().Last();
+			last.Content = last.Content.Insert(6, "blah");
+
+			target.ApplyUserDecisions(source);
+			Assert.IsTrue(newBlock.BlockElements.OfType<ScriptText>().Last().Content.Contains("blah"));
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(1, target.UnappliedSplits.Count);
+			Assert.IsTrue(target.UnappliedSplits[0].SequenceEqual(splits));
 		}
 		#endregion
 
@@ -904,6 +1166,99 @@ namespace GlyssenTests
 			var blockResultAfterSplit = bookScript.GetFirstBlockForVerse(2, 1);
 			Assert.AreEqual(blockResultBeforeSplit, blockResultAfterSplit);
 		}
+
+		[Test]
+		public void SplitBlock_NoBlockInBookHasBeenSplitPreviously_ResultBlocksHaveSplitIdOfZero()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(5));
+			mrkBlocks.Add(NewSingleVersePara(35, "This block is not split"));
+			//                                        0         1         2     
+			//                                        01234567890123456789012345
+			var blockToSplit = NewSingleVersePara(36, "Before split: After Split");
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+
+			bookScript.SplitBlock(blockToSplit, "36", 15);
+
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(Block.NotSplit, blocks[0].SplitId); // chapter number
+			Assert.AreEqual(Block.NotSplit, blocks[1].SplitId);
+			Assert.AreEqual(0, blocks[2].SplitId);
+			Assert.AreEqual(0, blocks[3].SplitId);
+		}
+
+		[Test]
+		public void SplitBlock_BlockInBookHasBeenSplitPreviously_ResultBlocksHaveMaxSplitIdPlusOne()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(5));
+			Block previouslySplitBlock1 = NewSingleVersePara(35, "This block was split previously");
+			previouslySplitBlock1.SplitId = 5;
+			mrkBlocks.Add(previouslySplitBlock1);
+			Block previouslySplitBlock2 = NewSingleVersePara(35, "This block was split previously");
+			previouslySplitBlock2.SplitId = 5;
+			mrkBlocks.Add(previouslySplitBlock2);
+			//                                        0         1         2     
+			//                                        01234567890123456789012345
+			var blockToSplit = NewSingleVersePara(36, "Before split: After Split");
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+
+			bookScript.SplitBlock(blockToSplit, "36", 15);
+
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(Block.NotSplit, blocks[0].SplitId); // chapter number
+			Assert.AreEqual(5, blocks[1].SplitId);
+			Assert.AreEqual(5, blocks[2].SplitId);
+			Assert.AreEqual(6, blocks[3].SplitId);
+			Assert.AreEqual(6, blocks[3].SplitId);
+		}
+
+		[Test]
+		public void SplitBlock_BlockBeingSplitHasBeenSplitPreviously_ResultBlocksHaveSameSplitIdAsBlockToSplit()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(5));
+			mrkBlocks.Add(NewSingleVersePara(35, "This block is not split"));
+			//                                        0         1         2     
+			//                                        01234567890123456789012345
+			var blockToSplit = NewSingleVersePara(36, "Before split: After Split");
+			blockToSplit.SplitId = 3;
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+
+			bookScript.SplitBlock(blockToSplit, "36", 15);
+
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(Block.NotSplit, blocks[0].SplitId); // chapter number
+			Assert.AreEqual(Block.NotSplit, blocks[1].SplitId);
+			Assert.AreEqual(3, blocks[2].SplitId);
+			Assert.AreEqual(3, blocks[3].SplitId);
+		}
+
+		[Test]
+		public void SplitBlock_MultiBlock_NoBlockInBookHasBeenSplitPreviously_ResultBlocksHaveSplitIdOfZero()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(5));
+			mrkBlocks.Add(NewSingleVersePara(35, "This block is not split"));
+			var blockToSplitAfter = NewSingleVersePara(36, "Before split: ");
+			blockToSplitAfter.MultiBlockQuote = MultiBlockQuote.Start;
+			mrkBlocks.Add(blockToSplitAfter);
+			var blockToSplitBefore = NewSingleVersePara(36, "After Split");
+			blockToSplitBefore.MultiBlockQuote = MultiBlockQuote.Continuation;
+			mrkBlocks.Add(blockToSplitBefore);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+
+			bookScript.SplitBlock(blockToSplitBefore, null, 0);
+
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(Block.NotSplit, blocks[0].SplitId); // chapter number
+			Assert.AreEqual(Block.NotSplit, blocks[1].SplitId);
+			Assert.AreEqual(0, blocks[2].SplitId);
+			Assert.AreEqual(0, blocks[3].SplitId);
+		}
 		#endregion
 
 		#region Private Helper methods
@@ -965,6 +1320,11 @@ namespace GlyssenTests
 
 		private BookScript CreateStandardMarkScript(bool includeExtraVersesInChapter1 = false)
 		{
+			m_curSetupChapter = 1;
+			m_curSetupVerse = 0;
+			m_curSetupVerseEnd = 0;
+			m_curStyleTag = null;
+
 			int i = 0;
 			var mrkBlocks = new List<Block>();
 			mrkBlocks.Add(NewChapterBlock(1));
@@ -1014,6 +1374,42 @@ namespace GlyssenTests
 			}
 
 			return new BookScript("MRK", mrkBlocks);
+		}
+		#endregion
+
+		#region Serialization/Deserialization Tests
+		[Test]
+		public void Roundtrip_HasUnappliedSplits_DataIsTheSame()
+		{
+			var bookScript = CreateStandardMarkScript();
+			var blockToSplit = bookScript.Blocks.First(b => b.InitialStartVerseNumber > 0);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "1", 5);
+			var newBookScript = CreateStandardMarkScript();
+			newBookScript.UnappliedBlockSplits_DoNotUse.Add(new List<Block> { blockToSplit, newBlock });
+			Assert.AreEqual(1, newBookScript.UnappliedSplits.Count);
+
+			var serializedBookScript = XmlSerializationHelper.SerializeToString(newBookScript);
+
+			var deserializedBookScript = XmlSerializationHelper.DeserializeFromString<BookScript>(serializedBookScript);
+			Assert.IsTrue(newBookScript.UnappliedSplits.SequenceEqual(deserializedBookScript.UnappliedSplits, new BlockListComparer()));
+		}
+
+		public class BlockListComparer : IEqualityComparer<IEnumerable<Block>>
+		{
+			public bool Equals(IEnumerable<Block> x, IEnumerable<Block> y)
+			{
+				if (x == null && y == null)
+					return true;
+				if (x == null || y == null)
+					return false;
+
+				return x.SequenceEqual(y, new BlockComparer());
+			}
+
+			public int GetHashCode(IEnumerable<Block> obj)
+			{
+				return obj.GetHashCode();
+			}
 		}
 		#endregion
 	}

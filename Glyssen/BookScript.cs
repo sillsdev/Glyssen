@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 using SIL.Scripture;
+using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen
 {
@@ -14,6 +15,7 @@ namespace Glyssen
 		private Dictionary<int, int> m_chapterStartBlockIndices;
 		private int m_blockCount;
 		private List<Block> m_blocks;
+		private List<List<Block>> m_unappliedSplitBlocks = new List<List<Block>>();
 
 		public BookScript()
 		{
@@ -58,6 +60,23 @@ namespace Glyssen
 			get { return m_blocks.Any(); }
 		}
 
+		/// <summary>
+		/// Don't use this getter in production code. It is intended ONLY for use by the XML serializer!
+		/// This is to prevent accidentally leaking the actual list and risking modification by calling code.
+		/// </summary>
+		[XmlArray("UnappliedSplits")]
+		[XmlArrayItem("Split")]
+		public List<List<Block>> UnappliedBlockSplits_DoNotUse
+		{
+			get { return m_unappliedSplitBlocks; }
+			set { m_unappliedSplitBlocks = value; }
+		}
+
+		public IReadOnlyList<IEnumerable<Block>> UnappliedSplits
+		{
+			get { return m_unappliedSplitBlocks; }
+		}
+
 		public IReadOnlyList<Block> GetScriptBlocks(bool join = false)
 		{
 			EnsureBlockCount();
@@ -76,8 +95,7 @@ namespace Glyssen
 					if (block.CharacterIdInScript == prevBlock.CharacterIdInScript && block.Delivery == prevBlock.Delivery)
 					{
 						var newBlock = prevBlock.Clone();
-						newBlock.BlockElements = new List<BlockElement>(prevBlock.BlockElements.Count + block.BlockElements.Count);
-						foreach (var blockElement in prevBlock.BlockElements.Concat(block.BlockElements))
+						foreach (var blockElement in block.BlockElements)
 							newBlock.BlockElements.Add(blockElement.Clone());
 						newBlock.UserConfirmed &= block.UserConfirmed;
 						list[list.Count - 1] = newBlock;
@@ -228,7 +246,13 @@ namespace Glyssen
 					"Blocks collection changed. Blocks getter should not be used to add or remove blocks to the list. Use setter instead.");
 		}
 
-		public void ApplyUserDecisions(BookScript sourceBookScript, Paratext.ScrVers versification = null)
+		public void ApplyUserDecisions(BookScript sourceBookScript, ScrVers versification = null)
+		{
+			ApplyUserSplits(sourceBookScript);
+			ApplyUserAssignments(sourceBookScript, versification);
+		}
+
+		private void ApplyUserAssignments(BookScript sourceBookScript, ScrVers versification)
 		{
 			var comparer = new BlockElementContentsComparer();
 			int iTarget = 0;
@@ -267,9 +291,97 @@ namespace Glyssen
 						break;
 					}
 				} while (++iTarget < m_blocks.Count &&
-						m_blocks[iTarget].ChapterNumber == sourceBlock.ChapterNumber &&
-						m_blocks[iTarget].InitialStartVerseNumber == sourceBlock.InitialStartVerseNumber);
+					m_blocks[iTarget].ChapterNumber == sourceBlock.ChapterNumber &&
+					m_blocks[iTarget].InitialStartVerseNumber == sourceBlock.InitialStartVerseNumber);
 			}
+		}
+
+		private void ApplyUserSplits(BookScript sourceBookScript)
+		{
+			int splitId = Block.NotSplit;
+			List<Block> split = null;
+			foreach (var block in sourceBookScript.Blocks.Where(b => b.SplitId != Block.NotSplit))
+			{
+				if (block.SplitId != splitId)
+				{
+					if (split != null)
+						m_unappliedSplitBlocks.Add(split);
+					split = new List<Block>();
+					splitId = block.SplitId;
+				}
+				split.Add(block);
+			}
+			if (split != null)
+				m_unappliedSplitBlocks.Add(split);
+
+			var comparer = new SplitBlockComparer();
+
+			for (int index = 0; index < m_unappliedSplitBlocks.Count; index++)
+			{
+				var unappliedSplit = m_unappliedSplitBlocks[index];
+				var firstBlockOfSplit = unappliedSplit.First();
+				var i = GetIndexOfFirstBlockForVerse(firstBlockOfSplit.ChapterNumber, firstBlockOfSplit.InitialStartVerseNumber);
+				var iFirstMatchingBlock = i;
+				var iUnapplied = 0;
+				bool blocksMatch = false;
+				do
+				{
+					var splitBlock = unappliedSplit[iUnapplied];
+					var parsedBlock = m_blocks[i++];
+					blocksMatch = comparer.Equals(splitBlock, parsedBlock);
+					if (iUnapplied > 0 || blocksMatch)
+					{
+						if (!blocksMatch)
+							break;
+						if (iUnapplied == 0)
+							iFirstMatchingBlock = i;
+						iUnapplied++;
+					}
+				} while (i < m_blocks.Count && iUnapplied < unappliedSplit.Count);
+				if (blocksMatch)
+				{
+					m_unappliedSplitBlocks.RemoveAt(index--);
+				}
+				else
+				{
+					var combinedBlock = CombineBlocks(unappliedSplit);
+					for (int iBlock = iFirstMatchingBlock; iBlock < m_blocks.Count && m_blocks[iBlock].InitialStartVerseNumber == combinedBlock.InitialStartVerseNumber; iBlock++)
+					{
+						if (comparer.Equals(combinedBlock, m_blocks[iBlock]))
+						{
+							i = iBlock;
+							for (iUnapplied = 1; iUnapplied < unappliedSplit.Count; iUnapplied++)
+							{
+								var elementsOfBlockPrecedingSplit = unappliedSplit[iUnapplied - 1].BlockElements;
+								var textElementAtEndOfBlockPrecedingSplit = elementsOfBlockPrecedingSplit.Last() as ScriptText;
+								int offset = textElementAtEndOfBlockPrecedingSplit != null ? textElementAtEndOfBlockPrecedingSplit.Content.Length : 0;
+								SplitBlock(m_blocks[i++], unappliedSplit[iUnapplied].InitialStartVerseNumber.ToString(), offset);
+							}
+							m_unappliedSplitBlocks.RemoveAt(index--);
+							break;
+						}
+					}
+				}
+			}
+		}
+
+		public Block CombineBlocks(List<Block> blocks)
+		{
+			if (blocks.Count == 0)
+				return null;
+			Block combinedBlock = blocks.First().Clone();
+			for (int i = 1; i < blocks.Count; i++)
+			{
+				int skip = 0;
+				if ((combinedBlock.BlockElements.Last() is ScriptText) && (blocks[i].BlockElements.First() is ScriptText))
+				{
+					((ScriptText)combinedBlock.BlockElements.Last()).Content += ((ScriptText)blocks[i].BlockElements.First()).Content;
+					skip = 1;
+				}
+				foreach (var blockElement in blocks[i].BlockElements.Skip(skip))
+					combinedBlock.BlockElements.Add(blockElement.Clone());
+			}
+			return combinedBlock;
 		}
 
 		public Block SplitBlock(Block blockToSplit, string verseToSplit, int characterOffsetToSplit)
@@ -279,9 +391,15 @@ namespace Glyssen
 			if (iBlock < 0)
 				throw new ArgumentException("Block not found in the list for " + BookId, "blockToSplit");
 
+			int splitId;
+			if (blockToSplit.SplitId != Block.NotSplit)
+				splitId = blockToSplit.SplitId;
+			else
+				splitId = m_blocks.Max(b => b.SplitId) + 1;
+
 			if (verseToSplit == null && characterOffsetToSplit == 0)
 			{
-				SplitBeforeBlock(iBlock);
+				SplitBeforeBlock(iBlock, splitId);
 				return blockToSplit;
 			}
 
@@ -351,10 +469,12 @@ namespace Glyssen
 					blockToSplit.BlockElements.RemoveAt(indexOfFirstElementToRemove);
 			}
 
+			blockToSplit.SplitId = newBlock.SplitId = splitId;
+
 			return newBlock;
 		}
 
-		private void SplitBeforeBlock(int indexOfBlockToSplit)
+		private void SplitBeforeBlock(int indexOfBlockToSplit, int splitId)
 		{
 			if (indexOfBlockToSplit == 0 || m_blocks[indexOfBlockToSplit].MultiBlockQuote == MultiBlockQuote.None ||
 				m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote == MultiBlockQuote.None)
@@ -369,6 +489,8 @@ namespace Glyssen
 				m_blocks[indexOfBlockToSplit].MultiBlockQuote = MultiBlockQuote.Start;
 			else
 				m_blocks[indexOfBlockToSplit].MultiBlockQuote = MultiBlockQuote.None;
+
+			m_blocks[indexOfBlockToSplit - 1].SplitId = m_blocks[indexOfBlockToSplit].SplitId = splitId;
 		}
 	}
 }

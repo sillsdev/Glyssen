@@ -104,7 +104,7 @@ namespace Glyssen
 		/// <summary>
 		/// Used only for sample project and in tests.
 		/// </summary>
-		public Project(GlyssenDblTextMetadata metadata, IEnumerable<UsxDocument> books, IStylesheet stylesheet) : this(metadata)
+		internal Project(GlyssenDblTextMetadata metadata, IEnumerable<UsxDocument> books, IStylesheet stylesheet) : this(metadata)
 		{
 			AddAndParseBooks(books, stylesheet);
 
@@ -565,8 +565,7 @@ namespace Glyssen
 		{
 			foreach (var targetBookScript in m_books)
 			{
-				BookScript script = targetBookScript;
-				var sourceBookScript = sourceProject.m_books.SingleOrDefault(b => b.BookId == script.BookId);
+				var sourceBookScript = sourceProject.m_books.SingleOrDefault(b => b.BookId == targetBookScript.BookId);
 				if (sourceBookScript != null)
 					targetBookScript.ApplyUserDecisions(sourceBookScript, Versification);
 			}
