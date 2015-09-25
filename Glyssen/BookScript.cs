@@ -12,6 +12,7 @@ namespace Glyssen
 	[XmlRoot("book")]
 	public class BookScript : IScrBook
 	{
+		public const int kSplitAtEndOfVerse = -999;
 		private Dictionary<int, int> m_chapterStartBlockIndices;
 		private int m_blockCount;
 		private List<Block> m_blocks;
@@ -231,6 +232,13 @@ namespace Glyssen
 			return iFirstBlockToExamine;
 		}
 
+		private int GetIndexOfFirstBlockThatStartsWithVerse(int chapter, int verse)
+		{
+			var i = GetIndexOfFirstBlockForVerse(chapter, verse);
+			while (m_blocks[i].InitialStartVerseNumber < verse)
+				i++;
+			return i;
+		}
 
 		/// <summary>
 		/// Admittedly, this isn't the best way to prevent changes, but it is easier than doing custom
@@ -320,7 +328,7 @@ namespace Glyssen
 			{
 				var unappliedSplit = m_unappliedSplitBlocks[index];
 				var firstBlockOfSplit = unappliedSplit.First();
-				var i = GetIndexOfFirstBlockForVerse(firstBlockOfSplit.ChapterNumber, firstBlockOfSplit.InitialStartVerseNumber);
+				var i = GetIndexOfFirstBlockThatStartsWithVerse(firstBlockOfSplit.ChapterNumber, firstBlockOfSplit.InitialStartVerseNumber);
 				var iFirstMatchingBlock = i;
 				var iUnapplied = 0;
 				bool blocksMatch = false;
@@ -354,8 +362,21 @@ namespace Glyssen
 							{
 								var elementsOfBlockPrecedingSplit = unappliedSplit[iUnapplied - 1].BlockElements;
 								var textElementAtEndOfBlockPrecedingSplit = elementsOfBlockPrecedingSplit.Last() as ScriptText;
-								int offset = textElementAtEndOfBlockPrecedingSplit != null ? textElementAtEndOfBlockPrecedingSplit.Content.Length : 0;
-								SplitBlock(m_blocks[i++], unappliedSplit[iUnapplied].InitialStartVerseNumber.ToString(), offset);
+								int offset = textElementAtEndOfBlockPrecedingSplit != null ? textElementAtEndOfBlockPrecedingSplit.Content.Length : 0;;
+								string verse;
+								if (unappliedSplit[iUnapplied].BlockElements.First() is Verse)
+								{
+									var lastVerseInPrecedingBlock = elementsOfBlockPrecedingSplit.OfType<Verse>().LastOrDefault();
+									if (lastVerseInPrecedingBlock != null)
+										verse = lastVerseInPrecedingBlock.Number;
+									else
+										verse = m_blocks[i].InitialVerseNumberOrBridge;
+								}
+								else
+								{
+									verse = unappliedSplit[iUnapplied].InitialVerseNumberOrBridge;
+								}
+								SplitBlock(m_blocks[i++], verse, offset);
 							}
 							m_unappliedSplitBlocks.RemoveAt(index--);
 							break;
@@ -365,10 +386,8 @@ namespace Glyssen
 			}
 		}
 
-		public Block CombineBlocks(List<Block> blocks)
+		private Block CombineBlocks(List<Block> blocks)
 		{
-			if (blocks.Count == 0)
-				return null;
 			Block combinedBlock = blocks.First().Clone();
 			for (int i = 1; i < blocks.Count; i++)
 			{
@@ -403,9 +422,7 @@ namespace Glyssen
 				return blockToSplit;
 			}
 
-			var currVerse = blockToSplit.InitialEndVerseNumber == 0
-				? blockToSplit.InitialStartVerseNumber.ToString(CultureInfo.InvariantCulture)
-				: blockToSplit.InitialStartVerseNumber + "-" + blockToSplit.InitialEndVerseNumber;
+			var currVerse = blockToSplit.InitialVerseNumberOrBridge;
 
 			Block newBlock = null;
 			int indexOfFirstElementToRemove = -1;
@@ -416,8 +433,6 @@ namespace Glyssen
 
 				if (newBlock != null)
 				{
-					if (indexOfFirstElementToRemove < 0)
-						indexOfFirstElementToRemove = i;
 					newBlock.BlockElements.Add(blockElement);
 					continue;
 				}
@@ -434,22 +449,44 @@ namespace Glyssen
 
 					var content = text.Content;
 
-					if (characterOffsetToSplit <= 0 || characterOffsetToSplit >= content.Length)
+					if (blockToSplit.BlockElements.Count > i + 1)
+						indexOfFirstElementToRemove = i + 1;
+
+					if (characterOffsetToSplit == kSplitAtEndOfVerse)
+						characterOffsetToSplit = content.Length;
+
+					if (characterOffsetToSplit <= 0 || characterOffsetToSplit > content.Length)
 					{
 						throw new ArgumentOutOfRangeException("characterOffsetToSplit", characterOffsetToSplit,
 							"Value must be greater than 0 and less than or equal to the length (" + content.Length +
 							") of the text of verse " + currVerse + ".");
 					}
+					if (characterOffsetToSplit == content.Length && indexOfFirstElementToRemove < 0)
+					{
+						SplitBeforeBlock(iBlock + 1, splitId);
+						return m_blocks[iBlock + 1];
+					}
 
-					var verseNumParts = verseToSplit.Split(new []{'-'}, 2, StringSplitOptions.None);
-					int initialStartVerse = int.Parse(verseNumParts[0]);
-					int initialEndVerse = verseNumParts.Length == 2 ? int.Parse(verseNumParts[1]) : 0;
+					int initialStartVerse, initialEndVerse;
+					if (characterOffsetToSplit == content.Length)
+					{
+						var firstVerseAfterSplit = ((Verse)blockToSplit.BlockElements[indexOfFirstElementToRemove]);
+						initialStartVerse = firstVerseAfterSplit.StartVerse;
+						initialEndVerse = firstVerseAfterSplit.EndVerse;
+					}
+					else
+					{
+						var verseNumParts = verseToSplit.Split(new[] { '-' }, 2, StringSplitOptions.None);
+						initialStartVerse = int.Parse(verseNumParts[0]);
+						initialEndVerse = verseNumParts.Length == 2 ? int.Parse(verseNumParts[1]) : 0;
+					}
 					newBlock = new Block(blockToSplit.StyleTag, blockToSplit.ChapterNumber,
 						initialStartVerse, initialEndVerse);
 					newBlock.CharacterId = blockToSplit.CharacterId;
 					newBlock.CharacterIdOverrideForScript = blockToSplit.CharacterIdOverrideForScript;
 					newBlock.UserConfirmed = blockToSplit.UserConfirmed;
-					newBlock.BlockElements.Add(new ScriptText(content.Substring(characterOffsetToSplit)));
+					if (characterOffsetToSplit < content.Length)
+						newBlock.BlockElements.Add(new ScriptText(content.Substring(characterOffsetToSplit)));
 					text.Content = content.Substring(0, characterOffsetToSplit);
 					m_blocks.Insert(iBlock + 1, newBlock);
 					var chapterNumbersToIncrement = m_chapterStartBlockIndices.Keys.Where(chapterNum => chapterNum > blockToSplit.ChapterNumber).ToList();

@@ -192,12 +192,20 @@ namespace Glyssen
 			return bldr.ToString();
 		}
 
+		public string InitialVerseNumberOrBridge
+		{
+			get
+			{
+				return InitialEndVerseNumber == 0 ? InitialStartVerseNumber.ToString(CultureInfo.InvariantCulture) :
+					InitialStartVerseNumber + "-" + InitialEndVerseNumber;
+			}
+		}
+
 		public string GetTextAsHtml(bool showVerseNumbers, bool rightToLeftScript, string verseToInsertExtra = null, int offsetToInsertExtra = -1, string extra = null)
 		{
 			StringBuilder bldr = new StringBuilder();
 
-			var currVerse = InitialEndVerseNumber == 0 ? InitialStartVerseNumber.ToString(CultureInfo.InvariantCulture) :
-				InitialStartVerseNumber + "-" + InitialEndVerseNumber;
+			var currVerse = InitialVerseNumberOrBridge;
 
 			foreach (var blockElement in BlockElements)
 			{
@@ -225,6 +233,8 @@ namespace Glyssen
 						var encodedContent = HttpUtility.HtmlEncode(text.Content);
 						if (verseToInsertExtra == currVerse)
 						{
+							if (offsetToInsertExtra == BookScript.kSplitAtEndOfVerse)
+								offsetToInsertExtra = encodedContent.Length;
 							if (offsetToInsertExtra < 0 || offsetToInsertExtra > encodedContent.Length)
 							{
 								throw new ArgumentOutOfRangeException("offsetToInsertExtra", offsetToInsertExtra,

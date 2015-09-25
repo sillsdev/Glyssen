@@ -88,6 +88,7 @@
 			// 
 			// m_lblInvalidSplitLocation
 			// 
+			this.m_lblInvalidSplitLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.m_lblInvalidSplitLocation.AutoSize = true;
 			this.m_lblInvalidSplitLocation.ForeColor = System.Drawing.Color.Red;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblInvalidSplitLocation, null);

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
@@ -109,12 +110,24 @@ namespace Glyssen.Dialogs
 			var targetElement = geckoElement as GeckoDivElement;
 			if (targetElement == null)
 			{
-				if (geckoElement is GeckoHtmlElement)
+				var geckoHtmlElement = geckoElement as GeckoHtmlElement;
+				if (geckoHtmlElement != null)
 				{
-					targetElement = ((GeckoHtmlElement)geckoElement).Parent as GeckoDivElement;
-					newOffset = 0;
+					targetElement = geckoHtmlElement.Parent as GeckoDivElement;
+					if (targetElement == null)
+						return false;
+
+					if (geckoElement.TagName == "SUP")
+					{
+						if (newOffset != 0)
+							return false;
+						if (!targetElement.InnerHtml.StartsWith(geckoHtmlElement.OuterHtml))
+							return DetermineSplitLocationAtStartOfVerse(targetElement, geckoHtmlElement.InnerHtml);
+					}
+					else
+						newOffset = 0;
 				}
-				if (targetElement == null)
+				else
 					return false;
 			}
 
@@ -166,6 +179,31 @@ namespace Glyssen.Dialogs
 
 			BlockToSplit = m_originalBlocks[blockIndex];
 			CharacterOffsetToSplit = newOffset;
+			return true;
+		}
+
+		private bool DetermineSplitLocationAtStartOfVerse(GeckoDivElement blockElement, string verseElementInnerHtml)
+		{
+			BlockToSplit = m_originalBlocks[int.Parse(blockElement.Id)];
+			var ichThisVerse = blockElement.InnerHtml.IndexOf(verseElementInnerHtml, StringComparison.Ordinal);
+			var ichPrecedingVerse = blockElement.InnerHtml.LastIndexOf("<sup>", ichThisVerse, StringComparison.Ordinal);
+			ichPrecedingVerse = blockElement.InnerHtml.LastIndexOf("<sup>", ichPrecedingVerse, StringComparison.Ordinal);
+			if (ichPrecedingVerse < 0)
+			{
+				VerseToSplit = BlockToSplit.InitialVerseNumberOrBridge;
+			}
+			else
+			{
+				var regexVerse = new Regex(@"\<sup\>(&rlm;)?(?<verse>[0-9-]+)*((&#160;)|(&nbsp;))");
+				var match = regexVerse.Match(blockElement.InnerHtml, ichPrecedingVerse);
+				if (!match.Success)
+				{
+					Debug.Fail("HTML data for verse number not formed as expected");
+					return false;
+				}
+				VerseToSplit = match.Result("${verse}");
+			}
+			CharacterOffsetToSplit = BookScript.kSplitAtEndOfVerse;
 			return true;
 		}
 	}
