@@ -229,7 +229,7 @@ namespace GlyssenTests.Rules
 			Assert.IsFalse(maleAdultGroups.Any(g => g.ContainsCharacterWithGender(CharacterGender.PreferFemale)));
 			Assert.IsFalse(femaleAdultGroup.ContainsCharacterWithGender(CharacterGender.Male));
 			Assert.IsFalse(femaleAdultGroup.ContainsCharacterWithGender(CharacterGender.PreferMale));
-			Assert.AreEqual(actors[18], femaleAdultGroup.VoiceActorAssigned);
+			Assert.AreEqual(actors[18].Id, femaleAdultGroup.VoiceActorId);
 			Assert.GreaterOrEqual(groups.Count(g => g.CharacterIds.All(c =>
 			{
 				if (CharacterVerseData.IsCharacterStandard(c))
@@ -256,7 +256,7 @@ namespace GlyssenTests.Rules
 			Assert.AreEqual(10, groups.Count);
 			Assert.AreEqual(1, groups.Count(g => g.IsVoiceActorAssigned));
 			var groupWithActorAssigned = groups.First(g => g.IsVoiceActorAssigned);
-			Assert.AreEqual(actors[0], groupWithActorAssigned.VoiceActorAssigned);
+			Assert.AreEqual(actors[0].Id, groupWithActorAssigned.VoiceActorId);
 			Assert.AreEqual(0, groupWithActorAssigned.CharacterIds.Count);
 		}
 
@@ -271,8 +271,8 @@ namespace GlyssenTests.Rules
 			Assert.AreEqual(10, groups.Count);
 			Assert.AreEqual(2, groups.Count(g => g.IsVoiceActorAssigned));
 			var groupsWithActorAssigned = groups.Where(g => g.IsVoiceActorAssigned);
-			Assert.True(groupsWithActorAssigned.Select(g => g.VoiceActorAssigned).Contains(actors[0]));
-			Assert.True(groupsWithActorAssigned.Select(g => g.VoiceActorAssigned).Contains(actors[1]));
+			Assert.True(groupsWithActorAssigned.Select(g => g.VoiceActorId).Contains(actors[0].Id));
+			Assert.True(groupsWithActorAssigned.Select(g => g.VoiceActorId).Contains(actors[1].Id));
 			Assert.True(groupsWithActorAssigned.All(g => g.CharacterIds.Count == 0));
 		}
 
@@ -283,7 +283,7 @@ namespace GlyssenTests.Rules
 			actors[0].IsCameo = true;
 
 			var assignedGroup = new CharacterGroup();
-			assignedGroup.AssignVoiceActor(actors[0]);
+			assignedGroup.AssignVoiceActor(actors[0].Id);
 			assignedGroup.CharacterIds.Add("centurion at crucifixion");
 			m_testProject.CharacterGroupList.CharacterGroups.Add(assignedGroup);
 
@@ -345,7 +345,7 @@ namespace GlyssenTests.Rules
 
 			// One male child actor and one male child character -- make assignment automatically
 			var maleChildGroup = groups.Single(g => g.ContainsCharacterWithGender(CharacterGender.Male) && g.ContainsCharacterWithAge(CharacterAge.Child));
-			Assert.AreEqual(actors[19], maleChildGroup.VoiceActorAssigned);
+			Assert.AreEqual(actors[19].Id, maleChildGroup.VoiceActorId);
 			Assert.AreEqual(1, maleChildGroup.CharacterIds.Count);
 		}
 
@@ -378,7 +378,7 @@ namespace GlyssenTests.Rules
 
 			// Three male child actors and one male child character -- do not make assignment automatically
 			var maleChildGroup = groups.Single(g => g.ContainsCharacterWithGender(CharacterGender.Male) && g.ContainsCharacterWithAge(CharacterAge.Child));
-			Assert.IsNull(maleChildGroup.VoiceActorAssigned);
+			Assert.IsFalse(maleChildGroup.IsVoiceActorAssigned);
 			Assert.AreEqual(1, maleChildGroup.CharacterIds.Count);
 		}
 	}

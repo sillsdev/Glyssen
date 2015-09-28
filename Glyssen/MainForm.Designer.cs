@@ -48,15 +48,17 @@
 			this.m_imgCheckOpen = new System.Windows.Forms.PictureBox();
 			this.m_imgCheckSettings = new System.Windows.Forms.PictureBox();
 			this.m_imgCheckBooks = new System.Windows.Forms.PictureBox();
-			this.m_imgCheckAssign = new System.Windows.Forms.PictureBox();
+			this.m_imgCheckAssignCharacters = new System.Windows.Forms.PictureBox();
 			this.m_btnAssignVoiceActors = new System.Windows.Forms.Button();
 			this.m_lblActorsAssigned = new System.Windows.Forms.Label();
+			this.m_imgCheckAssignActors = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.m_L10NSharpExtender)).BeginInit();
 			this.m_toolStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckOpen)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckSettings)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckBooks)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckAssign)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckAssignCharacters)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckAssignActors)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// m_btnOpenProject
@@ -111,7 +113,7 @@
 			this.m_lblSettingsInfo.TabIndex = 5;
 			this.m_lblSettingsInfo.Text = "{0}";
 			// 
-			// m_btnExportToTabSeparated
+			// m_btnExport
 			// 
 			this.m_btnExport.BackColor = System.Drawing.Color.Transparent;
 			this.m_btnExport.Enabled = false;
@@ -119,7 +121,7 @@
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnExport, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnExport, "MainForm.Export");
 			this.m_btnExport.Location = new System.Drawing.Point(29, 204);
-			this.m_btnExport.Name = "m_btnExportToTabSeparated";
+			this.m_btnExport.Name = "m_btnExport";
 			this.m_btnExport.Size = new System.Drawing.Size(134, 23);
 			this.m_btnExport.TabIndex = 5;
 			this.m_btnExport.Text = "({0}) Export...";
@@ -329,19 +331,19 @@
 			this.m_imgCheckBooks.TabStop = false;
 			this.m_imgCheckBooks.Visible = false;
 			// 
-			// m_imgCheckAssign
+			// m_imgCheckAssignCharacters
 			// 
-			this.m_imgCheckAssign.Image = global::Glyssen.Properties.Resources.green_check;
-			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckAssign, "Sufficiently completed to move on to following tasks");
-			this.m_L10NSharpExtender.SetLocalizationComment(this.m_imgCheckAssign, null);
-			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckAssign, "MainForm.SufficientlyCompleted");
-			this.m_imgCheckAssign.Location = new System.Drawing.Point(166, 149);
-			this.m_imgCheckAssign.Name = "m_imgCheckAssign";
-			this.m_imgCheckAssign.Size = new System.Drawing.Size(22, 23);
-			this.m_imgCheckAssign.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.m_imgCheckAssign.TabIndex = 29;
-			this.m_imgCheckAssign.TabStop = false;
-			this.m_imgCheckAssign.Visible = false;
+			this.m_imgCheckAssignCharacters.Image = global::Glyssen.Properties.Resources.green_check;
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckAssignCharacters, "Sufficiently completed to move on to following tasks");
+			this.m_L10NSharpExtender.SetLocalizationComment(this.m_imgCheckAssignCharacters, null);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckAssignCharacters, "MainForm.SufficientlyCompleted");
+			this.m_imgCheckAssignCharacters.Location = new System.Drawing.Point(166, 149);
+			this.m_imgCheckAssignCharacters.Name = "m_imgCheckAssignCharacters";
+			this.m_imgCheckAssignCharacters.Size = new System.Drawing.Size(22, 23);
+			this.m_imgCheckAssignCharacters.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.m_imgCheckAssignCharacters.TabIndex = 29;
+			this.m_imgCheckAssignCharacters.TabStop = false;
+			this.m_imgCheckAssignCharacters.Visible = false;
 			// 
 			// m_btnAssignVoiceActors
 			// 
@@ -374,15 +376,30 @@
 			this.m_lblActorsAssigned.TabIndex = 30;
 			this.m_lblActorsAssigned.Text = "{0} voice actors identified, {1} assigned";
 			// 
+			// m_imgCheckAssignActors
+			// 
+			this.m_imgCheckAssignActors.Image = global::Glyssen.Properties.Resources.green_check;
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckAssignActors, "Sufficiently completed to move on to following tasks");
+			this.m_L10NSharpExtender.SetLocalizationComment(this.m_imgCheckAssignActors, null);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckAssignActors, "MainForm.SufficientlyCompleted");
+			this.m_imgCheckAssignActors.Location = new System.Drawing.Point(166, 178);
+			this.m_imgCheckAssignActors.Name = "m_imgCheckAssignActors";
+			this.m_imgCheckAssignActors.Size = new System.Drawing.Size(22, 23);
+			this.m_imgCheckAssignActors.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.m_imgCheckAssignActors.TabIndex = 31;
+			this.m_imgCheckAssignActors.TabStop = false;
+			this.m_imgCheckAssignActors.Visible = false;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(518, 256);
+			this.Controls.Add(this.m_imgCheckAssignActors);
 			this.Controls.Add(this.m_lblActorsAssigned);
 			this.Controls.Add(this.m_btnAssignVoiceActors);
-			this.Controls.Add(this.m_imgCheckAssign);
+			this.Controls.Add(this.m_imgCheckAssignCharacters);
 			this.Controls.Add(this.m_imgCheckBooks);
 			this.Controls.Add(this.m_imgCheckSettings);
 			this.Controls.Add(this.m_imgCheckOpen);
@@ -414,7 +431,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckOpen)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckSettings)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckBooks)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckAssign)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckAssignCharacters)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckAssignActors)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -440,9 +458,10 @@
 		private System.Windows.Forms.PictureBox m_imgCheckOpen;
 		private System.Windows.Forms.PictureBox m_imgCheckSettings;
 		private System.Windows.Forms.PictureBox m_imgCheckBooks;
-		private System.Windows.Forms.PictureBox m_imgCheckAssign;
+		private System.Windows.Forms.PictureBox m_imgCheckAssignCharacters;
 		private System.Windows.Forms.Button m_btnAssignVoiceActors;
 		private System.Windows.Forms.Label m_lblActorsAssigned;
+		private System.Windows.Forms.PictureBox m_imgCheckAssignActors;
 	}
 }
 

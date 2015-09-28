@@ -40,6 +40,12 @@ namespace Glyssen.Controls
 			}
 		}
 
+		public ContentAlignment TextAlign
+		{
+			get { return m_lbl.TextAlign; }
+			set { m_lbl.TextAlign = value; }
+		}
+
 		public string SavedLabel { get { return m_savedLabelFmt; } }
 		public string SavingLabel { get { return m_savingLabelFmt; } }
 		public string SavingLongWaitLabel { get { return m_savingLongWaitLabelFmt; } }

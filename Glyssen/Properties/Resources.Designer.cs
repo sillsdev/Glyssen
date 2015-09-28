@@ -71,18 +71,25 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to #Character ID	Max Speakers	Gender	Age	Status	Comment
-        ///2 other disciples	2	Male	Adult		Not Peter (Simon), Thomas, Nathaniel, James, or John
-        ///250 Israelite leaders	250	Male	Adult		
-        ///a Jew	1	Male	Adult		
-        ///Aaron	1	Male	Adult		
-        ///Abednego	1	Male	Adult		original Hebrew name: Azariah
-        ///Abigail	1	Female	Adult		
-        ///Abijah, king of Judah	1	Male	Adult		
-        ///Abimelech, king of Gerar	1	Male	Adult		
-        ///Abimelech, king of the Philistines (in Gerar)	1	Male	Adult		
-        ///Abimelech, son of Gideon (Jerubbaal)	1	Male	Adult		
-        ///Abiram	1	Male	 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bluelock {
+            get {
+                object obj = ResourceManager.GetObject("bluelock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #Character ID	Max Speakers	Gender	Age	Status	Comment	Reference Comment
+        ///2 other disciples	2	Male	Adult		Not Peter (Simon), Thomas, Nathaniel, James, or John	
+        ///250 Israelite leaders	250	Male	Adult			
+        ///a Jew	1	Male	Adult			
+        ///Aaron	1	Male	Adult			EXO 32:2 &lt;-(6 more)-&gt; NUM 12:12
+        ///Abednego	1	Male	Adult		original Hebrew name: Azariah	
+        ///Abigail	1	Female	Adult			1SA 25:19 &lt;-(8 more)-&gt; 1SA 25:41
+        ///Abijah, king of Judah	1	Male	Adult			2CH 13:4 &lt;-(7 more)-&gt; 2CH 13:12
+        ///Abimelech, king of Gerar	1	Male	Adult			GEN 20:4 &lt;- [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CharacterDetail {
             get {
@@ -146,7 +153,8 @@ namespace Glyssen.Properties {
         ///
         ///# modifications by Studge 26/June/2009
         ///# book definitions are for all books printed in any English of Spanish Bible
-        ///# this includes books for Protestant, Catholic and Protestant-Catholic-EasternOrthodox Interconfessional editions        /// [rest of string was truncated]&quot;;.
+        ///# this includes books for Protestant, Catholic and Protestant-Catholic-EasternOrthodox Interconfessional editions
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EnglishVersification {
             get {
@@ -215,6 +223,16 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap people {
+            get {
+                object obj = ResourceManager.GetObject("people", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;QuoteSystems&gt;
         ///	&lt;QuoteSystem&gt;
         ///		&lt;Name&gt;Quotation marks, double&lt;/Name&gt;
@@ -234,6 +252,16 @@ namespace Glyssen.Properties {
         internal static string QuoteSystemData {
             get {
                 return ResourceManager.GetString("QuoteSystemData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RemoveActor {
+            get {
+                object obj = ResourceManager.GetObject("RemoveActor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -273,6 +301,26 @@ namespace Glyssen.Properties {
         internal static System.Drawing.Bitmap SplitBlock {
             get {
                 object obj = ResourceManager.GetObject("SplitBlock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap splitGroup {
+            get {
+                object obj = ResourceManager.GetObject("splitGroup", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UpdateGroups {
+            get {
+                object obj = ResourceManager.GetObject("UpdateGroups", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -26,14 +26,14 @@ namespace Glyssen.VoiceActor
 			if (CharacterGroups == null || !CharacterGroups.Any())
 				return;
 
-			var assignedActors = CharacterGroups.Where(cg => cg.IsVoiceActorAssigned).Select(cg => cg.VoiceActorAssigned);
+			var assignedActors = CharacterGroups.Where(cg => cg.IsVoiceActorAssigned).Select(cg => cg.VoiceActorId);
 			if (!assignedActors.Any())
 				return;
 
 			List<VoiceActor> assignedActorsSorted = new List<VoiceActor>();
 			foreach (VoiceActor actor in this.ToList())
 			{
-				if (assignedActors.Contains(actor))
+				if (assignedActors.Contains(actor.Id))
 				{
 					Remove(actor);
 					assignedActorsSorted.Add(actor);

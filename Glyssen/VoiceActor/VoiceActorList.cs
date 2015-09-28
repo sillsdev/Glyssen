@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Serialization;
 using SIL.Xml;
 
@@ -23,6 +24,11 @@ namespace Glyssen.VoiceActor
 		public static VoiceActorList LoadVoiceActorListFromFile(string filename)
 		{
 			return XmlSerializationHelper.DeserializeFromFile<VoiceActorList>(filename);
+		}
+
+		public VoiceActor GetVoiceActorById(int voiceActorId)
+		{
+			return Actors.FirstOrDefault(a => a.Id == voiceActorId);
 		}
 	}
 }

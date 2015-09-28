@@ -7,7 +7,6 @@ using System.Text;
 using System.Web;
 using System.Xml.Serialization;
 using Glyssen.Character;
-using SIL.Scripture;
 using SIL.Xml;
 
 namespace Glyssen
@@ -17,6 +16,8 @@ namespace Glyssen
 	{
 		/// <summary>Blocks which has not yet been parsed to identify contents/character</summary>
 		public static readonly string NotSet = null;
+
+		public static readonly int NotSplit = -1;
 
 		public const string kCssFrame = "body{{font-family:{0};font-size:{1}pt}}" +
 						".right-to-left{{direction:rtl}}" +
@@ -33,9 +34,10 @@ namespace Glyssen
 		public Block()
 		{
 			// Needed for deserialization
+			SplitId = NotSplit;
 		}
 
-		public Block(string styleTag, int chapterNum = 0, int initialStartVerseNum = 0, int initialEndVerseNum = 0)
+		public Block(string styleTag, int chapterNum = 0, int initialStartVerseNum = 0, int initialEndVerseNum = 0) : this()
 		{
 			StyleTag = styleTag;
 			BlockElements = new List<BlockElement>();
@@ -46,7 +48,11 @@ namespace Glyssen
 
 		public Block Clone()
 		{
-			return (Block)MemberwiseClone();
+			var newBlock = (Block)MemberwiseClone();
+			newBlock.BlockElements = new List<BlockElement>(BlockElements.Count);
+			foreach (var blockElement in BlockElements)
+				newBlock.BlockElements.Add(blockElement.Clone());
+			return newBlock;
 		}
 
 		[XmlAttribute("style")]
@@ -147,6 +153,10 @@ namespace Glyssen
 		[DefaultValue(MultiBlockQuote.None)]
 		public MultiBlockQuote MultiBlockQuote { get; set; }
 
+		[XmlAttribute("splitId")]
+		[DefaultValue(-1)]
+		public int SplitId { get; set; }
+
 		[XmlElement(Type = typeof (ScriptText), ElementName = "text")]
 		[XmlElement(Type = typeof (Verse), ElementName = "verse")]
 		public List<BlockElement> BlockElements { get; set; }
@@ -182,12 +192,20 @@ namespace Glyssen
 			return bldr.ToString();
 		}
 
+		public string InitialVerseNumberOrBridge
+		{
+			get
+			{
+				return InitialEndVerseNumber == 0 ? InitialStartVerseNumber.ToString(CultureInfo.InvariantCulture) :
+					InitialStartVerseNumber + "-" + InitialEndVerseNumber;
+			}
+		}
+
 		public string GetTextAsHtml(bool showVerseNumbers, bool rightToLeftScript, string verseToInsertExtra = null, int offsetToInsertExtra = -1, string extra = null)
 		{
 			StringBuilder bldr = new StringBuilder();
 
-			var currVerse = InitialEndVerseNumber == 0 ? InitialStartVerseNumber.ToString(CultureInfo.InvariantCulture) :
-				InitialStartVerseNumber + "-" + InitialEndVerseNumber;
+			var currVerse = InitialVerseNumberOrBridge;
 
 			foreach (var blockElement in BlockElements)
 			{
@@ -215,6 +233,8 @@ namespace Glyssen
 						var encodedContent = HttpUtility.HtmlEncode(text.Content);
 						if (verseToInsertExtra == currVerse)
 						{
+							if (offsetToInsertExtra == BookScript.kSplitAtEndOfVerse)
+								offsetToInsertExtra = encodedContent.Length;
 							if (offsetToInsertExtra < 0 || offsetToInsertExtra > encodedContent.Length)
 							{
 								throw new ArgumentOutOfRangeException("offsetToInsertExtra", offsetToInsertExtra,
@@ -344,84 +364,53 @@ namespace Glyssen
 		}
 	}
 
-	[XmlInclude(typeof (ScriptText))]
-	[XmlInclude(typeof (Verse))]
-	public abstract class BlockElement
+	public class BlockComparer : IEqualityComparer<Block>
 	{
-		public virtual BlockElement Clone()
+		public bool Equals(Block x, Block y)
 		{
-			return (BlockElement)MemberwiseClone();
-		}
-	}
+			if (x == null && y == null)
+				return true;
+			if (x == null || y == null)
+				return false;
 
-	public class BlockElementContentsComparer : IEqualityComparer<BlockElement>
-	{
-		public bool Equals(BlockElement x, BlockElement y)
-		{
-			var xAsVerse = x as Verse;
-			if (xAsVerse != null)
-			{
-				var yAsVerse = y as Verse;
-				return yAsVerse != null && xAsVerse.Number == yAsVerse.Number;
-			}
-
-			var yAsScriptText = y as ScriptText;
-			return yAsScriptText != null && ((ScriptText) x).Content == yAsScriptText.Content;
+			return x.StyleTag == y.StyleTag &&
+				x.IsParagraphStart == y.IsParagraphStart &&
+				x.ChapterNumber == y.ChapterNumber &&
+				x.InitialStartVerseNumber == y.InitialStartVerseNumber &&
+				x.InitialEndVerseNumber == y.InitialEndVerseNumber &&
+				x.CharacterId == y.CharacterId &&
+				x.CharacterIdOverrideForScript == y.CharacterIdOverrideForScript &&
+				x.Delivery == y.Delivery &&
+				x.UserConfirmed == y.UserConfirmed &&
+				x.MultiBlockQuote == y.MultiBlockQuote &&
+				x.SplitId == y.SplitId &&
+				x.BlockElements.SequenceEqual(y.BlockElements, new BlockElementContentsComparer());
 		}
 
-		public int GetHashCode(BlockElement obj)
+		public int GetHashCode(Block obj)
 		{
 			return obj.GetHashCode();
 		}
 	}
 
-	public class ScriptText : BlockElement
+	public class SplitBlockComparer : IEqualityComparer<Block>
 	{
-		public ScriptText()
+		public bool Equals(Block x, Block y)
 		{
-			// Needed for deserialization
+			if (x == null && y == null)
+				return true;
+			if (x == null || y == null)
+				return false;
+
+			return x.ChapterNumber == y.ChapterNumber &&
+				x.InitialStartVerseNumber == y.InitialStartVerseNumber &&
+				x.InitialEndVerseNumber == y.InitialEndVerseNumber &&
+				x.BlockElements.SequenceEqual(y.BlockElements, new BlockElementContentsComparer());
 		}
 
-		public ScriptText(string content)
+		public int GetHashCode(Block obj)
 		{
-			Content = content;
-		}
-
-		[XmlText]
-		public string Content { get; set; }
-	}
-
-	public class Verse : BlockElement
-	{
-		public Verse()
-		{
-			// Needed for deserialization
-		}
-
-		public Verse(string number)
-		{
-			Number = number;
-		}
-
-		[XmlAttribute("num")]
-		public string Number { get; set; }
-
-		/// <summary>
-		/// Gets the verse number as an integer. If the Verse number represents a verse bridge, this will be the
-		/// starting number in the bridge.
-		/// </summary>
-		public int StartVerse
-		{
-			get { return ScrReference.VerseToIntStart(Number); }
-		}
-
-		/// <summary>
-		/// Gets the verse number as an integer. If the Verse number represents a verse bridge, this will be the
-		/// ending number in the bridge.
-		/// </summary>
-		public int EndVerse
-		{
-			get { return ScrReference.VerseToIntEnd(Number); }
+			return obj.GetHashCode();
 		}
 	}
 }

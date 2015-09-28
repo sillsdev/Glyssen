@@ -97,6 +97,7 @@
 			// 
 			// m_saveStatus
 			// 
+			this.m_saveStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_saveStatus.AutoSize = true;
 			this.m_saveStatus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.m_saveStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
@@ -105,11 +106,12 @@
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_saveStatus, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_saveStatus, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_saveStatus, "DialogBoxes.VoiceActorInformation.SaveStatus");
-			this.m_saveStatus.Location = new System.Drawing.Point(3, 3);
+			this.m_saveStatus.Location = new System.Drawing.Point(504, 9);
 			this.m_saveStatus.Margin = new System.Windows.Forms.Padding(0);
 			this.m_saveStatus.Name = "m_saveStatus";
 			this.m_saveStatus.Size = new System.Drawing.Size(97, 13);
 			this.m_saveStatus.TabIndex = 4;
+			this.m_saveStatus.TextAlign = System.Drawing.ContentAlignment.TopRight;
 			// 
 			// m_linkClose
 			// 
@@ -160,7 +162,6 @@
 			// 
 			// m_panelContainingActions
 			// 
-			this.m_panelContainingActions.Controls.Add(this.m_saveStatus);
 			this.m_panelContainingActions.Controls.Add(this.m_linkClose);
 			this.m_panelContainingActions.Controls.Add(this.m_btnNext);
 			this.m_panelContainingActions.Controls.Add(this.m_btnOk);
@@ -177,6 +178,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(609, 413);
+			this.Controls.Add(this.m_saveStatus);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Controls.Add(this.m_lblInstructions);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

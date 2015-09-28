@@ -28,6 +28,7 @@ namespace Glyssen.Controls
 		{
 			InitializeComponent();
 
+
 			m_actorInformationViewModel = new VoiceActorInformationViewModel();
 
 			m_dataGrid.DataError += m_dataGrid_DataError;
@@ -46,9 +47,10 @@ namespace Glyssen.Controls
 
 			m_actorInformationViewModel.Saved += m_actorInformationViewModel_Saved;
 
-			//Ensures that rows stay the height we set in the designer (specifically to match the character groups grid)
-			m_dataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-
+			// Sadly, we have to do this here because setting it in the Designer doesn't work since BetterGrid overrides
+			// the default value in its constructor.
+			m_dataGrid.AllowUserToAddRows = true;
+			m_dataGrid.MultiSelect = true;
 			m_dataGrid.UserAddedRow += HandleUserAddedRow;
 			m_dataGrid.CellMouseDoubleClick += HandleDoubleClick;
 			m_dataGrid.MouseMove += HandleMouseMove;
@@ -161,9 +163,7 @@ namespace Glyssen.Controls
 		{
 			Debug.Assert(sender is ComboBox);
 			if (char.IsLetter(e.KeyChar))
-			{
-				m_dataGrid.MoveToNextField();
-			}
+				MoveToNextField();
 		}
 
 		private void RemoveSelectedRows(bool confirmWithUser)
@@ -247,7 +247,7 @@ namespace Glyssen.Controls
 				e.FormattingApplied = false;
 				return;
 			}
-			if (CharacterGroupsWithAssignedActors.Any(cg => cg.VoiceActorAssigned == actor))
+			if (CharacterGroupsWithAssignedActors.Any(cg => cg.VoiceActorId == actor.Id))
 			{
 				e.CellStyle.Font = m_italicsFont;
 				e.CellStyle.ForeColor = Color.Gray;
@@ -283,7 +283,7 @@ namespace Glyssen.Controls
 		private void m_dataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
 		{
 			HandleCellUpdated(e);
-			m_actorInformationViewModel.SaveVoiceActorInformation();
+			SaveVoiceActorInformation();
 		}
 
 		private void m_dataGrid_SelectionChanged(object sender, EventArgs e)
@@ -340,6 +340,26 @@ namespace Glyssen.Controls
 					return true;
 			}
 			return false;
+		}
+
+		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+		{
+			if (keyData == Keys.Enter)
+			{
+				MoveToNextField();
+				return true;
+			}
+
+			return base.ProcessCmdKey(ref msg, keyData);
+		}
+
+		private void MoveToNextField()
+		{
+			if (m_dataGrid.Columns.GetLastColumn(DataGridViewElementStates.Visible, DataGridViewElementStates.None) == m_dataGrid.CurrentCell.OwningColumn &&
+				m_dataGrid.CurrentRow != null &&
+				m_dataGrid.Rows.GetLastRow(DataGridViewElementStates.Visible) == m_dataGrid.CurrentRow.Index)
+				return;
+			SendKeys.Send("{TAB}");
 		}
 	}
 }
