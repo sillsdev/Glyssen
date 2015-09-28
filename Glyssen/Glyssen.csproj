@@ -268,7 +268,7 @@
     <Compile Include="Dialogs\VoiceActorInformationDlg.Designer.cs">
       <DependentUpon>VoiceActorInformationDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="IUndoAction.cs" />
+    <Compile Include="Utilities\IUndoAction.cs" />
     <Compile Include="ProjectExporter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -330,7 +330,7 @@
     <Compile Include="Rules\Proximity.cs" />
     <Compile Include="ScrStylesheetAdapter.cs" />
     <Compile Include="SfmLoader.cs" />
-    <Compile Include="UndoStack.cs" />
+    <Compile Include="Utilities\UndoStack.cs" />
     <Compile Include="UsxParser.cs" />
     <Compile Include="Utilities\FileSystemUtils.cs" />
     <Compile Include="Utilities\MathUtilities.cs" />
