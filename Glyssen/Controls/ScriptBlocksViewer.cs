@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
 using Gecko;
-using Gecko.DOM;
 using Gecko.Events;
 using Glyssen.Dialogs;
 using L10NSharp;

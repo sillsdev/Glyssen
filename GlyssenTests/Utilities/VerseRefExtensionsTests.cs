@@ -60,8 +60,7 @@ namespace GlyssenTests.Utilities
 				if (mInstance == null) 
 					CreateHandle();
 				mInstance = this;
-				value = false;
-				base.SetVisibleCore(value);
+				base.SetVisibleCore(false);
 			}
 
 			protected override void WndProc(ref Message msg)

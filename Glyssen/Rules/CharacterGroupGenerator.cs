@@ -331,7 +331,7 @@ namespace Glyssen.Rules
 					ExtraBiblicalGroup.CharacterIds.Add(CharacterVerseData.GetStandardCharacterId(anyExtraBookId, CharacterVerseData.StandardCharacter.BookOrChapter));
 			}
 
-			internal bool IsBetterThan(TrialGroupConfiguration other)
+			private bool IsBetterThan(TrialGroupConfiguration other)
 			{
 				if (m_groupsWithConflictingGenders < other.m_groupsWithConflictingGenders)
 					return true;

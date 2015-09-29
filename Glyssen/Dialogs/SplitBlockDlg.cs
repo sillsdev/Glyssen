@@ -199,6 +199,7 @@ namespace Glyssen.Dialogs
 				if (!match.Success)
 				{
 					Debug.Fail("HTML data for verse number not formed as expected");
+					// ReSharper disable once HeuristicUnreachableCode
 					return false;
 				}
 				VerseToSplit = match.Result("${verse}");

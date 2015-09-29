@@ -24,11 +24,11 @@ namespace DevTools
 
 		private static void GetAllNtCharacters()
 		{
-			var NtCharacters = new SortedSet<string>();
+			var ntCharacters = new SortedSet<string>();
 			foreach (var cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
 				if (cv.Book > 39 && !cv.Character.Contains('/'))
-					NtCharacters.Add(cv.Character);
-			Debug.WriteLine(TabDelimited(NtCharacters));
+					ntCharacters.Add(cv.Character);
+			Debug.WriteLine(TabDelimited(ntCharacters));
 		}
 
 		static List<CharacterVerse> FindAliases(List<CharacterVerse> characterVerses)

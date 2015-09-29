@@ -21,7 +21,7 @@ namespace DevTools.FCBH
 			{
 				try
 				{
-					string[] items = line.Split(new[] { '\t' });
+					string[] items = line.Split('\t');
 
 					if (!includeNarrator && items[3].StartsWith("Narr_"))
 						continue;

@@ -11,7 +11,7 @@ namespace DevTools.FCBH
 {
 	public class Processor
 	{
-		public const string TAB = "\t";
+		public const string kTab = "\t";
 		public static void Process()
 		{
 			Directory.CreateDirectory("..\\..\\Resources\\temporary");
@@ -27,10 +27,10 @@ namespace DevTools.FCBH
 
 		private static void CompareAndCombineLists(bool includeFcbhNarrator, StringBuilder sb)
 		{
-			sb.Append("Control File Version").Append(TAB).Append(Environment.NewLine);
-			sb.Append("#").Append(TAB).Append("C").Append(TAB).Append("V").Append(TAB)
-				.Append("Character ID").Append(TAB).Append("FCBH Character ID").Append(TAB).Append("Delivery").Append(TAB)
-				.Append("Alias").Append(TAB).Append("Quote Type").Append(TAB).Append("Default Character").Append(TAB)
+			sb.Append("Control File Version").Append(kTab).Append(Environment.NewLine);
+			sb.Append("#").Append(kTab).Append("C").Append(kTab).Append("V").Append(kTab)
+				.Append("Character ID").Append(kTab).Append("FCBH Character ID").Append(kTab).Append("Delivery").Append(kTab)
+				.Append("Alias").Append(kTab).Append("Quote Type").Append(kTab).Append("Default Character").Append(kTab)
 				.Append("Parallel Passage").Append(Environment.NewLine);
 
 			var allFcbh = TemplateData.All(includeFcbhNarrator);
@@ -77,10 +77,10 @@ namespace DevTools.FCBH
 				{
 					var cv = controlList[0];
 					var fcbhDatum = fcbhList[0];
-					sb.Append(cv.BookCode).Append(TAB)
-					.Append(cv.Chapter).Append(TAB).Append(cv.Verse).Append(TAB).Append(cv.Character).Append(TAB)
-					.Append(fcbhDatum.CharacterId).Append(TAB).Append(cv.Delivery).Append(TAB).Append(cv.Alias).Append(TAB)
-					.Append(cv.QuoteType).Append(TAB).Append(cv.DefaultCharacter).Append(TAB).Append(cv.ParallelPassageReferences)
+					sb.Append(cv.BookCode).Append(kTab)
+					.Append(cv.Chapter).Append(kTab).Append(cv.Verse).Append(kTab).Append(cv.Character).Append(kTab)
+					.Append(fcbhDatum.CharacterId).Append(kTab).Append(cv.Delivery).Append(kTab).Append(cv.Alias).Append(kTab)
+					.Append(cv.QuoteType).Append(kTab).Append(cv.DefaultCharacter).Append(kTab).Append(cv.ParallelPassageReferences)
 					.Append(Environment.NewLine);
 				}
 				else
@@ -90,20 +90,20 @@ namespace DevTools.FCBH
 						{
 							if (hasFcbh && fcbhList.Select(f => f.CharacterId).Contains(cv.Character))
 							{
-								sb.Append(cv.BookCode).Append(TAB)
-									.Append(cv.Chapter).Append(TAB).Append(cv.Verse).Append(TAB).Append(cv.Character).Append(TAB)
-									.Append(cv.Character).Append(TAB).Append(cv.Delivery).Append(TAB).Append(cv.Alias).Append(TAB)
-									.Append(cv.QuoteType).Append(TAB).Append(cv.DefaultCharacter).Append(TAB).Append(cv.ParallelPassageReferences)
+								sb.Append(cv.BookCode).Append(kTab)
+									.Append(cv.Chapter).Append(kTab).Append(cv.Verse).Append(kTab).Append(cv.Character).Append(kTab)
+									.Append(cv.Character).Append(kTab).Append(cv.Delivery).Append(kTab).Append(cv.Alias).Append(kTab)
+									.Append(cv.QuoteType).Append(kTab).Append(cv.DefaultCharacter).Append(kTab).Append(cv.ParallelPassageReferences)
 									.Append(Environment.NewLine);
 								foreach (TemplateDatum d in fcbhList.Where(f => f.CharacterId == cv.Character))
 									d.IsProcessed = true;
 							}
 							else
 							{
-								sb.Append(cv.BookCode).Append(TAB)
-									.Append(cv.Chapter).Append(TAB).Append(cv.Verse).Append(TAB).Append(cv.Character).Append(TAB)
-									.Append(TAB).Append(cv.Delivery).Append(TAB).Append(cv.Alias).Append(TAB)
-									.Append(cv.QuoteType).Append(TAB).Append(cv.DefaultCharacter).Append(TAB).Append(cv.ParallelPassageReferences)
+								sb.Append(cv.BookCode).Append(kTab)
+									.Append(cv.Chapter).Append(kTab).Append(cv.Verse).Append(kTab).Append(cv.Character).Append(kTab)
+									.Append(kTab).Append(cv.Delivery).Append(kTab).Append(cv.Alias).Append(kTab)
+									.Append(cv.QuoteType).Append(kTab).Append(cv.DefaultCharacter).Append(kTab).Append(cv.ParallelPassageReferences)
 									.Append(Environment.NewLine);
 							}
 						}
@@ -115,10 +115,10 @@ namespace DevTools.FCBH
 							var bookCode = BCVRef.NumberToBookCode(d.BcvRef.Book);
 							if (string.IsNullOrWhiteSpace(bookCode))
 								Debug.Fail("Invalid book code: " + bookCode);
-							sb.Append(bookCode).Append(TAB)
-							.Append(d.BcvRef.Chapter).Append(TAB).Append(d.BcvRef.Verse).Append(TAB).Append(TAB)
-							.Append(d.CharacterId).Append(TAB).Append(TAB).Append(TAB)
-							.Append(TAB).Append(TAB)
+							sb.Append(bookCode).Append(kTab)
+							.Append(d.BcvRef.Chapter).Append(kTab).Append(d.BcvRef.Verse).Append(kTab).Append(kTab)
+							.Append(d.CharacterId).Append(kTab).Append(kTab).Append(kTab)
+							.Append(kTab).Append(kTab)
 							.Append(Environment.NewLine);
 						}
 				}

@@ -78,7 +78,7 @@ namespace GlyssenTests.Character
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
 			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 4, 0, 4, ScrVers.English)).Return(new[] { new CharacterVerse(new BCVRef(41, 1, 4), "Made Up Guy", null, null, false) });
 			cvInfo.Stub(x => x.GetCharacters(41, 1, 5, 0, versification: ScrVers.English)).Return(new[] { new CharacterVerse(new BCVRef(41, 1, 5), "Thomas/Andrew/Bartholomew", null, null, false) });
-			new CharacterAssigner(cvInfo).Assign(m_bookScript, ScrVers.English, true, false);
+			new CharacterAssigner(cvInfo).Assign(m_bookScript, ScrVers.English, true);
 			Assert.AreEqual("Made Up Guy", m_bookScript[1].CharacterId);
 			Assert.AreEqual("Made Up Guy", m_bookScript[1].CharacterIdInScript);
 			Assert.AreEqual("Thomas/Andrew/Bartholomew", m_bookScript[2].CharacterId);
@@ -94,7 +94,7 @@ namespace GlyssenTests.Character
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
 			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 4, 0, 4, ScrVers.English)).Return(new[] { new CharacterVerse(new BCVRef(41, 1, 4), "Made Up Guy", null, null, false) });
 			cvInfo.Stub(x => x.GetCharacters(41, 1, 5, 0, versification: ScrVers.English)).Return(new[] { new CharacterVerse(new BCVRef(41, 1, 5), "Thomas/Andrew/Bartholomew", null, null, false, QuoteType.Normal, "Andrew") });
-			new CharacterAssigner(cvInfo).Assign(m_bookScript, ScrVers.English, true, false);
+			new CharacterAssigner(cvInfo).Assign(m_bookScript, ScrVers.English, true);
 			Assert.AreEqual("Thomas/Andrew/Bartholomew", m_bookScript[2].CharacterId);
 			Assert.AreEqual("Andrew", m_bookScript[2].CharacterIdInScript);
 		}

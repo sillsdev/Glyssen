@@ -10,7 +10,7 @@ namespace DevTools
 {
 	class CharacterDetailProcessing
 	{
-		private const char TAB = '\t';
+		private const char Tab = '\t';
 		public static void GenerateReferences()
 		{
 			var data = ReadFile();
@@ -53,7 +53,7 @@ namespace DevTools
 
 		private static string GetNewLine(CharacterDetailLine line)
 		{
-			return line.CurrentLine + TAB + line.ReferenceComment;
+			return line.CurrentLine + Tab + line.ReferenceComment;
 		}
 
 		private static void WriteFile(string fileText)
@@ -72,7 +72,7 @@ namespace DevTools
 			if (line.StartsWith("#"))
 				return null;
 
-			string characterId = line.Substring(0, line.IndexOf(TAB));
+			string characterId = line.Substring(0, line.IndexOf(Tab));
 			return new CharacterDetailLine
 			{
 				CharacterId = characterId,

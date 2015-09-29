@@ -6,7 +6,6 @@ using System.Text;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Bundle;
-using Glyssen.Properties;
 using L10NSharp;
 using SIL.IO;
 

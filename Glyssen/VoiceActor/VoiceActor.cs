@@ -117,8 +117,6 @@ namespace Glyssen.VoiceActor
 				case CharacterGender.PreferMale: // TODO: Handle preferences based on user settings
 					result &= Gender == ActorGender.Male;
 					break;
-				default:
-					break;
 			}
 
 			if (strictAgeMatching)

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
@@ -362,7 +361,7 @@ namespace Glyssen
 							{
 								var elementsOfBlockPrecedingSplit = unappliedSplit[iUnapplied - 1].BlockElements;
 								var textElementAtEndOfBlockPrecedingSplit = elementsOfBlockPrecedingSplit.Last() as ScriptText;
-								int offset = textElementAtEndOfBlockPrecedingSplit != null ? textElementAtEndOfBlockPrecedingSplit.Content.Length : 0;;
+								int offset = textElementAtEndOfBlockPrecedingSplit != null ? textElementAtEndOfBlockPrecedingSplit.Content.Length : 0;
 								string verse;
 								if (unappliedSplit[iUnapplied].BlockElements.First() is Verse)
 								{

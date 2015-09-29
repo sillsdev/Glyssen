@@ -185,7 +185,7 @@ namespace GlyssenTests.Quote
 		private readonly QuoteSystem m_desiredQuoteSystem;
 		private readonly bool m_highlyConsistentData;
 		private readonly bool m_includeSecondLevelQuotes;
-		private Random m_random;
+		private readonly Random m_random;
 		private bool m_secondLevelQuoteCloserPending;
 #if USE_RANDOM_SEED
 		static int s_seedBase = (int)DateTime.Now.Ticks;

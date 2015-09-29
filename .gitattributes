@@ -17,3 +17,4 @@
 *.xml -whitespace
 changelog -whitespace
 *.lift* -whitespace
+*.csproj.DotSettings -whitespace

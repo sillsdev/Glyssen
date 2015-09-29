@@ -78,7 +78,7 @@ namespace GlyssenTests.Dialogs
 
 			Assert.AreEqual(actor1.Id, sourceGroup.VoiceActorId);
 			Assert.AreEqual(actor2.Id, destGroup.VoiceActorId);
-			m_model.MoveActorFromGroupToGroup(sourceGroup, destGroup, false);
+			m_model.MoveActorFromGroupToGroup(sourceGroup, destGroup);
 			Assert.False(sourceGroup.IsVoiceActorAssigned);
 			Assert.AreEqual(actor1.Id, destGroup.VoiceActorId);
 		}

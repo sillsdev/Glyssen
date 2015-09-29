@@ -13,7 +13,6 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Controls;
@@ -23,7 +22,6 @@ using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
 using SIL.Windows.Forms.PortableSettingsProvider;
-using Timer = System.Timers.Timer;
 
 namespace Glyssen.Dialogs
 {

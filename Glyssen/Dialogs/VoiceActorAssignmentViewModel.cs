@@ -153,6 +153,7 @@ namespace Glyssen.Dialogs
 		}
 
 		// Keep this method around for now in case we decide to support templates in some scenarios
+		// ReSharper disable once UnusedMember.Local
 		private void CreateInitialGroupsFromTemplate()
 		{
 			CharacterGroupTemplate charGroupTemplate;

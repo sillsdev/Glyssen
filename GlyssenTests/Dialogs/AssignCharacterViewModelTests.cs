@@ -81,7 +81,7 @@ namespace GlyssenTests.Dialogs
 		{
 			m_model.Mode = BlocksToDisplay.AllExpectedQuotes;
 			Assert.AreEqual("MRK 1:16-17", m_model.GetBlockReferenceString());
-			var characters = m_model.GetCharactersForCurrentReference(true).ToList();
+			var characters = m_model.GetCharactersForCurrentReference().ToList();
 			Assert.AreEqual(2, characters.Count);
 			Assert.IsTrue(characters[0].IsNarrator);
 			Assert.AreEqual("Jesus", characters[1].CharacterId);

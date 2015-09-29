@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Windows.Forms;
 using Glyssen.Bundle;
-using Glyssen.Controls;
 
 namespace Glyssen.Dialogs
 {
 	public partial class VoiceActorInformationDlg : Form
 	{
-		private Project m_project { get; set; }
+		private readonly Project m_project;
 
 		public VoiceActorInformationDlg(Project project, bool showNext = true)
 		{

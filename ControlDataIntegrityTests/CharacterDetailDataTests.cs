@@ -103,7 +103,7 @@ namespace ControlDataIntegrityTests
 			foreach (var enumVal in Enum.GetValues(type))
 			{
 				bldr.Append("(");
-				bldr.Append(enumVal.ToString());
+				bldr.Append(enumVal);
 				bldr.Append(")|");
 			}
 			bldr.Length--;

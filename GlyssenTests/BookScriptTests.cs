@@ -1592,7 +1592,7 @@ namespace GlyssenTests
 
 	internal static class BlockTestExtensions
 	{
-		static Random s_random = new Random(42);
+		static readonly Random Random = new Random(42);
 
 		internal static Block AddVerse(this Block block, int verseNum, string text = null)
 		{
@@ -1612,10 +1612,10 @@ namespace GlyssenTests
 		{
 			var chars = " AAAAABB CCDDD EEEEFF GGHHIIJK LLMMNNN OOPPP QRRRS SSTTTTU VWWXYYZ aaaaaabb cccddd eeeeefff gggghhh iiiiijjk llll mmmnnnn ooooo pppp qqrrrr sssss tttttuu vvwwwxyyz ,,,.... !?? AAAAABB CCDDD EEEEFF GGHHIIJK LLMMNNN OOPPP QRRRS SSTTTTU VWWXYYZ aaaaaabb cccddd eeeeefff gggghhh iiiiijjk llll mmmnnnn ooooo pppp qqrrrr sssss tttttuu vvwwwxyyz ,,,.... !??\u2014";
 			var randomString = new StringBuilder();
-			var length = 4 + s_random.Next(80);
+			var length = 4 + Random.Next(80);
 
 			for (int i = 0; i < length; i++)
-				randomString.Append(chars[s_random.Next(chars.Length)]);
+				randomString.Append(chars[Random.Next(chars.Length)]);
 
 			return randomString.ToString();
 		}
