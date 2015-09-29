@@ -18,7 +18,7 @@ namespace GlyssenTests.Utilities
 				File.WriteAllText(tempFile.Path, contents);
 
 				string shortNameFullPath = FileSystemUtils.GetShortName(tempFile.Path);
-				
+
 				string shortNameFileName = Path.GetFileName(shortNameFullPath);
 				Assert.AreEqual(12, shortNameFileName.Length);
 

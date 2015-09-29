@@ -132,7 +132,7 @@ namespace Glyssen
 
 		public static IEnumerable<string> AllRecordingProjectFolders
 		{
-			get 
+			get
 			{
 				return AllPublicationFolders.SelectMany(Directory.GetDirectories);
 			}
@@ -275,15 +275,15 @@ namespace Glyssen
 		{
 			get
 			{
-				return (from book in Books 
+				return (from book in Books
 						where AvailableBooks.Where(ab => ab.IncludeInScript).Select(ab => ab.Code).Contains(book.BookId)
 						select book).ToList();
 			}
 		}
 
 		public SIL.ObjectModel.IReadOnlyList<Book> AvailableBooks
-		{ 
-			get { return m_metadata.AvailableBibleBooks; } 
+		{
+			get { return m_metadata.AvailableBibleBooks; }
 		}
 
 		public string OriginalBundlePath
@@ -419,7 +419,7 @@ namespace Glyssen
 					if (Settings.Default.ParserVersion > existingProject.m_metadata.ParserUpgradeOptOutVersion)
 					{
 						string msg = string.Format(LocalizationManager.GetString("Project.ParserUpgradeBundleMissingMsg", "The splitting engine has been upgraded. To make use of the new engine, the original text bundle must be available, but it is not in the original location ({0})."), existingProject.OriginalBundlePath) +
-							Environment.NewLine + Environment.NewLine + 
+							Environment.NewLine + Environment.NewLine +
 							LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text bundle yourself?");
 						string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
 						if (DialogResult.Yes == MessageBox.Show(msg, caption, MessageBoxButtons.YesNo))
@@ -602,7 +602,7 @@ namespace Glyssen
 		{
 			if (e.Error != null)
 				throw e.Error;
-			
+
 			var bookScripts = (List<BookScript>)e.Result;
 
 			// This code is an attempt to figure out how we are getting null reference exceptions on the Sort call (See PG-275 & PG-287)
@@ -669,7 +669,7 @@ namespace Glyssen
 
 			QuoteSystemStatus = QuoteSystemStatus.Guessed;
 			QuoteSystem = (QuoteSystem)e.Result;
-			
+
 			Save();
 		}
 
@@ -794,7 +794,7 @@ namespace Glyssen
 				{ "TotalPercentAssigned", ProjectAnalysis.TotalPercentAssigned.ToString(CultureInfo.InvariantCulture) },
 				{ "PercentUnknown", ProjectAnalysis.PercentUnknown.ToString(CultureInfo.InvariantCulture) }
 			});
-			
+
 			if (AnalysisCompleted != null)
 				AnalysisCompleted(this, new EventArgs());
 		}

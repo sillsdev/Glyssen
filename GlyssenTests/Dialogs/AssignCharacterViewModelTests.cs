@@ -434,7 +434,7 @@ namespace GlyssenTests.Dialogs
 				m_model.LoadNextRelevantBlock();
 			Assert.AreEqual("MRK", m_model.CurrentBookId);
 			Assert.AreEqual(chapter, m_model.CurrentBlock.ChapterNumber);
-			Assert.AreEqual(verse, m_model.CurrentBlock.InitialStartVerseNumber);			
+			Assert.AreEqual(verse, m_model.CurrentBlock.InitialStartVerseNumber);
 		}
 	}
 }

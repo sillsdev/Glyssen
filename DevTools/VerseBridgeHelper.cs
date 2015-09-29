@@ -12,7 +12,7 @@ namespace DevTools
 		/// <summary>
 		/// CAREFUL!!!
 		/// Be careful with this method!
-		/// It simply reads in the data and rewrites it. 
+		/// It simply reads in the data and rewrites it.
 		/// That means comment lines will be removed.
 		/// </summary>
 		public static void RemoveAllVerseBridges()

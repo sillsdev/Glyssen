@@ -70,7 +70,7 @@ namespace ControlDataIntegrityTests
 		public void DataIntegrity_NoDuplicateCharacterIds()
 		{
 			var duplicateCharacterIds = CharacterDetailData.Singleton.GetAll().Select(d => d.CharacterId).FindDuplicates();
-			Assert.IsFalse(duplicateCharacterIds.Any(), 
+			Assert.IsFalse(duplicateCharacterIds.Any(),
 				"Duplicate character IDs in Character-Detail data:" +
 				Environment.NewLine +
 				duplicateCharacterIds.OnePerLineWithIndent());

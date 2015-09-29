@@ -24,7 +24,7 @@ namespace Glyssen.Character
 			Analytics.Track("AddCharacter", new Dictionary<string, string>
 			{
 				{"verseReference", cv.BcvRef.AsString},
-				{"characterId", cv.Character}, 
+				{"characterId", cv.Character},
 				{"delivery", cv.Delivery}
 			});
 		}

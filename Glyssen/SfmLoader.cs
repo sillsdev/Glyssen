@@ -17,7 +17,7 @@ namespace Glyssen
 
 		public static ScrStylesheetAdapter GetUsfmStylesheet()
 		{
-			return new ScrStylesheetAdapter(GetUsfmScrStylesheet()); 
+			return new ScrStylesheetAdapter(GetUsfmScrStylesheet());
 		}
 	}
 }

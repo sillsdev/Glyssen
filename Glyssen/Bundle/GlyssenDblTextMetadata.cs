@@ -49,14 +49,14 @@ namespace Glyssen.Bundle
 		public int ParserVersion;
 
 		/// <summary>
-		/// If we attempt to upgrade the project, and the user decides to opt out, 
+		/// If we attempt to upgrade the project, and the user decides to opt out,
 		/// we need to store the version he opted out of so we don't ask again.</summary>
 		[XmlAttribute("parserupgradeoptoutversion")]
 		[DefaultValue(0)]
 		public int ParserUpgradeOptOutVersion;
 
 		/// <summary>
-		/// We add this when we parse the USX to create a script. 
+		/// We add this when we parse the USX to create a script.
 		/// This tells us the original (local) path of the Text Release Bundle file used to create this project.
 		/// </summary>
 		[XmlAttribute("origdblpath")]
@@ -212,7 +212,7 @@ namespace Glyssen.Bundle
 		}
 
 		/// <summary>
-		/// This is not part of the original DBL metadata. This data is now stored as part of the "language" data. 
+		/// This is not part of the original DBL metadata. This data is now stored as part of the "language" data.
 		/// </summary>
 		[XmlElement("fontFamily")]
 		public string FontFamily_DeprecatedXml
@@ -222,7 +222,7 @@ namespace Glyssen.Bundle
 		}
 
 		/// <summary>
-		/// This is not part of the original DBL metadata. This data is now stored as part of the "langauge" data. 
+		/// This is not part of the original DBL metadata. This data is now stored as part of the "langauge" data.
 		/// </summary>
 		[XmlElement("fontSizeInPoints")]
 		[DefaultValue(default(int))]

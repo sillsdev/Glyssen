@@ -25,10 +25,10 @@ namespace Glyssen.Controls
 
 			var browser = new XWebBrowser(XWebBrowser.BrowserType.GeckoFx)
 			{
-				Parent = this, 
-				Dock = DockStyle.Fill, 
-				AllowWebBrowserDrop = false, 
-				IsWebBrowserContextMenuEnabled = false, 
+				Parent = this,
+				Dock = DockStyle.Fill,
+				AllowWebBrowserDrop = false,
+				IsWebBrowserContextMenuEnabled = false,
 				WebBrowserShortcutsEnabled = false
 			};
 			if (!ReallyDesignMode)

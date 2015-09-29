@@ -114,7 +114,7 @@ namespace Glyssen.Dialogs
 
 		private IEnumerable<CharacterGroup> SelectedAssignedNonCameoGroups
 		{
-			get 
+			get
 			{
 				for (int i = 0; i < m_characterGroupGrid.SelectedRows.Count; i++)
 				{
@@ -293,7 +293,7 @@ namespace Glyssen.Dialogs
 			Point p = m_characterGroupGrid.PointToClient(new Point(e.X, e.Y));
 			var hitInfo = m_characterGroupGrid.HitTest(p.X, p.Y);
 			if (hitInfo.Type == DataGridViewHitTestType.Cell && e.Data.GetDataPresent(typeof(List<string>)) &&
-			    m_characterGroupGrid.Columns[hitInfo.ColumnIndex].Name == CharacterIdsCol.Name)
+				m_characterGroupGrid.Columns[hitInfo.ColumnIndex].Name == CharacterIdsCol.Name)
 			{
 				//Follow the status of the drag-n-drop to remove new row on completion
 				if (m_characterGroupGrid.EditingControl != null)
@@ -458,7 +458,7 @@ namespace Glyssen.Dialogs
 				return;
 
 			if (m_characterGroupGrid.CurrentCell.EditType == typeof(DataGridViewMultiColumnComboBoxEditingControl) &&
-			    m_characterGroupGrid.CurrentRow != null)
+				m_characterGroupGrid.CurrentRow != null)
 			{
 				SetVoiceActorCellDataSource();
 			}

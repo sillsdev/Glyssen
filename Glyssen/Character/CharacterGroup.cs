@@ -254,7 +254,7 @@ namespace Glyssen.Character
 			m_hashSet = new HashSet<string>(sourceEnumerable);
 		}
 
-		public IComparer<string> ToStringComparer { get; set; } 
+		public IComparer<string> ToStringComparer { get; set; }
 
 		public override string ToString()
 		{

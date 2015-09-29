@@ -130,7 +130,7 @@ namespace GlyssenTests.Character
 			Assert.AreEqual(1, verseRef.BookNum);
 			Assert.AreEqual(32, verseRef.ChapterNum);
 			Assert.AreEqual(7, verseRef.VerseNum);
-			
+
 			// Run the test
 			character = ControlCharacterVerseData.Singleton.GetCharacters(verseRef.BookNum, verseRef.ChapterNum, verseRef.VerseNum, versification: m_testVersification).Single();
 			Assert.AreEqual("messengers of Jacob", character.Character);

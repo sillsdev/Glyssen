@@ -66,7 +66,7 @@ namespace GlyssenTests.Dialogs
 			while (m_model.CanNavigateToNextRelevantBlock)
 				m_model.LoadNextRelevantBlock();
 			Assert.AreEqual(m_testProject.IncludedBooks[0].BookId, m_model.CurrentBookId);
-			
+
 			// Run test
 			var currentBlockBeforeCall = m_model.CurrentBlock;
 			m_model.LoadNextRelevantBlockInSubsequentBook();
@@ -397,7 +397,7 @@ namespace GlyssenTests.Dialogs
 				m_model.LoadNextRelevantBlock();
 			Assert.AreEqual("MRK", m_model.CurrentBookId);
 			Assert.AreEqual(chapter, m_model.CurrentBlock.ChapterNumber);
-			Assert.AreEqual(verse, m_model.CurrentBlock.InitialStartVerseNumber);			
+			Assert.AreEqual(verse, m_model.CurrentBlock.InitialStartVerseNumber);
 		}
 	}
 }

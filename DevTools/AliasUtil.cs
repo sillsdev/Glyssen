@@ -19,9 +19,9 @@ namespace DevTools
 			{0075, "Caiaphas"},
 			{0077, "Caleb"},
 			{0081, "Cleopas"},
-			{0088, "Darius"},	
-			{0093, "David"},	
-			{0094, "David's enemies"},	
+			{0088, "Darius"},
+			{0093, "David"},
+			{0094, "David's enemies"},
 			{0112, "Eliakim"},
 			{0115, "Elijah"},
 			{0118, "Elisha"},
@@ -127,6 +127,6 @@ namespace DevTools
 			{2264, "chief priests and Jewish leaders"},
 			{2271, "Johanan"},
 			{0890, "scripture"},
-		}; 
+		};
 	}
 }

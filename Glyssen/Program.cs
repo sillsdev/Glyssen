@@ -77,12 +77,12 @@ namespace Glyssen
 				SetUpLocalization();
 
 				// The following not only gets the location of the settings file;
-				// it also detects corruption and deletes it if needed so we don't crash. 
+				// it also detects corruption and deletes it if needed so we don't crash.
 				string userConfigSettingsPath = GetUserConfigFilePath();
 
 				if ((Control.ModifierKeys & Keys.Shift) > 0 && !string.IsNullOrEmpty(userConfigSettingsPath))
 					HandleDeleteUserSettings(userConfigSettingsPath);
-			
+
 				Application.Run(new MainForm());
 			}
 		}
@@ -149,7 +149,7 @@ namespace Glyssen
 						if (DialogResult.OK == dlg.ShowDialog())
 						{
 							Analytics.Track("SetUiLanguage", new Dictionary<string, string> { { "uiLanguage", dlg.SelectedLanguage }, { "initialStartup", "true" } });
-			
+
 							LocalizationManager.SetUILanguage(dlg.SelectedLanguage, true);
 							Settings.Default.UserInterfaceLanguage = dlg.SelectedLanguage;
 						}

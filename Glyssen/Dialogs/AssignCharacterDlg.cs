@@ -119,7 +119,7 @@ namespace Glyssen.Dialogs
 			}
 			else
 			{
-				m_progressBar.Visible = false;				
+				m_progressBar.Visible = false;
 			}
 		}
 
@@ -398,7 +398,7 @@ namespace Glyssen.Dialogs
 
 			var newItem = new AssignCharacterViewModel.Character(character);
 			m_listBoxCharacters.Items.Add(newItem);
-			m_listBoxCharacters.SelectedItem = newItem; 
+			m_listBoxCharacters.SelectedItem = newItem;
 		}
 
 		private void AddNewDelivery(string delivery)
@@ -453,7 +453,7 @@ namespace Glyssen.Dialogs
 		{
 			m_formLoading = false;
 		}
-		
+
 		protected override void OnClosing(CancelEventArgs e)
 		{
 			Settings.Default.AssignCharactersBlockContextGrid = m_blocksViewer.BlocksGridSettings;

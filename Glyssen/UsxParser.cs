@@ -104,7 +104,7 @@ namespace Glyssen
 							continue;
 						}
 						AddMainTitleIfApplicable(blocks, titleBuilder);
-						
+
 						block = new Block(usxPara.StyleTag, m_currentChapter, m_currentStartVerse, m_currentEndVerse) { IsParagraphStart = true };
 						if (m_currentChapter == 0)
 							block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.Intro);

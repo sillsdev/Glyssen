@@ -40,7 +40,7 @@ namespace GlyssenTests.Utilities
 			}
 			public static void Stop()
 			{
-				if (mInstance == null) 
+				if (mInstance == null)
 					throw new InvalidOperationException("Stop without Start");
 				mInstance.Invoke(new MethodInvoker(mInstance.EndForm));
 			}
@@ -57,7 +57,7 @@ namespace GlyssenTests.Utilities
 			protected override void SetVisibleCore(bool value)
 			{
 				// Prevent window getting visible
-				if (mInstance == null) 
+				if (mInstance == null)
 					CreateHandle();
 				mInstance = this;
 				base.SetVisibleCore(false);

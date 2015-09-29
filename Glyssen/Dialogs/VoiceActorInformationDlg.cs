@@ -54,7 +54,7 @@ namespace Glyssen.Dialogs
 		{
 			m_project.VoiceActorStatus = VoiceActorStatus.UnProvided;
 			DialogResult = DialogResult.Cancel;
-			Close();			
+			Close();
 		}
 
 		private void m_btnOk_Click(object sender, EventArgs e)

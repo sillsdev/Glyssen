@@ -79,8 +79,8 @@ namespace DevTools
 			File.WriteAllText(Path.Combine(kBaseDirForHelperOutput, "MultipleCharacterId.txt"), TabDelimited(multiCharacterIds));
 			if (multiCharacterIds.Count > 0)
 				MessageBox.Show("Two or more characters have the same numerical character ID.\n" +
-			                "One way to resolve this is by making them aliases in AliasUtil.cs.\n" +
-			                "See MultipleCharacterId.txt or MultipleCharacterId_Extra.txt for the characters in question.");
+							"One way to resolve this is by making them aliases in AliasUtil.cs.\n" +
+							"See MultipleCharacterId.txt or MultipleCharacterId_Extra.txt for the characters in question.");
 
 			ProcessUniqueIds(uniqueCharacterIds);
 

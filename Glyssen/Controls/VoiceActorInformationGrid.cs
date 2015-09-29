@@ -69,11 +69,11 @@ namespace Glyssen.Controls
 
 		public VoiceActor.VoiceActor SelectedVoiceActorEntity
 		{
-			get 
+			get
 			{
 				if (m_dataGrid.SelectedRows.Count == 0)
 					return null;
-				return m_dataGrid.SelectedRows[0].DataBoundItem as VoiceActor.VoiceActor; 
+				return m_dataGrid.SelectedRows[0].DataBoundItem as VoiceActor.VoiceActor;
 			}
 		}
 
@@ -180,7 +180,7 @@ namespace Glyssen.Controls
 			{
 				DataGridViewRowsRemovedEventHandler handler = UserRemovedRows;
 				if (handler != null)
-					handler(m_dataGrid, new DataGridViewRowsRemovedEventArgs(indexOfFirstRowToRemove, m_dataGrid.RowCount));				
+					handler(m_dataGrid, new DataGridViewRowsRemovedEventArgs(indexOfFirstRowToRemove, m_dataGrid.RowCount));
 			}
 		}
 

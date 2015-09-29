@@ -8,7 +8,7 @@ namespace DevTools
 	public class DialogueQuotesReferences
 	{
 		private readonly static HashSet<string> References = new HashSet<string>();
- 
+
 		static DialogueQuotesReferences()
 		{
 			foreach (var line in ControlFiles.DialogQuotes.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))

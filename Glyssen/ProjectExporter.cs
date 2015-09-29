@@ -79,7 +79,7 @@ namespace Glyssen
 					}
 					catch (Exception ex)
 					{
-						ErrorReport.ReportNonFatalExceptionWithMessage(ex, 
+						ErrorReport.ReportNonFatalExceptionWithMessage(ex,
 							string.Format(LocalizationManager.GetString("File.CouldNotExport", "Could not export data to {0}", "{0} is a file name."), dlg.FileName));
 					}
 				}

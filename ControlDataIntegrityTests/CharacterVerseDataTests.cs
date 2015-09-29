@@ -94,8 +94,8 @@ namespace ControlDataIntegrityTests
 					duplicateCharacterVerses.Add(cv);
 
 			Assert.False(duplicateCharacterVerses.Any(),
-				"Duplicate Character-Verse data:" + 
-				Environment.NewLine + 
+				"Duplicate Character-Verse data:" +
+				Environment.NewLine +
 				duplicateCharacterVerses.Select(cv => cv.BcvRef + ", " + cv.Character).OnePerLineWithIndent());
 		}
 
@@ -199,14 +199,14 @@ namespace ControlDataIntegrityTests
 					referenceDoesntMatchLineFailures.Add(string.Format("{0}  =>  {1}", cv.BcvRef, cv.ParallelPassageReferences));
 
 				if (checkCharacters && !allParallelPassageData.Any(p => p.BookCode != cv.BookCode &&
-					(p.Character == cv.Character || p.Character == cv.DefaultCharacter || p.DefaultCharacter == cv.Character) && 
+					(p.Character == cv.Character || p.Character == cv.DefaultCharacter || p.DefaultCharacter == cv.Character) &&
 					parallelPassageVersesForCurrentDatum.Contains(p.BcvRef)))
 					charactersNotEqualFailures.Add(string.Format("{0}  =>  {1}  =>  {2}", cv.BcvRef, cv.Character, cv.ParallelPassageReferences));
 			}
 
-			Assert.IsTrue(!referenceDoesntMatchLineFailures.Any(), "Parallel passage reference does not match the reference for this line:" + Environment.NewLine + 
+			Assert.IsTrue(!referenceDoesntMatchLineFailures.Any(), "Parallel passage reference does not match the reference for this line:" + Environment.NewLine +
 				referenceDoesntMatchLineFailures.OnePerLineWithIndent());
-			Assert.IsTrue(!charactersNotEqualFailures.Any(), "Characters do not match for one or more parallel passages:" + Environment.NewLine + 
+			Assert.IsTrue(!charactersNotEqualFailures.Any(), "Characters do not match for one or more parallel passages:" + Environment.NewLine +
 				charactersNotEqualFailures.OnePerLineWithIndent());
 		}
 	}

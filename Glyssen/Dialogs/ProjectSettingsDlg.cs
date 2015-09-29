@@ -115,7 +115,7 @@ namespace Glyssen.Dialogs
 			}
 
 			m_model.RecordingProjectName = RecordingProjectName;
-			
+
 			m_model.Project.ProjectSettingsStatus = ProjectSettingsStatus.Reviewed;
 			DialogResult = DialogResult.OK;
 			Close();
@@ -137,8 +137,8 @@ namespace Glyssen.Dialogs
 					string msg = string.Format(LocalizationManager.GetString("Project.UnableToLocateTextBundleMsg",
 						"The original text bundle for the project is no longer in its original location ({0}). " +
 						"The Quote Mark Settings cannot be modified without access to the original text bundle."), m_model.Project.OriginalBundlePath) +
-					             Environment.NewLine + Environment.NewLine +
-								 LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text bundle yourself?");
+						Environment.NewLine + Environment.NewLine +
+						LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text bundle yourself?");
 					string title = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
 					if (DialogResult.Yes == MessageBox.Show(msg, title, MessageBoxButtons.YesNo))
 						reparseOkay = SelectProjectDlg.GiveUserChanceToFindOriginalBundle(m_model.Project);
@@ -191,7 +191,7 @@ namespace Glyssen.Dialogs
 				"Old value: {0}");
 			var newValueFormat = LocalizationManager.GetString("Project.UpdateFromBundle.NewValue",
 				"New value: {0}");
-			
+
 			if (bundle.LanguageIso != m_model.IsoCode)
 			{
 				msg.Append(Environment.NewLine);

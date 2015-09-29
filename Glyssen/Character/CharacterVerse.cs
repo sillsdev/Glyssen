@@ -169,10 +169,10 @@ namespace Glyssen.Character
 		#region Equality Members
 		protected bool Equals(CharacterVerse other)
 		{
-			return Equals(m_bcvRef, other.m_bcvRef) && 
-				string.Equals(Character, other.Character) && 
-				string.Equals(Delivery, other.Delivery) && 
-				string.Equals(Alias, other.Alias) && 
+			return Equals(m_bcvRef, other.m_bcvRef) &&
+				string.Equals(Character, other.Character) &&
+				string.Equals(Delivery, other.Delivery) &&
+				string.Equals(Alias, other.Alias) &&
 				QuoteType == other.QuoteType;
 		}
 

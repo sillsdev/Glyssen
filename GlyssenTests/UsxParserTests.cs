@@ -473,7 +473,7 @@ namespace GlyssenTests
 							"<verse number=\"1\" style=\"v\" />" +
 							"Verse 1 text</para>" +
 							"<para style=\"p\">" +
-			                "Verse 2 text" +
+							"Verse 2 text" +
 							"<verse number=\"2\" style=\"v\" />" +
 							"more Verse 2 text</para>");
 			var parser = GetUsxParser(doc);

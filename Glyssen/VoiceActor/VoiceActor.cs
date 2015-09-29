@@ -87,7 +87,7 @@ namespace Glyssen.VoiceActor
 				if (!Enum.TryParse(value, false, out val))
 					val = MigrateFromDeprecatedVersionOfVoiceQualityData(value);
 				VoiceQuality = val;
-			} 
+			}
 		}
 
 		[XmlIgnore]

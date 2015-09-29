@@ -30,7 +30,7 @@ namespace Glyssen.Controls
 			m_savingLongWaitLabelFmt = LocalizationManager.GetString("Common.SaveStatus.SavingLongWait", "Saving... (taking longer than expected)");
 		}
 
-		public Color BackgroundColor 
+		public Color BackgroundColor
 		{
 			get { return BackColor; }
 			set
@@ -56,7 +56,7 @@ namespace Glyssen.Controls
 		/// <para>Changes status to saving status for kMinimumSavingTime milliseconds.</para>
 		/// <para>If OnSaved is not called within kMinimumSavingTime milliseconds, status is changed to the saving-long-wait status.</para>
 		/// </summary>
-		/// <param name="requiresOnSaved">If false, status will automatically revert to saved status after kMinimumSavingTime milliseconds without further input. 
+		/// <param name="requiresOnSaved">If false, status will automatically revert to saved status after kMinimumSavingTime milliseconds without further input.
 		/// (In other words, setting this parameter to false is only intended deceptively to bring a sense of security to the user.)</param>
 		public void OnSaving(bool requiresOnSaved = true)
 		{
@@ -112,13 +112,13 @@ namespace Glyssen.Controls
 			else
 			{
 				ShowSavingLongWait();
-			}			
+			}
 		}
 
 		private void ShowSaving()
 		{
 			m_lbl.Text = m_savingLabelFmt;
-			m_lbl.ForeColor = Color.Yellow;			
+			m_lbl.ForeColor = Color.Yellow;
 		}
 
 		private void ShowSaved()

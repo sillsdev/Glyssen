@@ -241,7 +241,7 @@ namespace GlyssenTests.Character
 		{
 			var group = new CharacterGroup();
 			group.CharacterIds.Add("Rhoda"); // Female, YoungAdult
-			Assert.IsTrue(group.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Elder }, 
+			Assert.IsTrue(group.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Elder },
 				CharacterGenderMatchingOptions.Loose, CharacterAgeMatchingOptions.LooseExceptChild));
 		}
 

@@ -11,7 +11,7 @@ namespace Glyssen.Rules
 	{
 		private readonly Project m_project;
 		private readonly Dictionary<string, int> m_keyStrokesByCharacterId;
-		private readonly IComparer<string> m_characterIdComparer; 
+		private readonly IComparer<string> m_characterIdComparer;
 		private readonly Proximity m_proximity;
 
 		private static readonly SortedDictionary<int, IList<HashSet<string>>> s_charactersInClosedGroups;
@@ -38,7 +38,7 @@ namespace Glyssen.Rules
 		public List<CharacterGroup> GenerateCharacterGroups()
 		{
 			List<CharacterGroup> characterGroups = new List<CharacterGroup>();
-			
+
 			List<VoiceActor.VoiceActor> actors = m_project.VoiceActorList.Actors;
 
 			if (actors.Count == 0)
@@ -166,7 +166,7 @@ namespace Glyssen.Rules
 					numMatchingCharacterGroups += configuration.m_narratorsOrExtraActors.Count(a => a.Matches(characterDetail));
 					int numMatchingActors = actorsNeedingGroups.Count(a => a.Matches(characterDetail));
 					if (configuration.RemainingUsableActors > 0 &&
-					    (numMatchingActors == 0 || numMatchingCharacterGroups < numMatchingActors))
+						(numMatchingActors == 0 || numMatchingCharacterGroups < numMatchingActors))
 					{
 						var group = new CharacterGroup(characterGroups.Count + 1, m_characterIdComparer);
 						group.CharacterIds.Add(characterId);
@@ -185,7 +185,7 @@ namespace Glyssen.Rules
 				group.Closed = false;
 
 			groups.AddRange(CreateGroupsForCameoActors());
-			
+
 			return groups;
 		}
 
@@ -226,7 +226,7 @@ namespace Glyssen.Rules
 				{
 					if (configuration.RemainingUsableActors == 0)
 						break;
-		
+
 					var charactersToPutInGroup = characterSet.Where(c => includedCharacterDetails.Any(d => d.CharacterId == c)).ToList();
 
 					if (charactersToPutInGroup.Any())
@@ -345,7 +345,7 @@ namespace Glyssen.Rules
 				m_narratorsOrExtraActors.Add(new VoiceActor.VoiceActor { Gender = gender });
 			}
 
-			internal static List<TrialGroupConfiguration> GeneratePossibilities(List<CharacterGroup> predeterminedGroups, int nbrUnassignedActors, 
+			internal static List<TrialGroupConfiguration> GeneratePossibilities(List<CharacterGroup> predeterminedGroups, int nbrUnassignedActors,
 				int nbrAdultMaleActors, int nbrAdultFemaleActors, int numberOfNarratorGroups, int numberOfExtraGroups,
 				string anyNarratorBookId, string anyExtraBookId,
 				IComparer<string> characterComparer)
@@ -356,8 +356,8 @@ namespace Glyssen.Rules
 				var list = new List<TrialGroupConfiguration>(nbrConfigs);
 				for (int n = 0; n < nbrConfigs; n++)
 				{
-					var config = new TrialGroupConfiguration(predeterminedGroups, nbrUnassignedActors, 
-						numberOfNarratorGroups, numberOfExtraGroups, 
+					var config = new TrialGroupConfiguration(predeterminedGroups, nbrUnassignedActors,
+						numberOfNarratorGroups, numberOfExtraGroups,
 						anyNarratorBookId, anyExtraBookId,
 						characterComparer);
 

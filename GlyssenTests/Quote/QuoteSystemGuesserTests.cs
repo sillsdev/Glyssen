@@ -61,7 +61,7 @@ namespace GlyssenTests.Quote
 		/// <summary>
 		/// This is more of an acceptance test since it depends on randomly generated test data (to attempt
 		/// to simulate real data), and the interworking of the QuoteSystemGuesser and the CharacterVerseData class.
-		/// 
+		///
 		/// "מֵירְכָאוֹת (Curly) with levels 2 (’/‘) and 3." has to be excluded here because it is so similar to "Citation marks with levels 2 (’/’) and 3."
 		/// We still test it in the test which doesn't require certainty.
 		/// </summary>
@@ -374,7 +374,7 @@ namespace GlyssenTests.Quote
 					case 2:
 					case 3:
 					case 4:
-					case 5: 
+					case 5:
 						endQuote = QuotePosition.MiddleOfVerse;
 						break;
 					case 6:

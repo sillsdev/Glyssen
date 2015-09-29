@@ -1343,7 +1343,7 @@ namespace GlyssenTests
 			var mrkBlocks = new List<Block>();
 			mrkBlocks.Add(NewChapterBlock(5));
 			mrkBlocks.Add(NewSingleVersePara(35, "This block is not split"));
-			//                                        0         1         2     
+			//                                        0         1         2
 			//                                        01234567890123456789012345
 			var blockToSplit = NewSingleVersePara(36, "Before split: After Split");
 			mrkBlocks.Add(blockToSplit);
@@ -1369,7 +1369,7 @@ namespace GlyssenTests
 			Block previouslySplitBlock2 = NewSingleVersePara(35, "This block was split previously");
 			previouslySplitBlock2.SplitId = 5;
 			mrkBlocks.Add(previouslySplitBlock2);
-			//                                        0         1         2     
+			//                                        0         1         2
 			//                                        01234567890123456789012345
 			var blockToSplit = NewSingleVersePara(36, "Before split: After Split");
 			mrkBlocks.Add(blockToSplit);
@@ -1391,7 +1391,7 @@ namespace GlyssenTests
 			var mrkBlocks = new List<Block>();
 			mrkBlocks.Add(NewChapterBlock(5));
 			mrkBlocks.Add(NewSingleVersePara(35, "This block is not split"));
-			//                                        0         1         2     
+			//                                        0         1         2
 			//                                        01234567890123456789012345
 			var blockToSplit = NewSingleVersePara(36, "Before split: After Split");
 			blockToSplit.SplitId = 3;

@@ -392,7 +392,7 @@ namespace Glyssen.Quote
 		//	QuotationMark level1 = newSystem.FirstLevel;
 		//	QuotationMark level2 = null;
 		//	var level2Possibilities = QuoteUtils.GetLevel2Possibilities(level1);
-			
+
 		//	if (level2Possibilities == null)
 		//		return newSystem;
 		//	int count = level2Possibilities.Count();

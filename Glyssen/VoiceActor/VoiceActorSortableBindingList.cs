@@ -18,7 +18,7 @@ namespace Glyssen.VoiceActor
 		{
 		}
 
-		public IEnumerable<CharacterGroup> CharacterGroups { get; set; } 
+		public IEnumerable<CharacterGroup> CharacterGroups { get; set; }
 
 		protected override void ApplySortCore(PropertyDescriptor property, ListSortDirection direction)
 		{
