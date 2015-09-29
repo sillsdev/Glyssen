@@ -11,6 +11,7 @@ namespace GlyssenTests.Utilities
 		{
 			Assert.AreEqual(50, MathUtilities.Percent(1, 2));
 		}
+
 		[Test]
 		public void PercentAsDouble_ResultCalculatesCorrectly()
 		{

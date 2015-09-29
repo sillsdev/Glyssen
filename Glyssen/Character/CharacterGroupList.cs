@@ -25,7 +25,7 @@ namespace Glyssen.Character
 			var comparer = new CharacterByKeyStrokeComparer(keyStrokesByCharacterId);
 			var list = XmlSerializationHelper.DeserializeFromFile<CharacterGroupList>(filename);
 			foreach (var characterGroup in list.CharacterGroups)
-				characterGroup.CharacterIds.ToStringComparer = comparer;
+				characterGroup.CharacterIds.PriorityComparer = comparer;
 			return list;
 		}
 
@@ -55,11 +55,23 @@ namespace Glyssen.Character
 			return CharacterGroups.FirstOrDefault(g => g.CharacterIds.Contains(characterId));
 		}
 
+		public CharacterGroup GetGroupByName(string name)
+		{
+			return CharacterGroups.FirstOrDefault(g => g.Name == name);
+		}
+
+		/// <summary>
+		/// Note: There should only ever be one such group, but early on, Glyssen would allow the same
+		/// actor to be assigned to multiple groups, so for compatibility reasons, we allow for this.
+		public IEnumerable<CharacterGroup> GetGroupsAssignedToActor(int actorId)
+		{
+			return CharacterGroups.Where(g => g.VoiceActorId == actorId);
+		}
+
 		public void RemoveVoiceActor(int voiceActorId)
 		{
-			foreach (var group in CharacterGroups)
-				if (group.VoiceActorId == voiceActorId)
-					group.RemoveVoiceActor();
+			foreach (var group in GetGroupsAssignedToActor(voiceActorId))
+				group.RemoveVoiceActor();
 		}
 
 		public void PopulateEstimatedHours(Dictionary<string, int> keyStrokesByCharacterId)

@@ -477,7 +477,6 @@ namespace Glyssen.Dialogs
 
 		private System.Windows.Forms.Label m_lblInstructions;
 		private L10NSharp.UI.L10NSharpExtender m_l10NSharpExtender;
-		private System.Windows.Forms.SplitContainer splitContainer1;
 		private Controls.SaveStatus m_saveStatus;
 		private System.Windows.Forms.ToolTip m_toolTip;
 		private System.Windows.Forms.ContextMenuStrip m_contextMenuCharacterGroups;

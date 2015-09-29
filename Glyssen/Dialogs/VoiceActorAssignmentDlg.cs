@@ -47,7 +47,13 @@ namespace Glyssen.Dialogs
 			m_characterGroupGrid.DataSource = m_actorAssignmentViewModel.CharacterGroups;
 			m_characterGroupGrid.Sort(m_characterGroupGrid.Columns[EstimatedHoursCol.Name], ListSortDirection.Descending);
 
-			m_characterGroupGrid.CellValueChanged += (sender, args) => { Save(); };
+			m_characterGroupGrid.CellValueChanged += (sender, args) => { HandleDataChange(args); };
+		}
+
+		private void HandleDataChange(DataGridViewCellEventArgs args)
+		{
+			// TODO: Do we need this if we go virtual?
+			//m_v
 		}
 
 		private Image VoiceActorCol_GetSpecialDropDownImageToDraw(DataGridViewMultiColumnComboBoxColumn sender, int rowIndex)
@@ -67,8 +73,7 @@ namespace Glyssen.Dialogs
 
 		private void UnAssignActorsFromSelectedGroups()
 		{
-			foreach (var group in SelectedAssignedNonCameoGroups)
-				m_actorAssignmentViewModel.UnAssignActorFromGroup(group);
+			m_actorAssignmentViewModel.UnAssignActorFromGroups(SelectedAssignedNonCameoGroups);
 
 			m_characterGroupGrid.Refresh();
 		}
@@ -90,8 +95,6 @@ namespace Glyssen.Dialogs
 			using (var splitGroupDlg = new SplitCharacterGroupDlg(FirstSelectedCharacterGroup, m_actorAssignmentViewModel))
 				if (splitGroupDlg.ShowDialog(this) == DialogResult.OK)
 				{
-					Save();
-
 					// Refresh is not adding the new row for whatever reason
 					m_characterGroupGrid.DataSource = new BindingList<CharacterGroup>();
 					m_characterGroupGrid.DataSource = m_actorAssignmentViewModel.CharacterGroups;
@@ -156,7 +159,9 @@ namespace Glyssen.Dialogs
 				return;
 			IEnumerable<string> localizedCharacterIds = ctrl.SelectedItems.Cast<string>();
 			var characterIds = localizedCharacterIds.Select(lc => CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary[lc]);
-			if (m_actorAssignmentViewModel.MoveCharactersToGroup(characterIds.ToList(), m_actorAssignmentViewModel.AddNewGroup(), false))
+			bool charactersMoved;
+			m_actorAssignmentViewModel.AddNewGroup(characterIds, out charactersMoved);
+			if (charactersMoved)
 			{
 				m_characterGroupGrid.CurrentCell = m_characterGroupGrid.Rows[m_characterGroupGrid.RowCount-1].Cells[CharacterIdsCol.Name];
 				ExpandCurrentCharacterGroupRow();
@@ -183,7 +188,6 @@ namespace Glyssen.Dialogs
 		private void Save()
 		{
 			m_actorAssignmentViewModel.SaveAssignments();
-			m_characterGroupGrid.IsDirty = false;
 		}
 
 		private void VoiceActorAssignmentDlg_FormClosing(object sender, FormClosingEventArgs e)
@@ -236,6 +240,7 @@ namespace Glyssen.Dialogs
 		private void HandleModelSaved(object sender, EventArgs e)
 		{
 			m_saveStatus.OnSaved();
+			m_characterGroupGrid.IsDirty = false;
 		}
 
 		private void m_characterGroupGrid_KeyDown(object sender, KeyEventArgs e)
@@ -319,16 +324,24 @@ namespace Glyssen.Dialogs
 
 		private void HandleCharacterIdDrop(List<string> localizedCharacterIds, int rowIndex)
 		{
-			if (m_characterGroupGrid.Rows[rowIndex].IsNewRow)
-				m_actorAssignmentViewModel.AddNewGroup();
-
 			IList<string> characterIds = new List<string>(localizedCharacterIds.Count);
 			foreach (var localizedCharacterId in localizedCharacterIds)
 				characterIds.Add(CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary[localizedCharacterId]);
-			DataGridViewRow dropRow = m_characterGroupGrid.Rows[rowIndex];
-			CharacterGroup dropGroup = dropRow.DataBoundItem as CharacterGroup;
 
-			if (m_actorAssignmentViewModel.MoveCharactersToGroup(characterIds, dropGroup))
+			bool charactersMoved = false;
+			CharacterGroup dropGroup = null;
+			if (m_characterGroupGrid.Rows[rowIndex].IsNewRow)
+				dropGroup = m_actorAssignmentViewModel.AddNewGroup(characterIds, out charactersMoved);
+
+			DataGridViewRow dropRow = m_characterGroupGrid.Rows[rowIndex];
+			
+			if (dropGroup == null)
+			{
+				dropGroup = (CharacterGroup)dropRow.DataBoundItem;
+				charactersMoved = m_actorAssignmentViewModel.MoveCharactersToGroup(characterIds, dropGroup, true);
+			}
+
+			if (charactersMoved)
 			{
 				m_characterGroupGrid.CurrentCell = dropRow.Cells[CharacterIdsCol.Name];
 				ExpandCurrentCharacterGroupRow();

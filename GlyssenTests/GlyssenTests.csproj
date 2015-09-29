@@ -108,6 +108,8 @@
     <Compile Include="BookScriptTests.cs" />
     <Compile Include="Dialogs\BlockNavigatorViewModelTests.cs" />
     <Compile Include="Dialogs\AssignCharacterViewModelTests.cs" />
+    <Compile Include="Dialogs\RemoveVoiceActorAssignmentsUndoActionTests.cs" />
+    <Compile Include="Dialogs\VoiceActorAssignmentUndoActionTests.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentViewModelTests.cs" />
     <Compile Include="Dialogs\VoiceActorInformationViewModelTests.cs" />
     <Compile Include="ProjectExportTests.cs" />
@@ -123,6 +125,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\FileSystemUtilsTests.cs" />
     <Compile Include="Utilities\MathUtilitiesTests.cs" />
+    <Compile Include="Utilities\UndoStackTests.cs" />
     <Compile Include="Utilities\VerseRefExtensionsTests.cs" />
     <Compile Include="VoiceActor\VoiceActorListTests.cs" />
     <Compile Include="VoiceActor\VoiceActorTests.cs" />

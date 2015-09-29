@@ -24,7 +24,9 @@ namespace Glyssen.Dialogs
 	{
 		private readonly Project m_project;
 		private readonly Dictionary<string, int> m_keyStrokesByCharacterId;
+		private CharacterByKeyStrokeComparer m_characterByKeyStrokeComparer;
 		public EventHandler Saved;
+		private UndoStack m_undoStack = new UndoStack();
 
 		public VoiceActorAssignmentViewModel(Project project)
 		{
@@ -97,6 +99,19 @@ namespace Glyssen.Dialogs
 		public bool CanAssign { get; set; }
 
 		public SortableBindingList<CharacterGroup> CharacterGroups { get; set; }
+
+		public List<String> UndoActions { get { return m_undoStack.UndoDescriptions; } }
+		public List<String> RedoActions { get { return m_undoStack.RedoDescriptions; } }
+
+		private CharacterByKeyStrokeComparer ByKeyStrokeComparer
+		{
+			get 
+			{
+				if (m_characterByKeyStrokeComparer == null)
+					m_characterByKeyStrokeComparer = new CharacterByKeyStrokeComparer(m_keyStrokesByCharacterId);
+				return m_characterByKeyStrokeComparer;
+			}
+		}
 
 		public void RegenerateGroups(bool attemptToMaintainAssignments)
 		{
@@ -184,20 +199,29 @@ namespace Glyssen.Dialogs
 
 			// Add an extra group for any characters which weren't in the template
 			var unmatchedCharacters = includedCharacterIds.Except(matchedCharacterIds);
-			var unmatchedCharacterGroup = new CharacterGroup(999, new CharacterByKeyStrokeComparer(m_keyStrokesByCharacterId));
+			var unmatchedCharacterGroup = new CharacterGroup(999, ByKeyStrokeComparer);
 			unmatchedCharacterGroup.CharacterIds.AddRange(unmatchedCharacters);
 			CharacterGroups.Add(unmatchedCharacterGroup);
 		}
 
-		public CharacterGroup AddNewGroup()
+		public CharacterGroup AddNewGroup(IEnumerable<string> characterIds, out bool charactersMoved)
 		{
+			if (characterIds == null)
+				throw new ArgumentNullException("characterIds");
+
+			var characterList = characterIds.ToList();
+			if (!characterList.Any())
+				throw new ArgumentException("Group cannot be created with no characters.", "characterIds");
+
 			var newGroupNumber = 1;
 
 			while (CharacterGroups.Any(t => t.GroupNumber == newGroupNumber))
 				newGroupNumber++;
 
-			CharacterGroup newGroup = new CharacterGroup(newGroupNumber, new CharacterByKeyStrokeComparer(m_keyStrokesByCharacterId));
+			CharacterGroup newGroup = new CharacterGroup(newGroupNumber, ByKeyStrokeComparer);
 			CharacterGroups.Add(newGroup);
+
+			charactersMoved = MoveCharactersToGroup(characterList, newGroup);
 
 			return newGroup;
 		}
@@ -219,21 +243,26 @@ namespace Glyssen.Dialogs
 		{
 			if (CanAssign)
 			{
-				group.AssignVoiceActor(actor.Id);
+				// Note: Creating the undo action actually does the assignment.
+				m_undoStack.Push(new VoiceActorAssignmentUndoAction(m_project, group, actor.Id));
 				SaveAssignments();
 			}
 		}
 
-		public void UnAssignActorFromGroup(CharacterGroup group)
+		public void UnAssignActorFromGroups(IEnumerable<CharacterGroup> groups)
 		{
-			group.RemoveVoiceActor();
+			m_undoStack.Push(new RemoveVoiceActorAssignmentsUndoAction(m_project, groups));
 			SaveAssignments();
 		}
 
 		public void UnAssignActorFromGroup(int voiceActorId)
 		{
-			m_project.CharacterGroupList.RemoveVoiceActor(voiceActorId);
-			SaveAssignments();
+			var groups = m_project.CharacterGroupList.GetGroupsAssignedToActor(voiceActorId).ToList();
+			if (groups.Any())
+			{
+				m_undoStack.Push(new RemoveVoiceActorAssignmentsUndoAction(m_project, groups));
+				SaveAssignments();
+			}
 		}
 
 		public void MoveActorFromGroupToGroup(CharacterGroup sourceGroup, CharacterGroup destGroup, bool swap = false)
@@ -250,7 +279,7 @@ namespace Glyssen.Dialogs
 			SaveAssignments();
 		}
 
-		public bool MoveCharactersToGroup(IList<string> characterIds, CharacterGroup destGroup, bool confirmWithUser = true)
+		public bool MoveCharactersToGroup(IList<string> characterIds, CharacterGroup destGroup, bool confirmWithUser = false)
 		{
 			if (characterIds.Count == 0)
 				throw new ArgumentException("At least one characterId must be provided", "characterIds");
@@ -323,11 +352,13 @@ namespace Glyssen.Dialogs
 			return true;
 		}
 
-		public bool SplitGroup(CharacterGroup group, List<string> charactersToMove)
+		public bool SplitGroup(List<string> charactersToMove)
 		{
-			var newGroup = new CharacterGroup(0, new CharacterByKeyStrokeComparer(m_keyStrokesByCharacterId));
+			var newGroup = new CharacterGroup(0, ByKeyStrokeComparer);
 			m_project.CharacterGroupList.CharacterGroups.Add(newGroup);
-			return MoveCharactersToGroup(charactersToMove, newGroup, false);
+			var returnValue = MoveCharactersToGroup(charactersToMove, newGroup);
+			SaveAssignments();
+			return returnValue;
 		}
 
 		public void RemoveUnusedGroups()

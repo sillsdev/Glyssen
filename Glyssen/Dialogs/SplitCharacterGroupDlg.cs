@@ -54,7 +54,7 @@ namespace Glyssen.Dialogs
 
 		private void m_btnOk_Click(object sender, System.EventArgs e)
 		{
-			m_model.SplitGroup(m_existingGroup, m_listboxNew.Items.Cast<CharacterIds>().Select(c => c.CharacterId).ToList());
+			m_model.SplitGroup(m_listboxNew.Items.Cast<CharacterIds>().Select(c => c.CharacterId).ToList());
 		}
 
 		private class CharacterIds
