@@ -63,6 +63,7 @@ namespace Glyssen
 			using (new Analytics("WEyYj2BOnZAP9kplKmo2BDPvfyofbMZy", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }, allowTracking))
 #endif
 			{
+				Logger.Init();
 				SetUpErrorHandling();
 
 				var oldPgBaseFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
