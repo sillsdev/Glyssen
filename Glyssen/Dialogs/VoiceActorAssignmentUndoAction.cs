@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Glyssen.Character;
+using Glyssen.Utilities;
 using L10NSharp;
 
 namespace Glyssen.Dialogs
@@ -9,12 +11,14 @@ namespace Glyssen.Dialogs
 		private readonly Project m_project;
 		private readonly int m_newActorId;
 		private readonly int m_oldActorId;
+		private readonly string m_groupName;
 
 		public VoiceActorAssignmentUndoAction(Project project, CharacterGroup group, int newActorId)
 		{
 			m_project = project;
 			m_oldActorId = group.VoiceActorId;
 			m_newActorId = newActorId;
+			m_groupName = group.Name;
 			group.AssignVoiceActor(newActorId);
 		}
 
@@ -30,7 +34,16 @@ namespace Glyssen.Dialogs
 
 		public bool Undo()
 		{
-			var group = m_project.CharacterGroupList.CharacterGroups.SingleOrDefault(g => g.VoiceActorId == m_newActorId);
+			CharacterGroup group = null;
+			try
+			{
+				group = m_project.CharacterGroupList.CharacterGroups.SingleOrDefault(g => g.VoiceActorId == m_newActorId);
+			}
+			catch (InvalidOperationException)
+			{
+			}
+			if (group == null)
+				group = m_project.CharacterGroupList.GetGroupByName(m_groupName);
 			if (group == null)
 				return false;
 			group.AssignVoiceActor(m_oldActorId);
@@ -39,7 +52,16 @@ namespace Glyssen.Dialogs
 
 		public bool Redo()
 		{
-			var group = m_project.CharacterGroupList.CharacterGroups.SingleOrDefault(g => g.VoiceActorId == m_oldActorId);
+			CharacterGroup group = null;
+			try
+			{
+				group = m_project.CharacterGroupList.CharacterGroups.SingleOrDefault(g => g.VoiceActorId == m_oldActorId);
+			}
+			catch (InvalidOperationException)
+			{
+			}
+			if (group == null)
+				group = m_project.CharacterGroupList.GetGroupByName(m_groupName);
 			if (group == null)
 				return false;
 			group.AssignVoiceActor(m_newActorId);

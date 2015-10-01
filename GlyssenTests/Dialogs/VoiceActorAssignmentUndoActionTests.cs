@@ -9,14 +9,14 @@ namespace GlyssenTests.Dialogs
 	[TestFixture]
 	internal class VoiceActorAssignmentUndoActionTests
 	{
+		private Project m_testProject;
+
 		[SetUp]
 		public void Setup()
 		{
 			foreach (var group in m_testProject.CharacterGroupList.CharacterGroups)
 				group.RemoveVoiceActor();
 		}
-
-		private Project m_testProject;
 
 		[TestFixtureSetUp]
 		public void FixtureSetup()
@@ -30,12 +30,13 @@ namespace GlyssenTests.Dialogs
 			AddCharacterGroup("Jesus");
 		}
 
-		private void AddCharacterGroup(params string[] characterIds)
+		private CharacterGroup AddCharacterGroup(params string[] characterIds)
 		{
 			var group = new CharacterGroup();
 			foreach (var character in characterIds)
 				group.CharacterIds.Add(character);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(group);
+			return group;
 		}
 
 		[Test]
@@ -57,14 +58,40 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void Redo_GroupWithAssignmentSubsequentlySetToDifferentActor_AssignmentRestored()
+		{
+			var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
+			groupWithJesus.AssignVoiceActor(2);
+			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 3);// This will assign it to 3.
+			action.Undo(); // This will reassign it back to 2.
+			groupWithJesus.AssignVoiceActor(4);
+			Assert.IsTrue(action.Redo(), "This should still work because we can find the group by name");
+			Assert.AreEqual(3, groupWithJesus.VoiceActorId);
+		}
+
+		[Test]
+		public void Redo_GroupWithAssignmentSubsequentlyRenamed_AssignmentRestored()
+		{
+			var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
+			groupWithJesus.AssignVoiceActor(2);
+			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 3);// This will assign it to 3.
+			action.Undo(); // This will reassign it back to 2.
+			groupWithJesus.Name = "Son of God";
+			Assert.IsTrue(action.Redo(), "This should still work because we can find the group by actor");
+			Assert.AreEqual(3, groupWithJesus.VoiceActorId);
+		}
+
+		[Test]
 		public void Redo_GroupWithAssignmentNotFound_ReturnsFalse()
 		{
 			var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
 			groupWithJesus.AssignVoiceActor(2);
 			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 3);// This will assign it to 3.
 			action.Undo(); // This will reassign it back to 2.
-			groupWithJesus.AssignVoiceActor(3);
+			groupWithJesus.AssignVoiceActor(4);
+			groupWithJesus.Name = "Son of God";
 			Assert.IsFalse(action.Redo());
+			Assert.AreEqual(4, groupWithJesus.VoiceActorId);
 		}
 
 		[Test]
@@ -79,7 +106,7 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void Redo_PreviousAssignment_AssignmentCleared()
+		public void Redo_PreviousAssignment_AssignmentRestored()
 		{
 			var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
 			groupWithJesus.AssignVoiceActor(3);
@@ -90,12 +117,56 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void Redo_TwoGroupsWithSamePreviousAssignment_AssignmentRestoredOnlyToOriginalGroup()
+		{
+			var otherGroup = AddCharacterGroup("Jacob", "Barnabas");
+			try
+			{
+				var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
+				groupWithJesus.AssignVoiceActor(3);
+				otherGroup.AssignVoiceActor(3); // No longer possible via UI, but it used to be.
+				var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 2);
+				action.Undo();
+				Assert.IsTrue(action.Redo());
+				Assert.AreEqual(2, groupWithJesus.VoiceActorId);
+				Assert.AreEqual(3, otherGroup.VoiceActorId);
+			}
+			finally
+			{
+				m_testProject.CharacterGroupList.CharacterGroups.Remove(otherGroup);
+			}
+		}
+
+		[Test]
+		public void Redo_TwoGroupsWithSamePreviousAssignmentOriginalGroupRenamed_ReturnsFalse()
+		{
+			var otherGroup = AddCharacterGroup("Jacob", "Barnabas");
+			try
+			{
+				var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
+				groupWithJesus.AssignVoiceActor(3);
+				otherGroup.AssignVoiceActor(3); // No longer possible via UI, but it used to be.
+				var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 2);
+				action.Undo();
+				groupWithJesus.Name = "Divine Son of God";
+				Assert.IsFalse(action.Redo());
+				Assert.AreEqual(3, groupWithJesus.VoiceActorId);
+				Assert.AreEqual(3, otherGroup.VoiceActorId);
+			}
+			finally
+			{
+				m_testProject.CharacterGroupList.CharacterGroups.Remove(otherGroup);
+			}
+		}
+
+		[Test]
 		public void Undo_GroupWithAssignmentNotFound_ReturnsFalse()
 		{
 			var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
 			groupWithJesus.AssignVoiceActor(2);
 			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 3);// This will assign it to 3.
 			groupWithJesus.AssignVoiceActor(2);
+			groupWithJesus.Name = "Friend of Sinners";
 			Assert.IsFalse(action.Undo());
 		}
 
@@ -118,6 +189,26 @@ namespace GlyssenTests.Dialogs
 			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 2);
 			Assert.IsTrue(action.Undo());
 			Assert.AreEqual(3, groupWithJesus.VoiceActorId);
+		}
+
+		[Test]
+		public void Undo_AssignActorAlreadyAssignedToAnotherGroup_AssignmentRestoredOnOriginalGroup()
+		{
+			var otherGroup = AddCharacterGroup("Jacob", "Barnabas");
+			try
+			{
+				var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
+				groupWithJesus.AssignVoiceActor(3);
+				otherGroup.AssignVoiceActor(2);
+				var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 2); // UI shouldn't allow this.
+				Assert.IsTrue(action.Undo());
+				Assert.AreEqual(3, groupWithJesus.VoiceActorId);
+				Assert.AreEqual(2, otherGroup.VoiceActorId);
+			}
+			finally
+			{
+				m_testProject.CharacterGroupList.CharacterGroups.Remove(otherGroup);
+			}
 		}
 	}
 }

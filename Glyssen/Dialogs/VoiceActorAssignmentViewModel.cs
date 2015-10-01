@@ -10,18 +10,31 @@ using System.Windows.Forms;
 using Glyssen.Character;
 using Glyssen.Properties;
 using Glyssen.Rules;
+using Glyssen.Utilities;
 using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.Extensions;
 using SIL.IO;
-using SIL.ObjectModel;
 using SIL.Scripture;
 using SIL.Windows.Forms.Progress;
 
 namespace Glyssen.Dialogs
 {
+	#region SortBy enumeration
+	public enum SortedBy
+	{
+		Name,
+		Attributes,
+		EstimatedTime,
+		Actor,
+	}
+	#endregion
+
 	public class VoiceActorAssignmentViewModel
 	{
+		private const int kAscending = 1;
+		private const int kDescending = -1;
+
 		private readonly Project m_project;
 		private readonly Dictionary<string, int> m_keyStrokesByCharacterId;
 		private CharacterByKeyStrokeComparer m_characterByKeyStrokeComparer;
@@ -35,7 +48,6 @@ namespace Glyssen.Dialogs
 
 			m_keyStrokesByCharacterId = m_project.GetKeyStrokesByCharacterId();
 
-			CharacterGroups = new SortableBindingList<CharacterGroup>(m_project.CharacterGroupList.CharacterGroups);
 			if (!CharacterGroups.Any())
 				GenerateGroupsWithProgress();
 
@@ -98,7 +110,7 @@ namespace Glyssen.Dialogs
 
 		public bool CanAssign { get; set; }
 
-		public SortableBindingList<CharacterGroup> CharacterGroups { get; set; }
+		public List<CharacterGroup> CharacterGroups { get { return m_project.CharacterGroupList.CharacterGroups; } }
 
 		public List<String> UndoActions { get { return m_undoStack.UndoDescriptions; } }
 		public List<String> RedoActions { get { return m_undoStack.RedoDescriptions; } }
@@ -236,15 +248,31 @@ namespace Glyssen.Dialogs
 
 		public bool IsActorAssigned(int voiceActorId)
 		{
-			return voiceActorId > -1 && m_project.CharacterGroupList.HasVoiceActorAssigned(voiceActorId);
+			return voiceActorId > CharacterGroup.kNoActorAssigned && m_project.CharacterGroupList.HasVoiceActorAssigned(voiceActorId);
 		}
 
-		public void AssignActorToGroup(VoiceActor.VoiceActor actor, CharacterGroup group)
+		public void AssignActorToGroup(int actorId, CharacterGroup group)
 		{
 			if (CanAssign)
 			{
-				// Note: Creating the undo action actually does the assignment.
-				m_undoStack.Push(new VoiceActorAssignmentUndoAction(m_project, group, actor.Id));
+				RemoveVoiceActorAssignmentsUndoAction undoActionForRemovingPreviousAssignments = null;
+				if (actorId == CharacterGroup.kNoActorAssigned)
+					m_undoStack.Push(new RemoveVoiceActorAssignmentsUndoAction(m_project, group));
+				else
+				{
+					var groups = m_project.CharacterGroupList.GetGroupsAssignedToActor(actorId).ToList();
+					if (groups.Any())
+						undoActionForRemovingPreviousAssignments = new RemoveVoiceActorAssignmentsUndoAction(m_project, groups);
+
+					// Note: Creating the undo action actually does the assignment.
+					var undoActionForNewAssignment = new VoiceActorAssignmentUndoAction(m_project, group, actorId);
+					if (undoActionForRemovingPreviousAssignments == null)
+						m_undoStack.Push(undoActionForNewAssignment);
+					else
+					{
+						m_undoStack.Push(new UndoActionSequence(undoActionForRemovingPreviousAssignments, undoActionForNewAssignment));
+					}
+				}
 				SaveAssignments();
 			}
 		}
@@ -253,16 +281,6 @@ namespace Glyssen.Dialogs
 		{
 			m_undoStack.Push(new RemoveVoiceActorAssignmentsUndoAction(m_project, groups));
 			SaveAssignments();
-		}
-
-		public void UnAssignActorFromGroup(int voiceActorId)
-		{
-			var groups = m_project.CharacterGroupList.GetGroupsAssignedToActor(voiceActorId).ToList();
-			if (groups.Any())
-			{
-				m_undoStack.Push(new RemoveVoiceActorAssignmentsUndoAction(m_project, groups));
-				SaveAssignments();
-			}
 		}
 
 		public void MoveActorFromGroupToGroup(CharacterGroup sourceGroup, CharacterGroup destGroup, bool swap = false)
@@ -409,6 +427,57 @@ namespace Glyssen.Dialogs
 				GetUiStringForActorAge(actor.Age),
 				actor.IsCameo ? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Cameo", "Cameo") : ""
 			};
+		}
+
+		public void Sort(SortedBy by, bool sortAscending)
+		{
+			Comparison<CharacterGroup> how;
+			int direction = sortAscending ? kAscending : kDescending;
+			switch (by)
+			{
+				case SortedBy.Name:
+					how = (a, b) => String.Compare(a.Name, b.Name, StringComparison.CurrentCulture) * direction;
+					break;
+				case SortedBy.Attributes:
+					how = (a, b) => String.Compare(a.AttributesDisplay, b.AttributesDisplay, StringComparison.CurrentCulture) * direction;
+					break;
+				case SortedBy.Actor:
+					how = (a, b) =>
+					{
+						var actorA = m_project.VoiceActorList.GetVoiceActorById(a.VoiceActorId);
+						var nameA = actorA == null ? String.Empty : actorA.Name;
+						var actorB = m_project.VoiceActorList.GetVoiceActorById(b.VoiceActorId);
+						var nameB = actorB == null ? String.Empty : actorB.Name;
+						return String.Compare(nameA, nameB, StringComparison.CurrentCulture) * direction;
+					};
+					break;
+				case SortedBy.EstimatedTime:
+					how = (a, b) => a.EstimatedHours.CompareTo(b.EstimatedHours) * direction;
+					break;
+				default:
+					throw new ArgumentException("Unexpected sorting method", "by");
+			}
+			CharacterGroups.Sort(how);
+		}
+
+		public bool Undo()
+		{
+			if (m_undoStack.CanUndo && m_undoStack.Undo())
+			{
+				SaveAssignments();
+				return true;
+			}
+			return false;
+		}
+
+		public bool Redo()
+		{
+			if (m_undoStack.CanRedo && m_undoStack.Redo())
+			{
+				SaveAssignments();
+				return true;
+			}
+			return false;
 		}
 	}
 }

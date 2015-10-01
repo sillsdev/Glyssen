@@ -112,11 +112,48 @@ namespace GlyssenTests.Dialogs
 			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Puni Upalari" };
 			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actor1 };
 			var group = m_model.CharacterGroups[0];
-			m_model.AssignActorToGroup(actor1, group);
+			m_model.AssignActorToGroup(actor1.Id, group);
 			Assert.AreEqual(actor1.Id, group.VoiceActorId);
 			var undoDescriptions = m_model.UndoActions;
 			Assert.AreEqual(1, undoDescriptions.Count);
 			Assert.AreEqual("Assign voice actor Puni Upalari", undoDescriptions[0]);
+		}
+
+		[Test]
+		public void AssignActorToGroup_ExistingGroupAssignedToActor_ActorUnassignedFromPreviousGroupAndAssignedToRequestedGroup()
+		{
+			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Eduardo Lopez" };
+			m_testProject.VoiceActorList.Actors.Add(actor1);
+			var existingGroup = m_model.CharacterGroups[0];
+			existingGroup.VoiceActorId = 1;
+			var newGroup = new CharacterGroup(42) { Name = "New group" };
+			m_testProject.CharacterGroupList.CharacterGroups.Add(newGroup);
+			m_model.AssignActorToGroup(1, newGroup);
+			Assert.AreEqual(1, newGroup.VoiceActorId);
+			Assert.AreEqual(1, m_model.UndoActions.Count);
+			Assert.AreEqual("Assign voice actor Eduardo Lopez", m_model.UndoActions[0]);
+			Assert.False(existingGroup.IsVoiceActorAssigned);
+		}
+
+		[Test]
+		public void Undo_AssignActorToGroup_ExistingGroupAssignedToActor_ActorUnassignedFromAssignedGroupAndReassignedToPreviousGroup()
+		{
+			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Eduardo Lopez" };
+			m_testProject.VoiceActorList.Actors.Add(actor1);
+			var existingGroup = m_model.CharacterGroups[0];
+			existingGroup.VoiceActorId = 1;
+			var newGroup = new CharacterGroup(42) { Name = "New group" };
+			m_testProject.CharacterGroupList.CharacterGroups.Add(newGroup);
+			m_model.AssignActorToGroup(1, newGroup);
+			bool savedCalled = false;
+			m_model.Saved += (sender, args) => { savedCalled = true; };
+			Assert.IsTrue(m_model.Undo());
+			Assert.AreEqual(0, m_model.UndoActions.Count);
+			Assert.AreEqual(1, m_model.RedoActions.Count);
+			Assert.AreEqual("Assign voice actor Eduardo Lopez", m_model.RedoActions[0]);
+			Assert.False(newGroup.IsVoiceActorAssigned);
+			Assert.AreEqual(1, existingGroup.VoiceActorId);
+			Assert.IsTrue(savedCalled);
 		}
 
 		[Test]
@@ -126,25 +163,25 @@ namespace GlyssenTests.Dialogs
 			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Charlotte Pohlig" };
 			m_testProject.VoiceActorList.Actors.Add(actor1);
 			var group = m_model.CharacterGroups[0];
-			m_model.AssignActorToGroup(actor1, group);
+			m_model.AssignActorToGroup(actor1.Id, group);
 			Assert.False(group.IsVoiceActorAssigned);
 			m_model.CanAssign = true;
 		}
 
 		[Test]
-		public void UnAssignActorFromGroup_ByGroup()
+		public void UnAssignActorFromGroups_ByGroup()
 		{
 			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Marco Polo" };
 			m_testProject.VoiceActorList.Actors.Add(actor1);
 			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "Wilbur Wright" };
 			m_testProject.VoiceActorList.Actors.Add(actor2);
 			var group1 = m_model.CharacterGroups[0];
-			m_model.AssignActorToGroup(actor2, group1);
+			m_model.AssignActorToGroup(actor2.Id, group1);
 			Assert.True(group1.IsVoiceActorAssigned);
 			var group2 = new CharacterGroup(567);
 			group2.CharacterIds.Add("Nocodemus");
 			m_testProject.CharacterGroupList.CharacterGroups.Add(group2);
-			m_model.AssignActorToGroup(actor1, group2);
+			m_model.AssignActorToGroup(actor1.Id, group2);
 			Assert.True(group2.IsVoiceActorAssigned);
 			Assert.AreEqual(2, m_model.UndoActions.Count);
 
@@ -155,18 +192,18 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void UnAssignActorFromGroup_GroupsContainsCameoGroup_CameoGroupNotUnassigned()
+		public void UnAssignActorFromGroups_GroupsContainsCameoGroup_CameoGroupNotUnassigned()
 		{
 			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Marco Polo" };
 			m_testProject.VoiceActorList.Actors.Add(actor1);
 			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "Wilbur Wright" };
 			m_testProject.VoiceActorList.Actors.Add(actor2);
 			var group1 = m_model.CharacterGroups[0];
-			m_model.AssignActorToGroup(actor2, group1);
+			m_model.AssignActorToGroup(actor2.Id, group1);
 			Assert.True(group1.IsVoiceActorAssigned);
 			var cameoGroup = new CharacterGroup(567);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(cameoGroup);
-			m_model.AssignActorToGroup(actor1, cameoGroup);
+			m_model.AssignActorToGroup(actor1.Id, cameoGroup);
 			Assert.True(cameoGroup.IsVoiceActorAssigned);
 			Assert.AreEqual(2, m_model.UndoActions.Count);
 
@@ -174,21 +211,6 @@ namespace GlyssenTests.Dialogs
 			Assert.False(group1.IsVoiceActorAssigned);
 			Assert.True(cameoGroup.IsVoiceActorAssigned);
 			Assert.AreEqual(3, m_model.UndoActions.Count);
-		}
-
-		[Test]
-		public void UnAssignActorFromGroup_ByActor()
-		{
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1 };
-			m_testProject.VoiceActorList.Actors.Add(actor1);
-			var group = m_model.CharacterGroups[0];
-			m_model.AssignActorToGroup(actor1, group);
-			Assert.True(group.IsVoiceActorAssigned);
-			Assert.AreEqual(1, m_model.UndoActions.Count);
-
-			m_model.UnAssignActorFromGroup(actor1.Id);
-			Assert.False(group.IsVoiceActorAssigned);
-			Assert.AreEqual(2, m_model.UndoActions.Count);
 		}
 
 		[Test]
@@ -438,7 +460,7 @@ namespace GlyssenTests.Dialogs
 			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actorB, actorC, actorA };
 			m_model.RegenerateGroups(false);
 			var group = m_model.CharacterGroups[0];
-			m_model.AssignActorToGroup(actorA, group);
+			m_model.AssignActorToGroup(actorA.Id, group);
 
 			var dataTable = m_model.GetMultiColumnActorDataTable(m_model.CharacterGroups[0]);
 			var actorList = GetActorListFromDataTable(dataTable);

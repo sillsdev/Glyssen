@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Glyssen;
+using Glyssen.Utilities;
 using NUnit.Framework;
 using Rhino.Mocks;
 
@@ -270,7 +267,7 @@ namespace GlyssenTests.Utilities
 			}));
 			action.Stub(a => a.Redo()).Do(new Func<bool>(() =>
 			{
-				m_actionsTaken.Add((!expectedUndoResult ? "Failed to redo " : "Redo ") + description);
+				m_actionsTaken.Add((!expectedRedoResult ? "Failed to redo " : "Redo ") + description);
 				return expectedRedoResult;
 			}));
 			return action;

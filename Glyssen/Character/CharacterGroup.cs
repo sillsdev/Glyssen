@@ -5,13 +5,12 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using Glyssen.Rules;
-using L10NSharp;
 
 namespace Glyssen.Character
 {
 	public class CharacterGroup
 	{
-		private const int kNoActorAssigned = -1;
+		public const int kNoActorAssigned = -1;
 		private bool m_closed;
 
 		//For Serialization

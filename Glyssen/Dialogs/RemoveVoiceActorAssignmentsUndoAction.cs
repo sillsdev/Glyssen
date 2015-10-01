@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Character;
+using Glyssen.Utilities;
 using L10NSharp;
 
 namespace Glyssen.Dialogs

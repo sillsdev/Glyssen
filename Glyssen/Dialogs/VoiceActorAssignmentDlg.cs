@@ -24,6 +24,9 @@ namespace Glyssen.Dialogs
 		{
 			InitializeComponent();
 
+			m_undoButton.Tag = Keys.Z;
+			m_redoButton.Tag = Keys.Y;
+
 			m_characterGroupGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 
 			m_project = project;
@@ -44,8 +47,8 @@ namespace Glyssen.Dialogs
 			// Sadly, we have to do this here because setting it in the Designer doesn't work since BetterGrid overrides
 			// the default value in its constructor.
 			m_characterGroupGrid.MultiSelect = true;
-			m_characterGroupGrid.DataSource = m_actorAssignmentViewModel.CharacterGroups;
-			m_characterGroupGrid.Sort(m_characterGroupGrid.Columns[EstimatedHoursCol.Name], ListSortDirection.Descending);
+			SortByColumn(EstimatedHoursCol, false);
+			m_characterGroupGrid.RowCount = m_actorAssignmentViewModel.CharacterGroups.Count;
 
 			m_characterGroupGrid.CellValueChanged += (sender, args) => { HandleDataChange(args); };
 		}
@@ -67,7 +70,7 @@ namespace Glyssen.Dialogs
 			{
 				if (m_characterGroupGrid.SelectedRows.Count == 0)
 					return null;
-				return m_characterGroupGrid.SelectedRows[0].DataBoundItem as CharacterGroup;
+				return m_actorAssignmentViewModel.CharacterGroups[m_characterGroupGrid.SelectedRows[0].Index];
 			}
 		}
 
@@ -94,11 +97,7 @@ namespace Glyssen.Dialogs
 		{
 			using (var splitGroupDlg = new SplitCharacterGroupDlg(FirstSelectedCharacterGroup, m_actorAssignmentViewModel))
 				if (splitGroupDlg.ShowDialog(this) == DialogResult.OK)
-				{
-					// Refresh is not adding the new row for whatever reason
-					m_characterGroupGrid.DataSource = new BindingList<CharacterGroup>();
-					m_characterGroupGrid.DataSource = m_actorAssignmentViewModel.CharacterGroups;
-				}
+					m_characterGroupGrid.Refresh();
 		}
 
 		private void m_contextMenuCharacterGroups_Opening(object sender, CancelEventArgs e)
@@ -121,7 +120,7 @@ namespace Glyssen.Dialogs
 			{
 				for (int i = 0; i < m_characterGroupGrid.SelectedRows.Count; i++)
 				{
-					var group = m_characterGroupGrid.SelectedRows[i].DataBoundItem as CharacterGroup;
+					var group = m_actorAssignmentViewModel.CharacterGroups[m_characterGroupGrid.SelectedRows[i].Index];
 					if (group.IsVoiceActorAssigned && !m_project.IsCharacterGroupAssignedToCameoActor(group))
 						yield return group;
 				}
@@ -176,11 +175,10 @@ namespace Glyssen.Dialogs
 					(updateDlg.SelectedOption == UpdateCharacterGroupsDlg.SelectionType.AutoGenAndMaintain ||
 					updateDlg.SelectedOption == UpdateCharacterGroupsDlg.SelectionType.AutoGen))
 				{
-					m_characterGroupGrid.DataSource = new BindingList<CharacterGroup>();
 					m_actorAssignmentViewModel.RegenerateGroups(updateDlg.SelectedOption == UpdateCharacterGroupsDlg.SelectionType.AutoGenAndMaintain);
-					m_characterGroupGrid.DataSource = m_actorAssignmentViewModel.CharacterGroups;
-					Save();
 					RefreshCharacterGroupSort();
+					m_characterGroupGrid.Refresh();
+					Save();
 				}
 			}
 		}
@@ -232,7 +230,7 @@ namespace Glyssen.Dialogs
 				m_characterGroupGrid.BeginEdit(false);
 		}
 
-		public void RefreshCharacterGroupSort()
+		private void RefreshCharacterGroupSort()
 		{
 			m_characterGroupGrid.Sort(m_characterGroupGrid.SortedColumn, m_characterGroupGrid.SortOrder == SortOrder.Ascending ? ListSortDirection.Ascending : ListSortDirection.Descending);
 		}
@@ -241,6 +239,8 @@ namespace Glyssen.Dialogs
 		{
 			m_saveStatus.OnSaved();
 			m_characterGroupGrid.IsDirty = false;
+			m_undoButton.Enabled = m_actorAssignmentViewModel.UndoActions.Any();
+			m_redoButton.Enabled = m_actorAssignmentViewModel.RedoActions.Any();
 		}
 
 		private void m_characterGroupGrid_KeyDown(object sender, KeyEventArgs e)
@@ -337,7 +337,7 @@ namespace Glyssen.Dialogs
 			
 			if (dropGroup == null)
 			{
-				dropGroup = (CharacterGroup)dropRow.DataBoundItem;
+				dropGroup = m_actorAssignmentViewModel.CharacterGroups[rowIndex];
 				charactersMoved = m_actorAssignmentViewModel.MoveCharactersToGroup(characterIds, dropGroup, true);
 			}
 
@@ -366,7 +366,7 @@ namespace Glyssen.Dialogs
 				if (e.Data.GetDataPresent(typeof(CharacterGroup)))
 				{
 					var sourceGroup = e.Data.GetData(typeof(CharacterGroup)) as CharacterGroup;
-					var destinationGroup = m_characterGroupGrid.Rows[hitInfo.RowIndex].DataBoundItem as CharacterGroup;
+					var destinationGroup = m_actorAssignmentViewModel.CharacterGroups[hitInfo.RowIndex];
 
 					m_actorAssignmentViewModel.MoveActorFromGroupToGroup(sourceGroup, destinationGroup);
 
@@ -387,7 +387,7 @@ namespace Glyssen.Dialogs
 				{
 					//Although the DataGridViewListBox usually handles the drag and drop, it only does so when the cell has focus.
 					//In this case, the user starts dragging the first character ID even before selecting the row
-					var group = m_characterGroupGrid.Rows[hitInfo.RowIndex].DataBoundItem as CharacterGroup;
+					var group = m_actorAssignmentViewModel.CharacterGroups[hitInfo.RowIndex];
 					if (group == null)
 						return;
 					string characterId = group.CharacterIds.ToList().FirstOrDefault();
@@ -430,7 +430,6 @@ namespace Glyssen.Dialogs
 						e.Cancel = true;
 						return;
 					}
-					m_actorAssignmentViewModel.UnAssignActorFromGroup(voiceActorId);
 				}
 
 				m_characterGroupGrid.Refresh();
@@ -439,7 +438,7 @@ namespace Glyssen.Dialogs
 
 		private void m_characterGroupGrid_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
 		{
-			var group = m_characterGroupGrid.Rows[e.RowIndex].DataBoundItem as CharacterGroup;
+			var group = m_actorAssignmentViewModel.CharacterGroups[e.RowIndex];
 			var isCameo = group != null && m_project.IsCharacterGroupAssignedToCameoActor(group);
 			// Need to check before setting to avoid making it impossible to open the drop-down list.
 			if (m_characterGroupGrid.Rows[e.RowIndex].Cells[VoiceActorCol.Name].ReadOnly != isCameo)
@@ -454,6 +453,73 @@ namespace Glyssen.Dialogs
 		private void m_characterGroupGrid_SelectionChanged(object sender, EventArgs e)
 		{
 			m_splitSelectedGroupButton.Enabled = m_characterGroupGrid.SelectedRows.Count == 1 && FirstSelectedCharacterGroup.CharacterIds.Count > 1;
+		}
+
+		private void m_characterGroupGrid_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
+		{
+			if (e.ColumnIndex == CharacterIdsCol.Index)
+				e.Value = m_actorAssignmentViewModel.CharacterGroups[e.RowIndex].CharacterIds;
+			else if (e.ColumnIndex == AttributesCol.Index)
+				e.Value = m_actorAssignmentViewModel.CharacterGroups[e.RowIndex].AttributesDisplay;
+			else if (e.ColumnIndex == CharStatusCol.Index)
+				e.Value = m_actorAssignmentViewModel.CharacterGroups[e.RowIndex].StatusDisplay;
+			else if (e.ColumnIndex == EstimatedHoursCol.Index)
+				e.Value = m_actorAssignmentViewModel.CharacterGroups[e.RowIndex].EstimatedHours;
+			else if (e.ColumnIndex == VoiceActorCol.Index)
+				e.Value = m_actorAssignmentViewModel.CharacterGroups[e.RowIndex].VoiceActorId;
+		}
+
+		private void m_characterGroupGrid_CellValuePushed(object sender, DataGridViewCellValueEventArgs e)
+		{
+			if (e.ColumnIndex == VoiceActorCol.Index)
+				m_actorAssignmentViewModel.AssignActorToGroup((int)e.Value, m_actorAssignmentViewModel.CharacterGroups[e.RowIndex]);
+		}
+
+		private void HandleGridColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			if (e.Button != MouseButtons.Left)
+				return;
+			var clickedColumn = m_characterGroupGrid.Columns[e.ColumnIndex];
+			if (clickedColumn.SortMode == DataGridViewColumnSortMode.NotSortable)
+				return;
+
+			// We generally want to sort ascending unless it already was ascending, but for estimated
+			// hours, we want descending to be the default.
+			bool sortAscending = (clickedColumn == EstimatedHoursCol) ? (clickedColumn.HeaderCell.SortGlyphDirection == SortOrder.Descending) :
+				(clickedColumn.HeaderCell.SortGlyphDirection != SortOrder.Ascending);
+			if (sortAscending)
+			{
+				foreach (var column in m_characterGroupGrid.Columns.OfType<DataGridViewColumn>())
+				{
+					if (column != clickedColumn)
+						column.HeaderCell.SortGlyphDirection = SortOrder.None;
+				}
+			}
+
+			SortByColumn(clickedColumn, sortAscending);
+			m_characterGroupGrid.Refresh();
+		}
+
+		private void SetVoiceActorCellDataSource()
+		{
+			Debug.Assert(m_characterGroupGrid.CurrentRow != null);
+			var group = m_actorAssignmentViewModel.CharacterGroups[m_characterGroupGrid.CurrentCellAddress.Y];
+			var cell = (DataGridViewComboBoxCell)m_characterGroupGrid.CurrentCell;
+			cell.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(group);
+		}
+
+		private void SortByColumn(DataGridViewColumn column, bool sortAscending)
+		{
+			column.HeaderCell.SortGlyphDirection = sortAscending ? SortOrder.Ascending : SortOrder.Descending;
+
+			if (column == AttributesCol)
+				m_actorAssignmentViewModel.Sort(SortedBy.Attributes, sortAscending);
+			else if (column == EstimatedHoursCol)
+				m_actorAssignmentViewModel.Sort(SortedBy.EstimatedTime, sortAscending);
+			else if (column == VoiceActorCol)
+				m_actorAssignmentViewModel.Sort(SortedBy.Actor, sortAscending);
+			else
+				m_actorAssignmentViewModel.Sort(SortedBy.Name, sortAscending);
 		}
 		#endregion
 
@@ -479,12 +545,32 @@ namespace Glyssen.Dialogs
 				ExpandCurrentCharacterGroupRow();
 		}
 
-		private void SetVoiceActorCellDataSource()
+		private void HandleUndoButtonClick(object sender, EventArgs e)
 		{
-			Debug.Assert(m_characterGroupGrid.CurrentRow != null);
-			var group = (CharacterGroup)m_characterGroupGrid.CurrentRow.DataBoundItem;
-			var cell = (DataGridViewComboBoxCell)m_characterGroupGrid.CurrentCell;
-			cell.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(group);
+			if (m_actorAssignmentViewModel.Undo())
+				m_characterGroupGrid.Refresh();
+		}
+
+		private void HandleRedoButtonClick(object sender, EventArgs e)
+		{
+			if (m_actorAssignmentViewModel.Redo())
+				m_characterGroupGrid.Refresh();
+		}
+
+		protected override void OnKeyDown(KeyEventArgs e)
+		{
+			if (e.Control)
+			{
+				foreach (var item in m_toolStrip.Items.OfType<ToolStripItem>().Where(i => i.Tag is Keys))
+				{
+					if (e.KeyCode == (Keys)item.Tag)
+					{
+						item.PerformClick();
+						return;
+					}
+				}
+			}
+			base.OnKeyDown(e);
 		}
 	}
 }

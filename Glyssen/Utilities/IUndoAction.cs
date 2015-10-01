@@ -1,4 +1,4 @@
-﻿namespace Glyssen
+﻿namespace Glyssen.Utilities
 {
 	public interface IUndoAction
 	{
