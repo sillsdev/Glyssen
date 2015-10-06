@@ -30,9 +30,7 @@ namespace GlyssenTests.Dialogs
 			m_testProject.VoiceActorList.Actors.Clear();
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 			// Adding one group here prevents the constructor from generating groups
-			var group = new CharacterGroup(1);
-			group.CharacterIds.Add("John"); // Need a character in the group, otherwise it is treated as a Cameo group and it's not legal to assign/unassign actor.
-			m_testProject.CharacterGroupList.CharacterGroups.Add(group);
+			AddNewGroup("John"); // Need a character in the group, otherwise it is treated as a Cameo group and it's not legal to assign/unassign actor.
 			m_model = new VoiceActorAssignmentViewModel(m_testProject);
 		}
 
@@ -40,70 +38,6 @@ namespace GlyssenTests.Dialogs
 		public void TestFixtureTearDown()
 		{
 			TestProject.DeleteTestProjectFolder();
-		}
-
-		[Test]
-		public void AddNewGroup_NewGroupIsAddedToProject()
-		{
-			Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
-			bool charactersMoved;
-			var newGroup = m_model.AddNewGroup(new [] {"ear"}, out charactersMoved);
-			Assert.IsFalse(charactersMoved, "In real life, we'd expect true, but in this test, \"ear\" is never added to a group.");
-			Assert.AreEqual(2, m_testProject.CharacterGroupList.CharacterGroups.Count);
-			Assert.AreEqual(newGroup, m_testProject.CharacterGroupList.CharacterGroups[1]);
-		}
-
-		[Test]
-		public void AddNewGroup_CharactersMovedFromOriginalGroup()
-		{
-			var characterIds = new List<string> { "John", "Andrew" };
-			var sourceGroup = m_model.CharacterGroups[0];
-			sourceGroup.CharacterIds = new CharacterIdHashSet(characterIds);
-			bool charactersMoved;
-			var destGroup = m_model.AddNewGroup(characterIds, out charactersMoved);
-
-			Assert.True(charactersMoved);
-
-			var destGroupCharacterIds = destGroup.CharacterIds;
-			Assert.AreEqual(2, destGroup.CharacterIds.Count);
-			Assert.True(destGroupCharacterIds.Contains("John"));
-			Assert.True(destGroupCharacterIds.Contains("Andrew"));
-		}
-
-		[Test]
-		public void MoveActorFromGroupToGroup_SwapTrue()
-		{
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1 };
-			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2 };
-			var sourceGroup = m_model.CharacterGroups[0];
-			sourceGroup.AssignVoiceActor(actor1.Id);
-			var destGroup = new CharacterGroup(567);
-			m_testProject.CharacterGroupList.CharacterGroups.Add(destGroup);
-			destGroup.AssignVoiceActor(actor2.Id);
-
-			Assert.AreEqual(actor1.Id, sourceGroup.VoiceActorId);
-			Assert.AreEqual(actor2.Id, destGroup.VoiceActorId);
-			m_model.MoveActorFromGroupToGroup(sourceGroup, destGroup, true);
-			Assert.AreEqual(actor2.Id, sourceGroup.VoiceActorId);
-			Assert.AreEqual(actor1.Id, destGroup.VoiceActorId);
-		}
-
-		[Test]
-		public void MoveActorFromGroupToGroup_SwapFalse()
-		{
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1 };
-			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2 };
-			var sourceGroup = m_model.CharacterGroups[0];
-			sourceGroup.AssignVoiceActor(actor1.Id);
-			var destGroup = new CharacterGroup(567);
-			m_testProject.CharacterGroupList.CharacterGroups.Add(destGroup);
-			destGroup.AssignVoiceActor(actor2.Id);
-
-			Assert.AreEqual(actor1.Id, sourceGroup.VoiceActorId);
-			Assert.AreEqual(actor2.Id, destGroup.VoiceActorId);
-			m_model.MoveActorFromGroupToGroup(sourceGroup, destGroup);
-			Assert.False(sourceGroup.IsVoiceActorAssigned);
-			Assert.AreEqual(actor1.Id, destGroup.VoiceActorId);
 		}
 
 		[Test]
@@ -126,8 +60,8 @@ namespace GlyssenTests.Dialogs
 			m_testProject.VoiceActorList.Actors.Add(actor1);
 			var existingGroup = m_model.CharacterGroups[0];
 			existingGroup.VoiceActorId = 1;
-			var newGroup = new CharacterGroup(42) { Name = "New group" };
-			m_testProject.CharacterGroupList.CharacterGroups.Add(newGroup);
+			var newGroup = AddNewGroup();
+			newGroup.Name = "New group";
 			m_model.AssignActorToGroup(1, newGroup);
 			Assert.AreEqual(1, newGroup.VoiceActorId);
 			Assert.AreEqual(1, m_model.UndoActions.Count);
@@ -142,18 +76,18 @@ namespace GlyssenTests.Dialogs
 			m_testProject.VoiceActorList.Actors.Add(actor1);
 			var existingGroup = m_model.CharacterGroups[0];
 			existingGroup.VoiceActorId = 1;
-			var newGroup = new CharacterGroup(42) { Name = "New group" };
-			m_testProject.CharacterGroupList.CharacterGroups.Add(newGroup);
+			var newGroup = AddNewGroup();
+			newGroup.Name = "New group";
 			m_model.AssignActorToGroup(1, newGroup);
-			bool savedCalled = false;
-			m_model.Saved += (sender, args) => { savedCalled = true; };
+			List<CharacterGroup> affectedGroups = null;
+			m_model.Saved += (sender, args) => { affectedGroups = args.ToList(); };
 			Assert.IsTrue(m_model.Undo());
 			Assert.AreEqual(0, m_model.UndoActions.Count);
 			Assert.AreEqual(1, m_model.RedoActions.Count);
 			Assert.AreEqual("Assign voice actor Eduardo Lopez", m_model.RedoActions[0]);
 			Assert.False(newGroup.IsVoiceActorAssigned);
 			Assert.AreEqual(1, existingGroup.VoiceActorId);
-			Assert.IsTrue(savedCalled);
+			Assert.IsTrue(affectedGroups.SequenceEqual(new [] {existingGroup, newGroup }));
 		}
 
 		[Test]
@@ -178,9 +112,7 @@ namespace GlyssenTests.Dialogs
 			var group1 = m_model.CharacterGroups[0];
 			m_model.AssignActorToGroup(actor2.Id, group1);
 			Assert.True(group1.IsVoiceActorAssigned);
-			var group2 = new CharacterGroup(567);
-			group2.CharacterIds.Add("Nocodemus");
-			m_testProject.CharacterGroupList.CharacterGroups.Add(group2);
+			var group2 = AddNewGroup("Nocodemus");
 			m_model.AssignActorToGroup(actor1.Id, group2);
 			Assert.True(group2.IsVoiceActorAssigned);
 			Assert.AreEqual(2, m_model.UndoActions.Count);
@@ -194,15 +126,14 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void UnAssignActorFromGroups_GroupsContainsCameoGroup_CameoGroupNotUnassigned()
 		{
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Marco Polo" };
+			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Marco Polo", IsCameo = true };
 			m_testProject.VoiceActorList.Actors.Add(actor1);
 			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "Wilbur Wright" };
 			m_testProject.VoiceActorList.Actors.Add(actor2);
 			var group1 = m_model.CharacterGroups[0];
 			m_model.AssignActorToGroup(actor2.Id, group1);
 			Assert.True(group1.IsVoiceActorAssigned);
-			var cameoGroup = new CharacterGroup(567);
-			m_testProject.CharacterGroupList.CharacterGroups.Add(cameoGroup);
+			var cameoGroup = AddNewGroup(); // No characters => cameo
 			m_model.AssignActorToGroup(actor1.Id, cameoGroup);
 			Assert.True(cameoGroup.IsVoiceActorAssigned);
 			Assert.AreEqual(2, m_model.UndoActions.Count);
@@ -214,44 +145,46 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void MoveCharactersToGroup_DestinationContainsCharacters()
+		public void CanMoveCharactersToGroup_UnexpectedCharacterId_ReturnsFalse()
 		{
-			var characterIds = new List<string> { "John", "Andrew" };
-			var sourceGroup = m_model.CharacterGroups[0];
-			sourceGroup.CharacterIds = new CharacterIdHashSet(characterIds);
-			bool charactersMoved;
-			var destGroup = m_model.AddNewGroup(new [] { "ear", "mouth" }, out charactersMoved);
-
-			Assert.True(m_model.MoveCharactersToGroup(characterIds, destGroup));
-
-			var destGroupCharacterIds = destGroup.CharacterIds;
-			Assert.AreEqual(4, destGroup.CharacterIds.Count);
-			Assert.True(destGroupCharacterIds.Contains("John"));
-			Assert.True(destGroupCharacterIds.Contains("Andrew"));
+			Assert.IsFalse(m_model.CanMoveCharactersToGroup(new[] { "Hairy Man of Hinkley" }, null));
 		}
 
 		[Test]
-		public void MoveCharactersToGroup_SourceGroupSameAsDestinationGroup_NoActionTaken()
+		public void CanMoveCharactersToGroup_NoDestGroupSpecifiedNotAllCharactersInSourceAreIncluded_ReturnsTrue()
 		{
-			var characterIds = new List<string> { "John", "Andrew" };
 			var sourceGroup = m_model.CharacterGroups[0];
-			sourceGroup.CharacterIds = new CharacterIdHashSet(characterIds);
+			sourceGroup.CharacterIds = new CharacterIdHashSet(new[] { "John", "Andrew", "Moses" });
 
-			Assert.False(m_model.MoveCharactersToGroup(characterIds, sourceGroup));
+			Assert.IsTrue(m_model.CanMoveCharactersToGroup(new List<string> { "John", "Moses" }, null));
 		}
 
 		[Test]
-		public void MoveCharactersToGroup_AllCharactersMovedOutOfSource_SourceGroupRemoved()
+		public void CanMoveCharactersToGroup_NoDestGroupSpecifiedAllCharactersInUnassignedSourceAreIncluded_ReturnsFalse()
 		{
-			var characterIds = new List<string> { "John", "Andrew" };
 			var sourceGroup = m_model.CharacterGroups[0];
-			sourceGroup.CharacterIds = new CharacterIdHashSet(characterIds);
-			bool charactersMoved;
-			var destGroup = m_model.AddNewGroup(new[] { "ear", "mouth" }, out charactersMoved);
+			sourceGroup.CharacterIds = new CharacterIdHashSet(new[] { "John", "Andrew", "Moses" });
 
-			Assert.AreEqual(2, m_testProject.CharacterGroupList.CharacterGroups.Count);
-			Assert.True(m_model.MoveCharactersToGroup(characterIds, destGroup));
-			Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
+			Assert.IsFalse(m_model.CanMoveCharactersToGroup(new List<string> { "Andrew", "John", "Moses" }, null));
+		}
+
+		[Test]
+		public void CanMoveCharactersToGroup_NoDestGroupSpecifiedAllCharactersInAssignedSourceAreIncluded_ReturnsTrue()
+		{
+			var sourceGroup = m_model.CharacterGroups[0];
+			sourceGroup.CharacterIds = new CharacterIdHashSet(new[] { "John", "Andrew", "Moses" });
+			sourceGroup.VoiceActorId = 56;
+
+			Assert.IsTrue(m_model.CanMoveCharactersToGroup(new List<string> { "Andrew", "John", "Moses" }, null));
+		}
+
+		[Test]
+		public void CanMoveCharactersToGroup_NoDestGroupSpecifiedAllCharactersInCameoSourceAreIncluded_ReturnsTrue()
+		{
+			var sourceGroup = m_model.CharacterGroups[0];
+			sourceGroup.CharacterIds = new CharacterIdHashSet(new[] { "John", "Andrew", "Moses" });
+
+			Assert.IsFalse(m_model.CanMoveCharactersToGroup(new List<string> { "Andrew", "John", "Moses" }, null));
 		}
 
 		[Test]
@@ -262,24 +195,103 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void RemoveUnusedGroups_RemovesGroupWithNoCharactersAndNoAssignedActor()
+		public void MoveCharactersToGroup_UnexpectedCharacterId_ReturnsFalse()
 		{
-			Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
-			m_model.RemoveUnusedGroups();
-			Assert.AreEqual(0, m_testProject.CharacterGroupList.CharacterGroups.Count);
+			Assert.IsFalse(m_model.MoveCharactersToGroup(new[] { "Hairy Man of Hinkley" }, null));
+			Assert.AreEqual(0, m_model.UndoActions.Count);
 		}
 
 		[Test]
-		public void RemoveUnusedGroups_DoesNotRemoveGroupWithAssignedActor()
+		public void MoveCharactersToGroup_NoDestGroupSpecified_CharactersMovedFromOriginalGroupToNewGroup()
 		{
-			var groupWithActor = m_testProject.CharacterGroupList.CharacterGroups[0];
-			groupWithActor.AssignVoiceActor(45);
-			m_testProject.CharacterGroupList.CharacterGroups.Add(new CharacterGroup(42));
+			var sourceGroup = m_model.CharacterGroups[0];
+			sourceGroup.CharacterIds = new CharacterIdHashSet(new[] { "John", "Andrew", "Moses" });
+
+			List<CharacterGroup> affectedGroups = null;
+			m_model.Saved += (sender, affected) => { affectedGroups = affected.ToList(); };
+			Assert.IsTrue(m_model.MoveCharactersToGroup(new List<string> { "John", "Moses" }, null));
+			var newGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("Moses");
+			Assert.IsNotNull(newGroup);
+			Assert.IsTrue(affectedGroups.SequenceEqual(new[] { newGroup, sourceGroup }));
+
+			Assert.AreEqual(2, newGroup.CharacterIds.Count);
+			Assert.True(newGroup.CharacterIds.Contains("John"));
+			Assert.AreEqual(1, sourceGroup.CharacterIds.Count);
+			Assert.True(sourceGroup.CharacterIds.Contains("Andrew"));
+			Assert.AreEqual("Create new group", m_model.UndoActions.Single());
+		}
+
+		[Test]
+		public void MoveCharactersToGroup_NoDestGroupSpecifiedAllCharactersInAssignedSourceGroup_CharactersMovedToNewGroupButSourceGroupNotRemoved()
+		{
+			var allThreeCharacters = new List<string>(new[] {"John", "Andrew", "Moses"});
+			var sourceGroup = m_model.CharacterGroups[0];
+			sourceGroup.CharacterIds = new CharacterIdHashSet(allThreeCharacters);
+			sourceGroup.VoiceActorId = 5;
+
+			List<CharacterGroup> affectedGroups = null;
+			m_model.Saved += (sender, affected) => { affectedGroups = affected.ToList(); };
+			Assert.IsTrue(m_model.MoveCharactersToGroup(allThreeCharacters, null));
+
+			var newGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("Moses");
+			Assert.IsNotNull(newGroup);
+			Assert.AreNotEqual(sourceGroup, newGroup);
+			Assert.IsTrue(affectedGroups.SequenceEqual(new[] { newGroup, sourceGroup }));
+			Assert.IsTrue(newGroup.CharacterIds.SetEquals(allThreeCharacters));
+			Assert.AreEqual(0, sourceGroup.CharacterIds.Count);
+			Assert.AreEqual("Create new group", m_model.UndoActions.Single());
+		}
+
+		[Test]
+		public void MoveCharactersToGroup_DestinationContainsCharacters()
+		{
+			var characterIds = new List<string> { "John", "Andrew" };
+			var sourceGroup = m_model.CharacterGroups[0];
+			sourceGroup.CharacterIds = new CharacterIdHashSet(characterIds);
+			var destGroup = AddNewGroup("mouth", "ear");
+
+			List<CharacterGroup> affectedGroups = null;
+			m_model.Saved += (sender, affected) => { affectedGroups = affected.ToList(); };
+			Assert.True(m_model.MoveCharactersToGroup(characterIds, destGroup));
+
+			Assert.IsTrue(affectedGroups.SequenceEqual(new[] { destGroup, sourceGroup }));
+			var destGroupCharacterIds = destGroup.CharacterIds;
+			Assert.AreEqual(4, destGroup.CharacterIds.Count);
+			Assert.True(destGroupCharacterIds.Contains("John"));
+			Assert.True(destGroupCharacterIds.Contains("Andrew"));
+			Assert.AreEqual("Move characters to ear group", m_model.UndoActions.Single());
+		}
+
+		[Test]
+		public void MoveCharactersToGroup_SourceGroupSameAsDestinationGroup_NoActionTaken()
+		{
+			var characterIds = new List<string> { "John", "Andrew" };
+			var sourceGroup = m_model.CharacterGroups[0];
+			sourceGroup.CharacterIds = new CharacterIdHashSet(characterIds);
+
+			List<CharacterGroup> affectedGroups = null;
+			m_model.Saved += (sender, affected) => { affectedGroups = affected.ToList(); };
+			Assert.False(m_model.MoveCharactersToGroup(characterIds, sourceGroup));
+			Assert.IsNull(affectedGroups);
+			Assert.AreEqual(0, m_model.UndoActions.Count);
+		}
+
+		[Test]
+		public void MoveCharactersToGroup_AllCharactersMovedOutOfSource_SourceGroupRemoved()
+		{
+			var characterIds = new List<string> { "John", "Andrew" };
+			var sourceGroup = m_model.CharacterGroups[0];
+			sourceGroup.CharacterIds = new CharacterIdHashSet(characterIds);
+			var destGroup = AddNewGroup("ear", "mouth");
 			Assert.AreEqual(2, m_testProject.CharacterGroupList.CharacterGroups.Count);
-			m_model.RemoveUnusedGroups();
+
+			List<CharacterGroup> affectedGroups = null;
+			m_model.Saved += (sender, affected) => { affectedGroups = affected.ToList(); };
+			Assert.True(m_model.MoveCharactersToGroup(characterIds, destGroup));
+			Assert.AreEqual(destGroup, affectedGroups.Single());
 			Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
-			Assert.AreEqual(groupWithActor, m_testProject.CharacterGroupList.CharacterGroups[0]);
-			Assert.True(m_testProject.CharacterGroupList.CharacterGroups[0].IsVoiceActorAssigned);
+			Assert.IsTrue(destGroup.CharacterIds.SetEquals(new[] { "John", "Andrew", "ear", "mouth" }));
+			Assert.AreEqual("Move characters to ear group", m_model.UndoActions.Single());
 		}
 
 		[Test]
@@ -321,11 +333,10 @@ namespace GlyssenTests.Dialogs
 			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actor1, actor2, actor3, actor4, actor5 };
 			m_model.RegenerateGroups(false);
 
-			bool charactersMoved;
-			var newGroup = m_model.AddNewGroup(new[] { "Jesus", "John" }, out charactersMoved);
-			Assert.IsTrue(charactersMoved);
-
+			m_model.MoveCharactersToGroup(new List<string>{"Jesus", "John"}, null);
+			var newGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
 			newGroup.AssignVoiceActor(actor1.Id);
+
 			m_model.RegenerateGroups(true);
 			Assert.AreEqual(5, m_testProject.CharacterGroupList.CharacterGroups.Count);
 			Assert.AreEqual(actor1.Id, m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus").VoiceActorId);
@@ -374,9 +385,7 @@ namespace GlyssenTests.Dialogs
 
 			var actor4 = new Glyssen.VoiceActor.VoiceActor { Id = 4, IsCameo = true };
 			m_testProject.VoiceActorList.Actors.Add(actor4);
-			bool charactersMoved;
-			var cameoGroup = m_model.AddNewGroup(new[] { "John" }, out charactersMoved);
-			Assert.IsTrue(charactersMoved);
+			var cameoGroup = AddNewGroup("John");
 			cameoGroup.AssignVoiceActor(actor4.Id);
 
 			m_model.RegenerateGroups(false);
@@ -409,6 +418,7 @@ namespace GlyssenTests.Dialogs
 			Assert.True(existingGroup.CharacterIds.Contains("Andrew"));
 			Assert.False(existingGroup.CharacterIds.Contains("John"));
 			Assert.True(newGroup.CharacterIds.Contains("John"));
+			Assert.AreEqual("Split group", m_model.UndoActions.Single());
 		}
 
 		[Test]
@@ -432,6 +442,7 @@ namespace GlyssenTests.Dialogs
 			Assert.False(existingGroup.CharacterIds.Contains("Peter"));
 			Assert.True(newGroup.CharacterIds.Contains("John"));
 			Assert.True(newGroup.CharacterIds.Contains("Peter"));
+			Assert.AreEqual("Split group", m_model.UndoActions.Single());
 		}
 
 		[Test]
@@ -473,6 +484,20 @@ namespace GlyssenTests.Dialogs
 		private List<Glyssen.VoiceActor.VoiceActor> GetActorListFromDataTable(DataTable dataTable)
 		{
 			return (from DataRow row in dataTable.Rows select m_testProject.VoiceActorList.GetVoiceActorById((int)row.ItemArray[0])).ToList();
+		}
+
+		private CharacterGroup AddNewGroup(params string[] characterIds)
+		{
+			var newGroupNumber = 1;
+
+			while (m_testProject.CharacterGroupList.CharacterGroups.Any(t => t.GroupNumber == newGroupNumber))
+				newGroupNumber++;
+
+			CharacterGroup newGroup = new CharacterGroup(newGroupNumber);
+			newGroup.CharacterIds = new CharacterIdHashSet(characterIds);
+			m_testProject.CharacterGroupList.CharacterGroups.Add(newGroup);
+
+			return newGroup;
 		}
 	}
 }

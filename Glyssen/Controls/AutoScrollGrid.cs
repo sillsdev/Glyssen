@@ -11,7 +11,6 @@ namespace Glyssen.Controls
 	/// </summary>
 	public class AutoScrollGrid : BetterGrid
 	{
-		public delegate void RowDroppedEventHandler(object source, DataGridViewRow sourceRow, DataGridViewRow destinationRow);
 		private bool m_scrolling;
 		private System.Threading.Timer m_scrollTimer;
 

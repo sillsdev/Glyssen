@@ -20,19 +20,19 @@ namespace GlyssenTests.Utilities
 		[Test]
 		public void Constructor_NoUndoActions_ThrowsArgumentException()
 		{
-			Assert.Throws<ArgumentException>(() => new UndoActionSequence());
+			Assert.Throws<ArgumentException>(() => new UndoActionSequence<IUndoAction>());
 		}
 
 		[Test]
 		public void Description_NoUndoActions_ThrowsArgumentException()
 		{
-			Assert.AreEqual("Blah", new UndoActionSequence(NewAction("a"), NewAction("Blah")).Description);
+			Assert.AreEqual("Blah", new UndoActionSequence<IUndoAction>(NewAction("a"), NewAction("Blah")).Description);
 		}
 
 		[Test]
 		public void Undo_MultipleActions_UndoesActionsInReverseOrder()
 		{
-			var action = new UndoActionSequence(NewAction("a"), NewAction("b"), NewAction("c"));
+			var action = new UndoActionSequence<IUndoAction>(NewAction("a"), NewAction("b"), NewAction("c"));
 			Assert.IsTrue(action.Undo());
 			Assert.AreEqual(3, m_actionsTaken.Count);
 			int i = 0;
@@ -44,7 +44,7 @@ namespace GlyssenTests.Utilities
 		[Test]
 		public void Undo_OneActionCannotBeUndone_RedoesActionsThatWereUndoneToGetBackToStateBeforeCallingUndo()
 		{
-			var action = new UndoActionSequence(NewAction("a", false), NewAction("b"), NewAction("c"));
+			var action = new UndoActionSequence<IUndoAction>(NewAction("a", false), NewAction("b"), NewAction("c"));
 			Assert.IsFalse(action.Undo());
 			Assert.AreEqual(5, m_actionsTaken.Count);
 			int i = 0;
@@ -58,7 +58,7 @@ namespace GlyssenTests.Utilities
 		[Test]
 		public void Redo_MultipleActions_RedoesActionsInOriginalOrder()
 		{
-			var action = new UndoActionSequence(NewAction("a"), NewAction("b"), NewAction("c"));
+			var action = new UndoActionSequence<IUndoAction>(NewAction("a"), NewAction("b"), NewAction("c"));
 			Assert.IsTrue(action.Redo());
 			Assert.AreEqual(3, m_actionsTaken.Count);
 			int i = 0;
@@ -70,7 +70,7 @@ namespace GlyssenTests.Utilities
 		[Test]
 		public void Redo_OneActionCannotBeRedone_UndoesActionsThatWereRedoneToGetBackToStateBeforeCallingRedo()
 		{
-			var action = new UndoActionSequence(NewAction("a"), NewAction("b"), NewAction("c", true, false));
+			var action = new UndoActionSequence<IUndoAction>(NewAction("a"), NewAction("b"), NewAction("c", true, false));
 			Assert.IsFalse(action.Redo());
 			Assert.AreEqual(5, m_actionsTaken.Count);
 			int i = 0;

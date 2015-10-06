@@ -210,6 +210,7 @@
     </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
     <Compile Include="Controls\VoiceActorInformationViewModel.cs" />
+    <Compile Include="Dialogs\CharacterGroupsUndoAction.cs" />
     <Compile Include="Dialogs\SelectExistingProjectDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +236,8 @@
       <DependentUpon>UpdateCharacterGroupsDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\RemoveVoiceActorAssignmentsUndoAction.cs" />
+    <Compile Include="Dialogs\MoveCharactersToGroupUndoAction.cs" />
+    <Compile Include="Dialogs\CharacterGroupUndoActionSequence.cs" />
     <Compile Include="Utilities\UndoActionSequence.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentUndoAction.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentViewModel.cs" />

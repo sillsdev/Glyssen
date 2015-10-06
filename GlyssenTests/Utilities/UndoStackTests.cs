@@ -20,7 +20,7 @@ namespace GlyssenTests.Utilities
 		[Test]
 		public void Push_EmptyStack_CanUndoButNotRedo()
 		{
-			var stack = new UndoStack();
+			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction());
 			Assert.IsTrue(stack.CanUndo);
 			Assert.IsFalse(stack.CanRedo);
@@ -29,14 +29,14 @@ namespace GlyssenTests.Utilities
 		[Test]
 		public void GetUndoDescriptions_EmptyStack_ReturnsEmptyList()
 		{
-			var stack = new UndoStack();
+			var stack = new UndoStack<IUndoAction>();
 			Assert.AreEqual(0, stack.UndoDescriptions.Count);
 		}
 
 		[Test]
 		public void GetUndoDescriptions_AllItemsAreUndoable_ReturnsDescriptionsForAllItems()
 		{
-			var stack = new UndoStack();
+			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction("Assigning voice actor: Fred Flintstone"));
 			stack.Push(NewAction("Removing voice actor assignment"));
 			stack.Push(NewAction("Regenerating character groups"));
@@ -51,7 +51,7 @@ namespace GlyssenTests.Utilities
 		[Test]
 		public void GetUndoDescriptions_NoItemsAreUndoable_ReturnsEmptyList()
 		{
-			var stack = new UndoStack();
+			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction("Assigning voice actor: Fred Flintstone"));
 			stack.Push(NewAction("Removing voice actor assignment"));
 			stack.Push(NewAction("Regenerating character groups"));
@@ -64,7 +64,7 @@ namespace GlyssenTests.Utilities
 		[Test]
 		public void GetUndoDescriptions_StackContainsUndoableAndRedoableItams_ReturnsOnlyUndoableItems()
 		{
-			var stack = new UndoStack();
+			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction("Assigning voice actor: Fred Flintstone"));
 			stack.Push(NewAction("Removing voice actor assignment"));
 			stack.Push(NewAction("Regenerating character groups"));
@@ -79,14 +79,14 @@ namespace GlyssenTests.Utilities
 		[Test]
 		public void GetRedoDescriptions_EmptyStack_ReturnsEmptyList()
 		{
-			var stack = new UndoStack();
+			var stack = new UndoStack<IUndoAction>();
 			Assert.AreEqual(0, stack.RedoDescriptions.Count);
 		}
 
 		[Test]
 		public void GetRedoDescriptions_AllItemsAreRedoable_ReturnsDescriptionsForAllItems()
 		{
-			var stack = new UndoStack();
+			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction("Assigning voice actor: Fred Flintstone"));
 			stack.Push(NewAction("Removing voice actor assignment"));
 			stack.Push(NewAction("Regenerating character groups"));
@@ -104,7 +104,7 @@ namespace GlyssenTests.Utilities
 		[Test]
 		public void GetRedoDescriptions_NoItemsAreRedoable_ReturnsEmptyList()
 		{
-			var stack = new UndoStack();
+			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction("Assigning voice actor: Fred Flintstone"));
 			stack.Push(NewAction("Removing voice actor assignment"));
 			stack.Push(NewAction("Regenerating character groups"));
@@ -114,7 +114,7 @@ namespace GlyssenTests.Utilities
 		[Test]
 		public void GetRedoDescriptions_StackContainsUndoableAndRedoableItams_ReturnsOnlyRedoableItems()
 		{
-			var stack = new UndoStack();
+			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction("Assigning voice actor: Fred Flintstone"));
 			stack.Push(NewAction("Removing voice actor assignment"));
 			stack.Push(NewAction("Regenerating character groups"));
@@ -130,7 +130,7 @@ namespace GlyssenTests.Utilities
 		[Test]
 		public void Push_StackHasUndoneActions_ActionsAfterCurrentPositionAreRemoved()
 		{
-			var stack = new UndoStack();
+			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction("a"));
 			stack.Push(NewAction("b"));
 			stack.Push(NewAction("c"));
@@ -156,37 +156,45 @@ namespace GlyssenTests.Utilities
 		[Test]
 		public void CanUndo_EmptyStack_ReturnsFalse()
 		{
-			var stack = new UndoStack();
+			var stack = new UndoStack<IUndoAction>();
 			Assert.IsFalse(stack.CanUndo);
 		}
 
 		[Test]
 		public void CanUndo_AfterUndoOfOnlyItemOnStack_ReturnsFalse()
 		{
-			var stack = new UndoStack();
+			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction());
 			stack.Undo();
 			Assert.IsFalse(stack.CanUndo);
 		}
 
 		[Test]
+		public void CanUndo_AfterPushingItemOnStack_ReturnsTrue()
+		{
+			var stack = new UndoStack<IUndoAction>();
+			stack.Push(NewAction());
+			Assert.IsTrue(stack.CanUndo);
+		}
+
+		[Test]
 		public void Undo_EmptyStack_ThrowsInvalidOperationException()
 		{
-			var stack = new UndoStack();
+			var stack = new UndoStack<IUndoAction>();
 			Assert.Throws(typeof(InvalidOperationException), () => { stack.Undo(); });
 		}
 
 		[Test]
 		public void Redo_EmptyStack_ThrowsInvalidOperationException()
 		{
-			var stack = new UndoStack();
+			var stack = new UndoStack<IUndoAction>();
 			Assert.Throws(typeof(InvalidOperationException), () => { stack.Redo(); });
 		}
 
 		[Test]
 		public void Redo_OneUndoneItemOnStack_ActionRedone()
 		{
-			var stack = new UndoStack();
+			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction("a"));
 			stack.Undo();
 			Assert.IsTrue(stack.Redo());
@@ -197,7 +205,7 @@ namespace GlyssenTests.Utilities
 		[Test]
 		public void Undo_OneCurrentItemOnStack_ActionUndone()
 		{
-			var stack = new UndoStack();
+			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction("a"));
 			Assert.IsTrue(stack.Undo());
 			Assert.AreEqual(1, m_actionsTaken.Count);
@@ -207,7 +215,7 @@ namespace GlyssenTests.Utilities
 		[Test]
 		public void Undo_UndoActionReturnsFalse_ReturnsFalseAndPreventsFurtherUndo()
 		{
-			var stack = new UndoStack();
+			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction("a"));
 			stack.Push(NewAction("b", false));
 			stack.Push(NewAction("c"));
@@ -226,7 +234,7 @@ namespace GlyssenTests.Utilities
 		[Test]
 		public void Undo_Multiple_ActionsUndoneInReverseOrderOfPush()
 		{
-			var stack = new UndoStack();
+			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction("a"));
 			stack.Push(NewAction("b"));
 			stack.Push(NewAction("c"));
@@ -243,14 +251,14 @@ namespace GlyssenTests.Utilities
 		[Test]
 		public void CanRedo_EmptyStack_ReturnsFalse()
 		{
-			var stack = new UndoStack();
+			var stack = new UndoStack<IUndoAction>();
 			Assert.IsFalse(stack.CanRedo);
 		}
 
 		[Test]
 		public void CanRedo_AfterUndo_ReturnsTrue()
 		{
-			var stack = new UndoStack();
+			var stack = new UndoStack<IUndoAction>();
 			stack.Push(NewAction());
 			stack.Undo();
 			Assert.IsTrue(stack.CanRedo);
@@ -271,6 +279,42 @@ namespace GlyssenTests.Utilities
 				return expectedRedoResult;
 			}));
 			return action;
+		}
+
+		[Test]
+		public void Peek_EmptyStack_ReturnsNull()
+		{
+			var stack = new UndoStack<IUndoAction>();
+			Assert.IsNull(stack.Peek());
+		}
+
+		[Test]
+		public void Peek_AfterUndoOfOnlyItemOnStack_ReturnsNull()
+		{
+			var stack = new UndoStack<IUndoAction>();
+			stack.Push(NewAction());
+			stack.Undo();
+			Assert.IsNull(stack.Peek());
+		}
+
+		[Test]
+		public void Peek_AfterPushingItemOnStack_ReturnsItem()
+		{
+			var stack = new UndoStack<IUndoAction>();
+			var action = NewAction();
+			stack.Push(action);
+			Assert.AreEqual(action, stack.Peek());
+		}
+
+		[Test]
+		public void Peek_AfterUndoWithAdditionalItemsOnStack_ReturnsNextUndoableItem()
+		{
+			var stack = new UndoStack<IUndoAction>();
+			var action = NewAction();
+			stack.Push(action);
+			stack.Push(NewAction());
+			stack.Undo();
+			Assert.AreEqual(action, stack.Peek());
 		}
 	}
 }

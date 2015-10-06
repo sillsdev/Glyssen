@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Linq;
+using SIL.Extensions;
+using SIL.ObjectModel;
 
 namespace Glyssen.Utilities
 {
-	public class UndoActionSequence : IUndoAction
+	public class UndoActionSequence<T> where T : IUndoAction
 	{
-		private readonly IUndoAction[] m_actions;
+		private readonly T[] m_actions;
 
 		/// <summary>
 		/// Constructor
 		/// </summary>
 		/// <param name="actions">Individual undo actions that make up the sequence, in the original order (they will be undone in reverse order).
 		/// Note that by default the description of the last action will be used as the description for this sequence.</param>
-		public UndoActionSequence(params IUndoAction[] actions)
+		public UndoActionSequence(params T[] actions)
 		{
 			if (!actions.Any())
 				throw new ArgumentException("At least one undoable action must be provided");
@@ -20,9 +22,14 @@ namespace Glyssen.Utilities
 			Description = m_actions.Last().Description;
 		}
 
+		protected ReadOnlyList<T> Actions
+		{
+			get { return m_actions.ToReadOnlyList(); }
+		}
+
 		public string Description { get; set; }
 
-		public bool Undo()
+		public virtual bool Undo()
 		{
 			int i;
 			bool result = true;
@@ -37,7 +44,7 @@ namespace Glyssen.Utilities
 			return result;
 		}
 
-		public bool Redo()
+		public virtual bool Redo()
 		{
 			int i;
 			bool result = true;

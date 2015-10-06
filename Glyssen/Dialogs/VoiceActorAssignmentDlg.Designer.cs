@@ -182,8 +182,9 @@ namespace Glyssen.Dialogs
 			this.m_undoButton.Name = "m_undoButton";
 			this.m_undoButton.Size = new System.Drawing.Size(23, 22);
 			this.m_undoButton.Text = "Undo";
-			this.m_undoButton.ToolTipText = "Undo (Ctrl-Z)";
+			this.m_undoButton.ToolTipText = "Undo {0}";
 			this.m_undoButton.Click += new System.EventHandler(this.HandleUndoButtonClick);
+			this.m_undoButton.MouseEnter += new System.EventHandler(this.SetUndoOrRedoButtonToolTip);
 			// 
 			// m_redoButton
 			// 
@@ -197,8 +198,9 @@ namespace Glyssen.Dialogs
 			this.m_redoButton.Name = "m_redoButton";
 			this.m_redoButton.Size = new System.Drawing.Size(23, 22);
 			this.m_redoButton.Text = "Redo";
-			this.m_redoButton.ToolTipText = "Redo (Ctrl-Y)";
+			this.m_redoButton.ToolTipText = "Redo {0}";
 			this.m_redoButton.Click += new System.EventHandler(this.HandleRedoButtonClick);
+			this.m_redoButton.MouseEnter += new System.EventHandler(this.SetUndoOrRedoButtonToolTip);
 			// 
 			// toolStripSeparator1
 			// 
@@ -330,7 +332,6 @@ namespace Glyssen.Dialogs
 			this.m_characterGroupGrid.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_characterGroupGrid_CellEnter);
 			this.m_characterGroupGrid.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_characterGroupGrid_CellLeave);
 			this.m_characterGroupGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.m_characterGroupGrid_CellMouseDown);
-			this.m_characterGroupGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.m_characterGroupGrid_CellValidating);
 			this.m_characterGroupGrid.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.m_characterGroupGrid_CellValueNeeded);
 			this.m_characterGroupGrid.CellValuePushed += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.m_characterGroupGrid_CellValuePushed);
 			this.m_characterGroupGrid.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.HandleGridColumnHeaderMouseClick);

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Dialogs;
@@ -44,8 +45,9 @@ namespace GlyssenTests.Dialogs
 		{
 			var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
 			groupWithJesus.AssignVoiceActor(3);
-			Assert.IsNotNull(new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 1));
+			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 1);
 			Assert.AreEqual(1, groupWithJesus.VoiceActorId);
+			Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
 		}
 
 		[Test]
@@ -67,6 +69,7 @@ namespace GlyssenTests.Dialogs
 			groupWithJesus.AssignVoiceActor(4);
 			Assert.IsTrue(action.Redo(), "This should still work because we can find the group by name");
 			Assert.AreEqual(3, groupWithJesus.VoiceActorId);
+			Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
 		}
 
 		[Test]
@@ -79,6 +82,7 @@ namespace GlyssenTests.Dialogs
 			groupWithJesus.Name = "Son of God";
 			Assert.IsTrue(action.Redo(), "This should still work because we can find the group by actor");
 			Assert.AreEqual(3, groupWithJesus.VoiceActorId);
+			Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
 		}
 
 		[Test]
@@ -92,6 +96,7 @@ namespace GlyssenTests.Dialogs
 			groupWithJesus.Name = "Son of God";
 			Assert.IsFalse(action.Redo());
 			Assert.AreEqual(4, groupWithJesus.VoiceActorId);
+			Assert.AreEqual(0, action.GroupsAffectedByLastOperation.Count());
 		}
 
 		[Test]
@@ -103,6 +108,7 @@ namespace GlyssenTests.Dialogs
 			action.Undo();
 			Assert.IsTrue(action.Redo());
 			Assert.AreEqual(2, groupWithJesus.VoiceActorId);
+			Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
 		}
 
 		[Test]
@@ -114,6 +120,7 @@ namespace GlyssenTests.Dialogs
 			action.Undo();
 			Assert.IsTrue(action.Redo());
 			Assert.AreEqual(2, groupWithJesus.VoiceActorId);
+			Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
 		}
 
 		[Test]
@@ -130,6 +137,7 @@ namespace GlyssenTests.Dialogs
 				Assert.IsTrue(action.Redo());
 				Assert.AreEqual(2, groupWithJesus.VoiceActorId);
 				Assert.AreEqual(3, otherGroup.VoiceActorId);
+				Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
 			}
 			finally
 			{
@@ -152,6 +160,7 @@ namespace GlyssenTests.Dialogs
 				Assert.IsFalse(action.Redo());
 				Assert.AreEqual(3, groupWithJesus.VoiceActorId);
 				Assert.AreEqual(3, otherGroup.VoiceActorId);
+				Assert.AreEqual(0, action.GroupsAffectedByLastOperation.Count());
 			}
 			finally
 			{
@@ -168,6 +177,7 @@ namespace GlyssenTests.Dialogs
 			groupWithJesus.AssignVoiceActor(2);
 			groupWithJesus.Name = "Friend of Sinners";
 			Assert.IsFalse(action.Undo());
+			Assert.AreEqual(0, action.GroupsAffectedByLastOperation.Count());
 		}
 
 		[Test]
@@ -179,6 +189,7 @@ namespace GlyssenTests.Dialogs
 			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 2);
 			Assert.IsTrue(action.Undo());
 			Assert.AreEqual(origActor, groupWithJesus.VoiceActorId);
+			Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
 		}
 
 		[Test]
@@ -189,6 +200,7 @@ namespace GlyssenTests.Dialogs
 			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 2);
 			Assert.IsTrue(action.Undo());
 			Assert.AreEqual(3, groupWithJesus.VoiceActorId);
+			Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
 		}
 
 		[Test]
@@ -204,6 +216,7 @@ namespace GlyssenTests.Dialogs
 				Assert.IsTrue(action.Undo());
 				Assert.AreEqual(3, groupWithJesus.VoiceActorId);
 				Assert.AreEqual(2, otherGroup.VoiceActorId);
+				Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
 			}
 			finally
 			{

@@ -38,8 +38,9 @@ namespace Glyssen.Dialogs
 		private readonly Project m_project;
 		private readonly Dictionary<string, int> m_keyStrokesByCharacterId;
 		private CharacterByKeyStrokeComparer m_characterByKeyStrokeComparer;
-		public EventHandler Saved;
-		private UndoStack m_undoStack = new UndoStack();
+		public delegate void SavedEventHandler(VoiceActorAssignmentViewModel sender, IEnumerable<CharacterGroup> groupsAffected);
+		public event SavedEventHandler Saved;
+		private readonly UndoStack<ICharacterGroupsUndoAction> m_undoStack = new UndoStack<ICharacterGroupsUndoAction>();
 
 		public VoiceActorAssignmentViewModel(Project project)
 		{
@@ -108,6 +109,7 @@ namespace Glyssen.Dialogs
 			}
 		}
 
+		// REVIEW: What is this intended for? It's only ever set false in tests
 		public bool CanAssign { get; set; }
 
 		public List<CharacterGroup> CharacterGroups { get { return m_project.CharacterGroupList.CharacterGroups; } }
@@ -154,6 +156,8 @@ namespace Glyssen.Dialogs
 			}
 
 			m_project.CharacterGroupList.PopulateEstimatedHours(m_keyStrokesByCharacterId);
+
+			Save();
 		}
 
 		private void GenerateGroupsWithProgress()
@@ -216,39 +220,16 @@ namespace Glyssen.Dialogs
 			CharacterGroups.Add(unmatchedCharacterGroup);
 		}
 
-		public CharacterGroup AddNewGroup(IEnumerable<string> characterIds, out bool charactersMoved)
-		{
-			if (characterIds == null)
-				throw new ArgumentNullException("characterIds");
-
-			var characterList = characterIds.ToList();
-			if (!characterList.Any())
-				throw new ArgumentException("Group cannot be created with no characters.", "characterIds");
-
-			var newGroupNumber = 1;
-
-			while (CharacterGroups.Any(t => t.GroupNumber == newGroupNumber))
-				newGroupNumber++;
-
-			CharacterGroup newGroup = new CharacterGroup(newGroupNumber, ByKeyStrokeComparer);
-			CharacterGroups.Add(newGroup);
-
-			charactersMoved = MoveCharactersToGroup(characterList, newGroup);
-
-			return newGroup;
-		}
-
-		public void SaveAssignments()
+		private void Save(ICharacterGroupsUndoAction actionToSave = null)
 		{
 			m_project.SaveCharacterGroupData();
 
 			if (Saved != null)
-				Saved(this, EventArgs.Empty);
-		}
-
-		public bool IsActorAssigned(int voiceActorId)
-		{
-			return voiceActorId > CharacterGroup.kNoActorAssigned && m_project.CharacterGroupList.HasVoiceActorAssigned(voiceActorId);
+			{
+				if (actionToSave == null)
+					actionToSave = m_undoStack.Peek();
+				Saved(this, actionToSave.GroupsAffectedByLastOperation);
+			}
 		}
 
 		public void AssignActorToGroup(int actorId, CharacterGroup group)
@@ -257,12 +238,16 @@ namespace Glyssen.Dialogs
 			{
 				RemoveVoiceActorAssignmentsUndoAction undoActionForRemovingPreviousAssignments = null;
 				if (actorId == CharacterGroup.kNoActorAssigned)
+				{
 					m_undoStack.Push(new RemoveVoiceActorAssignmentsUndoAction(m_project, group));
+				}
 				else
 				{
 					var groups = m_project.CharacterGroupList.GetGroupsAssignedToActor(actorId).ToList();
 					if (groups.Any())
+					{
 						undoActionForRemovingPreviousAssignments = new RemoveVoiceActorAssignmentsUndoAction(m_project, groups);
+					}
 
 					// Note: Creating the undo action actually does the assignment.
 					var undoActionForNewAssignment = new VoiceActorAssignmentUndoAction(m_project, group, actorId);
@@ -270,34 +255,25 @@ namespace Glyssen.Dialogs
 						m_undoStack.Push(undoActionForNewAssignment);
 					else
 					{
-						m_undoStack.Push(new UndoActionSequence(undoActionForRemovingPreviousAssignments, undoActionForNewAssignment));
+						m_undoStack.Push(new CharacterGroupUndoActionSequence(undoActionForRemovingPreviousAssignments, undoActionForNewAssignment));
 					}
 				}
-				SaveAssignments();
+				Save();
 			}
+		}
+
+		public bool CanRemoveAssignment(CharacterGroup group)
+		{
+			return (group.IsVoiceActorAssigned && !m_project.IsCharacterGroupAssignedToCameoActor(group));
 		}
 
 		public void UnAssignActorFromGroups(IEnumerable<CharacterGroup> groups)
 		{
 			m_undoStack.Push(new RemoveVoiceActorAssignmentsUndoAction(m_project, groups));
-			SaveAssignments();
+			Save();
 		}
 
-		public void MoveActorFromGroupToGroup(CharacterGroup sourceGroup, CharacterGroup destGroup, bool swap = false)
-		{
-			int sourceActor = sourceGroup.VoiceActorId;
-			int destinationActor = destGroup.VoiceActorId;
-
-			destGroup.AssignVoiceActor(sourceActor);
-			if (swap && destGroup.IsVoiceActorAssigned)
-				sourceGroup.AssignVoiceActor(destinationActor);
-			else
-				sourceGroup.RemoveVoiceActor();
-
-			SaveAssignments();
-		}
-
-		public bool MoveCharactersToGroup(IList<string> characterIds, CharacterGroup destGroup, bool confirmWithUser = false)
+		private CharacterGroup GetSourceGroupForMove(IList<string> characterIds, CharacterGroup destGroup)
 		{
 			if (characterIds.Count == 0)
 				throw new ArgumentException("At least one characterId must be provided", "characterIds");
@@ -305,16 +281,31 @@ namespace Glyssen.Dialogs
 			// Currently, we assume all characterIds are coming from the same source group
 			CharacterGroup sourceGroup = CharacterGroups.FirstOrDefault(t => t.CharacterIds.Contains(characterIds[0]));
 
+			// REVIEW: The second part of this condition used to be done in the following "if" statement, but I can't
+			// think of any reason why moving a character to the group it's already in should result in any unused groups.
+			if (sourceGroup == null || sourceGroup == destGroup)
+				return null;
+
+			if (destGroup == null && !sourceGroup.IsVoiceActorAssigned && sourceGroup.CharacterIds.SetEquals(characterIds))
+			{
+				return null; // Moving all characetrs from an unassigned group to a new group would accomplish nothing.
+			}
+			return sourceGroup;
+		}
+
+		public bool CanMoveCharactersToGroup(IList<string> characterIds, CharacterGroup destGroup)
+		{
+			return GetSourceGroupForMove(characterIds, destGroup) != null;
+		}
+
+		public bool MoveCharactersToGroup(IList<string> characterIds, CharacterGroup destGroup, bool confirmWithUser = false)
+		{
+			CharacterGroup sourceGroup = GetSourceGroupForMove(characterIds, destGroup);
+
 			if (sourceGroup == null)
 				return false;
 
-			if (sourceGroup == destGroup || (sourceGroup.CharacterIds.Count <= 1 && destGroup.CharacterIds.Count == 0))
-			{
-				RemoveUnusedGroups();
-				return false;
-			}
-
-			if (confirmWithUser && destGroup.CharacterIds.Count > 0)
+			if (destGroup != null && confirmWithUser && destGroup.CharacterIds.Count > 0)
 			{
 				var proximity = new Proximity(m_project);
 
@@ -353,35 +344,24 @@ namespace Glyssen.Dialogs
 						"Confirm");
 
 					if (MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) != DialogResult.Yes)
-					{
-						RemoveUnusedGroups();
 						return false;
-					}
 				}
 			}
 
-			sourceGroup.CharacterIds.ExceptWith(characterIds);
-			destGroup.CharacterIds.AddRange(characterIds);
+			m_undoStack.Push(new MoveCharactersToGroupUndoAction(m_project, sourceGroup, destGroup, characterIds));
 
-			RemoveUnusedGroups();
 			m_project.CharacterGroupList.PopulateEstimatedHours(m_keyStrokesByCharacterId);
-			SaveAssignments();
+			Save();
 
 			return true;
 		}
 
 		public bool SplitGroup(List<string> charactersToMove)
 		{
-			var newGroup = new CharacterGroup(0, ByKeyStrokeComparer);
-			m_project.CharacterGroupList.CharacterGroups.Add(newGroup);
-			var returnValue = MoveCharactersToGroup(charactersToMove, newGroup);
-			SaveAssignments();
+			var returnValue = MoveCharactersToGroup(charactersToMove, null);
+			if (returnValue)
+				((MoveCharactersToGroupUndoAction) m_undoStack.Peek()).IsSplit = true; 
 			return returnValue;
-		}
-
-		public void RemoveUnusedGroups()
-		{
-			CharacterGroups.RemoveAll(t => t.CharacterIds.Count == 0 && !t.IsVoiceActorAssigned);
 		}
 
 		public DataTable GetMultiColumnActorDataTable(CharacterGroup group)
@@ -462,9 +442,10 @@ namespace Glyssen.Dialogs
 
 		public bool Undo()
 		{
-			if (m_undoStack.CanUndo && m_undoStack.Undo())
+			var action = m_undoStack.Peek();
+			if (action != null && m_undoStack.Undo())
 			{
-				SaveAssignments();
+				Save(action);
 				return true;
 			}
 			return false;
@@ -474,7 +455,7 @@ namespace Glyssen.Dialogs
 		{
 			if (m_undoStack.CanRedo && m_undoStack.Redo())
 			{
-				SaveAssignments();
+				Save();
 				return true;
 			}
 			return false;

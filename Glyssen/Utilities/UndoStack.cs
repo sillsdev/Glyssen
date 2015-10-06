@@ -9,9 +9,9 @@ namespace Glyssen.Utilities
 	/// is pushed when the current pointer is not at the top of the stack, any items following that postion are pruned
 	/// from the collection.
 	/// </summary>
-	public class UndoStack
+	public class UndoStack<T> where T : IUndoAction
 	{
-		private List<IUndoAction> m_actions = new List<IUndoAction>();
+		private readonly List<T> m_actions = new List<T>();
 		private int m_current = 0;
 
 		public bool CanUndo { get { return m_current > 0; } }
@@ -45,12 +45,17 @@ namespace Glyssen.Utilities
 			return m_actions[m_current++].Redo();
 		}
 
-		public void Push(IUndoAction action)
+		public void Push(T action)
 		{
 			while (CanRedo)
 				m_actions.RemoveAt(m_current);
 			m_actions.Add(action);
 			m_current = m_actions.Count;
+		}
+
+		public T Peek()
+		{
+			return CanUndo ? m_actions[m_current - 1] : default(T);
 		}
 	}
 }

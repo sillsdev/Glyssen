@@ -109,6 +109,7 @@
     <Compile Include="Dialogs\BlockNavigatorViewModelTests.cs" />
     <Compile Include="Dialogs\AssignCharacterViewModelTests.cs" />
     <Compile Include="Dialogs\RemoveVoiceActorAssignmentsUndoActionTests.cs" />
+    <Compile Include="Dialogs\MoveCharactersToGroupUndoActionTests.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentUndoActionTests.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentViewModelTests.cs" />
     <Compile Include="Dialogs\VoiceActorInformationViewModelTests.cs" />

@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Linq;
 using Glyssen.Character;
-using Glyssen.Utilities;
 using L10NSharp;
 
 namespace Glyssen.Dialogs
 {
-	public class VoiceActorAssignmentUndoAction : IUndoAction
+	public class VoiceActorAssignmentUndoAction : CharacterGroupsUndoAction
 	{
 		private readonly Project m_project;
 		private readonly int m_newActorId;
 		private readonly int m_oldActorId;
 		private readonly string m_groupName;
 
-		public VoiceActorAssignmentUndoAction(Project project, CharacterGroup group, int newActorId)
+		public VoiceActorAssignmentUndoAction(Project project, CharacterGroup group, int newActorId) : base(group)
 		{
 			m_project = project;
 			m_oldActorId = group.VoiceActorId;
@@ -27,12 +26,12 @@ namespace Glyssen.Dialogs
 			get { return m_project.VoiceActorList.GetVoiceActorById(m_newActorId).Name; }
 		}
 
-		public string Description
+		public override string Description
 		{
 			get { return string.Format(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.VoiceActorAssignment", "Assign voice actor {0}"), ActorName); }
 		}
 
-		public bool Undo()
+		protected override bool PerformUndo()
 		{
 			CharacterGroup group = null;
 			try
@@ -47,10 +46,11 @@ namespace Glyssen.Dialogs
 			if (group == null)
 				return false;
 			group.AssignVoiceActor(m_oldActorId);
+			AddGroupAffected(group);
 			return true;
 		}
 
-		public bool Redo()
+		protected override bool PerformRedo()
 		{
 			CharacterGroup group = null;
 			try
@@ -65,6 +65,7 @@ namespace Glyssen.Dialogs
 			if (group == null)
 				return false;
 			group.AssignVoiceActor(m_newActorId);
+			AddGroupAffected(group);
 			return true;
 		}
 	}
