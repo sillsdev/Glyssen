@@ -117,7 +117,7 @@
 			// 
 			this.m_btnExport.BackColor = System.Drawing.Color.Transparent;
 			this.m_btnExport.Enabled = false;
-			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnExport, "Export to a tab-separated values file");
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnExport, "Export to a spreadsheet file");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnExport, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnExport, "MainForm.Export");
 			this.m_btnExport.Location = new System.Drawing.Point(29, 204);
