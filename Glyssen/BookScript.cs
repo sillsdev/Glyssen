@@ -255,6 +255,11 @@ namespace Glyssen
 
 		public void ApplyUserDecisions(BookScript sourceBookScript, ScrVers versification = null)
 		{
+			foreach (var sourceUnappliedSplit in sourceBookScript.UnappliedSplits)
+			{
+				List<Block> targetUnappliedSplit = sourceUnappliedSplit.Select(splitPart => splitPart.Clone()).ToList();
+				m_unappliedSplitBlocks.Add(targetUnappliedSplit);
+			}
 			ApplyUserSplits(sourceBookScript);
 			ApplyUserAssignments(sourceBookScript, versification);
 		}

@@ -947,6 +947,41 @@ namespace GlyssenTests
 		}
 		#endregion
 
+		#region ApplyUserDecisions Other Tests
+		[Test]
+		public void ApplyUserDecisions_UnappliedSplitsExist_MaintainsOriginalUnappliedSplits()
+		{
+			var source = CreateStandardMarkScript();
+			var blockToSplit = source.Blocks.Last(b => b.InitialStartVerseNumber > 0);
+			var newBlock = source.SplitBlock(blockToSplit, blockToSplit.LastVerse.ToString(), 5);
+
+			var target = CreateStandardMarkScript();
+			var blockToModify = target.Blocks.Last(b => b.InitialStartVerseNumber > 0);
+			blockToModify.AddVerse(12, "This is another verse that was added to the new bundle.");
+
+			target.ApplyUserDecisions(source);
+			Assert.AreEqual(12, blockToModify.LastVerse);
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(1, target.UnappliedSplits.Count);
+			Assert.IsTrue(target.UnappliedSplits[0].SequenceEqual(new[] { blockToSplit, newBlock }));
+
+			var newSource = target;
+			var blockToSplit2 = newSource.Blocks.Last(b => b.InitialStartVerseNumber > 0);
+			var newBlock2 = newSource.SplitBlock(blockToSplit2, blockToSplit2.LastVerse.ToString(), 5);
+
+			var newTarget = CreateStandardMarkScript();
+			var newBlockToModify = newTarget.Blocks.Last(b => b.InitialStartVerseNumber > 0);
+			newBlockToModify.AddVerse(12, "This is another verse that was added to the new bundle, but now the text is different.");
+
+			newTarget.ApplyUserDecisions(newSource);
+			Assert.AreEqual(12, newBlockToModify.LastVerse);
+			Assert.IsNotNull(newTarget.UnappliedSplits);
+			Assert.AreEqual(2, newTarget.UnappliedSplits.Count);
+			Assert.IsTrue(newTarget.UnappliedSplits[0].SequenceEqual(new[] { blockToSplit, newBlock }, new BlockComparer()));
+			Assert.IsTrue(newTarget.UnappliedSplits[1].SequenceEqual(new[] { blockToSplit2, newBlock2 }, new BlockComparer()));
+		}
+		#endregion
+
 		#region SplitBlock Tests
 		[Test]
 		public void SplitBlock_BlockNotInList_ThrowsArgumentException()
