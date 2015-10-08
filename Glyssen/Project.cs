@@ -461,6 +461,7 @@ namespace Glyssen
 			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out exception);
 			if (exception != null)
 			{
+				Analytics.ReportException(exception);
 				ErrorReport.ReportNonFatalExceptionWithMessage(exception,
 					LocalizationManager.GetString("File.ProjectCouldNotBeModified", "Project could not be modified: {0}"), projectFilePath);
 				return;
@@ -502,6 +503,7 @@ namespace Glyssen
 			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out exception);
 			if (exception != null)
 			{
+				Analytics.ReportException(exception);
 				ErrorReport.ReportNonFatalExceptionWithMessage(exception,
 					LocalizationManager.GetString("File.ProjectMetadataInvalid", "Project could not be loaded: {0}"), projectFilePath);
 				return null;

@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Controls;
 using L10NSharp;
@@ -435,7 +436,9 @@ namespace Glyssen.Dialogs
 
 		private void m_characterGroupGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
+			Analytics.ReportException(e.Exception);
 			ErrorReport.ReportFatalException(e.Exception);
+			throw e.Exception;
 		}
 
 		private void m_characterGroupGrid_SelectionChanged(object sender, EventArgs e)

@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using DesktopAnalytics;
 using Glyssen.Character;
 using L10NSharp;
 using SIL.Reporting;
@@ -62,7 +63,9 @@ namespace Glyssen.Controls
 
 		void m_dataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
+			Analytics.ReportException(e.Exception);
 			ErrorReport.ReportFatalException(e.Exception);
+			throw e.Exception;
 		}
 
 		public int RowCount { get { return m_dataGrid.RowCount; } }
