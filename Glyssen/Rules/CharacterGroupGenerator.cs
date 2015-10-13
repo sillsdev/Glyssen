@@ -56,7 +56,7 @@ namespace Glyssen.Rules
 			List<VoiceActor.VoiceActor> actorsNeedingGroups = new List<VoiceActor.VoiceActor>();
 
 			var characterDetails = CharacterDetailData.Singleton.GetDictionary();
-			var includedCharacterDetails = characterDetails.Values.Where(c => m_keyStrokesByCharacterId.Keys.Contains(c.CharacterId)).ToList();
+			var includedCharacterDetails = characterDetails.Values.Where(c => sortedDict.Select(e => e.Key).Contains(c.CharacterId)).ToList();
 
 			var characterDetailsUniquelyMatchedToActors = new Dictionary<CharacterDetail, List<VoiceActor.VoiceActor>>();
 			foreach (var actor in actors)
@@ -119,7 +119,7 @@ namespace Glyssen.Rules
 				Math.Min(1, includedCharacterDetails.Count(c => CharacterVerseData.IsCharacterOfType(c.CharacterId, CharacterVerseData.StandardCharacter.Narrator))),
 				Math.Min(1, includedCharacterDetails.Count(c => CharacterVerseData.IsCharacterStandard(c.CharacterId, false))),
 				includedCharacterDetails.Where(c => CharacterVerseData.IsCharacterOfType(c.CharacterId, CharacterVerseData.StandardCharacter.Narrator)).Select(c => CharacterVerseData.GetBookNameFromStandardCharacterId(c.CharacterId)).FirstOrDefault(),
-				includedCharacterDetails.Where(c => CharacterVerseData.IsCharacterStandard(c.CharacterId, false)).Select(c => CharacterVerseData.GetBookNameFromStandardCharacterId(c.CharacterId)).FirstOrDefault(),
+				includedCharacterDetails.Where(c => CharacterVerseData.IsCharacterOfType(c.CharacterId, CharacterVerseData.StandardCharacter.BookOrChapter)).Select(c => CharacterVerseData.GetBookNameFromStandardCharacterId(c.CharacterId)).FirstOrDefault(),
 				m_characterIdComparer);
 
 			foreach (var configuration in trialConfigurationsForNarratorsAndExtras)
