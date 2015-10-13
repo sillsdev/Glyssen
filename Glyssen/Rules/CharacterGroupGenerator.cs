@@ -203,7 +203,11 @@ namespace Glyssen.Rules
 			foreach (var cameoActor in m_project.VoiceActorList.Actors.Where(a => a.IsCameo))
 			{
 				if (m_project.CharacterGroupList.HasVoiceActorAssigned(cameoActor.Id))
-					yield return m_project.CharacterGroupList.CharacterGroups.First(g => g.VoiceActorId == cameoActor.Id);
+				{
+					var groupForCameoActor = m_project.CharacterGroupList.CharacterGroups.First(g => g.VoiceActorId == cameoActor.Id);
+					groupForCameoActor.CharacterIds.IntersectWith(m_keyStrokesByCharacterId.Keys);
+					yield return groupForCameoActor;
+				}
 				else
 				{
 					var newGroup = new CharacterGroup(groupNumber++, m_characterIdComparer);
