@@ -11,11 +11,13 @@ namespace Glyssen.Character
 		private const int ColumnsBeforeGroupNumbers = 4;
 		private const int FirstRowWithData = 2;
 
+		private readonly Project m_project;
 		private readonly string m_filePath;
 		private int m_maxNumberOfActors = -1;
 
-		public CharacterGroupTemplateExcelFile(string path)
+		public CharacterGroupTemplateExcelFile(Project project, string path)
 		{
+			m_project = project;
 			m_filePath = path;
 		}
 
@@ -26,7 +28,7 @@ namespace Glyssen.Character
 			if (numberOfActors > MaxNumberOfActors)
 				numberOfActors = MaxNumberOfActors;
 
-			CharacterGroupTemplate template = new CharacterGroupTemplate();
+			CharacterGroupTemplate template = new CharacterGroupTemplate(m_project);
 			var characterIds = new HashSet<string>();
 
 			using (ExcelPackage excelPackage = new ExcelPackage(new FileInfo(m_filePath)))

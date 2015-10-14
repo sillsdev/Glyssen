@@ -12,6 +12,7 @@ namespace Glyssen.Character
 	public class CharacterGroup
 	{
 		private const int kNoActorAssigned = -1;
+		private Project m_project;
 		private bool m_closed;
 
 		//For Serialization
@@ -21,9 +22,15 @@ namespace Glyssen.Character
 			VoiceActorId = kNoActorAssigned;
 		}
 
-		public CharacterGroup(int groupNumber, IComparer<string> characterComparerForToString = null) : this()
+		public CharacterGroup(Project project, int groupNumber, IComparer<string> characterComparerForToString = null) : this()
 		{
 			GroupNumber = groupNumber;
+			Initialize(project, characterComparerForToString);
+		}
+
+		public void Initialize(Project project, IComparer<string> characterComparerForToString)
+		{
+			m_project = project;
 			CharacterIds.ToStringComparer = characterComparerForToString;
 		}
 
@@ -52,7 +59,7 @@ namespace Glyssen.Character
 			{
 				var genderAttributes = new CharacterGroupAttributeSet<CharacterGender>(CharacterGenderComparer.Singleton);
 				var ageAttributes = new CharacterGroupAttributeSet<CharacterAge>(CharacterAgeComparer.Singleton);
-				var characterDetails = CharacterDetailData.Singleton.GetDictionary();
+				var characterDetails = m_project.AllCharacterDetailDictionary;
 				foreach (var characterId in CharacterIds)
 				{
 					genderAttributes.Add(characterDetails[characterId].Gender);
@@ -126,15 +133,16 @@ namespace Glyssen.Character
 
 			bool result = true;
 
+			var characterDetails = m_project.AllCharacterDetailDictionary;
 			result &= CharacterIds.All(i =>
 			{
-				CharacterGender gender = CharacterDetailData.Singleton.GetDictionary()[i].Gender;
+				CharacterGender gender = characterDetails[i].Gender;
 				return genderMatchingOptions.Matches(character.Gender, gender);
 			});
 
 			result &= CharacterIds.All(i =>
 			{
-				CharacterAge age = CharacterDetailData.Singleton.GetDictionary()[i].Age;
+				CharacterAge age = characterDetails[i].Age;
 				return ageMatchingOptions.Matches(character.Age, age);
 			});
 
@@ -143,23 +151,25 @@ namespace Glyssen.Character
 
 		public bool ContainsCharacterWithGender(CharacterGender gender)
 		{
+			var characterDetails = m_project.AllCharacterDetailDictionary;
 			return CharacterIds.Any(c =>
 			{
 				if (CharacterVerseData.IsCharacterStandard(c))
 					return gender == CharacterGender.Either;
 
-				return CharacterDetailData.Singleton.GetDictionary()[c].Gender == gender;
+				return characterDetails[c].Gender == gender;
 			});
 		}
 
 		public bool ContainsCharacterWithAge(CharacterAge age)
 		{
+			var characterDetails = m_project.AllCharacterDetailDictionary;
 			return CharacterIds.Any(c =>
 			{
 				if (CharacterVerseData.IsCharacterStandard(c))
 					return age == CharacterAge.Adult;
 
-				return CharacterDetailData.Singleton.GetDictionary()[c].Age == age;
+				return characterDetails[c].Age == age;
 			});
 		}
 	}

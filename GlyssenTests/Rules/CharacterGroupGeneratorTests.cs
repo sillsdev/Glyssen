@@ -2,7 +2,6 @@
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.Rules;
 using Glyssen.VoiceActor;
 using GlyssenTests.Properties;
@@ -283,7 +282,7 @@ namespace GlyssenTests.Rules
 			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
 			actors[0].IsCameo = true;
 
-			var assignedGroup = new CharacterGroup();
+			var assignedGroup = new CharacterGroup(m_testProject, 0);
 			assignedGroup.AssignVoiceActor(actors[0].Id);
 			assignedGroup.CharacterIds.Add("centurion at crucifixion");
 			m_testProject.CharacterGroupList.CharacterGroups.Add(assignedGroup);
@@ -301,7 +300,7 @@ namespace GlyssenTests.Rules
 			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
 			actors[0].IsCameo = true;
 
-			var assignedGroup = new CharacterGroup();
+			var assignedGroup = new CharacterGroup(m_testProject, 0);
 			assignedGroup.AssignVoiceActor(actors[0].Id);
 			assignedGroup.CharacterIds.Add("Jesus");
 			m_testProject.CharacterGroupList.CharacterGroups.Add(assignedGroup);
@@ -319,7 +318,7 @@ namespace GlyssenTests.Rules
 			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
 			actors[0].IsCameo = true;
 
-			var assignedGroup = new CharacterGroup();
+			var assignedGroup = new CharacterGroup(m_testProject, 0);
 			assignedGroup.AssignVoiceActor(actors[0].Id);
 			assignedGroup.CharacterIds.Add("BC-MRK");
 			m_testProject.CharacterGroupList.CharacterGroups.Add(assignedGroup);
@@ -337,7 +336,7 @@ namespace GlyssenTests.Rules
 			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
 			actors[0].IsCameo = true;
 
-			var assignedGroup = new CharacterGroup();
+			var assignedGroup = new CharacterGroup(m_testProject, 0);
 			assignedGroup.AssignVoiceActor(actors[0].Id);
 			assignedGroup.CharacterIds.Add("extra-MRK");
 			m_testProject.CharacterGroupList.CharacterGroups.Add(assignedGroup);
@@ -647,12 +646,17 @@ namespace GlyssenTests.Rules
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+		}
+
+		[SetUp]
+		public void SetUp()
+		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK, TestProject.TestBook.ACT);
 			m_keyStrokesPerCharacterId = m_testProject.GetKeyStrokesByCharacterId();
 		}
 
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[TearDown]
+		public void TearDown()
 		{
 			TestProject.DeleteTestProjectFolder();
 		}
@@ -666,7 +670,7 @@ namespace GlyssenTests.Rules
 
 			var cameoActor = m_testProject.VoiceActorList.Actors[0];
 			cameoActor.IsCameo = true;
-			var cameoGroup = new CharacterGroup();
+			var cameoGroup = new CharacterGroup(m_testProject, 0);
 			cameoGroup.AssignVoiceActor(cameoActor.Id);
 			groups.Add(cameoGroup);
 			m_testProject.CharacterGroupList.CharacterGroups.AddRange(groups);
@@ -688,6 +692,29 @@ namespace GlyssenTests.Rules
 			Assert.AreEqual(7, groups.Count);
 			Assert.AreEqual(0, groups.Count(g => g.CharacterIds.Contains("narrator-LUK")));
 			Assert.AreEqual(0, cameoGroup.CharacterIds.Count);
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_ProjectCharacterDetailExistsAndInScript_ProjectCharacterDetailIncludedInGeneratedGroups()
+		{
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(8, 2);
+			m_testProject.AddProjectCharacterDetail(new CharacterDetail { CharacterId = "Bobette", Gender = CharacterGender.Female });
+
+			m_testProject.IncludedBooks[0].Blocks[3].CharacterId = "Bobette";
+			m_keyStrokesPerCharacterId = m_testProject.GetKeyStrokesByCharacterId();
+
+			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
+			Assert.True(groups.Any(g => g.CharacterIds.Contains("Bobette")));
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_ProjectCharacterDetailExistsButNotInScript_ProjectCharacterDetailNotIncludedInGeneratedGroups()
+		{
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(8, 2);
+			m_testProject.AddProjectCharacterDetail(new CharacterDetail { CharacterId = "Bobette", Gender = CharacterGender.Female });
+
+			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
+			Assert.False(groups.Any(g => g.CharacterIds.Contains("Bobette")));
 		}
 	}
 

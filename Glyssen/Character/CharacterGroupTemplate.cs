@@ -4,10 +4,12 @@ namespace Glyssen.Character
 {
 	public class CharacterGroupTemplate
 	{
+		private readonly Project m_project;
 		public Dictionary<int, CharacterGroup> CharacterGroups { get; private set; }
 
-		public CharacterGroupTemplate()
+		public CharacterGroupTemplate(Project project)
 		{
+			m_project = project;
 			CharacterGroups = new Dictionary<int, CharacterGroup>();
 		}
 
@@ -16,7 +18,7 @@ namespace Glyssen.Character
 			CharacterGroup group;
 			if (!CharacterGroups.TryGetValue(groupNumber, out group))
 			{
-				group = new CharacterGroup(groupNumber);
+				group = new CharacterGroup(m_project, groupNumber);
 				CharacterGroups.Add(groupNumber, group);
 			}
 			group.CharacterIds.Add(characterId);

@@ -388,12 +388,19 @@ namespace Glyssen.Dialogs
 			if (string.IsNullOrWhiteSpace(character))
 				return;
 
-			var existingItem = CurrentContextCharacters
-				.FirstOrDefault(c => c.ToString() == character);
+			var existingItem = CurrentContextCharacters.FirstOrDefault(c => c.ToString() == character);
 			if (existingItem != null)
 			{
 				m_listBoxCharacters.SelectedItem = existingItem;
 				return;
+			}
+
+			using (var dlg = new NewCharacterDlg(character))
+			{
+				if (dlg.ShowDialog() != DialogResult.OK)
+					return;
+
+				m_viewModel.AddCharacterDetailToProject(character, dlg.Gender, dlg.Age);
 			}
 
 			var newItem = new AssignCharacterViewModel.Character(character);

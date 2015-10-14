@@ -155,6 +155,7 @@
     <Compile Include="Character\ControlCharacterVerseData.cs" />
     <Compile Include="Character\ICharacterGroupSource.cs" />
     <Compile Include="Character\ICharacterVerseInfo.cs" />
+    <Compile Include="Character\ProjectCharacterDetailData.cs" />
     <Compile Include="Character\ProjectCharacterVerseData.cs" />
     <Compile Include="Controls\AutoScrollGrid.cs">
       <SubType>Component</SubType>
@@ -211,6 +212,12 @@
     </Compile>
     <Compile Include="Dialogs\SelectExistingProjectDlg.Designer.cs">
       <DependentUpon>SelectExistingProjectDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\NewCharacterDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\NewCharacterDlg.Designer.cs">
+      <DependentUpon>NewCharacterDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\TooManyUnexpectedQuotesFoundDlg.cs">
       <SubType>Form</SubType>
@@ -356,6 +363,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SelectExistingProjectDlg.resx">
       <DependentUpon>SelectExistingProjectDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\NewCharacterDlg.resx">
+      <DependentUpon>NewCharacterDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\TooManyUnexpectedQuotesFoundDlg.resx">
       <DependentUpon>TooManyUnexpectedQuotesFoundDlg.cs</DependentUpon>

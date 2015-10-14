@@ -23,6 +23,7 @@ using Paratext;
 using SIL.DblBundle;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
+using SIL.Extensions;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Scripture;
@@ -38,6 +39,7 @@ namespace Glyssen
 		public const string kProjectFileExtension = ".glyssen";
 		private const string kBookScriptFileExtension = ".xml";
 		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
+		public const string kProjectCharacterDetailFileName = "ProjectCharacterDetail.txt";
 		private const string kVoiceActorInformationFileName = "VoiceActorInformation.xml";
 		private const string kCharacterGroupFileName = "CharacterGroups.xml";
 		private const string kSample = "sample";
@@ -62,6 +64,7 @@ namespace Glyssen
 		private bool m_fontInstallationAttempted;
 		private VoiceActorList m_voiceActorList;
 		private CharacterGroupList m_characterGroupList;
+		private readonly ISet<CharacterDetail> m_projectCharacterDetailData;
 
 		public event EventHandler<ProgressChangedEventArgs> ProgressChanged;
 		public event EventHandler<ProjectStateChangedEventArgs> ProjectStateChanged;
@@ -73,6 +76,7 @@ namespace Glyssen
 			m_metadata = metadata;
 			m_recordingProjectName = recordingProjectName ?? GetDefaultRecordingProjectName(m_metadata.Identification.Name);
 			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath);
+			m_projectCharacterDetailData = ProjectCharacterDetailData.Load(ProjectCharacterDetailDataPath);
 			if (m_metadata.QuoteSystem == null)
 				LoadWritingSystem();
 			if (File.Exists(VersificationFilePath))
@@ -293,6 +297,21 @@ namespace Glyssen
 		}
 
 		public readonly ProjectCharacterVerseData ProjectCharacterVerseData;
+
+		public IReadOnlyDictionary<string, CharacterDetail> AllCharacterDetailDictionary
+		{
+			get
+			{
+				Dictionary<string, CharacterDetail> characterDetails = new Dictionary<string, CharacterDetail>(CharacterDetailData.Singleton.GetDictionary());
+				characterDetails.AddRange(m_projectCharacterDetailData.ToDictionary(k => k.CharacterId));
+				return characterDetails;
+			}
+		}
+
+		public void AddProjectCharacterDetail(CharacterDetail characterDetail)
+		{
+			m_projectCharacterDetailData.Add(characterDetail);
+		}
 
 		public void UpdateSettings(ProjectSettingsViewModel model)
 		{
@@ -753,6 +772,11 @@ namespace Glyssen
 			get { return Path.Combine(ProjectFolder, kProjectCharacterVerseFileName); }
 		}
 
+		private string ProjectCharacterDetailDataPath
+		{
+			get { return Path.Combine(ProjectFolder, kProjectCharacterDetailFileName); }
+		}
+
 		private string VersificationFilePath
 		{
 			get { return Path.Combine(ProjectFolder, DblBundleFileUtils.kVersificationFileName); }
@@ -803,6 +827,7 @@ namespace Glyssen
 			foreach (var book in m_books)
 				SaveBook(book);
 			SaveProjectCharacterVerseData();
+			SaveProjectCharacterDetailData();
 			SaveWritingSystem();
 			ProjectState = !IsQuoteSystemReadyForParse ? ProjectState.NeedsQuoteSystemConfirmation : ProjectState.FullyInitialized;
 		}
@@ -820,6 +845,11 @@ namespace Glyssen
 			ProjectCharacterVerseData.WriteToFile(ProjectCharacterVerseDataPath);
 		}
 
+		public void SaveProjectCharacterDetailData()
+		{
+			ProjectCharacterDetailData.WriteToFile(m_projectCharacterDetailData, ProjectCharacterDetailDataPath);
+		}
+
 		public void SaveCharacterGroupData()
 		{
 			m_characterGroupList.SaveToFile(Path.Combine(ProjectFolder, kCharacterGroupFileName));
@@ -834,7 +864,7 @@ namespace Glyssen
 		{
 			string path = Path.Combine(ProjectFolder, kCharacterGroupFileName);
 			if (File.Exists(path))
-				return CharacterGroupList.LoadCharacterGroupListFromFile(path, GetKeyStrokesByCharacterId());
+				return CharacterGroupList.LoadCharacterGroupListFromFile(path, this);
 			return new CharacterGroupList();
 		}
 

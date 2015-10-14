@@ -1,4 +1,5 @@
-﻿using Glyssen.Character;
+﻿using Glyssen;
+using Glyssen.Character;
 using NUnit.Framework;
 
 namespace GlyssenTests.Character
@@ -9,7 +10,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void AddCharacterToGroup()
 		{
-			var template = new CharacterGroupTemplate();
+			var template = new CharacterGroupTemplate(TestProject.CreateBasicTestProject());
 
 			// Adds new group
 			template.AddCharacterToGroup("Test Character", 1);

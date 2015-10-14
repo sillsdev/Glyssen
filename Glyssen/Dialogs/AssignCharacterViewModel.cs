@@ -92,6 +92,13 @@ namespace Glyssen.Dialogs
 			Analytics.Track("SetSingleVoice", new Dictionary<string, string> { { "book", CurrentBookId }, { "singleVoice", singleVoice.ToString() } });
 		}
 
+		public void AddCharacterDetailToProject(string characterId, CharacterGender gender, CharacterAge age)
+		{
+			var detail = new CharacterDetail { CharacterId = characterId, Gender = gender, Age = age, MaxSpeakers = 1 };
+			m_project.AddProjectCharacterDetail(detail);
+			m_project.SaveProjectCharacterDetailData();
+		}
+
 		private void OnSaveCurrentBook()
 		{
 			if (CurrentBookSaved != null)

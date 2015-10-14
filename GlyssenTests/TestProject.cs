@@ -46,7 +46,7 @@ namespace GlyssenTests
 			sampleMetadata.FontSizeInPoints = 12;
 			sampleMetadata.Id = kTest;
 			sampleMetadata.Language = new GlyssenDblMetadataLanguage { Iso = kTest };
-			sampleMetadata.Identification = new DblMetadataIdentification { Name = "test~~" };
+			sampleMetadata.Identification = new DblMetadataIdentification { Name = kTest };
 			sampleMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
 			sampleMetadata.QuoteSystem = GetTestQuoteSystem();
 
@@ -57,6 +57,11 @@ namespace GlyssenTests
 				Thread.Sleep(100);
 
 			return Project.Load(Project.GetProjectFilePath(kTest, kTest, Project.GetDefaultRecordingProjectName(kTest)));
+		}
+
+		public static Project CreateBasicTestProject()
+		{
+			return CreateTestProject(TestBook.JUD);
 		}
 
 		private static QuoteSystem GetTestQuoteSystem()

@@ -8,11 +8,26 @@ namespace GlyssenTests.Character
 	[TestFixture]
 	class CharacterGroupListTests
 	{
+		private Project m_project;
+
+		[TestFixtureSetUp]
+		public void TestFixtureSetUp()
+		{
+			m_project = TestProject.CreateBasicTestProject();
+		}
+
+		[TestFixtureTearDown]
+		public void TestFixtureTearDown()
+		{
+			m_project = null;
+			TestProject.DeleteTestProjectFolder();
+		}
+
 		[Test]
 		public void AnyVoiceActorAssigned_NoneAssigned_ReturnsFalse()
 		{
 			var list = new CharacterGroupList();
-			var group = new CharacterGroup(1);
+			var group = new CharacterGroup(m_project, 1);
 			list.CharacterGroups.Add(group);
 
 			Assert.IsFalse(list.AnyVoiceActorAssigned());
@@ -22,7 +37,7 @@ namespace GlyssenTests.Character
 		public void AnyVoiceActorAssigned_OneAssigned_ReturnsTrue()
 		{
 			var list = new CharacterGroupList();
-			var group = new CharacterGroup(1);
+			var group = new CharacterGroup(m_project, 1);
 			group.AssignVoiceActor(0);
 			list.CharacterGroups.Add(group);
 
@@ -32,7 +47,7 @@ namespace GlyssenTests.Character
 		public void HasVoiceActorAssigned_NoneAssigned_ReturnsFalse()
 		{
 			var list = new CharacterGroupList();
-			var group = new CharacterGroup(1);
+			var group = new CharacterGroup(m_project, 1);
 			list.CharacterGroups.Add(group);
 
 			Assert.IsFalse(list.HasVoiceActorAssigned(1));
@@ -42,7 +57,7 @@ namespace GlyssenTests.Character
 		public void HasVoiceActorAssigned_RequestedActorNotAssigned_ReturnsFalse()
 		{
 			var list = new CharacterGroupList();
-			var group = new CharacterGroup(1);
+			var group = new CharacterGroup(m_project, 1);
 			group.AssignVoiceActor(0);
 			list.CharacterGroups.Add(group);
 
@@ -53,7 +68,7 @@ namespace GlyssenTests.Character
 		public void HasVoiceActorAssigned_RequestedActorAssigned_ReturnsTrue()
 		{
 			var list = new CharacterGroupList();
-			var group = new CharacterGroup(1);
+			var group = new CharacterGroup(m_project, 1);
 			group.AssignVoiceActor(1);
 			list.CharacterGroups.Add(group);
 
@@ -66,9 +81,9 @@ namespace GlyssenTests.Character
 			// Note: this tests something that is actually illegal: there should only ever be one group assigned
 			// to a particular actor.
 			var list = new CharacterGroupList();
-			var group1 = new CharacterGroup(1);
-			var group2 = new CharacterGroup(2);
-			var group3 = new CharacterGroup(3);
+			var group1 = new CharacterGroup(m_project, 1);
+			var group2 = new CharacterGroup(m_project, 2);
+			var group3 = new CharacterGroup(m_project, 3);
 
 			group1.AssignVoiceActor(1);
 			list.CharacterGroups.Add(group1);
@@ -87,13 +102,13 @@ namespace GlyssenTests.Character
 		public void PopulateEstimatedHours()
 		{
 			var list = new CharacterGroupList();
-			var group1 = new CharacterGroup(1)
+			var group1 = new CharacterGroup(m_project, 1)
 			{
 				CharacterIds = { "A", "B" }
 			};
 			list.CharacterGroups.Add(group1);
 
-			var group2 = new CharacterGroup(2)
+			var group2 = new CharacterGroup(m_project, 2)
 			{
 				CharacterIds = { "C", "D" }
 			};

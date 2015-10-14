@@ -18,7 +18,7 @@ namespace GlyssenTests.Character
 		{
 			m_tempFile = new TempFile();
 			File.WriteAllBytes(m_tempFile.Path, Resources.TestCharacterGroups);
-			m_charGroupSource = new CharacterGroupTemplateExcelFile(m_tempFile.Path);
+			m_charGroupSource = new CharacterGroupTemplateExcelFile(TestProject.CreateBasicTestProject(), m_tempFile.Path);
 		}
 
 		[TestFixtureTearDown]

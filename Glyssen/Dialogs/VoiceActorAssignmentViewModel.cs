@@ -160,7 +160,7 @@ namespace Glyssen.Dialogs
 			using (var tempFile = new TempFile())
 			{
 				File.WriteAllBytes(tempFile.Path, Resources.CharacterGroups);
-				ICharacterGroupSource charGroupSource = new CharacterGroupTemplateExcelFile(tempFile.Path);
+				ICharacterGroupSource charGroupSource = new CharacterGroupTemplateExcelFile(m_project, tempFile.Path);
 				charGroupTemplate = charGroupSource.GetTemplate(m_project.VoiceActorList.Actors.Count);
 			}
 
@@ -185,7 +185,7 @@ namespace Glyssen.Dialogs
 
 			// Add an extra group for any characters which weren't in the template
 			var unmatchedCharacters = includedCharacterIds.Except(matchedCharacterIds);
-			var unmatchedCharacterGroup = new CharacterGroup(999, new CharacterByKeyStrokeComparer(m_keyStrokesByCharacterId));
+			var unmatchedCharacterGroup = new CharacterGroup(m_project, 999, new CharacterByKeyStrokeComparer(m_keyStrokesByCharacterId));
 			unmatchedCharacterGroup.CharacterIds.AddRange(unmatchedCharacters);
 			CharacterGroups.Add(unmatchedCharacterGroup);
 		}
@@ -197,7 +197,7 @@ namespace Glyssen.Dialogs
 			while (CharacterGroups.Any(t => t.GroupNumber == newGroupNumber))
 				newGroupNumber++;
 
-			CharacterGroup newGroup = new CharacterGroup(newGroupNumber, new CharacterByKeyStrokeComparer(m_keyStrokesByCharacterId));
+			CharacterGroup newGroup = new CharacterGroup(m_project, newGroupNumber, new CharacterByKeyStrokeComparer(m_keyStrokesByCharacterId));
 			CharacterGroups.Add(newGroup);
 
 			return newGroup;
@@ -326,7 +326,7 @@ namespace Glyssen.Dialogs
 
 		public bool SplitGroup(CharacterGroup group, List<string> charactersToMove)
 		{
-			var newGroup = new CharacterGroup(0, new CharacterByKeyStrokeComparer(m_keyStrokesByCharacterId));
+			var newGroup = new CharacterGroup(m_project, 0, new CharacterByKeyStrokeComparer(m_keyStrokesByCharacterId));
 			m_project.CharacterGroupList.CharacterGroups.Add(newGroup);
 			return MoveCharactersToGroup(charactersToMove, newGroup, false);
 		}

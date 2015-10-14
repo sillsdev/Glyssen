@@ -30,7 +30,7 @@ namespace GlyssenTests.Dialogs
 			m_testProject.VoiceActorList.Actors.Clear();
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 			// Adding one group here prevents the constructor from generating groups
-			m_testProject.CharacterGroupList.CharacterGroups.Add(new CharacterGroup(1));
+			m_testProject.CharacterGroupList.CharacterGroups.Add(new CharacterGroup(TestProject.CreateBasicTestProject(), 1));
 			m_model = new VoiceActorAssignmentViewModel(m_testProject);
 		}
 
