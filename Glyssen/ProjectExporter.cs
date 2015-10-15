@@ -9,6 +9,7 @@ using Glyssen.Character;
 using Glyssen.Properties;
 using L10NSharp;
 using OfficeOpenXml;
+using OfficeOpenXml.Style;
 using SIL.Reporting;
 
 namespace Glyssen
@@ -121,6 +122,22 @@ namespace Glyssen
 			{
 				var sheet = xls.Workbook.Worksheets.Add("Script");
 				sheet.Cells["A1"].LoadFromArrays(data.Select(d => d.ToArray()).ToArray());
+				sheet.Cells.Style.VerticalAlignment = ExcelVerticalAlignment.Top;
+				sheet.Column(1).AutoFit(2d, sheet.DefaultColWidth); // line number
+				int offset = 0;
+				if (IncludeVoiceActors)
+				{
+					offset = 1;
+					sheet.Column(2).AutoFit(2d, 20d); // voice actor
+				}
+				sheet.Column(2 + offset).AutoFit(2d, sheet.DefaultColWidth); // style tag
+				sheet.Column(3 + offset).AutoFit(2d, sheet.DefaultColWidth); // book
+				sheet.Column(4 + offset).AutoFit(2d, sheet.DefaultColWidth); // chapter
+				sheet.Column(5 + offset).AutoFit(2d, sheet.DefaultColWidth); // verse
+				sheet.Column(6 + offset).AutoFit(2d, 20d); // character ID
+				sheet.Column(8 + offset).Style.WrapText = true; // script text
+				sheet.Column(8 + offset).Width = 50d;
+				sheet.Column(9 + offset).AutoFit(2d, sheet.DefaultColWidth); // block length
 				xls.Save();
 			}
 		}
@@ -151,6 +168,7 @@ namespace Glyssen
 
 		internal static List<object> GetExportDataForBlock(Block block, int blockNumber, string bookId, string voiceActor = null, string singleVoiceNarratorOverride = null, bool useCharacterIdInScript = true)
 		{
+			// NOTE: if the order here changes, there may be changes needed in GenerateExcelFile
 			List<object> list = new List<object>();
 			list.Add(blockNumber);
 			if (voiceActor != null)
