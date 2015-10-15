@@ -45,7 +45,7 @@ namespace Glyssen.Dialogs
 			base.OnLoad(e);
 			m_htmlFilePath = Path.ChangeExtension(Path.GetTempFileName(), "htm");
 			m_style = string.Format(Block.kCssFrame, m_fontFamily, m_fontSize) + "body {cursor:col-resize;}";
-			
+
 			SetHtml();
 		}
 
@@ -199,6 +199,7 @@ namespace Glyssen.Dialogs
 				if (!match.Success)
 				{
 					Debug.Fail("HTML data for verse number not formed as expected");
+					// ReSharper disable once HeuristicUnreachableCode
 					return false;
 				}
 				VerseToSplit = match.Result("${verse}");

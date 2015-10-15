@@ -14,33 +14,33 @@ namespace GlyssenTests.Bundle
 		private const string TestXml =
 @"<?xml version=""1.0"" encoding=""UTF-8""?>
 <DBLMetadata id=""3b9fdc679b9319c3"" revision=""1"" mediatype=""text"" typeVersion=""1.3"">
-  <projectStatus>
-    <quoteSystemStatus>UserSet</quoteSystemStatus>
-    <bookSelectionStatus>Reviewed</bookSelectionStatus>
-  </projectStatus>
-  <language>
-    <iso>ach</iso>
-    <fontFamily>Charis SIL</fontFamily>
-    <fontSizeInPoints>12</fontSizeInPoints>
-  </language>
+	<projectStatus>
+		<quoteSystemStatus>UserSet</quoteSystemStatus>
+		<bookSelectionStatus>Reviewed</bookSelectionStatus>
+	</projectStatus>
+	<language>
+		<iso>ach</iso>
+		<fontFamily>Charis SIL</fontFamily>
+		<fontSizeInPoints>12</fontSizeInPoints>
+	</language>
 </DBLMetadata>";
 
 		private const string TestWithDeprecatedFieldsXml =
 @"<?xml version=""1.0"" encoding=""UTF-8""?>
 <DBLMetadata id=""3b9fdc679b9319c3"" revision=""1"" mediatype=""text"" typeVersion=""1.3"">
-  <fontFamily>Charis SIL</fontFamily>
-  <fontSizeInPoints>12</fontSizeInPoints>
-  <language>
-    <iso>ach</iso>
-  </language>
-  <QuoteSystem>
-    <Name>Quotation marks, double</Name>
-    <MajorLanguage>English, US/Canada</MajorLanguage>
-    <StartQuoteMarker>“</StartQuoteMarker>
-    <EndQuoteMarker>”</EndQuoteMarker>
-  </QuoteSystem>
-  <isQuoteSystemUserConfirmed>true</isQuoteSystemUserConfirmed>
-  <isBookSelectionUserConfirmed>true</isBookSelectionUserConfirmed>
+	<fontFamily>Charis SIL</fontFamily>
+	<fontSizeInPoints>12</fontSizeInPoints>
+	<language>
+		<iso>ach</iso>
+	</language>
+	<QuoteSystem>
+		<Name>Quotation marks, double</Name>
+		<MajorLanguage>English, US/Canada</MajorLanguage>
+		<StartQuoteMarker>“</StartQuoteMarker>
+		<EndQuoteMarker>”</EndQuoteMarker>
+	</QuoteSystem>
+	<isQuoteSystemUserConfirmed>true</isQuoteSystemUserConfirmed>
+	<isBookSelectionUserConfirmed>true</isBookSelectionUserConfirmed>
 </DBLMetadata>";
 
 		[TestFixtureSetUp]
@@ -113,13 +113,13 @@ namespace GlyssenTests.Bundle
 			const string expectedResult =
 @"<?xml version=""1.0"" encoding=""utf-16""?>
 <DBLMetadata id=""id"" revision=""1"" controlfileversion=""0"">
-  <language>
-    <fontSizeInPoints>10</fontSizeInPoints>
-  </language>
-  <projectStatus>
-    <assignCharacterMode />
-    <quoteSystemDate>0001-01-01T00:00:00</quoteSystemDate>
-  </projectStatus>
+	<language>
+		<fontSizeInPoints>10</fontSizeInPoints>
+	</language>
+	<projectStatus>
+		<assignCharacterMode />
+		<quoteSystemDate>0001-01-01T00:00:00</quoteSystemDate>
+	</projectStatus>
 </DBLMetadata>";
 
 			AssertThatXmlIn.String(expectedResult).EqualsIgnoreWhitespace(metadata.GetAsXml());

@@ -13,7 +13,6 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Controls;
@@ -23,7 +22,6 @@ using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
 using SIL.Windows.Forms.PortableSettingsProvider;
-using Timer = System.Timers.Timer;
 
 namespace Glyssen.Dialogs
 {
@@ -121,7 +119,7 @@ namespace Glyssen.Dialogs
 			}
 			else
 			{
-				m_progressBar.Visible = false;				
+				m_progressBar.Visible = false;
 			}
 		}
 
@@ -400,7 +398,7 @@ namespace Glyssen.Dialogs
 
 			var newItem = new AssignCharacterViewModel.Character(character);
 			m_listBoxCharacters.Items.Add(newItem);
-			m_listBoxCharacters.SelectedItem = newItem; 
+			m_listBoxCharacters.SelectedItem = newItem;
 		}
 
 		private void AddNewDelivery(string delivery)
@@ -455,7 +453,7 @@ namespace Glyssen.Dialogs
 		{
 			m_formLoading = false;
 		}
-		
+
 		protected override void OnClosing(CancelEventArgs e)
 		{
 			Settings.Default.AssignCharactersBlockContextGrid = m_blocksViewer.BlocksGridSettings;

@@ -49,7 +49,7 @@ namespace Glyssen.Quote
 			{new MatchedPair("‚", "’", false), new []{new MatchedPair("„", "”", false)}},
 			{new MatchedPair("「", "」", false), new []{new MatchedPair("『", "』", false)}},
 			{new MatchedPair("”", "“", false), new []{new MatchedPair("’", "‘", false)}},
-			{new MatchedPair("<<", ">>", false), new []{new MatchedPair("<", ">", false)}}, 
+			{new MatchedPair("<<", ">>", false), new []{new MatchedPair("<", ">", false)}},
 		};
 
 		public static object[] AllDefaultSymbols()

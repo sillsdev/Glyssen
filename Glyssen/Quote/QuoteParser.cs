@@ -59,7 +59,7 @@ namespace Glyssen.Quote
 		private bool m_nextBlockContinuesQuote;
 		private readonly List<Block> m_currentMultiBlockQuote = new List<Block>();
 		#endregion
-		
+
 		public QuoteParser(ICharacterVerseInfo cvInfo, string bookId, IEnumerable<Block> blocks, QuoteSystem quoteSystem = null, ScrVers versification = null)
 		{
 			m_cvInfo = cvInfo;
@@ -155,7 +155,7 @@ namespace Glyssen.Quote
 		}
 
 		/// <summary>
-		/// Parse through the given blocks character by character to determine where we need to break based on quotes 
+		/// Parse through the given blocks character by character to determine where we need to break based on quotes
 		/// </summary>
 		/// <returns>A new enumerable of blocks broken up for quotes</returns>
 		public IEnumerable<Block> Parse()
@@ -188,8 +188,8 @@ namespace Glyssen.Quote
 					continue;
 				}
 
-				if (m_quoteLevel == 1 && 
-					blockInWhichDialogueQuoteStarted != null && 
+				if (m_quoteLevel == 1 &&
+					blockInWhichDialogueQuoteStarted != null &&
 					(!IsNormalParagraphStyle(blockInWhichDialogueQuoteStarted.StyleTag) || blockEndedWithSentenceEndingPunctuation || !IsFollowOnParagraphStyle(block.StyleTag)))
 				{
 					m_quoteLevel--;
@@ -515,9 +515,9 @@ namespace Glyssen.Quote
 					var realCharacter = uniqueCharacterDeliveries.Single(c => c.Character != CharacterVerseData.AmbiguousCharacter && c.Character != CharacterVerseData.UnknownCharacter);
 					SetCharacterAndDeliveryForMultipleBlocks(m_currentMultiBlockQuote, realCharacter.Character, realCharacter.Delivery);
 				}
-				
+
 			}
-				
+
 			m_currentMultiBlockQuote.Clear();
 		}
 
@@ -532,7 +532,7 @@ namespace Glyssen.Quote
 
 		private bool IsSentenceEnding(char c)
 		{
-			// Note... while one might think that char.GetUnicodeCategory could tell you if a character was a sentence separator, this is not the case. 
+			// Note... while one might think that char.GetUnicodeCategory could tell you if a character was a sentence separator, this is not the case.
 			// This is because, for example, '.' can be used for various things (abbreviation, decimal point, as well as sentence terminator).
 			// This should be a complete list of code points with the \p{Sentence_Break=STerm} or \p{Sentence_Break=ATerm} properties that also
 			// have the \p{Terminal_Punctuation} property. This list is up-to-date as of Unicode v6.1.
@@ -638,7 +638,7 @@ namespace Glyssen.Quote
 		{
 			public readonly string Character;
 			public readonly string Delivery;
-			
+
 			public CharacterDelivery(string character, string delivery)
 			{
 				Character = character;

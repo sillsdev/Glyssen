@@ -72,7 +72,7 @@ namespace GlyssenTests
 		{
 			var book = new Book();
 			book.IncludeInScript = true;
-			
+
 			XmlDocument xmlDocument = new XmlDocument();
 
 			switch (testBook)

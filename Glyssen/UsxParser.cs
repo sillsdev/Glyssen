@@ -11,6 +11,7 @@ using Glyssen.Character;
 using Glyssen.Utilities;
 using SIL.DblBundle;
 using SIL.DblBundle.Usx;
+using SIL.Reporting;
 using SIL.Scripture;
 
 namespace Glyssen
@@ -30,17 +31,44 @@ namespace Glyssen
 			int allProjectBlocks = numBlocksPerBook.Values.Sum();
 
 			int completedProjectBlocks = 0;
-			var result = new List<BookScript>();
+			var bookScripts = new List<BookScript>();
 			Parallel.ForEach(blocksInBook, book =>
 			{
 				var bookId = book.Key;
-				result.Add(new BookScript(bookId, new UsxParser(bookId, stylesheet, book.Value).Parse()));
+				Logger.WriteEvent("Creating bookScript ({0})", bookId);
+				var bookScript = new BookScript(bookId, new UsxParser(bookId, stylesheet, book.Value).Parse());
+				Logger.WriteEvent("Created bookScript ({0}, {1})", bookId, bookScript.BookId);
+				bookScripts.Add(bookScript);
+				Logger.WriteEvent("Added bookScript ({0}, {1})", bookId, bookScript.BookId);
 				completedProjectBlocks += numBlocksPerBook[bookId];
 				projectWorker.ReportProgress(MathUtilities.Percent(completedProjectBlocks, allProjectBlocks, 99));
 			});
 
+			// This code is an attempt to figure out how we are getting null reference exceptions on the Sort call (See PG-275 & PG-287)
+			foreach (var bookScript in bookScripts)
+				if (bookScript == null || bookScript.BookId == null)
+				{
+					var nonNullBookScripts = bookScripts.Where(b => b != null).Select(b => b.BookId);
+					var nonNullBookScriptsStr = string.Join(";", nonNullBookScripts);
+					var initialMessage = bookScript == null ? "BookScript is null." : "BookScript has null BookId.";
+					throw new ApplicationException(string.Format("{0} Number of BookScripts: {1}. BookScripts which are NOT null: {2}", initialMessage, bookScripts.Count, nonNullBookScriptsStr));
+				}
+
+			try
+			{
+				bookScripts.Sort((a, b) => BCVRef.BookToNumber(a.BookId).CompareTo(BCVRef.BookToNumber(b.BookId)));
+			}
+			catch (NullReferenceException n)
+			{
+				// This code is an attempt to figure out how we are getting null reference exceptions on the Sort call (See PG-275 & PG-287)
+				StringBuilder sb = new StringBuilder();
+				foreach (var bookScript in bookScripts)
+					sb.Append(Environment.NewLine).Append(bookScript.BookId).Append("(").Append(BCVRef.BookToNumber(bookScript.BookId)).Append(")");
+				throw new NullReferenceException("Null reference exception while sorting books." + sb, n);
+			}
+
 			projectWorker.ReportProgress(100);
-			return result;
+			return bookScripts;
 		}
 
 		private readonly string m_bookId;
@@ -104,7 +132,7 @@ namespace Glyssen
 							continue;
 						}
 						AddMainTitleIfApplicable(blocks, titleBuilder);
-						
+
 						block = new Block(usxPara.StyleTag, m_currentChapter, m_currentStartVerse, m_currentEndVerse) { IsParagraphStart = true };
 						if (m_currentChapter == 0)
 							block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.Intro);

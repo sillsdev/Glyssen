@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using L10NSharp;
-using SIL.Extensions;
 using SIL.Scripture;
 
 namespace Glyssen.Character
@@ -170,10 +169,10 @@ namespace Glyssen.Character
 		#region Equality Members
 		protected bool Equals(CharacterVerse other)
 		{
-			return Equals(m_bcvRef, other.m_bcvRef) && 
-				string.Equals(Character, other.Character) && 
-				string.Equals(Delivery, other.Delivery) && 
-				string.Equals(Alias, other.Alias) && 
+			return Equals(m_bcvRef, other.m_bcvRef) &&
+				string.Equals(Character, other.Character) &&
+				string.Equals(Delivery, other.Delivery) &&
+				string.Equals(Alias, other.Alias) &&
 				QuoteType == other.QuoteType;
 		}
 

@@ -57,7 +57,7 @@ namespace DevTools.BiblicalTerms
 					return m_uniqueOtNtBooks;
 				return m_uniqueOtNtBooks = GetUniqueOtNtBooks();
 			}
-		} 
+		}
 
 		public override string ToString()
 		{
@@ -196,7 +196,7 @@ namespace DevTools.BiblicalTerms
 			{
 				int result = String.Compare(x.Gloss, y.Gloss, StringComparison.InvariantCultureIgnoreCase);
 				if (result != 0)
-					return result; 
+					return result;
 				result = String.Compare(x.Domain, y.Domain, StringComparison.InvariantCultureIgnoreCase);
 				if (result != 0)
 					return result;

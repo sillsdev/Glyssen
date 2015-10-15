@@ -168,7 +168,7 @@ namespace Glyssen.Controls
 
 		#endregion
 
-		//A similar override was in the microsoft's example code, but this currently raises a type error 
+		//A similar override was in the microsoft's example code, but this currently raises a type error
 		//because the DataSource is a List while the higher-level source may actually be a different type (e.g. HashSet)
 		//protected override void OnSelectedValueChanged(EventArgs eventargs)
 		//{

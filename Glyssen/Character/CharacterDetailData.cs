@@ -10,7 +10,7 @@ namespace Glyssen.Character
 	{
 		private static CharacterDetailData s_singleton;
 		private IList<CharacterDetail> m_data;
-		private Dictionary<string, CharacterDetail> m_dictionary; 
+		private Dictionary<string, CharacterDetail> m_dictionary;
 
 		internal static string TabDelimitedCharacterDetailData { get; set; }
 
@@ -37,7 +37,7 @@ namespace Glyssen.Character
 			if (m_dictionary != null)
 				return m_dictionary;
 			return m_dictionary = m_data.ToDictionary(k => k.CharacterId);
-		} 
+		}
 
 		private void LoadData(string tabDelimitedCharacterDetailData)
 		{
@@ -83,7 +83,7 @@ namespace Glyssen.Character
 				});
 			}
 			return list;
-		} 
+		}
 
 		private CharacterDetail ProcessLine(string[] items, int lineNumber)
 		{

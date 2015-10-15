@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Glyssen.Character;
 using Glyssen.Utilities;
 
@@ -33,7 +34,7 @@ namespace Glyssen.Analysis
 			NeedsAssignment = 0;
 			foreach (BookScript book in m_projectToAnalyze.IncludedBooks)
 			{
-				foreach (Block block in book.GetScriptBlocks(false))
+				foreach (Block block in book.GetScriptBlocks())
 				{
 					if (block.MultiBlockQuote == MultiBlockQuote.Continuation || block.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
 						continue;
@@ -58,6 +59,7 @@ namespace Glyssen.Analysis
 #endif
 		}
 
+		[SuppressMessage("ReSharper", "LocalizableElement")]
 		private void ReportInConsole()
 		{
 			Console.WriteLine("*************************************************************");

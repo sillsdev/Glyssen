@@ -196,7 +196,7 @@ namespace Glyssen.Dialogs
 			}
 
 			var listToReturn = new List<Character>(new SortedSet<Character>(
-				m_currentCharacters.Select(cv => new Character(cv.Character, cv.LocalizedCharacter, cv.Alias, cv.LocalizedAlias, 
+				m_currentCharacters.Select(cv => new Character(cv.Character, cv.LocalizedCharacter, cv.Alias, cv.LocalizedAlias,
 					!charactersForCurrentRef.Contains(cv) || cv.ProjectSpecific)), m_characterComparer));
 			listToReturn.Sort(m_aliasComparer);
 
@@ -208,7 +208,7 @@ namespace Glyssen.Dialogs
 				listToReturn.Add(Character.Narrator);
 			return listToReturn;
 		}
-		
+
 		public IEnumerable<Delivery> GetDeliveriesForCharacter(Character selectedCharacter)
 		{
 			m_currentDeliveries = new List<Delivery>();
@@ -283,7 +283,7 @@ namespace Glyssen.Dialogs
 					{ "initialStartVerse", block.InitialStartVerseNumber.ToString(CultureInfo.InvariantCulture) },
 					{ "character", selectedCharacter.CharacterId }
 				});
-			
+
 			if (selectedCharacter.ProjectSpecific || selectedDelivery.ProjectSpecific)
 				AddRecordToProjectCharacterVerseData(block, selectedCharacter, selectedDelivery);
 
@@ -437,7 +437,7 @@ namespace Glyssen.Dialogs
 					case CharacterVerseData.StandardCharacter.Intro: return String.Format(s_introCharacter, s_funcToGetBookId());
 					case CharacterVerseData.StandardCharacter.ExtraBiblical: return String.Format(s_extraCharacter, s_funcToGetBookId());
 					case CharacterVerseData.StandardCharacter.BookOrChapter: return String.Format(s_bookChapterCharacter, s_funcToGetBookId());
-					default: 
+					default:
 						if (characterId == CharacterVerseData.AmbiguousCharacter || characterId == CharacterVerseData.UnknownCharacter)
 							return "";
 						string relevantAlias = s_funcToGetRelevantAlias(characterId);

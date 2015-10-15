@@ -92,7 +92,7 @@ namespace Glyssen.VoiceActor
 				if (!Enum.TryParse(value, false, out val))
 					val = MigrateFromDeprecatedVersionOfVoiceQualityData(value);
 				VoiceQuality = val;
-			} 
+			}
 		}
 
 		[XmlIgnore]
@@ -130,8 +130,6 @@ namespace Glyssen.VoiceActor
 				case CharacterGender.Male:
 				case CharacterGender.PreferMale: // TODO: Handle preferences based on user settings
 					result &= Gender == ActorGender.Male;
-					break;
-				default:
 					break;
 			}
 

@@ -507,7 +507,7 @@ namespace Glyssen.Dialogs
 		protected BookBlockIndices GetCurrentBlockIndices()
 		{
 			return m_navigator.GetIndices();
-		} 
+		}
 
 		public static int GetIndexOfClosestRelevantBlock(List<BookBlockIndices> list, BookBlockIndices key, bool prev,
 			int min, int max)
@@ -578,7 +578,7 @@ namespace Glyssen.Dialogs
 			{
 				if (block.IsQuote || CharacterVerseData.IsCharacterStandard(block.CharacterId, false))
 					return false;
-				IEnumerable<BCVRef> versesWithPotentialMissingQuote = 
+				IEnumerable<BCVRef> versesWithPotentialMissingQuote =
 					ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber, block.InitialStartVerseNumber,
 					block.LastVerse, versification: Versification).Where(c => c.IsExpected).Select(c => c.BcvRef);
 				if (!versesWithPotentialMissingQuote.Any())
@@ -586,9 +586,9 @@ namespace Glyssen.Dialogs
 				foreach (BCVRef verse in versesWithPotentialMissingQuote)
 				{
 					if (m_navigator.PeekBackwardWithinBookWhile(b => b.ChapterNumber == verse.Chapter &&
-					                                                 b.LastVerse == verse.Verse).All(b => !b.IsQuote) &&
+						b.LastVerse == verse.Verse).All(b => !b.IsQuote) &&
 					    m_navigator.PeekForwardWithinBookWhile(b => b.ChapterNumber == verse.Chapter &&
-					                                                b.InitialStartVerseNumber == verse.Verse).All(b => !b.IsQuote))
+						b.InitialStartVerseNumber == verse.Verse).All(b => !b.IsQuote))
 						return true;
 				}
 				return false;
@@ -633,7 +633,7 @@ namespace Glyssen.Dialogs
 			{
 				var indicesOfNewOrModifiedBlock = m_navigator.GetIndicesOfSpecificBlock(newOrModifiedBlock);
 				var blocksIndicesNeedingUpdate = m_relevantBlocks.Where(
-					r => r.BookIndex == indicesOfNewOrModifiedBlock.BookIndex && 
+					r => r.BookIndex == indicesOfNewOrModifiedBlock.BookIndex &&
 						r.BlockIndex >= indicesOfNewOrModifiedBlock.BlockIndex);
 				foreach (var block in blocksIndicesNeedingUpdate)
 					block.BlockIndex++;

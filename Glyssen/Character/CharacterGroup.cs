@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
@@ -185,16 +186,16 @@ namespace Glyssen.Character
 	{
 		private readonly Dictionary<T, CharacterGroupAttribute<T>> m_entryNameToDataEntry;
 
-		private class CharacterAttributeComparer<T> : IComparer<CharacterGroupAttribute<T>> where T : struct, IConvertible
+		private class CharacterAttributeComparer<T2> : IComparer<CharacterGroupAttribute<T2>> where T2 : struct, IConvertible
 		{
-			private readonly IComparer<T> m_comparer;
+			private readonly IComparer<T2> m_comparer;
 
-			public CharacterAttributeComparer(IComparer<T> comparer)
+			public CharacterAttributeComparer(IComparer<T2> comparer)
 			{
 				m_comparer = comparer;
 			}
 
-			public int Compare(CharacterGroupAttribute<T> x, CharacterGroupAttribute<T> y)
+			public int Compare(CharacterGroupAttribute<T2> x, CharacterGroupAttribute<T2> y)
 			{
 				return m_comparer.Compare(x.AttributeValue, y.AttributeValue);
 			}
@@ -230,7 +231,7 @@ namespace Glyssen.Character
 
 		static CharacterGroupAttribute()
 		{
-			GetUiStringForValue = a => a.ToString();
+			GetUiStringForValue = a => a.ToString(CultureInfo.InvariantCulture);
 		}
 
 		public CharacterGroupAttribute(T attributeValue, int count = 0)

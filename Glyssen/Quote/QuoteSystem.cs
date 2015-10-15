@@ -98,7 +98,7 @@ namespace Glyssen.Quote
 		public string MajorLanguage
 		{
 			get { return m_majorLanguage; }
-			set 
+			set
 			{
 				m_majorLanguage = value;
 				if (value == "French" && AllLevels.Any())
@@ -212,7 +212,7 @@ namespace Glyssen.Quote
 				if (dialog == null)
 					return null;
 				return dialog.Open;
-			} 
+			}
 		}
 
 		[XmlIgnore]
@@ -247,7 +247,7 @@ namespace Glyssen.Quote
 		}
 
 		#region Equals methods overrides
-		      
+
 		protected bool Equals(QuoteSystem other)
 		{
 			if (other == null)

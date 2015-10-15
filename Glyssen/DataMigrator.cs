@@ -84,7 +84,7 @@ namespace Glyssen
 						if (!File.Exists(versificationPath))
 						{
 							var projectFilePath = Directory.GetFiles(recordingProjectFolder, "*" + kOldProjectExtension).FirstOrDefault();
- 
+
 							if (projectFilePath != null)
 							{
 								if (projectFilePath.Equals(Project.SampleProjectFilePath, StringComparison.OrdinalIgnoreCase))

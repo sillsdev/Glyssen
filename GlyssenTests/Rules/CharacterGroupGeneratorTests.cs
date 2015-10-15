@@ -2,6 +2,7 @@
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
+using Glyssen.Dialogs;
 using Glyssen.Rules;
 using Glyssen.VoiceActor;
 using GlyssenTests.Properties;
@@ -293,6 +294,60 @@ namespace GlyssenTests.Rules
 			Assert.True(groupWithActorAssigned.CharacterIds.Contains("centurion at crucifixion"));
 			Assert.False(groups.Where(g => g != groupWithActorAssigned).SelectMany(g => g.CharacterIds).Contains("centurion at crucifixion"));
 		}
+
+		[Test]
+		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToJesus_GroupMaintainedAndJesusNotDuplicated()
+		{
+			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
+			actors[0].IsCameo = true;
+
+			var assignedGroup = new CharacterGroup();
+			assignedGroup.AssignVoiceActor(actors[0].Id);
+			assignedGroup.CharacterIds.Add("Jesus");
+			m_testProject.CharacterGroupList.CharacterGroups.Add(assignedGroup);
+
+			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
+			var groupWithActorAssigned = groups.First(g => g.IsVoiceActorAssigned);
+			Assert.AreEqual(1, groupWithActorAssigned.CharacterIds.Count);
+			Assert.True(groupWithActorAssigned.CharacterIds.Contains("Jesus"));
+			Assert.False(groups.Where(g => g != groupWithActorAssigned).SelectMany(g => g.CharacterIds).Contains("Jesus"));
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToBc_GroupMaintainedAndBcNotDuplicated()
+		{
+			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
+			actors[0].IsCameo = true;
+
+			var assignedGroup = new CharacterGroup();
+			assignedGroup.AssignVoiceActor(actors[0].Id);
+			assignedGroup.CharacterIds.Add("BC-MRK");
+			m_testProject.CharacterGroupList.CharacterGroups.Add(assignedGroup);
+
+			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
+			var groupWithActorAssigned = groups.First(g => g.IsVoiceActorAssigned);
+			Assert.AreEqual(1, groupWithActorAssigned.CharacterIds.Count);
+			Assert.True(groupWithActorAssigned.CharacterIds.Contains("BC-MRK"));
+			Assert.False(groups.Where(g => g != groupWithActorAssigned).SelectMany(g => g.CharacterIds).Contains("BC-MRK"));
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToExtraBiblical_GroupMaintainedAndExtraBiblicalNotDuplicated()
+		{
+			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
+			actors[0].IsCameo = true;
+
+			var assignedGroup = new CharacterGroup();
+			assignedGroup.AssignVoiceActor(actors[0].Id);
+			assignedGroup.CharacterIds.Add("extra-MRK");
+			m_testProject.CharacterGroupList.CharacterGroups.Add(assignedGroup);
+
+			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
+			var groupWithActorAssigned = groups.First(g => g.IsVoiceActorAssigned);
+			Assert.AreEqual(1, groupWithActorAssigned.CharacterIds.Count);
+			Assert.True(groupWithActorAssigned.CharacterIds.Contains("extra-MRK"));
+			Assert.False(groups.Where(g => g != groupWithActorAssigned).SelectMany(g => g.CharacterIds).Contains("extra-MRK"));
+		}
 	}
 
 	[TestFixture]
@@ -578,6 +633,61 @@ namespace GlyssenTests.Rules
 			Assert.True(narratorLukeGroup.CharacterIds.Contains("narrator-ACT"));
 			Assert.False(groups.Any(g => g.CharacterIds.Contains("BC-LUK")));
 			Assert.AreEqual(7, groups.Count);
+		}
+	}
+
+	[TestFixture]
+	internal class CharacterGroupGeneratorTestsWithScriptModifiedDuringTest
+	{
+		private Project m_testProject;
+		private Dictionary<string, int> m_keyStrokesPerCharacterId;
+
+		[TestFixtureSetUp]
+		public void TextFixtureSetUp()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK, TestProject.TestBook.ACT);
+			m_keyStrokesPerCharacterId = m_testProject.GetKeyStrokesByCharacterId();
+		}
+
+		[TestFixtureTearDown]
+		public void TestFixtureTearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_CameoAssignedToCharacterWhichIsRemovedFromScript_RegenerationDropsCharacter()
+		{
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(7);
+			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
+			var groups = gen.GenerateCharacterGroups();
+
+			var cameoActor = m_testProject.VoiceActorList.Actors[0];
+			cameoActor.IsCameo = true;
+			var cameoGroup = new CharacterGroup();
+			cameoGroup.AssignVoiceActor(cameoActor.Id);
+			groups.Add(cameoGroup);
+			m_testProject.CharacterGroupList.CharacterGroups.AddRange(groups);
+
+			var narratorLukeGroup = groups.Single(g => g.CharacterIds.Contains("narrator-LUK"));
+			narratorLukeGroup.CharacterIds.Remove("narrator-LUK");
+			cameoGroup.CharacterIds = new CharacterIdHashSet { "narrator-LUK" };
+
+			narratorLukeGroup = groups.Single(g => g.CharacterIds.Contains("narrator-LUK"));
+			Assert.AreEqual(1, narratorLukeGroup.CharacterIds.Count);
+
+			m_testProject.AvailableBooks[0].IncludeInScript = false;
+			m_keyStrokesPerCharacterId = m_testProject.GetKeyStrokesByCharacterId();
+			gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
+
+			groups = gen.GenerateCharacterGroups();
+
+			cameoGroup = groups.Single(g => g.VoiceActorId == cameoActor.Id);
+			Assert.AreEqual(7, groups.Count);
+			Assert.AreEqual(0, groups.Count(g => g.CharacterIds.Contains("narrator-LUK")));
+			Assert.AreEqual(0, cameoGroup.CharacterIds.Count);
 		}
 	}
 

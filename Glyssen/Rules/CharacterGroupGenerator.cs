@@ -11,7 +11,7 @@ namespace Glyssen.Rules
 	{
 		private readonly Project m_project;
 		private readonly Dictionary<string, int> m_keyStrokesByCharacterId;
-		private readonly IComparer<string> m_characterIdComparer; 
+		private readonly IComparer<string> m_characterIdComparer;
 		private readonly Proximity m_proximity;
 
 		private static readonly SortedDictionary<int, IList<HashSet<string>>> s_charactersInClosedGroups;
@@ -38,7 +38,7 @@ namespace Glyssen.Rules
 		public List<CharacterGroup> GenerateCharacterGroups()
 		{
 			List<CharacterGroup> characterGroups = new List<CharacterGroup>();
-			
+
 			List<VoiceActor.VoiceActor> actors = m_project.VoiceActorList.Actors;
 
 			if (actors.Count == 0)
@@ -56,7 +56,7 @@ namespace Glyssen.Rules
 			List<VoiceActor.VoiceActor> actorsNeedingGroups = new List<VoiceActor.VoiceActor>();
 
 			var characterDetails = CharacterDetailData.Singleton.GetDictionary();
-			var includedCharacterDetails = characterDetails.Values.Where(c => m_keyStrokesByCharacterId.Keys.Contains(c.CharacterId)).ToList();
+			var includedCharacterDetails = characterDetails.Values.Where(c => sortedDict.Select(e => e.Key).Contains(c.CharacterId)).ToList();
 
 			var characterDetailsUniquelyMatchedToActors = new Dictionary<CharacterDetail, List<VoiceActor.VoiceActor>>();
 			foreach (var actor in actors)
@@ -119,7 +119,7 @@ namespace Glyssen.Rules
 				Math.Min(1, includedCharacterDetails.Count(c => CharacterVerseData.IsCharacterOfType(c.CharacterId, CharacterVerseData.StandardCharacter.Narrator))),
 				Math.Min(1, includedCharacterDetails.Count(c => CharacterVerseData.IsCharacterStandard(c.CharacterId, false))),
 				includedCharacterDetails.Where(c => CharacterVerseData.IsCharacterOfType(c.CharacterId, CharacterVerseData.StandardCharacter.Narrator)).Select(c => CharacterVerseData.GetBookNameFromStandardCharacterId(c.CharacterId)).FirstOrDefault(),
-				includedCharacterDetails.Where(c => CharacterVerseData.IsCharacterStandard(c.CharacterId, false)).Select(c => CharacterVerseData.GetBookNameFromStandardCharacterId(c.CharacterId)).FirstOrDefault(),
+				includedCharacterDetails.Where(c => CharacterVerseData.IsCharacterOfType(c.CharacterId, CharacterVerseData.StandardCharacter.BookOrChapter)).Select(c => CharacterVerseData.GetBookNameFromStandardCharacterId(c.CharacterId)).FirstOrDefault(),
 				m_characterIdComparer);
 
 			foreach (var configuration in trialConfigurationsForNarratorsAndExtras)
@@ -166,7 +166,7 @@ namespace Glyssen.Rules
 					numMatchingCharacterGroups += configuration.m_narratorsOrExtraActors.Count(a => a.Matches(characterDetail));
 					int numMatchingActors = actorsNeedingGroups.Count(a => a.Matches(characterDetail));
 					if (configuration.RemainingUsableActors > 0 &&
-					    (numMatchingActors == 0 || numMatchingCharacterGroups < numMatchingActors))
+						(numMatchingActors == 0 || numMatchingCharacterGroups < numMatchingActors))
 					{
 						var group = new CharacterGroup(characterGroups.Count + 1, m_characterIdComparer);
 						group.CharacterIds.Add(characterId);
@@ -185,7 +185,7 @@ namespace Glyssen.Rules
 				group.Closed = false;
 
 			groups.AddRange(CreateGroupsForCameoActors());
-			
+
 			return groups;
 		}
 
@@ -203,7 +203,11 @@ namespace Glyssen.Rules
 			foreach (var cameoActor in m_project.VoiceActorList.Actors.Where(a => a.IsCameo))
 			{
 				if (m_project.CharacterGroupList.HasVoiceActorAssigned(cameoActor.Id))
-					yield return m_project.CharacterGroupList.CharacterGroups.First(g => g.VoiceActorId == cameoActor.Id);
+				{
+					var groupForCameoActor = m_project.CharacterGroupList.CharacterGroups.First(g => g.VoiceActorId == cameoActor.Id);
+					groupForCameoActor.CharacterIds.IntersectWith(m_keyStrokesByCharacterId.Keys);
+					yield return groupForCameoActor;
+				}
 				else
 				{
 					var newGroup = new CharacterGroup(groupNumber++, m_characterIdComparer);
@@ -226,7 +230,7 @@ namespace Glyssen.Rules
 				{
 					if (configuration.RemainingUsableActors == 0)
 						break;
-		
+
 					var charactersToPutInGroup = characterSet.Where(c => includedCharacterDetails.Any(d => d.CharacterId == c)).ToList();
 
 					if (charactersToPutInGroup.Any())
@@ -331,7 +335,7 @@ namespace Glyssen.Rules
 					ExtraBiblicalGroup.CharacterIds.Add(CharacterVerseData.GetStandardCharacterId(anyExtraBookId, CharacterVerseData.StandardCharacter.BookOrChapter));
 			}
 
-			internal bool IsBetterThan(TrialGroupConfiguration other)
+			private bool IsBetterThan(TrialGroupConfiguration other)
 			{
 				if (m_groupsWithConflictingGenders < other.m_groupsWithConflictingGenders)
 					return true;
@@ -345,7 +349,7 @@ namespace Glyssen.Rules
 				m_narratorsOrExtraActors.Add(new VoiceActor.VoiceActor { Gender = gender });
 			}
 
-			internal static List<TrialGroupConfiguration> GeneratePossibilities(List<CharacterGroup> predeterminedGroups, int nbrUnassignedActors, 
+			internal static List<TrialGroupConfiguration> GeneratePossibilities(List<CharacterGroup> predeterminedGroups, int nbrUnassignedActors,
 				int nbrAdultMaleActors, int nbrAdultFemaleActors, int numberOfNarratorGroups, int numberOfExtraGroups,
 				string anyNarratorBookId, string anyExtraBookId,
 				IComparer<string> characterComparer)
@@ -356,8 +360,8 @@ namespace Glyssen.Rules
 				var list = new List<TrialGroupConfiguration>(nbrConfigs);
 				for (int n = 0; n < nbrConfigs; n++)
 				{
-					var config = new TrialGroupConfiguration(predeterminedGroups, nbrUnassignedActors, 
-						numberOfNarratorGroups, numberOfExtraGroups, 
+					var config = new TrialGroupConfiguration(predeterminedGroups, nbrUnassignedActors,
+						numberOfNarratorGroups, numberOfExtraGroups,
 						anyNarratorBookId, anyExtraBookId,
 						characterComparer);
 

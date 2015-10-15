@@ -131,7 +131,7 @@ namespace Glyssen.Dialogs
 		{
 			// Create a copy. Cameos are handled in the generation code (because we always maintain those assignments).
 			var previousGroups = CharacterGroups.Where(g => !m_project.IsCharacterGroupAssignedToCameoActor(g)).ToList();
-			
+
 			GenerateGroupsWithProgress();
 
 			if (attemptToMaintainAssignments && previousGroups.Count > 0)
@@ -184,6 +184,7 @@ namespace Glyssen.Dialogs
 		}
 
 		// Keep this method around for now in case we decide to support templates in some scenarios
+		// ReSharper disable once UnusedMember.Local
 		private void CreateInitialGroupsFromTemplate()
 		{
 			CharacterGroupTemplate charGroupTemplate;
@@ -387,7 +388,7 @@ namespace Glyssen.Dialogs
 				"",
 				"",
 				"");
-			
+
 			foreach (var actor in m_project.VoiceActorList.Actors.Where(a => m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id)).OrderBy(a => a.Name))
 				table.Rows.Add(GetDataTableRow(actor, LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AlreadyAssignedVoiceActors",
 					"Assigned to a Character Group:")));

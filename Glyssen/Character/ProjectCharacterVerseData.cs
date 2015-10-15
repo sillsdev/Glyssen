@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using DesktopAnalytics;
-using L10NSharp.UI;
 using SIL.Scripture;
 
 namespace Glyssen.Character
@@ -25,7 +24,7 @@ namespace Glyssen.Character
 			Analytics.Track("AddCharacter", new Dictionary<string, string>
 			{
 				{"verseReference", cv.BcvRef.AsString},
-				{"characterId", cv.Character}, 
+				{"characterId", cv.Character},
 				{"delivery", cv.Delivery}
 			});
 		}

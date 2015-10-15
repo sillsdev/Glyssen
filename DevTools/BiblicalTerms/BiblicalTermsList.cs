@@ -43,6 +43,6 @@ namespace DevTools.BiblicalTerms
 			}
 			noDuplicateList.Add(priorTerm);
 			return noDuplicateList;
-		} 
+		}
 	}
 }

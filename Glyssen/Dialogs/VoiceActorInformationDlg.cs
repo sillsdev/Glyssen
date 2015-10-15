@@ -101,7 +101,7 @@ namespace Glyssen.Dialogs
 		private void m_linkClose_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			DialogResult = DialogResult.Cancel;
-			Close();			
+			Close();
 		}
 
 		private void m_btnOk_Click(object sender, EventArgs e)

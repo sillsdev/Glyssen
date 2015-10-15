@@ -42,9 +42,9 @@ namespace Glyssen
 		{
 			if (m_project != null)
 				m_project.ProjectStateChanged -= FinishSetProjectIfReady;
-			
+
 			m_project = project;
-		
+
 			if (m_project != null)
 				m_project.ProjectStateChanged += FinishSetProjectIfReady;
 
@@ -224,7 +224,7 @@ namespace Glyssen
 					path = Project.GetProjectFilePath(bundle.LanguageIso, bundle.Id, recordingProjectName);
 				}
 			}
-			
+
 			Versification.Table.HandleVersificationLineError = null;
 			try
 			{
@@ -327,7 +327,7 @@ namespace Glyssen
 			if (m_project != null)
 				UpdateButtons((m_project.ProjectState & ProjectState.ReadyForUserInteraction) == 0);
 		}
-	
+
 		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			SaveCurrentProject();
@@ -348,8 +348,8 @@ namespace Glyssen
 			if (exporter.IncludeVoiceActors)
 			{
 				string dlgMessage = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Message", "Some of the character groups have no voice actor assigned. Are you sure you want to export an incomplete script?") +
-				                    Environment.NewLine +
-				                    LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.MessageNote", "(Note: You can export the script again as many times as you want.)");
+									Environment.NewLine +
+									LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.MessageNote", "(Note: You can export the script again as many times as you want.)");
 				string dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Title", "Export Incomplete Script?");
 
 				export = m_project.IsVoiceActorAssignmentsComplete || MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
@@ -459,7 +459,7 @@ namespace Glyssen
 		{
 			// TODO: Eventually, this should be called when the user requests that all overrides be reverted to the defaults.
 			//m_project.UseDefaultForUnresolvedMultipleChoiceCharacters();
-	
+
 			if (m_project.VoiceActorStatus == VoiceActorStatus.UnProvided)
 			{
 				var actorInfoViewModel = new VoiceActorInformationViewModel(m_project);

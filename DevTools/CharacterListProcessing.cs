@@ -24,11 +24,11 @@ namespace DevTools
 
 		private static void GetAllNtCharacters()
 		{
-			var NtCharacters = new SortedSet<string>();
+			var ntCharacters = new SortedSet<string>();
 			foreach (var cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
 				if (cv.Book > 39 && !cv.Character.Contains('/'))
-					NtCharacters.Add(cv.Character);
-			Debug.WriteLine(TabDelimited(NtCharacters));
+					ntCharacters.Add(cv.Character);
+			Debug.WriteLine(TabDelimited(ntCharacters));
 		}
 
 		static List<CharacterVerse> FindAliases(List<CharacterVerse> characterVerses)
@@ -79,8 +79,8 @@ namespace DevTools
 			File.WriteAllText(Path.Combine(kBaseDirForHelperOutput, "MultipleCharacterId.txt"), TabDelimited(multiCharacterIds));
 			if (multiCharacterIds.Count > 0)
 				MessageBox.Show("Two or more characters have the same numerical character ID.\n" +
-			                "One way to resolve this is by making them aliases in AliasUtil.cs.\n" +
-			                "See MultipleCharacterId.txt or MultipleCharacterId_Extra.txt for the characters in question.");
+							"One way to resolve this is by making them aliases in AliasUtil.cs.\n" +
+							"See MultipleCharacterId.txt or MultipleCharacterId_Extra.txt for the characters in question.");
 
 			ProcessUniqueIds(uniqueCharacterIds);
 

@@ -132,7 +132,7 @@ namespace Glyssen
 
 		public static IEnumerable<string> AllRecordingProjectFolders
 		{
-			get 
+			get
 			{
 				return AllPublicationFolders.SelectMany(Directory.GetDirectories);
 			}
@@ -275,15 +275,15 @@ namespace Glyssen
 		{
 			get
 			{
-				return (from book in Books 
+				return (from book in Books
 						where AvailableBooks.Where(ab => ab.IncludeInScript).Select(ab => ab.Code).Contains(book.BookId)
 						select book).ToList();
 			}
 		}
 
 		public SIL.ObjectModel.IReadOnlyList<Book> AvailableBooks
-		{ 
-			get { return m_metadata.AvailableBibleBooks; } 
+		{
+			get { return m_metadata.AvailableBibleBooks; }
 		}
 
 		public string OriginalBundlePath
@@ -419,7 +419,7 @@ namespace Glyssen
 					if (Settings.Default.ParserVersion > existingProject.m_metadata.ParserUpgradeOptOutVersion)
 					{
 						string msg = string.Format(LocalizationManager.GetString("Project.ParserUpgradeBundleMissingMsg", "The splitting engine has been upgraded. To make use of the new engine, the original text bundle must be available, but it is not in the original location ({0})."), existingProject.OriginalBundlePath) +
-							Environment.NewLine + Environment.NewLine + 
+							Environment.NewLine + Environment.NewLine +
 							LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text bundle yourself?");
 						string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
 						if (DialogResult.Yes == MessageBox.Show(msg, caption, MessageBoxButtons.YesNo))
@@ -461,6 +461,7 @@ namespace Glyssen
 			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out exception);
 			if (exception != null)
 			{
+				Analytics.ReportException(exception);
 				ErrorReport.ReportNonFatalExceptionWithMessage(exception,
 					LocalizationManager.GetString("File.ProjectCouldNotBeModified", "Project could not be modified: {0}"), projectFilePath);
 				return;
@@ -502,6 +503,7 @@ namespace Glyssen
 			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out exception);
 			if (exception != null)
 			{
+				Analytics.ReportException(exception);
 				ErrorReport.ReportNonFatalExceptionWithMessage(exception,
 					LocalizationManager.GetString("File.ProjectMetadataInvalid", "Project could not be loaded: {0}"), projectFilePath);
 				return null;
@@ -602,10 +604,10 @@ namespace Glyssen
 		{
 			if (e.Error != null)
 				throw e.Error;
-			
+
 			var bookScripts = (List<BookScript>)e.Result;
 
-			// This code is an attempt to figure out how we are getting null reference exceptions on the Sort call (See PG-275 & PG-287)
+			// This code is an attempt to figure out how we are getting null reference exceptions when using the objects in the list (See PG-275 & PG-287)
 			foreach (var bookScript in bookScripts)
 				if (bookScript == null || bookScript.BookId == null)
 				{
@@ -614,20 +616,6 @@ namespace Glyssen
 					var initialMessage = bookScript == null ? "BookScript is null." : "BookScript has null BookId.";
 					throw new ApplicationException(string.Format("{0} Number of BookScripts: {1}. BookScripts which are NOT null: {2}", initialMessage, bookScripts.Count, nonNullBookScriptsStr));
 				}
-
-			try
-			{
-				//REVIEW: more efficient to sort after the fact like this?  Or just don't run them in parallel (in ProjectUsxParser) in the first place?
-				bookScripts.Sort((a, b) => BCVRef.BookToNumber(a.BookId).CompareTo(BCVRef.BookToNumber(b.BookId)));
-			}
-			catch (NullReferenceException n)
-			{
-				// This code is an attempt to figure out how we are getting null reference exceptions on the Sort call (See PG-275 & PG-287)
-				StringBuilder sb = new StringBuilder();
-				foreach (var bookScript in bookScripts)
-					sb.Append(Environment.NewLine).Append(bookScript.BookId).Append("(").Append(BCVRef.BookToNumber(bookScript.BookId)).Append(")");
-				throw new NullReferenceException("Null reference exception while sorting books." + sb, n);
-			}
 
 			m_books.AddRange(bookScripts);
 			m_metadata.ParserVersion = Settings.Default.ParserVersion;
@@ -669,7 +657,7 @@ namespace Glyssen
 
 			QuoteSystemStatus = QuoteSystemStatus.Guessed;
 			QuoteSystem = (QuoteSystem)e.Result;
-			
+
 			Save();
 		}
 
@@ -794,7 +782,7 @@ namespace Glyssen
 				{ "TotalPercentAssigned", ProjectAnalysis.TotalPercentAssigned.ToString(CultureInfo.InvariantCulture) },
 				{ "PercentUnknown", ProjectAnalysis.PercentUnknown.ToString(CultureInfo.InvariantCulture) }
 			});
-			
+
 			if (AnalysisCompleted != null)
 				AnalysisCompleted(this, new EventArgs());
 		}

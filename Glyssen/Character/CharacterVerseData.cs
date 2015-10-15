@@ -25,7 +25,7 @@ namespace Glyssen.Character
 		protected const int kiParallelPassageInfo = kiDefaultCharacter + 1;
 		protected const int kMaxItems = kiParallelPassageInfo + 1;
 
-		private static Dictionary<string, string> m_singletonLocalizedCharacterIdToCharacterIdDictionary; 
+		private static Dictionary<string, string> m_singletonLocalizedCharacterIdToCharacterIdDictionary;
 
 		public enum StandardCharacter
 		{
@@ -84,7 +84,7 @@ namespace Glyssen.Character
 
 			switch (GetStandardCharacterType(characterId))
 			{
-				case StandardCharacter.Narrator: 
+				case StandardCharacter.Narrator:
 					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.Narrator", kNarratorAsEnglishCharacterName), GetBookNameFromStandardCharacterId(characterId));
 					break;
 				case StandardCharacter.Intro:
@@ -225,7 +225,7 @@ namespace Glyssen.Character
 				{
 					result = nextResult;
 					nextVerse++;
-					continue;	
+					continue;
 				}
 				var intersection = nextResult.Intersect(result, m_characterDeliveryEqualityComparer);
 				if (intersection.Count() == 1)

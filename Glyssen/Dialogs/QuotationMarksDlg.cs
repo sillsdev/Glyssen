@@ -37,7 +37,7 @@ namespace Glyssen.Dialogs
 			m_project.AnalysisCompleted -= HandleAnalysisCompleted;
 			m_project.AnalysisCompleted += HandleAnalysisCompleted;
 			m_navigatorViewModel = navigatorViewModel;
-	
+
 			if (Properties.Settings.Default.QuoteMarksDialogShowGridView)
 				m_toolStripButtonGridView.Checked = true;
 
@@ -205,7 +205,7 @@ namespace Glyssen.Dialogs
 				if (String.IsNullOrWhiteSpace(quotationDashMarker))
 					return LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.EndQuotationDashWithStartDash",
 						"Same as start quotation dash");
-					
+
 				return string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.EndQuotationDashWithStartDash",
 					"Same as start quotation dash ({0})"), quotationDashMarker);
 			}
@@ -291,7 +291,7 @@ namespace Glyssen.Dialogs
 				}
 			}
 
-			if (m_project.QuoteSystemStatus == QuoteSystemStatus.Obtained) 
+			if (m_project.QuoteSystemStatus == QuoteSystemStatus.Obtained)
 				Analytics.Track("ObtainedQuoteSystemChanged", new Dictionary<string, string>
 				{
 					{ "old", m_project.QuoteSystem != null ? m_project.QuoteSystem.ToString() : String.Empty },
@@ -306,7 +306,7 @@ namespace Glyssen.Dialogs
 
 			// Want to set the status even if already UserSet because that triggers setting QuoteSystemDate
 			m_project.QuoteSystemStatus = QuoteSystemStatus.UserSet;
-			
+
 			m_project.QuoteSystem = currentQuoteSystem;
 		}
 

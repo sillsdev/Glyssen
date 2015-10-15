@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using DesktopAnalytics;
+using Glyssen.Character;
 using L10NSharp;
 using SIL.Reporting;
 
@@ -39,12 +41,15 @@ namespace Glyssen.Controls
 			// the default value in its constructor.
 			m_dataGrid.AllowUserToAddRows = true;
 			m_dataGrid.MultiSelect = true;
+			m_dataGrid.EditMode = DataGridViewEditMode.EditOnEnter;
 			m_dataGrid.UserAddedRow += HandleUserAddedRow;
 		}
 
 		void m_dataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
+			Analytics.ReportException(e.Exception);
 			ErrorReport.ReportFatalException(e.Exception);
+			throw e.Exception;
 		}
 
 		public int RowCount { get { return m_dataGrid.RowCount; } }
@@ -141,7 +146,7 @@ namespace Glyssen.Controls
 			{
 				DataGridViewRowsRemovedEventHandler handler = UserRemovedRows;
 				if (handler != null)
-					handler(m_dataGrid, new DataGridViewRowsRemovedEventArgs(indexOfFirstRowToRemove, m_dataGrid.RowCount));				
+					handler(m_dataGrid, new DataGridViewRowsRemovedEventArgs(indexOfFirstRowToRemove, m_dataGrid.RowCount));
 			}
 		}
 

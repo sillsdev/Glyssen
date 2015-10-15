@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Controls;
 using L10NSharp;
@@ -178,7 +179,7 @@ namespace Glyssen.Dialogs
 
 		private IEnumerable<CharacterGroup> SelectedGroupsThatCanBeUnassigned
 		{
-			get 
+			get
 			{
 				for (int i = 0; i < m_characterGroupGrid.SelectedRows.Count; i++)
 				{
@@ -378,7 +379,7 @@ namespace Glyssen.Dialogs
 			Point p = m_characterGroupGrid.PointToClient(new Point(e.X, e.Y));
 			var hitInfo = m_characterGroupGrid.HitTest(p.X, p.Y);
 			if (hitInfo.Type == DataGridViewHitTestType.Cell && e.Data.GetDataPresent(typeof(List<string>)) &&
-			    m_characterGroupGrid.Columns[hitInfo.ColumnIndex].Name == CharacterIdsCol.Name)
+				m_characterGroupGrid.Columns[hitInfo.ColumnIndex].Name == CharacterIdsCol.Name)
 			{
 				if (m_actorAssignmentViewModel.CanMoveCharactersToGroup((List<string>) e.Data.GetData(typeof (List<string>)), null))
 				{
@@ -481,7 +482,9 @@ namespace Glyssen.Dialogs
 
 		private void m_characterGroupGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
+			Analytics.ReportException(e.Exception);
 			ErrorReport.ReportFatalException(e.Exception);
+			throw e.Exception;
 		}
 
 		private void m_characterGroupGrid_SelectionChanged(object sender, EventArgs e)
@@ -577,7 +580,7 @@ namespace Glyssen.Dialogs
 				return;
 
 			if (m_characterGroupGrid.CurrentCell.EditType == typeof(DataGridViewMultiColumnComboBoxEditingControl) &&
-			    m_characterGroupGrid.CurrentRow != null)
+				m_characterGroupGrid.CurrentRow != null)
 			{
 				SetVoiceActorCellDataSource();
 			}

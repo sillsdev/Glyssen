@@ -24,7 +24,7 @@ namespace DevTools.TermTranslator
 		private static readonly SortedSet<string> s_names = new SortedSet<string>();
 		private static BiblicalTermsLocalizations s_englishTermsList;
 		private static List<Tu> s_englishTranslationUnits;
-		private static readonly Dictionary<string, TmxFormat> s_conflictingLocalizations = new Dictionary<string, TmxFormat>(); 
+		private static readonly Dictionary<string, TmxFormat> s_conflictingLocalizations = new Dictionary<string, TmxFormat>();
 
 		private const string kLocalizationFolder = @"..\..\..\DistFiles\localization";
 

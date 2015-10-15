@@ -104,6 +104,7 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_menuItemCreateNewGroup, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_menuItemCreateNewGroup, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_menuItemCreateNewGroup, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_menuItemCreateNewGroup, "DialogBoxes.VoiceActorAssignmentDlg.m_menuItemCreateNewGroup");
 			this.m_menuItemCreateNewGroup.Name = "m_menuItemCreateNewGroup";
 			this.m_menuItemCreateNewGroup.Size = new System.Drawing.Size(327, 22);
@@ -178,7 +179,7 @@ namespace Glyssen.Dialogs
 			this.m_undoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_undoButton, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_undoButton, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_undoButton, "DialogBoxes.VoiceActorAssignmentDlg.m_undoButton");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_undoButton, "DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.UndoButton");
 			this.m_undoButton.Name = "m_undoButton";
 			this.m_undoButton.Size = new System.Drawing.Size(23, 22);
 			this.m_undoButton.Text = "Undo";
@@ -194,7 +195,7 @@ namespace Glyssen.Dialogs
 			this.m_redoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_redoButton, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_redoButton, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_redoButton, "DialogBoxes.VoiceActorAssignmentDlg.m_redoButton");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_redoButton, "DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.RedoButton");
 			this.m_redoButton.Name = "m_redoButton";
 			this.m_redoButton.Size = new System.Drawing.Size(23, 22);
 			this.m_redoButton.Text = "Redo";
@@ -209,11 +210,12 @@ namespace Glyssen.Dialogs
 			// 
 			// m_editActorsButton
 			// 
+			this.m_editActorsButton.AutoToolTip = false;
 			this.m_editActorsButton.Image = global::Glyssen.Properties.Resources.people;
 			this.m_editActorsButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_editActorsButton, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_editActorsButton, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_editActorsButton, "DialogBoxes.VoiceActorAssignmentDlg.m_editActorsButton");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_editActorsButton, "DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.EditVoiceActors");
 			this.m_editActorsButton.Name = "m_editActorsButton";
 			this.m_editActorsButton.Size = new System.Drawing.Size(125, 22);
 			this.m_editActorsButton.Text = "Edit Voice Actors...";
@@ -221,12 +223,12 @@ namespace Glyssen.Dialogs
 			// 
 			// m_updateGroupsButton
 			// 
+			this.m_updateGroupsButton.AutoToolTip = false;
 			this.m_updateGroupsButton.Image = global::Glyssen.Properties.Resources.UpdateGroups;
 			this.m_updateGroupsButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_updateGroupsButton, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_updateGroupsButton, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_updateGroupsButton, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_updateGroupsButton, "DialogBoxes.VoiceActorAssignmentDlg.m_updateGroupsButton");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_updateGroupsButton, "DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.UpdateCharacterGroups");
 			this.m_updateGroupsButton.Name = "m_updateGroupsButton";
 			this.m_updateGroupsButton.Size = new System.Drawing.Size(169, 22);
 			this.m_updateGroupsButton.Text = "Update Character Groups...";
@@ -234,12 +236,12 @@ namespace Glyssen.Dialogs
 			// 
 			// m_splitSelectedGroupButton
 			// 
+			this.m_splitSelectedGroupButton.AutoToolTip = false;
 			this.m_splitSelectedGroupButton.Image = global::Glyssen.Properties.Resources.splitGroup;
 			this.m_splitSelectedGroupButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_splitSelectedGroupButton, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_splitSelectedGroupButton, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_splitSelectedGroupButton, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_splitSelectedGroupButton, "DialogBoxes.VoiceActorAssignmentDlg.m_splitSelectedGroupButton");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_splitSelectedGroupButton, "DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.SplitSelectedGroup");
 			this.m_splitSelectedGroupButton.Name = "m_splitSelectedGroupButton";
 			this.m_splitSelectedGroupButton.Size = new System.Drawing.Size(142, 22);
 			this.m_splitSelectedGroupButton.Text = "Split Selected Group...";

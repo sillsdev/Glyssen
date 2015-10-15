@@ -9,6 +9,7 @@ using Glyssen.Character;
 using Glyssen.Properties;
 using L10NSharp;
 using OfficeOpenXml;
+using OfficeOpenXml.Style;
 using SIL.Reporting;
 
 namespace Glyssen
@@ -79,7 +80,8 @@ namespace Glyssen
 					}
 					catch (Exception ex)
 					{
-						ErrorReport.ReportNonFatalExceptionWithMessage(ex, 
+						Analytics.ReportException(ex);
+						ErrorReport.ReportNonFatalExceptionWithMessage(ex,
 							string.Format(LocalizationManager.GetString("File.CouldNotExport", "Could not export data to {0}", "{0} is a file name."), dlg.FileName));
 					}
 				}
@@ -120,6 +122,27 @@ namespace Glyssen
 			{
 				var sheet = xls.Workbook.Worksheets.Add("Script");
 				sheet.Cells["A1"].LoadFromArrays(data.Select(d => d.ToArray()).ToArray());
+
+				sheet.Cells.Style.VerticalAlignment = ExcelVerticalAlignment.Top;
+				sheet.Row(1).Style.Font.Bold = true;
+				sheet.Column(1).AutoFit(2d, sheet.DefaultColWidth); // line number
+				int offset = 0;
+				if (IncludeVoiceActors)
+				{
+					offset = 1;
+					sheet.Column(2).AutoFit(2d, 20d); // voice actor
+				}
+				sheet.Column(2 + offset).AutoFit(2d, sheet.DefaultColWidth); // style tag
+				sheet.Column(3 + offset).AutoFit(2d, sheet.DefaultColWidth); // book
+				sheet.Column(4 + offset).AutoFit(2d, sheet.DefaultColWidth); // chapter
+				sheet.Column(5 + offset).AutoFit(2d, sheet.DefaultColWidth); // verse
+				sheet.Column(6 + offset).AutoFit(2d, 20d); // character ID
+				sheet.Column(8 + offset).Style.WrapText = true; // script text
+				sheet.Column(8 + offset).Width = 50d;
+				sheet.Column(9 + offset).AutoFit(2d, sheet.DefaultColWidth); // block length
+
+				sheet.View.FreezePanes(2, 1);
+
 				xls.Save();
 			}
 		}
@@ -128,6 +151,9 @@ namespace Glyssen
 		{
 			int blockNumber = 1;
 			var data = new List<List<object>>();
+
+			data.Add(GetHeaders());
+
 			foreach (var book in m_project.IncludedBooks)
 			{
 				string singleVoiceNarratorOverride = null;
@@ -148,8 +174,26 @@ namespace Glyssen
 			return data;
 		}
 
+		private List<object> GetHeaders()
+		{
+			List<object> headers = new List<object>(10);
+			headers.Add("#");
+			if (IncludeVoiceActors)
+				headers.Add("Actor");
+			headers.Add("Tag");
+			headers.Add("Book");
+			headers.Add("Chapter");
+			headers.Add("Verse");
+			headers.Add("Character");
+			headers.Add("Delivery");
+			headers.Add("Text");
+			headers.Add("Size");
+			return headers;
+		}
+
 		internal static List<object> GetExportDataForBlock(Block block, int blockNumber, string bookId, string voiceActor = null, string singleVoiceNarratorOverride = null, bool useCharacterIdInScript = true)
 		{
+			// NOTE: if the order here changes, there may be changes needed in GenerateExcelFile
 			List<object> list = new List<object>();
 			list.Add(blockNumber);
 			if (voiceActor != null)

@@ -947,6 +947,41 @@ namespace GlyssenTests
 		}
 		#endregion
 
+		#region ApplyUserDecisions Other Tests
+		[Test]
+		public void ApplyUserDecisions_UnappliedSplitsExist_MaintainsOriginalUnappliedSplits()
+		{
+			var source = CreateStandardMarkScript();
+			var blockToSplit = source.Blocks.Last(b => b.InitialStartVerseNumber > 0);
+			var newBlock = source.SplitBlock(blockToSplit, blockToSplit.LastVerse.ToString(), 5);
+
+			var target = CreateStandardMarkScript();
+			var blockToModify = target.Blocks.Last(b => b.InitialStartVerseNumber > 0);
+			blockToModify.AddVerse(12, "This is another verse that was added to the new bundle.");
+
+			target.ApplyUserDecisions(source);
+			Assert.AreEqual(12, blockToModify.LastVerse);
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(1, target.UnappliedSplits.Count);
+			Assert.IsTrue(target.UnappliedSplits[0].SequenceEqual(new[] { blockToSplit, newBlock }));
+
+			var newSource = target;
+			var blockToSplit2 = newSource.Blocks.Last(b => b.InitialStartVerseNumber > 0);
+			var newBlock2 = newSource.SplitBlock(blockToSplit2, blockToSplit2.LastVerse.ToString(), 5);
+
+			var newTarget = CreateStandardMarkScript();
+			var newBlockToModify = newTarget.Blocks.Last(b => b.InitialStartVerseNumber > 0);
+			newBlockToModify.AddVerse(12, "This is another verse that was added to the new bundle, but now the text is different.");
+
+			newTarget.ApplyUserDecisions(newSource);
+			Assert.AreEqual(12, newBlockToModify.LastVerse);
+			Assert.IsNotNull(newTarget.UnappliedSplits);
+			Assert.AreEqual(2, newTarget.UnappliedSplits.Count);
+			Assert.IsTrue(newTarget.UnappliedSplits[0].SequenceEqual(new[] { blockToSplit, newBlock }, new BlockComparer()));
+			Assert.IsTrue(newTarget.UnappliedSplits[1].SequenceEqual(new[] { blockToSplit2, newBlock2 }, new BlockComparer()));
+		}
+		#endregion
+
 		#region SplitBlock Tests
 		[Test]
 		public void SplitBlock_BlockNotInList_ThrowsArgumentException()
@@ -1343,7 +1378,7 @@ namespace GlyssenTests
 			var mrkBlocks = new List<Block>();
 			mrkBlocks.Add(NewChapterBlock(5));
 			mrkBlocks.Add(NewSingleVersePara(35, "This block is not split"));
-			//                                        0         1         2     
+			//                                        0         1         2
 			//                                        01234567890123456789012345
 			var blockToSplit = NewSingleVersePara(36, "Before split: After Split");
 			mrkBlocks.Add(blockToSplit);
@@ -1369,7 +1404,7 @@ namespace GlyssenTests
 			Block previouslySplitBlock2 = NewSingleVersePara(35, "This block was split previously");
 			previouslySplitBlock2.SplitId = 5;
 			mrkBlocks.Add(previouslySplitBlock2);
-			//                                        0         1         2     
+			//                                        0         1         2
 			//                                        01234567890123456789012345
 			var blockToSplit = NewSingleVersePara(36, "Before split: After Split");
 			mrkBlocks.Add(blockToSplit);
@@ -1391,7 +1426,7 @@ namespace GlyssenTests
 			var mrkBlocks = new List<Block>();
 			mrkBlocks.Add(NewChapterBlock(5));
 			mrkBlocks.Add(NewSingleVersePara(35, "This block is not split"));
-			//                                        0         1         2     
+			//                                        0         1         2
 			//                                        01234567890123456789012345
 			var blockToSplit = NewSingleVersePara(36, "Before split: After Split");
 			blockToSplit.SplitId = 3;
@@ -1592,7 +1627,7 @@ namespace GlyssenTests
 
 	internal static class BlockTestExtensions
 	{
-		static Random s_random = new Random(42);
+		static readonly Random Random = new Random(42);
 
 		internal static Block AddVerse(this Block block, int verseNum, string text = null)
 		{
@@ -1612,10 +1647,10 @@ namespace GlyssenTests
 		{
 			var chars = " AAAAABB CCDDD EEEEFF GGHHIIJK LLMMNNN OOPPP QRRRS SSTTTTU VWWXYYZ aaaaaabb cccddd eeeeefff gggghhh iiiiijjk llll mmmnnnn ooooo pppp qqrrrr sssss tttttuu vvwwwxyyz ,,,.... !?? AAAAABB CCDDD EEEEFF GGHHIIJK LLMMNNN OOPPP QRRRS SSTTTTU VWWXYYZ aaaaaabb cccddd eeeeefff gggghhh iiiiijjk llll mmmnnnn ooooo pppp qqrrrr sssss tttttuu vvwwwxyyz ,,,.... !??\u2014";
 			var randomString = new StringBuilder();
-			var length = 4 + s_random.Next(80);
+			var length = 4 + Random.Next(80);
 
 			for (int i = 0; i < length; i++)
-				randomString.Append(chars[s_random.Next(chars.Length)]);
+				randomString.Append(chars[Random.Next(chars.Length)]);
 
 			return randomString.ToString();
 		}
