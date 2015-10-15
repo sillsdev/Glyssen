@@ -56,15 +56,32 @@ namespace Glyssen.Dialogs
 		}
 
 		/// <summary>
-		/// Sets the row count if necessary; otherwise (optionally) refrehes the grid.
+		/// Sets the row count if necessary; otherwise (optionally) refreshes the grid.
 		/// </summary>
-		/// <param name="onlyIfNeeded">Indicates whether a full refresh is desired in cases where the row count has not changed</param>
+		/// <param name="refreshOnlyIfNeeded">Indicates whether a full refresh is desired in cases where the row count has not changed</param>
 		/// <returns>A value indicating whether the grid was refreshed (always true if the row count changed)</returns>
-		private bool SetRowCount(bool onlyIfNeeded = false)
+		private bool SetRowCount(bool refreshOnlyIfNeeded = false)
 		{
-			if (m_actorAssignmentViewModel.CharacterGroups.Count != m_characterGroupGrid.RowCount)
+			bool changingRowCount = m_actorAssignmentViewModel.CharacterGroups.Count != m_characterGroupGrid.RowCount;
+			if (changingRowCount)
+			{
+				var columnSizeModesToRestore = m_characterGroupGrid.Columns.OfType<DataGridViewColumn>().Where(c => c.AutoSizeMode != DataGridViewAutoSizeColumnMode.None).ToDictionary(c => c, c => c.AutoSizeMode);
+				var autoSizeRowsModeToRestore = m_characterGroupGrid.AutoSizeRowsMode;
+				foreach (var column in columnSizeModesToRestore.Keys)
+					column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+				m_characterGroupGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 				m_characterGroupGrid.RowCount = m_actorAssignmentViewModel.CharacterGroups.Count;
-			else if (!onlyIfNeeded)
+				// Need to clear the selection here again because some of the property setters on
+				// DataGridView have the side-effect of creating a selection. We want to avoid having
+				// HandleDataGridViewBlocksCellValueNeeded get called with an index that is out of
+				// range for the new book.
+				m_characterGroupGrid.ClearSelection();
+				m_characterGroupGrid.RowCount = m_actorAssignmentViewModel.CharacterGroups.Count;
+				foreach (var kvp in columnSizeModesToRestore)
+					kvp.Key.AutoSizeMode = kvp.Value;
+				m_characterGroupGrid.AutoSizeRowsMode = autoSizeRowsModeToRestore;
+			}
+			else if (!refreshOnlyIfNeeded)
 				m_characterGroupGrid.Refresh();
 			else
 				return false;
@@ -75,6 +92,11 @@ namespace Glyssen.Dialogs
 		{
 			m_undoButton.Tag = new Tuple<string, Keys>(m_undoButton.ToolTipText, Keys.Z);
 			m_redoButton.Tag = new Tuple<string, Keys>(m_redoButton.ToolTipText, Keys.Y);
+
+			if (!m_undoButton.Enabled)
+				SetUndoOrRedoButtonToolTip(m_undoButton, null);
+			if (!m_redoButton.Enabled)
+				SetUndoOrRedoButtonToolTip(m_redoButton, null);
 		}
 
 		private Image VoiceActorCol_GetSpecialDropDownImageToDraw(DataGridViewMultiColumnComboBoxColumn sender, int rowIndex)
@@ -99,9 +121,34 @@ namespace Glyssen.Dialogs
 
 		private void HandleEditVoiceActorsClick(object sender, EventArgs e)
 		{
-			using (var actorDlg = new VoiceActorInformationDlg(m_project, false))
+			var actorInfoViewModel = new VoiceActorInformationViewModel(m_project);
+
+			using (var actorDlg = new VoiceActorInformationDlg(actorInfoViewModel, false))
+			{
 				actorDlg.ShowDialog();
-			m_characterGroupGrid.InvalidateColumn(VoiceActorCol.Index);
+				if (actorInfoViewModel.Changes.Any())
+				{
+					m_actorAssignmentViewModel.NoteActorChanges(actorInfoViewModel.Changes);
+					if (actorInfoViewModel.Changes.Any(c => !c.JustChangedName) &&
+						MessageBox.Show(String.Format(LocalizationManager.GetString(
+							"DialogBoxes.VoiceActorAssignmentDlg.UpdateCharacterGroupsPrompt",
+							"{0} can optimize the number and composition of character groups to match the actors you have entered. " +
+							"Would you like {0} to update the groups now?"), Program.kProduct), Text, MessageBoxButtons.YesNo) ==
+						DialogResult.Yes)
+					{
+						HandleUpdateGroupsClick(m_updateGroupsButton, e);
+						//m_characterGroupGrid.InvalidateColumn(VoiceActorCol.Index);
+					}
+
+					VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null);
+
+					if (m_characterGroupGrid.CurrentCell.EditType == typeof(DataGridViewMultiColumnComboBoxEditingControl) &&
+						m_characterGroupGrid.CurrentRow != null)
+					{
+						SetVoiceActorCellDataSource();
+					}
+				}
+			}
 		}
 
 		private void m_unAssignActorFromGroupToolStripMenuItem_Click(object sender, EventArgs e)
@@ -247,7 +294,11 @@ namespace Glyssen.Dialogs
 			m_indexOfRowNotToInvalidate = -1;
 			m_characterGroupGrid.IsDirty = false;
 			m_undoButton.Enabled = m_actorAssignmentViewModel.UndoActions.Any();
+			if (!m_undoButton.Enabled)
+				SetUndoOrRedoButtonToolTip(m_undoButton, null);
 			m_redoButton.Enabled = m_actorAssignmentViewModel.RedoActions.Any();
+			if (!m_redoButton.Enabled)
+				SetUndoOrRedoButtonToolTip(m_redoButton, null);
 
 			var groupToSelect = changedGroups.FirstOrDefault();
 			if (groupToSelect != null)
@@ -360,7 +411,6 @@ namespace Glyssen.Dialogs
 			foreach (var localizedCharacterId in localizedCharacterIds)
 				characterIds.Add(CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary[localizedCharacterId]);
 
-			bool charactersMoved = false;
 			CharacterGroup dropGroup = (m_characterGroupGrid.Rows[rowIndex].IsNewRow) ? null :
 				m_actorAssignmentViewModel.CharacterGroups[rowIndex];
 
@@ -523,7 +573,7 @@ namespace Glyssen.Dialogs
 		protected override void OnActivated(EventArgs e)
 		{
 			base.OnActivated(e);
-			if (m_characterGroupGrid == null || m_characterGroupGrid.CurrentCell == null)
+			if (m_characterGroupGrid == null || m_characterGroupGrid.CurrentCell == null || m_characterGroupGrid.RowCount != m_project.CharacterGroupList.CharacterGroups.Count)
 				return;
 
 			if (m_characterGroupGrid.CurrentCell.EditType == typeof(DataGridViewMultiColumnComboBoxEditingControl) &&

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SIL.Extensions;
 using SIL.ObjectModel;
@@ -16,10 +17,19 @@ namespace Glyssen.Utilities
 		/// Note that by default the description of the last action will be used as the description for this sequence.</param>
 		public UndoActionSequence(params T[] actions)
 		{
-			if (!actions.Any())
+			m_actions = actions.ToArray();
+			if (!m_actions.Any())
 				throw new ArgumentException("At least one undoable action must be provided");
-			m_actions = actions;
 			Description = m_actions.Last().Description;
+		}
+
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="actions">Individual undo actions that make up the sequence, in the original order (they will be undone in reverse order).
+		/// Note that by default the description of the last action will be used as the description for this sequence.</param>
+		public UndoActionSequence(IEnumerable<T> actions) : this (actions.ToArray())
+		{
 		}
 
 		protected ReadOnlyList<T> Actions
@@ -27,7 +37,7 @@ namespace Glyssen.Utilities
 			get { return m_actions.ToReadOnlyList(); }
 		}
 
-		public string Description { get; set; }
+		public virtual string Description { get; set; }
 
 		public virtual bool Undo()
 		{

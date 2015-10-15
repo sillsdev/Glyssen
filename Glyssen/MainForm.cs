@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Bundle;
+using Glyssen.Controls;
 using Glyssen.Dialogs;
 using Glyssen.Properties;
 using L10NSharp;
@@ -461,8 +462,11 @@ namespace Glyssen
 	
 			if (m_project.VoiceActorStatus == VoiceActorStatus.UnProvided)
 			{
-				using (var dlg = new VoiceActorInformationDlg(m_project))
-					dlg.ShowDialog();
+				var actorInfoViewModel = new VoiceActorInformationViewModel(m_project);
+
+				using (var dlg = new VoiceActorInformationDlg(actorInfoViewModel))
+					if (dlg.ShowDialog() == DialogResult.OK)
+						m_project.VoiceActorStatus = VoiceActorStatus.Provided;
 				SaveCurrentProject();
 			}
 

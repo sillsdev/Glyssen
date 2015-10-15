@@ -210,6 +210,7 @@
     </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
     <Compile Include="Controls\VoiceActorInformationViewModel.cs" />
+    <Compile Include="Dialogs\VoiceActorUndoAction.cs" />
     <Compile Include="Dialogs\CharacterGroupsUndoAction.cs" />
     <Compile Include="Dialogs\SelectExistingProjectDlg.cs">
       <SubType>Form</SubType>
@@ -345,7 +346,6 @@
     <Compile Include="Character\CharacterGroupList.cs" />
     <Compile Include="VoiceActor\VoiceActor.cs" />
     <Compile Include="VoiceActor\VoiceActorList.cs" />
-    <Compile Include="VoiceActor\VoiceActorSortableBindingList.cs" />
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
     </EmbeddedResource>

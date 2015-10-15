@@ -5,6 +5,7 @@ using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Dialogs;
+using Glyssen.VoiceActor;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 
@@ -248,6 +249,8 @@ namespace GlyssenTests.Dialogs
 			var characterIds = new List<string> { "John", "Andrew" };
 			var sourceGroup = m_model.CharacterGroups[0];
 			sourceGroup.CharacterIds = new CharacterIdHashSet(characterIds);
+			sourceGroup.CharacterIds.Add("Lot");
+			sourceGroup.CharacterIds.Add("Cain");
 			var destGroup = AddNewGroup("mouth", "ear");
 
 			List<CharacterGroup> affectedGroups = null;
@@ -479,6 +482,54 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(actorC, actorList[1]);
 			Assert.AreEqual(null, actorList[2]); // The "Unassigned" option
 			Assert.AreEqual(actorA, actorList[3]);
+		}
+
+		[Test]
+		public void NoteActorChanges_NoChanges_DoNothing()
+		{
+			Assert.AreEqual(0, m_model.UndoActions.Count);
+			List<CharacterGroup> affectedGroups = null;
+			m_model.Saved += (sender, args) => { affectedGroups = args.ToList(); };
+			m_model.NoteActorChanges(new IVoiceActorUndoAction[0]);
+			Assert.AreEqual(0, m_model.UndoActions.Count);
+			Assert.IsNull(affectedGroups);
+		}
+
+		[Test]
+		public void NoteActorChanges_SingleChangeToUnassignedActor_NewUndoActionAddedWithDescriptionBasedOnSingleChange_NoGroupsAffected()
+		{
+			var affectedActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult };
+			var replacedActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.YoungAdult };
+			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { affectedActor };
+			Assert.AreEqual(0, m_model.UndoActions.Count);
+			List<CharacterGroup> affectedGroups = null;
+			m_model.Saved += (sender, args) => { affectedGroups = args.ToList(); };
+			m_model.NoteActorChanges(new IVoiceActorUndoAction[] { new VoiceActorEditUndoAction(m_testProject, replacedActor) });
+			Assert.AreEqual("Edit voice actor B", m_model.UndoActions.Single());
+			Assert.AreEqual(0, affectedGroups.Count);
+		}
+
+		[Test]
+		public void NoteActorChanges_MultipleChanges_NewUndoActionAddedWithGeneralDescription_GroupsAffected()
+		{
+			var replacedActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.YoungAdult };
+			m_testProject.VoiceActorList.Actors.Add(replacedActor);
+			var characterGroup = new CharacterGroup(32);
+			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup);
+			characterGroup.AssignVoiceActor(1);
+			var affectedActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult };
+			var deletedActor = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "C" };
+			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { affectedActor };
+			Assert.AreEqual(0, m_model.UndoActions.Count);
+			List<CharacterGroup> affectedGroups = null;
+			m_model.Saved += (sender, args) => { affectedGroups = args.ToList(); };
+			m_model.NoteActorChanges(new IVoiceActorUndoAction[]
+			{
+				new VoiceActorEditUndoAction(m_testProject, replacedActor),
+				new VoiceActorDeletedUndoAction(m_testProject, deletedActor)
+			});
+			Assert.AreEqual("Edit voice actors", m_model.UndoActions.Single());
+			Assert.AreEqual(32, affectedGroups.Single().GroupNumber);
 		}
 
 		private List<Glyssen.VoiceActor.VoiceActor> GetActorListFromDataTable(DataTable dataTable)

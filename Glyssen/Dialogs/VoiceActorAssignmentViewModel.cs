@@ -460,5 +460,14 @@ namespace Glyssen.Dialogs
 			}
 			return false;
 		}
+
+		public void NoteActorChanges(IEnumerable<IVoiceActorUndoAction> changes)
+		{
+			if (changes.Any())
+			{
+				m_undoStack.Push(new VoiceActorEditingUndoAction(m_project, changes));
+				Save();
+			}
+		}
 	}
 }

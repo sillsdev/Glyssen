@@ -112,6 +112,8 @@
     <Compile Include="Dialogs\MoveCharactersToGroupUndoActionTests.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentUndoActionTests.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentViewModelTests.cs" />
+    <Compile Include="Dialogs\VoiceActorUndoActionTests.cs" />
+    <Compile Include="Dialogs\VoiceActorEditingUndoActionTests.cs" />
     <Compile Include="Dialogs\VoiceActorInformationViewModelTests.cs" />
     <Compile Include="ProjectExportTests.cs" />
     <Compile Include="Quote\QuoteUtilsTests.cs" />

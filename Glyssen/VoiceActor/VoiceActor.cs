@@ -36,6 +36,11 @@ namespace Glyssen.VoiceActor
 			Name = "";
 		}
 
+		public VoiceActor MakeCopy()
+		{
+			return (VoiceActor)MemberwiseClone();
+		}
+
 		[XmlText]
 		public string Name { get; set; }
 
@@ -102,6 +107,15 @@ namespace Glyssen.VoiceActor
 		public bool IsValid()
 		{
 			return !string.IsNullOrEmpty(Name);
+		}
+
+		public bool IsInterchangeableWith(VoiceActor otherActor)
+		{
+			return Gender == otherActor.Gender &&
+				Age == otherActor.Age &&
+				VoiceQuality == otherActor.VoiceQuality &&
+				Status == otherActor.Status &&
+				IsCameo == otherActor.IsCameo;
 		}
 
 		public bool Matches(CharacterDetail character, bool strictAgeMatching = false)
