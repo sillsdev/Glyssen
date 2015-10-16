@@ -87,7 +87,7 @@
 			this.m_lblInstructions.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblInstructions, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblInstructions, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblInstructions, "DialogBoxes.AssignCharacterDlg.Character");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblInstructions, "DialogBoxes.NewCharacterDlg.Instructions");
 			this.m_lblInstructions.Location = new System.Drawing.Point(3, 0);
 			this.m_lblInstructions.MaximumSize = new System.Drawing.Size(403, 70);
 			this.m_lblInstructions.Name = "m_lblInstructions";
@@ -129,7 +129,7 @@
 			this.label1.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label1, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label1, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.label1, "DialogBoxes.NewCharacterDlg.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.label1, "DialogBoxes.NewCharacterDlg.Gender");
 			this.label1.Location = new System.Drawing.Point(3, 42);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(42, 13);
@@ -143,7 +143,7 @@
 			this.label2.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label2, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label2, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.label2, "DialogBoxes.NewCharacterDlg.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.label2, "DialogBoxes.NewCharacterDlg.Age");
 			this.label2.Location = new System.Drawing.Point(3, 69);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(26, 13);

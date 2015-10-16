@@ -1,5 +1,5 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
 {
@@ -8,29 +8,25 @@ namespace Glyssen.Dialogs
 		public enum SelectionType
 		{
 			AutoGenAndMaintain,
-			AutoGen,
-			SplitCurrent
+			AutoGen
 		}
 
 		public UpdateCharacterGroupsDlg()
 		{
 			InitializeComponent();
+
+			HandleStringsLocalized();
+			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 		}
 
 		public SelectionType SelectedOption
 		{
-			get
-			{
-				if (m_radioGenCharGrps.Checked)
-					return m_chkMaintainAssignments.Checked ? SelectionType.AutoGenAndMaintain : SelectionType.AutoGen;
-
-				return SelectionType.SplitCurrent;
-			}
+			get { return m_radioMaintainActors.Checked ? SelectionType.AutoGenAndMaintain : SelectionType.AutoGen; }
 		}
 
-		private void m_radioGenCharGrps_CheckedChanged(object sender, EventArgs e)
+		private void HandleStringsLocalized()
 		{
-			m_chkMaintainAssignments.Enabled = m_radioGenCharGrps.Checked;
+			m_lblHeading.Text = string.Format(m_lblHeading.Text, Program.kProduct);
 		}
 	}
 }

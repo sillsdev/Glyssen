@@ -31,51 +31,36 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateCharacterGroupsDlg));
 			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
-			this.m_radioGenCharGrps = new System.Windows.Forms.RadioButton();
-			this.m_radioSplitGroup = new System.Windows.Forms.RadioButton();
+			this.m_radioMaintainOnlyCameo = new System.Windows.Forms.RadioButton();
 			this.m_btnCancel = new System.Windows.Forms.Button();
 			this.m_btnOk = new System.Windows.Forms.Button();
-			this.m_chkMaintainAssignments = new System.Windows.Forms.CheckBox();
+			this.m_lblHeading = new System.Windows.Forms.Label();
+			this.m_radioMaintainActors = new System.Windows.Forms.RadioButton();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
+			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// m_l10NSharpExtender
 			// 
 			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
-			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.UpdateCharacterGroupsDlg";
+			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes";
 			// 
-			// m_radioGenCharGrps
+			// m_radioMaintainOnlyCameo
 			// 
-			this.m_radioGenCharGrps.AutoSize = true;
-			this.m_radioGenCharGrps.Checked = true;
-			this.m_radioGenCharGrps.ForeColor = System.Drawing.Color.White;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_radioGenCharGrps, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_radioGenCharGrps, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_radioGenCharGrps, "DialogBoxes.UpdateCharacterGroupsDlg.AutoGenerate");
-			this.m_radioGenCharGrps.Location = new System.Drawing.Point(28, 30);
-			this.m_radioGenCharGrps.MinimumSize = new System.Drawing.Size(359, 17);
-			this.m_radioGenCharGrps.Name = "m_radioGenCharGrps";
-			this.m_radioGenCharGrps.Size = new System.Drawing.Size(359, 17);
-			this.m_radioGenCharGrps.TabIndex = 0;
-			this.m_radioGenCharGrps.TabStop = true;
-			this.m_radioGenCharGrps.Text = "Automatically generate character groups for the provided voice actors";
-			this.m_radioGenCharGrps.UseVisualStyleBackColor = true;
-			this.m_radioGenCharGrps.CheckedChanged += new System.EventHandler(this.m_radioGenCharGrps_CheckedChanged);
-			// 
-			// m_radioSplitGroup
-			// 
-			this.m_radioSplitGroup.AutoSize = true;
-			this.m_radioSplitGroup.ForeColor = System.Drawing.Color.White;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_radioSplitGroup, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_radioSplitGroup, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_radioSplitGroup, "DialogBoxes.UpdateCharacterGroupsDlg.ManualSplit");
-			this.m_radioSplitGroup.Location = new System.Drawing.Point(28, 92);
-			this.m_radioSplitGroup.Name = "m_radioSplitGroup";
-			this.m_radioSplitGroup.Size = new System.Drawing.Size(227, 17);
-			this.m_radioSplitGroup.TabIndex = 1;
-			this.m_radioSplitGroup.Text = "Manually split the selected character group";
-			this.m_radioSplitGroup.UseVisualStyleBackColor = true;
-			this.m_radioSplitGroup.Visible = false;
+			this.m_radioMaintainOnlyCameo.AutoSize = true;
+			this.m_radioMaintainOnlyCameo.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_radioMaintainOnlyCameo, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_radioMaintainOnlyCameo, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_radioMaintainOnlyCameo, "DialogBoxes.UpdateCharacterGroupsDlg.MaintainOnlyCameo");
+			this.m_radioMaintainOnlyCameo.Location = new System.Drawing.Point(3, 69);
+			this.m_radioMaintainOnlyCameo.MaximumSize = new System.Drawing.Size(300, 50);
+			this.m_radioMaintainOnlyCameo.MinimumSize = new System.Drawing.Size(359, 17);
+			this.m_radioMaintainOnlyCameo.Name = "m_radioMaintainOnlyCameo";
+			this.m_radioMaintainOnlyCameo.Size = new System.Drawing.Size(359, 17);
+			this.m_radioMaintainOnlyCameo.TabIndex = 0;
+			this.m_radioMaintainOnlyCameo.Text = "Do not maintain voice actor assignments (except cameos)";
+			this.m_radioMaintainOnlyCameo.UseVisualStyleBackColor = true;
 			// 
 			// m_btnCancel
 			// 
@@ -84,7 +69,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnCancel, "Common.Cancel");
-			this.m_btnCancel.Location = new System.Drawing.Point(357, 186);
+			this.m_btnCancel.Location = new System.Drawing.Point(335, 170);
 			this.m_btnCancel.Name = "m_btnCancel";
 			this.m_btnCancel.Size = new System.Drawing.Size(75, 23);
 			this.m_btnCancel.TabIndex = 2;
@@ -98,28 +83,61 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnOk, "Common.OK");
-			this.m_btnOk.Location = new System.Drawing.Point(276, 186);
+			this.m_btnOk.Location = new System.Drawing.Point(254, 170);
 			this.m_btnOk.Name = "m_btnOk";
 			this.m_btnOk.Size = new System.Drawing.Size(75, 23);
 			this.m_btnOk.TabIndex = 3;
 			this.m_btnOk.Text = "OK";
 			this.m_btnOk.UseVisualStyleBackColor = true;
 			// 
-			// m_chkMaintainAssignments
+			// m_lblHeading
 			// 
-			this.m_chkMaintainAssignments.AutoSize = true;
-			this.m_chkMaintainAssignments.Checked = true;
-			this.m_chkMaintainAssignments.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.m_chkMaintainAssignments.ForeColor = System.Drawing.Color.White;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_chkMaintainAssignments, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_chkMaintainAssignments, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkMaintainAssignments, "DialogBoxes.UpdateCharacterGroupsDlg.MaintainAssignments");
-			this.m_chkMaintainAssignments.Location = new System.Drawing.Point(53, 54);
-			this.m_chkMaintainAssignments.Name = "m_chkMaintainAssignments";
-			this.m_chkMaintainAssignments.Size = new System.Drawing.Size(204, 17);
-			this.m_chkMaintainAssignments.TabIndex = 4;
-			this.m_chkMaintainAssignments.Text = "Attempt to maintain actor assignments";
-			this.m_chkMaintainAssignments.UseVisualStyleBackColor = true;
+			this.m_lblHeading.AutoSize = true;
+			this.m_lblHeading.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblHeading, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblHeading, "{0} is the application name");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblHeading, "DialogBoxes.UpdateCharacterGroupsDlg.Heading");
+			this.m_lblHeading.Location = new System.Drawing.Point(3, 0);
+			this.m_lblHeading.Name = "m_lblHeading";
+			this.m_lblHeading.Size = new System.Drawing.Size(379, 26);
+			this.m_lblHeading.TabIndex = 5;
+			this.m_lblHeading.Text = "{0} can optimize the number and composition of character groups to match the acto" +
+    "rs you have entered.";
+			// 
+			// m_radioMaintainActors
+			// 
+			this.m_radioMaintainActors.AutoSize = true;
+			this.m_radioMaintainActors.Checked = true;
+			this.m_radioMaintainActors.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_radioMaintainActors, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_radioMaintainActors, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_radioMaintainActors, "DialogBoxes.UpdateCharacterGroupsDlg.MaintainActors");
+			this.m_radioMaintainActors.Location = new System.Drawing.Point(3, 49);
+			this.m_radioMaintainActors.MaximumSize = new System.Drawing.Size(300, 50);
+			this.m_radioMaintainActors.MinimumSize = new System.Drawing.Size(359, 17);
+			this.m_radioMaintainActors.Name = "m_radioMaintainActors";
+			this.m_radioMaintainActors.Size = new System.Drawing.Size(359, 17);
+			this.m_radioMaintainActors.TabIndex = 6;
+			this.m_radioMaintainActors.TabStop = true;
+			this.m_radioMaintainActors.Text = "Attempt to maintain all voice actor assignments";
+			this.m_radioMaintainActors.UseVisualStyleBackColor = true;
+			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.ColumnCount = 1;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Controls.Add(this.m_radioMaintainActors, 0, 2);
+			this.tableLayoutPanel1.Controls.Add(this.m_lblHeading, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.m_radioMaintainOnlyCameo, 0, 3);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 4;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(398, 152);
+			this.tableLayoutPanel1.TabIndex = 6;
 			// 
 			// UpdateCharacterGroupsDlg
 			// 
@@ -128,12 +146,10 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.CancelButton = this.m_btnCancel;
-			this.ClientSize = new System.Drawing.Size(444, 221);
-			this.Controls.Add(this.m_chkMaintainAssignments);
+			this.ClientSize = new System.Drawing.Size(422, 205);
+			this.Controls.Add(this.tableLayoutPanel1);
 			this.Controls.Add(this.m_btnOk);
 			this.Controls.Add(this.m_btnCancel);
-			this.Controls.Add(this.m_radioSplitGroup);
-			this.Controls.Add(this.m_radioGenCharGrps);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
@@ -146,18 +162,20 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Update Character Groups";
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
+			this.tableLayoutPanel1.ResumeLayout(false);
+			this.tableLayoutPanel1.PerformLayout();
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
 		#endregion
 
 		private L10NSharp.UI.L10NSharpExtender m_l10NSharpExtender;
-		private System.Windows.Forms.RadioButton m_radioGenCharGrps;
-		private System.Windows.Forms.RadioButton m_radioSplitGroup;
+		private System.Windows.Forms.RadioButton m_radioMaintainOnlyCameo;
 		private System.Windows.Forms.Button m_btnCancel;
 		private System.Windows.Forms.Button m_btnOk;
-		private System.Windows.Forms.CheckBox m_chkMaintainAssignments;
+		private System.Windows.Forms.Label m_lblHeading;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private System.Windows.Forms.RadioButton m_radioMaintainActors;
 	}
 }
