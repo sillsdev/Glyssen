@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -24,6 +23,7 @@ namespace Glyssen.Dialogs
 		private DataGridViewColumn m_sortedColumn;
 		private bool m_sortedAscending;
 		private int m_indexOfRowNotToInvalidate = -1;
+		private bool m_undoingOrRedoing;
 
 		public VoiceActorAssignmentDlg(Project project)
 		{
@@ -131,7 +131,7 @@ namespace Glyssen.Dialogs
 				{
 					m_actorAssignmentViewModel.NoteActorChanges(actorInfoViewModel.Changes);
 					if (actorInfoViewModel.Changes.Any(c => !c.JustChangedName) &&
-						MessageBox.Show(String.Format(LocalizationManager.GetString(
+						MessageBox.Show(this, String.Format(LocalizationManager.GetString(
 							"DialogBoxes.VoiceActorAssignmentDlg.UpdateCharacterGroupsPrompt",
 							"{0} can optimize the number and composition of character groups to match the actors you have entered. " +
 							"Would you like {0} to update the groups now?"), Program.kProduct), Text, MessageBoxButtons.YesNo) ==
@@ -337,7 +337,7 @@ namespace Glyssen.Dialogs
 						"Are you sure you want to remove the voice actor assignment from the selected character group?");
 				string dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ConfirmUnassignDialog.Title", "Confirm");
 
-				if (MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
+				if (MessageBox.Show(this, dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
 					UnAssignActorsFromSelectedGroups();
 			}
 		}
@@ -465,7 +465,8 @@ namespace Glyssen.Dialogs
 			{
 				if (m_characterGroupGrid.CurrentRow != null)
 					SetVoiceActorCellDataSource();
-				SendKeys.Send("{F4}");
+				if (!m_undoingOrRedoing)
+					SendKeys.Send("{F4}");
 			}
 		}
 
@@ -590,14 +591,30 @@ namespace Glyssen.Dialogs
 
 		private void HandleUndoButtonClick(object sender, EventArgs e)
 		{
-			if (!m_actorAssignmentViewModel.Undo())
-				MessageBox.Show(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.UndoFailed", "Undo Failed!"));
+			m_undoingOrRedoing = true;
+			try
+			{
+				if (!m_actorAssignmentViewModel.Undo())
+					MessageBox.Show(this, LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.UndoFailed", "Undo Failed!"));
+			}
+			finally
+			{
+				m_undoingOrRedoing = false;
+			}
 		}
 
 		private void HandleRedoButtonClick(object sender, EventArgs e)
 		{
-			if (!m_actorAssignmentViewModel.Redo())
-				MessageBox.Show(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RedoFailed", "Redo Failed!"));
+			m_undoingOrRedoing = true;
+			try
+			{
+				if (!m_actorAssignmentViewModel.Redo())
+					MessageBox.Show(this, LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RedoFailed", "Redo Failed!"));
+			}
+			finally
+			{
+				m_undoingOrRedoing = false;
+			}
 		}
 
 		protected override void OnKeyDown(KeyEventArgs e)
@@ -627,6 +644,31 @@ namespace Glyssen.Dialogs
 			else if (!description.EndsWith(" "))
 				description += " ";
 			btn.ToolTipText = String.Format(tag.Item1, description + ctrlKeyTip);
+		}
+
+		private void m_characterGroupGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+		{
+			var dropDown = e.Control as DataGridViewComboBoxEditingControl;
+			if (dropDown == null)
+				return;
+			dropDown.DropDownClosed += DropDownOnDropDownClosed;
+		}
+
+		/// <summary>
+		/// When the drop-down closes, we want to force the change to be committed and get out of edit mode. This gives a better user experience,
+		/// especially when reassigning an actor to a different group (otherwise, the actor looks like he's assigned to both groups).
+		/// </summary>
+		private void DropDownOnDropDownClosed(object sender, EventArgs eventArgs)
+		{
+			var dropDown = sender as DataGridViewComboBoxEditingControl;
+			if (dropDown == null)
+				return;
+
+			// If there was no actual change, the view model correctly ignores it.
+			m_characterGroupGrid.NotifyCurrentCellDirty(true);
+			m_characterGroupGrid.EndEdit(DataGridViewDataErrorContexts.Commit);
+
+			dropDown.DropDownClosed -= DropDownOnDropDownClosed;
 		}
 	}
 }

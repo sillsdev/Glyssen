@@ -235,7 +235,7 @@ namespace Glyssen.Dialogs
 
 		public void AssignActorToGroup(int actorId, CharacterGroup group)
 		{
-			if (CanAssign)
+			if (CanAssign && group.VoiceActorId != actorId)
 			{
 				RemoveVoiceActorAssignmentsUndoAction undoActionForRemovingPreviousAssignments = null;
 				if (actorId == CharacterGroup.kNoActorAssigned)

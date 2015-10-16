@@ -55,6 +55,18 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void AssignActorToGroup_AssignedToSameActor_NoChangeAndNoUndoAction()
+		{
+			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Puni Upalari" };
+			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actor1 };
+			var group = m_model.CharacterGroups[0];
+			group.VoiceActorId = actor1.Id;
+			m_model.AssignActorToGroup(actor1.Id, group);
+			Assert.AreEqual(actor1.Id, group.VoiceActorId);
+			Assert.AreEqual(0, m_model.UndoActions.Count);
+		}
+
+		[Test]
 		public void AssignActorToGroup_ExistingGroupAssignedToActor_ActorUnassignedFromPreviousGroupAndAssignedToRequestedGroup()
 		{
 			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Eduardo Lopez" };
