@@ -98,6 +98,8 @@
 			// 
 			// m_cmbGender
 			// 
+			this.m_cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.m_cmbGender.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.m_cmbGender.FormattingEnabled = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_cmbGender, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_cmbGender, null);
@@ -109,6 +111,8 @@
 			// 
 			// m_cmbAge
 			// 
+			this.m_cmbAge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.m_cmbAge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.m_cmbAge.FormattingEnabled = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_cmbAge, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_cmbAge, null);
