@@ -206,6 +206,8 @@
     </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
     <Compile Include="Controls\VoiceActorInformationViewModel.cs" />
+    <Compile Include="Dialogs\VoiceActorUndoAction.cs" />
+    <Compile Include="Dialogs\CharacterGroupsUndoAction.cs" />
     <Compile Include="Dialogs\SelectExistingProjectDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +232,11 @@
     <Compile Include="Dialogs\UpdateCharacterGroupsDlg.Designer.cs">
       <DependentUpon>UpdateCharacterGroupsDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\RemoveVoiceActorAssignmentsUndoAction.cs" />
+    <Compile Include="Dialogs\MoveCharactersToGroupUndoAction.cs" />
+    <Compile Include="Dialogs\CharacterGroupUndoActionSequence.cs" />
+    <Compile Include="Utilities\UndoActionSequence.cs" />
+    <Compile Include="Dialogs\VoiceActorAssignmentUndoAction.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentViewModel.cs" />
     <Compile Include="Controls\VoiceActorInformationGrid.cs">
       <SubType>UserControl</SubType>
@@ -335,7 +342,6 @@
     <Compile Include="Character\CharacterGroupList.cs" />
     <Compile Include="VoiceActor\VoiceActor.cs" />
     <Compile Include="VoiceActor\VoiceActorList.cs" />
-    <Compile Include="VoiceActor\VoiceActorSortableBindingList.cs" />
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
     </EmbeddedResource>
@@ -457,6 +463,7 @@
     <None Include="Resources\helpSmall.png" />
     <None Include="Resources\people.png" />
     <None Include="Resources\RemoveActor.png" />
+    <None Include="Resources\redo.png" />
     <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />
   </ItemGroup>

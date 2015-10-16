@@ -1094,6 +1094,12 @@ namespace Glyssen
 			}
 			return keyStrokesByCharacterId;
 		}
+
+		public CharacterGroup GetGroupByName(string name)
+		{
+			var grp = CharacterGroupList.GetGroupByName(name);
+			return grp ?? CharacterGroupList.GroupContainingCharacterId(name);
+		}
 	}
 
 	public class ProjectStateChangedEventArgs : EventArgs

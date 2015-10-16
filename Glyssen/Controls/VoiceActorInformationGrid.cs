@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Character;
@@ -15,50 +14,35 @@ namespace Glyssen.Controls
 	public partial class VoiceActorInformationGrid : UserControl
 	{
 		public event EventHandler Saved;
-		public event DataGridViewCellEventHandler CellUpdated;
 		public event DataGridViewRowEventHandler UserAddedRow;
 		public event DataGridViewRowsRemovedEventHandler UserRemovedRows;
-		public event DataGridViewCellMouseEventHandler CellDoubleClicked;
-		public event MouseEventHandler GridMouseMove;
-		public event EventHandler SelectionChanged;
-		private readonly VoiceActorInformationViewModel m_actorInformationViewModel;
-		private readonly Font m_italicsFont;
+		private VoiceActorInformationViewModel m_actorInformationViewModel;
 		private bool m_inEndEdit;
 
 		public VoiceActorInformationGrid()
 		{
 			InitializeComponent();
 
-
-			m_actorInformationViewModel = new VoiceActorInformationViewModel();
-
 			m_dataGrid.DataError += m_dataGrid_DataError;
 
-			ActorGender.DataSource = m_actorInformationViewModel.GetGenderDataTable();
+			ActorGender.DataSource = VoiceActorInformationViewModel.GetGenderDataTable();
 			ActorGender.ValueMember = "ID";
 			ActorGender.DisplayMember = "Name";
 
-			ActorAge.DataSource = m_actorInformationViewModel.GetAgeDataTable();
+			ActorAge.DataSource = VoiceActorInformationViewModel.GetAgeDataTable();
 			ActorAge.ValueMember = "ID";
 			ActorAge.DisplayMember = "Name";
 
-			ActorQuality.DataSource = m_actorInformationViewModel.GetVoiceQualityDataTable();
+			ActorQuality.DataSource = VoiceActorInformationViewModel.GetVoiceQualityDataTable();
 			ActorQuality.ValueMember = "ID";
 			ActorQuality.DisplayMember = "Name";
-
-			m_actorInformationViewModel.Saved += m_actorInformationViewModel_Saved;
 
 			// Sadly, we have to do this here because setting it in the Designer doesn't work since BetterGrid overrides
 			// the default value in its constructor.
 			m_dataGrid.AllowUserToAddRows = true;
 			m_dataGrid.MultiSelect = true;
+			m_dataGrid.EditMode = DataGridViewEditMode.EditOnEnter;
 			m_dataGrid.UserAddedRow += HandleUserAddedRow;
-			m_dataGrid.CellMouseDoubleClick += HandleDoubleClick;
-			m_dataGrid.MouseMove += HandleMouseMove;
-			m_dataGrid.CellFormatting += HandleCellFormatting;
-
-			Font originalGridFont = m_dataGrid.Font;
-			m_italicsFont = new Font(originalGridFont.FontFamily, originalGridFont.Size, originalGridFont.Style | FontStyle.Italic);
 		}
 
 		void m_dataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -70,17 +54,7 @@ namespace Glyssen.Controls
 
 		public int RowCount { get { return m_dataGrid.RowCount; } }
 
-		public VoiceActor.VoiceActor SelectedVoiceActorEntity
-		{
-			get
-			{
-				if (m_dataGrid.SelectedRows.Count == 0)
-					return null;
-				return m_dataGrid.SelectedRows[0].DataBoundItem as VoiceActor.VoiceActor;
-			}
-		}
-
-		public DataGridViewSelectedRowCollection SelectedRows
+		private DataGridViewSelectedRowCollection SelectedRows
 		{
 			get { return m_dataGrid.SelectedRows; }
 		}
@@ -97,15 +71,10 @@ namespace Glyssen.Controls
 			set { m_dataGrid.ContextMenuStrip = value; }
 		}
 
-		public IEnumerable<CharacterGroup> CharacterGroupsWithAssignedActors
+		public void Initialize(VoiceActorInformationViewModel viewModel, bool sort = true)
 		{
-			get { return m_actorInformationViewModel.CharacterGroupsWithAssignedActors; }
-			set { m_actorInformationViewModel.CharacterGroupsWithAssignedActors = value; }
-		}
-
-		public void Initialize(Project project, bool sort = true)
-		{
-			m_actorInformationViewModel.Initialize(project);
+			m_actorInformationViewModel = viewModel;
+			m_actorInformationViewModel.Saved += m_actorInformationViewModel_Saved;
 
 			m_dataGrid.DataSource = m_actorInformationViewModel.BindingList;
 
@@ -113,19 +82,13 @@ namespace Glyssen.Controls
 				m_dataGrid.Sort(m_dataGrid.Columns["ActorName"], ListSortDirection.Ascending);
 		}
 
-		public void SaveVoiceActorInformation()
+		private void SaveVoiceActorInformation()
 		{
 			m_actorInformationViewModel.SaveVoiceActorInformation();
 		}
 
-		public DataGridView.HitTestInfo HitTest(int x, int y)
-		{
-			return m_dataGrid.HitTest(x, y);
-		}
-
 		public DataGridViewEditMode EditMode
 		{
-			get { return m_dataGrid.EditMode; }
 			set { m_dataGrid.EditMode = value; }
 		}
 
@@ -141,12 +104,12 @@ namespace Glyssen.Controls
 			e.Cancel = !ValidateChildren();
 		}
 
-		public bool EndEdit()
+		private void EndEdit()
 		{
 			m_inEndEdit = true;
-			var result = ValidateChildren() && m_dataGrid.EndEdit();
+			if (ValidateChildren())
+				m_dataGrid.EndEdit();
 			m_inEndEdit = false;
-			return result;
 		}
 
 		private void m_dataGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -169,7 +132,7 @@ namespace Glyssen.Controls
 				MoveToNextField();
 		}
 
-		private void RemoveSelectedRows(bool confirmWithUser)
+		private void RemoveSelectedRows()
 		{
 			if (m_dataGrid.SelectedRows.Count == 0)
 				return;
@@ -179,17 +142,12 @@ namespace Glyssen.Controls
 				actorsToRemove.Add(row.DataBoundItem as VoiceActor.VoiceActor);
 
 			int indexOfFirstRowToRemove = m_dataGrid.SelectedRows[0].Index;
-			if (m_actorInformationViewModel.DeleteVoiceActors(actorsToRemove, confirmWithUser))
+			if (m_actorInformationViewModel.DeleteVoiceActors(actorsToRemove))
 			{
 				DataGridViewRowsRemovedEventHandler handler = UserRemovedRows;
 				if (handler != null)
 					handler(m_dataGrid, new DataGridViewRowsRemovedEventArgs(indexOfFirstRowToRemove, m_dataGrid.RowCount));
 			}
-		}
-
-		public void RefreshSort()
-		{
-			m_dataGrid.Sort(m_dataGrid.SortedColumn, m_dataGrid.SortOrder == SortOrder.Ascending ? ListSortDirection.Ascending : ListSortDirection.Descending);
 		}
 
 		public Color BackgroundColor
@@ -201,24 +159,13 @@ namespace Glyssen.Controls
 		private void contextMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
 		{
 			if (e.ClickedItem == m_contextMenu_itemDeleteActors)
-			{
-				RemoveSelectedRows(true);
-			}
-		}
-
-		private void HandleCellUpdated(DataGridViewCellEventArgs e)
-		{
-			DataGridViewCellEventHandler handler = CellUpdated;
-			if (handler != null)
-				handler(m_dataGrid, e);
+				RemoveSelectedRows();
 		}
 
 		private void HandleKeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyData == Keys.Delete)
-			{
-				RemoveSelectedRows(true);
-			}
+				RemoveSelectedRows();
 		}
 
 		private void HandleUserAddedRow(object sender, DataGridViewRowEventArgs e)
@@ -226,39 +173,6 @@ namespace Glyssen.Controls
 			DataGridViewRowEventHandler handler = UserAddedRow;
 			if (handler != null)
 				handler(sender, e);
-		}
-
-		private void HandleDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-		{
-			DataGridViewCellMouseEventHandler handler = CellDoubleClicked;
-			if (handler != null)
-				handler(sender, e);
-		}
-
-		private void HandleMouseMove(object sender, MouseEventArgs e)
-		{
-			MouseEventHandler handler = GridMouseMove;
-			if (handler != null)
-				handler(sender, e);
-		}
-
-		private void HandleCellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-		{
-			VoiceActor.VoiceActor actor = m_dataGrid.Rows[e.RowIndex].DataBoundItem as VoiceActor.VoiceActor;
-			if (actor == null || CharacterGroupsWithAssignedActors == null || !CharacterGroupsWithAssignedActors.Any())
-			{
-				e.FormattingApplied = false;
-				return;
-			}
-			if (CharacterGroupsWithAssignedActors.Any(cg => cg.VoiceActorId == actor.Id))
-			{
-				e.CellStyle.Font = m_italicsFont;
-				e.CellStyle.ForeColor = Color.Gray;
-			}
-			else
-			{
-				e.FormattingApplied = false;
-			}
 		}
 
 		private void m_actorInformationViewModel_Saved(object sender, EventArgs e)
@@ -285,15 +199,7 @@ namespace Glyssen.Controls
 
 		private void m_dataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
 		{
-			HandleCellUpdated(e);
 			SaveVoiceActorInformation();
-		}
-
-		private void m_dataGrid_SelectionChanged(object sender, EventArgs e)
-		{
-			EventHandler handler = SelectionChanged;
-			if (handler != null)
-				handler(sender, e);
 		}
 
 		private void m_contextMenu_Opening(object sender, CancelEventArgs e)
