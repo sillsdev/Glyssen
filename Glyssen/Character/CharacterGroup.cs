@@ -25,6 +25,12 @@ namespace Glyssen.Character
 		public CharacterGroup(Project project, int groupNumber, IComparer<string> characterIdPriorityComparer = null) : this()
 		{
 			GroupNumber = groupNumber;
+
+			// In its current usage, the only reason it makes sense to allow this to be passed in is for efficiency.
+			// Elsewhere in the code, we create one comparer and pass it in to multiple constuctors.
+			if (characterIdPriorityComparer == null)
+				characterIdPriorityComparer = new CharacterByKeyStrokeComparer(project.GetKeyStrokesByCharacterId());
+
 			Initialize(project, characterIdPriorityComparer);
 		}
 
@@ -297,10 +303,7 @@ namespace Glyssen.Character
 			get
 			{
 				var characterList = m_hashSet.ToList();
-				if (PriorityComparer != null)
-					characterList.Sort(PriorityComparer);
-				else
-					characterList.Sort();
+				characterList.Sort(PriorityComparer);
 				return characterList;
 			}
 		}
