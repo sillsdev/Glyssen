@@ -83,8 +83,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_dataGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_dataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
-			this.m_dataGrid.CharacterGroupsWithAssignedActors = null;
-			this.m_dataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_dataGrid, "DialogBoxes.VoiceActorInformation.voiceActorInformationGrid21");

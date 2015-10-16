@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
 using SIL.Xml;
@@ -55,11 +56,26 @@ namespace Glyssen.Character
 			return CharacterGroups.FirstOrDefault(g => g.CharacterIds.Contains(characterId));
 		}
 
+		public CharacterGroup GetGroupByName(string name)
+		{
+			return CharacterGroups.FirstOrDefault(g => g.Name == name);
+		}
+
+		/// <summary>
+		/// Note: There should only ever be one such group, but early on, Glyssen would allow the same
+		/// actor to be assigned to multiple groups, so for compatibility reasons, we allow for this.
+		/// </summary>
+		public IEnumerable<CharacterGroup> GetGroupsAssignedToActor(int actorId)
+		{
+			if (actorId <= CharacterGroup.kNoActorAssigned)
+				throw new ArgumentException("GetGroupsAssignedToActor should not be used to get groups assigned to no actor (no good reason; it just shouldn't).");
+			return CharacterGroups.Where(g => g.VoiceActorId == actorId);
+		}
+
 		public void RemoveVoiceActor(int voiceActorId)
 		{
-			foreach (var group in CharacterGroups)
-				if (group.VoiceActorId == voiceActorId)
-					group.RemoveVoiceActor();
+			foreach (var group in GetGroupsAssignedToActor(voiceActorId))
+				group.RemoveVoiceActor();
 		}
 
 		public void PopulateEstimatedHours(Dictionary<string, int> keyStrokesByCharacterId)

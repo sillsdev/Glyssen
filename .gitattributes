@@ -2,6 +2,8 @@
 
 *.cs    diff=csharp
 
+*.htm whitespace=space-before-tab,trailing-space,tabwidth=4
+
 # Don't check whitespace for generated files
 *.csproj -whitespace
 *.resx -whitespace

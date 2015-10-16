@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Windows.Forms;
-using Glyssen.Bundle;
+using Glyssen.Controls;
+using L10NSharp;
 
 namespace Glyssen.Dialogs
 {
 	public partial class VoiceActorInformationDlg : Form
 	{
-		private readonly Project m_project;
+		private readonly VoiceActorInformationViewModel m_viewModel;
 
-		public VoiceActorInformationDlg(Project project, bool showNext = true)
+		public VoiceActorInformationDlg(VoiceActorInformationViewModel viewModel, bool showNext = true)
 		{
 			InitializeComponent();
 
-			m_project = project;
+			m_viewModel = viewModel;
+			m_viewModel.DeletingActors += ConfirmActorDeletion;
 
-			m_dataGrid.Initialize(m_project, false);
+			m_dataGrid.Initialize(m_viewModel, false);
 
 			m_dataGrid.Saved += m_dataGrid_Saved;
 			m_dataGrid.UserAddedRow += m_dataGrid_UserAddedRow;
@@ -25,6 +27,53 @@ namespace Glyssen.Dialogs
 			m_btnNext.Visible = showNext;
 			m_linkClose.Visible = showNext;
 			m_btnOk.Visible = !showNext;
+		}
+
+		private void ConfirmActorDeletion(VoiceActorInformationViewModel sender, DeletingActorsEventArgs e)
+		{
+			if (e.Cancel)
+				return;
+
+			string msg;
+			string title;
+
+			if (e.CountOfAssignedActorsToDelete > 0)
+			{
+				if (e.CountOfActorsToDelete > 1)
+				{
+					msg =
+						LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.MessagePlural",
+							"One or more of the selected actors is assigned to a character group. Deleting the actor will remove the assignment as well. Are you sure you want to delete the selected actors?");
+					title =
+						LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.TitlePlural",
+							"Voice Actors Assigned");
+				}
+				else
+				{
+					msg =
+						LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.MessageSingular",
+							"The selected actor is assigned to a character group. Deleting the actor will remove the assignment as well. Are you sure you want to delete the selected actor?");
+					title =
+						LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.TitleSingular",
+							"Voice Actor Assigned");
+				}
+			}
+			else
+			{
+				title = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.Title", "Confirm");
+
+				if (e.CountOfActorsToDelete > 1)
+				{
+					msg = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.MessagePlural",
+						"Are you sure you want to delete the selected actors?");
+				}
+				else
+				{
+					msg = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.MessageSingular",
+						"Are you sure you want to delete the selected actor?");
+				}
+			}
+			e.Cancel = MessageBox.Show(msg, title, MessageBoxButtons.YesNo) == DialogResult.No;
 		}
 
 		private void m_dataGrid_Saved(object sender, EventArgs e)
@@ -45,20 +94,19 @@ namespace Glyssen.Dialogs
 
 		private void m_btnNext_Click(object sender, EventArgs e)
 		{
-			m_project.VoiceActorStatus = VoiceActorStatus.Provided;
 			DialogResult = DialogResult.OK;
 			Close();
 		}
 
 		private void m_linkClose_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			m_project.VoiceActorStatus = VoiceActorStatus.UnProvided;
 			DialogResult = DialogResult.Cancel;
 			Close();
 		}
 
 		private void m_btnOk_Click(object sender, EventArgs e)
 		{
+			m_viewModel.AssessChanges();
 			DialogResult = DialogResult.OK;
 			Close();
 		}

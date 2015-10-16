@@ -47,11 +47,13 @@ namespace Glyssen.Dialogs
 			this.m_splitGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_toolStrip = new System.Windows.Forms.ToolStrip();
-			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+			this.m_undoButton = new System.Windows.Forms.ToolStripButton();
+			this.m_redoButton = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.m_editActorsButton = new System.Windows.Forms.ToolStripButton();
 			this.m_updateGroupsButton = new System.Windows.Forms.ToolStripButton();
 			this.m_splitSelectedGroupButton = new System.Windows.Forms.ToolStripButton();
 			this.m_btnOK = new System.Windows.Forms.Button();
-			this.m_toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.m_characterGroupGrid = new Glyssen.Controls.AutoScrollGrid();
 			this.CharacterIdsCol = new Glyssen.Controls.DataGridViewListBoxColumn();
 			this.AttributesCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +61,7 @@ namespace Glyssen.Dialogs
 			this.EstimatedHoursCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.VoiceActorCol = new Glyssen.Controls.DataGridViewMultiColumnComboBoxColumn();
 			this.m_saveStatus = new Glyssen.Controls.SaveStatus();
+			this.m_toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.dataGridViewListBoxColumn1 = new Glyssen.Controls.DataGridViewListBoxColumn();
 			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,7 +97,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_contextMenuCharacters, "DialogBoxes.VoiceActorAssignmentDlg.m_contextMenuCharacters.m_contextMenuCharacte" +
         "rs");
 			this.m_contextMenuCharacters.Name = "m_contextMenuCharacters";
-			this.m_contextMenuCharacters.Size = new System.Drawing.Size(328, 48);
+			this.m_contextMenuCharacters.Size = new System.Drawing.Size(328, 26);
 			this.m_contextMenuCharacters.Opening += new System.ComponentModel.CancelEventHandler(this.m_contextMenuCharacters_Opening);
 			// 
 			// m_menuItemCreateNewGroup
@@ -146,38 +149,77 @@ namespace Glyssen.Dialogs
 			// m_l10NSharpExtender
 			// 
 			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
-			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.VoiceActorAssignmentDlg";
+			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes";
 			// 
 			// m_toolStrip
 			// 
 			this.m_toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.m_toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
+            this.m_undoButton,
+            this.m_redoButton,
+            this.toolStripSeparator1,
+            this.m_editActorsButton,
             this.m_updateGroupsButton,
             this.m_splitSelectedGroupButton});
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStrip, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStrip, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStrip, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStrip, "DialogBoxes.VoiceActorAssignmentDlg.toolStrip1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStrip, "DialogBoxes.VoiceActorAssignmentDlg.m_toolStrip");
 			this.m_toolStrip.Location = new System.Drawing.Point(0, 0);
 			this.m_toolStrip.Name = "m_toolStrip";
 			this.m_toolStrip.Padding = new System.Windows.Forms.Padding(0);
 			this.m_toolStrip.Size = new System.Drawing.Size(859, 25);
 			this.m_toolStrip.TabIndex = 7;
-			this.m_toolStrip.Text = "toolStrip1";
 			// 
-			// toolStripButton1
+			// m_undoButton
 			// 
-			this.toolStripButton1.AutoToolTip = false;
-			this.toolStripButton1.Image = global::Glyssen.Properties.Resources.people;
-			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.toolStripButton1, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.toolStripButton1, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.toolStripButton1, "DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.EditVoiceActors");
-			this.toolStripButton1.Name = "toolStripButton1";
-			this.toolStripButton1.Size = new System.Drawing.Size(125, 22);
-			this.toolStripButton1.Text = "Edit Voice Actors...";
-			this.toolStripButton1.Click += new System.EventHandler(this.HandleEditVoiceActorsClick);
+			this.m_undoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.m_undoButton.Enabled = false;
+			this.m_undoButton.Image = global::Glyssen.Properties.Resources.undo;
+			this.m_undoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_undoButton, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_undoButton, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_undoButton, "DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.UndoButton");
+			this.m_undoButton.Name = "m_undoButton";
+			this.m_undoButton.Size = new System.Drawing.Size(23, 22);
+			this.m_undoButton.Text = "Undo";
+			this.m_undoButton.ToolTipText = "Undo {0}";
+			this.m_undoButton.Click += new System.EventHandler(this.HandleUndoButtonClick);
+			this.m_undoButton.MouseEnter += new System.EventHandler(this.SetUndoOrRedoButtonToolTip);
+			// 
+			// m_redoButton
+			// 
+			this.m_redoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.m_redoButton.Enabled = false;
+			this.m_redoButton.Image = global::Glyssen.Properties.Resources.redo;
+			this.m_redoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_redoButton, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_redoButton, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_redoButton, "DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.RedoButton");
+			this.m_redoButton.Name = "m_redoButton";
+			this.m_redoButton.Size = new System.Drawing.Size(23, 22);
+			this.m_redoButton.Text = "Redo";
+			this.m_redoButton.ToolTipText = "Redo {0}";
+			this.m_redoButton.Click += new System.EventHandler(this.HandleRedoButtonClick);
+			this.m_redoButton.MouseEnter += new System.EventHandler(this.SetUndoOrRedoButtonToolTip);
+			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+			// 
+			// m_editActorsButton
+			// 
+			this.m_editActorsButton.AutoToolTip = false;
+			this.m_editActorsButton.Image = global::Glyssen.Properties.Resources.people;
+			this.m_editActorsButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_editActorsButton, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_editActorsButton, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_editActorsButton, "DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.EditVoiceActors");
+			this.m_editActorsButton.Name = "m_editActorsButton";
+			this.m_editActorsButton.Size = new System.Drawing.Size(125, 22);
+			this.m_editActorsButton.Text = "Edit Voice Actors...";
+			this.m_editActorsButton.Click += new System.EventHandler(this.HandleEditVoiceActorsClick);
 			// 
 			// m_updateGroupsButton
 			// 
@@ -287,12 +329,16 @@ namespace Glyssen.Dialogs
 			this.m_characterGroupGrid.Size = new System.Drawing.Size(829, 378);
 			this.m_characterGroupGrid.TabIndex = 6;
 			this.m_characterGroupGrid.TextBoxEditControlBorderColor = System.Drawing.Color.Silver;
+			this.m_characterGroupGrid.VirtualMode = true;
 			this.m_characterGroupGrid.WaterMark = "!";
 			this.m_characterGroupGrid.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_characterGroupGrid_CellEnter);
 			this.m_characterGroupGrid.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_characterGroupGrid_CellLeave);
 			this.m_characterGroupGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.m_characterGroupGrid_CellMouseDown);
-			this.m_characterGroupGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.m_characterGroupGrid_CellValidating);
+			this.m_characterGroupGrid.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.m_characterGroupGrid_CellValueNeeded);
+			this.m_characterGroupGrid.CellValuePushed += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.m_characterGroupGrid_CellValuePushed);
+			this.m_characterGroupGrid.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.HandleGridColumnHeaderMouseClick);
 			this.m_characterGroupGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.m_characterGroupGrid_DataError);
+			this.m_characterGroupGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.m_characterGroupGrid_EditingControlShowing);
 			this.m_characterGroupGrid.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.m_characterGroupGrid_RowPrePaint);
 			this.m_characterGroupGrid.SelectionChanged += new System.EventHandler(this.m_characterGroupGrid_SelectionChanged);
 			this.m_characterGroupGrid.DragDrop += new System.Windows.Forms.DragEventHandler(this.m_characterGroupGrid_DragDrop);
@@ -302,7 +348,6 @@ namespace Glyssen.Dialogs
 			// 
 			// CharacterIdsCol
 			// 
-			this.CharacterIdsCol.DataPropertyName = "CharacterIds";
 			this.CharacterIdsCol.FillWeight = 150.8968F;
 			this.CharacterIdsCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Characters!Characters";
 			this.CharacterIdsCol.Name = "CharacterIdsCol";
@@ -310,7 +355,6 @@ namespace Glyssen.Dialogs
 			// 
 			// AttributesCol
 			// 
-			this.AttributesCol.DataPropertyName = "AttributesDisplay";
 			this.AttributesCol.FillWeight = 75.44839F;
 			this.AttributesCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Attributes!Attributes";
 			this.AttributesCol.Name = "AttributesCol";
@@ -319,7 +363,6 @@ namespace Glyssen.Dialogs
 			// CharStatusCol
 			// 
 			this.CharStatusCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.CharStatusCol.DataPropertyName = "StatusDisplay";
 			this.CharStatusCol.FillWeight = 115.4822F;
 			this.CharStatusCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Status!Status";
 			this.CharStatusCol.Name = "CharStatusCol";
@@ -330,7 +373,6 @@ namespace Glyssen.Dialogs
 			// EstimatedHoursCol
 			// 
 			this.EstimatedHoursCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-			this.EstimatedHoursCol.DataPropertyName = "EstimatedHours";
 			dataGridViewCellStyle3.Format = "N2";
 			dataGridViewCellStyle3.NullValue = null;
 			this.EstimatedHoursCol.DefaultCellStyle = dataGridViewCellStyle3;
@@ -348,7 +390,6 @@ namespace Glyssen.Dialogs
 			this.VoiceActorCol.ColumnNames.Add("Gender");
 			this.VoiceActorCol.ColumnNames.Add("Age");
 			this.VoiceActorCol.ColumnNames.Add("Cameo");
-			this.VoiceActorCol.DataPropertyName = "VoiceActorId";
 			this.VoiceActorCol.EvenRowsBackColor = System.Drawing.Color.White;
 			this.VoiceActorCol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.VoiceActorCol.FontForCategories = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -492,7 +533,7 @@ namespace Glyssen.Dialogs
 		private DataGridViewMultiColumnComboBoxColumn dataGridViewMultiColumnComboBoxColumn1;
 		private System.Windows.Forms.ToolStrip m_toolStrip;
 		private System.Windows.Forms.Button m_btnOK;
-		private System.Windows.Forms.ToolStripButton toolStripButton1;
+		private System.Windows.Forms.ToolStripButton m_editActorsButton;
 		private System.Windows.Forms.ToolStripButton m_splitSelectedGroupButton;
 		private System.Windows.Forms.ToolStripButton m_updateGroupsButton;
 		private DataGridViewListBoxColumn CharacterIdsCol;
@@ -500,6 +541,9 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.DataGridViewTextBoxColumn CharStatusCol;
 		private System.Windows.Forms.DataGridViewTextBoxColumn EstimatedHoursCol;
 		private DataGridViewMultiColumnComboBoxColumn VoiceActorCol;
+		private System.Windows.Forms.ToolStripButton m_undoButton;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+		private System.Windows.Forms.ToolStripButton m_redoButton;
 
 	}
 }

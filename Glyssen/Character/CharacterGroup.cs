@@ -11,7 +11,7 @@ namespace Glyssen.Character
 {
 	public class CharacterGroup
 	{
-		private const int kNoActorAssigned = -1;
+		public const int kNoActorAssigned = -1;
 		private Project m_project;
 		private bool m_closed;
 
@@ -22,16 +22,16 @@ namespace Glyssen.Character
 			VoiceActorId = kNoActorAssigned;
 		}
 
-		public CharacterGroup(Project project, int groupNumber, IComparer<string> characterComparerForToString = null) : this()
+		public CharacterGroup(Project project, int groupNumber, IComparer<string> characterIdPriorityComparer = null) : this()
 		{
 			GroupNumber = groupNumber;
-			Initialize(project, characterComparerForToString);
+			Initialize(project, characterIdPriorityComparer);
 		}
 
-		public void Initialize(Project project, IComparer<string> characterComparerForToString)
+		public void Initialize(Project project, IComparer<string> characterIdPriorityComparer)
 		{
 			m_project = project;
-			CharacterIds.ToStringComparer = characterComparerForToString;
+			CharacterIds.PriorityComparer = characterIdPriorityComparer;
 		}
 
 		public void AssignVoiceActor(int actorId)
@@ -47,6 +47,22 @@ namespace Glyssen.Character
 		[XmlElement]
 		[Browsable(false)]
 		public int GroupNumber { get; set; }
+
+		[XmlAttribute("name")]
+		[Browsable(false)]
+		public string GroupNameInternal { get; set; }
+
+		[Browsable(false)]
+		public string Name
+		{
+			get
+			{
+				if (string.IsNullOrEmpty(GroupNameInternal))
+					return CharacterIds.HighestPriorityCharacter;
+				return GroupNameInternal;
+			}
+			set { GroupNameInternal = value; }
+		}
 
 		[XmlArray("CharacterIds")]
 		[XmlArrayItem("CharacterId")]
@@ -264,18 +280,34 @@ namespace Glyssen.Character
 			m_hashSet = new HashSet<string>(sourceEnumerable);
 		}
 
-		public IComparer<string> ToStringComparer { get; set; }
+		public IComparer<string> PriorityComparer { private get; set; }
 
 		public override string ToString()
 		{
-			var characterList = m_hashSet.ToList();
-			if (ToStringComparer != null)
-				characterList.Sort(ToStringComparer);
-			else
-				characterList.Sort();
-			return string.Join("; ", characterList.Select(CharacterVerseData.GetCharacterNameForUi));
+			return string.Join("; ", PrioritySortedList.Select(CharacterVerseData.GetCharacterNameForUi));
 		}
 
+		public string HighestPriorityCharacter
+		{
+			get { return PrioritySortedList.FirstOrDefault(); }
+		}
+
+		private List<string> PrioritySortedList
+		{
+			get
+			{
+				var characterList = m_hashSet.ToList();
+				if (PriorityComparer != null)
+					characterList.Sort(PriorityComparer);
+				else
+					characterList.Sort();
+				return characterList;
+			}
+		}
+
+		/// <summary>
+		/// Gets an alphabetically sorted list
+		/// </summary>
 		public List<string> ToList()
 		{
 			return m_hashSet.Select(CharacterVerseData.GetCharacterNameForUi).OrderBy(c => c).ToList();
