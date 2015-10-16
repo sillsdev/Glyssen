@@ -290,7 +290,7 @@ namespace Glyssen.Dialogs
 			int columnIndex = m_characterGroupGrid.CurrentCellAddress.X;
 
 			m_saveStatus.OnSaved();
-			if (!SetRowCount(true))
+			if (!SetRowCount(changedGroups != null))
 				InvalidateRowsForGroups(changedGroups);
 			m_indexOfRowNotToInvalidate = -1;
 			m_characterGroupGrid.IsDirty = false;
@@ -301,7 +301,7 @@ namespace Glyssen.Dialogs
 			if (!m_redoButton.Enabled)
 				SetUndoOrRedoButtonToolTip(m_redoButton, null);
 
-			var groupToSelect = changedGroups.FirstOrDefault();
+			var groupToSelect = changedGroups == null ? null : changedGroups.FirstOrDefault();
 			if (groupToSelect != null)
 			{
 				var rowIndex = m_actorAssignmentViewModel.CharacterGroups.IndexOf(groupToSelect);

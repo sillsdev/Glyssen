@@ -316,8 +316,11 @@ namespace GlyssenTests.Dialogs
 			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2 };
 			var actor3 = new Glyssen.VoiceActor.VoiceActor { Id = 3 };
 			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actor1, actor2, actor3 };
+			List<CharacterGroup> affectedGroups = null;
+			m_model.Saved += (sender, affected) => { if (affected != null) affectedGroups = affected.ToList(); };
 			m_model.RegenerateGroups(false);
 			Assert.AreEqual(3, m_testProject.CharacterGroupList.CharacterGroups.Count);
+			// TODO (PG-437): Check that correct groups are included in affectedGroups.
 		}
 
 		[Test]

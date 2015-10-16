@@ -229,7 +229,7 @@ namespace Glyssen.Dialogs
 			{
 				if (actionToSave == null)
 					actionToSave = m_undoStack.Peek();
-				Saved(this, actionToSave.GroupsAffectedByLastOperation);
+				Saved(this, actionToSave == null ? null : actionToSave.GroupsAffectedByLastOperation);
 			}
 		}
 
