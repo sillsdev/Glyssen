@@ -20,3 +20,6 @@
 changelog -whitespace
 *.lift* -whitespace
 *.csproj.DotSettings -whitespace
+
+CharacterVerse.txt -whitespace
+CharacterDetail.txt -whitespace

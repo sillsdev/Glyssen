@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using Glyssen.Character;
 using SIL.Scripture;
 
@@ -11,6 +12,8 @@ namespace DevTools
 	class CharacterDetailProcessing
 	{
 		private const char Tab = '\t';
+		private static readonly Regex FindTabsRegex = new Regex("\t", RegexOptions.Compiled);
+
 		public static void GenerateReferences()
 		{
 			var data = ReadFile();
@@ -53,7 +56,11 @@ namespace DevTools
 
 		private static string GetNewLine(CharacterDetailLine line)
 		{
-			return line.CurrentLine + Tab + line.ReferenceComment;
+			if (FindTabsRegex.Matches(line.CurrentLine).Count == 5)
+				return line.CurrentLine + Tab + line.ReferenceComment;
+
+			int finalTabIndex = line.CurrentLine.LastIndexOf("\t", StringComparison.Ordinal);
+			return line.CurrentLine.Substring(0, finalTabIndex + 1) + line.ReferenceComment;
 		}
 
 		private static void WriteFile(string fileText)

@@ -1,4 +1,4 @@
-Control File Version	79
+Control File Version	80
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -2612,6 +2612,7 @@ NUM	8	25	God		God (the LORD)	Normal
 NUM	8	26	God		God (the LORD)	Normal		
 NUM	9	2	God		God (the LORD)	Normal		
 NUM	9	3	God		God (the LORD)	Normal		
+NUM	9	4	Moses			Indirect		
 NUM	9	7	Israelites, some			Normal		
 NUM	9	8	Moses			Normal		
 NUM	9	10	God		God (the LORD)	Normal		
@@ -2849,8 +2850,8 @@ NUM	21	2	Israelites		Israelite people, the	Normal
 NUM	21	5	Israelites		Israelite people, the	Normal		
 NUM	21	7	Israelites		Israelite people, the	Normal		
 NUM	21	8	God		God (the LORD)	Normal		
-NUM	21	14	Book of the Wars of the LORD			Normal		
-NUM	21	15	Book of the Wars of the LORD	sang		Normal	Moses	
+NUM	21	14	Book of the Wars of the LORD	sang		Normal		
+NUM	21	15	Book of the Wars of the LORD	sang		Normal		
 NUM	21	16	God		God (the LORD)	Normal		
 NUM	21	17	Israel	singing		Normal		
 NUM	21	18	Israel	singing		Normal		
@@ -3194,21 +3195,22 @@ DEU	1	39	God		God (the LORD)	Normal
 DEU	1	40	God		God (the LORD)	Normal		
 DEU	1	41	Moses			Normal		
 DEU	1	42	God		God (the LORD)	Normal		
-DEU	2	3	Moses			Normal		
-DEU	2	4	Moses			Normal		
-DEU	2	5	Moses			Normal		
-DEU	2	6	Moses			Normal		
-DEU	2	9	Moses			Normal		
+DEU	2	3	God		God (the LORD)	Normal		
+DEU	2	4	God		God (the LORD)	Normal		
+DEU	2	5	God		God (the LORD)	Normal		
+DEU	2	6	God		God (the LORD)	Normal		
+DEU	2	9	God		God (the LORD)	Normal		
 DEU	2	13	Moses			Normal		
-DEU	2	18	Moses			Normal		
-DEU	2	19	Moses			Normal		
-DEU	2	24	Moses			Normal		
-DEU	2	25	Moses			Normal		
+DEU	2	13	God		God (the LORD)	Normal		
+DEU	2	18	God		God (the LORD)	Normal		
+DEU	2	19	God		God (the LORD)	Normal		
+DEU	2	24	God		God (the LORD)	Normal		
+DEU	2	25	God		God (the LORD)	Normal		
 DEU	2	27	Moses			Normal		
 DEU	2	28	Moses			Normal		
 DEU	2	29	Moses			Normal		
-DEU	2	31	Moses			Normal		
-DEU	3	2	Moses			Normal		
+DEU	2	31	God		God (the LORD)	Normal		
+DEU	3	2	God		God (the LORD)	Normal		
 DEU	3	18	Moses			Normal		
 DEU	3	19	Moses			Normal		
 DEU	3	20	Moses			Normal		
@@ -3217,8 +3219,9 @@ DEU	3	22	Moses			Normal
 DEU	3	24	Moses			Normal		
 DEU	3	25	Moses			Normal		
 DEU	3	26	Moses			Normal		
-DEU	3	27	Moses			Normal		
-DEU	3	28	Moses			Normal		
+DEU	3	26	God		God (the LORD)	Normal		
+DEU	3	27	God		God (the LORD)	Normal		
+DEU	3	28	God		God (the LORD)	Normal		
 DEU	4	6	Moses		Moses prophesying what the nations will say	Normal		
 DEU	4	10	Moses			Normal		
 DEU	5	6	God		God (the LORD)	Normal		
@@ -3265,7 +3268,7 @@ DEU	9	28	Moses			Normal
 DEU	9	29	Moses			Normal		
 DEU	10	1	Moses			Normal		
 DEU	10	2	Moses			Normal		
-DEU	10	11	Moses			Normal		
+DEU	10	11	God		God (the LORD)	Normal		
 DEU	12	20	Moses		Moses saying what Israel may say	Normal		
 DEU	12	30	Moses		Moses saying what Israel shouldn't say	Normal		
 DEU	13	2	Moses		Moses saying what Israel shouldn't say	Normal		
@@ -3275,11 +3278,13 @@ DEU	15	9	Moses		Moses saying what Israel shouldn't say	Normal
 DEU	15	16	Moses			Normal		
 DEU	17	14	Moses		Moses saying what Israel may say	Normal		
 DEU	17	16	Moses			Normal		
+DEU	17	16	God		God (the LORD)	Normal		
 DEU	18	16	Moses		Moses quoting Israel	Normal		
 DEU	18	17	Moses			Normal		
-DEU	18	18	Moses		Moses quoting Israel	Normal		
-DEU	18	19	Moses		Moses quoting Israel	Normal		
-DEU	18	20	Moses		Moses quoting Israel	Normal		
+DEU	18	17	God		God (the LORD)	Normal		
+DEU	18	18	God		God (the LORD)	Normal		
+DEU	18	19	God		God (the LORD)	Normal		
+DEU	18	20	God		God (the LORD)	Normal		
 DEU	18	21	Moses		Moses saying what Israel may say	Normal		
 DEU	20	3	Moses		Moses saying what priest will say	Normal		
 DEU	20	4	Moses		Moses saying what priest will say	Normal		
@@ -3364,22 +3369,22 @@ DEU	31	26	Moses			Normal
 DEU	31	27	Moses			Normal		
 DEU	31	28	Moses			Normal		
 DEU	31	29	Moses			Normal		
-DEU	32	20	Moses		Moses quoting God (the LORD)	Normal		
-DEU	32	21	Moses		Moses quoting God (the LORD)	Normal		
-DEU	32	22	Moses		Moses quoting God (the LORD)	Normal		
-DEU	32	23	Moses		Moses prophesying what God will say	Normal		
-DEU	32	24	Moses		Moses prophesying what God will say	Normal		
-DEU	32	25	Moses		Moses prophesying what God will say	Normal		
-DEU	32	26	Moses		Moses prophesying what God will say	Normal		
-DEU	32	27	Moses		Moses prophesying what God will say	Normal		
-DEU	32	34	Moses		Moses quoting God (the LORD)	Normal		
-DEU	32	35	Moses		Moses quoting God (the LORD)	Normal		
-DEU	32	37	Moses		Moses prophesying what God will say	Normal		
-DEU	32	38	Moses		Moses prophesying what God will say	Normal		
-DEU	32	39	Moses		Moses quoting God (the LORD)	Normal		
-DEU	32	40	Moses		Moses prophesying what God will say	Normal		
-DEU	32	41	Moses		Moses prophesying what God will say	Normal		
-DEU	32	42	Moses		Moses prophesying what God will say	Normal		
+DEU	32	20	God		God (the LORD)	Normal		
+DEU	32	21	God		God (the LORD)	Normal		
+DEU	32	22	God		God (the LORD)	Normal		
+DEU	32	23	God		God (the LORD)	Normal		
+DEU	32	24	God		God (the LORD)	Normal		
+DEU	32	25	God		God (the LORD)	Normal		
+DEU	32	26	God		God (the LORD)	Normal		
+DEU	32	27	God		God (the LORD)	Normal		
+DEU	32	34	God		God (the LORD)	Normal		
+DEU	32	35	God		God (the LORD)	Normal		
+DEU	32	37	God		God (the LORD)	Normal		
+DEU	32	38	God		God (the LORD)	Normal		
+DEU	32	39	God		God (the LORD)	Normal		
+DEU	32	40	God		God (the LORD)	Normal		
+DEU	32	41	God		God (the LORD)	Normal		
+DEU	32	42	God		God (the LORD)	Normal		
 DEU	32	46	Moses			Normal		
 DEU	32	47	Moses			Normal		
 DEU	32	49	God		God (the LORD)	Normal		
@@ -3490,7 +3495,7 @@ JOS	6	19	Joshua			Normal
 JOS	6	22	Joshua			Normal		
 JOS	6	26	Joshua			Normal		
 JOS	7	2	Joshua			Normal		
-JOS	7	3	spies to Ai			Normal		
+JOS	7	3	Israelite spies Joshua sent to Ai			Normal		
 JOS	7	7	Joshua			Normal		
 JOS	7	8	Joshua			Normal		
 JOS	7	9	Joshua			Normal		
@@ -3704,6 +3709,7 @@ JDG	6	15	Gideon (Jerubbaal)			Normal
 JDG	6	16	God		God (the LORD)	Normal		
 JDG	6	17	Gideon (Jerubbaal)			Normal		
 JDG	6	18	God		God (the LORD)	Normal		
+JDG	6	18	Gideon (Jerubbaal)			Normal		
 JDG	6	20	angel of the LORD, the		angel of God, the	Normal	Jesus	
 JDG	6	22	Gideon (Jerubbaal)			Normal		
 JDG	6	23	God		God (the LORD)	Normal		
@@ -3841,6 +3847,7 @@ JDG	14	3	Manoah, father of Samson/Manoah's wife, mother of Samson		father and mo
 JDG	14	3	Samson			Normal		
 JDG	14	12	Samson			Normal		
 JDG	14	13	Samson's 30 Philistine companions			Normal		
+JDG	14	13	Samson			Normal		
 JDG	14	14	Samson			Normal		
 JDG	14	15	Samson's 30 Philistine companions			Normal		
 JDG	14	16	Samson			Normal		
@@ -4007,6 +4014,7 @@ RUT	3	18	Naomi			Normal
 RUT	4	1	Boaz			Normal		
 RUT	4	2	Boaz			Normal		
 RUT	4	3	Boaz			Normal		
+RUT	4	4	Boaz			Normal		
 RUT	4	4	kinsman-redeemer			Normal		
 RUT	4	5	Boaz			Normal		
 RUT	4	6	kinsman-redeemer			Normal		
@@ -4416,6 +4424,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	23	9	David			Normal		
 1SA	23	10	David			Normal		
 1SA	23	11	God		God (the LORD)	Normal		
+1SA	23	11	David			Normal		
 1SA	23	12	David			Normal		
 1SA	23	12	God		God (the LORD)	Normal		
 1SA	23	17	Jonathan			Normal		
@@ -4469,7 +4478,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	25	34	David			Normal		
 1SA	25	35	David			Normal		
 1SA	25	39	David			Normal		
-1SA	25	40	David's servants			Normal		
+1SA	25	40	servants of David			Normal		
 1SA	25	41	Abigail			Normal		
 1SA	26	1	Ziphites			Normal		
 1SA	26	6	Abishai, Joab's brother			Normal		
@@ -4571,6 +4580,7 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	1	27	David			Normal		
 2SA	2	1	David			Normal		
 2SA	2	1	God		God (the LORD)	Normal		
+2SA	2	4	Judah, men of			Normal		
 2SA	2	5	David			Normal		
 2SA	2	6	David			Normal		
 2SA	2	7	David			Normal		
@@ -4593,6 +4603,7 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	3	17	Abner, commander of Saul's army			Normal		
 2SA	3	18	Abner, commander of Saul's army			Normal		
 2SA	3	21	Abner, commander of Saul's army			Normal		
+2SA	3	23	messengers to Joab			Normal		
 2SA	3	24	Joab			Normal		
 2SA	3	25	Joab			Normal		
 2SA	3	28	David		David, king	Normal		
@@ -4658,9 +4669,9 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	9	4	Ziba, servant of Saul's household			Normal		
 2SA	9	5	David		David, king	Indirect		
 2SA	9	6	David		David, king	Dialogue		
-2SA	9	6	Mephibosheth			Dialogue		
+2SA	9	6	Mephibosheth, son of Jonathan			Dialogue		
 2SA	9	7	David		David, king	Dialogue		
-2SA	9	8	Mephibosheth			Dialogue		
+2SA	9	8	Mephibosheth, son of Jonathan			Dialogue		
 2SA	9	9	David		David, king	Dialogue		
 2SA	9	10	David		David, king	Dialogue		
 2SA	9	11	Ziba, servant of Saul's household			Dialogue		
@@ -4699,7 +4710,7 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	12	13	David		David, king	Normal		
 2SA	12	13	Nathan		Nathan, the prophet	Normal		
 2SA	12	14	Nathan		Nathan, the prophet	Normal		
-2SA	12	18	David's servants			Normal		
+2SA	12	18	servants of David			Normal		
 2SA	12	19	David		David, king	Normal		
 2SA	12	19	servants of David			Normal		
 2SA	12	21	servants of David			Normal		
@@ -4874,16 +4885,16 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	19	22	David		David, king	Normal		
 2SA	19	23	David		David, king	Normal		
 2SA	19	25	David		David, king	Normal		
-2SA	19	26	Mephibosheth			Normal		
-2SA	19	27	Mephibosheth			Normal		
-2SA	19	28	Mephibosheth			Normal		
+2SA	19	26	Mephibosheth, son of Jonathan			Normal		
+2SA	19	27	Mephibosheth, son of Jonathan			Normal		
+2SA	19	28	Mephibosheth, son of Jonathan			Normal		
 2SA	19	29	David		David, king	Normal		
-2SA	19	30	Mephibosheth			Normal		
+2SA	19	30	Mephibosheth, son of Jonathan			Normal		
 2SA	19	33	David		David, king	Normal		
-2SA	19	34	Barzillai			Normal		
-2SA	19	35	Barzillai			Normal		
-2SA	19	36	Barzillai			Normal		
-2SA	19	37	Barzillai			Normal		
+2SA	19	34	Barzillai (old)			Normal		
+2SA	19	35	Barzillai (old)			Normal		
+2SA	19	36	Barzillai (old)			Normal		
+2SA	19	37	Barzillai (old)			Normal		
 2SA	19	38	David		David, king	Normal		
 2SA	19	41	Israel		Israel, all the men of	Normal		
 2SA	19	42	Judah, men of			Normal		
@@ -5325,6 +5336,7 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	20	37	prophet who confronts Ahab			Normal		
 1KI	20	39	prophet who confronts Ahab			Normal		
 1KI	20	40	Ahab, king of Israel			Normal		
+1KI	20	40	prophet who confronts Ahab			Normal		
 1KI	20	42	prophet who confronts Ahab			Normal		
 1KI	21	2	Ahab, king of Israel			Normal		
 1KI	21	3	Naboth			Normal		
@@ -6080,7 +6092,7 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	25	17	Amaziah, king of Judah			Normal		
 2CH	25	18	Jehoash, king of Israel			Normal		
 2CH	25	19	Jehoash, king of Israel			Normal		
-2CH	26	18	Azariah the priest/eighty other priests	courageous		Normal	Azariah the priest	
+2CH	26	18	Azariah the priest (during reign of Uzziah)/eighty other priests	courageous	Azariah the priest/eighty other priests	Normal	Azariah the priest (during reign of Uzziah)	
 2CH	26	23	people			Normal		
 2CH	28	9	Oded, prophet of the Lord			Normal		
 2CH	28	10	Oded, prophet of the Lord			Normal		
@@ -6103,7 +6115,7 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	30	9	Hezekiah, king of Judah	letter		Normal		
 2CH	30	18	Hezekiah, king of Judah			Normal		
 2CH	30	19	Hezekiah, king of Judah			Normal		
-2CH	31	10	Azariah the chief priest			Normal		
+2CH	31	10	Azariah the chief priest (during reign of Hezekiah)		Azariah the chief priest	Normal		
 2CH	32	4	men, large force of			Normal		
 2CH	32	7	Hezekiah, king of Judah			Normal		
 2CH	32	8	Hezekiah, king of Judah			Normal		
@@ -11158,14 +11170,14 @@ OBA	1	16	God		God (the LORD)	Normal
 OBA	1	17	God		God (the LORD)	Normal		
 OBA	1	18	God		God (the LORD)	Normal		
 JON	1	2	God		God (the LORD)(word of the LORD came)	Normal		
-JON	1	6	captain, ship to Tarshish		captain	Normal		
-JON	1	7	sailors, ship to Tarshish		sailors	Normal		
-JON	1	8	sailors, ship to Tarshish		sailors	Normal		
+JON	1	6	captain of ship to Tarshish		captain	Normal		
+JON	1	7	sailors on ship to Tarshish		sailors	Normal		
+JON	1	8	sailors on ship to Tarshish		sailors	Normal		
 JON	1	9	Jonah			Normal		
-JON	1	10	sailors, ship to Tarshish		sailors	Normal		
-JON	1	11	sailors, ship to Tarshish		sailors	Normal		
+JON	1	10	sailors on ship to Tarshish		sailors	Normal		
+JON	1	11	sailors on ship to Tarshish		sailors	Normal		
 JON	1	12	Jonah			Normal		
-JON	1	14	sailors, ship to Tarshish		sailors	Normal		
+JON	1	14	sailors on ship to Tarshish		sailors	Normal		
 JON	2	2	Jonah	praying		Normal		
 JON	2	3	Jonah	praying		Normal		
 JON	2	4	Jonah	praying		Normal		
@@ -11203,11 +11215,12 @@ MIC	2	13	God		God (the LORD)	Normal
 MIC	3	1	Micah			Normal		
 MIC	3	2	Micah			Normal		
 MIC	3	3	Micah			Normal		
+MIC	3	4	Micah			Normal		
 MIC	3	5	God		God (the LORD)	Normal		
 MIC	3	6	God		God (the LORD)	Normal		
 MIC	3	7	God		God (the LORD)	Normal		
 MIC	3	8	Micah			Potential		
-MIC	3	11	priests/Levites		priests/prophets	Normal		
+MIC	3	11	leaders/priests/prophets			Normal		
 MIC	4	2	nations, the		nations, many	Normal		
 MIC	4	6	God		God (the LORD)	Normal		
 MIC	4	7	God		God (the LORD)	Normal		
@@ -11327,9 +11340,9 @@ HAG	2	8	Haggai (word of the LORD)			Normal
 HAG	2	9	Haggai (word of the LORD)			Normal		
 HAG	2	11	Haggai (word of the LORD)			Normal		
 HAG	2	12	Haggai (word of the LORD)			Normal		
-HAG	2	12	priests/Levites		priests	Normal		
+HAG	2	12	priests			Normal		
 HAG	2	13	Haggai (word of the LORD)			Normal		
-HAG	2	13	priests/Levites		priests	Normal		
+HAG	2	13	priests			Normal		
 HAG	2	14	Haggai (word of the LORD)			Normal		
 HAG	2	15	Haggai (word of the LORD)			Normal		
 HAG	2	16	Haggai (word of the LORD)			Normal		
@@ -11447,12 +11460,15 @@ ZEC	13	8	Zechariah		Zechariah (word of the LORD)	Normal
 ZEC	13	9	Zechariah		Zechariah (word of the LORD)	Normal		
 ZEC	14	20	narrator-ZEC			Quotation		
 MAL	1	2	God		God (the LORD)	Normal		
+MAL	1	2	Israel			Normal		
 MAL	1	3	God		God (the LORD)	Normal		
 MAL	1	4	Edom			Hypothetical		
 MAL	1	4	God		God (the LORD Almighty)	Normal		
 MAL	1	5	God		God (the LORD Almighty)	Normal		
 MAL	1	6	God		God (the LORD Almighty)	Normal		
+MAL	1	6	priests			Normal		
 MAL	1	7	God		God (the LORD Almighty)	Normal		
+MAL	1	7	priests			Normal		
 MAL	1	8	God		God (the LORD Almighty)	Normal		
 MAL	1	9	God		God (the LORD Almighty)	Normal		
 MAL	1	10	God		God (the LORD Almighty)	Normal		
@@ -15131,7 +15147,7 @@ ACT	26	31	King Herod Agrippa II/Festus, governor of Judea/Bernice		King Agrippa/
 ACT	26	32	King Herod Agrippa II			Dialogue		
 ACT	27	1	narrator-ACT			Quotation		
 ACT	27	10	Paul	warning		Normal		
-ACT	27	12	captain, ship to Italy (Rome)/sailors, ship to Italy (Rome)		majority (ship's crew)	Indirect		
+ACT	27	12	captain of ship to Italy (Rome)/sailors on ship to Italy (Rome)		majority (ship's crew)	Indirect		
 ACT	27	14	narrator-ACT			Quotation		
 ACT	27	21	Paul			Normal		
 ACT	27	22	Paul			Normal		
@@ -15139,11 +15155,11 @@ ACT	27	23	Paul			Normal
 ACT	27	24	Paul			Normal		
 ACT	27	25	Paul			Normal		
 ACT	27	26	Paul			Normal		
-ACT	27	27	sailors, ship to Italy (Rome)		sailors	Indirect		
+ACT	27	27	sailors on ship to Italy (Rome)		sailors	Indirect		
 ACT	27	31	Paul	warning		Normal		
 ACT	27	33	Paul	encouraging		Normal		
 ACT	27	34	Paul	encouraging		Normal		
-ACT	27	39	captain, ship to Italy (Rome)/sailors, ship to Italy (Rome)		ship's crew	Indirect		
+ACT	27	39	captain of ship to Italy (Rome)/sailors on ship to Italy (Rome)		ship's crew	Indirect		
 ACT	27	42	soldiers			Indirect		
 ACT	27	43	centurion on ship with Paul			Indirect		
 ACT	28	4	Malta islanders	suspicious		Normal		
