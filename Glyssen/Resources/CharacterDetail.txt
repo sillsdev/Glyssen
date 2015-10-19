@@ -101,8 +101,8 @@ attendants to Xerxes, king	-1	Male
 attendents of Phineas' wife	-1	Female		
 authorities, governing	-1	Male		
 authorities, Philippi	-1	Male		
-Azariah the chief priest	1	Male		from the family of Zadok
-Azariah the priest	1	Male		(during reign of Uzziah)
+Azariah the chief priest (during reign of Hezekiah)	1	Male		from the family of Zadok
+Azariah the priest (during reign of Uzziah)	1	Male		
 Azariah, son of Hoshaiah	1	Male		
 Azariah, son of Jehohanan	1	Male		leader in Ephraim
 Azariah, son of Oded	1	Male		
@@ -114,7 +114,8 @@ Barak	1	Male
 Barnabas	1	Male		
 Bartimaeus (a blind man)	1	Male		
 Baruch	1	Male		
-Barzillai	1	Male		Gileadite
+Barzillai	1	Male	Adult	Gileadite
+Barzillai (old)	1	Male	Elder	Gileadite
 Bathsheba	1	Female		
 beast, the	1			
 believers who were Pharisees	-1	Male		
@@ -155,8 +156,8 @@ Canaanites	-1
 captain of the temple guard	1	Male		
 captain, first	1	Male		
 captain, second	1	Male		
-captain, ship to Italy (Rome)	1	Male		
-captain, ship to Tarshish	1	Male		
+captain of ship to Italy (Rome)	1	Male		
+captain of ship to Tarshish	1	Male		
 captain, third	1	Male		
 captors, our	-1			
 centurion at crucifixion	1	Male		
@@ -227,7 +228,6 @@ David	1	Male
 David (old)	1	Male	Elder	
 David's enemies	-1	Male		
 David's men	-1	Male		
-David's servants	-1			
 David's supporters	-1			
 Deborah	1	Female		prophetess
 Delaiah	1	Male		son of Shemaiah
@@ -285,7 +285,7 @@ Elnathan	1	Male		son of Achbor
 enemies of God	-1			
 enemies of Israel	-1			
 enemies of Judah and Benjamin	-1	Male		
-enemy	1			
+enemy	1	Female		
 Enoch	1	Male		
 Ephraimites	-1			
 Ephron the Hittite	1	Male		
@@ -639,7 +639,7 @@ men, many	-1	Male
 men, other	-1	Male		
 men, some	-1	Male		
 men, still others	-1	Male		
-Mephibosheth	1	Male		
+Mephibosheth, son of Jonathan	1	Male		
 merchants of the earth	-1			
 Meshach	1	Male		original Hebrew name: Mishael
 message from Tamar, daughter-in-law of Judah	1	Pref: Female		
@@ -665,6 +665,7 @@ messengers of Jabesh	-1	Male
 messengers of Saul	-1	Male		
 messengers sent by Jacob	-1	Male		
 messengers to Jezebel	-1	Male		
+messengers to Joab	-1	Pref: Male		
 messengers to Saul	-1	Pref: Male		
 Micah	1	Male		
 Micah's mother	1	Female		
@@ -881,8 +882,8 @@ rulers of people in Jerusalem	-1
 rules of the world	1			
 Ruth	1	Female		
 Sadducees	-1	Male		
-sailors, ship to Italy (Rome)	-1	Male		
-sailors, ship to Tarshish	-1	Male		
+sailors on ship to Italy (Rome)	-1	Male		
+sailors on ship to Tarshish	-1	Male		
 Salome	1	Female		
 Samson	1	Male		
 Samson's 30 Philistine companions	30	Male		
@@ -1001,7 +1002,7 @@ sons of Korah	-1	Male
 sons of prophet in Bethel	-1	Male		
 souls of those killed for word of God	-1			
 spies (from Pharisees and Herodians)	-1	Male		
-spies to Ai	-1	Male		
+Israelite spies Joshua sent to Ai	-1	Male	Adult	
 Stephen	1	Male		
 steward of Joseph's house	1	Male		
 synagogue ruler	1	Male		

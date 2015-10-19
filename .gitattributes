@@ -17,3 +17,6 @@
 *.xml -whitespace
 changelog -whitespace
 *.lift* -whitespace
+
+CharacterVerse.txt -whitespace
+CharacterDetail.txt -whitespace
