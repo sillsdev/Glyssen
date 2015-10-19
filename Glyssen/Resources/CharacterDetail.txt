@@ -287,6 +287,7 @@ enemies of Israel	-1
 enemies of Judah and Benjamin	-1	Male		
 enemy	1	Female		
 Enoch	1	Male		
+Ephraim	-1	Pref: Male		
 Ephraimites	-1			
 Ephron the Hittite	1	Male		
 Epicurean and Stoic philosophers	-1			
@@ -713,7 +714,7 @@ news giver to Jacob	1
 news giver to Joseph	1			
 news to Pharoah's palace	1			
 Nicodemus	1	Male		
-Ninevah	-1			
+Ninevah	-1	Female	The text personifies the city using female pronouns	
 no one	1			
 no one says	1			
 Noah	1	Male		
@@ -750,7 +751,7 @@ one who looked like a man	1	Male
 one with garments stained crimson (Christ?)	1	Male		Default character should be Jesus
 onlookers	-1			
 oppressors of poor	-1			
-oppressors of poor (women)	-1	Female		
+women who oppress the poor	-1	Female		
 Orpah	1	Female		
 other guests at Pharisee (Simon)'s house	-1	Male		
 others	-1			
