@@ -1,4 +1,4 @@
-Control File Version	80
+Control File Version	81
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -10970,8 +10970,8 @@ HOS	9	12	God		word of the LORD spoken through Hosea	Normal
 HOS	9	13	God		word of the LORD spoken through Hosea	Normal		
 HOS	9	15	God		word of the LORD spoken through Hosea	Normal		
 HOS	9	16	God		word of the LORD spoken through Hosea	Normal		
-HOS	10	3	Hosea		Hosea saying what Israel will say	Normal		
-HOS	10	8	Hosea		Hosea saying what wicked will say	Normal		
+HOS	10	3	Israel			Hypothetical		
+HOS	10	8	Israel			Hypothetical		
 HOS	10	9	God		word of the LORD spoken through Hosea	Normal		
 HOS	10	10	God		word of the LORD spoken through Hosea	Normal		
 HOS	10	11	God		word of the LORD spoken through Hosea	Normal		
@@ -10990,9 +10990,10 @@ HOS	11	8	God		word of the LORD spoken through Hosea	Normal
 HOS	11	9	God		word of the LORD spoken through Hosea	Normal		
 HOS	11	10	God		word of the LORD spoken through Hosea	Normal		
 HOS	11	11	God		word of the LORD spoken through Hosea	Normal		
-HOS	12	8	Hosea		Hosea saying what wicked will say	Normal		
+HOS	12	8	Ephraim			Normal		
 HOS	12	9	God		word of the LORD spoken through Hosea	Normal		
 HOS	12	10	God		word of the LORD spoken through Hosea	Normal		
+#It is confusing if those speaking are the idolaters or if they are speaking of the idolaters
 HOS	13	2	idolaters			Normal		
 HOS	13	4	God		word of the LORD spoken through Hosea	Normal		
 HOS	13	5	God		word of the LORD spoken through Hosea	Normal		
@@ -11007,8 +11008,8 @@ HOS	13	13	God		word of the LORD spoken through Hosea	Normal
 HOS	13	14	God		word of the LORD spoken through Hosea	Normal		
 HOS	13	15	God		word of the LORD spoken through Hosea	Normal		
 HOS	13	16	God		word of the LORD spoken through Hosea	Normal		
-HOS	14	2	Hosea		Hosea saying what Israel should say	Normal		
-HOS	14	3	Hosea		Hosea saying what Israel should say	Normal		
+HOS	14	2	Israel			Hypothetical		
+HOS	14	3	Israel			Hypothetical		
 HOS	14	4	God		word of the LORD spoken through Hosea	Normal		
 HOS	14	5	God		word of the LORD spoken through Hosea	Normal		
 HOS	14	6	God		word of the LORD spoken through Hosea	Normal		
@@ -11081,7 +11082,7 @@ AMO	3	12	God		God (the LORD)	Normal
 AMO	3	13	God		God (the LORD, the LORD God Almighty)	Normal		
 AMO	3	14	God		God (the LORD)	Normal		
 AMO	3	15	God		God (the LORD)	Normal		
-AMO	4	1	oppressors of poor (women)			Hypothetical		
+AMO	4	1	women who oppress the poor			Hypothetical		
 AMO	4	2	God		God (The Sovereign LORD)	Normal		
 AMO	4	3	God		God (The Sovereign LORD)	Normal		
 AMO	4	4	God		God (The Sovereign LORD)	Normal		

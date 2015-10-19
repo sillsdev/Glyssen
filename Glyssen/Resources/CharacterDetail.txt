@@ -285,6 +285,7 @@ enemies of Israel	-1					PSA 83:4 & PSA 83:12
 enemies of Judah and Benjamin	-1	Male				EZR 4:2
 enemy	1	Female				MIC 7:10
 Enoch	1	Male				JUD 1:14 & JUD 1:15
+Ephraim	-1	PreferMale				
 Ephraimites	-1					JDG 8:1 <-(4 more)-> ISA 9:10
 Ephron the Hittite	1	Male				GEN 23:11 & GEN 23:15
 Epicurean and Stoic philosophers	-1					ACT 17:19 & ACT 17:20
@@ -712,7 +713,7 @@ news giver to Jacob	1					GEN 48:2
 news giver to Joseph	1					GEN 48:1
 news to Pharoah's palace	1					GEN 45:16
 Nicodemus	1	Male				JHN 3:2 <-(2 more)-> JHN 7:51
-Nineveh	-1					NAM 2:8 & ZEP 2:15
+Nineveh	-1	Female			The text personifies the city using female pronouns	NAM 2:8 & ZEP 2:15
 no one	1					ACT 4:32 & JAS 1:13
 no one says	1					1CO 12:3
 Noah	1	Male				GEN 9:25 <-(1 more)-> GEN 9:27
@@ -749,7 +750,7 @@ one who looked like a man	1	Male				DAN 10:11 <-(54 more)-> DAN 12:4
 one with garments stained crimson (Christ?)	1	Male			Default character should be Jesus	ISA 63:1 <-(3 more)-> ISA 63:6
 onlookers	-1					ISA 14:16 & ISA 14:17
 oppressors of poor	-1					AMO 8:5
-oppressors of poor (women)	-1	Female				AMO 4:1
+women who oppress the poor	-1	Female				AMO 4:1
 Orpah	1	Female				
 other guests at Pharisee (Simon)'s house	-1	Male				LUK 7:49
 others	-1					ISA 43:9
