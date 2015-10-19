@@ -20,3 +20,4 @@ changelog -whitespace
 
 CharacterVerse.txt -whitespace
 CharacterDetail.txt -whitespace
+*.txt -whitespace
