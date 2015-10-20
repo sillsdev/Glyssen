@@ -369,7 +369,7 @@ guards at high priests' house	-1	Male
 Habakkuk	1	Male		
 Hadad the Edomite	1	Male		
 Hagar, the Egyptian	1	Female		
-Haggai (word of the LORD)	1	Male		
+Haggai	1	Male		
 half-tribe of Manasseh	-1	Male		
 Haman, highest noble to Xerxes, king	1	Male		
 Hamor, Hivite ruler	1	Male		
