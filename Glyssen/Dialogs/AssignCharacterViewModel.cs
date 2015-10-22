@@ -89,7 +89,12 @@ namespace Glyssen.Dialogs
 				m_project.SaveBook(CurrentBook);
 			OnSaveCurrentBook();
 
-			Analytics.Track("SetSingleVoice", new Dictionary<string, string> { { "book", CurrentBookId }, { "singleVoice", singleVoice.ToString() } });
+			Analytics.Track("SetSingleVoice", new Dictionary<string, string>
+			{
+				{ "book", CurrentBookId },
+				{ "singleVoice", singleVoice.ToString() },
+				{ "method", "AssignCharacterViewModel.SetCurrentBookSingleVoice" }
+			});
 		}
 
 		public void AddCharacterDetailToProject(string characterId, CharacterGender gender, CharacterAge age)
@@ -350,10 +355,14 @@ namespace Glyssen.Dialogs
 
 		private void AssignNarratorForRemainingBlocksInCurrentBook()
 		{
-			var bookId = CurrentBookId;
-			foreach (var block in CurrentBook.GetScriptBlocks().Where(b => b.CharacterIsUnclear()))
+			AssignNarratorForRemainingBlocksInBook(CurrentBook);
+		}
+
+		public void AssignNarratorForRemainingBlocksInBook(BookScript book)
+		{
+			foreach (var block in book.GetScriptBlocks().Where(b => b.CharacterIsUnclear()))
 			{
-				block.SetStandardCharacter(bookId, CharacterVerseData.StandardCharacter.Narrator);
+				block.SetStandardCharacter(book.BookId, CharacterVerseData.StandardCharacter.Narrator);
 				block.UserConfirmed = true;
 
 				if (block.MultiBlockQuote != MultiBlockQuote.Continuation)
