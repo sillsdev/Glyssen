@@ -151,11 +151,11 @@ Cain	1	Male	Adult			GEN 4:8 <-(2 more)-> GEN 4:14
 Caleb	1	Male	Adult			NUM 13:30 <-(10 more)-> JDG 1:14
 Canaanite (Syrophoenician) mother of possessed girl	1	Female	Adult			MAT 15:22 <-(3 more)-> MRK 7:28
 Canaanites	-1		Adult			GEN 50:11
+captain of ship to Italy (Rome)	1	Male	Adult			
+captain of ship to Tarshish	1	Male	Adult			JON 1:6
 captain of the temple guard	1	Male	Adult			
 captain, first	1	Male	Adult			2KI 1:9
 captain, second	1	Male	Adult			2KI 1:11
-captain of ship to Italy (Rome)	1	Male	Adult			
-captain of ship to Tarshish	1	Male	Adult			JON 1:6
 captain, third	1	Male	Adult			2KI 1:13 & 2KI 1:14
 captors, our	-1		Adult			PSA 137:3
 centurion at crucifixion	1	Male	Adult			MAT 27:54 <-(1 more)-> LUK 23:47
@@ -437,6 +437,7 @@ Israelite officers	-1	Male				JOS 3:3 & JOS 3:4
 Israelite soldier in Saul's army	1	Male				1SA 14:28
 Israelite spies from house of Joseph	-1	Male				JDG 1:24
 Israelite spies from Joshua, two men	2	Male				JOS 2:14 <-(4 more)-> JOS 2:24
+Israelite spies Joshua sent to Ai	-1	Male	Adult			JOS 7:3
 Israelites	-1					EXO 14:11 <-(57 more)-> 1SA 11:12
 Israelites (excluding Benjamites)	-1					JDG 20:23 & JDG 20:28
 Israelites (soldiers)	-1	Male				1SA 14:36 <-(2 more)-> 1SA 17:25
@@ -697,7 +698,6 @@ Nahash the Ammonite	1	Male				1SA 11:2
 Naomi	1	Female				RUT 1:8 <-(16 more)-> RUT 3:18
 Nathan	1	Male				2SA 7:3 <-(20 more)-> 1CH 17:2
 Nathanael	1	Male				JHN 1:46 <-(1 more)-> JHN 1:49
-Nathaniel	1	Male				
 nations	-1					JER 16:19 & JER 16:20
 nations, people of the	-1					LAM 4:15
 nations, the	-1					PSA 79:10 <-(2 more)-> MIC 4:11
@@ -750,7 +750,6 @@ one who looked like a man	1	Male				DAN 10:11 <-(54 more)-> DAN 12:4
 one with garments stained crimson (Christ?)	1	Male			Default character should be Jesus	ISA 63:1 <-(3 more)-> ISA 63:6
 onlookers	-1					ISA 14:16 & ISA 14:17
 oppressors of poor	-1					AMO 8:5
-women who oppress the poor	-1	Female				AMO 4:1
 Orpah	1	Female				
 other guests at Pharisee (Simon)'s house	-1	Male				LUK 7:49
 others	-1					ISA 43:9
@@ -1002,7 +1001,6 @@ sons of Korah	-1	Male
 sons of prophet in Bethel	-1	Male				1KI 13:30
 souls of those killed for word of God	-1					REV 6:10
 spies (from Pharisees and Herodians)	-1	Male				MAT 22:16 <-(7 more)-> LUK 20:24
-Israelite spies Joshua sent to Ai	-1	Male	Adult			JOS 7:3
 Stephen	1	Male				ACT 7:2 <-(53 more)-> ACT 7:60
 steward of Joseph's house	1	Male				GEN 43:23 <-(2 more)-> GEN 44:10
 synagogue ruler	1	Male				LUK 13:14
@@ -1079,6 +1077,7 @@ woman, caught in adultery	1	Female				JHN 8:11
 woman, Samaritan	1	Female				JHN 4:9 <-(8 more)-> JHN 4:39
 woman, wise	1	Female				2SA 20:16 <-(4 more)-> 2SA 20:22
 women of Bethlehem	-1	Female				RUT 1:19 <-(2 more)-> RUT 4:17
+women who oppress the poor	-1	Female				AMO 4:1
 women, dancing	-1	Female				1SA 18:7
 women, seven	7	Female				ISA 4:1
 worshipers of the beast	-1					REV 13:4

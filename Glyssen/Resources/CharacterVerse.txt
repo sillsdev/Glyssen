@@ -14488,9 +14488,9 @@ JHN	20	27	Jesus			Dialogue
 JHN	20	28	Thomas	shocked		Dialogue		
 JHN	20	29	Jesus			Dialogue		
 JHN	21	3	Peter (Simon)			Dialogue		
-JHN	21	3	Thomas/Nathaniel/James/John/2 other disciples			Dialogue	Thomas	
+JHN	21	3	Thomas/Nathanael/James/John/2 other disciples			Dialogue	Thomas	
 JHN	21	5	Jesus	questioning		Dialogue		
-JHN	21	5	Peter (Simon)/Thomas/Nathaniel/James/John/2 other disciples	calling out		Dialogue	Peter (Simon)	
+JHN	21	5	Peter (Simon)/Thomas/Nathanael/James/John/2 other disciples	calling out		Dialogue	Peter (Simon)	
 JHN	21	6	Jesus			Dialogue		
 JHN	21	7	John	amazed	disciple whom Jesus loved	Dialogue		
 # Since John's actual words are re-quoted in this same verse, the delivery here contains a note of explanation to help the person doing disambiguation.								
