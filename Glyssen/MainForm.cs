@@ -363,6 +363,8 @@ namespace Glyssen
 
 		private void EnsureGroupsAreInSynchWithCharactersInUse()
 		{
+			if (!m_project.CharacterGroupList.CharacterGroups.Any())
+				return;
 			var adjuster = new CharacterGroupsAdjuster(m_project);
 			if (adjuster.GroupsAreNotInSynchWithData)
 			{
