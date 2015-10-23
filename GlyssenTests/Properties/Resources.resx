@@ -121,11 +121,17 @@
   <data name="TestACT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TestACT.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="TestCharacterDetailOct2015" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TestCharacterDetailOct2015.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="TestCharacterGroups" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TestCharacterGroups.xlsx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="TestCharacterVerse" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TestCharacterVerse.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="TestCharacterVerseOct2015" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TestCharacterVerseOct2015.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="TestJUD" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TestJUD.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
