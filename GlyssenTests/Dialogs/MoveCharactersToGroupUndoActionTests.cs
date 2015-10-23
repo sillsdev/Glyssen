@@ -12,11 +12,13 @@ namespace GlyssenTests.Dialogs
 	internal class MoveCharactersToGroupUndoActionTests
 	{
 		private Project m_testProject;
+		private IComparer<string> m_priorityComparer;
 
 		[TestFixtureSetUp]
 		public void FixtureSetup()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			m_priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
 		}
 
 		[SetUp]
@@ -27,7 +29,7 @@ namespace GlyssenTests.Dialogs
 
 		private CharacterGroup AddCharacterGroup(params string[] characterIds)
 		{
-			var group = new CharacterGroup();
+			var group = new CharacterGroup(m_testProject, m_priorityComparer);
 			foreach (var character in characterIds)
 				group.CharacterIds.Add(character);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(group);
@@ -100,7 +102,7 @@ namespace GlyssenTests.Dialogs
 			var destGroup = AddCharacterGroup("centurion", "man, another", "captain", "Pharisees");
 
 			var action = new MoveCharactersToGroupUndoAction(m_testProject, sourceGroup, destGroup, new List<string> { "Micah" });
-			Assert.AreEqual("Move characters to captain group", action.Description, "List is \"prioritized\" alphabetically in this test because we have no estimated hours stats.");
+			Assert.AreEqual("Move characters to Pharisees group", action.Description);
 		}
 
 		[Test]

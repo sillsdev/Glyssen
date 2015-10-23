@@ -12,11 +12,13 @@ namespace GlyssenTests.Dialogs
 	class VoiceActorUndoActionTests
 	{
 		private Project m_testProject;
+		private CharacterByKeyStrokeComparer m_priorityComparer;
 
 		[TestFixtureSetUp]
 		public void FixtureSetup()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			m_priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
 		}
 
 		[SetUp]
@@ -26,9 +28,9 @@ namespace GlyssenTests.Dialogs
 			m_testProject.VoiceActorList.Actors.Clear();
 		}
 
-		private CharacterGroup AddCharacterGroup(int groupNumber, params string[] characterIds)
+		private CharacterGroup AddCharacterGroup(params string[] characterIds)
 		{
-			var group = new CharacterGroup(m_testProject, groupNumber);
+			var group = new CharacterGroup(m_testProject, m_priorityComparer);
 			foreach (var character in characterIds)
 				group.CharacterIds.Add(character);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(group);
@@ -269,7 +271,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void VoiceActorAddedUndoAction_Undo_ActorSubsequentlyAssignedToGroup_ReturnsFalse()
 		{
-			var group = new CharacterGroup(m_testProject, 22);
+			var group = new CharacterGroup(m_testProject, m_priorityComparer);
 			group.CharacterIds = new CharacterIdHashSet(new[] { "Moses" });
 			m_testProject.CharacterGroupList.CharacterGroups.Add(group);
 
@@ -387,7 +389,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void VoiceActorDeletedUndoAction_Undo_ActorAssignedToGroup_ActorAndAssignmentRestored()
 		{
-			var assignedGroup = AddCharacterGroup(2, "Barnabas", "Caleb", "Hosea");
+			var assignedGroup = AddCharacterGroup("Barnabas", "Caleb", "Hosea");
 			var removedActor = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
 
 			var action = new VoiceActorDeletedUndoAction(m_testProject, removedActor, assignedGroup);
@@ -403,12 +405,12 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void VoiceActorDeletedUndoAction_Undo_ActorAssignedToGroupWhichIsSubsequentlyRegeneratedWithSameCharacters_ActorAndAssignmentRestored()
 		{
-			var assignedGroup = AddCharacterGroup(2, "Barnabas", "Caleb", "Hosea");
+			var assignedGroup = AddCharacterGroup("Barnabas", "Caleb", "Hosea");
 			var removedActor = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
 
 			var action = new VoiceActorDeletedUndoAction(m_testProject, removedActor, assignedGroup);
 			m_testProject.CharacterGroupList.CharacterGroups.Remove(assignedGroup);
-			var newGroup = AddCharacterGroup(3, "Barnabas", "Caleb", "Hosea");
+			var newGroup = AddCharacterGroup("Barnabas", "Caleb", "Hosea");
 
 			Assert.IsTrue(action.Undo());
 			var restoredActor = m_testProject.VoiceActorList.GetVoiceActorById(4);
@@ -422,15 +424,15 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void VoiceActorDeletedUndoAction_Undo_ActorAssignedToGroupWhichIsSubsequentlyDeleted_ReturnsFalse()
 		{
-			var assignedGroup = AddCharacterGroup(1, "Barnabas", "Caleb", "Hosea");
+			var assignedGroup = AddCharacterGroup("Barnabas", "Caleb", "Hosea");
 			var removedActor = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
 
 			var action = new VoiceActorDeletedUndoAction(m_testProject, removedActor, assignedGroup);
 			m_testProject.CharacterGroupList.CharacterGroups.Remove(assignedGroup);
 			Assert.AreEqual(0, m_testProject.CharacterGroupList.CharacterGroups.Count);
-			AddCharacterGroup(1, "Caleb", "Hosea");
-			AddCharacterGroup(2, "Barnabas", "Joshua");
-			AddCharacterGroup(3, "Martha");
+			AddCharacterGroup("Caleb", "Hosea");
+			AddCharacterGroup("Barnabas", "Joshua");
+			AddCharacterGroup("Martha");
 			Assert.AreEqual(3, m_testProject.CharacterGroupList.CharacterGroups.Count);
 
 			Assert.IsFalse(action.Undo());
@@ -488,7 +490,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void VoiceActorDeletedUndoAction_Redo_ActorAssignedToGroup_ActorReDeletedAndAssignmentRemoved()
 		{
-			var assignedGroup = AddCharacterGroup(2, "Barnabas", "Caleb", "Hosea");
+			var assignedGroup = AddCharacterGroup("Barnabas", "Caleb", "Hosea");
 			var removedActor = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
 
 			var action = new VoiceActorDeletedUndoAction(m_testProject, removedActor, assignedGroup);
@@ -503,7 +505,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void VoiceActorDeletedUndoAction_Redo_ActorAssignedToGroupWhichIsSubsequentlyUnassigned_ActorReDeleted()
 		{
-			var assignedGroup = AddCharacterGroup(2, "Barnabas", "Caleb", "Hosea");
+			var assignedGroup = AddCharacterGroup("Barnabas", "Caleb", "Hosea");
 			var removedActor = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
 
 			var action = new VoiceActorDeletedUndoAction(m_testProject, removedActor, assignedGroup);
@@ -522,8 +524,8 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void VoiceActorDeletedUndoAction_Redo_ActorAssignedToGroupButAssignedToDifferentGroupFollowingUndo_ReturnsFalse()
 		{
-			var assignedGroup = AddCharacterGroup(2, "Barnabas", "Caleb", "Hosea");
-			var differentGroup = AddCharacterGroup(4, "Thomas", "Jonah");
+			var assignedGroup = AddCharacterGroup("Barnabas", "Caleb", "Hosea");
+			var differentGroup = AddCharacterGroup("Thomas", "Jonah");
 			var removedActor = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
 
 			var action = new VoiceActorDeletedUndoAction(m_testProject, removedActor, assignedGroup);
@@ -545,8 +547,8 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void VoiceActorDeletedUndoAction_Redo_ActorAssignedToGroupWhichIsSubsequentlyDeleted_ActorReDeleted()
 		{
-			var assignedGroup = AddCharacterGroup(1, "Barnabas", "Caleb", "Hosea");
-			AddCharacterGroup(5, "Adam", "Lot");
+			var assignedGroup = AddCharacterGroup("Barnabas", "Caleb", "Hosea");
+			AddCharacterGroup("Adam", "Lot");
 			var removedActor = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
 
 			var action = new VoiceActorDeletedUndoAction(m_testProject, removedActor, assignedGroup);

@@ -14,11 +14,13 @@ namespace GlyssenTests.Dialogs
 	class VoiceActorEditingUndoActionTests
 	{
 		private Project m_testProject;
+		private CharacterByKeyStrokeComparer m_priorityComparer;
 
 		[TestFixtureSetUp]
 		public void FixtureSetup()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			m_priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
 		}
 
 		[SetUp]
@@ -26,6 +28,15 @@ namespace GlyssenTests.Dialogs
 		{
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 			m_testProject.VoiceActorList.Actors.Clear();
+		}
+
+		private CharacterGroup AddCharacterGroup(params string[] characterIds)
+		{
+			var group = new CharacterGroup(m_testProject, m_priorityComparer);
+			foreach (var character in characterIds)
+				group.CharacterIds.Add(character);
+			m_testProject.CharacterGroupList.CharacterGroups.Add(group);
+			return group;
 		}
 
 		[Test]
@@ -40,11 +51,8 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void Contructor_SingleEditingActionForAssignedActor_AffectedGroupsConsistsOfGroupAssignedToAffectedActor()
 		{
-			var assignedGroup = new CharacterGroup();
-			assignedGroup.CharacterIds = new CharacterIdHashSet(new[] { "Moses", "John" });
-			m_testProject.CharacterGroupList.CharacterGroups.Add(assignedGroup);
-			var anotherGroup = new CharacterGroup();
-			anotherGroup.CharacterIds = new CharacterIdHashSet(new[] { "Mary", "Ruth" });
+			var assignedGroup = AddCharacterGroup("Moses", "John");
+			var anotherGroup = AddCharacterGroup("Mary", "Ruth");
 			m_testProject.CharacterGroupList.CharacterGroups.Add(anotherGroup);
 			var affectedActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult };
 			var replacedActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.YoungAdult };
@@ -57,17 +65,13 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void Contructor_MultipleEditingActions_AffectedGroupsConsistsOfGroupsAssignedToAffectedActors()
 		{
-			var maleGroup = new CharacterGroup();
-			maleGroup.CharacterIds = new CharacterIdHashSet(new[] { "Moses", "John" });
+			var maleGroup = AddCharacterGroup("Moses", "John");
 			m_testProject.CharacterGroupList.CharacterGroups.Add(maleGroup);
-			var femaleGroup = new CharacterGroup();
-			femaleGroup.CharacterIds = new CharacterIdHashSet(new[] { "Mary", "Ruth" });
+			var femaleGroup = AddCharacterGroup("Mary", "Ruth");
 			m_testProject.CharacterGroupList.CharacterGroups.Add(femaleGroup);
-			var childGroup = new CharacterGroup();
-			childGroup.CharacterIds = new CharacterIdHashSet(new[] { "children" });
+			var childGroup = AddCharacterGroup("children");
 			m_testProject.CharacterGroupList.CharacterGroups.Add(childGroup);
-			var anotherGroup = new CharacterGroup();
-			anotherGroup.CharacterIds = new CharacterIdHashSet(new[] { "Pharisees", "ear" });
+			var anotherGroup = AddCharacterGroup("Pharisees", "ear");
 			m_testProject.CharacterGroupList.CharacterGroups.Add(anotherGroup);
 
 			var affectedActorA = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "A", Age = ActorAge.YoungAdult };

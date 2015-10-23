@@ -11,6 +11,7 @@ namespace GlyssenTests.Dialogs
 	internal class VoiceActorAssignmentUndoActionTests
 	{
 		private Project m_testProject;
+		private IComparer<string> m_priorityComparer;
 
 		[SetUp]
 		public void Setup()
@@ -23,7 +24,8 @@ namespace GlyssenTests.Dialogs
 		public void FixtureSetup()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			var actor1 = new Glyssen.VoiceActor.VoiceActor {Id = 1, Name = "Oneyda Figueroa"};
+			m_priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
+			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Oneyda Figueroa" };
 			var actor2 = new Glyssen.VoiceActor.VoiceActor {Id = 2, Name = "Paul Twomey"};
 			var actor3 = new Glyssen.VoiceActor.VoiceActor {Id = 3, Name = "Threesa Hawkins"};
 			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> {actor1, actor2, actor3};
@@ -33,7 +35,7 @@ namespace GlyssenTests.Dialogs
 
 		private CharacterGroup AddCharacterGroup(params string[] characterIds)
 		{
-			var group = new CharacterGroup();
+			var group = new CharacterGroup(m_testProject, m_priorityComparer);
 			foreach (var character in characterIds)
 				group.CharacterIds.Add(character);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(group);

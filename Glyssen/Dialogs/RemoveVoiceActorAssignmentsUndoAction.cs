@@ -21,7 +21,7 @@ namespace Glyssen.Dialogs
 		public RemoveVoiceActorAssignmentsUndoAction(Project project, IEnumerable<CharacterGroup> groups) : base(groups)
 		{
 			m_project = project;
-			foreach (var characterGroup in groups.Where(g => g.IsVoiceActorAssigned && !m_project.IsCharacterGroupAssignedToCameoActor(g)))
+			foreach (var characterGroup in groups.Where(g => g.IsVoiceActorAssigned && !g.AssignedToCameoActor))
 			{
 				m_characterRestorationInfo.Add(characterGroup.Name, characterGroup.VoiceActorId);
 				characterGroup.RemoveVoiceActor();

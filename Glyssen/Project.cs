@@ -400,11 +400,6 @@ namespace Glyssen
 			get { return m_voiceActorList ?? (m_voiceActorList = LoadVoiceActorInformationData()); }
 		}
 
-		public bool IsCharacterGroupAssignedToCameoActor(CharacterGroup group)
-		{
-			return group.IsVoiceActorAssigned && VoiceActorList.GetVoiceActorById(group.VoiceActorId).IsCameo;
-		}
-
 		public CharacterGroupList CharacterGroupList
 		{
 			get { return m_characterGroupList ?? (m_characterGroupList = LoadCharacterGroupData()); }
@@ -1071,7 +1066,7 @@ namespace Glyssen
 					fontCol.AddFontFile(ttfFile);
 					if (fontCol.Families[0].Name == m_metadata.FontFamily)
 						ttfFilesToInstall.Add(ttfFile);
-	}
+				}
 			}
 			int count = ttfFilesToInstall.Count;
 			if (count > 0)

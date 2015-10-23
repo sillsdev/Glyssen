@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -16,7 +15,6 @@ using L10NSharp;
 using SIL.Extensions;
 using SIL.IO;
 using SIL.Scripture;
-using SIL.Windows.Forms.Progress;
 
 namespace Glyssen.Dialogs
 {
@@ -42,15 +40,12 @@ namespace Glyssen.Dialogs
 		public event SavedEventHandler Saved;
 		private readonly UndoStack<ICharacterGroupsUndoAction> m_undoStack = new UndoStack<ICharacterGroupsUndoAction>();
 
-		public VoiceActorAssignmentViewModel(Project project)
+		public VoiceActorAssignmentViewModel(Project project, Dictionary<string, int> keyStrokesByCharacterId = null)
 		{
 			m_project = project;
 			CanAssign = true;
 
-			m_keyStrokesByCharacterId = m_project.GetKeyStrokesByCharacterId();
-
-			if (!CharacterGroups.Any())
-				GenerateGroupsWithProgress();
+			m_keyStrokesByCharacterId = keyStrokesByCharacterId ?? m_project.GetKeyStrokesByCharacterId();
 
 			CharacterGroupAttribute<CharacterGender>.GetUiStringForValue = GetUiStringForCharacterGender;
 			CharacterGroupAttribute<CharacterAge>.GetUiStringForValue = GetUiStringForCharacterAge;
@@ -112,7 +107,7 @@ namespace Glyssen.Dialogs
 		// REVIEW: What is this intended for? It's only ever set false in tests
 		public bool CanAssign { get; set; }
 
-		public List<CharacterGroup> CharacterGroups { get { return m_project.CharacterGroupList.CharacterGroups; } }
+		public IList<CharacterGroup> CharacterGroups { get { return m_project.CharacterGroupList.CharacterGroups; } }
 
 		public List<String> UndoActions { get { return m_undoStack.UndoDescriptions; } }
 		public List<String> RedoActions { get { return m_undoStack.RedoDescriptions; } }
@@ -127,60 +122,14 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		public void RegenerateGroups(bool attemptToMaintainAssignments)
+		public void RegenerateGroups(Action generate)
 		{
-			// Create a copy. Cameos are handled in the generation code (because we always maintain those assignments).
-			var previousGroups = CharacterGroups.Where(g => !m_project.IsCharacterGroupAssignedToCameoActor(g)).ToList();
-
-			GenerateGroupsWithProgress();
-
-			if (attemptToMaintainAssignments && previousGroups.Count > 0)
-			{
-				// We assume the parts with the most keystrokes are most important to maintain
-				var sortedDict = from entry in m_keyStrokesByCharacterId orderby entry.Value descending select entry;
-				foreach (var entry in sortedDict)
-				{
-					string characterId = entry.Key;
-					var previousGroupWithCharacter = previousGroups.FirstOrDefault(g => g.CharacterIds.Contains(characterId));
-					if (previousGroupWithCharacter != null)
-					{
-						var newlyGeneratedGroupWithCharacter = CharacterGroups.FirstOrDefault(g => !g.IsVoiceActorAssigned && g.CharacterIds.Contains(characterId));
-						if (newlyGeneratedGroupWithCharacter == null)
-							continue;
-						newlyGeneratedGroupWithCharacter.AssignVoiceActor(previousGroupWithCharacter.VoiceActorId);
-						previousGroups.Remove(previousGroupWithCharacter);
-						if (previousGroups.Count == 0)
-							break;
-					}
-				}
-			}
+			// TODO (PG-437): Create Undo action to store state before calling generate.
+			generate();
 
 			m_project.CharacterGroupList.PopulateEstimatedHours(m_keyStrokesByCharacterId);
 
 			Save();
-		}
-
-		private void GenerateGroupsWithProgress()
-		{
-			using (var progressDialog = new ProgressDialog())
-			{
-				progressDialog.ShowInTaskbar = false;
-				progressDialog.Overview = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ProgressDialog.Overview", "Generating optimal character groups based on voice actor attributes.");
-				progressDialog.CanCancel = false;
-				progressDialog.BarStyle = ProgressBarStyle.Marquee;
-				BackgroundWorker worker = new BackgroundWorker();
-				worker.DoWork += OnGenerateGroupsWorkerDoWork;
-				worker.RunWorkerCompleted += (s, e) => { if (e.Error != null) throw e.Error; };
-				progressDialog.BackgroundWorker = worker;
-				progressDialog.ShowDialog();
-			}
-		}
-
-		private void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)
-		{
-			var generatedGroups = new CharacterGroupGenerator(m_project, m_keyStrokesByCharacterId).GenerateCharacterGroups();
-			CharacterGroups.Clear();
-			CharacterGroups.AddRange(generatedGroups);
 		}
 
 		// Keep this method around for now in case we decide to support templates in some scenarios
@@ -216,7 +165,8 @@ namespace Glyssen.Dialogs
 
 			// Add an extra group for any characters which weren't in the template
 			var unmatchedCharacters = includedCharacterIds.Except(matchedCharacterIds);
-			var unmatchedCharacterGroup = new CharacterGroup(m_project, 999, ByKeyStrokeComparer);
+			var unmatchedCharacterGroup = new CharacterGroup(m_project, ByKeyStrokeComparer);
+			unmatchedCharacterGroup.GroupNumber = 999;
 			unmatchedCharacterGroup.CharacterIds.AddRange(unmatchedCharacters);
 			CharacterGroups.Add(unmatchedCharacterGroup);
 		}
@@ -265,7 +215,7 @@ namespace Glyssen.Dialogs
 
 		public bool CanRemoveAssignment(CharacterGroup group)
 		{
-			return (group.IsVoiceActorAssigned && !m_project.IsCharacterGroupAssignedToCameoActor(group));
+			return (group.IsVoiceActorAssigned && !group.AssignedToCameoActor);
 		}
 
 		public void UnAssignActorFromGroups(IEnumerable<CharacterGroup> groups)

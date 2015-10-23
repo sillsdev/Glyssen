@@ -18,7 +18,7 @@ namespace Glyssen.Character
 			CharacterGroup group;
 			if (!CharacterGroups.TryGetValue(groupNumber, out group))
 			{
-				group = new CharacterGroup(m_project, groupNumber, new CharacterByKeyStrokeComparer(m_project.GetKeyStrokesByCharacterId()));
+				group = new CharacterGroup(m_project);
 				CharacterGroups.Add(groupNumber, group);
 			}
 			group.CharacterIds.Add(characterId);

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Xml.Serialization;
+using SIL.ObjectModel;
 using SIL.Xml;
 
 namespace Glyssen.Character
@@ -9,13 +11,39 @@ namespace Glyssen.Character
 	[XmlRoot("CharacterGroupList")]
 	public class CharacterGroupList
 	{
+		private ObservableList<CharacterGroup> m_characterGroups;
+
 		public CharacterGroupList()
 		{
-			CharacterGroups = new List<CharacterGroup>();
+			CharacterGroups = new ObservableList<CharacterGroup>();
 		}
 
 		[XmlElement("CharacterGroup")]
-		public List<CharacterGroup> CharacterGroups { get; set; }
+		public ObservableList<CharacterGroup> CharacterGroups
+		{
+			get { return m_characterGroups; }
+			set 
+			{
+				m_characterGroups = value;
+				m_characterGroups.CollectionChanged += m_characterGroups_CollectionChanged;
+			}
+		}
+
+		void m_characterGroups_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+		{
+			if (e.NewItems == null)
+				return;
+			var nextNumberToTry = 1;
+			foreach (CharacterGroup characterGroup in e.NewItems)
+			{
+				if (characterGroup.GroupNumber == default(int))
+				{
+					while (CharacterGroups.Any(g => g.GroupNumber == nextNumberToTry))
+						nextNumberToTry++;
+					characterGroup.GroupNumber = nextNumberToTry;
+				}
+			}
+		}
 
 		public void SaveToFile(string filename)
 		{

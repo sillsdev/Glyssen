@@ -22,12 +22,10 @@ namespace Glyssen.Character
 			VoiceActorId = kNoActorAssigned;
 		}
 
-		public CharacterGroup(Project project, int groupNumber, IComparer<string> characterIdPriorityComparer = null) : this()
+		public CharacterGroup(Project project, IComparer<string> characterIdPriorityComparer = null) : this()
 		{
-			GroupNumber = groupNumber;
-
 			// In its current usage, the only reason it makes sense to allow this to be passed in is for efficiency.
-			// Elsewhere in the code, we create one comparer and pass it in to multiple constuctors.
+			// In some places in the code, we create one comparer and pass it in to multiple constuctors.
 			if (characterIdPriorityComparer == null)
 				characterIdPriorityComparer = new CharacterByKeyStrokeComparer(project.GetKeyStrokesByCharacterId());
 
@@ -114,6 +112,12 @@ namespace Glyssen.Character
 		public bool IsVoiceActorAssigned
 		{
 			get { return VoiceActorId >= 0; }
+		}
+
+		[Browsable(false)]
+		public bool AssignedToCameoActor
+		{
+			get { return IsVoiceActorAssigned && m_project.VoiceActorList.GetVoiceActorById(VoiceActorId).IsCameo; }
 		}
 
 		[XmlElement("VoiceActorAssignedId")]

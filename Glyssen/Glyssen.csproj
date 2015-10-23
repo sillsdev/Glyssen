@@ -242,6 +242,7 @@
     <Compile Include="Dialogs\RemoveVoiceActorAssignmentsUndoAction.cs" />
     <Compile Include="Dialogs\MoveCharactersToGroupUndoAction.cs" />
     <Compile Include="Dialogs\CharacterGroupUndoActionSequence.cs" />
+    <Compile Include="Rules\CharacterGroupsAdjuster.cs" />
     <Compile Include="Utilities\UndoActionSequence.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentUndoAction.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentViewModel.cs" />

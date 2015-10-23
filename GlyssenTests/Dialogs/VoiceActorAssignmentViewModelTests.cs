@@ -5,9 +5,11 @@ using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Dialogs;
+using Glyssen.Rules;
 using Glyssen.VoiceActor;
 using GlyssenTests.Properties;
 using NUnit.Framework;
+using SIL.Extensions;
 
 namespace GlyssenTests.Dialogs
 {
@@ -16,6 +18,7 @@ namespace GlyssenTests.Dialogs
 	{
 		private Project m_testProject;
 		private VoiceActorAssignmentViewModel m_model;
+		private CharacterByKeyStrokeComparer m_priorityComparer;
 
 		[TestFixtureSetUp]
 		public void TestFixtureSetUp()
@@ -23,6 +26,7 @@ namespace GlyssenTests.Dialogs
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			m_priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
 		}
 
 		[SetUp]
@@ -312,109 +316,28 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void RegenerateGroups()
 		{
+			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1 };
-			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2 };
+			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2, Gender = ActorGender.Female};
 			var actor3 = new Glyssen.VoiceActor.VoiceActor { Id = 3 };
 			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actor1, actor2, actor3 };
 			List<CharacterGroup> affectedGroups = null;
 			m_model.Saved += (sender, affected) => { if (affected != null) affectedGroups = affected.ToList(); };
-			m_model.RegenerateGroups(false);
+			m_model.RegenerateGroups(() =>
+			{
+				// This test is just testing the behavior of "RegenerateGroups" which just runs the action given to it.
+				// So rather than actually instantiating a CharacterGroupGenerator and doing all that work, we jst
+				// test the behavior using a simple approach that will create a group and stick something on the undo stack.
+				var group1 = new CharacterGroup(m_testProject, m_priorityComparer) { CharacterIds = new CharacterIdHashSet(new[] { "Martha" }) };
+				var group2 = new CharacterGroup(m_testProject, m_priorityComparer) { CharacterIds = new CharacterIdHashSet(new[] { "Jesus" }) };
+				var group3 = new CharacterGroup(m_testProject, m_priorityComparer) { CharacterIds = new CharacterIdHashSet(new[] { "NAR-MAT" }) };
+				m_testProject.CharacterGroupList.CharacterGroups.AddRange(new[] { group1, group2, group3 });
+				m_model.AssignActorToGroup(2, group1);
+			});
 			Assert.AreEqual(3, m_testProject.CharacterGroupList.CharacterGroups.Count);
 			// TODO (PG-437): Check that correct groups are included in affectedGroups.
-		}
-
-		[Test]
-		public void RegenerateGroups_MaintainAssignments_OneAssignment_OneCharacter_AssignmentMaintained()
-		{
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1 };
-			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2 };
-			var actor3 = new Glyssen.VoiceActor.VoiceActor { Id = 3 };
-			var actor4 = new Glyssen.VoiceActor.VoiceActor { Id = 4 };
-			var actor5 = new Glyssen.VoiceActor.VoiceActor { Id = 5 };
-			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actor1, actor2, actor3, actor4, actor5 };
-			m_model.RegenerateGroups(false);
-
-			m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus").AssignVoiceActor(actor1.Id);
-			m_model.RegenerateGroups(true);
-			Assert.AreEqual(5, m_testProject.CharacterGroupList.CharacterGroups.Count);
-			Assert.AreEqual(actor1.Id, m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus").VoiceActorId);
-		}
-
-		[Test]
-		public void RegenerateGroups_MaintainAssignments_OneAssignment_TwoCharacters_AssignmentMaintainedForMostProminentCharacter()
-		{
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1 };
-			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2 };
-			var actor3 = new Glyssen.VoiceActor.VoiceActor { Id = 3 };
-			var actor4 = new Glyssen.VoiceActor.VoiceActor { Id = 4 };
-			var actor5 = new Glyssen.VoiceActor.VoiceActor { Id = 5 };
-			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actor1, actor2, actor3, actor4, actor5 };
-			m_model.RegenerateGroups(false);
-
-			m_model.MoveCharactersToGroup(new List<string>{"Jesus", "John"}, null);
-			var newGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
-			newGroup.AssignVoiceActor(actor1.Id);
-
-			m_model.RegenerateGroups(true);
-			Assert.AreEqual(5, m_testProject.CharacterGroupList.CharacterGroups.Count);
-			Assert.AreEqual(actor1.Id, m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus").VoiceActorId);
-			Assert.IsFalse(m_testProject.CharacterGroupList.GroupContainingCharacterId("John").IsVoiceActorAssigned);
-		}
-
-		[Test]
-		public void RegenerateGroups_MaintainAssignments_TwoAssignments_GroupsAreCombined_AssignmentMaintainedForMostProminentCharacter()
-		{
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1 };
-			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2 };
-			var actor3 = new Glyssen.VoiceActor.VoiceActor { Id = 3 };
-			var actor4 = new Glyssen.VoiceActor.VoiceActor { Id = 4 };
-			var actor5 = new Glyssen.VoiceActor.VoiceActor { Id = 5 };
-			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actor1, actor2, actor3, actor4, actor5 };
-			m_model.RegenerateGroups(false);
-
-			m_model.SplitGroup(new List<string> { "extra-MRK" });
-			var extraBiblicalGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("extra-MRK");
-			var bcGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("BC-MRK");
-
-			// Validate the test is set up correctly
-			Assert.AreNotEqual(extraBiblicalGroup, bcGroup);
-
-			extraBiblicalGroup.AssignVoiceActor(actor1.Id);
-			bcGroup.AssignVoiceActor(actor2.Id);
-
-			m_model.RegenerateGroups(true);
-			Assert.AreEqual(5, m_testProject.CharacterGroupList.CharacterGroups.Count);
-			extraBiblicalGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("extra-MRK");
-			bcGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("BC-MRK");
-			Assert.AreEqual(actor1.Id, extraBiblicalGroup.VoiceActorId);
-			Assert.AreEqual(actor1.Id, bcGroup.VoiceActorId);
-			Assert.AreEqual(extraBiblicalGroup, bcGroup);
-			Assert.False(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor2.Id));
-		}
-
-		[Test]
-		public void RegenerateGroups_HasCameoAssigned_MaintainsCameoGroup()
-		{
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1 };
-			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2 };
-			var actor3 = new Glyssen.VoiceActor.VoiceActor { Id = 3 };
-			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actor1, actor2, actor3 };
-			m_model.RegenerateGroups(false);
-
-			var actor4 = new Glyssen.VoiceActor.VoiceActor { Id = 4, IsCameo = true };
-			m_testProject.VoiceActorList.Actors.Add(actor4);
-			var cameoGroup = AddNewGroup("John");
-			cameoGroup.AssignVoiceActor(actor4.Id);
-
-			m_model.RegenerateGroups(false);
-			var groups = m_testProject.CharacterGroupList.CharacterGroups;
-			Assert.AreEqual(4, groups.Count);
-
-			cameoGroup = groups.First(g => g.VoiceActorId == actor4.Id);
-			Assert.AreEqual(actor4.Id, cameoGroup.VoiceActorId);
-			Assert.AreEqual(1, cameoGroup.CharacterIds.Count);
-			Assert.True(cameoGroup.CharacterIds.Contains("John"));
-			Assert.False(groups.Where(g => g != cameoGroup).SelectMany(g => g.CharacterIds).Contains("John"));
+			// For now, just check based on the undo item that "AssignActorToGroup" should put there.
+			Assert.IsTrue(affectedGroups.SetEquals(m_testProject.CharacterGroupList.GetGroupsAssignedToActor(2)));
 		}
 
 		[Test]
@@ -470,7 +393,7 @@ namespace GlyssenTests.Dialogs
 			var actorC = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "C" };
 			var actorA = new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "A" };
 			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actorB, actorC, actorA };
-			m_model.RegenerateGroups(false);
+			new CharacterGroupGenerator(m_testProject, m_testProject.GetKeyStrokesByCharacterId(), false).UpdateProjectCharacterGroups();
 
 			var dataTable = m_model.GetMultiColumnActorDataTable(m_model.CharacterGroups[0]);
 			var actorList = GetActorListFromDataTable(dataTable);
@@ -487,7 +410,7 @@ namespace GlyssenTests.Dialogs
 			var actorC = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "C" };
 			var actorA = new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "A" };
 			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actorB, actorC, actorA };
-			m_model.RegenerateGroups(false);
+			new CharacterGroupGenerator(m_testProject, m_testProject.GetKeyStrokesByCharacterId(), false).UpdateProjectCharacterGroups();
 			var group = m_model.CharacterGroups[0];
 			m_model.AssignActorToGroup(actorA.Id, group);
 
@@ -529,7 +452,7 @@ namespace GlyssenTests.Dialogs
 		{
 			var replacedActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.YoungAdult };
 			m_testProject.VoiceActorList.Actors.Add(replacedActor);
-			var characterGroup = new CharacterGroup(m_testProject, 32);
+			var characterGroup = new CharacterGroup(m_testProject, m_priorityComparer);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup);
 			characterGroup.AssignVoiceActor(1);
 			var affectedActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult };
@@ -544,7 +467,7 @@ namespace GlyssenTests.Dialogs
 				new VoiceActorDeletedUndoAction(m_testProject, deletedActor)
 			});
 			Assert.AreEqual("Edit voice actors", m_model.UndoActions.Single());
-			Assert.AreEqual(32, affectedGroups.Single().GroupNumber);
+			Assert.AreEqual(characterGroup, affectedGroups.Single());
 		}
 
 		private List<Glyssen.VoiceActor.VoiceActor> GetActorListFromDataTable(DataTable dataTable)
@@ -559,7 +482,7 @@ namespace GlyssenTests.Dialogs
 			while (m_testProject.CharacterGroupList.CharacterGroups.Any(t => t.GroupNumber == newGroupNumber))
 				newGroupNumber++;
 
-			CharacterGroup newGroup = new CharacterGroup(m_testProject, newGroupNumber);
+			CharacterGroup newGroup = new CharacterGroup(m_testProject, m_priorityComparer);
 			newGroup.CharacterIds = new CharacterIdHashSet(characterIds);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(newGroup);
 

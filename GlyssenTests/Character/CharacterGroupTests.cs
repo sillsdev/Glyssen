@@ -52,7 +52,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_LooseGenderMatching_ContainsCharacterThatMatchesExactlyOnGenderAndAge_ReturnsTrue()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("Peter (Simon)");
 			group.CharacterIds.Add("Stephen");
 			Assert.IsTrue(group.Matches(new CharacterDetail { Gender = CharacterGender.Male, Age = CharacterAge.Adult },
@@ -62,7 +62,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_ModerateGenderMatching_ContainsCharacterThatMatchesExactlyOnGenderAndAge_ReturnsTrue()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("Peter (Simon)");
 			group.CharacterIds.Add("Stephen");
 			Assert.IsTrue(group.Matches(new CharacterDetail { Gender = CharacterGender.Male, Age = CharacterAge.Adult },
@@ -72,7 +72,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_ModerateGenderMatching_GroupContainsOnlyMale_CharacterPreferMale_ReturnsTrue()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("Peter (Simon)");
 			group.CharacterIds.Add("Stephen");
 			Assert.IsTrue(group.Matches(new CharacterDetail { Gender = CharacterGender.PreferMale },
@@ -82,7 +82,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_ModerateGenderMatching_GroupContainsOnlyPreferFemale_CharacterFemale_ReturnsTrue()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("inscription on forehead of Babylon");
 			Assert.IsTrue(group.Matches(new CharacterDetail { Gender = CharacterGender.Female },
 				CharacterGenderMatchingOptions.Moderate, CharacterAgeMatchingOptions.LooseExceptChild));
@@ -91,7 +91,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_LooseGenderMatching_ContainsCharacterThatMatchesExactlyOnAgeWithCompatibleGender_ReturnsTrue()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("eagle crying with loud voice");
 			Assert.IsTrue(group.Matches(new CharacterDetail { Gender = CharacterGender.Male, Age = CharacterAge.Adult },
 				CharacterGenderMatchingOptions.Loose, CharacterAgeMatchingOptions.LooseExceptChild));
@@ -102,7 +102,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_LooseGenderMatching_ContainsNoCharacterWithCompatibleGender_ReturnsFalse()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("eagle crying with loud voice");
 			group.CharacterIds.Add("Stephen");
 			Assert.IsFalse(group.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Adult },
@@ -110,7 +110,7 @@ namespace GlyssenTests.Character
 			Assert.IsFalse(group.Matches(new CharacterDetail { Gender = CharacterGender.PreferFemale, Age = CharacterAge.Adult },
 				CharacterGenderMatchingOptions.Loose, CharacterAgeMatchingOptions.LooseExceptChild));
 
-			group = new CharacterGroup(m_project, 0);
+			group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("inscription on forehead of Babylon");
 			Assert.IsFalse(group.Matches(new CharacterDetail { Gender = CharacterGender.Male, Age = CharacterAge.Adult },
 				CharacterGenderMatchingOptions.Loose, CharacterAgeMatchingOptions.LooseExceptChild));
@@ -121,7 +121,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_LooseGenderMatching_GroupContainsOnlyFemale_CharacterIsEither_ReturnsTrue()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("Mary Magdalene");
 			Assert.IsTrue(group.Matches(new CharacterDetail { Gender = CharacterGender.Either, Age = CharacterAge.Adult },
 				CharacterGenderMatchingOptions.Loose, CharacterAgeMatchingOptions.LooseExceptChild));
@@ -130,7 +130,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_ModerateGenderMatching_GroupContainsOnlyFemale_CharacterIsEither_ReturnsFalse()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("Mary Magdalene");
 			Assert.IsFalse(group.Matches(new CharacterDetail { Gender = CharacterGender.Either, Age = CharacterAge.Adult },
 				CharacterGenderMatchingOptions.Moderate, CharacterAgeMatchingOptions.LooseExceptChild));
@@ -139,7 +139,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_LooseGenderMatching_GroupHasOnlyMaleAndFemale_CharacterIsNeuter_ReturnsTrue()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("Mary Magdalene");
 			group.CharacterIds.Add("Judas Iscariot");
 			Assert.IsTrue(group.Matches(new CharacterDetail { Gender = CharacterGender.Neuter, Age = CharacterAge.Adult },
@@ -149,7 +149,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_ModerateGenderMatching_GroupHasOnlyMaleAndFemale_CharacterIsNeuter_ReturnsFalse()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("Mary Magdalene");
 			group.CharacterIds.Add("Judas Iscariot");
 			Assert.IsFalse(group.Matches(new CharacterDetail { Gender = CharacterGender.Neuter, Age = CharacterAge.Adult },
@@ -159,7 +159,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_LooseGenderMatching_GroupHasOnlyEither_CharacterIsMale_ReturnsTrue()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("dreamers");
 			Assert.IsFalse(group.Matches(new CharacterDetail { Gender = CharacterGender.Male, Age = CharacterAge.Adult },
 				CharacterGenderMatchingOptions.Moderate, CharacterAgeMatchingOptions.LooseExceptChild));
@@ -168,7 +168,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_ModerateGenderMatching_GroupHasOnlyEither_CharacterIsMale_ReturnsFalse()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("dreamers");
 			Assert.IsFalse(group.Matches(new CharacterDetail { Gender = CharacterGender.Male, Age = CharacterAge.Adult },
 				CharacterGenderMatchingOptions.Moderate, CharacterAgeMatchingOptions.LooseExceptChild));
@@ -177,7 +177,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_LooseGenderMatching_NoCharacters_ThrowsException()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			Assert.Throws<InvalidOperationException>(() =>
 			{
 				group.Matches(new CharacterDetail { Gender = CharacterGender.Neuter, Age = CharacterAge.Adult },
@@ -188,7 +188,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_ModerateGenderMatching_NoCharacters_ThrowsException()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			Assert.Throws<InvalidOperationException>(() =>
 			{
 				group.Matches(new CharacterDetail { Gender = CharacterGender.Neuter, Age = CharacterAge.Adult },
@@ -199,7 +199,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_LooseGenderMatching_NarratorGroupNarratorDetail_ReturnsTrue()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("narrator-MRK");
 			group.CharacterIds.Add("narrator-JUD");
 			Assert.IsTrue(group.Matches(new CharacterDetail { CharacterId = "narrator-MAT", Gender = CharacterGender.Either, Age = CharacterAge.Adult },
@@ -209,7 +209,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_LooseGenderMatching_NarratorGroupWithNonNarratorDetail_ReturnsFalse()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("narrator-MRK");
 			group.CharacterIds.Add("narrator-JUD");
 			Assert.IsFalse(group.Matches(new CharacterDetail { CharacterId = "Thomas" },
@@ -219,7 +219,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_LooseGenderMatching_ExtraBiblicalGroupExtraBiblicalDetail_ReturnsTrue()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("BC-MRK");
 			group.CharacterIds.Add("BC-JUD");
 			Assert.IsTrue(group.Matches(new CharacterDetail { CharacterId = "BC-MAT", Gender = CharacterGender.Either, Age = CharacterAge.Adult },
@@ -230,7 +230,7 @@ namespace GlyssenTests.Character
 		[Ignore("Need setting to tell Glyssen that Paul narrates his own books.")]
 		public void Matches_LooseGenderMatching_PaulineEpistleNarratorGroupWithPaulAndSomeFutureSetting_ReturnsTrue()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("narrator-ROM");
 			group.CharacterIds.Add("narrator-EPH");
 			Assert.IsTrue(group.Matches(new CharacterDetail { CharacterId = "Paul", Gender = CharacterGender.Male, Age = CharacterAge.Adult },
@@ -240,7 +240,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_LooseGenderMatching_PaulineEpistleNarratorGroupWithPaulAndDefaultSetting_ReturnsTrue()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("narrator-ROM");
 			group.CharacterIds.Add("narrator-EPH");
 			Assert.IsFalse(group.Matches(new CharacterDetail { CharacterId = "Paul", Gender = CharacterGender.Male, Age = CharacterAge.Adult },
@@ -250,7 +250,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_LooseGenderMatching_LooseAgeMatching_CharacterHasDifferentAge_ReturnsTrue()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("Rhoda"); // Female, YoungAdult
 			Assert.IsTrue(group.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Elder },
 				CharacterGenderMatchingOptions.Loose, CharacterAgeMatchingOptions.LooseExceptChild));
@@ -259,7 +259,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_LooseGenderMatching_LooseAgeMatching_GroupHasChild_CharacterIsChild_ReturnsTrue()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("children"); // Either, Child
 			Assert.IsTrue(group.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Child },
 				CharacterGenderMatchingOptions.Loose, CharacterAgeMatchingOptions.LooseExceptChild));
@@ -268,7 +268,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_LooseGenderMatching_LooseAgeMatching_GroupHasChild_CharacterIsNotChild_ReturnsFalse()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("children"); // Either, Child
 			Assert.IsFalse(group.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Adult },
 				CharacterGenderMatchingOptions.Loose, CharacterAgeMatchingOptions.LooseExceptChild));
@@ -277,7 +277,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_LooseGenderMatching_LooseAgeMatching_GroupHasNoChild_CharacterIsChild_ReturnsFalse()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("Rhoda"); // Female, YoungAdult
 			Assert.IsFalse(group.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Child },
 				CharacterGenderMatchingOptions.Loose, CharacterAgeMatchingOptions.LooseExceptChild));
@@ -286,7 +286,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void Matches_LooseGenderMatching_StrictAgeMatching_CharacterHasDifferentAge_ReturnsFalse()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("Rhoda"); // Female, YoungAdult
 			Assert.IsFalse(group.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.Elder },
 				CharacterGenderMatchingOptions.Loose, CharacterAgeMatchingOptions.Strict));
@@ -308,7 +308,7 @@ namespace GlyssenTests.Character
 		public void Matches_ProjectSpecificCharacter_ReturnTrue()
 		{
 			m_project.AddProjectCharacterDetail(new CharacterDetail { CharacterId = "Bobette", Gender = CharacterGender.Female, Age = CharacterAge.YoungAdult });
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("Bobette");
 			Assert.IsTrue(group.Matches(new CharacterDetail { Gender = CharacterGender.Female, Age = CharacterAge.YoungAdult },
 				CharacterGenderMatchingOptions.Moderate, CharacterAgeMatchingOptions.Strict));
@@ -317,7 +317,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void AttributesDisplay_AllAdultEither_ReturnsEmptyString()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("people");
 			Assert.AreEqual(string.Empty, group.AttributesDisplay);
 		}
@@ -325,7 +325,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void AttributesDisplay_TwoAdultMales_ReturnsMaleWithCountOfTwo()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("Stephen");
 			group.CharacterIds.Add("Jesus");
 			Assert.AreEqual("Dude [2]", group.AttributesDisplay);
@@ -334,7 +334,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void AttributesDisplay_TwoEitherChildrenAndOneEitherAdult_ReturnsChildWithCountOfTwo()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("people");
 			group.CharacterIds.Add("children");
 			group.CharacterIds.Add("children of Zion (Jerusalem)");
@@ -344,7 +344,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void AttributesDisplay_CoedWithTwoAges_ReturnsAllAttributes()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("Rhoda");
 			group.CharacterIds.Add("Jesus (child)");
 			Assert.AreEqual("Gal [1]; Dude [1]; Kiddo [1]; Whippersnapper [1]", group.AttributesDisplay);
@@ -353,7 +353,7 @@ namespace GlyssenTests.Character
 		[Test]
 		public void AttributesDisplay_ThreeNeuter_ReturnsNeuterWithCountOfThree()
 		{
-			var group = new CharacterGroup(m_project, 0);
+			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("ear");
 			group.CharacterIds.Add("foot");
 			group.CharacterIds.Add("head");

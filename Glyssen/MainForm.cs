@@ -10,6 +10,7 @@ using Glyssen.Bundle;
 using Glyssen.Controls;
 using Glyssen.Dialogs;
 using Glyssen.Properties;
+using Glyssen.Rules;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
@@ -342,6 +343,8 @@ namespace Glyssen
 
 		private void Export_Click(object sender, EventArgs e)
 		{
+			EnsureGroupsAreInSynchWithCharactersInUse();
+
 			var exporter = new ProjectExporter(m_project);
 
 			bool export = true;
@@ -356,6 +359,34 @@ namespace Glyssen
 			}
 			if (export)
 				exporter.Export(this);
+		}
+
+		private void EnsureGroupsAreInSynchWithCharactersInUse()
+		{
+			var adjuster = new CharacterGroupsAdjuster(m_project);
+			if (adjuster.GroupsAreNotInSynchWithData)
+			{
+				string dlgMessage = String.Format(LocalizationManager.GetString("DialogBoxes.GroupsAreNotInSynchWithData.Message",
+					"There have been changes to this project. The character groups no longer match the characters. {0} must update the groups in one of two ways:" +
+					Environment.NewLine + Environment.NewLine +
+					"{0} can start fresh, optimizing the number and composition of character groups based on the characters in the script and the voice actors in this project. " +
+					"This is usually the recommended option." +
+					"However, if the previously generated groups were manually changed most of these changes will probably be lost." +
+					Environment.NewLine + Environment.NewLine +
+					"Alternatively, {0} can just make the minimal changes to remove unused characters and put any new characters in a single group. This will probably require " +
+					"substantial manual customization to avoid problems. If this proves too difficult, the groups can be re-optimized later by clicking {1} in the {2} dialog box." +
+					Environment.NewLine + Environment.NewLine +
+					"Would you like {0} to do the recommended action and create new character groups now?"),
+					ProductName,
+					LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.UpdateCharacterGroups",
+						"Update Character Groups...").TrimEnd('.'),
+					LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.WindowTitle", "Voice Actor Assignment"));
+
+				if (MessageBox.Show(dlgMessage, ProductName, MessageBoxButtons.YesNo) == DialogResult.Yes)
+					adjuster.FullyRegenerateGroups();
+				else
+					adjuster.MakeMinimalAdjustments();
+			}
 		}
 
 		private void SetupUiLanguageMenu()
@@ -468,6 +499,10 @@ namespace Glyssen
 					if (dlg.ShowDialog() == DialogResult.OK)
 						m_project.VoiceActorStatus = VoiceActorStatus.Provided;
 				SaveCurrentProject();
+			}
+			else
+			{
+				EnsureGroupsAreInSynchWithCharactersInUse();
 			}
 
 			if (m_project.VoiceActorStatus == VoiceActorStatus.Provided)

@@ -94,8 +94,9 @@ namespace GlyssenTests.Dialogs
 				new Glyssen.VoiceActor.VoiceActor{Id = 4},
 			});
 			var actorsToDelete = new HashSet<Glyssen.VoiceActor.VoiceActor>(m_testProject.VoiceActorList.Actors.Where(a => a.Id < 3));
-			var characterGroup1 = new CharacterGroup(m_testProject, 1);
-			var characterGroup2 = new CharacterGroup(m_testProject, 2);
+			var priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
+			var characterGroup1 = new CharacterGroup(m_testProject, priorityComparer);
+			var characterGroup2 = new CharacterGroup(m_testProject, priorityComparer);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup1);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup2);
 			characterGroup1.AssignVoiceActor(2);

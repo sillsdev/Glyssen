@@ -8,9 +8,12 @@ using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Controls;
+using Glyssen.Rules;
 using L10NSharp;
 using L10NSharp.UI;
+using SIL.Progress;
 using SIL.Reporting;
+using SIL.Windows.Forms.Progress;
 
 namespace Glyssen.Dialogs
 {
@@ -19,6 +22,7 @@ namespace Glyssen.Dialogs
 		private readonly VoiceActorAssignmentViewModel m_actorAssignmentViewModel;
 		private readonly DataGridViewCellStyle m_wordWrapCellStyle;
 		private readonly Project m_project;
+		private readonly Dictionary<string, int> m_keyStrokesByCharacterId;
 		private bool m_currentCellExpanded = false;
 		private DataGridViewColumn m_sortedColumn;
 		private bool m_sortedAscending;
@@ -32,10 +36,14 @@ namespace Glyssen.Dialogs
 			m_characterGroupGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 
 			m_project = project;
+			m_keyStrokesByCharacterId = m_project.GetKeyStrokesByCharacterId();
 
 			m_menuItemCreateNewGroup.Tag = "CreateNewGroup";
 
-			m_actorAssignmentViewModel = new VoiceActorAssignmentViewModel(project);
+			if (!m_project.CharacterGroupList.CharacterGroups.Any())
+				GenerateGroupsWithProgress(false);
+
+			m_actorAssignmentViewModel = new VoiceActorAssignmentViewModel(project, m_keyStrokesByCharacterId);
 			m_actorAssignmentViewModel.Saved += HandleModelSaved;
 
 			m_wordWrapCellStyle = new DataGridViewCellStyle();
@@ -54,6 +62,29 @@ namespace Glyssen.Dialogs
 
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+		}
+
+		private void GenerateGroupsWithProgress(bool attemptToPreserveActorAssignments)
+		{
+			using (var progressDialog = new ProgressDialog())
+			{
+				progressDialog.ShowInTaskbar = false;
+				progressDialog.Overview = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ProgressDialog.Overview", "Generating optimal character groups based on voice actor attributes.");
+				progressDialog.CanCancel = false;
+				progressDialog.BarStyle = ProgressBarStyle.Marquee;
+				BackgroundWorker worker = new BackgroundWorker();
+				progressDialog.ProgressState.Arguments = attemptToPreserveActorAssignments;
+				worker.DoWork += OnGenerateGroupsWorkerDoWork;
+				worker.RunWorkerCompleted += (s, e) => { if (e.Error != null) throw e.Error; };
+				progressDialog.BackgroundWorker = worker;
+				progressDialog.ShowDialog();
+			}
+		}
+
+		private void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)
+		{
+			var attemptToPreserveActorAssignments = (bool)((ProgressState) e.Argument).Arguments;
+			new CharacterGroupGenerator(m_project, m_keyStrokesByCharacterId, attemptToPreserveActorAssignments).UpdateProjectCharacterGroups();
 		}
 
 		/// <summary>
@@ -133,7 +164,7 @@ namespace Glyssen.Dialogs
 					if (actorInfoViewModel.Changes.Any(c => !c.JustChangedName) &&
 						MessageBox.Show(this, String.Format(LocalizationManager.GetString(
 							"DialogBoxes.VoiceActorAssignmentDlg.UpdateCharacterGroupsPrompt",
-							"{0} can optimize the number and composition of character groups to match the actors you have entered. " +
+							"{0} can optimize the number and composition of character groups to match the voice actors you have entered. " +
 							"Would you like {0} to update the groups now?"), Program.kProduct), Text, MessageBoxButtons.YesNo) ==
 						DialogResult.Yes)
 					{
@@ -237,7 +268,8 @@ namespace Glyssen.Dialogs
 					(updateDlg.SelectedOption == UpdateCharacterGroupsDlg.SelectionType.AutoGenAndMaintain ||
 					updateDlg.SelectedOption == UpdateCharacterGroupsDlg.SelectionType.AutoGen))
 				{
-					m_actorAssignmentViewModel.RegenerateGroups(updateDlg.SelectedOption == UpdateCharacterGroupsDlg.SelectionType.AutoGenAndMaintain);
+					bool attemptToPreserveActorAssignments = updateDlg.SelectedOption == UpdateCharacterGroupsDlg.SelectionType.AutoGenAndMaintain;
+					m_actorAssignmentViewModel.RegenerateGroups(() => { GenerateGroupsWithProgress(attemptToPreserveActorAssignments); });
 					SortByColumn(m_sortedColumn, m_sortedAscending);
 				}
 			}
@@ -475,7 +507,7 @@ namespace Glyssen.Dialogs
 			if (e.RowIndex >= m_actorAssignmentViewModel.CharacterGroups.Count)
 				return;
 			var group = m_actorAssignmentViewModel.CharacterGroups[e.RowIndex];
-			var isCameo = group != null && m_project.IsCharacterGroupAssignedToCameoActor(group);
+			var isCameo = group != null && group.AssignedToCameoActor;
 			// Need to check before setting to avoid making it impossible to open the drop-down list.
 			if (m_characterGroupGrid.Rows[e.RowIndex].Cells[VoiceActorCol.Name].ReadOnly != isCameo)
 				m_characterGroupGrid.Rows[e.RowIndex].Cells[VoiceActorCol.Name].ReadOnly = isCameo;

@@ -116,6 +116,7 @@
     <Compile Include="Dialogs\VoiceActorEditingUndoActionTests.cs" />
     <Compile Include="Dialogs\VoiceActorInformationViewModelTests.cs" />
     <Compile Include="ProjectExportTests.cs" />
+    <Compile Include="Rules\CharacterGroupsAdjusterTests.cs" />
     <Compile Include="Quote\QuoteUtilsTests.cs" />
     <Compile Include="Quote\QuoteParserTests.cs" />
     <Compile Include="Quote\QuoteSystemGuesserTests.cs" />
@@ -171,6 +172,8 @@
   <ItemGroup>
     <None Include="Resources\TestJUD.xml" />
     <None Include="Resources\TestACT.xml" />
+    <None Include="Resources\TestCharacterDetailOct2015.txt" />
+    <Content Include="Resources\TestCharacterVerseOct2015.txt" />
     <Content Include="Resources\TestLUK.xml" />
     <Content Include="Resources\TestVersification.txt" />
   </ItemGroup>

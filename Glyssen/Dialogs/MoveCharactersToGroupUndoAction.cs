@@ -78,7 +78,7 @@ namespace Glyssen.Dialogs
 			while (m_project.CharacterGroupList.CharacterGroups.Any(t => t.GroupNumber == newGroupNumber))
 				newGroupNumber++;
 
-			var newGroup = new CharacterGroup(m_project, newGroupNumber, new CharacterByKeyStrokeComparer(m_project.GetKeyStrokesByCharacterId()));
+			var newGroup = new CharacterGroup(m_project);
 			m_project.CharacterGroupList.CharacterGroups.Add(newGroup);
 
 			return newGroup;

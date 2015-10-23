@@ -11,11 +11,14 @@ namespace Glyssen.Rules
 	public class CharacterGroupGenerator
 	{
 		private readonly Project m_project;
+		private readonly bool m_attemptToPreserveActorAssignments;
 		private readonly Dictionary<string, int> m_keyStrokesByCharacterId;
 		private readonly IComparer<string> m_characterIdComparer;
 		private readonly Proximity m_proximity;
 
 		private static readonly SortedDictionary<int, IList<HashSet<string>>> CharactersInClosedGroups;
+
+		private IList<CharacterGroup> CharacterGroups { get { return m_project.CharacterGroupList.CharacterGroups; } }
 
 		static CharacterGroupGenerator()
 		{
@@ -28,15 +31,48 @@ namespace Glyssen.Rules
 			CharactersInClosedGroups.Add(20, new List<HashSet<string>> { jesusSet, new HashSet<string> { "God" }, holySpiritSet, new HashSet<string> { "scripture" } });
 		}
 
-		public CharacterGroupGenerator(Project project, Dictionary<string, int> keyStrokesByCharacterId)
+		public CharacterGroupGenerator(Project project, Dictionary<string, int> keyStrokesByCharacterId, bool attemptToPreserveActorAssignments = true)
 		{
 			m_project = project;
+			m_attemptToPreserveActorAssignments = attemptToPreserveActorAssignments;
 			m_keyStrokesByCharacterId = new Dictionary<string, int>(keyStrokesByCharacterId);
 			m_proximity = new Proximity(project);
 			m_characterIdComparer = new CharacterByKeyStrokeComparer(m_keyStrokesByCharacterId);
 		}
 
-		public List<CharacterGroup> GenerateCharacterGroups()
+		public void UpdateProjectCharacterGroups()
+		{
+			// Create a copy. Cameos are handled in the generation code (because we always maintain those assignments).
+			List<CharacterGroup> previousGroups = m_attemptToPreserveActorAssignments ?
+				CharacterGroups.Where(g => !g.AssignedToCameoActor).ToList() : new List<CharacterGroup>();
+
+			var newGroups = GenerateCharacterGroups();
+			CharacterGroups.Clear();
+			CharacterGroups.AddRange(newGroups);
+
+			if (previousGroups.Count > 0)
+			{
+				// We assume the parts with the most keystrokes are most important to maintain
+				var sortedDict = from entry in m_keyStrokesByCharacterId orderby entry.Value descending select entry;
+				foreach (var entry in sortedDict)
+				{
+					string characterId = entry.Key;
+					var previousGroupWithCharacter = previousGroups.FirstOrDefault(g => g.CharacterIds.Contains(characterId));
+					if (previousGroupWithCharacter != null)
+					{
+						var newlyGeneratedGroupWithCharacter = CharacterGroups.FirstOrDefault(g => !g.IsVoiceActorAssigned && g.CharacterIds.Contains(characterId));
+						if (newlyGeneratedGroupWithCharacter == null)
+							continue;
+						newlyGeneratedGroupWithCharacter.AssignVoiceActor(previousGroupWithCharacter.VoiceActorId);
+						previousGroups.Remove(previousGroupWithCharacter);
+						if (previousGroups.Count == 0)
+							break;
+					}
+				}
+			}
+		}
+
+		internal List<CharacterGroup> GenerateCharacterGroups()
 		{
 			List<CharacterGroup> characterGroups = new List<CharacterGroup>();
 
@@ -84,7 +120,7 @@ namespace Glyssen.Rules
 				var character = characterDetailToActors.Key;
 				var matchingActors = characterDetailToActors.Value;
 
-				var group = new CharacterGroup(m_project, characterGroups.Count + 1, m_characterIdComparer);
+				var group = new CharacterGroup(m_project, m_characterIdComparer);
 				group.CharacterIds.Add(character.CharacterId);
 				characterGroups.Add(group);
 				group.Closed = true;
@@ -103,7 +139,7 @@ namespace Glyssen.Rules
 					CharacterGroup groupForActor;
 					if (!predeterminedActorGroups.TryGetValue(matchingActor, out groupForActor))
 					{
-						groupForActor = new CharacterGroup(m_project, characterGroups.Count + 1, m_characterIdComparer);
+						groupForActor = new CharacterGroup(m_project, m_characterIdComparer);
 						characterGroups.Add(groupForActor);
 						predeterminedActorGroups[matchingActor] = groupForActor;
 						groupForActor.AssignVoiceActor(matchingActor.Id);
@@ -128,10 +164,7 @@ namespace Glyssen.Rules
 			{
 				characterGroups = configuration.m_groups;
 
-				// TODO: This is ugly and hacky-looking, but we hope to jettison the whole group number thing soon.
-				int groupCount = characterGroups.Count;
-				characterGroups.AddRange(CreateGroupsForReservedCharacters(includedCharacterDetails, nbrMaleAdultActors, configuration,
-					() => ++groupCount));
+				characterGroups.AddRange(CreateGroupsForReservedCharacters(includedCharacterDetails, nbrMaleAdultActors, configuration));
 
 				foreach (var entry in sortedDict)
 				{
@@ -170,7 +203,7 @@ namespace Glyssen.Rules
 					if (configuration.RemainingUsableActors > 0 &&
 						(numMatchingActors == 0 || numMatchingCharacterGroups < numMatchingActors))
 					{
-						var group = new CharacterGroup(m_project, characterGroups.Count + 1, m_characterIdComparer);
+						var group = new CharacterGroup(m_project, m_characterIdComparer);
 						group.CharacterIds.Add(characterId);
 						characterGroups.Add(group);
 						configuration.RemainingUsableActors--;
@@ -194,25 +227,24 @@ namespace Glyssen.Rules
 		private IEnumerable<string> GetCharacterIdsAssignedToCameoActor()
 		{
 			var characterIds = new List<string>();
-			foreach (var cameoGroup in m_project.CharacterGroupList.CharacterGroups.Where(m_project.IsCharacterGroupAssignedToCameoActor))
+			foreach (var cameoGroup in CharacterGroups.Where(g => g.AssignedToCameoActor))
 				characterIds.AddRange(cameoGroup.CharacterIds);
 			return characterIds;
 		}
 
 		private IEnumerable<CharacterGroup> CreateGroupsForCameoActors()
 		{
-			int groupNumber = 0;
 			foreach (var cameoActor in m_project.VoiceActorList.Actors.Where(a => a.IsCameo))
 			{
 				if (m_project.CharacterGroupList.HasVoiceActorAssigned(cameoActor.Id))
 				{
-					var groupForCameoActor = m_project.CharacterGroupList.CharacterGroups.First(g => g.VoiceActorId == cameoActor.Id);
+					var groupForCameoActor = CharacterGroups.First(g => g.VoiceActorId == cameoActor.Id);
 					groupForCameoActor.CharacterIds.IntersectWith(m_keyStrokesByCharacterId.Keys);
 					yield return groupForCameoActor;
 				}
 				else
 				{
-					var newGroup = new CharacterGroup(m_project, groupNumber++, m_characterIdComparer);
+					var newGroup = new CharacterGroup(m_project, m_characterIdComparer);
 					newGroup.AssignVoiceActor(cameoActor.Id);
 					yield return newGroup;
 				}
@@ -220,7 +252,7 @@ namespace Glyssen.Rules
 		}
 
 		private IEnumerable<CharacterGroup> CreateGroupsForReservedCharacters(List<CharacterDetail> includedCharacterDetails, int nbrMaleAdultActors,
-			TrialGroupConfiguration configuration, Func<int> nextGroupNumber)
+			TrialGroupConfiguration configuration)
 		{
 			if (CharactersInClosedGroups.Any(kvp => kvp.Key <= nbrMaleAdultActors))
 			{
@@ -238,7 +270,7 @@ namespace Glyssen.Rules
 					if (charactersToPutInGroup.Any())
 					{
 						configuration.RemainingUsableActors--;
-						var group = new CharacterGroup(m_project, nextGroupNumber(), new CharacterByKeyStrokeComparer(m_keyStrokesByCharacterId));
+						var group = new CharacterGroup(m_project, m_characterIdComparer);
 						group.CharacterIds.AddRange(charactersToPutInGroup);
 						group.Closed = true;
 						yield return group;
@@ -318,14 +350,14 @@ namespace Glyssen.Rules
 
 					if (RemainingUsableActors > 0 && n > 0)
 					{
-						NarratorGroup = new CharacterGroup(project, m_groups.Count + 1, characterComparer) { Status = true };
+						NarratorGroup = new CharacterGroup(project, characterComparer) { Status = true };
 						m_groups.Add(NarratorGroup);
 						RemainingUsableActors--;
 					}
 
 					if (RemainingUsableActors > 0 && e > 0)
 					{
-						ExtraBiblicalGroup = new CharacterGroup(project, m_groups.Count + 1, characterComparer);
+						ExtraBiblicalGroup = new CharacterGroup(project, characterComparer);
 						m_groups.Add(ExtraBiblicalGroup);
 						RemainingUsableActors--;
 					}
