@@ -73,11 +73,6 @@ namespace Glyssen.Dialogs
 
 		private CharacterGroup CreateNewGroup()
 		{
-			var newGroupNumber = 1;
-
-			while (m_project.CharacterGroupList.CharacterGroups.Any(t => t.GroupNumber == newGroupNumber))
-				newGroupNumber++;
-
 			var newGroup = new CharacterGroup(m_project);
 			m_project.CharacterGroupList.CharacterGroups.Add(newGroup);
 

@@ -2,6 +2,7 @@
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
+using Glyssen.Dialogs;
 using Glyssen.Rules;
 using Glyssen.VoiceActor;
 using GlyssenTests.Properties;
@@ -380,82 +381,75 @@ namespace GlyssenTests.Rules
 			Assert.AreEqual(actors[0].Id, m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus").VoiceActorId);
 		}
 
-		//[Test]
-		//public void GenerateCharacterGroups_MaintainAssignments_OneAssignment_TwoCharacters_AssignmentMaintainedForMostProminentCharacter()
-		//{
-		//	var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1 };
-		//	var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2 };
-		//	var actor3 = new Glyssen.VoiceActor.VoiceActor { Id = 3 };
-		//	var actor4 = new Glyssen.VoiceActor.VoiceActor { Id = 4 };
-		//	var actor5 = new Glyssen.VoiceActor.VoiceActor { Id = 5 };
-		//	m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actor1, actor2, actor3, actor4, actor5 };
-		//	m_model.RegenerateGroups(false);
+		[Test]
+		public void GenerateCharacterGroups_MaintainAssignments_OneAssignment_TwoCharacters_AssignmentMaintainedForMostProminentCharacter()
+		{
+			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(5);
+			new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId, false).UpdateProjectCharacterGroups();
 
-		//	m_model.MoveCharactersToGroup(new List<string> { "Jesus", "John" }, null);
-		//	var newGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
-		//	newGroup.AssignVoiceActor(actor1.Id);
+			var jesusGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
+			var originalJohnGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("John");
+			originalJohnGroup.CharacterIds.ExceptWith(new [] {"John"});
+			jesusGroup.CharacterIds.Add("John");
+			jesusGroup.AssignVoiceActor(actors[0].Id);
 
-		//	m_model.RegenerateGroups(true);
-		//	Assert.AreEqual(5, m_testProject.CharacterGroupList.CharacterGroups.Count);
-		//	Assert.AreEqual(actor1.Id, m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus").VoiceActorId);
-		//	Assert.IsFalse(m_testProject.CharacterGroupList.GroupContainingCharacterId("John").IsVoiceActorAssigned);
-		//}
+			new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId, true).UpdateProjectCharacterGroups();
+			Assert.AreEqual(5, m_testProject.CharacterGroupList.CharacterGroups.Count);
+			Assert.AreEqual(actors[0].Id, m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus").VoiceActorId);
+			Assert.IsFalse(m_testProject.CharacterGroupList.GroupContainingCharacterId("John").IsVoiceActorAssigned);
+		}
 
-		//[Test]
-		//public void GenerateCharacterGroups_MaintainAssignments_TwoAssignments_GroupsAreCombined_AssignmentMaintainedForMostProminentCharacter()
-		//{
-		//	var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1 };
-		//	var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2 };
-		//	var actor3 = new Glyssen.VoiceActor.VoiceActor { Id = 3 };
-		//	var actor4 = new Glyssen.VoiceActor.VoiceActor { Id = 4 };
-		//	var actor5 = new Glyssen.VoiceActor.VoiceActor { Id = 5 };
-		//	m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actor1, actor2, actor3, actor4, actor5 };
-		//	m_model.RegenerateGroups(false);
+		[Test]
+		public void GenerateCharacterGroups_MaintainAssignments_TwoAssignments_GroupsAreCombined_AssignmentMaintainedForMostProminentCharacter()
+		{
+			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(5);
+			new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId, false).UpdateProjectCharacterGroups();
+			Assert.IsTrue(m_keyStrokesPerCharacterId["BC-MRK"] < m_keyStrokesPerCharacterId["extra-MRK"],
+				"For this tes to make sense as written, there have to be more characters associated with \"extra\" than with BC.");
 
-		//	m_model.SplitGroup(new List<string> { "extra-MRK" });
-		//	var extraBiblicalGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("extra-MRK");
-		//	var bcGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("BC-MRK");
+			var newGroup = new CharacterGroup(m_testProject);
+			m_testProject.CharacterGroupList.CharacterGroups.Add(newGroup);
+			var bcGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("BC-MRK");
+			Assert.IsTrue(bcGroup.CharacterIds.Contains("extra-MRK"));
+			bcGroup.CharacterIds.ExceptWith(new[] { "extra-MRK" });
+			newGroup.CharacterIds.Add("extra-MRK");
 
-		//	// Validate the test is set up correctly
-		//	Assert.AreNotEqual(extraBiblicalGroup, bcGroup);
+			bcGroup.AssignVoiceActor(actors[0].Id);
+			newGroup.AssignVoiceActor(actors[1].Id);
 
-		//	extraBiblicalGroup.AssignVoiceActor(actor1.Id);
-		//	bcGroup.AssignVoiceActor(actor2.Id);
+			new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId, true).UpdateProjectCharacterGroups();
+			Assert.AreEqual(5, m_testProject.CharacterGroupList.CharacterGroups.Count);
+			var extraBiblicalGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("extra-MRK");
+			bcGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("BC-MRK");
+			Assert.AreEqual(extraBiblicalGroup, bcGroup);
+			Assert.AreEqual(actors[1].Id, extraBiblicalGroup.VoiceActorId);
+			Assert.False(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actors[0].Id));
+		}
 
-		//	m_model.RegenerateGroups(true);
-		//	Assert.AreEqual(5, m_testProject.CharacterGroupList.CharacterGroups.Count);
-		//	extraBiblicalGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("extra-MRK");
-		//	bcGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("BC-MRK");
-		//	Assert.AreEqual(actor1.Id, extraBiblicalGroup.VoiceActorId);
-		//	Assert.AreEqual(actor1.Id, bcGroup.VoiceActorId);
-		//	Assert.AreEqual(extraBiblicalGroup, bcGroup);
-		//	Assert.False(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor2.Id));
-		//}
+		[Test]
+		public void GenerateCharacterGroups_HasCameoAssignedButAttemptToMaintainAssignmentsIsFalse_MaintainsCameoGroup()
+		{
+			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(3);
+			new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId, false).UpdateProjectCharacterGroups();
 
-		//[Test]
-		//public void GenerateCharacterGroups_HasCameoAssigned_MaintainsCameoGroup()
-		//{
-		//	var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1 };
-		//	var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2 };
-		//	var actor3 = new Glyssen.VoiceActor.VoiceActor { Id = 3 };
-		//	m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actor1, actor2, actor3 };
-		//	m_model.RegenerateGroups(false);
+			var actor4 = new Glyssen.VoiceActor.VoiceActor { Id = 4, IsCameo = true };
+			m_testProject.VoiceActorList.Actors.Add(actor4);
+			var cameoGroup = new CharacterGroup(m_testProject);
+			m_testProject.CharacterGroupList.CharacterGroups.Add(cameoGroup);
+			cameoGroup.CharacterIds.Add("John");
+			m_testProject.CharacterGroupList.GroupContainingCharacterId("John").CharacterIds.ExceptWith(new[] { "John" });
+			cameoGroup.AssignVoiceActor(actor4.Id);
 
-		//	var actor4 = new Glyssen.VoiceActor.VoiceActor { Id = 4, IsCameo = true };
-		//	m_testProject.VoiceActorList.Actors.Add(actor4);
-		//	var cameoGroup = AddNewGroup("John");
-		//	cameoGroup.AssignVoiceActor(actor4.Id);
+			new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId, false).UpdateProjectCharacterGroups();
+			var groups = m_testProject.CharacterGroupList.CharacterGroups;
+			Assert.AreEqual(4, groups.Count);
 
-		//	m_model.RegenerateGroups(false);
-		//	var groups = m_testProject.CharacterGroupList.CharacterGroups;
-		//	Assert.AreEqual(4, groups.Count);
-
-		//	cameoGroup = groups.First(g => g.VoiceActorId == actor4.Id);
-		//	Assert.AreEqual(actor4.Id, cameoGroup.VoiceActorId);
-		//	Assert.AreEqual(1, cameoGroup.CharacterIds.Count);
-		//	Assert.True(cameoGroup.CharacterIds.Contains("John"));
-		//	Assert.False(groups.Where(g => g != cameoGroup).SelectMany(g => g.CharacterIds).Contains("John"));
-		//}
+			cameoGroup = groups.First(g => g.VoiceActorId == actor4.Id);
+			Assert.AreEqual(actor4.Id, cameoGroup.VoiceActorId);
+			Assert.AreEqual(1, cameoGroup.CharacterIds.Count);
+			Assert.True(cameoGroup.CharacterIds.Contains("John"));
+			Assert.False(groups.Where(g => g != cameoGroup).SelectMany(g => g.CharacterIds).Contains("John"));
+		}
 	}
 
 	[TestFixture]
@@ -834,14 +828,15 @@ namespace GlyssenTests.Rules
 		public static List<Glyssen.VoiceActor.VoiceActor> GetVoiceActors(int numberOfAdultMales, int numberOfAdultFemales = 0, int numberOfMaleChildren = 0, int numberOfFemaleChildren = 0)
 		{
 			var actorList = new List<Glyssen.VoiceActor.VoiceActor>();
+			int actorNumber = 0;
 			for (int i = 0; i < numberOfAdultMales; i++)
-				actorList.Add(new Glyssen.VoiceActor.VoiceActor());
+				actorList.Add(new Glyssen.VoiceActor.VoiceActor { Id = actorNumber++ } );
 			for (int i = 0; i < numberOfAdultFemales; i++)
-				actorList.Add(new Glyssen.VoiceActor.VoiceActor { Gender = ActorGender.Female });
+				actorList.Add(new Glyssen.VoiceActor.VoiceActor {  Id = actorNumber++, Gender = ActorGender.Female });
 			for (int i = 0; i < numberOfMaleChildren; i++)
-				actorList.Add(new Glyssen.VoiceActor.VoiceActor { Age = ActorAge.Child });
+				actorList.Add(new Glyssen.VoiceActor.VoiceActor {  Id = actorNumber++, Age = ActorAge.Child });
 			for (int i = 0; i < numberOfFemaleChildren; i++)
-				actorList.Add(new Glyssen.VoiceActor.VoiceActor { Gender = ActorGender.Female, Age = ActorAge.Child });
+				actorList.Add(new Glyssen.VoiceActor.VoiceActor {  Id = actorNumber++, Gender = ActorGender.Female, Age = ActorAge.Child });
 			return actorList;
 		}
 	}
