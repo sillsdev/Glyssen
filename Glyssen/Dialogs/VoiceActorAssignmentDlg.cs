@@ -73,10 +73,10 @@ namespace Glyssen.Dialogs
 				progressDialog.CanCancel = false;
 				progressDialog.BarStyle = ProgressBarStyle.Marquee;
 				BackgroundWorker worker = new BackgroundWorker();
-				progressDialog.ProgressState.Arguments = attemptToPreserveActorAssignments;
 				worker.DoWork += OnGenerateGroupsWorkerDoWork;
 				worker.RunWorkerCompleted += (s, e) => { if (e.Error != null) throw e.Error; };
 				progressDialog.BackgroundWorker = worker;
+				progressDialog.ProgressState.Arguments = attemptToPreserveActorAssignments;
 				progressDialog.ShowDialog();
 			}
 		}
