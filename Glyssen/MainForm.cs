@@ -385,7 +385,10 @@ namespace Glyssen
 					LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.WindowTitle", "Voice Actor Assignment"));
 
 				if (MessageBox.Show(dlgMessage, ProductName, MessageBoxButtons.YesNo) == DialogResult.Yes)
-					adjuster.FullyRegenerateGroups();
+				{
+					using (var progressDialog = new GenerateGroupsProgressDialog((s, e) => adjuster.FullyRegenerateGroups()))
+						progressDialog.ShowDialog();
+				}
 				else
 					adjuster.MakeMinimalAdjustments();
 			}

@@ -207,6 +207,9 @@
     </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
     <Compile Include="Controls\VoiceActorInformationViewModel.cs" />
+    <Compile Include="Dialogs\GenerateGroupsProgressDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dialogs\VoiceActorUndoAction.cs" />
     <Compile Include="Dialogs\CharacterGroupsUndoAction.cs" />
     <Compile Include="Dialogs\SelectExistingProjectDlg.cs">
