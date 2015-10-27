@@ -96,6 +96,7 @@
     <Compile Include="BlockNavigatorTests.cs" />
     <Compile Include="BlockTests.cs" />
     <Compile Include="BookSetUtilsTests.cs" />
+    <Compile Include="Bundle\GlyssenBundleTests.cs" />
     <Compile Include="Bundle\GlyssenDblTextMetadataTests.cs" />
     <Compile Include="Character\CharacterAssignerTests.cs" />
     <Compile Include="Character\CharacterGroupListTests.cs" />

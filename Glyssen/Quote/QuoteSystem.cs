@@ -15,6 +15,8 @@ namespace Glyssen.Quote
 	[XmlRoot]
 	public class QuoteSystem
 	{
+		public static IComparer<QuotationMark> QuotationMarkTypeAndLevelComparer = new TypeAndLevelComparer();
+
 		/// <summary>
 		/// This is deprecated and should only be used for upgrading from old data
 		/// </summary>
@@ -288,5 +290,16 @@ namespace Glyssen.Quote
 			return !Equals(left, right);
 		}
 		#endregion
+
+		private class TypeAndLevelComparer : IComparer<QuotationMark>
+		{
+			public int Compare(QuotationMark x, QuotationMark y)
+			{
+				int result = x.Type.CompareTo(y.Type);
+				if (result != 0)
+					return result;
+				return x.Level.CompareTo(y.Level);
+			}
+		}
 	}
 }

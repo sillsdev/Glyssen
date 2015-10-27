@@ -89,7 +89,10 @@ namespace Glyssen
 		{
 			Directory.CreateDirectory(ProjectFolder);
 			if (bundle.WritingSystemDefinition != null && bundle.WritingSystemDefinition.QuotationMarks != null && bundle.WritingSystemDefinition.QuotationMarks.Any())
+			{
 				QuoteSystemStatus = QuoteSystemStatus.Obtained;
+				bundle.ConvertContinuersToParatextAssumptions();
+			}
 			bundle.CopyFontFiles(LanguageFolder);
 			InstallFontsIfNecessary();
 			bundle.CopyVersificationFile(VersificationFilePath);

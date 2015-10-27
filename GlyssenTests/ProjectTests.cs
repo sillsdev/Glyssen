@@ -1,12 +1,11 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Threading;
 using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Quote;
+using GlyssenTests.Bundle;
 using NUnit.Framework;
-using SIL.DblBundle.Tests.Text;
 using SIL.IO;
 using SIL.ObjectModel;
 using SIL.WritingSystems;
@@ -15,7 +14,7 @@ namespace GlyssenTests
 {
 	class ProjectTests
 	{
-		private const string kTest = "test~~ProjectTests";
+		public const string kTest = "test~~ProjectTests";
 
 		[TestFixtureSetUp]
 		public void TestFixtureSetup()
@@ -32,7 +31,7 @@ namespace GlyssenTests
 		[Test]
 		public void CreateFromBundle_BundleContainsQuoteInformation_LoadsQuoteSystemFromBundle()
 		{
-			var bundle = GetNewGlyssenBundleForTest();
+			var bundle = GlyssenBundleTests.GetNewGlyssenBundleForTest();
 			var bogusQuoteSystem = new QuoteSystem(new QuotationMark("^", "^^", "^^^", 1, QuotationMarkingSystemType.Normal));
 			bundle.WritingSystemDefinition.QuotationMarks.Clear();
 			bundle.WritingSystemDefinition.QuotationMarks.AddRange(bogusQuoteSystem.AllLevels);
@@ -49,7 +48,7 @@ namespace GlyssenTests
 		[Test]
 		public void CreateFromBundle_BundleDoesNotContainQuoteInformation_GuessesQuoteSystem()
 		{
-			var bundle = GetNewGlyssenBundleForTest();
+			var bundle = GlyssenBundleTests.GetNewGlyssenBundleForTest();
 			bundle.WritingSystemDefinition.QuotationMarks.Clear();
 			var project = new Project(bundle);
 
@@ -64,13 +63,13 @@ namespace GlyssenTests
 		[Test]
 		public void UpdateProjectFromBundleData()
 		{
-			var originalBundle = GetNewGlyssenBundleForTest();
+			var originalBundle = GlyssenBundleTests.GetNewGlyssenBundleForTest();
 			originalBundle.Metadata.FontSizeInPoints = 10;
 			var project = new Project(originalBundle);
 
 			Assert.AreEqual(10, project.FontSizeInPoints);
 
-			var newBundle = GetNewGlyssenBundleForTest();
+			var newBundle = GlyssenBundleTests.GetNewGlyssenBundleForTest();
 			originalBundle.Metadata.FontSizeInPoints = 12;
 			project.UpdateProjectFromBundleData(newBundle);
 
@@ -80,13 +79,13 @@ namespace GlyssenTests
 		[Test]
 		public void UpdateProjectFromBundleData_BundleDoesNotContainLdmlFile_MaintainsOriginalQuoteSystem()
 		{
-			var originalBundle = GetNewGlyssenBundleForTest();
+			var originalBundle = GlyssenBundleTests.GetNewGlyssenBundleForTest();
 			originalBundle.WritingSystemDefinition.QuotationMarks[0] = new QuotationMark("open", "close", "cont", 1, QuotationMarkingSystemType.Normal);
 			var project = new Project(originalBundle);
 
 			Assert.AreEqual("open", project.QuoteSystem.FirstLevel.Open);
 
-			var newBundle = GetNewGlyssenBundleForTest(false);
+			var newBundle = GlyssenBundleTests.GetNewGlyssenBundleForTest(false);
 			Assert.IsNull(newBundle.WritingSystemDefinition);
 			project.UpdateProjectFromBundleData(newBundle);
 
@@ -96,7 +95,7 @@ namespace GlyssenTests
 		[Test]
 		public void CopyQuoteMarksIfAppropriate_TargetWsHasNoQuotes_TargetReceivesQuotes()
 		{
-			var originalBundle = GetNewGlyssenBundleForTest();
+			var originalBundle = GlyssenBundleTests.GetNewGlyssenBundleForTest();
 			var project = new Project(originalBundle);
 			project.Status.QuoteSystemStatus = QuoteSystemStatus.UserSet;
 
@@ -111,7 +110,7 @@ namespace GlyssenTests
 		[Test]
 		public void CopyQuoteMarksIfAppropriate_TargetWsHasQuotes_TargetQuotesObtained_TargetDoesNotReceiveQuotes()
 		{
-			var originalBundle = GetNewGlyssenBundleForTest();
+			var originalBundle = GlyssenBundleTests.GetNewGlyssenBundleForTest();
 			var project = new Project(originalBundle);
 			project.Status.QuoteSystemStatus = QuoteSystemStatus.Obtained;
 
@@ -131,7 +130,7 @@ namespace GlyssenTests
 		[Test]
 		public void CopyQuoteMarksIfAppropriate_TargetWsHasLessQuoteLevelsThanOriginal_CommonLevelsSame_TargetReceivesQuotes()
 		{
-			var originalBundle = GetNewGlyssenBundleForTest();
+			var originalBundle = GlyssenBundleTests.GetNewGlyssenBundleForTest();
 			var bogusQuoteSystem = new QuoteSystem(new BulkObservableList<QuotationMark>
 			{
 				new QuotationMark("^", "^^", "^^^", 1, QuotationMarkingSystemType.Normal),
@@ -158,7 +157,7 @@ namespace GlyssenTests
 		[Test]
 		public void CopyQuoteMarksIfAppropriate_TargetWsHasLessQuoteLevelsThanOriginal_CommonLevelsDifferent_TargetDoesNotReceiveQuotes()
 		{
-			var originalBundle = GetNewGlyssenBundleForTest();
+			var originalBundle = GlyssenBundleTests.GetNewGlyssenBundleForTest();
 			var bogusQuoteSystem = new QuoteSystem(new BulkObservableList<QuotationMark>
 			{
 				new QuotationMark("^", "^^", "^^^", 1, QuotationMarkingSystemType.Normal),
@@ -185,7 +184,7 @@ namespace GlyssenTests
 		[Test]
 		public void QuoteSystem_Changed()
 		{
-			var originalBundleAndFile = GetNewGlyssenBundleAndFile();
+			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
 			var originalBundle = originalBundleAndFile.Item1;
 			var originalBundleFile = originalBundleAndFile.Item2;
 			var project = new Project(originalBundle);
@@ -198,27 +197,6 @@ namespace GlyssenTests
 
 			// Must dispose after because changing the quote system needs access to original bundle file
 			originalBundleFile.Dispose();
-		}
-
-		private Tuple<GlyssenBundle, TempFile> GetNewGlyssenBundleAndFile()
-		{
-			return GetNewGlyssenBundleFromFile();
-		}
-
-		private GlyssenBundle GetNewGlyssenBundleForTest(bool includeLdml = true)
-		{
-			var bundleAndFile = GetNewGlyssenBundleFromFile(includeLdml);
-			bundleAndFile.Item2.Dispose();
-			return bundleAndFile.Item1;
-		}
-
-		private Tuple<GlyssenBundle, TempFile> GetNewGlyssenBundleFromFile(bool includeLdml = true)
-		{
-			var bundleFile = TextBundleTests.CreateZippedTextBundleFromResources(includeLdml);
-			var bundle = new GlyssenBundle(bundleFile.Path);
-			bundle.Metadata.Language.Iso = kTest;
-			bundle.Metadata.Id = kTest;
-			return new Tuple<GlyssenBundle, TempFile>(bundle, bundleFile);
 		}
 	}
 }
