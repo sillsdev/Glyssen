@@ -8243,7 +8243,7 @@ MRK	12	19	Sadducees			Dialogue
 MRK	12	20	Sadducees			Normal		
 MRK	12	21	Sadducees			Normal		
 MRK	12	22	Sadducees			Normal		
-MRK	12	23	Sadducees			Normal		
+MRK	12	23	Sadducees (old)			Normal		
 MRK	12	24	Jesus			Dialogue		
 MRK	12	25	Jesus			Normal		
 MRK	12	26	Jesus			Normal		
@@ -8343,10 +8343,10 @@ MRK	14	58	witnesses, false	mocking		Dialogue		MAT 26.61;MRK 14.58
 MRK	14	60	Caiaphas, the high priest	demanding		Dialogue		
 MRK	14	61	Caiaphas, the high priest	demanding		Dialogue		
 MRK	14	62	Jesus			Dialogue		
-MRK	14	63	Caiaphas, the high priest	screaming		Dialogue		
-MRK	14	64	Caiaphas, the high priest			Normal		
-MRK	14	64	chief priests/Sanhedrin			Dialogue		MAT 26.66;MRK 14.64
-MRK	14	65	chief priests/Sanhedrin	mocking		Dialogue		MAT 26.68;MRK 14.65
+MRK	14	63	Caiaphas, the high priest (old)	screaming		Dialogue		
+MRK	14	64	Caiaphas, the high priest (old)			Normal		
+MRK	14	64	chief priests			Dialogue		MAT 26.66;MRK 14.64
+MRK	14	65	chief priests	mocking		Dialogue		MAT 26.68;MRK 14.65
 MRK	14	67	servant girl at high priest's courtyard		one of the servant girls of the high priest	Dialogue		MAT 26.69;MRK 14.67;LUK 22.56;JHN 18.17
 MRK	14	68	Peter (Simon)	denial		Dialogue		
 MRK	14	69	servant girl at high priest's courtyard		servant girl	Dialogue		*different speakers;MAT 26.71;MRK 14.69;LUK 22.58;JHN 18.25

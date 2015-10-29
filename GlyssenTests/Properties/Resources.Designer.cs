@@ -91,6 +91,23 @@ namespace GlyssenTests.Properties {
         ///Abijah, king of Judah	1	Male	Adult			2CH 13:4 &lt;-(7 more)-&gt; 2CH 13:12
         ///Abimelech, king of Gerar	1	Male	Adult			GEN 20:4 &lt;- [rest of string was truncated]&quot;;.
         /// </summary>
+        internal static string TestCharacterDetail {
+            get {
+                return ResourceManager.GetString("TestCharacterDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #Character ID	Max Speakers	Gender	Age	Status	Comment	Reference Comment
+        ///2 other disciples	2	Male	Adult		Not Peter (Simon), Thomas, Nathaniel, James, or John	
+        ///250 Israelite leaders	250	Male	Adult			
+        ///a Jew	1	Male	Adult			
+        ///Aaron	1	Male	Adult			EXO 32:2 &lt;-(6 more)-&gt; NUM 12:12
+        ///Abednego	1	Male	Adult		original Hebrew name: Azariah	
+        ///Abigail	1	Female	Adult			1SA 25:19 &lt;-(8 more)-&gt; 1SA 25:41
+        ///Abijah, king of Judah	1	Male	Adult			2CH 13:4 &lt;-(7 more)-&gt; 2CH 13:12
+        ///Abimelech, king of Gerar	1	Male	Adult			GEN 20:4 &lt;- [rest of string was truncated]&quot;;.
+        /// </summary>
         internal static string TestCharacterDetailOct2015 {
             get {
                 return ResourceManager.GetString("TestCharacterDetailOct2015", resourceCulture);
@@ -207,6 +224,26 @@ namespace GlyssenTests.Properties {
         internal static string TestMRK {
             get {
                 return ResourceManager.GetString("TestMRK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;RelatedCharacterSets&gt;
+        ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
+        ///		&lt;CharacterId&gt;Barzillai&lt;/CharacterId&gt;
+        ///		&lt;CharacterId&gt;Barzillai (old)&lt;/CharacterId&gt;
+        ///	&lt;/RelatedCharacters&gt;
+        ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
+        ///		&lt;CharacterId&gt;David&lt;/CharacterId&gt;
+        ///		&lt;CharacterId&gt;David (old)&lt;/CharacterId&gt;
+        ///	&lt;/RelatedCharacters&gt;
+        ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
+        ///		&lt;CharacterId&gt;Elisha&lt;/CharacterId&gt;
+        ///		&lt;CharacterId&gt;Elisha (old)&lt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TestRelatedCharacters {
+            get {
+                return ResourceManager.GetString("TestRelatedCharacters", resourceCulture);
             }
         }
         

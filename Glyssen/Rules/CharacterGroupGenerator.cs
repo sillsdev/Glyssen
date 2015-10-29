@@ -205,6 +205,9 @@ namespace Glyssen.Rules
 					{
 						var group = new CharacterGroup(m_project, m_characterIdComparer);
 						group.CharacterIds.Add(characterId);
+						if (RelatedCharactersData.Singleton.GetCharacterIdsForType(CharacterRelationshipType.SameCharacterWithMultipleAges).Contains(characterId))
+							foreach (var relatedCharacters in RelatedCharactersData.Singleton.GetCharacterIdToRelatedCharactersDictionary()[characterId])
+								group.CharacterIds.AddRange(relatedCharacters.CharacterIds);
 						characterGroups.Add(group);
 						configuration.RemainingUsableActors--;
 					}
@@ -302,6 +305,9 @@ namespace Glyssen.Rules
 			if (configuration.m_minimumProximity > bestGroupEntry.Value.NumberOfBlocks)
 				configuration.m_minimumProximity = bestGroupEntry.Value.NumberOfBlocks;
 			bestGroup.CharacterIds.Add(characterDetail.CharacterId);
+			if (RelatedCharactersData.Singleton.GetCharacterIdsForType(CharacterRelationshipType.SameCharacterWithMultipleAges).Contains(characterDetail.CharacterId))
+				foreach (var relatedCharacters in RelatedCharactersData.Singleton.GetCharacterIdToRelatedCharactersDictionary()[characterDetail.CharacterId])
+					bestGroup.CharacterIds.AddRange(relatedCharacters.CharacterIds);
 		}
 
 		private void CalculateProximityForMatchingGroups(CharacterDetail characterDetail, IEnumerable<CharacterGroup> characterGroups, Func<CharacterGroup, bool> matchCriteria, Dictionary<CharacterGroup, MinimumProximity> groupToProximityDict)
