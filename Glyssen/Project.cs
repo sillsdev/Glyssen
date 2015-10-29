@@ -379,7 +379,7 @@ namespace Glyssen
 		{
 			get
 			{
-				var sb = new StringBuilder(QuoteSystem.ToString());
+				var sb = new StringBuilder(QuoteSystem.ShortSummary);
 				sb.Append(", ").Append(FontFamily);
 				sb.Append(", ").Append(FontSizeInPoints).Append(LocalizationManager.GetString("WritingSystem.Points", "pt", "Units appended to font size to represent points"));
 				sb.Append(", ").Append(RightToLeftScript ? LocalizationManager.GetString("WritingSystem.RightToLeft", "Right-to-left", "Describes a writing system") :
