@@ -405,6 +405,11 @@ namespace Glyssen
 			get { return m_characterGroupList ?? (m_characterGroupList = LoadCharacterGroupData()); }
 		}
 
+		public bool IsVoiceActorScriptReady
+		{
+			get { return IsVoiceActorAssignmentsComplete && EveryAssignedGroupHasACharacter && !HasUnusedActor; }
+		}
+
 		public bool IsVoiceActorAssignmentsComplete
 		{
 			get
@@ -412,6 +417,16 @@ namespace Glyssen
 				var groups = CharacterGroupList.CharacterGroups;
 				return groups.Count > 0 && groups.All(t => t.IsVoiceActorAssigned);
 			}
+		}
+
+		public bool EveryAssignedGroupHasACharacter
+		{
+			get { return CharacterGroupList.AssignedGroups.All(g => g.CharacterIds.Count != 0); }
+		}
+
+		public bool HasUnusedActor
+		{
+			get { return VoiceActorList.Actors.Any(actor => !CharacterGroupList.HasVoiceActorAssigned(actor.Id)); }
 		}
 
 		internal void ClearAssignCharacterStatus()

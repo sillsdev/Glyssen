@@ -117,6 +117,7 @@
     <Compile Include="Dialogs\VoiceActorEditingUndoActionTests.cs" />
     <Compile Include="Dialogs\VoiceActorInformationViewModelTests.cs" />
     <Compile Include="ProjectExportTests.cs" />
+    <Compile Include="ProjectTests.cs" />
     <Compile Include="Rules\CharacterGroupsAdjusterTests.cs" />
     <Compile Include="Quote\QuoteUtilsTests.cs" />
     <Compile Include="Quote\QuoteParserTests.cs" />
