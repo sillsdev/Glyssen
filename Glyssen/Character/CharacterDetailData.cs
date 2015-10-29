@@ -9,10 +9,19 @@ namespace Glyssen.Character
 	public class CharacterDetailData
 	{
 		private static CharacterDetailData s_singleton;
+		private static string s_tabDelimitedCharacterDetailData;
 		private IList<CharacterDetail> m_data;
 		private Dictionary<string, CharacterDetail> m_dictionary;
 
-		internal static string TabDelimitedCharacterDetailData { get; set; }
+		internal static string TabDelimitedCharacterDetailData
+		{
+			get { return s_tabDelimitedCharacterDetailData; }
+			set
+			{
+				s_tabDelimitedCharacterDetailData = value;
+				s_singleton = null;
+			}
+		}
 
 		private CharacterDetailData()
 		{

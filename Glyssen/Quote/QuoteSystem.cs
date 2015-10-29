@@ -229,6 +229,27 @@ namespace Glyssen.Quote
 			}
 		}
 
+		public string ShortSummary
+		{
+			get
+			{
+				StringBuilder sb = new StringBuilder();
+				sb.Append(FirstLevel.Open).Append(" ").Append(FirstLevel.Close);
+				if (!string.IsNullOrEmpty(QuotationDashMarker))
+				{
+					sb.Append(" ").Append(QuotationDashMarker);
+					if (!string.IsNullOrEmpty(QuotationDashEndMarker))
+						sb.Append(" ").Append(QuotationDashEndMarker);
+				}
+				return sb.ToString();
+			}
+		}
+
+		public string FullSummary
+		{
+			get { return ToString(); }
+		}
+
 		//public QuoteSystem GetCorrespondingFirstLevelQuoteSystem()
 		//{
 		//	return AllUniqueFirstLevelSystems.FirstOrDefault(f => f.FirstLevel.Open == FirstLevel.Open && f.FirstLevel.Close == FirstLevel.Close);

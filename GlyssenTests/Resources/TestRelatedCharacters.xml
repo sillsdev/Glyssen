@@ -1,0 +1,38 @@
+<RelatedCharacterSets>
+	<RelatedCharacters RelationshipType="SameCharacterWithMultipleAges">
+		<CharacterId>Barzillai</CharacterId>
+		<CharacterId>Barzillai (old)</CharacterId>
+	</RelatedCharacters>
+	<RelatedCharacters RelationshipType="SameCharacterWithMultipleAges">
+		<CharacterId>David</CharacterId>
+		<CharacterId>David (old)</CharacterId>
+	</RelatedCharacters>
+	<RelatedCharacters RelationshipType="SameCharacterWithMultipleAges">
+		<CharacterId>Elisha</CharacterId>
+		<CharacterId>Elisha (old)</CharacterId>
+	</RelatedCharacters>
+	<RelatedCharacters RelationshipType="SameCharacterWithMultipleAges">
+		<CharacterId>Isaac</CharacterId>
+		<CharacterId>Isaac (old)</CharacterId>
+	</RelatedCharacters>
+	<RelatedCharacters RelationshipType="SameCharacterWithMultipleAges">
+		<CharacterId>Joshua</CharacterId>
+		<CharacterId>Joshua (old)</CharacterId>
+	</RelatedCharacters>
+	<RelatedCharacters RelationshipType="SameCharacterWithMultipleAges">
+		<CharacterId>Sarah (Sarai)</CharacterId>
+		<CharacterId>Sarah (Sarai) (old)</CharacterId>
+	</RelatedCharacters>
+	<RelatedCharacters RelationshipType="SameCharacterWithMultipleAges">
+		<CharacterId>Sadducees</CharacterId>
+		<CharacterId>Sadducees (old)</CharacterId>
+	</RelatedCharacters>
+	<RelatedCharacters RelationshipType="SameCharacterWithMultipleAges">
+		<CharacterId>passers by</CharacterId>
+		<CharacterId>passers by (old)</CharacterId>
+	</RelatedCharacters>
+	<RelatedCharacters RelationshipType="SameCharacterWithMultipleAges">
+		<CharacterId>Caiaphas, the high priest</CharacterId>
+		<CharacterId>Caiaphas, the high priest (old)</CharacterId>
+	</RelatedCharacters>
+</RelatedCharacterSets>

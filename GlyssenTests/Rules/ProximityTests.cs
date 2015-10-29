@@ -18,6 +18,7 @@ namespace GlyssenTests.Rules
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
 			m_testProject.UseDefaultForUnresolvedMultipleChoiceCharacters();
 		}
@@ -140,6 +141,50 @@ namespace GlyssenTests.Rules
 			Assert.AreEqual(9, minProximity.SecondBlock.ChapterNumber);
 			Assert.AreEqual(24, minProximity.FirstBlock.InitialStartVerseNumber);
 			Assert.AreEqual(26, minProximity.SecondBlock.InitialStartVerseNumber);
+		}
+
+		[Test]
+		public void CalculateMinimumProximity_TwoVersionsOfSameCharacter_ReturnsMaxInt()
+		{
+			HashSet<string> characterIds = new HashSet<string>();
+
+			//Mark 14:60-63
+			characterIds.Add("Caiaphas, the high priest");
+			characterIds.Add("Caiaphas, the high priest (old)");
+
+			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
+
+			Assert.AreEqual(Int32.MaxValue, minProximity.NumberOfBlocks);
+			Assert.AreEqual("Caiaphas, the high priest", minProximity.FirstBlock.CharacterId);
+			Assert.AreEqual("Caiaphas, the high priest", minProximity.SecondBlock.CharacterId);
+			Assert.AreEqual("MRK", minProximity.FirstBook.BookId);
+			Assert.AreEqual("MRK", minProximity.SecondBook.BookId);
+			Assert.AreEqual(14, minProximity.FirstBlock.ChapterNumber);
+			Assert.AreEqual(14, minProximity.SecondBlock.ChapterNumber);
+			Assert.AreEqual(60, minProximity.FirstBlock.InitialStartVerseNumber);
+			Assert.AreEqual(60, minProximity.SecondBlock.InitialStartVerseNumber);
+		}
+
+		[Test]
+		public void CalculateMinimumProximity_OneOfTheCharactersHasAnAgeVariationCounterpart_CalculatesAllAgeVariationsAsSameCharacter()
+		{
+			HashSet<string> characterIds = new HashSet<string>();
+
+			//Mark 14:60-65
+			characterIds.Add("Caiaphas, the high priest");
+			characterIds.Add("chief priests");
+
+			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
+
+			Assert.AreEqual(1, minProximity.NumberOfBlocks);
+			Assert.AreEqual("Caiaphas, the high priest (old)", minProximity.FirstBlock.CharacterId);
+			Assert.AreEqual("chief priests", minProximity.SecondBlock.CharacterId);
+			Assert.AreEqual("MRK", minProximity.FirstBook.BookId);
+			Assert.AreEqual("MRK", minProximity.SecondBook.BookId);
+			Assert.AreEqual(14, minProximity.FirstBlock.ChapterNumber);
+			Assert.AreEqual(14, minProximity.SecondBlock.ChapterNumber);
+			Assert.AreEqual(63, minProximity.FirstBlock.InitialStartVerseNumber);
+			Assert.AreEqual(65, minProximity.SecondBlock.InitialStartVerseNumber);
 		}
 	}
 }

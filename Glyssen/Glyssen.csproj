@@ -74,22 +74,10 @@
     <Reference Include="Geckofx-Winforms">
       <HintPath>..\lib\dotnet\Geckofx-Winforms.dll</HintPath>
     </Reference>
-    <None Include="..\lib\dotnet\icudt54.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Link>icudt54.dll</Link>
-    </None>
-    <None Include="..\lib\dotnet\icuin54.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Link>icuin54.dll</Link>
-    </None>
-    <None Include="..\lib\dotnet\icuuc54.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Link>icuuc54.dll</Link>
-    </None>
-    <None Include="..\lib\dotnet\icu.net.dll.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Link>icu.net.dll.config</Link>
-    </None>
+    <Reference Include="icu.net, Version=1.2.0.0, Culture=neutral, PublicKeyToken=416fdd914afa6b66, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\dotnet\icu.net.dll</HintPath>
+    </Reference>
     <Reference Include="L10NSharp">
       <HintPath>..\lib\dotnet\L10NSharp.dll</HintPath>
     </Reference>
@@ -173,6 +161,7 @@
     <Compile Include="Character\ICharacterVerseInfo.cs" />
     <Compile Include="Character\ProjectCharacterDetailData.cs" />
     <Compile Include="Character\ProjectCharacterVerseData.cs" />
+    <Compile Include="Character\RelatedCharacters.cs" />
     <Compile Include="Controls\AutoScrollGrid.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -482,6 +471,18 @@
     <None Include="Resources\112_Plus_Green_16x16_72.png" />
     <None Include="Resources\CharacterDetail.txt" />
     <None Include="Resources\bluelock.png" />
+    <Content Include="..\lib\dotnet\icudt54.dll">
+      <Link>icudt54.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\lib\dotnet\icuin54.dll">
+      <Link>icuin54.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\lib\dotnet\icuuc54.dll">
+      <Link>icuuc54.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\CharacterVerse.txt" />
     <None Include="Resources\grid-icon.png" />
     <None Include="Resources\html-view.png" />
@@ -494,6 +495,7 @@
     <None Include="Resources\people.png" />
     <None Include="Resources\RemoveActor.png" />
     <None Include="Resources\redo.png" />
+    <None Include="Resources\RelatedCharacters.xml" />
     <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />
   </ItemGroup>

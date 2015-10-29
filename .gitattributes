@@ -3,6 +3,7 @@
 *.cs    diff=csharp
 
 *.htm whitespace=space-before-tab,trailing-space,tabwidth=4
+*.wxs whitespace=space-before-tab,trailing-space
 
 # Don't check whitespace for generated files
 *.csproj -whitespace
@@ -21,5 +22,5 @@ changelog -whitespace
 *.lift* -whitespace
 *.csproj.DotSettings -whitespace
 
-CharacterVerse.txt -whitespace
-CharacterDetail.txt -whitespace
+*CharacterVerse*.txt -whitespace
+*CharacterDetail*.txt -whitespace
