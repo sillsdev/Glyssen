@@ -379,7 +379,8 @@ namespace Glyssen
 				}
 			}
 			if (export)
-				exporter.Export(this);
+				using (var dlg = new ExportDlg(exporter))
+					dlg.ShowDialog(this);
 		}
 
 		private void EnsureGroupsAreInSynchWithCharactersInUse()
