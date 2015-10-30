@@ -108,7 +108,7 @@ namespace Glyssen
 			m_btnExport.Enabled = !readOnly && m_imgCheckAssignCharacters.Visible;
 			m_btnAssignVoiceActors.Visible = Environment.GetEnvironmentVariable("Glyssen_ProtoscriptOnly", EnvironmentVariableTarget.User) == null;
 			m_btnAssignVoiceActors.Enabled = m_btnExport.Enabled;
-			m_imgCheckAssignActors.Visible = m_btnAssignVoiceActors.Enabled && m_project.IsVoiceActorAssignmentsComplete;
+			m_imgCheckAssignActors.Visible = m_btnAssignVoiceActors.Enabled && m_project.IsVoiceActorScriptReady;
 			m_lnkExit.Enabled = !readOnly;
 		}
 
@@ -350,15 +350,37 @@ namespace Glyssen
 			bool export = true;
 			if (exporter.IncludeVoiceActors)
 			{
-				string dlgMessage = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Message", "Some of the character groups have no voice actor assigned. Are you sure you want to export an incomplete script?") +
-									Environment.NewLine +
-									LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.MessageNote", "(Note: You can export the script again as many times as you want.)");
-				string dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Title", "Export Incomplete Script?");
-
-				export = m_project.IsVoiceActorAssignmentsComplete || MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
+				string dlgMessage = null;
+				string dlgTitle = null;
+				if (!m_project.IsVoiceActorAssignmentsComplete)
+				{
+					dlgMessage = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.NotAssignedMessage",
+						"One or more character groups have no voice actor assigned. Are you sure you want to export an incomplete script?");
+					dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.TitleIncomplete", "Export Incomplete Script?");
+				}
+				else if (!m_project.EveryAssignedGroupHasACharacter)
+				{
+					dlgMessage = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.EmptyGroupMessage",
+						"One or more character groups have no characters in them. Are you sure you want to export a script?");
+					dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Title", "Export Script?");
+				}
+				else if (m_project.HasUnusedActor)
+				{
+					dlgMessage = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.UnusedActorMessage",
+						"One or more voice actors have not been assigned to a character group. Are you sure you want to export a script?");
+					dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Title", "Export Script?");
+				}
+				if (dlgMessage != null)
+				{
+					dlgMessage += Environment.NewLine +
+						LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.MessageNote",
+						"(Note: You can export the script again as many times as you want.)");
+					export = MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
+				}
 			}
 			if (export)
-				exporter.Export(this);
+				using (var dlg = new ExportDlg(exporter))
+					dlg.ShowDialog(this);
 		}
 
 		private void EnsureGroupsAreInSynchWithCharactersInUse()
