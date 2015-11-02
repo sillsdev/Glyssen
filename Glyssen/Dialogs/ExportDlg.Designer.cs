@@ -84,7 +84,7 @@
 			this.m_checkIncludeBookBreakdown.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_checkIncludeBookBreakdown, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_checkIncludeBookBreakdown, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_checkIncludeBookBreakdown, "DialogBoxes.ExportDlg.checkBox1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_checkIncludeBookBreakdown, "DialogBoxes.ExportDlg.ScriptPerBook");
 			this.m_checkIncludeBookBreakdown.Location = new System.Drawing.Point(3, 145);
 			this.m_checkIncludeBookBreakdown.Name = "m_checkIncludeBookBreakdown";
 			this.m_checkIncludeBookBreakdown.Size = new System.Drawing.Size(213, 17);
@@ -122,7 +122,7 @@
 			this.m_checkIncludeActorBreakdown.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_checkIncludeActorBreakdown, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_checkIncludeActorBreakdown, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_checkIncludeActorBreakdown, "DialogBoxes.ExportDlg.checkBox1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_checkIncludeActorBreakdown, "DialogBoxes.ExportDlg.ScriptPerActor");
 			this.m_checkIncludeActorBreakdown.Location = new System.Drawing.Point(3, 84);
 			this.m_checkIncludeActorBreakdown.Name = "m_checkIncludeActorBreakdown";
 			this.m_checkIncludeActorBreakdown.Size = new System.Drawing.Size(242, 17);
@@ -154,7 +154,8 @@
 			this.m_lblFileName.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblFileName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblFileName, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblFileName, "DialogBoxes.label1");
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblFileName, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblFileName, "DialogBoxes.ExportDlg.label1");
 			this.m_lblFileName.Location = new System.Drawing.Point(64, 26);
 			this.m_lblFileName.Margin = new System.Windows.Forms.Padding(3);
 			this.m_lblFileName.Name = "m_lblFileName";
@@ -170,7 +171,7 @@
 			this.m_lblFileExists.ForeColor = System.Drawing.Color.Yellow;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblFileExists, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblFileExists, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblFileExists, "DialogBoxes.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblFileExists, "DialogBoxes.ExportDlg.FileExists");
 			this.m_lblFileExists.Location = new System.Drawing.Point(28, 55);
 			this.m_lblFileExists.Margin = new System.Windows.Forms.Padding(3);
 			this.m_lblFileExists.Name = "m_lblFileExists";
@@ -185,7 +186,7 @@
 			this.label3.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label3, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label3, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.label3, "DialogBoxes.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.label3, "DialogBoxes.ExportDlg.FileName");
 			this.label3.Location = new System.Drawing.Point(3, 26);
 			this.label3.Margin = new System.Windows.Forms.Padding(3);
 			this.label3.Name = "label3";
@@ -215,8 +216,8 @@
 			this.m_tableLayoutPanelMan.SetColumnSpan(this.m_lblActorDirectory, 3);
 			this.m_lblActorDirectory.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblActorDirectory, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblActorDirectory, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblActorDirectory, "DialogBoxes.label1");
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblActorDirectory, "{0} is a directory");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblActorDirectory, "DialogBoxes.ExportDlg.FilesWillBeCreated");
 			this.m_lblActorDirectory.Location = new System.Drawing.Point(28, 107);
 			this.m_lblActorDirectory.Margin = new System.Windows.Forms.Padding(3);
 			this.m_lblActorDirectory.Name = "m_lblActorDirectory";
@@ -231,7 +232,7 @@
 			this.m_lblBookDirectory.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblBookDirectory, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblBookDirectory, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblBookDirectory, "DialogBoxes.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblBookDirectory, "DialogBoxes.ExportDlg.FilesWillBeCreated");
 			this.m_lblBookDirectory.Location = new System.Drawing.Point(28, 168);
 			this.m_lblBookDirectory.Margin = new System.Windows.Forms.Padding(3);
 			this.m_lblBookDirectory.Name = "m_lblBookDirectory";
@@ -307,7 +308,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this, "ExportDlg.WindowTitle");
+			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.ExportDlg.WindowTitle");
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "ExportDlg";
