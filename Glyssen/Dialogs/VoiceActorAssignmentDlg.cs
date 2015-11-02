@@ -66,17 +66,9 @@ namespace Glyssen.Dialogs
 
 		private void GenerateGroupsWithProgress(bool attemptToPreserveActorAssignments)
 		{
-			using (var progressDialog = new ProgressDialog())
+			using (var progressDialog = new GenerateGroupsProgressDialog(OnGenerateGroupsWorkerDoWork))
 			{
-				progressDialog.ShowInTaskbar = false;
-				progressDialog.Overview = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ProgressDialog.Overview", "Generating optimal character groups based on voice actor attributes.");
-				progressDialog.CanCancel = false;
-				progressDialog.BarStyle = ProgressBarStyle.Marquee;
-				BackgroundWorker worker = new BackgroundWorker();
 				progressDialog.ProgressState.Arguments = attemptToPreserveActorAssignments;
-				worker.DoWork += OnGenerateGroupsWorkerDoWork;
-				worker.RunWorkerCompleted += (s, e) => { if (e.Error != null) throw e.Error; };
-				progressDialog.BackgroundWorker = worker;
 				progressDialog.ShowDialog();
 			}
 		}

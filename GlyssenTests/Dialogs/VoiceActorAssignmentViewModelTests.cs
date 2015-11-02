@@ -25,6 +25,7 @@ namespace GlyssenTests.Dialogs
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
 			m_priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
 		}

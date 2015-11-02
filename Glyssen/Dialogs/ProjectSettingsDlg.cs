@@ -36,7 +36,7 @@ namespace Glyssen.Dialogs
 				PublicationName = value.PublicationName;
 				PublicationId = value.PublicationId;
 				m_txtVersification.Text = value.Versification.Name;
-				m_lblQuoteMarkSummary.Text = value.Project.QuoteSystem.ToString();
+				m_lblQuoteMarkSummary.Text = value.Project.QuoteSystem.ShortSummary;
 
 				m_wsFontControl.BindToModel(m_model.WsModel);
 
@@ -75,7 +75,7 @@ namespace Glyssen.Dialogs
 
 		private void UpdateDisplay()
 		{
-			m_lblQuoteMarkSummary.Text = m_model.Project.QuoteSystem.ToString();
+			m_lblQuoteMarkSummary.Text = m_model.Project.QuoteSystem.ShortSummary;
 
 			m_lblQuoteMarkReview.ForeColor = Color.White;
 

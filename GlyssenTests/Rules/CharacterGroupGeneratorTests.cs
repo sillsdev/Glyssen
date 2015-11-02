@@ -2,7 +2,6 @@
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.Rules;
 using Glyssen.VoiceActor;
 using GlyssenTests.Properties;
@@ -23,6 +22,8 @@ namespace GlyssenTests.Rules
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
+			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.JUD);
 			m_keyStrokesPerCharacterId = m_testProject.GetKeyStrokesByCharacterId();
 			m_priorityComparer = new CharacterByKeyStrokeComparer(m_keyStrokesPerCharacterId);
@@ -152,8 +153,12 @@ namespace GlyssenTests.Rules
 					if (!block.CharacterIsUnclear())
 						includedCharacterIds.Add(block.CharacterIdInScript);
 			int numberOfCharactersInProject = includedCharacterIds.Count(i => CharacterDetailData.Singleton.GetDictionary().ContainsKey(i));
+			int numberOfCharactersRemovedByCoalescingCharactersWhichAreTheSameWithDifferentAges =
+				RelatedCharactersData.Singleton.GetCharacterIdsForType(CharacterRelationshipType.SameCharacterWithMultipleAges).Intersect(includedCharacterIds).Count()
+				- RelatedCharactersData.Singleton.GetAll().Count(rc => rc.RelationshipType == CharacterRelationshipType.SameCharacterWithMultipleAges && rc.CharacterIds.Intersect(includedCharacterIds).Any());
 			const int numberOfNarratorAndExtraBiblicalCharactersRemovedByCoalescing = 4;
-			int maxGroups = numberOfCharactersInProject - numberOfNarratorAndExtraBiblicalCharactersRemovedByCoalescing;
+			int maxGroups = numberOfCharactersInProject - numberOfCharactersRemovedByCoalescingCharactersWhichAreTheSameWithDifferentAges
+				- numberOfNarratorAndExtraBiblicalCharactersRemovedByCoalescing;
 			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(maxGroups);
 			Assert.AreEqual(maxGroups, new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups().Count);
 
@@ -450,6 +455,30 @@ namespace GlyssenTests.Rules
 			Assert.True(cameoGroup.CharacterIds.Contains("John"));
 			Assert.False(groups.Where(g => g != cameoGroup).SelectMany(g => g.CharacterIds).Contains("John"));
 		}
+
+		[Test]
+		public void GenerateCharacterGroups_SameCharacterWithTwoAges_ProminentCharacter_CharactersAreGeneratedInTheSameGroup()
+		{
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10, 5);
+
+			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
+			var sadduceesGroup = groups.Single(g => g.CharacterIds.Contains("Sadducees"));
+			var sadduceesOldGroup = groups.Single(g => g.CharacterIds.Contains("Sadducees (old)"));
+
+			Assert.AreEqual(sadduceesGroup, sadduceesOldGroup);
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_SameCharacterWithTwoAges_NonProminentCharacter_CharactersAreGeneratedInTheSameGroup()
+		{
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(7, 3);
+
+			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
+			var passersByGroup = groups.Single(g => g.CharacterIds.Contains("passers by"));
+			var passersByOldGroup = groups.Single(g => g.CharacterIds.Contains("passers by (old)"));
+
+			Assert.AreEqual(passersByGroup, passersByOldGroup);
+		}
 	}
 
 	[TestFixture]
@@ -463,6 +492,7 @@ namespace GlyssenTests.Rules
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
 			m_keyStrokesPerCharacterId = m_testProject.GetKeyStrokesByCharacterId();
 		}
@@ -551,6 +581,7 @@ namespace GlyssenTests.Rules
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.ACT);
 			m_keyStrokesPerCharacterId = m_testProject.GetKeyStrokesByCharacterId();
 		}
@@ -647,6 +678,7 @@ namespace GlyssenTests.Rules
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT);
 			m_keyStrokesPerCharacterId = m_testProject.GetKeyStrokesByCharacterId();
 		}
@@ -679,6 +711,7 @@ namespace GlyssenTests.Rules
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
 			m_testProject.IncludedBooks[0].SingleVoice = true;
 			m_keyStrokesPerCharacterId = m_testProject.GetKeyStrokesByCharacterId();
@@ -713,6 +746,7 @@ namespace GlyssenTests.Rules
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK, TestProject.TestBook.ACT);
 			m_testProject.IncludedBooks[0].SingleVoice = true;
 			m_keyStrokesPerCharacterId = m_testProject.GetKeyStrokesByCharacterId();
@@ -750,6 +784,7 @@ namespace GlyssenTests.Rules
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
 		}
 
 		[SetUp]

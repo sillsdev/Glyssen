@@ -117,38 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TestACT" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestACT.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="TestCharacterDetail" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestCharacterDetail.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="TestCharacterDetailOct2015" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestCharacterDetailOct2015.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="TestCharacterGroups" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestCharacterGroups.xlsx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TestCharacterVerse" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestCharacterVerse.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="TestCharacterVerseOct2015" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestCharacterVerseOct2015.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="TestJUD" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestJUD.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="TestLUK" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestLUK.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="TestMRK" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestMRK.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="TestRelatedCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestRelatedCharacters.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="TestVersification" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestVersification.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
+  <metadata name="m_l10NSharpExtender.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

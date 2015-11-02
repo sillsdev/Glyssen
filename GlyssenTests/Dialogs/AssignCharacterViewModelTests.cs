@@ -128,7 +128,7 @@ namespace GlyssenTests.Dialogs
 		{
 			FindRefInMark(5, 9);
 			var characters = m_model.GetUniqueCharacters().ToList();
-			Assert.AreEqual(79, characters.Count);
+			Assert.AreEqual(80, characters.Count);
 			Assert.IsTrue(characters.Any(c => c.IsNarrator));
 			Assert.IsTrue(characters.Any(c => c.CharacterId == "Jesus"));
 			Assert.IsTrue(characters.Any(c => c.CharacterId == "demons (Legion)/man delivered from Legion of demons"));

@@ -265,6 +265,15 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string RelatedCharacters {
+            get {
+                return ResourceManager.GetString("RelatedCharacters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap RemoveActor {

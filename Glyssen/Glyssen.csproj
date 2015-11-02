@@ -74,6 +74,10 @@
     <Reference Include="Geckofx-Winforms">
       <HintPath>..\lib\dotnet\Geckofx-Winforms.dll</HintPath>
     </Reference>
+    <Reference Include="icu.net, Version=1.2.0.0, Culture=neutral, PublicKeyToken=416fdd914afa6b66, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\dotnet\icu.net.dll</HintPath>
+    </Reference>
     <Reference Include="L10NSharp">
       <HintPath>..\lib\dotnet\L10NSharp.dll</HintPath>
     </Reference>
@@ -157,6 +161,7 @@
     <Compile Include="Character\ICharacterVerseInfo.cs" />
     <Compile Include="Character\ProjectCharacterDetailData.cs" />
     <Compile Include="Character\ProjectCharacterVerseData.cs" />
+    <Compile Include="Character\RelatedCharacters.cs" />
     <Compile Include="Controls\AutoScrollGrid.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -207,6 +212,15 @@
     </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
     <Compile Include="Controls\VoiceActorInformationViewModel.cs" />
+    <Compile Include="Dialogs\ExportDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ExportDlg.Designer.cs">
+      <DependentUpon>ExportDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\GenerateGroupsProgressDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dialogs\VoiceActorUndoAction.cs" />
     <Compile Include="Dialogs\CharacterGroupsUndoAction.cs" />
     <Compile Include="Dialogs\SelectExistingProjectDlg.cs">
@@ -368,6 +382,9 @@
     <EmbeddedResource Include="Dialogs\AssignCharacterDlg.resx">
       <DependentUpon>AssignCharacterDlg.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ExportDlg.resx">
+      <DependentUpon>ExportDlg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SelectExistingProjectDlg.resx">
       <DependentUpon>SelectExistingProjectDlg.cs</DependentUpon>
     </EmbeddedResource>
@@ -463,6 +480,18 @@
     <None Include="Resources\112_Plus_Green_16x16_72.png" />
     <None Include="Resources\CharacterDetail.txt" />
     <None Include="Resources\bluelock.png" />
+    <Content Include="..\lib\dotnet\icudt54.dll">
+      <Link>icudt54.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\lib\dotnet\icuin54.dll">
+      <Link>icuin54.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\lib\dotnet\icuuc54.dll">
+      <Link>icuuc54.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\CharacterVerse.txt" />
     <None Include="Resources\grid-icon.png" />
     <None Include="Resources\html-view.png" />
@@ -475,6 +504,7 @@
     <None Include="Resources\people.png" />
     <None Include="Resources\RemoveActor.png" />
     <None Include="Resources\redo.png" />
+    <None Include="Resources\RelatedCharacters.xml" />
     <None Include="Resources\RemoveGridRowHot.png" />
     <None Include="Resources\RemoveGridRowNormal.png" />
     <Content Include="Resources\search_glyph.png" />

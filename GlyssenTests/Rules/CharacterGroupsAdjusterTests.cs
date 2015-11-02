@@ -5,7 +5,6 @@ using Glyssen.Rules;
 using Glyssen.VoiceActor;
 using GlyssenTests.Properties;
 using NUnit.Framework;
-using SIL.Extensions;
 using SIL.Scripture;
 
 namespace GlyssenTests.Rules
@@ -21,6 +20,7 @@ namespace GlyssenTests.Rules
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetailOct2015;
+			RelatedCharactersData.Source = null;
 			CreateTestProject();
 		}
 

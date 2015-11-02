@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--This file is generated and then updated by an MSBuild task.  It preserves the automatically-generated guids assigned files that will be installed on user machines. So it should be held in source control.-->
 <InstallerMetadata>
-  <File Id="rogramDir.localization.Glyssen.en.tmx" Guid="cc24f678-72d8-460b-b74d-aaf5e9b2e559" />
   <File Id="ProgramDir.localization.Glyssen.en.tmx" Guid="727a69ca-6cfd-4a54-bf9d-ca97ad55b57c" />
   <File Id="ProgramDir.localization.Glyssen.es.tmx" Guid="a9d21844-a3af-4f33-b8ef-4b443bec4f4f" />
   <File Id="ProgramDir.localization.Glyssen.fr.tmx" Guid="269ab3a0-5fc9-4c20-a949-51ab1df2a923" />
   <File Id="ProgramDir.localization.Glyssen.pt.tmx" Guid="7c84742f-e11c-4175-96ea-5b10443b3907" />
-  <File Id="ProgramDir.localization.Glyssen.zh_Hans.tmx" Guid="9d41c901-c30f-4a5b-8b7f-1338461691d3" />
-  <File Id="ProgramDir.localization.Glyssen.zh_Hant.tmx" Guid="b5b99b3f-da8f-4166-ada6-d68f224719d1" />
+  <File Id="ProgramDir.localization.Glyssen.zh_hans.tmx" Guid="7ea9a3e3-84eb-4285-b85c-0412f84e95c4" />
+  <File Id="ProgramDir.localization.Glyssen.zh_hant.tmx" Guid="315187bd-1537-4aa6-bde3-f268c9a334a0" />
+  <File Id="ProgramDir.localization.Palaso.es.tmx" Guid="15a0e9d6-76a9-4f06-9b6f-7575b12acbd1" />
 </InstallerMetadata>

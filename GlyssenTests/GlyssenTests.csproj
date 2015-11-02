@@ -104,6 +104,7 @@
     <Compile Include="Character\CharacterGroupTests.cs" />
     <Compile Include="Character\CharacterVerseDataTests.cs" />
     <Compile Include="Character\ProjectCharacterVerseDataTests.cs" />
+    <Compile Include="Character\RelatedCharactersTests.cs" />
     <Compile Include="Controls\BrowserTests.cs" />
     <Compile Include="BookScriptTests.cs" />
     <Compile Include="Dialogs\BlockNavigatorViewModelTests.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Dialogs\VoiceActorEditingUndoActionTests.cs" />
     <Compile Include="Dialogs\VoiceActorInformationViewModelTests.cs" />
     <Compile Include="ProjectExportTests.cs" />
+    <Compile Include="ProjectTests.cs" />
     <Compile Include="Rules\CharacterGroupsAdjusterTests.cs" />
     <Compile Include="Quote\QuoteUtilsTests.cs" />
     <Compile Include="Quote\QuoteParserTests.cs" />
@@ -173,8 +175,10 @@
     <None Include="Resources\TestJUD.xml" />
     <None Include="Resources\TestACT.xml" />
     <None Include="Resources\TestCharacterDetailOct2015.txt" />
+    <None Include="Resources\TestCharacterDetail.txt" />
     <Content Include="Resources\TestCharacterVerseOct2015.txt" />
     <Content Include="Resources\TestLUK.xml" />
+    <None Include="Resources\TestRelatedCharacters.xml" />
     <Content Include="Resources\TestVersification.txt" />
   </ItemGroup>
   <ItemGroup />

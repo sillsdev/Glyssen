@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using Glyssen.Character;
 
 namespace Glyssen.Rules
 {
@@ -17,33 +19,49 @@ namespace Glyssen.Rules
 		/// <summary>
 		/// Calculate the minimum number of blocks between two character ids in given collection
 		/// </summary>
-		public MinimumProximity CalculateMinimumProximity(ISet<string> characterIds, bool handleEachBookSeparately = true)
+		public MinimumProximity CalculateMinimumProximity(ISet<string> characterIdsToCalculate, bool handleEachBookSeparately = true)
 		{
+			RelatedCharactersData relChar = RelatedCharactersData.Singleton;
 			bool foundFirst = false;
 			int currentBlockCount = 0;
 			int minProximity = Int32.MaxValue;
-			string prevCharacterId = "";
+			ISet<string> prevMatchingCharacterIds = new HashSet<string>();
 			BookScript firstBook = null;
 			Block firstBlock = null;
 			BookScript secondBook = null;
 			Block secondBlock = null;
 			BookScript prevBook = null;
 			Block prevBlock = null;
+			bool breakOutOfBothLoops = false;
+
+			ISet<string> characterIdsWithAgeVariations =
+				relChar.GetCharacterIdsForType(CharacterRelationshipType.SameCharacterWithMultipleAges);
+
 			foreach (var book in m_project.IncludedBooks)
 			{
+				if (breakOutOfBothLoops)
+					break;
+
 				if (handleEachBookSeparately)
 					currentBlockCount += 50;
 
 				foreach (var block in book.Blocks)
 				{
-					var character = block.CharacterIdInScript;
-					if (character == prevCharacterId)
+					var characterId = block.CharacterIdInScript;
+
+					ISet<string> matchingCharacterIds;
+					if (characterIdsWithAgeVariations.Contains(characterId))
+						matchingCharacterIds = relChar.GetMatchingCharacterIds(characterId, CharacterRelationshipType.SameCharacterWithMultipleAges);
+					else
+						matchingCharacterIds = new HashSet<string> { characterId };
+
+					if (matchingCharacterIds.Intersect(prevMatchingCharacterIds).Any())
 					{
 						currentBlockCount = 0;
 						prevBook = book;
 						prevBlock = block;
 					}
-					else if (characterIds.Contains(character))
+					else if (characterIdsToCalculate.Intersect(matchingCharacterIds).Any())
 					{
 						if (foundFirst)
 						{
@@ -56,7 +74,10 @@ namespace Glyssen.Rules
 								secondBlock = block;
 
 								if (minProximity == 0)
-									goto CreateObjectAndReturn;
+								{
+									breakOutOfBothLoops = true;
+									break;
+								}
 							}
 						}
 						else
@@ -68,7 +89,8 @@ namespace Glyssen.Rules
 						}
 						foundFirst = true;
 						currentBlockCount = 0;
-						prevCharacterId = character;
+						prevMatchingCharacterIds = matchingCharacterIds;
+
 						prevBook = book;
 						prevBlock = block;
 					}
@@ -79,7 +101,6 @@ namespace Glyssen.Rules
 				}
 			}
 
-			CreateObjectAndReturn:
 			return new MinimumProximity
 			{
 				NumberOfBlocks = minProximity,

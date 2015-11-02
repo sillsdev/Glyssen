@@ -89,6 +89,11 @@ namespace Glyssen.Character
 			return CharacterGroups.FirstOrDefault(g => g.Name == name);
 		}
 
+		public IEnumerable<CharacterGroup> AssignedGroups
+		{
+			get { return CharacterGroups.Where(g => g.IsVoiceActorAssigned); }
+		}
+
 		/// <summary>
 		/// Note: There should only ever be one such group, but early on, Glyssen would allow the same
 		/// actor to be assigned to multiple groups, so for compatibility reasons, we allow for this.
