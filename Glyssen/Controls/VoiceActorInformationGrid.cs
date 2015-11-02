@@ -5,7 +5,8 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using DesktopAnalytics;
-using Glyssen.Character;
+using Glyssen.Properties;
+using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.Reporting;
 
@@ -14,14 +15,27 @@ namespace Glyssen.Controls
 	public partial class VoiceActorInformationGrid : UserControl
 	{
 		public event EventHandler Saved;
-		public event DataGridViewRowEventHandler UserAddedRow;
-		public event DataGridViewRowsRemovedEventHandler UserRemovedRows;
+		public event EventHandler RowCountChanged;
 		private VoiceActorInformationViewModel m_actorInformationViewModel;
 		private bool m_inEndEdit;
+		private int m_selectedActorsRemainingToDelete;
+
+		// See http://stackoverflow.com/questions/937919/datagridviewimagecolumn-red-x
+		private class DataGridViewEmptyImageCell : DataGridViewImageCell
+		{
+			private static readonly Image s_emptyBitmap = new Bitmap(1, 1);
+			public static Image EmptyBitmap {get { return s_emptyBitmap; }}
+
+			public override object DefaultNewRowValue { get { return EmptyBitmap; } }
+		}
 
 		public VoiceActorInformationGrid()
 		{
 			InitializeComponent();
+
+			// See http://stackoverflow.com/questions/937919/datagridviewimagecolumn-red-x
+			DeleteButtonCol.DefaultCellStyle.NullValue = null;
+			DeleteButtonCol.CellTemplate = new DataGridViewEmptyImageCell();
 
 			m_dataGrid.DataError += m_dataGrid_DataError;
 
@@ -42,7 +56,6 @@ namespace Glyssen.Controls
 			m_dataGrid.AllowUserToAddRows = true;
 			m_dataGrid.MultiSelect = true;
 			m_dataGrid.EditMode = DataGridViewEditMode.EditOnEnter;
-			m_dataGrid.UserAddedRow += HandleUserAddedRow;
 		}
 
 		void m_dataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -52,7 +65,17 @@ namespace Glyssen.Controls
 			throw e.Exception;
 		}
 
-		public int RowCount { get { return m_dataGrid.RowCount; } }
+		public int RowCount
+		{
+			get { return m_dataGrid.RowCount; }
+			private set
+			{
+				if (m_dataGrid.RowCount == value || value == 0)
+					return;
+				m_dataGrid.RowCount = value;
+				OnRowCountChanged();
+			}
+		}
 
 		private DataGridViewSelectedRowCollection SelectedRows
 		{
@@ -74,22 +97,21 @@ namespace Glyssen.Controls
 		public void Initialize(VoiceActorInformationViewModel viewModel, bool sort = true)
 		{
 			m_actorInformationViewModel = viewModel;
+			RowCount = m_actorInformationViewModel.Actors.Count;
+
 			m_actorInformationViewModel.Saved += m_actorInformationViewModel_Saved;
+		}
 
-			m_dataGrid.DataSource = m_actorInformationViewModel.BindingList;
-
-			if (sort)
-				m_dataGrid.Sort(m_dataGrid.Columns["ActorName"], ListSortDirection.Ascending);
+		private void DeleteActor(int iRow)
+		{
+			foreach (DataGridViewRow row in m_dataGrid.Rows)
+				row.Selected = row.Index == iRow;
+			RemoveSelectedRows();
 		}
 
 		private void SaveVoiceActorInformation()
 		{
 			m_actorInformationViewModel.SaveVoiceActorInformation();
-		}
-
-		public DataGridViewEditMode EditMode
-		{
-			set { m_dataGrid.EditMode = value; }
 		}
 
 		protected override void OnHandleCreated(EventArgs e)
@@ -137,17 +159,14 @@ namespace Glyssen.Controls
 			if (m_dataGrid.SelectedRows.Count == 0)
 				return;
 
-			var actorsToRemove = new HashSet<VoiceActor.VoiceActor>();
-			foreach (DataGridViewRow row in m_dataGrid.SelectedRows)
-				actorsToRemove.Add(row.DataBoundItem as VoiceActor.VoiceActor);
+			m_selectedActorsRemainingToDelete = GetCountOfConfirmedActorsToDelete();
 
-			int indexOfFirstRowToRemove = m_dataGrid.SelectedRows[0].Index;
-			if (m_actorInformationViewModel.DeleteVoiceActors(actorsToRemove))
-			{
-				DataGridViewRowsRemovedEventHandler handler = UserRemovedRows;
-				if (handler != null)
-					handler(m_dataGrid, new DataGridViewRowsRemovedEventArgs(indexOfFirstRowToRemove, m_dataGrid.RowCount));
-			}
+			if (m_selectedActorsRemainingToDelete == 0)
+				return;
+
+			foreach (DataGridViewRow row in m_dataGrid.SelectedRows)
+				if (!row.IsNewRow)
+					m_dataGrid.Rows.Remove(row);
 		}
 
 		public Color BackgroundColor
@@ -160,19 +179,6 @@ namespace Glyssen.Controls
 		{
 			if (e.ClickedItem == m_contextMenu_itemDeleteActors)
 				RemoveSelectedRows();
-		}
-
-		private void HandleKeyDown(object sender, KeyEventArgs e)
-		{
-			if (e.KeyData == Keys.Delete)
-				RemoveSelectedRows();
-		}
-
-		private void HandleUserAddedRow(object sender, DataGridViewRowEventArgs e)
-		{
-			DataGridViewRowEventHandler handler = UserAddedRow;
-			if (handler != null)
-				handler(sender, e);
 		}
 
 		private void m_actorInformationViewModel_Saved(object sender, EventArgs e)
@@ -221,15 +227,15 @@ namespace Glyssen.Controls
 
 		private void m_dataGrid_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
 		{
-			if (e.ColumnIndex == m_dataGrid.Columns["ActorName"].Index)
+			if (e.ColumnIndex == ActorName.Index)
 			{
-				if (!m_dataGrid.Rows[e.RowIndex].IsNewRow && string.IsNullOrWhiteSpace(e.FormattedValue.ToString()))
-				{
-					e.Cancel = true;
-					if (!m_inEndEdit)
-						MessageBox.Show(LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.InvalidName", "Actor Name must be provided."));
-				}
-				else if (IsDuplicateActorName(m_dataGrid.Rows[e.RowIndex], e.FormattedValue.ToString()))
+				VoiceActor.VoiceActor editedActor = e.RowIndex < m_actorInformationViewModel.Actors.Count
+					? m_actorInformationViewModel.Actors[e.RowIndex]
+					: null;
+				Debug.Assert(editedActor != null);
+
+				if (!string.IsNullOrWhiteSpace(e.FormattedValue.ToString()) &&
+					m_actorInformationViewModel.IsDuplicateActorName(editedActor, e.FormattedValue.ToString()))
 				{
 					e.Cancel = true;
 					if (!m_inEndEdit)
@@ -238,17 +244,28 @@ namespace Glyssen.Controls
 			}
 		}
 
-		private bool IsDuplicateActorName(DataGridViewRow modifiedRow, string newActorName)
+		private void m_dataGrid_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
 		{
-			foreach (var rowObj in m_dataGrid.Rows)
+			VoiceActor.VoiceActor editedActor = e.RowIndex < m_actorInformationViewModel.Actors.Count
+				? m_actorInformationViewModel.Actors[e.RowIndex]
+				: null;
+			Debug.Assert(editedActor != null);
+			if (string.IsNullOrWhiteSpace(editedActor.Name))
 			{
-				DataGridViewRow row = rowObj as DataGridViewRow;
-				if (row == null || row.IsNewRow || row == modifiedRow)
-					continue;
-				if (row.Cells["ActorName"].Value.ToString() == newActorName)
-					return true;
+				if (m_dataGrid.Rows[e.RowIndex].IsNewRow)
+					m_dataGrid.CancelEdit();
+				else
+				{
+					e.Cancel = true;
+					if (!m_inEndEdit)
+					{
+						MessageBox.Show(LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.InvalidName",
+							"Actor Name must be provided."));
+						if (m_dataGrid.CurrentCellAddress.X != ActorName.Index)
+							m_dataGrid.CurrentCell = m_dataGrid.Rows[e.RowIndex].Cells[ActorName.Index];
+					}
+				}
 			}
-			return false;
 		}
 
 		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -269,6 +286,164 @@ namespace Glyssen.Controls
 				m_dataGrid.Rows.GetLastRow(DataGridViewElementStates.Visible) == m_dataGrid.CurrentRow.Index)
 				return;
 			SendKeys.Send("{TAB}");
+		}
+
+		private void m_dataGrid_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
+		{
+			if (e.RowIndex >= m_actorInformationViewModel.Actors.Count)
+				return;
+
+			var actor = m_actorInformationViewModel.Actors[e.RowIndex];
+			if (e.ColumnIndex == ActorName.Index)
+				e.Value = actor.Name;
+			else if (e.ColumnIndex == ActorGender.Index)
+				e.Value = actor.Gender;
+			else if (e.ColumnIndex == ActorAge.Index)
+				e.Value = actor.Age;
+			else if (e.ColumnIndex == ActorStatus.Index)
+				e.Value = actor.Status;
+			else if (e.ColumnIndex == ActorQuality.Index)
+				e.Value = actor.VoiceQuality;
+			else if (e.ColumnIndex == Cameo.Index)
+				e.Value = actor.IsCameo;
+			else if (e.ColumnIndex == DeleteButtonCol.Index)
+			{
+				if (m_dataGrid.Rows[e.RowIndex].IsNewRow)
+					e.Value = DataGridViewEmptyImageCell.EmptyBitmap;
+				else
+				{
+					var rc = m_dataGrid.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
+					bool mouseOverRemoveImage = rc.Contains(PointToClient(MousePosition));
+
+					if (m_dataGrid.CurrentCellAddress.Y == e.RowIndex || mouseOverRemoveImage)
+						e.Value = (mouseOverRemoveImage ? Resources.RemoveGridRowHot : DeleteButtonCol.Image);
+				}
+			}
+		}
+
+		private void m_dataGrid_CellValuePushed(object sender, DataGridViewCellValueEventArgs e)
+		{
+			VoiceActor.VoiceActor actor = m_actorInformationViewModel.Actors[e.RowIndex];
+
+			if (e.Value == null)
+				return;
+
+			if (e.ColumnIndex == ActorName.Index)
+				actor.Name = (string)e.Value;
+			else if (e.ColumnIndex == ActorGender.Index)
+				actor.Gender = (ActorGender)e.Value;
+			else if (e.ColumnIndex == ActorAge.Index)
+				actor.Age = (ActorAge)e.Value;
+			else if (e.ColumnIndex == ActorStatus.Index)
+				actor.Status = (bool)e.Value;
+			else if (e.ColumnIndex == ActorQuality.Index)
+				actor.VoiceQuality = (VoiceQuality)e.Value;
+			else if (e.ColumnIndex == Cameo.Index)
+				actor.IsCameo = (bool)e.Value;
+		}
+
+		private void m_dataGrid_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+		{
+			if (m_selectedActorsRemainingToDelete > 0)
+			{
+				m_selectedActorsRemainingToDelete--;
+				var actorsToRemove = new HashSet<VoiceActor.VoiceActor>();
+				actorsToRemove.Add(m_actorInformationViewModel.Actors[e.RowIndex]);
+				m_actorInformationViewModel.DeleteVoiceActors(actorsToRemove);
+			}
+			OnRowCountChanged(e);
+		}
+
+		private void m_dataGrid_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+		{
+			OnRowCountChanged(e);
+		}
+
+		private void OnRowCountChanged(EventArgs e = null)
+		{
+			if (RowCountChanged != null)
+				RowCountChanged(m_dataGrid, e ?? new EventArgs());
+		}
+
+		private void HandleUserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+		{
+			if (e.Row.Index >= m_actorInformationViewModel.Actors.Count)
+				return; // Deleting new row by pressing escape - can't cancel this.
+
+			if (m_selectedActorsRemainingToDelete == 0)
+			{
+				m_selectedActorsRemainingToDelete = GetCountOfConfirmedActorsToDelete();
+				if (m_selectedActorsRemainingToDelete == 0)
+					e.Cancel = true;
+			}
+		}
+
+		private int GetCountOfConfirmedActorsToDelete()
+		{
+			var actorsToRemove = new HashSet<VoiceActor.VoiceActor>();
+			foreach (DataGridViewRow row in m_dataGrid.SelectedRows)
+				actorsToRemove.Add(m_actorInformationViewModel.Actors[row.Index]);
+
+			int countOfActorsToDelete = actorsToRemove.Count;
+			int countOfAssignedActorsToDelete = m_actorInformationViewModel.CountOfAssignedActors(actorsToRemove);
+
+			string msg;
+			string title;
+
+			if (countOfAssignedActorsToDelete > 0)
+			{
+				if (countOfActorsToDelete > 1)
+				{
+					msg =
+						LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.MessagePlural",
+							"One or more of the selected actors is assigned to a character group. Deleting the actor will remove the assignment as well. Are you sure you want to delete the selected actors?");
+					title =
+						LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.TitlePlural",
+							"Voice Actors Assigned");
+				}
+				else
+				{
+					msg =
+						LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.MessageSingular",
+							"The selected actor is assigned to a character group. Deleting the actor will remove the assignment as well. Are you sure you want to delete the selected actor?");
+					title =
+						LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteAssignedActorsDialog.TitleSingular",
+							"Voice Actor Assigned");
+				}
+			}
+			else
+			{
+				title = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.Title", "Confirm");
+
+				if (countOfActorsToDelete > 1)
+				{
+					msg = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.MessagePlural",
+						"Are you sure you want to delete the selected actors?");
+				}
+				else
+				{
+					msg = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.DeleteRowsDialog.MessageSingular",
+						"Are you sure you want to delete the selected actor?");
+				}
+			}
+			return MessageBox.Show(msg, title, MessageBoxButtons.YesNo) == DialogResult.No ? 0 : actorsToRemove.Count;
+		}
+
+		private void m_dataGrid_NewRowNeeded(object sender, DataGridViewRowEventArgs e)
+		{
+			m_actorInformationViewModel.AddNewActor();
+		}
+
+		private void m_dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+			if (e.ColumnIndex == DeleteButtonCol.Index && e.RowIndex >= 0 && !m_dataGrid.Rows[e.RowIndex].IsNewRow)
+				DeleteActor(e.RowIndex);
+		}
+
+		private void m_dataGrid_CellMouseEnterOrLeave(object sender, DataGridViewCellEventArgs e)
+		{
+			if (e.ColumnIndex == DeleteButtonCol.Index && e.RowIndex >= 0 && e.RowIndex < m_actorInformationViewModel.Actors.Count)
+				m_dataGrid.InvalidateCell(e.ColumnIndex, e.RowIndex);
 		}
 	}
 }

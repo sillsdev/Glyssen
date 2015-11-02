@@ -118,7 +118,7 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	79
+        ///   Looks up a localized string similar to Control File Version	82
         ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
         ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
         ///# PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -270,6 +270,26 @@ namespace Glyssen.Properties {
         internal static System.Drawing.Bitmap RemoveActor {
             get {
                 object obj = ResourceManager.GetObject("RemoveActor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RemoveGridRowHot {
+            get {
+                object obj = ResourceManager.GetObject("RemoveGridRowHot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RemoveGridRowNormal {
+            get {
+                object obj = ResourceManager.GetObject("RemoveGridRowNormal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

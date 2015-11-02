@@ -475,6 +475,8 @@
     <None Include="Resources\people.png" />
     <None Include="Resources\RemoveActor.png" />
     <None Include="Resources\redo.png" />
+    <None Include="Resources\RemoveGridRowHot.png" />
+    <None Include="Resources\RemoveGridRowNormal.png" />
     <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />
   </ItemGroup>

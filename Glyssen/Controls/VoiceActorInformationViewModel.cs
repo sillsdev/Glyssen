@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using Glyssen.Character;
@@ -8,7 +7,6 @@ using Glyssen.Dialogs;
 using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.Extensions;
-using SIL.ObjectModel;
 
 namespace Glyssen.Controls
 {
@@ -24,44 +22,40 @@ namespace Glyssen.Controls
 
 		public EventHandler Saved;
 
-		public delegate void DeletingActorsHandler(VoiceActorInformationViewModel sender, DeletingActorsEventArgs e);
-
-		public event DeletingActorsHandler DeletingActors;
-
 		public VoiceActorInformationViewModel(Project project)
 		{
 			m_currentId = 0;
 			m_project = project;
-			var actors = m_project.VoiceActorList.Actors;
-			if (actors.Any())
-				m_currentId = actors.Max(a => a.Id) + 1;
-			BindingList = new SortableBindingList<VoiceActor.VoiceActor>(actors);
-			BindingList.AddingNew += HandleAddingNew;
+			if (Actors.Any())
+				m_currentId = Actors.Max(a => a.Id) + 1;
 
-			foreach (var actor in project.VoiceActorList.Actors)
+			foreach (var actor in Actors)
 			{
 				var characterGroup = project.CharacterGroupList.GetGroupsAssignedToActor(actor.Id).FirstOrDefault();
 				m_originalActors.Add(new Tuple<VoiceActor.VoiceActor, CharacterGroup>(actor.MakeCopy(), characterGroup));
 			}
 		}
 
-		public SortableBindingList<VoiceActor.VoiceActor> BindingList { get; set; }
-
-		public int ActorCount { get { return m_project.VoiceActorList.Actors.Count; } }
+		public List<VoiceActor.VoiceActor> Actors { get { return m_project.VoiceActorList.Actors; } }
 
 		public void SaveVoiceActorInformation()
 		{
 			m_project.SaveVoiceActorInformationData();
 
 			if (Saved != null)
-			{
-				Saved(BindingList, EventArgs.Empty);
-			}
+				Saved(this, EventArgs.Empty);
 		}
 
-		private void HandleAddingNew(object sender, AddingNewEventArgs e)
+		public VoiceActor.VoiceActor AddNewActor()
 		{
-			e.NewObject = new VoiceActor.VoiceActor { Id = m_currentId++ };
+			var actor = new VoiceActor.VoiceActor { Id = m_currentId++ };
+			Actors.Add(actor);
+			return actor;
+		}
+
+		public bool IsActorAssigned(VoiceActor.VoiceActor actor)
+		{
+			return m_project.CharacterGroupList.HasVoiceActorAssigned(actor.Id);
 		}
 
 		public bool DeleteVoiceActors(ISet<VoiceActor.VoiceActor> actors)
@@ -69,25 +63,20 @@ namespace Glyssen.Controls
 			if (!actors.Any())
 				return false;
 
-			int actorsAssignedCount = actors.Count(t => m_project.CharacterGroupList.HasVoiceActorAssigned(t.Id));
-
-			if (DeletingActors != null)
+			bool assignedActorRemoved = false;
+			foreach (var voiceActor in actors)
 			{
-				var e = new DeletingActorsEventArgs(actors.Count, actorsAssignedCount);
-				DeletingActors(this, e);
-				if (e.Cancel)
-					return false;
-			}
-
-			if (actorsAssignedCount > 0)
-			{
-				foreach (var voiceActor in actors)
+				if (IsActorAssigned(voiceActor))
+				{
 					m_project.CharacterGroupList.RemoveVoiceActor(voiceActor.Id);
-				m_project.SaveCharacterGroupData();
+					assignedActorRemoved = true;
+				}
+				Actors.Remove(voiceActor);
 			}
+			if (assignedActorRemoved)
+				m_project.SaveCharacterGroupData();
 
 			m_removedActorIds.AddRange(actors.Select(a => a.Id));
-			BindingList.RemoveAll(actors.Contains);
 			SaveVoiceActorInformation();
 
 			return true;
@@ -145,17 +134,15 @@ namespace Glyssen.Controls
 					m_undoActions.Add(new VoiceActorEditUndoAction(m_project, originalActor.Item1));
 			}
 		}
-	}
 
-	public class DeletingActorsEventArgs : CancelEventArgs
-	{
-		public int CountOfActorsToDelete { get; private set; }
-		public int CountOfAssignedActorsToDelete { get; private set; }
-
-		public DeletingActorsEventArgs(int countOfActorsToDelete, int countOfAssignedActorsToDelete)
+		public bool IsDuplicateActorName(VoiceActor.VoiceActor editedVoiceActor, string newActorName)
 		{
-			CountOfActorsToDelete = countOfActorsToDelete;
-			CountOfAssignedActorsToDelete = countOfAssignedActorsToDelete;
+			return Actors.Where(a => a != editedVoiceActor).Any(actor => actor.Name == newActorName);
+		}
+
+		public int CountOfAssignedActors(HashSet<VoiceActor.VoiceActor> actorsToRemove)
+		{
+			return actorsToRemove.Count(IsActorAssigned);
 		}
 	}
 }
