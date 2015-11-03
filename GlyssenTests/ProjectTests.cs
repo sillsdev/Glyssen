@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using Glyssen;
@@ -15,24 +16,33 @@ namespace GlyssenTests
 {
 	class ProjectTests
 	{
-		public const string kTest = "test~~ProjectTests";
+		private readonly HashSet<string> m_tempProjectFolders = new HashSet<string>();
+		private GlyssenBundle GetGlyssenBundleToBeUsedForProject(bool includeLdml = true)
+		{
+			var bundle = GlyssenBundleTests.GetNewGlyssenBundleForTest(includeLdml);
+			m_tempProjectFolders.Add(Path.Combine(Program.BaseDataFolder, bundle.Metadata.Id));
+			return bundle;
+		}
 
 		[TestFixtureSetUp]
 		public void TestFixtureSetup()
 		{
-			DirectoryUtilities.DeleteDirectoryRobust(Path.Combine(Program.BaseDataFolder, kTest));
+			// Clean up anything from previously aborted tests
+			foreach (var directory in Directory.GetDirectories(Program.BaseDataFolder, GlyssenBundleTests.kTestBundleIdPrefix + "*"))
+				DirectoryUtilities.DeleteDirectoryRobust(directory);				
 		}
 
 		[TestFixtureTearDown]
 		public void TestFixtureTeardown()
 		{
-			DirectoryUtilities.DeleteDirectoryRobust(Path.Combine(Program.BaseDataFolder, kTest));
+			foreach (var folder in m_tempProjectFolders)
+				DirectoryUtilities.DeleteDirectoryRobust(folder);				
 		}
 
 		[Test]
 		public void CreateFromBundle_BundleContainsQuoteInformation_LoadsQuoteSystemFromBundle()
 		{
-			var bundle = GlyssenBundleTests.GetNewGlyssenBundleForTest();
+			var bundle = GetGlyssenBundleToBeUsedForProject();
 			var bogusQuoteSystem = new QuoteSystem(new QuotationMark("^", "^^", "^^^", 1, QuotationMarkingSystemType.Normal));
 			bundle.WritingSystemDefinition.QuotationMarks.Clear();
 			bundle.WritingSystemDefinition.QuotationMarks.AddRange(bogusQuoteSystem.AllLevels);
@@ -49,7 +59,7 @@ namespace GlyssenTests
 		[Test]
 		public void CreateFromBundle_BundleDoesNotContainQuoteInformation_GuessesQuoteSystem()
 		{
-			var bundle = GlyssenBundleTests.GetNewGlyssenBundleForTest();
+			var bundle = GetGlyssenBundleToBeUsedForProject();
 			bundle.WritingSystemDefinition.QuotationMarks.Clear();
 			var project = new Project(bundle);
 
@@ -64,13 +74,13 @@ namespace GlyssenTests
 		[Test]
 		public void UpdateProjectFromBundleData()
 		{
-			var originalBundle = GlyssenBundleTests.GetNewGlyssenBundleForTest();
+			var originalBundle = GetGlyssenBundleToBeUsedForProject();
 			originalBundle.Metadata.FontSizeInPoints = 10;
 			var project = new Project(originalBundle);
 
 			Assert.AreEqual(10, project.FontSizeInPoints);
 
-			var newBundle = GlyssenBundleTests.GetNewGlyssenBundleForTest();
+			var newBundle = GetGlyssenBundleToBeUsedForProject();
 			originalBundle.Metadata.FontSizeInPoints = 12;
 			project.UpdateProjectFromBundleData(newBundle);
 
@@ -80,13 +90,13 @@ namespace GlyssenTests
 		[Test]
 		public void UpdateProjectFromBundleData_BundleDoesNotContainLdmlFile_MaintainsOriginalQuoteSystem()
 		{
-			var originalBundle = GlyssenBundleTests.GetNewGlyssenBundleForTest();
+			var originalBundle = GetGlyssenBundleToBeUsedForProject();
 			originalBundle.WritingSystemDefinition.QuotationMarks[0] = new QuotationMark("open", "close", "cont", 1, QuotationMarkingSystemType.Normal);
 			var project = new Project(originalBundle);
 
 			Assert.AreEqual("open", project.QuoteSystem.FirstLevel.Open);
 
-			var newBundle = GlyssenBundleTests.GetNewGlyssenBundleForTest(false);
+			var newBundle = GetGlyssenBundleToBeUsedForProject(false);
 			Assert.IsNull(newBundle.WritingSystemDefinition);
 			project.UpdateProjectFromBundleData(newBundle);
 
@@ -96,7 +106,7 @@ namespace GlyssenTests
 		[Test]
 		public void CopyQuoteMarksIfAppropriate_TargetWsHasNoQuotes_TargetReceivesQuotes()
 		{
-			var originalBundle = GlyssenBundleTests.GetNewGlyssenBundleForTest();
+			var originalBundle = GetGlyssenBundleToBeUsedForProject();
 			var project = new Project(originalBundle);
 			project.Status.QuoteSystemStatus = QuoteSystemStatus.UserSet;
 
@@ -111,7 +121,7 @@ namespace GlyssenTests
 		[Test]
 		public void CopyQuoteMarksIfAppropriate_TargetWsHasQuotes_TargetQuotesObtained_TargetDoesNotReceiveQuotes()
 		{
-			var originalBundle = GlyssenBundleTests.GetNewGlyssenBundleForTest();
+			var originalBundle = GetGlyssenBundleToBeUsedForProject();
 			var project = new Project(originalBundle);
 			project.Status.QuoteSystemStatus = QuoteSystemStatus.Obtained;
 
@@ -131,7 +141,7 @@ namespace GlyssenTests
 		[Test]
 		public void CopyQuoteMarksIfAppropriate_TargetWsHasLessQuoteLevelsThanOriginal_CommonLevelsSame_TargetReceivesQuotes()
 		{
-			var originalBundle = GlyssenBundleTests.GetNewGlyssenBundleForTest();
+			var originalBundle = GetGlyssenBundleToBeUsedForProject();
 			var bogusQuoteSystem = new QuoteSystem(new BulkObservableList<QuotationMark>
 			{
 				new QuotationMark("^", "^^", "^^^", 1, QuotationMarkingSystemType.Normal),
@@ -158,7 +168,7 @@ namespace GlyssenTests
 		[Test]
 		public void CopyQuoteMarksIfAppropriate_TargetWsHasLessQuoteLevelsThanOriginal_CommonLevelsDifferent_TargetDoesNotReceiveQuotes()
 		{
-			var originalBundle = GlyssenBundleTests.GetNewGlyssenBundleForTest();
+			var originalBundle = GetGlyssenBundleToBeUsedForProject();
 			var bogusQuoteSystem = new QuoteSystem(new BulkObservableList<QuotationMark>
 			{
 				new QuotationMark("^", "^^", "^^^", 1, QuotationMarkingSystemType.Normal),
@@ -186,18 +196,23 @@ namespace GlyssenTests
 		public void QuoteSystem_Changed()
 		{
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
-			var originalBundle = originalBundleAndFile.Item1;
-			var originalBundleFile = originalBundleAndFile.Item2;
-			var project = new Project(originalBundle);
+			try
+			{
+				m_tempProjectFolders.Add(Path.Combine(Program.BaseDataFolder, originalBundleAndFile.Item1.Metadata.Id));
+				var originalBundle = originalBundleAndFile.Item1;
+				var project = new Project(originalBundle);
 
-			// Wait for project initialization to finish
-			while (project.ProjectState != ProjectState.FullyInitialized)
-				Thread.Sleep(100);
+				// Wait for project initialization to finish
+				while (project.ProjectState != ProjectState.FullyInitialized)
+					Thread.Sleep(100);
 
-			project.QuoteSystem = QuoteSystem.Default;
-
-			// Must dispose after because changing the quote system needs access to original bundle file
-			originalBundleFile.Dispose();
+				project.QuoteSystem = QuoteSystem.Default;
+			}
+			finally
+			{
+				// Must dispose after because changing the quote system needs access to original bundle file
+				originalBundleAndFile.Item2.Dispose();
+			}
 		}
 
 		[Test]
