@@ -57,5 +57,11 @@ namespace Glyssen.Controls
 		{
 			Project.SetHiddenFlag(SelectedProject, inactive);
 		}
+
+		public void ScrollToSelected()
+		{
+			if (SelectedProject != null)
+				m_list.FirstDisplayedScrollingRowIndex = m_list.SelectedCells[0].RowIndex;
+		}
 	}
 }

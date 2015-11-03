@@ -63,7 +63,10 @@ namespace Glyssen.Dialogs
 				m_listExistingProjects.GridSettings = Settings.Default.OpenProjectDlgGridSettings;
 
 			if (m_listExistingProjects.SelectedProject != null)
+			{
+				m_listExistingProjects.ScrollToSelected();
 				m_btnOk.Enabled = true;
+			}
 		}
 
 		protected override void OnClosing(CancelEventArgs e)
