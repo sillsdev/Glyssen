@@ -40,9 +40,7 @@ namespace Glyssen.Controls
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.SuspendLayout();
 
-			m_list.Columns.Add(colBundleName);
-			m_list.Columns.Add(colModifiedDate);
-			m_list.Columns.Add(colInactive);
+			m_list.Columns.AddRange(colBundleName, colModifiedDate, colInactive);
 			// 
 			// m_list
 			// 
@@ -57,7 +55,7 @@ namespace Glyssen.Controls
 			colBundleName.MinimumWidth = 50;
 			colBundleName.Name = "colBundleName";
 			colBundleName.ReadOnly = true;
-			colBundleName.Width = 94;
+			colBundleName.Width = 250;
 			//
 			// colModifiedDate
 			// 
@@ -66,7 +64,7 @@ namespace Glyssen.Controls
 			colModifiedDate.MinimumWidth = 50;
 			colModifiedDate.Name = "colModifiedDate";
 			colModifiedDate.ReadOnly = true;
-			colModifiedDate.Width = 94;
+			colModifiedDate.Width = 80;
 			// 
 			// colInactive
 			// 
