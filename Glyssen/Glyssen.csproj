@@ -180,9 +180,7 @@
       <DependentUpon>Browser.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ControlExtensions.cs" />
-    <Compile Include="Controls\DataGridViewListBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Controls\DataGridViewListBox.cs" />
     <Compile Include="Controls\DataGridViewMultiColumnComboBoxCell.cs" />
     <Compile Include="Controls\DataGridViewMultiColumnComboBoxColumn.cs" />
     <Compile Include="Controls\DataGridViewMultiColumnComboBoxEditingControl.cs">

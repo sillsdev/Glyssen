@@ -59,10 +59,14 @@ namespace Glyssen.Dialogs
 		{
 			Settings.Default.OpenProjectDlgFormSettings.InitializeForm(this);
 			base.OnLoad(e);
-			m_listExistingProjects.GridSettings = Settings.Default.OpenProjectDlgGridSettings;
+			if(Settings.Default.OpenProjectDlgGridSettings.Columns.Length == m_listExistingProjects.GridSettings.Columns.Length)	//Don't use settings based on old number of columns
+				m_listExistingProjects.GridSettings = Settings.Default.OpenProjectDlgGridSettings;
 
 			if (m_listExistingProjects.SelectedProject != null)
+			{
+				m_listExistingProjects.ScrollToSelected();
 				m_btnOk.Enabled = true;
+			}
 		}
 
 		protected override void OnClosing(CancelEventArgs e)
