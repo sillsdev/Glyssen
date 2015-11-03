@@ -1,4 +1,8 @@
-﻿using SIL.DblBundle.Text;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Glyssen.Quote;
+using SIL.DblBundle.Text;
+using SIL.WritingSystems;
 
 namespace Glyssen.Bundle
 {
@@ -6,7 +10,7 @@ namespace Glyssen.Bundle
 	{
 		static GlyssenBundle()
 		{
-			DefaultLanguageIsoCode = SIL.WritingSystems.WellKnownSubtags.UnlistedLanguage;
+			DefaultLanguageIsoCode = WellKnownSubtags.UnlistedLanguage;
 		}
 
 		public GlyssenBundle(string pathToZippedBundle) : base(pathToZippedBundle)
