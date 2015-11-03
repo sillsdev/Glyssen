@@ -34,12 +34,14 @@ namespace Glyssen.Controls
 			this.components = new System.ComponentModel.Container();
 			this.colBundleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colModifiedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+		    colModifiedDate.DefaultCellStyle.Format = "MM/dd/yyyy";
 			this.colInactive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.SuspendLayout();
 
-			m_list.Columns.AddRange(colBundleName, colModifiedDate, colInactive);
+			m_list.Columns.AddRange(colBundleName, colModifiedDate);
+            m_list.Columns.AddRange(colInactive);
 			// 
 			// m_list
 			// 

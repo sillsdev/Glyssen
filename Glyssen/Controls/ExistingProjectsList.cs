@@ -41,10 +41,11 @@ namespace Glyssen.Controls
 		{
 			var metadata = (GlyssenDblTextMetadata) project;
 			yield return Path.GetFileName(metadata.OriginalPathBundlePath);
-		    string lastModifiedDateStr = metadata.LastModified.ToShortDateString();
-		    if (lastModifiedDateStr == "1/1/0001") lastModifiedDateStr = "";
-		    yield return lastModifiedDateStr;
-			yield return metadata.Inactive;
+		    if (metadata.LastModified.Year < 1900)
+		        yield return null;
+		    else
+		        yield return metadata.LastModified;
+		    yield return metadata.Inactive;
 		}
 
 		protected override bool IsInactive(IProjectInfo project)
