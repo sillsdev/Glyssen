@@ -40,8 +40,9 @@ namespace Glyssen.Controls
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.SuspendLayout();
 
-			m_list.Columns.AddRange(colBundleName, colModifiedDate);
-			m_list.Columns.AddRange(colInactive);
+			m_list.Columns.Add(colBundleName);
+			m_list.Columns.Add(colModifiedDate);
+			m_list.Columns.Add(colInactive);
 			// 
 			// m_list
 			// 
