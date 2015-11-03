@@ -41,6 +41,9 @@ namespace Glyssen.Controls
 		{
 			var metadata = (GlyssenDblTextMetadata) project;
 			yield return Path.GetFileName(metadata.OriginalPathBundlePath);
+		    string lastModifiedDateStr = metadata.LastModified.ToShortDateString();
+		    if (lastModifiedDateStr == "1/1/0001") lastModifiedDateStr = "";
+		    yield return lastModifiedDateStr;
 			yield return metadata.Inactive;
 		}
 
