@@ -91,7 +91,7 @@ namespace Glyssen
 			if (bundle.WritingSystemDefinition != null && bundle.WritingSystemDefinition.QuotationMarks != null && bundle.WritingSystemDefinition.QuotationMarks.Any())
 			{
 				QuoteSystemStatus = QuoteSystemStatus.Obtained;
-				bundle.ConvertContinuersToParatextAssumptions();
+				ConvertContinuersToParatextAssumptions();
 			}
 			bundle.CopyFontFiles(LanguageFolder);
 			InstallFontsIfNecessary();
@@ -376,7 +376,7 @@ namespace Glyssen
 				var sourceLevelsCount = WritingSystem.QuotationMarks.Count;
 				var targetLevelsCount = targetWs.QuotationMarks.Count;
 
-				if (sourceLevelsCount >= targetLevelsCount)
+				if (sourceLevelsCount > targetLevelsCount)
 				{
 					copy = true;
 					for (int i = 0; i < targetLevelsCount; i++)
@@ -1169,6 +1169,33 @@ namespace Glyssen
 		{
 			var grp = CharacterGroupList.GetGroupByName(name);
 			return grp ?? CharacterGroupList.GroupContainingCharacterId(name);
+		}
+
+		public void ConvertContinuersToParatextAssumptions()
+		{
+			if (m_wsDefinition == null || m_wsDefinition.QuotationMarks == null)
+				return;
+
+			List<QuotationMark> replacementQuotationMarks = new List<QuotationMark>();
+			foreach (var level in m_wsDefinition.QuotationMarks.OrderBy(q => q, QuoteSystem.QuotationMarkTypeAndLevelComparer))
+			{
+				if (level.Type == QuotationMarkingSystemType.Normal && level.Level > 1 && !string.IsNullOrWhiteSpace(level.Continue))
+				{
+					var oneLevelUp = replacementQuotationMarks.SingleOrDefault(q => q.Level == level.Level - 1 && q.Type == QuotationMarkingSystemType.Normal);
+					if (oneLevelUp == null)
+						continue;
+					string oneLevelUpContinuer = oneLevelUp.Continue;
+					if (string.IsNullOrWhiteSpace(oneLevelUpContinuer))
+						continue;
+					string newContinuer = oneLevelUpContinuer + " " + level.Continue;
+					replacementQuotationMarks.Add(new QuotationMark(level.Open, level.Close, newContinuer, level.Level, level.Type));
+					continue;
+				}
+				replacementQuotationMarks.Add(level);
+			}
+
+			m_wsDefinition.QuotationMarks.Clear();
+			m_wsDefinition.QuotationMarks.AddRange(replacementQuotationMarks);
 		}
 	}
 

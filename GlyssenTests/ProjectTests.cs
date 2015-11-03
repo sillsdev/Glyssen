@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using Glyssen;
@@ -288,6 +289,137 @@ namespace GlyssenTests
 
 			Assert.True(project.CharacterGroupList.AnyVoiceActorAssigned());
 			Assert.True(project.HasUnusedActor);
+		}
+
+		[Test]
+		public void ConvertContinuersToParatextAssumptions_Level1Only_NoChange()
+		{
+			var project = TestProject.CreateBasicTestProject();
+			var quotationMarks = new List<QuotationMark>
+			{
+				new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal)
+			};
+
+			project.WritingSystem.QuotationMarks.Clear();
+			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
+
+			project.ConvertContinuersToParatextAssumptions();
+
+			Assert.True(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks));
+		}
+
+		[Test]
+		public void ConvertContinuersToParatextAssumptions_2Levels_NoContinuer_NoChange()
+		{
+			var project = TestProject.CreateBasicTestProject();
+			var quotationMarks = new List<QuotationMark>
+			{
+				new QuotationMark("<<", ">>", null, 1, QuotationMarkingSystemType.Normal),
+				new QuotationMark("<", ">", null, 2, QuotationMarkingSystemType.Normal)
+			};
+
+			project.WritingSystem.QuotationMarks.Clear();
+			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
+
+			project.ConvertContinuersToParatextAssumptions();
+
+			Assert.True(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks));
+		}
+
+		[Test]
+		public void ConvertContinuersToParatextAssumptions_2Levels_Continuer_ModifiesLevel2Continuer()
+		{
+			var project = TestProject.CreateBasicTestProject();
+			var quotationMarks = new List<QuotationMark>
+			{
+				new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal),
+				new QuotationMark("<", ">", "<", 2, QuotationMarkingSystemType.Normal)
+			};
+
+			project.WritingSystem.QuotationMarks.Clear();
+			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
+
+			project.ConvertContinuersToParatextAssumptions();
+
+			var expected = new List<QuotationMark>
+			{
+				new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal),
+				new QuotationMark("<", ">", "<< <", 2, QuotationMarkingSystemType.Normal)
+			};
+
+			Assert.True(expected.SequenceEqual(project.WritingSystem.QuotationMarks));
+		}
+
+		[Test]
+		public void ConvertContinuersToParatextAssumptions_3Levels_Continuer_ModifiesLevel2AndLevel3Continuers()
+		{
+			var project = TestProject.CreateBasicTestProject();
+			var quotationMarks = new List<QuotationMark>
+			{
+				new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal),
+				new QuotationMark("<", ">", "<", 2, QuotationMarkingSystemType.Normal),
+				new QuotationMark("<<", ">>", "<<", 3, QuotationMarkingSystemType.Normal)
+			};
+
+			project.WritingSystem.QuotationMarks.Clear();
+			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
+
+			project.ConvertContinuersToParatextAssumptions();
+
+			var expected = new List<QuotationMark>
+			{
+				new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal),
+				new QuotationMark("<", ">", "<< <", 2, QuotationMarkingSystemType.Normal),
+				new QuotationMark("<<", ">>", "<< < <<", 3, QuotationMarkingSystemType.Normal)
+			};
+
+			Assert.True(expected.SequenceEqual(project.WritingSystem.QuotationMarks));
+		}
+
+		[Test]
+		public void ConvertContinuersToParatextAssumptions_Level1NormalAndNarrative_NoChange()
+		{
+			var project = TestProject.CreateBasicTestProject();
+			var quotationMarks = new List<QuotationMark>
+			{
+				new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal),
+				new QuotationMark("--", null, null, 1, QuotationMarkingSystemType.Narrative)
+			};
+
+			project.WritingSystem.QuotationMarks.Clear();
+			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
+
+			project.ConvertContinuersToParatextAssumptions();
+
+			Assert.True(quotationMarks.SequenceEqual(project.WritingSystem.QuotationMarks));
+		}
+
+		[Test]
+		public void ConvertContinuersToParatextAssumptions_3LevelsPlusNarrative_Continuer_ModifiesLevel2AndLevel3Continuers()
+		{
+			var project = TestProject.CreateBasicTestProject();
+			var quotationMarks = new List<QuotationMark>
+			{
+				new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal),
+				new QuotationMark("<", ">", "<", 2, QuotationMarkingSystemType.Normal),
+				new QuotationMark("<<", ">>", "<<", 3, QuotationMarkingSystemType.Normal),
+				new QuotationMark("--", null, null, 1, QuotationMarkingSystemType.Narrative)
+			};
+
+			project.WritingSystem.QuotationMarks.Clear();
+			project.WritingSystem.QuotationMarks.AddRange(quotationMarks);
+
+			project.ConvertContinuersToParatextAssumptions();
+
+			var expected = new List<QuotationMark>
+			{
+				new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal),
+				new QuotationMark("<", ">", "<< <", 2, QuotationMarkingSystemType.Normal),
+				new QuotationMark("<<", ">>", "<< < <<", 3, QuotationMarkingSystemType.Normal),
+				new QuotationMark("--", null, null, 1, QuotationMarkingSystemType.Narrative)
+			};
+
+			Assert.True(expected.SequenceEqual(project.WritingSystem.QuotationMarks));
 		}
 	}
 }
