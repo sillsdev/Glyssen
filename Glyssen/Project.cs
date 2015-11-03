@@ -16,7 +16,6 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Quote;
-using Glyssen.Utilities;
 using Glyssen.VoiceActor;
 using L10NSharp;
 using Paratext;
@@ -31,6 +30,7 @@ using SIL.Windows.Forms;
 using SIL.Windows.Forms.FileSystem;
 using SIL.WritingSystems;
 using SIL.Xml;
+using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen
 {
@@ -51,7 +51,7 @@ namespace Glyssen
 
 		private readonly GlyssenDblTextMetadata m_metadata;
 		private readonly List<BookScript> m_books = new List<BookScript>();
-		private readonly Paratext.ScrVers m_vers;
+		private readonly ScrVers m_vers;
 		private string m_recordingProjectName;
 		private int m_usxPercentComplete;
 		private int m_guessPercentComplete;
@@ -59,7 +59,7 @@ namespace Glyssen
 		private ProjectState m_projectState;
 		private ProjectAnalysis m_analysis;
 		private WritingSystemDefinition m_wsDefinition;
-		private IWritingSystemRepository m_wsRepository;
+		private QuoteSystem m_quoteSystem;
 		// Don't want to hound the user more than once per launch per project
 		private bool m_fontInstallationAttempted;
 		private VoiceActorList m_voiceActorList;
@@ -71,14 +71,13 @@ namespace Glyssen
 		public event EventHandler QuoteParseCompleted;
 		public event EventHandler AnalysisCompleted;
 
-		private Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null, bool installFonts = false)
+		private Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null, bool installFonts = false, WritingSystemDefinition ws = null)
 		{
 			m_metadata = metadata;
+			m_wsDefinition = ws;
 			m_recordingProjectName = recordingProjectName ?? GetDefaultRecordingProjectName(m_metadata.Identification.Name);
 			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath);
 			m_projectCharacterDetailData = ProjectCharacterDetailData.Load(ProjectCharacterDetailDataPath);
-			if (m_metadata.QuoteSystem == null)
-				LoadWritingSystem();
 			if (File.Exists(VersificationFilePath))
 				m_vers = LoadVersification(VersificationFilePath);
 			if (installFonts)
@@ -86,9 +85,14 @@ namespace Glyssen
 		}
 
 		public Project(GlyssenBundle bundle, string recordingProjectName = null, Project projectBeingUpdated = null) :
-			this(bundle.Metadata, recordingProjectName)
+			this(bundle.Metadata, recordingProjectName, false, bundle.WritingSystemDefinition)
 		{
 			Directory.CreateDirectory(ProjectFolder);
+			if (bundle.WritingSystemDefinition != null && bundle.WritingSystemDefinition.QuotationMarks != null && bundle.WritingSystemDefinition.QuotationMarks.Any())
+			{
+				QuoteSystemStatus = QuoteSystemStatus.Obtained;
+				ConvertContinuersToParatextAssumptions();
+			}
 			bundle.CopyFontFiles(LanguageFolder);
 			InstallFontsIfNecessary();
 			bundle.CopyVersificationFile(VersificationFilePath);
@@ -108,7 +112,8 @@ namespace Glyssen
 		/// <summary>
 		/// Used only for sample project and in tests.
 		/// </summary>
-		internal Project(GlyssenDblTextMetadata metadata, IEnumerable<UsxDocument> books, IStylesheet stylesheet) : this(metadata)
+		internal Project(GlyssenDblTextMetadata metadata, IEnumerable<UsxDocument> books, IStylesheet stylesheet, WritingSystemDefinition ws)
+			: this(metadata, ws: ws)
 		{
 			AddAndParseBooks(books, stylesheet);
 
@@ -188,12 +193,12 @@ namespace Glyssen
 			get { return m_metadata.Language.ScriptDirection == "RTL"; }
 		}
 
-		public Paratext.ScrVers Versification
+		public ScrVers Versification
 		{
 			get  { return m_vers; }
 		}
 
-		public static Paratext.ScrVers LoadVersification(string vrsPath)
+		public static ScrVers LoadVersification(string vrsPath)
 		{
 			return Paratext.Versification.Table.Load(vrsPath, LocalizationManager.GetString("Project.DefaultCustomVersificationName",
 				"custom", "Used as the versification name when a the versification file does not contain a name."));
@@ -213,18 +218,20 @@ namespace Glyssen
 		{
 			get
 			{
-				if (m_metadata.QuoteSystem != null && m_metadata.QuoteSystem.AllLevels.Any())
-					return m_metadata.QuoteSystem;
+				if (m_quoteSystem != null)
+					return m_quoteSystem;
+				if (WritingSystem != null && WritingSystem.QuotationMarks != null && WritingSystem.QuotationMarks.Any())
+					return m_quoteSystem = new QuoteSystem(WritingSystem.QuotationMarks);
 				return null;
 			}
 			set
 			{
 				bool quoteSystemBeingSetForFirstTime = QuoteSystem == null;
-				bool quoteSystemChanged = m_metadata.QuoteSystem != value;
+				bool quoteSystemChanged = m_quoteSystem != value;
 
 				if (IsQuoteSystemReadyForParse && ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
 				{
-					m_metadata.QuoteSystem = value;
+					m_quoteSystem = value;
 					DoQuoteParse();
 				}
 				else if (quoteSystemChanged && !quoteSystemBeingSetForFirstTime)
@@ -232,13 +239,16 @@ namespace Glyssen
 					// These need to happen in this order
 					Save();
 					CreateBackup("Backup before quote system change");
-					m_metadata.QuoteSystem = value;
+					m_quoteSystem = value;
 					HandleQuoteSystemChanged();
 				}
 				else
 				{
-					m_metadata.QuoteSystem = value;
+					m_quoteSystem = value;
 				}
+
+				WritingSystem.QuotationMarks.Clear();
+				WritingSystem.QuotationMarks.AddRange(m_quoteSystem.AllLevels);
 			}
 		}
 
@@ -320,7 +330,6 @@ namespace Glyssen
 			{
 				Directory.Move(ProjectFolder, newPath);
 				m_recordingProjectName = model.RecordingProjectName;
-				m_wsRepository = null;
 			}
 			m_metadata.FontFamily = model.WsModel.CurrentDefaultFontName;
 			m_metadata.FontSizeInPoints = (int) model.WsModel.CurrentDefaultFontSize;
@@ -339,8 +348,56 @@ namespace Glyssen
 				CreateBackup("Backup before updating from new bundle");
 
 			bundle.Metadata.CopyGlyssenModifiableSettings(m_metadata);
+			CopyQuoteMarksIfAppropriate(bundle.WritingSystemDefinition, bundle.Metadata);
 
 			return new Project(bundle, m_recordingProjectName);
+		}
+
+		// internal for testing
+		internal void CopyQuoteMarksIfAppropriate(WritingSystemDefinition targetWs, GlyssenDblTextMetadata targetMetadata)
+		{
+			if (targetWs == null)
+				targetWs = new WritingSystemDefinition();
+
+			// If the target has no quote information, add it.
+			if (!targetWs.QuotationMarks.Any())
+			{
+				targetWs.QuotationMarks.AddRange(WritingSystem.QuotationMarks);
+			}
+			// Assumes QuoteSystemStatus has already been set from source metadata.
+			// If the user hasn't changed the QuoteSystemStatus, keep what is in the target.
+			else if ((targetMetadata.ProjectStatus.QuoteSystemStatus & QuoteSystemStatus.Obtained) > 0)
+			{
+			}
+			// Copy if source has more detail
+			else
+			{
+				bool copy = false;
+				var sourceLevelsCount = WritingSystem.QuotationMarks.Count;
+				var targetLevelsCount = targetWs.QuotationMarks.Count;
+
+				if (sourceLevelsCount > targetLevelsCount)
+				{
+					copy = true;
+					for (int i = 0; i < targetLevelsCount; i++)
+					{
+						if (!targetWs.QuotationMarks[i].Equals(WritingSystem.QuotationMarks[i]))
+						{
+							copy = false;
+							break;
+						}
+					}
+				}
+				if (copy)
+				{
+					targetWs.QuotationMarks.Clear();
+					targetWs.QuotationMarks.AddRange(WritingSystem.QuotationMarks);
+				}
+				else
+				{
+					targetMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
+				}
+			}
 		}
 
 		private int PercentInitialized { get; set; }
@@ -461,7 +518,7 @@ namespace Glyssen
 				{
 					using (var bundle = new GlyssenBundle(existingProject.OriginalBundlePath))
 					{
-						var upgradedProject = new Project(existingProject.m_metadata, existingProject.m_recordingProjectName);
+						var upgradedProject = new Project(existingProject.m_metadata, existingProject.m_recordingProjectName, ws: existingProject.WritingSystem);
 
 						Analytics.Track("UpgradeProject", new Dictionary<string, string>
 						{
@@ -553,8 +610,6 @@ namespace Glyssen
 
 		private void InitializeLoadedProject()
 		{
-			LoadWritingSystem();
-
 			m_usxPercentComplete = 100;
 			int controlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
 			if (QuoteSystem == null)
@@ -792,6 +847,17 @@ namespace Glyssen
 			get { return Path.Combine(ProjectFolder, DblBundleFileUtils.kVersificationFileName); }
 		}
 
+		private string LdmlFilePath
+		{
+			get
+			{
+				string languagecode = LanguageIsoCode;
+				if (!IetfLanguageTag.IsValid(languagecode))
+					languagecode = WellKnownSubtags.UnlistedLanguage;
+				return Path.Combine(ProjectFolder, languagecode + DblBundleFileUtils.kUnzippedLdmlFileExtension);
+			}
+		}
+
 		private string ProjectFolder
 		{
 			get { return GetProjectFolderPath(m_metadata.Language.Iso, m_metadata.Id, m_recordingProjectName); }
@@ -902,47 +968,21 @@ namespace Glyssen
 				if (m_wsDefinition != null)
 					return m_wsDefinition;
 
-				string languagecode = LanguageIsoCode;
-				if (!IetfLanguageTag.IsValid(languagecode))
-					languagecode = WellKnownSubtags.UnlistedLanguage;
+				m_wsDefinition = new WritingSystemDefinition();
+				new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, m_wsDefinition);
 
-				if (!WritingSystemRepository.TryGet(languagecode, out m_wsDefinition))
-					m_wsDefinition = new WritingSystemDefinition(languagecode);
-
-				WritingSystemRepository.Set(m_wsDefinition);
 				return m_wsDefinition;
 			}
 		}
 
 		private void SaveWritingSystem()
 		{
-			WritingSystemDefinition ws = WritingSystem;
-			ws.QuotationMarks.Clear();
-			if (QuoteSystem != null)
-				ws.QuotationMarks.AddRange(QuoteSystem.AllLevels);
-
-			WritingSystemRepository.Save();
-		}
-
-		private void LoadWritingSystem()
-		{
-			// TODO (PG-230): Here or maybe somewhere else, we need to set the quote status to Obtained if we get it from the bundle.
-			WritingSystemDefinition ws = WritingSystem;
-			if (m_metadata.QuoteSystem == null)
-				m_metadata.QuoteSystem = new QuoteSystem();
-
-			// If we read in the quote data from the metadata (where it used to be stored)
-			// and haven't created the LDML file yet, don't blow away the old data yet
-			if (ws.QuotationMarks.Any())
-			{
-				m_metadata.QuoteSystem.AllLevels.Clear();
-				m_metadata.QuoteSystem.AllLevels.AddRange(ws.QuotationMarks);
-			}
+			new LdmlDataMapper(new WritingSystemFactory()).Write(LdmlFilePath, WritingSystem, null);
 		}
 
 		private void HandleQuoteSystemChanged()
 		{
-			Project copyOfExistingProject = new Project(m_metadata, Name);
+			Project copyOfExistingProject = new Project(m_metadata, Name, ws: WritingSystem);
 			copyOfExistingProject.m_books.AddRange(m_books);
 
 			m_books.Clear();
@@ -980,18 +1020,6 @@ namespace Glyssen
 				var newFilePath = Directory.GetFiles(newDirectoryPath, "*" + kProjectFileExtension).FirstOrDefault();
 				if (newFilePath != null)
 					SetHiddenFlag(newFilePath, true);
-			}
-		}
-
-		private IWritingSystemRepository WritingSystemRepository
-		{
-			get
-			{
-				if (m_wsRepository != null)
-					return m_wsRepository;
-				if (!Directory.Exists(ProjectFolder))
-					Directory.CreateDirectory(ProjectFolder);
-				return m_wsRepository = LdmlInFolderWritingSystemRepository.Initialize(FileSystemUtils.GetShortName(ProjectFolder));
 			}
 		}
 
@@ -1040,13 +1068,15 @@ namespace Glyssen
 			sampleMetadata.ProjectStatus.ProjectSettingsStatus = ProjectSettingsStatus.Reviewed;
 			sampleMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
 			sampleMetadata.ProjectStatus.BookSelectionStatus = BookSelectionStatus.Reviewed;
-			sampleMetadata.QuoteSystem = GetSampleQuoteSystem();
+			
+			var sampleWs = new WritingSystemDefinition();
+			sampleWs.QuotationMarks.AddRange(GetSampleQuoteSystem().AllLevels);
 
 			XmlDocument sampleMark = new XmlDocument();
 			sampleMark.LoadXml(Resources.SampleMRK);
 			UsxDocument mark = new UsxDocument(sampleMark);
 
-			new Project(sampleMetadata, new[] { mark }, SfmLoader.GetUsfmStylesheet());
+			new Project(sampleMetadata, new[] { mark }, SfmLoader.GetUsfmStylesheet(), sampleWs);
 		}
 
 		private static QuoteSystem GetSampleQuoteSystem()
@@ -1140,6 +1170,33 @@ namespace Glyssen
 		{
 			var grp = CharacterGroupList.GetGroupByName(name);
 			return grp ?? CharacterGroupList.GroupContainingCharacterId(name);
+		}
+
+		public void ConvertContinuersToParatextAssumptions()
+		{
+			if (m_wsDefinition == null || m_wsDefinition.QuotationMarks == null)
+				return;
+
+			List<QuotationMark> replacementQuotationMarks = new List<QuotationMark>();
+			foreach (var level in m_wsDefinition.QuotationMarks.OrderBy(q => q, QuoteSystem.QuotationMarkTypeAndLevelComparer))
+			{
+				if (level.Type == QuotationMarkingSystemType.Normal && level.Level > 1 && !string.IsNullOrWhiteSpace(level.Continue))
+				{
+					var oneLevelUp = replacementQuotationMarks.SingleOrDefault(q => q.Level == level.Level - 1 && q.Type == QuotationMarkingSystemType.Normal);
+					if (oneLevelUp == null)
+						continue;
+					string oneLevelUpContinuer = oneLevelUp.Continue;
+					if (string.IsNullOrWhiteSpace(oneLevelUpContinuer))
+						continue;
+					string newContinuer = oneLevelUpContinuer + " " + level.Continue;
+					replacementQuotationMarks.Add(new QuotationMark(level.Open, level.Close, newContinuer, level.Level, level.Type));
+					continue;
+				}
+				replacementQuotationMarks.Add(level);
+			}
+
+			m_wsDefinition.QuotationMarks.Clear();
+			m_wsDefinition.QuotationMarks.AddRange(replacementQuotationMarks);
 		}
 	}
 

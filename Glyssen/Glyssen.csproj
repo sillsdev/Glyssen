@@ -59,11 +59,13 @@
     <ApplicationIcon>Resources\glyssen.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Analytics.NET">
-      <HintPath>..\packages\Analytics.2.0.0\lib\Analytics.NET.dll</HintPath>
+    <Reference Include="Analytics.NET, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Analytics.2.0.2\lib\Analytics.NET.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="DesktopAnalytics">
-      <HintPath>..\packages\DesktopAnalytics.1.1.5\lib\net40\DesktopAnalytics.dll</HintPath>
+    <Reference Include="DesktopAnalytics, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DesktopAnalytics.1.2.1\lib\net40\DesktopAnalytics.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="EPPlus">
       <HintPath>..\packages\EPPlus.4.0.4\lib\net20\EPPlus.dll</HintPath>
@@ -85,9 +87,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\NetLoc.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="ParatextShared, Version=7.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -178,9 +180,7 @@
       <DependentUpon>Browser.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ControlExtensions.cs" />
-    <Compile Include="Controls\DataGridViewListBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Controls\DataGridViewListBox.cs" />
     <Compile Include="Controls\DataGridViewMultiColumnComboBoxCell.cs" />
     <Compile Include="Controls\DataGridViewMultiColumnComboBoxColumn.cs" />
     <Compile Include="Controls\DataGridViewMultiColumnComboBoxEditingControl.cs">
@@ -505,6 +505,8 @@
     <None Include="Resources\RemoveActor.png" />
     <None Include="Resources\redo.png" />
     <None Include="Resources\RelatedCharacters.xml" />
+    <None Include="Resources\RemoveGridRowHot.png" />
+    <None Include="Resources\RemoveGridRowNormal.png" />
     <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />
   </ItemGroup>

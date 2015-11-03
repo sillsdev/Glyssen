@@ -81,15 +81,6 @@ namespace Glyssen.Bundle
 		[XmlAttribute("modifieddate")]
 		public DateTime LastModified { get; set; }
 
-		private QuoteSystem m_quoteSystem;
-
-		[XmlIgnore]
-		public QuoteSystem QuoteSystem
-		{
-			get { return m_quoteSystem; }
-			set { m_quoteSystem = value; }
-		}
-
 		[XmlElement("projectStatus")]
 		public ProjectStatus ProjectStatus = new ProjectStatus();
 
@@ -180,31 +171,6 @@ namespace Glyssen.Bundle
 		}
 
 		#region Deprecated properties used only for deserialization of projects with an old version of the data
-		/// <summary>
-		/// This data is now stored in LDML.
-		/// </summary>
-		[XmlElement("QuoteSystem")]
-		public QuoteSystem QuoteSystem_DeprecatedXml
-		{
-			get { return null; }
-			set { m_quoteSystem = value; }
-		}
-
-		[XmlElement("isQuoteSystemUserConfirmed")]
-		[DefaultValue(false)]
-		public bool IsQuoteSystemUserConfirmed_DeprecatedXml
-		{
-			get { return false; }
-			set
-			{
-				if (value)
-				{
-					ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Reviewed;
-					ProjectStatus.ProjectSettingsStatus = ProjectSettingsStatus.Reviewed;
-				}
-			}
-		}
-
 		[XmlElement("isBookSelectionUserConfirmed")]
 		[DefaultValue(false)]
 		public bool IsBookSelectionUserConfirmed_DeprecatedXml
@@ -245,10 +211,6 @@ namespace Glyssen.Bundle
 		public void CopyGlyssenModifiableSettings(GlyssenDblTextMetadata source)
 		{
 			ProjectStatus = source.ProjectStatus;
-			// TODO (PG-230): if this metadata contains quote system info, then we probably do not want to overwrite it.
-			// Also, the portions of the ProjectStatus related to the quote system need to be set (or not) accordingly.
-			//if ((ProjectStatus.QuoteSystemStatus & QuoteSystemStatus.Obtained) == 0)
-				QuoteSystem = source.QuoteSystem;
 			FontFamily = source.FontFamily;
 			FontSizeInPoints = source.FontSizeInPoints;
 			Language.ScriptDirection = source.Language.ScriptDirection;

@@ -33,13 +33,6 @@ namespace GlyssenTests.Bundle
 	<language>
 		<iso>ach</iso>
 	</language>
-	<QuoteSystem>
-		<Name>Quotation marks, double</Name>
-		<MajorLanguage>English, US/Canada</MajorLanguage>
-		<StartQuoteMarker>“</StartQuoteMarker>
-		<EndQuoteMarker>”</EndQuoteMarker>
-	</QuoteSystem>
-	<isQuoteSystemUserConfirmed>true</isQuoteSystemUserConfirmed>
 	<isBookSelectionUserConfirmed>true</isBookSelectionUserConfirmed>
 </DBLMetadata>";
 
@@ -71,14 +64,14 @@ namespace GlyssenTests.Bundle
 		public void GetProjectSettingsStatus()
 		{
 			Assert.AreEqual(ProjectSettingsStatus.UnReviewed, m_metadata.ProjectStatus.ProjectSettingsStatus);
-			Assert.AreEqual(ProjectSettingsStatus.Reviewed, m_metadataWithDeprecatedFields.ProjectStatus.ProjectSettingsStatus);
+			Assert.AreEqual(ProjectSettingsStatus.UnReviewed, m_metadataWithDeprecatedFields.ProjectStatus.ProjectSettingsStatus);
 		}
 
 		[Test]
 		public void GetQuoteSystemStatus()
 		{
 			Assert.AreEqual(QuoteSystemStatus.UserSet, m_metadata.ProjectStatus.QuoteSystemStatus);
-			Assert.AreEqual(QuoteSystemStatus.Reviewed, m_metadataWithDeprecatedFields.ProjectStatus.QuoteSystemStatus);
+			Assert.AreEqual(QuoteSystemStatus.Unknown, m_metadataWithDeprecatedFields.ProjectStatus.QuoteSystemStatus);
 		}
 
 		[Test]
@@ -86,18 +79,6 @@ namespace GlyssenTests.Bundle
 		{
 			Assert.AreEqual(BookSelectionStatus.Reviewed, m_metadata.ProjectStatus.BookSelectionStatus);
 			Assert.AreEqual(BookSelectionStatus.Reviewed, m_metadataWithDeprecatedFields.ProjectStatus.BookSelectionStatus);
-		}
-
-		[Test]
-		public void GetQuoteSystemFirstLevelOpen()
-		{
-			Assert.AreEqual("“", m_metadataWithDeprecatedFields.QuoteSystem.FirstLevel.Open);
-		}
-
-		[Test]
-		public void GetQuoteSystemFirstLevelClose()
-		{
-			Assert.AreEqual("”", m_metadataWithDeprecatedFields.QuoteSystem.FirstLevel.Close);
 		}
 
 		[Test]
