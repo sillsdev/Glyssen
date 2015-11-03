@@ -33,15 +33,15 @@ namespace Glyssen.Controls
 		{
 			this.components = new System.ComponentModel.Container();
 			this.colBundleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colModifiedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-		    colModifiedDate.DefaultCellStyle.Format = "MM/dd/yyyy";
+			this.colModifiedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			colModifiedDate.DefaultCellStyle.Format = "MM/dd/yyyy";
 			this.colInactive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.SuspendLayout();
 
 			m_list.Columns.AddRange(colBundleName, colModifiedDate);
-            m_list.Columns.AddRange(colInactive);
+			m_list.Columns.AddRange(colInactive);
 			// 
 			// m_list
 			// 
@@ -57,19 +57,19 @@ namespace Glyssen.Controls
 			colBundleName.Name = "colBundleName";
 			colBundleName.ReadOnly = true;
 			colBundleName.Width = 94;
-            //
-            // colModifiedDate
-            // 
-            colModifiedDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            colModifiedDate.HeaderText = "_L10N_:DialogBoxes.OpenProjectDlg.ProjectsList.ModifiedDate!Date Modified";
-            colModifiedDate.MinimumWidth = 50;
-            colModifiedDate.Name = "colModifiedDate";
-            colModifiedDate.ReadOnly = true;
-            colModifiedDate.Width = 94;
-            // 
-            // colInactive
-            // 
-            colInactive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			//
+			// colModifiedDate
+			// 
+			colModifiedDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			colModifiedDate.HeaderText = "_L10N_:DialogBoxes.OpenProjectDlg.ProjectsList.ModifiedDate!Date Modified";
+			colModifiedDate.MinimumWidth = 50;
+			colModifiedDate.Name = "colModifiedDate";
+			colModifiedDate.ReadOnly = true;
+			colModifiedDate.Width = 94;
+			// 
+			// colInactive
+			// 
+			colInactive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
 			colInactive.HeaderText = "_L10N_:DialogBoxes.OpenProjectDlg.ProjectsList.Inactive!Inactive";
 			colInactive.MinimumWidth = 50;
 			colInactive.Name = "colInactive";
@@ -90,7 +90,7 @@ namespace Glyssen.Controls
 		#endregion
 
 		private System.Windows.Forms.DataGridViewTextBoxColumn colBundleName;
-	    private System.Windows.Forms.DataGridViewTextBoxColumn colModifiedDate;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colModifiedDate;
 		private System.Windows.Forms.DataGridViewCheckBoxColumn colInactive;
 		private L10NSharp.UI.L10NSharpExtender l10NSharpExtender1;
 	}

@@ -825,7 +825,7 @@ namespace Glyssen
 		{
 			Directory.CreateDirectory(ProjectFolder);
 
-            m_metadata.LastModified = DateTime.Now;
+			m_metadata.LastModified = DateTime.Now;
 			var projectPath = ProjectFilePath;
 			Exception error;
 			XmlSerializationHelper.SerializeToFile(projectPath, m_metadata, out error);
