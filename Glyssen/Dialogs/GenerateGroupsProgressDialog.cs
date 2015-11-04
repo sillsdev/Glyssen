@@ -1,17 +1,30 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 using L10NSharp;
-using SIL.Windows.Forms.Progress;
 
 namespace Glyssen.Dialogs
 {
-	class GenerateGroupsProgressDialog : ProgressDialog
+	class GenerateGroupsProgressDialog : ProgressDialogWithAcknowledgement
 	{
-		public GenerateGroupsProgressDialog(DoWorkEventHandler doWorkEventHandler)
+		public GenerateGroupsProgressDialog(Project project, DoWorkEventHandler doWorkEventHandler)
 		{
+			int numCharacters = project.GetKeyStrokesByCharacterId().Count;
+			int numActors = project.VoiceActorList.Actors.Count;
+			Overview =
+				string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.Text1",
+					"This project has {0} characters and {1} voice actors."),
+					numCharacters, numActors) +
+				Environment.NewLine +
+				string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.Text2",
+					"{0} is attempting to select the best configuration of character groups out of many possible configurations.  " +
+					"Characters are placed together based on their attributes and separated into various groups to optimize " +
+					"the space between characters spoken by the same actor."),
+					ProductName);
+
 			ShowInTaskbar = false;
-			Overview = LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview", "Generating optimal character groups based on voice actor attributes.");
 			CanCancel = false;
+			ProgressLabelTextWhenComplete = LocalizationManager.GetString("GenerateGroupsProgressDialog.Complete", "Group generation is complete");
 			BarStyle = ProgressBarStyle.Marquee;
 			BackgroundWorker worker = new BackgroundWorker();
 			worker.DoWork += doWorkEventHandler;

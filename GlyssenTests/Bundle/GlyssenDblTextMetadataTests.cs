@@ -93,7 +93,7 @@ namespace GlyssenTests.Bundle
 
 			const string expectedResult =
 @"<?xml version=""1.0"" encoding=""utf-16""?>
-<DBLMetadata id=""id"" revision=""1"" controlfileversion=""0"">
+<DBLMetadata id=""id"" revision=""1"" controlfileversion=""0"" modifieddate=""0001-01-01T00:00:00"">
 	<language>
 		<fontSizeInPoints>10</fontSizeInPoints>
 	</language>

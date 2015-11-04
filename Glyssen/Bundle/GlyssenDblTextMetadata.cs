@@ -75,6 +75,12 @@ namespace Glyssen.Bundle
 		[DefaultValue(false)]
 		public bool Inactive { get; set; }
 
+		/// <summary>
+		/// Last modified date to project - updated when project is saved
+		/// </summary>
+		[XmlAttribute("modifieddate")]
+		public DateTime LastModified { get; set; }
+
 		[XmlElement("projectStatus")]
 		public ProjectStatus ProjectStatus = new ProjectStatus();
 

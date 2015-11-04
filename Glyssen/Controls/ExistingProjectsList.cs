@@ -41,6 +41,10 @@ namespace Glyssen.Controls
 		{
 			var metadata = (GlyssenDblTextMetadata) project;
 			yield return Path.GetFileName(metadata.OriginalPathBundlePath);
+			if (metadata.LastModified.Year < 1900)
+				yield return null;
+			else
+				yield return metadata.LastModified;
 			yield return metadata.Inactive;
 		}
 
@@ -52,6 +56,12 @@ namespace Glyssen.Controls
 		protected override void SetHiddenFlag(bool inactive)
 		{
 			Project.SetHiddenFlag(SelectedProject, inactive);
+		}
+
+		public void ScrollToSelected()
+		{
+			if (SelectedProject != null)
+				m_list.FirstDisplayedScrollingRowIndex = m_list.SelectedCells[0].RowIndex;
 		}
 	}
 }

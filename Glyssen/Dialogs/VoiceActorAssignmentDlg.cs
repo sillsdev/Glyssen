@@ -13,7 +13,6 @@ using L10NSharp;
 using L10NSharp.UI;
 using SIL.Progress;
 using SIL.Reporting;
-using SIL.Windows.Forms.Progress;
 
 namespace Glyssen.Dialogs
 {
@@ -66,7 +65,7 @@ namespace Glyssen.Dialogs
 
 		private void GenerateGroupsWithProgress(bool attemptToPreserveActorAssignments)
 		{
-			using (var progressDialog = new GenerateGroupsProgressDialog(OnGenerateGroupsWorkerDoWork))
+			using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork))
 			{
 				progressDialog.ProgressState.Arguments = attemptToPreserveActorAssignments;
 				progressDialog.ShowDialog();
@@ -503,6 +502,14 @@ namespace Glyssen.Dialogs
 			// Need to check before setting to avoid making it impossible to open the drop-down list.
 			if (m_characterGroupGrid.Rows[e.RowIndex].Cells[VoiceActorCol.Name].ReadOnly != isCameo)
 				m_characterGroupGrid.Rows[e.RowIndex].Cells[VoiceActorCol.Name].ReadOnly = isCameo;
+			const string strCameoTooltip = "This actor is assigned to perform a cameo role. You can " +
+				"change the characters in this group, but you cannot change the actor assignment.";
+			if (isCameo)
+				m_characterGroupGrid.Rows[e.RowIndex].Cells[VoiceActorCol.Name].ToolTipText =
+					LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CameoTooltip", strCameoTooltip);
+			else
+				m_characterGroupGrid.Rows[e.RowIndex].Cells[VoiceActorCol.Name].ToolTipText = "";
+
 		}
 
 		private void m_characterGroupGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -562,7 +569,6 @@ namespace Glyssen.Dialogs
 			}
 
 			SortByColumn(clickedColumn, sortAscending);
-			m_characterGroupGrid.Refresh();
 		}
 
 		private void SetVoiceActorCellDataSource()
@@ -588,6 +594,7 @@ namespace Glyssen.Dialogs
 
 			m_sortedColumn = column;
 			m_sortedAscending = sortAscending;
+			m_characterGroupGrid.Refresh();
 		}
 		#endregion
 
