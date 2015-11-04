@@ -180,7 +180,9 @@
       <DependentUpon>Browser.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ControlExtensions.cs" />
-    <Compile Include="Controls\DataGridViewListBox.cs" />
+    <Compile Include="Controls\DataGridViewListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\DataGridViewMultiColumnComboBoxCell.cs" />
     <Compile Include="Controls\DataGridViewMultiColumnComboBoxColumn.cs" />
     <Compile Include="Controls\DataGridViewMultiColumnComboBoxEditingControl.cs">
@@ -219,6 +221,9 @@
       <DependentUpon>ExportDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\GenerateGroupsProgressDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ProgressDialogWithAcknowledgement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\VoiceActorUndoAction.cs" />
@@ -384,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ExportDlg.resx">
       <DependentUpon>ExportDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ProgressDialogWithAcknowledgement.resx">
+      <DependentUpon>ProgressDialogWithAcknowledgement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SelectExistingProjectDlg.resx">
       <DependentUpon>SelectExistingProjectDlg.cs</DependentUpon>

@@ -13,7 +13,6 @@ using L10NSharp;
 using L10NSharp.UI;
 using SIL.Progress;
 using SIL.Reporting;
-using SIL.Windows.Forms.Progress;
 
 namespace Glyssen.Dialogs
 {
@@ -66,7 +65,7 @@ namespace Glyssen.Dialogs
 
 		private void GenerateGroupsWithProgress(bool attemptToPreserveActorAssignments)
 		{
-			using (var progressDialog = new GenerateGroupsProgressDialog(OnGenerateGroupsWorkerDoWork))
+			using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork))
 			{
 				progressDialog.ProgressState.Arguments = attemptToPreserveActorAssignments;
 				progressDialog.ShowDialog();
