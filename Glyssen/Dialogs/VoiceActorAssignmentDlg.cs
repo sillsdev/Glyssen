@@ -562,7 +562,6 @@ namespace Glyssen.Dialogs
 			}
 
 			SortByColumn(clickedColumn, sortAscending);
-			m_characterGroupGrid.Refresh();
 		}
 
 		private void SetVoiceActorCellDataSource()
@@ -588,6 +587,7 @@ namespace Glyssen.Dialogs
 
 			m_sortedColumn = column;
 			m_sortedAscending = sortAscending;
+			m_characterGroupGrid.Refresh();
 		}
 		#endregion
 
