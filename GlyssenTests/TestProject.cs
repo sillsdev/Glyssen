@@ -58,6 +58,11 @@ namespace GlyssenTests
 			while (project.ProjectState != ProjectState.FullyInitialized)
 				Thread.Sleep(100);
 
+			return LoadExistingTestProject();
+		}
+
+		public static Project LoadExistingTestProject()
+		{
 			return Project.Load(Project.GetProjectFilePath(kTest, kTest, Project.GetDefaultRecordingProjectName(kTest)));
 		}
 

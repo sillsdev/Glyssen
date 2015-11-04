@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Glyssen.Quote;
-using SIL.DblBundle.Text;
+﻿using SIL.DblBundle.Text;
 using SIL.WritingSystems;
 
 namespace Glyssen.Bundle

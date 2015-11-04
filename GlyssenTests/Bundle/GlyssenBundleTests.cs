@@ -35,5 +35,5 @@ namespace GlyssenTests.Bundle
 			bundle.Metadata.Language.Iso = bundle.Metadata.Id = GetUniqueBundleId();
 			return new Tuple<GlyssenBundle, TempFile>(bundle, bundleFile);
 		}
-		}
-		}
+	}
+}

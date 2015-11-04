@@ -69,6 +69,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.TestUtilities.dll</HintPath>
     </Reference>
+    <Reference Include="SIL.Windows.Forms, Version=3.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\dotnet\SIL.Windows.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="SIL.Windows.Forms.DblBundle, Version=3.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.DblBundle.dll</HintPath>

@@ -85,7 +85,7 @@ namespace Glyssen
 		}
 
 		public Project(GlyssenBundle bundle, string recordingProjectName = null, Project projectBeingUpdated = null) :
-			this(bundle.Metadata, recordingProjectName, false, bundle.WritingSystemDefinition)
+			this(bundle.Metadata, recordingProjectName, false, bundle.WritingSystemDefinition ?? (projectBeingUpdated != null ? projectBeingUpdated.WritingSystem : null))
 		{
 			Directory.CreateDirectory(ProjectFolder);
 			if (bundle.WritingSystemDefinition != null && bundle.WritingSystemDefinition.QuotationMarks != null && bundle.WritingSystemDefinition.QuotationMarks.Any())
@@ -348,16 +348,17 @@ namespace Glyssen
 				CreateBackup("Backup before updating from new bundle");
 
 			bundle.Metadata.CopyGlyssenModifiableSettings(m_metadata);
+
 			CopyQuoteMarksIfAppropriate(bundle.WritingSystemDefinition, bundle.Metadata);
 
-			return new Project(bundle, m_recordingProjectName);
+			return new Project(bundle, m_recordingProjectName, this);
 		}
 
 		// internal for testing
 		internal void CopyQuoteMarksIfAppropriate(WritingSystemDefinition targetWs, GlyssenDblTextMetadata targetMetadata)
 		{
 			if (targetWs == null)
-				targetWs = new WritingSystemDefinition();
+				return;
 
 			// If the target has no quote information, add it.
 			if (!targetWs.QuotationMarks.Any())
@@ -605,7 +606,17 @@ namespace Glyssen
 				if (files.Contains(possibleFileName))
 					project.m_books.Add(XmlSerializationHelper.DeserializeFromFile<BookScript>(possibleFileName));
 			}
+			project.RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
 			return project;
+		}
+
+		private void RemoveAvailableBooksThatDoNotCorrespondToExistingBooks()
+		{
+			for (int i = 0; i < m_metadata.AvailableBooks.Count; i++)
+			{
+				if (!m_books.Any(b => b.BookId == m_metadata.AvailableBooks[i].Code))
+					m_metadata.AvailableBooks.RemoveAt(i--);
+			}
 		}
 
 		private void InitializeLoadedProject()
@@ -704,6 +715,7 @@ namespace Glyssen
 			m_books.AddRange(bookScripts);
 			m_metadata.ParserVersion = Settings.Default.ParserVersion;
 			m_metadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
+			RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
 
 			if (QuoteSystem == null)
 				GuessAtQuoteSystem();
@@ -754,7 +766,7 @@ namespace Glyssen
 
 		private void DoQuoteParse()
 		{
-			ProjectState = ProjectState.GuessComplete;
+			ProjectState = ProjectState.Parsing;
 			var quoteWorker = new BackgroundWorker { WorkerReportsProgress = true };
 			quoteWorker.DoWork += QuoteWorker_DoWork;
 			quoteWorker.RunWorkerCompleted += QuoteWorker_RunWorkerCompleted;
@@ -1209,7 +1221,7 @@ namespace Glyssen
 	{
 		Initial = 1,
 		UsxComplete = 2,
-		GuessComplete = 4,
+		Parsing = 4,
 		NeedsQuoteSystemConfirmation = 8,
 		QuoteParseComplete = 16,
 		FullyInitialized = 32,
