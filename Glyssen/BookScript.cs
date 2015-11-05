@@ -551,5 +551,10 @@ namespace Glyssen
 
 			m_blocks[indexOfBlockToSplit - 1].SplitId = m_blocks[indexOfBlockToSplit].SplitId = splitId;
 		}
+
+		public void ClearUnappliedSplits()
+		{
+			m_unappliedSplitBlocks.Clear();
+		}
 	}
 }

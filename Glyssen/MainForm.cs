@@ -74,6 +74,11 @@ namespace Glyssen
 
 			if (m_project != null)
 			{
+				if (m_project.HasUnappliedSplits())
+					using (var viewModel = new AssignCharacterViewModel(m_project))
+						using (var dlg = new UnappliedSplitsDlg(m_project.Name, viewModel, m_project.IncludedBooks))
+							dlg.ShowDialog();
+
 				Settings.Default.CurrentProject = m_project.ProjectFilePath;
 				Settings.Default.Save();
 

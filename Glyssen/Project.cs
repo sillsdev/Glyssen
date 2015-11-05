@@ -528,6 +528,11 @@ namespace Glyssen
 			get { return VoiceActorList.Actors.Any(actor => !CharacterGroupList.HasVoiceActorAssigned(actor.Id)); }
 		}
 
+		public bool HasUnappliedSplits()
+		{
+			return IncludedBooks.Any(b => b.UnappliedSplits.Any());
+		}
+
 		internal void ClearAssignCharacterStatus()
 		{
 			Status.AssignCharacterMode = BlocksToDisplay.NeedAssignments;
