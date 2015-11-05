@@ -981,7 +981,8 @@ namespace Glyssen
 					return m_wsDefinition;
 
 				m_wsDefinition = new WritingSystemDefinition();
-				new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, m_wsDefinition);
+				if (File.Exists(LdmlFilePath))
+					new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, m_wsDefinition);
 
 				return m_wsDefinition;
 			}
