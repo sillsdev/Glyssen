@@ -57,6 +57,9 @@ namespace Glyssen.Controls
 			m_dataGrid.AllowUserToDeleteRows = true;
 			m_dataGrid.MultiSelect = true;
 			m_dataGrid.EditMode = DataGridViewEditMode.EditOnEnter;
+
+			Cameo.ToolTipText = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.CameoTooltip",
+															"Distinguished actor to play minor character role.");
 		}
 
 		void m_dataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
