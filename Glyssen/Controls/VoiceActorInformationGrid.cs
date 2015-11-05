@@ -54,6 +54,7 @@ namespace Glyssen.Controls
 			// Sadly, we have to do this here because setting it in the Designer doesn't work since BetterGrid overrides
 			// the default value in its constructor.
 			m_dataGrid.AllowUserToAddRows = true;
+			m_dataGrid.AllowUserToDeleteRows = true;
 			m_dataGrid.MultiSelect = true;
 			m_dataGrid.EditMode = DataGridViewEditMode.EditOnEnter;
 		}
@@ -97,7 +98,7 @@ namespace Glyssen.Controls
 		public void Initialize(VoiceActorInformationViewModel viewModel, bool sort = true)
 		{
 			m_actorInformationViewModel = viewModel;
-			RowCount = m_actorInformationViewModel.Actors.Count;
+			RowCount = m_actorInformationViewModel.Actors.Count + 1;
 
 			m_actorInformationViewModel.Saved += m_actorInformationViewModel_Saved;
 		}
