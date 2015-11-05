@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -34,14 +33,14 @@ namespace GlyssenTests
 		{
 			// Clean up anything from previously aborted tests
 			foreach (var directory in Directory.GetDirectories(Program.BaseDataFolder, GlyssenBundleTests.kTestBundleIdPrefix + "*"))
-				DirectoryUtilities.DeleteDirectoryRobust(directory);				
+				DirectoryUtilities.DeleteDirectoryRobust(directory);
 		}
 
 		[TestFixtureTearDown]
 		public void TestFixtureTeardown()
 		{
 			foreach (var folder in m_tempProjectFolders)
-				DirectoryUtilities.DeleteDirectoryRobust(folder);				
+				DirectoryUtilities.DeleteDirectoryRobust(folder);
 		}
 
 		[Test]
@@ -53,9 +52,7 @@ namespace GlyssenTests
 			bundle.WritingSystemDefinition.QuotationMarks.AddRange(bogusQuoteSystem.AllLevels);
 			var project = new Project(bundle);
 
-			// Wait for project initialization to finish
-			while (project.ProjectState != ProjectState.FullyInitialized)
-				Thread.Sleep(100);
+			WaitForProjectInitializationToFinish(project, ProjectState.FullyInitialized);
 
 			Assert.AreEqual(bogusQuoteSystem, project.QuoteSystem);
 			Assert.AreEqual(QuoteSystemStatus.Obtained, project.Status.QuoteSystemStatus);
@@ -68,9 +65,7 @@ namespace GlyssenTests
 			bundle.WritingSystemDefinition.QuotationMarks.Clear();
 			var project = new Project(bundle);
 
-			// Wait for project initialization to finish
-			while (project.ProjectState != ProjectState.NeedsQuoteSystemConfirmation)
-				Thread.Sleep(100);
+			WaitForProjectInitializationToFinish(project, ProjectState.NeedsQuoteSystemConfirmation);
 
 			Assert.IsTrue(project.QuoteSystem.AllLevels.Any());
 			Assert.AreEqual(QuoteSystemStatus.Guessed, project.Status.QuoteSystemStatus);
@@ -89,9 +84,7 @@ namespace GlyssenTests
 			originalBundle.Metadata.FontSizeInPoints = 12;
 			var updatedProject = project.UpdateProjectFromBundleData(newBundle);
 
-			// Wait for project initialization to finish
-			while ((project.ProjectState & ProjectState.ReadyForUserInteraction) == 0)
-				Thread.Sleep(100);
+			WaitForProjectInitializationToFinish(updatedProject, ProjectState.ReadyForUserInteraction);
 
 			Assert.AreEqual(12, updatedProject.FontSizeInPoints);
 		}
@@ -119,9 +112,7 @@ namespace GlyssenTests
 			originalBundle.WritingSystemDefinition.QuotationMarks[0] = new QuotationMark("open", "close", "cont", 1, QuotationMarkingSystemType.Normal);
 			var project = new Project(originalBundle);
 
-			// Wait for project initialization to finish
-			while (project.ProjectState != ProjectState.FullyInitialized)
-				Thread.Sleep(100);
+			WaitForProjectInitializationToFinish(project, ProjectState.FullyInitialized);
 
 			var firstBook = project.Books[0];
 			var block = firstBook.GetScriptBlocks().Last();
@@ -133,9 +124,7 @@ namespace GlyssenTests
 			var newBundle = GetGlyssenBundleToBeUsedForProject();
 			var updatedProject = project.UpdateProjectFromBundleData(newBundle);
 
-			// Wait for project initialization to finish
-			while (updatedProject.ProjectState != ProjectState.FullyInitialized)
-				Thread.Sleep(100);
+			WaitForProjectInitializationToFinish(updatedProject, ProjectState.FullyInitialized);
 
 			Assert.AreEqual(verseRef.Verse, updatedProject.Books[0].GetScriptBlocks().First(b => b.CharacterId == "Wilma").InitialStartVerseNumber);
 		}
@@ -239,9 +228,7 @@ namespace GlyssenTests
 				var originalBundle = originalBundleAndFile.Item1;
 				var project = new Project(originalBundle);
 
-				// Wait for project initialization to finish
-				while (project.ProjectState != ProjectState.FullyInitialized)
-					Thread.Sleep(100);
+				WaitForProjectInitializationToFinish(project, ProjectState.FullyInitialized);
 
 				project.QuoteSystem = QuoteSystem.Default;
 			}
@@ -508,9 +495,7 @@ namespace GlyssenTests
 			try
 			{
 				var project = new Project(sampleMetadata, new List<UsxDocument>(), SfmLoader.GetUsfmStylesheet(), sampleWs);
-				// Wait for project initialization to finish
-				while ((project.ProjectState & ProjectState.ReadyForUserInteraction) == 0)
-					Thread.Sleep(100);
+				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
 				Assert.False(project.AvailableBooks.Any());
 			}
 			finally
@@ -518,6 +503,19 @@ namespace GlyssenTests
 				var testProjFolder = Path.Combine(Program.BaseDataFolder, "~~funkyFrogLipsAndStuff");
 				if (Directory.Exists(testProjFolder))
 					DirectoryUtilities.DeleteDirectoryRobust(testProjFolder);
+			}
+		}
+
+		private void WaitForProjectInitializationToFinish(Project project, ProjectState projectState)
+		{
+			const int maxCyclesAllowed = 100;
+			int iCycle = 1;
+			while ((project.ProjectState & projectState) == 0)
+			{
+				if (iCycle++ < maxCyclesAllowed)
+					Thread.Sleep(100);
+				else
+					Assert.Fail("Timed out waiting for project initialization. Expected ProjectState = " + projectState + "; current ProjectState = " + project.ProjectState);
 			}
 		}
 	}
