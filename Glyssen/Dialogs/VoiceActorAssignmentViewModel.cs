@@ -326,8 +326,11 @@ namespace Glyssen.Dialogs
 			table.Columns.Add("Age");
 			table.Columns.Add("Cameo");
 
+			bool includeCameos = true;
+			if (group != null && !group.AssignedToCameoActor) includeCameos = false;
+
 			//TODO put the best matches first
-			foreach (var actor in m_project.VoiceActorList.Actors.Where(a => !m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id)).OrderBy(a => a.Name))
+			foreach (var actor in m_project.VoiceActorList.Actors.Where(a => (!m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id) && (includeCameos || !a.IsCameo))).OrderBy(a => a.Name))
 				table.Rows.Add(GetDataTableRow(actor, LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AvailableVoiceActors", "Available:")));
 
 			table.Rows.Add(
@@ -339,7 +342,7 @@ namespace Glyssen.Dialogs
 				"",
 				"");
 
-			foreach (var actor in m_project.VoiceActorList.Actors.Where(a => m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id)).OrderBy(a => a.Name))
+			foreach (var actor in m_project.VoiceActorList.Actors.Where(a => (m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id) && (includeCameos || !a.IsCameo))).OrderBy(a => a.Name))
 				table.Rows.Add(GetDataTableRow(actor, LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AlreadyAssignedVoiceActors",
 					"Assigned to a Character Group:")));
 

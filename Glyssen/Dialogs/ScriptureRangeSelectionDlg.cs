@@ -45,7 +45,7 @@ namespace Glyssen.Dialogs
 			m_includeInScript = new Dictionary<string, bool>(m_project.AvailableBooks.Count);
 			m_multiVoice = new Dictionary<string, bool>(m_project.AvailableBooks.Count);
 
-			// First time in.  Default to all included.
+			// First time in. Default to all included.
 			if (m_project.IncludedBooks.Count == 0)
 				foreach (var availableBook in m_project.AvailableBooks)
 					availableBook.IncludeInScript = true;

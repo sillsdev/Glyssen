@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -8,8 +9,12 @@ using Glyssen.Character;
 using Glyssen.Quote;
 using GlyssenTests.Bundle;
 using NUnit.Framework;
+using SIL.DblBundle.Text;
+using SIL.DblBundle.Usx;
 using SIL.IO;
 using SIL.ObjectModel;
+using SIL.Scripture;
+using SIL.Windows.Forms;
 using SIL.WritingSystems;
 
 namespace GlyssenTests
@@ -82,9 +87,9 @@ namespace GlyssenTests
 
 			var newBundle = GetGlyssenBundleToBeUsedForProject();
 			originalBundle.Metadata.FontSizeInPoints = 12;
-			project.UpdateProjectFromBundleData(newBundle);
+			var updatedProject = project.UpdateProjectFromBundleData(newBundle);
 
-			Assert.AreEqual(12, project.FontSizeInPoints);
+			Assert.AreEqual(12, updatedProject.FontSizeInPoints);
 		}
 
 		[Test]
@@ -98,9 +103,37 @@ namespace GlyssenTests
 
 			var newBundle = GetGlyssenBundleToBeUsedForProject(false);
 			Assert.IsNull(newBundle.WritingSystemDefinition);
-			project.UpdateProjectFromBundleData(newBundle);
+			var updatedProject = project.UpdateProjectFromBundleData(newBundle);
 
-			Assert.AreEqual("open", project.QuoteSystem.FirstLevel.Open);
+			Assert.AreEqual("open", updatedProject.QuoteSystem.FirstLevel.Open);
+		}
+
+		[Test]
+		public void UpdateProjectFromBundleData_ExistingProjectHasUserDecisions_UserDecisionsApplied()
+		{
+			var originalBundle = GetGlyssenBundleToBeUsedForProject();
+			originalBundle.WritingSystemDefinition.QuotationMarks[0] = new QuotationMark("open", "close", "cont", 1, QuotationMarkingSystemType.Normal);
+			var project = new Project(originalBundle);
+
+			// Wait for project initialization to finish
+			while (project.ProjectState != ProjectState.FullyInitialized)
+				Thread.Sleep(100);
+
+			var firstBook = project.Books[0];
+			var block = firstBook.GetScriptBlocks().Last();
+			var verseRef = new BCVRef(BCVRef.BookToNumber(firstBook.BookId), block.ChapterNumber, block.InitialStartVerseNumber);
+			block.SetCharacterAndDelivery(new List<CharacterVerse>(
+				new [] { new CharacterVerse(verseRef, "Wilma", "agitated beyond belief", null, true) }));
+			block.UserConfirmed = true;
+
+			var newBundle = GetGlyssenBundleToBeUsedForProject();
+			var updatedProject = project.UpdateProjectFromBundleData(newBundle);
+
+			// Wait for project initialization to finish
+			while (updatedProject.ProjectState != ProjectState.FullyInitialized)
+				Thread.Sleep(100);
+
+			Assert.AreEqual(verseRef.Verse, updatedProject.Books[0].GetScriptBlocks().First(b => b.CharacterId == "Wilma").InitialStartVerseNumber);
 		}
 
 		[Test]
@@ -434,6 +467,51 @@ namespace GlyssenTests
 			};
 
 			Assert.True(expected.SequenceEqual(project.WritingSystem.QuotationMarks));
+		}
+
+		[Test]
+		public void Load_MetadataContainsAvailableBookThatDoesNotExist_SpuriousBookRemovedFromMetadata()
+		{
+			var project = TestProject.CreateBasicTestProject();
+			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(project, "m_metadata");
+			metadata.AvailableBooks.Insert(0, new Book { Code = "GEN" });
+			metadata.AvailableBooks.Insert(0, new Book { Code = "PSA" });
+			metadata.AvailableBooks.Insert(0, new Book { Code = "MAT" });
+			project.Save();
+
+			project = TestProject.LoadExistingTestProject();
+
+			Assert.AreEqual("JUD", project.AvailableBooks.Single().Code);
+		}
+
+		[Test]
+		public void Constructor_MetadataContainsAvailableBookThatDoesNotExist_SpuriousBookRemovedFromMetadata()
+		{
+			var sampleMetadata = new GlyssenDblTextMetadata();
+			sampleMetadata.AvailableBooks = new List<Book>();
+			sampleMetadata.AvailableBooks.Insert(0, new Book { Code = "GEN" });
+			sampleMetadata.AvailableBooks.Insert(0, new Book { Code = "PSA" });
+			sampleMetadata.AvailableBooks.Insert(0, new Book { Code = "MAT" });
+
+			sampleMetadata.FontFamily = "Times New Roman";
+			sampleMetadata.FontSizeInPoints = 12;
+			sampleMetadata.Id = "~~funkyFrogLipsAndStuff";
+			sampleMetadata.Language = new GlyssenDblMetadataLanguage { Iso = "~~funkyFrogLipsAndStuff" };
+			sampleMetadata.Identification = new DblMetadataIdentification { Name = "~~funkyFrogLipsAndStuff" };
+
+			var sampleWs = new WritingSystemDefinition();
+
+			try
+			{
+				var project = new Project(sampleMetadata, new List<UsxDocument>(), SfmLoader.GetUsfmStylesheet(), sampleWs);
+				Assert.False(project.AvailableBooks.Any());
+			}
+			finally
+			{
+				var testProjFolder = Path.Combine(Program.BaseDataFolder, "~~funkyFrogLipsAndStuff");
+				if (Directory.Exists(testProjFolder))
+					DirectoryUtilities.DeleteDirectoryRobust(testProjFolder);
+			}
 		}
 	}
 }
