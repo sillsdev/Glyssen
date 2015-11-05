@@ -12,11 +12,11 @@ namespace Glyssen.Dialogs
 		{
 			InitializeComponent();
 
-			m_viewModel = viewModel;
-			m_dataGrid.Initialize(m_viewModel);
-
 			m_dataGrid.Saved += m_dataGrid_Saved;
 			m_dataGrid.RowCountChanged += m_dataGrid_RowCountChanged;
+
+			m_viewModel = viewModel;
+			m_dataGrid.Initialize(m_viewModel);
 
 			m_btnNext.Visible = showNext;
 			m_linkClose.Visible = showNext;

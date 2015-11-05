@@ -176,8 +176,11 @@ namespace Glyssen.Rules
 					CharacterDetail characterDetail;
 					if (!characterDetails.TryGetValue(characterId, out characterDetail))
 					{
-						// This should never happen in production code!
-						continue;
+						if (characterId == CharacterVerseData.AmbiguousCharacter || characterId == CharacterVerseData.UnknownCharacter)
+							continue; // This should never happen in production code!
+						//Debug.WriteLine("No character details for unexpected character ID (see PG-): " + characterId);
+						//continue;
+						throw new KeyNotFoundException("No character details for unexpected character ID (see PG-471): " + characterId);
 					}
 
 					if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator))

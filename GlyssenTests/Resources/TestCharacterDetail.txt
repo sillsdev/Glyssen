@@ -63,6 +63,7 @@ angel standing in sun	1		Adult			REV 7:3 <-(1 more)-> REV 19:18
 angel standing on sea and land	1		Adult			REV 10:6 <-(2 more)-> REV 10:11
 angel who talked with Zechariah	1		Adult			ZEC 1:9 <-(20 more)-> ZEC 6:8
 angel who wrestled with Jacob	1	Male	Adult			GEN 32:26 <-(2 more)-> GEN 32:29
+angel, arch-, Michael	1		Adult			JUD 1:9
 angel, another (vision)	1		Adult			ZEC 2:4
 angel, another, coming down from heaven	1		Adult			REV 18:2 & REV 18:3
 angel, coming out of temple	1		Adult			REV 14:15
@@ -158,6 +159,7 @@ captain, ship to Italy (Rome)	1	Male	Adult
 captain, ship to Tarshish	1	Male	Adult			JON 1:6
 captain, third	1	Male	Adult			2KI 1:13 & 2KI 1:14
 captors, our	-1		Adult			PSA 137:3
+centurion=centurion	1	Male	Adult			MAT 27:54 <-(1 more)-> LUK 23:47
 centurion at crucifixion	1	Male	Adult			MAT 27:54 <-(1 more)-> LUK 23:47
 centurion at Paul's flogging	1	Male	Adult			ACT 22:26
 centurion on ship with Paul	1	Male	Adult			ACT 27:43
@@ -176,6 +178,7 @@ citizens of Shechem	-1		Adult			JDG 9:3
 city clerk of Ephesus	1	Male	Adult			ACT 19:35 <-(5 more)-> ACT 19:41
 Cleopas	1	Male	Adult			LUK 24:18
 Cleopas' companion (on road to Emmaus)	1	Either	Adult			
+Cleopas and other (on road to Emmaus)|Cleopas	2	Either	Adult			
 collectors of temple tax	-1		Adult			MAT 17:24
 commander of Roman troops in Jerusalem	1	Male	Adult			ACT 21:33 <-(16 more)-> ACT 23:30
 commander of the LORD's army	1	Male	Adult		Default character should be Jesus	JOS 5:14 & JOS 5:15
@@ -320,6 +323,7 @@ family heads of Gilead	-1	Male				NUM 36:2 <-(1 more)-> NUM 36:4
 father of concubine	1	Male				JDG 19:5 <-(2 more)-> JDG 19:9
 father of cured man, blind from birth	1	Male				
 father of demon-possessed boy	1	Male				MAT 17:15 <-(8 more)-> LUK 9:40
+father of possessed boy=man in crowd	1	Male				MAT 17:15 <-(8 more)-> LUK 9:40
 Felix, governor of Judea	1	Male				ACT 23:34 <-(3 more)-> ACT 24:25
 Festus, governor of Judea	1	Male				ACT 25:4 <-(18 more)-> ACT 26:24
 field commander from king of Assyria	1	Male				2KI 18:19 <-(30 more)-> ISA 36:20
@@ -607,6 +611,7 @@ Martha	1	Female				LUK 10:40 <-(5 more)-> JHN 11:39
 Mary Magdalene	1	Female				MRK 16:10 <-(5 more)-> JHN 20:18
 Mary mother of James	1	Female				
 Mary, Jesus' mother	1	Female				LUK 1:29 <-(14 more)-> JHN 2:5
+Mary (Jesus' mother)	1	Female				LUK 1:29 <-(14 more)-> JHN 2:5
 Mary, sister of Martha	1	Female				JHN 11:32
 master of the banquet	1	Male				JHN 2:10
 Melchizedek, king of Salem (priest of God Most High)	1	Male				GEN 14:19 <-(1 more)-> HEB 7:1
@@ -899,6 +904,7 @@ Sapphira, wife of Ananias of Jerusalem	1	Female				ACT 5:8
 Sarah (Sarai)	1	Female	Adult			GEN 16:2 & GEN 16:5
 Sarah (Sarai) (old)	1	Female	Elder			GEN 18:12 <-(3 more)-> GEN 21:10
 Satan (Devil)	1	Male				JOB 1:7 <-(14 more)-> LUK 4:11
+Satan	1	Male				JOB 1:7 <-(14 more)-> LUK 4:11
 satraps	-1	Male				DAN 6:5
 Saul	1	Male				1SA 9:5 <-(86 more)-> 1CH 10:4
 Saul's announcement	1	Male				1SA 13:4
@@ -972,6 +978,7 @@ sign on the cross	1	Neuter				MAT 27:37 <-(2 more)-> JHN 19:19
 Silas	1	Male				ACT 15:34
 Simeon	1	Male				
 Simeon, devout man in Jerusalem	1	Male	Elder			LUK 2:29 <-(4 more)-> LUK 2:35
+Simeon-old	1	Male	Elder			LUK 2:29 <-(4 more)-> LUK 2:35
 Simon, sorcerer	1	Male				ACT 8:19 & ACT 8:24
 singers	-1					1CH 16:41
 singers from the ends of the earth	-1					ISA 24:16
@@ -1111,3 +1118,86 @@ Zion	1					ISA 49:14 & ISA 49:15
 Ziphites	-1					1SA 23:19 <-(2 more)-> PSA 54:0
 Zipporah, Moses' wife	1	Female				EXO 2:19 <-(1 more)-> EXO 4:26
 Zophar the Naamathite	1	Male				JOB 11:2 <-(45 more)-> JOB 20:29
+angels in white=men in clothes that gleamed like lightning, two	1	Male				Old ID
+criminal on cross, another	1	Male				Old ID
+council of elders:chief priests	1	Male				Old ID
+spies of teachers of the law	-1	Male				Old ID
+disciples, the=disciples, His	1	Male				Old ID
+disciples, whole crowd of=people, many=crowd, great	-1	Male				Old ID
+disciples, the 3	3	Male				Old ID
+ruler, a certain=man, rich young	1	Male				Old ID
+John's disciples	-1	Male				Old ID
+shepherds 1	-1	Male				Old ID
+teachers of the law	-1	Male				Old ID
+Pharisee(Simon)	1	Male				Old ID
+demon-possessed man	1	Male				Old ID
+rulers=chief priests	-1	Male				Old ID
+men in synagogue 2	-1	Male				Old ID
+criminal on cross, one	1	Male				Old ID
+disciples, one of His	1	Male				Old ID
+high priest's servant (man), one=those standing near|another man	1	Male				Old ID
+crowd, large 1	-1	Male				Old ID
+neighbors	-1	Either				Old ID
+Pharisees, some 1	1	Male				Old ID
+experts-in-law, one|teachers of the law	-1	Male				Old ID
+Bartimaeus	1	Male				Old ID
+crowd, some of	-1	Male				Old ID
+one at table with him	1	Male				Old ID
+someone=they (in crowd)	1	Male				Old ID
+someone from Jairus' house	1	Male				Old ID
+centurion 2|army officer	1	Male				Old ID
+crowd 3	1	Male				Old ID
+man covered with leprosy	1	Male				Old ID
+men who were guarding	1	Male				Old ID
+everyone who heard	1	Male				Old ID
+Pharisees, some 2	1	Male				Old ID
+other guests at Pharisee(Simon)'s house	1	Male				Old ID
+ten men with leprosy	10	Male				Old ID
+owner of colt=people, some standing there	1	Male				Old ID
+disciples, the=those who heard	-1	Male				Old ID
+someone 1	1	Male				Old ID
+all in synagogue	-1	Either				Old ID
+crowd 10	1	Male				Old ID
+disciples, two of His	2	Male				Old ID
+his name is John	1	Male				Old ID
+Festus	1	Male				Old ID
+Tertullus-Lawyer	1	Male				Old ID
+city clerk	1	Male				Old ID
+commander's letter	1	Male				Old ID
+Jews, God-fearing from every nation 1	1	Male				Old ID
+Demetrius	1	Male				Old ID
+commander	1	Male				Old ID
+Ananias	1	Male				Old ID
+Jews, the 7	7	Male				Old ID
+Gallio	1	Male				Old ID
+Jews, leaders of the	-1	Male				Old ID
+Jews, 40 in conspiracy	40	Male				Old ID
+disciples, the 2	2	Male				Old ID
+Normal witnesses	-1	Male				Old ID
+Ethiopian	1	Male				Old ID
+Epicurean and Stoic philosophers, they 1	-1	Male				Old ID
+men dressed in white, two	2	Male				Old ID
+Herod Agrippa II	1	Male				Old ID
+centurion 3|army officer	1	Male				Old ID
+Spirit, the	1	Male				Old ID
+Simon practiced magic	1	Male				Old ID
+Felix	1	Male				Old ID
+owners of the slave girl	2	Male				Old ID
+jailer	1	Male				Old ID
+believers, circumcised	-1	Male				Old ID
+temple police	-1	Male				Old ID
+crowd 4	-1	Male				Old ID
+teachers of the law, some who were Pharisees	-1	Male				Old ID
+someone 2	1	Male				Old ID
+people, all the 1	-1	Male				Old ID
+craftsmen	-1	Male				Old ID
+those sitting with Festus, Herod Agrippa II and Bernice	-1	Male				Old ID
+people 3	-1	Male				Old ID
+evil spirit	1	Male				Old ID
+high priests	-1	Male				Old ID
+disciples, 2 men	2	Male				Old ID
+people gathered to pray	-1	Either				Old ID
+Paul's travelling companions, Luke and	-1	Male				Old ID
+Philip	1	Male				Old ID
+Jews, God-fearing from every nation 2	-1	Male				Old ID
+crowd 9	-1	Male				Old ID
