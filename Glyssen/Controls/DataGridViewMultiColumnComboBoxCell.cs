@@ -71,7 +71,7 @@ namespace Glyssen.Controls
 				graphics.DrawImage(image, lockImageRect);
 			}
 		}
-
+	
 		#region "Properties"
 
 		/// <summary>
@@ -302,4 +302,6 @@ namespace Glyssen.Controls
 		#endregion
 
 	}
+
+
 }

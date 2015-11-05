@@ -27,6 +27,7 @@ namespace Glyssen.Dialogs
 		private bool m_sortedAscending;
 		private int m_indexOfRowNotToInvalidate = -1;
 		private bool m_undoingOrRedoing;
+		private int m_indexOfLastRowAssigned = -1;
 
 		public VoiceActorAssignmentDlg(Project project)
 		{
@@ -542,8 +543,13 @@ namespace Glyssen.Dialogs
 		{
 			if (e.ColumnIndex == VoiceActorCol.Index)
 			{
-				m_indexOfRowNotToInvalidate = e.RowIndex;
+				m_indexOfRowNotToInvalidate = /*m_indexOfLastRowAssigned =*/ e.RowIndex;
 				m_actorAssignmentViewModel.AssignActorToGroup((int) e.Value, m_actorAssignmentViewModel.CharacterGroups[e.RowIndex]);
+
+
+				//Side effect of reassigning an actor is that the actor's old row is selected
+				//m_characterGroupGrid.Rows[m_indexOfLastRowAssigned].Selected = true;
+				//m_characterGroupGrid.Rows[e.RowIndex].Selected = false;
 			}
 		}
 
