@@ -89,6 +89,10 @@ namespace GlyssenTests
 			originalBundle.Metadata.FontSizeInPoints = 12;
 			var updatedProject = project.UpdateProjectFromBundleData(newBundle);
 
+			// Wait for project initialization to finish
+			while ((project.ProjectState & ProjectState.ReadyForUserInteraction) == 0)
+				Thread.Sleep(100);
+
 			Assert.AreEqual(12, updatedProject.FontSizeInPoints);
 		}
 
@@ -504,6 +508,9 @@ namespace GlyssenTests
 			try
 			{
 				var project = new Project(sampleMetadata, new List<UsxDocument>(), SfmLoader.GetUsfmStylesheet(), sampleWs);
+				// Wait for project initialization to finish
+				while ((project.ProjectState & ProjectState.ReadyForUserInteraction) == 0)
+					Thread.Sleep(100);
 				Assert.False(project.AvailableBooks.Any());
 			}
 			finally
