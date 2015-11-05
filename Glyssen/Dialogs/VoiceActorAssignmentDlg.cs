@@ -324,7 +324,7 @@ namespace Glyssen.Dialogs
 			if (!m_redoButton.Enabled)
 				SetUndoOrRedoButtonToolTip(m_redoButton, null);
 
-			var groupToSelect = changedGroups == null ? null : changedGroups.FirstOrDefault();
+			var groupToSelect = changedGroups == null ? null : changedGroups.LastOrDefault();
 			if (groupToSelect != null)
 			{
 				var rowIndex = m_actorAssignmentViewModel.CharacterGroups.IndexOf(groupToSelect);
