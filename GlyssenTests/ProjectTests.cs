@@ -476,6 +476,16 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_ProjectIsCreatedSuccessfully()
+		{
+			var bundle = GetGlyssenBundleToBeUsedForProject(false);
+			var project = new Project(bundle);
+			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
+			Assert.IsNotNull(project);
+			Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
+		}
+
+		[Test]
 		public void Constructor_MetadataContainsAvailableBookThatDoesNotExist_SpuriousBookRemovedFromMetadata()
 		{
 			var sampleMetadata = new GlyssenDblTextMetadata();

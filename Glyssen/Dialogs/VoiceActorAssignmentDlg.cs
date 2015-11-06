@@ -40,7 +40,10 @@ namespace Glyssen.Dialogs
 			m_menuItemCreateNewGroup.Tag = "CreateNewGroup";
 
 			if (!m_project.CharacterGroupList.CharacterGroups.Any())
+			{
 				GenerateGroupsWithProgress(false);
+				m_project.Save();
+			}
 
 			m_actorAssignmentViewModel = new VoiceActorAssignmentViewModel(project, m_keyStrokesByCharacterId);
 			m_actorAssignmentViewModel.Saved += HandleModelSaved;

@@ -97,6 +97,7 @@ namespace Glyssen.Rules
 			generator.UpdateProjectCharacterGroups();
 			m_charactersNotCoveredByAnyGroup.Clear();
 			m_charactersNoLongerInUse.Clear();
+			m_project.Save();
 		}
 	}
 }
