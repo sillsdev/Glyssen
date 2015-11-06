@@ -87,7 +87,7 @@ namespace Glyssen
 
 							if (projectFilePath != null)
 							{
-								if (projectFilePath.Equals(Project.SampleProjectFilePath, StringComparison.OrdinalIgnoreCase))
+								if (projectFilePath.Equals(SampleProject.SampleProjectFilePath, StringComparison.OrdinalIgnoreCase))
 								{
 									File.WriteAllText(versificationPath, Resources.EnglishVersification);
 								}
