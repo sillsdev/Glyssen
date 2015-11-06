@@ -283,6 +283,18 @@ namespace Glyssen
 			set { m_metadata.ProjectStatus.VoiceActorStatus = value; }
 		}
 
+		public int NumberOfNarrators
+		{
+			get { return m_metadata.NumberOfNarrators; }
+			set { m_metadata.NumberOfNarrators = value; }
+		}
+
+		public NarratorGenders NarratorGenders
+		{
+			get { return m_metadata.NarratorGenders; }
+			set { m_metadata.NarratorGenders = value; }
+		}
+
 		public IReadOnlyList<BookScript> Books { get { return m_books; } }
 
 		public IReadOnlyList<BookScript> IncludedBooks

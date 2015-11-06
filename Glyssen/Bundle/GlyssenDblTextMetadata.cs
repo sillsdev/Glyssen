@@ -7,6 +7,7 @@ using Glyssen.Dialogs;
 using Glyssen.Quote;
 using SIL.DblBundle.Text;
 using SIL.Xml;
+using Utilities;
 
 namespace Glyssen.Bundle
 {
@@ -15,6 +16,7 @@ namespace Glyssen.Bundle
 	{
 		private int m_fontSizeInPointsTemp;
 		private string m_fontFamilyTemp;
+		public const int kNumberOfNarratorsNotSet = 0;
 
 		#region public Properties
 		[XmlElement("language")]
@@ -83,6 +85,22 @@ namespace Glyssen.Bundle
 
 		[XmlElement("projectStatus")]
 		public ProjectStatus ProjectStatus = new ProjectStatus();
+
+		/// <summary>
+		/// Number of narrators set by user
+		/// 0 if not set by user
+		/// </summary>
+		/// 
+		[XmlAttribute("numberofnarrators")]
+		[DefaultValue(kNumberOfNarratorsNotSet)]
+		public int NumberOfNarrators { get; set; }
+
+		/// <summary>
+		/// Narrator genders set by user.
+		/// </summary>
+		[XmlAttribute("narratorgenders")]
+		[DefaultValue(NarratorGenders.MaleOnly)]
+		public NarratorGenders NarratorGenders { get; set; }
 
 		/// <summary>
 		/// The font family for the language associated with this project.
@@ -214,6 +232,8 @@ namespace Glyssen.Bundle
 			FontFamily = source.FontFamily;
 			FontSizeInPoints = source.FontSizeInPoints;
 			Language.ScriptDirection = source.Language.ScriptDirection;
+			NumberOfNarrators = source.NumberOfNarrators;
+			NarratorGenders = source.NarratorGenders;
 			foreach (var book in AvailableBooks)
 			{
 				var sourceProjectBook = source.AvailableBooks.FirstOrDefault(b => book.Code == b.Code);
@@ -291,5 +311,12 @@ namespace Glyssen.Bundle
 	{
 		UnProvided,
 		Provided
+	}
+
+	public enum NarratorGenders
+	{
+		MaleOnly,
+		FemaleOnly,
+		MaleOrFemale
 	}
 }

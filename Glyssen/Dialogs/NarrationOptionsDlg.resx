@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lblExplain.Text" xml:space="preserve">
+  <data name="m_lblExplanatory.Text" xml:space="preserve">
     <value>For most books, the narrator is the largest speaking role. Therefore, narrators should be chosen who have strong, clear voices. They must be available to commit sufficient time to complete the recording project. (If the narrator is going to read the script during the recording process -- as opposed to using the “prompter” technique, he or she must also be an excellent reader.) Because of the amount of time involved, many teams choose to use multiple narrators rather than have a single voice actor narrate all books in the project. Please choose the option that you think best suits your project’s needs. (You can change this later if needed.)</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
