@@ -33,28 +33,30 @@
 			this.components = new System.ComponentModel.Container();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.m_contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.m_contextMenu_itemDeleteActors = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_deleteRowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_dataGrid = new SIL.Windows.Forms.Widgets.BetterGrid.BetterGrid();
-			this.ActorStatus = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-			this.Cameo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-			this.DeleteButtonCol = new System.Windows.Forms.DataGridViewImageColumn();
 			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			this.dataGridViewComboBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			this.dataGridViewComboBoxColumn3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.dataGridViewComboBoxColumn4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			this.ActorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ActorGender = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			this.ActorAge = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			this.ActorQuality = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.ActorStatus = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.SpecialRole = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.DeleteButtonCol = new System.Windows.Forms.DataGridViewImageColumn();
 			this.m_contextMenu.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_dataGrid)).BeginInit();
@@ -62,6 +64,7 @@
 			// 
 			// m_contextMenu
 			// 
+			this.m_contextMenu.ImageScalingSize = new System.Drawing.Size(40, 40);
 			this.m_contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.m_contextMenu_itemDeleteActors});
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_contextMenu, null);
@@ -69,7 +72,7 @@
 			this.l10NSharpExtender1.SetLocalizingId(this.m_contextMenu, "DialogBoxes.VoiceActorInformation.DataGridContextMenu");
 			this.m_contextMenu.Name = "contextMenuStrip1";
 			this.m_contextMenu.ShowImageMargin = false;
-			this.m_contextMenu.Size = new System.Drawing.Size(120, 26);
+			this.m_contextMenu.Size = new System.Drawing.Size(250, 50);
 			this.m_contextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.m_contextMenu_Opening);
 			this.m_contextMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenu_ItemClicked);
 			// 
@@ -80,7 +83,7 @@
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_contextMenu_itemDeleteActors, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_contextMenu_itemDeleteActors, "DialogBoxes.VoiceActorInformation.ContextMenu.DeleteActors");
 			this.m_contextMenu_itemDeleteActors.Name = "m_contextMenu_itemDeleteActors";
-			this.m_contextMenu_itemDeleteActors.Size = new System.Drawing.Size(119, 22);
+			this.m_contextMenu_itemDeleteActors.Size = new System.Drawing.Size(249, 46);
 			this.m_contextMenu_itemDeleteActors.Text = "Delete Actors";
 			// 
 			// m_deleteRowsToolStripMenuItem
@@ -127,17 +130,17 @@
             this.ActorAge,
             this.ActorQuality,
             this.ActorStatus,
-            this.Cameo,
+            this.SpecialRole,
             this.DeleteButtonCol});
 			this.m_dataGrid.ContextMenuStrip = this.m_contextMenu;
-			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-			dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
-			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.m_dataGrid.DefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+			dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F);
+			dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.m_dataGrid.DefaultCellStyle = dataGridViewCellStyle7;
 			this.m_dataGrid.DrawTextBoxEditControlBorder = false;
 			this.m_dataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
 			this.m_dataGrid.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -182,45 +185,12 @@
 			this.m_dataGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.HandleUserDeletingRow);
 			this.m_dataGrid.Leave += new System.EventHandler(this.m_dataGrid_Leave);
 			// 
-			// ActorStatus
-			// 
-			this.ActorStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.ActorStatus.DataPropertyName = "Status";
-			this.ActorStatus.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Status!Status";
-			this.ActorStatus.Name = "ActorStatus";
-			this.ActorStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-			this.ActorStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			this.ActorStatus.Visible = false;
-			this.ActorStatus.Width = 330;
-			// 
-			// Cameo
-			// 
-			this.Cameo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.Cameo.DataPropertyName = "IsCameo";
-			this.Cameo.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Cameo!Cameo";
-			this.Cameo.Name = "Cameo";
-			this.Cameo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			this.Cameo.Width = 342;
-			// 
-			// DeleteButtonCol
-			// 
-			this.DeleteButtonCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			this.DeleteButtonCol.DefaultCellStyle = dataGridViewCellStyle5;
-			this.DeleteButtonCol.HeaderText = "";
-			this.DeleteButtonCol.Image = global::Glyssen.Properties.Resources.RemoveGridRowNormal;
-			this.DeleteButtonCol.MinimumWidth = 20;
-			this.DeleteButtonCol.Name = "DeleteButtonCol";
-			this.DeleteButtonCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-			this.DeleteButtonCol.ToolTipText = "Delete this voice actor";
-			this.DeleteButtonCol.Width = 20;
-			// 
 			// dataGridViewTextBoxColumn1
 			// 
 			this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.dataGridViewTextBoxColumn1.DataPropertyName = "Name";
-			dataGridViewCellStyle7.NullValue = "[new actor]";
-			this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle8.NullValue = "[new actor]";
+			this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle8;
 			this.dataGridViewTextBoxColumn1.Frozen = true;
 			this.dataGridViewTextBoxColumn1.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Name!Name";
 			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -236,21 +206,19 @@
 			this.dataGridViewComboBoxColumn1.MinimumWidth = 90;
 			this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
 			this.dataGridViewComboBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			this.dataGridViewComboBoxColumn1.Width = 342;
 			// 
 			// dataGridViewComboBoxColumn2
 			// 
 			this.dataGridViewComboBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.dataGridViewComboBoxColumn2.DataPropertyName = "Age";
-			dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-			this.dataGridViewComboBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
+			dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+			this.dataGridViewComboBoxColumn2.DefaultCellStyle = dataGridViewCellStyle9;
 			this.dataGridViewComboBoxColumn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.dataGridViewComboBoxColumn2.Frozen = true;
 			this.dataGridViewComboBoxColumn2.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.VoiceAge!Voice Age";
 			this.dataGridViewComboBoxColumn2.MinimumWidth = 90;
 			this.dataGridViewComboBoxColumn2.Name = "dataGridViewComboBoxColumn2";
 			this.dataGridViewComboBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			this.dataGridViewComboBoxColumn2.Width = 369;
 			// 
 			// dataGridViewComboBoxColumn3
 			// 
@@ -262,7 +230,15 @@
 			this.dataGridViewComboBoxColumn3.Name = "dataGridViewComboBoxColumn3";
 			this.dataGridViewComboBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			this.dataGridViewComboBoxColumn3.Visible = false;
-			this.dataGridViewComboBoxColumn3.Width = 403;
+			// 
+			// dataGridViewComboBoxColumn4
+			// 
+			this.dataGridViewComboBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.dataGridViewComboBoxColumn4.DataPropertyName = "SpecialRole";
+			this.dataGridViewComboBoxColumn4.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.SpecialRole!Special Role";
+			this.dataGridViewComboBoxColumn4.Name = "dataGridViewComboBoxColumn4";
+			this.dataGridViewComboBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.dataGridViewComboBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			// 
 			// ActorName
 			// 
@@ -283,7 +259,7 @@
 			this.ActorGender.MinimumWidth = 90;
 			this.ActorGender.Name = "ActorGender";
 			this.ActorGender.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			this.ActorGender.Width = 342;
+			this.ActorGender.Width = 852;
 			// 
 			// ActorAge
 			// 
@@ -296,7 +272,7 @@
 			this.ActorAge.MinimumWidth = 90;
 			this.ActorAge.Name = "ActorAge";
 			this.ActorAge.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			this.ActorAge.Width = 369;
+			this.ActorAge.Width = 914;
 			// 
 			// ActorQuality
 			// 
@@ -308,7 +284,48 @@
 			this.ActorQuality.Name = "ActorQuality";
 			this.ActorQuality.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			this.ActorQuality.Visible = false;
-			this.ActorQuality.Width = 403;
+			this.ActorQuality.Width = 996;
+			// 
+			// ActorStatus
+			// 
+			this.ActorStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.ActorStatus.DataPropertyName = "Status";
+			this.ActorStatus.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Status!Status";
+			this.ActorStatus.Name = "ActorStatus";
+			this.ActorStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.ActorStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.ActorStatus.Visible = false;
+			this.ActorStatus.Width = 816;
+			// 
+			// SpecialRole
+			// 
+			this.SpecialRole.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.SpecialRole.DataPropertyName = "SpecialRole";
+			dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+			this.SpecialRole.DefaultCellStyle = dataGridViewCellStyle5;
+			this.SpecialRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.SpecialRole.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.SpecialRole!Special Role";
+			this.SpecialRole.Items.AddRange(new object[] {
+            "None",
+            "Cameo",
+            "Narrator"});
+			this.SpecialRole.Name = "SpecialRole";
+			this.SpecialRole.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.SpecialRole.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.SpecialRole.Width = 966;
+			// 
+			// DeleteButtonCol
+			// 
+			this.DeleteButtonCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			this.DeleteButtonCol.DefaultCellStyle = dataGridViewCellStyle6;
+			this.DeleteButtonCol.HeaderText = "";
+			this.DeleteButtonCol.Image = global::Glyssen.Properties.Resources.RemoveGridRowNormal;
+			this.DeleteButtonCol.MinimumWidth = 20;
+			this.DeleteButtonCol.Name = "DeleteButtonCol";
+			this.DeleteButtonCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.DeleteButtonCol.ToolTipText = "Delete this voice actor";
+			this.DeleteButtonCol.Width = 20;
 			// 
 			// VoiceActorInformationGrid
 			// 
@@ -338,12 +355,13 @@
 		private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
 		private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn2;
 		private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn3;
+		private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn4;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ActorName;
 		private System.Windows.Forms.DataGridViewComboBoxColumn ActorGender;
 		private System.Windows.Forms.DataGridViewComboBoxColumn ActorAge;
 		private System.Windows.Forms.DataGridViewComboBoxColumn ActorQuality;
 		private System.Windows.Forms.DataGridViewCheckBoxColumn ActorStatus;
-		private System.Windows.Forms.DataGridViewCheckBoxColumn Cameo;
+		private System.Windows.Forms.DataGridViewComboBoxColumn SpecialRole;
 		private System.Windows.Forms.DataGridViewImageColumn DeleteButtonCol;
 	}
 }
