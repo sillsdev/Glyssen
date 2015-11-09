@@ -259,7 +259,7 @@ namespace GlyssenTests.Rules
 		public void GenerateCharacterGroups_IncludesOneCameoActor_GeneratesEmptyGroupAssignedToCameoActor()
 		{
 			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
-			actors[0].IsCameo = true;
+			actors[0].SpecialRole = SpecialRole.Cameo;
 
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 			Assert.AreEqual(10, groups.Count);
@@ -273,8 +273,8 @@ namespace GlyssenTests.Rules
 		public void GenerateCharacterGroups_IncludesTwoCameoActors_GeneratesEmptyGroupAssignedToEachCameoActor()
 		{
 			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
-			actors[0].IsCameo = true;
-			actors[1].IsCameo = true;
+			actors[0].SpecialRole = SpecialRole.Cameo;
+			actors[1].SpecialRole = SpecialRole.Cameo;
 
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 			Assert.AreEqual(10, groups.Count);
@@ -289,7 +289,7 @@ namespace GlyssenTests.Rules
 		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToCharacter_GroupMaintained()
 		{
 			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
-			actors[0].IsCameo = true;
+			actors[0].SpecialRole = SpecialRole.Cameo;
 
 			var assignedGroup = new CharacterGroup(m_testProject, m_priorityComparer);
 			assignedGroup.AssignVoiceActor(actors[0].Id);
@@ -307,7 +307,7 @@ namespace GlyssenTests.Rules
 		public void GenerateCharacterGroups_CameoActorAssignedToCharacterNoLongerInUse_UnusedCharacterIsRemovedFromGroup()
 		{
 			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
-			actors[0].IsCameo = true;
+			actors[0].SpecialRole = SpecialRole.Cameo;
 
 			var assignedGroup = new CharacterGroup(m_testProject, m_priorityComparer);
 			assignedGroup.AssignVoiceActor(actors[0].Id);
@@ -324,7 +324,7 @@ namespace GlyssenTests.Rules
 		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToJesus_GroupMaintainedAndJesusNotDuplicated()
 		{
 			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
-			actors[0].IsCameo = true;
+			actors[0].SpecialRole = SpecialRole.Cameo;
 
 			var assignedGroup = new CharacterGroup(m_testProject, m_priorityComparer);
 			assignedGroup.AssignVoiceActor(actors[0].Id);
@@ -342,7 +342,7 @@ namespace GlyssenTests.Rules
 		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToBc_GroupMaintainedAndBcNotDuplicated()
 		{
 			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
-			actors[0].IsCameo = true;
+			actors[0].SpecialRole = SpecialRole.Cameo;
 
 			var assignedGroup = new CharacterGroup(m_testProject, m_priorityComparer);
 			assignedGroup.AssignVoiceActor(actors[0].Id);
@@ -360,7 +360,7 @@ namespace GlyssenTests.Rules
 		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToExtraBiblical_GroupMaintainedAndExtraBiblicalNotDuplicated()
 		{
 			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
-			actors[0].IsCameo = true;
+			actors[0].SpecialRole = SpecialRole.Cameo;
 
 			var assignedGroup = new CharacterGroup(m_testProject, m_priorityComparer);
 			assignedGroup.AssignVoiceActor(actors[0].Id);
@@ -437,7 +437,7 @@ namespace GlyssenTests.Rules
 			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(3);
 			new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId, false).UpdateProjectCharacterGroups();
 
-			var actor4 = new Glyssen.VoiceActor.VoiceActor { Id = 4, IsCameo = true };
+			var actor4 = new Glyssen.VoiceActor.VoiceActor { Id = 4, SpecialRole = SpecialRole.Cameo };
 			m_testProject.VoiceActorList.Actors.Add(actor4);
 			var cameoGroup = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(cameoGroup);
@@ -809,7 +809,7 @@ namespace GlyssenTests.Rules
 			var groups = gen.GenerateCharacterGroups();
 
 			var cameoActor = m_testProject.VoiceActorList.Actors[0];
-			cameoActor.IsCameo = true;
+			cameoActor.SpecialRole = SpecialRole.Cameo;
 			var cameoGroup = new CharacterGroup(m_testProject, m_priorityComparer);
 			cameoGroup.AssignVoiceActor(cameoActor.Id);
 			groups.Add(cameoGroup);

@@ -29,6 +29,13 @@ namespace Glyssen.VoiceActor
 		Clear
 	}
 
+	public enum SpecialRole
+	{
+		None,
+		Cameo,
+		Narrator
+	}
+
 	public class VoiceActor : IEquatable<VoiceActor>
 	{
 		public VoiceActor()
@@ -101,8 +108,23 @@ namespace Glyssen.VoiceActor
 		[XmlAttribute("Status")]
 		public bool Status { get; set; }
 
+		//Deprecated
 		[XmlAttribute("IsCameo")]
-		public bool IsCameo { get; set; }
+		[DefaultValue(false)]
+		public bool IsCameoDeprecatedBoolean
+		{
+			get { return false; }
+			set { if (value) SpecialRole = SpecialRole.Cameo; }
+		}
+
+		public bool IsCameo()
+		{
+			return (SpecialRole == SpecialRole.Cameo);
+		}
+
+		[XmlAttribute("SpecialRole")]
+		[DefaultValue(Glyssen.VoiceActor.SpecialRole.None)]
+		public SpecialRole SpecialRole { get; set; }
 
 		public bool IsValid()
 		{
@@ -115,7 +137,7 @@ namespace Glyssen.VoiceActor
 				Age == otherActor.Age &&
 				VoiceQuality == otherActor.VoiceQuality &&
 				Status == otherActor.Status &&
-				IsCameo == otherActor.IsCameo;
+				SpecialRole == otherActor.SpecialRole;
 		}
 
 		public bool Matches(CharacterDetail character, bool strictAgeMatching = false)

@@ -117,7 +117,7 @@ namespace Glyssen.Character
 		[Browsable(false)]
 		public bool AssignedToCameoActor
 		{
-			get { return IsVoiceActorAssigned && m_project.VoiceActorList.GetVoiceActorById(VoiceActorId).IsCameo; }
+			get { return IsVoiceActorAssigned && m_project.VoiceActorList.GetVoiceActorById(VoiceActorId).IsCameo(); }
 		}
 
 		[XmlElement("VoiceActorAssignedId")]

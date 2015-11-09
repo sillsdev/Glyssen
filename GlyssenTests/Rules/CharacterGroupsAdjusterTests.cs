@@ -296,7 +296,7 @@ namespace GlyssenTests.Rules
 			GenerateGroups();
 			var frankie = m_testProject.VoiceActorList.Actors.First(a => a.Gender == ActorGender.Male);
 			frankie.Name = "Frankie";
-			frankie.IsCameo = true;
+			frankie.SpecialRole = SpecialRole.Cameo;
 			var michaelTheArchAngelGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("Michael, archangel");
 			michaelTheArchAngelGroup.AssignVoiceActor(frankie.Id);
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = false;
@@ -410,7 +410,7 @@ namespace GlyssenTests.Rules
 			GenerateGroups();
 			var frankie = m_testProject.VoiceActorList.Actors.First(a => a.Gender == ActorGender.Male);
 			frankie.Name = "Frankie";
-			frankie.IsCameo = true;
+			frankie.SpecialRole = SpecialRole.Cameo;
 			var michaelTheArchAngelGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("Michael, archangel");
 			michaelTheArchAngelGroup.AssignVoiceActor(frankie.Id);
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = false;

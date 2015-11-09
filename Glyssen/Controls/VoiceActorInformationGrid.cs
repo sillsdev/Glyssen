@@ -310,7 +310,7 @@ namespace Glyssen.Controls
 			else if (e.ColumnIndex == ActorQuality.Index)
 				e.Value = actor.VoiceQuality;
 			else if (e.ColumnIndex == Cameo.Index)
-				e.Value = actor.IsCameo;
+				e.Value = actor.IsCameo();
 			else if (e.ColumnIndex == DeleteButtonCol.Index)
 			{
 				if (m_dataGrid.Rows[e.RowIndex].IsNewRow)
@@ -344,7 +344,10 @@ namespace Glyssen.Controls
 			else if (e.ColumnIndex == ActorQuality.Index)
 				actor.VoiceQuality = (VoiceQuality)e.Value;
 			else if (e.ColumnIndex == Cameo.Index)
-				actor.IsCameo = (bool)e.Value;
+			{
+				if ((bool) e.Value) actor.SpecialRole = SpecialRole.Cameo;
+				else actor.SpecialRole = SpecialRole.None;
+			}
 		}
 
 		private void m_dataGrid_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
