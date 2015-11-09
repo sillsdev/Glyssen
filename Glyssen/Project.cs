@@ -283,16 +283,10 @@ namespace Glyssen
 			set { m_metadata.ProjectStatus.VoiceActorStatus = value; }
 		}
 
-		public int NumberOfNarrators
+		public ProjectSettings ProjectSettings
 		{
-			get { return m_metadata.NumberOfNarrators; }
-			set { m_metadata.NumberOfNarrators = value; }
-		}
-
-		public NarratorGenders NarratorGenders
-		{
-			get { return m_metadata.NarratorGenders; }
-			set { m_metadata.NarratorGenders = value; }
+			get { return m_metadata.ProjectSettings;  }
+			set { m_metadata.ProjectSettings = value; }
 		}
 
 		public IReadOnlyList<BookScript> Books { get { return m_books; } }

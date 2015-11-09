@@ -22,13 +22,13 @@ namespace Glyssen
 			InitializeComponent();
 			m_project = project;
 
-			if (m_project.NumberOfNarrators != GlyssenDblTextMetadata.kNumberOfNarratorsNotSet)
+			if (m_project.ProjectSettings.NumberOfNarrators != ProjectSettings.kNumberOfNarratorsNotSet)
 			{
-				m_intNarratorNum = m_project.NumberOfNarrators;
+				m_intNarratorNum = m_project.ProjectSettings.NumberOfNarrators;
 				m_txtNarratorNum.Text = m_intNarratorNum.ToString();
 			}
 
-			switch (m_project.NarratorGenders)
+			switch (m_project.ProjectSettings.NarratorGenders)
 			{
 				case NarratorGenders.FemaleOnly:
 					m_rdoFemaleOnly.Checked = true;
@@ -68,13 +68,13 @@ namespace Glyssen
 
 		private void m_btnOk_Clicked(object sender, EventArgs e)
 		{
-			m_project.NumberOfNarrators = m_intNarratorNum;
+			m_project.ProjectSettings.NumberOfNarrators = m_intNarratorNum;
 			if(m_rdoFemaleOnly.Checked)
-				m_project.NarratorGenders = NarratorGenders.FemaleOnly;
+				m_project.ProjectSettings.NarratorGenders = NarratorGenders.FemaleOnly;
 			else if(m_rdoMaleOrFemale.Checked)
-				m_project.NarratorGenders = NarratorGenders.MaleOrFemale;
+				m_project.ProjectSettings.NarratorGenders = NarratorGenders.MaleOrFemale;
 			else
-				m_project.NarratorGenders = NarratorGenders.MaleOnly;
+				m_project.ProjectSettings.NarratorGenders = NarratorGenders.MaleOnly;
 
 			m_project.Save();
 

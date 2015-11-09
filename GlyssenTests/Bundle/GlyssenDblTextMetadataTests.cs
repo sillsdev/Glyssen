@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Diagnostics;
+using System.IO;
 using System.Xml.Serialization;
 using Glyssen.Bundle;
 using NUnit.Framework;
@@ -101,6 +102,7 @@ namespace GlyssenTests.Bundle
 		<assignCharacterMode />
 		<quoteSystemDate>0001-01-01T00:00:00</quoteSystemDate>
 	</projectStatus>
+	<projectsettings />
 </DBLMetadata>";
 
 			AssertThatXmlIn.String(expectedResult).EqualsIgnoreWhitespace(metadata.GetAsXml());
