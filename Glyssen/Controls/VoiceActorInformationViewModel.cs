@@ -144,5 +144,11 @@ namespace Glyssen.Controls
 		{
 			return actorsToRemove.Count(IsActorAssigned);
 		}
+
+		public void LaunchNarrationOptionsDlg()
+		{
+			using (var dlg = new NarrationOptionsDlg(m_project))
+				dlg.ShowDialog();
+		}
 	}
 }

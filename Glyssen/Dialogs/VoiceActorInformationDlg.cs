@@ -51,5 +51,10 @@ namespace Glyssen.Dialogs
 			DialogResult = DialogResult.OK;
 			Close();
 		}
+
+		private void m_linkConfigureOptions_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			m_viewModel.LaunchNarrationOptionsDlg();
+		}
 	}
 }
