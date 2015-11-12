@@ -104,6 +104,30 @@ namespace Glyssen.Dialogs
 			}
 		}
 
+		public string GetUiStringForCharacterGender(string localizedCharacterId)
+		{
+			CharacterDetail detail;
+			var characterId = CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary[localizedCharacterId];
+
+			return m_project.AllCharacterDetailDictionary.TryGetValue(characterId, out detail) ?
+				GetUiStringForCharacterGender(detail.Gender) : string.Empty;
+		}
+
+		public string GetUiStringForCharacterAge(string localizedCharacterId)
+		{
+			CharacterDetail detail;
+			var characterId = CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary[localizedCharacterId];
+
+			return m_project.AllCharacterDetailDictionary.TryGetValue(characterId, out detail) ?
+				GetUiStringForCharacterAge(detail.Age) : string.Empty;
+		}
+
+		public double GetEstimatedHoursForCharacter(string localizedCharacterId)
+		{
+			var characterId = CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary[localizedCharacterId];
+			return m_keyStrokesByCharacterId[characterId] / (double)Program.kKeyStrokesPerHour;
+		}
+
 		// REVIEW: What is this intended for? It's only ever set false in tests
 		public bool CanAssign { get; set; }
 

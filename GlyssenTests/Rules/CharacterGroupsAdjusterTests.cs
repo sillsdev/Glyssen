@@ -83,6 +83,25 @@ namespace GlyssenTests.Rules
 		}
 
 		[Test]
+		public void CharacterGroupsToRemove_EmptyGroup_ReturnsFalse()
+		{
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(9, 2, 1);
+			GenerateGroups();
+			m_testProject.CharacterGroupList.CharacterGroups[0].AssignVoiceActor(m_testProject.VoiceActorList.Actors[2].Id);
+			foreach (var character in m_testProject.CharacterGroupList.CharacterGroups[0].CharacterIds)
+				m_testProject.CharacterGroupList.CharacterGroups[1].CharacterIds.Add(character);
+			m_testProject.CharacterGroupList.CharacterGroups[0].CharacterIds.Clear();
+			var adjuster = new CharacterGroupsAdjuster(m_testProject);
+			Assert.IsFalse(adjuster.CharactersNotCoveredByAnyGroup.Any());
+			Assert.IsFalse(adjuster.CharactersNoLongerInUse.Any());
+			Assert.IsFalse(adjuster.CharacterGroupsToRemove.Any());
+			Assert.IsFalse(adjuster.NewBooksHaveBeenIncluded);
+			Assert.IsFalse(adjuster.BooksHaveBeenExcluded);
+			Assert.IsFalse(adjuster.FullRegenerateRecommended);
+			Assert.IsFalse(adjuster.GroupsAreNotInSynchWithData);
+		}
+
+		[Test]
 		public void Constructor_CharactersAddedToProject_AdditionsButNoDeletions()
 		{
 			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(9, 2, 1);

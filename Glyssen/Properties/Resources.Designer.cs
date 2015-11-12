@@ -118,7 +118,7 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	82
+        ///   Looks up a localized string similar to Control File Version	83
         ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
         ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
         ///# PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -224,6 +224,16 @@ namespace Glyssen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MoveArrow {
+            get {
+                object obj = ResourceManager.GetObject("MoveArrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap people {
             get {
                 object obj = ResourceManager.GetObject("people", resourceCulture);
@@ -265,7 +275,18 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to &lt;RelatedCharacterSets&gt;
+        ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
+        ///		&lt;CharacterId&gt;Barzillai&lt;/CharacterId&gt;
+        ///		&lt;CharacterId&gt;Barzillai (old)&lt;/CharacterId&gt;
+        ///	&lt;/RelatedCharacters&gt;
+        ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
+        ///		&lt;CharacterId&gt;David&lt;/CharacterId&gt;
+        ///		&lt;CharacterId&gt;David (old)&lt;/CharacterId&gt;
+        ///	&lt;/RelatedCharacters&gt;
+        ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
+        ///		&lt;CharacterId&gt;Elisha&lt;/CharacterId&gt;
+        ///		&lt;CharacterId&gt;Elisha (old)&lt; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RelatedCharacters {
             get {

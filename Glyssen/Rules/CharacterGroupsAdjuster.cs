@@ -27,7 +27,7 @@ namespace Glyssen.Rules
 			get
 			{
 				return m_project.CharacterGroupList.CharacterGroups
-					.Where(g => !g.AssignedToCameoActor && g.CharacterIds.All(c => m_charactersNoLongerInUse.Contains(c)));
+					.Where(g => !g.AssignedToCameoActor && g.CharacterIds.Any() && g.CharacterIds.All(c => m_charactersNoLongerInUse.Contains(c)));
 			}
 		}
 
