@@ -13,8 +13,6 @@ namespace Glyssen
 {
 	public partial class NarrationOptionsDlg : Form
 	{
-		private const int kInvalidNarratorNum = -1;
-		private int m_intNarratorNum = kInvalidNarratorNum;
 		private readonly Project m_project;
 
 		public NarrationOptionsDlg(Project project)
@@ -23,10 +21,10 @@ namespace Glyssen
 			m_project = project;
 
 			if (m_project.ProjectSettings.NumberOfNarrators != ProjectSettings.kNumberOfNarratorsNotSet)
-			{
-				m_intNarratorNum = m_project.ProjectSettings.NumberOfNarrators;
-				m_txtNarratorNum.Text = m_intNarratorNum.ToString();
-			}
+				m_numNarratorNum.Value = m_project.ProjectSettings.NumberOfNarrators;
+			else
+				m_numNarratorNum.Value = m_GoodDefaultNarratorNum();
+			m_numNarratorNum.Maximum = m_project.IncludedBooks.Count;
 
 			switch (m_project.ProjectSettings.NarratorGenders)
 			{
@@ -43,32 +41,15 @@ namespace Glyssen
 			}
 		}
 
-		private bool m_validateAndSetNarratorNum()
+		private int m_GoodDefaultNarratorNum()
 		{
-			if (int.TryParse(m_txtNarratorNum.Text, out m_intNarratorNum))
-				if (m_intNarratorNum > 0)
-					return true;
-			m_intNarratorNum = kInvalidNarratorNum;
-			return false;
-		}
-
-		private void m_txtNarratorNum_TextChanged(object sender, EventArgs e)
-		{
-			if (m_validateAndSetNarratorNum())
-			{
-				m_btnOk.Enabled = true;
-				m_txtNarratorNum.BackColor = Color.White;
-			}
-			else
-			{
-				m_btnOk.Enabled = false;
-				m_txtNarratorNum.BackColor = Color.Yellow;
-			}
+			//right now - fairly arbitrary
+			return Math.Min(5, m_project.IncludedBooks.Count);
 		}
 
 		private void m_btnOk_Clicked(object sender, EventArgs e)
 		{
-			m_project.ProjectSettings.NumberOfNarrators = m_intNarratorNum;
+			m_project.ProjectSettings.NumberOfNarrators = (int)m_numNarratorNum.Value;
 			if(m_rdoFemaleOnly.Checked)
 				m_project.ProjectSettings.NarratorGenders = NarratorGenders.FemaleOnly;
 			else if(m_rdoMaleOrFemale.Checked)
@@ -79,12 +60,6 @@ namespace Glyssen
 			m_project.Save();
 
 			DialogResult = DialogResult.OK;
-			Close();
-		}
-
-		private void m_btnCancel_Clicked(object sender, EventArgs e)
-		{
-			DialogResult = DialogResult.Cancel;
 			Close();
 		}
 	}

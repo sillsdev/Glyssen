@@ -85,7 +85,7 @@ namespace Glyssen.Bundle
 		[XmlElement("projectStatus")]
 		public ProjectStatus ProjectStatus = new ProjectStatus();
 
-		[XmlElement("projectsettings")]
+		[XmlElement("projectSettings")]
 		public ProjectSettings ProjectSettings = new ProjectSettings();
 
 		/// <summary>
@@ -277,14 +277,14 @@ namespace Glyssen.Bundle
 		/// 0 if not set by user
 		/// </summary>
 		/// 
-		[XmlElement("numberofnarrators")]
+		[XmlElement("numberOfNarrators")]
 		[DefaultValue(kNumberOfNarratorsNotSet)]
 		public int NumberOfNarrators { get; set; }
 
 		/// <summary>
 		/// Narrator genders set by user.
 		/// </summary>
-		[XmlElement("narratorgenders")]
+		[XmlElement("narratorGenders")]
 		[DefaultValue(NarratorGenders.MaleOnly)]
 		public NarratorGenders NarratorGenders { get; set; }
 	}
