@@ -102,9 +102,9 @@ namespace GlyssenTests.Bundle
 		<assignCharacterMode />
 		<quoteSystemDate>0001-01-01T00:00:00</quoteSystemDate>
 	</projectStatus>
-	<projectsettings />
+	<projectSettings />
 </DBLMetadata>";
-
+			Debug.WriteLine(metadata.GetAsXml());
 			AssertThatXmlIn.String(expectedResult).EqualsIgnoreWhitespace(metadata.GetAsXml());
 		}
 	}
