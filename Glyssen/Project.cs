@@ -42,8 +42,6 @@ namespace Glyssen
 		public const string kProjectCharacterDetailFileName = "ProjectCharacterDetail.txt";
 		private const string kVoiceActorInformationFileName = "VoiceActorInformation.xml";
 		private const string kCharacterGroupFileName = "CharacterGroups.xml";
-		private const string kSample = "sample";
-		private const string kSampleProjectName = "Sample Project";
 
 		private const double kUsxPercent = 0.25;
 		private const double kGuessPercent = 0.10;
@@ -981,7 +979,8 @@ namespace Glyssen
 					return m_wsDefinition;
 
 				m_wsDefinition = new WritingSystemDefinition();
-				new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, m_wsDefinition);
+				if (File.Exists(LdmlFilePath))
+					new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, m_wsDefinition);
 
 				return m_wsDefinition;
 			}
@@ -1052,52 +1051,7 @@ namespace Glyssen
 
 		public bool IsSampleProject
 		{
-			get { return Id.Equals(kSample, StringComparison.OrdinalIgnoreCase) && LanguageIsoCode == kSample; }
-		}
-
-		public static string SampleProjectFilePath
-		{
-			get { return GetProjectFilePath(kSample, kSample, GetDefaultRecordingProjectName(kSampleProjectName)); }
-		}
-
-		public static void CreateSampleProjectIfNeeded()
-		{
-			if (File.Exists(SampleProjectFilePath))
-				return;
-			var sampleMetadata = new GlyssenDblTextMetadata();
-			sampleMetadata.AvailableBooks = new List<Book>();
-			var bookOfMark = new Book();
-			bookOfMark.Code = "MRK";
-			bookOfMark.IncludeInScript = true;
-			bookOfMark.LongName = "Gospel of Mark";
-			bookOfMark.ShortName = "Mark";
-			sampleMetadata.AvailableBooks.Add(bookOfMark);
-			sampleMetadata.FontFamily = "Times New Roman";
-			sampleMetadata.FontSizeInPoints = 12;
-			sampleMetadata.Id = kSample;
-			sampleMetadata.Language = new GlyssenDblMetadataLanguage {Iso = kSample};
-			sampleMetadata.Identification = new DblMetadataIdentification { Name = kSampleProjectName, NameLocal = kSampleProjectName};
-			sampleMetadata.ProjectStatus.ProjectSettingsStatus = ProjectSettingsStatus.Reviewed;
-			sampleMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
-			sampleMetadata.ProjectStatus.BookSelectionStatus = BookSelectionStatus.Reviewed;
-			
-			var sampleWs = new WritingSystemDefinition();
-			sampleWs.QuotationMarks.AddRange(GetSampleQuoteSystem().AllLevels);
-
-			XmlDocument sampleMark = new XmlDocument();
-			sampleMark.LoadXml(Resources.SampleMRK);
-			UsxDocument mark = new UsxDocument(sampleMark);
-
-			new Project(sampleMetadata, new[] { mark }, SfmLoader.GetUsfmStylesheet(), sampleWs);
-		}
-
-		private static QuoteSystem GetSampleQuoteSystem()
-		{
-			QuoteSystem sampleQuoteSystem = new QuoteSystem();
-			sampleQuoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal));
-			sampleQuoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“‘", 2, QuotationMarkingSystemType.Normal));
-			sampleQuoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“‘“", 3, QuotationMarkingSystemType.Normal));
-			return sampleQuoteSystem;
+			get { return Id.Equals(SampleProject.kSample, StringComparison.OrdinalIgnoreCase) && LanguageIsoCode == SampleProject.kSample; }
 		}
 
 		internal static string GetDefaultRecordingProjectName(string publicationName)

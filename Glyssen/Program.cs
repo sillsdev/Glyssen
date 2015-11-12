@@ -73,7 +73,7 @@ namespace Glyssen
 
 				DataMigrator.UpgradeToCurrentDataFormatVersion();
 
-				Project.CreateSampleProjectIfNeeded();
+				SampleProject.CreateSampleProjectIfNeeded();
 
 				SetUpLocalization();
 
