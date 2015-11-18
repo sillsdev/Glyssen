@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Character;
@@ -31,6 +32,7 @@ namespace Glyssen.Dialogs
 		private List<string> m_characterIdsForSelectedGroup;
 		private bool m_characterDetailsVisible = true;
 		private string m_fmtNoCharactersInGroup;
+		private readonly BackgroundWorker m_findCharacterBackgroundWorker;
 
 		public VoiceActorAssignmentDlg(Project project)
 		{
@@ -73,6 +75,10 @@ namespace Glyssen.Dialogs
 
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+
+			m_findCharacterBackgroundWorker = new BackgroundWorker { WorkerSupportsCancellation = true };
+			m_findCharacterBackgroundWorker.DoWork += FindCharacter;
+			m_findCharacterBackgroundWorker.RunWorkerCompleted += FindCharacterCompleted;
 		}
 
 		private void GenerateGroupsWithProgress(bool attemptToPreserveActorAssignments)
@@ -808,6 +814,76 @@ namespace Glyssen.Dialogs
 				GroupsRowStyle.SizeType = SizeType.AutoSize;
 				m_characterGroupGrid.Height = fullHeight;
 			}
+		}
+		#endregion
+
+		#region Find a character
+		private void m_toolStripTextBoxFindCharacter_TextChanged(object sender, EventArgs e)
+		{
+			m_toolStripButtonFindNextMatchingCharacter.Enabled = false;
+
+			m_toolStripTextBoxFindCharacter.ForeColor = SystemColors.WindowText;
+			if (m_findCharacterBackgroundWorker.IsBusy)
+			{
+				m_findCharacterBackgroundWorker.CancelAsync();
+				return;
+			}
+
+			if (m_toolStripTextBoxFindCharacter.TextLength < 2)
+				return;
+
+			InitiateFind();
+		}
+
+		private void InitiateFind()
+		{
+			object[] parameters = { m_toolStripTextBoxFindCharacter.Text, m_characterGroupGrid.CurrentCellAddress.Y, m_characterDetailsGrid.CurrentCellAddress.Y };
+			m_findCharacterBackgroundWorker.RunWorkerAsync(parameters);
+		}
+
+		private void FindCharacter(object sender, DoWorkEventArgs e)
+		{
+
+			var parameters = (object[])e.Argument;
+			var textToFind = (string)parameters[0];
+			var startingGroupRow = (int)parameters[1];
+			var startingDetailRow = (int)parameters[2];
+			e.Result = m_actorAssignmentViewModel.FindNextMatchingCharacter(textToFind, startingGroupRow, startingDetailRow);
+		}
+
+		private void FindCharacterCompleted(object sender, RunWorkerCompletedEventArgs e)
+		{
+			if (e.Cancelled)
+				return;
+
+			var match = (Tuple<int, int>)e.Result;
+			var characterGroupIndex = match.Item1;
+			var characterDetailIndex = match.Item2;
+
+			if (characterGroupIndex < 0 || characterDetailIndex < 0)
+			{
+				// No matches.
+				m_toolStripTextBoxFindCharacter.ForeColor = Color.Red;
+				SystemSounds.Beep.Play();
+				return;
+			}
+
+			if (m_characterGroupGrid.CurrentCellAddress.Y == characterGroupIndex && m_characterDetailsGrid.CurrentCellAddress.Y == characterDetailIndex)
+			{
+				// Search wrapped around.
+				return;
+			}
+
+			m_characterGroupGrid.CurrentCell = m_characterGroupGrid.Rows[characterGroupIndex].Cells[CharacterIdsCol.Index];
+			foreach (DataGridViewRow row in m_characterDetailsGrid.Rows)
+				row.Selected = row.Index == characterDetailIndex;
+			m_characterDetailsGrid.CurrentCell = m_characterDetailsGrid.Rows[characterDetailIndex].Cells[CharacterDetailsIdCol.Index];
+			m_toolStripButtonFindNextMatchingCharacter.Enabled = true;
+		}
+
+		private void m_toolStripButtonFindNextMatchingCharacter_Click(object sender, EventArgs e)
+		{
+			InitiateFind();
 		}
 		#endregion
 	}

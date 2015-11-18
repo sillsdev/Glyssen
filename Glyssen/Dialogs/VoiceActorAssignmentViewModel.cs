@@ -39,6 +39,7 @@ namespace Glyssen.Dialogs
 		public delegate void SavedEventHandler(VoiceActorAssignmentViewModel sender, IEnumerable<CharacterGroup> groupsAffected);
 		public event SavedEventHandler Saved;
 		private readonly UndoStack<ICharacterGroupsUndoAction> m_undoStack = new UndoStack<ICharacterGroupsUndoAction>();
+		private readonly Dictionary<string, HashSet<string>> m_findTextToMatchingCharacterIds = new Dictionary<string, HashSet<string>>(); 
 
 		public VoiceActorAssignmentViewModel(Project project, Dictionary<string, int> keyStrokesByCharacterId = null)
 		{
@@ -446,6 +447,63 @@ namespace Glyssen.Dialogs
 				m_undoStack.Push(new VoiceActorEditingUndoAction(m_project, changes));
 				Save();
 			}
+		}
+
+		public Tuple<int, int> FindNextMatchingCharacter(string textToFind, int startingGroupIndex, int startingDetailIndex)
+		{
+			if (textToFind == null)
+				throw new ArgumentNullException("textToFind");
+			textToFind = textToFind.Trim();
+			if (textToFind.Length < 2)
+				throw new ArgumentException("Value must contain at least two non-whitespace characters.", "textToFind");
+
+			var matchingCharacterIds = GetMatchingCharacterIds(textToFind);
+
+			bool wrapped = false;
+			for (int iGroup = startingGroupIndex; iGroup <= (wrapped ? startingGroupIndex : CharacterGroups.Count - 1); iGroup++)
+			{
+				// TODO: Instead of alphabetical list, we need the list as currently sorted in UI.
+				var characterIdsInGroup = CharacterGroups[iGroup].CharacterIds.ToList();
+
+				for (int iCharacter = (wrapped || iGroup > startingGroupIndex ? 0 : startingDetailIndex + 1);
+					iCharacter <= (wrapped && iGroup ==startingGroupIndex ? startingDetailIndex : CharacterGroups[iGroup].CharacterIds.Count - 1);
+					iCharacter++)
+				{
+					if (matchingCharacterIds.Contains(characterIdsInGroup[iCharacter], StringComparison.Ordinal))
+						return new Tuple<int, int>(iGroup, iCharacter);
+				}
+
+				if (!wrapped && iGroup == CharacterGroups.Count - 1)
+				{
+					wrapped = true;
+					iGroup = -1;
+				}
+			}
+			return new Tuple<int, int>(-1, -1);
+		}
+
+		private HashSet<string> GetMatchingCharacterIds(string textToFind)
+		{
+			HashSet<string> matchingCharacterIds;
+			if (!m_findTextToMatchingCharacterIds.TryGetValue(textToFind, out matchingCharacterIds))
+			{
+				if (CharacterDetailData.Singleton.GetAll().Count() !=
+					CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary.Count)
+				{
+					// First time getting UI versions of character IDs (typically when running tests), so we need to force
+					// population of CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary.
+					foreach (var characterId in CharacterGroups.SelectMany(characterGroup => characterGroup.CharacterIds))
+						CharacterVerseData.GetCharacterNameForUi(characterId);
+				}
+				matchingCharacterIds = new HashSet<string>();
+				m_findTextToMatchingCharacterIds.Add(textToFind, matchingCharacterIds);
+				foreach (var kvp in CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary)
+				{
+					if (kvp.Value.IndexOf(textToFind, StringComparison.OrdinalIgnoreCase) >= 0)
+						matchingCharacterIds.Add(kvp.Key);
+				}
+			}
+			return matchingCharacterIds;
 		}
 	}
 }
