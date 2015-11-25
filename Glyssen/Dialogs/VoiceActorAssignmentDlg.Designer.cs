@@ -33,17 +33,19 @@ namespace Glyssen.Dialogs
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoiceActorAssignmentDlg));
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoiceActorAssignmentDlg));
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.m_lblInstructions = new System.Windows.Forms.Label();
 			this.m_contextMenuCharacters = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.m_menuItemCreateNewGroup = new System.Windows.Forms.ToolStripMenuItem();
+			this.m_menuItemAssignToCameoActor = new System.Windows.Forms.ToolStripMenuItem();
+			this.m_cameoActorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_menuItemMoveToAnotherGroup = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_splitGroupCharacterDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_contextMenuCharacterGroups = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -57,14 +59,33 @@ namespace Glyssen.Dialogs
 			this.m_editActorsButton = new System.Windows.Forms.ToolStripButton();
 			this.m_updateGroupsButton = new System.Windows.Forms.ToolStripButton();
 			this.m_splitSelectedGroupButton = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.m_toolStripLabelFindCharacter = new System.Windows.Forms.ToolStripLabel();
+			this.m_toolStripTextBoxFindCharacter = new System.Windows.Forms.ToolStripTextBox();
+			this.m_toolStripButtonFindNextMatchingCharacter = new System.Windows.Forms.ToolStripButton();
 			this.m_btnOK = new System.Windows.Forms.Button();
-			this.m_btnShowHideDetails = new System.Windows.Forms.Button();
 			this.m_characterDetailsGrid = new SIL.Windows.Forms.Widgets.BetterGrid.BetterGrid();
+			this.m_lblHowToAssignCharactersToCameoGroup = new System.Windows.Forms.Label();
+			this.m_lblMovePendingInfo = new System.Windows.Forms.Label();
+			this.m_btnCancelMove = new System.Windows.Forms.Button();
+			this.m_btnMove = new System.Windows.Forms.Button();
+			this.m_lblMoveInstr = new System.Windows.Forms.Label();
+			this.m_linkLabelShowHideDetails = new System.Windows.Forms.LinkLabel();
+			this.m_lblCharacterDetails = new System.Windows.Forms.Label();
+			this.m_toolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.m_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+			this.m_tableLayoutPanelMove = new System.Windows.Forms.TableLayoutPanel();
+			this.m_tableLayoutPanelCharacterDetails = new System.Windows.Forms.TableLayoutPanel();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.m_lblNoCharactersInGroup = new System.Windows.Forms.Label();
+			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.CharacterDetailsIdCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.CharacterDetailsGenderCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.CharacterDetailsAgeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.CharacterDetailsHoursCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.m_lblNoCharactersInGroup = new System.Windows.Forms.Label();
 			this.m_characterGroupGrid = new Glyssen.Controls.AutoScrollGrid();
 			this.CharacterIdsCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.AttributesCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,25 +93,16 @@ namespace Glyssen.Dialogs
 			this.EstimatedHoursCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.VoiceActorCol = new Glyssen.Controls.DataGridViewMultiColumnComboBoxColumn();
 			this.m_saveStatus = new Glyssen.Controls.SaveStatus();
-			this.m_toolTip = new System.Windows.Forms.ToolTip(this.components);
-			this.m_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-			this.m_tableLayoutPanelCharacterDetails = new System.Windows.Forms.TableLayoutPanel();
-			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.m_toolStripTextBoxFindCharacter = new System.Windows.Forms.ToolStripTextBox();
-			this.m_toolStripLabelFindCharacter = new System.Windows.Forms.ToolStripLabel();
-			this.m_toolStripButtonFindNextMatchingCharacter = new System.Windows.Forms.ToolStripButton();
 			this.m_contextMenuCharacters.SuspendLayout();
 			this.m_contextMenuCharacterGroups.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.m_toolStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_characterDetailsGrid)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).BeginInit();
 			this.m_tableLayoutPanel.SuspendLayout();
+			this.m_tableLayoutPanelMove.SuspendLayout();
 			this.m_tableLayoutPanelCharacterDetails.SuspendLayout();
+			this.tableLayoutPanel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// m_lblInstructions
@@ -110,6 +122,7 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_contextMenuCharacters.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.m_menuItemCreateNewGroup,
+            this.m_menuItemAssignToCameoActor,
             this.m_menuItemMoveToAnotherGroup,
             this.m_splitGroupCharacterDetailsToolStripMenuItem});
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_contextMenuCharacters, null);
@@ -118,7 +131,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_contextMenuCharacters, "DialogBoxes.VoiceActorAssignmentDlg.m_contextMenuCharacters.m_contextMenuCharacte" +
         "rs");
 			this.m_contextMenuCharacters.Name = "m_contextMenuCharacters";
-			this.m_contextMenuCharacters.Size = new System.Drawing.Size(322, 70);
+			this.m_contextMenuCharacters.Size = new System.Drawing.Size(322, 92);
 			this.m_contextMenuCharacters.Opening += new System.ComponentModel.CancelEventHandler(this.m_contextMenuCharacters_Opening);
 			// 
 			// m_menuItemCreateNewGroup
@@ -132,6 +145,27 @@ namespace Glyssen.Dialogs
 			this.m_menuItemCreateNewGroup.Size = new System.Drawing.Size(321, 22);
 			this.m_menuItemCreateNewGroup.Text = "Create a new group with the selected character";
 			this.m_menuItemCreateNewGroup.Click += new System.EventHandler(this.m_menuItemCreateNewGroup_Click);
+			// 
+			// m_menuItemAssignToCameoActor
+			// 
+			this.m_menuItemAssignToCameoActor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.m_cameoActorToolStripMenuItem});
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_menuItemAssignToCameoActor, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_menuItemAssignToCameoActor, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_menuItemAssignToCameoActor, "DialogBoxes.VoiceActorAssignmentDlg.AssignToCameoActor");
+			this.m_menuItemAssignToCameoActor.Name = "m_menuItemAssignToCameoActor";
+			this.m_menuItemAssignToCameoActor.Size = new System.Drawing.Size(321, 22);
+			this.m_menuItemAssignToCameoActor.Text = "Assign selected character to cameo actor";
+			// 
+			// m_cameoActorToolStripMenuItem
+			// 
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_cameoActorToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_cameoActorToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_cameoActorToolStripMenuItem, "DialogBoxes.cameoActorToolStripMenuItem");
+			this.m_cameoActorToolStripMenuItem.Name = "m_cameoActorToolStripMenuItem";
+			this.m_cameoActorToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+			this.m_cameoActorToolStripMenuItem.Text = "CameoActor";
+			this.m_cameoActorToolStripMenuItem.Click += new System.EventHandler(this.HandleAssignToCameoActorClick);
 			// 
 			// m_menuItemMoveToAnotherGroup
 			// 
@@ -296,6 +330,46 @@ namespace Glyssen.Dialogs
 			this.m_splitSelectedGroupButton.Text = "Split Selected Group...";
 			this.m_splitSelectedGroupButton.Click += new System.EventHandler(this.HandleSplitSelectedGroupClick);
 			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+			// 
+			// m_toolStripLabelFindCharacter
+			// 
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripLabelFindCharacter, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripLabelFindCharacter, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStripLabelFindCharacter, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripLabelFindCharacter, "DialogBoxes.VoiceActorAssignmentDlg.m_toolStripLabelFindCharacter");
+			this.m_toolStripLabelFindCharacter.Name = "m_toolStripLabelFindCharacter";
+			this.m_toolStripLabelFindCharacter.Size = new System.Drawing.Size(87, 22);
+			this.m_toolStripLabelFindCharacter.Text = "Find Character:";
+			// 
+			// m_toolStripTextBoxFindCharacter
+			// 
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripTextBoxFindCharacter, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripTextBoxFindCharacter, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStripTextBoxFindCharacter, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripTextBoxFindCharacter, "DialogBoxes.VoiceActorAssignmentDlg.m_toolStripTextBoxFindCharacter");
+			this.m_toolStripTextBoxFindCharacter.Name = "m_toolStripTextBoxFindCharacter";
+			this.m_toolStripTextBoxFindCharacter.Size = new System.Drawing.Size(120, 25);
+			this.m_toolStripTextBoxFindCharacter.ToolTipText = "Begin typing a character ID to find the group that contains it";
+			this.m_toolStripTextBoxFindCharacter.TextChanged += new System.EventHandler(this.m_toolStripTextBoxFindCharacter_TextChanged);
+			// 
+			// m_toolStripButtonFindNextMatchingCharacter
+			// 
+			this.m_toolStripButtonFindNextMatchingCharacter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.m_toolStripButtonFindNextMatchingCharacter.Enabled = false;
+			this.m_toolStripButtonFindNextMatchingCharacter.Image = global::Glyssen.Properties.Resources.search_glyph;
+			this.m_toolStripButtonFindNextMatchingCharacter.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonFindNextMatchingCharacter, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonFindNextMatchingCharacter, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonFindNextMatchingCharacter, "DialogBoxes.VoiceActorAssignmentDlg.toolStripButton1");
+			this.m_toolStripButtonFindNextMatchingCharacter.Name = "m_toolStripButtonFindNextMatchingCharacter";
+			this.m_toolStripButtonFindNextMatchingCharacter.Size = new System.Drawing.Size(23, 22);
+			this.m_toolStripButtonFindNextMatchingCharacter.Text = "Find next match";
+			this.m_toolStripButtonFindNextMatchingCharacter.Click += new System.EventHandler(this.m_toolStripButtonFindNextMatchingCharacter_Click);
+			// 
 			// m_btnOK
 			// 
 			this.m_btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -311,23 +385,6 @@ namespace Glyssen.Dialogs
 			this.m_btnOK.Text = "OK";
 			this.m_btnOK.UseVisualStyleBackColor = true;
 			// 
-			// m_btnShowHideDetails
-			// 
-			this.m_btnShowHideDetails.AutoSize = true;
-			this.m_btnShowHideDetails.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnShowHideDetails, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnShowHideDetails, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_btnShowHideDetails, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnShowHideDetails, "DialogBoxes.VoiceActorAssignmentDlg.HideCharacterDetailsButton");
-			this.m_btnShowHideDetails.Location = new System.Drawing.Point(0, 242);
-			this.m_btnShowHideDetails.Margin = new System.Windows.Forms.Padding(0, 10, 3, 6);
-			this.m_btnShowHideDetails.Name = "m_btnShowHideDetails";
-			this.m_btnShowHideDetails.Size = new System.Drawing.Size(123, 23);
-			this.m_btnShowHideDetails.TabIndex = 7;
-			this.m_btnShowHideDetails.Text = "Hide Character Details";
-			this.m_btnShowHideDetails.UseVisualStyleBackColor = true;
-			this.m_btnShowHideDetails.Click += new System.EventHandler(this.m_btnShowHideDetails_Click);
-			// 
 			// m_characterDetailsGrid
 			// 
 			this.m_characterDetailsGrid.AllowUserToAddRows = false;
@@ -341,14 +398,14 @@ namespace Glyssen.Dialogs
 			this.m_characterDetailsGrid.BackgroundColor = System.Drawing.SystemColors.Window;
 			this.m_characterDetailsGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.m_characterDetailsGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F);
-			dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.m_characterDetailsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.m_characterDetailsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.m_characterDetailsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.m_characterDetailsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CharacterDetailsIdCol,
@@ -364,7 +421,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_characterDetailsGrid, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_characterDetailsGrid, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_characterDetailsGrid, "DialogBoxes.VoiceActorAssignmentDlg.CharacterDetails");
-			this.m_characterDetailsGrid.Location = new System.Drawing.Point(0, 3);
+			this.m_characterDetailsGrid.Location = new System.Drawing.Point(0, 65);
 			this.m_characterDetailsGrid.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
 			this.m_characterDetailsGrid.MultiSelect = false;
 			this.m_characterDetailsGrid.Name = "m_characterDetailsGrid";
@@ -379,7 +436,7 @@ namespace Glyssen.Dialogs
 			this.m_characterDetailsGrid.SelectedRowForeColor = System.Drawing.Color.Empty;
 			this.m_characterDetailsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.m_characterDetailsGrid.ShowWaterMarkWhenDirty = false;
-			this.m_characterDetailsGrid.Size = new System.Drawing.Size(555, 52);
+			this.m_characterDetailsGrid.Size = new System.Drawing.Size(555, 33);
 			this.m_characterDetailsGrid.TabIndex = 8;
 			this.m_characterDetailsGrid.TextBoxEditControlBorderColor = System.Drawing.Color.Silver;
 			this.m_characterDetailsGrid.VirtualMode = true;
@@ -387,11 +444,267 @@ namespace Glyssen.Dialogs
 			this.m_characterDetailsGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.HandleGridCellMouseDown);
 			this.m_characterDetailsGrid.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.m_characterDetailsGrid_CellValueNeeded);
 			// 
+			// m_lblHowToAssignCharactersToCameoGroup
+			// 
+			this.m_lblHowToAssignCharactersToCameoGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_lblHowToAssignCharactersToCameoGroup.AutoSize = true;
+			this.m_lblHowToAssignCharactersToCameoGroup.BackColor = System.Drawing.Color.DarkOrange;
+			this.m_lblHowToAssignCharactersToCameoGroup.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.m_lblHowToAssignCharactersToCameoGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_lblHowToAssignCharactersToCameoGroup.ForeColor = System.Drawing.Color.Black;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblHowToAssignCharactersToCameoGroup, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblHowToAssignCharactersToCameoGroup, "Parameter 0 is a sentence stating that the character group has no characters. Par" +
+        "ameter 1 is the name of the cameo actor assigned to the selected group.");
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblHowToAssignCharactersToCameoGroup, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblHowToAssignCharactersToCameoGroup, "DialogBoxes.VoiceActorAssignmentDlg.HowToAssignCharactersToCameoGroup");
+			this.m_lblHowToAssignCharactersToCameoGroup.Location = new System.Drawing.Point(3, 13);
+			this.m_lblHowToAssignCharactersToCameoGroup.Name = "m_lblHowToAssignCharactersToCameoGroup";
+			this.m_lblHowToAssignCharactersToCameoGroup.Size = new System.Drawing.Size(549, 49);
+			this.m_lblHowToAssignCharactersToCameoGroup.TabIndex = 9;
+			this.m_lblHowToAssignCharactersToCameoGroup.Text = resources.GetString("m_lblHowToAssignCharactersToCameoGroup.Text");
+			this.m_lblHowToAssignCharactersToCameoGroup.UseCompatibleTextRendering = true;
+			// 
+			// m_lblMovePendingInfo
+			// 
+			this.m_lblMovePendingInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_lblMovePendingInfo.AutoSize = true;
+			this.m_tableLayoutPanelMove.SetColumnSpan(this.m_lblMovePendingInfo, 2);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblMovePendingInfo, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblMovePendingInfo, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblMovePendingInfo, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblMovePendingInfo, "DialogBoxes.VoiceActorAssignmentDlg.m_lblMoveInstructions");
+			this.m_lblMovePendingInfo.Location = new System.Drawing.Point(8, 8);
+			this.m_lblMovePendingInfo.Margin = new System.Windows.Forms.Padding(8, 8, 8, 0);
+			this.m_lblMovePendingInfo.Name = "m_lblMovePendingInfo";
+			this.m_lblMovePendingInfo.Size = new System.Drawing.Size(256, 13);
+			this.m_lblMovePendingInfo.TabIndex = 0;
+			this.m_lblMovePendingInfo.Text = "Move pending for {0}";
+			// 
+			// m_btnCancelMove
+			// 
+			this.m_btnCancelMove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancelMove, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancelMove, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_btnCancelMove, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnCancelMove, "DialogBoxes.VoiceActorAssignmentDlg.m_btnCancelMove");
+			this.m_btnCancelMove.Location = new System.Drawing.Point(53, 94);
+			this.m_btnCancelMove.Margin = new System.Windows.Forms.Padding(8);
+			this.m_btnCancelMove.Name = "m_btnCancelMove";
+			this.m_btnCancelMove.Size = new System.Drawing.Size(75, 23);
+			this.m_btnCancelMove.TabIndex = 1;
+			this.m_btnCancelMove.Text = "Cancel";
+			this.m_btnCancelMove.UseVisualStyleBackColor = true;
+			this.m_btnCancelMove.Click += new System.EventHandler(this.m_btnCancelMove_Click);
+			// 
+			// m_btnMove
+			// 
+			this.m_btnMove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.m_btnMove.Enabled = false;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnMove, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnMove, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_btnMove, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnMove, "DialogBoxes.VoiceActorAssignmentDlg.m_btnMove");
+			this.m_btnMove.Location = new System.Drawing.Point(144, 94);
+			this.m_btnMove.Margin = new System.Windows.Forms.Padding(8);
+			this.m_btnMove.Name = "m_btnMove";
+			this.m_btnMove.Size = new System.Drawing.Size(75, 23);
+			this.m_btnMove.TabIndex = 2;
+			this.m_btnMove.Text = "&Move";
+			this.m_btnMove.UseVisualStyleBackColor = true;
+			this.m_btnMove.Click += new System.EventHandler(this.m_btnMove_Click);
+			// 
+			// m_lblMoveInstr
+			// 
+			this.m_lblMoveInstr.AutoSize = true;
+			this.m_tableLayoutPanelMove.SetColumnSpan(this.m_lblMoveInstr, 2);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblMoveInstr, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblMoveInstr, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblMoveInstr, "DialogBoxes.label1");
+			this.m_lblMoveInstr.Location = new System.Drawing.Point(8, 23);
+			this.m_lblMoveInstr.Margin = new System.Windows.Forms.Padding(8, 2, 8, 8);
+			this.m_lblMoveInstr.Name = "m_lblMoveInstr";
+			this.m_lblMoveInstr.Size = new System.Drawing.Size(254, 26);
+			this.m_lblMoveInstr.TabIndex = 3;
+			this.m_lblMoveInstr.Text = "Select the desired desination group above and then click Move.";
+			// 
+			// m_linkLabelShowHideDetails
+			// 
+			this.m_linkLabelShowHideDetails.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.m_linkLabelShowHideDetails.AutoSize = true;
+			this.m_linkLabelShowHideDetails.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkLabelShowHideDetails, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkLabelShowHideDetails, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_linkLabelShowHideDetails, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLabelShowHideDetails, "DialogBoxes.VoiceActorAssignmentDlg.m_linkLabelShowHideDetails");
+			this.m_linkLabelShowHideDetails.Location = new System.Drawing.Point(264, 6);
+			this.m_linkLabelShowHideDetails.Name = "m_linkLabelShowHideDetails";
+			this.m_linkLabelShowHideDetails.Size = new System.Drawing.Size(62, 13);
+			this.m_linkLabelShowHideDetails.TabIndex = 11;
+			this.m_linkLabelShowHideDetails.TabStop = true;
+			this.m_linkLabelShowHideDetails.Text = "Hide details";
+			this.m_linkLabelShowHideDetails.Click += new System.EventHandler(this.HandleShowOrHideCharacterDetails_Click);
+			// 
+			// m_lblCharacterDetails
+			// 
+			this.m_lblCharacterDetails.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.m_lblCharacterDetails.AutoSize = true;
+			this.m_lblCharacterDetails.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblCharacterDetails, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblCharacterDetails, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblCharacterDetails, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblCharacterDetails, "DialogBoxes.VoiceActorAssignmentDlg.m_lblCharacterDetails");
+			this.m_lblCharacterDetails.Location = new System.Drawing.Point(0, 6);
+			this.m_lblCharacterDetails.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+			this.m_lblCharacterDetails.Name = "m_lblCharacterDetails";
+			this.m_lblCharacterDetails.Size = new System.Drawing.Size(258, 13);
+			this.m_lblCharacterDetails.TabIndex = 12;
+			this.m_lblCharacterDetails.Text = "Character details for character group selected above:";
+			// 
+			// m_tableLayoutPanel
+			// 
+			this.m_tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_tableLayoutPanel.ColumnCount = 2;
+			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
+			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+			this.m_tableLayoutPanel.Controls.Add(this.m_tableLayoutPanelCharacterDetails, 0, 2);
+			this.m_tableLayoutPanel.Controls.Add(this.m_characterGroupGrid, 0, 0);
+			this.m_tableLayoutPanel.Controls.Add(this.tableLayoutPanel1, 0, 1);
+			this.m_tableLayoutPanel.Controls.Add(this.m_tableLayoutPanelMove, 1, 1);
+			this.m_tableLayoutPanel.Location = new System.Drawing.Point(15, 55);
+			this.m_tableLayoutPanel.Name = "m_tableLayoutPanel";
+			this.m_tableLayoutPanel.RowCount = 3;
+			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+			this.m_tableLayoutPanel.Size = new System.Drawing.Size(833, 371);
+			this.m_tableLayoutPanel.TabIndex = 9;
+			this.m_tableLayoutPanel.Resize += new System.EventHandler(this.m_tableLayoutPanel_Resize);
+			// 
+			// m_tableLayoutPanelMove
+			// 
+			this.m_tableLayoutPanelMove.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_tableLayoutPanelMove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.m_tableLayoutPanelMove.ColumnCount = 2;
+			this.m_tableLayoutPanelMove.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.m_tableLayoutPanelMove.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.m_tableLayoutPanelMove.Controls.Add(this.m_lblMovePendingInfo, 0, 0);
+			this.m_tableLayoutPanelMove.Controls.Add(this.m_btnMove, 1, 2);
+			this.m_tableLayoutPanelMove.Controls.Add(this.m_lblMoveInstr, 0, 1);
+			this.m_tableLayoutPanelMove.Controls.Add(this.m_btnCancelMove, 0, 2);
+			this.m_tableLayoutPanelMove.Location = new System.Drawing.Point(558, 243);
+			this.m_tableLayoutPanelMove.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+			this.m_tableLayoutPanelMove.Name = "m_tableLayoutPanelMove";
+			this.m_tableLayoutPanelMove.RowCount = 3;
+			this.m_tableLayoutPanel.SetRowSpan(this.m_tableLayoutPanelMove, 2);
+			this.m_tableLayoutPanelMove.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayoutPanelMove.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayoutPanelMove.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayoutPanelMove.Size = new System.Drawing.Size(272, 125);
+			this.m_tableLayoutPanelMove.TabIndex = 4;
+			this.m_tableLayoutPanelMove.Visible = false;
+			// 
+			// m_tableLayoutPanelCharacterDetails
+			// 
+			this.m_tableLayoutPanelCharacterDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_tableLayoutPanelCharacterDetails.AutoSize = true;
+			this.m_tableLayoutPanelCharacterDetails.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.m_tableLayoutPanelCharacterDetails.ColumnCount = 1;
+			this.m_tableLayoutPanelCharacterDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.m_tableLayoutPanelCharacterDetails.Controls.Add(this.m_lblHowToAssignCharactersToCameoGroup, 0, 1);
+			this.m_tableLayoutPanelCharacterDetails.Controls.Add(this.m_characterDetailsGrid, 0, 2);
+			this.m_tableLayoutPanelCharacterDetails.Controls.Add(this.m_lblNoCharactersInGroup, 0, 0);
+			this.m_tableLayoutPanelCharacterDetails.Location = new System.Drawing.Point(0, 270);
+			this.m_tableLayoutPanelCharacterDetails.Margin = new System.Windows.Forms.Padding(0);
+			this.m_tableLayoutPanelCharacterDetails.Name = "m_tableLayoutPanelCharacterDetails";
+			this.m_tableLayoutPanelCharacterDetails.RowCount = 3;
+			this.m_tableLayoutPanelCharacterDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayoutPanelCharacterDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayoutPanelCharacterDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.m_tableLayoutPanelCharacterDetails.Size = new System.Drawing.Size(555, 101);
+			this.m_tableLayoutPanelCharacterDetails.TabIndex = 10;
+			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tableLayoutPanel1.ColumnCount = 2;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Controls.Add(this.m_linkLabelShowHideDetails, 1, 0);
+			this.tableLayoutPanel1.Controls.Add(this.m_lblCharacterDetails, 0, 0);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 241);
+			this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 6, 3, 3);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 1;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(552, 26);
+			this.tableLayoutPanel1.TabIndex = 11;
+			// 
+			// m_lblNoCharactersInGroup
+			// 
+			this.m_lblNoCharactersInGroup.AutoSize = true;
+			this.m_lblNoCharactersInGroup.ForeColor = System.Drawing.Color.White;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblNoCharactersInGroup, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblNoCharactersInGroup, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblNoCharactersInGroup, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblNoCharactersInGroup, "DialogBoxes.VoiceActorAssignmentDlg.NoCharactersInGroup");
+			this.m_lblNoCharactersInGroup.Location = new System.Drawing.Point(3, 0);
+			this.m_lblNoCharactersInGroup.Name = "m_lblNoCharactersInGroup";
+			this.m_lblNoCharactersInGroup.Size = new System.Drawing.Size(252, 13);
+			this.m_lblNoCharactersInGroup.TabIndex = 10;
+			this.m_lblNoCharactersInGroup.Text = "The selected group currently has no characters in it.";
+			// 
+			// dataGridViewTextBoxColumn1
+			// 
+			this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.dataGridViewTextBoxColumn1.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.CharacterDetails.CharacterId!Character" +
+    "Id";
+			this.dataGridViewTextBoxColumn1.MinimumWidth = 50;
+			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+			this.dataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn2
+			// 
+			this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.dataGridViewTextBoxColumn2.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.CharacterDetails.Gender!Gender";
+			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+			this.dataGridViewTextBoxColumn2.ReadOnly = true;
+			this.dataGridViewTextBoxColumn2.Width = 449;
+			// 
+			// dataGridViewTextBoxColumn3
+			// 
+			this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.dataGridViewTextBoxColumn3.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.CharacterDetails.Age!Age";
+			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+			this.dataGridViewTextBoxColumn3.ReadOnly = true;
+			this.dataGridViewTextBoxColumn3.Width = 415;
+			// 
+			// dataGridViewTextBoxColumn4
+			// 
+			this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			dataGridViewCellStyle7.Format = "N2";
+			this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle7;
+			this.dataGridViewTextBoxColumn4.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.CharacterDetails.Hours!Hours";
+			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+			this.dataGridViewTextBoxColumn4.ReadOnly = true;
+			this.dataGridViewTextBoxColumn4.Width = 437;
+			// 
 			// CharacterDetailsIdCol
 			// 
 			this.CharacterDetailsIdCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.CharacterDetailsIdCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.CharacterDetails.CharacterId!Character" +
-    "Id";
+    " ID";
 			this.CharacterDetailsIdCol.MinimumWidth = 50;
 			this.CharacterDetailsIdCol.Name = "CharacterDetailsIdCol";
 			this.CharacterDetailsIdCol.ReadOnly = true;
@@ -415,29 +728,12 @@ namespace Glyssen.Dialogs
 			// CharacterDetailsHoursCol
 			// 
 			this.CharacterDetailsHoursCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			dataGridViewCellStyle9.Format = "N2";
-			this.CharacterDetailsHoursCol.DefaultCellStyle = dataGridViewCellStyle9;
+			dataGridViewCellStyle2.Format = "N2";
+			this.CharacterDetailsHoursCol.DefaultCellStyle = dataGridViewCellStyle2;
 			this.CharacterDetailsHoursCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.CharacterDetails.Hours!Hours";
 			this.CharacterDetailsHoursCol.Name = "CharacterDetailsHoursCol";
 			this.CharacterDetailsHoursCol.ReadOnly = true;
 			this.CharacterDetailsHoursCol.Width = 437;
-			// 
-			// m_lblNoCharactersInGroup
-			// 
-			this.m_lblNoCharactersInGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_lblNoCharactersInGroup.AutoSize = true;
-			this.m_lblNoCharactersInGroup.ForeColor = System.Drawing.Color.White;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblNoCharactersInGroup, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblNoCharactersInGroup, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblNoCharactersInGroup, "DialogBoxes.label1");
-			this.m_lblNoCharactersInGroup.Location = new System.Drawing.Point(3, 58);
-			this.m_lblNoCharactersInGroup.Name = "m_lblNoCharactersInGroup";
-			this.m_lblNoCharactersInGroup.Size = new System.Drawing.Size(549, 42);
-			this.m_lblNoCharactersInGroup.TabIndex = 9;
-			this.m_lblNoCharactersInGroup.Text = resources.GetString("m_lblNoCharactersInGroup.Text");
-			this.m_lblNoCharactersInGroup.UseCompatibleTextRendering = true;
 			// 
 			// m_characterGroupGrid
 			// 
@@ -446,8 +742,8 @@ namespace Glyssen.Dialogs
 			this.m_characterGroupGrid.AllowUserToDeleteRows = false;
 			this.m_characterGroupGrid.AllowUserToOrderColumns = true;
 			this.m_characterGroupGrid.AllowUserToResizeRows = false;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-			this.m_characterGroupGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+			this.m_characterGroupGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
 			this.m_characterGroupGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -456,14 +752,14 @@ namespace Glyssen.Dialogs
 			this.m_characterGroupGrid.BackgroundColor = System.Drawing.SystemColors.Window;
 			this.m_characterGroupGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.m_characterGroupGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9F);
-			dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.m_characterGroupGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
+			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.m_characterGroupGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			this.m_characterGroupGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CharacterIdsCol,
             this.AttributesCol,
@@ -472,15 +768,15 @@ namespace Glyssen.Dialogs
             this.VoiceActorCol});
 			this.m_tableLayoutPanel.SetColumnSpan(this.m_characterGroupGrid, 2);
 			this.m_characterGroupGrid.ContextMenuStrip = this.m_contextMenuCharacterGroups;
-			dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-			dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-			dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9F);
-			dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle12.NullValue = null;
-			dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.m_characterGroupGrid.DefaultCellStyle = dataGridViewCellStyle12;
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+			dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
+			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle6.NullValue = null;
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.m_characterGroupGrid.DefaultCellStyle = dataGridViewCellStyle6;
 			this.m_characterGroupGrid.DrawTextBoxEditControlBorder = false;
 			this.m_characterGroupGrid.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.m_characterGroupGrid.FullRowFocusRectangleColor = System.Drawing.SystemColors.ControlDark;
@@ -504,7 +800,7 @@ namespace Glyssen.Dialogs
 			this.m_characterGroupGrid.SelectedRowForeColor = System.Drawing.Color.Empty;
 			this.m_characterGroupGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.m_characterGroupGrid.ShowWaterMarkWhenDirty = false;
-			this.m_characterGroupGrid.Size = new System.Drawing.Size(833, 232);
+			this.m_characterGroupGrid.Size = new System.Drawing.Size(833, 235);
 			this.m_characterGroupGrid.TabIndex = 6;
 			this.m_characterGroupGrid.TextBoxEditControlBorderColor = System.Drawing.Color.Silver;
 			this.m_characterGroupGrid.VirtualMode = true;
@@ -526,7 +822,7 @@ namespace Glyssen.Dialogs
 			// CharacterIdsCol
 			// 
 			this.CharacterIdsCol.FillWeight = 150.8968F;
-			this.CharacterIdsCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Characters!Characters";
+			this.CharacterIdsCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Characters!Characters In Group";
 			this.CharacterIdsCol.Name = "CharacterIdsCol";
 			this.CharacterIdsCol.ReadOnly = true;
 			this.CharacterIdsCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -552,9 +848,9 @@ namespace Glyssen.Dialogs
 			// EstimatedHoursCol
 			// 
 			this.EstimatedHoursCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-			dataGridViewCellStyle11.Format = "N2";
-			dataGridViewCellStyle11.NullValue = null;
-			this.EstimatedHoursCol.DefaultCellStyle = dataGridViewCellStyle11;
+			dataGridViewCellStyle5.Format = "N2";
+			dataGridViewCellStyle5.NullValue = null;
+			this.EstimatedHoursCol.DefaultCellStyle = dataGridViewCellStyle5;
 			this.EstimatedHoursCol.FillWeight = 37.7242F;
 			this.EstimatedHoursCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Hours!Hours";
 			this.EstimatedHoursCol.Name = "EstimatedHoursCol";
@@ -600,119 +896,6 @@ namespace Glyssen.Dialogs
 			this.m_saveStatus.TabIndex = 6;
 			this.m_saveStatus.TextAlign = System.Drawing.ContentAlignment.TopRight;
 			// 
-			// m_tableLayoutPanel
-			// 
-			this.m_tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_tableLayoutPanel.ColumnCount = 2;
-			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
-			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-			this.m_tableLayoutPanel.Controls.Add(this.m_tableLayoutPanelCharacterDetails, 0, 2);
-			this.m_tableLayoutPanel.Controls.Add(this.m_characterGroupGrid, 0, 0);
-			this.m_tableLayoutPanel.Controls.Add(this.m_btnShowHideDetails, 0, 1);
-			this.m_tableLayoutPanel.Location = new System.Drawing.Point(15, 55);
-			this.m_tableLayoutPanel.Name = "m_tableLayoutPanel";
-			this.m_tableLayoutPanel.RowCount = 3;
-			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-			this.m_tableLayoutPanel.Size = new System.Drawing.Size(833, 371);
-			this.m_tableLayoutPanel.TabIndex = 9;
-			this.m_tableLayoutPanel.Resize += new System.EventHandler(this.m_tableLayoutPanel_Resize);
-			// 
-			// m_tableLayoutPanelCharacterDetails
-			// 
-			this.m_tableLayoutPanelCharacterDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_tableLayoutPanelCharacterDetails.AutoSize = true;
-			this.m_tableLayoutPanelCharacterDetails.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.m_tableLayoutPanelCharacterDetails.ColumnCount = 1;
-			this.m_tableLayoutPanelCharacterDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.m_tableLayoutPanelCharacterDetails.Controls.Add(this.m_lblNoCharactersInGroup, 0, 1);
-			this.m_tableLayoutPanelCharacterDetails.Controls.Add(this.m_characterDetailsGrid, 0, 0);
-			this.m_tableLayoutPanelCharacterDetails.Location = new System.Drawing.Point(0, 271);
-			this.m_tableLayoutPanelCharacterDetails.Margin = new System.Windows.Forms.Padding(0);
-			this.m_tableLayoutPanelCharacterDetails.Name = "m_tableLayoutPanelCharacterDetails";
-			this.m_tableLayoutPanelCharacterDetails.RowCount = 2;
-			this.m_tableLayoutPanelCharacterDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.m_tableLayoutPanelCharacterDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.m_tableLayoutPanelCharacterDetails.Size = new System.Drawing.Size(555, 100);
-			this.m_tableLayoutPanelCharacterDetails.TabIndex = 10;
-			// 
-			// dataGridViewTextBoxColumn1
-			// 
-			this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.dataGridViewTextBoxColumn1.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.CharacterDetails.CharacterId!Character" +
-    "Id";
-			this.dataGridViewTextBoxColumn1.MinimumWidth = 50;
-			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-			this.dataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn2
-			// 
-			this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn2.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.CharacterDetails.Gender!Gender";
-			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-			this.dataGridViewTextBoxColumn2.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn3.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.CharacterDetails.Age!Age";
-			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-			this.dataGridViewTextBoxColumn3.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn4
-			// 
-			this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			dataGridViewCellStyle3.Format = "N2";
-			this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle3;
-			this.dataGridViewTextBoxColumn4.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.CharacterDetails.Hours!Hours";
-			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-			this.dataGridViewTextBoxColumn4.ReadOnly = true;
-			// 
-			// toolStripSeparator2
-			// 
-			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-			// 
-			// m_toolStripTextBoxFindCharacter
-			// 
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripTextBoxFindCharacter, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripTextBoxFindCharacter, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStripTextBoxFindCharacter, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripTextBoxFindCharacter, "DialogBoxes.VoiceActorAssignmentDlg.m_toolStripTextBoxFindCharacter");
-			this.m_toolStripTextBoxFindCharacter.Name = "m_toolStripTextBoxFindCharacter";
-			this.m_toolStripTextBoxFindCharacter.Size = new System.Drawing.Size(120, 25);
-			this.m_toolStripTextBoxFindCharacter.ToolTipText = "Begin typing a character ID to find the group that contains it";
-			this.m_toolStripTextBoxFindCharacter.TextChanged += new System.EventHandler(this.m_toolStripTextBoxFindCharacter_TextChanged);
-			// 
-			// m_toolStripLabelFindCharacter
-			// 
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripLabelFindCharacter, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripLabelFindCharacter, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStripLabelFindCharacter, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripLabelFindCharacter, "DialogBoxes.VoiceActorAssignmentDlg.m_toolStripLabelFindCharacter");
-			this.m_toolStripLabelFindCharacter.Name = "m_toolStripLabelFindCharacter";
-			this.m_toolStripLabelFindCharacter.Size = new System.Drawing.Size(87, 22);
-			this.m_toolStripLabelFindCharacter.Text = "Find Character:";
-			// 
-			// m_toolStripButtonFindNextMatchingCharacter
-			// 
-			this.m_toolStripButtonFindNextMatchingCharacter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.m_toolStripButtonFindNextMatchingCharacter.Enabled = false;
-			this.m_toolStripButtonFindNextMatchingCharacter.Image = global::Glyssen.Properties.Resources.search_glyph;
-			this.m_toolStripButtonFindNextMatchingCharacter.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonFindNextMatchingCharacter, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonFindNextMatchingCharacter, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonFindNextMatchingCharacter, "DialogBoxes.VoiceActorAssignmentDlg.toolStripButton1");
-			this.m_toolStripButtonFindNextMatchingCharacter.Name = "m_toolStripButtonFindNextMatchingCharacter";
-			this.m_toolStripButtonFindNextMatchingCharacter.Size = new System.Drawing.Size(23, 22);
-			this.m_toolStripButtonFindNextMatchingCharacter.Text = "Find next match";
-			this.m_toolStripButtonFindNextMatchingCharacter.Click += new System.EventHandler(this.m_toolStripButtonFindNextMatchingCharacter_Click);
-			// 
 			// VoiceActorAssignmentDlg
 			// 
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
@@ -740,11 +923,15 @@ namespace Glyssen.Dialogs
 			this.m_toolStrip.ResumeLayout(false);
 			this.m_toolStrip.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_characterDetailsGrid)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).EndInit();
 			this.m_tableLayoutPanel.ResumeLayout(false);
 			this.m_tableLayoutPanel.PerformLayout();
+			this.m_tableLayoutPanelMove.ResumeLayout(false);
+			this.m_tableLayoutPanelMove.PerformLayout();
 			this.m_tableLayoutPanelCharacterDetails.ResumeLayout(false);
 			this.m_tableLayoutPanelCharacterDetails.PerformLayout();
+			this.tableLayoutPanel1.ResumeLayout(false);
+			this.tableLayoutPanel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -771,12 +958,19 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripButton m_redoButton;
 		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanel;
-		private System.Windows.Forms.Button m_btnShowHideDetails;
 		private SIL.Windows.Forms.Widgets.BetterGrid.BetterGrid m_characterDetailsGrid;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+		private System.Windows.Forms.ToolStripMenuItem m_splitGroupCharacterDetailsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem m_menuItemMoveToAnotherGroup;
+		private System.Windows.Forms.Label m_lblHowToAssignCharactersToCameoGroup;
+		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanelCharacterDetails;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+		private System.Windows.Forms.ToolStripLabel m_toolStripLabelFindCharacter;
+		private System.Windows.Forms.ToolStripTextBox m_toolStripTextBoxFindCharacter;
+		private System.Windows.Forms.ToolStripButton m_toolStripButtonFindNextMatchingCharacter;
 		private System.Windows.Forms.DataGridViewTextBoxColumn CharacterDetailsIdCol;
 		private System.Windows.Forms.DataGridViewTextBoxColumn CharacterDetailsGenderCol;
 		private System.Windows.Forms.DataGridViewTextBoxColumn CharacterDetailsAgeCol;
@@ -786,14 +980,17 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.DataGridViewTextBoxColumn CharStatusCol;
 		private System.Windows.Forms.DataGridViewTextBoxColumn EstimatedHoursCol;
 		private DataGridViewMultiColumnComboBoxColumn VoiceActorCol;
-		private System.Windows.Forms.ToolStripMenuItem m_splitGroupCharacterDetailsToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem m_menuItemMoveToAnotherGroup;
+		private System.Windows.Forms.Button m_btnMove;
+		private System.Windows.Forms.Button m_btnCancelMove;
+		private System.Windows.Forms.Label m_lblMovePendingInfo;
+		private System.Windows.Forms.Label m_lblMoveInstr;
+		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanelMove;
+		private System.Windows.Forms.ToolStripMenuItem m_menuItemAssignToCameoActor;
+		private System.Windows.Forms.ToolStripMenuItem m_cameoActorToolStripMenuItem;
+		private System.Windows.Forms.LinkLabel m_linkLabelShowHideDetails;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private System.Windows.Forms.Label m_lblCharacterDetails;
 		private System.Windows.Forms.Label m_lblNoCharactersInGroup;
-		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanelCharacterDetails;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-		private System.Windows.Forms.ToolStripLabel m_toolStripLabelFindCharacter;
-		private System.Windows.Forms.ToolStripTextBox m_toolStripTextBoxFindCharacter;
-		private System.Windows.Forms.ToolStripButton m_toolStripButtonFindNextMatchingCharacter;
 
 	}
 }

@@ -126,9 +126,6 @@
   <metadata name="m_contextMenuCharacterGroups.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>286, 17</value>
   </metadata>
-  <metadata name="m_l10NSharpExtender.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <metadata name="m_toolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>918, 17</value>
   </metadata>
@@ -144,8 +141,8 @@
   <metadata name="CharacterDetailsHoursCol.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="m_lblNoCharactersInGroup.Text" xml:space="preserve">
-    <value>The selected group currently has no characters in it. To add a character role for cameo actor {0}, select the group containing the desired character, right click the character in the details pane, and then click Move selected character to another group.</value>
+  <data name="m_lblHowToAssignCharactersToCameoGroup.Text" xml:space="preserve">
+    <value>{0} To add a character role for cameo actor {1}, select the group containing the desired character, right click the character in the details pane, point to Assign selected character to cameo actor, and then click {1}.</value>
   </data>
   <metadata name="CharacterIdsCol.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -163,7 +160,7 @@
     <value>180, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>53</value>
+    <value>57</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

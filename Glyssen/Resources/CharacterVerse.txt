@@ -12489,7 +12489,7 @@ MRK	5	7	demons (Legion)/man delivered from Legion of demons	shrieking	demon-poss
 MRK	5	8	Jesus			Normal		
 MRK	5	9	Jesus	questioning		Dialogue		
 # Demon-possessed man/men in Gadara 2015-01-29 jaa								
-MRK	5	9	demons (Legion)/man delivered from Legion of demons	begging		Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
+MRK	5	9	demons (Legion)/man delivered from Legion of demons			Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 MRK	5	10	demons (Legion)/man delivered from Legion of demons	begging		Indirect		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 MRK	5	12	demons (Legion)/man delivered from Legion of demons	begging	demons (Legion)	Dialogue		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 MRK	5	13	Jesus			Indirect		

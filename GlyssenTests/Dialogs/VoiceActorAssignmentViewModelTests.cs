@@ -471,6 +471,79 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(characterGroup, affectedGroups.Single());
 		}
 
+		[Test]
+		public void FindNextMatchingCharacter_InvalidTextToFindArgument_ThrowsAppropriateArgumentException()
+		{
+			Assert.Throws<ArgumentNullException>(() => m_model.FindNextMatchingCharacter(null, 0, 0));
+			Assert.Throws<ArgumentException>(() => m_model.FindNextMatchingCharacter("    ", 0, 0));
+			Assert.Throws<ArgumentException>(() => m_model.FindNextMatchingCharacter("A", 0, 0));
+		}
+
+		[Test]
+		public void FindNextMatchingCharacter_NoMatches_ReturnsNegativeOneNegativeOne()
+		{
+			var result = m_model.FindNextMatchingCharacter("boogey-man", 0, 0);
+			Assert.AreEqual(-1, result.Item1);
+			Assert.AreEqual(-1, result.Item2);
+		}
+
+		[Test]
+		public void FindNextMatchingCharacter_ExactMatchWithOnlyCharacterInFirstGroup_ReturnsZeroZero()
+		{
+			var result = m_model.FindNextMatchingCharacter("John", 0, 0);
+			Assert.AreEqual(0, result.Item1);
+			Assert.AreEqual(0, result.Item2);
+		}
+
+		[Test]
+		public void FindNextMatchingCharacter_NegativeIndex_SearchStartsAtBeginning()
+		{
+			var result = m_model.FindNextMatchingCharacter("John", -1, -1);
+			Assert.AreEqual(0, result.Item1);
+			Assert.AreEqual(0, result.Item2);
+		}
+
+		[Test]
+		public void FindNextMatchingCharacter_IndexOutOfRange_SearchStartsAtBeginning()
+		{
+			var result = m_model.FindNextMatchingCharacter("John", 40, 40);
+			Assert.AreEqual(0, result.Item1);
+			Assert.AreEqual(0, result.Item2);
+		}
+
+		[Test]
+		public void FindNextMatchingCharacter_PartialMatchWithCharacterInSubsequentGroup_ReturnsMatchIndices()
+		{
+			AddNewGroup("chief priests", "demon-possessed man", "Judas");
+			AddNewGroup("Aaron", "John the Baptist", "Joshua");
+			AddNewGroup("Martha", "Rhoda");
+			var result = m_model.FindNextMatchingCharacter("John", 0, 0);
+			Assert.AreEqual(2, result.Item1);
+			Assert.AreEqual(1, result.Item2);
+		}
+
+		[Test]
+		public void FindNextMatchingCharacter_PartialMatchWrapAround_ReturnsMatchIndices()
+		{
+			AddNewGroup("Ammon", "demon-possessed man", "Judas");
+			AddNewGroup("Aaron", "John the Baptist", "Joshua");
+			AddNewGroup("Martha", "Miriam", "Rhoda");
+			var result = m_model.FindNextMatchingCharacter("am", 3, 1);
+			Assert.AreEqual(1, result.Item1);
+			Assert.AreEqual(0, result.Item2);
+			result = m_model.FindNextMatchingCharacter("am", result.Item1, result.Item2);
+			Assert.AreEqual(3, result.Item1);
+			Assert.AreEqual(1, result.Item2);
+		}
+
+		[Test]
+		public void FindNextMatchingCharacter_PartialMatchWithOnlyCharacterInFirstGroup_ReturnsZeroZero()
+		{
+			var result = m_model.FindNextMatchingCharacter("Joh", 0, 0);
+			Assert.AreEqual(0, result.Item1);
+			Assert.AreEqual(0, result.Item2);
+		}
+
 		private List<Glyssen.VoiceActor.VoiceActor> GetActorListFromDataTable(DataTable dataTable)
 		{
 			return (from DataRow row in dataTable.Rows select m_testProject.VoiceActorList.GetVoiceActorById((int)row.ItemArray[0])).ToList();

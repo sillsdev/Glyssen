@@ -449,13 +449,17 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		public Tuple<int, int> FindNextMatchingCharacter(string textToFind, int startingGroupIndex, int startingDetailIndex)
+		public Tuple<int, int> FindNextMatchingCharacter(string textToFind, int startingGroupIndex, int startingCharacterIndex)
 		{
 			if (textToFind == null)
 				throw new ArgumentNullException("textToFind");
 			textToFind = textToFind.Trim();
 			if (textToFind.Length < 2)
 				throw new ArgumentException("Value must contain at least two non-whitespace characters.", "textToFind");
+			if (startingGroupIndex < 0 || startingGroupIndex >= CharacterGroups.Count)
+				startingGroupIndex = 0;
+			if (startingCharacterIndex < 0 || startingCharacterIndex >= CharacterGroups[startingGroupIndex].CharacterIds.Count)
+				startingCharacterIndex = 0;
 
 			var matchingCharacterIds = GetMatchingCharacterIds(textToFind);
 
@@ -465,8 +469,8 @@ namespace Glyssen.Dialogs
 				// TODO: Instead of alphabetical list, we need the list as currently sorted in UI.
 				var characterIdsInGroup = CharacterGroups[iGroup].CharacterIds.ToList();
 
-				for (int iCharacter = (wrapped || iGroup > startingGroupIndex ? 0 : startingDetailIndex + 1);
-					iCharacter <= (wrapped && iGroup ==startingGroupIndex ? startingDetailIndex : CharacterGroups[iGroup].CharacterIds.Count - 1);
+				for (int iCharacter = (wrapped || iGroup > startingGroupIndex ? 0 : startingCharacterIndex + 1);
+					iCharacter <= (wrapped && iGroup ==startingGroupIndex ? startingCharacterIndex : CharacterGroups[iGroup].CharacterIds.Count - 1);
 					iCharacter++)
 				{
 					if (matchingCharacterIds.Contains(characterIdsInGroup[iCharacter], StringComparison.Ordinal))
