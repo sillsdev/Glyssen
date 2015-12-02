@@ -43,17 +43,14 @@ namespace Glyssen.Dialogs
 		private void BtnOk_Clicked(object sender, EventArgs e)
 		{
 			m_project.CharacterGroupGenerationPreferences.NumberOfNarrators = (int)m_numNarratorNum.Value;
-			if(m_rdoFemaleOnly.Checked)
+			if (m_rdoFemaleOnly.Checked)
 				m_project.CharacterGroupGenerationPreferences.NarratorGenders = NarratorGenders.FemaleOnly;
-			else if(m_rdoMaleOrFemale.Checked)
+			else if (m_rdoMaleOrFemale.Checked)
 				m_project.CharacterGroupGenerationPreferences.NarratorGenders = NarratorGenders.MaleOrFemale;
 			else
 				m_project.CharacterGroupGenerationPreferences.NarratorGenders = NarratorGenders.MaleOnly;
 
 			m_project.Save();
-
-			DialogResult = DialogResult.OK;
-			Close();
 		}
 	}
 }
