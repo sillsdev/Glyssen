@@ -281,6 +281,12 @@ namespace Glyssen
 			set { m_metadata.ProjectStatus.VoiceActorStatus = value; }
 		}
 
+		public CharacterGroupGenerationPreferences CharacterGroupGenerationPreferences
+		{
+			get { return m_metadata.CharacterGroupGenerationPreferences;  }
+			set { m_metadata.CharacterGroupGenerationPreferences = value; }
+		}
+
 		public IReadOnlyList<BookScript> Books { get { return m_books; } }
 
 		public IReadOnlyList<BookScript> IncludedBooks
