@@ -1,4 +1,4 @@
-﻿namespace Glyssen
+﻿namespace Glyssen.Dialogs
 {
 	partial class NarrationOptionsDlg
 	{
@@ -200,7 +200,7 @@
 			this.m_btnOk.TabIndex = 4;
 			this.m_btnOk.Text = "OK";
 			this.m_btnOk.UseVisualStyleBackColor = true;
-			this.m_btnOk.Click += new System.EventHandler(this.m_btnOk_Clicked);
+			this.m_btnOk.Click += new System.EventHandler(this.BtnOk_Clicked);
 			// 
 			// NarrationOptionsDlg
 			// 

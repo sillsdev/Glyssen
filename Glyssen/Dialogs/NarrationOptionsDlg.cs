@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Glyssen.Bundle;
 
-namespace Glyssen
+namespace Glyssen.Dialogs
 {
 	public partial class NarrationOptionsDlg : Form
 	{
@@ -20,13 +13,13 @@ namespace Glyssen
 			InitializeComponent();
 			m_project = project;
 
-			if (m_project.ProjectSettings.NumberOfNarrators != ProjectSettings.kNumberOfNarratorsNotSet)
-				m_numNarratorNum.Value = m_project.ProjectSettings.NumberOfNarrators;
+			if (m_project.CharacterGroupGenerationPreferences.NumberOfNarrators != CharacterGroupGenerationPreferences.kNumberOfNarratorsNotSet)
+				m_numNarratorNum.Value = m_project.CharacterGroupGenerationPreferences.NumberOfNarrators;
 			else
-				m_numNarratorNum.Value = m_GoodDefaultNarratorNum();
+				m_numNarratorNum.Value = GetDefaultNumberOfNarrators();
 			m_numNarratorNum.Maximum = m_project.IncludedBooks.Count;
 
-			switch (m_project.ProjectSettings.NarratorGenders)
+			switch (m_project.CharacterGroupGenerationPreferences.NarratorGenders)
 			{
 				case NarratorGenders.FemaleOnly:
 					m_rdoFemaleOnly.Checked = true;
@@ -41,21 +34,21 @@ namespace Glyssen
 			}
 		}
 
-		private int m_GoodDefaultNarratorNum()
+		private int GetDefaultNumberOfNarrators()
 		{
 			//right now - fairly arbitrary
 			return Math.Min(5, m_project.IncludedBooks.Count);
 		}
 
-		private void m_btnOk_Clicked(object sender, EventArgs e)
+		private void BtnOk_Clicked(object sender, EventArgs e)
 		{
-			m_project.ProjectSettings.NumberOfNarrators = (int)m_numNarratorNum.Value;
+			m_project.CharacterGroupGenerationPreferences.NumberOfNarrators = (int)m_numNarratorNum.Value;
 			if(m_rdoFemaleOnly.Checked)
-				m_project.ProjectSettings.NarratorGenders = NarratorGenders.FemaleOnly;
+				m_project.CharacterGroupGenerationPreferences.NarratorGenders = NarratorGenders.FemaleOnly;
 			else if(m_rdoMaleOrFemale.Checked)
-				m_project.ProjectSettings.NarratorGenders = NarratorGenders.MaleOrFemale;
+				m_project.CharacterGroupGenerationPreferences.NarratorGenders = NarratorGenders.MaleOrFemale;
 			else
-				m_project.ProjectSettings.NarratorGenders = NarratorGenders.MaleOnly;
+				m_project.CharacterGroupGenerationPreferences.NarratorGenders = NarratorGenders.MaleOnly;
 
 			m_project.Save();
 

@@ -4,10 +4,8 @@ using System.Globalization;
 using System.Linq;
 using System.Xml.Serialization;
 using Glyssen.Dialogs;
-using Glyssen.Quote;
 using SIL.DblBundle.Text;
 using SIL.Xml;
-using Utilities;
 
 namespace Glyssen.Bundle
 {
@@ -85,8 +83,8 @@ namespace Glyssen.Bundle
 		[XmlElement("projectStatus")]
 		public ProjectStatus ProjectStatus = new ProjectStatus();
 
-		[XmlElement("projectSettings")]
-		public ProjectSettings ProjectSettings = new ProjectSettings();
+		[XmlElement("characterGroupGenerationPreferences")]
+		public CharacterGroupGenerationPreferences CharacterGroupGenerationPreferences = new CharacterGroupGenerationPreferences();
 
 		/// <summary>
 		/// The font family for the language associated with this project.
@@ -218,7 +216,7 @@ namespace Glyssen.Bundle
 			FontFamily = source.FontFamily;
 			FontSizeInPoints = source.FontSizeInPoints;
 			Language.ScriptDirection = source.Language.ScriptDirection;
-			ProjectSettings = source.ProjectSettings;
+			CharacterGroupGenerationPreferences = source.CharacterGroupGenerationPreferences;
 			foreach (var book in AvailableBooks)
 			{
 				var sourceProjectBook = source.AvailableBooks.FirstOrDefault(b => book.Code == b.Code);
@@ -268,7 +266,7 @@ namespace Glyssen.Bundle
 		public VoiceActorStatus VoiceActorStatus { get; set; }
 	}
 
-	public class ProjectSettings
+	public class CharacterGroupGenerationPreferences
 	{
 		public const int kNumberOfNarratorsNotSet = 0;
 
