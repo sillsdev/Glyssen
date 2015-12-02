@@ -52,6 +52,8 @@ namespace Glyssen
 				Settings.Default.Save();
 			}
 
+			SetUpErrorHandling();
+
 #if DEBUG
 			using (new Analytics("jBh7Qg4jw2nRFE8j8EY1FDipzin3RFIP", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }, true))
 #else
@@ -64,7 +66,6 @@ namespace Glyssen
 #endif
 			{
 				Logger.Init();
-				SetUpErrorHandling();
 
 				var oldPgBaseFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
 					kCompany, kOldProductName);
