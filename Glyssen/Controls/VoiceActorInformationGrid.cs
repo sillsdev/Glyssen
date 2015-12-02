@@ -51,6 +51,10 @@ namespace Glyssen.Controls
 			ActorQuality.ValueMember = "ID";
 			ActorQuality.DisplayMember = "Name";
 
+			SpecialRole.DataSource = VoiceActorInformationViewModel.GetSpecialRoleDataTable();
+			SpecialRole.ValueMember = "ID";
+			SpecialRole.DisplayMember = "Name";
+
 			// Sadly, we have to do this here because setting it in the Designer doesn't work since BetterGrid overrides
 			// the default value in its constructor.
 			m_dataGrid.AllowUserToAddRows = true;
@@ -59,8 +63,9 @@ namespace Glyssen.Controls
 			m_dataGrid.EditMode = DataGridViewEditMode.EditOnEnter;
 
 			// We can't set this in the designer because L10NSharp is squashing it when the header is localized.
-			Cameo.ToolTipText = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.CameoTooltip",
-															"Distinguished actor to play minor character role.");
+			SpecialRole.ToolTipText = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.SpecialRoleTooltip",
+															"Designate a voice actor for a narrator role or cameo role " +
+															"(Minor character part played by distinguished actor.)");
 		}
 
 		void m_dataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -309,8 +314,8 @@ namespace Glyssen.Controls
 				e.Value = actor.Status;
 			else if (e.ColumnIndex == ActorQuality.Index)
 				e.Value = actor.VoiceQuality;
-			else if (e.ColumnIndex == Cameo.Index)
-				e.Value = actor.IsCameo;
+			else if (e.ColumnIndex == SpecialRole.Index)
+				e.Value = actor.SpecialRole;
 			else if (e.ColumnIndex == DeleteButtonCol.Index)
 			{
 				if (m_dataGrid.Rows[e.RowIndex].IsNewRow)
@@ -343,8 +348,8 @@ namespace Glyssen.Controls
 				actor.Status = (bool)e.Value;
 			else if (e.ColumnIndex == ActorQuality.Index)
 				actor.VoiceQuality = (VoiceQuality)e.Value;
-			else if (e.ColumnIndex == Cameo.Index)
-				actor.IsCameo = (bool)e.Value;
+			else if (e.ColumnIndex == SpecialRole.Index)
+				actor.SpecialRole = (SpecialRole) e.Value;
 		}
 
 		private void m_dataGrid_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)

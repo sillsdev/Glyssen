@@ -144,7 +144,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void UnAssignActorFromGroups_GroupsContainsCameoGroup_CameoGroupNotUnassigned()
 		{
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Marco Polo", IsCameo = true };
+			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Marco Polo", SpecialRole = SpecialRole.Cameo };
 			m_testProject.VoiceActorList.Actors.Add(actor1);
 			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "Wilbur Wright" };
 			m_testProject.VoiceActorList.Actors.Add(actor2);

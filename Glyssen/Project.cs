@@ -281,6 +281,12 @@ namespace Glyssen
 			set { m_metadata.ProjectStatus.VoiceActorStatus = value; }
 		}
 
+		public ProjectSettings ProjectSettings
+		{
+			get { return m_metadata.ProjectSettings;  }
+			set { m_metadata.ProjectSettings = value; }
+		}
+
 		public IReadOnlyList<BookScript> Books { get { return m_books; } }
 
 		public IReadOnlyList<BookScript> IncludedBooks

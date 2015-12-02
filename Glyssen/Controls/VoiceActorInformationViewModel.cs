@@ -118,6 +118,17 @@ namespace Glyssen.Controls
 			return table;
 		}
 
+		public static DataTable GetSpecialRoleDataTable()
+		{
+			var table = new DataTable();
+			table.Columns.Add("ID", typeof (SpecialRole));
+			table.Columns.Add("Name");
+			table.Rows.Add(SpecialRole.None, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.SpecialRole.None", "None"));
+			table.Rows.Add(SpecialRole.Cameo, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.SpecialRole.Cameo", "Cameo"));
+			table.Rows.Add(SpecialRole.Narrator, LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.SpecialRole.Narrator", "Narrator"));
+			return table;
+		}
+
 		public void AssessChanges()
 		{
 			foreach (var id in m_removedActorIds)

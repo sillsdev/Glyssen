@@ -81,7 +81,7 @@ namespace Glyssen.Rules
 			if (actors.Count == 0)
 				return characterGroups; // REVIEW: Maybe we should throw an exception instead.
 
-			actors = actors.Where(a => !a.IsCameo).ToList();
+			actors = actors.Where(a => !a.IsCameo()).ToList();
 
 			if (actors.Count == 0)
 				return CreateGroupsForCameoActors().ToList();
@@ -240,7 +240,7 @@ namespace Glyssen.Rules
 
 		private IEnumerable<CharacterGroup> CreateGroupsForCameoActors()
 		{
-			foreach (var cameoActor in m_project.VoiceActorList.Actors.Where(a => a.IsCameo))
+			foreach (var cameoActor in m_project.VoiceActorList.Actors.Where(a => a.IsCameo()))
 			{
 				if (m_project.CharacterGroupList.HasVoiceActorAssigned(cameoActor.Id))
 				{
