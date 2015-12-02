@@ -495,6 +495,9 @@ namespace Glyssen
 		{
 			Project existingProject = LoadExistingProject(projectFilePath);
 
+			if (existingProject == null)
+				return null;
+
 			if (!existingProject.IsSampleProject && existingProject.m_metadata.ParserVersion != Settings.Default.ParserVersion)
 			{
 				bool upgradeProject = true;
