@@ -547,11 +547,5 @@ namespace Glyssen
 			{
 			}
 		}
-
-		private void button1_Click(object sender, EventArgs e)
-		{
-			using (var dlg = new NarrationOptionsDlg(m_project))
-				dlg.ShowDialog();
-		}
 	}
 }
