@@ -21,6 +21,11 @@ namespace Glyssen.Dialogs
 			m_btnNext.Visible = showNext;
 			m_linkClose.Visible = showNext;
 			m_btnOk.Visible = !showNext;
+
+			m_lblNarratorData.Text = m_viewModel.NarratorData();
+			m_lblMaleCharacterData.Text = m_viewModel.MaleCharacterData();
+			m_lblFemaleCharacterData.Text = m_viewModel.FemaleCharacterData();
+			m_lblChildCharacterData.Text = m_viewModel.ChildCharacterData();
 		}
 
 		private void m_dataGrid_Saved(object sender, EventArgs e)
@@ -50,6 +55,11 @@ namespace Glyssen.Dialogs
 			m_viewModel.AssessChanges();
 			DialogResult = DialogResult.OK;
 			Close();
+		}
+
+		private void m_linkNarrationOptions_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			m_viewModel.ShowNarrationOptionsDlg();
 		}
 	}
 }

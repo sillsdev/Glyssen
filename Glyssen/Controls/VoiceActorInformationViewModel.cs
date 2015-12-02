@@ -144,5 +144,46 @@ namespace Glyssen.Controls
 		{
 			return actorsToRemove.Count(IsActorAssigned);
 		}
+
+		public void ShowNarrationOptionsDlg()
+		{
+			using (var dlg = new NarrationOptionsDlg(m_project))
+				dlg.ShowDialog();
+		}
+
+		public string NarratorData()
+		{
+			string s = "Narrators: " +
+					 "This project has 35.2 hours of narration. " +
+					 "You can use between 1 and 6 narrators." +
+					 "Your project is currently set to use 4.";
+			return s;
+		}
+
+		public string MaleCharacterData()
+		{
+			string s = "Male Characters: " +
+					 "This project has 25.1 hours for male characters. " +
+					 "Use 4 male adult voice actors to prevent conflicts.";
+			return s;
+
+		}
+
+		public string FemaleCharacterData()
+		{
+			string s = "Female Characters: " +
+					 "This project has 5.0 hours for female characters. " +
+					 "Use 2 female adult voice actors to prevent conflicts.";
+			return s;
+
+		}
+
+		public string ChildCharacterData()
+		{
+			string s = "Child Characters: " +
+					 "This project needs 1 male child and 0 female children.";
+			return s;
+
+		}
 	}
 }
