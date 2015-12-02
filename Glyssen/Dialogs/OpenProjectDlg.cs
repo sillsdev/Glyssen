@@ -59,8 +59,12 @@ namespace Glyssen.Dialogs
 		{
 			Settings.Default.OpenProjectDlgFormSettings.InitializeForm(this);
 			base.OnLoad(e);
-			if(Settings.Default.OpenProjectDlgGridSettings.Columns.Length == m_listExistingProjects.GridSettings.Columns.Length)	//Don't use settings based on old number of columns
+			if (Settings.Default.OpenProjectDlgGridSettings != null &&
+				//Don't use settings based on old number of columns
+				Settings.Default.OpenProjectDlgGridSettings.Columns.Length == m_listExistingProjects.GridSettings.Columns.Length)
+			{
 				m_listExistingProjects.GridSettings = Settings.Default.OpenProjectDlgGridSettings;
+			}
 
 			if (m_listExistingProjects.SelectedProject != null)
 			{
