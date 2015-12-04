@@ -8,14 +8,24 @@ namespace Glyssen.Dialogs
 {
 	public class RemoveVoiceActorAssignmentsUndoAction : CharacterGroupsUndoAction
 	{
+		private const string kEmptyGroup = "~Group with no character IDs~";
 		private readonly Project m_project;
 		private readonly Dictionary<string, int> m_characterRestorationInfo = new Dictionary<string, int>();
 
-		public RemoveVoiceActorAssignmentsUndoAction(Project project, CharacterGroup group) : base(group)
+		public RemoveVoiceActorAssignmentsUndoAction(Project project, CharacterGroup group)
 		{
 			m_project = project;
-			m_characterRestorationInfo.Add(group.Name, group.VoiceActorId);
-			group.RemoveVoiceActor();
+			if (group.CharacterIds.Count == 0)
+			{
+				m_characterRestorationInfo[kEmptyGroup] = group.VoiceActorId;
+				m_project.CharacterGroupList.CharacterGroups.Remove(group);
+			}
+			else
+			{
+				AddGroupAffected(group);
+				m_characterRestorationInfo.Add(group.Name, group.VoiceActorId);
+				group.RemoveVoiceActor();
+			}
 		}
 
 		public RemoveVoiceActorAssignmentsUndoAction(Project project, IEnumerable<CharacterGroup> groups) : base(groups)
@@ -34,20 +44,41 @@ namespace Glyssen.Dialogs
 			{
 				if (m_characterRestorationInfo.Count > 1)
 					return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignments", "Remove voice actor assignment for multiple groups");
-				CharacterGroup charGroup = m_project.GetGroupByName(m_characterRestorationInfo.Keys.Single());
+
+				var groupName = m_characterRestorationInfo.Keys.Single();
+
+				if (groupName == kEmptyGroup)
+					return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignmentForGroupWithNoCharacters", "Remove voice actor assignment");
+
+				CharacterGroup charGroup = m_project.GetGroupByName(groupName);
 				if (charGroup.CharacterIds.Count > 1)
 					return string.Format(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignmentForGroup", "Remove voice actor assignment for {0} group"), charGroup.Name);
 				return string.Format(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignmentForCharacter", "Remove voice actor assignment for {0}"), charGroup.CharacterIds.Single());
 			}
 		}
 
+		private IEnumerable<KeyValuePair<string, int>> ExistingGroupsToRestore
+		{
+			get { return m_characterRestorationInfo.Where(kvp => kvp.Key != kEmptyGroup); }
+		}
+
 		protected override bool PerformUndo()
 		{
 			try
 			{
-				var assignmentsToRestore = m_characterRestorationInfo.ToDictionary(kvp => m_project.GetGroupByName(kvp.Key), kvp => kvp.Value);
-				if (assignmentsToRestore.Count != m_characterRestorationInfo.Count)
+				var assignmentsToRestore = ExistingGroupsToRestore.ToDictionary(kvp => m_project.GetGroupByName(kvp.Key), kvp => kvp.Value);
+				if (assignmentsToRestore.Count != ExistingGroupsToRestore.Count())
 					return false;
+
+				int actorForDeletedGroup;
+				if (m_characterRestorationInfo.TryGetValue(kEmptyGroup, out actorForDeletedGroup))
+				{
+					var emptyGroup = new CharacterGroup(m_project);
+					m_project.CharacterGroupList.CharacterGroups.Add(emptyGroup);
+					emptyGroup.AssignVoiceActor(actorForDeletedGroup);
+					AddGroupAffected(emptyGroup);
+				}
+
 				foreach (var kvp in assignmentsToRestore.Where(kvp => kvp.Key.VoiceActorId != kvp.Value))
 				{
 					kvp.Key.AssignVoiceActor(kvp.Value);
@@ -63,9 +94,24 @@ namespace Glyssen.Dialogs
 
 		protected override bool PerformRedo()
 		{
-			var groupsToUnassign = m_characterRestorationInfo.Select(kvp => m_project.GetGroupByName(kvp.Key)).Where(g => g != null).ToList();
-			if (m_characterRestorationInfo.Count != groupsToUnassign.Count)
+			var groupsToUnassign = ExistingGroupsToRestore.Select(kvp => m_project.GetGroupByName(kvp.Key)).Where(g => g != null).ToList();
+			if (groupsToUnassign.Count != ExistingGroupsToRestore.Count())
 				return false;
+
+			int actorForDeletedGroup;
+			if (m_characterRestorationInfo.TryGetValue(kEmptyGroup, out actorForDeletedGroup))
+			{
+				var emptyGroupsToRemove = m_project.CharacterGroupList.GetGroupsAssignedToActor(actorForDeletedGroup)
+						.Where(g => !g.CharacterIds.Any()).ToList();
+
+				if (!emptyGroupsToRemove.Any())
+					return false;
+				foreach (var emptyGroup in emptyGroupsToRemove)
+				{
+					m_project.CharacterGroupList.CharacterGroups.Remove(emptyGroup);
+					AddGroupAffected(emptyGroup);
+				}
+			}
 
 			foreach (var group in groupsToUnassign)
 			{

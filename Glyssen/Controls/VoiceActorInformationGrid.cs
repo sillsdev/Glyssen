@@ -126,6 +126,13 @@ namespace Glyssen.Controls
 				ParentForm.Closing += ParentForm_Closing;
 		}
 
+		protected override void OnVisibleChanged(EventArgs e)
+		{
+			base.OnVisibleChanged(e);
+			if (Visible)
+				SetBackgroundColorToAvoidScrollbarHangingBelowGrid();
+		}
+
 		void ParentForm_Closing(object sender, CancelEventArgs e)
 		{
 			e.Cancel = !ValidateChildren();
@@ -366,6 +373,8 @@ namespace Glyssen.Controls
 
 		private void OnRowCountChanged(EventArgs e = null)
 		{
+			SetBackgroundColorToAvoidScrollbarHangingBelowGrid();
+
 			if (RowCountChanged != null)
 				RowCountChanged(m_dataGrid, e ?? new EventArgs());
 		}
@@ -449,6 +458,16 @@ namespace Glyssen.Controls
 		{
 			if (e.ColumnIndex == DeleteButtonCol.Index && e.RowIndex >= 0 && e.RowIndex < m_actorInformationViewModel.Actors.Count)
 				m_dataGrid.InvalidateCell(e.ColumnIndex, e.RowIndex);
+		}
+
+		private void HandleResize(object sender, EventArgs e)
+		{
+			SetBackgroundColorToAvoidScrollbarHangingBelowGrid();
+		}
+
+		private void SetBackgroundColorToAvoidScrollbarHangingBelowGrid()
+		{
+			m_dataGrid.BackgroundColor = (m_dataGrid.VScrollBar.Visible) ? SystemColors.Window : Color.FromArgb(0, 73, 108);
 		}
 	}
 }

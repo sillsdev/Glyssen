@@ -334,6 +334,8 @@ namespace Glyssen.Controls
 				return;
 			}
 
+			System.Diagnostics.Debug.WriteLine("Drawing. DroppedDown = " + DroppedDown);
+
 			e.DrawBackground();
 
 			var boundsRect = e.Bounds;
@@ -523,7 +525,9 @@ namespace Glyssen.Controls
 			int idx;
 			string toFind;
 
-			DroppedDown = AutoDropdown;
+			if (e.KeyChar != (int)Keys.Escape && e.KeyChar != (int)Keys.Tab && e.KeyChar != (int)Keys.Enter)
+				DroppedDown = AutoDropdown;
+
 			if (!Char.IsControl(e.KeyChar))
 			{
 				if (AutoComplete)

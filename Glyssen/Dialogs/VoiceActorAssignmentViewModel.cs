@@ -332,12 +332,15 @@ namespace Glyssen.Dialogs
 			return true;
 		}
 
-		public bool SplitGroup(List<string> charactersToMove)
+		public CharacterGroup SplitGroup(List<string> charactersToMove)
 		{
 			var returnValue = MoveCharactersToGroup(charactersToMove, null);
 			if (returnValue)
+			{
 				((MoveCharactersToGroupUndoAction) m_undoStack.Peek()).IsSplit = true;
-			return returnValue;
+				return m_project.CharacterGroupList.CharacterGroups.Single(g => g.CharacterIds.Contains(charactersToMove[0]));
+			}
+			return null;
 		}
 
 		public DataTable GetMultiColumnActorDataTable(CharacterGroup group)
@@ -351,8 +354,7 @@ namespace Glyssen.Dialogs
 			table.Columns.Add("Age");
 			table.Columns.Add("Cameo");
 
-			bool includeCameos = true;
-			if (group != null && !group.AssignedToCameoActor) includeCameos = false;
+			bool includeCameos = !(group != null && !group.AssignedToCameoActor);
 
 			//TODO put the best matches first
 			foreach (var actor in m_project.VoiceActorList.Actors.Where(a => (!m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id) && (includeCameos || !a.IsCameo))).OrderBy(a => a.Name))

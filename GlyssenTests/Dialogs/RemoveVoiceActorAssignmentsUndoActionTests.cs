@@ -57,6 +57,17 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void Constructor_SingleGroupWithNoCharacterIds_RemovesTheGroup()
+		{
+			AddCharacterGroup();
+			var emptyGroup = m_testProject.CharacterGroupList.CharacterGroups.Last();
+			emptyGroup.AssignVoiceActor(2);
+			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, emptyGroup);
+			Assert.IsFalse(m_testProject.CharacterGroupList.CharacterGroups.Contains(emptyGroup));
+			Assert.IsFalse(action.GroupsAffectedByLastOperation.Any());
+		}
+
+		[Test]
 		public void Constructor_MultipleGroups_RemovesTheVoiceActorForAllGroups()
 		{
 			m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus").AssignVoiceActor(3);
@@ -84,6 +95,16 @@ namespace GlyssenTests.Dialogs
 			groupWithMoses.AssignVoiceActor(2);
 			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, groupWithMoses);
 			Assert.AreEqual("Remove voice actor assignment for Crusty Old Dudes group", action.Description);
+		}
+
+		[Test]
+		public void Description_UnassignmentOfSingleGroupWithNoCharacters_DescriptionDoesNotReferToGroup()
+		{
+			AddCharacterGroup();
+			var emptygroup = m_testProject.CharacterGroupList.CharacterGroups.Last();
+			emptygroup.AssignVoiceActor(2);
+			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, emptygroup);
+			Assert.AreEqual("Remove voice actor assignment", action.Description);
 		}
 
 		[Test]
@@ -165,6 +186,22 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void Undo_UnassignmentOfSingleGroupWithNoCharacters_EmptyGroupReAddedAndAssignedToOriginalActor()
+		{
+			AddCharacterGroup();
+			var emptygroup = m_testProject.CharacterGroupList.CharacterGroups.Last();
+			emptygroup.AssignVoiceActor(2);
+			var wasCameo = emptygroup.AssignedToCameoActor;
+			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, emptygroup);
+			Assert.IsTrue(action.Undo());
+			var restoredGroup = m_testProject.CharacterGroupList.GetGroupsAssignedToActor(2).Single();
+			Assert.IsFalse(restoredGroup.CharacterIds.Any());
+			Assert.AreEqual(0, restoredGroup.EstimatedHours);
+			Assert.IsNotNull(restoredGroup.AttributesDisplay);
+			Assert.AreEqual(wasCameo, restoredGroup.AssignedToCameoActor);
+		}
+
+		[Test]
 		public void Redo_SingleGroupNotFound_NoChangeAndReturnsFalse()
 		{
 			var groupWithMoses = m_testProject.CharacterGroupList.GroupContainingCharacterId("Moses");
@@ -235,6 +272,20 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(2, action.GroupsAffectedByLastOperation.Count());
 			Assert.IsTrue(action.GroupsAffectedByLastOperation.Contains(groupWithJesus));
 			Assert.IsTrue(action.GroupsAffectedByLastOperation.Contains(groupWithMoses));
+		}
+
+		[Test]
+		public void Redo_UnassignmentOfSingleGroupWithNoCharacters_EmptyGroupRemoved()
+		{
+			AddCharacterGroup();
+			var emptygroup = m_testProject.CharacterGroupList.CharacterGroups.Last();
+			emptygroup.AssignVoiceActor(2);
+			var action = new RemoveVoiceActorAssignmentsUndoAction(m_testProject, emptygroup);
+			action.Undo();
+			int countAfterUndo = m_testProject.CharacterGroupList.CharacterGroups.Count;
+			Assert.IsTrue(action.Redo());
+			Assert.IsFalse(m_testProject.CharacterGroupList.GetGroupsAssignedToActor(2).Any());
+			Assert.AreEqual(countAfterUndo - 1, m_testProject.CharacterGroupList.CharacterGroups.Count);
 		}
 	}
 }

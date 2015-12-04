@@ -15,7 +15,7 @@ namespace Glyssen.Character
 		private Project m_project;
 		private bool m_closed;
 
-		//For Serialization
+		//For Deserialization
 		public CharacterGroup()
 		{
 			CharacterIds = new CharacterIdHashSet();

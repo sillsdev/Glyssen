@@ -123,7 +123,8 @@ namespace Glyssen.Controls
 			foreach (var id in m_removedActorIds)
 			{
 				var removedActorInfo = m_originalActors.Find(a => a.Item1.Id == id);
-				m_undoActions.Add(new VoiceActorDeletedUndoAction(m_project, removedActorInfo.Item1, removedActorInfo.Item2));
+				if (removedActorInfo != null)
+					m_undoActions.Add(new VoiceActorDeletedUndoAction(m_project, removedActorInfo.Item1, removedActorInfo.Item2));
 			}
 			foreach (var currentActor in m_project.VoiceActorList.Actors)
 			{

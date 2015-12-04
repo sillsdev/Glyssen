@@ -3,6 +3,7 @@ using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Controls;
+using Glyssen.Dialogs;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 
@@ -26,7 +27,13 @@ namespace GlyssenTests.Dialogs
 		public void SetUp()
 		{
 			m_testProject.VoiceActorList.Actors.Clear();
-
+			m_testProject.VoiceActorList.Actors.AddRange(new List<Glyssen.VoiceActor.VoiceActor>
+			{
+				new Glyssen.VoiceActor.VoiceActor{Id = 1},
+				new Glyssen.VoiceActor.VoiceActor{Id = 2},
+				new Glyssen.VoiceActor.VoiceActor{Id = 3},
+				new Glyssen.VoiceActor.VoiceActor{Id = 4},
+			});
 			m_model = new VoiceActorInformationViewModel(m_testProject);
 		}
 
@@ -39,13 +46,6 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void DeleteVoiceActors_ActorsDeleted()
 		{
-			m_testProject.VoiceActorList.Actors.AddRange(new List<Glyssen.VoiceActor.VoiceActor>
-			{
-				new Glyssen.VoiceActor.VoiceActor{Id = 1},
-				new Glyssen.VoiceActor.VoiceActor{Id = 2},
-				new Glyssen.VoiceActor.VoiceActor{Id = 3},
-				new Glyssen.VoiceActor.VoiceActor{Id = 4},
-			});
 			var actorsToDelete = new HashSet<Glyssen.VoiceActor.VoiceActor>(m_testProject.VoiceActorList.Actors.Where(a => a.Id < 3));
 			Assert.AreEqual(4, m_testProject.VoiceActorList.Actors.Count);
 			Assert.True(m_model.DeleteVoiceActors(actorsToDelete));
@@ -55,13 +55,6 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void DeleteVoiceActors_SomeActorsAssigned_CountsAreAccurateAndAssignmentsAreRemoved()
 		{
-			m_testProject.VoiceActorList.Actors.AddRange(new List<Glyssen.VoiceActor.VoiceActor>
-			{
-				new Glyssen.VoiceActor.VoiceActor{Id = 1},
-				new Glyssen.VoiceActor.VoiceActor{Id = 2},
-				new Glyssen.VoiceActor.VoiceActor{Id = 3},
-				new Glyssen.VoiceActor.VoiceActor{Id = 4},
-			});
 			var actorsToDelete = new HashSet<Glyssen.VoiceActor.VoiceActor>(m_testProject.VoiceActorList.Actors.Where(a => a.Id < 3));
 			var priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
 			var characterGroup1 = new CharacterGroup(m_testProject, priorityComparer);
@@ -81,6 +74,47 @@ namespace GlyssenTests.Dialogs
 		public void DeleteVoiceActors_NoActorsProvided_ReturnsFalse()
 		{
 			Assert.False(m_model.DeleteVoiceActors(new HashSet<Glyssen.VoiceActor.VoiceActor>()));
+		}
+
+		[Test]
+		public void AssessChanges_VoiceActorAdded_UndoActionCreated()
+		{
+			Assert.AreEqual(4, m_testProject.VoiceActorList.Actors.Count);
+			m_model.AddNewActor();
+			Assert.AreEqual(5, m_testProject.VoiceActorList.Actors.Count);
+			m_model.AssessChanges();
+			Assert.IsTrue(m_model.Changes.Single() is VoiceActorAddedUndoAction);
+		}
+
+		[Test]
+		public void AssessChanges_VoiceActorModified_UndoActionCreated()
+		{
+			Assert.AreEqual(4, m_testProject.VoiceActorList.Actors.Count);
+			m_testProject.VoiceActorList.Actors[0].Name = "Monkey Soup";
+			m_model.AssessChanges();
+			Assert.IsTrue(m_model.Changes.Single() is VoiceActorEditUndoAction);
+		}
+
+		[Test]
+		public void AssessChanges_VoiceActorDeleted_UndoActionCreated()
+		{
+			var actorsToDelete = new HashSet<Glyssen.VoiceActor.VoiceActor>(m_testProject.VoiceActorList.Actors.Where(a => a.Id == 3));
+			Assert.True(m_model.DeleteVoiceActors(actorsToDelete));
+			m_model.AssessChanges();
+			Assert.IsTrue(m_model.Changes.Single() is VoiceActorDeletedUndoAction);
+		}
+
+		[Test]
+		public void AssessChanges_DeleteNewlyAddedVoiceActor_NoUndoActionCreated()
+		{
+			var addedActor = m_model.AddNewActor();
+			Assert.AreEqual(5, m_testProject.VoiceActorList.Actors.Count);
+			var actorsToDelete = new HashSet<Glyssen.VoiceActor.VoiceActor>();
+			actorsToDelete.Add(addedActor);
+			Assert.True(m_model.DeleteVoiceActors(actorsToDelete));
+			Assert.AreEqual(4, m_testProject.VoiceActorList.Actors.Count);
+			m_model.AssessChanges();
+			Assert.AreEqual(0, m_model.Changes.Count());
 		}
 	}
 }

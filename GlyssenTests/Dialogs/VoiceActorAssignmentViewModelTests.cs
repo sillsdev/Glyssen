@@ -349,12 +349,10 @@ namespace GlyssenTests.Dialogs
 			existingGroup.CharacterIds = new CharacterIdHashSet(characterIds);
 
 			Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
-
-			Assert.True(m_model.SplitGroup(new List<string> { "John" }));
+			var newGroup = m_model.SplitGroup(new List<string> {"John"});
+			Assert.IsNotNull(newGroup);
 
 			Assert.AreEqual(2, m_testProject.CharacterGroupList.CharacterGroups.Count);
-
-			var newGroup = m_testProject.CharacterGroupList.CharacterGroups[1];
 
 			Assert.False(existingGroup == newGroup);
 			Assert.True(existingGroup.CharacterIds.Contains("Andrew"));
@@ -372,11 +370,10 @@ namespace GlyssenTests.Dialogs
 
 			Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
 
-			Assert.True(m_model.SplitGroup(new List<string> { "John", "Peter" }));
+			var newGroup = m_model.SplitGroup(new List<string> {"John", "Peter"});
+			Assert.IsNotNull(newGroup);
 
 			Assert.AreEqual(2, m_testProject.CharacterGroupList.CharacterGroups.Count);
-
-			var newGroup = m_testProject.CharacterGroupList.CharacterGroups[1];
 
 			Assert.False(existingGroup == newGroup);
 			Assert.True(existingGroup.CharacterIds.Contains("Andrew"));

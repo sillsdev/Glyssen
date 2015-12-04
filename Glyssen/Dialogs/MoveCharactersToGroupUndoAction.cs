@@ -14,8 +14,8 @@ namespace Glyssen.Dialogs
 		private readonly string m_destGroupName;
 		private readonly IList<string> m_characterIdsMoved;
 		private readonly IList<string> m_remainingCharacterIdsInSource;
-		private int m_destGroupActor;
-		private int m_sourceGroupActor;
+		private readonly int m_destGroupActor;
+		private readonly int m_sourceGroupActor;
 
 		public MoveCharactersToGroupUndoAction(Project project, CharacterGroup sourceGroup, CharacterGroup destGroup, IList<string> characterIds)
 		{

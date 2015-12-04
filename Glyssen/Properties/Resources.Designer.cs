@@ -81,6 +81,16 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CameoStar {
+            get {
+                object obj = ResourceManager.GetObject("CameoStar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to #Character ID	Max Speakers	Gender	Age	Status	Comment	Reference Comment
         ///2 other disciples	2	Male	Adult		Not Peter (Simon), Thomas, Nathaniel, James, or John	
         ///250 Israelite leaders	250	Male	Adult			
@@ -327,16 +337,15 @@ namespace Glyssen.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;usx version=&quot;2.0&quot;&gt;
-        ///  &lt;book code=&quot;MRK&quot; style=&quot;id&quot;&gt;Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013&lt;/book&gt;
-        ///  &lt;para style=&quot;h&quot;&gt;MARAKO&lt;/para&gt;
-        ///  &lt;para style=&quot;toc1&quot;&gt;Jiri Ma Marako Ocoyo&lt;/para&gt;
-        ///  &lt;para style=&quot;toc2&quot;&gt;Marako&lt;/para&gt;
-        ///  &lt;para style=&quot;toc3&quot;&gt;Mar&lt;/para&gt;
-        ///  &lt;para style=&quot;mt2&quot;&gt;JIRI ma&lt;/para&gt;
-        ///  &lt;para style=&quot;mt1&quot;&gt;MARAKO&lt;/para&gt;
-        ///  &lt;para style=&quot;mt2&quot;&gt;ocoyo&lt;/para&gt;
+        ///  &lt;book code=&quot;MRK&quot; style=&quot;id&quot;&gt;- Sea Island Creole English (Gullah) NT -USA 2005 (DBL 2013)&lt;/book&gt;
+        ///  &lt;para style=&quot;h&quot;&gt;Mark&lt;/para&gt;
+        ///  &lt;para style=&quot;toc1&quot;&gt;De Good Nyews Bout Jedus Christ Wa Mark Write&lt;/para&gt;
+        ///  &lt;para style=&quot;toc2&quot;&gt;Mark&lt;/para&gt;
+        ///  &lt;para style=&quot;toc3&quot;&gt;Mr&lt;/para&gt;
+        ///  &lt;para style=&quot;mt1&quot;&gt;De Good Nyews Bout Jedus Christ Wa Mark Write&lt;/para&gt;
         ///  &lt;chapter number=&quot;1&quot; style=&quot;c&quot; /&gt;
-        ///  &lt;para style=&quot;s1&quot;&gt;Lok ma Jon Labatija otit [rest of string was truncated]&quot;;.
+        ///  &lt;para style=&quot;s&quot;&gt;John wa Bactize People Mek de Way&lt;/para&gt;
+        ///  &lt;para st [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SampleMRK {
             get {

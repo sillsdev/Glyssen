@@ -502,6 +502,7 @@
       <Link>icuuc54.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\CameoStar.png" />
     <Content Include="Resources\CharacterVerse.txt" />
     <None Include="Resources\grid-icon.png" />
     <None Include="Resources\html-view.png" />
