@@ -281,6 +281,12 @@ namespace Glyssen
 			set { m_metadata.ProjectStatus.VoiceActorStatus = value; }
 		}
 
+		public CharacterGroupGenerationPreferences CharacterGroupGenerationPreferences
+		{
+			get { return m_metadata.CharacterGroupGenerationPreferences;  }
+			set { m_metadata.CharacterGroupGenerationPreferences = value; }
+		}
+
 		public IReadOnlyList<BookScript> Books { get { return m_books; } }
 
 		public IReadOnlyList<BookScript> IncludedBooks
@@ -494,6 +500,9 @@ namespace Glyssen
 		public static Project Load(string projectFilePath)
 		{
 			Project existingProject = LoadExistingProject(projectFilePath);
+
+			if (existingProject == null)
+				return null;
 
 			if (!existingProject.IsSampleProject && existingProject.m_metadata.ParserVersion != Settings.Default.ParserVersion)
 			{

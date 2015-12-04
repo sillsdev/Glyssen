@@ -4,7 +4,6 @@ using System.Globalization;
 using System.Linq;
 using System.Xml.Serialization;
 using Glyssen.Dialogs;
-using Glyssen.Quote;
 using SIL.DblBundle.Text;
 using SIL.Xml;
 
@@ -83,6 +82,9 @@ namespace Glyssen.Bundle
 
 		[XmlElement("projectStatus")]
 		public ProjectStatus ProjectStatus = new ProjectStatus();
+
+		[XmlElement("characterGroupGenerationPreferences")]
+		public CharacterGroupGenerationPreferences CharacterGroupGenerationPreferences = new CharacterGroupGenerationPreferences();
 
 		/// <summary>
 		/// The font family for the language associated with this project.
@@ -214,6 +216,7 @@ namespace Glyssen.Bundle
 			FontFamily = source.FontFamily;
 			FontSizeInPoints = source.FontSizeInPoints;
 			Language.ScriptDirection = source.Language.ScriptDirection;
+			CharacterGroupGenerationPreferences = source.CharacterGroupGenerationPreferences;
 			foreach (var book in AvailableBooks)
 			{
 				var sourceProjectBook = source.AvailableBooks.FirstOrDefault(b => book.Code == b.Code);
@@ -263,6 +266,27 @@ namespace Glyssen.Bundle
 		public VoiceActorStatus VoiceActorStatus { get; set; }
 	}
 
+	public class CharacterGroupGenerationPreferences
+	{
+		public const int kNumberOfNarratorsNotSet = 0;
+
+		/// <summary>
+		/// Number of narrators set by user
+		/// 0 if not set by user
+		/// </summary>
+		/// 
+		[XmlElement("numberOfNarrators")]
+		[DefaultValue(kNumberOfNarratorsNotSet)]
+		public int NumberOfNarrators { get; set; }
+
+		/// <summary>
+		/// Narrator genders set by user.
+		/// </summary>
+		[XmlElement("narratorGenders")]
+		[DefaultValue(NarratorGenders.MaleOnly)]
+		public NarratorGenders NarratorGenders { get; set; }
+	}
+
 	[Flags]
 	public enum QuoteSystemStatus
 	{
@@ -291,5 +315,12 @@ namespace Glyssen.Bundle
 	{
 		UnProvided,
 		Provided
+	}
+
+	public enum NarratorGenders
+	{
+		MaleOnly,
+		FemaleOnly,
+		MaleOrFemale
 	}
 }
