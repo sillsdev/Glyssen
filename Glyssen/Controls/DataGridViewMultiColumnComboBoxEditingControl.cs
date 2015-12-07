@@ -334,8 +334,6 @@ namespace Glyssen.Controls
 				return;
 			}
 
-			System.Diagnostics.Debug.WriteLine("Drawing. DroppedDown = " + DroppedDown);
-
 			e.DrawBackground();
 
 			var boundsRect = e.Bounds;

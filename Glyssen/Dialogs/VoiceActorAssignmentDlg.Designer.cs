@@ -683,7 +683,6 @@ namespace Glyssen.Dialogs
 			this.m_characterGroupGrid.DragDrop += new System.Windows.Forms.DragEventHandler(this.m_characterGroupGrid_DragDrop);
 			this.m_characterGroupGrid.DragOver += new System.Windows.Forms.DragEventHandler(this.m_characterGroupGrid_DragOver);
 			this.m_characterGroupGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.m_characterGroupGrid_KeyDown);
-			this.m_characterGroupGrid.MouseUp += new System.Windows.Forms.MouseEventHandler(this.m_characterGroupGrid_MouseUp);
 			// 
 			// CharacterIdsCol
 			// 
@@ -781,7 +780,6 @@ namespace Glyssen.Dialogs
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
 			this.m_tableLayoutPanel.Size = new System.Drawing.Size(833, 371);
 			this.m_tableLayoutPanel.TabIndex = 9;
-			this.m_tableLayoutPanel.Resize += new System.EventHandler(this.m_tableLayoutPanel_Resize);
 			// 
 			// m_tableLayoutPanelCharacterDetails
 			// 

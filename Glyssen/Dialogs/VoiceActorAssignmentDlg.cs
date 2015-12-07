@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Media;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Rules;
+using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.Progress;
@@ -125,6 +126,10 @@ namespace Glyssen.Dialogs
 				m_characterGroupGrid.Refresh();
 			else
 				return false;
+
+			if (m_characterDetailsVisible)
+				SetCharacterDetailsPanePercentage();
+
 			return true;
 		}
 
@@ -166,11 +171,6 @@ namespace Glyssen.Dialogs
 		private Image VoiceActorCol_GetSpecialDropDownImageToDraw(DataGridViewMultiColumnComboBoxColumn sender, int rowIndex)
 		{
 			return m_characterGroupGrid.Rows[rowIndex].Cells[sender.Index].ReadOnly ? Properties.Resources.CameoStar : null;
-		}
-
-		private RowStyle GroupsRowStyle
-		{
-			get { return m_tableLayoutPanel.LayoutSettings.RowStyles[m_tableLayoutPanel.GetRow(m_characterGroupGrid)]; }
 		}
 
 		public CharacterGroup FirstSelectedCharacterGroup
@@ -661,6 +661,9 @@ namespace Glyssen.Dialogs
 		private void m_characterGroupGrid_SelectionChanged(object sender, EventArgs e)
 		{
 			bool exactlyOneGroupSelected = m_characterGroupGrid.SelectedRows.Count == 1;
+
+			System.Diagnostics.Debug.WriteLine("In m_characterGroupGrid_SelectionChanged. exactlyOneGroupSelected = " + exactlyOneGroupSelected);
+
 			m_splitSelectedGroupButton.Enabled = exactlyOneGroupSelected && FirstSelectedCharacterGroup.CharacterIds.Count > 1;
 			m_toolStripButtonFindNextMatchingCharacter.Enabled = m_toolStripTextBoxFindCharacter.TextLength > 0;
 
@@ -668,15 +671,7 @@ namespace Glyssen.Dialogs
 
 			if (exactlyOneGroupSelected)
 			{
-				if ((MouseButtons & MouseButtons.Left) > 0)
-				{
-					// Delay update until user releases mouse; otherwise, UI changes can cause the gril to scroll, which
-					// can accidentally cause another line to get included in the selection.
-					m_characterGroupGrid.MouseUp -= m_characterGroupGrid_MouseUp;
-					m_characterGroupGrid.MouseUp += m_characterGroupGrid_MouseUp;
-				}
-				else
-					UpdateDisplayForSingleCharacterGroupSelected();
+				UpdateDisplayForSingleCharacterGroupSelected();
 			}
 			else
 			{
@@ -686,25 +681,16 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		private void m_characterGroupGrid_MouseUp(object sender, MouseEventArgs e)
-		{
-			m_characterGroupGrid.MouseUp -= m_characterGroupGrid_MouseUp;
-
-			if (m_characterGroupGrid.SelectedRows.Count == 1)
-				UpdateDisplayForSingleCharacterGroupSelected();
-		}
-
 		private void UpdateDisplayForSingleCharacterGroupSelected()
 		{
 			m_tableLayoutPanelCharacterDetails.Visible = true;
 			var currentGroup = FirstSelectedCharacterGroup;
+			System.Diagnostics.Debug.WriteLine("In UpdateDisplayForSingleCharacterGroupSelected for group " + currentGroup.Name);
 			if (currentGroup.CharacterIds.Any())
 			{
 				m_characterIdsForSelectedGroup = currentGroup.CharacterIds.ToList();
 				m_characterDetailsGrid.Visible = m_characterDetailsVisible;
 				m_linkLabelShowHideDetails.Visible = !m_project.VoiceActorList.Actors.Any(a => a.IsCameo);
-				GroupsRowStyle.SizeType = SizeType.Percent;
-				SetCharacterGroupsRowToFixedSizeIfItFullyFitsAtCurrentTableLayoutSize();
 				m_characterDetailsGrid.RowCount = m_characterIdsForSelectedGroup.Count;
 				m_characterDetailsGrid.Refresh();
 				m_lblNoCharactersInGroup.Visible = false;
@@ -960,13 +946,11 @@ namespace Glyssen.Dialogs
 				return;
 
 			m_characterDetailsVisible = show;
-			var detailsRowStyle = m_tableLayoutPanel.LayoutSettings.RowStyles[m_tableLayoutPanel.GetRow(m_characterDetailsGrid)];
 			if (m_characterDetailsVisible)
 			{
 				m_linkLabelShowHideDetails.Text = (string)m_linkLabelShowHideDetails.Tag;
 
-				detailsRowStyle.SizeType = SizeType.Percent;
-				detailsRowStyle.Height = 30;
+				SetCharacterDetailsPanePercentage();
 
 				UpdateDisplayForSingleCharacterGroupSelected();
 			}
@@ -983,31 +967,24 @@ namespace Glyssen.Dialogs
 				m_linkLabelShowHideDetails.Text = LocalizationManager.GetString(
 					"DialogBoxes.VoiceActorAssignmentDlg.ShowCharacterDetailsLink", "Show Details");
 
+				var detailsRowStyle = m_tableLayoutPanel.LayoutSettings.RowStyles[m_tableLayoutPanel.GetRow(m_characterDetailsGrid)];
+				var groupsRowStyle = m_tableLayoutPanel.LayoutSettings.RowStyles[m_tableLayoutPanel.GetRow(m_characterGroupGrid)];
 				detailsRowStyle.SizeType = SizeType.Absolute;
 				detailsRowStyle.Height = 0;
-				GroupsRowStyle.SizeType = SizeType.Percent;
-				GroupsRowStyle.Height = 100;
+				groupsRowStyle.Height = 100;
 			}
 			m_characterDetailsGrid.Visible = m_characterDetailsVisible && !m_lblHowToAssignCharactersToCameoGroup.Visible;
 		}
 
-		private void m_tableLayoutPanel_Resize(object sender, EventArgs e)
+		private void SetCharacterDetailsPanePercentage()
 		{
-			if (m_characterDetailsGrid.Visible)
-				SetCharacterGroupsRowToFixedSizeIfItFullyFitsAtCurrentTableLayoutSize();
-		}
-
-		private void SetCharacterGroupsRowToFixedSizeIfItFullyFitsAtCurrentTableLayoutSize()
-		{
-			if (!m_characterDetailsVisible)
-				return;
-			var fullHeight = m_characterGroupGrid.Rows.GetRowsHeight(DataGridViewElementStates.None) +
-				m_characterGroupGrid.ColumnHeadersHeight + 2;
-			if (fullHeight < m_characterGroupGrid.Height)
-			{
-				GroupsRowStyle.SizeType = SizeType.AutoSize;
-				m_characterGroupGrid.Height = fullHeight;
-			}
+			var groupsRowStyle = m_tableLayoutPanel.LayoutSettings.RowStyles[m_tableLayoutPanel.GetRow(m_characterGroupGrid)];
+			var detailsRowStyle = m_tableLayoutPanel.LayoutSettings.RowStyles[m_tableLayoutPanel.GetRow(m_characterDetailsGrid)];
+			detailsRowStyle.SizeType = SizeType.Percent;
+			int groupCount = m_actorAssignmentViewModel.CharacterGroups.Count;
+			var percentage = (double)groupCount / (groupCount + m_actorAssignmentViewModel.CharacterGroups.Max(g => g.CharacterIds.Count));
+			groupsRowStyle.Height = Math.Max((int)((1 - percentage) * 100), 50);
+			detailsRowStyle.Height = 100 - groupsRowStyle.Height;
 		}
 		#endregion
 
