@@ -107,10 +107,21 @@ namespace Glyssen.Dialogs
 			}
 		}
 
+		public BlockNavigatorViewModel(IReadOnlyList<BookScript> books, ScrVers versification)
+		{
+			m_navigator = new BlockNavigator(books);
+
+			m_includedBooks = books.Select(b => b.BookId);
+			Versification = versification;
+
+			Mode = BlocksToDisplay.AllScripture;
+		}
+
 		#region IDisposable Members
 		public void Dispose()
 		{
-			m_project.FontSizeUiAdjustment = m_fontSizeUiAdjustment;
+			if (m_project != null)
+				m_project.FontSizeUiAdjustment = m_fontSizeUiAdjustment;
 
 			if (m_font != null)
 			{
