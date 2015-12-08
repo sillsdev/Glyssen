@@ -404,7 +404,7 @@ holy one (in vision)	1
 Holy Spirit, the	1	Male		
 Horseman, first	1	Male		
 Horseman, second	1	Male		
-Horses (in vision)	-1			
+horses (in vision)	-1			
 Hosea	1	Male		
 house of Aaron, the	-1	Male		
 Huldah, prophetess	1	Female		
@@ -601,7 +601,7 @@ man, still another	1	Male
 man, wicked	1	Male		
 Manoah, father of Samson	1	Male		
 Manoah's wife, mother of Samson	1	Female		
-man's brother	1	Male		
+man's brother (hypothetical)	1	Male		
 man's voice from the Ulai (in vision)	1	Male		
 many in crowd	-1			
 many Samaritans	-1			
@@ -998,7 +998,7 @@ son of Paul's sister (young man)	1	Male		young man
 son of Shelomith (whose father was an Egyptian)	1	Male		
 son of Shunammite	1	Male	Child	
 son of widow	1	Male		
-song (of the prostitute)	1	Female		
+song of the prostitute	1	Female		
 sons of Korah	-1	Male		
 sons of prophet in Bethel	-1	Male		
 souls of those killed for word of God	-1			
