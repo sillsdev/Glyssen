@@ -536,6 +536,15 @@
         <seg>《现》耶撒利雅 ***the*** ***chief*** 祭司</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Azariah the chief priest (during reign of Hezekiah)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Azariah the chief priest (during reign of Hezekiah)</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hans">
+        <seg>《现》耶撒利雅 ***the*** ***chief*** 祭司 ***(during*** ***reign*** ***of*** 希西家)</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Azariah the priest">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -543,6 +552,15 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>《现》耶撒利雅 ***the*** 祭司</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Azariah the priest (during reign of Uzziah)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Azariah the priest (during reign of Uzziah)</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hans">
+        <seg>《现》耶撒利雅 ***the*** 祭司 ***(during*** ***reign*** ***of*** 乌西雅)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Azariah, Johanan and all the arrogant men">
@@ -669,6 +687,15 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>巴西莱</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Barzillai (old)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Barzillai (old)</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hans">
+        <seg>巴西莱 ***(old)***</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Bathsheba">
@@ -1691,33 +1718,6 @@
         <seg>何西阿</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Hosea saying what Israel should say">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Hosea saying what Israel should say</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>何西阿 说 ***what*** 《现》以色列 ***should*** ***say***</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Hosea saying what Israel will say">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Hosea saying what Israel will say</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>何西阿 说 ***what*** 《现》以色列 ***will*** ***say***</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Hosea saying what wicked will say">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Hosea saying what wicked will say</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>何西阿 说 ***what*** ***wicked*** ***will*** ***say***</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Huldah, prophetess">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1968,6 +1968,15 @@
       </tuv>
       <tuv xml:lang="zh-Hans">
         <seg>以色列 ***spies*** ***from*** 约书亚, ***two*** ***men***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Israelite spies Joshua sent to Ai">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Israelite spies Joshua sent to Ai</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hans">
+        <seg>以色列 ***spies*** 约书亚 ***sent*** ***to*** 艾</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Ittai">
@@ -2771,13 +2780,13 @@
         <seg>《现》米慕干, ***noble*** ***advisor*** ***to*** ***Xerxes,*** 王</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Mephibosheth">
+    <tu tuid="CharacterName.Mephibosheth, son of Jonathan">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>Mephibosheth</seg>
+        <seg>Mephibosheth, son of Jonathan</seg>
       </tuv>
       <tuv xml:lang="zh-Hans">
-        <seg>米非波设</seg>
+        <seg>米非波设, ***son*** ***of*** 约拿单</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Micah">
