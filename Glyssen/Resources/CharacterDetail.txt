@@ -600,7 +600,7 @@ man, still another	1	Male				LUK 9:61
 man, wicked	1	Male				PSA 10:6 <-(1 more)-> PSA 10:13
 Manoah, father of Samson	1	Male				JDG 13:8 <-(4 more)-> JDG 13:22
 Manoah's wife, mother of Samson	1	Female				JDG 13:6 <-(2 more)-> JDG 13:23
-man's brother	1	Male				ISA 3:7
+man's brother (hypothetical)	1	Male				ISA 3:7
 man's voice from the Ulai (in vision)	1	Male				DAN 8:16
 many in crowd	-1					MRK 9:26
 many Samaritans	-1					JHN 4:40 & JHN 4:42
@@ -996,7 +996,7 @@ son of Paul's sister (young man)	1	Male	YoungAdult			ACT 23:20 & ACT 23:21
 son of Shelomith (whose father was an Egyptian)	1	Male				LEV 24:11
 son of Shunammite	1	Male	Child			2KI 4:19
 son of widow	1	Male				2KI 4:6
-song (of the prostitute)	1	Female				ISA 23:16
+song of the prostitute	1	Female				ISA 23:16
 sons of Korah	-1	Male				
 sons of prophet in Bethel	-1	Male				1KI 13:30
 souls of those killed for word of God	-1					REV 6:10
