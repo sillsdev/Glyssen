@@ -5,13 +5,11 @@ using System.Drawing;
 using System.Linq;
 using System.Media;
 using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Rules;
-using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.Progress;
@@ -983,7 +981,7 @@ namespace Glyssen.Dialogs
 			detailsRowStyle.SizeType = SizeType.Percent;
 			int groupCount = m_actorAssignmentViewModel.CharacterGroups.Count;
 			var percentage = (double)groupCount / (groupCount + m_actorAssignmentViewModel.CharacterGroups.Max(g => g.CharacterIds.Count));
-			groupsRowStyle.Height = Math.Max((int)((1 - percentage) * 100), 50);
+			groupsRowStyle.Height = Math.Min(Math.Max((int)((1 - percentage) * 100), 45), 85);
 			detailsRowStyle.Height = 100 - groupsRowStyle.Height;
 		}
 		#endregion
