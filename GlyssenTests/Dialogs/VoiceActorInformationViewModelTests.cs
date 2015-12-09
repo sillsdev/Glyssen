@@ -29,10 +29,10 @@ namespace GlyssenTests.Dialogs
 			m_testProject.VoiceActorList.Actors.Clear();
 			m_testProject.VoiceActorList.Actors.AddRange(new List<Glyssen.VoiceActor.VoiceActor>
 			{
-				new Glyssen.VoiceActor.VoiceActor{Id = 1},
-				new Glyssen.VoiceActor.VoiceActor{Id = 2},
-				new Glyssen.VoiceActor.VoiceActor{Id = 3},
-				new Glyssen.VoiceActor.VoiceActor{Id = 4},
+				new Glyssen.VoiceActor.VoiceActor{Id = 1, Name = "Mergat"},
+				new Glyssen.VoiceActor.VoiceActor{Id = 2, Name = "Hendrick"},
+				new Glyssen.VoiceActor.VoiceActor{Id = 3, Name = "Polygo"},
+				new Glyssen.VoiceActor.VoiceActor{Id = 4, Name = "Imran"},
 			});
 			m_model = new VoiceActorInformationViewModel(m_testProject);
 		}
@@ -80,7 +80,7 @@ namespace GlyssenTests.Dialogs
 		public void AssessChanges_VoiceActorAdded_UndoActionCreated()
 		{
 			Assert.AreEqual(4, m_testProject.VoiceActorList.Actors.Count);
-			m_model.AddNewActor();
+			m_model.AddNewActor().Name = "Phoenix";
 			Assert.AreEqual(5, m_testProject.VoiceActorList.Actors.Count);
 			m_model.AssessChanges();
 			Assert.IsTrue(m_model.Changes.Single() is VoiceActorAddedUndoAction);

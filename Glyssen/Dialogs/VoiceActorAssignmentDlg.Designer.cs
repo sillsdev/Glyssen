@@ -59,7 +59,7 @@ namespace Glyssen.Dialogs
 			this.m_redoButton = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.m_editActorsButton = new System.Windows.Forms.ToolStripButton();
-			this.m_updateGroupsButton = new System.Windows.Forms.ToolStripButton();
+			this.m_optimizeButton = new System.Windows.Forms.ToolStripButton();
 			this.m_splitSelectedGroupButton = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.m_toolStripLabelFindCharacter = new System.Windows.Forms.ToolStripLabel();
@@ -237,7 +237,7 @@ namespace Glyssen.Dialogs
             this.m_redoButton,
             this.toolStripSeparator1,
             this.m_editActorsButton,
-            this.m_updateGroupsButton,
+            this.m_optimizeButton,
             this.m_splitSelectedGroupButton,
             this.toolStripSeparator2,
             this.m_toolStripLabelFindCharacter,
@@ -303,18 +303,18 @@ namespace Glyssen.Dialogs
 			this.m_editActorsButton.Text = "Edit Voice Actors...";
 			this.m_editActorsButton.Click += new System.EventHandler(this.HandleEditVoiceActorsClick);
 			// 
-			// m_updateGroupsButton
+			// m_optimizeButton
 			// 
-			this.m_updateGroupsButton.AutoToolTip = false;
-			this.m_updateGroupsButton.Image = global::Glyssen.Properties.Resources.UpdateGroups;
-			this.m_updateGroupsButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_updateGroupsButton, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_updateGroupsButton, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_updateGroupsButton, "DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.UpdateCharacterGroups");
-			this.m_updateGroupsButton.Name = "m_updateGroupsButton";
-			this.m_updateGroupsButton.Size = new System.Drawing.Size(169, 22);
-			this.m_updateGroupsButton.Text = "Update Character Groups...";
-			this.m_updateGroupsButton.Click += new System.EventHandler(this.HandleUpdateGroupsClick);
+			this.m_optimizeButton.AutoToolTip = false;
+			this.m_optimizeButton.Image = global::Glyssen.Properties.Resources.UpdateGroups;
+			this.m_optimizeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_optimizeButton, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_optimizeButton, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_optimizeButton, "DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.OptimizeGroups");
+			this.m_optimizeButton.Name = "m_optimizeButton";
+			this.m_optimizeButton.Size = new System.Drawing.Size(125, 22);
+			this.m_optimizeButton.Text = "Optimize Groups...";
+			this.m_optimizeButton.Click += new System.EventHandler(this.HandleUpdateGroupsClick);
 			// 
 			// m_splitSelectedGroupButton
 			// 
@@ -900,7 +900,7 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.Button m_btnOK;
 		private System.Windows.Forms.ToolStripButton m_editActorsButton;
 		private System.Windows.Forms.ToolStripButton m_splitSelectedGroupButton;
-		private System.Windows.Forms.ToolStripButton m_updateGroupsButton;
+		private System.Windows.Forms.ToolStripButton m_optimizeButton;
 		private System.Windows.Forms.ToolStripButton m_undoButton;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripButton m_redoButton;

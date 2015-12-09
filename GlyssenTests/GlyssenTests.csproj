@@ -97,6 +97,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BiblicalAuthorsTests.cs" />
     <Compile Include="BlockNavigatorTests.cs" />
     <Compile Include="BlockTests.cs" />
     <Compile Include="BookSetUtilsTests.cs" />

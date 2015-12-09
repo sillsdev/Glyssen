@@ -21,6 +21,7 @@
 changelog -whitespace
 *.lift* -whitespace
 *.csproj.DotSettings -whitespace
+*.tmx -whitespace
 
 *CharacterVerse*.txt -whitespace
 *CharacterDetail*.txt -whitespace

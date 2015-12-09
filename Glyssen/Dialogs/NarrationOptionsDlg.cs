@@ -13,10 +13,8 @@ namespace Glyssen.Dialogs
 			InitializeComponent();
 			m_project = project;
 
-			if (m_project.CharacterGroupGenerationPreferences.NumberOfNarrators != CharacterGroupGenerationPreferences.kNumberOfNarratorsNotSet)
-				m_numNarratorNum.Value = m_project.CharacterGroupGenerationPreferences.NumberOfNarrators;
-			else
-				m_numNarratorNum.Value = GetDefaultNumberOfNarrators();
+			m_project.SetDefaultCharacterGroupGenerationPreferences();
+			m_numNarratorNum.Value = m_project.CharacterGroupGenerationPreferences.NumberOfNarrators;
 			m_numNarratorNum.Maximum = m_project.IncludedBooks.Count;
 
 			switch (m_project.CharacterGroupGenerationPreferences.NarratorGenders)

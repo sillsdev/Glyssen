@@ -740,15 +740,6 @@
         <seg>Marta</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Mephibosheth">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Mephibosheth</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Mefi-bóset</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Micah">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -2908,33 +2899,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Herodes el grande</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Hosea saying what Israel should say">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Hosea saying what Israel should say</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Oseas diciendo lo que Israel debe decir</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Hosea saying what Israel will say">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Hosea saying what Israel will say</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Oseas profetizando lo que Israel dirá</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Hosea saying what wicked will say">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Hosea saying what wicked will say</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Oseas profetizando lo que los malos dirán</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Isaac (old)">
@@ -5734,6 +5698,51 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Nínive, la ciudad alegre o orgullosa</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Azariah the chief priest (during reign of Hezekiah)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Azariah the chief priest (during reign of Hezekiah)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Azarías ***the*** ***chief*** sacerdote ***(during*** ***reign*** ***of*** Ezequías)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Azariah the priest (during reign of Uzziah)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Azariah the priest (during reign of Uzziah)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Azarías ***the*** sacerdote ***(during*** ***reign*** ***of*** Ozías)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Barzillai (old)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Barzillai (old)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Barzilai ***(old)***</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Israelite spies Joshua sent to Ai">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Israelite spies Joshua sent to Ai</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Israelita ***spies*** Josué ***sent*** ***to*** Ai</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Mephibosheth, son of Jonathan">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Mephibosheth, son of Jonathan</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Mefi-bóset, ***son*** ***of*** Jonatán</seg>
       </tuv>
     </tu>
   </body>

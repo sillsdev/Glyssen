@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
+using Glyssen.Character;
+using Glyssen.Dialogs;
+using SIL.ObjectModel;
 using SIL.Scripture;
 using ScrVers = Paratext.ScrVers;
 
@@ -72,12 +75,12 @@ namespace Glyssen
 			set { m_unappliedSplitBlocks = value; }
 		}
 
-		public IReadOnlyList<IEnumerable<Block>> UnappliedSplits
+		public System.Collections.Generic.IReadOnlyList<IEnumerable<Block>> UnappliedSplits
 		{
 			get { return m_unappliedSplitBlocks; }
 		}
 
-		public IReadOnlyList<Block> GetScriptBlocks(bool join = false)
+		public System.Collections.Generic.IReadOnlyList<Block> GetScriptBlocks(bool join = false)
 		{
 			EnsureBlockCount();
 
@@ -262,6 +265,7 @@ namespace Glyssen
 			}
 			ApplyUserSplits(sourceBookScript);
 			ApplyUserAssignments(sourceBookScript, versification);
+			CleanUpMultiBlockQuotes(versification);
 		}
 
 		private void ApplyUserAssignments(BookScript sourceBookScript, ScrVers versification)
@@ -387,6 +391,20 @@ namespace Glyssen
 						}
 					}
 				}
+			}
+		}
+
+		public void CleanUpMultiBlockQuotes(ScrVers versification)
+		{
+			var model = new BlockNavigatorViewModel(new ReadOnlyList<BookScript>(new[] { this }), versification);
+			foreach (var blockToChange in GetScriptBlocks()
+				.Where(b => b.MultiBlockQuote == MultiBlockQuote.Start)
+				.Select(block => model.GetAllBlocksWithSameQuote(block))
+				.Where(blocks => blocks.Select(b => b.CharacterId).Distinct().Count() > 1)
+				.SelectMany(blocks => blocks))
+			{
+				blockToChange.CharacterId = CharacterVerseData.AmbiguousCharacter;
+				blockToChange.UserConfirmed = false;
 			}
 		}
 

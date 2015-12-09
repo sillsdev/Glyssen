@@ -20,7 +20,7 @@ namespace Glyssen.Character
 				Assign(bookScript, versification, setDefaultForMultipleChoiceCharacters, overwriteUserConfirmed);
 		}
 
-		public void Assign(BookScript bookScript, ScrVers versification, bool setDefaultForMultipleChoiceCharacters = false, bool overwriteUserConfirmed = false)
+		private void Assign(BookScript bookScript, ScrVers versification, bool setDefaultForMultipleChoiceCharacters, bool overwriteUserConfirmed)
 		{
 			var bookNum = BCVRef.BookToNumber(bookScript.BookId);
 			foreach (Block block in bookScript.GetScriptBlocks().Where(b => !b.CharacterIsStandard))
@@ -34,6 +34,8 @@ namespace Glyssen.Character
 					block.UseDefaultForMultipleChoiceCharacter(() => block.GetMatchingCharacter(m_cvInfo, bookNum, versification));
 				}
 			}
+
+			bookScript.CleanUpMultiBlockQuotes(versification);
 		}
 	}
 }
