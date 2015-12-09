@@ -20,6 +20,8 @@ namespace Glyssen.Dialogs
 		{
 			if (disposing && (components != null))
 			{
+				if (m_hyperlinkFont != null)
+					m_hyperlinkFont.Dispose();
 				components.Dispose();
 			}
 			base.Dispose(disposing);
@@ -34,23 +36,23 @@ namespace Glyssen.Dialogs
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoiceActorAssignmentDlg));
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoiceActorAssignmentDlg));
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.m_lblInstructions = new System.Windows.Forms.Label();
 			this.m_contextMenuCharacters = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.m_menuItemCreateNewGroup = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_menuItemAssignToCameoActor = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_cameoActorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_menuItemMoveToAnotherGroup = new System.Windows.Forms.ToolStripMenuItem();
-			this.m_splitGroupCharacterDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_contextMenuCharacterGroups = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.m_unAssignActorFromGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_splitGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.m_AddCharacterToGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_toolStrip = new System.Windows.Forms.ToolStrip();
 			this.m_undoButton = new System.Windows.Forms.ToolStripButton();
@@ -119,8 +121,7 @@ namespace Glyssen.Dialogs
 			this.m_contextMenuCharacters.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.m_menuItemCreateNewGroup,
             this.m_menuItemAssignToCameoActor,
-            this.m_menuItemMoveToAnotherGroup,
-            this.m_splitGroupCharacterDetailsToolStripMenuItem});
+            this.m_menuItemMoveToAnotherGroup});
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_contextMenuCharacters, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_contextMenuCharacters, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_contextMenuCharacters, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -176,28 +177,18 @@ namespace Glyssen.Dialogs
 			this.m_menuItemMoveToAnotherGroup.Text = "Move selected character to another group...";
 			this.m_menuItemMoveToAnotherGroup.Click += new System.EventHandler(this.m_menuItemMoveToAnotherGroup_Click);
 			// 
-			// m_splitGroupCharacterDetailsToolStripMenuItem
-			// 
-			this.m_splitGroupCharacterDetailsToolStripMenuItem.Image = global::Glyssen.Properties.Resources.splitGroup;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_splitGroupCharacterDetailsToolStripMenuItem, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_splitGroupCharacterDetailsToolStripMenuItem, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_splitGroupCharacterDetailsToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.SplitSelectedGroup");
-			this.m_splitGroupCharacterDetailsToolStripMenuItem.Name = "m_splitGroupCharacterDetailsToolStripMenuItem";
-			this.m_splitGroupCharacterDetailsToolStripMenuItem.Size = new System.Drawing.Size(321, 22);
-			this.m_splitGroupCharacterDetailsToolStripMenuItem.Text = "Split group...";
-			this.m_splitGroupCharacterDetailsToolStripMenuItem.Click += new System.EventHandler(this.HandleSplitSelectedGroupClick);
-			// 
 			// m_contextMenuCharacterGroups
 			// 
 			this.m_contextMenuCharacterGroups.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.m_unAssignActorFromGroupToolStripMenuItem,
-            this.m_splitGroupToolStripMenuItem});
+            this.m_splitGroupToolStripMenuItem,
+            this.m_AddCharacterToGroupToolStripMenuItem});
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_contextMenuCharacterGroups, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_contextMenuCharacterGroups, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_contextMenuCharacterGroups, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_contextMenuCharacterGroups, "DialogBoxes.VoiceActorAssignmentDlg.contextMenuStrip1");
 			this.m_contextMenuCharacterGroups.Name = "m_contextMenuCharacterGroups";
-			this.m_contextMenuCharacterGroups.Size = new System.Drawing.Size(248, 48);
+			this.m_contextMenuCharacterGroups.Size = new System.Drawing.Size(248, 70);
 			this.m_contextMenuCharacterGroups.Opening += new System.ComponentModel.CancelEventHandler(this.m_contextMenuCharacterGroups_Opening);
 			// 
 			// m_unAssignActorFromGroupToolStripMenuItem
@@ -221,6 +212,17 @@ namespace Glyssen.Dialogs
 			this.m_splitGroupToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
 			this.m_splitGroupToolStripMenuItem.Text = "Split Group...";
 			this.m_splitGroupToolStripMenuItem.Click += new System.EventHandler(this.HandleSplitSelectedGroupClick);
+			// 
+			// m_AddCharacterToGroupToolStripMenuItem
+			// 
+			this.m_AddCharacterToGroupToolStripMenuItem.Image = global::Glyssen.Properties.Resources.AddCharacter;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_AddCharacterToGroupToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_AddCharacterToGroupToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_AddCharacterToGroupToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.AddCharacterToGroupToolStripMenuItem");
+			this.m_AddCharacterToGroupToolStripMenuItem.Name = "m_AddCharacterToGroupToolStripMenuItem";
+			this.m_AddCharacterToGroupToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+			this.m_AddCharacterToGroupToolStripMenuItem.Text = "Add character to this group...";
+			this.m_AddCharacterToGroupToolStripMenuItem.Click += new System.EventHandler(this.HandleAddCharacterToGroupClick);
 			// 
 			// m_l10NSharpExtender
 			// 
@@ -395,14 +397,14 @@ namespace Glyssen.Dialogs
 			this.m_characterDetailsGrid.BackgroundColor = System.Drawing.SystemColors.Window;
 			this.m_characterDetailsGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.m_characterDetailsGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F);
-			dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.m_characterDetailsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.m_characterDetailsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.m_characterDetailsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.m_characterDetailsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CharacterDetailsIdCol,
@@ -469,8 +471,8 @@ namespace Glyssen.Dialogs
 			// CharacterDetailsHoursCol
 			// 
 			this.CharacterDetailsHoursCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			dataGridViewCellStyle8.Format = "N2";
-			this.CharacterDetailsHoursCol.DefaultCellStyle = dataGridViewCellStyle8;
+			dataGridViewCellStyle2.Format = "N2";
+			this.CharacterDetailsHoursCol.DefaultCellStyle = dataGridViewCellStyle2;
 			this.CharacterDetailsHoursCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.CharacterDetails.Hours!Hours";
 			this.CharacterDetailsHoursCol.Name = "CharacterDetailsHoursCol";
 			this.CharacterDetailsHoursCol.ReadOnly = true;
@@ -489,7 +491,6 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblHowToAssignCharactersToCameoGroup, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblHowToAssignCharactersToCameoGroup, "Parameter 0 is a sentence stating that the character group has no characters. Par" +
         "ameter 1 is the name of the cameo actor assigned to the selected group.");
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblHowToAssignCharactersToCameoGroup, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblHowToAssignCharactersToCameoGroup, "DialogBoxes.VoiceActorAssignmentDlg.HowToAssignCharactersToCameoGroup");
 			this.m_lblHowToAssignCharactersToCameoGroup.Location = new System.Drawing.Point(3, 13);
 			this.m_lblHowToAssignCharactersToCameoGroup.Name = "m_lblHowToAssignCharactersToCameoGroup";
@@ -507,8 +508,7 @@ namespace Glyssen.Dialogs
 			this.m_tableLayoutPanelMove.SetColumnSpan(this.m_lblMovePendingInfo, 2);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblMovePendingInfo, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblMovePendingInfo, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblMovePendingInfo, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblMovePendingInfo, "DialogBoxes.VoiceActorAssignmentDlg.m_lblMoveInstructions");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblMovePendingInfo, "DialogBoxes.VoiceActorAssignmentDlg.MovePendingLabel");
 			this.m_lblMovePendingInfo.Location = new System.Drawing.Point(8, 8);
 			this.m_lblMovePendingInfo.Margin = new System.Windows.Forms.Padding(8, 8, 8, 0);
 			this.m_lblMovePendingInfo.Name = "m_lblMovePendingInfo";
@@ -521,8 +521,7 @@ namespace Glyssen.Dialogs
 			this.m_btnCancelMove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancelMove, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancelMove, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_btnCancelMove, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnCancelMove, "DialogBoxes.VoiceActorAssignmentDlg.m_btnCancelMove");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnCancelMove, "Common.Cancel");
 			this.m_btnCancelMove.Location = new System.Drawing.Point(53, 94);
 			this.m_btnCancelMove.Margin = new System.Windows.Forms.Padding(8);
 			this.m_btnCancelMove.Name = "m_btnCancelMove";
@@ -538,8 +537,7 @@ namespace Glyssen.Dialogs
 			this.m_btnMove.Enabled = false;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnMove, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnMove, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_btnMove, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnMove, "DialogBoxes.VoiceActorAssignmentDlg.m_btnMove");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnMove, "DialogBoxes.VoiceActorAssignmentDlg.MoveButton");
 			this.m_btnMove.Location = new System.Drawing.Point(144, 94);
 			this.m_btnMove.Margin = new System.Windows.Forms.Padding(8);
 			this.m_btnMove.Name = "m_btnMove";
@@ -555,7 +553,7 @@ namespace Glyssen.Dialogs
 			this.m_tableLayoutPanelMove.SetColumnSpan(this.m_lblMoveInstr, 2);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblMoveInstr, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblMoveInstr, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblMoveInstr, "DialogBoxes.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblMoveInstr, "DialogBoxes.MoveCharacterInstructions");
 			this.m_lblMoveInstr.Location = new System.Drawing.Point(8, 23);
 			this.m_lblMoveInstr.Margin = new System.Windows.Forms.Padding(8, 2, 8, 8);
 			this.m_lblMoveInstr.Name = "m_lblMoveInstr";
@@ -570,8 +568,7 @@ namespace Glyssen.Dialogs
 			this.m_linkLabelShowHideDetails.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkLabelShowHideDetails, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkLabelShowHideDetails, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_linkLabelShowHideDetails, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLabelShowHideDetails, "DialogBoxes.VoiceActorAssignmentDlg.m_linkLabelShowHideDetails");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLabelShowHideDetails, "DialogBoxes.VoiceActorAssignmentDlg.HideDetailsLink");
 			this.m_linkLabelShowHideDetails.Location = new System.Drawing.Point(264, 6);
 			this.m_linkLabelShowHideDetails.Name = "m_linkLabelShowHideDetails";
 			this.m_linkLabelShowHideDetails.Size = new System.Drawing.Size(62, 13);
@@ -587,8 +584,7 @@ namespace Glyssen.Dialogs
 			this.m_lblCharacterDetails.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblCharacterDetails, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblCharacterDetails, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblCharacterDetails, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblCharacterDetails, "DialogBoxes.VoiceActorAssignmentDlg.m_lblCharacterDetails");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblCharacterDetails, "DialogBoxes.VoiceActorAssignmentDlg.CharacterDetailsLabel");
 			this.m_lblCharacterDetails.Location = new System.Drawing.Point(0, 6);
 			this.m_lblCharacterDetails.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
 			this.m_lblCharacterDetails.Name = "m_lblCharacterDetails";
@@ -602,7 +598,6 @@ namespace Glyssen.Dialogs
 			this.m_lblNoCharactersInGroup.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblNoCharactersInGroup, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblNoCharactersInGroup, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblNoCharactersInGroup, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblNoCharactersInGroup, "DialogBoxes.VoiceActorAssignmentDlg.NoCharactersInGroup");
 			this.m_lblNoCharactersInGroup.Location = new System.Drawing.Point(3, 0);
 			this.m_lblNoCharactersInGroup.Name = "m_lblNoCharactersInGroup";
@@ -617,8 +612,8 @@ namespace Glyssen.Dialogs
 			this.m_characterGroupGrid.AllowUserToDeleteRows = false;
 			this.m_characterGroupGrid.AllowUserToOrderColumns = true;
 			this.m_characterGroupGrid.AllowUserToResizeRows = false;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-			this.m_characterGroupGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+			this.m_characterGroupGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
 			this.m_characterGroupGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -627,14 +622,14 @@ namespace Glyssen.Dialogs
 			this.m_characterGroupGrid.BackgroundColor = System.Drawing.SystemColors.Window;
 			this.m_characterGroupGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.m_characterGroupGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F);
-			dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.m_characterGroupGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
+			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.m_characterGroupGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			this.m_characterGroupGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CharacterIdsCol,
             this.AttributesCol,
@@ -643,15 +638,15 @@ namespace Glyssen.Dialogs
             this.VoiceActorCol});
 			this.m_tableLayoutPanel.SetColumnSpan(this.m_characterGroupGrid, 2);
 			this.m_characterGroupGrid.ContextMenuStrip = this.m_contextMenuCharacterGroups;
-			dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-			dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-			dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9F);
-			dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle11.NullValue = null;
-			dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.m_characterGroupGrid.DefaultCellStyle = dataGridViewCellStyle11;
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+			dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
+			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle6.NullValue = null;
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.m_characterGroupGrid.DefaultCellStyle = dataGridViewCellStyle6;
 			this.m_characterGroupGrid.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.m_characterGroupGrid.GridColor = System.Drawing.Color.Black;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_characterGroupGrid, null);
@@ -670,7 +665,9 @@ namespace Glyssen.Dialogs
 			this.m_characterGroupGrid.Size = new System.Drawing.Size(833, 235);
 			this.m_characterGroupGrid.TabIndex = 6;
 			this.m_characterGroupGrid.VirtualMode = true;
+			this.m_characterGroupGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_characterGroupGrid_CellContentClick);
 			this.m_characterGroupGrid.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_characterGroupGrid_CellEnter);
+			this.m_characterGroupGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.m_characterGroupGrid_CellFormatting);
 			this.m_characterGroupGrid.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_characterGroupGrid_CellLeave);
 			this.m_characterGroupGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.HandleGridCellMouseDown);
 			this.m_characterGroupGrid.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.m_characterGroupGrid_CellValueNeeded);
@@ -712,9 +709,9 @@ namespace Glyssen.Dialogs
 			// EstimatedHoursCol
 			// 
 			this.EstimatedHoursCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-			dataGridViewCellStyle10.Format = "N2";
-			dataGridViewCellStyle10.NullValue = null;
-			this.EstimatedHoursCol.DefaultCellStyle = dataGridViewCellStyle10;
+			dataGridViewCellStyle5.Format = "N2";
+			dataGridViewCellStyle5.NullValue = null;
+			this.EstimatedHoursCol.DefaultCellStyle = dataGridViewCellStyle5;
 			this.EstimatedHoursCol.FillWeight = 37.7242F;
 			this.EstimatedHoursCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Hours!Hours";
 			this.EstimatedHoursCol.Name = "EstimatedHoursCol";
@@ -909,7 +906,6 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.ToolStripButton m_redoButton;
 		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanel;
 		private SIL.Windows.Forms.Widgets.BetterGrid.BetterGrid m_characterDetailsGrid;
-		private System.Windows.Forms.ToolStripMenuItem m_splitGroupCharacterDetailsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem m_menuItemMoveToAnotherGroup;
 		private System.Windows.Forms.Label m_lblHowToAssignCharactersToCameoGroup;
 		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanelCharacterDetails;
@@ -937,6 +933,7 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.Label m_lblCharacterDetails;
 		private System.Windows.Forms.Label m_lblNoCharactersInGroup;
+		private ToolStripMenuItem m_AddCharacterToGroupToolStripMenuItem;
 
 	}
 }

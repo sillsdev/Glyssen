@@ -22,7 +22,6 @@ namespace Glyssen.Dialogs
 		private const string kCreateNewGroupMenuItemId = "CreateNewGroup";
 		private const string kAssignToCameoActorItemId = "AssignToCameoActor";
 		private const string kMoveToAnotherGroupMenuItemId = "MoveToAnotherGroup";
-		private const string kSplitGroupMenuItemId = "SplitGroup";
 		private readonly VoiceActorAssignmentViewModel m_actorAssignmentViewModel;
 		private readonly Project m_project;
 		private readonly Dictionary<string, int> m_keyStrokesByCharacterId;
@@ -32,7 +31,8 @@ namespace Glyssen.Dialogs
 		private bool m_selectingInResponseToDataChange;
 		private List<string> m_characterIdsForSelectedGroup;
 		private bool m_characterDetailsVisible = true;
-		private string m_fmtNoCharactersInGroup;
+		//private string m_fmtNoCharactersInGroup;
+		private Font m_hyperlinkFont;
 		private string m_fmtMoveCharactersInfo;
 		private List<string> m_pendingMoveCharacters; 
 		private readonly BackgroundWorker m_findCharacterBackgroundWorker;
@@ -49,7 +49,6 @@ namespace Glyssen.Dialogs
 			m_keyStrokesByCharacterId = m_project.GetKeyStrokesByCharacterId();
 
 			m_menuItemCreateNewGroup.Tag = kCreateNewGroupMenuItemId;
-			m_splitGroupCharacterDetailsToolStripMenuItem.Tag = kSplitGroupMenuItemId;
 			m_menuItemAssignToCameoActor.Tag = kAssignToCameoActorItemId;
 			m_menuItemMoveToAnotherGroup.Tag = kMoveToAnotherGroupMenuItemId;
 
@@ -83,6 +82,8 @@ namespace Glyssen.Dialogs
 			m_findCharacterBackgroundWorker = new BackgroundWorker { WorkerSupportsCancellation = true };
 			m_findCharacterBackgroundWorker.DoWork += FindCharacter;
 			m_findCharacterBackgroundWorker.RunWorkerCompleted += FindCharacterCompleted;
+
+			m_hyperlinkFont = new Font(m_characterGroupGrid.Columns[CharacterIdsCol.Index].InheritedStyle.Font, FontStyle.Underline);
 		}
 
 		private void GenerateGroupsWithProgress(bool attemptToPreserveActorAssignments)
@@ -162,7 +163,7 @@ namespace Glyssen.Dialogs
 			if (!m_redoButton.Enabled)
 				SetUndoOrRedoButtonToolTip(m_redoButton, null);
 
-			m_fmtNoCharactersInGroup = m_lblHowToAssignCharactersToCameoGroup.Text;
+			//m_fmtNoCharactersInGroup = m_lblHowToAssignCharactersToCameoGroup.Text;
 			m_fmtMoveCharactersInfo = m_lblMovePendingInfo.Text;
 		}
 
@@ -235,6 +236,11 @@ namespace Glyssen.Dialogs
 			}
 		}
 
+		private void HandleAddCharacterToGroupClick(object sender, EventArgs e)
+		{
+			AddCharacterToGroup(FirstSelectedCharacterGroup);
+		}
+
 		private void m_contextMenuCharacterGroups_Opening(object sender, CancelEventArgs e)
 		{
 			bool multipleGroupsSelected = m_characterGroupGrid.SelectedRows.Count > 1;
@@ -247,6 +253,7 @@ namespace Glyssen.Dialogs
 
 			m_unAssignActorFromGroupToolStripMenuItem.Enabled = SelectedGroupsThatCanBeUnassigned.Any();
 			m_splitGroupToolStripMenuItem.Enabled = m_characterGroupGrid.SelectedRows.Count == 1 && FirstSelectedCharacterGroup.CharacterIds.Count > 1;
+			m_AddCharacterToGroupToolStripMenuItem.Enabled = m_characterGroupGrid.SelectedRows.Count == 1;
 		}
 
 		private IEnumerable<CharacterGroup> SelectedGroupsThatCanBeUnassigned
@@ -269,57 +276,51 @@ namespace Glyssen.Dialogs
 			if (cms == null)
 				return;
 			var selectedCharacterGroup = FirstSelectedCharacterGroup;
-			ToolStripMenuItem item = cms.Items.Cast<ToolStripMenuItem>().FirstOrDefault(i => i.Tag.ToString() == kCreateNewGroupMenuItemId);
-			if (item != null)
+			foreach (var item in cms.Items.OfType<ToolStripMenuItem>())
 			{
-				// Don't let the user do this unless the group left behind would still be viable (either assigned to a cameo actor or having
-				// some characters still in it.
-				item.Enabled = selectedCharacterGroup.AssignedToCameoActor ||
-					m_characterDetailsGrid.SelectedRows.Count < m_characterDetailsGrid.RowCount;
-				item.Text = m_characterDetailsGrid.SelectedRows.Count > 1
-					? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.CreateNewGroupWithCharacters",
-						"Create a new group with the selected characters")
-					: m_menuItemCreateNewGroup.Text;
-			}
-
-			item = cms.Items.Cast<ToolStripMenuItem>().FirstOrDefault(i => i.Tag.ToString() == kAssignToCameoActorItemId);
-			if (item != null)
-			{
-				var actorOfSelectedGroup = selectedCharacterGroup.VoiceActorId;
-				var availableCameoActors = m_project.VoiceActorList.Actors.Where(a => a.Id != actorOfSelectedGroup && a.IsCameo)
-					.OrderBy(a => a.Name).ToList();
-
-				item.Enabled = availableCameoActors.Any();
-				item.Text = m_characterDetailsGrid.SelectedRows.Count > 1
-					? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.AssignSelectedCharactersToCameoActor",
-						"Assign selected characters to cameo actor")
-					: m_menuItemAssignToCameoActor.Text;
-
-				item.DropDownItems.Clear();
-
-				if (item.Enabled)
+				switch (item.Tag.ToString())
 				{
-					foreach (var cameoActor in availableCameoActors)
-					{
-						var subMenu = new ToolStripMenuItem(cameoActor.Name, null, HandleAssignToCameoActorClick);
-						subMenu.Tag = cameoActor.Id;
-						item.DropDownItems.Add(subMenu);
-					}
+					case kCreateNewGroupMenuItemId:
+						// Don't let the user do this unless the group left behind would still be viable (either assigned to a cameo actor or having
+						// some characters still in it.
+						item.Enabled = selectedCharacterGroup.AssignedToCameoActor ||
+										m_characterDetailsGrid.SelectedRows.Count < m_characterDetailsGrid.RowCount;
+						item.Text = m_characterDetailsGrid.SelectedRows.Count > 1
+							? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ContextMenus.CreateNewGroupWithCharacters",
+								"Create a new group with the selected characters")
+							: m_menuItemCreateNewGroup.Text;
+						break;
+					case kAssignToCameoActorItemId:
+						var actorOfSelectedGroup = selectedCharacterGroup.VoiceActorId;
+						var availableCameoActors = m_project.VoiceActorList.Actors.Where(a => a.Id != actorOfSelectedGroup && a.IsCameo)
+							.OrderBy(a => a.Name).ToList();
+
+						item.Enabled = availableCameoActors.Any();
+						item.Text = m_characterDetailsGrid.SelectedRows.Count > 1
+							? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.AssignSelectedCharactersToCameoActor",
+								"Assign selected characters to cameo actor")
+							: m_menuItemAssignToCameoActor.Text;
+
+						item.DropDownItems.Clear();
+
+						if (item.Enabled)
+						{
+							foreach (var cameoActor in availableCameoActors)
+							{
+								var subMenu = new ToolStripMenuItem(cameoActor.Name, null, HandleAssignToCameoActorClick);
+								subMenu.Tag = cameoActor.Id;
+								item.DropDownItems.Add(subMenu);
+							}
+						}
+						break;
+					case kMoveToAnotherGroupMenuItemId:
+						item.Text = m_characterDetailsGrid.SelectedRows.Count > 1
+							? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveSelectedCharactersToAnotherGroup",
+								"Move selected characters to another group...")
+							: m_menuItemMoveToAnotherGroup.Text;
+						break;
 				}
 			}
-
-			item = cms.Items.Cast<ToolStripMenuItem>().FirstOrDefault(i => i.Tag.ToString() == kMoveToAnotherGroupMenuItemId);
-			if (item != null)
-			{
-				item.Text = m_characterDetailsGrid.SelectedRows.Count > 1
-					? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveSelectedCharactersToAnotherGroup",
-						"Move selected characters to another group...")
-					: m_menuItemMoveToAnotherGroup.Text;
-			}
-
-			item = cms.Items.Cast<ToolStripMenuItem>().FirstOrDefault(i => i.Tag.ToString() == kSplitGroupMenuItemId);
-			if (item != null)
-				item.Enabled = m_characterGroupGrid.SelectedRows.Count == 1 && FirstSelectedCharacterGroup.CharacterIds.Count > 1;
 		}
 
 		private void m_menuItemCreateNewGroup_Click(object sender, EventArgs e)
@@ -413,6 +414,37 @@ namespace Glyssen.Dialogs
 		private void m_btnCancelMove_Click(object sender, EventArgs e)
 		{
 			UpdateUiForPendingCharacterMove();
+		}
+
+		private void m_characterGroupGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+			if (e.RowIndex >= m_actorAssignmentViewModel.CharacterGroups.Count || e.ColumnIndex != CharacterIdsCol.Index)
+				return;
+			var group = m_actorAssignmentViewModel.CharacterGroups[e.RowIndex];
+			if (group != null && group.AssignedToCameoActor)
+			{
+				if (!group.CharacterIds.Any())
+				{
+					AddCharacterToGroup(group);
+				}
+			}
+		}
+
+		private void AddCharacterToGroup(CharacterGroup characterGroup)
+		{
+			var model = new AddCharactersToGroupViewModel(m_project.AllCharacterDetailDictionary, m_keyStrokesByCharacterId, characterGroup.CharacterIds,
+				characterGroup.AssignedToCameoActor ? m_project.VoiceActorList.GetVoiceActorById(characterGroup.VoiceActorId) : null);
+			using (var dlg = new AddCharacterToGroupDlg(model))
+			{
+				if (dlg.ShowDialog(this) == DialogResult.OK)
+				{
+					if (m_actorAssignmentViewModel.MoveCharactersToGroup(dlg.SelectedCharacters, characterGroup))
+					{
+						var rowIndexOfTargetGroup = m_actorAssignmentViewModel.CharacterGroups.IndexOf(characterGroup);
+						m_characterGroupGrid.CurrentCell = m_characterGroupGrid.Rows[rowIndexOfTargetGroup].Cells[CharacterIdsCol.Name];
+					}
+				}
+			}
 		}
 
 		private void HandleUpdateGroupsClick(object sender, EventArgs e)
@@ -649,6 +681,24 @@ namespace Glyssen.Dialogs
 				m_characterGroupGrid.Rows[e.RowIndex].Cells[VoiceActorCol.Name].ToolTipText = "";
 		}
 
+		private void m_characterGroupGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+		{
+			if (e.RowIndex >= m_actorAssignmentViewModel.CharacterGroups.Count || e.ColumnIndex != CharacterIdsCol.Index)
+				return;
+			var group = m_actorAssignmentViewModel.CharacterGroups[e.RowIndex];
+			if (group != null && group.AssignedToCameoActor)
+			{
+				if (!group.CharacterIds.Any())
+				{
+					//var cellBounds = m_characterGroupGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].GetContentBounds(e.RowIndex);
+					//e.CellStyle.ForeColor = cellBounds.Contains(this.PointToClient(Control.MousePosition))
+					//	? SystemColors.HotTrack : SystemColors.Highlight;
+					e.CellStyle.ForeColor = SystemColors.HotTrack;
+					e.CellStyle.Font = m_hyperlinkFont;
+				}
+			}
+		}
+
 		private void m_characterGroupGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
 			Analytics.ReportException(e.Exception);
@@ -681,6 +731,8 @@ namespace Glyssen.Dialogs
 
 		private void UpdateDisplayForSingleCharacterGroupSelected()
 		{
+			m_lblNoCharactersInGroup.Visible = false;
+			m_lblHowToAssignCharactersToCameoGroup.Visible = false;
 			m_tableLayoutPanelCharacterDetails.Visible = true;
 			var currentGroup = FirstSelectedCharacterGroup;
 			System.Diagnostics.Debug.WriteLine("In UpdateDisplayForSingleCharacterGroupSelected for group " + currentGroup.Name);
@@ -691,25 +743,25 @@ namespace Glyssen.Dialogs
 				m_linkLabelShowHideDetails.Visible = !m_project.VoiceActorList.Actors.Any(a => a.IsCameo);
 				m_characterDetailsGrid.RowCount = m_characterIdsForSelectedGroup.Count;
 				m_characterDetailsGrid.Refresh();
-				m_lblNoCharactersInGroup.Visible = false;
-				m_lblHowToAssignCharactersToCameoGroup.Visible = false;
+				//m_lblNoCharactersInGroup.Visible = false;
+				//m_lblHowToAssignCharactersToCameoGroup.Visible = false;
 				m_btnMove.Enabled = m_pendingMoveCharacters != null && !currentGroup.CharacterIds.Contains(m_pendingMoveCharacters.First());
 			}
 			else 
 			{
-				m_characterDetailsGrid.Visible = false;
-				if (FirstSelectedCharacterGroup.AssignedToCameoActor)
-				{
-					m_lblHowToAssignCharactersToCameoGroup.Visible = true;
-					m_lblNoCharactersInGroup.Visible = false;
-					m_lblHowToAssignCharactersToCameoGroup.Text = string.Format(m_fmtNoCharactersInGroup,
-						m_lblNoCharactersInGroup.Text, m_project.VoiceActorList.GetVoiceActorById(currentGroup.VoiceActorId).Name);
-				}
-				else
-				{
-					m_lblHowToAssignCharactersToCameoGroup.Visible = false;
-					m_lblNoCharactersInGroup.Visible = true;
-				}
+				//m_characterDetailsGrid.Visible = false;
+				//if (FirstSelectedCharacterGroup.AssignedToCameoActor)
+				//{
+				//	//m_lblHowToAssignCharactersToCameoGroup.Visible = true;
+				//	//m_lblNoCharactersInGroup.Visible = false;
+				//	m_lblHowToAssignCharactersToCameoGroup.Text = string.Format(m_fmtNoCharactersInGroup,
+				//		m_lblNoCharactersInGroup.Text, m_project.VoiceActorList.GetVoiceActorById(currentGroup.VoiceActorId).Name);
+				//}
+				////else
+				////{
+				//	//m_lblHowToAssignCharactersToCameoGroup.Visible = false;
+				//	//m_lblNoCharactersInGroup.Visible = true;
+				////}
 				m_btnMove.Enabled = m_pendingMoveCharacters != null;
 			}
 		}
@@ -717,7 +769,13 @@ namespace Glyssen.Dialogs
 		private void m_characterGroupGrid_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
 		{
 			if (e.ColumnIndex == CharacterIdsCol.Index)
-				e.Value = m_actorAssignmentViewModel.CharacterGroups[e.RowIndex].CharacterIds.ToString();
+			{
+				var charIdsString = m_actorAssignmentViewModel.CharacterGroups[e.RowIndex].CharacterIds.ToString();
+				e.Value = string.IsNullOrWhiteSpace(charIdsString) ? LocalizationManager.GetString(
+					"DialogBoxes.VoiceActorAssignmentDlg.SelectCameoRoleLink", "Select a cameo role",
+					"Displayed as link in the \"Characters In Group\" column when the group assigned to a cameo	actor has no characters in it.")
+					: charIdsString;
+			}
 			else if (e.ColumnIndex == AttributesCol.Index)
 				e.Value = m_actorAssignmentViewModel.CharacterGroups[e.RowIndex].AttributesDisplay;
 			else if (e.ColumnIndex == CharStatusCol.Index)

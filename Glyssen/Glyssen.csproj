@@ -214,6 +214,13 @@
     </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
     <Compile Include="Controls\VoiceActorInformationViewModel.cs" />
+    <Compile Include="Dialogs\AddCharactersToGroupViewModel.cs" />
+    <Compile Include="Dialogs\AddCharacterToGroupDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AddCharacterToGroupDlg.Designer.cs">
+      <DependentUpon>AddCharacterToGroupDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\ExportDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -391,6 +398,9 @@
     <EmbeddedResource Include="Controls\VoiceActorInformationGrid.resx">
       <DependentUpon>VoiceActorInformationGrid.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\AddCharacterToGroupDlg.resx">
+      <DependentUpon>AddCharacterToGroupDlg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AssignCharacterDlg.resx">
       <DependentUpon>AssignCharacterDlg.cs</DependentUpon>
     </EmbeddedResource>
@@ -511,6 +521,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\CameoStar.png" />
+    <None Include="Resources\AddCharacter.png" />
     <Content Include="Resources\CharacterVerse.txt" />
     <None Include="Resources\grid-icon.png" />
     <None Include="Resources\html-view.png" />

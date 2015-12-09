@@ -73,6 +73,16 @@ namespace Glyssen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AddCharacter {
+            get {
+                object obj = ResourceManager.GetObject("AddCharacter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bluelock {
             get {
                 object obj = ResourceManager.GetObject("bluelock", resourceCulture);

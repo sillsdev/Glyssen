@@ -109,18 +109,6 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void AssignActorToGroup_CanAssignFalse_ActorNotAssigned()
-		{
-			m_model.CanAssign = false;
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Charlotte Pohlig" };
-			m_testProject.VoiceActorList.Actors.Add(actor1);
-			var group = m_model.CharacterGroups[0];
-			m_model.AssignActorToGroup(actor1.Id, group);
-			Assert.False(group.IsVoiceActorAssigned);
-			m_model.CanAssign = true;
-		}
-
-		[Test]
 		public void UnAssignActorFromGroups_ByGroup()
 		{
 			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Marco Polo" };

@@ -44,7 +44,6 @@ namespace Glyssen.Dialogs
 		public VoiceActorAssignmentViewModel(Project project, Dictionary<string, int> keyStrokesByCharacterId = null)
 		{
 			m_project = project;
-			CanAssign = true;
 
 			m_keyStrokesByCharacterId = keyStrokesByCharacterId ?? m_project.GetKeyStrokesByCharacterId();
 
@@ -129,9 +128,6 @@ namespace Glyssen.Dialogs
 			return m_keyStrokesByCharacterId[characterId] / (double)Program.kKeyStrokesPerHour;
 		}
 
-		// REVIEW: What is this intended for? It's only ever set false in tests
-		public bool CanAssign { get; set; }
-
 		public IList<CharacterGroup> CharacterGroups { get { return m_project.CharacterGroupList.CharacterGroups; } }
 
 		public List<String> UndoActions { get { return m_undoStack.UndoDescriptions; } }
@@ -210,7 +206,7 @@ namespace Glyssen.Dialogs
 
 		public void AssignActorToGroup(int actorId, CharacterGroup group)
 		{
-			if (CanAssign && group.VoiceActorId != actorId)
+			if (group.VoiceActorId != actorId)
 			{
 				RemoveVoiceActorAssignmentsUndoAction undoActionForRemovingPreviousAssignments = null;
 				if (actorId == CharacterGroup.kNoActorAssigned)
