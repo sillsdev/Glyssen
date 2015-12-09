@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
 using Glyssen.Dialogs;
@@ -128,6 +129,7 @@ namespace Glyssen.Controls
 			}
 			foreach (var currentActor in m_project.VoiceActorList.Actors)
 			{
+				Debug.Assert(!string.IsNullOrWhiteSpace(currentActor.Name));
 				var originalActor = m_originalActors.Find(a => a.Item1.Id == currentActor.Id);
 				if (originalActor == null)
 					m_undoActions.Add(new VoiceActorAddedUndoAction(m_project, currentActor.Id));

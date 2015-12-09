@@ -241,6 +241,9 @@ namespace Glyssen.Controls
 		{
 			if (e.ColumnIndex == ActorName.Index)
 			{
+				if (m_dataGrid.Rows[e.RowIndex].IsNewRow)
+					return;
+
 				VoiceActor.VoiceActor editedActor = e.RowIndex < m_actorInformationViewModel.Actors.Count
 					? m_actorInformationViewModel.Actors[e.RowIndex]
 					: null;
@@ -258,24 +261,31 @@ namespace Glyssen.Controls
 
 		private void m_dataGrid_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
 		{
+			if (m_dataGrid.Rows[e.RowIndex].IsNewRow)
+			{
+				if (m_actorInformationViewModel.Actors.Count == e.RowIndex + 1)
+				{
+					var actorsToRemove = new HashSet<VoiceActor.VoiceActor>();
+					actorsToRemove.Add(m_actorInformationViewModel.Actors[e.RowIndex]);
+					m_actorInformationViewModel.DeleteVoiceActors(actorsToRemove);
+					m_dataGrid.CancelEdit();
+				}
+				return;
+			}
+
 			VoiceActor.VoiceActor editedActor = e.RowIndex < m_actorInformationViewModel.Actors.Count
 				? m_actorInformationViewModel.Actors[e.RowIndex]
 				: null;
 			Debug.Assert(editedActor != null);
 			if (string.IsNullOrWhiteSpace(editedActor.Name))
 			{
-				if (m_dataGrid.Rows[e.RowIndex].IsNewRow)
-					m_dataGrid.CancelEdit();
-				else
+				e.Cancel = true;
+				if (!m_inEndEdit)
 				{
-					e.Cancel = true;
-					if (!m_inEndEdit)
-					{
-						MessageBox.Show(LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.InvalidName",
-							"Actor Name must be provided."));
-						if (m_dataGrid.CurrentCellAddress.X != ActorName.Index)
-							m_dataGrid.CurrentCell = m_dataGrid.Rows[e.RowIndex].Cells[ActorName.Index];
-					}
+					MessageBox.Show(LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.InvalidName",
+						"Actor Name must be provided."));
+					if (m_dataGrid.CurrentCellAddress.X != ActorName.Index)
+						m_dataGrid.CurrentCell = m_dataGrid.Rows[e.RowIndex].Cells[ActorName.Index];
 				}
 			}
 		}
