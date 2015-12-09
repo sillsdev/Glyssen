@@ -205,7 +205,7 @@ namespace Glyssen.Dialogs
 							"Would you like {0} to update the groups now?"), Program.kProduct), Text, MessageBoxButtons.YesNo) ==
 						DialogResult.Yes)
 					{
-						HandleUpdateGroupsClick(m_updateGroupsButton, e);
+						HandleUpdateGroupsClick(m_optimizeButton, e);
 						//m_characterGroupGrid.InvalidateColumn(VoiceActorCol.Index);
 					}
 
@@ -419,25 +419,17 @@ namespace Glyssen.Dialogs
 		{
 			var nameOfSelectedGroup = (m_characterGroupGrid.SelectedRows.Count == 1)
 				? FirstSelectedCharacterGroup.Name : null;
-			using (var updateDlg = new UpdateCharacterGroupsDlg())
-			{
-				if (updateDlg.ShowDialog() == DialogResult.OK &&
-					(updateDlg.SelectedOption == UpdateCharacterGroupsDlg.SelectionType.AutoGenAndMaintain ||
-					updateDlg.SelectedOption == UpdateCharacterGroupsDlg.SelectionType.AutoGen))
-				{
-					bool attemptToPreserveActorAssignments = updateDlg.SelectedOption == UpdateCharacterGroupsDlg.SelectionType.AutoGenAndMaintain;
-					m_actorAssignmentViewModel.RegenerateGroups(() => { GenerateGroupsWithProgress(attemptToPreserveActorAssignments); });
-					SortByColumn(m_sortedColumn, m_sortedAscending);
 
-					if (nameOfSelectedGroup != null)
-					{
-						var groupToSelect = m_actorAssignmentViewModel.CharacterGroups.IndexOf(g => g.Name == nameOfSelectedGroup);
-						if (groupToSelect >= 0 && !m_characterGroupGrid.Rows[groupToSelect].Selected)
-						{
-							m_characterGroupGrid.ClearSelection();
-							m_characterGroupGrid.Rows[groupToSelect].Selected = true;
-						}
-					}
+			m_actorAssignmentViewModel.RegenerateGroups(() => { GenerateGroupsWithProgress(true); });
+			SortByColumn(m_sortedColumn, m_sortedAscending);
+
+			if (nameOfSelectedGroup != null)
+			{
+				var groupToSelect = m_actorAssignmentViewModel.CharacterGroups.IndexOf(g => g.Name == nameOfSelectedGroup);
+				if (groupToSelect >= 0 && !m_characterGroupGrid.Rows[groupToSelect].Selected)
+				{
+					m_characterGroupGrid.ClearSelection();
+					m_characterGroupGrid.Rows[groupToSelect].Selected = true;
 				}
 			}
 		}
