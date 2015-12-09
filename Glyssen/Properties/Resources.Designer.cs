@@ -71,6 +71,40 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;BiblicalAuthors&gt;
+        ///	&lt;BiblicalAuthor name=&quot;&quot;Obadiah&quot;&quot;&gt;
+        ///		&lt;Books&gt;
+        ///			&lt;Book&gt;OBA&lt;/Book&gt;
+        ///		&lt;/Books&gt;
+        ///	&lt;/BiblicalAuthor&gt;
+        ///	&lt;BiblicalAuthor name=&quot;&quot;Matthew&quot;&quot;&gt;
+        ///		&lt;Books&gt;
+        ///			&lt;Book&gt;MAT&lt;/Book&gt;
+        ///		&lt;/Books&gt;
+        ///	&lt;/BiblicalAuthor&gt;
+        ///	&lt;BiblicalAuthor name=&quot;&quot;Mark&quot;&quot;&gt;
+        ///		&lt;Books&gt;
+        ///			&lt;Book&gt;MRK&lt;/Book&gt;
+        ///		&lt;/Books&gt;
+        ///	&lt;/BiblicalAuthor&gt;
+        ///	&lt;BiblicalAuthor name=&quot;&quot;Luke&quot;&quot;&gt;
+        ///		&lt;Books&gt;
+        ///			&lt;Book&gt;LUK&lt;/Book&gt;
+        ///			&lt;Book&gt;ACT&lt;/Book&gt;
+        ///		&lt;/Books&gt;
+        ///	&lt;/BiblicalAuthor&gt;
+        ///	&lt;BiblicalAuthor name=&quot;&quot;John&quot;&quot;&gt;
+        ///		&lt;Books&gt;
+        ///			&lt;Book&gt;JHN&lt;/Book&gt;
+        ///			&lt;Book&gt;1JN&lt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string BiblicalAuthors {
+            get {
+                return ResourceManager.GetString("BiblicalAuthors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap bluelock {
@@ -128,7 +162,7 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	83
+        ///   Looks up a localized string similar to Control File Version	85
         ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
         ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
         ///# PSA will be handled as complete units, each psalm will be spoken by one voice								

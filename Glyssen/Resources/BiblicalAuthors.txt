@@ -1,0 +1,220 @@
+<BiblicalAuthors>
+	<Author name="Moses">
+		<Books>
+			<Book>GEN</Book>
+			<Book>EXO</Book>
+			<Book>LEV</Book>
+			<Book>NUM</Book>
+			<Book>DEU</Book>
+		</Books>
+	</Author>
+	<Author name="Joshua">
+		<Books>
+			<Book>JOS</Book>
+		</Books>
+	</Author>
+	<Author name="Author of Judges">
+		<Books>
+			<Book>JDG</Book>
+		</Books>
+	</Author>
+	<Author name="Author of Ruth">
+		<Books>
+			<Book>RUT</Book>
+		</Books>
+	</Author>
+	<Author name="Samuel">
+		<Books>
+			<Book>1SA</Book>
+			<Book>2SA</Book>
+		</Books>
+	</Author>
+	<Author name="Author of Kings">
+		<Books>
+			<Book>1KI</Book>
+			<Book>2KI</Book>
+		</Books>
+	</Author>
+	<Author name="Author of Chronicles">
+		<Books>
+			<Book>1CH</Book>
+			<Book>2CH</Book>
+		</Books>
+	</Author>
+	<Author name="Ezra">
+		<Books>
+			<Book>EZR</Book>
+		</Books>
+	</Author>
+	<Author name="Nehemiah">
+		<Books>
+			<Book>NEH</Book>
+		</Books>
+	</Author>
+	<Author name="Author of Esther">
+		<Books>
+			<Book>EST</Book>
+		</Books>
+	</Author>
+	<Author name="Job">
+		<Books>
+			<Book>JOB</Book>
+		</Books>
+	</Author>
+	<Author name="Author of Psalms">
+		<Books>
+			<Book>PSA</Book>
+		</Books>
+	</Author>
+	<Author name="Solomon">
+		<Books>
+			<Book>PRO</Book>
+			<Book>ECC</Book>
+			<Book>SNG</Book>
+		</Books>
+	</Author>
+	<Author name="Isaiah">
+		<Books>
+			<Book>ISA</Book>
+		</Books>
+	</Author>
+	<Author name="Jeremiah">
+		<Books>
+			<Book>JER</Book>
+			<Book>LAM</Book>
+		</Books>
+	</Author>
+	<Author name="Ezekiel">
+		<Books>
+			<Book>EZK</Book>
+		</Books>
+	</Author>
+	<Author name="Daniel">
+		<Books>
+			<Book>DAN</Book>
+		</Books>
+	</Author>
+	<Author name="Hosea">
+		<Books>
+			<Book>HOS</Book>
+		</Books>
+	</Author>
+	<Author name="Joel">
+		<Books>
+			<Book>JOL</Book>
+		</Books>
+	</Author>
+	<Author name="Amos">
+		<Books>
+			<Book>AMO</Book>
+		</Books>
+	</Author>
+	<Author name="Obadiah">
+		<Books>
+			<Book>OBA</Book>
+		</Books>
+	</Author>
+	<Author name="Jonah">
+		<Books>
+			<Book>JON</Book>
+		</Books>
+	</Author>
+	<Author name="Micah">
+		<Books>
+			<Book>MIC</Book>
+		</Books>
+	</Author>
+	<Author name="Nahum">
+		<Books>
+			<Book>NAM</Book>
+		</Books>
+	</Author>
+	<Author name="Habakkuk">
+		<Books>
+			<Book>HAB</Book>
+		</Books>
+	</Author>
+	<Author name="Zephaniah">
+		<Books>
+			<Book>ZEP</Book>
+		</Books>
+	</Author>
+	<Author name="Haggai">
+		<Books>
+			<Book>HAG</Book>
+		</Books>
+	</Author>
+	<Author name="Zechariah">
+		<Books>
+			<Book>ZEC</Book>
+		</Books>
+	</Author>
+	<Author name="Malachi">
+		<Books>
+			<Book>MAL</Book>
+		</Books>
+	</Author>
+	<Author name="Matthew">
+		<Books>
+			<Book>MAT</Book>
+		</Books>
+	</Author>
+	<Author name="Mark">
+		<Books>
+			<Book>MRK</Book>
+		</Books>
+	</Author>
+	<Author name="Luke">
+		<Books>
+			<Book>LUK</Book>
+			<Book>ACT</Book>
+		</Books>
+	</Author>
+	<Author name="John">
+		<Books>
+			<Book>JHN</Book>
+			<Book>1JN</Book>
+			<Book>2JN</Book>
+			<Book>3JN</Book>
+			<Book>REV</Book>
+		</Books>
+	</Author>
+	<Author name="Paul">
+		<Books>
+			<Book>ROM</Book>
+			<Book>1CO</Book>
+			<Book>2CO</Book>
+			<Book>GAL</Book>
+			<Book>EPH</Book>
+			<Book>PHP</Book>
+			<Book>COL</Book>
+			<Book>1TH</Book>
+			<Book>2TH</Book>
+			<Book>1TI</Book>
+			<Book>2TI</Book>
+			<Book>TIT</Book>
+			<Book>PHM</Book>
+		</Books>
+	</Author>
+	<Author name="Author of Hebrews">
+		<Books>
+			<Book>HEB</Book>
+		</Books>
+	</Author>
+	<Author name="James">
+		<Books>
+			<Book>JAS</Book>
+		</Books>
+	</Author>
+	<Author name="Peter">
+		<Books>
+			<Book>1PE</Book>
+			<Book>2PE</Book>
+		</Books>
+	</Author>
+	<Author name="JUD">
+		<Books>
+			<Book>JUD</Book>
+		</Books>
+	</Author>
+</BiblicalAuthors>

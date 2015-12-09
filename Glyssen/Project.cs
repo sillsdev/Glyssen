@@ -287,6 +287,12 @@ namespace Glyssen
 			set { m_metadata.CharacterGroupGenerationPreferences = value; }
 		}
 
+		public void SetDefaultCharacterGroupGenerationPreferences()
+		{
+			if (CharacterGroupGenerationPreferences.NumberOfNarrators == CharacterGroupGenerationPreferences.kNumberOfNarratorsNotSet)
+				CharacterGroupGenerationPreferences.NumberOfNarrators = BiblicalAuthors.GetAuthorCount(IncludedBooks.Select(b => b.BookId));
+		}
+
 		public IReadOnlyList<BookScript> Books { get { return m_books; } }
 
 		public IReadOnlyList<BookScript> IncludedBooks

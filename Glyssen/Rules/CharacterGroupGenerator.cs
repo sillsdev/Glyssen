@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.VoiceActor;
 using SIL.Extensions;
@@ -80,6 +81,8 @@ namespace Glyssen.Rules
 
 			if (actors.Count == 0)
 				return characterGroups; // REVIEW: Maybe we should throw an exception instead.
+
+			m_project.SetDefaultCharacterGroupGenerationPreferences();
 
 			actors = actors.Where(a => !a.IsCameo).ToList();
 

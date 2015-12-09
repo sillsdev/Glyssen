@@ -141,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Analysis\ProjectAnalysis.cs" />
+    <Compile Include="BiblicalAuthors.cs" />
     <Compile Include="BlockElement.cs" />
     <Compile Include="BlockNavigator.cs" />
     <Compile Include="BookScript.cs" />
@@ -511,6 +512,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\CameoStar.png" />
+    <Content Include="Resources\BiblicalAuthors.txt" />
     <Content Include="Resources\CharacterVerse.txt" />
     <None Include="Resources\grid-icon.png" />
     <None Include="Resources\html-view.png" />
