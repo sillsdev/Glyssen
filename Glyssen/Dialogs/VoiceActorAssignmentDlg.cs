@@ -54,7 +54,7 @@ namespace Glyssen.Dialogs
 
 			if (!m_project.CharacterGroupList.CharacterGroups.Any())
 			{
-				GenerateGroupsWithProgress(false);
+				GenerateGroupsWithProgress(false, true);
 				m_project.Save();
 			}
 
@@ -86,9 +86,9 @@ namespace Glyssen.Dialogs
 			m_hyperlinkFont = new Font(m_characterGroupGrid.Columns[CharacterIdsCol.Index].InheritedStyle.Font, FontStyle.Underline);
 		}
 
-		private void GenerateGroupsWithProgress(bool attemptToPreserveActorAssignments)
+		private void GenerateGroupsWithProgress(bool attemptToPreserveActorAssignments, bool firstGroupGenerationRun)
 		{
-			using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork))
+			using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork, firstGroupGenerationRun))
 			{
 				progressDialog.ProgressState.Arguments = attemptToPreserveActorAssignments;
 				progressDialog.ShowDialog();
@@ -452,7 +452,7 @@ namespace Glyssen.Dialogs
 			var nameOfSelectedGroup = (m_characterGroupGrid.SelectedRows.Count == 1)
 				? FirstSelectedCharacterGroup.Name : null;
 
-			m_actorAssignmentViewModel.RegenerateGroups(() => { GenerateGroupsWithProgress(true); });
+			m_actorAssignmentViewModel.RegenerateGroups(() => { GenerateGroupsWithProgress(true, false); });
 			SortByColumn(m_sortedColumn, m_sortedAscending);
 
 			if (nameOfSelectedGroup != null)

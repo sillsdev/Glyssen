@@ -408,7 +408,7 @@ namespace Glyssen
 
 				if (MessageBox.Show(dlgMessage, ProductName, MessageBoxButtons.YesNo) == DialogResult.Yes)
 				{
-					using (var progressDialog = new GenerateGroupsProgressDialog(m_project, (s, e) => adjuster.FullyRegenerateGroups()))
+					using (var progressDialog = new GenerateGroupsProgressDialog(m_project, (s, e) => adjuster.FullyRegenerateGroups(), false))
 						progressDialog.ShowDialog();
 				}
 				else
