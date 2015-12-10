@@ -18,7 +18,7 @@ using SIL.WritingSystems;
 
 namespace GlyssenTests
 {
-	[TestFixture, Timeout(30000)]
+	[TestFixture, Timeout(60000)]
 	class ProjectTests
 	{
 		private readonly HashSet<string> m_tempProjectFolders = new HashSet<string>();
