@@ -9,6 +9,8 @@ namespace Glyssen.Dialogs
 	{
 		public GenerateGroupsProgressDialog(Project project, DoWorkEventHandler doWorkEventHandler, bool firstRun)
 		{
+			InitializeComponent();
+
 			Text = LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Title", "Optimize Groups");
 
 			int numCharacters = project.GetKeyStrokesByCharacterId().Count;
@@ -43,6 +45,21 @@ namespace Glyssen.Dialogs
 			worker.DoWork += doWorkEventHandler;
 			worker.RunWorkerCompleted += (s, e) => { if (e.Error != null) throw e.Error; };
 			BackgroundWorker = worker;
+		}
+
+		private void InitializeComponent()
+		{
+			this.SuspendLayout();
+			//
+			// GenerateGroupsProgressDialog
+			//
+			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+			this.ClientSize = new System.Drawing.Size(465, 132);
+			this.Location = new System.Drawing.Point(0, 0);
+			this.Name = "GenerateGroupsProgressDialog";
+			this.ResumeLayout(false);
+			this.PerformLayout();
+
 		}
 	}
 }
