@@ -35,9 +35,9 @@
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_linkClose = new System.Windows.Forms.LinkLabel();
 			this.m_btnOk = new System.Windows.Forms.Button();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.m_saveStatus = new Glyssen.Controls.SaveStatus();
 			this.m_dataGrid = new Glyssen.Controls.VoiceActorInformationGrid();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
@@ -97,6 +97,7 @@
 			// m_btnOk
 			// 
 			this.m_btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_btnOk.Enabled = false;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnOk, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnOk, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnOk, "Common.OK");
@@ -108,31 +109,6 @@
 			this.m_btnOk.Text = "OK";
 			this.m_btnOk.UseVisualStyleBackColor = true;
 			this.m_btnOk.Click += new System.EventHandler(this.m_btnOk_Click);
-			// 
-			// tableLayoutPanel1
-			// 
-			this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.tableLayoutPanel1.ColumnCount = 2;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel1.Controls.Add(this.m_saveStatus, 1, 0);
-			this.tableLayoutPanel1.Controls.Add(this.m_lblInstructions, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.m_btnNext, 1, 2);
-			this.tableLayoutPanel1.Controls.Add(this.m_dataGrid, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.m_btnOk, 1, 3);
-			this.tableLayoutPanel1.Controls.Add(this.m_linkClose, 1, 4);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 12);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 5;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(582, 389);
-			this.tableLayoutPanel1.TabIndex = 6;
 			// 
 			// m_saveStatus
 			// 
@@ -172,6 +148,31 @@
 			this.m_dataGrid.Size = new System.Drawing.Size(582, 287);
 			this.m_dataGrid.TabIndex = 3;
 			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tableLayoutPanel1.ColumnCount = 2;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel1.Controls.Add(this.m_saveStatus, 1, 0);
+			this.tableLayoutPanel1.Controls.Add(this.m_lblInstructions, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.m_btnNext, 1, 2);
+			this.tableLayoutPanel1.Controls.Add(this.m_dataGrid, 0, 1);
+			this.tableLayoutPanel1.Controls.Add(this.m_btnOk, 1, 3);
+			this.tableLayoutPanel1.Controls.Add(this.m_linkClose, 1, 4);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 12);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 5;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(582, 389);
+			this.tableLayoutPanel1.TabIndex = 6;
+			// 
 			// VoiceActorInformationDlg
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -189,6 +190,7 @@
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Voice Actor Information";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VoiceActorInformationDlg_FormClosing);
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();

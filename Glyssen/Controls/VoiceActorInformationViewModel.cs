@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
+using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.Extensions;
+using SIL.ObjectModel;
 
 namespace Glyssen.Controls
 {
@@ -146,6 +148,13 @@ namespace Glyssen.Controls
 		public int CountOfAssignedActors(HashSet<VoiceActor.VoiceActor> actorsToRemove)
 		{
 			return actorsToRemove.Count(IsActorAssigned);
+		}
+
+		public void ResetActorAndCharacterGroupState()
+		{
+			m_project.Status.VoiceActorStatus = VoiceActorStatus.UnProvided;
+			m_project.CharacterGroupList.CharacterGroups = new ObservableList<CharacterGroup>();
+			m_project.Save();
 		}
 	}
 }

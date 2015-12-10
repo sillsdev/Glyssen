@@ -196,6 +196,12 @@ namespace Glyssen.Dialogs
 			using (var actorDlg = new VoiceActorInformationDlg(actorInfoViewModel, false))
 			{
 				actorDlg.ShowDialog();
+				if (actorDlg.CloseParent)
+				{
+					Close();
+					return;
+				}
+
 				if (actorInfoViewModel.Changes.Any())
 				{
 					m_actorAssignmentViewModel.NoteActorChanges(actorInfoViewModel.Changes);
