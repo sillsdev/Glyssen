@@ -76,5 +76,11 @@ namespace Glyssen.Dialogs
 				}
 			}
 		}
+
+		private void m_linkNarrationPreferences_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			using (var dlg = new NarrationOptionsDlg(m_viewModel.Project))
+				dlg.ShowDialog();
+		}
 	}
 }

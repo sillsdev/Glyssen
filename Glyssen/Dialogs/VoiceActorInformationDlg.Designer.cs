@@ -38,6 +38,7 @@
 			this.m_saveStatus = new Glyssen.Controls.SaveStatus();
 			this.m_dataGrid = new Glyssen.Controls.VoiceActorInformationGrid();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.m_linkNarrationPreferences = new System.Windows.Forms.LinkLabel();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
@@ -137,7 +138,7 @@
 			this.m_dataGrid.AutoSize = true;
 			this.m_dataGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_dataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
-			this.tableLayoutPanel1.SetColumnSpan(this.m_dataGrid, 2);
+			this.tableLayoutPanel1.SetColumnSpan(this.m_dataGrid, 4);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_dataGrid, "DialogBoxes.VoiceActorInformation.voiceActorInformationGrid21");
@@ -153,15 +154,18 @@
 			this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.tableLayoutPanel1.ColumnCount = 2;
+			this.tableLayoutPanel1.ColumnCount = 4;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel1.Controls.Add(this.m_saveStatus, 1, 0);
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel1.Controls.Add(this.m_saveStatus, 3, 0);
 			this.tableLayoutPanel1.Controls.Add(this.m_lblInstructions, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.m_btnNext, 1, 2);
+			this.tableLayoutPanel1.Controls.Add(this.m_btnNext, 3, 2);
 			this.tableLayoutPanel1.Controls.Add(this.m_dataGrid, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.m_btnOk, 1, 3);
-			this.tableLayoutPanel1.Controls.Add(this.m_linkClose, 1, 4);
+			this.tableLayoutPanel1.Controls.Add(this.m_btnOk, 3, 3);
+			this.tableLayoutPanel1.Controls.Add(this.m_linkClose, 3, 4);
+			this.tableLayoutPanel1.Controls.Add(this.m_linkNarrationPreferences, 1, 0);
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 12);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 5;
@@ -172,6 +176,21 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(582, 389);
 			this.tableLayoutPanel1.TabIndex = 6;
+			// 
+			// m_linkNarrationPreferences
+			// 
+			this.m_linkNarrationPreferences.AutoSize = true;
+			this.m_linkNarrationPreferences.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_linkNarrationPreferences, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_linkNarrationPreferences, null);
+			this.l10NSharpExtender1.SetLocalizingId(this.m_linkNarrationPreferences, "DialogBoxes.VoiceActorInformation.NarrationPreferences");
+			this.m_linkNarrationPreferences.Location = new System.Drawing.Point(352, 0);
+			this.m_linkNarrationPreferences.Name = "m_linkNarrationPreferences";
+			this.m_linkNarrationPreferences.Size = new System.Drawing.Size(110, 13);
+			this.m_linkNarrationPreferences.TabIndex = 6;
+			this.m_linkNarrationPreferences.TabStop = true;
+			this.m_linkNarrationPreferences.Text = "Narration Preferences";
+			this.m_linkNarrationPreferences.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkNarrationPreferences_LinkClicked);
 			// 
 			// VoiceActorInformationDlg
 			// 
@@ -208,5 +227,6 @@
 		private System.Windows.Forms.LinkLabel m_linkClose;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.Button m_btnOk;
+		private System.Windows.Forms.LinkLabel m_linkNarrationPreferences;
 	}
 }

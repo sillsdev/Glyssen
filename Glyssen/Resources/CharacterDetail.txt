@@ -551,7 +551,7 @@ Leah	1	Female				GEN 29:32 <-(8 more)-> GEN 30:20
 leper	1	Male				MAT 8:2 <-(1 more)-> LUK 5:12
 leper, thankful Samaritan	1	Male				LUK 17:15 & LUK 17:16
 lepers, ten	10	Male				LUK 17:13
-letter from apostles and elders	1					ACT 15:23 <-(5 more)-> ACT 15:29
+letter from apostles and elders	1	PreferMale				ACT 15:23 <-(5 more)-> ACT 15:29
 Levi	1	Male				
 Levite husband of concubine	1	Male				JDG 19:12 <-(7 more)-> JDG 20:7
 Levite, young, from Bethlehem	1	Male	YoungAdult			JDG 17:9 <-(2 more)-> JDG 18:18

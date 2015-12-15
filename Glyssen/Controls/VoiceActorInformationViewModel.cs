@@ -39,6 +39,8 @@ namespace Glyssen.Controls
 			}
 		}
 
+		public Project Project { get { return m_project; } }
+
 		public List<VoiceActor.VoiceActor> Actors { get { return m_project.VoiceActorList.Actors; } }
 
 		public void SaveVoiceActorInformation()

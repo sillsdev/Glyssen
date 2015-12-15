@@ -32,6 +32,13 @@ namespace Glyssen.Character
 			Initialize(project, characterIdPriorityComparer);
 		}
 
+		public CharacterGroup Copy()
+		{
+			var copy = (CharacterGroup)MemberwiseClone();
+			copy.CharacterIds = new CharacterIdHashSet(CharacterIds);
+			return copy;
+		}
+
 		public void Initialize(Project project, IComparer<string> characterIdPriorityComparer)
 		{
 			m_project = project;
@@ -135,10 +142,22 @@ namespace Glyssen.Character
 			}
 		}
 
+		public VoiceActor.VoiceActor VoiceActor
+		{
+			get
+			{
+				return IsVoiceActorAssigned ? m_project.VoiceActorList.GetVoiceActorById(VoiceActorId) : null;
+			}
+		}
+
+		/// <summary>
+		/// We used to use this in character group generation. We no longer use it, but since there are a lot of tests for it and it might
+		/// be useful in the future, we'll keep it around for now.
+		/// </summary>
 		public bool Matches(CharacterDetail character, CharacterGenderMatchingOptions genderMatchingOptions, CharacterAgeMatchingOptions ageMatchingOptions)
 		{
 			if (!CharacterIds.Any())
-				throw new InvalidOperationException("No characters added to this group yet.");
+				return false; // Probably a group set aside for a special purpose in the group generator (e.g., narrator)
 
 			if (CharacterVerseData.IsCharacterStandard(character.CharacterId))
 			{

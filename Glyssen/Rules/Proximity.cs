@@ -135,4 +135,24 @@ namespace Glyssen.Rules
 			return sb.ToString();
 		}
 	}
+
+	public class WeightedMinimumProximity : MinimumProximity
+	{
+		public double WeightingPower { get; set; }
+
+		public int WeightedNumberOfBlocks
+		{
+			get { return (int)Math.Round(Math.Pow(NumberOfBlocks, WeightingPower)); }
+		}
+
+		public WeightedMinimumProximity(MinimumProximity minimumProximity)
+		{
+			NumberOfBlocks = minimumProximity.NumberOfBlocks;
+			FirstBook = minimumProximity.FirstBook;
+			SecondBook = minimumProximity.SecondBook;
+			FirstBlock = minimumProximity.FirstBlock;
+			SecondBlock = minimumProximity.SecondBlock;
+			WeightingPower = 1;
+		}
+	}
 }

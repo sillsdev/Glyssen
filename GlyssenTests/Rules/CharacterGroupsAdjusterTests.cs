@@ -40,6 +40,10 @@ namespace GlyssenTests.Rules
 			// Since we're testing something that should only happen once phase 1 is complete, we simulate that by assigning all ambiguous/unknown blocks
 			foreach (var block in m_testProject.IncludedBooks.SelectMany(b => b.Blocks).Where(b => b.CharacterIsUnclear()))
 				block.CharacterId = "Adam";
+
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 1;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 		}
 	
 		private void GenerateGroups()
@@ -284,7 +288,7 @@ namespace GlyssenTests.Rules
 		public void MakeMinimalAdjustments_FewDeletionsAndManyGroups_CharactersRemovedFromExistingCharacterGroupsAndEmptyGroupsRemoved()
 		{
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = true;
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(90, 7, 2);
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(100, 7, 2);
 			GenerateGroups();
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = false;
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
@@ -447,11 +451,10 @@ namespace GlyssenTests.Rules
 			Assert.IsFalse(adjuster.CharactersNotCoveredByAnyGroup.Any());
 			Assert.IsFalse(adjuster.CharacterGroupsToRemove.Any());
 			Assert.AreEqual(originalCountOfGroups - groupsToRemove.Count, m_testProject.CharacterGroupList.CharacterGroups.Count);
-			Assert.AreEqual(michaelTheArchAngelGroup,
-				m_testProject.CharacterGroupList.CharacterGroups.Single(g => !g.CharacterIds.Any() || g.CharacterIds.Any(c => charactersNotInUse.Contains(c))));
+			var frankieGroup = m_testProject.CharacterGroupList.GetGroupsAssignedToActor(frankie.Id).First();
+			Assert.AreEqual(frankieGroup, m_testProject.CharacterGroupList.CharacterGroups.Single(g => !g.CharacterIds.Any()));
+			Assert.IsFalse(m_testProject.CharacterGroupList.CharacterGroups.Any(g => g.CharacterIds.Any(c => charactersNotInUse.Contains(c))));
 			Assert.IsFalse(m_testProject.CharacterGroupList.CharacterGroups.Any(g => groupsToRemove.Contains(g)));
-			Assert.IsFalse(michaelTheArchAngelGroup.CharacterIds.Any());
-			Assert.AreEqual(frankie.Id, michaelTheArchAngelGroup.VoiceActorId);
 			Assert.IsFalse(adjuster.NewBooksHaveBeenIncluded);
 			Assert.IsFalse(adjuster.BooksHaveBeenExcluded);
 			Assert.IsFalse(adjuster.FullRegenerateRecommended);
