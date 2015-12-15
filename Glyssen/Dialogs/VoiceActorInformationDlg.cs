@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Controls;
+using Glyssen.VoiceActor;
 using L10NSharp;
 
 namespace Glyssen.Dialogs
@@ -25,6 +27,14 @@ namespace Glyssen.Dialogs
 			m_btnNext.Visible = showNext;
 			m_linkClose.Visible = showNext;
 			m_btnOk.Visible = !showNext;
+
+			m_linkNarrationPreferences.Links.Clear();
+			m_linkNarrationPreferences.Links.Add(60, 21);
+
+			m_linkMoreInfo.Links.Clear();
+			m_linkMoreInfo.Links.Add(77, 9);
+
+			UpdateTally();
 		}
 
 		public bool CloseParent { get; private set; }
@@ -32,6 +42,17 @@ namespace Glyssen.Dialogs
 		private void m_dataGrid_Saved(object sender, EventArgs e)
 		{
 			m_saveStatus.OnSaved();
+
+			UpdateTally();
+		}
+
+		private void UpdateTally()
+		{
+			var actors = m_viewModel.Project.VoiceActorList.Actors;
+			int numMale = actors.Count(a => a.Gender == ActorGender.Male);
+			int numFemale = actors.Count(a => a.Gender == ActorGender.Female);
+			int numChildren = actors.Count(a => a.Age == ActorAge.Child);
+			m_lblTally.Text = string.Format("Tally: {0} Male, {1} Female, {2} Child", numMale, numFemale, numChildren);
 		}
 
 		private void m_dataGrid_RowCountChanged(object sender, EventArgs e)
@@ -77,10 +98,19 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		private void m_linkNarrationPreferences_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			using (var dlg = new NarrationOptionsDlg(m_viewModel.Project))
 				dlg.ShowDialog();
+		}
+
+		private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			string msg = "Enter the cast of actual voice actors available for recording the script. Glyssen will optimize the character role assignments to match the actual cast, even if fewer or more than the \"recommended\" number of actors. " + Environment.NewLine +
+				"If you have not yet identified all actors by name, you can enter the ones you know and come back later to enter the others." + Environment.NewLine +
+				"You may also enter pseudonyms now as placeholders for additional actors you expect to identify." + Environment.NewLine +
+				"See the Guide for the Recording Project Coordinator for ideas on how Glyssen can help with recruiting actors.";
+			MessageBox.Show(msg);
 		}
 	}
 }
