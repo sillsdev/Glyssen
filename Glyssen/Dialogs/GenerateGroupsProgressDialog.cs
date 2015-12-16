@@ -15,31 +15,29 @@ namespace Glyssen.Dialogs
 
 			int numCharacters = project.GetKeyStrokesByCharacterId().Count;
 			int numActors = project.VoiceActorList.Actors.Count;
+			string firstLineOfText = string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.AnyRun.Text1",
+				"Script includes {0} distinct Biblical character roles."), numCharacters);
 			string secondLineOfText = string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.AnyRun.Text2",
-				"{0} is optimizing groups of character roles to match the list of actors."),
+				"You have entered {0} voice actors."), numActors);
+			string firstLineOfStatusText = string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.StatusText.AnyRun.Text1",
+				"{0} is creating optimized groups of characters to match the list of actors."),
 				ProductName);
+
+			Overview = firstLineOfText + Environment.NewLine + secondLineOfText;
 			if (firstRun)
-				Overview =
-					string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.FirstRun.Text1",
-						"This project has {0} distinct character roles and {1} voice actors."),
-						numCharacters, numActors) +
-					Environment.NewLine +
-					secondLineOfText;
+				StatusText = firstLineOfStatusText;
 			else
-				Overview =
-					string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.SubsequentRun.Text1",
-						"This project now has {0} distinct character roles and {1} voice actors."),
-						numCharacters, numActors) +
+				StatusText =
+					firstLineOfStatusText +
 					Environment.NewLine +
-					secondLineOfText +
-					Environment.NewLine +
-					string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.SubsequentRun.Text3",
+					string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.StatusText.SubsequentRun.Text2",
 						"{0} will attempt to maintain any existing voice actor assignments."),
 						ProductName);
 
+			OkButtonText = LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Continue", "Continue");
 			ShowInTaskbar = false;
 			CanCancel = false;
-			ProgressLabelTextWhenComplete = LocalizationManager.GetString("GenerateGroupsProgressDialog.Complete", "Group generation is complete");
+			ProgressLabelTextWhenComplete = LocalizationManager.GetString("GenerateGroupsProgressDialog.Complete", "Group generation is complete.");
 			BarStyle = ProgressBarStyle.Marquee;
 			BackgroundWorker worker = new BackgroundWorker();
 			worker.DoWork += doWorkEventHandler;
