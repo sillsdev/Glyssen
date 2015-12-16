@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Glyssen.Controls;
+using L10NSharp.UI;
 using SIL.Windows.Forms.Widgets.BetterGrid;
 
 namespace Glyssen.Dialogs
@@ -20,6 +21,7 @@ namespace Glyssen.Dialogs
 		{
 			if (disposing && (components != null))
 			{
+				LocalizeItemDlg.StringsLocalized -= HandleStringsLocalized;
 				if (m_hyperlinkFont != null)
 					m_hyperlinkFont.Dispose();
 				components.Dispose();

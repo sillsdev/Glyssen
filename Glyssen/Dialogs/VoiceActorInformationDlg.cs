@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Controls;
 using Glyssen.VoiceActor;
 using L10NSharp;
+using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
 {
@@ -13,12 +13,16 @@ namespace Glyssen.Dialogs
 		private readonly VoiceActorInformationViewModel m_viewModel;
 		private readonly bool m_initialEntry;
 
+		private string m_tallyFmt;
+		private string m_projectSummaryFmt;
+		private string m_recordingTimeFmt;
+
 		public VoiceActorInformationDlg(VoiceActorInformationViewModel viewModel, bool showNext = true)
 		{
 			InitializeComponent();
 
-			m_dataGrid.Saved += m_dataGrid_Saved;
-			m_dataGrid.RowCountChanged += m_dataGrid_RowCountChanged;
+			m_dataGrid.Saved += DataGrid_Saved;
+			m_dataGrid.RowCountChanged += DataGrid_RowCountChanged;
 
 			m_viewModel = viewModel;
 			m_initialEntry = showNext;
@@ -34,20 +38,21 @@ namespace Glyssen.Dialogs
 			m_linkMoreInfo.Links.Clear();
 			m_linkMoreInfo.Links.Add(77, 9);
 
-			Project project = viewModel.Project;
-			label1.Text = string.Format("This project has {0} books with {1} distinct character roles.",
-				project.IncludedBooks.Count, project.GetKeyStrokesByCharacterId().Count);
-			label2.Text = string.Format("Estimated recording time: {0:N2} hours", project.CharacterGroupList.CharacterGroups.Sum(g => g.EstimatedHours));
-
-			UpdateTally();
+			HandleStringsLocalized();
+			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 		}
 
 		public bool CloseParent { get; private set; }
 
-		private void m_dataGrid_Saved(object sender, EventArgs e)
+		private void HandleStringsLocalized()
 		{
-			m_saveStatus.OnSaved();
+			m_tallyFmt = m_lblTally.Text;
+			m_projectSummaryFmt = m_lblProjectSummary.Text;
+			m_recordingTimeFmt = m_lblRecordingTime.Text;
 
+			Project project = m_viewModel.Project;
+			m_lblProjectSummary.Text = string.Format(m_projectSummaryFmt, project.IncludedBooks.Count, project.GetKeyStrokesByCharacterId().Count);
+			m_lblRecordingTime.Text = string.Format(m_recordingTimeFmt, project.CharacterGroupList.CharacterGroups.Sum(g => g.EstimatedHours));
 			UpdateTally();
 		}
 
@@ -57,28 +62,35 @@ namespace Glyssen.Dialogs
 			int numMale = actors.Count(a => a.Gender == ActorGender.Male);
 			int numFemale = actors.Count(a => a.Gender == ActorGender.Female);
 			int numChildren = actors.Count(a => a.Age == ActorAge.Child);
-			m_lblTally.Text = string.Format("Tally: {0} Male, {1} Female, {2} Child", numMale, numFemale, numChildren);
+			m_lblTally.Text = string.Format(m_tallyFmt, numMale, numFemale, numChildren);
 		}
 
-		private void m_dataGrid_RowCountChanged(object sender, EventArgs e)
+		private void DataGrid_Saved(object sender, EventArgs e)
+		{
+			m_saveStatus.OnSaved();
+
+			UpdateTally();
+		}
+
+		private void DataGrid_RowCountChanged(object sender, EventArgs e)
 		{
 			m_btnNext.Enabled = m_dataGrid.RowCount > 1;
 			m_btnOk.Enabled = m_dataGrid.RowCount > 1;
 		}
 
-		private void m_btnNext_Click(object sender, EventArgs e)
+		private void BtnNext_Click(object sender, EventArgs e)
 		{
 			DialogResult = DialogResult.OK;
 			Close();
 		}
 
-		private void m_linkClose_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		private void LinkClose_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			DialogResult = DialogResult.Cancel;
 			Close();
 		}
 
-		private void m_btnOk_Click(object sender, EventArgs e)
+		private void BtnOk_Click(object sender, EventArgs e)
 		{
 			m_viewModel.AssessChanges();
 			DialogResult = DialogResult.OK;
@@ -103,18 +115,28 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		private void LinkNarrationPreferences_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			using (var dlg = new NarrationOptionsDlg(m_viewModel.Project))
 				dlg.ShowDialog();
 		}
 
-		private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		private void LinkMoreInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			string msg = "Enter the cast of actual voice actors available for recording the script. Glyssen will optimize the character role assignments to match the actual cast, even if fewer or more than the \"recommended\" number of actors. " + Environment.NewLine +
-				"If you have not yet identified all actors by name, you can enter the ones you know and come back later to enter the others." + Environment.NewLine +
-				"You may also enter pseudonyms now as placeholders for additional actors you expect to identify." + Environment.NewLine +
-				"See the Guide for the Recording Project Coordinator for ideas on how Glyssen can help with recruiting actors.";
+			string line1 = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.MoreInfo.Line1",
+				"Enter the cast of actual voice actors available for recording the script. " +
+				"Glyssen will optimize the character role assignments to match the actual cast, " +
+				"even if fewer or more than the \"recommended\" number of actors.");
+			string line2 = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.MoreInfo.Line2",
+				"If you have not yet identified all actors by name, you can enter the ones you know and come back later to enter the others.");
+			string line3 = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.MoreInfo.Line3",
+				"You may also enter pseudonyms now as placeholders for additional actors you expect to identify.");
+			string line4 = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.MoreInfo.Line4",
+				"See the Guide for the Recording Project Coordinator for ideas on how Glyssen can help with recruiting actors.");
+			string msg = line1 + Environment.NewLine +
+				line2 + Environment.NewLine +
+				line3 + Environment.NewLine +
+				line4;
 			MessageBox.Show(msg);
 		}
 	}
