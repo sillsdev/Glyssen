@@ -1150,6 +1150,12 @@ namespace Glyssen
 			return keyStrokesByCharacterId;
 		}
 
+		public double GetEstimatedRecordingTime()
+		{
+			long keyStrokes = GetKeyStrokesByCharacterId().Values.Sum();
+			return keyStrokes / (double)Program.kKeyStrokesPerHour;
+		}
+
 		public CharacterGroup GetGroupByName(string name)
 		{
 			var grp = CharacterGroupList.GetGroupByName(name);

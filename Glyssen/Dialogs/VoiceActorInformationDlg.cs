@@ -52,7 +52,7 @@ namespace Glyssen.Dialogs
 
 			Project project = m_viewModel.Project;
 			m_lblProjectSummary.Text = string.Format(m_projectSummaryFmt, project.IncludedBooks.Count, project.GetKeyStrokesByCharacterId().Count);
-			m_lblRecordingTime.Text = string.Format(m_recordingTimeFmt, project.CharacterGroupList.CharacterGroups.Sum(g => g.EstimatedHours));
+			m_lblRecordingTime.Text = string.Format(m_recordingTimeFmt, project.GetEstimatedRecordingTime());
 			UpdateTally();
 		}
 
