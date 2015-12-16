@@ -34,6 +34,11 @@ namespace Glyssen.Dialogs
 			m_linkMoreInfo.Links.Clear();
 			m_linkMoreInfo.Links.Add(77, 9);
 
+			Project project = viewModel.Project;
+			label1.Text = string.Format("This project has {0} books with {1} distinct character roles.",
+				project.IncludedBooks.Count, project.GetKeyStrokesByCharacterId().Count);
+			label2.Text = string.Format("Estimated recording time: {0:N2} hours", project.CharacterGroupList.CharacterGroups.Sum(g => g.EstimatedHours));
+
 			UpdateTally();
 		}
 
