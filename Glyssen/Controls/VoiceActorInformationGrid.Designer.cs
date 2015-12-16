@@ -180,6 +180,7 @@
 			this.m_dataGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.m_dataGrid_RowsRemoved);
 			this.m_dataGrid.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.m_dataGrid_RowValidating);
 			this.m_dataGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.HandleUserDeletingRow);
+			this.m_dataGrid.Enter += new System.EventHandler(this.m_dataGrid_Enter);
 			this.m_dataGrid.Leave += new System.EventHandler(this.m_dataGrid_Leave);
 			this.m_dataGrid.Resize += new System.EventHandler(this.HandleResize);
 			// 

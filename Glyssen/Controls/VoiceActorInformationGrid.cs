@@ -232,6 +232,11 @@ namespace Glyssen.Controls
 			}
 		}
 
+		private void m_dataGrid_Enter(object sender, EventArgs e)
+		{
+			m_dataGrid_NewRowNeeded(sender, new DataGridViewRowEventArgs(m_dataGrid.Rows[0]));
+		}
+
 		private void m_dataGrid_Leave(object sender, EventArgs e)
 		{
 			EndEdit();
@@ -455,7 +460,8 @@ namespace Glyssen.Controls
 
 		private void m_dataGrid_NewRowNeeded(object sender, DataGridViewRowEventArgs e)
 		{
-			m_actorInformationViewModel.AddNewActor();
+			if (m_actorInformationViewModel.Actors.Count == m_dataGrid.RowCountLessNewRow)
+				m_actorInformationViewModel.AddNewActor();
 		}
 
 		private void m_dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
