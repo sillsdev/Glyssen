@@ -122,7 +122,7 @@ namespace Glyssen.Character
 					if (keyStrokesByCharacterId.TryGetValue(characterId, out keystrokesForCharacter))
 						keyStrokes += keystrokesForCharacter;
 				}
-				group.EstimatedHours = keyStrokes / (double)Program.kKeyStrokesPerHour;
+				group.EstimatedHours = keyStrokes / Program.kKeyStrokesPerHour;
 			}
 		}
 	}

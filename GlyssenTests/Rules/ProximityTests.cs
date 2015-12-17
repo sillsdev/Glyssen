@@ -8,6 +8,7 @@ using NUnit.Framework;
 
 namespace GlyssenTests.Rules
 {
+	[TestFixture]
 	class ProximityTests
 	{
 		private Project m_testProject;

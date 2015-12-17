@@ -85,16 +85,16 @@ namespace Glyssen.Character
 			switch (GetStandardCharacterType(characterId))
 			{
 				case StandardCharacter.Narrator:
-					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.Narrator", kNarratorAsEnglishCharacterName), GetBookNameFromStandardCharacterId(characterId));
+					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.Narrator", kNarratorAsEnglishCharacterName), GetBookCodeFromStandardCharacterId(characterId));
 					break;
 				case StandardCharacter.Intro:
-					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.IntroCharacter", kIntroductionAsEnglishCharacterName), GetBookNameFromStandardCharacterId(characterId));
+					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.IntroCharacter", kIntroductionAsEnglishCharacterName), GetBookCodeFromStandardCharacterId(characterId));
 					break;
 				case StandardCharacter.ExtraBiblical:
-					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.ExtraCharacter", kSectionHeadAsEnglishCharacterName), GetBookNameFromStandardCharacterId(characterId));
+					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.ExtraCharacter", kSectionHeadAsEnglishCharacterName), GetBookCodeFromStandardCharacterId(characterId));
 					break;
 				case StandardCharacter.BookOrChapter:
-					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BookChapterCharacter", kBookChapterAsEnglishCharacterName), GetBookNameFromStandardCharacterId(characterId));
+					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BookChapterCharacter", kBookChapterAsEnglishCharacterName), GetBookCodeFromStandardCharacterId(characterId));
 					break;
 				default:
 					localizedCharacterId = LocalizationManager.GetDynamicString(Program.kApplicationId, "CharacterName." + characterId, characterId);
@@ -111,13 +111,13 @@ namespace Glyssen.Character
 			switch (GetStandardCharacterType(standardCharacterId))
 			{
 				case StandardCharacter.Narrator:
-					return String.Format(kNarratorAsEnglishCharacterName, GetBookNameFromStandardCharacterId(standardCharacterId));
+					return String.Format(kNarratorAsEnglishCharacterName, GetBookCodeFromStandardCharacterId(standardCharacterId));
 				case StandardCharacter.Intro:
-					return String.Format(kIntroductionAsEnglishCharacterName, GetBookNameFromStandardCharacterId(standardCharacterId));
+					return String.Format(kIntroductionAsEnglishCharacterName, GetBookCodeFromStandardCharacterId(standardCharacterId));
 				case StandardCharacter.ExtraBiblical:
-					return String.Format(kSectionHeadAsEnglishCharacterName, GetBookNameFromStandardCharacterId(standardCharacterId));
+					return String.Format(kSectionHeadAsEnglishCharacterName, GetBookCodeFromStandardCharacterId(standardCharacterId));
 				case StandardCharacter.BookOrChapter:
-					return String.Format(kBookChapterAsEnglishCharacterName, GetBookNameFromStandardCharacterId(standardCharacterId));
+					return String.Format(kBookChapterAsEnglishCharacterName, GetBookCodeFromStandardCharacterId(standardCharacterId));
 				default:
 					throw new ArgumentException("The provided character ID is not a standard character.", "standardCharacterId");
 			}
@@ -133,7 +133,7 @@ namespace Glyssen.Character
 			}
 		}
 
-		public static string GetBookNameFromStandardCharacterId(string characterId)
+		public static string GetBookCodeFromStandardCharacterId(string characterId)
 		{
 			return characterId.Substring(characterId.Length - 3);
 		}

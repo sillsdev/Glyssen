@@ -125,7 +125,7 @@ namespace Glyssen.Dialogs
 		public double GetEstimatedHoursForCharacter(string localizedCharacterId)
 		{
 			var characterId = CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary[localizedCharacterId];
-			return m_keyStrokesByCharacterId[characterId] / (double)Program.kKeyStrokesPerHour;
+			return m_keyStrokesByCharacterId[characterId] / Program.kKeyStrokesPerHour;
 		}
 
 		public IList<CharacterGroup> CharacterGroups { get { return m_project.CharacterGroupList.CharacterGroups; } }
