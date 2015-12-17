@@ -36,6 +36,19 @@ namespace Glyssen.Character
 			get { return s_singleton ?? (s_singleton = new CharacterDetailData()); }
 		}
 
+		public static bool CharacterIsMale(string characterId, bool treatEitherAsMale = true)
+		{
+			var gender = Singleton.GetDictionary()[characterId].Gender;
+			return gender == CharacterGender.Male || gender == CharacterGender.PreferMale ||
+				(treatEitherAsMale && gender == CharacterGender.Either);
+		}
+
+		public static bool CharacterIsFemale(string characterId)
+		{
+			var gender = Singleton.GetDictionary()[characterId].Gender;
+			return gender == CharacterGender.Female || gender == CharacterGender.PreferFemale;
+		}
+
 		public IEnumerable<CharacterDetail> GetAll()
 		{
 			return m_data;

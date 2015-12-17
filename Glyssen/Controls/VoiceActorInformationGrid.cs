@@ -217,7 +217,8 @@ namespace Glyssen.Controls
 
 		private void m_dataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
 		{
-			SaveVoiceActorInformation();
+			if (m_actorInformationViewModel.ValidateActor(e.RowIndex) == VoiceActorInformationViewModel.ActorValidationState.Valid)
+				SaveVoiceActorInformation();
 		}
 
 		private void m_contextMenu_Opening(object sender, CancelEventArgs e)
@@ -234,7 +235,8 @@ namespace Glyssen.Controls
 
 		private void m_dataGrid_Enter(object sender, EventArgs e)
 		{
-			m_dataGrid_NewRowNeeded(sender, new DataGridViewRowEventArgs(m_dataGrid.Rows[0]));
+			if (m_dataGrid.CurrentCellAddress.Y == m_actorInformationViewModel.Actors.Count)
+				m_dataGrid_NewRowNeeded(sender, new DataGridViewRowEventArgs(m_dataGrid.Rows[m_dataGrid.CurrentCellAddress.Y]));
 		}
 
 		private void m_dataGrid_Leave(object sender, EventArgs e)
@@ -278,11 +280,7 @@ namespace Glyssen.Controls
 				return;
 			}
 
-			VoiceActor.VoiceActor editedActor = e.RowIndex < m_actorInformationViewModel.Actors.Count
-				? m_actorInformationViewModel.Actors[e.RowIndex]
-				: null;
-			Debug.Assert(editedActor != null);
-			if (string.IsNullOrWhiteSpace(editedActor.Name))
+			if (m_actorInformationViewModel.ValidateActor(e.RowIndex) == VoiceActorInformationViewModel.ActorValidationState.NoName)
 			{
 				e.Cancel = true;
 				if (!m_inEndEdit)
@@ -460,7 +458,7 @@ namespace Glyssen.Controls
 
 		private void m_dataGrid_NewRowNeeded(object sender, DataGridViewRowEventArgs e)
 		{
-			if (m_actorInformationViewModel.Actors.Count == m_dataGrid.RowCountLessNewRow)
+			if (m_actorInformationViewModel.Actors.Count == e.Row.Index)
 				m_actorInformationViewModel.AddNewActor();
 		}
 

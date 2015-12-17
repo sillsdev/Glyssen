@@ -270,14 +270,14 @@ namespace Glyssen.Dialogs
 			return GetSourceGroupForMove(characterIds, destGroup) != null;
 		}
 
-		public bool MoveCharactersToGroup(IList<string> characterIds, CharacterGroup destGroup, bool confirmWithUser = false)
+		public bool MoveCharactersToGroup(IList<string> characterIds, CharacterGroup destGroup, bool warnUserAboutProximity = false)
 		{
 			CharacterGroup sourceGroup = GetSourceGroupForMove(characterIds, destGroup);
 
 			if (sourceGroup == null)
 				return false;
 
-			if (destGroup != null && confirmWithUser && destGroup.CharacterIds.Count > 0)
+			if (destGroup != null && warnUserAboutProximity && destGroup.CharacterIds.Count > 0)
 			{
 				var proximity = new Proximity(m_project);
 

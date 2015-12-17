@@ -25,6 +25,12 @@ namespace Glyssen.Controls
 
 		public EventHandler Saved;
 
+		public enum ActorValidationState
+		{
+			Valid,
+			NoName,
+		}
+
 		public VoiceActorInformationViewModel(Project project)
 		{
 			m_currentId = 0;
@@ -45,6 +51,8 @@ namespace Glyssen.Controls
 
 		public void SaveVoiceActorInformation()
 		{
+			Debug.Assert(Actors.Last().Name != "");
+
 			m_project.SaveVoiceActorInformationData();
 
 			if (Saved != null)
@@ -157,6 +165,16 @@ namespace Glyssen.Controls
 			m_project.Status.VoiceActorStatus = VoiceActorStatus.UnProvided;
 			m_project.CharacterGroupList.CharacterGroups = new ObservableList<CharacterGroup>();
 			m_project.Save();
+		}
+
+		public ActorValidationState ValidateActor(int index)
+		{
+			if (index < 0 || index >= Actors.Count)
+				throw new ArgumentOutOfRangeException("index");
+			var actor = Actors[index];
+			if (string.IsNullOrWhiteSpace(actor.Name))
+				return ActorValidationState.NoName;
+			return ActorValidationState.Valid;
 		}
 	}
 }

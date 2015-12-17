@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
@@ -41,6 +42,43 @@ namespace GlyssenTests.Dialogs
 		public void TestFixtureTearDown()
 		{
 			TestProject.DeleteTestProjectFolder();
+		}
+
+		[Test]
+		public void ValidateActor_NameIsBlank_ReturnNoName()
+		{
+			m_model.AddNewActor();
+			Assert.AreEqual(VoiceActorInformationViewModel.ActorValidationState.NoName, m_model.ValidateActor(m_model.Actors.Count - 1));
+		}
+
+		[Test]
+		public void ValidateActor_NameIsNull_ReturnNoName()
+		{
+			m_model.AddNewActor().Name = null;
+			Assert.AreEqual(VoiceActorInformationViewModel.ActorValidationState.NoName, m_model.ValidateActor(m_model.Actors.Count - 1));
+		}
+
+		[Test]
+		public void ValidateActor_NameIsSpaces_ReturnNoName()
+		{
+			m_model.AddNewActor().Name = "     ";
+			Assert.AreEqual(VoiceActorInformationViewModel.ActorValidationState.NoName, m_model.ValidateActor(m_model.Actors.Count - 1));
+		}
+
+		[TestCase(0)]
+		[TestCase(1)]
+		[TestCase(2)]
+		[TestCase(3)]
+		public void ValidateActor_NameIsValid_ReturnValid(int index)
+		{
+			Assert.AreEqual(VoiceActorInformationViewModel.ActorValidationState.Valid, m_model.ValidateActor(index));
+		}
+
+		[TestCase(-1)]
+		[TestCase(4)]
+		public void ValidateActor_IndexOutOfRange_ThrowsArgumentOutOfRangeException(int index)
+		{
+			Assert.Throws<ArgumentOutOfRangeException>(() => m_model.ValidateActor(index));
 		}
 
 		[Test]

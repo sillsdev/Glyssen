@@ -112,13 +112,13 @@ namespace Glyssen.Dialogs
 			if (changingRowCount)
 			{
 				var sizeRestoreInfo = SaveAutoSizeInfo();
+				m_characterGroupGrid.ClearSelection();
 				m_characterGroupGrid.RowCount = m_actorAssignmentViewModel.CharacterGroups.Count;
 				// Need to clear the selection here again because some of the property setters on
 				// DataGridView have the side-effect of creating a selection. We want to avoid having
 				// HandleDataGridViewBlocksCellValueNeeded get called with an index that is out of
 				// range for the new book.
 				m_characterGroupGrid.ClearSelection();
-				m_characterGroupGrid.RowCount = m_actorAssignmentViewModel.CharacterGroups.Count;
 				RestoreAutoSizeInfo(sizeRestoreInfo);
 			}
 			else if (!refreshOnlyIfNeeded)
@@ -349,7 +349,7 @@ namespace Glyssen.Dialogs
 			var cameoGroupIndex = m_actorAssignmentViewModel.CharacterGroups.IndexOf(g => g.VoiceActorId == (int) menuItem.Tag);
 
 			if (m_actorAssignmentViewModel.MoveCharactersToGroup(characterIds.ToList(),
-				m_actorAssignmentViewModel.CharacterGroups[cameoGroupIndex]))
+				m_actorAssignmentViewModel.CharacterGroups[cameoGroupIndex], true))
 			{
 				// Need to get this again because a group higher up in the list might have been deleted as a side-effect of the move.
 				cameoGroupIndex = m_actorAssignmentViewModel.CharacterGroups.IndexOf(g => g.VoiceActorId == (int)menuItem.Tag);
@@ -407,7 +407,7 @@ namespace Glyssen.Dialogs
 			int rowIndexOfTargetGroup = m_characterGroupGrid.SelectedRows[0].Index;
 			var selectedGroup = m_actorAssignmentViewModel.CharacterGroups[rowIndexOfTargetGroup];
 
-			if (m_actorAssignmentViewModel.MoveCharactersToGroup(m_pendingMoveCharacters, selectedGroup))
+			if (m_actorAssignmentViewModel.MoveCharactersToGroup(m_pendingMoveCharacters, selectedGroup, true))
 			{
 				// Need to get this again because a group higher up in the list might have been deleted as a side-effect of the move.
 				rowIndexOfTargetGroup = m_actorAssignmentViewModel.CharacterGroups.IndexOf(selectedGroup);
@@ -444,7 +444,7 @@ namespace Glyssen.Dialogs
 			{
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
-					if (m_actorAssignmentViewModel.MoveCharactersToGroup(dlg.SelectedCharacters, characterGroup))
+					if (m_actorAssignmentViewModel.MoveCharactersToGroup(dlg.SelectedCharacters, characterGroup, true))
 					{
 						var rowIndexOfTargetGroup = m_actorAssignmentViewModel.CharacterGroups.IndexOf(characterGroup);
 						m_characterGroupGrid.CurrentCell = m_characterGroupGrid.Rows[rowIndexOfTargetGroup].Cells[CharacterIdsCol.Name];
@@ -464,7 +464,9 @@ namespace Glyssen.Dialogs
 			if (nameOfSelectedGroup != null)
 			{
 				var groupToSelect = m_actorAssignmentViewModel.CharacterGroups.IndexOf(g => g.Name == nameOfSelectedGroup);
-				if (groupToSelect >= 0 && !m_characterGroupGrid.Rows[groupToSelect].Selected)
+				if (groupToSelect < 0)
+					groupToSelect = 0;
+				if (!m_characterGroupGrid.Rows[groupToSelect].Selected)
 				{
 					m_characterGroupGrid.ClearSelection();
 					m_characterGroupGrid.Rows[groupToSelect].Selected = true;
@@ -706,7 +708,8 @@ namespace Glyssen.Dialogs
 
 		private void m_characterGroupGrid_SelectionChanged(object sender, EventArgs e)
 		{
-			bool exactlyOneGroupSelected = m_characterGroupGrid.SelectedRows.Count == 1;
+			bool exactlyOneGroupSelected = m_characterGroupGrid.SelectedRows.Count == 1 &&
+				m_characterGroupGrid.SelectedRows[0].Index < m_actorAssignmentViewModel.CharacterGroups.Count;
 
 			System.Diagnostics.Debug.WriteLine("In m_characterGroupGrid_SelectionChanged. exactlyOneGroupSelected = " + exactlyOneGroupSelected);
 
