@@ -402,6 +402,9 @@
     <EmbeddedResource Include="Dialogs\ExportDlg.resx">
       <DependentUpon>ExportDlg.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\GenerateGroupsProgressDialog.resx">
+      <DependentUpon>GenerateGroupsProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ProgressDialogWithAcknowledgement.resx">
       <DependentUpon>ProgressDialogWithAcknowledgement.cs</DependentUpon>
     </EmbeddedResource>

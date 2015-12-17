@@ -7,10 +7,10 @@ namespace Glyssen.VoiceActor
 {
 	public enum ActorAge
 	{
-		Adult,
-		Child,
-		YoungAdult,
-		Elder,
+		Adult = CharacterAge.Adult,
+		Child = CharacterAge.Child,
+		YoungAdult = CharacterAge.YoungAdult,
+		Elder = CharacterAge.Elder,
 	}
 
 	public enum ActorGender
@@ -27,6 +27,62 @@ namespace Glyssen.VoiceActor
 		Weak,
 		Suspicious,
 		Clear
+	}
+
+	public enum AgeMatchQuality
+	{
+		Perfect,
+		CloseAdult,
+		AdultVsChild,
+		Mismatch,
+	}
+
+	public enum GenderMatchQuality
+	{
+		Perfect,
+		Acceptable,
+		Mismatch,
+	}
+
+	public class MatchQuality
+	{
+		public AgeMatchQuality AgeMatchQuality { get; set; }
+		public GenderMatchQuality GenderMatchQuality { get; set; }
+
+		public MatchQuality(GenderMatchQuality genderMatchQuality, AgeMatchQuality ageMatchQuality)
+		{
+			GenderMatchQuality = genderMatchQuality;
+			AgeMatchQuality = ageMatchQuality;
+		}
+
+		public override bool Equals(object obj)
+		{
+			var matchQuality = obj as MatchQuality;
+			return matchQuality != null ? Equals(matchQuality) : base.Equals(obj);
+		}
+
+		protected bool Equals(MatchQuality other)
+		{
+			return AgeMatchQuality == other.AgeMatchQuality && GenderMatchQuality == other.GenderMatchQuality;
+		}
+
+		public override int GetHashCode()
+		{
+			unchecked
+			{
+				return ((int)AgeMatchQuality * 397) ^ (int)GenderMatchQuality;
+			}
+		}
+
+		public static bool operator ==(MatchQuality left, MatchQuality right)
+		{
+			return Equals(left, right);
+		}
+
+		public static bool operator !=(MatchQuality left, MatchQuality right)
+		{
+			return !Equals(left, right);
+		}
 	}
 
 	public class VoiceActor : IEquatable<VoiceActor>
@@ -118,45 +174,65 @@ namespace Glyssen.VoiceActor
 				IsCameo == otherActor.IsCameo;
 		}
 
+		public AgeMatchQuality GetAgeMatchQuality(CharacterDetail character)
+		{
+			switch (character.Age)
+			{
+				case CharacterAge.Child:
+					return Age == ActorAge.Child ? AgeMatchQuality.Perfect : AgeMatchQuality.Mismatch;
+				default:
+					switch (Math.Abs((int)Age - (int)character.Age))
+					{
+						case 0: return AgeMatchQuality.Perfect;
+						case 1: return AgeMatchQuality.CloseAdult;
+						case 2: return AgeMatchQuality.AdultVsChild;
+						default: return AgeMatchQuality.Mismatch;
+					}
+			}
+		}
+
+		public GenderMatchQuality GetGenderMatchQuality(CharacterDetail characterDetail)
+		{
+			switch (Gender)
+			{
+				case ActorGender.Male:
+					switch (characterDetail.Gender)
+					{
+						case CharacterGender.Male:
+						case CharacterGender.PreferMale:
+						case CharacterGender.Either:
+						case CharacterGender.Neuter:
+							return GenderMatchQuality.Perfect;
+						default:
+							return GenderMatchQuality.Mismatch;
+					}
+
+				default:
+					switch (characterDetail.Gender)
+					{
+						case CharacterGender.Female:
+						case CharacterGender.PreferFemale:
+						case CharacterGender.Neuter:
+							return GenderMatchQuality.Perfect;
+						case CharacterGender.Either:
+							return GenderMatchQuality.Acceptable;
+						default:
+							return GenderMatchQuality.Mismatch;
+					}
+			}
+		}
+
 		public bool Matches(CharacterDetail character, bool strictAgeMatching = false)
 		{
-			bool result = true;
-			switch (character.Gender)
-			{
-				case CharacterGender.Female:
-				case CharacterGender.PreferFemale: // TODO: Handle preferences based on user settings
-					result &= Gender == ActorGender.Female;
-					break;
-				case CharacterGender.Male:
-				case CharacterGender.PreferMale: // TODO: Handle preferences based on user settings
-					result &= Gender == ActorGender.Male;
-					break;
-			}
+			if (GetGenderMatchQuality(character) != GenderMatchQuality.Perfect)
+				return false;
 
-			if (strictAgeMatching)
-			{
-				switch (character.Age)
-				{
-					case CharacterAge.Child:
-						result &= Age == ActorAge.Child;
-						break;
-					case CharacterAge.YoungAdult:
-						result &= Age == ActorAge.YoungAdult;
-						break;
-					case CharacterAge.Elder:
-						result &= Age == ActorAge.Elder;
-						break;
-					default:
-						result &= Age == ActorAge.Adult;
-						break;
-				}
-			}
-			else if (character.Age == CharacterAge.Child && Age != ActorAge.Child)
-				result = false;
-			else if (Age == ActorAge.Child && character.Age != CharacterAge.Child)
-				result = false;
+			var ageMatchQuality = GetAgeMatchQuality(character);
 
-			return result;
+			if (ageMatchQuality == AgeMatchQuality.Mismatch)
+				return false;
+
+			return !strictAgeMatching || ageMatchQuality == AgeMatchQuality.Perfect;
 		}
 
 		private ActorGender MigrateFromDeprecatedVersionOfGenderData(string deprecatedData)

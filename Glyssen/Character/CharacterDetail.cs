@@ -4,10 +4,10 @@ namespace Glyssen.Character
 {
 	public enum CharacterAge
 	{
-		Adult,
-		Child,
-		YoungAdult,
-		Elder,
+		Adult = 0,
+		Child = 6,
+		YoungAdult = -1,
+		Elder = 1,
 	}
 
 	public enum CharacterGender
@@ -57,6 +57,10 @@ namespace Glyssen.Character
 
 		public int Compare(CharacterAge x, CharacterAge y)
 		{
+			if (x == CharacterAge.Child && y != CharacterAge.Child)
+				return -1;
+			if (y == CharacterAge.Child && x != CharacterAge.Child)
+				return 1;
 			return ((int)x).CompareTo((int)y);
 		}
 

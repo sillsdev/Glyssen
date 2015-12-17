@@ -54,7 +54,7 @@ namespace Glyssen.Dialogs
 
 			if (!m_project.CharacterGroupList.CharacterGroups.Any())
 			{
-				GenerateGroupsWithProgress(false);
+				GenerateGroupsWithProgress(false, true);
 				m_project.Save();
 			}
 
@@ -86,9 +86,9 @@ namespace Glyssen.Dialogs
 			m_hyperlinkFont = new Font(m_characterGroupGrid.Columns[CharacterIdsCol.Index].InheritedStyle.Font, FontStyle.Underline);
 		}
 
-		private void GenerateGroupsWithProgress(bool attemptToPreserveActorAssignments)
+		private void GenerateGroupsWithProgress(bool attemptToPreserveActorAssignments, bool firstGroupGenerationRun)
 		{
-			using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork))
+			using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork, firstGroupGenerationRun))
 			{
 				progressDialog.ProgressState.Arguments = attemptToPreserveActorAssignments;
 				progressDialog.ShowDialog();
@@ -196,6 +196,12 @@ namespace Glyssen.Dialogs
 			using (var actorDlg = new VoiceActorInformationDlg(actorInfoViewModel, false))
 			{
 				actorDlg.ShowDialog();
+				if (actorDlg.CloseParent)
+				{
+					Close();
+					return;
+				}
+
 				if (actorInfoViewModel.Changes.Any())
 				{
 					m_actorAssignmentViewModel.NoteActorChanges(actorInfoViewModel.Changes);
@@ -452,7 +458,7 @@ namespace Glyssen.Dialogs
 			var nameOfSelectedGroup = (m_characterGroupGrid.SelectedRows.Count == 1)
 				? FirstSelectedCharacterGroup.Name : null;
 
-			m_actorAssignmentViewModel.RegenerateGroups(() => { GenerateGroupsWithProgress(true); });
+			m_actorAssignmentViewModel.RegenerateGroups(() => { GenerateGroupsWithProgress(true, false); });
 			SortByColumn(m_sortedColumn, m_sortedAscending);
 
 			if (nameOfSelectedGroup != null)
@@ -1030,7 +1036,12 @@ namespace Glyssen.Dialogs
 			var detailsRowStyle = m_tableLayoutPanel.LayoutSettings.RowStyles[m_tableLayoutPanel.GetRow(m_characterDetailsGrid)];
 			detailsRowStyle.SizeType = SizeType.Percent;
 			int groupCount = m_actorAssignmentViewModel.CharacterGroups.Count;
+
 			var percentage = (double)groupCount / (groupCount + m_actorAssignmentViewModel.CharacterGroups.Max(g => g.CharacterIds.Count));
+
+			//TODO: put this back to being a calculation
+			percentage = .4d;
+
 			groupsRowStyle.Height = Math.Min(Math.Max((int)((1 - percentage) * 100), 45), 85);
 			detailsRowStyle.Height = 100 - groupsRowStyle.Height;
 		}

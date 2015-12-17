@@ -20,6 +20,7 @@ namespace Glyssen.Dialogs
 		{
 			if (disposing && (components != null))
 			{
+				L10NSharp.UI.LocalizeItemDlg.StringsLocalized -= HandleStringsLocalized;
 				if (m_hyperlinkFont != null)
 					m_hyperlinkFont.Dispose();
 				components.Dispose();
@@ -36,13 +37,13 @@ namespace Glyssen.Dialogs
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoiceActorAssignmentDlg));
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoiceActorAssignmentDlg));
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.m_lblInstructions = new System.Windows.Forms.Label();
 			this.m_contextMenuCharacters = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.m_menuItemCreateNewGroup = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +66,7 @@ namespace Glyssen.Dialogs
 			this.m_toolStripLabelFindCharacter = new System.Windows.Forms.ToolStripLabel();
 			this.m_toolStripTextBoxFindCharacter = new System.Windows.Forms.ToolStripTextBox();
 			this.m_toolStripButtonFindNextMatchingCharacter = new System.Windows.Forms.ToolStripButton();
+			this.m_toolStripButtonHelp = new System.Windows.Forms.ToolStripButton();
 			this.m_btnOK = new System.Windows.Forms.Button();
 			this.m_characterDetailsGrid = new SIL.Windows.Forms.Widgets.BetterGrid.BetterGrid();
 			this.CharacterDetailsIdCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -128,7 +130,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_contextMenuCharacters, "DialogBoxes.VoiceActorAssignmentDlg.m_contextMenuCharacters.m_contextMenuCharacte" +
         "rs");
 			this.m_contextMenuCharacters.Name = "m_contextMenuCharacters";
-			this.m_contextMenuCharacters.Size = new System.Drawing.Size(322, 92);
+			this.m_contextMenuCharacters.Size = new System.Drawing.Size(322, 70);
 			this.m_contextMenuCharacters.Opening += new System.ComponentModel.CancelEventHandler(this.m_contextMenuCharacters_Opening);
 			// 
 			// m_menuItemCreateNewGroup
@@ -242,7 +244,8 @@ namespace Glyssen.Dialogs
             this.toolStripSeparator2,
             this.m_toolStripLabelFindCharacter,
             this.m_toolStripTextBoxFindCharacter,
-            this.m_toolStripButtonFindNextMatchingCharacter});
+            this.m_toolStripButtonFindNextMatchingCharacter,
+            this.m_toolStripButtonHelp});
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStrip, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStrip, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStrip, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -369,6 +372,18 @@ namespace Glyssen.Dialogs
 			this.m_toolStripButtonFindNextMatchingCharacter.Text = "Find next match";
 			this.m_toolStripButtonFindNextMatchingCharacter.Click += new System.EventHandler(this.m_toolStripButtonFindNextMatchingCharacter_Click);
 			// 
+			// m_toolStripButtonHelp
+			// 
+			this.m_toolStripButtonHelp.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.m_toolStripButtonHelp.Image = global::Glyssen.Properties.Resources.helpSmall;
+			this.m_toolStripButtonHelp.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonHelp, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonHelp, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonHelp, "Common.Help");
+			this.m_toolStripButtonHelp.Name = "m_toolStripButtonHelp";
+			this.m_toolStripButtonHelp.Size = new System.Drawing.Size(52, 22);
+			this.m_toolStripButtonHelp.Text = "Help";
+			// 
 			// m_btnOK
 			// 
 			this.m_btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -397,14 +412,14 @@ namespace Glyssen.Dialogs
 			this.m_characterDetailsGrid.BackgroundColor = System.Drawing.SystemColors.Window;
 			this.m_characterDetailsGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.m_characterDetailsGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
-			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.m_characterDetailsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
+			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.m_characterDetailsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
 			this.m_characterDetailsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.m_characterDetailsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CharacterDetailsIdCol,
@@ -471,8 +486,8 @@ namespace Glyssen.Dialogs
 			// CharacterDetailsHoursCol
 			// 
 			this.CharacterDetailsHoursCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			dataGridViewCellStyle2.Format = "N2";
-			this.CharacterDetailsHoursCol.DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle4.Format = "N2";
+			this.CharacterDetailsHoursCol.DefaultCellStyle = dataGridViewCellStyle4;
 			this.CharacterDetailsHoursCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.CharacterDetails.Hours!Hours";
 			this.CharacterDetailsHoursCol.Name = "CharacterDetailsHoursCol";
 			this.CharacterDetailsHoursCol.ReadOnly = true;
@@ -612,8 +627,8 @@ namespace Glyssen.Dialogs
 			this.m_characterGroupGrid.AllowUserToDeleteRows = false;
 			this.m_characterGroupGrid.AllowUserToOrderColumns = true;
 			this.m_characterGroupGrid.AllowUserToResizeRows = false;
-			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-			this.m_characterGroupGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+			this.m_characterGroupGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
 			this.m_characterGroupGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -622,14 +637,14 @@ namespace Glyssen.Dialogs
 			this.m_characterGroupGrid.BackgroundColor = System.Drawing.SystemColors.Window;
 			this.m_characterGroupGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.m_characterGroupGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
-			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.m_characterGroupGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F);
+			dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.m_characterGroupGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
 			this.m_characterGroupGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CharacterIdsCol,
             this.AttributesCol,
@@ -638,15 +653,15 @@ namespace Glyssen.Dialogs
             this.VoiceActorCol});
 			this.m_tableLayoutPanel.SetColumnSpan(this.m_characterGroupGrid, 2);
 			this.m_characterGroupGrid.ContextMenuStrip = this.m_contextMenuCharacterGroups;
-			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-			dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-			dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
-			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle6.NullValue = null;
-			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.m_characterGroupGrid.DefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+			dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+			dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 9F);
+			dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle13.NullValue = null;
+			dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.m_characterGroupGrid.DefaultCellStyle = dataGridViewCellStyle13;
 			this.m_characterGroupGrid.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.m_characterGroupGrid.GridColor = System.Drawing.Color.Black;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_characterGroupGrid, null);
@@ -709,9 +724,9 @@ namespace Glyssen.Dialogs
 			// EstimatedHoursCol
 			// 
 			this.EstimatedHoursCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-			dataGridViewCellStyle5.Format = "N2";
-			dataGridViewCellStyle5.NullValue = null;
-			this.EstimatedHoursCol.DefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle12.Format = "N2";
+			dataGridViewCellStyle12.NullValue = null;
+			this.EstimatedHoursCol.DefaultCellStyle = dataGridViewCellStyle12;
 			this.EstimatedHoursCol.FillWeight = 37.7242F;
 			this.EstimatedHoursCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Hours!Hours";
 			this.EstimatedHoursCol.Name = "EstimatedHoursCol";
@@ -934,6 +949,7 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.Label m_lblCharacterDetails;
 		private System.Windows.Forms.Label m_lblNoCharactersInGroup;
 		private ToolStripMenuItem m_AddCharacterToGroupToolStripMenuItem;
+		private ToolStripButton m_toolStripButtonHelp;
 
 	}
 }

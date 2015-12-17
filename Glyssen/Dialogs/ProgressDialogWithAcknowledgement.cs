@@ -275,6 +275,8 @@ namespace Glyssen.Dialogs
 
 		public string ProgressLabelTextWhenComplete { get; set; }
 
+		public string OkButtonText { get; set; }
+
 		void OnBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
 			if(e.Cancelled )
@@ -301,7 +303,7 @@ namespace Glyssen.Dialogs
 				AcceptButton = m_cancelOrOkButton;
 
 				m_cancelOrOkButton.Click -= OnCancelButton_Click;
-				m_cancelOrOkButton.Text = LocalizationManager.GetString("Common.Ok", "OK");
+				m_cancelOrOkButton.Text = OkButtonText ?? LocalizationManager.GetString("Common.OK", "OK");
 				m_cancelOrOkButton.DialogResult = DialogResult.OK;
 				m_cancelOrOkButton.Enabled = true;
 				m_cancelOrOkButton.Visible = true;

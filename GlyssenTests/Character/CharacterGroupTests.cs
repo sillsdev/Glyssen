@@ -175,25 +175,19 @@ namespace GlyssenTests.Character
 		}
 
 		[Test]
-		public void Matches_LooseGenderMatching_NoCharacters_ThrowsException()
+		public void Matches_LooseGenderMatching_NoCharacters_ReturnsFalse()
 		{
 			var group = new CharacterGroup(m_project);
-			Assert.Throws<InvalidOperationException>(() =>
-			{
-				group.Matches(new CharacterDetail { Gender = CharacterGender.Neuter, Age = CharacterAge.Adult },
-					CharacterGenderMatchingOptions.Loose, CharacterAgeMatchingOptions.LooseExceptChild);
-			});
+			Assert.False(group.Matches(new CharacterDetail { Gender = CharacterGender.Neuter, Age = CharacterAge.Adult },
+				CharacterGenderMatchingOptions.Loose, CharacterAgeMatchingOptions.LooseExceptChild));
 		}
 
 		[Test]
-		public void Matches_ModerateGenderMatching_NoCharacters_ThrowsException()
+		public void Matches_ModerateGenderMatching_NoCharacters_ReturnsFalse()
 		{
 			var group = new CharacterGroup(m_project);
-			Assert.Throws<InvalidOperationException>(() =>
-			{
-				group.Matches(new CharacterDetail { Gender = CharacterGender.Neuter, Age = CharacterAge.Adult },
-					CharacterGenderMatchingOptions.Moderate, CharacterAgeMatchingOptions.LooseExceptChild);
-			});
+			Assert.False(group.Matches(new CharacterDetail { Gender = CharacterGender.Neuter, Age = CharacterAge.Adult },
+				CharacterGenderMatchingOptions.Moderate, CharacterAgeMatchingOptions.LooseExceptChild));
 		}
 
 		[Test]

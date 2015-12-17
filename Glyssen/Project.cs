@@ -289,8 +289,11 @@ namespace Glyssen
 
 		public void SetDefaultCharacterGroupGenerationPreferences()
 		{
-			if (CharacterGroupGenerationPreferences.NumberOfNarrators == CharacterGroupGenerationPreferences.kNumberOfNarratorsNotSet)
-				CharacterGroupGenerationPreferences.NumberOfNarrators = BiblicalAuthors.GetAuthorCount(IncludedBooks.Select(b => b.BookId));
+			if (!CharacterGroupGenerationPreferences.IsSetByUser)
+			{
+				CharacterGroupGenerationPreferences.NumberOfMaleNarrators = BiblicalAuthors.GetAuthorCount(IncludedBooks.Select(b => b.BookId));
+				CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			}
 		}
 
 		public IReadOnlyList<BookScript> Books { get { return m_books; } }
@@ -1145,6 +1148,12 @@ namespace Glyssen
 				}
 			}
 			return keyStrokesByCharacterId;
+		}
+
+		public double GetEstimatedRecordingTime()
+		{
+			long keyStrokes = GetKeyStrokesByCharacterId().Values.Sum();
+			return keyStrokes / (double)Program.kKeyStrokesPerHour;
 		}
 
 		public CharacterGroup GetGroupByName(string name)
