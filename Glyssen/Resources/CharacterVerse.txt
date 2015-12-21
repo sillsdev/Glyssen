@@ -1,4 +1,4 @@
-Control File Version	85
+Control File Version	86
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -5290,12 +5290,12 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	18	44	servant of Elijah			Dialogue		
 1KI	19	2	Jezebel			Normal		
 1KI	19	4	Elijah			Normal		
-1KI	19	5	angel of the LORD, an			Normal		
-1KI	19	7	angel of the LORD, an			Normal		
-1KI	19	9	God		God (the LORD)(word of the LORD came)	Normal		
+1KI	19	5	angel		angel (of the LORD)	Normal		
+1KI	19	7	angel		angel (of the LORD)	Normal		
+1KI	19	9	God		God (word of the LORD)	Normal		
 1KI	19	10	Elijah			Normal		
 1KI	19	11	God		God (the LORD)	Normal		
-1KI	19	13	God		voice, a	Normal		
+1KI	19	13	God		gentle whisper (God)	Normal		
 1KI	19	14	Elijah			Normal		
 1KI	19	15	God		God (the LORD)	Normal		
 1KI	19	16	God		God (the LORD)	Normal		
@@ -5432,7 +5432,7 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	2	19	men of Jericho			Normal		
 2KI	2	20	Elisha			Normal		
 2KI	2	21	Elisha		Elisha (the LORD says)	Normal		
-2KI	2	23	youths	jeering		Normal		
+2KI	2	23	boys	jeering		Normal		
 2KI	3	7	Jehoshaphat, king of Judah			Normal		
 2KI	3	7	Joram, king of Israel			Normal		
 2KI	3	8	Jehoshaphat, king of Judah	questioning		Normal		
@@ -5644,7 +5644,7 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	13	17	Elisha (old)			Normal		
 2KI	13	18	Elisha (old)			Normal		
 2KI	13	19	Elisha (old)			Normal		
-2KI	14	6	law of Moses where LORD commanded			Normal		
+2KI	14	6	law of Moses where LORD commanded			Quotation		
 2KI	14	8	Amaziah, king of Judah			Normal		
 2KI	14	9	Jehoash, king of Israel			Normal		
 2KI	14	10	Jehoash, king of Israel			Normal		
@@ -5807,7 +5807,7 @@ RUT	4	17	women of Bethlehem			Normal
 1CH	16	36	David	psalm	David, king	Normal		
 1CH	16	36	people, all the			Normal		
 1CH	16	41	narrator-1CH			Quotation		
-1CH	16	41	singers			Quotation		
+1CH	16	41	singers		Heman, Jeduthun and the rest of those chosen to give thanks	Quotation		
 1CH	17	1	David		David, king	Normal		
 1CH	17	2	Nathan			Normal		
 1CH	17	4	God		God (the LORD)(word of the LORD came)	Normal		
@@ -6086,9 +6086,9 @@ RUT	4	17	women of Bethlehem			Normal
 2CH	25	8	man of God (prophet to Amaziah)			Normal		
 2CH	25	9	Amaziah, king of Judah			Normal		
 2CH	25	9	man of God (prophet to Amaziah)			Normal		
-2CH	25	15	prophet of the LORD		prophet, a	Normal		
+2CH	25	15	prophet of the LORD		prophet	Normal		
 2CH	25	16	Amaziah, king of Judah			Normal		
-2CH	25	16	prophet of the LORD		prophet, a	Normal		
+2CH	25	16	prophet of the LORD		prophet	Normal		
 2CH	25	17	Amaziah, king of Judah			Normal		
 2CH	25	18	Jehoash, king of Israel			Normal		
 2CH	25	19	Jehoash, king of Israel			Normal		
@@ -11131,7 +11131,7 @@ HOS	12	8	Ephraim			Normal
 HOS	12	9	God		word of the LORD spoken through Hosea	Normal		
 HOS	12	10	God		word of the LORD spoken through Hosea	Normal		
 #It is confusing if those speaking are the idolaters or if they are speaking of the idolaters
-HOS	13	2	idolaters			Normal		
+HOS	13	2	saying about idolaters			Quotation		
 HOS	13	4	God		word of the LORD spoken through Hosea	Normal		
 HOS	13	5	God		word of the LORD spoken through Hosea	Normal		
 HOS	13	6	God		word of the LORD spoken through Hosea	Normal		
@@ -11657,13 +11657,13 @@ MAL	4	4	God		God (the LORD Almighty)	Normal
 MAL	4	5	God		God (the LORD Almighty)	Normal		
 MAL	4	6	God		God (the LORD Almighty)	Normal		
 MAT	1	1	narrator-MAT			Quotation		
-MAT	1	20	angel of the LORD, an	announcing		Normal		
-MAT	1	21	angel of the LORD, an	announcing		Normal		
+MAT	1	20	angel		angel of the LORD	Normal		
+MAT	1	21	angel		angel of the LORD	Normal		
 MAT	1	23	narrator-MAT			Quotation		
 MAT	1	23	scripture		scripture (prophet)	Quotation	Isaiah	
-#Not sure what the quote could be in MAT 1:24???								
+#If the language requires the words of the angel to be repeated in quotes, this could be read by the narrator
 MAT	1	24	narrator-MAT			Quotation		
-MAT	1	24	angel of the LORD, an			Indirect		
+MAT	1	24	angel		angel of the LORD	Indirect		
 MAT	2	1	narrator-MAT			Quotation		
 MAT	2	2	magi (wise men from East)			Dialogue		
 MAT	2	3	narrator-MAT			Quotation		
@@ -11673,12 +11673,12 @@ MAT	2	6	chief priests/teachers of religious law			Normal	Good Priest
 MAT	2	7	narrator-MAT			Quotation		
 MAT	2	7	Herod the Great			Indirect		
 MAT	2	8	Herod the Great	sly		Dialogue		
-MAT	2	12	dream			Indirect		
-MAT	2	13	angel of the LORD, an	commanding		Normal		
+MAT	2	12	dream			Indirect	angel	
+MAT	2	13	angel	commanding	angel of the LORD	Normal		
 MAT	2	15	scripture			Quotation	God	
 MAT	2	16	Herod the Great			Indirect		
 MAT	2	18	scripture			Quotation	God	
-MAT	2	20	angel of the LORD, an	commanding		Normal		
+MAT	2	20	angel	commanding	angel of the LORD	Normal		
 MAT	2	23	scripture			Quotation		
 MAT	3	2	John the Baptist	proclaim		Normal		
 MAT	3	3	scripture			Quotation	Isaiah	
@@ -11969,7 +11969,7 @@ MAT	12	43	Jesus			Normal
 MAT	12	44	Jesus			Normal		
 MAT	12	45	Jesus			Normal		
 MAT	12	46	Jesus			Indirect		
-MAT	12	46	Jesus' family		Jesus' mother and brothers	Indirect		
+MAT	12	46	Jesus' family		Jesus' mother and brothers	Indirect	Mary, Jesus' mother	
 MAT	12	47	crowd	announcing	someone	Dialogue		MAT 12.47;MRK 3.32;LUK 8.20
 MAT	12	48	Jesus	questioning		Dialogue		
 MAT	12	49	Jesus			Dialogue		
@@ -13069,26 +13069,26 @@ MRK	16	15	Jesus			Potential
 MRK	16	16	Jesus			Potential		
 MRK	16	17	Jesus			Potential		
 MRK	16	18	Jesus			Potential		
-LUK	1	13	angel of the LORD, an			Dialogue		
-LUK	1	14	angel of the LORD, an			Normal		
-LUK	1	15	angel of the LORD, an			Normal		
-LUK	1	16	angel of the LORD, an			Normal		
-LUK	1	17	angel of the LORD, an			Normal		
+LUK	1	13	Gabriel		angel of the LORD	Dialogue		
+LUK	1	14	Gabriel		angel of the LORD	Normal		
+LUK	1	15	Gabriel		angel of the LORD	Normal		
+LUK	1	16	Gabriel		angel of the LORD	Normal		
+LUK	1	17	Gabriel		angel of the LORD	Normal		
 LUK	1	18	Zacharias (Zechariah)			Dialogue		
-LUK	1	19	angel of the LORD, an			Dialogue		
-LUK	1	20	angel of the LORD, an			Normal		
+LUK	1	19	Gabriel		angel of the LORD	Dialogue		
+LUK	1	20	Gabriel		angel of the LORD	Normal		
 LUK	1	21	people	wondering		Indirect		
 LUK	1	25	Elizabeth			Normal		
-LUK	1	28	angel of the LORD, an	to Mary	angel Gabriel, sent by God	Dialogue		
+LUK	1	28	Gabriel		Gabriel (angel)	Dialogue		
 LUK	1	29	Mary, Jesus' mother	confused		Indirect		
-LUK	1	30	angel of the LORD, an		angel Gabriel, sent by God	Dialogue		
-LUK	1	31	angel of the LORD, an		angel Gabriel, sent by God	Normal		
-LUK	1	32	angel of the LORD, an		angel Gabriel, sent by God	Normal		
-LUK	1	33	angel of the LORD, an		angel Gabriel, sent by God	Normal		
+LUK	1	30	Gabriel		Gabriel (angel)	Dialogue		
+LUK	1	31	Gabriel		Gabriel (angel)	Normal		
+LUK	1	32	Gabriel		Gabriel (angel)	Normal		
+LUK	1	33	Gabriel		Gabriel (angel)	Normal		
 LUK	1	34	Mary, Jesus' mother			Dialogue		
-LUK	1	35	angel of the LORD, an		angel Gabriel, sent by God	Dialogue		
-LUK	1	36	angel of the LORD, an		angel Gabriel, sent by God	Normal		
-LUK	1	37	angel of the LORD, an		angel Gabriel, sent by God	Normal		
+LUK	1	35	Gabriel		Gabriel (angel)	Dialogue		
+LUK	1	36	Gabriel		Gabriel (angel)	Normal		
+LUK	1	37	Gabriel		Gabriel (angel)	Normal		
 LUK	1	38	Mary, Jesus' mother			Dialogue		
 LUK	1	42	Elizabeth			Dialogue		
 LUK	1	43	Elizabeth			Normal		
@@ -13126,10 +13126,10 @@ LUK	1	77	Zacharias (Zechariah)	praising		Normal
 LUK	1	78	Zacharias (Zechariah)	praising		Normal		
 LUK	1	79	Zacharias (Zechariah)	praising		Normal		
 LUK	2	1	Caesar Augustus			Indirect		
-LUK	2	10	angel of the LORD, an			Normal		
-LUK	2	11	angel of the LORD, an			Normal		
-LUK	2	12	angel of the LORD, an			Normal		
-LUK	2	14	great company of heavenly host	stage whisper		Normal		
+LUK	2	10	angel		angel of the LORD	Normal		
+LUK	2	11	angel		angel of the LORD	Normal		
+LUK	2	12	angel		angel of the LORD	Normal		
+LUK	2	14	great company of heavenly host			Normal		
 LUK	2	15	shepherds outside Bethlehem	awe		Normal		
 LUK	2	23	scripture			Quotation	God	
 LUK	2	24	scripture			Quotation	God	
@@ -13362,7 +13362,7 @@ LUK	9	25	Jesus			Normal
 LUK	9	26	Jesus			Normal		
 LUK	9	27	Jesus			Normal		
 LUK	9	33	Peter (Simon)	afraid		Dialogue		
-LUK	9	35	voice from cloud			Normal		
+LUK	9	35	God		voice from cloud (God)	Normal		
 LUK	9	38	father of demon-possessed boy	distraught	man in crowd (father of demon-possessed boy)	Dialogue		MAT 17.15-16;MRK 9.17-18,22;LUK 9.38-40
 LUK	9	39	father of demon-possessed boy	distraught	man in crowd (father of demon-possessed boy)	Dialogue		MAT 17.15-16;MRK 9.17-18,22;LUK 9.38-40
 LUK	9	40	father of demon-possessed boy	distraught	man in crowd (father of demon-possessed boy)	Dialogue		MAT 17.15-16;MRK 9.17-18,22;LUK 9.38-40
@@ -13461,7 +13461,7 @@ LUK	11	33	Jesus			Normal
 LUK	11	34	Jesus			Normal		
 LUK	11	35	Jesus			Normal		
 LUK	11	36	Jesus			Normal		
-LUK	11	37	Pharisees, other		Pharisee, a	Indirect		
+LUK	11	37	Pharisees, other		Pharisee	Indirect		
 LUK	11	39	Jesus			Dialogue		
 LUK	11	40	Jesus			Normal		
 LUK	11	41	Jesus			Normal		
@@ -14774,7 +14774,7 @@ ACT	5	4	Peter (Simon)	rebuking		Normal
 ACT	5	8	Peter (Simon)			Dialogue		
 ACT	5	8	Sapphira, wife of Ananias of Jerusalem			Dialogue		
 ACT	5	9	Peter (Simon)			Dialogue		
-ACT	5	20	angel of the LORD, an	commanding		Normal		
+ACT	5	20	angel	commanding	angel of the LORD	Normal		
 ACT	5	23	officers	perplexed		Normal		
 ACT	5	24	captain of the temple guard/chief priests			Indirect		
 ACT	5	25	person who told the guards and priests where the apostles were	excited		Normal		
@@ -14863,7 +14863,7 @@ ACT	8	21	Peter (Simon)	rebuking		Normal
 ACT	8	22	Peter (Simon)	rebuking		Normal		
 ACT	8	23	Peter (Simon)	rebuking		Normal		
 ACT	8	24	Simon, sorcerer			Dialogue		
-ACT	8	26	angel of the LORD, an			Normal		
+ACT	8	26	angel		angel of the LORD	Normal		
 ACT	8	27	narrator-ACT			Quotation		
 ACT	8	29	Holy Spirit, the			Normal		
 ACT	8	30	Philip the evangelist		Philip	Dialogue		
@@ -14900,11 +14900,11 @@ ACT	9	38	disciples, two men (from Joppa)	urgent		Normal
 ACT	9	40	Peter (Simon)			Normal		
 ACT	9	41	Peter (Simon)			Indirect		
 ACT	10	1	narrator-ACT			Quotation		
-ACT	10	3	angel of the LORD, an		angel of God, an	Normal		
-ACT	10	4	angel of the LORD, an		angel of God, an	Normal		
+ACT	10	3	angel		angel of God	Normal		
+ACT	10	4	angel		angel of God	Normal		
 ACT	10	4	Cornelius	afraid		Normal		
-ACT	10	5	angel of the LORD, an		angel of God, an	Normal		
-ACT	10	6	angel of the LORD, an		angel of God, an	Normal		
+ACT	10	5	angel		angel of God	Normal		
+ACT	10	6	angel		angel of God	Normal		
 ACT	10	13	Jesus		voice (in trance)	Normal		
 ACT	10	14	Peter (Simon)			Normal		
 ACT	10	15	Jesus		voice (in trance)	Normal		
@@ -14953,8 +14953,8 @@ ACT	11	18	believers, circumcised (in Jerusalem)	rejoicing		Dialogue
 ACT	11	23	Barnabas			Indirect		
 ACT	11	28	Agabus the prophet			Indirect		
 ACT	11	29	disciples			Indirect		
-ACT	12	7	angel of the LORD, an	commanding		Normal		
-ACT	12	8	angel of the LORD, an	commanding		Normal		
+ACT	12	7	angel	commanding	angel of the LORD	Normal		
+ACT	12	8	angel	commanding	angel of the LORD	Normal		
 ACT	12	11	Peter (Simon)	speaking or thinking to himself		Normal		
 ACT	12	13	Rhoda			Indirect		
 ACT	12	14	Rhoda	overjoyed		Normal		
@@ -15034,12 +15034,12 @@ ACT	15	26	letter from apostles and elders			Potential
 ACT	15	27	letter from apostles and elders			Potential		
 ACT	15	28	letter from apostles and elders			Potential		
 ACT	15	29	letter from apostles and elders			Potential		
-ACT	15	33	brothers at Antioch, the	blessing		Indirect		
+ACT	15	33	brothers at Antioch	blessing		Indirect		
 ACT	15	34	Silas			Indirect		
 ACT	15	36	Paul			Normal		
 ACT	15	37	Barnabas			Indirect		
 ACT	15	38	Paul			Indirect		
-ACT	15	40	brothers at Antioch, the	blessing		Indirect		
+ACT	15	40	brothers at Antioch	blessing		Indirect		
 ACT	16	9	Macedonian			Normal		
 ACT	16	10	God		God (the LORD)	Indirect		
 ACT	16	15	Lydia			Normal		
@@ -15310,8 +15310,8 @@ ACT	27	43	centurion on ship with Paul			Indirect
 ACT	28	4	Malta islanders	suspicious		Normal		
 ACT	28	6	Malta islanders			Indirect		
 ACT	28	11	narrator-ACT			Potential		
-ACT	28	14	brothers at Puteoli, some			Indirect		
-ACT	28	15	brothers at Puteoli, some			Indirect		
+ACT	28	14	brothers at Puteoli			Indirect		
+ACT	28	15	brothers at Puteoli			Indirect		
 ACT	28	15	Paul			Indirect		
 ACT	28	17	Paul			Dialogue		
 ACT	28	18	Paul			Normal		
@@ -15530,7 +15530,7 @@ COL	4	17	Paul			Normal
 1TH	5	3	people			Normal		
 1TH	5	27	Paul			Potential		
 2TH	2	4	man of lawlessness			Indirect		
-2TH	3	10	rule given by Paul			Normal		
+2TH	3	10	rule given by Paul			Quotation		
 1TI	1	15	narrator-1TI			Quotation		
 1TI	3	16	hymn, early creedal			Quotation		
 1TI	4	3	false teachers			Hypothetical		
