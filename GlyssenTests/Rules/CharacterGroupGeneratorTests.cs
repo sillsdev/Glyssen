@@ -1013,7 +1013,6 @@ namespace GlyssenTests.Rules
 	{
 		private Project m_testProject;
 		private Dictionary<string, int> m_keyStrokesPerCharacterId;
-		private CharacterByKeyStrokeComparer m_priorityComparer;
 
 		[TestFixtureSetUp]
 		public void TextFixtureSetUp()
@@ -1028,7 +1027,6 @@ namespace GlyssenTests.Rules
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK, TestProject.TestBook.ACT);
 			m_keyStrokesPerCharacterId = m_testProject.GetKeyStrokesByCharacterId();
-			m_priorityComparer = new CharacterByKeyStrokeComparer(m_keyStrokesPerCharacterId);
 		}
 
 		[TearDown]
@@ -1089,6 +1087,76 @@ namespace GlyssenTests.Rules
 
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 			Assert.False(groups.Any(g => g.CharacterIds.Contains("Bobette")));
+		}
+	}
+
+	internal class CharacterGroupGeneratorTestsWithLotsOfBooks
+	{
+		private Project m_testProject;
+		private Dictionary<string, int> m_keyStrokesPerCharacterId;
+
+		[TestFixtureSetUp]
+		public void TextFixtureSetUp()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetailOct2015;
+			m_testProject = TestProject.CreateTestProject(
+				TestProject.TestBook.MRK,
+				TestProject.TestBook.LUK,
+				TestProject.TestBook.ACT,
+				TestProject.TestBook.GAL,
+				TestProject.TestBook.EPH,
+				TestProject.TestBook.PHM,
+				TestProject.TestBook.HEB,
+				TestProject.TestBook.IJN,
+				TestProject.TestBook.IIJN,
+				TestProject.TestBook.IIIJN,
+				TestProject.TestBook.JUD,
+				TestProject.TestBook.REV);
+			m_keyStrokesPerCharacterId = m_testProject.GetKeyStrokesByCharacterId();
+		}
+
+		[SetUp]
+		public void SetUp()
+		{
+			m_testProject.VoiceActorList.Actors.Clear();
+			m_testProject.CharacterGroupList.CharacterGroups.Clear();
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_NumberOfNarratorsMatchAuthors_NarratorsGroupedByAuthor()
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 6;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(34, 4);
+			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
+
+			Assert.AreEqual(38, groups.Count);
+			var narMark = groups.Single(g => g.CharacterIds.Contains("narrator-MRK"));
+			var narLuke = groups.Single(g => g.CharacterIds.Contains("narrator-LUK"));
+			var narPaul = groups.Single(g => g.CharacterIds.Contains("narrator-EPH"));
+			var narHebrews = groups.Single(g => g.CharacterIds.Contains("narrator-HEB"));
+			var narJohn = groups.Single(g => g.CharacterIds.Contains("narrator-1JN"));
+			var narJude = groups.Single(g => g.CharacterIds.Contains("narrator-JUD"));
+
+			Assert.AreEqual(1, narMark.CharacterIds.Count);
+			Assert.AreEqual(2, narLuke.CharacterIds.Count);
+			Assert.IsTrue(narLuke.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.AreEqual(3, narPaul.CharacterIds.Count);
+			Assert.IsTrue(narPaul.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narPaul.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("PHM", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.AreEqual(1, narHebrews.CharacterIds.Count);
+			Assert.AreEqual(4, narJohn.CharacterIds.Count);
+			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("2JN", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("3JN", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.AreEqual(1, narJude.CharacterIds.Count);
 		}
 	}
 

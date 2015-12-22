@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<usx version="2.0">
+  <book code="HEB" style="id">Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013</book>
+  <para style="h">JO IBRU</para>
+  <para style="toc1">Waraga Ma Gicoyo Bot Jo Ibru</para>
+  <para style="toc2">Jo Ibru</para>
+  <para style="toc3">Ibru</para>
+  <para style="mt2">WARAGA MA GICOYO bot</para>
+  <para style="mt1">JO IBRU</para>
+  <chapter number="1" style="c" />
+  <para style="s1">Lubaŋa oloko kwedwa i Wode</para>
+  <para style="p">
+    <verse number="1" style="v" />Yam con Lubaŋa oloko ki kwarowa i dul lok mapol dok i yo mapatpat, kun loko ki i dog lunebi; <verse number="2" style="v" />ento i kare man ma lacen-ni en doŋ oloko kwedwa i Wode. Jami ducu ma tye, Lubaŋa ceŋ otiyogi pi twer pa Wode, ma en oyubo ni myero obed won jami ducu. <verse number="3" style="v" />En dero me deyo pa Lubaŋa, cal pa Lubaŋa kikome tye i kome, dok en bene ma tiŋo jami ducu ma tye, ki teko me lokke. Ma doŋ en otyeko tic me lwoko bal, en obedo piny i kabedo me deyo tuŋ acuc i ŋet Won Deyo Madwoŋ ma tye malo i polo, <verse number="4" style="v" />kun doŋ en odoko ladit mada makato lumalaika ducu, ma rom aroma ki kit ma nyiŋ ma gimiye ber matek makato megi woko.</para>
+  <para style="s1">Wod pa Lubaŋa dit kato lumalaika ducu</para>
+  <para style="q1">
+    <verse number="5" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">1.5: a </char>
+      <char style="xt" closed="false">Jab 2.7; </char>
+      <char style="xo" closed="false">b </char>
+      <char style="xt" closed="false">2 Cam 7.14; 1 Tek 17.13</char>
+    </note>Lubaŋa yam koŋ owaco ki lamalaika mo ni,</para>
+  <para style="q1">“In i Woda,</para>
+  <para style="q1">tin doŋ anywali”?</para>
+  <para style="q1">Nyo dok ni,</para>
+  <para style="q1">“An abibedo Wonne,</para>
+  <para style="q1">en bibedo Woda”?</para>
+  <para style="q1">
+    <verse number="6" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">1.6: </char>
+      <char style="xt" closed="false">Nwo 32.43</char>
+    </note>Dok bene i kare ma okelo latin kayo</para>
+  <para style="q1">i lobo en owaco ni,</para>
+  <para style="q1">“Lumalaika pa Lubaŋa ducu myero</para>
+  <para style="q1">guwore.”</para>
+  <para style="q1">
+    <verse number="7" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">1.7: </char>
+      <char style="xt" closed="false">Jab 104.4</char>
+    </note>I kom lumalaika, Lubaŋa oloko ni,</para>
+  <para style="q1">“En loko lumalaikane doko yamo,</para>
+  <para style="q1">luticce en loko doko leb mac.” <verse number="8" style="v" /><note caller="-" style="x"><char style="xo" closed="false">1.8, 9: </char><char style="xt" closed="false">Jab 45.6, 7</char></note>Ento i kom Wode en oloko ni,</para>
+  <para style="q1">“Komkerri, in Lubaŋa, biri nakanaka,</para>
+  <para style="q1">odoo kerri en odoo me ŋolo kop</para>
+  <para style="q1">atir.</para>
+  <para style="q1">
+    <verse number="9" style="v" />In imaro kit ma atir, cwinyi dag</para>
+  <para style="q1">tim marac;</para>
+  <para style="q1">pi meno Lubaŋa, ma en Lubaŋani,</para>
+  <para style="q1">owiri ki moo,</para>
+  <para style="q1">moo me yomcwiny madwoŋ,</para>
+  <para style="q1">makato luwoti ducu.”</para>
+  <para style="q1">
+    <verse number="10" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">1.10-12: </char>
+      <char style="xt" closed="false">Jab 102.25-27</char>
+    </note>En dok oloko ni,</para>
+  <para style="q1">“In Rwot wiati iketo guti me lobo,</para>
+  <para style="q1">polo bene en tic me ciŋi.</para>
+  <para style="q1">
+    <verse number="11" style="v" />Gin birwenyo woko oyot, ento in</para>
+  <para style="q1">iri nakanaka;</para>
+  <para style="q1">gin ducu gibiti macalo boŋo,</para>
+  <para style="q1">
+    <verse number="12" style="v" />ibidologi woko macalo ibano koti,</para>
+  <para style="q1">gibilokogi macalo ginaruka.</para>
+  <para style="q1">Ento in ibedo ma kiti tye acel,</para>
+  <para style="q1">mwakani pe bigik.”</para>
+  <para style="q1">
+    <verse number="13" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">1.13: </char>
+      <char style="xt" closed="false">Jab 110.1</char>
+    </note>Lubaŋa yam owaco ki lamalaika mo ni,</para>
+  <para style="q1">“Bed i ŋeta tuŋ acuc i kabedo me deyo,</para>
+  <para style="q1">nio ka abimiyo lukworri gidoko kom</para>
+  <para style="q1">laten tyeni?”</para>
+  <para style="p">
+    <verse number="14" style="v" />Lumalaika kono dok gubedo aŋagi? Gin ducu gubedo cwiny mogo ma tiyo tic pa Lubaŋa; en orogi ka konyo jo ma binoŋo larre.</para>
+  <chapter number="2" style="c" />
+  <para style="s1">Larre ma pire dit twatwal</para>
+  <para style="p">
+    <verse number="1" style="v" />Pi meno wan myero waketu cwinywa twatwal i gin ma yam wawinyo, wek pe waŋak woko ki iye. <verse number="2" style="v" />Lok me kwena ma yam lumalaika gukelo onoŋo omoko matek. Ka ŋat mo okalo wi cik mo, nyo okwero winyo, gimiye can iye ma oporo bal ma en obalo. <verse number="3" style="v" />Wan kono dok wabibwot niŋniŋ ka pe waketo cwinywa i larre man ma pire dit twatwal-li? Larre man Rwot aye mukwoŋo tuco pire, ka doŋ jo ma yam guwinyo ki bote, gumoko botwa lokke. <verse number="4" style="v" />Lubaŋa bene omedo cadenne kun tiyo lanyut mogo ki taŋo ki tic madito mapatpat, dok kun poko mot mogo me Cwiny Maleŋ pi mitte kene.</para>
+  <para style="s1">Latel wiwa i yo me larre</para>
+  <para style="p">
+    <verse number="5" style="v" />Pien Lubaŋa pe oketo lobo ma mito bino ma wan waloko pire-ni i te loc pa lumalaika. <verse number="6" style="v" /><note caller="-" style="x"><char style="xo" closed="false">2.6-8: </char><char style="xt" closed="false">Jab 8.4-6</char></note>Tye ka mo ma gituco ka maleŋ ni,</para>
+  <para style="q1">“Dano gin aŋo, mumiyo ipo pire?</para>
+  <para style="q1">Nyo latin pa dano, mumiyo iparo pire?</para>
+  <para style="q1">
+    <verse number="7" style="v" />Ikete ki piny i te lumalaika pi kare manoknok,</para>
+  <para style="q1">iketo en obedo laloc ma loyo gin</para>
+  <para style="q1">ducu ma iketogi;</para>
+  <para style="q1">
+    <verse number="8" style="v" />iketo en obedo lalo jami ducu.” Doŋ ka oketo jami ducu i te loc pa dano, pe oweko gin mo ma en pe loyo. Kit macalo tye-ni pud pe waneno ka giketo jami ducu i te twerone. <verse number="9" style="v" />Ento wan waneno Yecu ma yam gikete ki piny i te lumalaika pi kare manoknok, ento kombeddi doŋ gimiye deyo ki woro macalo kabaka pi arem me to ma en ociro, wek pi kica pa Lubaŋa ebil to pi jo ducu.</para>
+  <para style="p">
+    <verse number="10" style="v" />Jami ducu tye pi Lubaŋa, dok en aye muketogi. Doŋ ka yam en omito kelo litino mapol i deyone, gin ma en otimo obedo ma myero twatwal, en mumiyo latel wigi i larre doko dano muteggi pi ciro can. <verse number="11" style="v" />Ŋat ma olonyogi bedo maleŋ, ki jo ma gilonyogi-ni, gin ducu gua i kom ŋat acel; man en aye gin mumiyo lewic pe mako Yecu me lwoŋogi ni omegine, <verse number="12" style="v" /><note caller="-" style="x"><char style="xo" closed="false">2.12: </char><char style="xt" closed="false">Jab 22.22</char></note>kun owaco ni,</para>
+  <para style="q1">“Abitito nyiŋi bot utmegina,</para>
+  <para style="q1">abipaki ki wer i dye lwak mucokke.”</para>
+  <para style="q1">
+    <verse number="13" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">2.13: a </char>
+      <char style="xt" closed="false">Ic 8.17; </char>
+      <char style="xo" closed="false">b </char>
+      <char style="xt" closed="false">Ic 8.18</char>
+    </note>Dok ni,</para>
+  <para style="q1">“Abiketo genna i kome,”</para>
+  <para style="q1">ki dok ni,</para>
+  <para style="q1">“An a ene, ki litino ma Lubaŋa doŋ omiya.”</para>
+  <para style="p">
+    <verse number="14" style="v" />Kit macalo litino i kare ducu giribbe i kom ki remo, en bene kit meno onywako kwedgi komgi ki remogi, wek pi tone eŋiny ŋat ma tye ki twer i kom to woko, meno en aye Catan, <verse number="15" style="v" />ka doŋ egony jo ma yam gubedo i twec me opii pi kare me kwogi ducu pi lworo to. <verse number="16" style="v" /><note caller="-" style="x"><char style="xo" closed="false">2.16: </char><char style="xt" closed="false">Ic 41.8, 9</char></note>Doŋ onen maber ni, gin ma en otimo pe okemo lumalaika, ento okemo likwayo pa Abraim. <verse number="17" style="v" />Meno gin mumiyo en myero odok ma rom aroma ki utmegine i yo ducu, wek omi ebed ajwaka madit ma lakica dok lagen i tic pa Lubaŋa, wek omi ekwany bal pa jone woko. <verse number="18" style="v" />Pien en kikome yam oneno can dok Catan obite, en mumiyo en twero konyo jo ma gibitogi.</para>
+  <chapter number="3" style="c" />
+  <para style="s1">Yecu dit kato Moses</para>
+  <para style="p">
+    <verse number="1" style="v" />Pi meno, wun utmegina maleŋ ma Lubaŋa olwoŋowu kacel kweda, koŋ wutam lok i kom Yecu ma en lakwana dok ajwaka madit me niye ma wan watuco. <verse number="2" style="v" /><note caller="-" style="x"><char style="xo" closed="false">3.2: </char><char style="xt" closed="false">Wel 12.7</char></note>En obedo lagen bot Lubaŋa muyero okete i tic, ma rom aroma ki Moses ma yam obedo lagen i ot pa Lubaŋa. <verse number="3" style="v" />Lager ot gimiye deyo madit makato ot; kit meno Yecu bene nene gikwano ni deyone dit kato pa Moses woko. <verse number="4" style="v" />Pien ot mo keken dano aye ma gero, ento ŋat ma gero jami ducu en aye Lubaŋa. <verse number="5" style="v" />Moses yam obedo lagen i ot pa Lubaŋa ducu macalo latic, pi miyo caden i lok ma gibiloko i kare ma lacen. <verse number="6" style="v" />Ento Kricito obedo lagen i kom ot pa Lubaŋa macalo Wode. Wan aye wa ode ka ce wamoko matek i tekcwinywa, ki i wakkewa pi gen ma watye kwede.</para>
+  <para style="s1">Yweyo tye pi jo pa Lubaŋa</para>
+  <para style="p">
+    <verse number="7" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">3.7-11: </char>
+      <char style="xt" closed="false">Jab 95.7-11</char>
+    </note>Doŋ macalo Cwiny Maleŋ oloko ni,</para>
+  <para style="q1">“Ka wuwinyo dwan Lubaŋa tin,</para>
+  <para style="q1">
+    <verse number="8" style="v" />pe wumi cwinywu obed nwaŋ calo</para>
+  <para style="q1">jo ma yam gujemo,</para>
+  <para style="q1">i kare ma guomo kwede cwinya i tim,</para>
+  <para style="q1">
+    <verse number="9" style="v" />ka ma kwarowu guomo iye cwinya,</para>
+  <para style="q1">gutema bene iye,</para>
+  <para style="q1">kun gibedo ka neno ticca pi mwaka</para>
+  <para style="q1">pyeraŋwen kulu.</para>
+  <para style="q1">
+    <verse number="10" style="v" />Pi meno cwinya owaŋ i kom jo me</para>
+  <para style="q1">kare meno,</para>
+  <para style="q1">omiyo awaco ni, ‘Gin kare ducu</para>
+  <para style="q1">giŋak woko i tamgi;</para>
+  <para style="q1">gin pe giŋeyo yona wacel.’</para>
+  <para style="q1">
+    <verse number="11" style="v" />Macalo yam akwoŋo ki kiniga,</para>
+  <para style="q1">‘Gin pe bidonyo i yweyo bota.’ ”</para>
+  <para style="p">
+    <verse number="12" style="v" />Wugwokke, utmegina, wek ŋat mo i kinwu pe obed ki cwiny marac, cwiny ma pe ye Lubaŋa, ma twero miyo en a woko ki bot Lubaŋa makwo. <verse number="13" style="v" />Ento myero wujiŋ cwinywu kekenwu kare ducu ka pud wutwero lwoŋo ni, “Tin”, wek ŋat mo i kinwu pe cwinye odok nwaŋ pi bwola me bal. <verse number="14" style="v" />Pien wan wabedo jo ma ribbe ki Kricito, ka ce wamoko matek i genwa mukwoŋo nio wa i agikki, <verse number="15" style="v" /><note caller="-" style="x"><char style="xo" closed="false">3.15: </char><char style="xt" closed="false">Jab 95.7, 8</char></note>macalo yam giwaco ni,</para>
+  <para style="q1">“Ka wuwinyo dwane tin,</para>
+  <para style="q1">pe wumi cwinywu obed nwaŋ calo jo</para>
+  <para style="q1">ma yam gujemo.”</para>
+  <para style="p">
+    <verse number="16" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">3.16-18: </char>
+      <char style="xt" closed="false">Wel 14.1-35</char>
+    </note>Aŋagi ma yam guwinyo dwan Lubaŋa ci gujemo woko-ni? Pe gin lwak dano ducu ma yam gua ki i lobo Ejipt ma kun Moses aye obedo ka telogi? <verse number="17" style="v" />Dok aŋagi ce ma yam cwinye owaŋ i komgi pi mwaka pyeraŋwen kulu-ni? Pe gin aye jo ma yam gutimo bal, ma komgi odoŋ i tim kunnu? <verse number="18" style="v" />Dok en yam okwoŋo kwoŋ bot jo mene ce ni, gin pe gibidonyo i yweyo bote? Pe okwoŋo kwoŋ meno bot jo ma yam pe gubedo luwiny? <verse number="19" style="v" />Pi meno wan waneno ni, jo meno yam pe gutwero donyo pien onoŋo gukwero ye Lubaŋa.</para>
+  <chapter number="4" style="c" />
+  <para style="p">
+    <verse number="1" style="v" />Pi meno cikke me donyo i yweyo pa Lubaŋa pud tye, ento myero wabedu ma lwor, wek ŋat mo i kinwu pe ginoŋ ni opoto woko me o iye. <verse number="2" style="v" />Wan doŋ wawinyo lok me kwena maber bene calo gin, ento lok me kwena ma gin guwinyo pe okonyogi, pien pe orwatte ki niyegi. <verse number="3" style="v" /><note caller="-" style="x"><char style="xo" closed="false">4.3: </char><char style="xt" closed="false">Jab 95.11</char></note>Wan jo ma waye aye wabidonyo i yweyo meno ma yam en oloko pire ni,</para>
+  <para style="q1">“Macalo yam akwoŋo ki kiniga,</para>
+  <para style="q1">‘Gin pe bidonyo i yweyo bota,’” kadi bed ticce onoŋo yam otum woko cakke i acakki piny. <verse number="4" style="v" /><note caller="-" style="x"><char style="xo" closed="false">4.4: </char><char style="xt" closed="false">Acak 2.2</char></note>Pien tye ka mo ka ma yam en oloko i kom nino me abiro ni meno, “Lubaŋa oywe i nino me abiro ki i kom ticce ducu.” <verse number="5" style="v" /><note caller="-" style="x"><char style="xo" closed="false">4.5: </char><char style="xt" closed="false">Jab 95.11</char></note>Ka dok kany en bene oloko ni,</para>
+  <para style="p">“Gin pe bidonyo i yweyo bota.” <verse number="6" style="v" />Kit meno yo pud tye twolo wek jo mogo gudony iye. Jo ma yam gikwoŋo tito botgi lok me kwena maber pe gudonyo, pien gin gukwero bedo ki winy. <verse number="7" style="v" /><note caller="-" style="x"><char style="xo" closed="false">4.7: </char><char style="xt" closed="false">Jab 95.7, 8</char></note>En dok oketo nino mukene ma gilwoŋo ni, “Tin,” kun olok lacen ki i dog Daudi ma doŋ onoŋo okato kare malac ata, i lok ma nene waloko pire, ni,</para>
+  <para style="q1">“Ka wuwinyo dwane tin,</para>
+  <para style="q1">pe wumi cwinywu obed nwaŋ.”</para>
+  <para style="p">
+    <verse number="8" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">4.8: </char>
+      <char style="xt" closed="false">Nwo 31.7; Yoc 22.4</char>
+    </note>Pien ka kono yam Yocwa omiyogi yweyo, kono Lubaŋa pe oloko lacen pi nino mukene. <verse number="9" style="v" />Pi meno, yweyo me cabit pud tye pi jo pa Lubaŋa; <verse number="10" style="v" /><note caller="-" style="x"><char style="xo" closed="false">4.10: </char><char style="xt" closed="false">Acak 2.2</char></note>pien ŋat ma doŋ odonyo i yweyo bot Lubaŋa noŋo doŋ oywe woko ki i ticce, calo Lubaŋa ma yam oywe woko ki i ticce-ni.</para>
+  <para style="p">
+    <verse number="11" style="v" />Doŋ pi man, myero wayelle me donyo i yweyo meno, wek omi ŋat mo pe dok opot woko pi kwero bedo ki winy calo gin. <verse number="12" style="v" />Pien lok pa Lubaŋa obedo gin makwo, dok tiyo matek, bit bene kato pala lucwan ma lebe bit ryoryo woko. Lok meno tuco iwa pil, tuc tuŋcel ka ma tipo ki cwiny gurwatte iye, nyo ka ma waŋ mwot orwatte iye ki moo ma i i cogo, kun poko par ki tam mabecone ki maracone ma tye i i dano. <verse number="13" style="v" />Pe tye gin mo mukanne ki bot Lubaŋa ma en pe neno, jami ducu ma en oketo odurre woko ka maleŋ i waŋe, en aye ŋat ma biŋiyo kwowa.</para>
+  <para style="s1">Yecu en ajwaka madit</para>
+  <para style="p">
+    <verse number="14" style="v" />Kit macalo doŋ watye ki ajwaka madit twatwal ma doŋ otyeko donyo i polo, en Yecu, Wod pa Lubaŋa, pi meno myero wamok matek i niye ma watuco. <verse number="15" style="v" />Pien ajwaka madit ma watye kwede pe obedo ŋat ma pe winyo arem kacel kwedwa pi gorowa, pien en bene Catan yam obite i yo ducu calo wan, ento en pe omedo ki timo bal mo. <verse number="16" style="v" />Iyo, wan myero doŋ wanyiku cok i nyim komker pa Lubaŋa ki tekcwiny, ka ma kica tye iye, wek otimwa kica, wanoŋ bene kica ma konyowa i kare ma mitte.</para>
+  <chapter number="5" style="c" />
+  <para style="p">
+    <verse number="1" style="v" />Pien ajwaka madit acel acel giyero ki i kin lwak, ka gikete me tiyo tic i nyim Lubaŋa ma kakagi, kun tyero mot ki gitum pi bal. <verse number="2" style="v" />En twero tic ki dano ki mwolo, jo ma kwiya piny ki jo muŋak, pien en kikome bene noŋo goro oketo kome woko. <verse number="3" style="v" /><note caller="-" style="x"><char style="xo" closed="false">5.3: </char><char style="xt" closed="false">Levi 9.7</char></note>Pi man, en myero otyer gitum pi balle en kikome, kacel ki pi bal pa lwak. <verse number="4" style="v" /><note caller="-" style="x"><char style="xo" closed="false">5.4: </char><char style="xt" closed="false">Nia 28.1</char></note>Dok bene pe tye ŋat mo ma yerre kene pi dit man, Lubaŋa aye ma lwoŋe iye, macalo olwoŋo Aron.</para>
+  <para style="p">
+    <verse number="5" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">5.5: </char>
+      <char style="xt" closed="false">Jab 2.7</char>
+    </note>Kit meno bene, Kricito yam pe oketo deyo i kome kekene me bedo ajwaka madit, ento Lubaŋa aye muyere, kun wacce ni,</para>
+  <para style="q1">“In i Woda,</para>
+  <para style="q1">tin doŋ anywali”; <verse number="6" style="v" /><note caller="-" style="x"><char style="xo" closed="false">5.6: </char><char style="xt" closed="false">Jab 110.4</char></note>macalo owaco bene ka mukene ni,</para>
+  <para style="q1">“In ibedo ajwaka nakanaka,</para>
+  <para style="q1">i kit pa Melkijedek.”</para>
+  <para style="p">
+    <verse number="7" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">5.7: </char>
+      <char style="xt" closed="false">Mat 26.36-46; Mar 14.32-42; Luka 22.39-46</char>
+    </note>Yecu yam ocwalo legane bot Lubaŋa, i kare me kwone i lobo man, en aye bot ŋat ma yam twero lare ki i to, kun bako doge ma pe twerre ki koko ki pig waŋe, ci Lubaŋa bene owinye pi mwolone bote. <verse number="8" style="v" />Kadi en obedo Wod pa Lubaŋa, yam en opwonnye me bedo ki winy pi can ma en doŋ oneno. <verse number="9" style="v" />Ka doŋ oteggi, ci odoko ŋat ma kelo larre ma pe tum bot dano ducu ma winyo en, <verse number="10" style="v" />Lubaŋa cut oyere me bedo ajwaka madit i kit pa Melkijedek.</para>
+  <para style="s1">Ciko jo ma mito ŋak woko</para>
+  <para style="p">
+    <verse number="11" style="v" />Watye ki lok mapol ma myero walok i lok man, ento tek twatwal me niaŋowu, kit macalo wun doŋ wudoko nyap ka winyo lokwa-ni. <verse number="12" style="v" /><note caller="-" style="x"><char style="xo" closed="false">5.12, 13: </char><char style="xt" closed="false">1 Kor 3.2</char></note>Kombeddi onoŋo doŋ wuromo bedo lupwony, ento myero ŋat mo koŋ dok opwonywu odoco i lok mukwoŋo ma dok i kom lok pa Lubaŋa. Mito gipitwu koŋ ki cak, ento pe cam matek. <verse number="13" style="v" />Pien ŋat ma doto cak pe tye ki ŋec mo ma dok i kom bedo ki kit ma atir, pien noŋo pud en latin. <verse number="14" style="v" />Doŋ cam matek tye pi jo muteggi, ma ryekogi ma gupwonnye kwede me poko gin maber ki gin marac doŋ ojiŋ pi ketone i tic.</para>
+  <chapter number="6" style="c" />
+  <para style="p">
+    <verse number="1" style="v" />Pi meno, koŋ waweku lok mukwoŋo i kom Kricito, ento wamedde anyim ki pwony pa jo muteggi, kun pe dok wanwoyo keto te gutine, ma en aye ŋut i kom tic ducu ma yam kwo pe iye, ki moko niyewa i kom Lubaŋa, <verse number="2" style="v" />ki dok me pwonnye i kom lok magi: kit batija mapatpat, keto ciŋ i wi dano, cer pa jo muto, ki kop ma giŋolo matwal. <verse number="3" style="v" />Wabitiyo man giwa ka Lubaŋa oye. <verse number="4" style="v" />Jo ma doŋ koŋ ceŋ omenyogi kicel, ma gubilo mot ma oa ki i polo, kun gibedo i kin jo mulimo Cwiny Maleŋ, <verse number="5" style="v" />ma bene doŋ gutyeko bilo lok pa Lubaŋa kit ma mit kwede dok gubilo gin ma bitimme i kare ma bibino i anyim, kit jo meno ka guŋak woko, pe dok gitwero rocogi wek gudok manyen ka doŋ guŋuti. <verse number="6" style="v" />Ka doŋ guŋak woko, meno gitye ka guro Wod pa Lubaŋa i kom yatariya pigi kengi, kun giketo lewic i kome i nyim lwak. <verse number="7" style="v" />Pien Lubaŋa miyo gum i kom lobo ma mato kot ma cwer i kome kare ki kare, ka dok ceko ginapita ma konyo jo ma gipuro pigi. <verse number="8" style="v" /><note caller="-" style="x"><char style="xo" closed="false">6.8: </char><char style="xt" closed="false">Acak 3.17, 18</char></note>Ento ka ce onyayo okuto ki ocok, konnye noŋo doŋ pe, kuro mere ka cen pa Lubaŋa keken, agikkine en aye mac ma gibiwaŋo kwede woko. <verse number="9" style="v" />Ento wun, luwota, kadi bed waloko kit man, wageno ni wutye maber ma wukato jo meno i lok ma dok i larre. <verse number="10" style="v" />Pien Lubaŋa gire pe ye gin ma pe tye kakare, wiye pe biwil i kom tic ma yam wutiyo, kadi ki mar ma wunyuto pire ki konyo jo pa Lubaŋa, ma pud wutye ka konyogi bene wa i kare-ni. <verse number="11" style="v" />Doŋ wamito ŋat acel acel i kinwu oket cwinye nio wa agikki, wek omi gin ma wuketo iye genwu-ni ocobbe kakare. <verse number="12" style="v" />Pe wudok luwackom, ento wulub kit pa jo ma pi niyegi, ki pi diyo cwinygi, gitye ka noŋo gin ma yam Lubaŋa ociko pire.</para>
+  <para style="s1">Cikke pa Lubaŋa me ada</para>
+  <para style="p">
+    <verse number="13" style="v" />I kare ma Lubaŋa cikke bot Abraim, kit macalo pe tye ŋat mo ma kate-ni ki dit ma myero en okwoŋ ki nyiŋe, en okwoŋo ki nyiŋe kekene, <verse number="14" style="v" /><note caller="-" style="x"><char style="xo" closed="false">6.14: </char><char style="xt" closed="false">Acak 22.16, 17</char></note>kun waco ni, “Adada abimii gum, dok abimiyo likwayu ginya gidoko mapol.” <verse number="15" style="v" />Doŋ Abraim pi diyo cwinye omiyo en onoŋo gin ma yam Lubaŋa ociko pire. <verse number="16" style="v" />Ka dano mo kwoŋo kwoŋ ci kwoŋo ki nyiŋ ŋat madit loye, dok ka pyem mo tye i kin dano, lok ma gimoko ki kwoŋ aye ma tyeko pyem meno. <verse number="17" style="v" />En gin mumiyo Lubaŋa omoko cikkene ki kwoŋ, pien onoŋo mito nyuto maber twatwal bot jo ma myero gunoŋ gin ma giciko pire ni, gin ma en doŋ etyeko yubo, pe dok ebiloko woko. <verse number="18" style="v" />Tye doŋ jami aryo ma pe dok lokke, ma Lubaŋa pe twero bwolo iye dano. Pi man, wan jo ma wariŋo walaro bote watye ki gin ma cuko cwinywa matek wek wamak gen ma giketo i nyimwa. <verse number="19" style="v" /><note caller="-" style="x"><char style="xo" closed="false">6.19: </char><char style="xt" closed="false">Levi 16.2</char></note>Watye ki gen man macalo lajuk me mel, ma cwinywa cuŋ iye matek, ma pe wawirre atata. Gen meno donyo wa i kabedo maleŋ i ot pa Lubaŋa, i ŋe boŋo kicika, <verse number="20" style="v" /><note caller="-" style="x"><char style="xo" closed="false">6.20: </char><char style="xt" closed="false">Jab 110.4</char></note>ka ma Yecu otelo yo odonyo iye piwa, kun doŋ odoko ajwaka madit ma bedo nakanaka i kit pa Melkijedek.</para>
+  <chapter number="7" style="c" />
+  <para style="s1">Kit pa Melkijedek ma obedo ajwaka</para>
+  <para style="p">
+    <verse number="1" style="v" />Melkijedek man yam obedo kabaka me Calem, dok bene ajwaka pa Lubaŋa Mamalo Twal. En orwatte ki Abraim i kare ma Abraim onoŋo doŋ dwogo ki ka neko luker ca, ci cut olamo gum i kom Abraim; <verse number="2" style="v" />ka doŋ Abraim opokke dul acel me apar me jami ducu ma en onoŋo. Mukwoŋo en kabaka me kit ma atir, man aye te lok me nyiŋe, dok bene en kabaka me Calem, ma te lokke ni, “Kabaka me kuc.” <verse number="3" style="v" />Wonne mo pe, minne-gu pe, kwarine bene pe, acakki me karene, kadi wa agikki me kwone bene pe. En obedo cal ki Wod pa Lubaŋa, obedo ajwaka nakanaka.</para>
+  <para style="p">
+    <verse number="4" style="v" />Koŋ wunen kit ma en dit kwede! Abraim, ma en aye kwarowa, yam omiyo bote dul acel me apar me jami ma en oyako. <verse number="5" style="v" /><note caller="-" style="x"><char style="xo" closed="false">7.5: </char><char style="xt" closed="false">Wel 18.21</char></note>Doŋ jo ma i kin likwayo pa Levi ma gubedo ajwagi, cik pa Moses yam ocikogi me jogo dul acel me apar ki bot jo Icrael. Meno onoŋo gijogo ki bot utmegigi, kadi bed gin bene gubedo likwayo pa Abraim. <verse number="6" style="v" />Ento danu-nu ma kwarone pat ki megi-ni ogamo dul acel me apar ki bot Abraim, ka dok olamo gum i kom ŋat ma Lubaŋa ocikke bote. <verse number="7" style="v" />Pe dok tye kalo akala mo me waco ni, lalam gum dit kato ŋat ma en olamo gum i kome. <verse number="8" style="v" />Dok ki tuŋcel waneno ni, jo ma jogo dul acel me apar gin jo ma to woko, ento ki tuŋcel ŋat ma jogo en ŋat ma yam gicoyo lok i kome ni pud kwo. <verse number="9" style="v" />Ŋat mo twero waco ni, ka Abraim, omiyo dul acel me apar, Levi bene kikome, ma jogo dul acel me apar, yam omiyo mere kun wok ki bot Abraim, <verse number="10" style="v" />pien i kare ca onoŋo en pud tye i kom Abraim ma kwarone i kare ma Melkijedek rwatte kwede ca.</para>
+  <para style="p">
+    <verse number="11" style="v" />Doŋ ka kono yam gin ducu twero cobbe kakare pi ajwagi ma gin Lulevi, ma jo Icrael yam gunoŋo cik pa Lubaŋa kacel kwedgi-ni, piŋo gimito ni ajwaka mukene dok obin i kit pa Melkijedek, kun pe giwaco ni, i kit pa Aron? <verse number="12" style="v" />Pi meno ka giloko ajwaka, ci cik bene myero gilok woko. <verse number="13" style="v" />Pien Rwotwa ma giloko lok magi i kome-ni obedo dano me kaka mukene, ma ŋat mo i kingi peya otiyo tic mo i kom keno tyer. <verse number="14" style="v" />Ŋene gire maber ni, Rwotwa yam oa ki i kin likwayo pa Juda, dok Moses yam pe oloko lok mo i kom kaka meno ma mako ajwagi.</para>
+  <para style="s1">Ajwaka mukene ma cal ki Melkijedek</para>
+  <para style="p">
+    <verse number="15" style="v" />Lok man doŋ otyeko nen woko ka maleŋ makato ka ajwaka mukene otuc macalo Melkijedek, <verse number="16" style="v" />ma odoko ajwaka, pe pi cik mo ma lubo kaka, ento pi tek me kwone ma gin mo pe romo tyeko. <verse number="17" style="v" /><note caller="-" style="x"><char style="xo" closed="false">7.17: </char><char style="xt" closed="false">Jab 110.4</char></note>Pien coc ma yam gicoyo oloko ni,</para>
+  <para style="q1">“En bibedo ajwaka nakanaka,</para>
+  <para style="q1">i kit pa Melkijedek.”</para>
+  <para style="p">
+    <verse number="18" style="v" />Cik macon doŋ gibolo woko, pien onoŋo goro, dok konnye pe, <verse number="19" style="v" />pien cik pa Moses yam pe ocobo gin mo kakare, ento kombeddi doŋ gikelo gen mo maber makato, ma twero miyo wanyiko cok bot Lubaŋa.</para>
+  <para style="p">
+    <verse number="20" style="v" />Medo i kom meno bene, Lubaŋa yam okwoŋo kwoŋ i kome. Jo mukene ca gudoko ajwagi laboŋo kwoŋ mo, <verse number="21" style="v" /><note caller="-" style="x"><char style="xo" closed="false">7.21: </char><char style="xt" closed="false">Jab 110.4</char></note>ento Yecu odoko ajwaka pi kwoŋ pa Lubaŋa ma yam owacce ni,</para>
+  <para style="q1">“Rwot doŋ okwoŋo kwoŋ,</para>
+  <para style="q1">pe dok biloko tamme,</para>
+  <para style="q1">‘In ibedo ajwaka nakanaka.’” <verse number="22" style="v" />Meno omiyo gicikke ma Yecu ocuŋ pire obedo ber makato mukene ca.</para>
+  <para style="p">
+    <verse number="23" style="v" />Ajwagi mukene ca onoŋo yam welgi dwoŋ, pien to onoŋo ogeŋo nyimgi woko wek pe gumedde ki tic, <verse number="24" style="v" />ento Yecu bedo i dog ticce me ajwaka matwal, pien en bedo nakanaka. <verse number="25" style="v" />Mumiyo i kare ducu en tye ki twer me laro jo ma nyiko cok bot Lubaŋa, kun giwok ki bote, pien en bedo kwo kare ducu ka bako doge pigi.</para>
+  <para style="p">
+    <verse number="26" style="v" />Ajwaka madit macalo meno aye ma romo cobo mitiwa. En leŋ, gin mo marac pe i iye, cilo me bal pe ogude. Yam gipoko en woko ki i kom lubalo, gitiŋe malo i wi polo. <verse number="27" style="v" />En pe calo ajwagi mukene madito ca, ma gityero gitum bot lubaŋa jwijwi, mukwoŋo pi balgi kengi, ka lacen doŋ pi bal pa lwak. Yecu otyero gitum kicel keken ma otyeko lok ducu i kare ma omine kene macalo gitum. <verse number="28" style="v" />Adada, cik pa Moses yero jo magoro ketogi bedo ajwagi madito, ento lok me kwoŋ ma gikwoŋo lacen i ŋe cik, oyero Wod pa Lubaŋa oketo obedo muporre matwal.</para>
+  <chapter number="8" style="c" />
+  <para style="s1">Ajwaka madit me gicikke manyen</para>
+  <para style="p">
+    <verse number="1" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">8.1: </char>
+      <char style="xt" closed="false">Jab 110.1</char>
+    </note>Kombeddi gin ma pire dit ma watye ka lokone kany en ene: Wan watye ki ajwaka madit macalo man, ma doŋ obedo i kabedo me deyo yo tuŋ acuc i ŋet komker pa Won Deyo Madit i polo. <verse number="2" style="v" />En tiyo ticce i kabedo maleŋ, i kema me ada ma Rwot aye oguro, ento pe dano. <verse number="3" style="v" />Ajwaka madit acel acel giyere me miyo mot ki tyero gitum bot Lubaŋa; pi meno mitte bene ni Yecu myero obed ki gin mo me atyera. <verse number="4" style="v" />Kono nene en tye i lobo kany, kono pe obedo ajwaka wacel, pien ajwagi doŋ tye ma gimiyo mot kun gilubo cik pa Moses. <verse number="5" style="v" /><note caller="-" style="x"><char style="xo" closed="false">8.5: </char><char style="xt" closed="false">Nia 25.40</char></note>Ento gin ma gitiyo giporo ki tipo ki cal keken me kabedo maleŋ ma tye i polo; pien i kare ma Moses doŋ yam cok guro kema, Lubaŋa ocike ni, “Nen ni itiyo jami ducu kun ilubo kit cal ma ginyutti ki i wi got.” <verse number="6" style="v" />Ento kit macalo tye, Kricito doŋ onoŋo tic maber atika makato megi-ni woko, rom ki kit gicikke ma en oyubo ma obedo ber matek makato mukene macon ca, pien Lubaŋa omoko kun onoŋo ociko pi miyo jami mabeco makato. <verse number="7" style="v" />Kono ka bal mo obedo pe i gicikke mukwoŋo, kono onoŋo gicikke mo me aryo doŋ pe mitte.</para>
+  <para style="p">
+    <verse number="8" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">8.8-12: </char>
+      <char style="xt" closed="false">Jer 31.31-34</char>
+    </note>Ento Lubaŋa onoŋo bal tye i komgi, pien owaco ni,</para>
+  <para style="q1">“Kare biromo, man lok pa Rwot,</para>
+  <para style="q1">ma abimoko iye gicikkena manyen</para>
+  <para style="q1">ki jo me doggola pa Icrael,</para>
+  <para style="q1">ki jo me doggola pa Juda. <verse number="9" style="v" />Pe dok bibedo calo gicikke ma yam aketo ki kwarogi ca,</para>
+  <para style="q1">i kare ma yam amako kwede ciŋgi,</para>
+  <para style="q1">ci akwanyogi woko ki i lobo Ejipt;</para>
+  <para style="q1">pien gin yam pe gulubo gicikkena,</para>
+  <para style="q1">omiyo an bene atenyogi woko ata,</para>
+  <para style="q1">man lok pa Rwot</para>
+  <para style="q1">
+    <verse number="10" style="v" />Man aye gicikke ma abiketo ki jo</para>
+  <para style="q1">me doggola pa Icrael</para>
+  <para style="q1">ka kare meno oromo,</para>
+  <para style="q1">Rwot ma awaco:</para>
+  <para style="q1">Abiketo cikka ducu i tamgi,</para>
+  <para style="q1">abicoyo bene bedo i cwinygi.</para>
+  <para style="q1">An abibedo Lubaŋagi,</para>
+  <para style="q1">gin gibedo jona.</para>
+  <para style="q1">
+    <verse number="11" style="v" />Ŋat mo doŋ pe bipwonyo lutugi,</para>
+  <para style="q1">dok ŋat mo bene pe biwaco</para>
+  <para style="q1">ki ominne ni, ‘Ŋe Rwot,’</para>
+  <para style="q1">pien gin ducu gibiŋeya,</para>
+  <para style="q1">cakke ki i kom jo matino ma i kingi,</para>
+  <para style="q1">o kwede wa i kom jo madito.</para>
+  <para style="q1">
+    <verse number="12" style="v" />Pien abitimo botgi kica i timgi</para>
+  <para style="q1">maraco ducu,</para>
+  <para style="q1">pe dok abipo i kom balgi mo kadi ki acel.”</para>
+  <para style="p">
+    <verse number="13" style="v" />Ka oloko pi gicikke manyen, en tamo pi gicikke mukwoŋo ca macalo gin ma karene okato woko. Gin ma karene doŋ okato, ma oti woko bene, noŋo doŋ cok rwenyo.</para>
+  <chapter number="9" style="c" />
+  <para style="s1">Kabedo maleŋ me lobo ki me polo</para>
+  <para style="p">
+    <verse number="1" style="v" />Kadi gicikke mukwoŋo ca bene yam obedo ki cik mogo me woro Lubaŋa, dok bene obedo ki kabedo mo maleŋ me lobo man. <verse number="2" style="v" /><note caller="-" style="x"><char style="xo" closed="false">9.2: a </char><char style="xt" closed="false">Nia 26.1-30; </char><char style="xo" closed="false">b </char><char style="xt" closed="false">Nia 25.31-40; </char><char style="xo" closed="false">c </char><char style="xt" closed="false">Nia 25.23-30</char></note>Pien yam tye kema ma giyubo, ma obedo ki dul acel yo tuŋ woko ma gilwoŋo ni Kabedo Maleŋ, ma tye iye okar-mac, ki meja, ki mugati ma giketo i nyim Lubaŋa. <verse number="3" style="v" /><note caller="-" style="x"><char style="xo" closed="false">9.3: </char><char style="xt" closed="false">Nia 26.31-33</char></note>I ŋe boŋo kicika me aryo yam tye iye kema ma gilwoŋo ni Kabedo Maleŋ Makato Ducu. <verse number="4" style="v" /><note caller="-" style="x"><char style="xo" closed="false">9.4: a </char><char style="xt" closed="false">Nia 30.1-6; </char><char style="xo" closed="false">b </char><char style="xt" closed="false">Nia 25.10-16; </char><char style="xo" closed="false">c </char><char style="xt" closed="false">Nia 16.33; </char><char style="xo" closed="false">d </char><char style="xt" closed="false">Wel 17.8-10; </char><char style="xo" closed="false">e </char><char style="xt" closed="false">Nia 25.16; Nwo 10.3-5</char></note>Keno tyer ma gitiyo ki jabu tye iye kunnu me waŋo odok eceta, ki canduk me gicikke ma gimwono kome woko ki jabu. I canduk me gicikke yam tye iye abino jabu ki manna ki odoo pa Aron ma yam olot-ti, ki got ma apada aryo ma ceŋ gicoyo iye lok me gicikkene. <verse number="5" style="v" /><note caller="-" style="x"><char style="xo" closed="false">9.5: </char><char style="xt" closed="false">Nia 25.18-22</char></note>Ka wi canduk yam tye iye lukerubi me deyo, ma guumo kom me kica woko ducu ki bwomgi. Jami magi pe gitwero loko gin mo iye kikore kombeddi.</para>
+  <para style="p">
+    <verse number="6" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">9.6: </char>
+      <char style="xt" closed="false">Wel 18.2-6</char>
+    </note>Meno aye kit ma yam giyubo kwede. Ajwagi yam gidonyo i kema jwijwi teretere ka cobo ticgi me woro Lubaŋa. <verse number="7" style="v" /><note caller="-" style="x"><char style="xo" closed="false">9.7: </char><char style="xt" closed="false">Levi 16.2-34</char></note>Ento kema me aryo ajwaka madit keken aye donyo iye kene, dok bene donyo iye kicel keken i mwaka acel acel, kun pe cito kunnu laboŋo remo, ma en tero me atyera pi balle ki pi bal pa lwak. <verse number="8" style="v" />Man aye ma miyo Cwiny Maleŋ nyuto ka maleŋ ni, yo me donyo i kabedo maleŋ peya giyabo ka kema mukwoŋo ma woko ca pud ocuŋ. <verse number="9" style="v" />Man aye lanyut me cal me kare man. Man te lokke ni, mot ki gitum ma gityero bot Lubaŋa pe twero miyo ŋat mo ma woro Lubaŋa doko dano ma cwinye leŋ, <verse number="10" style="v" />pien gitiko ka cam ki mat ki kit lwok mapatpat. Magi ducu gubedo cik ma nen ki woko me kom ma tye ka tic nio wa i kare ma Lubaŋa biloko jami ducu bedo manyen.</para>
+  <para style="p">
+    <verse number="11" style="v" />Ento ka Kricito doŋ obino, ma en aye ajwaka madit me jami mabeco ma bibino, kema ma en tiyo iye kato maca, odoko dit maber makato maca, pien pe gitiyo ki ciŋ, man te lokke ni, pe gin me lobo man. <verse number="12" style="v" />En odonyo i Kabedo Maleŋ Makato Ducu kicel keken ma doŋ otyeko lok woko ducu, kun pe otero remo dyegi ki remo litino twoni, ento otero remone kikome, ci okokowa kwede doŋ matwal. <verse number="13" style="v" /><note caller="-" style="x"><char style="xo" closed="false">9.13: a </char><char style="xt" closed="false">Levi 16.15, 16; </char><char style="xo" closed="false">b </char><char style="xt" closed="false">Wel 19.9, 17-19</char></note>Remo dyegi ki twoni, ki buru roya ma giwaŋo, ka gikiro i kom jo mubalo kwer, romo lonyogi, kun lwoko komgi bedo maleŋ. <verse number="14" style="v" />Remo pa Kricito pe kato maca mada? Pi Cwiny Maleŋ ma bedo matwal, omiyo en omine kene bot Lubaŋa kun roc mo pe i kome, pi lonyo cwinywu ma onoŋo ocido woko macol licuc pi tiyo tic ma kwo pe iye, wek wubed ma iwu leŋ, ka doŋ wawor Lubaŋa makwo.</para>
+  <para style="p">
+    <verse number="15" style="v" />Pi meno Kricito aye ŋat muyubo gicikke manyen, wek emi jo ma gilwoŋo gunoŋ lim ma ri nakanaka ma Lubaŋa ociko me miyone; pi to ma yam onen, omiyo jo ma yam gikalo wi cik i te gicikke mukwoŋo kombeddi doŋ gikokogi woko. <verse number="16" style="v" />Pien ka ma gicikke me leyo lim tye iye, myero koŋ gimok ni, ŋat muciko doŋ oto. <verse number="17" style="v" />Kodi gicikke meno twero tic lacen i ŋe to keken; pe tye ki twer mo ka ŋat muciko pud kwo. <verse number="18" style="v" />Pi meno kadi wa gicikke mukwoŋo ca gimoko ki remo. <verse number="19" style="v" /><note caller="-" style="x"><char style="xo" closed="false">9.19, 20: </char><char style="xt" closed="false">Nia 24.6-8</char></note>Pien i kare ma yam Moses otyeko tito bot lwak gin ma giciko ducu ma tye i i cik, en okwanyo remo roci dyaŋ ki dyegi, kacel ki pii, ki yer romo makwar, ki yat anyero, okiro i kom buk kikome, ki i kom lwak ducu bene, <verse number="20" style="v" />kun waco ni, “Man aye remo me gicikke ma Lubaŋa ocikowu pire.” <verse number="21" style="v" /><note caller="-" style="x"><char style="xo" closed="false">9.21: </char><char style="xt" closed="false">Levi 8.15</char></note>Dok i yo acel-lu, Moses okiro remo i kom kema ki jami ducu ma gitiyo kwedgi me woro Lubaŋa. <verse number="22" style="v" /><note caller="-" style="x"><char style="xo" closed="false">9.22: </char><char style="xt" closed="false">Levi 17.11</char></note>I te cik, nen calo jami ducu gilonyo woko ki remo; ka ma pe gioyo iye remo, weko bal bene bedo pe iye.</para>
+  <para style="s1">Mine pa Kricito kene okwanyo bal</para>
+  <para style="p">
+    <verse number="23" style="v" />Onoŋo oporre kakare pi jami ma obedo lapor keken me gin ma tye i polo myero gilonygi gubed leŋ kit meno, ento jami me polo kikomgi myero olony ki gitum mabeco makato magi-gu ducu. <verse number="24" style="v" />Pien Kricito pe odonyo i kabedo maleŋ ma dano otiyo ki ciŋ, ma obedo lapor ki kabedo maleŋ me adane, ento odonyo i polo kikome, ma i kare man en tye ka nen kunnu i nyim Lubaŋa piwa. <verse number="25" style="v" />Dok bene en pe odonyo me mine kene kare ki kare calo ajwaka madit ma donyo i kabedo maleŋ mwaka ki mwaka, kun tero remo ma pe remone kikome. <verse number="26" style="v" />Ka nene obedo kit meno, kono en onwoyo to kare ki kare cakke i acakki piny. Ento kit ma tye kwede-ni, en onen kicel keken i agikki me kare wek ekwany bal woko pi mine kene macalo gitum. <verse number="27" style="v" />Dok kit macalo giyubo ni, dano to kicel, ka doŋ ki i ŋeye ŋolo kop cakke, <verse number="28" style="v" /><note caller="-" style="x"><char style="xo" closed="false">9.28: </char><char style="xt" closed="false">Ic 53.12</char></note>kit meno Kricito bene otyerre kene kicel me tiŋo bal pa jo mapol, dok binen tyen me aryo, pe doŋ pi tic i kom bal, ento pi laro jo ma tye ka kure.</para>
+  <chapter number="10" style="c" />
+  <para style="p">
+    <verse number="1" style="v" />Cik pa Moses gire tye iye tipo keken me jami mabeco me kare me anyim, pe calgi kikome. Pi cik dano gibedo ka kelo gitum ma kitgi acel nakanaka, mwaka ki mwaka; en doŋ pe tye ki twero mo matwal me loko jo ma bino bot Lubaŋa gudok jo mabeco muteggi. <verse number="2" style="v" />Ka nene tye kit meno, kono gitum pe doŋ ogik woko? Kono jo ma woro Lubaŋa doŋ gilwoko balgi woko matwal, kono pe dok gimedde me bedo ki kit ŋec mo i cwinygi ni gin lubalo. <verse number="3" style="v" />Ento gitum magi bedo ka poyo wi dano i balgi mwaka ki mwaka. <verse number="4" style="v" />Pien remo twoni ki remo dyegi pe twero kwanyo bal woko wacel. <verse number="5" style="v" /><note caller="-" style="x"><char style="xo" closed="false">10.5-7: </char><char style="xt" closed="false">Jab 40.6-8</char></note>Pi lok man, i kare ma Kricito obino i lobo, en oloko ni,</para>
+  <para style="q1">“In giri pe imito gitum kadi gityer,</para>
+  <para style="q1">ento iketo koma tye. <verse number="6" style="v" />Ii pe obedo yom pi gitum awaŋa ki</para>
+  <para style="q1">gitum ma gityero pi bal. <verse number="7" style="v" />Ka doŋ awaco ni, ‘An a ene, doŋ</para>
+  <para style="q1">abino ka cobo mitini, in Lubaŋa,’</para>
+  <para style="q1">macalo yam gicoyo i koma i buk adola.”</para>
+  <para style="m">
+    <verse number="8" style="v" />Mukwoŋo en oloko ni, “In pe imito gitum, kadi mot ma gityero, nyo gitum awaŋa ki gitum pi bal, cwinyi bene pe yom iye,” ma gin jami ma gityero pi cik. <verse number="9" style="v" />Ka dok oloko ni, “An a ene, doŋ abino ka cobo mitini.” Ojwayo mukwoŋone-ni woko wek omi ekel me aryone. <verse number="10" style="v" />Doŋ pi mitine meno, omiyo gilonyowa wadoko leŋ pi Yecu Kricito mumiyo kome ma ka gitum kicel keken ma otyeko lok woko ducu.</para>
+  <para style="p">
+    <verse number="11" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">10.11: </char>
+      <char style="xt" closed="false">Nia 29.38</char>
+    </note>Ajwaka acel acel cuŋ i dog ticce nino ducu kun tyero kit gitum acel-lu kare ki kare ma pe tye ki twero mo matwal me kwanyo bal. <verse number="12" style="v" /><note caller="-" style="x"><char style="xo" closed="false">10.12, 13: </char><char style="xt" closed="false">Jab 110.1</char></note>Ento Kricito yam otyero gitum acel keken pi bal, pi kare ducu, ka doŋ obedo piny i ŋet Lubaŋa tuŋ acuc i kabedo me deyo. <verse number="13" style="v" />Nia wa i kare ca en tye ka kuro nio ka gimiyo lukworre doko kom laten tyene, <verse number="14" style="v" />pien gitumme acel-lu omiyo jo ma en olonyogi bedo leŋ gudoko jo mabeco muteggi matwal. <verse number="15" style="v" />Cwiny Maleŋ bene omiyo cadenne botwa, pien ka doŋ oloko ni,</para>
+  <para style="q1">
+    <verse number="16" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">10.16: </char>
+      <char style="xt" closed="false">Jer 31.33</char>
+    </note>“Man aye gicikke ma abiketo ki jo</para>
+  <para style="q1">me doggola pa Icrael,</para>
+  <para style="q1">ka kare meno okato, man lok pa</para>
+  <para style="q1">Rwot:</para>
+  <para style="q1">Abiketo cikka ducu i cwinygi,</para>
+  <para style="q1">kun acoyo bedo i tamgi,” <verse number="17" style="v" /><note caller="-" style="x"><char style="xo" closed="false">10.17: </char><char style="xt" closed="false">Jer 31.34</char></note>ka dok omedde kun loko ni,</para>
+  <para style="q1">“Pe dok abipo i kom balgi ki timgi</para>
+  <para style="q1">maraco.” <verse number="18" style="v" />Ka ma weko bal tye iye, gitum mo pi</para>
+  <para style="q1">bal doŋ pe mitte.</para>
+  <para style="s1">Wanyiku cok ki Lubaŋa</para>
+  <para style="p">
+    <verse number="19" style="v" />Pi meno, utmegina, wan doŋ watye ki yo me donyo i kabedo maleŋ ki tekcwiny pi remo pa Yecu. <verse number="20" style="v" />En oyabo botwa yo manyen, yo makwo, me donyo i ŋe boŋo kicika; yo meno aye en kome. <verse number="21" style="v" />Kit macalo doŋ watye ki ajwaka madit ma loyo ot pa Lubaŋa, <verse number="22" style="v" /><note caller="-" style="x"><char style="xo" closed="false">10.22: </char><char style="xt" closed="false">Levi 8.30; Ejek 36.25</char></note>myero doŋ wanyiku cok bot Lubaŋa ki cwiny me ada, kun niye bene doŋ odonyo matut i cwinywa, ma doŋ cwinywa leŋ, pien ŋec me gin maraco ma yam watimo doŋ gikwanyo woko, dok bene komwa doŋ gilwoko woko ki pii maleŋ. <verse number="23" style="v" />Wamoku matek likiŋ i gen ma watuco, laboŋo tagge atata, pien ŋat ma ocikowa-ni lagen. <verse number="24" style="v" />Dok bene myero watamu kit macalo watwero tugo kwede cwinywa kekenwa i mar ki i tiyo tic mabeco, <verse number="25" style="v" />kun pe waweko cokke kacel, kit macalo jo mogo doŋ guloko odoko kitgi-ni, ento myero wacuku cwinywa kekenwa, makatone kit macalo wuneno Nino maca doŋ tye ka nyiko cok-ki.<figure style="fig" desc="" file="5901025.TIF" size="col" loc="" copy="" ref="10.25">Pe wuweko cokke kacel</figure></para>
+  <para style="p">
+    <verse number="26" style="v" />Pien ka watimo bal akaka ma doŋ noŋo watyeko limo ŋec i kom lok me ada, gitum mo pe dok odoŋ ma gityero pi balwa. <verse number="27" style="v" /><note caller="-" style="x"><char style="xo" closed="false">10.27: </char><char style="xt" closed="false">Ic 26.11</char></note>Odoŋ kuro ŋolo kop keken kun watye ki lworo madwoŋ, ki mac mager ma bityeko dano ma gipyem ki Lubaŋa. <verse number="28" style="v" /><note caller="-" style="x"><char style="xo" closed="false">10.28: </char><char style="xt" closed="false">Nwo 17.6; 19.15</char></note>Dano ma pe lubo cik pa Moses gineko aneka laboŋo kica mo, ka ce lok oloye i nyim caden aryo nyo adek. <verse number="29" style="v" /><note caller="-" style="x"><char style="xo" closed="false">10.29: </char><char style="xt" closed="false">Nia 24.8</char></note>Doŋ wutamo ni can ma rom mene ma gibiketo i kom ŋat ma ocayo Wod pa Lubaŋa, dok ma opyedo remo me gicikke pa Lubaŋa ma gilonye kwede me bedo maleŋ, dok ma oŋalo Cwiny Maleŋ me kica pa Lubaŋa? <verse number="30" style="v" /><note caller="-" style="x"><char style="xo" closed="false">10.30: a </char><char style="xt" closed="false">Nwo 32.35; </char><char style="xo" closed="false">b </char><char style="xt" closed="false">Nwo 32.36</char></note>Pien wan waŋeyo ŋat ma oloko ni, “An aye abiculo kwor, abiculo waŋe lacen,” dok ni, “Rwot biŋolo kop i kom jone.” <verse number="31" style="v" />Bedo gin me lworo twatwal me poto i ciŋ Lubaŋa makwo.</para>
+  <para style="p">
+    <verse number="32" style="v" />Ento koŋ doŋ wupo i kare mukato, kit ma yam wuciro kwede, kun wulwenyo ki lwak cam madwoŋ, i kare ma doŋ ceŋ pa Lubaŋa otyeko ryeny omenyowu. <verse number="33" style="v" />Kare mukene yam giyetowu dok giunowu i nyim lwak, kare mukene bene wuribbe ki jo ma gitimogi kit meno. <verse number="34" style="v" />Pien kica yam omakowu i kom mabuc, dok bene cwinywu obedo yom kadi giyako jamiwu, pien wun kikomwu onoŋo doŋ wuŋeyo ni wutye ki jami mukene mabeco makato magi, dok ma ri nakanaka. <verse number="35" style="v" />Pi meno pe wubwot tekcwiny woko, pien tye ki bakacic madit ma wubilimo. <verse number="36" style="v" />Mito wubed kun wuciro, wek omi wuti gin ma Lubaŋa mito, ci doŋ wunoŋo gin ma yam en ociko pire. <verse number="37" style="v" /><note caller="-" style="x"><char style="xo" closed="false">10.37, 38: </char><char style="xt" closed="false">Kab 2.3-4 </char></note>Macalo yam en oloko ni,</para>
+  <para style="q1">“Odoŋ kare manok mo,</para>
+  <para style="q1">ci ŋat ma bino ca bibino woko</para>
+  <para style="q1">oyotoyot ma pe bigalle.</para>
+  <para style="q1">
+    <verse number="38" style="v" />Doŋ danona ma kite atir bibedo</para>
+  <para style="q1">kwo pi niye;</para>
+  <para style="q1">ento ka odok woko cen,</para>
+  <para style="q1">cwinya pe bibedo yom i kome.”</para>
+  <para style="p">
+    <verse number="39" style="v" />Ento wan pe watye i kin jo ma dok cen, ka girwenyo woko matwal-li; wan watye i kin jo ma gitye ki niye, ma en aye doŋ gwoko kwogi.</para>
+  <chapter number="11" style="c" />
+  <para style="s1">Niye</para>
+  <para style="p">
+    <verse number="1" style="v" />Niye aye ma moko gin ma dano geno, en gin ma niaŋowa maber ni, jami ma pe gineno komgi gitye. <verse number="2" style="v" />Pire omiyo Lubaŋa opwoyo jo macon.</para>
+  <para style="p">
+    <verse number="3" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">11.3: </char>
+      <char style="xt" closed="false">Acak 1.1; Jab 33.6, 9; Jon 1.3</char>
+    </note>Pi niye waniaŋ ni, Lubaŋa yam oketo lobo kulu ki lokke, mumiyo gin ma nen gitiyo nia ki i kom gin ma pe nen.</para>
+  <para style="p">
+    <verse number="4" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">11.4: </char>
+      <char style="xt" closed="false">Acak 4.3-10</char>
+    </note>Pi niye Abel otyero gitum maber ma kato pa Kain woko bot Lubaŋa; meno omiyo gipwoye ni kite atir, kun Lubaŋa aye obedo cadenne pi gamo motte. En oto, ento pi niyene omiyo pud loko.</para>
+  <para style="p">
+    <verse number="5" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">11.5: </char>
+      <char style="xt" closed="false">Acak 5.21-24</char>
+    </note>Pi niye Enoka yam gitiŋo gitero woko malo wek pe obil to. Pe gimedo ki noŋone, pien Lubaŋa onoŋo doŋ otere woko. I kare ma pud peya gitere, gimiyo lok me caden i kome, ni oyomo cwiny Lubaŋa. <verse number="6" style="v" />Laboŋo niye pe twerre me yomo cwinye, pien ŋat ma mito nyiko cok bot Lubaŋa myero oye ni en tye ada, dok bene ni en miyo bakacic bot jo ma yenye.</para>
+  <para style="p">
+    <verse number="7" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">11.7: </char>
+      <char style="xt" closed="false">Acak 6.13-22</char>
+    </note>Pi niye Nua bene, ka Lubaŋa ociko en pi gin ma peya onen, owinyo doge, ka doŋ opayo yeya pi laro jo me ode. Niyene-nu omiyo kop oloyo lobo, omiyo en onoŋo kit ma atir ma bino pi niye.</para>
+  <para style="p">
+    <verse number="8" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">11.8: </char>
+      <char style="xt" closed="false">Acak 12.1-5</char>
+    </note>Pi niye Abraim owinyo dog Lubaŋa i kare ma olwoŋe me cito i lobo mo mukene ma onoŋo yam en mito miye ni obed mere. En oa ki i lobo tugi kun pe ŋeyo ka ma ecito iye. <verse number="9" style="v" /><note caller="-" style="x"><char style="xo" closed="false">11.9: </char><char style="xt" closed="false">Acak 35.27</char></note>Pi niye omiyo en obedo macalo welo i lobo ma yam Lubaŋa ociko pire, macalo ebedo i lobo pa lurok, kun bedo i kema gin ki Icaka ka Yakobo, ma gin bene gimiyogi kit cikke acel-lu. <verse number="10" style="v" />Pien en onoŋo tye ka kuro gaŋ ca ma tye ki gutine ducu matek, ma Lubaŋa aye obedo ŋat mugoyo calle, ki lagedone kikome.</para>
+  <para style="p">
+    <verse number="11" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">11.11: </char>
+      <char style="xt" closed="false">Acak 18.11-14; 21.2</char>
+    </note>Pi niye omiyo Cara onoŋo teko me yac, kadi bed mwaka me nywalle onoŋo doŋ okato woko. Man otimme pien en otamo ni, ŋat ma ociko-ni genne. <verse number="12" style="v" /><note caller="-" style="x"><char style="xo" closed="false">11.12: </char><char style="xt" closed="false">Acak 15.5; 22.17; 32.12</char></note>Man omiyo i kom laco acel, ma yam rom ki ŋat muto, oa iye lwak likwayo mapol ata calo lakalatwe me polo, ki dok calo kweyo me dog nam ma kwanone loyo dano woko-ni.</para>
+  <para style="p">
+    <verse number="13" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">11.13: </char>
+      <char style="xt" closed="false">Acak 23.4; 1 Tek 29.15; Jab 39.12</char>
+    </note>Jo magi ducu guto i kom niye, ma pud peya gimiyogi gin ma ceŋ Lubaŋa ociko pire, ento guneno anena ki ka mabor, gumoto ki kunnu, dok bene gutuco ni gin gibedo macalo lurok dok welo i wi lobo. <verse number="14" style="v" />Pien jo ma loko lok kit meno ginyuto ka maleŋ ni gitye ka yenyo lobo tugi kikome. <verse number="15" style="v" />Ka kono nene gubedo ka tamo pi lobo ma yam gin gua ki iye ca, kono gunoŋo yo me dok cen iye. <verse number="16" style="v" />Ento gin gitye ka paro pi lobo maber makato maca ca woko, en aye pacogi ma i polo. En meno gin mumiyo lewic pe mako Lubaŋa ka ce gilwoŋe ni Lubaŋagi, pien en doŋ otyeko yubo botgi gaŋ.</para>
+  <para style="p">
+    <verse number="17" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">11.17: </char>
+      <char style="xt" closed="false">Acak 22.1-14</char>
+    </note>Pi niye Abraim, ka yam giteme, otyero Icaka macalo gitum bot Lubaŋa; ŋat ma Lubaŋa ocikke bote oyubbe me tyero wode acel keken macalo gitum bot Lubaŋa, <verse number="18" style="v" />ma yam giloko pire ni, “Litino pa Icaka aye gibilwoŋogi ni likwayu.”<note caller="-" style="x"><char style="xo" closed="false">11.18: </char><char style="xt" closed="false">Acak 21.12</char></note> <verse number="19" style="v" />En onoŋo otamo ni, Lubaŋa tye ki twero me cero dano ki i kin jo muto; dok bene gitwero waco ni Icaka odwogo i ciŋ Abraim calo oa ki i kin jo muto.</para>
+  <para style="p">
+    <verse number="20" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">11.20: </char>
+      <char style="xt" closed="false">Acak 27.27-29, 39, 40</char>
+    </note>Pi niye Icaka olamo gum i kom Yakobo ki Ecau pi kare me anyim.</para>
+  <para style="p">
+    <verse number="21" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">11.21: a </char>
+      <char style="xt" closed="false">Acak 48.1-20; </char>
+      <char style="xo" closed="false">b </char>
+      <char style="xt" closed="false">Acak 47.31—48.20</char>
+    </note>Pi niye Yakobo bene, ka doŋ to, olamo gum i kom litino pa Yucepu, kun lamo i kom latin acel acel, ma okulo wiye i wi odoo me komone, me woro Lubaŋa.</para>
+  <para style="p">
+    <verse number="22" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">11.22: </char>
+      <char style="xt" closed="false">Acak 50.24, 25; Nia 13.19</char>
+    </note>Pi niye Yucepu, i agikki me kwone, oloko pi a pa jo Icrael ki i Ejipt, ka doŋ ociko pi kit macalo myero gibiyike kwede.</para>
+  <para style="p">
+    <verse number="23" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">11.23: a </char>
+      <char style="xt" closed="false">Nia 2.2; </char>
+      <char style="xo" closed="false">b </char>
+      <char style="xt" closed="false">Nia 1.22</char>
+    </note>Pi niye, ka yam ginywalo Moses, lunyodone gukane pi dwe adek kun pe gulworo cik pa kabaka, pien onoŋo guneno ni latin ca ber mada.</para>
+  <para style="p">
+    <verse number="24" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">11.24: </char>
+      <char style="xt" closed="false">Nia 2.10-12</char>
+    </note>Pi niye Moses, ka doŋ odoŋo, pe oye ni myero gilwoŋe ni en e wod pa nya pa Parao, <verse number="25" style="v" />kun oyero me neno can kacel ki jo pa Lubaŋa ma ka bedo ki yomcwiny me bal ma ri pi kare manok mo keken-ni. <verse number="26" style="v" />En otamo ni yet ma giciro pi Kricito obedo lonyo madit makato lonyo ducu ma tye i Ejipt, pien onoŋo ociko waŋe kun neno mot me kare me anyim.</para>
+  <para style="p">
+    <verse number="27" style="v" />Pi niye Moses oa woko ki i Ejipt kun pe lworo kiniga pa kabaka; ociro matek, macalo en neno Lubaŋa ma pe nen.</para>
+  <para style="p">
+    <verse number="28" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">11.28: </char>
+      <char style="xt" closed="false">Nia 12.21-30</char>
+    </note>Pi niye bene omiyo en okwero nino madit me Kato, dok okiro remo, wek omi lanek litino kayo pe ogudgi.</para>
+  <para style="p">
+    <verse number="29" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">11.29: </char>
+      <char style="xt" closed="false">Nia 14.21-31</char>
+    </note>Pi niye jo Icrael guŋolo Nam Makwar macalo giwoto ki i wi ŋom mutwo; ento jo Ejipt gumwony woko liweŋ i nam i kare ma gin bene gutemo me kato kit meno.</para>
+  <para style="p">
+    <verse number="30" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">11.30: </char>
+      <char style="xt" closed="false">Yoc 6.12-21</char>
+    </note>Pi niye omiyo cel me Jeriko orette opoto woko piny ma doŋ jo Icrael gurumo pi nino abiro. <verse number="31" style="v" /><note caller="-" style="x"><char style="xo" closed="false">11.31: a </char><char style="xt" closed="false">Yoc 6.22-25; </char><char style="xo" closed="false">b </char><char style="xt" closed="false">Yoc 2.1-21</char></note>Pi niye Rakab ma obedo malaya pe oto kacel ki jo ma pe gubedo luwiny, pien onoŋo en yam ojolo lurot-piny ki kuc.</para>
+  <para style="p">
+    <verse number="32" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">11.32: a </char>
+      <char style="xt" closed="false">Luŋol 6.11—8.32; </char>
+      <char style="xo" closed="false">b </char>
+      <char style="xt" closed="false">Luŋol 4.6—5.31; </char>
+      <char style="xo" closed="false">c </char>
+      <char style="xt" closed="false">Luŋol 13.2—16.31; </char>
+      <char style="xo" closed="false">d </char>
+      <char style="xt" closed="false">Luŋol 11.1—12.7; </char>
+      <char style="xo" closed="false">e </char>
+      <char style="xt" closed="false">1 Cam 16.1–1 Luker 2.11; </char>
+      <char style="xo" closed="false">f </char>
+      <char style="xt" closed="false">1 Cam 1.1–25.1</char>
+    </note>Gin aŋo makato meno ma dok amedde me lokone? Pien kare aye bibedo nok bota me tittiwu pi Gideon, Barak, Samson, Jeputa, Daudi, Camuel ki lunebi-gu, <verse number="33" style="v" /><note caller="-" style="x"><char style="xo" closed="false">11.33: </char><char style="xt" closed="false">Dan 6.1-27</char></note>ma gin bene pi niye omiyo gulwenyo ki luker me lobo mapatpat, guloyogi, gutiyo gin ma tye atir, gunoŋo gin ma yam Lubaŋa ociko pire. Gutweyo dog labwor-gu woko, <verse number="34" style="v" /><note caller="-" style="x"><char style="xo" closed="false">11.34: </char><char style="xt" closed="false">Dan 3.1-30</char></note>guneko mac mager woko, gubwot ki i lak pala lucwan. Gorogi olokke odoko tekkom, gudoko jo matek i lweny, guryemo mony pa lurok woko. <verse number="35" style="v" /><note caller="-" style="x"><char style="xo" closed="false">11.35: </char><char style="xt" closed="false">1 Luker 17.17-24; 2 Luker 4.25-37</char></note>Mon gunoŋo danogi ma yam guto ma doŋ gucer woko. Jo mukene gigoyogi marac, guto kun gukwero ni pe gigonygi, wek gibicer i kwo maber makato. <verse number="36" style="v" /><note caller="-" style="x"><char style="xo" closed="false">11.36: </char><char style="xt" closed="false">1 Luker 22.26, 27; 2 Tek 18.25, 26; Jer 20.2; 37.15; 38.6</char></note>Jo mukene giŋalogi, gipwodogi, gitweyogi ki nyor ci giketogi i mabuc. <verse number="37" style="v" /><note caller="-" style="x"><char style="xo" closed="false">11.37: </char><char style="xt" closed="false">2 Tek 24.21</char></note>Gicelogi ki got, giŋuno igi woko i dul aryo ki mucumeno, ginekogi ki pala lucwan. Gin guloŋo piny kun guruko laa romi ki laa dyegi, ma noŋo can oketo komgi woko, dano ounogi dok gitimogi ki tim maraco. <verse number="38" style="v" />Kit jo macalo meno lobo pe romo bedo kwedgi. Gubedo ka wot awota atata i tim, ki i wi godi, kun gibedo i boro ki bur mugwarre matut piny i ŋom.</para>
+  <para style="p">
+    <verse number="39" style="v" />Jo magi giŋene maber pi niyegi, ento pe gumedo ki noŋo gin ma yam Lubaŋa ociko pire, <verse number="40" style="v" />pien onoŋo Lubaŋa oyubo gin mo maber makato kun otamo piwa, ni meno, gin pe myero gudok jo mabeco muteggi laboŋo wan.</para>
+  <chapter number="12" style="c" />
+  <para style="s1">Pwony pa Rwot</para>
+  <para style="p">
+    <verse number="1" style="v" />Doŋ kit macalo watye ki lwak caden mapol ma rom meno ma orumowa woko dyere, myero koŋ doŋ wabolu gin mogo mapek-gu woko ducu, ki bal ma maro tweyowa woko likiŋ, wek wariŋu doŋ ŋwec pyem ma tye i nyimwa, kun waciro bene peko ma tye iye. <verse number="2" style="v" />Wanenu Yecu ma en aye latel wiwa i lok kom niye, en ŋat ma ocobo niyewa kakare. Pi yomcwiny ma giketo i nyime en yam ociro yatariya, kun ocayo lewic ma giketo i kome; ento kombeddi doŋ obedo piny i kabedo me deyo yo tuŋ acuc me komker pa Lubaŋa.</para>
+  <para style="p">
+    <verse number="3" style="v" />Wubed ki tam i kome, ki kit ma en ociro kwede adagadaga marac twatwal ki bot lubalo, wek pe wuol, ki cwinywu pe opoti. <verse number="4" style="v" />I lwenywu ma wulwenyo ki bal pud peya wulwenyo wuo wa i oyo remowu. <verse number="5" style="v" /><note caller="-" style="x"><char style="xo" closed="false">12.5, 6: </char><char style="xt" closed="false">Yubu 5.17; Car 3.11, 12</char></note>Nyo wiwu owil woko ce i coc ma yam gicoyo me cuko cwiny dano, ma en loko kwedwa iye macalo litinone? Ni meno,</para>
+  <para style="q1">“Latinna, pe ica pwony pa Rwot;</para>
+  <para style="q1">ka en ogoyi, pe cwinyi opoti. <verse number="6" style="v" />Pien Rwot pwonyo jo ma en maro,</para>
+  <para style="q1">pwodo latin acel acel ma en gamo.”</para>
+  <para style="p">
+    <verse number="7" style="v" />Myero wucir matek, wek opwonywu. Lubaŋa tye ka tic kwedwu macalo litinone. Latin mene ma pe wonne pwonyo? <verse number="8" style="v" />Ka ce owekowu laboŋo pwonyowu macalo litinone mukene ducu, nyuto ni wun doŋ litino luk, pe litinone kikome. <verse number="9" style="v" />Kit meno wan watye ki wegiwa me lobo man ma yam gupwonyowa, wan bene waworogi. Pe doŋ myero wamine makato i te loc pa Wonwa me cwiny wek wabed kwo? <verse number="10" style="v" />Pien gin yam gupwonyowa pi kare manok mo keken i kit ma gin guneno ni ber, ento Lubaŋa pwonyowa pi konyowa, wek omi wadok jo maleŋ macalo en. <verse number="11" style="v" />Kit pwonnye ducu, ka pud watye iye, pe watamo obedo me yomcwiny, ento me kumo, ento i ŋeye lacen kelo kuc keken bot jo ma guyelle iye, pien noŋo doŋ gudoko jo ma kitgi atir.</para>
+  <para style="s1">Dano pe gukwer kica pa Lubaŋa</para>
+  <para style="p">
+    <verse number="12" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">12.12: </char>
+      <char style="xt" closed="false">Ic 35.3</char>
+    </note>Pi meno, wutiŋ badwu mukwe-ni malo, wurye coŋwu magoro, <verse number="13" style="v" /><note caller="-" style="x"><char style="xo" closed="false">12.13: </char><char style="xt" closed="false">Car 4.26</char></note>wuyub yo ma tyenwu lubo ocuŋ atir, wek ŋat ma tyene oŋol pe dok tyene oputte woko liweŋ ki i waŋ mwot, ento myero ocaŋ woko acaŋa. <verse number="14" style="v" />Wuket tek me bedo ki kuc ki jo ducu, ki me bedo jo maleŋ; pien ŋat ma pe leŋ pe bineno Rwot. <verse number="15" style="v" /><note caller="-" style="x"><char style="xo" closed="false">12.15: </char><char style="xt" closed="false">Nwo 29.18</char></note>Wugwokke kun wuneno maber ni ŋat mo pe opoto ka gamo kica pa Lubaŋa. Wunen ni ŋat mo pe obedo macalo lwit yat makec ma ka otwi ci kelo ayela, dok balo jo mapol. <verse number="16" style="v" /><note caller="-" style="x"><char style="xo" closed="false">12.16: </char><char style="xt" closed="false">Acak 25.29-34</char></note>Wunen ni ŋat mo pe obed latim abor, nyo dano ma pe lworo Lubaŋa calo Ecau, ma yam ocato ditte me anywalli me bedo latin kayo pi cam me tyen acel keken. <verse number="17" style="v" /><note caller="-" style="x"><char style="xo" closed="false">12.17: </char><char style="xt" closed="false">Acak 27.30-40</char></note>Pien wuŋeyo ni, lacen ka en omito ni wonne olam gum i kome, ento wonne okwere woko, kadi bed onoŋo mito ma kok ki pig waŋe, pien en yam pe onoŋo yo me ŋut i gin ma otimo.</para>
+  <para style="p">
+    <verse number="18" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">12.18, 19: </char>
+      <char style="xt" closed="false">Nia 19.16-22; 20.18-21; Nwo 4.11, 12; 5.22-27</char>
+    </note>Pien wun pe wubino i gin ma gitwero gudo kome, ki mac ma yam olyel i wi got Cinai, ki colpiny me mutu ma ocido woko licuc, ki yamo lapiru matek, <verse number="19" style="v" />ki koko tum, ki dwan ŋat ma tye ka lok. Jo ma guwinyo lokke gubako doggi mada ni pe dok gimed loko botgi lok mo, <verse number="20" style="v" /><note caller="-" style="x"><char style="xo" closed="false">12.20: </char><char style="xt" closed="false">Nia 19.12, 13</char></note>pien gin pe gitwero ciro cik ma giketo, ni meno, “Kadi ki lee mo ka ogudo got, myero gicel ki gweŋ ginek woko.” <verse number="21" style="v" /><note caller="-" style="x"><char style="xo" closed="false">12.21: </char><char style="xt" closed="false">Nwo 9.19</char></note>Gin munen kunnu obedo marac twatwal ma miyo dano lworo, man omiyo Moses owaco ni, “Lworo omaka adada ma koma myel amyela.” <verse number="22" style="v" />Ento wun wubino i got me Cion, ki gaŋ pa Lubaŋa makwo, Jerucalem me polo, ki bot lwak lumalaika ma welgi pe kwanne ma gucokke kacel ka woro Lubaŋa, <verse number="23" style="v" />ki i cokke pa litino kayo ma gicoyo nyiŋgi i polo, ki bot Lubaŋa ma en laŋolkop pa dano ducu, ki bot tipo pa jo ma kitgi atir, ma doŋ gimiyo gudoko jo mabeco muteggi, <verse number="24" style="v" /><note caller="-" style="x"><char style="xo" closed="false">12.24: </char><char style="xt" closed="false">Acak 4.10</char></note>ki bot Yecu, layub gicikke manyen, ki bot remo ma gikiro, ma tito ki kica pi gin maber ma kato gin ma remo pa Abel otito pire.</para>
+  <para style="p">
+    <verse number="25" style="v" />
+    <note caller="-" style="x">
+      <char style="xo" closed="false">12.25: </char>
+      <char style="xt" closed="false">Nia 20.22</char>
+    </note>Wugwokke pe wukwer winyo lok pa ŋat ma tye ka lok. Jo ma yam gukwero winyo lok pa ŋat mucikogi i wi lobo pe gubwot. Wan kono wabibwot niŋniŋ, ka wakwero winyo lok pa ŋat ma tye ka cikowa ki i wi polo kulu-ni? <verse number="26" style="v" /><note caller="-" style="x"><char style="xo" closed="false">12.26: </char><char style="xt" closed="false">Ag 2.6</char></note>I kare maca, dwane oyeŋo lobo; ento kombeddi en ociko ni, “Odoŋ kicel, pe doŋ abiyeŋo lobo keken, ento abiyeŋo wa polo bene.” <verse number="27" style="v" />Lok man ni, “Odoŋ kicel,” nyuto ni, gibikwanyo gin ma yeŋŋe woko, meno ginaketa, ka gin ma pe yeŋŋe cako doŋ. <verse number="28" style="v" />Pi meno myero wapwoyu Lubaŋa, pien doŋ wanoŋo ker ma pe twero yeŋŋe, dok bene myero waworu Lubaŋa i yo ma twero yomo cwinye, kun bene wamiye deyo ki lworo, <verse number="29" style="v" /><note caller="-" style="x"><char style="xo" closed="false">12.29: </char><char style="xt" closed="false">Nwo 4.24</char></note>pien Lubaŋa-wa en aye mac ma waŋo piny.</para>
+  <chapter number="13" style="c" />
+  <para style="s1">Tic ma yomo cwiny Lubaŋa</para>
+  <para style="p">
+    <verse number="1" style="v" />Wumedde ki mar i kinwu kekenwu macalo omego. <verse number="2" style="v" /><note caller="-" style="x"><char style="xo" closed="false">13.2: </char><char style="xt" closed="false">Acak 18.1-8; 19.1-3</char></note>Wiwu pe owil ka jolo welo, pien jo mogo ma yam gugwoko welo onoŋo gugwoko lumalaika i pacogi kun pe giŋeyo. <verse number="3" style="v" />Wupo pi jo ma tye i mabuc calo wutye kacel kwedgi i mabuc kunnu. Wupo bene pi jo ma gitimogi ki tim marac, kit macalo wun bene wutye i kom. <verse number="4" style="v" />Jo ducu myero guket deyo i kom nyom, dok kitanda pa jo ma gunyomme myero giwor obed maleŋ; pien Lubaŋa biŋolo kop i kom lutim tim me abor ki jo ma balo nyomgi. <verse number="5" style="v" /><note caller="-" style="x"><char style="xo" closed="false">13.5: </char><char style="xt" closed="false">Nwo 31.6, 8; Yoc 1.5</char></note>Pe wubed jo ma maro lim; jami ma wutye kwede myero oromwu, pien Lubaŋa yam oloko ni, “Pe abiboli, pe abibwoti ata.”<figure style="fig" desc="" file="5901305.TIF" size="col" loc="" copy="" ref="13.5">Pe wubed jo ma maro lim</figure> <verse number="6" style="v" /><note caller="-" style="x"><char style="xo" closed="false">13.6: </char><char style="xt" closed="false">Jab 118.6</char></note>En meno gin mumiyo cwinywa tek, kun wawaco ni,</para>
+  <para style="q1">“Rwot en lakony mera,</para>
+  <para style="q1">pe abibedo ki lworo;</para>
+  <para style="q1">ŋo kono ma dano twero timo i koma?”</para>
+  <para style="p">
+    <verse number="7" style="v" />Wupo i kom lutel wiwu macon, ma yam gitittiwu lok pa Lubaŋa. Wutam pi kwogi ki gin maber ma oa iye, ka doŋ wulub niyegi. <verse number="8" style="v" />Yecu Kricito gire kite tye acel keken laworo ki tin ki nino ma pe tum. <verse number="9" style="v" />Pe wuwek pwony mogo mapatpat dok ma welo gurwenywu woko; ber kica pa Lubaŋa aye mumi teko i cwinywa, pe pi cik me cam mogo ma dano ma gulubo pe gunoŋo iye kony mo. <verse number="10" style="v" />Watye ki keno tyer ma lutic i kema macon ca pe gitye ki twero mo me cam iye. <verse number="11" style="v" /><note caller="-" style="x"><char style="xo" closed="false">13.11: </char><char style="xt" closed="false">Levi 16.27</char></note>Pien lee ma yam ajwaka madit tero remogi i kabedo maleŋ me bedo gitum pi bal, komgi yam giwaŋo woko cen i ŋe gony. <verse number="12" style="v" />Kit meno bene Yecu yam oto cen woko i ŋe dogcel, wek omi elony dano ki remone kikome gubed maleŋ. <verse number="13" style="v" />Pi meno myero wacitu bene woko i ŋe gony, kun waciro anywar pire; <verse number="14" style="v" />pien kany pe watye ki gaŋ mo ma ri nakanaka, ento watye ka yenyo gaŋ ma tye anyim ma cok bino. <verse number="15" style="v" />Doŋ wamiyu pakwa bot Lubaŋa i kare ducu macalo gitum ma gityero bot Lubaŋa, kun wawok ki bot Yecu; meno aye pwoc ma wamiyo ki dogwa ka watuco nyiŋe. <verse number="16" style="v" />Pe myero wiwu owil ka timo gin maber, ki poko jami ma wutye kwede bene bot jo mukene; pien gitum macalo meno yomo cwiny Lubaŋa.</para>
+  <para style="p">
+    <verse number="17" style="v" />Wuwiny lok pa jo ma telowu, dok wumine i te locgi, pien gin gitye ka gwoko tipowu laboŋo yweyo macalo jo ma Lubaŋa bipenyogi pi ticgi. Wumi guti ticgi ki yomcwiny, ma pe wumiyogi peko mo, pien meno pe konyowu kadi ki acel.</para>
+  <para style="p">
+    <verse number="18" style="v" />Wuleg Lubaŋa piwa, pien wan waŋeyo ada ni cwinywa gire leŋ, dok wamito ni wati gin maber i kare ducu. <verse number="19" style="v" />Amedo cuko cwinywu ni wuleg Lubaŋa, wek odwoka botwu oyotoyot.</para>
+  <para style="s1">Lego gum ki mot me agikki</para>
+  <para style="p">
+    <verse number="20" style="v" />Lubaŋa won kuc ma ocero Rwotwa Yecu Kricito ki i kin jo muto, ma en aye lakwat romi madit, pi remo me gicikke ma ri nakanaka, <verse number="21" style="v" />en myero omiwu gin ducu mabeco ma mitte, wek wuti wucob gin ma en mito; dok bene pi Yecu Kricito myero en oti kwedwa gin ma yomo cwinye. Deyo obed bot Yecu Kricito nakanaka. Amen.</para>
+  <para style="p">
+    <verse number="22" style="v" />Utmegina, alegowu ni wudi cwinywu i lokka ma acoyo manoknok mo-ni ma acuko kwede cwinywu. <verse number="23" style="v" />Myero wuŋe ni ominwa Temceo doŋ gigonyo woko; wabibino kwede ka nenowu, ka ce orune obino oyot. <verse number="24" style="v" />Wumot lutelwu ducu, ki jo pa Lubaŋa bene ducu. Jo mua ki i Itali gumotowu.</para>
+  <para style="p">
+    <verse number="25" style="v" />Kica pa Lubaŋa doŋ obed kwedwu ducu.</para>
+</usx>

@@ -182,9 +182,17 @@
     <None Include="Resources\TestACT.xml" />
     <None Include="Resources\TestCharacterDetailOct2015.txt" />
     <None Include="Resources\TestCharacterDetail.txt" />
+    <None Include="Resources\Test1JN.xml" />
+    <None Include="Resources\Test2JN.xml" />
+    <None Include="Resources\Test3JN.xml" />
     <Content Include="Resources\TestCharacterVerseOct2015.txt" />
+    <None Include="Resources\TestEPH.xml" />
+    <None Include="Resources\TestGAL.xml" />
+    <None Include="Resources\TestHEB.xml" />
     <Content Include="Resources\TestLUK.xml" />
     <None Include="Resources\TestRelatedCharacters.xml" />
+    <None Include="Resources\TestPHM.xml" />
+    <None Include="Resources\TestREV.xml" />
     <Content Include="Resources\TestVersification.txt" />
   </ItemGroup>
   <ItemGroup />

@@ -20,7 +20,15 @@ namespace GlyssenTests
 			MRK,
 			LUK,
 			ACT,
-			JUD
+			GAL,
+			EPH,
+			PHM,
+			HEB,
+			IJN,
+			IIJN,
+			IIIJN,
+			JUD,
+			REV,
 		}
 
 		private const string kTest = "test~~";
@@ -107,11 +115,59 @@ namespace GlyssenTests
 					book.ShortName = "Acts";
 					xmlDocument.LoadXml(Properties.Resources.TestACT);
 					break;
+				case TestBook.GAL:
+					book.Code = "GAL";
+					book.LongName = "The Epistle of Paul to the Church of Galatia";
+					book.ShortName = "Galatians";
+					xmlDocument.LoadXml(Properties.Resources.TestGAL);
+					break;
+				case TestBook.EPH:
+					book.Code = "EPH";
+					book.LongName = "The Epistle of Paul to the Church of Ephesus";
+					book.ShortName = "Ephesians";
+					xmlDocument.LoadXml(Properties.Resources.TestEPH);
+					break;
+				case TestBook.PHM:
+					book.Code = "PHM";
+					book.LongName = "Paul's Letter to Philemon";
+					book.ShortName = "Philemon";
+					xmlDocument.LoadXml(Properties.Resources.TestPHM);
+					break;
+				case TestBook.HEB:
+					book.Code = "HEB";
+					book.LongName = "Hebrews";
+					book.ShortName = "Hebrews";
+					xmlDocument.LoadXml(Properties.Resources.TestHEB);
+					break;
+				case TestBook.IJN:
+					book.Code = "1JN";
+					book.LongName = "The First Epistle of John";
+					book.ShortName = "1 John";
+					xmlDocument.LoadXml(Properties.Resources.Test1JN);
+					break;
+				case TestBook.IIJN:
+					book.Code = "2JN";
+					book.LongName = "The Second Epistle of John";
+					book.ShortName = "2 John";
+					xmlDocument.LoadXml(Properties.Resources.Test2JN);
+					break;
+				case TestBook.IIIJN:
+					book.Code = "3JN";
+					book.LongName = "The Third Epistle of John";
+					book.ShortName = "3 John";
+					xmlDocument.LoadXml(Properties.Resources.Test3JN);
+					break;
 				case TestBook.JUD:
 					book.Code = "JUD";
 					book.LongName = "Jude";
 					book.ShortName = "Jude";
 					xmlDocument.LoadXml(Properties.Resources.TestJUD);
+					break;
+				case TestBook.REV:
+					book.Code = "REV";
+					book.LongName = "The Book of the Revelation of Saint John";
+					book.ShortName = "Revelation";
+					xmlDocument.LoadXml(Properties.Resources.TestREV);
 					break;
 				default:
 					throw new ArgumentOutOfRangeException("testBook", testBook, null);

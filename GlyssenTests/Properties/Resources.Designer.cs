@@ -63,6 +63,66 @@ namespace GlyssenTests.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;usx version=&quot;2.0&quot;&gt;
+        ///  &lt;book code=&quot;1JN&quot; style=&quot;id&quot;&gt;Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013&lt;/book&gt;
+        ///  &lt;para style=&quot;h&quot;&gt;1 JON&lt;/para&gt;
+        ///  &lt;para style=&quot;toc1&quot;&gt;Waraga Mukwoŋo Ma Jon Ocoyo&lt;/para&gt;
+        ///  &lt;para style=&quot;toc2&quot;&gt;1 Jon&lt;/para&gt;
+        ///  &lt;para style=&quot;toc3&quot;&gt;1 Jon&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;WARAGA MUKWOŊO ma&lt;/para&gt;
+        ///  &lt;para style=&quot;mt1&quot;&gt;JON&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;ocoyo&lt;/para&gt;
+        ///  &lt;chapter number=&quot;1&quot; style=&quot;c&quot; /&gt;
+        ///  &lt;para style=&quot;s1&quot;&gt;Lok me kwo [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Test1JN {
+            get {
+                return ResourceManager.GetString("Test1JN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;usx version=&quot;2.0&quot;&gt;
+        ///  &lt;book code=&quot;2JN&quot; style=&quot;id&quot;&gt;Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013&lt;/book&gt;
+        ///  &lt;para style=&quot;h&quot;&gt;2 JON&lt;/para&gt;
+        ///  &lt;para style=&quot;toc1&quot;&gt;Waraga Me Aryo Ma Jon Ocoyo&lt;/para&gt;
+        ///  &lt;para style=&quot;toc2&quot;&gt;2 Jon&lt;/para&gt;
+        ///  &lt;para style=&quot;toc3&quot;&gt;2 Jon&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;WARAGA ME ARYO ma&lt;/para&gt;
+        ///  &lt;para style=&quot;mt1&quot;&gt;JON&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;ocoyo&lt;/para&gt;
+        ///  &lt;chapter number=&quot;1&quot; style=&quot;c&quot; /&gt;
+        ///  &lt;para style=&quot;s1&quot;&gt;Mot&lt;/para&gt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Test2JN {
+            get {
+                return ResourceManager.GetString("Test2JN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;usx version=&quot;2.0&quot;&gt;
+        ///  &lt;book code=&quot;3JN&quot; style=&quot;id&quot;&gt;Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013&lt;/book&gt;
+        ///  &lt;para style=&quot;h&quot;&gt;3 JON&lt;/para&gt;
+        ///  &lt;para style=&quot;toc1&quot;&gt;Waraga Me Adek Ma Jon Ocoyo&lt;/para&gt;
+        ///  &lt;para style=&quot;toc2&quot;&gt;3 Jon&lt;/para&gt;
+        ///  &lt;para style=&quot;toc3&quot;&gt;3 JON&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;WARAGA ME ADEK ma&lt;/para&gt;
+        ///  &lt;para style=&quot;mt1&quot;&gt;JON&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;ocoyo&lt;/para&gt;
+        ///  &lt;chapter number=&quot;1&quot; style=&quot;c&quot; /&gt;
+        ///  &lt;para style=&quot;s1&quot;&gt;Mot&lt;/para&gt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Test3JN {
+            get {
+                return ResourceManager.GetString("Test3JN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;usx version=&quot;2.0&quot;&gt;
         ///  &lt;book code=&quot;ACT&quot; style=&quot;id&quot;&gt;Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013&lt;/book&gt;
         ///  &lt;para style=&quot;h&quot;&gt;TIC PA LUKWENA&lt;/para&gt;
         ///  &lt;para style=&quot;toc1&quot;&gt;Tic Pa Lukwena&lt;/para&gt;
@@ -168,6 +228,65 @@ namespace GlyssenTests.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;usx version=&quot;2.0&quot;&gt;
+        ///  &lt;book code=&quot;EPH&quot; style=&quot;id&quot;&gt;Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013&lt;/book&gt;
+        ///  &lt;para style=&quot;h&quot;&gt;JO EPECO&lt;/para&gt;
+        ///  &lt;para style=&quot;toc1&quot;&gt;Waraga Ma Paulo Ocoyo Bot Jo Epeco&lt;/para&gt;
+        ///  &lt;para style=&quot;toc2&quot;&gt;Jo Epeco&lt;/para&gt;
+        ///  &lt;para style=&quot;toc3&quot;&gt;Ep&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;WARAGA MA PAULO OCOYO bot&lt;/para&gt;
+        ///  &lt;para style=&quot;mt1&quot;&gt;JO EPECO&lt;/para&gt;
+        ///  &lt;chapter number=&quot;1&quot; style=&quot;c&quot; /&gt;
+        ///  &lt;para style=&quot;s1&quot;&gt;Mot&lt;/para&gt;
+        ///  &lt;para s [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TestEPH {
+            get {
+                return ResourceManager.GetString("TestEPH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;usx version=&quot;2.0&quot;&gt;
+        ///  &lt;book code=&quot;GAL&quot; style=&quot;id&quot;&gt;Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013&lt;/book&gt;
+        ///  &lt;para style=&quot;h&quot;&gt;JO GALATIA&lt;/para&gt;
+        ///  &lt;para style=&quot;toc1&quot;&gt;Waraga Ma Paulo Ocoyo Bot Jo Galatia&lt;/para&gt;
+        ///  &lt;para style=&quot;toc2&quot;&gt;Jo Galatia&lt;/para&gt;
+        ///  &lt;para style=&quot;toc3&quot;&gt;Gal&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;WARAGA MA PAULO OCOYO bot&lt;/para&gt;
+        ///  &lt;para style=&quot;mt1&quot;&gt;JO GALATIA&lt;/para&gt;
+        ///  &lt;chapter number=&quot;1&quot; style=&quot;c&quot; /&gt;
+        ///  &lt;para style=&quot;s1&quot;&gt;Mot&lt;/para&gt;
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TestGAL {
+            get {
+                return ResourceManager.GetString("TestGAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;usx version=&quot;2.0&quot;&gt;
+        ///  &lt;book code=&quot;HEB&quot; style=&quot;id&quot;&gt;Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013&lt;/book&gt;
+        ///  &lt;para style=&quot;h&quot;&gt;JO IBRU&lt;/para&gt;
+        ///  &lt;para style=&quot;toc1&quot;&gt;Waraga Ma Gicoyo Bot Jo Ibru&lt;/para&gt;
+        ///  &lt;para style=&quot;toc2&quot;&gt;Jo Ibru&lt;/para&gt;
+        ///  &lt;para style=&quot;toc3&quot;&gt;Ibru&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;WARAGA MA GICOYO bot&lt;/para&gt;
+        ///  &lt;para style=&quot;mt1&quot;&gt;JO IBRU&lt;/para&gt;
+        ///  &lt;chapter number=&quot;1&quot; style=&quot;c&quot; /&gt;
+        ///  &lt;para style=&quot;s1&quot;&gt;Lubaŋa oloko kwedwa i Wode&lt;/para&gt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TestHEB {
+            get {
+                return ResourceManager.GetString("TestHEB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;usx version=&quot;2.0&quot;&gt;
         ///  &lt;book code=&quot;JUD&quot; style=&quot;id&quot;&gt;Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013&lt;/book&gt;
         ///  &lt;para style=&quot;h&quot;&gt;JUDA&lt;/para&gt;
         ///  &lt;para style=&quot;toc1&quot;&gt;Waraga Ma Juda Ocoyo&lt;/para&gt;
@@ -228,6 +347,26 @@ namespace GlyssenTests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;usx version=&quot;2.0&quot;&gt;
+        ///  &lt;book code=&quot;PHM&quot; style=&quot;id&quot;&gt;Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013&lt;/book&gt;
+        ///  &lt;para style=&quot;h&quot;&gt;PILEMON&lt;/para&gt;
+        ///  &lt;para style=&quot;toc1&quot;&gt;Waraga Ma Paulo Ocoyo Bot Pilemon Mot&lt;/para&gt;
+        ///  &lt;para style=&quot;toc2&quot;&gt;Pilemon&lt;/para&gt;
+        ///  &lt;para style=&quot;toc3&quot;&gt;Pile&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;WARAGA MA PAULO OCOYO bot&lt;/para&gt;
+        ///  &lt;para style=&quot;mt1&quot;&gt;PILEMON&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;Mot&lt;/para&gt;
+        ///  &lt;chapter number=&quot;1&quot; style=&quot;c&quot; /&gt;
+        ///  &lt;par [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TestPHM {
+            get {
+                return ResourceManager.GetString("TestPHM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;RelatedCharacterSets&gt;
         ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
         ///		&lt;CharacterId&gt;Barzillai&lt;/CharacterId&gt;
@@ -244,6 +383,26 @@ namespace GlyssenTests.Properties {
         internal static string TestRelatedCharacters {
             get {
                 return ResourceManager.GetString("TestRelatedCharacters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;usx version=&quot;2.0&quot;&gt;
+        ///  &lt;book code=&quot;REV&quot; style=&quot;id&quot;&gt;Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013&lt;/book&gt;
+        ///  &lt;para style=&quot;h&quot;&gt;NIYABO&lt;/para&gt;
+        ///  &lt;para style=&quot;toc1&quot;&gt;Niyabo Bot Jon&lt;/para&gt;
+        ///  &lt;para style=&quot;toc2&quot;&gt;Niyabo&lt;/para&gt;
+        ///  &lt;para style=&quot;toc3&quot;&gt;Yabo&lt;/para&gt;
+        ///  &lt;para style=&quot;mt1&quot;&gt;NIYABO&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;BOT JON&lt;/para&gt;
+        ///  &lt;chapter number=&quot;1&quot; style=&quot;c&quot; /&gt;
+        ///  &lt;para style=&quot;p&quot;&gt;
+        ///    &lt;verse number=&quot;1&quot; style=&quot;v&quot; /&gt;Man aye gin ma Lubaŋa onyuto [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TestREV {
+            get {
+                return ResourceManager.GetString("TestREV", resourceCulture);
             }
         }
         
