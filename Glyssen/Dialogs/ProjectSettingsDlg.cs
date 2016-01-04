@@ -42,6 +42,14 @@ namespace Glyssen.Dialogs
 
 				if (!string.IsNullOrWhiteSpace(m_model.SampleText))
 					m_wsFontControl.TestAreaText = m_model.SampleText;
+
+				// PG-433, 07 JAN 2016, PH: Disable some UI if project file is not writable
+				var enableControls = (m_model.Project == null) || m_model.Project.ProjectFileIsWritable;
+				m_btnUpdateFromBundle.Enabled = enableControls;
+				m_btnQuoteMarkSettings.Enabled = enableControls;
+				m_btnOk.Enabled = enableControls;
+				m_wsFontControl.Enabled = enableControls;
+				m_txtRecordingProjectName.Enabled = enableControls;
 			}
 		}
 

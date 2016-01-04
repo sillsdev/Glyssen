@@ -98,10 +98,11 @@ namespace Glyssen
 			bool validProject = m_project != null;
 			m_btnOpenProject.Enabled = !readOnly;
 			m_imgCheckOpen.Visible = validProject;
-			m_btnSettings.Enabled = !readOnly && validProject;
+			m_btnSettings.Enabled = !readOnly && validProject && m_project.ProjectFileIsWritable;
 			m_imgCheckSettings.Visible = m_btnSettings.Enabled && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed &&
 				m_project.IsQuoteSystemReadyForParse;
-			m_btnSelectBooks.Enabled = !readOnly && validProject && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed;
+			m_btnSelectBooks.Enabled = !readOnly && validProject && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed &&
+				m_project.ProjectFileIsWritable;
 			m_imgCheckBooks.Visible = m_btnSelectBooks.Enabled && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed;
 			m_btnAssign.Enabled = !readOnly && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
 			m_imgCheckAssignCharacters.Visible = m_btnAssign.Enabled && m_project.ProjectAnalysis.UserPercentAssigned == 100d;
