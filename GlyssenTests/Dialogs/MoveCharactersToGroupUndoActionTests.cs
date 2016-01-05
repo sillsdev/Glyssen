@@ -275,5 +275,40 @@ namespace GlyssenTests.Dialogs
 			Assert.IsTrue(newGroup.CharacterIds.SetEquals(charactersToMove));
 			Assert.IsTrue(sourceGroup.CharacterIds.SetEquals(new[] { "Paul", "Jacob", "centurion", "captain", "Pharisees" }));
 		}
+
+		[Test]
+		public void Undo_AssignCameoRole_CameoGroupNotRemoved()
+		{
+			// list of characters
+			var originalCharactersInSource = new[] { "Paul", "Rhoda" };
+			var sourceGroup = AddCharacterGroup(originalCharactersInSource);
+
+			// set up cameo actor and group
+			var cameoActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Missy Cameo", IsCameo = true };
+			m_testProject.VoiceActorList.Actors.Add(cameoActor);
+			var cameoGroup = AddCharacterGroup();
+			cameoGroup.AssignVoiceActor(1);
+
+			// should be 2 groups now
+			Assert.AreEqual(2, m_testProject.CharacterGroupList.CharacterGroups.Count);
+
+			// assign the character role Rhoda to the cameo actor
+			var action = new MoveCharactersToGroupUndoAction(m_testProject, sourceGroup, cameoGroup, new List<string> { "Rhoda" });
+
+			// should still be 2 groups
+			Assert.AreEqual(2, m_testProject.CharacterGroupList.CharacterGroups.Count);
+
+			// Rhoda should be in the cameo group now
+			Assert.IsTrue(m_testProject.CharacterGroupList.GroupContainingCharacterId("Rhoda").AssignedToCameoActor);
+
+			// undo
+			Assert.IsTrue(action.Undo());
+
+			// should still be 2 groups
+			Assert.AreEqual(2, m_testProject.CharacterGroupList.CharacterGroups.Count);
+
+			// Rhoda should be back in the original group
+			Assert.IsFalse(m_testProject.CharacterGroupList.GroupContainingCharacterId("Rhoda").AssignedToCameoActor);
+		}
 	}
 }
