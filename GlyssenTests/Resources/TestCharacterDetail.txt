@@ -150,6 +150,7 @@ Caiaphas, the high priest	1	Male	Adult			MAT 26:62 <-(10 more)-> JHN 18:14
 Caiaphas, the high priest (old)	1	Male	Adult			
 Cain	1	Male	Adult			GEN 4:8 <-(2 more)-> GEN 4:14
 Caleb	1	Male	Adult			NUM 13:30 <-(10 more)-> JDG 1:14
+Caleb (old)	1	Male	Adult			
 Canaanite (Syrophoenician) mother of possessed girl	1	Female	Adult			MAT 15:22 <-(3 more)-> MRK 7:28
 Canaanites	-1		Adult			GEN 50:11
 captain of the temple guard	1	Male	Adult			
@@ -440,7 +441,6 @@ Israelite foremen	-1	Male				EXO 5:15 <-(1 more)-> EXO 5:21
 Israelite officers	-1	Male				JOS 3:3 & JOS 3:4
 Israelite soldier in Saul's army	1	Male				1SA 14:28
 Israelite spies from house of Joseph	-1	Male				JDG 1:24
-Israelite spies from Joshua, two men	2	Male				JOS 2:14 <-(4 more)-> JOS 2:24
 Israelites	-1					EXO 14:11 <-(57 more)-> 1SA 11:12
 Israelites (excluding Benjamites)	-1					JDG 20:23 & JDG 20:28
 Israelites (soldiers)	-1	Male				1SA 14:36 <-(2 more)-> 1SA 17:25
@@ -536,7 +536,7 @@ king of Aram	1	Male				1KI 22:31 & 2CH 18:30
 king of Assyria	1	Male				2KI 17:27
 king of Babylon	1	Male				ISA 14:13 & ISA 14:14
 king of Bela	1	Male				
-king of Jericho	1	Male				JOS 2:3
+King of Jericho	1	Male				JOS 2:3
 king of Nineveh	1	Male				JON 3:7 <-(1 more)-> JON 3:9
 kings of the earth	-1	Male				PSA 2:3 & REV 18:10
 kings over the nations	-1	Male				ISA 14:10
@@ -559,7 +559,7 @@ Levi	1	Male
 Levite husband of concubine	1	Male				JDG 19:12 <-(7 more)-> JDG 20:7
 Levite, young, from Bethlehem	1	Male	YoungAdult			JDG 17:9 <-(2 more)-> JDG 18:18
 Levites	-1	Male				NEH 8:11 <-(33 more)-> NEH 9:37
-Levites, family heads of	-1	Male				JOS 21:2
+Levitical heads	-1	Male				JOS 21:2
 living creature, first	1					REV 6:1
 living creature, fourth	1					REV 6:7
 living creature, second	1					REV 6:3
@@ -573,6 +573,7 @@ Macedonian	1	Male				ACT 16:9
 magi (wise men from East)	-1	Male				MAT 2:2
 magicians	-1					EXO 8:19
 magistrates, chief	-1	Male				ACT 16:39
+Mahlah	-1	Female				NUM 27:3 <-(1 more)-> JOS 17:4
 maidens	-1	Female	YoungAdult			SNG 1:4 <-(13 more)-> SNG 8:5
 Makir	1	Male			son of Ammiel from Lo Debar	
 Malta islanders	-1					ACT 28:4 & ACT 28:6
@@ -1010,6 +1011,7 @@ sons of Korah	-1	Male
 sons of prophet in Bethel	-1	Male				1KI 13:30
 souls of those killed for word of God	-1					REV 6:10
 spies (from Pharisees and Herodians)	-1	Male				MAT 22:16 <-(7 more)-> LUK 20:24
+spies from Joshua, men	2	Male				JOS 2:14 <-(4 more)-> JOS 2:24
 spies to Ai	-1	Male				JOS 7:3
 Stephen	1	Male				ACT 7:2 <-(53 more)-> ACT 7:60
 steward of Joseph's house	1	Male				GEN 43:23 <-(2 more)-> GEN 44:10
