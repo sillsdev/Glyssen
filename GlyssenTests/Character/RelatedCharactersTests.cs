@@ -47,7 +47,7 @@ namespace GlyssenTests.Character
 		public void GetCharacterIdsForType()
 		{
 			var characterIds = RelatedCharactersData.Singleton.GetCharacterIdsForType(CharacterRelationshipType.SameCharacterWithMultipleAges);
-			Assert.AreEqual(18, characterIds.Count);
+			Assert.AreEqual(14, characterIds.Count);
 			Assert.True(characterIds.Contains("David"));
 			Assert.True(characterIds.Contains("David (old)"));
 		}
@@ -56,7 +56,7 @@ namespace GlyssenTests.Character
 		public void GetCharacterIdToRelatedCharactersDictionary()
 		{
 			var dictionary = RelatedCharactersData.Singleton.GetCharacterIdToRelatedCharactersDictionary();
-			Assert.AreEqual(18, dictionary.Count);
+			Assert.AreEqual(14, dictionary.Count);
 			Assert.True(dictionary["David (old)"].Single().CharacterIds.Contains("David"));
 		}
 	}

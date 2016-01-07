@@ -50,9 +50,7 @@ namespace GlyssenTests.Rules
 		[TestCase(1, 0)]
 		[TestCase(1, 1)]
 		[TestCase(2, 0)]
-		[TestCase(2, 1)]
-		[TestCase(3, 0)]
-		[TestCase(3, 1)]
+		[TestCase(0, 2)]
 		public void GenerateCharacterGroups_MoreThanSevenActors_JesusInGroupByHimself(int numberOfMaleNarrators, int numberOfFemaleNarrators)
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numberOfMaleNarrators;
@@ -560,30 +558,6 @@ namespace GlyssenTests.Rules
 		}
 
 		[Test]
-		public void GenerateCharacterGroups_SameCharacterWithTwoAges_ProminentCharacter_CharactersAreGeneratedInTheSameGroup()
-		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10, 5);
-
-			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
-			var sadduceesGroup = groups.Single(g => g.CharacterIds.Contains("Sadducees"));
-			var sadduceesOldGroup = groups.Single(g => g.CharacterIds.Contains("Sadducees (old)"));
-
-			Assert.AreEqual(sadduceesGroup, sadduceesOldGroup);
-		}
-
-		[Test]
-		public void GenerateCharacterGroups_SameCharacterWithTwoAges_NonProminentCharacter_CharactersAreGeneratedInTheSameGroup()
-		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(7, 3);
-
-			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
-			var passersByGroup = groups.Single(g => g.CharacterIds.Contains("passers by"));
-			var passersByOldGroup = groups.Single(g => g.CharacterIds.Contains("passers by (old)"));
-
-			Assert.AreEqual(passersByGroup, passersByOldGroup);
-		}
-
-		[Test]
 		public void GenerateCharacterGroups_NotEnoughActressesForDramatizationAndNarratorPreferences_FallbackToOneNarrator()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
@@ -661,6 +635,49 @@ namespace GlyssenTests.Rules
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 			Assert.AreEqual(6, groups.Count);
 			Assert.AreEqual(groups.Single(g => g.CharacterIds.Contains("narrator-MRK")), groups.Single(g => g.CharacterIds.Contains("narrator-JUD")));
+		}
+	}
+
+	[TestFixture]
+	internal class CharacterGroupGeneratorTestsWithBookHavingSameCharacterWithTwoAges
+	{
+		private Project m_testProject;
+		private Dictionary<string, int> m_keyStrokesPerCharacterId;
+
+		[TestFixtureSetUp]
+		public void TextFixtureSetUp()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
+			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.JOS);
+			m_keyStrokesPerCharacterId = m_testProject.GetKeyStrokesByCharacterId();
+		}
+
+		[SetUp]
+		public void SetUp()
+		{
+			m_testProject.VoiceActorList.Actors.Clear();
+			m_testProject.CharacterGroupList.CharacterGroups.Clear();
+		}
+
+		[TestFixtureTearDown]
+		public void TestFixtureTearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
+
+		[Test]
+		public void GenerateCharacterGroups_SameCharacterWithTwoAges_CharactersAreGeneratedInTheSameGroup()
+		{
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10, 5);
+
+			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
+			var sadduceesGroup = groups.Single(g => g.CharacterIds.Contains("Joshua"));
+			var sadduceesOldGroup = groups.Single(g => g.CharacterIds.Contains("Joshua (old)"));
+
+			Assert.AreEqual(sadduceesGroup, sadduceesOldGroup);
 		}
 	}
 
@@ -1090,6 +1107,7 @@ namespace GlyssenTests.Rules
 		}
 	}
 
+	[TestFixture]
 	internal class CharacterGroupGeneratorTestsWithLotsOfBooks
 	{
 		private Project m_testProject;

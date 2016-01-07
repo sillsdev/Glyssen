@@ -340,7 +340,7 @@ namespace Glyssen.Rules
 			bestGroup.CharacterIds.Add(characterDetail.CharacterId);
 			if (RelatedCharactersData.Singleton.GetCharacterIdsForType(CharacterRelationshipType.SameCharacterWithMultipleAges).Contains(characterDetail.CharacterId))
 				foreach (var relatedCharacters in RelatedCharactersData.Singleton.GetCharacterIdToRelatedCharactersDictionary()[characterDetail.CharacterId])
-					bestGroup.CharacterIds.AddRange(relatedCharacters.CharacterIds);
+					bestGroup.CharacterIds.AddRange(relatedCharacters.CharacterIds.Where(c => m_keyStrokesByCharacterId.ContainsKey(c)));
 		}
 
 		private void CalculateProximityForGroups(CharacterDetail characterDetail, IEnumerable<CharacterGroup> characterGroups, Dictionary<CharacterGroup, WeightedMinimumProximity> groupToProximityDict, double weightingFactor = 1.0)
