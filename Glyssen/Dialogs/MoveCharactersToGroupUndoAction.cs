@@ -113,8 +113,10 @@ namespace Glyssen.Dialogs
 			sourceGroup.CharacterIds.AddRange(m_characterIdsMoved);
 			AddGroupAffected(sourceGroup);
 
-			if (destGroup.CharacterIds.SetEquals(m_characterIdsMoved))
+			if (destGroup.CharacterIds.SetEquals(m_characterIdsMoved) && !destGroup.AssignedToCameoActor)
+			{
 				m_project.CharacterGroupList.CharacterGroups.Remove(destGroup);
+			}
 			else
 			{
 				destGroup.CharacterIds.ExceptWith(m_characterIdsMoved);
