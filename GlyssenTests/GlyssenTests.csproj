@@ -190,6 +190,7 @@
     <None Include="Resources\TestEPH.xml" />
     <None Include="Resources\TestGAL.xml" />
     <None Include="Resources\TestHEB.xml" />
+    <None Include="Resources\TestJOS.xml" />
     <Content Include="Resources\TestLUK.xml" />
     <None Include="Resources\TestRelatedCharacters.xml" />
     <None Include="Resources\TestPHM.xml" />

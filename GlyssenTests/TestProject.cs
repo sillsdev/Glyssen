@@ -17,6 +17,7 @@ namespace GlyssenTests
 	{
 		public enum TestBook
 		{
+			JOS,
 			MRK,
 			LUK,
 			ACT,
@@ -97,6 +98,12 @@ namespace GlyssenTests
 
 			switch (testBook)
 			{
+				case TestBook.JOS:
+					book.Code = "JOS";
+					book.LongName = "Joshua";
+					book.ShortName = "Joshua";
+					xmlDocument.LoadXml(Properties.Resources.TestJOS);
+					break;
 				case TestBook.MRK:
 					book.Code = "MRK";
 					book.LongName = "Gospel of Mark";
