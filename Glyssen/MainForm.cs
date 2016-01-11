@@ -11,6 +11,7 @@ using Glyssen.Controls;
 using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Rules;
+using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
@@ -20,7 +21,7 @@ using SIL.Windows.Forms.Miscellaneous;
 
 namespace Glyssen
 {
-	public partial class MainForm : Form
+	public partial class MainForm : CustomForm
 	{
 		private Project m_project;
 		private string m_percentAssignedFmt;

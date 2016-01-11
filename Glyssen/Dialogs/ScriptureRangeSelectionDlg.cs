@@ -6,12 +6,13 @@ using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using DesktopAnalytics;
 using Glyssen.Bundle;
+using Glyssen.Utilities;
 using SIL.DblBundle.Text;
 using SIL.Scripture;
 
 namespace Glyssen.Dialogs
 {
-	public partial class ScriptureRangeSelectionDlg : Form
+	public partial class ScriptureRangeSelectionDlg : CustomForm
 	{
 		private readonly Project m_project;
 		private readonly List<Book> m_availableOtBooks;

@@ -110,7 +110,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.m_dataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-			this.m_dataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_dataGrid.BackgroundColor = System.Drawing.SystemColors.Control;
 			this.m_dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.m_dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -228,7 +228,6 @@
 			this.ActorQuality.Name = "ActorQuality";
 			this.ActorQuality.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			this.ActorQuality.Visible = false;
-			this.ActorQuality.Width = 403;
 			// 
 			// ActorStatus
 			// 
@@ -239,7 +238,6 @@
 			this.ActorStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
 			this.ActorStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			this.ActorStatus.Visible = false;
-			this.ActorStatus.Width = 330;
 			// 
 			// Cameo
 			// 

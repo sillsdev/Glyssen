@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Windows.Forms;
+using Glyssen.Utilities;
 
 namespace Glyssen.Dialogs
 {
-	public partial class TooManyUnexpectedQuotesFoundDlg : Form
+	public partial class TooManyUnexpectedQuotesFoundDlg : CustomForm
 	{
 		public TooManyUnexpectedQuotesFoundDlg(string caption, double percentageOfQuotesFoundThatWereUnexpected)
 		{

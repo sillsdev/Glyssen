@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Windows.Forms;
+using Glyssen.Utilities;
 
 namespace Glyssen.Dialogs
 {
-	public partial class PercentageOfExpectedQuotesFoundTooLowDlg : Form
+	public partial class PercentageOfExpectedQuotesFoundTooLowDlg : CustomForm
 	{
 		public PercentageOfExpectedQuotesFoundTooLowDlg(string caption, double percentageOfExpectedQuotesFound)
 		{

@@ -3,13 +3,14 @@ using System.IO;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Properties;
+using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.Reporting;
 
 namespace Glyssen.Dialogs
 {
-	public partial class ExportDlg : Form
+	public partial class ExportDlg : CustomForm
 	{
 		private readonly ProjectExporter m_projectExporter;
 		private ExportFileType m_selectedFileType = ExportFileType.Excel;

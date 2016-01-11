@@ -93,7 +93,6 @@
 			this.m_ntBooksGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_ntBooksGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_ntBooksGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.m_ntBooksGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.m_ntBooksGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -154,7 +153,6 @@
 			this.m_checkBoxNewTestament.AutoSize = true;
 			this.m_checkBoxNewTestament.Checked = true;
 			this.m_checkBoxNewTestament.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.m_checkBoxNewTestament.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_checkBoxNewTestament, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_checkBoxNewTestament, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_checkBoxNewTestament, "DialogBoxes.ScriptureRangeSelectionDlg.NewTestament");
@@ -171,7 +169,6 @@
 			this.m_checkBoxOldTestament.AutoSize = true;
 			this.m_checkBoxOldTestament.Checked = true;
 			this.m_checkBoxOldTestament.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.m_checkBoxOldTestament.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_checkBoxOldTestament, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_checkBoxOldTestament, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_checkBoxOldTestament, "DialogBoxes.ScriptureRangeSelectionDlg.OldTestament");
@@ -191,7 +188,6 @@
 			this.m_otBooksGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_otBooksGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_otBooksGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.m_otBooksGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.m_otBooksGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -272,7 +268,6 @@
 			this.AcceptButton = this.m_btnOk;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(748, 502);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Controls.Add(this.m_btnCancel);

@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Windows.Forms;
+using Glyssen.Utilities;
 
 namespace Glyssen.Dialogs
 {
-	public partial class NarrationOptionsDlg : Form
+	public partial class NarrationOptionsDlg : CustomForm
 	{
 		private readonly Project m_project;
 

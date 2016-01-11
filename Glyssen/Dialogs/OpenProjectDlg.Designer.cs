@@ -49,7 +49,6 @@
 			// lblExistingProject
 			// 
 			this.lblExistingProject.AutoSize = true;
-			this.lblExistingProject.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.lblExistingProject, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.lblExistingProject, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.lblExistingProject, "DialogBoxes.OpenProjectDlg.SelectProject");
@@ -63,7 +62,6 @@
 			// m_linkTextReleaseBundle
 			// 
 			this.m_linkTextReleaseBundle.AutoSize = true;
-			this.m_linkTextReleaseBundle.LinkColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkTextReleaseBundle, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkTextReleaseBundle, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkTextReleaseBundle, "DialogBoxes.OpenProjectDlg.CreateNewProject");
@@ -112,7 +110,6 @@
 			// 
 			this.m_chkShowInactiveProjects.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_chkShowInactiveProjects.AutoSize = true;
-			this.m_chkShowInactiveProjects.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_chkShowInactiveProjects, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_chkShowInactiveProjects, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkShowInactiveProjects, "DialogBoxes.OpenProjectDlg.ShowInactiveProjects");
@@ -172,7 +169,6 @@
 			this.AcceptButton = this.m_btnOk;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.CancelButton = this.m_btnCancel;
 			this.ClientSize = new System.Drawing.Size(511, 347);
 			this.Controls.Add(this.m_btnCancel);

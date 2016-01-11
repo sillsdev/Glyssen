@@ -172,7 +172,6 @@ namespace Glyssen.Controls
 			// m_title
 			// 
 			this.m_title.Dock = System.Windows.Forms.DockStyle.Top;
-			this.m_title.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_title, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_title, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_title, L10NSharp.LocalizationPriority.NotLocalizable);

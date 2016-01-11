@@ -47,12 +47,10 @@
 			// lblExistingProject
 			// 
 			this.lblExistingProject.AutoSize = true;
-			this.lblExistingProject.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.lblExistingProject, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.lblExistingProject, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.lblExistingProject, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.lblExistingProject, "DialogBoxes.SelectExistingProjectDlg.lblExistingProje" +
-        "ct");
+			this.m_l10NSharpExtender.SetLocalizingId(this.lblExistingProject, "DialogBoxes.SelectExistingProjectDlg.lblExistingProject");
 			this.lblExistingProject.Location = new System.Drawing.Point(0, 0);
 			this.lblExistingProject.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
 			this.lblExistingProject.Name = "lblExistingProject";
@@ -87,8 +85,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_listExistingProjects, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_listExistingProjects, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_listExistingProjects, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_listExistingProjects, "DialogBoxes.SelectExistingProjectDlg.ExistingProjects" +
-        "List");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_listExistingProjects, "DialogBoxes.SelectExistingProjectDlg.ExistingProjectsList");
 			this.m_listExistingProjects.Location = new System.Drawing.Point(3, 33);
 			this.m_listExistingProjects.Name = "m_listExistingProjects";
 			this.m_listExistingProjects.Size = new System.Drawing.Size(466, 132);
@@ -99,7 +96,6 @@
 			// m_linkCreateNewProject
 			// 
 			this.m_linkCreateNewProject.AutoSize = true;
-			this.m_linkCreateNewProject.LinkColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkCreateNewProject, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkCreateNewProject, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkCreateNewProject, "DialogBoxes.SelectExistingProjectDlg.CreateNew");
@@ -139,7 +135,6 @@
 			this.AcceptButton = this.m_btnOk;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(502, 258);
 			this.Controls.Add(this.m_btnOk);
 			this.Controls.Add(this.m_tableLayoutPanelMain);

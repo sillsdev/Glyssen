@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
 {
-	public partial class AddCharacterToGroupDlg : Form
+	public partial class AddCharacterToGroupDlg : CustomForm
 	{
 		private readonly AddCharactersToGroupViewModel m_viewModel;
 

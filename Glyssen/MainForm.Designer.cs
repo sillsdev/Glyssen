@@ -86,7 +86,6 @@
 			this.m_lblProjectInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_lblProjectInfo.AutoEllipsis = true;
-			this.m_lblProjectInfo.ForeColor = System.Drawing.Color.White;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblProjectInfo, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblProjectInfo, null);
 			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_lblProjectInfo, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -102,7 +101,6 @@
 			this.m_lblSettingsInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_lblSettingsInfo.AutoEllipsis = true;
-			this.m_lblSettingsInfo.ForeColor = System.Drawing.Color.White;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblSettingsInfo, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblSettingsInfo, null);
 			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_lblSettingsInfo, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -182,7 +180,6 @@
 			this.m_lblPercentAssigned.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_lblPercentAssigned.AutoEllipsis = true;
-			this.m_lblPercentAssigned.ForeColor = System.Drawing.Color.White;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblPercentAssigned, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblPercentAssigned, "{0:N1} is a number with one decimal point");
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblPercentAssigned, "MainForm.PercentComplete");
@@ -195,7 +192,6 @@
 			// m_lblSelectNextTask
 			// 
 			this.m_lblSelectNextTask.AutoSize = true;
-			this.m_lblSelectNextTask.ForeColor = System.Drawing.Color.White;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblSelectNextTask, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblSelectNextTask, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblSelectNextTask, "MainForm.SelectTask");
@@ -228,7 +224,6 @@
 			this.m_btnAbout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
 			this.m_btnAbout.AutoToolTip = false;
 			this.m_btnAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.m_btnAbout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
 			this.m_btnAbout.Image = ((System.Drawing.Image)(resources.GetObject("m_btnAbout.Image")));
 			this.m_btnAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnAbout, null);
@@ -245,7 +240,6 @@
 			this.m_uiLanguageMenu.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
 			this.m_uiLanguageMenu.AutoToolTip = false;
 			this.m_uiLanguageMenu.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.m_uiLanguageMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
 			this.m_uiLanguageMenu.Image = ((System.Drawing.Image)(resources.GetObject("m_uiLanguageMenu.Image")));
 			this.m_uiLanguageMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_uiLanguageMenu, "");
@@ -259,9 +253,7 @@
 			// 
 			// m_lnkExit
 			// 
-			this.m_lnkExit.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
 			this.m_lnkExit.AutoSize = true;
-			this.m_lnkExit.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lnkExit, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lnkExit, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lnkExit, "MainForm.Exit");
@@ -278,7 +270,6 @@
 			this.m_lblBookSelectionInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_lblBookSelectionInfo.AutoEllipsis = true;
-			this.m_lblBookSelectionInfo.ForeColor = System.Drawing.Color.White;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblBookSelectionInfo, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblBookSelectionInfo, null);
 			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_lblBookSelectionInfo, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -366,7 +357,6 @@
 			this.m_lblActorsAssigned.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_lblActorsAssigned.AutoEllipsis = true;
-			this.m_lblActorsAssigned.ForeColor = System.Drawing.Color.White;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblActorsAssigned, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblActorsAssigned, "{0} and {1} are numbers");
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblActorsAssigned, "MainForm.ActorsAssigned");
@@ -394,7 +384,6 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(518, 256);
 			this.Controls.Add(this.m_imgCheckAssignActors);
 			this.Controls.Add(this.m_lblActorsAssigned);
