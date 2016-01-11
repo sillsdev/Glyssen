@@ -31,20 +31,22 @@ namespace Glyssen
 			int allProjectBlocks = numBlocksPerBook.Values.Sum();
 
 			int completedProjectBlocks = 0;
-			var bookScripts = new List<BookScript>();
+			var bookScripts = new List<BookScript>(blocksInBook.Count);
 			Parallel.ForEach(blocksInBook, book =>
 			{
 				var bookId = book.Key;
 				Logger.WriteEvent("Creating bookScript ({0})", bookId);
 				var bookScript = new BookScript(bookId, new UsxParser(bookId, stylesheet, book.Value).Parse());
 				Logger.WriteEvent("Created bookScript ({0}, {1})", bookId, bookScript.BookId);
-				bookScripts.Add(bookScript);
+				lock(bookScripts)
+					bookScripts.Add(bookScript);
 				Logger.WriteEvent("Added bookScript ({0}, {1})", bookId, bookScript.BookId);
 				completedProjectBlocks += numBlocksPerBook[bookId];
 				projectWorker.ReportProgress(MathUtilities.Percent(completedProjectBlocks, allProjectBlocks, 99));
 			});
 
 			// This code is an attempt to figure out how we are getting null reference exceptions on the Sort call (See PG-275 & PG-287)
+			// The above call to lock bookScripts probably fixes the problem!!! :-) We hope...
 			foreach (var bookScript in bookScripts)
 				if (bookScript == null || bookScript.BookId == null)
 				{
