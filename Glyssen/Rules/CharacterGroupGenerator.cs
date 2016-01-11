@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Web.UI.WebControls;
 using Glyssen.Character;
 using Glyssen.VoiceActor;
 using SIL.Extensions;
@@ -159,7 +158,7 @@ namespace Glyssen.Rules
 			do
 			{
 				var trialConfigurationsForNarratorsAndExtras = TrialGroupConfiguration.GeneratePossibilities(characterGroups,
-					ref maxMaleNarrators, ref maxFemaleNarrators, includedCharacterDetails, m_project);
+					ref maxMaleNarrators, ref maxFemaleNarrators, includedCharacterDetails, m_keyStrokesByCharacterId, m_project);
 
 				if (trialConfigurationsForNarratorsAndExtras.Any())
 				{
@@ -359,7 +358,7 @@ namespace Glyssen.Rules
 			}
 		}
 
-		private class TrialGroupConfiguration
+		public class TrialGroupConfiguration
 		{
 			private readonly List<CharacterGroup> m_groups;
 			private readonly Dictionary<BiblicalAuthors.Author, CharacterGroup> m_narratorGroupsByAuthor; 
@@ -377,7 +376,8 @@ namespace Glyssen.Rules
 			private TrialGroupConfiguration(IEnumerable<CharacterGroup> characterGroups,
 				int numberOfMaleNarratorGroups, int numberOfFemaleNarratorGroups,
 				int numberOfMaleExtraBiblicalGroups, int numberOfFemaleExtraBiblicalGroups,
-				Project project, List<CharacterDetail> includedCharacterDetails)
+				Dictionary<string, int> keyStrokesByCharacterId, Project project,
+				List<CharacterDetail> includedCharacterDetails)
 			{
 				m_groups = characterGroups.Select(g => g.Copy()).ToList();
 				Func<int, VoiceActor.VoiceActor> getVoiceActorById = id => project.VoiceActorList.GetVoiceActorById(id);
@@ -468,14 +468,110 @@ namespace Glyssen.Rules
 				var authors = new HashSet<BiblicalAuthors.Author>(project.IncludedBooks.Select(b => BiblicalAuthors.GetAuthorOfBook(b.BookId)).ToList());
 				if (NarratorGroups.Count == authors.Count)
 				{
-					m_narratorGroupsByAuthor = new Dictionary<BiblicalAuthors.Author, CharacterGroup>();
+					m_narratorGroupsByAuthor = new Dictionary<BiblicalAuthors.Author, CharacterGroup>(authors.Count);
 					int i = 0;
 					foreach (var author in authors)
 						m_narratorGroupsByAuthor[author] = NarratorGroups[i++];
 				}
+				else if (NarratorGroups.Count <= authors.Count)
+				{
+					var authorStats = new List<AuthorStats>(authors.Count);
+
+					foreach (var book in project.IncludedBooks)
+					{
+						var author = BiblicalAuthors.GetAuthorOfBook(book.BookId);
+						AuthorStats stats = authorStats.SingleOrDefault(s => s.Author == author);
+						if (stats == null)
+							authorStats.Add(new AuthorStats(author, book.BookId, keyStrokesByCharacterId));
+						else
+							stats.AddBook(book.BookId);
+					}
+					m_narratorGroupsByAuthor = DistributeAuthorsAmongNarratorGroups(authorStats, NarratorGroups);
+				}
 				else
 					m_narratorGroupsByAuthor = null;
 				AssignDeityCharacters(includedCharacterDetails, getVoiceActorById);
+			}
+
+			/// <summary>
+			/// This is broken out as a separate static method to facilitate faster and more complete unit testing
+			/// </summary>
+			/// <param name="authorStats">keystroke stats for each biblical author who wrote one or more books included in the project</param>
+			/// <param name="narratorGroups">list of available narrator groups (no greater than the total number of authors)</param>
+			/// <returns>Dictionary that maps biblical authors to character groups to be assigned to narrator characters</returns>
+			public static Dictionary<BiblicalAuthors.Author, CharacterGroup> DistributeAuthorsAmongNarratorGroups(List<AuthorStats> authorStats, List<CharacterGroup> narratorGroups)
+			{
+				authorStats.Sort(new AuthorStatsComparer());
+				int min = 0;
+				int n = 0;
+				var narratorGroupsByAuthor = new Dictionary<BiblicalAuthors.Author, CharacterGroup>(authorStats.Count);
+				bool addingAdditionalAuthorsToCurrentNarratorGroup = false;
+				bool currentMustCombine = false;
+				for (int i = authorStats.Count - 1; i >= min; i--)
+				{
+					narratorGroupsByAuthor[authorStats[i].Author] = narratorGroups[n];
+
+					int numberOfRemainingNarratorGroupsToAssign = narratorGroups.Count - n - 1;
+					if (numberOfRemainingNarratorGroupsToAssign > 0)
+					{
+						if (numberOfRemainingNarratorGroupsToAssign == 1)
+							currentMustCombine = true;
+						if (i < (authorStats.Count - narratorGroups.Count) * 2)
+						{
+							// We now need to work our way down through the list of authors to see which one(s), if any
+							// should be combined with the current author. For this purpose, we definitely need to skip
+							// enough authors to allow the "middle" ones to combine into groups of at least 2 authors.
+							// We don't want to combine this author with too many or too few of the smaller ones, so we're
+							// looking for the "breaking point" where combining it would result in groups that are as
+							// balanced as possible.
+							bool hitTippingPoint = false;
+							for (int lastAuthorToConsiderCombiningWithCurrent = i - (numberOfRemainingNarratorGroupsToAssign) * 2 - 1;
+								lastAuthorToConsiderCombiningWithCurrent >= min;
+								lastAuthorToConsiderCombiningWithCurrent--)
+							{
+								int keystrokesForCurrentPlusAllAuthorsFromMinUpToLastExclusive =
+									authorStats[i].KeyStrokeCount +
+									authorStats.Skip(min).Take(lastAuthorToConsiderCombiningWithCurrent - min).Sum(s => s.KeyStrokeCount);
+								int keystrokesForCurrentPlusAllAuthorsFromMinUpToLastInclusive =
+									keystrokesForCurrentPlusAllAuthorsFromMinUpToLastExclusive +
+									authorStats[lastAuthorToConsiderCombiningWithCurrent].KeyStrokeCount;
+								int keystrokesForRemainingGroupsIfLastIsExcluded =
+									authorStats.Skip(lastAuthorToConsiderCombiningWithCurrent + 1)
+										.Take(i - lastAuthorToConsiderCombiningWithCurrent - 1).Sum(s => s.KeyStrokeCount);
+								int averageKeystrokesForRemainingGroupsIfLastIsIncluded =
+									(keystrokesForRemainingGroupsIfLastIsExcluded + authorStats[lastAuthorToConsiderCombiningWithCurrent].KeyStrokeCount) /
+									numberOfRemainingNarratorGroupsToAssign;
+								int averageKeystrokesForRemainingGroupsIfLastIsExcluded = keystrokesForRemainingGroupsIfLastIsExcluded / numberOfRemainingNarratorGroupsToAssign;
+
+								if (keystrokesForCurrentPlusAllAuthorsFromMinUpToLastInclusive >= averageKeystrokesForRemainingGroupsIfLastIsExcluded &&
+									keystrokesForCurrentPlusAllAuthorsFromMinUpToLastExclusive < averageKeystrokesForRemainingGroupsIfLastIsIncluded)
+									hitTippingPoint = true;
+
+								if ((hitTippingPoint &&
+									keystrokesForCurrentPlusAllAuthorsFromMinUpToLastInclusive - averageKeystrokesForRemainingGroupsIfLastIsExcluded <=
+									averageKeystrokesForRemainingGroupsIfLastIsIncluded - keystrokesForCurrentPlusAllAuthorsFromMinUpToLastExclusive) ||
+									currentMustCombine && min == lastAuthorToConsiderCombiningWithCurrent)
+								{
+									addingAdditionalAuthorsToCurrentNarratorGroup = true;
+									while (min <= lastAuthorToConsiderCombiningWithCurrent)
+										narratorGroupsByAuthor[authorStats[min++].Author] = narratorGroups[n];
+									currentMustCombine = true; // Once we find an author that combines, all subequent authors must also combine.
+									break;
+								}
+							}
+						}
+						if (n < narratorGroups.Count - 1 &&
+							(i > numberOfRemainingNarratorGroupsToAssign || addingAdditionalAuthorsToCurrentNarratorGroup))
+						{
+							n++;
+							addingAdditionalAuthorsToCurrentNarratorGroup = false;
+						}
+						else
+							addingAdditionalAuthorsToCurrentNarratorGroup = true;
+					}
+				}
+				Debug.Assert(n == narratorGroups.Count - 1);
+				return narratorGroupsByAuthor;
 			}
 
 			private void AssignDeityCharacters(List<CharacterDetail> includedCharacterDetails, Func<int, VoiceActor.VoiceActor> getVoiceActorById)
@@ -528,7 +624,8 @@ namespace Glyssen.Rules
 			}
 
 			internal static List<TrialGroupConfiguration> GeneratePossibilities(List<CharacterGroup> characterGroups,
-				ref int numberOfMaleNarratorGroups, ref int numberOfFemaleNarratorGroups, List<CharacterDetail> includedCharacterDetails, Project project)
+				ref int numberOfMaleNarratorGroups, ref int numberOfFemaleNarratorGroups, List<CharacterDetail> includedCharacterDetails,
+				Dictionary<string, int> keyStrokesByCharacterId, Project project)
 			{
 				var list = new List<TrialGroupConfiguration>(2);
 
@@ -545,19 +642,19 @@ namespace Glyssen.Rules
 				if (availableMaleGroups.Count >= Math.Max(Math.Min(1, numberOfExtraBiblicalGroups), numberOfMaleNarratorGroups))
 				{
 					list.Add(new TrialGroupConfiguration(characterGroups, numberOfMaleNarratorGroups, numberOfFemaleNarratorGroups,
-						Math.Min(1, numberOfExtraBiblicalGroups), 0, project, includedCharacterDetails));
+						Math.Min(1, numberOfExtraBiblicalGroups), 0, keyStrokesByCharacterId, project, includedCharacterDetails));
 				}
 
 				if (numberOfExtraBiblicalGroups > 0 && availableFemaleGroups.Count >= Math.Max(1, numberOfFemaleNarratorGroups))
 				{
 					list.Add(new TrialGroupConfiguration(characterGroups, numberOfMaleNarratorGroups, numberOfFemaleNarratorGroups,
-						0, numberOfExtraBiblicalGroups, project, includedCharacterDetails));
+						0, numberOfExtraBiblicalGroups, keyStrokesByCharacterId, project, includedCharacterDetails));
 				}
 
 				if (!list.Any())
 				{
 					list.Add(new TrialGroupConfiguration(characterGroups, numberOfMaleNarratorGroups, numberOfFemaleNarratorGroups,
-						numberOfExtraBiblicalGroups, 0, project, includedCharacterDetails));
+						numberOfExtraBiblicalGroups, 0, keyStrokesByCharacterId, project, includedCharacterDetails));
 					numberOfMaleNarratorGroups = list[0].NarratorGroups.Count(g => g.VoiceActor.Gender == ActorGender.Male);
 					numberOfFemaleNarratorGroups = list[0].NarratorGroups.Count(g => g.VoiceActor.Gender == ActorGender.Female);
 					Debug.Assert(numberOfMaleNarratorGroups + numberOfFemaleNarratorGroups == 1);
@@ -616,11 +713,11 @@ namespace Glyssen.Rules
 			{
 				// Need tests (and code here) to handle the following scenarios:
 				// 0) number of narrators > number of books -> This should never happen!
-				// 1) DONE: number of narrators == number of books -> Add narrator to first empty narrator group
+				// 1) number of narrators == number of books -> Add narrator to first empty narrator group
 				// 2) TODO: number of narrators > number of authors -> break up most prolific authors into multiple narrator groups
-				// 3) DONE: number of narrators == number of authors -> add narrator to group with other books by same other, if any; otherwise first empty group
-				// 4) TODO: number of narrators < number of authors -> shorter books share narrators
-				// 5) DONE: single narrator -> EASY: only one group!
+				// 3) number of narrators == number of authors -> add narrator to group with other books by same other, if any; otherwise first empty group
+				// 4) number of narrators < number of authors -> shorter books share narrators
+				// 5) single narrator -> EASY: only one group!
 				CharacterGroup bestNarratorGroup = null;
 				if (m_narratorGroupsByAuthor != null)
 				{

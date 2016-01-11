@@ -269,6 +269,7 @@
     <Compile Include="Dialogs\NarrationOptionsDlg.Designer.cs">
       <DependentUpon>NarrationOptionsDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rules\AuthorStats.cs" />
     <Compile Include="Rules\CharacterGroupsAdjuster.cs" />
     <Compile Include="SampleProject.cs" />
     <Compile Include="Utilities\UndoActionSequence.cs" />

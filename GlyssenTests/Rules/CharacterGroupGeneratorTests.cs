@@ -1090,6 +1090,7 @@ namespace GlyssenTests.Rules
 		}
 	}
 
+	[TestFixture]
 	internal class CharacterGroupGeneratorTestsWithLotsOfBooks
 	{
 		private Project m_testProject;
@@ -1157,6 +1158,124 @@ namespace GlyssenTests.Rules
 			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("3JN", CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.AreEqual(1, narJude.CharacterIds.Count);
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_NumberOfNarratorsOneFewerThanAuthors_HebrewsAndJudeShareNarrators()
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 5;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(34, 4);
+			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
+
+			Assert.AreEqual(38, groups.Count);
+			var narMark = groups.Single(g => g.CharacterIds.Contains("narrator-MRK"));
+			var narLuke = groups.Single(g => g.CharacterIds.Contains("narrator-LUK"));
+			var narPaul = groups.Single(g => g.CharacterIds.Contains("narrator-EPH"));
+			var narHebrewsAndJude = groups.Single(g => g.CharacterIds.Contains("narrator-HEB"));
+			var narJohn = groups.Single(g => g.CharacterIds.Contains("narrator-1JN"));
+
+			Assert.AreEqual(1, narMark.CharacterIds.Count);
+			Assert.AreEqual(2, narLuke.CharacterIds.Count);
+			Assert.IsTrue(narLuke.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.AreEqual(3, narPaul.CharacterIds.Count);
+			Assert.IsTrue(narPaul.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narPaul.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("PHM", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.AreEqual(2, narHebrewsAndJude.CharacterIds.Count);
+			Assert.IsTrue(narHebrewsAndJude.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.AreEqual(4, narJohn.CharacterIds.Count);
+			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("2JN", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("3JN", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)));
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_NumberOfNarratorsTwoFewerThanAuthors_PaulCombinesWithJudeAndHebrewsCombinesWithMark()
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 4;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(34, 4);
+			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
+
+			Assert.AreEqual(38, groups.Count);
+			var narMarkAndHebrews = groups.Single(g => g.CharacterIds.Contains("narrator-MRK"));
+			var narLuke = groups.Single(g => g.CharacterIds.Contains("narrator-LUK"));
+			var narPaulAndJude = groups.Single(g => g.CharacterIds.Contains("narrator-EPH"));
+			var narJohn = groups.Single(g => g.CharacterIds.Contains("narrator-1JN"));
+
+			Assert.AreEqual(2, narMarkAndHebrews.CharacterIds.Count);
+			Assert.IsTrue(narMarkAndHebrews.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("HEB", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.AreEqual(2, narLuke.CharacterIds.Count);
+			Assert.IsTrue(narLuke.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.AreEqual(4, narPaulAndJude.CharacterIds.Count);
+			Assert.IsTrue(narPaulAndJude.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narPaulAndJude.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("PHM", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narPaulAndJude.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.AreEqual(4, narJohn.CharacterIds.Count);
+			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("2JN", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("3JN", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)));
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_NumberOfNarratorsThreeFewerThanAuthors_JohnCombinesWithJudeAndHebrewsAndPaulCombinesWithMark()
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 3;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(34, 4);
+			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
+
+			Assert.AreEqual(38, groups.Count);
+			var narLuke = groups.Single(g => g.CharacterIds.Contains("narrator-LUK"));
+			var narPaulAndMark = groups.Single(g => g.CharacterIds.Contains("narrator-EPH"));
+			var narJohnJudeHebrews = groups.Single(g => g.CharacterIds.Contains("narrator-1JN"));
+
+			Assert.AreEqual(2, narLuke.CharacterIds.Count);
+			Assert.IsTrue(narLuke.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.AreEqual(4, narPaulAndMark.CharacterIds.Count);
+			Assert.IsTrue(narPaulAndMark.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narPaulAndMark.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narPaulAndMark.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("PHM", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.AreEqual(6, narJohnJudeHebrews.CharacterIds.Count);
+			Assert.IsTrue(narJohnJudeHebrews.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("HEB", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohnJudeHebrews.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("2JN", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohnJudeHebrews.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("3JN", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohnJudeHebrews.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohnJudeHebrews.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)));
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_NumberOfNarratorsFourFewerThanAuthors_LukeCombinesWithJudeAndHebrewsAndJohnCombinesWithPaulAndMark()
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 2;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(34, 4);
+			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
+
+			Assert.AreEqual(38, groups.Count);
+			var narLukeJudeAndHebrews = groups.Single(g => g.CharacterIds.Contains("narrator-LUK"));
+			var narJohnPaulAndMark = groups.Single(g => g.CharacterIds.Contains("narrator-1JN"));
+
+			Assert.AreEqual(4, narLukeJudeAndHebrews.CharacterIds.Count);
+			Assert.IsTrue(narLukeJudeAndHebrews.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narLukeJudeAndHebrews.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("HEB", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narLukeJudeAndHebrews.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.AreEqual(8, narJohnPaulAndMark.CharacterIds.Count);
+			Assert.IsTrue(narJohnPaulAndMark.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohnPaulAndMark.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohnPaulAndMark.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("EPH", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohnPaulAndMark.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("PHM", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohnPaulAndMark.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("2JN", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohnPaulAndMark.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("3JN", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohnPaulAndMark.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)));
 		}
 	}
 
