@@ -73,6 +73,15 @@ namespace Glyssen
 				if (Directory.Exists(oldPgBaseFolder) && !Directory.Exists(BaseDataFolder))
 					Directory.Move(oldPgBaseFolder, BaseDataFolder);
 
+				if (!Directory.Exists(BaseDataFolder))
+				{
+					// create the directory
+					Directory.CreateDirectory(BaseDataFolder);
+				}
+
+				// PG-433, 07 JAN 2016, PH: Set the permissions so everyone can read and write to this directory
+				DirectoryUtilities.SetFullControl(BaseDataFolder, false);
+
 				DataMigrator.UpgradeToCurrentDataFormatVersion();
 
 				SampleProject.CreateSampleProjectIfNeeded();
