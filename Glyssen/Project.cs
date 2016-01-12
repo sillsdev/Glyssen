@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using System.Xml;
 using DesktopAnalytics;
 using Glyssen.Analysis;
 using Glyssen.Bundle;
@@ -64,6 +63,7 @@ namespace Glyssen
 		private VoiceActorList m_voiceActorList;
 		private CharacterGroupList m_characterGroupList;
 		private readonly ISet<CharacterDetail> m_projectCharacterDetailData;
+		private bool m_projectFileIsWritable = true;
 
 		public event EventHandler<ProgressChangedEventArgs> ProgressChanged;
 		public event EventHandler<ProjectStateChangedEventArgs> ProjectStateChanged;
@@ -606,6 +606,13 @@ namespace Glyssen
 
 		private static Project LoadExistingProject(string projectFilePath)
 		{
+			// PG-433, 04 JAN 2015, PH: Let the user know if the project file is not writable
+			var isWritable = !FileUtils.IsFileLocked(projectFilePath);
+			if (!isWritable)
+			{
+				MessageBox.Show(LocalizationManager.GetString("Project.NotWritableMsg", "The project file is not writable. No changes will be saved."));
+			}
+
 			Exception exception;
 			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out exception);
 			if (exception != null)
@@ -615,7 +622,12 @@ namespace Glyssen
 					LocalizationManager.GetString("File.ProjectMetadataInvalid", "Project could not be loaded: {0}"), projectFilePath);
 				return null;
 			}
-			Project project = new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath), true);
+
+			var project = new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath), true)
+			{
+				ProjectFileIsWritable = isWritable
+			};
+
 			var projectDir = Path.GetDirectoryName(projectFilePath);
 			Debug.Assert(projectDir != null);
 			string[] files = Directory.GetFiles(projectDir, "???" + kBookScriptFileExtension);
@@ -921,6 +933,8 @@ namespace Glyssen
 
 		public void Save()
 		{
+			if (!m_projectFileIsWritable) return;
+
 			Directory.CreateDirectory(ProjectFolder);
 
 			m_metadata.LastModified = DateTime.Now;
@@ -1191,6 +1205,12 @@ namespace Glyssen
 
 			m_wsDefinition.QuotationMarks.Clear();
 			m_wsDefinition.QuotationMarks.AddRange(replacementQuotationMarks);
+		}
+
+		public bool ProjectFileIsWritable
+		{
+			get { return m_projectFileIsWritable;  }
+			set { m_projectFileIsWritable = value; }
 		}
 	}
 
