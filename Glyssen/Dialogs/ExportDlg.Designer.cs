@@ -1,4 +1,6 @@
-﻿namespace Glyssen.Dialogs
+﻿using Glyssen.Utilities;
+
+namespace Glyssen.Dialogs
 {
 	partial class ExportDlg
 	{
@@ -164,6 +166,7 @@
 			// 
 			this.m_lblFileExists.AutoSize = true;
 			this.m_tableLayoutPanelMan.SetColumnSpan(this.m_lblFileExists, 3);
+			this.m_lblFileExists.ForeColor = CustomColor.Warning;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblFileExists, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblFileExists, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblFileExists, "DialogBoxes.ExportDlg.FileExists");
@@ -193,6 +196,7 @@
 			// 
 			this.m_lblActorDirectoryExists.AutoSize = true;
 			this.m_tableLayoutPanelMan.SetColumnSpan(this.m_lblActorDirectoryExists, 3);
+			this.m_lblActorDirectoryExists.ForeColor = CustomColor.Warning;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblActorDirectoryExists, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblActorDirectoryExists, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblActorDirectoryExists, "DialogBoxes.ExportDlg.ActorDirectoryExists");
@@ -235,6 +239,7 @@
 			// 
 			this.m_lblBookDirectoryExists.AutoSize = true;
 			this.m_tableLayoutPanelMan.SetColumnSpan(this.m_lblBookDirectoryExists, 3);
+			this.m_lblBookDirectoryExists.ForeColor = CustomColor.Warning;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblBookDirectoryExists, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblBookDirectoryExists, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblBookDirectoryExists, "DialogBoxes.ExportDlg.ActorDirectoryExists");
