@@ -151,6 +151,7 @@ namespace Glyssen.Rules
 				}
 			}
 
+			m_project.SetCharacterGroupGenerationPreferencesToValidValues();
 			int maxMaleNarrators = m_project.CharacterGroupGenerationPreferences.NumberOfMaleNarrators;
 			int maxFemaleNarrators = m_project.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators;
 

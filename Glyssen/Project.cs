@@ -7,7 +7,6 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Analysis;
@@ -294,6 +293,31 @@ namespace Glyssen
 			{
 				CharacterGroupGenerationPreferences.NumberOfMaleNarrators = BiblicalAuthors.GetAuthorCount(IncludedBooks.Select(b => b.BookId));
 				CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			}
+		}
+
+		public void SetCharacterGroupGenerationPreferencesToValidValues()
+		{
+			// We validate the values when the user can change them directly (in the Narration Preferences dialog),
+			// but this handles when other factors are changed which could invalidate the user's choices.
+			//
+			// For example, the project might be a whole NT, and the user chooses to use 27 authors.
+			// Later, the user may remove a book, but the requested number of authors is still 27 (which is now invalid).
+
+			int includedBooksCount = IncludedBooks.Count;
+			int numMale = CharacterGroupGenerationPreferences.NumberOfMaleNarrators;
+			int numFemale = CharacterGroupGenerationPreferences.NumberOfFemaleNarrators;
+
+			if (numMale + numFemale > includedBooksCount)
+			{
+				int numNarratorsToDecriment = (numMale + numFemale) - includedBooksCount;
+				if (numFemale >= numNarratorsToDecriment)
+					CharacterGroupGenerationPreferences.NumberOfFemaleNarrators -= numNarratorsToDecriment;
+				else
+				{
+					CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+					CharacterGroupGenerationPreferences.NumberOfMaleNarrators -= numNarratorsToDecriment - numFemale;
+				}
 			}
 		}
 
