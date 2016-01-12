@@ -69,7 +69,7 @@ namespace Glyssen.Quote
 			Level2Possibilities.TryGetValue(level1Mp, out level2Possibilities);
 			if (level2Possibilities == null)
 				return null;
-			return level2Possibilities.Select(q => new QuotationMark(q.Open, q.Close, level1.Continue + q.Open, 2, level1.Type)).ToArray();
+			return level2Possibilities.Select(q => new QuotationMark(q.Open, q.Close, level1.Continue + " " + q.Open, 2, level1.Type)).ToArray();
 		}
 
 		public static QuotationMark GetLevel2Default(QuotationMark level1)
@@ -89,7 +89,7 @@ namespace Glyssen.Quote
 			var level1 = system.FirstLevel;
 			string level3Continuer;
 			if (concatenateContinuers)
-				level3Continuer = system.NormalLevels[1].Continue + level1.Continue;
+				level3Continuer = system.NormalLevels[1].Continue + " " + level1.Continue;
 			else
 				level3Continuer = level1.Continue;
 			return new QuotationMark(level1.Open, level1.Close, level3Continuer, 3, QuotationMarkingSystemType.Normal);
