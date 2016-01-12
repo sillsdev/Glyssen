@@ -79,6 +79,8 @@ namespace GlyssenTests
 			originalBundle.Metadata.FontSizeInPoints = 10;
 			var project = new Project(originalBundle);
 
+			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
+
 			Assert.AreEqual(10, project.FontSizeInPoints);
 
 			var newBundle = GetGlyssenBundleToBeUsedForProject();
@@ -96,6 +98,8 @@ namespace GlyssenTests
 			var originalBundle = GetGlyssenBundleToBeUsedForProject();
 			originalBundle.WritingSystemDefinition.QuotationMarks[0] = new QuotationMark("open", "close", "cont", 1, QuotationMarkingSystemType.Normal);
 			var project = new Project(originalBundle);
+
+			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
 
 			Assert.AreEqual("open", project.QuoteSystem.FirstLevel.Open);
 

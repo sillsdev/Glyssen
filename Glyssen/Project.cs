@@ -7,6 +7,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
 using DesktopAnalytics;
@@ -351,6 +352,9 @@ namespace Glyssen
 
 		public Project UpdateProjectFromBundleData(GlyssenBundle bundle)
 		{
+			if ((ProjectState & ProjectState.ReadyForUserInteraction) == 0)
+				throw new InvalidOperationException("Project not in a valid state to update from text release bundle. ProjectState = " + ProjectState);
+
 			// If we're updating the project in place, we need to make a backup. Otherwise, if it's moving to a new
 			// location, just mark the existing one as inactive.
 			bool moving = (ProjectFilePath != GetProjectFilePath(bundle.LanguageIso, bundle.Id, m_recordingProjectName));
