@@ -521,6 +521,40 @@ namespace GlyssenTests
 			}
 		}
 
+		[TestCase(2, 1, 1, 0)]
+		[TestCase(1, 1, 1, 0)]
+		[TestCase(1, 0, 1, 0)]
+		[TestCase(0, 1, 0, 1)]
+		[TestCase(0, 2, 0, 1)]
+		[TestCase(1, 2, 1, 0)]
+		public void SetCharacterGroupGenerationPreferencesToValidValues_OneBook(int numMaleNarrators, int numFemaleNarrators, int resultMale, int resultFemale)
+		{
+			var testProject = TestProject.CreateBasicTestProject();
+			testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numMaleNarrators;
+			testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numFemaleNarrators;
+
+			testProject.SetCharacterGroupGenerationPreferencesToValidValues();
+			Assert.AreEqual(resultMale, testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators);
+			Assert.AreEqual(resultFemale, testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators);
+		}
+
+		[TestCase(1, 1, 1, 1)]
+		[TestCase(2, 1, 2, 1)]
+		[TestCase(3, 1, 3, 0)]
+		[TestCase(4, 1, 3, 0)]
+		[TestCase(1, 2, 1, 2)]
+		[TestCase(1, 3, 1, 2)]
+		public void SetCharacterGroupGenerationPreferencesToValidValues_ThreeBooks(int numMaleNarrators, int numFemaleNarrators, int resultMale, int resultFemale)
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.LUK, TestProject.TestBook.ACT);
+			testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numMaleNarrators;
+			testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numFemaleNarrators;
+
+			testProject.SetCharacterGroupGenerationPreferencesToValidValues();
+			Assert.AreEqual(resultMale, testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators);
+			Assert.AreEqual(resultFemale, testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators);
+		}
+
 		private void WaitForProjectInitializationToFinish(Project project, ProjectState projectState)
 		{
 			const int maxCyclesAllowed = 100;

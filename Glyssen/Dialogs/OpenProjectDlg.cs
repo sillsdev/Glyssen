@@ -3,11 +3,12 @@ using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 using Glyssen.Properties;
+using Glyssen.Utilities;
 using SIL.Windows.Forms.PortableSettingsProvider;
 
 namespace Glyssen.Dialogs
 {
-	public partial class OpenProjectDlg : Form
+	public partial class OpenProjectDlg : CustomForm
 	{
 		public enum ProjectType
 		{

@@ -94,7 +94,6 @@
 			// 
 			this.m_lblLanguageName.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_lblLanguageName.AutoSize = true;
-			this.m_lblLanguageName.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblLanguageName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblLanguageName, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblLanguageName, "DialogBoxes.ProjectSettingsDlg.LanguageName");
@@ -108,7 +107,6 @@
 			// 
 			this.m_lblIso639_2_Code.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_lblIso639_2_Code.AutoSize = true;
-			this.m_lblIso639_2_Code.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblIso639_2_Code, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblIso639_2_Code, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblIso639_2_Code, "DialogBoxes.ProjectSettingsDlg.EthnologueCode");
@@ -122,7 +120,6 @@
 			// 
 			this.m_lblPublicationName.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_lblPublicationName.AutoSize = true;
-			this.m_lblPublicationName.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblPublicationName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblPublicationName, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblPublicationName, "DialogBoxes.ProjectSettingsDlg.PublicationName");
@@ -136,7 +133,6 @@
 			// 
 			this.m_lblPublicationId.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_lblPublicationId.AutoSize = true;
-			this.m_lblPublicationId.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblPublicationId, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblPublicationId, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblPublicationId, "DialogBoxes.ProjectSettingsDlg.PublicationId");
@@ -168,7 +164,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_tableLayoutMain.SetColumnSpan(this.m_wsFontControl, 4);
 			this.m_wsFontControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-			this.m_wsFontControl.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_wsFontControl, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_wsFontControl, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_wsFontControl, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -183,7 +178,6 @@
 			// 
 			this.m_lblRecordingProjectName.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_lblRecordingProjectName.AutoSize = true;
-			this.m_lblRecordingProjectName.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblRecordingProjectName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblRecordingProjectName, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblRecordingProjectName, "DialogBoxes.ProjectSettingsDlg.RecordingProjectName");
@@ -213,7 +207,6 @@
 			this.m_lblWritingSystem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.m_lblWritingSystem.AutoSize = true;
 			this.m_lblWritingSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_lblWritingSystem.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblWritingSystem, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblWritingSystem, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblWritingSystem, "DialogBoxes.ProjectSettingsDlg.Writing System");
@@ -246,7 +239,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_txtLanguageName.AutoSize = true;
 			this.m_tableLayoutMain.SetColumnSpan(this.m_txtLanguageName, 3);
-			this.m_txtLanguageName.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtLanguageName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtLanguageName, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtLanguageName, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -263,7 +255,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_txtIso639_2_Code.AutoSize = true;
 			this.m_tableLayoutMain.SetColumnSpan(this.m_txtIso639_2_Code, 3);
-			this.m_txtIso639_2_Code.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtIso639_2_Code, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtIso639_2_Code, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtIso639_2_Code, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -280,7 +271,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_txtPublicationName.AutoSize = true;
 			this.m_tableLayoutMain.SetColumnSpan(this.m_txtPublicationName, 3);
-			this.m_txtPublicationName.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtPublicationName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtPublicationName, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtPublicationName, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -297,7 +287,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_txtPublicationId.AutoSize = true;
 			this.m_tableLayoutMain.SetColumnSpan(this.m_txtPublicationId, 3);
-			this.m_txtPublicationId.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtPublicationId, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtPublicationId, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtPublicationId, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -313,7 +302,6 @@
 			this.m_lblOriginalBundlePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
 			this.m_lblOriginalBundlePath.AutoSize = true;
-			this.m_lblOriginalBundlePath.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblOriginalBundlePath, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblOriginalBundlePath, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblOriginalBundlePath, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -331,7 +319,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_tableLayoutMain.SetColumnSpan(this.m_txtOriginalBundlePath, 2);
-			this.m_txtOriginalBundlePath.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtOriginalBundlePath, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtOriginalBundlePath, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtOriginalBundlePath, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -363,7 +350,6 @@
 			this.m_lblQuoteMarks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.m_lblQuoteMarks.AutoSize = true;
 			this.m_lblQuoteMarks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_lblQuoteMarks.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblQuoteMarks, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblQuoteMarks, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblQuoteMarks, "DialogBoxes.ProjectSettingsDlg.QuoteMarks");
@@ -378,7 +364,6 @@
 			// 
 			this.m_lblQuoteMarkReview.AutoSize = true;
 			this.m_tableLayoutMain.SetColumnSpan(this.m_lblQuoteMarkReview, 4);
-			this.m_lblQuoteMarkReview.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblQuoteMarkReview, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblQuoteMarkReview, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblQuoteMarkReview, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -396,7 +381,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_lblQuoteMarkSummary.AutoSize = true;
 			this.m_lblQuoteMarkSummary.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-			this.m_lblQuoteMarkSummary.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblQuoteMarkSummary, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblQuoteMarkSummary, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblQuoteMarkSummary, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -430,7 +414,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_txtVersification.AutoSize = true;
 			this.m_tableLayoutMain.SetColumnSpan(this.m_txtVersification, 3);
-			this.m_txtVersification.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtVersification, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtVersification, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtVersification, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -444,7 +427,6 @@
 			// m_lblVersification
 			// 
 			this.m_lblVersification.AutoSize = true;
-			this.m_lblVersification.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblVersification, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblVersification, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblVersification, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -460,7 +442,6 @@
 			this.m_lblSummary.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
 			this.m_lblSummary.AutoSize = true;
-			this.m_lblSummary.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblSummary, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblSummary, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblSummary, "DialogBoxes.ProjectSettingsDlg.Summary");
@@ -572,7 +553,6 @@
 			this.AcceptButton = this.m_btnOk;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.CancelButton = this.m_btnCancel;
 			this.ClientSize = new System.Drawing.Size(527, 594);
 			this.Controls.Add(this.m_btnOk);

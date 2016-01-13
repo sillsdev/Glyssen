@@ -34,15 +34,15 @@
 			this.m_lblDesiredMaleNarratorNum = new System.Windows.Forms.Label();
 			this.m_selectionsTableLayout = new System.Windows.Forms.TableLayoutPanel();
 			this.m_numMaleNarrator = new System.Windows.Forms.NumericUpDown();
+			this.m_lblDesiredFemaleNarratorNum = new System.Windows.Forms.Label();
+			this.m_numFemaleNarrator = new System.Windows.Forms.NumericUpDown();
 			this.m_btnCancel = new System.Windows.Forms.Button();
 			this.m_btnOk = new System.Windows.Forms.Button();
 			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
-			this.m_lblDesiredFemaleNarratorNum = new System.Windows.Forms.Label();
-			this.m_numFemaleNarrator = new System.Windows.Forms.NumericUpDown();
 			this.m_selectionsTableLayout.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_numMaleNarrator)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_numFemaleNarrator)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// m_lblExplanatory
@@ -50,7 +50,6 @@
 			this.m_lblExplanatory.AutoSize = true;
 			this.m_selectionsTableLayout.SetColumnSpan(this.m_lblExplanatory, 2);
 			this.m_lblExplanatory.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_lblExplanatory.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblExplanatory, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblExplanatory, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblExplanatory, "DialogBoxes.NarrationOptionsDlg.Explanatory");
@@ -67,7 +66,6 @@
 			// 
 			this.m_lblDesiredMaleNarratorNum.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_lblDesiredMaleNarratorNum.AutoSize = true;
-			this.m_lblDesiredMaleNarratorNum.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblDesiredMaleNarratorNum, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblDesiredMaleNarratorNum, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblDesiredMaleNarratorNum, "DialogBoxes.NarrationOptionsDlg.DesiredNarratorNum");
@@ -126,6 +124,43 @@
             0,
             0});
 			// 
+			// m_lblDesiredFemaleNarratorNum
+			// 
+			this.m_lblDesiredFemaleNarratorNum.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.m_lblDesiredFemaleNarratorNum.AutoSize = true;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblDesiredFemaleNarratorNum, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblDesiredFemaleNarratorNum, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblDesiredFemaleNarratorNum, "DialogBoxes.NarrationOptionsDlg.DesiredFemaleNarratorNum");
+			this.m_lblDesiredFemaleNarratorNum.Location = new System.Drawing.Point(0, 174);
+			this.m_lblDesiredFemaleNarratorNum.Margin = new System.Windows.Forms.Padding(0);
+			this.m_lblDesiredFemaleNarratorNum.Name = "m_lblDesiredFemaleNarratorNum";
+			this.m_lblDesiredFemaleNarratorNum.Size = new System.Drawing.Size(174, 13);
+			this.m_lblDesiredFemaleNarratorNum.TabIndex = 5;
+			this.m_lblDesiredFemaleNarratorNum.Text = "Desired number of female narrators:";
+			this.m_lblDesiredFemaleNarratorNum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// m_numFemaleNarrator
+			// 
+			this.m_numFemaleNarrator.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_numFemaleNarrator, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_numFemaleNarrator, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_numFemaleNarrator, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_numFemaleNarrator, "NarrationOptionsDlg.m_numNarratorNum");
+			this.m_numFemaleNarrator.Location = new System.Drawing.Point(177, 171);
+			this.m_numFemaleNarrator.Maximum = new decimal(new int[] {
+            66,
+            0,
+            0,
+            0});
+			this.m_numFemaleNarrator.Name = "m_numFemaleNarrator";
+			this.m_numFemaleNarrator.Size = new System.Drawing.Size(50, 20);
+			this.m_numFemaleNarrator.TabIndex = 6;
+			this.m_numFemaleNarrator.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			// 
 			// m_btnCancel
 			// 
 			this.m_btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -162,50 +197,11 @@
 			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
 			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes";
 			// 
-			// m_lblDesiredFemaleNarratorNum
-			// 
-			this.m_lblDesiredFemaleNarratorNum.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.m_lblDesiredFemaleNarratorNum.AutoSize = true;
-			this.m_lblDesiredFemaleNarratorNum.ForeColor = System.Drawing.Color.White;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblDesiredFemaleNarratorNum, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblDesiredFemaleNarratorNum, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblDesiredFemaleNarratorNum, "DialogBoxes.NarrationOptionsDlg.DesiredFemaleNarratorNum");
-			this.m_lblDesiredFemaleNarratorNum.Location = new System.Drawing.Point(0, 174);
-			this.m_lblDesiredFemaleNarratorNum.Margin = new System.Windows.Forms.Padding(0);
-			this.m_lblDesiredFemaleNarratorNum.Name = "m_lblDesiredFemaleNarratorNum";
-			this.m_lblDesiredFemaleNarratorNum.Size = new System.Drawing.Size(174, 13);
-			this.m_lblDesiredFemaleNarratorNum.TabIndex = 5;
-			this.m_lblDesiredFemaleNarratorNum.Text = "Desired number of female narrators:";
-			this.m_lblDesiredFemaleNarratorNum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// m_numFemaleNarrator
-			// 
-			this.m_numFemaleNarrator.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_numFemaleNarrator, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_numFemaleNarrator, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_numFemaleNarrator, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_numFemaleNarrator, "NarrationOptionsDlg.m_numNarratorNum");
-			this.m_numFemaleNarrator.Location = new System.Drawing.Point(177, 171);
-			this.m_numFemaleNarrator.Maximum = new decimal(new int[] {
-            66,
-            0,
-            0,
-            0});
-			this.m_numFemaleNarrator.Name = "m_numFemaleNarrator";
-			this.m_numFemaleNarrator.Size = new System.Drawing.Size(50, 20);
-			this.m_numFemaleNarrator.TabIndex = 6;
-			this.m_numFemaleNarrator.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			// 
 			// NarrationOptionsDlg
 			// 
 			this.AcceptButton = this.m_btnOk;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.CancelButton = this.m_btnCancel;
 			this.ClientSize = new System.Drawing.Size(412, 379);
 			this.Controls.Add(this.m_btnOk);
@@ -226,8 +222,8 @@
 			this.m_selectionsTableLayout.ResumeLayout(false);
 			this.m_selectionsTableLayout.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_numMaleNarrator)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_numFemaleNarrator)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			this.ResumeLayout(false);
 
 		}

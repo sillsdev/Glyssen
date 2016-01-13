@@ -25,6 +25,8 @@ namespace Glyssen.Rules
 			bool foundFirst = false;
 			int currentBlockCount = 0;
 			int minProximity = Int32.MaxValue;
+			bool prevIsSingleCharacterId = true;
+			string prevCharacterId = null;
 			ISet<string> prevMatchingCharacterIds = new HashSet<string>();
 			BookScript firstBook = null;
 			Block firstBlock = null;
@@ -49,13 +51,39 @@ namespace Glyssen.Rules
 				{
 					var characterId = block.CharacterIdInScript;
 
-					ISet<string> matchingCharacterIds;
-					if (characterIdsWithAgeVariations.Contains(characterId))
-						matchingCharacterIds = relChar.GetMatchingCharacterIds(characterId, CharacterRelationshipType.SameCharacterWithMultipleAges);
-					else
-						matchingCharacterIds = new HashSet<string> { characterId };
+					// The original logic here was NOT split out for the single character vs. multiple character scenarios.
+					// This made the code much more readable, but the performance was atrocious since we were creating
+					// extra hashsets and doing extra intersects. Please consider the performance implications of any
+					// changes to this code.  (I'm sure it could be optimized further, too...)
 
-					if (matchingCharacterIds.Intersect(prevMatchingCharacterIds).Any())
+					bool isSingleCharacterId = true;
+					ISet<string> matchingCharacterIds = new HashSet<string>();
+					if (characterIdsWithAgeVariations.Contains(characterId))
+					{
+						matchingCharacterIds = relChar.GetMatchingCharacterIds(characterId, CharacterRelationshipType.SameCharacterWithMultipleAges);
+						if (matchingCharacterIds.Count == 1)
+							characterId = matchingCharacterIds.First();
+						else
+							isSingleCharacterId = false;
+					}
+
+					if (isSingleCharacterId)
+					{
+						if (prevIsSingleCharacterId && prevCharacterId == characterId || prevMatchingCharacterIds.Contains(characterId))
+						{
+							currentBlockCount = 0;
+							prevBook = book;
+							prevBlock = block;
+						}
+						else if (characterIdsToCalculate.Contains(characterId))
+						{
+							if (ProcessDifferentCharacter(book, block, isSingleCharacterId, characterId, matchingCharacterIds, ref foundFirst, ref currentBlockCount, ref minProximity, ref firstBook, ref prevBook, ref firstBlock, ref prevBlock, ref secondBook, ref secondBlock, ref breakOutOfBothLoops, ref prevIsSingleCharacterId, ref prevCharacterId, ref prevMatchingCharacterIds))
+								break;
+						}
+						else
+							currentBlockCount++;
+					}
+					else if (matchingCharacterIds.Intersect(prevMatchingCharacterIds).Any())
 					{
 						currentBlockCount = 0;
 						prevBook = book;
@@ -63,36 +91,8 @@ namespace Glyssen.Rules
 					}
 					else if (characterIdsToCalculate.Intersect(matchingCharacterIds).Any())
 					{
-						if (foundFirst)
-						{
-							if (currentBlockCount < minProximity)
-							{
-								minProximity = currentBlockCount;
-								firstBook = prevBook;
-								firstBlock = prevBlock;
-								secondBook = book;
-								secondBlock = block;
-
-								if (minProximity == 0)
-								{
-									breakOutOfBothLoops = true;
-									break;
-								}
-							}
-						}
-						else
-						{
-							firstBook = book;
-							firstBlock = block;
-							secondBook = book;
-							secondBlock = block;
-						}
-						foundFirst = true;
-						currentBlockCount = 0;
-						prevMatchingCharacterIds = matchingCharacterIds;
-
-						prevBook = book;
-						prevBlock = block;
+						if (ProcessDifferentCharacter(book, block, isSingleCharacterId, characterId, matchingCharacterIds, ref foundFirst, ref currentBlockCount, ref minProximity, ref firstBook, ref prevBook, ref firstBlock, ref prevBlock, ref secondBook, ref secondBlock, ref breakOutOfBothLoops, ref prevIsSingleCharacterId, ref prevCharacterId, ref prevMatchingCharacterIds))
+							break;
 					}
 					else
 					{
@@ -109,6 +109,43 @@ namespace Glyssen.Rules
 				FirstBlock = firstBlock,
 				SecondBlock = secondBlock
 			};
+		}
+
+		private static bool ProcessDifferentCharacter(BookScript book, Block block, bool isSingleCharacterId, string characterId, ISet<string> matchingCharacterIds, ref bool foundFirst, ref int currentBlockCount, ref int minProximity, ref BookScript firstBook, ref BookScript prevBook, ref Block firstBlock, ref Block prevBlock, ref BookScript secondBook, ref Block secondBlock, ref bool breakOutOfBothLoops, ref bool prevIsSingleCharacterId, ref string prevCharacterId, ref ISet<string> prevMatchingCharacterIds)
+		{
+			if (foundFirst)
+			{
+				if (currentBlockCount < minProximity)
+				{
+					minProximity = currentBlockCount;
+					firstBook = prevBook;
+					firstBlock = prevBlock;
+					secondBook = book;
+					secondBlock = block;
+
+					if (minProximity == 0)
+					{
+						breakOutOfBothLoops = true;
+						return true;
+					}
+				}
+			}
+			else
+			{
+				firstBook = book;
+				firstBlock = block;
+				secondBook = book;
+				secondBlock = block;
+			}
+			foundFirst = true;
+			currentBlockCount = 0;
+			prevIsSingleCharacterId = isSingleCharacterId;
+			prevCharacterId = characterId;
+			prevMatchingCharacterIds = matchingCharacterIds;
+
+			prevBook = book;
+			prevBlock = block;
+			return false;
 		}
 	}
 

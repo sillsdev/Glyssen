@@ -10,6 +10,7 @@ using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Rules;
+using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.Progress;
@@ -17,7 +18,7 @@ using SIL.Reporting;
 
 namespace Glyssen.Dialogs
 {
-	public partial class VoiceActorAssignmentDlg : Form
+	public partial class VoiceActorAssignmentDlg : CustomForm
 	{
 		private const string kCreateNewGroupMenuItemId = "CreateNewGroup";
 		private const string kAssignToCameoActorItemId = "AssignToCameoActor";
@@ -693,7 +694,7 @@ namespace Glyssen.Dialogs
 					//var cellBounds = m_characterGroupGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].GetContentBounds(e.RowIndex);
 					//e.CellStyle.ForeColor = cellBounds.Contains(this.PointToClient(Control.MousePosition))
 					//	? SystemColors.HotTrack : SystemColors.Highlight;
-					e.CellStyle.ForeColor = SystemColors.HotTrack;
+					e.CellStyle.ForeColor = CustomColor.LinkColor;
 					e.CellStyle.Font = m_hyperlinkFont;
 				}
 			}

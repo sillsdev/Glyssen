@@ -58,7 +58,6 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_lblInstructions.AutoSize = true;
 			this.m_lblInstructions.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_lblInstructions.ForeColor = System.Drawing.Color.White;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_lblInstructions, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_lblInstructions, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_lblInstructions, "DialogBoxes.VoiceActorInformation.EnterVoiceActors");
@@ -94,7 +93,6 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_linkClose.Anchor = System.Windows.Forms.AnchorStyles.Right;
 			this.m_linkClose.AutoSize = true;
-			this.m_linkClose.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_linkClose, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_linkClose, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_linkClose, "DialogBoxes.VoiceActorInformation.Close");
@@ -127,7 +125,6 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_lblProjectSummary.AutoSize = true;
 			this.tableLayoutPanel1.SetColumnSpan(this.m_lblProjectSummary, 4);
-			this.m_lblProjectSummary.ForeColor = System.Drawing.Color.White;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_lblProjectSummary, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_lblProjectSummary, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_lblProjectSummary, "DialogBoxes.VoiceActorInformation.ProjectSummary");
@@ -142,7 +139,6 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_lblRecordingTime.AutoSize = true;
 			this.tableLayoutPanel1.SetColumnSpan(this.m_lblRecordingTime, 4);
-			this.m_lblRecordingTime.ForeColor = System.Drawing.Color.White;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_lblRecordingTime, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_lblRecordingTime, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_lblRecordingTime, "DialogBoxes.VoiceActorInformation.RecordingTime");
@@ -157,7 +153,6 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_lblRecommendedCast.AutoSize = true;
 			this.tableLayoutPanel1.SetColumnSpan(this.m_lblRecommendedCast, 4);
-			this.m_lblRecommendedCast.ForeColor = System.Drawing.Color.White;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_lblRecommendedCast, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_lblRecommendedCast, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_lblRecommendedCast, "DialogBoxes.VoiceActorInformation.RecommendedCast");
@@ -172,8 +167,6 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_linkNarrationPreferences.AutoSize = true;
 			this.tableLayoutPanel1.SetColumnSpan(this.m_linkNarrationPreferences, 4);
-			this.m_linkNarrationPreferences.ForeColor = System.Drawing.Color.White;
-			this.m_linkNarrationPreferences.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_linkNarrationPreferences, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_linkNarrationPreferences, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_linkNarrationPreferences, "DialogBoxes.VoiceActorInformation.NarrationPreferences");
@@ -190,8 +183,6 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_linkMoreInfo.AutoSize = true;
 			this.tableLayoutPanel1.SetColumnSpan(this.m_linkMoreInfo, 4);
-			this.m_linkMoreInfo.ForeColor = System.Drawing.Color.White;
-			this.m_linkMoreInfo.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_linkMoreInfo, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_linkMoreInfo, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_linkMoreInfo, "DialogBoxes.VoiceActorInformation.MoreInfo");
@@ -209,7 +200,6 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_lblTally.AutoSize = true;
 			this.tableLayoutPanel1.SetColumnSpan(this.m_lblTally, 4);
-			this.m_lblTally.ForeColor = System.Drawing.Color.White;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_lblTally, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_lblTally, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_lblTally, "DialogBoxes.VoiceActorInformation.Tally");
@@ -227,8 +217,7 @@ namespace Glyssen.Dialogs
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_dataGrid.AutoScroll = true;
 			this.m_dataGrid.AutoSize = true;
-			this.m_dataGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
-			this.m_dataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_dataGrid.BackgroundColor = System.Drawing.SystemColors.Control;
 			this.tableLayoutPanel1.SetColumnSpan(this.m_dataGrid, 4);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_dataGrid, null);
@@ -245,9 +234,8 @@ namespace Glyssen.Dialogs
 			this.m_saveStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_saveStatus.AutoSize = true;
 			this.m_saveStatus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.m_saveStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
-			this.m_saveStatus.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
-			this.m_saveStatus.ForeColor = System.Drawing.Color.White;
+			this.m_saveStatus.BackColor = System.Drawing.SystemColors.Control;
+			this.m_saveStatus.BackgroundColor = System.Drawing.SystemColors.Control;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_saveStatus, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_saveStatus, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_saveStatus, "DialogBoxes.VoiceActorInformation.SaveStatus");
@@ -328,7 +316,6 @@ namespace Glyssen.Dialogs
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(609, 413);
 			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.tableLayoutPanel1);

@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Bundle;
+using Glyssen.Utilities;
 using L10NSharp;
 using SIL.IO;
 
 namespace Glyssen.Dialogs
 {
-	public partial class ProjectSettingsDlg : Form
+	public partial class ProjectSettingsDlg : CustomForm
 	{
 		private ProjectSettingsViewModel m_model;
 
@@ -42,6 +42,14 @@ namespace Glyssen.Dialogs
 
 				if (!string.IsNullOrWhiteSpace(m_model.SampleText))
 					m_wsFontControl.TestAreaText = m_model.SampleText;
+
+				// PG-433, 07 JAN 2016, PH: Disable some UI if project file is not writable
+				var enableControls = (m_model.Project == null) || m_model.Project.ProjectFileIsWritable;
+				m_btnUpdateFromBundle.Enabled = enableControls;
+				m_btnQuoteMarkSettings.Enabled = enableControls;
+				m_btnOk.Enabled = enableControls;
+				m_wsFontControl.Enabled = enableControls;
+				m_txtRecordingProjectName.Enabled = enableControls;
 			}
 		}
 
@@ -77,7 +85,7 @@ namespace Glyssen.Dialogs
 		{
 			m_lblQuoteMarkSummary.Text = m_model.Project.QuoteSystem.ShortSummary;
 
-			m_lblQuoteMarkReview.ForeColor = Color.White;
+			m_lblQuoteMarkReview.ForeColor = CustomColor.ForeColor;
 
 			string quoteMarkReviewText = "";
 			switch (m_model.Project.QuoteSystemStatus)
@@ -87,7 +95,7 @@ namespace Glyssen.Dialogs
 					break;
 				case QuoteSystemStatus.Guessed:
 					quoteMarkReviewText = LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.CarefullyReviewQuoteMarks", "Carefully review the quote mark settings.");
-					m_lblQuoteMarkReview.ForeColor = Color.Yellow;
+					m_lblQuoteMarkReview.ForeColor = CustomColor.Warning;
 					break;
 				case QuoteSystemStatus.Reviewed:
 					quoteMarkReviewText = string.Format(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.QuoteMarksReviewed", "Quote mark settings were reviewed on {0}.", "{0} is a date"), m_model.Project.QuoteSystemDate.ToString("yyyy-MM-dd"));

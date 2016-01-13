@@ -158,7 +158,6 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_lblQuotationMarks.AutoSize = true;
 			this.m_lblQuotationMarks.BackColor = System.Drawing.Color.Transparent;
-			this.m_lblQuotationMarks.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblQuotationMarks, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblQuotationMarks, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblQuotationMarks, "DialogBoxes.QuotationMarksDlg.FirstLevelQuotationMarks");
@@ -187,7 +186,6 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_chkDialogueQuotations.AutoSize = true;
 			this.m_chkDialogueQuotations.BackColor = System.Drawing.Color.Transparent;
-			this.m_chkDialogueQuotations.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_chkDialogueQuotations, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_chkDialogueQuotations, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkDialogueQuotations, "DialogBoxes.QuotationMarksDlg.ProjectMarksDialogue");
@@ -242,7 +240,6 @@ namespace Glyssen.Dialogs
 			this.m_lblEndDialogueQuote.AutoSize = true;
 			this.m_lblEndDialogueQuote.BackColor = System.Drawing.Color.Transparent;
 			this.m_lblEndDialogueQuote.Enabled = false;
-			this.m_lblEndDialogueQuote.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblEndDialogueQuote, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblEndDialogueQuote, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblEndDialogueQuote, "DialogBoxes.QuotationMarksDlg.EndDialogueQuote");
@@ -257,7 +254,6 @@ namespace Glyssen.Dialogs
 			this.m_chkAlternateSpeakersInFirstLevelQuotes.AutoSize = true;
 			this.m_chkAlternateSpeakersInFirstLevelQuotes.BackColor = System.Drawing.Color.Transparent;
 			this.m_chkAlternateSpeakersInFirstLevelQuotes.Enabled = false;
-			this.m_chkAlternateSpeakersInFirstLevelQuotes.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_chkAlternateSpeakersInFirstLevelQuotes, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_chkAlternateSpeakersInFirstLevelQuotes, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkAlternateSpeakersInFirstLevelQuotes, "DialogBoxes.QuotationMarksDlg.m_chkAlternateSpeakersInFirstLevelQuotes");
@@ -444,7 +440,6 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_labelXofY.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.m_labelXofY.BackColor = System.Drawing.Color.Transparent;
-			this.m_labelXofY.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_labelXofY, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_labelXofY, "{0} is the current block number; {1} is the total number of blocks.");
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelXofY, "DialogBoxes.AssignCharacterDlg.XofY");
@@ -459,7 +454,6 @@ namespace Glyssen.Dialogs
 			// label1
 			// 
 			this.label1.BackColor = System.Drawing.Color.Transparent;
-			this.label1.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label1, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label1, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.label1, "DialogBoxes.QuotationMarksDlg.SwitchFirstLevel");
@@ -478,7 +472,6 @@ namespace Glyssen.Dialogs
 			this.m_lblStartDialogueQuote.AutoSize = true;
 			this.m_lblStartDialogueQuote.BackColor = System.Drawing.Color.Transparent;
 			this.m_lblStartDialogueQuote.Enabled = false;
-			this.m_lblStartDialogueQuote.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblStartDialogueQuote, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblStartDialogueQuote, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblStartDialogueQuote, "DialogBoxes.QuotationMarksDlg.DialogueQuotationDash");
@@ -492,7 +485,6 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_lblLevel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_lblLevel1.AutoSize = true;
-			this.m_lblLevel1.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblLevel1, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblLevel1, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblLevel1, "DialogBoxes.QuotationMarksDlg.Level1");
@@ -506,7 +498,6 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_lblLevel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_lblLevel2.AutoSize = true;
-			this.m_lblLevel2.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblLevel2, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblLevel2, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblLevel2, "DialogBoxes.QuotationMarksDlg.Level2");
@@ -520,7 +511,6 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_lblLevel3.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_lblLevel3.AutoSize = true;
-			this.m_lblLevel3.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblLevel3, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblLevel3, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblLevel3, "DialogBoxes.QuotationMarksDlg.Level3");
@@ -533,7 +523,6 @@ namespace Glyssen.Dialogs
 			// m_lblBegin
 			// 
 			this.m_lblBegin.AutoSize = true;
-			this.m_lblBegin.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblBegin, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblBegin, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblBegin, "DialogBoxes.QuotationMarksDlg.Begin");
@@ -546,7 +535,6 @@ namespace Glyssen.Dialogs
 			// m_lblContinue
 			// 
 			this.m_lblContinue.AutoSize = true;
-			this.m_lblContinue.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblContinue, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblContinue, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblContinue, "DialogBoxes.QuotationMarksDlg.Continue");
@@ -559,7 +547,6 @@ namespace Glyssen.Dialogs
 			// m_lblEnd
 			// 
 			this.m_lblEnd.AutoSize = true;
-			this.m_lblEnd.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblEnd, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblEnd, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblEnd, "DialogBoxes.QuotationMarksDlg.End");
@@ -681,7 +668,6 @@ namespace Glyssen.Dialogs
 			// m_lblPrompt
 			// 
 			this.m_lblPrompt.AutoSize = true;
-			this.m_lblPrompt.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblPrompt, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblPrompt, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblPrompt, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -838,7 +824,6 @@ namespace Glyssen.Dialogs
 			this.AcceptButton = this.m_btnOk;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.CancelButton = this.m_btnCancel;
 			this.ClientSize = new System.Drawing.Size(810, 516);
 			this.Controls.Add(this.m_toolStrip);

@@ -25,7 +25,7 @@ using SIL.Windows.Forms.PortableSettingsProvider;
 
 namespace Glyssen.Dialogs
 {
-	public partial class AssignCharacterDlg : Form
+	public partial class AssignCharacterDlg : CustomForm
 	{
 		private readonly AssignCharacterViewModel m_viewModel;
 		private string m_xOfYFmt;

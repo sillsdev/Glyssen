@@ -1,4 +1,6 @@
-﻿namespace Glyssen.Dialogs
+﻿using Glyssen.Utilities;
+
+namespace Glyssen.Dialogs
 {
 	partial class ExportDlg
 	{
@@ -81,7 +83,6 @@
 			// 
 			this.m_checkIncludeBookBreakdown.AutoSize = true;
 			this.m_tableLayoutPanelMan.SetColumnSpan(this.m_checkIncludeBookBreakdown, 4);
-			this.m_checkIncludeBookBreakdown.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_checkIncludeBookBreakdown, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_checkIncludeBookBreakdown, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_checkIncludeBookBreakdown, "DialogBoxes.ExportDlg.ScriptPerBook");
@@ -97,7 +98,6 @@
 			// 
 			this.m_lblDescription.AutoSize = true;
 			this.m_tableLayoutPanelMan.SetColumnSpan(this.m_lblDescription, 4);
-			this.m_lblDescription.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblDescription, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblDescription, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblDescription, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -119,7 +119,6 @@
 			this.m_checkIncludeActorBreakdown.Checked = true;
 			this.m_checkIncludeActorBreakdown.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.m_tableLayoutPanelMan.SetColumnSpan(this.m_checkIncludeActorBreakdown, 4);
-			this.m_checkIncludeActorBreakdown.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_checkIncludeActorBreakdown, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_checkIncludeActorBreakdown, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_checkIncludeActorBreakdown, "DialogBoxes.ExportDlg.ScriptPerActor");
@@ -151,7 +150,6 @@
 			// 
 			this.m_lblFileName.AutoEllipsis = true;
 			this.m_lblFileName.AutoSize = true;
-			this.m_lblFileName.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblFileName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblFileName, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblFileName, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -168,7 +166,7 @@
 			// 
 			this.m_lblFileExists.AutoSize = true;
 			this.m_tableLayoutPanelMan.SetColumnSpan(this.m_lblFileExists, 3);
-			this.m_lblFileExists.ForeColor = System.Drawing.Color.Yellow;
+			this.m_lblFileExists.ForeColor = CustomColor.Warning;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblFileExists, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblFileExists, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblFileExists, "DialogBoxes.ExportDlg.FileExists");
@@ -183,7 +181,6 @@
 			// 
 			this.label3.AutoSize = true;
 			this.m_tableLayoutPanelMan.SetColumnSpan(this.label3, 2);
-			this.label3.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label3, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label3, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.label3, "DialogBoxes.ExportDlg.FileName");
@@ -199,7 +196,7 @@
 			// 
 			this.m_lblActorDirectoryExists.AutoSize = true;
 			this.m_tableLayoutPanelMan.SetColumnSpan(this.m_lblActorDirectoryExists, 3);
-			this.m_lblActorDirectoryExists.ForeColor = System.Drawing.Color.Yellow;
+			this.m_lblActorDirectoryExists.ForeColor = CustomColor.Warning;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblActorDirectoryExists, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblActorDirectoryExists, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblActorDirectoryExists, "DialogBoxes.ExportDlg.ActorDirectoryExists");
@@ -214,7 +211,6 @@
 			// 
 			this.m_lblActorDirectory.AutoSize = true;
 			this.m_tableLayoutPanelMan.SetColumnSpan(this.m_lblActorDirectory, 3);
-			this.m_lblActorDirectory.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblActorDirectory, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblActorDirectory, "{0} is a directory");
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblActorDirectory, "DialogBoxes.ExportDlg.FilesWillBeCreated");
@@ -229,7 +225,6 @@
 			// 
 			this.m_lblBookDirectory.AutoSize = true;
 			this.m_tableLayoutPanelMan.SetColumnSpan(this.m_lblBookDirectory, 3);
-			this.m_lblBookDirectory.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblBookDirectory, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblBookDirectory, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblBookDirectory, "DialogBoxes.ExportDlg.FilesWillBeCreated");
@@ -244,7 +239,7 @@
 			// 
 			this.m_lblBookDirectoryExists.AutoSize = true;
 			this.m_tableLayoutPanelMan.SetColumnSpan(this.m_lblBookDirectoryExists, 3);
-			this.m_lblBookDirectoryExists.ForeColor = System.Drawing.Color.Yellow;
+			this.m_lblBookDirectoryExists.ForeColor = CustomColor.Warning;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblBookDirectoryExists, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblBookDirectoryExists, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblBookDirectoryExists, "DialogBoxes.ExportDlg.ActorDirectoryExists");
@@ -298,7 +293,6 @@
 			this.AcceptButton = this.m_btnOk;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.CancelButton = this.m_btnCancel;
 			this.ClientSize = new System.Drawing.Size(492, 306);
 			this.Controls.Add(this.m_tableLayoutPanelMan);

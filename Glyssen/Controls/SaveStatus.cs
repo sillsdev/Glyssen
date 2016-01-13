@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Glyssen.Utilities;
 using L10NSharp;
 using Timer = System.Timers.Timer;
 
@@ -118,13 +119,13 @@ namespace Glyssen.Controls
 		private void ShowSaving()
 		{
 			m_lbl.Text = m_savingLabelFmt;
-			m_lbl.ForeColor = Color.Yellow;
+			m_lbl.ForeColor = CustomColor.Highlight1;
 		}
 
 		private void ShowSaved()
 		{
-			m_lbl.Text = String.Format(m_justSavedLabelFmt, DateTime.Now);
-			m_lbl.ForeColor = Color.LawnGreen;
+			m_lbl.Text = string.Format(m_justSavedLabelFmt, DateTime.Now);
+			m_lbl.ForeColor = CustomColor.Highlight2;
 
 			if (m_timer != null)
 				m_timer.Close();
@@ -138,13 +139,13 @@ namespace Glyssen.Controls
 					m_lbl.BeginInvoke((MethodInvoker)(() =>
 					{
 						m_lbl.Text = m_savedLabelFmt;
-						m_lbl.ForeColor = Color.White;
+						m_lbl.ForeColor = CustomColor.ForeColor;
 					}));
 				}
 				else
 				{
 					m_lbl.Text = m_savedLabelFmt;
-					m_lbl.ForeColor = Color.White;
+					m_lbl.ForeColor = CustomColor.ForeColor;
 				}
 			});
 			m_timer.Enabled = true;
@@ -154,7 +155,7 @@ namespace Glyssen.Controls
 		private void ShowSavingLongWait()
 		{
 			m_lbl.Text = m_savingLongWaitLabelFmt;
-			m_lbl.ForeColor = Color.Orange;
+			m_lbl.ForeColor = CustomColor.Highlight3;
 		}
 	}
 }

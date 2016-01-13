@@ -55,7 +55,6 @@
 			// 
 			this.m_lblAddOneOrMore.AutoSize = true;
 			this.m_tableLayoutPanelMain.SetColumnSpan(this.m_lblAddOneOrMore, 3);
-			this.m_lblAddOneOrMore.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblAddOneOrMore, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblAddOneOrMore, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblAddOneOrMore, "DialogBoxes.SelectExistingProjectDlg.AddOneOrMore");
@@ -133,7 +132,6 @@
 			// m_lblExistingGroup
 			// 
 			this.m_lblExistingGroup.AutoSize = true;
-			this.m_lblExistingGroup.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblExistingGroup, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblExistingGroup, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblExistingGroup, "DialogBoxes.SelectExistingProjectDlg.ExistingGroup");
@@ -147,7 +145,6 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label2, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label2, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.label2, "DialogBoxes.SelectExistingProjectDlg.NewGroup");
@@ -231,7 +228,6 @@
 			this.AcceptButton = this.m_btnOk;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.ClientSize = new System.Drawing.Size(502, 424);
 			this.Controls.Add(this.m_btnCancel);
 			this.Controls.Add(this.m_btnOk);

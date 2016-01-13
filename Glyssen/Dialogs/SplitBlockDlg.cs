@@ -5,13 +5,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
+using Glyssen.Utilities;
 
 namespace Glyssen.Dialogs
 {
-	public partial class SplitBlockDlg : Form
+	public partial class SplitBlockDlg : CustomForm
 	{
 		private string m_style;
 		private readonly List<Block> m_originalBlocks;

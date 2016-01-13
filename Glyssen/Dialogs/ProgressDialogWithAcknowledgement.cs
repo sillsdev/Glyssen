@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
+using Glyssen.Utilities;
 using L10NSharp;
 using SIL.Progress;
 using SIL.Reporting;
@@ -15,7 +16,7 @@ namespace Glyssen.Dialogs
 	/// <summary>
 	/// Provides a progress dialog which forces the user to acknowledge is complete by clicking OK
 	/// </summary>
-	public class ProgressDialogWithAcknowledgement : Form
+	public class ProgressDialogWithAcknowledgement : CustomForm
 	{
 		public delegate void ProgressCallback(int progress);
 
