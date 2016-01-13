@@ -212,7 +212,7 @@
 			<Book>2PE</Book>
 		</Books>
 	</Author>
-	<Author name="JUD">
+	<Author name="Jude">
 		<Books>
 			<Book>JUD</Book>
 		</Books>
