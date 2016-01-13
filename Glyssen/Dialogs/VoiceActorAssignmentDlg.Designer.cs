@@ -81,7 +81,7 @@ namespace Glyssen.Dialogs
 			this.m_linkLabelShowHideDetails = new System.Windows.Forms.LinkLabel();
 			this.m_lblCharacterDetails = new System.Windows.Forms.Label();
 			this.m_lblNoCharactersInGroup = new System.Windows.Forms.Label();
-			this.m_characterGroupGrid = new System.Windows.Forms.DataGridView();
+			this.CharacterGroupGrid = new System.Windows.Forms.DataGridView();
 			this.CharacterIdsCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.AttributesCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.CharStatusCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -98,7 +98,7 @@ namespace Glyssen.Dialogs
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.m_toolStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_characterDetailsGrid)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.CharacterGroupGrid)).BeginInit();
 			this.m_tableLayoutPanel.SuspendLayout();
 			this.m_tableLayoutPanelCharacterDetails.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -577,8 +577,10 @@ namespace Glyssen.Dialogs
 			// 
 			// m_linkLabelShowHideDetails
 			// 
+			this.m_linkLabelShowHideDetails.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_linkLabelShowHideDetails.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_linkLabelShowHideDetails.AutoSize = true;
+			this.m_linkLabelShowHideDetails.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkLabelShowHideDetails, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkLabelShowHideDetails, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLabelShowHideDetails, "DialogBoxes.VoiceActorAssignmentDlg.HideDetailsLink");
@@ -588,6 +590,7 @@ namespace Glyssen.Dialogs
 			this.m_linkLabelShowHideDetails.TabIndex = 11;
 			this.m_linkLabelShowHideDetails.TabStop = true;
 			this.m_linkLabelShowHideDetails.Text = "Hide details";
+			this.m_linkLabelShowHideDetails.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_linkLabelShowHideDetails.Click += new System.EventHandler(this.HandleShowOrHideCharacterDetails_Click);
 			// 
 			// m_lblCharacterDetails
@@ -616,23 +619,23 @@ namespace Glyssen.Dialogs
 			this.m_lblNoCharactersInGroup.TabIndex = 10;
 			this.m_lblNoCharactersInGroup.Text = "The selected group currently has no characters in it.";
 			// 
-			// m_characterGroupGrid
+			// CharacterGroupGrid
 			// 
-			this.m_characterGroupGrid.AllowDrop = true;
-			this.m_characterGroupGrid.AllowUserToAddRows = false;
-			this.m_characterGroupGrid.AllowUserToDeleteRows = false;
-			this.m_characterGroupGrid.AllowUserToOrderColumns = true;
-			this.m_characterGroupGrid.AllowUserToResizeRows = false;
+			this.CharacterGroupGrid.AllowDrop = true;
+			this.CharacterGroupGrid.AllowUserToAddRows = false;
+			this.CharacterGroupGrid.AllowUserToDeleteRows = false;
+			this.CharacterGroupGrid.AllowUserToOrderColumns = true;
+			this.CharacterGroupGrid.AllowUserToResizeRows = false;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-			this.m_characterGroupGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-			this.m_characterGroupGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.CharacterGroupGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+			this.CharacterGroupGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_characterGroupGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.m_characterGroupGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-			this.m_characterGroupGrid.BackgroundColor = System.Drawing.SystemColors.Window;
-			this.m_characterGroupGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.m_characterGroupGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+			this.CharacterGroupGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.CharacterGroupGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+			this.CharacterGroupGrid.BackgroundColor = System.Drawing.SystemColors.Window;
+			this.CharacterGroupGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.CharacterGroupGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
 			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -640,15 +643,15 @@ namespace Glyssen.Dialogs
 			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
 			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.m_characterGroupGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-			this.m_characterGroupGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+			this.CharacterGroupGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			this.CharacterGroupGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CharacterIdsCol,
             this.AttributesCol,
             this.CharStatusCol,
             this.EstimatedHoursCol,
             this.VoiceActorCol});
-			this.m_tableLayoutPanel.SetColumnSpan(this.m_characterGroupGrid, 2);
-			this.m_characterGroupGrid.ContextMenuStrip = this.m_contextMenuCharacterGroups;
+			this.m_tableLayoutPanel.SetColumnSpan(this.CharacterGroupGrid, 2);
+			this.CharacterGroupGrid.ContextMenuStrip = this.m_contextMenuCharacterGroups;
 			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
 			dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
 			dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -657,40 +660,40 @@ namespace Glyssen.Dialogs
 			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
 			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.m_characterGroupGrid.DefaultCellStyle = dataGridViewCellStyle6;
-			this.m_characterGroupGrid.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.m_characterGroupGrid.GridColor = System.Drawing.Color.Black;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_characterGroupGrid, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_characterGroupGrid, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_characterGroupGrid, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_characterGroupGrid, "DialogBoxes.VoiceActorAssignmentDlg.betterGrid1");
-			this.m_characterGroupGrid.Location = new System.Drawing.Point(0, 0);
-			this.m_characterGroupGrid.Margin = new System.Windows.Forms.Padding(0);
-			this.m_characterGroupGrid.MultiSelect = false;
-			this.m_characterGroupGrid.Name = "m_characterGroupGrid";
-			this.m_characterGroupGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			this.m_characterGroupGrid.RowHeadersVisible = false;
-			this.m_characterGroupGrid.RowHeadersWidth = 22;
-			this.m_characterGroupGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.m_characterGroupGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.m_characterGroupGrid.Size = new System.Drawing.Size(833, 235);
-			this.m_characterGroupGrid.TabIndex = 6;
-			this.m_characterGroupGrid.VirtualMode = true;
-			this.m_characterGroupGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_characterGroupGrid_CellContentClick);
-			this.m_characterGroupGrid.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_characterGroupGrid_CellEnter);
-			this.m_characterGroupGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.m_characterGroupGrid_CellFormatting);
-			this.m_characterGroupGrid.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_characterGroupGrid_CellLeave);
-			this.m_characterGroupGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.HandleGridCellMouseDown);
-			this.m_characterGroupGrid.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.m_characterGroupGrid_CellValueNeeded);
-			this.m_characterGroupGrid.CellValuePushed += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.m_characterGroupGrid_CellValuePushed);
-			this.m_characterGroupGrid.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.HandleGridColumnHeaderMouseClick);
-			this.m_characterGroupGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.m_characterGroupGrid_DataError);
-			this.m_characterGroupGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.m_characterGroupGrid_EditingControlShowing);
-			this.m_characterGroupGrid.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.m_characterGroupGrid_RowPrePaint);
-			this.m_characterGroupGrid.SelectionChanged += new System.EventHandler(this.m_characterGroupGrid_SelectionChanged);
-			this.m_characterGroupGrid.DragDrop += new System.Windows.Forms.DragEventHandler(this.m_characterGroupGrid_DragDrop);
-			this.m_characterGroupGrid.DragOver += new System.Windows.Forms.DragEventHandler(this.m_characterGroupGrid_DragOver);
-			this.m_characterGroupGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.m_characterGroupGrid_KeyDown);
+			this.CharacterGroupGrid.DefaultCellStyle = dataGridViewCellStyle6;
+			this.CharacterGroupGrid.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.CharacterGroupGrid.GridColor = System.Drawing.Color.Black;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.CharacterGroupGrid, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.CharacterGroupGrid, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.CharacterGroupGrid, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.CharacterGroupGrid, "DialogBoxes.VoiceActorAssignmentDlg.betterGrid1");
+			this.CharacterGroupGrid.Location = new System.Drawing.Point(0, 0);
+			this.CharacterGroupGrid.Margin = new System.Windows.Forms.Padding(0);
+			this.CharacterGroupGrid.MultiSelect = false;
+			this.CharacterGroupGrid.Name = "CharacterGroupGrid";
+			this.CharacterGroupGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			this.CharacterGroupGrid.RowHeadersVisible = false;
+			this.CharacterGroupGrid.RowHeadersWidth = 22;
+			this.CharacterGroupGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.CharacterGroupGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.CharacterGroupGrid.Size = new System.Drawing.Size(833, 235);
+			this.CharacterGroupGrid.TabIndex = 6;
+			this.CharacterGroupGrid.VirtualMode = true;
+			this.CharacterGroupGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_characterGroupGrid_CellContentClick);
+			this.CharacterGroupGrid.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_characterGroupGrid_CellEnter);
+			this.CharacterGroupGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.m_characterGroupGrid_CellFormatting);
+			this.CharacterGroupGrid.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_characterGroupGrid_CellLeave);
+			this.CharacterGroupGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.HandleGridCellMouseDown);
+			this.CharacterGroupGrid.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.m_characterGroupGrid_CellValueNeeded);
+			this.CharacterGroupGrid.CellValuePushed += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.m_characterGroupGrid_CellValuePushed);
+			this.CharacterGroupGrid.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.HandleGridColumnHeaderMouseClick);
+			this.CharacterGroupGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.m_characterGroupGrid_DataError);
+			this.CharacterGroupGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.m_characterGroupGrid_EditingControlShowing);
+			this.CharacterGroupGrid.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.m_characterGroupGrid_RowPrePaint);
+			this.CharacterGroupGrid.SelectionChanged += new System.EventHandler(this.m_characterGroupGrid_SelectionChanged);
+			this.CharacterGroupGrid.DragDrop += new System.Windows.Forms.DragEventHandler(this.m_characterGroupGrid_DragDrop);
+			this.CharacterGroupGrid.DragOver += new System.Windows.Forms.DragEventHandler(this.m_characterGroupGrid_DragOver);
+			this.CharacterGroupGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.m_characterGroupGrid_KeyDown);
 			// 
 			// CharacterIdsCol
 			// 
@@ -755,6 +758,7 @@ namespace Glyssen.Dialogs
 			this.m_saveStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_saveStatus.AutoSize = true;
 			this.m_saveStatus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.m_saveStatus.BackColor = System.Drawing.SystemColors.Control;
 			this.m_saveStatus.BackgroundColor = System.Drawing.SystemColors.Control;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_saveStatus, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_saveStatus, null);
@@ -775,7 +779,7 @@ namespace Glyssen.Dialogs
 			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
 			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
 			this.m_tableLayoutPanel.Controls.Add(this.m_tableLayoutPanelCharacterDetails, 0, 2);
-			this.m_tableLayoutPanel.Controls.Add(this.m_characterGroupGrid, 0, 0);
+			this.m_tableLayoutPanel.Controls.Add(this.CharacterGroupGrid, 0, 0);
 			this.m_tableLayoutPanel.Controls.Add(this.tableLayoutPanel1, 0, 1);
 			this.m_tableLayoutPanel.Controls.Add(this.m_tableLayoutPanelMove, 1, 1);
 			this.m_tableLayoutPanel.Location = new System.Drawing.Point(15, 55);
@@ -860,6 +864,7 @@ namespace Glyssen.Dialogs
 			this.Controls.Add(this.m_toolStrip);
 			this.Controls.Add(this.m_lblInstructions);
 			this.Controls.Add(this.m_saveStatus);
+			this.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.KeyPreview = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
@@ -878,7 +883,7 @@ namespace Glyssen.Dialogs
 			this.m_toolStrip.ResumeLayout(false);
 			this.m_toolStrip.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_characterDetailsGrid)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.CharacterGroupGrid)).EndInit();
 			this.m_tableLayoutPanel.ResumeLayout(false);
 			this.m_tableLayoutPanel.PerformLayout();
 			this.m_tableLayoutPanelCharacterDetails.ResumeLayout(false);
@@ -901,7 +906,7 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.ContextMenuStrip m_contextMenuCharacterGroups;
 		private System.Windows.Forms.ToolStripMenuItem m_unAssignActorFromGroupToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem m_splitGroupToolStripMenuItem;
-		private System.Windows.Forms.DataGridView m_characterGroupGrid;
+		private System.Windows.Forms.DataGridView CharacterGroupGrid;
 		private System.Windows.Forms.ContextMenuStrip m_contextMenuCharacters;
 		private System.Windows.Forms.ToolStripMenuItem m_menuItemCreateNewGroup;
 		private System.Windows.Forms.ToolStrip m_toolStrip;

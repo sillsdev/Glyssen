@@ -59,5 +59,14 @@
     <Setting Name="MaxAcceptablePercentageOfUnknownQuotes" Type="System.Double" Scope="Application">
       <Value Profile="(Default)">3</Value>
     </Setting>
+    <Setting Name="VoiceActorInformationDlgFormSettings" Type="SIL.Windows.Forms.PortableSettingsProvider.FormSettings" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="VoiceActorAssignmentDlgFormSettings" Type="SIL.Windows.Forms.PortableSettingsProvider.FormSettings" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="CharacterGroupGridGridSettings" Type="SIL.Windows.Forms.PortableSettingsProvider.GridSettings" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

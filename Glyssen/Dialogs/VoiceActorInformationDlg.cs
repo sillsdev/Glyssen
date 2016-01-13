@@ -2,10 +2,12 @@
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Controls;
+using Glyssen.Properties;
 using Glyssen.Utilities;
 using Glyssen.VoiceActor;
 using L10NSharp;
 using L10NSharp.UI;
+using SIL.Windows.Forms.PortableSettingsProvider;
 
 namespace Glyssen.Dialogs
 {
