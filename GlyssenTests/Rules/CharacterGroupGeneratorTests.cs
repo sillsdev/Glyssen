@@ -1294,6 +1294,220 @@ namespace GlyssenTests.Rules
 			Assert.IsTrue(narJohnPaulAndMark.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("3JN", CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(narJohnPaulAndMark.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)));
 		}
+
+		[Test]
+		public void GenerateCharacterGroups_NumberOfNarratorsTwoFewerThanBooks_JohanineEpistlesGetCombined()
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 8;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(36, 6);
+			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
+
+			Assert.AreEqual(42, groups.Count);
+			var narMrk = groups.Single(g => g.CharacterIds.Contains("narrator-MRK"));
+			var narLuk = groups.Single(g => g.CharacterIds.Contains("narrator-LUK"));
+			var narAct = groups.Single(g => g.CharacterIds.Contains("narrator-ACT"));
+			var narGal = groups.Single(g => g.CharacterIds.Contains("narrator-GAL"));
+			var narEph = groups.Single(g => g.CharacterIds.Contains("narrator-EPH"));
+			var narPhm = groups.Single(g => g.CharacterIds.Contains("narrator-PHM"));
+			var narHeb = groups.Single(g => g.CharacterIds.Contains("narrator-HEB"));
+			var narJohanineEpistles = groups.Single(g => g.CharacterIds.Contains("narrator-1JN"));
+			var narRev = groups.Single(g => g.CharacterIds.Contains("narrator-REV"));
+			var narJud = groups.Single(g => g.CharacterIds.Contains("narrator-JUD"));
+
+			Assert.AreEqual(1, narMrk.CharacterIds.Count);
+			Assert.AreEqual(1, narLuk.CharacterIds.Count);
+			Assert.AreEqual(1, narAct.CharacterIds.Count);
+			Assert.AreEqual(1, narGal.CharacterIds.Count);
+			Assert.AreEqual(1, narEph.CharacterIds.Count);
+			Assert.AreEqual(1, narPhm.CharacterIds.Count);
+			Assert.AreEqual(1, narHeb.CharacterIds.Count);
+			Assert.AreEqual(3, narJohanineEpistles.CharacterIds.Count);
+			Assert.IsTrue(narJohanineEpistles.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("2JN", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohanineEpistles.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("3JN", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.AreEqual(1, narJud.CharacterIds.Count);
+			Assert.AreEqual(1, narRev.CharacterIds.Count);
+
+			var narrators = new List<CharacterGroup>
+			{
+				narMrk,
+				narLuk,
+				narAct,
+				narGal,
+				narEph,
+				narPhm,
+				narHeb,
+				narJohanineEpistles,
+				narJud,
+				narRev
+			};
+			Assert.AreEqual(4, groups.Except(narrators).Count(n => n.ContainsCharacterWithGender(CharacterGender.Female)));
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_CameoActorsAssignedToNarratorRole_NumberOfGeneratedNarratorGroupsReduced()
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 8;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(36, 6);
+			var cameoMaleNarrator = m_testProject.VoiceActorList.Actors.First(a => a.Gender == ActorGender.Male);
+			var cameoFemaleNarrator = m_testProject.VoiceActorList.Actors.First(a => a.Gender == ActorGender.Female);
+			cameoMaleNarrator.IsCameo = true;
+			cameoFemaleNarrator.IsCameo = true;
+			m_testProject.CharacterGroupList.CharacterGroups.AddRange(new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups());
+			m_testProject.CharacterGroupList.CharacterGroups.Single(g => g.VoiceActorId == cameoMaleNarrator.Id).CharacterIds.Add(CharacterVerseData.GetStandardCharacterId("2JN", CharacterVerseData.StandardCharacter.Narrator));
+			m_testProject.CharacterGroupList.CharacterGroups.Single(g => g.VoiceActorId == cameoFemaleNarrator.Id).CharacterIds.Add(CharacterVerseData.GetStandardCharacterId("HEB", CharacterVerseData.StandardCharacter.Narrator));
+			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
+
+			Assert.AreEqual(42, groups.Count);
+			var narMrk = groups.Single(g => g.CharacterIds.Contains("narrator-MRK"));
+			var narLuk = groups.Single(g => g.CharacterIds.Contains("narrator-LUK"));
+			var narAct = groups.Single(g => g.CharacterIds.Contains("narrator-ACT"));
+			var narGal = groups.Single(g => g.CharacterIds.Contains("narrator-GAL"));
+			var narEphAndPhm = groups.Single(g => g.CharacterIds.Contains("narrator-EPH"));
+			var narHeb = groups.Single(g => g.CharacterIds.Contains("narrator-HEB"));
+			var nar1JnAnd3Jn = groups.Single(g => g.CharacterIds.Contains("narrator-1JN"));
+			var nar2Jn = groups.Single(g => g.CharacterIds.Contains("narrator-2JN"));
+			var narRev = groups.Single(g => g.CharacterIds.Contains("narrator-REV"));
+			var narJud = groups.Single(g => g.CharacterIds.Contains("narrator-JUD"));
+
+			Assert.AreEqual(1, narMrk.CharacterIds.Count);
+			Assert.AreEqual(1, narLuk.CharacterIds.Count);
+			Assert.AreEqual(1, narAct.CharacterIds.Count);
+			Assert.AreEqual(1, narGal.CharacterIds.Count);
+			Assert.AreEqual(2, narEphAndPhm.CharacterIds.Count);
+			Assert.IsTrue(narEphAndPhm.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("PHM", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.AreEqual(1, narHeb.CharacterIds.Count);
+			Assert.IsTrue(narHeb.AssignedToCameoActor);
+			Assert.AreEqual(2, nar1JnAnd3Jn.CharacterIds.Count);
+			Assert.IsTrue(nar1JnAnd3Jn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("3JN", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.AreEqual(1, nar2Jn.CharacterIds.Count);
+			Assert.IsTrue(nar2Jn.AssignedToCameoActor);
+			Assert.AreEqual(1, narJud.CharacterIds.Count);
+			Assert.AreEqual(1, narRev.CharacterIds.Count);
+
+			var narrators = new List<CharacterGroup>
+			{
+				narMrk,
+				narLuk,
+				narAct,
+				narGal,
+				narEphAndPhm,
+				narHeb,
+				nar1JnAnd3Jn,
+				nar2Jn,
+				narJud,
+				narRev
+			};
+			Assert.AreEqual(4, groups.Except(narrators).Count(n => n.ContainsCharacterWithGender(CharacterGender.Female)));
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_AllNarratorRolesAssignedToCameoActors_NoAdditionalNarratorGroupsReserved()
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 4;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(36, 6);
+			var cameoMaleNarrator1 = m_testProject.VoiceActorList.Actors.First(a => a.Gender == ActorGender.Male);
+			cameoMaleNarrator1.IsCameo = true;
+			var cameoMaleNarrator2 = m_testProject.VoiceActorList.Actors.First(a => a.Gender == ActorGender.Male && !a.IsCameo);
+			cameoMaleNarrator2.IsCameo = true;
+			m_testProject.CharacterGroupList.CharacterGroups.AddRange(new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups());
+			m_testProject.CharacterGroupList.CharacterGroups.Single(g => g.VoiceActorId == cameoMaleNarrator1.Id).CharacterIds.AddRange(new []
+			{
+				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterVerseData.GetStandardCharacterId("LUK", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterVerseData.GetStandardCharacterId("EPH", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterVerseData.GetStandardCharacterId("PHM", CharacterVerseData.StandardCharacter.Narrator)
+			});
+			m_testProject.CharacterGroupList.CharacterGroups.Single(g => g.VoiceActorId == cameoMaleNarrator2.Id).CharacterIds.AddRange(new[]
+			{
+				CharacterVerseData.GetStandardCharacterId("HEB", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterVerseData.GetStandardCharacterId("1JN", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterVerseData.GetStandardCharacterId("2JN", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterVerseData.GetStandardCharacterId("3JN", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)
+			});
+
+			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
+
+			Assert.AreEqual(42, groups.Count);
+			var narMrk = groups.Single(g => g.CharacterIds.Contains("narrator-MRK"));
+			var narHeb = groups.Single(g => g.CharacterIds.Contains("narrator-HEB"));
+			
+			Assert.AreEqual(6, narMrk.CharacterIds.Count);
+			Assert.IsTrue(narMrk.AssignedToCameoActor);
+			Assert.AreEqual(6, narHeb.CharacterIds.Count);
+			Assert.IsTrue(narHeb.AssignedToCameoActor);
+
+			var narrators = new List<CharacterGroup> { narMrk, narHeb };
+			foreach (var grp in groups.Except(narrators))
+				Assert.IsFalse(grp.CharacterIds.Any(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)));
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_CameoActorsWithNarratorRolesEqualsNumberOfRequestedNarratorsButNotAllRolesAreAssigned_OneAdditionalNarratorGroupReserved()
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 3;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(36, 5);
+			var cameoMaleNarrator1 = m_testProject.VoiceActorList.Actors.First(a => a.Gender == ActorGender.Male);
+			cameoMaleNarrator1.IsCameo = true;
+			var cameoMaleNarrator2 = m_testProject.VoiceActorList.Actors.First(a => a.Gender == ActorGender.Male && !a.IsCameo);
+			cameoMaleNarrator2.IsCameo = true;
+			var cameoMaleNarrator3 = m_testProject.VoiceActorList.Actors.First(a => a.Gender == ActorGender.Male && !a.IsCameo);
+			cameoMaleNarrator3.IsCameo = true;
+			m_testProject.CharacterGroupList.CharacterGroups.AddRange(new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups());
+			m_testProject.CharacterGroupList.CharacterGroups.Single(g => g.VoiceActorId == cameoMaleNarrator1.Id).CharacterIds.AddRange(new[]
+			{
+				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator),
+			});
+			m_testProject.CharacterGroupList.CharacterGroups.Single(g => g.VoiceActorId == cameoMaleNarrator2.Id).CharacterIds.AddRange(new[]
+			{
+				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterVerseData.GetStandardCharacterId("EPH", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterVerseData.GetStandardCharacterId("PHM", CharacterVerseData.StandardCharacter.Narrator)
+			});
+			m_testProject.CharacterGroupList.CharacterGroups.Single(g => g.VoiceActorId == cameoMaleNarrator3.Id).CharacterIds.AddRange(new[]
+			{
+				CharacterVerseData.GetStandardCharacterId("HEB", CharacterVerseData.StandardCharacter.Narrator),
+			});
+
+			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
+
+			Assert.AreEqual(41, groups.Count);
+			var narMrk = groups.Single(g => g.CharacterIds.Contains("narrator-MRK"));
+			var narGal = groups.Single(g => g.CharacterIds.Contains("narrator-GAL"));
+			var narHeb = groups.Single(g => g.CharacterIds.Contains("narrator-HEB"));
+			var narNonCameo = groups.Single(g => g.CharacterIds.Contains("narrator-LUK"));
+
+			Assert.AreEqual(1, narMrk.CharacterIds.Count);
+			Assert.IsTrue(narMrk.AssignedToCameoActor);
+			Assert.AreEqual(3, narGal.CharacterIds.Count);
+			Assert.IsTrue(narGal.AssignedToCameoActor);
+			Assert.IsTrue(narGal.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("EPH", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narGal.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("PHM", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.AreEqual(1, narHeb.CharacterIds.Count);
+			Assert.IsTrue(narHeb.AssignedToCameoActor);
+			Assert.AreEqual(7, narNonCameo.CharacterIds.Count);
+			Assert.IsFalse(narNonCameo.AssignedToCameoActor);
+			Assert.IsTrue(narNonCameo.CharacterIds.All(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)));
+
+			var narrators = new List<CharacterGroup> { narMrk, narGal, narHeb, narNonCameo };
+			foreach (var grp in groups.Except(narrators))
+				Assert.IsFalse(grp.CharacterIds.Any(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)));
+		}
 	}
 
 	class CharacterGroupGeneratorTests
