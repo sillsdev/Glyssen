@@ -387,7 +387,7 @@ namespace Glyssen.Rules
 
 				if (Groups.Count == 1)
 				{
-					NarratorGroups = Groups.ToList();
+					NarratorGroups = includedBooks.Any() ? Groups.ToList() : new List<CharacterGroup>(0);
 					ExtraBiblicalGroup = Groups[0];
 				}
 				else
@@ -801,7 +801,7 @@ namespace Glyssen.Rules
 						numberOfExtraBiblicalGroups, 0, keyStrokesByCharacterId, getVoiceActorById, includedCharacterDetails, includedBooks));
 					numberOfMaleNarratorGroups = list[0].NarratorGroups.Count(g => g.VoiceActor.Gender == ActorGender.Male) + maleGroupsWithExistingNarratorRoles;
 					numberOfFemaleNarratorGroups = list[0].NarratorGroups.Count(g => g.VoiceActor.Gender == ActorGender.Female) + femaleGroupsWithExistingNarratorRoles;
-					Debug.Assert(numberOfMaleNarratorGroups + numberOfFemaleNarratorGroups == 1);
+					Debug.Assert(numberOfMaleNarratorGroups + numberOfFemaleNarratorGroups == 1 || !includedBooks.Any());
 				}
 				return list;
 			}
