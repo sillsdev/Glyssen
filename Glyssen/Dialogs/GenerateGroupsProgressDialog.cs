@@ -40,6 +40,7 @@ namespace Glyssen.Dialogs
 			ProgressLabelTextWhenComplete = LocalizationManager.GetString("GenerateGroupsProgressDialog.Complete", "Group generation is complete.");
 			BarStyle = ProgressBarStyle.Marquee;
 			BackgroundWorker worker = new BackgroundWorker();
+			worker.WorkerSupportsCancellation = true;
 			worker.DoWork += doWorkEventHandler;
 			worker.RunWorkerCompleted += (s, e) => { if (e.Error != null) throw e.Error; };
 			BackgroundWorker = worker;

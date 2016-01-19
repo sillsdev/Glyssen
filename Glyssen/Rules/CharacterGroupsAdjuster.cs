@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using Glyssen.Character;
 using SIL.Extensions;
@@ -91,10 +92,12 @@ namespace Glyssen.Rules
 			m_charactersNoLongerInUse.Clear();
 		}
 
-		public void FullyRegenerateGroups()
+		public void FullyRegenerateGroups(BackgroundWorker worker = null)
 		{
-			var generator = new CharacterGroupGenerator(m_project, m_project.GetKeyStrokesByCharacterId());
-			generator.UpdateProjectCharacterGroups();
+			var generator = new CharacterGroupGenerator(m_project, m_project.GetKeyStrokesByCharacterId(), worker ?? new BackgroundWorker());
+			generator.GenerateCharacterGroups();
+			if (generator.GeneratedGroups != null)
+				generator.ApplyGeneratedGroupsToProject();
 			m_charactersNotCoveredByAnyGroup.Clear();
 			m_charactersNoLongerInUse.Clear();
 			m_project.Save();

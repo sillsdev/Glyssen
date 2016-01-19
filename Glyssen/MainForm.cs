@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -414,8 +415,9 @@ namespace Glyssen
 
 				if (MessageBox.Show(dlgMessage, ProductName, MessageBoxButtons.YesNo) == DialogResult.Yes)
 				{
-					using (var progressDialog = new GenerateGroupsProgressDialog(m_project, (s, e) => adjuster.FullyRegenerateGroups(), false))
-						progressDialog.ShowDialog();
+					using (var progressDialog = new GenerateGroupsProgressDialog(m_project, (s, e) => adjuster.FullyRegenerateGroups((BackgroundWorker)s), false))
+						if (progressDialog.ShowDialog() == DialogResult.Cancel)
+							adjuster.MakeMinimalAdjustments();
 				}
 				else
 					adjuster.MakeMinimalAdjustments();

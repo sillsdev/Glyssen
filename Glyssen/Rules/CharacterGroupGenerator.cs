@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
@@ -11,14 +12,14 @@ namespace Glyssen.Rules
 	public class CharacterGroupGenerator
 	{
 		private readonly Project m_project;
-		private readonly bool m_attemptToPreserveActorAssignments;
 		private readonly Dictionary<string, int> m_keyStrokesByCharacterId;
 		private readonly IComparer<string> m_characterIdComparer;
 		private readonly Proximity m_proximity;
+		private readonly BackgroundWorker m_worker;
 
 		private static readonly SortedDictionary<int, IList<HashSet<string>>> DeityCharacters;
 
-		private IList<CharacterGroup> CharacterGroups
+		private IList<CharacterGroup> ProjectCharacterGroups
 		{
 			get { return m_project.CharacterGroupList.CharacterGroups; }
 		}
@@ -34,24 +35,25 @@ namespace Glyssen.Rules
 			DeityCharacters.Add(18, new List<HashSet<string>> { jesusSet, new HashSet<string> { "God" }, holySpiritSet, new HashSet<string> { "scripture" } });
 		}
 
-		public CharacterGroupGenerator(Project project, Dictionary<string, int> keyStrokesByCharacterId, bool attemptToPreserveActorAssignments = true)
+		public CharacterGroupGenerator(Project project, Dictionary<string, int> keyStrokesByCharacterId, BackgroundWorker worker = null)
 		{
 			m_project = project;
-			m_attemptToPreserveActorAssignments = attemptToPreserveActorAssignments;
 			m_keyStrokesByCharacterId = new Dictionary<string, int>(keyStrokesByCharacterId);
 			m_proximity = new Proximity(project);
 			m_characterIdComparer = new CharacterByKeyStrokeComparer(m_keyStrokesByCharacterId);
+			m_worker = worker ?? new BackgroundWorker();
 		}
 
-		public void UpdateProjectCharacterGroups()
+		public List<CharacterGroup> GeneratedGroups { get; private set; }
+
+		public void ApplyGeneratedGroupsToProject(bool attemptToPreserveActorAssignments = true)
 		{
 			// Create a copy. Cameos are handled in the generation code (because we always maintain those assignments).
-			List<CharacterGroup> previousGroups = m_attemptToPreserveActorAssignments ?
-				CharacterGroups.Where(g => !g.AssignedToCameoActor).ToList() : new List<CharacterGroup>();
+			List<CharacterGroup> previousGroups = attemptToPreserveActorAssignments ?
+				ProjectCharacterGroups.Where(g => !g.AssignedToCameoActor).ToList() : new List<CharacterGroup>();
 
-			var newGroups = GenerateCharacterGroups();
-			CharacterGroups.Clear();
-			CharacterGroups.AddRange(newGroups);
+			ProjectCharacterGroups.Clear();
+			ProjectCharacterGroups.AddRange(GeneratedGroups);
 
 			if (previousGroups.Count > 0)
 			{
@@ -63,7 +65,7 @@ namespace Glyssen.Rules
 					var previousGroupWithCharacter = previousGroups.FirstOrDefault(g => g.CharacterIds.Contains(characterId));
 					if (previousGroupWithCharacter != null)
 					{
-						var newlyGeneratedGroupWithCharacter = CharacterGroups.FirstOrDefault(g => !g.IsVoiceActorAssigned && g.CharacterIds.Contains(characterId));
+						var newlyGeneratedGroupWithCharacter = ProjectCharacterGroups.FirstOrDefault(g => !g.IsVoiceActorAssigned && g.CharacterIds.Contains(characterId));
 						if (newlyGeneratedGroupWithCharacter == null)
 							continue;
 						newlyGeneratedGroupWithCharacter.AssignVoiceActor(previousGroupWithCharacter.VoiceActorId);
@@ -75,24 +77,33 @@ namespace Glyssen.Rules
 			}
 		}
 
-		internal List<CharacterGroup> GenerateCharacterGroups()
+		public List<CharacterGroup> GenerateCharacterGroups()
 		{
 			List<CharacterGroup> characterGroups = CreateGroupsForActors(m_project.VoiceActorList.Actors);
 
+			if (m_worker.CancellationPending)
+				return GeneratedGroups = null;
+
 			if (characterGroups.Count == 0)
-				return characterGroups; // REVIEW: Maybe we should throw an exception instead.
+				return GeneratedGroups = characterGroups; // REVIEW: Maybe we should throw an exception instead.
 
 			m_project.SetDefaultCharacterGroupGenerationPreferences();
 
 			List<VoiceActor.VoiceActor> nonCameoActors = m_project.VoiceActorList.Actors.Where(a => !a.IsCameo).ToList();
 
+			if (m_worker.CancellationPending)
+				return GeneratedGroups = null;
+
 			if (nonCameoActors.Count == 0)
-				return characterGroups; // All cameo actors! This should probably never happen, but user could maybe mark them all as cameo after the fact (?)
+				return GeneratedGroups = characterGroups; // All cameo actors! This should probably never happen, but user could maybe mark them all as cameo after the fact (?)
 
 			var sortedDict = from entry in m_keyStrokesByCharacterId orderby entry.Value descending select entry;
 
 			IReadOnlyDictionary<string, CharacterDetail> characterDetails = m_project.AllCharacterDetailDictionary;
 			var includedCharacterDetails = characterDetails.Values.Where(c => sortedDict.Select(e => e.Key).Contains(c.CharacterId)).ToList();
+
+			if (m_worker.CancellationPending)
+				return GeneratedGroups = null;
 
 			// In the first loop, we're looking for actors that could only possibly play one character role.
 			// Since we're not doing strict age matching, this is most likely only to find any candidates in
@@ -137,7 +148,10 @@ namespace Glyssen.Rules
 					characterGroup.Closed = true;
 			}
 
-			// TODO: Make sure we didn't close all the groups (unless we assigned all the character IDs
+			if (m_worker.CancellationPending)
+				return GeneratedGroups = null;
+
+			// TODO: Make sure we didn't close all the groups (unless we assigned all the character IDs)
 
 			foreach (var character in includedCharacterDetails)
 			{
@@ -158,6 +172,9 @@ namespace Glyssen.Rules
 			TrialGroupConfiguration bestConfiguration = null;
 			do
 			{
+				if (m_worker.CancellationPending)
+					return GeneratedGroups = null;
+
 				var trialConfigurationsForNarratorsAndExtras = TrialGroupConfiguration.GeneratePossibilities(characterGroups,
 					ref maxMaleNarrators, ref maxFemaleNarrators, includedCharacterDetails, m_keyStrokesByCharacterId, m_project);
 
@@ -165,6 +182,9 @@ namespace Glyssen.Rules
 				{
 					foreach (var configuration in trialConfigurationsForNarratorsAndExtras)
 					{
+						if (m_worker.CancellationPending)
+							return GeneratedGroups = null;
+
 						foreach (var entry in sortedDict)
 						{
 							string characterId = entry.Key;
@@ -177,8 +197,6 @@ namespace Glyssen.Rules
 							{
 								if (characterId == CharacterVerseData.AmbiguousCharacter || characterId == CharacterVerseData.UnknownCharacter)
 									continue; // This should never happen in production code!
-								//Debug.WriteLine("No character details for unexpected character ID (see PG-): " + characterId);
-								//continue;
 								throw new KeyNotFoundException("No character details for unexpected character ID (see PG-471): " + characterId);
 							}
 
@@ -188,7 +206,11 @@ namespace Glyssen.Rules
 					}
 					bestConfiguration = TrialGroupConfiguration.Best(trialConfigurationsForNarratorsAndExtras, bestConfiguration);
 					if (bestConfiguration.MinimumProximity >= Proximity.kDefaultMinimumProximity)
-						return GetFinalizedGroups(bestConfiguration.Groups, actorsWithRealAssignments);
+					{
+						if (m_worker.CancellationPending)
+							return GeneratedGroups = null;
+						return GeneratedGroups = GetFinalizedGroups(bestConfiguration.Groups, actorsWithRealAssignments);
+					}
 				}
 				if (maxMaleNarrators == 0)
 					maxFemaleNarrators--;
@@ -207,12 +229,14 @@ namespace Glyssen.Rules
 			} while (maxMaleNarrators + maxFemaleNarrators > 0);
 
 			Debug.Assert(bestConfiguration != null);
-			return GetFinalizedGroups(bestConfiguration.Groups, actorsWithRealAssignments);
+
+			if (m_worker.CancellationPending)
+				return GeneratedGroups = null;
+			return GeneratedGroups = GetFinalizedGroups(bestConfiguration.Groups, actorsWithRealAssignments);
 		}
 
 		private List<CharacterGroup> GetFinalizedGroups(List<CharacterGroup> groups, List<int> actorsWithRealAssignments)
 		{
-
 			foreach (var group in groups)
 			{
 				if (!group.AssignedToCameoActor && !actorsWithRealAssignments.Contains(group.VoiceActorId))
@@ -233,7 +257,7 @@ namespace Glyssen.Rules
 			{
 				CharacterGroup group = null;
 				if (voiceActor.IsCameo)
-					group = CharacterGroups.FirstOrDefault(g => g.VoiceActorId == voiceActor.Id);
+					group = ProjectCharacterGroups.FirstOrDefault(g => g.VoiceActorId == voiceActor.Id);
 
 				if (group == null)
 				{
@@ -244,6 +268,7 @@ namespace Glyssen.Rules
 				}
 				else
 				{
+					group = group.Copy();
 					group.CharacterIds.IntersectWith(m_keyStrokesByCharacterId.Keys);
 					group.Closed = true;
 				}

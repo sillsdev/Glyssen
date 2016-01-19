@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
@@ -479,10 +480,12 @@ namespace GlyssenTests.Rules
 		public void GenerateCharacterGroups_MaintainAssignments_OneAssignment_OneCharacter_AssignmentMaintained()
 		{
 			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(5);
-			new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId, false).UpdateProjectCharacterGroups();
+			var generator = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
+			generator.GenerateCharacterGroups();
+			generator.ApplyGeneratedGroupsToProject(false);
 
 			m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus").AssignVoiceActor(actors[0].Id);
-			new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId, true).GenerateCharacterGroups();
+			new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 			Assert.AreEqual(5, m_testProject.CharacterGroupList.CharacterGroups.Count);
 			Assert.AreEqual(actors[0].Id, m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus").VoiceActorId);
 		}
@@ -491,7 +494,9 @@ namespace GlyssenTests.Rules
 		public void GenerateCharacterGroups_MaintainAssignments_OneAssignment_TwoCharacters_AssignmentMaintainedForMostProminentCharacter()
 		{
 			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(5);
-			new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId, false).UpdateProjectCharacterGroups();
+			var generator = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
+			generator.GenerateCharacterGroups();
+			generator.ApplyGeneratedGroupsToProject(false);
 
 			var jesusGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
 			var originalJohnGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("John");
@@ -499,7 +504,9 @@ namespace GlyssenTests.Rules
 			jesusGroup.CharacterIds.Add("John");
 			jesusGroup.AssignVoiceActor(actors[0].Id);
 
-			new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId, true).UpdateProjectCharacterGroups();
+			generator = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
+			generator.GenerateCharacterGroups();
+			generator.ApplyGeneratedGroupsToProject();
 			Assert.AreEqual(5, m_testProject.CharacterGroupList.CharacterGroups.Count);
 			Assert.AreEqual(actors[0].Id, m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus").VoiceActorId);
 			Assert.IsFalse(m_testProject.CharacterGroupList.GroupContainingCharacterId("John").IsVoiceActorAssigned);
@@ -509,7 +516,9 @@ namespace GlyssenTests.Rules
 		public void GenerateCharacterGroups_MaintainAssignments_TwoAssignments_GroupsAreCombined_AssignmentMaintainedForMostProminentCharacter()
 		{
 			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(5);
-			new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId, false).UpdateProjectCharacterGroups();
+			var generator = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
+			generator.GenerateCharacterGroups();
+			generator.ApplyGeneratedGroupsToProject(false);
 			Assert.IsTrue(m_keyStrokesPerCharacterId["BC-MRK"] < m_keyStrokesPerCharacterId["extra-MRK"],
 				"For this tes to make sense as written, there have to be more characters associated with \"extra\" than with BC.");
 
@@ -523,7 +532,9 @@ namespace GlyssenTests.Rules
 			bcGroup.AssignVoiceActor(actors[0].Id);
 			newGroup.AssignVoiceActor(actors[1].Id);
 
-			new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId, true).UpdateProjectCharacterGroups();
+			generator = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
+			generator.GenerateCharacterGroups();
+			generator.ApplyGeneratedGroupsToProject();
 			Assert.AreEqual(5, m_testProject.CharacterGroupList.CharacterGroups.Count);
 			var extraBiblicalGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("extra-MRK");
 			bcGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("BC-MRK");
@@ -535,8 +546,10 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_HasCameoAssignedButAttemptToMaintainAssignmentsIsFalse_MaintainsCameoGroup()
 		{
-			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(3);
-			new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId, false).UpdateProjectCharacterGroups();
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(3);
+			var generator = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
+			generator.GenerateCharacterGroups();
+			generator.ApplyGeneratedGroupsToProject(false);
 
 			var actor4 = new Glyssen.VoiceActor.VoiceActor { Id = 4, IsCameo = true };
 			m_testProject.VoiceActorList.Actors.Add(actor4);
@@ -546,7 +559,9 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupList.GroupContainingCharacterId("John").CharacterIds.ExceptWith(new[] { "John" });
 			cameoGroup.AssignVoiceActor(actor4.Id);
 
-			new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId, false).UpdateProjectCharacterGroups();
+			generator = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
+			generator.GenerateCharacterGroups();
+			generator.ApplyGeneratedGroupsToProject(false);
 			var groups = m_testProject.CharacterGroupList.CharacterGroups;
 			Assert.AreEqual(4, groups.Count);
 
@@ -1143,6 +1158,34 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_IsCancelable()
+		{
+			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
+			m_testProject.CharacterGroupList.CharacterGroups.Clear();
+			var group = new CharacterGroup(m_testProject);
+			group.AssignVoiceActor(actors[0].Id);
+			m_testProject.CharacterGroupList.CharacterGroups.Add(group);
+
+			BackgroundWorker worker = new BackgroundWorker();
+			worker.WorkerSupportsCancellation = true;
+			CharacterGroupGenerator generator = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId, worker);
+			worker.DoWork += (sender, args) =>
+			{
+				generator.GenerateCharacterGroups();
+
+				Assert.Null(generator.GeneratedGroups);
+				Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
+				Assert.AreEqual(group, m_testProject.CharacterGroupList.CharacterGroups[0]);
+			};
+			worker.RunWorkerAsync();
+			worker.CancelAsync();
+
+			Assert.Null(generator.GeneratedGroups);
+			Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
+			Assert.AreEqual(group, m_testProject.CharacterGroupList.CharacterGroups[0]);
 		}
 
 		[Test]

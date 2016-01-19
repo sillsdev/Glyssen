@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.ComponentModel;
+using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Rules;
@@ -48,7 +49,9 @@ namespace GlyssenTests.Rules
 	
 		private void GenerateGroups()
 		{
-			new CharacterGroupGenerator(m_testProject, m_testProject.GetKeyStrokesByCharacterId()).UpdateProjectCharacterGroups();
+			var generator = new CharacterGroupGenerator(m_testProject, m_testProject.GetKeyStrokesByCharacterId());
+			generator.GenerateCharacterGroups();
+			generator.ApplyGeneratedGroupsToProject();
 		}
 
 		private void RenameCharacter(int bookNum, int chapter, int verse, string existingCharacterId, string newCharacterId)

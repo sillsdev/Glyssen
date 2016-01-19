@@ -99,7 +99,10 @@ namespace Glyssen.Dialogs
 		private void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)
 		{
 			var attemptToPreserveActorAssignments = (bool)((ProgressState) e.Argument).Arguments;
-			new CharacterGroupGenerator(m_project, m_keyStrokesByCharacterId, attemptToPreserveActorAssignments).UpdateProjectCharacterGroups();
+			var generator = new CharacterGroupGenerator(m_project, m_keyStrokesByCharacterId);
+			generator.GenerateCharacterGroups();
+			if (generator.GeneratedGroups != null)
+				generator.ApplyGeneratedGroupsToProject(attemptToPreserveActorAssignments);
 		}
 
 		/// <summary>
