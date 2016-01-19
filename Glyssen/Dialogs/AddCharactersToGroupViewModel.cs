@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Character;
 
@@ -64,7 +65,15 @@ namespace Glyssen.Dialogs
 
 		public void FilterCharacterIds(string match)
 		{
-
+			m_filteredCharacters = new List<CharacterDetail>();
+			foreach (var character in m_availableCharacters)
+			{
+				var charName = CharacterVerseData.GetCharacterNameForUi(character.CharacterId);
+				if (charName.IndexOf(match, StringComparison.OrdinalIgnoreCase) >= 0)
+				{
+					m_filteredCharacters.Add(character);
+				}
+			}
 		}
 
 		public string GetCharacterId(int filteredCharacterIndex)

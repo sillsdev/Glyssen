@@ -32,17 +32,6 @@ namespace Glyssen.Dialogs
 
 		public IList<string> SelectedCharacters { get; private set; }
 
-		private void m_txtCharacterFilter_TextChanged(object sender, EventArgs e)
-		{
-			m_viewModel.FilterCharacterIds(m_txtCharacterFilter.Text);
-			m_characterDetailsGrid.RowCount = m_viewModel.FilteredCharactersCount;
-		}
-
-		private void m_icnCharacterFilter_Click(object sender, EventArgs e)
-		{
-			m_txtCharacterFilter.Focus();
-		}
-
 		private void m_characterDetailsGrid_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
 		{
 			if (e.RowIndex < 0 || m_viewModel.FilteredCharactersCount <= e.RowIndex)
@@ -68,6 +57,12 @@ namespace Glyssen.Dialogs
 		private void m_characterDetailsGrid_SelectionChanged(object sender, EventArgs e)
 		{
 			m_btnOk.Enabled = m_characterDetailsGrid.SelectedRows.Count > 0;
+		}
+
+		private void m_toolStripTextBoxFindCharacter_TextChanged(object sender, EventArgs e)
+		{
+			m_viewModel.FilterCharacterIds(m_toolStripTextBoxFindCharacter.Text);
+			m_characterDetailsGrid.RowCount = m_viewModel.FilteredCharactersCount;
 		}
 	}
 }

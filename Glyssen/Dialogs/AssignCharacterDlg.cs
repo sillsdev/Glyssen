@@ -21,7 +21,6 @@ using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
-using SIL.Windows.Forms.PortableSettingsProvider;
 
 namespace Glyssen.Dialogs
 {
