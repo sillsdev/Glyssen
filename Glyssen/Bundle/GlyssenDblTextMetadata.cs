@@ -264,6 +264,10 @@ namespace Glyssen.Bundle
 		[XmlElement("voiceActorStatus")]
 		[DefaultValue(VoiceActorStatus.UnProvided)]
 		public VoiceActorStatus VoiceActorStatus { get; set; }
+
+		[XmlElement("lastExportLocation")]
+		[DefaultValue("")]
+		public string LastExportLocation { get; set; }
 	}
 
 	public class CharacterGroupGenerationPreferences
