@@ -52,6 +52,7 @@
 			this.m_btnAssignVoiceActors = new System.Windows.Forms.Button();
 			this.m_lblActorsAssigned = new System.Windows.Forms.Label();
 			this.m_imgCheckAssignActors = new System.Windows.Forms.PictureBox();
+			this.m_lastExportLocationLink = new System.Windows.Forms.LinkLabel();
 			((System.ComponentModel.ISupportInitialize)(this.m_L10NSharpExtender)).BeginInit();
 			this.m_toolStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckOpen)).BeginInit();
@@ -380,11 +381,29 @@
 			this.m_imgCheckAssignActors.TabStop = false;
 			this.m_imgCheckAssignActors.Visible = false;
 			// 
+			// m_lastExportLocationLink
+			// 
+			this.m_lastExportLocationLink.AutoEllipsis = true;
+			this.m_lastExportLocationLink.AutoSize = true;
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lastExportLocationLink, null);
+			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lastExportLocationLink, null);
+			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_lastExportLocationLink, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_lastExportLocationLink, "MainForm.LastExportLocation");
+			this.m_lastExportLocationLink.Location = new System.Drawing.Point(197, 209);
+			this.m_lastExportLocationLink.MaximumSize = new System.Drawing.Size(255, 15);
+			this.m_lastExportLocationLink.Name = "m_lastExportLocationLink";
+			this.m_lastExportLocationLink.Size = new System.Drawing.Size(95, 13);
+			this.m_lastExportLocationLink.TabIndex = 32;
+			this.m_lastExportLocationLink.TabStop = true;
+			this.m_lastExportLocationLink.Text = "last export location";
+			this.m_lastExportLocationLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_lastExportLocationLink_LinkClicked);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(518, 256);
+			this.Controls.Add(this.m_lastExportLocationLink);
 			this.Controls.Add(this.m_imgCheckAssignActors);
 			this.Controls.Add(this.m_lblActorsAssigned);
 			this.Controls.Add(this.m_btnAssignVoiceActors);
@@ -404,6 +423,7 @@
 			this.Controls.Add(this.m_lblSettingsInfo);
 			this.Controls.Add(this.m_lblProjectInfo);
 			this.Controls.Add(this.m_btnOpenProject);
+			this.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.Icon = global::Glyssen.Properties.Resources.glyssenIcon;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this, null);
@@ -451,6 +471,7 @@
 		private System.Windows.Forms.Button m_btnAssignVoiceActors;
 		private System.Windows.Forms.Label m_lblActorsAssigned;
 		private System.Windows.Forms.PictureBox m_imgCheckAssignActors;
+		private System.Windows.Forms.LinkLabel m_lastExportLocationLink;
 	}
 }
 
