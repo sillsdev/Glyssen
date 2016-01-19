@@ -21,9 +21,6 @@ namespace Glyssen.Dialogs
 		{
 			InitializeComponent();
 
-			if (Settings.Default.OpenProjectDlgFormSettings == null)
-				Settings.Default.OpenProjectDlgFormSettings = FormSettings.Create(this);
-
 			if (currentProject != null)
 			{
 				m_listExistingProjects.SelectedProject = currentProject.ProjectFilePath;
@@ -58,7 +55,6 @@ namespace Glyssen.Dialogs
 
 		protected override void OnLoad(EventArgs e)
 		{
-			Settings.Default.OpenProjectDlgFormSettings.InitializeForm(this);
 			base.OnLoad(e);
 			if (Settings.Default.OpenProjectDlgGridSettings != null &&
 				//Don't use settings based on old number of columns
