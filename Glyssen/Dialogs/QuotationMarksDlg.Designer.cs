@@ -63,12 +63,13 @@ namespace Glyssen.Dialogs
 			this.m_labelXofY = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.m_lblStartDialogueQuote = new System.Windows.Forms.Label();
-			this.m_lblLevel1 = new System.Windows.Forms.Label();
-			this.m_lblLevel2 = new System.Windows.Forms.Label();
-			this.m_lblLevel3 = new System.Windows.Forms.Label();
+			this.m_lblPrompt = new System.Windows.Forms.Label();
+			this.m_lblHorizontalSeparator1 = new System.Windows.Forms.Label();
+			this.m_blocksViewer = new Glyssen.Controls.ScriptBlocksViewer();
+			this.m_chkPairedQuotations = new System.Windows.Forms.CheckBox();
 			this.m_lblBegin = new System.Windows.Forms.Label();
-			this.m_lblContinue = new System.Windows.Forms.Label();
-			this.m_lblEnd = new System.Windows.Forms.Label();
+			this.m_lblLevel2 = new System.Windows.Forms.Label();
+			this.m_lblLevel1 = new System.Windows.Forms.Label();
 			this.m_cbLevel1Begin = new System.Windows.Forms.ComboBox();
 			this.m_cbLevel1Continue = new System.Windows.Forms.ComboBox();
 			this.m_cbLevel1End = new System.Windows.Forms.ComboBox();
@@ -78,13 +79,14 @@ namespace Glyssen.Dialogs
 			this.m_cbLevel3Begin = new System.Windows.Forms.ComboBox();
 			this.m_cbLevel3End = new System.Windows.Forms.ComboBox();
 			this.m_cbLevel3Continue = new System.Windows.Forms.ComboBox();
-			this.m_lblPrompt = new System.Windows.Forms.Label();
-			this.m_lblHorizontalSeparator1 = new System.Windows.Forms.Label();
-			this.m_blocksViewer = new Glyssen.Controls.ScriptBlocksViewer();
+			this.m_lblLevel3 = new System.Windows.Forms.Label();
+			this.m_lblContinue = new System.Windows.Forms.Label();
+			this.m_lblEnd = new System.Windows.Forms.Label();
 			this.m_pnlDialogeQuotes = new System.Windows.Forms.Panel();
 			this.m_splitContainer = new System.Windows.Forms.SplitContainer();
 			this.m_tableLayoutPanelDataBrowser = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.m_quotationMarkFlowLayout = new System.Windows.Forms.FlowLayoutPanel();
 			this.m_pnlLevels = new System.Windows.Forms.TableLayoutPanel();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.m_toolStrip.SuspendLayout();
@@ -95,6 +97,7 @@ namespace Glyssen.Dialogs
 			this.m_splitContainer.SuspendLayout();
 			this.m_tableLayoutPanelDataBrowser.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
+			this.m_quotationMarkFlowLayout.SuspendLayout();
 			this.m_pnlLevels.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -177,7 +180,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblHorizontalSeparator2, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblHorizontalSeparator2, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblHorizontalSeparator2, "ProjectSettingsDlg.m_lblHorizontalSeparator2");
-			this.m_lblHorizontalSeparator2.Location = new System.Drawing.Point(3, 206);
+			this.m_lblHorizontalSeparator2.Location = new System.Drawing.Point(3, 241);
 			this.m_lblHorizontalSeparator2.Name = "m_lblHorizontalSeparator2";
 			this.m_lblHorizontalSeparator2.Size = new System.Drawing.Size(473, 2);
 			this.m_lblHorizontalSeparator2.TabIndex = 8;
@@ -257,7 +260,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_chkAlternateSpeakersInFirstLevelQuotes, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_chkAlternateSpeakersInFirstLevelQuotes, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkAlternateSpeakersInFirstLevelQuotes, "DialogBoxes.QuotationMarksDlg.m_chkAlternateSpeakersInFirstLevelQuotes");
-			this.m_chkAlternateSpeakersInFirstLevelQuotes.Location = new System.Drawing.Point(15, 136);
+			this.m_chkAlternateSpeakersInFirstLevelQuotes.Location = new System.Drawing.Point(15, 108);
 			this.m_chkAlternateSpeakersInFirstLevelQuotes.Name = "m_chkAlternateSpeakersInFirstLevelQuotes";
 			this.m_chkAlternateSpeakersInFirstLevelQuotes.Size = new System.Drawing.Size(15, 14);
 			this.m_chkAlternateSpeakersInFirstLevelQuotes.TabIndex = 13;
@@ -457,7 +460,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label1, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label1, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.label1, "DialogBoxes.QuotationMarksDlg.SwitchFirstLevel");
-			this.label1.Location = new System.Drawing.Point(36, 133);
+			this.label1.Location = new System.Drawing.Point(36, 108);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(417, 49);
 			this.label1.TabIndex = 14;
@@ -481,18 +484,75 @@ namespace Glyssen.Dialogs
 			this.m_lblStartDialogueQuote.TabIndex = 15;
 			this.m_lblStartDialogueQuote.Text = "Dialogue quotation dash:";
 			// 
-			// m_lblLevel1
+			// m_lblPrompt
 			// 
-			this.m_lblLevel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.m_lblLevel1.AutoSize = true;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblLevel1, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblLevel1, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblLevel1, "DialogBoxes.QuotationMarksDlg.Level1");
-			this.m_lblLevel1.Location = new System.Drawing.Point(3, 41);
-			this.m_lblLevel1.Name = "m_lblLevel1";
-			this.m_lblLevel1.Size = new System.Drawing.Size(45, 13);
-			this.m_lblLevel1.TabIndex = 17;
-			this.m_lblLevel1.Text = "Level 1:";
+			this.m_lblPrompt.AutoSize = true;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblPrompt, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblPrompt, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblPrompt, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblPrompt, "DialogBoxes.QuotationMarksDlg.label2");
+			this.m_lblPrompt.Location = new System.Drawing.Point(3, 0);
+			this.m_lblPrompt.Margin = new System.Windows.Forms.Padding(3, 0, 3, 15);
+			this.m_lblPrompt.Name = "m_lblPrompt";
+			this.m_lblPrompt.Size = new System.Drawing.Size(40, 13);
+			this.m_lblPrompt.TabIndex = 19;
+			this.m_lblPrompt.Text = "Prompt";
+			// 
+			// m_lblHorizontalSeparator1
+			// 
+			this.m_lblHorizontalSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_lblHorizontalSeparator1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblHorizontalSeparator1, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblHorizontalSeparator1, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblHorizontalSeparator1, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblHorizontalSeparator1, "ProjectSettingsDlg.m_lblHorizontalSeparator1");
+			this.m_lblHorizontalSeparator1.Location = new System.Drawing.Point(3, 28);
+			this.m_lblHorizontalSeparator1.Name = "m_lblHorizontalSeparator1";
+			this.m_lblHorizontalSeparator1.Size = new System.Drawing.Size(473, 2);
+			this.m_lblHorizontalSeparator1.TabIndex = 20;
+			// 
+			// m_blocksViewer
+			// 
+			this.m_blocksViewer.BackColor = System.Drawing.Color.Transparent;
+			this.m_tableLayoutPanelDataBrowser.SetColumnSpan(this.m_blocksViewer, 3);
+			this.m_blocksViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksViewer, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksViewer, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksViewer, "DialogBoxes.QuotationMarksDlg.ScriptBlocksViewer");
+			this.m_blocksViewer.Location = new System.Drawing.Point(3, 3);
+			this.m_blocksViewer.Name = "m_blocksViewer";
+			this.m_blocksViewer.Size = new System.Drawing.Size(258, 384);
+			this.m_blocksViewer.TabIndex = 0;
+			this.m_blocksViewer.Text = "Project Data:";
+			this.m_blocksViewer.ViewType = Glyssen.Controls.ScriptBlocksViewType.Html;
+			// 
+			// m_chkPairedQuotations
+			// 
+			this.m_chkPairedQuotations.AutoSize = true;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_chkPairedQuotations, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_chkPairedQuotations, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkPairedQuotations, "DialogBoxes.QuotationMarksDlg.PairedQuotationMarks");
+			this.m_chkPairedQuotations.Location = new System.Drawing.Point(6, 6);
+			this.m_chkPairedQuotations.Margin = new System.Windows.Forms.Padding(6, 6, 3, 6);
+			this.m_chkPairedQuotations.Name = "m_chkPairedQuotations";
+			this.m_chkPairedQuotations.Size = new System.Drawing.Size(290, 17);
+			this.m_chkPairedQuotations.TabIndex = 0;
+			this.m_chkPairedQuotations.Text = "This project marks dialogue with paired quotation marks.";
+			this.m_chkPairedQuotations.UseVisualStyleBackColor = true;
+			this.m_chkPairedQuotations.CheckedChanged += new System.EventHandler(this.m_chkPairedQuotations_CheckedChanged);
+			// 
+			// m_lblBegin
+			// 
+			this.m_lblBegin.AutoSize = true;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblBegin, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblBegin, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblBegin, "DialogBoxes.QuotationMarksDlg.Begin");
+			this.m_lblBegin.Location = new System.Drawing.Point(103, 0);
+			this.m_lblBegin.Name = "m_lblBegin";
+			this.m_lblBegin.Size = new System.Drawing.Size(34, 13);
+			this.m_lblBegin.TabIndex = 32;
+			this.m_lblBegin.Text = "Begin";
 			// 
 			// m_lblLevel2
 			// 
@@ -507,54 +567,18 @@ namespace Glyssen.Dialogs
 			this.m_lblLevel2.TabIndex = 18;
 			this.m_lblLevel2.Text = "Level 2:";
 			// 
-			// m_lblLevel3
+			// m_lblLevel1
 			// 
-			this.m_lblLevel3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.m_lblLevel3.AutoSize = true;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblLevel3, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblLevel3, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblLevel3, "DialogBoxes.QuotationMarksDlg.Level3");
-			this.m_lblLevel3.Location = new System.Drawing.Point(3, 134);
-			this.m_lblLevel3.Name = "m_lblLevel3";
-			this.m_lblLevel3.Size = new System.Drawing.Size(45, 13);
-			this.m_lblLevel3.TabIndex = 22;
-			this.m_lblLevel3.Text = "Level 3:";
-			// 
-			// m_lblBegin
-			// 
-			this.m_lblBegin.AutoSize = true;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblBegin, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblBegin, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblBegin, "DialogBoxes.QuotationMarksDlg.Begin");
-			this.m_lblBegin.Location = new System.Drawing.Point(103, 0);
-			this.m_lblBegin.Name = "m_lblBegin";
-			this.m_lblBegin.Size = new System.Drawing.Size(34, 13);
-			this.m_lblBegin.TabIndex = 32;
-			this.m_lblBegin.Text = "Begin";
-			// 
-			// m_lblContinue
-			// 
-			this.m_lblContinue.AutoSize = true;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblContinue, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblContinue, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblContinue, "DialogBoxes.QuotationMarksDlg.Continue");
-			this.m_lblContinue.Location = new System.Drawing.Point(227, 0);
-			this.m_lblContinue.Name = "m_lblContinue";
-			this.m_lblContinue.Size = new System.Drawing.Size(49, 13);
-			this.m_lblContinue.TabIndex = 33;
-			this.m_lblContinue.Text = "Continue";
-			// 
-			// m_lblEnd
-			// 
-			this.m_lblEnd.AutoSize = true;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblEnd, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblEnd, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblEnd, "DialogBoxes.QuotationMarksDlg.End");
-			this.m_lblEnd.Location = new System.Drawing.Point(351, 0);
-			this.m_lblEnd.Name = "m_lblEnd";
-			this.m_lblEnd.Size = new System.Drawing.Size(26, 13);
-			this.m_lblEnd.TabIndex = 34;
-			this.m_lblEnd.Text = "End";
+			this.m_lblLevel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.m_lblLevel1.AutoSize = true;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblLevel1, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblLevel1, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblLevel1, "DialogBoxes.QuotationMarksDlg.Level1");
+			this.m_lblLevel1.Location = new System.Drawing.Point(3, 41);
+			this.m_lblLevel1.Name = "m_lblLevel1";
+			this.m_lblLevel1.Size = new System.Drawing.Size(45, 13);
+			this.m_lblLevel1.TabIndex = 17;
+			this.m_lblLevel1.Text = "Level 1:";
 			// 
 			// m_cbLevel1Begin
 			// 
@@ -665,48 +689,42 @@ namespace Glyssen.Dialogs
 			this.m_cbLevel3Continue.Size = new System.Drawing.Size(94, 37);
 			this.m_cbLevel3Continue.TabIndex = 9;
 			// 
-			// m_lblPrompt
+			// m_lblLevel3
 			// 
-			this.m_lblPrompt.AutoSize = true;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblPrompt, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblPrompt, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblPrompt, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblPrompt, "DialogBoxes.QuotationMarksDlg.label2");
-			this.m_lblPrompt.Location = new System.Drawing.Point(3, 0);
-			this.m_lblPrompt.Margin = new System.Windows.Forms.Padding(3, 0, 3, 15);
-			this.m_lblPrompt.Name = "m_lblPrompt";
-			this.m_lblPrompt.Size = new System.Drawing.Size(40, 13);
-			this.m_lblPrompt.TabIndex = 19;
-			this.m_lblPrompt.Text = "Prompt";
+			this.m_lblLevel3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.m_lblLevel3.AutoSize = true;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblLevel3, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblLevel3, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblLevel3, "DialogBoxes.QuotationMarksDlg.Level3");
+			this.m_lblLevel3.Location = new System.Drawing.Point(3, 134);
+			this.m_lblLevel3.Name = "m_lblLevel3";
+			this.m_lblLevel3.Size = new System.Drawing.Size(45, 13);
+			this.m_lblLevel3.TabIndex = 22;
+			this.m_lblLevel3.Text = "Level 3:";
 			// 
-			// m_lblHorizontalSeparator1
+			// m_lblContinue
 			// 
-			this.m_lblHorizontalSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_lblHorizontalSeparator1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblHorizontalSeparator1, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblHorizontalSeparator1, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblHorizontalSeparator1, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblHorizontalSeparator1, "ProjectSettingsDlg.m_lblHorizontalSeparator1");
-			this.m_lblHorizontalSeparator1.Location = new System.Drawing.Point(3, 28);
-			this.m_lblHorizontalSeparator1.Name = "m_lblHorizontalSeparator1";
-			this.m_lblHorizontalSeparator1.Size = new System.Drawing.Size(473, 2);
-			this.m_lblHorizontalSeparator1.TabIndex = 20;
+			this.m_lblContinue.AutoSize = true;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblContinue, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblContinue, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblContinue, "DialogBoxes.QuotationMarksDlg.Continue");
+			this.m_lblContinue.Location = new System.Drawing.Point(227, 0);
+			this.m_lblContinue.Name = "m_lblContinue";
+			this.m_lblContinue.Size = new System.Drawing.Size(49, 13);
+			this.m_lblContinue.TabIndex = 33;
+			this.m_lblContinue.Text = "Continue";
 			// 
-			// m_blocksViewer
+			// m_lblEnd
 			// 
-			this.m_blocksViewer.BackColor = System.Drawing.Color.Transparent;
-			this.m_tableLayoutPanelDataBrowser.SetColumnSpan(this.m_blocksViewer, 3);
-			this.m_blocksViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksViewer, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksViewer, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksViewer, "DialogBoxes.QuotationMarksDlg.ScriptBlocksViewer");
-			this.m_blocksViewer.Location = new System.Drawing.Point(3, 3);
-			this.m_blocksViewer.Name = "m_blocksViewer";
-			this.m_blocksViewer.Size = new System.Drawing.Size(258, 384);
-			this.m_blocksViewer.TabIndex = 0;
-			this.m_blocksViewer.Text = "Project Data:";
-			this.m_blocksViewer.ViewType = Glyssen.Controls.ScriptBlocksViewType.Html;
+			this.m_lblEnd.AutoSize = true;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblEnd, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblEnd, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblEnd, "DialogBoxes.QuotationMarksDlg.End");
+			this.m_lblEnd.Location = new System.Drawing.Point(351, 0);
+			this.m_lblEnd.Name = "m_lblEnd";
+			this.m_lblEnd.Size = new System.Drawing.Size(26, 13);
+			this.m_lblEnd.TabIndex = 34;
+			this.m_lblEnd.Text = "End";
 			// 
 			// m_pnlDialogeQuotes
 			// 
@@ -720,9 +738,9 @@ namespace Glyssen.Dialogs
 			this.m_pnlDialogeQuotes.Controls.Add(this.m_cboEndQuotationDash);
 			this.m_pnlDialogeQuotes.Controls.Add(this.m_lblEndDialogueQuote);
 			this.m_pnlDialogeQuotes.Controls.Add(this.m_cboQuotationDash);
-			this.m_pnlDialogeQuotes.Location = new System.Drawing.Point(3, 211);
+			this.m_pnlDialogeQuotes.Location = new System.Drawing.Point(3, 246);
 			this.m_pnlDialogeQuotes.Name = "m_pnlDialogeQuotes";
-			this.m_pnlDialogeQuotes.Size = new System.Drawing.Size(473, 197);
+			this.m_pnlDialogeQuotes.Size = new System.Drawing.Size(473, 162);
 			this.m_pnlDialogeQuotes.TabIndex = 13;
 			// 
 			// m_splitContainer
@@ -774,7 +792,7 @@ namespace Glyssen.Dialogs
 			this.tableLayoutPanel1.Controls.Add(this.m_lblPrompt, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.m_lblHorizontalSeparator2, 0, 3);
 			this.tableLayoutPanel1.Controls.Add(this.m_pnlDialogeQuotes, 0, 4);
-			this.tableLayoutPanel1.Controls.Add(this.m_pnlLevels, 0, 2);
+			this.tableLayoutPanel1.Controls.Add(this.m_quotationMarkFlowLayout, 0, 2);
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 6);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 5;
@@ -785,6 +803,18 @@ namespace Glyssen.Dialogs
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(479, 411);
 			this.tableLayoutPanel1.TabIndex = 20;
+			// 
+			// m_quotationMarkFlowLayout
+			// 
+			this.m_quotationMarkFlowLayout.AutoSize = true;
+			this.m_quotationMarkFlowLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.m_quotationMarkFlowLayout.Controls.Add(this.m_chkPairedQuotations);
+			this.m_quotationMarkFlowLayout.Controls.Add(this.m_pnlLevels);
+			this.m_quotationMarkFlowLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.m_quotationMarkFlowLayout.Location = new System.Drawing.Point(3, 33);
+			this.m_quotationMarkFlowLayout.Name = "m_quotationMarkFlowLayout";
+			this.m_quotationMarkFlowLayout.Size = new System.Drawing.Size(473, 205);
+			this.m_quotationMarkFlowLayout.TabIndex = 21;
 			// 
 			// m_pnlLevels
 			// 
@@ -808,7 +838,8 @@ namespace Glyssen.Dialogs
 			this.m_pnlLevels.Controls.Add(this.m_lblLevel3, 0, 3);
 			this.m_pnlLevels.Controls.Add(this.m_lblContinue, 2, 0);
 			this.m_pnlLevels.Controls.Add(this.m_lblEnd, 3, 0);
-			this.m_pnlLevels.Location = new System.Drawing.Point(3, 33);
+			this.m_pnlLevels.Dock = System.Windows.Forms.DockStyle.Top;
+			this.m_pnlLevels.Location = new System.Drawing.Point(3, 32);
 			this.m_pnlLevels.Margin = new System.Windows.Forms.Padding(3, 3, 3, 8);
 			this.m_pnlLevels.Name = "m_pnlLevels";
 			this.m_pnlLevels.RowCount = 4;
@@ -817,7 +848,7 @@ namespace Glyssen.Dialogs
 			this.m_pnlLevels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
 			this.m_pnlLevels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
 			this.m_pnlLevels.Size = new System.Drawing.Size(473, 165);
-			this.m_pnlLevels.TabIndex = 18;
+			this.m_pnlLevels.TabIndex = 19;
 			// 
 			// QuotationMarksDlg
 			// 
@@ -832,6 +863,7 @@ namespace Glyssen.Dialogs
 			this.Controls.Add(this.m_btnOk);
 			this.Controls.Add(this.m_comboQuoteMarks);
 			this.Controls.Add(this.m_btnCancel);
+			this.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.QuotationMarksDlg.WindowTitle");
@@ -854,6 +886,8 @@ namespace Glyssen.Dialogs
 			this.m_tableLayoutPanelDataBrowser.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
+			this.m_quotationMarkFlowLayout.ResumeLayout(false);
+			this.m_quotationMarkFlowLayout.PerformLayout();
 			this.m_pnlLevels.ResumeLayout(false);
 			this.m_pnlLevels.PerformLayout();
 			this.ResumeLayout(false);
@@ -894,24 +928,26 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.Label m_labelXofY;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label m_lblStartDialogueQuote;
-		private System.Windows.Forms.Label m_lblLevel1;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private System.Windows.Forms.Label m_lblHorizontalSeparator1;
+		private System.Windows.Forms.Label m_lblPrompt;
+		private System.Windows.Forms.FlowLayoutPanel m_quotationMarkFlowLayout;
+		private System.Windows.Forms.CheckBox m_chkPairedQuotations;
 		private System.Windows.Forms.TableLayoutPanel m_pnlLevels;
-		private System.Windows.Forms.Label m_lblLevel3;
+		private System.Windows.Forms.Label m_lblBegin;
 		private System.Windows.Forms.Label m_lblLevel2;
+		private System.Windows.Forms.Label m_lblLevel1;
 		private System.Windows.Forms.ComboBox m_cbLevel1Begin;
 		private System.Windows.Forms.ComboBox m_cbLevel1Continue;
 		private System.Windows.Forms.ComboBox m_cbLevel1End;
 		private System.Windows.Forms.ComboBox m_cbLevel2Begin;
 		private System.Windows.Forms.ComboBox m_cbLevel2Continue;
 		private System.Windows.Forms.ComboBox m_cbLevel2End;
-		private System.Windows.Forms.ComboBox m_cbLevel3Continue;
 		private System.Windows.Forms.ComboBox m_cbLevel3Begin;
 		private System.Windows.Forms.ComboBox m_cbLevel3End;
-		private System.Windows.Forms.Label m_lblBegin;
+		private System.Windows.Forms.ComboBox m_cbLevel3Continue;
+		private System.Windows.Forms.Label m_lblLevel3;
 		private System.Windows.Forms.Label m_lblContinue;
 		private System.Windows.Forms.Label m_lblEnd;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private System.Windows.Forms.Label m_lblHorizontalSeparator1;
-		private System.Windows.Forms.Label m_lblPrompt;
 	}
 }

@@ -121,7 +121,12 @@ namespace Glyssen.Quote
 		[XmlIgnore]
 		public System.Collections.ObjectModel.ReadOnlyCollection<QuotationMark> NormalLevels
 		{
-			get { return m_allLevels.Where(l => l.Type == QuotationMarkingSystemType.Normal).ToList().AsReadOnly(); }
+			get
+			{
+				var x = m_allLevels.Where(l => l.Type == QuotationMarkingSystemType.Normal);
+				var y = x.ToList();
+				return m_allLevels.Where(l => l.Type == QuotationMarkingSystemType.Normal).ToList().AsReadOnly();
+			}
 		}
 
 		[XmlIgnore]
@@ -233,13 +238,15 @@ namespace Glyssen.Quote
 		{
 			get
 			{
+				var firstLevel = (FirstLevel.Open + " " + FirstLevel.Close).Trim();
+
 				StringBuilder sb = new StringBuilder();
-				sb.Append(FirstLevel.Open).Append(" ").Append(FirstLevel.Close);
+				sb.Append(firstLevel);
 				if (!string.IsNullOrEmpty(QuotationDashMarker))
 				{
-					sb.Append(" ").Append(QuotationDashMarker);
-					if (!string.IsNullOrEmpty(QuotationDashEndMarker))
-						sb.Append(" ").Append(QuotationDashEndMarker);
+					var dashLevel = (QuotationDashMarker + " " + QuotationDashEndMarker ?? "").Trim();
+					if (dashLevel != firstLevel)
+						sb.Append(" ").Append(dashLevel);
 				}
 				return sb.ToString();
 			}
