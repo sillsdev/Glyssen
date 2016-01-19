@@ -159,6 +159,8 @@ namespace Glyssen
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
+			m_lastExportLocationLink.Text = Settings.Default.LastExportLocation;
+
 			if (string.IsNullOrEmpty(Settings.Default.CurrentProject) || !File.Exists(Settings.Default.CurrentProject))
 				SetProject(null);
 			else
@@ -380,9 +382,11 @@ namespace Glyssen
 					export = MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
 				}
 			}
-			if (export)
-				using (var dlg = new ExportDlg(exporter))
-					dlg.ShowDialog(this);
+			if (!export) return;
+			using (var dlg = new ExportDlg(exporter))
+				dlg.ShowDialog(this);
+
+			m_lastExportLocationLink.Text = Settings.Default.LastExportLocation;
 		}
 
 		private void EnsureGroupsAreInSynchWithCharactersInUse()
@@ -548,6 +552,11 @@ namespace Glyssen
 			protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
 			{
 			}
+		}
+
+		private void m_lastExportLocationLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			PathUtilities.OpenDirectoryInExplorer(m_lastExportLocationLink.Text);
 		}
 	}
 }
