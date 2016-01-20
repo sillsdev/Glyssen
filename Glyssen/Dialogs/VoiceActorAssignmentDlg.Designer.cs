@@ -340,7 +340,6 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripLabelFindCharacter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripLabelFindCharacter, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStripLabelFindCharacter, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripLabelFindCharacter, "DialogBoxes.VoiceActorAssignmentDlg.m_toolStripLabelFindCharacter");
 			this.m_toolStripLabelFindCharacter.Name = "m_toolStripLabelFindCharacter";
 			this.m_toolStripLabelFindCharacter.Size = new System.Drawing.Size(87, 22);
@@ -577,8 +576,10 @@ namespace Glyssen.Dialogs
 			// 
 			// m_linkLabelShowHideDetails
 			// 
+			this.m_linkLabelShowHideDetails.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_linkLabelShowHideDetails.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_linkLabelShowHideDetails.AutoSize = true;
+			this.m_linkLabelShowHideDetails.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkLabelShowHideDetails, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkLabelShowHideDetails, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLabelShowHideDetails, "DialogBoxes.VoiceActorAssignmentDlg.HideDetailsLink");
@@ -588,6 +589,7 @@ namespace Glyssen.Dialogs
 			this.m_linkLabelShowHideDetails.TabIndex = 11;
 			this.m_linkLabelShowHideDetails.TabStop = true;
 			this.m_linkLabelShowHideDetails.Text = "Hide details";
+			this.m_linkLabelShowHideDetails.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_linkLabelShowHideDetails.Click += new System.EventHandler(this.HandleShowOrHideCharacterDetails_Click);
 			// 
 			// m_lblCharacterDetails
@@ -755,6 +757,7 @@ namespace Glyssen.Dialogs
 			this.m_saveStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_saveStatus.AutoSize = true;
 			this.m_saveStatus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.m_saveStatus.BackColor = System.Drawing.SystemColors.Control;
 			this.m_saveStatus.BackgroundColor = System.Drawing.SystemColors.Control;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_saveStatus, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_saveStatus, null);
@@ -860,6 +863,7 @@ namespace Glyssen.Dialogs
 			this.Controls.Add(this.m_toolStrip);
 			this.Controls.Add(this.m_lblInstructions);
 			this.Controls.Add(this.m_saveStatus);
+			this.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.KeyPreview = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
