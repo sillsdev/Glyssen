@@ -20,6 +20,8 @@ namespace Glyssen.Controls
 			AddReadOnlyProject(project.ProjectFilePath);
 		}
 
+		protected override DataGridViewColumn InactiveColumn { get { return colInactive; } }
+
 		protected override DataGridViewColumn FillColumn { get { return colBundleName; } }
 
 		protected override IEnumerable<string> AllProjectFolders
