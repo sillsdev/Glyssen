@@ -92,15 +92,10 @@ namespace Glyssen.Rules
 			m_charactersNoLongerInUse.Clear();
 		}
 
-		public void FullyRegenerateGroups(BackgroundWorker worker = null)
+		public void FinalizeRegenerationOfGroups()
 		{
-			var generator = new CharacterGroupGenerator(m_project, m_project.GetKeyStrokesByCharacterId(), worker ?? new BackgroundWorker());
-			generator.GenerateCharacterGroups();
-			if (generator.GeneratedGroups != null)
-				generator.ApplyGeneratedGroupsToProject();
 			m_charactersNotCoveredByAnyGroup.Clear();
 			m_charactersNoLongerInUse.Clear();
-			m_project.Save();
 		}
 	}
 }

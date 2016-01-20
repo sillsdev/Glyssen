@@ -23,7 +23,6 @@ namespace Glyssen.Dialogs
 		private Label m_statusLabel;
 		private ProgressBar m_progressBar;
 		private Label m_progressLabel;
-		private Button m_cancelOrOkButton;
 		private Timer m_showWindowIfTakingLongTimeTimer;
 		private Timer m_progressTimer;
 		private bool m_isClosing;
@@ -34,7 +33,13 @@ namespace Glyssen.Dialogs
 		private ProgressState m_progressState;
 		private TableLayoutPanel m_tableLayout;
 		private bool m_workerStarted;
+		private Button m_okButton;
+		private IContainer components;
+		private Button m_cancelButton;
+		private TableLayoutPanel m_buttonPanel;
+		private LinkLabel m_cancelLink;
 		private bool m_appUsingWaitCursor;
+		private bool m_replaceCancelButtonWithLink;
 
 		/// <summary>
 		/// Standard constructor
@@ -59,14 +64,14 @@ namespace Glyssen.Dialogs
 			m_progressLabel.Text = string.Empty;
 			m_overviewLabel.Text = string.Empty;
 
-			m_cancelOrOkButton.MouseEnter += delegate
+			m_cancelButton.MouseEnter += delegate
 			{
 				m_appUsingWaitCursor = Application.UseWaitCursor;
-				m_cancelOrOkButton.Cursor = Cursor = Cursors.Arrow;
+				m_cancelButton.Cursor = Cursor = Cursors.Arrow;
 				Application.UseWaitCursor = false;
 			};
 
-			m_cancelOrOkButton.MouseLeave += delegate
+			m_cancelButton.MouseLeave += delegate
 			{
 				Application.UseWaitCursor = m_appUsingWaitCursor;
 			};
@@ -179,7 +184,7 @@ namespace Glyssen.Dialogs
 				 * Debug.Assert(value <= _progressBar.Maximum);
 				 */
 				Debug.WriteLineIf(value >  m_progressBar.Maximum,
-					"***Warning progres was " + value + " but max is " + m_progressBar.Maximum);
+					"***Warning progress was " + value + " but max is " + m_progressBar.Maximum);
 				Debug.Assert(value >= m_progressBar.Minimum);
 				if (value > m_progressBar.Maximum)
 				{
@@ -201,12 +206,20 @@ namespace Glyssen.Dialogs
 		{
 			get
 			{
-				return m_cancelOrOkButton.Enabled;
+				return m_cancelButton.Enabled || m_cancelLink.Enabled;
 			}
 			set
 			{
-				m_cancelOrOkButton.Enabled = value;
-				m_cancelOrOkButton.Visible = value;
+				if (ReplaceCancelButtonWithLink)
+				{
+					m_cancelLink.Enabled = value;
+					m_cancelLink.Visible = value;
+				}
+				else
+				{
+					m_cancelButton.Enabled = value;
+					m_cancelButton.Visible = value;
+				}
 			}
 		}
 
@@ -278,9 +291,23 @@ namespace Glyssen.Dialogs
 
 		public string OkButtonText { get; set; }
 
+		public bool ReplaceCancelButtonWithLink
+		{
+			get { return m_replaceCancelButtonWithLink; }
+			set
+			{
+				m_replaceCancelButtonWithLink = value;
+
+				m_cancelLink.Enabled = CanCancel && value;
+				m_cancelLink.Visible = CanCancel && value;
+				m_cancelButton.Enabled = CanCancel && !value;
+				m_cancelButton.Visible = CanCancel && !value;
+			}
+		}
+
 		void OnBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
-			if(e.Cancelled )
+			if(e.Cancelled)
 			{
 				DialogResult = DialogResult.Cancel;
 			}
@@ -301,13 +328,12 @@ namespace Glyssen.Dialogs
 
 				m_progressLabel.Text = ProgressLabelTextWhenComplete;
 
-				AcceptButton = m_cancelOrOkButton;
+				AcceptButton = m_okButton;
 
-				m_cancelOrOkButton.Click -= OnCancelButton_Click;
-				m_cancelOrOkButton.Text = OkButtonText ?? LocalizationManager.GetString("Common.OK", "OK");
-				m_cancelOrOkButton.DialogResult = DialogResult.OK;
-				m_cancelOrOkButton.Enabled = true;
-				m_cancelOrOkButton.Visible = true;
+				m_okButton.Text = OkButtonText ?? LocalizationManager.GetString("Common.OK", "OK");
+				m_okButton.DialogResult = DialogResult.OK;
+				m_okButton.Enabled = true;
+				m_okButton.Visible = true;
 			}
 		}
 
@@ -384,103 +410,94 @@ namespace Glyssen.Dialogs
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.m_components = new System.ComponentModel.Container();
+			this.components = new System.ComponentModel.Container();
 			this.m_statusLabel = new System.Windows.Forms.Label();
 			this.m_progressBar = new System.Windows.Forms.ProgressBar();
-			this.m_cancelOrOkButton = new System.Windows.Forms.Button();
 			this.m_progressLabel = new System.Windows.Forms.Label();
-			this.m_showWindowIfTakingLongTimeTimer = new System.Windows.Forms.Timer(this.m_components);
-			this.m_progressTimer = new System.Windows.Forms.Timer(this.m_components);
+			this.m_showWindowIfTakingLongTimeTimer = new System.Windows.Forms.Timer(this.components);
+			this.m_progressTimer = new System.Windows.Forms.Timer(this.components);
 			this.m_overviewLabel = new System.Windows.Forms.Label();
 			this.m_tableLayout = new System.Windows.Forms.TableLayoutPanel();
+			this.m_buttonPanel = new System.Windows.Forms.TableLayoutPanel();
+			this.m_okButton = new System.Windows.Forms.Button();
+			this.m_cancelButton = new System.Windows.Forms.Button();
+			this.m_cancelLink = new System.Windows.Forms.LinkLabel();
 			this.m_tableLayout.SuspendLayout();
+			this.m_buttonPanel.SuspendLayout();
 			this.SuspendLayout();
 			//
-			// _statusLabel
+			// m_statusLabel
 			//
 			this.m_statusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-				| System.Windows.Forms.AnchorStyles.Right)));
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.m_statusLabel.AutoSize = true;
 			this.m_statusLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 			this.m_tableLayout.SetColumnSpan(this.m_statusLabel, 2);
 			this.m_statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_statusLabel.Location = new System.Drawing.Point(0, 35);
 			this.m_statusLabel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
-			this.m_statusLabel.Name = "_statusLabel";
-			this.m_statusLabel.Size = new System.Drawing.Size(355, 15);
+			this.m_statusLabel.Name = "m_statusLabel";
+			this.m_statusLabel.Size = new System.Drawing.Size(444, 15);
 			this.m_statusLabel.TabIndex = 12;
 			this.m_statusLabel.Text = "#";
 			this.m_statusLabel.UseMnemonic = false;
 			//
-			// _progressBar
+			// m_progressBar
 			//
 			this.m_progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-				| System.Windows.Forms.AnchorStyles.Right)));
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.m_tableLayout.SetColumnSpan(this.m_progressBar, 2);
 			this.m_progressBar.Location = new System.Drawing.Point(0, 55);
 			this.m_progressBar.Margin = new System.Windows.Forms.Padding(0, 0, 0, 12);
-			this.m_progressBar.Name = "_progressBar";
-			this.m_progressBar.Size = new System.Drawing.Size(355, 18);
+			this.m_progressBar.Name = "m_progressBar";
+			this.m_progressBar.Size = new System.Drawing.Size(444, 18);
 			this.m_progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
 			this.m_progressBar.TabIndex = 11;
 			this.m_progressBar.Value = 1;
 			//
-			// _cancelOrOkButton
-			//
-			this.m_cancelOrOkButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_cancelOrOkButton.AutoSize = true;
-			this.m_cancelOrOkButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.m_cancelOrOkButton.Location = new System.Drawing.Point(280, 85);
-			this.m_cancelOrOkButton.Margin = new System.Windows.Forms.Padding(8, 0, 0, 0);
-			this.m_cancelOrOkButton.Name = "_cancelOrOkButton";
-			this.m_cancelOrOkButton.Size = new System.Drawing.Size(75, 23);
-			this.m_cancelOrOkButton.TabIndex = 10;
-			this.m_cancelOrOkButton.Text = "&Cancel";
-			this.m_cancelOrOkButton.Click += new System.EventHandler(this.OnCancelButton_Click);
-			//
-			// _progressLabel
+			// m_progressLabel
 			//
 			this.m_progressLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-				| System.Windows.Forms.AnchorStyles.Right)));
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.m_progressLabel.AutoEllipsis = true;
 			this.m_progressLabel.AutoSize = true;
 			this.m_progressLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 			this.m_progressLabel.Location = new System.Drawing.Point(0, 90);
 			this.m_progressLabel.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-			this.m_progressLabel.Name = "_progressLabel";
-			this.m_progressLabel.Size = new System.Drawing.Size(272, 13);
+			this.m_progressLabel.Name = "m_progressLabel";
+			this.m_progressLabel.Size = new System.Drawing.Size(314, 13);
 			this.m_progressLabel.TabIndex = 9;
 			this.m_progressLabel.Text = "#";
 			this.m_progressLabel.UseMnemonic = false;
 			//
-			// _showWindowIfTakingLongTimeTimer
+			// m_showWindowIfTakingLongTimeTimer
 			//
 			this.m_showWindowIfTakingLongTimeTimer.Interval = 2000;
 			this.m_showWindowIfTakingLongTimeTimer.Tick += new System.EventHandler(this.OnTakingLongTimeTimerClick);
 			//
-			// _progressTimer
+			// m_progressTimer
 			//
 			this.m_progressTimer.Enabled = true;
 			this.m_progressTimer.Interval = 1000;
 			this.m_progressTimer.Tick += new System.EventHandler(this.progressTimer_Tick);
 			//
-			// _overviewLabel
+			// m_overviewLabel
 			//
 			this.m_overviewLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-				| System.Windows.Forms.AnchorStyles.Right)));
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.m_overviewLabel.AutoSize = true;
 			this.m_overviewLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
 			this.m_tableLayout.SetColumnSpan(this.m_overviewLabel, 2);
 			this.m_overviewLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_overviewLabel.Location = new System.Drawing.Point(0, 0);
 			this.m_overviewLabel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
-			this.m_overviewLabel.Name = "_overviewLabel";
-			this.m_overviewLabel.Size = new System.Drawing.Size(355, 15);
+			this.m_overviewLabel.Name = "m_overviewLabel";
+			this.m_overviewLabel.Size = new System.Drawing.Size(444, 15);
 			this.m_overviewLabel.TabIndex = 8;
 			this.m_overviewLabel.Text = "#";
 			this.m_overviewLabel.UseMnemonic = false;
 			//
-			// tableLayout
+			// m_tableLayout
 			//
 			this.m_tableLayout.AutoSize = true;
 			this.m_tableLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -488,32 +505,92 @@ namespace Glyssen.Dialogs
 			this.m_tableLayout.ColumnCount = 2;
 			this.m_tableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.m_tableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.m_tableLayout.Controls.Add(this.m_cancelOrOkButton, 1, 3);
+			this.m_tableLayout.Controls.Add(this.m_buttonPanel, 1, 3);
 			this.m_tableLayout.Controls.Add(this.m_overviewLabel, 0, 0);
 			this.m_tableLayout.Controls.Add(this.m_progressLabel, 0, 3);
 			this.m_tableLayout.Controls.Add(this.m_progressBar, 0, 2);
 			this.m_tableLayout.Controls.Add(this.m_statusLabel, 0, 1);
+			this.m_tableLayout.Controls.Add(this.m_cancelLink, 0, 4);
 			this.m_tableLayout.Dock = System.Windows.Forms.DockStyle.Top;
 			this.m_tableLayout.Location = new System.Drawing.Point(12, 12);
-			this.m_tableLayout.Name = "tableLayout";
-			this.m_tableLayout.RowCount = 4;
+			this.m_tableLayout.Name = "m_tableLayout";
+			this.m_tableLayout.RowCount = 5;
 			this.m_tableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.m_tableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.m_tableLayout.Size = new System.Drawing.Size(355, 108);
+			this.m_tableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayout.Size = new System.Drawing.Size(444, 121);
 			this.m_tableLayout.TabIndex = 13;
 			this.m_tableLayout.SizeChanged += new System.EventHandler(this.HandleTableLayoutSizeChanged);
+			//
+			// m_buttonPanel
+			//
+			this.m_buttonPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.m_buttonPanel.AutoSize = true;
+			this.m_buttonPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.m_buttonPanel.ColumnCount = 2;
+			this.m_buttonPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.m_buttonPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.m_buttonPanel.Controls.Add(this.m_okButton, 0, 0);
+			this.m_buttonPanel.Controls.Add(this.m_cancelButton, 1, 0);
+			this.m_buttonPanel.Location = new System.Drawing.Point(317, 95);
+			this.m_buttonPanel.Name = "m_buttonPanel";
+			this.m_buttonPanel.RowCount = 1;
+			this.m_tableLayout.SetRowSpan(this.m_buttonPanel, 2);
+			this.m_buttonPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_buttonPanel.Size = new System.Drawing.Size(124, 23);
+			this.m_buttonPanel.TabIndex = 14;
+			//
+			// m_okButton
+			//
+			this.m_okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_okButton.AutoSize = true;
+			this.m_okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.m_okButton.Location = new System.Drawing.Point(8, 0);
+			this.m_okButton.Margin = new System.Windows.Forms.Padding(8, 0, 0, 0);
+			this.m_okButton.Name = "m_okButton";
+			this.m_okButton.Size = new System.Drawing.Size(50, 23);
+			this.m_okButton.TabIndex = 13;
+			this.m_okButton.Text = "&OK";
+			this.m_okButton.Visible = false;
+			//
+			// m_cancelButton
+			//
+			this.m_cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_cancelButton.AutoSize = true;
+			this.m_cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.m_cancelButton.Location = new System.Drawing.Point(66, 0);
+			this.m_cancelButton.Margin = new System.Windows.Forms.Padding(8, 0, 0, 0);
+			this.m_cancelButton.Name = "m_cancelButton";
+			this.m_cancelButton.Size = new System.Drawing.Size(58, 23);
+			this.m_cancelButton.TabIndex = 10;
+			this.m_cancelButton.Text = "&Cancel";
+			this.m_cancelButton.Click += new System.EventHandler(this.OnCancelButton_Click);
+			//
+			// m_cancelLink
+			//
+			this.m_cancelLink.AutoSize = true;
+			this.m_cancelLink.Location = new System.Drawing.Point(25, 103);
+			this.m_cancelLink.Margin = new System.Windows.Forms.Padding(25, 0, 3, 0);
+			this.m_cancelLink.Name = "m_cancelLink";
+			this.m_cancelLink.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+			this.m_cancelLink.Size = new System.Drawing.Size(209, 18);
+			this.m_cancelLink.TabIndex = 15;
+			this.m_cancelLink.TabStop = true;
+			this.m_cancelLink.Text = "No! Let me group character roles manually.";
+			this.m_cancelLink.Visible = false;
+			this.m_cancelLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnCancelLink_LinkClicked);
 			//
 			// ProgressDialogWithAcknowledgement
 			//
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.AutoSize = true;
-			this.ClientSize = new System.Drawing.Size(379, 150);
+			this.ClientSize = new System.Drawing.Size(468, 139);
 			this.ControlBox = false;
 			this.Controls.Add(this.m_tableLayout);
+			this.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
@@ -525,6 +602,8 @@ namespace Glyssen.Dialogs
 			this.Shown += new System.EventHandler(this.ProgressDialog_Shown);
 			this.m_tableLayout.ResumeLayout(false);
 			this.m_tableLayout.PerformLayout();
+			this.m_buttonPanel.ResumeLayout(false);
+			this.m_buttonPanel.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -548,10 +627,10 @@ namespace Glyssen.Dialogs
 			if(m_isClosing)
 				return;
 
-			Debug.WriteLine("Dialog:OnCancelButton_Click");
+			//Debug.WriteLine("Dialog:OnCancelButton_Click");
 
 			// Prevent further cancellation
-			m_cancelOrOkButton.Enabled = false;
+			m_cancelButton.Enabled = false;
 			m_progressTimer.Stop();
 			m_progressLabel.Text =  LocalizationManager.GetString("DialogBoxes.ProgressDialogWithAcknowledgement.Canceling", "Canceling...");
 			// Tell people we're canceling
@@ -620,7 +699,7 @@ namespace Glyssen.Dialogs
 		{
 			if (InvokeRequired)
 			{
-				Invoke(new ProgressCallback(UpdateTotal), new object[] { ((ProgressState)sender).TotalNumberOfSteps });
+				Invoke(new ProgressCallback(UpdateTotal), ((ProgressState)sender).TotalNumberOfSteps);
 			}
 			else
 			{
@@ -644,7 +723,7 @@ namespace Glyssen.Dialogs
 		private void OnStartWorker(object sender, EventArgs e)
 		{
 			m_workerStarted = true;
-			Debug.WriteLine("Dialog:StartWorker");
+			//Debug.WriteLine("Dialog:StartWorker");
 
 			if (m_backgroundWorker != null)
 			{
@@ -681,6 +760,13 @@ namespace Glyssen.Dialogs
 			{
 				OnStartWorker(this, null);
 			}
+		}
+
+		private void OnCancelLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			m_cancelButton.Enabled = true;
+			m_cancelButton.Visible = true;
+			m_cancelButton.PerformClick();
 		}
 	}
 }

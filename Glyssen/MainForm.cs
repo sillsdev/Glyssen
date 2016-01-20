@@ -18,6 +18,7 @@ using L10NSharp.UI;
 using Paratext;
 using SIL.DblBundle;
 using SIL.IO;
+using SIL.Progress;
 using SIL.Windows.Forms.Miscellaneous;
 
 namespace Glyssen
@@ -397,31 +398,25 @@ namespace Glyssen
 			var adjuster = new CharacterGroupsAdjuster(m_project);
 			if (adjuster.GroupsAreNotInSynchWithData)
 			{
-				string dlgMessage = String.Format(LocalizationManager.GetString("DialogBoxes.GroupsAreNotInSynchWithData.Message",
-					"There have been changes to this project. The character groups no longer match the characters. {0} must update the groups in one of two ways:" +
-					Environment.NewLine + Environment.NewLine +
-					"{0} can start fresh, optimizing the number and composition of character groups based on the characters in the script and the voice actors in this project. " +
-					"This is usually the recommended option." +
-					"However, if the previously generated groups were manually changed most of these changes will probably be lost." +
-					Environment.NewLine + Environment.NewLine +
-					"Alternatively, {0} can just make the minimal changes to remove unused characters and put any new characters in a single group. This will probably require " +
-					"substantial manual customization to avoid problems. If this proves too difficult, the groups can be re-optimized later by clicking {1} in the {2} dialog box." +
-					Environment.NewLine + Environment.NewLine +
-					"Would you like {0} to do the recommended action and create new character groups now?"),
-					ProductName,
-					LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.UpdateCharacterGroups",
-						"Update Character Groups...").TrimEnd('.'),
-					LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.WindowTitle", "Voice Actor Assignment"));
-
-				if (MessageBox.Show(dlgMessage, ProductName, MessageBoxButtons.YesNo) == DialogResult.Yes)
+				using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork, false, true))
 				{
-					using (var progressDialog = new GenerateGroupsProgressDialog(m_project, (s, e) => adjuster.FullyRegenerateGroups((BackgroundWorker)s), false))
-						if (progressDialog.ShowDialog() == DialogResult.Cancel)
-							adjuster.MakeMinimalAdjustments();
+					var generator = new CharacterGroupGenerator(m_project, m_project.GetKeyStrokesByCharacterId(), progressDialog.BackgroundWorker);
+					progressDialog.ProgressState.Arguments = generator;
+
+					if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
+						generator.ApplyGeneratedGroupsToProject();
+					else
+						adjuster.MakeMinimalAdjustments();
+
+					m_project.Save();
 				}
-				else
-					adjuster.MakeMinimalAdjustments();
 			}
+		}
+
+		private void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)
+		{
+			var generator = (CharacterGroupGenerator)((ProgressState)e.Argument).Arguments;
+			generator.GenerateCharacterGroups();
 		}
 
 		private void SetupUiLanguageMenu()

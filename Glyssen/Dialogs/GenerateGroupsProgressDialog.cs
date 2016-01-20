@@ -7,7 +7,7 @@ namespace Glyssen.Dialogs
 {
 	class GenerateGroupsProgressDialog : ProgressDialogWithAcknowledgement
 	{
-		public GenerateGroupsProgressDialog(Project project, DoWorkEventHandler doWorkEventHandler, bool firstRun)
+		public GenerateGroupsProgressDialog(Project project, DoWorkEventHandler doWorkEventHandler, bool firstRun, bool replaceCancelButtonWithLink = false)
 		{
 			InitializeComponent();
 
@@ -34,9 +34,11 @@ namespace Glyssen.Dialogs
 						"{0} will attempt to maintain any existing voice actor assignments."),
 						ProductName);
 
-			OkButtonText = LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Continue", "Continue");
+			OkButtonText = firstRun ? LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Continue", "Continue") :
+				LocalizationManager.GetString("Common.OK", "OK");
 			ShowInTaskbar = false;
-			CanCancel = false;
+			CanCancel = !firstRun;
+			ReplaceCancelButtonWithLink = replaceCancelButtonWithLink;
 			ProgressLabelTextWhenComplete = LocalizationManager.GetString("GenerateGroupsProgressDialog.Complete", "Group generation is complete.");
 			BarStyle = ProgressBarStyle.Marquee;
 			BackgroundWorker worker = new BackgroundWorker();
