@@ -1,4 +1,5 @@
 ﻿using Glyssen.Controls;
+using Glyssen.Utilities;
 using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
@@ -188,9 +189,10 @@ namespace Glyssen.Dialogs
 			// 
 			// m_llMoreChar
 			// 
+			this.m_llMoreChar.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_llMoreChar.AutoSize = true;
 			this.m_llMoreChar.BackColor = System.Drawing.Color.Transparent;
-			this.m_llMoreChar.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.m_llMoreChar.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreChar, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llMoreChar, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_llMoreChar, "DialogBoxes.AssignCharacterDlg.MoreCharacters");
@@ -200,7 +202,7 @@ namespace Glyssen.Dialogs
 			this.m_llMoreChar.TabIndex = 13;
 			this.m_llMoreChar.TabStop = true;
 			this.m_llMoreChar.Text = "More Characters";
-			this.m_llMoreChar.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.m_llMoreChar.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_llMoreChar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_llMoreChar_LinkClicked);
 			// 
 			// m_txtCharacterFilter
@@ -247,10 +249,11 @@ namespace Glyssen.Dialogs
 			// 
 			// m_llMoreDel
 			// 
+			this.m_llMoreDel.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_llMoreDel.AutoSize = true;
 			this.m_llMoreDel.BackColor = System.Drawing.Color.Transparent;
 			this.m_llMoreDel.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.m_llMoreDel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.m_llMoreDel.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreDel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llMoreDel, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_llMoreDel, "DialogBoxes.AssignCharacterDlg.MoreDeliveries");
@@ -260,6 +263,7 @@ namespace Glyssen.Dialogs
 			this.m_llMoreDel.TabIndex = 18;
 			this.m_llMoreDel.TabStop = true;
 			this.m_llMoreDel.Text = "More Deliveries";
+			this.m_llMoreDel.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_llMoreDel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_llMoreDel_LinkClicked);
 			// 
 			// m_txtDeliveryFilter
@@ -316,10 +320,9 @@ namespace Glyssen.Dialogs
 			this.m_btnAddCharacter.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_btnAddCharacter.BackgroundImage = global::Glyssen.Properties.Resources._112_Plus_Green_16x16_72;
 			this.m_btnAddCharacter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.m_btnAddCharacter.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_btnAddCharacter.FlatAppearance.BorderColor = CustomColor.BackColor;
 			this.m_btnAddCharacter.FlatAppearance.BorderSize = 2;
 			this.m_btnAddCharacter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.m_btnAddCharacter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAddCharacter, "Add New Character");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAddCharacter, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAddCharacter, "DialogBoxes.AssignCharacterDlg.AddCharacter");
@@ -336,10 +339,9 @@ namespace Glyssen.Dialogs
 			this.m_btnAddDelivery.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_btnAddDelivery.BackgroundImage = global::Glyssen.Properties.Resources._112_Plus_Green_16x16_72;
 			this.m_btnAddDelivery.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.m_btnAddDelivery.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_btnAddDelivery.FlatAppearance.BorderColor = CustomColor.BackColor;
 			this.m_btnAddDelivery.FlatAppearance.BorderSize = 2;
 			this.m_btnAddDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.m_btnAddDelivery.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAddDelivery, "Add New Delivery");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAddDelivery, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAddDelivery, "DialogBoxes.AssignCharacterDlg.AddDelivery");
@@ -612,12 +614,12 @@ namespace Glyssen.Dialogs
 			// 
 			// m_llClose
 			// 
-			this.m_llClose.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.m_llClose.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_llClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_llClose.AutoSize = true;
 			this.m_llClose.BackColor = System.Drawing.Color.Transparent;
 			this.m_llClose.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.m_llClose.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.m_llClose.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llClose, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llClose, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_llClose, "DialogBoxes.AssignCharacterDlg.Close");
@@ -627,6 +629,7 @@ namespace Glyssen.Dialogs
 			this.m_llClose.TabIndex = 31;
 			this.m_llClose.TabStop = true;
 			this.m_llClose.Text = "Close";
+			this.m_llClose.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_llClose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_llClose_LinkClicked);
 			// 
 			// m_blocksViewer
@@ -875,6 +878,7 @@ namespace Glyssen.Dialogs
 			this.Controls.Add(this.m_progressBar);
 			this.Controls.Add(this.m_toolStrip);
 			this.DoubleBuffered = true;
+			this.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.KeyPreview = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
