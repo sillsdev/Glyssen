@@ -48,7 +48,7 @@ namespace Glyssen.Quote
 		private readonly QuoteSystem m_quoteSystem;
 		private readonly ScrVers m_versification;
 		private readonly List<Regex> m_regexes = new List<Regex>();
-		private readonly Regex m_regexStartsWithSpecialOpeningPunctuation = new Regex(@"^(\(|\\\[|\\\{)", RegexOptions.Compiled);
+		private readonly Regex m_regexStartsWithSpecialOpeningPunctuation = new Regex(@"^(\(|\[|\{)", RegexOptions.Compiled);
 
 		#region working members
 		// These members are used by several methods. Making them class-level prevents passing them repeatedly
