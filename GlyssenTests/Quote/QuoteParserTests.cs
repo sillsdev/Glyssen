@@ -1117,6 +1117,7 @@ namespace GlyssenTests.Quote
 			var block1 = new Block("p", 1, 31) { IsParagraphStart = true };
 			block1.BlockElements.Add(new Verse("31"));
 			block1.BlockElements.Add(new ScriptText("Some text and «a quote» and more text."));
+			// ReSharper disable once RedundantArgumentDefaultValue
 			var blockC = new Block("c", 2, 0) { IsParagraphStart = true };
 			blockC.BlockElements.Add(new ScriptText("2"));
 			var block2 = new Block("p", 2, 1) { IsParagraphStart = true };
@@ -1168,6 +1169,50 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual("« ‹Go!", output[1].GetText(false));
 			Assert.AreEqual("(« ‹Get!› »)", output[2].GetText(false));
+			Assert.AreEqual("Thus he ended.", output[3].GetText(false));
+			Assert.IsTrue(output[3].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+		}
+
+		[Test]
+		public void Parse_OpeningBracketBeforeLevel2Continuer_NarratorAfter()
+		{
+			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "« ‹", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "« ‹ «", 3, QuotationMarkingSystemType.Normal));
+			var block = new Block("p") { IsParagraphStart = true };
+			block.BlockElements.Add(new ScriptText("He said, « ‹Go!"));
+			var block2 = new Block("p") { IsParagraphStart = true };
+			block2.BlockElements.Add(new ScriptText("[« ‹Get!› »]"));
+			var block3 = new Block("p") { IsParagraphStart = true };
+			block3.BlockElements.Add(new ScriptText("Thus he ended."));
+			var input = new List<Block> { block, block2, block3 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.AreEqual("« ‹Go!", output[1].GetText(false));
+			Assert.AreEqual("[« ‹Get!› »]", output[2].GetText(false));
+			Assert.AreEqual("Thus he ended.", output[3].GetText(false));
+			Assert.IsTrue(output[3].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+		}
+
+		[Test]
+		public void Parse_OpeningBraceBeforeLevel2Continuer_NarratorAfter()
+		{
+			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "« ‹", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "« ‹ «", 3, QuotationMarkingSystemType.Normal));
+			var block = new Block("p") { IsParagraphStart = true };
+			block.BlockElements.Add(new ScriptText("He said, « ‹Go!"));
+			var block2 = new Block("p") { IsParagraphStart = true };
+			block2.BlockElements.Add(new ScriptText("{« ‹Get!› »}"));
+			var block3 = new Block("p") { IsParagraphStart = true };
+			block3.BlockElements.Add(new ScriptText("Thus he ended."));
+			var input = new List<Block> { block, block2, block3 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.AreEqual("« ‹Go!", output[1].GetText(false));
+			Assert.AreEqual("{« ‹Get!› »}", output[2].GetText(false));
 			Assert.AreEqual("Thus he ended.", output[3].GetText(false));
 			Assert.IsTrue(output[3].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 		}
