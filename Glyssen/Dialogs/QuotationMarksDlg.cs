@@ -126,7 +126,8 @@ namespace Glyssen.Dialogs
 
 			foreach (var level in m_project.QuoteSystem.NormalLevels)
 			{
-				m_chkPairedQuotations.Checked = string.IsNullOrEmpty(level.Open);
+				if (level.Level == 1)
+					m_chkPairedQuotations.Checked = !string.IsNullOrEmpty(level.Open);
 				
 				if (m_chkPairedQuotations.Checked)
 				{
