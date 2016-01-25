@@ -15801,6 +15801,7 @@ REV	16	5	angel over waters			Normal
 REV	16	6	angel over waters			Normal		
 REV	16	7	altar			Normal		
 REV	16	15	Jesus			Normal		
+REV	16	16	narrator-REV			Quotation		
 REV	16	17	God		voice out of temple, from throne	Normal		
 REV	17	1	angel (one of the seven)			Normal		
 REV	17	2	angel (one of the seven)			Normal		
