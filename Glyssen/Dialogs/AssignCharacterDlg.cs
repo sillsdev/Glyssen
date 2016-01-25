@@ -24,7 +24,7 @@ using Paratext;
 
 namespace Glyssen.Dialogs
 {
-	public partial class AssignCharacterDlg : Form
+	public partial class AssignCharacterDlg : FormWithPersistedSettings
 	{
 		private readonly AssignCharacterViewModel m_viewModel;
 		private string m_xOfYFmt;

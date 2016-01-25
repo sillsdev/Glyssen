@@ -8,39 +8,10 @@ using SIL.Windows.Forms.PortableSettingsProvider;
 
 namespace Glyssen.Utilities
 { 
-	public class CustomForm: Form
+	public class FormWithPersistedSettings: Form
 	{
 		private string m_formSettingsName;
 		private bool m_finishedLoading;
-
-		protected override void OnHandleCreated(EventArgs e)
-		{
-			base.OnHandleCreated(e);
-			SetColors();
-		}
-
-		private void SetColors()
-		{
-			BackColor = CustomColor.BackColor;
-			ForeColor = CustomColor.ForeColor;
-			SetLinkColors(this);
-		}
-
-		private static void SetLinkColors(Control control)
-		{
-			var lnkLabel = control as LinkLabel;
-			if (lnkLabel != null)
-			{
-				lnkLabel.ActiveLinkColor = CustomColor.LinkColor;
-				lnkLabel.LinkColor = CustomColor.LinkColor;
-				lnkLabel.VisitedLinkColor = CustomColor.LinkColor;
-			}
-
-			foreach (Control child in control.Controls)
-			{
-				SetLinkColors(child);
-			}
-		}
 
 		protected override void OnLoad(EventArgs e)
 		{
@@ -72,13 +43,13 @@ namespace Glyssen.Utilities
 
 		/// <summary>
 		/// To enable remembering and restoring form size and position, add an entry in Settings.Settings for
-		/// the form.  The name of the entry should be the name of the form followed by "FormSettings" and the
+		/// the form. The name of the entry should be the name of the form followed by "FormSettings" and the
 		/// type should be "SIL.Windows.Forms.PortableSettingsProvider.FormSettings"
 		/// </summary>
 		private void RestoreFormSettings()
 		{
 			// attempt to restore form size and position
-			m_formSettingsName =  SettingExists(Name + "FormSettings");
+			m_formSettingsName = SettingExists(Name + "FormSettings");
 			if (string.IsNullOrEmpty(m_formSettingsName) && Name.EndsWith("Dlg"))
 			{
 				m_formSettingsName = SettingExists(Name.Substring(0, Name.Length - 3) + "DialogFormSettings");

@@ -23,7 +23,7 @@ using SIL.Windows.Forms.Miscellaneous;
 
 namespace Glyssen
 {
-	public partial class MainForm : CustomForm
+	public partial class MainForm : FormWithPersistedSettings
 	{
 		private Project m_project;
 		private string m_percentAssignedFmt;

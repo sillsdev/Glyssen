@@ -120,6 +120,9 @@
   <metadata name="m_l10NSharpExtender.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="glyssenColorPalette.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>189, 17</value>
+  </metadata>
   <data name="m_lblInstructions.Text" xml:space="preserve">
     <value>This project ({0}) was updated.  Before the update, some blocks were manually split by the user.  Some of those blocks splits were not reapplied during the update because the script has changed.  Please copy and save the information below so you can use it to reapply any necessary splits manually in the Assign Characters dialog.</value>
   </data>

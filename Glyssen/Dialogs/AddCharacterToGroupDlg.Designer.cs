@@ -49,11 +49,13 @@
 			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.m_toolStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_characterDetailsGrid)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.flowLayoutPanel2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.glyssenColorPalette)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// m_l10NSharpExtender
@@ -63,6 +65,8 @@
 			// 
 			// m_toolStrip
 			// 
+			this.glyssenColorPalette.SetBackColor(this.m_toolStrip, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_toolStrip, Glyssen.Utilities.GlyssenColors.Default);
 			this.m_toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.m_toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.m_toolStripLabelFindCharacter,
@@ -76,18 +80,24 @@
 			this.m_toolStrip.Padding = new System.Windows.Forms.Padding(0);
 			this.m_toolStrip.Size = new System.Drawing.Size(655, 25);
 			this.m_toolStrip.TabIndex = 29;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_toolStrip, false);
 			// 
 			// m_toolStripLabelFindCharacter
 			// 
+			this.glyssenColorPalette.SetBackColor(this.m_toolStripLabelFindCharacter, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_toolStripLabelFindCharacter, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripLabelFindCharacter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripLabelFindCharacter, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripLabelFindCharacter, "DialogBoxes.VoiceActorAssignmentDlg.m_toolStripLabelFindCharacter");
 			this.m_toolStripLabelFindCharacter.Name = "m_toolStripLabelFindCharacter";
 			this.m_toolStripLabelFindCharacter.Size = new System.Drawing.Size(87, 22);
 			this.m_toolStripLabelFindCharacter.Text = "Find Character:";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_toolStripLabelFindCharacter, false);
 			// 
 			// m_toolStripTextBoxFindCharacter
 			// 
+			this.glyssenColorPalette.SetBackColor(this.m_toolStripTextBoxFindCharacter, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_toolStripTextBoxFindCharacter, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripTextBoxFindCharacter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripTextBoxFindCharacter, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStripTextBoxFindCharacter, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -95,6 +105,7 @@
 			this.m_toolStripTextBoxFindCharacter.Name = "m_toolStripTextBoxFindCharacter";
 			this.m_toolStripTextBoxFindCharacter.Size = new System.Drawing.Size(120, 25);
 			this.m_toolStripTextBoxFindCharacter.ToolTipText = "Begin typing a character ID to find the group that contains it";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_toolStripTextBoxFindCharacter, false);
 			this.m_toolStripTextBoxFindCharacter.TextChanged += new System.EventHandler(this.m_toolStripTextBoxFindCharacter_TextChanged);
 			// 
 			// m_characterDetailsGrid
@@ -104,6 +115,7 @@
 			this.m_characterDetailsGrid.AllowUserToOrderColumns = true;
 			this.m_characterDetailsGrid.AllowUserToResizeRows = false;
 			this.m_characterDetailsGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+			this.glyssenColorPalette.SetBackColor(this.m_characterDetailsGrid, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_characterDetailsGrid.BackgroundColor = System.Drawing.SystemColors.Window;
 			this.m_characterDetailsGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.m_characterDetailsGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -125,6 +137,7 @@
 			this.m_characterDetailsGrid.DrawTextBoxEditControlBorder = false;
 			this.m_characterDetailsGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
 			this.m_characterDetailsGrid.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.glyssenColorPalette.SetForeColor(this.m_characterDetailsGrid, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_characterDetailsGrid.FullRowFocusRectangleColor = System.Drawing.SystemColors.ControlDark;
 			this.m_characterDetailsGrid.GridColor = System.Drawing.Color.Black;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_characterDetailsGrid, null);
@@ -148,6 +161,7 @@
 			this.m_characterDetailsGrid.Size = new System.Drawing.Size(631, 320);
 			this.m_characterDetailsGrid.TabIndex = 17;
 			this.m_characterDetailsGrid.TextBoxEditControlBorderColor = System.Drawing.Color.Silver;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_characterDetailsGrid, false);
 			this.m_characterDetailsGrid.VirtualMode = true;
 			this.m_characterDetailsGrid.WaterMark = "!";
 			this.m_characterDetailsGrid.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.m_characterDetailsGrid_CellValueNeeded);
@@ -191,7 +205,10 @@
 			// m_btnCancel
 			// 
 			this.m_btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.glyssenColorPalette.SetBackColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.glyssenColorPalette.SetForeColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnCancel, "Common.Cancel");
@@ -201,13 +218,17 @@
 			this.m_btnCancel.Size = new System.Drawing.Size(75, 23);
 			this.m_btnCancel.TabIndex = 28;
 			this.m_btnCancel.Text = "Cancel";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnCancel, false);
 			this.m_btnCancel.UseVisualStyleBackColor = true;
 			// 
 			// m_btnOk
 			// 
 			this.m_btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.glyssenColorPalette.SetBackColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.m_btnOk.Enabled = false;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.glyssenColorPalette.SetForeColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnOk, "Common.OK");
@@ -216,6 +237,7 @@
 			this.m_btnOk.Size = new System.Drawing.Size(75, 23);
 			this.m_btnOk.TabIndex = 27;
 			this.m_btnOk.Text = "OK";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnOk, false);
 			this.m_btnOk.UseVisualStyleBackColor = true;
 			this.m_btnOk.Click += new System.EventHandler(this.m_btnOk_Click);
 			// 
@@ -253,11 +275,13 @@
 			// 
 			// tableLayoutPanel1
 			// 
+			this.glyssenColorPalette.SetBackColor(this.tableLayoutPanel1, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.tableLayoutPanel1.ColumnCount = 1;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.m_characterDetailsGrid, 0, 0);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.glyssenColorPalette.SetForeColor(this.tableLayoutPanel1, Glyssen.Utilities.GlyssenColors.Default);
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 25);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(12);
@@ -266,27 +290,33 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(655, 379);
 			this.tableLayoutPanel1.TabIndex = 31;
+			this.glyssenColorPalette.SetUsePaletteColors(this.tableLayoutPanel1, false);
 			// 
 			// flowLayoutPanel2
 			// 
 			this.flowLayoutPanel2.AutoSize = true;
+			this.glyssenColorPalette.SetBackColor(this.flowLayoutPanel2, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.flowLayoutPanel2.Controls.Add(this.m_btnCancel);
 			this.flowLayoutPanel2.Controls.Add(this.m_btnOk);
 			this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+			this.glyssenColorPalette.SetForeColor(this.flowLayoutPanel2, Glyssen.Utilities.GlyssenColors.Default);
 			this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 338);
 			this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
 			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
 			this.flowLayoutPanel2.Size = new System.Drawing.Size(631, 29);
 			this.flowLayoutPanel2.TabIndex = 32;
+			this.glyssenColorPalette.SetUsePaletteColors(this.flowLayoutPanel2, false);
 			// 
 			// AddCharacterToGroupDlg
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.glyssenColorPalette.SetBackColor(this, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.ClientSize = new System.Drawing.Size(655, 404);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Controls.Add(this.m_toolStrip);
+			this.glyssenColorPalette.SetForeColor(this, Glyssen.Utilities.GlyssenColors.Default);
 			this.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
@@ -304,6 +334,7 @@
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			this.flowLayoutPanel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.glyssenColorPalette)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -328,5 +359,6 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn CharacterDetailsGenderCol;
 		private System.Windows.Forms.DataGridViewTextBoxColumn CharacterDetailsAgeCol;
 		private System.Windows.Forms.DataGridViewTextBoxColumn CharacterDetailsHoursCol;
+		private Utilities.GlyssenColorPalette glyssenColorPalette;
 	}
 }

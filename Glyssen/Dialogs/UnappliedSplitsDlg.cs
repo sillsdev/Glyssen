@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Glyssen.Utilities;
+using System.Windows.Forms;
 using L10NSharp.UI;
 using SIL.Scripture;
 
 namespace Glyssen.Dialogs
 {
-	public partial class UnappliedSplitsDlg : CustomForm
+	public partial class UnappliedSplitsDlg : Form
 	{
 		private const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
 								"<style>{0}</style></head><body>{1}</body></html>";

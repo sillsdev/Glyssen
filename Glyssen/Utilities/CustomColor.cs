@@ -5,6 +5,8 @@ namespace Glyssen.Utilities
 	public interface IGlyssenColorScheme
 	{
 		Color BackColor { get; }
+		Color MouseDownBackColor { get; }
+		Color MouseOverBackColor { get; }
 		Color ForeColor { get; }
 		Color LinkColor { get; }
 		Color ActiveLinkColor { get; }
@@ -19,6 +21,8 @@ namespace Glyssen.Utilities
 	public class DefaultColorScheme : IGlyssenColorScheme
 	{
 		public Color BackColor { get { return SystemColors.Control; } }
+		public Color MouseDownBackColor { get { return MouseOverBackColor; } }
+		public Color MouseOverBackColor { get { return SystemColors.ControlDark; } }
 		public Color ForeColor { get { return SystemColors.WindowText; } }
 		public Color LinkColor { get { return SystemColors.HotTrack; } }
 		public Color ActiveLinkColor { get { return SystemColors.HotTrack; } }
@@ -33,6 +37,8 @@ namespace Glyssen.Utilities
 	public class TraditionalBlueColorScheme : IGlyssenColorScheme
 	{
 		public Color BackColor { get { return Color.FromArgb(0, 73, 108); } }
+		public Color MouseDownBackColor { get { return MouseOverBackColor; } }
+		public Color MouseOverBackColor { get { return Color.FromArgb(0, 93, 128); } }
 		public Color ForeColor { get { return Color.White; } }
 		public Color LinkColor { get { return Color.FromArgb(51, 153, 255); } }
 		public Color ActiveLinkColor { get { return LinkColor; } }
@@ -53,5 +59,7 @@ namespace Glyssen.Utilities
 		ActiveLinkColor,
 		DisabledLinkColor,
 		VisitedLinkColor,
+		MouseDownBackColor,
+		MouseOverBackColor,
 	}
 }

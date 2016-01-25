@@ -18,7 +18,7 @@ using SIL.Reporting;
 
 namespace Glyssen.Dialogs
 {
-	public partial class VoiceActorAssignmentDlg : Form
+	public partial class VoiceActorAssignmentDlg : FormWithPersistedSettings
 	{
 		private const string kCreateNewGroupMenuItemId = "CreateNewGroup";
 		private const string kAssignToCameoActorItemId = "AssignToCameoActor";

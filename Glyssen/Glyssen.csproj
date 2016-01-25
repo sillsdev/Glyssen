@@ -279,7 +279,7 @@
     <Compile Include="Rules\CharacterGroupsAdjuster.cs" />
     <Compile Include="SampleProject.cs" />
     <Compile Include="Utilities\CustomColor.cs" />
-    <Compile Include="Utilities\CustomForm.cs">
+    <Compile Include="Utilities\FormWithPersistedSettings.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Utilities\GlyssenColorPalette.cs">

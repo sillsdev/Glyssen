@@ -32,6 +32,8 @@ namespace Glyssen.Utilities
 				case GlyssenColors.ActiveLinkColor: return ColorScheme.ActiveLinkColor;
 				case GlyssenColors.DisabledLinkColor: return ColorScheme.DisabledLinkColor;
 				case GlyssenColors.VisitedLinkColor: return ColorScheme.VisitedLinkColor;
+				case GlyssenColors.MouseDownBackColor: return ColorScheme.MouseDownBackColor;
+				case GlyssenColors.MouseOverBackColor: return ColorScheme.MouseOverBackColor;
 				case GlyssenColors.Default: return Color.Aqua; // This should never happen!
 				default: throw new ArgumentException("Unexpected Glyssen color " + glyssenColor);
 			}
@@ -41,12 +43,17 @@ namespace Glyssen.Utilities
 		{
 			switch (colorProperty)
 			{
-				case ColorProperties.ForeColor: return GlyssenColors.ForeColor;
+				case ColorProperties.ForeColor:
+				case ColorProperties.BorderColor:
+					return GlyssenColors.ForeColor;
 				case ColorProperties.BackColor: return GlyssenColors.BackColor;
+				case ColorProperties.MouseDownBackColor: return GlyssenColors.MouseDownBackColor;
+				case ColorProperties.MouseOverBackColor: return GlyssenColors.MouseOverBackColor;
 				case ColorProperties.LinkColor: return GlyssenColors.LinkColor;
 				case ColorProperties.ActiveLinkColor: return GlyssenColors.ActiveLinkColor;
 				case ColorProperties.DisabledLinkColor: return GlyssenColors.DisabledLinkColor;
 				case ColorProperties.VisitedLinkColor: return GlyssenColors.VisitedLinkColor;
+
 				default: return base.GetDefaultPaletteColor(colorProperty);
 			}
 		}
