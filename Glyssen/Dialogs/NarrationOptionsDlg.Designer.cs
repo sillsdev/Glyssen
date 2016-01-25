@@ -50,12 +50,12 @@
 			// m_lblExplanatory
 			// 
 			this.m_lblExplanatory.AutoSize = true;
-			this.m_lblExplanatory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_lblExplanatory.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblExplanatory, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_selectionsTableLayout.SetColumnSpan(this.m_lblExplanatory, 2);
 			this.m_lblExplanatory.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.glyssenColorPalette.SetForeColor(this.m_lblExplanatory, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblExplanatory.ForeColor = System.Drawing.Color.White;
+			this.m_lblExplanatory.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblExplanatory, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblExplanatory, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblExplanatory, "DialogBoxes.NarrationOptionsDlg.Explanatory");
@@ -67,15 +67,16 @@
 			this.m_lblExplanatory.Size = new System.Drawing.Size(394, 142);
 			this.m_lblExplanatory.TabIndex = 0;
 			this.m_lblExplanatory.Text = resources.GetString("m_lblExplanatory.Text");
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblExplanatory, true);
 			// 
 			// m_lblDesiredMaleNarratorNum
 			// 
 			this.m_lblDesiredMaleNarratorNum.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_lblDesiredMaleNarratorNum.AutoSize = true;
-			this.m_lblDesiredMaleNarratorNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_lblDesiredMaleNarratorNum.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblDesiredMaleNarratorNum, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.m_lblDesiredMaleNarratorNum, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblDesiredMaleNarratorNum.ForeColor = System.Drawing.Color.White;
+			this.m_lblDesiredMaleNarratorNum.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblDesiredMaleNarratorNum, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblDesiredMaleNarratorNum, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblDesiredMaleNarratorNum, "DialogBoxes.NarrationOptionsDlg.DesiredNarratorNum");
@@ -86,6 +87,7 @@
 			this.m_lblDesiredMaleNarratorNum.TabIndex = 2;
 			this.m_lblDesiredMaleNarratorNum.Text = "Desired number of male narrators:";
 			this.m_lblDesiredMaleNarratorNum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblDesiredMaleNarratorNum, true);
 			// 
 			// m_selectionsTableLayout
 			// 
@@ -144,10 +146,10 @@
 			// 
 			this.m_lblDesiredFemaleNarratorNum.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_lblDesiredFemaleNarratorNum.AutoSize = true;
-			this.m_lblDesiredFemaleNarratorNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_lblDesiredFemaleNarratorNum.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblDesiredFemaleNarratorNum, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.m_lblDesiredFemaleNarratorNum, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblDesiredFemaleNarratorNum.ForeColor = System.Drawing.Color.White;
+			this.m_lblDesiredFemaleNarratorNum.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblDesiredFemaleNarratorNum, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblDesiredFemaleNarratorNum, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblDesiredFemaleNarratorNum, "DialogBoxes.NarrationOptionsDlg.DesiredFemaleNarratorNum");
@@ -158,6 +160,7 @@
 			this.m_lblDesiredFemaleNarratorNum.TabIndex = 5;
 			this.m_lblDesiredFemaleNarratorNum.Text = "Desired number of female narrators:";
 			this.m_lblDesiredFemaleNarratorNum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblDesiredFemaleNarratorNum, true);
 			// 
 			// m_numFemaleNarrator
 			// 
@@ -189,6 +192,7 @@
 			this.m_btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.glyssenColorPalette.SetBackColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancel, null);
@@ -207,6 +211,7 @@
 			this.m_btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.glyssenColorPalette.SetBackColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
@@ -250,6 +255,7 @@
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Narration Preferences";
+			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			this.m_selectionsTableLayout.ResumeLayout(false);
 			this.m_selectionsTableLayout.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_numMaleNarrator)).EndInit();

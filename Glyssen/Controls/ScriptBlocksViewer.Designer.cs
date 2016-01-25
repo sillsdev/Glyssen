@@ -35,17 +35,17 @@ namespace Glyssen.Controls
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.m_panel = new System.Windows.Forms.Panel();
+			this.m_title = new System.Windows.Forms.Label();
+			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_dataGridViewBlocks = new Glyssen.Controls.ScriptBlocksGridView();
 			this.colReference = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colCharacter = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colDelivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colText = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.m_blocksDisplayBrowser = new Glyssen.Controls.Browser();
-			this.m_title = new System.Windows.Forms.Label();
-			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_panel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.m_dataGridViewBlocks)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_dataGridViewBlocks)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// m_panel
@@ -59,6 +59,24 @@ namespace Glyssen.Controls
 			this.m_panel.Name = "m_panel";
 			this.m_panel.Size = new System.Drawing.Size(250, 350);
 			this.m_panel.TabIndex = 0;
+			// 
+			// m_title
+			// 
+			this.m_title.Dock = System.Windows.Forms.DockStyle.Top;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_title, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_title, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_title, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_title, "DialogBoxes.ScriptBlocksViewer.Title");
+			this.m_title.Location = new System.Drawing.Point(0, 0);
+			this.m_title.Name = "m_title";
+			this.m_title.Size = new System.Drawing.Size(250, 24);
+			this.m_title.TabIndex = 1;
+			this.m_title.Text = "Title";
+			// 
+			// m_l10NSharpExtender
+			// 
+			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
+			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.ScriptBlocksViewer";
 			// 
 			// m_dataGridViewBlocks
 			// 
@@ -101,6 +119,8 @@ namespace Glyssen.Controls
 			this.m_dataGridViewBlocks.Name = "m_dataGridViewBlocks";
 			this.m_dataGridViewBlocks.ReadOnly = true;
 			this.m_dataGridViewBlocks.RowHeadersVisible = false;
+			this.m_dataGridViewBlocks.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.Window;
+			this.m_dataGridViewBlocks.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_dataGridViewBlocks.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.m_dataGridViewBlocks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.m_dataGridViewBlocks.ShowCellErrors = false;
@@ -169,24 +189,6 @@ namespace Glyssen.Controls
 			this.m_blocksDisplayBrowser.OnMouseOver += new System.EventHandler<Gecko.DomMouseEventArgs>(this.OnMouseOver);
 			this.m_blocksDisplayBrowser.OnDocumentCompleted += new System.EventHandler<Gecko.Events.GeckoDocumentCompletedEventArgs>(this.OnDocumentCompleted);
 			// 
-			// m_title
-			// 
-			this.m_title.Dock = System.Windows.Forms.DockStyle.Top;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_title, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_title, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_title, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_title, "DialogBoxes.ScriptBlocksViewer.Title");
-			this.m_title.Location = new System.Drawing.Point(0, 0);
-			this.m_title.Name = "m_title";
-			this.m_title.Size = new System.Drawing.Size(250, 24);
-			this.m_title.TabIndex = 1;
-			this.m_title.Text = "Title";
-			// 
-			// m_l10NSharpExtender
-			// 
-			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
-			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.ScriptBlocksViewer";
-			// 
 			// ScriptBlocksViewer
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,8 +203,8 @@ namespace Glyssen.Controls
 			this.Size = new System.Drawing.Size(250, 350);
 			this.m_panel.ResumeLayout(false);
 			this.m_panel.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.m_dataGridViewBlocks)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_dataGridViewBlocks)).EndInit();
 			this.ResumeLayout(false);
 
 		}

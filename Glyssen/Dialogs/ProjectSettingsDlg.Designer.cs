@@ -82,6 +82,7 @@
 			this.m_btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.glyssenColorPalette.SetBackColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancel, null);
@@ -99,10 +100,10 @@
 			// 
 			this.m_lblLanguageName.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_lblLanguageName.AutoSize = true;
-			this.m_lblLanguageName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_lblLanguageName.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblLanguageName, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.m_lblLanguageName, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblLanguageName.ForeColor = System.Drawing.Color.White;
+			this.m_lblLanguageName.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblLanguageName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblLanguageName, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblLanguageName, "DialogBoxes.ProjectSettingsDlg.LanguageName");
@@ -111,15 +112,16 @@
 			this.m_lblLanguageName.Size = new System.Drawing.Size(89, 13);
 			this.m_lblLanguageName.TabIndex = 0;
 			this.m_lblLanguageName.Text = "Language Name:";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblLanguageName, true);
 			// 
 			// m_lblIso639_2_Code
 			// 
 			this.m_lblIso639_2_Code.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_lblIso639_2_Code.AutoSize = true;
-			this.m_lblIso639_2_Code.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_lblIso639_2_Code.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblIso639_2_Code, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.m_lblIso639_2_Code, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblIso639_2_Code.ForeColor = System.Drawing.Color.White;
+			this.m_lblIso639_2_Code.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblIso639_2_Code, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblIso639_2_Code, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblIso639_2_Code, "DialogBoxes.ProjectSettingsDlg.EthnologueCode");
@@ -128,15 +130,16 @@
 			this.m_lblIso639_2_Code.Size = new System.Drawing.Size(149, 13);
 			this.m_lblIso639_2_Code.TabIndex = 2;
 			this.m_lblIso639_2_Code.Text = "Ethnologue (ISO 639-2) Code:";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblIso639_2_Code, true);
 			// 
 			// m_lblPublicationName
 			// 
 			this.m_lblPublicationName.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_lblPublicationName.AutoSize = true;
-			this.m_lblPublicationName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_lblPublicationName.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblPublicationName, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.m_lblPublicationName, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblPublicationName.ForeColor = System.Drawing.Color.White;
+			this.m_lblPublicationName.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblPublicationName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblPublicationName, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblPublicationName, "DialogBoxes.ProjectSettingsDlg.PublicationName");
@@ -145,15 +148,16 @@
 			this.m_lblPublicationName.Size = new System.Drawing.Size(93, 13);
 			this.m_lblPublicationName.TabIndex = 4;
 			this.m_lblPublicationName.Text = "Publication Name:";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblPublicationName, true);
 			// 
 			// m_lblPublicationId
 			// 
 			this.m_lblPublicationId.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_lblPublicationId.AutoSize = true;
-			this.m_lblPublicationId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_lblPublicationId.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblPublicationId, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.m_lblPublicationId, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblPublicationId.ForeColor = System.Drawing.Color.White;
+			this.m_lblPublicationId.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblPublicationId, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblPublicationId, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblPublicationId, "DialogBoxes.ProjectSettingsDlg.PublicationId");
@@ -162,11 +166,13 @@
 			this.m_lblPublicationId.Size = new System.Drawing.Size(74, 13);
 			this.m_lblPublicationId.TabIndex = 6;
 			this.m_lblPublicationId.Text = "Publication Id:";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblPublicationId, true);
 			// 
 			// m_btnOk
 			// 
 			this.m_btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.glyssenColorPalette.SetBackColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
@@ -186,12 +192,12 @@
 			this.m_wsFontControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_wsFontControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_wsFontControl.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_wsFontControl, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayoutMain.SetColumnSpan(this.m_wsFontControl, 4);
 			this.m_wsFontControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+			this.m_wsFontControl.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_wsFontControl, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_wsFontControl.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_wsFontControl, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_wsFontControl, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_wsFontControl, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -201,15 +207,16 @@
 			this.m_wsFontControl.Size = new System.Drawing.Size(491, 196);
 			this.m_wsFontControl.TabIndex = 7;
 			this.m_wsFontControl.TestAreaText = "";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_wsFontControl, true);
 			// 
 			// m_lblRecordingProjectName
 			// 
 			this.m_lblRecordingProjectName.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_lblRecordingProjectName.AutoSize = true;
-			this.m_lblRecordingProjectName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_lblRecordingProjectName.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblRecordingProjectName, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.m_lblRecordingProjectName, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblRecordingProjectName.ForeColor = System.Drawing.Color.White;
+			this.m_lblRecordingProjectName.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblRecordingProjectName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblRecordingProjectName, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblRecordingProjectName, "DialogBoxes.ProjectSettingsDlg.RecordingProjectName");
@@ -218,6 +225,7 @@
 			this.m_lblRecordingProjectName.Size = new System.Drawing.Size(126, 13);
 			this.m_lblRecordingProjectName.TabIndex = 12;
 			this.m_lblRecordingProjectName.Text = "Recording Project Name:";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblRecordingProjectName, true);
 			// 
 			// m_txtRecordingProjectName
 			// 
@@ -241,11 +249,11 @@
 			// 
 			this.m_lblWritingSystem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.m_lblWritingSystem.AutoSize = true;
-			this.m_lblWritingSystem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.glyssenColorPalette.SetBackColor(this.m_lblWritingSystem, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_lblWritingSystem.BackColor = System.Drawing.SystemColors.Control;
 			this.m_lblWritingSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_lblWritingSystem.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_lblWritingSystem, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblWritingSystem.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblWritingSystem, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblWritingSystem, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblWritingSystem, "DialogBoxes.ProjectSettingsDlg.Writing System");
@@ -256,16 +264,17 @@
 			this.m_lblWritingSystem.TabIndex = 15;
 			this.m_lblWritingSystem.Text = "Writing System";
 			this.m_lblWritingSystem.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblWritingSystem, true);
 			// 
 			// m_lblWsSeparator
 			// 
 			this.m_lblWsSeparator.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_lblWsSeparator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.glyssenColorPalette.SetBackColor(this.m_lblWsSeparator, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_lblWsSeparator.BackColor = System.Drawing.SystemColors.Control;
 			this.m_lblWsSeparator.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.m_lblWsSeparator.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_lblWsSeparator, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblWsSeparator.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblWsSeparator, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblWsSeparator, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblWsSeparator, "DialogBoxes.ProjectSettingsDlg.label1");
@@ -275,17 +284,18 @@
 			this.m_lblWsSeparator.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
 			this.m_lblWsSeparator.Size = new System.Drawing.Size(475, 2);
 			this.m_lblWsSeparator.TabIndex = 16;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblWsSeparator, true);
 			// 
 			// m_txtLanguageName
 			// 
 			this.m_txtLanguageName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_txtLanguageName.AutoSize = true;
-			this.m_txtLanguageName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_txtLanguageName.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_txtLanguageName, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayoutMain.SetColumnSpan(this.m_txtLanguageName, 3);
 			this.glyssenColorPalette.SetForeColor(this.m_txtLanguageName, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_txtLanguageName.ForeColor = System.Drawing.Color.White;
+			this.m_txtLanguageName.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtLanguageName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtLanguageName, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtLanguageName, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -295,17 +305,18 @@
 			this.m_txtLanguageName.Size = new System.Drawing.Size(336, 13);
 			this.m_txtLanguageName.TabIndex = 23;
 			this.m_txtLanguageName.Text = "#";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_txtLanguageName, true);
 			// 
 			// m_txtIso639_2_Code
 			// 
 			this.m_txtIso639_2_Code.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_txtIso639_2_Code.AutoSize = true;
-			this.m_txtIso639_2_Code.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_txtIso639_2_Code.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_txtIso639_2_Code, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayoutMain.SetColumnSpan(this.m_txtIso639_2_Code, 3);
 			this.glyssenColorPalette.SetForeColor(this.m_txtIso639_2_Code, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_txtIso639_2_Code.ForeColor = System.Drawing.Color.White;
+			this.m_txtIso639_2_Code.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtIso639_2_Code, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtIso639_2_Code, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtIso639_2_Code, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -315,17 +326,18 @@
 			this.m_txtIso639_2_Code.Size = new System.Drawing.Size(336, 13);
 			this.m_txtIso639_2_Code.TabIndex = 24;
 			this.m_txtIso639_2_Code.Text = "#";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_txtIso639_2_Code, true);
 			// 
 			// m_txtPublicationName
 			// 
 			this.m_txtPublicationName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_txtPublicationName.AutoSize = true;
-			this.m_txtPublicationName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_txtPublicationName.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_txtPublicationName, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayoutMain.SetColumnSpan(this.m_txtPublicationName, 3);
 			this.glyssenColorPalette.SetForeColor(this.m_txtPublicationName, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_txtPublicationName.ForeColor = System.Drawing.Color.White;
+			this.m_txtPublicationName.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtPublicationName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtPublicationName, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtPublicationName, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -335,17 +347,18 @@
 			this.m_txtPublicationName.Size = new System.Drawing.Size(336, 13);
 			this.m_txtPublicationName.TabIndex = 25;
 			this.m_txtPublicationName.Text = "#";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_txtPublicationName, true);
 			// 
 			// m_txtPublicationId
 			// 
 			this.m_txtPublicationId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_txtPublicationId.AutoSize = true;
-			this.m_txtPublicationId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_txtPublicationId.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_txtPublicationId, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayoutMain.SetColumnSpan(this.m_txtPublicationId, 3);
 			this.glyssenColorPalette.SetForeColor(this.m_txtPublicationId, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_txtPublicationId.ForeColor = System.Drawing.Color.White;
+			this.m_txtPublicationId.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtPublicationId, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtPublicationId, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtPublicationId, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -355,16 +368,17 @@
 			this.m_txtPublicationId.Size = new System.Drawing.Size(336, 13);
 			this.m_txtPublicationId.TabIndex = 26;
 			this.m_txtPublicationId.Text = "#";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_txtPublicationId, true);
 			// 
 			// m_lblOriginalBundlePath
 			// 
 			this.m_lblOriginalBundlePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
 			this.m_lblOriginalBundlePath.AutoSize = true;
-			this.m_lblOriginalBundlePath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_lblOriginalBundlePath.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblOriginalBundlePath, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.m_lblOriginalBundlePath, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblOriginalBundlePath.ForeColor = System.Drawing.Color.White;
+			this.m_lblOriginalBundlePath.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblOriginalBundlePath, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblOriginalBundlePath, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblOriginalBundlePath, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -375,17 +389,18 @@
 			this.m_lblOriginalBundlePath.TabIndex = 28;
 			this.m_lblOriginalBundlePath.Text = "Original Bundle Path:";
 			this.m_lblOriginalBundlePath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblOriginalBundlePath, true);
 			// 
 			// m_txtOriginalBundlePath
 			// 
 			this.m_txtOriginalBundlePath.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_txtOriginalBundlePath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_txtOriginalBundlePath.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_txtOriginalBundlePath, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayoutMain.SetColumnSpan(this.m_txtOriginalBundlePath, 2);
 			this.glyssenColorPalette.SetForeColor(this.m_txtOriginalBundlePath, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_txtOriginalBundlePath.ForeColor = System.Drawing.Color.White;
+			this.m_txtOriginalBundlePath.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtOriginalBundlePath, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtOriginalBundlePath, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtOriginalBundlePath, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -396,16 +411,17 @@
 			this.m_txtOriginalBundlePath.TabIndex = 29;
 			this.m_txtOriginalBundlePath.Text = "#";
 			this.m_txtOriginalBundlePath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_txtOriginalBundlePath, true);
 			// 
 			// label2
 			// 
 			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.glyssenColorPalette.SetBackColor(this.label2, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.label2.BackColor = System.Drawing.SystemColors.Control;
 			this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.label2, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.label2.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label2, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label2, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.label2, "DialogBoxes.ProjectSettingsDlg.label1");
@@ -415,16 +431,17 @@
 			this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
 			this.label2.Size = new System.Drawing.Size(475, 2);
 			this.label2.TabIndex = 16;
+			this.glyssenColorPalette.SetUsePaletteColors(this.label2, true);
 			// 
 			// m_lblQuoteMarks
 			// 
 			this.m_lblQuoteMarks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.m_lblQuoteMarks.AutoSize = true;
-			this.m_lblQuoteMarks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.glyssenColorPalette.SetBackColor(this.m_lblQuoteMarks, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_lblQuoteMarks.BackColor = System.Drawing.SystemColors.Control;
 			this.m_lblQuoteMarks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_lblQuoteMarks.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_lblQuoteMarks, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblQuoteMarks.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblQuoteMarks, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblQuoteMarks, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblQuoteMarks, "DialogBoxes.ProjectSettingsDlg.QuoteMarks");
@@ -434,15 +451,16 @@
 			this.m_lblQuoteMarks.TabIndex = 15;
 			this.m_lblQuoteMarks.Text = "Quote Marks";
 			this.m_lblQuoteMarks.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblQuoteMarks, true);
 			// 
 			// m_lblQuoteMarkReview
 			// 
 			this.m_lblQuoteMarkReview.AutoSize = true;
-			this.m_lblQuoteMarkReview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_lblQuoteMarkReview.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblQuoteMarkReview, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayoutMain.SetColumnSpan(this.m_lblQuoteMarkReview, 4);
 			this.glyssenColorPalette.SetForeColor(this.m_lblQuoteMarkReview, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblQuoteMarkReview.ForeColor = System.Drawing.Color.White;
+			this.m_lblQuoteMarkReview.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblQuoteMarkReview, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblQuoteMarkReview, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblQuoteMarkReview, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -452,6 +470,7 @@
 			this.m_lblQuoteMarkReview.Size = new System.Drawing.Size(67, 13);
 			this.m_lblQuoteMarkReview.TabIndex = 20;
 			this.m_lblQuoteMarkReview.Text = "Review Text";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblQuoteMarkReview, true);
 			// 
 			// m_lblQuoteMarkSummary
 			// 
@@ -459,11 +478,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_lblQuoteMarkSummary.AutoSize = true;
-			this.m_lblQuoteMarkSummary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_lblQuoteMarkSummary.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblQuoteMarkSummary, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_lblQuoteMarkSummary.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
 			this.glyssenColorPalette.SetForeColor(this.m_lblQuoteMarkSummary, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblQuoteMarkSummary.ForeColor = System.Drawing.Color.White;
+			this.m_lblQuoteMarkSummary.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblQuoteMarkSummary, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblQuoteMarkSummary, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblQuoteMarkSummary, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -473,6 +492,7 @@
 			this.m_lblQuoteMarkSummary.Size = new System.Drawing.Size(132, 29);
 			this.m_lblQuoteMarkSummary.TabIndex = 22;
 			this.m_lblQuoteMarkSummary.Text = "Summary Text";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblQuoteMarkSummary, true);
 			// 
 			// m_btnQuoteMarkSettings
 			// 
@@ -481,6 +501,7 @@
 			this.m_btnQuoteMarkSettings.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.glyssenColorPalette.SetBackColor(this.m_btnQuoteMarkSettings, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayoutMain.SetColumnSpan(this.m_btnQuoteMarkSettings, 2);
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnQuoteMarkSettings, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnQuoteMarkSettings, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnQuoteMarkSettings, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnQuoteMarkSettings, null);
@@ -499,11 +520,11 @@
 			this.m_txtVersification.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_txtVersification.AutoSize = true;
-			this.m_txtVersification.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_txtVersification.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_txtVersification, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayoutMain.SetColumnSpan(this.m_txtVersification, 3);
 			this.glyssenColorPalette.SetForeColor(this.m_txtVersification, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_txtVersification.ForeColor = System.Drawing.Color.White;
+			this.m_txtVersification.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtVersification, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtVersification, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtVersification, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -513,14 +534,15 @@
 			this.m_txtVersification.Size = new System.Drawing.Size(336, 13);
 			this.m_txtVersification.TabIndex = 27;
 			this.m_txtVersification.Text = "#";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_txtVersification, true);
 			// 
 			// m_lblVersification
 			// 
 			this.m_lblVersification.AutoSize = true;
-			this.m_lblVersification.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_lblVersification.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblVersification, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.m_lblVersification, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblVersification.ForeColor = System.Drawing.Color.White;
+			this.m_lblVersification.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblVersification, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblVersification, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblVersification, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -530,16 +552,17 @@
 			this.m_lblVersification.Size = new System.Drawing.Size(67, 13);
 			this.m_lblVersification.TabIndex = 17;
 			this.m_lblVersification.Text = "Versification:";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblVersification, true);
 			// 
 			// m_lblSummary
 			// 
 			this.m_lblSummary.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
 			this.m_lblSummary.AutoSize = true;
-			this.m_lblSummary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_lblSummary.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblSummary, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.m_lblSummary, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblSummary.ForeColor = System.Drawing.Color.White;
+			this.m_lblSummary.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblSummary, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblSummary, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblSummary, "DialogBoxes.ProjectSettingsDlg.Summary");
@@ -549,12 +572,14 @@
 			this.m_lblSummary.TabIndex = 23;
 			this.m_lblSummary.Text = "Summary:";
 			this.m_lblSummary.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblSummary, true);
 			// 
 			// m_btnUpdateFromBundle
 			// 
 			this.m_btnUpdateFromBundle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_btnUpdateFromBundle.AutoSize = true;
 			this.glyssenColorPalette.SetBackColor(this.m_btnUpdateFromBundle, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnUpdateFromBundle, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnUpdateFromBundle, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnUpdateFromBundle, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnUpdateFromBundle, null);
@@ -682,6 +707,7 @@
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Project Settings";
+			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			this.m_tableLayoutMain.ResumeLayout(false);
 			this.m_tableLayoutMain.PerformLayout();
