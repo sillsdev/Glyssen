@@ -37,6 +37,7 @@ namespace Glyssen.Dialogs
 		private string m_fmtMoveCharactersInfo;
 		private List<string> m_pendingMoveCharacters; 
 		private readonly BackgroundWorker m_findCharacterBackgroundWorker;
+		private bool m_programmaticClickOfUpdateGroups = false;
 
 		public VoiceActorAssignmentDlg(Project project)
 		{
@@ -87,19 +88,22 @@ namespace Glyssen.Dialogs
 			m_hyperlinkFont = new Font(m_characterGroupGrid.Columns[CharacterIdsCol.Index].InheritedStyle.Font, FontStyle.Underline);
 		}
 
-		private void GenerateGroupsWithProgress(bool attemptToPreserveActorAssignments, bool firstGroupGenerationRun)
+		private void GenerateGroupsWithProgress(bool attemptToPreserveActorAssignments, bool firstGroupGenerationRun, bool cancelLink = false)
 		{
-			using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork, firstGroupGenerationRun))
+			using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork, firstGroupGenerationRun, cancelLink))
 			{
-				progressDialog.ProgressState.Arguments = attemptToPreserveActorAssignments;
-				progressDialog.ShowDialog();
+				var generator = new CharacterGroupGenerator(m_project, m_keyStrokesByCharacterId, progressDialog.BackgroundWorker);
+				progressDialog.ProgressState.Arguments = generator;
+
+				if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
+					generator.ApplyGeneratedGroupsToProject(attemptToPreserveActorAssignments);
 			}
 		}
 
 		private void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)
 		{
-			var attemptToPreserveActorAssignments = (bool)((ProgressState) e.Argument).Arguments;
-			new CharacterGroupGenerator(m_project, m_keyStrokesByCharacterId, attemptToPreserveActorAssignments).UpdateProjectCharacterGroups();
+			var generator = (CharacterGroupGenerator)((ProgressState)e.Argument).Arguments;
+			generator.GenerateCharacterGroups();
 		}
 
 		/// <summary>
@@ -205,17 +209,8 @@ namespace Glyssen.Dialogs
 
 				if (actorInfoViewModel.Changes.Any())
 				{
-					m_actorAssignmentViewModel.NoteActorChanges(actorInfoViewModel.Changes);
-					if (actorInfoViewModel.Changes.Any(c => !c.JustChangedName) &&
-						MessageBox.Show(this, String.Format(LocalizationManager.GetString(
-							"DialogBoxes.VoiceActorAssignmentDlg.UpdateCharacterGroupsPrompt",
-							"{0} can optimize the number and composition of character groups to match the voice actors you have entered. " +
-							"Would you like {0} to update the groups now?"), Program.kProduct), Text, MessageBoxButtons.YesNo) ==
-						DialogResult.Yes)
-					{
-						HandleUpdateGroupsClick(m_optimizeButton, e);
-						//m_characterGroupGrid.InvalidateColumn(VoiceActorCol.Index);
-					}
+					m_programmaticClickOfUpdateGroups = true;
+					HandleUpdateGroupsClick(m_optimizeButton, e);
 
 					VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null);
 
@@ -459,7 +454,8 @@ namespace Glyssen.Dialogs
 			var nameOfSelectedGroup = (m_characterGroupGrid.SelectedRows.Count == 1)
 				? FirstSelectedCharacterGroup.Name : null;
 
-			m_actorAssignmentViewModel.RegenerateGroups(() => { GenerateGroupsWithProgress(true, false); });
+			m_actorAssignmentViewModel.RegenerateGroups(() => { GenerateGroupsWithProgress(true, false, m_programmaticClickOfUpdateGroups); });
+			m_programmaticClickOfUpdateGroups = false;
 			SortByColumn(m_sortedColumn, m_sortedAscending);
 
 			if (nameOfSelectedGroup != null)

@@ -114,9 +114,6 @@ namespace Glyssen.Dialogs
 
 		private void SetupQuoteMarksComboBoxes(QuoteSystem currentSystem)
 		{
-//			m_comboQuoteMarks.Items.AddRange(QuoteSystem.AllUniqueFirstLevelSystems.ToArray());
-//			m_comboQuoteMarks.SelectedItem = currentSystem.GetCorrespondingFirstLevelQuoteSystem();
-
 			foreach (var control in m_pnlLevels.Controls)
 			{
 				var cb = control as ComboBox;
@@ -129,24 +126,32 @@ namespace Glyssen.Dialogs
 
 			foreach (var level in m_project.QuoteSystem.NormalLevels)
 			{
-				switch (level.Level)
+				if (level.Level == 1)
+					m_chkPairedQuotations.Checked = !string.IsNullOrEmpty(level.Open);
+				
+				if (m_chkPairedQuotations.Checked)
 				{
-					case 1:
-						m_cbLevel1Begin.Text = BlankBecomesNone(level.Open);
-						m_cbLevel1Continue.Text = BlankBecomesNone(level.Continue);
-						m_cbLevel1End.Text = BlankBecomesNone(level.Close);
-						break;
-					case 2:
-						m_cbLevel2Begin.Text = BlankBecomesNone(level.Open);
-						m_cbLevel2Continue.Text = BlankBecomesNone(level.Continue);
-						m_cbLevel2End.Text = BlankBecomesNone(level.Close);
-						break;
-					case 3:
-						m_cbLevel3Begin.Text = BlankBecomesNone(level.Open);
-						m_cbLevel3Continue.Text = BlankBecomesNone(level.Continue);
-						m_cbLevel3End.Text = BlankBecomesNone(level.Close);
-						break;
+					switch (level.Level)
+					{
+						case 1:
+							m_cbLevel1Begin.Text = BlankBecomesNone(level.Open);
+							m_cbLevel1Continue.Text = BlankBecomesNone(level.Continue);
+							m_cbLevel1End.Text = BlankBecomesNone(level.Close);
+							break;
+						case 2:
+							m_cbLevel2Begin.Text = BlankBecomesNone(level.Open);
+							m_cbLevel2Continue.Text = BlankBecomesNone(level.Continue);
+							m_cbLevel2End.Text = BlankBecomesNone(level.Close);
+							break;
+						case 3:
+							m_cbLevel3Begin.Text = BlankBecomesNone(level.Open);
+							m_cbLevel3Continue.Text = BlankBecomesNone(level.Continue);
+							m_cbLevel3End.Text = BlankBecomesNone(level.Close);
+							break;
+					}
 				}
+
+				EnablePairedQuotes(m_chkPairedQuotations.Checked);
 			}
 
 			var quotationDashMarker = currentSystem.QuotationDashMarker;
@@ -213,12 +218,31 @@ namespace Glyssen.Dialogs
 
 		private bool ValidateQuoteSystem(QuoteSystem quoteSystem, out string validationMessage)
 		{
-			var level1 = quoteSystem.FirstLevel;
-			if (level1 == null || string.IsNullOrEmpty(level1.Open) || string.IsNullOrEmpty(level1.Close))
+			if (!m_chkPairedQuotations.Checked && !m_chkDialogueQuotations.Checked)
 			{
-				validationMessage = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.Level1OpenCloseRequired", "Level 1 Open and Close are required.");
+				validationMessage = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.SelectMarksOrDashes", "You must select quotation marks, quotation dashes, or both.");
 				return false;
 			}
+
+			if (m_chkPairedQuotations.Checked)
+			{
+				var level1 = quoteSystem.FirstLevel;
+				if (level1 == null || string.IsNullOrEmpty(level1.Open) || string.IsNullOrEmpty(level1.Close))
+				{
+					validationMessage = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.Level1OpenCloseRequired", "Level 1 Open and Close are required.");
+					return false;
+				}
+			}
+
+			if (m_chkDialogueQuotations.Checked)
+			{
+				if (string.IsNullOrEmpty(quoteSystem.QuotationDashMarker))
+				{
+					validationMessage = LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuotationDashRequired", "Quotation dash is required.");
+					return false;
+				}
+			}
+
 			validationMessage = null;
 			return true;
 		}
@@ -384,14 +408,18 @@ namespace Glyssen.Dialogs
 			get
 			{
 				var levels = new BulkObservableList<QuotationMark>();
-				levels.Add(new QuotationMark(NoneBecomesBlank(m_cbLevel1Begin.Text), NoneBecomesBlank(m_cbLevel1End.Text), NoneBecomesBlank(m_cbLevel1Continue.Text), 1, QuotationMarkingSystemType.Normal));
-				string level2Open = NoneBecomesBlank(m_cbLevel2Begin.Text);
-				if (!string.IsNullOrEmpty(level2Open))
-					levels.Add(new QuotationMark(level2Open, NoneBecomesBlank(m_cbLevel2End.Text), NoneBecomesBlank(m_cbLevel2Continue.Text), 2, QuotationMarkingSystemType.Normal));
-				string level3Open = NoneBecomesBlank(m_cbLevel3Begin.Text);
-				if (!string.IsNullOrEmpty(level3Open))
-					levels.Add(new QuotationMark(level3Open, NoneBecomesBlank(m_cbLevel3End.Text), NoneBecomesBlank(m_cbLevel3Continue.Text), 3, QuotationMarkingSystemType.Normal));
 
+				if (m_chkPairedQuotations.Checked)
+				{
+					levels.Add(new QuotationMark(NoneBecomesBlank(m_cbLevel1Begin.Text), NoneBecomesBlank(m_cbLevel1End.Text), NoneBecomesBlank(m_cbLevel1Continue.Text), 1, QuotationMarkingSystemType.Normal));
+					string level2Open = NoneBecomesBlank(m_cbLevel2Begin.Text);
+					if (!string.IsNullOrEmpty(level2Open))
+						levels.Add(new QuotationMark(level2Open, NoneBecomesBlank(m_cbLevel2End.Text), NoneBecomesBlank(m_cbLevel2Continue.Text), 2, QuotationMarkingSystemType.Normal));
+					string level3Open = NoneBecomesBlank(m_cbLevel3Begin.Text);
+					if (!string.IsNullOrEmpty(level3Open))
+						levels.Add(new QuotationMark(level3Open, NoneBecomesBlank(m_cbLevel3End.Text), NoneBecomesBlank(m_cbLevel3Continue.Text), 3, QuotationMarkingSystemType.Normal));
+				}
+				
 				if (m_chkDialogueQuotations.Checked)
 				{
 					string quotationDashMarker = null;
@@ -422,6 +450,29 @@ namespace Glyssen.Dialogs
 
 				return new QuoteSystem(levels);
 			}
+		}
+
+		private void EnablePairedQuotes(bool enable)
+		{
+			m_cbLevel1Begin.Enabled = enable;
+			m_cbLevel1Continue.Enabled = enable;
+			m_cbLevel1End.Enabled = enable;
+
+			m_cbLevel2Begin.Enabled = enable;
+			m_cbLevel2Continue.Enabled = enable;
+			m_cbLevel2End.Enabled = enable;
+
+			m_cbLevel3Begin.Enabled = enable;
+			m_cbLevel3Continue.Enabled = enable;
+			m_cbLevel3End.Enabled = enable;
+
+			m_lblLevel1.Enabled = enable;
+			m_lblLevel2.Enabled = enable;
+			m_lblLevel3.Enabled = enable;
+
+			m_lblBegin.Enabled = enable;
+			m_lblContinue.Enabled = enable;
+			m_lblEnd.Enabled = enable;
 		}
 
 		#region Form events
@@ -496,6 +547,7 @@ namespace Glyssen.Dialogs
 			else if ((mode & BlocksToDisplay.AllScripture) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = m_toolStripComboBoxFilter.Items.Count - 1;
 			else
+				// ReSharper disable once NotResolvedInText
 				throw new InvalidEnumArgumentException("mode", (int) mode, typeof (BlocksToDisplay));
 		}
 
@@ -576,7 +628,11 @@ namespace Glyssen.Dialogs
 		{
 			m_navigatorViewModel.TryLoadBlock(m_scriptureReference.VerseControl.VerseRef);
 		}
-		#endregion
 
+		private void m_chkPairedQuotations_CheckedChanged(object sender, EventArgs e)
+		{
+			EnablePairedQuotes(m_chkPairedQuotations.Checked);
+		}
+		#endregion
 	}
 }

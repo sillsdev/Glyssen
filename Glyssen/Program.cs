@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Properties;
+using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.IO;
@@ -87,6 +88,8 @@ namespace Glyssen
 				SampleProject.CreateSampleProjectIfNeeded();
 
 				SetUpLocalization();
+
+				GlyssenColorPalette.ColorScheme = new TraditionalBlueColorScheme();
 
 				// The following not only gets the location of the settings file;
 				// it also detects corruption and deletes it if needed so we don't crash.

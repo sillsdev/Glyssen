@@ -237,5 +237,49 @@ namespace Glyssen.Properties {
                 return ((double)(this["MaxAcceptablePercentageOfUnknownQuotes"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::SIL.Windows.Forms.PortableSettingsProvider.FormSettings VoiceActorInformationDlgFormSettings {
+            get {
+                return ((global::SIL.Windows.Forms.PortableSettingsProvider.FormSettings)(this["VoiceActorInformationDlgFormSettings"]));
+            }
+            set {
+                this["VoiceActorInformationDlgFormSettings"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::SIL.Windows.Forms.PortableSettingsProvider.FormSettings VoiceActorAssignmentDlgFormSettings {
+            get {
+                return ((global::SIL.Windows.Forms.PortableSettingsProvider.FormSettings)(this["VoiceActorAssignmentDlgFormSettings"]));
+            }
+            set {
+                this["VoiceActorAssignmentDlgFormSettings"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::SIL.Windows.Forms.PortableSettingsProvider.GridSettings CharacterGroupGridGridSettings {
+            get {
+                return ((global::SIL.Windows.Forms.PortableSettingsProvider.GridSettings)(this["CharacterGroupGridGridSettings"]));
+            }
+            set {
+                this["CharacterGroupGridGridSettings"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::SIL.Windows.Forms.PortableSettingsProvider.FormSettings SplitBlockDlgFormSettings {
+            get {
+                return ((global::SIL.Windows.Forms.PortableSettingsProvider.FormSettings)(this["SplitBlockDlgFormSettings"]));
+            }
+            set {
+                this["SplitBlockDlgFormSettings"] = value;
+            }
+        }
     }
 }

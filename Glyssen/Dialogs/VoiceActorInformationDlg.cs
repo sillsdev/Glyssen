@@ -33,10 +33,10 @@ namespace Glyssen.Dialogs
 			m_btnOk.Visible = !showNext;
 
 			m_linkNarrationPreferences.Links.Clear();
-			m_linkNarrationPreferences.Links.Add(60, 21);
+			m_linkNarrationPreferences.Links.Add(60, 21); //TODO internationalize
 
 			m_linkMoreInfo.Links.Clear();
-			m_linkMoreInfo.Links.Add(77, 9);
+			m_linkMoreInfo.Links.Add(77, 9); //TODO internationalize
 
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;

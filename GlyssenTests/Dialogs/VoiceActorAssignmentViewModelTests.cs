@@ -379,7 +379,9 @@ namespace GlyssenTests.Dialogs
 			var actorC = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "C" };
 			var actorA = new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "A" };
 			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actorB, actorC, actorA };
-			new CharacterGroupGenerator(m_testProject, m_testProject.GetKeyStrokesByCharacterId(), false).UpdateProjectCharacterGroups();
+			var generator = new CharacterGroupGenerator(m_testProject, m_testProject.GetKeyStrokesByCharacterId());
+			generator.GenerateCharacterGroups();
+			generator.ApplyGeneratedGroupsToProject(false);
 
 			var dataTable = m_model.GetMultiColumnActorDataTable(m_model.CharacterGroups[0]);
 			var actorList = GetActorListFromDataTable(dataTable);
@@ -396,7 +398,9 @@ namespace GlyssenTests.Dialogs
 			var actorC = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "C" };
 			var actorA = new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "A" };
 			m_testProject.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor> { actorB, actorC, actorA };
-			new CharacterGroupGenerator(m_testProject, m_testProject.GetKeyStrokesByCharacterId(), false).UpdateProjectCharacterGroups();
+			var generator = new CharacterGroupGenerator(m_testProject, m_testProject.GetKeyStrokesByCharacterId());
+			generator.GenerateCharacterGroups();
+			generator.ApplyGeneratedGroupsToProject(false);
 			var group = m_model.CharacterGroups[0];
 			m_model.AssignActorToGroup(actorA.Id, group);
 

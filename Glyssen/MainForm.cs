@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -17,6 +18,7 @@ using L10NSharp.UI;
 using Paratext;
 using SIL.DblBundle;
 using SIL.IO;
+using SIL.Progress;
 using SIL.Windows.Forms.Miscellaneous;
 
 namespace Glyssen
@@ -72,6 +74,11 @@ namespace Glyssen
 
 			if (m_project != null)
 			{
+				if (m_project.HasUnappliedSplits())
+					using (var viewModel = new AssignCharacterViewModel(m_project))
+						using (var dlg = new UnappliedSplitsDlg(m_project.Name, viewModel, m_project.IncludedBooks))
+							dlg.ShowDialog();
+
 				Settings.Default.CurrentProject = m_project.ProjectFilePath;
 				Settings.Default.Save();
 
@@ -162,13 +169,15 @@ namespace Glyssen
 			if (string.IsNullOrEmpty(Settings.Default.CurrentProject) || !File.Exists(Settings.Default.CurrentProject))
 				SetProject(null);
 			else
-				LoadProject(Settings.Default.CurrentProject);
+				LoadProject(Settings.Default.CurrentProject);		
 		}
 
 		private void LoadProject(string filePath)
 		{
 			if (!LoadAndHandleApplicationExceptions(() => SetProject(Project.Load(filePath))))
 				SetProject(null);
+
+			m_lastExportLocationLink.Text = m_project != null ? m_project.Status.LastExportLocation : string.Empty;
 		}
 
 		private void LoadBundle(string bundlePath)
@@ -380,9 +389,11 @@ namespace Glyssen
 					export = MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
 				}
 			}
-			if (export)
-				using (var dlg = new ExportDlg(exporter))
-					dlg.ShowDialog(this);
+			if (!export) return;
+			using (var dlg = new ExportDlg(exporter))
+				dlg.ShowDialog(this);
+
+			m_lastExportLocationLink.Text = m_project.Status.LastExportLocation;
 		}
 
 		private void EnsureGroupsAreInSynchWithCharactersInUse()
@@ -392,30 +403,25 @@ namespace Glyssen
 			var adjuster = new CharacterGroupsAdjuster(m_project);
 			if (adjuster.GroupsAreNotInSynchWithData)
 			{
-				string dlgMessage = String.Format(LocalizationManager.GetString("DialogBoxes.GroupsAreNotInSynchWithData.Message",
-					"There have been changes to this project. The character groups no longer match the characters. {0} must update the groups in one of two ways:" +
-					Environment.NewLine + Environment.NewLine +
-					"{0} can start fresh, optimizing the number and composition of character groups based on the characters in the script and the voice actors in this project. " +
-					"This is usually the recommended option." +
-					"However, if the previously generated groups were manually changed most of these changes will probably be lost." +
-					Environment.NewLine + Environment.NewLine +
-					"Alternatively, {0} can just make the minimal changes to remove unused characters and put any new characters in a single group. This will probably require " +
-					"substantial manual customization to avoid problems. If this proves too difficult, the groups can be re-optimized later by clicking {1} in the {2} dialog box." +
-					Environment.NewLine + Environment.NewLine +
-					"Would you like {0} to do the recommended action and create new character groups now?"),
-					ProductName,
-					LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.UpdateCharacterGroups",
-						"Update Character Groups...").TrimEnd('.'),
-					LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.WindowTitle", "Voice Actor Assignment"));
-
-				if (MessageBox.Show(dlgMessage, ProductName, MessageBoxButtons.YesNo) == DialogResult.Yes)
+				using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork, false, true))
 				{
-					using (var progressDialog = new GenerateGroupsProgressDialog(m_project, (s, e) => adjuster.FullyRegenerateGroups(), false))
-						progressDialog.ShowDialog();
+					var generator = new CharacterGroupGenerator(m_project, m_project.GetKeyStrokesByCharacterId(), progressDialog.BackgroundWorker);
+					progressDialog.ProgressState.Arguments = generator;
+
+					if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
+						generator.ApplyGeneratedGroupsToProject();
+					else
+						adjuster.MakeMinimalAdjustments();
+
+					m_project.Save();
 				}
-				else
-					adjuster.MakeMinimalAdjustments();
 			}
+		}
+
+		private void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)
+		{
+			var generator = (CharacterGroupGenerator)((ProgressState)e.Argument).Arguments;
+			generator.GenerateCharacterGroups();
 		}
 
 		private void SetupUiLanguageMenu()
@@ -548,6 +554,11 @@ namespace Glyssen
 			protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
 			{
 			}
+		}
+
+		private void m_lastExportLocationLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			PathUtilities.OpenDirectoryInExplorer(m_lastExportLocationLink.Text);
 		}
 	}
 }

@@ -21,7 +21,6 @@ using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
-using SIL.Windows.Forms.PortableSettingsProvider;
 
 namespace Glyssen.Dialogs
 {
@@ -54,9 +53,6 @@ namespace Glyssen.Dialogs
 			InitializeComponent();
 
 			m_viewModel = viewModel;
-
-			if (Settings.Default.AssignCharacterDialogFormSettings == null)
-				Settings.Default.AssignCharacterDialogFormSettings = FormSettings.Create(this);
 
 			m_txtCharacterFilter.CorrectHeight();
 			m_txtDeliveryFilter.CorrectHeight();
@@ -440,7 +436,7 @@ namespace Glyssen.Dialogs
 		protected override void OnLoad(EventArgs e)
 		{
 			m_formLoading = true;
-			Settings.Default.AssignCharacterDialogFormSettings.InitializeForm(this);
+
 			base.OnLoad(e);
 			m_blocksViewer.BlocksGridSettings = Settings.Default.AssignCharactersBlockContextGrid;
 			if (Settings.Default.AssignCharactersSliderLocation > 0)

@@ -234,6 +234,12 @@
     <Compile Include="Dialogs\ProgressDialogWithAcknowledgement.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\UnappliedSplitsDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\UnappliedSplitsDlg.Designer.cs">
+      <DependentUpon>UnappliedSplitsDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\VoiceActorUndoAction.cs" />
     <Compile Include="Dialogs\CharacterGroupsUndoAction.cs" />
     <Compile Include="Dialogs\SelectExistingProjectDlg.cs">
@@ -421,6 +427,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\NewCharacterDlg.resx">
       <DependentUpon>NewCharacterDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\UnappliedSplitsDlg.resx">
+      <DependentUpon>UnappliedSplitsDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\TooManyUnexpectedQuotesFoundDlg.resx">
       <DependentUpon>TooManyUnexpectedQuotesFoundDlg.cs</DependentUpon>

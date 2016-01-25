@@ -1,4 +1,6 @@
-﻿namespace Glyssen.Controls
+﻿using Glyssen.Utilities;
+
+namespace Glyssen.Controls
 {
 	partial class SaveStatus
 	{

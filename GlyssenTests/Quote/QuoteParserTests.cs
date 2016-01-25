@@ -1117,6 +1117,7 @@ namespace GlyssenTests.Quote
 			var block1 = new Block("p", 1, 31) { IsParagraphStart = true };
 			block1.BlockElements.Add(new Verse("31"));
 			block1.BlockElements.Add(new ScriptText("Some text and «a quote» and more text."));
+			// ReSharper disable once RedundantArgumentDefaultValue
 			var blockC = new Block("c", 2, 0) { IsParagraphStart = true };
 			blockC.BlockElements.Add(new ScriptText("2"));
 			var block2 = new Block("p", 2, 1) { IsParagraphStart = true };
@@ -1168,6 +1169,50 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual("« ‹Go!", output[1].GetText(false));
 			Assert.AreEqual("(« ‹Get!› »)", output[2].GetText(false));
+			Assert.AreEqual("Thus he ended.", output[3].GetText(false));
+			Assert.IsTrue(output[3].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+		}
+
+		[Test]
+		public void Parse_OpeningBracketBeforeLevel2Continuer_NarratorAfter()
+		{
+			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "« ‹", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "« ‹ «", 3, QuotationMarkingSystemType.Normal));
+			var block = new Block("p") { IsParagraphStart = true };
+			block.BlockElements.Add(new ScriptText("He said, « ‹Go!"));
+			var block2 = new Block("p") { IsParagraphStart = true };
+			block2.BlockElements.Add(new ScriptText("[« ‹Get!› »]"));
+			var block3 = new Block("p") { IsParagraphStart = true };
+			block3.BlockElements.Add(new ScriptText("Thus he ended."));
+			var input = new List<Block> { block, block2, block3 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.AreEqual("« ‹Go!", output[1].GetText(false));
+			Assert.AreEqual("[« ‹Get!› »]", output[2].GetText(false));
+			Assert.AreEqual("Thus he ended.", output[3].GetText(false));
+			Assert.IsTrue(output[3].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+		}
+
+		[Test]
+		public void Parse_OpeningBraceBeforeLevel2Continuer_NarratorAfter()
+		{
+			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "« ‹", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "« ‹ «", 3, QuotationMarkingSystemType.Normal));
+			var block = new Block("p") { IsParagraphStart = true };
+			block.BlockElements.Add(new ScriptText("He said, « ‹Go!"));
+			var block2 = new Block("p") { IsParagraphStart = true };
+			block2.BlockElements.Add(new ScriptText("{« ‹Get!› »}"));
+			var block3 = new Block("p") { IsParagraphStart = true };
+			block3.BlockElements.Add(new ScriptText("Thus he ended."));
+			var input = new List<Block> { block, block2, block3 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.AreEqual("« ‹Go!", output[1].GetText(false));
+			Assert.AreEqual("{« ‹Get!› »}", output[2].GetText(false));
 			Assert.AreEqual("Thus he ended.", output[3].GetText(false));
 			Assert.IsTrue(output[3].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 		}
@@ -1793,6 +1838,60 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("angel of the LORD, an", output[0].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
 			Assert.AreEqual("angel of the LORD, an", output[1].CharacterId);
+		}
+
+		[Test]
+		public void Parse_DialogueQuoteOnly_ParsesCorrectly()
+		{
+			var block = new Block("p", 1, 17);
+			block.BlockElements.Add(new ScriptText("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, –timiayi."));
+			var input = new List<Block> { block };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("–", "–", null, 1, QuotationMarkingSystemType.Narrative), null, null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, ", output[0].GetText(false));
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual(string.Empty, output[0].Delivery);
+			Assert.AreEqual(1, output[0].ChapterNumber);
+			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
+			Assert.AreEqual("–timiayi.", output[1].GetText(false));
+			Assert.IsTrue(output[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(1, output[1].ChapterNumber);
+			Assert.AreEqual(17, output[1].InitialStartVerseNumber);
+		}
+
+		[Test]
+		public void Parse_DialogueBeginningQuoteOnly_ParsesCorrectly()
+		{
+			var block = new Block("p", 1, 17);
+			block.BlockElements.Add(new ScriptText("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, –timiayi."));
+			var input = new List<Block> { block };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("–", null, null, 1, QuotationMarkingSystemType.Narrative), null, null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(1, output.Count);
+			Assert.AreEqual("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, –timiayi.", output[0].GetText(false));
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual(string.Empty, output[0].Delivery);
+			Assert.AreEqual(1, output[0].ChapterNumber);
+			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
+
+
+			var block1 = new Block("p", 1, 17);
+			block1.BlockElements.Add(new ScriptText("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum."));
+			var block2 = new Block("p", 1, 18);
+			block2.BlockElements.Add(new ScriptText("timiayi."));
+			input = new List<Block> { block1, block2 };
+			output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum.", output[0].GetText(false));
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual(string.Empty, output[0].Delivery);
+			Assert.AreEqual(1, output[0].ChapterNumber);
+			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
+			Assert.AreEqual("timiayi.", output[1].GetText(false));
+			Assert.IsTrue(output[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(1, output[1].ChapterNumber);
+			Assert.AreEqual(18, output[1].InitialStartVerseNumber);
 		}
 	}
 }

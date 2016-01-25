@@ -77,6 +77,26 @@ namespace Glyssen.Controls
 			get { return m_geckoBrowser.Window; }
 		}
 
+		public void SelectAll()
+		{
+			m_geckoBrowser.SelectAll();
+		}
+
+		public void SelectNone()
+		{
+			m_geckoBrowser.SelectNone();
+		}
+
+		public bool CanCopySelection
+		{
+			get { return m_geckoBrowser.CanCopySelection; }
+		}
+
+		public bool CopySelection()
+		{
+			return m_geckoBrowser.CopySelection();
+		}
+
 		#region browser events
 		private void HandleDomMouseMove(object sender, DomMouseEventArgs e)
 		{

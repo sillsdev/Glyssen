@@ -206,6 +206,9 @@ namespace Glyssen.Dialogs
 			try
 			{
 				m_projectExporter.GenerateFile(filePath, m_selectedFileType);
+
+				// remember the location
+				m_projectExporter.Project.Status.LastExportLocation = Path.GetDirectoryName(filePath);
 			}
 			catch (Exception ex)
 			{

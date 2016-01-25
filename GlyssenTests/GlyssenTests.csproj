@@ -113,6 +113,7 @@
     <Compile Include="Character\RelatedCharactersTests.cs" />
     <Compile Include="Controls\BrowserTests.cs" />
     <Compile Include="BookScriptTests.cs" />
+    <Compile Include="Dialogs\AddCharactersToGroupViewModelTests.cs" />
     <Compile Include="Dialogs\BlockNavigatorViewModelTests.cs" />
     <Compile Include="Dialogs\AssignCharacterViewModelTests.cs" />
     <Compile Include="Dialogs\RemoveVoiceActorAssignmentsUndoActionTests.cs" />
