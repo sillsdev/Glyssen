@@ -520,6 +520,65 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void ApplyUserDecisions_ExtraVersesInTarget_BookTitleIncluded_DecisionsGetCopiedToTargetOnlyForExactMatches()
+		{
+			var source = CreateStandardMarkScript(false, true);
+			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
+			{
+				if (source[i].CharacterId == CharacterVerseData.UnknownCharacter)
+				{
+					source[i].CharacterId = "Fred the Frog";
+					source[i].Delivery = "with certitude";
+					source[i].UserConfirmed = true;
+				}
+			}
+
+			var target = CreateStandardMarkScript(true, true);
+			var quoteBlockIndices = new List<int>();
+			int iBlockAtVerse7 = -1;
+			for (int i = 0; i < target.GetScriptBlocks().Count; i++)
+			{
+				if (target[i].CharacterId == CharacterVerseData.UnknownCharacter)
+					quoteBlockIndices.Add(i);
+
+				if (target[i].InitialStartVerseNumber == 7 && iBlockAtVerse7 < 0)
+					iBlockAtVerse7 = i;  // this block has extra verses
+			}
+			Assert.IsTrue(quoteBlockIndices.Count > 0);
+			Assert.IsTrue(iBlockAtVerse7 > 0);
+			int iLastBlock = target.GetScriptBlocks().Count - 1; // this block has extra verses
+			Assert.IsTrue(iLastBlock > iBlockAtVerse7);
+			var indicesOfQuoteBlocksWithExtraVerses = new[] { iBlockAtVerse7, iLastBlock };
+			Assert.IsFalse(indicesOfQuoteBlocksWithExtraVerses.Except(quoteBlockIndices).Any());
+
+			target.ApplyUserDecisions(source);
+
+			for (int i = 0; i < target.GetScriptBlocks().Count; i++)
+			{
+				if (quoteBlockIndices.Contains(i))
+				{
+					if (indicesOfQuoteBlocksWithExtraVerses.Contains(i))
+					{
+						Assert.IsTrue(target[i].CharacterId == CharacterVerseData.UnknownCharacter);
+						Assert.IsFalse(target[i].UserConfirmed);
+					}
+					else
+					{
+						Assert.AreEqual("Fred the Frog", target[i].CharacterId);
+						Assert.AreEqual("with certitude", target[i].Delivery);
+						Assert.IsTrue(target[i].UserConfirmed);
+					}
+				}
+				else
+				{
+					Assert.IsTrue(target[i].CharacterIsStandard);
+					Assert.IsNull(target[i].Delivery);
+					Assert.IsFalse(target[i].UserConfirmed);
+				}
+			}
+		}
+
+		[Test]
 		public void ApplyUserDecisions_ExtraVersesInSource_DecisionsGetCopiedToTargetOnlyForExactMatches()
 		{
 			var source = CreateStandardMarkScript(true);
@@ -538,7 +597,14 @@ namespace GlyssenTests
 			for (int i = 0; i < target.GetScriptBlocks().Count; i++)
 			{
 				if (target[i].CharacterId == CharacterVerseData.UnknownCharacter)
+				{
 					quoteBlockIndices.Add(i);
+					if (i % 2 != 0)
+					{
+						int iText = target[i].BlockElements.FindIndex(e => e is ScriptText);
+						target[i].BlockElements[iText] = new ScriptText("This is not a match.");
+					}
+				}
 			}
 			Assert.IsTrue(quoteBlockIndices.Count > 0);
 			Assert.IsTrue(quoteBlockIndices.Count < source.GetScriptBlocks().Count(b => b.CharacterId == "Fred the Frog"));
@@ -549,9 +615,18 @@ namespace GlyssenTests
 			{
 				if (quoteBlockIndices.Contains(i))
 				{
+					if (i % 2 != 0)
+					{
+						Assert.AreEqual(CharacterVerseData.UnknownCharacter, target[i].CharacterId);
+						Assert.Null(target[i].Delivery);
+						Assert.IsFalse(target[i].UserConfirmed);
+					}
+					else
+					{
 						Assert.AreEqual("Fred the Frog", target[i].CharacterId);
 						Assert.AreEqual("with certitude", target[i].Delivery);
 						Assert.IsTrue(target[i].UserConfirmed);
+					}
 				}
 				else
 				{
@@ -1523,7 +1598,7 @@ namespace GlyssenTests
 			return block;
 		}
 
-		private BookScript CreateStandardMarkScript(bool includeExtraVersesInChapter1 = false)
+		private BookScript CreateStandardMarkScript(bool includeExtraVersesInChapter1 = false, bool includeBookTitle = false)
 		{
 			m_curSetupChapter = 1;
 			m_curSetupVerse = 0;
@@ -1532,6 +1607,13 @@ namespace GlyssenTests
 
 			int i = 0;
 			var mrkBlocks = new List<Block>();
+
+			if (includeBookTitle)
+			{
+				mrkBlocks.Add(NewTitleBlock("Gospel According to Mark"));
+				mrkBlocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
+			}
+
 			mrkBlocks.Add(NewChapterBlock(1));
 			mrkBlocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
 			mrkBlocks.Add(NewPara("s", "Predicación de Juan el Bautista"));

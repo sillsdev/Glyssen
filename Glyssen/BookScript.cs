@@ -275,6 +275,9 @@ namespace Glyssen
 			var bookNum = BCVRef.BookToNumber(sourceBookScript.BookId);
 			foreach (var sourceBlock in sourceBookScript.m_blocks.Where(b => b.UserConfirmed))
 			{
+				if (iTarget == m_blocks.Count)
+					return;
+
 				if (m_blocks[iTarget].ChapterNumber < sourceBlock.ChapterNumber)
 					iTarget = GetIndexOfFirstBlockForVerse(sourceBlock.ChapterNumber, sourceBlock.InitialStartVerseNumber);
 				else
