@@ -2,11 +2,10 @@
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Character;
-using Glyssen.Utilities;
 
 namespace Glyssen.Dialogs
 {
-	public partial class SplitCharacterGroupDlg : CustomForm
+	public partial class SplitCharacterGroupDlg : Form
 	{
 		private readonly CharacterGroup m_existingGroup;
 		private readonly VoiceActorAssignmentViewModel m_model;

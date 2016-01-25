@@ -2,12 +2,11 @@
 using System.IO;
 using System.Windows.Forms;
 using Glyssen.Bundle;
-using Glyssen.Utilities;
 using SIL.DblBundle;
 
 namespace Glyssen.Dialogs
 {
-	public partial class SelectExistingProjectDlg : CustomForm
+	public partial class SelectExistingProjectDlg : Form
 	{
 		private readonly Bundle<GlyssenDblTextMetadata, GlyssenDblMetadataLanguage> m_bundle;
 

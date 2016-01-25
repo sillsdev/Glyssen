@@ -2,14 +2,13 @@
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Controls;
-using Glyssen.Utilities;
 using Glyssen.VoiceActor;
 using L10NSharp;
 using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
 {
-	public partial class VoiceActorInformationDlg : CustomForm
+	public partial class VoiceActorInformationDlg : Form
 	{
 		private readonly VoiceActorInformationViewModel m_viewModel;
 		private readonly bool m_initialEntry;

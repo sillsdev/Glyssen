@@ -39,17 +39,23 @@
 			this.m_btnCancel = new System.Windows.Forms.Button();
 			this.m_btnOk = new System.Windows.Forms.Button();
 			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
 			this.m_selectionsTableLayout.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_numMaleNarrator)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_numFemaleNarrator)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.glyssenColorPalette)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// m_lblExplanatory
 			// 
 			this.m_lblExplanatory.AutoSize = true;
+			this.m_lblExplanatory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.glyssenColorPalette.SetBackColor(this.m_lblExplanatory, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_selectionsTableLayout.SetColumnSpan(this.m_lblExplanatory, 2);
 			this.m_lblExplanatory.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.glyssenColorPalette.SetForeColor(this.m_lblExplanatory, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_lblExplanatory.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblExplanatory, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblExplanatory, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblExplanatory, "DialogBoxes.NarrationOptionsDlg.Explanatory");
@@ -66,6 +72,10 @@
 			// 
 			this.m_lblDesiredMaleNarratorNum.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_lblDesiredMaleNarratorNum.AutoSize = true;
+			this.m_lblDesiredMaleNarratorNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.glyssenColorPalette.SetBackColor(this.m_lblDesiredMaleNarratorNum, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_lblDesiredMaleNarratorNum, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_lblDesiredMaleNarratorNum.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblDesiredMaleNarratorNum, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblDesiredMaleNarratorNum, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblDesiredMaleNarratorNum, "DialogBoxes.NarrationOptionsDlg.DesiredNarratorNum");
@@ -79,6 +89,7 @@
 			// 
 			// m_selectionsTableLayout
 			// 
+			this.glyssenColorPalette.SetBackColor(this.m_selectionsTableLayout, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_selectionsTableLayout.ColumnCount = 2;
 			this.m_selectionsTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.m_selectionsTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -87,6 +98,7 @@
 			this.m_selectionsTableLayout.Controls.Add(this.m_numMaleNarrator, 1, 1);
 			this.m_selectionsTableLayout.Controls.Add(this.m_lblDesiredFemaleNarratorNum, 0, 2);
 			this.m_selectionsTableLayout.Controls.Add(this.m_numFemaleNarrator, 1, 2);
+			this.glyssenColorPalette.SetForeColor(this.m_selectionsTableLayout, Glyssen.Utilities.GlyssenColors.Default);
 			this.m_selectionsTableLayout.Location = new System.Drawing.Point(8, 10);
 			this.m_selectionsTableLayout.Margin = new System.Windows.Forms.Padding(1);
 			this.m_selectionsTableLayout.Name = "m_selectionsTableLayout";
@@ -101,10 +113,13 @@
 			this.m_selectionsTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.m_selectionsTableLayout.Size = new System.Drawing.Size(400, 270);
 			this.m_selectionsTableLayout.TabIndex = 7;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_selectionsTableLayout, false);
 			// 
 			// m_numMaleNarrator
 			// 
 			this.m_numMaleNarrator.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.glyssenColorPalette.SetBackColor(this.m_numMaleNarrator, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_numMaleNarrator, Glyssen.Utilities.GlyssenColors.Default);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_numMaleNarrator, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_numMaleNarrator, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_numMaleNarrator, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -118,6 +133,7 @@
 			this.m_numMaleNarrator.Name = "m_numMaleNarrator";
 			this.m_numMaleNarrator.Size = new System.Drawing.Size(50, 20);
 			this.m_numMaleNarrator.TabIndex = 4;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_numMaleNarrator, false);
 			this.m_numMaleNarrator.Value = new decimal(new int[] {
             1,
             0,
@@ -128,6 +144,10 @@
 			// 
 			this.m_lblDesiredFemaleNarratorNum.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_lblDesiredFemaleNarratorNum.AutoSize = true;
+			this.m_lblDesiredFemaleNarratorNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.glyssenColorPalette.SetBackColor(this.m_lblDesiredFemaleNarratorNum, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_lblDesiredFemaleNarratorNum, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_lblDesiredFemaleNarratorNum.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblDesiredFemaleNarratorNum, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblDesiredFemaleNarratorNum, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblDesiredFemaleNarratorNum, "DialogBoxes.NarrationOptionsDlg.DesiredFemaleNarratorNum");
@@ -142,6 +162,8 @@
 			// m_numFemaleNarrator
 			// 
 			this.m_numFemaleNarrator.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.glyssenColorPalette.SetBackColor(this.m_numFemaleNarrator, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_numFemaleNarrator, Glyssen.Utilities.GlyssenColors.Default);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_numFemaleNarrator, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_numFemaleNarrator, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_numFemaleNarrator, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -155,6 +177,7 @@
 			this.m_numFemaleNarrator.Name = "m_numFemaleNarrator";
 			this.m_numFemaleNarrator.Size = new System.Drawing.Size(50, 20);
 			this.m_numFemaleNarrator.TabIndex = 6;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_numFemaleNarrator, false);
 			this.m_numFemaleNarrator.Value = new decimal(new int[] {
             1,
             0,
@@ -164,7 +187,9 @@
 			// m_btnCancel
 			// 
 			this.m_btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.glyssenColorPalette.SetBackColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.glyssenColorPalette.SetForeColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnCancel, "Common.Cancel");
@@ -174,12 +199,15 @@
 			this.m_btnCancel.Size = new System.Drawing.Size(75, 23);
 			this.m_btnCancel.TabIndex = 5;
 			this.m_btnCancel.Text = "Cancel";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnCancel, false);
 			this.m_btnCancel.UseVisualStyleBackColor = true;
 			// 
 			// m_btnOk
 			// 
 			this.m_btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.glyssenColorPalette.SetBackColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.glyssenColorPalette.SetForeColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnOk, "Common.OK");
@@ -189,6 +217,7 @@
 			this.m_btnOk.Size = new System.Drawing.Size(75, 23);
 			this.m_btnOk.TabIndex = 4;
 			this.m_btnOk.Text = "OK";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnOk, false);
 			this.m_btnOk.UseVisualStyleBackColor = true;
 			this.m_btnOk.Click += new System.EventHandler(this.BtnOk_Clicked);
 			// 
@@ -202,11 +231,13 @@
 			this.AcceptButton = this.m_btnOk;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.glyssenColorPalette.SetBackColor(this, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.CancelButton = this.m_btnCancel;
 			this.ClientSize = new System.Drawing.Size(412, 379);
 			this.Controls.Add(this.m_btnOk);
 			this.Controls.Add(this.m_btnCancel);
 			this.Controls.Add(this.m_selectionsTableLayout);
+			this.glyssenColorPalette.SetForeColor(this, Glyssen.Utilities.GlyssenColors.Default);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.NarrationOptionsDlg.WindowTitle");
@@ -224,6 +255,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.m_numMaleNarrator)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_numFemaleNarrator)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.glyssenColorPalette)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -239,5 +271,6 @@
 		private L10NSharp.UI.L10NSharpExtender m_l10NSharpExtender;
 		private System.Windows.Forms.Label m_lblDesiredFemaleNarratorNum;
 		private System.Windows.Forms.NumericUpDown m_numFemaleNarrator;
+		private Utilities.GlyssenColorPalette glyssenColorPalette;
 	}
 }

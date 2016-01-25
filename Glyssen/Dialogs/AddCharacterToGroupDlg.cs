@@ -7,7 +7,7 @@ using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
 {
-	public partial class AddCharacterToGroupDlg : CustomForm
+	public partial class AddCharacterToGroupDlg : Form
 	{
 		private readonly AddCharactersToGroupViewModel m_viewModel;
 

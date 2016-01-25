@@ -11,7 +11,7 @@ using SIL.IO;
 
 namespace Glyssen.Dialogs
 {
-	public partial class ProjectSettingsDlg : CustomForm
+	public partial class ProjectSettingsDlg : Form
 	{
 		private ProjectSettingsViewModel m_model;
 
@@ -85,7 +85,7 @@ namespace Glyssen.Dialogs
 		{
 			m_lblQuoteMarkSummary.Text = m_model.Project.QuoteSystem.ShortSummary;
 
-			m_lblQuoteMarkReview.ForeColor = CustomColor.ForeColor;
+			m_lblQuoteMarkReview.ForeColor = GlyssenColorPalette.ColorScheme.ForeColor;
 
 			string quoteMarkReviewText = "";
 			switch (m_model.Project.QuoteSystemStatus)
@@ -95,7 +95,7 @@ namespace Glyssen.Dialogs
 					break;
 				case QuoteSystemStatus.Guessed:
 					quoteMarkReviewText = LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.CarefullyReviewQuoteMarks", "Carefully review the quote mark settings.");
-					m_lblQuoteMarkReview.ForeColor = CustomColor.Warning;
+					m_lblQuoteMarkReview.ForeColor = GlyssenColorPalette.ColorScheme.Warning;
 					break;
 				case QuoteSystemStatus.Reviewed:
 					quoteMarkReviewText = string.Format(LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.QuoteMarksReviewed", "Quote mark settings were reviewed on {0}.", "{0} is a date"), m_model.Project.QuoteSystemDate.ToString("yyyy-MM-dd"));

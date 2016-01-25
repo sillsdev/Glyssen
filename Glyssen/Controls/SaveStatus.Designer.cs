@@ -37,7 +37,6 @@
 			// m_lbl
 			// 
 			this.m_lbl.AutoSize = true;
-			this.m_lbl.BackColor = System.Drawing.SystemColors.Control;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_lbl, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_lbl, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_lbl, "Common.SaveStatus.Saved");
@@ -60,7 +59,6 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.Controls.Add(this.m_lbl);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this, null);

@@ -21,7 +21,7 @@ using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Dialogs
 {
-	public partial class QuotationMarksDlg : CustomForm
+	public partial class QuotationMarksDlg : Form
 	{
 		private readonly Project m_project;
 		private readonly BlockNavigatorViewModel m_navigatorViewModel;

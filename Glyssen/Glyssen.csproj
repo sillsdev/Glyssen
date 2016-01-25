@@ -276,6 +276,9 @@
     <Compile Include="Utilities\CustomForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Utilities\GlyssenColorPalette.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Utilities\UndoActionSequence.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentUndoAction.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentViewModel.cs" />

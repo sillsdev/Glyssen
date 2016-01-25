@@ -13,25 +13,25 @@ namespace Glyssen.Utilities
 
 		private void SetColors()
 		{
-			BackColor = CustomColor.BackColor;
-			ForeColor = CustomColor.ForeColor;
-			SetLinkColors(this);
+			BackColor = GlyssenColorPalette.ColorScheme.BackColor;
+			//ForeColor = GlyssenColorPalette.ColorScheme.ForeColor;
+			//SetLinkColors(this);
 		}
 
-		private static void SetLinkColors(Control control)
-		{
-			var lnkLabel = control as LinkLabel;
-			if (lnkLabel != null)
-			{
-				lnkLabel.ActiveLinkColor = CustomColor.LinkColor;
-				lnkLabel.LinkColor = CustomColor.LinkColor;
-				lnkLabel.VisitedLinkColor = CustomColor.LinkColor;
-			}
+		//private static void SetLinkColors(Control control)
+		//{
+		//	var lnkLabel = control as LinkLabel;
+		//	if (lnkLabel != null)
+		//	{
+		//		lnkLabel.ActiveLinkColor = GlyssenColorPalette.ColorScheme.LinkColor;
+		//		lnkLabel.LinkColor = GlyssenColorPalette.ColorScheme.LinkColor;
+		//		lnkLabel.VisitedLinkColor = GlyssenColorPalette.ColorScheme.LinkColor;
+		//	}
 
-			foreach (Control child in control.Controls)
-			{
-				SetLinkColors(child);
-			}
-		}
+		//	foreach (Control child in control.Controls)
+		//	{
+		//		SetLinkColors(child);
+		//	}
+		//}
 	}
 }

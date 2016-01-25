@@ -18,7 +18,7 @@ using SIL.Reporting;
 
 namespace Glyssen.Dialogs
 {
-	public partial class VoiceActorAssignmentDlg : CustomForm
+	public partial class VoiceActorAssignmentDlg : Form
 	{
 		private const string kCreateNewGroupMenuItemId = "CreateNewGroup";
 		private const string kAssignToCameoActorItemId = "AssignToCameoActor";
@@ -694,7 +694,7 @@ namespace Glyssen.Dialogs
 					//var cellBounds = m_characterGroupGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].GetContentBounds(e.RowIndex);
 					//e.CellStyle.ForeColor = cellBounds.Contains(this.PointToClient(Control.MousePosition))
 					//	? SystemColors.HotTrack : SystemColors.Highlight;
-					e.CellStyle.ForeColor = CustomColor.LinkColor;
+					e.CellStyle.ForeColor = GlyssenColorPalette.ColorScheme.LinkColor;
 					e.CellStyle.Font = m_hyperlinkFont;
 				}
 			}

@@ -1,12 +1,12 @@
 ﻿using System.Data;
+using System.Windows.Forms;
 using Glyssen.Character;
-using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
 {
-	public partial class NewCharacterDlg : CustomForm
+	public partial class NewCharacterDlg : Form
 	{
 		private readonly string m_characterId;
 

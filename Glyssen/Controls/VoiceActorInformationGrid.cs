@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Properties;
+using Glyssen.Utilities;
 using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.Reporting;
@@ -481,7 +482,7 @@ namespace Glyssen.Controls
 
 		private void SetBackgroundColorToAvoidScrollbarHangingBelowGrid()
 		{
-			m_dataGrid.BackgroundColor = (m_dataGrid.VScrollBar.Visible) ? SystemColors.Window : Color.FromArgb(0, 73, 108);
+			m_dataGrid.BackgroundColor = (m_dataGrid.VScrollBar.Visible) ? SystemColors.Window : GlyssenColorPalette.ColorScheme.BackColor;
 		}
 	}
 }

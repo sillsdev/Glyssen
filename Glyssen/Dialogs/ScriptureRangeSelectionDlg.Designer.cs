@@ -45,10 +45,12 @@
 			this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_ntBooksGrid)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_otBooksGrid)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.glyssenColorPalette)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// m_l10NSharpExtender
@@ -59,7 +61,9 @@
 			// m_btnOk
 			// 
 			this.m_btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.glyssenColorPalette.SetBackColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.glyssenColorPalette.SetForeColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnOk, "Common.OK");
@@ -68,13 +72,16 @@
 			this.m_btnOk.Size = new System.Drawing.Size(75, 23);
 			this.m_btnOk.TabIndex = 1;
 			this.m_btnOk.Text = "OK";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnOk, false);
 			this.m_btnOk.UseVisualStyleBackColor = true;
 			this.m_btnOk.Click += new System.EventHandler(this.BtnOk_Click);
 			// 
 			// m_btnCancel
 			// 
 			this.m_btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.glyssenColorPalette.SetBackColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.glyssenColorPalette.SetForeColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnCancel, "Common.Cancel");
@@ -83,6 +90,7 @@
 			this.m_btnCancel.Size = new System.Drawing.Size(75, 23);
 			this.m_btnCancel.TabIndex = 2;
 			this.m_btnCancel.Text = "Cancel";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnCancel, false);
 			this.m_btnCancel.UseVisualStyleBackColor = true;
 			// 
 			// m_ntBooksGrid
@@ -93,6 +101,7 @@
 			this.m_ntBooksGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.glyssenColorPalette.SetBackColor(this.m_ntBooksGrid, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_ntBooksGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.m_ntBooksGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.m_ntBooksGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -100,6 +109,7 @@
             this.VernacularBookName,
             this.IncludeInScript,
             this.MultiVoice});
+			this.glyssenColorPalette.SetForeColor(this.m_ntBooksGrid, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_ntBooksGrid, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_ntBooksGrid, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_ntBooksGrid, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -110,6 +120,7 @@
 			this.m_ntBooksGrid.RowHeadersVisible = false;
 			this.m_ntBooksGrid.Size = new System.Drawing.Size(356, 411);
 			this.m_ntBooksGrid.TabIndex = 3;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_ntBooksGrid, false);
 			this.m_ntBooksGrid.VirtualMode = true;
 			this.m_ntBooksGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BooksGrid_CellContentClick);
 			this.m_ntBooksGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.BooksGrid_CellFormatting);
@@ -151,8 +162,10 @@
 			// m_checkBoxNewTestament
 			// 
 			this.m_checkBoxNewTestament.AutoSize = true;
+			this.glyssenColorPalette.SetBackColor(this.m_checkBoxNewTestament, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_checkBoxNewTestament.Checked = true;
 			this.m_checkBoxNewTestament.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.glyssenColorPalette.SetForeColor(this.m_checkBoxNewTestament, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_checkBoxNewTestament, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_checkBoxNewTestament, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_checkBoxNewTestament, "DialogBoxes.ScriptureRangeSelectionDlg.NewTestament");
@@ -167,8 +180,10 @@
 			// m_checkBoxOldTestament
 			// 
 			this.m_checkBoxOldTestament.AutoSize = true;
+			this.glyssenColorPalette.SetBackColor(this.m_checkBoxOldTestament, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_checkBoxOldTestament.Checked = true;
 			this.m_checkBoxOldTestament.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.glyssenColorPalette.SetForeColor(this.m_checkBoxOldTestament, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_checkBoxOldTestament, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_checkBoxOldTestament, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_checkBoxOldTestament, "DialogBoxes.ScriptureRangeSelectionDlg.OldTestament");
@@ -188,6 +203,7 @@
 			this.m_otBooksGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.glyssenColorPalette.SetBackColor(this.m_otBooksGrid, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_otBooksGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.m_otBooksGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.m_otBooksGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -195,6 +211,7 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewCheckBoxColumn1,
             this.dataGridViewCheckBoxColumn2});
+			this.glyssenColorPalette.SetForeColor(this.m_otBooksGrid, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_otBooksGrid, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_otBooksGrid, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_otBooksGrid, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -205,6 +222,7 @@
 			this.m_otBooksGrid.RowHeadersVisible = false;
 			this.m_otBooksGrid.Size = new System.Drawing.Size(356, 411);
 			this.m_otBooksGrid.TabIndex = 6;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_otBooksGrid, false);
 			this.m_otBooksGrid.VirtualMode = true;
 			this.m_otBooksGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BooksGrid_CellContentClick);
 			this.m_otBooksGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.BooksGrid_CellFormatting);
@@ -248,6 +266,7 @@
 			this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.glyssenColorPalette.SetBackColor(this.tableLayoutPanel1, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.tableLayoutPanel1.ColumnCount = 2;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -255,6 +274,7 @@
 			this.tableLayoutPanel1.Controls.Add(this.m_checkBoxOldTestament, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.m_ntBooksGrid, 1, 1);
 			this.tableLayoutPanel1.Controls.Add(this.m_checkBoxNewTestament, 1, 0);
+			this.glyssenColorPalette.SetForeColor(this.tableLayoutPanel1, Glyssen.Utilities.GlyssenColors.Default);
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 2;
@@ -262,16 +282,19 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(724, 440);
 			this.tableLayoutPanel1.TabIndex = 4;
+			this.glyssenColorPalette.SetUsePaletteColors(this.tableLayoutPanel1, false);
 			// 
 			// ScriptureRangeSelectionDlg
 			// 
 			this.AcceptButton = this.m_btnOk;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.glyssenColorPalette.SetBackColor(this, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.ClientSize = new System.Drawing.Size(748, 502);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Controls.Add(this.m_btnCancel);
 			this.Controls.Add(this.m_btnOk);
+			this.glyssenColorPalette.SetForeColor(this, Glyssen.Utilities.GlyssenColors.Default);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.ScriptureRangeSelectionDlg.WindowTitle");
@@ -288,6 +311,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.m_otBooksGrid)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.glyssenColorPalette)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -310,5 +334,6 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
 		private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
 		private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
+		private Utilities.GlyssenColorPalette glyssenColorPalette;
 	}
 }

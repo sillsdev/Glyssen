@@ -38,16 +38,21 @@
 			this.m_btnOk = new System.Windows.Forms.Button();
 			this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash = new System.Windows.Forms.Label();
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
+			this.glyssenColorPalette1 = new Glyssen.Utilities.GlyssenColorPalette();
 			this.tableLayoutPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.glyssenColorPalette1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// m_lblOnlyNPercentOfExpectedQuotesFound
 			// 
 			this.m_lblOnlyNPercentOfExpectedQuotesFound.AutoSize = true;
+			this.glyssenColorPalette1.SetBackColor(this.m_lblOnlyNPercentOfExpectedQuotesFound, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette1.SetForeColor(this.m_lblOnlyNPercentOfExpectedQuotesFound, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_lblOnlyNPercentOfExpectedQuotesFound, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_lblOnlyNPercentOfExpectedQuotesFound, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_lblOnlyNPercentOfExpectedQuotesFound, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.OnlyNPercentFound");
+			this.l10NSharpExtender1.SetLocalizingId(this.m_lblOnlyNPercentOfExpectedQuotesFound, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.OnlyNPerce" +
+        "ntFound");
 			this.m_lblOnlyNPercentOfExpectedQuotesFound.Location = new System.Drawing.Point(3, 0);
 			this.m_lblOnlyNPercentOfExpectedQuotesFound.Name = "m_lblOnlyNPercentOfExpectedQuotesFound";
 			this.m_lblOnlyNPercentOfExpectedQuotesFound.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
@@ -58,9 +63,12 @@
 			// m_lblPossibleProblemsWithFirstLevelQuotes
 			// 
 			this.m_lblPossibleProblemsWithFirstLevelQuotes.AutoSize = true;
+			this.glyssenColorPalette1.SetBackColor(this.m_lblPossibleProblemsWithFirstLevelQuotes, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette1.SetForeColor(this.m_lblPossibleProblemsWithFirstLevelQuotes, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_lblPossibleProblemsWithFirstLevelQuotes, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_lblPossibleProblemsWithFirstLevelQuotes, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_lblPossibleProblemsWithFirstLevelQuotes, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.Level1Incorrect");
+			this.l10NSharpExtender1.SetLocalizingId(this.m_lblPossibleProblemsWithFirstLevelQuotes, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.Level1Inco" +
+        "rrect");
 			this.m_lblPossibleProblemsWithFirstLevelQuotes.Location = new System.Drawing.Point(3, 17);
 			this.m_lblPossibleProblemsWithFirstLevelQuotes.Name = "m_lblPossibleProblemsWithFirstLevelQuotes";
 			this.m_lblPossibleProblemsWithFirstLevelQuotes.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
@@ -72,9 +80,12 @@
 			// m_rdoUseSettings
 			// 
 			this.m_rdoUseSettings.AutoSize = true;
+			this.glyssenColorPalette1.SetBackColor(this.m_rdoUseSettings, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette1.SetForeColor(this.m_rdoUseSettings, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_rdoUseSettings, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_rdoUseSettings, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_rdoUseSettings, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.UseTheseSettings");
+			this.l10NSharpExtender1.SetLocalizingId(this.m_rdoUseSettings, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.UseTheseSe" +
+        "ttings");
 			this.m_rdoUseSettings.Location = new System.Drawing.Point(3, 156);
 			this.m_rdoUseSettings.Name = "m_rdoUseSettings";
 			this.m_rdoUseSettings.Size = new System.Drawing.Size(188, 17);
@@ -88,6 +99,7 @@
 			this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.glyssenColorPalette1.SetBackColor(this.tableLayoutPanel1, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.tableLayoutPanel1.ColumnCount = 1;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.Controls.Add(this.m_lblOnlyNPercentOfExpectedQuotesFound, 0, 0);
@@ -97,6 +109,7 @@
 			this.tableLayoutPanel1.Controls.Add(this.m_lblPossibleProblemsWithFirstLevelQuotes, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.m_btnOk, 0, 5);
 			this.tableLayoutPanel1.Controls.Add(this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash, 0, 2);
+			this.glyssenColorPalette1.SetForeColor(this.tableLayoutPanel1, Glyssen.Utilities.GlyssenColors.Default);
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 13);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 6;
@@ -110,13 +123,17 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(440, 191);
 			this.tableLayoutPanel1.TabIndex = 5;
+			this.glyssenColorPalette1.SetUsePaletteColors(this.tableLayoutPanel1, false);
 			// 
 			// m_lblDirectSpeechNotMarked
 			// 
 			this.m_lblDirectSpeechNotMarked.AutoSize = true;
+			this.glyssenColorPalette1.SetBackColor(this.m_lblDirectSpeechNotMarked, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette1.SetForeColor(this.m_lblDirectSpeechNotMarked, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_lblDirectSpeechNotMarked, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_lblDirectSpeechNotMarked, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_lblDirectSpeechNotMarked, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.DirectSpeechNotMarked");
+			this.l10NSharpExtender1.SetLocalizingId(this.m_lblDirectSpeechNotMarked, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.DirectSpee" +
+        "chNotMarked");
 			this.m_lblDirectSpeechNotMarked.Location = new System.Drawing.Point(3, 90);
 			this.m_lblDirectSpeechNotMarked.Name = "m_lblDirectSpeechNotMarked";
 			this.m_lblDirectSpeechNotMarked.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
@@ -128,10 +145,13 @@
 			// m_rdoReview
 			// 
 			this.m_rdoReview.AutoSize = true;
+			this.glyssenColorPalette1.SetBackColor(this.m_rdoReview, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_rdoReview.Checked = true;
+			this.glyssenColorPalette1.SetForeColor(this.m_rdoReview, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_rdoReview, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_rdoReview, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_rdoReview, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.LetMeReview");
+			this.l10NSharpExtender1.SetLocalizingId(this.m_rdoReview, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.LetMeRevie" +
+        "w");
 			this.m_rdoReview.Location = new System.Drawing.Point(3, 123);
 			this.m_rdoReview.Name = "m_rdoReview";
 			this.m_rdoReview.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
@@ -145,7 +165,9 @@
 			// 
 			this.m_btnOk.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.m_btnOk.AutoSize = true;
+			this.glyssenColorPalette1.SetBackColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.glyssenColorPalette1.SetForeColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnOk, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnOk, null);
 			this.l10NSharpExtender1.SetLocalizationPriority(this.m_btnOk, L10NSharp.LocalizationPriority.High);
@@ -155,14 +177,18 @@
 			this.m_btnOk.Size = new System.Drawing.Size(75, 14);
 			this.m_btnOk.TabIndex = 5;
 			this.m_btnOk.Text = "OK";
+			this.glyssenColorPalette1.SetUsePaletteColors(this.m_btnOk, false);
 			this.m_btnOk.UseVisualStyleBackColor = true;
 			// 
 			// m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash
 			// 
 			this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash.AutoSize = true;
+			this.glyssenColorPalette1.SetBackColor(this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette1.SetForeColor(this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.Level1ProbablyCorrect");
+			this.l10NSharpExtender1.SetLocalizingId(this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash, "DialogBoxes.QuotationMarksDlg.PercentageOfExpectedQuotesFoundTooLowDlg.Level1Prob" +
+        "ablyCorrect");
 			this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash.Location = new System.Drawing.Point(3, 47);
 			this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash.Name = "m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash";
 			this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
@@ -181,9 +207,11 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.glyssenColorPalette1.SetBackColor(this, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.ClientSize = new System.Drawing.Size(464, 216);
 			this.ControlBox = false;
 			this.Controls.Add(this.tableLayoutPanel1);
+			this.glyssenColorPalette1.SetForeColor(this, Glyssen.Utilities.GlyssenColors.Default);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this, null);
@@ -199,6 +227,7 @@
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.glyssenColorPalette1)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -214,5 +243,6 @@
 		private System.Windows.Forms.RadioButton m_rdoReview;
 		private System.Windows.Forms.Label m_lblDirectSpeechNotMarked;
 		private System.Windows.Forms.Label m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash;
+		private Utilities.GlyssenColorPalette glyssenColorPalette1;
 	}
 }

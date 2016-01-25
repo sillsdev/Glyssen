@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
-using Glyssen.Utilities;
 using L10NSharp;
 
 namespace Glyssen.Dialogs
 {
-	public partial class NarrationOptionsDlg : CustomForm
+	public partial class NarrationOptionsDlg : Form
 	{
 		private readonly Project m_project;
 		private readonly int m_includedBooksCount;

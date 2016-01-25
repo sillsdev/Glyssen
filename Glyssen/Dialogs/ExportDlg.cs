@@ -10,7 +10,7 @@ using SIL.Reporting;
 
 namespace Glyssen.Dialogs
 {
-	public partial class ExportDlg : CustomForm
+	public partial class ExportDlg : Form
 	{
 		private readonly ProjectExporter m_projectExporter;
 		private ExportFileType m_selectedFileType = ExportFileType.Excel;
@@ -19,6 +19,8 @@ namespace Glyssen.Dialogs
 		private string m_defaultDirectory;
 		private string m_actorDirectoryFmt;
 		private string m_bookDirectoryFmt;
+		private string m_clipListFileFmt;
+		private string m_recordingScriptFileNameSuffix;
 
 		public ExportDlg(ProjectExporter projectExporter)
 		{
@@ -33,9 +35,9 @@ namespace Glyssen.Dialogs
 			if (string.IsNullOrWhiteSpace(m_defaultDirectory))
 				m_defaultDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 			string defaultFileName = m_projectExporter.Project.PublicationName + " " +
-				LocalizationManager.GetString("DialogBoxes.ExportDlg.RecordingScriptFileNameDefaultSuffix", "Recording Script") +
-				ProjectExporter.GetFileExtension(m_selectedFileType);
+				m_recordingScriptFileNameSuffix + ProjectExporter.GetFileExtension(m_selectedFileType);
 			m_lblFileName.Text = Path.Combine(m_defaultDirectory, defaultFileName);
+
 			UpdateDisplay();
 		}
 
@@ -44,6 +46,9 @@ namespace Glyssen.Dialogs
 			m_lblDescription.Text = string.Format(m_lblDescription.Text, ProductName);
 			m_actorDirectoryFmt = m_lblActorDirectory.Text;
 			m_bookDirectoryFmt = m_lblBookDirectory.Text;
+			m_clipListFileFmt = m_lblClipListFilename.Text;
+			m_recordingScriptFileNameSuffix =
+				LocalizationManager.GetString("DialogBoxes.ExportDlg.RecordingScriptFileNameDefaultSuffix", "Recording Script");
 		}
 
 		private void UpdateDisplay()
@@ -52,6 +57,7 @@ namespace Glyssen.Dialogs
 
 			UpdateActorDisplay();
 			UpdateBookDisplay();
+			UpdateClipListDisplay();
 		}
 
 		private void UpdateActorDisplay()
@@ -90,6 +96,42 @@ namespace Glyssen.Dialogs
 			{
 				m_lblBookDirectory.Visible = false;
 				m_lblBookDirectoryExists.Visible = false;
+			}
+		}
+
+		private void UpdateClipListDisplay()
+		{
+			if (!m_projectExporter.IncludeVoiceActors)
+			{
+				m_checkIncludeClipListFile.Checked = false;
+				m_checkIncludeClipListFile.Visible = false;
+				m_lblClipListFilename.Visible = false;
+				m_lblClipListFileExists.Visible = false;
+			}
+			else if (m_checkIncludeClipListFile.Checked)
+			{
+				var folder = Path.GetDirectoryName(m_lblFileName.Text) ?? string.Empty;
+				var filename = Path.GetFileNameWithoutExtension(m_lblFileName.Text) ?? m_projectExporter.Project.PublicationName;
+
+				var clipListFilenameSuffix = LocalizationManager.GetString("DialogBoxes.ExportDlg.ClipListFileNameSuffix",
+					"Clip List");
+
+				if (filename.Contains(m_recordingScriptFileNameSuffix))
+					filename = filename.Replace(m_recordingScriptFileNameSuffix, clipListFilenameSuffix);
+				else
+					filename += " " + clipListFilenameSuffix;
+
+				filename += ProjectExporter.kExcelFileExtension;
+
+				m_lblClipListFilename.Text = string.Format(m_clipListFileFmt, Path.Combine(folder, filename));
+
+				m_lblClipListFilename.Visible = true;
+				m_lblClipListFileExists.Visible = File.Exists(m_checkIncludeClipListFile.Text);
+			}
+			else
+			{
+				m_lblClipListFilename.Visible = false;
+				m_lblClipListFileExists.Visible = false;				
 			}
 		}
 
@@ -141,9 +183,14 @@ namespace Glyssen.Dialogs
 			UpdateBookDisplay();
 		}
 
+		private void CheckIncludeClipListFile_CheckedChanged(object sender, EventArgs e)
+		{
+			UpdateClipListDisplay();
+		}
+
 		private void BtnOk_Click(object sender, EventArgs e)
 		{
-			if (m_lblFileExists.Visible || m_lblActorDirectoryExists.Visible || m_lblBookDirectoryExists.Visible)
+			if (m_lblFileExists.Visible || m_lblActorDirectoryExists.Visible || m_lblBookDirectoryExists.Visible || m_lblClipListFileExists.Visible)
 			{
 				string text = LocalizationManager.GetString("DialogBoxes.ExportDlg.ConfirmOverwrite.Text", "Are you sure you want to overwrite the existing files?");
 				string caption = LocalizationManager.GetString("DialogBoxes.ExportDlg.ConfirmOverwrite.Caption", "Overwrite?");

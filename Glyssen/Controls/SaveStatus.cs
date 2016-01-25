@@ -31,13 +31,23 @@ namespace Glyssen.Controls
 			m_savingLongWaitLabelFmt = LocalizationManager.GetString("Common.SaveStatus.SavingLongWait", "Saving... (taking longer than expected)");
 		}
 
-		public Color BackgroundColor
+		public override Color BackColor
 		{
-			get { return BackColor; }
+			get { return base.BackColor; }
 			set
 			{
-				BackColor = value;
+				base.BackColor = value;
 				m_lbl.BackColor = value;
+			}
+		}
+
+		public override Color ForeColor
+		{
+			get { return base.ForeColor; }
+			set
+			{
+				base.ForeColor = value;
+				m_lbl.ForeColor = value;
 			}
 		}
 
@@ -119,13 +129,13 @@ namespace Glyssen.Controls
 		private void ShowSaving()
 		{
 			m_lbl.Text = m_savingLabelFmt;
-			m_lbl.ForeColor = CustomColor.Highlight1;
+			ForeColor = GlyssenColorPalette.ColorScheme.Highlight1;
 		}
 
 		private void ShowSaved()
 		{
 			m_lbl.Text = string.Format(m_justSavedLabelFmt, DateTime.Now);
-			m_lbl.ForeColor = CustomColor.Highlight2;
+			ForeColor = GlyssenColorPalette.ColorScheme.Highlight2;
 
 			if (m_timer != null)
 				m_timer.Close();
@@ -139,13 +149,13 @@ namespace Glyssen.Controls
 					m_lbl.BeginInvoke((MethodInvoker)(() =>
 					{
 						m_lbl.Text = m_savedLabelFmt;
-						m_lbl.ForeColor = CustomColor.ForeColor;
+						ForeColor = GlyssenColorPalette.ColorScheme.ForeColor;
 					}));
 				}
 				else
 				{
 					m_lbl.Text = m_savedLabelFmt;
-					m_lbl.ForeColor = CustomColor.ForeColor;
+					ForeColor = GlyssenColorPalette.ColorScheme.ForeColor;
 				}
 			});
 			m_timer.Enabled = true;
@@ -155,7 +165,7 @@ namespace Glyssen.Controls
 		private void ShowSavingLongWait()
 		{
 			m_lbl.Text = m_savingLongWaitLabelFmt;
-			m_lbl.ForeColor = CustomColor.Highlight3;
+			ForeColor = GlyssenColorPalette.ColorScheme.Highlight3;
 		}
 	}
 }
