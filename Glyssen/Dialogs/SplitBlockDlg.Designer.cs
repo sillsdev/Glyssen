@@ -48,10 +48,10 @@
 			// m_lblInstructions
 			// 
 			this.m_lblInstructions.AutoSize = true;
-			this.m_lblInstructions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.glyssenColorPalette.SetBackColor(this.m_lblInstructions, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_lblInstructions.BackColor = System.Drawing.SystemColors.Control;
+			this.m_lblInstructions.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_lblInstructions, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblInstructions.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblInstructions, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblInstructions, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblInstructions, "DialogBoxes.SplitBlockDlg.ClickSplitLocation");
@@ -60,12 +60,14 @@
 			this.m_lblInstructions.Size = new System.Drawing.Size(249, 13);
 			this.m_lblInstructions.TabIndex = 2;
 			this.m_lblInstructions.Text = "Click the location where you want to split the block.";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblInstructions, true);
 			// 
 			// m_btnCancel
 			// 
 			this.m_btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.glyssenColorPalette.SetBackColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancel, null);
@@ -85,6 +87,7 @@
 			this.glyssenColorPalette.SetBackColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.m_btnOk.Enabled = false;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
@@ -103,8 +106,9 @@
 			this.m_lblInvalidSplitLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.m_lblInvalidSplitLocation.AutoSize = true;
 			this.glyssenColorPalette.SetBackColor(this.m_lblInvalidSplitLocation, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.m_lblInvalidSplitLocation, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_lblInvalidSplitLocation.BackColor = System.Drawing.SystemColors.Control;
 			this.m_lblInvalidSplitLocation.ForeColor = System.Drawing.Color.Red;
+			this.glyssenColorPalette.SetForeColor(this.m_lblInvalidSplitLocation, Glyssen.Utilities.GlyssenColors.Warning);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblInvalidSplitLocation, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblInvalidSplitLocation, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblInvalidSplitLocation, "DialogBoxes.SplitBlockDlg.InvalidSplitLocation");
@@ -113,7 +117,7 @@
 			this.m_lblInvalidSplitLocation.Size = new System.Drawing.Size(165, 13);
 			this.m_lblInvalidSplitLocation.TabIndex = 5;
 			this.m_lblInvalidSplitLocation.Text = "This is not a valid location to split.";
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblInvalidSplitLocation, false);
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblInvalidSplitLocation, true);
 			this.m_lblInvalidSplitLocation.Visible = false;
 			// 
 			// m_blocksDisplayBrowser
@@ -122,11 +126,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_blocksDisplayBrowser.AutoSize = true;
-			this.m_blocksDisplayBrowser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_blocksDisplayBrowser.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_blocksDisplayBrowser, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_blocksDisplayBrowser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.m_blocksDisplayBrowser.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_blocksDisplayBrowser, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_blocksDisplayBrowser.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksDisplayBrowser, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksDisplayBrowser, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksDisplayBrowser, "DialogBoxes.SplitBlockDlg.Browser");
@@ -134,6 +138,7 @@
 			this.m_blocksDisplayBrowser.Name = "m_blocksDisplayBrowser";
 			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(505, 263);
 			this.m_blocksDisplayBrowser.TabIndex = 1;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_blocksDisplayBrowser, true);
 			this.m_blocksDisplayBrowser.OnMouseClick += new System.EventHandler<Gecko.DomMouseEventArgs>(this.InsertSplitLocation);
 			// 
 			// SplitBlockDlg
@@ -161,6 +166,7 @@
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Split Block";
+			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.glyssenColorPalette)).EndInit();
 			this.ResumeLayout(false);
