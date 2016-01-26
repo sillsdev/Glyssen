@@ -34,6 +34,7 @@ namespace Glyssen.Utilities
 				case GlyssenColors.VisitedLinkColor: return ColorScheme.VisitedLinkColor;
 				case GlyssenColors.MouseDownBackColor: return ColorScheme.MouseDownBackColor;
 				case GlyssenColors.MouseOverBackColor: return ColorScheme.MouseOverBackColor;
+				case GlyssenColors.Warning: return ColorScheme.Warning;
 				case GlyssenColors.Default: return Color.Aqua; // This should never happen!
 				default: throw new ArgumentException("Unexpected Glyssen color " + glyssenColor);
 			}

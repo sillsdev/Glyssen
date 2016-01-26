@@ -61,5 +61,6 @@ namespace Glyssen.Utilities
 		VisitedLinkColor,
 		MouseDownBackColor,
 		MouseOverBackColor,
+		Warning,
 	}
 }
