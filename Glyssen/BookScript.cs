@@ -7,6 +7,7 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using SIL.ObjectModel;
 using SIL.Scripture;
+using Utilities;
 using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen
@@ -95,7 +96,7 @@ namespace Glyssen
 				if (!block.IsParagraphStart)
 				{
 					var prevBlock = list.Last();
-					if (block.CharacterIdInScript == prevBlock.CharacterIdInScript && block.Delivery == prevBlock.Delivery)
+					if (block.CharacterIdInScript == prevBlock.CharacterIdInScript && (block.Delivery ?? string.Empty) == (prevBlock.Delivery ?? String.Empty))
 					{
 						var newBlock = prevBlock.Clone();
 						foreach (var blockElement in block.BlockElements)

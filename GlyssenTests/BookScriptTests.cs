@@ -328,6 +328,7 @@ namespace GlyssenTests
 
 			block = NewBlock(" the rest of verse 2. ");
 			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.Delivery = ""; // There was a bug in which null and blank delivery were not considered the same, thus causing blocks not to combine
 			mrkBlocks.Add(block.AddVerse(3));
 
 			block = NewSingleVersePara(4).AddVerse(5);
