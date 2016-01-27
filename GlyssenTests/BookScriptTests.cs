@@ -1408,6 +1408,77 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void SplitBlock_SplitInMiddleOfMultiBlockStart_FirstPartIsNoneAndSecondPartIsStart()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+
+			var blockToSplit = NewSingleVersePara(1, "Original start block. ");
+			blockToSplit.MultiBlockQuote = MultiBlockQuote.Start;
+			mrkBlocks.Add(blockToSplit);
+
+			var continuationBlock = NewSingleVersePara(2, "Original continuation block. ");
+			continuationBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
+			mrkBlocks.Add(continuationBlock);
+
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "1", 8);
+
+			Assert.AreEqual(MultiBlockQuote.None, blockToSplit.MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Start, newBlock.MultiBlockQuote);
+		}
+
+		[Test]
+		public void SplitBlock_SplitInMiddleOfMultiBlockContinuationFollowedByContinuationBlock_FirstPartIsContinuationAndSecondPartIsStart()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+
+			var startBlock = NewSingleVersePara(1, "Original start block. ");
+			startBlock.MultiBlockQuote = MultiBlockQuote.Start;
+			mrkBlocks.Add(startBlock);
+
+			var blockToSplit = NewSingleVersePara(2, "Original continuation block (first). ");
+			blockToSplit.MultiBlockQuote = MultiBlockQuote.Continuation;
+			mrkBlocks.Add(blockToSplit);
+
+			var nextContinuationBlock = NewSingleVersePara(3, "Original continuation block (second). ");
+			nextContinuationBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
+			mrkBlocks.Add(nextContinuationBlock);
+
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "2", 8);
+
+			Assert.AreEqual(MultiBlockQuote.Continuation, blockToSplit.MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Start, newBlock.MultiBlockQuote);
+		}
+
+		[Test]
+		public void SplitBlock_SplitInMiddleOfMultiBlockContinuationFollowedByNoneBlock_FirstPartIsContinuationAndSecondPartIsNone()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+
+			var startBlock = NewSingleVersePara(1, "Original start block. ");
+			startBlock.MultiBlockQuote = MultiBlockQuote.Start;
+			mrkBlocks.Add(startBlock);
+
+			var blockToSplit = NewSingleVersePara(2, "Original continuation block. ");
+			blockToSplit.MultiBlockQuote = MultiBlockQuote.Continuation;
+			mrkBlocks.Add(blockToSplit);
+
+			var noneBlock = NewSingleVersePara(3, "Original none block. ");
+			noneBlock.MultiBlockQuote = MultiBlockQuote.None;
+			mrkBlocks.Add(noneBlock);
+
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "2", 8);
+
+			Assert.AreEqual(MultiBlockQuote.Continuation, blockToSplit.MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, newBlock.MultiBlockQuote);
+		}
+
+		[Test]
 		public void SplitBlock_BothBlocksHaveOriginalCharacterIdAndUserConfirmed()
 		{
 			var mrkBlocks = new List<Block>();

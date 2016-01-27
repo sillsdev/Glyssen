@@ -712,6 +712,9 @@ namespace Glyssen
 				const int kControlFileVersionWhenOnTheFlyAssignmentOfCharacterIdInScriptBegan = 78;
 				new CharacterAssigner(new CombinedCharacterVerseData(this)).AssignAll(m_books, Versification,
 					m_metadata.ControlFileVersion < kControlFileVersionWhenOnTheFlyAssignmentOfCharacterIdInScriptBegan);
+
+				ProjectDataMigrator.MigrateProjectData(this, m_metadata.ControlFileVersion);
+
 				m_metadata.ControlFileVersion = controlFileVersion;
 			}
 			UpdatePercentInitialized();

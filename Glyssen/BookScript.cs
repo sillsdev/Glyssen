@@ -531,6 +531,17 @@ namespace Glyssen
 					blockToSplit.BlockElements.RemoveAt(indexOfFirstElementToRemove);
 			}
 
+			if (blockToSplit.MultiBlockQuote == MultiBlockQuote.Start)
+			{
+				blockToSplit.MultiBlockQuote = MultiBlockQuote.None;
+				newBlock.MultiBlockQuote = MultiBlockQuote.Start;
+			}
+			else if (blockToSplit.MultiBlockQuote == MultiBlockQuote.Continuation &&
+				iBlock < m_blockCount - 2 && m_blocks[iBlock + 2].MultiBlockQuote == MultiBlockQuote.Continuation)
+			{
+				newBlock.MultiBlockQuote = MultiBlockQuote.Start;
+			}
+
 			blockToSplit.SplitId = newBlock.SplitId = splitId;
 
 			return newBlock;
