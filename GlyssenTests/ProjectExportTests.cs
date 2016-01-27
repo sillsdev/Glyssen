@@ -1,11 +1,43 @@
-﻿using Glyssen;
+﻿using System.Collections.Generic;
+using Glyssen;
+using Glyssen.Character;
 using NUnit.Framework;
+using SIL.ObjectModel;
 
 namespace GlyssenTests
 {
 	[TestFixture]
 	class ProjectExportTests
 	{
+		[Test]
+		public void GetExportData_NoActorsAssigned_ActorColumnNotPresent()
+		{
+			var project = TestProject.CreateBasicTestProject();
+			var exporter = new ProjectExporter(project);
+			var data = exporter.GetExportData();
+			Assert.True(data.TrueForAll(t => t.Item3.Count == 9));
+		}
+
+		[Test]
+		public void GetExportData_SomeButNotAllActorsAssigned_AllColumnsPresent()
+		{
+			var project = TestProject.CreateBasicTestProject();
+			project.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor>
+			{
+				new Glyssen.VoiceActor.VoiceActor { Id = 1 }
+			};
+			project.CharacterGroupList.CharacterGroups = new BulkObservableList<CharacterGroup>
+			{
+				new CharacterGroup(project),
+				new CharacterGroup(project)
+			};
+			project.CharacterGroupList.CharacterGroups[0].AssignVoiceActor(1);
+
+			var exporter = new ProjectExporter(project);
+			var data = exporter.GetExportData();
+			Assert.True(data.TrueForAll(t => t.Item3.Count == 10));
+		}
+
 		[Test]
 		public void GetTabSeparatedLine_GetExportDataForBlock_VerseAndTextElements_ExpectedColumnsIncludingJoinedText()
 		{
