@@ -403,7 +403,7 @@ namespace Glyssen
 			var model = new BlockNavigatorViewModel(new ReadOnlyList<BookScript>(new[] { this }), versification);
 			foreach (var blockToChange in GetScriptBlocks()
 				.Where(b => b.MultiBlockQuote == MultiBlockQuote.Start)
-				.Select(block => model.GetAllBlocksWithSameQuote(block))
+				.Select(block => model.GetAllBlocksWhichContinueThisQuote(block))
 				.Where(blocks => blocks.Select(b => b.CharacterId).Distinct().Count() > 1)
 				.SelectMany(blocks => blocks))
 			{

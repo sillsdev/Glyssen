@@ -257,7 +257,7 @@ namespace Glyssen
 
 		public override string ToString()
 		{
-			return string.IsNullOrEmpty(CharacterId) ? GetText(true) : string.Format("{0}: {1}", CharacterId, GetText(true));
+			return string.IsNullOrEmpty(CharacterId) ? GetText(true) : string.Format("{0}: ({1}) {2}", CharacterId, MultiBlockQuote.ShortName(), GetText(true));
 		}
 
 		/// <summary>

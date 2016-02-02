@@ -154,9 +154,9 @@ namespace Glyssen.Dialogs
 		private void UpdateDisplay()
 		{
 			var blockRef = m_viewModel.GetBlockVerseRef();
-			int versesInBlock = m_viewModel.CurrentBlock.LastVerse - blockRef.VerseNum;
+			int versesInSelection = m_viewModel.GetLastVerseInCurrentQuote() - blockRef.VerseNum;
 			var displayedRefMinusBlockStartRef = m_scriptureReference.VerseControl.VerseRef.BBBCCCVVV - blockRef.BBBCCCVVV;
-			if (displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInBlock)
+			if (displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInSelection)
 				m_scriptureReference.VerseControl.VerseRef = m_viewModel.GetBlockVerseRef();
 			m_labelXofY.Visible = m_viewModel.IsCurrentBlockRelevant;
 			Debug.Assert(m_viewModel.RelevantBlockCount >= m_viewModel.CurrentBlockDisplayIndex);
@@ -677,7 +677,7 @@ namespace Glyssen.Dialogs
 
 		private void HandleSplitBlocksClick(object sender, EventArgs e)
 		{
-			using (var dlg = new SplitBlockDlg(m_viewModel, m_viewModel.GetAllBlocksWithSameQuote(m_viewModel.CurrentBlock)))
+			using (var dlg = new SplitBlockDlg(m_viewModel, m_viewModel.GetAllBlocksWhichContinueThisQuote(m_viewModel.CurrentBlock)))
 			{
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{

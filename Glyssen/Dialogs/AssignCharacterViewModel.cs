@@ -317,7 +317,7 @@ namespace Glyssen.Dialogs
 				OnAssignedBlocksIncremented();
 			}
 
-			foreach (Block block in GetAllBlocksWithSameQuote(CurrentBlock))
+			foreach (Block block in GetAllBlocksWhichContinueThisQuote(CurrentBlock))
 				SetCharacterAndDelivery(block, selectedCharacter, selectedDelivery);
 
 			m_project.SaveBook(CurrentBook);

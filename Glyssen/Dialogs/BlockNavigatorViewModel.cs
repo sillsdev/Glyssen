@@ -311,7 +311,7 @@ namespace Glyssen.Dialogs
 
 		private string BuildCurrentBlockHtml()
 		{
-			return BuildHtml(GetAllBlocksWithSameQuote(CurrentBlock));
+			return BuildHtml(GetAllBlocksWhichContinueThisQuote(CurrentBlock));
 		}
 
 		private string BuildContextBlocksHtml(IEnumerable<Block> blocks)
@@ -320,7 +320,7 @@ namespace Glyssen.Dialogs
 			foreach (Block block in blocks)
 			{
 				bldr.Append("<div class=\"").Append(kCssClassContext).Append("\" ").Append(kDataCharacter).Append("=\"").Append(block.CharacterId).Append("\">");
-				foreach (Block innerBlock in GetAllBlocksWithSameQuote(block))
+				foreach (Block innerBlock in GetAllBlocksWhichContinueThisQuote(block))
 					bldr.Append(BuildHtml(innerBlock));
 				bldr.Append("</div>");
 				if (block.MultiBlockQuote != MultiBlockQuote.Continuation && block.MultiBlockQuote != MultiBlockQuote.ChangeOfDelivery)
@@ -336,13 +336,13 @@ namespace Glyssen.Dialogs
 		#endregion
 
 		#region Methods for dealing with multi-block quotes
-		public IEnumerable<Block> GetAllBlocksWithSameQuote(Block baseLineBlock)
+		public IEnumerable<Block> GetAllBlocksWhichContinueThisQuote(Block firstBlock)
 		{
-			switch (baseLineBlock.MultiBlockQuote)
+			switch (firstBlock.MultiBlockQuote)
 			{
 				case MultiBlockQuote.Start:
-					yield return baseLineBlock;
-					foreach (var i in GetIndicesOfQuoteContinuationBlocks(baseLineBlock))
+					yield return firstBlock;
+					foreach (var i in GetIndicesOfQuoteContinuationBlocks(firstBlock))
 						yield return m_navigator.CurrentBook[i];
 					break;
 				case MultiBlockQuote.Continuation:
@@ -351,7 +351,7 @@ namespace Glyssen.Dialogs
 					break;
 				default:
 					// Not part of a multi-block quote. Just return the base-line block
-					yield return baseLineBlock;
+					yield return firstBlock;
 					break;
 			}
 		}
@@ -389,6 +389,19 @@ namespace Glyssen.Dialogs
 			if (targetVersification != null)
 				verseRef.ChangeVersification(targetVersification);
 			return verseRef;
+		}
+
+		public int GetLastVerseInCurrentQuote()
+		{
+			return GetLastBlockInCurrentQuote().LastVerse;
+		}
+
+		public Block GetLastBlockInCurrentQuote()
+		{
+			if (CurrentBlock.MultiBlockQuote == MultiBlockQuote.None)
+				return CurrentBlock;
+
+			return m_navigator.PeekForwardWithinBookWhile(b => b.MultiBlockQuote != MultiBlockQuote.None && b.MultiBlockQuote != MultiBlockQuote.Start).Last();
 		}
 		#endregion
 
@@ -518,6 +531,11 @@ namespace Glyssen.Dialogs
 		protected BookBlockIndices GetCurrentBlockIndices()
 		{
 			return m_navigator.GetIndices();
+		}
+
+		internal BookBlockIndices GetBlockIndices(Block block)
+		{
+			return m_navigator.GetIndicesOfSpecificBlock(block);
 		}
 
 		public static int GetIndexOfClosestRelevantBlock(List<BookBlockIndices> list, BookBlockIndices key, bool prev,

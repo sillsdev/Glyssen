@@ -12,6 +12,7 @@ namespace GlyssenTests
 	{
 		private List<BookScript> m_books;
 		private BlockNavigator m_navigator;
+		private BlockNavigator m_navigatorForMultiBlockTests;
 
 		[SetUp]
 		public void SetUp()
@@ -28,6 +29,16 @@ namespace GlyssenTests
 			m_books = new List<BookScript> { bookScriptA, bookScriptB };
 
 			m_navigator = new BlockNavigator(m_books);
+
+			var blockH = new Block("ip") { MultiBlockQuote = MultiBlockQuote.None };
+			var blockI = new Block("p", 1, 1) { MultiBlockQuote = MultiBlockQuote.Start };
+			var blockJ = new Block("p", 1, 1) { MultiBlockQuote = MultiBlockQuote.Continuation };
+			var blockK = new Block("p", 1, 2) { MultiBlockQuote = MultiBlockQuote.Continuation };
+			var blockL = new Block("p", 1, 2) { MultiBlockQuote = MultiBlockQuote.None };
+			var bookScriptJud = new BookScript("JUD", new List<Block> { blockH, blockI, blockJ, blockK, blockL });
+			var bookList = new List<BookScript> { bookScriptJud };
+
+			m_navigatorForMultiBlockTests = new BlockNavigator(bookList);
 		}
 
 		[Test]
@@ -575,6 +586,22 @@ namespace GlyssenTests
 			var result = m_navigator.GetIndicesOfFirstBlockAtReference(new VerseRef(BCVRef.BookToNumber("ROM"), 5, 7));
 			Assert.AreEqual(1, result.BookIndex);
 			Assert.AreEqual(2, result.BlockIndex);
+		}
+
+		[Test]
+		public void GetIndicesOfFirstBlockAtReference_MultiBlockAtSameReference_ReturnsIndicesForFirstStartBlock()
+		{
+			var result = m_navigatorForMultiBlockTests.GetIndicesOfFirstBlockAtReference(new VerseRef(BCVRef.BookToNumber("JUD"), 1, 1));
+			Assert.AreEqual(0, result.BookIndex);
+			Assert.AreEqual(1, result.BlockIndex);
+		}
+
+		[Test]
+		public void GetIndicesOfFirstBlockAtReference_MultiBlockAtDifferentReference_ReturnsIndicesForFirstStartBlock()
+		{
+			var result = m_navigatorForMultiBlockTests.GetIndicesOfFirstBlockAtReference(new VerseRef(BCVRef.BookToNumber("JUD"), 1, 2));
+			Assert.AreEqual(0, result.BookIndex);
+			Assert.AreEqual(1, result.BlockIndex);
 		}
 
 	}

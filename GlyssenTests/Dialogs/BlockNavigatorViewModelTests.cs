@@ -391,6 +391,22 @@ namespace GlyssenTests.Dialogs
 			Assert.IsFalse(m_model.GetIsBlockScripture(0));
 		}
 
+		[Test]
+		public void GetLastBlockInCurrentQuote()
+		{
+			m_model.Mode = BlocksToDisplay.AllScripture;
+			while (m_model.CurrentBlock.MultiBlockQuote != MultiBlockQuote.Start)
+				m_model.LoadNextRelevantBlock();
+
+			var lastBlock = m_model.GetLastBlockInCurrentQuote();
+			Assert.AreNotEqual(lastBlock, m_model.CurrentBlock);
+			Assert.AreEqual(lastBlock.MultiBlockQuote, MultiBlockQuote.Continuation);
+
+			m_model.LoadNextRelevantBlock(); // Goes to next block not in this multiblock quote
+
+			Assert.AreEqual(m_model.GetBlockIndices(lastBlock).BlockIndex, m_model.CurrentBlockIndexInBook - 1);
+		}
+
 		private void FindRefInMark(int chapter, int verse)
 		{
 			while (m_model.CurrentBlock.ChapterNumber <= chapter && m_model.CurrentBlock.InitialStartVerseNumber != verse)

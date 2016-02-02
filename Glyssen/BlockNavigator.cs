@@ -105,8 +105,14 @@ namespace Glyssen
 			if (bookIndex == -1 || book == null)
 				return null;
 
-			var blockIndex = book.Blocks.IndexOf(
+			var block = book.Blocks.FirstOrDefault(
 				a => a.ChapterNumber == verseRef.ChapterNum && a.InitialStartVerseNumber <= verseRef.VerseNum && a.LastVerse >= verseRef.VerseNum);
+			if (block == null)
+				return null;
+
+			int blockIndex = book.Blocks.IndexOf(block);
+			if (block.MultiBlockQuote == MultiBlockQuote.Continuation || block.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
+				blockIndex = book.Blocks.FindLastIndex(blockIndex, b => b.MultiBlockQuote == MultiBlockQuote.Start);
 
 			return blockIndex == -1 ? null : new BookBlockIndices(bookIndex, blockIndex);
 		}
