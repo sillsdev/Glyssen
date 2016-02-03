@@ -76,7 +76,6 @@ namespace Glyssen.Dialogs
 		private void DataGrid_RowCountChanged(object sender, EventArgs e)
 		{
 			m_btnNext.Enabled = m_dataGrid.RowCount > 1;
-			m_btnOk.Enabled = m_dataGrid.RowCount > 1;
 		}
 
 		private void BtnNext_Click(object sender, EventArgs e)

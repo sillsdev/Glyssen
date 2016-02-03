@@ -420,6 +420,9 @@ namespace Glyssen.Dialogs
 
 		private void m_characterGroupGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
+			// ignore clicks on the header row
+			if (e.RowIndex < 0) return;
+
 			if (e.RowIndex >= m_actorAssignmentViewModel.CharacterGroups.Count || e.ColumnIndex != CharacterIdsCol.Index)
 				return;
 			var group = m_actorAssignmentViewModel.CharacterGroups[e.RowIndex];
@@ -803,15 +806,13 @@ namespace Glyssen.Dialogs
 
 			// We generally want to sort ascending unless it already was ascending, but for estimated
 			// hours, we want descending to be the default.
-			bool sortAscending = (clickedColumn == EstimatedHoursCol) ? (clickedColumn.HeaderCell.SortGlyphDirection == SortOrder.Descending) :
+			var sortAscending = (clickedColumn == EstimatedHoursCol) ? (clickedColumn.HeaderCell.SortGlyphDirection == SortOrder.Descending) :
 				(clickedColumn.HeaderCell.SortGlyphDirection != SortOrder.Ascending);
-			if (sortAscending)
+
+			foreach (var column in m_characterGroupGrid.Columns.OfType<DataGridViewColumn>())
 			{
-				foreach (var column in m_characterGroupGrid.Columns.OfType<DataGridViewColumn>())
-				{
-					if (column != clickedColumn)
-						column.HeaderCell.SortGlyphDirection = SortOrder.None;
-				}
+				if (column != clickedColumn)
+					column.HeaderCell.SortGlyphDirection = SortOrder.None;
 			}
 
 			SortByColumn(clickedColumn, sortAscending);
