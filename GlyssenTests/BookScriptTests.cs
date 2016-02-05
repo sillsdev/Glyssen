@@ -6,6 +6,7 @@ using System.Text;
 using Glyssen;
 using Glyssen.Character;
 using NUnit.Framework;
+using Paratext;
 using SIL.Xml;
 
 namespace GlyssenTests
@@ -1408,8 +1409,9 @@ namespace GlyssenTests
 			Assert.AreEqual(MultiBlockQuote.None, blockToSplitBefore.MultiBlockQuote);
 		}
 
-		[Test]
-		public void SplitBlock_SplitInMiddleOfMultiBlockStart_FirstPartIsNoneAndSecondPartIsStart()
+		[TestCase(MultiBlockQuote.Continuation)]
+		[TestCase(MultiBlockQuote.ChangeOfDelivery)]
+		public void SplitBlock_SplitInMiddleOfMultiBlockStart_FirstPartIsNoneAndSecondPartIsStart(MultiBlockQuote continuingStatus)
 		{
 			var mrkBlocks = new List<Block>();
 			mrkBlocks.Add(NewChapterBlock(1));
@@ -1419,7 +1421,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(blockToSplit);
 
 			var continuationBlock = NewSingleVersePara(2, "Original continuation block. ");
-			continuationBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
+			continuationBlock.MultiBlockQuote = continuingStatus;
 			mrkBlocks.Add(continuationBlock);
 
 			var bookScript = new BookScript("MRK", mrkBlocks);
@@ -1429,8 +1431,11 @@ namespace GlyssenTests
 			Assert.AreEqual(MultiBlockQuote.Start, newBlock.MultiBlockQuote);
 		}
 
-		[Test]
-		public void SplitBlock_SplitInMiddleOfMultiBlockContinuationFollowedByContinuationBlock_FirstPartIsContinuationAndSecondPartIsStart()
+		[TestCase(MultiBlockQuote.Continuation, MultiBlockQuote.ChangeOfDelivery)]
+		[TestCase(MultiBlockQuote.ChangeOfDelivery, MultiBlockQuote.ChangeOfDelivery)]
+		[TestCase(MultiBlockQuote.Continuation, MultiBlockQuote.Continuation)]
+		[TestCase(MultiBlockQuote.ChangeOfDelivery, MultiBlockQuote.Continuation)]
+		public void SplitBlock_SplitInMiddleOfMultiBlockContinuationFollowedByContinuationBlock_FirstPartIsContinuationAndSecondPartIsStart(MultiBlockQuote continuingStatus1, MultiBlockQuote continuingStatus2)
 		{
 			var mrkBlocks = new List<Block>();
 			mrkBlocks.Add(NewChapterBlock(1));
@@ -1440,22 +1445,23 @@ namespace GlyssenTests
 			mrkBlocks.Add(startBlock);
 
 			var blockToSplit = NewSingleVersePara(2, "Original continuation block (first). ");
-			blockToSplit.MultiBlockQuote = MultiBlockQuote.Continuation;
+			blockToSplit.MultiBlockQuote = continuingStatus1;
 			mrkBlocks.Add(blockToSplit);
 
 			var nextContinuationBlock = NewSingleVersePara(3, "Original continuation block (second). ");
-			nextContinuationBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
+			nextContinuationBlock.MultiBlockQuote = continuingStatus2;
 			mrkBlocks.Add(nextContinuationBlock);
 
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var newBlock = bookScript.SplitBlock(blockToSplit, "2", 8);
 
-			Assert.AreEqual(MultiBlockQuote.Continuation, blockToSplit.MultiBlockQuote);
+			Assert.AreEqual(continuingStatus1, blockToSplit.MultiBlockQuote);
 			Assert.AreEqual(MultiBlockQuote.Start, newBlock.MultiBlockQuote);
 		}
 
-		[Test]
-		public void SplitBlock_SplitInMiddleOfMultiBlockContinuationFollowedByNoneBlock_FirstPartIsContinuationAndSecondPartIsNone()
+		[TestCase(MultiBlockQuote.Continuation)]
+		[TestCase(MultiBlockQuote.ChangeOfDelivery)]
+		public void SplitBlock_SplitInMiddleOfMultiBlockContinuationFollowedByNoneBlock_FirstPartIsContinuationAndSecondPartIsNone(MultiBlockQuote continuingStatus)
 		{
 			var mrkBlocks = new List<Block>();
 			mrkBlocks.Add(NewChapterBlock(1));
@@ -1465,7 +1471,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(startBlock);
 
 			var blockToSplit = NewSingleVersePara(2, "Original continuation block. ");
-			blockToSplit.MultiBlockQuote = MultiBlockQuote.Continuation;
+			blockToSplit.MultiBlockQuote = continuingStatus;
 			mrkBlocks.Add(blockToSplit);
 
 			var noneBlock = NewSingleVersePara(3, "Original none block. ");
@@ -1475,7 +1481,7 @@ namespace GlyssenTests
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var newBlock = bookScript.SplitBlock(blockToSplit, "2", 8);
 
-			Assert.AreEqual(MultiBlockQuote.Continuation, blockToSplit.MultiBlockQuote);
+			Assert.AreEqual(continuingStatus, blockToSplit.MultiBlockQuote);
 			Assert.AreEqual(MultiBlockQuote.None, newBlock.MultiBlockQuote);
 		}
 
@@ -1610,6 +1616,90 @@ namespace GlyssenTests
 			Assert.AreEqual(Block.NotSplit, blocks[1].SplitId);
 			Assert.AreEqual(0, blocks[2].SplitId);
 			Assert.AreEqual(0, blocks[3].SplitId);
+		}
+		#endregion
+
+		#region CleanUpMultiBlockQuotes Tests
+		[Test]
+		public void CleanUpMultiBlockQuotes_MultiBlockHasSingleCharacter_DataUnchanged()
+		{
+			var mrkBlocks = new List<Block>();
+
+			var block = NewSingleVersePara(1);
+			block.CharacterId = "Andrew";
+			block.CharacterIdInScript = "Andrew";
+			block.MultiBlockQuote = MultiBlockQuote.Start;
+			block.UserConfirmed = true;
+			mrkBlocks.Add(block);
+
+			block = NewSingleVersePara(2);
+			block.CharacterId = "Andrew";
+			block.CharacterIdInScript = "Andrew";
+			block.MultiBlockQuote = MultiBlockQuote.Continuation;
+			block.UserConfirmed = true;
+			mrkBlocks.Add(block);
+
+			block = NewSingleVersePara(2);
+			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.MultiBlockQuote = MultiBlockQuote.None;
+			mrkBlocks.Add(block);
+
+			var bookScript = new BookScript("MRK", mrkBlocks);
+
+			bookScript.CleanUpMultiBlockQuotes(ScrVers.English);
+			var result = bookScript.GetScriptBlocks();
+
+			Assert.AreEqual(3, result.Count);
+			Assert.AreEqual("Andrew", result[0].CharacterId);
+			Assert.AreEqual("Andrew", result[0].CharacterIdInScript);
+			Assert.True(result[0].UserConfirmed);
+			Assert.AreEqual("Andrew", result[1].CharacterId);
+			Assert.AreEqual("Andrew", result[1].CharacterIdInScript);
+			Assert.True(result[1].UserConfirmed);
+			Assert.IsTrue(result[2].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
+		}
+
+		[Test]
+		public void CleanUpMultiBlockQuotes_MultiBlockHasMultipleCharacters_CharacterIsAmbiguousAndUserConfirmedIsFalse()
+		{
+			var mrkBlocks = new List<Block>();
+
+			var block = NewSingleVersePara(1);
+			block.CharacterId = "Andrew";
+			block.CharacterIdInScript = "Andrew";
+			block.MultiBlockQuote = MultiBlockQuote.Start;
+			block.UserConfirmed = true;
+			mrkBlocks.Add(block);
+
+			block = NewSingleVersePara(2);
+			block.CharacterId = "Peter";
+			block.CharacterIdInScript = "Peter";
+			block.MultiBlockQuote = MultiBlockQuote.Continuation;
+			block.UserConfirmed = true;
+			mrkBlocks.Add(block);
+
+			block = NewSingleVersePara(2);
+			block.CharacterId = "Peter";
+			block.CharacterIdInScript = "Peter";
+			block.MultiBlockQuote = MultiBlockQuote.None;
+			block.UserConfirmed = true;
+			mrkBlocks.Add(block);
+
+			var bookScript = new BookScript("MRK", mrkBlocks);
+
+			bookScript.CleanUpMultiBlockQuotes(ScrVers.English);
+			var result = bookScript.GetScriptBlocks();
+
+			Assert.AreEqual(3, result.Count);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, result[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, result[0].CharacterIdInScript);
+			Assert.False(result[0].UserConfirmed);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, result[1].CharacterId);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, result[1].CharacterIdInScript);
+			Assert.False(result[1].UserConfirmed);
+			Assert.AreEqual("Peter", result[2].CharacterId);
+			Assert.AreEqual("Peter", result[2].CharacterIdInScript);
+			Assert.True(result[2].UserConfirmed);
 		}
 		#endregion
 

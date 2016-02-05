@@ -377,6 +377,24 @@ namespace GlyssenTests
 			Assert.AreEqual("chief cupbearer", block.CharacterIdInScript);
 		}
 
+		[TestCase(CharacterVerseData.AmbiguousCharacter)]
+		[TestCase(CharacterVerseData.UnknownCharacter)]
+		public void SetCharacterAndCharacterIdInScript_CharacterIdSetUnclear_CharacterIdInScriptSetToNull(string unclearCharacterId)
+		{
+			var block = new Block("p", 40, 8);
+			block.CharacterId = "chief monkey";
+			block.CharacterIdInScript = "chief monkey";
+			Assert.AreEqual("chief monkey", block.CharacterId);
+			Assert.AreEqual("chief monkey", block.CharacterIdInScript);
+			Assert.AreEqual("chief monkey", block.CharacterIdOverrideForScript);
+			// end setup
+
+			block.SetCharacterAndCharacterIdInScript(unclearCharacterId, BCVRef.BookToNumber("EXO"));
+			Assert.AreEqual(unclearCharacterId, block.CharacterId);
+			Assert.AreEqual(unclearCharacterId, block.CharacterIdInScript);
+			Assert.IsNull(block.CharacterIdOverrideForScript);
+		}
+
 		[Test]
 		public void SetCharacterAndCharacterIdInScript_NotMultipleChoice_CharacterIdInScriptRemainsNull()
 		{

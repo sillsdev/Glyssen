@@ -677,7 +677,7 @@ namespace Glyssen.Dialogs
 
 		private void HandleSplitBlocksClick(object sender, EventArgs e)
 		{
-			using (var dlg = new SplitBlockDlg(m_viewModel, m_viewModel.GetAllBlocksWhichContinueThisQuote(m_viewModel.CurrentBlock)))
+			using (var dlg = new SplitBlockDlg(m_viewModel, m_viewModel.GetAllBlocksWhichContinueTheQuoteStartedByBlock(m_viewModel.CurrentBlock)))
 			{
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{

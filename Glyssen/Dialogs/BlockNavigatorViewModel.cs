@@ -311,7 +311,7 @@ namespace Glyssen.Dialogs
 
 		private string BuildCurrentBlockHtml()
 		{
-			return BuildHtml(GetAllBlocksWhichContinueThisQuote(CurrentBlock));
+			return BuildHtml(GetAllBlocksWhichContinueTheQuoteStartedByBlock(CurrentBlock));
 		}
 
 		private string BuildContextBlocksHtml(IEnumerable<Block> blocks)
@@ -320,7 +320,7 @@ namespace Glyssen.Dialogs
 			foreach (Block block in blocks)
 			{
 				bldr.Append("<div class=\"").Append(kCssClassContext).Append("\" ").Append(kDataCharacter).Append("=\"").Append(block.CharacterId).Append("\">");
-				foreach (Block innerBlock in GetAllBlocksWhichContinueThisQuote(block))
+				foreach (Block innerBlock in GetAllBlocksWhichContinueTheQuoteStartedByBlock(block))
 					bldr.Append(BuildHtml(innerBlock));
 				bldr.Append("</div>");
 				if (block.MultiBlockQuote != MultiBlockQuote.Continuation && block.MultiBlockQuote != MultiBlockQuote.ChangeOfDelivery)
@@ -336,7 +336,7 @@ namespace Glyssen.Dialogs
 		#endregion
 
 		#region Methods for dealing with multi-block quotes
-		public IEnumerable<Block> GetAllBlocksWhichContinueThisQuote(Block firstBlock)
+		public IEnumerable<Block> GetAllBlocksWhichContinueTheQuoteStartedByBlock(Block firstBlock)
 		{
 			switch (firstBlock.MultiBlockQuote)
 			{

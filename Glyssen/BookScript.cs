@@ -7,7 +7,6 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using SIL.ObjectModel;
 using SIL.Scripture;
-using Utilities;
 using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen
@@ -403,11 +402,11 @@ namespace Glyssen
 			var model = new BlockNavigatorViewModel(new ReadOnlyList<BookScript>(new[] { this }), versification);
 			foreach (var blockToChange in GetScriptBlocks()
 				.Where(b => b.MultiBlockQuote == MultiBlockQuote.Start)
-				.Select(block => model.GetAllBlocksWhichContinueThisQuote(block))
+				.Select(block => model.GetAllBlocksWhichContinueTheQuoteStartedByBlock(block))
 				.Where(blocks => blocks.Select(b => b.CharacterId).Distinct().Count() > 1)
 				.SelectMany(blocks => blocks))
 			{
-				blockToChange.CharacterId = CharacterVerseData.AmbiguousCharacter;
+				blockToChange.SetCharacterAndCharacterIdInScript(CharacterVerseData.AmbiguousCharacter, BCVRef.BookToNumber(BookId), versification);
 				blockToChange.UserConfirmed = false;
 			}
 		}
@@ -537,8 +536,9 @@ namespace Glyssen
 				blockToSplit.MultiBlockQuote = MultiBlockQuote.None;
 				newBlock.MultiBlockQuote = MultiBlockQuote.Start;
 			}
-			else if (blockToSplit.MultiBlockQuote == MultiBlockQuote.Continuation &&
-				iBlock < m_blockCount - 2 && m_blocks[iBlock + 2].MultiBlockQuote == MultiBlockQuote.Continuation)
+			else if ((blockToSplit.MultiBlockQuote == MultiBlockQuote.Continuation || blockToSplit.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery) &&
+				iBlock < m_blockCount - 2 &&
+				(m_blocks[iBlock + 2].MultiBlockQuote == MultiBlockQuote.Continuation || m_blocks[iBlock + 2].MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery))
 			{
 				newBlock.MultiBlockQuote = MultiBlockQuote.Start;
 			}
