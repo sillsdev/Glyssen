@@ -281,5 +281,28 @@ namespace Glyssen.Properties {
                 this["SplitBlockDlgFormSettings"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::SIL.Windows.Forms.PortableSettingsProvider.FormSettings QuotationMarksDlgFormSettings {
+            get {
+                return ((global::SIL.Windows.Forms.PortableSettingsProvider.FormSettings)(this["QuotationMarksDlgFormSettings"]));
+            }
+            set {
+                this["QuotationMarksDlgFormSettings"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int QuotationMarksDlgSplitterDistance {
+            get {
+                return ((int)(this["QuotationMarksDlgSplitterDistance"]));
+            }
+            set {
+                this["QuotationMarksDlgSplitterDistance"] = value;
+            }
+        }
     }
 }

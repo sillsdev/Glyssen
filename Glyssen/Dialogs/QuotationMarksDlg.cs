@@ -8,6 +8,7 @@ using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Controls;
+using Glyssen.Properties;
 using Glyssen.Quote;
 using Glyssen.Utilities;
 using L10NSharp;
@@ -20,7 +21,7 @@ using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Dialogs
 {
-	public partial class QuotationMarksDlg : Form
+	public partial class QuotationMarksDlg : FormWithPersistedSettings
 	{
 		private readonly Project m_project;
 		private readonly BlockNavigatorViewModel m_navigatorViewModel;
@@ -30,6 +31,7 @@ namespace Glyssen.Dialogs
 		private QuoteSystem m_originalQuoteSystem;
 		private QuoteSystem m_testedQuoteSystem;
 		private DateTime m_originalQuoteSystemDate;
+		private bool m_formLoading;
 		private bool m_testing;
 
 		internal QuotationMarksDlg(Project project, BlockNavigatorViewModel navigatorViewModel, bool readOnly)
@@ -494,6 +496,20 @@ namespace Glyssen.Dialogs
 		}
 
 		#region Form events
+		protected override void OnLoad(EventArgs e)
+		{
+			m_formLoading = true;
+
+			base.OnLoad(e);
+			if (Settings.Default.QuotationMarksDlgSplitterDistance > 0)
+				m_splitContainer.SplitterDistance = Settings.Default.QuotationMarksDlgSplitterDistance;
+		}
+
+		private void QuotationMarksDlg_Shown(object sender, EventArgs e)
+		{
+			m_formLoading = false;
+		}
+
 		private void m_btnNext_Click(object sender, EventArgs e)
 		{
 			m_navigatorViewModel.LoadNextRelevantBlock();
@@ -680,6 +696,12 @@ namespace Glyssen.Dialogs
 			if (m_originalQuoteSystem == null) return;
 			m_project.Status.QuoteSystemDate = m_originalQuoteSystemDate;
 			m_project.QuoteSystem = m_originalQuoteSystem;
+		}
+
+		private void m_splitContainer_SplitterMoved(object sender, SplitterEventArgs e)
+		{
+			if (!m_formLoading)
+				Settings.Default.QuotationMarksDlgSplitterDistance = e.SplitX;
 		}
 		#endregion
 	}

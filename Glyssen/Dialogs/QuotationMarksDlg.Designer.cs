@@ -957,6 +957,7 @@ namespace Glyssen.Dialogs
 			this.m_splitContainer.SplitterDistance = 272;
 			this.m_splitContainer.TabIndex = 14;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_splitContainer, false);
+			this.m_splitContainer.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.m_splitContainer_SplitterMoved);
 			// 
 			// m_tableLayoutPanelDataBrowser
 			// 
@@ -1135,6 +1136,7 @@ namespace Glyssen.Dialogs
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Quote Mark Settings";
 			this.glyssenColorPalette.SetUsePaletteColors(this, true);
+			this.Shown += new System.EventHandler(this.QuotationMarksDlg_Shown);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			this.m_toolStrip.ResumeLayout(false);
 			this.m_toolStrip.PerformLayout();
