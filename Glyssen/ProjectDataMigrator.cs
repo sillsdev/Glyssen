@@ -9,12 +9,15 @@ namespace Glyssen
 	{
 		public static void MigrateProjectData(Project project, int fromControlFileVersion)
 		{
-			if (fromControlFileVersion < 88)
-				MigrateInvalidMultiBlockQuoteDataToVersion88(project.Books);
-			if (fromControlFileVersion < 88)
-				CleanUpOrphanedMultiBlockQuoteStati(project.Books);
-			if (fromControlFileVersion < 88)
-				MigrateInvalidCharacterIdForScriptDataToVersion88(project.Books);
+			if (project.ProjectState == ProjectState.FullyInitialized)
+			{
+				if (fromControlFileVersion < 88)
+					MigrateInvalidMultiBlockQuoteDataToVersion88(project.Books);
+				if (fromControlFileVersion < 89)
+					CleanUpOrphanedMultiBlockQuoteStati(project.Books);
+				if (fromControlFileVersion < 88)
+					MigrateInvalidCharacterIdForScriptDataToVersion88(project.Books);
+			}
 		}
 
 		// internal for testing

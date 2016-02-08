@@ -682,12 +682,11 @@ namespace Glyssen
 
 		private void InitializeLoadedProject()
 		{
-			m_usxPercentComplete = 100;
-			int controlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
+			m_usxPercentComplete = 100;;
 			if (QuoteSystem == null)
 			{
 				GuessAtQuoteSystem();
-				m_metadata.ControlFileVersion = controlFileVersion;
+				UpdateControlFileVersion();
 				return;
 			}
 			m_guessPercentComplete = 100;
@@ -707,19 +706,23 @@ namespace Glyssen
 				return;
 			}
 			m_quotePercentComplete = 100;
-			if (m_metadata.ControlFileVersion != controlFileVersion)
+			if (m_metadata.ControlFileVersion != ControlCharacterVerseData.Singleton.ControlFileVersion)
 			{
 				const int kControlFileVersionWhenOnTheFlyAssignmentOfCharacterIdInScriptBegan = 78;
 				new CharacterAssigner(new CombinedCharacterVerseData(this)).AssignAll(m_books, Versification,
 					m_metadata.ControlFileVersion < kControlFileVersionWhenOnTheFlyAssignmentOfCharacterIdInScriptBegan);
 
-				ProjectDataMigrator.MigrateProjectData(this, m_metadata.ControlFileVersion);
-
-				m_metadata.ControlFileVersion = controlFileVersion;
+				UpdateControlFileVersion();
 			}
 			UpdatePercentInitialized();
 			ProjectState = ProjectState.FullyInitialized;
 			Analyze();
+		}
+
+		private void UpdateControlFileVersion()
+		{
+			ProjectDataMigrator.MigrateProjectData(this, m_metadata.ControlFileVersion);
+			m_metadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
 		}
 
 		private void ApplyUserDecisions(Project sourceProject)
@@ -778,7 +781,7 @@ namespace Glyssen
 
 			m_books.AddRange(bookScripts);
 			m_metadata.ParserVersion = Settings.Default.ParserVersion;
-			m_metadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
+			UpdateControlFileVersion();
 			RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
 
 			if (QuoteSystem == null)
@@ -851,7 +854,7 @@ namespace Glyssen
 				throw e.Error;
 			}
 
-			m_metadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
+			UpdateControlFileVersion();
 			if (UserDecisionsProject != null)
 			{
 				ApplyUserDecisions(UserDecisionsProject);

@@ -44,9 +44,9 @@ namespace Glyssen.Dialogs
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.m_lblInstructions = new System.Windows.Forms.Label();
 			this.m_contextMenuCharacters = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.m_menuItemCreateNewGroup = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,11 +85,6 @@ namespace Glyssen.Dialogs
 			this.m_lblCharacterDetails = new System.Windows.Forms.Label();
 			this.m_lblNoCharactersInGroup = new System.Windows.Forms.Label();
 			this.m_characterGroupGrid = new System.Windows.Forms.DataGridView();
-			this.CharacterIdsCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.AttributesCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.CharStatusCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.EstimatedHoursCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.VoiceActorCol = new Glyssen.Controls.DataGridViewMultiColumnComboBoxColumn();
 			this.m_saveStatus = new Glyssen.Controls.SaveStatus();
 			this.m_toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.m_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -106,6 +101,11 @@ namespace Glyssen.Dialogs
 			this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewMultiColumnComboBoxColumn1 = new Glyssen.Controls.DataGridViewMultiColumnComboBoxColumn();
 			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
+			this.CharacterIdsCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.AttributesCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.CharStatusCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.EstimatedHoursCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.VoiceActorCol = new Glyssen.Controls.DataGridViewMultiColumnComboBoxColumn();
 			this.m_contextMenuCharacters.SuspendLayout();
 			this.m_contextMenuCharacterGroups.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
@@ -122,10 +122,10 @@ namespace Glyssen.Dialogs
 			// m_lblInstructions
 			// 
 			this.m_lblInstructions.AutoSize = true;
-			this.m_lblInstructions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_lblInstructions.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblInstructions, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_lblInstructions.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_lblInstructions, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblInstructions.ForeColor = System.Drawing.Color.White;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblInstructions, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblInstructions, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblInstructions, "DialogBoxes.VoiceActorAssignmentDlg.AssignActors");
@@ -134,6 +134,7 @@ namespace Glyssen.Dialogs
 			this.m_lblInstructions.Size = new System.Drawing.Size(199, 13);
 			this.m_lblInstructions.TabIndex = 0;
 			this.m_lblInstructions.Text = "Assign Voice Actors to Character Groups";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblInstructions, true);
 			// 
 			// m_contextMenuCharacters
 			// 
@@ -344,8 +345,8 @@ namespace Glyssen.Dialogs
 			// toolStripSeparator1
 			// 
 			this.glyssenColorPalette.SetBackColor(this.toolStripSeparator1, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.toolStripSeparator1.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator1, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.toolStripSeparator1.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
 			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
 			this.glyssenColorPalette.SetUsePaletteColors(this.toolStripSeparator1, false);
@@ -401,8 +402,8 @@ namespace Glyssen.Dialogs
 			// toolStripSeparator2
 			// 
 			this.glyssenColorPalette.SetBackColor(this.toolStripSeparator2, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.toolStripSeparator2.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator2, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.toolStripSeparator2.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
 			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
 			this.glyssenColorPalette.SetUsePaletteColors(this.toolStripSeparator2, false);
@@ -471,6 +472,7 @@ namespace Glyssen.Dialogs
 			this.m_btnOK.AutoSize = true;
 			this.glyssenColorPalette.SetBackColor(this.m_btnOK, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnOK, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnOK, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOK, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOK, null);
@@ -635,6 +637,7 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_btnCancelMove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.glyssenColorPalette.SetBackColor(this.m_btnCancelMove, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnCancelMove, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnCancelMove, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancelMove, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancelMove, null);
@@ -654,6 +657,7 @@ namespace Glyssen.Dialogs
 			this.m_btnMove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.glyssenColorPalette.SetBackColor(this.m_btnMove, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnMove.Enabled = false;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnMove, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnMove, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnMove, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnMove, null);
@@ -691,14 +695,14 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetActiveLinkColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
 			this.m_linkLabelShowHideDetails.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_linkLabelShowHideDetails.AutoSize = true;
-			this.m_linkLabelShowHideDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.glyssenColorPalette.SetBackColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_linkLabelShowHideDetails.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkLabelShowHideDetails.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetForeColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_linkLabelShowHideDetails.ForeColor = System.Drawing.Color.White;
-			this.glyssenColorPalette.SetLinkColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_linkLabelShowHideDetails.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_linkLabelShowHideDetails.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkLabelShowHideDetails, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkLabelShowHideDetails, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLabelShowHideDetails, "DialogBoxes.VoiceActorAssignmentDlg.HideDetailsLink");
@@ -708,18 +712,19 @@ namespace Glyssen.Dialogs
 			this.m_linkLabelShowHideDetails.TabIndex = 11;
 			this.m_linkLabelShowHideDetails.TabStop = true;
 			this.m_linkLabelShowHideDetails.Text = "Hide details";
-			this.glyssenColorPalette.SetVisitedLinkColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_linkLabelShowHideDetails, true);
 			this.m_linkLabelShowHideDetails.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetVisitedLinkColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_linkLabelShowHideDetails.Click += new System.EventHandler(this.HandleShowOrHideCharacterDetails_Click);
 			// 
 			// m_lblCharacterDetails
 			// 
 			this.m_lblCharacterDetails.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_lblCharacterDetails.AutoSize = true;
-			this.m_lblCharacterDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_lblCharacterDetails.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblCharacterDetails, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.m_lblCharacterDetails, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblCharacterDetails.ForeColor = System.Drawing.Color.White;
+			this.m_lblCharacterDetails.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblCharacterDetails, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblCharacterDetails, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblCharacterDetails, "DialogBoxes.VoiceActorAssignmentDlg.CharacterDetailsLabel");
@@ -729,14 +734,15 @@ namespace Glyssen.Dialogs
 			this.m_lblCharacterDetails.Size = new System.Drawing.Size(258, 13);
 			this.m_lblCharacterDetails.TabIndex = 12;
 			this.m_lblCharacterDetails.Text = "Character details for character group selected above:";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblCharacterDetails, true);
 			// 
 			// m_lblNoCharactersInGroup
 			// 
 			this.m_lblNoCharactersInGroup.AutoSize = true;
-			this.m_lblNoCharactersInGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_lblNoCharactersInGroup.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblNoCharactersInGroup, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.m_lblNoCharactersInGroup, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblNoCharactersInGroup.ForeColor = System.Drawing.Color.White;
+			this.m_lblNoCharactersInGroup.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblNoCharactersInGroup, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblNoCharactersInGroup, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblNoCharactersInGroup, "DialogBoxes.VoiceActorAssignmentDlg.NoCharactersInGroup");
@@ -745,6 +751,7 @@ namespace Glyssen.Dialogs
 			this.m_lblNoCharactersInGroup.Size = new System.Drawing.Size(252, 13);
 			this.m_lblNoCharactersInGroup.TabIndex = 10;
 			this.m_lblNoCharactersInGroup.Text = "The selected group currently has no characters in it.";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblNoCharactersInGroup, true);
 			// 
 			// m_characterGroupGrid
 			// 
@@ -825,70 +832,14 @@ namespace Glyssen.Dialogs
 			this.m_characterGroupGrid.DragOver += new System.Windows.Forms.DragEventHandler(this.m_characterGroupGrid_DragOver);
 			this.m_characterGroupGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.m_characterGroupGrid_KeyDown);
 			// 
-			// CharacterIdsCol
-			// 
-			this.CharacterIdsCol.FillWeight = 150.8968F;
-			this.CharacterIdsCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Characters!Characters In Group";
-			this.CharacterIdsCol.Name = "CharacterIdsCol";
-			this.CharacterIdsCol.ReadOnly = true;
-			this.CharacterIdsCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.CharacterIdsCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			// 
-			// AttributesCol
-			// 
-			this.AttributesCol.FillWeight = 75.44839F;
-			this.AttributesCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Attributes!Attributes";
-			this.AttributesCol.Name = "AttributesCol";
-			this.AttributesCol.ReadOnly = true;
-			// 
-			// CharStatusCol
-			// 
-			this.CharStatusCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.CharStatusCol.FillWeight = 115.4822F;
-			this.CharStatusCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Status!Status";
-			this.CharStatusCol.Name = "CharStatusCol";
-			this.CharStatusCol.ReadOnly = true;
-			this.CharStatusCol.Visible = false;
-			// 
-			// EstimatedHoursCol
-			// 
-			this.EstimatedHoursCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-			dataGridViewCellStyle6.Format = "N2";
-			dataGridViewCellStyle6.NullValue = null;
-			this.EstimatedHoursCol.DefaultCellStyle = dataGridViewCellStyle6;
-			this.EstimatedHoursCol.FillWeight = 37.7242F;
-			this.EstimatedHoursCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Hours!Hours";
-			this.EstimatedHoursCol.Name = "EstimatedHoursCol";
-			this.EstimatedHoursCol.ReadOnly = true;
-			this.EstimatedHoursCol.Width = 348;
-			// 
-			// VoiceActorCol
-			// 
-			this.VoiceActorCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.VoiceActorCol.CategoryColumnName = "Category";
-			this.VoiceActorCol.ColumnNames.Add("Name");
-			this.VoiceActorCol.ColumnNames.Add("Gender");
-			this.VoiceActorCol.ColumnNames.Add("Age");
-			this.VoiceActorCol.ColumnNames.Add("Cameo");
-			this.VoiceActorCol.EvenRowsBackColor = System.Drawing.Color.White;
-			this.VoiceActorCol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.VoiceActorCol.FontForCategories = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.VoiceActorCol.FontForUncategorizedItems = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.VoiceActorCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.VoiceActorAssigned!Voice Actor Assigne" +
-    "d";
-			this.VoiceActorCol.MaxDropDownItems = 20;
-			this.VoiceActorCol.MinimumWidth = 50;
-			this.VoiceActorCol.OddRowsBackColor = System.Drawing.Color.White;
-			this.VoiceActorCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.VoiceActorCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			this.VoiceActorCol.Width = 502;
-			// 
 			// m_saveStatus
 			// 
 			this.m_saveStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_saveStatus.AutoSize = true;
 			this.m_saveStatus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.m_saveStatus.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_saveStatus, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_saveStatus.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_saveStatus, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_saveStatus, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_saveStatus, null);
@@ -899,6 +850,7 @@ namespace Glyssen.Dialogs
 			this.m_saveStatus.Size = new System.Drawing.Size(97, 13);
 			this.m_saveStatus.TabIndex = 6;
 			this.m_saveStatus.TextAlign = System.Drawing.ContentAlignment.TopRight;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_saveStatus, true);
 			// 
 			// m_tableLayoutPanel
 			// 
@@ -1089,6 +1041,65 @@ namespace Glyssen.Dialogs
 			this.dataGridViewMultiColumnComboBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			this.dataGridViewMultiColumnComboBoxColumn1.Width = 100;
 			// 
+			// CharacterIdsCol
+			// 
+			this.CharacterIdsCol.FillWeight = 150.8968F;
+			this.CharacterIdsCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Characters!Characters In Group";
+			this.CharacterIdsCol.Name = "CharacterIdsCol";
+			this.CharacterIdsCol.ReadOnly = true;
+			this.CharacterIdsCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.CharacterIdsCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			// 
+			// AttributesCol
+			// 
+			this.AttributesCol.FillWeight = 75.44839F;
+			this.AttributesCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Attributes!Attributes";
+			this.AttributesCol.Name = "AttributesCol";
+			this.AttributesCol.ReadOnly = true;
+			// 
+			// CharStatusCol
+			// 
+			this.CharStatusCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.CharStatusCol.FillWeight = 115.4822F;
+			this.CharStatusCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Status!Status";
+			this.CharStatusCol.Name = "CharStatusCol";
+			this.CharStatusCol.ReadOnly = true;
+			this.CharStatusCol.Visible = false;
+			this.CharStatusCol.Width = 348;
+			// 
+			// EstimatedHoursCol
+			// 
+			this.EstimatedHoursCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+			dataGridViewCellStyle6.Format = "N2";
+			dataGridViewCellStyle6.NullValue = null;
+			this.EstimatedHoursCol.DefaultCellStyle = dataGridViewCellStyle6;
+			this.EstimatedHoursCol.FillWeight = 37.7242F;
+			this.EstimatedHoursCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Hours!Hours";
+			this.EstimatedHoursCol.Name = "EstimatedHoursCol";
+			this.EstimatedHoursCol.ReadOnly = true;
+			this.EstimatedHoursCol.Width = 348;
+			// 
+			// VoiceActorCol
+			// 
+			this.VoiceActorCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.VoiceActorCol.CategoryColumnName = "Category";
+			this.VoiceActorCol.ColumnNames.Add("Name");
+			this.VoiceActorCol.ColumnNames.Add("Gender");
+			this.VoiceActorCol.ColumnNames.Add("Age");
+			this.VoiceActorCol.ColumnNames.Add("Cameo");
+			this.VoiceActorCol.EvenRowsBackColor = System.Drawing.Color.White;
+			this.VoiceActorCol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.VoiceActorCol.FontForCategories = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.VoiceActorCol.FontForUncategorizedItems = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.VoiceActorCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.VoiceActorAssigned!Voice Actor Assigne" +
+    "d";
+			this.VoiceActorCol.MaxDropDownItems = 20;
+			this.VoiceActorCol.MinimumWidth = 50;
+			this.VoiceActorCol.OddRowsBackColor = System.Drawing.Color.White;
+			this.VoiceActorCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.VoiceActorCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.VoiceActorCol.Width = 502;
+			// 
 			// VoiceActorAssignmentDlg
 			// 
 			this.glyssenColorPalette.SetBackColor(this, Glyssen.Utilities.GlyssenColors.BackColor);
@@ -1110,6 +1121,7 @@ namespace Glyssen.Dialogs
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Voice Actor Assignment";
+			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VoiceActorAssignmentDlg_FormClosing);
 			this.m_contextMenuCharacters.ResumeLayout(false);
 			this.m_contextMenuCharacterGroups.ResumeLayout(false);
@@ -1165,11 +1177,6 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.DataGridViewTextBoxColumn CharacterDetailsGenderCol;
 		private System.Windows.Forms.DataGridViewTextBoxColumn CharacterDetailsAgeCol;
 		private System.Windows.Forms.DataGridViewTextBoxColumn CharacterDetailsHoursCol;
-		private System.Windows.Forms.DataGridViewTextBoxColumn CharacterIdsCol;
-		private System.Windows.Forms.DataGridViewTextBoxColumn AttributesCol;
-		private System.Windows.Forms.DataGridViewTextBoxColumn CharStatusCol;
-		private System.Windows.Forms.DataGridViewTextBoxColumn EstimatedHoursCol;
-		private DataGridViewMultiColumnComboBoxColumn VoiceActorCol;
 		private System.Windows.Forms.Button m_btnMove;
 		private System.Windows.Forms.Button m_btnCancelMove;
 		private System.Windows.Forms.Label m_lblMovePendingInfo;
@@ -1193,6 +1200,11 @@ namespace Glyssen.Dialogs
 		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
 		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
 		private DataGridViewMultiColumnComboBoxColumn dataGridViewMultiColumnComboBoxColumn1;
+		private DataGridViewTextBoxColumn CharacterIdsCol;
+		private DataGridViewTextBoxColumn AttributesCol;
+		private DataGridViewTextBoxColumn CharStatusCol;
+		private DataGridViewTextBoxColumn EstimatedHoursCol;
+		private DataGridViewMultiColumnComboBoxColumn VoiceActorCol;
 
 	}
 }

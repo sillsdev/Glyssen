@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Controls;
+using Glyssen.Properties;
 using Glyssen.Rules;
 using Glyssen.Utilities;
 using L10NSharp;
@@ -67,16 +68,12 @@ namespace Glyssen.Dialogs
 			VoiceActorCol.ValueMember = "ID";
 			VoiceActorCol.DisplayMember = "Name";
 			VoiceActorCol.GetSpecialDropDownImageToDraw += VoiceActorCol_GetSpecialDropDownImageToDraw;
+			VoiceActorCol.Name = "VoiceActorCol";
 
 			// Sadly, we have to do this here because setting it in the Designer doesn't work since BetterGrid overrides
 			// the default value in its constructor.
 			m_characterGroupGrid.MultiSelect = true;
 			m_characterDetailsGrid.MultiSelect = true;
-
-			SortByColumn(EstimatedHoursCol, false);
-			SetRowCount();
-			if (m_actorAssignmentViewModel.CharacterGroups.Any()) // This should always be true, but just to be sure.
-				m_characterGroupGrid.Rows[0].Selected = true;
 
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
@@ -862,6 +859,20 @@ namespace Glyssen.Dialogs
 			SetVoiceActorCellDataSource();
 		}
 		#endregion
+
+		protected override void OnLoad(EventArgs e)
+		{
+			base.OnLoad(e);
+			var gridSettings = Settings.Default.CharacterGroupGridGridSettings;
+
+			if (gridSettings != null && !String.IsNullOrEmpty(gridSettings.SortedColumn) && m_characterGroupGrid.Columns.Contains(gridSettings.SortedColumn))
+				SortByColumn(m_characterGroupGrid.Columns[gridSettings.SortedColumn], gridSettings.SortDirection == SortOrder.Ascending.ToString());
+			else
+				SortByColumn(EstimatedHoursCol, false);
+			SetRowCount();
+			if (m_actorAssignmentViewModel.CharacterGroups.Any()) // This should always be true, but just to be sure.
+				m_characterGroupGrid.Rows[0].Selected = true;
+		}
 
 		protected override void OnDeactivate(EventArgs e)
 		{
