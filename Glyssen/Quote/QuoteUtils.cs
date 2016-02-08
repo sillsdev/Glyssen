@@ -8,6 +8,10 @@ namespace Glyssen.Quote
 {
 	public static class QuoteUtils
 	{
+#if HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+		public const string kSentenceEndingPunctuation = "Sentence-ending punctuation";
+#endif //HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+
 		public static readonly string None = LocalizationManager.GetString("Common.None", "None");
 		private static readonly object[] DefaultSymbols = { "“", "”", "‘", "’", "«", "»", "‹", "›", "„", "‚", "「", "」", "『", "』", "<<", ">>", "<", ">", None };
 		private static readonly Dictionary<MatchedPair, MatchedPair[]> Level2Possibilities = new Dictionary<MatchedPair, MatchedPair[]>

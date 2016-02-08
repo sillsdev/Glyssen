@@ -185,53 +185,80 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("west!»", output[2].GetText(false));
 		}
 
-		[Test]
-		public void Parse_Continuer_UsingStartingMarker()
+		[TestCase("«")]
+		[TestCase("»")]
+		[TestCase("%")]
+		public void Parse_Continuer_QuoteContinues(string firstLevelContinuer)
 		{
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, «Go!"));
 			var block2 = new Block("p");
-			block2.BlockElements.Add(new ScriptText("«Get!»"));
+			block2.BlockElements.Add(new ScriptText(firstLevelContinuer + "Get!»"));
 			var input = new List<Block> { block, block2 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal), null, null);
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), null, null);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
 			Assert.AreEqual("«Go!", output[1].GetText(false));
-			Assert.AreEqual("«Get!»", output[2].GetText(false));
+			Assert.AreEqual(MultiBlockQuote.Start, output[1].MultiBlockQuote);
+			Assert.AreEqual(firstLevelContinuer + "Get!»", output[2].GetText(false));
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
 		}
 
-		[Test]
-		public void Parse_Continuer_UsingEndingMarker()
+		[TestCase("“")]
+		[TestCase("”")]
+		[TestCase("&")]
+		public void Parse_TwoFirstLevelContinuationParagraphs_AllContinuationParasKeptTogether(string firstLevelContinuer)
 		{
-			var block = new Block("p");
-			block.BlockElements.Add(new ScriptText("He said, «Go!"));
-			var block2 = new Block("p");
-			block2.BlockElements.Add(new ScriptText("»Get!»"));
-			var input = new List<Block> { block, block2 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "»", 1, QuotationMarkingSystemType.Normal), null, null);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
-			Assert.AreEqual(3, output.Count);
-			Assert.AreEqual("He said, ", output[0].GetText(false));
-			Assert.AreEqual("«Go!", output[1].GetText(false));
-			Assert.AreEqual("»Get!»", output[2].GetText(false));
+			var block1 = new Block("p", 6, 10);
+			block1.IsParagraphStart = true;
+			block1.BlockElements.Add(new Verse("10"));
+			block1.BlockElements.Add(new ScriptText("Jesús e-sapinganga sogdebalid, “Ar bemar neg-gwagwense dogdapile, obunnomaloed."));
+			var block2 = new Block("p", 6, 11);
+			block2.IsParagraphStart = true;
+			block2.BlockElements.Add(new Verse("11"));
+			block2.BlockElements.Add(new ScriptText(firstLevelContinuer + "Ar ibi-neggwebur nuedgi Bab-Dummad-dulamar-guega abingalessurmarye."));
+			var block3 = new Block("p", 6, 11);
+			block3.IsParagraphStart = true;
+			block3.BlockElements.Add(new ScriptText(firstLevelContinuer + "Napira an bemarga soged, Bab-Dummad-igar-nabirogoed-ibagi, odurdaklemaloed.”"));
+			var block4 = new Block("p", 6, 12);
+			block4.IsParagraphStart = true;
+			block4.BlockElements.Add(new Verse("12"));
+			block4.BlockElements.Add(new ScriptText("Jesús-sapingan nadmargu, be-daed be ogwamar. "));
+			block4.BlockElements.Add(new Verse("13"));
+			block4.BlockElements.Add(new ScriptText("Deginbali."));
+			var input = new List<Block> { block1, block2, block3, block4 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), null, null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(5, output.Count);
+
+			Assert.AreEqual("[10]\u00A0Jesús e-sapinganga sogdebalid, ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+			Assert.IsTrue(output[0].IsParagraphStart);
+
+			Assert.AreEqual("“Ar bemar neg-gwagwense dogdapile, obunnomaloed.", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, output[1].MultiBlockQuote);
+			Assert.IsFalse(output[1].IsParagraphStart);
+
+			Assert.AreEqual("[11]\u00A0" + firstLevelContinuer + "Ar ibi-neggwebur nuedgi Bab-Dummad-dulamar-guega abingalessurmarye.", output[2].GetText(true));
+			Assert.AreEqual("Jesus", output[2].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
+			Assert.IsTrue(output[2].IsParagraphStart);
+
+			Assert.AreEqual(firstLevelContinuer + "Napira an bemarga soged, Bab-Dummad-igar-nabirogoed-ibagi, odurdaklemaloed.”", output[3].GetText(true));
+			Assert.AreEqual("Jesus", output[3].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[3].MultiBlockQuote);
+			Assert.IsTrue(output[3].IsParagraphStart);
+
+			Assert.AreEqual("[12]\u00A0Jesús-sapingan nadmargu, be-daed be ogwamar. [13]\u00A0Deginbali.", output[4].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[4].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[4].MultiBlockQuote);
+			Assert.IsTrue(output[4].IsParagraphStart);
 		}
 
-		[Test]
-		public void Parse_Continuer_UsingUniqueMarker()
-		{
-			var block = new Block("p");
-			block.BlockElements.Add(new ScriptText("He said, «Go!"));
-			var block2 = new Block("p");
-			block2.BlockElements.Add(new ScriptText("%Get!»"));
-			var input = new List<Block> { block, block2 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "%", 1, QuotationMarkingSystemType.Normal), null, null);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
-			Assert.AreEqual(3, output.Count);
-			Assert.AreEqual("He said, ", output[0].GetText(false));
-			Assert.AreEqual("«Go!", output[1].GetText(false));
-			Assert.AreEqual("%Get!»", output[2].GetText(false));
-		}
 
 		[Test]
 		public void Parse_Continuer_NarratorAfter_FirstLevel()
@@ -244,9 +271,20 @@ namespace GlyssenTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+			Assert.IsTrue(output[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+
 			Assert.AreEqual("«Go!", output[1].GetText(false));
+			Assert.AreEqual(MultiBlockQuote.Start, output[1].MultiBlockQuote);
+			Assert.IsFalse(output[1].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+
 			Assert.AreEqual("«Get!» ", output[2].GetText(false));
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
+			Assert.IsFalse(output[2].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+
 			Assert.AreEqual("Thus he ended.", output[3].GetText(false));
+			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
+			Assert.IsTrue(output[3].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 		}
 
 		[Test]
@@ -262,10 +300,24 @@ namespace GlyssenTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+			Assert.IsTrue(output[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+
 			Assert.AreEqual("«Go!", output[1].GetText(false));
+			Assert.AreEqual(MultiBlockQuote.Start, output[1].MultiBlockQuote);
+			Assert.IsFalse(output[1].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+
 			Assert.AreEqual("«Get!»", output[2].GetText(false));
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
+			Assert.IsFalse(output[2].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+
 			Assert.AreEqual("«No,» ", output[3].GetText(false));
+			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
+			Assert.IsFalse(output[3].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+
 			Assert.AreEqual("she replied.", output[4].GetText(false));
+			Assert.AreEqual(MultiBlockQuote.None, output[4].MultiBlockQuote);
+			Assert.IsTrue(output[4].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 		}
 
 		[Test]
@@ -303,23 +355,41 @@ namespace GlyssenTests.Quote
 			var input = new List<Block> { block, block2, block3 };
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
+
 			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.IsTrue(output[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+
 			Assert.AreEqual("« ‹Go!", output[1].GetText(false));
+			Assert.IsFalse(output[1].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.Start, output[1].MultiBlockQuote);
+
 			Assert.AreEqual("« ‹Get!› »", output[2].GetText(false));
+			Assert.IsFalse(output[2].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
+
 			Assert.AreEqual("Thus he ended.", output[3].GetText(false));
-			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("LUK", CharacterVerseData.StandardCharacter.Narrator), output[3].CharacterId);
+			Assert.IsTrue(output[3].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
 		}
 
-		[Test]
-		public void Parse_Continuer_SecondLevelStartsWithFirstLevelContinuer_NarratorAfter()
+		/// <summary>
+		/// Not sure why this test was written this way. It possibly started out as one thing and gradually morphed.
+		/// We changed the name to reflect the bad data. The continuer/opener before No! is wrong, as is the lack of
+		/// a continuer on the last line. Original name suggested that it was expected to end the quote and have a
+		/// narrator line following it, but the assertion did not correspond to that name.
+		/// </summary>
+		[TestCase("«", "«‹", "«‹«")]
+		[TestCase("»", "»›", "»›»")]
+		public void Parse_Continuer_SecondLevelStartsWithFirstLevelContinuerFollowedByBadData_QuoteStaysOpen(string firstLevelContinuer, string secondLevelContinuer, string thirdLevelContinuer)
 		{
-			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "«‹", 2, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "«‹«", 3, QuotationMarkingSystemType.Normal));
+			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", secondLevelContinuer, 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", thirdLevelContinuer, 3, QuotationMarkingSystemType.Normal));
 			var block = new Block("p") { IsParagraphStart = true };
 			block.BlockElements.Add(new ScriptText("He said, «Go!"));
 			var block2 = new Block("p") { IsParagraphStart = true };
-			block2.BlockElements.Add(new ScriptText("«‹Get!"));
+			block2.BlockElements.Add(new ScriptText(firstLevelContinuer + "‹Get!"));
 			var block3 = new Block("p") { IsParagraphStart = true };
 			block3.BlockElements.Add(new ScriptText("«No!»"));
 			var block4 = new Block("p") { IsParagraphStart = true };
@@ -327,24 +397,85 @@ namespace GlyssenTests.Quote
 			var input = new List<Block> { block, block2, block3, block4 };
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
+
 			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.IsTrue(output[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+			
 			Assert.AreEqual("«Go!", output[1].GetText(false));
-			Assert.AreEqual("«‹Get!", output[2].GetText(false));
+			Assert.IsFalse(output[1].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.Start, output[1].MultiBlockQuote);
+			
+			Assert.AreEqual(firstLevelContinuer + "‹Get!", output[2].GetText(false));
+			Assert.IsFalse(output[2].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
+			
 			Assert.AreEqual("«No!»", output[3].GetText(false));
+			Assert.IsFalse(output[3].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[3].MultiBlockQuote);
+			
 			Assert.AreEqual("Still in quote.›»", output[4].GetText(false));
 			Assert.IsFalse(output[4].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[4].MultiBlockQuote);
 		}
 
-		[Test]
-		public void Parse_Continuer_SecondLevelStartsWithFirstLevelContinuer_HasSpaces_NarratorAfter()
+		[TestCase("«", "«‹", "«‹«")]
+		[TestCase("»", "»›", "»›»")]
+		public void Parse_Continuer_SecondLevelStartsWithFirstLevelContinuer_NarratorAfter(string firstLevelContinuer, string secondLevelContinuer, string thirdLevelContinuer)
 		{
-			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "« ‹", 2, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "« ‹ «", 3, QuotationMarkingSystemType.Normal));
+			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", secondLevelContinuer, 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", thirdLevelContinuer, 3, QuotationMarkingSystemType.Normal));
 			var block = new Block("p") { IsParagraphStart = true };
 			block.BlockElements.Add(new ScriptText("He said, «Go!"));
 			var block2 = new Block("p") { IsParagraphStart = true };
-			block2.BlockElements.Add(new ScriptText("« ‹Get!"));
+			block2.BlockElements.Add(new ScriptText(firstLevelContinuer + "‹Get!"));
+			var block3 = new Block("p") { IsParagraphStart = true };
+			block3.BlockElements.Add(new ScriptText(secondLevelContinuer + "«No!»"));
+			var block4 = new Block("p") { IsParagraphStart = true };
+			block4.BlockElements.Add(new ScriptText(secondLevelContinuer + "Still in quote.›»"));
+			var input = new List<Block> { block, block2, block3, block4 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(5, output.Count);
+
+			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.IsTrue(output[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+
+			Assert.AreEqual("«Go!", output[1].GetText(false));
+			Assert.IsFalse(output[1].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.Start, output[1].MultiBlockQuote);
+
+			Assert.AreEqual(firstLevelContinuer + "‹Get!", output[2].GetText(false));
+			Assert.IsFalse(output[2].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
+
+			Assert.AreEqual(secondLevelContinuer + "«No!»", output[3].GetText(false));
+			Assert.IsFalse(output[3].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[3].MultiBlockQuote);
+
+			Assert.AreEqual(secondLevelContinuer + "Still in quote.›»", output[4].GetText(false));
+			Assert.IsFalse(output[4].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[4].MultiBlockQuote);
+		}
+
+		/// <summary>
+		/// Not sure why this test was written this way. It possibly started out as one thing and gradually morphed.
+		/// We changed the name to reflect the bad data. The continuer/opener before No! is wrong, as is the lack of
+		/// a continuer on the last line. Original name suggested that it was expected to end the quote and have a
+		/// narrator line following it, but the assertion did not correspond to that name.
+		/// </summary>
+		[TestCase("«", "« ‹", "« ‹ «")]
+		[TestCase("»", "» ›", "» › »")]
+		public void Parse_Continuer_SecondLevelStartsWithFirstLevelContinuerWithSpacesFollowedByBadData_QuoteStaysOpen(string firstLevelContinuer, string secondLevelContinuer, string thirdLevelContinuer)
+		{
+			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", secondLevelContinuer, 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", thirdLevelContinuer, 3, QuotationMarkingSystemType.Normal));
+			var block = new Block("p") { IsParagraphStart = true };
+			block.BlockElements.Add(new ScriptText("He said, «Go!"));
+			var block2 = new Block("p") { IsParagraphStart = true };
+			block2.BlockElements.Add(new ScriptText(firstLevelContinuer + " ‹Get!"));
 			var block3 = new Block("p") { IsParagraphStart = true };
 			block3.BlockElements.Add(new ScriptText("«No!»"));
 			var block4 = new Block("p") { IsParagraphStart = true };
@@ -352,43 +483,59 @@ namespace GlyssenTests.Quote
 			var input = new List<Block> { block, block2, block3, block4 };
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
+
 			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.IsTrue(output[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+
 			Assert.AreEqual("«Go!", output[1].GetText(false));
-			Assert.AreEqual("« ‹Get!", output[2].GetText(false));
+			Assert.IsFalse(output[1].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.Start, output[1].MultiBlockQuote);
+
+			Assert.AreEqual(firstLevelContinuer + " ‹Get!", output[2].GetText(false));
+			Assert.IsFalse(output[2].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
+
 			Assert.AreEqual("«No!»", output[3].GetText(false));
+			Assert.IsFalse(output[3].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[3].MultiBlockQuote);
+
 			Assert.AreEqual("Still in quote.›»", output[4].GetText(false));
 			Assert.IsFalse(output[4].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[4].MultiBlockQuote);
 		}
 
-		[Test]
-		public void Parse_Continuer_NarratorAfter_ThirdLevel_ContinuerIsOnlyInnermost()
+		[TestCase("«", "‹", "«")]
+		[TestCase("»", "›", "»")]
+		public void Parse_Continuer_NarratorAfter_ThirdLevel_ContinuerIsOnlyInnermost(string firstLevelContinuer, string secondLevelContinuer, string thirdLevelContinuer)
 		{
-			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "‹", 2, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "«", 3, QuotationMarkingSystemType.Normal));
+			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", secondLevelContinuer, 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", thirdLevelContinuer, 3, QuotationMarkingSystemType.Normal));
 			var block = new Block("p") { IsParagraphStart = true };
 			block.BlockElements.Add(new ScriptText("He said, «‹«Go!"));
 			var block2 = new Block("p") { IsParagraphStart = true };
-			block2.BlockElements.Add(new ScriptText("«Get!»›» Thus he ended."));
+			block2.BlockElements.Add(new ScriptText(thirdLevelContinuer + "Get!»›» Thus he ended."));
 			var input = new List<Block> { block, block2 };
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual("«‹«Go!", output[1].GetText(false));
-			Assert.AreEqual("«Get!»›» ", output[2].GetText(false));
+			Assert.AreEqual(thirdLevelContinuer + "Get!»›» ", output[2].GetText(false));
 			Assert.AreEqual("Thus he ended.", output[3].GetText(false));
 		}
 
-		[Test]
-		public void Parse_Continuer_QuoteAfter_ThirdLevel()
+		[TestCase("«", "«‹", "«‹«")]
+		[TestCase("»", "»›", "»›»")]
+		public void Parse_Continuer_QuoteAfter_ThirdLevel(string firstLevelContinuer, string secondLevelContinuer, string thirdLevelContinuer)
 		{
-			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "«‹", 2, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "«‹«", 3, QuotationMarkingSystemType.Normal));
+			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", secondLevelContinuer, 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", thirdLevelContinuer, 3, QuotationMarkingSystemType.Normal));
 			var block = new Block("p") { IsParagraphStart = true };
 			block.BlockElements.Add(new ScriptText("He said, «‹«Go!"));
 			var block2 = new Block("p") { IsParagraphStart = true };
-			block2.BlockElements.Add(new ScriptText("«‹«Get!»›»"));
+			block2.BlockElements.Add(new ScriptText(thirdLevelContinuer + "Get!»›»"));
 			var block3 = new Block("p") { IsParagraphStart = true };
 			block3.BlockElements.Add(new ScriptText("«No,» she replied."));
 			var input = new List<Block> { block, block2, block3 };
@@ -396,21 +543,22 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(5, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual("«‹«Go!", output[1].GetText(false));
-			Assert.AreEqual("«‹«Get!»›»", output[2].GetText(false));
+			Assert.AreEqual(thirdLevelContinuer + "Get!»›»", output[2].GetText(false));
 			Assert.AreEqual("«No,» ", output[3].GetText(false));
 			Assert.AreEqual("she replied.", output[4].GetText(false));
 		}
 
-		[Test]
-		public void Parse_Continuer_QuoteAfter_ThirdLevel_ContinuerIsOnlyInnermost()
+		[TestCase("«", "‹", "«")]
+		[TestCase("»", "›", "»")]
+		public void Parse_Continuer_QuoteAfter_ThirdLevel_ContinuerIsOnlyInnermost(string firstLevelContinuer, string secondLevelContinuer, string thirdLevelContinuer)
 		{
-			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "‹", 2, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "«", 3, QuotationMarkingSystemType.Normal));
+			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", secondLevelContinuer, 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", thirdLevelContinuer, 3, QuotationMarkingSystemType.Normal));
 			var block = new Block("p") { IsParagraphStart = true };
 			block.BlockElements.Add(new ScriptText("He said, «‹«Go!"));
 			var block2 = new Block("p") { IsParagraphStart = true };
-			block2.BlockElements.Add(new ScriptText("«Get!»›»"));
+			block2.BlockElements.Add(new ScriptText(thirdLevelContinuer + "Get!»›»"));
 			var block3 = new Block("p") { IsParagraphStart = true };
 			block3.BlockElements.Add(new ScriptText("«No,» she replied."));
 			var input = new List<Block> { block, block2, block3 };
@@ -418,16 +566,17 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(5, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual("«‹«Go!", output[1].GetText(false));
-			Assert.AreEqual("«Get!»›»", output[2].GetText(false));
+			Assert.AreEqual(thirdLevelContinuer + "Get!»›»", output[2].GetText(false));
 			Assert.AreEqual("«No,» ", output[3].GetText(false));
 			Assert.AreEqual("she replied.", output[4].GetText(false));
 		}
 
-		[Test]
-		public void Parse_Level3_BlockStartsWithNewThirdLevelQuote()
+		[TestCase("«", "‹")]
+		[TestCase("»", "›")]
+		public void Parse_Level3_BlockStartsWithNewThirdLevelQuote(string firstLevelContinuer, string secondLevelContinuer)
 		{
-			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "‹", 2, QuotationMarkingSystemType.Normal));
+			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", secondLevelContinuer, 2, QuotationMarkingSystemType.Normal));
 			var block = new Block("p") { IsParagraphStart = true };
 			block.BlockElements.Add(new ScriptText("He said, «‹She said, "));
 			var block3 = new Block("p") { IsParagraphStart = true };
@@ -1316,16 +1465,19 @@ namespace GlyssenTests.Quote
 			block1.BlockElements.Add(new Verse("7"));
 			block1.BlockElements.Add(new ScriptText("Si me hubierais conocido, también hubierais conocido a mi Padre; desde ahora le conocéis y le habéis visto."));
 			var block2 = new Block("p", 14, 8);
+			block2.IsParagraphStart = true;
 			block2.BlockElements.Add(new Verse("8"));
 			block2.BlockElements.Add(new ScriptText("Felipe le dijo: Señor, muéstranos al Padre, y nos basta."));
 			var input = new List<Block> { block1, block2 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
+
 			Assert.AreEqual("[6]\u00A0Jesús le dijo: ", output[0].GetText(true));
 			Assert.IsTrue(output[0].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(14, output[0].ChapterNumber);
 			Assert.AreEqual(6, output[0].InitialStartVerseNumber);
+			
 			Assert.AreEqual("Yo soy el camino, y la verdad, y la vida; nadie viene al Padre sino por mí. [7]\u00A0Si me hubierais conocido, también hubierais conocido a mi Padre; desde ahora le conocéis y le habéis visto.", output[1].GetText(true));
 			Assert.AreEqual("Jesus", output[1].CharacterId);
 			Assert.AreEqual(string.Empty, output[1].Delivery);
@@ -1336,6 +1488,7 @@ namespace GlyssenTests.Quote
 			Assert.IsTrue(output[2].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(14, output[2].ChapterNumber);
 			Assert.AreEqual(8, output[2].InitialStartVerseNumber);
+			
 			Assert.AreEqual("Señor, muéstranos al Padre, y nos basta.", output[3].GetText(true));
 			Assert.AreEqual("Philip", output[3].CharacterId);
 			Assert.AreEqual(string.Empty, output[3].Delivery);
@@ -1343,6 +1496,63 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(8, output[3].InitialStartVerseNumber);
 		}
 
+#if HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+		[TestCase(".")]
+		[TestCase("?")]
+		[TestCase("!")]
+		[TestCase("\uFF61")] // HALFWIDTH IDEOGRAPHIC FULL STOP (I wanted to test at least one of the many non-Roman sentence-ending characters)
+		public void Parse_DialogueQuoteUsingColonEndingWithSentenceEndingPunctuation_OneBlockBecomesThree(string endingPunctuation)
+		{
+			string quoteByJesusInV6 = String.Format("Yo soy el camino, y la verdad, y la vida; nadie viene al Padre sino por mí{0} ", endingPunctuation);
+			var block1 = new Block("p", 14, 6);
+			block1.BlockElements.Add(new Verse("6"));
+			block1.BlockElements.Add(new ScriptText("Jesús le dijo: " + quoteByJesusInV6));
+			block1.BlockElements.Add(new Verse("7"));
+			block1.BlockElements.Add(new ScriptText("Si me hubierais conocido, también hubierais conocido a mi Padre; desde ahora le conocéis y le habéis visto."));
+			var block2 = new Block("p", 14, 8);
+			block2.BlockElements.Add(new Verse("8"));
+			block2.BlockElements.Add(new ScriptText("Felipe le dijo: Señor, muéstranos al Padre, y nos basta."));
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", QuoteUtils.kSentenceEndingPunctuation);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(5, output.Count);
+
+			Assert.AreEqual("[6]\u00A0Jesús le dijo: ", output[0].GetText(true));
+			Assert.IsTrue(output[0].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(14, output[0].ChapterNumber);
+			Assert.AreEqual(6, output[0].InitialStartVerseNumber);
+
+			Assert.AreEqual(quoteByJesusInV6, output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(string.Empty, output[1].Delivery);
+			Assert.AreEqual(14, output[1].ChapterNumber);
+			Assert.AreEqual(6, output[1].InitialStartVerseNumber);
+
+			Assert.AreEqual("[7]\u00A0Si me hubierais conocido, también hubierais conocido a mi Padre; desde ahora le conocéis y le habéis visto.", output[2].GetText(true));
+			Assert.IsTrue(output[2].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(14, output[2].ChapterNumber);
+			Assert.AreEqual(7, output[2].InitialStartVerseNumber);
+
+			Assert.AreEqual("[8]\u00A0Felipe le dijo: ", output[3].GetText(true));
+			Assert.IsTrue(output[3].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(14, output[3].ChapterNumber);
+			Assert.AreEqual(8, output[3].InitialStartVerseNumber);
+
+			Assert.AreEqual("Señor, muéstranos al Padre, y nos basta.", output[4].GetText(true));
+			Assert.AreEqual("Philip", output[4].CharacterId);
+			Assert.AreEqual(string.Empty, output[4].Delivery);
+			Assert.AreEqual(14, output[4].ChapterNumber);
+			Assert.AreEqual(8, output[4].InitialStartVerseNumber);
+		}
+#endif //HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+
+		/// <summary>
+		/// VERSION 1
+		/// This test assumes we can safely ignore the nested regular quotes in the dialogue quote,
+		/// but we have decided that it is fairly uncommon to do this and may be an actual error in the data.
+		/// The following test (currently ignored) reflects a different approach. We need to decide which
+		/// approach is correct.
+		/// </summary>
 		[Test]
 		public void Parse_DialogueQuoteContainingRegularQuote_InnerRegularQuoteIgnored()
 		{
@@ -1352,15 +1562,39 @@ namespace GlyssenTests.Quote
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
+
 			Assert.AreEqual("—Wína nemartustaram: “Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum,” ", output[0].GetText(false));
 			Assert.AreEqual("Jesus", output[0].CharacterId);
 			Assert.AreEqual(string.Empty, output[0].Delivery);
-			Assert.AreEqual(1, output[0].ChapterNumber);
-			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
+
 			Assert.AreEqual("—timiayi.", output[1].GetText(false));
 			Assert.IsTrue(output[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(1, output[1].ChapterNumber);
 			Assert.AreEqual(17, output[1].InitialStartVerseNumber);
+		}
+
+		/// <summary>
+		/// VERSION 2
+		/// Rather than assume we can safely ignore the nested regular quotes in the dialogue quote,
+		/// we have decided that it is fairly uncommon to do this and may be an actual error in the data,
+		/// so it is better to mark the entire thing as unknown and force the user to look at it and split it
+		/// up manualy if needed.
+		/// </summary>
+		[Ignore("Need to decide how to deal with an opening quotation mark in an dialogue quote")]
+		[Test]
+		public void Parse_DialogueQuoteContainingRegularQuote_EntireParagraphKeptAsSingleUnknownBlock()
+		{
+			var block = new Block("p", 1, 17);
+			block.BlockElements.Add(new ScriptText("—Wína nemartustaram: “Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum,” —timiayi."));
+			var input = new List<Block> { block };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(1, output.Count);
+
+			Assert.AreEqual("—Wína nemartustaram: “Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum,” —timiayi.", output[0].GetText(false));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(1, output[0].ChapterNumber);
+			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
 		}
 
 		[Test]
@@ -1382,6 +1616,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(1, output[1].InitialStartVerseNumber);
 		}
 
+		[Ignore("Need to decide how to deal with an opening quotation mark in an dialogue quote")]
 		[Test]
 		public void Parse_DialogueQuoteWithNoSentenceEndingPunctuationFollowedByCloseAfterPoetry_QuoteRemainsOpenUntilClosed()
 		{
@@ -1404,19 +1639,14 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(5, output[0].InitialStartVerseNumber);
 
 			Assert.AreEqual("[6]\u00A0Yus chichaak: “Judá nungkanam yakat Belén tutai mianchauka achatnuitai. Antsu nu yaktanam juun apu akiinatnua nuka Israela weari ainaun inartinuitai. Tura asamtai nu yaktaka chikich yakat Judá nungkanam aa nuna nangkamasang juun atinuitai,”", output[1].GetText(true));
-			Assert.AreEqual("Good Priest", output[1].CharacterId);
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
 			Assert.AreEqual(2, output[1].ChapterNumber);
 			Assert.AreEqual(6, output[1].InitialStartVerseNumber);
 
-			Assert.AreEqual("Yus timiayi. Tu aarmawaitai, ", output[2].GetText(true));
-			Assert.AreEqual("Good Priest", output[2].CharacterId);
+			Assert.AreEqual("Yus timiayi. Tu aarmawaitai, —tusar aimkarmiayi.", output[2].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[2].CharacterId);
 			Assert.AreEqual(2, output[2].ChapterNumber);
 			Assert.AreEqual(6, output[2].InitialStartVerseNumber);
-
-			Assert.AreEqual("—tusar aimkarmiayi.", output[3].GetText(true));
-			Assert.IsTrue(output[3].CharacterIs("MAT", CharacterVerseData.StandardCharacter.Narrator));
-			Assert.AreEqual(2, output[3].ChapterNumber);
-			Assert.AreEqual(6, output[3].InitialStartVerseNumber);
 		}
 
 		[Test]
@@ -1488,11 +1718,919 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(18, output[2].InitialStartVerseNumber);
 		}
 
+#if HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+		[TestCase(" ")]
+		[TestCase(")")]
+		[TestCase(") ")]
+		[TestCase(" )")]
+		[TestCase("”")]
+		public void Parse_DialogueQuoteWithExplicitEnd_FollowingNonOpeningPunctuationIncludedInQuote(string followingPunctuation)
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said —Nintimrataram splintaram." + followingPunctuation));
+			var input = new List<Block> { block1 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", QuoteUtils.kSentenceEndingPunctuation);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+
+			Assert.AreEqual("Jesus said ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("—Nintimrataram splintaram." + followingPunctuation, output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+		}
+#endif //HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+
 		[Test]
-		public void Parse_DialogueQuoteWithPotentialContinuer_EndedByQuotationDash()
+		public void Parse_DialogQuoteEndingWithSpuriousClosingQuotationMark_TrailingPunctuationKeptWithQuote()
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said —Nintimrataram splintaram”"));
+			var input = new List<Block> { block1 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+
+			Assert.AreEqual("Jesus said ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("—Nintimrataram splintaram”", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+		}
+
+		[Ignore("Need to decide how to deal with an opening quotation mark in an dialogue quote")]
+		[TestCase("“")]
+		[TestCase("‘")]
+		public void Parse_DialogQuoteEndingWithSpuriousOpeningQuotationMark_TrailingPunctuationKeptWithQuoteAndMarkedAsUnknown(string spuriousOpener)
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said —Nintimrataram splintaram" + spuriousOpener));
+			var input = new List<Block> { block1 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“ ‘", 2, QuotationMarkingSystemType.Normal));
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+
+			Assert.AreEqual("Jesus said ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("—Nintimrataram splintaram" + spuriousOpener, output[1].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+		}
+
+		[TestCase("—“")]
+		[TestCase("—”")]
+		[TestCase("—")]
+		[TestCase("— ")]
+		public void Parse_DialogQuoteEndingWithSpuriousQuotationPunctuationFollowingCloserAndNoFollowingText_TrailingPunctuationIncludedInQuoteBlock(string trailingPunctuation)
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said —Nintimrataram splintaram " + trailingPunctuation));
+			var input = new List<Block> { block1 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+
+			Assert.AreEqual("Jesus said ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("—Nintimrataram splintaram " + trailingPunctuation, output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+		}
+
+		#region Tests for PG-417
+#if HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+		[TestCase(QuoteUtils.kSentenceEndingPunctuation)]
+#endif //HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+		[TestCase(null)]
+		public void Parse_DialogueDashFollowedImmediatelyByOpeningFirstLevelQuoteWithExplicitEnd_QuoteIdentifiedCorrectly(string dialogQuoteEnd)
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said —“Nintimrataram splintaram.”"));
+			var input = new List<Block> { block1, };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", dialogQuoteEnd);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+
+			Assert.AreEqual("Jesus said ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("—“Nintimrataram splintaram.”", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+		}
+
+#if HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+		// Version #1 (see below)
+		[Ignore("Need to decide how to deal with an opening quotation mark in an dialogue quote")]
+		[Test]
+		public void Parse_DialogueDashFollowedImmediatelyByOpeningFirstLevelQuote_DialogueBlockGoesToEndOfParaButMarkedAsUnknown()
+		{
+			// TODO: Need to decide whether to use this version of the test or one of the following versions.
+
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said —“Nintimrataram” is my favorite word. Do you like it?"));
+			var input = new List<Block> { block1, };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", QuoteUtils.kSentenceEndingPunctuation);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+
+			Assert.AreEqual("Jesus said ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("—“Nintimrataram” is my favorite word.", output[1].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+		}
+
+		[Ignore("This is alternate version #2 of the above test, depending on what we decide is the desired behavior.")]
+		[Test]
+		public void Parse_DialogueDashFollowedImmediatelyByOpeningFirstLevelQuote_TreatAsRegularFirstLevelQuoteWithDashIncluded()
+		{
+			// TODO: Need to decide whether to use this version of the test, version #1 (above), or version #3 (below).
+
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said —“Nintimrataram” is my favorite word. Do you like it?"));
+			var input = new List<Block> { block1, };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", QuoteUtils.kSentenceEndingPunctuation);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+
+			Assert.AreEqual("Jesus said ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("—“Nintimrataram” ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+
+			Assert.AreEqual("is my favorite word. Do you like it?", output[2].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[2].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+		}
+
+		[Ignore("This is alternate version #3 of the above tests, depending on what we decide is the desired behavior.")]
+		[Test]
+		public void Parse_DialogueDashFollowedImmediatelyByOpeningFirstLevelQuote_IgnoreFirstLevelQuoteAndEndAtSentenceEndingPunctuation()
+		{
+			// TODO: Need to decide whether to use this version of the test or one of the above versions.
+
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said —“Nintimrataram” is my favorite word. Do you like it?"));
+			var input = new List<Block> { block1, };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", QuoteUtils.kSentenceEndingPunctuation);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+
+			Assert.AreEqual("Jesus said ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("—“Nintimrataram” is my favorite word. ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+
+			Assert.AreEqual("Do you like it?", output[2].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[2].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+		}
+
+		[Ignore("See above 3 tests. This will be similar.")]
+		[Test]
+		public void Parse_DialogueDashFollowedImmediatelyByOpeningFirstLevelQuoteWithAdditionalNormalParagraph_AllBlocksMarkedUnknownUntilParaEnd()
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said "));
+			var block2 = new Block("p", 6, 48);
+			block2.BlockElements.Add(new ScriptText("—“Nintimrataram” is my favorite word, for thus saith Isaiah "));
+			var block3 = new Block("p", 6, 48);
+			block3.BlockElements.Add(new ScriptText("“Don't even go there!”"));
+			var input = new List<Block> { block1, block2, block3 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", QuoteUtils.kSentenceEndingPunctuation);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+
+			Assert.AreEqual("Jesus said ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("—“Nintimrataram” ", output[1].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+
+			Assert.AreEqual("is my favorite word, for thus saith Isaiah ", output[2].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[2].CharacterId);
+
+			Assert.AreEqual("“Don't even go there!”", output[3].GetText(true));
+			Assert.AreEqual("Jesus", output[3].CharacterId);
+		}
+#endif //HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+
+		[Test]
+		public void Parse_DialogueDashFollowedImmediatelyByOpeningFirstLevelQuoteWithAdditionalNormalParagraph_DialogueQuoteContinuesUntilParagraphEndsWithSentenceEndingPunctuation()
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said "));
+			var block2 = new Block("p", 6, 48);
+			block2.BlockElements.Add(new ScriptText("—“Nintimrataram” is my favorite word, for thus saith Isaiah "));
+			var block3 = new Block("p", 6, 48);
+			block3.BlockElements.Add(new ScriptText("“Don't even go there!”"));
+			var input = new List<Block> { block1, block2, block3 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+
+			Assert.AreEqual("Jesus said ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("—“Nintimrataram” is my favorite word, for thus saith Isaiah ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+
+			Assert.AreEqual("“Don't even go there!”", output[2].GetText(true));
+			Assert.AreEqual("Jesus", output[2].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
+		}
+
+		//[TestCase(QuoteUtils.kSentenceEndingPunctuation)]
+		[TestCase(null)]
+		public void Parse_DialogueDashFollowedImmediatelyByOpeningFirstLevelQuoteWithAdditionalPoetryParagraph_AllBlocksAfterStartOfQuoteMarkedUnknown(string dialogQuoteEnd)
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said "));
+			var block2 = new Block("p", 6, 48);
+			block2.BlockElements.Add(new ScriptText("—“Nintimrataram” is my favorite word, for thus saith Isaiah "));
+			var block3 = new Block("m", 6, 48);
+			block3.BlockElements.Add(new ScriptText("“Don't even go there!”"));
+			var input = new List<Block> { block1, block2, block3 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", dialogQuoteEnd);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+
+			Assert.AreEqual("Jesus said ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("—“Nintimrataram” is my favorite word, for thus saith Isaiah ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, output[1].MultiBlockQuote);
+
+			Assert.AreEqual("“Don't even go there!”", output[2].GetText(true));
+			Assert.AreEqual("Jesus", output[2].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
+		}
+
+#if HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+		[Test]
+		public void Parse_DialogueDashFollowedByOpeningFirstLevelQuoteSentenceEndingPunctuationAndAnAdditionalPoetryParagraph_AllBlocksMarkedUnknownUntilExplicitEnd()
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said "));
+			var block2 = new Block("p", 6, 48);
+			block2.BlockElements.Add(new ScriptText("—“Nintimrataram” is my favorite word, for thus saith Isaiah? "));
+			var block3 = new Block("m", 6, 48);
+			block3.BlockElements.Add(new ScriptText("“Don't even go there!”"));
+			var input = new List<Block> { block1, block2, block3 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", QuoteUtils.kSentenceEndingPunctuation);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+
+			Assert.AreEqual("Jesus said ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("—“Nintimrataram” ", output[1].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+
+			Assert.AreEqual("is my favorite word, for thus saith Isaiah? ", output[2].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[2].CharacterId);
+
+			Assert.AreEqual("“Don't even go there!”", output[3].GetText(true));
+			Assert.AreEqual("Jesus", output[3].CharacterId);
+		}
+
+		[TestCase(".”", QuoteUtils.kSentenceEndingPunctuation)]
+		[TestCase("”.", QuoteUtils.kSentenceEndingPunctuation)]
+#endif //HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+		[TestCase(".”", null)]
+		[TestCase("”.", null)]
+		public void Parse_DialogueColonFollowedImmediatelyByOpeningFirstLevelQuoteWithExplicitEnd_QuoteIdentifiedCorrectly(string endingPunctuation, string dialogQuoteEnd)
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said: “Nintimrataram splintaram" + endingPunctuation));
+			var input = new List<Block> { block1, };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", dialogQuoteEnd);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+
+			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("“Nintimrataram splintaram" + endingPunctuation, output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+		}
+
+#if HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+		[Test]
+		public void Parse_DialogueColonFollowedImmediatelyByOpeningFirstLevelQuote_AllBlocksMarkedUnknownUntilExplicitEnd()
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said: “Nintimrataram” is my favorite word."));
+			var input = new List<Block> { block1, };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", QuoteUtils.kSentenceEndingPunctuation);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+
+			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("“Nintimrataram” ", output[1].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+
+			Assert.AreEqual("is my favorite word.", output[2].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[2].CharacterId);
+		}
+
+		[TestCase(".”")]
+		[TestCase("”.")]
+		public void Parse_DialogueColonFollowedImmediatelyByOpeningFirstLevelQuote_AllBlocksMarkedUnknownUntilExplicitEnd(string endingPunctuation)
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said: “Nintimrataram” is my favorite “word" + endingPunctuation));
+			var input = new List<Block> { block1, };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", QuoteUtils.kSentenceEndingPunctuation);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+
+			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("“Nintimrataram” ", output[1].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+
+			Assert.AreEqual("is my favorite ", output[2].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[2].CharacterId);
+
+			Assert.AreEqual("“word" + endingPunctuation, output[3].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[3].CharacterId);
+		}
+
+		[TestCase("p", ":")]
+		[TestCase("m", ":")]
+		[TestCase("m", ",")]
+		public void Parse_DialogueColonFollowedInNextParaByOpeningFirstLevelQuote_AllBlocksMarkedUnknownUntilExplicitEnd(string paraTagForIsaiah, string punctuationToIntroduceIsaiah)
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said: "));
+			var block2 = new Block("p", 6, 48);
+			block2.BlockElements.Add(new ScriptText("“Nintimrataram” is my favorite word, for thus saith Isaiah" + punctuationToIntroduceIsaiah));
+			var block3 = new Block(paraTagForIsaiah, 6, 48);
+			block3.BlockElements.Add(new ScriptText("Don't even go there!"));
+			var input = new List<Block> { block1, block2, block3 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", QuoteUtils.kSentenceEndingPunctuation);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+
+			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("“Nintimrataram” ", output[1].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+
+			Assert.AreEqual("is my favorite word, for thus saith Isaiah" + punctuationToIntroduceIsaiah, output[2].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[2].CharacterId);
+
+			Assert.AreEqual("Don't even go there!", output[3].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[3].CharacterId);
+		}
+
+		[TestCase("“")]
+		[TestCase("”")]
+		public void Parse_DialogueColonFollowedInNextParaByOpeningFirstLevelQuote_AllBlocksMarkedUnknownUntilParagraphEnd(string firstLevelContinuer)
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said: "));
+			var block2 = new Block("p", 6, 48);
+			block2.BlockElements.Add(new ScriptText("“Nintimrataram” is my favorite word, for thus saith Isaiah,"));
+			var block3 = new Block("p", 6, 48);
+			block3.BlockElements.Add(new ScriptText("Don't even go there!"));
+			var input = new List<Block> { block1, block2, block3 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), ":", QuoteUtils.kSentenceEndingPunctuation);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+
+			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("“Nintimrataram” ", output[1].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+
+			Assert.AreEqual("is my favorite word, for thus saith Isaiah,", output[2].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[2].CharacterId);
+
+			Assert.AreEqual("Don't even go there!", output[3].GetText(true));
+			Assert.IsTrue(output[3].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+		}
+#endif //HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+
+		[TestCase("“")]
+		[TestCase("”")]
+		public void Parse_DialogueColonFollowedByParagraphThatEndsASentence_EntireFollowingParagraphTreatedAsQuote(string firstLevelContinuer)
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said: "));
+			var block2 = new Block("p", 6, 48);
+			block2.BlockElements.Add(new ScriptText("“Nintimrataram” is my favorite word, for thus saith Isaiah."));
+			var block3 = new Block("p", 6, 48);
+			block3.BlockElements.Add(new ScriptText("Don't even go there!"));
+			var input = new List<Block> { block1, block2, block3 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), ":", null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+
+			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("“Nintimrataram” is my favorite word, for thus saith Isaiah.", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+
+			Assert.AreEqual("Don't even go there!", output[2].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[2].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+		}
+
+		[TestCase("“")]
+		[TestCase("”")]
+		public void Parse_DialogueColonFollowedByParagraphThatDoesNotEndASentence_FollowingParagraphsTreatedAsQuoteUntilSentenceEnd(string firstLevelContinuer)
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said: "));
+			var block2 = new Block("p", 6, 48);
+			block2.IsParagraphStart = true;
+			block2.BlockElements.Add(new ScriptText("“Nintimrataram” is my favorite word, for thus saith Isaiah,"));
+			var block3 = new Block("m", 6, 48);
+			block3.IsParagraphStart = true;
+			block3.BlockElements.Add(new ScriptText("Don't even go there!"));
+			var block4 = new Block("p", 6, 48);
+			block4.IsParagraphStart = true;
+			block4.BlockElements.Add(new ScriptText("I didn't."));
+			var input = new List<Block> { block1, block2, block3, block4 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), ":", null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+
+			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("“Nintimrataram” is my favorite word, for thus saith Isaiah,", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, output[1].MultiBlockQuote);
+
+			Assert.AreEqual("Don't even go there!", output[2].GetText(true));
+			Assert.AreEqual("Jesus", output[2].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
+
+			Assert.AreEqual("I didn't.", output[3].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[3].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
+		}
+
+#if HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+		[Test]
+		public void Parse_DialogueQuoteContainingInitialNestedQuoteWithSentenceEndingPunctuation_SentenceEndingPunctuationInNestedQuotesIgnored()
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said: "));
+			var block2 = new Block("p", 6, 49);
+			block2.BlockElements.Add(new Verse("49"));
+			block2.BlockElements.Add(new ScriptText("—“Nintimrataram. Jesús timiayi.” Wikia tuke pujutan sukartin asan. Comete un pedazo de flan. "));
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", QuoteUtils.kSentenceEndingPunctuation);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+
+			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("[49]\u00A0—“Nintimrataram. Jesús timiayi.” ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+
+			Assert.AreEqual("Wikia tuke pujutan sukartin asan. Comete un pedazo de flan. ", output[2].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[2].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+		}
+
+		[Test]
+		public void Parse_DialogueQuoteContainingMultipleNestedQuotesWithSentenceEndingPunctuation_SentenceEndingPunctuationInNestedQuotesIgnored()
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said: "));
+			var block2 = new Block("p", 6, 49);
+			block2.BlockElements.Add(new Verse("49"));
+			block2.BlockElements.Add(new ScriptText("—“Nintimrataram” is a word about which John said “I never use that word. It's lame, dude!”"));
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", QuoteUtils.kSentenceEndingPunctuation);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+
+			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("[49]\u00A0—“Nintimrataram” is a word about which John said “I never use that word. It's lame, dude!”", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+		}
+
+		[Test]
+		public void Parse_DialogueQuoteContainingSingleNestedQuoteWithSentenceEndingPunctuation_SentenceEndingPunctuationInNestedQuoteIgnored()
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said: "));
+			var block2 = new Block("p", 6, 49);
+			block2.BlockElements.Add(new Verse("49"));
+			block2.BlockElements.Add(new ScriptText("Remember that John said, “He must increase. I must decrease!”"));
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", QuoteUtils.kSentenceEndingPunctuation);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+
+			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+
+			Assert.AreEqual("[49]\u00A0Remember that John said, “He must increase. I must decrease!”", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+		}
+
+		[TestCase("!”")]
+		[TestCase("! ”")]
+		[TestCase("”!")]
+		public void Parse_DialogueQuoteContainingToEndWithSentenceEndingPunctuationSingleNestedQuoteWithSentenceEndingPunctuationAndSomeFollowingText_DialogueQuoteEndsWithFinalSentenceEndingPunctuationInNestedQuote(string endingPunctuation)
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said: "));
+			var block2 = new Block("p", 6, 49);
+			block2.BlockElements.Add(new Verse("49"));
+			block2.BlockElements.Add(new ScriptText("Remember that John said, “He must increase. I must decrease" + endingPunctuation + " Following text spoken by narrator."));
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", QuoteUtils.kSentenceEndingPunctuation);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+
+			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("[49]\u00A0Remember that John said, “He must increase. I must decrease" + endingPunctuation + " ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+
+			Assert.AreEqual("Following text spoken by narrator.", output[2].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[2].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+		}
+
+		[Test]
+		public void Parse_DialogueQuoteContainingToEndWithSentenceEndingPunctuationSingleNestedQuoteWithInternalButNotFinalSentenceEndingPunctuationAndSomeFollowingText_DialogueQuoteEndsIgnoresPunctuationInNestedQuote()
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said: "));
+			var block2 = new Block("p", 6, 49);
+			block2.BlockElements.Add(new Verse("49"));
+			block2.BlockElements.Add(new ScriptText("Remember that John said, “He must increase. I must decrease,” and more dialogue."));
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", QuoteUtils.kSentenceEndingPunctuation);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+
+			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+
+			Assert.AreEqual("[49]\u00A0Remember that John said, “He must increase. I must decrease,” and more dialogue.", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+		}
+#endif //HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+
+		[TestCase("!”")]
+		[TestCase("”!")]
+		public void Parse_DialogueQuoteToEndAtEndOfParagraphContainingSingleNestedQuoteWithSentenceEndingPunctuationAndSomeFollowingText_DialogueQuoteEndsWithFinalSentenceEndingPunctuationInNestedQuote(string endingPunctuation)
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said: "));
+			var block2 = new Block("p", 6, 49);
+			block2.IsParagraphStart = true;
+			block2.BlockElements.Add(new Verse("49"));
+			block2.BlockElements.Add(new ScriptText("Remember that John said, “He must increase. I must decrease" + endingPunctuation + " Text following nested quote."));
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+
+			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+
+			Assert.AreEqual("[49]\u00A0Remember that John said, “He must increase. I must decrease" + endingPunctuation + " Text following nested quote.", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+		}
+
+		[Test]
+		public void Parse_MidVerseColonFollowedByExplicitQuoteAndSpeakerFollowedByVerseWithout_QuoteBrokenOutAsSeparateBlockWithSpeakerAssigned()
+		{
+			var block1 = new Block("p", 5, 28);
+			block1.IsParagraphStart = true;
+			block1.BlockElements.Add(new Verse("28"));
+			block1.BlockElements.Add(new ScriptText("Ar ome binsaed: “Unnila an e-mordukubi wis-ebusale, an yog-nuguar naoed.” "));
+			block1.BlockElements.Add(new Verse("29"));
+			block1.BlockElements.Add(new ScriptText("Ome Jesús-e-morduku-ebusgu, yog-nuguar naded. Geb ome na magasaila itosad, ede nugusa."));
+			var input = new List<Block> { block1 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+
+			Assert.AreEqual("[28]\u00A0Ar ome binsaed: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+			Assert.IsTrue(output[0].IsParagraphStart);
+
+			Assert.AreEqual("“Unnila an e-mordukubi wis-ebusale, an yog-nuguar naoed.” ", output[1].GetText(true));
+			Assert.AreEqual("woman, bleeding for twelve years", output[1].CharacterId);
+			Assert.AreEqual("thinking", output[1].Delivery);
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+			Assert.IsFalse(output[1].IsParagraphStart);
+
+			Assert.AreEqual("[29]\u00A0Ome Jesús-e-morduku-ebusgu, yog-nuguar naded. Geb ome na magasaila itosad, ede nugusa.", output[2].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[2].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
+			Assert.IsFalse(output[2].IsParagraphStart);
+		}
+
+		[Test]
+		public void Parse_MidVerseColonFollowedByExplicitQuoteAndSpeakerFollowedByParagraphWithContinuer_MultiBlockQuoteHasSpeakerAssigned()
+		{
+			var block1 = new Block("p", 3, 17);
+			block1.IsParagraphStart = true;
+			block1.BlockElements.Add(new Verse("17"));
+			block1.BlockElements.Add(new ScriptText("Ar ome binsaed: “Unnila an e-mordukubi wis-ebusale, an yog-nuguar naoed. "));
+			var block2 = new Block("p", 3, 18);
+			block2.IsParagraphStart = true;
+			block2.BlockElements.Add(new Verse("18"));
+			block2.BlockElements.Add(new ScriptText("“Ome Jesús-e-morduku-ebusgu, yog-nuguar naded. Geb ome na magasaila itosad, ede nugusa.”"));
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+
+			Assert.AreEqual("[17]\u00A0Ar ome binsaed: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+			Assert.IsTrue(output[0].IsParagraphStart);
+
+			Assert.AreEqual("“Unnila an e-mordukubi wis-ebusale, an yog-nuguar naoed. ", output[1].GetText(true));
+			Assert.AreEqual("God", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, output[1].MultiBlockQuote);
+			Assert.IsFalse(output[1].IsParagraphStart);
+
+			Assert.AreEqual("[18]\u00A0“Ome Jesús-e-morduku-ebusgu, yog-nuguar naded. Geb ome na magasaila itosad, ede nugusa.”", output[2].GetText(true));
+			Assert.AreEqual("God", output[2].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
+			Assert.IsTrue(output[2].IsParagraphStart);
+		}
+
+		[TestCase("“", ".")]
+		[TestCase("”", ".")]
+		[TestCase("$", ".")]
+		[TestCase("“", null)]
+		[TestCase("”", null)]
+		[TestCase("$", null)]
+		public void Parse_ColonFollowedByNormalInlineQuoteWithTwoContinuationParagraphs_AllContinuationParasKeptTogether(string firstLevelContinuer, string dialogueQuoteCloser)
+		{
+			var block1 = new Block("p", 6, 10);
+			block1.IsParagraphStart = true;
+			block1.BlockElements.Add(new Verse("10"));
+			block1.BlockElements.Add(new ScriptText("Jesús e-sapinganga sogdebalid: “Ar bemar neg-gwagwense dogdapile, obunnomaloed."));
+			var block2 = new Block("p", 6, 11);
+			block2.IsParagraphStart = true;
+			block2.BlockElements.Add(new Verse("11"));
+			block2.BlockElements.Add(new ScriptText(firstLevelContinuer + "Ar ibi-neggwebur nuedgi Bab-Dummad-dulamar-guega abingalessurmarye."));
+			var block3 = new Block("p", 6, 11);
+			block3.IsParagraphStart = true;
+			block3.BlockElements.Add(new ScriptText(firstLevelContinuer + "Napira an bemarga soged, Bab-Dummad-igar-nabirogoed-ibagi, odurdaklemaloed.”"));
+			var block4 = new Block("p", 6, 12);
+			block4.IsParagraphStart = true;
+			block4.BlockElements.Add(new Verse("12"));
+			block4.BlockElements.Add(new ScriptText("Jesús-sapingan nadmargu, be-daed be ogwamar. "));
+			block4.BlockElements.Add(new Verse("13"));
+			block4.BlockElements.Add(new ScriptText("Deginbali."));
+			var input = new List<Block> { block1, block2, block3, block4 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), ":", dialogueQuoteCloser);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(5, output.Count);
+
+			Assert.AreEqual("[10]\u00A0Jesús e-sapinganga sogdebalid: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+			Assert.IsTrue(output[0].IsParagraphStart);
+
+			Assert.AreEqual("“Ar bemar neg-gwagwense dogdapile, obunnomaloed.", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, output[1].MultiBlockQuote);
+			Assert.IsFalse(output[1].IsParagraphStart);
+
+			Assert.AreEqual("[11]\u00A0" + firstLevelContinuer + "Ar ibi-neggwebur nuedgi Bab-Dummad-dulamar-guega abingalessurmarye.", output[2].GetText(true));
+			Assert.AreEqual("Jesus", output[2].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
+			Assert.IsTrue(output[2].IsParagraphStart);
+
+			Assert.AreEqual(firstLevelContinuer + "Napira an bemarga soged, Bab-Dummad-igar-nabirogoed-ibagi, odurdaklemaloed.”", output[3].GetText(true));
+			Assert.AreEqual("Jesus", output[3].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[3].MultiBlockQuote);
+			Assert.IsTrue(output[3].IsParagraphStart);
+
+			Assert.AreEqual("[12]\u00A0Jesús-sapingan nadmargu, be-daed be ogwamar. [13]\u00A0Deginbali.", output[4].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[4].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[4].MultiBlockQuote);
+			Assert.IsTrue(output[4].IsParagraphStart);
+		}
+		#endregion
+
+		[Ignore]
+		[Test]
+		public void Parse_PotentialContinuationParagraphMissingCloser_NotSureWhatToDo()
+		{
+			var block1 = new Block("p", 3, 17);
+			block1.IsParagraphStart = true;
+			block1.BlockElements.Add(new Verse("17"));
+			block1.BlockElements.Add(new ScriptText("Ar ome binsaed: “Unnila an e-mordukubi wis-ebusale, an yog-nuguar naoed. "));
+			var block2 = new Block("p", 3, 18);
+			block2.IsParagraphStart = true;
+			block2.BlockElements.Add(new Verse("18"));
+			block2.BlockElements.Add(new ScriptText("“Ome Jesús-e-morduku-ebusgu, yog-nuguar naded. Geb ome na magasaila itosad, ede nugusa."));
+			var block3 = new Block("p", 3, 19);
+			block3.IsParagraphStart = true;
+			block3.BlockElements.Add(new Verse("19"));
+			block3.BlockElements.Add(new ScriptText("Previous paragraph didn't have a closer!"));
+			var input = new List<Block> { block1, block2, block3 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+
+			Assert.AreEqual("[17]\u00A0Ar ome binsaed: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+			Assert.IsTrue(output[0].IsParagraphStart);
+
+			Assert.AreEqual("“Unnila an e-mordukubi wis-ebusale, an yog-nuguar naoed. ", output[1].GetText(true));
+			Assert.AreEqual("God", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, output[1].MultiBlockQuote);
+			Assert.IsFalse(output[1].IsParagraphStart);
+
+			Assert.AreEqual("[18]\u00A0“Ome Jesús-e-morduku-ebusgu, yog-nuguar naded. Geb ome na magasaila itosad, ede nugusa.", output[2].GetText(true));
+			Assert.AreEqual("God", output[2].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
+			Assert.IsTrue(output[2].IsParagraphStart);
+		}
+
+		[TestCase("“")]
+		[TestCase("”")]
+		[TestCase("%")]
+		public void Parse_DialogueQuoteInPoetryWithNoExplicitEndFollowedByMorePoetry_SecondPoetryParagraphShouldNotBePartOfQuote(string firstLevelContinuer)
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Then he said: "));
+			var block2 = new Block("q2", 6, 48);
+			block2.IsParagraphStart = true;
+			block2.BlockElements.Add(new ScriptText("This is a poem about a fly"));
+			var block3 = new Block("q2", 6, 48);
+			block3.IsParagraphStart = true;
+			block3.BlockElements.Add(new ScriptText("who wished he didn't never have to die. Crud!"));
+			var input = new List<Block> { block1, block2, block3 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), ":", ".");
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+
+			Assert.AreEqual("Then he said: ", output[0].GetText(true));
+			Assert.IsTrue(output[0].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+
+			Assert.AreEqual("This is a poem about a fly", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+
+			Assert.AreEqual("who wished he didn't never have to die. Crud!", output[2].GetText(true));
+			Assert.IsTrue(output[2].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
+		}
+
+		[TestCase("“")]
+		[TestCase("”")]
+		[TestCase("%")]
+		[TestCase("% ^ &")]
+		[TestCase("% ")]
+		public void Parse_DialogueQuoteWithPotentialContinuerFollowingVerseNumber_EndedByQuotationDash(string firstLevelContinuer)
 		{
 			var block1 = new Block("p", 6, 48);
 			block1.BlockElements.Add(new ScriptText("—Wikia tuke pujutan sukartin asan. "));
+			var block2 = new Block("p", 6, 49);
+			block2.IsParagraphStart = true;
+			block2.BlockElements.Add(new Verse("49"));
+			block2.BlockElements.Add(new ScriptText(firstLevelContinuer + "Nintimrataram, —Jesús timiayi."));
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), "—", "—");
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+
+			Assert.AreEqual("—Wikia tuke pujutan sukartin asan. ", output[0].GetText(true));
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+
+			Assert.AreEqual("[49]\u00A0" + firstLevelContinuer + "Nintimrataram, ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+
+			Assert.AreEqual("—Jesús timiayi.", output[2].GetText(true));
+			Assert.IsTrue(output[2].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
+		}
+
+		[TestCase("“")]
+		[TestCase("”")]
+		[TestCase("“ ")]
+		[TestCase("” ")]
+		[TestCase("%")]
+		[TestCase("% ")]
+		public void Parse_DialogueQuoteWithPotentialContinuerFollowingVerseNumberWithExtraSpace_EndedByQuotationDash(string firstLevelContinuer)
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("—Wikia tuke pujutan sukartin asan. "));
+			var block2 = new Block("p", 6, 49);
+			block2.IsParagraphStart = true;
+			block2.BlockElements.Add(new Verse("49"));
+			block2.BlockElements.Add(new ScriptText(firstLevelContinuer + " Nintimrataram, —Jesús timiayi."));
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), "—", "—");
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+
+			Assert.AreEqual("—Wikia tuke pujutan sukartin asan. ", output[0].GetText(true));
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+
+			Assert.AreEqual("[49]\u00A0" + firstLevelContinuer + " Nintimrataram, ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+
+			Assert.AreEqual("—Jesús timiayi.", output[2].GetText(true));
+			Assert.IsTrue(output[2].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
+		}
+
+		[Test]
+		public void Parse_DialogueQuoteWithPotentialContinuerNoVerseNumber_EndedByQuotationDash()
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("—Wikia tuke pujutan sukartin asan. "));
+			var block2 = new Block("p", 6, 48);
+			block2.BlockElements.Add(new ScriptText("“Nintimrataram, —Jesús timiayi."));
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+
+			Assert.AreEqual("—Wikia tuke pujutan sukartin asan. ", output[0].GetText(true));
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+
+			Assert.AreEqual("“Nintimrataram, ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+
+			Assert.AreEqual("—Jesús timiayi.", output[2].GetText(true));
+			Assert.IsTrue(output[2].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
+		}
+
+		[TestCase("“")]
+		[TestCase("”")]
+		public void Parse_DialogueQuoteWithPotentialContinuer_EndedByUserSpecifiedPunctuation(string levelOneContinuer)
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("—Wikia tuke pujutan sukartin asan. "));
+			var block2 = new Block("p", 6, 49);
+			block2.IsParagraphStart = true;
+			block2.BlockElements.Add(new Verse("49"));
+			block2.BlockElements.Add(new ScriptText(levelOneContinuer + "Nintimrataram, ~Jesús timiayi."));
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", levelOneContinuer, 1, QuotationMarkingSystemType.Normal), "—", "~");
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+
+			Assert.AreEqual("—Wikia tuke pujutan sukartin asan. ", output[0].GetText(true));
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+
+			Assert.AreEqual("[49]\u00A0" + levelOneContinuer + "Nintimrataram, ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+
+			Assert.AreEqual("~Jesús timiayi.", output[2].GetText(true));
+			Assert.IsTrue(output[2].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
+		}
+
+		[Test]
+		public void Parse_DialogueQuoteFollowedByBogusOpeningFirstLevelQuote_DqEndedExplicitlyByQuotationDash()
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("—Wikia tuke pujutan sukartin asan. —Jesús timiayi."));
 			var block2 = new Block("p", 6, 49);
 			block2.BlockElements.Add(new Verse("49"));
 			block2.BlockElements.Add(new ScriptText("“Nintimrataram, —Jesús timiayi."));
@@ -1504,12 +2642,162 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("—Wikia tuke pujutan sukartin asan. ", output[0].GetText(true));
 			Assert.AreEqual("Jesus", output[0].CharacterId);
 
-			Assert.AreEqual("[49]\u00A0“Nintimrataram, ", output[1].GetText(true));
-			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual("—Jesús timiayi.", output[1].GetText(true));
+			Assert.IsTrue(output[1].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
 
-			Assert.AreEqual("—Jesús timiayi.", output[2].GetText(true));
-			Assert.IsTrue(output[2].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual("[49]\u00A0“Nintimrataram, —Jesús timiayi.", output[2].GetText(true));
+			Assert.AreEqual("Jesus", output[2].CharacterId);
 		}
+
+#if HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+		[Test]
+		public void Parse_DialogueQuoteFollowedByOpeningFirstLevelQuote_DqEndedExplicitlyBySentenceEndingPunctuation()
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said: "));
+			var block2 = new Block("p", 6, 48);
+			block2.BlockElements.Add(new ScriptText("Wikia tuke pujutan sukartin asan. "));
+			var block3 = new Block("p", 6, 49);
+			block3.BlockElements.Add(new Verse("49"));
+			block3.BlockElements.Add(new ScriptText("“Nintimrataram. Jesús timiayi."));
+			var input = new List<Block> { block1, block2, block3 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", QuoteUtils.kSentenceEndingPunctuation);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+
+			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+
+			Assert.AreEqual("Wikia tuke pujutan sukartin asan. ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+
+			Assert.AreEqual("[49]\u00A0“Nintimrataram. Jesús timiayi.", output[2].GetText(true));
+			Assert.AreEqual("Jesus", output[2].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
+		}
+
+		[Test]
+		public void Parse_InlineDialogueQuoteFollowedByOpeningFirstLevelQuote_EndedBySentenceEndingPunctuation()
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said: Wikia tuke pujutan sukartin asan; "));
+			var block2 = new Block("p", 6, 49);
+			block2.BlockElements.Add(new Verse("49"));
+			block2.BlockElements.Add(new ScriptText("“Nintimrataram. Jesús timiayi."));
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", QuoteUtils.kSentenceEndingPunctuation);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+
+			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+
+			Assert.AreEqual("Wikia tuke pujutan sukartin asan; ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.IsFalse(output[1].IsParagraphStart);
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+
+			Assert.AreEqual("[49]\u00A0“Nintimrataram. ", output[2].GetText(true));
+			Assert.AreEqual("Jesus", output[2].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
+
+			Assert.AreEqual("Jesús timiayi.", output[3].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[3].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
+		}
+#endif //HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+
+		[Test]
+		public void Parse_DialogueQuoteIntroducedByColonAtEndOfVerseAndParagraph_QuoteAssignedToCharacter()
+		{
+			var block1 = new Block("p", 6, 47);
+			block1.BlockElements.Add(new ScriptText("Jesus said: "));
+			var block2 = new Block("p", 6, 48);
+			block2.AddVerse(48, "Wikia tuke pujutan sukartin asan; ");
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+
+			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("[48]\u00A0Wikia tuke pujutan sukartin asan; ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+		}
+
+		[Test]
+		public void Parse_DialogueQuoteIntroducedByColonInMiddleOfVerse_QuoteAssignedToCharacter()
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said: "));
+			var block2 = new Block("p", 6, 48);
+			block2.BlockElements.Add(new ScriptText("Wikia tuke pujutan sukartin asan; "));
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+
+			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("Wikia tuke pujutan sukartin asan; ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+		}
+
+		[Test]
+		public void Parse_DialogueQuoteIntroducedByColonAtEndOfVerse_QuoteAssignedToCharacter()
+		{
+			var block1 = new Block("p", 6, 47);
+			block1.BlockElements.Add(new ScriptText("Jesus said: "));
+			block1.AddVerse(48, "Wikia tuke pujutan sukartin asan. ");
+			var input = new List<Block> { block1 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+
+			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("[48]\u00A0Wikia tuke pujutan sukartin asan. ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+		}
+
+#if HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+		[Test]
+		public void Parse_DialogueQuoteFollowedByOpeningFirstLevelQuote_EndedBySentenceEndingPunctuation()
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said: "));
+			var block2 = new Block("p", 6, 48);
+			block2.IsParagraphStart = true;
+			block2.BlockElements.Add(new ScriptText("Wikia tuke pujutan sukartin asan; "));
+			var block3 = new Block("p", 6, 49);
+			block3.IsParagraphStart = true;
+			block3.BlockElements.Add(new Verse("49"));
+			block3.BlockElements.Add(new ScriptText("“Nintimrataram. Jesús timiayi."));
+			var input = new List<Block> { block1, block2, block3 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", QuoteUtils.kSentenceEndingPunctuation);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+
+			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("Wikia tuke pujutan sukartin asan; ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.IsTrue(output[1].IsParagraphStart);
+
+			Assert.AreEqual("[49]\u00A0“Nintimrataram. ", output[2].GetText(true));
+			Assert.AreEqual("Jesus", output[2].CharacterId);
+
+			Assert.AreEqual("Jesús timiayi.", output[3].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[3].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+		}
+#endif //HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
 
 		[Test]
 		public void Parse_DialogueQuoteWithPotentialContinuerOverMultipleParagraphs_EndedByQuotationDash()
@@ -1538,6 +2826,7 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual("—Jesús timiayi.", output[3].GetText(true));
 			Assert.IsTrue(output[3].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+		//	Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
 		}
 
 		[Test]

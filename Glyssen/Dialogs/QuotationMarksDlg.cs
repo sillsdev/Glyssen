@@ -28,6 +28,7 @@ namespace Glyssen.Dialogs
 		private string m_xOfYFmt;
 		private object m_versesWithMissingExpectedQuotesFilterItem;
 		private object m_allQuotesFilterItem;
+		private bool m_endMarkerComboIncludesSameAsStartDashTextOption;
 
 		internal QuotationMarksDlg(Project project, BlockNavigatorViewModel navigatorViewModel, bool readOnly)
 		{
@@ -159,22 +160,35 @@ namespace Glyssen.Dialogs
 			m_cboQuotationDash.Items.Clear();
 			m_cboQuotationDash.Items.Add(string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuotationDash", "Quotation dash ({0})"), "U+2015"));
 			m_cboQuotationDash.Items.Add(string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.EmDash", "Em-dash ({0})"), "U+2014"));
+			m_cboQuotationDash.Items.Add(string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.Colon", "Colon ( {0} )"), ":"));
 			switch (quotationDashMarker)
 			{
 				case "\u2015": m_cboQuotationDash.SelectedIndex = 0; break;
 				case "\u2014": m_cboQuotationDash.SelectedIndex = 1; break;
+				case ":": m_cboQuotationDash.SelectedIndex = 2; break;
 				default: m_cboQuotationDash.Text = quotationDashMarker; break;
 			}
 
 			m_cboEndQuotationDash.Items.Clear();
 			m_cboEndQuotationDash.Items.Add(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.EndQuotationDashWithParagraphOnly", "End of paragraph (only)"));
-			m_cboEndQuotationDash.Items.Add(SameAsStartDashText);
+			if (QuotationDashSelected)
+			{
+				m_cboEndQuotationDash.Items.Add(SameAsStartDashText);
+				m_endMarkerComboIncludesSameAsStartDashTextOption = true;
+			}
+#if HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+			m_cboEndQuotationDash.Items.Add(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.SentenceEndingPunctuation", "Sentence-ending punctuation"));
+#endif //HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
 
 			var quotationDashEndMarker = currentSystem.QuotationDashEndMarker;
 			if (string.IsNullOrEmpty(quotationDashEndMarker))
 				m_cboEndQuotationDash.SelectedIndex = 0;
-			else if (quotationDashEndMarker == quotationDashMarker)
+			else if (m_endMarkerComboIncludesSameAsStartDashTextOption && quotationDashEndMarker == quotationDashMarker)
 				m_cboEndQuotationDash.SelectedIndex = 1;
+#if HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+			else if (quotationDashEndMarker == QuoteUtils.kSentenceEndingPunctuation)
+				m_cboEndQuotationDash.SelectedIndex = m_endMarkerComboIncludesSameAsStartDashTextOption ? 2 : 1;
+#endif //HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
 			else
 				m_cboEndQuotationDash.Text = quotationDashEndMarker;
 		}
@@ -204,12 +218,9 @@ namespace Glyssen.Dialogs
 				{
 					case 0: quotationDashMarker = "U+2015"; break;
 					case 1: quotationDashMarker = "U+2014"; break;
-					default: quotationDashMarker = m_cboQuotationDash.Text; break;
+					default:
+						throw new InvalidOperationException("SameAsStartDashText is not valid in this state!");
 				}
-
-				if (String.IsNullOrWhiteSpace(quotationDashMarker))
-					return LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.EndQuotationDashWithStartDash",
-						"Same as start quotation dash");
 
 				return string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.EndQuotationDashWithStartDash",
 					"Same as start quotation dash ({0})"), quotationDashMarker);
@@ -428,6 +439,7 @@ namespace Glyssen.Dialogs
 					{
 						case 0: quotationDashMarker = "\u2015"; break;
 						case 1: quotationDashMarker = "\u2014"; break;
+						case 2: quotationDashMarker = ":"; break;
 						default:
 							if (!String.IsNullOrWhiteSpace(m_cboQuotationDash.Text))
 								quotationDashMarker = m_cboQuotationDash.Text;
@@ -437,7 +449,23 @@ namespace Glyssen.Dialogs
 					switch (m_cboEndQuotationDash.SelectedIndex)
 					{
 						case 0: break;
-						case 1: quotationDashEndMarker = quotationDashMarker; break;
+						case 1:
+							if (m_endMarkerComboIncludesSameAsStartDashTextOption)
+							{
+								quotationDashEndMarker = quotationDashMarker;
+								break;
+							}
+#if HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+							if (m_endMarkerComboIncludesSameAsStartDashTextOption)
+							{
+								quotationDashEndMarker = quotationDashMarker;
+								break;
+							}
+							goto case 2;
+						case 2: quotationDashEndMarker = QuoteUtils.kSentenceEndingPunctuation; break;
+#else
+							quotationDashEndMarker = quotationDashMarker; break;
+#endif // HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
 						default:
 							if (!String.IsNullOrWhiteSpace(m_cboEndQuotationDash.Text))
 								quotationDashEndMarker = m_cboEndQuotationDash.Text;
@@ -495,9 +523,29 @@ namespace Glyssen.Dialogs
 			m_chkAlternateSpeakersInFirstLevelQuotes.Enabled = m_chkDialogueQuotations.Checked;
 		}
 
+		private bool QuotationDashSelected
+		{
+			get { return (m_cboQuotationDash.SelectedIndex == 0 || m_cboQuotationDash.SelectedIndex == 1); }
+		}
+
 		private void m_cboQuotationDash_TextChanged(object sender, EventArgs e)
 		{
-			m_cboEndQuotationDash.Items[1] = SameAsStartDashText;
+			if (m_endMarkerComboIncludesSameAsStartDashTextOption && !QuotationDashSelected)
+			{
+				if (m_cboEndQuotationDash.SelectedIndex == 1)
+					m_cboEndQuotationDash.SelectedIndex = 0;
+				m_cboEndQuotationDash.Items.RemoveAt(1);
+				m_endMarkerComboIncludesSameAsStartDashTextOption = false;
+			}
+
+			if (QuotationDashSelected)
+			{
+				if (m_endMarkerComboIncludesSameAsStartDashTextOption)
+					m_cboEndQuotationDash.Items[1] = SameAsStartDashText;
+				else
+					m_cboEndQuotationDash.Items.Insert(1, SameAsStartDashText);
+				m_endMarkerComboIncludesSameAsStartDashTextOption = true;
+			}
 		}
 		private void HandleFilterChanged(object sender, EventArgs e)
 		{

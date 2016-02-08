@@ -10,6 +10,7 @@ using Glyssen.Character;
 using Glyssen.Utilities;
 using SIL.Extensions;
 using SIL.Scripture;
+using SIL.Unicode;
 using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Quote
@@ -49,9 +50,10 @@ namespace Glyssen.Quote
 		private readonly ScrVers m_versification;
 		private readonly List<Regex> m_regexes = new List<Regex>();
 		private readonly Regex m_regexStartsWithSpecialOpeningPunctuation = new Regex(@"^(\(|\[|\{)", RegexOptions.Compiled);
+		private Regex m_regexStartsWithFirstLevelOpener;
 
 		#region working members
-		// These members are used by several methods. Making them class-level prevents passing them repeatedly
+		// These members are used by several methods. Making them class-level avoids having to pass them repeatedly.
 		private List<Block> m_outputBlocks;
 		private Block m_workingBlock;
 		private readonly List<BlockElement> m_nonScriptTextBlockElements = new List<BlockElement>();
@@ -79,6 +81,8 @@ namespace Glyssen.Quote
 
 			if (m_quoteSystem.NormalLevels.Count > 0)
 			{
+				m_regexStartsWithFirstLevelOpener = new Regex(Regex.Escape(m_quoteSystem.NormalLevels[0].Open), RegexOptions.Compiled);
+
 				// At level x, we need continuer x, closer x, opener x+1.  Continuer must be first.
 				for (int level = 0; level < m_quoteSystem.NormalLevels.Count; level++)
 				{
@@ -90,8 +94,10 @@ namespace Glyssen.Quote
 							splitters.Add(quoteSystemLevelMinusOne.Continue);
 						splitters.Add(quoteSystemLevelMinusOne.Close);
 					}
+					else if (level == 0 && m_quoteSystem.NormalLevels[0].Continue != m_quoteSystem.NormalLevels[0].Open)
+						splitters.Add(m_quoteSystem.NormalLevels[0].Continue);
 					splitters.Add(m_quoteSystem.NormalLevels[level].Open);
-					if (level <= 0)
+					if (level == 0)
 						AddQuotationDashes(splitters);
 
 					regexExpressions.Add(BuildQuoteMatcherRegex(splitters));
@@ -178,10 +184,13 @@ namespace Glyssen.Quote
 			bool blockEndedWithSentenceEndingPunctuation = false;
 			Block blockInWhichDialogueQuoteStarted = null;
 			bool potentialDialogueContinuer = false;
+			bool pendingColon = false;
 			foreach (Block block in m_inputBlocks)
 			{
 				if (block.UserConfirmed)
 					throw new InvalidOperationException("Should not be parsing blocks that already have user-decisions applied.");
+
+				bool thisBlockStartsWithAContinuer = false;
 
 				if (block.CharacterIsStandard && !block.CharacterIs(m_bookId, CharacterVerseData.StandardCharacter.Narrator))
 				{
@@ -198,13 +207,14 @@ namespace Glyssen.Quote
 					continue;
 				}
 
-				if (m_quoteLevel == 1 &&
-					blockInWhichDialogueQuoteStarted != null &&
-					(!IsNormalParagraphStyle(blockInWhichDialogueQuoteStarted.StyleTag) || blockEndedWithSentenceEndingPunctuation || !IsFollowOnParagraphStyle(block.StyleTag)))
+				if (m_quoteLevel == 1 && blockInWhichDialogueQuoteStarted != null &&
+					(!IsNormalParagraphStyle(blockInWhichDialogueQuoteStarted.StyleTag) || blockEndedWithSentenceEndingPunctuation ||
+					!IsFollowOnParagraphStyle(block.StyleTag)))
 				{
 					m_quoteLevel--;
 					blockInWhichDialogueQuoteStarted = null;
-					potentialDialogueContinuer = !string.IsNullOrEmpty(m_quoteSystem.QuotationDashEndMarker);
+					m_nextBlockContinuesQuote = potentialDialogueContinuer = !string.IsNullOrEmpty(m_quoteSystem.QuotationDashEndMarker) ||
+						(m_quoteSystem.NormalLevels.Count > 0 && m_quoteSystem.NormalLevels[0].Continue != m_quoteSystem.NormalLevels[0].Open);
 				}
 
 				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber) { IsParagraphStart = block.IsParagraphStart };
@@ -231,6 +241,15 @@ namespace Glyssen.Quote
 					int pos = 0;
 					while (pos < content.Length)
 					{
+						if (pendingColon)
+						{
+							if (pos > 0 && m_regexStartsWithFirstLevelOpener.Match(content).Index == pos)
+								m_quoteLevel--;
+							else
+								blockInWhichDialogueQuoteStarted = block;
+							pendingColon = false;
+						}
+
 						var regex = m_regexes[m_quoteLevel >= m_regexes.Count ? m_regexes.Count - 1 : m_quoteLevel];
 						var match = regex.Match(content, pos);
 						if (match.Success)
@@ -268,12 +287,24 @@ namespace Glyssen.Quote
 									string continuerForNextLevel = ContinuerForNextLevel;
 									if (string.IsNullOrEmpty(continuerForNextLevel) || !token.StartsWith(continuerForNextLevel))
 										potentialDialogueContinuer = false;
+									else
+									{
+										thisBlockStartsWithAContinuer = true;
+										if (continuerForNextLevel != OpenerForNextLevel)
+										{
+											m_quoteLevel++;
+											sb.Append(token);
+											continue;
+										}
+									}
 								}
 								else
 								{
 									potentialDialogueContinuer = false;
 								}
 							}
+							if (!thisBlockStartsWithAContinuer)
+								potentialDialogueContinuer = false;
 
 							if ((m_quoteLevel > 0) && (m_quoteSystem.NormalLevels.Count > 0) &&
 								token.StartsWith(CloserForCurrentLevel) && blockInWhichDialogueQuoteStarted == null)
@@ -291,14 +322,16 @@ namespace Glyssen.Quote
 							}
 							else if (m_quoteLevel == 0 && m_quoteSystem.QuotationDashMarker != null && token.StartsWith(m_quoteSystem.QuotationDashMarker))
 							{
-								blockInWhichDialogueQuoteStarted = block;
 								blockEndedWithSentenceEndingPunctuation = false;
-								bool specialCaseWithColon = token.StartsWith(":");
-								if (specialCaseWithColon)
+								pendingColon = token.StartsWith(":");
+								if (pendingColon)
 									sb.Append(token);
 								FlushStringBuilderAndBlock(sb, block.StyleTag, false);
-								if (!specialCaseWithColon)
+								if (!pendingColon)
+								{
+									blockInWhichDialogueQuoteStarted = block;
 									sb.Append(token);
+								}
 								m_quoteLevel++;
 							}
 							else if (potentialDialogueContinuer || (m_quoteLevel == 1 && blockInWhichDialogueQuoteStarted != null))
@@ -306,6 +339,7 @@ namespace Glyssen.Quote
 								if (!string.IsNullOrEmpty(m_quoteSystem.QuotationDashEndMarker) && token.StartsWith(m_quoteSystem.QuotationDashEndMarker, StringComparison.Ordinal))
 								{
 									m_quoteLevel--;
+									potentialDialogueContinuer = false;
 									blockInWhichDialogueQuoteStarted = null;
 									FlushStringBuilderAndBlock(sb, block.StyleTag, true);
 								}
@@ -330,6 +364,8 @@ namespace Glyssen.Quote
 						}
 					}
 					FlushStringBuilderToBlockElement(sb);
+					if (sb.Length > 0)
+						m_outputBlocks.Last().BlockElements.OfType<ScriptText>().Last().Content += sb.ToString();
 				}
 				FlushBlock(block.StyleTag, m_quoteLevel > 0);
 			}
@@ -351,7 +387,7 @@ namespace Glyssen.Quote
 				char c = text[i];
 				if (char.IsPunctuation(c))
 				{
-					if (IsSentenceEnding(c))
+					if (CharacterUtils.IsSentenceFinalPunctuation(c))
 					{
 						return true;
 					}
@@ -401,13 +437,19 @@ namespace Glyssen.Quote
 					if (verse != null)
 						m_workingBlock.InitialStartVerseNumber = ScrReference.VerseToIntStart(verse.Number);
 					m_workingBlock.BlockElements.InsertRange(0, m_nonScriptTextBlockElements);
+					m_workingBlock.MultiBlockQuote = (lastBlock.MultiBlockQuote == MultiBlockQuote.Start)
+						? MultiBlockQuote.Continuation : lastBlock.MultiBlockQuote; 
 
 					// If we removed all block elements, remove the block
 					if (!lastBlock.BlockElements.Any())
 					{
 						m_workingBlock.IsParagraphStart = lastBlock.IsParagraphStart;
 						m_outputBlocks.Remove(lastBlock);
+						if (m_currentMultiBlockQuote.LastOrDefault() == lastBlock)
+							m_currentMultiBlockQuote.RemoveAt(m_currentMultiBlockQuote.Count - 1);
 					}
+					//if (m_workingBlock.MultiBlockQuote != MultiBlockQuote.None)
+					//	m_currentMultiBlockQuote.Add(m_workingBlock);
 				}
 			}
 			m_nonScriptTextBlockElements.Clear();
@@ -441,7 +483,14 @@ namespace Glyssen.Quote
 				m_workingBlock.StyleTag = styleTag;
 				return;
 			}
-			if (nonNarrator)
+			if (!m_workingBlock.BlockElements.OfType<ScriptText>().Any())
+			{
+				if (m_nextBlockContinuesQuote)
+					m_workingBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
+				m_nextBlockContinuesQuote = m_quoteLevel > 0;
+				//m_workingBlock.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.Narrator);
+			}
+			else if (nonNarrator)
 			{
 				if (m_nextBlockContinuesQuote)
 					m_workingBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
@@ -489,8 +538,15 @@ namespace Glyssen.Quote
 			if (!m_currentMultiBlockQuote.Any())
 				return;
 
+			if (m_currentMultiBlockQuote.Count == 1)
+			{
+				m_currentMultiBlockQuote[0].MultiBlockQuote = MultiBlockQuote.None;
+				m_currentMultiBlockQuote.Clear();
+				return;
+			}
+
 			var uniqueCharacters = m_currentMultiBlockQuote.Select(b => b.CharacterId).Distinct().ToList();
-			int numUniqueCharacters = uniqueCharacters.Count();
+			int numUniqueCharacters = uniqueCharacters.Count;
 			var uniqueCharacterDeliveries = m_currentMultiBlockQuote.Select(b => new CharacterDelivery(b.CharacterId, b.Delivery)).Distinct(CharacterDelivery.CharacterDeliveryComparer).ToList();
 			int numUniqueCharacterDeliveries = uniqueCharacterDeliveries.Count();
 			if (numUniqueCharacterDeliveries > 1)
@@ -538,99 +594,6 @@ namespace Glyssen.Quote
 			{
 				block.SetCharacterAndCharacterIdInScript(character, m_bookNum, m_versification);
 				block.Delivery = delivery;
-			}
-		}
-
-		private bool IsSentenceEnding(char c)
-		{
-			// Note... while one might think that char.GetUnicodeCategory could tell you if a character was a sentence separator, this is not the case.
-			// This is because, for example, '.' can be used for various things (abbreviation, decimal point, as well as sentence terminator).
-			// This should be a complete list of code points with the \p{Sentence_Break=STerm} or \p{Sentence_Break=ATerm} properties that also
-			// have the \p{Terminal_Punctuation} property. This list is up-to-date as of Unicode v6.1.
-			// ENHANCE: Ideally this should be dynamic, or at least moved into Palaso (this list was copied from HearThis code).
-			switch (c)
-			{
-				case '.':
-				case '?':
-				case '!':
-				case '\u0589': // ARMENIAN FULL STOP
-				case '\u061F': // ARABIC QUESTION MARK
-				case '\u06D4': // ARABIC FULL STOP
-				case '\u0700': // SYRIAC END OF PARAGRAPH
-				case '\u0701': // SYRIAC SUPRALINEAR FULL STOP
-				case '\u0702': // SYRIAC SUBLINEAR FULL STOP
-				case '\u07F9': // NKO EXCLAMATION MARK
-				case '\u0964': // DEVANAGARI DANDA
-				case '\u0965': // DEVANAGARI DOUBLE DANDA
-				case '\u104A': // MYANMAR SIGN LITTLE SECTION
-				case '\u104B': // MYANMAR SIGN SECTION
-				case '\u1362': // ETHIOPIC FULL STOP
-				case '\u1367': // ETHIOPIC QUESTION MARK
-				case '\u1368': // ETHIOPIC PARAGRAPH SEPARATOR
-				case '\u166E': // CANADIAN SYLLABICS FULL STOP
-				case '\u1803': // MONGOLIAN FULL STOP
-				case '\u1809': // MONGOLIAN MANCHU FULL STOP
-				case '\u1944': // LIMBU EXCLAMATION MARK
-				case '\u1945': // LIMBU QUESTION MARK
-				case '\u1AA8': // TAI THAM SIGN KAAN
-				case '\u1AA9': // TAI THAM SIGN KAANKUU
-				case '\u1AAA': // TAI THAM SIGN SATKAAN
-				case '\u1AAB': // TAI THAM SIGN SATKAANKUU
-				case '\u1B5A': // BALINESE PANTI
-				case '\u1B5B': // BALINESE PAMADA
-				case '\u1B5E': // BALINESE CARIK SIKI
-				case '\u1B5F': // BALINESE CARIK PAREREN
-				case '\u1C3B': // LEPCHA PUNCTUATION TA-ROL
-				case '\u1C3C': // LEPCHA PUNCTUATION NYET THYOOM TA-ROL
-				case '\u1C7E': // OL CHIKI PUNCTUATION MUCAAD
-				case '\u1C7F': // OL CHIKI PUNCTUATION DOUBLE MUCAAD
-				case '\u203C': // DOUBLE EXCLAMATION MARK
-				case '\u203D': // INTERROBANG
-				case '\u2047': // DOUBLE QUESTION MARK
-				case '\u2048': // QUESTION EXCLAMATION MARK
-				case '\u2049': // EXCLAMATION QUESTION MARK
-				case '\u2E2E': // REVERSED QUESTION MARK
-				case '\u3002': // IDEOGRAPHIC FULL STOP
-				case '\uA4FF': // LISU PUNCTUATION FULL STOP
-				case '\uA60E': // VAI FULL STOP
-				case '\uA60F': // VAI QUESTION MARK
-				case '\uA6F3': // BAMUM FULL STOP
-				case '\uA6F7': // BAMUM QUESTION MARK
-				case '\uA876': // PHAGS-PA MARK SHAD
-				case '\uA877': // PHAGS-PA MARK DOUBLE SHAD
-				case '\uA8CE': // SAURASHTRA DANDA
-				case '\uA8CF': // SAURASHTRA DOUBLE DANDA
-				case '\uA92F': // KAYAH LI SIGN SHYA
-				case '\uA9C8': // JAVANESE PADA LINGSA
-				case '\uA9C9': // JAVANESE PADA LUNGSI
-				case '\uAA5D': // CHAM PUNCTUATION DANDA
-				case '\uAA5E': // CHAM PUNCTUATION DOUBLE DANDA
-				case '\uAA5F': // CHAM PUNCTUATION TRIPLE DANDA
-				case '\uAAF0': // MEETEI MAYEK CHEIKHAN
-				case '\uAAF1': // MEETEI MAYEK AHANG KHUDAM
-				case '\uABEB': // MEETEI MAYEK CHEIKHEI
-				case '\uFE52': // SMALL FULL STOP
-				case '\uFE56': // SMALL QUESTION MARK
-				case '\uFE57': // SMALL EXCLAMATION MARK
-				case '\uFF01': // FULLWIDTH EXCLAMATION MARK
-				case '\uFF0E': // FULLWIDTH FULL STOP
-				case '\uFF1F': // FULLWIDTH QUESTION MARK
-				case '\uFF61': // HALFWIDTH IDEOGRAPHIC FULL STOP
-				// These would require surrogate pairs
-				//'\u11047', // BRAHMI DANDA
-				//'\u11048', // BRAHMI DOUBLE DANDA
-				//'\u110BE', // KAITHI SECTION MARK
-				//'\u110BF', // KAITHI DOUBLE SECTION MARK
-				//'\u110C0', // KAITHI DANDA
-				//'\u110C1', // KAITHI DOUBLE DANDA
-				//'\u11141', // CHAKMA DANDA
-				//'\u11142', // CHAKMA DOUBLE DANDA
-				//'\u11143', // CHAKMA QUESTION MARK
-				//'\u111C5', // SHARADA DANDA
-				//'\u111C6', // SHARADA DOUBLE DANDA
-					return true;
-				default:
-					return false;
 			}
 		}
 
