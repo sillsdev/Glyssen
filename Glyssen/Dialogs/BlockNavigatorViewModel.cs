@@ -401,7 +401,8 @@ namespace Glyssen.Dialogs
 			if (CurrentBlock.MultiBlockQuote == MultiBlockQuote.None)
 				return CurrentBlock;
 
-			return m_navigator.PeekForwardWithinBookWhile(b => b.MultiBlockQuote != MultiBlockQuote.None && b.MultiBlockQuote != MultiBlockQuote.Start).Last();
+			var lastBlock = m_navigator.PeekForwardWithinBookWhile(b => b.MultiBlockQuote != MultiBlockQuote.None && b.MultiBlockQuote != MultiBlockQuote.Start).LastOrDefault();
+			return lastBlock ?? CurrentBlock;
 		}
 		#endregion
 

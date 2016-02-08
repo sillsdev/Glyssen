@@ -5,6 +5,7 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using GlyssenTests.Properties;
 using NUnit.Framework;
+using SIL.Windows.Forms;
 
 namespace GlyssenTests.Dialogs
 {
@@ -392,19 +393,59 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void GetLastBlockInCurrentQuote()
+		public void GetLastBlockInCurrentQuote_CurrentBlockIsStart_FindsLastContinuationBlock()
 		{
 			m_model.Mode = BlocksToDisplay.AllScripture;
 			while (m_model.CurrentBlock.MultiBlockQuote != MultiBlockQuote.Start)
 				m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(MultiBlockQuote.Start, m_model.CurrentBlock.MultiBlockQuote);
 
 			var lastBlock = m_model.GetLastBlockInCurrentQuote();
 			Assert.AreNotEqual(lastBlock, m_model.CurrentBlock);
-			Assert.AreEqual(lastBlock.MultiBlockQuote, MultiBlockQuote.Continuation);
+			Assert.AreEqual(MultiBlockQuote.Continuation, lastBlock.MultiBlockQuote);
 
 			m_model.LoadNextRelevantBlock(); // Goes to next block not in this multiblock quote
 
-			Assert.AreEqual(m_model.GetBlockIndices(lastBlock).BlockIndex, m_model.CurrentBlockIndexInBook - 1);
+			Assert.AreEqual(m_model.CurrentBlockIndexInBook - 1, m_model.GetBlockIndices(lastBlock).BlockIndex);
+		}
+
+		[Test]
+		public void GetLastBlockInCurrentQuote_CurrentBlockIsNone_ReturnsCurrentBlock()
+		{
+			m_model.Mode = BlocksToDisplay.AllScripture;
+			while (m_model.CurrentBlock.MultiBlockQuote != MultiBlockQuote.None)
+				m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(MultiBlockQuote.None, m_model.CurrentBlock.MultiBlockQuote);
+
+			var lastBlock = m_model.GetLastBlockInCurrentQuote();
+			Assert.AreEqual(m_model.CurrentBlock, lastBlock);
+			Assert.AreEqual(MultiBlockQuote.None, lastBlock.MultiBlockQuote);
+		}
+
+		[TestCase(MultiBlockQuote.None)]
+		[TestCase(MultiBlockQuote.Start)]
+		public void GetLastBlockInCurrentQuote_CurrentBlockIsStartButNextIsNoneOrStartRepresentingBadData_ReturnsCurrentBlock(MultiBlockQuote followingStatus)
+		{
+			m_model.Mode = BlocksToDisplay.AllScripture;
+			while (m_model.CurrentBlock.MultiBlockQuote != MultiBlockQuote.Start)
+				m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(MultiBlockQuote.Start, m_model.CurrentBlock.MultiBlockQuote);
+
+			//Create bad data
+			BlockNavigator navigator = (BlockNavigator)ReflectionHelper.GetField(m_model, "m_navigator");
+			Block nextBlock = navigator.NextBlock();
+			var originalStatus = nextBlock.MultiBlockQuote;
+			nextBlock.MultiBlockQuote = followingStatus;
+			navigator.PreviousBlock();
+
+			Assert.AreEqual(MultiBlockQuote.Start, m_model.CurrentBlock.MultiBlockQuote);
+
+			var lastBlock = m_model.GetLastBlockInCurrentQuote();
+			Assert.AreEqual(m_model.CurrentBlock, lastBlock);
+
+			//Reset data for other tests
+			nextBlock = navigator.NextBlock();
+			nextBlock.MultiBlockQuote = originalStatus;
 		}
 
 		private void FindRefInMark(int chapter, int verse)
