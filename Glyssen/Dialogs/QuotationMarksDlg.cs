@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Controls;
+using Glyssen.Properties;
 using Glyssen.Quote;
 using Glyssen.Utilities;
 using L10NSharp;
@@ -21,7 +21,7 @@ using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Dialogs
 {
-	public partial class QuotationMarksDlg : Form
+	public partial class QuotationMarksDlg : FormWithPersistedSettings
 	{
 		private readonly Project m_project;
 		private readonly BlockNavigatorViewModel m_navigatorViewModel;
@@ -29,6 +29,11 @@ namespace Glyssen.Dialogs
 		private object m_versesWithMissingExpectedQuotesFilterItem;
 		private object m_allQuotesFilterItem;
 		private bool m_endMarkerComboIncludesSameAsStartDashTextOption;
+		private QuoteSystem m_originalQuoteSystem;
+		private QuoteSystem m_testedQuoteSystem;
+		private DateTime m_originalQuoteSystemDate;
+		private bool m_formLoading;
+		private bool m_testing;
 
 		internal QuotationMarksDlg(Project project, BlockNavigatorViewModel navigatorViewModel, bool readOnly)
 		{
@@ -67,6 +72,8 @@ namespace Glyssen.Dialogs
 			}, true);
 
 			SetFilterControlsFromMode();
+
+			ShowTestResults(PercentageOfExpectedQuotesFound(), false);
 
 			if (readOnly)
 				MakeReadOnly();
@@ -207,6 +214,8 @@ namespace Glyssen.Dialogs
 		{
 			//Review: Do we need to disable the controls?
 			m_btnOk.Enabled = false;
+			m_btnTest.Visible = false;
+			m_testResults.Visible = false;
 		}
 
 		private string SameAsStartDashText
@@ -258,40 +267,9 @@ namespace Glyssen.Dialogs
 			return true;
 		}
 
-		private void HandlecomboQuoteMarksDrawItem(object sender, DrawItemEventArgs e)
-		{
-			e.DrawBackground();
-			if (e.Index < 0)
-				TextRenderer.DrawText(e.Graphics, string.Empty, m_comboQuoteMarks.Font, e.Bounds, m_comboQuoteMarks.ForeColor,
-					TextFormatFlags.Left);
-			else
-			{
-				var selectedQuoteSystem = (QuoteSystem)m_comboQuoteMarks.Items[e.Index];
-				string text = selectedQuoteSystem.ToString();
-				var color = ((e.State & DrawItemState.Selected) > 0) ? SystemColors.HighlightText : m_comboQuoteMarks.ForeColor;
-
-				TextRenderer.DrawText(e.Graphics, text, m_comboQuoteMarks.Font, e.Bounds, color,
-					TextFormatFlags.Left);
-				var quotesWidth = TextRenderer.MeasureText(e.Graphics, text, m_comboQuoteMarks.Font).Width;
-
-				string majorLanguage = LocalizationManager.GetDynamicString(Program.kApplicationId,
-					"QuotationMarks.MajorLanguage" + selectedQuoteSystem.MajorLanguage, selectedQuoteSystem.MajorLanguage);
-
-				text = string.Format(LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteUsageFormat", "(commonly used in {0})",
-				"Parameter is the name of a language and/or country"), majorLanguage);
-
-				var bounds = new Rectangle(e.Bounds.Left + quotesWidth, e.Bounds.Top, e.Bounds.Width - quotesWidth, e.Bounds.Height);
-
-				TextRenderer.DrawText(e.Graphics, text, m_cboQuotationDash.Font, bounds, color,
-					TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
-			}
-
-			if (e.State != DrawItemState.ComboBoxEdit)
-				e.Graphics.DrawLine(Pens.Black, new Point(e.Bounds.Left, e.Bounds.Bottom - 1), new Point(e.Bounds.Right, e.Bounds.Bottom - 1));
-		}
-
 		private void m_btnOk_Click(object sender, EventArgs e)
 		{
+			m_testing = false;
 			QuoteSystem currentQuoteSystem = CurrentQuoteSystem;
 
 			if (currentQuoteSystem == m_project.QuoteSystem)
@@ -347,35 +325,25 @@ namespace Glyssen.Dialogs
 
 		private void HandleAnalysisCompleted(object sender, EventArgs e)
 		{
-			int totalExpectedQuotesInIncludedChapters = 0;
-			int totalVersesWithExpectedQuotes = 0;
+			// this can happen if the project QuoteSystem was restored when the user clicks `Cancel`
+			if (DialogResult == DialogResult.Cancel) return;
 
-			var expectedQuotes = ControlCharacterVerseData.Singleton.ExpectedQuotes;
-			foreach (var book in expectedQuotes.Keys)
+			if (m_testing)
 			{
-				var bookScript = m_project.Books.FirstOrDefault(b => BCVRef.BookToNumber(b.BookId) == book);
-				if (bookScript == null)
-					continue;
-				foreach (var chapter in expectedQuotes[book])
-				{
-					bool chapterCounted = false;
-					foreach (var verseWithExpectedQuote in chapter.Value)
-					{
-						var referenceForExpectedQuote = new VerseRef(book, chapter.Key, verseWithExpectedQuote, ScrVers.English);
-						referenceForExpectedQuote.ChangeVersification(m_project.Versification);
-						var blocks = bookScript.GetBlocksForVerse(referenceForExpectedQuote.ChapterNum, referenceForExpectedQuote.VerseNum).ToList();
-						if (!chapterCounted && blocks.Any())
-						{
-							totalExpectedQuotesInIncludedChapters += chapter.Value.Count;
-							chapterCounted = true;
-						}
-						if (blocks.Any(b => b.IsQuote))
-							totalVersesWithExpectedQuotes++;
-					}
-				}
+				// display the analysis
+				ShowTestResults(PercentageOfExpectedQuotesFound(), true);
+				return;
 			}
 
-			double percentageOfExpectedQuotesFound = totalVersesWithExpectedQuotes * 100.0 / totalExpectedQuotesInIncludedChapters;
+			// this happens when the user clicks `OK` after clicking `Test`
+			if (m_testedQuoteSystem == CurrentQuoteSystem)
+				{
+				DialogResult = DialogResult.OK;
+				Close();
+				return;
+						}
+
+			var percentageOfExpectedQuotesFound = PercentageOfExpectedQuotesFound();
 
 			if (percentageOfExpectedQuotesFound < Properties.Settings.Default.TargetPercentageOfQuotesFound)
 			{
@@ -384,11 +352,7 @@ namespace Glyssen.Dialogs
 					dlg.ShowDialog();
 					if (dlg.UserWantsToReview)
 					{
-						if (!m_toolStripComboBoxFilter.Items.Contains(m_versesWithMissingExpectedQuotesFilterItem))
-						{
-							m_toolStripComboBoxFilter.Items.Insert(1, m_versesWithMissingExpectedQuotesFilterItem);
-						}
-						m_toolStripComboBoxFilter.SelectedItem = m_versesWithMissingExpectedQuotesFilterItem;
+						SelectMissingExpectedQuotesFilter();
 						return;
 					}
 				}
@@ -412,6 +376,40 @@ namespace Glyssen.Dialogs
 
 			DialogResult = DialogResult.OK;
 			Close();
+		}
+
+		private double PercentageOfExpectedQuotesFound()
+		{
+			var totalExpectedQuotesInIncludedChapters = 0;
+			var totalVersesWithExpectedQuotes = 0;
+
+			var expectedQuotes = ControlCharacterVerseData.Singleton.ExpectedQuotes;
+			foreach (var book in expectedQuotes.Keys)
+			{
+				var bookScript = m_project.Books.FirstOrDefault(b => BCVRef.BookToNumber(b.BookId) == book);
+				if (bookScript == null)
+					continue;
+				foreach (var chapter in expectedQuotes[book])
+				{
+					var chapterCounted = false;
+					foreach (var verseWithExpectedQuote in chapter.Value)
+					{
+						var referenceForExpectedQuote = new VerseRef(book, chapter.Key, verseWithExpectedQuote, ScrVers.English);
+						referenceForExpectedQuote.ChangeVersification(m_project.Versification);
+						var blocks =
+							bookScript.GetBlocksForVerse(referenceForExpectedQuote.ChapterNum, referenceForExpectedQuote.VerseNum).ToList();
+						if (!chapterCounted && blocks.Any())
+						{
+							totalExpectedQuotesInIncludedChapters += chapter.Value.Count;
+							chapterCounted = true;
+						}
+						if (blocks.Any(b => b.IsQuote))
+							totalVersesWithExpectedQuotes++;
+					}
+				}
+			}
+
+			return totalVersesWithExpectedQuotes * 100.0 / totalExpectedQuotesInIncludedChapters;
 		}
 
 		public QuoteSystem CurrentQuoteSystem
@@ -503,7 +501,43 @@ namespace Glyssen.Dialogs
 			m_lblEnd.Enabled = enable;
 		}
 
+		private void ShowTestResults(double percentageOfExpected, bool changeFilter)
+		{
+			m_testResults.Text = string.Format(
+				LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.TestResults", "{0:F1}% of expected quotes were found."),
+				percentageOfExpected);
+
+			var showWarning = (100 - percentageOfExpected) > Properties.Settings.Default.MaxAcceptablePercentageOfUnknownQuotes;
+			m_testResults.ForeColor = glyssenColorPalette.GetColor(showWarning ? GlyssenColors.Warning : GlyssenColors.ForeColor);
+
+			if (changeFilter)
+				SelectMissingExpectedQuotesFilter();
+		}
+
+		private void SelectMissingExpectedQuotesFilter()
+		{
+			if (!m_toolStripComboBoxFilter.Items.Contains(m_versesWithMissingExpectedQuotesFilterItem))
+			{
+				m_toolStripComboBoxFilter.Items.Insert(1, m_versesWithMissingExpectedQuotesFilterItem);
+			}
+			m_toolStripComboBoxFilter.SelectedItem = m_versesWithMissingExpectedQuotesFilterItem;
+		}
+
 		#region Form events
+		protected override void OnLoad(EventArgs e)
+		{
+			m_formLoading = true;
+
+			base.OnLoad(e);
+			if (Settings.Default.QuotationMarksDlgSplitterDistance > 0)
+				m_splitContainer.SplitterDistance = Settings.Default.QuotationMarksDlgSplitterDistance;
+		}
+
+		private void QuotationMarksDlg_Shown(object sender, EventArgs e)
+		{
+			m_formLoading = false;
+		}
+
 		private void m_btnNext_Click(object sender, EventArgs e)
 		{
 			m_navigatorViewModel.LoadNextRelevantBlock();
@@ -547,6 +581,7 @@ namespace Glyssen.Dialogs
 				m_endMarkerComboIncludesSameAsStartDashTextOption = true;
 			}
 		}
+
 		private void HandleFilterChanged(object sender, EventArgs e)
 		{
 			if (!IsHandleCreated)
@@ -680,6 +715,41 @@ namespace Glyssen.Dialogs
 		private void m_chkPairedQuotations_CheckedChanged(object sender, EventArgs e)
 		{
 			EnablePairedQuotes(m_chkPairedQuotations.Checked);
+		}
+
+		private void m_btnTest_Click(object sender, EventArgs e)
+		{
+			m_testing = true;
+
+			var currentQuoteSystem = CurrentQuoteSystem;
+			if (m_project.QuoteSystem == currentQuoteSystem)
+				return;
+
+			// remember in case the user cancels the dialog
+			if (m_originalQuoteSystem == null)
+			{
+				m_originalQuoteSystemDate = m_project.Status.QuoteSystemDate;
+				m_originalQuoteSystem = m_project.QuoteSystem;
+			}
+
+			// trigger a re-parse
+			m_project.QuoteSystem = currentQuoteSystem;
+
+			// set so the user is not notified again if he clicks `OK` without making any more changes
+			m_testedQuoteSystem = currentQuoteSystem;
+		}		
+
+		private void m_btnCancel_Click(object sender, EventArgs e)
+		{
+			if (m_originalQuoteSystem == null) return;
+			m_project.Status.QuoteSystemDate = m_originalQuoteSystemDate;
+			m_project.QuoteSystem = m_originalQuoteSystem;
+		}
+
+		private void m_splitContainer_SplitterMoved(object sender, SplitterEventArgs e)
+		{
+			if (!m_formLoading)
+				Settings.Default.QuotationMarksDlgSplitterDistance = e.SplitX;
 		}
 		#endregion
 	}

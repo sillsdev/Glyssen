@@ -95,7 +95,7 @@ namespace Glyssen
 				if (!block.IsParagraphStart)
 				{
 					var prevBlock = list.Last();
-					if (block.CharacterIdInScript == prevBlock.CharacterIdInScript && block.Delivery == prevBlock.Delivery)
+					if (block.CharacterIdInScript == prevBlock.CharacterIdInScript && (block.Delivery ?? string.Empty) == (prevBlock.Delivery ?? String.Empty))
 					{
 						var newBlock = prevBlock.Clone();
 						foreach (var blockElement in block.BlockElements)
@@ -402,11 +402,11 @@ namespace Glyssen
 			var model = new BlockNavigatorViewModel(new ReadOnlyList<BookScript>(new[] { this }), versification);
 			foreach (var blockToChange in GetScriptBlocks()
 				.Where(b => b.MultiBlockQuote == MultiBlockQuote.Start)
-				.Select(block => model.GetAllBlocksWithSameQuote(block))
+				.Select(block => model.GetAllBlocksWhichContinueTheQuoteStartedByBlock(block))
 				.Where(blocks => blocks.Select(b => b.CharacterId).Distinct().Count() > 1)
 				.SelectMany(blocks => blocks))
 			{
-				blockToChange.CharacterId = CharacterVerseData.AmbiguousCharacter;
+				blockToChange.SetCharacterAndCharacterIdInScript(CharacterVerseData.AmbiguousCharacter, BCVRef.BookToNumber(BookId), versification);
 				blockToChange.UserConfirmed = false;
 			}
 		}
@@ -529,6 +529,18 @@ namespace Glyssen
 			{
 				while (indexOfFirstElementToRemove < blockToSplit.BlockElements.Count)
 					blockToSplit.BlockElements.RemoveAt(indexOfFirstElementToRemove);
+			}
+
+			if (blockToSplit.MultiBlockQuote == MultiBlockQuote.Start)
+			{
+				blockToSplit.MultiBlockQuote = MultiBlockQuote.None;
+				newBlock.MultiBlockQuote = MultiBlockQuote.Start;
+			}
+			else if ((blockToSplit.MultiBlockQuote == MultiBlockQuote.Continuation || blockToSplit.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery) &&
+				iBlock < m_blockCount - 2 &&
+				(m_blocks[iBlock + 2].MultiBlockQuote == MultiBlockQuote.Continuation || m_blocks[iBlock + 2].MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery))
+			{
+				newBlock.MultiBlockQuote = MultiBlockQuote.Start;
 			}
 
 			blockToSplit.SplitId = newBlock.SplitId = splitId;

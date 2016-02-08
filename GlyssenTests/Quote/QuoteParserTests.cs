@@ -1447,7 +1447,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("—Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, ", output[0].GetText(false));
 			Assert.AreEqual("Jesus", output[0].CharacterId);
-			Assert.AreEqual(string.Empty, output[0].Delivery);
+			Assert.AreEqual(null, output[0].Delivery);
 			Assert.AreEqual(1, output[0].ChapterNumber);
 			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
 			Assert.AreEqual("—timiayi.", output[1].GetText(false));
@@ -1480,7 +1480,7 @@ namespace GlyssenTests.Quote
 			
 			Assert.AreEqual("Yo soy el camino, y la verdad, y la vida; nadie viene al Padre sino por mí. [7]\u00A0Si me hubierais conocido, también hubierais conocido a mi Padre; desde ahora le conocéis y le habéis visto.", output[1].GetText(true));
 			Assert.AreEqual("Jesus", output[1].CharacterId);
-			Assert.AreEqual(string.Empty, output[1].Delivery);
+			Assert.AreEqual(null, output[1].Delivery);
 			Assert.AreEqual(14, output[1].ChapterNumber);
 			Assert.AreEqual(6, output[1].InitialStartVerseNumber);
 
@@ -1491,7 +1491,7 @@ namespace GlyssenTests.Quote
 			
 			Assert.AreEqual("Señor, muéstranos al Padre, y nos basta.", output[3].GetText(true));
 			Assert.AreEqual("Philip", output[3].CharacterId);
-			Assert.AreEqual(string.Empty, output[3].Delivery);
+			Assert.AreEqual(null, output[3].Delivery);
 			Assert.AreEqual(14, output[3].ChapterNumber);
 			Assert.AreEqual(8, output[3].InitialStartVerseNumber);
 		}
@@ -1565,7 +1565,7 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual("—Wína nemartustaram: “Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum,” ", output[0].GetText(false));
 			Assert.AreEqual("Jesus", output[0].CharacterId);
-			Assert.AreEqual(string.Empty, output[0].Delivery);
+			Assert.AreEqual(null, output[0].Delivery);
 
 			Assert.AreEqual("—timiayi.", output[1].GetText(false));
 			Assert.IsTrue(output[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
@@ -1634,7 +1634,7 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual("—Belén yaktanam Judá nungkanam nuni akiinatnuitai. Cristo akiinatniuri pachis aarmauka nuwaitai:", output[0].GetText(true));
 			Assert.AreEqual("Good Priest", output[0].CharacterId);
-			Assert.AreEqual(string.Empty, output[0].Delivery);
+			Assert.AreEqual(null, output[0].Delivery);
 			Assert.AreEqual(2, output[0].ChapterNumber);
 			Assert.AreEqual(5, output[0].InitialStartVerseNumber);
 
@@ -1666,7 +1666,7 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual("—Quote:", output[0].GetText(true));
 			Assert.AreEqual("Good Priest", output[0].CharacterId);
-			Assert.AreEqual(string.Empty, output[0].Delivery);
+			Assert.AreEqual(null, output[0].Delivery);
 			Assert.AreEqual(2, output[0].ChapterNumber);
 			Assert.AreEqual(5, output[0].InitialStartVerseNumber);
 
@@ -2863,7 +2863,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("-Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, ", output[0].GetText(false));
 			Assert.AreEqual("Jesus", output[0].CharacterId);
-			Assert.AreEqual(string.Empty, output[0].Delivery);
+			Assert.AreEqual(null, output[0].Delivery);
 			Assert.AreEqual(1, output[0].ChapterNumber);
 			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
 			Assert.AreEqual("-timiayi.", output[1].GetText(false));
@@ -2883,7 +2883,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("--Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, ", output[0].GetText(false));
 			Assert.AreEqual("Jesus", output[0].CharacterId);
-			Assert.AreEqual(string.Empty, output[0].Delivery);
+			Assert.AreEqual(null, output[0].Delivery);
 			Assert.AreEqual(1, output[0].ChapterNumber);
 			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
 			Assert.AreEqual("--timiayi.", output[1].GetText(false));
@@ -2903,7 +2903,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, ", output[0].GetText(false));
 			Assert.AreEqual("Jesus", output[0].CharacterId);
-			Assert.AreEqual(string.Empty, output[0].Delivery);
+			Assert.AreEqual(null, output[0].Delivery);
 			Assert.AreEqual(1, output[0].ChapterNumber);
 			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
 			Assert.AreEqual("–timiayi.", output[1].GetText(false));
@@ -3101,7 +3101,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("giving orders", output[0].Delivery);
 			Assert.AreEqual(MultiBlockQuote.ChangeOfDelivery, output[1].MultiBlockQuote);
 			Assert.AreEqual("Jesus", output[1].CharacterId);
-			Assert.AreEqual("", output[1].Delivery);
+			Assert.AreEqual(null, output[1].Delivery);
 		}
 
 		[Test]
@@ -3140,7 +3140,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, ", output[0].GetText(false));
 			Assert.AreEqual("Jesus", output[0].CharacterId);
-			Assert.AreEqual(string.Empty, output[0].Delivery);
+			Assert.AreEqual(null, output[0].Delivery);
 			Assert.AreEqual(1, output[0].ChapterNumber);
 			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
 			Assert.AreEqual("–timiayi.", output[1].GetText(false));
@@ -3160,7 +3160,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(1, output.Count);
 			Assert.AreEqual("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, –timiayi.", output[0].GetText(false));
 			Assert.AreEqual("Jesus", output[0].CharacterId);
-			Assert.AreEqual(string.Empty, output[0].Delivery);
+			Assert.AreEqual(null, output[0].Delivery);
 			Assert.AreEqual(1, output[0].ChapterNumber);
 			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
 
@@ -3174,7 +3174,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum.", output[0].GetText(false));
 			Assert.AreEqual("Jesus", output[0].CharacterId);
-			Assert.AreEqual(string.Empty, output[0].Delivery);
+			Assert.AreEqual(null, output[0].Delivery);
 			Assert.AreEqual(1, output[0].ChapterNumber);
 			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
 			Assert.AreEqual("timiayi.", output[1].GetText(false));

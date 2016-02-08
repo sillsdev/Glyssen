@@ -141,7 +141,8 @@ namespace Glyssen
 			}
 		}
 
-		private List<Tuple<int, string, List<object>>> GetExportData()
+		// internal for testing
+		internal List<Tuple<int, string, List<object>>> GetExportData()
 		{
 			if (m_data == null)
 			{
@@ -157,7 +158,7 @@ namespace Glyssen
 					{
 						if (IncludeVoiceActors)
 						{
-							VoiceActor.VoiceActor voiceActor = Project.GetVoiceActorForCharacter(singleVoiceNarratorOverride ?? block.CharacterIdInScript);
+							VoiceActor.VoiceActor voiceActor = Project.GetVoiceActorForCharacter(singleVoiceNarratorOverride ?? block.CharacterIdInScript) ?? GetDummyActor();
 							data.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride, IncludeVoiceActors));
 						}
 						else
@@ -224,6 +225,11 @@ namespace Glyssen
 					return kTabDelimitedFileExtension;
 			}
 			return null;
+		}
+
+		private VoiceActor.VoiceActor GetDummyActor()
+		{
+			return new VoiceActor.VoiceActor{Id = -1};
 		}
 	}
 }

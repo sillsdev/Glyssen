@@ -51,7 +51,7 @@ namespace Glyssen.Controls
 
 		public void SaveVoiceActorInformation()
 		{
-			Debug.Assert(Actors.Last().Name != "");
+			Debug.Assert((Actors.Count == 0) || (Actors.Last().Name != ""));
 
 			m_project.SaveVoiceActorInformationData();
 

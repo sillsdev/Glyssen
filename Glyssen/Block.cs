@@ -30,6 +30,7 @@ namespace Glyssen
 		private int m_initialEndVerseNumber;
 		private int m_chapterNumber;
 		private string m_characterIdInScript;
+		private string m_delivery;
 
 		public Block()
 		{
@@ -143,7 +144,16 @@ namespace Glyssen
 		}
 
 		[XmlAttribute("delivery")]
-		public string Delivery { get; set; }
+		public string Delivery
+		{
+			get { return m_delivery; }
+			set
+			{
+				if (string.IsNullOrWhiteSpace(value))
+					value = null;
+				m_delivery = value;
+			}
+		}
 
 		[XmlAttribute("userConfirmed")]
 		[DefaultValue(false)]
@@ -257,7 +267,7 @@ namespace Glyssen
 
 		public override string ToString()
 		{
-			return string.IsNullOrEmpty(CharacterId) ? GetText(true) : string.Format("{0}: {1}", CharacterId, GetText(true));
+			return string.IsNullOrEmpty(CharacterId) ? GetText(true) : string.Format("{0}: ({1}) {2}", CharacterId, MultiBlockQuote.ShortName(), GetText(true));
 		}
 
 		/// <summary>
@@ -331,6 +341,12 @@ namespace Glyssen
 
 		private void SetCharacterAndCharacterIdInScript(string characterId, Func<CharacterVerse> getMatchingCharacterForVerse)
 		{
+			if (characterId == CharacterVerseData.AmbiguousCharacter || characterId == CharacterVerseData.UnknownCharacter)
+			{
+				CharacterId = characterId;
+				CharacterIdInScript = null;
+				return;
+			}
 			if (CharacterId == characterId && CharacterIdOverrideForScript != null)
 				return;
 			CharacterId = characterId;

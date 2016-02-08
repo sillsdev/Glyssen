@@ -73,12 +73,14 @@ namespace Glyssen.Dialogs
 			this.m_lblInstructions.Size = new System.Drawing.Size(143, 13);
 			this.m_lblInstructions.TabIndex = 0;
 			this.m_lblInstructions.Text = "Enter Your Voice Actors";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblInstructions, true);
 			// 
 			// m_btnNext
 			// 
 			this.m_btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.glyssenColorPalette.SetBackColor(this.m_btnNext, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnNext.Enabled = false;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnNext, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnNext, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnNext, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnNext, null);
@@ -110,8 +112,8 @@ namespace Glyssen.Dialogs
 			this.m_linkClose.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.m_linkClose.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_linkClose.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_linkClose.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_linkClose, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_linkClose, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_linkClose, "DialogBoxes.VoiceActorInformation.Close");
@@ -122,6 +124,7 @@ namespace Glyssen.Dialogs
 			this.m_linkClose.TabIndex = 5;
 			this.m_linkClose.TabStop = true;
 			this.m_linkClose.Text = "Close";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_linkClose, true);
 			this.m_linkClose.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetVisitedLinkColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_linkClose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkClose_LinkClicked);
@@ -130,7 +133,7 @@ namespace Glyssen.Dialogs
 			// 
 			this.m_btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.glyssenColorPalette.SetBackColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.m_btnOk.Enabled = false;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_btnOk, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnOk, null);
@@ -162,6 +165,7 @@ namespace Glyssen.Dialogs
 			this.m_lblProjectSummary.Size = new System.Drawing.Size(282, 16);
 			this.m_lblProjectSummary.TabIndex = 7;
 			this.m_lblProjectSummary.Text = "This project has {0} books with {1} distinct character roles.";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblProjectSummary, true);
 			// 
 			// m_lblRecordingTime
 			// 
@@ -180,6 +184,7 @@ namespace Glyssen.Dialogs
 			this.m_lblRecordingTime.Size = new System.Drawing.Size(188, 16);
 			this.m_lblRecordingTime.TabIndex = 8;
 			this.m_lblRecordingTime.Text = "Estimated recording time: {0:N2} hours";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblRecordingTime, true);
 			// 
 			// m_lblRecommendedCast
 			// 
@@ -198,6 +203,7 @@ namespace Glyssen.Dialogs
 			this.m_lblRecommendedCast.Size = new System.Drawing.Size(351, 16);
 			this.m_lblRecommendedCast.TabIndex = 9;
 			this.m_lblRecommendedCast.Text = "Recommended cast: 15-23 voice actors, including 2 women and 1 child. ";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblRecommendedCast, true);
 			// 
 			// m_linkNarrationPreferences
 			// 
@@ -211,8 +217,8 @@ namespace Glyssen.Dialogs
 			this.m_linkNarrationPreferences.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.m_linkNarrationPreferences.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_linkNarrationPreferences, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_linkNarrationPreferences.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_linkNarrationPreferences, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_linkNarrationPreferences.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_linkNarrationPreferences, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_linkNarrationPreferences, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_linkNarrationPreferences, "DialogBoxes.VoiceActorInformation.NarrationPreferences");
@@ -223,6 +229,7 @@ namespace Glyssen.Dialogs
 			this.m_linkNarrationPreferences.TabStop = true;
 			this.m_linkNarrationPreferences.Text = "6-8 of the actors will have narration roles. You can change Narration Preferences" +
     ".";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_linkNarrationPreferences, true);
 			this.m_linkNarrationPreferences.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetVisitedLinkColor(this.m_linkNarrationPreferences, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_linkNarrationPreferences.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkNarrationPreferences_LinkClicked);
@@ -239,8 +246,8 @@ namespace Glyssen.Dialogs
 			this.m_linkMoreInfo.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.m_linkMoreInfo.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_linkMoreInfo.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_linkMoreInfo.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_linkMoreInfo, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_linkMoreInfo, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_linkMoreInfo, "DialogBoxes.VoiceActorInformation.MoreInfo");
@@ -252,6 +259,7 @@ namespace Glyssen.Dialogs
 			this.m_linkMoreInfo.TabStop = true;
 			this.m_linkMoreInfo.Text = "(the voice actors you intend to use, even if fewer or more than recommended) more" +
     " info";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_linkMoreInfo, true);
 			this.m_linkMoreInfo.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetVisitedLinkColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_linkMoreInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkMoreInfo_LinkClicked);
@@ -273,6 +281,7 @@ namespace Glyssen.Dialogs
 			this.m_lblTally.Size = new System.Drawing.Size(178, 16);
 			this.m_lblTally.TabIndex = 12;
 			this.m_lblTally.Text = "Tally: {0} Male, {1} Female, {2} Child";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblTally, true);
 			// 
 			// toolStrip1
 			// 
@@ -317,8 +326,8 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetBackColor(this.m_dataGrid, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_dataGrid.BackgroundColor = System.Drawing.SystemColors.Control;
 			this.tableLayoutPanel1.SetColumnSpan(this.m_dataGrid, 4);
-			this.m_dataGrid.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_dataGrid, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_dataGrid.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_dataGrid, "DialogBoxes.VoiceActorInformation.voiceActorInformationGrid21");
@@ -328,6 +337,7 @@ namespace Glyssen.Dialogs
 			this.m_dataGrid.ReadOnly = false;
 			this.m_dataGrid.Size = new System.Drawing.Size(582, 163);
 			this.m_dataGrid.TabIndex = 3;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_dataGrid, true);
 			// 
 			// m_saveStatus
 			// 
@@ -347,6 +357,7 @@ namespace Glyssen.Dialogs
 			this.m_saveStatus.Size = new System.Drawing.Size(97, 13);
 			this.m_saveStatus.TabIndex = 4;
 			this.m_saveStatus.TextAlign = System.Drawing.ContentAlignment.TopRight;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_saveStatus, true);
 			// 
 			// tableLayoutPanel1
 			// 
@@ -410,6 +421,7 @@ namespace Glyssen.Dialogs
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Voice Actor Information";
+			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VoiceActorInformationDlg_FormClosing);
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).EndInit();
 			this.toolStrip1.ResumeLayout(false);
