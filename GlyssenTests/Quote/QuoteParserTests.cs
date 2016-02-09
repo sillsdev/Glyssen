@@ -38,7 +38,7 @@ namespace GlyssenTests.Quote
 		}
 
 		[Test]
-		public void Parse_OneBlockBecomesTwo_UnclosedQuoteAtEnd()
+		public void Parse_OneBlockBecomesTwo_UnclosedQuoteAtEnd_LastBlockSetToUnknown()
 		{
 			var block = new Block("p", 2, 10);
 			block.BlockElements.Add(new ScriptText("But the angel said to them, «Do not be afraid!"));
@@ -50,7 +50,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(10, output[0].InitialStartVerseNumber);
 			Assert.IsTrue(output[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual("«Do not be afraid!", output[1].GetText(false));
-			Assert.AreEqual("angel of the LORD, an", output[1].CharacterId);
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
 			Assert.AreEqual(2, output[1].ChapterNumber);
 			Assert.AreEqual(10, output[1].InitialStartVerseNumber);
 		}
@@ -925,27 +925,27 @@ namespace GlyssenTests.Quote
 		[Test]
 		public void Parse_VerseWithinQuote()
 		{
-			var block = new Block("p", 6, 2);
+			var block = new Block("p", 6, 3);
 			block.BlockElements.Add(new ScriptText("He said, «Go "));
-			block.BlockElements.Add(new Verse("3"));
+			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("west!»"));
 			var input = new List<Block> { block };
 			Assert.AreEqual(1, input.Count);
-			Assert.AreEqual("He said, «Go [3]\u00A0west!»", input[0].GetText(true));
+			Assert.AreEqual("He said, «Go [4]\u00A0west!»", input[0].GetText(true));
 			Assert.AreEqual(6, input[0].ChapterNumber);
-			Assert.AreEqual(2, input[0].InitialStartVerseNumber);
+			Assert.AreEqual(3, input[0].InitialStartVerseNumber);
 
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual(6, output[0].ChapterNumber);
-			Assert.AreEqual(2, output[0].InitialStartVerseNumber);
+			Assert.AreEqual(3, output[0].InitialStartVerseNumber);
 			Assert.AreEqual("«Go west!»", output[1].GetText(false));
 			Assert.AreEqual(6, output[1].ChapterNumber);
-			Assert.AreEqual(2, output[1].InitialStartVerseNumber);
+			Assert.AreEqual(3, output[1].InitialStartVerseNumber);
 
 			Assert.AreEqual("He said, ", output[0].GetText(true));
-			Assert.AreEqual("«Go [3]\u00A0west!»", output[1].GetText(true));
+			Assert.AreEqual("«Go [4]\u00A0west!»", output[1].GetText(true));
 		}
 
 		[Test]
@@ -1201,6 +1201,54 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("narrator-MAT", output[0].CharacterId);
 			Assert.AreEqual("Peter (Simon)", output[1].CharacterId);
+		}
+
+		[Test]
+		public void Parse_BackToNarratorImmediatelyAfterVerseChangeWithVerseBridge_InitialStartAndEndVersesAreCorrect()
+		{
+			var block1 = new Block("p", 17, 2);
+			block1.BlockElements.Add(new Verse("2"));
+			block1.BlockElements.Add(new ScriptText("Then Peter said, "));
+			block1.BlockElements.Add(new Verse("3-4"));
+			block1.BlockElements.Add(new ScriptText("«What verse is this?»"));
+			block1.BlockElements.Add(new Verse("5-6"));
+			block1.BlockElements.Add(new ScriptText("Then the narrator said something."));
+			var input = new List<Block> { block1 };
+
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual("narrator-MAT", output[0].CharacterId);
+			Assert.AreEqual("Peter (Simon)", output[1].CharacterId);
+			Assert.AreEqual(3, output[1].InitialStartVerseNumber);
+			Assert.AreEqual(4, output[1].InitialEndVerseNumber);
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[2].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(5, output[2].InitialStartVerseNumber);
+			Assert.AreEqual(6, output[2].InitialEndVerseNumber);
+		}
+
+		[Test]
+		public void Parse_Parse_BackToNarratorImmediatelyAfterVerseChangeWithoutVerseBridge_InitialStartAndEndVersesAreCorrect()
+		{
+			var block1 = new Block("p", 17, 2);
+			block1.BlockElements.Add(new Verse("2"));
+			block1.BlockElements.Add(new ScriptText("Then Peter said, "));
+			block1.BlockElements.Add(new Verse("3-4"));
+			block1.BlockElements.Add(new ScriptText("«What verse is this?»"));
+			block1.BlockElements.Add(new Verse("5"));
+			block1.BlockElements.Add(new ScriptText("Then the narrator said something."));
+			var input = new List<Block> { block1 };
+
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual("narrator-MAT", output[0].CharacterId);
+			Assert.AreEqual("Peter (Simon)", output[1].CharacterId);
+			Assert.AreEqual(3, output[1].InitialStartVerseNumber);
+			Assert.AreEqual(4, output[1].InitialEndVerseNumber);
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[2].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(5, output[2].InitialStartVerseNumber);
+			Assert.AreEqual(0, output[2].InitialEndVerseNumber);
 		}
 
 		[Test]
@@ -2627,7 +2675,7 @@ namespace GlyssenTests.Quote
 		}
 
 		[Test]
-		public void Parse_DialogueQuoteFollowedByBogusOpeningFirstLevelQuote_DqEndedExplicitlyByQuotationDash()
+		public void Parse_DialogueQuoteFollowedByBogusOpeningFirstLevelQuote_BogusBlockMarkedAsUnknown()
 		{
 			var block1 = new Block("p", 6, 48);
 			block1.BlockElements.Add(new ScriptText("—Wikia tuke pujutan sukartin asan. —Jesús timiayi."));
@@ -2646,7 +2694,7 @@ namespace GlyssenTests.Quote
 			Assert.IsTrue(output[1].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
 
 			Assert.AreEqual("[49]\u00A0“Nintimrataram, —Jesús timiayi.", output[2].GetText(true));
-			Assert.AreEqual("Jesus", output[2].CharacterId);
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[2].CharacterId);
 		}
 
 #if HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
@@ -2925,14 +2973,14 @@ namespace GlyssenTests.Quote
 		}
 
 		[Test]
-		public void Parse_MultiBlockQuote_TwoCharacters_SetToAmbiguous()
+		public void Parse_SeeminglyMultiBlockQuoteDoesntLineUpWithControlFileButRatherIsTwoCharacters_SetToFirstToUnknownAndBothToMultiBlockNone()
 		{
 			var block1 = new Block("p", 2, 7);
 			block1.BlockElements.Add(new Verse("7"));
 			block1.BlockElements.Add(new ScriptText("«Quote."));
 			var block2 = new Block("p", 2, 8);
 			block2.BlockElements.Add(new Verse("8"));
-			block2.BlockElements.Add(new ScriptText("«Continuation of quote by a second speaker."));
+			block2.BlockElements.Add(new ScriptText("«Continuation of quote by a second speaker.»"));
 			var input = new List<Block> { block1, block2 };
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
@@ -2941,14 +2989,14 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 2, 8).Select(cv => cv.Character).Single());
 
 			Assert.AreEqual(2, output.Count);
-			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
-			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[0].CharacterId);
-			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
-			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+			Assert.AreEqual("Jesus", output[1].CharacterId);
 		}
 
 		[Test]
-		public void Parse_MultiBlockQuote_TwoCharactersAndAmbiguous_SetToAmbiguous()
+		public void Parse_SeeminglyMultiBlockQuoteDoesntLineUpWithControlFileButRatherIsTwoCharactersAndAmbiguous_SetToFirstToUnknownAndToMultiBlockNone()
 		{
 			var block1 = new Block("p", 19, 16);
 			block1.BlockElements.Add(new Verse("16"));
@@ -2958,7 +3006,7 @@ namespace GlyssenTests.Quote
 			block2.BlockElements.Add(new ScriptText("«Continuation of quote by a second speaker."));
 			var block3 = new Block("p", 19, 18);
 			block3.BlockElements.Add(new Verse("18"));
-			block3.BlockElements.Add(new ScriptText("«Continuation of quote by ambiguous speaker."));
+			block3.BlockElements.Add(new ScriptText("«Continuation of quote by ambiguous speaker.»"));
 			var input = new List<Block> { block1, block2, block3 };
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 
@@ -2969,41 +3017,41 @@ namespace GlyssenTests.Quote
 			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 18).Select(cv => cv.Character).Contains("ruler, a certain=man, rich young"));
 
 			Assert.AreEqual(3, output.Count);
-			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
-			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[0].CharacterId);
-			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
-			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, output[1].MultiBlockQuote);
+			Assert.AreEqual("Jesus", output[1].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
-			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[2].CharacterId);
+			Assert.AreEqual("Jesus", output[2].CharacterId);
 		}
 
 		[Test]
-		public void Parse_MultiBlockQuote_TwoCharactersAndUnknown_SetToAmbiguous()
+		public void Parse_SeeminglyMultiBlockQuoteDoesntLineUpWithControlFileButRatherIsTwoCharactersAndUnknown_SetAllToUnknownAndMultiBlockNone()
 		{
-			var block1 = new Block("p", 2, 7);
-			block1.BlockElements.Add(new Verse("7"));
+			var block1 = new Block("p", 8, 23);
+			block1.BlockElements.Add(new Verse("23")); // Jesus
 			block1.BlockElements.Add(new ScriptText("«Quote."));
-			var block2 = new Block("p", 2, 8);
-			block2.BlockElements.Add(new Verse("8"));
+			var block2 = new Block("p", 2, 24);
+			block2.BlockElements.Add(new Verse("24")); // blind man
 			block2.BlockElements.Add(new ScriptText("«Continuation of quote by a second speaker."));
-			var block3 = new Block("p", 2, 9);
-			block3.BlockElements.Add(new Verse("9"));
+			var block3 = new Block("p", 2, 25);
+			block3.BlockElements.Add(new Verse("25")); // no one
 			block3.BlockElements.Add(new ScriptText("«Continuation of quote by an unknown speaker."));
 			var input = new List<Block> { block1, block2, block3 };
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			// Validate environment
-			Assert.AreEqual("teachers of religious law/Pharisees", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 2, 7).Select(cv => cv.Character).Single());
-			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 2, 8).Select(cv => cv.Character).Single());
-			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters("MRK", 2, 9).Any());
+			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 8, 23).Select(cv => cv.Character).Single());
+			Assert.AreEqual("blind man", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 8, 24).Select(cv => cv.Character).Single());
+			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters("MRK", 8, 25).Any());
 
 			Assert.AreEqual(3, output.Count);
-			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
-			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[0].CharacterId);
-			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
-			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[1].CharacterId);
-			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
-			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[2].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[2].CharacterId);
 		}
 
 		[Test]
@@ -3014,7 +3062,7 @@ namespace GlyssenTests.Quote
 			block1.BlockElements.Add(new ScriptText("«Quote."));
 			var block2 = new Block("p", 19, 18);
 			block2.BlockElements.Add(new Verse("18"));
-			block2.BlockElements.Add(new ScriptText("«Continuation of quote by ambiguous speaker."));
+			block2.BlockElements.Add(new ScriptText("«Continuation of quote by ambiguous speaker.»"));
 			var input = new List<Block> { block1, block2 };
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 
@@ -3031,7 +3079,7 @@ namespace GlyssenTests.Quote
 		}
 
 		[Test]
-		public void Parse_MultiBlockQuote_UnknownAndCharacter_SetToCharacter()
+		public void Parse_SeeminglyMultiBlockQuoteDoesntLineUpWithControlFileButIsRatherCharacterAndUnknown_SetFirstToUnknownAndBothToMultiBlockNone()
 		{
 			var block1 = new Block("p", 19, 8);
 			block1.BlockElements.Add(new Verse("8"));
@@ -3047,21 +3095,21 @@ namespace GlyssenTests.Quote
 			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 9).Any());
 
 			Assert.AreEqual(2, output.Count);
-			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
-			Assert.AreEqual("Jesus", output[0].CharacterId);
-			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
-			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
 		}
 
 		[Test]
-		public void Parse_MultiBlockQuote_AmbiguousAndUnknown_SetToAmbiguous()
+		public void Parse_SeeminglyMultiBlockQuoteDoesntLineUpWithControlFileButIsRatherAmbiguousAndUnknown_SetBothToUnknownAndMultiBlockNone()
 		{
 			var block1 = new Block("p", 19, 18);
 			block1.BlockElements.Add(new Verse("18"));
-			block1.BlockElements.Add(new ScriptText("«Ambiguous quote."));
+			block1.BlockElements.Add(new ScriptText("«Ambiguous quote starts."));
 			var block2 = new Block("p", 19, 19);
 			block2.BlockElements.Add(new Verse("19"));
-			block2.BlockElements.Add(new ScriptText("«Continuation of quote by unknown speaker."));
+			block2.BlockElements.Add(new ScriptText("«Quote seems to continue by unknown speaker."));
 			var input = new List<Block> { block1, block2 };
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 
@@ -3071,10 +3119,10 @@ namespace GlyssenTests.Quote
 			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 19).Any());
 
 			Assert.AreEqual(2, output.Count);
-			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
-			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[0].CharacterId);
-			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
-			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
 		}
 
 		[Test]
@@ -3085,7 +3133,7 @@ namespace GlyssenTests.Quote
 			block1.BlockElements.Add(new ScriptText("«Quote."));
 			var block2 = new Block("p", 16, 17);
 			block2.BlockElements.Add(new Verse("17"));
-			block2.BlockElements.Add(new ScriptText("«Continuation of quote by same speaker and different delivery."));
+			block2.BlockElements.Add(new ScriptText("«Continuation of quote by same speaker and different delivery.»"));
 			var input = new List<Block> { block1, block2 };
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
@@ -3112,7 +3160,7 @@ namespace GlyssenTests.Quote
 			block1.BlockElements.Add(new ScriptText("«Quote."));
 			var block2 = new Block("p", 1, 29);
 			block2.BlockElements.Add(new Verse("29"));
-			block2.BlockElements.Add(new ScriptText("«Continuation of quote by ambiguous speaker."));
+			block2.BlockElements.Add(new ScriptText("«Continuation of quote by ambiguous speaker.»"));
 			var input = new List<Block> { block1, block2 };
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 
@@ -3182,5 +3230,254 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(1, output[1].ChapterNumber);
 			Assert.AreEqual(18, output[1].InitialStartVerseNumber);
 		}
+
+		#region Recovery from bad data
+		[Test]
+		public void Parse_FirstLevelCloseMissingFollowedByNoControlFileEntry_CloseQuoteWhenNoCharacterInControlFileAndSetCharacterForRelevantBlocksToUnknown()
+		{
+			var block1 = new Block("p", 1, 3); // God
+			block1.BlockElements.Add(new Verse("3"));
+			block1.BlockElements.Add(new ScriptText("«Quote."));
+			var block2 = new Block("p", 1, 4); // no one
+			block2.BlockElements.Add(new Verse("4"));
+			block2.BlockElements.Add(new ScriptText("Back to narrator.  No one in the control file for this verse. "));
+			var input = new List<Block> { block1, block2 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
+
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("«Quote.", output[0].GetText(false));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(3, output[0].InitialStartVerseNumber);
+
+			Assert.AreEqual("Back to narrator.  No one in the control file for this verse. ", output[1].GetText(false));
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(4, output[1].InitialStartVerseNumber);
+		}
+		[Test]
+		public void Parse_FirstLevelCloseMissingInBlockWithVerseBridgeFollowedByNoControlFileEntry_CloseQuoteWhenNoCharacterInControlFileAndSetCharacterForRelevantBlocksToUnknown()
+		{
+			var block1 = new Block("p", 1, 2, 3); // God
+			block1.BlockElements.Add(new Verse("2-3"));
+			block1.BlockElements.Add(new ScriptText("«Quote."));
+			var block2 = new Block("p", 1, 4); // no one
+			block2.BlockElements.Add(new Verse("4"));
+			block2.BlockElements.Add(new ScriptText("Back to narrator.  No one in the control file for this verse. "));
+			var input = new List<Block> { block1, block2 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
+
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("[2-3]\u00A0«Quote.", output[0].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(2, output[0].InitialStartVerseNumber);
+			Assert.AreEqual(3, output[0].InitialEndVerseNumber);
+			Assert.AreEqual(3, output[0].LastVerse);
+
+			Assert.AreEqual("[4]\u00A0Back to narrator.  No one in the control file for this verse. ", output[1].GetText(true));
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(4, output[1].InitialStartVerseNumber);
+			Assert.AreEqual(0, output[1].InitialEndVerseNumber);
+			Assert.AreEqual(4, output[1].LastVerse);
+		}
+
+		[Test]
+		public void Parse_QuoteContinuesIntoVerseWithNoOneInControlFile_BreakBlockAndSetFirstPartUnknown()
+		{
+			var block1 = new Block("p", 1, 3);
+			block1.BlockElements.Add(new Verse("3")); // God
+			block1.BlockElements.Add(new ScriptText("«Quote. "));
+			block1.BlockElements.Add(new Verse("4")); // no one
+			block1.BlockElements.Add(new ScriptText("No one in the control file for this verse. "));
+			var input = new List<Block> { block1 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
+
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("[3]\u00A0«Quote. ", output[0].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+			Assert.AreEqual(3, output[0].InitialStartVerseNumber);
+			Assert.AreEqual(0, output[0].InitialEndVerseNumber);
+			Assert.AreEqual(3, output[0].LastVerse);
+
+			Assert.AreEqual("[4]\u00A0No one in the control file for this verse. ", output[1].GetText(true));
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+			Assert.AreEqual(4, output[1].InitialStartVerseNumber);
+			Assert.AreEqual(0, output[1].InitialEndVerseNumber);
+			Assert.AreEqual(4, output[1].LastVerse);
+		}
+
+		[Test]
+		public void Parse_QuoteSeemsToContinueAfterAllOriginalCharactersHaveBeenEliminated_BreakBlockAndSetFirstPartUnknown()
+		{
+			var block1 = new Block("p", 23, 1, 2);
+			block1.BlockElements.Add(new Verse("1-2")); // FakeGuy1 and FakeGuy2
+			block1.BlockElements.Add(new ScriptText("«Quote. "));
+			block1.BlockElements.Add(new Verse("3")); // FakeGuy1
+			block1.BlockElements.Add(new ScriptText("Possible continuation of quote. "));
+			block1.BlockElements.Add(new Verse("4")); // FakeGuy2
+			block1.BlockElements.Add(new ScriptText("Further possible continuation of quote (but it isn't because there is no continuity of characters).»"));
+			var input = new List<Block> { block1 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "REV", input).Parse().ToList();
+
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("[1-2]\u00A0«Quote. [3]\u00A0Possible continuation of quote. ", output[0].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+			Assert.AreEqual(1, output[0].InitialStartVerseNumber);
+			Assert.AreEqual(2, output[0].InitialEndVerseNumber);
+			Assert.AreEqual(3, output[0].LastVerse);
+
+			Assert.AreEqual("[4]\u00A0Further possible continuation of quote (but it isn't because there is no continuity of characters).»", output[1].GetText(true));
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+			Assert.AreEqual(4, output[1].InitialStartVerseNumber);
+		}
+
+		[Test]
+		public void Parse_FirstLevelCloseMissingFollowedByExplicitNarratorInControlFile_CloseQuoteWhenNoCharacterInControlFileAndSetCharacterForRelevantBlocksToUnknown()
+		{
+			var block1 = new Block("p", 1, 9); // God
+			block1.BlockElements.Add(new Verse("9"));
+			block1.BlockElements.Add(new ScriptText("«Quote."));
+			var block2 = new Block("p", 1, 10); // narrator-GEN
+			block2.BlockElements.Add(new Verse("10"));
+			block2.BlockElements.Add(new ScriptText("Back to narrator.  Narrator is explicitly in the control file for this verse. "));
+			var input = new List<Block> { block1, block2 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
+
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("«Quote.", output[0].GetText(false));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+
+			Assert.AreEqual("Back to narrator.  Narrator is explicitly in the control file for this verse. ", output[1].GetText(false));
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+		}
+
+		[Test]
+		public void Parse_FirstLevelCloseMissingAfterMultipleBlocks_CloseQuoteWhenNoCharacterInControlFileAndSetCharacterForRelevantBlocksToUnknown()
+		{
+			var block1 = new Block("p", 3, 4); // serpent
+			block1.BlockElements.Add(new Verse("4"));
+			block1.BlockElements.Add(new ScriptText("«Quote. But where does it end? "));
+			var block2 = new Block("p", 3, 5); // serpent
+			block2.BlockElements.Add(new Verse("5"));
+			block2.BlockElements.Add(new ScriptText("Still probably in a quote. "));
+			var block3 = new Block("p", 3, 6); // no one
+			block3.BlockElements.Add(new Verse("6"));
+			block3.BlockElements.Add(new ScriptText("Back to narrator.  No one in the control file for this verse. "));
+			var input = new List<Block> { block1, block2, block3 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
+
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual("«Quote. But where does it end? ", output[0].GetText(false));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+
+			Assert.AreEqual("Still probably in a quote. ", output[1].GetText(false));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+
+			Assert.AreEqual("Back to narrator.  No one in the control file for this verse. ", output[2].GetText(false));
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[2].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+		}
+
+		[Test]
+		public void Parse_FirstLevelCloseMissingInBlockWithOnePossibleCharacter_CloseQuoteWhenDifferentCharacterInControlFileAndSetCharacterForRelevantBlocksToUnknown()
+		{
+			var block1 = new Block("p", 3, 12); // Adam
+			block1.BlockElements.Add(new Verse("12"));
+			block1.BlockElements.Add(new ScriptText("«Quote. But where does it end? "));
+			var block2 = new Block("p", 3, 13); // Eve
+			block2.BlockElements.Add(new Verse("13"));
+			block2.BlockElements.Add(new ScriptText("Different character in the control file here but no quote marks, so set to narrator. "));
+			var input = new List<Block> { block1, block2 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
+
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("«Quote. But where does it end? ", output[0].GetText(false));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+
+			Assert.AreEqual("Different character in the control file here but no quote marks, so set to narrator. ", output[1].GetText(false));
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+		}
+
+		[Test]
+		public void Parse_FirstLevelCloseMissingInBlockWithOnePossibleCharacter_CloseQuoteWhenGetToVerseWithoutThatCharacterInControlFileAndSetCharacterForRelevantBlocksToUnknown()
+		{
+			var block1 = new Block("p", 3, 11); // God
+			block1.BlockElements.Add(new Verse("11"));
+			block1.BlockElements.Add(new ScriptText("«Quote. But where does it end? "));
+			var block2 = new Block("p", 3, 12); // Adam
+			block2.BlockElements.Add(new Verse("12"));
+			block2.BlockElements.Add(new ScriptText("«Quote by different character.» "));
+			var input = new List<Block> { block1, block2 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
+
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("«Quote. But where does it end? ", output[0].GetText(false));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+
+			Assert.AreEqual("«Quote by different character.» ", output[1].GetText(false));
+			Assert.AreEqual("Adam", output[1].CharacterId);
+		}
+
+		[Test]
+		public void Parse_FirstLevelCloseMissingInAmbiguousQuote_CloseQuoteWhenGetToVerseWithoutAnyOfThoseCharactersInControlFileAndSetCharacterForRelevantBlocksToUnknown()
+		{
+			var block1 = new Block("p", 5, 40); // crowd and Jesus
+			block1.BlockElements.Add(new Verse("40"));
+			block1.BlockElements.Add(new ScriptText("«Ambiguous quote. But where does it end? "));
+			var block2 = new Block("p", 5, 41); // Jesus and narrator-MRK
+			block2.BlockElements.Add(new Verse("41"));
+			block2.BlockElements.Add(new ScriptText("Could still be a quote. "));
+			var block3 = new Block("p", 5, 42); // No one
+			block3.BlockElements.Add(new Verse("42"));
+			block3.BlockElements.Add(new ScriptText("Back to narrator. "));
+			var input = new List<Block> { block1, block2, block3 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual("«Ambiguous quote. But where does it end? ", output[0].GetText(false));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+
+			Assert.AreEqual("Could still be a quote. ", output[1].GetText(false));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+
+			Assert.AreEqual("Back to narrator. ", output[2].GetText(false));
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[2].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+		}
+
+		[Test]
+		public void Parse_FirstLevelStillOpenAtEndOfBook_SetToUnknown()
+		{
+			var block1 = new Block("p", 5, 43); // Jesus
+			block1.BlockElements.Add(new Verse("43"));
+			block1.BlockElements.Add(new ScriptText("«Quote. But where does it end? "));
+			var input = new List<Block> { block1 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+
+			Assert.AreEqual(1, output.Count);
+			Assert.AreEqual("«Quote. But where does it end? ", output[0].GetText(false));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+		}
+
+		[Test]
+		public void Parse_DialogueQuoteCloseMissingFollowedByNoControlFileEntry_CloseQuoteWhenNoCharacterInControlFileAndSetDialogueQuoteToUnknown()
+		{
+			var block1 = new Block("p", 1, 3); // God
+			block1.BlockElements.Add(new Verse("3"));
+			block1.BlockElements.Add(new ScriptText("—Quote. "));
+			block1.BlockElements.Add(new Verse("4"));
+			block1.BlockElements.Add(new ScriptText("No one in the control file for this verse. "));
+			var input = new List<Block> { block1 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal), "—", null);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input, quoteSystem).Parse().ToList();
+
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("—Quote. ", output[0].GetText(false));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+
+			Assert.AreEqual("No one in the control file for this verse. ", output[1].GetText(false));
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+		}
+		#endregion
 	}
 }

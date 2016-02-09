@@ -1,4 +1,4 @@
-Control File Version	89
+Control File Version	90
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -12705,6 +12705,7 @@ MRK	6	37	Philip the apostle	frustrated	disciples	Dialogue		MRK 6.37;JHN 6.7
 MRK	6	38	Andrew		disciples	Dialogue		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
 MRK	6	38	Jesus	questioning		Dialogue		
 MRK	6	39	Jesus			Indirect		
+MRK	6	40	Jesus			Indirect		
 MRK	6	41	Jesus	praying		Indirect		
 MRK	6	45	Jesus			Indirect		
 MRK	6	49	disciples	terrified		Indirect		
@@ -14399,6 +14400,7 @@ JHN	12	24	Jesus			Normal
 JHN	12	25	Jesus			Normal		
 JHN	12	26	Jesus			Normal		
 JHN	12	27	Jesus			Normal		
+JHN	12	28	Jesus			Normal		
 JHN	12	28	God		voice from heaven (God)	Normal		
 JHN	12	29	crowd preparing for Passover Feast			Indirect		
 JHN	12	29	crowd preparing for Passover Feast, others			Indirect		
@@ -15779,6 +15781,7 @@ REV	12	11	voice in heaven, loud			Normal
 REV	12	12	voice in heaven, loud			Normal		
 REV	13	4	worshipers of the beast			Normal		
 REV	13	9	voice in heaven			Potential		
+REV	13	10	voice in heaven			Potential		
 REV	13	10	saying about captivity and death by the sword			Potential	God	
 REV	13	10	scripture		scripture (God)	Potential	God	
 REV	13	10	God			Potential		

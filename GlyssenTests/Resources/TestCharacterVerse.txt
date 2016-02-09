@@ -7884,6 +7884,7 @@ MAT	28	10	Jesus			Dialogue
 MAT	28	13	chief priests/elders 2	bribing		Normal
 MAT	28	18	Jesus			Dialogue
 MRK	1	17	Jesus			Dialogue		
+MRK	1	18	Jesus			Dialogue		
 MRK	1	20	Jesus			Normal		
 MRK	1	24	man possessed by evil spirit			Dialogue		
 MRK	1	25	Jesus	giving orders		Dialogue		
@@ -7898,6 +7899,7 @@ MRK	1	44	Jesus			Normal
 MRK	2	5	Jesus			Dialogue		
 MRK	2	7	teachers of religious law/Pharisees	thinking	teachers of religious law	Normal		MRK 2.7;LUK 5.21
 MRK	2	8	Jesus	rebuking		Dialogue		
+MRK	2	9	Jesus			Normal		
 MRK	2	10	Jesus			Normal		
 MRK	2	11	Jesus	giving orders		Normal		
 MRK	2	12	everyone who saw healing of paralytic	praising		Dialogue		
@@ -10504,6 +10506,7 @@ JAS	5	12	narrator-JAS
 2JN	1	6	Jesus		Jesus in 2 John
 JUD	1	9	angel, arch-, Michael		
 JUD	1	14	Enoch		
+JUD	1	15	Enoch		
 JUD	1	18	apostles		
 REV	1	8	God		Lord God Almighty (spoken by God-10 commentaries)
 REV	1	8	Jesus		Lord God Almighty (spoken by Jesus-5 commentaries)
@@ -10705,3 +10708,7 @@ REV	22	17	him who hears
 REV	22	17	Spirit, the, and the bride		
 REV	22	18	John		
 REV	22	20	Jesus		
+REV	23	1	FakeGuy1		
+REV	23	2	FakeGuy2		
+REV	23	3	FakeGuy1		
+REV	23	4	FakeGuy2		

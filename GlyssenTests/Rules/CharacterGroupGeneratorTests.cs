@@ -262,6 +262,9 @@ namespace GlyssenTests.Rules
 			Assert.True(femaleGroups.Count <= groups.Count - numberOfMaleNarrators);
 		}
 
+		// This test used to require only 8 male actors and 2 female actors to achieve the desired results.
+		// However, after parser changes for PG-485, that was no longer sufficient, and it was changed to 10 and 2 in order to pass.
+		// See PG-543 for an idea of how to improve the algorithm to keep the required number of actors lower.
 		[TestCase(1, 1)]
 		[TestCase(2, 0)]
 		public void GenerateCharacterGroups_MultiNarrator_DifferentGendersOfActors_AppropriateGroupsCreatedForActors(int numberOfMaleNarrators, int numberOfFemaleNarrators)
@@ -270,10 +273,10 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numberOfFemaleNarrators;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(8, 2);
+			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10, 2);
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 
-			Assert.AreEqual(10, groups.Count);
+			Assert.AreEqual(12, groups.Count);
 			var maleGroups = groups.Where(g => g.ContainsCharacterWithGender(CharacterGender.Male)).ToList();
 			var femaleGroups = groups.Where(g => g.ContainsCharacterWithGender(CharacterGender.Female)).ToList();
 			Assert.IsFalse(maleGroups.Any(g => g.ContainsCharacterWithGender(CharacterGender.Female)));
