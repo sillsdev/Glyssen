@@ -5,6 +5,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Bundle;
@@ -133,6 +134,13 @@ namespace Glyssen
 			m_imgCheckBooks.Visible = false;
 			m_imgCheckAssignCharacters.Visible = false;
 			m_imgCheckAssignActors.Visible = false;
+
+			m_lblProjectInfo.Text = string.Empty;
+			m_lblSettingsInfo.Text = string.Empty;
+			m_lblBookSelectionInfo.Text = string.Empty;
+			m_lblPercentAssigned.Text = string.Empty;
+			m_lblActorsAssigned.Text = string.Empty;
+			m_lastExportLocationLink.Text = string.Empty;
 		}
 
 		private void HandleOpenProject_Click(object sender, EventArgs e)
@@ -172,23 +180,68 @@ namespace Glyssen
 				LoadProject(Settings.Default.CurrentProject);		
 		}
 
-		private void LoadProject(string filePath)
+		private void InitializeProgress(int max)
 		{
+			// since there are just a few steps, double the max for smoother progress
+			m_progressBar.Maximum = max * 2;
+			m_progressBar.Value = 0;
+			m_progressBar.Visible = true;
+			m_tableLayoutPanel.Enabled = false;
+			Application.DoEvents();
+		}
+
+		private void IncrementProgress()
+		{
+			// increment 2 steps each time
+			m_progressBar.Value++;
+			Application.DoEvents();
+			m_progressBar.Value++;
+			Application.DoEvents();
+		}
+
+		private void CloseProgress()
+		{
+			m_progressBar.Visible = false;
+			m_tableLayoutPanel.Enabled = true;
+			UpdateDisplayOfProjectInfo();
+		}
+
+		private async void LoadProject(string filePath)
+		{
+			InitializeProgress(3);
+			IncrementProgress();
+			await Task.Delay(300);
+
 			if (!LoadAndHandleApplicationExceptions(() => SetProject(Project.Load(filePath))))
 				SetProject(null);
 
+			IncrementProgress();
+			await Task.Delay(300);
+
 			m_lastExportLocationLink.Text = m_project != null ? m_project.Status.LastExportLocation : string.Empty;
+
+			IncrementProgress();
+			await Task.Delay(600);
+
+			CloseProgress();
 		}
 
-		private void LoadBundle(string bundlePath)
+		private async void LoadBundle(string bundlePath)
 		{
 			GlyssenBundle bundle = null;
+
+			InitializeProgress(5);
+			IncrementProgress();
+			await Task.Delay(300);
 
 			if (!LoadAndHandleApplicationExceptions(() => { bundle = new GlyssenBundle(bundlePath); }))
 			{
 				SetProject(null);
 				return;
 			}
+
+			IncrementProgress();
+			await Task.Delay(300);
 
 			string projFilePath;
 			// See if we already have project(s) for this bundle and give the user the option of opening an existing project instead.
@@ -211,6 +264,9 @@ namespace Glyssen
 			}
 			else
 				projFilePath = Project.GetDefaultProjectFilePath(bundle);
+
+			IncrementProgress();
+			await Task.Delay(300);
 
 			var recordingProjectName = Path.GetFileName(Path.GetDirectoryName(projFilePath));
 			if (File.Exists(projFilePath))
@@ -237,6 +293,9 @@ namespace Glyssen
 				}
 			}
 
+			IncrementProgress();
+			await Task.Delay(300);
+
 			Versification.Table.HandleVersificationLineError = null;
 			try
 			{
@@ -258,7 +317,12 @@ namespace Glyssen
 				SetProject(null);
 			}
 
+			IncrementProgress();
+			await Task.Delay(600);
+
 			bundle.Dispose();
+
+			CloseProgress();
 		}
 
 		private bool LoadAndHandleApplicationExceptions(Action loadCommand)
@@ -459,12 +523,7 @@ namespace Glyssen
 
 		private void Assign_Click(object sender, EventArgs e)
 		{
-			using (var viewModel = new AssignCharacterViewModel(m_project))
-				using (var dlg = new AssignCharacterDlg(viewModel))
-					dlg.ShowDialog();
-			m_project.Analyze();
-			UpdateDisplayOfProjectInfo();
-			SaveCurrentProject();
+
 		}
 
 		private void SelectBooks_Click(object sender, EventArgs e)
