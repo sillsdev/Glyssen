@@ -45,7 +45,7 @@ namespace Glyssen.Dialogs
 				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.NormalDelivery", "normal"));
 
 			m_xOfYFmt = m_labelXofY.Text;
-			m_singleVoiceCheckboxFmt = m_chkSingleVoice.Text;
+			m_singleVoiceCheckboxFmt = m_lblSingleVoice.Text;
 		}
 
 		public AssignCharacterDlg(AssignCharacterViewModel viewModel)
@@ -161,7 +161,7 @@ namespace Glyssen.Dialogs
 			m_labelXofY.Visible = m_viewModel.IsCurrentBlockRelevant;
 			Debug.Assert(m_viewModel.RelevantBlockCount >= m_viewModel.CurrentBlockDisplayIndex);
 			m_labelXofY.Text = string.Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
-			m_chkSingleVoice.Text = string.Format(m_singleVoiceCheckboxFmt, m_viewModel.CurrentBookId);
+			m_lblSingleVoice.Text = string.Format(m_singleVoiceCheckboxFmt, m_viewModel.CurrentBookId);
 
 			m_viewModel.GetBlockVerseRef().SendScrReference();
 
@@ -742,7 +742,12 @@ namespace Glyssen.Dialogs
 		{
 			Close();
 		}
-		#endregion
 
+		private void m_lblSingleVoice_Click(object sender, EventArgs e)
+		{
+			m_chkSingleVoice.Checked = !m_chkSingleVoice.Checked;
+		}
+
+		#endregion
 	}
 }
