@@ -133,6 +133,13 @@ namespace Glyssen
 			m_imgCheckBooks.Visible = false;
 			m_imgCheckAssignCharacters.Visible = false;
 			m_imgCheckAssignActors.Visible = false;
+
+			m_lblProjectInfo.Text = string.Empty;
+			m_lblSettingsInfo.Text = string.Empty;
+			m_lblBookSelectionInfo.Text = string.Empty;
+			m_lblPercentAssigned.Text = string.Empty;
+			m_lblActorsAssigned.Text = string.Empty;
+			m_lastExportLocationLink.Text = string.Empty;
 		}
 
 		private void HandleOpenProject_Click(object sender, EventArgs e)
@@ -146,20 +153,28 @@ namespace Glyssen
 			using (var dlg = new OpenProjectDlg(m_project))
 			{
 				var result = dlg.ShowDialog(this);
-				if (result == DialogResult.OK)
+				if (result != DialogResult.OK) return;
+
+				try
 				{
 					switch (dlg.Type)
 					{
 						case OpenProjectDlg.ProjectType.ExistingProject:
+							InitializeProgress();
 							LoadProject(dlg.SelectedProject);
 							break;
 						case OpenProjectDlg.ProjectType.TextReleaseBundle:
+							InitializeProgress();
 							LoadBundle(dlg.SelectedProject);
 							break;
 						default:
-							MessageBox.Show("Sorry - not implemented yet");
+							MessageBox.Show(@"Sorry - not implemented yet");
 							break;
 					}
+				}
+				finally
+				{
+					CloseProgress();
 				}
 			}
 		}
@@ -170,6 +185,20 @@ namespace Glyssen
 				SetProject(null);
 			else
 				LoadProject(Settings.Default.CurrentProject);		
+		}
+
+		private void InitializeProgress()
+		{
+			ResetUi();
+			m_tableLayoutPanel.Enabled = false;
+			Cursor.Current = Cursors.WaitCursor;
+		}
+
+		private void CloseProgress()
+		{
+			Cursor.Current = Cursors.Default;
+			m_tableLayoutPanel.Enabled = true;
+			UpdateDisplayOfProjectInfo();
 		}
 
 		private void LoadProject(string filePath)
