@@ -406,7 +406,7 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void SplitBlock_RelevantBlocksUpdated()
+		public void SplitBlock_SingleSplit_RelevantBlocksUpdated()
 		{
 			m_fullProjectRefreshRequired = true;
 			m_model.Mode = BlocksToDisplay.NeedAssignments;
@@ -418,12 +418,122 @@ namespace GlyssenTests.Dialogs
 			m_model.LoadPreviousRelevantBlock();
 			m_model.LoadPreviousRelevantBlock();
 			Assert.AreEqual(currentBlock, m_model.CurrentBlock);
+			var preSplit = currentBlock.Clone();
 
-			var newBlock = m_model.SplitBlock(currentBlock, "2", 6);
+			m_model.SplitBlock(new[] { new BlockSplitData(0, currentBlock, "2", 6) });
+			var splitPartA = m_model.CurrentBlock;
 			m_model.LoadNextRelevantBlock();
-			Assert.AreEqual(newBlock, m_model.CurrentBlock);
+			var splitPartB = m_model.CurrentBlock;
+			var partALength = splitPartA.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length);
+			Assert.AreEqual(6, partALength);
+			Assert.AreEqual(preSplit.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length),
+				partALength + splitPartB.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length));
 			m_model.LoadNextRelevantBlock();
 			Assert.AreEqual(nextBlock, m_model.CurrentBlock);
+			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(nextNextBlock, m_model.CurrentBlock);
+		}
+
+		[Test]
+		public void SplitBlock_MultipleSplitsInOneBlock_RelevantBlocksUpdated()
+		{
+			m_fullProjectRefreshRequired = true;
+			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			while (m_model.CurrentBlock.InitialStartVerseNumber == m_model.CurrentBlock.LastVerse)
+				m_model.LoadNextRelevantBlock();
+			var currentBlock = m_model.CurrentBlock;
+			m_model.LoadNextRelevantBlock();
+			var nextBlock = m_model.CurrentBlock;
+			m_model.LoadNextRelevantBlock();
+			var nextNextBlock = m_model.CurrentBlock;
+			m_model.LoadPreviousRelevantBlock();
+			m_model.LoadPreviousRelevantBlock();
+			Assert.AreEqual(currentBlock, m_model.CurrentBlock);
+			var preSplit = currentBlock.Clone();
+
+			Assert.AreEqual(7, currentBlock.InitialStartVerseNumber, "If this fails, update the test to reflect the test data.");
+
+			m_model.SplitBlock(new[]
+			{
+				// The order here is significant as we need to be able handle them "out of order" like this
+				new BlockSplitData(0, currentBlock, "7", 6),
+				new BlockSplitData(4, currentBlock, "8", 3),
+				new BlockSplitData(3, currentBlock, "7", BookScript.kSplitAtEndOfVerse),
+				new BlockSplitData(1, currentBlock, "7", 11),
+				new BlockSplitData(2, currentBlock, "7", 2)
+			});
+
+			var splitPartA = m_model.CurrentBlock;
+			m_model.LoadNextRelevantBlock();
+			var splitPartB = m_model.CurrentBlock;
+			m_model.LoadNextRelevantBlock();
+			var splitPartC = m_model.CurrentBlock;
+			m_model.LoadNextRelevantBlock();
+			var splitPartD = m_model.CurrentBlock;
+			m_model.LoadNextRelevantBlock();
+			var splitPartE = m_model.CurrentBlock;
+			m_model.LoadNextRelevantBlock();
+			var splitPartF = m_model.CurrentBlock;
+			var partALength = splitPartA.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length);
+			var partBLength = splitPartB.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length);
+			var partCLength = splitPartC.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length);
+			var partDLength = splitPartD.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length);
+			var partELength = splitPartE.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length);
+			var partFLength = splitPartF.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length);
+			Assert.AreEqual(2, partALength);
+			Assert.AreEqual(4, partBLength);
+			Assert.AreEqual(5, partCLength);
+			Assert.AreEqual(preSplit.BlockElements.OfType<ScriptText>().First().Content.Length - 11, partDLength);
+			Assert.AreEqual(3, partELength);
+			Assert.AreEqual(preSplit.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length),
+				partALength + partBLength + partCLength + partDLength + partELength + partFLength);
+
+			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(nextBlock, m_model.CurrentBlock);
+			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(nextNextBlock, m_model.CurrentBlock);
+		}
+
+		[Test]
+		public void SplitBlock_SplitsInMultipleBlocks_RelevantBlocksUpdated()
+		{
+			m_fullProjectRefreshRequired = true;
+			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			var currentBlock = m_model.CurrentBlock;
+			m_model.LoadNextRelevantBlock();
+			var nextBlock = m_model.CurrentBlock;
+			m_model.LoadNextRelevantBlock();
+			var nextNextBlock = m_model.CurrentBlock;
+			m_model.LoadPreviousRelevantBlock();
+			m_model.LoadPreviousRelevantBlock();
+			Assert.AreEqual(currentBlock, m_model.CurrentBlock);
+			var preSplit1 = currentBlock.Clone();
+			var preSplit2 = nextBlock.Clone();
+
+			m_model.SplitBlock(new[]
+			{
+				new BlockSplitData(0, currentBlock, "2", 6),
+				new BlockSplitData(1, nextBlock, "4", 8),
+			});
+
+			var split1PartA = m_model.CurrentBlock;
+			m_model.LoadNextRelevantBlock();
+			var split1PartB = m_model.CurrentBlock;
+			m_model.LoadNextRelevantBlock();
+			var split2PartA = m_model.CurrentBlock;
+			m_model.LoadNextRelevantBlock();
+			var split2PartB = m_model.CurrentBlock;
+			var part1ALength = split1PartA.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length);
+			var part1BLength = split1PartB.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length);
+			var part2ALength = split2PartA.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length);
+			var part2BLength = split2PartB.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length);
+			Assert.AreEqual(6, part1ALength);
+			Assert.AreEqual(8, part2ALength);
+			Assert.AreEqual(preSplit1.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length),
+				part1ALength + part1BLength);
+			Assert.AreEqual(preSplit2.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length),
+				part2ALength + part2BLength);
+
 			m_model.LoadNextRelevantBlock();
 			Assert.AreEqual(nextNextBlock, m_model.CurrentBlock);
 		}

@@ -667,7 +667,7 @@ namespace Glyssen.Dialogs
 						r.BlockIndex >= indicesOfNewOrModifiedBlock.BlockIndex);
 				foreach (var block in blocksIndicesNeedingUpdate)
 					block.BlockIndex++;
-				m_relevantBlocks.Insert(m_currentBlockIndex + 1, indicesOfNewOrModifiedBlock);
+				m_relevantBlocks.Insert(m_relevantBlocks.Count - blocksIndicesNeedingUpdate.Count(), indicesOfNewOrModifiedBlock);
 				RelevantBlockAdded(newOrModifiedBlock);
 			}
 			HandleCurrentBlockChanged();

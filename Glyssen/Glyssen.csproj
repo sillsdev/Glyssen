@@ -144,6 +144,7 @@
     <Compile Include="BiblicalAuthors.cs" />
     <Compile Include="BlockElement.cs" />
     <Compile Include="BlockNavigator.cs" />
+    <Compile Include="BlockSplitData.cs" />
     <Compile Include="BookScript.cs" />
     <Compile Include="BookSetUtils.cs" />
     <Compile Include="Block.cs" />

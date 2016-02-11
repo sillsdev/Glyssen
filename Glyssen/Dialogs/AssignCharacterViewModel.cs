@@ -375,11 +375,16 @@ namespace Glyssen.Dialogs
 		#endregion
 
 		#region Block editing methods
-		public Block SplitBlock(Block blockToSplit, string verseToSplit, int characterOffsetToSplit)
+		public void SplitBlock(IEnumerable<BlockSplitData> blockSplits)
 		{
-			Block newBlock = CurrentBook.SplitBlock(blockToSplit, verseToSplit, characterOffsetToSplit);
-			AddToRelevantBlocksIfNeeded(newBlock);
-			return newBlock;
+			foreach (var groupOfSplits in blockSplits.GroupBy(s => new { s.BlockToSplit }))
+			{
+				foreach (var blockSplitData in groupOfSplits.OrderByDescending(s => s, BlockSplitData.BlockSplitDataVerseAndOffsetComparer))
+				{
+					Block newBlock = CurrentBook.SplitBlock(blockSplitData.BlockToSplit, blockSplitData.VerseToSplit, blockSplitData.CharacterOffsetToSplit);
+					AddToRelevantBlocksIfNeeded(newBlock);
+				}
+			}
 		}
 		#endregion
 

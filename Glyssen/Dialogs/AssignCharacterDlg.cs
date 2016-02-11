@@ -681,7 +681,7 @@ namespace Glyssen.Dialogs
 			{
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
-					m_viewModel.SplitBlock(dlg.BlockToSplit, dlg.VerseToSplit, dlg.CharacterOffsetToSplit);
+					m_viewModel.SplitBlock(dlg.SplitLocations);
 				}
 			}
 		}

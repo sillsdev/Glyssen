@@ -18,10 +18,12 @@ namespace Glyssen.Dialogs
 		private readonly string m_fontFamily;
 		private readonly int m_fontSize;
 		private readonly bool m_rightToLeftScript;
-		public Block BlockToSplit { get; private set; }
-		public string VerseToSplit { get; private set; }
-		public int CharacterOffsetToSplit { get; private set; }
+		private readonly List<BlockSplitData> m_splitLocations = new List<BlockSplitData>();
+		public IReadOnlyList<BlockSplitData> SplitLocations { get { return m_splitLocations; } }
 		private string m_htmlFilePath;
+		private int m_blockSplitIdCounter;
+
+		private const string Css = "body {cursor:col-resize;} .split-line {cursor:url(DeleteCursor.png),not-allowed;height:21px;width:100%;} .split-line-top {height:10px;border-bottom: 1px solid gray;}";
 
 		public SplitBlockDlg(IWritingSystemDisplayInfo wsInfo, IEnumerable<Block> originalBlocks)
 		{
@@ -31,10 +33,10 @@ namespace Glyssen.Dialogs
 			m_fontSize = wsInfo.FontSize;
 			InitializeComponent();
 
-			m_blocksDisplayBrowser.Disposed += m_blocksDisplayBrowser_Disposed;
+			m_blocksDisplayBrowser.Disposed += BlocksDisplayBrowser_Disposed;
 		}
 
-		void m_blocksDisplayBrowser_Disposed(object sender, EventArgs e)
+		void BlocksDisplayBrowser_Disposed(object sender, EventArgs e)
 		{
 			if (m_htmlFilePath != null)
 				File.Delete(m_htmlFilePath);
@@ -44,14 +46,14 @@ namespace Glyssen.Dialogs
 		{
 			base.OnLoad(e);
 			m_htmlFilePath = Path.ChangeExtension(Path.GetTempFileName(), "htm");
-			m_style = string.Format(Block.kCssFrame, m_fontFamily, m_fontSize) + "body {cursor:col-resize;}";
+			m_style = string.Format(Block.kCssFrame, m_fontFamily, m_fontSize) + Css;
 
 			SetHtml();
 		}
 
 		private void SetHtml()
 		{
-			const string kHtmlFrame = "<html><head><meta charset=\"UTF-8\">" +
+			const string htmlFrame = "<html><head><meta charset=\"UTF-8\">" +
 									"<style>{0}</style></head><body {1}>{2}</body></html>";
 
 			var bldr = new StringBuilder();
@@ -62,51 +64,89 @@ namespace Glyssen.Dialogs
 			}
 
 			var bodyAttributes = m_rightToLeftScript ? "class=\"right-to-left\"" : "";
-			File.WriteAllText(m_htmlFilePath, String.Format(kHtmlFrame, m_style, bodyAttributes, bldr));
+			File.WriteAllText(m_htmlFilePath, String.Format(htmlFrame, m_style, bodyAttributes, bldr));
 			m_blocksDisplayBrowser.Navigate(m_htmlFilePath);
 		}
 
 		private string BuildHtml(Block block, int id)
 		{
 			var bldr = new StringBuilder();
-			bldr.AppendFormat("<div id=\"{0}\" class=\"block\"", id);
-			bldr.Append(">");
-			if (BlockToSplit == block && VerseToSplit != null)
-				bldr.Append(block.GetTextAsHtml(true, m_rightToLeftScript, VerseToSplit, CharacterOffsetToSplit, "<hr/>"));
+			bldr.AppendFormat("<div id=\"{0}\" class=\"block\">", id);
+			List<BlockSplitData> splitLocationsForThisBlock = SplitLocations.Where(s => s.BlockToSplit == block).ToList();
+			if (splitLocationsForThisBlock.Count > 0)
+			{
+				bool processedFirstBlock = false;
+				if (splitLocationsForThisBlock[0].VerseToSplit == null)
+				{
+					Debug.Assert(splitLocationsForThisBlock[0].CharacterOffsetToSplit == 0);
+					bldr.Append(Block.BuildSplitLineHtml(splitLocationsForThisBlock[0].Id));
+					processedFirstBlock = true;
+				}
+				bldr.Append(block.GetTextAsHtml(true, m_rightToLeftScript, splitLocationsForThisBlock.Skip(processedFirstBlock ? 1 : 0)));
+			}
 			else
 			{
-				if (BlockToSplit == block && VerseToSplit == null)
-				{
-					Debug.Assert(CharacterOffsetToSplit == 0);
-						bldr.Append("<hr/>");
-				}
 				bldr.Append(block.GetTextAsHtml(true, m_rightToLeftScript));
 			}
 			bldr.Append("</div>");
 			return bldr.ToString();
 		}
 
-		private void InsertSplitLocation(object sender, DomMouseEventArgs e)
+		private void HandleClick(object sender, DomMouseEventArgs e)
 		{
-			if (DetermineSplitLocation(e.Target))
+			GeckoElement geckoElement;
+			if (ParseDomEventTargetAsGeckoElement(e.Target, out geckoElement))
 			{
-				SetHtml();
-				m_btnOk.Enabled = true;
-				m_lblInvalidSplitLocation.Visible = false;
+				int splitId;
+				if (IsElementSplitLine(geckoElement, out splitId))
+				{
+					m_splitLocations.Remove(m_splitLocations.Single(s => s.Id == splitId));
+					SetHtml();
+					m_btnOk.Enabled = m_splitLocations.Any();
+					m_lblInvalidSplitLocation.Visible = false;
+				}
+				else if (DetermineSplitLocation(geckoElement))
+				{
+					SetHtml();
+					m_btnOk.Enabled = true;
+					m_lblInvalidSplitLocation.Visible = false;
+				}
+				else
+					m_lblInvalidSplitLocation.Visible = true;
 			}
 			else
 				m_lblInvalidSplitLocation.Visible = true;
 		}
 
-		private bool DetermineSplitLocation(DomEventTarget target)
+		private bool IsElementSplitLine(GeckoElement geckoElement, out int splitId)
+		{
+			splitId = -1;
+			var geckoDivElement = geckoElement as GeckoDivElement;
+			if (geckoDivElement != null && geckoDivElement.ClassName.StartsWith("split-line"))
+			{
+				string splitIdStr = geckoDivElement.ClassName.Equals("split-line") ? geckoDivElement.Id : geckoDivElement.Parent.Id;
+				string splitIdNumber = splitIdStr.Substring(Block.kSplitElementIdPrefix.Length);
+				splitId = Int32.Parse(splitIdNumber);
+				return true;
+			}
+			return false;
+		}
+
+		private bool ParseDomEventTargetAsGeckoElement(DomEventTarget domEventTarget, out GeckoElement geckoElement)
+		{
+			geckoElement = null;
+			if (!m_blocksDisplayBrowser.Visible || domEventTarget == null)
+				return false;
+
+			geckoElement = domEventTarget.CastToGeckoElement();
+			return geckoElement != null;
+		}
+
+		private bool DetermineSplitLocation(GeckoElement geckoElement)
 		{
 			var selection = m_blocksDisplayBrowser.Window.Selection;
 			var newOffset = selection.AnchorOffset;
 
-			if (!m_blocksDisplayBrowser.Visible || target == null)
-				return false;
-
-			var geckoElement = target.CastToGeckoElement();
 			var targetElement = geckoElement as GeckoDivElement;
 			if (targetElement == null)
 			{
@@ -133,6 +173,7 @@ namespace Glyssen.Dialogs
 
 			int blockIndex;
 
+			string verseToSplit;
 			if (targetElement.ClassName == "block")
 			{
 				blockIndex = int.Parse(targetElement.Id);
@@ -146,7 +187,7 @@ namespace Glyssen.Dialogs
 				else if (blockIndex == 0)
 					return false; // Can't split at start of first block.
 
-				VerseToSplit = null; // We're actually splitting between blocks of a multi-block quote
+				verseToSplit = null; // We're actually splitting between blocks of a multi-block quote
 			}
 			else if (targetElement.ClassName == "scripttext")
 			{
@@ -158,7 +199,7 @@ namespace Glyssen.Dialogs
 					blockIndex = int.Parse(targetElement.Parent.Id);
 					if (blockIndex == 0)
 						return false; // Can't split at start of first block.
-					VerseToSplit = null;
+					verseToSplit = null;
 				}
 				else
 				{
@@ -167,30 +208,39 @@ namespace Glyssen.Dialogs
 					if (blockIndex == m_originalBlocks.Count - 1 && newOffset == selection.AnchorNode.NodeValue.Length)
 						return false; // Can't split at very end of last verse in last block
 
-					VerseToSplit = targetElement.Id;
+					verseToSplit = targetElement.Id;
 					var childNodes = selection.AnchorNode.ParentNode.ChildNodes;
 
-					if (childNodes.Length == 3 && selection.AnchorNode.Equals(childNodes[2]))
-						newOffset += childNodes[0].NodeValue.Length;
+					if (childNodes.Length > 1)
+					{
+						foreach (var childNode in childNodes)
+						{
+							if (childNode.Equals(selection.AnchorNode))
+								break;
+							if (childNode.NodeType == NodeType.Text)
+								newOffset += childNode.NodeValue.Length;
+						}
+					}
 				}
 			}
 			else
 				return false;
 
-			BlockToSplit = m_originalBlocks[blockIndex];
-			CharacterOffsetToSplit = newOffset;
+			BlockSplitData blockSplitData = new BlockSplitData(m_blockSplitIdCounter++, m_originalBlocks[blockIndex], verseToSplit, newOffset);
+			m_splitLocations.Add(blockSplitData);
 			return true;
 		}
 
 		private bool DetermineSplitLocationAtStartOfVerse(GeckoDivElement blockElement, string verseElementInnerHtml)
 		{
-			BlockToSplit = m_originalBlocks[int.Parse(blockElement.Id)];
+			BlockSplitData blockSplitData = new BlockSplitData(m_blockSplitIdCounter++);
+			blockSplitData.BlockToSplit = m_originalBlocks[int.Parse(blockElement.Id)];
 			var ichThisVerse = blockElement.InnerHtml.IndexOf(verseElementInnerHtml, StringComparison.Ordinal);
 			var ichPrecedingVerse = blockElement.InnerHtml.LastIndexOf("<sup>", ichThisVerse, StringComparison.Ordinal);
 			ichPrecedingVerse = blockElement.InnerHtml.LastIndexOf("<sup>", ichPrecedingVerse, StringComparison.Ordinal);
 			if (ichPrecedingVerse < 0)
 			{
-				VerseToSplit = BlockToSplit.InitialVerseNumberOrBridge;
+				blockSplitData.VerseToSplit = blockSplitData.BlockToSplit.InitialVerseNumberOrBridge;
 			}
 			else
 			{
@@ -202,9 +252,10 @@ namespace Glyssen.Dialogs
 					// ReSharper disable once HeuristicUnreachableCode
 					return false;
 				}
-				VerseToSplit = match.Result("${verse}");
+				blockSplitData.VerseToSplit = match.Result("${verse}");
 			}
-			CharacterOffsetToSplit = BookScript.kSplitAtEndOfVerse;
+			blockSplitData.CharacterOffsetToSplit = BookScript.kSplitAtEndOfVerse;
+			m_splitLocations.Add(blockSplitData);
 			return true;
 		}
 	}

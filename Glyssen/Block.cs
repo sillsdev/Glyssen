@@ -7,6 +7,7 @@ using System.Text;
 using System.Web;
 using System.Xml.Serialization;
 using Glyssen.Character;
+using Glyssen.Utilities;
 using SIL.Xml;
 
 namespace Glyssen
@@ -22,6 +23,9 @@ namespace Glyssen
 		public const string kCssFrame = "body{{font-family:{0};font-size:{1}pt}}" +
 						".right-to-left{{direction:rtl}}" +
 						".scripttext {{display:inline}}";
+
+		public const string kSplitElementIdPrefix = "split";
+		private const string SplitLineFrame = "<div id=\"" + kSplitElementIdPrefix + "{0}\" class=\"split-line\"><div class=\"split-line-top\"></div></div>";
 
 		/// <summary>Random string which will (hopefully) never appear in real text</summary>
 		private const string kAwooga = "^~^";
@@ -211,7 +215,7 @@ namespace Glyssen
 			}
 		}
 
-		public string GetTextAsHtml(bool showVerseNumbers, bool rightToLeftScript, string verseToInsertExtra = null, int offsetToInsertExtra = -1, string extra = null)
+		public string GetTextAsHtml(bool showVerseNumbers, bool rightToLeftScript, IEnumerable<BlockSplitData> blockSplits = null)
 		{
 			StringBuilder bldr = new StringBuilder();
 
@@ -240,23 +244,40 @@ namespace Glyssen
 					ScriptText text = blockElement as ScriptText;
 					if (text != null)
 					{
-						var encodedContent = HttpUtility.HtmlEncode(text.Content);
-						if (verseToInsertExtra == currVerse)
+						string encodedContent = HttpUtility.HtmlEncode(text.Content);
+						if (blockSplits != null && blockSplits.Any())
 						{
-							if (offsetToInsertExtra == BookScript.kSplitAtEndOfVerse)
-								offsetToInsertExtra = encodedContent.Length;
-							if (offsetToInsertExtra < 0 || offsetToInsertExtra > encodedContent.Length)
+							string preEncodedContent = text.Content;
+							List<string> allContentToInsert = new List<string>();
+							foreach (var groupOfSplits in blockSplits.GroupBy(s => new { s.BlockToSplit, s.VerseToSplit }))
 							{
-								throw new ArgumentOutOfRangeException("offsetToInsertExtra", offsetToInsertExtra,
-									"Value must be greater than or equal to 0 and less than or equal to the length (" + encodedContent.Length +
-									") of the encoded content of verse " + currVerse);
+								IOrderedEnumerable<BlockSplitData> sortedGroupOfSplits = groupOfSplits.OrderByDescending(s => s, BlockSplitData.BlockSplitDataOffsetComparer);
+								foreach (var blockSplit in sortedGroupOfSplits)
+								{
+									var offsetToInsertExtra = blockSplit.CharacterOffsetToSplit;
+									if (blockSplit.VerseToSplit == currVerse)
+									{
+										if (offsetToInsertExtra == BookScript.kSplitAtEndOfVerse)
+											offsetToInsertExtra = preEncodedContent.Length;
+										if (offsetToInsertExtra < 0 || offsetToInsertExtra > preEncodedContent.Length)
+										{
+											throw new ArgumentOutOfRangeException("offsetToInsertExtra", offsetToInsertExtra,
+												"Value must be greater than or equal to 0 and less than or equal to the length (" + preEncodedContent.Length +
+												") of the encoded content of verse " + currVerse);
+										}
+										allContentToInsert.Insert(0, BuildSplitLineHtml(blockSplit.Id));
+										preEncodedContent = preEncodedContent.Insert(offsetToInsertExtra, kAwooga);
+									}
+								}
 							}
-							if (extra == null)
-								throw new ArgumentNullException("extra");
-							encodedContent = HttpUtility.HtmlEncode(text.Content.Insert(offsetToInsertExtra, kAwooga)).Replace(kAwooga, extra);
+							if (preEncodedContent != text.Content)
+							{
+								encodedContent = HttpUtility.HtmlEncode(preEncodedContent);
+								foreach (var contentToInsert in allContentToInsert)
+									encodedContent = encodedContent.ReplaceFirst(kAwooga, contentToInsert);
+							}
 						}
-						var content = String.Format("<div id=\"{0}\" class=\"scripttext\">{1}</div>", currVerse,
-							encodedContent);
+						var content = String.Format("<div id=\"{0}\" class=\"scripttext\">{1}</div>", currVerse, encodedContent);
 						bldr.Append(content);
 					}
 				}
@@ -377,6 +398,11 @@ namespace Glyssen
 		{
 			return cvInfo.GetCharacters(bookNumber, ChapterNumber, InitialStartVerseNumber,
 				InitialEndVerseNumber, versification: scrVers).FirstOrDefault(c => c.Character == CharacterId);
+		}
+
+		public static string BuildSplitLineHtml(int id)
+		{
+			return string.Format(SplitLineFrame, id);
 		}
 	}
 

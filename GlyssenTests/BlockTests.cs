@@ -111,19 +111,11 @@ namespace GlyssenTests
 		{
 			var block = new Block("p", 4, 3);
 			block.BlockElements.Add(new ScriptText("Text"));
-			Assert.Throws<ArgumentOutOfRangeException>(() => block.GetTextAsHtml(true, false, "3", 5, "<div></div>"));
+			Assert.Throws<ArgumentOutOfRangeException>(() => block.GetTextAsHtml(true, false, new[] { new BlockSplitData(0, block, "3", 5) }));
 		}
 
 		[Test]
-		public void GetTextAsHtml_NullExtra_ThrowsArgumentNullException()
-		{
-			var block = new Block("p", 4, 3);
-			block.BlockElements.Add(new ScriptText("Text"));
-			Assert.Throws<ArgumentNullException>(() => block.GetTextAsHtml(true, false, "3", 4));
-		}
-
-		[Test]
-		public void GetTextAsHtml_ExtraParameters_InsertsImgElement()
+		public void GetTextAsHtml_BlockSplitProvided_InsertsBlockSplit()
 		{
 			var block = new Block("p", 4, 3);
 			block.BlockElements.Add(new ScriptText("Text of verse three, part two [2]. "));
@@ -133,9 +125,51 @@ namespace GlyssenTests
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
 			Assert.AreEqual("<div id=\"3\" class=\"scripttext\">Text of verse three, part two [2]. " +
-							"</div><sup>4&#160;</sup><div id=\"4\" class=\"scripttext\">Text <img src=\"blah\"/>of vers [sic] four. </div><sup>5&#160;</sup>" +
+							"</div><sup>4&#160;</sup><div id=\"4\" class=\"scripttext\">Text " + Block.BuildSplitLineHtml(0) + "of vers [sic] four. </div><sup>5&#160;</sup>" +
 							"<div id=\"5\" class=\"scripttext\">Text of verse five.</div>",
-				block.GetTextAsHtml(true, false, "4", 5, "<img src=\"blah\"/>"));
+				block.GetTextAsHtml(true, false, new[] { new BlockSplitData(0, block, "4", 5) }));
+		}
+
+		[Test]
+		public void GetTextAsHtml_MultipleBlockSplitsProvided_InsertsBlockSplits()
+		{
+			var block = new Block("p", 4, 3);
+			block.BlockElements.Add(new ScriptText("Text of verse three, part two [2]. "));
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Text of vers [sic] four. "));
+			block.BlockElements.Add(new Verse("5"));
+			block.BlockElements.Add(new ScriptText("Text of verse five."));
+
+			string expected = "<div id=\"3\" class=\"scripttext\">Text of verse three, part two [2]. " +
+							  "</div><sup>4&#160;</sup><div id=\"4\" class=\"scripttext\">Text " + Block.BuildSplitLineHtml(0) + "of " + Block.BuildSplitLineHtml(1) + "vers [sic] " + Block.BuildSplitLineHtml(2) + "four. </div><sup>5&#160;</sup>" +
+							  "<div id=\"5\" class=\"scripttext\">Text" + Block.BuildSplitLineHtml(3) + " of verse five.</div>";
+			string actual = block.GetTextAsHtml(true, false, new[]
+			{
+				new BlockSplitData(0, block, "4", 5),
+				new BlockSplitData(1, block, "4", 8),
+				new BlockSplitData(2, block, "4", 19),
+				new BlockSplitData(3, block, "5", 4)
+			});
+			Assert.AreEqual(expected, actual);
+		}
+
+		[Test]
+		public void GetTextAsHtml_MultipleBlockSplitsProvided_InsertsBlockSplits_TODO_Name_realdata()
+		{
+			var block = new Block("p", 4, 3);
+			block.BlockElements.Add(new ScriptText("—Ananías, ¿Ibiga nia-saila-Satanás burba-isgana begi oubononiki? Emide, Bab-Dummad-Burba-Isligwaledga be gakansanonigu, mani-abala be susgu. "));
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Yoo be nainu-ukegu, ¿nainu begadinsursi? Nainu be uksagu, ¿a-manide begadinsursi? ¿Ibiga be-gwagegi anmarga gakansaedgi be binsanoniki? Dulemarga be gakan-imaksasulid, Bab-Dummadga be gakan-imaksad."));
+
+			string expected = "<div id=\"3\" class=\"scripttext\">—Anan&#237;as, &#191;Ibiga nia-saila-Satan&#225;s burba-isgana begi oubononiki? Emide, Bab-Dummad-Burba-Isligwaledga be gakans" + Block.BuildSplitLineHtml(0) + "anonigu, mani-abala be susgu. </div><sup>4&#160;</sup><div id=\"4\" class=\"scripttext\">Yoo be nainu-ukegu, &#191;nainu begadin" + Block.BuildSplitLineHtml(1) + "sursi? " + Block.BuildSplitLineHtml(3) + "Nainu be uksagu, &#191;a-manide begadinsursi? &#191;Ibiga be-gwagegi anmarga gakan" + Block.BuildSplitLineHtml(2) + "saedgi be binsanoniki? Dulemarga be gakan-imaksasulid, Bab-Dummadga be gakan-imaksad.</div>";
+			string actual = block.GetTextAsHtml(true, false, new[]
+			{
+				new BlockSplitData(0, block, "3", 111),
+				new BlockSplitData(1, block, "4", 34),
+				new BlockSplitData(2, block, "4", 113),
+				new BlockSplitData(3, block, "4", 41)
+			});
+			Assert.AreEqual(expected, actual);
 		}
 
 		[Test]
@@ -143,7 +177,23 @@ namespace GlyssenTests
 		{
 			var block = new Block("p", 4, 3);
 			block.BlockElements.Add(new ScriptText("Нылыс эз кув, сiйö узьö"));
-			Assert.AreEqual("<div id=\"3\" class=\"scripttext\">Нылыс эз кув, сiй&#246; <hr/>узь&#246;</div>", block.GetTextAsHtml(false, false, "3", 19, "<hr/>"));
+			Assert.AreEqual("<div id=\"3\" class=\"scripttext\">Нылыс эз кув, сiй&#246; " + Block.BuildSplitLineHtml(0) + "узь&#246;</div>",
+				block.GetTextAsHtml(false, false, new[] { new BlockSplitData(0, block, "3", 19) }));
+		}
+
+		[Test]
+		public void GetTextAsHtml_SpecialCharactersInTextWithSplitJustBeforeVerseNumber_InsertsInCorrectLocation()
+		{
+			var block = new Block("p", 4, 3);
+			block.BlockElements.Add(new ScriptText("Нылыс эз кув, сiйö узьö"));
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Нылыс эз кув, сiйö узьö"));
+			Assert.AreEqual("<div id=\"3\" class=\"scripttext\">Ны" + Block.BuildSplitLineHtml(0) + "лыс эз кув, сiй&#246; узь&#246;" + Block.BuildSplitLineHtml(1) + "</div><sup>4&#160;</sup><div id=\"4\" class=\"scripttext\">Нылыс эз кув, сiй&#246; узь&#246;</div>",
+				block.GetTextAsHtml(true, false, new[]
+				{
+					new BlockSplitData(1, block, "3", BookScript.kSplitAtEndOfVerse),
+					new BlockSplitData(0, block, "3", 2),
+				}));
 		}
 
 		[Test]
@@ -151,7 +201,7 @@ namespace GlyssenTests
 		{
 			var block = new Block("p", 4, 3);
 			block.BlockElements.Add(new ScriptText("A & <<B>> C"));
-			Assert.AreEqual("<div id=\"3\" class=\"scripttext\">A &amp; &lt;&lt;B&gt;&gt; <hr/>C</div>", block.GetTextAsHtml(false, false, "3", 10, "<hr/>"));
+			Assert.AreEqual("<div id=\"3\" class=\"scripttext\">A &amp; &lt;&lt;B&gt;&gt; " + Block.BuildSplitLineHtml(0) + "C</div>", block.GetTextAsHtml(false, false, new[] { new BlockSplitData(0, block, "3", 10) }));
 		}
 
 		[Test]
