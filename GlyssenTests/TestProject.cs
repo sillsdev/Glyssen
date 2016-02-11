@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Threading;
 using System.Xml;
@@ -78,6 +79,17 @@ namespace GlyssenTests
 		public static Project CreateBasicTestProject()
 		{
 			return CreateTestProject(TestBook.JUD);
+		}
+
+		public static List<BookScript> BooksBeforeQuoteParse(params TestBook[] booksToInclude)
+		{
+			var sampleMetadata = new GlyssenDblTextMetadata {AvailableBooks = new List<Book>()};
+			var books = new List<UsxDocument>();
+
+			foreach (var testBook in booksToInclude)
+				AddBook(testBook, sampleMetadata, books);
+
+			return UsxParser.ParseProject(books, SfmLoader.GetUsfmStylesheet(), new BackgroundWorker { WorkerReportsProgress = true });
 		}
 
 		private static QuoteSystem GetTestQuoteSystem()

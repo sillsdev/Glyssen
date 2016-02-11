@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Quote;
 using NUnit.Framework;
+using SIL.Scripture;
 using SIL.WritingSystems;
 
 namespace GlyssenTests.Quote
@@ -3270,6 +3272,84 @@ namespace GlyssenTests.Quote
 			Assert.IsTrue(output[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(1, output[1].ChapterNumber);
 			Assert.AreEqual(18, output[1].InitialStartVerseNumber);
+		}
+
+		[Test]
+		public void Unparse_OneBlockBecomesThreeBecomesOne_QuoteInMiddle()
+		{
+			var originalText = "He said, «Go!» quietly.";
+			var block = new Block("p", 1, 1);
+			block.BlockElements.Add(new Verse("1"));
+			block.BlockElements.Add(new ScriptText(originalText));
+			var input = new List<Block> { block };
+			IList<Block> output1 = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			Assert.AreEqual(3, output1.Count);
+			Assert.AreEqual("He said, ", output1[0].GetText(false));
+			Assert.IsTrue(output1[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual("«Go!» ", output1[1].GetText(false));
+			Assert.IsFalse(CharacterVerseData.IsCharacterOfType(output1[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual("quietly.", output1[2].GetText(false));
+			Assert.IsTrue(output1[2].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+
+			// now unparse the book
+			var book = new BookScript("LUK", output1);
+			var books = new List<BookScript> {book};
+			var output2 = QuoteParser.Unparse(books);
+
+			// expect 1 book
+			Assert.AreEqual(1, output2.Count);
+
+			// expect 1 block
+			Assert.AreEqual(1, output2.First().Value.Count);
+
+			// expect 2 elements
+			block = output2.First().Value.First();
+			Assert.AreEqual(2, block.BlockElements.Count);
+			Assert.IsInstanceOf(typeof(Verse), block.BlockElements[0]);
+			Assert.IsInstanceOf(typeof(ScriptText), block.BlockElements[1]);
+			Assert.AreEqual(originalText, ((ScriptText)block.BlockElements[1]).Content);
+		}
+
+		[Test]
+		public void Unparse_UnparseProject_Works()
+		{
+			/* 
+			 * TODO: Consider updating the parser to not remove block elements with no word-forming characters.
+			 * The last few verses of Mark 16, starting at verse 9, are flagged as an alternate, surrounded with square brackets
+			 * which are removed by the parser. This is causing the preparsed version to have one more more block element than
+			 * the unparsed version.
+			 * 
+			 * This is why Mark is excluded from this test.
+			*/
+			var booksToInclude = Enum.GetValues(typeof (TestProject.TestBook)).Cast<TestProject.TestBook>()
+				.Where(testBook => testBook != TestProject.TestBook.MRK).ToList();
+
+			var preparsed = TestProject.BooksBeforeQuoteParse(booksToInclude.ToArray());
+			var project = TestProject.CreateTestProject(booksToInclude.ToArray());
+			var unparsed = QuoteParser.Unparse(project.Books);
+			var unparsedKeys = unparsed.Keys.ToList();
+
+			// sort the lists so the books are in the same order
+			preparsed.Sort((a, b) => BCVRef.BookToNumber(a.BookId).CompareTo(BCVRef.BookToNumber(b.BookId)));
+			unparsedKeys.Sort((a, b) => BCVRef.BookToNumber(a.BookId).CompareTo(BCVRef.BookToNumber(b.BookId)));
+
+			// both sets contain the same number of books
+			Assert.AreEqual(preparsed.Count, unparsed.Count);
+
+			for (var i = 0; i < preparsed.Count; i++)
+			{
+				var preparsedBlocks = preparsed[i].Blocks;
+				var unparsedBlocks = unparsed[unparsedKeys[i]];
+
+				// both books contains the same number of blocks
+				Assert.AreEqual(preparsedBlocks.Count, unparsedBlocks.Count);
+
+				for (var j = 0; j < preparsedBlocks.Count; j++)
+				{
+					// both blocks contain the same number of elements
+					Assert.AreEqual(preparsedBlocks[j].BlockElements.Count, unparsedBlocks[j].BlockElements.Count);
+				}
+			}
 		}
 
 		#region Recovery from bad data
