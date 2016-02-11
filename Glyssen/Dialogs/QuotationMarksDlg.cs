@@ -29,11 +29,7 @@ namespace Glyssen.Dialogs
 		private object m_versesWithMissingExpectedQuotesFilterItem;
 		private object m_allQuotesFilterItem;
 		private bool m_endMarkerComboIncludesSameAsStartDashTextOption;
-		private QuoteSystem m_originalQuoteSystem;
-		private QuoteSystem m_testedQuoteSystem;
-		private DateTime m_originalQuoteSystemDate;
 		private bool m_formLoading;
-		private bool m_testing;
 
 		internal QuotationMarksDlg(Project project, BlockNavigatorViewModel navigatorViewModel, bool readOnly)
 		{
@@ -44,7 +40,7 @@ namespace Glyssen.Dialogs
 			m_project.AnalysisCompleted += HandleAnalysisCompleted;
 			m_navigatorViewModel = navigatorViewModel;
 
-			if (Properties.Settings.Default.QuoteMarksDialogShowGridView)
+			if (Settings.Default.QuoteMarksDialogShowGridView)
 				m_toolStripButtonGridView.Checked = true;
 
 			var books = new BookSet();
@@ -72,8 +68,6 @@ namespace Glyssen.Dialogs
 			}, true);
 
 			SetFilterControlsFromMode();
-
-			ShowTestResults(PercentageOfExpectedQuotesFound(), false);
 
 			if (readOnly)
 				MakeReadOnly();
@@ -269,7 +263,6 @@ namespace Glyssen.Dialogs
 
 		private void m_btnOk_Click(object sender, EventArgs e)
 		{
-			m_testing = false;
 			QuoteSystem currentQuoteSystem = CurrentQuoteSystem;
 
 			if (currentQuoteSystem == m_project.QuoteSystem)
@@ -325,27 +318,9 @@ namespace Glyssen.Dialogs
 
 		private void HandleAnalysisCompleted(object sender, EventArgs e)
 		{
-			// this can happen if the project QuoteSystem was restored when the user clicks `Cancel`
-			if (DialogResult == DialogResult.Cancel) return;
+			var percentageOfExpectedQuotesFound = PercentageOfExpectedQuotesFound(m_project.Books);
 
-			if (m_testing)
-			{
-				// display the analysis
-				ShowTestResults(PercentageOfExpectedQuotesFound(), true);
-				return;
-			}
-
-			// this happens when the user clicks `OK` after clicking `Test`
-			if (m_testedQuoteSystem == CurrentQuoteSystem)
-				{
-				DialogResult = DialogResult.OK;
-				Close();
-				return;
-						}
-
-			var percentageOfExpectedQuotesFound = PercentageOfExpectedQuotesFound();
-
-			if (percentageOfExpectedQuotesFound < Properties.Settings.Default.TargetPercentageOfQuotesFound)
+			if (percentageOfExpectedQuotesFound < Settings.Default.TargetPercentageOfQuotesFound)
 			{
 				using (var dlg = new PercentageOfExpectedQuotesFoundTooLowDlg(Text, percentageOfExpectedQuotesFound))
 				{
@@ -357,7 +332,7 @@ namespace Glyssen.Dialogs
 					}
 				}
 			}
-			else if (m_project.ProjectAnalysis.PercentUnknown > Properties.Settings.Default.MaxAcceptablePercentageOfUnknownQuotes)
+			else if (m_project.ProjectAnalysis.PercentUnknown > Settings.Default.MaxAcceptablePercentageOfUnknownQuotes)
 			{
 				using (var dlg = new TooManyUnexpectedQuotesFoundDlg(Text, m_project.ProjectAnalysis.PercentUnknown))
 				{
@@ -378,7 +353,7 @@ namespace Glyssen.Dialogs
 			Close();
 		}
 
-		private double PercentageOfExpectedQuotesFound()
+		private double PercentageOfExpectedQuotesFound(System.Collections.Generic.IReadOnlyList<BookScript> books)
 		{
 			var totalExpectedQuotesInIncludedChapters = 0;
 			var totalVersesWithExpectedQuotes = 0;
@@ -386,7 +361,7 @@ namespace Glyssen.Dialogs
 			var expectedQuotes = ControlCharacterVerseData.Singleton.ExpectedQuotes;
 			foreach (var book in expectedQuotes.Keys)
 			{
-				var bookScript = m_project.Books.FirstOrDefault(b => BCVRef.BookToNumber(b.BookId) == book);
+				var bookScript = books.FirstOrDefault(b => BCVRef.BookToNumber(b.BookId) == book);
 				if (bookScript == null)
 					continue;
 				foreach (var chapter in expectedQuotes[book])
@@ -507,8 +482,10 @@ namespace Glyssen.Dialogs
 				LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.TestResults", "{0:F1}% of expected quotes were found."),
 				percentageOfExpected);
 
-			var showWarning = (100 - percentageOfExpected) > Properties.Settings.Default.MaxAcceptablePercentageOfUnknownQuotes;
+			var showWarning = (100 - percentageOfExpected) > Settings.Default.MaxAcceptablePercentageOfUnknownQuotes;
 			m_testResults.ForeColor = glyssenColorPalette.GetColor(showWarning ? GlyssenColors.Warning : GlyssenColors.ForeColor);
+
+			m_testResults.Visible = true;
 
 			if (changeFilter)
 				SelectMissingExpectedQuotesFilter();
@@ -669,7 +646,7 @@ namespace Glyssen.Dialogs
 				Debug.Assert(!m_toolStripButtonGridView.Checked);
 
 				m_blocksViewer.ViewType = ScriptBlocksViewType.Html;
-				Properties.Settings.Default.QuoteMarksDialogShowGridView = false;
+				Settings.Default.QuoteMarksDialogShowGridView = false;
 			}
 		}
 
@@ -682,7 +659,7 @@ namespace Glyssen.Dialogs
 				Debug.Assert(!m_toolStripButtonHtmlView.Checked);
 
 				m_blocksViewer.ViewType = ScriptBlocksViewType.Grid;
-				Properties.Settings.Default.QuoteMarksDialogShowGridView = true;
+				Settings.Default.QuoteMarksDialogShowGridView = true;
 			}
 		}
 
@@ -719,31 +696,17 @@ namespace Glyssen.Dialogs
 
 		private void m_btnTest_Click(object sender, EventArgs e)
 		{
-			m_testing = true;
-
-			var currentQuoteSystem = CurrentQuoteSystem;
-			if (m_project.QuoteSystem == currentQuoteSystem)
-				return;
-
-			// remember in case the user cancels the dialog
-			if (m_originalQuoteSystem == null)
+			try
 			{
-				m_originalQuoteSystemDate = m_project.Status.QuoteSystemDate;
-				m_originalQuoteSystem = m_project.QuoteSystem;
+				Application.UseWaitCursor = true;
+				var parsedBooks = QuoteParser.TestQuoteSystem(m_project, CurrentQuoteSystem);
+				ShowTestResults(PercentageOfExpectedQuotesFound(parsedBooks), true);
+				m_navigatorViewModel.BlockNavigator = new BlockNavigator(parsedBooks);
 			}
-
-			// trigger a re-parse
-			m_project.QuoteSystem = currentQuoteSystem;
-
-			// set so the user is not notified again if he clicks `OK` without making any more changes
-			m_testedQuoteSystem = currentQuoteSystem;
-		}		
-
-		private void m_btnCancel_Click(object sender, EventArgs e)
-		{
-			if (m_originalQuoteSystem == null) return;
-			m_project.Status.QuoteSystemDate = m_originalQuoteSystemDate;
-			m_project.QuoteSystem = m_originalQuoteSystem;
+			finally
+			{
+				Application.UseWaitCursor = false;
+			}
 		}
 
 		private void m_splitContainer_SplitterMoved(object sender, SplitterEventArgs e)

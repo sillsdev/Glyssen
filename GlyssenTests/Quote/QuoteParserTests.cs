@@ -3272,6 +3272,42 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(18, output[1].InitialStartVerseNumber);
 		}
 
+		[Test]
+		public void Unparse_OneBlockBecomesThreeBecomesOne_QuoteInMiddle()
+		{
+			var originalText = "He said, «Go!» quietly.";
+			var block = new Block("p", 1, 1);
+			block.BlockElements.Add(new Verse("1"));
+			block.BlockElements.Add(new ScriptText(originalText));
+			var input = new List<Block> { block };
+			IList<Block> output1 = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
+			Assert.AreEqual(3, output1.Count);
+			Assert.AreEqual("He said, ", output1[0].GetText(false));
+			Assert.IsTrue(output1[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual("«Go!» ", output1[1].GetText(false));
+			Assert.IsFalse(CharacterVerseData.IsCharacterOfType(output1[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual("quietly.", output1[2].GetText(false));
+			Assert.IsTrue(output1[2].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
+
+			// now unparse the book
+			var book = new BookScript("LUK", output1);
+			var books = new List<BookScript> {book};
+			var output2 = QuoteParser.Unparse(books);
+
+			// expect 1 book
+			Assert.AreEqual(1, output2.Count);
+
+			// expect 1 block
+			Assert.AreEqual(1, output2.First().Value.Count);
+
+			// expect 2 elements
+			block = output2.First().Value.First();
+			Assert.AreEqual(2, block.BlockElements.Count);
+			Assert.IsInstanceOf(typeof(Verse), block.BlockElements[0]);
+			Assert.IsInstanceOf(typeof(ScriptText), block.BlockElements[1]);
+			Assert.AreEqual(originalText, ((ScriptText)block.BlockElements[1]).Content);
+		}
+
 		#region Recovery from bad data
 		[Test]
 		public void Parse_FirstLevelCloseMissingFollowedByNoControlFileEntry_CloseQuoteWhenNoCharacterInControlFileAndSetCharacterForRelevantBlocksToUnknown()

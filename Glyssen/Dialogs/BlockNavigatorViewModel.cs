@@ -117,6 +117,15 @@ namespace Glyssen.Dialogs
 			Mode = BlocksToDisplay.AllScripture;
 		}
 
+		internal BlockNavigator BlockNavigator
+		{
+			set
+			{
+				m_navigator = value;
+				ResetFilter(null);
+			}
+		}
+
 		#region IDisposable Members
 		public void Dispose()
 		{
