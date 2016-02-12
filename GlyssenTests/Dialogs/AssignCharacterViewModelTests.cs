@@ -435,6 +435,45 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void SplitBlock_SingleSplitWithMultipleBooksInProject_RelevantBlocksUpdated()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.ACT);
+
+			var model = new AssignCharacterViewModel(project);
+			model.SetUiStrings("narrator ({0})",
+				"book title or chapter ({0})",
+				"introduction ({0})",
+				"section head ({0})",
+				"normal");
+			model.BackwardContextBlockCount = 10;
+			model.ForwardContextBlockCount = 10;
+
+			model.Mode = BlocksToDisplay.NeedAssignments;
+			var currentBlock = model.CurrentBlock;
+			model.LoadNextRelevantBlock();
+			var nextBlock = model.CurrentBlock;
+			model.LoadNextRelevantBlock();
+			var nextNextBlock = model.CurrentBlock;
+			model.LoadPreviousRelevantBlock();
+			model.LoadPreviousRelevantBlock();
+			Assert.AreEqual(currentBlock, model.CurrentBlock);
+			var preSplit = currentBlock.Clone();
+
+			model.SplitBlock(new[] { new BlockSplitData(0, currentBlock, "2", 6) });
+			var splitPartA = model.CurrentBlock;
+			model.LoadNextRelevantBlock();
+			var splitPartB = model.CurrentBlock;
+			var partALength = splitPartA.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length);
+			Assert.AreEqual(6, partALength);
+			Assert.AreEqual(preSplit.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length),
+				partALength + splitPartB.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length));
+			model.LoadNextRelevantBlock();
+			Assert.AreEqual(nextBlock, model.CurrentBlock);
+			model.LoadNextRelevantBlock();
+			Assert.AreEqual(nextNextBlock, model.CurrentBlock);
+		}
+
+		[Test]
 		public void SplitBlock_MultipleSplitsInOneBlock_RelevantBlocksUpdated()
 		{
 			m_fullProjectRefreshRequired = true;
