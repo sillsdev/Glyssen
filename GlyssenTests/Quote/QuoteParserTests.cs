@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
@@ -16,6 +17,17 @@ namespace GlyssenTests.Quote
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+		}
+
+		[Test]
+		public void Parse_ContainsUserConfirmedBlock_ThrowsInvalidOperationException()
+		{
+			var block = new Block("p", 7, 6);
+			block.BlockElements.Add(new ScriptText("He replied, «Isaiah was right when he prophesied about you.»"));
+			block.UserConfirmed = true;
+			var input = new List<Block> { block };
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input);
+			Assert.Throws<InvalidOperationException>(() => parser.Parse());
 		}
 
 		[Test]
@@ -1464,7 +1476,7 @@ namespace GlyssenTests.Quote
 		}
 
 		[Test]
-		public void Parse_MultiBlockQuote_AcrossSectionHead()
+		public void Parse_MultiBlockQuoteAcrossSectionHead_ClearMultiBlockBeforeSectionHeaderAndResetAfter()
 		{
 			var block1 = new Block("p", 5, 16) { IsParagraphStart = true };
 			block1.BlockElements.Add(new ScriptText("«Wun bene wubed "));
@@ -1478,6 +1490,35 @@ namespace GlyssenTests.Quote
 			var input = new List<Block> { block1, block2, block3, block4 };
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical));
+			Assert.AreEqual("Jesus", output[3].CharacterId);
+			Assert.AreEqual("Jesus", output[2].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Start, output[2].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[3].MultiBlockQuote);
+		}
+
+		[Test]
+		public void Parse_MultiBlockQuoteAcrossSectionHeadWithoutContinuer_ClearMultiBlockBeforeSectionHeaderAndResetAfter()
+		{
+			var block1 = new Block("p", 5, 16) { IsParagraphStart = true };
+			block1.BlockElements.Add(new ScriptText("«Wun bene wubed "));
+			var block2 = new Block("s1", 5, 16) { IsParagraphStart = true, CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical) };
+			block2.BlockElements.Add(new ScriptText("Lok ma Yecu opwonyo i kom cik"));
+			var block3 = new Block("p", 5, 17) { IsParagraphStart = true };
+			block3.BlockElements.Add(new Verse("17"));
+			block3.BlockElements.Add(new ScriptText("Pe wutam ni an "));
+			var block4 = new Block("q1", 5, 17) { IsParagraphStart = true };
+			block4.BlockElements.Add(new ScriptText("Ada awaco botwu ni»"));
+			var input = new List<Block> { block1, block2, block3, block4 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical));
+			Assert.AreEqual("Jesus", output[3].CharacterId);
+			Assert.AreEqual("Jesus", output[2].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
 			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
 			Assert.AreEqual(MultiBlockQuote.Start, output[2].MultiBlockQuote);
@@ -3457,6 +3498,114 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(1, output.Count);
 			Assert.AreEqual("«Quote. But where does it end? ", output[0].GetText(false));
 			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+		}
+
+		[Test]
+		public void Parse_FirstLevelStillOpenAtSectionHeaderWithCharacterNotInNextVerse_SetToUnknown()
+		{
+			var block1 = new Block("p", 5, 43) { IsParagraphStart = true };
+			block1.BlockElements.Add(new Verse("43")); // Jesus
+			block1.BlockElements.Add(new ScriptText("«Quote. But where does it end? "));
+			var blockSect = new Block("s", 5, 43) { IsParagraphStart = true, CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical) };
+			blockSect.BlockElements.Add(new ScriptText("Section Header"));
+			var block2 = new Block("p", 5, 44) { IsParagraphStart = true };
+			block2.BlockElements.Add(new Verse("44")); // no one
+			block2.BlockElements.Add(new ScriptText("No character in control file for this verse. "));
+			var input = new List<Block> { block1, blockSect, block2 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual("«Quote. But where does it end? ", output[0].GetText(false));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+
+			Assert.AreEqual("Section Header", output[1].GetText(false));
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical));
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+
+			Assert.AreEqual("No character in control file for this verse. ", output[2].GetText(false));
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[2].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
+		}
+
+		[Test]
+		public void Parse_FirstLevelStillOpenAtSectionHeaderWithVerseContinuingButQuoteNeverClosed_BreakBlockAndSetScriptureBlocksToUnknown()
+		{
+			var block1 = new Block("p", 5, 43) { IsParagraphStart = true };
+			block1.BlockElements.Add(new Verse("43")); // Jesus
+			block1.BlockElements.Add(new ScriptText("«Quote. But where does it end? "));
+			var blockSect = new Block("s", 5, 43) { IsParagraphStart = true, CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical) };
+			blockSect.BlockElements.Add(new ScriptText("Section Header"));
+			var block2 = new Block("p", 5, 43) { IsParagraphStart = true };
+			block2.BlockElements.Add(new ScriptText("Verse and quote continues after section header. "));
+			block2.BlockElements.Add(new Verse("44")); // no one
+			block2.BlockElements.Add(new ScriptText("No character in control file for this verse. "));
+			var input = new List<Block> { block1, blockSect, block2 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+
+			Assert.AreEqual(4, output.Count);
+			Assert.AreEqual("«Quote. But where does it end? ", output[0].GetText(false));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+
+			Assert.AreEqual("Section Header", output[1].GetText(false));
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical));
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+
+			Assert.AreEqual("Verse and quote continues after section header. ", output[2].GetText(false));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[2].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
+
+			Assert.AreEqual("No character in control file for this verse. ", output[3].GetText(false));
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[3].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
+		}
+
+		[Test]
+		public void Parse_FirstLevelStillOpenFromMultiVerseBlockAtSectionHeaderWithCharacterNotInNextVerse_SetToUnknown()
+		{
+			var block1 = new Block("p", 15, 16) { IsParagraphStart = true };
+			block1.BlockElements.Add(new Verse("16")); //Jesus
+			block1.BlockElements.Add(new ScriptText("He said, <<Quote. But where does it end? "));
+			block1.BlockElements.Add(new Verse("17")); // Jesus
+			block1.BlockElements.Add(new ScriptText("Quote continues after verse break."));
+			var blockSect = new Block("s", 15, 17) { IsParagraphStart = true, CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical) };
+			blockSect.BlockElements.Add(new ScriptText("Section Header"));
+			var block2 = new Block("p", 15, 18) { IsParagraphStart = true };
+			block2.BlockElements.Add(new Verse("18")); // no one
+			block2.BlockElements.Add(new ScriptText("No character in control file for this verse. "));
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("<<", ">>", "<<", 1, QuotationMarkingSystemType.Normal), null, null);
+			var input = new List<Block> { block1, blockSect, block2 };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input, quoteSystem).Parse().ToList();
+
+			Assert.AreEqual(4, output.Count);
+			Assert.AreEqual("He said, ", output[0].GetText(false));
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(16, output[0].InitialStartVerseNumber);
+			Assert.AreEqual(0, output[0].InitialEndVerseNumber);
+			Assert.AreEqual(16, output[0].LastVerse);
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+
+			Assert.AreEqual("<<Quote. But where does it end? Quote continues after verse break.", output[1].GetText(false));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+			Assert.AreEqual(16, output[1].InitialStartVerseNumber);
+			Assert.AreEqual(0, output[1].InitialEndVerseNumber);
+			Assert.AreEqual(17, output[1].LastVerse);
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+
+			Assert.AreEqual("Section Header", output[2].GetText(false));
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[2].CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical));
+			Assert.AreEqual(17, output[2].InitialStartVerseNumber);
+			Assert.AreEqual(0, output[2].InitialEndVerseNumber);
+			Assert.AreEqual(17, output[2].LastVerse);
+			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
+
+			Assert.AreEqual("No character in control file for this verse. ", output[3].GetText(false));
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[3].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(18, output[3].InitialStartVerseNumber);
+			Assert.AreEqual(0, output[3].InitialEndVerseNumber);
+			Assert.AreEqual(18, output[3].LastVerse);
+			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
 		}
 
 		[Test]

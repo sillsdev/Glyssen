@@ -177,8 +177,6 @@ namespace Glyssen.Quote
 		/// <returns>A new enumerable of blocks broken up for quotes</returns>
 		public IEnumerable<Block> Parse()
 		{
-			if (m_quoteSystem == null)
-				return m_inputBlocks;
 			m_outputBlocks = new List<Block>();
 			var sb = new StringBuilder();
 			m_quoteLevel = 0;
@@ -195,13 +193,6 @@ namespace Glyssen.Quote
 
 				if (block.CharacterIsStandard && !block.CharacterIs(m_bookId, CharacterVerseData.StandardCharacter.Narrator))
 				{
-					// The following handles the case where an open quote is interrupted by a section head or chapter break
-					var lastBlockAdded = m_outputBlocks.LastOrDefault();
-					if (lastBlockAdded != null && lastBlockAdded.MultiBlockQuote == MultiBlockQuote.Start)
-					{
-						lastBlockAdded.MultiBlockQuote = MultiBlockQuote.None;
-						ProcessMultiBlock();
-					}
 					m_nextBlockContinuesQuote = false;
 
 					m_outputBlocks.Add(block);
