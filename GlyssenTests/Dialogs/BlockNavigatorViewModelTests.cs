@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
@@ -75,6 +76,20 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void SetMode_CurrentBlockIsRelevantInNewMode_KeepCurrentBlock()
+		{
+			m_model.Mode = BlocksToDisplay.NeedAssignments | BlocksToDisplay.ExcludeUserConfirmed;
+			m_model.LoadNextRelevantBlock();
+			var block = m_model.CurrentBlock;
+
+			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			Assert.AreEqual(block, m_model.CurrentBlock);
+
+			m_model.Mode = BlocksToDisplay.NeedAssignments | BlocksToDisplay.ExcludeUserConfirmed;
+			Assert.AreEqual(block, m_model.CurrentBlock);
+		}
+
+		[Test]
 		public void SetMode_MissingExpectedQuote_LoadsBlocksWithMissingExpectedQuotes()
 		{
 			m_model.Mode = BlocksToDisplay.MissingExpectedQuote;
@@ -138,26 +153,32 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void SetMode_AllExpectedQuotes_UserConfirmedBlockSkipped()
+		public void SetMode_AllExpectedQuotes_StandardCharactersAndIndirectBlocksSkipped()
 		{
-			// TODO (PG-70, part 1): We need to add the new IsExpected field into the data.
-			// When we do that, we should also update the TestCharacterVerse.txt to add this new column of data. The easiest way would
-			// be to do a reg-ex Replace, as follows:
-			// Find:True
-			// Replace:True\t\True
-			// This will make all the Dialogue quotes also be expected quotes (and it will allow this test to continue to pass)
-			m_model.Mode = BlocksToDisplay.AllScripture;
-			FindRefInMark(1, 17);
-			var block1 = m_model.CurrentBlock;
-			m_model.LoadNextRelevantBlock();
-			//var block2 = m_model.CurrentBlock;
+			//MRK	5	41	Jesus	giving orders		Dialogue
+			//MRK	5	41	narrator-MRK			Quotation
+			//MRK	5	43	Jesus			Indirect
+			//MRK	6	2	men in Nazareth synagogue	amazed		Indirect
+			//MRK	6	3	men in Nazareth synagogue	amazed		Indirect
+			//MRK	6	4	Jesus			Dialogue
+
+			//Validate setup
+			m_model.Mode = BlocksToDisplay.AllQuotes;
+			FindRefInMark(6, 2);
+			Assert.AreEqual("MRK 6:2-3", m_model.GetBlockReferenceString());
+			m_model.CurrentBlockIndexInBook = 0;
 
 			m_model.Mode = BlocksToDisplay.AllExpectedQuotes;
-
-			Assert.IsTrue(m_model.RelevantBlockCount > 0);
-			Assert.AreEqual("MRK 1:16-17", m_model.GetBlockReferenceString());
+			FindRefInMark(5, 41);
 			m_model.LoadNextRelevantBlock();
-			Assert.AreEqual(block1, m_model.CurrentBlock);
+			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual("MRK 5:41", m_model.GetBlockReferenceString());
+			//End validate setup
+
+			m_model.LoadNextRelevantBlock();
+			// The expected quote is actually in verse 4, but unfortunately, the filter is
+			// actually "verses with expected quotes" so we stop on this block
+			Assert.AreEqual("MRK 6:3-4", m_model.GetBlockReferenceString());
 		}
 
 		[Test]
@@ -450,7 +471,7 @@ namespace GlyssenTests.Dialogs
 
 		private void FindRefInMark(int chapter, int verse)
 		{
-			while (m_model.CurrentBlock.ChapterNumber <= chapter && m_model.CurrentBlock.InitialStartVerseNumber != verse)
+			while (m_model.CurrentBlock.ChapterNumber < chapter || m_model.CurrentBlock.InitialStartVerseNumber != verse)
 				m_model.LoadNextRelevantBlock();
 			Assert.AreEqual("MRK", m_model.CurrentBookId);
 			Assert.AreEqual(chapter, m_model.CurrentBlock.ChapterNumber);

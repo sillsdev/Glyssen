@@ -8005,8 +8005,8 @@ MRK	5	40	Jesus			Indirect
 MRK	5	41	Jesus	giving orders		Dialogue		
 MRK	5	41	narrator-MRK			Quotation		
 MRK	5	43	Jesus			Indirect		
-MRK	6	2	men in Nazareth synagogue	amazed		Dialogue		
-MRK	6	3	men in Nazareth synagogue	amazed		Dialogue		
+MRK	6	2	men in Nazareth synagogue	amazed		Indirect		
+MRK	6	3	men in Nazareth synagogue	amazed		Indirect		
 MRK	6	4	Jesus			Dialogue		
 MRK	6	7	Jesus	giving orders		Indirect		
 MRK	6	8	Jesus			Normal		

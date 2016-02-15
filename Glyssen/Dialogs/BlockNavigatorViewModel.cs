@@ -140,7 +140,7 @@ namespace Glyssen.Dialogs
 		public Block CurrentBlock { get { return m_navigator.CurrentBlock; } }
 		public int BackwardContextBlockCount { get; set; }
 		public int ForwardContextBlockCount { get; set; }
-		public bool IsCurrentBlockRelevant { get { return m_temporarilyIncludedBlock == null; } }
+		public bool IsCurrentBlockRelevant { get { return m_temporarilyIncludedBlock == null && m_currentBlockIndex != -1; } }
 		public IEnumerable<string> IncludedBooks { get { return m_includedBooks; } }
 		public bool RightToLeft { get { return m_rightToLeftScript; } }
 		public Font Font { get { return m_font; } }
@@ -201,6 +201,7 @@ namespace Glyssen.Dialogs
 					return;
 
 				m_mode = value;
+				m_temporarilyIncludedBlock = GetCurrentBlockIndices();
 				ResetFilter(m_navigator.CurrentBlock);
 			}
 		}
@@ -211,6 +212,7 @@ namespace Glyssen.Dialogs
 
 			if (IsRelevant(m_navigator.CurrentBlock))
 			{
+				// PopulateRelevantBlocks navigated to the first block
 				m_currentBlockIndex = 0;
 				m_temporarilyIncludedBlock = null;
 			}
