@@ -67,7 +67,7 @@ namespace Glyssen.Dialogs
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_lblInstructions, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_lblInstructions, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_lblInstructions, "DialogBoxes.VoiceActorInformation.EnterVoiceActors");
-			this.m_lblInstructions.Location = new System.Drawing.Point(0, 76);
+			this.m_lblInstructions.Location = new System.Drawing.Point(0, 80);
 			this.m_lblInstructions.Margin = new System.Windows.Forms.Padding(0, 0, 3, 6);
 			this.m_lblInstructions.Name = "m_lblInstructions";
 			this.m_lblInstructions.Size = new System.Drawing.Size(143, 13);
@@ -110,10 +110,10 @@ namespace Glyssen.Dialogs
 			this.m_linkClose.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkClose.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.m_linkClose.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.glyssenColorPalette.SetLinkColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_linkClose.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_linkClose.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_linkClose, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_linkClose, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_linkClose, "DialogBoxes.VoiceActorInformation.Close");
@@ -215,20 +215,23 @@ namespace Glyssen.Dialogs
 			this.tableLayoutPanel1.SetColumnSpan(this.m_linkNarrationPreferences, 4);
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkNarrationPreferences, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkNarrationPreferences.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.m_linkNarrationPreferences.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_linkNarrationPreferences, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.glyssenColorPalette.SetLinkColor(this.m_linkNarrationPreferences, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_linkNarrationPreferences.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.m_linkNarrationPreferences.LinkArea = new System.Windows.Forms.LinkArea(60, 3);
 			this.m_linkNarrationPreferences.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_linkNarrationPreferences, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_linkNarrationPreferences, null);
-			this.l10NSharpExtender1.SetLocalizationComment(this.m_linkNarrationPreferences, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_linkNarrationPreferences, "DialogBoxes.VoiceActorInformation.NarrationPreferences");
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_linkNarrationPreferences, "{0} is the clickable text.  Its localizingId is DialogBoxes.VoiceActorInformation" +
+        ".NarrationPreferences.LinkText");
+			this.l10NSharpExtender1.SetLocalizingId(this.m_linkNarrationPreferences, "DialogBoxes.VoiceActorInformation.NarrationPreferences.NonLinkText");
 			this.m_linkNarrationPreferences.Location = new System.Drawing.Point(3, 48);
 			this.m_linkNarrationPreferences.Name = "m_linkNarrationPreferences";
-			this.m_linkNarrationPreferences.Size = new System.Drawing.Size(391, 13);
+			this.m_linkNarrationPreferences.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+			this.m_linkNarrationPreferences.Size = new System.Drawing.Size(325, 17);
 			this.m_linkNarrationPreferences.TabIndex = 10;
 			this.m_linkNarrationPreferences.TabStop = true;
-			this.m_linkNarrationPreferences.Text = "6-8 of the actors will have narration roles. You can change Narration Preferences" +
-    ".";
+			this.m_linkNarrationPreferences.Text = "6-8 of the actors will have narration roles. You can change {0}.";
+			this.m_linkNarrationPreferences.UseCompatibleTextRendering = true;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_linkNarrationPreferences, true);
 			this.m_linkNarrationPreferences.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetVisitedLinkColor(this.m_linkNarrationPreferences, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
@@ -244,21 +247,23 @@ namespace Glyssen.Dialogs
 			this.tableLayoutPanel1.SetColumnSpan(this.m_linkMoreInfo, 4);
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkMoreInfo.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.m_linkMoreInfo.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.glyssenColorPalette.SetLinkColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_linkMoreInfo.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.m_linkMoreInfo.LinkArea = new System.Windows.Forms.LinkArea(77, 3);
 			this.m_linkMoreInfo.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_linkMoreInfo, null);
-			this.l10NSharpExtender1.SetLocalizationComment(this.m_linkMoreInfo, null);
-			this.l10NSharpExtender1.SetLocalizingId(this.m_linkMoreInfo, "DialogBoxes.VoiceActorInformation.MoreInfo");
-			this.m_linkMoreInfo.Location = new System.Drawing.Point(3, 95);
+			this.l10NSharpExtender1.SetLocalizationComment(this.m_linkMoreInfo, "{0} is the clickable text.  Its localizingId is DialogBoxes.VoiceActorInformation" +
+        ".MoreInfo.LinkText");
+			this.l10NSharpExtender1.SetLocalizingId(this.m_linkMoreInfo, "DialogBoxes.VoiceActorInformation.MoreInfo.NonLinkText");
+			this.m_linkMoreInfo.Location = new System.Drawing.Point(3, 99);
 			this.m_linkMoreInfo.Name = "m_linkMoreInfo";
 			this.m_linkMoreInfo.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-			this.m_linkMoreInfo.Size = new System.Drawing.Size(418, 16);
+			this.m_linkMoreInfo.Size = new System.Drawing.Size(409, 20);
 			this.m_linkMoreInfo.TabIndex = 11;
 			this.m_linkMoreInfo.TabStop = true;
-			this.m_linkMoreInfo.Text = "(the voice actors you intend to use, even if fewer or more than recommended) more" +
-    " info";
+			this.m_linkMoreInfo.Text = "(the voice actors you intend to use, even if fewer or more than recommended) {0}";
+			this.m_linkMoreInfo.UseCompatibleTextRendering = true;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_linkMoreInfo, true);
 			this.m_linkMoreInfo.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetVisitedLinkColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
@@ -331,11 +336,11 @@ namespace Glyssen.Dialogs
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_dataGrid, "DialogBoxes.VoiceActorInformation.voiceActorInformationGrid21");
-			this.m_dataGrid.Location = new System.Drawing.Point(0, 111);
+			this.m_dataGrid.Location = new System.Drawing.Point(0, 119);
 			this.m_dataGrid.Margin = new System.Windows.Forms.Padding(0);
 			this.m_dataGrid.Name = "m_dataGrid";
 			this.m_dataGrid.ReadOnly = false;
-			this.m_dataGrid.Size = new System.Drawing.Size(582, 163);
+			this.m_dataGrid.Size = new System.Drawing.Size(582, 155);
 			this.m_dataGrid.TabIndex = 3;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_dataGrid, true);
 			// 
@@ -351,7 +356,7 @@ namespace Glyssen.Dialogs
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_saveStatus, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_saveStatus, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_saveStatus, "DialogBoxes.VoiceActorInformation.SaveStatus");
-			this.m_saveStatus.Location = new System.Drawing.Point(485, 76);
+			this.m_saveStatus.Location = new System.Drawing.Point(485, 80);
 			this.m_saveStatus.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
 			this.m_saveStatus.Name = "m_saveStatus";
 			this.m_saveStatus.Size = new System.Drawing.Size(97, 13);
