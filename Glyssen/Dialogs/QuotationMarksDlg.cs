@@ -263,6 +263,8 @@ namespace Glyssen.Dialogs
 
 		private void m_btnOk_Click(object sender, EventArgs e)
 		{
+			DisableForm(true);
+
 			QuoteSystem currentQuoteSystem = CurrentQuoteSystem;
 
 			if (currentQuoteSystem == m_project.QuoteSystem)
@@ -282,6 +284,7 @@ namespace Glyssen.Dialogs
 			if (!ValidateQuoteSystem(currentQuoteSystem, out validationMessage))
 			{
 				MessageBox.Show(validationMessage, LocalizationManager.GetString("DialogBoxes.QuotationMarksDlg.QuoteSystemInvalid", "Quote System Invalid"));
+				DisableForm(false);
 				return;
 			}
 			if (m_project.Books.SelectMany(b => b.Blocks).Any(bl => bl.UserConfirmed) && m_project.IsQuoteSystemReadyForParse && m_project.QuoteSystem != null)
@@ -293,6 +296,7 @@ namespace Glyssen.Dialogs
 				if (MessageBox.Show(msg, title, MessageBoxButtons.YesNo) != DialogResult.Yes)
 				{
 					SetupQuoteMarksComboBoxes(m_project.QuoteSystem);
+					DisableForm(false);
 					return;
 				}
 			}
@@ -328,6 +332,7 @@ namespace Glyssen.Dialogs
 					if (dlg.UserWantsToReview)
 					{
 						SelectMissingExpectedQuotesFilter();
+						DisableForm(false);
 						return;
 					}
 				}
@@ -344,6 +349,7 @@ namespace Glyssen.Dialogs
 							m_toolStripComboBoxFilter.Items.Insert(m_toolStripComboBoxFilter.Items.Count - 1, m_allQuotesFilterItem);
 						}
 						m_toolStripComboBoxFilter.SelectedItem = m_allQuotesFilterItem;
+						DisableForm(false);
 						return;
 					}
 				}
@@ -498,6 +504,13 @@ namespace Glyssen.Dialogs
 				m_toolStripComboBoxFilter.Items.Insert(1, m_versesWithMissingExpectedQuotesFilterItem);
 			}
 			m_toolStripComboBoxFilter.SelectedItem = m_versesWithMissingExpectedQuotesFilterItem;
+		}
+
+		private void DisableForm(bool disabled)
+		{
+			Cursor.Current = disabled ? Cursors.WaitCursor : Cursors.Default;
+			Enabled = !disabled;
+			Refresh();
 		}
 
 		#region Form events
@@ -698,14 +711,14 @@ namespace Glyssen.Dialogs
 		{
 			try
 			{
-				Application.UseWaitCursor = true;
+				DisableForm(true);
 				var parsedBooks = QuoteParser.TestQuoteSystem(m_project, CurrentQuoteSystem);
 				ShowTestResults(PercentageOfExpectedQuotesFound(parsedBooks), true);
 				m_navigatorViewModel.BlockNavigator = new BlockNavigator(parsedBooks);
 			}
 			finally
 			{
-				Application.UseWaitCursor = false;
+				DisableForm(false);
 			}
 		}
 
