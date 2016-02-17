@@ -42,6 +42,30 @@ namespace Glyssen.Quote
 			projectWorker.ReportProgress(100);
 		}
 
+		public static List<BookScript> TestQuoteSystem(Project project, QuoteSystem altQuoteSystem)
+		{
+			var cvInfo = new CombinedCharacterVerseData(project);
+
+			var unparsedBlocks = Unparse(project.Books);
+
+			var blocksInBook = unparsedBlocks.ToDictionary(bookidBlocksPair => bookidBlocksPair.Key.BookId, bookidBlocksPair => bookidBlocksPair.Value);
+
+			var parsedBlocksByBook = new ConcurrentDictionary<string, BookScript>();
+			Parallel.ForEach(blocksInBook, bookidBlocksPair =>
+			{
+				var bookId = bookidBlocksPair.Key;
+				var blocks =
+					new QuoteParser(cvInfo, bookId, bookidBlocksPair.Value, altQuoteSystem, project.Versification).Parse().ToList();
+				var parsedBook = new BookScript(bookId, blocks);
+				parsedBlocksByBook.AddOrUpdate(bookId, parsedBook, (s, script) => parsedBook);
+			});
+
+			// sort the list
+			var bookScripts = parsedBlocksByBook.Values.ToList();
+			bookScripts.Sort((a, b) => BCVRef.BookToNumber(a.BookId).CompareTo(BCVRef.BookToNumber(b.BookId)));
+			return bookScripts;
+		}
+
 		private readonly ICharacterVerseInfo m_cvInfo;
 		private readonly string m_bookId;
 		private readonly int m_bookNum;
@@ -389,7 +413,6 @@ namespace Glyssen.Quote
 			}
 			if (blockInWhichDialogueQuoteStarted != null)
 			{
-				blockInWhichDialogueQuoteStarted = null;
 				m_nextBlockContinuesQuote = false;
 			}
 			if (m_nextBlockContinuesQuote)
@@ -515,6 +538,7 @@ namespace Glyssen.Quote
 		/// <param name="sb"></param>
 		/// <param name="styleTag"></param>
 		/// <param name="nonNarrator"></param>
+		/// <param name="characterUnknown"></param>
 		private void FlushStringBuilderAndBlock(StringBuilder sb, string styleTag, bool nonNarrator, bool characterUnknown = false)
 		{
 			FlushStringBuilderToBlockElement(sb);
@@ -529,6 +553,7 @@ namespace Glyssen.Quote
 		/// </summary>
 		/// <param name="styleTag"></param>
 		/// <param name="nonNarrator"></param>
+		/// <param name="characterUnknown"></param>
 		private void FlushBlock(string styleTag, bool nonNarrator, bool characterUnknown = false)
 		{
 			if (!m_workingBlock.BlockElements.Any())
@@ -666,6 +691,69 @@ namespace Glyssen.Quote
 		private bool IsFollowOnParagraphStyle(string styleTag)
 		{
 			return styleTag.StartsWith("q") || styleTag == "m";
+		}
+
+		public static ConcurrentDictionary<BookScript, IReadOnlyList<Block>> Unparse(IEnumerable<BookScript> books)
+		{
+			var blocksInBook = new ConcurrentDictionary<BookScript, IReadOnlyList<Block>>();
+
+			Parallel.ForEach(books, book =>
+			{
+				var oldBlocks = book.GetScriptBlocks();
+				var newBlocks = new List<Block>();
+				Block currentBlock = null;
+
+				foreach (var oldBlock in oldBlocks)
+				{
+					// is this a new chapter?
+					if (oldBlock.IsParagraphStart || (currentBlock == null))
+					{
+						if (currentBlock != null) newBlocks.Add(currentBlock);
+
+						if (CharacterVerseData.IsCharacterStandard(oldBlock.CharacterId, false) && !oldBlock.UserConfirmed)
+						{
+							newBlocks.Add(oldBlock.Clone());
+							currentBlock = null;
+							continue;
+						}
+						else
+						{
+							currentBlock = new Block(oldBlock.StyleTag, oldBlock.ChapterNumber, oldBlock.InitialStartVerseNumber,
+								oldBlock.InitialEndVerseNumber);
+							currentBlock.IsParagraphStart = oldBlock.IsParagraphStart;
+						}
+					}
+
+					foreach (var element in oldBlock.BlockElements)
+					{
+						if (element is Verse)
+						{
+							currentBlock.BlockElements.Add(element.Clone());
+							continue;
+						}
+
+						// element is Glyssen.ScriptText
+						// check if this text should be appended to the previous element
+						var lastElement = currentBlock.BlockElements.LastOrDefault() as ScriptText;
+						if (lastElement != null)
+						{
+							lastElement.Content += ((ScriptText) element).Content;
+						}
+						else
+						{
+							currentBlock.BlockElements.Add(element.Clone());
+						}
+					}
+				}
+
+				// add the last block now
+				if (currentBlock != null)
+					newBlocks.Add(currentBlock);
+
+				blocksInBook.AddOrUpdate(book, newBlocks, (script, list) => newBlocks);
+			});
+
+			return blocksInBook;
 		}
 
 		#region CharacterDelivery utility class
