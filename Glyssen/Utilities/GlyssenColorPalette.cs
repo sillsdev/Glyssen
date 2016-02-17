@@ -19,7 +19,7 @@ namespace Glyssen.Utilities
 		protected override bool UsePaletteColorsForComponent(IComponent component)
 		{
 			return base.UsePaletteColorsForComponent(component) &&
-				(component is Form || component is Label || component is UserControl || component is RadioButton || component is CheckBox);
+				(component is Form || component is Label || component is UserControl || component is RadioButton || component is CheckBox || component is TabPage);
 		}
 
 		public override Color GetColor(GlyssenColors glyssenColor)

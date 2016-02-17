@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using NUnit.Framework;
@@ -540,6 +541,69 @@ namespace GlyssenTests
 			Assert.AreEqual(unclearCharacterId, block2.CharacterIdInScript);
 		}
 
+		[TestCase("c")]
+		[TestCase("cl")]
+		public void SetBookIdForChapterBlocks_Normal_AllChapterBlocksGetBookIdSet(string chapterStyleTag)
+		{
+			var genesis = new BookScript
+			{
+				BookId = "GEN",
+				Blocks = new List<Block>
+				{
+					CreateTestBlock(CharacterVerseData.GetStandardCharacterId("GEN", CharacterVerseData.StandardCharacter.BookOrChapter)),
+					CreateChapterBlock("GEN", 1, chapterStyleTag),
+					CreateTestBlock(1, MultiBlockQuote.None),
+					CreateChapterBlock("GEN", 2, chapterStyleTag),
+					CreateTestBlock(1, MultiBlockQuote.None),
+					CreateTestBlock(2, MultiBlockQuote.None),
+					CreateChapterBlock("GEN", 3, chapterStyleTag),
+					CreateTestBlock(1, MultiBlockQuote.None),
+					CreateChapterBlock("GEN", 4, chapterStyleTag),
+					CreateTestBlock(1, MultiBlockQuote.None),
+					CreateTestBlock(2, MultiBlockQuote.None),
+					CreateTestBlock(3, MultiBlockQuote.None),
+					CreateTestBlock(4, MultiBlockQuote.None),
+					CreateChapterBlock("GEN", 5, chapterStyleTag),
+					CreateTestBlock(1, MultiBlockQuote.None),
+				}
+			};
+			var matthew = new BookScript
+			{
+				BookId = "MAT",
+				Blocks = new List<Block>
+				{
+					CreateTestBlock(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter)),
+					CreateChapterBlock("MAT", 1, chapterStyleTag),
+					CreateTestBlock(2, MultiBlockQuote.None),
+					CreateTestBlock(1, MultiBlockQuote.None),
+					CreateChapterBlock("MAT", 2, chapterStyleTag),
+					CreateTestBlock(1, MultiBlockQuote.None),
+					CreateTestBlock(2, MultiBlockQuote.None),
+					CreateTestBlock(3, MultiBlockQuote.None),
+					CreateTestBlock(4, MultiBlockQuote.None),
+					CreateChapterBlock("MAT", 3, chapterStyleTag),
+					CreateTestBlock(1, MultiBlockQuote.None),
+					CreateChapterBlock("MAT", 4, chapterStyleTag),
+					CreateTestBlock(1, MultiBlockQuote.None),
+					CreateChapterBlock("MAT", 5, chapterStyleTag),
+					CreateTestBlock(1, MultiBlockQuote.None),
+					CreateTestBlock(2, MultiBlockQuote.None),
+					CreateChapterBlock("MAT", 6, chapterStyleTag),
+					CreateTestBlock(1, MultiBlockQuote.None),
+					CreateTestBlock(2, MultiBlockQuote.None),
+					CreateChapterBlock("MAT", 20, chapterStyleTag),
+					CreateTestBlock(1, MultiBlockQuote.None),
+					CreateTestBlock(2, MultiBlockQuote.None),
+					CreateTestBlock(3, MultiBlockQuote.None),
+				}
+			};
+
+			var books = new List<BookScript> { genesis, matthew };
+			ProjectDataMigrator.SetBookIdForChapterBlocks(books);
+
+			Assert.IsFalse(books.SelectMany(book => book.Blocks).Where(bl => bl.StyleTag == "c" || bl.StyleTag == "cl").Any(bl => bl.BookCode == null));
+		}
+
 		private Block CreateTestBlock(int index, MultiBlockQuote multiBlockQuote)
 		{
 			string indexStr = index.ToString();
@@ -560,6 +624,19 @@ namespace GlyssenTests
 			{
 				CharacterId = characterId,
 				CharacterIdInScript = characterId
+			};
+		}
+
+		private Block CreateChapterBlock(string bookId, int chapter, string styleTag)
+		{
+			var chapterVerse = CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.BookOrChapter);
+
+			return new Block
+			{
+				CharacterId = chapterVerse,
+				CharacterIdInScript = chapterVerse,
+				StyleTag = styleTag,
+				BlockElements = new List<BlockElement> {new ScriptText("Chapter " + chapter)}
 			};
 		}
 	}

@@ -501,7 +501,7 @@ namespace Glyssen
 					});
 					var project = m_project.UpdateProjectFromBundleData(dlg.UpdatedBundle);
 					project.OriginalBundlePath = model.BundlePath;
-					LoadProject(project.ProjectFilePath);
+					SetProject(project);
 				}
 			}
 			UpdateDisplayOfProjectInfo();

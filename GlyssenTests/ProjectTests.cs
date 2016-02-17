@@ -555,6 +555,66 @@ namespace GlyssenTests
 			Assert.AreEqual(resultFemale, testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators);
 		}
 
+		[Test]
+		public void GetFormattedChapterAnnouncement_ChapterLabel_ReturnsNull()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IJN);
+
+			testProject.SetBlockGetChapterAnnouncement(ChapterAnnouncement.ChapterLabel);
+			// In reality, we wouldn't expect GetFormattedChapterAnnouncement to get called at all in this
+			// case, but safer to just have it return null.
+			Assert.IsNull(testProject.GetFormattedChapterAnnouncement("1JN", 4));
+		}
+
+		[Test]
+		public void GetFormattedChapterAnnouncement_PageHeader_BookNameComesFromPageHeader()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IJN);
+
+			testProject.SetBlockGetChapterAnnouncement(ChapterAnnouncement.PageHeader);
+			Assert.AreEqual("1 JON 4", testProject.GetFormattedChapterAnnouncement("1JN", 4));
+		}
+
+		[Test]
+		public void GetFormattedChapterAnnouncement_MainTitle1_BookNameComesFromMainTitle1()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IJN);
+
+			testProject.SetBlockGetChapterAnnouncement(ChapterAnnouncement.MainTitle1);
+			Assert.AreEqual("JON 4", testProject.GetFormattedChapterAnnouncement("1JN", 4));
+		}
+
+		[Test]
+		public void GetFormattedChapterAnnouncement_LongName_BookNameComesFromLongName()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IJN);
+
+			testProject.SetBlockGetChapterAnnouncement(ChapterAnnouncement.LongNameFromMetadata);
+			Assert.AreEqual("The First Epistle of John 4", testProject.GetFormattedChapterAnnouncement("1JN", 4));
+		}
+
+		[Test]
+		public void GetFormattedChapterAnnouncement_ShortName_BookNameComesFromShortName()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IJN);
+
+			testProject.SetBlockGetChapterAnnouncement(ChapterAnnouncement.ShortNameFromMetadata);
+			Assert.AreEqual("1 John 4", testProject.GetFormattedChapterAnnouncement("1JN", 4));
+		}
+
+		[Test]
+		public void GetFormattedChapterAnnouncement_NoBookNameAvailable_ReturnsNull()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IJN);
+			testProject.SetBlockGetChapterAnnouncement(ChapterAnnouncement.ShortNameFromMetadata);
+			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(testProject, "m_metadata");
+			metadata.AvailableBooks[0].ShortName = "   ";
+			Assert.IsNull(testProject.GetFormattedChapterAnnouncement("1JN", 4));
+
+			metadata.AvailableBooks[0].ShortName = null;
+			Assert.IsNull(testProject.GetFormattedChapterAnnouncement("1JN", 4));
+		}
+
 		private void WaitForProjectInitializationToFinish(Project project, ProjectState projectState)
 		{
 			const int maxCyclesAllowed = 100;

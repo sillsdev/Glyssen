@@ -301,7 +301,7 @@ namespace Glyssen.Dialogs
 			bldr.Append("<div");
 			if (block.StyleTag.StartsWith("s"))
 				bldr.Append(" class=\"section-header\"");
-			else if (block.StyleTag.StartsWith("c"))
+			else if (block.IsChapterAnnouncement)
 				bldr.Append(" class=\"chapter-label\"");
 			bldr.Append(">");
 			bldr.Append(text);

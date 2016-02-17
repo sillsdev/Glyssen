@@ -17,6 +17,12 @@ namespace GlyssenTests
 			UsxDocumentTests.kUsxChapter1AndContentPlaceholder +
 			UsxDocumentTests.kUsxFrameEnd;
 
+		[TestFixtureSetUp]
+		public void TestFixtureSetup()
+		{
+			Block.FormatChapterAnnouncement = null;
+		}
+
 		[Test]
 		public void Parse_SingleNarratorParagraphWithVerseNumbers_GeneratesSingleNarratorBlock()
 		{
@@ -259,6 +265,8 @@ namespace GlyssenTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(5, blocks.Count);
 			Assert.AreEqual("c", blocks[0].StyleTag);
+			Assert.IsTrue(blocks[0].IsChapterAnnouncement);
+			Assert.AreEqual("MRK", blocks[0].BookCode);
 			Assert.AreEqual(1, blocks[0].ChapterNumber);
 			Assert.AreEqual(0, blocks[0].InitialStartVerseNumber);
 			Assert.AreEqual("1", blocks[0].GetText(true));
@@ -268,6 +276,8 @@ namespace GlyssenTests
 			Assert.AreEqual("[1]\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, [2]\u00A0kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
 
 			Assert.AreEqual("c", blocks[2].StyleTag);
+			Assert.IsTrue(blocks[2].IsChapterAnnouncement);
+			Assert.AreEqual("MRK", blocks[2].BookCode);
 			Assert.AreEqual(2, blocks[2].ChapterNumber);
 			Assert.AreEqual(0, blocks[2].InitialStartVerseNumber);
 			Assert.AreEqual("2", blocks[2].GetText(true));
@@ -427,6 +437,8 @@ namespace GlyssenTests
 			Assert.AreEqual("mt", blocks[0].StyleTag);
 			Assert.AreEqual("The Gospel According to Mark", blocks[0].GetText(false));
 			Assert.AreEqual("The Gospel According to Mark", blocks[0].GetText(true));
+			Assert.AreEqual("header", parser.PageHeader);
+			Assert.AreEqual("Mark", parser.MainTitle);
 		}
 
 		[Test]
@@ -445,6 +457,8 @@ namespace GlyssenTests
 			Assert.AreEqual("mt", blocks[0].StyleTag);
 			Assert.AreEqual("The Gospel According to Mark", blocks[0].GetText(false));
 			Assert.AreEqual("The Gospel According to Mark", blocks[0].GetText(true));
+			Assert.AreEqual("header", parser.PageHeader);
+			Assert.AreEqual("Mark", parser.MainTitle);
 		}
 
 		[Test]
@@ -452,9 +466,9 @@ namespace GlyssenTests
 		{
 			var doc = UsxDocumentTests.CreateDocFromString(
 				UsxDocumentTests.kUsxFrameStart +
-				"<para style=\"h\">header</para>" +
+				"<para style=\"h\">Marco</para>" +
 				"<para style=\"mt2\">The Gospel According to</para>" +
-				"<para style=\"mt1\">Mark</para>" +
+				"<para style=\"mt1\">Markus</para>" +
 				"<chapter number=\"1\" style=\"c\" />" +
 				"<chapter number=\"2\" style=\"c\" />" +
 				UsxDocumentTests.kUsxFrameEnd);
@@ -462,8 +476,10 @@ namespace GlyssenTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual("mt", blocks[0].StyleTag);
-			Assert.AreEqual("The Gospel According to Mark", blocks[0].GetText(false));
-			Assert.AreEqual("The Gospel According to Mark", blocks[0].GetText(true));
+			Assert.AreEqual("The Gospel According to Markus", blocks[0].GetText(false));
+			Assert.AreEqual("The Gospel According to Markus", blocks[0].GetText(true));
+			Assert.AreEqual("Marco", parser.PageHeader);
+			Assert.AreEqual("Markus", parser.MainTitle);
 		}
 
 		[Test]

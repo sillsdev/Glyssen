@@ -7,6 +7,7 @@ using DesktopAnalytics;
 using Glyssen.Character;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
+using SIL.Scripture;
 
 namespace Glyssen
 {
@@ -156,6 +157,13 @@ namespace Glyssen
 						singleVoiceNarratorOverride = CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator);
 					foreach (var block in book.GetScriptBlocks(true))
 					{
+						if (block.IsChapterAnnouncement && block.ChapterNumber == 1)
+						{
+							if (Project.SkipChapterAnnouncementForFirstChapter)
+								continue;
+							if (Project.SkipChapterAnnouncementForSingleChapterBooks && Project.Versification.LastChapter(BCVRef.BookToNumber(book.BookId)) == 1)
+								continue;
+						}
 						if (IncludeVoiceActors)
 						{
 							VoiceActor.VoiceActor voiceActor = Project.GetVoiceActorForCharacter(singleVoiceNarratorOverride ?? block.CharacterIdInScript) ?? GetDummyActor();

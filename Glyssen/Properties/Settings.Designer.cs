@@ -304,5 +304,16 @@ namespace Glyssen.Properties {
                 this["QuotationMarksDlgSplitterDistance"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::SIL.Windows.Forms.PortableSettingsProvider.FormSettings ProjectSettingsDlgFormSettings {
+            get {
+                return ((global::SIL.Windows.Forms.PortableSettingsProvider.FormSettings)(this["ProjectSettingsDlgFormSettings"]));
+            }
+            set {
+                this["ProjectSettingsDlgFormSettings"] = value;
+            }
+        }
     }
 }

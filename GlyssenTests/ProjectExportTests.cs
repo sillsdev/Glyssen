@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Glyssen;
+using Glyssen.Bundle;
 using Glyssen.Character;
 using NUnit.Framework;
 using SIL.ObjectModel;
+using SIL.Windows.Forms;
 
 namespace GlyssenTests
 {
@@ -13,6 +16,9 @@ namespace GlyssenTests
 		public void GetExportData_NoActorsAssigned_ActorColumnNotPresent()
 		{
 			var project = TestProject.CreateBasicTestProject();
+			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(project, "m_metadata");
+			metadata.IncludeChapterAnnouncementForFirstChapter = true;
+			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
 			Assert.True(data.TrueForAll(t => t.Item3.Count == 9));
@@ -22,6 +28,9 @@ namespace GlyssenTests
 		public void GetExportData_SomeButNotAllActorsAssigned_AllColumnsPresent()
 		{
 			var project = TestProject.CreateBasicTestProject();
+			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(project, "m_metadata");
+			metadata.IncludeChapterAnnouncementForFirstChapter = true;
+			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
 			project.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor>
 			{
 				new Glyssen.VoiceActor.VoiceActor { Id = 1 }
@@ -36,6 +45,60 @@ namespace GlyssenTests
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
 			Assert.True(data.TrueForAll(t => t.Item3.Count == 10));
+		}
+
+		[Test]
+		public void GetExportData_ChapterAnnouncementsUseClStyleTage_SkippingRulesAreAppliedCorrectly()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.EPH, TestProject.TestBook.JUD);
+			foreach (var block in project.Books.SelectMany(b => b.Blocks))
+			{
+				if (block.IsChapterAnnouncement)
+					block.StyleTag = "cl";
+			}
+			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(project, "m_metadata");
+			metadata.IncludeChapterAnnouncementForFirstChapter = true;
+			metadata.IncludeChapterAnnouncementForSingleChapterBooks = false;
+			var exporter = new ProjectExporter(project);
+			var data = exporter.GetExportData();
+			var chapterBlockForEphesians = data.Single(t => (string)t.Item3[1] == "cl" && (int)t.Item3[3] == 1);
+			Assert.AreEqual("EPH", chapterBlockForEphesians.Item3[2]);
+		}
+
+		[Test]
+		public void GetExportData_IncludeChapterOne_OutputIncludesChapterAnnouncementForFirstChapter()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.EPH, TestProject.TestBook.JUD);
+			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(project, "m_metadata");
+			metadata.IncludeChapterAnnouncementForFirstChapter = true;
+			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
+			var exporter = new ProjectExporter(project);
+			var data = exporter.GetExportData();
+			Assert.AreEqual(2, data.Count(t => (string)t.Item3[1] == "c" && (int)t.Item3[3] == 1));
+		}
+
+		[Test]
+		public void GetExportData_SkipChapterOne_OutputDoesNotIncludeChapterAnnouncementForFirstChapter()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.EPH, TestProject.TestBook.JUD);
+			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(project, "m_metadata");
+			metadata.IncludeChapterAnnouncementForFirstChapter = false;
+			var exporter = new ProjectExporter(project);
+			var data = exporter.GetExportData();
+			Assert.False(data.Any(t => (string)t.Item3[1] == "c" && (int)t.Item3[3] == 1));
+		}
+
+		[Test]
+		public void GetExportData_SkipChapterAnnouncementInSingleChapterBooks_OutputDoesNotIncludeChapterAnnouncementForJude()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.EPH, TestProject.TestBook.JUD);
+			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(project, "m_metadata");
+			metadata.IncludeChapterAnnouncementForFirstChapter = true;
+			metadata.IncludeChapterAnnouncementForSingleChapterBooks = false;
+			var exporter = new ProjectExporter(project);
+			var data = exporter.GetExportData();
+			var chapterBlockForEphesians = data.Single(t => (string)t.Item3[1] == "c" && (int)t.Item3[3] == 1);
+			Assert.AreEqual("EPH", chapterBlockForEphesians.Item3[2]);
 		}
 
 		[Test]

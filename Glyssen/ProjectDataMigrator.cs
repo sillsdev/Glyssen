@@ -18,6 +18,8 @@ namespace Glyssen
 				if (fromControlFileVersion < 88)
 					MigrateInvalidCharacterIdForScriptDataToVersion88(project.Books);
 			}
+			if (fromControlFileVersion < 90)
+				SetBookIdForChapterBlocks(project.Books);
 		}
 
 		// internal for testing
@@ -114,15 +116,20 @@ namespace Glyssen
 
 		public static void MigrateInvalidCharacterIdForScriptDataToVersion88(IReadOnlyList<BookScript> books)
 		{
+			foreach (var block in books.SelectMany(book => book.GetScriptBlocks().Where(block =>
+				(block.CharacterId == CharacterVerseData.AmbiguousCharacter || block.CharacterId == CharacterVerseData.UnknownCharacter) &&
+				block.CharacterIdOverrideForScript != null)))
+			{
+				block.CharacterIdInScript = null;
+			}
+		}
+
+		public static void SetBookIdForChapterBlocks(IReadOnlyList<BookScript> books)
+		{
 			foreach (var book in books)
 			{
-				var blocks = book.GetScriptBlocks();
-				foreach (var block in blocks)
-				{
-					if ((block.CharacterId == CharacterVerseData.AmbiguousCharacter || block.CharacterId == CharacterVerseData.UnknownCharacter) &&
-						block.CharacterIdOverrideForScript != null)
-						block.CharacterIdInScript = null;
-				}
+				foreach (var block in book.GetScriptBlocks().Where(block => block.IsChapterAnnouncement && block.BookCode == null))
+					block.BookCode = book.BookId;
 			}
 		}
 	}

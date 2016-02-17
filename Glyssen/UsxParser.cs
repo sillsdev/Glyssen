@@ -36,7 +36,10 @@ namespace Glyssen
 			{
 				var bookId = book.Key;
 				Logger.WriteEvent("Creating bookScript ({0})", bookId);
-				var bookScript = new BookScript(bookId, new UsxParser(bookId, stylesheet, book.Value).Parse());
+				var parser = new UsxParser(bookId, stylesheet, book.Value);
+				var bookScript = new BookScript(bookId, parser.Parse());
+				bookScript.PageHeader = parser.PageHeader;
+				bookScript.MainTitle = parser.MainTitle;
 				Logger.WriteEvent("Created bookScript ({0}, {1})", bookId, bookScript.BookId);
 				lock(bookScripts)
 					bookScripts.Add(bookScript);
@@ -90,6 +93,9 @@ namespace Glyssen
 			m_nodeList = nodeList;
 		}
 
+		public string PageHeader { get; private set; }
+		public string MainTitle { get; private set; }
+
 		public IEnumerable<Block> Parse()
 		{
 			var titleBuilder = new StringBuilder();
@@ -130,7 +136,13 @@ namespace Glyssen
 						if (style.HoldsBookNameOrAbbreviation)
 						{
 							if (style.Id.StartsWith("mt"))
+							{
 								titleBuilder.Append(node.InnerText).Append(" ");
+								if (style.Id == "mt1")
+									MainTitle = node.InnerText;
+							}
+							else if (style.Id == "h")
+								PageHeader = node.InnerText;
 							continue;
 						}
 						AddMainTitleIfApplicable(blocks, titleBuilder);
@@ -213,7 +225,8 @@ namespace Glyssen
 			string chapterText;
 			if (m_bookLevelChapterLabel != null)
 			{
-				//TODO what if this isn't the right order? Is there any way we can know?
+				// If this isn't the right order, the user would have had to enter a specific chapter label
+				// for each chapter to format it correctly.
 				chapterText = m_bookLevelChapterLabel + " " + usxChapter.ChapterNumber;
 			}
 			else
@@ -226,7 +239,7 @@ namespace Glyssen
 				Debug.Fail("TODO: Deal with bogus chapter number in USX data!");
 			m_currentStartVerse = 0;
 			m_currentEndVerse = 0;
-			var block = new Block(usxChapter.StyleTag, m_currentChapter) { IsParagraphStart = true };
+			var block = new Block(usxChapter.StyleTag, m_currentChapter) { IsParagraphStart = true, BookCode = m_bookId};
 			block.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.BookOrChapter);
 			block.BlockElements.Add(new ScriptText(chapterText));
 			return block;

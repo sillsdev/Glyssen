@@ -69,9 +69,12 @@ namespace Glyssen
 		public event EventHandler QuoteParseCompleted;
 		public event EventHandler AnalysisCompleted;
 
+		private Func<string, string> GetBookName { get; set; }
+
 		private Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null, bool installFonts = false, WritingSystemDefinition ws = null)
 		{
 			m_metadata = metadata;
+			SetBlockGetChapterAnnouncement(ChapterAnnouncementStyle);
 			m_wsDefinition = ws;
 			m_recordingProjectName = recordingProjectName ?? GetDefaultRecordingProjectName(m_metadata.Identification.Name);
 			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath);
@@ -194,6 +197,81 @@ namespace Glyssen
 		public ScrVers Versification
 		{
 			get  { return m_vers; }
+		}
+
+		public ChapterAnnouncement ChapterAnnouncementStyle
+		{
+			get { return m_metadata.ChapterAnnouncementStyle; }
+			private set
+			{
+				m_metadata.ChapterAnnouncementStyle = value;
+				SetBlockGetChapterAnnouncement(value);
+			}
+		}
+
+		public bool SkipChapterAnnouncementForFirstChapter
+		{
+			get { return !m_metadata.IncludeChapterAnnouncementForFirstChapter; }
+		}
+
+		public bool SkipChapterAnnouncementForSingleChapterBooks
+		{
+			get { return !m_metadata.IncludeChapterAnnouncementForSingleChapterBooks; }
+		}
+
+		public void SetBlockGetChapterAnnouncement(ChapterAnnouncement announcementStyle)
+		{
+			switch (announcementStyle)
+			{
+				case ChapterAnnouncement.ChapterLabel:
+					GetBookName = null;
+					Block.FormatChapterAnnouncement = null;
+					return;
+				case ChapterAnnouncement.PageHeader:
+					GetBookName = (bookId) =>
+					{
+						var book = Books.FirstOrDefault(b => b.BookId == bookId);
+						return (book == null) ? null : book.PageHeader;
+					};
+					break;
+				case ChapterAnnouncement.MainTitle1:
+					GetBookName = (bookId) =>
+					{
+						var book = Books.FirstOrDefault(b => b.BookId == bookId);
+						return (book == null) ? null : book.MainTitle;
+					};
+					break;
+				case ChapterAnnouncement.ShortNameFromMetadata:
+					GetBookName = (bookId) =>
+					{
+						var book = m_metadata.AvailableBooks.FirstOrDefault(b => b.Code == bookId);
+						return (book == null) ? null : book.ShortName;
+					};
+					break;
+				case ChapterAnnouncement.LongNameFromMetadata:
+					GetBookName = (bookId) =>
+					{
+						var book = m_metadata.AvailableBooks.FirstOrDefault(b => b.Code == bookId);
+						return (book == null) ? null : book.LongName;
+					};
+					break;
+			}
+			Block.FormatChapterAnnouncement = GetFormattedChapterAnnouncement;
+		}
+
+		public string GetFormattedChapterAnnouncement(string bookCode, int chapterNumber)
+		{
+			if (GetBookName == null)
+				return null;
+			var bookName = GetBookName(bookCode);
+			if (string.IsNullOrWhiteSpace(bookName))
+				return null;
+
+			StringBuilder bldr = new StringBuilder();
+			bldr.Append(bookName);
+			bldr.Append(" ");
+			bldr.Append(chapterNumber);
+			return bldr.ToString();
 		}
 
 		public static ScrVers LoadVersification(string vrsPath)
@@ -372,6 +450,9 @@ namespace Glyssen
 			m_metadata.FontFamily = model.WsModel.CurrentDefaultFontName;
 			m_metadata.FontSizeInPoints = (int) model.WsModel.CurrentDefaultFontSize;
 			m_metadata.Language.ScriptDirection = model.WsModel.CurrentRightToLeftScript ? "RTL" : "LTR";
+			ChapterAnnouncementStyle = model.ChapterAnnouncementStyle;
+			m_metadata.IncludeChapterAnnouncementForFirstChapter = !model.SkipChapterAnnouncementForFirstChapter;
+			m_metadata.IncludeChapterAnnouncementForSingleChapterBooks = !model.SkipChapterAnnouncementForSingleChapterBooks;
 		}
 
 		public Project UpdateProjectFromBundleData(GlyssenBundle bundle)
@@ -781,6 +862,8 @@ namespace Glyssen
 
 			m_books.AddRange(bookScripts);
 			m_metadata.ParserVersion = Settings.Default.ParserVersion;
+			if (m_books.All(b => String.IsNullOrEmpty(b.PageHeader)))
+				ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
 			UpdateControlFileVersion();
 			RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
 

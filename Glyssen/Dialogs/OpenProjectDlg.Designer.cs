@@ -51,10 +51,10 @@
 			// lblExistingProject
 			// 
 			this.lblExistingProject.AutoSize = true;
-			this.lblExistingProject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.lblExistingProject.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.lblExistingProject, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.lblExistingProject, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.lblExistingProject.ForeColor = System.Drawing.Color.White;
+			this.lblExistingProject.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.lblExistingProject, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.lblExistingProject, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.lblExistingProject, "DialogBoxes.OpenProjectDlg.SelectProject");
@@ -68,16 +68,16 @@
 			// 
 			// m_linkTextReleaseBundle
 			// 
-			this.m_linkTextReleaseBundle.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.m_linkTextReleaseBundle.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetActiveLinkColor(this.m_linkTextReleaseBundle, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
 			this.m_linkTextReleaseBundle.AutoSize = true;
 			this.glyssenColorPalette.SetBackColor(this.m_linkTextReleaseBundle, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.m_linkTextReleaseBundle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_linkTextReleaseBundle.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkTextReleaseBundle, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkTextReleaseBundle.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+			this.m_linkTextReleaseBundle.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_linkTextReleaseBundle, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_linkTextReleaseBundle.ForeColor = System.Drawing.Color.White;
-			this.m_linkTextReleaseBundle.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.m_linkTextReleaseBundle.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_linkTextReleaseBundle, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkTextReleaseBundle, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkTextReleaseBundle, null);
@@ -90,7 +90,7 @@
 			this.m_linkTextReleaseBundle.TabStop = true;
 			this.m_linkTextReleaseBundle.Text = "Create new project from text release bundle";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_linkTextReleaseBundle, true);
-			this.m_linkTextReleaseBundle.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+			this.m_linkTextReleaseBundle.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetVisitedLinkColor(this.m_linkTextReleaseBundle, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_linkTextReleaseBundle.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkTextReleaseBundle_LinkClicked);
 			// 
@@ -136,11 +136,11 @@
 			// 
 			this.m_chkShowInactiveProjects.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_chkShowInactiveProjects.AutoSize = true;
-			this.m_chkShowInactiveProjects.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
+			this.m_chkShowInactiveProjects.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_chkShowInactiveProjects, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.m_chkShowInactiveProjects.FlatAppearance.BorderColor = System.Drawing.Color.White;
+			this.m_chkShowInactiveProjects.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_chkShowInactiveProjects, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_chkShowInactiveProjects.ForeColor = System.Drawing.Color.White;
+			this.m_chkShowInactiveProjects.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_chkShowInactiveProjects, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_chkShowInactiveProjects, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_chkShowInactiveProjects, null);
@@ -227,7 +227,7 @@
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "0";
+			this.Text = "Open Project";
 			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			this.m_tableLayoutPanelMain.ResumeLayout(false);

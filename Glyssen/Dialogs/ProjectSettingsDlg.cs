@@ -1,25 +1,75 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Utilities;
 using L10NSharp;
+using L10NSharp.UI;
+using SIL.Extensions;
 using SIL.IO;
 
 namespace Glyssen.Dialogs
 {
-	public partial class ProjectSettingsDlg : Form
+	public partial class ProjectSettingsDlg : FormWithPersistedSettings
 	{
 		private ProjectSettingsViewModel m_model;
+
+		private class ChapterAnnouncementItem
+		{
+			public string UiString { get; private set; }
+			public ChapterAnnouncement ChapterAnnouncement { get; private set; }
+
+			public ChapterAnnouncementItem(string uiString, ChapterAnnouncement chapterAnnouncement)
+			{
+				UiString = uiString;
+				ChapterAnnouncement = chapterAnnouncement;
+			}
+
+			public override string ToString()
+			{
+				return UiString;
+			}
+		}
 
 		public ProjectSettingsDlg(ProjectSettingsViewModel model)
 		{
 			InitializeComponent();
+
+			for (int i = 0; i < m_cboBookMarker.Items.Count; i++)
+			{
+				var chapterAnnouncement = (ChapterAnnouncement)i;
+				m_cboBookMarker.Items[i] = new ChapterAnnouncementItem(LocalizationManager.GetDynamicString(Program.kApplicationId,
+					"DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items." + chapterAnnouncement,
+					m_cboBookMarker.Items[i].ToString()), chapterAnnouncement);
+			}
+			if (model.Project.IncludedBooks.All(book => string.IsNullOrEmpty(book.PageHeader)))
+				RemoveItemFromBookMarkerCombo(ChapterAnnouncement.PageHeader);
+			if (model.Project.IncludedBooks.All(book => string.IsNullOrEmpty(book.MainTitle)))
+				RemoveItemFromBookMarkerCombo(ChapterAnnouncement.MainTitle1);
+
 			ProjectSettingsViewModel = model;
-			UpdateDisplay();
+		}
+
+		private void RemoveItemFromBookMarkerCombo(ChapterAnnouncement chapterAnnouncement)
+		{
+			var i = GetIndexOfItemFromBookMarkerCombo(chapterAnnouncement);
+			if (i != -1)
+				m_cboBookMarker.Items.RemoveAt(i);
+		}
+
+		private int GetIndexOfItemFromBookMarkerCombo(ChapterAnnouncement chapterAnnouncement)
+		{
+			for (int i = 0; i < m_cboBookMarker.Items.Count; i++)
+			{
+				if (((ChapterAnnouncementItem)m_cboBookMarker.Items[i]).ChapterAnnouncement == chapterAnnouncement)
+					return i;
+			}
+			return -1;
 		}
 
 		public GlyssenBundle UpdatedBundle { get; private set; }
@@ -50,6 +100,17 @@ namespace Glyssen.Dialogs
 				m_btnOk.Enabled = enableControls;
 				m_wsFontControl.Enabled = enableControls;
 				m_txtRecordingProjectName.Enabled = enableControls;
+				var i = GetIndexOfItemFromBookMarkerCombo(m_model.ChapterAnnouncementStyle);
+				if (m_model.ChapterAnnouncementStyle == ChapterAnnouncement.ChapterLabel || i < 0)
+				{
+					m_rdoChapterLabel.Checked = true;
+					m_cboBookMarker.SelectedIndex = 0;
+				}
+				else
+					m_cboBookMarker.SelectedIndex = i;
+
+				m_chkChapterOneAnnouncements.Checked = !m_model.SkipChapterAnnouncementForFirstChapter;
+				m_chkAnnounceChaptersForSingleChapterBooks.Checked = !m_model.SkipChapterAnnouncementForSingleChapterBooks;
 			}
 		}
 
@@ -81,7 +142,7 @@ namespace Glyssen.Dialogs
 			set { m_txtPublicationId.Text = value; }
 		}
 
-		private void UpdateDisplay()
+		private void UpdateQuotePageDisplay()
 		{
 			m_lblQuoteMarkSummary.Text = m_model.Project.QuoteSystem.ShortSummary;
 
@@ -107,6 +168,19 @@ namespace Glyssen.Dialogs
 			m_lblQuoteMarkReview.Text = quoteMarkReviewText;
 		}
 
+		private void UpdateAnnouncementsPageDisplay()
+		{
+			m_lblExampleSubsequentChapterAnnouncement.Text = m_model.ExampleSubsequentChapterAnnouncement;
+			m_lblExampleFirstChapterAnnouncement.Text = m_model.ExampleFirstChapterAnnouncement;
+			m_lblExampleSingleChapterAnnouncement.Text = m_model.ExampleSingleChapterAnnouncement;
+			m_lblExampleTitleForMultipleChapterBook.Text = m_model.ExampleTitleForMultipleChapterBook;
+			m_lblExampleTitleForSingleChapterBook.Text = m_model.ExampleTitleForSingleChapterBook;
+			bool displayWarning = m_model.ChapterAnnouncementIsStrictlyNumeric;
+			m_lblChapterAnnouncementWarning.Visible = displayWarning;
+			m_lblExampleSubsequentChapterAnnouncement.ForeColor = displayWarning?
+				GlyssenColorPalette.ColorScheme.Warning : GlyssenColorPalette.ColorScheme.ForeColor;
+		}
+
 		private void HandleOkButtonClick(object sender, EventArgs e)
 		{
 			if (m_model.RecordingProjectName != RecordingProjectName && File.Exists(Project.GetProjectFilePath(IsoCode, PublicationId, RecordingProjectName)))
@@ -123,10 +197,30 @@ namespace Glyssen.Dialogs
 			}
 
 			m_model.RecordingProjectName = RecordingProjectName;
+			m_model.ChapterAnnouncementStyle = ChapterAnnouncementStyle;
+			m_model.SkipChapterAnnouncementForFirstChapter = !m_chkChapterOneAnnouncements.Checked;
 
 			m_model.Project.ProjectSettingsStatus = ProjectSettingsStatus.Reviewed;
 			DialogResult = DialogResult.OK;
 			Close();
+		}
+
+		private void HandleCancelButtonClick(object sender, EventArgs e)
+		{
+			// This ensures that any temporary override to this (which ultimately sets a static
+			// member on Block) is reset if the user presses Cancel.
+			m_model.RevertChapterAnnouncementStyle();
+			DialogResult = DialogResult.Cancel;
+			Close();
+		}
+
+		private ChapterAnnouncement ChapterAnnouncementStyle
+		{
+			get
+			{
+				return m_rdoChapterLabel.Checked ? ChapterAnnouncement.ChapterLabel :
+					((ChapterAnnouncementItem)m_cboBookMarker.SelectedItem).ChapterAnnouncement;
+			}
 		}
 
 		private void m_btnQuoteMarkSettings_Click(object sender, EventArgs e)
@@ -158,7 +252,7 @@ namespace Glyssen.Dialogs
 			using (var viewModel = new BlockNavigatorViewModel(m_model.Project, BlocksToDisplay.AllExpectedQuotes, m_model))
 				using (var dlg = new QuotationMarksDlg(m_model.Project, viewModel, !reparseOkay))
 					if (dlg.ShowDialog(this) == DialogResult.OK)
-						UpdateDisplay();
+						UpdateQuotePageDisplay();
 		}
 
 		private void m_btnUpdateFromBundle_Click(object sender, EventArgs e)
@@ -255,5 +349,47 @@ namespace Glyssen.Dialogs
 			return true;
 		}
 
+		private void HandleChapterAnnouncementStyleChange(object sender, EventArgs e)
+		{
+			if (m_rdoBookNamePlusChapterNumber.Checked)
+			{
+				m_chkChapterOneAnnouncements.Checked = false;
+				m_chkAnnounceChaptersForSingleChapterBooks.Checked = false;
+			}
+			HandleChapterAnnouncementChange(sender, e);
+		}
+
+		private void HandleChapterAnnouncementChange(object sender, EventArgs e)
+		{
+			m_model.ChapterAnnouncementStyle = ChapterAnnouncementStyle;
+			UpdateAnnouncementsPageDisplay();
+		}
+
+		private void HandleAnnounceFirstChapterCheckedChanged(object sender, EventArgs e)
+		{
+			m_model.SkipChapterAnnouncementForFirstChapter = !m_chkChapterOneAnnouncements.Checked;
+			m_chkAnnounceChaptersForSingleChapterBooks.Enabled = m_chkChapterOneAnnouncements.Checked;
+			UpdateAnnouncementsPageDisplay();
+		}
+
+		private void HandleAnnounceSingleChapterCheckedChanged(object sender, EventArgs e)
+		{
+			m_model.SkipChapterAnnouncementForSingleChapterBooks = !m_chkAnnounceChaptersForSingleChapterBooks.Checked;
+			UpdateAnnouncementsPageDisplay();
+		}
+
+		private void HandleSelectedTabPageChanged(object sender, EventArgs e)
+		{
+			if (m_tabControl.SelectedTab == m_tabPageTitleAndChapterAnnouncmentOptions)
+			{
+				m_lblExampleFirstChapterAnnouncement.Font =
+				m_lblExampleSingleChapterAnnouncement.Font =
+				m_lblExampleSubsequentChapterAnnouncement.Font =
+				m_lblExampleTitleForMultipleChapterBook.Font =
+				m_lblExampleTitleForSingleChapterBook.Font =
+					new Font(m_model.WsModel.CurrentDefaultFontName,
+						(float)Math.Min(m_lblBookTitleHeading.Font.SizeInPoints * 1.1, m_model.WsModel.CurrentDefaultFontSize));
+			}
+		}
 	}
 }

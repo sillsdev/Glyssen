@@ -10,6 +10,68 @@ namespace GlyssenTests
 	[TestFixture]
 	class BlockTests
 	{
+		[SetUp]
+		public void Setup()
+		{
+			Block.FormatChapterAnnouncement = null;
+		}
+
+		[Test]
+		public void GetText_GetBookNameNull_ChapterBlockTextBasedOnStoredText()
+		{
+			var block = new Block("c", 4);
+			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
+			block.BlockElements.Add(new ScriptText("Chapter 4"));
+
+			Assert.AreEqual("Chapter 4", block.GetText(true));
+			Assert.AreEqual("Chapter 4", block.GetText(false));
+		}
+
+		[TestCase("c")]
+		[TestCase("cl")]
+		public void GetText_FormatChapterAnnouncementSet_ChapterBlockTextBasedOnOverride(string chapterStyleTag)
+		{
+			Block.FormatChapterAnnouncement = (bookId, chapterNum) => chapterNum + (bookId == "MRK" ? " Marky" : " Unknown");
+			var block = new Block(chapterStyleTag, 4) { BookCode = "MRK" };
+			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
+			block.BlockElements.Add(new ScriptText("Chapter 4"));
+
+			Assert.AreEqual("4 Marky", block.GetText(true));
+			Assert.AreEqual("4 Marky", block.GetText(false));
+
+			block = new Block(chapterStyleTag, 1) { BookCode = "LUK" };
+			block.SetStandardCharacter("LUK", CharacterVerseData.StandardCharacter.BookOrChapter);
+			block.BlockElements.Add(new ScriptText("Chapter 1"));
+
+			Assert.AreEqual("1 Unknown", block.GetText(true));
+			Assert.AreEqual("1 Unknown", block.GetText(false));
+		}
+
+		[TestCase("c")]
+		[TestCase("cl")]
+		public void GetText_FormatChapterAnnouncementSetButBookCodeNotSet_ChapterBlockTextBasedOnStoredText(string chapterStyleTag)
+		{
+			Block.FormatChapterAnnouncement = (bookId, chapterNum) => (bookId == null) ? "ARGHHHH!" : "Marky " + chapterNum;
+			var block = new Block(chapterStyleTag, 4) { BookCode = "MRK" };
+			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
+			block.BlockElements.Add(new ScriptText("Chapter 4"));
+
+			Assert.AreEqual("Marky 4", block.GetText(false));
+			block.BookCode = null;
+			Assert.AreEqual("Chapter 4", block.GetText(false));
+		}
+
+		[Test]
+		public void GetText_FormatChapterAnnouncementReturnsNull_ChapterBlockTextBasedOnStoredText()
+		{
+			Block.FormatChapterAnnouncement = (bookId, chapterNum) => null;
+			var block = new Block("c", 4) { BookCode = "MRK" };
+			block.SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
+			block.BlockElements.Add(new ScriptText("Chapter 4"));
+
+			Assert.AreEqual("Chapter 4", block.GetText(false));
+		}
+
 		[Test]
 		public void GetAsXml_VerseAndTextElements_XmlHasCorrectAttributesAndAlternatingVerseAndTextElements()
 		{

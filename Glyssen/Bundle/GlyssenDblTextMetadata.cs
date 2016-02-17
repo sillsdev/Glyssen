@@ -135,6 +135,21 @@ namespace Glyssen.Bundle
 		public string Versification;
 
 		/// <summary>
+		/// If a project does not come with a versification file, this is the name of the standard versification to be used.
+		/// </summary>
+		[XmlAttribute("chapterannouncement")]
+		[DefaultValue(ChapterAnnouncement.PageHeader)]
+		public ChapterAnnouncement ChapterAnnouncementStyle;
+
+		[XmlAttribute("firstchapterannouncement")]
+		[DefaultValue(false)]
+		public bool IncludeChapterAnnouncementForFirstChapter { get; set; }
+
+		[XmlAttribute("singlechapterannouncement")]
+		[DefaultValue(false)]
+		public bool IncludeChapterAnnouncementForSingleChapterBooks { get; set; }
+
+		/// <summary>
 		/// Gets the revision number from a standard DBL bundle. If this bundle is an ad-hoc bundle created by Paratext,
 		/// this will instead be the (Mercurial) changeset id (which is a GUID)
 		/// </summary>
@@ -319,5 +334,16 @@ namespace Glyssen.Bundle
 	{
 		UnProvided,
 		Provided
+	}
+
+	public enum ChapterAnnouncement
+	{
+		// These "unused" items are used dynamically. The number of items before ChapterLabel must match the
+		// number (and order) of items in ProjectSettingsDlg.m_cboBookMarker.Items.
+		PageHeader,
+		MainTitle1,
+		ShortNameFromMetadata,
+		LongNameFromMetadata,
+		ChapterLabel, // Keep this one last for easier logic in ProjectSettingsDlg
 	}
 }

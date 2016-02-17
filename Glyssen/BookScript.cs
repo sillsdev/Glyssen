@@ -37,6 +37,12 @@ namespace Glyssen
 		[XmlAttribute("singlevoice")]
 		public bool SingleVoice { get; set; }
 
+		[XmlAttribute("pageheader")]
+		public string PageHeader { get; set; }
+
+		[XmlAttribute("maintitle")]
+		public string MainTitle { get; set; }
+
 		/// <summary>
 		/// Don't use this getter in production code. It is intended ONLY for use by the XML serializer!
 		/// This is to prevent accidentally leaking the actual list and risking modification by calling code.

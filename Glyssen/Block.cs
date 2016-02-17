@@ -23,6 +23,8 @@ namespace Glyssen
 						".right-to-left{{direction:rtl}}" +
 						".scripttext {{display:inline}}";
 
+		public static Func<string /* Book ID */, int /*Chapter Number*/, string> FormatChapterAnnouncement;
+
 		/// <summary>Random string which will (hopefully) never appear in real text</summary>
 		private const string kAwooga = "^~^";
 
@@ -77,6 +79,12 @@ namespace Glyssen
 			}
 			set { m_chapterNumber = value; }
 		}
+
+		/// <summary>
+		/// This is only set for chapter announcement blocks
+		/// </summary>
+		[XmlAttribute("book")]
+		public string BookCode { get; set; }
 
 		[XmlAttribute("initialStartVerse")]
 		public int InitialStartVerseNumber
@@ -176,8 +184,16 @@ namespace Glyssen
 			get { return CharacterVerseData.IsCharacterStandard(CharacterId); }
 		}
 
+		public bool IsChapterAnnouncement
+		{
+			get { return StyleTag == "c" || StyleTag == "cl"; }
+		}
+
 		public string GetText(bool includeVerseNumbers)
 		{
+			if (IsChapterAnnouncement && BookCode != null && FormatChapterAnnouncement != null)
+				return FormatChapterAnnouncement(BookCode, ChapterNumber) ?? ((ScriptText)BlockElements.First()).Content;
+
 			StringBuilder bldr = new StringBuilder();
 
 			foreach (var blockElement in BlockElements)
@@ -199,6 +215,7 @@ namespace Glyssen
 						bldr.Append(text.Content);
 				}
 			}
+
 			return bldr.ToString();
 		}
 
