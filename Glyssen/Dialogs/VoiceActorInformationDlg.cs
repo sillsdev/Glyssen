@@ -15,8 +15,6 @@ namespace Glyssen.Dialogs
 		private readonly bool m_initialEntry;
 
 		private string m_tallyFmt;
-		private string m_projectSummaryFmt;
-		private string m_recordingTimeFmt;
 
 		public VoiceActorInformationDlg(VoiceActorInformationViewModel viewModel, bool showNext = true)
 		{
@@ -33,12 +31,6 @@ namespace Glyssen.Dialogs
 			m_linkClose.Visible = showNext;
 			m_btnOk.Visible = !showNext;
 
-			m_linkNarrationPreferences.Links.Clear();
-			m_linkNarrationPreferences.Links.Add(60, 21); //TODO internationalize
-
-			m_linkMoreInfo.Links.Clear();
-			m_linkMoreInfo.Links.Add(77, 9); //TODO internationalize
-
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 		}
@@ -47,13 +39,24 @@ namespace Glyssen.Dialogs
 
 		private void HandleStringsLocalized()
 		{
+			string narrationPreferencesNonLinkText = m_linkNarrationPreferences.Text;
+			string narrationPreferencesLinkText = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.NarrationPreferences.LinkText", "Narration Preferences");
+			m_linkNarrationPreferences.Links.Clear();
+			m_linkNarrationPreferences.Links.Add(narrationPreferencesNonLinkText.IndexOf("{0}", StringComparison.Ordinal), narrationPreferencesLinkText.Length);
+
+			string moreInfoNonLinkText = m_linkMoreInfo.Text;
+			string moreInfoLinkText = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.MoreInfo.LinkText", "more info");
+			m_linkMoreInfo.Links.Clear();
+			m_linkMoreInfo.Links.Add(moreInfoNonLinkText.IndexOf("{0}", StringComparison.Ordinal), moreInfoLinkText.Length);
+
+			m_linkNarrationPreferences.Text = string.Format(narrationPreferencesNonLinkText, narrationPreferencesLinkText);
+			m_linkMoreInfo.Text = string.Format(moreInfoNonLinkText, moreInfoLinkText);
+
 			m_tallyFmt = m_lblTally.Text;
-			m_projectSummaryFmt = m_lblProjectSummary.Text;
-			m_recordingTimeFmt = m_lblRecordingTime.Text;
 
 			Project project = m_viewModel.Project;
-			m_lblProjectSummary.Text = string.Format(m_projectSummaryFmt, project.IncludedBooks.Count, project.GetKeyStrokesByCharacterId().Count);
-			m_lblRecordingTime.Text = string.Format(m_recordingTimeFmt, project.GetEstimatedRecordingTime());
+			m_lblProjectSummary.Text = string.Format(m_lblProjectSummary.Text, project.IncludedBooks.Count, project.GetKeyStrokesByCharacterId().Count);
+			m_lblRecordingTime.Text = string.Format(m_lblRecordingTime.Text, project.GetEstimatedRecordingTime());
 			UpdateTally();
 		}
 

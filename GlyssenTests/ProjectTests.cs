@@ -615,6 +615,19 @@ namespace GlyssenTests
 			Assert.IsNull(testProject.GetFormattedChapterAnnouncement("1JN", 4));
 		}
 
+		[Test]
+		public void Load_JustOneBookAvailableAndOneIncluded_AutomaticallyFlagAsReviewed()
+		{
+			var project = TestProject.CreateBasicTestProject();
+			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(project, "m_metadata");
+			metadata.AvailableBooks.Insert(0, new Book { Code = "GEN" });
+			project.Save();
+
+			project = TestProject.LoadExistingTestProject();
+
+			Assert.AreEqual(BookSelectionStatus.Reviewed, project.BookSelectionStatus);
+		}
+
 		private void WaitForProjectInitializationToFinish(Project project, ProjectState projectState)
 		{
 			const int maxCyclesAllowed = 100;

@@ -6,6 +6,8 @@ using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using DesktopAnalytics;
 using Glyssen.Bundle;
+using Glyssen.Controls;
+using L10NSharp;
 using SIL.DblBundle.Text;
 using SIL.Scripture;
 
@@ -65,6 +67,42 @@ namespace Glyssen.Dialogs
 				m_checkBoxOldTestament.Checked = false;
 			if (!m_includeInScript.Any(p => p.Value && BCVRef.BookToNumber(p.Key) > 39))
 				m_checkBoxNewTestament.Checked = false;
+
+			SetupDropdownHeaderCells();
+		}
+
+		private void SetupDropdownHeaderCells()
+		{
+			// set up dropdown column headers
+			var columnOptions = new SortedList<int, string>
+			{
+				{0, LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.SelectAll", "Select All")},
+				{1, LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.SelectAll", "Clear All")}
+			};
+
+			m_ntBooksGrid.Columns[2].HeaderCell = CreateDropdownHeaderCell(m_ntBooksGrid.Columns[2].HeaderCell, columnOptions);
+			m_ntBooksGrid.Columns[3].HeaderCell = CreateDropdownHeaderCell(m_ntBooksGrid.Columns[3].HeaderCell, columnOptions);
+			m_otBooksGrid.Columns[2].HeaderCell = CreateDropdownHeaderCell(m_otBooksGrid.Columns[2].HeaderCell, columnOptions);
+			m_otBooksGrid.Columns[3].HeaderCell = CreateDropdownHeaderCell(m_otBooksGrid.Columns[3].HeaderCell, columnOptions);
+		}
+
+		private DataGridViewDropdownColumnHeaderCell CreateDropdownHeaderCell(
+			DataGridViewColumnHeaderCell oldHeaderCell, SortedList<int, string> columnOptions)
+		{
+			var cell = new DataGridViewDropdownColumnHeaderCell(oldHeaderCell, columnOptions);
+			cell.MenuItemClicked += cell_MenuItemClicked;
+			return cell;
+		}
+
+		private void cell_MenuItemClicked(object sender, CustomMenuItemClickedEventArgs e)
+		{
+			// e.EventKey: 0 = Select All, 1 = Clear All
+			var shouldCheck = e.EventKey == 0;
+			foreach (var row in e.Column.DataGridView.Rows.Cast<DataGridViewRow>().Where(row => !row.IsNewRow))
+			{
+				row.Cells[e.Column.Index].Value = shouldCheck;
+				CheckCorrespondingCell(row.Index, e.Column.Index, e.Column.DataGridView);
+			}
 		}
 
 		private void InitializeGridData(DataGridView grid, List<Book> books)
@@ -161,24 +199,27 @@ namespace Glyssen.Dialogs
 			if (e.RowIndex == -1)
 				return;
 
-			if (e.ColumnIndex == m_includeInScriptColumnIndex)
+			CheckCorrespondingCell(e.RowIndex, e.ColumnIndex, (DataGridView)sender);
+		}
+
+		private void CheckCorrespondingCell(int rowIndex, int columnIndex, DataGridView grid)
+		{
+			if (columnIndex != m_includeInScriptColumnIndex) return;
+
+			var correspondingMultiVoiceCell = grid[m_multiVoiceColumnIndex, rowIndex];
+			if ((bool)grid[columnIndex, rowIndex].EditedFormattedValue)
 			{
-				var grid = (DataGridView)sender;
-				var correspondingMultiVoiceCell = grid[m_multiVoiceColumnIndex, e.RowIndex];
-				if ((bool)grid[e.ColumnIndex, e.RowIndex].EditedFormattedValue)
-				{
-					correspondingMultiVoiceCell.ReadOnly = false;
-					m_btnOk.Enabled = true;
-				}
-				else
-				{
-					correspondingMultiVoiceCell.ReadOnly = true;
-					m_btnOk.Enabled = m_otBooksGrid.Rows.Cast<DataGridViewRow>().Any(row => row.Index != e.RowIndex && (bool)((DataGridViewCheckBoxCell)row.Cells[m_includeInScriptColumnIndex]).Value) ||
-						m_ntBooksGrid.Rows.Cast<DataGridViewRow>().Any(row => row.Index != e.RowIndex && (bool)((DataGridViewCheckBoxCell)row.Cells[m_includeInScriptColumnIndex]).Value);
-				}
-				grid.EndEdit();
-				grid.InvalidateCell(correspondingMultiVoiceCell);
+				correspondingMultiVoiceCell.ReadOnly = false;
+				m_btnOk.Enabled = true;
 			}
+			else
+			{
+				correspondingMultiVoiceCell.ReadOnly = true;
+				m_btnOk.Enabled = m_otBooksGrid.Rows.Cast<DataGridViewRow>().Any(row => row.Index != rowIndex && (bool)((DataGridViewCheckBoxCell)row.Cells[m_includeInScriptColumnIndex]).Value) ||
+				                  m_ntBooksGrid.Rows.Cast<DataGridViewRow>().Any(row => row.Index != rowIndex && (bool)((DataGridViewCheckBoxCell)row.Cells[m_includeInScriptColumnIndex]).Value);
+			}
+			grid.EndEdit();
+			grid.InvalidateCell(correspondingMultiVoiceCell);
 		}
 
 		private void BooksGrid_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)

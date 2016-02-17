@@ -129,10 +129,6 @@ namespace GlyssenTests.VoiceActor
 		[TestCase(ActorAge.Elder, CharacterAge.Elder)]
 		[TestCase(ActorAge.YoungAdult, CharacterAge.YoungAdult)]
 		[TestCase(ActorAge.Child, CharacterAge.Child)]
-		[TestCase(ActorAge.Adult, CharacterAge.Adult)]
-		[TestCase(ActorAge.Elder, CharacterAge.Elder)]
-		[TestCase(ActorAge.YoungAdult, CharacterAge.YoungAdult)]
-		[TestCase(ActorAge.Child, CharacterAge.Child)]
 		public void GetAgeMatchQuality_Perfect(ActorAge actorAge, CharacterAge characterAge)
 		{
 			var actor = new Glyssen.VoiceActor.VoiceActor { Age = actorAge };
@@ -140,10 +136,6 @@ namespace GlyssenTests.VoiceActor
 			Assert.AreEqual(AgeMatchQuality.Perfect, matchQuality);
 		}
 
-		[TestCase(ActorAge.Adult, CharacterAge.YoungAdult)]
-		[TestCase(ActorAge.Adult, CharacterAge.Elder)]
-		[TestCase(ActorAge.YoungAdult, CharacterAge.Adult)]
-		[TestCase(ActorAge.Elder, CharacterAge.Adult)]
 		[TestCase(ActorAge.Adult, CharacterAge.YoungAdult)]
 		[TestCase(ActorAge.Adult, CharacterAge.Elder)]
 		[TestCase(ActorAge.YoungAdult, CharacterAge.Adult)]
@@ -157,8 +149,6 @@ namespace GlyssenTests.VoiceActor
 
 		[TestCase(ActorAge.YoungAdult, CharacterAge.Elder)]
 		[TestCase(ActorAge.Elder, CharacterAge.YoungAdult)]
-		[TestCase(ActorAge.YoungAdult, CharacterAge.Elder)]
-		[TestCase(ActorAge.Elder, CharacterAge.YoungAdult)]
 		public void GetAgeMatchQuality_AdultVsChild(ActorAge actorAge, CharacterAge characterAge)
 		{
 			var actor = new Glyssen.VoiceActor.VoiceActor { Age = actorAge };
@@ -166,12 +156,6 @@ namespace GlyssenTests.VoiceActor
 			Assert.AreEqual(AgeMatchQuality.AdultVsChild, matchQuality);
 		}
 
-		[TestCase(ActorAge.Adult, CharacterAge.Child)]
-		[TestCase(ActorAge.YoungAdult, CharacterAge.Child)]
-		[TestCase(ActorAge.Elder, CharacterAge.Child)]
-		[TestCase(ActorAge.Child, CharacterAge.Adult)]
-		[TestCase(ActorAge.Child, CharacterAge.YoungAdult)]
-		[TestCase(ActorAge.Child, CharacterAge.Elder)]
 		[TestCase(ActorAge.Adult, CharacterAge.Child)]
 		[TestCase(ActorAge.YoungAdult, CharacterAge.Child)]
 		[TestCase(ActorAge.Elder, CharacterAge.Child)]

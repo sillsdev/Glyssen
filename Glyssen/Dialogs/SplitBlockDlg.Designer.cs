@@ -139,7 +139,7 @@
 			this.m_blocksDisplayBrowser.Size = new System.Drawing.Size(505, 263);
 			this.m_blocksDisplayBrowser.TabIndex = 1;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_blocksDisplayBrowser, true);
-			this.m_blocksDisplayBrowser.OnMouseClick += new System.EventHandler<Gecko.DomMouseEventArgs>(this.InsertSplitLocation);
+			this.m_blocksDisplayBrowser.OnMouseClick += new System.EventHandler<Gecko.DomMouseEventArgs>(this.HandleClick);
 			// 
 			// SplitBlockDlg
 			// 

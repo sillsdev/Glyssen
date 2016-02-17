@@ -350,7 +350,7 @@ namespace Glyssen
 	}
 
 	[XmlRoot]
-	public class BookBlockIndices : IEquatable<BookBlockIndices>
+	public class BookBlockIndices : IEquatable<BookBlockIndices>, IComparable<BookBlockIndices>
 	{
 		public BookBlockIndices()
 		{
@@ -380,6 +380,14 @@ namespace Glyssen
 			if (ReferenceEquals(this, other))
 				return true;
 			return BookIndex == other.BookIndex && BlockIndex == other.BlockIndex;
+		}
+
+		public int CompareTo(BookBlockIndices other)
+		{
+			int result = BookIndex.CompareTo(other.BookIndex);
+			if (result == 0)
+				result = BlockIndex.CompareTo(other.BlockIndex);
+			return result;
 		}
 
 		public override bool Equals(object obj)

@@ -144,6 +144,7 @@
     <Compile Include="BiblicalAuthors.cs" />
     <Compile Include="BlockElement.cs" />
     <Compile Include="BlockNavigator.cs" />
+    <Compile Include="BlockSplitData.cs" />
     <Compile Include="BookScript.cs" />
     <Compile Include="BookSetUtils.cs" />
     <Compile Include="Block.cs" />
@@ -181,6 +182,7 @@
       <DependentUpon>Browser.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ControlExtensions.cs" />
+    <Compile Include="Controls\DataGridViewDropdownColumnHeader.cs" />
     <Compile Include="Controls\DataGridViewListBox.cs">
       <SubType>Component</SubType>
     </Compile>

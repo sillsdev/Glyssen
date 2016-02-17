@@ -343,7 +343,17 @@ namespace Glyssen
 
 		public BookSelectionStatus BookSelectionStatus
 		{
-			get { return m_metadata.ProjectStatus.BookSelectionStatus; }
+			get
+			{
+				// don't make the user open the select books dialog if there is only 1 book
+				if ((m_metadata.ProjectStatus.BookSelectionStatus == BookSelectionStatus.UnReviewed) &&
+					(AvailableBooks.Count == 1) && (IncludedBooks.Count == 1))
+				{
+					m_metadata.ProjectStatus.BookSelectionStatus = BookSelectionStatus.Reviewed;
+				}
+
+				return m_metadata.ProjectStatus.BookSelectionStatus;
+			}
 			set { m_metadata.ProjectStatus.BookSelectionStatus = value; }
 		}
 
