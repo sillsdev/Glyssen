@@ -32,9 +32,10 @@ namespace Glyssen.Quote
 			int allProjectBlocks = numBlocksPerBook.Values.Sum();
 
 			int completedProjectBlocks = 0;
+			SetQuoteSystem(project.QuoteSystem);
 			Parallel.ForEach(blocksInBook.Keys, book =>
 			{
-				book.Blocks = new QuoteParser(cvInfo, book.BookId, blocksInBook[book], project.QuoteSystem, project.Versification).Parse().ToList();
+				book.Blocks = new QuoteParser(cvInfo, book.BookId, blocksInBook[book], project.Versification).Parse().ToList();
 				completedProjectBlocks += numBlocksPerBook[book.BookId];
 				projectWorker.ReportProgress(MathUtilities.Percent(completedProjectBlocks, allProjectBlocks, 99));
 			});
@@ -51,11 +52,12 @@ namespace Glyssen.Quote
 			var blocksInBook = unparsedBlocks.ToDictionary(bookidBlocksPair => bookidBlocksPair.Key.BookId, bookidBlocksPair => bookidBlocksPair.Value);
 
 			var parsedBlocksByBook = new ConcurrentDictionary<string, BookScript>();
+			SetQuoteSystem(altQuoteSystem);
 			Parallel.ForEach(blocksInBook, bookidBlocksPair =>
 			{
 				var bookId = bookidBlocksPair.Key;
 				var blocks =
-					new QuoteParser(cvInfo, bookId, bookidBlocksPair.Value, altQuoteSystem, project.Versification).Parse().ToList();
+					new QuoteParser(cvInfo, bookId, bookidBlocksPair.Value, project.Versification).Parse().ToList();
 				var parsedBook = new BookScript(bookId, blocks);
 				parsedBlocksByBook.AddOrUpdate(bookId, parsedBook, (s, script) => parsedBook);
 			});
@@ -66,11 +68,16 @@ namespace Glyssen.Quote
 			return bookScripts;
 		}
 
+		public static void SetQuoteSystem(QuoteSystem quoteSystem)
+		{
+			m_quoteSystem = quoteSystem;
+		}
+
 		private readonly ICharacterVerseInfo m_cvInfo;
 		private readonly string m_bookId;
 		private readonly int m_bookNum;
 		private readonly IEnumerable<Block> m_inputBlocks;
-		private readonly QuoteSystem m_quoteSystem;
+		private static QuoteSystem m_quoteSystem = QuoteSystem.Default;
 		private readonly ScrVers m_versification;
 		private readonly List<Regex> m_regexes = new List<Regex>();
 		private readonly Regex m_regexStartsWithSpecialOpeningPunctuation = new Regex(@"^(\(|\[|\{)", RegexOptions.Compiled);
@@ -87,13 +94,12 @@ namespace Glyssen.Quote
 		private List<string> m_possibleCharactersForCurrentQuote = new List<string>();
 		#endregion
 
-		public QuoteParser(ICharacterVerseInfo cvInfo, string bookId, IEnumerable<Block> blocks, QuoteSystem quoteSystem = null, ScrVers versification = null)
+		public QuoteParser(ICharacterVerseInfo cvInfo, string bookId, IEnumerable<Block> blocks, ScrVers versification = null)
 		{
 			m_cvInfo = cvInfo;
 			m_bookId = bookId;
 			m_bookNum = BCVRef.BookToNumber(bookId);
 			m_inputBlocks = blocks;
-			m_quoteSystem = quoteSystem ?? QuoteSystem.Default;
 			m_versification = versification ?? ScrVers.English;
 			GetRegExesForSplittingQuotes();
 		}
