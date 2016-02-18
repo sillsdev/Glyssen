@@ -32,9 +32,10 @@ namespace Glyssen.Quote
 			int allProjectBlocks = numBlocksPerBook.Values.Sum();
 
 			int completedProjectBlocks = 0;
+			SetQuoteSystem(project.QuoteSystem);
 			Parallel.ForEach(blocksInBook.Keys, book =>
 			{
-				book.Blocks = new QuoteParser(cvInfo, book.BookId, blocksInBook[book], project.QuoteSystem, project.Versification).Parse().ToList();
+				book.Blocks = new QuoteParser(cvInfo, book.BookId, blocksInBook[book], project.Versification).Parse().ToList();
 				completedProjectBlocks += numBlocksPerBook[book.BookId];
 				projectWorker.ReportProgress(MathUtilities.Percent(completedProjectBlocks, allProjectBlocks, 99));
 			});
@@ -51,11 +52,12 @@ namespace Glyssen.Quote
 			var blocksInBook = unparsedBlocks.ToDictionary(bookidBlocksPair => bookidBlocksPair.Key.BookId, bookidBlocksPair => bookidBlocksPair.Value);
 
 			var parsedBlocksByBook = new ConcurrentDictionary<string, BookScript>();
+			SetQuoteSystem(altQuoteSystem);
 			Parallel.ForEach(blocksInBook, bookidBlocksPair =>
 			{
 				var bookId = bookidBlocksPair.Key;
 				var blocks =
-					new QuoteParser(cvInfo, bookId, bookidBlocksPair.Value, altQuoteSystem, project.Versification).Parse().ToList();
+					new QuoteParser(cvInfo, bookId, bookidBlocksPair.Value, project.Versification).Parse().ToList();
 				var parsedBook = new BookScript(bookId, blocks);
 				parsedBlocksByBook.AddOrUpdate(bookId, parsedBook, (s, script) => parsedBook);
 			});
@@ -66,11 +68,16 @@ namespace Glyssen.Quote
 			return bookScripts;
 		}
 
+		public static void SetQuoteSystem(QuoteSystem quoteSystem)
+		{
+			s_quoteSystem = quoteSystem;
+		}
+
 		private readonly ICharacterVerseInfo m_cvInfo;
 		private readonly string m_bookId;
 		private readonly int m_bookNum;
 		private readonly IEnumerable<Block> m_inputBlocks;
-		private readonly QuoteSystem m_quoteSystem;
+		private static QuoteSystem s_quoteSystem = QuoteSystem.Default;
 		private readonly ScrVers m_versification;
 		private readonly List<Regex> m_regexes = new List<Regex>();
 		private readonly Regex m_regexStartsWithSpecialOpeningPunctuation = new Regex(@"^(\(|\[|\{)", RegexOptions.Compiled);
@@ -87,13 +94,12 @@ namespace Glyssen.Quote
 		private List<string> m_possibleCharactersForCurrentQuote = new List<string>();
 		#endregion
 
-		public QuoteParser(ICharacterVerseInfo cvInfo, string bookId, IEnumerable<Block> blocks, QuoteSystem quoteSystem = null, ScrVers versification = null)
+		public QuoteParser(ICharacterVerseInfo cvInfo, string bookId, IEnumerable<Block> blocks, ScrVers versification = null)
 		{
 			m_cvInfo = cvInfo;
 			m_bookId = bookId;
 			m_bookNum = BCVRef.BookToNumber(bookId);
 			m_inputBlocks = blocks;
-			m_quoteSystem = quoteSystem ?? QuoteSystem.Default;
 			m_versification = versification ?? ScrVers.English;
 			GetRegExesForSplittingQuotes();
 		}
@@ -102,26 +108,26 @@ namespace Glyssen.Quote
 		{
 			IList<string> splitters;
 			var quoteChars = new SortedSet<char>(new QuoteCharComparer());
-			var regexExpressions = new List<string>(m_quoteSystem.NormalLevels.Count);
+			var regexExpressions = new List<string>(s_quoteSystem.NormalLevels.Count);
 
-			if (m_quoteSystem.NormalLevels.Count > 0)
+			if (s_quoteSystem.NormalLevels.Count > 0)
 			{
-				m_regexStartsWithFirstLevelOpener = new Regex(Regex.Escape(m_quoteSystem.NormalLevels[0].Open), RegexOptions.Compiled);
+				m_regexStartsWithFirstLevelOpener = new Regex(Regex.Escape(s_quoteSystem.NormalLevels[0].Open), RegexOptions.Compiled);
 
 				// At level x, we need continuer x, closer x, opener x+1.  Continuer must be first.
-				for (int level = 0; level < m_quoteSystem.NormalLevels.Count; level++)
+				for (int level = 0; level < s_quoteSystem.NormalLevels.Count; level++)
 				{
 					splitters = new List<string>();
 					if (level > 0)
 					{
-						var quoteSystemLevelMinusOne = m_quoteSystem.NormalLevels[level - 1];
+						var quoteSystemLevelMinusOne = s_quoteSystem.NormalLevels[level - 1];
 						if (!string.IsNullOrWhiteSpace(quoteSystemLevelMinusOne.Continue))
 							splitters.Add(quoteSystemLevelMinusOne.Continue);
 						splitters.Add(quoteSystemLevelMinusOne.Close);
 					}
-					else if (level == 0 && m_quoteSystem.NormalLevels[0].Continue != m_quoteSystem.NormalLevels[0].Open)
-						splitters.Add(m_quoteSystem.NormalLevels[0].Continue);
-					splitters.Add(m_quoteSystem.NormalLevels[level].Open);
+					else if (level == 0 && s_quoteSystem.NormalLevels[0].Continue != s_quoteSystem.NormalLevels[0].Open)
+						splitters.Add(s_quoteSystem.NormalLevels[0].Continue);
+					splitters.Add(s_quoteSystem.NormalLevels[level].Open);
 					if (level == 0)
 						AddQuotationDashes(splitters);
 
@@ -130,9 +136,9 @@ namespace Glyssen.Quote
 
 				// Final regex handles when we are inside the innermost level
 				splitters = new List<string>();
-				splitters.Add(m_quoteSystem.NormalLevels.Last().Close);
-				splitters.Add(m_quoteSystem.NormalLevels.Last().Continue);
-				if (m_quoteSystem.NormalLevels.Count == 1)
+				splitters.Add(s_quoteSystem.NormalLevels.Last().Close);
+				splitters.Add(s_quoteSystem.NormalLevels.Last().Continue);
+				if (s_quoteSystem.NormalLevels.Count == 1)
 					AddQuotationDashes(splitters);
 
 				regexExpressions.Add(BuildQuoteMatcherRegex(splitters));
@@ -146,7 +152,7 @@ namespace Glyssen.Quote
 
 			// Get all unique characters which make up all quote marks
 			StringBuilder sbAllCharacters = new StringBuilder();
-			foreach (var quoteSystemLevel in m_quoteSystem.AllLevels)
+			foreach (var quoteSystemLevel in s_quoteSystem.AllLevels)
 			{
 				sbAllCharacters.Append(quoteSystemLevel.Open);
 				sbAllCharacters.Append(quoteSystemLevel.Close);
@@ -165,12 +171,12 @@ namespace Glyssen.Quote
 
 		private void AddQuotationDashes(IList<string> splitters)
 		{
-			if (!string.IsNullOrEmpty(m_quoteSystem.QuotationDashMarker))
+			if (!string.IsNullOrEmpty(s_quoteSystem.QuotationDashMarker))
 			{
-				splitters.Add(m_quoteSystem.QuotationDashMarker);
-				if (!string.IsNullOrEmpty(m_quoteSystem.QuotationDashEndMarker))
+				splitters.Add(s_quoteSystem.QuotationDashMarker);
+				if (!string.IsNullOrEmpty(s_quoteSystem.QuotationDashEndMarker))
 				{
-					splitters.Add(m_quoteSystem.QuotationDashEndMarker);
+					splitters.Add(s_quoteSystem.QuotationDashEndMarker);
 				}
 			}
 		}
@@ -229,8 +235,8 @@ namespace Glyssen.Quote
 				{
 					DecrementQuoteLevel();
 					blockInWhichDialogueQuoteStarted = null;
-					m_nextBlockContinuesQuote = potentialDialogueContinuer = !string.IsNullOrEmpty(m_quoteSystem.QuotationDashEndMarker) ||
-						(m_quoteSystem.NormalLevels.Count > 0 && m_quoteSystem.NormalLevels[0].Continue != m_quoteSystem.NormalLevels[0].Open);
+					m_nextBlockContinuesQuote = potentialDialogueContinuer = !string.IsNullOrEmpty(s_quoteSystem.QuotationDashEndMarker) ||
+						(s_quoteSystem.NormalLevels.Count > 0 && s_quoteSystem.NormalLevels[0].Continue != s_quoteSystem.NormalLevels[0].Open);
 				}
 
 				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber) { IsParagraphStart = block.IsParagraphStart };
@@ -323,7 +329,7 @@ namespace Glyssen.Quote
 										continue;
 									token = token.Substring(i);
 								}
-								if ((m_quoteLevel == 0) && (m_quoteSystem.NormalLevels.Count > 0))
+								if ((m_quoteLevel == 0) && (s_quoteSystem.NormalLevels.Count > 0))
 								{
 									string continuerForNextLevel = ContinuerForNextLevel;
 									if (string.IsNullOrEmpty(continuerForNextLevel) || !token.StartsWith(continuerForNextLevel))
@@ -347,7 +353,7 @@ namespace Glyssen.Quote
 							if (!thisBlockStartsWithAContinuer)
 								potentialDialogueContinuer = false;
 
-							if ((m_quoteLevel > 0) && (m_quoteSystem.NormalLevels.Count > 0) &&
+							if ((m_quoteLevel > 0) && (s_quoteSystem.NormalLevels.Count > 0) &&
 								token.StartsWith(CloserForCurrentLevel) && blockInWhichDialogueQuoteStarted == null)
 							{
 								sb.Append(token);
@@ -355,14 +361,14 @@ namespace Glyssen.Quote
 								if (m_quoteLevel == 0)
 									FlushStringBuilderAndBlock(sb, block.StyleTag, true);
 							}
-							else if (m_quoteSystem.NormalLevels.Count > m_quoteLevel && token.StartsWith(OpenerForNextLevel) && blockInWhichDialogueQuoteStarted == null)
+							else if (s_quoteSystem.NormalLevels.Count > m_quoteLevel && token.StartsWith(OpenerForNextLevel) && blockInWhichDialogueQuoteStarted == null)
 							{
 								if (m_quoteLevel == 0)
 									FlushStringBuilderAndBlock(sb, block.StyleTag, false);
 								sb.Append(token);
 								IncrementQuoteLevel();
 							}
-							else if (m_quoteLevel == 0 && m_quoteSystem.QuotationDashMarker != null && token.StartsWith(m_quoteSystem.QuotationDashMarker))
+							else if (m_quoteLevel == 0 && s_quoteSystem.QuotationDashMarker != null && token.StartsWith(s_quoteSystem.QuotationDashMarker))
 							{
 								blockEndedWithSentenceEndingPunctuation = false;
 								pendingColon = token.StartsWith(":");
@@ -378,7 +384,7 @@ namespace Glyssen.Quote
 							}
 							else if (potentialDialogueContinuer || (m_quoteLevel == 1 && blockInWhichDialogueQuoteStarted != null))
 							{
-								if (!string.IsNullOrEmpty(m_quoteSystem.QuotationDashEndMarker) && token.StartsWith(m_quoteSystem.QuotationDashEndMarker, StringComparison.Ordinal))
+								if (!string.IsNullOrEmpty(s_quoteSystem.QuotationDashEndMarker) && token.StartsWith(s_quoteSystem.QuotationDashEndMarker, StringComparison.Ordinal))
 								{
 									DecrementQuoteLevel();
 									potentialDialogueContinuer = false;
@@ -450,10 +456,10 @@ namespace Glyssen.Quote
 				m_possibleCharactersForCurrentQuote.Clear();
 		}
 
-		public string ContinuerForCurrentLevel { get { return m_quoteSystem.NormalLevels[m_quoteLevel - 1].Continue; } }
-		public string ContinuerForNextLevel { get { return m_quoteSystem.NormalLevels[m_quoteLevel].Continue; } }
-		public string CloserForCurrentLevel { get { return m_quoteSystem.NormalLevels[m_quoteLevel - 1].Close; } }
-		public string OpenerForNextLevel { get { return m_quoteSystem.NormalLevels[m_quoteLevel].Open; } }
+		public string ContinuerForCurrentLevel { get { return s_quoteSystem.NormalLevels[m_quoteLevel - 1].Continue; } }
+		public string ContinuerForNextLevel { get { return s_quoteSystem.NormalLevels[m_quoteLevel].Continue; } }
+		public string CloserForCurrentLevel { get { return s_quoteSystem.NormalLevels[m_quoteLevel - 1].Close; } }
+		public string OpenerForNextLevel { get { return s_quoteSystem.NormalLevels[m_quoteLevel].Open; } }
 
 		private bool EndsWithSentenceEndingPunctuation(string text)
 		{
