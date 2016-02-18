@@ -152,7 +152,7 @@
 <Target Name="Upload" DependsOnTargets="VersionNumbers; Installer" >
 	<Message Text="Attempting rsync of GlyssenInstaller.$(Version).*" Importance="high"/>
 
-	<Exec Command ='rsync -zlt --chmod=Dug=rwx,Fug=rw,o-rwx --stats --rsync-path="sudo -u vu2004 rsync" --rsh="ssh -i /home/bob/.ssh/bob_key" ../output/installer/GlyssenInstaller.$(Version).* root@software.sil.org:/var/www/virtual/software/sil/org/htdocs/downloads/glyssen/'>
+	<Exec Command='rsync -zlt --chmod=Dug=rwx,Fug=rw,o-rwx --stats --rsync-path="sudo -u vu2004 rsync" --rsh="ssh -i /home/bob/.ssh/bob_key" ../output/installer/GlyssenInstaller.$(Version).* root@software.sil.org:/var/www/virtual/software/sil/org/htdocs/downloads/glyssen/' />
 </Target>
 
 </Project>
