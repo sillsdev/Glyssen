@@ -145,6 +145,7 @@
     <Compile Include="BlockElement.cs" />
     <Compile Include="BlockNavigator.cs" />
     <Compile Include="BlockSplitData.cs" />
+    <Compile Include="BookMetadata.cs" />
     <Compile Include="BookScript.cs" />
     <Compile Include="BookSetUtils.cs" />
     <Compile Include="Block.cs" />
@@ -538,6 +539,7 @@
     <None Include="Resources\CameoStar.png" />
     <None Include="Resources\AddCharacter.png" />
     <Content Include="Resources\BiblicalAuthors.txt" />
+    <Content Include="Resources\BooksDefaultSingleVoice.txt" />
     <Content Include="Resources\CharacterVerse.txt" />
     <None Include="Resources\grid-icon.png" />
     <None Include="Resources\html-view.png" />

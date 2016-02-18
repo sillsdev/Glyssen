@@ -38,6 +38,8 @@ namespace Glyssen
 				Logger.WriteEvent("Creating bookScript ({0})", bookId);
 				var parser = new UsxParser(bookId, stylesheet, book.Value);
 				var bookScript = new BookScript(bookId, parser.Parse());
+				SingleVoiceReason singleVoiceReason;
+				bookScript.SingleVoice = BookMetadata.DefaultToSingleVoice(bookId, out singleVoiceReason);
 				bookScript.PageHeader = parser.PageHeader;
 				bookScript.MainTitle = parser.MainTitle;
 				Logger.WriteEvent("Created bookScript ({0}, {1})", bookId, bookScript.BookId);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using DesktopAnalytics;
@@ -140,6 +141,7 @@ namespace Glyssen.Dialogs
 
 		private void BtnOk_Click(object sender, EventArgs e)
 		{
+			List<BookScript> booksToAskUserAbout = new List<BookScript>();
 			foreach (var book in m_project.AvailableBooks)
 			{
 				book.IncludeInScript = m_includeInScript[book.Code];
@@ -150,6 +152,13 @@ namespace Glyssen.Dialogs
 				var bookScript = m_project.IncludedBooks.Single(b => b.BookId == book.Code);
 				if (bookScript.SingleVoice != m_multiVoice[book.Code])
 					continue;
+
+				SingleVoiceReason singleVoiceReason;
+				if (m_multiVoice[book.Code] && BookMetadata.DefaultToSingleVoice(book.Code, out singleVoiceReason) && singleVoiceReason == SingleVoiceReason.TooComplexToAssignAccurately)
+				{
+					booksToAskUserAbout.Add(bookScript);
+					continue;
+				}
 
 				bookScript.SingleVoice = !m_multiVoice[book.Code];
 				Analytics.Track("SetSingleVoice", new Dictionary<string, string>
@@ -165,9 +174,50 @@ namespace Glyssen.Dialogs
 				using (var model = new AssignCharacterViewModel(m_project))
 					model.AssignNarratorForRemainingBlocksInBook(bookScript);
 			}
+
+			if (booksToAskUserAbout.Any() && !ConfirmSetToMultiVoice(booksToAskUserAbout))
+			{
+				DialogResult = DialogResult.None;
+				return;
+			}
+
 			m_project.BookSelectionStatus = BookSelectionStatus.Reviewed;
 
 			Analytics.Track("SelectBooks", new Dictionary<string, string> { { "bookSummary", m_project.BookSelectionSummary } });
+		}
+
+		private bool ConfirmSetToMultiVoice(List<BookScript> booksToAskUserAbout)
+		{
+			if (booksToAskUserAbout.Any())
+			{
+				StringBuilder sb = new StringBuilder();
+				foreach (var book in booksToAskUserAbout)
+					sb.Append(book.BookId + Environment.NewLine);
+
+				string msg = LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.MessagePart1", "You have selected to record the following books with multiple voice actors. Glyssen can help you do this, but you may not get the expected results without some manual intervention due to the complexity of these books.") +
+					Environment.NewLine + Environment.NewLine +
+					sb + Environment.NewLine +
+					LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.MessagePart2", "Are you sure? If you select no, the books above will each be recorded by a single voice actor.");
+				string caption = LocalizationManager.GetString("DialogBoxes.ScriptureRangeSelectionDlg.ConfirmDifficultMultiVoice.Caption", "Are you sure?");
+				DialogResult result = MessageBox.Show(msg, caption, MessageBoxButtons.YesNoCancel);
+				if (result == DialogResult.Cancel)
+					return false;
+				if (result == DialogResult.Yes)
+				{
+					foreach (var book in booksToAskUserAbout)
+					{
+						book.SingleVoice = false;
+						Analytics.Track("SetSingleVoice", new Dictionary<string, string>
+						{
+							{ "book", book.BookId },
+							{ "singleVoice", "false" },
+							{ "method", "ScriptureRangeSelectionDlg.ConfirmSetToMultiVoice" }
+						});
+					}
+				}
+			}
+
+			return true;
 		}
 
 		private void BooksGrid_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
