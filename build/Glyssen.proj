@@ -96,6 +96,17 @@
 		<!-- remove the installer which has no version number (wouldn't need this if the copy above was a move, instead) -->
 		<Delete Files="$(RootDir)\output\installer\GlyssenInstaller.msi" TreatErrorsAsWarnings="false" />
 
+
+		<!-- copy it so we aren't modifying the original, which then is a pain on dev machines -->
+		<Copy SourceFiles ="$(RootDir)\installer\template.download_info"
+			DestinationFiles ="$(RootDir)\output\installer\GlyssenInstaller.$(Version).download_info"/>
+
+		<FileUpdate File="$(RootDir)\output\installer\GlyssenInstaller.$(Version).download_info"
+			DatePlaceHolder='_DATE_'
+			DateFormat='yyyy-MM-dd'
+			Regex='_VERSION_'
+			ReplacementText ="$(Version)" />
+
 	</Target>
 
 	<!-- These targets are designed to be additional steps on TeamCity after running target Installer. Pick the appropriate one
