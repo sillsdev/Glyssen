@@ -53,6 +53,7 @@ namespace Glyssen.Dialogs
 				RemoveItemFromBookMarkerCombo(ChapterAnnouncement.MainTitle1);
 
 			ProjectSettingsViewModel = model;
+			UpdateQuotePageDisplay();
 		}
 
 		private void RemoveItemFromBookMarkerCombo(ChapterAnnouncement chapterAnnouncement)

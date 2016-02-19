@@ -401,11 +401,11 @@
 			// 
 			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.label2.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.label2, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.label2.BackColor = System.Drawing.SystemColors.Control;
 			this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.glyssenColorPalette.SetForeColor(this.label2, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.label2, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label2, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label2, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.label2, "DialogBoxes.ProjectSettingsDlg.label1");
@@ -421,11 +421,11 @@
 			// 
 			this.m_lblQuoteMarks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.m_lblQuoteMarks.AutoSize = true;
-			this.m_lblQuoteMarks.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblQuoteMarks, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_lblQuoteMarks.BackColor = System.Drawing.SystemColors.Control;
 			this.m_lblQuoteMarks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.glyssenColorPalette.SetForeColor(this.m_lblQuoteMarks, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_lblQuoteMarks.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_lblQuoteMarks, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblQuoteMarks, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblQuoteMarks, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblQuoteMarks, "DialogBoxes.ProjectSettingsDlg.GeneralTab.QuoteMarks");
@@ -451,7 +451,8 @@
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblQuoteMarkReview, "DialogBoxes.ProjectSettingsDlg.GeneralTab.QuoteMarkReview");
 			this.m_lblQuoteMarkReview.Location = new System.Drawing.Point(6, 233);
 			this.m_lblQuoteMarkReview.Name = "m_lblQuoteMarkReview";
-			this.m_lblQuoteMarkReview.Size = new System.Drawing.Size(67, 13);
+			this.m_lblQuoteMarkReview.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+			this.m_lblQuoteMarkReview.Size = new System.Drawing.Size(67, 18);
 			this.m_lblQuoteMarkReview.TabIndex = 20;
 			this.m_lblQuoteMarkReview.Text = "Review Text";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblQuoteMarkReview, true);
@@ -471,9 +472,9 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblQuoteMarkSummary, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblQuoteMarkSummary, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblQuoteMarkSummary, "DialogBoxes.ProjectSettingsDlg.GeneralTab.QuoteMarkSummary");
-			this.m_lblQuoteMarkSummary.Location = new System.Drawing.Point(161, 246);
+			this.m_lblQuoteMarkSummary.Location = new System.Drawing.Point(161, 251);
 			this.m_lblQuoteMarkSummary.Name = "m_lblQuoteMarkSummary";
-			this.m_lblQuoteMarkSummary.Size = new System.Drawing.Size(132, 52);
+			this.m_lblQuoteMarkSummary.Size = new System.Drawing.Size(132, 47);
 			this.m_lblQuoteMarkSummary.TabIndex = 22;
 			this.m_lblQuoteMarkSummary.Text = "Summary Text";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblQuoteMarkSummary, true);
@@ -490,7 +491,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnQuoteMarkSettings, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnQuoteMarkSettings, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnQuoteMarkSettings, "DialogBoxes.ProjectSettingsDlg.GeneralTab.ReviewChangeQuoteMarkSettings");
-			this.m_btnQuoteMarkSettings.Location = new System.Drawing.Point(460, 249);
+			this.m_btnQuoteMarkSettings.Location = new System.Drawing.Point(460, 254);
 			this.m_btnQuoteMarkSettings.Name = "m_btnQuoteMarkSettings";
 			this.m_btnQuoteMarkSettings.Size = new System.Drawing.Size(123, 23);
 			this.m_btnQuoteMarkSettings.TabIndex = 21;
@@ -549,12 +550,11 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblSummary, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblSummary, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblSummary, "DialogBoxes.ProjectSettingsDlg.GeneralTab.Summary");
-			this.m_lblSummary.Location = new System.Drawing.Point(6, 246);
+			this.m_lblSummary.Location = new System.Drawing.Point(6, 251);
 			this.m_lblSummary.Name = "m_lblSummary";
-			this.m_lblSummary.Size = new System.Drawing.Size(53, 52);
+			this.m_lblSummary.Size = new System.Drawing.Size(53, 47);
 			this.m_lblSummary.TabIndex = 23;
 			this.m_lblSummary.Text = "Summary:";
-			this.m_lblSummary.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblSummary, true);
 			// 
 			// m_btnUpdateFromBundle
@@ -1006,8 +1006,8 @@
 			// m_chkAnnounceChaptersForSingleChapterBooks
 			// 
 			this.m_chkAnnounceChaptersForSingleChapterBooks.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_chkAnnounceChaptersForSingleChapterBooks, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_chkAnnounceChaptersForSingleChapterBooks.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_chkAnnounceChaptersForSingleChapterBooks, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.tableLayoutPanel1.SetColumnSpan(this.m_chkAnnounceChaptersForSingleChapterBooks, 2);
 			this.m_chkAnnounceChaptersForSingleChapterBooks.Enabled = false;
 			this.m_chkAnnounceChaptersForSingleChapterBooks.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
@@ -1070,8 +1070,8 @@
 			// 
 			this.m_rdoBookNamePlusChapterNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.m_rdoBookNamePlusChapterNumber.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_rdoBookNamePlusChapterNumber, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_rdoBookNamePlusChapterNumber.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_rdoBookNamePlusChapterNumber, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_rdoBookNamePlusChapterNumber.Checked = true;
 			this.m_rdoBookNamePlusChapterNumber.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_rdoBookNamePlusChapterNumber, Glyssen.Utilities.GlyssenColors.ForeColor);
@@ -1115,8 +1115,8 @@
 			// m_rdoChapterLabel
 			// 
 			this.m_rdoChapterLabel.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_rdoChapterLabel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_rdoChapterLabel.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_rdoChapterLabel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.tableLayoutPanel1.SetColumnSpan(this.m_rdoChapterLabel, 2);
 			this.m_rdoChapterLabel.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_rdoChapterLabel, Glyssen.Utilities.GlyssenColors.ForeColor);
@@ -1138,8 +1138,8 @@
 			// m_rdoCustom
 			// 
 			this.m_rdoCustom.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_rdoCustom, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_rdoCustom.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_rdoCustom, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_rdoCustom.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_rdoCustom, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_rdoCustom.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -1160,8 +1160,8 @@
 			// m_chkChapterOneAnnouncements
 			// 
 			this.m_chkChapterOneAnnouncements.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_chkChapterOneAnnouncements, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_chkChapterOneAnnouncements.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_chkChapterOneAnnouncements, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.tableLayoutPanel1.SetColumnSpan(this.m_chkChapterOneAnnouncements, 2);
 			this.m_chkChapterOneAnnouncements.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_chkChapterOneAnnouncements, Glyssen.Utilities.GlyssenColors.ForeColor);
@@ -1234,8 +1234,8 @@
 			this.m_tabControl.Controls.Add(this.m_tabPageGeneral);
 			this.m_tabControl.Controls.Add(this.m_tabPageWritingSystem);
 			this.m_tabControl.Controls.Add(this.m_tabPageTitleAndChapterAnnouncmentOptions);
-			this.m_tabControl.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_tabControl, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_tabControl.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_tabControl.Location = new System.Drawing.Point(7, 14);
 			this.m_tabControl.Name = "m_tabControl";
 			this.m_tabControl.SelectedIndex = 0;
