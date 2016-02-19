@@ -114,9 +114,9 @@ namespace Glyssen
 			m_imgCheckBooks.Visible = m_btnSelectBooks.Enabled && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed;
 			m_btnAssign.Enabled = !readOnly && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
 			m_imgCheckAssignCharacters.Visible = m_btnAssign.Enabled && m_project.ProjectAnalysis.UserPercentAssigned == 100d;
-			m_btnExport.Enabled = !readOnly && m_imgCheckAssignCharacters.Visible;
+			m_btnExport.Enabled = !readOnly && m_btnAssign.Enabled;
 			m_btnAssignVoiceActors.Visible = Environment.GetEnvironmentVariable("Glyssen_ProtoscriptOnly", EnvironmentVariableTarget.User) == null;
-			m_btnAssignVoiceActors.Enabled = m_btnExport.Enabled;
+			m_btnAssignVoiceActors.Enabled = !readOnly && m_imgCheckAssignCharacters.Visible;
 			m_imgCheckAssignActors.Visible = m_btnAssignVoiceActors.Enabled && m_project.IsVoiceActorScriptReady;
 			m_lnkExit.Enabled = !readOnly;
 		}
@@ -388,10 +388,10 @@ namespace Glyssen
 			var exporter = new ProjectExporter(m_project);
 
 			bool export = true;
+			string dlgMessage = null;
+			string dlgTitle = null;
 			if (exporter.IncludeVoiceActors)
 			{
-				string dlgMessage = null;
-				string dlgTitle = null;
 				if (!m_project.IsVoiceActorAssignmentsComplete)
 				{
 					dlgMessage = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.NotAssignedMessage",
@@ -410,13 +410,19 @@ namespace Glyssen
 						"One or more voice actors have not been assigned to a character group. Are you sure you want to export a script?");
 					dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Title", "Export Script?");
 				}
-				if (dlgMessage != null)
-				{
-					dlgMessage += Environment.NewLine +
-						LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.MessageNote",
-						"(Note: You can export the script again as many times as you want.)");
-					export = MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
-				}
+			}
+			else if (m_project.ProjectAnalysis.UserPercentAssigned != 100d)
+			{
+				dlgMessage = string.Format(LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.CharacterAssignmentIncompleteMessage",
+					"Character assignment is {0:N1}% complete. Are you sure you want to export a script?"), m_project.ProjectAnalysis.UserPercentAssigned);
+				dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.TitleIncomplete", "Export Incomplete Script?");
+			}
+			if (dlgMessage != null)
+			{
+				dlgMessage += Environment.NewLine +
+							  LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.MessageNote",
+								  "(Note: You can export the script again as many times as you want.)");
+				export = MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
 			}
 			if (!export) return;
 			using (var dlg = new ExportDlg(exporter))
