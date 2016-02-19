@@ -321,6 +321,16 @@ namespace Glyssen
 			get { return !CharacterVerseData.IsCharacterStandard(CharacterId) || UserConfirmed; }
 		}
 
+		/// <summary>
+		/// Gets whether the specified block represents Scripture text. (Only Scripture blocks can have their
+		/// character/delivery changed. Book titles, chapters, and section heads have characters assigned
+		/// programmatically and cannot be changed.)
+		/// </summary>
+		public bool IsScripture
+		{
+			get { return !CharacterVerseData.IsCharacterStandard(CharacterId, false); }
+		}
+
 		public bool CharacterIs(string bookId, CharacterVerseData.StandardCharacter standardCharacterType)
 		{
 			return CharacterId == CharacterVerseData.GetStandardCharacterId(bookId, standardCharacterType);

@@ -3,8 +3,10 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
 using Gecko;
+using Gecko.DOM;
 using Gecko.Events;
 using Glyssen.Dialogs;
+using Glyssen.Utilities;
 using L10NSharp;
 using SIL.Windows.Forms.PortableSettingsProvider;
 
@@ -216,6 +218,29 @@ namespace Glyssen.Controls
 		private void OnDocumentCompleted(object sender, GeckoDocumentCompletedEventArgs e)
 		{
 			m_blocksDisplayBrowser.ScrollElementIntoView(BlockNavigatorViewModel.kMainQuoteElementId, -225);
+		}
+
+		private void OnMouseClick(object sender, DomMouseEventArgs e)
+		{
+			if (!m_blocksDisplayBrowser.Window.Selection.IsCollapsed)
+				return;
+
+			GeckoElement geckoElement;
+			if (GeckoUtilities.ParseDomEventTargetAsGeckoElement(e.Target, out geckoElement))
+			{
+				var geckoDivElement = geckoElement as GeckoDivElement;
+
+				while (geckoDivElement != null && !geckoDivElement.ClassName.Contains("block scripture"))
+					geckoDivElement = geckoDivElement.Parent as GeckoDivElement;
+				if (geckoDivElement == null)
+					return;
+
+				int blockIndexInBook;
+				GeckoNode blockIndexInBookAttr = geckoDivElement.Attributes["data-block-index-in-book"];
+				if (blockIndexInBookAttr == null || !Int32.TryParse(blockIndexInBookAttr.NodeValue, out blockIndexInBook))
+					return;
+				m_viewModel.CurrentBlockIndexInBook = blockIndexInBook;
+			}
 		}
 		#endregion
 	}

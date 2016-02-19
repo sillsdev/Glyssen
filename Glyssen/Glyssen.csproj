@@ -286,6 +286,7 @@
     <Compile Include="Utilities\FormWithPersistedSettings.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Utilities\GeckoUtilities.cs" />
     <Compile Include="Utilities\GlyssenColorPalette.cs">
       <SubType>Component</SubType>
     </Compile>

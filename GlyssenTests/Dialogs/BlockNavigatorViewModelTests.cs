@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
@@ -402,14 +401,14 @@ namespace GlyssenTests.Dialogs
 		{
 			m_model.Mode = BlocksToDisplay.AllScripture;
 			FindRefInMark(1, 12);
-			Assert.IsTrue(m_model.GetIsBlockScripture(m_model.CurrentBlock));
+			Assert.IsTrue(m_model.CurrentBlock.IsScripture);
 			Assert.IsTrue(m_model.GetIsBlockScripture(m_model.CurrentBlockIndexInBook));
 		}
 
 		[Test]
 		public void GetIsBlockScripture_TitleBlock_ReturnsFalse()
 		{
-			Assert.IsFalse(m_model.GetIsBlockScripture(m_testProject.IncludedBooks[0].Blocks[0]));
+			Assert.IsFalse(m_testProject.IncludedBooks[0].Blocks[0].IsScripture);
 			Assert.IsFalse(m_model.GetIsBlockScripture(0));
 		}
 

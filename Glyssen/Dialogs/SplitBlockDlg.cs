@@ -95,7 +95,7 @@ namespace Glyssen.Dialogs
 		private void HandleClick(object sender, DomMouseEventArgs e)
 		{
 			GeckoElement geckoElement;
-			if (ParseDomEventTargetAsGeckoElement(e.Target, out geckoElement))
+			if (m_blocksDisplayBrowser.Visible && GeckoUtilities.ParseDomEventTargetAsGeckoElement(e.Target, out geckoElement))
 			{
 				int splitId;
 				if (IsElementSplitLine(geckoElement, out splitId))
@@ -130,16 +130,6 @@ namespace Glyssen.Dialogs
 				return true;
 			}
 			return false;
-		}
-
-		private bool ParseDomEventTargetAsGeckoElement(DomEventTarget domEventTarget, out GeckoElement geckoElement)
-		{
-			geckoElement = null;
-			if (!m_blocksDisplayBrowser.Visible || domEventTarget == null)
-				return false;
-
-			geckoElement = domEventTarget.CastToGeckoElement();
-			return geckoElement != null;
 		}
 
 		private bool DetermineSplitLocation(GeckoElement geckoElement)

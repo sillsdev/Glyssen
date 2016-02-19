@@ -37,8 +37,8 @@ namespace Glyssen.Dialogs
 		private const string kHtmlLineBreak = "<div class='block-spacer'></div>";
 		internal const string kCssClassContext = "context";
 		private const string kCssFrame = Block.kCssFrame +
-										".highlight{{background-color:yellow}}" +
-										"." + kCssClassContext + ":hover{{background-color:#FFFFA0}}" +
+										".highlight{{background-color:highlight;color:highlighttext}}" +
+										"." + kCssClassContext + ":hover{{background-color:#E1F0FF}}" +
 										".block-spacer{{height:30px}}" +
 										".section-header{{text-align:center;font-weight:bold}}" +
 										".chapter-label{{font-weight:bold;font-size:150%}}";
@@ -311,9 +311,14 @@ namespace Glyssen.Dialogs
 			var bldr = new StringBuilder();
 			bldr.Append("<div");
 			if (block.StyleTag.StartsWith("s"))
-				bldr.Append(" class=\"section-header\"");
+				bldr.Append(" class=\"block section-header\"");
 			else if (block.IsChapterAnnouncement)
-				bldr.Append(" class=\"chapter-label\"");
+				bldr.Append(" class=\"block chapter-label\"");
+			else if (block.IsScripture)
+				bldr.Append(" class=\"block scripture\"");
+			else
+				bldr.Append(" class=\"block\"");
+			bldr.Append(" data-block-index-in-book=\"").Append(m_navigator.GetIndicesOfSpecificBlock(block).BlockIndex).Append("\"");
 			bldr.Append(">");
 			bldr.Append(text);
 			bldr.Append("</div>");
@@ -610,7 +615,7 @@ namespace Glyssen.Dialogs
 				return (block.UserConfirmed || block.CharacterIsUnclear());
 			if ((Mode & BlocksToDisplay.AllExpectedQuotes) > 0)
 			{
-				if (!GetIsBlockScripture(block))
+				if (!block.IsScripture)
 					return false;
 				return ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber, block.InitialStartVerseNumber,
 					block.LastVerse, versification: Versification).Any(c => c.IsExpected);
@@ -662,7 +667,7 @@ namespace Glyssen.Dialogs
 				return (actualquotes > expectedSpeakers);
 			}
 			if ((Mode & BlocksToDisplay.AllScripture) > 0)
-				return GetIsBlockScripture(block);
+				return block.IsScripture;
 			if ((Mode & BlocksToDisplay.AllQuotes) > 0)
 				return block.IsQuote;
 			return false;
@@ -690,19 +695,9 @@ namespace Glyssen.Dialogs
 		/// character/delivery changed. Book titles, chapters, and section heads have characters assigned
 		/// programmatically and cannot be changed.)
 		/// </summary>
-		public bool GetIsBlockScripture(Block block)
-		{
-			return !CharacterVerseData.IsCharacterStandard(block.CharacterId, false);
-		}
-
-		/// <summary>
-		/// Gets whether the specified block represents Scripture text. (Only Scripture blocks can have their
-		/// character/delivery changed. Book titles, chapters, and section heads have characters assigned
-		/// programmatically and cannot be changed.)
-		/// </summary>
 		public bool GetIsBlockScripture(int blockIndex)
 		{
-			return GetIsBlockScripture(GetNthBlockInCurrentBook(blockIndex));
+			return GetNthBlockInCurrentBook(blockIndex).IsScripture;
 		}
 		#endregion
 	}

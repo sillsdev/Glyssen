@@ -188,6 +188,7 @@ namespace Glyssen.Controls
 			this.m_blocksDisplayBrowser.TabIndex = 0;
 			this.m_blocksDisplayBrowser.OnMouseOver += new System.EventHandler<Gecko.DomMouseEventArgs>(this.OnMouseOver);
 			this.m_blocksDisplayBrowser.OnDocumentCompleted += new System.EventHandler<Gecko.Events.GeckoDocumentCompletedEventArgs>(this.OnDocumentCompleted);
+			this.m_blocksDisplayBrowser.OnMouseClick += new System.EventHandler<Gecko.DomMouseEventArgs>(this.OnMouseClick);
 			// 
 			// ScriptBlocksViewer
 			// 
