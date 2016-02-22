@@ -63,6 +63,7 @@
 			this.m_btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.glyssenColorPalette.SetBackColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
@@ -81,6 +82,7 @@
 			this.m_btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.glyssenColorPalette.SetBackColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnCancel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancel, null);
@@ -162,9 +164,13 @@
 			// m_checkBoxNewTestament
 			// 
 			this.m_checkBoxNewTestament.AutoSize = true;
+			this.m_checkBoxNewTestament.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_checkBoxNewTestament, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_checkBoxNewTestament.Checked = true;
 			this.m_checkBoxNewTestament.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.m_checkBoxNewTestament.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_checkBoxNewTestament, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_checkBoxNewTestament.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_checkBoxNewTestament, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_checkBoxNewTestament, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_checkBoxNewTestament, null);
@@ -174,15 +180,20 @@
 			this.m_checkBoxNewTestament.Size = new System.Drawing.Size(101, 17);
 			this.m_checkBoxNewTestament.TabIndex = 4;
 			this.m_checkBoxNewTestament.Text = "New Testament";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_checkBoxNewTestament, true);
 			this.m_checkBoxNewTestament.UseVisualStyleBackColor = true;
 			this.m_checkBoxNewTestament.CheckedChanged += new System.EventHandler(this.CheckBoxNewTestament_CheckedChanged);
 			// 
 			// m_checkBoxOldTestament
 			// 
 			this.m_checkBoxOldTestament.AutoSize = true;
+			this.m_checkBoxOldTestament.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_checkBoxOldTestament, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_checkBoxOldTestament.Checked = true;
 			this.m_checkBoxOldTestament.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.m_checkBoxOldTestament.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_checkBoxOldTestament, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_checkBoxOldTestament.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_checkBoxOldTestament, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_checkBoxOldTestament, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_checkBoxOldTestament, null);
@@ -192,6 +203,7 @@
 			this.m_checkBoxOldTestament.Size = new System.Drawing.Size(95, 17);
 			this.m_checkBoxOldTestament.TabIndex = 5;
 			this.m_checkBoxOldTestament.Text = "Old Testament";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_checkBoxOldTestament, true);
 			this.m_checkBoxOldTestament.UseVisualStyleBackColor = true;
 			this.m_checkBoxOldTestament.CheckedChanged += new System.EventHandler(this.CheckBoxOldTestament_CheckedChanged);
 			// 
@@ -306,6 +318,8 @@
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Select Books";
+			this.glyssenColorPalette.SetUsePaletteColors(this, true);
+			this.Load += new System.EventHandler(this.ScriptureRangeSelectionDlg_Load);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_ntBooksGrid)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_otBooksGrid)).EndInit();

@@ -450,6 +450,7 @@ namespace Glyssen.Dialogs
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Export";
 			this.glyssenColorPalette.SetUsePaletteColors(this, true);
+			this.Load += new System.EventHandler(this.ExportDlg_Load);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			this.m_tableLayoutPanelMan.ResumeLayout(false);
 			this.m_tableLayoutPanelMan.PerformLayout();

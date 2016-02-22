@@ -452,6 +452,11 @@ namespace Glyssen.Dialogs
 				m_blocksViewer.ShowNothingMatchesFilterMessage();
 		}
 
+		private void AssignCharacterDlg_Load(object sender, EventArgs e)
+		{
+			MainForm.SetChildFormLocation(this);
+		}
+
 		private void AssignCharacterDialog_Shown(object sender, EventArgs e)
 		{
 			m_formLoading = false;

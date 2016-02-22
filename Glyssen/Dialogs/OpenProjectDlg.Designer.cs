@@ -75,8 +75,8 @@
 			this.m_linkTextReleaseBundle.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkTextReleaseBundle, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkTextReleaseBundle.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.m_linkTextReleaseBundle.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_linkTextReleaseBundle, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_linkTextReleaseBundle.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_linkTextReleaseBundle.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_linkTextReleaseBundle, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkTextReleaseBundle, null);
@@ -229,6 +229,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Open Project";
 			this.glyssenColorPalette.SetUsePaletteColors(this, true);
+			this.Load += new System.EventHandler(this.OpenProjectDlg_Load);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			this.m_tableLayoutPanelMain.ResumeLayout(false);
 			this.m_tableLayoutPanelMain.PerformLayout();

@@ -43,6 +43,11 @@ namespace Glyssen.Dialogs
 			Initialize();
 		}
 
+		private void ScriptureRangeSelectionDlg_Load(object sender, EventArgs e)
+		{
+			MainForm.SetChildFormLocation(this);
+		}
+
 		private void Initialize()
 		{
 			m_includeInScript = new Dictionary<string, bool>(m_project.AvailableBooks.Count);

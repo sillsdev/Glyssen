@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -25,6 +27,9 @@ namespace Glyssen
 {
 	public partial class MainForm : FormWithPersistedSettings
 	{
+		public const int kChildFormLocationX = 202;
+		public const int kChildFormLocationY = 95;
+
 		private Project m_project;
 		private string m_percentAssignedFmt;
 		private string m_actorsAssignedFmt;
@@ -40,6 +45,17 @@ namespace Glyssen
 
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized; // Don't need to unsubscribe since this object will be around as long as the program is running.
+		}
+
+		public static void SetChildFormLocation(Form childForm)
+		{
+			MainForm parentForm = childForm.Owner as MainForm;
+			Debug.Assert(parentForm != null);
+
+			if (parentForm == null || childForm.WindowState == FormWindowState.Maximized)
+				return;
+
+			childForm.Location = new Point(parentForm.Location.X + kChildFormLocationX, parentForm.Location.Y + kChildFormLocationY);
 		}
 
 		private void SetProject(Project project)
@@ -77,7 +93,7 @@ namespace Glyssen
 				if (m_project.HasUnappliedSplits())
 					using (var viewModel = new AssignCharacterViewModel(m_project))
 						using (var dlg = new UnappliedSplitsDlg(m_project.Name, viewModel, m_project.IncludedBooks))
-							dlg.ShowDialog();
+							dlg.ShowDialog(this);
 
 				Settings.Default.CurrentProject = m_project.ProjectFilePath;
 				Settings.Default.Save();
@@ -443,7 +459,7 @@ namespace Glyssen
 					var generator = new CharacterGroupGenerator(m_project, m_project.GetKeyStrokesByCharacterId(), progressDialog.BackgroundWorker);
 					progressDialog.ProgressState.Arguments = generator;
 
-					if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
+					if (progressDialog.ShowDialog(this) == DialogResult.OK && generator.GeneratedGroups != null)
 						generator.ApplyGeneratedGroupsToProject();
 					else
 						adjuster.MakeMinimalAdjustments();
@@ -496,7 +512,7 @@ namespace Glyssen
 		{
 			using (var viewModel = new AssignCharacterViewModel(m_project))
 				using (var dlg = new AssignCharacterDlg(viewModel))
-					dlg.ShowDialog();
+					dlg.ShowDialog(this);
 			m_project.Analyze();
 			UpdateDisplayOfProjectInfo();
 			SaveCurrentProject();
@@ -505,7 +521,7 @@ namespace Glyssen
 		private void SelectBooks_Click(object sender, EventArgs e)
 		{
 			using (var dlg = new ScriptureRangeSelectionDlg(m_project))
-				if (dlg.ShowDialog() == DialogResult.OK)
+				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
 					m_project.ClearAssignCharacterStatus();
 					m_project.Analyze();
@@ -552,7 +568,7 @@ namespace Glyssen
 		{
 			using (var dlg = new SILAboutBox(FileLocator.GetFileDistributedWithApplication("aboutbox.htm")))
 			{
-				dlg.ShowDialog();
+				dlg.ShowDialog(this);
 			}
 		}
 
@@ -566,7 +582,7 @@ namespace Glyssen
 				var actorInfoViewModel = new VoiceActorInformationViewModel(m_project);
 
 				using (var dlg = new VoiceActorInformationDlg(actorInfoViewModel))
-					if (dlg.ShowDialog() == DialogResult.OK)
+					if (dlg.ShowDialog(this) == DialogResult.OK)
 						m_project.VoiceActorStatus = VoiceActorStatus.Provided;
 				SaveCurrentProject();
 			}
@@ -578,7 +594,7 @@ namespace Glyssen
 			if (m_project.VoiceActorStatus == VoiceActorStatus.Provided)
 			{
 				using (var dlg = new VoiceActorAssignmentDlg(m_project))
-					dlg.ShowDialog();
+					dlg.ShowDialog(this);
 				SaveCurrentProject();
 			}
 			UpdateDisplayOfProjectInfo();

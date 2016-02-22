@@ -37,6 +37,12 @@ namespace Glyssen.Dialogs
 
 		public bool CloseParent { get; private set; }
 
+		private void VoiceActorInformationDlg_Load(object sender, EventArgs e)
+		{
+			if (Owner is MainForm)
+				MainForm.SetChildFormLocation(this);
+		}
+
 		private void HandleStringsLocalized()
 		{
 			string narrationPreferencesNonLinkText = m_linkNarrationPreferences.Text;

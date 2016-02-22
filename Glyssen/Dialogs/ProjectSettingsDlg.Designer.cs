@@ -1270,6 +1270,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Project Settings";
 			this.glyssenColorPalette.SetUsePaletteColors(this, true);
+			this.Load += new System.EventHandler(this.ProjectSettingsDlg_Load);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			this.m_tabPageGeneral.ResumeLayout(false);
 			this.m_tableLayoutMain.ResumeLayout(false);

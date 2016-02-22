@@ -85,6 +85,11 @@ namespace Glyssen.Dialogs
 			m_hyperlinkFont = new Font(m_characterGroupGrid.Columns[CharacterIdsCol.Index].InheritedStyle.Font, FontStyle.Underline);
 		}
 
+		private void VoiceActorAssignmentDlg_Load(object sender, EventArgs e)
+		{
+			MainForm.SetChildFormLocation(this);
+		}
+
 		private void GenerateGroupsWithProgress(bool attemptToPreserveActorAssignments, bool firstGroupGenerationRun, bool cancelLink = false)
 		{
 			using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork, firstGroupGenerationRun, cancelLink))
@@ -197,7 +202,7 @@ namespace Glyssen.Dialogs
 
 			using (var actorDlg = new VoiceActorInformationDlg(actorInfoViewModel, false))
 			{
-				actorDlg.ShowDialog();
+				actorDlg.ShowDialog(this);
 				if (actorDlg.CloseParent)
 				{
 					Close();

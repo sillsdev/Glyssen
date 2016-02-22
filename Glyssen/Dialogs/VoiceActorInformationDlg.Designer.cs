@@ -331,8 +331,8 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetBackColor(this.m_dataGrid, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_dataGrid.BackgroundColor = System.Drawing.SystemColors.Control;
 			this.tableLayoutPanel1.SetColumnSpan(this.m_dataGrid, 4);
-			this.glyssenColorPalette.SetForeColor(this.m_dataGrid, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_dataGrid.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_dataGrid, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_dataGrid, "DialogBoxes.VoiceActorInformation.voiceActorInformationGrid21");
@@ -428,6 +428,7 @@ namespace Glyssen.Dialogs
 			this.Text = "Voice Actor Information";
 			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VoiceActorInformationDlg_FormClosing);
+			this.Load += new System.EventHandler(this.VoiceActorInformationDlg_Load);
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).EndInit();
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();

@@ -3,7 +3,6 @@ using System.IO;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Properties;
-using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.Reporting;
@@ -39,6 +38,11 @@ namespace Glyssen.Dialogs
 			m_lblFileName.Text = Path.Combine(m_defaultDirectory, defaultFileName);
 
 			UpdateDisplay();
+		}
+
+		private void ExportDlg_Load(object sender, EventArgs e)
+		{
+			MainForm.SetChildFormLocation(this);
 		}
 
 		private void HandleStringsLocalized()

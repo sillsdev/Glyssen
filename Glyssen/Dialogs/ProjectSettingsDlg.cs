@@ -9,8 +9,6 @@ using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Utilities;
 using L10NSharp;
-using L10NSharp.UI;
-using SIL.Extensions;
 using SIL.IO;
 
 namespace Glyssen.Dialogs
@@ -54,6 +52,11 @@ namespace Glyssen.Dialogs
 
 			ProjectSettingsViewModel = model;
 			UpdateQuotePageDisplay();
+		}
+
+		private void ProjectSettingsDlg_Load(object sender, EventArgs e)
+		{
+			MainForm.SetChildFormLocation(this);
 		}
 
 		private void RemoveItemFromBookMarkerCombo(ChapterAnnouncement chapterAnnouncement)

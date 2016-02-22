@@ -35,6 +35,11 @@ namespace Glyssen.Dialogs
 
 		public string SelectedProject { get; private set; }
 
+		private void OpenProjectDlg_Load(object sender, EventArgs e)
+		{
+			MainForm.SetChildFormLocation(this);
+		}
+
 		private void m_linkTextReleaseBundle_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			using (var dlg = new SelectProjectDlg())
