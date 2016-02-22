@@ -34,27 +34,33 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.m_contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.m_contextMenu_itemDeleteActors = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_deleteRowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_dataGrid = new SIL.Windows.Forms.Widgets.BetterGrid.BetterGrid();
+			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.dataGridViewComboBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.dataGridViewComboBoxColumn3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.dataGridViewCheckBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
 			this.ActorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ActorGender = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			this.ActorAge = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			this.ActorQuality = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			this.ActorStatus = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.Cameo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.ActorInactive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.DeleteButtonCol = new System.Windows.Forms.DataGridViewImageColumn();
-			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.dataGridViewComboBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.dataGridViewComboBoxColumn3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			this.m_contextMenu.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.l10NSharpExtender1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_dataGrid)).BeginInit();
@@ -128,6 +134,7 @@
             this.ActorQuality,
             this.ActorStatus,
             this.Cameo,
+            this.ActorInactive,
             this.DeleteButtonCol});
 			this.m_dataGrid.ContextMenuStrip = this.m_contextMenu;
 			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -168,6 +175,7 @@
 			this.m_dataGrid.WaterMark = "!";
 			this.m_dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_dataGrid_CellContentClick);
 			this.m_dataGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_dataGrid_CellEndEdit);
+			this.m_dataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.m_dataGrid_CellFormatting);
 			this.m_dataGrid.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_dataGrid_CellMouseEnterOrLeave);
 			this.m_dataGrid.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_dataGrid_CellMouseEnterOrLeave);
 			this.m_dataGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.m_dataGrid_CellValidating);
@@ -183,6 +191,98 @@
 			this.m_dataGrid.Enter += new System.EventHandler(this.m_dataGrid_Enter);
 			this.m_dataGrid.Leave += new System.EventHandler(this.m_dataGrid_Leave);
 			this.m_dataGrid.Resize += new System.EventHandler(this.HandleResize);
+			// 
+			// dataGridViewTextBoxColumn1
+			// 
+			this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.dataGridViewTextBoxColumn1.DataPropertyName = "Name";
+			dataGridViewCellStyle7.NullValue = "[new actor]";
+			this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+			this.dataGridViewTextBoxColumn1.Frozen = true;
+			this.dataGridViewTextBoxColumn1.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Name!Name";
+			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+			this.dataGridViewTextBoxColumn1.ToolTipText = "Enter Voice Actor first and last name";
+			// 
+			// dataGridViewComboBoxColumn1
+			// 
+			this.dataGridViewComboBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.dataGridViewComboBoxColumn1.DataPropertyName = "Gender";
+			this.dataGridViewComboBoxColumn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.dataGridViewComboBoxColumn1.Frozen = true;
+			this.dataGridViewComboBoxColumn1.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Gender!Gender";
+			this.dataGridViewComboBoxColumn1.MinimumWidth = 90;
+			this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
+			this.dataGridViewComboBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.dataGridViewComboBoxColumn1.Width = 342;
+			// 
+			// dataGridViewComboBoxColumn2
+			// 
+			this.dataGridViewComboBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.dataGridViewComboBoxColumn2.DataPropertyName = "Age";
+			dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+			this.dataGridViewComboBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
+			this.dataGridViewComboBoxColumn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.dataGridViewComboBoxColumn2.Frozen = true;
+			this.dataGridViewComboBoxColumn2.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.VoiceAge!Voice Age";
+			this.dataGridViewComboBoxColumn2.MinimumWidth = 90;
+			this.dataGridViewComboBoxColumn2.Name = "dataGridViewComboBoxColumn2";
+			this.dataGridViewComboBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.dataGridViewComboBoxColumn2.Width = 369;
+			// 
+			// dataGridViewComboBoxColumn3
+			// 
+			this.dataGridViewComboBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.dataGridViewComboBoxColumn3.DataPropertyName = "VoiceQuality";
+			this.dataGridViewComboBoxColumn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.dataGridViewComboBoxColumn3.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.VoiceQuality!Voice Quality";
+			this.dataGridViewComboBoxColumn3.MinimumWidth = 90;
+			this.dataGridViewComboBoxColumn3.Name = "dataGridViewComboBoxColumn3";
+			this.dataGridViewComboBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.dataGridViewComboBoxColumn3.Visible = false;
+			this.dataGridViewComboBoxColumn3.Width = 403;
+			// 
+			// dataGridViewCheckBoxColumn1
+			// 
+			this.dataGridViewCheckBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.dataGridViewCheckBoxColumn1.DataPropertyName = "Status";
+			this.dataGridViewCheckBoxColumn1.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Status!Status";
+			this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+			this.dataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.dataGridViewCheckBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.dataGridViewCheckBoxColumn1.Visible = false;
+			this.dataGridViewCheckBoxColumn1.Width = 330;
+			// 
+			// dataGridViewCheckBoxColumn2
+			// 
+			this.dataGridViewCheckBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.dataGridViewCheckBoxColumn2.DataPropertyName = "IsCameo";
+			this.dataGridViewCheckBoxColumn2.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Cameo!Cameo";
+			this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
+			this.dataGridViewCheckBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.dataGridViewCheckBoxColumn2.Width = 342;
+			// 
+			// dataGridViewCheckBoxColumn3
+			// 
+			this.dataGridViewCheckBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.dataGridViewCheckBoxColumn3.DataPropertyName = "IsInactive";
+			this.dataGridViewCheckBoxColumn3.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Inactive!Inactive";
+			this.dataGridViewCheckBoxColumn3.Name = "dataGridViewCheckBoxColumn3";
+			this.dataGridViewCheckBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.dataGridViewCheckBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.dataGridViewCheckBoxColumn3.Width = 348;
+			// 
+			// dataGridViewImageColumn1
+			// 
+			this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle9;
+			this.dataGridViewImageColumn1.HeaderText = "";
+			this.dataGridViewImageColumn1.Image = global::Glyssen.Properties.Resources.RemoveGridRowNormal;
+			this.dataGridViewImageColumn1.MinimumWidth = 20;
+			this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+			this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.dataGridViewImageColumn1.ToolTipText = "Delete this voice actor";
+			this.dataGridViewImageColumn1.Width = 20;
 			// 
 			// ActorName
 			// 
@@ -228,6 +328,7 @@
 			this.ActorQuality.Name = "ActorQuality";
 			this.ActorQuality.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			this.ActorQuality.Visible = false;
+			this.ActorQuality.Width = 403;
 			// 
 			// ActorStatus
 			// 
@@ -238,6 +339,7 @@
 			this.ActorStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
 			this.ActorStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			this.ActorStatus.Visible = false;
+			this.ActorStatus.Width = 330;
 			// 
 			// Cameo
 			// 
@@ -247,6 +349,16 @@
 			this.Cameo.Name = "Cameo";
 			this.Cameo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			this.Cameo.Width = 342;
+			// 
+			// ActorInactive
+			// 
+			this.ActorInactive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.ActorInactive.DataPropertyName = "IsInactive";
+			this.ActorInactive.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Inactive!Inactive";
+			this.ActorInactive.Name = "ActorInactive";
+			this.ActorInactive.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.ActorInactive.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.ActorInactive.Width = 348;
 			// 
 			// DeleteButtonCol
 			// 
@@ -260,52 +372,6 @@
 			this.DeleteButtonCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
 			this.DeleteButtonCol.ToolTipText = "Delete this voice actor";
 			this.DeleteButtonCol.Width = 20;
-			// 
-			// dataGridViewTextBoxColumn1
-			// 
-			this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.dataGridViewTextBoxColumn1.DataPropertyName = "Name";
-			dataGridViewCellStyle7.NullValue = "[new actor]";
-			this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle7;
-			this.dataGridViewTextBoxColumn1.Frozen = true;
-			this.dataGridViewTextBoxColumn1.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Name!Name";
-			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-			this.dataGridViewTextBoxColumn1.ToolTipText = "Enter Voice Actor first and last name";
-			// 
-			// dataGridViewComboBoxColumn1
-			// 
-			this.dataGridViewComboBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewComboBoxColumn1.DataPropertyName = "Gender";
-			this.dataGridViewComboBoxColumn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.dataGridViewComboBoxColumn1.Frozen = true;
-			this.dataGridViewComboBoxColumn1.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.Gender!Gender";
-			this.dataGridViewComboBoxColumn1.MinimumWidth = 90;
-			this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
-			this.dataGridViewComboBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			// 
-			// dataGridViewComboBoxColumn2
-			// 
-			this.dataGridViewComboBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewComboBoxColumn2.DataPropertyName = "Age";
-			dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-			this.dataGridViewComboBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
-			this.dataGridViewComboBoxColumn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.dataGridViewComboBoxColumn2.Frozen = true;
-			this.dataGridViewComboBoxColumn2.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.VoiceAge!Voice Age";
-			this.dataGridViewComboBoxColumn2.MinimumWidth = 90;
-			this.dataGridViewComboBoxColumn2.Name = "dataGridViewComboBoxColumn2";
-			this.dataGridViewComboBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			// 
-			// dataGridViewComboBoxColumn3
-			// 
-			this.dataGridViewComboBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewComboBoxColumn3.DataPropertyName = "VoiceQuality";
-			this.dataGridViewComboBoxColumn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.dataGridViewComboBoxColumn3.HeaderText = "_L10N_:DialogBoxes.VoiceActorInformation.VoiceQuality!Voice Quality";
-			this.dataGridViewComboBoxColumn3.MinimumWidth = 90;
-			this.dataGridViewComboBoxColumn3.Name = "dataGridViewComboBoxColumn3";
-			this.dataGridViewComboBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			this.dataGridViewComboBoxColumn3.Visible = false;
 			// 
 			// VoiceActorInformationGrid
 			// 
@@ -335,12 +401,17 @@
 		private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
 		private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn2;
 		private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn3;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn3;
+		private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ActorName;
 		private System.Windows.Forms.DataGridViewComboBoxColumn ActorGender;
 		private System.Windows.Forms.DataGridViewComboBoxColumn ActorAge;
 		private System.Windows.Forms.DataGridViewComboBoxColumn ActorQuality;
 		private System.Windows.Forms.DataGridViewCheckBoxColumn ActorStatus;
 		private System.Windows.Forms.DataGridViewCheckBoxColumn Cameo;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn ActorInactive;
 		private System.Windows.Forms.DataGridViewImageColumn DeleteButtonCol;
 	}
 }

@@ -285,7 +285,7 @@ namespace GlyssenTests.Dialogs
 
 			// set up cameo actor and group
 			var cameoActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Missy Cameo", IsCameo = true };
-			m_testProject.VoiceActorList.Actors.Add(cameoActor);
+			m_testProject.VoiceActorList.AllActors.Add(cameoActor);
 			var cameoGroup = AddCharacterGroup();
 			cameoGroup.AssignVoiceActor(1);
 

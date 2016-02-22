@@ -79,7 +79,7 @@ namespace Glyssen.Rules
 
 		public List<CharacterGroup> GenerateCharacterGroups()
 		{
-			List<CharacterGroup> characterGroups = CreateGroupsForActors(m_project.VoiceActorList.Actors);
+			List<CharacterGroup> characterGroups = CreateGroupsForActors(m_project.VoiceActorList.ActiveActors);
 
 			if (m_worker.CancellationPending)
 				return GeneratedGroups = null;
@@ -89,7 +89,7 @@ namespace Glyssen.Rules
 
 			m_project.SetDefaultCharacterGroupGenerationPreferences();
 
-			List<VoiceActor.VoiceActor> nonCameoActors = m_project.VoiceActorList.Actors.Where(a => !a.IsCameo).ToList();
+			List<VoiceActor.VoiceActor> nonCameoActors = m_project.VoiceActorList.ActiveActors.Where(a => !a.IsCameo).ToList();
 
 			if (m_worker.CancellationPending)
 				return GeneratedGroups = null;
@@ -250,9 +250,9 @@ namespace Glyssen.Rules
 			return groups.Where(g => g.AssignedToCameoActor || g.CharacterIds.Any()).ToList();
 		}
 
-		private List<CharacterGroup> CreateGroupsForActors(List<VoiceActor.VoiceActor> actors)
+		private List<CharacterGroup> CreateGroupsForActors(IEnumerable<VoiceActor.VoiceActor> actors)
 		{
-			List<CharacterGroup> groups = new List<CharacterGroup>(actors.Count);
+			List<CharacterGroup> groups = new List<CharacterGroup>();
 			foreach (var voiceActor in actors)
 			{
 				CharacterGroup group = null;

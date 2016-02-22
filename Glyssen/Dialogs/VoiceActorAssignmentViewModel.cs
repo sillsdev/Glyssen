@@ -162,7 +162,7 @@ namespace Glyssen.Dialogs
 			{
 				File.WriteAllBytes(tempFile.Path, Resources.CharacterGroups);
 				ICharacterGroupSource charGroupSource = new CharacterGroupTemplateExcelFile(m_project, tempFile.Path);
-				charGroupTemplate = charGroupSource.GetTemplate(m_project.VoiceActorList.Actors.Count);
+				charGroupTemplate = charGroupSource.GetTemplate(m_project.VoiceActorList.ActiveActors.Count());
 			}
 
 			HashSet<string> includedCharacterIds = new HashSet<string>();
@@ -353,7 +353,7 @@ namespace Glyssen.Dialogs
 			bool includeCameos = !(group != null && !group.AssignedToCameoActor);
 
 			//TODO put the best matches first
-			foreach (var actor in m_project.VoiceActorList.Actors.Where(a => (!m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id) && (includeCameos || !a.IsCameo))).OrderBy(a => a.Name))
+			foreach (var actor in m_project.VoiceActorList.ActiveActors.Where(a => (!m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id) && (includeCameos || !a.IsCameo))).OrderBy(a => a.Name))
 				table.Rows.Add(GetDataTableRow(actor, LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AvailableVoiceActors", "Available:")));
 
 			table.Rows.Add(
@@ -365,7 +365,7 @@ namespace Glyssen.Dialogs
 				"",
 				"");
 
-			foreach (var actor in m_project.VoiceActorList.Actors.Where(a => (m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id) && (includeCameos || !a.IsCameo))).OrderBy(a => a.Name))
+			foreach (var actor in m_project.VoiceActorList.ActiveActors.Where(a => (m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id) && (includeCameos || !a.IsCameo))).OrderBy(a => a.Name))
 				table.Rows.Add(GetDataTableRow(actor, LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AlreadyAssignedVoiceActors",
 					"Assigned to a Character Group:")));
 

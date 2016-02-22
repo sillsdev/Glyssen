@@ -616,7 +616,7 @@ namespace Glyssen
 
 		public bool HasUnusedActor
 		{
-			get { return VoiceActorList.Actors.Any(actor => !CharacterGroupList.HasVoiceActorAssigned(actor.Id)); }
+			get { return VoiceActorList.AllActors.Any(actor => !CharacterGroupList.HasVoiceActorAssigned(actor.Id)); }
 		}
 
 		public bool HasUnappliedSplits()
@@ -1132,7 +1132,7 @@ namespace Glyssen
 			var charGroup = CharacterGroupList.CharacterGroups.FirstOrDefault(cg => cg.CharacterIds.Contains(characterId));
 			if (charGroup == null)
 				return null;
-			return VoiceActorList.Actors.FirstOrDefault(a => a.Id == charGroup.VoiceActorId);
+			return VoiceActorList.AllActors.FirstOrDefault(a => a.Id == charGroup.VoiceActorId);
 		}
 
 		public WritingSystemDefinition WritingSystem

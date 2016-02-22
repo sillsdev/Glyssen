@@ -13,8 +13,19 @@ using SIL.ObjectModel;
 
 namespace Glyssen.Controls
 {
+	#region SortBy enumeration
+	public enum VoiceActorsSortedBy
+	{
+		OrderEntered,
+		Name,
+	}
+	#endregion
+
 	public class VoiceActorInformationViewModel
 	{
+		private const int kAscending = 1;
+		private const int kDescending = -1;
+
 		private readonly Project m_project;
 		private int m_currentId;
 		private readonly List<IVoiceActorUndoAction> m_undoActions = new List<IVoiceActorUndoAction>();
@@ -47,7 +58,7 @@ namespace Glyssen.Controls
 
 		public Project Project { get { return m_project; } }
 
-		public List<VoiceActor.VoiceActor> Actors { get { return m_project.VoiceActorList.Actors; } }
+		public List<VoiceActor.VoiceActor> Actors { get { return m_project.VoiceActorList.AllActors; } }
 
 		public void SaveVoiceActorInformation()
 		{
@@ -95,6 +106,20 @@ namespace Glyssen.Controls
 			return true;
 		}
 
+		public void SetInactive(VoiceActor.VoiceActor actor, bool inactive)
+		{
+			if (actor.IsInactive == inactive)
+				return;
+
+			if (inactive && IsActorAssigned(actor))
+			{
+				m_project.CharacterGroupList.RemoveVoiceActor(actor.Id);
+				m_project.SaveCharacterGroupData();
+			}
+			actor.IsInactive = inactive;
+			SaveVoiceActorInformation();
+		}
+
 		public static DataTable GetGenderDataTable()
 		{
 			var table = new DataTable();
@@ -139,7 +164,7 @@ namespace Glyssen.Controls
 				if (removedActorInfo != null)
 					m_undoActions.Add(new VoiceActorDeletedUndoAction(m_project, removedActorInfo.Item1, removedActorInfo.Item2));
 			}
-			foreach (var currentActor in m_project.VoiceActorList.Actors)
+			foreach (var currentActor in m_project.VoiceActorList.AllActors)
 			{
 				Debug.Assert(!string.IsNullOrWhiteSpace(currentActor.Name));
 				var originalActor = m_originalActors.Find(a => a.Item1.Id == currentActor.Id);
@@ -175,6 +200,34 @@ namespace Glyssen.Controls
 			if (string.IsNullOrWhiteSpace(actor.Name))
 				return ActorValidationState.NoName;
 			return ActorValidationState.Valid;
+		}
+
+		public void Sort(VoiceActorsSortedBy by, bool sortAscending)
+		{
+			Comparison<VoiceActor.VoiceActor> how;
+			int direction = sortAscending ? kAscending : kDescending;
+			switch (by)
+			{
+				case VoiceActorsSortedBy.OrderEntered:
+					how = (a, b) => a.Id < b.Id ? -1 : 1;
+					break;
+				case VoiceActorsSortedBy.Name:
+					how = (a, b) => String.Compare(a.Name, b.Name, StringComparison.CurrentCulture) * direction;
+					break;
+				default:
+					throw new ArgumentException("Unexpected sorting method", "by");
+			}
+			Actors.Sort((a, b) =>
+			{
+				int result = 0;
+				if (!a.IsInactive && b.IsInactive)
+					result = -1;
+				if (a.IsInactive && !b.IsInactive)
+					result = 1;
+				if (result != 0)
+					return result;
+				return how.Invoke(a, b);
+			});
 		}
 	}
 }

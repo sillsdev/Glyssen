@@ -25,7 +25,7 @@ namespace Glyssen.Dialogs
 
 			m_viewModel = viewModel;
 			m_initialEntry = showNext;
-			m_dataGrid.Initialize(m_viewModel);
+			m_dataGrid.Initialize(m_viewModel, !showNext);
 
 			m_btnNext.Visible = showNext;
 			m_linkClose.Visible = showNext;
@@ -62,7 +62,7 @@ namespace Glyssen.Dialogs
 
 		private void UpdateTally()
 		{
-			var actors = m_viewModel.Project.VoiceActorList.Actors;
+			var actors = m_viewModel.Project.VoiceActorList.ActiveActors;
 			int numMale = actors.Count(a => a.Gender == ActorGender.Male);
 			int numFemale = actors.Count(a => a.Gender == ActorGender.Female);
 			int numChildren = actors.Count(a => a.Age == ActorAge.Child);

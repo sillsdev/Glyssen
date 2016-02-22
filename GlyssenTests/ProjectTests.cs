@@ -250,7 +250,7 @@ namespace GlyssenTests
 			var project = TestProject.CreateBasicTestProject();
 
 			var actor = new Glyssen.VoiceActor.VoiceActor();
-			project.VoiceActorList.Actors.Add(actor);
+			project.VoiceActorList.AllActors.Add(actor);
 			var group = new CharacterGroup(project);
 			group.AssignVoiceActor(actor.Id);
 			project.CharacterGroupList.CharacterGroups.Add(group);
@@ -264,7 +264,7 @@ namespace GlyssenTests
 			var project = TestProject.CreateBasicTestProject();
 
 			var actor = new Glyssen.VoiceActor.VoiceActor();
-			project.VoiceActorList.Actors.Add(actor);
+			project.VoiceActorList.AllActors.Add(actor);
 			var group = new CharacterGroup(project);
 			project.CharacterGroupList.CharacterGroups.Add(group);
 
@@ -277,7 +277,7 @@ namespace GlyssenTests
 			var project = TestProject.CreateBasicTestProject();
 
 			var actor = new Glyssen.VoiceActor.VoiceActor();
-			project.VoiceActorList.Actors.Add(actor);
+			project.VoiceActorList.AllActors.Add(actor);
 			var group = new CharacterGroup(project);
 			group.CharacterIds.Add("Bob");
 			group.AssignVoiceActor(actor.Id);
@@ -293,7 +293,7 @@ namespace GlyssenTests
 			var project = TestProject.CreateBasicTestProject();
 
 			var actor = new Glyssen.VoiceActor.VoiceActor();
-			project.VoiceActorList.Actors.Add(actor);
+			project.VoiceActorList.AllActors.Add(actor);
 			var group = new CharacterGroup(project);
 			group.AssignVoiceActor(actor.Id);
 			project.CharacterGroupList.CharacterGroups.Add(group);
@@ -308,7 +308,7 @@ namespace GlyssenTests
 			var project = TestProject.CreateBasicTestProject();
 
 			var actor1 = new Glyssen.VoiceActor.VoiceActor();
-			project.VoiceActorList.Actors.Add(actor1);
+			project.VoiceActorList.AllActors.Add(actor1);
 			var group = new CharacterGroup(project);
 			group.AssignVoiceActor(actor1.Id);
 			project.CharacterGroupList.CharacterGroups.Add(group);
@@ -323,9 +323,9 @@ namespace GlyssenTests
 			var project = TestProject.CreateBasicTestProject();
 
 			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 0 };
-			project.VoiceActorList.Actors.Add(actor1);
+			project.VoiceActorList.AllActors.Add(actor1);
 			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 1 };
-			project.VoiceActorList.Actors.Add(actor2);
+			project.VoiceActorList.AllActors.Add(actor2);
 			var group = new CharacterGroup(project);
 			group.AssignVoiceActor(actor1.Id);
 			project.CharacterGroupList.CharacterGroups.Add(group);

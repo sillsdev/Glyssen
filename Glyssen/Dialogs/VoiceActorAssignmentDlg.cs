@@ -291,7 +291,7 @@ namespace Glyssen.Dialogs
 						break;
 					case kAssignToCameoActorItemId:
 						var actorOfSelectedGroup = selectedCharacterGroup.VoiceActorId;
-						var availableCameoActors = m_project.VoiceActorList.Actors.Where(a => a.Id != actorOfSelectedGroup && a.IsCameo)
+						var availableCameoActors = m_project.VoiceActorList.ActiveActors.Where(a => a.Id != actorOfSelectedGroup && a.IsCameo)
 							.OrderBy(a => a.Name).ToList();
 
 						item.Enabled = availableCameoActors.Any();
@@ -743,7 +743,7 @@ namespace Glyssen.Dialogs
 			{
 				m_characterIdsForSelectedGroup = currentGroup.CharacterIds.ToList();
 				m_characterDetailsGrid.Visible = m_characterDetailsVisible;
-				m_linkLabelShowHideDetails.Visible = !m_project.VoiceActorList.Actors.Any(a => a.IsCameo);
+				m_linkLabelShowHideDetails.Visible = !m_project.VoiceActorList.ActiveActors.Any(a => a.IsCameo);
 				m_characterDetailsGrid.RowCount = m_characterIdsForSelectedGroup.Count;
 				m_characterDetailsGrid.Refresh();
 				//m_lblNoCharactersInGroup.Visible = false;

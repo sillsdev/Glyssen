@@ -344,7 +344,7 @@ namespace Glyssen
 				return;
 			}
 
-			int actors = m_project.VoiceActorList.Actors.Count;
+			int actors = m_project.VoiceActorList.ActiveActors.Count();
 			int assigned = m_project.CharacterGroupList.CountVoiceActorsAssigned();
 			m_lblActorsAssigned.Text = string.Format(m_actorsAssignedFmt, actors, assigned);
 		}

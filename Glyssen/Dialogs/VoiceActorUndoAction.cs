@@ -70,12 +70,12 @@ namespace Glyssen.Dialogs
 		{
 			var affectedActor = m_project.VoiceActorList.GetVoiceActorById(m_affectedActorInformation.Id);
 
-			if (affectedActor == null || m_project.VoiceActorList.Actors.Any(a => !a.Equals(affectedActor) && a.Name == m_previousActorInformation.Name))
+			if (affectedActor == null || m_project.VoiceActorList.AllActors.Any(a => !a.Equals(affectedActor) && a.Name == m_previousActorInformation.Name))
 				return false;
 
-			var index = m_project.VoiceActorList.Actors.IndexOf(affectedActor);
-			m_project.VoiceActorList.Actors.RemoveAt(index);
-			m_project.VoiceActorList.Actors.Insert(index, m_previousActorInformation.MakeCopy());
+			var index = m_project.VoiceActorList.AllActors.IndexOf(affectedActor);
+			m_project.VoiceActorList.AllActors.RemoveAt(index);
+			m_project.VoiceActorList.AllActors.Insert(index, m_previousActorInformation.MakeCopy());
 
 			return true;
 		}
@@ -83,12 +83,12 @@ namespace Glyssen.Dialogs
 		public bool Redo()
 		{
 			var affectedActor = m_project.VoiceActorList.GetVoiceActorById(m_previousActorInformation.Id);
-			if (affectedActor == null || m_project.VoiceActorList.Actors.Any(a => !a.Equals(affectedActor) && a.Name == m_affectedActorInformation.Name))
+			if (affectedActor == null || m_project.VoiceActorList.AllActors.Any(a => !a.Equals(affectedActor) && a.Name == m_affectedActorInformation.Name))
 				return false;
 
-			var index = m_project.VoiceActorList.Actors.IndexOf(affectedActor);
-			m_project.VoiceActorList.Actors.RemoveAt(index);
-			m_project.VoiceActorList.Actors.Insert(index, m_affectedActorInformation.MakeCopy());
+			var index = m_project.VoiceActorList.AllActors.IndexOf(affectedActor);
+			m_project.VoiceActorList.AllActors.RemoveAt(index);
+			m_project.VoiceActorList.AllActors.Insert(index, m_affectedActorInformation.MakeCopy());
 
 			return true;
 		}
@@ -142,7 +142,7 @@ namespace Glyssen.Dialogs
 
 		public bool Undo()
 		{
-			if (m_project.VoiceActorList.Actors.Any(a => a.Name == m_deletedActor.Name))
+			if (m_project.VoiceActorList.AllActors.Any(a => a.Name == m_deletedActor.Name))
 				return false;
 			CharacterGroup assignedCharacterGroup = null;
 			if (m_characterIdsOfAssignedGroup != null)
@@ -152,9 +152,9 @@ namespace Glyssen.Dialogs
 					return false;
 			}
 			var replacementActor = m_deletedActor.MakeCopy();
-			while (m_project.VoiceActorList.Actors.Any(a => a.Id == replacementActor.Id))
+			while (m_project.VoiceActorList.AllActors.Any(a => a.Id == replacementActor.Id))
 				replacementActor.Id++;
-			m_project.VoiceActorList.Actors.Add(replacementActor);
+			m_project.VoiceActorList.AllActors.Add(replacementActor);
 			if (assignedCharacterGroup != null)
 				assignedCharacterGroup.AssignVoiceActor(replacementActor.Id);
 			return true;
@@ -174,7 +174,7 @@ namespace Glyssen.Dialogs
 				if (assignedCharacterGroup != null && assignedCharacterGroup.VoiceActorId == actorToDelete.Id)
 					assignedCharacterGroup.RemoveVoiceActor();
 			}
-			m_project.VoiceActorList.Actors.Remove(actorToDelete);
+			m_project.VoiceActorList.AllActors.Remove(actorToDelete);
 			return true;
 		}
 	}
@@ -225,18 +225,18 @@ namespace Glyssen.Dialogs
 			if (affectedActor == null || m_project.CharacterGroupList.GetGroupsAssignedToActor(affectedActor.Id).Any())
 				return false;
 
-			m_project.VoiceActorList.Actors.Remove(affectedActor);
+			m_project.VoiceActorList.AllActors.Remove(affectedActor);
 			return true;
 		}
 
 		public bool Redo()
 		{
-			if (m_project.VoiceActorList.Actors.Any(a => a.Name == m_addedActorInformation.Name))
+			if (m_project.VoiceActorList.AllActors.Any(a => a.Name == m_addedActorInformation.Name))
 				return false;
 			var replacementActor = m_addedActorInformation.MakeCopy();
-			while (m_project.VoiceActorList.Actors.Any(a => a.Id == replacementActor.Id))
+			while (m_project.VoiceActorList.AllActors.Any(a => a.Id == replacementActor.Id))
 				replacementActor.Id++;
-			m_project.VoiceActorList.Actors.Add(replacementActor);
+			m_project.VoiceActorList.AllActors.Add(replacementActor);
 			return true;
 		}
 	}

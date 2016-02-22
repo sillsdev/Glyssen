@@ -10,11 +10,16 @@ namespace Glyssen.VoiceActor
 	{
 		public VoiceActorList()
 		{
-			Actors = new List<VoiceActor>();
+			AllActors = new List<VoiceActor>();
 		}
 
 		[XmlElement("VoiceActor")]
-		public List<VoiceActor> Actors { get; set; }
+		public List<VoiceActor> AllActors { get; set; }
+
+		public IEnumerable<VoiceActor> ActiveActors
+		{
+			get { return AllActors.Where(a => !a.IsInactive); }
+		}
 
 		public void SaveToFile(string filename)
 		{
@@ -28,7 +33,7 @@ namespace Glyssen.VoiceActor
 
 		public VoiceActor GetVoiceActorById(int voiceActorId)
 		{
-			return Actors.FirstOrDefault(a => a.Id == voiceActorId);
+			return AllActors.FirstOrDefault(a => a.Id == voiceActorId);
 		}
 	}
 }

@@ -76,7 +76,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void Constructor_PerfectCoverage_NoAdditionsOrDeletions()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(9, 2, 1);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(9, 2, 1);
 			GenerateGroups();
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
 			Assert.IsFalse(adjuster.CharactersNotCoveredByAnyGroup.Any());
@@ -91,9 +91,9 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void CharacterGroupsToRemove_EmptyGroup_ReturnsFalse()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(9, 2, 1);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(9, 2, 1);
 			GenerateGroups();
-			m_testProject.CharacterGroupList.CharacterGroups[0].AssignVoiceActor(m_testProject.VoiceActorList.Actors[2].Id);
+			m_testProject.CharacterGroupList.CharacterGroups[0].AssignVoiceActor(m_testProject.VoiceActorList.AllActors[2].Id);
 			foreach (var character in m_testProject.CharacterGroupList.CharacterGroups[0].CharacterIds)
 				m_testProject.CharacterGroupList.CharacterGroups[1].CharacterIds.Add(character);
 			m_testProject.CharacterGroupList.CharacterGroups[0].CharacterIds.Clear();
@@ -110,7 +110,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void Constructor_CharactersAddedToProject_AdditionsButNoDeletions()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(9, 2, 1);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(9, 2, 1);
 			GenerateGroups();
 			m_testProject.AvailableBooks.Single(b => b.Code == "ACT").IncludeInScript = true;
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
@@ -134,7 +134,7 @@ namespace GlyssenTests.Rules
 			// By keeping the number of actors really low, we guarantee that groups will have lots of characters,
 			// thus more-or-less ensuring that no groups will consist only of characters no longer in use after excluding Mark from the
 			// project.
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(7, 1, 1);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(7, 1, 1);
 			GenerateGroups();
 			m_testProject.AvailableBooks.Single(b => b.Code == "MRK").IncludeInScript = false;
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
@@ -152,7 +152,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void Constructor_TwoCharactersRenamed_FullRegenerateNotRecommended()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(9, 2, 1);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(9, 2, 1);
 			m_testProject.AvailableBooks.Single(b => b.Code == "LUK").IncludeInScript = false;
 			GenerateGroups();
 
@@ -183,7 +183,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void Constructor_FiveCharactersAddedRemovedOrRenamed_FullRegenerateRecommended()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(9, 2, 1);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(9, 2, 1);
 			m_testProject.AvailableBooks.Single(b => b.Code == "LUK").IncludeInScript = false;
 			GenerateGroups();
 
@@ -225,7 +225,7 @@ namespace GlyssenTests.Rules
 			// By jacking up the number of actors really high, we guarantee that most characters will end up in a group by themselves,
 			// thus more-or-less ensuring that some groups will no longer contain any characters in use after excluding Mark from the
 			// project.
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(99, 22, 7);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(99, 22, 7);
 			GenerateGroups();
 			m_testProject.AvailableBooks.Single(b => b.Code == "MRK").IncludeInScript = false;
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
@@ -240,7 +240,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void MakeMinimalAdjustments_FewAdditions_NewGroupAddedWithNewCharacters()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(9, 2, 1);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(9, 2, 1);
 			GenerateGroups();
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = true;
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
@@ -267,7 +267,7 @@ namespace GlyssenTests.Rules
 		public void MakeMinimalAdjustments_FewDeletionsAndFewGroups_CharactersRemovedFromExistingCharacterGroups()
 		{
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = true;
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(20, 2, 1);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(20, 2, 1);
 			GenerateGroups();
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = false;
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
@@ -290,7 +290,7 @@ namespace GlyssenTests.Rules
 		public void MakeMinimalAdjustments_FewDeletionsAndManyGroups_CharactersRemovedFromExistingCharacterGroupsAndEmptyGroupsRemoved()
 		{
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = true;
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(100, 7, 2);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(100, 7, 2);
 			GenerateGroups();
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = false;
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
@@ -317,9 +317,9 @@ namespace GlyssenTests.Rules
 		public void MakeMinimalAdjustments_CameoGroupsWithCharactersNoLongerInUse_EmptyCameoGroupsNotRemoved()
 		{
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = true;
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(290, 17, 8);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(290, 17, 8);
 			GenerateGroups();
-			var frankie = m_testProject.VoiceActorList.Actors.First(a => a.Gender == ActorGender.Male);
+			var frankie = m_testProject.VoiceActorList.AllActors.First(a => a.Gender == ActorGender.Male);
 			frankie.Name = "Frankie";
 			frankie.IsCameo = true;
 			var michaelTheArchAngelGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("Michael, archangel");

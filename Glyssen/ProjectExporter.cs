@@ -63,11 +63,11 @@ namespace Glyssen
 			switch (fileType)
 			{
 				case ExportFileType.TabSeparated:
-					foreach (var actor in Project.VoiceActorList.Actors.Where(a => Project.CharacterGroupList.HasVoiceActorAssigned(a.Id)))
+					foreach (var actor in Project.VoiceActorList.AllActors.Where(a => Project.CharacterGroupList.HasVoiceActorAssigned(a.Id)))
 						GenerateTabSeparatedFile(Path.Combine(directoryPath, actor.Name), GetExportData().Where(t => t.Item1 == actor.Id).Select(t => t.Item3));
 					break;
 				default:
-					foreach (var actor in Project.VoiceActorList.Actors.Where(a => Project.CharacterGroupList.HasVoiceActorAssigned(a.Id)))
+					foreach (var actor in Project.VoiceActorList.AllActors.Where(a => Project.CharacterGroupList.HasVoiceActorAssigned(a.Id)))
 						GenerateExcelFile(Path.Combine(directoryPath, actor.Name), GetExportData().Where(t => t.Item1 == actor.Id).Select(t => t.Item3));
 					break;
 			}

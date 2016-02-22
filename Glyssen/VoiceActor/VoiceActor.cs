@@ -160,6 +160,9 @@ namespace Glyssen.VoiceActor
 		[XmlAttribute("IsCameo")]
 		public bool IsCameo { get; set; }
 
+		[XmlAttribute("IsInactive")]
+		public bool IsInactive { get; set; }
+
 		public bool IsValid()
 		{
 			return !string.IsNullOrEmpty(Name);
@@ -171,7 +174,8 @@ namespace Glyssen.VoiceActor
 				Age == otherActor.Age &&
 				VoiceQuality == otherActor.VoiceQuality &&
 				Status == otherActor.Status &&
-				IsCameo == otherActor.IsCameo;
+				IsCameo == otherActor.IsCameo &&
+				IsInactive == otherActor.IsInactive;
 		}
 
 		public AgeMatchQuality GetAgeMatchQuality(CharacterDetail character)

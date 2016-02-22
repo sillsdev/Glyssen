@@ -15,7 +15,7 @@ namespace GlyssenTests.VoiceActor
 			using (TempFile tempFile = new TempFile())
 			{
 				VoiceActorList list = new VoiceActorList();
-				list.Actors = new List<Glyssen.VoiceActor.VoiceActor>
+				list.AllActors = new List<Glyssen.VoiceActor.VoiceActor>
 				{
 					new Glyssen.VoiceActor.VoiceActor{Id = 0, Name = "A", Gender = ActorGender.Female, Age = ActorAge.Elder},
 					new Glyssen.VoiceActor.VoiceActor{Id = 1, Name = "B"}
@@ -32,7 +32,7 @@ namespace GlyssenTests.VoiceActor
 
 				// Reads from file correctly
 				VoiceActorList listFromFile = VoiceActorList.LoadVoiceActorListFromFile(tempFile.Path);
-				Assert.AreEqual(list.Actors, listFromFile.Actors);
+				Assert.AreEqual(list.ActiveActors, listFromFile.ActiveActors);
 			}
 		}
 

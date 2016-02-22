@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Forms;
 using L10NSharp;
 
@@ -14,7 +15,7 @@ namespace Glyssen.Dialogs
 			Text = LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Title", "Optimize Groups");
 
 			int numCharacters = project.GetKeyStrokesByCharacterId().Count;
-			int numActors = project.VoiceActorList.Actors.Count;
+			int numActors = project.VoiceActorList.ActiveActors.Count();
 			string firstLineOfText = string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.AnyRun.Text1",
 				"Script includes {0} distinct Biblical character roles."), numCharacters);
 			string secondLineOfText = string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.AnyRun.Text2",

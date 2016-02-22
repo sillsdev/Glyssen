@@ -100,9 +100,10 @@ namespace Glyssen.Controls
 			set { m_dataGrid.ContextMenuStrip = value; }
 		}
 
-		public void Initialize(VoiceActorInformationViewModel viewModel, bool sort = true)
+		public void Initialize(VoiceActorInformationViewModel viewModel, bool sortByName)
 		{
 			m_actorInformationViewModel = viewModel;
+			m_actorInformationViewModel.Sort(sortByName ? VoiceActorsSortedBy.Name : VoiceActorsSortedBy.OrderEntered, true);
 			RowCount = m_actorInformationViewModel.Actors.Count + 1;
 
 			m_actorInformationViewModel.Saved += m_actorInformationViewModel_Saved;
@@ -332,6 +333,8 @@ namespace Glyssen.Controls
 				e.Value = actor.VoiceQuality;
 			else if (e.ColumnIndex == Cameo.Index)
 				e.Value = actor.IsCameo;
+			else if (e.ColumnIndex == ActorInactive.Index)
+				e.Value = actor.IsInactive;
 			else if (e.ColumnIndex == DeleteButtonCol.Index)
 			{
 				if (m_dataGrid.Rows[e.RowIndex].IsNewRow)
@@ -366,6 +369,8 @@ namespace Glyssen.Controls
 				actor.VoiceQuality = (VoiceQuality)e.Value;
 			else if (e.ColumnIndex == Cameo.Index)
 				actor.IsCameo = (bool)e.Value;
+			else if (e.ColumnIndex == ActorInactive.Index)
+				m_actorInformationViewModel.SetInactive(actor, (bool)e.Value);
 		}
 
 		private void m_dataGrid_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
@@ -473,6 +478,16 @@ namespace Glyssen.Controls
 		{
 			if (e.ColumnIndex == DeleteButtonCol.Index && e.RowIndex >= 0 && e.RowIndex < m_actorInformationViewModel.Actors.Count)
 				m_dataGrid.InvalidateCell(e.ColumnIndex, e.RowIndex);
+		}
+
+		private void m_dataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+		{
+			if (m_actorInformationViewModel == null || e.RowIndex < 0 || e.RowIndex >= m_actorInformationViewModel.Actors.Count)
+				return;
+
+			VoiceActor.VoiceActor actor = m_actorInformationViewModel.Actors[e.RowIndex];
+			if (actor.IsInactive)
+				e.CellStyle.ForeColor = Color.Gray;
 		}
 
 		private void HandleResize(object sender, EventArgs e)

@@ -31,7 +31,7 @@ namespace GlyssenTests
 			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(project, "m_metadata");
 			metadata.IncludeChapterAnnouncementForFirstChapter = true;
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
-			project.VoiceActorList.Actors = new List<Glyssen.VoiceActor.VoiceActor>
+			project.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor>
 			{
 				new Glyssen.VoiceActor.VoiceActor { Id = 1 }
 			};

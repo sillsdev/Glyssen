@@ -34,7 +34,7 @@ namespace GlyssenTests.Rules
 		[SetUp]
 		public void SetUp()
 		{
-			m_testProject.VoiceActorList.Actors.Clear();
+			m_testProject.VoiceActorList.AllActors.Clear();
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
@@ -58,7 +58,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numberOfFemaleNarrators;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(8);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(8);
 			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
 			var groups = gen.GenerateCharacterGroups();
 			var jesusGroup = groups.Single(g => g.CharacterIds.Contains("Jesus"));
@@ -71,7 +71,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 1;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(4);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(4);
 
 			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
 			var groups = gen.GenerateCharacterGroups();
@@ -83,7 +83,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_TwoBooks_EnoughActors_TwoNarratorGroupsGenerated()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(10);
 
 			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
 			var groups = gen.GenerateCharacterGroups();
@@ -97,7 +97,7 @@ namespace GlyssenTests.Rules
 		[Test, Ignore("Need Analyst to decide what should happen in this scenario")]
 		public void GenerateCharacterGroups_SingleExtraBiblicalRequested_4Actors_SingleExtraBiblicalGroupGenerated()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(4);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(4);
 
 			//TODO request single extra-Biblical group
 			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
@@ -112,7 +112,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_SingleExtraBiblicalRequested_10Actors_SingleExtraBiblicalGroupGenerated()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(10);
 
 			//TODO request single extra-Biblical group
 			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
@@ -136,51 +136,51 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
 			//0
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(0);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(0);
 			Assert.AreEqual(0, new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups().Count);
 
 			//1
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(1);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(1);
 			Assert.AreEqual(1, new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups().Count);
 
 			// TODO: Need Analyst to decide what we want if there are only two actors.
 			//2
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(2);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(2);
 			Assert.AreEqual(2, new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups().Count);
 
 			// TODO: Need Analyst to decide what we want if there are only 2 actors & 1 actress.
 			//3 (2 Males & 1 Female)
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(2, 1);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(2, 1);
 			Assert.AreEqual(3, new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups().Count);
 
 			//3 (3 Males)
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(3);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(3);
 			Assert.AreEqual(3, new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups().Count);
 
 			//4 (3 Males & 1 Female)
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(3, 1);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(3, 1);
 			Assert.AreEqual(4, new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups().Count);
 
 			//4 (2 Males & 2 Females)
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(2, 2);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(2, 2);
 			Assert.AreEqual(4, new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups().Count);
 
 			//10
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(10);
 			Assert.AreEqual(10, new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups().Count);
 
 			//20
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(20);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(20);
 			Assert.AreEqual(20, new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups().Count);
 
 			//25
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(18, 7);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(18, 7);
 			Assert.AreEqual(25, new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups().Count);
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(25);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(25);
 			Assert.AreEqual(25, new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups().Count);
 
 			//50
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(50);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(50);
 			Assert.AreEqual(50, new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups().Count);
 
 			//Max
@@ -194,16 +194,16 @@ namespace GlyssenTests.Rules
 				RelatedCharactersData.Singleton.GetCharacterIdsForType(CharacterRelationshipType.SameCharacterWithMultipleAges).Intersect(includedCharacterIds).Count()
 				- RelatedCharactersData.Singleton.GetAll().Count(rc => rc.RelationshipType == CharacterRelationshipType.SameCharacterWithMultipleAges && rc.CharacterIds.Intersect(includedCharacterIds).Any());
 			int numberOfBooks = m_testProject.IncludedBooks.Count;
-			int numberOfMaleActors = m_testProject.VoiceActorList.Actors.Count(a => a.Gender == ActorGender.Male);
-			int numberOfFemaleActors = m_testProject.VoiceActorList.Actors.Count(a => a.Gender == ActorGender.Female);
+			int numberOfMaleActors = m_testProject.VoiceActorList.AllActors.Count(a => a.Gender == ActorGender.Male);
+			int numberOfFemaleActors = m_testProject.VoiceActorList.AllActors.Count(a => a.Gender == ActorGender.Female);
 			int numberOfNarratorAndExtraBiblicalCharactersRemovedByCoalescing = 5 - (Math.Min(numberOfBooks, Math.Max(1, Math.Min(numberOfMaleNarrators, numberOfMaleActors) + Math.Min(numberOfFemaleNarrators, numberOfFemaleActors))));
 			int maxGroups = numberOfCharactersInProject - numberOfCharactersRemovedByCoalescingCharactersWhichAreTheSameWithDifferentAges
 				- numberOfNarratorAndExtraBiblicalCharactersRemovedByCoalescing;
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(maxGroups);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(maxGroups);
 			Assert.AreEqual(maxGroups, new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups().Count);
 
 			//Max + 1
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(maxGroups + 1);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(maxGroups + 1);
 			Assert.AreEqual(maxGroups, new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups().Count);
 		}
 
@@ -218,7 +218,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numberOfFemaleNarrators;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(numberOfMaleActors, numberOfFemaleActors);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(numberOfMaleActors, numberOfFemaleActors);
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 			
 			Assert.AreEqual(numberOfMaleActors + numberOfFemaleActors, groups.Count);
@@ -235,7 +235,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numberOfFemaleNarrators;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(8, 2);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(8, 2);
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 
 			Assert.AreEqual(10, groups.Count);
@@ -273,7 +273,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numberOfFemaleNarrators;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10, 2);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(10, 2);
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 
 			Assert.AreEqual(12, groups.Count);
@@ -302,7 +302,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_DifferentGendersAndAgesOfTenActors_AppropriateGroupsCreatedForActorsWhichHaveCorrespondingCharacters()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(7, 1, 1, 1);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(7, 1, 1, 1);
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 
 			Assert.IsFalse(groups.Any(g => g.ContainsCharacterWithAge(CharacterAge.Child)), "No kids speak in Mark or Jude");
@@ -332,7 +332,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_DifferentGendersAndAgesOfTwentyActors_AppropriateGroupsCreatedForActorsWhichHaveCorrespondingCharacters()
 		{
-			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(18, 1, 1);
+			var actors = m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(18, 1, 1);
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 
 			Assert.AreEqual(19, groups.Count);
@@ -363,7 +363,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_IncludesOneCameoActor_GeneratesEmptyGroupAssignedToCameoActor()
 		{
-			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
+			var actors = m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(10);
 			actors[0].IsCameo = true;
 
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
@@ -377,7 +377,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_IncludesTwoCameoActors_GeneratesEmptyGroupAssignedToEachCameoActor()
 		{
-			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
+			var actors = m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(10);
 			actors[0].IsCameo = true;
 			actors[1].IsCameo = true;
 
@@ -393,7 +393,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToCharacter_GroupMaintained()
 		{
-			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
+			var actors = m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(10);
 			actors[0].IsCameo = true;
 
 			var assignedGroup = new CharacterGroup(m_testProject, m_priorityComparer);
@@ -411,7 +411,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_CameoActorAssignedToCharacterNoLongerInUse_UnusedCharacterIsRemovedFromGroup()
 		{
-			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
+			var actors = m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(10);
 			actors[0].IsCameo = true;
 
 			var assignedGroup = new CharacterGroup(m_testProject, m_priorityComparer);
@@ -428,7 +428,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToJesus_GroupMaintainedAndJesusNotDuplicated()
 		{
-			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
+			var actors = m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(10);
 			actors[0].IsCameo = true;
 
 			var assignedGroup = new CharacterGroup(m_testProject, m_priorityComparer);
@@ -446,7 +446,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToBc_GroupMaintainedAndBcNotDuplicated()
 		{
-			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
+			var actors = m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(10);
 			actors[0].IsCameo = true;
 
 			var assignedGroup = new CharacterGroup(m_testProject, m_priorityComparer);
@@ -464,7 +464,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_CameoActorAlreadyAssignedToExtraBiblical_GroupMaintainedAndExtraBiblicalNotDuplicated()
 		{
-			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
+			var actors = m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(10);
 			actors[0].IsCameo = true;
 
 			var assignedGroup = new CharacterGroup(m_testProject, m_priorityComparer);
@@ -482,7 +482,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_MaintainAssignments_OneAssignment_OneCharacter_AssignmentMaintained()
 		{
-			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(5);
+			var actors = m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(5);
 			var generator = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
 			generator.GenerateCharacterGroups();
 			generator.ApplyGeneratedGroupsToProject(false);
@@ -496,7 +496,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_MaintainAssignments_OneAssignment_TwoCharacters_AssignmentMaintainedForMostProminentCharacter()
 		{
-			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(5);
+			var actors = m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(5);
 			var generator = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
 			generator.GenerateCharacterGroups();
 			generator.ApplyGeneratedGroupsToProject(false);
@@ -518,7 +518,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_MaintainAssignments_TwoAssignments_GroupsAreCombined_AssignmentMaintainedForMostProminentCharacter()
 		{
-			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(5);
+			var actors = m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(5);
 			var generator = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
 			generator.GenerateCharacterGroups();
 			generator.ApplyGeneratedGroupsToProject(false);
@@ -549,13 +549,13 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_HasCameoAssignedButAttemptToMaintainAssignmentsIsFalse_MaintainsCameoGroup()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(3);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(3);
 			var generator = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
 			generator.GenerateCharacterGroups();
 			generator.ApplyGeneratedGroupsToProject(false);
 
 			var actor4 = new Glyssen.VoiceActor.VoiceActor { Id = 4, IsCameo = true };
-			m_testProject.VoiceActorList.Actors.Add(actor4);
+			m_testProject.VoiceActorList.AllActors.Add(actor4);
 			var cameoGroup = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(cameoGroup);
 			cameoGroup.CharacterIds.Add("John");
@@ -582,7 +582,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(8, 2);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(8, 2);
 
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 			Assert.AreEqual(groups.Single(g => g.CharacterIds.Contains("narrator-MRK")), groups.Single(g => g.CharacterIds.Contains("narrator-JUD")));
@@ -596,7 +596,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(8, 3);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(8, 3);
 
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 			Assert.AreEqual(11, groups.Count);
@@ -616,7 +616,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(2, 2);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(2, 2);
 
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 			Assert.AreEqual(groups.Single(g => g.CharacterIds.Contains("narrator-MRK")), groups.Single(g => g.CharacterIds.Contains("narrator-JUD")));
@@ -634,7 +634,7 @@ namespace GlyssenTests.Rules
 			// That means that anywhere else where two other male characters are talking to each other, we'll still end up
 			// with a proximity of 1. Since that's no better than what we get with two narrators, we go ahead and give
 			// the user what they asked for (basically, each book will have a narrator and a non-narrator, plus a woman).
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(3, 2);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(3, 2);
 
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 			Assert.AreEqual(5, groups.Count);
@@ -648,7 +648,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(4, 2);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(4, 2);
 
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 			Assert.AreEqual(6, groups.Count);
@@ -675,7 +675,7 @@ namespace GlyssenTests.Rules
 		[SetUp]
 		public void SetUp()
 		{
-			m_testProject.VoiceActorList.Actors.Clear();
+			m_testProject.VoiceActorList.AllActors.Clear();
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 		}
 
@@ -689,7 +689,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_SameCharacterWithTwoAges_CharactersAreGeneratedInTheSameGroup()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10, 5);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(10, 5);
 
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 			var sadduceesGroup = groups.Single(g => g.CharacterIds.Contains("Joshua"));
@@ -724,7 +724,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_20ActorsOfDifferentGendersAndAges_AppropriateGroupsCreatedForActors()
 		{
-			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(17, 2, 1);
+			var actors = m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(17, 2, 1);
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 
 			Assert.AreEqual(20, groups.Count);
@@ -757,7 +757,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_UnneededActors_AppropriateGroupsCreatedForActors()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(13, 2, 3, 3);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(13, 2, 3, 3);
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 
 			Assert.AreEqual(16, groups.Count);
@@ -813,7 +813,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_21Actors_GodAndJesusAndHolySpiritAndScriptureEachInOwnGroup()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(21);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(21);
 			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
 			var groups = gen.GenerateCharacterGroups();
 			var jesusGroup = groups.Single(g => g.CharacterIds.Contains("Jesus"));
@@ -829,7 +829,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_AtLeast10Actors_JesusAndHolySpiritEachInOwnGroupAndGodAndScriptureGroupedTogether()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(12);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(12);
 			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
 			var groups = gen.GenerateCharacterGroups();
 			var jesusGroup = groups.Single(g => g.CharacterIds.Contains("Jesus"));
@@ -844,7 +844,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_AtLeast7Actors_GodAndHolySpiritAndScriptureInGroupByThemselves()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(8);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(8);
 			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
 			var groups = gen.GenerateCharacterGroups();
 			var jesusGroup = groups.Single(g => g.CharacterIds.Contains("Jesus"));
@@ -858,7 +858,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_AtLeast4Actors_GodAndHolySpiritAndScriptureGroupedWithJesus()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(6);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(6);
 			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
 			var groups = gen.GenerateCharacterGroups();
 			var dietyGroup = groups.Single(g => g.CharacterIds.Contains("Jesus"));
@@ -871,7 +871,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_FewerThan4Actors_GodAndHolySpiritAndScriptureAndJesusNotInIsolatedGroups()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(3);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(3);
 			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
 			var groups = gen.GenerateCharacterGroups();
 			var jesusGroup = groups.Single(g => g.CharacterIds.Contains("Jesus"));
@@ -921,7 +921,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 1;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(7);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(7);
 			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
 			var groups = gen.GenerateCharacterGroups();
 			var jesusGroup = groups.Single(g => g.CharacterIds.Contains("Jesus"));
@@ -955,7 +955,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_OneBookSingleVoice_AllLinesAreNarrator()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(7);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(7);
 			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
 			var groups = gen.GenerateCharacterGroups();
 			var singleGroup = groups.Single(g => g.CharacterIds.Contains("narrator-LUK"));
@@ -1001,7 +1001,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numFemale;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(6, 2);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(6, 2);
 			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
 			var groups = gen.GenerateCharacterGroups();
 			var narratorLukeGroup = groups.Single(g => g.CharacterIds.Contains("narrator-LUK"));
@@ -1021,7 +1021,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numFemale;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(5, 2);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(5, 2);
 			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
 			var groups = gen.GenerateCharacterGroups();
 			var narratorLukeGroup = groups.Single(g => g.CharacterIds.Contains("narrator-LUK"));
@@ -1034,7 +1034,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_OneBookIsSingleVoice_DefaultNarratorPreferences_AllLinesForSingleVoiceBookAreNarrator()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(5, 2);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(5, 2);
 			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
 			var groups = gen.GenerateCharacterGroups();
 			Assert.AreEqual(groups.Single(g => g.CharacterIds.Contains("narrator-LUK")), groups.Single(g => g.CharacterIds.Contains("narrator-ACT")));
@@ -1073,8 +1073,8 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_CameoAssignedToCharacterWhichIsRemovedFromScript_RegenerationDropsCharacter()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(7);
-			var cameoActor = m_testProject.VoiceActorList.Actors[0];
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(7);
+			var cameoActor = m_testProject.VoiceActorList.AllActors[0];
 			cameoActor.IsCameo = true;
 			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
 			var groups = gen.GenerateCharacterGroups();
@@ -1104,7 +1104,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_ProjectCharacterDetailExistsAndInScript_ProjectCharacterDetailIncludedInGeneratedGroups()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(8, 2);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(8, 2);
 			m_testProject.AddProjectCharacterDetail(new CharacterDetail { CharacterId = "Bobette", Gender = CharacterGender.Female });
 
 			m_testProject.IncludedBooks[0].Blocks[3].CharacterId = "Bobette";
@@ -1117,7 +1117,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_ProjectCharacterDetailExistsButNotInScript_ProjectCharacterDetailNotIncludedInGeneratedGroups()
 		{
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(8, 2);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(8, 2);
 			m_testProject.AddProjectCharacterDetail(new CharacterDetail { CharacterId = "Bobette", Gender = CharacterGender.Female });
 
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
@@ -1156,7 +1156,7 @@ namespace GlyssenTests.Rules
 		[SetUp]
 		public void SetUp()
 		{
-			m_testProject.VoiceActorList.Actors.Clear();
+			m_testProject.VoiceActorList.AllActors.Clear();
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
@@ -1166,7 +1166,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_IsCancelable()
 		{
-			var actors = m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(10);
+			var actors = m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(10);
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 			var group = new CharacterGroup(m_testProject);
 			group.AssignVoiceActor(actors[0].Id);
@@ -1198,7 +1198,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(34, 4);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(34, 4);
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 
 			Assert.AreEqual(38, groups.Count);
@@ -1230,7 +1230,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(34, 4);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(34, 4);
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 
 			Assert.AreEqual(38, groups.Count);
@@ -1261,7 +1261,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(34, 4);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(34, 4);
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 
 			Assert.AreEqual(38, groups.Count);
@@ -1291,7 +1291,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(34, 4);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(34, 4);
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 
 			Assert.AreEqual(38, groups.Count);
@@ -1320,7 +1320,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(34, 4);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(34, 4);
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 
 			Assert.AreEqual(38, groups.Count);
@@ -1348,7 +1348,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(36, 6);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(36, 6);
 			var groups = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups();
 
 			Assert.AreEqual(42, groups.Count);
@@ -1399,9 +1399,9 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(36, 6);
-			var cameoMaleNarrator = m_testProject.VoiceActorList.Actors.First(a => a.Gender == ActorGender.Male);
-			var cameoFemaleNarrator = m_testProject.VoiceActorList.Actors.First(a => a.Gender == ActorGender.Female);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(36, 6);
+			var cameoMaleNarrator = m_testProject.VoiceActorList.AllActors.First(a => a.Gender == ActorGender.Male);
+			var cameoFemaleNarrator = m_testProject.VoiceActorList.AllActors.First(a => a.Gender == ActorGender.Female);
 			cameoMaleNarrator.IsCameo = true;
 			cameoFemaleNarrator.IsCameo = true;
 			m_testProject.CharacterGroupList.CharacterGroups.AddRange(new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups());
@@ -1459,10 +1459,10 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(36, 6);
-			var cameoMaleNarrator1 = m_testProject.VoiceActorList.Actors.First(a => a.Gender == ActorGender.Male);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(36, 6);
+			var cameoMaleNarrator1 = m_testProject.VoiceActorList.AllActors.First(a => a.Gender == ActorGender.Male);
 			cameoMaleNarrator1.IsCameo = true;
-			var cameoMaleNarrator2 = m_testProject.VoiceActorList.Actors.First(a => a.Gender == ActorGender.Male && !a.IsCameo);
+			var cameoMaleNarrator2 = m_testProject.VoiceActorList.AllActors.First(a => a.Gender == ActorGender.Male && !a.IsCameo);
 			cameoMaleNarrator2.IsCameo = true;
 			m_testProject.CharacterGroupList.CharacterGroups.AddRange(new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups());
 			m_testProject.CharacterGroupList.CharacterGroups.Single(g => g.VoiceActorId == cameoMaleNarrator1.Id).CharacterIds.AddRange(new []
@@ -1507,12 +1507,12 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			m_testProject.VoiceActorList.Actors = CharacterGroupGeneratorTests.GetVoiceActors(36, 5);
-			var cameoMaleNarrator1 = m_testProject.VoiceActorList.Actors.First(a => a.Gender == ActorGender.Male);
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(36, 5);
+			var cameoMaleNarrator1 = m_testProject.VoiceActorList.AllActors.First(a => a.Gender == ActorGender.Male);
 			cameoMaleNarrator1.IsCameo = true;
-			var cameoMaleNarrator2 = m_testProject.VoiceActorList.Actors.First(a => a.Gender == ActorGender.Male && !a.IsCameo);
+			var cameoMaleNarrator2 = m_testProject.VoiceActorList.AllActors.First(a => a.Gender == ActorGender.Male && !a.IsCameo);
 			cameoMaleNarrator2.IsCameo = true;
-			var cameoMaleNarrator3 = m_testProject.VoiceActorList.Actors.First(a => a.Gender == ActorGender.Male && !a.IsCameo);
+			var cameoMaleNarrator3 = m_testProject.VoiceActorList.AllActors.First(a => a.Gender == ActorGender.Male && !a.IsCameo);
 			cameoMaleNarrator3.IsCameo = true;
 			m_testProject.CharacterGroupList.CharacterGroups.AddRange(new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId).GenerateCharacterGroups());
 			m_testProject.CharacterGroupList.CharacterGroups.Single(g => g.VoiceActorId == cameoMaleNarrator1.Id).CharacterIds.AddRange(new[]
