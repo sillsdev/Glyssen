@@ -428,6 +428,7 @@ namespace Glyssen.Dialogs
 				if (!group.CharacterIds.Any())
 				{
 					AddCharacterToGroup(group);
+					m_characterGroupGrid[e.ColumnIndex, e.RowIndex] = new DataGridViewTextBoxCell();
 				}
 			}
 		}
@@ -655,6 +656,10 @@ namespace Glyssen.Dialogs
 				m_characterGroupGrid.Rows[e.RowIndex].Cells[VoiceActorCol.Name].ReadOnly = isCameo;
 			if (isCameo)
 			{
+				var charIdsString = m_actorAssignmentViewModel.CharacterGroups[e.RowIndex].CharacterIds.ToString();
+				if (string.IsNullOrWhiteSpace(charIdsString) && !(m_characterGroupGrid[CharacterIdsCol.Index, e.RowIndex] is DataGridViewLinkCell))
+					m_characterGroupGrid[CharacterIdsCol.Index, e.RowIndex] = new DataGridViewLinkCell();
+
 				string actorIsCameo = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CameoTooltip",
 					"This actor is assigned to perform a cameo role.");
 				if (!Char.IsWhiteSpace(actorIsCameo.Last()))
