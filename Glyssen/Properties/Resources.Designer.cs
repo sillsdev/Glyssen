@@ -71,46 +71,49 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;BiblicalAuthors&gt;
-        ///	&lt;BiblicalAuthor name=&quot;&quot;Obadiah&quot;&quot;&gt;
-        ///		&lt;Books&gt;
-        ///			&lt;Book&gt;OBA&lt;/Book&gt;
-        ///		&lt;/Books&gt;
-        ///	&lt;/BiblicalAuthor&gt;
-        ///	&lt;BiblicalAuthor name=&quot;&quot;Matthew&quot;&quot;&gt;
-        ///		&lt;Books&gt;
-        ///			&lt;Book&gt;MAT&lt;/Book&gt;
-        ///		&lt;/Books&gt;
-        ///	&lt;/BiblicalAuthor&gt;
-        ///	&lt;BiblicalAuthor name=&quot;&quot;Mark&quot;&quot;&gt;
-        ///		&lt;Books&gt;
-        ///			&lt;Book&gt;MRK&lt;/Book&gt;
-        ///		&lt;/Books&gt;
-        ///	&lt;/BiblicalAuthor&gt;
-        ///	&lt;BiblicalAuthor name=&quot;&quot;Luke&quot;&quot;&gt;
-        ///		&lt;Books&gt;
-        ///			&lt;Book&gt;LUK&lt;/Book&gt;
-        ///			&lt;Book&gt;ACT&lt;/Book&gt;
-        ///		&lt;/Books&gt;
-        ///	&lt;/BiblicalAuthor&gt;
-        ///	&lt;BiblicalAuthor name=&quot;&quot;John&quot;&quot;&gt;
-        ///		&lt;Books&gt;
-        ///			&lt;Book&gt;JHN&lt;/Book&gt;
-        ///			&lt;Book&gt;1JN&lt; [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string BiblicalAuthors {
-            get {
-                return ResourceManager.GetString("BiblicalAuthors", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap AddCharacter {
             get {
                 object obj = ResourceManager.GetObject("AddCharacter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;BiblicalAuthors&gt;
+        ///	&lt;Author name=&quot;Moses&quot;&gt;
+        ///		&lt;Books&gt;
+        ///			&lt;Book&gt;GEN&lt;/Book&gt;
+        ///			&lt;Book&gt;EXO&lt;/Book&gt;
+        ///			&lt;Book&gt;LEV&lt;/Book&gt;
+        ///			&lt;Book&gt;NUM&lt;/Book&gt;
+        ///			&lt;Book&gt;DEU&lt;/Book&gt;
+        ///		&lt;/Books&gt;
+        ///	&lt;/Author&gt;
+        ///	&lt;Author name=&quot;Joshua&quot;&gt;
+        ///		&lt;Books&gt;
+        ///			&lt;Book&gt;JOS&lt;/Book&gt;
+        ///		&lt;/Books&gt;
+        ///	&lt;/Author&gt;
+        ///	&lt;Author name=&quot;Author of Judges&quot;&gt;
+        ///		&lt;Books&gt;
+        ///			&lt;Book&gt;JDG&lt;/Book&gt;
+        ///		&lt;/Books&gt;
+        ///	&lt;/Author&gt;
+        ///	&lt;Author name=&quot;Author of Ruth&quot;&gt;
+        ///		&lt;Books&gt;
+        ///			&lt;Book&gt;RUT&lt;/Book&gt;
+        ///		&lt;/Books&gt;
+        ///	&lt;/Author&gt;
+        ///	&lt;Author name=&quot;Samuel&quot;&gt;
+        ///		&lt;Books&gt;
+        ///			&lt;Book&gt;1SA&lt;/Book&gt;
+        ///			&lt;Book&gt;2S [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string BiblicalAuthors {
+            get {
+                return ResourceManager.GetString("BiblicalAuthors", resourceCulture);
             }
         }
         
@@ -172,7 +175,7 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	85
+        ///   Looks up a localized string similar to Control File Version	90
         ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
         ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
         ///# PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -291,6 +294,16 @@ namespace Glyssen.Properties {
         internal static System.Drawing.Bitmap people {
             get {
                 object obj = ResourceManager.GetObject("people", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap printer {
+            get {
+                object obj = ResourceManager.GetObject("printer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

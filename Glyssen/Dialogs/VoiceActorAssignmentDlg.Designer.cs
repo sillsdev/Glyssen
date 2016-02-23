@@ -70,6 +70,7 @@ namespace Glyssen.Dialogs
 			this.m_toolStripTextBoxFindCharacter = new System.Windows.Forms.ToolStripTextBox();
 			this.m_toolStripButtonFindNextMatchingCharacter = new System.Windows.Forms.ToolStripButton();
 			this.m_toolStripButtonHelp = new System.Windows.Forms.ToolStripButton();
+			this.m_toolStripButtonExport = new System.Windows.Forms.ToolStripButton();
 			this.m_btnOK = new System.Windows.Forms.Button();
 			this.m_characterDetailsGrid = new SIL.Windows.Forms.Widgets.BetterGrid.BetterGrid();
 			this.CharacterDetailsIdCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -124,8 +125,8 @@ namespace Glyssen.Dialogs
 			this.m_lblInstructions.AutoSize = true;
 			this.m_lblInstructions.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblInstructions, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.m_lblInstructions.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_lblInstructions, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_lblInstructions.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblInstructions, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblInstructions, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblInstructions, "DialogBoxes.VoiceActorAssignmentDlg.AssignActors");
@@ -292,7 +293,8 @@ namespace Glyssen.Dialogs
             this.m_toolStripLabelFindCharacter,
             this.m_toolStripTextBoxFindCharacter,
             this.m_toolStripButtonFindNextMatchingCharacter,
-            this.m_toolStripButtonHelp});
+            this.m_toolStripButtonHelp,
+            this.m_toolStripButtonExport});
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStrip, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStrip, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStrip, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -345,8 +347,8 @@ namespace Glyssen.Dialogs
 			// toolStripSeparator1
 			// 
 			this.glyssenColorPalette.SetBackColor(this.toolStripSeparator1, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator1, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.toolStripSeparator1.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator1, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
 			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
 			this.glyssenColorPalette.SetUsePaletteColors(this.toolStripSeparator1, false);
@@ -402,8 +404,8 @@ namespace Glyssen.Dialogs
 			// toolStripSeparator2
 			// 
 			this.glyssenColorPalette.SetBackColor(this.toolStripSeparator2, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator2, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.toolStripSeparator2.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator2, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
 			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
 			this.glyssenColorPalette.SetUsePaletteColors(this.toolStripSeparator2, false);
@@ -465,6 +467,22 @@ namespace Glyssen.Dialogs
 			this.m_toolStripButtonHelp.Size = new System.Drawing.Size(52, 22);
 			this.m_toolStripButtonHelp.Text = "Help";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_toolStripButtonHelp, false);
+			// 
+			// m_toolStripButtonExport
+			// 
+			this.m_toolStripButtonExport.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.glyssenColorPalette.SetBackColor(this.m_toolStripButtonExport, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_toolStripButtonExport, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_toolStripButtonExport.Image = global::Glyssen.Properties.Resources.printer;
+			this.m_toolStripButtonExport.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonExport, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonExport, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonExport, "DialogBoxes.VoiceActorAssignmentDlg.toolStripButton1");
+			this.m_toolStripButtonExport.Name = "m_toolStripButtonExport";
+			this.m_toolStripButtonExport.Size = new System.Drawing.Size(90, 22);
+			this.m_toolStripButtonExport.Text = "Export/Print";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_toolStripButtonExport, false);
+			this.m_toolStripButtonExport.Click += new System.EventHandler(this.m_toolStripButtonExport_Click);
 			// 
 			// m_btnOK
 			// 
@@ -1205,6 +1223,7 @@ namespace Glyssen.Dialogs
 		private DataGridViewTextBoxColumn CharStatusCol;
 		private DataGridViewTextBoxColumn EstimatedHoursCol;
 		private DataGridViewMultiColumnComboBoxColumn VoiceActorCol;
+		private ToolStripButton m_toolStripButtonExport;
 
 	}
 }

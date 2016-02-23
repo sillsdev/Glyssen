@@ -239,5 +239,87 @@ namespace Glyssen
 		{
 			return new VoiceActor.VoiceActor{Id = -1};
 		}
+
+		#region Roles for Voice Actors
+		public void ExportRolesForVoiceActors(string path)
+		{
+			GenerateRolesForVoiceActorsExport(path, GetRolesForVoiceActorsData());
+		}
+
+		private void GenerateRolesForVoiceActorsExport(string path, List<List<object>> data)
+		{
+			if (Path.GetExtension(path) != kExcelFileExtension)
+				path += kExcelFileExtension;
+
+			// If we got this far with a path to an existing file, the user has (in theory)
+			// confirmed he wants to overwrite it.
+			// We need to delete it first or the code will attempt to modify it instead.
+			File.Delete(path);
+
+			var dataArray = data.Select(d => d.ToArray()).ToList();
+			dataArray.Insert(0, GetRolesHeaders().ToArray());
+			using (var xls = new ExcelPackage(new FileInfo(path)))
+			{
+				const int maxHeight = 65;
+
+				var sheet = xls.Workbook.Worksheets.Add("Roles for Voice Actors");
+				sheet.Cells["A1"].LoadFromArrays(dataArray);
+
+				// Counter-intuitively, these two lines together set "Fit All Columns on One Page" to true
+				sheet.PrinterSettings.FitToPage = true;
+				sheet.PrinterSettings.FitToHeight = 0;
+
+				sheet.PrinterSettings.RepeatRows = sheet.Cells["1:1"];
+				sheet.PrinterSettings.ShowGridLines = true;
+
+				sheet.Cells.Style.Font.Size = 10;
+				sheet.Cells.Style.VerticalAlignment = ExcelVerticalAlignment.Top;
+				sheet.Row(1).Style.Font.Bold = true;
+
+				sheet.Column(1).Width = 8; // Group ID
+				sheet.Column(2).Style.WrapText = true; // Character Roles
+				sheet.Column(2).Width = 50;
+				sheet.Column(3).Style.WrapText = true; // Attributes
+				sheet.Column(3).Width = 17;
+				sheet.Column(4).Width = 7; // Hours
+				sheet.Column(5).AutoFit(10); // Voice Actor
+
+				for (int i = 1; i <= data.Count + 1; i++)
+					if (sheet.Cells[i, 2].Value.ToString().Length > 300)
+						sheet.Row(i).Height = maxHeight;
+
+				sheet.View.FreezePanes(2, 1);
+
+				xls.Save();
+			}
+		}
+
+		private List<object> GetRolesHeaders()
+		{
+			List<object> headers = new List<object>(5);
+			headers.Add("Group ID");
+			headers.Add("Character Roles");
+			headers.Add("Attributes");
+			headers.Add("Hours");
+			headers.Add("Voice Actor");
+			return headers;
+		}
+
+		private List<List<object>> GetRolesForVoiceActorsData()
+		{
+			var groups = new List<List<object>>();
+			foreach (var characterGroup in Project.CharacterGroupList.CharacterGroups)
+			{
+				var group = new List<object>();
+				group.Add(string.Empty);
+				group.Add(characterGroup.CharacterIds);
+				group.Add(characterGroup.AttributesDisplay);
+				group.Add(string.Format("{0:N2}", characterGroup.EstimatedHours));
+				group.Add(characterGroup.IsVoiceActorAssigned ? characterGroup.VoiceActor.Name : string.Empty);
+				groups.Add(group);
+			}
+			return groups;
+		}
+		#endregion
 	}
 }

@@ -67,8 +67,9 @@
       <HintPath>..\packages\DesktopAnalytics.1.2.1\lib\net40\DesktopAnalytics.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPPlus">
-      <HintPath>..\packages\EPPlus.4.0.4\lib\net20\EPPlus.dll</HintPath>
+    <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Geckofx-Core">
       <HintPath>..\lib\dotnet\Geckofx-Core.dll</HintPath>
@@ -224,6 +225,12 @@
     </Compile>
     <Compile Include="Dialogs\AddCharacterToGroupDlg.Designer.cs">
       <DependentUpon>AddCharacterToGroupDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ExportRolesForVoiceActorsDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ExportRolesForVoiceActorsDlg.Designer.cs">
+      <DependentUpon>ExportRolesForVoiceActorsDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\ExportDlg.cs">
       <SubType>Form</SubType>
@@ -418,6 +425,9 @@
     <EmbeddedResource Include="Dialogs\AssignCharacterDlg.resx">
       <DependentUpon>AssignCharacterDlg.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ExportRolesForVoiceActorsDlg.resx">
+      <DependentUpon>ExportRolesForVoiceActorsDlg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ExportDlg.resx">
       <DependentUpon>ExportDlg.cs</DependentUpon>
     </EmbeddedResource>
@@ -540,7 +550,6 @@
     <None Include="Resources\CameoStar.png" />
     <None Include="Resources\AddCharacter.png" />
     <Content Include="Resources\BiblicalAuthors.txt" />
-    <Content Include="Resources\BooksDefaultSingleVoice.txt" />
     <Content Include="Resources\CharacterVerse.txt" />
     <None Include="Resources\grid-icon.png" />
     <None Include="Resources\html-view.png" />
@@ -557,6 +566,7 @@
     <None Include="Resources\RemoveGridRowHot.png" />
     <None Include="Resources\RemoveGridRowNormal.png" />
     <None Include="Resources\MoveArrow.png" />
+    <None Include="Resources\printer.bmp" />
     <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />
   </ItemGroup>

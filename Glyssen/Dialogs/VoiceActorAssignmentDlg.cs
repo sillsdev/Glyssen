@@ -362,6 +362,12 @@ namespace Glyssen.Dialogs
 			UpdateUiForPendingCharacterMove(localizedCharacterIds);
 		}
 
+		private void m_toolStripButtonExport_Click(object sender, EventArgs e)
+		{
+			using (var dlg = new ExportRolesForVoiceActorsDlg(new ProjectExporter(m_project)))
+				dlg.ShowDialog(this);
+		}
+
 		private void UpdateUiForPendingCharacterMove(List<string> localizedCharacterIds = null)
 		{
 			bool movePending = localizedCharacterIds != null;
