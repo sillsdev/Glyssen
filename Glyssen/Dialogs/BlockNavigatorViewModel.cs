@@ -60,6 +60,7 @@ namespace Glyssen.Dialogs
 
 		public event EventHandler UiFontSizeChanged;
 		public event EventHandler CurrentBlockChanged;
+		public event EventHandler FilterReset;
 
 		protected BookScript CurrentBook { get { return m_navigator.CurrentBook; } }
 
@@ -146,6 +147,7 @@ namespace Glyssen.Dialogs
 		public int RelevantBlockCount { get { return m_relevantBlocks.Count; } }
 		public int CurrentBlockDisplayIndex { get { return m_currentBlockIndex + 1; } }
 		public string CurrentBookId { get { return m_navigator.CurrentBook.BookId; } }
+		public bool CurrentBookIsSingleVoice { get { return m_navigator.CurrentBook.SingleVoice; } }
 		public Block CurrentBlock { get { return m_navigator.CurrentBlock; } }
 		public int BackwardContextBlockCount { get; set; }
 		public int ForwardContextBlockCount { get; set; }
@@ -215,45 +217,39 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		private void ResetFilter(Block selectedBlock)
+		protected void ResetFilter(Block selectedBlock)
 		{
 			PopulateRelevantBlocks();
 
-			if (IsRelevant(m_navigator.CurrentBlock))
+			if (RelevantBlockCount > 0)
 			{
-				// PopulateRelevantBlocks navigated to the first block
-				m_currentBlockIndex = 0;
-				m_temporarilyIncludedBlock = null;
+				m_currentBlockIndex = -1;
+				if (m_temporarilyIncludedBlock != null)
+				{
+					// Block that was temporarily included in previous filter might now match the new filter
+					var i = m_relevantBlocks.IndexOf(m_temporarilyIncludedBlock);
+					if (i >= 0)
+					{
+						m_currentBlockIndex = i;
+						m_temporarilyIncludedBlock = null;
+						SetBlock(m_relevantBlocks[m_currentBlockIndex]);
+						return;
+					}
+				}
+				LoadNextRelevantBlock();
+			}
+			else if (selectedBlock != null)
+			{
+				m_temporarilyIncludedBlock = m_navigator.GetIndicesOfSpecificBlock(selectedBlock);
+				m_navigator.SetIndices(m_temporarilyIncludedBlock);
 			}
 			else
 			{
-				if (RelevantBlockCount > 0)
-				{
-					m_currentBlockIndex = -1;
-					if (m_temporarilyIncludedBlock != null)
-					{
-						// Block that was temporarily included in previous filter might now match the new filter
-						var i = m_relevantBlocks.IndexOf(m_temporarilyIncludedBlock);
-						if (i >= 0)
-						{
-							m_currentBlockIndex = i;
-							m_temporarilyIncludedBlock = null;
-							SetBlock(m_relevantBlocks[m_currentBlockIndex]);
-							return;
-						}
-					}
-					LoadNextRelevantBlock();
-				}
-				else if (selectedBlock != null)
-				{
-					m_temporarilyIncludedBlock = m_navigator.GetIndicesOfSpecificBlock(selectedBlock);
-					m_navigator.SetIndices(m_temporarilyIncludedBlock);
-				}
-				else
-				{
-					m_temporarilyIncludedBlock = m_navigator.GetIndices();
-				}
+				m_temporarilyIncludedBlock = m_navigator.GetIndices();
 			}
+
+			if (FilterReset != null)
+				FilterReset(this, new EventArgs());
 		}
 		#endregion
 
@@ -607,6 +603,8 @@ namespace Glyssen.Dialogs
 
 		private bool IsRelevant(Block block)
 		{
+			if (CurrentBookIsSingleVoice)
+				return (Mode & BlocksToDisplay.AllScripture) > 0;
 			if (block.MultiBlockQuote == MultiBlockQuote.Continuation || block.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
 				return false;
 			if ((Mode & BlocksToDisplay.ExcludeUserConfirmed) > 0 && block.UserConfirmed)
