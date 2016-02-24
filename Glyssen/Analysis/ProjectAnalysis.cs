@@ -39,6 +39,13 @@ namespace Glyssen.Analysis
 					if (block.MultiBlockQuote == MultiBlockQuote.Continuation || block.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
 						continue;
 					TotalBlocks++;
+
+					if (book.SingleVoice)
+					{
+						NarratorBlocks++;
+						continue;
+					}
+
 					if (block.CharacterIs(book.BookId, CharacterVerseData.StandardCharacter.Narrator))
 						NarratorBlocks++;
 					else if (block.CharacterId == CharacterVerseData.UnknownCharacter)

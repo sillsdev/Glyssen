@@ -3,6 +3,7 @@ using Glyssen;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using NUnit.Framework;
+using Paratext;
 
 namespace GlyssenTests.Dialogs
 {
@@ -378,17 +379,12 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void SetCurrentBookSingleVoice_TrueNoSubsequentBooks_RemainingBlocksAssignedToNarratorAndCurrentBlockIsUnchanged()
+		public void SetCurrentBookSingleVoice_TrueNoSubsequentBooks_CurrentBlockIsUnchanged()
 		{
 			m_fullProjectRefreshRequired = true;
 			var currentBlock = m_model.CurrentBlock;
 			m_model.SetCurrentBookSingleVoice(true);
-			foreach (var block in m_testProject.IncludedBooks[0].GetScriptBlocks())
-			{
-				Assert.IsFalse(block.CharacterIsUnclear(), block.GetText(true));
-				if (block.UserConfirmed)
-					Assert.IsTrue(block.CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator), block.GetText(true));
-			}
+
 			Assert.AreEqual(currentBlock, m_model.CurrentBlock);
 			m_model.Mode = BlocksToDisplay.NeedAssignments | BlocksToDisplay.ExcludeUserConfirmed;
 			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
@@ -606,6 +602,43 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(CharacterVerseData.UnknownCharacter, m_model.CurrentBlock.CharacterId);
 			m_model.LoadNextRelevantBlock();
 			Assert.AreEqual(firstRelevantBlockAfterTheBlockToSplit, m_model.CurrentBlock);
+		}
+
+		[Test]
+		public void SetCurrentBookSingleVoice_UnassignedQuotesInOtherBooks_CurrentBlockInNextBook()
+		{
+			var project = TestProject.CreateTestProject(
+				TestProject.TestBook.JOS,
+				TestProject.TestBook.MRK,
+				TestProject.TestBook.LUK,
+				TestProject.TestBook.ACT,
+				TestProject.TestBook.GAL,
+				TestProject.TestBook.EPH,
+				TestProject.TestBook.PHM,
+				TestProject.TestBook.HEB,
+				TestProject.TestBook.IJN,
+				TestProject.TestBook.IIJN,
+				TestProject.TestBook.IIIJN,
+				TestProject.TestBook.JUD,
+				TestProject.TestBook.REV
+			);
+
+			var model = new AssignCharacterViewModel(project);
+			model.SetUiStrings("narrator ({0})",
+				"book title or chapter ({0})",
+				"introduction ({0})",
+				"section head ({0})",
+				"normal");
+			model.BackwardContextBlockCount = 10;
+			model.ForwardContextBlockCount = 10;
+
+			Assert.True(model.TryLoadBlock(new VerseRef(042001001)));
+			model.LoadNextRelevantBlock();
+			Assert.AreEqual("LUK", model.CurrentBookId);
+
+			model.SetCurrentBookSingleVoice(true);
+			Assert.AreEqual("ACT", model.CurrentBookId);
+
 		}
 
 		private void FindRefInMark(int chapter, int verse)

@@ -172,12 +172,6 @@ namespace Glyssen.Dialogs
 					{ "singleVoice", bookScript.SingleVoice.ToString() },
 					{ "method", "ScriptureRangeSelectionDlg.m_btnOk_Click" }
 				});
-
-				if (!bookScript.SingleVoice)
-					continue;
-
-				using (var model = new AssignCharacterViewModel(m_project))
-					model.AssignNarratorForRemainingBlocksInBook(bookScript);
 			}
 
 			if (booksToAskUserAbout.Any() && !ConfirmSetToMultiVoice(booksToAskUserAbout))
