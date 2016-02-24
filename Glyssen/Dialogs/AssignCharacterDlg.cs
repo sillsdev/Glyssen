@@ -133,6 +133,7 @@ namespace Glyssen.Dialogs
 			else if ((mode & BlocksToDisplay.AllScripture) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 4;
 			else
+				// ReSharper disable once NotResolvedInText
 				throw new InvalidEnumArgumentException("mode", (int)mode, typeof(BlocksToDisplay));
 
 			if ((mode & BlocksToDisplay.ExcludeUserConfirmed) != 0)
@@ -265,6 +266,9 @@ namespace Glyssen.Dialogs
 
 		private void SelectCharacter()
 		{
+			if (m_viewModel.CurrentBookIsSingleVoice)
+				return;
+
 			Block currentBlock = m_viewModel.CurrentBlock;
 			if (currentBlock.CharacterIs(m_viewModel.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator))
 				m_listBoxCharacters.SelectedItem = AssignCharacterViewModel.Character.Narrator;
@@ -709,6 +713,7 @@ namespace Glyssen.Dialogs
 		private void m_chkSingleVoice_CheckedChanged(object sender, EventArgs e)
 		{
 			m_viewModel.SetCurrentBookSingleVoice(m_chkSingleVoice.Checked);
+			UpdateProgressBarForMode();
 		}
 
 		private void m_listBoxCharacters_MouseMove(object sender, MouseEventArgs e)

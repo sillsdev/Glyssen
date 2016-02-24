@@ -146,6 +146,7 @@ namespace Glyssen.Dialogs
 		public int RelevantBlockCount { get { return m_relevantBlocks.Count; } }
 		public int CurrentBlockDisplayIndex { get { return m_currentBlockIndex + 1; } }
 		public string CurrentBookId { get { return m_navigator.CurrentBook.BookId; } }
+		public bool CurrentBookIsSingleVoice { get { return m_navigator.CurrentBook.SingleVoice; } }
 		public Block CurrentBlock { get { return m_navigator.CurrentBlock; } }
 		public int BackwardContextBlockCount { get; set; }
 		public int ForwardContextBlockCount { get; set; }
@@ -215,7 +216,7 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		private void ResetFilter(Block selectedBlock)
+		protected void ResetFilter(Block selectedBlock)
 		{
 			PopulateRelevantBlocks();
 
@@ -607,6 +608,8 @@ namespace Glyssen.Dialogs
 
 		private bool IsRelevant(Block block)
 		{
+			if (CurrentBookIsSingleVoice)
+				return false;
 			if (block.MultiBlockQuote == MultiBlockQuote.Continuation || block.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
 				return false;
 			if ((Mode & BlocksToDisplay.ExcludeUserConfirmed) > 0 && block.UserConfirmed)

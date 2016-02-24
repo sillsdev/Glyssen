@@ -57,7 +57,10 @@ namespace Glyssen.Dialogs
 
 		public bool AreAllAssignmentsComplete
 		{
-			get { return m_assignedBlocks == m_relevantBlocks.Count; }
+			get
+			{
+				return IsCurrentBookSingleVoice || m_assignedBlocks == m_relevantBlocks.Count;
+			}
 		}
 
 		public bool IsCurrentBookSingleVoice
@@ -77,16 +80,14 @@ namespace Glyssen.Dialogs
 		{
 			if (CurrentBook.SingleVoice == singleVoice)
 				return;
+
 			CurrentBook.SingleVoice = singleVoice;
+			m_project.SaveBook(CurrentBook);
+			
 			if (singleVoice)
-			{
-				// Order is important
-				AssignNarratorForRemainingBlocksInCurrentBook();
-				m_project.SaveBook(CurrentBook);
 				LoadNextRelevantBlockInSubsequentBook();
-			}
-			else
-				m_project.SaveBook(CurrentBook);
+
+			ResetFilter(null);
 			OnSaveCurrentBook();
 
 			Analytics.Track("SetSingleVoice", new Dictionary<string, string>
@@ -352,26 +353,6 @@ namespace Glyssen.Dialogs
 			}
 			return null;
 		}
-
-		private void AssignNarratorForRemainingBlocksInCurrentBook()
-		{
-			AssignNarratorForRemainingBlocksInBook(CurrentBook);
-		}
-
-		public void AssignNarratorForRemainingBlocksInBook(BookScript book)
-		{
-			foreach (var block in book.GetScriptBlocks().Where(b => b.CharacterIsUnclear()))
-			{
-				block.SetStandardCharacter(book.BookId, CharacterVerseData.StandardCharacter.Narrator);
-				block.UserConfirmed = true;
-
-				if (block.MultiBlockQuote != MultiBlockQuote.Continuation)
-				{
-					m_assignedBlocks++;
-					OnAssignedBlocksIncremented();
-				}
-			}
-		}
 		#endregion
 
 		#region Block editing methods
@@ -481,7 +462,7 @@ namespace Glyssen.Dialogs
 					return false;
 				if (ReferenceEquals(this, obj))
 					return true;
-				if (obj.GetType() != this.GetType())
+				if (obj.GetType() != GetType())
 					return false;
 				return Equals((Character)obj);
 			}
@@ -570,7 +551,7 @@ namespace Glyssen.Dialogs
 					return false;
 				if (ReferenceEquals(this, obj))
 					return true;
-				if (obj.GetType() != this.GetType())
+				if (obj.GetType() != GetType())
 					return false;
 				return Equals((Delivery)obj);
 			}
