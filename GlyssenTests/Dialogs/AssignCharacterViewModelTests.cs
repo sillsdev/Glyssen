@@ -378,17 +378,12 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void SetCurrentBookSingleVoice_TrueNoSubsequentBooks_RemainingBlocksAssignedToNarratorAndCurrentBlockIsUnchanged()
+		public void SetCurrentBookSingleVoice_TrueNoSubsequentBooks_CurrentBlockIsUnchanged()
 		{
 			m_fullProjectRefreshRequired = true;
 			var currentBlock = m_model.CurrentBlock;
 			m_model.SetCurrentBookSingleVoice(true);
-			foreach (var block in m_testProject.IncludedBooks[0].GetScriptBlocks())
-			{
-				Assert.IsFalse(block.CharacterIsUnclear(), block.GetText(true));
-				if (block.UserConfirmed)
-					Assert.IsTrue(block.CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator), block.GetText(true));
-			}
+
 			Assert.AreEqual(currentBlock, m_model.CurrentBlock);
 			m_model.Mode = BlocksToDisplay.NeedAssignments | BlocksToDisplay.ExcludeUserConfirmed;
 			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
