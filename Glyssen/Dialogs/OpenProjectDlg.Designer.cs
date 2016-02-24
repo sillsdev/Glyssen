@@ -73,12 +73,12 @@
 			this.m_linkTextReleaseBundle.AutoSize = true;
 			this.glyssenColorPalette.SetBackColor(this.m_linkTextReleaseBundle, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_linkTextReleaseBundle.BackColor = System.Drawing.SystemColors.Control;
-			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkTextReleaseBundle, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkTextReleaseBundle.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkTextReleaseBundle, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.glyssenColorPalette.SetForeColor(this.m_linkTextReleaseBundle, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_linkTextReleaseBundle.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.m_linkTextReleaseBundle.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_linkTextReleaseBundle, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_linkTextReleaseBundle.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkTextReleaseBundle, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkTextReleaseBundle, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkTextReleaseBundle, "DialogBoxes.OpenProjectDlg.CreateNewProject");
@@ -174,6 +174,9 @@
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_listExistingProjects, false);
 			this.m_listExistingProjects.SelectedProjectChanged += new System.EventHandler(this.HandleSelectedProjectChanged);
 			this.m_listExistingProjects.ListLoaded += new System.EventHandler(this.HandleExistingProjectsListLoaded);
+			this.m_listExistingProjects.ColumnWidthChanged += new System.EventHandler<System.Windows.Forms.DataGridViewColumnEventArgs>(this.HandleColumnWidthChanged);
+			this.m_listExistingProjects.ColumnDisplayIndexChanged += new System.EventHandler<System.Windows.Forms.DataGridViewColumnEventArgs>(this.m_listExistingProjects_ColumnDisplayIndexChanged);
+			this.m_listExistingProjects.ProjectListSorted += new System.EventHandler(this.HandleProjectListSorted);
 			this.m_listExistingProjects.DoubleClick += new System.EventHandler(this.HandleExistingProjectsDoubleClick);
 			// 
 			// m_tableLayoutPanelMain
