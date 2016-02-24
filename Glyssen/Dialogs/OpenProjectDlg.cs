@@ -9,6 +9,8 @@ namespace Glyssen.Dialogs
 {
 	public partial class OpenProjectDlg : FormWithPersistedSettings
 	{
+		private bool m_gridSettingsChanged;
+
 		public enum ProjectType
 		{
 			ExistingProject,
@@ -72,11 +74,14 @@ namespace Glyssen.Dialogs
 				m_listExistingProjects.ScrollToSelected();
 				m_btnOk.Enabled = true;
 			}
+
+			m_gridSettingsChanged = false;
 		}
 
 		protected override void OnClosing(CancelEventArgs e)
 		{
-			Settings.Default.OpenProjectDlgGridSettings = m_listExistingProjects.GridSettings;
+			if (m_gridSettingsChanged)
+				Settings.Default.OpenProjectDlgGridSettings = m_listExistingProjects.GridSettings;
 			base.OnClosing(e);
 		}
 
@@ -103,6 +108,24 @@ namespace Glyssen.Dialogs
 		private void HandleExistingProjectsListLoaded(object sender, EventArgs e)
 		{
 			m_chkShowInactiveProjects.Visible = m_listExistingProjects.HiddenProjectsExist;
+		}
+
+		private void HandleProjectListSorted(object sender, EventArgs e)
+		{
+			m_gridSettingsChanged = true;
+		}
+
+		private void HandleColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
+		{
+			if (e.Column.AutoSizeMode == DataGridViewAutoSizeColumnMode.Fill)
+				return;
+
+			m_gridSettingsChanged = true;
+		}
+
+		private void m_listExistingProjects_ColumnDisplayIndexChanged(object sender, DataGridViewColumnEventArgs e)
+		{
+			m_gridSettingsChanged = true;
 		}
 	}
 }
