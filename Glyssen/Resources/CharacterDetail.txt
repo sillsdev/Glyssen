@@ -50,8 +50,9 @@ Amnon, son of David	1	Male	Adult			2SA 13:4 <-(5 more)-> 2SA 13:17
 Amos	1	Male	Adult			AMO 1:2 <-(8 more)-> AMO 8:2
 Ananias (Annas), the high priest (father-in-law of Caiaphas)	1	Male	Elder			JHN 18:19 <-(2 more)-> ACT 23:2
 Ananias of Damascus	1	Male	Adult			ACT 9:10 <-(2 more)-> ACT 9:17
+Ananias of Jerusalem	1	Male	Adult			ACT 5:2 & ACT 5:5
 Andrew	1	Male	Adult			MAT 14:17 <-(3 more)-> JHN 6:9
-angel	-1	Male	Adult			1KI 19:5 <-(31 more)-> ACT 12:8
+angel	-1	Male	Adult			1KI 19:5 <-(16 more)-> ACT 12:8
 angel (one of the seven)	1		Adult			REV 17:1 <-(19 more)-> REV 22:11
 angel flying directly overhead	1		Adult			REV 14:7
 angel flying directly overhead, second	1		Adult			REV 14:8
@@ -142,7 +143,9 @@ Book of the Wars of the LORD	1	PreferMale	Adult			NUM 21:14 & NUM 21:15
 boys	-1	Male	Child			2KI 2:23
 bride, the (referring to the Church)	-1	PreferFemale	Adult			
 brothers at Antioch	-1	Male	Adult			ACT 15:33 & ACT 15:40
+brothers at Lystra and Iconium	-1	Male	Adult			ACT 16:2
 brothers at Puteoli	-1	Male	Adult			ACT 28:14 & ACT 28:15
+brothers at Thessalonica	-1	Male	Adult			ACT 17:10
 brothers of beloved	-1	Male	Adult			SNG 8:8 & SNG 8:9
 bystanders at Calvary, some	-1		Adult			MAT 27:47 & MRK 15:35
 bystanders at Calvary, the rest	-1		Adult			MAT 27:49
@@ -175,6 +178,7 @@ children	-1		Child			MAT 21:15
 children of Zion (Jerusalem)	-1		Child			LAM 2:12 & LAM 4:4
 citizens of Shechem	-1		Adult			JDG 9:3
 city clerk of Ephesus	1	Male	Adult			ACT 19:35 <-(5 more)-> ACT 19:41
+Claudius	1	Male	Adult			ACT 18:2
 Cleopas	1	Male	Adult			LUK 24:18
 Cleopas' companion (on road to Emmaus)	1	Either	Adult			
 collectors of temple tax	-1	Male	Adult			MAT 17:24
@@ -195,7 +199,7 @@ Cretan prophet	1	Male				TIT 1:12
 criminal on cross, insulting	1	Male	Adult			LUK 23:39
 criminal on cross, repentant	1	Male	Adult			LUK 23:40 <-(1 more)-> LUK 23:42
 crippled man	1	Male	Adult			ACT 3:5
-crowd	-1		Adult			MAT 9:23 <-(14 more)-> ACT 21:36
+crowd	-1		Adult			MAT 9:8 <-(15 more)-> ACT 21:36
 crowd after mute healed	-1		Adult			MAT 9:33
 crowd at Festival of Tabernacles in Jerusalem, many in the	-1		Adult			JHN 7:31
 crowd at Festival of Tabernacles in Jerusalem, others	-1		Adult			JHN 7:12 & JHN 7:41
@@ -281,6 +285,7 @@ Elisha's messenger	1					2KI 5:10
 Elizabeth	1	Female	Elder			LUK 1:25 <-(4 more)-> LUK 1:60
 Elkanah	1	Male				1SA 1:8 & 1SA 1:23
 Elnathan	1	Male			son of Achbor	
+Elymas	1	Male			magician	ACT 13:8
 enemies of God	-1					PSA 74:8 & LAM 2:16
 enemies of Israel	-1					PSA 83:4 & PSA 83:12
 enemies of Judah and Benjamin	-1	Male				EZR 4:2
@@ -338,7 +343,7 @@ fortune telling slave girl	1	Female	YoungAdult			ACT 16:17
 four living creatures	4					REV 4:8 & REV 5:14
 friends of Haman	-1	PreferMale				
 Gaal, son of Ebed	1	Male				JDG 9:28 <-(2 more)-> JDG 9:37
-Gabriel	1	Male				DAN 8:17 <-(13 more)-> DAN 9:27
+Gabriel	1	Male				DAN 8:17 <-(28 more)-> LUK 1:37
 Gad, the prophet, David's seer	1	Male				1SA 22:5 <-(3 more)-> 1CH 21:12
 Gadarene (or Gerasenes) people	-1					MAT 8:34 <-(1 more)-> LUK 8:37
 Gadites	-1	Male				
@@ -357,7 +362,7 @@ Gideon (Jerubbaal)	1	Male				JDG 6:13 <-(21 more)-> JDG 8:24
 Gilead, elders of	-1	Male				JDG 11:6 <-(1 more)-> JDG 11:10
 Gilead, leaders of	-1	Male				JDG 10:18
 Gilead, men of	-1	Male				JDG 12:5 & JDG 12:6
-God	1	Male		Y		GEN 1:3 <-(5359 more)-> REV 21:8
+God	1	Male		Y		GEN 1:3 <-(5360 more)-> REV 21:8
 Goliath, Philistine champion	1	Male	Adult			1SA 17:8 <-(3 more)-> 1SA 17:44
 Good Priest	1	Male			Many quotes resolve to this pseudo-character by default	
 great company of heavenly host	-1		Adult			LUK 2:14
@@ -475,13 +480,14 @@ Jeremiah's enemies	-1	Male				JER 11:19 <-(2 more)-> JER 20:10
 Jeroboam	1	Male				1KI 12:26 <-(6 more)-> 1KI 14:3
 Jeshua	1	Male				
 Jesse	1	Male				1SA 16:11 <-(2 more)-> 1SA 17:19
-Jesus	1	Male	Adult	Y		MAT 3:15 <-(2094 more)-> REV 22:20
+Jesus	1	Male	Adult	Y		MAT 3:15 <-(2096 more)-> REV 22:20
 Jesus (child)	1	Male	Child	Y	youth (12)	LUK 2:49
 Jesus' brothers	4	Male				JHN 7:3 & JHN 7:4
 Jesus' family	-1	Either				MAT 12:46 <-(1 more)-> MRK 3:31
 Jethro (Reuel), Moses' father-in-law	1	Male				EXO 2:18 <-(12 more)-> EXO 18:23
 Jewish leaders	-1	Male				
 Jews from Asia	-1					ACT 21:28
+Jews of Berea	-1				noble	ACT 17:11
 Jews of Cyrene, Alexandria, Cilicia & Asia	-1					ACT 6:11
 Jews who had been with Mary and Martha	-1					JHN 11:31 & JHN 11:36
 Jews who had been with Mary and Martha, some	-1					JHN 11:37
@@ -1043,7 +1049,7 @@ voice from heaven (God?)	1	Male			Possibly God speaking (not identified)	REV 10:
 voice from heaven, another	1	Male				REV 18:4 <-(14 more)-> REV 18:19
 voice from temple	1					REV 16:1
 voice from throne	1	Male				REV 19:5 <-(1 more)-> REV 21:4
-voice in heaven	13					REV 7:5 <-(3 more)-> REV 13:9
+voice in heaven	13					REV 7:5 <-(4 more)-> REV 13:10
 voice in heaven, loud	1					REV 12:10 <-(1 more)-> REV 12:12
 voice of great crowd in heaven, loud	-1					REV 19:1 <-(1 more)-> REV 19:3
 voice of great crowd, like roar of many waters, loud thunderclaps	-1					REV 19:6 <-(1 more)-> REV 19:8
@@ -1057,6 +1063,7 @@ we (believers)	-1					ROM 8:15
 weakling	1					JOL 3:10
 what is formed	1					ISA 29:16
 whoever has doubts	1					ROM 14:23
+whole earth	-1					REV 13:3
 wicked men of Gibeah	-1	Male				JDG 19:22
 wicked, the	-1					PSA 94:7 & PSA 141:7
 widow (from company of prophets)	1	Female				2KI 4:1 <-(1 more)-> 2KI 4:6

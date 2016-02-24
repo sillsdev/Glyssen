@@ -1,4 +1,4 @@
-Control File Version	90
+Control File Version	91
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -11839,6 +11839,7 @@ MAT	9	3	teachers of religious law	indignant		Normal
 MAT	9	4	Jesus	rebuking		Dialogue		
 MAT	9	5	Jesus			Normal		
 MAT	9	6	Jesus			Dialogue		
+MAT	9	8	crowd			Indirect		
 MAT	9	9	Jesus	giving orders		Normal		
 MAT	9	10	narrator-MAT			Quotation		
 MAT	9	11	Pharisees	questioning		Dialogue		
@@ -14771,8 +14772,10 @@ ACT	4	29	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Pet
 ACT	4	30	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
 ACT	4	32	no one			Hypothetical		
 ACT	4	36	narrator-ACT			Quotation		
+ACT	5	2	Ananias of Jerusalem			Indirect		
 ACT	5	3	Peter (Simon)	rebuking		Dialogue		
 ACT	5	4	Peter (Simon)	rebuking		Normal		
+ACT	5	5	Ananias of Jerusalem			Indirect		
 ACT	5	8	Peter (Simon)			Dialogue		
 ACT	5	8	Sapphira, wife of Ananias of Jerusalem			Dialogue		
 ACT	5	9	Peter (Simon)			Dialogue		
@@ -14969,6 +14972,7 @@ ACT	12	22	people of Tyre and Sidon	shouting		Normal
 ACT	13	1	narrator-ACT			Quotation		
 ACT	13	2	Holy Spirit, the		Holy Spirit	Normal		
 ACT	13	3	prophets and teachers at Antioch			Indirect		
+ACT	13	8	Elymas			Indirect		
 ACT	13	10	Paul	rebuking		Normal		
 ACT	13	11	Paul	rebuking		Normal		
 ACT	13	15	synagogue rulers in Pisidian Antioch	gracious		Normal	Good Priest	
@@ -15042,6 +15046,7 @@ ACT	15	36	Paul			Normal
 ACT	15	37	Barnabas			Indirect		
 ACT	15	38	Paul			Indirect		
 ACT	15	40	brothers at Antioch	blessing		Indirect		
+ACT	16	2	brothers at Lystra and Iconium			Indirect		
 ACT	16	9	Macedonian			Normal		
 ACT	16	10	God		God (the LORD)	Indirect		
 ACT	16	15	Lydia			Normal		
@@ -15063,6 +15068,8 @@ ACT	16	39	magistrates, chief			Indirect
 ACT	17	3	Paul			Normal		
 ACT	17	6	mob			Normal		
 ACT	17	7	mob			Normal		
+ACT	17	10	brothers at Thessalonica			Indirect		
+ACT	17	11	Jews of Berea			Indirect		
 ACT	17	15	Paul	commanding		Indirect		
 ACT	17	18	Epicurean and Stoic philosophers, other	superior		Normal		
 ACT	17	18	Epicurean and Stoic philosophers, some	superior		Normal		
@@ -15080,6 +15087,7 @@ ACT	17	30	Paul			Normal
 ACT	17	31	Paul			Normal		
 ACT	17	32	Epicurean and Stoic philosophers, interested			Dialogue		
 ACT	17	32	Epicurean and Stoic philosophers, sneering	sneering		Dialogue		
+ACT	18	2	Claudius			Indirect		
 ACT	18	5	Paul			Indirect		
 ACT	18	6	Paul	rebuking		Normal		
 ACT	18	9	Jesus	in a vision		Normal		
@@ -15779,6 +15787,7 @@ REV	11	19	narrator-REV			Quotation
 REV	12	10	voice in heaven, loud			Normal		
 REV	12	11	voice in heaven, loud			Normal		
 REV	12	12	voice in heaven, loud			Normal		
+REV	13	3	whole earth			Indirect		
 REV	13	4	worshipers of the beast			Normal		
 REV	13	9	voice in heaven			Potential		
 REV	13	10	voice in heaven			Potential		
