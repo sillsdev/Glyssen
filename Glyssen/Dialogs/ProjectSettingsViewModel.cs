@@ -20,11 +20,6 @@ namespace Glyssen.Dialogs
 		private readonly string m_exampleSingleChapterLabel;
 		private ChapterAnnouncement m_chapterAnnouncementStyle;
 
-		public ProjectSettingsViewModel(WritingSystemSetupModel wsModel)
-		{
-			WsModel = wsModel;
-		}
-
 		public ProjectSettingsViewModel(Project project)
 		{
 			Project = project;
