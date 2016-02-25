@@ -11,6 +11,7 @@ using L10NSharp.UI;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Windows.Forms.Reporting;
+using SIL.WritingSystems;
 
 namespace Glyssen
 {
@@ -94,6 +95,8 @@ namespace Glyssen
 
 				if ((Control.ModifierKeys & Keys.Shift) > 0 && !string.IsNullOrEmpty(userConfigSettingsPath))
 					HandleDeleteUserSettings(userConfigSettingsPath);
+
+				Sldr.Initialize();
 
 				Application.Run(new MainForm());
 			}
