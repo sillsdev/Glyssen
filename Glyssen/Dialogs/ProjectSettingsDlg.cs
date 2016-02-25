@@ -83,7 +83,8 @@ namespace Glyssen.Dialogs
 			set
 			{
 				m_model = value;
-				RecordingProjectName = value.RecordingProjectName;
+                RecordingProjectName = value.RecordingProjectName;
+                AudioStockNumber = value.AudioStockNumber;
 				m_txtOriginalBundlePath.Text = value.BundlePath;
 				LanguageName = value.LanguageName;
 				IsoCode = value.IsoCode;
@@ -104,6 +105,7 @@ namespace Glyssen.Dialogs
 				m_btnOk.Enabled = enableControls;
 				m_wsFontControl.Enabled = enableControls;
 				m_txtRecordingProjectName.Enabled = enableControls;
+                m_txtAudioStockNumber.Enabled = enableControls;
 				var i = GetIndexOfItemFromBookMarkerCombo(m_model.ChapterAnnouncementStyle);
 				if (m_model.ChapterAnnouncementStyle == ChapterAnnouncement.ChapterLabel || i < 0)
 				{
@@ -118,11 +120,17 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		private string RecordingProjectName
-		{
-			get { return m_txtRecordingProjectName.Text; }
-			set { m_txtRecordingProjectName.Text = value; }
-		}
+        private string RecordingProjectName
+        {
+            get { return m_txtRecordingProjectName.Text; }
+            set { m_txtRecordingProjectName.Text = value; }
+        }
+
+        private string AudioStockNumber
+        {
+            get { return m_txtAudioStockNumber.Text; }
+            set { m_txtAudioStockNumber.Text = value; }
+        }
 
 		private string LanguageName
 		{
@@ -200,7 +208,8 @@ namespace Glyssen.Dialogs
 				DirectoryUtilities.DeleteDirectoryRobust(Project.GetProjectFolderPath(IsoCode, PublicationId, RecordingProjectName));
 			}
 
-			m_model.RecordingProjectName = RecordingProjectName;
+            m_model.RecordingProjectName = RecordingProjectName;
+            m_model.AudioStockNumber = AudioStockNumber;
 			m_model.ChapterAnnouncementStyle = ChapterAnnouncementStyle;
 			m_model.SkipChapterAnnouncementForFirstChapter = !m_chkChapterOneAnnouncements.Checked;
 

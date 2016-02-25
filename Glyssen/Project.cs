@@ -148,10 +148,15 @@ namespace Glyssen
 			}
 		}
 
-		public string Id
-		{
-			get { return m_metadata.Id; }
-		}
+        public string AudioStockNumber
+        {
+            get { return m_metadata.AudioStockNumber; }
+        }
+
+        public string Id
+        {
+            get { return m_metadata.Id; }
+        }
 
 		public string Name
 		{
@@ -457,6 +462,7 @@ namespace Glyssen
 				Directory.Move(ProjectFolder, newPath);
 				m_recordingProjectName = model.RecordingProjectName;
 			}
+		    m_metadata.AudioStockNumber = model.AudioStockNumber;
 			m_metadata.FontFamily = model.WsModel.CurrentDefaultFontName;
 			m_metadata.FontSizeInPoints = (int) model.WsModel.CurrentDefaultFontSize;
 			m_metadata.Language.ScriptDirection = model.WsModel.CurrentRightToLeftScript ? "RTL" : "LTR";

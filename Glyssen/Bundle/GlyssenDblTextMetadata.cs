@@ -61,6 +61,12 @@ namespace Glyssen.Bundle
 		[XmlAttribute("origdblpath")]
 		public string OriginalPathBundlePath;
 
+        /// <summary>
+        /// Optional ID for tracking a project (used by FCBH's internal database)
+        /// </summary>
+        [XmlAttribute("audiostocknumber")]
+        public string AudioStockNumber { get; set; }
+
 		/// <summary>
 		/// We use this to know if character assignments should be reprocessed.
 		/// </summary>
@@ -220,7 +226,7 @@ namespace Glyssen.Bundle
 			get { return default(int); }
 			set { FontSizeInPoints = value; }
 		}
-		#endregion
+	    #endregion
 
 		/// <summary>
 		/// "Clone" only the bits of metadata that the user can modify in Glyssen.

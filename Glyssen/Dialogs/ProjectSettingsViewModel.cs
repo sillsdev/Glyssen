@@ -37,6 +37,7 @@ namespace Glyssen.Dialogs
 			};
 
 			RecordingProjectName = project.Name;
+		    AudioStockNumber = project.AudioStockNumber;
 			BundlePath = project.OriginalBundlePath;
 			LanguageName = project.LanguageName;
 			IsoCode = project.LanguageIsoCode;
@@ -90,7 +91,8 @@ namespace Glyssen.Dialogs
 		public string LanguageName { get; private set; }
 		public string IsoCode { get; private set; }
 		public string PublicationName { get; private set; }
-		public string RecordingProjectName { get; set; }
+        public string RecordingProjectName { get; set; }
+        public string AudioStockNumber { get; set; }
 		public string BundlePath { get; set; }
 		public string PublicationId { get; private set; }
 		public string SampleText { get; private set; }
