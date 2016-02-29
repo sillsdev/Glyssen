@@ -138,6 +138,7 @@ namespace Glyssen.VoiceActor
 		public ActorAge Age { get; set; }
 
 		[XmlAttribute("VoiceQuality")]
+		[DefaultValue("Normal")]
 		[Browsable(false)]
 		public string VoiceQualityDeprecatedString
 		{
@@ -155,12 +156,15 @@ namespace Glyssen.VoiceActor
 		public VoiceQuality VoiceQuality { get; set; }
 
 		[XmlAttribute("Status")]
+		[DefaultValue(false)]
 		public bool Status { get; set; }
 
 		[XmlAttribute("IsCameo")]
+		[DefaultValue(false)]
 		public bool IsCameo { get; set; }
 
 		[XmlAttribute("IsInactive")]
+		[DefaultValue(false)]
 		public bool IsInactive { get; set; }
 
 		public bool IsValid()
