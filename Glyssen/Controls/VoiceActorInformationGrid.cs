@@ -9,6 +9,7 @@ using Glyssen.Properties;
 using Glyssen.Utilities;
 using Glyssen.VoiceActor;
 using L10NSharp;
+using L10NSharp.UI;
 using SIL.Reporting;
 
 namespace Glyssen.Controls
@@ -62,6 +63,15 @@ namespace Glyssen.Controls
 			// We can't set this in the designer because L10NSharp is squashing it when the header is localized.
 			Cameo.ToolTipText = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.CameoTooltip",
 															"Distinguished actor to play minor character role.");
+
+			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+		}
+
+		private void HandleStringsLocalized()
+		{
+			ActorGender.DataSource = VoiceActorInformationViewModel.GetGenderDataTable();
+			ActorAge.DataSource = VoiceActorInformationViewModel.GetAgeDataTable();
+			ActorQuality.DataSource = VoiceActorInformationViewModel.GetVoiceQualityDataTable();
 		}
 
 		void m_dataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
