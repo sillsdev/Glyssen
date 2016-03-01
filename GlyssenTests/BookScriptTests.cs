@@ -1486,7 +1486,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void SplitBlock_BothBlocksHaveOriginalCharacterIdAndUserConfirmed()
+		public void SplitBlock_FirstBlockHasOriginalCharacterIdAndUserConfirmedTrueAndSecondBlockHasUnknownCharacterIdAndUserConfirmedFalse()
 		{
 			var mrkBlocks = new List<Block>();
 			mrkBlocks.Add(NewChapterBlock(1));
@@ -1497,9 +1497,9 @@ namespace GlyssenTests
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var newBlock = bookScript.SplitBlock(blockToSplit, "2", 5);
 			Assert.AreEqual("Bill", blockToSplit.CharacterId);
-			Assert.AreEqual("Bill", newBlock.CharacterId);
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, newBlock.CharacterId);
 			Assert.IsTrue(blockToSplit.UserConfirmed);
-			Assert.IsTrue(newBlock.UserConfirmed);
+			Assert.IsFalse(newBlock.UserConfirmed);
 		}
 
 		[Test]

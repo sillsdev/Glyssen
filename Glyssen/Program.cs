@@ -98,7 +98,14 @@ namespace Glyssen
 
 				Sldr.Initialize();
 
-				Application.Run(new MainForm());
+				try
+				{
+					Application.Run(new MainForm());
+				}
+				finally
+				{
+					Sldr.Cleanup();
+				}
 			}
 		}
 
