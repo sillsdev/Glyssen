@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -481,13 +482,51 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_ProjectIsCreatedSuccessfully()
+		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsIsoIsSet_ProjectIsCreatedSuccessfully()
 		{
-			var bundle = GetGlyssenBundleToBeUsedForProject(false);
-			var project = new Project(bundle);
-			WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-			Assert.IsNotNull(project);
-			Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
+			Sldr.Initialize();
+			try
+			{
+				var bundle = GetGlyssenBundleToBeUsedForProject(false);
+				bundle.Metadata.Language.Ldml = "";
+				bundle.Metadata.Language.Iso = "ach";
+				bundle.Metadata.Language.Name = "Acholi"; // see messages in Assert.AreEqual lines below
+				var project = new Project(bundle);
+				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
+				Assert.IsNotNull(project);
+				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
+				Assert.AreEqual("ach", project.WritingSystem.Id);
+				Assert.AreEqual("Acoli", project.WritingSystem.Language.Name,
+					"This name should be coming from the \"global\" cache, not from the metadata above - note spelling difference.");
+				Assert.AreEqual("ach", project.WritingSystem.Language.Iso3Code,
+					"If \"ach\" is not found in the global cache, the lnaguage subtag will be considered \"private-use\" and the " +
+					"ISO code will be null");
+				Assert.AreEqual("ach", project.WritingSystem.Language.Code);
+			}
+			finally
+			{
+				Sldr.Cleanup();
+			}
+		}
+
+		[Test]
+		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlIsSet_ProjectIsCreatedSuccessfully()
+		{
+			Sldr.Initialize();
+			try
+			{
+				var bundle = GetGlyssenBundleToBeUsedForProject(false);
+				bundle.Metadata.Language.Ldml = "ach";
+				var project = new Project(bundle);
+				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
+				Assert.IsNotNull(project);
+				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
+				Assert.AreEqual("ach", project.WritingSystem.Id);
+			}
+			finally
+			{
+				Sldr.Cleanup();
+			}
 		}
 
 		[Test]
@@ -630,7 +669,7 @@ namespace GlyssenTests
 
 		private void WaitForProjectInitializationToFinish(Project project, ProjectState projectState)
 		{
-			const int maxCyclesAllowed = 100;
+			const int maxCyclesAllowed = 1000000;
 			int iCycle = 1;
 			while ((project.ProjectState & projectState) == 0)
 			{

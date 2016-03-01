@@ -1151,6 +1151,18 @@ namespace Glyssen
 				m_wsDefinition = new WritingSystemDefinition();
 				if (File.Exists(LdmlFilePath))
 					new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, m_wsDefinition);
+				else
+				{
+					m_wsDefinition.Id = m_metadata.Language.Ldml;
+					if (string.IsNullOrWhiteSpace(m_wsDefinition.Id))
+						m_wsDefinition.Id = m_metadata.Language.Iso;
+					m_wsDefinition.Language = m_wsDefinition.Id;
+					if (m_wsDefinition.Language.IsPrivateUse && !string.IsNullOrEmpty(m_metadata.Language.Name))
+					{
+						// Couldn't find the language in the official repo. Create a better "private-use" one using the name from the metadata.
+						m_wsDefinition.Language = new LanguageSubtag(m_wsDefinition.Id, m_metadata.Language.Name);
+					}
+				}
 
 				return m_wsDefinition;
 			}
