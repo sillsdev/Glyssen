@@ -494,7 +494,7 @@ namespace GlyssenTests.Dialogs
 
 			m_model.SplitBlock(new[]
 			{
-				// The order here is significant as we need to be able handle them "out of order" like this
+				// The order here is significant as we need to be able to handle them "out of order" like this
 				new BlockSplitData(0, currentBlock, "7", 6),
 				new BlockSplitData(4, currentBlock, "8", 3),
 				new BlockSplitData(3, currentBlock, "7", BookScript.kSplitAtEndOfVerse),
@@ -575,6 +575,37 @@ namespace GlyssenTests.Dialogs
 
 			m_model.LoadNextRelevantBlock();
 			Assert.AreEqual(nextNextBlock, m_model.CurrentBlock);
+		}
+
+		[Test]
+		public void SplitBlock_DoubleSplitInBlockWhichIsNotRelevant_NewBlocksAllNeedAssignments()
+		{
+			m_fullProjectRefreshRequired = true;
+			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			FindRefInMark(1, 7);
+			Block firstRelevantBlockAfterTheBlockToSplit = m_model.CurrentBlock;
+			m_model.CurrentBlockIndexInBook = m_model.CurrentBlockIndexInBook - 2;
+			var blockToSplit = m_model.CurrentBlock;
+			var currentBlockCharacterId = blockToSplit.CharacterId;
+			Assert.True(blockToSplit.ChapterNumber == 1 && blockToSplit.InitialStartVerseNumber == 5);
+			Assert.False(m_model.IsCurrentBlockRelevant);
+
+			m_model.SplitBlock(new[]
+			{
+				new BlockSplitData(0, blockToSplit, "5", 6),
+				new BlockSplitData(1, blockToSplit, "5", 9)
+			});
+
+			Assert.False(m_model.IsCurrentBlockRelevant);
+			Assert.AreEqual(currentBlockCharacterId, m_model.CurrentBlock.CharacterId);
+			m_model.LoadNextRelevantBlock();
+			Assert.True(m_model.CurrentBlock.ChapterNumber == 1 && m_model.CurrentBlock.InitialStartVerseNumber == 5);
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, m_model.CurrentBlock.CharacterId);
+			m_model.LoadNextRelevantBlock();
+			Assert.True(m_model.CurrentBlock.ChapterNumber == 1 && m_model.CurrentBlock.InitialStartVerseNumber == 5);
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, m_model.CurrentBlock.CharacterId);
+			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(firstRelevantBlockAfterTheBlockToSplit, m_model.CurrentBlock);
 		}
 
 		private void FindRefInMark(int chapter, int verse)

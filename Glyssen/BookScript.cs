@@ -513,9 +513,9 @@ namespace Glyssen
 					}
 					newBlock = new Block(blockToSplit.StyleTag, blockToSplit.ChapterNumber,
 						initialStartVerse, initialEndVerse);
-					newBlock.CharacterId = blockToSplit.CharacterId;
-					newBlock.CharacterIdOverrideForScript = blockToSplit.CharacterIdOverrideForScript;
-					newBlock.UserConfirmed = blockToSplit.UserConfirmed;
+					newBlock.CharacterId = CharacterVerseData.UnknownCharacter;
+					newBlock.CharacterIdOverrideForScript = null;
+					newBlock.UserConfirmed = false;
 					if (characterOffsetToSplit < content.Length)
 						newBlock.BlockElements.Add(new ScriptText(content.Substring(characterOffsetToSplit)));
 					text.Content = content.Substring(0, characterOffsetToSplit);
