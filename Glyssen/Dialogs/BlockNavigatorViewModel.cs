@@ -149,6 +149,7 @@ namespace Glyssen.Dialogs
 		public Block CurrentBlock { get { return m_navigator.CurrentBlock; } }
 		public int BackwardContextBlockCount { get; set; }
 		public int ForwardContextBlockCount { get; set; }
+		public string ProjectName { get { return m_project.Name; } }
 
 		public bool IsCurrentBlockRelevant
 		{

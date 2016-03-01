@@ -53,6 +53,8 @@ namespace Glyssen.Dialogs
 			m_clipListFileFmt = m_lblClipListFilename.Text;
 			m_recordingScriptFileNameSuffix =
 				LocalizationManager.GetString("DialogBoxes.ExportDlg.RecordingScriptFileNameDefaultSuffix", "Recording Script");
+
+			Text = string.Format(Text, m_projectExporter.Project.Name);
 		}
 
 		private void UpdateDisplay()

@@ -64,6 +64,8 @@ namespace Glyssen.Dialogs
 			m_lblProjectSummary.Text = string.Format(m_lblProjectSummary.Text, project.IncludedBooks.Count, project.GetKeyStrokesByCharacterId().Count);
 			m_lblRecordingTime.Text = string.Format(m_lblRecordingTime.Text, project.GetEstimatedRecordingTime());
 			UpdateTally();
+
+			Text = string.Format(Text, project.Name);
 		}
 
 		private void UpdateTally()

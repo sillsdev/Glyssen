@@ -46,6 +46,8 @@ namespace Glyssen.Dialogs
 
 			m_xOfYFmt = m_labelXofY.Text;
 			m_singleVoiceCheckboxFmt = m_lblSingleVoice.Text;
+
+			Text = string.Format(Text, m_viewModel.ProjectName);
 		}
 
 		public AssignCharacterDlg(AssignCharacterViewModel viewModel)

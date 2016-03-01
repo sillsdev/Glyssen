@@ -9,6 +9,7 @@ using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Controls;
 using L10NSharp;
+using L10NSharp.UI;
 using SIL.DblBundle.Text;
 using SIL.Scripture;
 
@@ -28,19 +29,24 @@ namespace Glyssen.Dialogs
 		private List<string> m_storedOtSelections;
 		private List<string> m_storedNtSelections;
 
-		public ScriptureRangeSelectionDlg()
+		public ScriptureRangeSelectionDlg(Project project)
 		{
 			InitializeComponent();
-		}
 
-		public ScriptureRangeSelectionDlg(Project project) : this()
-		{
 			m_project = project;
 
 			m_availableOtBooks = m_project.AvailableBooks.Where(b => BCVRef.BookToNumber(b.Code) <= 39).ToList();
 			m_availableNtBooks = m_project.AvailableBooks.Where(b => BCVRef.BookToNumber(b.Code) > 39).ToList();
 
 			Initialize();
+
+			HandleStringsLocalized();
+			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+		}
+
+		private void HandleStringsLocalized()
+		{
+			Text = string.Format(Text, m_project.Name);
 		}
 
 		private void ScriptureRangeSelectionDlg_Load(object sender, EventArgs e)
