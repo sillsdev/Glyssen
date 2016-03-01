@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using DesktopAnalytics;
 using Glyssen.Character;
+using L10NSharp;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using SIL.Scripture;
@@ -120,21 +121,32 @@ namespace Glyssen
 
 				sheet.Cells.Style.VerticalAlignment = ExcelVerticalAlignment.Top;
 				sheet.Row(1).Style.Font.Bold = true;
-				sheet.Column(1).AutoFit(2d, sheet.DefaultColWidth); // line number
-				int offset = 0;
+
+				var columnNum = 1;
+				sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // line number
+
 				if (IncludeVoiceActors)
-				{
-					offset = 1;
-					sheet.Column(2).AutoFit(2d, 20d); // voice actor
-				}
-				sheet.Column(2 + offset).AutoFit(2d, sheet.DefaultColWidth); // style tag
-				sheet.Column(3 + offset).AutoFit(2d, sheet.DefaultColWidth); // book
-				sheet.Column(4 + offset).AutoFit(2d, sheet.DefaultColWidth); // chapter
-				sheet.Column(5 + offset).AutoFit(2d, sheet.DefaultColWidth); // verse
-				sheet.Column(6 + offset).AutoFit(2d, 20d); // character ID
-				sheet.Column(8 + offset).Style.WrapText = true; // script text
-				sheet.Column(8 + offset).Width = 50d;
-				sheet.Column(9 + offset).AutoFit(2d, sheet.DefaultColWidth); // block length
+					sheet.Column(columnNum++).AutoFit(2d, 20d); // voice actor
+				
+				sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // style tag
+				sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // book
+				sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // chapter
+				sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // verse
+				sheet.Column(columnNum++).AutoFit(2d, 20d); // character ID
+
+				// add a column for the localized character id
+				if (LocalizationManager.UILanguageId != "en")
+					sheet.Column(columnNum++).AutoFit(2d, 20d); // localized character ID
+
+				// skip the delivery column
+				columnNum++;
+
+				// for script text set both width and text wrapping
+				sheet.Column(columnNum).Style.WrapText = true; // script text
+				sheet.Column(columnNum++).Width = 50d;
+
+				// this is the last column, no need to increment columNum
+				sheet.Column(columnNum).AutoFit(2d, sheet.DefaultColWidth); // block length
 
 				sheet.View.FreezePanes(2, 1);
 
@@ -188,7 +200,18 @@ namespace Glyssen
 			headers.Add("Book");
 			headers.Add("Chapter");
 			headers.Add("Verse");
-			headers.Add("Character");
+
+			// add a column for the localized character id
+			if (LocalizationManager.UILanguageId == "en")
+			{
+				headers.Add("Character");
+			}
+			else
+			{
+				headers.Add("Character (English)");
+				headers.Add("Character");
+			}
+
 			headers.Add("Delivery");
 			headers.Add("Text");
 			headers.Add("Size");
@@ -212,6 +235,11 @@ namespace Glyssen
 			else
 				characterId = useCharacterIdInScript ? block.CharacterIdInScript : block.CharacterId;
 			list.Add(CharacterVerseData.IsCharacterStandard(characterId) ? CharacterVerseData.GetStandardCharacterIdAsEnglish(characterId) : characterId);
+			
+			// add a column for the localized character id
+			if (LocalizationManager.UILanguageId != "en")
+				list.Add(CharacterVerseData.GetCharacterNameForUi(characterId));
+				
 			list.Add(block.Delivery);
 			list.Add(block.GetText(true));
 			list.Add(block.GetText(false).Length);
