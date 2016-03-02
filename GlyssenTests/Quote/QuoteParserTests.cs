@@ -1974,6 +1974,31 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("Jesus", output[1].CharacterId);
 		}
 
+		[TestCase("—”")]
+		[TestCase("—")]
+		[TestCase("— ")]
+		public void Parse_DialogQuoteEndingWithSpuriousQuotationPunctuationFollowingCloserAndNoFollowingTextInParagraph_TrailingPunctuationIncludedInQuoteBlock(string trailingPunctuation)
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("Jesus said —Nintimrataram splintaram " + trailingPunctuation));
+			var block2 = new Block("p", 6, 49);
+			block2.BlockElements.Add(new ScriptText("Some more text"));
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+
+			Assert.AreEqual("Jesus said ", output[0].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+
+			Assert.AreEqual("—Nintimrataram splintaram " + trailingPunctuation, output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+
+			Assert.AreEqual("Some more text", output[2].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[2].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+		}
+
 		#region Tests for PG-417
 #if HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
 		[TestCase(QuoteUtils.kSentenceEndingPunctuation)]
@@ -3397,6 +3422,69 @@ namespace GlyssenTests.Quote
 		}
 
 		[Test]
+		public void Parse_InitialParagraphBeginsWithNonWordFormingCharactersBeforeVerseNumber_IncludeAllCharactersInResultingBlocks()
+		{
+			var block = new Block("p", 16, 8) { IsParagraphStart = true };
+			block.BlockElements.Add(new ScriptText("[ "));
+			block.BlockElements.Add(new Verse("9"));
+			block.BlockElements.Add(new ScriptText("Ka en doŋ ocer odiko con i nino mukwoŋo me cabit, okwoŋo nyutte bot Maliam Lamagdala, ma yam en oryemo cen abiro i kome-ni. "));
+			var input = new List<Block> { block };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			Assert.AreEqual(1, output.Count);
+			Assert.AreEqual("[ Ka en doŋ ocer odiko con i nino mukwoŋo me cabit, okwoŋo nyutte bot Maliam Lamagdala, ma yam en oryemo cen abiro i kome-ni. ", output[0].GetText(false));
+			Assert.AreEqual("[ [9]\u00A0Ka en doŋ ocer odiko con i nino mukwoŋo me cabit, okwoŋo nyutte bot Maliam Lamagdala, ma yam en oryemo cen abiro i kome-ni. ", output[0].GetText(true));
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(16, output[0].ChapterNumber);
+			Assert.AreEqual(9, output[0].InitialStartVerseNumber);
+		}
+
+		[Test]
+		public void Parse_ParagraphAfterScriptureBlockBeginsWithNonWordFormingCharactersBeforeVerseNumber_IncludeAllCharactersInResultingBlocks()
+		{
+			var block0 = new Block("p", 16, 8) { IsParagraphStart = true };
+			block0.BlockElements.Add(new ScriptText("Ci mon gukatti woko ki i lyel, gucako ŋwec ki myelkom pi lworo ma omakogi matek twatwal; lworo ogeŋogi tito lokke ki ŋatti mo."));
+			var block = new Block("p", 16, 8) { IsParagraphStart = true };
+			block.BlockElements.Add(new ScriptText("[ "));
+			block.BlockElements.Add(new Verse("9"));
+			block.BlockElements.Add(new ScriptText("Ka en doŋ ocer odiko con i nino mukwoŋo me cabit, okwoŋo nyutte bot Maliam Lamagdala, ma yam en oryemo cen abiro i kome-ni. "));
+			var input = new List<Block> { block0, block };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("Ci mon gukatti woko ki i lyel, gucako ŋwec ki myelkom pi lworo ma omakogi matek twatwal; lworo ogeŋogi tito lokke ki ŋatti mo.", output[0].GetText(false));
+			Assert.AreEqual("Ci mon gukatti woko ki i lyel, gucako ŋwec ki myelkom pi lworo ma omakogi matek twatwal; lworo ogeŋogi tito lokke ki ŋatti mo.", output[0].GetText(true));
+			Assert.AreEqual("[ Ka en doŋ ocer odiko con i nino mukwoŋo me cabit, okwoŋo nyutte bot Maliam Lamagdala, ma yam en oryemo cen abiro i kome-ni. ", output[1].GetText(false));
+			Assert.AreEqual("[ [9]\u00A0Ka en doŋ ocer odiko con i nino mukwoŋo me cabit, okwoŋo nyutte bot Maliam Lamagdala, ma yam en oryemo cen abiro i kome-ni. ", output[1].GetText(true));
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(16, output[0].ChapterNumber);
+			Assert.AreEqual(8, output[0].InitialStartVerseNumber);
+			Assert.AreEqual(16, output[1].ChapterNumber);
+			Assert.AreEqual(9, output[1].InitialStartVerseNumber);
+		}
+
+		[Test]
+		public void Parse_ParagraphAfterSectionHeaderBeginsWithNonWordFormingCharactersBeforeVerseNumber_IncludeAllCharactersInResultingBlocks()
+		{
+			var shBlock = new Block("s1", 16, 8) { IsParagraphStart = true };
+			shBlock.BlockElements.Add(new ScriptText("Yecu onyutte onen bot Maliam Lamagdala"));
+			var block = new Block("p", 16, 8) { IsParagraphStart = true };
+			block.BlockElements.Add(new ScriptText("[ "));
+			block.BlockElements.Add(new Verse("9"));
+			block.BlockElements.Add(new ScriptText("Ka en doŋ ocer odiko con i nino mukwoŋo me cabit, okwoŋo nyutte bot Maliam Lamagdala, ma yam en oryemo cen abiro i kome-ni. "));
+			var input = new List<Block> { shBlock, block };
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("Yecu onyutte onen bot Maliam Lamagdala", output[0].GetText(false));
+			Assert.AreEqual("Yecu onyutte onen bot Maliam Lamagdala", output[0].GetText(true));
+			Assert.AreEqual("[ Ka en doŋ ocer odiko con i nino mukwoŋo me cabit, okwoŋo nyutte bot Maliam Lamagdala, ma yam en oryemo cen abiro i kome-ni. ", output[1].GetText(false));
+			Assert.AreEqual("[ [9]\u00A0Ka en doŋ ocer odiko con i nino mukwoŋo me cabit, okwoŋo nyutte bot Maliam Lamagdala, ma yam en oryemo cen abiro i kome-ni. ", output[1].GetText(true));
+			Assert.True(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(16, output[0].ChapterNumber);
+			Assert.AreEqual(8, output[0].InitialStartVerseNumber);
+			Assert.AreEqual(16, output[1].ChapterNumber);
+			Assert.AreEqual(9, output[1].InitialStartVerseNumber);
+		}
+
+		[Test]
 		public void Unparse_OneBlockBecomesThreeBecomesOne_QuoteInMiddle()
 		{
 			var originalText = "He said, «Go!» quietly.";
@@ -3436,16 +3524,7 @@ namespace GlyssenTests.Quote
 		[Test]
 		public void Unparse_UnparseProject_Works()
 		{
-			/* 
-			 * TODO: Consider updating the parser to not remove block elements with no word-forming characters.
-			 * The last few verses of Mark 16, starting at verse 9, are flagged as an alternate, surrounded with square brackets
-			 * which are removed by the parser. This is causing the preparsed version to have one more more block element than
-			 * the unparsed version.
-			 * 
-			 * This is why Mark is excluded from this test.
-			*/
-			var booksToInclude = Enum.GetValues(typeof (TestProject.TestBook)).Cast<TestProject.TestBook>()
-				.Where(testBook => testBook != TestProject.TestBook.MRK).ToList();
+			var booksToInclude = Enum.GetValues(typeof (TestProject.TestBook)).Cast<TestProject.TestBook>().ToList();
 
 			var preparsed = TestProject.BooksBeforeQuoteParse(booksToInclude.ToArray());
 			var project = TestProject.CreateTestProject(booksToInclude.ToArray());

@@ -279,6 +279,11 @@ namespace Glyssen.Quote
 							}
 						}
 
+						if (sb.Length > 0)
+						{
+							// Paragraph starts with non-word-forming characters followed by verse number
+							m_workingBlock.BlockElements.Add(new ScriptText(sb.ToString()));
+						}
 						m_workingBlock.BlockElements.Add(element);
 						continue;
 					}
@@ -413,7 +418,10 @@ namespace Glyssen.Quote
 					}
 					FlushStringBuilderToBlockElement(sb);
 					if (sb.Length > 0)
-						m_outputBlocks.Last().BlockElements.OfType<ScriptText>().Last().Content += sb.ToString();
+					{
+						if (!block.IsParagraphStart)
+							m_outputBlocks.Last().BlockElements.OfType<ScriptText>().Last().Content += sb.ToString();
+					}
 				}
 				FlushBlock(block.StyleTag, m_quoteLevel > 0);
 			}
