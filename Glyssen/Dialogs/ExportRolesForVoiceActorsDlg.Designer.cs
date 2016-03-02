@@ -1,6 +1,4 @@
-﻿using Glyssen.Utilities;
-
-namespace Glyssen.Dialogs
+﻿namespace Glyssen.Dialogs
 {
 	partial class ExportRolesForVoiceActorsDlg
 	{
@@ -15,6 +13,7 @@ namespace Glyssen.Dialogs
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing)
 		{
+			L10NSharp.UI.LocalizeItemDlg.StringsLocalized -= HandleStringsLocalized;
 			if (disposing && (components != null))
 			{
 				components.Dispose();
@@ -193,6 +192,8 @@ namespace Glyssen.Dialogs
 			this.m_checkOpenForMe.AutoSize = true;
 			this.glyssenColorPalette.SetBackColor(this.m_checkOpenForMe, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_checkOpenForMe.BackColor = System.Drawing.SystemColors.Control;
+			this.m_checkOpenForMe.Checked = true;
+			this.m_checkOpenForMe.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.m_tableLayoutPanelMain.SetColumnSpan(this.m_checkOpenForMe, 4);
 			this.m_checkOpenForMe.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_checkOpenForMe, Glyssen.Utilities.GlyssenColors.ForeColor);
@@ -303,7 +304,7 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.Label m_lblFileName;
 		private System.Windows.Forms.Label m_lblFileExists;
 		private System.Windows.Forms.Label label3;
-		private GlyssenColorPalette glyssenColorPalette;
+		private Glyssen.Utilities.GlyssenColorPalette glyssenColorPalette;
 		private System.Windows.Forms.CheckBox m_checkOpenForMe;
 		private System.Windows.Forms.Label m_lblDescription2;
 	}

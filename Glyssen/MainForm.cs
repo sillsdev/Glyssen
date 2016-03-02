@@ -45,6 +45,8 @@ namespace Glyssen
 
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized; // Don't need to unsubscribe since this object will be around as long as the program is running.
+
+			m_lastExportLocationLink.Text = string.Empty;
 		}
 
 		public static void SetChildFormLocation(Form childForm)

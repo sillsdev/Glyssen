@@ -5,6 +5,7 @@ using DesktopAnalytics;
 using Glyssen.Properties;
 using L10NSharp;
 using L10NSharp.UI;
+using SIL.IO;
 using SIL.Reporting;
 
 namespace Glyssen.Dialogs
@@ -32,7 +33,11 @@ namespace Glyssen.Dialogs
 
 			m_defaultDirectory = Settings.Default.DefaultExportDirectory;
 			if (string.IsNullOrWhiteSpace(m_defaultDirectory))
-				m_defaultDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+			{
+				m_defaultDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ProductName);
+				if (!Directory.Exists(m_defaultDirectory))
+					Directory.CreateDirectory(m_defaultDirectory);
+			}
 			string defaultFileName = m_projectExporter.Project.PublicationName + " " +
 				m_recordingScriptFileNameSuffix + ProjectExporter.GetFileExtension(m_selectedFileType);
 			m_lblFileName.Text = Path.Combine(m_defaultDirectory, defaultFileName);
@@ -196,22 +201,13 @@ namespace Glyssen.Dialogs
 
 		private void BtnOk_Click(object sender, EventArgs e)
 		{
-			if (m_lblFileExists.Visible || m_lblActorDirectoryExists.Visible || m_lblBookDirectoryExists.Visible || m_lblClipListFileExists.Visible)
-			{
-				string text = LocalizationManager.GetString("DialogBoxes.ExportDlg.ConfirmOverwrite.Text", "Are you sure you want to overwrite the existing files?");
-				string caption = LocalizationManager.GetString("DialogBoxes.ExportDlg.ConfirmOverwrite.Caption", "Overwrite?");
-				if (MessageBox.Show(this, text, caption, MessageBoxButtons.YesNo) != DialogResult.Yes)
-				{
-					DialogResult = DialogResult.None;
-					return;
-				}
-			}
-
+			bool exportedAtLeastOneFile = false;
 			Settings.Default.DefaultExportDirectory = m_defaultDirectory;
 			string filePath = m_lblFileName.Text;
 			try
 			{
 				m_projectExporter.GenerateFile(filePath, m_selectedFileType);
+				exportedAtLeastOneFile = true;
 
 				// remember the location
 				m_projectExporter.Project.Status.LastExportLocation = Path.GetDirectoryName(filePath);
@@ -229,6 +225,7 @@ namespace Glyssen.Dialogs
 				{
 					Directory.CreateDirectory(m_actorDirectory);
 					m_projectExporter.GenerateActorFiles(m_actorDirectory, m_selectedFileType);
+					exportedAtLeastOneFile = true;
 				}
 				catch (Exception ex)
 				{
@@ -244,6 +241,7 @@ namespace Glyssen.Dialogs
 				{
 					Directory.CreateDirectory(m_bookDirectory);
 					m_projectExporter.GenerateBookFiles(m_bookDirectory, m_selectedFileType);
+					exportedAtLeastOneFile = true;
 				}
 				catch (Exception ex)
 				{
@@ -252,6 +250,16 @@ namespace Glyssen.Dialogs
 						string.Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportBooks",
 						"Could not export one or more book script files to {0}", "{0} is a directory name."), m_bookDirectory));
 				}
+			}
+
+			try
+			{
+				if (exportedAtLeastOneFile && m_defaultDirectory != null && m_checkOpenForMe.Checked)
+					PathUtilities.OpenDirectoryInExplorer(m_defaultDirectory);
+			}
+			catch
+			{
+				// Oh well.
 			}
 		}
 	}

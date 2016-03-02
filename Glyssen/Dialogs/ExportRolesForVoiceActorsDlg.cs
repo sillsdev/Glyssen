@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Properties;
 using L10NSharp;
 using L10NSharp.UI;
+using SIL.IO;
 using SIL.Reporting;
 
 namespace Glyssen.Dialogs
@@ -85,8 +85,15 @@ namespace Glyssen.Dialogs
 			{
 				m_projectExporter.ExportRolesForVoiceActors(filePath);
 
-				if (m_defaultDirectory != null && m_checkOpenForMe.Checked)
-					Process.Start(m_defaultDirectory);
+				try
+				{
+					if (m_defaultDirectory != null && m_checkOpenForMe.Checked)
+						PathUtilities.OpenDirectoryInExplorer(m_defaultDirectory);
+				}
+				catch
+				{
+					// Oh well.
+				}
 			}
 			catch (Exception ex)
 			{
