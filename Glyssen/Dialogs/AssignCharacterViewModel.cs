@@ -292,6 +292,7 @@ namespace Glyssen.Dialogs
 					{ "book", CurrentBookId },
 					{ "chapter", block.ChapterNumber.ToString(CultureInfo.InvariantCulture) },
 					{ "initialStartVerse", block.InitialStartVerseNumber.ToString(CultureInfo.InvariantCulture) },
+					{ "lastVerse", block.LastVerse.ToString(CultureInfo.InvariantCulture) },
 					{ "character", selectedCharacter.CharacterId }
 				});
 
