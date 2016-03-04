@@ -91,7 +91,7 @@ namespace DevTools.TermTranslator
 				newTmx = new TmxFormat();
 				newTmx.Header.SrcLang = modifiedLangAbbr;
 				newTmx.Header.Props = new Prop[2];
-				newTmx.Header.Props[0] = new Prop("x-appversion", "0.1.0.0");
+				newTmx.Header.Props[0] = new Prop("x-appversion", "0.2.0.0");
 				newTmx.Header.Props[1] = new Prop("x-hardlinebreakreplacement", "\\n");
 			}
 
