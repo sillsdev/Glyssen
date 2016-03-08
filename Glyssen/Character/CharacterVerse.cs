@@ -39,10 +39,13 @@ namespace Glyssen.Character
 		/// </summary>
 		Indirect,
 		/// <summary>
-		/// Potential direct speech that is a) in verses that are not found in some manuscripts and
-		/// may be omitted from translations;
+		/// Potential direct speech that is
+		/// a) in verses that are not found in some manuscripts and may be omitted from translations;
 		/// b) likely to be marked up using poetry but without quotes;
 		/// c) likely not to be marked as speech at all.
+		/// d) A self-quote by the narrator (especially where the narrator refers to himself in the
+		/// first person). * ENHANCE: We might want to consider breaking this case out into a
+		/// distinct type.
 		/// For now, Potential quotes will be treated just like Indirect quotes -- they will not be
 		/// considered as "expected" quotes.
 		/// </summary>
