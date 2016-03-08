@@ -670,56 +670,9 @@ namespace Glyssen.Quote
 				return;
 			}
 
-			var uniqueCharacters = m_currentMultiBlockQuote.Select(b => b.CharacterId).Distinct().ToList();
-			int numUniqueCharacters = uniqueCharacters.Count;
-			var uniqueCharacterDeliveries = m_currentMultiBlockQuote.Select(b => new CharacterDelivery(b.CharacterId, b.Delivery)).Distinct(CharacterDelivery.CharacterDeliveryComparer).ToList();
-			int numUniqueCharacterDeliveries = uniqueCharacterDeliveries.Count();
-			if (numUniqueCharacterDeliveries > 1)
-			{
-				var unclearCharacters = new [] { CharacterVerseData.AmbiguousCharacter, CharacterVerseData.UnknownCharacter };
-				if (numUniqueCharacters > unclearCharacters.Count(uniqueCharacters.Contains) + 1)
-				{
-					// More than one real character. Set to Ambiguous.
-					SetCharacterAndDeliveryForMultipleBlocks(m_currentMultiBlockQuote, CharacterVerseData.AmbiguousCharacter, null);
-				}
-				else if (numUniqueCharacters == 2 && unclearCharacters.All(uniqueCharacters.Contains))
-				{
-					// Only values are Ambiguous and Unique. Set to Ambiguous.
-					SetCharacterAndDeliveryForMultipleBlocks(m_currentMultiBlockQuote, CharacterVerseData.AmbiguousCharacter, null);
-				}
-				else if (numUniqueCharacterDeliveries > numUniqueCharacters)
-				{
-					// Multiple deliveries for the same character
-					string delivery = "";
-					bool first = true;
-					foreach (Block block in m_currentMultiBlockQuote)
-					{
-						if (first)
-							first = false;
-						else if (block.Delivery != delivery)
-							block.MultiBlockQuote = MultiBlockQuote.ChangeOfDelivery;
-						delivery = block.Delivery;
-					}
-				}
-				else
-				{
-					// Only one real character (and delivery). Set to that character (and delivery).
-					var realCharacter = uniqueCharacterDeliveries.Single(c => c.Character != CharacterVerseData.AmbiguousCharacter && c.Character != CharacterVerseData.UnknownCharacter);
-					SetCharacterAndDeliveryForMultipleBlocks(m_currentMultiBlockQuote, realCharacter.Character, realCharacter.Delivery);
-				}
-
-			}
+			BookScript.ProcessAssignmentForMultiBlockQuote(m_bookNum, m_currentMultiBlockQuote, m_versification);
 
 			m_currentMultiBlockQuote.Clear();
-		}
-
-		private void SetCharacterAndDeliveryForMultipleBlocks(IEnumerable<Block> blocks, string character, string delivery)
-		{
-			foreach (Block block in blocks)
-			{
-				block.SetCharacterAndCharacterIdInScript(character, m_bookNum, m_versification);
-				block.Delivery = delivery;
-			}
 		}
 
 		private bool IsNormalParagraphStyle(string styleTag)
@@ -796,7 +749,7 @@ namespace Glyssen.Quote
 		}
 
 		#region CharacterDelivery utility class
-		private class CharacterDelivery
+		public class CharacterDelivery
 		{
 			public readonly string Character;
 			public readonly string Delivery;
