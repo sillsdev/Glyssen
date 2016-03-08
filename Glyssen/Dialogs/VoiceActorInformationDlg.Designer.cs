@@ -418,14 +418,14 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this, Glyssen.Utilities.GlyssenColors.Default);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.l10NSharpExtender1.SetLocalizableToolTip(this, null);
-			this.l10NSharpExtender1.SetLocalizationComment(this, null);
+			this.l10NSharpExtender1.SetLocalizationComment(this, "{0} is the project name");
 			this.l10NSharpExtender1.SetLocalizingId(this, "DialogBoxes.VoiceActorInformation.WindowTitle");
 			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(600, 425);
 			this.Name = "VoiceActorInformationDlg";
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Voice Actor Information";
+			this.Text = "Voice Actor Information - {0}";
 			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VoiceActorInformationDlg_FormClosing);
 			this.Load += new System.EventHandler(this.VoiceActorInformationDlg_Load);

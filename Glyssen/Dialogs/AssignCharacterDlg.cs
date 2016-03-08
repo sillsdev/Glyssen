@@ -46,6 +46,8 @@ namespace Glyssen.Dialogs
 
 			m_xOfYFmt = m_labelXofY.Text;
 			m_singleVoiceCheckboxFmt = m_lblSingleVoice.Text;
+
+			Text = string.Format(Text, m_viewModel.ProjectName);
 		}
 
 		public AssignCharacterDlg(AssignCharacterViewModel viewModel)
@@ -94,6 +96,12 @@ namespace Glyssen.Dialogs
 			SetFilterControlsFromMode();
 
 			m_viewModel.CurrentBookSaved += UpdateSavedText;
+			m_viewModel.FilterReset +=m_viewModel_FilterReset;
+		}
+
+		void m_viewModel_FilterReset(object sender, EventArgs e)
+		{
+			UpdateNavigationButtonState();
 		}
 
 		void m_viewModel_AssignedBlocksIncremented(object sender, EventArgs e)
@@ -133,6 +141,7 @@ namespace Glyssen.Dialogs
 			else if ((mode & BlocksToDisplay.AllScripture) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 4;
 			else
+				// ReSharper disable once NotResolvedInText
 				throw new InvalidEnumArgumentException("mode", (int)mode, typeof(BlocksToDisplay));
 
 			if ((mode & BlocksToDisplay.ExcludeUserConfirmed) != 0)
@@ -709,6 +718,31 @@ namespace Glyssen.Dialogs
 		private void m_chkSingleVoice_CheckedChanged(object sender, EventArgs e)
 		{
 			m_viewModel.SetCurrentBookSingleVoice(m_chkSingleVoice.Checked);
+			UpdateProgressBarForMode();
+			UpdateNavigationButtonState();
+
+			// Enable or disable some controls
+			var notChecked = !m_chkSingleVoice.Checked;
+			m_lblCharacter.Enabled = notChecked;
+			m_listBoxCharacters.Enabled = notChecked;
+			m_llMoreChar.Enabled = notChecked;
+			m_txtCharacterFilter.Enabled = notChecked;
+			m_btnAddCharacter.Enabled = notChecked;
+			m_icnCharacterFilter.Enabled = notChecked;
+
+			m_lblDelivery.Enabled = notChecked;
+			m_listBoxDeliveries.Enabled = notChecked;
+			m_llMoreDel.Enabled = notChecked;
+			m_txtDeliveryFilter.Enabled = notChecked;
+			m_btnAddDelivery.Enabled = notChecked;
+			m_icnDeliveryFilter.Enabled = notChecked;
+
+			m_btnAssign.Enabled = notChecked;
+			m_lblShortcut1.Enabled = notChecked;
+			m_lblShortcut2.Enabled = notChecked;
+			m_lblShortcut3.Enabled = notChecked;
+			m_lblShortcut4.Enabled = notChecked;
+			m_lblShortcut5.Enabled = notChecked;
 		}
 
 		private void m_listBoxCharacters_MouseMove(object sender, MouseEventArgs e)

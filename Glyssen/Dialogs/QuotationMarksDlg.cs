@@ -206,7 +206,9 @@ namespace Glyssen.Dialogs
 
 		private void MakeReadOnly()
 		{
-			//Review: Do we need to disable the controls?
+			m_pnlLevels.Enabled = false;
+			m_pnlDialogueQuotes.Enabled = false;
+			m_chkPairedQuotations.Enabled = false;
 			m_btnOk.Enabled = false;
 			m_btnTest.Visible = false;
 			m_testResults.Visible = false;
@@ -713,8 +715,8 @@ namespace Glyssen.Dialogs
 			{
 				DisableForm(true);
 				var parsedBooks = QuoteParser.TestQuoteSystem(m_project, CurrentQuoteSystem);
-				ShowTestResults(PercentageOfExpectedQuotesFound(parsedBooks), true);
 				m_navigatorViewModel.BlockNavigator = new BlockNavigator(parsedBooks);
+				ShowTestResults(PercentageOfExpectedQuotesFound(parsedBooks), true);
 			}
 			finally
 			{

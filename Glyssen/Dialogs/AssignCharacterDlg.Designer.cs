@@ -1131,7 +1131,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this, Glyssen.Utilities.GlyssenColors.Default);
 			this.KeyPreview = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this, "{0} is the project name");
 			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.AssignCharacterDlg.AssignCharacter");
 			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(651, 599);
@@ -1140,7 +1140,7 @@ namespace Glyssen.Dialogs
 			this.ShowInTaskbar = false;
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Assign Characters";
+			this.Text = "Assign Characters - {0}";
 			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AssignCharacterDialog_FormClosing);
 			this.Load += new System.EventHandler(this.AssignCharacterDlg_Load);

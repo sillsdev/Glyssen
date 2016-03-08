@@ -96,7 +96,7 @@ namespace Glyssen
 
 			using (var stream = new StreamWriter(path, false, Encoding.UTF8))
 			{
-				stream.WriteLine(GetHeaders());
+				stream.WriteLine(GetTabSeparatedLine(GetHeaders()));
 				foreach (var line in data)
 					stream.WriteLine(GetTabSeparatedLine(line));
 			}

@@ -5466,7 +5466,7 @@
         <seg>Assign Character</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Asignar personaje</seg>
+        <seg>Asignar personaje - {0}</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.AssignmentsComplete">
@@ -6137,7 +6137,7 @@
         <seg>Select Books</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>Seleccionar libros</seg>
+        <seg>Seleccionar libros - {0}</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.SelectProjectDlg.Title">

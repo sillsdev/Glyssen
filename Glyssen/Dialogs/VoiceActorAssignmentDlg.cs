@@ -172,6 +172,8 @@ namespace Glyssen.Dialogs
 
 			//m_fmtNoCharactersInGroup = m_lblHowToAssignCharactersToCameoGroup.Text;
 			m_fmtMoveCharactersInfo = m_lblMovePendingInfo.Text;
+
+			Text = string.Format(Text, m_project.Name);
 		}
 
 		private Image VoiceActorCol_GetSpecialDropDownImageToDraw(DataGridViewMultiColumnComboBoxColumn sender, int rowIndex)
@@ -1063,12 +1065,13 @@ namespace Glyssen.Dialogs
 			var groupsRowStyle = m_tableLayoutPanel.LayoutSettings.RowStyles[m_tableLayoutPanel.GetRow(m_characterGroupGrid)];
 			var detailsRowStyle = m_tableLayoutPanel.LayoutSettings.RowStyles[m_tableLayoutPanel.GetRow(m_characterDetailsGrid)];
 			detailsRowStyle.SizeType = SizeType.Percent;
-			int groupCount = m_actorAssignmentViewModel.CharacterGroups.Count;
+			//int groupCount = m_actorAssignmentViewModel.CharacterGroups.Count;
 
-			var percentage = (double)groupCount / (groupCount + m_actorAssignmentViewModel.CharacterGroups.Max(g => g.CharacterIds.Count));
+			// This line was throwing an exception sometimes. Do not restore without determining the problem.
+			//double percentage = (double)groupCount / (groupCount + m_actorAssignmentViewModel.CharacterGroups.Max(g => g.CharacterIds.Count));
 
 			//TODO: put this back to being a calculation
-			percentage = .4d;
+			double percentage = .4d;
 
 			groupsRowStyle.Height = Math.Min(Math.Max((int)((1 - percentage) * 100), 45), 85);
 			detailsRowStyle.Height = 100 - groupsRowStyle.Height;

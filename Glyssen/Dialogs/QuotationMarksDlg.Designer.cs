@@ -82,7 +82,7 @@ namespace Glyssen.Dialogs
 			this.m_lblEnd = new System.Windows.Forms.Label();
 			this.m_btnTest = new System.Windows.Forms.Button();
 			this.m_testResults = new System.Windows.Forms.Label();
-			this.m_pnlDialogeQuotes = new System.Windows.Forms.Panel();
+			this.m_pnlDialogueQuotes = new System.Windows.Forms.Panel();
 			this.m_splitContainer = new System.Windows.Forms.SplitContainer();
 			this.m_tableLayoutPanelDataBrowser = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -94,7 +94,7 @@ namespace Glyssen.Dialogs
 			this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			this.m_toolStrip.SuspendLayout();
-			this.m_pnlDialogeQuotes.SuspendLayout();
+			this.m_pnlDialogueQuotes.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_splitContainer)).BeginInit();
 			this.m_splitContainer.Panel1.SuspendLayout();
 			this.m_splitContainer.Panel2.SuspendLayout();
@@ -908,25 +908,25 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_testResults, true);
 			this.m_testResults.Visible = false;
 			// 
-			// m_pnlDialogeQuotes
+			// m_pnlDialogueQuotes
 			// 
-			this.m_pnlDialogeQuotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.m_pnlDialogueQuotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.glyssenColorPalette.SetBackColor(this.m_pnlDialogeQuotes, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.m_pnlDialogeQuotes.Controls.Add(this.m_lblStartDialogueQuote);
-			this.m_pnlDialogeQuotes.Controls.Add(this.label1);
-			this.m_pnlDialogeQuotes.Controls.Add(this.m_chkAlternateSpeakersInFirstLevelQuotes);
-			this.m_pnlDialogeQuotes.Controls.Add(this.m_chkDialogueQuotations);
-			this.m_pnlDialogeQuotes.Controls.Add(this.m_cboEndQuotationDash);
-			this.m_pnlDialogeQuotes.Controls.Add(this.m_lblEndDialogueQuote);
-			this.m_pnlDialogeQuotes.Controls.Add(this.m_cboQuotationDash);
-			this.glyssenColorPalette.SetForeColor(this.m_pnlDialogeQuotes, Glyssen.Utilities.GlyssenColors.Default);
-			this.m_pnlDialogeQuotes.Location = new System.Drawing.Point(3, 246);
-			this.m_pnlDialogeQuotes.Name = "m_pnlDialogeQuotes";
-			this.m_pnlDialogeQuotes.Size = new System.Drawing.Size(473, 162);
-			this.m_pnlDialogeQuotes.TabIndex = 13;
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_pnlDialogeQuotes, false);
+			this.glyssenColorPalette.SetBackColor(this.m_pnlDialogueQuotes, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_pnlDialogueQuotes.Controls.Add(this.m_lblStartDialogueQuote);
+			this.m_pnlDialogueQuotes.Controls.Add(this.label1);
+			this.m_pnlDialogueQuotes.Controls.Add(this.m_chkAlternateSpeakersInFirstLevelQuotes);
+			this.m_pnlDialogueQuotes.Controls.Add(this.m_chkDialogueQuotations);
+			this.m_pnlDialogueQuotes.Controls.Add(this.m_cboEndQuotationDash);
+			this.m_pnlDialogueQuotes.Controls.Add(this.m_lblEndDialogueQuote);
+			this.m_pnlDialogueQuotes.Controls.Add(this.m_cboQuotationDash);
+			this.glyssenColorPalette.SetForeColor(this.m_pnlDialogueQuotes, Glyssen.Utilities.GlyssenColors.Default);
+			this.m_pnlDialogueQuotes.Location = new System.Drawing.Point(3, 246);
+			this.m_pnlDialogueQuotes.Name = "m_pnlDialogueQuotes";
+			this.m_pnlDialogueQuotes.Size = new System.Drawing.Size(473, 162);
+			this.m_pnlDialogueQuotes.TabIndex = 13;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_pnlDialogueQuotes, false);
 			// 
 			// m_splitContainer
 			// 
@@ -990,7 +990,7 @@ namespace Glyssen.Dialogs
 			this.tableLayoutPanel1.Controls.Add(this.m_lblHorizontalSeparator1, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.m_lblPrompt, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.m_lblHorizontalSeparator2, 0, 3);
-			this.tableLayoutPanel1.Controls.Add(this.m_pnlDialogeQuotes, 0, 4);
+			this.tableLayoutPanel1.Controls.Add(this.m_pnlDialogueQuotes, 0, 4);
 			this.tableLayoutPanel1.Controls.Add(this.m_quotationMarkFlowLayout, 0, 2);
 			this.glyssenColorPalette.SetForeColor(this.tableLayoutPanel1, Glyssen.Utilities.GlyssenColors.Default);
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 6);
@@ -1141,8 +1141,8 @@ namespace Glyssen.Dialogs
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			this.m_toolStrip.ResumeLayout(false);
 			this.m_toolStrip.PerformLayout();
-			this.m_pnlDialogeQuotes.ResumeLayout(false);
-			this.m_pnlDialogeQuotes.PerformLayout();
+			this.m_pnlDialogueQuotes.ResumeLayout(false);
+			this.m_pnlDialogueQuotes.PerformLayout();
 			this.m_splitContainer.Panel1.ResumeLayout(false);
 			this.m_splitContainer.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.m_splitContainer)).EndInit();
@@ -1175,7 +1175,7 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.ComboBox m_cboQuotationDash;
 		private System.Windows.Forms.ComboBox m_cboEndQuotationDash;
 		private System.Windows.Forms.Label m_lblEndDialogueQuote;
-		private System.Windows.Forms.Panel m_pnlDialogeQuotes;
+		private System.Windows.Forms.Panel m_pnlDialogueQuotes;
 		private System.Windows.Forms.CheckBox m_chkAlternateSpeakersInFirstLevelQuotes;
 		private System.Windows.Forms.SplitContainer m_splitContainer;
 		private System.Windows.Forms.ToolStrip m_toolStrip;
