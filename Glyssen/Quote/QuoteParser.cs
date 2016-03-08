@@ -354,7 +354,8 @@ namespace Glyssen.Quote
 								potentialDialogueContinuer = false;
 
 							if ((m_quoteLevel > 0) && (s_quoteSystem.NormalLevels.Count > 0) &&
-								token.StartsWith(CloserForCurrentLevel) && blockInWhichDialogueQuoteStarted == null)
+								token.StartsWith(CloserForCurrentLevel) && blockInWhichDialogueQuoteStarted == null &&
+								!ProbablyAnApostrophe(content, match.Index))
 							{
 								sb.Append(token);
 								DecrementQuoteLevel();
@@ -436,6 +437,30 @@ namespace Glyssen.Quote
 				ProcessMultiBlock();
 			}
 			return m_outputBlocks;
+		}
+
+		private bool ProbablyAnApostrophe(string content, int pos)
+		{
+			if (CloserForCurrentLevel != "’" ||
+				pos == 0 || pos >= content.Length - 1)
+				return false;
+
+			if (Char.IsPunctuation(content[pos - 1]) || Char.IsWhiteSpace(content[pos - 1]) ||
+				Char.IsPunctuation(content[pos + 1]))
+				return false;
+
+			if (Char.IsLetter(content[pos + 1]))
+				return true;
+
+			if (!Char.IsWhiteSpace(content[pos + 1]))
+				return false;
+
+			var regex = m_regexes[m_quoteLevel >= m_regexes.Count ? m_regexes.Count - 1 : m_quoteLevel];
+			var match = regex.Match(content, pos + 1);
+			return (match.Success &&
+					(match.Value == CloserForCurrentLevel ||
+					(m_quoteLevel < s_quoteSystem.NormalLevels.Count && match.Value == OpenerForNextLevel) ||
+					(m_quoteLevel > 0 && match.Value == s_quoteSystem.NormalLevels[m_quoteLevel - 1].Open)));
 		}
 
 		private void SetBlockInitialVerseFromVerseElement(Verse verseElement)

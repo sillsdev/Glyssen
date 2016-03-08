@@ -2700,6 +2700,9 @@ RUT	4	17	women of Bethlehem
 1KI	1	5	Adonijah, son of David		
 1KI	1	6	narrator-1KI		
 1KI	1	11	Nathan		Nathan, the prophet
+1KI	1	12	Nathan		Nathan, the prophet
+1KI	1	13	Nathan		Nathan, the prophet
+1KI	1	14	Nathan		Nathan, the prophet
 1KI	1	16	David	very old	David, king
 1KI	1	17	Bathsheba		
 1KI	1	23	someone told David		

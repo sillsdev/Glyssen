@@ -344,7 +344,7 @@ four living creatures	4					REV 4:8 & REV 5:14
 friends of Haman	-1	PreferMale				
 Gaal, son of Ebed	1	Male				JDG 9:28 <-(2 more)-> JDG 9:37
 Gabriel	1	Male				DAN 8:17 <-(28 more)-> LUK 1:37
-Gad, the prophet, David's seer	1	Male				1SA 22:5 <-(3 more)-> 1CH 21:12
+Gad the prophet, David's seer	1	Male				1SA 22:5 <-(3 more)-> 1CH 21:12
 Gadarene (or Gerasenes) people	-1					MAT 8:34 <-(1 more)-> LUK 8:37
 Gadites	-1	Male				
 Gallio, proconsul of Achaia	1	Male				ACT 18:14 & ACT 18:15

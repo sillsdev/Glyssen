@@ -1,4 +1,4 @@
-Control File Version	91
+Control File Version	92
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -4213,7 +4213,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	12	24	Samuel			Normal		
 1SA	12	25	Samuel			Normal		
 1SA	13	3	Saul			Normal		
-1SA	13	4	Saul's announcement			Normal		
+1SA	13	4	Saul's announcement			Potential		
 1SA	13	9	Saul			Normal		
 1SA	13	11	Samuel			Normal		
 1SA	13	11	Saul			Normal		
@@ -4306,7 +4306,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	17	10	Goliath, Philistine champion			Normal		
 1SA	17	17	Jesse			Normal		
 1SA	17	18	Jesse			Normal		
-1SA	17	19	Jesse			Normal		
+1SA	17	19	Jesse			Potential		
 1SA	17	25	Israelites (soldiers)			Normal		
 1SA	17	26	David			Normal		
 1SA	17	27	men (soldiers) standing near David			Normal		
@@ -4399,7 +4399,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	21	14	Achish, king of Gath			Normal		
 1SA	21	15	Achish, king of Gath			Normal		
 1SA	22	3	David			Normal		
-1SA	22	5	Gad, the prophet, David's seer			Normal		
+1SA	22	5	Gad the prophet, David's seer			Normal		
 1SA	22	7	Saul			Normal		
 1SA	22	8	Saul			Normal		
 1SA	22	9	Doeg the Edomite			Normal		
@@ -4635,7 +4635,7 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	6	21	David		David, king	Normal		
 2SA	6	22	David		David, king	Normal		
 2SA	7	2	David		David, king	Normal		
-2SA	7	3	Nathan		Nathan, the prophet	Normal		
+2SA	7	3	Nathan		Nathan the prophet	Normal		
 2SA	7	5	God		word of the LORD	Normal		
 2SA	7	6	God		word of the LORD	Normal		
 2SA	7	7	God		word of the LORD	Normal		
@@ -4695,21 +4695,21 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	11	23	messenger from battle to David			Normal		
 2SA	11	24	messenger from battle to David			Normal		
 2SA	11	25	David		David, king	Normal		
-2SA	12	1	Nathan		Nathan, the prophet	Normal		
-2SA	12	2	Nathan		Nathan, the prophet	Normal		
-2SA	12	3	Nathan		Nathan, the prophet	Normal		
-2SA	12	4	Nathan		Nathan, the prophet	Normal		
+2SA	12	1	Nathan		Nathan the prophet	Normal		
+2SA	12	2	Nathan		Nathan the prophet	Normal		
+2SA	12	3	Nathan		Nathan the prophet	Normal		
+2SA	12	4	Nathan		Nathan the prophet	Normal		
 2SA	12	5	David		David, king	Normal		
 2SA	12	6	David		David, king	Normal		
-2SA	12	7	Nathan		Nathan, the prophet	Normal		
-2SA	12	8	Nathan		Nathan, the prophet	Normal		
-2SA	12	9	Nathan		Nathan, the prophet	Normal		
-2SA	12	10	Nathan		Nathan, the prophet	Normal		
-2SA	12	11	Nathan		Nathan, the prophet	Normal		
-2SA	12	12	Nathan		Nathan, the prophet	Normal		
+2SA	12	7	Nathan		Nathan the prophet	Normal		
+2SA	12	8	Nathan		Nathan the prophet	Normal		
+2SA	12	9	Nathan		Nathan the prophet	Normal		
+2SA	12	10	Nathan		Nathan the prophet	Normal		
+2SA	12	11	Nathan		Nathan the prophet	Normal		
+2SA	12	12	Nathan		Nathan the prophet	Normal		
 2SA	12	13	David		David, king	Normal		
-2SA	12	13	Nathan		Nathan, the prophet	Normal		
-2SA	12	14	Nathan		Nathan, the prophet	Normal		
+2SA	12	13	Nathan		Nathan the prophet	Normal		
+2SA	12	14	Nathan		Nathan the prophet	Normal		
 2SA	12	18	servants of David			Normal		
 2SA	12	19	David		David, king	Normal		
 2SA	12	19	servants of David			Normal		
@@ -4740,7 +4740,7 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	13	30	man reporting to David			Normal		
 2SA	13	32	Jonadab	shrewd		Normal		
 2SA	13	33	Jonadab	shrewd		Normal		
-2SA	13	34	watchman			Normal		
+2SA	13	34	watchman			Potential		
 2SA	13	35	Jonadab	shrewd		Normal		
 2SA	14	2	Joab			Normal		
 2SA	14	3	Joab			Normal		
@@ -4975,13 +4975,13 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	22	49	David		David, king	Normal		
 2SA	22	50	David		David, king	Normal		
 2SA	22	51	David		David, king	Normal		
-2SA	23	1	David		David, king	Normal		
-2SA	23	2	David		David, king	Normal		
-2SA	23	3	David		David, king	Normal		
-2SA	23	4	David		David, king	Normal		
-2SA	23	5	David		David, king	Normal		
-2SA	23	6	David		David, king	Normal		
-2SA	23	7	David		David, king	Normal		
+2SA	23	1	David		David, king	Potential		
+2SA	23	2	David		David, king	Implicit		
+2SA	23	3	David		David, king	Implicit		
+2SA	23	4	David		David, king	Implicit		
+2SA	23	5	David		David, king	Implicit		
+2SA	23	6	David		David, king	Implicit		
+2SA	23	7	David		David, king	Implicit		
 2SA	23	15	David		David, king	Normal		
 2SA	23	17	David		David, king	Normal		
 2SA	24	1	God			Normal		
@@ -4990,11 +4990,11 @@ RUT	4	17	women of Bethlehem			Normal
 2SA	24	3	Joab			Normal		
 2SA	24	10	David		David, king	Normal		
 2SA	24	12	God		God (the LORD)(word of the LORD came)	Normal		
-2SA	24	13	Gad, the prophet, David's seer			Normal		
+2SA	24	13	Gad the prophet, David's seer			Normal		
 2SA	24	14	David		David, king	Normal		
 2SA	24	16	God		God (the LORD)	Normal		
 2SA	24	17	David		David, king	Normal		
-2SA	24	18	Gad, the prophet, David's seer			Normal		
+2SA	24	18	Gad the prophet, David's seer			Normal		
 2SA	24	21	Araunah, the Jebusite			Normal		
 2SA	24	21	David		David, king	Normal		
 2SA	24	22	Araunah, the Jebusite			Normal		
@@ -5003,10 +5003,10 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	1	2	servants of David			Normal		
 1KI	1	5	Adonijah, son of David			Normal		
 1KI	1	6	narrator-1KI			Hypothetical		
-1KI	1	11	Nathan		Nathan, the prophet	Normal		
-1KI	1	12	Nathan		Nathan, the prophet	Normal		
-1KI	1	13	Nathan		Nathan, the prophet	Normal		
-1KI	1	14	Nathan		Nathan, the prophet	Normal		
+1KI	1	11	Nathan		Nathan the prophet	Normal		
+1KI	1	12	Nathan		Nathan the prophet	Normal		
+1KI	1	13	Nathan		Nathan the prophet	Normal		
+1KI	1	14	Nathan		Nathan the prophet	Normal		
 1KI	1	16	David (old)	very old	David, king	Normal		
 1KI	1	17	Bathsheba			Normal		
 1KI	1	18	Bathsheba			Normal		
@@ -5014,10 +5014,10 @@ RUT	4	17	women of Bethlehem			Normal
 1KI	1	20	Bathsheba			Normal		
 1KI	1	21	Bathsheba			Normal		
 1KI	1	23	person who told David of Nathan's arrival			Normal		
-1KI	1	24	Nathan		Nathan, the prophet	Normal		
-1KI	1	25	Nathan		Nathan, the prophet	Normal		
-1KI	1	26	Nathan		Nathan, the prophet	Normal		
-1KI	1	27	Nathan		Nathan, the prophet	Normal		
+1KI	1	24	Nathan		Nathan the prophet	Normal		
+1KI	1	25	Nathan		Nathan the prophet	Normal		
+1KI	1	26	Nathan		Nathan the prophet	Normal		
+1KI	1	27	Nathan		Nathan the prophet	Normal		
 1KI	1	28	David (old)	very old	David, king	Normal		
 1KI	1	29	David (old)	very old	David, king	Normal		
 1KI	1	30	David (old)	very old	David, king	Normal		
@@ -5712,14 +5712,14 @@ RUT	4	17	women of Bethlehem			Normal
 2KI	20	3	Hezekiah, king of Judah			Normal		
 2KI	20	5	God		word of the LORD	Normal		
 2KI	20	6	God		word of the LORD	Normal		
-2KI	20	7	Isaiah		Isaiah, the prophet	Normal		
+2KI	20	7	Isaiah		Isaiah the prophet	Normal		
 2KI	20	8	Hezekiah, king of Judah			Normal		
 2KI	20	9	Isaiah			Normal		
 2KI	20	10	Hezekiah, king of Judah			Normal		
 2KI	20	14	Hezekiah, king of Judah			Normal		
-2KI	20	14	Isaiah		Isaiah, the prophet	Normal		
+2KI	20	14	Isaiah		Isaiah the prophet	Normal		
 2KI	20	15	Hezekiah, king of Judah			Normal		
-2KI	20	15	Isaiah		Isaiah, the prophet	Normal		
+2KI	20	15	Isaiah		Isaiah the prophet	Normal		
 2KI	20	16	Isaiah			Normal		
 2KI	20	17	Isaiah			Normal		
 2KI	20	18	Isaiah			Normal		
@@ -5842,8 +5842,8 @@ RUT	4	17	women of Bethlehem			Normal
 1CH	21	3	Joab			Normal		
 1CH	21	8	David		David, king	Normal		
 1CH	21	10	God		God (the LORD)	Normal		
-1CH	21	11	Gad, the prophet, David's seer			Normal		
-1CH	21	12	Gad, the prophet, David's seer			Normal		
+1CH	21	11	Gad the prophet, David's seer			Normal		
+1CH	21	12	Gad the prophet, David's seer			Normal		
 1CH	21	13	David		David, king	Normal		
 1CH	21	15	God		God (the LORD)	Normal		
 1CH	21	17	David			Normal		
@@ -6173,7 +6173,9 @@ EZR	4	20	Artaxerxes, king of Persia	letter		Implicit
 EZR	4	21	Artaxerxes, king of Persia	letter		Implicit		
 EZR	4	22	Artaxerxes, king of Persia	letter		Implicit		
 EZR	5	3	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates			Normal		
-EZR	5	4	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates			Normal		
+EZR	5	4	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates			Indirect		
+EZR	5	4	Jews, the			Indirect		
+EZR	5	4	Ezra, priest and teacher			Indirect		
 EZR	5	7	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Potential		
 EZR	5	8	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Implicit		
 EZR	5	9	Tattenai, governor/Shethar-Bozenai/officials of Trans-Euphrates	letter		Implicit		
@@ -6294,7 +6296,7 @@ NEH	8	6	people, all the	praising		Normal
 NEH	8	9	Nehemiah/Ezra, priest and teacher/Levites		Nehemiah/Ezra/Levites	Normal	Nehemiah	
 NEH	8	10	Nehemiah			Normal		
 NEH	8	11	Levites			Normal		
-NEH	8	15	heads of all the families/priests/Levites			Normal		
+NEH	8	15	heads of all the families/priests/Levites	proclamation		Normal		
 NEH	9	5	Levites	call to worship		Normal		
 NEH	9	5	Levites	praying		Normal		
 NEH	9	6	Levites	praying		Normal		
@@ -6329,19 +6331,22 @@ NEH	9	34	Levites	praying		Normal
 NEH	9	35	Levites	praying		Normal		
 NEH	9	36	Levites	praying		Normal		
 NEH	9	37	Levites	praying		Normal		
+NEH	9	38	Levites	praying		Normal		
 NEH	9	38	Nehemiah/Levites/Israelites			Normal	Nehemiah	
-NEH	10	28	priests/Levites/people			Normal		
-NEH	10	29	priests/Levites/people			Normal		
-NEH	10	30	priests/Levites/people			Normal		
-NEH	10	31	priests/Levites/people			Normal		
-NEH	10	32	priests/Levites/people			Normal		
-NEH	10	33	priests/Levites/people			Normal		
-NEH	10	34	priests/Levites/people			Normal		
-NEH	10	35	priests/Levites/people			Normal		
-NEH	10	36	priests/Levites/people			Normal		
-NEH	10	37	priests/Levites/people			Normal		
-NEH	10	38	priests/Levites/people			Normal		
-NEH	10	39	priests/Levites/people			Normal		
+NEH	9	38	leaders/Levites/priests			Normal	leaders	
+NEH	9	38	Israelites		people	Normal		
+NEH	10	28	priests/Levites/people			Indirect		
+NEH	10	29	priests/Levites/people			Indirect		
+NEH	10	30	priests/Levites/people			Indirect		
+NEH	10	31	priests/Levites/people			Indirect		
+NEH	10	32	priests/Levites/people			Indirect		
+NEH	10	33	priests/Levites/people			Indirect		
+NEH	10	34	priests/Levites/people			Indirect		
+NEH	10	35	priests/Levites/people			Indirect		
+NEH	10	36	priests/Levites/people			Indirect		
+NEH	10	37	priests/Levites/people			Indirect		
+NEH	10	38	priests/Levites/people			Indirect		
+NEH	10	39	priests/Levites/people			Indirect		
 NEH	13	11	Nehemiah			Normal		
 NEH	13	17	Nehemiah			Normal		
 NEH	13	18	Nehemiah			Normal		
@@ -7517,7 +7522,7 @@ PSA	64	6	David's enemies			Normal
 PSA	66	3	narrator-PSA			Hypothetical		
 PSA	66	4	narrator-PSA			Hypothetical		
 PSA	68	12	proclaimers of God's word			Normal		
-PSA	68	13	proclaimers of God's word			Normal		
+PSA	68	13	proclaimers of God's word			Potential		
 PSA	68	22	God		God (the LORD)	Normal		
 PSA	68	23	God		God (the LORD)	Normal		
 PSA	69	0	narrator-PSA			Quotation		
@@ -7528,8 +7533,8 @@ PSA	73	11	people, arrogant wicked			Normal
 PSA	73	15	narrator-PSA			Hypothetical		
 PSA	74	8	enemies of God			Normal		
 PSA	75	0	narrator-PSA			Quotation		
-PSA	75	2	God		God (the LORD)	Normal		
-PSA	75	3	God		God (the LORD)	Normal		
+PSA	75	2	God		God (the LORD)	Potential		
+PSA	75	3	God		God (the LORD)	Potential		
 PSA	75	4	God		God (the LORD)	Normal		
 PSA	75	5	God		God (the LORD)	Normal		
 PSA	77	7	Asaph			Normal		
@@ -7555,7 +7560,7 @@ PSA	82	1	narrator-PSA			Quotation
 PSA	82	2	God		God (the LORD)	Normal		
 PSA	82	3	God		God (the LORD)	Normal		
 PSA	82	4	God		God (the LORD)	Normal		
-PSA	82	5	God		God (the LORD)	Normal		
+PSA	82	5	God		God (the LORD)	Potential		
 PSA	82	6	God		God (the LORD)	Normal		
 PSA	82	7	God		God (the LORD)	Normal		
 PSA	83	4	enemies of Israel			Normal		
@@ -7591,7 +7596,7 @@ PSA	90	3	God		God (the LORD)	Normal
 PSA	91	14	God		God (the LORD)	Normal		
 PSA	91	15	God		God (the LORD)	Normal		
 PSA	91	16	God		God (the LORD)	Normal		
-PSA	92	15	people, righteous			Normal		
+PSA	92	15	people, righteous			Potential		
 PSA	94	7	wicked, the			Normal		
 PSA	95	10	God		God (the LORD)	Normal		
 PSA	95	11	God		God (the LORD)	Normal		
@@ -7619,7 +7624,7 @@ PSA	132	17	God		God (the LORD)	Normal
 PSA	132	18	God		God (the LORD)	Normal		
 PSA	137	3	captors, our			Normal		
 PSA	137	7	Edomites			Normal		
-PSA	138	1	narrator-PSA			Normal		
+PSA	138	1	narrator-PSA			Quotation		
 PSA	141	7	wicked, the			Hypothetical		
 ECC	1	2	teacher (Preacher)			Normal		
 ECC	1	10	someone			Normal		
@@ -7645,17 +7650,17 @@ ECC	12	1	narrator-ECC			Hypothetical
 ECC	12	8	teacher (Preacher)			Normal		
 SNG	1	2	beloved			Implicit		
 SNG	1	3	beloved			Implicit		
-SNG	1	4	beloved			Normal		
-SNG	1	4	maidens			Normal		
+SNG	1	4	beloved			Potential		
+SNG	1	4	maidens			Potential		
 SNG	1	5	beloved			Implicit		
 SNG	1	6	beloved			Implicit		
 SNG	1	7	beloved			Implicit		
-SNG	1	8	lover			Normal		
-SNG	1	8	maidens			Normal		
+SNG	1	8	lover			Potential		
+SNG	1	8	maidens			Potential		
 SNG	1	9	lover			Implicit		
 SNG	1	10	lover			Implicit		
-SNG	1	11	lover			Normal		
-SNG	1	11	maidens			Normal		
+SNG	1	11	lover			Potential		
+SNG	1	11	maidens			Potential		
 SNG	1	12	beloved			Implicit		
 SNG	1	13	beloved			Implicit		
 SNG	1	14	beloved			Implicit		
@@ -7668,8 +7673,8 @@ SNG	2	3	beloved			Implicit
 SNG	2	4	beloved			Implicit		
 SNG	2	5	beloved			Implicit		
 SNG	2	6	beloved			Implicit		
-SNG	2	7	lover			Normal		
-SNG	2	7	beloved			Normal		
+SNG	2	7	lover			Potential		
+SNG	2	7	beloved			Potential		
 SNG	2	8	beloved			Implicit		
 SNG	2	9	beloved			Implicit		
 SNG	2	10	beloved			Implicit		
@@ -7684,20 +7689,20 @@ SNG	3	1	beloved			Implicit
 SNG	3	2	beloved			Implicit		
 SNG	3	3	beloved			Implicit		
 SNG	3	4	beloved			Implicit		
-SNG	3	5	beloved			Normal		
-SNG	3	5	lover			Normal		
-SNG	3	6	beloved			Normal		
-SNG	3	6	maidens			Normal		
-SNG	3	7	beloved			Normal		
-SNG	3	7	maidens			Normal		
-SNG	3	8	beloved			Normal		
-SNG	3	8	maidens			Normal		
-SNG	3	9	beloved			Normal		
-SNG	3	9	maidens			Normal		
-SNG	3	10	beloved			Normal		
-SNG	3	10	maidens			Normal		
-SNG	3	11	beloved			Normal		
-SNG	3	11	maidens			Normal		
+SNG	3	5	beloved			Potential		
+SNG	3	5	lover			Potential		
+SNG	3	6	beloved			Potential		
+SNG	3	6	maidens			Potential		
+SNG	3	7	beloved			Potential		
+SNG	3	7	maidens			Potential		
+SNG	3	8	beloved			Potential		
+SNG	3	8	maidens			Potential		
+SNG	3	9	beloved			Potential		
+SNG	3	9	maidens			Potential		
+SNG	3	10	beloved			Potential		
+SNG	3	10	maidens			Potential		
+SNG	3	11	beloved			Potential		
+SNG	3	11	maidens			Potential		
 SNG	4	1	lover			Implicit		
 SNG	4	2	lover			Implicit		
 SNG	4	3	lover			Implicit		
@@ -7714,11 +7719,11 @@ SNG	4	13	lover			Implicit
 SNG	4	14	lover			Implicit		
 SNG	4	15	lover			Implicit		
 SNG	4	16	beloved			Implicit		
-SNG	5	1	lover			Normal		
-SNG	5	1	maidens			Normal		
-SNG	5	1	God			Normal		
-SNG	5	2	beloved			Normal		
-SNG	5	2	lover			Normal		
+SNG	5	1	lover			Potential		
+SNG	5	1	maidens			Potential		
+SNG	5	1	God			Potential		
+SNG	5	2	beloved			Potential		
+SNG	5	2	lover			Potential		
 SNG	5	3	beloved			Implicit		
 SNG	5	4	beloved			Implicit		
 SNG	5	5	beloved			Implicit		
@@ -7745,8 +7750,8 @@ SNG	6	9	lover			Implicit
 SNG	6	10	maidens			Implicit		
 SNG	6	11	lover			Implicit		
 SNG	6	12	lover			Implicit		
-SNG	6	13	lover			Normal		
-SNG	6	13	maidens			Normal		
+SNG	6	13	lover			Potential		
+SNG	6	13	maidens			Potential		
 SNG	7	1	lover			Implicit		
 SNG	7	2	lover			Implicit		
 SNG	7	3	lover			Implicit		
@@ -7755,8 +7760,8 @@ SNG	7	5	lover			Implicit
 SNG	7	6	lover			Implicit		
 SNG	7	7	lover			Implicit		
 SNG	7	8	lover			Implicit		
-SNG	7	9	beloved			Normal		
-SNG	7	9	lover			Normal		
+SNG	7	9	beloved			Potential		
+SNG	7	9	lover			Potential		
 SNG	7	10	beloved			Implicit		
 SNG	7	11	beloved			Implicit		
 SNG	7	12	beloved			Implicit		
@@ -7764,11 +7769,11 @@ SNG	7	13	beloved			Implicit
 SNG	8	1	beloved			Implicit		
 SNG	8	2	beloved			Implicit		
 SNG	8	3	beloved			Implicit		
-SNG	8	4	beloved			Normal		
-SNG	8	4	lover			Normal		
-SNG	8	5	beloved			Normal		
-SNG	8	5	lover			Normal		
-SNG	8	5	maidens			Normal		
+SNG	8	4	beloved			Potential		
+SNG	8	4	lover			Potential		
+SNG	8	5	beloved			Potential		
+SNG	8	5	lover			Potential		
+SNG	8	5	maidens			Potential		
 SNG	8	6	beloved			Implicit		
 SNG	8	7	beloved			Implicit		
 SNG	8	8	brothers of beloved			Implicit		
@@ -7781,13 +7786,13 @@ SNG	8	14	beloved			Implicit
 ISA	1	2	God		God (the LORD)(in vision)	Normal		
 ISA	1	2	Isaiah			Normal		
 ISA	1	3	God		God (the LORD)(in vision)	Normal		
-ISA	1	4	Isaiah			Normal		
-ISA	1	5	Isaiah			Normal		
-ISA	1	6	Isaiah			Normal		
-ISA	1	7	Isaiah			Normal		
-ISA	1	8	Isaiah			Normal		
-ISA	1	9	Isaiah			Normal		
-ISA	1	10	Isaiah			Normal		
+ISA	1	4	Isaiah			Potential		
+ISA	1	5	Isaiah			Potential		
+ISA	1	6	Isaiah			Potential		
+ISA	1	7	Isaiah			Potential		
+ISA	1	8	Isaiah			Potential		
+ISA	1	9	Isaiah			Potential		
+ISA	1	10	Isaiah			Potential		
 ISA	1	11	God		God (the LORD)(in vision)	Normal		
 ISA	1	12	God		God (the LORD)(in vision)	Normal		
 ISA	1	13	God		God (the LORD)(in vision)	Normal		
@@ -7798,41 +7803,43 @@ ISA	1	17	God		God (the LORD)(in vision)	Normal
 ISA	1	18	God		God (the LORD)(in vision)	Normal		
 ISA	1	19	God		God (the LORD)(in vision)	Normal		
 ISA	1	20	God		God (the LORD)(in vision)	Normal		
-ISA	1	21	Isaiah			Normal		
-ISA	1	22	Isaiah			Normal		
-ISA	1	23	Isaiah			Normal		
+ISA	1	21	Isaiah			Potential		
+ISA	1	22	Isaiah			Potential		
+ISA	1	23	Isaiah			Potential		
 ISA	1	24	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	Normal		
 ISA	1	24	Isaiah			Normal		
 ISA	1	25	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	Normal		
 ISA	1	26	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	Normal		
-ISA	1	27	Isaiah			Normal		
-ISA	1	29	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	Normal		
-ISA	1	29	Isaiah			Normal		
-ISA	1	30	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	Normal		
-ISA	1	30	Isaiah			Normal		
-ISA	1	31	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	Normal		
-ISA	1	31	Isaiah			Normal		
+ISA	1	27	Isaiah			Potential		
+ISA	1	28	Isaiah			Potential		
+ISA	1	29	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	Potential		
+ISA	1	29	Isaiah			Potential		
+ISA	1	30	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	Potential		
+ISA	1	30	Isaiah			Potential		
+ISA	1	31	God		God (Lord, the LORD Almighty, the Mighty One of Israel)	Potential		
+ISA	1	31	Isaiah			Potential		
 ISA	2	3	peoples, many			Hypothetical		
-ISA	2	4	Isaiah			Normal		
-ISA	2	5	Isaiah			Normal		
-ISA	2	6	Isaiah			Normal		
-ISA	2	7	Isaiah			Normal		
-ISA	2	8	Isaiah			Normal		
-ISA	2	9	Isaiah			Normal		
-ISA	2	10	Isaiah			Normal		
-ISA	2	11	Isaiah			Normal		
-ISA	2	12	Isaiah			Normal		
-ISA	2	13	Isaiah			Normal		
-ISA	2	15	Isaiah			Normal		
-ISA	2	17	Isaiah			Normal		
-ISA	2	19	Isaiah			Normal		
-ISA	2	20	Isaiah			Normal		
-ISA	2	21	Isaiah			Normal		
-ISA	2	22	Isaiah			Normal		
-ISA	3	1	Isaiah			Normal		
-ISA	3	2	Isaiah			Normal		
-ISA	3	4	God		God (the LORD, the LORD Almighty)	Normal		
-ISA	3	5	God		God (the LORD, the LORD Almighty)	Normal		
+ISA	2	4	Isaiah			Potential		
+ISA	2	5	Isaiah			Potential		
+ISA	2	6	Isaiah			Potential		
+ISA	2	7	Isaiah			Potential		
+ISA	2	8	Isaiah			Potential		
+ISA	2	9	Isaiah			Potential		
+ISA	2	10	Isaiah			Potential		
+ISA	2	11	Isaiah			Potential		
+ISA	2	12	Isaiah			Potential		
+ISA	2	13	Isaiah			Potential		
+ISA	2	15	Isaiah			Potential		
+ISA	2	17	Isaiah			Potential		
+ISA	2	19	Isaiah			Potential		
+ISA	2	20	Isaiah			Potential		
+ISA	2	21	Isaiah			Potential		
+ISA	2	22	Isaiah			Potential		
+ISA	3	1	Isaiah			Potential		
+ISA	3	2	Isaiah			Potential		
+ISA	3	3	Isaiah			Potential		
+ISA	3	4	God		God (the LORD, the LORD Almighty)	Potential		
+ISA	3	5	God		God (the LORD, the LORD Almighty)	Potential		
 ISA	3	6	man (hypothetical)			Hypothetical		
 ISA	3	7	man's brother (hypothetical)			Hypothetical		
 ISA	3	14	God		God (the LORD, the LORD Almighty)	Normal		
@@ -7847,19 +7854,20 @@ ISA	5	6	God		God (vineyard owner)	Normal
 ISA	5	9	God		God (the LORD Almighty)	Normal		
 ISA	5	10	God		God (the LORD Almighty)	Normal		
 ISA	5	19	people, hurried			Hypothetical		
-ISA	6	1	Isaiah		Isaiah, the prophet	Normal		
-ISA	6	2	Isaiah		Isaiah, the prophet	Normal		
+ISA	6	1	Isaiah			Potential		
+ISA	6	2	Isaiah			Potential		
 ISA	6	3	seraphs			Normal		
-ISA	6	4	Isaiah		Isaiah, the prophet	Normal		
-ISA	6	5	Isaiah		Isaiah, the prophet	Normal		
-ISA	6	6	Isaiah		Isaiah, the prophet	Normal		
+ISA	6	4	Isaiah			Potential		
+ISA	6	5	Isaiah			Normal		
+ISA	6	6	Isaiah			Potential		
+ISA	6	7	Isaiah			Potential		
 ISA	6	7	seraph, one of the			Normal		
+ISA	6	8	Isaiah			Potential		
 ISA	6	8	God		God (the LORD), voice of	Normal		
-ISA	6	8	Isaiah		Isaiah, the prophet	Normal		
 ISA	6	9	God		God (the LORD), voice of	Normal		
 ISA	6	10	God		God (the LORD), voice of	Normal		
 ISA	6	11	God		God (the LORD), voice of	Normal		
-ISA	6	11	Isaiah		Isaiah, the prophet	Normal		
+ISA	6	11	Isaiah			Normal		
 ISA	6	12	God		God (the LORD), voice of	Normal		
 ISA	6	13	God		God (the LORD), voice of	Normal		
 ISA	7	2	messenger			Normal		
@@ -7872,25 +7880,25 @@ ISA	7	8	God		God (the LORD)	Normal
 ISA	7	9	God		God (the LORD)	Normal		
 ISA	7	11	God		God (the LORD)	Normal		
 ISA	7	12	Ahaz, king of Judah			Normal		
-ISA	7	13	Isaiah		Isaiah, the prophet	Normal		
-ISA	7	14	Isaiah		Isaiah, the prophet	Normal		
-ISA	7	15	Isaiah		Isaiah, the prophet	Normal		
-ISA	7	16	Isaiah		Isaiah, the prophet	Normal		
-ISA	7	17	Isaiah		Isaiah, the prophet	Normal		
-ISA	7	18	Isaiah		Isaiah, the prophet	Potential		
-ISA	7	19	Isaiah		Isaiah, the prophet	Potential		
-ISA	7	20	Isaiah		Isaiah, the prophet	Potential		
-ISA	7	21	Isaiah		Isaiah, the prophet	Potential		
-ISA	7	22	Isaiah		Isaiah, the prophet	Potential		
-ISA	7	23	Isaiah		Isaiah, the prophet	Potential		
-ISA	7	24	Isaiah		Isaiah, the prophet	Potential		
-ISA	7	25	Isaiah		Isaiah, the prophet	Potential		
+ISA	7	13	Isaiah			Normal		
+ISA	7	14	Isaiah			Normal		
+ISA	7	15	Isaiah			Normal		
+ISA	7	16	Isaiah			Normal		
+ISA	7	17	Isaiah			Normal		
+ISA	7	18	Isaiah			Potential		
+ISA	7	19	Isaiah			Potential		
+ISA	7	20	Isaiah			Potential		
+ISA	7	21	Isaiah			Potential		
+ISA	7	22	Isaiah			Potential		
+ISA	7	23	Isaiah			Potential		
+ISA	7	24	Isaiah			Potential		
+ISA	7	25	Isaiah			Potential		
 ISA	8	1	God		God (the LORD)	Normal		
 ISA	8	2	God		God (the LORD)	Normal		
 ISA	8	3	God		God (the LORD)	Normal		
 ISA	8	3	Isaiah			Normal		
 ISA	8	4	God		God (the LORD)	Normal		
-ISA	8	5	Isaiah			Normal		
+ISA	8	5	Isaiah			Potential		
 ISA	8	6	God		God (the LORD)	Normal		
 ISA	8	7	God		God (the LORD)	Normal		
 ISA	8	8	God		God (the LORD)	Normal		
@@ -7902,17 +7910,17 @@ ISA	8	14	God		God (the LORD)	Normal
 ISA	8	15	God		God (the LORD)	Normal		
 ISA	8	19	someone			Hypothetical		
 ISA	9	10	Ephraimites		Ephraim/Samaria, people of	Hypothetical		
-ISA	10	5	God		God (the LORD)	Normal		
-ISA	10	6	God		God (the LORD)	Normal		
-ISA	10	7	God		God (the LORD)	Normal		
-ISA	10	8	God		God (the LORD)	Normal		
-ISA	10	9	God		God (the LORD)	Normal		
-ISA	10	10	God		God (the LORD)	Normal		
-ISA	10	11	God		God (the LORD)	Normal		
+ISA	10	5	God		God (the LORD)	Implicit		
+ISA	10	6	God		God (the LORD)	Implicit		
+ISA	10	7	God		God (the LORD)	Implicit		
+ISA	10	8	God		God (the LORD)	Implicit		
+ISA	10	9	God		God (the LORD)	Implicit		
+ISA	10	10	God		God (the LORD)	Implicit		
+ISA	10	11	God		God (the LORD)	Implicit		
 ISA	10	12	God		God (the LORD)	Quotation		
 ISA	10	13	king of Assyria			Normal		
-ISA	10	13	God		God (the LORD)	Normal		
-ISA	10	14	God		God (the LORD)	Normal		
+ISA	10	13	God		God (the LORD)	Quotation		
+ISA	10	14	God		God (the LORD)	Quotation		
 ISA	10	14	king of Assyria			Normal		
 ISA	10	24	God		God (the LORD, the LORD Almighty)	Normal		
 ISA	10	25	God		God (the LORD, the LORD Almighty)	Normal		
@@ -7964,13 +7972,13 @@ ISA	21	11	someone from Seir			Normal
 ISA	21	12	watchman			Normal		
 ISA	21	16	God		God (the LORD)	Normal		
 ISA	21	17	God		God (the LORD)	Normal		
-ISA	22	4	Isaiah		Isaiah, the prophet	Normal		
+ISA	22	4	Isaiah			Normal		
 ISA	22	13	someone in Jerusalem			Hypothetical		
 ISA	22	14	God		God (the LORD, the LORD Almighty)	Normal		
 ISA	22	15	God		God (the LORD, the LORD Almighty)	Normal		
 ISA	22	16	God		God (the LORD, the LORD Almighty)	Normal		
-ISA	22	17	God		God (the LORD, the LORD Almighty)	Normal		
-ISA	22	18	God		God (the LORD, the LORD Almighty)	Normal		
+ISA	22	17	God		God (the LORD, the LORD Almighty)	Potential		
+ISA	22	18	God		God (the LORD, the LORD Almighty)	Potential		
 ISA	22	19	God		God (the LORD, the LORD Almighty)	Normal		
 ISA	22	20	God		God (the LORD, the LORD Almighty)	Normal		
 ISA	22	21	God		God (the LORD, the LORD Almighty)	Normal		
@@ -7981,15 +7989,15 @@ ISA	22	25	God		God (the LORD Almighty)	Normal
 ISA	23	4	sea			Hypothetical		
 ISA	23	12	God		God (the LORD)	Normal		
 ISA	23	16	song of the prostitute			Quotation		
-ISA	24	16	Isaiah		Isaiah, the prophet	Normal		
+ISA	24	16	Isaiah			Normal		
 ISA	24	16	singers from the ends of the earth			Hypothetical		
 ISA	25	9	people, God's			Hypothetical		
 ISA	27	2	God		God (the LORD)	Normal		
 ISA	27	3	God		God (the LORD)	Normal		
 ISA	27	4	God		God (the LORD)	Normal		
 ISA	27	5	God		God (the LORD)	Normal		
-ISA	28	9	hearers	mocking		Normal		
-ISA	28	10	hearers	mocking		Normal		
+ISA	28	9	hearers	mocking		Potential		
+ISA	28	10	hearers	mocking		Potential		
 ISA	28	12	God		God (the LORD)	Normal		
 ISA	28	15	rulers of people in Jerusalem	boasting		Hypothetical		
 ISA	28	16	God		God (The Sovereign LORD)	Normal		
@@ -8020,7 +8028,7 @@ ISA	30	14	God		God (Holy One of Israel)	Normal
 ISA	30	15	God		God (The Sovereign LORD, the Holy One of Israel)	Normal		
 ISA	30	16	God		God (The Sovereign LORD, the Holy One of Israel)	Potential		
 ISA	30	16	you (rebellious people)			Quotation		
-ISA	30	17	God		God (The Sovereign LORD, the Holy One of Israel)	Normal		
+ISA	30	17	God		God (The Sovereign LORD, the Holy One of Israel)	Potential		
 ISA	30	21	voice behind you			Normal	God	
 ISA	30	22	you (people of Zion, restored)			Hypothetical		
 ISA	31	4	God		God (the LORD)	Normal		
@@ -8054,8 +8062,8 @@ ISA	36	20	field commander from king of Assyria			Normal
 ISA	36	21	Hezekiah, king of Judah			Normal		
 ISA	37	3	Eliakim/Shebna/chief priests			Normal	Eliakim	
 ISA	37	4	Eliakim/Shebna/chief priests			Normal	Eliakim	
-ISA	37	6	Isaiah		Isaiah, the prophet	Normal		
-ISA	37	7	Isaiah		Isaiah, the prophet	Normal		
+ISA	37	6	Isaiah			Normal		
+ISA	37	7	Isaiah			Normal		
 ISA	37	10	Sennacherib's messengers			Normal		
 ISA	37	11	Sennacherib's messengers			Normal		
 ISA	37	12	Sennacherib's messengers			Normal		
@@ -8098,13 +8106,13 @@ ISA	38	18	Hezekiah, king of Judah	writing		Potential
 ISA	38	19	Hezekiah, king of Judah	writing		Potential		
 ISA	38	20	Hezekiah, king of Judah	writing		Potential		
 # Should the following be marked as a Quotation? The phrase had said seems to imply a flashback, but some translations may try to habnle this as active narrative.								
-ISA	38	21	Isaiah		Isaiah, the prophet	Normal		
+ISA	38	21	Isaiah			Normal		
 # Should the following be marked as a Quotation? The phrase had said seems to imply a flashback, but some translations may try to habnle this as active narrative.								
 ISA	38	22	Hezekiah, king of Judah			Normal		
 ISA	39	3	Hezekiah, king of Judah			Normal		
-ISA	39	3	Isaiah		Isaiah, the prophet	Normal		
+ISA	39	3	Isaiah			Normal		
 ISA	39	4	Hezekiah, king of Judah			Normal		
-ISA	39	4	Isaiah		Isaiah, the prophet	Normal		
+ISA	39	4	Isaiah			Normal		
 ISA	39	5	Isaiah			Normal		
 ISA	39	6	Isaiah			Normal		
 ISA	39	7	Isaiah			Normal		
@@ -8114,7 +8122,7 @@ ISA	40	3	voice of one calling (preparing way for Christ)			Normal
 ISA	40	4	voice of one calling (preparing way for Christ)			Normal		
 ISA	40	5	voice of one calling (preparing way for Christ)			Normal		
 ISA	40	6	voice (God?)			Normal	God	
-ISA	40	6	Isaiah		Isaiah, the prophet	Normal		
+ISA	40	6	Isaiah			Normal		
 ISA	40	7	voice (God?)			Normal	God	
 ISA	40	8	voice (God?)			Normal	God	
 ISA	40	9	one who brings good news			Hypothetical		
@@ -8208,9 +8216,9 @@ ISA	44	19	narrator-ISA			Hypothetical
 ISA	44	20	God		God (the LORD)	Potential		
 ISA	44	20	craftsman			Hypothetical		
 ISA	44	20	narrator-ISA			Hypothetical		
-ISA	44	21	God		God (the LORD)	Normal		
-ISA	44	22	God		God (the LORD)	Normal		
-ISA	44	23	Isaiah			Normal		
+ISA	44	21	God		God (the LORD)	Potential		
+ISA	44	22	God		God (the LORD)	Potential		
+ISA	44	23	Isaiah			Potential		
 ISA	44	24	God		God (the LORD, Redeemer)	Normal		
 ISA	44	25	God		God (the LORD, Redeemer)	Normal		
 ISA	44	26	God		God (the LORD, Redeemer)	Normal		
@@ -8480,16 +8488,16 @@ ISA	66	22	God		God (the LORD)	Normal
 ISA	66	23	God		God (the LORD)	Normal		
 ISA	66	24	God		God (the LORD)	Normal		
 JER	1	5	God		God (the LORD)(word of the LORD came)	Normal		
-JER	1	6	Jeremiah			Normal		
+JER	1	6	Jeremiah			Potential		
 JER	1	7	God		God (the LORD)	Normal		
 JER	1	8	God		God (the LORD)	Normal		
 JER	1	9	God		God (the LORD)	Normal		
 JER	1	10	God		God (the LORD)	Normal		
 JER	1	11	God		God (the LORD)(word of the LORD came)	Normal		
-JER	1	11	Jeremiah			Normal		
+JER	1	11	Jeremiah			Potential		
 JER	1	12	God		God (the LORD)	Normal		
 JER	1	13	God		God (the LORD)(word of the LORD came)	Normal		
-JER	1	13	Jeremiah			Normal		
+JER	1	13	Jeremiah			Potential		
 JER	1	14	God		God (the LORD)	Normal		
 JER	1	15	God		God (the LORD)	Normal		
 JER	1	16	God		God (the LORD)	Normal		
@@ -8553,13 +8561,13 @@ JER	3	19	God		God (the LORD)	Normal
 JER	3	20	God		God (the LORD)	Normal		
 JER	3	21	God		God (the LORD)	Potential		
 JER	3	22	God		God (the LORD)	Normal		
-JER	3	22	Jeremiah			Normal		
+JER	3	22	Jeremiah			Potential		
 JER	3	22	people			Normal		
-JER	3	23	Jeremiah			Normal		
+JER	3	23	Jeremiah			Potential		
 JER	3	23	people			Normal		
-JER	3	24	Jeremiah			Normal		
+JER	3	24	Jeremiah			Potential		
 JER	3	24	people			Normal		
-JER	3	25	Jeremiah			Normal		
+JER	3	25	Jeremiah			Potential		
 JER	3	25	people			Normal		
 JER	4	1	God		God (the LORD)	Normal		
 JER	4	2	God		God (the LORD)	Normal		
@@ -8567,37 +8575,41 @@ JER	4	3	God		God (the LORD)	Normal
 JER	4	4	God		God (the LORD)	Normal		
 JER	4	5	God		God (the LORD)	Normal		
 JER	4	6	God		God (the LORD)	Normal		
-JER	4	7	God		God (the LORD)	Normal		
-JER	4	8	Jeremiah			Normal		
+JER	4	7	God		God (the LORD)	Potential		
+JER	4	7	Jeremiah			Potential		
+JER	4	8	God		God (the LORD)	Potential		
+JER	4	8	Jeremiah			Potential		
 JER	4	9	God		God (the LORD)	Normal		
-JER	4	10	Jeremiah			Normal		
+JER	4	10	Jeremiah			Potential		
 JER	4	11	God		God (the LORD)	Normal		
 JER	4	12	God		God (the LORD)	Normal		
 JER	4	13	people of Jerusalem			Hypothetical		
-JER	4	14	God		God (the LORD)	Normal		
-JER	4	15	God		God (the LORD)	Normal		
+JER	4	14	God		God (the LORD)	Potential		
+JER	4	15	God		God (the LORD)	Potential		
 JER	4	16	God		God (the LORD)	Normal		
 JER	4	17	God		God (the LORD)	Normal		
 JER	4	18	God		God (the LORD)	Normal		
-JER	4	19	Jeremiah			Normal		
-JER	4	20	Jeremiah			Normal		
-JER	4	21	Jeremiah			Normal		
+JER	4	19	Jeremiah			Potential		
+JER	4	20	Jeremiah			Potential		
+JER	4	21	Jeremiah			Potential		
 JER	4	22	God		God (the LORD)	Normal		
-JER	4	23	Jeremiah			Normal		
-JER	4	24	Jeremiah			Normal		
-JER	4	26	Jeremiah			Normal		
+JER	4	23	Jeremiah			Potential		
+JER	4	24	Jeremiah			Potential		
+JER	4	26	Jeremiah			Potential		
 JER	4	27	God		God (the LORD)	Normal		
 JER	4	28	God		God (the LORD)	Normal		
-JER	4	29	God		God (the LORD)	Normal		
-JER	4	30	God		God (the LORD)	Normal		
+JER	4	29	God		God (the LORD)	Potential		
+JER	4	30	God		God (the LORD)	Potential		
+JER	4	31	God		God (the LORD)	Potential		
 JER	4	31	daughter of Zion			Hypothetical		
-JER	4	31	God		God (the LORD)	Normal		
 JER	5	1	God		God (the LORD)	Normal		
 JER	5	2	God		God (the LORD)	Normal		
-JER	5	3	Jeremiah			Normal		
-JER	5	4	Jeremiah			Normal		
-JER	5	5	Jeremiah			Normal		
-JER	5	6	Jeremiah			Normal		
+JER	5	3	Jeremiah			Potential		
+JER	5	4	Jeremiah			Potential		
+JER	5	5	Jeremiah			Potential		
+JER	5	5	God		God (the LORD)	Potential		
+JER	5	6	Jeremiah			Potential		
+JER	5	6	God		God (the LORD)	Potential		
 JER	5	7	God		God (the LORD)	Normal		
 JER	5	8	God		God (the LORD)	Normal		
 JER	5	9	God		God (the LORD)	Normal		
@@ -8634,9 +8646,9 @@ JER	6	6	God		God (the LORD Almighty)	Normal
 JER	6	7	God		God (the LORD Almighty)	Normal		
 JER	6	8	God		God (the LORD Almighty)	Normal		
 JER	6	9	God		God (the LORD Almighty)	Normal		
-JER	6	10	Jeremiah			Normal		
-JER	6	11	Jeremiah			Normal		
-JER	6	11	God		God (the LORD)	Normal		
+JER	6	10	Jeremiah			Potential		
+JER	6	11	Jeremiah			Potential		
+JER	6	11	God		God (the LORD)	Potential		
 JER	6	12	God		God (the LORD)	Normal		
 JER	6	13	God		God (the LORD)	Normal		
 JER	6	14	God		God (the LORD)	Normal		
@@ -8709,14 +8721,14 @@ JER	8	15	people			Normal
 JER	8	16	God		God saying what the people will say	Normal		
 JER	8	16	people			Normal		
 JER	8	17	God		God (the LORD)	Normal		
-JER	8	18	Jeremiah			Implicit		
-JER	8	19	Jeremiah			Implicit		
+JER	8	18	Jeremiah			Potential		
+JER	8	19	Jeremiah			Potential		
 JER	8	19	people			Hypothetical		
 JER	8	19	God		God (the LORD)	Normal		
 JER	8	20	people			Hypothetical		
 JER	8	20	Jeremiah			Hypothetical		
-JER	8	21	Jeremiah			Implicit		
-JER	8	22	Jeremiah			Implicit		
+JER	8	21	Jeremiah			Potential		
+JER	8	22	Jeremiah			Potential		
 JER	9	1	Jeremiah			Potential		
 JER	9	2	Jeremiah			Potential		
 JER	9	3	God		God (the LORD)	Normal		
@@ -8728,7 +8740,8 @@ JER	9	8	God		God (the LORD Almighty)	Normal
 JER	9	9	God		God (the LORD Almighty)	Normal		
 JER	9	10	God		God (the LORD Almighty)	Normal		
 JER	9	11	God		God (the LORD Almighty)	Normal		
-JER	9	12	Jeremiah			Normal		
+JER	9	12	Jeremiah			Potential		
+JER	9	12	God			Potential		
 JER	9	13	God		God (the LORD)	Normal		
 JER	9	14	God		God (the LORD)	Normal		
 JER	9	15	God		God (the LORD Almighty, the God of Israel)	Normal		
@@ -8736,41 +8749,48 @@ JER	9	16	God		God (the LORD Almighty, the God of Israel)	Normal
 JER	9	17	God		God (the LORD Almighty)	Normal		
 JER	9	18	God		God (the LORD Almighty)	Normal		
 JER	9	19	God		God (the LORD Almighty)	Normal		
-JER	9	20	God		God (the LORD Almighty)	Normal		
-JER	9	21	God		God (the LORD Almighty)	Normal		
+JER	9	20	God		God (the LORD Almighty)	Potential		
+JER	9	21	God		God (the LORD Almighty)	Potential		
 JER	9	22	God		God (the LORD)	Normal		
 JER	9	23	God		God (the LORD)	Normal		
 JER	9	24	God		God (the LORD)	Normal		
 JER	9	25	God		God (the LORD)	Normal		
 JER	9	26	God		God (the LORD)	Normal		
-JER	10	2	Jeremiah			Normal		
-JER	10	3	Jeremiah			Normal		
-JER	10	4	Jeremiah			Normal		
-JER	10	5	Jeremiah			Normal		
-JER	10	6	Jeremiah			Normal		
-JER	10	7	Jeremiah			Normal		
-JER	10	8	Jeremiah			Normal		
-JER	10	9	Jeremiah			Normal		
-JER	10	10	Jeremiah			Normal		
-JER	10	11	God		God (the LORD)	Normal		
-JER	10	12	Jeremiah			Normal		
-JER	10	13	Jeremiah			Normal		
-JER	10	14	Jeremiah			Normal		
-JER	10	15	Jeremiah			Normal		
-JER	10	16	Jeremiah			Normal		
-JER	10	17	God		God (the LORD)	Normal		
+JER	10	2	Jeremiah			Potential		
+JER	10	2	God		God (the LORD)	Normal		
+JER	10	3	Jeremiah			Potential		
+JER	10	3	God		God (the LORD)	Normal		
+JER	10	4	Jeremiah			Potential		
+JER	10	4	God		God (the LORD)	Normal		
+JER	10	5	Jeremiah			Potential		
+JER	10	5	God		God (the LORD)	Normal		
+JER	10	6	Jeremiah			Potential		
+JER	10	7	Jeremiah			Potential		
+JER	10	8	Jeremiah			Potential		
+JER	10	9	Jeremiah			Potential		
+JER	10	10	Jeremiah			Potential		
+JER	10	11	Jeremiah			Potential		
+JER	10	11	God		God (the LORD)	Potential		
+JER	10	11	you (hypothetical)			Hypothetical		
+JER	10	12	Jeremiah			Potential		
+JER	10	13	Jeremiah			Potential		
+JER	10	14	Jeremiah			Potential		
+JER	10	15	Jeremiah			Potential		
+JER	10	16	Jeremiah			Potential		
+JER	10	17	Jeremiah			Potential		
+JER	10	17	God		God (the LORD)	Potential		
 JER	10	18	God		God (the LORD)	Normal		
-JER	10	19	Jeremiah			Normal		
-JER	10	20	Jeremiah			Normal		
-JER	10	21	Jeremiah			Normal		
-JER	10	22	Jeremiah			Normal		
-JER	10	23	Jeremiah	prayer		Normal		
-JER	10	24	Jeremiah	prayer		Normal		
-JER	10	25	Jeremiah	prayer		Normal		
+JER	10	19	Jeremiah			Potential		
+JER	10	20	Jeremiah			Potential		
+JER	10	21	Jeremiah			Potential		
+JER	10	22	Jeremiah			Potential		
+JER	10	23	Jeremiah	prayer		Potential		
+JER	10	24	Jeremiah	prayer		Potential		
+JER	10	25	Jeremiah	prayer		Potential		
 JER	11	2	God		God (the LORD)(word of the LORD came)	Normal		
 JER	11	3	God		God (the LORD)(word of the LORD came)	Normal		
 JER	11	4	God		God (the LORD)(word of the LORD came)	Normal		
-JER	11	5	Jeremiah			Normal		
+JER	11	5	Jeremiah			Potential		
 JER	11	5	God		God (the LORD)(word of the LORD came)	Normal		
 JER	11	6	God		God (the LORD)	Normal		
 JER	11	7	God		God (the LORD)	Normal		
@@ -8783,18 +8803,18 @@ JER	11	13	God		God (the LORD)	Normal
 JER	11	14	God		God (the LORD)	Normal		
 JER	11	15	God		God (the LORD)	Normal		
 JER	11	16	God		God (the LORD)	Normal		
-JER	11	18	Jeremiah			Normal		
+JER	11	18	Jeremiah			Potential		
 JER	11	19	Jeremiah's enemies			Normal		
-JER	11	19	Jeremiah			Normal		
-JER	11	20	Jeremiah			Normal		
+JER	11	19	Jeremiah			Potential		
+JER	11	20	Jeremiah			Potential		
 JER	11	21	God		God (the LORD)(word of the LORD)	Normal		
 JER	11	21	men of Anathoth			Normal		
 JER	11	22	God		God (the LORD)(word of the LORD)	Normal		
 JER	11	23	God		God (the LORD)(word of the LORD)	Normal		
-JER	12	1	Jeremiah			Normal		
-JER	12	2	Jeremiah			Normal		
-JER	12	3	Jeremiah			Normal		
-JER	12	4	Jeremiah		Jeremiah quoting the wicked who live in the land	Normal		
+JER	12	1	Jeremiah			Potential		
+JER	12	2	Jeremiah			Potential		
+JER	12	3	Jeremiah			Potential		
+JER	12	4	Jeremiah		Jeremiah quoting the wicked who live in the land	Potential		
 JER	12	5	God		God (the LORD)	Normal		
 JER	12	6	God		God (the LORD)	Normal		
 JER	12	7	God		God (the LORD)	Normal		
@@ -8809,21 +8829,23 @@ JER	12	15	God		God (the LORD)	Normal
 JER	12	16	God		God (the LORD)	Normal		
 JER	12	17	God		God (the LORD)	Normal		
 JER	13	1	God		God (the LORD)	Normal		
-JER	13	1	Jeremiah			Normal		
+JER	13	1	Jeremiah			Potential		
+JER	13	2	Jeremiah			Potential		
+JER	13	3	Jeremiah			Potential		
 JER	13	4	God		God (the LORD)(word of the LORD came)	Normal		
-JER	13	5	Jeremiah			Normal		
+JER	13	5	Jeremiah			Potential		
 JER	13	6	God		God (the LORD)	Normal		
-JER	13	7	Jeremiah			Normal		
+JER	13	7	Jeremiah			Potential		
 JER	13	9	God		God (the LORD)(word of the LORD came)	Normal		
 JER	13	10	God		God (the LORD)(word of the LORD came)	Normal		
 JER	13	11	God		God (the LORD)(word of the LORD came)	Normal		
 JER	13	12	God		God (the LORD)(word of the LORD came)	Normal		
 JER	13	13	God		God (the LORD)(word of the LORD came)	Normal		
 JER	13	14	God		God (the LORD)(word of the LORD came)	Normal		
-JER	13	15	God		God (the LORD)(word of the LORD came)	Normal		
-JER	13	15	Jeremiah			Normal		
-JER	13	16	Jeremiah			Normal		
-JER	13	17	Jeremiah			Normal		
+JER	13	15	God		God (the LORD)(word of the LORD came)	Potential		
+JER	13	15	Jeremiah			Potential		
+JER	13	16	Jeremiah			Potential		
+JER	13	17	Jeremiah			Potential		
 JER	13	18	narrator-JER			Hypothetical		
 JER	13	22	Judah, all			Hypothetical		
 JER	13	24	God		God (the LORD)	Normal		
@@ -8835,26 +8857,26 @@ JER	14	3	God		God (word of the LORD)	Normal
 JER	14	4	God		God (word of the LORD)	Normal		
 JER	14	5	God		God (word of the LORD)	Normal		
 JER	14	6	God		God (word of the LORD)	Normal		
-JER	14	7	Jeremiah			Normal		
-JER	14	8	Jeremiah			Normal		
-JER	14	9	Jeremiah			Normal		
+JER	14	7	Jeremiah			Potential		
+JER	14	8	Jeremiah			Potential		
+JER	14	9	Jeremiah			Potential		
 JER	14	10	God		God (the LORD)	Normal		
 JER	14	11	God		God (the LORD)	Normal		
 JER	14	12	God		God (the LORD)	Normal		
-JER	14	13	Jeremiah			Implicit		
+JER	14	13	Jeremiah			Potential		
 JER	14	13	false prophets			Quotation		
-JER	14	14	Jeremiah			Implicit		
+JER	14	14	Jeremiah			Potential		
 JER	14	14	God		God (the LORD)	Normal		
 JER	14	15	God		God (the LORD)	Normal		
 JER	14	16	God		God (the LORD)	Normal		
 JER	14	17	God		God (the LORD)	Normal		
 JER	14	18	God		God (the LORD)	Normal		
-JER	14	19	Jeremiah			Normal		
-JER	14	20	Jeremiah			Normal		
-JER	14	21	Jeremiah			Normal		
-JER	14	22	Jeremiah			Normal		
+JER	14	19	Jeremiah			Potential		
+JER	14	20	Jeremiah			Potential		
+JER	14	21	Jeremiah			Potential		
+JER	14	22	Jeremiah			Potential		
 JER	15	1	God		God (the LORD)	Normal		
-JER	15	1	Jeremiah			Normal		
+JER	15	1	Jeremiah			Potential		
 JER	15	2	God		God (the LORD)	Normal		
 JER	15	3	God		God (the LORD)	Normal		
 JER	15	4	God		God (the LORD)	Normal		
@@ -8863,21 +8885,21 @@ JER	15	6	God		God (the LORD)	Normal
 JER	15	7	God		God (the LORD)	Normal		
 JER	15	8	God		God (the LORD)	Normal		
 JER	15	9	God		God (the LORD)	Normal		
-JER	15	10	Jeremiah			Normal		
+JER	15	10	Jeremiah			Potential		
 JER	15	11	God		God (the LORD)	Normal		
 JER	15	12	God		God (the LORD)	Normal		
 JER	15	13	God		God (the LORD)	Normal		
 JER	15	14	God		God (the LORD)	Normal		
-JER	15	15	Jeremiah			Normal		
-JER	15	16	Jeremiah			Normal		
-JER	15	17	Jeremiah			Normal		
-JER	15	18	Jeremiah			Normal		
+JER	15	15	Jeremiah			Potential		
+JER	15	16	Jeremiah			Potential		
+JER	15	17	Jeremiah			Potential		
+JER	15	18	Jeremiah			Potential		
 JER	15	19	God		God (the LORD)	Normal		
 JER	15	20	God		God (the LORD)	Normal		
 JER	15	21	God		God (the LORD)	Normal		
-JER	16	1	Jeremiah			Normal		
+JER	16	1	Jeremiah			Potential		
 JER	16	2	God		God (the LORD)(word of the LORD came)	Normal		
-JER	16	3	Jeremiah			Normal		
+JER	16	3	Jeremiah			Potential		
 JER	16	4	God		God (the LORD)(word of the LORD came)	Normal		
 JER	16	5	God		God (the LORD)(word of the LORD came)	Normal		
 JER	16	6	God		God (the LORD)(word of the LORD came)	Normal		
@@ -8894,9 +8916,9 @@ JER	16	16	God		God (the LORD)	Normal
 JER	16	17	God		God (the LORD)	Normal		
 JER	16	18	God		God (the LORD)	Normal		
 JER	16	19	nations			Hypothetical		
-JER	16	19	Jeremiah			Normal		
+JER	16	19	Jeremiah			Potential		
 JER	16	20	nations			Hypothetical		
-JER	16	20	Jeremiah			Normal		
+JER	16	20	Jeremiah			Potential		
 JER	16	21	God		God (the LORD)	Normal		
 JER	17	1	God		God (the LORD)	Normal		
 JER	17	2	God		God (the LORD)	Normal		
@@ -8908,7 +8930,7 @@ JER	17	7	God		God (the LORD)	Normal
 JER	17	8	God		God (the LORD)	Normal		
 JER	17	9	God		God (the LORD)	Normal		
 JER	17	10	God		God (the LORD)	Normal		
-JER	17	11	God		God (the LORD)	Normal		
+JER	17	11	God		God (the LORD)	Potential		
 JER	17	12	Jeremiah			Implicit		
 JER	17	13	Jeremiah			Implicit		
 JER	17	14	Jeremiah			Implicit		
@@ -8940,11 +8962,11 @@ JER	18	15	God		God (the LORD)(word of the LORD came)	Normal
 JER	18	16	God		God (the LORD)(word of the LORD came)	Normal		
 JER	18	17	God		God (the LORD)(word of the LORD came)	Normal		
 JER	18	18	Jeremiah's enemies			Normal		
-JER	18	19	Jeremiah			Normal		
-JER	18	20	Jeremiah			Normal		
-JER	18	21	Jeremiah			Normal		
-JER	18	22	Jeremiah			Normal		
-JER	18	23	Jeremiah			Normal		
+JER	18	19	Jeremiah			Potential		
+JER	18	20	Jeremiah			Potential		
+JER	18	21	Jeremiah			Potential		
+JER	18	22	Jeremiah			Potential		
+JER	18	23	Jeremiah			Potential		
 JER	19	1	God		God (the LORD)	Normal		
 JER	19	2	God		God (the LORD)	Normal		
 JER	19	3	God		God (the LORD)	Normal		
@@ -9013,14 +9035,14 @@ JER	22	6	God		God (the LORD)(word of the LORD)	Normal
 JER	22	7	God		God (the LORD)(word of the LORD)	Normal		
 JER	22	8	God		God (the LORD)(word of the LORD)	Normal		
 JER	22	9	God		God (the LORD)(word of the LORD)	Normal		
-JER	22	10	God		God (the LORD)(word of the LORD)	Normal		
+JER	22	10	God		God (the LORD)(word of the LORD)	Potential		
 JER	22	11	God		God (the LORD)(word of the LORD)	Normal		
 JER	22	12	God		God (the LORD)(word of the LORD)	Normal		
 JER	22	13	God		God (the LORD)(word of the LORD)	Normal		
 JER	22	14	God		God (the LORD)(word of the LORD)	Normal		
 JER	22	15	God		God (the LORD)(word of the LORD)	Normal		
 JER	22	16	God		God (the LORD)(word of the LORD)	Normal		
-JER	22	17	God		God (the LORD)(word of the LORD)	Normal		
+JER	22	17	God		God (the LORD)(word of the LORD)	Potential		
 JER	22	18	God		God (the LORD)(word of the LORD)	Normal		
 JER	22	19	God		God (the LORD)(word of the LORD)	Normal		
 JER	22	20	God		God (the LORD)(word of the LORD)	Normal		
@@ -9031,7 +9053,7 @@ JER	22	24	God		God (the LORD)(word of the LORD)	Normal
 JER	22	25	God		God (the LORD)(word of the LORD)	Normal		
 JER	22	26	God		God (the LORD)(word of the LORD)	Normal		
 JER	22	27	God		God (the LORD)(word of the LORD)	Normal		
-JER	22	28	God		God (the LORD)(word of the LORD)	Normal		
+JER	22	28	God		God (the LORD)(word of the LORD)	Potential		
 JER	22	30	God		God (the LORD)(word of the LORD)	Normal		
 JER	23	1	God		God (the LORD)(word of the LORD)	Normal		
 JER	23	2	God		God (the LORD)(word of the LORD)	Normal		
@@ -9041,8 +9063,9 @@ JER	23	5	God		God (the LORD)	Normal
 JER	23	6	God		God (the LORD)	Normal		
 JER	23	7	God		God (the LORD)	Normal		
 JER	23	8	God		God (the LORD)	Normal		
-JER	23	9	Jeremiah			Normal		
-JER	23	10	Jeremiah			Normal		
+JER	23	9	Jeremiah			Potential		
+JER	23	10	Jeremiah			Potential		
+JER	23	10	God		God (the LORD)	Potential		
 JER	23	11	God		God (the LORD)	Normal		
 JER	23	12	God		God (the LORD)	Normal		
 JER	23	13	God		God (the LORD)	Normal		
@@ -9073,19 +9096,19 @@ JER	23	37	God		God (the LORD)	Normal
 JER	23	38	God		God (the LORD)	Normal		
 JER	23	39	God		God (the LORD)	Normal		
 JER	23	40	God		God (the LORD)	Normal		
-JER	24	1	Jeremiah			Normal		
-JER	24	2	Jeremiah			Normal		
+JER	24	1	Jeremiah			Potential		
+JER	24	2	Jeremiah			Potential		
 JER	24	3	God		God (the LORD)	Normal		
-JER	24	3	Jeremiah			Normal		
-JER	24	4	Jeremiah			Normal		
+JER	24	3	Jeremiah			Potential		
+JER	24	4	Jeremiah			Potential		
 JER	24	5	God		God (the LORD)(word of the LORD came)	Normal		
 JER	24	6	God		God (the LORD)(word of the LORD came)	Normal		
 JER	24	7	God		God (the LORD)(word of the LORD came)	Normal		
 JER	24	8	God		God (the LORD)(word of the LORD came)	Normal		
 JER	24	9	God		God (the LORD)(word of the LORD came)	Normal		
 JER	24	10	God		God (the LORD)(word of the LORD came)	Normal		
-JER	25	3	Jeremiah			Normal		
-JER	25	4	Jeremiah			Normal		
+JER	25	3	Jeremiah			Potential		
+JER	25	4	Jeremiah			Potential		
 JER	25	5	Jeremiah		Jeremiah quoting the prophets	Normal		
 JER	25	6	Jeremiah		Jeremiah quoting the prophets	Normal		
 JER	25	7	God		God (the LORD)(word of the LORD came)	Normal		
@@ -9163,7 +9186,12 @@ JER	28	14	God		God (the LORD)(word of the LORD came)	Normal
 JER	28	15	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	28	16	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	29	4-28	Jeremiah	letter	Jeremiah (the LORD says)	Implicit		
-JER	29	4-28	God		God (the LORD Almighty, the God of Israel)	Normal		
+JER	29	5-15	God		God (the LORD Almighty, the God of Israel)	Normal		
+JER	29	17-19	God		God (the LORD Almighty, the God of Israel)	Normal		
+JER	29	20	God		God (the LORD Almighty, the God of Israel)	Potential		
+JER	29	21-23	God		God (the LORD Almighty, the God of Israel)	Normal		
+JER	29	24	God		God (the LORD Almighty, the God of Israel)	Potential		
+JER	29	25-28	God		God (the LORD Almighty, the God of Israel)	Normal		
 JER	29	31	God		God (word of the LORD came to Jeremiah)	Normal		
 JER	29	32	God		God (word of the LORD came to Jeremiah)	Normal		
 JER	30	2	God		God (word of the LORD came to Jeremiah)	Normal		
@@ -9209,13 +9237,13 @@ JER	31	18	God		God (the LORD)	Normal
 JER	31	19	God		God (the LORD)	Normal		
 JER	31	20	God		God (the LORD)	Normal		
 JER	31	21	God		God (the LORD)	Normal		
-JER	31	21	Jeremiah			Normal		
+JER	31	21	Jeremiah			Potential		
 JER	31	22	God		God (the LORD)	Normal		
-JER	31	22	Jeremiah			Normal		
+JER	31	22	Jeremiah			Potential		
 JER	31	23	God		God (the LORD Almighty, the God of Israel)	Normal		
 JER	31	24	God		God (the LORD Almighty, the God of Israel)	Normal		
 JER	31	25	God		God (the LORD Almighty, the God of Israel)	Normal		
-JER	31	26	Jeremiah			Normal		
+JER	31	26	Jeremiah			Potential		
 JER	31	27	God		God (the LORD)	Normal		
 JER	31	28	God		God (the LORD)	Normal		
 JER	31	29	God		God (the LORD)	Normal		
@@ -9874,7 +9902,7 @@ EZK	13	13	God		God (the LORD)(word of the LORD came)	Normal
 EZK	13	14	God		God (the LORD)(word of the LORD came)	Normal		
 EZK	13	15	God		God (the LORD)(word of the LORD came)	Normal		
 EZK	13	16	God		God (the LORD)(word of the LORD came)	Normal		
-EZK	13	17	God		God (the LORD)(word of the LORD came)	Normal		
+EZK	13	17	God		God (the LORD)(word of the LORD came)	Potential		
 EZK	13	18	God		God (the LORD)(word of the LORD came)	Normal		
 EZK	13	19	God		God (the LORD)(word of the LORD came)	Normal		
 EZK	13	20	God		God (the LORD)(word of the LORD came)	Normal		
@@ -10986,8 +11014,7 @@ DAN	12	2	one who looked like a man			Normal
 DAN	12	3	one who looked like a man			Normal		
 DAN	12	4	one who looked like a man			Normal		
 DAN	12	6	one other who looked like a man			Normal		
-DAN	12	7	man in linen above river			Normal		
-DAN	12	8	Daniel			Normal		
+DAN	12	7	man in linen above river			Indirect		
 DAN	12	9	man in linen above river			Normal		
 DAN	12	10	man in linen above river			Normal		
 DAN	12	11	man in linen above river			Normal		
@@ -11101,12 +11128,12 @@ HOS	8	11	God		word of the LORD spoken through Hosea	Normal
 HOS	8	12	God		word of the LORD spoken through Hosea	Normal		
 HOS	8	13	God		word of the LORD spoken through Hosea	Normal		
 HOS	8	14	God		word of the LORD spoken through Hosea	Normal		
-HOS	9	10	God		word of the LORD spoken through Hosea	Normal		
-HOS	9	11	God		word of the LORD spoken through Hosea	Normal		
-HOS	9	12	God		word of the LORD spoken through Hosea	Normal		
-HOS	9	13	God		word of the LORD spoken through Hosea	Normal		
-HOS	9	15	God		word of the LORD spoken through Hosea	Normal		
-HOS	9	16	God		word of the LORD spoken through Hosea	Normal		
+HOS	9	10	God		word of the LORD spoken through Hosea	Implicit		
+HOS	9	11	God		word of the LORD spoken through Hosea	Implicit		
+HOS	9	12	God		word of the LORD spoken through Hosea	Implicit		
+HOS	9	13	God		word of the LORD spoken through Hosea	Implicit		
+HOS	9	15	God		word of the LORD spoken through Hosea	Implicit		
+HOS	9	16	God		word of the LORD spoken through Hosea	Implicit		
 HOS	10	3	Israel			Hypothetical		
 HOS	10	8	Israel			Hypothetical		
 HOS	10	9	God		word of the LORD spoken through Hosea	Normal		
@@ -11267,7 +11294,11 @@ AMO	7	17	Amos			Normal
 AMO	8	2	Amos			Normal		
 AMO	8	2	God		God (The Sovereign LORD)	Normal		
 AMO	8	3	God		God (The Sovereign LORD)	Normal		
-AMO	8	5	oppressors of poor			Normal		
+AMO	8	4	God		God (The Sovereign LORD)	Potential		
+AMO	8	5	oppressors of poor			Hypothetical		
+AMO	8	5	God		God (The Sovereign LORD)	Potential		
+AMO	8	6	oppressors of poor			Hypothetical		
+AMO	8	6	God		God (The Sovereign LORD)	Potential		
 AMO	8	7	God		God (the LORD)	Normal		
 AMO	8	8	God		God (the LORD)	Normal		
 AMO	8	9	God		God (The Sovereign LORD)	Normal		
@@ -11343,15 +11374,15 @@ MIC	2	3	God		God (the LORD)	Normal
 MIC	2	4	God		God (the LORD)	Normal		
 MIC	2	6	Micah			Normal		
 MIC	2	6	false prophets			Quotation		
-MIC	2	7	God		God (the LORD)	Normal		
-MIC	2	7	Micah			Normal		
+MIC	2	7	God		God (the LORD)	Potential		
+MIC	2	7	Micah			Potential		
 MIC	2	7	false prophets			Hypothetical		
-MIC	2	8	God		God (the LORD)	Normal		
-MIC	2	9	God		God (the LORD)	Normal		
-MIC	2	10	God		God (the LORD)	Normal		
+MIC	2	8	God		God (the LORD)	Implicit		
+MIC	2	9	God		God (the LORD)	Implicit		
+MIC	2	10	God		God (the LORD)	Implicit		
 MIC	2	11	God		God (the LORD)	Normal		
-MIC	2	12	God		God (the LORD)	Normal		
-MIC	2	13	God		God (the LORD)	Normal		
+MIC	2	12	God		God (the LORD)	Implicit		
+MIC	2	13	God		God (the LORD)	Potential		
 MIC	3	1	Micah			Normal		
 MIC	3	2	Micah			Normal		
 MIC	3	3	Micah			Normal		
@@ -11364,10 +11395,10 @@ MIC	3	11	leaders/priests/prophets			Normal
 MIC	4	2	nations, the		nations, many	Normal		
 MIC	4	6	God		God (the LORD)	Normal		
 MIC	4	7	God		God (the LORD)	Normal		
-MIC	4	8	God		God (the LORD)	Normal		
+MIC	4	8	God		God (the LORD)	Potential		
 MIC	4	11	nations, the		nations, many	Normal		
-MIC	4	13	God		God (the LORD)	Normal		
-MIC	5	2	God		God (the LORD)	Normal		
+MIC	4	13	God		God (the LORD)	Potential		
+MIC	5	2	God		God (the LORD)	Implicit		
 MIC	5	10	God		God (the LORD)	Normal		
 MIC	5	11	God		God (the LORD)	Normal		
 MIC	5	12	God		God (the LORD)	Normal		
@@ -11387,7 +11418,7 @@ MIC	6	13	God		God (the LORD)	Normal
 MIC	6	14	God		God (the LORD)	Normal		
 MIC	6	15	God		God (the LORD)	Normal		
 MIC	6	16	God		God (the LORD)	Normal		
-MIC	7	10	enemy			Normal		
+MIC	7	10	enemy			Hypothetical		
 MIC	7	15	God		God (the LORD)	Normal		
 NAM	1	12	God		God (the LORD)	Normal		
 NAM	1	13	God		God (the LORD)	Normal		
@@ -11447,8 +11478,8 @@ ZEP	2	8	God		God (the LORD)	Normal
 ZEP	2	9	God		God (the LORD)	Normal		
 ZEP	2	12	God		God (the LORD)	Normal		
 ZEP	2	15	Nineveh		Nineveh, the city of revelry	Hypothetical		
-ZEP	3	6	God		God (the LORD)	Normal		
-ZEP	3	7	God		God (the LORD)	Normal		
+ZEP	3	6	God		God (the LORD)	Implicit		
+ZEP	3	7	God		God (the LORD)	Implicit		
 ZEP	3	8	God		God (the LORD)	Normal		
 ZEP	3	9	God		God (the LORD)	Normal		
 ZEP	3	10	God		God (the LORD)	Normal		
@@ -11456,10 +11487,10 @@ ZEP	3	11	God		God (the LORD)	Normal
 ZEP	3	12	God		God (the LORD)	Normal		
 ZEP	3	13	God		God (the LORD)	Normal		
 ZEP	3	16	God		God (the LORD)	Normal		
-ZEP	3	17	God		God (the LORD)	Normal		
-ZEP	3	18	God		God (the LORD)	Normal		
-ZEP	3	19	God		God (the LORD)	Normal		
-ZEP	3	20	God		God (the LORD)	Normal		
+ZEP	3	17	God		God (the LORD)	Potential		
+ZEP	3	18	God		God (the LORD)	Implicit		
+ZEP	3	19	God		God (the LORD)	Implicit		
+ZEP	3	20	God		God (the LORD)	Implicit		
 HAG	1	2	Haggai			Normal		
 HAG	1	2	God		God (the LORD)	Normal		
 HAG	1	4	Haggai			Normal		
@@ -11490,17 +11521,17 @@ ZEC	1	14	angel who talked with Zechariah		angel who talked with Zechariah (visio
 ZEC	1	15	angel who talked with Zechariah		angel who talked with Zechariah (vision)	Normal		
 ZEC	1	16	angel who talked with Zechariah		angel who talked with Zechariah (vision)	Normal		
 ZEC	1	17	angel who talked with Zechariah		angel who talked with Zechariah (vision)	Normal		
-ZEC	1	18	Zechariah		Zechariah (vision)	Normal		
+ZEC	1	18	Zechariah		Zechariah (vision)	Potential		
 ZEC	1	19	angel who talked with Zechariah		angel who talked with Zechariah (vision)	Normal		
-ZEC	1	19	Zechariah		Zechariah (vision)	Normal		
-ZEC	1	20	Zechariah		Zechariah (vision)	Normal		
+ZEC	1	19	Zechariah		Zechariah (vision)	Potential		
+ZEC	1	20	Zechariah		Zechariah (vision)	Potential		
 ZEC	1	21	angel who talked with Zechariah		angel who talked with Zechariah (vision)	Normal		
-ZEC	1	21	Zechariah			Normal		
+ZEC	1	21	Zechariah			Potential		
 ZEC	1	21	God		God (the LORD)	Normal		
-ZEC	2	1	Zechariah		Zechariah (vision)	Normal		
+ZEC	2	1	Zechariah		Zechariah (vision)	Potential		
 ZEC	2	2	man with measuring line (vision)			Normal		
-ZEC	2	2	Zechariah		Zechariah (vision)	Normal		
-ZEC	2	3	Zechariah		Zechariah (vision)	Normal		
+ZEC	2	2	Zechariah		Zechariah (vision)	Potential		
+ZEC	2	3	Zechariah		Zechariah (vision)	Potential		
 ZEC	2	4	angel, another (vision)			Normal		
 ZEC	2	5	God		God (the LORD)(in vision of God)	Normal		
 ZEC	2	6	God		God (the LORD)(in vision of God)	Normal		
@@ -11511,77 +11542,90 @@ ZEC	2	10	God		God (the LORD)(in vision of God)	Normal
 ZEC	2	11	God		God (the LORD)(in vision of God)	Normal		
 ZEC	2	12	God		God (the LORD)(in vision of God)	Normal		
 ZEC	2	13	God		God (the LORD)(in vision of God)	Normal		
-ZEC	3	1	Zechariah		Zechariah (vision)	Normal		
+ZEC	3	1	Zechariah		Zechariah (vision)	Potential		
+ZEC	3	2	Zechariah		Zechariah (vision)	Potential		
 ZEC	3	2	God		God (the LORD)(in vision of God)	Normal		
-ZEC	3	3	Zechariah		Zechariah (vision)	Normal		
+ZEC	3	3	Zechariah		Zechariah (vision)	Potential		
 ZEC	3	4	angel of the LORD, the			Normal	Jesus	
-ZEC	3	4	Zechariah		Zechariah (vision)	Normal		
-ZEC	3	5	Zechariah		Zechariah (vision)	Normal		
-ZEC	3	6	Zechariah		Zechariah (vision)	Normal		
+ZEC	3	4	Zechariah		Zechariah (vision)	Potential		
+ZEC	3	5	Zechariah		Zechariah (vision)	Potential		
+ZEC	3	6	Zechariah		Zechariah (vision)	Potential		
 ZEC	3	7	angel of the LORD, the			Normal	Jesus	
 ZEC	3	8	angel of the LORD, the			Normal	Jesus	
 ZEC	3	9	angel of the LORD, the			Normal	Jesus	
 ZEC	3	10	angel of the LORD, the			Normal	Jesus	
-ZEC	4	1	Zechariah			Normal		
-ZEC	4	2	angel who talked with Zechariah			Normal		
-ZEC	4	2	Zechariah			Normal		
-ZEC	4	3	Zechariah			Normal		
-ZEC	4	4	Zechariah			Normal		
+ZEC	4	1	Zechariah			Potential		
+ZEC	4	2	angel who talked with Zechariah			Potential		
+ZEC	4	2	Zechariah			Potential		
+ZEC	4	3	Zechariah			Potential		
+ZEC	4	4	Zechariah			Potential		
 ZEC	4	5	angel who talked with Zechariah			Normal		
-ZEC	4	5	Zechariah			Normal		
+ZEC	4	5	Zechariah			Potential		
 ZEC	4	6	angel who talked with Zechariah			Normal		
 ZEC	4	7	angel who talked with Zechariah			Normal		
-ZEC	4	8	God		God (the LORD)(word of the LORD came)	Normal		
+ZEC	4	8	Zechariah			Potential		
 ZEC	4	9	God		God (the LORD)(word of the LORD came)	Normal		
+ZEC	4	9	Zechariah			Potential		
 ZEC	4	10	God		God (the LORD)(word of the LORD came)	Normal		
-ZEC	4	11	Zechariah			Normal		
-ZEC	4	12	Zechariah			Normal		
+ZEC	4	10	Zechariah			Potential		
+ZEC	4	11	Zechariah			Potential		
+ZEC	4	12	Zechariah			Potential		
 ZEC	4	13	angel who talked with Zechariah			Normal		
-ZEC	4	13	Zechariah			Normal		
+ZEC	4	13	Zechariah			Potential		
 ZEC	4	14	angel who talked with Zechariah			Normal		
-ZEC	5	1	Zechariah			Normal		
+ZEC	5	1	Zechariah			Potential		
 ZEC	5	2	angel who talked with Zechariah			Normal		
-ZEC	5	2	Zechariah			Normal		
+ZEC	5	2	Zechariah			Potential		
 ZEC	5	3	angel who talked with Zechariah			Normal		
 ZEC	5	4	angel who talked with Zechariah			Normal		
 ZEC	5	5	angel who talked with Zechariah			Normal		
 ZEC	5	6	angel who talked with Zechariah			Normal		
-ZEC	5	6	Zechariah			Normal		
-ZEC	5	7	Zechariah			Normal		
+ZEC	5	6	Zechariah			Potential		
+ZEC	5	7	angel who talked with Zechariah			Potential		
 ZEC	5	8	angel who talked with Zechariah			Normal		
-ZEC	5	9	Zechariah			Normal		
-ZEC	5	10	Zechariah			Normal		
+ZEC	5	9	Zechariah			Potential		
+ZEC	5	10	Zechariah			Potential		
 ZEC	5	11	angel who talked with Zechariah			Normal		
-ZEC	6	1	Zechariah			Normal		
-ZEC	6	2	Zechariah			Normal		
-ZEC	6	4	Zechariah			Normal		
+ZEC	6	1	Zechariah			Potential		
+ZEC	6	2	Zechariah			Potential		
+ZEC	6	3	Zechariah			Potential		
+ZEC	6	4	Zechariah			Potential		
 ZEC	6	5	angel who talked with Zechariah			Normal		
 ZEC	6	6	angel who talked with Zechariah			Normal		
 ZEC	6	7	angel who talked with Zechariah			Normal		
-ZEC	6	7	Zechariah			Normal		
+ZEC	6	7	Zechariah			Potential		
 ZEC	6	8	angel who talked with Zechariah			Normal		
-ZEC	6	9	Zechariah			Normal		
+ZEC	6	9	Zechariah			Potential		
 ZEC	6	10	God		God (word of the LORD came to Zechariah)	Normal		
+ZEC	6	10	Zechariah			Potential		
 ZEC	6	11	God		God (word of the LORD came to Zechariah)	Normal		
+ZEC	6	11	Zechariah			Potential		
 ZEC	6	12	God		God (word of the LORD came to Zechariah)	Normal		
+ZEC	6	12	Zechariah			Potential		
 ZEC	6	13	God		God (word of the LORD came to Zechariah)	Normal		
+ZEC	6	13	Zechariah			Potential		
 ZEC	6	14	God		God (word of the LORD came to Zechariah)	Normal		
-ZEC	6	15	Zechariah			Normal		
+ZEC	6	14	Zechariah			Potential		
+ZEC	6	15	God		God (word of the LORD came to Zechariah)	Normal		
+ZEC	6	15	Zechariah			Potential		
 ZEC	7	3	Sharezer/Regem-Melech/men of Bethel			Normal		
-ZEC	7	4	Zechariah			Implicit		
-ZEC	7	5-14	Zechariah		Zechariah (the LORD says)	Normal		
-ZEC	7	5-14	God			Normal		
+ZEC	7	4	Zechariah			Potential		
+ZEC	7	5-7	Zechariah		Zechariah (the LORD says)	Normal		
+ZEC	7	5-7	God			Normal		
+ZEC	7	8	Zechariah			Potential		
+ZEC	7	9-14	Zechariah		Zechariah (the LORD says)	Normal		
+ZEC	7	9-14	God			Normal		
 ZEC	8	1	Zechariah			Implicit		
 ZEC	8	2-17	Zechariah		Zechariah (the LORD says)	Normal		
 ZEC	8	2-17	God			Normal		
-ZEC	8	18	Zechariah			Implicit		
-ZEC	8	19-23	Zechariah		Zechariah (the LORD says)	Normal		
-ZEC	8	18-23	God			Normal		
+ZEC	8	18	Zechariah			Potential		
+ZEC	8	19-23	Zechariah		Zechariah (the LORD says)	Potential		
+ZEC	8	19-23	God			Normal		
 ZEC	9	1-17	Zechariah			Implicit		
 ZEC	10	1-2	Zechariah			Implicit		
-ZEC	10	3	God		God (the LORD)	Normal		
-ZEC	10	4	God		God (the LORD)	Normal		
-ZEC	10	5	God		God (the LORD)	Normal		
+ZEC	10	3	God		God (the LORD)	Potential		
+ZEC	10	4	God		God (the LORD)	Potential		
+ZEC	10	5	God		God (the LORD)	Potential		
 ZEC	10	6	God		God (the LORD)	Normal		
 ZEC	10	7	God		God (the LORD)	Normal		
 ZEC	10	8	God		God (the LORD)	Normal		
@@ -11591,13 +11635,13 @@ ZEC	10	11	God		God (the LORD)	Normal
 ZEC	10	12	God		God (the LORD)	Normal		
 ZEC	11	4-6	Zechariah		Zechariah (the LORD says)	Normal		
 ZEC	11	4-6	God			Normal		
-ZEC	11	7	Zechariah			Normal		
-ZEC	11	8	Zechariah			Normal		
-ZEC	11	9	Zechariah			Normal		
-ZEC	11	10	Zechariah			Normal		
-ZEC	11	11	Zechariah			Normal		
-ZEC	11	12	Zechariah			Normal		
-ZEC	11	13-17	Zechariah		Zechariah (the LORD says)	Implicit		
+ZEC	11	7	Zechariah			Potential		
+ZEC	11	8	Zechariah			Potential		
+ZEC	11	9	Zechariah			Potential		
+ZEC	11	10	Zechariah			Potential		
+ZEC	11	11	Zechariah			Potential		
+ZEC	11	12	Zechariah			Potential		
+ZEC	11	13-17	Zechariah		Zechariah (the LORD says)	Potential		
 ZEC	11	13-17	God			Normal		
 ZEC	12	1-14	Zechariah		Zechariah (word of the LORD)	Implicit		
 ZEC	12	2-14	God			Normal		
@@ -12680,8 +12724,8 @@ MRK	6	2	men in Nazareth synagogue	amazed		Dialogue
 MRK	6	3	men in Nazareth synagogue	amazed		Dialogue		
 MRK	6	4	Jesus			Dialogue		
 MRK	6	7	Jesus	giving orders		Indirect		
-MRK	6	8	Jesus			Normal		
-MRK	6	9	Jesus			Normal		
+MRK	6	8	Jesus			Indirect		
+MRK	6	9	Jesus			Indirect		
 MRK	6	10	Jesus			Normal		
 MRK	6	11	Jesus			Normal		
 MRK	6	12	disciples			Indirect		
@@ -13092,6 +13136,7 @@ LUK	1	35	Gabriel		Gabriel (angel)	Dialogue
 LUK	1	36	Gabriel		Gabriel (angel)	Normal		
 LUK	1	37	Gabriel		Gabriel (angel)	Normal		
 LUK	1	38	Mary, Jesus' mother			Dialogue		
+LUK	1	40	Mary, Jesus' mother			Indirect		
 LUK	1	42	Elizabeth			Dialogue		
 LUK	1	43	Elizabeth			Normal		
 LUK	1	44	Elizabeth			Normal		
@@ -13692,7 +13737,7 @@ LUK	17	32	Jesus			Normal
 LUK	17	33	Jesus			Normal		
 LUK	17	34	Jesus			Normal		
 LUK	17	35	Jesus			Normal		
-LUK	17	36	Jesus			Normal		
+LUK	17	36	Jesus			Potential		
 LUK	17	37	disciples	puzzled		Dialogue		
 LUK	17	37	Jesus			Dialogue		
 LUK	18	1	Jesus			Indirect		

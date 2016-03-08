@@ -1117,6 +1117,7 @@ namespace GlyssenTests.Quote
 		{
 			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“ ‘", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“ ‘ “", 3, QuotationMarkingSystemType.Normal));
 			var block = new Block("p");
 			block.BlockElements.Add(new ScriptText("He said, “She said, ‘They said, “No way!” rudely.’”"));
 			var input = new List<Block> { block };
@@ -1142,6 +1143,64 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("He said, ", output[0].GetText(true));
 			Assert.AreEqual("“She said, ‘They said, “No way!” rudely,’” ", output[1].GetText(true));
 			Assert.AreEqual("politely.", output[2].GetText(true));
+		}
+
+		/// <summary>
+		/// PG-578 (Text of 1 Kings 1:11-15 from The World Bible)
+		/// </summary>
+		[Test]
+		public void Parse_Level3_WordInSecondLevelContainsApostropheWhichIsSecondLevelCloser_ApostropheDoesNotEndSecondLevelQuote()
+		{
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“ ‘", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“ ‘ “", 3, QuotationMarkingSystemType.Normal));
+			var block = new Block("p") { IsParagraphStart = true };
+			block.BlockElements.Add(new Verse("11"));
+			block.BlockElements.Add(new ScriptText("Then Nathan spoke to Bathsheba the mother of Solomon, saying, “Haven’t you heard that Adonijah the son of Haggith reigns, and David our lord doesn’t know it? "));
+			block.BlockElements.Add(new Verse("12"));
+			block.BlockElements.Add(new ScriptText("Now therefore come, please let me give you counsel, that you may save your own life, and your son Solomon’s life. "));
+			block.BlockElements.Add(new Verse("13"));
+			block.BlockElements.Add(new ScriptText("Go in to king David, and tell him, ‘Didn’t you, my lord, king, swear to your servant, saying, “Assuredly Solomon your son shall reign after me, and he shall sit on my throne?” Why then does Adonijah reign?’ "));
+			block.BlockElements.Add(new Verse("14"));
+			block.BlockElements.Add(new ScriptText("Behold, while you are still talking there with the king, I will also come in after you and confirm your words.”"));
+			var input = new List<Block> { block };
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "1KI", input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("[11]\u00A0Then Nathan spoke to Bathsheba the mother of Solomon, saying, ", output[0].GetText(true));
+			Assert.AreEqual("“Haven’t you heard that Adonijah the son of Haggith reigns, and David our lord doesn’t know it? " +
+							"[12]\u00A0Now therefore come, please let me give you counsel, that you may save your own life, and your son Solomon’s life. " +
+							"[13]\u00A0Go in to king David, and tell him, ‘Didn’t you, my lord, king, swear to your servant, saying, “Assuredly Solomon your son shall reign after me, and he shall sit on my throne?” Why then does Adonijah reign?’ " +
+							"[14]\u00A0Behold, while you are still talking there with the king, I will also come in after you and confirm your words.”", output[1].GetText(true));
+		}
+
+		/// <summary>
+		/// PG-578
+		/// </summary>
+		[Test]
+		public void Parse_Level3_WordInSecondLevelContainsPluralPossessiveApostropheWhichIsSecondLevelCloser_ApostropheDoesNotEndSecondLevelQuote()
+		{
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“ ‘", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“ ‘ “", 3, QuotationMarkingSystemType.Normal));
+			var block = new Block("p") { IsParagraphStart = true };
+			block.BlockElements.Add(new Verse("11"));
+			block.BlockElements.Add(new ScriptText("Then Nathan spoke to Bathsheba the mother of Solomon, saying, “Haven’t you heard that Adonijah the son of Haggith reigns, and David our lord doesn’t know it? "));
+			block.BlockElements.Add(new Verse("12"));
+			block.BlockElements.Add(new ScriptText("Now therefore come, please let me give you counsel, that you may save your own life, and your son Solomon’s life. "));
+			block.BlockElements.Add(new Verse("13"));
+			block.BlockElements.Add(new ScriptText("Go in to king David, and tell him, ‘Did you not swear in your kids’ hearing, saying, “Assuredly Solomon your son shall reign after me, and he shall sit on my throne?” Why then does Adonijah reign?’ "));
+			block.BlockElements.Add(new Verse("14"));
+			block.BlockElements.Add(new ScriptText("Behold, while you are still talking there with the king, I will also come in after you and confirm your words.”"));
+			var input = new List<Block> { block };
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "1KI", input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("[11]\u00A0Then Nathan spoke to Bathsheba the mother of Solomon, saying, ", output[0].GetText(true));
+			Assert.AreEqual("“Haven’t you heard that Adonijah the son of Haggith reigns, and David our lord doesn’t know it? " +
+							"[12]\u00A0Now therefore come, please let me give you counsel, that you may save your own life, and your son Solomon’s life. " +
+							"[13]\u00A0Go in to king David, and tell him, ‘Did you not swear in your kids’ hearing, saying, “Assuredly Solomon your son shall reign after me, and he shall sit on my throne?” Why then does Adonijah reign?’ " +
+							"[14]\u00A0Behold, while you are still talking there with the king, I will also come in after you and confirm your words.”", output[1].GetText(true));
 		}
 
 		[Test]
