@@ -179,7 +179,7 @@ namespace Glyssen
 			var uiLanguage = LocalizationManager.UILanguageId;
 			LocalizationManager.Create(uiLanguage, "Palaso", "Palaso", Application.ProductVersion,
 				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress,
-				"SIL.Windows.Forms.WritingSystems", "SIL.Windows.Forms.DblBundle", "SIL.Windows.Forms.Miscellaneous");
+				"SIL.Windows.Forms.WritingSystems", "SIL.DblBundle", "SIL.Windows.Forms.DblBundle", "SIL.Windows.Forms.Miscellaneous");
 		}
 
 		/// <summary>
