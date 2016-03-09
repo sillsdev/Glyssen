@@ -3079,17 +3079,54 @@ namespace GlyssenTests.Quote
 		}
 #endif //HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
 
+		[TestCase("“")]
+		[TestCase("”")]
+		[TestCase("%")]
+		public void Parse_DialogueQuoteWithPotentialContinuerOverMultipleParagraphs_EndedByQuotationDash(string continuer)
+		{
+			// iso: acu
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("—Wikia tuke pujutan sukartin asan. "));
+			var block2 = new Block("p", 6, 49);
+			block2.BlockElements.Add(new Verse("49"));
+			block2.BlockElements.Add(new ScriptText(continuer + "Nintimrataram, "));
+			var block3 = new Block("p", 6, 50);
+			block3.BlockElements.Add(new Verse("50"));
+			block3.BlockElements.Add(new ScriptText(continuer + "Antsu yurumkan, —Jesús timiayi."));
+			var input = new List<Block> { block1, block2, block3 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", continuer, 1, QuotationMarkingSystemType.Normal), "—", "—");
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+
+			Assert.AreEqual("—Wikia tuke pujutan sukartin asan. ", output[0].GetText(true));
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+
+			Assert.AreEqual("[49]\u00A0" + continuer + "Nintimrataram, ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+
+			Assert.AreEqual("[50]\u00A0" + continuer + "Antsu yurumkan, ", output[2].GetText(true));
+			Assert.AreEqual("Jesus", output[2].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
+
+			Assert.AreEqual("—Jesús timiayi.", output[3].GetText(true));
+			Assert.IsTrue(output[3].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
+		}
+
 		[Test]
-		public void Parse_DialogueQuoteWithPotentialContinuerOverMultipleParagraphs_EndedByQuotationDash()
+		public void Parse_DialogueQuoteWithPotentialAmbiguousContinuerOrOpenerOverMultipleParagraphs_NoBlocksMarkedAsContinuation()
 		{
 			var block1 = new Block("p", 6, 48);
 			block1.BlockElements.Add(new ScriptText("—Wikia tuke pujutan sukartin asan. "));
 			var block2 = new Block("p", 6, 49);
 			block2.BlockElements.Add(new Verse("49"));
-			block2.BlockElements.Add(new ScriptText("“Nintimrataram,” "));
+			block2.BlockElements.Add(new ScriptText("“Nintimrataram, "));
 			var block3 = new Block("p", 6, 50);
 			block3.BlockElements.Add(new Verse("50"));
-			block3.BlockElements.Add(new ScriptText("“Antsu yurumkan, —Jesús timiayi."));
+			block3.BlockElements.Add(new ScriptText("“Antsu yurumkan,” Jesús timiayi."));
 			var input = new List<Block> { block1, block2, block3 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
 			QuoteParser.SetQuoteSystem(quoteSystem);
@@ -3098,16 +3135,96 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual("—Wikia tuke pujutan sukartin asan. ", output[0].GetText(true));
 			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
 
-			Assert.AreEqual("[49]\u00A0“Nintimrataram,” ", output[1].GetText(true));
+			Assert.AreEqual("[49]\u00A0“Nintimrataram, ", output[1].GetText(true));
 			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
 
-			Assert.AreEqual("[50]\u00A0“Antsu yurumkan, ", output[2].GetText(true));
+			Assert.AreEqual("[50]\u00A0“Antsu yurumkan,” ", output[2].GetText(true));
 			Assert.AreEqual("Jesus", output[2].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
 
-			Assert.AreEqual("—Jesús timiayi.", output[3].GetText(true));
+			Assert.AreEqual("Jesús timiayi.", output[3].GetText(true));
 			Assert.IsTrue(output[3].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
-		//	Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
+		}
+
+		[Test]
+		public void Parse_DialogueQuoteWithPotentialAmbiguousContinuerOrOpenerOverMultipleParagraphsIncludingFollowOnPoetry_NoBlocksMarkedAsContinuation()
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("—Wikia tuke pujutan sukartin asan, "));
+			var block2 = new Block("q", 6, 48);
+			block2.BlockElements.Add(new ScriptText("This should be a continuation of dialogue. "));
+			var block3 = new Block("p", 6, 49);
+			block3.BlockElements.Add(new Verse("49"));
+			block3.BlockElements.Add(new ScriptText("“Nintimrataram, "));
+			var block4 = new Block("p", 6, 50);
+			block4.BlockElements.Add(new Verse("50"));
+			block4.BlockElements.Add(new ScriptText("“Antsu yurumkan,” Jesús timiayi."));
+			var input = new List<Block> { block1, block2, block3, block4 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			Assert.AreEqual(5, output.Count);
+
+			// In the most ideal scenario, the first two blocks should be a continuation from one to the other
+			// because the second block is follow-on poetry from a dialogue quote.
+			// However, the actual results of setting both to MultiBlockQuote.None doesn't actually lose much.
+			// This is expected to be such a rare scenario that we are willing to live with it for now.
+			Assert.AreEqual("—Wikia tuke pujutan sukartin asan, ", output[0].GetText(true));
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+//			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+
+			Assert.AreEqual("This should be a continuation of dialogue. ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+//			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+
+			Assert.AreEqual("[49]\u00A0“Nintimrataram, ", output[2].GetText(true));
+			Assert.AreEqual("Jesus", output[2].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
+
+			Assert.AreEqual("[50]\u00A0“Antsu yurumkan,” ", output[3].GetText(true));
+			Assert.AreEqual("Jesus", output[3].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
+
+			Assert.AreEqual("Jesús timiayi.", output[4].GetText(true));
+			Assert.IsTrue(output[4].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(MultiBlockQuote.None, output[4].MultiBlockQuote);
+		}
+
+		[TestCase("”")]
+		[TestCase("%")]
+		public void Parse_DialogueQuoteWithPotentialContinuerOverMultipleParagraphsWithErrantFirstLevelCloser_EndedByEndOfParagraph(string continuer)
+		{
+			var block1 = new Block("p", 6, 48);
+			block1.BlockElements.Add(new ScriptText("—Wikia tuke pujutan sukartin asan. "));
+			var block2 = new Block("p", 6, 49);
+			block2.BlockElements.Add(new Verse("49"));
+			block2.BlockElements.Add(new ScriptText(continuer + "Nintimrataram, "));
+			var block3 = new Block("p", 6, 50);
+			block3.BlockElements.Add(new Verse("50"));
+			block3.BlockElements.Add(new ScriptText(continuer + "Antsu yurumkan,” Jesús timiayi."));
+			var input = new List<Block> { block1, block2, block3 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", continuer, 1, QuotationMarkingSystemType.Normal), "—", "—");
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+
+			Assert.AreEqual("—Wikia tuke pujutan sukartin asan. ", output[0].GetText(true));
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+
+			Assert.AreEqual("[49]\u00A0" + continuer + "Nintimrataram, ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+
+			Assert.AreEqual("[50]\u00A0" + continuer + "Antsu yurumkan,” Jesús timiayi.", output[2].GetText(true));
+			Assert.AreEqual("Jesus", output[2].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
 		}
 
 		[Test]
@@ -3195,6 +3312,64 @@ namespace GlyssenTests.Quote
 			Assert.IsTrue(output[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(1, output[1].ChapterNumber);
 			Assert.AreEqual(17, output[1].InitialStartVerseNumber);
+		}
+
+		[Test]
+		public void Parse_DialogueQuoteUsesCommaAndTextForEnding_ParsesCorrectly()
+		{
+			// Cuiba (cui) PG-589
+			var block = new Block("p", 2, 2);
+			block.BlockElements.Add(new ScriptText("—¿Exota naexana pexuyo, po pexuyo judiomonae itorobiya pia pepa peewatsinchi exanaeinchi poxonae pinyo tsane? Paxan payaputan xua bapon naexana xote tsipei bapon pia opiteito tatsi panaitomatsiya punaenaponan pata nacua werena, po nacuatha ichaxota pocotsiwa xometo weecoina. Papatan xua pata wʉnae jainchiwa tsane barapo pexuyo, jei."));
+			var input = new List<Block> { block };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", ", jei");
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("—¿Exota naexana pexuyo, po pexuyo judiomonae itorobiya pia pepa peewatsinchi exanaeinchi poxonae pinyo tsane? Paxan payaputan xua bapon naexana xote tsipei bapon pia opiteito tatsi panaitomatsiya punaenaponan pata nacua werena, po nacuatha ichaxota pocotsiwa xometo weecoina. Papatan xua pata wʉnae jainchiwa tsane barapo pexuyo", output[0].GetText(false));
+			Assert.AreEqual("magi", output[0].CharacterId);
+			Assert.AreEqual(null, output[0].Delivery);
+			Assert.AreEqual(2, output[0].ChapterNumber);
+			Assert.AreEqual(2, output[0].InitialStartVerseNumber);
+			Assert.AreEqual(", jei.", output[1].GetText(false));
+			Assert.IsTrue(output[1].CharacterIs("MAT", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(2, output[1].ChapterNumber);
+			Assert.AreEqual(2, output[1].InitialStartVerseNumber);
+		}
+
+		[Test]
+		public void Parse_DialogueQuoteUsesCommaAndTextForEndingAndIsFollowedByNormalQuoteThatHappensToBeFollowedByDialogueEndingString_DialogueAndNormalQuoteAreNotCombined()
+		{
+			// Cuiba (cui) PG-589
+			var block1 = new Block("p", 9, 15) { IsParagraphStart = true };
+			block1.BlockElements.Add(new ScriptText("—Jiwi ba jopa bewa."));
+			var block2 = new Block("p", 9, 16) { IsParagraphStart = true };
+			block2.BlockElements.Add(new Verse("16"));
+			block2.BlockElements.Add(new ScriptText("“Jiwi ba jopa. "));
+			block2.BlockElements.Add(new Verse("17"));
+			block2.BlockElements.Add(new ScriptText("Mataʉtano bocoto”, jei Jesús."));
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", ", jei");
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+
+			Assert.AreEqual("—Jiwi ba jopa bewa.", output[0].GetText(false));
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual(9, output[0].ChapterNumber);
+			Assert.AreEqual(15, output[0].InitialStartVerseNumber);
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+
+			Assert.AreEqual("“Jiwi ba jopa. Mataʉtano bocoto”", output[1].GetText(false));
+			Assert.AreEqual("Jesus", output[1].CharacterId);
+			Assert.AreEqual(9, output[1].ChapterNumber);
+			Assert.AreEqual(16, output[1].InitialStartVerseNumber);
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+
+			Assert.AreEqual(", jei Jesús.", output[2].GetText(false));
+			Assert.IsTrue(output[2].CharacterIs("MAT", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(9, output[2].ChapterNumber);
+			Assert.AreEqual(17, output[2].InitialStartVerseNumber);
+			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
 		}
 
 		[Test]
