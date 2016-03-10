@@ -5,6 +5,7 @@ using System.Text;
 using System.Xml.Serialization;
 using Glyssen.Character;
 using Glyssen.Dialogs;
+using Glyssen.Quote;
 using SIL.ObjectModel;
 using SIL.Scripture;
 using ScrVers = Paratext.ScrVers;
@@ -406,14 +407,11 @@ namespace Glyssen
 		public void CleanUpMultiBlockQuotes(ScrVers versification)
 		{
 			var model = new BlockNavigatorViewModel(new ReadOnlyList<BookScript>(new[] { this }), versification);
-			foreach (var blockToChange in GetScriptBlocks()
+			foreach (IEnumerable<Block> multiBlock in GetScriptBlocks()
 				.Where(b => b.MultiBlockQuote == MultiBlockQuote.Start)
-				.Select(block => model.GetAllBlocksWhichContinueTheQuoteStartedByBlock(block))
-				.Where(blocks => blocks.Select(b => b.CharacterId).Distinct().Count() > 1)
-				.SelectMany(blocks => blocks))
+				.Select(block => model.GetAllBlocksWhichContinueTheQuoteStartedByBlock(block)))
 			{
-				blockToChange.SetCharacterAndCharacterIdInScript(CharacterVerseData.AmbiguousCharacter, BCVRef.BookToNumber(BookId), versification);
-				blockToChange.UserConfirmed = false;
+				ProcessAssignmentForMultiBlockQuote(BCVRef.BookToNumber(BookId), multiBlock.ToList(), versification);
 			}
 		}
 
@@ -576,6 +574,60 @@ namespace Glyssen
 		public void ClearUnappliedSplits()
 		{
 			m_unappliedSplitBlocks.Clear();
+		}
+
+		public static void ProcessAssignmentForMultiBlockQuote(int bookNum, List<Block> multiBlockQuote, ScrVers versification)
+		{
+			var uniqueCharacters = multiBlockQuote.Select(b => b.CharacterId).Distinct().ToList();
+			int numUniqueCharacters = uniqueCharacters.Count;
+			var uniqueCharacterDeliveries = multiBlockQuote.Select(b => new QuoteParser.CharacterDelivery(b.CharacterId, b.Delivery)).Distinct(QuoteParser.CharacterDelivery.CharacterDeliveryComparer).ToList();
+			int numUniqueCharacterDeliveries = uniqueCharacterDeliveries.Count;
+			if (numUniqueCharacterDeliveries > 1)
+			{
+				var unclearCharacters = new[] { CharacterVerseData.AmbiguousCharacter, CharacterVerseData.UnknownCharacter };
+				if (numUniqueCharacters > unclearCharacters.Count(uniqueCharacters.Contains) + 1)
+				{
+					// More than one real character. Set to Ambiguous.
+					SetCharacterAndDeliveryForMultipleBlocks(bookNum, multiBlockQuote, CharacterVerseData.AmbiguousCharacter, null, versification);
+				}
+				else if (numUniqueCharacters == 2 && unclearCharacters.All(uniqueCharacters.Contains))
+				{
+					// Only values are Ambiguous and Unique. Set to Ambiguous.
+					SetCharacterAndDeliveryForMultipleBlocks(bookNum, multiBlockQuote, CharacterVerseData.AmbiguousCharacter, null, versification);
+				}
+				else if (numUniqueCharacterDeliveries > numUniqueCharacters)
+				{
+					// Multiple deliveries for the same character
+					string delivery = "";
+					bool first = true;
+					foreach (Block block in multiBlockQuote)
+					{
+						if (first)
+							first = false;
+						else if (block.Delivery != delivery)
+							block.MultiBlockQuote = MultiBlockQuote.ChangeOfDelivery;
+						delivery = block.Delivery;
+					}
+				}
+				else
+				{
+					// Only one real character (and delivery). Set to that character (and delivery).
+					var realCharacter = uniqueCharacterDeliveries.Single(c => c.Character != CharacterVerseData.AmbiguousCharacter && c.Character != CharacterVerseData.UnknownCharacter);
+					SetCharacterAndDeliveryForMultipleBlocks(bookNum, multiBlockQuote, realCharacter.Character, realCharacter.Delivery, versification);
+				}
+			}
+		}
+
+		private static void SetCharacterAndDeliveryForMultipleBlocks(int bookNum, IEnumerable<Block> blocks, string character, string delivery, ScrVers versification)
+		{
+			foreach (Block block in blocks)
+			{
+				block.SetCharacterAndCharacterIdInScript(character, bookNum, versification);
+				block.Delivery = delivery;
+
+				if (character == CharacterVerseData.AmbiguousCharacter || character == CharacterVerseData.UnknownCharacter)
+					block.UserConfirmed = false;
+			}
 		}
 	}
 }
