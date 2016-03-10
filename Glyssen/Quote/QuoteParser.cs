@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -213,6 +214,7 @@ namespace Glyssen.Quote
 			bool blockEndedWithSentenceEndingPunctuation = false;
 			Block blockInWhichDialogueQuoteStarted = null;
 			bool potentialDialogueContinuer = false;
+			bool inPairedFirstLevelQuote = false;
 			bool pendingColon = false;
 			foreach (Block block in m_inputBlocks)
 			{
@@ -234,6 +236,7 @@ namespace Glyssen.Quote
 					!IsFollowOnParagraphStyle(block.StyleTag)))
 				{
 					DecrementQuoteLevel();
+					inPairedFirstLevelQuote = false;
 					blockInWhichDialogueQuoteStarted = null;
 					m_nextBlockContinuesQuote = potentialDialogueContinuer = !string.IsNullOrEmpty(s_quoteSystem.QuotationDashEndMarker) ||
 						(s_quoteSystem.NormalLevels.Count > 0 && s_quoteSystem.NormalLevels[0].Continue != s_quoteSystem.NormalLevels[0].Open);
@@ -326,6 +329,7 @@ namespace Glyssen.Quote
 
 								if (m_quoteLevel > 0 && token.StartsWith(ContinuerForCurrentLevel))
 								{
+									thisBlockStartsWithAContinuer = true;
 									int i = ContinuerForCurrentLevel.Length;
 									while (i < token.Length && Char.IsWhiteSpace(token[i]))
 										i++;
@@ -360,12 +364,23 @@ namespace Glyssen.Quote
 
 							if ((m_quoteLevel > 0) && (s_quoteSystem.NormalLevels.Count > 0) &&
 								token.StartsWith(CloserForCurrentLevel) && blockInWhichDialogueQuoteStarted == null &&
-								!ProbablyAnApostrophe(content, match.Index))
+								!ProbablyAnApostrophe(content, match.Index) && inPairedFirstLevelQuote)
 							{
 								sb.Append(token);
 								DecrementQuoteLevel();
 								if (m_quoteLevel == 0)
+								{
+									if (potentialDialogueContinuer && OpenerForNextLevel == ContinuerForNextLevel)
+									{
+										foreach (var multiBlock in m_currentMultiBlockQuote)
+											multiBlock.MultiBlockQuote = MultiBlockQuote.None;
+										m_currentMultiBlockQuote.Clear();
+										m_nextBlockContinuesQuote = false;
+									}
 									FlushStringBuilderAndBlock(sb, block.StyleTag, true);
+									potentialDialogueContinuer = false;
+									inPairedFirstLevelQuote = false;
+								}
 							}
 							else if (s_quoteSystem.NormalLevels.Count > m_quoteLevel && token.StartsWith(OpenerForNextLevel) && blockInWhichDialogueQuoteStarted == null)
 							{
@@ -373,6 +388,7 @@ namespace Glyssen.Quote
 									FlushStringBuilderAndBlock(sb, block.StyleTag, false);
 								sb.Append(token);
 								IncrementQuoteLevel();
+								inPairedFirstLevelQuote = true;
 							}
 							else if (m_quoteLevel == 0 && s_quoteSystem.QuotationDashMarker != null && token.StartsWith(s_quoteSystem.QuotationDashMarker))
 							{
@@ -387,6 +403,7 @@ namespace Glyssen.Quote
 									sb.Append(token);
 								}
 								IncrementQuoteLevel();
+								inPairedFirstLevelQuote = false;
 							}
 							else if (potentialDialogueContinuer || (m_quoteLevel == 1 && blockInWhichDialogueQuoteStarted != null))
 							{
@@ -426,7 +443,7 @@ namespace Glyssen.Quote
 				}
 				FlushBlock(block.StyleTag, m_quoteLevel > 0);
 			}
-			if (blockInWhichDialogueQuoteStarted != null)
+			if (blockInWhichDialogueQuoteStarted != null || !inPairedFirstLevelQuote)
 			{
 				m_nextBlockContinuesQuote = false;
 			}
@@ -485,6 +502,7 @@ namespace Glyssen.Quote
 
 		private void DecrementQuoteLevel()
 		{
+			Debug.Assert(m_quoteLevel > 0);
 			if (--m_quoteLevel == 0)
 				m_possibleCharactersForCurrentQuote.Clear();
 		}
