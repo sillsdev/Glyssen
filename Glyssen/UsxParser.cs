@@ -172,6 +172,7 @@ namespace Glyssen
 										block.BlockElements.Add(new ScriptText(sb.ToString()));
 										sb.Clear();
 									}
+									RemoveLastElementIfVerse(block);
 									var verseNumStr = childNode.Attributes.GetNamedItem("number").Value;
 									m_currentStartVerse = ScrReference.VerseToIntStart(verseNumStr);
 									m_currentEndVerse = ScrReference.VerseToIntEnd(verseNumStr);
@@ -192,8 +193,8 @@ namespace Glyssen
 									sb.Append(childNode.InnerText);
 									break;
 								case "#whitespace":
-									if (sb.Length > 0)
-										sb.Append(childNode.InnerText);
+									if (sb.Length > 0 && sb[sb.Length - 1] != ' ')
+										sb.Append(" ");
 									break;
 							}
 						}
@@ -203,11 +204,23 @@ namespace Glyssen
 							block.BlockElements.Add(new ScriptText(sb.ToString()));
 							sb.Clear();
 						}
+						RemoveLastElementIfVerse(block);
 						break;
 				}
-				blocks.Add(block);
+				if (block != null && block.BlockElements.Count > 0)
+					blocks.Add(block);
 			}
 			return blocks;
+		}
+
+		private static void RemoveLastElementIfVerse(Block block)
+		{
+			if (block.BlockElements.Count > 0)
+			{
+				var lastBlockElement = block.BlockElements.Last();
+				if (lastBlockElement is Verse)
+					block.BlockElements.Remove(block.BlockElements.Last());
+			}
 		}
 
 		private void AddMainTitleIfApplicable(ICollection<Block> blocks, StringBuilder titleBuilder)

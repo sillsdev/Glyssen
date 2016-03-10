@@ -546,6 +546,71 @@ namespace GlyssenTests
 			Assert.AreEqual("li", blocks[2].StyleTag);
 		}
 
+		[Test]
+		public void Parse_WhitespaceBetweenCharAndNoteElements_WhitespaceIsIgnored()
+		{
+			// World English Bible, MAT 5:27, PG-593
+			var doc = UsxDocumentTests.CreateMarkOneDoc(
+				"  <para style=\"p\">\r\n" +
+				"    <verse number=\"27\" style=\"v\" />\r\n" +
+				"    <char style=\"wj\">“You have heard that it was said, </char>\r\n" +
+				"    <note caller=\"+\" style=\"f\">TR adds “to the ancients”.</note> <char style=\"wj\">‘You shall not commit adultery;’</char><note caller=\"+\" style=\"x\">Exodus 20:14</note> <verse number=\"28\" style=\"v\" /><char style=\"wj\">but I tell you that everyone who gazes at a woman to lust after her has committed adultery with her already in his heart. </char> <verse number=\"29\" style=\"v\" /><char style=\"wj\">If your right eye causes you to stumble, pluck it out and throw it away from you. For it is more profitable for you that one of your members should perish, than for your whole body to be cast into Gehenna.</char><note caller=\"+\" style=\"f\">or, Hell</note> <verse number=\"30\" style=\"v\" /><char style=\"wj\">If your right hand causes you to stumble, cut it off, and throw it away from you. For it is more profitable for you that one of your members should perish, than for your whole body to be cast into Gehenna.</char><note caller=\"+\" style=\"f\">or, Hell</note></para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual(8, blocks[1].BlockElements.Count);
+			Assert.AreEqual("“You have heard that it was said, ‘You shall not commit adultery;’ but I tell you that everyone who gazes at a woman to lust after her has committed adultery with her already in his heart. If your right eye causes you to stumble, pluck it out and throw it away from you. For it is more profitable for you that one of your members should perish, than for your whole body to be cast into Gehenna. If your right hand causes you to stumble, cut it off, and throw it away from you. For it is more profitable for you that one of your members should perish, than for your whole body to be cast into Gehenna.", blocks[1].GetText(false));
+			Assert.AreEqual("[27]\u00A0“You have heard that it was said, ‘You shall not commit adultery;’ [28]\u00A0but I tell you that everyone who gazes at a woman to lust after her has committed adultery with her already in his heart. [29]\u00A0If your right eye causes you to stumble, pluck it out and throw it away from you. For it is more profitable for you that one of your members should perish, than for your whole body to be cast into Gehenna. [30]\u00A0If your right hand causes you to stumble, cut it off, and throw it away from you. For it is more profitable for you that one of your members should perish, than for your whole body to be cast into Gehenna.", blocks[1].GetText(true));
+		}
+
+		[Test]
+		public void Parse_VerseAtEndOfParagraphConsistsEntirelyOfNote_DoNotIncludeVerseNumber()
+		{
+			// World English Bible, LUK 17:36, PG-594
+			var doc = UsxDocumentTests.CreateMarkOneDoc(
+				"  <para style=\"p\">\r\n" +
+				"    <verse number=\"35\" style=\"v\" /><char style=\"wj\">There will be two grinding grain together. One will be taken and the other will be left.”</char> <verse number=\"36\" style=\"v\" /><note caller=\"+\" style=\"f\">Some Greek manuscripts add: “Two will be in the field: the one taken, and the other left.”</note></para>\r\n" +
+				"  <para style=\"p\">\r\n" +
+				"    <verse number=\"37\" style=\"v\" />They, answering, asked him, “Where, Lord?”</para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(2, blocks[1].BlockElements.Count);
+			Assert.AreEqual("[35]\u00A0There will be two grinding grain together. One will be taken and the other will be left.” ", blocks[1].GetText(true));
+			Assert.AreEqual(2, blocks[2].BlockElements.Count);
+			Assert.AreEqual("[37]\u00A0They, answering, asked him, “Where, Lord?”", blocks[2].GetText(true));
+		}
+
+		[Test]
+		public void Parse_OnlyVerseInParagraphConsistsEntirelyOfNote_DoNotIncludeParagraph()
+		{
+			// World English Bible, LUK 17:36, PG-594
+			var doc = UsxDocumentTests.CreateMarkOneDoc(
+				"  <para style=\"p\">\r\n" +
+				"    <verse number=\"36\" style=\"v\" /><note caller=\"+\" style=\"f\">Some Greek manuscripts add: “Two will be in the field: the one taken, and the other left.”</note></para>\r\n" +
+				"  <para style=\"p\">\r\n" +
+				"    <verse number=\"37\" style=\"v\" />They, answering, asked him, “Where, Lord?”</para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual(2, blocks[1].BlockElements.Count);
+			Assert.AreEqual("[37]\u00A0They, answering, asked him, “Where, Lord?”", blocks[1].GetText(true));
+		}
+
+		[Test]
+		public void Parse_VerseMidParagraphConsistsEntirelyOfNote_DoNotIncludeVerseNumber()
+		{
+			// World English Bible, LUK 17:36, PG-594
+			var doc = UsxDocumentTests.CreateMarkOneDoc(
+				"  <para style=\"p\">\r\n" +
+				"    <verse number=\"35\" style=\"v\" /><char style=\"wj\">There will be two grinding grain together. One will be taken and the other will be left.”</char> <verse number=\"36\" style=\"v\" /><note caller=\"+\" style=\"f\">Some Greek manuscripts add: “Two will be in the field: the one taken, and the other left.”</note> <verse number=\"37\" style=\"v\" />They, answering, asked him, “Where, Lord?”</para>");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual(4, blocks[1].BlockElements.Count);
+			Assert.AreEqual("[35]\u00A0There will be two grinding grain together. One will be taken and the other will be left.” [37]\u00A0They, answering, asked him, “Where, Lord?”", blocks[1].GetText(true));
+		}
+
 		private UsxParser GetUsxParser(XmlDocument doc)
 		{
 			return new UsxParser("MRK", new TestStylesheet(), new UsxDocument(doc).GetChaptersAndParas());
