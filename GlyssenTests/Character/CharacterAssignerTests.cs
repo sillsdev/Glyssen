@@ -1,4 +1,7 @@
-﻿using Glyssen;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Glyssen;
 using Glyssen.Character;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -151,6 +154,96 @@ namespace GlyssenTests.Character
 			Assert.False(bookScript[1].UserConfirmed);
 			Assert.True(bookScript[2].UserConfirmed);
 			Assert.True(bookScript[3].UserConfirmed);
+		}
+
+		[Test]
+		public void AssignAll_MultiverseQuoteWithTwoCharactersInFirstVerseAndOneCharacterInSecond_AssignedToCharacterRatherThanAmbiguous()
+		{
+			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
+			cvInfo.Stub(x => x.GetCharacters("MAT", 17, 26, 0, 26, ScrVers.English)).Return(new[]
+			{
+				new CharacterVerse(new BCVRef(40, 17, 26), "Peter (Simon)", null, null, false),
+				new CharacterVerse(new BCVRef(40, 17, 26), "Jesus", null, null, false),
+			});
+			cvInfo.Stub(x => x.GetCharacters("MAT", 17, 27, 0, 27, ScrVers.English)).Return(new[]
+			{
+				new CharacterVerse(new BCVRef(40, 17, 27), "Jesus", null, null, false)
+			});
+
+			var bookScript = new BookScript
+			{
+				BookId = "MAT",
+				Blocks = new List<Block>
+				{
+					new Block
+					{
+						ChapterNumber = 17,
+						InitialStartVerseNumber = 26,
+						BlockElements = new List<BlockElement>
+						{
+							new ScriptText("This quote starts in verse 26 ")
+						},
+						CharacterId = "Jesus",
+						MultiBlockQuote = MultiBlockQuote.Start
+					},
+					new Block
+					{
+						ChapterNumber = 17,
+						InitialStartVerseNumber = 27,
+						BlockElements = new List<BlockElement>
+						{
+							new Verse("27"),
+							new ScriptText("and continues in verse 27")
+						},
+						CharacterId = "Jesus",
+						MultiBlockQuote = MultiBlockQuote.Continuation
+					}
+				}
+			};
+
+			Assert.AreEqual("Jesus", bookScript.Blocks[0].CharacterId);
+			Assert.AreEqual("Jesus", bookScript.Blocks[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, bookScript.Blocks[0].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, bookScript.Blocks[1].MultiBlockQuote);
+
+			var characterAssigner = new CharacterAssigner(cvInfo);
+			characterAssigner.AssignAll(new[] { bookScript }, ScrVers.English, false);
+
+			Assert.AreEqual("Jesus", bookScript.Blocks[0].CharacterId);
+			Assert.AreEqual("Jesus", bookScript.Blocks[1].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.Start, bookScript.Blocks[0].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, bookScript.Blocks[1].MultiBlockQuote);
+		}
+
+		[Test]
+		public void AssignAll_FreshlyParsedProject_AssignAllChangesNothing()
+		{
+			var booksToIncludeInTestProject = Enum.GetValues(typeof(TestProject.TestBook)).Cast<TestProject.TestBook>().ToArray();
+			var freshTestProject = TestProject.CreateTestProject(booksToIncludeInTestProject);
+			var testProjectToAssign = TestProject.CreateTestProject(booksToIncludeInTestProject);
+
+			var characterAssigner = new CharacterAssigner(ControlCharacterVerseData.Singleton);
+			characterAssigner.AssignAll(testProjectToAssign.Books.ToList(), ScrVers.English, false);
+
+			var expected = freshTestProject.Books;
+			var actual = testProjectToAssign.Books;
+			Assert.AreEqual(expected.Count, actual.Count);
+
+			for (var i = 0; i < expected.Count; i++)
+			{
+				var expectedBlocks = expected[i].Blocks;
+				var actualBlocks = actual[i].Blocks;
+
+				// both books contains the same number of blocks
+				Assert.AreEqual(expectedBlocks.Count, actualBlocks.Count);
+
+				for (var j = 0; j < expectedBlocks.Count; j++)
+				{
+					// both blocks contain the same number of elements
+					Assert.AreEqual(expectedBlocks[j].BlockElements.Count, actualBlocks[j].BlockElements.Count);
+					Assert.AreEqual(expectedBlocks[j].GetText(true), actualBlocks[j].GetText(true));
+				}
+			}
 		}
 	}
 }
