@@ -1,4 +1,4 @@
-Control File Version	93
+Control File Version	94
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -14135,6 +14135,7 @@ JHN	4	51	servants of royal official (father)	excited		Indirect
 JHN	4	52	servants of royal official (father)	excited		Dialogue		
 JHN	4	52	official, royal (father)			Indirect		
 JHN	4	53	Jesus	giving orders		Normal		
+JHN	5	2	narrator-JHN			Potential		
 JHN	5	6	Jesus	questioning		Dialogue		
 JHN	5	7	invalid for 38 years	whining		Dialogue		
 JHN	5	8	Jesus	giving orders		Dialogue		
@@ -14435,6 +14436,7 @@ JHN	11	49	Caiaphas, the high priest	indignant		Dialogue
 JHN	11	50	Caiaphas, the high priest	indignant		Normal		
 JHN	11	51	Caiaphas, the high priest			Indirect		
 JHN	11	56	Jews, the		Jews from the country, many	Normal		
+JHN	11	57	chief priests/Pharisees			Indirect		
 JHN	12	5	Judas Iscariot	rebuking		Dialogue		MAT 26.8-9;MRK 14.4-5;JHN 12.5
 JHN	12	7	Jesus			Dialogue		
 JHN	12	8	Jesus			Normal		
