@@ -12,14 +12,14 @@ namespace Glyssen.Dialogs
 		{
 			InitializeComponent();
 
-			Text = LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Title", "Optimize Groups");
+			Text = LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Title", "Generating Groups");
 
 			int numCharacters = project.GetKeyStrokesByCharacterId().Count;
 			int numActors = project.VoiceActorList.ActiveActors.Count();
 			string firstLineOfText = string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.AnyRun.Text1",
-				"Script includes {0} distinct Biblical character roles."), numCharacters);
+				"The recording project has {0} distinct biblical character roles."), numCharacters);
 			string secondLineOfText = string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.AnyRun.Text2",
-				"You have entered {0} voice actors."), numActors);
+				"The selected cast size is {0} voice actors."), numActors);
 			string firstLineOfStatusText = string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.StatusText.AnyRun.Text1",
 				"{0} is creating optimized groups of characters to match the list of actors."),
 				ProductName);
