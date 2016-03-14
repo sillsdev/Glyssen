@@ -53,6 +53,8 @@
 			this.m_btnAssign = new System.Windows.Forms.Button();
 			this.m_btnExport = new System.Windows.Forms.Button();
 			this.m_lblSelectNextTask = new System.Windows.Forms.Label();
+			this.m_btnCastSizePlanning = new System.Windows.Forms.Button();
+			this.m_imgCastSizePlanning = new System.Windows.Forms.PictureBox();
 			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
 			this.m_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -63,6 +65,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckSettings)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckAssignCharacters)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckBooks)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_imgCastSizePlanning)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.glyssenColorPalette)).BeginInit();
 			this.m_tableLayoutPanel.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
@@ -90,7 +93,7 @@
 			this.m_toolStrip.Name = "m_toolStrip";
 			this.m_toolStrip.Padding = new System.Windows.Forms.Padding(15, 10, 20, 0);
 			this.m_toolStrip.Size = new System.Drawing.Size(572, 32);
-			this.m_toolStrip.TabIndex = 7;
+			this.m_toolStrip.TabIndex = 8;
 			this.m_toolStrip.Text = "toolStrip1";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_toolStrip, false);
 			// 
@@ -187,7 +190,7 @@
 			this.m_lnkExit.Location = new System.Drawing.Point(320, 0);
 			this.m_lnkExit.Name = "m_lnkExit";
 			this.m_lnkExit.Size = new System.Drawing.Size(24, 29);
-			this.m_lnkExit.TabIndex = 6;
+			this.m_lnkExit.TabIndex = 7;
 			this.m_lnkExit.TabStop = true;
 			this.m_lnkExit.Text = "Exit";
 			this.m_lnkExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -208,7 +211,7 @@
 			this.m_btnOpenProject.Name = "m_btnOpenProject";
 			this.m_btnOpenProject.Size = new System.Drawing.Size(151, 23);
 			this.m_btnOpenProject.TabIndex = 0;
-			this.m_btnOpenProject.Text = "(1) Open Project...";
+			this.m_btnOpenProject.Text = "({0}) Open Project...";
 			this.m_btnOpenProject.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnOpenProject, false);
 			this.m_btnOpenProject.UseVisualStyleBackColor = false;
@@ -242,7 +245,7 @@
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblActorsAssigned, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblActorsAssigned, "{0} and {1} are numbers");
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblActorsAssigned, "MainForm.ActorsAssigned");
-			this.m_lblActorsAssigned.Location = new System.Drawing.Point(208, 148);
+			this.m_lblActorsAssigned.Location = new System.Drawing.Point(208, 177);
 			this.m_lblActorsAssigned.Name = "m_lblActorsAssigned";
 			this.m_lblActorsAssigned.Size = new System.Drawing.Size(341, 29);
 			this.m_lblActorsAssigned.TabIndex = 30;
@@ -258,7 +261,7 @@
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckAssignActors, "Sufficiently completed to move on to following tasks");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_imgCheckAssignActors, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckAssignActors, "MainForm.SufficientlyCompleted");
-			this.m_imgCheckAssignActors.Location = new System.Drawing.Point(180, 151);
+			this.m_imgCheckAssignActors.Location = new System.Drawing.Point(180, 180);
 			this.m_imgCheckAssignActors.Name = "m_imgCheckAssignActors";
 			this.m_imgCheckAssignActors.Size = new System.Drawing.Size(22, 23);
 			this.m_imgCheckAssignActors.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -313,11 +316,11 @@
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnAssignVoiceActors, "Enter Voice Actor information and assign Voice Actors to Character Groups");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnAssignVoiceActors, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnAssignVoiceActors, "MainForm.AssignVoiceActors");
-			this.m_btnAssignVoiceActors.Location = new System.Drawing.Point(23, 151);
+			this.m_btnAssignVoiceActors.Location = new System.Drawing.Point(23, 180);
 			this.m_btnAssignVoiceActors.Name = "m_btnAssignVoiceActors";
 			this.m_btnAssignVoiceActors.Size = new System.Drawing.Size(151, 23);
-			this.m_btnAssignVoiceActors.TabIndex = 4;
-			this.m_btnAssignVoiceActors.Text = "(5) Assign Voice Actors...";
+			this.m_btnAssignVoiceActors.TabIndex = 5;
+			this.m_btnAssignVoiceActors.Text = "({0}) Assign Voice Actors...";
 			this.m_btnAssignVoiceActors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnAssignVoiceActors, false);
 			this.m_btnAssignVoiceActors.UseVisualStyleBackColor = false;
@@ -373,7 +376,7 @@
 			this.m_btnSettings.Name = "m_btnSettings";
 			this.m_btnSettings.Size = new System.Drawing.Size(151, 23);
 			this.m_btnSettings.TabIndex = 1;
-			this.m_btnSettings.Text = "(2) Project Settings...";
+			this.m_btnSettings.Text = "({0}) Project Settings...";
 			this.m_btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnSettings, false);
 			this.m_btnSettings.UseVisualStyleBackColor = false;
@@ -448,7 +451,7 @@
 			this.m_btnSelectBooks.Name = "m_btnSelectBooks";
 			this.m_btnSelectBooks.Size = new System.Drawing.Size(151, 23);
 			this.m_btnSelectBooks.TabIndex = 2;
-			this.m_btnSelectBooks.Text = "(3) Select Books...";
+			this.m_btnSelectBooks.Text = "({0}) Select Books...";
 			this.m_btnSelectBooks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnSelectBooks, false);
 			this.m_btnSelectBooks.UseVisualStyleBackColor = false;
@@ -467,7 +470,7 @@
 			this.m_btnAssign.Name = "m_btnAssign";
 			this.m_btnAssign.Size = new System.Drawing.Size(151, 23);
 			this.m_btnAssign.TabIndex = 3;
-			this.m_btnAssign.Text = "(4) Assign Characters...";
+			this.m_btnAssign.Text = "({0}) Assign Characters...";
 			this.m_btnAssign.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnAssign, false);
 			this.m_btnAssign.UseVisualStyleBackColor = false;
@@ -482,10 +485,10 @@
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnExport, "Export to a spreadsheet file");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnExport, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnExport, "MainForm.ExportScript");
-			this.m_btnExport.Location = new System.Drawing.Point(23, 180);
+			this.m_btnExport.Location = new System.Drawing.Point(23, 209);
 			this.m_btnExport.Name = "m_btnExport";
 			this.m_btnExport.Size = new System.Drawing.Size(151, 23);
-			this.m_btnExport.TabIndex = 5;
+			this.m_btnExport.TabIndex = 6;
 			this.m_btnExport.Text = "({0}) Export Recording Script...";
 			this.m_btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnExport, false);
@@ -511,6 +514,42 @@
 			this.m_lblSelectNextTask.Text = "Select the next task you want to do:";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblSelectNextTask, true);
 			// 
+			// m_btnCastSizePlanning
+			// 
+			this.glyssenColorPalette.SetBackColor(this.m_btnCastSizePlanning, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_btnCastSizePlanning.Enabled = false;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnCastSizePlanning, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.glyssenColorPalette.SetForeColor(this.m_btnCastSizePlanning, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnCastSizePlanning, " I would like Glyssen to help me know how many actors to recruit");
+			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnCastSizePlanning, null);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnCastSizePlanning, "MainForm.CastSizePlanning");
+			this.m_btnCastSizePlanning.Location = new System.Drawing.Point(23, 151);
+			this.m_btnCastSizePlanning.Name = "m_btnCastSizePlanning";
+			this.m_btnCastSizePlanning.Size = new System.Drawing.Size(151, 23);
+			this.m_btnCastSizePlanning.TabIndex = 4;
+			this.m_btnCastSizePlanning.Text = "({0}) Cast Size Planning...";
+			this.m_btnCastSizePlanning.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnCastSizePlanning, false);
+			this.m_btnCastSizePlanning.UseVisualStyleBackColor = false;
+			this.m_btnCastSizePlanning.Click += new System.EventHandler(this.m_btnCastSizePlanning_Click);
+			// 
+			// m_imgCastSizePlanning
+			// 
+			this.glyssenColorPalette.SetBackColor(this.m_imgCastSizePlanning, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_imgCastSizePlanning, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_imgCastSizePlanning.Image = global::Glyssen.Properties.Resources.green_check;
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCastSizePlanning, "Sufficiently completed to move on to following tasks");
+			this.m_L10NSharpExtender.SetLocalizationComment(this.m_imgCastSizePlanning, null);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCastSizePlanning, "MainForm.SufficientlyCompleted");
+			this.m_imgCastSizePlanning.Location = new System.Drawing.Point(180, 151);
+			this.m_imgCastSizePlanning.Name = "m_imgCastSizePlanning";
+			this.m_imgCastSizePlanning.Size = new System.Drawing.Size(22, 23);
+			this.m_imgCastSizePlanning.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.m_imgCastSizePlanning.TabIndex = 40;
+			this.m_imgCastSizePlanning.TabStop = false;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_imgCastSizePlanning, false);
+			this.m_imgCastSizePlanning.Visible = false;
+			// 
 			// m_tableLayoutPanel
 			// 
 			this.m_tableLayoutPanel.AutoSize = true;
@@ -521,14 +560,14 @@
 			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.m_tableLayoutPanel.Controls.Add(this.m_lblSelectNextTask, 0, 0);
-			this.m_tableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 2, 6);
+			this.m_tableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 2, 7);
 			this.m_tableLayoutPanel.Controls.Add(this.m_btnOpenProject, 0, 1);
 			this.m_tableLayoutPanel.Controls.Add(this.m_imgCheckOpen, 1, 1);
-			this.m_tableLayoutPanel.Controls.Add(this.m_lblActorsAssigned, 2, 5);
-			this.m_tableLayoutPanel.Controls.Add(this.m_imgCheckAssignActors, 1, 5);
+			this.m_tableLayoutPanel.Controls.Add(this.m_lblActorsAssigned, 2, 6);
+			this.m_tableLayoutPanel.Controls.Add(this.m_imgCheckAssignActors, 1, 6);
 			this.m_tableLayoutPanel.Controls.Add(this.m_lblProjectInfo, 2, 1);
 			this.m_tableLayoutPanel.Controls.Add(this.m_imgCheckSettings, 1, 2);
-			this.m_tableLayoutPanel.Controls.Add(this.m_btnAssignVoiceActors, 0, 5);
+			this.m_tableLayoutPanel.Controls.Add(this.m_btnAssignVoiceActors, 0, 6);
 			this.m_tableLayoutPanel.Controls.Add(this.m_lblSettingsInfo, 2, 2);
 			this.m_tableLayoutPanel.Controls.Add(this.m_imgCheckAssignCharacters, 1, 4);
 			this.m_tableLayoutPanel.Controls.Add(this.m_btnSettings, 0, 2);
@@ -537,7 +576,9 @@
 			this.m_tableLayoutPanel.Controls.Add(this.m_imgCheckBooks, 1, 3);
 			this.m_tableLayoutPanel.Controls.Add(this.m_btnSelectBooks, 0, 3);
 			this.m_tableLayoutPanel.Controls.Add(this.m_btnAssign, 0, 4);
-			this.m_tableLayoutPanel.Controls.Add(this.m_btnExport, 0, 6);
+			this.m_tableLayoutPanel.Controls.Add(this.m_btnExport, 0, 7);
+			this.m_tableLayoutPanel.Controls.Add(this.m_btnCastSizePlanning, 0, 5);
+			this.m_tableLayoutPanel.Controls.Add(this.m_imgCastSizePlanning, 1, 5);
 			this.m_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.glyssenColorPalette.SetForeColor(this.m_tableLayoutPanel, Glyssen.Utilities.GlyssenColors.Default);
 			this.m_tableLayoutPanel.Location = new System.Drawing.Point(0, 32);
@@ -552,8 +593,9 @@
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.m_tableLayoutPanel.Size = new System.Drawing.Size(572, 226);
+			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.m_tableLayoutPanel.Size = new System.Drawing.Size(572, 255);
 			this.m_tableLayoutPanel.TabIndex = 40;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_tableLayoutPanel, false);
 			// 
@@ -569,7 +611,7 @@
 			this.tableLayoutPanel2.Controls.Add(this.m_lnkExit, 1, 0);
 			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.glyssenColorPalette.SetForeColor(this.tableLayoutPanel2, Glyssen.Utilities.GlyssenColors.Default);
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(205, 177);
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(205, 206);
 			this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
 			this.tableLayoutPanel2.RowCount = 1;
@@ -611,6 +653,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckSettings)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckAssignCharacters)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckBooks)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_imgCastSizePlanning)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.glyssenColorPalette)).EndInit();
 			this.m_tableLayoutPanel.ResumeLayout(false);
 			this.m_tableLayoutPanel.PerformLayout();
@@ -649,6 +692,8 @@
 		private System.Windows.Forms.Button m_btnSelectBooks;
 		private System.Windows.Forms.Button m_btnAssign;
 		private System.Windows.Forms.Button m_btnExport;
+		private System.Windows.Forms.Button m_btnCastSizePlanning;
+		private System.Windows.Forms.PictureBox m_imgCastSizePlanning;
 	}
 }
 

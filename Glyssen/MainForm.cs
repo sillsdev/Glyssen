@@ -33,7 +33,7 @@ namespace Glyssen
 		private Project m_project;
 		private string m_percentAssignedFmt;
 		private string m_actorsAssignedFmt;
-		private string m_exportButtonFmt;
+		private readonly Dictionary<string, string> m_buttonFormats = new Dictionary<string, string>();
 
 		public MainForm()
 		{
@@ -113,10 +113,23 @@ namespace Glyssen
 		{
 			m_percentAssignedFmt = m_lblPercentAssigned.Text;
 			m_actorsAssignedFmt = m_lblActorsAssigned.Text;
-			m_exportButtonFmt = m_btnExport.Text;
+			RememberButtonFormats();
 			UpdateLocalizedText();
 			if (m_project != null)
 				m_project.ProjectCharacterVerseData.HandleStringsLocalized();
+		}
+
+		private void RememberButtonFormats()
+		{
+			var pos = m_tableLayoutPanel.GetCellPosition(m_btnOpenProject);
+			for (var rowIndex = pos.Row; rowIndex < m_tableLayoutPanel.RowStyles.Count; rowIndex++)
+			{
+				var btn = m_tableLayoutPanel.GetControlFromPosition(pos.Column, rowIndex) as Button;
+				if (btn != null)
+				{
+					m_buttonFormats[btn.Name] = btn.Text;
+				}
+			}
 		}
 
 		private void UpdateButtons(bool readOnly)
@@ -133,9 +146,17 @@ namespace Glyssen
 			m_btnAssign.Enabled = !readOnly && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
 			m_imgCheckAssignCharacters.Visible = m_btnAssign.Enabled && m_project.ProjectAnalysis.UserPercentAssigned == 100d;
 			m_btnExport.Enabled = !readOnly && m_btnAssign.Enabled;
+
 			m_btnAssignVoiceActors.Visible = Environment.GetEnvironmentVariable("Glyssen_ProtoscriptOnly", EnvironmentVariableTarget.User) == null;
-			m_btnAssignVoiceActors.Enabled = !readOnly && m_imgCheckAssignCharacters.Visible;
-			m_imgCheckAssignActors.Visible = m_btnAssignVoiceActors.Enabled && m_project.IsVoiceActorScriptReady;
+			m_btnCastSizePlanning.Visible = m_btnAssignVoiceActors.Visible;
+
+			m_btnCastSizePlanning.Enabled = m_btnCastSizePlanning.Visible && !readOnly && m_imgCheckAssignCharacters.Visible;
+
+			// todo: Determine when the Cast Size Planning task is done enough to move on to the next task.
+			m_imgCastSizePlanning.Visible = m_btnCastSizePlanning.Visible && m_btnCastSizePlanning.Enabled;
+
+			m_btnAssignVoiceActors.Enabled = m_btnAssignVoiceActors.Visible && !readOnly && m_imgCastSizePlanning.Visible;
+			m_imgCheckAssignActors.Visible = m_btnAssignVoiceActors.Visible && m_btnAssignVoiceActors.Enabled && m_project.IsVoiceActorScriptReady;
 			m_lnkExit.Enabled = !readOnly;
 		}
 
@@ -146,11 +167,13 @@ namespace Glyssen
 			m_btnAssign.Enabled = false;
 			m_btnExport.Enabled = false;
 			m_btnAssignVoiceActors.Enabled = false;
+			m_btnCastSizePlanning.Enabled = false;
 			m_imgCheckOpen.Visible = false;
 			m_imgCheckSettings.Visible = false;
 			m_imgCheckBooks.Visible = false;
 			m_imgCheckAssignCharacters.Visible = false;
 			m_imgCheckAssignActors.Visible = false;
+			m_imgCastSizePlanning.Visible = false;
 
 			m_lblProjectInfo.Text = string.Empty;
 			m_lblSettingsInfo.Text = string.Empty;
@@ -349,7 +372,17 @@ namespace Glyssen
 
 			UpdateDisplayOfActorsAssigned();
 
-			m_btnExport.Text = string.Format(m_exportButtonFmt, m_btnAssignVoiceActors.Visible ? "6" : "5");
+			// insert button numbers
+			var buttonNumber = 1;
+			foreach (var buttonName in m_buttonFormats.Keys)
+			{
+				var buttons = (Controls.Find(buttonName, true));
+				if (buttons.Length != 1) continue;
+
+				var btn = buttons[0] as Button;
+				if ((btn != null) && (btn.Visible))
+					btn.Text = string.Format((m_buttonFormats[buttonName]), buttonNumber++);
+			}
 
 			UpdateDisplayOfPercentAssigned();
 		}
@@ -612,6 +645,16 @@ namespace Glyssen
 		private void m_lastExportLocationLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			PathUtilities.OpenDirectoryInExplorer(m_lastExportLocationLink.Text);
+		}
+
+		private void m_btnCastSizePlanning_Click(object sender, EventArgs e)
+		{
+			// TODO: implement this when the CastSizePlanningDlg is ready
+			//using (var dlg = new CastSizePlanningDlg(new CastSizePlanningViewModel(m_project)))
+			//	if (dlg.ShowDialog(this) == DialogResult.OK)
+			//		return;
+
+			//SaveCurrentProject();
 		}
 	}
 }
