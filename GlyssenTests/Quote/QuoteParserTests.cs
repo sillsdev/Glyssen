@@ -1222,6 +1222,68 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("“The end.”", output[3].GetText(true));
 		}
 
+		/// <summary>
+		/// PG-602 (Text based on Jeremiah 27:1-12 from The World Bible)
+		/// </summary>
+		[Ignore("It is a known limitation of the quote parser/settings that it can't handle quotes nested 5 deep.")]
+		[Test]
+		public void Parse_Level4ContinuerWithLevel5QuoteNestedInsideParagraph_BrokenCorrectly()
+		{
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“‘", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“‘“", 3, QuotationMarkingSystemType.Normal));
+			var block = new Block("p", 27, 1) { IsParagraphStart = true };
+			block.BlockElements.Add(new Verse("1"));
+			block.BlockElements.Add(new ScriptText("In the beginning, this word came from Yahweh, saying, "));
+			block.BlockElements.Add(new Verse("2"));
+			block.BlockElements.Add(new ScriptText("Yahweh says to me: “Make bonds and bars, and put them on your neck. "));
+			block.BlockElements.Add(new Verse("3"));
+			block.BlockElements.Add(new ScriptText("Then send them to the kings, by the hand of the messengers who come to Jerusalem. "));
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("Give them a command, saying, ‘Yahweh of Armies says, “You shall tell your masters: "));
+			block.BlockElements.Add(new Verse("5"));
+			block.BlockElements.Add(new ScriptText("‘I have made the earth, by my great power. I give it to whom it seems right to me. "));
+			block.BlockElements.Add(new Verse("6"));
+			block.BlockElements.Add(new ScriptText("Now I have given all these lands to Nebuchadnezzar, my servant. I have also given the animals to him. "));
+			block.BlockElements.Add(new Verse("7"));
+			block.BlockElements.Add(new ScriptText("All the nations will serve him. Then many nations will make him their servant."));
+			var block2 = new Block("p", 27, 8) { IsParagraphStart = true };
+			block2.BlockElements.Add(new Verse("8"));
+			block2.BlockElements.Add(new ScriptText("“‘“‘I will punish the nation which will not serve Nebuchadnezzar,’ says Yahweh, ‘until I have consumed them. "));
+			block2.BlockElements.Add(new Verse("9"));
+			block2.BlockElements.Add(new ScriptText("Don’t listen to your prophets, who speak, saying, “You shall not serve the king of Babylon;” ")); // Level 5!!!
+			block2.BlockElements.Add(new Verse("10"));
+			block2.BlockElements.Add(new ScriptText("for they prophesy a lie to you, so that I would drive you out. "));
+			block2.BlockElements.Add(new Verse("11"));
+			block2.BlockElements.Add(new ScriptText("But the nation under Babylon will remain in their land,’ says Yahweh; ‘and they will dwell in it.’”’”"));
+			var block3 = new Block("p", 27, 12) { IsParagraphStart = true };
+			block3.BlockElements.Add(new Verse("12"));
+			block3.BlockElements.Add(new ScriptText("I spoke to Zedekiah all these words, saying, “Bring your necks under the yoke of Babylon, and live.”"));
+			var input = new List<Block> { block, block2, block3 };
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JER", input).Parse().ToList();
+			Assert.AreEqual(5, output.Count);
+			Assert.AreEqual("[1]\u00A0In the beginning, this word came from Yahweh, saying, " +
+							"[2]\u00A0Yahweh says to me: ", output[0].GetText(true));
+			Assert.IsTrue(output[0].CharacterIs("JER", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual("“Make bonds and bars, and put them on your neck. " +
+							"[3]\u00A0Then send them to the kings, by the hand of the messengers who come to Jerusalem. " +
+							"[4]\u00A0Give them a command, saying, ‘Yahweh of Armies says, “You shall tell your masters: " +
+							"[5]\u00A0‘I have made the earth, by my great power. I give it to whom it seems right to me. " +
+							"[6]\u00A0Now I have given all these lands to Nebuchadnezzar, my servant. I have also given the animals to him. " +
+							"[7]\u00A0All the nations will serve him. Then many nations will make him their servant.", output[1].GetText(true));
+			Assert.AreEqual("God", output[1].CharacterId);
+			Assert.AreEqual("[8]\u00A0“‘“‘I will punish the nation which will not serve Nebuchadnezzar,’ says Yahweh, ‘until I have consumed them. " +
+							"[9]\u00A0Don’t listen to your prophets, who speak, saying, “You shall not serve the king of Babylon;” " +
+							"[10]\u00A0for they prophesy a lie to you, so that I would drive you out. " +
+							"[11]\u00A0But the nation under Babylon will remain in their land,’ says Yahweh; ‘and they will dwell in it.’”’”", output[2].GetText(true));
+			Assert.AreEqual("Jeremiah", output[2].CharacterId);
+			Assert.AreEqual("[12]\u00A0I spoke to Zedekiah all these words, saying, ", output[3].GetText(true));
+			Assert.IsTrue(output[3].CharacterIs("JER", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual("“Bring your necks under the yoke of Babylon, and live.”", output[4].GetText(true));
+			Assert.AreEqual("Jeremiah", output[4].CharacterId);
+		}
+
 		[Test]
 		public void Parse_TitleIntrosChaptersAndExtraBiblicalMaterial_OnlyVerseTextGetsParsedForQuotes()
 		{
@@ -1315,6 +1377,50 @@ namespace GlyssenTests.Quote
 			Assert.IsTrue(output[0].IsParagraphStart);
 			Assert.IsTrue(output[1].IsParagraphStart);
 			Assert.IsFalse(output[2].IsParagraphStart);
+		}
+
+		/// <summary>
+		/// PG-603: Quote parser messes up if multi-block quote is introduced with a colon
+		/// </summary>
+		[TestCase("«", "»")]
+		[TestCase("“", "”")]
+		[TestCase("”", "”")]
+		[TestCase("“", "“")]
+		public void Parse_QuoteIntroducedWithColonSpansMultiplePoetryParagraphs_EntireQuoteFound(string openingQuoteMark, string closingQuoteMark)
+		{
+			// Based on Kuna San Blas (Gen 1:14-15)
+			var quoteSystem = new QuoteSystem(new QuotationMark(openingQuoteMark, closingQuoteMark, openingQuoteMark, 1, QuotationMarkingSystemType.Normal), ":", null);
+
+			var block1 = new Block("p", 1, 14) { IsParagraphStart = true };
+			block1.BlockElements.Add(new Verse("14"));
+			block1.BlockElements.Add(new ScriptText("Geb degi, Bab-Dummad sogdebalid:" + openingQuoteMark + "Nibneggi gwallumar nagu,"));
+//			var block2 = new Block("q1", 1, 14) { IsParagraphStart = true };
+//			block2.BlockElements.Add(new ScriptText(openingQuoteMark + "Nibneggi gwallumar nagu,"));
+			var block3 = new Block("q2", 1, 14) { IsParagraphStart = true };
+			block3.BlockElements.Add(new ScriptText("adi, neg-mutikid, neg-ibgined-ebo bachikii guegar."));
+			var block4 = new Block("q1", 1, 14) { IsParagraphStart = true };
+			block4.BlockElements.Add(new ScriptText("Adi, ibagan-nagumaid, yolamar-nagumaid, birgamar-nagumaid magar daklegegar."));
+			var block5 = new Block("q2", 1, 15) { IsParagraphStart = true };
+			block5.BlockElements.Add(new Verse("15"));
+			block5.BlockElements.Add(new ScriptText("Degi, gwallumar-niba-naid napneg-mee saegar." + closingQuoteMark));
+			var block6 = new Block("q2", 1, 15) { IsParagraphStart = true };
+			block6.BlockElements.Add(new ScriptText("Deyob gunonikid."));
+			var input = new List<Block> { block1, /*block2,*/ block3, block4, block5, block6 };
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
+			Assert.AreEqual(6, output.Count);
+			Assert.AreEqual("[14]\u00A0Geb degi, Bab-Dummad sogdebalid:", output[0].GetText(true));
+			Assert.AreEqual("narrator-GEN", output[0].CharacterId);
+			Assert.AreEqual(openingQuoteMark + "Nibneggi gwallumar nagu,", output[1].GetText(true));
+			Assert.AreEqual("God", output[1].CharacterId);
+			Assert.AreEqual("adi, neg-mutikid, neg-ibgined-ebo bachikii guegar.", output[2].GetText(true));
+			Assert.AreEqual("God", output[2].CharacterId);
+			Assert.AreEqual("Adi, ibagan-nagumaid, yolamar-nagumaid, birgamar-nagumaid magar daklegegar.", output[3].GetText(true));
+			Assert.AreEqual("God", output[3].CharacterId);
+			Assert.AreEqual("[15]\u00A0Degi, gwallumar-niba-naid napneg-mee saegar." + closingQuoteMark, output[4].GetText(true));
+			Assert.AreEqual("God", output[4].CharacterId);
+			Assert.AreEqual("Deyob gunonikid.", output[5].GetText(true));
+			Assert.AreEqual("narrator-GEN", output[5].CharacterId);
 		}
 
 		[Test]
@@ -2592,6 +2698,7 @@ namespace GlyssenTests.Quote
 		[Test]
 		public void Parse_MidVerseColonFollowedByExplicitQuoteAndSpeakerFollowedByVerseWithout_QuoteBrokenOutAsSeparateBlockWithSpeakerAssigned()
 		{
+			// Kuna San Blas
 			var block1 = new Block("p", 5, 28);
 			block1.IsParagraphStart = true;
 			block1.BlockElements.Add(new Verse("28"));
