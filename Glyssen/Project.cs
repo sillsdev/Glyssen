@@ -601,6 +601,11 @@ namespace Glyssen
 			get { return m_characterGroupList ?? (m_characterGroupList = LoadCharacterGroupData()); }
 		}
 
+		public bool CharacterGroupListPreviouslyGenerated
+		{
+			get { return CharacterGroupList.CharacterGroups.Any(); }
+		}
+
 		public bool IsVoiceActorScriptReady
 		{
 			get { return IsVoiceActorAssignmentsComplete && EveryAssignedGroupHasACharacter; }
