@@ -117,6 +117,8 @@ namespace Glyssen.Controls
 			EventHandler<DomMouseEventArgs> handler = OnMouseClick;
 			if (handler != null)
 				handler(this, e);
+
+			e.Handled = true;  // don't let the browser navigate itself
 		}
 
 		private void HandleDomMouseOut(object sender, DomMouseEventArgs e)

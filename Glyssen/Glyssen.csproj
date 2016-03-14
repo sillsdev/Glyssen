@@ -567,6 +567,7 @@
     <None Include="Resources\RemoveGridRowNormal.png" />
     <None Include="Resources\MoveArrow.png" />
     <None Include="Resources\printer.bmp" />
+    <Content Include="Resources\HtmlMsg.html" />
     <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />
   </ItemGroup>
