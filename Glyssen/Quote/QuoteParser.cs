@@ -83,6 +83,7 @@ namespace Glyssen.Quote
 		private readonly List<Regex> m_regexes = new List<Regex>();
 		private readonly Regex m_regexStartsWithSpecialOpeningPunctuation = new Regex(@"^(\(|\[|\{)", RegexOptions.Compiled);
 		private Regex m_regexStartsWithFirstLevelOpener;
+		private Regex m_regexHasFirstLevelClose;
 
 		#region working (state) members
 		// These members are used by several methods. Making them class-level avoids having to pass them repeatedly.
@@ -114,6 +115,7 @@ namespace Glyssen.Quote
 			if (s_quoteSystem.NormalLevels.Count > 0)
 			{
 				m_regexStartsWithFirstLevelOpener = new Regex(Regex.Escape(s_quoteSystem.NormalLevels[0].Open), RegexOptions.Compiled);
+				m_regexHasFirstLevelClose = new Regex(Regex.Escape(s_quoteSystem.NormalLevels[0].Close), RegexOptions.Compiled);
 
 				// At level x, we need continuer x, closer x, opener x+1.  Continuer must be first.
 				for (int level = 0; level < s_quoteSystem.NormalLevels.Count; level++)
@@ -298,7 +300,9 @@ namespace Glyssen.Quote
 					{
 						if (pendingColon)
 						{
-							if (pos > 0 && m_regexStartsWithFirstLevelOpener.Match(content).Index == pos)
+							var matchFirstLevelOpen = m_regexStartsWithFirstLevelOpener.Match(content, pos);
+							if (matchFirstLevelOpen.Success && matchFirstLevelOpen.Index == pos &&
+								(pos > 0 || !m_regexHasFirstLevelClose.Match(content, pos + matchFirstLevelOpen.Length).Success))
 								DecrementQuoteLevel();
 							else
 								blockInWhichDialogueQuoteStarted = block;
