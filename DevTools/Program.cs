@@ -14,7 +14,7 @@ namespace DevTools
 			Console.WriteLine("4) Add references to CharacterDetail file");
 			Console.WriteLine("5) BiblicalTerms.Processor.Process()");
 			Console.WriteLine("6) CharacterListProcessing.Process()");
-			Console.WriteLine("7) Output ranges of consecutive verses with single character");
+			Console.WriteLine("7) Output verses with single non-narrator character");
 			Console.WriteLine();
 
 			string line = Console.ReadLine();
@@ -27,7 +27,7 @@ namespace DevTools
 				case "4": CharacterDetailProcessing.GenerateReferences(); break;
 				case "5": BiblicalTerms.Processor.Process(); break;
 				case "6": CharacterListProcessing.Process(); break;
-				case "7": CharacterDetailProcessing.GetAllRangesOfThreeOrMoreConsecutiveVersesWithTheSameSingleCharacterNotMarkedAsImplicit(); break;
+				case "7": CharacterDetailProcessing.GetAllControlFileEntriesThatCouldBeMarkedAsImplicit(); break;
 			}
 		}
 	}

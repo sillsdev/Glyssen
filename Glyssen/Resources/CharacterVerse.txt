@@ -9152,9 +9152,9 @@ JER	26	15	Jeremiah			Normal
 JER	26	16	officials/people, all the			Normal		
 JER	26	18	elders of the land			Normal		
 JER	26	19	elders of the land			Normal		
-JER	27	2	God		God (the LORD)(word of the LORD came)	Normal		
-JER	27	3	God		God (the LORD)(word of the LORD came)	Normal		
-JER	27	4	God		God (the LORD)(word of the LORD came)	Normal		
+JER	27	2	God		God (the LORD)(word of the LORD came)	Indirect		
+JER	27	3	God		God (the LORD)(word of the LORD came)	Indirect		
+JER	27	4	God		God (the LORD)(word of the LORD came)	Indirect		
 JER	27	5	God		God (the LORD)(word of the LORD came)	Normal		
 JER	27	6	God		God (the LORD)(word of the LORD came)	Normal		
 JER	27	7	God		God (the LORD)(word of the LORD came)	Normal		
