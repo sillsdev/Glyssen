@@ -2388,26 +2388,31 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("Jesus", output[1].CharacterId);
 		}
 
-#if HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
+		/// <summary>
+		/// PG-604
+		/// </summary>
 		[Test]
 		public void Parse_DialogueColonFollowedImmediatelyByOpeningFirstLevelQuote_AllBlocksMarkedUnknownUntilExplicitEnd()
 		{
-			var block1 = new Block("p", 6, 48);
-			block1.BlockElements.Add(new ScriptText("Jesus said: “Nintimrataram” is my favorite word."));
+			// La Biblia de las Americas
+			var block1 = new Block("p", 9, 23);
+			block1.BlockElements.Add(new ScriptText("Jesús le dijo: “¿Cómo si tú puedes?” Todas las cosas son posibles para el que cree."));
 			var input = new List<Block> { block1, };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", QuoteUtils.kSentenceEndingPunctuation);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input, quoteSystem).Parse().ToList();
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
+			QuoteParser.SetQuoteSystem(quoteSystem);			
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
 
-			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
+			Assert.AreEqual("Jesús le dijo: ", output[0].GetText(true));
 			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
 
-			Assert.AreEqual("“Nintimrataram” ", output[1].GetText(true));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+			Assert.AreEqual("“¿Cómo si tú puedes?” ", output[1].GetText(true));
+			Assert.AreEqual("Jesus", output[1].CharacterId); //  We know for sure this is part of Jesus' quote.
 
-			Assert.AreEqual("is my favorite word.", output[2].GetText(true));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[2].CharacterId);
+			Assert.AreEqual("Todas las cosas son posibles para el que cree.", output[2].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[2].CharacterId); // This is part of it, but we can't know that for sure.
 		}
+#if HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
 
 		[TestCase(".”")]
 		[TestCase("”.")]
@@ -2491,6 +2496,9 @@ namespace GlyssenTests.Quote
 		}
 #endif //HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
 
+		/// <summary>
+		/// PG-604
+		/// </summary>
 		[TestCase("“")]
 		[TestCase("”")]
 		public void Parse_DialogueColonFollowedByParagraphThatEndsASentence_EntireFollowingParagraphTreatedAsQuote(string firstLevelContinuer)
@@ -2505,16 +2513,19 @@ namespace GlyssenTests.Quote
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), ":", null);
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
-			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual(4, output.Count);
 
 			Assert.AreEqual("Jesus said: ", output[0].GetText(true));
 			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
 
-			Assert.AreEqual("“Nintimrataram” is my favorite word, for thus saith Isaiah.", output[1].GetText(true));
+			Assert.AreEqual("“Nintimrataram” ", output[1].GetText(true));
 			Assert.AreEqual("Jesus", output[1].CharacterId);
 
-			Assert.AreEqual("Don't even go there!", output[2].GetText(true));
-			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[2].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual("is my favorite word, for thus saith Isaiah.", output[2].GetText(true));
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[2].CharacterId);
+
+			Assert.AreEqual("Don't even go there!", output[3].GetText(true));
+			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[3].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
 		}
 
 		[TestCase("“")]
