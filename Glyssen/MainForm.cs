@@ -143,9 +143,9 @@ namespace Glyssen
 			m_btnSelectBooks.Enabled = !readOnly && validProject && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed &&
 				m_project.ProjectFileIsWritable;
 			m_imgCheckBooks.Visible = m_btnSelectBooks.Enabled && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed;
-			m_btnAssign.Enabled = !readOnly && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
-			m_imgCheckAssignCharacters.Visible = m_btnAssign.Enabled && m_project.ProjectAnalysis.UserPercentAssigned == 100d;
-			m_btnExport.Enabled = !readOnly && m_btnAssign.Enabled;
+			m_btnIdentify.Enabled = !readOnly && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
+			m_imgCheckAssignCharacters.Visible = m_btnIdentify.Enabled && m_project.ProjectAnalysis.UserPercentAssigned == 100d;
+			m_btnExport.Enabled = !readOnly && m_btnIdentify.Enabled;
 
 			m_btnAssignVoiceActors.Visible = Environment.GetEnvironmentVariable("Glyssen_ProtoscriptOnly", EnvironmentVariableTarget.User) == null;
 			m_btnCastSizePlanning.Visible = m_btnAssignVoiceActors.Visible;
@@ -164,7 +164,7 @@ namespace Glyssen
 		{
 			m_btnSelectBooks.Enabled = false;
 			m_btnSettings.Enabled = false;
-			m_btnAssign.Enabled = false;
+			m_btnIdentify.Enabled = false;
 			m_btnExport.Enabled = false;
 			m_btnAssignVoiceActors.Enabled = false;
 			m_btnCastSizePlanning.Enabled = false;
@@ -181,6 +181,8 @@ namespace Glyssen
 			m_lblPercentAssigned.Text = string.Empty;
 			m_lblActorsAssigned.Text = string.Empty;
 			m_lastExportLocationLink.Text = string.Empty;
+
+			m_lblFilesAreHere.Visible = false;
 		}
 
 		private void HandleOpenProject_Click(object sender, EventArgs e)
@@ -248,6 +250,7 @@ namespace Glyssen
 				SetProject(null);
 
 			m_lastExportLocationLink.Text = m_project != null ? m_project.Status.LastExportLocation : string.Empty;
+			m_lblFilesAreHere.Visible = m_lastExportLocationLink.Text != string.Empty;
 		}
 
 		private void LoadBundle(string bundlePath)
@@ -402,7 +405,7 @@ namespace Glyssen
 
 		private void UpdateDisplayOfPercentAssigned()
 		{
-			if (!m_btnAssign.Enabled)
+			if (!m_btnIdentify.Enabled)
 			{
 				m_lblPercentAssigned.Text = string.Empty;
 				return;
@@ -480,6 +483,7 @@ namespace Glyssen
 				dlg.ShowDialog(this);
 
 			m_lastExportLocationLink.Text = m_project.Status.LastExportLocation;
+			m_lblFilesAreHere.Visible = true;
 		}
 
 		private void EnsureGroupsAreInSynchWithCharactersInUse()

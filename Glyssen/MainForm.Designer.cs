@@ -50,11 +50,12 @@
 			this.m_lblPercentAssigned = new System.Windows.Forms.Label();
 			this.m_imgCheckBooks = new System.Windows.Forms.PictureBox();
 			this.m_btnSelectBooks = new System.Windows.Forms.Button();
-			this.m_btnAssign = new System.Windows.Forms.Button();
+			this.m_btnIdentify = new System.Windows.Forms.Button();
 			this.m_btnExport = new System.Windows.Forms.Button();
 			this.m_lblSelectNextTask = new System.Windows.Forms.Label();
 			this.m_btnCastSizePlanning = new System.Windows.Forms.Button();
 			this.m_imgCastSizePlanning = new System.Windows.Forms.PictureBox();
+			this.m_lblFilesAreHere = new System.Windows.Forms.Label();
 			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
 			this.m_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -122,8 +123,8 @@
 			// 
 			this.m_uiLanguageMenu.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
 			this.m_uiLanguageMenu.AutoToolTip = false;
-			this.glyssenColorPalette.SetBackColor(this.m_uiLanguageMenu, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_uiLanguageMenu.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_uiLanguageMenu, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_uiLanguageMenu.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
 			this.m_uiLanguageMenu.ForeColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetForeColor(this.m_uiLanguageMenu, Glyssen.Utilities.GlyssenColors.LinkColor);
@@ -143,24 +144,24 @@
 			// 
 			this.m_lastExportLocationLink.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetActiveLinkColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
-			this.m_lastExportLocationLink.AutoEllipsis = true;
 			this.m_lastExportLocationLink.AutoSize = true;
 			this.glyssenColorPalette.SetBackColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_lastExportLocationLink.BackColor = System.Drawing.SystemColors.Control;
 			this.m_lastExportLocationLink.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
-			this.m_lastExportLocationLink.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_lastExportLocationLink.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lastExportLocationLink.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_lastExportLocationLink.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lastExportLocationLink, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lastExportLocationLink, null);
 			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_lastExportLocationLink, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lastExportLocationLink, "MainForm.LastExportLocation");
-			this.m_lastExportLocationLink.Location = new System.Drawing.Point(3, 0);
+			this.m_lastExportLocationLink.Location = new System.Drawing.Point(76, 0);
+			this.m_lastExportLocationLink.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+			this.m_lastExportLocationLink.MaximumSize = new System.Drawing.Size(250, 0);
 			this.m_lastExportLocationLink.Name = "m_lastExportLocationLink";
-			this.m_lastExportLocationLink.Size = new System.Drawing.Size(311, 29);
+			this.m_lastExportLocationLink.Size = new System.Drawing.Size(95, 13);
 			this.m_lastExportLocationLink.TabIndex = 32;
 			this.m_lastExportLocationLink.TabStop = true;
 			this.m_lastExportLocationLink.Text = "last export location";
@@ -179,17 +180,16 @@
 			this.m_lnkExit.BackColor = System.Drawing.SystemColors.Control;
 			this.m_lnkExit.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
-			this.m_lnkExit.Dock = System.Windows.Forms.DockStyle.Right;
 			this.m_lnkExit.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lnkExit.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_lnkExit.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lnkExit, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lnkExit, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lnkExit, "MainForm.Exit");
-			this.m_lnkExit.Location = new System.Drawing.Point(320, 0);
+			this.m_lnkExit.Location = new System.Drawing.Point(312, 0);
 			this.m_lnkExit.Name = "m_lnkExit";
-			this.m_lnkExit.Size = new System.Drawing.Size(24, 29);
+			this.m_lnkExit.Size = new System.Drawing.Size(24, 13);
 			this.m_lnkExit.TabIndex = 7;
 			this.m_lnkExit.TabStop = true;
 			this.m_lnkExit.Text = "Exit";
@@ -209,7 +209,7 @@
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnOpenProject, "MainForm.OpenProject");
 			this.m_btnOpenProject.Location = new System.Drawing.Point(23, 35);
 			this.m_btnOpenProject.Name = "m_btnOpenProject";
-			this.m_btnOpenProject.Size = new System.Drawing.Size(151, 23);
+			this.m_btnOpenProject.Size = new System.Drawing.Size(159, 23);
 			this.m_btnOpenProject.TabIndex = 0;
 			this.m_btnOpenProject.Text = "({0}) Open Project...";
 			this.m_btnOpenProject.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -225,7 +225,7 @@
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckOpen, "Sufficiently completed to move on to following tasks");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_imgCheckOpen, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckOpen, "MainForm.SufficientlyCompleted");
-			this.m_imgCheckOpen.Location = new System.Drawing.Point(180, 35);
+			this.m_imgCheckOpen.Location = new System.Drawing.Point(188, 35);
 			this.m_imgCheckOpen.Name = "m_imgCheckOpen";
 			this.m_imgCheckOpen.Size = new System.Drawing.Size(22, 23);
 			this.m_imgCheckOpen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -245,9 +245,9 @@
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblActorsAssigned, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblActorsAssigned, "{0} and {1} are numbers");
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblActorsAssigned, "MainForm.ActorsAssigned");
-			this.m_lblActorsAssigned.Location = new System.Drawing.Point(208, 177);
+			this.m_lblActorsAssigned.Location = new System.Drawing.Point(216, 177);
 			this.m_lblActorsAssigned.Name = "m_lblActorsAssigned";
-			this.m_lblActorsAssigned.Size = new System.Drawing.Size(341, 29);
+			this.m_lblActorsAssigned.Size = new System.Drawing.Size(333, 29);
 			this.m_lblActorsAssigned.TabIndex = 30;
 			this.m_lblActorsAssigned.Text = "{0} voice actors identified, {1} assigned";
 			this.m_lblActorsAssigned.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -261,7 +261,7 @@
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckAssignActors, "Sufficiently completed to move on to following tasks");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_imgCheckAssignActors, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckAssignActors, "MainForm.SufficientlyCompleted");
-			this.m_imgCheckAssignActors.Location = new System.Drawing.Point(180, 180);
+			this.m_imgCheckAssignActors.Location = new System.Drawing.Point(188, 180);
 			this.m_imgCheckAssignActors.Name = "m_imgCheckAssignActors";
 			this.m_imgCheckAssignActors.Size = new System.Drawing.Size(22, 23);
 			this.m_imgCheckAssignActors.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -282,9 +282,9 @@
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblProjectInfo, null);
 			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_lblProjectInfo, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblProjectInfo, "MainForm.MainForm.m_lblBundleId");
-			this.m_lblProjectInfo.Location = new System.Drawing.Point(208, 32);
+			this.m_lblProjectInfo.Location = new System.Drawing.Point(216, 32);
 			this.m_lblProjectInfo.Name = "m_lblProjectInfo";
-			this.m_lblProjectInfo.Size = new System.Drawing.Size(341, 29);
+			this.m_lblProjectInfo.Size = new System.Drawing.Size(333, 29);
 			this.m_lblProjectInfo.TabIndex = 3;
 			this.m_lblProjectInfo.Text = "{0}";
 			this.m_lblProjectInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -298,7 +298,7 @@
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckSettings, "Sufficiently completed to move on to following tasks");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_imgCheckSettings, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckSettings, "MainForm.SufficientlyCompleted");
-			this.m_imgCheckSettings.Location = new System.Drawing.Point(180, 64);
+			this.m_imgCheckSettings.Location = new System.Drawing.Point(188, 64);
 			this.m_imgCheckSettings.Name = "m_imgCheckSettings";
 			this.m_imgCheckSettings.Size = new System.Drawing.Size(22, 23);
 			this.m_imgCheckSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -318,7 +318,7 @@
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnAssignVoiceActors, "MainForm.AssignVoiceActors");
 			this.m_btnAssignVoiceActors.Location = new System.Drawing.Point(23, 180);
 			this.m_btnAssignVoiceActors.Name = "m_btnAssignVoiceActors";
-			this.m_btnAssignVoiceActors.Size = new System.Drawing.Size(151, 23);
+			this.m_btnAssignVoiceActors.Size = new System.Drawing.Size(159, 23);
 			this.m_btnAssignVoiceActors.TabIndex = 5;
 			this.m_btnAssignVoiceActors.Text = "({0}) Assign Voice Actors...";
 			this.m_btnAssignVoiceActors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -338,9 +338,9 @@
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblSettingsInfo, null);
 			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_lblSettingsInfo, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblSettingsInfo, "MainForm.MainForm.m_lblLanguage");
-			this.m_lblSettingsInfo.Location = new System.Drawing.Point(208, 61);
+			this.m_lblSettingsInfo.Location = new System.Drawing.Point(216, 61);
 			this.m_lblSettingsInfo.Name = "m_lblSettingsInfo";
-			this.m_lblSettingsInfo.Size = new System.Drawing.Size(341, 29);
+			this.m_lblSettingsInfo.Size = new System.Drawing.Size(333, 29);
 			this.m_lblSettingsInfo.TabIndex = 5;
 			this.m_lblSettingsInfo.Text = "{0}";
 			this.m_lblSettingsInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -354,7 +354,7 @@
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckAssignCharacters, "Sufficiently completed to move on to following tasks");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_imgCheckAssignCharacters, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckAssignCharacters, "MainForm.SufficientlyCompleted");
-			this.m_imgCheckAssignCharacters.Location = new System.Drawing.Point(180, 122);
+			this.m_imgCheckAssignCharacters.Location = new System.Drawing.Point(188, 122);
 			this.m_imgCheckAssignCharacters.Name = "m_imgCheckAssignCharacters";
 			this.m_imgCheckAssignCharacters.Size = new System.Drawing.Size(22, 23);
 			this.m_imgCheckAssignCharacters.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -374,7 +374,7 @@
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnSettings, "MainForm.ProjectSettings");
 			this.m_btnSettings.Location = new System.Drawing.Point(23, 64);
 			this.m_btnSettings.Name = "m_btnSettings";
-			this.m_btnSettings.Size = new System.Drawing.Size(151, 23);
+			this.m_btnSettings.Size = new System.Drawing.Size(159, 23);
 			this.m_btnSettings.TabIndex = 1;
 			this.m_btnSettings.Text = "({0}) Project Settings...";
 			this.m_btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -394,9 +394,9 @@
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblBookSelectionInfo, null);
 			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_lblBookSelectionInfo, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblBookSelectionInfo, "MainForm.MainForm.m_lblLanguage");
-			this.m_lblBookSelectionInfo.Location = new System.Drawing.Point(208, 90);
+			this.m_lblBookSelectionInfo.Location = new System.Drawing.Point(216, 90);
 			this.m_lblBookSelectionInfo.Name = "m_lblBookSelectionInfo";
-			this.m_lblBookSelectionInfo.Size = new System.Drawing.Size(341, 29);
+			this.m_lblBookSelectionInfo.Size = new System.Drawing.Size(333, 29);
 			this.m_lblBookSelectionInfo.TabIndex = 24;
 			this.m_lblBookSelectionInfo.Text = "{0}";
 			this.m_lblBookSelectionInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -413,9 +413,9 @@
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblPercentAssigned, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblPercentAssigned, "{0:N1} is a number with one decimal point");
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblPercentAssigned, "MainForm.PercentComplete");
-			this.m_lblPercentAssigned.Location = new System.Drawing.Point(208, 119);
+			this.m_lblPercentAssigned.Location = new System.Drawing.Point(216, 119);
 			this.m_lblPercentAssigned.Name = "m_lblPercentAssigned";
-			this.m_lblPercentAssigned.Size = new System.Drawing.Size(341, 29);
+			this.m_lblPercentAssigned.Size = new System.Drawing.Size(333, 29);
 			this.m_lblPercentAssigned.TabIndex = 17;
 			this.m_lblPercentAssigned.Text = "{0:N1}% complete";
 			this.m_lblPercentAssigned.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -429,7 +429,7 @@
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCheckBooks, "Sufficiently completed to move on to following tasks");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_imgCheckBooks, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCheckBooks, "MainForm.SufficientlyCompleted");
-			this.m_imgCheckBooks.Location = new System.Drawing.Point(180, 93);
+			this.m_imgCheckBooks.Location = new System.Drawing.Point(188, 93);
 			this.m_imgCheckBooks.Name = "m_imgCheckBooks";
 			this.m_imgCheckBooks.Size = new System.Drawing.Size(22, 23);
 			this.m_imgCheckBooks.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -449,7 +449,7 @@
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnSelectBooks, "MainForm.SelectBooks");
 			this.m_btnSelectBooks.Location = new System.Drawing.Point(23, 93);
 			this.m_btnSelectBooks.Name = "m_btnSelectBooks";
-			this.m_btnSelectBooks.Size = new System.Drawing.Size(151, 23);
+			this.m_btnSelectBooks.Size = new System.Drawing.Size(159, 23);
 			this.m_btnSelectBooks.TabIndex = 2;
 			this.m_btnSelectBooks.Text = "({0}) Select Books...";
 			this.m_btnSelectBooks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -457,24 +457,24 @@
 			this.m_btnSelectBooks.UseVisualStyleBackColor = false;
 			this.m_btnSelectBooks.Click += new System.EventHandler(this.SelectBooks_Click);
 			// 
-			// m_btnAssign
+			// m_btnIdentify
 			// 
-			this.glyssenColorPalette.SetBackColor(this.m_btnAssign, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.m_btnAssign.Enabled = false;
-			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnAssign, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.glyssenColorPalette.SetForeColor(this.m_btnAssign, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnAssign, "Select a Character ID for each block in the recording script");
-			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnAssign, null);
-			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnAssign, "MainForm.AssignCharacters");
-			this.m_btnAssign.Location = new System.Drawing.Point(23, 122);
-			this.m_btnAssign.Name = "m_btnAssign";
-			this.m_btnAssign.Size = new System.Drawing.Size(151, 23);
-			this.m_btnAssign.TabIndex = 3;
-			this.m_btnAssign.Text = "({0}) Assign Characters...";
-			this.m_btnAssign.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnAssign, false);
-			this.m_btnAssign.UseVisualStyleBackColor = false;
-			this.m_btnAssign.Click += new System.EventHandler(this.Assign_Click);
+			this.glyssenColorPalette.SetBackColor(this.m_btnIdentify, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_btnIdentify.Enabled = false;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnIdentify, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.glyssenColorPalette.SetForeColor(this.m_btnIdentify, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnIdentify, "Select a Character ID for each block in the recording script");
+			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnIdentify, null);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnIdentify, "MainForm.IdentifySpeakingParts");
+			this.m_btnIdentify.Location = new System.Drawing.Point(23, 122);
+			this.m_btnIdentify.Name = "m_btnIdentify";
+			this.m_btnIdentify.Size = new System.Drawing.Size(159, 23);
+			this.m_btnIdentify.TabIndex = 3;
+			this.m_btnIdentify.Text = "({0}) Identify Speaking Parts...";
+			this.m_btnIdentify.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnIdentify, false);
+			this.m_btnIdentify.UseVisualStyleBackColor = false;
+			this.m_btnIdentify.Click += new System.EventHandler(this.Assign_Click);
 			// 
 			// m_btnExport
 			// 
@@ -487,7 +487,7 @@
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnExport, "MainForm.ExportScript");
 			this.m_btnExport.Location = new System.Drawing.Point(23, 209);
 			this.m_btnExport.Name = "m_btnExport";
-			this.m_btnExport.Size = new System.Drawing.Size(151, 23);
+			this.m_btnExport.Size = new System.Drawing.Size(159, 23);
 			this.m_btnExport.TabIndex = 6;
 			this.m_btnExport.Text = "({0}) Export Recording Script...";
 			this.m_btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -525,7 +525,7 @@
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnCastSizePlanning, "MainForm.CastSizePlanning");
 			this.m_btnCastSizePlanning.Location = new System.Drawing.Point(23, 151);
 			this.m_btnCastSizePlanning.Name = "m_btnCastSizePlanning";
-			this.m_btnCastSizePlanning.Size = new System.Drawing.Size(151, 23);
+			this.m_btnCastSizePlanning.Size = new System.Drawing.Size(159, 23);
 			this.m_btnCastSizePlanning.TabIndex = 4;
 			this.m_btnCastSizePlanning.Text = "({0}) Cast Size Planning...";
 			this.m_btnCastSizePlanning.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -541,7 +541,7 @@
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_imgCastSizePlanning, "Sufficiently completed to move on to following tasks");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_imgCastSizePlanning, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_imgCastSizePlanning, "MainForm.SufficientlyCompleted");
-			this.m_imgCastSizePlanning.Location = new System.Drawing.Point(180, 151);
+			this.m_imgCastSizePlanning.Location = new System.Drawing.Point(188, 151);
 			this.m_imgCastSizePlanning.Name = "m_imgCastSizePlanning";
 			this.m_imgCastSizePlanning.Size = new System.Drawing.Size(22, 23);
 			this.m_imgCastSizePlanning.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -549,6 +549,25 @@
 			this.m_imgCastSizePlanning.TabStop = false;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_imgCastSizePlanning, false);
 			this.m_imgCastSizePlanning.Visible = false;
+			// 
+			// m_lblFilesAreHere
+			// 
+			this.m_lblFilesAreHere.AutoSize = true;
+			this.m_lblFilesAreHere.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_lblFilesAreHere, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_lblFilesAreHere, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_lblFilesAreHere.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblFilesAreHere, null);
+			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblFilesAreHere, null);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblFilesAreHere, "MainForm.FilesAreHere");
+			this.m_lblFilesAreHere.Location = new System.Drawing.Point(3, 0);
+			this.m_lblFilesAreHere.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+			this.m_lblFilesAreHere.Name = "m_lblFilesAreHere";
+			this.m_lblFilesAreHere.Size = new System.Drawing.Size(73, 13);
+			this.m_lblFilesAreHere.TabIndex = 0;
+			this.m_lblFilesAreHere.Text = "Files are here:";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblFilesAreHere, true);
+			this.m_lblFilesAreHere.Visible = false;
 			// 
 			// m_tableLayoutPanel
 			// 
@@ -560,7 +579,6 @@
 			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.m_tableLayoutPanel.Controls.Add(this.m_lblSelectNextTask, 0, 0);
-			this.m_tableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 2, 7);
 			this.m_tableLayoutPanel.Controls.Add(this.m_btnOpenProject, 0, 1);
 			this.m_tableLayoutPanel.Controls.Add(this.m_imgCheckOpen, 1, 1);
 			this.m_tableLayoutPanel.Controls.Add(this.m_lblActorsAssigned, 2, 6);
@@ -575,17 +593,18 @@
 			this.m_tableLayoutPanel.Controls.Add(this.m_lblPercentAssigned, 2, 4);
 			this.m_tableLayoutPanel.Controls.Add(this.m_imgCheckBooks, 1, 3);
 			this.m_tableLayoutPanel.Controls.Add(this.m_btnSelectBooks, 0, 3);
-			this.m_tableLayoutPanel.Controls.Add(this.m_btnAssign, 0, 4);
+			this.m_tableLayoutPanel.Controls.Add(this.m_btnIdentify, 0, 4);
 			this.m_tableLayoutPanel.Controls.Add(this.m_btnExport, 0, 7);
 			this.m_tableLayoutPanel.Controls.Add(this.m_btnCastSizePlanning, 0, 5);
 			this.m_tableLayoutPanel.Controls.Add(this.m_imgCastSizePlanning, 1, 5);
-			this.m_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+			this.m_tableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 2, 8);
+			this.m_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.glyssenColorPalette.SetForeColor(this.m_tableLayoutPanel, Glyssen.Utilities.GlyssenColors.Default);
 			this.m_tableLayoutPanel.Location = new System.Drawing.Point(0, 32);
 			this.m_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
 			this.m_tableLayoutPanel.Name = "m_tableLayoutPanel";
 			this.m_tableLayoutPanel.Padding = new System.Windows.Forms.Padding(20, 4, 20, 20);
-			this.m_tableLayoutPanel.RowCount = 8;
+			this.m_tableLayoutPanel.RowCount = 9;
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -594,30 +613,34 @@
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.m_tableLayoutPanel.Size = new System.Drawing.Size(572, 255);
+			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayoutPanel.Size = new System.Drawing.Size(572, 310);
 			this.m_tableLayoutPanel.TabIndex = 40;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_tableLayoutPanel, false);
 			// 
 			// tableLayoutPanel2
 			// 
+			this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.tableLayoutPanel2.AutoSize = true;
 			this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.tableLayoutPanel2, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.tableLayoutPanel2.ColumnCount = 2;
+			this.tableLayoutPanel2.ColumnCount = 3;
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.Controls.Add(this.m_lastExportLocationLink, 0, 0);
-			this.tableLayoutPanel2.Controls.Add(this.m_lnkExit, 1, 0);
-			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel2.Controls.Add(this.m_lnkExit, 2, 0);
+			this.tableLayoutPanel2.Controls.Add(this.m_lastExportLocationLink, 1, 0);
+			this.tableLayoutPanel2.Controls.Add(this.m_lblFilesAreHere, 0, 0);
 			this.glyssenColorPalette.SetForeColor(this.tableLayoutPanel2, Glyssen.Utilities.GlyssenColors.Default);
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(205, 206);
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(213, 235);
 			this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
 			this.tableLayoutPanel2.RowCount = 1;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(347, 29);
-			this.tableLayoutPanel2.TabIndex = 34;
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(339, 13);
+			this.tableLayoutPanel2.TabIndex = 41;
 			this.glyssenColorPalette.SetUsePaletteColors(this.tableLayoutPanel2, false);
 			// 
 			// MainForm
@@ -627,7 +650,7 @@
 			this.AutoSize = true;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.glyssenColorPalette.SetBackColor(this, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.ClientSize = new System.Drawing.Size(572, 319);
+			this.ClientSize = new System.Drawing.Size(572, 342);
 			this.Controls.Add(this.m_tableLayoutPanel);
 			this.Controls.Add(this.m_toolStrip);
 			this.glyssenColorPalette.SetForeColor(this, Glyssen.Utilities.GlyssenColors.Default);
@@ -673,7 +696,6 @@
 		private Utilities.GlyssenColorPalette glyssenColorPalette;
 		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanel;
 		private System.Windows.Forms.Label m_lblSelectNextTask;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.LinkLabel m_lastExportLocationLink;
 		private System.Windows.Forms.LinkLabel m_lnkExit;
 		private System.Windows.Forms.Button m_btnOpenProject;
@@ -690,10 +712,12 @@
 		private System.Windows.Forms.Label m_lblPercentAssigned;
 		private System.Windows.Forms.PictureBox m_imgCheckBooks;
 		private System.Windows.Forms.Button m_btnSelectBooks;
-		private System.Windows.Forms.Button m_btnAssign;
+		private System.Windows.Forms.Button m_btnIdentify;
 		private System.Windows.Forms.Button m_btnExport;
 		private System.Windows.Forms.Button m_btnCastSizePlanning;
 		private System.Windows.Forms.PictureBox m_imgCastSizePlanning;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+		private System.Windows.Forms.Label m_lblFilesAreHere;
 	}
 }
 
