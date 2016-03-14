@@ -7,6 +7,7 @@ GEN	1	9	God		God (the LORD)
 GEN	1	10	narrator-GEN		
 GEN	1	11	God		God (the LORD)
 GEN	1	14	God		God (the LORD)
+GEN	1	15	God		God (the LORD)
 GEN	1	20	God		God (the LORD)
 GEN	1	22	God		God (the LORD)
 GEN	1	24	God		God (the LORD)
@@ -5876,9 +5877,27 @@ JER	26	12	Jeremiah		Jeremiah, the prophet
 JER	26	16	officials/all the people		
 JER	26	18	elders of the land		
 JER	26	19	elders of the land		
-JER	27	2	God		God (the LORD)(word of the LORD came)
-JER	27	12	Jeremiah		Jeremiah, the prophet (the LORD says)
-JER	27	16	Jeremiah		Jeremiah, the prophet (the LORD says)
+JER	27	2	God		God (the LORD)(word of the LORD came)	Normal		
+JER	27	3	God		God (the LORD)(word of the LORD came)	Normal		
+JER	27	4	God		God (the LORD)(word of the LORD came)	Normal		
+JER	27	5	God		God (the LORD)(word of the LORD came)	Normal		
+JER	27	6	God		God (the LORD)(word of the LORD came)	Normal		
+JER	27	7	God		God (the LORD)(word of the LORD came)	Normal		
+JER	27	8	God		God (the LORD)(word of the LORD came)	Normal		
+JER	27	9	God		God (the LORD)(word of the LORD came)	Normal		
+JER	27	10	God		God (the LORD)(word of the LORD came)	Normal		
+JER	27	11	God		God (the LORD)(word of the LORD came)	Normal		
+JER	27	12	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	13	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	14	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	15	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	16	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	17	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	18	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	19	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	20	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	21	Jeremiah		Jeremiah (the LORD says)	Normal		
+JER	27	22	Jeremiah		Jeremiah (the LORD says)	Normal		
 JER	28	2	Hananiah, Normal prophet		
 JER	28	6	Jeremiah		Jeremiah, the prophet
 JER	28	11	Hananiah, Normal prophet		
