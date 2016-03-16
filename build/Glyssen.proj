@@ -60,7 +60,7 @@
 	</Target>
 
 	<Target Name="Test" DependsOnTargets="Build">
-		<!-- Note: the Exclude here is (hopefully) a temporary solution. 
+		<!-- Note: the Exclude here is (hopefully) a temporary solution.
 		Ultimately, it would be better not to have a dependency on a project
 		which itself contains tests. Let's move the test scaffolding in SIL.DblBundle.Tests
 		into a separate test scaffolding dll -->
@@ -120,7 +120,7 @@
 	<Target Name="SignIfPossible" DependsOnTargets="VersionNumbers">
 		<Exec Command='sign "$(RootDir)\output\installer\$(InstallerFileName)"' ContinueOnError="true"></Exec>
 	</Target>
-	
+
 	<Target Name="MakeWixForDistFiles">
 		<MakeDir Directories ="$(RootDir)\output\installer" ContinueOnError ="true"/>
 		<MakeWixForDirTree
@@ -134,7 +134,7 @@
 			<Output TaskParameter="OutputFilePath" ItemName="Compile" />
 		</MakeWixForDirTree>
 	</Target>
-	
+
 	<Target Name="MakeWixForXulRunner">
 		<MakeDir Directories ="$(RootDir)\output\installer" ContinueOnError ="true"/>
 		<MakeWixForDirTree
@@ -151,7 +151,7 @@
 
 <Target Name="Upload" DependsOnTargets="VersionNumbers; Installer" >
 	<Message Text="Attempting rsync of GlyssenInstaller.$(Version).*" Importance="high"/>
-	<Exec Command ='"c:\program files\cwRsync\bin\rsync.exe" -vzt -p --chmod=Dug=rwx,Fug=rw,o-rwx --stats --rsync-path="sudo -u vu2004 rsync" -e"\"c:\program files\cwRsync\bin\ssh\" -vvv -oUserKnownHostsFile=C:\BuildAgent\conf\known_hosts -oIdentityFile=C:\BuildAgent\conf\bob.key -l bob"  "../output/installer/GlyssenInstaller.$(Version).*" root@software.sil.org:/var/www/virtual/software/sil/org/htdocs/downloads/glyssen/' />
+	<Exec Command ='"c:\program files\cwRsync\bin\rsync.exe" -vzlt --chmod=Dug=rwx,Fug=rw,o-rwx --stats --rsync-path="sudo -u vu2004 rsync" -e"\"c:\program files\cwRsync\bin\ssh\" -vvv -oUserKnownHostsFile=C:\BuildAgent\conf\known_hosts -oIdentityFile=C:\BuildAgent\conf\bob.key -l root"  "../output/installer/GlyssenInstaller.$(Version).*" root@software.sil.org:/var/www/virtual/software/sil/org/htdocs/downloads/glyssen/' />
 </Target>
 
 </Project>
