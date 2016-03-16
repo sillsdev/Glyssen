@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Properties;
 using Glyssen.Rules;
@@ -14,6 +15,7 @@ using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.Extensions;
 using SIL.IO;
+using SIL.ObjectModel;
 using SIL.Scripture;
 
 namespace Glyssen.Dialogs
@@ -151,6 +153,13 @@ namespace Glyssen.Dialogs
 			m_project.CharacterGroupList.PopulateEstimatedHours(m_keyStrokesByCharacterId);
 
 			Save();
+		}
+
+		public void ResetActorAndCharacterGroupState()
+		{
+			m_project.Status.VoiceActorStatus = VoiceActorStatus.UnProvided;
+			m_project.CharacterGroupList.CharacterGroups = new ObservableList<CharacterGroup>();
+			m_project.Save();
 		}
 
 		// Keep this method around for now in case we decide to support templates in some scenarios

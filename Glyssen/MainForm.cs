@@ -152,8 +152,14 @@ namespace Glyssen
 
 			m_btnCastSizePlanning.Enabled = m_btnCastSizePlanning.Visible && !readOnly && m_imgCheckAssignCharacters.Visible;
 
-			// todo: Determine when the Cast Size Planning task is done enough to move on to the next task.
-			m_imgCastSizePlanning.Visible = m_btnCastSizePlanning.Visible && m_btnCastSizePlanning.Enabled;
+			// TODO: Determine when the Cast Size Planning task is done enough to move on to the next task.
+			// Tom added the final portion of the logic to allow us to continue to access the Roles for Voice Actors dialog at least
+			// until Phil finishes his Cast Size Planning work. Obviously, we need the part about having groups. The question is whether
+			// we should also allow them to access Roles for Voice Actors if they entered actors but never clicked Generate Groups in the
+			// Cast Size Planning dialog box... See more in the big red bullet point that I added to
+			// https://docs.google.com/document/d/1cwPEYGnLJKK4TkP2MQy3t49k5r9rexCTWDb-jlCSDUo/edit?usp=sharing
+			m_imgCastSizePlanning.Visible = m_btnCastSizePlanning.Visible && m_btnCastSizePlanning.Enabled &&
+				(m_project.CharacterGroupList.CharacterGroups.Any() || m_project.VoiceActorList.ActiveActors.Any());
 
 			m_btnAssignVoiceActors.Enabled = m_btnAssignVoiceActors.Visible && !readOnly && m_imgCastSizePlanning.Visible;
 			m_imgCheckAssignActors.Visible = m_btnAssignVoiceActors.Visible && m_btnAssignVoiceActors.Enabled && m_project.IsVoiceActorScriptReady;
@@ -654,6 +660,16 @@ namespace Glyssen
 		private void m_btnCastSizePlanning_Click(object sender, EventArgs e)
 		{
 			// TODO: implement this when the CastSizePlanningDlg is ready
+			// TODO: The following block is TEMPORARY! REMOVE IT!!!
+			if (!m_project.VoiceActorList.ActiveActors.Any())
+			{
+				Debug.WriteLine("Executing TEMPORARY code to add a dummy actor!!! Remove this logic when Cast Size Planning" +
+					"dialog is ready for show time.");
+				m_project.VoiceActorList.AllActors.Add(new VoiceActor.VoiceActor() {Name = "Dummy"});
+				UpdateDisplayOfProjectInfo();
+				SaveCurrentProject();
+			}
+
 			//using (var dlg = new CastSizePlanningDlg(new CastSizePlanningViewModel(m_project)))
 			//	if (dlg.ShowDialog(this) == DialogResult.OK)
 			//		return;

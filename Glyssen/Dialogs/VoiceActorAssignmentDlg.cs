@@ -119,7 +119,8 @@ namespace Glyssen.Dialogs
 			if (changingRowCount)
 			{
 				var sizeRestoreInfo = SaveAutoSizeInfo();
-				m_characterGroupGrid.ClearSelection();
+				if (m_actorAssignmentViewModel.CharacterGroups.Any())
+					m_characterGroupGrid.ClearSelection();
 				m_characterGroupGrid.RowCount = m_actorAssignmentViewModel.CharacterGroups.Count;
 				// Need to clear the selection here again because some of the property setters on
 				// DataGridView have the side-effect of creating a selection. We want to avoid having
@@ -204,21 +205,24 @@ namespace Glyssen.Dialogs
 
 			using (var actorDlg = new VoiceActorInformationDlg(actorInfoViewModel, false))
 			{
-				actorDlg.ShowDialog(this);
-				if (actorDlg.CloseParent)
+				//if (actorDlg.CloseParent)
+				//{
+				//	Close();
+				//	return;
+				//}
+
+				if (actorDlg.ShowDialog(this) == DialogResult.OK)
 				{
-					Close();
-					return;
-				}
+					m_actorAssignmentViewModel.NoteActorChanges(actorInfoViewModel.Changes);
+					if (actorInfoViewModel.DataHasChangedInWaysThatMightAffectGroupGeneration && actorInfoViewModel.Actors.Any())
+					{
+						m_programmaticClickOfUpdateGroups = true;
+						HandleUpdateGroupsClick(m_optimizeButton, e);
 
-				if (actorInfoViewModel.Changes.Any())
-				{
-					m_programmaticClickOfUpdateGroups = true;
-					HandleUpdateGroupsClick(m_optimizeButton, e);
+						VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null);
 
-					VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null);
-
-					SetVoiceActorCellDataSource();
+						SetVoiceActorCellDataSource();
+					}
 				}
 			}
 
@@ -472,16 +476,28 @@ namespace Glyssen.Dialogs
 			m_programmaticClickOfUpdateGroups = false;
 			SortByColumn(m_sortedColumn, m_sortedAscending);
 
-			if (nameOfSelectedGroup != null)
+			if (m_actorAssignmentViewModel.CharacterGroups.Any())
 			{
-				var groupToSelect = m_actorAssignmentViewModel.CharacterGroups.IndexOf(g => g.Name == nameOfSelectedGroup);
-				if (groupToSelect < 0)
-					groupToSelect = 0;
-				if (!m_characterGroupGrid.Rows[groupToSelect].Selected)
+				if (nameOfSelectedGroup != null)
 				{
-					m_characterGroupGrid.ClearSelection();
-					m_characterGroupGrid.Rows[groupToSelect].Selected = true;
+					var groupToSelect = m_actorAssignmentViewModel.CharacterGroups.IndexOf(g => g.Name == nameOfSelectedGroup);
+					if (groupToSelect < 0)
+						groupToSelect = 0;
+					if (!m_characterGroupGrid.Rows[groupToSelect].Selected)
+					{
+						m_characterGroupGrid.ClearSelection();
+						m_characterGroupGrid.Rows[groupToSelect].Selected = true;
+					}
 				}
+			}
+			else
+			{
+				// Once my changes are merged with Andrew's, this will be impossible unless/until we implement
+				// the Consolidate/Expand logic.
+				m_actorAssignmentViewModel.ResetActorAndCharacterGroupState();
+				// If we don't get rid of this altogether, we probably need to display a message to tell the user that
+				// they need to go back to cast size planning -- maybe even take them there.
+				Close();
 			}
 		}
 
@@ -784,6 +800,11 @@ namespace Glyssen.Dialogs
 
 		private void m_characterGroupGrid_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
 		{
+			if (m_actorAssignmentViewModel.CharacterGroups.Count < e.RowIndex + 1)
+			{
+				e.Value = null;
+				return;
+			}
 			if (e.ColumnIndex == CharacterIdsCol.Index)
 			{
 				var charIdsString = m_actorAssignmentViewModel.CharacterGroups[e.RowIndex].CharacterIds.ToString();
