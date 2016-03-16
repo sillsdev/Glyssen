@@ -112,7 +112,7 @@
 	<!-- These targets are designed to be additional steps on TeamCity after running target Installer. Pick the appropriate one
 	depending on whether your project's output MUST be signed or it's only nice if it is. For example, a continuous build
 	might use SignIfPossible, while a Publication build must use SignInstaller.-->
-	<Target Name="SignInstaller" DependsOnTargets="VersionNumbers; Installer">
+	<Target Name="SignInstaller" DependsOnTargets="VersionNumbers">
 		<Exec Command='sign "$(RootDir)\output\installer\$(InstallerFileName)"'></Exec>
 		<Message Text="Signed installer at $(RootDir)\output\installer\$(InstallerFileName)" Importance="high"/>
 	</Target>
@@ -149,7 +149,7 @@
 		</MakeWixForDirTree>
 	</Target>
 
-<Target Name="Upload" DependsOnTargets="VersionNumbers; Installer" >
+<Target Name="Upload" DependsOnTargets="VersionNumbers" >
 	<Message Text="Attempting rsync of GlyssenInstaller.$(Version).*" Importance="high"/>
 	<Exec Command ='"c:\program files\cwRsync\bin\rsync.exe" -vzlt --chmod=Dug=rwx,Fug=rw,o-rwx --stats --rsync-path="sudo -u vu2004 rsync" -e"\"c:\program files\cwRsync\bin\ssh\" -vvv -oUserKnownHostsFile=C:\BuildAgent\conf\known_hosts -oIdentityFile=C:\BuildAgent\conf\bob.key -l root"  "../output/installer/GlyssenInstaller.$(Version).msi" root@software.sil.org:/var/www/virtual/software.sil.org/htdocs/downloads/glyssen/' />
 	<Exec Command ='"c:\program files\cwRsync\bin\rsync.exe" -vzlt --chmod=Dug=rwx,Fug=rw,o-rwx --stats --rsync-path="sudo -u vu2004 rsync" -e"\"c:\program files\cwRsync\bin\ssh\" -vvv -oUserKnownHostsFile=C:\BuildAgent\conf\known_hosts -oIdentityFile=C:\BuildAgent\conf\bob.key -l root"  "../output/installer/GlyssenInstaller.$(Version).download_info" root@software.sil.org:/var/www/virtual/software.sil.org/htdocs/downloads/glyssen/' />
