@@ -150,8 +150,6 @@ namespace Glyssen.Dialogs
 			// TODO (PG-437): Create Undo action to store state before calling generate.
 			generate();
 
-			m_project.CharacterGroupList.PopulateEstimatedHours(m_keyStrokesByCharacterId);
-
 			Save();
 		}
 

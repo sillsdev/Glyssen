@@ -52,6 +52,8 @@ namespace Glyssen.Dialogs
 			}
 
 			destGroup.CharacterIds.AddRange(m_characterIdsMoved);
+			destGroup.SetGroupIdLabelBasedOnCharacterIds();
+			m_project.CharacterGroupList.UpdateGroupIdNumbers();
 			return sourceSurvived;
 		}
 
@@ -111,6 +113,8 @@ namespace Glyssen.Dialogs
 				return false;
 
 			sourceGroup.CharacterIds.AddRange(m_characterIdsMoved);
+			sourceGroup.SetGroupIdLabelBasedOnCharacterIds();
+			m_project.CharacterGroupList.UpdateGroupIdNumbers();
 			AddGroupAffected(sourceGroup);
 
 			if (destGroup.CharacterIds.SetEquals(m_characterIdsMoved) && !destGroup.AssignedToCameoActor)

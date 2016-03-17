@@ -20,6 +20,14 @@ namespace Glyssen
 			}
 			if (fromControlFileVersion < 90)
 				SetBookIdForChapterBlocks(project.Books);
+
+			// Ideally, we would check that the project has been fully initialized, but the project state
+			// may not have been set yet by the time we get here (the check above is invalid and will be fixed in PG-609)
+			if (project.ProjectState != ProjectState.Initial)
+			{
+				if (fromControlFileVersion < 95)
+					AddCharacterGroupIds(project);
+			}
 		}
 
 		// internal for testing
@@ -124,13 +132,18 @@ namespace Glyssen
 			}
 		}
 
-		public static void SetBookIdForChapterBlocks(IReadOnlyList<BookScript> books)
+		internal static void SetBookIdForChapterBlocks(IReadOnlyList<BookScript> books)
 		{
 			foreach (var book in books)
 			{
 				foreach (var block in book.GetScriptBlocks().Where(block => block.IsChapterAnnouncement && block.BookCode == null))
 					block.BookCode = book.BookId;
 			}
+		}
+
+		private static void AddCharacterGroupIds(Project project)
+		{
+			CharacterGroupList.AssignGroupIds(project.CharacterGroupList.CharacterGroups, project.GetKeyStrokesByCharacterId());
 		}
 	}
 }

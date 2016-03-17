@@ -779,7 +779,7 @@ namespace Glyssen
 
 		private void InitializeLoadedProject()
 		{
-			m_usxPercentComplete = 100;;
+			m_usxPercentComplete = 100;
 			if (QuoteSystem == null)
 			{
 				GuessAtQuoteSystem();

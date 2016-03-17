@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
 using Glyssen.VoiceActor;
+using L10NSharp;
 using SIL.Extensions;
 
 namespace Glyssen.Rules
@@ -237,6 +238,7 @@ namespace Glyssen.Rules
 
 		private List<CharacterGroup> GetFinalizedGroups(List<CharacterGroup> groups, List<int> actorsWithRealAssignments)
 		{
+			CharacterGroupList.AssignGroupIds(groups, m_keyStrokesByCharacterId);
 			foreach (var group in groups)
 			{
 				if (!group.AssignedToCameoActor && !actorsWithRealAssignments.Contains(group.VoiceActorId))

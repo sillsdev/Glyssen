@@ -80,6 +80,8 @@ namespace Glyssen.Rules
 				var newGroup = new CharacterGroup(m_project);
 				characterGroups.Add(newGroup);
 				newGroup.CharacterIds.AddRange(m_charactersNotCoveredByAnyGroup);
+				newGroup.SetGroupIdLabelBasedOnCharacterIds();
+				m_project.CharacterGroupList.UpdateGroupIdNumbers();
 				m_charactersNotCoveredByAnyGroup.Clear();
 			}
 			foreach (var character in m_charactersNoLongerInUse)

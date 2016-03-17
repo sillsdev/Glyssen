@@ -40,13 +40,13 @@ namespace GlyssenTests.Dialogs
 		public void Constructor_SourceAndDestHaveCharactersBeforeAndAfterMove_CharactersGetMovedNoGroupsDeleted()
 		{
 			var sourceGroup = AddCharacterGroup("Paul", "Jacob", "Micah");
-			var destGroup = AddCharacterGroup("centurion", "man, another", "captain", "Pharisees");
+			var destGroup = AddCharacterGroup("centurion at crucifixion", "man, another", "captain", "Pharisees");
 
 			var action = new MoveCharactersToGroupUndoAction(m_testProject, sourceGroup, destGroup, new List<string> { "Micah" });
 
 			Assert.IsTrue(action.GroupsAffectedByLastOperation.SequenceEqual(new[] { destGroup, sourceGroup }));
 			Assert.IsTrue(sourceGroup.CharacterIds.SetEquals(new[] { "Paul", "Jacob" }));
-			Assert.IsTrue(destGroup.CharacterIds.SetEquals(new[] { "centurion", "man, another", "captain", "Pharisees", "Micah" }));
+			Assert.IsTrue(destGroup.CharacterIds.SetEquals(new[] { "centurion at crucifixion", "man, another", "captain", "Pharisees", "Micah" }));
 		}
 
 		[Test]
@@ -54,13 +54,13 @@ namespace GlyssenTests.Dialogs
 		{
 			var charactersToMove = new[] { "Paul", "Jacob", "Micah" };
 			var sourceGroup = AddCharacterGroup(charactersToMove);
-			var destGroup = AddCharacterGroup("centurion", "man, another", "captain", "Pharisees");
+			var destGroup = AddCharacterGroup("centurion at crucifixion", "man, another", "captain", "Pharisees");
 
 			var action = new MoveCharactersToGroupUndoAction(m_testProject, sourceGroup, destGroup, charactersToMove);
 
 			Assert.AreEqual(destGroup, action.GroupsAffectedByLastOperation.Single());
 			m_testProject.CharacterGroupList.CharacterGroups.SetEquals(new[] {destGroup});
-			Assert.IsTrue(destGroup.CharacterIds.SetEquals(new[] { "centurion", "man, another", "captain", "Pharisees", "Paul", "Jacob", "Micah" }));
+			Assert.IsTrue(destGroup.CharacterIds.SetEquals(new[] { "centurion at crucifixion", "man, another", "captain", "Pharisees", "Paul", "Jacob", "Micah" }));
 		}
 
 		[Test]
@@ -99,7 +99,7 @@ namespace GlyssenTests.Dialogs
 		public void Description_MoveToGroupWithImplicitName_GroupReferencedByMajorCharacter()
 		{
 			var sourceGroup = AddCharacterGroup("Paul", "Jacob", "Micah");
-			var destGroup = AddCharacterGroup("centurion", "man, another", "captain", "Pharisees");
+			var destGroup = AddCharacterGroup("centurion at crucifixion", "man, another", "captain", "Pharisees");
 
 			var action = new MoveCharactersToGroupUndoAction(m_testProject, sourceGroup, destGroup, new List<string> { "Micah" });
 			Assert.AreEqual("Move characters to Pharisees group", action.Description);
@@ -109,7 +109,7 @@ namespace GlyssenTests.Dialogs
 		public void Description_MoveToGroupWithExplicitName_GroupReferencedByName()
 		{
 			var sourceGroup = AddCharacterGroup("Paul", "Jacob", "Micah");
-			var destGroup = AddCharacterGroup("centurion", "man, another", "captain", "Pharisees");
+			var destGroup = AddCharacterGroup("centurion at crucifixion", "man, another", "captain", "Pharisees");
 			destGroup.GroupNumber = 43;
 			destGroup.Name = "Forty-three";
 
@@ -157,7 +157,7 @@ namespace GlyssenTests.Dialogs
 		public void Undo_AllCharactersMovedFromSourceWithNoAssignedActor_GroupRecreatedAndCharactersGetMovedBack()
 		{
 			var charactersToMove = new[] { "Paul", "Jacob", "Micah" };
-			var originalCharactersInDest = new[] { "centurion", "man, another", "captain", "Pharisees" };
+			var originalCharactersInDest = new[] { "centurion at crucifixion", "man, another", "captain", "Pharisees" };
 			var sourceGroup = AddCharacterGroup(charactersToMove);
 			var destGroup = AddCharacterGroup(originalCharactersInDest);
 			var action = new MoveCharactersToGroupUndoAction(m_testProject, sourceGroup, destGroup, charactersToMove);
@@ -175,7 +175,9 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void Undo_NoDestSuppliedMoveAllCharactersFromSourceWithAssignedActor_CharactersGetMovedBackToOriginalGroupAndNewGroupIsRemoved()
 		{
-			var originalCharactersInSource = new[] { "Paul", "Jacob", "Micah", "centurion", "man, another", "captain", "Pharisees" };
+			var actor = new Glyssen.VoiceActor.VoiceActor { Id = 13 };
+			m_testProject.VoiceActorList.AllActors.Add(actor);
+			var originalCharactersInSource = new[] { "Paul", "Jacob", "Micah", "centurion at crucifixion", "man, another", "captain", "Pharisees" };
 			var sourceGroup = AddCharacterGroup(originalCharactersInSource);
 			sourceGroup.AssignVoiceActor(13);
 			var action = new MoveCharactersToGroupUndoAction(m_testProject, sourceGroup, null, new List<string>(sourceGroup.CharacterIds));
@@ -224,7 +226,7 @@ namespace GlyssenTests.Dialogs
 		public void Redo_AllCharactersMovedFromSourceWithNoAssignedActor_GroupRecreatedAndCharactersGetMovedBack()
 		{
 			var charactersToMove = new[] { "Paul", "Jacob", "Micah" };
-			var originalCharactersInDest = new[] { "centurion", "man, another", "captain", "Pharisees" };
+			var originalCharactersInDest = new[] { "centurion at crucifixion", "man, another", "captain", "Pharisees" };
 			var sourceGroup = AddCharacterGroup(charactersToMove);
 			var destGroup = AddCharacterGroup(originalCharactersInDest);
 			var action = new MoveCharactersToGroupUndoAction(m_testProject, sourceGroup, destGroup, charactersToMove);
@@ -235,13 +237,15 @@ namespace GlyssenTests.Dialogs
 
 			Assert.AreEqual(destGroup, action.GroupsAffectedByLastOperation.Single());
 			m_testProject.CharacterGroupList.CharacterGroups.SetEquals(new[] { destGroup });
-			Assert.IsTrue(destGroup.CharacterIds.SetEquals(new[] { "centurion", "man, another", "captain", "Pharisees", "Paul", "Jacob", "Micah" }));
+			Assert.IsTrue(destGroup.CharacterIds.SetEquals(new[] { "centurion at crucifixion", "man, another", "captain", "Pharisees", "Paul", "Jacob", "Micah" }));
 		}
 
 		[Test]
 		public void Redo_NoDestSuppliedMoveAllCharactersFromSourceWithAssignedActor_CharactersGetMovedBackToOriginalGroupAndNewGroupIsRemoved()
 		{
-			var charactersToMove = new[] { "Paul", "Jacob", "Micah", "centurion", "man, another", "captain", "Pharisees" };
+			var actor = new Glyssen.VoiceActor.VoiceActor { Id = 13 };
+			m_testProject.VoiceActorList.AllActors.Add(actor);
+			var charactersToMove = new[] { "Paul", "Jacob", "Micah", "centurion at crucifixion", "man, another", "captain", "Pharisees" };
 			var sourceGroup = AddCharacterGroup(charactersToMove);
 			sourceGroup.AssignVoiceActor(13);
 			var action = new MoveCharactersToGroupUndoAction(m_testProject, sourceGroup, null, new List<string>(sourceGroup.CharacterIds));

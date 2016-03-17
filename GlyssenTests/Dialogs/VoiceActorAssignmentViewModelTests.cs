@@ -256,7 +256,7 @@ namespace GlyssenTests.Dialogs
 			sourceGroup.CharacterIds = new CharacterIdHashSet(characterIds);
 			sourceGroup.CharacterIds.Add("Lot");
 			sourceGroup.CharacterIds.Add("Cain");
-			var destGroup = AddNewGroup("mouth", "ear");
+			var destGroup = AddNewGroup("foot", "ear");
 
 			List<CharacterGroup> affectedGroups = null;
 			m_model.Saved += (sender, affected) => { affectedGroups = affected.ToList(); };
@@ -290,7 +290,7 @@ namespace GlyssenTests.Dialogs
 			var characterIds = new List<string> { "John", "Andrew" };
 			var sourceGroup = m_model.CharacterGroups[0];
 			sourceGroup.CharacterIds = new CharacterIdHashSet(characterIds);
-			var destGroup = AddNewGroup("ear", "mouth");
+			var destGroup = AddNewGroup("ear", "foot");
 			Assert.AreEqual(2, m_testProject.CharacterGroupList.CharacterGroups.Count);
 
 			List<CharacterGroup> affectedGroups = null;
@@ -298,7 +298,7 @@ namespace GlyssenTests.Dialogs
 			Assert.True(m_model.MoveCharactersToGroup(characterIds, destGroup));
 			Assert.AreEqual(destGroup, affectedGroups.Single());
 			Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
-			Assert.IsTrue(destGroup.CharacterIds.SetEquals(new[] { "John", "Andrew", "ear", "mouth" }));
+			Assert.IsTrue(destGroup.CharacterIds.SetEquals(new[] { "John", "Andrew", "ear", "foot" }));
 			Assert.AreEqual("Move characters to ear group", m_model.UndoActions.Single());
 		}
 
