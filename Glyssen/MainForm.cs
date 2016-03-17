@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
@@ -406,7 +407,29 @@ namespace Glyssen
 
 			int actors = m_project.VoiceActorList.ActiveActors.Count();
 			int assigned = m_project.CharacterGroupList.CountVoiceActorsAssigned();
-			m_lblActorsAssigned.Text = string.Format(m_actorsAssignedFmt, actors, assigned);
+			string format = (actors > 1) ? string.Format(m_actorsAssignedFmt, actors, "{0}") :
+				LocalizationManager.GetString("MainForm.ActorsAssignedSingle", "1 voice actor identified, {0}",
+				"{0} is an expression indicating the number of assigned actors");
+
+			string assignedParameter;
+			switch (assigned)
+			{
+				case 0:
+					assignedParameter = LocalizationManager.GetString("MainForm.NoneAssigned", "0 assigned",
+						"This string is filled in as a parameter in MainForm.ActorsAssignedPlural or MainForm.ActorsAssignedSingle");
+					break;
+				case 1:
+					assignedParameter = LocalizationManager.GetString("MainForm.NoneAssigned", "1 assigned",
+						"This string is filled in as a parameter in MainForm.ActorsAssignedPlural or MainForm.ActorsAssignedSingle");
+					break;
+				default:
+					assignedParameter = String.Format(LocalizationManager.GetString("MainForm.NoneAssigned", "{0} assigned",
+						"{0} is the number of actors assigned. The resulting string is filled in as a parameter in MainForm.ActorsAssignedPlural or MainForm.ActorsAssignedSingle"),
+						assigned);
+					break;
+			}
+
+			m_lblActorsAssigned.Text = String.Format(format, assignedParameter);
 		}
 
 		private void UpdateDisplayOfPercentAssigned()
@@ -462,12 +485,6 @@ namespace Glyssen
 				{
 					dlgMessage = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.EmptyGroupMessage",
 						"One or more character groups have no characters in them. Are you sure you want to export a script?");
-					dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Title", "Export Script?");
-				}
-				else if (m_project.HasUnusedActor)
-				{
-					dlgMessage = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.UnusedActorMessage",
-						"One or more voice actors have not been assigned to a character group. Are you sure you want to export a script?");
 					dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Title", "Export Script?");
 				}
 			}

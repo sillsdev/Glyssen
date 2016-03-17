@@ -123,8 +123,8 @@
 			// 
 			this.m_uiLanguageMenu.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
 			this.m_uiLanguageMenu.AutoToolTip = false;
-			this.m_uiLanguageMenu.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_uiLanguageMenu, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_uiLanguageMenu.BackColor = System.Drawing.SystemColors.Control;
 			this.m_uiLanguageMenu.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
 			this.m_uiLanguageMenu.ForeColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetForeColor(this.m_uiLanguageMenu, Glyssen.Utilities.GlyssenColors.LinkColor);
@@ -151,8 +151,8 @@
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_lastExportLocationLink.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.glyssenColorPalette.SetLinkColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_lastExportLocationLink.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lastExportLocationLink, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lastExportLocationLink, null);
 			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_lastExportLocationLink, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -182,8 +182,8 @@
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_lnkExit.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.glyssenColorPalette.SetLinkColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_lnkExit.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lnkExit, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lnkExit, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lnkExit, "MainForm.Exit");
@@ -243,13 +243,14 @@
 			this.glyssenColorPalette.SetForeColor(this.m_lblActorsAssigned, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_lblActorsAssigned.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblActorsAssigned, null);
-			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblActorsAssigned, "{0} and {1} are numbers");
-			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblActorsAssigned, "MainForm.ActorsAssigned");
+			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblActorsAssigned, "{0}  is the number of active actors and {1} is an expression indicating the numbe" +
+        "r of assigned actors");
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblActorsAssigned, "MainForm.ActorsAssignedPlural");
 			this.m_lblActorsAssigned.Location = new System.Drawing.Point(216, 177);
 			this.m_lblActorsAssigned.Name = "m_lblActorsAssigned";
 			this.m_lblActorsAssigned.Size = new System.Drawing.Size(333, 29);
 			this.m_lblActorsAssigned.TabIndex = 30;
-			this.m_lblActorsAssigned.Text = "{0} voice actors identified, {1} assigned";
+			this.m_lblActorsAssigned.Text = "{0} voice actors identified, {1}";
 			this.m_lblActorsAssigned.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblActorsAssigned, true);
 			// 
@@ -614,6 +615,7 @@
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.m_tableLayoutPanel.Size = new System.Drawing.Size(572, 310);
 			this.m_tableLayoutPanel.TabIndex = 40;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_tableLayoutPanel, false);
@@ -624,8 +626,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.tableLayoutPanel2.AutoSize = true;
 			this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.tableLayoutPanel2, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.Control;
 			this.tableLayoutPanel2.ColumnCount = 3;
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));

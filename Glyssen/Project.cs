@@ -603,7 +603,7 @@ namespace Glyssen
 
 		public bool IsVoiceActorScriptReady
 		{
-			get { return IsVoiceActorAssignmentsComplete && EveryAssignedGroupHasACharacter && !HasUnusedActor; }
+			get { return IsVoiceActorAssignmentsComplete && EveryAssignedGroupHasACharacter; }
 		}
 
 		public bool IsVoiceActorAssignmentsComplete
@@ -620,9 +620,9 @@ namespace Glyssen
 			get { return CharacterGroupList.AssignedGroups.All(g => g.CharacterIds.Count != 0); }
 		}
 
-		public bool HasUnusedActor
+		public IEnumerable<VoiceActor.VoiceActor> UnusedActors
 		{
-			get { return VoiceActorList.AllActors.Any(actor => !CharacterGroupList.HasVoiceActorAssigned(actor.Id)); }
+			get { return VoiceActorList.AllActors.Where(actor => !CharacterGroupList.HasVoiceActorAssigned(actor.Id)); }
 		}
 
 		public bool HasUnappliedSplits()

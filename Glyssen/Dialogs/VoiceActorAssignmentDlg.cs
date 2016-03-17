@@ -520,6 +520,35 @@ namespace Glyssen.Dialogs
 		{
 			if (m_characterGroupGrid.IsCurrentCellInEditMode)
 				m_characterGroupGrid.EndEdit();
+
+			if (m_project.IsVoiceActorAssignmentsComplete)
+			{
+				var unusedActors = m_project.UnusedActors.Count();
+				if (unusedActors > 0)
+				{
+					string warningMsg;
+					if (unusedActors == 1)
+					{
+						warningMsg = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.UnusedActorWarningPlural",
+							"The Voice Actor List for this project has 1 actor not assigned to any group.");
+					}
+					else
+					{
+						warningMsg =
+							String.Format(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.UnusedActorWarningPlural",
+								"The Voice Actor List for this project has {0} actors not assigned to any group.", "{0} is a number."),
+								unusedActors);
+					}
+					var msg =
+						string.Format(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.UnusedActorWarningInstructions",
+							"{0} If this was not intentional," +
+							" you can do either (or both) of the following:\r\n" +
+							"1) In the Voice Actor List dialog box, delete or mark as inactive any unsed actors.\r\n" +
+							"2) Change the list of groups of character roles by adjusting the cast size to be based on the actual Voice Actor List.\r\n\r\n" +
+							"Would you like to take care of this now?", "{0} is the actual warning message."), warningMsg);
+					e.Cancel = MessageBox.Show(this, msg, Text, MessageBoxButtons.YesNo) == DialogResult.Yes;
+				}
+			}
 		}
 
 		#region Character Group Grid
