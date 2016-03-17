@@ -226,12 +226,6 @@
     <Compile Include="Dialogs\AddCharacterToGroupDlg.Designer.cs">
       <DependentUpon>AddCharacterToGroupDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\ExportRolesForVoiceActorsDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\ExportRolesForVoiceActorsDlg.Designer.cs">
-      <DependentUpon>ExportRolesForVoiceActorsDlg.cs</DependentUpon>
-    </Compile>
     <Compile Include="Dialogs\ExportDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +238,7 @@
     <Compile Include="Dialogs\ProgressDialogWithAcknowledgement.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\RolesForVoiceActorsSaveAsDialog.cs" />
     <Compile Include="Dialogs\UnappliedSplitsDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -424,9 +419,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AssignCharacterDlg.resx">
       <DependentUpon>AssignCharacterDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ExportRolesForVoiceActorsDlg.resx">
-      <DependentUpon>ExportRolesForVoiceActorsDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ExportDlg.resx">
       <DependentUpon>ExportDlg.cs</DependentUpon>

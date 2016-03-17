@@ -238,6 +238,11 @@ namespace Glyssen.Dialogs
 			RestoreAutoSizeInfo(sizeRestoreInfo);
 		}
 
+		private void HandlePrintClick(object sender, EventArgs e)
+		{
+			MessageBox.Show("This feature has not been implemented yet. Choose File -> Save As instead.");
+		}
+
 		private void m_unAssignActorFromGroupToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			UnAssignActorsFromSelectedGroups();
@@ -379,7 +384,7 @@ namespace Glyssen.Dialogs
 
 		private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			using (var dlg = new ExportRolesForVoiceActorsDlg(new ProjectExporter(m_project)))
+			using (var dlg = new RolesForVoiceActorsSaveAsDialog(new ProjectExporter(m_project)))
 				dlg.ShowDialog(this);
 		}
 

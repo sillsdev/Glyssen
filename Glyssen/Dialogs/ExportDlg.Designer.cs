@@ -413,7 +413,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_checkOpenForMe, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_checkOpenForMe, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_checkOpenForMe, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_checkOpenForMe, "DialogBoxes.ExportRolesForVoiceActorsDlg.OpenForMe");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_checkOpenForMe, "DialogBoxes.ExportDlg.OpenForMe");
 			this.m_checkOpenForMe.Location = new System.Drawing.Point(3, 290);
 			this.m_checkOpenForMe.Name = "m_checkOpenForMe";
 			this.m_checkOpenForMe.Size = new System.Drawing.Size(145, 17);

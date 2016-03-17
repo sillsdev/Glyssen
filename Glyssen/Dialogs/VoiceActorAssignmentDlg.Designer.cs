@@ -331,8 +331,8 @@ namespace Glyssen.Dialogs
 			// toolStripSeparator1
 			// 
 			this.glyssenColorPalette.SetBackColor(this.toolStripSeparator1, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator1, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.toolStripSeparator1.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator1, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
 			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
 			this.glyssenColorPalette.SetUsePaletteColors(this.toolStripSeparator1, false);
@@ -372,8 +372,8 @@ namespace Glyssen.Dialogs
 			// toolStripSeparator2
 			// 
 			this.glyssenColorPalette.SetBackColor(this.toolStripSeparator2, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator2, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.toolStripSeparator2.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator2, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
 			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
 			this.glyssenColorPalette.SetUsePaletteColors(this.toolStripSeparator2, false);
@@ -612,10 +612,10 @@ namespace Glyssen.Dialogs
 			this.m_linkLabelShowHideDetails.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkLabelShowHideDetails.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.glyssenColorPalette.SetForeColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_linkLabelShowHideDetails.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.m_linkLabelShowHideDetails.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetForeColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetLinkColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_linkLabelShowHideDetails.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkLabelShowHideDetails, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkLabelShowHideDetails, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLabelShowHideDetails, "DialogBoxes.VoiceActorAssignmentDlg.ShowCharacterDetailsLink");
@@ -782,10 +782,10 @@ namespace Glyssen.Dialogs
 			this.m_saveStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_saveStatus.AutoSize = true;
 			this.m_saveStatus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.glyssenColorPalette.SetBackColor(this.m_saveStatus, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_saveStatus.BackColor = System.Drawing.SystemColors.Control;
-			this.glyssenColorPalette.SetForeColor(this.m_saveStatus, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.glyssenColorPalette.SetBackColor(this.m_saveStatus, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_saveStatus.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_saveStatus, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_saveStatus, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_saveStatus, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_saveStatus, "DialogBoxes.VoiceActorAssignmentDlg.SaveStatus");
@@ -856,6 +856,7 @@ namespace Glyssen.Dialogs
 			this.printToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
 			this.printToolStripMenuItem.Text = "Print...";
 			this.glyssenColorPalette.SetUsePaletteColors(this.printToolStripMenuItem, false);
+			this.printToolStripMenuItem.Click += new System.EventHandler(this.HandlePrintClick);
 			// 
 			// helpToolStripMenuItem
 			// 
@@ -903,10 +904,10 @@ namespace Glyssen.Dialogs
 			this.m_linkVoiceActorList.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkVoiceActorList.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.glyssenColorPalette.SetForeColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_linkVoiceActorList.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.m_linkVoiceActorList.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetForeColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetLinkColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_linkVoiceActorList.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkVoiceActorList, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkVoiceActorList, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkVoiceActorList, "DialogBoxes.VoiceActorAssignmentDlg.VoiceActorList");
@@ -949,10 +950,10 @@ namespace Glyssen.Dialogs
 			this.m_linkClose.AutoSize = true;
 			this.glyssenColorPalette.SetBackColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_linkClose.BackColor = System.Drawing.SystemColors.Control;
-			this.m_linkClose.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
-			this.m_linkClose.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.m_linkClose.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetForeColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_linkClose.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetLinkColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_linkClose.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkClose, null);
@@ -979,11 +980,11 @@ namespace Glyssen.Dialogs
 			this.m_linkPrint.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkPrint, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkPrint.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.glyssenColorPalette.SetForeColor(this.m_linkPrint, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_linkPrint.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_linkPrint, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_linkPrint.LinkArea = new System.Windows.Forms.LinkArea(0, 3);
-			this.m_linkPrint.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_linkPrint, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_linkPrint.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkPrint, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkPrint, "{0} is the clickable text.  Its localizingId is DialogBoxes.VoiceActorAssignmentD" +
         "lg.Instructions.Line1.LinkText");
@@ -998,6 +999,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_linkPrint, true);
 			this.m_linkPrint.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetVisitedLinkColor(this.m_linkPrint, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
+			this.m_linkPrint.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.HandlePrintClick);
 			// 
 			// m_tableLayoutPanel
 			// 
