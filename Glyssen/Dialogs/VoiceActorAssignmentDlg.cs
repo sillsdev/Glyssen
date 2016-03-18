@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Media;
@@ -241,6 +243,11 @@ namespace Glyssen.Dialogs
 		private void HandlePrintClick(object sender, EventArgs e)
 		{
 			MessageBox.Show("This feature has not been implemented yet. Choose File -> Save As instead.");
+		}
+
+		private void changeTheListOfGroupsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show("This feature has not been implemented yet. Choose Voice Actor List or close this dialog and return to Cast Size Planning.");
 		}
 
 		private void m_unAssignActorFromGroupToolStripMenuItem_Click(object sender, EventArgs e)
@@ -485,17 +492,19 @@ namespace Glyssen.Dialogs
 
 		private void UpdateGroups()
 		{
-			var nameOfSelectedGroup = (m_characterGroupGrid.SelectedRows.Count == 1)
-				? FirstSelectedCharacterGroup.Name : null;
+			// REVIEW: When they regenerate, which group should be selected? The one with the same ID or the one containing the same major character.
+			// Used to do the latter, but now we do the former.
+			var idOfSelectedGroup = (m_characterGroupGrid.SelectedRows.Count == 1)
+				? FirstSelectedCharacterGroup.GroupId : null;
 
 			m_actorAssignmentViewModel.RegenerateGroups(() => { GenerateGroupsWithProgress(true, false, true); });
 			SortByColumn(m_sortedColumn, m_sortedAscending);
 
 			if (m_actorAssignmentViewModel.CharacterGroups.Any())
 			{
-				if (nameOfSelectedGroup != null)
+				if (idOfSelectedGroup != null)
 				{
-					var groupToSelect = m_actorAssignmentViewModel.CharacterGroups.IndexOf(g => g.Name == nameOfSelectedGroup);
+					var groupToSelect = m_actorAssignmentViewModel.CharacterGroups.IndexOf(g => g.GroupId == idOfSelectedGroup);
 					if (groupToSelect < 0)
 						groupToSelect = 0;
 					if (!m_characterGroupGrid.Rows[groupToSelect].Selected)
@@ -602,6 +611,10 @@ namespace Glyssen.Dialogs
 
 				if (MessageBox.Show(this, dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
 					UnAssignActorsFromSelectedGroups();
+			}
+			if (e.KeyData == Keys.Enter)
+			{
+				Debug.WriteLine("Got Enter key in m_characterGroupGrid_KeyDown");
 			}
 		}
 
@@ -715,7 +728,7 @@ namespace Glyssen.Dialogs
 
 		private void m_characterGroupGrid_CellLeave(object sender, DataGridViewCellEventArgs e)
 		{
-			ResetVoiceActorCellDataSource();
+			//ResetVoiceActorCellDataSource();
 		}
 
 		private void m_characterGroupGrid_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
@@ -813,13 +826,15 @@ namespace Glyssen.Dialogs
 		{
 			m_characterDetailsGrid.Visible = true;
 			var currentGroup = FirstSelectedCharacterGroup;
-			System.Diagnostics.Debug.WriteLine("In UpdateDisplayForSingleCharacterGroupSelected for group " + currentGroup.Name);
+			System.Diagnostics.Debug.WriteLine("In UpdateDisplayForSingleCharacterGroupSelected for group " + currentGroup.GroupIdForUiDisplay);
 			if (currentGroup.CharacterIds.Any())
 			{
 				m_characterIdsForSelectedGroup = currentGroup.CharacterIds.ToList();
 				m_characterDetailsGrid.Visible = m_characterDetailsVisible;
 				m_linkLabelShowHideDetails.Visible = true;
 				m_characterDetailsGrid.RowCount = m_characterIdsForSelectedGroup.Count;
+				// ENHANCE: For groups with lots of characters, this Refresh can be very slow and cause the UI to appear to hang. Can it be
+				// done on a background thread? Or more likely the details grid should be virtual.
 				m_characterDetailsGrid.Refresh();
 				//m_lblNoCharactersInGroup.Visible = false;
 				//m_lblHowToAssignCharactersToCameoGroup.Visible = false;
@@ -842,7 +857,7 @@ namespace Glyssen.Dialogs
 				////}
 				m_btnMove.Enabled = m_pendingMoveCharacters != null;
 			}
-			m_linkLabelShowHideDetails.Text = string.Format(m_characterDetailsVisible ? m_fmtHideCharacterDetails : m_fmtShowCharacterDetails, currentGroup.GroupId);
+			m_linkLabelShowHideDetails.Text = string.Format(m_characterDetailsVisible ? m_fmtHideCharacterDetails : m_fmtShowCharacterDetails, currentGroup.GroupIdForUiDisplay);
 		}
 
 		private void m_characterGroupGrid_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
@@ -853,7 +868,7 @@ namespace Glyssen.Dialogs
 				return;
 			}
 			if (e.ColumnIndex == GroupIdCol.Index)
-				e.Value = m_actorAssignmentViewModel.CharacterGroups[e.RowIndex].GroupId;
+				e.Value = m_actorAssignmentViewModel.CharacterGroups[e.RowIndex].GroupIdForUiDisplay;
 			else if (e.ColumnIndex == CharacterIdsCol.Index)
 			{
 				var charIdsString = m_actorAssignmentViewModel.CharacterGroups[e.RowIndex].CharacterIds.ToString();
@@ -1036,7 +1051,76 @@ namespace Glyssen.Dialogs
 			var dropDown = e.Control as DataGridViewComboBoxEditingControl;
 			if (dropDown == null)
 				return;
+			dropDown.DropDownStyle = ComboBoxStyle.DropDown;
+			dropDown.AutoCompleteMode = AutoCompleteMode.None;
 			dropDown.DropDownClosed += DropDownOnDropDownClosed;
+		}
+
+		private void m_characterGroupGrid_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+		{
+			if (e.ColumnIndex == VoiceActorCol.DisplayIndex)
+				SaveActorAssignment(e.FormattedValue.ToString(), e.RowIndex);
+		}
+
+		private void SaveActorAssignment(string formattedValue, int rowIndex)
+		{
+			int value;
+			if (!DataTableTryGetValueForDisplayMember(VoiceActorCol, formattedValue, out value))
+			{
+				m_actorAssignmentViewModel.AddNewActorToGroup(formattedValue, FirstSelectedCharacterGroup);
+				Debug.WriteLine("About to set data source.");
+				Debug.WriteLine("m_characterGroupGrid[e.ColumnIndex, e.RowIndex].Value: " + m_characterGroupGrid[VoiceActorCol.DisplayIndex, rowIndex].Value);
+				SetVoiceActorCellDataSource();
+				VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null);
+				Debug.WriteLine("Finished setting data source.");
+			}
+			else
+			{
+				m_characterGroupGrid[VoiceActorCol.DisplayIndex, rowIndex].Value = value;
+			}
+		}
+
+		//private bool DataTableContainsValue(DataGridViewMultiColumnComboBoxColumn column, string value)
+		//{
+		//	var dataTable = column.DataSource as DataTable;
+		//	if (dataTable == null)
+		//		return false;
+		//	var displayMember = column.DisplayMember;
+		//	if (!String.IsNullOrEmpty(displayMember) && dataTable.Rows.Count > 0)
+		//	{
+		//		for (int i = 0; i < dataTable.Rows.Count; i++)
+		//		{
+		//			var row = dataTable.Rows[i];
+		//			if (row[displayMember].Equals(value))
+		//			{
+		//				return true;
+		//			}
+		//		}
+		//	}
+		//	return false;
+		//}
+
+		private bool DataTableTryGetValueForDisplayMember(DataGridViewMultiColumnComboBoxColumn column, string formattedValue, out int value)
+		{
+			value = -1;
+			var dataTable = column.DataSource as DataTable;
+			if (dataTable == null)
+				return false;
+			var displayMember = column.DisplayMember;
+			var valueMember = column.ValueMember;
+			if (!String.IsNullOrEmpty(displayMember) && !String.IsNullOrEmpty(valueMember) && dataTable.Rows.Count > 0)
+			{
+				for (int i = 0; i < dataTable.Rows.Count; i++)
+				{
+					var row = dataTable.Rows[i];
+					if (row[displayMember].Equals(formattedValue))
+					{
+						value = (int)row[valueMember];
+						return true;
+					}
+				}
+			}
+			return false;
 		}
 
 		/// <summary>
@@ -1045,34 +1129,57 @@ namespace Glyssen.Dialogs
 		/// </summary>
 		private void DropDownOnDropDownClosed(object sender, EventArgs eventArgs)
 		{
+			Debug.WriteLine("In DropDownOnDropDownClosed");
 			var dropDown = sender as DataGridViewComboBoxEditingControl;
 			if (dropDown == null)
 				return;
 
 			// If there was no actual change, the view model correctly ignores it.
 			m_characterGroupGrid.NotifyCurrentCellDirty(true);
+			Debug.WriteLine("Still in DropDownOnDropDownClosed");
 			if (m_characterGroupGrid.IsCurrentCellInEditMode)
-				m_characterGroupGrid.EndEdit(DataGridViewDataErrorContexts.Commit);
+			{
+				SaveActorAssignment(m_characterGroupGrid.CurrentCell.EditedFormattedValue.ToString(), m_characterGroupGrid.CurrentCellAddress.Y);
+//				Debug.WriteLine("About to call EndEdit(Commit) from DropDownOnDropDownClosed");
+//				Debug.WriteLine("m_characterGroupGrid.CurrentCell.Value: " + m_characterGroupGrid.CurrentCell.Value);
+//				Debug.WriteLine("m_characterGroupGrid.CurrentCell.EditedFormattedValue: " + m_characterGroupGrid.CurrentCell.EditedFormattedValue);
+//				m_characterGroupGrid.EndEdit(DataGridViewDataErrorContexts.Commit);
+//				Debug.WriteLine("Back from call to EndEdit(Commit) from DropDownOnDropDownClosed");
+			}
 
 			dropDown.DropDownClosed -= DropDownOnDropDownClosed;
 		}
 
 		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
 		{
-			// Escape or Tab will result in the drop down closing, but the current editing operation needs
-			// to be abandoned and we need to prevent the subsequent attempt to commit the edit (which
-			// would actually result in a crash).
-			if (keyData == Keys.Escape || keyData == Keys.Tab)
+			switch (keyData)
 			{
-				var comboBox = m_characterGroupGrid.EditingControl as DataGridViewComboBoxEditingControl;
-				if (comboBox != null)
-				{
-					m_characterGroupGrid.NotifyCurrentCellDirty(false);
-					comboBox.DropDownClosed -= DropDownOnDropDownClosed;
-					comboBox.DroppedDown = false;
-				}
+				case Keys.Escape:
+				//case Keys.Tab:
+				//case Keys.Enter:
+					// Escape, Tab, or Enter will result in the drop down closing, but the current editing operation needs
+					// to be abandoned and we need to prevent the subsequent attempt to commit the edit (which
+					// would actually result in a crash).
+					var comboBox = m_characterGroupGrid.EditingControl as DataGridViewComboBoxEditingControl;
+					if (comboBox != null)
+					{
+						m_characterGroupGrid.NotifyCurrentCellDirty(false);
+						comboBox.DropDownClosed -= DropDownOnDropDownClosed;
+						comboBox.DroppedDown = false;
+					}
+					break;
+				case Keys.Right:
+				case Keys.Left:
+				case Keys.Up:
+				case Keys.Down:
+				case Keys.Shift | Keys.Right:
+				case Keys.Shift | Keys.Left:
+				case Keys.Shift | Keys.Up:
+				case Keys.Shift | Keys.Down:
+					if (m_characterGroupGrid.EditingControl is DataGridViewComboBoxEditingControl)
+						return true;
+					break;
 			}
-
 			return base.ProcessCmdKey(ref msg, keyData);
 		}
 

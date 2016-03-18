@@ -89,7 +89,9 @@ namespace Glyssen.Utilities
 					}
 					else
 					{
-						((GridSettings)Settings.Default[settingName]).InitializeGrid(grid);
+						var gridSettings = (GridSettings)Settings.Default[settingName];
+						if (gridSettings.Columns.Length == grid.Columns.Count)
+							gridSettings.InitializeGrid(grid);
 					}
 				} 
 			}

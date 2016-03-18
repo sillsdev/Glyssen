@@ -18,6 +18,7 @@ namespace Glyssen.Character
 			Male,
 			Female,
 			Child,
+			Narrator,
 			Other
 		}
 
@@ -71,26 +72,6 @@ namespace Glyssen.Character
 		}
 
 		[XmlElement]
-		[Browsable(false)]
-		public int GroupNumber { get; set; }
-
-		[XmlAttribute("name")]
-		[Browsable(false)]
-		public string GroupNameInternal { get; set; }
-
-		[Browsable(false)]
-		public string Name
-		{
-			get
-			{
-				if (string.IsNullOrEmpty(GroupNameInternal))
-					return CharacterIds.HighestPriorityCharacter;
-				return GroupNameInternal;
-			}
-			set { GroupNameInternal = value; }
-		}
-
-		[XmlElement]
 		public Label GroupIdLabel { get; set; }
 
 		[XmlElement]
@@ -102,7 +83,8 @@ namespace Glyssen.Character
 		public string GroupIdOtherText { get; set; }
 
 		[XmlIgnore]
-		public string GroupId {
+		public string GroupIdForUiDisplay
+		{
 			get
 			{
 				switch (GroupIdLabel)
@@ -113,11 +95,24 @@ namespace Glyssen.Character
 						return string.Format(LocalizationManager.GetString("CharacterGroup.FemaleGroupId", "Woman {0}"), GroupIdNumber);
 					case Label.Child:
 						return string.Format(LocalizationManager.GetString("CharacterGroup.ChildGroupId", "Child {0}"), GroupIdNumber);
+					case Label.Narrator:
+						return string.Format(LocalizationManager.GetString("CharacterGroup.NarratorGroupId", "Narrator {0}"), GroupIdNumber);
 					case Label.Other:
 						return GroupIdOtherText;
 					default:
 						return string.Empty;
 				}
+			}
+		}
+
+		[XmlIgnore]
+		public string GroupId
+		{
+			get
+			{
+				if (GroupIdLabel == Label.Other)
+					return GroupIdOtherText;
+				return GroupIdLabel.ToString() + GroupIdNumber;
 			}
 		}
 

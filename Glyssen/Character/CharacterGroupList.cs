@@ -35,17 +35,18 @@ namespace Glyssen.Character
 
 		void CharacterGroups_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
 		{
+			if (!CharacterGroups.Any())
+			{
+				m_iMale = 0;
+				m_iFemale = 0;
+				m_iChild = 0;
+				return;
+			}
 			if (e.NewItems == null)
 				return;
 			var nextNumberToTry = 1;
 			foreach (CharacterGroup characterGroup in e.NewItems)
 			{
-				if (characterGroup.GroupNumber == default(int))
-				{
-					while (CharacterGroups.Any(g => g.GroupNumber == nextNumberToTry))
-						nextNumberToTry++;
-					characterGroup.GroupNumber = nextNumberToTry;
-				}
 				if (characterGroup.GroupIdNumber != 0)
 				{
 					switch (characterGroup.GroupIdLabel)
@@ -107,9 +108,9 @@ namespace Glyssen.Character
 			return CharacterGroups.FirstOrDefault(g => g.CharacterIds.Contains(characterId));
 		}
 
-		public CharacterGroup GetGroupByName(string name)
+		public CharacterGroup GetGroupById(string id)
 		{
-			return CharacterGroups.FirstOrDefault(g => g.Name == name);
+			return CharacterGroups.FirstOrDefault(g => g.GroupId == id);
 		}
 
 		public IEnumerable<CharacterGroup> AssignedGroups

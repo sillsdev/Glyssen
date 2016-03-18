@@ -110,6 +110,7 @@ namespace Glyssen.Dialogs
 			this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewMultiColumnComboBoxColumn1 = new Glyssen.Controls.DataGridViewMultiColumnComboBoxColumn();
 			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
+			this.changeTheListOfGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_contextMenuCharacters.SuspendLayout();
 			this.m_contextMenuCharacterGroups.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
@@ -700,6 +701,7 @@ namespace Glyssen.Dialogs
 			this.m_characterGroupGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.m_characterGroupGrid_CellFormatting);
 			this.m_characterGroupGrid.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_characterGroupGrid_CellLeave);
 			this.m_characterGroupGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.HandleGridCellMouseDown);
+			this.m_characterGroupGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.m_characterGroupGrid_CellValidating);
 			this.m_characterGroupGrid.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.m_characterGroupGrid_CellValueNeeded);
 			this.m_characterGroupGrid.CellValuePushed += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.m_characterGroupGrid_CellValuePushed);
 			this.m_characterGroupGrid.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.HandleGridColumnHeaderMouseClick);
@@ -803,7 +805,8 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_menuStrip, Glyssen.Utilities.GlyssenColors.Default);
 			this.m_menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.changeTheListOfGroupsToolStripMenuItem});
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_menuStrip, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_menuStrip, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_menuStrip, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -1193,6 +1196,19 @@ namespace Glyssen.Dialogs
 			this.dataGridViewMultiColumnComboBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			this.dataGridViewMultiColumnComboBoxColumn1.Width = 100;
 			// 
+			// changeTheListOfGroupsToolStripMenuItem
+			// 
+			this.glyssenColorPalette.SetBackColor(this.changeTheListOfGroupsToolStripMenuItem, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.changeTheListOfGroupsToolStripMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.changeTheListOfGroupsToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.changeTheListOfGroupsToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.changeTheListOfGroupsToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.changeTheListOfGroupsToolStripMenuItem");
+			this.changeTheListOfGroupsToolStripMenuItem.Name = "changeTheListOfGroupsToolStripMenuItem";
+			this.changeTheListOfGroupsToolStripMenuItem.Size = new System.Drawing.Size(156, 20);
+			this.changeTheListOfGroupsToolStripMenuItem.Text = "Change the List of Groups";
+			this.glyssenColorPalette.SetUsePaletteColors(this.changeTheListOfGroupsToolStripMenuItem, false);
+			this.changeTheListOfGroupsToolStripMenuItem.Click += new System.EventHandler(this.changeTheListOfGroupsToolStripMenuItem_Click);
+			// 
 			// VoiceActorAssignmentDlg
 			// 
 			this.glyssenColorPalette.SetBackColor(this, Glyssen.Utilities.GlyssenColors.BackColor);
@@ -1305,6 +1321,7 @@ namespace Glyssen.Dialogs
 		private DataGridViewTextBoxColumn CharStatusCol;
 		private DataGridViewTextBoxColumn EstimatedHoursCol;
 		private DataGridViewMultiColumnComboBoxColumn VoiceActorCol;
+		private ToolStripMenuItem changeTheListOfGroupsToolStripMenuItem;
 
 	}
 }

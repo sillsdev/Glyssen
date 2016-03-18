@@ -1325,10 +1325,10 @@ namespace Glyssen
 			return keyStrokes / (double)Program.kKeyStrokesPerHour;
 		}
 
-		public CharacterGroup GetGroupByName(string name)
+		public CharacterGroup GetGroupById(string id)
 		{
-			var grp = CharacterGroupList.GetGroupByName(name);
-			return grp ?? CharacterGroupList.GroupContainingCharacterId(name);
+			var grp = CharacterGroupList.GetGroupById(id);
+			return grp ?? CharacterGroupList.GroupContainingCharacterId(id);
 		}
 
 		public void ConvertContinuersToParatextAssumptions()

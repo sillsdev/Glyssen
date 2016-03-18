@@ -17,7 +17,7 @@ namespace GlyssenTests.Rules
 			var narratorGroups = new List<CharacterGroup>(n);
 			for (int i = 0; i < n; i++)
 			{
-				narratorGroups.Add(new CharacterGroup { Name = (i + 1).ToString() });
+				narratorGroups.Add(new CharacterGroup { GroupIdLabel = CharacterGroup.Label.Narrator, GroupIdNumber = i + 1 });
 			}
 			return narratorGroups;
 		}
@@ -95,9 +95,9 @@ namespace GlyssenTests.Rules
 			Assert.AreEqual(GetCharacterGroupForBook(narratorGroups, "ISA"), GetCharacterGroupForBook(narratorGroups, "JHN"));
 			Assert.AreEqual(GetCharacterGroupForBook(narratorGroups, "LUK"), GetCharacterGroupForBook(narratorGroups, "ACT"));
 			Assert.AreEqual(GetCharacterGroupForBook(narratorGroups, "JHN"), GetCharacterGroupForBook(narratorGroups, "REV"));
-			Assert.AreEqual(3, narratorGroups.Single(g => g.Name == "1").CharacterIds.Count);
-			Assert.AreEqual(3, narratorGroups.Single(g => g.Name == "2").CharacterIds.Count);
-			Assert.AreEqual(2, narratorGroups.Single(g => g.Name == "3").CharacterIds.Count);
+			Assert.AreEqual(3, narratorGroups.Single(g => g.GroupId == "Narrator1").CharacterIds.Count);
+			Assert.AreEqual(3, narratorGroups.Single(g => g.GroupId == "Narrator2").CharacterIds.Count);
+			Assert.AreEqual(2, narratorGroups.Single(g => g.GroupId == "Narrator3").CharacterIds.Count);
 		}
 
 		[Test]
@@ -500,7 +500,7 @@ namespace GlyssenTests.Rules
 				foreach (var narratorGroup in narratorGroups)
 				{
 					var totalKeyStrokesForNarrator = narratorGroup.CharacterIds.Sum(c => m_keyStrokesByBook[c]);
-					Trace.WriteLine("    " + narratorGroup.Name + ": " + totalKeyStrokesForNarrator);
+					Trace.WriteLine("    " + narratorGroup.GroupIdForUiDisplay + ": " + totalKeyStrokesForNarrator);
 				}
 				Trace.WriteLine("");
 			}

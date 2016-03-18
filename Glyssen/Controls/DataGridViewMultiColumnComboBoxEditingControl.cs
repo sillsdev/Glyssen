@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -322,6 +323,11 @@ namespace Glyssen.Controls
 			return false;
 		}
 
+		private bool IsUncategorizedItemSpecial(int index)
+		{
+			return OwningColumn.CategoryColumnName != null && FilterItemOnProperty(Items[index], OwningColumn.CategoryColumnName) is DBNull;
+		}
+
 		/// <summary>
 		/// Raises the <see cref="E:System.Windows.Forms.ComboBox.DrawItem"/> event.
 		/// </summary>
@@ -340,7 +346,7 @@ namespace Glyssen.Controls
 			Image icon = FilterItemOnProperty(Items[e.Index], "Icon") as Image;
 			var lastRight = OwningColumn.CategoryColumnName == null || e.State.HasFlag(DrawItemState.ComboBoxEdit) || icon != null ? 0 : IndentSize;
 
-			var drawUncategorizedItemSpecial = OwningColumn.CategoryColumnName != null && FilterItemOnProperty(Items[e.Index], OwningColumn.CategoryColumnName) is DBNull;
+			var drawUncategorizedItemSpecial = IsUncategorizedItemSpecial(e.Index);
 
 			if (e.State.HasFlag(DrawItemState.ComboBoxEdit))
 			{
@@ -514,6 +520,26 @@ namespace Glyssen.Controls
 				DropDownWidth = TotalWidth;
 		}
 
+		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+		{
+			// TODO: Handle SHIFT-Left and SHIFT-Right
+			if (keyData == Keys.Left)
+			{
+				if (SelectionStart != 0)
+					SelectionStart = SelectionStart - 1;
+				SelectionLength = 0;
+				return true;
+			}
+			if (keyData == Keys.Right)
+			{
+				if (SelectionStart + SelectionLength != Text.Length)
+					SelectionStart = SelectionStart + SelectionLength + 1;
+				SelectionLength = 0;
+				return true;
+			}
+			return base.ProcessCmdKey(ref msg, keyData);
+		}
+
 		/// <summary>
 		/// Raises the <see cref="E:System.Windows.Forms.Control.KeyPress"/> event.
 		/// </summary>
@@ -521,78 +547,43 @@ namespace Glyssen.Controls
 		protected override void OnKeyPress(KeyPressEventArgs e)
 		{
 			int idx;
-			string toFind;
-
-			if (e.KeyChar != (int)Keys.Escape && e.KeyChar != (int)Keys.Tab && e.KeyChar != (int)Keys.Enter)
-				DroppedDown = AutoDropdown;
+			string toFind = Text.Substring(0, SelectionStart) + e.KeyChar + Text.Substring(SelectionStart + SelectionLength);
+			int newSelectionStart = SelectionStart + 1;
 
 			if (!Char.IsControl(e.KeyChar))
 			{
-				if (AutoComplete)
-				{
-					toFind = Text.Substring(0, SelectionStart) + e.KeyChar;
-					idx = FindStringExact(toFind);
-
-					if (idx == -1)
-					{
-						// An exact match for the whole string was not found
-						// Find a substring instead.
-						idx = FindString(toFind);
-					}
-					else
-					{
-						// An exact match was found. Close the dropdown.
-						DroppedDown = false;
-					}
-
-					if (idx != -1) // The substring was found.
-					{
-						SelectedIndex = idx;
-						SelectionStart = toFind.Length;
-						SelectionLength = Text.Length - SelectionStart;
-					}
-					else // The last keystroke did not create a valid substring.
-					{
-						// If the substring is not found, cancel the keypress
-						e.KeyChar = (char)0;
-					}
-				}
-				else // AutoComplete = false. Treat it like a DropDownList by finding the
-				// KeyChar that was struck starting from the current index
-				{
-					idx = FindString(e.KeyChar.ToString(CultureInfo.InvariantCulture), SelectedIndex);
-
-					if (idx != -1)
-					{
-						SelectedIndex = idx;
-					}
-				}
-			}
-
-			// Do no allow the user to backspace over characters. Treat it like
-			// a left arrow instead. The user must not be allowed to change the
-			// value in the ComboBox.
-			if ((e.KeyChar == (char)(Keys.Back)) && // A Backspace Key is hit
-				(AutoComplete) && // AutoComplete = true
-				(Convert.ToBoolean(SelectionStart))) // And the SelectionStart is positive
-			{
-				// Find a substring that is one character less the the current selection.
-				// This mimicks moving back one space with an arrow key. This substring should
-				// always exist since we don't allow invalid selections to be typed. If you're
-				// on the 3rd character of a valid code, then the first two characters have to
-				// be valid. Moving back to them and finding the 1st occurrence should never fail.
-				toFind = Text.Substring(0, SelectionStart - 1);
 				idx = FindString(toFind);
 
-				if (idx != -1)
+				if (idx != -1 && !IsUncategorizedItemSpecial(idx))
 				{
+					// The string was found
 					SelectedIndex = idx;
 					SelectionStart = toFind.Length;
 					SelectionLength = Text.Length - SelectionStart;
 				}
+				else
+				{
+					// Replace any selected text with the key pressed
+					SelectedIndex = -1;
+					Text = toFind;
+					SelectionStart = newSelectionStart;
+					Debug.WriteLine("SelectedIndex:" + SelectedIndex);
+				}
 			}
 
-			// e.Handled is always true. We handle every keystroke programatically.
+			int resetSelectionStart = SelectionStart;
+			int resetSelectionLength = SelectionLength;
+
+			if (!DroppedDown && e.KeyChar != (int)Keys.Escape && e.KeyChar != (int)Keys.Tab && e.KeyChar != (int)Keys.Enter)
+			{
+				DroppedDown = AutoDropdown;
+				SelectionStart = resetSelectionStart;
+				SelectionLength = resetSelectionLength;
+			}
+
+			if (e.KeyChar == (char)Keys.Back) // A Backspace Key is hit
+				return;
+
 			e.Handled = true;
 		}
 
@@ -672,6 +663,7 @@ namespace Glyssen.Controls
 		public const int SWP_NOOWNERZORDER = 0x0200;
 
 		public const int WM_CTLCOLORLISTBOX = 0x0134;
+		public const int WM_LBUTTONDOWN = 0x0201;
 
 		private int _hwndDropDown = 0;
 
@@ -699,13 +691,22 @@ namespace Glyssen.Controls
 						SWP_NOOWNERZORDER);
 				}
 			}
+			else if (m.Msg == WM_LBUTTONDOWN)
+			{
+				Debug.WriteLine("Got left mouse down!!!");
+				if (DroppedDown && Bounds.Contains(MousePosition))
+					return;
+			}
 
 			base.WndProc(ref m);
 		}
 
 		protected override void OnDropDownClosed(EventArgs e)
 		{
+			Debug.WriteLine("In OnDropDownClosed");
 			_hwndDropDown = 0;
+			if (SelectedIndex != -1)
+				EditingControlFormattedValue = ((DataRowView)SelectedItem)[OwningColumn.DisplayMember];
 			base.OnDropDownClosed(e);
 		}
 		#endregion

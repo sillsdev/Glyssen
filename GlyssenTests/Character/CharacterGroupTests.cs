@@ -376,6 +376,7 @@ namespace GlyssenTests.Character
 			Assert.AreEqual(CharacterGroup.Label.Other, group.GroupIdLabel);
 			Assert.AreEqual(0, group.GroupIdNumber);
 			Assert.AreEqual("Cameo Name", group.GroupId);
+			Assert.AreEqual("Cameo Name", group.GroupIdForUiDisplay);
 		}
 
 		[Test]
