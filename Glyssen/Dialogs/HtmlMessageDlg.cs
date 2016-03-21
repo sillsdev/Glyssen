@@ -29,7 +29,6 @@ namespace Glyssen.Dialogs
 			m_browser.DisplayHtml(html);
 		}
 
-
 		private void m_browser_OnMouseClick(object sender, DomMouseEventArgs e)
 		{
 			if (this.DesignModeAtAll())
@@ -60,7 +59,8 @@ namespace Glyssen.Dialogs
 				}
 				else
 				{
-					Process.Start(url);
+					// TODO: what if the hyperlink points to a web page?
+					//Process.Start(url);
 				}
 			}
 		}

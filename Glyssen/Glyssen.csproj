@@ -183,6 +183,12 @@
     <Compile Include="Controls\Browser.Designer.cs">
       <DependentUpon>Browser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CastSizePlanningOptions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CastSizePlanningOptions.Designer.cs">
+      <DependentUpon>CastSizePlanningOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ControlExtensions.cs" />
     <Compile Include="Controls\DataGridViewDropdownColumnHeader.cs" />
     <Compile Include="Controls\DataGridViewListBox.cs">
@@ -226,6 +232,13 @@
     <Compile Include="Dialogs\AddCharacterToGroupDlg.Designer.cs">
       <DependentUpon>AddCharacterToGroupDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\CastSizePlanningDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\CastSizePlanningDlg.Designer.cs">
+      <DependentUpon>CastSizePlanningDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\CastSizePlanningViewModel.cs" />
     <Compile Include="Dialogs\ExportDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +247,12 @@
     </Compile>
     <Compile Include="Dialogs\GenerateGroupsProgressDialog.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\HtmlMessageDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\HtmlMessageDlg.Designer.cs">
+      <DependentUpon>HtmlMessageDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\ProgressDialogWithAcknowledgement.cs">
       <SubType>Form</SubType>
@@ -402,6 +421,9 @@
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CastSizePlanningOptions.resx">
+      <DependentUpon>CastSizePlanningOptions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ExistingProjectsList.resx">
       <DependentUpon>ExistingProjectsList.cs</DependentUpon>
     </EmbeddedResource>
@@ -420,11 +442,17 @@
     <EmbeddedResource Include="Dialogs\AssignCharacterDlg.resx">
       <DependentUpon>AssignCharacterDlg.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\CastSizePlanningDlg.resx">
+      <DependentUpon>CastSizePlanningDlg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ExportDlg.resx">
       <DependentUpon>ExportDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\GenerateGroupsProgressDialog.resx">
       <DependentUpon>GenerateGroupsProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\HtmlMessageDlg.resx">
+      <DependentUpon>HtmlMessageDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ProgressDialogWithAcknowledgement.resx">
       <DependentUpon>ProgressDialogWithAcknowledgement.cs</DependentUpon>

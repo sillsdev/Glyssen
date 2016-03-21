@@ -676,22 +676,11 @@ namespace Glyssen
 
 		private void m_btnCastSizePlanning_Click(object sender, EventArgs e)
 		{
-			// TODO: implement this when the CastSizePlanningDlg is ready
-			// TODO: The following block is TEMPORARY! REMOVE IT!!!
-			if (!m_project.VoiceActorList.ActiveActors.Any())
-			{
-				Debug.WriteLine("Executing TEMPORARY code to add a dummy actor!!! Remove this logic when Cast Size Planning" +
-					"dialog is ready for show time.");
-				m_project.VoiceActorList.AllActors.Add(new VoiceActor.VoiceActor() {Name = "Dummy"});
-				UpdateDisplayOfProjectInfo();
-				SaveCurrentProject();
-			}
+			using (var dlg = new CastSizePlanningDlg(new CastSizePlanningViewModel(m_project)))
+				if (dlg.ShowDialog(this) == DialogResult.OK)
+					return;
 
-			//using (var dlg = new CastSizePlanningDlg(new CastSizePlanningViewModel(m_project)))
-			//	if (dlg.ShowDialog(this) == DialogResult.OK)
-			//		return;
-
-			//SaveCurrentProject();
+			SaveCurrentProject();
 		}
 	}
 }

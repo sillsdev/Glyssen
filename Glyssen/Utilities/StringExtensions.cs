@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace Glyssen.Utilities
 {
@@ -17,6 +18,11 @@ namespace Glyssen.Utilities
 				return text;
 			}
 			return text.Substring(0, pos) + replace + text.Substring(pos + search.Length);
+		}
+
+		public static void AppendParagraph(this StringBuilder sb, string paragraphText)
+		{
+			sb.AppendLine(string.Format("<p>{0}</p>", paragraphText));
 		}
 	}
 }
