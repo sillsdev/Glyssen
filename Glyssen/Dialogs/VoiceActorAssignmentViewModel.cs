@@ -357,13 +357,13 @@ namespace Glyssen.Dialogs
 			table.Columns.Add("Gender");
 			table.Columns.Add("Age");
 			table.Columns.Add("Cameo");
+			table.Columns.Add("SpecialUse");
 
 			bool includeCameos = !(group != null && !group.AssignedToCameoActor);
 
 			//TODO put the best matches first
 			foreach (var actor in m_project.VoiceActorList.ActiveActors.Where(a => (!m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id) && (includeCameos || !a.IsCameo))).OrderBy(a => a.Name))
 			{
-				Debug.WriteLine("Adding unassigned actor " + actor.Name + " (" + actor.Id + ") to data source table.");
 				table.Rows.Add(GetDataTableRow(actor, LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AvailableVoiceActors", "Available:")));
 			}
 
@@ -371,14 +371,15 @@ namespace Glyssen.Dialogs
 				-1,
 				null,
 				Resources.RemoveActor,
-				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"),
+				"",
+				//LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"),
 				"",
 				"",
-				"");
+				"",
+				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"));
 
 			foreach (var actor in m_project.VoiceActorList.ActiveActors.Where(a => (m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id) && (includeCameos || !a.IsCameo))).OrderBy(a => a.Name))
 			{
-				Debug.WriteLine("Adding assigned actor " + actor.Name + " (" + actor.Id + ") to data source table.");
 				table.Rows.Add(GetDataTableRow(actor, LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AlreadyAssignedVoiceActors",
 					"Assigned to a Character Group:")));
 			}
@@ -396,7 +397,8 @@ namespace Glyssen.Dialogs
 				actor.Name,
 				GetUiStringForActorGender(actor.Gender),
 				GetUiStringForActorAge(actor.Age),
-				actor.IsCameo ? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Cameo", "Cameo") : ""
+				actor.IsCameo ? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Cameo", "Cameo") : "",
+				null
 			};
 		}
 
@@ -531,7 +533,7 @@ namespace Glyssen.Dialogs
 
 		public VoiceActor.VoiceActor AddNewActorToGroup(string actorName, CharacterGroup group)
 		{
-			Debug.Assert(group.AssignedToCameoActor);
+			Debug.Assert(!group.AssignedToCameoActor);
 
 			var actorViewModel = new VoiceActorInformationViewModel(m_project);
 

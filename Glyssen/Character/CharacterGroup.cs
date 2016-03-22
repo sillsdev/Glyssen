@@ -283,7 +283,9 @@ namespace Glyssen.Character
 				return;
 			}
 
-			if (ContainsOnlyCharactersWithAge(CharacterAge.Child))
+			if (CharacterIds.Any(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)))
+				GroupIdLabel = Label.Narrator;
+			else if (ContainsOnlyCharactersWithAge(CharacterAge.Child))
 				GroupIdLabel = Label.Child;
 			else if (ContainsCharacterWithGender(CharacterGender.Male))
 				GroupIdLabel = Label.Male;

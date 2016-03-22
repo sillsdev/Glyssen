@@ -22,6 +22,7 @@ namespace Glyssen.Controls
 		private List<string> m_columnWidthStringList = new List<string>();
 		private List<string> m_columnNames = new List<string>();
 		private DataGridViewMultiColumnComboBoxCell m_ownerCell;
+		private string m_newText;
 		#endregion
 
 		#region "Constructor"
@@ -325,7 +326,7 @@ namespace Glyssen.Controls
 
 		private bool IsUncategorizedItemSpecial(int index)
 		{
-			return OwningColumn.CategoryColumnName != null && FilterItemOnProperty(Items[index], OwningColumn.CategoryColumnName) is DBNull;
+			return OwningColumn != null && OwningColumn.CategoryColumnName != null && FilterItemOnProperty(Items[index], OwningColumn.CategoryColumnName) is DBNull;
 		}
 
 		/// <summary>
@@ -455,44 +456,54 @@ namespace Glyssen.Controls
 							lastRight += IndentSize;
 						}
 
-						// Default (L-to-R) is to display the strings in ascending order from zero to the highest column.
-						int loopStart = 0;
-						Func<int, bool> notDone = i => i < ColumnNames.Count;
-						Func<int, int> loopIncrementer = i => i + 1;
-						StringFormat format = new StringFormat();
-
-						// If the ComboBox is displaying a RightToLeft language, draw it this way.
-						if (RightToLeft.Equals(RightToLeft.Yes))
+						if (drawUncategorizedItemSpecial)
 						{
-							// Define a StringFormat object to make the string display RTL.
-							format = new StringFormat
-							{
-								Alignment = StringAlignment.Near,
-								FormatFlags = StringFormatFlags.DirectionRightToLeft
-							};
-
-							// Draw the strings in reverse order from high column index to zero column index.
-							loopStart = ColumnNames.Count - 1;
-							notDone = i => i >= 0;
-							loopIncrementer = i => i - 1;
+							string item = Convert.ToString(FilterItemOnProperty(Items[e.Index], "SpecialUse"));
+							boundsRect.X = lastRight;
+							boundsRect.Width = boundsRect.Width;
+							e.Graphics.DrawString(item, font, brush, boundsRect, new StringFormat());
 						}
-
-						for (var colIndex = loopStart; notDone(colIndex); colIndex = loopIncrementer(colIndex))
+						else
 						{
-							if (m_columnWidths[colIndex] > 0)
+							// Default (L-to-R) is to display the strings in ascending order from zero to the highest column.
+							int loopStart = 0;
+							Func<int, bool> notDone = i => i < ColumnNames.Count;
+							Func<int, int> loopIncrementer = i => i + 1;
+							StringFormat format = new StringFormat();
+
+							// If the ComboBox is displaying a RightToLeft language, draw it this way.
+							if (RightToLeft.Equals(RightToLeft.Yes))
 							{
-								var item = Convert.ToString(FilterItemOnProperty(Items[e.Index], ColumnNames[colIndex]));
+								// Define a StringFormat object to make the string display RTL.
+								format = new StringFormat
+								{
+									Alignment = StringAlignment.Near,
+									FormatFlags = StringFormatFlags.DirectionRightToLeft
+								};
 
-								boundsRect.X = lastRight;
-								boundsRect.Width = m_columnWidths[colIndex];
-								lastRight = boundsRect.Right;
-								e.Graphics.DrawString(item, font, brush, boundsRect, format);
+								// Draw the strings in reverse order from high column index to zero column index.
+								loopStart = ColumnNames.Count - 1;
+								notDone = i => i >= 0;
+								loopIncrementer = i => i - 1;
+							}
 
-								if (lastRight + 7 >= e.Bounds.Right)
-									break;
+							for (var colIndex = loopStart; notDone(colIndex); colIndex = loopIncrementer(colIndex))
+							{
+								if (m_columnWidths[colIndex] > 0)
+								{
+									string item = Convert.ToString(FilterItemOnProperty(Items[e.Index], ColumnNames[colIndex]));
 
-								if (notDone(loopIncrementer(colIndex)) && !drawUncategorizedItemSpecial)
-									e.Graphics.DrawLine(linePen, boundsRect.Right - 1, boundsRect.Top, boundsRect.Right - 1, boundsRect.Bottom);
+									boundsRect.X = lastRight;
+									boundsRect.Width = m_columnWidths[colIndex];
+									lastRight = boundsRect.Right;
+									e.Graphics.DrawString(item, font, brush, boundsRect, format);
+
+									if (lastRight + 7 >= e.Bounds.Right)
+										break;
+
+									if (notDone(loopIncrementer(colIndex)) && !drawUncategorizedItemSpecial)
+										e.Graphics.DrawLine(linePen, boundsRect.Right - 1, boundsRect.Top, boundsRect.Right - 1, boundsRect.Bottom);
+								}
 							}
 						}
 					}
@@ -523,19 +534,24 @@ namespace Glyssen.Controls
 		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
 		{
 			// TODO: Handle SHIFT-Left and SHIFT-Right
-			if (keyData == Keys.Left)
+			switch (keyData)
 			{
-				if (SelectionStart != 0)
-					SelectionStart = SelectionStart - 1;
-				SelectionLength = 0;
-				return true;
-			}
-			if (keyData == Keys.Right)
-			{
-				if (SelectionStart + SelectionLength != Text.Length)
-					SelectionStart = SelectionStart + SelectionLength + 1;
-				SelectionLength = 0;
-				return true;
+				case Keys.Left:
+					if (SelectionStart != 0)
+						SelectionStart = SelectionStart - 1;
+					SelectionLength = 0;
+					return true;
+				case Keys.Right:
+					if (SelectionStart + SelectionLength != Text.Length)
+						SelectionStart = SelectionStart + SelectionLength + 1;
+					SelectionLength = 0;
+					return true;
+				case Keys.Enter:
+				case Keys.Tab:
+					m_newText = Text;
+					if (DroppedDown)
+						DroppedDown = false;
+					break;
 			}
 			return base.ProcessCmdKey(ref msg, keyData);
 		}
@@ -705,8 +721,9 @@ namespace Glyssen.Controls
 		{
 			Debug.WriteLine("In OnDropDownClosed");
 			_hwndDropDown = 0;
-			if (SelectedIndex != -1)
+			if (SelectedIndex != -1 && m_newText == null)
 				EditingControlFormattedValue = ((DataRowView)SelectedItem)[OwningColumn.DisplayMember];
+			m_newText = null;
 			base.OnDropDownClosed(e);
 		}
 		#endregion

@@ -16,6 +16,7 @@ namespace Glyssen.Character
 		private int m_iMale;
 		private int m_iFemale;
 		private int m_iChild;
+		private int m_iNarrator;
 
 		public CharacterGroupList()
 		{
@@ -40,17 +41,21 @@ namespace Glyssen.Character
 				m_iMale = 0;
 				m_iFemale = 0;
 				m_iChild = 0;
+				m_iNarrator = 0;
 				return;
 			}
 			if (e.NewItems == null)
 				return;
-			var nextNumberToTry = 1;
 			foreach (CharacterGroup characterGroup in e.NewItems)
 			{
 				if (characterGroup.GroupIdNumber != 0)
 				{
 					switch (characterGroup.GroupIdLabel)
 					{
+						case CharacterGroup.Label.Narrator:
+							if (characterGroup.GroupIdNumber > m_iNarrator)
+								m_iNarrator = characterGroup.GroupIdNumber;
+							break;
 						case CharacterGroup.Label.Male:
 							if (characterGroup.GroupIdNumber > m_iMale)
 								m_iMale = characterGroup.GroupIdNumber;
@@ -160,6 +165,7 @@ namespace Glyssen.Character
 			int iMale = 0;
 			int iFemale = 0;
 			int iChild = 0;
+			int iNarrator = 0;
 			PopulateEstimatedHours(groups, keyStrokesByCharacterId);
 			foreach (var group in groups.OrderByDescending(g => g.EstimatedHours))
 			{
@@ -167,6 +173,11 @@ namespace Glyssen.Character
 				{
 					group.GroupIdLabel = CharacterGroup.Label.Other;
 					group.GroupIdOtherText = group.VoiceActor.Name;
+				}
+				else if (group.CharacterIds.Any(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)))
+				{
+					group.GroupIdLabel = CharacterGroup.Label.Narrator;
+					group.GroupIdNumber = ++iNarrator;
 				}
 				else if (group.IsVoiceActorAssigned)
 				{
@@ -189,7 +200,6 @@ namespace Glyssen.Character
 				}
 				else
 				{
-					// Currently, this is only used for migrating legacy projects
 					if (group.ContainsCharacterWithAge(CharacterAge.Child))
 					{
 						group.GroupIdLabel = CharacterGroup.Label.Child;
@@ -218,6 +228,9 @@ namespace Glyssen.Character
 				{
 					switch (group.GroupIdLabel)
 					{
+						case CharacterGroup.Label.Narrator:
+							group.GroupIdNumber = ++m_iNarrator;
+							break;
 						case CharacterGroup.Label.Male:
 							group.GroupIdNumber = ++m_iMale;
 							break;

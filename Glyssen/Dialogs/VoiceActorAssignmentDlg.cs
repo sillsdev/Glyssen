@@ -1070,14 +1070,14 @@ namespace Glyssen.Dialogs
 				m_actorAssignmentViewModel.AddNewActorToGroup(formattedValue, FirstSelectedCharacterGroup);
 				Debug.WriteLine("About to set data source.");
 				Debug.WriteLine("m_characterGroupGrid[e.ColumnIndex, e.RowIndex].Value: " + m_characterGroupGrid[VoiceActorCol.DisplayIndex, rowIndex].Value);
-				SetVoiceActorCellDataSource();
-				VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null);
 				Debug.WriteLine("Finished setting data source.");
 			}
 			else
 			{
 				m_characterGroupGrid[VoiceActorCol.DisplayIndex, rowIndex].Value = value;
 			}
+			SetVoiceActorCellDataSource();
+			VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null);
 		}
 
 		//private bool DataTableContainsValue(DataGridViewMultiColumnComboBoxColumn column, string value)
@@ -1143,7 +1143,7 @@ namespace Glyssen.Dialogs
 //				Debug.WriteLine("About to call EndEdit(Commit) from DropDownOnDropDownClosed");
 //				Debug.WriteLine("m_characterGroupGrid.CurrentCell.Value: " + m_characterGroupGrid.CurrentCell.Value);
 //				Debug.WriteLine("m_characterGroupGrid.CurrentCell.EditedFormattedValue: " + m_characterGroupGrid.CurrentCell.EditedFormattedValue);
-//				m_characterGroupGrid.EndEdit(DataGridViewDataErrorContexts.Commit);
+				m_characterGroupGrid.EndEdit(DataGridViewDataErrorContexts.Commit);
 //				Debug.WriteLine("Back from call to EndEdit(Commit) from DropDownOnDropDownClosed");
 			}
 
@@ -1170,12 +1170,8 @@ namespace Glyssen.Dialogs
 					break;
 				case Keys.Right:
 				case Keys.Left:
-				case Keys.Up:
-				case Keys.Down:
 				case Keys.Shift | Keys.Right:
 				case Keys.Shift | Keys.Left:
-				case Keys.Shift | Keys.Up:
-				case Keys.Shift | Keys.Down:
 					if (m_characterGroupGrid.EditingControl is DataGridViewComboBoxEditingControl)
 						return true;
 					break;
