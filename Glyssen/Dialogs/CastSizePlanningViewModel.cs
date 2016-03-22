@@ -13,8 +13,8 @@ namespace Glyssen.Dialogs
 		private bool m_somethingChanged;
 		private int m_updatedMaleNarrators = Unchanged;
 		private int m_updatedFemaleNarrators = Unchanged;
-		private int m_updatedNarratorsOption = Unchanged;
-		private int m_updatedCastSizeOption = Unchanged;
+		private NarratorsOption m_updatedNarratorsOption = NarratorsOption.NotSet;
+		private CastSizeRow m_updatedCastSizeOption = CastSizeRow.NotSet;
 
 		// values for custom settings
 		private int m_updatedCustomMaleActors = Unchanged;
@@ -106,15 +106,17 @@ namespace Glyssen.Dialogs
 		{
 			get
 			{
+				// did the option change since the dialog opened
+				if (m_updatedNarratorsOption != NarratorsOption.NotSet)
+					return m_updatedNarratorsOption;
+
+				// if it hasn't changed, return the saved value
 				var currentValue = Project.CharacterGroupGenerationPreferences.NarratorsOption;
 
 				// if not yet specified, use "Narration by Author"
-				if (!Enum.IsDefined(typeof(NarratorsOption), currentValue))
-					return NarratorsOption.NarrationByAuthor;
-
-				return (NarratorsOption)currentValue;
+				return currentValue == NarratorsOption.NotSet ? NarratorsOption.NarrationByAuthor : currentValue;
 			}
-			set { m_updatedNarratorsOption = (int)value; }
+			set { m_updatedNarratorsOption = value; }
 		}
 
 		internal CastSizeRow CastSizeOption
@@ -122,20 +124,16 @@ namespace Glyssen.Dialogs
 			get
 			{
 				// did the option change since the dialog opened
-				if (m_updatedCastSizeOption != Unchanged)
-					return (CastSizeRow)m_updatedCastSizeOption;
+				if (m_updatedCastSizeOption != CastSizeRow.NotSet)
+					return m_updatedCastSizeOption;
 
 				// if it hasn't changed, return the saved value
 				var currentValue = Project.CharacterGroupGenerationPreferences.CastSizeOption;
 
 				// if not yet specified, use "Recommended"
-				if (!Enum.IsDefined(typeof(CastSizeRow), currentValue))
-					return CastSizeRow.Recommended;
-
-				return (CastSizeRow)currentValue;
-				
+				return currentValue == CastSizeRow.NotSet ? CastSizeRow.Recommended : currentValue;
 			}
-			set { m_updatedCastSizeOption = (int)value; }
+			set { m_updatedCastSizeOption = value; }
 		}
 
 		internal bool HasVoiceActors
@@ -189,10 +187,10 @@ namespace Glyssen.Dialogs
 			if (ValueChanged(m_updatedFemaleNarrators, prefs.NumberOfFemaleNarrators))
 				prefs.NumberOfFemaleNarrators = m_updatedFemaleNarrators;
 
-			if (ValueChanged(m_updatedNarratorsOption, prefs.NarratorsOption))
+			if (ValueChanged((int)m_updatedNarratorsOption, (int)prefs.NarratorsOption))
 				prefs.NarratorsOption = m_updatedNarratorsOption;
 
-			if (ValueChanged(m_updatedCastSizeOption, prefs.CastSizeOption))
+			if (ValueChanged((int)m_updatedCastSizeOption, (int)prefs.CastSizeOption))
 				prefs.CastSizeOption = m_updatedCastSizeOption;
 
 			if (ValueChanged(m_updatedCustomMaleActors, prefs.NumberOfMaleActors))
@@ -208,24 +206,27 @@ namespace Glyssen.Dialogs
 			if (m_somethingChanged)
 			{
 				Project.Save();
+				m_somethingChanged = false;
 			}
 		}
 	}
 
 	public enum CastSizeRow
 	{
+		NotSet = 0,
 		Small = 1,
-		Recommended,
-		Large,
-		Custom,
-		MatchVoiceActorList
+		Recommended = 2,
+		Large = 3,
+		Custom = 4,
+		MatchVoiceActorList = 5
 	}
 
 	public enum NarratorsOption
 	{
+		NotSet = 0,
 		SingleNarrator = 1,
-		NarrationByAuthor,
-		Custom
+		NarrationByAuthor = 2,
+		Custom = 3
 	}
 	
 	public class CastSizeRowValues
