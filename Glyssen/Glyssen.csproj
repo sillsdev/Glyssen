@@ -245,6 +245,7 @@
     <Compile Include="Dialogs\ExportDlg.Designer.cs">
       <DependentUpon>ExportDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\ExportViewModel.cs" />
     <Compile Include="Dialogs\GenerateGroupsProgressDialog.cs">
       <SubType>Form</SubType>
     </Compile>

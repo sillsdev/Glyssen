@@ -13,9 +13,13 @@
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing)
 		{
-			if (disposing && (components != null))
+			if (disposing)
 			{
-				components.Dispose();
+				if (m_exportViewModel != null)
+					m_exportViewModel.ScriptExported -= m_exportViewModel_ScriptExported;
+
+				if (components != null)
+					components.Dispose();
 			}
 			base.Dispose(disposing);
 		}
@@ -123,8 +127,8 @@
 			// 
 			this.m_uiLanguageMenu.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
 			this.m_uiLanguageMenu.AutoToolTip = false;
-			this.glyssenColorPalette.SetBackColor(this.m_uiLanguageMenu, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_uiLanguageMenu.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_uiLanguageMenu, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_uiLanguageMenu.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
 			this.m_uiLanguageMenu.ForeColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetForeColor(this.m_uiLanguageMenu, Glyssen.Utilities.GlyssenColors.LinkColor);
@@ -149,8 +153,8 @@
 			this.m_lastExportLocationLink.BackColor = System.Drawing.SystemColors.Control;
 			this.m_lastExportLocationLink.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
-			this.m_lastExportLocationLink.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_lastExportLocationLink.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_lastExportLocationLink.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lastExportLocationLink, null);
@@ -180,8 +184,8 @@
 			this.m_lnkExit.BackColor = System.Drawing.SystemColors.Control;
 			this.m_lnkExit.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
-			this.m_lnkExit.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_lnkExit.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_lnkExit.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lnkExit, null);
@@ -483,14 +487,14 @@
 			this.m_btnExport.Enabled = false;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnExport, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnExport, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnExport, "Export to a spreadsheet file");
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnExport, "View the script as a spreadsheet");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnExport, null);
-			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnExport, "MainForm.ExportScript");
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnExport, "MainForm.ViewScript");
 			this.m_btnExport.Location = new System.Drawing.Point(23, 209);
 			this.m_btnExport.Name = "m_btnExport";
 			this.m_btnExport.Size = new System.Drawing.Size(159, 23);
 			this.m_btnExport.TabIndex = 6;
-			this.m_btnExport.Text = "({0}) Export Recording Script...";
+			this.m_btnExport.Text = "({0}) View Recording Script...";
 			this.m_btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnExport, false);
 			this.m_btnExport.UseVisualStyleBackColor = false;
@@ -626,8 +630,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.tableLayoutPanel2.AutoSize = true;
 			this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.glyssenColorPalette.SetBackColor(this.tableLayoutPanel2, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.tableLayoutPanel2, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.tableLayoutPanel2.ColumnCount = 3;
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
