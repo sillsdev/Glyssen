@@ -69,7 +69,7 @@ namespace Glyssen.Dialogs
 		private void m_linkMoreInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			// TODO: impliment this
-			throw new NotImplementedException();
+			MessageBox.Show(this, @"TODO: Put some appropriate text here.", ProductName, MessageBoxButtons.OK);
 		}
 
 		private void m_linkAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -78,7 +78,7 @@ namespace Glyssen.Dialogs
 			msg.AppendParagraph(LocalizationManager.GetString("DialogBoxes.CastSizePlanning.IsAbout.Line1",
 				"Since there are usually a large number of brief character roles in a recording script, most voice actors will speak multiple roles."));
 			msg.AppendParagraph(LocalizationManager.GetString("DialogBoxes.CastSizePlanning.IsAbout.Line2",
-				"So how many voice actors or narrators should you have?  That’s discussed in the <a href=\"#\" target=\"_blank\">Guide for the Recording Project Coordinator</a>."));
+				"So how many voice actors or narrators should you have? That’s discussed in the <a href=\"#\" target=\"_blank\">Guide for the Recording Project Coordinator</a>."));
 			msg.AppendParagraph(LocalizationManager.GetString("DialogBoxes.CastSizePlanning.IsAbout.Line3",
 				"In the <b>Cast Size Planning</b> dialog, Glyssen provides recommendations for the size of your cast and for how to distribute the narration work. You can adjust these as needed."));
 			msg.AppendParagraph(LocalizationManager.GetString("DialogBoxes.CastSizePlanning.IsAbout.Line4",

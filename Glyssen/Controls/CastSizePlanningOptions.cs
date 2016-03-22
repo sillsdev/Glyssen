@@ -88,7 +88,7 @@ namespace Glyssen.Controls
 					r.Width -= 1;
 				}
 
-				// use graphics mehtods to draw cell's border
+				// use graphics methods to draw cell's border
 				e.Graphics.DrawRectangle(pen, r);
 			}
 		}
@@ -102,6 +102,9 @@ namespace Glyssen.Controls
 
 		public void SetRowValues(CastSizeRow row, CastSizeRowValues values)
 		{
+			if (row == CastSizeRow.NotSet)
+				return;
+
 			var rowIndex = (int)row;
 			SetControlValue(m_tableLayout.GetControlFromPosition(2, rowIndex), values.Male);
 			SetControlValue(m_tableLayout.GetControlFromPosition(3, rowIndex), values.Female);

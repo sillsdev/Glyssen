@@ -313,27 +313,17 @@ namespace Glyssen.Bundle
 
 		/// <summary>
 		/// How the number of narrators was set:
-		/// 0 = not set
-		/// 1 = single narrator
-		/// 2 = narrator per author
-		/// 3 = custom
 		/// </summary>
 		[XmlElement("narratorsOption")]
-		[DefaultValue(0)]
-		public int NarratorsOption { get; set; }
+		[DefaultValue(NarratorsOption.NotSet)]
+		public NarratorsOption NarratorsOption { get; set; }
 
 		/// <summary>
 		/// How the number of voice actors was set:
-		/// 0 = not set
-		/// 1 = small cast size
-		/// 2 = recommended cast size
-		/// 3 = large cast size
-		/// 4 = custom cast size
-		/// 5 = match voice actor list
 		/// </summary>
 		[XmlElement("castSizeOption")]
-		[DefaultValue(0)]
-		public int CastSizeOption { get; set; }
+		[DefaultValue(CastSizeRow.NotSet)]
+		public CastSizeRow CastSizeOption { get; set; }
 
 		/// <summary>
 		/// Number of male actors set by user
