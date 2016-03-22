@@ -12,11 +12,11 @@ namespace Glyssen.Dialogs
 	public partial class VoiceActorInformationDlg : FormWithPersistedSettings
 	{
 		private readonly VoiceActorInformationViewModel m_viewModel;
-		private readonly bool m_initialEntry;
+		private readonly bool m_changeOkToGenerateGroups;
 
 		private string m_tallyFmt;
 
-		public VoiceActorInformationDlg(VoiceActorInformationViewModel viewModel, bool initialEntry = true)
+		public VoiceActorInformationDlg(VoiceActorInformationViewModel viewModel, bool initialEntry, bool changeOkToGenerateGroups)
 		{
 			InitializeComponent();
 
@@ -24,8 +24,8 @@ namespace Glyssen.Dialogs
 			m_dataGrid.RowCountChanged += DataGrid_RowCountChanged;
 
 			m_viewModel = viewModel;
-			m_initialEntry = initialEntry;
-			m_dataGrid.Initialize(m_viewModel, !m_initialEntry);
+			m_changeOkToGenerateGroups = changeOkToGenerateGroups;
+			m_dataGrid.Initialize(m_viewModel, !initialEntry);
 
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
@@ -71,7 +71,7 @@ namespace Glyssen.Dialogs
 				m_btnCancelClose.Text = LocalizationManager.GetString("Common.Close", "Close");
 			}
 
-			m_btnOk.Text = m_viewModel.DataHasChangedInWaysThatMightAffectGroupGeneration ?
+			m_btnOk.Text = m_viewModel.DataHasChangedInWaysThatMightAffectGroupGeneration && m_changeOkToGenerateGroups ?
 				LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.GenerateGroupsButton", "Generate Groups") :
 				LocalizationManager.GetString("Common.OK", "OK");
 

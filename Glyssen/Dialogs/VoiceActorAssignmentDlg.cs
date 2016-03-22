@@ -216,7 +216,7 @@ namespace Glyssen.Dialogs
 
 			var sizeRestoreInfo = SaveAutoSizeInfo();
 
-			using (var actorDlg = new VoiceActorInformationDlg(actorInfoViewModel, false))
+			using (var actorDlg = new VoiceActorInformationDlg(actorInfoViewModel, false, true))
 			{
 				//if (actorDlg.CloseParent)
 				//{

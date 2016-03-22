@@ -102,7 +102,7 @@ namespace Glyssen.Dialogs
 		private void ShowVoiceActorList()
 		{
 			var actorInfoViewModel = new VoiceActorInformationViewModel(m_viewModel.Project);
-			using (var actorDlg = new VoiceActorInformationDlg(actorInfoViewModel, false))
+			using (var actorDlg = new VoiceActorInformationDlg(actorInfoViewModel, false, false))
 			{
 				actorDlg.ShowDialog(this);
 

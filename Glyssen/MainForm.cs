@@ -643,7 +643,7 @@ namespace Glyssen
 			{
 				var actorInfoViewModel = new VoiceActorInformationViewModel(m_project);
 
-				using (var dlg = new VoiceActorInformationDlg(actorInfoViewModel))
+				using (var dlg = new VoiceActorInformationDlg(actorInfoViewModel, true, false))
 					if (dlg.ShowDialog(this) == DialogResult.OK)
 						m_project.VoiceActorStatus = VoiceActorStatus.Provided;
 				SaveCurrentProject();
