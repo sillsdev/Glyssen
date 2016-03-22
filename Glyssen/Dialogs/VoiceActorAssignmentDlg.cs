@@ -1129,11 +1129,6 @@ namespace Glyssen.Dialogs
 						comboBox.DroppedDown = false;
 					}
 					break;
-				case Keys.Shift | Keys.Right:
-				case Keys.Shift | Keys.Left:
-					if (m_characterGroupGrid.EditingControl is DataGridViewComboBoxEditingControl)
-						return true;
-					break;
 			}
 			return base.ProcessCmdKey(ref msg, keyData);
 		}

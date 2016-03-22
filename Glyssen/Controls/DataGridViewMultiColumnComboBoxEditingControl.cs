@@ -530,21 +530,21 @@ namespace Glyssen.Controls
 				DropDownWidth = TotalWidth;
 		}
 
+		public override bool EditingControlWantsInputKey(Keys keyData, bool dataGridViewWantsInputKey)
+		{
+			switch (keyData & Keys.KeyCode)
+			{
+				case Keys.Right:
+				case Keys.Left:
+					return true;
+			}
+			return base.EditingControlWantsInputKey(keyData, dataGridViewWantsInputKey);
+		}
+
 		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
 		{
-			// TODO: Handle SHIFT-Left and SHIFT-Right -- Then remove protective code from VoiceActorAssignmentDlg.ProcessCmdKey
 			switch (keyData)
 			{
-				case Keys.Left:
-					if (SelectionStart != 0)
-						SelectionStart = SelectionStart - 1;
-					SelectionLength = 0;
-					return true;
-				case Keys.Right:
-					if (SelectionStart + SelectionLength != Text.Length)
-						SelectionStart = SelectionStart + SelectionLength + 1;
-					SelectionLength = 0;
-					return true;
 				case Keys.Enter:
 				case Keys.Tab:
 					m_newText = Text;
