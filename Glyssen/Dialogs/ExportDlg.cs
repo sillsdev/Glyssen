@@ -1,46 +1,28 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using DesktopAnalytics;
-using Glyssen.Properties;
 using L10NSharp;
 using L10NSharp.UI;
-using SIL.IO;
-using SIL.Reporting;
 
 namespace Glyssen.Dialogs
 {
 	public partial class ExportDlg : Form
 	{
-		private readonly ProjectExporter m_projectExporter;
-		private ExportFileType m_selectedFileType = ExportFileType.Excel;
-		private string m_actorDirectory;
-		private string m_bookDirectory;
-		private string m_defaultDirectory;
+		private readonly ExportViewModel m_viewModel;
 		private string m_actorDirectoryFmt;
 		private string m_bookDirectoryFmt;
 		private string m_clipListFileFmt;
-		private string m_recordingScriptFileNameSuffix;
 
-		public ExportDlg(ProjectExporter projectExporter)
+		public ExportDlg(ExportViewModel viewModel)
 		{
-			m_projectExporter = projectExporter;
+			m_viewModel = viewModel;
 
 			InitializeComponent();
 
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 
-			m_defaultDirectory = Settings.Default.DefaultExportDirectory;
-			if (string.IsNullOrWhiteSpace(m_defaultDirectory))
-			{
-				m_defaultDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ProductName);
-				if (!Directory.Exists(m_defaultDirectory))
-					Directory.CreateDirectory(m_defaultDirectory);
-			}
-			string defaultFileName = m_projectExporter.Project.PublicationName + " " +
-				m_recordingScriptFileNameSuffix + ProjectExporter.GetFileExtension(m_selectedFileType);
-			m_lblFileName.Text = Path.Combine(m_defaultDirectory, defaultFileName);
+			m_lblFileName.Text = m_viewModel.FullFileName;
 
 			UpdateDisplay();
 		}
@@ -56,10 +38,8 @@ namespace Glyssen.Dialogs
 			m_actorDirectoryFmt = m_lblActorDirectory.Text;
 			m_bookDirectoryFmt = m_lblBookDirectory.Text;
 			m_clipListFileFmt = m_lblClipListFilename.Text;
-			m_recordingScriptFileNameSuffix =
-				LocalizationManager.GetString("DialogBoxes.ExportDlg.RecordingScriptFileNameDefaultSuffix", "Recording Script");
 
-			Text = string.Format(Text, m_projectExporter.Project.Name);
+			Text = string.Format(Text, m_viewModel.Exporter.Project.Name);
 		}
 
 		private void UpdateDisplay()
@@ -73,7 +53,7 @@ namespace Glyssen.Dialogs
 
 		private void UpdateActorDisplay()
 		{
-			if (!m_projectExporter.IncludeVoiceActors)
+			if (!m_viewModel.Exporter.IncludeVoiceActors)
 			{
 				m_checkIncludeActorBreakdown.Checked = false;
 				m_checkIncludeActorBreakdown.Visible = false;
@@ -83,9 +63,8 @@ namespace Glyssen.Dialogs
 			else if (m_checkIncludeActorBreakdown.Checked)
 			{
 				m_lblActorDirectory.Visible = true;
-				m_actorDirectory = Path.Combine(Path.GetDirectoryName(m_lblFileName.Text), Path.GetFileNameWithoutExtension(m_lblFileName.Text) + " Voice Actors");
-				m_lblActorDirectory.Text = string.Format(m_actorDirectoryFmt, m_actorDirectory);
-				m_lblActorDirectoryExists.Visible = Directory.Exists(m_actorDirectory);
+				m_lblActorDirectory.Text = string.Format(m_actorDirectoryFmt, m_viewModel.ActorDirectory);
+				m_lblActorDirectoryExists.Visible = Directory.Exists(m_viewModel.ActorDirectory);
 			}
 			else
 			{
@@ -99,9 +78,8 @@ namespace Glyssen.Dialogs
 			if (m_checkIncludeBookBreakdown.Checked)
 			{
 				m_lblBookDirectory.Visible = true;
-				m_bookDirectory = Path.Combine(Path.GetDirectoryName(m_lblFileName.Text), Path.GetFileNameWithoutExtension(m_lblFileName.Text) + " Books");
-				m_lblBookDirectory.Text = string.Format(m_bookDirectoryFmt, m_bookDirectory);
-				m_lblBookDirectoryExists.Visible = Directory.Exists(m_bookDirectory);
+				m_lblBookDirectory.Text = string.Format(m_bookDirectoryFmt, m_viewModel.BookDirectory);
+				m_lblBookDirectoryExists.Visible = Directory.Exists(m_lblBookDirectory.Text);
 			}
 			else
 			{
@@ -112,7 +90,7 @@ namespace Glyssen.Dialogs
 
 		private void UpdateClipListDisplay()
 		{
-			if (!m_projectExporter.IncludeVoiceActors)
+			if (!m_viewModel.Exporter.IncludeVoiceActors)
 			{
 				m_checkIncludeClipListFile.Checked = false;
 				m_checkIncludeClipListFile.Visible = false;
@@ -122,13 +100,13 @@ namespace Glyssen.Dialogs
 			else if (m_checkIncludeClipListFile.Checked)
 			{
 				var folder = Path.GetDirectoryName(m_lblFileName.Text) ?? string.Empty;
-				var filename = Path.GetFileNameWithoutExtension(m_lblFileName.Text) ?? m_projectExporter.Project.PublicationName;
+				var filename = Path.GetFileNameWithoutExtension(m_lblFileName.Text) ?? m_viewModel.Exporter.Project.PublicationName;
 
 				var clipListFilenameSuffix = LocalizationManager.GetString("DialogBoxes.ExportDlg.ClipListFileNameSuffix",
 					"Clip List");
 
-				if (filename.Contains(m_recordingScriptFileNameSuffix))
-					filename = filename.Replace(m_recordingScriptFileNameSuffix, clipListFilenameSuffix);
+				if (filename.Contains(m_viewModel.RecordingScriptFileNameSuffix))
+					filename = filename.Replace(m_viewModel.RecordingScriptFileNameSuffix, clipListFilenameSuffix);
 				else
 					filename += " " + clipListFilenameSuffix;
 
@@ -152,7 +130,7 @@ namespace Glyssen.Dialogs
 			{
 				dlg.Title = LocalizationManager.GetString("DialogBoxes.ExportDlg.SaveFileDialog.Title", "Choose File Location");
 				dlg.OverwritePrompt = false;
-				dlg.InitialDirectory = m_defaultDirectory;
+				dlg.InitialDirectory = m_viewModel.DefaultDirectory;
 				dlg.FileName = Path.GetFileName(m_lblFileName.Text);
 				dlg.Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}|{4} ({5})|{5}",
 					LocalizationManager.GetString("DialogBoxes.ExportDlg.ExcelFileTypeLabel", "Excel files"), "*" + ProjectExporter.kExcelFileExtension,
@@ -165,17 +143,16 @@ namespace Glyssen.Dialogs
 					{
 						//1-indexed
 						case 2: //.txt
-							m_selectedFileType = ExportFileType.TabSeparated;
+							m_viewModel.SelectedFileType = ExportFileType.TabSeparated;
 							break;
 						default:
-							m_selectedFileType = ExportFileType.Excel;
+							m_viewModel.SelectedFileType = ExportFileType.Excel;
 							break;
 					}
 
-					m_defaultDirectory = Path.GetDirectoryName(dlg.FileName);
 					m_lblFileName.Text = dlg.FileName;
 
-					string expectedFileExtension = ProjectExporter.GetFileExtension(m_selectedFileType);
+					string expectedFileExtension = ProjectExporter.GetFileExtension(m_viewModel.SelectedFileType);
 					if (!m_lblFileName.Text.EndsWith(expectedFileExtension))
 						m_lblFileName.Text += expectedFileExtension;
 
@@ -201,66 +178,10 @@ namespace Glyssen.Dialogs
 
 		private void BtnOk_Click(object sender, EventArgs e)
 		{
-			bool exportedAtLeastOneFile = false;
-			Settings.Default.DefaultExportDirectory = m_defaultDirectory;
-			string filePath = m_lblFileName.Text;
-			try
-			{
-				m_projectExporter.GenerateFile(filePath, m_selectedFileType);
-				exportedAtLeastOneFile = true;
-
-				// remember the location
-				m_projectExporter.Project.Status.LastExportLocation = Path.GetDirectoryName(filePath);
-			}
-			catch (Exception ex)
-			{
-				Analytics.ReportException(ex);
-				ErrorReport.ReportNonFatalExceptionWithMessage(ex,
-					string.Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExport",
-					"Could not export data to {0}", "{0} is a file name."), filePath));
-			}
-			if (m_checkIncludeActorBreakdown.Checked)
-			{
-				try
-				{
-					Directory.CreateDirectory(m_actorDirectory);
-					m_projectExporter.GenerateActorFiles(m_actorDirectory, m_selectedFileType);
-					exportedAtLeastOneFile = true;
-				}
-				catch (Exception ex)
-				{
-					Analytics.ReportException(ex);
-					ErrorReport.ReportNonFatalExceptionWithMessage(ex,
-						string.Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportActors",
-						"Could not export one or more voice actor script files to {0}", "{0} is a directory name."), m_actorDirectory));
-				}
-			}
-			if (m_checkIncludeBookBreakdown.Checked)
-			{
-				try
-				{
-					Directory.CreateDirectory(m_bookDirectory);
-					m_projectExporter.GenerateBookFiles(m_bookDirectory, m_selectedFileType);
-					exportedAtLeastOneFile = true;
-				}
-				catch (Exception ex)
-				{
-					Analytics.ReportException(ex);
-					ErrorReport.ReportNonFatalExceptionWithMessage(ex,
-						string.Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportBooks",
-						"Could not export one or more book script files to {0}", "{0} is a directory name."), m_bookDirectory));
-				}
-			}
-
-			try
-			{
-				if (exportedAtLeastOneFile && m_defaultDirectory != null && m_checkOpenForMe.Checked)
-					PathUtilities.OpenDirectoryInExplorer(m_defaultDirectory);
-			}
-			catch
-			{
-				// Oh well.
-			}
+			m_viewModel.ExportNow(m_lblFileName.Text,
+				m_checkIncludeActorBreakdown.Checked,
+				m_checkIncludeBookBreakdown.Checked,
+				m_checkOpenForMe.Checked);
 		}
 	}
 }
