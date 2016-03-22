@@ -30,7 +30,6 @@ namespace Glyssen.Dialogs
 		private readonly Dictionary<string, int> m_keyStrokesByCharacterId;
 		private DataGridViewColumn m_sortedColumn;
 		private bool m_sortedAscending;
-		private int m_indexOfRowNotToInvalidate = -1;
 		private bool m_selectingInResponseToDataChange;
 		private List<string> m_characterIdsForSelectedGroup;
 		private bool m_characterDetailsVisible = false;
@@ -569,7 +568,6 @@ namespace Glyssen.Dialogs
 			m_saveStatus.OnSaved();
 			if (!SetRowCount(changedGroups != null))
 				InvalidateRowsForGroups(changedGroups);
-			m_indexOfRowNotToInvalidate = -1;
 			m_undoButton.Enabled = m_actorAssignmentViewModel.UndoActions.Any();
 			if (!m_undoButton.Enabled)
 				SetUndoOrRedoButtonToolTip(m_undoButton, null);
@@ -590,7 +588,7 @@ namespace Glyssen.Dialogs
 			foreach (var group in changedGroups)
 			{
 				var i = m_actorAssignmentViewModel.CharacterGroups.IndexOf(@group);
-				if (i >= 0 && i != m_indexOfRowNotToInvalidate)
+				if (i >= 0)
 					m_characterGroupGrid.InvalidateRow(i);
 			}
 		}
@@ -882,10 +880,7 @@ namespace Glyssen.Dialogs
 		private void m_characterGroupGrid_CellValuePushed(object sender, DataGridViewCellValueEventArgs e)
 		{
 			if (e.ColumnIndex == VoiceActorCol.Index)
-			{
-				m_indexOfRowNotToInvalidate = e.RowIndex;
 				m_actorAssignmentViewModel.AssignActorToGroup((int) e.Value, m_actorAssignmentViewModel.CharacterGroups[e.RowIndex]);
-			}
 		}
 
 		private void HandleGridColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
