@@ -36,7 +36,7 @@ namespace GlyssenTests
 
 			var book = new BookScript { Blocks = new List<Block> { block1, block2 } };
 			var books = new List<BookScript> { book };
-			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteDataToVersion88(books);
+			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
 			Assert.AreEqual(2, book.Blocks.Count);
 			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
@@ -85,7 +85,7 @@ namespace GlyssenTests
 
 			var book = new BookScript { Blocks = new List<Block> { block1, block2, block3 } };
 			var books = new List<BookScript> { book };
-			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteDataToVersion88(books);
+			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
 			Assert.AreEqual(3, book.Blocks.Count);
 			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
@@ -125,7 +125,7 @@ namespace GlyssenTests
 
 			var book = new BookScript { Blocks = new List<Block> { block1, block2 } };
 			var books = new List<BookScript> { book };
-			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteDataToVersion88(books);
+			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
 			Assert.AreEqual(2, book.Blocks.Count);
 			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
@@ -174,7 +174,7 @@ namespace GlyssenTests
 
 			var book = new BookScript { Blocks = new List<Block> { block1, block2, block3 } };
 			var books = new List<BookScript> { book };
-			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteDataToVersion88(books);
+			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
 			Assert.AreEqual(3, book.Blocks.Count);
 			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
@@ -236,7 +236,7 @@ namespace GlyssenTests
 
 			var book = new BookScript { Blocks = new List<Block> { block1, block2, block3, block4 } };
 			var books = new List<BookScript> { book };
-			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteDataToVersion88(books);
+			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
 			Assert.AreEqual(4, book.Blocks.Count);
 			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
@@ -308,7 +308,7 @@ namespace GlyssenTests
 
 			var book = new BookScript { Blocks = new List<Block> { block1, block2, block3, block4, block5 } };
 			var books = new List<BookScript> { book };
-			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteDataToVersion88(books);
+			ProjectDataMigrator.MigrateInvalidMultiBlockQuoteData(books);
 
 			Assert.AreEqual(5, book.Blocks.Count);
 			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
@@ -509,7 +509,7 @@ namespace GlyssenTests
 			var block2 = CreateTestBlock("Peter");
 			var book = new BookScript { Blocks = new List<Block> { block1, block2 } };
 			var books = new List<BookScript> { book };
-			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptDataToVersion88(books);
+			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptData(books);
 
 			Assert.AreEqual("Andrew", block1.CharacterId);
 			Assert.AreEqual("Andrew", block1.CharacterIdInScript);
@@ -533,7 +533,7 @@ namespace GlyssenTests
 
 			var book = new BookScript { Blocks = new List<Block> { block1, block2 } };
 			var books = new List<BookScript> { book };
-			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptDataToVersion88(books);
+			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptData(books);
 
 			Assert.AreEqual(unclearCharacterId, block1.CharacterId);
 			Assert.AreEqual(unclearCharacterId, block1.CharacterIdInScript);

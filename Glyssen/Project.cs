@@ -818,13 +818,16 @@ namespace Glyssen
 			}
 			UpdatePercentInitialized();
 			ProjectState = ProjectState.FullyInitialized;
+			UpdateControlFileVersion();
 			Analyze();
 		}
 
 		private void UpdateControlFileVersion()
 		{
-			ProjectDataMigrator.MigrateProjectData(this, m_metadata.ControlFileVersion);
-			m_metadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
+			if (m_metadata.ControlFileVersion != 0)
+				ProjectDataMigrator.MigrateProjectData(this, m_metadata.ControlFileVersion);
+			if (m_metadata.ControlFileVersion == 0 || ProjectState == ProjectState.FullyInitialized)
+				m_metadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
 		}
 
 		private void ApplyUserDecisions(Project sourceProject)

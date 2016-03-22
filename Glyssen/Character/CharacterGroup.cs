@@ -243,7 +243,10 @@ namespace Glyssen.Character
 				if (CharacterVerseData.IsCharacterStandard(c))
 					return gender == CharacterGender.Either;
 
-				return characterDetails[c].Gender == gender;
+				CharacterDetail characterDetail;
+				if (!characterDetails.TryGetValue(c, out characterDetail))
+					return false;
+				return characterDetail.Gender == gender;
 			});
 		}
 
@@ -255,7 +258,10 @@ namespace Glyssen.Character
 				if (CharacterVerseData.IsCharacterStandard(c))
 					return age == CharacterAge.Adult;
 
-				return characterDetails[c].Age == age;
+				CharacterDetail characterDetail;
+				if (!characterDetails.TryGetValue(c, out characterDetail))
+					return false;
+				return characterDetail.Age == age;
 			});
 		}
 
@@ -267,7 +273,10 @@ namespace Glyssen.Character
 				if (CharacterVerseData.IsCharacterStandard(c))
 					return age == CharacterAge.Adult;
 
-				return characterDetails[c].Age == age;
+				CharacterDetail characterDetail;
+				if (!characterDetails.TryGetValue(c, out characterDetail))
+					return false;
+				return characterDetail.Age == age;
 			});
 		}
 

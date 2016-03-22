@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
@@ -7,31 +8,44 @@ namespace Glyssen
 {
 	internal class ProjectDataMigrator
 	{
+		private static Project s_lastProjectMigrated;
+		private static Migrations s_migrationsRun;
+
+		[Flags]
+		private enum Migrations
+		{
+			SetBookIdForChapterBlocks = 1,
+		}
+
 		public static void MigrateProjectData(Project project, int fromControlFileVersion)
 		{
+			if (s_lastProjectMigrated != project)
+				s_migrationsRun = 0;
+
+			if (fromControlFileVersion < 90 && (project != s_lastProjectMigrated || (s_migrationsRun & Migrations.SetBookIdForChapterBlocks) == 0))
+			{
+				SetBookIdForChapterBlocks(project.Books);
+				s_migrationsRun |= Migrations.SetBookIdForChapterBlocks;
+			}
+
+			// We don't need to track runs of Migrations which only occur for FullyInitialized projects
+			// because we shouldn't call MigrateProjectData again.
 			if (project.ProjectState == ProjectState.FullyInitialized)
 			{
-				if (fromControlFileVersion < 88)
-					MigrateInvalidMultiBlockQuoteDataToVersion88(project.Books);
-				if (fromControlFileVersion < 89)
+				if (fromControlFileVersion < 96)
+				{
+					MigrateInvalidMultiBlockQuoteData(project.Books);
 					CleanUpOrphanedMultiBlockQuoteStati(project.Books);
-				if (fromControlFileVersion < 88)
-					MigrateInvalidCharacterIdForScriptDataToVersion88(project.Books);
-			}
-			if (fromControlFileVersion < 90)
-				SetBookIdForChapterBlocks(project.Books);
-
-			// Ideally, we would check that the project has been fully initialized, but the project state
-			// may not have been set yet by the time we get here (the check above is invalid and will be fixed in PG-609)
-			if (project.ProjectState != ProjectState.Initial)
-			{
-				if (fromControlFileVersion < 95)
+					MigrateInvalidCharacterIdForScriptData(project.Books);
 					AddCharacterGroupIds(project);
+				}
 			}
+
+			s_lastProjectMigrated = project;
 		}
 
 		// internal for testing
-		internal static void MigrateInvalidMultiBlockQuoteDataToVersion88(IReadOnlyList<BookScript> books)
+		internal static void MigrateInvalidMultiBlockQuoteData(IReadOnlyList<BookScript> books)
 		{
 			foreach (var book in books)
 			{
@@ -122,7 +136,7 @@ namespace Glyssen
 			}
 		}
 
-		public static void MigrateInvalidCharacterIdForScriptDataToVersion88(IReadOnlyList<BookScript> books)
+		public static void MigrateInvalidCharacterIdForScriptData(IReadOnlyList<BookScript> books)
 		{
 			foreach (var block in books.SelectMany(book => book.GetScriptBlocks().Where(block =>
 				(block.CharacterId == CharacterVerseData.AmbiguousCharacter || block.CharacterId == CharacterVerseData.UnknownCharacter) &&
