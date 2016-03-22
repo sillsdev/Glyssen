@@ -368,12 +368,6 @@ namespace Glyssen
 			set { m_metadata.ProjectStatus.ProjectSettingsStatus = value; }
 		}
 
-		public VoiceActorStatus VoiceActorStatus
-		{
-			get { return m_metadata.ProjectStatus.VoiceActorStatus; }
-			set { m_metadata.ProjectStatus.VoiceActorStatus = value; }
-		}
-
 		public CharacterGroupGenerationPreferences CharacterGroupGenerationPreferences
 		{
 			get { return m_metadata.CharacterGroupGenerationPreferences;  }

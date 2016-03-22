@@ -6,7 +6,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Properties;
@@ -152,13 +151,6 @@ namespace Glyssen.Dialogs
 			generate();
 
 			Save();
-		}
-
-		public void ResetActorAndCharacterGroupState()
-		{
-			m_project.Status.VoiceActorStatus = VoiceActorStatus.UnProvided;
-			m_project.CharacterGroupList.CharacterGroups = new ObservableList<CharacterGroup>();
-			m_project.Save();
 		}
 
 		// Keep this method around for now in case we decide to support templates in some scenarios

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
@@ -11,7 +10,6 @@ using System.Text;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Bundle;
-using Glyssen.Controls;
 using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Rules;
@@ -406,6 +404,11 @@ namespace Glyssen
 			}
 
 			int actors = m_project.VoiceActorList.ActiveActors.Count();
+			if (actors == 0)
+			{
+				m_lblActorsAssigned.Text = string.Empty;
+				return;
+			}
 			int assigned = m_project.CharacterGroupList.CountVoiceActorsAssigned();
 			string format = (actors > 1) ? string.Format(m_actorsAssignedFmt, actors, "{0}") :
 				LocalizationManager.GetString("MainForm.ActorsAssignedSingle", "1 voice actor identified, {0}",
@@ -639,30 +642,15 @@ namespace Glyssen
 			// TODO: Eventually, this should be called when the user requests that all overrides be reverted to the defaults.
 			//m_project.UseDefaultForUnresolvedMultipleChoiceCharacters();
 
-			if (m_project.VoiceActorStatus == VoiceActorStatus.UnProvided)
-			{
-				var actorInfoViewModel = new VoiceActorInformationViewModel(m_project);
+			EnsureGroupsAreInSynchWithCharactersInUse();
 
-				using (var dlg = new VoiceActorInformationDlg(actorInfoViewModel, true, false))
-					if (dlg.ShowDialog(this) == DialogResult.OK)
-						m_project.VoiceActorStatus = VoiceActorStatus.Provided;
-				SaveCurrentProject();
-			}
-			else
+			bool launchCastSizePlanning;
+			using (var dlg = new VoiceActorAssignmentDlg(m_project))
 			{
-				EnsureGroupsAreInSynchWithCharactersInUse();
+				dlg.ShowDialog(this);
+				launchCastSizePlanning = dlg.LaunchCastSizePlanningUponExit;
 			}
-
-			bool launchCastSizePlanning = false;
-			if (m_project.VoiceActorStatus == VoiceActorStatus.Provided)
-			{
-				using (var dlg = new VoiceActorAssignmentDlg(m_project))
-				{
-					dlg.ShowDialog(this);
-					launchCastSizePlanning = dlg.LaunchCastSizePlanningUponExit;
-				}
-				SaveCurrentProject();
-			}
+			SaveCurrentProject();
 			UpdateDisplayOfProjectInfo();
 			if (launchCastSizePlanning)
 				m_btnCastSizePlanning_Click(m_btnCastSizePlanning, new EventArgs());

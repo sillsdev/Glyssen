@@ -21,7 +21,6 @@ namespace Glyssen.Dialogs
 			InitializeComponent();
 
 			m_dataGrid.Saved += DataGrid_Saved;
-			m_dataGrid.RowCountChanged += DataGrid_RowCountChanged;
 
 			m_viewModel = viewModel;
 			m_changeOkToGenerateGroups = changeOkToGenerateGroups;
@@ -30,8 +29,6 @@ namespace Glyssen.Dialogs
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 		}
-
-		//public bool CloseParent { get; private set; }
 
 		private void VoiceActorInformationDlg_Load(object sender, EventArgs e)
 		{
@@ -81,11 +78,8 @@ namespace Glyssen.Dialogs
 			// change based on the data changes it knows about.
 
 			UpdateTally();
-		}
 
-		private void DataGrid_RowCountChanged(object sender, EventArgs e)
-		{
-			m_btnOk.Enabled = m_dataGrid.RowCount > 1;
+			m_btnOk.Enabled = m_viewModel.ActiveActors.Any();
 		}
 
 		private void HandleCancelOrCloseButtonClicked(object sender, EventArgs e)

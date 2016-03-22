@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
-using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.Extensions;
-using SIL.ObjectModel;
 
 namespace Glyssen.Controls
 {
@@ -89,6 +87,8 @@ namespace Glyssen.Controls
 		}
 
 		public List<VoiceActor.VoiceActor> Actors { get { return m_project.VoiceActorList.AllActors; } }
+
+		public IEnumerable<VoiceActor.VoiceActor> ActiveActors { get { return m_project.VoiceActorList.ActiveActors; } }
 
 		public void SaveVoiceActorInformation()
 		{

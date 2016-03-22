@@ -32,7 +32,7 @@ namespace Glyssen.Dialogs
 		private bool m_sortedAscending;
 		private bool m_selectingInResponseToDataChange;
 		private List<string> m_characterIdsForSelectedGroup;
-		private bool m_characterDetailsVisible = false;
+		private bool m_characterDetailsVisible;
 		//private string m_fmtNoCharactersInGroup;
 		private readonly Font m_hyperlinkFont;
 		private string m_fmtMoveCharactersInfo;
@@ -85,6 +85,8 @@ namespace Glyssen.Dialogs
 			m_findCharacterBackgroundWorker.RunWorkerCompleted += FindCharacterCompleted;
 
 			m_hyperlinkFont = new Font(m_characterGroupGrid.Columns[CharacterIdsCol.Index].InheritedStyle.Font, FontStyle.Underline);
+
+			adjustGroupsToMatchMyVoiceActorsToolStripMenuItem.Enabled = project.VoiceActorList.ActiveActors.Any();
 		}
 
 		public bool LaunchCastSizePlanningUponExit { get; private set; }
@@ -218,16 +220,10 @@ namespace Glyssen.Dialogs
 
 			using (var actorDlg = new VoiceActorInformationDlg(actorInfoViewModel, false, true))
 			{
-				//if (actorDlg.CloseParent)
-				//{
-				//	Close();
-				//	return;
-				//}
-
 				if (actorDlg.ShowDialog(this) == DialogResult.OK)
 				{
 					m_actorAssignmentViewModel.NoteActorChanges(actorInfoViewModel.Changes);
-					if (actorInfoViewModel.DataHasChangedInWaysThatMightAffectGroupGeneration && actorInfoViewModel.Actors.Any())
+					if (actorInfoViewModel.DataHasChangedInWaysThatMightAffectGroupGeneration)
 					{
 						m_programmaticClickOfUpdateGroups = true;
 						HandleUpdateGroupsClick(actorDlg, e);
@@ -237,6 +233,7 @@ namespace Glyssen.Dialogs
 						SetVoiceActorCellDataSource();
 					}
 				}
+				adjustGroupsToMatchMyVoiceActorsToolStripMenuItem.Enabled = actorInfoViewModel.ActiveActors.Any();
 			}
 
 			RestoreAutoSizeInfo(sizeRestoreInfo);
@@ -496,6 +493,10 @@ namespace Glyssen.Dialogs
 
 		private void HandleUpdateGroupsClick(object sender, EventArgs e)
 		{
+			// The UI should not allow this (by disabling buttons/menu options)
+			if (!m_project.VoiceActorList.ActiveActors.Any())
+				return;
+
 			// REVIEW: When they regenerate, which group should be selected? The one with the same ID or the one containing the same major character.
 			// Used to do the latter, but now we do the former.
 			var idOfSelectedGroup = (m_characterGroupGrid.SelectedRows.Count == 1)
@@ -518,15 +519,6 @@ namespace Glyssen.Dialogs
 						m_characterGroupGrid.Rows[groupToSelect].Selected = true;
 					}
 				}
-			}
-			else
-			{
-				// Once my changes are merged with Andrew's, this will be impossible unless/until we implement
-				// the Consolidate/Expand logic.
-				m_actorAssignmentViewModel.ResetActorAndCharacterGroupState();
-				// If we don't get rid of this altogether, we probably need to display a message to tell the user that
-				// they need to go back to cast size planning -- maybe even take them there.
-				Close();
 			}
 		}
 

@@ -282,10 +282,6 @@ namespace Glyssen.Bundle
 		[DefaultValue(ProjectSettingsStatus.UnReviewed)]
 		public ProjectSettingsStatus ProjectSettingsStatus { get; set; }
 
-		[XmlElement("voiceActorStatus")]
-		[DefaultValue(VoiceActorStatus.UnProvided)]
-		public VoiceActorStatus VoiceActorStatus { get; set; }
-
 		[XmlElement("lastExportLocation")]
 		[DefaultValue("")]
 		public string LastExportLocation { get; set; }
@@ -369,12 +365,6 @@ namespace Glyssen.Bundle
 	{
 		UnReviewed,
 		Reviewed
-	}
-
-	public enum VoiceActorStatus
-	{
-		UnProvided,
-		Provided
 	}
 
 	public enum ChapterAnnouncement
