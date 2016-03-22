@@ -34,8 +34,7 @@ namespace Glyssen.Controls
 			// if there are too few actors, make sure "Match Voice Actor List" is not selected
 			var small = m_viewModel.GetCastSizeRowValues(CastSizeRow.Small);
 
-			if ((e.Count < m_viewModel.MinimumActorCount) ||
-			    (e.Male < small.Male) ||
+			if ((e.Male < small.Male) ||
 			    (e.Female < small.Female) ||
 			    (e.Child < small.Child))
 			{

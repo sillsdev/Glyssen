@@ -138,8 +138,8 @@ namespace Glyssen.Dialogs
 			this.m_lblStartingOver.Name = "m_lblStartingOver";
 			this.m_lblStartingOver.Size = new System.Drawing.Size(527, 26);
 			this.m_lblStartingOver.TabIndex = 7;
-			this.m_lblStartingOver.Text = "You are about to change the current size of the cast.  The existing list of \'Role" +
-    "s for Voice Actors\' will be replaced by a newly generated list.";
+			this.m_lblStartingOver.Text = "Changes to these numbers will adjust the current size of the cast.\r\nThe existing list of \"Role" +
+    "s for Voice Actors\" will be replaced by a newly generated list.";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblStartingOver, true);
 			// 
 			// label1

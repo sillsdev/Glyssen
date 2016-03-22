@@ -59,6 +59,7 @@
 			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
 			this.m_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+			this.m_lblCastSizePlan = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.m_L10NSharpExtender)).BeginInit();
 			this.m_toolStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckOpen)).BeginInit();
@@ -149,8 +150,8 @@
 			this.m_lastExportLocationLink.BackColor = System.Drawing.SystemColors.Control;
 			this.m_lastExportLocationLink.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
-			this.m_lastExportLocationLink.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_lastExportLocationLink.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_lastExportLocationLink.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lastExportLocationLink, null);
@@ -180,8 +181,8 @@
 			this.m_lnkExit.BackColor = System.Drawing.SystemColors.Control;
 			this.m_lnkExit.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
-			this.m_lnkExit.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_lnkExit.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_lnkExit.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lnkExit, null);
@@ -599,6 +600,7 @@
 			this.m_tableLayoutPanel.Controls.Add(this.m_btnCastSizePlanning, 0, 5);
 			this.m_tableLayoutPanel.Controls.Add(this.m_imgCastSizePlanning, 1, 5);
 			this.m_tableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 2, 8);
+			this.m_tableLayoutPanel.Controls.Add(this.m_lblCastSizePlan, 2, 5);
 			this.m_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.glyssenColorPalette.SetForeColor(this.m_tableLayoutPanel, Glyssen.Utilities.GlyssenColors.Default);
 			this.m_tableLayoutPanel.Location = new System.Drawing.Point(0, 32);
@@ -644,6 +646,23 @@
 			this.tableLayoutPanel2.Size = new System.Drawing.Size(339, 13);
 			this.tableLayoutPanel2.TabIndex = 41;
 			this.glyssenColorPalette.SetUsePaletteColors(this.tableLayoutPanel2, false);
+			// 
+			// m_lblCastSizePlan
+			// 
+			this.m_lblCastSizePlan.AutoSize = true;
+			this.glyssenColorPalette.SetBackColor(this.m_lblCastSizePlan, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_lblCastSizePlan.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.glyssenColorPalette.SetForeColor(this.m_lblCastSizePlan, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblCastSizePlan, null);
+			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblCastSizePlan, null);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblCastSizePlan, "MainForm.CastSizePlanPlural");
+			this.m_lblCastSizePlan.Location = new System.Drawing.Point(216, 148);
+			this.m_lblCastSizePlan.Name = "m_lblCastSizePlan";
+			this.m_lblCastSizePlan.Size = new System.Drawing.Size(333, 29);
+			this.m_lblCastSizePlan.TabIndex = 42;
+			this.m_lblCastSizePlan.Text = "Cast size is {0}, including {1} narrators";
+			this.m_lblCastSizePlan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblCastSizePlan, true);
 			// 
 			// MainForm
 			// 
@@ -720,6 +739,7 @@
 		private System.Windows.Forms.PictureBox m_imgCastSizePlanning;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.Label m_lblFilesAreHere;
+		private System.Windows.Forms.Label m_lblCastSizePlan;
 	}
 }
 

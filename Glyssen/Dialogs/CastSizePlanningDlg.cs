@@ -179,9 +179,9 @@ namespace Glyssen.Dialogs
 			if (actorCount < m_viewModel.MinimumActorCount)
 			{
 				var msg = LocalizationManager.GetString("DialogBoxes.CastSizePlanning.CastTooSmallWarning",
-					"The recommended minimum cast size is {0}. Below this there could be proximity issues. Do you want to continue and generate groups using just {0} voice actors?");
+					"The recommended minimum cast size is {0}. Below this there could be proximity issues. Do you want to continue and generate groups using just {1} voice actors?");
 
-				if (MessageBox.Show(this, string.Format(msg, actorCount), ProductName, MessageBoxButtons.YesNo) == DialogResult.No)
+				if (MessageBox.Show(this, string.Format(msg, m_viewModel.RecommendedActorCount, actorCount), ProductName, MessageBoxButtons.YesNo) == DialogResult.No)
 					return;
 			}
 

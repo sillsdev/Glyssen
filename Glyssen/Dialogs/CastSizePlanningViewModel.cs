@@ -27,7 +27,16 @@ namespace Glyssen.Dialogs
 		private int m_actualChildActorCount = Unchanged;
 
 		internal Project Project { get; set; }
-		internal int MinimumActorCount { get { return 11; } }
+
+		internal int MinimumActorCount
+		{
+			get { return GetCastSizeRowValues(CastSizeRow.Small).Total; }
+		}
+
+		internal int RecommendedActorCount
+		{
+			get { return GetCastSizeRowValues(CastSizeRow.Recommended).Total; }
+		}
 
 		public CastSizePlanningViewModel(Project project)
 		{
@@ -72,7 +81,7 @@ namespace Glyssen.Dialogs
 
 		/// <summary></summary>
 		/// <param name="option"></param>
-		/// <returns>The first value is the number of males, the esecond is the number of females.</returns>
+		/// <returns>The first value is the number of males, the second is the number of females.</returns>
 		internal Tuple<int, int> GetNarratorValues(NarratorsOption option)
 		{
 			switch (option)

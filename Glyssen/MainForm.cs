@@ -10,6 +10,7 @@ using System.Text;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Bundle;
+using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Rules;
@@ -32,7 +33,8 @@ namespace Glyssen
 		private Project m_project;
 		private string m_percentAssignedFmt;
 		private string m_actorsAssignedFmt;
-		private readonly Dictionary<string, string> m_buttonFormats = new Dictionary<string, string>();
+		private string m_castSizeFmt;
+		private readonly List<Tuple<Button, string>> m_buttonFormats = new List<Tuple<Button, string>>();
 
 		public MainForm()
 		{
@@ -108,10 +110,11 @@ namespace Glyssen
 			}
 		}
 
-		protected void HandleStringsLocalized()
+		private void HandleStringsLocalized()
 		{
 			m_percentAssignedFmt = m_lblPercentAssigned.Text;
 			m_actorsAssignedFmt = m_lblActorsAssigned.Text;
+			m_castSizeFmt = m_lblCastSizePlan.Text;
 			RememberButtonFormats();
 			UpdateLocalizedText();
 			if (m_project != null)
@@ -125,9 +128,7 @@ namespace Glyssen
 			{
 				var btn = m_tableLayoutPanel.GetControlFromPosition(pos.Column, rowIndex) as Button;
 				if (btn != null)
-				{
-					m_buttonFormats[btn.Name] = btn.Text;
-				}
+					m_buttonFormats.Add(new Tuple<Button, string>(btn, btn.Text));
 			}
 		}
 
@@ -184,6 +185,7 @@ namespace Glyssen
 			m_lblSettingsInfo.Text = string.Empty;
 			m_lblBookSelectionInfo.Text = string.Empty;
 			m_lblPercentAssigned.Text = string.Empty;
+			m_lblCastSizePlan.Text = string.Empty;
 			m_lblActorsAssigned.Text = string.Empty;
 			m_lastExportLocationLink.Text = string.Empty;
 
@@ -367,7 +369,7 @@ namespace Glyssen
 			UpdateLocalizedText();
 		}
 
-		public void UpdateLocalizedText()
+		private void UpdateLocalizedText()
 		{
 			m_lblProjectInfo.Text = m_project != null ? m_project.ProjectSummary : String.Empty;
 
@@ -378,21 +380,52 @@ namespace Glyssen
 
 			m_lblBookSelectionInfo.Text = m_project != null && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed ? m_project.BookSelectionSummary : String.Empty;
 
+			UpdateDisplayOfPercentOfCharactersAssigned();
+			UpdateDisplayOfCastSizePlan();
 			UpdateDisplayOfActorsAssigned();
 
 			// insert button numbers
 			var buttonNumber = 1;
-			foreach (var buttonName in m_buttonFormats.Keys)
+			foreach (var buttonFmtInfo in m_buttonFormats.Where(b => !b.Item1.IsDisposed))
 			{
-				var buttons = (Controls.Find(buttonName, true));
-				if (buttons.Length != 1) continue;
+				var btn = buttonFmtInfo.Item1;
+				btn.Text = string.Format(buttonFmtInfo.Item2, buttonNumber++);
+			}
+		}
 
-				var btn = buttons[0] as Button;
-				if ((btn != null) && (btn.Visible))
-					btn.Text = string.Format((m_buttonFormats[buttonName]), buttonNumber++);
+		private void UpdateDisplayOfPercentOfCharactersAssigned()
+		{
+			if (!m_btnIdentify.Enabled)
+			{
+				m_lblPercentAssigned.Text = string.Empty;
+				return;
 			}
 
-			UpdateDisplayOfPercentAssigned();
+			double percentAssigned = 0;
+			if (m_project != null && m_project.ProjectAnalysis != null)
+				percentAssigned = m_project.ProjectAnalysis.UserPercentAssigned;
+			m_lblPercentAssigned.Text = percentAssigned > 0 ? string.Format(m_percentAssignedFmt, percentAssigned) : string.Empty;
+		}
+
+		private void UpdateDisplayOfCastSizePlan()
+		{
+			if (!m_btnCastSizePlanning.Visible || !m_btnCastSizePlanning.Enabled || m_project == null ||
+				m_project.CharacterGroupGenerationPreferences.CastSizeOption == CastSizeRow.NotSet ||
+				m_project.CharacterGroupGenerationPreferences.NarratorsOption == NarratorsOption.NotSet ||
+				!m_project.CharacterGroupList.CharacterGroups.Any())
+			{
+				m_lblCastSizePlan.Text = string.Empty;
+				return;
+			}
+
+			var modelTemp = new CastSizePlanningViewModel(m_project);
+			var castSize = modelTemp.GetCastSizeRowValues(m_project.CharacterGroupGenerationPreferences.CastSizeOption);
+			var narratorCount = m_project.CharacterGroupList.CharacterGroups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Narrator);
+			string format = (narratorCount > 1) ? m_castSizeFmt :
+				LocalizationManager.GetString("MainForm.CastSizePlanSingleNarrator", "Cast size is {0}, including 1 narrator",
+				"{0} is an expression indicating the total cast size");
+
+			m_lblCastSizePlan.Text = String.Format(format, castSize.Total, narratorCount);
 		}
 
 		private void UpdateDisplayOfActorsAssigned()
@@ -433,20 +466,6 @@ namespace Glyssen
 			}
 
 			m_lblActorsAssigned.Text = String.Format(format, assignedParameter);
-		}
-
-		private void UpdateDisplayOfPercentAssigned()
-		{
-			if (!m_btnIdentify.Enabled)
-			{
-				m_lblPercentAssigned.Text = string.Empty;
-				return;
-			}
-
-			double percentAssigned = 0;
-			if (m_project != null && m_project.ProjectAnalysis != null)
-				percentAssigned = m_project.ProjectAnalysis.UserPercentAssigned;
-			m_lblPercentAssigned.Text = percentAssigned > 0 ? string.Format(m_percentAssignedFmt, percentAssigned) : string.Empty;
 		}
 
 		private void UpdateProjectState()
