@@ -653,13 +653,19 @@ namespace Glyssen
 				EnsureGroupsAreInSynchWithCharactersInUse();
 			}
 
+			bool launchCastSizePlanning = false;
 			if (m_project.VoiceActorStatus == VoiceActorStatus.Provided)
 			{
 				using (var dlg = new VoiceActorAssignmentDlg(m_project))
+				{
 					dlg.ShowDialog(this);
+					launchCastSizePlanning = dlg.LaunchCastSizePlanningUponExit;
+				}
 				SaveCurrentProject();
 			}
 			UpdateDisplayOfProjectInfo();
+			if (launchCastSizePlanning)
+				m_btnCastSizePlanning_Click(m_btnCastSizePlanning, new EventArgs());
 		}
 
 		public class NoBorderToolStripRenderer : ToolStripProfessionalRenderer

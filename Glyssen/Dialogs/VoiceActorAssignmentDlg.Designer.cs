@@ -90,6 +90,11 @@ namespace Glyssen.Dialogs
 			this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.changeTheListOfGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.adjustVoiceActorListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.adjustCastSizePlanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.manuallyEditGroupshelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_lblFewerOrMore = new System.Windows.Forms.Label();
 			this.m_linkVoiceActorList = new System.Windows.Forms.LinkLabel();
 			this.m_lblInstructions2 = new System.Windows.Forms.Label();
@@ -110,7 +115,6 @@ namespace Glyssen.Dialogs
 			this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewMultiColumnComboBoxColumn1 = new Glyssen.Controls.DataGridViewMultiColumnComboBoxColumn();
 			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
-			this.changeTheListOfGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_contextMenuCharacters.SuspendLayout();
 			this.m_contextMenuCharacterGroups.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
@@ -615,8 +619,8 @@ namespace Glyssen.Dialogs
 			this.m_linkLabelShowHideDetails.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.m_linkLabelShowHideDetails.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.glyssenColorPalette.SetLinkColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_linkLabelShowHideDetails.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkLabelShowHideDetails, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkLabelShowHideDetails, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLabelShowHideDetails, "DialogBoxes.VoiceActorAssignmentDlg.ShowCharacterDetailsLink");
@@ -875,6 +879,76 @@ namespace Glyssen.Dialogs
 			this.helpToolStripMenuItem.Text = "Help";
 			this.glyssenColorPalette.SetUsePaletteColors(this.helpToolStripMenuItem, false);
 			// 
+			// changeTheListOfGroupsToolStripMenuItem
+			// 
+			this.glyssenColorPalette.SetBackColor(this.changeTheListOfGroupsToolStripMenuItem, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.changeTheListOfGroupsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem,
+            this.adjustVoiceActorListToolStripMenuItem,
+            this.adjustCastSizePlanToolStripMenuItem,
+            this.manuallyEditGroupshelpToolStripMenuItem});
+			this.glyssenColorPalette.SetForeColor(this.changeTheListOfGroupsToolStripMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.changeTheListOfGroupsToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.changeTheListOfGroupsToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.changeTheListOfGroupsToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.changeTheListOfGroupsToolStripMenuItem");
+			this.changeTheListOfGroupsToolStripMenuItem.Name = "changeTheListOfGroupsToolStripMenuItem";
+			this.changeTheListOfGroupsToolStripMenuItem.Size = new System.Drawing.Size(156, 20);
+			this.changeTheListOfGroupsToolStripMenuItem.Text = "Change the List of Groups";
+			this.glyssenColorPalette.SetUsePaletteColors(this.changeTheListOfGroupsToolStripMenuItem, false);
+			// 
+			// adjustGroupsToMatchMyVoiceActorsToolStripMenuItem
+			// 
+			this.glyssenColorPalette.SetBackColor(this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.adjustGroupsToMatchMyVoiceActorsToolStripMenu" +
+        "Item");
+			this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem.Name = "adjustGroupsToMatchMyVoiceActorsToolStripMenuItem";
+			this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+			this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem.Text = "Adjust Groups to Match my Voice Actors";
+			this.glyssenColorPalette.SetUsePaletteColors(this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem, false);
+			this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem.Click += new System.EventHandler(this.HandleUpdateGroupsClick);
+			// 
+			// adjustVoiceActorListToolStripMenuItem
+			// 
+			this.glyssenColorPalette.SetBackColor(this.adjustVoiceActorListToolStripMenuItem, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.adjustVoiceActorListToolStripMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.adjustVoiceActorListToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.adjustVoiceActorListToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.adjustVoiceActorListToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.adjustVoiceActorListToolStripMenuItem");
+			this.adjustVoiceActorListToolStripMenuItem.Name = "adjustVoiceActorListToolStripMenuItem";
+			this.adjustVoiceActorListToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+			this.adjustVoiceActorListToolStripMenuItem.Text = "Adjust Voice Actor List";
+			this.glyssenColorPalette.SetUsePaletteColors(this.adjustVoiceActorListToolStripMenuItem, false);
+			this.adjustVoiceActorListToolStripMenuItem.Click += new System.EventHandler(this.HandleEditVoiceActorsClick);
+			// 
+			// adjustCastSizePlanToolStripMenuItem
+			// 
+			this.glyssenColorPalette.SetBackColor(this.adjustCastSizePlanToolStripMenuItem, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.adjustCastSizePlanToolStripMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.adjustCastSizePlanToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.adjustCastSizePlanToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.adjustCastSizePlanToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.adjustCastSizePlanToolStripMenuItem");
+			this.adjustCastSizePlanToolStripMenuItem.Name = "adjustCastSizePlanToolStripMenuItem";
+			this.adjustCastSizePlanToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+			this.adjustCastSizePlanToolStripMenuItem.Text = "Adjust Cast Size Plan";
+			this.glyssenColorPalette.SetUsePaletteColors(this.adjustCastSizePlanToolStripMenuItem, false);
+			this.adjustCastSizePlanToolStripMenuItem.Click += new System.EventHandler(this.HandleCastSizePlanClick);
+			// 
+			// manuallyEditGroupshelpToolStripMenuItem
+			// 
+			this.glyssenColorPalette.SetBackColor(this.manuallyEditGroupshelpToolStripMenuItem, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.manuallyEditGroupshelpToolStripMenuItem.Enabled = false;
+			this.glyssenColorPalette.SetForeColor(this.manuallyEditGroupshelpToolStripMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.manuallyEditGroupshelpToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.manuallyEditGroupshelpToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.manuallyEditGroupshelpToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.manuallyEditGroupshelpToolStripMenuItem");
+			this.manuallyEditGroupshelpToolStripMenuItem.Name = "manuallyEditGroupshelpToolStripMenuItem";
+			this.manuallyEditGroupshelpToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+			this.manuallyEditGroupshelpToolStripMenuItem.Text = "Manually Edit Groups (help)";
+			this.glyssenColorPalette.SetUsePaletteColors(this.manuallyEditGroupshelpToolStripMenuItem, false);
+			// 
 			// m_lblFewerOrMore
 			// 
 			this.m_lblFewerOrMore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -909,8 +983,8 @@ namespace Glyssen.Dialogs
 			this.m_linkVoiceActorList.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.m_linkVoiceActorList.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.glyssenColorPalette.SetLinkColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_linkVoiceActorList.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkVoiceActorList, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkVoiceActorList, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkVoiceActorList, "DialogBoxes.VoiceActorAssignmentDlg.VoiceActorList");
@@ -953,12 +1027,12 @@ namespace Glyssen.Dialogs
 			this.m_linkClose.AutoSize = true;
 			this.glyssenColorPalette.SetBackColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_linkClose.BackColor = System.Drawing.SystemColors.Control;
-			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkClose.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.glyssenColorPalette.SetForeColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_linkClose.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.glyssenColorPalette.SetLinkColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_linkClose.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkClose, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkClose, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_linkClose, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -986,8 +1060,8 @@ namespace Glyssen.Dialogs
 			this.m_linkPrint.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_linkPrint, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_linkPrint.LinkArea = new System.Windows.Forms.LinkArea(0, 3);
-			this.glyssenColorPalette.SetLinkColor(this.m_linkPrint, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_linkPrint.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_linkPrint, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkPrint, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkPrint, "{0} is the clickable text.  Its localizingId is DialogBoxes.VoiceActorAssignmentD" +
         "lg.Instructions.Line1.LinkText");
@@ -1196,19 +1270,6 @@ namespace Glyssen.Dialogs
 			this.dataGridViewMultiColumnComboBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			this.dataGridViewMultiColumnComboBoxColumn1.Width = 100;
 			// 
-			// changeTheListOfGroupsToolStripMenuItem
-			// 
-			this.glyssenColorPalette.SetBackColor(this.changeTheListOfGroupsToolStripMenuItem, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.changeTheListOfGroupsToolStripMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.changeTheListOfGroupsToolStripMenuItem, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.changeTheListOfGroupsToolStripMenuItem, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.changeTheListOfGroupsToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.changeTheListOfGroupsToolStripMenuItem");
-			this.changeTheListOfGroupsToolStripMenuItem.Name = "changeTheListOfGroupsToolStripMenuItem";
-			this.changeTheListOfGroupsToolStripMenuItem.Size = new System.Drawing.Size(156, 20);
-			this.changeTheListOfGroupsToolStripMenuItem.Text = "Change the List of Groups";
-			this.glyssenColorPalette.SetUsePaletteColors(this.changeTheListOfGroupsToolStripMenuItem, false);
-			this.changeTheListOfGroupsToolStripMenuItem.Click += new System.EventHandler(this.changeTheListOfGroupsToolStripMenuItem_Click);
-			// 
 			// VoiceActorAssignmentDlg
 			// 
 			this.glyssenColorPalette.SetBackColor(this, Glyssen.Utilities.GlyssenColors.BackColor);
@@ -1322,6 +1383,10 @@ namespace Glyssen.Dialogs
 		private DataGridViewTextBoxColumn EstimatedHoursCol;
 		private DataGridViewMultiColumnComboBoxColumn VoiceActorCol;
 		private ToolStripMenuItem changeTheListOfGroupsToolStripMenuItem;
+		private ToolStripMenuItem adjustGroupsToMatchMyVoiceActorsToolStripMenuItem;
+		private ToolStripMenuItem adjustVoiceActorListToolStripMenuItem;
+		private ToolStripMenuItem adjustCastSizePlanToolStripMenuItem;
+		private ToolStripMenuItem manuallyEditGroupshelpToolStripMenuItem;
 
 	}
 }

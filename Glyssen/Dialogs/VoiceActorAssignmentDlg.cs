@@ -38,8 +38,9 @@ namespace Glyssen.Dialogs
 		private string m_fmtMoveCharactersInfo;
 		private string m_fmtHideCharacterDetails;
 		private string m_fmtShowCharacterDetails;
-		private List<string> m_pendingMoveCharacters; 
+		private List<string> m_pendingMoveCharacters;
 		private readonly BackgroundWorker m_findCharacterBackgroundWorker;
+		private bool m_programmaticClickOfUpdateGroups;
 
 		public VoiceActorAssignmentDlg(Project project)
 		{
@@ -85,6 +86,8 @@ namespace Glyssen.Dialogs
 
 			m_hyperlinkFont = new Font(m_characterGroupGrid.Columns[CharacterIdsCol.Index].InheritedStyle.Font, FontStyle.Underline);
 		}
+
+		public bool LaunchCastSizePlanningUponExit { get; private set; }
 
 		private void VoiceActorAssignmentDlg_Load(object sender, EventArgs e)
 		{
@@ -226,7 +229,8 @@ namespace Glyssen.Dialogs
 					m_actorAssignmentViewModel.NoteActorChanges(actorInfoViewModel.Changes);
 					if (actorInfoViewModel.DataHasChangedInWaysThatMightAffectGroupGeneration && actorInfoViewModel.Actors.Any())
 					{
-						UpdateGroups();
+						m_programmaticClickOfUpdateGroups = true;
+						HandleUpdateGroupsClick(actorDlg, e);
 
 						VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null);
 
@@ -241,11 +245,6 @@ namespace Glyssen.Dialogs
 		private void HandlePrintClick(object sender, EventArgs e)
 		{
 			MessageBox.Show("This feature has not been implemented yet. Choose File -> Save As instead.");
-		}
-
-		private void changeTheListOfGroupsToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			MessageBox.Show("This feature has not been implemented yet. Choose Voice Actor List or close this dialog and return to Cast Size Planning.");
 		}
 
 		private void m_unAssignActorFromGroupToolStripMenuItem_Click(object sender, EventArgs e)
@@ -488,14 +487,22 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		private void UpdateGroups()
+		private void HandleCastSizePlanClick(object sender, EventArgs e)
+		{
+			LaunchCastSizePlanningUponExit = true;
+			DialogResult = DialogResult.OK;
+			Close();
+		}
+
+		private void HandleUpdateGroupsClick(object sender, EventArgs e)
 		{
 			// REVIEW: When they regenerate, which group should be selected? The one with the same ID or the one containing the same major character.
 			// Used to do the latter, but now we do the former.
 			var idOfSelectedGroup = (m_characterGroupGrid.SelectedRows.Count == 1)
 				? FirstSelectedCharacterGroup.GroupId : null;
 
-			m_actorAssignmentViewModel.RegenerateGroups(() => { GenerateGroupsWithProgress(true, false, true); });
+			m_actorAssignmentViewModel.RegenerateGroups(() => { GenerateGroupsWithProgress(true, false, m_programmaticClickOfUpdateGroups); });
+			m_programmaticClickOfUpdateGroups = false;
 			SortByColumn(m_sortedColumn, m_sortedAscending);
 
 			if (m_actorAssignmentViewModel.CharacterGroups.Any())

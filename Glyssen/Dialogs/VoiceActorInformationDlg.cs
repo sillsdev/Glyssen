@@ -37,6 +37,8 @@ namespace Glyssen.Dialogs
 		{
 			if (Owner is MainForm)
 				MainForm.SetChildFormLocation(this);
+			else
+				CenterToParent();
 		}
 
 		private void HandleStringsLocalized()
