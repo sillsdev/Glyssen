@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Media;
@@ -612,10 +611,6 @@ namespace Glyssen.Dialogs
 				if (MessageBox.Show(this, dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
 					UnAssignActorsFromSelectedGroups();
 			}
-			if (e.KeyData == Keys.Enter)
-			{
-				Debug.WriteLine("Got Enter key in m_characterGroupGrid_KeyDown");
-			}
 		}
 
 		private void HandleGridCellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -799,8 +794,6 @@ namespace Glyssen.Dialogs
 			bool exactlyOneGroupSelected = m_characterGroupGrid.SelectedRows.Count == 1 &&
 				m_characterGroupGrid.SelectedRows[0].Index < m_actorAssignmentViewModel.CharacterGroups.Count;
 
-			System.Diagnostics.Debug.WriteLine("In m_characterGroupGrid_SelectionChanged. exactlyOneGroupSelected = " + exactlyOneGroupSelected);
-
 			m_splitSelectedGroupButton.Enabled = exactlyOneGroupSelected && FirstSelectedCharacterGroup.CharacterIds.Count > 1;
 			m_toolStripButtonFindNextMatchingCharacter.Enabled = m_toolStripTextBoxFindCharacter.TextLength > 0;
 
@@ -826,7 +819,6 @@ namespace Glyssen.Dialogs
 		{
 			m_characterDetailsGrid.Visible = true;
 			var currentGroup = FirstSelectedCharacterGroup;
-			System.Diagnostics.Debug.WriteLine("In UpdateDisplayForSingleCharacterGroupSelected for group " + currentGroup.GroupIdForUiDisplay);
 			if (currentGroup.CharacterIds.Any())
 			{
 				m_characterIdsForSelectedGroup = currentGroup.CharacterIds.ToList();
@@ -1068,9 +1060,6 @@ namespace Glyssen.Dialogs
 			if (!DataTableTryGetValueForDisplayMember(VoiceActorCol, formattedValue, out value))
 			{
 				m_actorAssignmentViewModel.AddNewActorToGroup(formattedValue, FirstSelectedCharacterGroup);
-				Debug.WriteLine("About to set data source.");
-				Debug.WriteLine("m_characterGroupGrid[e.ColumnIndex, e.RowIndex].Value: " + m_characterGroupGrid[VoiceActorCol.DisplayIndex, rowIndex].Value);
-				Debug.WriteLine("Finished setting data source.");
 			}
 			else
 			{
@@ -1079,26 +1068,6 @@ namespace Glyssen.Dialogs
 			SetVoiceActorCellDataSource();
 			VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null);
 		}
-
-		//private bool DataTableContainsValue(DataGridViewMultiColumnComboBoxColumn column, string value)
-		//{
-		//	var dataTable = column.DataSource as DataTable;
-		//	if (dataTable == null)
-		//		return false;
-		//	var displayMember = column.DisplayMember;
-		//	if (!String.IsNullOrEmpty(displayMember) && dataTable.Rows.Count > 0)
-		//	{
-		//		for (int i = 0; i < dataTable.Rows.Count; i++)
-		//		{
-		//			var row = dataTable.Rows[i];
-		//			if (row[displayMember].Equals(value))
-		//			{
-		//				return true;
-		//			}
-		//		}
-		//	}
-		//	return false;
-		//}
 
 		private bool DataTableTryGetValueForDisplayMember(DataGridViewMultiColumnComboBoxColumn column, string formattedValue, out int value)
 		{
@@ -1129,22 +1098,16 @@ namespace Glyssen.Dialogs
 		/// </summary>
 		private void DropDownOnDropDownClosed(object sender, EventArgs eventArgs)
 		{
-			Debug.WriteLine("In DropDownOnDropDownClosed");
 			var dropDown = sender as DataGridViewComboBoxEditingControl;
 			if (dropDown == null)
 				return;
 
 			// If there was no actual change, the view model correctly ignores it.
 			m_characterGroupGrid.NotifyCurrentCellDirty(true);
-			Debug.WriteLine("Still in DropDownOnDropDownClosed");
 			if (m_characterGroupGrid.IsCurrentCellInEditMode)
 			{
 				SaveActorAssignment(m_characterGroupGrid.CurrentCell.EditedFormattedValue.ToString(), m_characterGroupGrid.CurrentCellAddress.Y);
-//				Debug.WriteLine("About to call EndEdit(Commit) from DropDownOnDropDownClosed");
-//				Debug.WriteLine("m_characterGroupGrid.CurrentCell.Value: " + m_characterGroupGrid.CurrentCell.Value);
-//				Debug.WriteLine("m_characterGroupGrid.CurrentCell.EditedFormattedValue: " + m_characterGroupGrid.CurrentCell.EditedFormattedValue);
 				m_characterGroupGrid.EndEdit(DataGridViewDataErrorContexts.Commit);
-//				Debug.WriteLine("Back from call to EndEdit(Commit) from DropDownOnDropDownClosed");
 			}
 
 			dropDown.DropDownClosed -= DropDownOnDropDownClosed;
@@ -1155,9 +1118,7 @@ namespace Glyssen.Dialogs
 			switch (keyData)
 			{
 				case Keys.Escape:
-				//case Keys.Tab:
-				//case Keys.Enter:
-					// Escape, Tab, or Enter will result in the drop down closing, but the current editing operation needs
+					// Escape will result in the drop down closing, but the current editing operation needs
 					// to be abandoned and we need to prevent the subsequent attempt to commit the edit (which
 					// would actually result in a crash).
 					var comboBox = m_characterGroupGrid.EditingControl as DataGridViewComboBoxEditingControl;
@@ -1168,8 +1129,6 @@ namespace Glyssen.Dialogs
 						comboBox.DroppedDown = false;
 					}
 					break;
-				case Keys.Right:
-				case Keys.Left:
 				case Keys.Shift | Keys.Right:
 				case Keys.Shift | Keys.Left:
 					if (m_characterGroupGrid.EditingControl is DataGridViewComboBoxEditingControl)

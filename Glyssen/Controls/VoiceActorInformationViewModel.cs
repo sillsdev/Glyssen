@@ -104,7 +104,6 @@ namespace Glyssen.Controls
 		public VoiceActor.VoiceActor AddNewActor()
 		{
 			var actor = new VoiceActor.VoiceActor { Id = m_currentId++ };
-			Debug.WriteLine("New Actor ID = " + actor.Id);
 			Actors.Add(actor);
 			return actor;
 		}

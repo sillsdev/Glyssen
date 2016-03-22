@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -533,7 +532,7 @@ namespace Glyssen.Controls
 
 		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
 		{
-			// TODO: Handle SHIFT-Left and SHIFT-Right
+			// TODO: Handle SHIFT-Left and SHIFT-Right -- Then remove protective code from VoiceActorAssignmentDlg.ProcessCmdKey
 			switch (keyData)
 			{
 				case Keys.Left:
@@ -583,7 +582,6 @@ namespace Glyssen.Controls
 					SelectedIndex = -1;
 					Text = toFind;
 					SelectionStart = newSelectionStart;
-					Debug.WriteLine("SelectedIndex:" + SelectedIndex);
 				}
 			}
 
@@ -707,19 +705,12 @@ namespace Glyssen.Controls
 						SWP_NOOWNERZORDER);
 				}
 			}
-			else if (m.Msg == WM_LBUTTONDOWN)
-			{
-				Debug.WriteLine("Got left mouse down!!!");
-				if (DroppedDown && Bounds.Contains(MousePosition))
-					return;
-			}
 
 			base.WndProc(ref m);
 		}
 
 		protected override void OnDropDownClosed(EventArgs e)
 		{
-			Debug.WriteLine("In OnDropDownClosed");
 			_hwndDropDown = 0;
 			if (SelectedIndex != -1 && m_newText == null)
 				EditingControlFormattedValue = ((DataRowView)SelectedItem)[OwningColumn.DisplayMember];
