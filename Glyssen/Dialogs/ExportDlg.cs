@@ -32,7 +32,10 @@ namespace Glyssen.Dialogs
 
 		private void ExportDlg_Load(object sender, EventArgs e)
 		{
-			MainForm.SetChildFormLocation(this);
+			if (Owner is MainForm)
+				MainForm.SetChildFormLocation(this);
+			else
+				CenterToParent();
 		}
 
 		private void HandleStringsLocalized()

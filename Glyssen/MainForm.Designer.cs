@@ -496,7 +496,7 @@
 			this.m_btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnExport, false);
 			this.m_btnExport.UseVisualStyleBackColor = false;
-			this.m_btnExport.Click += new System.EventHandler(this.Export_Click);
+			this.m_btnExport.Click += new System.EventHandler(this.View_Script_Click);
 			// 
 			// m_lblSelectNextTask
 			// 

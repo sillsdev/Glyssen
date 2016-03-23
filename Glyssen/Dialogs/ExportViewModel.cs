@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -175,7 +176,70 @@ namespace Glyssen.Dialogs
 				// Oh well.
 			}
 
+			// notify anyone listening that something was exported
+			if (ScriptExported != null)
+				ScriptExported(this, new EventArgs());
+
 			return true;
+		}
+
+		internal DataTable GeneratePreviewTable()
+		{
+			string[] lines;
+			var dt = new DataTable();
+
+			using (var tempFile = TempFile.WithExtension(ProjectExporter.kTabDelimitedFileExtension))
+			{
+				Exporter.GenerateFile(tempFile.Path, ExportFileType.TabSeparated);
+				lines = File.ReadAllLines(tempFile.Path);
+			}
+
+			if (lines.Length > 0)
+			{
+				// add columns
+				var line = lines[0].Split('\t');
+				foreach (var val in line)
+				{
+					dt.Columns.Add(val);
+				}
+
+				// add rows
+				for (var i = 1; i < lines.Length; i++)
+				{
+					// ReSharper disable once CoVariantArrayConversion
+					dt.Rows.Add(lines[i].Split('\t'));
+				}
+			}
+
+			return dt;
+		}
+
+		internal void EnsureGroupsAreInSynchWithCharactersInUse()
+		{
+			if (!Project.CharacterGroupList.CharacterGroups.Any())
+				return;
+			var adjuster = new CharacterGroupsAdjuster(Project);
+			if (adjuster.GroupsAreNotInSynchWithData)
+			{
+				using (var progressDialog = new GenerateGroupsProgressDialog(Project, OnGenerateGroupsWorkerDoWork, false, true))
+				{
+					var generator = new CharacterGroupGenerator(Project, Project.GetKeyStrokesByCharacterId(), progressDialog.BackgroundWorker);
+					progressDialog.ProgressState.Arguments = generator;
+
+					if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
+						generator.ApplyGeneratedGroupsToProject();
+					else
+						adjuster.MakeMinimalAdjustments();
+
+					Project.Save();
+				}
+			}
+		}
+
+		private void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)
+		{
+			var generator = (CharacterGroupGenerator)((ProgressState)e.Argument).Arguments;
+			generator.GenerateCharacterGroups();
 		}
 	}
 }
