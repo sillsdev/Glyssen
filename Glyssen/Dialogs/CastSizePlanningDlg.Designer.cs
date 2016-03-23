@@ -102,8 +102,8 @@ namespace Glyssen.Dialogs
 			this.m_linkAbout.BackColor = System.Drawing.SystemColors.Control;
 			this.m_linkAbout.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkAbout, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
-			this.glyssenColorPalette.SetForeColor(this.m_linkAbout, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_linkAbout.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_linkAbout, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_linkAbout.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_linkAbout, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_linkAbout.LinkVisited = true;
@@ -138,8 +138,8 @@ namespace Glyssen.Dialogs
 			this.m_lblStartingOver.Name = "m_lblStartingOver";
 			this.m_lblStartingOver.Size = new System.Drawing.Size(527, 26);
 			this.m_lblStartingOver.TabIndex = 7;
-			this.m_lblStartingOver.Text = "Changes to these numbers will adjust the current size of the cast.\r\nThe existing list of \"Role" +
-    "s for Voice Actors\" will be replaced by a newly generated list.";
+			this.m_lblStartingOver.Text = "Changes to these numbers will adjust the current size of the cast.\r\nThe existing " +
+    "list of \"Roles for Voice Actors\" will be replaced by a newly generated list.";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblStartingOver, true);
 			// 
 			// label1
@@ -205,8 +205,8 @@ namespace Glyssen.Dialogs
 			this.m_linkMoreInfo.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetActiveLinkColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
 			this.m_linkMoreInfo.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_linkMoreInfo.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_linkMoreInfo.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkMoreInfo.Dock = System.Windows.Forms.DockStyle.Right;
@@ -433,8 +433,8 @@ namespace Glyssen.Dialogs
 			this.m_linkVloiceActorList.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkVloiceActorList, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkVloiceActorList.Dock = System.Windows.Forms.DockStyle.Top;
-			this.glyssenColorPalette.SetForeColor(this.m_linkVloiceActorList, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_linkVloiceActorList.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_linkVloiceActorList, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_linkVloiceActorList.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_linkVloiceActorList, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_linkVloiceActorList.LinkVisited = true;
@@ -491,8 +491,8 @@ namespace Glyssen.Dialogs
 			this.m_castSizePlanningOptions.Size = new System.Drawing.Size(418, 151);
 			this.m_castSizePlanningOptions.TabIndex = 1;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_castSizePlanningOptions, true);
-			this.m_castSizePlanningOptions.CastSizeOptionChanged += new System.EventHandler<CastSizeOptionChangedEventArgs>(this.m_castSizePlanningOptions_CastSizeOptionChanged);
-			this.m_castSizePlanningOptions.CastSizeCustomValueChanged += new System.EventHandler<CastSizeValueChangedEventArgs>(this.m_castSizePlanningOptions_CastSizeCustomValueChanged);
+			this.m_castSizePlanningOptions.CastSizeOptionChanged += new System.EventHandler<Glyssen.Dialogs.CastSizeOptionChangedEventArgs>(this.m_castSizePlanningOptions_CastSizeOptionChanged);
+			this.m_castSizePlanningOptions.CastSizeCustomValueChanged += new System.EventHandler<Glyssen.Dialogs.CastSizeValueChangedEventArgs>(this.m_castSizePlanningOptions_CastSizeCustomValueChanged);
 			// 
 			// m_lblWhenYouClick
 			// 

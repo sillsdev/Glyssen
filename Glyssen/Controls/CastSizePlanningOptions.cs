@@ -13,15 +13,19 @@ namespace Glyssen.Controls
 
 		private CastSizePlanningViewModel m_viewModel;
 
-		public CastSizePlanningViewModel ViewModel
+		// This was a property, but changes to designer were making it get set to null
+		// I tried setting Browsable(false), but that was causing an error which was
+		// disallowing all changes to the designer
+		public CastSizePlanningViewModel GetViewModel()
 		{
-			get { return m_viewModel; }
-			set
-			{
-				m_viewModel = value;
-				SetCastSizeOptionValues(m_viewModel);
-				m_viewModel.CastSizeRowValuesChanged += m_viewModel_CastSizeRowValuesChanged;
-			}
+			return m_viewModel;
+		}
+
+		public void SetViewModel(CastSizePlanningViewModel viewModel)
+		{
+			m_viewModel = viewModel;
+			SetCastSizeOptionValues(m_viewModel);
+			m_viewModel.CastSizeRowValuesChanged += m_viewModel_CastSizeRowValuesChanged;
 		}
 
 		void m_viewModel_CastSizeRowValuesChanged(object sender, CastSizeValueChangedEventArgs e)

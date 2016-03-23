@@ -140,7 +140,7 @@ namespace Glyssen.Dialogs
 				var currentValue = Project.CharacterGroupGenerationPreferences.CastSizeOption;
 
 				// if not yet specified, use "Recommended"
-				return currentValue == CastSizeRow.NotSet ? CastSizeRow.Recommended : currentValue;
+				return m_updatedCastSizeOption = currentValue == CastSizeRow.NotSet ? CastSizeRow.Recommended : currentValue;
 			}
 			set { m_updatedCastSizeOption = value; }
 		}

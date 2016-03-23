@@ -22,7 +22,7 @@ namespace Glyssen.Dialogs
 			InitializeComponent();
 			Icon = Resources.glyssenIcon;
 			m_viewModel = viewModel;
-			m_castSizePlanningOptions.ViewModel = m_viewModel;
+			m_castSizePlanningOptions.SetViewModel(m_viewModel);
 
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
@@ -106,14 +106,14 @@ namespace Glyssen.Dialogs
 			{
 				actorDlg.ShowDialog(this);
 
-				if (actorDlg.DialogResult != DialogResult.OK) return;
-
 				var male = actorInfoViewModel.Actors.Count(a => a.Gender == ActorGender.Male && a.Age != ActorAge.Child && !a.IsInactive);
 				var female = actorInfoViewModel.Actors.Count(a => a.Gender == ActorGender.Female && a.Age != ActorAge.Child && !a.IsInactive);
 				var child = actorInfoViewModel.Actors.Count(a => a.Age == ActorAge.Child && !a.IsInactive);
 
 				m_viewModel.SetVoiceActorListValues(male, female, child);
 			}
+			m_castSizePlanningOptions.Refresh();
+			UpdateButtonState();
 		}
 
 		private NarratorsOption NarratorOption
@@ -194,17 +194,24 @@ namespace Glyssen.Dialogs
 			set { m_castSizePlanningOptions.SelectedCastSizeRow = value; }
 		}
 
+		private void UpdateButtonState()
+		{
+			m_btnGenerate.Enabled = m_viewModel.GetCastSizeRowValues(m_viewModel.CastSizeOption).Total != 0;
+		}
+
 		private void m_castSizePlanningOptions_CastSizeOptionChanged(object sender, CastSizeOptionChangedEventArgs e)
 		{
 			if (!m_loaded)
 				return;
 
 			m_viewModel.CastSizeOption = e.Row;
+			UpdateButtonState();
 		}
 
 		private void m_castSizePlanningOptions_CastSizeCustomValueChanged(object sender, CastSizeValueChangedEventArgs e)
 		{
 			m_viewModel.SetCustomVoiceActorValues(e.Male, e.Female, e.Child);
+			UpdateButtonState();
 		}
 
 		private void CastSizePlanningDlg_Shown(object sender, EventArgs e)
