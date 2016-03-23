@@ -81,15 +81,14 @@ namespace Glyssen.Dialogs
 			{
 				m_defaultDirectory = directoryName;
 				Settings.Default.DefaultExportDirectory = m_defaultDirectory;
-				try
-				{
-					if (m_defaultDirectory != null)
-						PathUtilities.OpenDirectoryInExplorer(m_defaultDirectory);
-				}
-				catch
-				{
-					// Oh well, we tried.
-				}
+			}
+			try
+			{
+				PathUtilities.OpenFileInApplication(FileName);
+			}
+			catch
+			{
+				// Oh well, we tried.
 			}
 			return dialogResult;
 		}
