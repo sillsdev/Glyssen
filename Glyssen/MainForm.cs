@@ -505,12 +505,12 @@ namespace Glyssen
 				m_project.Save();
 		}
 
-		private void Export_Click(object sender, EventArgs e)
+		private void View_Script_Click(object sender, EventArgs e)
 		{
 			if (!ViewModel.IsOkToExport())
 				return;
 
-			using (var dlg = new ExportDlg(ViewModel))
+			using (var dlg = new ViewScriptDlg(ViewModel))
 				dlg.ShowDialog(this);
 		}
 
@@ -658,14 +658,22 @@ namespace Glyssen
 				AssignVoiceActors_Click(m_btnCastSizePlanning, EventArgs.Empty);
 		}
 
+		private void ShowExportDialog()
+		{
+			if (!ViewModel.IsOkToExport())
+				return;
+
+			using (var dlg = new ExportDlg(ViewModel))
+				dlg.ShowDialog(this);
+		}
+
 		protected override void OnKeyDown(KeyEventArgs e)
 		{
 			if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
 			{
 				if (m_btnExport.Enabled)
 				{
-
-					Export_Click(null, new EventArgs());
+					ShowExportDialog();
 					e.Handled = true;
 					return;
 				}

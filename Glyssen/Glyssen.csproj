@@ -265,6 +265,12 @@
     <Compile Include="Dialogs\UnappliedSplitsDlg.Designer.cs">
       <DependentUpon>UnappliedSplitsDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\ViewScriptDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ViewScriptDlg.Designer.cs">
+      <DependentUpon>ViewScriptDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\VoiceActorUndoAction.cs" />
     <Compile Include="Dialogs\CharacterGroupsUndoAction.cs" />
     <Compile Include="Dialogs\SelectExistingProjectDlg.cs">
@@ -490,6 +496,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SplitBlockDlg.resx">
       <DependentUpon>SplitBlockDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ViewScriptDlg.resx">
+      <DependentUpon>ViewScriptDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\VoiceActorAssignmentDlg.resx">
       <DependentUpon>VoiceActorAssignmentDlg.cs</DependentUpon>
