@@ -174,10 +174,6 @@ namespace Glyssen.Dialogs
 				// Oh well.
 			}
 
-			// notify anyone listening that something was exported
-			if (ScriptExported != null)
-				ScriptExported(this, new EventArgs());
-
 			return true;
 		}
 
@@ -210,34 +206,6 @@ namespace Glyssen.Dialogs
 			}
 
 			return dt;
-		}
-
-		internal void EnsureGroupsAreInSynchWithCharactersInUse()
-		{
-			if (!Project.CharacterGroupList.CharacterGroups.Any())
-				return;
-			var adjuster = new CharacterGroupsAdjuster(Project);
-			if (adjuster.GroupsAreNotInSynchWithData)
-			{
-				using (var progressDialog = new GenerateGroupsProgressDialog(Project, OnGenerateGroupsWorkerDoWork, false, true))
-				{
-					var generator = new CharacterGroupGenerator(Project, Project.GetKeyStrokesByCharacterId(), progressDialog.BackgroundWorker);
-					progressDialog.ProgressState.Arguments = generator;
-
-					if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
-						generator.ApplyGeneratedGroupsToProject();
-					else
-						adjuster.MakeMinimalAdjustments();
-
-					Project.Save();
-				}
-			}
-		}
-
-		private void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)
-		{
-			var generator = (CharacterGroupGenerator)((ProgressState)e.Argument).Arguments;
-			generator.GenerateCharacterGroups();
 		}
 	}
 }
