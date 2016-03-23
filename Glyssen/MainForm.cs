@@ -510,7 +510,7 @@ namespace Glyssen
 			if (!ViewModel.IsOkToExport())
 				return;
 
-			using (var dlg = new ExportDlg(ViewModel))
+			using (var dlg = new ViewScriptDlg(ViewModel))
 				dlg.ShowDialog(this);
 		}
 
