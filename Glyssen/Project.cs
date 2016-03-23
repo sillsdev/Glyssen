@@ -454,6 +454,7 @@ namespace Glyssen
 
 		public void UpdateSettings(ProjectSettingsViewModel model)
 		{
+			Debug.Assert(!String.IsNullOrEmpty(model.RecordingProjectName));
 			var newPath = GetProjectFolderPath(model.IsoCode, model.PublicationId, model.RecordingProjectName);
 			if (newPath != ProjectFolder)
 			{
