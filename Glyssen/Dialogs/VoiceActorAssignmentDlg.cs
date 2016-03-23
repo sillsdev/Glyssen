@@ -60,12 +60,12 @@ namespace Glyssen.Dialogs
 
 			if (!m_project.CharacterGroupList.CharacterGroups.Any())
 			{
-				GenerateGroupsWithProgress(false, true);
+				GenerateGroupsWithProgress(false, true, false);
 				m_project.Save();
 			}
 			else if (regenerateGroups)
 			{
-				GenerateGroupsWithProgress(m_project.CharacterGroupGenerationPreferences.CastSizeOption == CastSizeRow.MatchVoiceActorList, false);
+				GenerateGroupsWithProgress(m_project.CharacterGroupGenerationPreferences.CastSizeOption == CastSizeRow.MatchVoiceActorList, false, false);
 				m_project.Save();
 			}
 
@@ -102,15 +102,21 @@ namespace Glyssen.Dialogs
 			MainForm.SetChildFormLocation(this);
 		}
 
-		private void GenerateGroupsWithProgress(bool attemptToPreserveActorAssignments, bool firstGroupGenerationRun, bool cancelLink = false)
+		private void GenerateGroupsWithProgress(bool attemptToPreserveActorAssignments, bool firstGroupGenerationRun, bool forceMatchToActors, bool cancelLink = false)
 		{
 			using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork, firstGroupGenerationRun, cancelLink))
 			{
+				var castSizeOption = m_project.CharacterGroupGenerationPreferences.CastSizeOption;
+				if (forceMatchToActors)
+					m_project.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeRow.MatchVoiceActorList;
+
 				var generator = new CharacterGroupGenerator(m_project, m_keyStrokesByCharacterId, progressDialog.BackgroundWorker);
 				progressDialog.ProgressState.Arguments = generator;
 
 				if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
 					generator.ApplyGeneratedGroupsToProject(attemptToPreserveActorAssignments);
+				else if (forceMatchToActors)
+					m_project.CharacterGroupGenerationPreferences.CastSizeOption = castSizeOption;
 			}
 		}
 
@@ -508,7 +514,8 @@ namespace Glyssen.Dialogs
 			var idOfSelectedGroup = (m_characterGroupGrid.SelectedRows.Count == 1)
 				? FirstSelectedCharacterGroup.GroupId : null;
 
-			m_actorAssignmentViewModel.RegenerateGroups(() => { GenerateGroupsWithProgress(true, false, m_programmaticClickOfUpdateGroups); });
+			m_actorAssignmentViewModel.RegenerateGroups(() => { GenerateGroupsWithProgress(true, false, true, m_programmaticClickOfUpdateGroups); });
+			m_project.Save();
 			m_programmaticClickOfUpdateGroups = false;
 			SortByColumn(m_sortedColumn, m_sortedAscending);
 

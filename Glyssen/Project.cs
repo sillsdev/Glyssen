@@ -626,7 +626,7 @@ namespace Glyssen
 
 		public IEnumerable<VoiceActor.VoiceActor> UnusedActors
 		{
-			get { return VoiceActorList.AllActors.Where(actor => !CharacterGroupList.HasVoiceActorAssigned(actor.Id)); }
+			get { return VoiceActorList.ActiveActors.Where(actor => !CharacterGroupList.HasVoiceActorAssigned(actor.Id)); }
 		}
 
 		public bool HasUnappliedSplits()

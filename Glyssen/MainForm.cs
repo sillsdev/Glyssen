@@ -508,7 +508,6 @@ namespace Glyssen
 
 		private void EnsureGroupsAreInSynchWithCharactersInUse()
 		{
-			// TODO (PG-618): Deal with possibility of groups based on cast size plan, rather than actual voice actors
 			if (!m_project.CharacterGroupList.CharacterGroups.Any())
 				return;
 			var adjuster = new CharacterGroupsAdjuster(m_project);
