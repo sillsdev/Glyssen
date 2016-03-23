@@ -624,6 +624,7 @@ namespace Glyssen.Controls
 			TotalWidth = 0;
 			using (var graphics = CreateGraphics())
 			{
+				string uncategorizedItemSpecialText = null;
 				for (var colIndex = 0; colIndex < ColumnNames.Count; colIndex++)
 				{
 					// If no column widths are explicitly set, calculate the width required to show the longest item.
@@ -632,10 +633,15 @@ namespace Glyssen.Controls
 						int maxWidth = 0;
 						foreach (var item in Items)
 						{
-							var value = Convert.ToString(FilterItemOnProperty(item, ColumnNames[colIndex]));
-							var size = graphics.MeasureString(value, Font);
-							if (size.Width > maxWidth)
-								maxWidth = (int)Math.Ceiling(size.Width);
+							if (IsUncategorizedItemSpecial(Items.IndexOf(item)))
+								uncategorizedItemSpecialText = Convert.ToString(FilterItemOnProperty(item, "SpecialUse"));
+							else
+							{
+								var value = Convert.ToString(FilterItemOnProperty(item, ColumnNames[colIndex]));
+								var size = graphics.MeasureString(value, Font);
+								if (size.Width > maxWidth)
+									maxWidth = (int)Math.Ceiling(size.Width);
+							}
 						}
 						m_columnWidths.Add(maxWidth);
 					}
@@ -645,6 +651,12 @@ namespace Glyssen.Controls
 						m_columnWidths.Add(ColumnWidthDefault);
 					}
 					TotalWidth += m_columnWidths[colIndex];
+				}
+				if (uncategorizedItemSpecialText != null)
+				{
+					var size = graphics.MeasureString(uncategorizedItemSpecialText, Font);
+					if (size.Width > TotalWidth)
+						TotalWidth = (int)Math.Ceiling(size.Width);
 				}
 			}
 			if (OwningColumn.CategoryColumnName != null)
