@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Media;
@@ -42,7 +43,7 @@ namespace Glyssen.Dialogs
 		private readonly BackgroundWorker m_findCharacterBackgroundWorker;
 		private bool m_programmaticClickOfUpdateGroups;
 
-		public VoiceActorAssignmentDlg(Project project)
+		public VoiceActorAssignmentDlg(Project project, bool regenerateGroups = false)
 		{
 			InitializeComponent();
 
@@ -60,6 +61,11 @@ namespace Glyssen.Dialogs
 			if (!m_project.CharacterGroupList.CharacterGroups.Any())
 			{
 				GenerateGroupsWithProgress(false, true);
+				m_project.Save();
+			}
+			else if (regenerateGroups)
+			{
+				GenerateGroupsWithProgress(m_project.CharacterGroupGenerationPreferences.CastSizeOption == CastSizeRow.MatchVoiceActorList, false);
 				m_project.Save();
 			}
 

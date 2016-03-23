@@ -381,6 +381,10 @@ namespace Glyssen
 				CharacterGroupGenerationPreferences.NumberOfMaleNarrators = BiblicalAuthors.GetAuthorCount(IncludedBooks.Select(b => b.BookId));
 				CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			}
+			if (CharacterGroupGenerationPreferences.CastSizeOption == CastSizeRow.NotSet)
+			{
+				CharacterGroupGenerationPreferences.CastSizeOption = VoiceActorList.ActiveActors.Any() ? CastSizeRow.MatchVoiceActorList : CastSizeRow.Recommended;
+			}
 		}
 
 		public void SetCharacterGroupGenerationPreferencesToValidValues()

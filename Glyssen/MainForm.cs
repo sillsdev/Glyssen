@@ -619,7 +619,7 @@ namespace Glyssen
 			ViewModel.EnsureGroupsAreInSynchWithCharactersInUse();
 
 			bool launchCastSizePlanning;
-			using (var dlg = new VoiceActorAssignmentDlg(m_project))
+			using (var dlg = new VoiceActorAssignmentDlg(m_project, sender == m_btnCastSizePlanning))
 			{
 				dlg.ShowDialog(this);
 				launchCastSizePlanning = dlg.LaunchCastSizePlanningUponExit;
@@ -644,11 +644,18 @@ namespace Glyssen
 
 		private void m_btnCastSizePlanning_Click(object sender, EventArgs e)
 		{
+			bool launchAssignVoiceActors = false;
 			using (var dlg = new CastSizePlanningDlg(new CastSizePlanningViewModel(m_project)))
+			{
+				SaveCurrentProject();
 				if (dlg.ShowDialog(this) == DialogResult.OK)
-					return;
-
-			SaveCurrentProject();
+				{
+					UpdateDisplayOfProjectInfo();
+					launchAssignVoiceActors = true;
+				}
+			}
+			if (launchAssignVoiceActors)
+				AssignVoiceActors_Click(m_btnCastSizePlanning, EventArgs.Empty);
 		}
 
 		protected override void OnKeyDown(KeyEventArgs e)

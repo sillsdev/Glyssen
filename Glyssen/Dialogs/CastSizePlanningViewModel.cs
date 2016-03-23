@@ -188,6 +188,7 @@ namespace Glyssen.Dialogs
 		{
 			m_somethingChanged = false;
 			var prefs = Project.CharacterGroupGenerationPreferences;
+			prefs.IsSetByUser = true;
 
 			// find values that have changed
 			if (ValueChanged(m_updatedMaleNarrators, prefs.NumberOfMaleNarrators))
@@ -199,8 +200,8 @@ namespace Glyssen.Dialogs
 			if (ValueChanged((int)m_updatedNarratorsOption, (int)prefs.NarratorsOption))
 				prefs.NarratorsOption = m_updatedNarratorsOption;
 
-			if (ValueChanged((int)m_updatedCastSizeOption, (int)prefs.CastSizeOption))
-				prefs.CastSizeOption = m_updatedCastSizeOption;
+			if (ValueChanged((int)CastSizeOption, (int)prefs.CastSizeOption))
+				prefs.CastSizeOption = CastSizeOption;
 
 			if (ValueChanged(m_updatedCustomMaleActors, prefs.NumberOfMaleActors))
 				prefs.NumberOfMaleActors = m_updatedCustomMaleActors;
