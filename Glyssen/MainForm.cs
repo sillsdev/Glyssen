@@ -487,7 +487,14 @@ namespace Glyssen
 				m_project.Save();
 		}
 
-		private void Export_Click(object sender, EventArgs e)
+		private void ShowLastLocation()
+		{
+			var lastLocation = m_project.Status.LastExportLocation;
+			m_lastExportLocationLink.Text = lastLocation;
+			m_lblFilesAreHere.Visible = !string.IsNullOrEmpty(lastLocation);
+		}
+
+		private void View_Script_Click(object sender, EventArgs e)
 		{
 			EnsureGroupsAreInSynchWithCharactersInUse();
 
@@ -496,13 +503,10 @@ namespace Glyssen
 			if (!IsOkToExport(exportViewModel.Exporter))
 				return;
 
-			using (var dlg = new ExportDlg(exportViewModel))
+			using (var dlg = new ViewScriptDlg(exportViewModel))
 			{
-				if (dlg.ShowDialog(this) == DialogResult.OK)
-				{
-					m_lastExportLocationLink.Text = m_project.Status.LastExportLocation;
-					m_lblFilesAreHere.Visible = true;
-				}
+				dlg.ShowDialog(this);
+				ShowLastLocation();
 			}
 		}
 
@@ -716,14 +720,29 @@ namespace Glyssen
 				AssignVoiceActors_Click(m_btnCastSizePlanning, EventArgs.Empty);
 		}
 
+		private void ShowExportDialog()
+		{
+			EnsureGroupsAreInSynchWithCharactersInUse();
+
+			var exportViewModel = new ExportViewModel(m_project);
+
+			if (!IsOkToExport(exportViewModel.Exporter))
+				return;
+
+			using (var dlg = new ExportDlg(exportViewModel))
+			{
+				dlg.ShowDialog(this);
+				ShowLastLocation();
+			}
+		}
+
 		protected override void OnKeyDown(KeyEventArgs e)
 		{
 			if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
 			{
 				if (m_btnExport.Enabled)
 				{
-
-					Export_Click(null, new EventArgs());
+					ShowExportDialog();
 					e.Handled = true;
 					return;
 				}
