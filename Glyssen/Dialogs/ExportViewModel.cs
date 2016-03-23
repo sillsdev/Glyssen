@@ -17,16 +17,15 @@ namespace Glyssen.Dialogs
 	{
 		public event EventHandler<EventArgs> ScriptExported;
 
-		internal Project Project { get; set; }
+		private Project Project { get { return m_project; } }
 
 		private ProjectExporter m_exporter;
-		private readonly string m_productName;
 		private string m_customFileName;
+		private readonly Project m_project;
 
-		public ExportViewModel(Project project, string productName)
+		public ExportViewModel(Project project)
 		{
-			Project = project;
-			m_productName = productName;
+			m_project = project;
 			SelectedFileType = ExportFileType.Excel;
 		}
 
@@ -47,7 +46,7 @@ namespace Glyssen.Dialogs
 				var defaultDirectory = Settings.Default.DefaultExportDirectory;
 				if (string.IsNullOrWhiteSpace(defaultDirectory))
 				{
-					defaultDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), m_productName);
+					defaultDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), Program.kProduct);
 					if (!Directory.Exists(defaultDirectory))
 						Directory.CreateDirectory(defaultDirectory);
 				}
@@ -64,7 +63,7 @@ namespace Glyssen.Dialogs
 				if (!string.IsNullOrEmpty(m_customFileName))
 					return m_customFileName;
 
-				var defaultFileName = Project.PublicationName + " " +
+				var defaultFileName = Project.Name + " " +
 					RecordingScriptFileNameSuffix + ProjectExporter.GetFileExtension(SelectedFileType);
 
 				return Path.Combine(DefaultDirectory, defaultFileName.Trim());
@@ -106,46 +105,6 @@ namespace Glyssen.Dialogs
 		internal ProjectExporter Exporter
 		{
 			get { return m_exporter ?? (m_exporter = new ProjectExporter(Project)); }
-		}
-
-		internal bool IsOkToExport()
-		{
-			EnsureGroupsAreInSynchWithCharactersInUse();
-
-			var export = true;
-			string dlgMessage = null;
-			string dlgTitle = null;
-			if (Exporter.IncludeVoiceActors)
-			{
-				if (!Project.IsVoiceActorAssignmentsComplete)
-				{
-					dlgMessage = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.NotAssignedMessage",
-						"One or more character groups have no voice actor assigned. Are you sure you want to export an incomplete script?");
-					dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.TitleIncomplete", "Export Incomplete Script?");
-				}
-				else if (!Project.EveryAssignedGroupHasACharacter)
-				{
-					dlgMessage = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.EmptyGroupMessage",
-						"One or more character groups have no characters in them. Are you sure you want to export a script?");
-					dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Title", "Export Script?");
-				}
-			}
-			else if (Project.ProjectAnalysis.UserPercentAssigned < 100d)
-			{
-				dlgMessage = string.Format(LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.CharacterAssignmentIncompleteMessage",
-					"Character assignment is {0:N1}% complete. Are you sure you want to export a script?"), Project.ProjectAnalysis.UserPercentAssigned);
-				dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.TitleIncomplete", "Export Incomplete Script?");
-			}
-
-			if (dlgMessage != null)
-			{
-				dlgMessage += Environment.NewLine +
-							  LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.MessageNote",
-								  "(Note: You can export the script again as many times as you want.)");
-				export = MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
-			}
-
-			return export;
 		}
 
 		internal bool ExportNow(string fullFileName, bool includeActorBreakdown, bool includeBookBreakdown, bool openForMe)
@@ -204,46 +163,19 @@ namespace Glyssen.Dialogs
 			try
 			{
 				if (exportedAtLeastOneFile && DefaultDirectory != null && openForMe)
-					PathUtilities.OpenDirectoryInExplorer(DefaultDirectory);
+				{
+					if (includeActorBreakdown || includeBookBreakdown)
+						PathUtilities.OpenDirectoryInExplorer(DefaultDirectory);
+					else
+						PathUtilities.OpenFileInApplication(fullFileName);
+				}
 			}
 			catch
 			{
 				// Oh well.
 			}
 
-			// notify anyone listening that something was exported
-			if (ScriptExported != null)
-				ScriptExported(this, new EventArgs());
-
 			return true;
-		}
-
-		internal void EnsureGroupsAreInSynchWithCharactersInUse()
-		{
-			if (!Project.CharacterGroupList.CharacterGroups.Any())
-				return;
-			var adjuster = new CharacterGroupsAdjuster(Project);
-			if (adjuster.GroupsAreNotInSynchWithData)
-			{
-				using (var progressDialog = new GenerateGroupsProgressDialog(Project, OnGenerateGroupsWorkerDoWork, false, true))
-				{
-					var generator = new CharacterGroupGenerator(Project, Project.GetKeyStrokesByCharacterId(), progressDialog.BackgroundWorker);
-					progressDialog.ProgressState.Arguments = generator;
-
-					if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
-						generator.ApplyGeneratedGroupsToProject();
-					else
-						adjuster.MakeMinimalAdjustments();
-
-					Project.Save();
-				}
-			}
-		}
-
-		private void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)
-		{
-			var generator = (CharacterGroupGenerator)((ProgressState)e.Argument).Arguments;
-			generator.GenerateCharacterGroups();
 		}
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
@@ -12,12 +13,14 @@ using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Properties;
+using Glyssen.Rules;
 using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
 using SIL.DblBundle;
 using SIL.IO;
+using SIL.Progress;
 using SIL.Windows.Forms.Miscellaneous;
 
 namespace Glyssen
@@ -28,7 +31,6 @@ namespace Glyssen
 		public const int kChildFormLocationY = 95;
 
 		private Project m_project;
-		private ExportViewModel m_exportViewModel;
 		private string m_percentAssignedFmt;
 		private string m_actorsAssignedFmt;
 		private string m_castSizeFmt;
@@ -58,26 +60,6 @@ namespace Glyssen
 				return;
 
 			childForm.Location = new Point(parentForm.Location.X + kChildFormLocationX, parentForm.Location.Y + kChildFormLocationY);
-		}
-
-		public ExportViewModel ViewModel
-		{
-			get
-			{
-				if (m_exportViewModel == null)
-				{
-					m_exportViewModel = new ExportViewModel(m_project, ProductName);
-					m_exportViewModel.ScriptExported += m_exportViewModel_ScriptExported;
-				}
-
-				return m_exportViewModel;
-			}
-		}
-
-		void m_exportViewModel_ScriptExported(object sender, EventArgs e)
-		{
-			m_lastExportLocationLink.Text = m_project.Status.LastExportLocation;
-			m_lblFilesAreHere.Visible = true;
 		}
 
 		private void SetProject(Project project)
@@ -507,11 +489,88 @@ namespace Glyssen
 
 		private void Export_Click(object sender, EventArgs e)
 		{
-			if (!ViewModel.IsOkToExport())
+			EnsureGroupsAreInSynchWithCharactersInUse();
+
+			var exportViewModel = new ExportViewModel(m_project);
+
+			if (!IsOkToExport(exportViewModel.Exporter))
 				return;
 
-			using (var dlg = new ExportDlg(ViewModel))
-				dlg.ShowDialog(this);
+			using (var dlg = new ExportDlg(exportViewModel))
+			{
+				if (dlg.ShowDialog(this) == DialogResult.OK)
+				{
+					m_lastExportLocationLink.Text = m_project.Status.LastExportLocation;
+					m_lblFilesAreHere.Visible = true;
+				}
+			}
+		}
+
+		private void EnsureGroupsAreInSynchWithCharactersInUse()
+		{
+			// TODO: Deal with possibility of groups based on cast size plan, rather than actual voice actors
+			if (!m_project.CharacterGroupList.CharacterGroups.Any())
+				return;
+			var adjuster = new CharacterGroupsAdjuster(m_project);
+			if (adjuster.GroupsAreNotInSynchWithData)
+			{
+				using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork, false, true))
+				{
+					var generator = new CharacterGroupGenerator(m_project, m_project.GetKeyStrokesByCharacterId(), progressDialog.BackgroundWorker);
+					progressDialog.ProgressState.Arguments = generator;
+
+					if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
+						generator.ApplyGeneratedGroupsToProject();
+					else
+						adjuster.MakeMinimalAdjustments();
+
+					m_project.Save();
+				}
+			}
+		}
+
+		private void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)
+		{
+			var generator = (CharacterGroupGenerator)((ProgressState)e.Argument).Arguments;
+			generator.GenerateCharacterGroups();
+		}
+
+		private bool IsOkToExport(ProjectExporter exporter)
+		{
+			var export = true;
+			string dlgMessage = null;
+			string dlgTitle = null;
+			if (exporter.IncludeVoiceActors)
+			{
+				if (!m_project.IsVoiceActorAssignmentsComplete)
+				{
+					dlgMessage = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.NotAssignedMessage",
+						"One or more character groups have no voice actor assigned. Are you sure you want to export an incomplete script?");
+					dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.TitleIncomplete", "Export Incomplete Script?");
+				}
+				else if (!m_project.EveryAssignedGroupHasACharacter)
+				{
+					dlgMessage = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.EmptyGroupMessage",
+						"One or more character groups have no characters in them. Are you sure you want to export a script?");
+					dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Title", "Export Script?");
+				}
+			}
+			else if (m_project.ProjectAnalysis.UserPercentAssigned < 100d)
+			{
+				dlgMessage = string.Format(LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.CharacterAssignmentIncompleteMessage",
+					"Character assignment is {0:N1}% complete. Are you sure you want to export a script?"), m_project.ProjectAnalysis.UserPercentAssigned);
+				dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.TitleIncomplete", "Export Incomplete Script?");
+			}
+
+			if (dlgMessage != null)
+			{
+				dlgMessage += Environment.NewLine +
+							  LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.MessageNote",
+								  "(Note: You can export the script again as many times as you want.)");
+				export = MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
+			}
+
+			return export;
 		}
 
 		private void SetupUiLanguageMenu()
@@ -616,7 +675,7 @@ namespace Glyssen
 			// TODO: Eventually, this should be called when the user requests that all overrides be reverted to the defaults.
 			//m_project.UseDefaultForUnresolvedMultipleChoiceCharacters();
 
-			ViewModel.EnsureGroupsAreInSynchWithCharactersInUse();
+			EnsureGroupsAreInSynchWithCharactersInUse();
 
 			bool launchCastSizePlanning;
 			using (var dlg = new VoiceActorAssignmentDlg(m_project, sender == m_btnCastSizePlanning))

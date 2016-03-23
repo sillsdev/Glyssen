@@ -1,8 +1,10 @@
 ﻿using System;
+using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 using L10NSharp;
 using L10NSharp.UI;
+using SIL.Windows.Forms.Miscellaneous;
 
 namespace Glyssen.Dialogs
 {
@@ -192,10 +194,23 @@ namespace Glyssen.Dialogs
 
 		private void BtnOk_Click(object sender, EventArgs e)
 		{
-			m_viewModel.ExportNow(m_lblFileName.Text,
-				m_checkIncludeActorBreakdown.Checked,
-				m_checkIncludeBookBreakdown.Checked,
-				m_checkOpenForMe.Checked);
+			Enabled = false;
+			try
+			{
+				Cursor.Current = Cursors.WaitCursor;
+				if (m_viewModel.ExportNow(m_lblFileName.Text,
+					m_checkIncludeActorBreakdown.Checked,
+					m_checkIncludeBookBreakdown.Checked,
+					m_checkOpenForMe.Checked))
+				{
+					DialogResult = DialogResult.OK;
+					Close();
+				}
+			}
+			finally
+			{
+				Cursor.Current = Cursors.Default;
+			}
 		}
 	}
 }

@@ -15,9 +15,6 @@
 		{
 			if (disposing)
 			{
-				if (m_exportViewModel != null)
-					m_exportViewModel.ScriptExported -= m_exportViewModel_ScriptExported;
-
 				if (components != null)
 					components.Dispose();
 			}
