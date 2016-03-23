@@ -12,6 +12,7 @@ namespace Glyssen.Dialogs
 		private string m_actorDirectoryFmt;
 		private string m_bookDirectoryFmt;
 		private string m_clipListFileFmt;
+		private string m_openFileForMeText;
 
 		public ExportDlg(ExportViewModel viewModel)
 		{
@@ -38,6 +39,7 @@ namespace Glyssen.Dialogs
 			m_actorDirectoryFmt = m_lblActorDirectory.Text;
 			m_bookDirectoryFmt = m_lblBookDirectory.Text;
 			m_clipListFileFmt = m_lblClipListFilename.Text;
+			m_openFileForMeText = m_checkOpenForMe.Text;
 
 			Text = string.Format(Text, m_viewModel.Exporter.Project.Name);
 		}
@@ -49,6 +51,7 @@ namespace Glyssen.Dialogs
 			UpdateActorDisplay();
 			UpdateBookDisplay();
 			UpdateClipListDisplay();
+			UpdateOpenForMeDisplay();
 		}
 
 		private void UpdateActorDisplay()
@@ -124,6 +127,14 @@ namespace Glyssen.Dialogs
 			}
 		}
 
+		private void UpdateOpenForMeDisplay()
+		{
+			if (m_checkIncludeActorBreakdown.Checked || m_checkIncludeBookBreakdown.Checked || m_checkIncludeClipListFile.Checked)
+				m_checkOpenForMe.Text = LocalizationManager.GetString("DialogBoxes.ExportDlg.OpenFolderForMe", "Open the folder for me");
+			else
+				m_checkOpenForMe.Text = m_openFileForMeText;
+		}
+
 		private void Browse_Click(object sender, EventArgs e)
 		{
 			using (var dlg = new SaveFileDialog())
@@ -164,16 +175,19 @@ namespace Glyssen.Dialogs
 		private void CheckIncludeActorBreakdown_CheckedChanged(object sender, EventArgs e)
 		{
 			UpdateActorDisplay();
+			UpdateOpenForMeDisplay();
 		}
 
 		private void CheckIncludeBookBreakdown_CheckedChanged(object sender, EventArgs e)
 		{
 			UpdateBookDisplay();
+			UpdateOpenForMeDisplay();
 		}
 
 		private void CheckIncludeClipListFile_CheckedChanged(object sender, EventArgs e)
 		{
 			UpdateClipListDisplay();
+			UpdateOpenForMeDisplay();
 		}
 
 		private void BtnOk_Click(object sender, EventArgs e)

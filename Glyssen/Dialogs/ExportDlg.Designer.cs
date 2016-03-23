@@ -130,9 +130,9 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblDescription, "DialogBoxes.ExportDlg.Description");
 			this.m_lblDescription.Location = new System.Drawing.Point(3, 0);
 			this.m_lblDescription.Name = "m_lblDescription";
-			this.m_lblDescription.Size = new System.Drawing.Size(303, 13);
+			this.m_lblDescription.Size = new System.Drawing.Size(250, 13);
 			this.m_lblDescription.TabIndex = 0;
-			this.m_lblDescription.Text = "{0} will create recording scripts as xlsx or tab-separated txt files.";
+			this.m_lblDescription.Text = "{0} will create recording scripts as spreadsheet files.";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblDescription, true);
 			// 
 			// m_l10NSharpExtender
@@ -237,9 +237,9 @@ namespace Glyssen.Dialogs
 			this.m_lblFilenameLabel.Margin = new System.Windows.Forms.Padding(3);
 			this.m_lblFilenameLabel.Name = "m_lblFilenameLabel";
 			this.m_lblFilenameLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-			this.m_lblFilenameLabel.Size = new System.Drawing.Size(55, 18);
+			this.m_lblFilenameLabel.Size = new System.Drawing.Size(51, 18);
 			this.m_lblFilenameLabel.TabIndex = 1;
-			this.m_lblFilenameLabel.Text = "File name:";
+			this.m_lblFilenameLabel.Text = "Location:";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblFilenameLabel, true);
 			// 
 			// m_lblActorDirectoryExists
@@ -256,9 +256,9 @@ namespace Glyssen.Dialogs
 			this.m_lblActorDirectoryExists.Location = new System.Drawing.Point(28, 139);
 			this.m_lblActorDirectoryExists.Margin = new System.Windows.Forms.Padding(3);
 			this.m_lblActorDirectoryExists.Name = "m_lblActorDirectoryExists";
-			this.m_lblActorDirectoryExists.Size = new System.Drawing.Size(270, 13);
+			this.m_lblActorDirectoryExists.Size = new System.Drawing.Size(256, 13);
 			this.m_lblActorDirectoryExists.TabIndex = 7;
-			this.m_lblActorDirectoryExists.Text = "This directory exists. Voice actor files will be overwritten.";
+			this.m_lblActorDirectoryExists.Text = "This folder exists. Voice actor files will be overwritten.";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblActorDirectoryExists, true);
 			// 
 			// m_lblActorDirectory
@@ -313,9 +313,9 @@ namespace Glyssen.Dialogs
 			this.m_lblBookDirectoryExists.Location = new System.Drawing.Point(28, 200);
 			this.m_lblBookDirectoryExists.Margin = new System.Windows.Forms.Padding(3);
 			this.m_lblBookDirectoryExists.Name = "m_lblBookDirectoryExists";
-			this.m_lblBookDirectoryExists.Size = new System.Drawing.Size(241, 13);
+			this.m_lblBookDirectoryExists.Size = new System.Drawing.Size(227, 13);
 			this.m_lblBookDirectoryExists.TabIndex = 10;
-			this.m_lblBookDirectoryExists.Text = "This directory exists. Book files will be overwritten.";
+			this.m_lblBookDirectoryExists.Text = "This folder exists. Book files will be overwritten.";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblBookDirectoryExists, true);
 			// 
 			// m_checkIncludeClipListFile
@@ -416,9 +416,9 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_checkOpenForMe, "DialogBoxes.ExportDlg.OpenForMe");
 			this.m_checkOpenForMe.Location = new System.Drawing.Point(3, 290);
 			this.m_checkOpenForMe.Name = "m_checkOpenForMe";
-			this.m_checkOpenForMe.Size = new System.Drawing.Size(145, 17);
+			this.m_checkOpenForMe.Size = new System.Drawing.Size(162, 17);
 			this.m_checkOpenForMe.TabIndex = 15;
-			this.m_checkOpenForMe.Text = "Open the directory for me";
+			this.m_checkOpenForMe.Text = "Open the exported file for me";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_checkOpenForMe, true);
 			this.m_checkOpenForMe.UseVisualStyleBackColor = true;
 			// 
