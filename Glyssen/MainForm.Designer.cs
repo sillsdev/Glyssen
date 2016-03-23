@@ -681,6 +681,7 @@
 			this.glyssenColorPalette.SetForeColor(this, Glyssen.Utilities.GlyssenColors.Default);
 			this.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.Icon = global::Glyssen.Properties.Resources.glyssenIcon;
+			this.KeyPreview = true;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this, null);
 			this.m_L10NSharpExtender.SetLocalizationPriority(this, L10NSharp.LocalizationPriority.NotLocalizable);

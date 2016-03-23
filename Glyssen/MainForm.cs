@@ -650,5 +650,20 @@ namespace Glyssen
 
 			SaveCurrentProject();
 		}
+
+		protected override void OnKeyDown(KeyEventArgs e)
+		{
+			if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
+			{
+				if (m_btnExport.Enabled)
+				{
+
+					Export_Click(null, new EventArgs());
+					e.Handled = true;
+					return;
+				}
+			}
+			base.OnKeyDown(e);
+		}
 	}
 }
