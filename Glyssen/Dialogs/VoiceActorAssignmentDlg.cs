@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Media;
@@ -206,7 +205,7 @@ namespace Glyssen.Dialogs
 
 		private Image VoiceActorCol_GetSpecialDropDownImageToDraw(DataGridViewMultiColumnComboBoxColumn sender, int rowIndex)
 		{
-			return m_characterGroupGrid.Rows[rowIndex].Cells[sender.Index].ReadOnly ? Properties.Resources.CameoStar : null;
+			return m_characterGroupGrid.Rows[rowIndex].Cells[sender.Index].ReadOnly ? Resources.CameoStar : null;
 		}
 
 		public CharacterGroup FirstSelectedCharacterGroup
@@ -1194,6 +1193,7 @@ namespace Glyssen.Dialogs
 				var groupsRowStyle = m_tableLayoutPanel.LayoutSettings.RowStyles[m_tableLayoutPanel.GetRow(m_characterGroupGrid)];
 				detailsRowStyle.Height = 0;
 				groupsRowStyle.Height = 100;
+				m_linkLabelShowHideDetails.Text = string.Format(m_fmtShowCharacterDetails, FirstSelectedCharacterGroup.GroupIdForUiDisplay);
 			}
 			m_characterDetailsGrid.Visible = m_characterDetailsVisible;
 		}
