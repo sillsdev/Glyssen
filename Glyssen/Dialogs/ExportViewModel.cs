@@ -1,23 +1,16 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Data;
 using System.IO;
-using System.Linq;
-using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Properties;
-using Glyssen.Rules;
 using L10NSharp;
 using SIL.IO;
-using SIL.Progress;
 using SIL.Reporting;
 
 namespace Glyssen.Dialogs
 {
 	public class ExportViewModel
 	{
-		public event EventHandler<EventArgs> ScriptExported;
-
 		private Project Project { get { return m_project; } }
 
 		private ProjectExporter m_exporter;
@@ -54,7 +47,11 @@ namespace Glyssen.Dialogs
 
 				return defaultDirectory;
 			}
-			set { Settings.Default.DefaultExportDirectory = value; }
+		}
+
+		internal string CurrentBaseFolder
+		{
+			get { return Path.GetDirectoryName(FullFileName); }
 		}
 
 		internal string FullFileName
@@ -72,15 +69,10 @@ namespace Glyssen.Dialogs
 			set
 			{
 				m_customFileName = value;
-
-				// if the directory is not the stored default directory, make the new directory the default
-				var dirName = Path.GetDirectoryName(m_customFileName);
-				if (!DirectoryUtilities.AreDirectoriesEquivalent(dirName, DefaultDirectory))
-					DefaultDirectory = dirName;
 			}
 		}
 
-		internal string FileNameWithoutExtension
+		private string FileNameWithoutExtension
 		{
 			get { return Path.GetFileNameWithoutExtension(FullFileName); }
 		}
@@ -90,7 +82,7 @@ namespace Glyssen.Dialogs
 			get
 			{
 				var dirSuffix = LocalizationManager.GetString("DialogBoxes.ExportDlg.ActorDirectoryNameSuffix", "Voice Actors");
-				return Path.Combine(DefaultDirectory, FileNameWithoutExtension + " " + dirSuffix);
+				return Path.Combine(CurrentBaseFolder, FileNameWithoutExtension + " " + dirSuffix);
 			}
 		}
 
@@ -99,7 +91,7 @@ namespace Glyssen.Dialogs
 			get
 			{
 				var dirSuffix = LocalizationManager.GetString("DialogBoxes.ExportDlg.BookDirectoryNameSuffix", "Books");
-				return Path.Combine(Path.GetDirectoryName(FullFileName), FileNameWithoutExtension + " " + dirSuffix);
+				return Path.Combine(CurrentBaseFolder, FileNameWithoutExtension + " " + dirSuffix);
 			}
 		}
 
@@ -108,25 +100,31 @@ namespace Glyssen.Dialogs
 			get { return m_exporter ?? (m_exporter = new ProjectExporter(Project)); }
 		}
 
-		internal bool ExportNow(string fullFileName, bool includeActorBreakdown, bool includeBookBreakdown, bool openForMe)
+		internal bool ExportNow(bool includeActorBreakdown, bool includeBookBreakdown, bool openForMe)
 		{
 			var exportedAtLeastOneFile = false;
-			FullFileName = fullFileName;
 			
 			try
 			{
-				Exporter.GenerateFile(fullFileName, SelectedFileType);
+				Exporter.GenerateFile(FullFileName, SelectedFileType);
 				exportedAtLeastOneFile = true;
 
-				// remember the location
-				Project.Status.LastExportLocation = Path.GetDirectoryName(fullFileName);
+				// remember the location (at least for this project and possible as new default)
+				Project.Status.LastExportLocation = CurrentBaseFolder;
+				if (!string.IsNullOrEmpty(m_customFileName))
+				{
+					// if the directory is not the stored default directory, make the new directory the default
+					if (!DirectoryUtilities.AreDirectoriesEquivalent(Project.Status.LastExportLocation, DefaultDirectory))
+						Settings.Default.DefaultExportDirectory = Project.Status.LastExportLocation;
+				}
+
 			}
 			catch (Exception ex)
 			{
 				Analytics.ReportException(ex);
 				ErrorReport.ReportNonFatalExceptionWithMessage(ex,
 					string.Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExport",
-					"Could not export data to {0}", "{0} is a file name."), fullFileName));
+					"Could not export data to {0}", "{0} is a file name."), FullFileName));
 			}
 			if (includeActorBreakdown)
 			{
@@ -163,12 +161,12 @@ namespace Glyssen.Dialogs
 
 			try
 			{
-				if (exportedAtLeastOneFile && DefaultDirectory != null && openForMe)
+				if (exportedAtLeastOneFile && Project.Status.LastExportLocation != null && openForMe)
 				{
 					if (includeActorBreakdown || includeBookBreakdown)
-						PathUtilities.OpenDirectoryInExplorer(DefaultDirectory);
+						PathUtilities.OpenDirectoryInExplorer(Project.Status.LastExportLocation);
 					else
-						PathUtilities.OpenFileInApplication(fullFileName);
+						PathUtilities.OpenFileInApplication(FullFileName);
 				}
 			}
 			catch

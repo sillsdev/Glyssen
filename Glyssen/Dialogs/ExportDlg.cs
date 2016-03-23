@@ -51,6 +51,7 @@ namespace Glyssen.Dialogs
 
 		private void UpdateDisplay()
 		{
+			m_lblFileName.Text = m_viewModel.FullFileName;
 			m_lblFileExists.Visible = File.Exists(m_lblFileName.Text);
 
 			UpdateActorDisplay();
@@ -146,7 +147,7 @@ namespace Glyssen.Dialogs
 			{
 				dlg.Title = LocalizationManager.GetString("DialogBoxes.ExportDlg.SaveFileDialog.Title", "Choose File Location");
 				dlg.OverwritePrompt = false;
-				dlg.InitialDirectory = m_viewModel.DefaultDirectory;
+				dlg.InitialDirectory = m_viewModel.CurrentBaseFolder;
 				dlg.FileName = Path.GetFileName(m_lblFileName.Text);
 				dlg.Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}|{4} ({5})|{5}",
 					LocalizationManager.GetString("DialogBoxes.ExportDlg.ExcelFileTypeLabel", "Excel files"), "*" + ProjectExporter.kExcelFileExtension,
@@ -166,11 +167,13 @@ namespace Glyssen.Dialogs
 							break;
 					}
 
-					m_lblFileName.Text = dlg.FileName;
+					var newName = dlg.FileName;
 
 					string expectedFileExtension = ProjectExporter.GetFileExtension(m_viewModel.SelectedFileType);
-					if (!m_lblFileName.Text.EndsWith(expectedFileExtension))
-						m_lblFileName.Text += expectedFileExtension;
+					if (!newName.EndsWith(expectedFileExtension))
+						newName += expectedFileExtension;
+
+					m_viewModel.FullFileName = newName;
 
 					UpdateDisplay();
 				}
@@ -201,10 +204,7 @@ namespace Glyssen.Dialogs
 			try
 			{
 				Cursor.Current = Cursors.WaitCursor;
-				if (m_viewModel.ExportNow(m_lblFileName.Text,
-					m_checkIncludeActorBreakdown.Checked,
-					m_checkIncludeBookBreakdown.Checked,
-					m_checkOpenForMe.Checked))
+				if (m_viewModel.ExportNow(m_checkIncludeActorBreakdown.Checked, m_checkIncludeBookBreakdown.Checked, m_checkOpenForMe.Checked))
 				{
 					DialogResult = DialogResult.OK;
 					Close();
