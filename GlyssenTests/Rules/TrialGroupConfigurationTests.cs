@@ -4,6 +4,7 @@ using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Rules;
+using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Extensions;
 
@@ -567,6 +568,69 @@ namespace GlyssenTests.Rules
 				Assert.IsFalse(listOfBooksFoundSoFar.Overlaps(booksAssignedToNarrator));
 				listOfBooksFoundSoFar.AddRange(booksAssignedToNarrator);
 			}
+		}
+	}
+
+	[TestFixture]
+	class TrialGroupConfigurationConstructorTests
+	{
+		private Project m_testProject;
+		private Dictionary<string, int> m_keyStrokesPerCharacterId;
+
+		[TestFixtureSetUp]
+		public void TextFixtureSetUp()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
+			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
+			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.JUD);
+			m_keyStrokesPerCharacterId = m_testProject.GetKeyStrokesByCharacterId();
+		}
+
+		[SetUp]
+		public void SetUp()
+		{
+			m_testProject.VoiceActorList.AllActors.Clear();
+			m_testProject.CharacterGroupList.CharacterGroups.Clear();
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
+		}
+
+		[TestFixtureTearDown]
+		public void TestFixtureTearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
+		[Test]
+		public void GeneratePossibilities_OneMaleActorOneFemaleActorOneChildActor_DoesNotThrow()
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 1;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+
+			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(1, 1, 1);
+			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
+			var groups = gen.GenerateCharacterGroups();
+			var maxMaleNarrators = 2;  // one per book
+			var maxFemaleNarrators = 0;
+
+			var sortedDict = from entry in m_keyStrokesPerCharacterId orderby entry.Value descending select entry;
+
+			var characterDetails = m_testProject.AllCharacterDetailDictionary;
+			var includedCharacterDetails = characterDetails.Values.Where(c => sortedDict.Select(e => e.Key).Contains(c.CharacterId)).ToList();
+
+			Assert.DoesNotThrow(() => CharacterGroupGenerator.TrialGroupConfiguration.GeneratePossibilities(
+				groups,
+				ref maxMaleNarrators,
+				ref maxFemaleNarrators,
+				includedCharacterDetails,
+				m_keyStrokesPerCharacterId,
+				m_testProject
+				)
+			);
 		}
 	}
 }
