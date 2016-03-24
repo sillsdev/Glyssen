@@ -29,7 +29,7 @@
 	<Message Text="BuildHash: $(BuildHash)" Importance="high"/>
 
 	<!-- For now, mimicking Bloom's strategy of updating the version number here (not on TeamCity, not in the assemblies). -->
-	<CreateProperty Value="0.1.$(BuildCounter)">
+	<CreateProperty Value="0.10.$(BuildCounter)">
 		<Output PropertyName="Version" TaskParameter="Value"/>
 	</CreateProperty>
 	<CreateProperty Value="$(Version).$(BuildHash)">
