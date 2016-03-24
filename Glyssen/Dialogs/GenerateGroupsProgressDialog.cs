@@ -21,14 +21,17 @@ namespace Glyssen.Dialogs
 				project.VoiceActorList.ActiveActors.Count() :
 				new CastSizePlanningViewModel(project).GetCastSizeRowValues(groupGenerationPreferences.CastSizeOption).Total;
 			string firstLineOfText = string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.Text1",
-				"The recording project has {0} distinct biblical character roles."), numCharacters);
-			string secondLineOfText = string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.Text2",
-				"The selected cast size is {0} voice actors."), numActors);
+				"The recording project has {0} distinct Biblical character roles."), numCharacters);
+			string secondLineOfText = groupGenerationPreferences.CastSizeOption == CastSizeRow.MatchVoiceActorList ?
+				string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.Text2.MatchActors",
+				"The voice actor list has {0} voice actors."), numActors) :
+				string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.Text2.CastSize",
+				"The planned cast size is {0} voice actors."), numActors);
 			string firstLineOfStatusText = groupGenerationPreferences.CastSizeOption == CastSizeRow.MatchVoiceActorList ?
 				string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.StatusText.Text1.MatchActors",
-					"{0} is creating optimized groups of characters to match the voice actor list."), ProductName) :
+					"{0} is creating optimized groups of character roles to match the voice actor list."), ProductName) :
 				string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.StatusText.Text1.CastSize",
-					"{0} is creating optimized groups of characters to match the cast size."), ProductName);
+					"{0} is creating optimized groups of character roles to match the cast size."), ProductName);
 
 			Overview = firstLineOfText + Environment.NewLine + secondLineOfText;
 			if (firstRun)
