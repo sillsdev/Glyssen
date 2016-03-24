@@ -45,6 +45,11 @@ namespace Glyssen.Dialogs
 			m_lblRecordingTime.Text = string.Format(m_lblRecordingTime.Text, project.GetEstimatedRecordingTime());
 		}
 
+		private void CastSizePlanningDlg_Load(object sender, EventArgs e)
+		{
+			MainForm.SetChildFormLocation(this);
+		}
+
 		private void m_tableLayoutPanel_Paint(object sender, PaintEventArgs e)
 		{
 			// draw the horizontal line

@@ -27,7 +27,6 @@ namespace Glyssen.Dialogs
 		private bool m_isClosing;
 		private Label m_overviewLabel;
 		private DateTime m_startTime;
-		private IContainer m_components;
 		private BackgroundWorker m_backgroundWorker;
 		private ProgressState m_progressState;
 		private TableLayoutPanel m_tableLayout;
@@ -38,7 +37,7 @@ namespace Glyssen.Dialogs
 		private TableLayoutPanel m_buttonPanel;
 		private LinkLabel m_cancelLink;
 		private bool m_appUsingWaitCursor;
-		private Utilities.GlyssenColorPalette glyssenColorPalette;
+		private Utilities.GlyssenColorPalette m_glyssenColorPalette;
 		private bool m_replaceCancelButtonWithLink;
 
 		/// <summary>
@@ -395,10 +394,6 @@ namespace Glyssen.Dialogs
 				{
 					m_showWindowIfTakingLongTimeTimer.Stop();
 				}
-				if (m_components != null)
-				{
-					m_components.Dispose();
-				}
 			}
 			base.Dispose( disposing );
 		}
@@ -422,10 +417,10 @@ namespace Glyssen.Dialogs
 			this.m_okButton = new System.Windows.Forms.Button();
 			this.m_cancelButton = new System.Windows.Forms.Button();
 			this.m_cancelLink = new System.Windows.Forms.LinkLabel();
-			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
+			this.m_glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
 			this.m_tableLayout.SuspendLayout();
 			this.m_buttonPanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.glyssenColorPalette)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_glyssenColorPalette)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// m_statusLabel
@@ -434,11 +429,11 @@ namespace Glyssen.Dialogs
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_statusLabel.AutoSize = true;
 			this.m_statusLabel.BackColor = System.Drawing.SystemColors.Control;
-			this.glyssenColorPalette.SetBackColor(this.m_statusLabel, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_glyssenColorPalette.SetBackColor(this.m_statusLabel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayout.SetColumnSpan(this.m_statusLabel, 2);
 			this.m_statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_statusLabel.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.glyssenColorPalette.SetForeColor(this.m_statusLabel, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_glyssenColorPalette.SetForeColor(this.m_statusLabel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_statusLabel.Location = new System.Drawing.Point(0, 35);
 			this.m_statusLabel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
 			this.m_statusLabel.Name = "m_statusLabel";
@@ -446,22 +441,22 @@ namespace Glyssen.Dialogs
 			this.m_statusLabel.TabIndex = 12;
 			this.m_statusLabel.Text = "#";
 			this.m_statusLabel.UseMnemonic = false;
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_statusLabel, true);
+			this.m_glyssenColorPalette.SetUsePaletteColors(this.m_statusLabel, true);
 			// 
 			// m_progressBar
 			// 
 			this.m_progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.glyssenColorPalette.SetBackColor(this.m_progressBar, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_glyssenColorPalette.SetBackColor(this.m_progressBar, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayout.SetColumnSpan(this.m_progressBar, 2);
-			this.glyssenColorPalette.SetForeColor(this.m_progressBar, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_glyssenColorPalette.SetForeColor(this.m_progressBar, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_progressBar.Location = new System.Drawing.Point(0, 55);
 			this.m_progressBar.Margin = new System.Windows.Forms.Padding(0, 0, 0, 12);
 			this.m_progressBar.Name = "m_progressBar";
 			this.m_progressBar.Size = new System.Drawing.Size(444, 18);
 			this.m_progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
 			this.m_progressBar.TabIndex = 11;
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_progressBar, false);
+			this.m_glyssenColorPalette.SetUsePaletteColors(this.m_progressBar, false);
 			this.m_progressBar.Value = 1;
 			// 
 			// m_progressLabel
@@ -470,9 +465,9 @@ namespace Glyssen.Dialogs
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_progressLabel.AutoEllipsis = true;
 			this.m_progressLabel.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_progressLabel, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_glyssenColorPalette.SetBackColor(this.m_progressLabel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_progressLabel.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.glyssenColorPalette.SetForeColor(this.m_progressLabel, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_glyssenColorPalette.SetForeColor(this.m_progressLabel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_progressLabel.Location = new System.Drawing.Point(0, 90);
 			this.m_progressLabel.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
 			this.m_progressLabel.Name = "m_progressLabel";
@@ -480,7 +475,7 @@ namespace Glyssen.Dialogs
 			this.m_progressLabel.TabIndex = 9;
 			this.m_progressLabel.Text = "#";
 			this.m_progressLabel.UseMnemonic = false;
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_progressLabel, true);
+			this.m_glyssenColorPalette.SetUsePaletteColors(this.m_progressLabel, true);
 			// 
 			// m_showWindowIfTakingLongTimeTimer
 			// 
@@ -498,11 +493,11 @@ namespace Glyssen.Dialogs
 			this.m_overviewLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_overviewLabel.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_overviewLabel, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_glyssenColorPalette.SetBackColor(this.m_overviewLabel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayout.SetColumnSpan(this.m_overviewLabel, 2);
 			this.m_overviewLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_overviewLabel.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.glyssenColorPalette.SetForeColor(this.m_overviewLabel, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_glyssenColorPalette.SetForeColor(this.m_overviewLabel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_overviewLabel.Location = new System.Drawing.Point(0, 0);
 			this.m_overviewLabel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
 			this.m_overviewLabel.Name = "m_overviewLabel";
@@ -510,14 +505,14 @@ namespace Glyssen.Dialogs
 			this.m_overviewLabel.TabIndex = 8;
 			this.m_overviewLabel.Text = "#";
 			this.m_overviewLabel.UseMnemonic = false;
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_overviewLabel, true);
+			this.m_glyssenColorPalette.SetUsePaletteColors(this.m_overviewLabel, true);
 			// 
 			// m_tableLayout
 			// 
 			this.m_tableLayout.AutoSize = true;
 			this.m_tableLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.m_tableLayout.BackColor = System.Drawing.Color.Transparent;
-			this.glyssenColorPalette.SetBackColor(this.m_tableLayout, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_glyssenColorPalette.SetBackColor(this.m_tableLayout, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayout.ColumnCount = 2;
 			this.m_tableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.m_tableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -528,7 +523,7 @@ namespace Glyssen.Dialogs
 			this.m_tableLayout.Controls.Add(this.m_statusLabel, 0, 1);
 			this.m_tableLayout.Controls.Add(this.m_cancelLink, 0, 4);
 			this.m_tableLayout.Dock = System.Windows.Forms.DockStyle.Top;
-			this.glyssenColorPalette.SetForeColor(this.m_tableLayout, Glyssen.Utilities.GlyssenColors.Default);
+			this.m_glyssenColorPalette.SetForeColor(this.m_tableLayout, Glyssen.Utilities.GlyssenColors.Default);
 			this.m_tableLayout.Location = new System.Drawing.Point(12, 12);
 			this.m_tableLayout.Name = "m_tableLayout";
 			this.m_tableLayout.RowCount = 5;
@@ -539,7 +534,7 @@ namespace Glyssen.Dialogs
 			this.m_tableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayout.Size = new System.Drawing.Size(444, 121);
 			this.m_tableLayout.TabIndex = 13;
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_tableLayout, false);
+			this.m_glyssenColorPalette.SetUsePaletteColors(this.m_tableLayout, false);
 			this.m_tableLayout.SizeChanged += new System.EventHandler(this.HandleTableLayoutSizeChanged);
 			// 
 			// m_buttonPanel
@@ -547,13 +542,13 @@ namespace Glyssen.Dialogs
 			this.m_buttonPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.m_buttonPanel.AutoSize = true;
 			this.m_buttonPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.glyssenColorPalette.SetBackColor(this.m_buttonPanel, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_glyssenColorPalette.SetBackColor(this.m_buttonPanel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_buttonPanel.ColumnCount = 2;
 			this.m_buttonPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.m_buttonPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.m_buttonPanel.Controls.Add(this.m_okButton, 0, 0);
 			this.m_buttonPanel.Controls.Add(this.m_cancelButton, 1, 0);
-			this.glyssenColorPalette.SetForeColor(this.m_buttonPanel, Glyssen.Utilities.GlyssenColors.Default);
+			this.m_glyssenColorPalette.SetForeColor(this.m_buttonPanel, Glyssen.Utilities.GlyssenColors.Default);
 			this.m_buttonPanel.Location = new System.Drawing.Point(317, 95);
 			this.m_buttonPanel.Name = "m_buttonPanel";
 			this.m_buttonPanel.RowCount = 1;
@@ -561,55 +556,55 @@ namespace Glyssen.Dialogs
 			this.m_buttonPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_buttonPanel.Size = new System.Drawing.Size(124, 23);
 			this.m_buttonPanel.TabIndex = 14;
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_buttonPanel, false);
+			this.m_glyssenColorPalette.SetUsePaletteColors(this.m_buttonPanel, false);
 			// 
 			// m_okButton
 			// 
 			this.m_okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_okButton.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_okButton, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_glyssenColorPalette.SetBackColor(this.m_okButton, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_okButton, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.glyssenColorPalette.SetForeColor(this.m_okButton, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_okButton, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_glyssenColorPalette.SetForeColor(this.m_okButton, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_okButton.Location = new System.Drawing.Point(8, 0);
 			this.m_okButton.Margin = new System.Windows.Forms.Padding(8, 0, 0, 0);
 			this.m_okButton.Name = "m_okButton";
 			this.m_okButton.Size = new System.Drawing.Size(50, 23);
 			this.m_okButton.TabIndex = 13;
 			this.m_okButton.Text = "&OK";
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_okButton, false);
+			this.m_glyssenColorPalette.SetUsePaletteColors(this.m_okButton, false);
 			this.m_okButton.Visible = false;
 			// 
 			// m_cancelButton
 			// 
 			this.m_cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_cancelButton.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_cancelButton, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_glyssenColorPalette.SetBackColor(this.m_cancelButton, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_cancelButton, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.glyssenColorPalette.SetForeColor(this.m_cancelButton, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_cancelButton, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_glyssenColorPalette.SetForeColor(this.m_cancelButton, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_cancelButton.Location = new System.Drawing.Point(66, 0);
 			this.m_cancelButton.Margin = new System.Windows.Forms.Padding(8, 0, 0, 0);
 			this.m_cancelButton.Name = "m_cancelButton";
 			this.m_cancelButton.Size = new System.Drawing.Size(58, 23);
 			this.m_cancelButton.TabIndex = 10;
 			this.m_cancelButton.Text = "&Cancel";
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_cancelButton, false);
+			this.m_glyssenColorPalette.SetUsePaletteColors(this.m_cancelButton, false);
 			this.m_cancelButton.Click += new System.EventHandler(this.OnCancelButton_Click);
 			// 
 			// m_cancelLink
 			// 
 			this.m_cancelLink.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
-			this.glyssenColorPalette.SetActiveLinkColor(this.m_cancelLink, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
+			this.m_glyssenColorPalette.SetActiveLinkColor(this.m_cancelLink, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
 			this.m_cancelLink.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_cancelLink, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_glyssenColorPalette.SetBackColor(this.m_cancelLink, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_cancelLink.BackColor = System.Drawing.SystemColors.Control;
 			this.m_cancelLink.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.glyssenColorPalette.SetDisabledLinkColor(this.m_cancelLink, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
+			this.m_glyssenColorPalette.SetDisabledLinkColor(this.m_cancelLink, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_cancelLink.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.glyssenColorPalette.SetForeColor(this.m_cancelLink, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_glyssenColorPalette.SetForeColor(this.m_cancelLink, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_cancelLink.LinkColor = System.Drawing.SystemColors.HotTrack;
-			this.glyssenColorPalette.SetLinkColor(this.m_cancelLink, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_glyssenColorPalette.SetLinkColor(this.m_cancelLink, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_cancelLink.Location = new System.Drawing.Point(25, 103);
 			this.m_cancelLink.Margin = new System.Windows.Forms.Padding(25, 0, 3, 0);
 			this.m_cancelLink.Name = "m_cancelLink";
@@ -618,10 +613,10 @@ namespace Glyssen.Dialogs
 			this.m_cancelLink.TabIndex = 15;
 			this.m_cancelLink.TabStop = true;
 			this.m_cancelLink.Text = "No! Let me group character roles manually.";
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_cancelLink, true);
+			this.m_glyssenColorPalette.SetUsePaletteColors(this.m_cancelLink, true);
 			this.m_cancelLink.Visible = false;
 			this.m_cancelLink.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
-			this.glyssenColorPalette.SetVisitedLinkColor(this.m_cancelLink, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
+			this.m_glyssenColorPalette.SetVisitedLinkColor(this.m_cancelLink, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_cancelLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnCancelLink_LinkClicked);
 			// 
 			// ProgressDialogWithAcknowledgement
@@ -629,11 +624,11 @@ namespace Glyssen.Dialogs
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_glyssenColorPalette.SetBackColor(this, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.ClientSize = new System.Drawing.Size(468, 139);
 			this.ControlBox = false;
 			this.Controls.Add(this.m_tableLayout);
-			this.glyssenColorPalette.SetForeColor(this, Glyssen.Utilities.GlyssenColors.Default);
+			this.m_glyssenColorPalette.SetForeColor(this, Glyssen.Utilities.GlyssenColors.Default);
 			this.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
@@ -642,14 +637,14 @@ namespace Glyssen.Dialogs
 			this.Padding = new System.Windows.Forms.Padding(12);
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Palaso";
-			this.glyssenColorPalette.SetUsePaletteColors(this, true);
+			this.m_glyssenColorPalette.SetUsePaletteColors(this, true);
 			this.Load += new System.EventHandler(this.ProgressDialog_Load);
 			this.Shown += new System.EventHandler(this.ProgressDialog_Shown);
 			this.m_tableLayout.ResumeLayout(false);
 			this.m_tableLayout.PerformLayout();
 			this.m_buttonPanel.ResumeLayout(false);
 			this.m_buttonPanel.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.glyssenColorPalette)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_glyssenColorPalette)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

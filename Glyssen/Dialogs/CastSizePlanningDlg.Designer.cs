@@ -102,8 +102,8 @@ namespace Glyssen.Dialogs
 			this.m_linkAbout.BackColor = System.Drawing.SystemColors.Control;
 			this.m_linkAbout.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkAbout, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
-			this.m_linkAbout.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_linkAbout, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_linkAbout.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_linkAbout.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_linkAbout, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_linkAbout.LinkVisited = true;
@@ -210,10 +210,10 @@ namespace Glyssen.Dialogs
 			this.m_linkMoreInfo.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkMoreInfo.Dock = System.Windows.Forms.DockStyle.Right;
-			this.glyssenColorPalette.SetForeColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_linkMoreInfo.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.m_linkMoreInfo.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetForeColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetLinkColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_linkMoreInfo.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_linkMoreInfo.LinkVisited = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkMoreInfo, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkMoreInfo, null);
@@ -433,8 +433,8 @@ namespace Glyssen.Dialogs
 			this.m_linkVloiceActorList.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkVloiceActorList, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkVloiceActorList.Dock = System.Windows.Forms.DockStyle.Top;
-			this.m_linkVloiceActorList.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_linkVloiceActorList, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_linkVloiceActorList.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_linkVloiceActorList.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_linkVloiceActorList, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_linkVloiceActorList.LinkVisited = true;
@@ -804,6 +804,7 @@ namespace Glyssen.Dialogs
 			this.ShowInTaskbar = false;
 			this.Text = "Cast Size Planning";
 			this.glyssenColorPalette.SetUsePaletteColors(this, true);
+			this.Load += new System.EventHandler(this.CastSizePlanningDlg_Load);
 			this.Shown += new System.EventHandler(this.CastSizePlanningDlg_Shown);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_maleNarrators)).EndInit();

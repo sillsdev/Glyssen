@@ -103,12 +103,11 @@ namespace Glyssen.Dialogs
 
 		private void GenerateGroupsWithProgress(bool attemptToPreserveActorAssignments, bool firstGroupGenerationRun, bool forceMatchToActors, bool cancelLink = false)
 		{
+			var castSizeOption = m_project.CharacterGroupGenerationPreferences.CastSizeOption;
+			if (forceMatchToActors)
+				m_project.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeRow.MatchVoiceActorList;
 			using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork, firstGroupGenerationRun, cancelLink))
 			{
-				var castSizeOption = m_project.CharacterGroupGenerationPreferences.CastSizeOption;
-				if (forceMatchToActors)
-					m_project.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeRow.MatchVoiceActorList;
-
 				var generator = new CharacterGroupGenerator(m_project, m_keyStrokesByCharacterId, progressDialog.BackgroundWorker);
 				progressDialog.ProgressState.Arguments = generator;
 
