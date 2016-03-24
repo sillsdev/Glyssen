@@ -48,10 +48,15 @@ namespace Glyssen.Controls
 			ActorAge.DataSource = VoiceActorInformationViewModel.GetAgeDataTable();
 			ActorAge.ValueMember = "ID";
 			ActorAge.DisplayMember = "Name";
+			ActorAge.ToolTipText = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.ActorAgeTooltip",
+				"“Age” quality of actor’s voice");
 
 			ActorQuality.DataSource = VoiceActorInformationViewModel.GetVoiceQualityDataTable();
 			ActorQuality.ValueMember = "ID";
 			ActorQuality.DisplayMember = "Name";
+
+			ActorInactive.ToolTipText = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.ActorAgeTooltip",
+				"No longer available");
 
 			// Sadly, we have to do this here because setting it in the Designer doesn't work since BetterGrid overrides
 			// the default value in its constructor.
@@ -62,7 +67,7 @@ namespace Glyssen.Controls
 
 			// We can't set this in the designer because L10NSharp is squashing it when the header is localized.
 			Cameo.ToolTipText = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.CameoTooltip",
-															"Distinguished actor to play minor character role.");
+				"Distinguished actor to play minor character role.");
 
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 		}

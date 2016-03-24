@@ -23,7 +23,7 @@ namespace Glyssen.Dialogs
 			else
 			{
 				AddGroupAffected(group);
-				m_characterRestorationInfo.Add(group.Name, group.VoiceActorId);
+				m_characterRestorationInfo.Add(group.GroupId, group.VoiceActorId);
 				group.RemoveVoiceActor();
 			}
 		}
@@ -33,7 +33,7 @@ namespace Glyssen.Dialogs
 			m_project = project;
 			foreach (var characterGroup in groups.Where(g => g.IsVoiceActorAssigned && !g.AssignedToCameoActor))
 			{
-				m_characterRestorationInfo.Add(characterGroup.Name, characterGroup.VoiceActorId);
+				m_characterRestorationInfo.Add(characterGroup.GroupId, characterGroup.VoiceActorId);
 				characterGroup.RemoveVoiceActor();
 			}
 		}
@@ -45,14 +45,14 @@ namespace Glyssen.Dialogs
 				if (m_characterRestorationInfo.Count > 1)
 					return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignments", "Remove voice actor assignment for multiple groups");
 
-				var groupName = m_characterRestorationInfo.Keys.Single();
+				var groupId = m_characterRestorationInfo.Keys.Single();
 
-				if (groupName == kEmptyGroup)
+				if (groupId == kEmptyGroup)
 					return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignmentForGroupWithNoCharacters", "Remove voice actor assignment");
 
-				CharacterGroup charGroup = m_project.GetGroupByName(groupName);
+				CharacterGroup charGroup = m_project.GetGroupById(groupId);
 				if (charGroup.CharacterIds.Count > 1)
-					return string.Format(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignmentForGroup", "Remove voice actor assignment for {0} group"), charGroup.Name);
+					return string.Format(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignmentForGroup", "Remove voice actor assignment for {0} group"), charGroup.GroupIdForUiDisplay);
 				return string.Format(LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Undo.RemoveVoiceActorAssignmentForCharacter", "Remove voice actor assignment for {0}"), charGroup.CharacterIds.Single());
 			}
 		}
@@ -66,7 +66,7 @@ namespace Glyssen.Dialogs
 		{
 			try
 			{
-				var assignmentsToRestore = ExistingGroupsToRestore.ToDictionary(kvp => m_project.GetGroupByName(kvp.Key), kvp => kvp.Value);
+				var assignmentsToRestore = ExistingGroupsToRestore.ToDictionary(kvp => m_project.GetGroupById(kvp.Key), kvp => kvp.Value);
 				if (assignmentsToRestore.Count != ExistingGroupsToRestore.Count())
 					return false;
 
@@ -94,7 +94,7 @@ namespace Glyssen.Dialogs
 
 		protected override bool PerformRedo()
 		{
-			var groupsToUnassign = ExistingGroupsToRestore.Select(kvp => m_project.GetGroupByName(kvp.Key)).Where(g => g != null).ToList();
+			var groupsToUnassign = ExistingGroupsToRestore.Select(kvp => m_project.GetGroupById(kvp.Key)).Where(g => g != null).ToList();
 			if (groupsToUnassign.Count != ExistingGroupsToRestore.Count())
 				return false;
 

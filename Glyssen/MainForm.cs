@@ -10,7 +10,7 @@ using System.Text;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Bundle;
-using Glyssen.Controls;
+using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Rules;
@@ -33,7 +33,8 @@ namespace Glyssen
 		private Project m_project;
 		private string m_percentAssignedFmt;
 		private string m_actorsAssignedFmt;
-		private string m_exportButtonFmt;
+		private string m_castSizeFmt;
+		private readonly List<Tuple<Button, string>> m_buttonFormats = new List<Tuple<Button, string>>();
 
 		public MainForm()
 		{
@@ -54,6 +55,7 @@ namespace Glyssen
 			MainForm parentForm = childForm.Owner as MainForm;
 			Debug.Assert(parentForm != null);
 
+			// ReSharper disable once ConditionIsAlwaysTrueOrFalse
 			if (parentForm == null || childForm.WindowState == FormWindowState.Maximized)
 				return;
 
@@ -109,14 +111,26 @@ namespace Glyssen
 			}
 		}
 
-		protected void HandleStringsLocalized()
+		private void HandleStringsLocalized()
 		{
 			m_percentAssignedFmt = m_lblPercentAssigned.Text;
 			m_actorsAssignedFmt = m_lblActorsAssigned.Text;
-			m_exportButtonFmt = m_btnExport.Text;
+			m_castSizeFmt = m_lblCastSizePlan.Text;
+			RememberButtonFormats();
 			UpdateLocalizedText();
 			if (m_project != null)
 				m_project.ProjectCharacterVerseData.HandleStringsLocalized();
+		}
+
+		private void RememberButtonFormats()
+		{
+			var pos = m_tableLayoutPanel.GetCellPosition(m_btnOpenProject);
+			for (var rowIndex = pos.Row; rowIndex < m_tableLayoutPanel.RowStyles.Count; rowIndex++)
+			{
+				var btn = m_tableLayoutPanel.GetControlFromPosition(pos.Column, rowIndex) as Button;
+				if (btn != null)
+					m_buttonFormats.Add(new Tuple<Button, string>(btn, btn.Text));
+			}
 		}
 
 		private void UpdateButtons(bool readOnly)
@@ -130,12 +144,26 @@ namespace Glyssen
 			m_btnSelectBooks.Enabled = !readOnly && validProject && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed &&
 				m_project.ProjectFileIsWritable;
 			m_imgCheckBooks.Visible = m_btnSelectBooks.Enabled && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed;
-			m_btnAssign.Enabled = !readOnly && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
-			m_imgCheckAssignCharacters.Visible = m_btnAssign.Enabled && m_project.ProjectAnalysis.UserPercentAssigned == 100d;
-			m_btnExport.Enabled = !readOnly && m_btnAssign.Enabled;
+			m_btnIdentify.Enabled = !readOnly && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
+			m_imgCheckAssignCharacters.Visible = m_btnIdentify.Enabled && (int)(m_project.ProjectAnalysis.UserPercentAssigned) == 100;
+			m_btnExport.Enabled = !readOnly && m_btnIdentify.Enabled;
+
 			m_btnAssignVoiceActors.Visible = Environment.GetEnvironmentVariable("Glyssen_ProtoscriptOnly", EnvironmentVariableTarget.User) == null;
-			m_btnAssignVoiceActors.Enabled = !readOnly && m_imgCheckAssignCharacters.Visible;
-			m_imgCheckAssignActors.Visible = m_btnAssignVoiceActors.Enabled && m_project.IsVoiceActorScriptReady;
+			m_btnCastSizePlanning.Visible = m_btnAssignVoiceActors.Visible;
+
+			m_btnCastSizePlanning.Enabled = m_btnCastSizePlanning.Visible && !readOnly && m_imgCheckAssignCharacters.Visible;
+
+			// TODO: Determine when the Cast Size Planning task is done enough to move on to the next task.
+			// Tom added the final portion of the logic to allow us to continue to access the Roles for Voice Actors dialog at least
+			// until Phil finishes his Cast Size Planning work. Obviously, we need the part about having groups. The question is whether
+			// we should also allow them to access Roles for Voice Actors if they entered actors but never clicked Generate Groups in the
+			// Cast Size Planning dialog box... See more in the big red bullet point that I added to
+			// https://docs.google.com/document/d/1cwPEYGnLJKK4TkP2MQy3t49k5r9rexCTWDb-jlCSDUo/edit?usp=sharing
+			m_imgCastSizePlanning.Visible = m_btnCastSizePlanning.Visible && m_btnCastSizePlanning.Enabled &&
+				(m_project.CharacterGroupList.CharacterGroups.Any() || m_project.VoiceActorList.ActiveActors.Any());
+
+			m_btnAssignVoiceActors.Enabled = m_btnAssignVoiceActors.Visible && !readOnly && m_imgCastSizePlanning.Visible;
+			m_imgCheckAssignActors.Visible = m_btnAssignVoiceActors.Visible && m_btnAssignVoiceActors.Enabled && m_project.IsVoiceActorScriptReady;
 			m_lnkExit.Enabled = !readOnly;
 		}
 
@@ -143,21 +171,26 @@ namespace Glyssen
 		{
 			m_btnSelectBooks.Enabled = false;
 			m_btnSettings.Enabled = false;
-			m_btnAssign.Enabled = false;
+			m_btnIdentify.Enabled = false;
 			m_btnExport.Enabled = false;
 			m_btnAssignVoiceActors.Enabled = false;
+			m_btnCastSizePlanning.Enabled = false;
 			m_imgCheckOpen.Visible = false;
 			m_imgCheckSettings.Visible = false;
 			m_imgCheckBooks.Visible = false;
 			m_imgCheckAssignCharacters.Visible = false;
 			m_imgCheckAssignActors.Visible = false;
+			m_imgCastSizePlanning.Visible = false;
 
 			m_lblProjectInfo.Text = string.Empty;
 			m_lblSettingsInfo.Text = string.Empty;
 			m_lblBookSelectionInfo.Text = string.Empty;
 			m_lblPercentAssigned.Text = string.Empty;
+			m_lblCastSizePlan.Text = string.Empty;
 			m_lblActorsAssigned.Text = string.Empty;
 			m_lastExportLocationLink.Text = string.Empty;
+
+			m_lblFilesAreHere.Visible = false;
 		}
 
 		private void HandleOpenProject_Click(object sender, EventArgs e)
@@ -225,6 +258,7 @@ namespace Glyssen
 				SetProject(null);
 
 			m_lastExportLocationLink.Text = m_project != null ? m_project.Status.LastExportLocation : string.Empty;
+			m_lblFilesAreHere.Visible = m_lastExportLocationLink.Text != string.Empty;
 		}
 
 		private void LoadBundle(string bundlePath)
@@ -336,7 +370,7 @@ namespace Glyssen
 			UpdateLocalizedText();
 		}
 
-		public void UpdateLocalizedText()
+		private void UpdateLocalizedText()
 		{
 			m_lblProjectInfo.Text = m_project != null ? m_project.ProjectSummary : String.Empty;
 
@@ -347,11 +381,52 @@ namespace Glyssen
 
 			m_lblBookSelectionInfo.Text = m_project != null && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed ? m_project.BookSelectionSummary : String.Empty;
 
+			UpdateDisplayOfPercentOfCharactersAssigned();
+			UpdateDisplayOfCastSizePlan();
 			UpdateDisplayOfActorsAssigned();
 
-			m_btnExport.Text = string.Format(m_exportButtonFmt, m_btnAssignVoiceActors.Visible ? "6" : "5");
+			// insert button numbers
+			var buttonNumber = 1;
+			foreach (var buttonFmtInfo in m_buttonFormats.Where(b => !b.Item1.IsDisposed))
+			{
+				var btn = buttonFmtInfo.Item1;
+				btn.Text = string.Format(buttonFmtInfo.Item2, buttonNumber++);
+			}
+		}
 
-			UpdateDisplayOfPercentAssigned();
+		private void UpdateDisplayOfPercentOfCharactersAssigned()
+		{
+			if (!m_btnIdentify.Enabled)
+			{
+				m_lblPercentAssigned.Text = string.Empty;
+				return;
+			}
+
+			double percentAssigned = 0;
+			if (m_project != null && m_project.ProjectAnalysis != null)
+				percentAssigned = m_project.ProjectAnalysis.UserPercentAssigned;
+			m_lblPercentAssigned.Text = percentAssigned > 0 ? string.Format(m_percentAssignedFmt, percentAssigned) : string.Empty;
+		}
+
+		private void UpdateDisplayOfCastSizePlan()
+		{
+			if (!m_btnCastSizePlanning.Visible || !m_btnCastSizePlanning.Enabled || m_project == null ||
+				m_project.CharacterGroupGenerationPreferences.CastSizeOption == CastSizeRow.NotSet ||
+				m_project.CharacterGroupGenerationPreferences.NarratorsOption == NarratorsOption.NotSet ||
+				!m_project.CharacterGroupList.CharacterGroups.Any())
+			{
+				m_lblCastSizePlan.Text = string.Empty;
+				return;
+			}
+
+			var modelTemp = new CastSizePlanningViewModel(m_project);
+			var castSize = modelTemp.GetCastSizeRowValues(m_project.CharacterGroupGenerationPreferences.CastSizeOption);
+			var narratorCount = m_project.CharacterGroupList.CharacterGroups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Narrator);
+			string format = (narratorCount > 1) ? m_castSizeFmt :
+				LocalizationManager.GetString("MainForm.CastSizePlanSingleNarrator", "Cast size is {0}, including 1 narrator",
+				"{0} is an expression indicating the total cast size");
+
+			m_lblCastSizePlan.Text = String.Format(format, castSize.Total, narratorCount);
 		}
 
 		private void UpdateDisplayOfActorsAssigned()
@@ -363,22 +438,35 @@ namespace Glyssen
 			}
 
 			int actors = m_project.VoiceActorList.ActiveActors.Count();
-			int assigned = m_project.CharacterGroupList.CountVoiceActorsAssigned();
-			m_lblActorsAssigned.Text = string.Format(m_actorsAssignedFmt, actors, assigned);
-		}
-
-		private void UpdateDisplayOfPercentAssigned()
-		{
-			if (!m_btnAssign.Enabled)
+			if (actors == 0)
 			{
-				m_lblPercentAssigned.Text = string.Empty;
+				m_lblActorsAssigned.Text = string.Empty;
 				return;
 			}
+			int assigned = m_project.CharacterGroupList.CountVoiceActorsAssigned();
+			string format = (actors > 1) ? string.Format(m_actorsAssignedFmt, actors, "{0}") :
+				LocalizationManager.GetString("MainForm.ActorsAssignedSingle", "1 voice actor identified, {0}",
+				"{0} is an expression indicating the number of assigned actors");
 
-			double percentAssigned = 0;
-			if (m_project != null && m_project.ProjectAnalysis != null)
-				percentAssigned = m_project.ProjectAnalysis.UserPercentAssigned;
-			m_lblPercentAssigned.Text = percentAssigned > 0 ? string.Format(m_percentAssignedFmt, percentAssigned) : string.Empty;
+			string assignedParameter;
+			switch (assigned)
+			{
+				case 0:
+					assignedParameter = LocalizationManager.GetString("MainForm.NoneAssigned", "0 assigned",
+						"This string is filled in as a parameter in MainForm.ActorsAssignedPlural or MainForm.ActorsAssignedSingle");
+					break;
+				case 1:
+					assignedParameter = LocalizationManager.GetString("MainForm.NoneAssigned", "1 assigned",
+						"This string is filled in as a parameter in MainForm.ActorsAssignedPlural or MainForm.ActorsAssignedSingle");
+					break;
+				default:
+					assignedParameter = String.Format(LocalizationManager.GetString("MainForm.NoneAssigned", "{0} assigned",
+						"{0} is the number of actors assigned. The resulting string is filled in as a parameter in MainForm.ActorsAssignedPlural or MainForm.ActorsAssignedSingle"),
+						assigned);
+					break;
+			}
+
+			m_lblActorsAssigned.Text = String.Format(format, assignedParameter);
 		}
 
 		private void UpdateProjectState()
@@ -399,13 +487,60 @@ namespace Glyssen
 				m_project.Save();
 		}
 
-		private void Export_Click(object sender, EventArgs e)
+		private void ShowLastLocation()
+		{
+			var lastLocation = m_project.Status.LastExportLocation;
+			m_lastExportLocationLink.Text = lastLocation;
+			m_lblFilesAreHere.Visible = !string.IsNullOrEmpty(lastLocation);
+		}
+
+		private void View_Script_Click(object sender, EventArgs e)
 		{
 			EnsureGroupsAreInSynchWithCharactersInUse();
 
-			var exporter = new ProjectExporter(m_project);
+			var exportViewModel = new ExportViewModel(m_project);
 
-			bool export = true;
+			if (!IsOkToExport(exportViewModel.Exporter))
+				return;
+
+			using (var dlg = new ViewScriptDlg(exportViewModel))
+			{
+				dlg.ShowDialog(this);
+				ShowLastLocation();
+			}
+		}
+
+		private void EnsureGroupsAreInSynchWithCharactersInUse()
+		{
+			if (!m_project.CharacterGroupList.CharacterGroups.Any())
+				return;
+			var adjuster = new CharacterGroupsAdjuster(m_project);
+			if (adjuster.GroupsAreNotInSynchWithData)
+			{
+				using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork, false, true))
+				{
+					var generator = new CharacterGroupGenerator(m_project, m_project.GetKeyStrokesByCharacterId(), progressDialog.BackgroundWorker);
+					progressDialog.ProgressState.Arguments = generator;
+
+					if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
+						generator.ApplyGeneratedGroupsToProject();
+					else
+						adjuster.MakeMinimalAdjustments();
+
+					m_project.Save();
+				}
+			}
+		}
+
+		private void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)
+		{
+			var generator = (CharacterGroupGenerator)((ProgressState)e.Argument).Arguments;
+			generator.GenerateCharacterGroups();
+		}
+
+		private bool IsOkToExport(ProjectExporter exporter)
+		{
+			var export = true;
 			string dlgMessage = null;
 			string dlgTitle = null;
 			if (exporter.IncludeVoiceActors)
@@ -422,19 +557,14 @@ namespace Glyssen
 						"One or more character groups have no characters in them. Are you sure you want to export a script?");
 					dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Title", "Export Script?");
 				}
-				else if (m_project.HasUnusedActor)
-				{
-					dlgMessage = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.UnusedActorMessage",
-						"One or more voice actors have not been assigned to a character group. Are you sure you want to export a script?");
-					dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.Title", "Export Script?");
-				}
 			}
-			else if (m_project.ProjectAnalysis.UserPercentAssigned != 100d)
+			else if (m_project.ProjectAnalysis.UserPercentAssigned < 100d)
 			{
 				dlgMessage = string.Format(LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.CharacterAssignmentIncompleteMessage",
 					"Character assignment is {0:N1}% complete. Are you sure you want to export a script?"), m_project.ProjectAnalysis.UserPercentAssigned);
 				dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.TitleIncomplete", "Export Incomplete Script?");
 			}
+
 			if (dlgMessage != null)
 			{
 				dlgMessage += Environment.NewLine +
@@ -442,39 +572,8 @@ namespace Glyssen
 								  "(Note: You can export the script again as many times as you want.)");
 				export = MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
 			}
-			if (!export) return;
-			using (var dlg = new ExportDlg(exporter))
-				dlg.ShowDialog(this);
 
-			m_lastExportLocationLink.Text = m_project.Status.LastExportLocation;
-		}
-
-		private void EnsureGroupsAreInSynchWithCharactersInUse()
-		{
-			if (!m_project.CharacterGroupList.CharacterGroups.Any())
-				return;
-			var adjuster = new CharacterGroupsAdjuster(m_project);
-			if (adjuster.GroupsAreNotInSynchWithData)
-			{
-				using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork, false, true))
-				{
-					var generator = new CharacterGroupGenerator(m_project, m_project.GetKeyStrokesByCharacterId(), progressDialog.BackgroundWorker);
-					progressDialog.ProgressState.Arguments = generator;
-
-					if (progressDialog.ShowDialog(this) == DialogResult.OK && generator.GeneratedGroups != null)
-						generator.ApplyGeneratedGroupsToProject();
-					else
-						adjuster.MakeMinimalAdjustments();
-
-					m_project.Save();
-				}
-			}
-		}
-
-		private void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)
-		{
-			var generator = (CharacterGroupGenerator)((ProgressState)e.Argument).Arguments;
-			generator.GenerateCharacterGroups();
+			return export;
 		}
 
 		private void SetupUiLanguageMenu()
@@ -579,27 +678,20 @@ namespace Glyssen
 			// TODO: Eventually, this should be called when the user requests that all overrides be reverted to the defaults.
 			//m_project.UseDefaultForUnresolvedMultipleChoiceCharacters();
 
-			if (m_project.VoiceActorStatus == VoiceActorStatus.UnProvided)
-			{
-				var actorInfoViewModel = new VoiceActorInformationViewModel(m_project);
-
-				using (var dlg = new VoiceActorInformationDlg(actorInfoViewModel))
-					if (dlg.ShowDialog(this) == DialogResult.OK)
-						m_project.VoiceActorStatus = VoiceActorStatus.Provided;
-				SaveCurrentProject();
-			}
-			else
-			{
+			bool regenerateGroups = sender == m_btnCastSizePlanning;
+			if (!regenerateGroups)
 				EnsureGroupsAreInSynchWithCharactersInUse();
-			}
 
-			if (m_project.VoiceActorStatus == VoiceActorStatus.Provided)
+			bool launchCastSizePlanning;
+			using (var dlg = new VoiceActorAssignmentDlg(m_project, regenerateGroups))
 			{
-				using (var dlg = new VoiceActorAssignmentDlg(m_project))
-					dlg.ShowDialog(this);
-				SaveCurrentProject();
+				dlg.ShowDialog(this);
+				launchCastSizePlanning = dlg.LaunchCastSizePlanningUponExit;
 			}
+			SaveCurrentProject();
 			UpdateDisplayOfProjectInfo();
+			if (launchCastSizePlanning)
+				m_btnCastSizePlanning_Click(m_btnCastSizePlanning, new EventArgs());
 		}
 
 		public class NoBorderToolStripRenderer : ToolStripProfessionalRenderer
@@ -612,6 +704,52 @@ namespace Glyssen
 		private void m_lastExportLocationLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			PathUtilities.OpenDirectoryInExplorer(m_lastExportLocationLink.Text);
+		}
+
+		private void m_btnCastSizePlanning_Click(object sender, EventArgs e)
+		{
+			bool launchAssignVoiceActors = false;
+			using (var dlg = new CastSizePlanningDlg(new CastSizePlanningViewModel(m_project)))
+			{
+				SaveCurrentProject();
+				if (dlg.ShowDialog(this) == DialogResult.OK)
+				{
+					UpdateDisplayOfProjectInfo();
+					launchAssignVoiceActors = true;
+				}
+			}
+			if (launchAssignVoiceActors)
+				AssignVoiceActors_Click(m_btnCastSizePlanning, EventArgs.Empty);
+		}
+
+		private void ShowExportDialog()
+		{
+			EnsureGroupsAreInSynchWithCharactersInUse();
+
+			var exportViewModel = new ExportViewModel(m_project);
+
+			if (!IsOkToExport(exportViewModel.Exporter))
+				return;
+
+			using (var dlg = new ExportDlg(exportViewModel))
+			{
+				dlg.ShowDialog(this);
+				ShowLastLocation();
+			}
+		}
+
+		protected override void OnKeyDown(KeyEventArgs e)
+		{
+			if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
+			{
+				if (m_btnExport.Enabled)
+				{
+					ShowExportDialog();
+					e.Handled = true;
+					return;
+				}
+			}
+			base.OnKeyDown(e);
 		}
 	}
 }

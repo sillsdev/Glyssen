@@ -10,14 +10,14 @@ namespace Glyssen.Dialogs
 		private readonly Project m_project;
 		private readonly int m_newActorId;
 		private readonly int m_oldActorId;
-		private readonly string m_groupName;
+		private readonly string m_groupId;
 
 		public VoiceActorAssignmentUndoAction(Project project, CharacterGroup group, int newActorId) : base(group)
 		{
 			m_project = project;
 			m_oldActorId = group.VoiceActorId;
 			m_newActorId = newActorId;
-			m_groupName = group.Name;
+			m_groupId = group.GroupId;
 			group.AssignVoiceActor(newActorId);
 		}
 
@@ -42,7 +42,7 @@ namespace Glyssen.Dialogs
 			{
 			}
 			if (group == null)
-				group = m_project.CharacterGroupList.GetGroupByName(m_groupName);
+				group = m_project.CharacterGroupList.GetGroupById(m_groupId);
 			if (group == null)
 				return false;
 			group.AssignVoiceActor(m_oldActorId);
@@ -61,7 +61,7 @@ namespace Glyssen.Dialogs
 			{
 			}
 			if (group == null)
-				group = m_project.CharacterGroupList.GetGroupByName(m_groupName);
+				group = m_project.CharacterGroupList.GetGroupById(m_groupId);
 			if (group == null)
 				return false;
 			group.AssignVoiceActor(m_newActorId);

@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Character;
+using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Rules;
 using Glyssen.Utilities;
@@ -14,6 +15,7 @@ using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.Extensions;
 using SIL.IO;
+using SIL.ObjectModel;
 using SIL.Scripture;
 
 namespace Glyssen.Dialogs
@@ -53,8 +55,8 @@ namespace Glyssen.Dialogs
 
 #if DEBUG
 			var p = new Proximity(m_project);
-			foreach (var group in CharacterGroups.OrderBy(g => g.GroupNumber))
-				Debug.WriteLine(group.GroupNumber + ": " + p.CalculateMinimumProximity(group.CharacterIds));
+			foreach (var group in CharacterGroups.OrderBy(g => g.GroupIdForUiDisplay))
+				Debug.WriteLine(group.GroupIdForUiDisplay + ": " + p.CalculateMinimumProximity(group.CharacterIds));
 #endif
 		}
 
@@ -148,8 +150,6 @@ namespace Glyssen.Dialogs
 			// TODO (PG-437): Create Undo action to store state before calling generate.
 			generate();
 
-			m_project.CharacterGroupList.PopulateEstimatedHours(m_keyStrokesByCharacterId);
-
 			Save();
 		}
 
@@ -187,7 +187,7 @@ namespace Glyssen.Dialogs
 			// Add an extra group for any characters which weren't in the template
 			var unmatchedCharacters = includedCharacterIds.Except(matchedCharacterIds);
 			var unmatchedCharacterGroup = new CharacterGroup(m_project, ByKeyStrokeComparer);
-			unmatchedCharacterGroup.GroupNumber = 999;
+			unmatchedCharacterGroup.GroupIdNumber = 999;
 			unmatchedCharacterGroup.CharacterIds.AddRange(unmatchedCharacters);
 			CharacterGroups.Add(unmatchedCharacterGroup);
 		}
@@ -349,25 +349,32 @@ namespace Glyssen.Dialogs
 			table.Columns.Add("Gender");
 			table.Columns.Add("Age");
 			table.Columns.Add("Cameo");
+			table.Columns.Add("SpecialUse");
 
 			bool includeCameos = !(group != null && !group.AssignedToCameoActor);
 
 			//TODO put the best matches first
 			foreach (var actor in m_project.VoiceActorList.ActiveActors.Where(a => (!m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id) && (includeCameos || !a.IsCameo))).OrderBy(a => a.Name))
+			{
 				table.Rows.Add(GetDataTableRow(actor, LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AvailableVoiceActors", "Available:")));
+			}
 
 			table.Rows.Add(
 				-1,
 				null,
 				Resources.RemoveActor,
-				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"),
+				"",
+				//LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"),
 				"",
 				"",
-				"");
+				"",
+				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"));
 
 			foreach (var actor in m_project.VoiceActorList.ActiveActors.Where(a => (m_project.CharacterGroupList.HasVoiceActorAssigned(a.Id) && (includeCameos || !a.IsCameo))).OrderBy(a => a.Name))
+			{
 				table.Rows.Add(GetDataTableRow(actor, LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Categories.AlreadyAssignedVoiceActors",
 					"Assigned to a Character Group:")));
+			}
 
 			return table;
 		}
@@ -382,7 +389,8 @@ namespace Glyssen.Dialogs
 				actor.Name,
 				GetUiStringForActorGender(actor.Gender),
 				GetUiStringForActorAge(actor.Age),
-				actor.IsCameo ? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Cameo", "Cameo") : ""
+				actor.IsCameo ? LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.Cameo", "Cameo") : "",
+				null
 			};
 		}
 
@@ -393,7 +401,7 @@ namespace Glyssen.Dialogs
 			switch (by)
 			{
 				case SortedBy.Name:
-					how = (a, b) => String.Compare(a.Name, b.Name, StringComparison.CurrentCulture) * direction;
+					how = (a, b) => String.Compare(a.GroupIdForUiDisplay, b.GroupIdForUiDisplay, StringComparison.CurrentCulture) * direction;
 					break;
 				case SortedBy.Attributes:
 					how = (a, b) => String.Compare(a.AttributesDisplay, b.AttributesDisplay, StringComparison.CurrentCulture) * direction;
@@ -506,6 +514,38 @@ namespace Glyssen.Dialogs
 				}
 			}
 			return matchingCharacterIds;
+		}
+
+		public void CreateNewActorAndAssignToGroup(string voiceActorName, CharacterGroup group)
+		{
+			var actor = new VoiceActor.VoiceActor { Id = 99, Name = voiceActorName };
+			m_project.VoiceActorList.AllActors.Add(actor);
+			AssignActorToGroup(actor.Id, group);
+		}
+
+		public VoiceActor.VoiceActor AddNewActorToGroup(string actorName, CharacterGroup group)
+		{
+			Debug.Assert(!group.AssignedToCameoActor);
+
+			var actorViewModel = new VoiceActorInformationViewModel(m_project);
+
+			if (actorViewModel.IsDuplicateActorName(null, actorName) || actorName == "Remove Voice Actor Assignment")
+				throw new InvalidOperationException("Attempting to add existing actor!");
+
+			var newActor = actorViewModel.AddNewActor();
+			newActor.Name = actorName;
+			switch (group.GroupIdLabel)
+			{
+				case CharacterGroup.Label.Female:
+					newActor.Gender = ActorGender.Female;
+					break;
+				case CharacterGroup.Label.Child:
+					newActor.Age = ActorAge.Child;
+					break;
+			}
+			AssignActorToGroup(newActor.Id, group);
+			actorViewModel.SaveVoiceActorInformation();
+			return newActor;
 		}
 	}
 }

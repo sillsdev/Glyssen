@@ -122,8 +122,8 @@ namespace Glyssen.Dialogs
 
         private string RecordingProjectName
         {
-            get { return m_txtRecordingProjectName.Text; }
-            set { m_txtRecordingProjectName.Text = value; }
+            get { return m_txtRecordingProjectName.Text.Trim(); }
+            set { m_txtRecordingProjectName.Text = value.Trim(); }
         }
 
         private string AudioStockNumber
@@ -403,6 +403,11 @@ namespace Glyssen.Dialogs
 					new Font(m_model.WsModel.CurrentDefaultFontName,
 						(float)Math.Min(m_lblBookTitleHeading.Font.SizeInPoints * 1.1, m_model.WsModel.CurrentDefaultFontSize));
 			}
+		}
+
+		private void m_txtRecordingProjectName_TextChanged(object sender, EventArgs e)
+		{
+			m_btnOk.Enabled = !String.IsNullOrWhiteSpace(m_txtRecordingProjectName.Text);
 		}
 	}
 }

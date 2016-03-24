@@ -81,7 +81,8 @@ namespace GlyssenTests.Dialogs
 			groupWithJesus.AssignVoiceActor(2);
 			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 3);// This will assign it to 3.
 			action.Undo(); // This will reassign it back to 2.
-			groupWithJesus.Name = "Son of God";
+			groupWithJesus.GroupIdLabel = CharacterGroup.Label.Other;
+			groupWithJesus.GroupIdOtherText = "Son of God";
 			Assert.IsTrue(action.Redo(), "This should still work because we can find the group by actor");
 			Assert.AreEqual(3, groupWithJesus.VoiceActorId);
 			Assert.AreEqual(groupWithJesus, action.GroupsAffectedByLastOperation.Single());
@@ -95,7 +96,8 @@ namespace GlyssenTests.Dialogs
 			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 3);// This will assign it to 3.
 			action.Undo(); // This will reassign it back to 2.
 			groupWithJesus.AssignVoiceActor(4);
-			groupWithJesus.Name = "Son of God";
+			groupWithJesus.GroupIdLabel = CharacterGroup.Label.Other;
+			groupWithJesus.GroupIdOtherText = "Son of God";
 			Assert.IsFalse(action.Redo());
 			Assert.AreEqual(4, groupWithJesus.VoiceActorId);
 			Assert.AreEqual(0, action.GroupsAffectedByLastOperation.Count());
@@ -158,7 +160,8 @@ namespace GlyssenTests.Dialogs
 				otherGroup.AssignVoiceActor(3); // No longer possible via UI, but it used to be.
 				var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 2);
 				action.Undo();
-				groupWithJesus.Name = "Divine Son of God";
+				groupWithJesus.GroupIdLabel = CharacterGroup.Label.Other;
+				groupWithJesus.GroupIdOtherText = "Divine Son of God";
 				Assert.IsFalse(action.Redo());
 				Assert.AreEqual(3, groupWithJesus.VoiceActorId);
 				Assert.AreEqual(3, otherGroup.VoiceActorId);
@@ -177,7 +180,8 @@ namespace GlyssenTests.Dialogs
 			groupWithJesus.AssignVoiceActor(2);
 			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 3);// This will assign it to 3.
 			groupWithJesus.AssignVoiceActor(2);
-			groupWithJesus.Name = "Friend of Sinners";
+			groupWithJesus.GroupIdLabel = CharacterGroup.Label.Other;
+			groupWithJesus.GroupIdOtherText = "Friend of Sinners";
 			Assert.IsFalse(action.Undo());
 			Assert.AreEqual(0, action.GroupsAffectedByLastOperation.Count());
 		}

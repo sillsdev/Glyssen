@@ -339,7 +339,7 @@ namespace Glyssen
 			foreach (var characterGroup in Project.CharacterGroupList.CharacterGroups)
 			{
 				var group = new List<object>();
-				group.Add(string.Empty);
+				group.Add(characterGroup.GroupIdForUiDisplay);
 				group.Add(characterGroup.CharacterIds);
 				group.Add(characterGroup.AttributesDisplay);
 				group.Add(string.Format("{0:N2}", characterGroup.EstimatedHours));

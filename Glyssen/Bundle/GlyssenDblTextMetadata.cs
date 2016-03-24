@@ -282,10 +282,6 @@ namespace Glyssen.Bundle
 		[DefaultValue(ProjectSettingsStatus.UnReviewed)]
 		public ProjectSettingsStatus ProjectSettingsStatus { get; set; }
 
-		[XmlElement("voiceActorStatus")]
-		[DefaultValue(VoiceActorStatus.UnProvided)]
-		public VoiceActorStatus VoiceActorStatus { get; set; }
-
 		[XmlElement("lastExportLocation")]
 		[DefaultValue("")]
 		public string LastExportLocation { get; set; }
@@ -310,6 +306,41 @@ namespace Glyssen.Bundle
 		[XmlElement("numberOfFemaleNarrators")]
 		[DefaultValue(0)]
 		public int NumberOfFemaleNarrators { get; set; }
+
+		/// <summary>
+		/// How the number of narrators was set:
+		/// </summary>
+		[XmlElement("narratorsOption")]
+		[DefaultValue(NarratorsOption.NotSet)]
+		public NarratorsOption NarratorsOption { get; set; }
+
+		/// <summary>
+		/// How the number of voice actors was set:
+		/// </summary>
+		[XmlElement("castSizeOption")]
+		[DefaultValue(CastSizeRow.NotSet)]
+		public CastSizeRow CastSizeOption { get; set; }
+
+		/// <summary>
+		/// Number of male actors set by user
+		/// </summary>
+		[XmlElement("numberOfMaleActors")]
+		[DefaultValue(0)]
+		public int NumberOfMaleActors { get; set; }
+
+		/// <summary>
+		/// Number of female actors set by user
+		/// </summary>
+		[XmlElement("numberOfFemaleActors")]
+		[DefaultValue(0)]
+		public int NumberOfFemaleActors { get; set; }
+
+		/// <summary>
+		/// Number of child actors set by user
+		/// </summary>
+		[XmlElement("numberOfChildActors")]
+		[DefaultValue(0)]
+		public int NumberOfChildActors { get; set; }
 	}
 
 	[Flags]
@@ -334,12 +365,6 @@ namespace Glyssen.Bundle
 	{
 		UnReviewed,
 		Reviewed
-	}
-
-	public enum VoiceActorStatus
-	{
-		UnProvided,
-		Provided
 	}
 
 	public enum ChapterAnnouncement

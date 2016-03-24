@@ -40,14 +40,13 @@ namespace Glyssen.Dialogs
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoiceActorAssignmentDlg));
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-			this.m_lblInstructions = new System.Windows.Forms.Label();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoiceActorAssignmentDlg));
 			this.m_contextMenuCharacters = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.m_menuItemCreateNewGroup = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_menuItemAssignToCameoActor = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,40 +62,49 @@ namespace Glyssen.Dialogs
 			this.m_redoButton = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.m_editActorsButton = new System.Windows.Forms.ToolStripButton();
-			this.m_optimizeButton = new System.Windows.Forms.ToolStripButton();
 			this.m_splitSelectedGroupButton = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.m_toolStripLabelFindCharacter = new System.Windows.Forms.ToolStripLabel();
 			this.m_toolStripTextBoxFindCharacter = new System.Windows.Forms.ToolStripTextBox();
 			this.m_toolStripButtonFindNextMatchingCharacter = new System.Windows.Forms.ToolStripButton();
-			this.m_toolStripButtonHelp = new System.Windows.Forms.ToolStripButton();
-			this.m_toolStripButtonExport = new System.Windows.Forms.ToolStripButton();
-			this.m_btnOK = new System.Windows.Forms.Button();
 			this.m_characterDetailsGrid = new SIL.Windows.Forms.Widgets.BetterGrid.BetterGrid();
 			this.CharacterDetailsIdCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.CharacterDetailsGenderCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.CharacterDetailsAgeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.CharacterDetailsHoursCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.m_lblHowToAssignCharactersToCameoGroup = new System.Windows.Forms.Label();
 			this.m_lblMovePendingInfo = new System.Windows.Forms.Label();
 			this.m_btnCancelMove = new System.Windows.Forms.Button();
 			this.m_btnMove = new System.Windows.Forms.Button();
 			this.m_lblMoveInstr = new System.Windows.Forms.Label();
 			this.m_linkLabelShowHideDetails = new System.Windows.Forms.LinkLabel();
-			this.m_lblCharacterDetails = new System.Windows.Forms.Label();
-			this.m_lblNoCharactersInGroup = new System.Windows.Forms.Label();
 			this.m_characterGroupGrid = new System.Windows.Forms.DataGridView();
+			this.GroupIdCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.CharacterIdsCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.AttributesCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.CharStatusCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.EstimatedHoursCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.VoiceActorCol = new Glyssen.Controls.DataGridViewMultiColumnComboBoxColumn();
 			this.m_saveStatus = new Glyssen.Controls.SaveStatus();
+			this.m_menuStrip = new System.Windows.Forms.MenuStrip();
+			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.changeTheListOfGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.adjustVoiceActorListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.adjustCastSizePlanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.manuallyEditGroupshelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.m_lblFewerOrMore = new System.Windows.Forms.Label();
+			this.m_linkVoiceActorList = new System.Windows.Forms.LinkLabel();
+			this.m_lblInstructions2 = new System.Windows.Forms.Label();
+			this.m_linkClose = new System.Windows.Forms.LinkLabel();
+			this.m_linkPrint = new System.Windows.Forms.LinkLabel();
 			this.m_toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.m_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-			this.m_tableLayoutPanelCharacterDetails = new System.Windows.Forms.TableLayoutPanel();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.m_tableLayoutPanelLowerRight = new System.Windows.Forms.TableLayoutPanel();
 			this.m_tableLayoutPanelMove = new System.Windows.Forms.TableLayoutPanel();
+			this.m_tableLayoutPanelVoiceActorList = new System.Windows.Forms.TableLayoutPanel();
 			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,29 +121,13 @@ namespace Glyssen.Dialogs
 			this.m_toolStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_characterDetailsGrid)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).BeginInit();
+			this.m_menuStrip.SuspendLayout();
 			this.m_tableLayoutPanel.SuspendLayout();
-			this.m_tableLayoutPanelCharacterDetails.SuspendLayout();
-			this.tableLayoutPanel1.SuspendLayout();
+			this.m_tableLayoutPanelLowerRight.SuspendLayout();
 			this.m_tableLayoutPanelMove.SuspendLayout();
+			this.m_tableLayoutPanelVoiceActorList.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.glyssenColorPalette)).BeginInit();
 			this.SuspendLayout();
-			// 
-			// m_lblInstructions
-			// 
-			this.m_lblInstructions.AutoSize = true;
-			this.m_lblInstructions.BackColor = System.Drawing.SystemColors.Control;
-			this.glyssenColorPalette.SetBackColor(this.m_lblInstructions, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.m_lblInstructions.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.glyssenColorPalette.SetForeColor(this.m_lblInstructions, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblInstructions, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblInstructions, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblInstructions, "DialogBoxes.VoiceActorAssignmentDlg.AssignActors");
-			this.m_lblInstructions.Location = new System.Drawing.Point(12, 34);
-			this.m_lblInstructions.Name = "m_lblInstructions";
-			this.m_lblInstructions.Size = new System.Drawing.Size(199, 13);
-			this.m_lblInstructions.TabIndex = 0;
-			this.m_lblInstructions.Text = "Assign Voice Actors to Character Groups";
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblInstructions, true);
 			// 
 			// m_contextMenuCharacters
 			// 
@@ -287,19 +279,16 @@ namespace Glyssen.Dialogs
             this.m_redoButton,
             this.toolStripSeparator1,
             this.m_editActorsButton,
-            this.m_optimizeButton,
             this.m_splitSelectedGroupButton,
             this.toolStripSeparator2,
             this.m_toolStripLabelFindCharacter,
             this.m_toolStripTextBoxFindCharacter,
-            this.m_toolStripButtonFindNextMatchingCharacter,
-            this.m_toolStripButtonHelp,
-            this.m_toolStripButtonExport});
+            this.m_toolStripButtonFindNextMatchingCharacter});
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStrip, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStrip, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStrip, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStrip, "DialogBoxes.VoiceActorAssignmentDlg.m_toolStrip");
-			this.m_toolStrip.Location = new System.Drawing.Point(0, 0);
+			this.m_toolStrip.Location = new System.Drawing.Point(0, 24);
 			this.m_toolStrip.Name = "m_toolStrip";
 			this.m_toolStrip.Padding = new System.Windows.Forms.Padding(0);
 			this.m_toolStrip.Size = new System.Drawing.Size(859, 25);
@@ -347,8 +336,8 @@ namespace Glyssen.Dialogs
 			// toolStripSeparator1
 			// 
 			this.glyssenColorPalette.SetBackColor(this.toolStripSeparator1, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator1, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.toolStripSeparator1.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator1, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
 			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
 			this.glyssenColorPalette.SetUsePaletteColors(this.toolStripSeparator1, false);
@@ -362,28 +351,12 @@ namespace Glyssen.Dialogs
 			this.m_editActorsButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_editActorsButton, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_editActorsButton, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_editActorsButton, "DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.EditVoiceActors");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_editActorsButton, "DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.VoiceActorList");
 			this.m_editActorsButton.Name = "m_editActorsButton";
-			this.m_editActorsButton.Size = new System.Drawing.Size(125, 22);
-			this.m_editActorsButton.Text = "Edit Voice Actors...";
+			this.m_editActorsButton.Size = new System.Drawing.Size(118, 22);
+			this.m_editActorsButton.Text = "Voice Actor List...";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_editActorsButton, false);
 			this.m_editActorsButton.Click += new System.EventHandler(this.HandleEditVoiceActorsClick);
-			// 
-			// m_optimizeButton
-			// 
-			this.m_optimizeButton.AutoToolTip = false;
-			this.glyssenColorPalette.SetBackColor(this.m_optimizeButton, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.m_optimizeButton, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_optimizeButton.Image = global::Glyssen.Properties.Resources.UpdateGroups;
-			this.m_optimizeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_optimizeButton, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_optimizeButton, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_optimizeButton, "DialogBoxes.VoiceActorAssignmentDlg.ToolStrip.OptimizeGroups");
-			this.m_optimizeButton.Name = "m_optimizeButton";
-			this.m_optimizeButton.Size = new System.Drawing.Size(125, 22);
-			this.m_optimizeButton.Text = "Optimize Groups...";
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_optimizeButton, false);
-			this.m_optimizeButton.Click += new System.EventHandler(this.HandleUpdateGroupsClick);
 			// 
 			// m_splitSelectedGroupButton
 			// 
@@ -404,8 +377,8 @@ namespace Glyssen.Dialogs
 			// toolStripSeparator2
 			// 
 			this.glyssenColorPalette.SetBackColor(this.toolStripSeparator2, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator2, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.toolStripSeparator2.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator2, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
 			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
 			this.glyssenColorPalette.SetUsePaletteColors(this.toolStripSeparator2, false);
@@ -416,7 +389,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_toolStripLabelFindCharacter, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripLabelFindCharacter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripLabelFindCharacter, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripLabelFindCharacter, "DialogBoxes.VoiceActorAssignmentDlg.m_toolStripLabelFindCharacter");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripLabelFindCharacter, "DialogBoxes.VoiceActorAssignmentDlg.FindCharacter");
 			this.m_toolStripLabelFindCharacter.Name = "m_toolStripLabelFindCharacter";
 			this.m_toolStripLabelFindCharacter.Size = new System.Drawing.Size(87, 22);
 			this.m_toolStripLabelFindCharacter.Text = "Find Character:";
@@ -446,62 +419,12 @@ namespace Glyssen.Dialogs
 			this.m_toolStripButtonFindNextMatchingCharacter.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonFindNextMatchingCharacter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonFindNextMatchingCharacter, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonFindNextMatchingCharacter, "DialogBoxes.VoiceActorAssignmentDlg.toolStripButton1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonFindNextMatchingCharacter, "DialogBoxes.VoiceActorAssignmentDlg.FindNextMatch");
 			this.m_toolStripButtonFindNextMatchingCharacter.Name = "m_toolStripButtonFindNextMatchingCharacter";
 			this.m_toolStripButtonFindNextMatchingCharacter.Size = new System.Drawing.Size(23, 22);
 			this.m_toolStripButtonFindNextMatchingCharacter.Text = "Find next match";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_toolStripButtonFindNextMatchingCharacter, false);
 			this.m_toolStripButtonFindNextMatchingCharacter.Click += new System.EventHandler(this.m_toolStripButtonFindNextMatchingCharacter_Click);
-			// 
-			// m_toolStripButtonHelp
-			// 
-			this.m_toolStripButtonHelp.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-			this.glyssenColorPalette.SetBackColor(this.m_toolStripButtonHelp, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.m_toolStripButtonHelp, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_toolStripButtonHelp.Image = global::Glyssen.Properties.Resources.helpSmall;
-			this.m_toolStripButtonHelp.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonHelp, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonHelp, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonHelp, "Common.Help");
-			this.m_toolStripButtonHelp.Name = "m_toolStripButtonHelp";
-			this.m_toolStripButtonHelp.Size = new System.Drawing.Size(52, 22);
-			this.m_toolStripButtonHelp.Text = "Help";
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_toolStripButtonHelp, false);
-			// 
-			// m_toolStripButtonExport
-			// 
-			this.m_toolStripButtonExport.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-			this.glyssenColorPalette.SetBackColor(this.m_toolStripButtonExport, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.m_toolStripButtonExport, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_toolStripButtonExport.Image = global::Glyssen.Properties.Resources.printer;
-			this.m_toolStripButtonExport.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonExport, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonExport, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonExport, "DialogBoxes.VoiceActorAssignmentDlg.toolStripButton1");
-			this.m_toolStripButtonExport.Name = "m_toolStripButtonExport";
-			this.m_toolStripButtonExport.Size = new System.Drawing.Size(90, 22);
-			this.m_toolStripButtonExport.Text = "Export/Print";
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_toolStripButtonExport, false);
-			this.m_toolStripButtonExport.Click += new System.EventHandler(this.m_toolStripButtonExport_Click);
-			// 
-			// m_btnOK
-			// 
-			this.m_btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_btnOK.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_btnOK, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.m_btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnOK, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.glyssenColorPalette.SetForeColor(this.m_btnOK, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOK, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOK, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnOK, "Common.OK");
-			this.m_btnOK.Location = new System.Drawing.Point(769, 442);
-			this.m_btnOK.Name = "m_btnOK";
-			this.m_btnOK.Size = new System.Drawing.Size(78, 23);
-			this.m_btnOK.TabIndex = 8;
-			this.m_btnOK.Text = "OK";
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnOK, false);
-			this.m_btnOK.UseVisualStyleBackColor = true;
 			// 
 			// m_characterDetailsGrid
 			// 
@@ -549,7 +472,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_characterDetailsGrid, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_characterDetailsGrid, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_characterDetailsGrid, "DialogBoxes.VoiceActorAssignmentDlg.CharacterDetails");
-			this.m_characterDetailsGrid.Location = new System.Drawing.Point(0, 72);
+			this.m_characterDetailsGrid.Location = new System.Drawing.Point(0, 263);
 			this.m_characterDetailsGrid.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
 			this.m_characterDetailsGrid.MultiSelect = false;
 			this.m_characterDetailsGrid.Name = "m_characterDetailsGrid";
@@ -564,7 +487,7 @@ namespace Glyssen.Dialogs
 			this.m_characterDetailsGrid.SelectedRowForeColor = System.Drawing.Color.Empty;
 			this.m_characterDetailsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.m_characterDetailsGrid.ShowWaterMarkWhenDirty = false;
-			this.m_characterDetailsGrid.Size = new System.Drawing.Size(555, 26);
+			this.m_characterDetailsGrid.Size = new System.Drawing.Size(583, 123);
 			this.m_characterDetailsGrid.TabIndex = 8;
 			this.m_characterDetailsGrid.TextBoxEditControlBorderColor = System.Drawing.Color.Silver;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_characterDetailsGrid, false);
@@ -608,29 +531,6 @@ namespace Glyssen.Dialogs
 			this.CharacterDetailsHoursCol.ReadOnly = true;
 			this.CharacterDetailsHoursCol.Width = 437;
 			// 
-			// m_lblHowToAssignCharactersToCameoGroup
-			// 
-			this.m_lblHowToAssignCharactersToCameoGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_lblHowToAssignCharactersToCameoGroup.AutoSize = true;
-			this.m_lblHowToAssignCharactersToCameoGroup.BackColor = System.Drawing.Color.Orange;
-			this.glyssenColorPalette.SetBackColor(this.m_lblHowToAssignCharactersToCameoGroup, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.m_lblHowToAssignCharactersToCameoGroup.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.m_lblHowToAssignCharactersToCameoGroup.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.glyssenColorPalette.SetForeColor(this.m_lblHowToAssignCharactersToCameoGroup, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblHowToAssignCharactersToCameoGroup, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblHowToAssignCharactersToCameoGroup, "Parameter 0 is a sentence stating that the character group has no characters. Par" +
-        "ameter 1 is the name of the cameo actor assigned to the selected group.");
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblHowToAssignCharactersToCameoGroup, "DialogBoxes.VoiceActorAssignmentDlg.HowToAssignCharactersToCameoGroup");
-			this.m_lblHowToAssignCharactersToCameoGroup.Location = new System.Drawing.Point(3, 13);
-			this.m_lblHowToAssignCharactersToCameoGroup.Name = "m_lblHowToAssignCharactersToCameoGroup";
-			this.m_lblHowToAssignCharactersToCameoGroup.Size = new System.Drawing.Size(549, 56);
-			this.m_lblHowToAssignCharactersToCameoGroup.TabIndex = 9;
-			this.m_lblHowToAssignCharactersToCameoGroup.Text = resources.GetString("m_lblHowToAssignCharactersToCameoGroup.Text");
-			this.m_lblHowToAssignCharactersToCameoGroup.UseCompatibleTextRendering = true;
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblHowToAssignCharactersToCameoGroup, false);
-			// 
 			// m_lblMovePendingInfo
 			// 
 			this.m_lblMovePendingInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -646,7 +546,7 @@ namespace Glyssen.Dialogs
 			this.m_lblMovePendingInfo.Location = new System.Drawing.Point(8, 8);
 			this.m_lblMovePendingInfo.Margin = new System.Windows.Forms.Padding(8, 8, 8, 0);
 			this.m_lblMovePendingInfo.Name = "m_lblMovePendingInfo";
-			this.m_lblMovePendingInfo.Size = new System.Drawing.Size(256, 13);
+			this.m_lblMovePendingInfo.Size = new System.Drawing.Size(222, 13);
 			this.m_lblMovePendingInfo.TabIndex = 0;
 			this.m_lblMovePendingInfo.Text = "Move pending for {0}";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblMovePendingInfo, false);
@@ -660,7 +560,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancelMove, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancelMove, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnCancelMove, "Common.Cancel");
-			this.m_btnCancelMove.Location = new System.Drawing.Point(53, 94);
+			this.m_btnCancelMove.Location = new System.Drawing.Point(36, 87);
 			this.m_btnCancelMove.Margin = new System.Windows.Forms.Padding(8);
 			this.m_btnCancelMove.Name = "m_btnCancelMove";
 			this.m_btnCancelMove.Size = new System.Drawing.Size(75, 23);
@@ -680,7 +580,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnMove, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnMove, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnMove, "DialogBoxes.VoiceActorAssignmentDlg.MoveButton");
-			this.m_btnMove.Location = new System.Drawing.Point(144, 94);
+			this.m_btnMove.Location = new System.Drawing.Point(127, 87);
 			this.m_btnMove.Margin = new System.Windows.Forms.Padding(8);
 			this.m_btnMove.Name = "m_btnMove";
 			this.m_btnMove.Size = new System.Drawing.Size(75, 23);
@@ -702,9 +602,9 @@ namespace Glyssen.Dialogs
 			this.m_lblMoveInstr.Location = new System.Drawing.Point(8, 23);
 			this.m_lblMoveInstr.Margin = new System.Windows.Forms.Padding(8, 2, 8, 8);
 			this.m_lblMoveInstr.Name = "m_lblMoveInstr";
-			this.m_lblMoveInstr.Size = new System.Drawing.Size(254, 26);
+			this.m_lblMoveInstr.Size = new System.Drawing.Size(212, 26);
 			this.m_lblMoveInstr.TabIndex = 3;
-			this.m_lblMoveInstr.Text = "Select the desired desination group above and then click Move.";
+			this.m_lblMoveInstr.Text = "Select the desired destination group above and then click Move.";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblMoveInstr, false);
 			// 
 			// m_linkLabelShowHideDetails
@@ -717,59 +617,24 @@ namespace Glyssen.Dialogs
 			this.m_linkLabelShowHideDetails.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkLabelShowHideDetails.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.glyssenColorPalette.SetForeColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_linkLabelShowHideDetails.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_linkLabelShowHideDetails.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkLabelShowHideDetails, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkLabelShowHideDetails, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLabelShowHideDetails, "DialogBoxes.VoiceActorAssignmentDlg.HideDetailsLink");
-			this.m_linkLabelShowHideDetails.Location = new System.Drawing.Point(264, 6);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLabelShowHideDetails, "DialogBoxes.VoiceActorAssignmentDlg.ShowCharacterDetailsLink");
+			this.m_linkLabelShowHideDetails.Location = new System.Drawing.Point(3, 238);
+			this.m_linkLabelShowHideDetails.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
 			this.m_linkLabelShowHideDetails.Name = "m_linkLabelShowHideDetails";
-			this.m_linkLabelShowHideDetails.Size = new System.Drawing.Size(62, 13);
+			this.m_linkLabelShowHideDetails.Size = new System.Drawing.Size(129, 13);
 			this.m_linkLabelShowHideDetails.TabIndex = 11;
 			this.m_linkLabelShowHideDetails.TabStop = true;
-			this.m_linkLabelShowHideDetails.Text = "Hide details";
+			this.m_linkLabelShowHideDetails.Text = "Show details for {0} group";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_linkLabelShowHideDetails, true);
 			this.m_linkLabelShowHideDetails.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetVisitedLinkColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
-			this.m_linkLabelShowHideDetails.Click += new System.EventHandler(this.HandleShowOrHideCharacterDetails_Click);
-			// 
-			// m_lblCharacterDetails
-			// 
-			this.m_lblCharacterDetails.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.m_lblCharacterDetails.AutoSize = true;
-			this.m_lblCharacterDetails.BackColor = System.Drawing.SystemColors.Control;
-			this.glyssenColorPalette.SetBackColor(this.m_lblCharacterDetails, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.m_lblCharacterDetails, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblCharacterDetails.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblCharacterDetails, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblCharacterDetails, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblCharacterDetails, "DialogBoxes.VoiceActorAssignmentDlg.CharacterDetailsLabel");
-			this.m_lblCharacterDetails.Location = new System.Drawing.Point(0, 6);
-			this.m_lblCharacterDetails.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-			this.m_lblCharacterDetails.Name = "m_lblCharacterDetails";
-			this.m_lblCharacterDetails.Size = new System.Drawing.Size(258, 13);
-			this.m_lblCharacterDetails.TabIndex = 12;
-			this.m_lblCharacterDetails.Text = "Character details for character group selected above:";
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblCharacterDetails, true);
-			// 
-			// m_lblNoCharactersInGroup
-			// 
-			this.m_lblNoCharactersInGroup.AutoSize = true;
-			this.m_lblNoCharactersInGroup.BackColor = System.Drawing.SystemColors.Control;
-			this.glyssenColorPalette.SetBackColor(this.m_lblNoCharactersInGroup, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.m_lblNoCharactersInGroup, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_lblNoCharactersInGroup.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblNoCharactersInGroup, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblNoCharactersInGroup, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblNoCharactersInGroup, "DialogBoxes.VoiceActorAssignmentDlg.NoCharactersInGroup");
-			this.m_lblNoCharactersInGroup.Location = new System.Drawing.Point(3, 0);
-			this.m_lblNoCharactersInGroup.Name = "m_lblNoCharactersInGroup";
-			this.m_lblNoCharactersInGroup.Size = new System.Drawing.Size(252, 13);
-			this.m_lblNoCharactersInGroup.TabIndex = 10;
-			this.m_lblNoCharactersInGroup.Text = "The selected group currently has no characters in it.";
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblNoCharactersInGroup, true);
+			this.m_linkLabelShowHideDetails.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.HandleShowOrHideCharacterDetails_Click);
 			// 
 			// m_characterGroupGrid
 			// 
@@ -798,6 +663,7 @@ namespace Glyssen.Dialogs
 			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.m_characterGroupGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			this.m_characterGroupGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.GroupIdCol,
             this.CharacterIdsCol,
             this.AttributesCol,
             this.CharStatusCol,
@@ -821,7 +687,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_characterGroupGrid, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_characterGroupGrid, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_characterGroupGrid, "DialogBoxes.VoiceActorAssignmentDlg.betterGrid1");
-			this.m_characterGroupGrid.Location = new System.Drawing.Point(0, 0);
+			this.m_characterGroupGrid.Location = new System.Drawing.Point(0, 33);
 			this.m_characterGroupGrid.Margin = new System.Windows.Forms.Padding(0);
 			this.m_characterGroupGrid.MultiSelect = false;
 			this.m_characterGroupGrid.Name = "m_characterGroupGrid";
@@ -830,7 +696,7 @@ namespace Glyssen.Dialogs
 			this.m_characterGroupGrid.RowHeadersWidth = 22;
 			this.m_characterGroupGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.m_characterGroupGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.m_characterGroupGrid.Size = new System.Drawing.Size(833, 235);
+			this.m_characterGroupGrid.Size = new System.Drawing.Size(833, 192);
 			this.m_characterGroupGrid.TabIndex = 6;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_characterGroupGrid, false);
 			this.m_characterGroupGrid.VirtualMode = true;
@@ -839,6 +705,7 @@ namespace Glyssen.Dialogs
 			this.m_characterGroupGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.m_characterGroupGrid_CellFormatting);
 			this.m_characterGroupGrid.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_characterGroupGrid_CellLeave);
 			this.m_characterGroupGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.HandleGridCellMouseDown);
+			this.m_characterGroupGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.m_characterGroupGrid_CellValidating);
 			this.m_characterGroupGrid.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.m_characterGroupGrid_CellValueNeeded);
 			this.m_characterGroupGrid.CellValuePushed += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.m_characterGroupGrid_CellValuePushed);
 			this.m_characterGroupGrid.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.HandleGridColumnHeaderMouseClick);
@@ -849,6 +716,14 @@ namespace Glyssen.Dialogs
 			this.m_characterGroupGrid.DragDrop += new System.Windows.Forms.DragEventHandler(this.m_characterGroupGrid_DragDrop);
 			this.m_characterGroupGrid.DragOver += new System.Windows.Forms.DragEventHandler(this.m_characterGroupGrid_DragOver);
 			this.m_characterGroupGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.m_characterGroupGrid_KeyDown);
+			// 
+			// GroupIdCol
+			// 
+			this.GroupIdCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+			this.GroupIdCol.HeaderText = "_L10N_:DialogBoxes.VoiceActorAssignmentDlg.Characters!Group ID";
+			this.GroupIdCol.Name = "GroupIdCol";
+			this.GroupIdCol.ReadOnly = true;
+			this.GroupIdCol.Width = 387;
 			// 
 			// CharacterIdsCol
 			// 
@@ -920,13 +795,288 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_saveStatus, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_saveStatus, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_saveStatus, "DialogBoxes.VoiceActorAssignmentDlg.SaveStatus");
-			this.m_saveStatus.Location = new System.Drawing.Point(751, 34);
+			this.m_saveStatus.Location = new System.Drawing.Point(733, 17);
 			this.m_saveStatus.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
 			this.m_saveStatus.Name = "m_saveStatus";
 			this.m_saveStatus.Size = new System.Drawing.Size(97, 13);
 			this.m_saveStatus.TabIndex = 6;
 			this.m_saveStatus.TextAlign = System.Drawing.ContentAlignment.TopRight;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_saveStatus, true);
+			// 
+			// m_menuStrip
+			// 
+			this.glyssenColorPalette.SetBackColor(this.m_menuStrip, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_menuStrip, Glyssen.Utilities.GlyssenColors.Default);
+			this.m_menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem,
+            this.changeTheListOfGroupsToolStripMenuItem});
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_menuStrip, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_menuStrip, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_menuStrip, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_menuStrip, "DialogBoxes.menuStrip1");
+			this.m_menuStrip.Location = new System.Drawing.Point(0, 0);
+			this.m_menuStrip.Name = "m_menuStrip";
+			this.m_menuStrip.Size = new System.Drawing.Size(859, 24);
+			this.m_menuStrip.TabIndex = 10;
+			this.m_menuStrip.Text = "menuStrip1";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_menuStrip, false);
+			// 
+			// fileToolStripMenuItem
+			// 
+			this.glyssenColorPalette.SetBackColor(this.fileToolStripMenuItem, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveAsToolStripMenuItem,
+            this.printToolStripMenuItem});
+			this.glyssenColorPalette.SetForeColor(this.fileToolStripMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.fileToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.fileToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.fileToolStripMenuItem, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.fileToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.Menu.File");
+			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+			this.fileToolStripMenuItem.Text = "File";
+			this.glyssenColorPalette.SetUsePaletteColors(this.fileToolStripMenuItem, false);
+			// 
+			// saveAsToolStripMenuItem
+			// 
+			this.glyssenColorPalette.SetBackColor(this.saveAsToolStripMenuItem, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.saveAsToolStripMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.saveAsToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.saveAsToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.saveAsToolStripMenuItem, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.saveAsToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.Menu.SaveAs");
+			this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+			this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+			this.saveAsToolStripMenuItem.Text = "Save As...";
+			this.glyssenColorPalette.SetUsePaletteColors(this.saveAsToolStripMenuItem, false);
+			this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+			// 
+			// printToolStripMenuItem
+			// 
+			this.glyssenColorPalette.SetBackColor(this.printToolStripMenuItem, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.printToolStripMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.printToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.printToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.printToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.Menu.Print");
+			this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+			this.printToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+			this.printToolStripMenuItem.Text = "Print...";
+			this.glyssenColorPalette.SetUsePaletteColors(this.printToolStripMenuItem, false);
+			this.printToolStripMenuItem.Click += new System.EventHandler(this.HandlePrintClick);
+			// 
+			// helpToolStripMenuItem
+			// 
+			this.helpToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.glyssenColorPalette.SetBackColor(this.helpToolStripMenuItem, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.helpToolStripMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.helpToolStripMenuItem.Image = global::Glyssen.Properties.Resources.helpSmall;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.helpToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.helpToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.helpToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.Menu.Help");
+			this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+			this.helpToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+			this.helpToolStripMenuItem.Text = "Help";
+			this.glyssenColorPalette.SetUsePaletteColors(this.helpToolStripMenuItem, false);
+			// 
+			// changeTheListOfGroupsToolStripMenuItem
+			// 
+			this.glyssenColorPalette.SetBackColor(this.changeTheListOfGroupsToolStripMenuItem, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.changeTheListOfGroupsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem,
+            this.adjustVoiceActorListToolStripMenuItem,
+            this.adjustCastSizePlanToolStripMenuItem,
+            this.manuallyEditGroupshelpToolStripMenuItem});
+			this.glyssenColorPalette.SetForeColor(this.changeTheListOfGroupsToolStripMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.changeTheListOfGroupsToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.changeTheListOfGroupsToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.changeTheListOfGroupsToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.changeTheListOfGroupsToolStripMenuItem");
+			this.changeTheListOfGroupsToolStripMenuItem.Name = "changeTheListOfGroupsToolStripMenuItem";
+			this.changeTheListOfGroupsToolStripMenuItem.Size = new System.Drawing.Size(156, 20);
+			this.changeTheListOfGroupsToolStripMenuItem.Text = "Change the List of Groups";
+			this.glyssenColorPalette.SetUsePaletteColors(this.changeTheListOfGroupsToolStripMenuItem, false);
+			// 
+			// adjustGroupsToMatchMyVoiceActorsToolStripMenuItem
+			// 
+			this.glyssenColorPalette.SetBackColor(this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.adjustGroupsToMatchMyVoiceActorsToolStripMenu" +
+        "Item");
+			this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem.Name = "adjustGroupsToMatchMyVoiceActorsToolStripMenuItem";
+			this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+			this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem.Text = "Adjust Groups to Match my Voice Actors";
+			this.glyssenColorPalette.SetUsePaletteColors(this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem, false);
+			this.adjustGroupsToMatchMyVoiceActorsToolStripMenuItem.Click += new System.EventHandler(this.HandleUpdateGroupsClick);
+			// 
+			// adjustVoiceActorListToolStripMenuItem
+			// 
+			this.glyssenColorPalette.SetBackColor(this.adjustVoiceActorListToolStripMenuItem, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.adjustVoiceActorListToolStripMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.adjustVoiceActorListToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.adjustVoiceActorListToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.adjustVoiceActorListToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.adjustVoiceActorListToolStripMenuItem");
+			this.adjustVoiceActorListToolStripMenuItem.Name = "adjustVoiceActorListToolStripMenuItem";
+			this.adjustVoiceActorListToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+			this.adjustVoiceActorListToolStripMenuItem.Text = "Adjust Voice Actor List";
+			this.glyssenColorPalette.SetUsePaletteColors(this.adjustVoiceActorListToolStripMenuItem, false);
+			this.adjustVoiceActorListToolStripMenuItem.Click += new System.EventHandler(this.HandleEditVoiceActorsClick);
+			// 
+			// adjustCastSizePlanToolStripMenuItem
+			// 
+			this.glyssenColorPalette.SetBackColor(this.adjustCastSizePlanToolStripMenuItem, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.adjustCastSizePlanToolStripMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.adjustCastSizePlanToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.adjustCastSizePlanToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.adjustCastSizePlanToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.adjustCastSizePlanToolStripMenuItem");
+			this.adjustCastSizePlanToolStripMenuItem.Name = "adjustCastSizePlanToolStripMenuItem";
+			this.adjustCastSizePlanToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+			this.adjustCastSizePlanToolStripMenuItem.Text = "Adjust Cast Size Plan";
+			this.glyssenColorPalette.SetUsePaletteColors(this.adjustCastSizePlanToolStripMenuItem, false);
+			this.adjustCastSizePlanToolStripMenuItem.Click += new System.EventHandler(this.HandleCastSizePlanClick);
+			// 
+			// manuallyEditGroupshelpToolStripMenuItem
+			// 
+			this.glyssenColorPalette.SetBackColor(this.manuallyEditGroupshelpToolStripMenuItem, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.manuallyEditGroupshelpToolStripMenuItem.Enabled = false;
+			this.glyssenColorPalette.SetForeColor(this.manuallyEditGroupshelpToolStripMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.manuallyEditGroupshelpToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.manuallyEditGroupshelpToolStripMenuItem, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.manuallyEditGroupshelpToolStripMenuItem, "DialogBoxes.VoiceActorAssignmentDlg.manuallyEditGroupshelpToolStripMenuItem");
+			this.manuallyEditGroupshelpToolStripMenuItem.Name = "manuallyEditGroupshelpToolStripMenuItem";
+			this.manuallyEditGroupshelpToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+			this.manuallyEditGroupshelpToolStripMenuItem.Text = "Manually Edit Groups (help)";
+			this.glyssenColorPalette.SetUsePaletteColors(this.manuallyEditGroupshelpToolStripMenuItem, false);
+			// 
+			// m_lblFewerOrMore
+			// 
+			this.m_lblFewerOrMore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_lblFewerOrMore.AutoSize = true;
+			this.m_lblFewerOrMore.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_lblFewerOrMore, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_lblFewerOrMore, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_lblFewerOrMore.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblFewerOrMore, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblFewerOrMore, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblFewerOrMore, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblFewerOrMore, "DialogBoxes.VoiceActorAssignmentDlg.FewerOrMore");
+			this.m_lblFewerOrMore.Location = new System.Drawing.Point(3, 0);
+			this.m_lblFewerOrMore.Name = "m_lblFewerOrMore";
+			this.m_lblFewerOrMore.Size = new System.Drawing.Size(238, 13);
+			this.m_lblFewerOrMore.TabIndex = 0;
+			this.m_lblFewerOrMore.Text = "Have fewer or more voice actors? Click to edit";
+			this.m_lblFewerOrMore.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblFewerOrMore, true);
+			// 
+			// m_linkVoiceActorList
+			// 
+			this.m_linkVoiceActorList.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetActiveLinkColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
+			this.m_linkVoiceActorList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_linkVoiceActorList.AutoSize = true;
+			this.glyssenColorPalette.SetBackColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_linkVoiceActorList.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
+			this.m_linkVoiceActorList.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+			this.m_linkVoiceActorList.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_linkVoiceActorList.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkVoiceActorList, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkVoiceActorList, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkVoiceActorList, "DialogBoxes.VoiceActorAssignmentDlg.VoiceActorList");
+			this.m_linkVoiceActorList.Location = new System.Drawing.Point(3, 13);
+			this.m_linkVoiceActorList.Name = "m_linkVoiceActorList";
+			this.m_linkVoiceActorList.Size = new System.Drawing.Size(238, 13);
+			this.m_linkVoiceActorList.TabIndex = 1;
+			this.m_linkVoiceActorList.TabStop = true;
+			this.m_linkVoiceActorList.Text = "Voice Actor List";
+			this.m_linkVoiceActorList.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_linkVoiceActorList, true);
+			this.m_linkVoiceActorList.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetVisitedLinkColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
+			this.m_linkVoiceActorList.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.HandleEditVoiceActorsClick);
+			// 
+			// m_lblInstructions2
+			// 
+			this.m_lblInstructions2.AutoSize = true;
+			this.m_lblInstructions2.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_lblInstructions2, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_lblInstructions2, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_lblInstructions2.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblInstructions2, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblInstructions2, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblInstructions2, "DialogBoxes.VoiceActorAssignmentDlg.Instructions.Line2");
+			this.m_lblInstructions2.Location = new System.Drawing.Point(3, 17);
+			this.m_lblInstructions2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+			this.m_lblInstructions2.Name = "m_lblInstructions2";
+			this.m_lblInstructions2.Size = new System.Drawing.Size(374, 13);
+			this.m_lblInstructions2.TabIndex = 13;
+			this.m_lblInstructions2.Text = "-or- In the right-hand column, enter / assign the voice actor to speak the roles." +
+    "";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblInstructions2, true);
+			// 
+			// m_linkClose
+			// 
+			this.m_linkClose.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetActiveLinkColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
+			this.m_linkClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_linkClose.AutoSize = true;
+			this.glyssenColorPalette.SetBackColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_linkClose.BackColor = System.Drawing.SystemColors.Control;
+			this.m_linkClose.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
+			this.glyssenColorPalette.SetForeColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_linkClose.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.m_linkClose.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkClose, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkClose, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_linkClose, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkClose, "DialogBoxes.VoiceActorAssignmentDlg.Close");
+			this.m_linkClose.Location = new System.Drawing.Point(815, 449);
+			this.m_linkClose.Name = "m_linkClose";
+			this.m_linkClose.Size = new System.Drawing.Size(33, 13);
+			this.m_linkClose.TabIndex = 11;
+			this.m_linkClose.TabStop = true;
+			this.m_linkClose.Text = "Close";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_linkClose, true);
+			this.m_linkClose.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetVisitedLinkColor(this.m_linkClose, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
+			this.m_linkClose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkClose_LinkClicked);
+			// 
+			// m_linkPrint
+			// 
+			this.m_linkPrint.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetActiveLinkColor(this.m_linkPrint, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
+			this.m_linkPrint.AutoSize = true;
+			this.glyssenColorPalette.SetBackColor(this.m_linkPrint, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_linkPrint.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkPrint, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
+			this.m_linkPrint.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+			this.m_linkPrint.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_linkPrint, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_linkPrint.LinkArea = new System.Windows.Forms.LinkArea(0, 3);
+			this.m_linkPrint.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_linkPrint, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkPrint, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkPrint, "{0} is the clickable text.  Its localizingId is DialogBoxes.VoiceActorAssignmentD" +
+        "lg.Instructions.Line1.LinkText");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkPrint, "DialogBoxes.VoiceActorAssignmentDlg.Instructions.Line1.NonLink");
+			this.m_linkPrint.Location = new System.Drawing.Point(3, 0);
+			this.m_linkPrint.Name = "m_linkPrint";
+			this.m_linkPrint.Size = new System.Drawing.Size(231, 17);
+			this.m_linkPrint.TabIndex = 14;
+			this.m_linkPrint.TabStop = true;
+			this.m_linkPrint.Text = "{0} this list for use as you recruit voice actors.";
+			this.m_linkPrint.UseCompatibleTextRendering = true;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_linkPrint, true);
+			this.m_linkPrint.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetVisitedLinkColor(this.m_linkPrint, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
+			this.m_linkPrint.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.HandlePrintClick);
 			// 
 			// m_tableLayoutPanel
 			// 
@@ -935,68 +1085,49 @@ namespace Glyssen.Dialogs
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.glyssenColorPalette.SetBackColor(this.m_tableLayoutPanel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayoutPanel.ColumnCount = 2;
-			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
-			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-			this.m_tableLayoutPanel.Controls.Add(this.m_tableLayoutPanelCharacterDetails, 0, 2);
-			this.m_tableLayoutPanel.Controls.Add(this.m_characterGroupGrid, 0, 0);
-			this.m_tableLayoutPanel.Controls.Add(this.tableLayoutPanel1, 0, 1);
-			this.m_tableLayoutPanel.Controls.Add(this.m_tableLayoutPanelMove, 1, 1);
+			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
+			this.m_tableLayoutPanel.Controls.Add(this.m_characterDetailsGrid, 0, 4);
+			this.m_tableLayoutPanel.Controls.Add(this.m_linkLabelShowHideDetails, 0, 3);
+			this.m_tableLayoutPanel.Controls.Add(this.m_characterGroupGrid, 0, 2);
+			this.m_tableLayoutPanel.Controls.Add(this.m_lblInstructions2, 0, 1);
+			this.m_tableLayoutPanel.Controls.Add(this.m_linkPrint, 0, 0);
+			this.m_tableLayoutPanel.Controls.Add(this.m_saveStatus, 1, 1);
+			this.m_tableLayoutPanel.Controls.Add(this.m_tableLayoutPanelLowerRight, 1, 3);
 			this.glyssenColorPalette.SetForeColor(this.m_tableLayoutPanel, Glyssen.Utilities.GlyssenColors.Default);
-			this.m_tableLayoutPanel.Location = new System.Drawing.Point(15, 55);
+			this.m_tableLayoutPanel.Location = new System.Drawing.Point(15, 52);
 			this.m_tableLayoutPanel.Name = "m_tableLayoutPanel";
-			this.m_tableLayoutPanel.RowCount = 3;
-			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+			this.m_tableLayoutPanel.RowCount = 5;
 			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-			this.m_tableLayoutPanel.Size = new System.Drawing.Size(833, 371);
+			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+			this.m_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+			this.m_tableLayoutPanel.Size = new System.Drawing.Size(833, 389);
 			this.m_tableLayoutPanel.TabIndex = 9;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_tableLayoutPanel, false);
 			// 
-			// m_tableLayoutPanelCharacterDetails
+			// m_tableLayoutPanelLowerRight
 			// 
-			this.m_tableLayoutPanelCharacterDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.m_tableLayoutPanelLowerRight.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_tableLayoutPanelCharacterDetails.AutoSize = true;
-			this.m_tableLayoutPanelCharacterDetails.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.glyssenColorPalette.SetBackColor(this.m_tableLayoutPanelCharacterDetails, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.m_tableLayoutPanelCharacterDetails.ColumnCount = 1;
-			this.m_tableLayoutPanelCharacterDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.m_tableLayoutPanelCharacterDetails.Controls.Add(this.m_lblHowToAssignCharactersToCameoGroup, 0, 1);
-			this.m_tableLayoutPanelCharacterDetails.Controls.Add(this.m_characterDetailsGrid, 0, 2);
-			this.m_tableLayoutPanelCharacterDetails.Controls.Add(this.m_lblNoCharactersInGroup, 0, 0);
-			this.glyssenColorPalette.SetForeColor(this.m_tableLayoutPanelCharacterDetails, Glyssen.Utilities.GlyssenColors.Default);
-			this.m_tableLayoutPanelCharacterDetails.Location = new System.Drawing.Point(0, 270);
-			this.m_tableLayoutPanelCharacterDetails.Margin = new System.Windows.Forms.Padding(0);
-			this.m_tableLayoutPanelCharacterDetails.Name = "m_tableLayoutPanelCharacterDetails";
-			this.m_tableLayoutPanelCharacterDetails.RowCount = 3;
-			this.m_tableLayoutPanelCharacterDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.m_tableLayoutPanelCharacterDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.m_tableLayoutPanelCharacterDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.m_tableLayoutPanelCharacterDetails.Size = new System.Drawing.Size(555, 101);
-			this.m_tableLayoutPanelCharacterDetails.TabIndex = 10;
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_tableLayoutPanelCharacterDetails, false);
-			// 
-			// tableLayoutPanel1
-			// 
-			this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.glyssenColorPalette.SetBackColor(this.tableLayoutPanel1, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.tableLayoutPanel1.ColumnCount = 2;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Controls.Add(this.m_linkLabelShowHideDetails, 1, 0);
-			this.tableLayoutPanel1.Controls.Add(this.m_lblCharacterDetails, 0, 0);
-			this.glyssenColorPalette.SetForeColor(this.tableLayoutPanel1, Glyssen.Utilities.GlyssenColors.Default);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 241);
-			this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 6, 3, 3);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 1;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(552, 26);
-			this.tableLayoutPanel1.TabIndex = 11;
-			this.glyssenColorPalette.SetUsePaletteColors(this.tableLayoutPanel1, false);
+			this.m_tableLayoutPanelLowerRight.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.glyssenColorPalette.SetBackColor(this.m_tableLayoutPanelLowerRight, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_tableLayoutPanelLowerRight.ColumnCount = 1;
+			this.m_tableLayoutPanelLowerRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.m_tableLayoutPanelLowerRight.Controls.Add(this.m_tableLayoutPanelMove, 0, 1);
+			this.m_tableLayoutPanelLowerRight.Controls.Add(this.m_tableLayoutPanelVoiceActorList, 0, 0);
+			this.glyssenColorPalette.SetForeColor(this.m_tableLayoutPanelLowerRight, Glyssen.Utilities.GlyssenColors.Default);
+			this.m_tableLayoutPanelLowerRight.Location = new System.Drawing.Point(586, 228);
+			this.m_tableLayoutPanelLowerRight.Name = "m_tableLayoutPanelLowerRight";
+			this.m_tableLayoutPanelLowerRight.RowCount = 2;
+			this.m_tableLayoutPanel.SetRowSpan(this.m_tableLayoutPanelLowerRight, 2);
+			this.m_tableLayoutPanelLowerRight.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayoutPanelLowerRight.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayoutPanelLowerRight.Size = new System.Drawing.Size(244, 158);
+			this.m_tableLayoutPanelLowerRight.TabIndex = 15;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_tableLayoutPanelLowerRight, false);
 			// 
 			// m_tableLayoutPanelMove
 			// 
@@ -1013,18 +1144,40 @@ namespace Glyssen.Dialogs
 			this.m_tableLayoutPanelMove.Controls.Add(this.m_lblMoveInstr, 0, 1);
 			this.m_tableLayoutPanelMove.Controls.Add(this.m_btnCancelMove, 0, 2);
 			this.glyssenColorPalette.SetForeColor(this.m_tableLayoutPanelMove, Glyssen.Utilities.GlyssenColors.Default);
-			this.m_tableLayoutPanelMove.Location = new System.Drawing.Point(558, 243);
+			this.m_tableLayoutPanelMove.Location = new System.Drawing.Point(3, 37);
 			this.m_tableLayoutPanelMove.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
 			this.m_tableLayoutPanelMove.Name = "m_tableLayoutPanelMove";
 			this.m_tableLayoutPanelMove.RowCount = 3;
-			this.m_tableLayoutPanel.SetRowSpan(this.m_tableLayoutPanelMove, 2);
 			this.m_tableLayoutPanelMove.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanelMove.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanelMove.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.m_tableLayoutPanelMove.Size = new System.Drawing.Size(272, 125);
+			this.m_tableLayoutPanelMove.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.m_tableLayoutPanelMove.Size = new System.Drawing.Size(238, 118);
 			this.m_tableLayoutPanelMove.TabIndex = 4;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_tableLayoutPanelMove, false);
 			this.m_tableLayoutPanelMove.Visible = false;
+			// 
+			// m_tableLayoutPanelVoiceActorList
+			// 
+			this.m_tableLayoutPanelVoiceActorList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_tableLayoutPanelVoiceActorList.AutoSize = true;
+			this.glyssenColorPalette.SetBackColor(this.m_tableLayoutPanelVoiceActorList, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_tableLayoutPanelVoiceActorList.ColumnCount = 1;
+			this.m_tableLayoutPanelVoiceActorList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.m_tableLayoutPanelVoiceActorList.Controls.Add(this.m_lblFewerOrMore, 0, 0);
+			this.m_tableLayoutPanelVoiceActorList.Controls.Add(this.m_linkVoiceActorList, 0, 1);
+			this.glyssenColorPalette.SetForeColor(this.m_tableLayoutPanelVoiceActorList, Glyssen.Utilities.GlyssenColors.Default);
+			this.m_tableLayoutPanelVoiceActorList.Location = new System.Drawing.Point(0, 3);
+			this.m_tableLayoutPanelVoiceActorList.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+			this.m_tableLayoutPanelVoiceActorList.Name = "m_tableLayoutPanelVoiceActorList";
+			this.m_tableLayoutPanelVoiceActorList.RowCount = 2;
+			this.m_tableLayoutPanelVoiceActorList.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayoutPanelVoiceActorList.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayoutPanelVoiceActorList.Size = new System.Drawing.Size(244, 26);
+			this.m_tableLayoutPanelVoiceActorList.TabIndex = 5;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_tableLayoutPanelVoiceActorList, false);
 			// 
 			// dataGridViewTextBoxColumn1
 			// 
@@ -1121,23 +1274,23 @@ namespace Glyssen.Dialogs
 			// 
 			this.glyssenColorPalette.SetBackColor(this, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.ClientSize = new System.Drawing.Size(859, 477);
+			this.Controls.Add(this.m_linkClose);
 			this.Controls.Add(this.m_tableLayoutPanel);
-			this.Controls.Add(this.m_btnOK);
 			this.Controls.Add(this.m_toolStrip);
-			this.Controls.Add(this.m_lblInstructions);
-			this.Controls.Add(this.m_saveStatus);
+			this.Controls.Add(this.m_menuStrip);
 			this.glyssenColorPalette.SetForeColor(this, Glyssen.Utilities.GlyssenColors.Default);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.KeyPreview = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, "{0} is the project name");
 			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.VoiceActorAssignmentDlg.WindowTitle");
+			this.MainMenuStrip = this.m_menuStrip;
 			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(875, 480);
 			this.Name = "VoiceActorAssignmentDlg";
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Voice Actor Assignment - {0}";
+			this.Text = "Roles for Voice Actors - {0}";
 			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VoiceActorAssignmentDlg_FormClosing);
 			this.Load += new System.EventHandler(this.VoiceActorAssignmentDlg_Load);
@@ -1148,14 +1301,16 @@ namespace Glyssen.Dialogs
 			this.m_toolStrip.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_characterDetailsGrid)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).EndInit();
+			this.m_menuStrip.ResumeLayout(false);
+			this.m_menuStrip.PerformLayout();
 			this.m_tableLayoutPanel.ResumeLayout(false);
 			this.m_tableLayoutPanel.PerformLayout();
-			this.m_tableLayoutPanelCharacterDetails.ResumeLayout(false);
-			this.m_tableLayoutPanelCharacterDetails.PerformLayout();
-			this.tableLayoutPanel1.ResumeLayout(false);
-			this.tableLayoutPanel1.PerformLayout();
+			this.m_tableLayoutPanelLowerRight.ResumeLayout(false);
+			this.m_tableLayoutPanelLowerRight.PerformLayout();
 			this.m_tableLayoutPanelMove.ResumeLayout(false);
 			this.m_tableLayoutPanelMove.PerformLayout();
+			this.m_tableLayoutPanelVoiceActorList.ResumeLayout(false);
+			this.m_tableLayoutPanelVoiceActorList.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.glyssenColorPalette)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -1164,7 +1319,6 @@ namespace Glyssen.Dialogs
 
 		#endregion
 
-		private System.Windows.Forms.Label m_lblInstructions;
 		private L10NSharp.UI.L10NSharpExtender m_l10NSharpExtender;
 		private Controls.SaveStatus m_saveStatus;
 		private System.Windows.Forms.ToolTip m_toolTip;
@@ -1175,18 +1329,14 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.ContextMenuStrip m_contextMenuCharacters;
 		private System.Windows.Forms.ToolStripMenuItem m_menuItemCreateNewGroup;
 		private System.Windows.Forms.ToolStrip m_toolStrip;
-		private System.Windows.Forms.Button m_btnOK;
 		private System.Windows.Forms.ToolStripButton m_editActorsButton;
 		private System.Windows.Forms.ToolStripButton m_splitSelectedGroupButton;
-		private System.Windows.Forms.ToolStripButton m_optimizeButton;
 		private System.Windows.Forms.ToolStripButton m_undoButton;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripButton m_redoButton;
 		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanel;
 		private SIL.Windows.Forms.Widgets.BetterGrid.BetterGrid m_characterDetailsGrid;
 		private System.Windows.Forms.ToolStripMenuItem m_menuItemMoveToAnotherGroup;
-		private System.Windows.Forms.Label m_lblHowToAssignCharactersToCameoGroup;
-		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanelCharacterDetails;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 		private System.Windows.Forms.ToolStripLabel m_toolStripLabelFindCharacter;
 		private System.Windows.Forms.ToolStripTextBox m_toolStripTextBoxFindCharacter;
@@ -1203,11 +1353,7 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.ToolStripMenuItem m_menuItemAssignToCameoActor;
 		private System.Windows.Forms.ToolStripMenuItem m_cameoActorToolStripMenuItem;
 		private System.Windows.Forms.LinkLabel m_linkLabelShowHideDetails;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private System.Windows.Forms.Label m_lblCharacterDetails;
-		private System.Windows.Forms.Label m_lblNoCharactersInGroup;
 		private ToolStripMenuItem m_AddCharacterToGroupToolStripMenuItem;
-		private ToolStripButton m_toolStripButtonHelp;
 		private Utilities.GlyssenColorPalette glyssenColorPalette;
 		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
 		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -1218,12 +1364,29 @@ namespace Glyssen.Dialogs
 		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
 		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
 		private DataGridViewMultiColumnComboBoxColumn dataGridViewMultiColumnComboBoxColumn1;
+		private MenuStrip m_menuStrip;
+		private ToolStripMenuItem fileToolStripMenuItem;
+		private ToolStripMenuItem saveAsToolStripMenuItem;
+		private ToolStripMenuItem helpToolStripMenuItem;
+		private TableLayoutPanel m_tableLayoutPanelVoiceActorList;
+		private Label m_lblFewerOrMore;
+		private LinkLabel m_linkVoiceActorList;
+		private ToolStripMenuItem printToolStripMenuItem;
+		private Label m_lblInstructions2;
+		private LinkLabel m_linkClose;
+		private LinkLabel m_linkPrint;
+		private TableLayoutPanel m_tableLayoutPanelLowerRight;
+		private DataGridViewTextBoxColumn GroupIdCol;
 		private DataGridViewTextBoxColumn CharacterIdsCol;
 		private DataGridViewTextBoxColumn AttributesCol;
 		private DataGridViewTextBoxColumn CharStatusCol;
 		private DataGridViewTextBoxColumn EstimatedHoursCol;
 		private DataGridViewMultiColumnComboBoxColumn VoiceActorCol;
-		private ToolStripButton m_toolStripButtonExport;
+		private ToolStripMenuItem changeTheListOfGroupsToolStripMenuItem;
+		private ToolStripMenuItem adjustGroupsToMatchMyVoiceActorsToolStripMenuItem;
+		private ToolStripMenuItem adjustVoiceActorListToolStripMenuItem;
+		private ToolStripMenuItem adjustCastSizePlanToolStripMenuItem;
+		private ToolStripMenuItem manuallyEditGroupshelpToolStripMenuItem;
 
 	}
 }

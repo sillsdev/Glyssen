@@ -178,35 +178,32 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void AssessChanges_VoiceActorAdded_UndoActionCreated()
+		public void Changes_VoiceActorAdded_UndoActionCreated()
 		{
 			Assert.AreEqual(4, m_testProject.VoiceActorList.AllActors.Count);
 			m_model.AddNewActor().Name = "Phoenix";
 			Assert.AreEqual(5, m_testProject.VoiceActorList.AllActors.Count);
-			m_model.AssessChanges();
 			Assert.IsTrue(m_model.Changes.Single() is VoiceActorAddedUndoAction);
 		}
 
 		[Test]
-		public void AssessChanges_VoiceActorModified_UndoActionCreated()
+		public void Changes_VoiceActorModified_UndoActionCreated()
 		{
 			Assert.AreEqual(4, m_testProject.VoiceActorList.AllActors.Count);
 			m_testProject.VoiceActorList.AllActors[0].Name = "Monkey Soup";
-			m_model.AssessChanges();
 			Assert.IsTrue(m_model.Changes.Single() is VoiceActorEditUndoAction);
 		}
 
 		[Test]
-		public void AssessChanges_VoiceActorDeleted_UndoActionCreated()
+		public void Changes_VoiceActorDeleted_UndoActionCreated()
 		{
 			var actorsToDelete = new HashSet<Glyssen.VoiceActor.VoiceActor>(m_testProject.VoiceActorList.AllActors.Where(a => a.Id == 3));
 			Assert.True(m_model.DeleteVoiceActors(actorsToDelete));
-			m_model.AssessChanges();
 			Assert.IsTrue(m_model.Changes.Single() is VoiceActorDeletedUndoAction);
 		}
 
 		[Test]
-		public void AssessChanges_DeleteNewlyAddedVoiceActor_NoUndoActionCreated()
+		public void Changes_DeleteNewlyAddedVoiceActor_NoUndoActionCreated()
 		{
 			var addedActor = m_model.AddNewActor();
 			Assert.AreEqual(5, m_testProject.VoiceActorList.AllActors.Count);
@@ -214,7 +211,6 @@ namespace GlyssenTests.Dialogs
 			actorsToDelete.Add(addedActor);
 			Assert.True(m_model.DeleteVoiceActors(actorsToDelete));
 			Assert.AreEqual(4, m_testProject.VoiceActorList.AllActors.Count);
-			m_model.AssessChanges();
 			Assert.AreEqual(0, m_model.Changes.Count());
 		}
 	}
