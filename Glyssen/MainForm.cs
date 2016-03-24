@@ -124,6 +124,7 @@ namespace Glyssen
 
 		private void RememberButtonFormats()
 		{
+			m_buttonFormats.Clear();
 			var pos = m_tableLayoutPanel.GetCellPosition(m_btnOpenProject);
 			for (var rowIndex = pos.Row; rowIndex < m_tableLayoutPanel.RowStyles.Count; rowIndex++)
 			{
