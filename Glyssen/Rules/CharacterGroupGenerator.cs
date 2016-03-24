@@ -884,7 +884,8 @@ namespace Glyssen.Rules
 					if (numberOfUnassignedMaleNarrators + numberOfUnassignedFemaleNarrators == 0)
 						numberOfUnassignedMaleNarrators = 1;
 				}
-				int numberOfExtraBiblicalGroups = Math.Min(1, includedCharacterDetails.Count(c => CharacterVerseData.IsCharacterStandard(c.CharacterId, false)));
+
+				var numberOfExtraBiblicalGroups = (numberOfMaleNarratorGroups + numberOfFemaleNarratorGroups) == 0 ? 0 : Math.Min(1, includedCharacterDetails.Count(c => CharacterVerseData.IsCharacterStandard(c.CharacterId, false)));
 
 				Func<int, VoiceActor.VoiceActor> getVoiceActorById = id => project.VoiceActorList.GetVoiceActorById(id);
 
