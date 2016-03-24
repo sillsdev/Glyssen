@@ -678,10 +678,12 @@ namespace Glyssen
 			// TODO: Eventually, this should be called when the user requests that all overrides be reverted to the defaults.
 			//m_project.UseDefaultForUnresolvedMultipleChoiceCharacters();
 
-			EnsureGroupsAreInSynchWithCharactersInUse();
+			bool regenerateGroups = sender == m_btnCastSizePlanning;
+			if (!regenerateGroups)
+				EnsureGroupsAreInSynchWithCharactersInUse();
 
 			bool launchCastSizePlanning;
-			using (var dlg = new VoiceActorAssignmentDlg(m_project, sender == m_btnCastSizePlanning))
+			using (var dlg = new VoiceActorAssignmentDlg(m_project, regenerateGroups))
 			{
 				dlg.ShowDialog(this);
 				launchCastSizePlanning = dlg.LaunchCastSizePlanningUponExit;
