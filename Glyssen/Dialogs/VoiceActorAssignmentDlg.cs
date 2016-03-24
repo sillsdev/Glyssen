@@ -1271,11 +1271,17 @@ namespace Glyssen.Dialogs
 				return;
 			}
 
+			m_characterGroupGrid.CurrentCell = m_characterGroupGrid.Rows[characterGroupIndex].Cells[CharacterIdsCol.Index];
+
 			ShowOrHideCharacterDetails(true);
 
-			m_characterGroupGrid.CurrentCell = m_characterGroupGrid.Rows[characterGroupIndex].Cells[CharacterIdsCol.Index];
 			foreach (DataGridViewRow row in m_characterDetailsGrid.Rows)
 				row.Selected = row.Index == characterDetailIndex;
+			if (m_characterDetailsGrid.CurrentCell == m_characterDetailsGrid.Rows[characterDetailIndex].Cells[CharacterDetailsIdCol.Index])
+			{
+				// HACK: If the current cell is already the one we want to display, setting CurrentCell will not scroll it into view
+				m_characterDetailsGrid.CurrentCell = m_characterDetailsGrid.Rows[characterDetailIndex].Cells[CharacterDetailsGenderCol.Index];
+			}
 			m_characterDetailsGrid.CurrentCell = m_characterDetailsGrid.Rows[characterDetailIndex].Cells[CharacterDetailsIdCol.Index];
 			m_toolStripButtonFindNextMatchingCharacter.Enabled = true;
 		}
