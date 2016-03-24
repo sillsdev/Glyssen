@@ -304,7 +304,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void HasUnusedActor_NoUnusedActor_ReturnsFalse()
+		public void UnusedActors_NoUnusedActor_ReturnsEmptyEnumeration()
 		{
 			var project = TestProject.CreateBasicTestProject();
 
@@ -315,11 +315,11 @@ namespace GlyssenTests
 			project.CharacterGroupList.CharacterGroups.Add(group);
 
 			Assert.True(project.CharacterGroupList.AnyVoiceActorAssigned());
-			Assert.False(project.HasUnusedActor);
+			Assert.False(project.UnusedActors.Any());
 		}
 
 		[Test]
-		public void HasUnusedActor_UnusedActor_ReturnsTrue()
+		public void UnusedActors_UnusedActor_ReturnsCorrectActor()
 		{
 			var project = TestProject.CreateBasicTestProject();
 
@@ -332,7 +332,24 @@ namespace GlyssenTests
 			project.CharacterGroupList.CharacterGroups.Add(group);
 
 			Assert.True(project.CharacterGroupList.AnyVoiceActorAssigned());
-			Assert.True(project.HasUnusedActor);
+			Assert.AreEqual(actor2, project.UnusedActors.Single());
+		}
+
+		[Test]
+		public void UnusedActors_UsedActorAndInactiveActor_ReturnsEmptyEnumeration()
+		{
+			var project = TestProject.CreateBasicTestProject();
+
+			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 0 };
+			project.VoiceActorList.AllActors.Add(actor1);
+			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 1, IsInactive = true };
+			project.VoiceActorList.AllActors.Add(actor2);
+			var group = new CharacterGroup(project);
+			group.AssignVoiceActor(actor1.Id);
+			project.CharacterGroupList.CharacterGroups.Add(group);
+
+			Assert.True(project.CharacterGroupList.AnyVoiceActorAssigned());
+			Assert.False(project.UnusedActors.Any());
 		}
 
 		[Test]

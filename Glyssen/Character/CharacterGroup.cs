@@ -6,11 +6,22 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using Glyssen.Rules;
+using L10NSharp;
 
 namespace Glyssen.Character
 {
 	public class CharacterGroup
 	{
+		public enum Label
+		{
+			None,
+			Male,
+			Female,
+			Child,
+			Narrator,
+			Other
+		}
+
 		public const int kNoActorAssigned = -1;
 		private Project m_project;
 		private bool m_closed;
@@ -39,6 +50,11 @@ namespace Glyssen.Character
 			return copy;
 		}
 
+		public CharacterGroup Clone()
+		{
+			return Copy();
+		}
+
 		public void Initialize(Project project, IComparer<string> characterIdPriorityComparer)
 		{
 			m_project = project;
@@ -56,23 +72,48 @@ namespace Glyssen.Character
 		}
 
 		[XmlElement]
-		[Browsable(false)]
-		public int GroupNumber { get; set; }
+		public Label GroupIdLabel { get; set; }
 
-		[XmlAttribute("name")]
-		[Browsable(false)]
-		public string GroupNameInternal { get; set; }
+		[XmlElement]
+		[DefaultValue(0)]
+		public int GroupIdNumber { get; set; }
 
-		[Browsable(false)]
-		public string Name
+		[XmlElement]
+		[DefaultValue(null)]
+		public string GroupIdOtherText { get; set; }
+
+		[XmlIgnore]
+		public string GroupIdForUiDisplay
 		{
 			get
 			{
-				if (string.IsNullOrEmpty(GroupNameInternal))
-					return CharacterIds.HighestPriorityCharacter;
-				return GroupNameInternal;
+				switch (GroupIdLabel)
+				{
+					case Label.Male:
+						return string.Format(LocalizationManager.GetString("CharacterGroup.MaleGroupId", "Man {0}"), GroupIdNumber);
+					case Label.Female:
+						return string.Format(LocalizationManager.GetString("CharacterGroup.FemaleGroupId", "Woman {0}"), GroupIdNumber);
+					case Label.Child:
+						return string.Format(LocalizationManager.GetString("CharacterGroup.ChildGroupId", "Child {0}"), GroupIdNumber);
+					case Label.Narrator:
+						return string.Format(LocalizationManager.GetString("CharacterGroup.NarratorGroupId", "Narrator {0}"), GroupIdNumber);
+					case Label.Other:
+						return GroupIdOtherText;
+					default:
+						return string.Empty;
+				}
 			}
-			set { GroupNameInternal = value; }
+		}
+
+		[XmlIgnore]
+		public string GroupId
+		{
+			get
+			{
+				if (GroupIdLabel == Label.Other)
+					return GroupIdOtherText;
+				return GroupIdLabel.ToString() + GroupIdNumber;
+			}
 		}
 
 		[XmlArray("CharacterIds")]
@@ -202,7 +243,10 @@ namespace Glyssen.Character
 				if (CharacterVerseData.IsCharacterStandard(c))
 					return gender == CharacterGender.Either;
 
-				return characterDetails[c].Gender == gender;
+				CharacterDetail characterDetail;
+				if (!characterDetails.TryGetValue(c, out characterDetail))
+					return false;
+				return characterDetail.Gender == gender;
 			});
 		}
 
@@ -214,8 +258,54 @@ namespace Glyssen.Character
 				if (CharacterVerseData.IsCharacterStandard(c))
 					return age == CharacterAge.Adult;
 
-				return characterDetails[c].Age == age;
+				CharacterDetail characterDetail;
+				if (!characterDetails.TryGetValue(c, out characterDetail))
+					return false;
+				return characterDetail.Age == age;
 			});
+		}
+
+		public bool ContainsOnlyCharactersWithAge(CharacterAge age)
+		{
+			var characterDetails = m_project.AllCharacterDetailDictionary;
+			return CharacterIds.All(c =>
+			{
+				if (CharacterVerseData.IsCharacterStandard(c))
+					return age == CharacterAge.Adult;
+
+				CharacterDetail characterDetail;
+				if (!characterDetails.TryGetValue(c, out characterDetail))
+					return false;
+				return characterDetail.Age == age;
+			});
+		}
+
+		public void SetGroupIdLabelBasedOnCharacterIds()
+		{
+			if (GroupIdLabel != Label.None)
+				return;
+
+			if (AssignedToCameoActor)
+			{
+				GroupIdLabel = Label.Other;
+				GroupIdOtherText = VoiceActor.Name;
+				return;
+			}
+
+			if (CharacterIds.Any(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)))
+				GroupIdLabel = Label.Narrator;
+			else if (ContainsOnlyCharactersWithAge(CharacterAge.Child))
+				GroupIdLabel = Label.Child;
+			else if (ContainsCharacterWithGender(CharacterGender.Male))
+				GroupIdLabel = Label.Male;
+			else if (ContainsCharacterWithGender(CharacterGender.Female))
+				GroupIdLabel = Label.Female;
+			else if (ContainsCharacterWithGender(CharacterGender.PreferMale))
+				GroupIdLabel = Label.Male;
+			else if (ContainsCharacterWithGender(CharacterGender.PreferFemale))
+				GroupIdLabel = Label.Female;
+			else
+				GroupIdLabel = Label.Male;
 		}
 	}
 
@@ -397,7 +487,7 @@ namespace Glyssen.Character
 
 		public int Count
 		{
-			get { return m_hashSet.Count(); }
+			get { return m_hashSet.Count; }
 		}
 
 		public void ExceptWith(IEnumerable<string> other)

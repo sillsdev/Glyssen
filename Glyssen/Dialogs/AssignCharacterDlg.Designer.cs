@@ -776,7 +776,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetLinkColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llClose, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llClose, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_llClose, "DialogBoxes.AssignCharacterDlg.Close");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_llClose, "Common.Close");
 			this.m_llClose.Location = new System.Drawing.Point(274, 504);
 			this.m_llClose.Name = "m_llClose";
 			this.m_llClose.Size = new System.Drawing.Size(33, 13);

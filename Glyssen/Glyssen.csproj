@@ -183,6 +183,12 @@
     <Compile Include="Controls\Browser.Designer.cs">
       <DependentUpon>Browser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CastSizePlanningOptions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CastSizePlanningOptions.Designer.cs">
+      <DependentUpon>CastSizePlanningOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ControlExtensions.cs" />
     <Compile Include="Controls\DataGridViewDropdownColumnHeader.cs" />
     <Compile Include="Controls\DataGridViewListBox.cs">
@@ -226,29 +232,44 @@
     <Compile Include="Dialogs\AddCharacterToGroupDlg.Designer.cs">
       <DependentUpon>AddCharacterToGroupDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\ExportRolesForVoiceActorsDlg.cs">
+    <Compile Include="Dialogs\CastSizePlanningDlg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\ExportRolesForVoiceActorsDlg.Designer.cs">
-      <DependentUpon>ExportRolesForVoiceActorsDlg.cs</DependentUpon>
+    <Compile Include="Dialogs\CastSizePlanningDlg.Designer.cs">
+      <DependentUpon>CastSizePlanningDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\CastSizePlanningViewModel.cs" />
     <Compile Include="Dialogs\ExportDlg.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\ExportDlg.Designer.cs">
       <DependentUpon>ExportDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\ExportViewModel.cs" />
     <Compile Include="Dialogs\GenerateGroupsProgressDialog.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\HtmlMessageDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\HtmlMessageDlg.Designer.cs">
+      <DependentUpon>HtmlMessageDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\ProgressDialogWithAcknowledgement.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\RolesForVoiceActorsSaveAsDialog.cs" />
     <Compile Include="Dialogs\UnappliedSplitsDlg.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\UnappliedSplitsDlg.Designer.cs">
       <DependentUpon>UnappliedSplitsDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ViewScriptDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ViewScriptDlg.Designer.cs">
+      <DependentUpon>ViewScriptDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\VoiceActorUndoAction.cs" />
     <Compile Include="Dialogs\CharacterGroupsUndoAction.cs" />
@@ -407,6 +428,9 @@
     <EmbeddedResource Include="Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CastSizePlanningOptions.resx">
+      <DependentUpon>CastSizePlanningOptions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ExistingProjectsList.resx">
       <DependentUpon>ExistingProjectsList.cs</DependentUpon>
     </EmbeddedResource>
@@ -425,14 +449,17 @@
     <EmbeddedResource Include="Dialogs\AssignCharacterDlg.resx">
       <DependentUpon>AssignCharacterDlg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ExportRolesForVoiceActorsDlg.resx">
-      <DependentUpon>ExportRolesForVoiceActorsDlg.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\CastSizePlanningDlg.resx">
+      <DependentUpon>CastSizePlanningDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ExportDlg.resx">
       <DependentUpon>ExportDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\GenerateGroupsProgressDialog.resx">
       <DependentUpon>GenerateGroupsProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\HtmlMessageDlg.resx">
+      <DependentUpon>HtmlMessageDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ProgressDialogWithAcknowledgement.resx">
       <DependentUpon>ProgressDialogWithAcknowledgement.cs</DependentUpon>
@@ -469,6 +496,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SplitBlockDlg.resx">
       <DependentUpon>SplitBlockDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ViewScriptDlg.resx">
+      <DependentUpon>ViewScriptDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\VoiceActorAssignmentDlg.resx">
       <DependentUpon>VoiceActorAssignmentDlg.cs</DependentUpon>
@@ -567,6 +597,7 @@
     <None Include="Resources\RemoveGridRowNormal.png" />
     <None Include="Resources\MoveArrow.png" />
     <None Include="Resources\printer.bmp" />
+    <Content Include="Resources\HtmlMsg.html" />
     <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />
   </ItemGroup>

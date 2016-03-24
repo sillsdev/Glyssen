@@ -6246,10 +6246,10 @@
     </tu>
     <tu tuid="DialogBoxes.VoiceActorInformation.MoreInfo">
       <tuv xml:lang="en">
-        <seg>(the voice actors you intend to use, even if fewer or more than recommended) more info</seg>
+        <seg>more info</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>(es decir, los actores de voz que se pretenden utilizar, aunque sea menos o más que lo recomendado) más información</seg>
+        <seg>más información</seg>
       </tuv>
     </tu>
     <tu tuid="File.WrongBundle">

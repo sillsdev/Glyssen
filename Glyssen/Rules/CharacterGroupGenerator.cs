@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
+using Glyssen.Dialogs;
 using Glyssen.VoiceActor;
 using SIL.Extensions;
 
@@ -79,23 +80,45 @@ namespace Glyssen.Rules
 
 		public List<CharacterGroup> GenerateCharacterGroups()
 		{
-			List<CharacterGroup> characterGroups = CreateGroupsForActors(m_project.VoiceActorList.ActiveActors);
-
-			if (m_worker.CancellationPending)
-				return GeneratedGroups = null;
-
-			if (characterGroups.Count == 0)
-				return GeneratedGroups = characterGroups; // REVIEW: Maybe we should throw an exception instead.
-
 			m_project.SetDefaultCharacterGroupGenerationPreferences();
 
-			List<VoiceActor.VoiceActor> nonCameoActors = m_project.VoiceActorList.ActiveActors.Where(a => !a.IsCameo).ToList();
+			List<VoiceActor.VoiceActor> actorsForGeneration;
+			List<VoiceActor.VoiceActor> realActorsToReset = null;
+			if (m_project.CharacterGroupGenerationPreferences.CastSizeOption == CastSizeRow.MatchVoiceActorList)
+				actorsForGeneration = m_project.VoiceActorList.ActiveActors.ToList();
+			else
+			{
+				realActorsToReset = m_project.VoiceActorList.AllActors.ToList();
+				actorsForGeneration = CreateGhostCastActors().ToList();
+				m_project.VoiceActorList.AllActors = actorsForGeneration;
+			}
+			List<CharacterGroup> characterGroups = CreateGroupsForActors(actorsForGeneration);
 
 			if (m_worker.CancellationPending)
+			{
+				EnsureActorListIsSetToRealActors(realActorsToReset);
 				return GeneratedGroups = null;
+			}
+
+			if (characterGroups.Count == 0)
+			{
+				EnsureActorListIsSetToRealActors(realActorsToReset);
+				return GeneratedGroups = characterGroups; // REVIEW: Maybe we should throw an exception instead.
+			}
+
+			List<VoiceActor.VoiceActor> nonCameoActors = actorsForGeneration.Where(a => !a.IsCameo).ToList();
+
+			if (m_worker.CancellationPending)
+			{
+				EnsureActorListIsSetToRealActors(realActorsToReset);
+				return GeneratedGroups = null;
+			}
 
 			if (nonCameoActors.Count == 0)
+			{
+				EnsureActorListIsSetToRealActors(realActorsToReset);
 				return GeneratedGroups = characterGroups; // All cameo actors! This should probably never happen, but user could maybe mark them all as cameo after the fact (?)
+			}
 
 			var sortedDict = from entry in m_keyStrokesByCharacterId orderby entry.Value descending select entry;
 
@@ -103,7 +126,10 @@ namespace Glyssen.Rules
 			var includedCharacterDetails = characterDetails.Values.Where(c => sortedDict.Select(e => e.Key).Contains(c.CharacterId)).ToList();
 
 			if (m_worker.CancellationPending)
+			{
+				EnsureActorListIsSetToRealActors(realActorsToReset);
 				return GeneratedGroups = null;
+			}
 
 			// In the first loop, we're looking for actors that could only possibly play one character role.
 			// Since we're not doing strict age matching, this is most likely only to find any candidates in
@@ -149,7 +175,10 @@ namespace Glyssen.Rules
 			}
 
 			if (m_worker.CancellationPending)
+			{
+				EnsureActorListIsSetToRealActors(realActorsToReset);
 				return GeneratedGroups = null;
+			}
 
 			// TODO: Make sure we didn't close all the groups (unless we assigned all the character IDs)
 
@@ -173,7 +202,10 @@ namespace Glyssen.Rules
 			do
 			{
 				if (m_worker.CancellationPending)
+				{
+					EnsureActorListIsSetToRealActors(realActorsToReset);
 					return GeneratedGroups = null;
+				}
 
 				var trialConfigurationsForNarratorsAndExtras = TrialGroupConfiguration.GeneratePossibilities(characterGroups,
 					ref maxMaleNarrators, ref maxFemaleNarrators, includedCharacterDetails, m_keyStrokesByCharacterId, m_project);
@@ -183,7 +215,10 @@ namespace Glyssen.Rules
 					foreach (var configuration in trialConfigurationsForNarratorsAndExtras)
 					{
 						if (m_worker.CancellationPending)
+						{
+							EnsureActorListIsSetToRealActors(realActorsToReset);
 							return GeneratedGroups = null;
+						}
 
 						foreach (var entry in sortedDict)
 						{
@@ -208,8 +243,15 @@ namespace Glyssen.Rules
 					if (bestConfiguration.MinimumProximity >= Proximity.kDefaultMinimumProximity)
 					{
 						if (m_worker.CancellationPending)
+						{
+							EnsureActorListIsSetToRealActors(realActorsToReset);
 							return GeneratedGroups = null;
-						return GeneratedGroups = GetFinalizedGroups(bestConfiguration.Groups, actorsWithRealAssignments);
+						}
+						if (realActorsToReset != null)
+							actorsWithRealAssignments.Clear();
+						GeneratedGroups = GetFinalizedGroups(bestConfiguration.Groups, actorsWithRealAssignments);
+						EnsureActorListIsSetToRealActors(realActorsToReset);
+						return GeneratedGroups;
 					}
 				}
 				if (maxMaleNarrators == 0)
@@ -231,12 +273,27 @@ namespace Glyssen.Rules
 			Debug.Assert(bestConfiguration != null);
 
 			if (m_worker.CancellationPending)
+			{
+				EnsureActorListIsSetToRealActors(realActorsToReset);
 				return GeneratedGroups = null;
-			return GeneratedGroups = GetFinalizedGroups(bestConfiguration.Groups, actorsWithRealAssignments);
+			}
+
+			if (realActorsToReset != null)
+				actorsWithRealAssignments.Clear();
+			GeneratedGroups = GetFinalizedGroups(bestConfiguration.Groups, actorsWithRealAssignments);
+			EnsureActorListIsSetToRealActors(realActorsToReset);
+			return GeneratedGroups;
+		}
+
+		private void EnsureActorListIsSetToRealActors(List<VoiceActor.VoiceActor> realActorsToReset)
+		{
+			if (realActorsToReset != null)
+				m_project.VoiceActorList.AllActors = realActorsToReset;
 		}
 
 		private List<CharacterGroup> GetFinalizedGroups(List<CharacterGroup> groups, List<int> actorsWithRealAssignments)
 		{
+			CharacterGroupList.AssignGroupIds(groups, m_keyStrokesByCharacterId);
 			foreach (var group in groups)
 			{
 				if (!group.AssignedToCameoActor && !actorsWithRealAssignments.Contains(group.VoiceActorId))
@@ -275,6 +332,29 @@ namespace Glyssen.Rules
 				groups.Add(group);
 			}
 			return groups;
+		}
+
+		private IEnumerable<VoiceActor.VoiceActor> CreateGhostCastActors()
+		{
+			List<VoiceActor.VoiceActor> ghostCastActors = new List<VoiceActor.VoiceActor>();
+			var pref = m_project.CharacterGroupGenerationPreferences;
+			var castSizePlanningViewModel = new CastSizePlanningViewModel(m_project);
+			var rowValues = castSizePlanningViewModel.GetCastSizeRowValues(pref.CastSizeOption);
+			ghostCastActors.AddRange(CreateGhostCastActors(ActorGender.Male, ActorAge.Adult, rowValues.Male, ghostCastActors.Count));
+			ghostCastActors.AddRange(CreateGhostCastActors(ActorGender.Female, ActorAge.Adult, rowValues.Female, ghostCastActors.Count));
+			ghostCastActors.AddRange(CreateGhostCastActors(ActorGender.Male, ActorAge.Child, rowValues.Child, ghostCastActors.Count));
+			return ghostCastActors;
+		}
+
+		private IEnumerable<VoiceActor.VoiceActor> CreateGhostCastActors(ActorGender gender, ActorAge age, int number, int startingIdNumber)
+		{
+			for (int i = 0; i < number; i++)
+				yield return new VoiceActor.VoiceActor
+				{
+					Id = startingIdNumber++,
+					Gender = gender,
+					Age = age,
+				};
 		}
 
 		private void AddCharacterToBestGroup(CharacterDetail characterDetail, TrialGroupConfiguration configuration)

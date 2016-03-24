@@ -257,7 +257,7 @@ namespace GlyssenTests.Rules
 			Assert.AreEqual(0, adjuster.CharactersNoLongerInUse.Count());
 			Assert.AreEqual(originalCountOfGroups + 1, m_testProject.CharacterGroupList.CharacterGroups.Count);
 			var newGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator));
-			Assert.IsFalse(m_testProject.CharacterGroupList.CharacterGroups.Any(g => g.GroupNumber == newGroup.GroupNumber && g != newGroup));
+			Assert.IsFalse(m_testProject.CharacterGroupList.CharacterGroups.Any(g => g.GroupId == newGroup.GroupId && g != newGroup));
 			Assert.IsTrue(newGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical)));
 			Assert.IsTrue(newGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.BookOrChapter)));
 			Assert.AreEqual(countOfCharactersNotCovered, newGroup.CharacterIds.Count);

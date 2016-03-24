@@ -368,12 +368,6 @@ namespace Glyssen
 			set { m_metadata.ProjectStatus.ProjectSettingsStatus = value; }
 		}
 
-		public VoiceActorStatus VoiceActorStatus
-		{
-			get { return m_metadata.ProjectStatus.VoiceActorStatus; }
-			set { m_metadata.ProjectStatus.VoiceActorStatus = value; }
-		}
-
 		public CharacterGroupGenerationPreferences CharacterGroupGenerationPreferences
 		{
 			get { return m_metadata.CharacterGroupGenerationPreferences;  }
@@ -386,6 +380,10 @@ namespace Glyssen
 			{
 				CharacterGroupGenerationPreferences.NumberOfMaleNarrators = BiblicalAuthors.GetAuthorCount(IncludedBooks.Select(b => b.BookId));
 				CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			}
+			if (CharacterGroupGenerationPreferences.CastSizeOption == CastSizeRow.NotSet)
+			{
+				CharacterGroupGenerationPreferences.CastSizeOption = VoiceActorList.ActiveActors.Any() ? CastSizeRow.MatchVoiceActorList : CastSizeRow.Recommended;
 			}
 		}
 
@@ -456,6 +454,7 @@ namespace Glyssen
 
 		public void UpdateSettings(ProjectSettingsViewModel model)
 		{
+			Debug.Assert(!String.IsNullOrEmpty(model.RecordingProjectName));
 			var newPath = GetProjectFolderPath(model.IsoCode, model.PublicationId, model.RecordingProjectName);
 			if (newPath != ProjectFolder)
 			{
@@ -601,9 +600,14 @@ namespace Glyssen
 			get { return m_characterGroupList ?? (m_characterGroupList = LoadCharacterGroupData()); }
 		}
 
+		public bool CharacterGroupListPreviouslyGenerated
+		{
+			get { return CharacterGroupList.CharacterGroups.Any(); }
+		}
+
 		public bool IsVoiceActorScriptReady
 		{
-			get { return IsVoiceActorAssignmentsComplete && EveryAssignedGroupHasACharacter && !HasUnusedActor; }
+			get { return IsVoiceActorAssignmentsComplete && EveryAssignedGroupHasACharacter; }
 		}
 
 		public bool IsVoiceActorAssignmentsComplete
@@ -620,9 +624,9 @@ namespace Glyssen
 			get { return CharacterGroupList.AssignedGroups.All(g => g.CharacterIds.Count != 0); }
 		}
 
-		public bool HasUnusedActor
+		public IEnumerable<VoiceActor.VoiceActor> UnusedActors
 		{
-			get { return VoiceActorList.AllActors.Any(actor => !CharacterGroupList.HasVoiceActorAssigned(actor.Id)); }
+			get { return VoiceActorList.ActiveActors.Where(actor => !CharacterGroupList.HasVoiceActorAssigned(actor.Id)); }
 		}
 
 		public bool HasUnappliedSplits()
@@ -779,7 +783,7 @@ namespace Glyssen
 
 		private void InitializeLoadedProject()
 		{
-			m_usxPercentComplete = 100;;
+			m_usxPercentComplete = 100;
 			if (QuoteSystem == null)
 			{
 				GuessAtQuoteSystem();
@@ -813,13 +817,16 @@ namespace Glyssen
 			}
 			UpdatePercentInitialized();
 			ProjectState = ProjectState.FullyInitialized;
+			UpdateControlFileVersion();
 			Analyze();
 		}
 
 		private void UpdateControlFileVersion()
 		{
-			ProjectDataMigrator.MigrateProjectData(this, m_metadata.ControlFileVersion);
-			m_metadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
+			if (m_metadata.ControlFileVersion != 0)
+				ProjectDataMigrator.MigrateProjectData(this, m_metadata.ControlFileVersion);
+			if (m_metadata.ControlFileVersion == 0 || ProjectState == ProjectState.FullyInitialized)
+				m_metadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
 		}
 
 		private void ApplyUserDecisions(Project sourceProject)
@@ -1320,10 +1327,10 @@ namespace Glyssen
 			return keyStrokes / (double)Program.kKeyStrokesPerHour;
 		}
 
-		public CharacterGroup GetGroupByName(string name)
+		public CharacterGroup GetGroupById(string id)
 		{
-			var grp = CharacterGroupList.GetGroupByName(name);
-			return grp ?? CharacterGroupList.GroupContainingCharacterId(name);
+			var grp = CharacterGroupList.GetGroupById(id);
+			return grp ?? CharacterGroupList.GroupContainingCharacterId(id);
 		}
 
 		public void ConvertContinuersToParatextAssumptions()
