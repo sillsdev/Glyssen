@@ -31,6 +31,12 @@ namespace GlyssenTests.Rules
 			m_testProject.AvailableBooks.Single(b => b.Code == "LUK").IncludeInScript = true;
 			m_testProject.AvailableBooks.Single(b => b.Code == "ACT").IncludeInScript = false;
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = false;
+
+			foreach (var book in m_testProject.Books)
+			{
+				book.SingleVoice = false;
+			}
+
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 		}
 
