@@ -39,7 +39,7 @@ namespace Glyssen.Dialogs
 
 		private void OpenProjectDlg_Load(object sender, EventArgs e)
 		{
-			MainForm.SetChildFormLocation(this);
+			TileFormLocation();
 		}
 
 		private void m_linkTextReleaseBundle_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

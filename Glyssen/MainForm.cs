@@ -27,9 +27,6 @@ namespace Glyssen
 {
 	public partial class MainForm : FormWithPersistedSettings
 	{
-		public const int kChildFormLocationX = 202;
-		public const int kChildFormLocationY = 95;
-
 		private Project m_project;
 		private string m_percentAssignedFmt;
 		private string m_actorsAssignedFmt;

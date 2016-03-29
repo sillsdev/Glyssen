@@ -98,7 +98,7 @@ namespace Glyssen.Dialogs
 
 		private void VoiceActorAssignmentDlg_Load(object sender, EventArgs e)
 		{
-			MainForm.SetChildFormLocation(this);
+			TileFormLocation();
 		}
 
 		private void GenerateGroupsWithProgress(bool attemptToPreserveActorAssignments, bool firstGroupGenerationRun, bool forceMatchToActors, bool cancelLink = false)
