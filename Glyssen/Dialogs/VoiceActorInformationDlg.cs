@@ -32,10 +32,7 @@ namespace Glyssen.Dialogs
 
 		private void VoiceActorInformationDlg_Load(object sender, EventArgs e)
 		{
-			if (Owner is MainForm)
-				MainForm.SetChildFormLocation(this);
-			else
-				CenterToParent();
+			TileFormLocation();
 		}
 
 		private void HandleStringsLocalized()
