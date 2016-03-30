@@ -47,6 +47,10 @@ namespace Glyssen.Dialogs
 
 		private void CastSizePlanningDlg_Load(object sender, EventArgs e)
 		{
+			// TODO: re-enable these links when the messages are implemented
+			m_linkMoreInfo.Visible = false;
+			m_linkAbout.Visible = false;
+
 			MainForm.SetChildFormLocation(this);
 		}
 
