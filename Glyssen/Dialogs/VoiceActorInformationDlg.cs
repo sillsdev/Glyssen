@@ -32,6 +32,9 @@ namespace Glyssen.Dialogs
 
 		private void VoiceActorInformationDlg_Load(object sender, EventArgs e)
 		{
+			// TODO: re-enable this button once help has been implemented
+			m_toolStripButtonHelp.Visible = false;
+
 			TileFormLocation();
 		}
 
