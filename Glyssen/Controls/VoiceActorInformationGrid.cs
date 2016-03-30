@@ -484,7 +484,22 @@ namespace Glyssen.Controls
 		private void m_dataGrid_NewRowNeeded(object sender, DataGridViewRowEventArgs e)
 		{
 			if (m_actorInformationViewModel.Actors.Count == e.Row.Index)
+			{
 				m_actorInformationViewModel.AddNewActor();
+
+				// was the first column clicked?
+				var point = m_dataGrid.PointToClient(Cursor.Position);
+				var hit = m_dataGrid.HitTest(point.X, point.Y);
+
+				if (hit.ColumnIndex != 0) return;
+
+				//PG-638: show the cursor in the name field
+				BeginInvoke(new MethodInvoker(() =>
+				{
+					m_dataGrid.CurrentCell = e.Row.Cells[0];
+					m_dataGrid.BeginEdit(true);
+				}));
+			}
 		}
 
 		private void m_dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
