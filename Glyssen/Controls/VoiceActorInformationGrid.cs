@@ -235,7 +235,7 @@ namespace Glyssen.Controls
 		private void m_dataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
 		{
 			// PG-639: has the new row been removed by m_dataGrid.CancelEdit?
-			if (!m_dataGrid.IsDirty && (m_dataGrid.RowCountLessNewRow == e.RowIndex))
+			if (e.RowIndex == m_dataGrid.RowCountLessNewRow)
 				return;
 
 			if (m_actorInformationViewModel.ValidateActor(e.RowIndex) == VoiceActorInformationViewModel.ActorValidationState.Valid)
