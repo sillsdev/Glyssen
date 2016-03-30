@@ -295,17 +295,24 @@ namespace Glyssen.Quote
 					sb.Clear();
 
 					var content = scriptText.Content;
-					int pos = 0;
+					var pos = 0;
 					while (pos < content.Length)
 					{
 						if (pendingColon)
 						{
-							var matchFirstLevelOpen = m_regexStartsWithFirstLevelOpener.Match(content, pos);
-							if (matchFirstLevelOpen.Success && matchFirstLevelOpen.Index == pos &&
-								(pos > 0 || !m_regexHasFirstLevelClose.Match(content, pos + matchFirstLevelOpen.Length).Success))
-								DecrementQuoteLevel();
+							if (s_quoteSystem.NormalLevels.Count > 0)
+							{
+								var matchFirstLevelOpen = m_regexStartsWithFirstLevelOpener.Match(content, pos);
+								if (matchFirstLevelOpen.Success && matchFirstLevelOpen.Index == pos &&
+								    (pos > 0 || !m_regexHasFirstLevelClose.Match(content, pos + matchFirstLevelOpen.Length).Success))
+									DecrementQuoteLevel();
+								else
+									blockInWhichDialogueQuoteStarted = block;
+							}
 							else
+							{
 								blockInWhichDialogueQuoteStarted = block;
+							}
 							pendingColon = false;
 						}
 

@@ -5,6 +5,7 @@ using Glyssen;
 using Glyssen.Character;
 using Glyssen.Quote;
 using NUnit.Framework;
+using SIL.ObjectModel;
 using SIL.Scripture;
 using SIL.WritingSystems;
 
@@ -1389,6 +1390,7 @@ namespace GlyssenTests.Quote
 		public void Parse_QuoteIntroducedWithColonSpansMultiplePoetryParagraphs_EntireQuoteFound(string openingQuoteMark, string closingQuoteMark)
 		{
 			// Based on Kuna San Blas (Gen 1:14-15)
+			// ReSharper disable once RedundantArgumentDefaultValue
 			var quoteSystem = new QuoteSystem(new QuotationMark(openingQuoteMark, closingQuoteMark, openingQuoteMark, 1, QuotationMarkingSystemType.Normal), ":", null);
 
 			var block1 = new Block("p", 1, 14) { IsParagraphStart = true };
@@ -3893,6 +3895,29 @@ namespace GlyssenTests.Quote
 					Assert.AreEqual(preparsedBlocks[j].BlockElements.Count, unparsedBlocks[j].BlockElements.Count);
 				}
 			}
+		}
+
+		[Test]
+		public void Parse_OnlyQuoteMarkerIsColon_DoesNotThrow()
+		{
+			// this is a test for PG-636
+
+			// set up some text that uses a colon as a dialog marker
+			var block = new Block("p", 7, 6);
+			block.BlockElements.Add(new ScriptText("He replied: Isaiah was right when he prophesied about you."));
+			block.UserConfirmed = false;
+			var input = new List<Block> { block };
+
+			// set up a quote system that only has a colon
+			var levels = new BulkObservableList<QuotationMark>
+			{
+				new QuotationMark(":", "", null, 1, QuotationMarkingSystemType.Narrative)
+			};
+			QuoteParser.SetQuoteSystem(new QuoteSystem(levels));
+
+			// originally it was throwing "Object reference not set to an instance of an object."
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input);
+			Assert.DoesNotThrow(() => parser.Parse());
 		}
 
 		#region Recovery from bad data
