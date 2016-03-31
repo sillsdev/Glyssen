@@ -178,6 +178,7 @@ namespace Glyssen.Dialogs
 			this.m_btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_btnOk.AutoSize = true;
 			this.glyssenColorPalette.SetBackColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.m_btnOk.Enabled = false;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
@@ -192,7 +193,6 @@ namespace Glyssen.Dialogs
 			this.m_btnOk.Text = "OK";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnOk, false);
 			this.m_btnOk.UseVisualStyleBackColor = true;
-			this.m_btnOk.Click += new System.EventHandler(this.BtnOk_Click);
 			// 
 			// m_lblInstructions
 			// 
@@ -230,7 +230,6 @@ namespace Glyssen.Dialogs
 			this.m_btnCancelClose.Text = "Cancel";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnCancelClose, false);
 			this.m_btnCancelClose.UseVisualStyleBackColor = true;
-			this.m_btnCancelClose.Click += new System.EventHandler(this.HandleCancelOrCloseButtonClicked);
 			// 
 			// tableLayoutPanel1
 			// 

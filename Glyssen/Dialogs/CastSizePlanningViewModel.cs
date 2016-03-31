@@ -162,17 +162,17 @@ namespace Glyssen.Dialogs
 			m_updatedCustomChildActors = child;
 
 			if (CastSizeRowValuesChanged != null)
-				CastSizeRowValuesChanged(this, new CastSizeValueChangedEventArgs(CastSizeRow.Custom, male, female, child));
+				CastSizeRowValuesChanged(this, new CastSizeValueChangedEventArgs(CastSizeRow.Custom, male, female, child, false));
 		}
 
-		internal void SetVoiceActorListValues(int male, int female, int child)
+		internal void SetVoiceActorListValues(int male, int female, int child, bool keepSelection)
 		{
 			m_actualMaleActorCount = male;
 			m_actualFemaleActorCount = female;
 			m_actualChildActorCount = child;
 
 			if (CastSizeRowValuesChanged != null)
-				CastSizeRowValuesChanged(this, new CastSizeValueChangedEventArgs(CastSizeRow.MatchVoiceActorList, male, female, child));
+				CastSizeRowValuesChanged(this, new CastSizeValueChangedEventArgs(CastSizeRow.MatchVoiceActorList, male, female, child, keepSelection));
 		}
 
 		private bool ValueChanged(int newValue, int oldValue)
@@ -264,6 +264,7 @@ namespace Glyssen.Dialogs
 		public int Male;
 		public int Female;
 		public int Child;
+		public bool KeepSelection;
 
 		public CastSizeRowValues RowValues
 		{
@@ -275,12 +276,13 @@ namespace Glyssen.Dialogs
 			get { return Male + Female + Child; }
 		}
 
-		public CastSizeValueChangedEventArgs(CastSizeRow row, int male, int female, int child)
+		public CastSizeValueChangedEventArgs(CastSizeRow row, int male, int female, int child, bool keepSelection)
 		{
 			Row = row;
 			Male = male;
 			Female = female;
 			Child = child;
+			KeepSelection = keepSelection;
 		}
 	}
 
