@@ -81,41 +81,5 @@ namespace Glyssen.Dialogs
 
 			m_btnOk.Enabled = m_viewModel.ActiveActors.Any();
 		}
-
-		private void HandleCancelOrCloseButtonClicked(object sender, EventArgs e)
-		{
-			Close(DialogResult.Cancel);
-		}
-
-		private void BtnOk_Click(object sender, EventArgs e)
-		{
-			Close(DialogResult.OK);
-		}
-
-		private void Close(DialogResult dialogResult)
-		{
-			DialogResult = dialogResult;
-			Close();
-		}
-
-		// Don't think this is needed anymore.
-		//private void VoiceActorInformationDlg_FormClosing(object sender, FormClosingEventArgs e)
-		//{
-		//	if (!m_initialEntry && !m_viewModel.Actors.Any())
-		//	{
-		//		string msg = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.CloseWithoutActors.Message", "If this dialog is closed without actors, character groups will be removed.");
-		//		string caption = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.CloseWithoutActors.Caption", "No Actors");
-		//		if (MessageBox.Show(msg, caption, MessageBoxButtons.OKCancel) == DialogResult.OK)
-		//		{
-// This method has been moved to VoiceActorAssignmentViewModel (where it eventually might not be needed either):
-		//			m_viewModel.ResetActorAndCharacterGroupState();
-		//			CloseParent = true;
-		//		}
-		//		else
-		//		{
-		//			e.Cancel = true;
-		//		}
-		//	}
-		//}
 	}
 }
