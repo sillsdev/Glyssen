@@ -486,6 +486,9 @@ namespace Glyssen
 
 			bundle.Metadata.CopyGlyssenModifiableSettings(m_metadata);
 
+			// PG-612: renaming bundle causes loss of assignments
+			bundle.Metadata.ControlFileVersion = m_metadata.ControlFileVersion;
+
 			CopyQuoteMarksIfAppropriate(bundle.WritingSystemDefinition, bundle.Metadata);
 
 			return new Project(bundle, m_recordingProjectName, this);
