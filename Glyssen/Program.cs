@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -39,7 +40,13 @@ namespace Glyssen
 		[STAThread]
 		static void Main()
 		{
-			Program.IsRunning = true;
+			IsRunning = true;
+
+			if (GetRunningGlyssenProcessCount() > 1)
+			{
+				ErrorReport.NotifyUserOfProblem("There is another copy of Glyssen already running. This instance of Glyssen will now shut down.");
+				return;
+			}
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
@@ -57,7 +64,7 @@ namespace Glyssen
 			SetUpErrorHandling();
 
 #if DEBUG
-			using (new Analytics("jBh7Qg4jw2nRFE8j8EY1FDipzin3RFIP", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }, true))
+			using (new Analytics("jBh7Qg4jw2nRFE8j8EY1FDipzin3RFIP", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }))
 #else
 			string feedbackSetting = Environment.GetEnvironmentVariable("FEEDBACK");
 
@@ -188,6 +195,15 @@ namespace Glyssen
 		public static string IssuesEmailAddress
 		{
 			get { return "glyssen-support_lsdev@sil.org"; }
+		}
+
+		/// <summary>
+		/// Getting the count of running Glyssen instances.
+		/// </summary>
+		/// <returns>The number of running Glyssen instances</returns>
+		public static int GetRunningGlyssenProcessCount()
+		{
+			return Process.GetProcesses().Count(p => p.ProcessName.ToLowerInvariant().Contains("glyssen"));
 		}
 	}
 }

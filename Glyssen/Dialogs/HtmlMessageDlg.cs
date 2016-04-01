@@ -64,5 +64,10 @@ namespace Glyssen.Dialogs
 				}
 			}
 		}
+
+		private void HtmlMessageDlg_Load(object sender, System.EventArgs e)
+		{
+			Text = ProductName;
+		}
 	}
 }

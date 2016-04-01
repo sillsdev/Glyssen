@@ -47,6 +47,10 @@ namespace Glyssen.Dialogs
 
 		private void CastSizePlanningDlg_Load(object sender, EventArgs e)
 		{
+			// TODO: re-enable these links when the messages are implemented
+			m_linkMoreInfo.Visible = false;
+			m_linkAbout.Visible = false;
+
 			MainForm.SetChildFormLocation(this);
 		}
 
@@ -101,10 +105,10 @@ namespace Glyssen.Dialogs
 
 		private void m_linkVloiceActorList_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			ShowVoiceActorList();
+			ShowVoiceActorList(true);
 		}
 
-		private void ShowVoiceActorList()
+		private void ShowVoiceActorList(bool keepSelection)
 		{
 			var actorInfoViewModel = new VoiceActorInformationViewModel(m_viewModel.Project);
 			using (var actorDlg = new VoiceActorInformationDlg(actorInfoViewModel, false, false))
@@ -115,7 +119,7 @@ namespace Glyssen.Dialogs
 				var female = actorInfoViewModel.Actors.Count(a => a.Gender == ActorGender.Female && a.Age != ActorAge.Child && !a.IsInactive);
 				var child = actorInfoViewModel.Actors.Count(a => a.Age == ActorAge.Child && !a.IsInactive);
 
-				m_viewModel.SetVoiceActorListValues(male, female, child);
+				m_viewModel.SetVoiceActorListValues(male, female, child, keepSelection);
 			}
 			m_castSizePlanningOptions.Refresh();
 			UpdateButtonState();
@@ -222,7 +226,7 @@ namespace Glyssen.Dialogs
 		private void CastSizePlanningDlg_Shown(object sender, EventArgs e)
 		{
 			if (m_viewModel.VoiceActorCount > 1)
-				ShowVoiceActorList();
+				ShowVoiceActorList(false);
 		}
 	}
 }

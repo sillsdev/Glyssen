@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Configuration;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Properties;
@@ -10,6 +11,9 @@ namespace Glyssen.Utilities
 { 
 	public class FormWithPersistedSettings: Form
 	{
+		public const int kChildFormLocationX = 202;
+		public const int kChildFormLocationY = 95;
+
 		private string m_formSettingsName;
 		private bool m_finishedLoading;
 
@@ -147,6 +151,14 @@ namespace Glyssen.Utilities
 
 			// if you are here, the settings were not found
 			return null;
+		}
+
+		protected void TileFormLocation()
+		{
+			if ((Owner == null) || (WindowState == FormWindowState.Maximized))
+				return;
+
+			Location = new Point(Owner.Location.X + kChildFormLocationX, Owner.Location.Y + kChildFormLocationY);
 		}
 	}
 }

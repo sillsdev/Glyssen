@@ -463,7 +463,7 @@ namespace Glyssen.Dialogs
 
 		private void AssignCharacterDlg_Load(object sender, EventArgs e)
 		{
-			MainForm.SetChildFormLocation(this);
+			TileFormLocation();
 		}
 
 		private void AssignCharacterDialog_Shown(object sender, EventArgs e)
