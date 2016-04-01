@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
 using DesktopAnalytics;
 using Glyssen.Character;
+using Glyssen.Properties;
 using L10NSharp;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
+using SIL.Extensions;
+using SIL.IO;
+using SIL.Reporting;
 using SIL.Scripture;
 
 namespace Glyssen
@@ -22,70 +27,258 @@ namespace Glyssen
 	{
 		public const string kExcelFileExtension = ".xlsx";
 		public const string kTabDelimitedFileExtension = ".txt";
-		private const string Separator = "\t";
 
-		private List<Tuple<int, string, List<object>>> m_data;
+		private string m_customFileName;
+		private int m_numberOfFileSuccessfullyExported;
+
+		private readonly bool m_includeVoiceActors;
 
 		public ProjectExporter(Project project)
 		{
 			Project = project;
-			IncludeVoiceActors = Project.CharacterGroupList.AnyVoiceActorAssigned();
+			m_includeVoiceActors = Project.CharacterGroupList.AnyVoiceActorAssigned();
 		}
 
 		public Project Project { get; private set; }
+		public bool IncludeVoiceActors { get { return m_includeVoiceActors; } }
+		public bool IncludeActorBreakdown { get; set; }
+		public bool IncludeBookBreakdown { get; set; }
+		
+		internal ExportFileType SelectedFileType { get; set; }
 
-		public bool IncludeVoiceActors { get; private set; }
-
-		public void GenerateFile(string path, ExportFileType fileType)
+		internal string RecordingScriptFileNameSuffix
 		{
-			switch (fileType)
+			get
 			{
-				case ExportFileType.TabSeparated:
-					GenerateTabSeparatedFile(path, GetExportData().Select(t => t.Item3));
-					break;
-				default:
-					GenerateExcelFile(path, GetExportData().Select(t => t.Item3));
-					break;
+				return LocalizationManager.GetString("DialogBoxes.ExportDlg.RecordingScriptFileNameDefaultSuffix", "Recording Script");
+			}
+		}
+
+		private string DefaultDirectory
+		{
+			get
+			{
+				var defaultDirectory = Settings.Default.DefaultExportDirectory;
+				if (string.IsNullOrWhiteSpace(defaultDirectory))
+				{
+					defaultDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), Program.kProduct);
+					if (!Directory.Exists(defaultDirectory))
+						Directory.CreateDirectory(defaultDirectory);
+				}
+
+				return defaultDirectory;
+			}
+		}
+
+		internal string CurrentBaseFolder
+		{
+			get { return Path.GetDirectoryName(FullFileName); }
+		}
+
+		internal string FullFileName
+		{
+			get
+			{
+				if (!string.IsNullOrEmpty(m_customFileName))
+					return m_customFileName;
+
+				var defaultFileName = Project.Name + " " +
+					RecordingScriptFileNameSuffix + GetFileExtension(SelectedFileType);
+
+				return Path.Combine(DefaultDirectory, defaultFileName.Trim());
+			}
+			set
+			{
+				m_customFileName = value;
+			}
+		}
+
+		private string FileNameWithoutExtension
+		{
+			get { return Path.GetFileNameWithoutExtension(FullFileName); }
+		}
+
+		internal string ActorDirectory
+		{
+			get
+			{
+				var dirSuffix = LocalizationManager.GetString("DialogBoxes.ExportDlg.ActorDirectoryNameSuffix", "Voice Actors");
+				return Path.Combine(CurrentBaseFolder, FileNameWithoutExtension + " " + dirSuffix);
+			}
+		}
+
+		internal string BookDirectory
+		{
+			get
+			{
+				var dirSuffix = LocalizationManager.GetString("DialogBoxes.ExportDlg.BookDirectoryNameSuffix", "Books");
+				return Path.Combine(CurrentBaseFolder, FileNameWithoutExtension + " " + dirSuffix);
+			}
+		}
+
+		//internal  GetListOfFilesInUse()
+		//{
+		//	try
+		//	{
+		//		lockedFiles.AddRange(ProcessMasterScriptFile(FullFileName));
+		//		if (IncludeActorBreakdown && Directory.Exists(ActorDirectory))
+		//			lockedFiles.AddRange(ProcessActorFiles(ActorDirectory));
+		//		if (IncludeBookBreakdown && Directory.Exists(BookDirectory))
+		//			lockedFiles.AddRange(ProcessBookFiles(BookDirectory));
+		//	}
+		//	return lockedFiles;
+		//}
+
+		internal IReadOnlyDictionary<string, List<string>> ExportNow(bool openForMe)
+		{
+			var lockedFiles = new List<Tuple<string, string>>();
+
+			m_numberOfFileSuccessfullyExported = 0;
+			
+			lockedFiles.AddRange(GenerateMasterScriptFile(FullFileName));
+
+			// remember the location (at least for this project and possible as new default)
+			Project.Status.LastExportLocation = CurrentBaseFolder;
+			if (!string.IsNullOrEmpty(m_customFileName))
+			{
+				// if the directory is not the stored default directory, make the new directory the default
+				if (!DirectoryUtilities.AreDirectoriesEquivalent(Project.Status.LastExportLocation, DefaultDirectory))
+					Settings.Default.DefaultExportDirectory = Project.Status.LastExportLocation;
 			}
 
-			Analytics.Track("Export",
-				new Dictionary<string, string>
+			if (IncludeActorBreakdown)
+			{
+				try
 				{
-					{ "exportType", fileType.ToString() },
+					Directory.CreateDirectory(ActorDirectory);
+					lockedFiles.AddRange(GenerateActorFiles(ActorDirectory));
+				}
+				catch (Exception ex)
+				{
+					Analytics.ReportException(ex);
+					ErrorReport.ReportNonFatalExceptionWithMessage(ex,
+						string.Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportActors",
+						"Could not create destination folder for voice actor script files: {0}", "{0} is a directory name."), ActorDirectory));
+				}
+			}
+			if (IncludeBookBreakdown)
+			{
+				try
+				{
+					Directory.CreateDirectory(BookDirectory);
+					lockedFiles.AddRange(GenerateBookFiles(BookDirectory));
+				}
+				catch (Exception ex)
+				{
+					Analytics.ReportException(ex);
+					ErrorReport.ReportNonFatalExceptionWithMessage(ex,
+						string.Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportBooks",
+						"Could not create destination folder for book script files: {0}", "{0} is a directory name."), BookDirectory));
+				}
+			}
+
+			if (openForMe && !lockedFiles.Any())
+				OpenExportFileOrLocation();
+
+			var result = new Dictionary<string, List<string>>();
+			foreach (var lockedFile in lockedFiles)
+			{
+				List<string> list;
+				if (!result.TryGetValue(lockedFile.Item1, out list))
+					result[lockedFile.Item1] = list = new List<string>();
+				list.Add(lockedFile.Item2);
+			}
+			return result;
+		}
+
+		public void OpenExportFileOrLocation()
+		{
+			try
+			{
+				if (m_numberOfFileSuccessfullyExported > 0 && Project.Status.LastExportLocation != null)
+				{
+					if (IncludeActorBreakdown || IncludeBookBreakdown)
+						PathUtilities.OpenDirectoryInExplorer(Project.Status.LastExportLocation);
+					else
+						PathUtilities.OpenFileInApplication(FullFileName);
+				}
+			}
+			catch (Exception ex)
+			{
+				Analytics.ReportException(ex);
+				// Oh well, probably not worth bugging the user with a yellow screen.
+			}
+		}
+
+		internal DataTable GeneratePreviewTable()
+		{
+			var dt = new DataTable();
+
+			foreach (string columnName in GetHeaders())
+				dt.Columns.Add(columnName);
+
+			foreach (var line in GetExportData())
+				dt.Rows.Add(line.ToArray());
+		
+			return dt;
+		}
+
+		private IEnumerable<Tuple<string, string>> GenerateMasterScriptFile(string path)
+		{
+			Analytics.Track("Export", new Dictionary<string, string>
+				{
+					{ "exportType", SelectedFileType.ToString() },
 					{ "includeVoiceActors", IncludeVoiceActors.ToString() }
 				});
+
+			return GenerateFile(path, () => GetExportData());
 		}
 
-		public void GenerateActorFiles(string directoryPath, ExportFileType fileType)
+		private IEnumerable<Tuple<string, string>> GenerateFile(string path, Func<IEnumerable<List<object>>> getData)
 		{
-			if (!IncludeVoiceActors)
-				return;
+			Action<string, IEnumerable<List<object>>> generateFile = (SelectedFileType == ExportFileType.TabSeparated)
+				? (Action<string, IEnumerable<List<object>>>) GenerateTabSeparatedFile
+				: GenerateExcelFile;
 
-			switch (fileType)
+			Exception caughtException = null;
+			try
 			{
-				case ExportFileType.TabSeparated:
-					foreach (var actor in Project.VoiceActorList.AllActors.Where(a => Project.CharacterGroupList.HasVoiceActorAssigned(a.Id)))
-						GenerateTabSeparatedFile(Path.Combine(directoryPath, actor.Name), GetExportData().Where(t => t.Item1 == actor.Id).Select(t => t.Item3));
-					break;
-				default:
-					foreach (var actor in Project.VoiceActorList.AllActors.Where(a => Project.CharacterGroupList.HasVoiceActorAssigned(a.Id)))
-						GenerateExcelFile(Path.Combine(directoryPath, actor.Name), GetExportData().Where(t => t.Item1 == actor.Id).Select(t => t.Item3));
-					break;
+				generateFile(path, getData());
+				m_numberOfFileSuccessfullyExported++;
+			}
+			catch (Exception ex)
+			{
+				Analytics.ReportException(ex);
+				caughtException = ex;
+			}
+			if (caughtException != null)
+				yield return new Tuple<string, string>(caughtException.Message, path);
+		}
+
+		private IEnumerable<Tuple<string, string>> GenerateActorFiles(string directoryPath)
+		{
+			if (IncludeVoiceActors)
+			{
+				foreach (var actor in Project.VoiceActorList.AllActors.Where(a => Project.CharacterGroupList.HasVoiceActorAssigned(a.Id)))
+				{
+					var actorId = actor.Id;
+					foreach (var lockedFile in GenerateFile(Path.Combine(directoryPath, actor.Name), () => GetExportData(voiceActorId: actorId)))
+					{
+						yield return lockedFile;
+					}
+				}
 			}
 		}
 
-		public void GenerateBookFiles(string directoryPath, ExportFileType fileType)
+		private IEnumerable<Tuple<string, string>> GenerateBookFiles(string directoryPath)
 		{
-			switch (fileType)
+			foreach (var book in Project.IncludedBooks)
 			{
-				case ExportFileType.TabSeparated:
-					foreach (var book in Project.IncludedBooks)
-						GenerateTabSeparatedFile(Path.Combine(directoryPath, book.BookId), GetExportData().Where(t => t.Item2 == book.BookId).Select(t => t.Item3));
-					break;
-				default:
-					foreach (var book in Project.IncludedBooks)
-						GenerateExcelFile(Path.Combine(directoryPath, book.BookId), GetExportData().Where(t => t.Item2 == book.BookId).Select(t => t.Item3));
-					break;
+				var bookId = book.BookId;
+				foreach (var lockedFile in GenerateFile(Path.Combine(directoryPath, book.BookId), () => GetExportData(bookId)))
+				{
+					yield return lockedFile;
+				}
 			}
 		}
 
@@ -97,8 +290,8 @@ namespace Glyssen
 			using (var stream = new StreamWriter(path, false, Encoding.UTF8))
 			{
 				stream.WriteLine(GetTabSeparatedLine(GetHeaders()));
-				foreach (var line in data)
-					stream.WriteLine(GetTabSeparatedLine(line));
+				foreach (var line in data.Select(GetTabSeparatedLine))
+					stream.WriteLine(line);
 			}
 		}
 
@@ -155,39 +348,50 @@ namespace Glyssen
 		}
 
 		// internal for testing
-		internal List<Tuple<int, string, List<object>>> GetExportData()
+		internal IEnumerable<List<object>> GetExportData(string bookId = null, int voiceActorId = -1)
 		{
-			if (m_data == null)
-			{
-				int blockNumber = 1;
-				var data = new List<Tuple<int, string, List<object>>>();
+			//if (m_data != null)
+			//{
+			//	foreach (var line in m_data)
+			//	{
+			//		yield return line;
+			//	}
+			//}
+			//else
+			//{
+			int blockNumber = 1;
 
-				foreach (var book in Project.IncludedBooks)
+			IEnumerable<BookScript> booksToInclude = bookId == null
+				? Project.IncludedBooks
+				: Project.IncludedBooks.Where(b => b.BookId == bookId);
+
+			foreach (var book in booksToInclude)
+			{
+				string singleVoiceNarratorOverride = null;
+				if (book.SingleVoice)
+					singleVoiceNarratorOverride = CharacterVerseData.GetStandardCharacterId(book.BookId,
+						CharacterVerseData.StandardCharacter.Narrator);
+				foreach (var block in book.GetScriptBlocks(true))
 				{
-					string singleVoiceNarratorOverride = null;
-					if (book.SingleVoice)
-						singleVoiceNarratorOverride = CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator);
-					foreach (var block in book.GetScriptBlocks(true))
+					if (block.IsChapterAnnouncement && block.ChapterNumber == 1)
 					{
-						if (block.IsChapterAnnouncement && block.ChapterNumber == 1)
-						{
-							if (Project.SkipChapterAnnouncementForFirstChapter)
-								continue;
-							if (Project.SkipChapterAnnouncementForSingleChapterBooks && Project.Versification.LastChapter(BCVRef.BookToNumber(book.BookId)) == 1)
-								continue;
-						}
-						if (IncludeVoiceActors)
-						{
-							VoiceActor.VoiceActor voiceActor = Project.GetVoiceActorForCharacter(singleVoiceNarratorOverride ?? block.CharacterIdInScript) ?? GetDummyActor();
-							data.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride, IncludeVoiceActors));
-						}
-						else
-							data.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, null, singleVoiceNarratorOverride, IncludeVoiceActors));
+						if (Project.SkipChapterAnnouncementForFirstChapter)
+							continue;
+						if (Project.SkipChapterAnnouncementForSingleChapterBooks &&
+							Project.Versification.LastChapter(BCVRef.BookToNumber(book.BookId)) == 1)
+							continue;
 					}
+					if (IncludeVoiceActors)
+					{
+						VoiceActor.VoiceActor voiceActor =
+							Project.GetVoiceActorForCharacter(singleVoiceNarratorOverride ?? block.CharacterIdInScript) ?? GetDummyActor();
+						if (voiceActorId == -1 || voiceActor.Id == voiceActorId)
+							yield return GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride, IncludeVoiceActors);
+					}
+					else
+						 yield return GetExportDataForBlock(block, blockNumber++, book.BookId, null, singleVoiceNarratorOverride, IncludeVoiceActors);
 				}
-				m_data = data;
 			}
-			return m_data;
 		}
 
 		private List<object> GetHeaders()
@@ -218,7 +422,7 @@ namespace Glyssen
 			return headers;
 		}
 
-		internal static Tuple<int, string, List<object>> GetExportDataForBlock(Block block, int blockNumber, string bookId, VoiceActor.VoiceActor voiceActor = null, string singleVoiceNarratorOverride = null, bool useCharacterIdInScript = true)
+		internal static List<object> GetExportDataForBlock(Block block, int blockNumber, string bookId, VoiceActor.VoiceActor voiceActor = null, string singleVoiceNarratorOverride = null, bool useCharacterIdInScript = true)
 		{
 			// NOTE: if the order here changes, there may be changes needed in GenerateExcelFile
 			List<object> list = new List<object>();
@@ -243,12 +447,13 @@ namespace Glyssen
 			list.Add(block.Delivery);
 			list.Add(block.GetText(true));
 			list.Add(block.GetText(false).Length);
-			return new Tuple<int, string, List<object>>(voiceActor == null ? -1 : voiceActor.Id, bookId, list);
+			return list;
 		}
 
 		internal static string GetTabSeparatedLine(List<object> items)
 		{
-			return string.Join(Separator, items);
+			const string kTabSeparator = "\t";
+			return string.Join(kTabSeparator, items);
 		}
 
 		public static string GetFileExtension(ExportFileType fileType)
@@ -288,7 +493,7 @@ namespace Glyssen
 			dataArray.Insert(0, GetRolesHeaders().ToArray());
 			using (var xls = new ExcelPackage(new FileInfo(path)))
 			{
-				const int maxHeight = 65;
+				const int kMaxHeight = 65;
 
 				var sheet = xls.Workbook.Worksheets.Add("Roles for Voice Actors");
 				sheet.Cells["A1"].LoadFromArrays(dataArray);
@@ -314,7 +519,7 @@ namespace Glyssen
 
 				for (int i = 1; i <= data.Count + 1; i++)
 					if (sheet.Cells[i, 2].Value.ToString().Length > 300)
-						sheet.Row(i).Height = maxHeight;
+						sheet.Row(i).Height = kMaxHeight;
 
 				sheet.View.FreezePanes(2, 1);
 

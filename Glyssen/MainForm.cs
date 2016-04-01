@@ -494,18 +494,7 @@ namespace Glyssen
 
 		private void View_Script_Click(object sender, EventArgs e)
 		{
-			EnsureGroupsAreInSynchWithCharactersInUse();
-
-			var exportViewModel = new ExportViewModel(m_project);
-
-			if (!IsOkToExport(exportViewModel.Exporter))
-				return;
-
-			using (var dlg = new ViewScriptDlg(exportViewModel))
-			{
-				dlg.ShowDialog(this);
-				ShowLastLocation();
-			}
+			ShowProjectScriptPresenterDlg(exporter => new ViewScriptDlg(exporter));
 		}
 
 		private void EnsureGroupsAreInSynchWithCharactersInUse()
@@ -720,16 +709,16 @@ namespace Glyssen
 				AssignVoiceActors_Click(m_btnCastSizePlanning, EventArgs.Empty);
 		}
 
-		private void ShowExportDialog()
+		private void ShowProjectScriptPresenterDlg(Func<ProjectExporter, Form> getProjectScriptPresenterDlg)
 		{
 			EnsureGroupsAreInSynchWithCharactersInUse();
 
-			var exportViewModel = new ExportViewModel(m_project);
+			var exporter = new ProjectExporter(m_project);
 
-			if (!IsOkToExport(exportViewModel.Exporter))
+			if (!IsOkToExport(exporter))
 				return;
 
-			using (var dlg = new ExportDlg(exportViewModel))
+			using (var dlg = getProjectScriptPresenterDlg(exporter))
 			{
 				dlg.ShowDialog(this);
 				ShowLastLocation();
@@ -742,7 +731,7 @@ namespace Glyssen
 			{
 				if (m_btnExport.Enabled)
 				{
-					ShowExportDialog();
+					ShowProjectScriptPresenterDlg(exportViewModel => new ExportDlg(exportViewModel));
 					e.Handled = true;
 					return;
 				}

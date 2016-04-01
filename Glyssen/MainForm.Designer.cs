@@ -485,7 +485,7 @@
 			this.m_btnExport.Enabled = false;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnExport, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnExport, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnExport, "View the script as a spreadsheet");
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnExport, "View the script as a spreadsheet (Ctrl-E to bypass this view and open Export dialog)");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnExport, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnExport, "MainForm.ViewScript");
 			this.m_btnExport.Location = new System.Drawing.Point(23, 209);
