@@ -27,7 +27,7 @@ namespace Glyssen.Character
 		public ObservableList<CharacterGroup> CharacterGroups
 		{
 			get { return m_characterGroups; }
-			set 
+			private set 
 			{
 				m_characterGroups = value;
 				m_characterGroups.CollectionChanged += CharacterGroups_CollectionChanged;

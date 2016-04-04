@@ -40,9 +40,10 @@ namespace Glyssen.Controls
 
 			if ((e.Male < small.Male) ||
 			    (e.Female < small.Female) ||
-			    (e.Child < small.Child))
+				(e.Child < small.Child))
 			{
-				SelectedCastSizeRow = CastSizeRow.Recommended;
+				if (SelectedCastSizeRow == CastSizeRow.MatchVoiceActorList)
+					SelectedCastSizeRow = CastSizeRow.Recommended;
 			}
 			else
 			{
