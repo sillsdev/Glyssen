@@ -16,7 +16,7 @@ namespace Glyssen.Dialogs
 
 		private string m_tallyFmt;
 
-		public VoiceActorInformationDlg(VoiceActorInformationViewModel viewModel, bool initialEntry, bool changeOkToGenerateGroups)
+		public VoiceActorInformationDlg(VoiceActorInformationViewModel viewModel, bool initialEntry, bool changeOkToGenerateGroups, bool enableOkButtonEvenIfNoChanges = false)
 		{
 			InitializeComponent();
 
@@ -25,6 +25,8 @@ namespace Glyssen.Dialogs
 			m_viewModel = viewModel;
 			m_changeOkToGenerateGroups = changeOkToGenerateGroups;
 			m_dataGrid.Initialize(m_viewModel, !initialEntry);
+			if (enableOkButtonEvenIfNoChanges)
+				m_btnOk.Enabled = m_viewModel.ActiveActors.Any();
 
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;

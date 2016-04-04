@@ -50,6 +50,8 @@ namespace Glyssen.Rules
 		public void ApplyGeneratedGroupsToProject(bool attemptToPreserveActorAssignments = true)
 		{
 			// Create a copy. Cameos are handled in the generation code (because we always maintain those assignments).
+			// REVIEW: Would it still work (and potentially be more efficient) if we only included groups with a voice
+ 			// actor assigned, or would there be some weird edge cases where this might result in the wrong assignment?
 			List<CharacterGroup> previousGroups = attemptToPreserveActorAssignments ?
 				ProjectCharacterGroups.Where(g => !g.AssignedToCameoActor).ToList() : new List<CharacterGroup>();
 

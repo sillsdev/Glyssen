@@ -4,6 +4,7 @@ using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using NUnit.Framework;
+using SIL.Extensions;
 using SIL.ObjectModel;
 using SIL.Windows.Forms;
 
@@ -43,11 +44,11 @@ namespace GlyssenTests
 			{
 				new Glyssen.VoiceActor.VoiceActor { Id = 1 }
 			};
-			project.CharacterGroupList.CharacterGroups = new BulkObservableList<CharacterGroup>
+			project.CharacterGroupList.CharacterGroups.AddRange(new []
 			{
 				new CharacterGroup(project),
 				new CharacterGroup(project)
-			};
+			});
 			project.CharacterGroupList.CharacterGroups[0].AssignVoiceActor(1);
 
 			var exporter = new ProjectExporter(project);
@@ -133,11 +134,11 @@ namespace GlyssenTests
 			{
 				new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Marlon" }
 			};
-			project.CharacterGroupList.CharacterGroups = new BulkObservableList<CharacterGroup>
+			project.CharacterGroupList.CharacterGroups.AddRange(new[]
 			{
 				new CharacterGroup(project),
 				new CharacterGroup(project)
-			};
+			});
 			project.CharacterGroupList.CharacterGroups[0].CharacterIds.Add("Michael, archangel");
 			project.CharacterGroupList.CharacterGroups[0].AssignVoiceActor(1);
 

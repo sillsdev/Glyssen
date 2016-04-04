@@ -42,7 +42,7 @@ namespace Glyssen.Dialogs
 		private readonly BackgroundWorker m_findCharacterBackgroundWorker;
 		private bool m_programmaticClickOfUpdateGroups;
 
-		public VoiceActorAssignmentDlg(Project project, bool regenerateGroups = false)
+		public VoiceActorAssignmentDlg(Project project, bool regenerateGroups)
 		{
 			InitializeComponent();
 
@@ -58,15 +58,9 @@ namespace Glyssen.Dialogs
 			m_menuItemMoveToAnotherGroup.Tag = kMoveToAnotherGroupMenuItemId;
 
 			if (!m_project.CharacterGroupList.CharacterGroups.Any())
-			{
 				GenerateGroupsWithProgress(false, true, false);
-				m_project.Save();
-			}
 			else if (regenerateGroups)
-			{
-				GenerateGroupsWithProgress(m_project.CharacterGroupGenerationPreferences.CastSizeOption == CastSizeRow.MatchVoiceActorList, false, false);
-				m_project.Save();
-			}
+				GenerateGroupsWithProgress(true, false, false);
 
 			m_actorAssignmentViewModel = new VoiceActorAssignmentViewModel(project, m_keyStrokesByCharacterId);
 			m_actorAssignmentViewModel.Saved += HandleModelSaved;
@@ -106,16 +100,21 @@ namespace Glyssen.Dialogs
 			var castSizeOption = m_project.CharacterGroupGenerationPreferences.CastSizeOption;
 			if (forceMatchToActors)
 				m_project.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeRow.MatchVoiceActorList;
+			bool saveGroups = false;
 			using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork, firstGroupGenerationRun, cancelLink))
 			{
 				var generator = new CharacterGroupGenerator(m_project, m_keyStrokesByCharacterId, progressDialog.BackgroundWorker);
 				progressDialog.ProgressState.Arguments = generator;
 
 				if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
+				{
 					generator.ApplyGeneratedGroupsToProject(attemptToPreserveActorAssignments);
+					saveGroups = true;
+				}
 				else if (forceMatchToActors)
 					m_project.CharacterGroupGenerationPreferences.CastSizeOption = castSizeOption;
 			}
+			m_project.Save(saveGroups);
 		}
 
 		private void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)
@@ -513,7 +512,6 @@ namespace Glyssen.Dialogs
 				? FirstSelectedCharacterGroup.GroupId : null;
 
 			m_actorAssignmentViewModel.RegenerateGroups(() => { GenerateGroupsWithProgress(true, false, true, m_programmaticClickOfUpdateGroups); });
-			m_project.Save();
 			m_programmaticClickOfUpdateGroups = false;
 			SortByColumn(m_sortedColumn, m_sortedAscending);
 
