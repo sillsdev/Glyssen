@@ -27,12 +27,6 @@ namespace GlyssenTests.Rules
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
 			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.JUD);
-
-			foreach (var book in m_testProject.Books)
-			{
-				book.SingleVoice = false;
-			}
-
 			m_keyStrokesPerCharacterId = m_testProject.GetKeyStrokesByCharacterId();
 			m_priorityComparer = new CharacterByKeyStrokeComparer(m_keyStrokesPerCharacterId);
 		}
@@ -1156,12 +1150,6 @@ namespace GlyssenTests.Rules
 				TestProject.TestBook.IIIJN,
 				TestProject.TestBook.JUD,
 				TestProject.TestBook.REV);
-
-			foreach (var book in m_testProject.Books)
-			{
-				book.SingleVoice = false;
-			}
-
 			m_keyStrokesPerCharacterId = m_testProject.GetKeyStrokesByCharacterId();
 		}
 
