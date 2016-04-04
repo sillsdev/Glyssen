@@ -30,27 +30,6 @@ namespace Glyssen
 				{"HAG", new Book(SingleVoiceReason.TooComplexToAssignAccurately)},
 				{"ZEC", new Book(SingleVoiceReason.TooComplexToAssignAccurately)},
 				{"MAL", new Book(SingleVoiceReason.TooComplexToAssignAccurately)},
-				{"ROM", new Book(SingleVoiceReason.MostUsersWillNotDramatize)},
-				{"1CO", new Book(SingleVoiceReason.MostUsersWillNotDramatize)},
-				{"2CO", new Book(SingleVoiceReason.MostUsersWillNotDramatize)},
-				{"GAL", new Book(SingleVoiceReason.MostUsersWillNotDramatize)},
-				{"EPH", new Book(SingleVoiceReason.MostUsersWillNotDramatize)},
-				{"PHP", new Book(SingleVoiceReason.MostUsersWillNotDramatize)},
-				{"COL", new Book(SingleVoiceReason.MostUsersWillNotDramatize)},
-				{"1TH", new Book(SingleVoiceReason.MostUsersWillNotDramatize)},
-				{"2TH", new Book(SingleVoiceReason.MostUsersWillNotDramatize)},
-				{"1TI", new Book(SingleVoiceReason.MostUsersWillNotDramatize)},
-				{"2TI", new Book(SingleVoiceReason.MostUsersWillNotDramatize)},
-				{"TIT", new Book(SingleVoiceReason.MostUsersWillNotDramatize)},
-				{"PHM", new Book(SingleVoiceReason.MostUsersWillNotDramatize)},
-				{"HEB", new Book(SingleVoiceReason.MostUsersWillNotDramatize)},
-				{"JAS", new Book(SingleVoiceReason.MostUsersWillNotDramatize)},
-				{"1PE", new Book(SingleVoiceReason.MostUsersWillNotDramatize)},
-				{"2PE", new Book(SingleVoiceReason.MostUsersWillNotDramatize)},
-				{"1JN", new Book(SingleVoiceReason.MostUsersWillNotDramatize)},
-				{"2JN", new Book(SingleVoiceReason.MostUsersWillNotDramatize)},
-				{"3JN", new Book(SingleVoiceReason.MostUsersWillNotDramatize)},
-				{"JUD", new Book(SingleVoiceReason.MostUsersWillNotDramatize)}
 			};
 		}
 
