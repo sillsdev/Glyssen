@@ -6,9 +6,9 @@ namespace Glyssen.Dialogs
 {
 	public partial class ViewScriptDlg : Form
 	{
-		private readonly ExportViewModel m_viewModel;
+		private readonly ProjectExporter m_viewModel;
 
-		public ViewScriptDlg(ExportViewModel viewModel)
+		public ViewScriptDlg(ProjectExporter viewModel)
 		{
 			InitializeComponent();
 			Icon = Resources.glyssenIcon;

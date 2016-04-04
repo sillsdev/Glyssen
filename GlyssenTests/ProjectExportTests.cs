@@ -12,6 +12,14 @@ namespace GlyssenTests
 	[TestFixture]
 	class ProjectExportTests
 	{
+		[TestFixtureSetUp]
+		public void FixtureSetup()
+		{
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
+			CharacterDetailData.TabDelimitedCharacterDetailData = null;
+
+		}
+
 		[Test]
 		public void GetExportData_NoActorsAssigned_ActorColumnNotPresent()
 		{
@@ -21,7 +29,7 @@ namespace GlyssenTests
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			Assert.True(data.TrueForAll(t => t.Item3.Count == 9));
+			Assert.True(data.All(t => t.Count == 9));
 		}
 
 		[Test]
@@ -44,11 +52,11 @@ namespace GlyssenTests
 
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			Assert.True(data.TrueForAll(t => t.Item3.Count == 10));
+			Assert.True(data.All(t => t.Count == 10));
 		}
 
 		[Test]
-		public void GetExportData_ChapterAnnouncementsUseClStyleTage_SkippingRulesAreAppliedCorrectly()
+		public void GetExportData_ChapterAnnouncementsUseClStyleTag_SkippingRulesAreAppliedCorrectly()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.EPH, TestProject.TestBook.JUD);
 			foreach (var block in project.Books.SelectMany(b => b.Blocks))
@@ -61,8 +69,8 @@ namespace GlyssenTests
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = false;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			var chapterBlockForEphesians = data.Single(t => (string)t.Item3[1] == "cl" && (int)t.Item3[3] == 1);
-			Assert.AreEqual("EPH", chapterBlockForEphesians.Item3[2]);
+			var chapterBlockForEphesians = data.Single(t => (string)t[1] == "cl" && (int)t[3] == 1);
+			Assert.AreEqual("EPH", chapterBlockForEphesians[2]);
 		}
 
 		[Test]
@@ -74,7 +82,7 @@ namespace GlyssenTests
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			Assert.AreEqual(2, data.Count(t => (string)t.Item3[1] == "c" && (int)t.Item3[3] == 1));
+			Assert.AreEqual(2, data.Count(t => (string)t[1] == "c" && (int)t[3] == 1));
 		}
 
 		[Test]
@@ -85,7 +93,7 @@ namespace GlyssenTests
 			metadata.IncludeChapterAnnouncementForFirstChapter = false;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			Assert.False(data.Any(t => (string)t.Item3[1] == "c" && (int)t.Item3[3] == 1));
+			Assert.False(data.Any(t => (string)t[1] == "c" && (int)t[3] == 1));
 		}
 
 		[Test]
@@ -97,8 +105,48 @@ namespace GlyssenTests
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = false;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			var chapterBlockForEphesians = data.Single(t => (string)t.Item3[1] == "c" && (int)t.Item3[3] == 1);
-			Assert.AreEqual("EPH", chapterBlockForEphesians.Item3[2]);
+			var chapterBlockForEphesians = data.Single(t => (string)t[1] == "c" && (int)t[3] == 1);
+			Assert.AreEqual("EPH", chapterBlockForEphesians[2]);
+		}
+
+		[Test]
+		public void GetExportData_SpecifiedBook_OutputOnlyIncludeBlockForThatBook()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.GAL, TestProject.TestBook.IIJN);
+			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(project, "m_metadata");
+			metadata.IncludeChapterAnnouncementForFirstChapter = true;
+			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
+			var exporter = new ProjectExporter(project);
+			var data = exporter.GetExportData("2JN");
+			Assert.True(data.All(t => (string)t[2] == "2JN"));
+		}
+
+		[Test]
+		public void GetExportData_SpecifiedActor_OutputOnlyIncludeBlockForThatActor()
+		{
+			var project = TestProject.CreateBasicTestProject();
+			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(project, "m_metadata");
+			metadata.IncludeChapterAnnouncementForFirstChapter = true;
+			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
+			project.IncludedBooks[0].SingleVoice = false;
+			project.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor>
+			{
+				new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Marlon" }
+			};
+			project.CharacterGroupList.CharacterGroups = new BulkObservableList<CharacterGroup>
+			{
+				new CharacterGroup(project),
+				new CharacterGroup(project)
+			};
+			project.CharacterGroupList.CharacterGroups[0].CharacterIds.Add("Michael, archangel");
+			project.CharacterGroupList.CharacterGroups[0].AssignVoiceActor(1);
+
+			var exporter = new ProjectExporter(project);
+			var data = exporter.GetExportData(voiceActorId: 1).Single();
+			Assert.AreEqual("Marlon", (string)data[1]);
+			Assert.AreEqual(1, (int)data[4]);
+			Assert.AreEqual(9, (int)data[5]);
+			Assert.AreEqual("Michael, archangel", (string)data[6]);
 		}
 
 		[Test]
@@ -117,9 +165,9 @@ namespace GlyssenTests
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			Assert.AreEqual("0\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK").Item3));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK")));
 			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor).Item3));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor)));
 		}
 
 		[Test]
@@ -136,9 +184,9 @@ namespace GlyssenTests
 
 			int textLength = "Text of verse three, part two. ".Length + "Text of verse four. ".Length + "Text of verse five.".Length;
 			Assert.AreEqual("0\tp\tMRK\t4\t3\t\t\tText of verse three, part two. [4]\u00A0Text of verse four. [5]\u00A0Text of verse five.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK").Item3));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK")));
 			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t3\t\t\tText of verse three, part two. [4]\u00A0Text of verse four. [5]\u00A0Text of verse five.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor).Item3));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor)));
 		}
 
 		[Test]
@@ -157,9 +205,9 @@ namespace GlyssenTests
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			Assert.AreEqual("0\tp\tMRK\t4\t1\tnarrator (MRK)\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, "narrator-MRK").Item3));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, "narrator-MRK")));
 			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tnarrator (MRK)\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, "narrator-MRK").Item3));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, "narrator-MRK")));
 		}
 
 		[Test]
@@ -179,9 +227,9 @@ namespace GlyssenTests
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			Assert.AreEqual("0\tp\tMRK\t4\t1\tMarko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK").Item3));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK")));
 			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tMarko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor).Item3));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor)));
 		}
 
 		[Test]
@@ -201,9 +249,9 @@ namespace GlyssenTests
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			Assert.AreEqual("0\tp\tMRK\t4\t1\tFred/Marko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", useCharacterIdInScript: false).Item3));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", useCharacterIdInScript: false)));
 			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tFred/Marko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, useCharacterIdInScript: false).Item3));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, useCharacterIdInScript: false)));
 		}
 	}
 }
