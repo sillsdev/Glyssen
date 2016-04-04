@@ -289,7 +289,12 @@ namespace Glyssen.Controls
 
 		private void m_dataGrid_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
 		{
-			if (m_dataGrid.Rows[e.RowIndex].IsNewRow)
+			// Remove the last row if there is no Name.
+			// If the user did not type at all, `m_dataGrid.Rows[e.RowIndex].IsNewRow` will be True.
+			// Otherwise check if this is the last row and the Name field is empty.
+			if ((m_dataGrid.Rows[e.RowIndex].IsNewRow)
+				|| ((m_dataGrid.NewRowIndex == e.RowIndex + 1) 
+					&& (m_actorInformationViewModel.ValidateActor(e.RowIndex) == VoiceActorInformationViewModel.ActorValidationState.NoName)))
 			{
 				if (m_actorInformationViewModel.Actors.Count == e.RowIndex + 1)
 				{
