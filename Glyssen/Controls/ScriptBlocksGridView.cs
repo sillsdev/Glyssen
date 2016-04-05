@@ -107,7 +107,6 @@ namespace Glyssen.Controls
 				MultiSelect = multiSelect;
 				if (changingRowCount)
 				{
-					m_colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
 					AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 					RowCount = m_viewModel.BlockCountForCurrentBook;
 				}
@@ -130,10 +129,10 @@ namespace Glyssen.Controls
 			}
 			if (changingRowCount)
 			{
-				m_colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
 				AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
 			}
 			ScrollDesiredRowsIntoView(firstRow, lastRow);
+			ResizeFirstColumn();
 
 			ResumeLayout();
 			m_updatingContext = false;
@@ -145,13 +144,22 @@ namespace Glyssen.Controls
 			SuspendLayout();
 			ClearSelection();
 			RowCount = 0;
-			m_colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+			ResizeFirstColumn();
 			ResumeLayout();
 			m_updatingContext = false;
 		}
 		#endregion
 
 		#region private methods
+
+		private void ResizeFirstColumn()
+		{
+			m_colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+			var colWidth = m_colReference.Width;
+			m_colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+			m_colReference.Width = colWidth;
+		}
+
 		private void SetFontsFromViewModel()
 		{
 			m_colText.DefaultCellStyle.Font = m_viewModel.Font;
