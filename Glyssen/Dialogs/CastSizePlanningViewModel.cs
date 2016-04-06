@@ -48,13 +48,13 @@ namespace Glyssen.Dialogs
 			switch (row)
 			{
 				case CastSizeRow.Small:
-					return new CastSizeRowValues(12, 2, 0);
+					return new CastSizeRowValues(14, 2, 0);
 
 				case CastSizeRow.Recommended:
-					return new CastSizeRowValues(20, 2, 1);
+					return new CastSizeRowValues(24, 2, 1);
 
 				case CastSizeRow.Large:
-					return new CastSizeRowValues(26, 3, 1);
+					return new CastSizeRowValues(28, 3, 1);
 
 				case CastSizeRow.MatchVoiceActorList:
 					if (m_actualMaleActorCount == Unchanged)
