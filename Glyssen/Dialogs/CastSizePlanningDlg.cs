@@ -47,6 +47,10 @@ namespace Glyssen.Dialogs
 
 		private void CastSizePlanningDlg_Load(object sender, EventArgs e)
 		{
+			// TODO: re-enable these links when the messages are implemented
+			m_linkMoreInfo.Visible = false;
+			m_linkAbout.Visible = false;
+
 			MainForm.SetChildFormLocation(this);
 		}
 
@@ -101,21 +105,22 @@ namespace Glyssen.Dialogs
 
 		private void m_linkVloiceActorList_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			ShowVoiceActorList();
+			ShowVoiceActorList(true);
 		}
 
-		private void ShowVoiceActorList()
+		private void ShowVoiceActorList(bool keepSelection)
 		{
 			var actorInfoViewModel = new VoiceActorInformationViewModel(m_viewModel.Project);
-			using (var actorDlg = new VoiceActorInformationDlg(actorInfoViewModel, false, false))
+			using (var actorDlg = new VoiceActorInformationDlg(actorInfoViewModel, false, false, !keepSelection))
 			{
-				actorDlg.ShowDialog(this);
+				if (actorDlg.ShowDialog(this) == DialogResult.Cancel)
+					keepSelection = true; // Even though Cancel doesn't actually discard changes, it should at least reflect the user's desire not to have any changes result in a change to the c
 
 				var male = actorInfoViewModel.Actors.Count(a => a.Gender == ActorGender.Male && a.Age != ActorAge.Child && !a.IsInactive);
 				var female = actorInfoViewModel.Actors.Count(a => a.Gender == ActorGender.Female && a.Age != ActorAge.Child && !a.IsInactive);
 				var child = actorInfoViewModel.Actors.Count(a => a.Age == ActorAge.Child && !a.IsInactive);
 
-				m_viewModel.SetVoiceActorListValues(male, female, child);
+				m_viewModel.SetVoiceActorListValues(male, female, child, keepSelection);
 			}
 			m_castSizePlanningOptions.Refresh();
 			UpdateButtonState();
@@ -184,9 +189,9 @@ namespace Glyssen.Dialogs
 			if (actorCount < m_viewModel.MinimumActorCount)
 			{
 				var msg = LocalizationManager.GetString("DialogBoxes.CastSizePlanning.CastTooSmallWarning",
-					"The recommended minimum cast size is {0}. Below this there could be proximity issues. Do you want to continue and generate groups using just {1} voice actors?");
+					"Using a cast size smaller than {0} will probably introduce proximity issues. Do you want to continue and generate groups using just {1} voice actors?");
 
-				if (MessageBox.Show(this, string.Format(msg, m_viewModel.RecommendedActorCount, actorCount), ProductName, MessageBoxButtons.YesNo) == DialogResult.No)
+				if (MessageBox.Show(this, string.Format(msg, m_viewModel.MinimumActorCount, actorCount), ProductName, MessageBoxButtons.YesNo) == DialogResult.No)
 					return;
 			}
 
@@ -222,7 +227,7 @@ namespace Glyssen.Dialogs
 		private void CastSizePlanningDlg_Shown(object sender, EventArgs e)
 		{
 			if (m_viewModel.VoiceActorCount > 1)
-				ShowVoiceActorList();
+				ShowVoiceActorList(m_viewModel.CastSizeOption == CastSizeRow.MatchVoiceActorList);
 		}
 	}
 }

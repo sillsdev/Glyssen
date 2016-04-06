@@ -1,22 +1,23 @@
 ﻿using System;
-using System.ComponentModel;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using L10NSharp;
 using L10NSharp.UI;
-using SIL.Windows.Forms.Miscellaneous;
 
 namespace Glyssen.Dialogs
 {
 	public partial class ExportDlg : Form
 	{
-		private readonly ExportViewModel m_viewModel;
+		private readonly ProjectExporter m_viewModel;
 		private string m_actorDirectoryFmt;
 		private string m_bookDirectoryFmt;
 		private string m_clipListFileFmt;
 		private string m_openFileForMeText;
 
-		public ExportDlg(ExportViewModel viewModel)
+		public ExportDlg(ProjectExporter viewModel)
 		{
 			m_viewModel = viewModel;
 
@@ -46,7 +47,7 @@ namespace Glyssen.Dialogs
 			m_clipListFileFmt = m_lblClipListFilename.Text;
 			m_openFileForMeText = m_checkOpenForMe.Text;
 
-			Text = string.Format(Text, m_viewModel.Exporter.Project.Name);
+			Text = string.Format(Text, m_viewModel.Project.Name);
 		}
 
 		private void UpdateDisplay()
@@ -62,7 +63,7 @@ namespace Glyssen.Dialogs
 
 		private void UpdateActorDisplay()
 		{
-			if (!m_viewModel.Exporter.IncludeVoiceActors)
+			if (!m_viewModel.IncludeVoiceActors)
 			{
 				m_checkIncludeActorBreakdown.Checked = false;
 				m_checkIncludeActorBreakdown.Visible = false;
@@ -99,7 +100,7 @@ namespace Glyssen.Dialogs
 
 		private void UpdateClipListDisplay()
 		{
-			if (!m_viewModel.Exporter.IncludeVoiceActors)
+			if (!m_viewModel.IncludeVoiceActors)
 			{
 				m_checkIncludeClipListFile.Checked = false;
 				m_checkIncludeClipListFile.Visible = false;
@@ -109,7 +110,7 @@ namespace Glyssen.Dialogs
 			else if (m_checkIncludeClipListFile.Checked)
 			{
 				var folder = Path.GetDirectoryName(m_lblFileName.Text) ?? string.Empty;
-				var filename = Path.GetFileNameWithoutExtension(m_lblFileName.Text) ?? m_viewModel.Exporter.Project.PublicationName;
+				var filename = Path.GetFileNameWithoutExtension(m_lblFileName.Text) ?? m_viewModel.Project.PublicationName;
 
 				var clipListFilenameSuffix = LocalizationManager.GetString("DialogBoxes.ExportDlg.ClipListFileNameSuffix",
 					"Clip List");
@@ -182,12 +183,14 @@ namespace Glyssen.Dialogs
 
 		private void CheckIncludeActorBreakdown_CheckedChanged(object sender, EventArgs e)
 		{
+			m_viewModel.IncludeActorBreakdown = m_checkIncludeActorBreakdown.Checked;
 			UpdateActorDisplay();
 			UpdateOpenForMeDisplay();
 		}
 
 		private void CheckIncludeBookBreakdown_CheckedChanged(object sender, EventArgs e)
 		{
+			m_viewModel.IncludeBookBreakdown = m_checkIncludeBookBreakdown.Checked;
 			UpdateBookDisplay();
 			UpdateOpenForMeDisplay();
 		}
@@ -201,19 +204,52 @@ namespace Glyssen.Dialogs
 		private void BtnOk_Click(object sender, EventArgs e)
 		{
 			Enabled = false;
-			try
+			IReadOnlyDictionary<string, List<string>> lockedFiles;
+			do
 			{
-				Cursor.Current = Cursors.WaitCursor;
-				if (m_viewModel.ExportNow(m_checkIncludeActorBreakdown.Checked, m_checkIncludeBookBreakdown.Checked, m_checkOpenForMe.Checked))
+				try
 				{
-					DialogResult = DialogResult.OK;
-					Close();
+					Cursor.Current = Cursors.WaitCursor;
+					lockedFiles = m_viewModel.ExportNow(m_checkOpenForMe.Checked);
+					if (!lockedFiles.Any())
+					{
+						DialogResult = DialogResult.OK;
+						Close();
+						return;
+					}
 				}
-			}
-			finally
-			{
-				Cursor.Current = Cursors.Default;
-			}
+				finally
+				{
+					Cursor.Current = Cursors.Default;
+				}
+
+				var bldr = new StringBuilder(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExport",
+					"Export failed to write one or more files. Try closing any applications that have these files open, and then click Retry. Details:"));
+				foreach (var key in lockedFiles.Keys)
+				{
+					bldr.Append("\r\n\r\n");
+					bldr.AppendFormat(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportProblemExplanationLabel",
+						"Error: {0}"), key);
+					if (lockedFiles[key].Count > 1 || !key.Contains(lockedFiles[key][0]))
+					{
+						bldr.Append("\r\n");
+						bldr.Append(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportProblemFilesLabel",
+							"Files affected:"));
+						foreach (var file in lockedFiles[key])
+						{
+							bldr.Append("\r\n\t");
+							bldr.Append(file);
+						}
+					}
+				}
+
+				if (MessageBox.Show(bldr.ToString(), Text, MessageBoxButtons.RetryCancel) == DialogResult.Cancel)
+				{
+					Enabled = true;
+					m_viewModel.OpenExportFileOrLocation();
+					return;
+				}
+			} while (true);
 		}
 	}
 }

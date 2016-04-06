@@ -32,7 +32,7 @@ namespace Glyssen.Controls
 		{
 			SetRowValues(e.Row, e.RowValues);
 
-			if (e.Row != CastSizeRow.MatchVoiceActorList)
+			if (e.KeepSelection || (e.Row != CastSizeRow.MatchVoiceActorList))
 				return;
 
 			// if there are too few actors, make sure "Match Voice Actor List" is not selected
@@ -40,9 +40,10 @@ namespace Glyssen.Controls
 
 			if ((e.Male < small.Male) ||
 			    (e.Female < small.Female) ||
-			    (e.Child < small.Child))
+				(e.Child < small.Child))
 			{
-				SelectedCastSizeRow = CastSizeRow.Recommended;
+				if (SelectedCastSizeRow == CastSizeRow.MatchVoiceActorList)
+					SelectedCastSizeRow = CastSizeRow.Recommended;
 			}
 			else
 			{
@@ -205,7 +206,7 @@ namespace Glyssen.Controls
 			SetControlValue(m_tableLayout.GetControlFromPosition(5, rowIndex), male + female + child);
 
 			if (CastSizeCustomValueChanged != null)
-				CastSizeCustomValueChanged(sender, new CastSizeValueChangedEventArgs(CastSizeRow.Custom, male, female, child));
+				CastSizeCustomValueChanged(sender, new CastSizeValueChangedEventArgs(CastSizeRow.Custom, male, female, child, false));
 		}
 	}
 }

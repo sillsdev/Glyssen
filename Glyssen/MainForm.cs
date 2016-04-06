@@ -27,9 +27,6 @@ namespace Glyssen
 {
 	public partial class MainForm : FormWithPersistedSettings
 	{
-		public const int kChildFormLocationX = 202;
-		public const int kChildFormLocationY = 95;
-
 		private Project m_project;
 		private string m_percentAssignedFmt;
 		private string m_actorsAssignedFmt;
@@ -65,12 +62,18 @@ namespace Glyssen
 		private void SetProject(Project project)
 		{
 			if (m_project != null)
+			{
 				m_project.ProjectStateChanged -= FinishSetProjectIfReady;
+				m_project.CharacterGroupCollectionChanged -= UpdateDisplayOfCastSizePlan;
+			}
 
 			m_project = project;
 
 			if (m_project != null)
+			{
 				m_project.ProjectStateChanged += FinishSetProjectIfReady;
+				m_project.CharacterGroupCollectionChanged += UpdateDisplayOfCastSizePlan;
+			}
 
 			ResetUi();
 
@@ -383,7 +386,7 @@ namespace Glyssen
 			m_lblBookSelectionInfo.Text = m_project != null && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed ? m_project.BookSelectionSummary : String.Empty;
 
 			UpdateDisplayOfPercentOfCharactersAssigned();
-			UpdateDisplayOfCastSizePlan();
+			UpdateDisplayOfCastSizePlan(null, null);
 			UpdateDisplayOfActorsAssigned();
 
 			// insert button numbers
@@ -409,25 +412,22 @@ namespace Glyssen
 			m_lblPercentAssigned.Text = percentAssigned > 0 ? string.Format(m_percentAssignedFmt, percentAssigned) : string.Empty;
 		}
 
-		private void UpdateDisplayOfCastSizePlan()
+		private void UpdateDisplayOfCastSizePlan(object sender, EventArgs e)
 		{
 			if (!m_btnCastSizePlanning.Visible || !m_btnCastSizePlanning.Enabled || m_project == null ||
-				m_project.CharacterGroupGenerationPreferences.CastSizeOption == CastSizeRow.NotSet ||
-				m_project.CharacterGroupGenerationPreferences.NarratorsOption == NarratorsOption.NotSet ||
 				!m_project.CharacterGroupList.CharacterGroups.Any())
 			{
 				m_lblCastSizePlan.Text = string.Empty;
 				return;
 			}
 
-			var modelTemp = new CastSizePlanningViewModel(m_project);
-			var castSize = modelTemp.GetCastSizeRowValues(m_project.CharacterGroupGenerationPreferences.CastSizeOption);
+			var castSize = m_project.CharacterGroupList.CharacterGroups.Count;
 			var narratorCount = m_project.CharacterGroupList.CharacterGroups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Narrator);
 			string format = (narratorCount > 1) ? m_castSizeFmt :
 				LocalizationManager.GetString("MainForm.CastSizePlanSingleNarrator", "Cast size is {0}, including 1 narrator",
 				"{0} is an expression indicating the total cast size");
 
-			m_lblCastSizePlan.Text = String.Format(format, castSize.Total, narratorCount);
+			m_lblCastSizePlan.Text = String.Format(format, castSize, narratorCount);
 		}
 
 		private void UpdateDisplayOfActorsAssigned()
@@ -497,18 +497,7 @@ namespace Glyssen
 
 		private void View_Script_Click(object sender, EventArgs e)
 		{
-			EnsureGroupsAreInSynchWithCharactersInUse();
-
-			var exportViewModel = new ExportViewModel(m_project);
-
-			if (!IsOkToExport(exportViewModel.Exporter))
-				return;
-
-			using (var dlg = new ViewScriptDlg(exportViewModel))
-			{
-				dlg.ShowDialog(this);
-				ShowLastLocation();
-			}
+			ShowProjectScriptPresenterDlg(exporter => new ViewScriptDlg(exporter));
 		}
 
 		private void EnsureGroupsAreInSynchWithCharactersInUse()
@@ -528,7 +517,7 @@ namespace Glyssen
 					else
 						adjuster.MakeMinimalAdjustments();
 
-					m_project.Save();
+					m_project.Save(true);
 				}
 			}
 		}
@@ -695,7 +684,7 @@ namespace Glyssen
 				m_btnCastSizePlanning_Click(m_btnCastSizePlanning, new EventArgs());
 		}
 
-		public class NoBorderToolStripRenderer : ToolStripProfessionalRenderer
+		private class NoBorderToolStripRenderer : ToolStripProfessionalRenderer
 		{
 			protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
 			{
@@ -723,16 +712,16 @@ namespace Glyssen
 				AssignVoiceActors_Click(m_btnCastSizePlanning, EventArgs.Empty);
 		}
 
-		private void ShowExportDialog()
+		private void ShowProjectScriptPresenterDlg(Func<ProjectExporter, Form> getProjectScriptPresenterDlg)
 		{
 			EnsureGroupsAreInSynchWithCharactersInUse();
 
-			var exportViewModel = new ExportViewModel(m_project);
+			var exporter = new ProjectExporter(m_project);
 
-			if (!IsOkToExport(exportViewModel.Exporter))
+			if (!IsOkToExport(exporter))
 				return;
 
-			using (var dlg = new ExportDlg(exportViewModel))
+			using (var dlg = getProjectScriptPresenterDlg(exporter))
 			{
 				dlg.ShowDialog(this);
 				ShowLastLocation();
@@ -745,7 +734,7 @@ namespace Glyssen
 			{
 				if (m_btnExport.Enabled)
 				{
-					ShowExportDialog();
+					ShowProjectScriptPresenterDlg(exportViewModel => new ExportDlg(exportViewModel));
 					e.Handled = true;
 					return;
 				}
