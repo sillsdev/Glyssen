@@ -56,7 +56,7 @@ namespace Glyssen.Dialogs
 
 		private void ProjectSettingsDlg_Load(object sender, EventArgs e)
 		{
-			MainForm.SetChildFormLocation(this);
+			TileFormLocation();
 		}
 
 		private void RemoveItemFromBookMarkerCombo(ChapterAnnouncement chapterAnnouncement)

@@ -97,6 +97,7 @@
 			this.Name = "HtmlMessageDlg";
 			this.ShowIcon = false;
 			this.Text = "HtmlMessageDlg";
+			this.Load += new System.EventHandler(this.HtmlMessageDlg_Load);
 			this.m_tableLayoutPanel.ResumeLayout(false);
 			this.m_tableLayoutPanel.PerformLayout();
 			this.flowLayoutPanel1.ResumeLayout(false);

@@ -68,6 +68,7 @@ namespace Glyssen
 		public event EventHandler<ProjectStateChangedEventArgs> ProjectStateChanged;
 		public event EventHandler QuoteParseCompleted;
 		public event EventHandler AnalysisCompleted;
+		public event EventHandler CharacterGroupCollectionChanged;
 
 		private Func<string, string> GetBookName { get; set; }
 
@@ -485,6 +486,9 @@ namespace Glyssen
 				CreateBackup("Backup before updating from new bundle");
 
 			bundle.Metadata.CopyGlyssenModifiableSettings(m_metadata);
+
+			// PG-612: renaming bundle causes loss of assignments
+			bundle.Metadata.ControlFileVersion = m_metadata.ControlFileVersion;
 
 			CopyQuoteMarksIfAppropriate(bundle.WritingSystemDefinition, bundle.Metadata);
 
@@ -1072,7 +1076,7 @@ namespace Glyssen
 				AnalysisCompleted(this, new EventArgs());
 		}
 
-		public void Save()
+		public void Save(bool saveCharacterGroups = false)
 		{
 			if (!m_projectFileIsWritable) return;
 
@@ -1093,6 +1097,8 @@ namespace Glyssen
 			SaveProjectCharacterVerseData();
 			SaveProjectCharacterDetailData();
 			SaveWritingSystem();
+			if (saveCharacterGroups)
+				SaveCharacterGroupData();
 			ProjectState = !IsQuoteSystemReadyForParse ? ProjectState.NeedsQuoteSystemConfirmation : ProjectState.FullyInitialized;
 		}
 
@@ -1124,12 +1130,19 @@ namespace Glyssen
 			m_voiceActorList.SaveToFile(Path.Combine(ProjectFolder, kVoiceActorInformationFileName));
 		}
 
-		public CharacterGroupList LoadCharacterGroupData()
+		private CharacterGroupList LoadCharacterGroupData()
 		{
 			string path = Path.Combine(ProjectFolder, kCharacterGroupFileName);
-			if (File.Exists(path))
-				return CharacterGroupList.LoadCharacterGroupListFromFile(path, this);
-			return new CharacterGroupList();
+			CharacterGroupList list;
+			list = File.Exists(path) ? CharacterGroupList.LoadCharacterGroupListFromFile(path, this) : new CharacterGroupList();
+			list.CharacterGroups.CollectionChanged += CharacterGroups_CollectionChanged;
+			return list;
+		}
+
+		void CharacterGroups_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+		{
+			if (CharacterGroupCollectionChanged != null)
+				CharacterGroupCollectionChanged(this, new EventArgs());
 		}
 
 		private VoiceActorList LoadVoiceActorInformationData()

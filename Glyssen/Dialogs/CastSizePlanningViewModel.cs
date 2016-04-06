@@ -48,13 +48,13 @@ namespace Glyssen.Dialogs
 			switch (row)
 			{
 				case CastSizeRow.Small:
-					return new CastSizeRowValues(12, 2, 0);
+					return new CastSizeRowValues(14, 2, 0);
 
 				case CastSizeRow.Recommended:
-					return new CastSizeRowValues(20, 2, 1);
+					return new CastSizeRowValues(24, 2, 1);
 
 				case CastSizeRow.Large:
-					return new CastSizeRowValues(26, 3, 1);
+					return new CastSizeRowValues(28, 3, 1);
 
 				case CastSizeRow.MatchVoiceActorList:
 					if (m_actualMaleActorCount == Unchanged)
@@ -162,17 +162,17 @@ namespace Glyssen.Dialogs
 			m_updatedCustomChildActors = child;
 
 			if (CastSizeRowValuesChanged != null)
-				CastSizeRowValuesChanged(this, new CastSizeValueChangedEventArgs(CastSizeRow.Custom, male, female, child));
+				CastSizeRowValuesChanged(this, new CastSizeValueChangedEventArgs(CastSizeRow.Custom, male, female, child, false));
 		}
 
-		internal void SetVoiceActorListValues(int male, int female, int child)
+		internal void SetVoiceActorListValues(int male, int female, int child, bool keepSelection)
 		{
 			m_actualMaleActorCount = male;
 			m_actualFemaleActorCount = female;
 			m_actualChildActorCount = child;
 
 			if (CastSizeRowValuesChanged != null)
-				CastSizeRowValuesChanged(this, new CastSizeValueChangedEventArgs(CastSizeRow.MatchVoiceActorList, male, female, child));
+				CastSizeRowValuesChanged(this, new CastSizeValueChangedEventArgs(CastSizeRow.MatchVoiceActorList, male, female, child, keepSelection));
 		}
 
 		private bool ValueChanged(int newValue, int oldValue)
@@ -264,6 +264,7 @@ namespace Glyssen.Dialogs
 		public int Male;
 		public int Female;
 		public int Child;
+		public bool KeepSelection;
 
 		public CastSizeRowValues RowValues
 		{
@@ -275,12 +276,13 @@ namespace Glyssen.Dialogs
 			get { return Male + Female + Child; }
 		}
 
-		public CastSizeValueChangedEventArgs(CastSizeRow row, int male, int female, int child)
+		public CastSizeValueChangedEventArgs(CastSizeRow row, int male, int female, int child, bool keepSelection)
 		{
 			Row = row;
 			Male = male;
 			Female = female;
 			Child = child;
+			KeepSelection = keepSelection;
 		}
 	}
 

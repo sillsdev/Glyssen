@@ -16,7 +16,7 @@ namespace Glyssen.Dialogs
 
 		private string m_tallyFmt;
 
-		public VoiceActorInformationDlg(VoiceActorInformationViewModel viewModel, bool initialEntry, bool changeOkToGenerateGroups)
+		public VoiceActorInformationDlg(VoiceActorInformationViewModel viewModel, bool initialEntry, bool changeOkToGenerateGroups, bool enableOkButtonEvenIfNoChanges = false)
 		{
 			InitializeComponent();
 
@@ -25,6 +25,8 @@ namespace Glyssen.Dialogs
 			m_viewModel = viewModel;
 			m_changeOkToGenerateGroups = changeOkToGenerateGroups;
 			m_dataGrid.Initialize(m_viewModel, !initialEntry);
+			if (enableOkButtonEvenIfNoChanges)
+				m_btnOk.Enabled = m_viewModel.ActiveActors.Any();
 
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
@@ -32,10 +34,10 @@ namespace Glyssen.Dialogs
 
 		private void VoiceActorInformationDlg_Load(object sender, EventArgs e)
 		{
-			if (Owner is MainForm)
-				MainForm.SetChildFormLocation(this);
-			else
-				CenterToParent();
+			// TODO: re-enable this button once help has been implemented
+			m_toolStripButtonHelp.Visible = false;
+
+			TileFormLocation();
 		}
 
 		private void HandleStringsLocalized()
@@ -81,41 +83,5 @@ namespace Glyssen.Dialogs
 
 			m_btnOk.Enabled = m_viewModel.ActiveActors.Any();
 		}
-
-		private void HandleCancelOrCloseButtonClicked(object sender, EventArgs e)
-		{
-			Close(DialogResult.Cancel);
-		}
-
-		private void BtnOk_Click(object sender, EventArgs e)
-		{
-			Close(DialogResult.OK);
-		}
-
-		private void Close(DialogResult dialogResult)
-		{
-			DialogResult = dialogResult;
-			Close();
-		}
-
-		// Don't think this is needed anymore.
-		//private void VoiceActorInformationDlg_FormClosing(object sender, FormClosingEventArgs e)
-		//{
-		//	if (!m_initialEntry && !m_viewModel.Actors.Any())
-		//	{
-		//		string msg = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.CloseWithoutActors.Message", "If this dialog is closed without actors, character groups will be removed.");
-		//		string caption = LocalizationManager.GetString("DialogBoxes.VoiceActorInformation.CloseWithoutActors.Caption", "No Actors");
-		//		if (MessageBox.Show(msg, caption, MessageBoxButtons.OKCancel) == DialogResult.OK)
-		//		{
-// This method has been moved to VoiceActorAssignmentViewModel (where it eventually might not be needed either):
-		//			m_viewModel.ResetActorAndCharacterGroupState();
-		//			CloseParent = true;
-		//		}
-		//		else
-		//		{
-		//			e.Cancel = true;
-		//		}
-		//	}
-		//}
 	}
 }
