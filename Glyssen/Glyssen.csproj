@@ -317,6 +317,7 @@
     <Compile Include="Utilities\GlyssenColorPalette.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Utilities\L10N.cs" />
     <Compile Include="Utilities\UndoActionSequence.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentUndoAction.cs" />
     <Compile Include="Dialogs\VoiceActorAssignmentViewModel.cs" />

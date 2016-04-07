@@ -44,6 +44,8 @@ namespace Glyssen.Dialogs
 				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.ExtraCharacter", "section head ({0})"),
 				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.NormalDelivery", "normal"));
 
+			L10N.LocalizeComboList(m_toolStripComboBoxFilter, "DialogBoxes.AssignCharacterDlg.FilterOptions");
+
 			m_xOfYFmt = m_labelXofY.Text;
 			m_singleVoiceCheckboxFmt = m_lblSingleVoice.Text;
 
@@ -138,8 +140,10 @@ namespace Glyssen.Dialogs
 				m_toolStripComboBoxFilter.SelectedIndex = 2;
 			else if ((mode & BlocksToDisplay.AllExpectedQuotes) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 3;
-			else if ((mode & BlocksToDisplay.AllScripture) != 0)
+			else if ((mode & BlocksToDisplay.AllQuotes) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 4;
+			else if ((mode & BlocksToDisplay.AllScripture) != 0)
+				m_toolStripComboBoxFilter.SelectedIndex = 5;
 			else
 				// ReSharper disable once NotResolvedInText
 				throw new InvalidEnumArgumentException("mode", (int)mode, typeof(BlocksToDisplay));
@@ -630,6 +634,7 @@ namespace Glyssen.Dialogs
 				case 1: mode = BlocksToDisplay.MissingExpectedQuote; break;
 				case 2: mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers; break;
 				case 3: mode = BlocksToDisplay.AllExpectedQuotes; break;
+				case 4: mode = BlocksToDisplay.AllQuotes; break;
 				default: mode = BlocksToDisplay.AllScripture; break;
 			}
 
