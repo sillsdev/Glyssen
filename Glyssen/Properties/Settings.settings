@@ -15,7 +15,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ParserVersion" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">34</Value>
+      <Value Profile="(Default)">35</Value>
     </Setting>
     <Setting Name="DefaultFontSize" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>
