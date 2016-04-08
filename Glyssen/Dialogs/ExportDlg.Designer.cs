@@ -83,7 +83,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_btnOk, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnOk, "Common.Ok");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnOk, "Common.OK");
 			this.m_btnOk.Location = new System.Drawing.Point(324, 324);
 			this.m_btnOk.Name = "m_btnOk";
 			this.m_btnOk.Size = new System.Drawing.Size(75, 23);
@@ -390,7 +390,7 @@ namespace Glyssen.Dialogs
 			this.m_lblDescription2.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblDescription2, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblDescription2, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblDescription2, "DialogBoxes.label1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblDescription2, "DialogBoxes.ExportDlg.Description2");
 			this.m_lblDescription2.Location = new System.Drawing.Point(3, 13);
 			this.m_lblDescription2.Name = "m_lblDescription2";
 			this.m_lblDescription2.Size = new System.Drawing.Size(322, 13);
