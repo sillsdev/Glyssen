@@ -1190,7 +1190,10 @@ namespace Glyssen.Dialogs
 				var groupsRowStyle = m_tableLayoutPanel.LayoutSettings.RowStyles[m_tableLayoutPanel.GetRow(m_characterGroupGrid)];
 				detailsRowStyle.Height = 0;
 				groupsRowStyle.Height = 100;
-				m_linkLabelShowHideDetails.Text = string.Format(m_fmtShowCharacterDetails, FirstSelectedCharacterGroup.GroupIdForUiDisplay);
+				if (FirstSelectedCharacterGroup != null)
+					m_linkLabelShowHideDetails.Text = string.Format(m_fmtShowCharacterDetails, FirstSelectedCharacterGroup.GroupIdForUiDisplay);
+				else
+					m_linkLabelShowHideDetails.Text = string.Empty;
 			}
 			m_characterDetailsGrid.Visible = m_characterDetailsVisible;
 		}
