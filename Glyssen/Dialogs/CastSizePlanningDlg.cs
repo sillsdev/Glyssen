@@ -16,6 +16,7 @@ namespace Glyssen.Dialogs
 	{
 		private readonly CastSizePlanningViewModel m_viewModel;
 		private readonly bool m_loaded;
+		private readonly string m_fmtProjectSummaryPlural;
 
 		public CastSizePlanningDlg(CastSizePlanningViewModel viewModel)
 		{
@@ -24,6 +25,7 @@ namespace Glyssen.Dialogs
 			m_viewModel = viewModel;
 			m_castSizePlanningOptions.SetViewModel(m_viewModel);
 
+			m_fmtProjectSummaryPlural = m_lblProjectSummary.Text;
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 
@@ -40,8 +42,13 @@ namespace Glyssen.Dialogs
 		private void HandleStringsLocalized()
 		{
 			var project = m_viewModel.Project;
-			m_lblProjectSummary.Text = string.Format(m_lblProjectSummary.Text, project.IncludedBooks.Count,
-				project.GetKeyStrokesByCharacterId().Count);
+			int includedBooksCount = project.IncludedBooks.Count;
+			if (includedBooksCount == 1)
+				m_lblProjectSummary.Text = string.Format(LocalizationManager.GetString("DialogBoxes.CastSizePlanning.ProjectSummary.Singular",
+					"This project has 1 book with {0} distinct character roles."), project.GetKeyStrokesByCharacterId().Count);
+			else
+				m_lblProjectSummary.Text = string.Format(m_fmtProjectSummaryPlural, includedBooksCount,
+					project.GetKeyStrokesByCharacterId().Count);
 			m_lblRecordingTime.Text = string.Format(m_lblRecordingTime.Text, project.GetEstimatedRecordingTime());
 		}
 

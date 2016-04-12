@@ -100,16 +100,16 @@ namespace Glyssen.Dialogs
 			this.m_linkAbout.AutoSize = true;
 			this.glyssenColorPalette.SetBackColor(this.m_linkAbout, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_linkAbout.BackColor = System.Drawing.SystemColors.Control;
-			this.m_linkAbout.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkAbout, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
-			this.glyssenColorPalette.SetForeColor(this.m_linkAbout, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_linkAbout.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.m_linkAbout.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_linkAbout, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_linkAbout.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_linkAbout, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_linkAbout.LinkVisited = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkAbout, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkAbout, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkAbout, "DialogBoxes.CastSizePlanning.About");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkAbout, "DialogBoxes.CastSizePlanningDlg.About");
 			this.m_linkAbout.Location = new System.Drawing.Point(457, 6);
 			this.m_linkAbout.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
 			this.m_linkAbout.Name = "m_linkAbout";
@@ -118,8 +118,8 @@ namespace Glyssen.Dialogs
 			this.m_linkAbout.TabStop = true;
 			this.m_linkAbout.Text = "What is this about?";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_linkAbout, true);
-			this.glyssenColorPalette.SetVisitedLinkColor(this.m_linkAbout, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_linkAbout.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetVisitedLinkColor(this.m_linkAbout, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_linkAbout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkAbout_LinkClicked);
 			// 
 			// m_lblStartingOver
@@ -132,7 +132,7 @@ namespace Glyssen.Dialogs
 			this.m_lblStartingOver.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblStartingOver, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblStartingOver, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblStartingOver, "DialogBoxes.CastSizePlanning.StartingOver");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblStartingOver, "DialogBoxes.CastSizePlanningDlg.StartingOver");
 			this.m_lblStartingOver.Location = new System.Drawing.Point(28, 6);
 			this.m_lblStartingOver.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
 			this.m_lblStartingOver.Name = "m_lblStartingOver";
@@ -171,7 +171,7 @@ namespace Glyssen.Dialogs
 			this.m_lblProjectSummary.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblProjectSummary, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblProjectSummary, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblProjectSummary, "DialogBoxes.m_lblProjectSummary");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblProjectSummary, "DialogBoxes.CastSizePlanningDlg.ProjectSummary.Plural");
 			this.m_lblProjectSummary.Location = new System.Drawing.Point(3, 3);
 			this.m_lblProjectSummary.Margin = new System.Windows.Forms.Padding(3);
 			this.m_lblProjectSummary.Name = "m_lblProjectSummary";
@@ -190,7 +190,7 @@ namespace Glyssen.Dialogs
 			this.m_lblRecordingTime.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblRecordingTime, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblRecordingTime, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblRecordingTime, "DialogBoxes.m_lblRecordingTime");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblRecordingTime, "DialogBoxes.CastSizePlanningDlg.RecordingTime");
 			this.m_lblRecordingTime.Location = new System.Drawing.Point(3, 22);
 			this.m_lblRecordingTime.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
 			this.m_lblRecordingTime.Name = "m_lblRecordingTime";
@@ -205,19 +205,19 @@ namespace Glyssen.Dialogs
 			this.m_linkMoreInfo.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetActiveLinkColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
 			this.m_linkMoreInfo.AutoSize = true;
-			this.m_linkMoreInfo.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_linkMoreInfo.BackColor = System.Drawing.SystemColors.Control;
 			this.m_linkMoreInfo.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkMoreInfo.Dock = System.Windows.Forms.DockStyle.Right;
-			this.m_linkMoreInfo.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.glyssenColorPalette.SetLinkColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_linkMoreInfo.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_linkMoreInfo.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_linkMoreInfo.LinkVisited = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkMoreInfo, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkMoreInfo, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkMoreInfo, "DialogBoxes.CastSizePlanning.MoreInfo");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkMoreInfo, "DialogBoxes.CastSizePlanningDlg.MoreInfo");
 			this.m_linkMoreInfo.Location = new System.Drawing.Point(285, 6);
 			this.m_linkMoreInfo.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
 			this.m_linkMoreInfo.Name = "m_linkMoreInfo";
@@ -241,7 +241,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_rbSingleNarrator, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_rbSingleNarrator, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_rbSingleNarrator, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_rbSingleNarrator, "DialogBoxes.CastSizePlanning.SingleNarrator");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_rbSingleNarrator, "DialogBoxes.CastSizePlanningDlg.SingleNarrator");
 			this.m_rbSingleNarrator.Location = new System.Drawing.Point(3, 0);
 			this.m_rbSingleNarrator.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
 			this.m_rbSingleNarrator.Name = "m_rbSingleNarrator";
@@ -263,7 +263,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_rbAuthorNarrator, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_rbAuthorNarrator, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_rbAuthorNarrator, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_rbAuthorNarrator, "DialogBoxes.CastSizePlanning.AuthorNarrator");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_rbAuthorNarrator, "DialogBoxes.CastSizePlanningDlg.AuthorNarrator");
 			this.m_rbAuthorNarrator.Location = new System.Drawing.Point(3, 20);
 			this.m_rbAuthorNarrator.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
 			this.m_rbAuthorNarrator.Name = "m_rbAuthorNarrator";
@@ -285,7 +285,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_rbCustomNarrator, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_rbCustomNarrator, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_rbCustomNarrator, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_rbCustomNarrator, "DialogBoxes.CastSizePlanning.CustomNarrators");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_rbCustomNarrator, "DialogBoxes.CastSizePlanningDlg.CustomNarrators");
 			this.m_rbCustomNarrator.Location = new System.Drawing.Point(3, 40);
 			this.m_rbCustomNarrator.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
 			this.m_rbCustomNarrator.Name = "m_rbCustomNarrator";
@@ -306,7 +306,7 @@ namespace Glyssen.Dialogs
 			this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label2, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label2, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.label2, "DialogBoxes.CastSizePlanning.Male");
+			this.m_l10NSharpExtender.SetLocalizingId(this.label2, "DialogBoxes.CastSizePlanningDlg.Male");
 			this.label2.Location = new System.Drawing.Point(3, 6);
 			this.label2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
 			this.label2.Name = "label2";
@@ -326,7 +326,7 @@ namespace Glyssen.Dialogs
 			this.label3.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label3, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label3, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.label3, "DialogBoxes.CastSizePlanning.Female");
+			this.m_l10NSharpExtender.SetLocalizingId(this.label3, "DialogBoxes.CastSizePlanningDlg.Female");
 			this.label3.Location = new System.Drawing.Point(83, 6);
 			this.label3.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
 			this.label3.Name = "label3";
@@ -379,7 +379,7 @@ namespace Glyssen.Dialogs
 			this.m_lblWorkDistributed.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblWorkDistributed, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblWorkDistributed, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblWorkDistributed, "DialogBoxes.CastSizePlanning.WorkDistributed");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblWorkDistributed, "DialogBoxes.CastSizePlanningDlg.WorkDistributed");
 			this.m_lblWorkDistributed.Location = new System.Drawing.Point(3, 6);
 			this.m_lblWorkDistributed.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
 			this.m_lblWorkDistributed.Name = "m_lblWorkDistributed";
@@ -397,7 +397,7 @@ namespace Glyssen.Dialogs
 			this.label4.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label4, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label4, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.label4, "DialogBoxes.CastSizePlanning.SizeOfCast");
+			this.m_l10NSharpExtender.SetLocalizingId(this.label4, "DialogBoxes.CastSizePlanningDlg.SizeOfCast");
 			this.label4.Location = new System.Drawing.Point(6, 229);
 			this.label4.Margin = new System.Windows.Forms.Padding(6, 6, 3, 3);
 			this.label4.Name = "label4";
@@ -415,7 +415,7 @@ namespace Glyssen.Dialogs
 			this.label5.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label5, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label5, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.label5, "DialogBoxes.CastSizePlanning.NoteTop");
+			this.m_l10NSharpExtender.SetLocalizingId(this.label5, "DialogBoxes.CastSizePlanningDlg.NoteTop");
 			this.label5.Location = new System.Drawing.Point(3, 6);
 			this.label5.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
 			this.label5.Name = "label5";
@@ -430,17 +430,17 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetActiveLinkColor(this.m_linkVloiceActorList, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
 			this.glyssenColorPalette.SetBackColor(this.m_linkVloiceActorList, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_linkVloiceActorList.BackColor = System.Drawing.SystemColors.Control;
-			this.m_linkVloiceActorList.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkVloiceActorList, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
+			this.m_linkVloiceActorList.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.m_linkVloiceActorList.Dock = System.Windows.Forms.DockStyle.Top;
-			this.glyssenColorPalette.SetForeColor(this.m_linkVloiceActorList, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_linkVloiceActorList.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_linkVloiceActorList, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_linkVloiceActorList.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_linkVloiceActorList, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_linkVloiceActorList.LinkVisited = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkVloiceActorList, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkVloiceActorList, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkVloiceActorList, "DialogBoxes.CastSizePlanning.VoiceActorList");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkVloiceActorList, "DialogBoxes.CastSizePlanningDlg.VoiceActorList");
 			this.m_linkVloiceActorList.Location = new System.Drawing.Point(3, 48);
 			this.m_linkVloiceActorList.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
 			this.m_linkVloiceActorList.Name = "m_linkVloiceActorList";
@@ -450,8 +450,8 @@ namespace Glyssen.Dialogs
 			this.m_linkVloiceActorList.Text = "Voice Actor List";
 			this.m_linkVloiceActorList.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_linkVloiceActorList, true);
-			this.glyssenColorPalette.SetVisitedLinkColor(this.m_linkVloiceActorList, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_linkVloiceActorList.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetVisitedLinkColor(this.m_linkVloiceActorList, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_linkVloiceActorList.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_linkVloiceActorList_LinkClicked);
 			// 
 			// label6
@@ -464,7 +464,7 @@ namespace Glyssen.Dialogs
 			this.label6.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label6, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.label6, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.label6, "DialogBoxes.CastSizePlanning.NoteBottom");
+			this.m_l10NSharpExtender.SetLocalizingId(this.label6, "DialogBoxes.CastSizePlanningDlg.NoteBottom");
 			this.label6.Location = new System.Drawing.Point(3, 64);
 			this.label6.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
 			this.label6.Name = "label6";
@@ -504,7 +504,7 @@ namespace Glyssen.Dialogs
 			this.m_lblWhenYouClick.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblWhenYouClick, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblWhenYouClick, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblWhenYouClick, "DialogBoxes.CastSizePlanning.WhenYouClick");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblWhenYouClick, "DialogBoxes.CastSizePlanningDlg.WhenYouClick");
 			this.m_lblWhenYouClick.Location = new System.Drawing.Point(3, 6);
 			this.m_lblWhenYouClick.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
 			this.m_lblWhenYouClick.Name = "m_lblWhenYouClick";
@@ -544,7 +544,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_btnGenerate, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnGenerate, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnGenerate, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnGenerate, "DialogBoxes.CastSizePlanning.GenerateGroups");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnGenerate, "DialogBoxes.CastSizePlanningDlg.GenerateGroups");
 			this.m_btnGenerate.Location = new System.Drawing.Point(364, 3);
 			this.m_btnGenerate.MinimumSize = new System.Drawing.Size(75, 23);
 			this.m_btnGenerate.Name = "m_btnGenerate";

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
+using Glyssen.Dialogs;
 using Glyssen.Rules;
 using Glyssen.VoiceActor;
 using GlyssenTests.Properties;
@@ -38,6 +39,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeRow.NotSet;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
 		}
 
@@ -133,6 +135,7 @@ namespace GlyssenTests.Rules
 		public void GenerateCharacterGroups_VariousNumbersOfActors_CreatesEqualNumberOfGroupsUpToMax(int numberOfMaleNarrators, int numberOfFemaleNarrators)
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numberOfMaleNarrators;
+			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeRow.MatchVoiceActorList;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
 			//0
@@ -912,6 +915,7 @@ namespace GlyssenTests.Rules
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeRow.NotSet;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
 		}
 
@@ -990,6 +994,7 @@ namespace GlyssenTests.Rules
 		[SetUp]
 		public void SetUp()
 		{
+			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeRow.NotSet;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
 		}
 
@@ -1160,6 +1165,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeRow.NotSet;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
 		}
 
@@ -1553,6 +1559,53 @@ namespace GlyssenTests.Rules
 			var narrators = new List<CharacterGroup> { narMrk, narGal, narHeb, narNonCameo };
 			foreach (var grp in groups.Except(narrators))
 				Assert.IsFalse(grp.CharacterIds.Any(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)));
+		}
+
+		[TestCase(CastSizeRow.Small)]
+		[TestCase(CastSizeRow.Recommended)]
+		[TestCase(CastSizeRow.Large)]
+		public void GenerateCharacterGroups_GhostCastUsed_CorrectNumberOfEachTypeOfActorCreated(CastSizeRow castSize)
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 1;
+			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = castSize;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+
+			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
+			var groups = gen.GenerateCharacterGroups();
+			var castSizePlanningViewModel = new CastSizePlanningViewModel(m_testProject);
+			var castSizeValues = castSizePlanningViewModel.GetCastSizeRowValues(castSize);
+			Assert.AreEqual(1, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Narrator));
+			Assert.AreEqual(0, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.None));
+			Assert.AreEqual(0, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Other));
+			Assert.AreEqual(castSizeValues.Child, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Child));
+			Assert.AreEqual(castSizeValues.Female - m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Female));
+			Assert.AreEqual(castSizeValues.Male - m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Male));
+		}
+
+		[TestCase(20, 4, 2)]
+		[TestCase(25, 2, 0)]
+		[TestCase(30, 0, 0)]
+		public void GenerateCharacterGroups_CustomGhostCastUsed_CorrectNumberOfEachTypeOfActorCreated(int maleActors, int femaleActors, int childActors)
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 1;
+			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeRow.Custom;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleActors = maleActors;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleActors = femaleActors;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfChildActors = childActors;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+
+			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
+			var groups = gen.GenerateCharacterGroups();
+			var castSizePlanningViewModel = new CastSizePlanningViewModel(m_testProject);
+			var castSizeValues = castSizePlanningViewModel.GetCastSizeRowValues(CastSizeRow.Custom);
+			var charactersInScript = TestProject.GetIncludedCharacterDetails(m_testProject, m_keyStrokesPerCharacterId);
+			var numChildCharactersInScript = charactersInScript.Count(c => c.Age == CharacterAge.Child);
+			Assert.AreEqual(1, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Narrator));
+			Assert.AreEqual(0, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.None));
+			Assert.AreEqual(0, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Other));
+			Assert.AreEqual(Math.Min(castSizeValues.Child, numChildCharactersInScript), groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Child));
+			Assert.AreEqual(castSizeValues.Female - m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Female));
+			Assert.AreEqual(castSizeValues.Male - m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Male));
 		}
 	}
 

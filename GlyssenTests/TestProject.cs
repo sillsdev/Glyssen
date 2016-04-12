@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Xml;
 using Glyssen;
 using Glyssen.Bundle;
+using Glyssen.Character;
 using Glyssen.Quote;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
@@ -14,7 +16,7 @@ using SIL.WritingSystems;
 
 namespace GlyssenTests
 {
-	class TestProject
+	static class TestProject
 	{
 		public enum TestBook
 		{
@@ -194,6 +196,13 @@ namespace GlyssenTests
 			metadata.AvailableBooks.Add(book);
 
 			usxDocuments.Add(new UsxDocument(xmlDocument));
+		}
+
+		public static List<CharacterDetail> GetIncludedCharacterDetails(Project project, IDictionary<string, int> keyStrokesPerCharacterId = null)
+		{
+			if (keyStrokesPerCharacterId == null)
+				keyStrokesPerCharacterId = project.GetKeyStrokesByCharacterId();
+			return project.AllCharacterDetailDictionary.Values.Where(c => keyStrokesPerCharacterId.Select(e => e.Key).Contains(c.CharacterId)).ToList();
 		}
 	}
 }

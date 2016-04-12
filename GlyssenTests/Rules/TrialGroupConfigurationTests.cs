@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
+using Glyssen.Dialogs;
 using Glyssen.Rules;
 using GlyssenTests.Properties;
 using NUnit.Framework;
@@ -595,6 +596,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeRow.NotSet;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
 		}
 
@@ -617,16 +619,11 @@ namespace GlyssenTests.Rules
 			var maxMaleNarrators = 2;  // one per book
 			var maxFemaleNarrators = 0;
 
-			var sortedDict = from entry in m_keyStrokesPerCharacterId orderby entry.Value descending select entry;
-
-			var characterDetails = m_testProject.AllCharacterDetailDictionary;
-			var includedCharacterDetails = characterDetails.Values.Where(c => sortedDict.Select(e => e.Key).Contains(c.CharacterId)).ToList();
-
 			Assert.DoesNotThrow(() => CharacterGroupGenerator.TrialGroupConfiguration.GeneratePossibilities(
 				groups,
 				ref maxMaleNarrators,
 				ref maxFemaleNarrators,
-				includedCharacterDetails,
+				TestProject.GetIncludedCharacterDetails(m_testProject, m_keyStrokesPerCharacterId),
 				m_keyStrokesPerCharacterId,
 				m_testProject
 				)

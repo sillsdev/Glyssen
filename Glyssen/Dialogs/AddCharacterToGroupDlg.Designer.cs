@@ -320,7 +320,7 @@
 			this.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.AddCharacterToGroup");
+			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.AddCharacterToGroupDlg.AddCharacterToGroup");
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "AddCharacterToGroupDlg";
