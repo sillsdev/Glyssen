@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
-using Glyssen.Controls;
 using Glyssen.Dialogs;
 using Glyssen.Rules;
 using Glyssen.VoiceActor;
@@ -136,6 +135,7 @@ namespace GlyssenTests.Rules
 		public void GenerateCharacterGroups_VariousNumbersOfActors_CreatesEqualNumberOfGroupsUpToMax(int numberOfMaleNarrators, int numberOfFemaleNarrators)
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numberOfMaleNarrators;
+			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeRow.MatchVoiceActorList;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
 			//0
