@@ -5,7 +5,9 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using GlyssenTests.Properties;
 using NUnit.Framework;
+using SIL.Scripture;
 using SIL.Windows.Forms;
+using ScrVers = Paratext.ScrVers;
 
 namespace GlyssenTests.Dialogs
 {
@@ -466,6 +468,66 @@ namespace GlyssenTests.Dialogs
 			//Reset data for other tests
 			nextBlock = navigator.NextBlock();
 			nextBlock.MultiBlockQuote = originalStatus;
+		}
+
+		[Test]
+		public void CurrentBlockHasMissingExpectedQuote_QuoteContainsVerseBridgeNonQuoteAtEnd_NoMissingExpectedQuotes()
+		{
+			var blockA = new Block("ip") { MultiBlockQuote = MultiBlockQuote.None };
+			var blockB = new Block("p", 1, 1) { MultiBlockQuote = MultiBlockQuote.Start };
+			blockB.BlockElements.Add(new Verse("1"));
+			blockB.BlockElements.Add(new ScriptText("Verse 1"));
+			var blockC = new Block("p", 1, 2) { MultiBlockQuote = MultiBlockQuote.Continuation };
+			blockC.BlockElements.Add(new Verse("2"));
+			blockC.BlockElements.Add(new ScriptText("Verse 2"));
+			blockC.BlockElements.Add(new Verse("3-4"));
+			blockC.BlockElements.Add(new ScriptText("Verse 3-4"));
+			var blockD = new Block("p", 1, 3, 4) { MultiBlockQuote = MultiBlockQuote.None };
+			blockD.BlockElements.Add(new ScriptText("Jesus said"));
+			var bookScriptJud = new BookScript("JUD", new List<Block> { blockA, blockB, blockC, blockD });
+			var bookList = new List<BookScript> { bookScriptJud };
+
+			var versesWithPotentialMissingQuote = new List<BCVRef> {new BCVRef(65, 1, 3), new BCVRef(65, 1, 4)};
+
+			var model = new BlockNavigatorViewModel(bookList, ScrVers.English.BaseVersification);
+			var navigator = (BlockNavigator)ReflectionHelper.GetField(model, "m_navigator");
+			navigator.NavigateToFirstBlock();
+			navigator.NextBlock();
+			navigator.NextBlock();
+			navigator.NextBlock();
+			navigator.NextBlock();
+
+			var found = model.CurrentBlockHasMissingExpectedQuote(versesWithPotentialMissingQuote);
+
+			Assert.False(found);
+		}
+
+		[Test]
+		public void CurrentBlockHasMissingExpectedQuote_QuoteContainsVerseBridgeNonQuoteAtBeginning_NoMissingExpectedQuotes()
+		{
+			var blockA = new Block("ip") {MultiBlockQuote = MultiBlockQuote.None};
+			var blockB = new Block("p", 1, 1, 2) {MultiBlockQuote = MultiBlockQuote.None};
+			blockB.BlockElements.Add(new Verse("1-2"));
+			blockB.BlockElements.Add(new ScriptText("Jesus said,"));
+
+			var blockC = new Block("p", 1, 1, 2) {MultiBlockQuote = MultiBlockQuote.Start};
+			blockC.BlockElements.Add(new ScriptText("'This is the quote'"));
+			var bookScriptJud = new BookScript("JUD", new List<Block> {blockA, blockB, blockC});
+			var bookList = new List<BookScript> {bookScriptJud};
+
+			var versesWithPotentialMissingQuote = new List<BCVRef> {new BCVRef(65, 1, 1), new BCVRef(65, 1, 2)};
+
+			var model = new BlockNavigatorViewModel(bookList, ScrVers.English.BaseVersification);
+			var navigator = (BlockNavigator) ReflectionHelper.GetField(model, "m_navigator");
+			navigator.NavigateToFirstBlock();
+			navigator.NextBlock();
+
+			var found = model.CurrentBlockHasMissingExpectedQuote(versesWithPotentialMissingQuote);
+			Assert.False(found);
+
+			navigator.NextBlock();
+			found = model.CurrentBlockHasMissingExpectedQuote(versesWithPotentialMissingQuote);
+			Assert.False(found);
 		}
 
 		private void FindRefInMark(int chapter, int verse)
