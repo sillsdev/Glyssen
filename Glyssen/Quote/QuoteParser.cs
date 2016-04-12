@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -81,7 +82,6 @@ namespace Glyssen.Quote
 		private static QuoteSystem s_quoteSystem = QuoteSystem.Default;
 		private readonly ScrVers m_versification;
 		private readonly List<Regex> m_regexes = new List<Regex>();
-		private readonly Regex m_regexStartsWithSpecialOpeningPunctuation = new Regex(@"^(\(|\[|\{)", RegexOptions.Compiled);
 		private Regex m_regexStartsWithFirstLevelOpener;
 		private Regex m_regexHasFirstLevelClose;
 
@@ -168,7 +168,7 @@ namespace Glyssen.Quote
 			{
 				m_regexes.Add(new Regex(String.Format(expr,
 					Regex.Escape(string.Join(string.Empty, quoteChars)),
-					Regex.Escape(@"(\[\{")), RegexOptions.Compiled));
+					Regex.Escape(GetOpeningPunctuationAsSingleString())), RegexOptions.Compiled));
 			}
 		}
 
@@ -322,7 +322,7 @@ namespace Glyssen.Quote
 						{
 							if (match.Index > pos)
 							{
-								specialOpeningPunctuation = m_regexStartsWithSpecialOpeningPunctuation.Match(content).Success;
+								specialOpeningPunctuation = StartsWithSpecialOpeningPunctuation(content);
 								sb.Append(content.Substring(pos, match.Index - pos));
 							}
 
@@ -473,6 +473,25 @@ namespace Glyssen.Quote
 				ProcessMultiBlock();
 			}
 			return m_outputBlocks;
+		}
+
+		private string GetOpeningPunctuationAsSingleString()
+		{
+			return string.Join("", CharacterUtils.GetAllCharactersInUnicodeCategory(UnicodeCategory.OpenPunctuation)) + GetOtherPunctuationTreatedAsOpeningPunctuationAsSingleString();
+		}
+
+		private string GetOtherPunctuationTreatedAsOpeningPunctuationAsSingleString()
+		{
+			return "¡¿";
+		}
+
+		private bool StartsWithSpecialOpeningPunctuation(string text)
+		{
+			if (text.Length == 0)
+				return false;
+			char firstCharacter = text[0];
+			return CharUnicodeInfo.GetUnicodeCategory(firstCharacter) == UnicodeCategory.OpenPunctuation ||
+				GetOtherPunctuationTreatedAsOpeningPunctuationAsSingleString().Contains(firstCharacter);
 		}
 
 		private bool ProbablyAnApostrophe(string content, int pos)

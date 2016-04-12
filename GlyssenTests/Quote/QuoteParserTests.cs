@@ -1595,8 +1595,15 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("[13]\u00A0«Guŋamo doggi calo lyel ma twolo,»", output[1].GetText(true));
 		}
 
-		[Test]
-		public void Parse_OpeningParenthesisBeforeLevel2Continuer_NarratorAfter()
+		[TestCase("(")]
+		[TestCase("[")]
+		[TestCase("{")]
+		[TestCase("⦅")]
+		[TestCase("¡")]
+		[TestCase("¿")]
+		[TestCase("[(")]
+		[TestCase("¿¡")]
+		public void Parse_OpeningPunctuationBeforeLevel2Continuer_NarratorAfter(string openingPunctuation)
 		{
 			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "« ‹", 2, QuotationMarkingSystemType.Normal));
@@ -1604,7 +1611,7 @@ namespace GlyssenTests.Quote
 			var block = new Block("p") { IsParagraphStart = true };
 			block.BlockElements.Add(new ScriptText("He said, « ‹Go!"));
 			var block2 = new Block("p") { IsParagraphStart = true };
-			block2.BlockElements.Add(new ScriptText("(« ‹Get!› »)"));
+			block2.BlockElements.Add(new ScriptText(openingPunctuation + "« ‹Get!› »)"));
 			var block3 = new Block("p") { IsParagraphStart = true };
 			block3.BlockElements.Add(new ScriptText("Thus he ended."));
 			var input = new List<Block> { block, block2, block3 };
@@ -1613,72 +1620,55 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(4, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual("« ‹Go!", output[1].GetText(false));
-			Assert.AreEqual("(« ‹Get!› »)", output[2].GetText(false));
+			Assert.AreEqual(openingPunctuation + "« ‹Get!› »)", output[2].GetText(false));
 			Assert.AreEqual("Thus he ended.", output[3].GetText(false));
 			Assert.IsTrue(output[3].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 		}
 
-		[Test]
-		public void Parse_OpeningBracketBeforeLevel2Continuer_NarratorAfter()
-		{
-			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "« ‹", 2, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "« ‹ «", 3, QuotationMarkingSystemType.Normal));
-			var block = new Block("p") { IsParagraphStart = true };
-			block.BlockElements.Add(new ScriptText("He said, « ‹Go!"));
-			var block2 = new Block("p") { IsParagraphStart = true };
-			block2.BlockElements.Add(new ScriptText("[« ‹Get!› »]"));
-			var block3 = new Block("p") { IsParagraphStart = true };
-			block3.BlockElements.Add(new ScriptText("Thus he ended."));
-			var input = new List<Block> { block, block2, block3 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
-			Assert.AreEqual(4, output.Count);
-			Assert.AreEqual("He said, ", output[0].GetText(false));
-			Assert.AreEqual("« ‹Go!", output[1].GetText(false));
-			Assert.AreEqual("[« ‹Get!› »]", output[2].GetText(false));
-			Assert.AreEqual("Thus he ended.", output[3].GetText(false));
-			Assert.IsTrue(output[3].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
-		}
-
-		[Test]
-		public void Parse_OpeningBraceBeforeLevel2Continuer_NarratorAfter()
-		{
-			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "« ‹", 2, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "« ‹ «", 3, QuotationMarkingSystemType.Normal));
-			var block = new Block("p") { IsParagraphStart = true };
-			block.BlockElements.Add(new ScriptText("He said, « ‹Go!"));
-			var block2 = new Block("p") { IsParagraphStart = true };
-			block2.BlockElements.Add(new ScriptText("{« ‹Get!› »}"));
-			var block3 = new Block("p") { IsParagraphStart = true };
-			block3.BlockElements.Add(new ScriptText("Thus he ended."));
-			var input = new List<Block> { block, block2, block3 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
-			Assert.AreEqual(4, output.Count);
-			Assert.AreEqual("He said, ", output[0].GetText(false));
-			Assert.AreEqual("« ‹Go!", output[1].GetText(false));
-			Assert.AreEqual("{« ‹Get!› »}", output[2].GetText(false));
-			Assert.AreEqual("Thus he ended.", output[3].GetText(false));
-			Assert.IsTrue(output[3].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
-		}
-
-		[Test]
-		public void Parse_OpeningParenthesisAfterQuote_OpeningParenthesisGoesWithFollowingBlock()
+		[TestCase("(")]
+		[TestCase("[")]
+		[TestCase("{")]
+		[TestCase("⦅")]
+		[TestCase("¡")]
+		[TestCase("¿")]
+		[TestCase("[(")]
+		[TestCase("¿¡")]
+		public void Parse_OpeningPunctuationAfterQuote_OpeningPunctuationGoesWithFollowingBlock(string openingPunctuation)
 		{
 			var block1 = new Block("p", 1, 23) { IsParagraphStart = true };
-			block1.BlockElements.Add(new ScriptText("“Na njə́a mənə, wuntə digəlyi dzəgə kə́lə hwi, a njə dzəgə ye zəgwi rə kə za, a mbəlyi dzəgə ka zəgwi tsa Immanuʼel.” (“Immanuʼel” tsa ná, njə́ nee, “tá myi Hyalatəmwə,” əkwə.)"));
+			block1.BlockElements.Add(new ScriptText("“Na njə́a mənə, wuntə digəlyi dzəgə kə́lə hwi, a njə dzəgə ye zəgwi rə kə za, a mbəlyi dzəgə ka zəgwi tsa Immanuʼel.” " + openingPunctuation + "“Immanuʼel” tsa ná, njə́ nee, “tá myi Hyalatəmwə,” əkwə.)"));
 			var input = new List<Block> { block1 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 			Assert.AreEqual("“Na njə́a mənə, wuntə digəlyi dzəgə kə́lə hwi, a njə dzəgə ye zəgwi rə kə za, a mbəlyi dzəgə ka zəgwi tsa Immanuʼel.” ", output[0].GetText(true));
-			Assert.AreEqual("(“Immanuʼel” ", output[1].GetText(true));
+			Assert.AreEqual(openingPunctuation + "“Immanuʼel” ", output[1].GetText(true));
 			Assert.AreEqual("tsa ná, njə́ nee, ", output[2].GetText(true));
 			Assert.AreEqual("“tá myi Hyalatəmwə,” ", output[3].GetText(true));
 			Assert.AreEqual("əkwə.)", output[4].GetText(true));
+		}
+
+		[TestCase("(")]
+		[TestCase("[")]
+		[TestCase("{")]
+		[TestCase("⦅")]
+		[TestCase("¡")]
+		[TestCase("¿")]
+		[TestCase("[(")]
+		[TestCase("¿¡")]
+		public void Parse_QuoteStartsWithLeadingPunctation_LeadingPunctationIncludedInQuote(string openingPunctuation)
+		{
+			// PG-644 (Kaqchikel - cak)
+			var block1 = new Block("p", 1, 25) { IsParagraphStart = true };
+			block1.BlockElements.Add(new ScriptText("Pero ri Jesús xuchꞌolij ri itziel espíritu: " + openingPunctuation + "Man chic cachꞌoꞌ y catiel-el riqꞌuin ri ache!"));
+			var input = new List<Block> { block1 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("Pero ri Jesús xuchꞌolij ri itziel espíritu: ", output[0].GetText(true));
+			Assert.AreEqual(openingPunctuation + "Man chic cachꞌoꞌ y catiel-el riqꞌuin ri ache!", output[1].GetText(true));
 		}
 
 		[Test]

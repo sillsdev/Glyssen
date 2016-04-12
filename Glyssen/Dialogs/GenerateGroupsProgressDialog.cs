@@ -49,7 +49,7 @@ namespace Glyssen.Dialogs
 			ShowInTaskbar = false;
 			CanCancel = !firstRun;
 			ReplaceCancelButtonWithLink = replaceCancelButtonWithLink;
-			ProgressLabelTextWhenComplete = LocalizationManager.GetString("GenerateGroupsProgressDialog.Complete", "Group generation is complete.");
+			ProgressLabelTextWhenComplete = LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Complete", "Group generation is complete.");
 			BarStyle = ProgressBarStyle.Marquee;
 			BackgroundWorker worker = new BackgroundWorker();
 			worker.WorkerSupportsCancellation = true;
