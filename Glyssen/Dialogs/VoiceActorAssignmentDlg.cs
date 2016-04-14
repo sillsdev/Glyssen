@@ -108,7 +108,16 @@ namespace Glyssen.Dialogs
 
 				if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
 				{
+					var assignedBefore = m_project.CharacterGroupList.CountVoiceActorsAssigned();
 					generator.ApplyGeneratedGroupsToProject(attemptToPreserveActorAssignments);
+
+					if (m_project.CharacterGroupList.CountVoiceActorsAssigned() < assignedBefore)
+					{
+						var msg = LocalizationManager.GetString("MainForm.FewerAssignedActorsAfterGeneration",
+							"An actor assignment had to be removed. Please review the Voice Actor assignments, and adjust where necessary.");
+						MessageBox.Show(this, msg, Text, MessageBoxButtons.OK);
+					}
+
 					saveGroups = true;
 				}
 				else if (forceMatchToActors)

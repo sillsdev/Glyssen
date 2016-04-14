@@ -467,7 +467,7 @@ namespace Glyssen
 					break;
 			}
 
-			m_lblActorsAssigned.Text = String.Format(format, assignedParameter);
+			m_lblActorsAssigned.Text = string.Format(format, assignedParameter);
 		}
 
 		private void UpdateProjectState()
@@ -504,6 +504,7 @@ namespace Glyssen
 		{
 			if (!m_project.CharacterGroupList.CharacterGroups.Any())
 				return;
+
 			var adjuster = new CharacterGroupsAdjuster(m_project);
 			if (adjuster.GroupsAreNotInSynchWithData)
 			{
@@ -513,9 +514,21 @@ namespace Glyssen
 					progressDialog.ProgressState.Arguments = generator;
 
 					if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
+					{
+						var assignedBefore = m_project.CharacterGroupList.CountVoiceActorsAssigned();
 						generator.ApplyGeneratedGroupsToProject();
+
+						if (m_project.CharacterGroupList.CountVoiceActorsAssigned() < assignedBefore)
+						{
+							var msg = LocalizationManager.GetString("MainForm.FewerAssignedActorsAfterGeneration",
+								"An actor assignment had to be removed. Please review the Voice Actor assignments, and adjust where necessary.");
+							MessageBox.Show(this, msg, Text, MessageBoxButtons.OK);
+						}
+					}
 					else
+					{
 						adjuster.MakeMinimalAdjustments();
+					}
 
 					m_project.Save(true);
 				}
