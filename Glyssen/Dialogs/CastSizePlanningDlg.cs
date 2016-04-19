@@ -36,6 +36,9 @@ namespace Glyssen.Dialogs
 			NarratorOption = m_viewModel.NarratorOption;
 			CastSizeOption = m_viewModel.CastSizeOption;
 
+			// set the warning icon
+			m_imgNarratorWarning.Image = SystemIcons.Error.ToBitmap();
+
 			m_loaded = true;
 		}
 
@@ -110,7 +113,7 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		private void m_linkVloiceActorList_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		private void m_linkVoiceActorList_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			ShowVoiceActorList(true);
 		}
@@ -131,6 +134,7 @@ namespace Glyssen.Dialogs
 			}
 			m_castSizePlanningOptions.Refresh();
 			UpdateButtonState();
+			ShowOrHideNarratorCountWarning();
 		}
 
 		private NarratorsOption NarratorOption
@@ -175,6 +179,7 @@ namespace Glyssen.Dialogs
 
 			m_maleNarrators.Enabled = NarratorOption == NarratorsOption.Custom;
 			m_femaleNarrators.Enabled = m_maleNarrators.Enabled;
+			ShowOrHideNarratorCountWarning();
 		}
 
 		private void Save()
@@ -187,6 +192,14 @@ namespace Glyssen.Dialogs
 			if (!m_loaded) return;
 
 			m_viewModel.SetNarratorValues((int)m_maleNarrators.Value, (int)m_femaleNarrators.Value);
+			ShowOrHideNarratorCountWarning();
+		}
+
+		private void ShowOrHideNarratorCountWarning()
+		{
+			var cast = m_viewModel.GetCastSizeRowValues(m_viewModel.CastSizeOption);
+			m_tblNarratorWarning.Visible = ((m_maleNarrators.Value > cast.Male) || (m_femaleNarrators.Value > cast.Female));
+			m_btnGenerate.Enabled = !m_tblNarratorWarning.Visible;
 		}
 
 		private void m_btnGenerate_Click(object sender, EventArgs e)
@@ -223,12 +236,14 @@ namespace Glyssen.Dialogs
 
 			m_viewModel.CastSizeOption = e.Row;
 			UpdateButtonState();
+			ShowOrHideNarratorCountWarning();
 		}
 
 		private void m_castSizePlanningOptions_CastSizeCustomValueChanged(object sender, CastSizeValueChangedEventArgs e)
 		{
 			m_viewModel.SetCustomVoiceActorValues(e.Male, e.Female, e.Child);
 			UpdateButtonState();
+			ShowOrHideNarratorCountWarning();
 		}
 
 		private void CastSizePlanningDlg_Shown(object sender, EventArgs e)
