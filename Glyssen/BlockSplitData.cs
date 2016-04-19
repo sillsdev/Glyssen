@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Glyssen
 {
@@ -40,7 +39,14 @@ namespace Glyssen
 					return -1;
 				return x.CharacterOffsetToSplit < y.CharacterOffsetToSplit ? -1 : 1;
 			}
-			return Int32.Parse(x.VerseToSplit) < Int32.Parse(y.VerseToSplit) ? -1 : 1;
+
+			// PG-671: VerseToSplit can be null
+			if (x.VerseToSplit == null)
+				return -1;
+			if (y.VerseToSplit == null)
+				return 1;
+
+			return int.Parse(x.VerseToSplit) < int.Parse(y.VerseToSplit) ? -1 : 1;
 		}
 	}
 
