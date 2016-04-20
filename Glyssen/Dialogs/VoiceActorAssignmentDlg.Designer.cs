@@ -44,9 +44,9 @@ namespace Glyssen.Dialogs
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoiceActorAssignmentDlg));
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoiceActorAssignmentDlg));
 			this.m_contextMenuCharacters = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.m_menuItemCreateNewGroup = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_menuItemAssignToCameoActor = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,11 +100,13 @@ namespace Glyssen.Dialogs
 			this.m_lblInstructions2 = new System.Windows.Forms.Label();
 			this.m_linkClose = new System.Windows.Forms.LinkLabel();
 			this.m_linkPrint = new System.Windows.Forms.LinkLabel();
+			this.m_imgPushPin = new System.Windows.Forms.PictureBox();
 			this.m_toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.m_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.m_tableLayoutPanelLowerRight = new System.Windows.Forms.TableLayoutPanel();
 			this.m_tableLayoutPanelMove = new System.Windows.Forms.TableLayoutPanel();
 			this.m_tableLayoutPanelVoiceActorList = new System.Windows.Forms.TableLayoutPanel();
+			this.m_detailControls = new System.Windows.Forms.TableLayoutPanel();
 			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -122,10 +124,12 @@ namespace Glyssen.Dialogs
 			((System.ComponentModel.ISupportInitialize)(this.m_characterDetailsGrid)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).BeginInit();
 			this.m_menuStrip.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.m_imgPushPin)).BeginInit();
 			this.m_tableLayoutPanel.SuspendLayout();
 			this.m_tableLayoutPanelLowerRight.SuspendLayout();
 			this.m_tableLayoutPanelMove.SuspendLayout();
 			this.m_tableLayoutPanelVoiceActorList.SuspendLayout();
+			this.m_detailControls.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.glyssenColorPalette)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -472,8 +476,8 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_characterDetailsGrid, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_characterDetailsGrid, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_characterDetailsGrid, "DialogBoxes.VoiceActorAssignmentDlg.CharacterDetails");
-			this.m_characterDetailsGrid.Location = new System.Drawing.Point(0, 263);
-			this.m_characterDetailsGrid.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+			this.m_characterDetailsGrid.Location = new System.Drawing.Point(0, 261);
+			this.m_characterDetailsGrid.Margin = new System.Windows.Forms.Padding(0, 1, 0, 3);
 			this.m_characterDetailsGrid.MultiSelect = false;
 			this.m_characterDetailsGrid.Name = "m_characterDetailsGrid";
 			this.m_characterDetailsGrid.PaintHeaderAcrossFullGridWidth = true;
@@ -487,7 +491,7 @@ namespace Glyssen.Dialogs
 			this.m_characterDetailsGrid.SelectedRowForeColor = System.Drawing.Color.Empty;
 			this.m_characterDetailsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.m_characterDetailsGrid.ShowWaterMarkWhenDirty = false;
-			this.m_characterDetailsGrid.Size = new System.Drawing.Size(583, 123);
+			this.m_characterDetailsGrid.Size = new System.Drawing.Size(583, 125);
 			this.m_characterDetailsGrid.TabIndex = 8;
 			this.m_characterDetailsGrid.TextBoxEditControlBorderColor = System.Drawing.Color.Silver;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_characterDetailsGrid, false);
@@ -617,14 +621,14 @@ namespace Glyssen.Dialogs
 			this.m_linkLabelShowHideDetails.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkLabelShowHideDetails.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.m_linkLabelShowHideDetails.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_linkLabelShowHideDetails.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_linkLabelShowHideDetails.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_linkLabelShowHideDetails, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkLabelShowHideDetails, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_linkLabelShowHideDetails, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_linkLabelShowHideDetails, "DialogBoxes.VoiceActorAssignmentDlg.ShowCharacterDetailsLink");
-			this.m_linkLabelShowHideDetails.Location = new System.Drawing.Point(3, 238);
+			this.m_linkLabelShowHideDetails.Location = new System.Drawing.Point(3, 13);
 			this.m_linkLabelShowHideDetails.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
 			this.m_linkLabelShowHideDetails.Name = "m_linkLabelShowHideDetails";
 			this.m_linkLabelShowHideDetails.Size = new System.Drawing.Size(129, 13);
@@ -645,9 +649,6 @@ namespace Glyssen.Dialogs
 			this.m_characterGroupGrid.AllowUserToResizeRows = false;
 			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
 			this.m_characterGroupGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-			this.m_characterGroupGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_characterGroupGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.m_characterGroupGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
 			this.glyssenColorPalette.SetBackColor(this.m_characterGroupGrid, Glyssen.Utilities.GlyssenColors.BackColor);
@@ -680,6 +681,7 @@ namespace Glyssen.Dialogs
 			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
 			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.m_characterGroupGrid.DefaultCellStyle = dataGridViewCellStyle7;
+			this.m_characterGroupGrid.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_characterGroupGrid.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.glyssenColorPalette.SetForeColor(this.m_characterGroupGrid, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_characterGroupGrid.GridColor = System.Drawing.Color.Black;
@@ -981,8 +983,8 @@ namespace Glyssen.Dialogs
 			this.m_linkVoiceActorList.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkVoiceActorList.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.m_linkVoiceActorList.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_linkVoiceActorList.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_linkVoiceActorList.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_linkVoiceActorList, null);
@@ -1057,8 +1059,8 @@ namespace Glyssen.Dialogs
 			this.m_linkPrint.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkPrint, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkPrint.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.m_linkPrint.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_linkPrint, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_linkPrint.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_linkPrint.LinkArea = new System.Windows.Forms.LinkArea(0, 3);
 			this.m_linkPrint.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_linkPrint, Glyssen.Utilities.GlyssenColors.LinkColor);
@@ -1078,6 +1080,25 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetVisitedLinkColor(this.m_linkPrint, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_linkPrint.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.HandlePrintClick);
 			// 
+			// m_imgPushPin
+			// 
+			this.glyssenColorPalette.SetBackColor(this.m_imgPushPin, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_imgPushPin, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_imgPushPin.Image = ((System.Drawing.Image)(resources.GetObject("m_imgPushPin.Image")));
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_imgPushPin, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_imgPushPin, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_imgPushPin, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_imgPushPin, "DialogBoxes.VoiceActorAssignmentDlg.DetailPinOpen");
+			this.m_imgPushPin.Location = new System.Drawing.Point(510, 20);
+			this.m_imgPushPin.Margin = new System.Windows.Forms.Padding(0, 20, 58, 0);
+			this.m_imgPushPin.Name = "m_imgPushPin";
+			this.m_imgPushPin.Size = new System.Drawing.Size(15, 15);
+			this.m_imgPushPin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+			this.m_imgPushPin.TabIndex = 12;
+			this.m_imgPushPin.TabStop = false;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_imgPushPin, false);
+			this.m_imgPushPin.Click += new System.EventHandler(this.HandlePushPinClick);
+			// 
 			// m_tableLayoutPanel
 			// 
 			this.m_tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1088,12 +1109,12 @@ namespace Glyssen.Dialogs
 			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
 			this.m_tableLayoutPanel.Controls.Add(this.m_characterDetailsGrid, 0, 4);
-			this.m_tableLayoutPanel.Controls.Add(this.m_linkLabelShowHideDetails, 0, 3);
 			this.m_tableLayoutPanel.Controls.Add(this.m_characterGroupGrid, 0, 2);
 			this.m_tableLayoutPanel.Controls.Add(this.m_lblInstructions2, 0, 1);
 			this.m_tableLayoutPanel.Controls.Add(this.m_linkPrint, 0, 0);
 			this.m_tableLayoutPanel.Controls.Add(this.m_saveStatus, 1, 1);
 			this.m_tableLayoutPanel.Controls.Add(this.m_tableLayoutPanelLowerRight, 1, 3);
+			this.m_tableLayoutPanel.Controls.Add(this.m_detailControls, 0, 3);
 			this.glyssenColorPalette.SetForeColor(this.m_tableLayoutPanel, Glyssen.Utilities.GlyssenColors.Default);
 			this.m_tableLayoutPanel.Location = new System.Drawing.Point(15, 52);
 			this.m_tableLayoutPanel.Name = "m_tableLayoutPanel";
@@ -1178,6 +1199,26 @@ namespace Glyssen.Dialogs
 			this.m_tableLayoutPanelVoiceActorList.Size = new System.Drawing.Size(244, 26);
 			this.m_tableLayoutPanelVoiceActorList.TabIndex = 5;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_tableLayoutPanelVoiceActorList, false);
+			// 
+			// m_detailControls
+			// 
+			this.m_detailControls.AutoSize = true;
+			this.glyssenColorPalette.SetBackColor(this.m_detailControls, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_detailControls.ColumnCount = 2;
+			this.m_detailControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.m_detailControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.m_detailControls.Controls.Add(this.m_linkLabelShowHideDetails, 0, 0);
+			this.m_detailControls.Controls.Add(this.m_imgPushPin, 1, 0);
+			this.m_detailControls.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.glyssenColorPalette.SetForeColor(this.m_detailControls, Glyssen.Utilities.GlyssenColors.Default);
+			this.m_detailControls.Location = new System.Drawing.Point(0, 225);
+			this.m_detailControls.Margin = new System.Windows.Forms.Padding(0);
+			this.m_detailControls.Name = "m_detailControls";
+			this.m_detailControls.RowCount = 1;
+			this.m_detailControls.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_detailControls.Size = new System.Drawing.Size(583, 35);
+			this.m_detailControls.TabIndex = 16;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_detailControls, false);
 			// 
 			// dataGridViewTextBoxColumn1
 			// 
@@ -1303,6 +1344,7 @@ namespace Glyssen.Dialogs
 			((System.ComponentModel.ISupportInitialize)(this.m_characterGroupGrid)).EndInit();
 			this.m_menuStrip.ResumeLayout(false);
 			this.m_menuStrip.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.m_imgPushPin)).EndInit();
 			this.m_tableLayoutPanel.ResumeLayout(false);
 			this.m_tableLayoutPanel.PerformLayout();
 			this.m_tableLayoutPanelLowerRight.ResumeLayout(false);
@@ -1311,6 +1353,8 @@ namespace Glyssen.Dialogs
 			this.m_tableLayoutPanelMove.PerformLayout();
 			this.m_tableLayoutPanelVoiceActorList.ResumeLayout(false);
 			this.m_tableLayoutPanelVoiceActorList.PerformLayout();
+			this.m_detailControls.ResumeLayout(false);
+			this.m_detailControls.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.glyssenColorPalette)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -1387,6 +1431,8 @@ namespace Glyssen.Dialogs
 		private ToolStripMenuItem adjustVoiceActorListToolStripMenuItem;
 		private ToolStripMenuItem adjustCastSizePlanToolStripMenuItem;
 		private ToolStripMenuItem manuallyEditGroupshelpToolStripMenuItem;
+		private TableLayoutPanel m_detailControls;
+		private PictureBox m_imgPushPin;
 
 	}
 }

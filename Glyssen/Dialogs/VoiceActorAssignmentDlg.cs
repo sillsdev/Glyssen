@@ -41,6 +41,7 @@ namespace Glyssen.Dialogs
 		private List<string> m_pendingMoveCharacters;
 		private readonly BackgroundWorker m_findCharacterBackgroundWorker;
 		private bool m_programmaticClickOfUpdateGroups;
+		private bool m_detailPinned;
 
 		public VoiceActorAssignmentDlg(Project project, bool regenerateGroups)
 		{
@@ -86,6 +87,13 @@ namespace Glyssen.Dialogs
 			m_hyperlinkFont = new Font(m_characterGroupGrid.Columns[CharacterIdsCol.Index].InheritedStyle.Font, FontStyle.Underline);
 
 			adjustGroupsToMatchMyVoiceActorsToolStripMenuItem.Enabled = project.VoiceActorList.ActiveActors.Any();
+
+			m_tableLayoutPanel.Width = ClientRectangle.Width - m_tableLayoutPanel.Left*2;
+
+			// initialize the pushpin
+			m_imgPushPin.Visible = false;
+			m_imgPushPin.Cursor = Cursors.Hand;
+			TogglePinned(true);
 		}
 
 		public bool LaunchCastSizePlanningUponExit { get; private set; }
@@ -259,7 +267,7 @@ namespace Glyssen.Dialogs
 
 		private void HandlePrintClick(object sender, EventArgs e)
 		{
-			MessageBox.Show("This feature has not been implemented yet. Choose File -> Save As instead.");
+			MessageBox.Show(@"This feature has not been implemented yet. Choose File -> Save As instead.");
 		}
 
 		private void m_unAssignActorFromGroupToolStripMenuItem_Click(object sender, EventArgs e)
@@ -583,8 +591,9 @@ namespace Glyssen.Dialogs
 			int columnIndex = m_characterGroupGrid.CurrentCellAddress.X;
 
 			m_saveStatus.OnSaved();
+			var characterGroups = changedGroups as CharacterGroup[] ?? changedGroups.ToArray();
 			if (!SetRowCount(changedGroups != null))
-				InvalidateRowsForGroups(changedGroups);
+				InvalidateRowsForGroups(characterGroups);
 			m_undoButton.Enabled = m_actorAssignmentViewModel.UndoActions.Any();
 			if (!m_undoButton.Enabled)
 				SetUndoOrRedoButtonToolTip(m_undoButton, null);
@@ -592,7 +601,7 @@ namespace Glyssen.Dialogs
 			if (!m_redoButton.Enabled)
 				SetUndoOrRedoButtonToolTip(m_redoButton, null);
 
-			var groupToSelect = changedGroups == null ? null : changedGroups.LastOrDefault();
+			var groupToSelect = changedGroups == null ? null : characterGroups.LastOrDefault();
 			int rowIndexOfGroupToSelect = groupToSelect == null ? -1 : m_actorAssignmentViewModel.CharacterGroups.IndexOf(groupToSelect);
 			if (rowIndexOfGroupToSelect >= 0)
 				m_characterGroupGrid.CurrentCell = m_characterGroupGrid.Rows[rowIndexOfGroupToSelect].Cells[columnIndex];
@@ -1171,11 +1180,17 @@ namespace Glyssen.Dialogs
 
 		private void HandleShowOrHideCharacterDetails_Click(object sender, LinkLabelLinkClickedEventArgs e)
 		{
+			if (m_detailPinned)
+				TogglePinned();
+
 			ShowOrHideCharacterDetails(!m_characterDetailsVisible);
 		}
 
 		private void ShowOrHideCharacterDetails(bool show)
 		{
+			if (!show && m_detailPinned)
+				return;
+
 			if (m_characterDetailsVisible == show)
 				return;
 
@@ -1205,6 +1220,7 @@ namespace Glyssen.Dialogs
 					m_linkLabelShowHideDetails.Text = string.Empty;
 			}
 			m_characterDetailsGrid.Visible = m_characterDetailsVisible;
+			m_imgPushPin.Visible = m_characterDetailsVisible;
 		}
 
 		private void SetCharacterDetailsPanePercentage()
@@ -1300,5 +1316,22 @@ namespace Glyssen.Dialogs
 			InitiateFind();
 		}
 		#endregion
+
+		private void HandlePushPinClick(object sender, EventArgs e)
+		{
+			TogglePinned();
+		}
+
+		private void TogglePinned(bool firstTime = false)
+		{
+			// get the image
+			var bmp = m_imgPushPin.Image;
+
+			if (!firstTime)
+				m_detailPinned = !m_detailPinned;
+
+			bmp.RotateFlip(m_detailPinned ? RotateFlipType.Rotate270FlipNone : RotateFlipType.Rotate90FlipNone);
+			m_imgPushPin.Image = bmp;
+		}
 	}
 }
