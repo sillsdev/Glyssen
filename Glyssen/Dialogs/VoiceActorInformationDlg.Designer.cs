@@ -139,8 +139,8 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetBackColor(this.m_dataGrid, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_dataGrid.BackgroundColor = System.Drawing.SystemColors.Control;
 			this.tableLayoutPanel1.SetColumnSpan(this.m_dataGrid, 3);
-			this.glyssenColorPalette.SetForeColor(this.m_dataGrid, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_dataGrid.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_dataGrid, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.l10NSharpExtender1.SetLocalizableToolTip(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_dataGrid, null);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_dataGrid, "DialogBoxes.VoiceActorInformation.voiceActorInformationGrid21");
@@ -210,7 +210,8 @@ namespace Glyssen.Dialogs
 			this.m_lblInstructions.Size = new System.Drawing.Size(448, 34);
 			this.m_lblInstructions.TabIndex = 8;
 			this.m_lblInstructions.Text = "Please bring the list up to date. Add any additional actors. Mark as \"Inactive\" a" +
-    "ny who are no longer available. Enter any missing attributes.";
+    "ny who are no longer available. Ensure attributes are correct, especially Gender" +
+    ".";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblInstructions, true);
 			// 
 			// m_btnCancelClose

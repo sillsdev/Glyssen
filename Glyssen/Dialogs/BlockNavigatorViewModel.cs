@@ -638,20 +638,16 @@ namespace Glyssen.Dialogs
 
 				if (block.IsQuote || CharacterVerseData.IsCharacterStandard(block.CharacterId, false))
 					return false;
+
 				IEnumerable<BCVRef> versesWithPotentialMissingQuote =
 					ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber, block.InitialStartVerseNumber,
 					block.LastVerse, versification: Versification).Where(c => c.IsExpected).Select(c => c.BcvRef);
-				if (!versesWithPotentialMissingQuote.Any())
+
+				var withPotentialMissingQuote = versesWithPotentialMissingQuote as IList<BCVRef> ?? versesWithPotentialMissingQuote.ToList();
+				if (!withPotentialMissingQuote.Any())
 					return false;
-				foreach (BCVRef verse in versesWithPotentialMissingQuote)
-				{
-					if (m_navigator.PeekBackwardWithinBookWhile(b => b.ChapterNumber == verse.Chapter &&
-						b.LastVerse == verse.Verse).All(b => !b.IsQuote) &&
-					    m_navigator.PeekForwardWithinBookWhile(b => b.ChapterNumber == verse.Chapter &&
-						b.InitialStartVerseNumber == verse.Verse).All(b => !b.IsQuote))
-						return true;
-				}
-				return false;
+
+				return CurrentBlockHasMissingExpectedQuote(withPotentialMissingQuote);
 			}
 			if ((Mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) > 0)
 			{
@@ -684,6 +680,43 @@ namespace Glyssen.Dialogs
 				return block.IsScripture;
 			if ((Mode & BlocksToDisplay.AllQuotes) > 0)
 				return block.IsQuote;
+			return false;
+		}
+
+		internal bool CurrentBlockHasMissingExpectedQuote(IEnumerable<BCVRef> versesWithPotentialMissingQuote)
+		{
+			foreach (var verse in versesWithPotentialMissingQuote)
+			{
+				if (m_navigator.PeekBackwardWithinBookWhile(b => PeekBackwardBlocksMatch(b, verse)).All(b => !b.IsQuote) &&
+					m_navigator.PeekForwardWithinBookWhile(b => PeekForwardBlocksMatch(b, verse)).All(b => !b.IsQuote))
+					return true;
+			}
+			return false;
+		}
+
+		static bool PeekBackwardBlocksMatch(Block block , BCVRef verse)
+		{
+			if (block.ChapterNumber != verse.Chapter) return false;
+
+			if (block.LastVerse == verse.Verse) return true;
+
+			// check for verse surrounded by the block (can happen if there is a verse bridge)
+			if ((verse.Verse >= block.InitialStartVerseNumber) && (verse.Verse < block.LastVerse))
+				return true;
+
+			return false;
+		}
+
+		static bool PeekForwardBlocksMatch(Block block, BCVRef verse)
+		{
+			if (block.ChapterNumber != verse.Chapter) return false;
+
+			if (block.InitialStartVerseNumber == verse.Verse) return true;
+
+			// check for verse surrounded by the block (can happen if there is a verse bridge)
+			if ((verse.Verse > block.InitialStartVerseNumber) && (verse.Verse <= block.LastVerse))
+				return true;
+
 			return false;
 		}
 
