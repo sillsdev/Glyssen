@@ -52,30 +52,33 @@ namespace Glyssen.Rules
 			// Create a copy. Cameos are handled in the generation code (because we always maintain those assignments).
 			// REVIEW: Would it still work (and potentially be more efficient) if we only included groups with a voice
  			// actor assigned, or would there be some weird edge cases where this might result in the wrong assignment?
-			List<CharacterGroup> previousGroups = attemptToPreserveActorAssignments ?
+			var previousGroups = attemptToPreserveActorAssignments ?
 				ProjectCharacterGroups.Where(g => !g.AssignedToCameoActor).ToList() : new List<CharacterGroup>();
 
 			ProjectCharacterGroups.Clear();
 			ProjectCharacterGroups.AddRange(GeneratedGroups);
 
-			if (previousGroups.Count > 0)
+			if (previousGroups.Count == 0) return;
+
+			// prevent an actor from being automatically assigned twice, especially when the gender is changed
+			var alreadyAssigned = GeneratedGroups.Where(grp => grp.IsVoiceActorAssigned && previousGroups.Any(prevGrp => prevGrp.VoiceActorId == grp.VoiceActorId))
+				.Select(grp => grp.VoiceActorId).ToList();
+
+			// We assume the parts with the most keystrokes are most important to maintain
+			var sortedDict = from entry in m_keyStrokesByCharacterId orderby entry.Value descending select entry;
+			foreach (var entry in sortedDict)
 			{
-				// We assume the parts with the most keystrokes are most important to maintain
-				var sortedDict = from entry in m_keyStrokesByCharacterId orderby entry.Value descending select entry;
-				foreach (var entry in sortedDict)
+				var characterId = entry.Key;
+				var previousGroupWithCharacter = previousGroups.FirstOrDefault(g => g.CharacterIds.Contains(characterId) && !alreadyAssigned.Contains(g.VoiceActorId));
+				if (previousGroupWithCharacter != null)
 				{
-					string characterId = entry.Key;
-					var previousGroupWithCharacter = previousGroups.FirstOrDefault(g => g.CharacterIds.Contains(characterId));
-					if (previousGroupWithCharacter != null)
-					{
-						var newlyGeneratedGroupWithCharacter = ProjectCharacterGroups.FirstOrDefault(g => !g.IsVoiceActorAssigned && g.CharacterIds.Contains(characterId));
-						if (newlyGeneratedGroupWithCharacter == null)
-							continue;
-						newlyGeneratedGroupWithCharacter.AssignVoiceActor(previousGroupWithCharacter.VoiceActorId);
-						previousGroups.Remove(previousGroupWithCharacter);
-						if (previousGroups.Count == 0)
-							break;
-					}
+					var newlyGeneratedGroupWithCharacter = ProjectCharacterGroups.FirstOrDefault(g => !g.IsVoiceActorAssigned && g.CharacterIds.Contains(characterId));
+					if (newlyGeneratedGroupWithCharacter == null)
+						continue;
+					newlyGeneratedGroupWithCharacter.AssignVoiceActor(previousGroupWithCharacter.VoiceActorId);
+					previousGroups.Remove(previousGroupWithCharacter);
+					if (previousGroups.Count == 0)
+						break;
 				}
 			}
 		}
@@ -365,6 +368,8 @@ namespace Glyssen.Rules
 
 			IEnumerable<CharacterGroup> availableGroups = configuration.Groups.Where(g => !g.Closed &&
 				!configuration.IsGroupReservedForNarratorOrExtraBiblical(g));
+
+			// ReSharper disable PossibleMultipleEnumeration
 			if (!availableGroups.Any())
 				availableGroups = configuration.Groups.Where(g => !g.Closed);
 
@@ -377,6 +382,7 @@ namespace Glyssen.Rules
 					groupMatchQualityDictionary[quality] = groups = new List<CharacterGroup>();
 				groups.Add(characterGroup);
 			}
+			// ReSharper restore PossibleMultipleEnumeration
 
 			var groupToProximityDict = new Dictionary<CharacterGroup, WeightedMinimumProximity>();
 
@@ -920,6 +926,7 @@ namespace Glyssen.Rules
 					configuration.CalculateConflicts();
 
 				var best = previousBest ?? configurations.First();
+				// ReSharper disable once AccessToModifiedClosure
 				foreach (var config in configurations.Skip(previousBest == null ? 1 : 0).Where(config => config.IsBetterThan(best)))
 					best = config;
 				return best;
