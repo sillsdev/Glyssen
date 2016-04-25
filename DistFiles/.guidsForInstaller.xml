@@ -4,4 +4,5 @@
   <File Id="ProgramDir.aboutBox.css" Guid="3b1ef786-bd56-4e61-9702-36634c252ea1" />
   <File Id="ProgramDir.aboutBox.htm" Guid="e070a5ca-31f2-4798-8501-d7b48237e0ca" />
   <File Id="ProgramDir.FCBH_logo.png" Guid="79c511bc-e4b5-498f-8039-cd6b470a7935" />
+  <File Id="ProgramDir.license.rtf" Guid="a190a355-a28b-4470-ae27-91dcd126b35f" />
 </InstallerMetadata>
