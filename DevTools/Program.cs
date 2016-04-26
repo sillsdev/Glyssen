@@ -15,6 +15,7 @@ namespace DevTools
 			Console.WriteLine("5) BiblicalTerms.Processor.Process()");
 			Console.WriteLine("6) CharacterListProcessing.Process()");
 			Console.WriteLine("7) Output ranges of consecutive verses with single character");
+			Console.WriteLine("8) Output annotations (sound effects, etc.)");
 			Console.WriteLine();
 
 			string line = Console.ReadLine();
@@ -28,6 +29,7 @@ namespace DevTools
 				case "5": BiblicalTerms.Processor.Process(); break;
 				case "6": CharacterListProcessing.Process(); break;
 				case "7": CharacterDetailProcessing.GetAllRangesOfThreeOrMoreConsecutiveVersesWithTheSameSingleCharacterNotMarkedAsImplicit(); break;
+				case "8": AnnotationExtractor.ExtractAll(); break;
 			}
 		}
 	}
