@@ -40,7 +40,7 @@ namespace Glyssen.Quote
 		public static QuoteSystem Guess<T>(ICharacterVerseInfo cvInfo, List<T> bookList, ScrVers versification, out bool certain, BackgroundWorker worker = null) where T : IScrBook
 		{
 			certain = false;
-			var bookCount = bookList.Count();
+			var bookCount = bookList.Count;
 			if (bookCount == 0)
 			{
 				ReportProgressComplete(worker);
@@ -115,7 +115,7 @@ namespace Glyssen.Quote
 						{
 							IncrementScore(scores, quoteSystem, kStartQuoteValue, ref bestScore);
 
-							if (quoteSystem.NormalLevels.Count() > 1)
+							if (quoteSystem.NormalLevels.Count > 1)
 							{
 								i2 = text.IndexOf(quoteSystem.NormalLevels[1].Open, ichStartQuote + 1, StringComparison.Ordinal);
 								if (i2 > ichStartQuote)
@@ -282,7 +282,7 @@ namespace Glyssen.Quote
 											Debug.Write("Multiple systems with 2nd and 3rd levels specified. Competitors reduced from " +
 												competitors.Count);
 #endif
-											competitors = competitors.Where(qs => qs.NormalLevels.Count() == 1).ToList();
+											competitors = competitors.Where(qs => qs.NormalLevels.Count == 1).ToList();
 #if SHOWTESTINFO
 											Debug.WriteLine(" to " + competitors.Count);
 #endif
@@ -302,7 +302,7 @@ namespace Glyssen.Quote
 										foreach (var system in competitors)
 											Debug.WriteLine(system.Name + "(" + system + ")\tScore: " + scores[system]);
 #endif
-										return competitors.FirstOrDefault(qs => qs.NormalLevels.Count() > 1) ?? competitors.First();
+										return competitors.FirstOrDefault(qs => qs.NormalLevels.Count > 1) ?? competitors.First();
 									}
 								}
 							}
