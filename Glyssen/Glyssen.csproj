@@ -598,6 +598,7 @@
     <None Include="Resources\MoveArrow.png" />
     <None Include="Resources\printer.bmp" />
     <Content Include="Resources\HtmlMsg.html" />
+    <Content Include="Resources\pushpin.png" />
     <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />
   </ItemGroup>
