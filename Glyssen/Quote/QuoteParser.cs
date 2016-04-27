@@ -132,7 +132,9 @@ namespace Glyssen.Quote
 						splitters.Add(s_quoteSystem.NormalLevels[0].Continue);
 					splitters.Add(s_quoteSystem.NormalLevels[level].Open);
 					if (level == 0)
-						AddQuotationDashes(splitters);
+						AddQuotationDashStart(splitters);
+					else if (level == 1)
+						AddQuotationDashEnd(splitters);
 
 					regexExpressions.Add(BuildQuoteMatcherRegex(splitters));
 				}
@@ -142,14 +144,15 @@ namespace Glyssen.Quote
 				splitters.Add(s_quoteSystem.NormalLevels.Last().Close);
 				splitters.Add(s_quoteSystem.NormalLevels.Last().Continue);
 				if (s_quoteSystem.NormalLevels.Count == 1)
-					AddQuotationDashes(splitters);
+					AddQuotationDashEnd(splitters);
 
 				regexExpressions.Add(BuildQuoteMatcherRegex(splitters));
 			}
 			else
 			{
 				splitters = new List<string>();
-				AddQuotationDashes(splitters);
+				AddQuotationDashStart(splitters);
+				AddQuotationDashEnd(splitters);
 				regexExpressions.Add(BuildQuoteMatcherRegex(splitters));
 			}
 
@@ -172,16 +175,16 @@ namespace Glyssen.Quote
 			}
 		}
 
-		private void AddQuotationDashes(IList<string> splitters)
+		private void AddQuotationDashStart(IList<string> splitters)
 		{
 			if (!string.IsNullOrEmpty(s_quoteSystem.QuotationDashMarker))
-			{
 				splitters.Add(s_quoteSystem.QuotationDashMarker);
-				if (!string.IsNullOrEmpty(s_quoteSystem.QuotationDashEndMarker))
-				{
-					splitters.Add(s_quoteSystem.QuotationDashEndMarker);
-				}
-			}
+		}
+
+		private void AddQuotationDashEnd(IList<string> splitters)
+		{
+			if (!string.IsNullOrEmpty(s_quoteSystem.QuotationDashMarker) && !string.IsNullOrEmpty(s_quoteSystem.QuotationDashEndMarker))
+				splitters.Add(s_quoteSystem.QuotationDashEndMarker);
 		}
 
 		private static string BuildQuoteMatcherRegex(IList<string> splitters)
