@@ -69,7 +69,7 @@
 		</CreateItem>
 		<NUnitTeamCity
 			Assemblies="@(TestAssemblies)"
-			ExcludeCategory="SkipOnTeamCity"
+			ExcludeCategory="SkipOnTeamCity;ByHand"
 			NUnitVersion="NUnit-2.5.5" />
 	</Target>
 

@@ -460,7 +460,8 @@ Jael	1	Female				JDG 4:18 & JDG 4:22
 Jahaziel (Spirit of the Lord on)	1	Male				2CH 20:15 <-(1 more)-> 2CH 20:17
 jailer in Philippi	1	Male				ACT 16:27 <-(2 more)-> ACT 16:36
 Jairus (synagogue leader)	1	Male				MAT 9:18 <-(1 more)-> LUK 8:41
-James	1	Male				ACT 15:13 <-(7 more)-> ACT 15:21
+James, the disciple	1	Male				Do not confuse with James (the brother of Jesus and author of the book of James)
+James	1	Male				The brother of Jesus and author of the book of James ACT 15:13 <-(7 more)-> ACT 15:21
 Jebusites	-1	Male				2SA 5:6 <-(1 more)-> 1CH 11:5
 Jehizkiah	1	Male			leader in Ephraim	
 Jehoash, king of Israel	1	Male				2KI 13:14 <-(3 more)-> 2CH 25:19
@@ -509,7 +510,7 @@ Job	1	Male				JOB 1:5 <-(509 more)-> JOB 42:6
 Job's wife	1	Female				JOB 2:9
 Joel saying what the priests should say	1	Male				JOL 2:17
 Johanan	1	Male			son of Kareah	JER 40:15
-John	1	Male				MRK 9:38 <-(7 more)-> REV 22:18
+John	1	Male				MRK 9:38 <-(5 more)-> JHN 21:20
 John the Baptist	1	Male				MAT 3:2 <-(46 more)-> JHN 3:36
 John, Alexander, and other men of the high priest's family	-1	Male				
 Jonadab	1	Male				2SA 13:4 <-(3 more)-> 2SA 13:35
@@ -721,7 +722,7 @@ news to Pharoah's palace	1					GEN 45:16
 Nicodemus	1	Male				JHN 3:2 <-(2 more)-> JHN 7:51
 Nineveh	-1	Female			The text personifies the city using female pronouns	NAM 2:8 & ZEP 2:15
 no one	1					ACT 4:32 & JAS 1:13
-no one says	1					1CO 12:3
+no one speaking by the Holy Spirit	1					1CO 12:3
 Noah	1	Male				GEN 9:25 <-(1 more)-> GEN 9:27
 nobles and officials (Jewish)	-1	Male				NEH 5:12
 non-reader	1					ISA 29:12
@@ -755,6 +756,7 @@ one who brings good news	-1	PreferMale				ISA 40:9 & ISA 52:7
 one who looked like a man	1	Male				DAN 10:11 <-(54 more)-> DAN 12:4
 one with garments stained crimson (Christ?)	1	Male			Default character should be Jesus	ISA 63:1 <-(3 more)-> ISA 63:6
 onlookers	-1					ISA 14:16 & ISA 14:17
+only someone speaking by the Holy Spirit	1					1CO 12:3
 oppressors of poor	-1					AMO 8:5
 Orpah	1	Female				
 other guests at Pharisee (Simon)'s house	-1	Male				LUK 7:49
@@ -928,7 +930,7 @@ saying, true	1					2TI 2:11 <-(1 more)-> 2TI 2:13
 scoffers	-1	PreferMale				2PE 3:4
 scoundrels	-1	Male				1KI 21:13
 scouts of Ben-Hadad, king of Aram	-1	Male				1KI 20:17
-scripture	1					2CH 25:4 <-(224 more)-> REV 19:15
+scripture	-1					2CH 25:4 <-(224 more)-> REV 19:15
 sea	1	Neuter				ISA 23:4
 sea captains, seafarers, sailors	-1	Male				REV 18:18 <-(1 more)-> REV 18:20
 second person to accuse Peter (man)	1	Male				LUK 22:58

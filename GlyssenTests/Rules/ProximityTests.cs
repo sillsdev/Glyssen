@@ -27,7 +27,7 @@ namespace GlyssenTests.Rules
 		[SetUp]
 		public void SetUp()
 		{
-			m_proximity = new Proximity(m_testProject);
+			m_proximity = new Proximity(m_testProject.IncludedBooks);
 		}
 
 		[TestFixtureTearDown]
@@ -46,14 +46,11 @@ namespace GlyssenTests.Rules
 			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
 			Assert.AreEqual(Int32.MaxValue, minProximity.NumberOfBlocks);
-			Assert.AreEqual("Jesus", minProximity.FirstBlock.CharacterIdInScript);
-			Assert.AreEqual("Jesus", minProximity.SecondBlock.CharacterIdInScript);
-			Assert.AreEqual("MRK", minProximity.FirstBook.BookId);
-			Assert.AreEqual("MRK", minProximity.SecondBook.BookId);
-			Assert.AreEqual(1, minProximity.FirstBlock.ChapterNumber);
-			Assert.AreEqual(1, minProximity.SecondBlock.ChapterNumber);
-			Assert.AreEqual(17, minProximity.FirstBlock.InitialStartVerseNumber);
-			Assert.AreEqual(17, minProximity.SecondBlock.InitialStartVerseNumber);
+			Assert.AreEqual("Jesus", minProximity.FirstCharacterId);
+			Assert.AreEqual("Jesus", minProximity.SecondCharacterId);
+			Assert.AreEqual("MRK 1:17", minProximity.FirstReference);
+			Assert.AreEqual("MRK 1:17", minProximity.SecondReference);
+
 		}
 
 		[Test]
@@ -67,14 +64,10 @@ namespace GlyssenTests.Rules
 			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
 			Assert.AreEqual(0, minProximity.NumberOfBlocks);
-			Assert.AreEqual("narrator-MRK", minProximity.FirstBlock.CharacterIdInScript);
-			Assert.AreEqual("Jesus", minProximity.SecondBlock.CharacterIdInScript);
-			Assert.AreEqual("MRK", minProximity.FirstBook.BookId);
-			Assert.AreEqual("MRK", minProximity.SecondBook.BookId);
-			Assert.AreEqual(1, minProximity.FirstBlock.ChapterNumber);
-			Assert.AreEqual(1, minProximity.SecondBlock.ChapterNumber);
-			Assert.AreEqual(16, minProximity.FirstBlock.InitialStartVerseNumber);
-			Assert.AreEqual(17, minProximity.SecondBlock.InitialStartVerseNumber);
+			Assert.AreEqual("narrator-MRK", minProximity.FirstCharacterId);
+			Assert.AreEqual("Jesus", minProximity.SecondCharacterId);
+			Assert.AreEqual("MRK 1:16", minProximity.FirstReference);
+			Assert.AreEqual("MRK 1:17", minProximity.SecondReference);
 		}
 
 		[Test]
@@ -90,14 +83,10 @@ namespace GlyssenTests.Rules
 			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
 			Assert.Greater(minProximity.NumberOfBlocks, 0);
-			Assert.AreEqual("demons (Legion)", minProximity.FirstBlock.CharacterIdInScript);
-			Assert.AreEqual("woman, bleeding for twelve years", minProximity.SecondBlock.CharacterId);
-			Assert.AreEqual("MRK", minProximity.FirstBook.BookId);
-			Assert.AreEqual(5, minProximity.FirstBlock.ChapterNumber);
-			Assert.AreEqual(12, minProximity.FirstBlock.InitialStartVerseNumber);
-			Assert.AreEqual("MRK", minProximity.SecondBook.BookId);
-			Assert.AreEqual(5, minProximity.SecondBlock.ChapterNumber);
-			Assert.AreEqual(28, minProximity.SecondBlock.InitialStartVerseNumber);
+			Assert.AreEqual("demons (Legion)", minProximity.FirstCharacterId);
+			Assert.AreEqual("woman, bleeding for twelve years", minProximity.SecondCharacterId);
+			Assert.AreEqual("MRK 5:12", minProximity.FirstReference);
+			Assert.AreEqual("MRK 5:28", minProximity.SecondReference);
 		}
 
 		[Test]
@@ -112,14 +101,10 @@ namespace GlyssenTests.Rules
 			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
 			Assert.AreEqual(1, minProximity.NumberOfBlocks);
-			Assert.AreEqual("Jesus", minProximity.FirstBlock.CharacterIdInScript);
-			Assert.AreEqual("teachers of religious law", minProximity.SecondBlock.CharacterIdInScript);
-			Assert.AreEqual("MRK", minProximity.FirstBook.BookId);
-			Assert.AreEqual("MRK", minProximity.SecondBook.BookId);
-			Assert.AreEqual(2, minProximity.FirstBlock.ChapterNumber);
-			Assert.AreEqual(2, minProximity.SecondBlock.ChapterNumber);
-			Assert.AreEqual(5, minProximity.FirstBlock.InitialStartVerseNumber);
-			Assert.AreEqual(7, minProximity.SecondBlock.InitialStartVerseNumber);
+			Assert.AreEqual("Jesus", minProximity.FirstCharacterId);
+			Assert.AreEqual("teachers of religious law", minProximity.SecondCharacterId);
+			Assert.AreEqual("MRK 2:5", minProximity.FirstReference);
+			Assert.AreEqual("MRK 2:7", minProximity.SecondReference);
 		}
 
 		[Test]
@@ -134,14 +119,10 @@ namespace GlyssenTests.Rules
 			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
 			Assert.AreEqual(3, minProximity.NumberOfBlocks);
-			Assert.AreEqual("father of demon-possessed boy", minProximity.FirstBlock.CharacterId);
-			Assert.AreEqual("many in crowd", minProximity.SecondBlock.CharacterId);
-			Assert.AreEqual("MRK", minProximity.FirstBook.BookId);
-			Assert.AreEqual("MRK", minProximity.SecondBook.BookId);
-			Assert.AreEqual(9, minProximity.FirstBlock.ChapterNumber);
-			Assert.AreEqual(9, minProximity.SecondBlock.ChapterNumber);
-			Assert.AreEqual(24, minProximity.FirstBlock.InitialStartVerseNumber);
-			Assert.AreEqual(26, minProximity.SecondBlock.InitialStartVerseNumber);
+			Assert.AreEqual("father of demon-possessed boy", minProximity.FirstCharacterId);
+			Assert.AreEqual("many in crowd", minProximity.SecondCharacterId);
+			Assert.AreEqual("MRK 9:24", minProximity.FirstReference);
+			Assert.AreEqual("MRK 9:26", minProximity.SecondReference);
 		}
 
 		[Test]
@@ -156,14 +137,10 @@ namespace GlyssenTests.Rules
 			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
 			Assert.AreEqual(Int32.MaxValue, minProximity.NumberOfBlocks);
-			Assert.AreEqual("Caiaphas, the high priest", minProximity.FirstBlock.CharacterId);
-			Assert.AreEqual("Caiaphas, the high priest", minProximity.SecondBlock.CharacterId);
-			Assert.AreEqual("MRK", minProximity.FirstBook.BookId);
-			Assert.AreEqual("MRK", minProximity.SecondBook.BookId);
-			Assert.AreEqual(14, minProximity.FirstBlock.ChapterNumber);
-			Assert.AreEqual(14, minProximity.SecondBlock.ChapterNumber);
-			Assert.AreEqual(60, minProximity.FirstBlock.InitialStartVerseNumber);
-			Assert.AreEqual(60, minProximity.SecondBlock.InitialStartVerseNumber);
+			Assert.AreEqual("Caiaphas, the high priest", minProximity.FirstCharacterId);
+			Assert.AreEqual("Caiaphas, the high priest", minProximity.SecondCharacterId);
+			Assert.AreEqual("MRK 14:60", minProximity.FirstReference);
+			Assert.AreEqual("MRK 14:60", minProximity.SecondReference);
 		}
 
 		[Test]
@@ -178,14 +155,46 @@ namespace GlyssenTests.Rules
 			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
 			Assert.AreEqual(1, minProximity.NumberOfBlocks);
-			Assert.AreEqual("Caiaphas, the high priest (old)", minProximity.FirstBlock.CharacterId);
-			Assert.AreEqual("chief priests", minProximity.SecondBlock.CharacterId);
-			Assert.AreEqual("MRK", minProximity.FirstBook.BookId);
-			Assert.AreEqual("MRK", minProximity.SecondBook.BookId);
-			Assert.AreEqual(14, minProximity.FirstBlock.ChapterNumber);
-			Assert.AreEqual(14, minProximity.SecondBlock.ChapterNumber);
-			Assert.AreEqual(63, minProximity.FirstBlock.InitialStartVerseNumber);
-			Assert.AreEqual(65, minProximity.SecondBlock.InitialStartVerseNumber);
+			Assert.AreEqual("Caiaphas, the high priest (old)", minProximity.FirstCharacterId);
+			Assert.AreEqual("chief priests", minProximity.SecondCharacterId);
+			Assert.AreEqual("MRK 14:63", minProximity.FirstReference);
+			Assert.AreEqual("MRK 14:65", minProximity.SecondReference);
+		}
+
+		[Test]
+		public void CalculateMinimumProximity_TreatStandardNonScriptureCharactersAsDistinct_ExtraBiblicalResultsInZeroProximityWithChapterNumber()
+		{
+			HashSet<string> characterIds = new HashSet<string>();
+
+			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
+			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical));
+			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Intro));
+
+			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds, true);
+
+			Assert.AreEqual(0, minProximity.NumberOfBlocks);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter), minProximity.FirstCharacterId);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical), minProximity.SecondCharacterId);
+			Assert.AreEqual("MRK 1:0", minProximity.FirstReference);
+			Assert.AreEqual("MRK 1:0", minProximity.SecondReference);
+		}
+
+		[Test]
+		public void CalculateMinimumProximity_TreatStandardNonScriptureCharactersAsOne_ExtraBiblicalResultsInZeroProximityWithChapterNumber()
+		{
+			HashSet<string> characterIds = new HashSet<string>();
+
+			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
+			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical));
+			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Intro));
+
+			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds, false);
+
+			Assert.AreEqual(Int32.MaxValue, minProximity.NumberOfBlocks);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter), minProximity.FirstCharacterId);
+			Assert.AreEqual(minProximity.FirstCharacterId, minProximity.SecondCharacterId);
+			Assert.AreEqual("MRK 0:0", minProximity.FirstReference);
+			Assert.AreEqual(minProximity.FirstReference, minProximity.SecondReference);
 		}
 	}
 }

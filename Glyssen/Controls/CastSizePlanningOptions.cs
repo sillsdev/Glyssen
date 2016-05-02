@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Glyssen.Bundle;
 using Glyssen.Dialogs;
 using Glyssen.Utilities;
 
@@ -32,22 +33,22 @@ namespace Glyssen.Controls
 		{
 			SetRowValues(e.Row, e.RowValues);
 
-			if (e.KeepSelection || (e.Row != CastSizeRow.MatchVoiceActorList))
+			if (e.KeepSelection || (e.Row != CastSizeOption.MatchVoiceActorList))
 				return;
 
 			// if there are too few actors, make sure "Match Voice Actor List" is not selected
-			var small = m_viewModel.GetCastSizeRowValues(CastSizeRow.Small);
+			var small = m_viewModel.GetCastSizeRowValues(CastSizeOption.Small);
 
-			if ((e.Male < small.Male) ||
-			    (e.Female < small.Female) ||
-				(e.Child < small.Child))
+			if ((e.RowValues.Male < small.Male) ||
+				(e.RowValues.Female < small.Female) ||
+				(e.RowValues.Child < small.Child))
 			{
-				if (SelectedCastSizeRow == CastSizeRow.MatchVoiceActorList)
-					SelectedCastSizeRow = CastSizeRow.Recommended;
+				if (SelectedCastSizeRow == CastSizeOption.MatchVoiceActorList)
+					SelectedCastSizeRow = CastSizeOption.Recommended;
 			}
 			else
 			{
-				SelectedCastSizeRow = CastSizeRow.MatchVoiceActorList;
+				SelectedCastSizeRow = CastSizeOption.MatchVoiceActorList;
 			}
 		}
 
@@ -104,9 +105,9 @@ namespace Glyssen.Controls
 				Height = m_tableLayout.Height;
 		}
 
-		public void SetRowValues(CastSizeRow row, CastSizeRowValues values)
+		public void SetRowValues(CastSizeOption row, CastSizeRowValues values)
 		{
-			if (row == CastSizeRow.NotSet)
+			if (row == CastSizeOption.NotSet)
 				return;
 
 			var rowIndex = (int)row;
@@ -116,40 +117,40 @@ namespace Glyssen.Controls
 			SetControlValue(m_tableLayout.GetControlFromPosition(5, rowIndex), values.Total);
 		}
 
-		public CastSizeRow SelectedCastSizeRow
+		public CastSizeOption SelectedCastSizeRow
 		{
 			get
 			{
-				if (m_rbSmall.Checked) return CastSizeRow.Small;
-				if (m_rbRecommended.Checked) return CastSizeRow.Recommended;
-				if (m_rbLarge.Checked) return CastSizeRow.Large;
-				if (m_rbCustom.Checked) return CastSizeRow.Custom;
-				if (m_rbMatchVoiceActorList.Checked) return CastSizeRow.MatchVoiceActorList;
+				if (m_rbSmall.Checked) return CastSizeOption.Small;
+				if (m_rbRecommended.Checked) return CastSizeOption.Recommended;
+				if (m_rbLarge.Checked) return CastSizeOption.Large;
+				if (m_rbCustom.Checked) return CastSizeOption.Custom;
+				if (m_rbMatchVoiceActorList.Checked) return CastSizeOption.MatchVoiceActorList;
 
 				// default to Recommended
-				return CastSizeRow.Recommended;
+				return CastSizeOption.Recommended;
 			}
 			set
 			{
 				switch(value)
 				{
-					case CastSizeRow.Small:
+					case CastSizeOption.Small:
 						m_rbSmall.Checked = true;
 						return;
 
-					case CastSizeRow.Recommended:
+					case CastSizeOption.Recommended:
 						m_rbRecommended.Checked = true;
 						return;
 
-					case CastSizeRow.Large:
+					case CastSizeOption.Large:
 						m_rbLarge.Checked = true;
 						return;
 
-					case CastSizeRow.Custom:
+					case CastSizeOption.Custom:
 						m_rbCustom.Checked = true;
 						return;
 
-					case CastSizeRow.MatchVoiceActorList:
+					case CastSizeOption.MatchVoiceActorList:
 						m_rbMatchVoiceActorList.Checked = true;
 						return;
 				}
@@ -161,16 +162,16 @@ namespace Glyssen.Controls
 
 		public void SetCastSizeOptionValues(CastSizePlanningViewModel model)
 		{
-			SetRowValues(CastSizeRow.Small, model.GetCastSizeRowValues(CastSizeRow.Small)); 
-			SetRowValues(CastSizeRow.Recommended, model.GetCastSizeRowValues(CastSizeRow.Recommended));
-			SetRowValues(CastSizeRow.Large, model.GetCastSizeRowValues(CastSizeRow.Large));
-			SetRowValues(CastSizeRow.Custom, model.GetCastSizeRowValues(CastSizeRow.Custom));
-			SetRowValues(CastSizeRow.MatchVoiceActorList, model.GetCastSizeRowValues(CastSizeRow.MatchVoiceActorList));
+			SetRowValues(CastSizeOption.Small, model.GetCastSizeRowValues(CastSizeOption.Small)); 
+			SetRowValues(CastSizeOption.Recommended, model.GetCastSizeRowValues(CastSizeOption.Recommended));
+			SetRowValues(CastSizeOption.Large, model.GetCastSizeRowValues(CastSizeOption.Large));
+			SetRowValues(CastSizeOption.Custom, model.GetCastSizeRowValues(CastSizeOption.Custom));
+			SetRowValues(CastSizeOption.MatchVoiceActorList, model.GetCastSizeRowValues(CastSizeOption.MatchVoiceActorList));
 
 			// disable 'Match Voice Actor List' if there are no voice actors
 			m_rbMatchVoiceActorList.Enabled = model.HasVoiceActors;
 			if (m_rbMatchVoiceActorList.Checked && !m_rbMatchVoiceActorList.Enabled)
-				SelectedCastSizeRow = CastSizeRow.Recommended;
+				SelectedCastSizeRow = CastSizeOption.Recommended;
 		}
 
 		private static void SetControlValue(Control ctrl, int value)
@@ -184,8 +185,8 @@ namespace Glyssen.Controls
 
 		private void OptionCheckedChanged(object sender, EventArgs e)
 		{
-			var enable = SelectedCastSizeRow == CastSizeRow.Custom;
-			const int rowIndex = (int)CastSizeRow.Custom;
+			var enable = SelectedCastSizeRow == CastSizeOption.Custom;
+			const int rowIndex = (int)CastSizeOption.Custom;
 
 			m_tableLayout.GetControlFromPosition(2, rowIndex).Enabled = enable;
 			m_tableLayout.GetControlFromPosition(3, rowIndex).Enabled = enable;
@@ -197,7 +198,7 @@ namespace Glyssen.Controls
 
 		private void CastSizeValueChanged(object sender, EventArgs e)
 		{
-			const int rowIndex = (int)CastSizeRow.Custom;
+			const int rowIndex = (int)CastSizeOption.Custom;
 
 			var male = (int)((NumericUpDown)m_tableLayout.GetControlFromPosition(2, rowIndex)).Value;
 			var female = (int)((NumericUpDown)m_tableLayout.GetControlFromPosition(3, rowIndex)).Value;
@@ -206,7 +207,7 @@ namespace Glyssen.Controls
 			SetControlValue(m_tableLayout.GetControlFromPosition(5, rowIndex), male + female + child);
 
 			if (CastSizeCustomValueChanged != null)
-				CastSizeCustomValueChanged(sender, new CastSizeValueChangedEventArgs(CastSizeRow.Custom, male, female, child, false));
+				CastSizeCustomValueChanged(sender, new CastSizeValueChangedEventArgs(CastSizeOption.Custom, new CastSizeRowValues(male, female, child), false));
 		}
 	}
 }

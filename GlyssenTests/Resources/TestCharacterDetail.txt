@@ -72,7 +72,7 @@ angel, powerful	1		Adult			REV 5:2 <-(3 more)-> REV 18:24
 angels at Sodom, two	2	Male	Adult			GEN 19:2 <-(6 more)-> GEN 19:22
 angels in white, two	2	Male	Adult			MAT 28:5 <-(7 more)-> JHN 20:13
 angels, all the	-1		Adult			REV 7:12
-angels, many	-1		Adult			REV 5:12
+angels, many, living creatures, elders, thousands of thousands	-1		Adult			REV 5:12
 Anna, prophetess	1	Female	Elder			LUK 2:38
 another disciple of John Baptist	1	Male	Adult		Became disciple of Jesus (not Andrew, Simon Peter, Philip, Nathanael, or Matthew)	
 another holy one (in vision)	1		Adult			DAN 8:13
@@ -340,6 +340,7 @@ foot	1	Neuter				1CO 12:15
 foreman	1	Male				RUT 2:6 & RUT 2:7
 fortune telling slave girl	1	Female	YoungAdult			ACT 16:17
 four living creatures	4					REV 4:8 & REV 5:14
+four living creatures, one (voice of thunder)	1					REV 6:1
 friends of Haman	-1	PreferMale				
 Gaal, son of Ebed	1	Male				JDG 9:28 <-(2 more)-> JDG 9:37
 Gabriel	1	Male				DAN 8:17 <-(13 more)-> DAN 9:27
@@ -1047,6 +1048,7 @@ unbeliever who comes under conviction	1					1CO 14:25
 unbelievers	-1					1TH 4:12
 Uriah	1	Male				2SA 11:11
 voice (God?)	1	PreferMale				ISA 40:6 <-(1 more)-> ISA 40:8
+voice among living creatures	1					REV 6:6
 voice behind you	1	PreferMale				ISA 30:21
 voice from altar	1					REV 9:14
 voice from among living creatures	1					REV 6:6
@@ -1203,3 +1205,24 @@ Paul's travelling companions, Luke and	-1	Male				Old ID
 Philip	1	Male				Old ID
 Jews, God-fearing from every nation 2	-1	Male				Old ID
 crowd 9	-1	Male				Old ID
+altar, the	1	Male				REV - added manually
+angel from the rising sun with seal of living God	1	Male				REV - added manually
+angel, the 1	1	Male				REV - added manually
+angel, the 2	1	Male				REV - added manually
+angels, seven, one of	1	Male				REV - added manually
+multitude from all nations, tribes, peoples, languages,	1	Male				REV - added manually
+one seated on throne (God)	1	Male				REV - added manually
+seven angels, one of the	1	Male				REV - added manually
+ship captains, seafarers, sailors	1	Male				REV - added manually
+Spirit, the, and the bride	1	Male				REV - added manually
+they (unclear in Greek)	1	Male				REV - added manually
+voice 1	1	Male				REV - added manually
+voice 2	1	Male				REV - added manually
+voice 3	1	Male				REV - added manually
+voice among living creatures 1	1	Male				REV - added manually
+voice from heaven, another 1	1	Male				REV - added manually
+voice from heaven, another 2	1	Male				REV - added manually
+voice from temple, loud	1	Male				REV - added manually
+voice from throne, loud	1	Male				REV - added manually
+voice of great crowd in heaven, loud 1	1	Male				REV - added manually
+world, the whole	1	Male				REV - added manually

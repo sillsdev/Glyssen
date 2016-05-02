@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
+using SIL.Scripture;
 
 namespace Glyssen
 {
@@ -39,6 +40,7 @@ namespace Glyssen
 					MigrateInvalidCharacterIdForScriptData(project.Books);
 					AddCharacterGroupIds(project);
 				}
+				MigrateDeprecatedCharacterIds(project);
 			}
 
 			s_lastProjectMigrated = project;
@@ -146,6 +148,49 @@ namespace Glyssen
 			}
 		}
 
+		public static int MigrateDeprecatedCharacterIds(Project project)
+		{
+			var cvInfo = new CombinedCharacterVerseData(project);
+			var characterDetailDictionary = project.AllCharacterDetailDictionary;
+			int numberOfChangesMade = 0; // For testing
+
+			foreach (BookScript book in project.Books)
+			{
+				int bookNum = BCVRef.BookToNumber(book.BookId);
+
+				foreach (Block block in book.GetScriptBlocks().Where(block => block.CharacterId != null &&
+					block.CharacterId != CharacterVerseData.AmbiguousCharacter &&
+					block.CharacterId != CharacterVerseData.UnknownCharacter &&
+					!CharacterVerseData.IsCharacterStandard(block.CharacterId)))
+				{
+					var unknownCharacter = !characterDetailDictionary.ContainsKey(block.CharacterIdInScript);
+					if (unknownCharacter &&
+						project.ProjectCharacterVerseData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber).
+							Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
+					{
+						// PG-471: This is a known character who spoke in an unexpected location and was therefore added to the project CV file,
+						// but was subsequently removed or renamed from the master character detail list.
+						project.ProjectCharacterVerseData.Remove(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
+							block.InitialEndVerseNumber, block.CharacterId, block.Delivery ?? "");
+						block.CharacterId = CharacterVerseData.UnknownCharacter;
+						block.CharacterIdInScript = null;
+						numberOfChangesMade++;
+					}
+					else
+					{
+						var characters = cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber).ToList();
+						if (unknownCharacter ||
+							!characters.Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
+						{
+							block.SetCharacterAndDelivery(characters);
+							numberOfChangesMade++;
+						}
+					}
+				}
+			}
+			return numberOfChangesMade;
+		}
+
 		internal static void SetBookIdForChapterBlocks(IReadOnlyList<BookScript> books)
 		{
 			foreach (var book in books)
@@ -157,7 +202,7 @@ namespace Glyssen
 
 		private static void AddCharacterGroupIds(Project project)
 		{
-			CharacterGroupList.AssignGroupIds(project.CharacterGroupList.CharacterGroups, project.GetKeyStrokesByCharacterId());
+			CharacterGroupList.AssignGroupIds(project.CharacterGroupList.CharacterGroups);
 		}
 	}
 }

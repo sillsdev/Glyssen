@@ -16,18 +16,18 @@ namespace Glyssen.Dialogs
 			Text = LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Title", "Generating Groups");
 
 			CharacterGroupGenerationPreferences groupGenerationPreferences = project.CharacterGroupGenerationPreferences;
-			int numCharacters = project.GetKeyStrokesByCharacterId().Count;
-			int numActors = groupGenerationPreferences.CastSizeOption == CastSizeRow.MatchVoiceActorList ?
+			int numCharacters = project.TotalCharacterCount;
+			int numActors = groupGenerationPreferences.CastSizeOption == CastSizeOption.MatchVoiceActorList ?
 				project.VoiceActorList.ActiveActors.Count() :
 				new CastSizePlanningViewModel(project).GetCastSizeRowValues(groupGenerationPreferences.CastSizeOption).Total;
 			string firstLineOfText = string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.Text1",
 				"The recording project has {0} distinct Biblical character roles."), numCharacters);
-			string secondLineOfText = groupGenerationPreferences.CastSizeOption == CastSizeRow.MatchVoiceActorList ?
+			string secondLineOfText = groupGenerationPreferences.CastSizeOption == CastSizeOption.MatchVoiceActorList ?
 				string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.Text2.MatchActors",
 				"The voice actor list has {0} voice actors."), numActors) :
 				string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Overview.Text2.CastSize",
 				"The planned cast size is {0} voice actors."), numActors);
-			string firstLineOfStatusText = groupGenerationPreferences.CastSizeOption == CastSizeRow.MatchVoiceActorList ?
+			string firstLineOfStatusText = groupGenerationPreferences.CastSizeOption == CastSizeOption.MatchVoiceActorList ?
 				string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.StatusText.Text1.MatchActors",
 					"{0} is creating optimized groups of character roles to match the voice actor list."), ProductName) :
 				string.Format(LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.StatusText.Text1.CastSize",

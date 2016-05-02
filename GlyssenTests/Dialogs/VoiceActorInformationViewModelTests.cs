@@ -94,9 +94,8 @@ namespace GlyssenTests.Dialogs
 		public void DeleteVoiceActors_SomeActorsAssigned_CountsAreAccurateAndAssignmentsAreRemoved()
 		{
 			var actorsToDelete = new HashSet<Glyssen.VoiceActor.VoiceActor>(m_testProject.VoiceActorList.AllActors.Where(a => a.Id < 3));
-			var priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
-			var characterGroup1 = new CharacterGroup(m_testProject, priorityComparer);
-			var characterGroup2 = new CharacterGroup(m_testProject, priorityComparer);
+			var characterGroup1 = new CharacterGroup(m_testProject);
+			var characterGroup2 = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup1);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup2);
 			characterGroup1.AssignVoiceActor(2);
@@ -119,8 +118,7 @@ namespace GlyssenTests.Dialogs
 		{
 			var actor = new Glyssen.VoiceActor.VoiceActor { Id = 5, Name = "Gubaru", IsInactive = true };
 			m_testProject.VoiceActorList.AllActors.Add(actor);
-			var priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
-			var characterGroup = new CharacterGroup(m_testProject, priorityComparer);
+			var characterGroup = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup);
 			Assert.True(actor.IsInactive);
 			Assert.False(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id));
@@ -134,8 +132,7 @@ namespace GlyssenTests.Dialogs
 		public void SetInactive_PreviouslyActiveAndAssignedSetToActive_NoChange()
 		{
 			var actor = m_testProject.VoiceActorList.AllActors.Single(a => a.Id == 2);
-			var priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
-			var characterGroup = new CharacterGroup(m_testProject, priorityComparer);
+			var characterGroup = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup);
 			characterGroup.AssignVoiceActor(actor.Id);
 			Assert.False(actor.IsInactive);
@@ -150,8 +147,7 @@ namespace GlyssenTests.Dialogs
 		public void SetInactive_PreviouslyActiveAndUnassignedSetToInactive_ModifyActiveStateButNoChangeToGroups()
 		{
 			var actor = m_testProject.VoiceActorList.AllActors.Single(a => a.Id == 2);
-			var priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
-			var characterGroup = new CharacterGroup(m_testProject, priorityComparer);
+			var characterGroup = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup);
 			Assert.False(actor.IsInactive);
 			Assert.False(m_testProject.CharacterGroupList.HasVoiceActorAssigned(actor.Id));
@@ -165,8 +161,7 @@ namespace GlyssenTests.Dialogs
 		public void SetInactive_PreviouslyActiveAndAssignedSetToInactive_ModifyActiveStateAndUnassign()
 		{
 			var actor = m_testProject.VoiceActorList.AllActors.Single(a => a.Id == 2);
-			var priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
-			var characterGroup = new CharacterGroup(m_testProject, priorityComparer);
+			var characterGroup = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup);
 			characterGroup.AssignVoiceActor(actor.Id);
 			Assert.False(actor.IsInactive);

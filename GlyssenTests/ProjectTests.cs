@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
+using Glyssen.Dialogs;
 using Glyssen.Quote;
 using GlyssenTests.Bundle;
 using NUnit.Framework;
@@ -33,6 +33,10 @@ namespace GlyssenTests
 		[TestFixtureSetUp]
 		public void TestFixtureSetup()
 		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Properties.Resources.TestCharacterDetail;
+
 			// Clean up anything from previously aborted tests
 			foreach (var directory in Directory.GetDirectories(Program.BaseDataFolder, GlyssenBundleTests.kTestBundleIdPrefix + "*"))
 				DirectoryUtilities.DeleteDirectoryRobust(directory);
@@ -509,6 +513,7 @@ namespace GlyssenTests
 				bundle.Metadata.Language.Iso = "ach";
 				bundle.Metadata.Language.Name = "Acholi"; // see messages in Assert.AreEqual lines below
 				var project = new Project(bundle);
+				m_tempProjectFolders.Add(Path.GetDirectoryName(Path.GetDirectoryName(project.ProjectFilePath)));
 				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
 				Assert.IsNotNull(project);
 				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
@@ -586,6 +591,7 @@ namespace GlyssenTests
 		public void SetCharacterGroupGenerationPreferencesToValidValues_OneBook(int numMaleNarrators, int numFemaleNarrators, int resultMale, int resultFemale)
 		{
 			var testProject = TestProject.CreateBasicTestProject();
+			testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.Custom;
 			testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numMaleNarrators;
 			testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numFemaleNarrators;
 
@@ -603,12 +609,28 @@ namespace GlyssenTests
 		public void SetCharacterGroupGenerationPreferencesToValidValues_ThreeBooks(int numMaleNarrators, int numFemaleNarrators, int resultMale, int resultFemale)
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.LUK, TestProject.TestBook.ACT);
+			testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.Custom;
 			testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numMaleNarrators;
 			testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numFemaleNarrators;
 
 			testProject.SetCharacterGroupGenerationPreferencesToValidValues();
 			Assert.AreEqual(resultMale, testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators);
 			Assert.AreEqual(resultFemale, testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators);
+		}
+
+		[TestCase(1, 0)]
+		[TestCase(2, 0)]
+		[TestCase(3, 0)]
+		public void SetCharacterGroupGenerationPreferencesToValidValues_NarrationByAuthor_NumbersSnapToActualNumberOfAuthors(int numMaleNarrators, int numFemaleNarrators)
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.LUK, TestProject.TestBook.ACT);
+			testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.NarrationByAuthor;
+			testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numMaleNarrators;
+			testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numFemaleNarrators;
+
+			testProject.SetCharacterGroupGenerationPreferencesToValidValues();
+			Assert.AreEqual(2, testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators);
+			Assert.AreEqual(0, testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators);
 		}
 
 		[Test]
@@ -682,6 +704,57 @@ namespace GlyssenTests
 			project = TestProject.LoadExistingTestProject();
 
 			Assert.AreEqual(BookSelectionStatus.Reviewed, project.BookSelectionStatus);
+		}
+
+		[Test]
+		public void CalculateSpeechDistributionScore_CharacterWhoDoesNotSpeak_ReturnsZero()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);
+			Assert.IsFalse(testProject.SpeechDistributionScoreByCharacterId.ContainsKey("Jesus"));
+		}
+
+		[Test]
+		public void CalculateSpeechDistributionScore_CharacterWhoSpeaksOnlyOnce_ReturnsOne()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);
+			Assert.AreEqual(1, testProject.SpeechDistributionScoreByCharacterId["apostles"]);
+			Assert.AreEqual(1, testProject.SpeechDistributionScoreByCharacterId["Enoch"]);
+		}
+
+		[Test]
+		public void CalculateSpeechDistributionScore_CharacterWhoSpeaksFourTimesInOnlyOneChapter_ReturnsFour()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			Assert.AreEqual(4, testProject.SpeechDistributionScoreByCharacterId["Stephen"]);
+		}
+
+		[Test]
+		public void CalculateSpeechDistributionScore_CharacterWhoSpeaksThriceInOneChapterTwiceInAnotherChapterAndOnceInEachOfTwoOtherChapterAcrossRangeOfSevenChapters_ReturnsThirtyNine()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			Assert.AreEqual(39, testProject.SpeechDistributionScoreByCharacterId["angel of the LORD, an"]);
+		}
+
+		[Test]
+		public void CalculateSpeechDistributionScore_CharacterWhoSpeaksALotInOneBookAndALittleInAnother_ReturnsResultFromMaxBook()
+		{
+			var testProjectA = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProjectA);
+			var resultFromRev = testProjectA.SpeechDistributionScoreByCharacterId["God"];
+
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			Assert.AreEqual(resultFromRev, testProject.SpeechDistributionScoreByCharacterId["God"]);
+		}
+
+		[Test]
+		public void CalculateSpeechDistributionScore_BoazInProjectThatOnlyIncludesRuth_ReturnsResultFromMaxBook()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			Assert.IsTrue(testProject.SpeechDistributionScoreByCharacterId["Boaz"] >= 7);
 		}
 
 		private void WaitForProjectInitializationToFinish(Project project, ProjectState projectState)
