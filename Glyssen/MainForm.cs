@@ -28,6 +28,7 @@ namespace Glyssen
 	public partial class MainForm : FormWithPersistedSettings
 	{
 		private Project m_project;
+		private CastSizePlanningViewModel m_projectCastSizePlanningViewModel;
 		private string m_percentAssignedFmt;
 		private string m_actorsAssignedFmt;
 		private string m_castSizeFmt;
@@ -65,14 +66,19 @@ namespace Glyssen
 			{
 				m_project.ProjectStateChanged -= FinishSetProjectIfReady;
 				m_project.CharacterGroupCollectionChanged -= UpdateDisplayOfCastSizePlan;
+				m_project.CharacterGroupCollectionChanged -= ClearCastSizePlanningViewModel;
+				m_project.CharacterStatisticsCleared -= ClearCastSizePlanningViewModel;
 			}
 
+			m_projectCastSizePlanningViewModel = null;
 			m_project = project;
 
 			if (m_project != null)
 			{
 				m_project.ProjectStateChanged += FinishSetProjectIfReady;
 				m_project.CharacterGroupCollectionChanged += UpdateDisplayOfCastSizePlan;
+				m_project.CharacterGroupCollectionChanged += ClearCastSizePlanningViewModel;
+				m_project.CharacterStatisticsCleared += ClearCastSizePlanningViewModel;
 			}
 
 			ResetUi();
@@ -112,6 +118,11 @@ namespace Glyssen
 					{ "recordingProjectName", m_project.Name },
 				});
 			}
+		}
+
+		private void ClearCastSizePlanningViewModel(object sender, EventArgs e)
+		{
+			m_projectCastSizePlanningViewModel = null;
 		}
 
 		private void HandleStringsLocalized()
@@ -482,10 +493,14 @@ namespace Glyssen
 			Settings.Default.Save();
 		}
 
-		private void SaveCurrentProject()
+		private void SaveCurrentProject(bool clearCharacterStats = false)
 		{
 			if (m_project != null)
+			{
+				if (clearCharacterStats)
+					m_project.ClearCharacterStatistics();
 				m_project.Save();
+			}
 		}
 
 		private void ShowLastLocation()
@@ -509,7 +524,7 @@ namespace Glyssen
 			{
 				using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork, false, true))
 				{
-					var generator = new CharacterGroupGenerator(m_project, m_project.GetKeyStrokesByCharacterId(), progressDialog.BackgroundWorker);
+					var generator = new CharacterGroupGenerator(m_project, ProjectCastSizePlanningViewModel.SelectedCastSize, progressDialog.BackgroundWorker);
 					progressDialog.ProgressState.Arguments = generator;
 
 					if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
@@ -606,7 +621,7 @@ namespace Glyssen
 					dlg.ShowDialog(this);
 			m_project.Analyze();
 			UpdateDisplayOfProjectInfo();
-			SaveCurrentProject();
+			SaveCurrentProject(true);
 		}
 
 		private void SelectBooks_Click(object sender, EventArgs e)
@@ -617,7 +632,7 @@ namespace Glyssen
 					m_project.ClearAssignCharacterStatus();
 					m_project.Analyze();
 					UpdateDisplayOfProjectInfo();
-					SaveCurrentProject();
+					SaveCurrentProject(true);
 				}
 		}
 
@@ -672,8 +687,13 @@ namespace Glyssen
 			if (!regenerateGroups)
 				EnsureGroupsAreInSynchWithCharactersInUse();
 
+			if (!m_project.CharacterGroupList.CharacterGroups.Any())
+				CharacterGroupGenerator.GenerateGroupsWithProgress(m_project, false, true, false, ProjectCastSizePlanningViewModel.SelectedCastSize);
+			else if (regenerateGroups)
+				CharacterGroupGenerator.GenerateGroupsWithProgress(m_project, true, false, false, ProjectCastSizePlanningViewModel.SelectedCastSize);
+
 			bool launchCastSizePlanning;
-			using (var dlg = new VoiceActorAssignmentDlg(m_project, regenerateGroups))
+			using (var dlg = new VoiceActorAssignmentDlg(new VoiceActorAssignmentViewModel(m_project)))
 			{
 				dlg.ShowDialog(this);
 				launchCastSizePlanning = dlg.LaunchCastSizePlanningUponExit;
@@ -696,10 +716,20 @@ namespace Glyssen
 			PathUtilities.OpenDirectoryInExplorer(m_lastExportLocationLink.Text);
 		}
 
+		private CastSizePlanningViewModel ProjectCastSizePlanningViewModel
+		{
+			get
+			{
+				if (m_projectCastSizePlanningViewModel == null)
+					m_projectCastSizePlanningViewModel = new CastSizePlanningViewModel(m_project);
+				return m_projectCastSizePlanningViewModel;
+			}
+		}
+
 		private void m_btnCastSizePlanning_Click(object sender, EventArgs e)
 		{
 			bool launchAssignVoiceActors = false;
-			using (var dlg = new CastSizePlanningDlg(new CastSizePlanningViewModel(m_project)))
+			using (var dlg = new CastSizePlanningDlg(ProjectCastSizePlanningViewModel))
 			{
 				SaveCurrentProject();
 				if (dlg.ShowDialog(this) == DialogResult.OK)

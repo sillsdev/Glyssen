@@ -64,11 +64,15 @@ namespace Glyssen
 		private readonly ISet<CharacterDetail> m_projectCharacterDetailData;
 		private bool m_projectFileIsWritable = true;
 
+		private Dictionary<string, int> m_speechDistributionScore = null;
+		private Dictionary<string, int> m_keyStrokesByCharacterId = null;
+
 		public event EventHandler<ProgressChangedEventArgs> ProgressChanged;
 		public event EventHandler<ProjectStateChangedEventArgs> ProjectStateChanged;
 		public event EventHandler QuoteParseCompleted;
 		public event EventHandler AnalysisCompleted;
 		public event EventHandler CharacterGroupCollectionChanged;
+		public event EventHandler CharacterStatisticsCleared;
 
 		private Func<string, string> GetBookName { get; set; }
 
@@ -371,8 +375,16 @@ namespace Glyssen
 
 		public CharacterGroupGenerationPreferences CharacterGroupGenerationPreferences
 		{
-			get { return m_metadata.CharacterGroupGenerationPreferences;  }
+			get { return m_metadata.CharacterGroupGenerationPreferences; }
 			set { m_metadata.CharacterGroupGenerationPreferences = value; }
+		}
+
+		// TODO: Implement this feature. Currently, this setting is not exposed in the UI and it is
+		// only used for estimating cast size.
+		public ProjectDramatizationPreferences DramatizationPreferences
+		{
+			get { return m_metadata.DramatizationPreferences; }
+			set { m_metadata.DramatizationPreferences = value; }
 		}
 
 		public void SetDefaultCharacterGroupGenerationPreferences()
@@ -382,9 +394,9 @@ namespace Glyssen
 				CharacterGroupGenerationPreferences.NumberOfMaleNarrators = BiblicalAuthors.GetAuthorCount(IncludedBooks.Select(b => b.BookId));
 				CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			}
-			if (CharacterGroupGenerationPreferences.CastSizeOption == CastSizeRow.NotSet)
+			if (CharacterGroupGenerationPreferences.CastSizeOption == CastSizeOption.NotSet)
 			{
-				CharacterGroupGenerationPreferences.CastSizeOption = VoiceActorList.ActiveActors.Any() ? CastSizeRow.MatchVoiceActorList : CastSizeRow.Recommended;
+				CharacterGroupGenerationPreferences.CastSizeOption = VoiceActorList.ActiveActors.Any() ? CastSizeOption.MatchVoiceActorList : CastSizeOption.Recommended;
 			}
 		}
 
@@ -396,19 +408,27 @@ namespace Glyssen
 			// For example, the project might be a whole NT, and the user chooses to use 27 authors.
 			// Later, the user may remove a book, but the requested number of authors is still 27 (which is now invalid).
 
+			if (CharacterGroupGenerationPreferences.NarratorsOption == NarratorsOption.NarrationByAuthor)
+			{
+				// Force values to snap to the number of authors, even if this means increasing or decresing the count.
+				Debug.Assert(CharacterGroupGenerationPreferences.NumberOfFemaleNarrators == 0);
+				CharacterGroupGenerationPreferences.NumberOfMaleNarrators = AuthorCount;
+				return;
+			}
+
 			int includedBooksCount = IncludedBooks.Count;
 			int numMale = CharacterGroupGenerationPreferences.NumberOfMaleNarrators;
 			int numFemale = CharacterGroupGenerationPreferences.NumberOfFemaleNarrators;
 
 			if (numMale + numFemale > includedBooksCount)
 			{
-				int numNarratorsToDecriment = (numMale + numFemale) - includedBooksCount;
-				if (numFemale >= numNarratorsToDecriment)
-					CharacterGroupGenerationPreferences.NumberOfFemaleNarrators -= numNarratorsToDecriment;
+				int numNarratorsToDecrement = (numMale + numFemale) - includedBooksCount;
+				if (numFemale >= numNarratorsToDecrement)
+					CharacterGroupGenerationPreferences.NumberOfFemaleNarrators -= numNarratorsToDecrement;
 				else
 				{
 					CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
-					CharacterGroupGenerationPreferences.NumberOfMaleNarrators -= numNarratorsToDecriment - numFemale;
+					CharacterGroupGenerationPreferences.NumberOfMaleNarrators -= numNarratorsToDecrement - numFemale;
 				}
 			}
 		}
@@ -442,6 +462,8 @@ namespace Glyssen
 		{
 			get
 			{
+				if (!m_projectCharacterDetailData.Any())
+					return CharacterDetailData.Singleton.GetDictionary();
 				Dictionary<string, CharacterDetail> characterDetails = new Dictionary<string, CharacterDetail>(CharacterDetailData.Singleton.GetDictionary());
 				characterDetails.AddRange(m_projectCharacterDetailData.ToDictionary(k => k.CharacterId));
 				return characterDetails;
@@ -973,6 +995,7 @@ namespace Glyssen
 			else
 				Analyze();
 
+			ClearCharacterStatistics();
 			Save();
 
 			if (QuoteParseCompleted != null)
@@ -1317,27 +1340,130 @@ namespace Glyssen
 			}
 		}
 
-		public Dictionary<string, int> GetKeyStrokesByCharacterId()
+		public Dictionary<string, int> SpeechDistributionScoreByCharacterId
 		{
-			Dictionary<string, int> keyStrokesByCharacterId = new Dictionary<string, int>();
+			get
+			{
+				if (m_speechDistributionScore == null)
+					CalculateCharacterStatistics();
+				return m_speechDistributionScore;
+			}
+		}
+
+		public Dictionary<string, int> KeyStrokesByCharacterId
+		{
+			get
+			{
+				if (m_keyStrokesByCharacterId == null)
+					CalculateCharacterStatistics();
+				return m_keyStrokesByCharacterId;
+			}
+		}
+
+		public Dictionary<string, int>.KeyCollection AllCharacterIds
+		{
+			get { return KeyStrokesByCharacterId.Keys; }
+		}
+
+		public int TotalCharacterCount
+		{
+			get { return KeyStrokesByCharacterId.Count; }
+		}
+
+		private class DistributionScoreBookStats
+		{
+			internal DistributionScoreBookStats(int chapterNumber)
+			{
+				FirstChapter = chapterNumber;
+				LastChapter = chapterNumber;
+				NumberOfChapters = 1;
+				NonContiguousBlocksInCurrentChapter = 1;
+			}
+			internal int NonContiguousBlocksInMaxChapter { get; set; }
+			internal int NonContiguousBlocksInCurrentChapter { get; set; }
+			internal int NumberOfChapters { get; set; }
+			internal int FirstChapter { get; set; }
+			internal int LastChapter { get; set; }
+		}
+
+		public void ClearCharacterStatistics()
+		{
+			m_keyStrokesByCharacterId = null;
+			m_speechDistributionScore = null;
+			if (CharacterStatisticsCleared != null)
+				CharacterStatisticsCleared(this, new EventArgs());
+		}
+
+		private void CalculateCharacterStatistics()
+		{
+			m_keyStrokesByCharacterId = new Dictionary<string, int>();
+			m_speechDistributionScore = new Dictionary<string, int>();
+
 			foreach (var book in IncludedBooks)
 			{
+				var bookDistributionScoreStats = new Dictionary<string, DistributionScoreBookStats>();
 				bool singleVoice = book.SingleVoice;
-				foreach (var block in book.GetScriptBlocks(true))
+				string prevCharacter = null;
+				foreach (var block in book.GetScriptBlocks(/*true*/)) // The logic for calculating keystrokes had join = true, but this seems likely to be less efficient and should not be needed.
 				{
 					var character = singleVoice ? CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator) : block.CharacterIdInScript;
-					if (!keyStrokesByCharacterId.ContainsKey(character))
-						keyStrokesByCharacterId.Add(character, 0);
-					keyStrokesByCharacterId[character] += block.GetText(false).Length;
+
+					// REVIEW: It's possible that we should throw an exception if this happens (in production code).
+					if (character == CharacterVerseData.AmbiguousCharacter || character == CharacterVerseData.UnknownCharacter)
+						continue;
+
+					if (!m_keyStrokesByCharacterId.ContainsKey(character))
+					{
+						m_keyStrokesByCharacterId.Add(character, 0);
+						m_speechDistributionScore.Add(character, 0);
+					}
+					m_keyStrokesByCharacterId[character] += block.GetText(false).Length;
+
+					DistributionScoreBookStats stats;
+					if (!bookDistributionScoreStats.TryGetValue(character, out stats))
+					{
+						bookDistributionScoreStats.Add(character, new DistributionScoreBookStats(block.ChapterNumber));
+					}
+					else
+					{
+						if (stats.LastChapter != block.ChapterNumber)
+						{
+							if (stats.NonContiguousBlocksInCurrentChapter > stats.NonContiguousBlocksInMaxChapter)
+								stats.NonContiguousBlocksInMaxChapter = stats.NonContiguousBlocksInCurrentChapter;
+							stats.LastChapter = block.ChapterNumber;
+							stats.NonContiguousBlocksInCurrentChapter = 1;
+							stats.NumberOfChapters++;
+						}
+						else if (prevCharacter != character)
+						{
+							stats.NonContiguousBlocksInCurrentChapter++;
+						}
+					}
+					prevCharacter = character;
+				}
+				foreach (var characterStatsInfo in bookDistributionScoreStats)
+				{
+					var stats = characterStatsInfo.Value;
+
+					if (stats.NonContiguousBlocksInCurrentChapter > stats.NonContiguousBlocksInMaxChapter)
+						stats.NonContiguousBlocksInMaxChapter = stats.NonContiguousBlocksInCurrentChapter;
+
+					var resultInBook = (stats.NumberOfChapters <= 1) ? stats.NonContiguousBlocksInMaxChapter :
+						(int)Math.Round(stats.NonContiguousBlocksInMaxChapter + (Math.Pow(stats.NumberOfChapters, 3) + stats.LastChapter - stats.FirstChapter) / 2,
+						MidpointRounding.AwayFromZero);
+
+					int resultInMaxBook;
+					if (!m_speechDistributionScore.TryGetValue(characterStatsInfo.Key, out resultInMaxBook) || (resultInBook > resultInMaxBook))
+						m_speechDistributionScore[characterStatsInfo.Key] = resultInBook;
 				}
 			}
-			return keyStrokesByCharacterId;
+			Debug.Assert(m_keyStrokesByCharacterId.Values.All(v => v != 0));
 		}
 
 		public double GetEstimatedRecordingTime()
 		{
-			long keyStrokes = GetKeyStrokesByCharacterId().Values.Sum();
-			return keyStrokes / (double)Program.kKeyStrokesPerHour;
+			long keyStrokes = KeyStrokesByCharacterId.Values.Sum();
+			return keyStrokes / Program.kKeyStrokesPerHour;
 		}
 
 		public CharacterGroup GetGroupById(string id)
@@ -1377,6 +1503,11 @@ namespace Glyssen
 		{
 			get { return m_projectFileIsWritable;  }
 			set { m_projectFileIsWritable = value; }
+		}
+
+		public int AuthorCount
+		{
+			get { return BiblicalAuthors.GetAuthorCount(IncludedBooks.Select(b => b.BookId)); }
 		}
 	}
 

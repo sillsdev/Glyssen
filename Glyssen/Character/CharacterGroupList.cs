@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Diagnostics;
 using System.Linq;
 using System.Xml.Serialization;
 using Glyssen.VoiceActor;
@@ -78,12 +79,12 @@ namespace Glyssen.Character
 		{
 			XmlSerializationHelper.SerializeToFile(filename, this);
 		}
+
 		public static CharacterGroupList LoadCharacterGroupListFromFile(string filename, Project project)
 		{
-			var comparer = new CharacterByKeyStrokeComparer(project.GetKeyStrokesByCharacterId());
 			var list = XmlSerializationHelper.DeserializeFromFile<CharacterGroupList>(filename);
 			foreach (var characterGroup in list.CharacterGroups)
-				characterGroup.Initialize(project, comparer);
+				characterGroup.Initialize(project);
 			return list;
 		}
 
@@ -140,81 +141,32 @@ namespace Glyssen.Character
 				group.RemoveVoiceActor();
 		}
 
-		public void PopulateEstimatedHours(Dictionary<string, int> keyStrokesByCharacterId)
-		{
-			PopulateEstimatedHours(CharacterGroups, keyStrokesByCharacterId);
-		}
-
-		public static void PopulateEstimatedHours(IList<CharacterGroup> groups, Dictionary<string, int> keyStrokesByCharacterId)
-		{
-			foreach (var group in groups)
-			{
-				int keyStrokes = 0;
-				foreach (var characterId in group.CharacterIds)
-				{
-					int keystrokesForCharacter;
-					if (keyStrokesByCharacterId.TryGetValue(characterId, out keystrokesForCharacter))
-						keyStrokes += keystrokesForCharacter;
-				}
-				group.EstimatedHours = keyStrokes / Program.kKeyStrokesPerHour;
-			}
-		}
-
-		public static void AssignGroupIds(IList<CharacterGroup> groups, Dictionary<string, int> keyStrokesByCharacterId)
+		public static void AssignGroupIds(IList<CharacterGroup> groups)
 		{
 			int iMale = 0;
 			int iFemale = 0;
 			int iChild = 0;
 			int iNarrator = 0;
-			PopulateEstimatedHours(groups, keyStrokesByCharacterId);
-			foreach (var group in groups.OrderByDescending(g => g.EstimatedHours))
+			foreach (var group in groups.Where(g => g.GroupIdLabel != CharacterGroup.Label.Other).OrderByDescending(g => g.EstimatedHours))
 			{
-				if (group.AssignedToCameoActor)
+				Debug.Assert(group.GroupIdLabel == CharacterGroup.Label.None);
+
+				group.SetGroupIdLabel();
+
+				switch (group.GroupIdLabel)
 				{
-					group.GroupIdLabel = CharacterGroup.Label.Other;
-					group.GroupIdOtherText = group.VoiceActor.Name;
-				}
-				else if (group.CharacterIds.Any(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)))
-				{
-					group.GroupIdLabel = CharacterGroup.Label.Narrator;
-					group.GroupIdNumber = ++iNarrator;
-				}
-				else if (group.IsVoiceActorAssigned)
-				{
-					VoiceActor.VoiceActor actor = group.VoiceActor;
-					if (actor.Age == ActorAge.Child)
-					{
-						group.GroupIdLabel = CharacterGroup.Label.Child;
-						group.GroupIdNumber = ++iChild;
-					}
-					else if (actor.Gender == ActorGender.Male)
-					{
-						group.GroupIdLabel = CharacterGroup.Label.Male;
+					case CharacterGroup.Label.Narrator:
+						group.GroupIdNumber = ++iNarrator;
+						break;
+					case CharacterGroup.Label.Male:
 						group.GroupIdNumber = ++iMale;
-					}
-					else
-					{
-						group.GroupIdLabel = CharacterGroup.Label.Female;
+						break;
+					case CharacterGroup.Label.Female:
 						group.GroupIdNumber = ++iFemale;
-					}
-				}
-				else
-				{
-					if (group.ContainsCharacterWithAge(CharacterAge.Child))
-					{
-						group.GroupIdLabel = CharacterGroup.Label.Child;
+						break;
+					case CharacterGroup.Label.Child:
 						group.GroupIdNumber = ++iChild;
-					}
-					if (group.ContainsCharacterWithGender(CharacterGender.Female) || group.ContainsCharacterWithGender(CharacterGender.PreferFemale))
-					{
-						group.GroupIdLabel = CharacterGroup.Label.Female;
-						group.GroupIdNumber = ++iFemale;
-					}
-					else
-					{
-						group.GroupIdLabel = CharacterGroup.Label.Male;
-						group.GroupIdNumber = ++iMale;
-					}
+						break;
 				}
 			}
 		}

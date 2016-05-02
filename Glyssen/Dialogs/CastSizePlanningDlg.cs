@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Glyssen.Bundle;
 using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Utilities;
-using Glyssen.VoiceActor;
 using L10NSharp;
 using L10NSharp.UI;
 
@@ -22,6 +21,8 @@ namespace Glyssen.Dialogs
 			InitializeComponent();
 			Icon = Resources.glyssenIcon;
 			m_viewModel = viewModel;
+			m_viewModel.MaleNarratorsValueChanged += m_viewModel_MaleNarratorsValueChanged;
+			m_viewModel.FemaleNarratorsValueChanged += m_viewModel_FemaleNarratorsValueChanged;
 			m_castSizePlanningOptions.SetViewModel(m_viewModel);
 
 			HandleStringsLocalized();
@@ -29,7 +30,9 @@ namespace Glyssen.Dialogs
 
 			m_tableLayoutStartingOver.Visible = m_viewModel.Project.CharacterGroupListPreviouslyGenerated;
 			m_maleNarrators.Maximum = m_viewModel.MaximumNarratorsValue;
+			m_maleNarrators.Value = m_viewModel.MaleNarrators;
 			m_femaleNarrators.Maximum = m_maleNarrators.Maximum;
+			m_femaleNarrators.Value = m_viewModel.FemaleNarrators;
 
 			NarratorOption = m_viewModel.NarratorOption;
 			CastSizeOption = m_viewModel.CastSizeOption;
@@ -41,7 +44,7 @@ namespace Glyssen.Dialogs
 		{
 			var project = m_viewModel.Project;
 			m_lblProjectSummary.Text = string.Format(m_lblProjectSummary.Text, project.IncludedBooks.Count,
-				project.GetKeyStrokesByCharacterId().Count);
+				project.TotalCharacterCount);
 			m_lblRecordingTime.Text = string.Format(m_lblRecordingTime.Text, project.GetEstimatedRecordingTime());
 		}
 
@@ -114,13 +117,9 @@ namespace Glyssen.Dialogs
 			using (var actorDlg = new VoiceActorInformationDlg(actorInfoViewModel, false, false, !keepSelection))
 			{
 				if (actorDlg.ShowDialog(this) == DialogResult.Cancel)
-					keepSelection = true; // Even though Cancel doesn't actually discard changes, it should at least reflect the user's desire not to have any changes result in a change to the c
+					keepSelection = true; // Even though Cancel doesn't actually discard changes, it should at least reflect the user's desire not to have any changes result in a change to the cast size choice
 
-				var male = actorInfoViewModel.Actors.Count(a => a.Gender == ActorGender.Male && a.Age != ActorAge.Child && !a.IsInactive);
-				var female = actorInfoViewModel.Actors.Count(a => a.Gender == ActorGender.Female && a.Age != ActorAge.Child && !a.IsInactive);
-				var child = actorInfoViewModel.Actors.Count(a => a.Age == ActorAge.Child && !a.IsInactive);
-
-				m_viewModel.SetVoiceActorListValues(male, female, child, keepSelection);
+				m_viewModel.SetVoiceActorListValues(new CastSizeRowValues(m_viewModel.Project.VoiceActorList), keepSelection);
 			}
 			m_castSizePlanningOptions.Refresh();
 			UpdateButtonState();
@@ -153,33 +152,37 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		private void UpdateNarratorCounts()
+		void m_viewModel_MaleNarratorsValueChanged(object sender, int e)
 		{
-			var narratorCounts = m_viewModel.GetNarratorValues(NarratorOption);
-			m_maleNarrators.Value = narratorCounts.Item1;
-			m_femaleNarrators.Value = narratorCounts.Item2;
+			m_maleNarrators.Value = e;
+		}
+
+		void m_viewModel_FemaleNarratorsValueChanged(object sender, int e)
+		{
+			m_femaleNarrators.Value = e;
 		}
 
 		private void NarratorOptionChanged(object sender, EventArgs e)
 		{
-			UpdateNarratorCounts();
-			m_viewModel.SetNarratorValues((int)m_maleNarrators.Value, (int)m_femaleNarrators.Value);
 			m_viewModel.NarratorOption = NarratorOption;
 
-			m_maleNarrators.Enabled = NarratorOption == NarratorsOption.Custom;
-			m_femaleNarrators.Enabled = m_maleNarrators.Enabled;
+			m_femaleNarrators.Enabled = m_maleNarrators.Enabled = NarratorOption == NarratorsOption.Custom;
 		}
 
-		private void Save()
+		private void MaleNarratorsValueChanged(object sender, EventArgs e)
 		{
-			m_viewModel.Save();
+			if (!m_loaded)
+				return;
+
+			m_viewModel.MaleNarrators = (int)m_maleNarrators.Value;
 		}
 
-		private void NarratorsValueChanged(object sender, EventArgs e)
+		private void FemaleNarratorsValueChanged(object sender, EventArgs e)
 		{
-			if (!m_loaded) return;
+			if (!m_loaded)
+				return;
 
-			m_viewModel.SetNarratorValues((int)m_maleNarrators.Value, (int)m_femaleNarrators.Value);
+			m_viewModel.FemaleNarrators = (int)m_femaleNarrators.Value;
 		}
 
 		private void m_btnGenerate_Click(object sender, EventArgs e)
@@ -195,11 +198,11 @@ namespace Glyssen.Dialogs
 					return;
 			}
 
-			Save();
+			m_viewModel.Save();
 			DialogResult = DialogResult.OK;
 		}
 
-		private CastSizeRow CastSizeOption
+		private CastSizeOption CastSizeOption
 		{
 			set { m_castSizePlanningOptions.SelectedCastSizeRow = value; }
 		}
@@ -220,14 +223,14 @@ namespace Glyssen.Dialogs
 
 		private void m_castSizePlanningOptions_CastSizeCustomValueChanged(object sender, CastSizeValueChangedEventArgs e)
 		{
-			m_viewModel.SetCustomVoiceActorValues(e.Male, e.Female, e.Child);
+			m_viewModel.SetCustomVoiceActorValues(e.RowValues);
 			UpdateButtonState();
 		}
 
 		private void CastSizePlanningDlg_Shown(object sender, EventArgs e)
 		{
 			if (m_viewModel.VoiceActorCount > 1)
-				ShowVoiceActorList(m_viewModel.CastSizeOption == CastSizeRow.MatchVoiceActorList);
+				ShowVoiceActorList(m_viewModel.CastSizeOption == CastSizeOption.MatchVoiceActorList);
 		}
 	}
 }

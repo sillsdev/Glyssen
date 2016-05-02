@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Dialogs;
@@ -28,35 +29,20 @@ namespace GlyssenTests.Dialogs
 		public void SetUp()
 		{
 			m_testProject.ClearAssignCharacterStatus(); //Otherwise tests interfere with each other in an undesirable way
-			var keystrokesByCharacterId = m_testProject.GetKeyStrokesByCharacterId();
 			
-
 			// These 2 loops are to make sure m_characterDetails and m_keystrokesByCharacterId contain the same characters
 			m_characterDetails = new Dictionary<string, CharacterDetail>();
 			m_keystrokesByCharacterId = new Dictionary<string, int>();
 
-			// ReSharper disable once LoopCanBePartlyConvertedToQuery
-			foreach (var kvp in  m_testProject.AllCharacterDetailDictionary)
-			{
-				if (keystrokesByCharacterId.ContainsKey(kvp.Key))
-				{
-					m_characterDetails.Add(kvp.Key, kvp.Value);
-				}
-			}
+			foreach (var kvp in m_testProject.AllCharacterDetailDictionary.Where(kvp => m_testProject.AllCharacterIds.Contains(kvp.Key)))
+				m_characterDetails.Add(kvp.Key, kvp.Value);
 			
-			// ReSharper disable once LoopCanBeConvertedToQuery
-			foreach (var kvp in keystrokesByCharacterId)
+			foreach (var kvp in m_testProject.KeyStrokesByCharacterId.Where(kvp => m_characterDetails.ContainsKey(kvp.Key)))
 			{
-				if (m_characterDetails.ContainsKey(kvp.Key))
-				{
-					m_keystrokesByCharacterId.Add(kvp.Key, kvp.Value);
-				}
+				m_keystrokesByCharacterId.Add(kvp.Key, kvp.Value);
 			}
 
-
-			m_model = new AddCharactersToGroupViewModel(m_characterDetails,
-				m_keystrokesByCharacterId,
-				new CharacterIdHashSet());
+			m_model = new AddCharactersToGroupViewModel(m_characterDetails, m_keystrokesByCharacterId, new CharacterIdHashSet());
 		}
 
 		[TearDown]

@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Xml;
 using Glyssen;
 using Glyssen.Bundle;
+using Glyssen.Character;
 using Glyssen.Quote;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.IO;
+using SIL.Scripture;
 using SIL.WritingSystems;
 
 namespace GlyssenTests
@@ -19,6 +23,7 @@ namespace GlyssenTests
 		public enum TestBook
 		{
 			JOS,
+			RUT,
 			MRK,
 			LUK,
 			ACT,
@@ -60,7 +65,7 @@ namespace GlyssenTests
 			sampleMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
 
 			var sampleWs = new WritingSystemDefinition();
-			sampleWs.QuotationMarks.AddRange(GetTestQuoteSystem().AllLevels);
+			sampleWs.QuotationMarks.AddRange(GetTestQuoteSystem(booksToInclude.Contains(TestBook.JOS) || booksToInclude.Contains(TestBook.RUT)).AllLevels);
 
 			var project = new Project(sampleMetadata, books, SfmLoader.GetUsfmStylesheet(), sampleWs);
 
@@ -92,12 +97,14 @@ namespace GlyssenTests
 			return UsxParser.ParseProject(books, SfmLoader.GetUsfmStylesheet(), new BackgroundWorker { WorkerReportsProgress = true });
 		}
 
-		private static QuoteSystem GetTestQuoteSystem()
+		private static QuoteSystem GetTestQuoteSystem(bool includeDialogueDash)
 		{
 			QuoteSystem testQuoteSystem = new QuoteSystem();
 			testQuoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal));
 			testQuoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“‘", 2, QuotationMarkingSystemType.Normal));
 			testQuoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“‘“", 3, QuotationMarkingSystemType.Normal));
+			if (includeDialogueDash)
+				testQuoteSystem.AllLevels.Add(new QuotationMark("—", null, null, 1, QuotationMarkingSystemType.Narrative));
 			return testQuoteSystem;
 		}
 
@@ -115,6 +122,12 @@ namespace GlyssenTests
 					book.LongName = "Joshua";
 					book.ShortName = "Joshua";
 					xmlDocument.LoadXml(Properties.Resources.TestJOS);
+					break;
+				case TestBook.RUT:
+					book.Code = "RUT";
+					book.LongName = "Ruth";
+					book.ShortName = "Ruth";
+					xmlDocument.LoadXml(Properties.Resources.TestRUT);
 					break;
 				case TestBook.MRK:
 					book.Code = "MRK";
@@ -194,6 +207,31 @@ namespace GlyssenTests
 			metadata.AvailableBooks.Add(book);
 
 			usxDocuments.Add(new UsxDocument(xmlDocument));
+		}
+
+		public static void SimulateDisambiguationForAllBooks(Project testProject)
+		{
+			var cvData = new CombinedCharacterVerseData(testProject);
+
+			foreach (var book in testProject.IncludedBooks)
+			{
+				var bookNum = BCVRef.BookToNumber(book.BookId);
+				foreach (var block in book.GetScriptBlocks())
+				{
+					if (block.CharacterId == CharacterVerseData.UnknownCharacter)
+					{
+						block.SetCharacterAndCharacterIdInScript(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator), bookNum, testProject.Versification);
+					}
+					else if (block.CharacterId == CharacterVerseData.AmbiguousCharacter)
+					{
+						var cvEntry =
+							cvData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber,
+								versification: testProject.Versification).First();
+						block.SetCharacterAndCharacterIdInScript(cvEntry.Character, bookNum, testProject.Versification);
+						block.Delivery = cvEntry.Delivery;
+					}
+				}
+			}
 		}
 	}
 }

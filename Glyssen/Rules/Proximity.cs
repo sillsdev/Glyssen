@@ -3,31 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Glyssen.Character;
+using SIL.Scripture;
 
 namespace Glyssen.Rules
 {
 	public class Proximity
 	{
 		public const int kDefaultMinimumProximity = 30;
-		private readonly Project m_project;
+		private readonly IReadOnlyList<BookScript> m_booksToConsider;
 
-		public Proximity(Project project)
+		public Proximity(IReadOnlyList<BookScript> booksToConsider)
 		{
-			m_project = project;
+			m_booksToConsider = booksToConsider;
 		}
 
 		/// <summary>
 		/// Calculate the minimum number of blocks between two character ids in given collection
 		/// </summary>
-		public MinimumProximity CalculateMinimumProximity(ISet<string> characterIdsToCalculate, bool handleEachBookSeparately = true)
+		public MinimumProximity CalculateMinimumProximity(ISet<string> characterIdsToCalculate, bool treatStandardNonScriptureCharactersAsDistinct = false, bool handleEachBookSeparately = true)
 		{
+			if (!characterIdsToCalculate.Any())
+				return new MinimumProximity(Int32.MaxValue, null, null, null, null);
+	
 			RelatedCharactersData relChar = RelatedCharactersData.Singleton;
 			bool foundFirst = false;
 			int currentBlockCount = 0;
 			int minProximity = Int32.MaxValue;
-			bool prevIsSingleCharacterId = true;
 			string prevCharacterId = null;
-			ISet<string> prevMatchingCharacterIds = new HashSet<string>();
+			ISet<string> prevMatchingCharacterIds = null;
 			BookScript firstBook = null;
 			Block firstBlock = null;
 			BookScript secondBook = null;
@@ -36,16 +39,18 @@ namespace Glyssen.Rules
 			Block prevBlock = null;
 			bool breakOutOfBothLoops = false;
 
-			ISet<string> characterIdsWithAgeVariations =
-				relChar.GetCharacterIdsForType(CharacterRelationshipType.SameCharacterWithMultipleAges);
+			ISet<string> standardCharacterIdsToTreatAsOne = null;
 
-			foreach (var book in m_project.IncludedBooks)
+			foreach (var book in m_booksToConsider)
 			{
 				if (breakOutOfBothLoops)
 					break;
 
+				if (!treatStandardNonScriptureCharactersAsDistinct)
+					standardCharacterIdsToTreatAsOne = new HashSet<string>();
+
 				if (handleEachBookSeparately)
-					currentBlockCount += 50;
+					currentBlockCount += kDefaultMinimumProximity + 20; // 20 is a pretty arbitrary "magic number"
 
 				foreach (var block in book.Blocks)
 				{
@@ -56,34 +61,37 @@ namespace Glyssen.Rules
 					// extra hashsets and doing extra intersects. Please consider the performance implications of any
 					// changes to this code.  (I'm sure it could be optimized further, too...)
 
-					bool isSingleCharacterId = true;
-					ISet<string> matchingCharacterIds = new HashSet<string>();
-					if (characterIdsWithAgeVariations.Contains(characterId))
+					ISet<string> matchingCharacterIds = null;
+					if (relChar.TryGetMatchingCharacterIdsOfADifferentAge(characterId, out matchingCharacterIds))
 					{
-						matchingCharacterIds = relChar.GetMatchingCharacterIds(characterId, CharacterRelationshipType.SameCharacterWithMultipleAges);
 						if (matchingCharacterIds.Count == 1)
-							characterId = matchingCharacterIds.First();
-						else
-							isSingleCharacterId = false;
+							matchingCharacterIds = null;
+					}
+					else if (standardCharacterIdsToTreatAsOne != null && CharacterVerseData.IsCharacterStandard(characterId, false))
+					{
+						standardCharacterIdsToTreatAsOne.Add(characterId);
+						matchingCharacterIds = standardCharacterIdsToTreatAsOne;
 					}
 
-					if (isSingleCharacterId)
+					if (matchingCharacterIds == null)
 					{
-						if (prevIsSingleCharacterId && prevCharacterId == characterId || prevMatchingCharacterIds.Contains(characterId))
+						if ((prevMatchingCharacterIds == null && prevCharacterId == characterId) || (prevMatchingCharacterIds != null && prevMatchingCharacterIds.Contains(characterId)))
 						{
 							currentBlockCount = 0;
 							prevBook = book;
 							prevBlock = block;
 						}
-						else if (characterIdsToCalculate.Contains(characterId))
+						else if (characterIdsToCalculate.Contains(characterId) &&
+							(!CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator) ||
+							prevCharacterId == null || !CharacterVerseData.IsCharacterOfType(prevCharacterId, CharacterVerseData.StandardCharacter.Narrator)))
 						{
-							if (ProcessDifferentCharacter(book, block, isSingleCharacterId, characterId, matchingCharacterIds, ref foundFirst, ref currentBlockCount, ref minProximity, ref firstBook, ref prevBook, ref firstBlock, ref prevBlock, ref secondBook, ref secondBlock, ref breakOutOfBothLoops, ref prevIsSingleCharacterId, ref prevCharacterId, ref prevMatchingCharacterIds))
+							if (ProcessDifferentCharacter(book, block, characterId, matchingCharacterIds, ref foundFirst, ref currentBlockCount, ref minProximity, ref firstBook, ref prevBook, ref firstBlock, ref prevBlock, ref secondBook, ref secondBlock, ref breakOutOfBothLoops, ref prevCharacterId, ref prevMatchingCharacterIds))
 								break;
 						}
 						else
 							currentBlockCount++;
 					}
-					else if (matchingCharacterIds.Intersect(prevMatchingCharacterIds).Any())
+					else if (prevMatchingCharacterIds != null && matchingCharacterIds.Intersect(prevMatchingCharacterIds).Any())
 					{
 						currentBlockCount = 0;
 						prevBook = book;
@@ -91,7 +99,7 @@ namespace Glyssen.Rules
 					}
 					else if (characterIdsToCalculate.Intersect(matchingCharacterIds).Any())
 					{
-						if (ProcessDifferentCharacter(book, block, isSingleCharacterId, characterId, matchingCharacterIds, ref foundFirst, ref currentBlockCount, ref minProximity, ref firstBook, ref prevBook, ref firstBlock, ref prevBlock, ref secondBook, ref secondBlock, ref breakOutOfBothLoops, ref prevIsSingleCharacterId, ref prevCharacterId, ref prevMatchingCharacterIds))
+						if (ProcessDifferentCharacter(book, block, characterId, matchingCharacterIds, ref foundFirst, ref currentBlockCount, ref minProximity, ref firstBook, ref prevBook, ref firstBlock, ref prevBlock, ref secondBook, ref secondBlock, ref breakOutOfBothLoops, ref prevCharacterId, ref prevMatchingCharacterIds))
 							break;
 					}
 					else
@@ -101,17 +109,10 @@ namespace Glyssen.Rules
 				}
 			}
 
-			return new MinimumProximity
-			{
-				NumberOfBlocks = minProximity,
-				FirstBook = firstBook,
-				SecondBook = secondBook,
-				FirstBlock = firstBlock,
-				SecondBlock = secondBlock
-			};
+			return new MinimumProximity(minProximity, firstBook, secondBook, firstBlock, secondBlock);
 		}
 
-		private static bool ProcessDifferentCharacter(BookScript book, Block block, bool isSingleCharacterId, string characterId, ISet<string> matchingCharacterIds, ref bool foundFirst, ref int currentBlockCount, ref int minProximity, ref BookScript firstBook, ref BookScript prevBook, ref Block firstBlock, ref Block prevBlock, ref BookScript secondBook, ref Block secondBlock, ref bool breakOutOfBothLoops, ref bool prevIsSingleCharacterId, ref string prevCharacterId, ref ISet<string> prevMatchingCharacterIds)
+		private static bool ProcessDifferentCharacter(BookScript book, Block block, string characterId, ISet<string> matchingCharacterIds, ref bool foundFirst, ref int currentBlockCount, ref int minProximity, ref BookScript firstBook, ref BookScript prevBook, ref Block firstBlock, ref Block prevBlock, ref BookScript secondBook, ref Block secondBlock, ref bool breakOutOfBothLoops, ref string prevCharacterId, ref ISet<string> prevMatchingCharacterIds)
 		{
 			if (foundFirst)
 			{
@@ -139,7 +140,6 @@ namespace Glyssen.Rules
 			}
 			foundFirst = true;
 			currentBlockCount = 0;
-			prevIsSingleCharacterId = isSingleCharacterId;
 			prevCharacterId = characterId;
 			prevMatchingCharacterIds = matchingCharacterIds;
 
@@ -151,25 +151,150 @@ namespace Glyssen.Rules
 
 	public class MinimumProximity
 	{
-		public int NumberOfBlocks { get; set; }
-		public BookScript FirstBook { get; set; }
-		public BookScript SecondBook { get; set; }
-		public Block FirstBlock { get; set; }
-		public Block SecondBlock { get; set; }
+		private readonly BookScript m_firstBook;
+		private readonly BookScript m_secondBook;
+		private readonly Block m_firstBlock;
+		private readonly Block m_secondBlock;
+
+		public int NumberOfBlocks { get; private set; }
+
+		public string FirstReference
+		{
+			get
+			{
+				return new BCVRef(BCVRef.BookToNumber(m_firstBook.BookId), m_firstBlock.ChapterNumber,
+					m_firstBlock.InitialStartVerseNumber).ToString();
+			}
+		}
+
+		public string SecondReference
+		{
+			get
+			{
+				return new BCVRef(BCVRef.BookToNumber(m_secondBook.BookId), m_secondBlock.ChapterNumber,
+					m_secondBlock.InitialStartVerseNumber).ToString();
+			}
+		}
+
+		public string FirstCharacterId
+		{
+			get
+			{
+				return m_firstBlock.CharacterIdInScript;
+			}
+		}
+
+		public string SecondCharacterId
+		{
+			get
+			{
+				return m_secondBlock.CharacterIdInScript;
+			}
+		}
+
+		public MinimumProximity(int numberOfBlocks, BookScript firstBook, BookScript secondBook, Block firstBlock, Block secondBlock)
+		{
+			NumberOfBlocks = numberOfBlocks;
+			m_firstBook = firstBook;
+			m_secondBook = secondBook;
+			m_firstBlock = firstBlock;
+			m_secondBlock = secondBlock;
+		}
+
+		public MinimumProximity(MinimumProximity copyFrom)
+		{
+			NumberOfBlocks = copyFrom.NumberOfBlocks;
+			m_firstBook = copyFrom.m_firstBook;
+			m_secondBook = copyFrom.m_secondBook;
+			m_firstBlock = copyFrom.m_firstBlock;
+			m_secondBlock = copyFrom.m_secondBlock;
+		}
 
 		public override string ToString()
 		{
-			if (FirstBlock == null || SecondBlock == null)
+			if (m_firstBlock == null || m_secondBlock == null)
 				return "[no characters in group]";
 
 			var sb = new StringBuilder();
 			sb.Append(NumberOfBlocks == Int32.MaxValue ? "MAX" : NumberOfBlocks.ToString()).Append("  |  ")
-				.Append(FirstBook.BookId).Append(" ").Append(FirstBlock.ChapterNumber).Append(":").Append(FirstBlock.InitialStartVerseNumber)
-				.Append(" (").Append(FirstBlock.CharacterIdInScript).Append(")")
+				.Append(FirstReference)
+				.Append(" (").Append(m_firstBlock.CharacterIdInScript).Append(")")
 				.Append(" - ")
-				.Append(SecondBook.BookId).Append(" ").Append(SecondBlock.ChapterNumber).Append(":").Append(SecondBlock.InitialStartVerseNumber)
-				.Append(" (").Append(SecondBlock.CharacterIdInScript).Append(")");
+				.Append(SecondReference)
+				.Append(" (").Append(m_secondBlock.CharacterIdInScript).Append(")");
 			return sb.ToString();
+		}
+
+		public static bool operator <(MinimumProximity a, MinimumProximity b)
+		{
+			// Null => no proximity calculated, which is assumed to mean infinitely distant (i.e. NumberOfBlocks = Int32.Max)
+			return (a == null ? Int32.MaxValue : a.NumberOfBlocks) < (b == null ? Int32.MaxValue : b.NumberOfBlocks);
+		}
+
+		public static bool operator >(MinimumProximity a, MinimumProximity b)
+		{
+			// Null => no proximity calculated, which is assumed to mean infinitely distant (i.e. NumberOfBlocks = Int32.Max)
+			return (a == null ? Int32.MaxValue : a.NumberOfBlocks) > (b == null ? Int32.MaxValue : b.NumberOfBlocks);
+		}
+
+		public static bool operator <=(MinimumProximity a, MinimumProximity b)
+		{
+			// Null => no proximity calculated, which is assumed to mean infinitely distant (i.e. NumberOfBlocks = Int32.Max)
+			return (a == null ? Int32.MaxValue : a.NumberOfBlocks) <= (b == null ? Int32.MaxValue : b.NumberOfBlocks);
+		}
+
+		public static bool operator >=(MinimumProximity a, MinimumProximity b)
+		{
+			// Null => no proximity calculated, which is assumed to mean infinitely distant (i.e. NumberOfBlocks = Int32.Max)
+			return (a == null ? Int32.MaxValue : a.NumberOfBlocks) >= (b == null ? Int32.MaxValue : b.NumberOfBlocks);
+		}
+
+		public static bool operator >=(MinimumProximity p, int numberOfBlocks)
+		{
+			// Null => no proximity calculated, which is assumed to mean infinitely distant (i.e. NumberOfBlocks = Int32.Max)
+			return (p == null ? Int32.MaxValue : p.NumberOfBlocks) >= numberOfBlocks;
+		}
+
+		public static bool operator <(MinimumProximity p, int numberOfBlocks)
+		{
+			// Null => no proximity calculated, which is assumed to mean infinitely distant (i.e. NumberOfBlocks = Int32.Max)
+			return (p == null ? Int32.MaxValue : p.NumberOfBlocks) < numberOfBlocks;
+		}
+
+		public static bool operator >(MinimumProximity p, int numberOfBlocks)
+		{
+			// Null => no proximity calculated, which is assumed to mean infinitely distant (i.e. NumberOfBlocks = Int32.Max)
+			return (p == null ? Int32.MaxValue : p.NumberOfBlocks) > numberOfBlocks;
+		}
+
+		public static bool operator <=(MinimumProximity p, int numberOfBlocks)
+		{
+			// Null => no proximity calculated, which is assumed to mean infinitely distant (i.e. NumberOfBlocks = Int32.Max)
+			return (p == null ? Int32.MaxValue : p.NumberOfBlocks) <= numberOfBlocks;
+		}
+
+		public static bool operator >=(int numberOfBlocks, MinimumProximity p)
+		{
+			// Null => no proximity calculated, which is assumed to mean infinitely distant (i.e. NumberOfBlocks = Int32.Max)
+			return numberOfBlocks >= (p == null ? Int32.MaxValue : p.NumberOfBlocks);
+		}
+
+		public static bool operator <(int numberOfBlocks, MinimumProximity p)
+		{
+			// Null => no proximity calculated, which is assumed to mean infinitely distant (i.e. NumberOfBlocks = Int32.Max)
+			return numberOfBlocks < (p == null ? Int32.MaxValue : p.NumberOfBlocks);
+		}
+
+		public static bool operator >(int numberOfBlocks, MinimumProximity p)
+		{
+			// Null => no proximity calculated, which is assumed to mean infinitely distant (i.e. NumberOfBlocks = Int32.Max)
+			return numberOfBlocks > (p == null ? Int32.MaxValue : p.NumberOfBlocks);
+		}
+
+		public static bool operator <=(int numberOfBlocks, MinimumProximity p)
+		{
+			// Null => no proximity calculated, which is assumed to mean infinitely distant (i.e. NumberOfBlocks = Int32.Max)
+			return numberOfBlocks <= (p == null ? Int32.MaxValue : p.NumberOfBlocks);
 		}
 	}
 
@@ -182,13 +307,8 @@ namespace Glyssen.Rules
 			get { return (int)Math.Round(Math.Pow(NumberOfBlocks, WeightingPower)); }
 		}
 
-		public WeightedMinimumProximity(MinimumProximity minimumProximity)
+		public WeightedMinimumProximity(MinimumProximity minimumProximity) : base(minimumProximity)
 		{
-			NumberOfBlocks = minimumProximity.NumberOfBlocks;
-			FirstBook = minimumProximity.FirstBook;
-			SecondBook = minimumProximity.SecondBook;
-			FirstBlock = minimumProximity.FirstBlock;
-			SecondBlock = minimumProximity.SecondBlock;
 			WeightingPower = 1;
 		}
 	}

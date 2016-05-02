@@ -48,11 +48,13 @@ namespace Glyssen.Dialogs
 			else
 			{
 				AddGroupAffected(sourceGroup);
+				sourceGroup.ClearCacheOfEstimatedHours();
 				sourceSurvived = true;
 			}
 
 			destGroup.CharacterIds.AddRange(m_characterIdsMoved);
-			destGroup.SetGroupIdLabelBasedOnCharacterIds();
+			destGroup.ClearCacheOfEstimatedHours();
+			destGroup.SetGroupIdLabel();
 			m_project.CharacterGroupList.UpdateGroupIdNumbers();
 			return sourceSurvived;
 		}
@@ -116,7 +118,7 @@ namespace Glyssen.Dialogs
 				return false;
 
 			sourceGroup.CharacterIds.AddRange(m_characterIdsMoved);
-			sourceGroup.SetGroupIdLabelBasedOnCharacterIds();
+			sourceGroup.SetGroupIdLabel();
 			m_project.CharacterGroupList.UpdateGroupIdNumbers();
 			AddGroupAffected(sourceGroup);
 

@@ -92,6 +92,9 @@ namespace Glyssen.Bundle
 		[XmlElement("characterGroupGenerationPreferences")]
 		public CharacterGroupGenerationPreferences CharacterGroupGenerationPreferences = new CharacterGroupGenerationPreferences();
 
+		[XmlElement("projectDramatizationPreferences")]
+		public ProjectDramatizationPreferences DramatizationPreferences = new ProjectDramatizationPreferences();
+
 		/// <summary>
 		/// The font family for the language associated with this project.
 		/// This is pulled in from the stylesheet or set via the ProjectSettingsDlg.
@@ -318,8 +321,8 @@ namespace Glyssen.Bundle
 		/// How the number of voice actors was set:
 		/// </summary>
 		[XmlElement("castSizeOption")]
-		[DefaultValue(CastSizeRow.NotSet)]
-		public CastSizeRow CastSizeOption { get; set; }
+		[DefaultValue(CastSizeOption.NotSet)]
+		public CastSizeOption CastSizeOption { get; set; }
 
 		/// <summary>
 		/// Number of male actors set by user
@@ -341,6 +344,87 @@ namespace Glyssen.Bundle
 		[XmlElement("numberOfChildActors")]
 		[DefaultValue(0)]
 		public int NumberOfChildActors { get; set; }
+	}
+
+	public enum NarratorsOption
+	{
+		NotSet = 0,
+		SingleNarrator = 1,
+		NarrationByAuthor = 2,
+		Custom = 3
+	}
+
+	public enum CastSizeOption
+	{
+		NotSet = 0,
+		Small = 1,
+		Recommended = 2,
+		Large = 3,
+		Custom = 4,
+		MatchVoiceActorList = 5
+	}
+
+	public enum DramatizationOption
+	{
+		DedicatedCharacter,
+		DefaultCharacter,
+		Narrator,
+	}
+
+	public enum PreferenceLevel
+	{
+		/// <summary>
+		/// This is the default, indicating a behavior that is "Permissible" (but the user has not indicated a specific preference)
+		/// </summary>
+		NoOpinion,
+		Prevent,
+		Undesirable,
+		Preferable,
+		Required,
+	}
+
+	public enum ExtraBiblicalMaterialSpeakerOption
+	{
+		Narrator,
+		ActorOfEitherGender,
+		MaleActor,
+		FemaleActor,
+		Omitted,
+	}
+
+	public class ProjectDramatizationPreferences
+	{
+		public ProjectDramatizationPreferences()
+		{
+			SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+		}
+
+		/// <summary>
+		/// Gets or sets a value indicating how to dramatize "scripture" quotations
+		/// </summary>
+		[XmlElement("ScriptureQuotationsShouldBeSpokenBy")]
+		[DefaultValue(DramatizationOption.DedicatedCharacter)]
+		public DramatizationOption ScriptureQuotationsShouldBeSpokenBy { get; set; }
+
+		/// <summary>
+		/// Gets or sets a value indicating whether narrators should be allowed to speak the lines of biblical characters who have roles in other books
+		/// </summary>
+		[XmlElement("HaveNarratorsPerformCharacterRolesInOtherBooks")]
+		[DefaultValue(PreferenceLevel.NoOpinion)]
+		public PreferenceLevel HaveNarratorsPerformCharacterRolesInOtherBooks { get; set; }
+
+		[XmlElement("BookTitleAndChapterDramatization")]
+		[DefaultValue(ExtraBiblicalMaterialSpeakerOption.Narrator)]
+		public ExtraBiblicalMaterialSpeakerOption BookTitleAndChapterDramatization { get; set; }
+
+		[XmlElement("SectionHeadDramatization")]
+		[DefaultValue(ExtraBiblicalMaterialSpeakerOption.Omitted)]
+		public ExtraBiblicalMaterialSpeakerOption SectionHeadDramatization { get; set; }
+
+		[XmlElement("BookIntroductionsDramatization")]
+		[DefaultValue(ExtraBiblicalMaterialSpeakerOption.Omitted)]
+		public ExtraBiblicalMaterialSpeakerOption BookIntroductionsDramatization { get; set; }
 	}
 
 	[Flags]

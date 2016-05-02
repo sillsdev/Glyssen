@@ -474,7 +474,7 @@ namespace GlyssenTests
 		public void UseDefaultForMultipleChoiceCharacter_ExplicitDefault_UseDefault()
 		{
 			var block = new Block("p", 9, 11);
-			block.CharacterId = "Peter (Simon)/James/John";
+			block.CharacterId = "Peter (Simon)/James, the disciple/John";
 			block.UseDefaultForMultipleChoiceCharacter(BCVRef.BookToNumber("MRK"));
 			Assert.AreEqual("John", block.CharacterIdInScript);
 		}

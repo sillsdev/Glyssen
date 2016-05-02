@@ -18,6 +18,11 @@ namespace Glyssen.Dialogs
 			if (disposing)
 			{
 				LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+				if (m_viewModel != null)
+				{
+					m_viewModel.MaleNarratorsValueChanged -= m_viewModel_MaleNarratorsValueChanged;
+					m_viewModel.FemaleNarratorsValueChanged -= m_viewModel_FemaleNarratorsValueChanged;
+				}
 
 				if (components != null)
 					components.Dispose();
@@ -351,7 +356,7 @@ namespace Glyssen.Dialogs
 			this.m_maleNarrators.TabIndex = 2;
 			this.m_maleNarrators.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_maleNarrators, false);
-			this.m_maleNarrators.ValueChanged += new System.EventHandler(this.NarratorsValueChanged);
+			this.m_maleNarrators.ValueChanged += new System.EventHandler(this.MaleNarratorsValueChanged);
 			// 
 			// m_femaleNarrators
 			// 
@@ -368,7 +373,7 @@ namespace Glyssen.Dialogs
 			this.m_femaleNarrators.TabIndex = 3;
 			this.m_femaleNarrators.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_femaleNarrators, false);
-			this.m_femaleNarrators.ValueChanged += new System.EventHandler(this.NarratorsValueChanged);
+			this.m_femaleNarrators.ValueChanged += new System.EventHandler(this.FemaleNarratorsValueChanged);
 			// 
 			// m_lblWorkDistributed
 			// 
@@ -487,7 +492,7 @@ namespace Glyssen.Dialogs
 			this.m_castSizePlanningOptions.Location = new System.Drawing.Point(0, 0);
 			this.m_castSizePlanningOptions.Margin = new System.Windows.Forms.Padding(0);
 			this.m_castSizePlanningOptions.Name = "m_castSizePlanningOptions";
-			this.m_castSizePlanningOptions.SelectedCastSizeRow = Glyssen.Dialogs.CastSizeRow.Recommended;
+			this.m_castSizePlanningOptions.SelectedCastSizeRow = Glyssen.Bundle.CastSizeOption.Recommended;
 			this.m_castSizePlanningOptions.Size = new System.Drawing.Size(418, 151);
 			this.m_castSizePlanningOptions.TabIndex = 1;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_castSizePlanningOptions, true);
