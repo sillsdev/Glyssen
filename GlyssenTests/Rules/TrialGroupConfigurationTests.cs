@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 using Glyssen;
+using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Rules;
@@ -581,7 +582,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
-			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeRow.NotSet;
+			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.NotSet;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
 		}
 
@@ -605,11 +606,13 @@ namespace GlyssenTests.Rules
 			var maxMaleNarrators = 2;  // one per book
 			var maxFemaleNarrators = 0;
 
+			var characterDetails = m_testProject.AllCharacterDetailDictionary;
 			var includedCharacterDetails = characterDetails.Values.Where(c => m_testProject.AllCharacterIds.Contains(c.CharacterId)).ToList();
 
 			// Adult groups are already assigned to actors because they are exclusive matches for their respective characterIds.
 			// GeneratePossibilities assumes each group has an actor assigned, so we make the final assignment here.
 			groups.Single(g => g.GroupIdLabel == CharacterGroup.Label.Child).AssignVoiceActor(m_testProject.VoiceActorList.AllActors.Single(a => a.Age == ActorAge.Child).Id);
+
 			Assert.DoesNotThrow(() => CharacterGroupGenerator.TrialGroupConfiguration.GeneratePossibilities(
 				fallbackPass,
 				groups,

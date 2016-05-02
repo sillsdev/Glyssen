@@ -51,10 +51,9 @@ namespace Glyssen.Dialogs
 			int includedBooksCount = project.IncludedBooks.Count;
 			if (includedBooksCount == 1)
 				m_lblProjectSummary.Text = string.Format(LocalizationManager.GetString("DialogBoxes.CastSizePlanning.ProjectSummary.Singular",
-					"This project has 1 book with {0} distinct character roles."), project.GetKeyStrokesByCharacterId().Count);
+					"This project has 1 book with {0} distinct character roles."), project.TotalCharacterCount);
 			else
-				m_lblProjectSummary.Text = string.Format(m_fmtProjectSummaryPlural, includedBooksCount,
-					project.TotalCharacterCount);
+				m_lblProjectSummary.Text = string.Format(m_fmtProjectSummaryPlural, includedBooksCount, project.TotalCharacterCount);
 			m_lblRecordingTime.Text = string.Format(m_lblRecordingTime.Text, project.GetEstimatedRecordingTime());
 		}
 
@@ -187,6 +186,7 @@ namespace Glyssen.Dialogs
 				return;
 
 			m_viewModel.MaleNarrators = (int)m_maleNarrators.Value;
+			ShowOrHideNarratorCountWarning();
 		}
 
 		private void FemaleNarratorsValueChanged(object sender, EventArgs e)

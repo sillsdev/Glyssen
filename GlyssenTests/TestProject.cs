@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -232,6 +231,11 @@ namespace GlyssenTests
 					}
 				}
 			}
+		}
+
+		public static List<CharacterDetail> GetIncludedCharacterDetails(Project project)
+		{
+			return project.AllCharacterDetailDictionary.Values.Where(c => project.KeyStrokesByCharacterId.Select(e => e.Key).Contains(c.CharacterId)).ToList();
 		}
 	}
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
@@ -35,7 +36,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
-			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeRow.NotSet;
+			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.NotSet;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
 		}
 
@@ -1001,7 +1002,7 @@ namespace GlyssenTests.Rules
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
-			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeRow.NotSet;
+			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.NotSet;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
 		}
 
@@ -1127,7 +1128,7 @@ namespace GlyssenTests.Rules
 		[SetUp]
 		public void SetUp()
 		{
-			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeRow.NotSet;
+			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.NotSet;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
 		}
 
@@ -1360,7 +1361,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
-			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeRow.NotSet;
+			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.NotSet;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
 		}
 
@@ -1788,19 +1789,19 @@ namespace GlyssenTests.Rules
 				Assert.IsFalse(grp.CharacterIds.Any(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)));
 		}
 
-		[TestCase(CastSizeRow.Small)]
-		[TestCase(CastSizeRow.Recommended)]
-		[TestCase(CastSizeRow.Large)]
-		public void GenerateCharacterGroups_GhostCastUsed_CorrectNumberOfEachTypeOfActorCreated(CastSizeRow castSize)
+		[TestCase(CastSizeOption.Small)]
+		[TestCase(CastSizeOption.Recommended)]
+		[TestCase(CastSizeOption.Large)]
+		public void GenerateCharacterGroups_GhostCastUsed_CorrectNumberOfEachTypeOfActorCreated(CastSizeOption castSize)
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 1;
 			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = castSize;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
-			var groups = gen.GenerateCharacterGroups();
 			var castSizePlanningViewModel = new CastSizePlanningViewModel(m_testProject);
 			var castSizeValues = castSizePlanningViewModel.GetCastSizeRowValues(castSize);
+			var gen = new CharacterGroupGenerator(m_testProject, castSizeValues);
+			var groups = gen.GenerateCharacterGroups();
 			Assert.AreEqual(1, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Narrator));
 			Assert.AreEqual(0, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.None));
 			Assert.AreEqual(0, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Other));
@@ -1815,17 +1816,13 @@ namespace GlyssenTests.Rules
 		public void GenerateCharacterGroups_CustomGhostCastUsed_CorrectNumberOfEachTypeOfActorCreated(int maleActors, int femaleActors, int childActors)
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 1;
-			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeRow.Custom;
-			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleActors = maleActors;
-			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleActors = femaleActors;
-			m_testProject.CharacterGroupGenerationPreferences.NumberOfChildActors = childActors;
+			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.Custom;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			var gen = new CharacterGroupGenerator(m_testProject, m_keyStrokesPerCharacterId);
+			var castSizeValues = new CastSizeRowValues(maleActors, femaleActors, childActors);
+			var gen = new CharacterGroupGenerator(m_testProject, castSizeValues);
 			var groups = gen.GenerateCharacterGroups();
-			var castSizePlanningViewModel = new CastSizePlanningViewModel(m_testProject);
-			var castSizeValues = castSizePlanningViewModel.GetCastSizeRowValues(CastSizeRow.Custom);
-			var charactersInScript = TestProject.GetIncludedCharacterDetails(m_testProject, m_keyStrokesPerCharacterId);
+			var charactersInScript = TestProject.GetIncludedCharacterDetails(m_testProject);
 			var numChildCharactersInScript = charactersInScript.Count(c => c.Age == CharacterAge.Child);
 			Assert.AreEqual(1, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.Narrator));
 			Assert.AreEqual(0, groups.Count(g => g.GroupIdLabel == CharacterGroup.Label.None));

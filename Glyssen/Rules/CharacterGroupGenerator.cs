@@ -8,6 +8,7 @@ using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.VoiceActor;
+using L10NSharp;
 using SIL.Extensions;
 using SIL.Progress;
 
@@ -112,7 +113,16 @@ namespace Glyssen.Rules
 
 				if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
 				{
+					var assignedBefore = project.CharacterGroupList.CountVoiceActorsAssigned();
 					generator.ApplyGeneratedGroupsToProject(attemptToPreserveActorAssignments);
+
+					if (project.CharacterGroupList.CountVoiceActorsAssigned() < assignedBefore)
+					{
+						var msg = LocalizationManager.GetString("MainForm.FewerAssignedActorsAfterGeneration",
+							"An actor assignment had to be removed. Please review the Voice Actor assignments, and adjust where necessary.");
+						MessageBox.Show(msg);
+					}
+
 					saveGroups = true;
 				}
 				else if (forceMatchToActors)

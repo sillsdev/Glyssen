@@ -87,15 +87,6 @@ namespace Glyssen.Dialogs
 			TileFormLocation();
 		}
 
-					var assignedBefore = m_project.CharacterGroupList.CountVoiceActorsAssigned();
-
-					if (m_project.CharacterGroupList.CountVoiceActorsAssigned() < assignedBefore)
-					{
-						var msg = LocalizationManager.GetString("MainForm.FewerAssignedActorsAfterGeneration",
-							"An actor assignment had to be removed. Please review the Voice Actor assignments, and adjust where necessary.");
-						MessageBox.Show(this, msg, Text, MessageBoxButtons.OK);
-					}
-
 		/// <summary>
 		/// Sets the row count if necessary; otherwise (optionally) refreshes the grid.
 		/// </summary>
