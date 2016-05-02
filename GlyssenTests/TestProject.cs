@@ -18,7 +18,7 @@ using SIL.WritingSystems;
 
 namespace GlyssenTests
 {
-	class TestProject
+	static class TestProject
 	{
 		public enum TestBook
 		{

@@ -80,6 +80,8 @@ namespace Glyssen.Dialogs
 
 		private void HandleStringsLocalized()
 		{
+			L10N.LocalizeComboList(m_toolStripComboBoxFilter, "DialogBoxes.QuotationMarksDlg.FilterOptions");
+
 			m_versesWithMissingExpectedQuotesFilterItem = m_toolStripComboBoxFilter.Items[1];
 			m_allQuotesFilterItem = m_toolStripComboBoxFilter.Items[2];
 

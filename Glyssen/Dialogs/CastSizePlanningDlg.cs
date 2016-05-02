@@ -15,6 +15,7 @@ namespace Glyssen.Dialogs
 	{
 		private readonly CastSizePlanningViewModel m_viewModel;
 		private readonly bool m_loaded;
+		private readonly string m_fmtProjectSummaryPlural;
 
 		public CastSizePlanningDlg(CastSizePlanningViewModel viewModel)
 		{
@@ -25,6 +26,7 @@ namespace Glyssen.Dialogs
 			m_viewModel.FemaleNarratorsValueChanged += m_viewModel_FemaleNarratorsValueChanged;
 			m_castSizePlanningOptions.SetViewModel(m_viewModel);
 
+			m_fmtProjectSummaryPlural = m_lblProjectSummary.Text;
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 
@@ -37,14 +39,22 @@ namespace Glyssen.Dialogs
 			NarratorOption = m_viewModel.NarratorOption;
 			CastSizeOption = m_viewModel.CastSizeOption;
 
+			// set the warning icon
+			m_imgNarratorWarning.Image = SystemIcons.Error.ToBitmap();
+
 			m_loaded = true;
 		}
 
 		private void HandleStringsLocalized()
 		{
 			var project = m_viewModel.Project;
-			m_lblProjectSummary.Text = string.Format(m_lblProjectSummary.Text, project.IncludedBooks.Count,
-				project.TotalCharacterCount);
+			int includedBooksCount = project.IncludedBooks.Count;
+			if (includedBooksCount == 1)
+				m_lblProjectSummary.Text = string.Format(LocalizationManager.GetString("DialogBoxes.CastSizePlanning.ProjectSummary.Singular",
+					"This project has 1 book with {0} distinct character roles."), project.GetKeyStrokesByCharacterId().Count);
+			else
+				m_lblProjectSummary.Text = string.Format(m_fmtProjectSummaryPlural, includedBooksCount,
+					project.TotalCharacterCount);
 			m_lblRecordingTime.Text = string.Format(m_lblRecordingTime.Text, project.GetEstimatedRecordingTime());
 		}
 
@@ -106,7 +116,7 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		private void m_linkVloiceActorList_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		private void m_linkVoiceActorList_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			ShowVoiceActorList(true);
 		}
@@ -123,6 +133,7 @@ namespace Glyssen.Dialogs
 			}
 			m_castSizePlanningOptions.Refresh();
 			UpdateButtonState();
+			ShowOrHideNarratorCountWarning();
 		}
 
 		private NarratorsOption NarratorOption
@@ -167,6 +178,7 @@ namespace Glyssen.Dialogs
 			m_viewModel.NarratorOption = NarratorOption;
 
 			m_femaleNarrators.Enabled = m_maleNarrators.Enabled = NarratorOption == NarratorsOption.Custom;
+			ShowOrHideNarratorCountWarning();
 		}
 
 		private void MaleNarratorsValueChanged(object sender, EventArgs e)
@@ -183,6 +195,14 @@ namespace Glyssen.Dialogs
 				return;
 
 			m_viewModel.FemaleNarrators = (int)m_femaleNarrators.Value;
+			ShowOrHideNarratorCountWarning();
+		}
+
+		private void ShowOrHideNarratorCountWarning()
+		{
+			var cast = m_viewModel.GetCastSizeRowValues(m_viewModel.CastSizeOption);
+			m_tblNarratorWarning.Visible = ((m_maleNarrators.Value > cast.Male) || (m_femaleNarrators.Value > cast.Female));
+			m_btnGenerate.Enabled = !m_tblNarratorWarning.Visible;
 		}
 
 		private void m_btnGenerate_Click(object sender, EventArgs e)
@@ -219,12 +239,14 @@ namespace Glyssen.Dialogs
 
 			m_viewModel.CastSizeOption = e.Row;
 			UpdateButtonState();
+			ShowOrHideNarratorCountWarning();
 		}
 
 		private void m_castSizePlanningOptions_CastSizeCustomValueChanged(object sender, CastSizeValueChangedEventArgs e)
 		{
 			m_viewModel.SetCustomVoiceActorValues(e.RowValues);
 			UpdateButtonState();
+			ShowOrHideNarratorCountWarning();
 		}
 
 		private void CastSizePlanningDlg_Shown(object sender, EventArgs e)

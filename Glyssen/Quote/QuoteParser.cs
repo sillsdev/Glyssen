@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -81,7 +82,6 @@ namespace Glyssen.Quote
 		private static QuoteSystem s_quoteSystem = QuoteSystem.Default;
 		private readonly ScrVers m_versification;
 		private readonly List<Regex> m_regexes = new List<Regex>();
-		private readonly Regex m_regexStartsWithSpecialOpeningPunctuation = new Regex(@"^(\(|\[|\{)", RegexOptions.Compiled);
 		private Regex m_regexStartsWithFirstLevelOpener;
 		private Regex m_regexHasFirstLevelClose;
 
@@ -132,7 +132,9 @@ namespace Glyssen.Quote
 						splitters.Add(s_quoteSystem.NormalLevels[0].Continue);
 					splitters.Add(s_quoteSystem.NormalLevels[level].Open);
 					if (level == 0)
-						AddQuotationDashes(splitters);
+						AddQuotationDashStart(splitters);
+					else if (level == 1)
+						AddQuotationDashEnd(splitters);
 
 					regexExpressions.Add(BuildQuoteMatcherRegex(splitters));
 				}
@@ -142,14 +144,15 @@ namespace Glyssen.Quote
 				splitters.Add(s_quoteSystem.NormalLevels.Last().Close);
 				splitters.Add(s_quoteSystem.NormalLevels.Last().Continue);
 				if (s_quoteSystem.NormalLevels.Count == 1)
-					AddQuotationDashes(splitters);
+					AddQuotationDashEnd(splitters);
 
 				regexExpressions.Add(BuildQuoteMatcherRegex(splitters));
 			}
 			else
 			{
 				splitters = new List<string>();
-				AddQuotationDashes(splitters);
+				AddQuotationDashStart(splitters);
+				AddQuotationDashEnd(splitters);
 				regexExpressions.Add(BuildQuoteMatcherRegex(splitters));
 			}
 
@@ -168,20 +171,20 @@ namespace Glyssen.Quote
 			{
 				m_regexes.Add(new Regex(String.Format(expr,
 					Regex.Escape(string.Join(string.Empty, quoteChars)),
-					Regex.Escape(@"(\[\{")), RegexOptions.Compiled));
+					Regex.Escape(GetOpeningPunctuationAsSingleString())), RegexOptions.Compiled));
 			}
 		}
 
-		private void AddQuotationDashes(IList<string> splitters)
+		private void AddQuotationDashStart(IList<string> splitters)
 		{
 			if (!string.IsNullOrEmpty(s_quoteSystem.QuotationDashMarker))
-			{
 				splitters.Add(s_quoteSystem.QuotationDashMarker);
-				if (!string.IsNullOrEmpty(s_quoteSystem.QuotationDashEndMarker))
-				{
-					splitters.Add(s_quoteSystem.QuotationDashEndMarker);
-				}
-			}
+		}
+
+		private void AddQuotationDashEnd(IList<string> splitters)
+		{
+			if (!string.IsNullOrEmpty(s_quoteSystem.QuotationDashMarker) && !string.IsNullOrEmpty(s_quoteSystem.QuotationDashEndMarker))
+				splitters.Add(s_quoteSystem.QuotationDashEndMarker);
 		}
 
 		private static string BuildQuoteMatcherRegex(IList<string> splitters)
@@ -322,7 +325,7 @@ namespace Glyssen.Quote
 						{
 							if (match.Index > pos)
 							{
-								specialOpeningPunctuation = m_regexStartsWithSpecialOpeningPunctuation.Match(content).Success;
+								specialOpeningPunctuation = StartsWithSpecialOpeningPunctuation(content);
 								sb.Append(content.Substring(pos, match.Index - pos));
 							}
 
@@ -473,6 +476,25 @@ namespace Glyssen.Quote
 				ProcessMultiBlock();
 			}
 			return m_outputBlocks;
+		}
+
+		private string GetOpeningPunctuationAsSingleString()
+		{
+			return string.Join("", CharacterUtils.GetAllCharactersInUnicodeCategory(UnicodeCategory.OpenPunctuation)) + GetOtherPunctuationTreatedAsOpeningPunctuationAsSingleString();
+		}
+
+		private string GetOtherPunctuationTreatedAsOpeningPunctuationAsSingleString()
+		{
+			return "¡¿";
+		}
+
+		private bool StartsWithSpecialOpeningPunctuation(string text)
+		{
+			if (text.Length == 0)
+				return false;
+			char firstCharacter = text[0];
+			return CharUnicodeInfo.GetUnicodeCategory(firstCharacter) == UnicodeCategory.OpenPunctuation ||
+				GetOtherPunctuationTreatedAsOpeningPunctuationAsSingleString().Contains(firstCharacter);
 		}
 
 		private bool ProbablyAnApostrophe(string content, int pos)

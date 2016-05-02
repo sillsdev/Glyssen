@@ -52,7 +52,7 @@ namespace GlyssenTests.Quote
 		public void Guess_AllFirstLevelQuoteSystemsWithMultipleSecondLevelPossibilitiesWithHighlyConsistentData_CorrectlyIdentifiesSystemWithUncertainty()
 		{
 			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => String.IsNullOrEmpty(qs.QuotationDashMarker) &&
-				qs.NormalLevels.Count == 1 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() > 1))
+				qs.NormalLevels.Count == 1 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Length > 1))
 			{
 				RunTest(quoteSystem, true, false, false);
 			}
@@ -69,7 +69,7 @@ namespace GlyssenTests.Quote
 		public void Guess_MostSinglePossibilityMultipleLevelQuoteSystemsWithHighlyConsistentData_CorrectlyIdentifiesSystemWithCertainty()
 		{
 			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => String.IsNullOrEmpty(qs.QuotationDashMarker) &&
-				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() == 1 &&
+				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Length == 1 &&
 				qs.Name != "מֵירְכָאוֹת (Curly) with levels 2 (’/‘) and 3."))
 			{
 				RunTest(quoteSystem, true, false, true);
@@ -84,7 +84,7 @@ namespace GlyssenTests.Quote
 		public void Guess_AllSinglePossibilityMultipleLevelQuoteSystemsWithHighlyConsistentData_CorrectlyIdentifiesSystemWithoutCertainty()
 		{
 			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => String.IsNullOrEmpty(qs.QuotationDashMarker) &&
-				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() == 1))
+				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Length == 1))
 			{
 				RunTest(quoteSystem, true, false, false);
 			}
@@ -98,7 +98,7 @@ namespace GlyssenTests.Quote
 		public void Guess_AllFirstLevelQuoteSystemsWithMultipleSecondLevelPossibilitiesAndDialogueQuotesWithHighlyConsistentData_CorrectlyIdentifiesSystemWithUncertainty()
 		{
 			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => !String.IsNullOrEmpty(qs.QuotationDashMarker) &&
-				qs.NormalLevels.Count == 1 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() > 1))
+				qs.NormalLevels.Count == 1 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Length > 1))
 			{
 				RunTest(quoteSystem, true, false, false);
 			}
@@ -112,7 +112,7 @@ namespace GlyssenTests.Quote
 		public void Guess_AllSinglePossibilityMultipleLevelQuoteSystemsWithDialogueQuotesWithHighlyConsistentDataNoSecondLevelQuotesInData_CorrectlyIdentifiesSystemWithUncertainty()
 		{
 			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => !String.IsNullOrEmpty(qs.QuotationDashMarker) &&
-				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() == 1))
+				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Length == 1))
 			{
 				RunTest(quoteSystem, true, false, false);
 			}
@@ -126,7 +126,7 @@ namespace GlyssenTests.Quote
 		public void Guess_AllMultiplePossibilityMultipleLevelQuoteSystemsWithDialogueQuotesWithHighlyConsistentDataAndSecondLevelQuotesInData_CorrectlyIdentifiesSystemWithUncertainty()
 		{
 			foreach (var quoteSystem in QuoteSystem.UniquelyGuessableSystems.Where(qs => !String.IsNullOrEmpty(qs.QuotationDashMarker) &&
-				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Count() > 1))
+				qs.NormalLevels.Count == 3 && QuoteUtils.GetLevel2Possibilities(qs.FirstLevel).Length > 1))
 			{
 				RunTest(quoteSystem, true, true, false);
 			}

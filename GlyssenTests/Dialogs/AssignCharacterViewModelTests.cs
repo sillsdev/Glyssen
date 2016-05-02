@@ -194,7 +194,7 @@ namespace GlyssenTests.Dialogs
 		{
 			FindRefInMark(5, 9);
 			m_model.GetCharactersForCurrentReference();
-			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("man with evil spirit"));
+			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("man with evil spirit")).ToArray();
 			Assert.AreEqual(1, deliveries.Count());
 			Assert.AreEqual(AssignCharacterViewModel.Delivery.Normal, deliveries.First());
 		}
@@ -204,7 +204,7 @@ namespace GlyssenTests.Dialogs
 		{
 			FindRefInMark(5, 9);
 			m_model.GetCharactersForCurrentReference();
-			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("Jesus"));
+			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("Jesus")).ToArray();
 			Assert.AreEqual(2, deliveries.Count());
 			Assert.Contains(new AssignCharacterViewModel.Delivery("questioning"), deliveries.ToList());
 			Assert.Contains(AssignCharacterViewModel.Delivery.Normal, deliveries.ToList());
@@ -602,6 +602,62 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(CharacterVerseData.UnknownCharacter, m_model.CurrentBlock.CharacterId);
 			m_model.LoadNextRelevantBlock();
 			Assert.AreEqual(firstRelevantBlockAfterTheBlockToSplit, m_model.CurrentBlock);
+		}
+
+		[Test]
+		public void SplitBlock_MultiBlockQuoteMultipleSplitsSplitAtParagraph_DoesNotThrow()
+		{
+			m_fullProjectRefreshRequired = true;
+
+			var block1 = m_testProject.Books[0].Blocks[4];
+			var block2 = m_testProject.Books[0].Blocks[5];
+
+			Assert.AreEqual(2, block1.InitialStartVerseNumber, "If this fails, update the test to reflect the test data.");
+
+			Assert.DoesNotThrow(() =>
+				m_model.SplitBlock(new[]
+				{
+					new BlockSplitData(0, block1, "2", 13),
+					new BlockSplitData(1, block2, null, 0),
+					new BlockSplitData(2, block2, "2", 10)
+				})
+			);
+		}
+
+		[Test]
+		public void SplitBlock_MultiBlockQuoteMultipleSplitsSplitAtParagraph_SplitCorrectly()
+		{
+			m_fullProjectRefreshRequired = true;
+
+			var block1 = m_testProject.Books[0].Blocks[4];
+			var block2 = m_testProject.Books[0].Blocks[5];
+
+			var text1 = block1.GetText(false);
+			var text2 = block2.GetText(false);
+
+			// make sure the data is good to start with
+			Assert.AreEqual(2, block1.InitialStartVerseNumber, "If this fails, update the test to reflect the test data.");
+			Assert.AreEqual(MultiBlockQuote.Start, block1.MultiBlockQuote, "If this fails, update the test to reflect the test data.");
+			Assert.AreEqual(MultiBlockQuote.Continuation, block2.MultiBlockQuote, "If this fails, update the test to reflect the test data.");
+
+			m_model.SplitBlock(new[]
+			{
+				new BlockSplitData(0, block1, "2", 13),
+				new BlockSplitData(1, block2, null, 0),
+				new BlockSplitData(2, block2, "2", 10)
+			});
+
+			// check the text
+			Assert.AreEqual(text1.Substring(0, 13), m_testProject.Books[0].Blocks[4].GetText(false));
+			Assert.AreEqual(text1.Substring(13), m_testProject.Books[0].Blocks[5].GetText(false));
+			Assert.AreEqual(text2.Substring(0, 10), m_testProject.Books[0].Blocks[6].GetText(false));
+			Assert.AreEqual(text2.Substring(10), m_testProject.Books[0].Blocks[7].GetText(false));
+
+			// check the multi-block quote
+			Assert.AreEqual(MultiBlockQuote.None, m_testProject.Books[0].Blocks[4].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, m_testProject.Books[0].Blocks[5].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, m_testProject.Books[0].Blocks[6].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Start, m_testProject.Books[0].Blocks[7].MultiBlockQuote);
 		}
 
 		[Test]

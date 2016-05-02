@@ -1595,8 +1595,15 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("[13]\u00A0«Guŋamo doggi calo lyel ma twolo,»", output[1].GetText(true));
 		}
 
-		[Test]
-		public void Parse_OpeningParenthesisBeforeLevel2Continuer_NarratorAfter()
+		[TestCase("(")]
+		[TestCase("[")]
+		[TestCase("{")]
+		[TestCase("⦅")]
+		[TestCase("¡")]
+		[TestCase("¿")]
+		[TestCase("[(")]
+		[TestCase("¿¡")]
+		public void Parse_OpeningPunctuationBeforeLevel2Continuer_NarratorAfter(string openingPunctuation)
 		{
 			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
 			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "« ‹", 2, QuotationMarkingSystemType.Normal));
@@ -1604,7 +1611,7 @@ namespace GlyssenTests.Quote
 			var block = new Block("p") { IsParagraphStart = true };
 			block.BlockElements.Add(new ScriptText("He said, « ‹Go!"));
 			var block2 = new Block("p") { IsParagraphStart = true };
-			block2.BlockElements.Add(new ScriptText("(« ‹Get!› »)"));
+			block2.BlockElements.Add(new ScriptText(openingPunctuation + "« ‹Get!› »)"));
 			var block3 = new Block("p") { IsParagraphStart = true };
 			block3.BlockElements.Add(new ScriptText("Thus he ended."));
 			var input = new List<Block> { block, block2, block3 };
@@ -1613,72 +1620,55 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(4, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.AreEqual("« ‹Go!", output[1].GetText(false));
-			Assert.AreEqual("(« ‹Get!› »)", output[2].GetText(false));
+			Assert.AreEqual(openingPunctuation + "« ‹Get!› »)", output[2].GetText(false));
 			Assert.AreEqual("Thus he ended.", output[3].GetText(false));
 			Assert.IsTrue(output[3].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 		}
 
-		[Test]
-		public void Parse_OpeningBracketBeforeLevel2Continuer_NarratorAfter()
-		{
-			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "« ‹", 2, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "« ‹ «", 3, QuotationMarkingSystemType.Normal));
-			var block = new Block("p") { IsParagraphStart = true };
-			block.BlockElements.Add(new ScriptText("He said, « ‹Go!"));
-			var block2 = new Block("p") { IsParagraphStart = true };
-			block2.BlockElements.Add(new ScriptText("[« ‹Get!› »]"));
-			var block3 = new Block("p") { IsParagraphStart = true };
-			block3.BlockElements.Add(new ScriptText("Thus he ended."));
-			var input = new List<Block> { block, block2, block3 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
-			Assert.AreEqual(4, output.Count);
-			Assert.AreEqual("He said, ", output[0].GetText(false));
-			Assert.AreEqual("« ‹Go!", output[1].GetText(false));
-			Assert.AreEqual("[« ‹Get!› »]", output[2].GetText(false));
-			Assert.AreEqual("Thus he ended.", output[3].GetText(false));
-			Assert.IsTrue(output[3].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
-		}
-
-		[Test]
-		public void Parse_OpeningBraceBeforeLevel2Continuer_NarratorAfter()
-		{
-			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "« ‹", 2, QuotationMarkingSystemType.Normal));
-			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "« ‹ «", 3, QuotationMarkingSystemType.Normal));
-			var block = new Block("p") { IsParagraphStart = true };
-			block.BlockElements.Add(new ScriptText("He said, « ‹Go!"));
-			var block2 = new Block("p") { IsParagraphStart = true };
-			block2.BlockElements.Add(new ScriptText("{« ‹Get!› »}"));
-			var block3 = new Block("p") { IsParagraphStart = true };
-			block3.BlockElements.Add(new ScriptText("Thus he ended."));
-			var input = new List<Block> { block, block2, block3 };
-			QuoteParser.SetQuoteSystem(quoteSystem);
-			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
-			Assert.AreEqual(4, output.Count);
-			Assert.AreEqual("He said, ", output[0].GetText(false));
-			Assert.AreEqual("« ‹Go!", output[1].GetText(false));
-			Assert.AreEqual("{« ‹Get!› »}", output[2].GetText(false));
-			Assert.AreEqual("Thus he ended.", output[3].GetText(false));
-			Assert.IsTrue(output[3].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
-		}
-
-		[Test]
-		public void Parse_OpeningParenthesisAfterQuote_OpeningParenthesisGoesWithFollowingBlock()
+		[TestCase("(")]
+		[TestCase("[")]
+		[TestCase("{")]
+		[TestCase("⦅")]
+		[TestCase("¡")]
+		[TestCase("¿")]
+		[TestCase("[(")]
+		[TestCase("¿¡")]
+		public void Parse_OpeningPunctuationAfterQuote_OpeningPunctuationGoesWithFollowingBlock(string openingPunctuation)
 		{
 			var block1 = new Block("p", 1, 23) { IsParagraphStart = true };
-			block1.BlockElements.Add(new ScriptText("“Na njə́a mənə, wuntə digəlyi dzəgə kə́lə hwi, a njə dzəgə ye zəgwi rə kə za, a mbəlyi dzəgə ka zəgwi tsa Immanuʼel.” (“Immanuʼel” tsa ná, njə́ nee, “tá myi Hyalatəmwə,” əkwə.)"));
+			block1.BlockElements.Add(new ScriptText("“Na njə́a mənə, wuntə digəlyi dzəgə kə́lə hwi, a njə dzəgə ye zəgwi rə kə za, a mbəlyi dzəgə ka zəgwi tsa Immanuʼel.” " + openingPunctuation + "“Immanuʼel” tsa ná, njə́ nee, “tá myi Hyalatəmwə,” əkwə.)"));
 			var input = new List<Block> { block1 };
 			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), null, null);
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
 			Assert.AreEqual("“Na njə́a mənə, wuntə digəlyi dzəgə kə́lə hwi, a njə dzəgə ye zəgwi rə kə za, a mbəlyi dzəgə ka zəgwi tsa Immanuʼel.” ", output[0].GetText(true));
-			Assert.AreEqual("(“Immanuʼel” ", output[1].GetText(true));
+			Assert.AreEqual(openingPunctuation + "“Immanuʼel” ", output[1].GetText(true));
 			Assert.AreEqual("tsa ná, njə́ nee, ", output[2].GetText(true));
 			Assert.AreEqual("“tá myi Hyalatəmwə,” ", output[3].GetText(true));
 			Assert.AreEqual("əkwə.)", output[4].GetText(true));
+		}
+
+		[TestCase("(")]
+		[TestCase("[")]
+		[TestCase("{")]
+		[TestCase("⦅")]
+		[TestCase("¡")]
+		[TestCase("¿")]
+		[TestCase("[(")]
+		[TestCase("¿¡")]
+		public void Parse_QuoteStartsWithLeadingPunctation_LeadingPunctationIncludedInQuote(string openingPunctuation)
+		{
+			// PG-644 (Kaqchikel - cak)
+			var block1 = new Block("p", 1, 25) { IsParagraphStart = true };
+			block1.BlockElements.Add(new ScriptText("Pero ri Jesús xuchꞌolij ri itziel espíritu: " + openingPunctuation + "Man chic cachꞌoꞌ y catiel-el riqꞌuin ri ache!"));
+			var input = new List<Block> { block1 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("Pero ri Jesús xuchꞌolij ri itziel espíritu: ", output[0].GetText(true));
+			Assert.AreEqual(openingPunctuation + "Man chic cachꞌoꞌ y catiel-el riqꞌuin ri ache!", output[1].GetText(true));
 		}
 
 		[Test]
@@ -1768,13 +1758,16 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(MultiBlockQuote.Continuation, output[3].MultiBlockQuote);
 		}
 
-		[Test]
-		public void Parse_DialogueQuoteAtStartAndNearEnd_OneBlockBecomesTwo()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_DialogueQuoteAtStartAndNearEnd_OneBlockBecomesTwo(bool includeSecondNormalLevel)
 		{
 			var block = new Block("p", 1, 17);
 			block.BlockElements.Add(new ScriptText("—Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, —timiayi."));
 			var input = new List<Block> { block };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
@@ -1887,13 +1880,16 @@ namespace GlyssenTests.Quote
 		/// The following test (currently ignored) reflects a different approach. We need to decide which
 		/// approach is correct.
 		/// </summary>
-		[Test]
-		public void Parse_DialogueQuoteContainingRegularQuote_InnerRegularQuoteIgnored()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_DialogueQuoteContainingRegularQuote_InnerRegularQuoteIgnored(bool includeSecondNormalLevel)
 		{
 			var block = new Block("p", 1, 17);
 			block.BlockElements.Add(new ScriptText("—Wína nemartustaram: “Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum,” —timiayi."));
 			var input = new List<Block> { block };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
@@ -1916,13 +1912,16 @@ namespace GlyssenTests.Quote
 		/// up manualy if needed.
 		/// </summary>
 		[Ignore("Need to decide how to deal with an opening quotation mark in an dialogue quote")]
-		[Test]
-		public void Parse_DialogueQuoteContainingRegularQuote_EntireParagraphKeptAsSingleUnknownBlock()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_DialogueQuoteContainingRegularQuote_EntireParagraphKeptAsSingleUnknownBlock(bool includeSecondNormalLevel)
 		{
 			var block = new Block("p", 1, 17);
 			block.BlockElements.Add(new ScriptText("—Wína nemartustaram: “Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum,” —timiayi."));
 			var input = new List<Block> { block };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 			Assert.AreEqual(1, output.Count);
@@ -1933,13 +1932,16 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
 		}
 
-		[Test]
-		public void Parse_DialogueQuotesInsideFirstLevelRegularQuotesNotIndicatingChangeOfSpeaker_FirstLevelQuoteBecomesSeparateBlock()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_DialogueQuotesInsideFirstLevelRegularQuotesNotIndicatingChangeOfSpeaker_FirstLevelQuoteBecomesSeparateBlock(bool includeSecondNormalLevel)
 		{
 			var block = new Block("p", 1, 1);
 			block.BlockElements.Add(new ScriptText("“The following is just an ordinary m-dash — don't treat it as a dialogue quote — okay?”, said the frog."));
 			var input = new List<Block> { block };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
@@ -1954,8 +1956,9 @@ namespace GlyssenTests.Quote
 		}
 
 		[Ignore("Need to decide how to deal with an opening quotation mark in an dialogue quote")]
-		[Test]
-		public void Parse_DialogueQuoteWithNoSentenceEndingPunctuationFollowedByCloseAfterPoetry_QuoteRemainsOpenUntilClosed()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_DialogueQuoteWithNoSentenceEndingPunctuationFollowedByCloseAfterPoetry_QuoteRemainsOpenUntilClosed(bool includeSecondNormalLevel)
 		{
 			var block1 = new Block("p", 2, 5);
 			block1.BlockElements.Add(new ScriptText("—Belén yaktanam Judá nungkanam nuni akiinatnuitai. Cristo akiinatniuri pachis aarmauka nuwaitai:"));
@@ -1965,7 +1968,9 @@ namespace GlyssenTests.Quote
 			var block3 = new Block("m", 2, 6);
 			block3.BlockElements.Add(new ScriptText("Yus timiayi. Tu aarmawaitai, —tusar aimkarmiayi."));
 			var input = new List<Block> { block1, block2, block3 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
@@ -1987,8 +1992,9 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(6, output[2].InitialStartVerseNumber);
 		}
 
-		[Test]
-		public void Parse_DialogueQuoteWithNoSentenceEndingPunctuationFollowedByCloseAfterPoetry_SentenceEndingWithinPoetry_QuoteRemainsOpenUntilClosed()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_DialogueQuoteWithNoSentenceEndingPunctuationFollowedByCloseAfterPoetry_SentenceEndingWithinPoetry_QuoteRemainsOpenUntilClosed(bool includeSecondNormalLevel)
 		{
 			var block1 = new Block("p", 2, 5);
 			block1.BlockElements.Add(new ScriptText("—Quote:"));
@@ -1998,7 +2004,9 @@ namespace GlyssenTests.Quote
 			var block3 = new Block("m", 2, 6);
 			block3.BlockElements.Add(new ScriptText("More poetry stuff —back to narrator."));
 			var input = new List<Block> { block1, block2, block3 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
@@ -2025,8 +2033,9 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(6, output[3].InitialStartVerseNumber);
 		}
 
-		[Test]
-		public void Parse_DialogueQuoteWithNoExplicitEnd_QuoteClosedByEndOfParagraph()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_DialogueQuoteWithNoExplicitEnd_QuoteClosedByEndOfParagraph(bool includeSecondNormalLevel)
 		{
 			var block1 = new Block("p", 1, 17);
 			block1.BlockElements.Add(new Verse("17"));
@@ -2037,7 +2046,9 @@ namespace GlyssenTests.Quote
 			block3.BlockElements.Add(new Verse("18"));
 			block3.BlockElements.Add(new ScriptText("Joona mañoomˈ ˈndyena lquiˈ ˈnaaⁿna. Tyˈena ñˈeⁿñê."));
 			var input = new List<Block> { block1, block2, block3 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
@@ -2081,13 +2092,16 @@ namespace GlyssenTests.Quote
 		}
 #endif //HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
 
-		[Test]
-		public void Parse_DialogQuoteEndingWithSpuriousClosingQuotationMark_TrailingPunctuationKeptWithQuote()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_DialogQuoteEndingWithSpuriousClosingQuotationMark_TrailingPunctuationKeptWithQuote(bool includeSecondNormalLevel)
 		{
 			var block1 = new Block("p", 6, 48);
 			block1.BlockElements.Add(new ScriptText("Jesus said —Nintimrataram splintaram”"));
 			var input = new List<Block> { block1 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
@@ -2100,15 +2114,18 @@ namespace GlyssenTests.Quote
 		}
 
 		[Ignore("Need to decide how to deal with an opening quotation mark in an dialogue quote")]
-		[TestCase("“")]
-		[TestCase("‘")]
-		public void Parse_DialogQuoteEndingWithSpuriousOpeningQuotationMark_TrailingPunctuationKeptWithQuoteAndMarkedAsUnknown(string spuriousOpener)
+		[TestCase("“", true)]
+		[TestCase("‘", true)]
+		[TestCase("“", false)]
+		[TestCase("‘", false)]
+		public void Parse_DialogQuoteEndingWithSpuriousOpeningQuotationMark_TrailingPunctuationKeptWithQuoteAndMarkedAsUnknown(string spuriousOpener, bool includeSecondNormalLevel)
 		{
 			var block1 = new Block("p", 6, 48);
 			block1.BlockElements.Add(new ScriptText("Jesus said —Nintimrataram splintaram" + spuriousOpener));
 			var input = new List<Block> { block1 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
-			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“ ‘", 2, QuotationMarkingSystemType.Normal));
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
@@ -2120,16 +2137,22 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
 		}
 
-		[TestCase("—“")]
-		[TestCase("—”")]
-		[TestCase("—")]
-		[TestCase("— ")]
-		public void Parse_DialogQuoteEndingWithSpuriousQuotationPunctuationFollowingCloserAndNoFollowingText_TrailingPunctuationIncludedInQuoteBlock(string trailingPunctuation)
+		[TestCase("—“", true)]
+		[TestCase("—”", true)]
+		[TestCase("—", true)]
+		[TestCase("— ", true)]
+		[TestCase("—“", false)]
+		[TestCase("—”", false)]
+		[TestCase("—", false)]
+		[TestCase("— ", false)]
+		public void Parse_DialogQuoteEndingWithSpuriousQuotationPunctuationFollowingCloserAndNoFollowingText_TrailingPunctuationIncludedInQuoteBlock(string trailingPunctuation, bool includeSecondNormalLevel)
 		{
 			var block1 = new Block("p", 6, 48);
 			block1.BlockElements.Add(new ScriptText("Jesus said —Nintimrataram splintaram " + trailingPunctuation));
 			var input = new List<Block> { block1 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
@@ -2141,17 +2164,22 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("Jesus", output[1].CharacterId);
 		}
 
-		[TestCase("—”")]
-		[TestCase("—")]
-		[TestCase("— ")]
-		public void Parse_DialogQuoteEndingWithSpuriousQuotationPunctuationFollowingCloserAndNoFollowingTextInParagraph_TrailingPunctuationIncludedInQuoteBlock(string trailingPunctuation)
+		[TestCase("—”", true)]
+		[TestCase("—", true)]
+		[TestCase("— ", true)]
+		[TestCase("—”", false)]
+		[TestCase("—", false)]
+		[TestCase("— ", false)]
+		public void Parse_DialogQuoteEndingWithSpuriousQuotationPunctuationFollowingCloserAndNoFollowingTextInParagraph_TrailingPunctuationIncludedInQuoteBlock(string trailingPunctuation, bool includeSecondNormalLevel)
 		{
 			var block1 = new Block("p", 6, 48);
 			block1.BlockElements.Add(new ScriptText("Jesus said —Nintimrataram splintaram " + trailingPunctuation));
 			var block2 = new Block("p", 6, 49);
 			block2.BlockElements.Add(new ScriptText("Some more text"));
 			var input = new List<Block> { block1, block2 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
@@ -2168,15 +2196,19 @@ namespace GlyssenTests.Quote
 
 		#region Tests for PG-417
 #if HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
-		[TestCase(QuoteUtils.kSentenceEndingPunctuation)]
+		[TestCase(QuoteUtils.kSentenceEndingPunctuation, true)]
+		[TestCase(QuoteUtils.kSentenceEndingPunctuation, false)]
 #endif //HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
-		[TestCase(null)]
-		public void Parse_DialogueDashFollowedImmediatelyByOpeningFirstLevelQuoteWithExplicitEnd_QuoteIdentifiedCorrectly(string dialogQuoteEnd)
+		[TestCase(null, true)]
+		[TestCase(null, false)]
+		public void Parse_DialogueDashFollowedImmediatelyByOpeningFirstLevelQuoteWithExplicitEnd_QuoteIdentifiedCorrectly(string dialogQuoteEnd, bool includeSecondNormalLevel)
 		{
 			var block1 = new Block("p", 6, 48);
 			block1.BlockElements.Add(new ScriptText("Jesus said —“Nintimrataram splintaram.”"));
 			var input = new List<Block> { block1, };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", dialogQuoteEnd);
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", dialogQuoteEnd);
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
@@ -2859,10 +2891,13 @@ namespace GlyssenTests.Quote
 			Assert.IsTrue(output[2].IsParagraphStart);
 		}
 
-		[TestCase("“")]
-		[TestCase("”")]
-		[TestCase("%")]
-		public void Parse_DialogueQuoteInPoetryWithNoExplicitEndFollowedByMorePoetry_SecondPoetryParagraphShouldNotBePartOfQuote(string firstLevelContinuer)
+		[TestCase("“", true)]
+		[TestCase("”", true)]
+		[TestCase("%", true)]
+		[TestCase("“", false)]
+		[TestCase("”", false)]
+		[TestCase("%", false)]
+		public void Parse_DialogueQuoteInPoetryWithNoExplicitEndFollowedByMorePoetry_SecondPoetryParagraphShouldNotBePartOfQuote(string firstLevelContinuer, bool includeSecondNormalLevel)
 		{
 			var block1 = new Block("p", 6, 48);
 			block1.BlockElements.Add(new ScriptText("Then he said: "));
@@ -2873,7 +2908,9 @@ namespace GlyssenTests.Quote
 			block3.IsParagraphStart = true;
 			block3.BlockElements.Add(new ScriptText("who wished he didn't never have to die. Crud!"));
 			var input = new List<Block> { block1, block2, block3 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), ":", ".");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), ":", ".");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
@@ -2891,12 +2928,17 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
 		}
 
-		[TestCase("“")]
-		[TestCase("”")]
-		[TestCase("%")]
-		[TestCase("% ^ &")]
-		[TestCase("% ")]
-		public void Parse_DialogueQuoteWithPotentialContinuerFollowingVerseNumber_EndedByQuotationDash(string firstLevelContinuer)
+		[TestCase("“", true)]
+		[TestCase("”", true)]
+		[TestCase("%", true)]
+		[TestCase("% ^ &", true)]
+		[TestCase("% ", true)]
+		[TestCase("“", false)]
+		[TestCase("”", false)]
+		[TestCase("%", false)]
+		[TestCase("% ^ &", false)]
+		[TestCase("% ", false)]
+		public void Parse_DialogueQuoteWithPotentialContinuerFollowingVerseNumber_EndedByQuotationDash(string firstLevelContinuer, bool includeSecondNormalLevel)
 		{
 			var block1 = new Block("p", 6, 48);
 			block1.BlockElements.Add(new ScriptText("—Wikia tuke pujutan sukartin asan. "));
@@ -2905,7 +2947,9 @@ namespace GlyssenTests.Quote
 			block2.BlockElements.Add(new Verse("49"));
 			block2.BlockElements.Add(new ScriptText(firstLevelContinuer + "Nintimrataram, —Jesús timiayi."));
 			var input = new List<Block> { block1, block2 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), "—", "—");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), "—", "—");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
@@ -2923,13 +2967,19 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
 		}
 
-		[TestCase("“")]
-		[TestCase("”")]
-		[TestCase("“ ")]
-		[TestCase("” ")]
-		[TestCase("%")]
-		[TestCase("% ")]
-		public void Parse_DialogueQuoteWithPotentialContinuerFollowingVerseNumberWithExtraSpace_EndedByQuotationDash(string firstLevelContinuer)
+		[TestCase("“", true)]
+		[TestCase("”", true)]
+		[TestCase("“ ", true)]
+		[TestCase("” ", true)]
+		[TestCase("%", true)]
+		[TestCase("% ", true)]
+		[TestCase("“", false)]
+		[TestCase("”", false)]
+		[TestCase("“ ", false)]
+		[TestCase("” ", false)]
+		[TestCase("%", false)]
+		[TestCase("% ", false)]
+		public void Parse_DialogueQuoteWithPotentialContinuerFollowingVerseNumberWithExtraSpace_EndedByQuotationDash(string firstLevelContinuer, bool includeSecondNormalLevel)
 		{
 			var block1 = new Block("p", 6, 48);
 			block1.BlockElements.Add(new ScriptText("—Wikia tuke pujutan sukartin asan. "));
@@ -2938,7 +2988,9 @@ namespace GlyssenTests.Quote
 			block2.BlockElements.Add(new Verse("49"));
 			block2.BlockElements.Add(new ScriptText(firstLevelContinuer + " Nintimrataram, —Jesús timiayi."));
 			var input = new List<Block> { block1, block2 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), "—", "—");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", firstLevelContinuer, 1, QuotationMarkingSystemType.Normal), "—", "—");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
@@ -2956,15 +3008,18 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
 		}
 
-		[Test]
-		public void Parse_DialogueQuoteWithPotentialContinuerNoVerseNumber_EndedByQuotationDash()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_DialogueQuoteWithPotentialContinuerNoVerseNumber_EndedByQuotationDash(bool includeSecondNormalLevel)
 		{
 			var block1 = new Block("p", 6, 48);
 			block1.BlockElements.Add(new ScriptText("—Wikia tuke pujutan sukartin asan. "));
 			var block2 = new Block("p", 6, 48);
 			block2.BlockElements.Add(new ScriptText("“Nintimrataram, —Jesús timiayi."));
 			var input = new List<Block> { block1, block2 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
@@ -2982,9 +3037,11 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
 		}
 
-		[TestCase("“")]
-		[TestCase("”")]
-		public void Parse_DialogueQuoteWithPotentialContinuer_EndedByUserSpecifiedPunctuation(string levelOneContinuer)
+		[TestCase("“", true)]
+		[TestCase("”", true)]
+		[TestCase("“", false)]
+		[TestCase("”", false)]
+		public void Parse_DialogueQuoteWithPotentialContinuer_EndedByUserSpecifiedPunctuation(string levelOneContinuer, bool includeSecondNormalLevel)
 		{
 			var block1 = new Block("p", 6, 48);
 			block1.BlockElements.Add(new ScriptText("—Wikia tuke pujutan sukartin asan. "));
@@ -2993,7 +3050,9 @@ namespace GlyssenTests.Quote
 			block2.BlockElements.Add(new Verse("49"));
 			block2.BlockElements.Add(new ScriptText(levelOneContinuer + "Nintimrataram, ~Jesús timiayi."));
 			var input = new List<Block> { block1, block2 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", levelOneContinuer, 1, QuotationMarkingSystemType.Normal), "—", "~");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", levelOneContinuer, 1, QuotationMarkingSystemType.Normal), "—", "~");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
@@ -3011,8 +3070,9 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
 		}
 
-		[Test]
-		public void Parse_DialogueQuoteFollowedByBogusOpeningFirstLevelQuote_BogusBlockMarkedAsUnknown()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_DialogueQuoteFollowedByBogusOpeningFirstLevelQuote_BogusBlockMarkedAsUnknown(bool includeSecondNormalLevel)
 		{
 			var block1 = new Block("p", 6, 48);
 			block1.BlockElements.Add(new ScriptText("—Wikia tuke pujutan sukartin asan. —Jesús timiayi."));
@@ -3020,7 +3080,9 @@ namespace GlyssenTests.Quote
 			block2.BlockElements.Add(new Verse("49"));
 			block2.BlockElements.Add(new ScriptText("“Nintimrataram, —Jesús timiayi."));
 			var input = new List<Block> { block1, block2 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
@@ -3188,10 +3250,13 @@ namespace GlyssenTests.Quote
 		}
 #endif //HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
 
-		[TestCase("“")]
-		[TestCase("”")]
-		[TestCase("%")]
-		public void Parse_DialogueQuoteWithPotentialContinuerOverMultipleParagraphs_EndedByQuotationDash(string continuer)
+		[TestCase("“", true)]
+		[TestCase("”", true)]
+		[TestCase("%", true)]
+		[TestCase("“", false)]
+		[TestCase("”", false)]
+		[TestCase("%", false)]
+		public void Parse_DialogueQuoteWithPotentialContinuerOverMultipleParagraphs_EndedByQuotationDash(string continuer, bool includeSecondNormalLevel)
 		{
 			// iso: acu
 			var block1 = new Block("p", 6, 48);
@@ -3203,7 +3268,9 @@ namespace GlyssenTests.Quote
 			block3.BlockElements.Add(new Verse("50"));
 			block3.BlockElements.Add(new ScriptText(continuer + "Antsu yurumkan, —Jesús timiayi."));
 			var input = new List<Block> { block1, block2, block3 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", continuer, 1, QuotationMarkingSystemType.Normal), "—", "—");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", continuer, 1, QuotationMarkingSystemType.Normal), "—", "—");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
@@ -3225,8 +3292,9 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
 		}
 
-		[Test]
-		public void Parse_DialogueQuoteWithPotentialAmbiguousContinuerOrOpenerOverMultipleParagraphs_NoBlocksMarkedAsContinuation()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_DialogueQuoteWithPotentialAmbiguousContinuerOrOpenerOverMultipleParagraphs_NoBlocksMarkedAsContinuation(bool includeSecondNormalLevel)
 		{
 			var block1 = new Block("p", 6, 48);
 			block1.BlockElements.Add(new ScriptText("—Wikia tuke pujutan sukartin asan. "));
@@ -3237,7 +3305,9 @@ namespace GlyssenTests.Quote
 			block3.BlockElements.Add(new Verse("50"));
 			block3.BlockElements.Add(new ScriptText("“Antsu yurumkan,” Jesús timiayi."));
 			var input = new List<Block> { block1, block2, block3 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
 			Assert.AreEqual(4, output.Count);
@@ -3259,8 +3329,9 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
 		}
 
-		[Test]
-		public void Parse_DialogueQuoteWithPotentialAmbiguousContinuerOrOpenerOverMultipleParagraphsIncludingFollowOnPoetry_NoBlocksMarkedAsContinuation()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_DialogueQuoteWithPotentialAmbiguousContinuerOrOpenerOverMultipleParagraphsIncludingFollowOnPoetry_NoBlocksMarkedAsContinuation(bool includeSecondNormalLevel)
 		{
 			var block1 = new Block("p", 6, 48);
 			block1.BlockElements.Add(new ScriptText("—Wikia tuke pujutan sukartin asan, "));
@@ -3273,7 +3344,9 @@ namespace GlyssenTests.Quote
 			block4.BlockElements.Add(new Verse("50"));
 			block4.BlockElements.Add(new ScriptText("“Antsu yurumkan,” Jesús timiayi."));
 			var input = new List<Block> { block1, block2, block3, block4 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
@@ -3305,9 +3378,11 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(MultiBlockQuote.None, output[4].MultiBlockQuote);
 		}
 
-		[TestCase("”")]
-		[TestCase("%")]
-		public void Parse_DialogueQuoteWithPotentialContinuerOverMultipleParagraphsWithErrantFirstLevelCloser_EndedByEndOfParagraph(string continuer)
+		[TestCase("”", true)]
+		[TestCase("%", true)]
+		[TestCase("”", false)]
+		[TestCase("%", false)]
+		public void Parse_DialogueQuoteWithPotentialContinuerOverMultipleParagraphsWithErrantFirstLevelCloser_EndedByEndOfParagraph(string continuer, bool includeSecondNormalLevel)
 		{
 			var block1 = new Block("p", 6, 48);
 			block1.BlockElements.Add(new ScriptText("—Wikia tuke pujutan sukartin asan. "));
@@ -3318,7 +3393,9 @@ namespace GlyssenTests.Quote
 			block3.BlockElements.Add(new Verse("50"));
 			block3.BlockElements.Add(new ScriptText(continuer + "Antsu yurumkan,” Jesús timiayi."));
 			var input = new List<Block> { block1, block2, block3 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", continuer, 1, QuotationMarkingSystemType.Normal), "—", "—");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", continuer, 1, QuotationMarkingSystemType.Normal), "—", "—");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
@@ -3336,8 +3413,9 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
 		}
 
-		[Test]
-		public void Parse_DialogueQuoteWithPotentialContinuer_EndedByFirstLevelEnd()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_DialogueQuoteWithPotentialContinuer_EndedByFirstLevelEnd(bool includeSecondNormalLevel)
 		{
 			var block1 = new Block("p", 6, 48);
 			block1.BlockElements.Add(new ScriptText("—Wikia tuke pujutan sukartin asan. "));
@@ -3345,7 +3423,9 @@ namespace GlyssenTests.Quote
 			block2.BlockElements.Add(new Verse("49"));
 			block2.BlockElements.Add(new ScriptText("“Nintimrataram,” Jesús timiayi."));
 			var input = new List<Block> { block1, block2 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", "—");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
@@ -3360,13 +3440,16 @@ namespace GlyssenTests.Quote
 			Assert.IsTrue(output[2].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
 		}
 
-		[Test]
-		public void Parse_DialogueQuoteUsesHyphen_ParsesCorrectly()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_DialogueQuoteUsesHyphen_ParsesCorrectly(bool includeSecondNormalLevel)
 		{
 			var block = new Block("p", 1, 17);
 			block.BlockElements.Add(new ScriptText("-Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, -timiayi."));
 			var input = new List<Block> { block };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "-", "-");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "-", "-");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
@@ -3381,13 +3464,16 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(17, output[1].InitialStartVerseNumber);
 		}
 
-		[Test]
-		public void Parse_DialogueQuoteUsesTwoHyphens_ParsesCorrectly()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_DialogueQuoteUsesTwoHyphens_ParsesCorrectly(bool includeSecondNormalLevel)
 		{
 			var block = new Block("p", 1, 17);
 			block.BlockElements.Add(new ScriptText("--Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, --timiayi."));
 			var input = new List<Block> { block };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "--", "--");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "--", "--");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
@@ -3402,13 +3488,26 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(17, output[1].InitialStartVerseNumber);
 		}
 
-		[Test]
-		public void Parse_DialogueQuoteUsesEndash_ParsesCorrectly()
+		[TestCase(true, true, true)]
+		[TestCase(true, true, false)]
+		[TestCase(true, false, false)]
+		[TestCase(false, false, false)]
+		public void Parse_DialogueQuoteUsesEndash_ParsesCorrectly(bool includeFirstNormalLevel, bool includeSecondNormalLevel, bool includeThirdNormalLevel)
 		{
 			var block = new Block("p", 1, 17);
 			block.BlockElements.Add(new ScriptText("–Wína nemartustaram. Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum, –timiayi."));
 			var input = new List<Block> { block };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "–", "–");
+			var quoteSystem = new QuoteSystem(new QuotationMark("–", "–", null, 1, QuotationMarkingSystemType.Narrative));
+			if (includeFirstNormalLevel)
+			{
+				quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal));
+				if (includeSecondNormalLevel)
+				{
+					quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
+					if (includeThirdNormalLevel)
+						quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“", 3, QuotationMarkingSystemType.Normal));
+				}
+			}
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
@@ -3423,14 +3522,27 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(17, output[1].InitialStartVerseNumber);
 		}
 
-		[Test]
-		public void Parse_DialogueQuoteUsesCommaAndTextForEnding_ParsesCorrectly()
+		[TestCase(true, true, true)]
+		[TestCase(true, true, false)]
+		[TestCase(true, false, false)]
+		[TestCase(false, false, false)]
+		public void Parse_DialogueQuoteUsesCommaAndTextForEnding_ParsesCorrectly(bool includeFirstNormalLevel, bool includeSecondNormalLevel, bool includeThirdNormalLevel)
 		{
 			// Cuiba (cui) PG-589
 			var block = new Block("p", 2, 2);
 			block.BlockElements.Add(new ScriptText("—¿Exota naexana pexuyo, po pexuyo judiomonae itorobiya pia pepa peewatsinchi exanaeinchi poxonae pinyo tsane? Paxan payaputan xua bapon naexana xote tsipei bapon pia opiteito tatsi panaitomatsiya punaenaponan pata nacua werena, po nacuatha ichaxota pocotsiwa xometo weecoina. Papatan xua pata wʉnae jainchiwa tsane barapo pexuyo, jei."));
 			var input = new List<Block> { block };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", ", jei");
+			var quoteSystem = new QuoteSystem(new QuotationMark("—", ", jei", null, 1, QuotationMarkingSystemType.Narrative));
+			if (includeFirstNormalLevel)
+			{
+				quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal));
+				if (includeSecondNormalLevel)
+				{
+					quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
+					if (includeThirdNormalLevel)
+						quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“", 3, QuotationMarkingSystemType.Normal));
+				}
+			}
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
@@ -3445,8 +3557,9 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(2, output[1].InitialStartVerseNumber);
 		}
 
-		[Test]
-		public void Parse_DialogueQuoteUsesCommaAndTextForEndingAndIsFollowedByNormalQuoteThatHappensToBeFollowedByDialogueEndingString_DialogueAndNormalQuoteAreNotCombined()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Parse_DialogueQuoteUsesCommaAndTextForEndingAndIsFollowedByNormalQuoteThatHappensToBeFollowedByDialogueEndingString_DialogueAndNormalQuoteAreNotCombined(bool includeSecondNormalLevel)
 		{
 			// Cuiba (cui) PG-589
 			var block1 = new Block("p", 9, 15) { IsParagraphStart = true };
@@ -3457,7 +3570,9 @@ namespace GlyssenTests.Quote
 			block2.BlockElements.Add(new Verse("17"));
 			block2.BlockElements.Add(new ScriptText("Mataʉtano bocoto”, jei Jesús."));
 			var input = new List<Block> { block1, block2 };
-			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", ", jei");
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), "—", ", jei");
+			if (includeSecondNormalLevel)
+				quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "‘", 2, QuotationMarkingSystemType.Normal));
 			QuoteParser.SetQuoteSystem(quoteSystem);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);

@@ -87,6 +87,15 @@ namespace Glyssen.Dialogs
 			TileFormLocation();
 		}
 
+					var assignedBefore = m_project.CharacterGroupList.CountVoiceActorsAssigned();
+
+					if (m_project.CharacterGroupList.CountVoiceActorsAssigned() < assignedBefore)
+					{
+						var msg = LocalizationManager.GetString("MainForm.FewerAssignedActorsAfterGeneration",
+							"An actor assignment had to be removed. Please review the Voice Actor assignments, and adjust where necessary.");
+						MessageBox.Show(this, msg, Text, MessageBoxButtons.OK);
+					}
+
 		/// <summary>
 		/// Sets the row count if necessary; otherwise (optionally) refreshes the grid.
 		/// </summary>
@@ -1157,7 +1166,10 @@ namespace Glyssen.Dialogs
 				var groupsRowStyle = m_tableLayoutPanel.LayoutSettings.RowStyles[m_tableLayoutPanel.GetRow(m_characterGroupGrid)];
 				detailsRowStyle.Height = 0;
 				groupsRowStyle.Height = 100;
-				m_linkLabelShowHideDetails.Text = string.Format(m_fmtShowCharacterDetails, FirstSelectedCharacterGroup.GroupIdForUiDisplay);
+				if (FirstSelectedCharacterGroup != null)
+					m_linkLabelShowHideDetails.Text = string.Format(m_fmtShowCharacterDetails, FirstSelectedCharacterGroup.GroupIdForUiDisplay);
+				else
+					m_linkLabelShowHideDetails.Text = string.Empty;
 			}
 			m_characterDetailsGrid.Visible = m_characterDetailsVisible;
 		}
