@@ -115,6 +115,11 @@ namespace Glyssen.Character
 			}
 		}
 
+		public bool HasMatchingCharacterIdsOfADifferentAge(string characterId)
+		{
+			return CharacterIdToSameCharactersWithDifferentAge.ContainsKey(characterId);
+		}
+
 		public bool TryGetMatchingCharacterIdsOfADifferentAge(string characterId, out ISet<string> result)
 		{
 			return CharacterIdToSameCharactersWithDifferentAge.TryGetValue(characterId, out result);

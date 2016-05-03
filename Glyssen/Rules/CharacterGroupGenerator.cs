@@ -470,12 +470,7 @@ namespace Glyssen.Rules
 		{
 			List<CharacterGroup> groups;
 
-			IEnumerable<CharacterGroup> availableGroups = configuration.Groups.Where(g => !g.Closed &&
-				configuration.IsGroupAvailableForBiblicalCharacterRoles(g));
-
-			// ReSharper disable PossibleMultipleEnumeration
-			if (!availableGroups.Any())
-				availableGroups = configuration.Groups.Where(g => !g.Closed);
+			IEnumerable<CharacterGroup> availableGroups = configuration.GroupsAvailableForBiblicalCharacterRoles;
 
 			var groupMatchQualityDictionary = new Dictionary<MatchQuality, List<CharacterGroup>>(configuration.Groups.Count);
 			foreach (var characterGroup in availableGroups)
@@ -492,62 +487,62 @@ namespace Glyssen.Rules
 
 			if (groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Perfect, AgeMatchQuality.Perfect), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict);
+				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Perfect, AgeMatchQuality.CloseAdult), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict);
+				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Perfect, AgeMatchQuality.AdultVsChild), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict);
+				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Acceptable, AgeMatchQuality.Perfect), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 1.1);
+				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict, 1.1);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Acceptable, AgeMatchQuality.CloseAdult), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 1.1);
+				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict, 1.1);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Acceptable, AgeMatchQuality.AdultVsChild), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 1.1);
+				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict, 1.1);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Mismatch, AgeMatchQuality.Perfect), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.3);
+				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict, 2.3);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Mismatch, AgeMatchQuality.CloseAdult), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.4);
+				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict, 2.4);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Mismatch, AgeMatchQuality.AdultVsChild), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.5);
+				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict, 2.5);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Perfect, AgeMatchQuality.Mismatch), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.7);
+				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict, 2.7);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Acceptable, AgeMatchQuality.Mismatch), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.9);
+				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict, 2.9);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Mismatch, AgeMatchQuality.Mismatch), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 3.2);
+				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict, 3.2);
 			}
 			var bestGroupEntry = groupToProximityDict.Aggregate((l, r) => l.Value.WeightedNumberOfBlocks > r.Value.WeightedNumberOfBlocks ? l : r);
 			var bestGroup = bestGroupEntry.Key;
@@ -562,7 +557,7 @@ namespace Glyssen.Rules
 					bestGroup.CharacterIds.AddRange(relatedCharacters.CharacterIds.Where(c => m_project.AllCharacterIds.Contains(c)));
 		}
 
-		private void CalculateProximityForGroups(CharacterDetail characterDetail, IEnumerable<CharacterGroup> characterGroups, Dictionary<CharacterGroup, WeightedMinimumProximity> groupToProximityDict, double weightingFactor = 1.0)
+		private void CalculateProximityForGroups(CharacterDetail characterDetail, IEnumerable<CharacterGroup> characterGroups, CharacterGroup extraBiblicalGroup, Dictionary<CharacterGroup, WeightedMinimumProximity> groupToProximityDict, double weightingFactor = 1.0)
 		{
 			if (!weightingFactor.Equals(1d))
 			{
@@ -574,7 +569,7 @@ namespace Glyssen.Rules
 			{
 				HashSet<string> testSet = new HashSet<string>(group.CharacterIds);
 				testSet.Add(characterDetail.CharacterId);
-				groupToProximityDict.Add(group, new WeightedMinimumProximity(m_proximity.CalculateMinimumProximity(testSet)));
+				groupToProximityDict.Add(group, new WeightedMinimumProximity(m_proximity.CalculateMinimumProximity(testSet, group != extraBiblicalGroup)));
 			}
 		}
 
@@ -587,6 +582,7 @@ namespace Glyssen.Rules
 			internal CharacterGroup GroupWithWorstProximity { get; private set; }
 			internal MinimumProximity MinimumProximity { get; private set; }
 			internal List<CharacterGroup> NarratorGroups { get; set; }
+			internal List<CharacterGroup> GroupsAvailableForBiblicalCharacterRoles { get; set; }
 			internal int TotalCountOfNarratorGroupsIncludingCameos
 			{
 				get
@@ -691,6 +687,12 @@ namespace Glyssen.Rules
 				// TODO if extra-biblical characters are being assigned to specific group(s) based on type
 				AssignExtraBiblicalCharactersToExtraBiblicalGroups(includedCharacterDetails);
 				AssignDeityCharacters(includedCharacterDetails);
+
+				GroupsAvailableForBiblicalCharacterRoles = Groups.Where(g => !g.Closed &&
+					IsGroupAvailableForBiblicalCharacterRoles(g)).ToList();
+
+				if (!GroupsAvailableForBiblicalCharacterRoles.Any())
+					GroupsAvailableForBiblicalCharacterRoles = Groups.Where(g => !g.Closed).ToList();
 			}
 
 			// Possible (and impossible) scenarios:
