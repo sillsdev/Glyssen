@@ -12,13 +12,11 @@ namespace GlyssenTests.Dialogs
 	class VoiceActorUndoActionTests
 	{
 		private Project m_testProject;
-		private CharacterByKeyStrokeComparer m_priorityComparer;
 
 		[TestFixtureSetUp]
 		public void FixtureSetup()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			m_priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
 		}
 
 		[SetUp]
@@ -30,7 +28,7 @@ namespace GlyssenTests.Dialogs
 
 		private CharacterGroup AddCharacterGroup(params string[] characterIds)
 		{
-			var group = new CharacterGroup(m_testProject, m_priorityComparer);
+			var group = new CharacterGroup(m_testProject);
 			foreach (var character in characterIds)
 				group.CharacterIds.Add(character);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(group);
@@ -271,7 +269,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void VoiceActorAddedUndoAction_Undo_ActorSubsequentlyAssignedToGroup_ReturnsFalse()
 		{
-			var group = new CharacterGroup(m_testProject, m_priorityComparer);
+			var group = new CharacterGroup(m_testProject);
 			group.CharacterIds = new CharacterIdHashSet(new[] { "Moses" });
 			m_testProject.CharacterGroupList.CharacterGroups.Add(group);
 

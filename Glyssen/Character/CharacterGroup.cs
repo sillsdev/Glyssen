@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using Glyssen.Rules;
+using Glyssen.VoiceActor;
 using L10NSharp;
 
 namespace Glyssen.Character
@@ -25,6 +26,7 @@ namespace Glyssen.Character
 		public const int kNoActorAssigned = -1;
 		private Project m_project;
 		private bool m_closed;
+		private double m_estimatedHours = -1;
 
 		//For Deserialization
 		public CharacterGroup()
@@ -33,14 +35,9 @@ namespace Glyssen.Character
 			VoiceActorId = kNoActorAssigned;
 		}
 
-		public CharacterGroup(Project project, IComparer<string> characterIdPriorityComparer = null) : this()
+		public CharacterGroup(Project project) : this()
 		{
-			// In its current usage, the only reason it makes sense to allow this to be passed in is for efficiency.
-			// In some places in the code, we create one comparer and pass it in to multiple constuctors.
-			if (characterIdPriorityComparer == null)
-				characterIdPriorityComparer = new CharacterByKeyStrokeComparer(project.GetKeyStrokesByCharacterId());
-
-			Initialize(project, characterIdPriorityComparer);
+			Initialize(project);
 		}
 
 		public CharacterGroup Copy()
@@ -50,15 +47,10 @@ namespace Glyssen.Character
 			return copy;
 		}
 
-		public CharacterGroup Clone()
-		{
-			return Copy();
-		}
-
-		public void Initialize(Project project, IComparer<string> characterIdPriorityComparer)
+		public void Initialize(Project project)
 		{
 			m_project = project;
-			CharacterIds.PriorityComparer = characterIdPriorityComparer;
+			CharacterIds.PriorityComparer = new CharacterByKeyStrokeComparer(m_project.KeyStrokesByCharacterId);
 		}
 
 		public void AssignVoiceActor(int actorId)
@@ -153,8 +145,28 @@ namespace Glyssen.Character
 			get { return Status ? "Y" : ""; }
 		}
 
-		[XmlElement]
-		public double EstimatedHours { get; set; }
+		public double EstimatedHours
+		{
+			get
+			{
+				if (m_estimatedHours < 0)
+				{
+					int keyStrokes = 0;
+					foreach (var characterId in CharacterIds)
+					{
+						int keystrokesForCharacter;
+						if (m_project.KeyStrokesByCharacterId.TryGetValue(characterId, out keystrokesForCharacter))
+							keyStrokes += keystrokesForCharacter;
+						else
+						{
+							throw new InvalidOperationException("Character " + characterId + " is not in use the project.");
+						}
+					}
+					m_estimatedHours = keyStrokes / Program.kKeyStrokesPerHour;
+				}
+				return m_estimatedHours;
+			}
+		}
 
 		[Browsable(false)]
 		public bool IsVoiceActorAssigned
@@ -280,7 +292,7 @@ namespace Glyssen.Character
 			});
 		}
 
-		public void SetGroupIdLabelBasedOnCharacterIds()
+		public void SetGroupIdLabel()
 		{
 			if (GroupIdLabel != Label.None)
 				return;
@@ -292,20 +304,38 @@ namespace Glyssen.Character
 				return;
 			}
 
-			if (CharacterIds.Any(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)))
+			if (CharacterIds.All(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)))
 				GroupIdLabel = Label.Narrator;
-			else if (ContainsOnlyCharactersWithAge(CharacterAge.Child))
-				GroupIdLabel = Label.Child;
-			else if (ContainsCharacterWithGender(CharacterGender.Male))
-				GroupIdLabel = Label.Male;
-			else if (ContainsCharacterWithGender(CharacterGender.Female))
-				GroupIdLabel = Label.Female;
-			else if (ContainsCharacterWithGender(CharacterGender.PreferMale))
-				GroupIdLabel = Label.Male;
-			else if (ContainsCharacterWithGender(CharacterGender.PreferFemale))
-				GroupIdLabel = Label.Female;
+			else if (IsVoiceActorAssigned)
+			{
+				VoiceActor.VoiceActor actor = VoiceActor;
+				if (actor.Age == ActorAge.Child)
+					GroupIdLabel = Label.Child;
+				else if (actor.Gender == ActorGender.Male)
+					GroupIdLabel = Label.Male;
+				else
+					GroupIdLabel = Label.Female;
+			}
 			else
-				GroupIdLabel = Label.Male;
+			{
+				if (ContainsOnlyCharactersWithAge(CharacterAge.Child))
+					GroupIdLabel = Label.Child;
+				else if (ContainsCharacterWithGender(CharacterGender.Male))
+					GroupIdLabel = Label.Male;
+				else if (ContainsCharacterWithGender(CharacterGender.Female))
+					GroupIdLabel = Label.Female;
+				else if (ContainsCharacterWithGender(CharacterGender.PreferMale))
+					GroupIdLabel = Label.Male;
+				else if (ContainsCharacterWithGender(CharacterGender.PreferFemale))
+					GroupIdLabel = Label.Female;
+				else
+					GroupIdLabel = Label.Male;
+			}
+		}
+
+		public void ClearCacheOfEstimatedHours()
+		{
+			m_estimatedHours = -1;
 		}
 	}
 
@@ -397,6 +427,9 @@ namespace Glyssen.Character
 		{
 			IsReadOnly = false;
 			m_hashSet = new HashSet<string>(sourceEnumerable);
+			var sourceHashset = sourceEnumerable as CharacterIdHashSet;
+			if (sourceHashset != null)
+				PriorityComparer = sourceHashset.PriorityComparer;
 		}
 
 		public IComparer<string> PriorityComparer { private get; set; }

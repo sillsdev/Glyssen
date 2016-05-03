@@ -97,31 +97,5 @@ namespace GlyssenTests.Character
 			Assert.IsFalse(list.HasVoiceActorAssigned(1));
 			Assert.IsTrue(list.HasVoiceActorAssigned(2));
 		}
-
-		[Test]
-		public void PopulateEstimatedHours()
-		{
-			var list = new CharacterGroupList();
-			var group1 = new CharacterGroup(m_project)
-			{
-				CharacterIds = { "A", "B" }
-			};
-			list.CharacterGroups.Add(group1);
-
-			var group2 = new CharacterGroup(m_project)
-			{
-				CharacterIds = { "C", "D" }
-			};
-			list.CharacterGroups.Add(group2);
-
-			var keyStrokesPerCharacter = new Dictionary<string, int>(4);
-			keyStrokesPerCharacter["A"] = 3500;
-			keyStrokesPerCharacter["B"] = 4000;
-			keyStrokesPerCharacter["C"] = 198;
-			list.PopulateEstimatedHours(keyStrokesPerCharacter);
-
-			Assert.AreEqual((3500 + 4000d) / Program.kKeyStrokesPerHour, group1.EstimatedHours);
-			Assert.AreEqual(198d / Program.kKeyStrokesPerHour, group2.EstimatedHours);
-		}
 	}
 }

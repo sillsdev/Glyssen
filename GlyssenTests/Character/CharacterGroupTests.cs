@@ -360,7 +360,7 @@ namespace GlyssenTests.Character
 			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("Andrew");
 			group.GroupIdLabel = CharacterGroup.Label.Child;
-			group.SetGroupIdLabelBasedOnCharacterIds();
+			group.SetGroupIdLabel();
 			Assert.AreEqual(CharacterGroup.Label.Child, group.GroupIdLabel);
 		}
 
@@ -372,7 +372,7 @@ namespace GlyssenTests.Character
 			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("Andrew");
 			group.AssignVoiceActor(actor.Id);
-			group.SetGroupIdLabelBasedOnCharacterIds();
+			group.SetGroupIdLabel();
 			Assert.AreEqual(CharacterGroup.Label.Other, group.GroupIdLabel);
 			Assert.AreEqual(0, group.GroupIdNumber);
 			Assert.AreEqual("Cameo Name", group.GroupId);
@@ -384,7 +384,7 @@ namespace GlyssenTests.Character
 		{
 			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("Jesus (child)");
-			group.SetGroupIdLabelBasedOnCharacterIds();
+			group.SetGroupIdLabel();
 			Assert.AreEqual(CharacterGroup.Label.Child, group.GroupIdLabel);
 		}
 
@@ -394,7 +394,7 @@ namespace GlyssenTests.Character
 			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("Andrew");
 			group.CharacterIds.Add("Jesus (child)");
-			group.SetGroupIdLabelBasedOnCharacterIds();
+			group.SetGroupIdLabel();
 			Assert.AreEqual(CharacterGroup.Label.Male, group.GroupIdLabel);
 		}
 
@@ -405,7 +405,7 @@ namespace GlyssenTests.Character
 			group.CharacterIds.Add("Andrew");
 			group.CharacterIds.Add("Rhoda");
 			group.CharacterIds.Add("crowd");
-			group.SetGroupIdLabelBasedOnCharacterIds();
+			group.SetGroupIdLabel();
 			Assert.AreEqual(CharacterGroup.Label.Male, group.GroupIdLabel);
 		}
 
@@ -416,7 +416,7 @@ namespace GlyssenTests.Character
 			group.CharacterIds.Add("Rhoda");
 			group.CharacterIds.Add("crowd");
 			Assert.True(group.ContainsCharacterWithGender(CharacterGender.Female));
-			group.SetGroupIdLabelBasedOnCharacterIds();
+			group.SetGroupIdLabel();
 			Assert.AreEqual(CharacterGroup.Label.Female, group.GroupIdLabel);
 		}
 
@@ -427,7 +427,7 @@ namespace GlyssenTests.Character
 			group.CharacterIds.Add("altar");
 			group.CharacterIds.Add("crowd");
 			Assert.True(group.ContainsCharacterWithGender(CharacterGender.PreferMale));
-			group.SetGroupIdLabelBasedOnCharacterIds();
+			group.SetGroupIdLabel();
 			Assert.AreEqual(CharacterGroup.Label.Male, group.GroupIdLabel);
 		}
 
@@ -438,7 +438,7 @@ namespace GlyssenTests.Character
 			group.CharacterIds.Add("inscription on forehead of Babylon");
 			group.CharacterIds.Add("crowd");
 			Assert.True(group.ContainsCharacterWithGender(CharacterGender.PreferFemale));
-			group.SetGroupIdLabelBasedOnCharacterIds();
+			group.SetGroupIdLabel();
 			Assert.AreEqual(CharacterGroup.Label.Female, group.GroupIdLabel);
 		}
 
@@ -448,7 +448,7 @@ namespace GlyssenTests.Character
 			var group = new CharacterGroup(m_project);
 			group.CharacterIds.Add("crowd");
 			Assert.True(group.ContainsCharacterWithGender(CharacterGender.Either));
-			group.SetGroupIdLabelBasedOnCharacterIds();
+			group.SetGroupIdLabel();
 			Assert.AreEqual(CharacterGroup.Label.Male, group.GroupIdLabel);
 		}
 	}

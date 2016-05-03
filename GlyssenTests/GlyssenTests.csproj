@@ -121,6 +121,7 @@
     <Compile Include="Dialogs\AddCharactersToGroupViewModelTests.cs" />
     <Compile Include="Dialogs\BlockNavigatorViewModelTests.cs" />
     <Compile Include="Dialogs\AssignCharacterViewModelTests.cs" />
+    <Compile Include="Dialogs\CastSizePlanningViewModelTests.cs" />
     <Compile Include="Dialogs\RemoveVoiceActorAssignmentsUndoActionTests.cs" />
     <Compile Include="Dialogs\MoveCharactersToGroupUndoActionTests.cs" />
     <Compile Include="Dialogs\ProjectSettingsViewModelTests.cs" />
@@ -203,6 +204,7 @@
     <None Include="Resources\TestRelatedCharacters.xml" />
     <None Include="Resources\TestPHM.xml" />
     <None Include="Resources\TestREV.xml" />
+    <Content Include="Resources\TestRUT.xml" />
     <Content Include="Resources\TestVersification.txt" />
   </ItemGroup>
   <ItemGroup />

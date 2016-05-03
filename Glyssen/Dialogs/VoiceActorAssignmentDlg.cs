@@ -15,7 +15,6 @@ using Glyssen.Rules;
 using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
-using SIL.Progress;
 using SIL.Reporting;
 
 namespace Glyssen.Dialogs
@@ -27,7 +26,6 @@ namespace Glyssen.Dialogs
 		private const string kMoveToAnotherGroupMenuItemId = "MoveToAnotherGroup";
 		private readonly VoiceActorAssignmentViewModel m_actorAssignmentViewModel;
 		private readonly Project m_project;
-		private readonly Dictionary<string, int> m_keyStrokesByCharacterId;
 		private DataGridViewColumn m_sortedColumn;
 		private bool m_sortedAscending;
 		private bool m_selectingInResponseToDataChange;
@@ -42,7 +40,7 @@ namespace Glyssen.Dialogs
 		private readonly BackgroundWorker m_findCharacterBackgroundWorker;
 		private bool m_programmaticClickOfUpdateGroups;
 
-		public VoiceActorAssignmentDlg(Project project, bool regenerateGroups)
+		public VoiceActorAssignmentDlg(VoiceActorAssignmentViewModel viewModel)
 		{
 			InitializeComponent();
 
@@ -50,19 +48,13 @@ namespace Glyssen.Dialogs
 			m_characterDetailsGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 			m_characterDetailsGrid.RowCount = 0;
 
-			m_project = project;
-			m_keyStrokesByCharacterId = m_project.GetKeyStrokesByCharacterId();
+			m_project = viewModel.Project;
 
 			m_menuItemCreateNewGroup.Tag = kCreateNewGroupMenuItemId;
 			m_menuItemAssignToCameoActor.Tag = kAssignToCameoActorItemId;
 			m_menuItemMoveToAnotherGroup.Tag = kMoveToAnotherGroupMenuItemId;
 
-			if (!m_project.CharacterGroupList.CharacterGroups.Any())
-				GenerateGroupsWithProgress(false, true, false);
-			else if (regenerateGroups)
-				GenerateGroupsWithProgress(true, false, false);
-
-			m_actorAssignmentViewModel = new VoiceActorAssignmentViewModel(project, m_keyStrokesByCharacterId);
+			m_actorAssignmentViewModel = viewModel;
 			m_actorAssignmentViewModel.Saved += HandleModelSaved;
 
 			VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null);
@@ -85,7 +77,7 @@ namespace Glyssen.Dialogs
 
 			m_hyperlinkFont = new Font(m_characterGroupGrid.Columns[CharacterIdsCol.Index].InheritedStyle.Font, FontStyle.Underline);
 
-			adjustGroupsToMatchMyVoiceActorsToolStripMenuItem.Enabled = project.VoiceActorList.ActiveActors.Any();
+			adjustGroupsToMatchMyVoiceActorsToolStripMenuItem.Enabled = m_project.VoiceActorList.ActiveActors.Any();
 		}
 
 		public bool LaunchCastSizePlanningUponExit { get; private set; }
@@ -93,43 +85,6 @@ namespace Glyssen.Dialogs
 		private void VoiceActorAssignmentDlg_Load(object sender, EventArgs e)
 		{
 			TileFormLocation();
-		}
-
-		private void GenerateGroupsWithProgress(bool attemptToPreserveActorAssignments, bool firstGroupGenerationRun, bool forceMatchToActors, bool cancelLink = false)
-		{
-			var castSizeOption = m_project.CharacterGroupGenerationPreferences.CastSizeOption;
-			if (forceMatchToActors)
-				m_project.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeRow.MatchVoiceActorList;
-			bool saveGroups = false;
-			using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork, firstGroupGenerationRun, cancelLink))
-			{
-				var generator = new CharacterGroupGenerator(m_project, m_keyStrokesByCharacterId, progressDialog.BackgroundWorker);
-				progressDialog.ProgressState.Arguments = generator;
-
-				if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
-				{
-					var assignedBefore = m_project.CharacterGroupList.CountVoiceActorsAssigned();
-					generator.ApplyGeneratedGroupsToProject(attemptToPreserveActorAssignments);
-
-					if (m_project.CharacterGroupList.CountVoiceActorsAssigned() < assignedBefore)
-					{
-						var msg = LocalizationManager.GetString("MainForm.FewerAssignedActorsAfterGeneration",
-							"An actor assignment had to be removed. Please review the Voice Actor assignments, and adjust where necessary.");
-						MessageBox.Show(this, msg, Text, MessageBoxButtons.OK);
-					}
-
-					saveGroups = true;
-				}
-				else if (forceMatchToActors)
-					m_project.CharacterGroupGenerationPreferences.CastSizeOption = castSizeOption;
-			}
-			m_project.Save(saveGroups);
-		}
-
-		private void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)
-		{
-			var generator = (CharacterGroupGenerator)((ProgressState)e.Argument).Arguments;
-			generator.GenerateCharacterGroups();
 		}
 
 		/// <summary>
@@ -487,7 +442,7 @@ namespace Glyssen.Dialogs
 
 		private void AddCharacterToGroup(CharacterGroup characterGroup)
 		{
-			var model = new AddCharactersToGroupViewModel(m_project.AllCharacterDetailDictionary, m_keyStrokesByCharacterId, characterGroup.CharacterIds,
+			var model = new AddCharactersToGroupViewModel(m_project.AllCharacterDetailDictionary, m_project.KeyStrokesByCharacterId, characterGroup.CharacterIds,
 				characterGroup.AssignedToCameoActor ? m_project.VoiceActorList.GetVoiceActorById(characterGroup.VoiceActorId) : null);
 			using (var dlg = new AddCharacterToGroupDlg(model))
 			{
@@ -520,7 +475,10 @@ namespace Glyssen.Dialogs
 			var idOfSelectedGroup = (m_characterGroupGrid.SelectedRows.Count == 1)
 				? FirstSelectedCharacterGroup.GroupId : null;
 
-			m_actorAssignmentViewModel.RegenerateGroups(() => { GenerateGroupsWithProgress(true, false, true, m_programmaticClickOfUpdateGroups); });
+			m_actorAssignmentViewModel.RegenerateGroups(() => {
+				CharacterGroupGenerator.GenerateGroupsWithProgress(m_project,
+					true, false, true, null, m_programmaticClickOfUpdateGroups);
+			});
 			m_programmaticClickOfUpdateGroups = false;
 			SortByColumn(m_sortedColumn, m_sortedAscending);
 

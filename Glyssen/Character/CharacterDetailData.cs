@@ -85,23 +85,23 @@ namespace Glyssen.Character
 				list.Add(new CharacterDetail
 				{
 					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.StandardCharacter.Narrator),
-					Gender = CharacterGender.Either,
+					Gender = CharacterGender.Neuter,
 					Status = true
 				});
 				list.Add(new CharacterDetail
 				{
 					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.StandardCharacter.BookOrChapter),
-					Gender = CharacterGender.Either,
+					Gender = CharacterGender.Neuter,
 				});
 				list.Add(new CharacterDetail
 				{
 					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.StandardCharacter.ExtraBiblical),
-					Gender = CharacterGender.Either,
+					Gender = CharacterGender.Neuter,
 				});
 				list.Add(new CharacterDetail
 				{
 					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.StandardCharacter.Intro),
-					Gender = CharacterGender.Either,
+					Gender = CharacterGender.Neuter,
 				});
 			}
 			return list;

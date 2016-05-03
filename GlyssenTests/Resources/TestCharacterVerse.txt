@@ -1927,6 +1927,7 @@ RUT	2	4	Boaz
 RUT	2	4	harvesters		
 RUT	2	5	Boaz		
 RUT	2	6	foreman		
+RUT	2	7	foreman		
 RUT	2	8	Boaz		
 RUT	2	10	Ruth		
 RUT	2	11	Boaz		
@@ -9874,6 +9875,8 @@ ACT	7	46	Stephen			Normal
 ACT	7	48	Stephen			Normal
 ACT	7	49	Stephen			Normal
 ACT	7	51	Stephen			Normal
+ACT	7	52	Stephen			Normal
+ACT	7	53	Stephen			Normal
 ACT	7	56	Stephen			Dialogue
 ACT	7	57	Sanhedrin/chief priests/Pharisees			Normal
 ACT	7	59	Stephen			Normal
@@ -10587,12 +10590,12 @@ REV	3	22	Jesus		someone like a son of man
 REV	4	1	Jesus		voice like a trumpet
 REV	4	8	four living creatures		
 REV	4	11	twenty-four elders		
-REV	5	2	angel, powerful 2	loud	
+REV	5	2	angel, powerful	loud	
 REV	5	5	elders, one of the		
-REV	5	9	four living creatures, twenty-four elders		
-REV	5	10	four living creatures, twenty-four elders		
-REV	5	12	angels, many, living creatures, elders, thousands of thousands 1		
-REV	5	13	angels, many, living creatures, elders, thousands of thousands 2		
+REV	5	9	four living creatures		
+REV	5	10	four living creatures		
+REV	5	12	angels, many, living creatures, elders, thousands of thousands		
+REV	5	13	angels, many, living creatures, elders, thousands of thousands		
 REV	5	14	four living creatures		
 REV	6	1	four living creatures, one (voice of thunder)		
 REV	6	3	living creature, second		
@@ -10622,8 +10625,8 @@ REV	10	6	angel standing on sea and land
 REV	10	8	God		voice from heaven (God)
 REV	10	9	angel standing on sea and land		
 REV	10	11	they (unclear in Greek)		
-REV	11	1	they (unclear in Greek/voice from heaven & angel?)		
-REV	11	3	they (unclear in Greek/voice from heaven & angel?)		
+REV	11	1	they (unclear in Greek)		
+REV	11	3	they (unclear in Greek)		
 REV	11	12	God		voice from heaven (God), loud
 REV	11	14	voice among living creatures 1		
 REV	11	15	voices in heaven, loud		
@@ -10687,10 +10690,10 @@ REV	18	18	voice from heaven, another 1	weeping/ cry out
 REV	18	19	ship captains, seafarers, sailors	weeping/ cry out	
 REV	18	19	voice from heaven, another 1	weeping/ cry out	
 REV	18	20	ship captains, seafarers, sailors	weeping/ cry out	
-REV	18	21	angel, powerful 1		
-REV	18	22	angel, powerful 1		
-REV	18	23	angel, powerful 1		
-REV	18	24	angel, powerful 1		
+REV	18	21	angel, powerful		
+REV	18	22	angel, powerful		
+REV	18	23	angel, powerful		
+REV	18	24	angel, powerful		
 REV	19	1	voice of great crowd in heaven, loud		
 REV	19	2	voice of great crowd in heaven, loud		
 REV	19	3	voice of great crowd in heaven, loud		

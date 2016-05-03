@@ -15,8 +15,6 @@ using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.Extensions;
 using SIL.IO;
-using SIL.ObjectModel;
-using SIL.Scripture;
 
 namespace Glyssen.Dialogs
 {
@@ -36,25 +34,21 @@ namespace Glyssen.Dialogs
 		private const int kDescending = -1;
 
 		private readonly Project m_project;
-		private readonly Dictionary<string, int> m_keyStrokesByCharacterId;
-		private CharacterByKeyStrokeComparer m_characterByKeyStrokeComparer;
+
 		public delegate void SavedEventHandler(VoiceActorAssignmentViewModel sender, IEnumerable<CharacterGroup> groupsAffected);
 		public event SavedEventHandler Saved;
 		private readonly UndoStack<ICharacterGroupsUndoAction> m_undoStack = new UndoStack<ICharacterGroupsUndoAction>();
 		private readonly Dictionary<string, HashSet<string>> m_findTextToMatchingCharacterIds = new Dictionary<string, HashSet<string>>(); 
 
-		public VoiceActorAssignmentViewModel(Project project, Dictionary<string, int> keyStrokesByCharacterId = null)
+		public VoiceActorAssignmentViewModel(Project project)
 		{
 			m_project = project;
 
-			m_keyStrokesByCharacterId = keyStrokesByCharacterId ?? m_project.GetKeyStrokesByCharacterId();
-
 			CharacterGroupAttribute<CharacterGender>.GetUiStringForValue = GetUiStringForCharacterGender;
 			CharacterGroupAttribute<CharacterAge>.GetUiStringForValue = GetUiStringForCharacterAge;
-			m_project.CharacterGroupList.PopulateEstimatedHours(m_keyStrokesByCharacterId);
 
 #if DEBUG
-			var p = new Proximity(m_project);
+			var p = new Proximity(m_project.IncludedBooks);
 			foreach (var group in CharacterGroups.OrderBy(g => g.GroupIdForUiDisplay))
 				Debug.WriteLine(group.GroupIdForUiDisplay + ": " + p.CalculateMinimumProximity(group.CharacterIds));
 #endif
@@ -68,7 +62,7 @@ namespace Glyssen.Dialogs
 				case CharacterGender.Female: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.Female", "Female");
 				case CharacterGender.PreferMale: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.PreferMale", "Pref: Male");
 				case CharacterGender.PreferFemale: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.PreferFemale", "Pref: Female");
-				case CharacterGender.Neuter: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.Neuter", "Neuter");
+// Probably don't want to show this anyway, and definitely not for narrators				case CharacterGender.Neuter: return LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.CharacterGender.Neuter", "Neuter");
 				default: return string.Empty;
 			}
 		}
@@ -127,7 +121,7 @@ namespace Glyssen.Dialogs
 		public double GetEstimatedHoursForCharacter(string localizedCharacterId)
 		{
 			var characterId = CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary[localizedCharacterId];
-			return m_keyStrokesByCharacterId[characterId] / Program.kKeyStrokesPerHour;
+			return m_project.KeyStrokesByCharacterId[characterId] / Program.kKeyStrokesPerHour;
 		}
 
 		public IList<CharacterGroup> CharacterGroups { get { return m_project.CharacterGroupList.CharacterGroups; } }
@@ -135,14 +129,9 @@ namespace Glyssen.Dialogs
 		public List<String> UndoActions { get { return m_undoStack.UndoDescriptions; } }
 		public List<String> RedoActions { get { return m_undoStack.RedoDescriptions; } }
 
-		private CharacterByKeyStrokeComparer ByKeyStrokeComparer
+		public Project Project
 		{
-			get
-			{
-				if (m_characterByKeyStrokeComparer == null)
-					m_characterByKeyStrokeComparer = new CharacterByKeyStrokeComparer(m_keyStrokesByCharacterId);
-				return m_characterByKeyStrokeComparer;
-			}
+			get { return m_project; }
 		}
 
 		public void RegenerateGroups(Action generate)
@@ -186,7 +175,7 @@ namespace Glyssen.Dialogs
 
 			// Add an extra group for any characters which weren't in the template
 			var unmatchedCharacters = includedCharacterIds.Except(matchedCharacterIds);
-			var unmatchedCharacterGroup = new CharacterGroup(m_project, ByKeyStrokeComparer);
+			var unmatchedCharacterGroup = new CharacterGroup(m_project);
 			unmatchedCharacterGroup.GroupIdNumber = 999;
 			unmatchedCharacterGroup.CharacterIds.AddRange(unmatchedCharacters);
 			CharacterGroups.Add(unmatchedCharacterGroup);
@@ -279,7 +268,7 @@ namespace Glyssen.Dialogs
 
 			if (destGroup != null && warnUserAboutProximity && destGroup.CharacterIds.Count > 0)
 			{
-				var proximity = new Proximity(m_project);
+				var proximity = new Proximity(m_project.IncludedBooks);
 
 				var testGroup = new CharacterIdHashSet(destGroup.CharacterIds);
 				var resultsBefore = proximity.CalculateMinimumProximity(testGroup);
@@ -291,11 +280,8 @@ namespace Glyssen.Dialogs
 
 				if (proximityBefore > proximityAfter && proximityAfter <= Proximity.kDefaultMinimumProximity)
 				{
-					var firstReference = new BCVRef(BCVRef.BookToNumber(resultsAfter.FirstBook.BookId), resultsAfter.FirstBlock.ChapterNumber,
-						resultsAfter.FirstBlock.InitialStartVerseNumber).ToString();
-
-					var secondReference = new BCVRef(BCVRef.BookToNumber(resultsAfter.SecondBook.BookId), resultsAfter.SecondBlock.ChapterNumber,
-						resultsAfter.SecondBlock.InitialStartVerseNumber).ToString();
+					var firstReference = resultsAfter.FirstReference;
+					var secondReference = resultsAfter.SecondReference;
 
 					var dlgMessageFormat1 = (firstReference == secondReference) ?
 						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
@@ -304,8 +290,8 @@ namespace Glyssen.Dialogs
 							"This move will result in a group with a minimum proximity of {0} blocks between [{1}] in {3} and [{2}] in {4}.");
 					dlgMessageFormat1 = string.Format(dlgMessageFormat1,
 						resultsAfter.NumberOfBlocks,
-						CharacterVerseData.GetCharacterNameForUi(resultsAfter.FirstBlock.CharacterIdInScript),
-						CharacterVerseData.GetCharacterNameForUi(resultsAfter.SecondBlock.CharacterIdInScript),
+						CharacterVerseData.GetCharacterNameForUi(resultsAfter.FirstCharacterId),
+						CharacterVerseData.GetCharacterNameForUi(resultsAfter.SecondCharacterId),
 						firstReference, secondReference);
 					var dlgMessageFormat2 =
 						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part2",
@@ -322,7 +308,6 @@ namespace Glyssen.Dialogs
 
 			m_undoStack.Push(new MoveCharactersToGroupUndoAction(m_project, sourceGroup, destGroup, characterIds));
 
-			m_project.CharacterGroupList.PopulateEstimatedHours(m_keyStrokesByCharacterId);
 			Save();
 
 			return true;

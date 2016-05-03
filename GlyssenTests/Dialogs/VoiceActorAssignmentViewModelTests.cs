@@ -18,7 +18,6 @@ namespace GlyssenTests.Dialogs
 	{
 		private Project m_testProject;
 		private VoiceActorAssignmentViewModel m_model;
-		private CharacterByKeyStrokeComparer m_priorityComparer;
 
 		[TestFixtureSetUp]
 		public void TestFixtureSetUp()
@@ -27,7 +26,6 @@ namespace GlyssenTests.Dialogs
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			m_priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
 		}
 
 		[SetUp]
@@ -116,7 +114,7 @@ namespace GlyssenTests.Dialogs
 			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "Wilbur Wright" };
 			m_testProject.VoiceActorList.AllActors.Add(actor2);
 			var group1 = m_model.CharacterGroups[0];
-			group1.SetGroupIdLabelBasedOnCharacterIds();
+			group1.SetGroupIdLabel();
 			m_model.AssignActorToGroup(actor2.Id, group1);
 			Assert.True(group1.IsVoiceActorAssigned);
 			var group2 = AddNewGroup("Nicodemus");
@@ -257,7 +255,7 @@ namespace GlyssenTests.Dialogs
 			sourceGroup.CharacterIds = new CharacterIdHashSet(characterIds);
 			sourceGroup.CharacterIds.Add("Lot");
 			sourceGroup.CharacterIds.Add("Cain");
-			sourceGroup.SetGroupIdLabelBasedOnCharacterIds();
+			sourceGroup.SetGroupIdLabel();
 			var destGroup = AddNewGroup("foot", "ear");
 
 			List<CharacterGroup> affectedGroups = null;
@@ -292,7 +290,7 @@ namespace GlyssenTests.Dialogs
 			var characterIds = new List<string> { "John", "Andrew" };
 			var sourceGroup = m_model.CharacterGroups[0];
 			sourceGroup.CharacterIds = new CharacterIdHashSet(characterIds);
-			sourceGroup.SetGroupIdLabelBasedOnCharacterIds();
+			sourceGroup.SetGroupIdLabel();
 			var destGroup = AddNewGroup("ear", "foot");
 			Assert.AreEqual(2, m_testProject.CharacterGroupList.CharacterGroups.Count);
 
@@ -320,9 +318,9 @@ namespace GlyssenTests.Dialogs
 				// This test is just testing the behavior of "RegenerateGroups" which just runs the action given to it.
 				// So rather than actually instantiating a CharacterGroupGenerator and doing all that work, we jst
 				// test the behavior using a simple approach that will create a group and stick something on the undo stack.
-				var group1 = new CharacterGroup(m_testProject, m_priorityComparer) { CharacterIds = new CharacterIdHashSet(new[] { "Martha" }) };
-				var group2 = new CharacterGroup(m_testProject, m_priorityComparer) { CharacterIds = new CharacterIdHashSet(new[] { "Jesus" }) };
-				var group3 = new CharacterGroup(m_testProject, m_priorityComparer) { CharacterIds = new CharacterIdHashSet(new[] { "NAR-MAT" }) };
+				var group1 = new CharacterGroup(m_testProject) { CharacterIds = new CharacterIdHashSet(new[] { "Martha" }) };
+				var group2 = new CharacterGroup(m_testProject) { CharacterIds = new CharacterIdHashSet(new[] { "Jesus" }) };
+				var group3 = new CharacterGroup(m_testProject) { CharacterIds = new CharacterIdHashSet(new[] { "NAR-MAT" }) };
 				m_testProject.CharacterGroupList.CharacterGroups.AddRange(new[] { group1, group2, group3 });
 				m_model.AssignActorToGroup(2, group1);
 			});
@@ -382,7 +380,7 @@ namespace GlyssenTests.Dialogs
 			var actorC = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "C" };
 			var actorA = new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "A" };
 			m_testProject.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor> { actorB, actorC, actorA };
-			var generator = new CharacterGroupGenerator(m_testProject, m_testProject.GetKeyStrokesByCharacterId());
+			var generator = new CharacterGroupGenerator(m_testProject);
 			generator.GenerateCharacterGroups();
 			generator.ApplyGeneratedGroupsToProject(false);
 
@@ -401,7 +399,7 @@ namespace GlyssenTests.Dialogs
 			var actorC = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "C" };
 			var actorA = new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "A" };
 			m_testProject.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor> { actorB, actorC, actorA };
-			var generator = new CharacterGroupGenerator(m_testProject, m_testProject.GetKeyStrokesByCharacterId());
+			var generator = new CharacterGroupGenerator(m_testProject);
 			generator.GenerateCharacterGroups();
 			generator.ApplyGeneratedGroupsToProject(false);
 			var group = m_model.CharacterGroups[0];
@@ -445,7 +443,7 @@ namespace GlyssenTests.Dialogs
 		{
 			var replacedActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.YoungAdult };
 			m_testProject.VoiceActorList.AllActors.Add(replacedActor);
-			var characterGroup = new CharacterGroup(m_testProject, m_priorityComparer);
+			var characterGroup = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup);
 			characterGroup.AssignVoiceActor(1);
 			var affectedActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult };
@@ -585,9 +583,9 @@ namespace GlyssenTests.Dialogs
 
 		private CharacterGroup AddNewGroup(params string[] characterIds)
 		{
-			CharacterGroup newGroup = new CharacterGroup(m_testProject, m_priorityComparer);
+			CharacterGroup newGroup = new CharacterGroup(m_testProject);
 			newGroup.CharacterIds = new CharacterIdHashSet(characterIds);
-			newGroup.SetGroupIdLabelBasedOnCharacterIds();
+			newGroup.SetGroupIdLabel();
 			m_testProject.CharacterGroupList.CharacterGroups.Add(newGroup);
 
 			return newGroup;

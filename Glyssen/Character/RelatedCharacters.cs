@@ -29,6 +29,7 @@ namespace Glyssen.Character
 		private static string s_source;
 		private ISet<RelatedCharacters> m_all;
 		private IDictionary<string, ISet<RelatedCharacters>> m_characterIdToRelatedCharactersDictionary;
+		private IDictionary<string, ISet<string>> m_characterIdToSameCharactersWithDifferentAge;
 
 		internal static string Source
 		{
@@ -92,18 +93,49 @@ namespace Glyssen.Character
 			return m_characterIdToRelatedCharactersDictionary;
 		}
 
-		public ISet<string> GetMatchingCharacterIds(string characterId, CharacterRelationshipType relationshipType)
+		private IDictionary<string, ISet<string>> CharacterIdToSameCharactersWithDifferentAge
 		{
-			ISet<string> result = new HashSet<string>();
-			var dictionary = GetCharacterIdToRelatedCharactersDictionary();
-			if (!dictionary.ContainsKey(characterId))
-				return result;
+			get
+			{
+				if (m_characterIdToSameCharactersWithDifferentAge == null)
+				{
+					m_characterIdToSameCharactersWithDifferentAge = new Dictionary<string, ISet<string>>();
+					foreach (var relatedCharacters in GetAll().Where(rc => rc.RelationshipType == CharacterRelationshipType.SameCharacterWithMultipleAges))
+					{
+						foreach (var characterId in relatedCharacters.CharacterIds)
+						{
+							if (m_characterIdToSameCharactersWithDifferentAge.ContainsKey(characterId))
+								m_characterIdToSameCharactersWithDifferentAge[characterId].AddRange(relatedCharacters.CharacterIds);
+							else
+								m_characterIdToSameCharactersWithDifferentAge[characterId] = new HashSet<string>(relatedCharacters.CharacterIds);
+						}
+					}
+				}
+				return m_characterIdToSameCharactersWithDifferentAge;
+			}
+		}
 
-			IEnumerable<RelatedCharacters> relatedCharactersSet = dictionary[characterId].Where(rc => rc.RelationshipType == relationshipType);
-			foreach (var relatedCharacters in relatedCharactersSet)
-				result.AddRange(relatedCharacters.CharacterIds);
+		public bool TryGetMatchingCharacterIdsOfADifferentAge(string characterId, out ISet<string> result)
+		{
+			return CharacterIdToSameCharactersWithDifferentAge.TryGetValue(characterId, out result);
+		}
 
-			return result;
+		// This returns an enumeration with any character IDs weeded out that represent the same individual person in a different
+		// mode, age, etc. If the set contains two characters that resolve to a single individual, the one returned is arbitrary.
+		public IEnumerable<string> UniqueIndividuals(ISet<string> characterSet)
+		{
+			var setOfCharactersForAlreadyReturnedIndividuals = new HashSet<string>();
+			ISet<string> alterEgos;
+			foreach (var characterID in characterSet)
+			{
+				if (setOfCharactersForAlreadyReturnedIndividuals.Contains(characterID))
+					continue;
+				if (TryGetMatchingCharacterIdsOfADifferentAge(characterID, out alterEgos))
+				{
+					setOfCharactersForAlreadyReturnedIndividuals.AddRange(alterEgos);
+				}
+				yield return characterID;
+			}
 		}
 	}
 }

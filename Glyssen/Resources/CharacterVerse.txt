@@ -1,4 +1,4 @@
-Control File Version	96
+Control File Version	98
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -7627,7 +7627,7 @@ PSA	137	7	Edomites			Normal
 PSA	138	1	narrator-PSA			Quotation		
 PSA	141	7	wicked, the			Hypothetical		
 ECC	1	2	teacher (Preacher)			Normal		
-ECC	1	10	someone			Normal		
+ECC	1	10	someone			Hypothetical		
 ECC	1	16	teacher (Preacher)			Normal		
 ECC	2	1	teacher (Preacher)			Normal		
 ECC	2	2	teacher (Preacher)			Normal		
@@ -7637,7 +7637,7 @@ ECC	3	18	teacher (Preacher)	said/thought in heart		Normal
 ECC	3	19	teacher (Preacher)	said/thought in heart		Normal		
 ECC	3	20	teacher (Preacher)	said/thought in heart		Normal		
 ECC	3	21	teacher (Preacher)	said/thought in heart		Normal		
-ECC	4	8	man all alone			Normal		
+ECC	4	8	man all alone			Quotation		
 ECC	5	6	narrator-ECC			Hypothetical		
 ECC	7	10	narrator-ECC			Hypothetical		
 ECC	7	23	teacher (Preacher)			Quotation		
@@ -12157,7 +12157,7 @@ MAT	17	4	Peter (Simon)	afraid		Dialogue
 MAT	17	5	God		voice from bright cloud (God)	Normal		
 MAT	17	7	Jesus	giving orders		Dialogue		
 MAT	17	9	Jesus	forcefully		Dialogue		
-MAT	17	10	Peter (Simon)/James/John	puzzled	the disciples (Peter (Simon)/James/John)	Dialogue	John	MAT 17.10;MRK 9.11
+MAT	17	10	Peter (Simon)/James, the disciple/John	puzzled	the disciples (Peter/James/John)	Dialogue	John	MAT 17.10;MRK 9.11
 MAT	17	11	Jesus			Dialogue		
 MAT	17	12	Jesus			Normal		
 MAT	17	15	father of demon-possessed boy	distraught	a man (father of demon-possessed boy)	Dialogue		MAT 17.15-16;MRK 9.17-18,22;LUK 9.38-40
@@ -12258,7 +12258,7 @@ MAT	20	20	mother of the sons of Zebedee (James and John)			Indirect
 MAT	20	21	Jesus			Dialogue		
 MAT	20	21	mother of the sons of Zebedee (James and John)			Dialogue		
 MAT	20	22	Jesus			Dialogue		
-MAT	20	22	James/John	boldly	sons of Zebedee (James/John)	Dialogue	John	
+MAT	20	22	James, the disciple/John	boldly	sons of Zebedee (James/John)	Dialogue	John	
 MAT	20	23	Jesus			Dialogue		
 MAT	20	25	Jesus			Dialogue		
 MAT	20	26	Jesus			Normal		
@@ -12277,7 +12277,7 @@ MAT	21	9	crowd preparing for Passover Feast	praising	crowd	Dialogue		MAT 21.9;MR
 MAT	21	10	people of Jerusalem		the whole city	Dialogue		
 MAT	21	11	crowd	praising		Dialogue		
 MAT	21	13	Jesus			Dialogue		
-MAT	21	15	children	praising		Normal		
+MAT	21	15	children	praising		Quotation		
 MAT	21	16	chief priests/teachers of religious law	upset	chief priests/teachers of the law	Dialogue		
 MAT	21	16	Jesus			Dialogue		
 MAT	21	19	Jesus			Dialogue		
@@ -12388,9 +12388,9 @@ MAT	23	36	Jesus	rebuking		Normal
 MAT	23	37	Jesus	rebuking		Normal		
 MAT	23	38	Jesus	rebuking		Normal		
 MAT	23	39	Jesus	rebuking		Normal		
-MAT	24	1	Peter (Simon)/James/John/Andrew		the disciples	Indirect	Peter (Simon)	
+MAT	24	1	Peter (Simon)/James, the disciple/John/Andrew		the disciples	Indirect	Peter (Simon)	
 MAT	24	2	Jesus			Dialogue		
-MAT	24	3	Peter (Simon)/James/John/Andrew		the disciples	Dialogue	Peter (Simon)	MAT 24.3;MRK 13.4;LUK 21.7
+MAT	24	3	Peter (Simon)/James, the disciple/John/Andrew		the disciples	Dialogue	Peter (Simon)	MAT 24.3;MRK 13.4;LUK 21.7
 MAT	24	4	Jesus			Normal		
 MAT	24	5	Jesus			Normal		
 MAT	24	6	Jesus			Normal		
@@ -12829,9 +12829,9 @@ MRK	9	1	Jesus			Dialogue
 MRK	9	5	Peter (Simon)	afraid		Dialogue		
 MRK	9	7	God		voice from cloud (God)	Normal		
 MRK	9	9	Jesus			Indirect		
-MRK	9	10	Peter (Simon)/James/John	puzzled		Indirect		
+MRK	9	10	Peter (Simon)/James, the disciple/John	puzzled	Peter/James/John	Indirect		
 MRK	9	10	narrator-MRK			Quotation		
-MRK	9	11	Peter (Simon)/James/John	puzzled		Dialogue	John	MAT 17.10;MRK 9.11
+MRK	9	11	Peter (Simon)/James, the disciple/John	puzzled	Peter/James/John	Dialogue	John	MAT 17.10;MRK 9.11
 MRK	9	12	Jesus			Dialogue		
 MRK	9	13	Jesus			Dialogue		
 MRK	9	15	people, all the			Indirect		
@@ -12898,12 +12898,12 @@ MRK	10	30	Jesus			Normal
 MRK	10	31	Jesus			Normal		
 MRK	10	33	Jesus			Normal		
 MRK	10	34	Jesus			Normal		
-MRK	10	35	James/John	boldly	James/John (sons of Zebedee)	Dialogue	John	
+MRK	10	35	James, the disciple/John	boldly	James/John (sons of Zebedee)	Dialogue	John	
 MRK	10	36	Jesus			Dialogue		
-MRK	10	37	James/John	boldly	James/John (sons of Zebedee)	Dialogue	John	
+MRK	10	37	James, the disciple/John	boldly	James/John (sons of Zebedee)	Dialogue	John	
 MRK	10	38	Jesus			Dialogue		
 MRK	10	39	Jesus			Dialogue		
-MRK	10	39	James/John	boldly	James/John (sons of Zebedee)	Dialogue	John	
+MRK	10	39	James, the disciple/John	boldly	James/John (sons of Zebedee)	Dialogue	John	
 MRK	10	40	Jesus			Normal		
 MRK	10	42	Jesus			Dialogue		
 MRK	10	43	Jesus			Normal		
@@ -12986,7 +12986,7 @@ MRK	12	43	Jesus			Normal
 MRK	12	44	Jesus			Normal		
 MRK	13	1	disciples	awe	disciples, one of His	Dialogue		
 MRK	13	2	Jesus			Dialogue		
-MRK	13	4	Peter (Simon)/James/John/Andrew			Dialogue	Peter (Simon)	MAT 24.3;MRK 13.4;LUK 21.7
+MRK	13	4	Peter (Simon)/James, the disciple/John/Andrew		Peter/James/John/Andrew	Dialogue	Peter (Simon)	MAT 24.3;MRK 13.4;LUK 21.7
 MRK	13	5	Jesus			Normal		
 MRK	13	6	Jesus			Normal		
 MRK	13	7	Jesus			Normal		
@@ -13424,7 +13424,7 @@ LUK	9	46	disciples	arguing		Indirect
 LUK	9	48	Jesus			Dialogue		
 LUK	9	49	John		John (disciple whom Jesus loved)	Dialogue		
 LUK	9	50	Jesus			Dialogue		
-LUK	9	54	James/John			Dialogue	John	
+LUK	9	54	James, the disciple/John		James/John	Dialogue	John	
 LUK	9	55	Jesus	rebuking		Potential		
 LUK	9	56	Jesus	rebuking		Potential		
 LUK	9	57	teacher of religious law	eager	someone	Dialogue		MAT 8.19;LUK 9.57
@@ -13865,7 +13865,7 @@ LUK	21	3	Jesus			Dialogue
 LUK	21	4	Jesus			Normal		
 LUK	21	5	disciples, some			Indirect		
 LUK	21	6	Jesus			Dialogue		
-LUK	21	7	Peter (Simon)/James/John/Andrew		some of his disciples	Dialogue	Peter (Simon)	MAT 24.3;MRK 13.4;LUK 21.7
+LUK	21	7	Peter (Simon)/James, the disciple/John/Andrew		some of his disciples	Dialogue	Peter (Simon)	MAT 24.3;MRK 13.4;LUK 21.7
 LUK	21	8	Jesus			Normal		
 LUK	21	9	Jesus			Normal		
 LUK	21	10	Jesus			Normal		
@@ -14701,7 +14701,7 @@ JHN	20	27	Jesus			Dialogue
 JHN	20	28	Thomas	shocked		Dialogue		
 JHN	20	29	Jesus			Dialogue		
 JHN	21	3	Peter (Simon)			Dialogue		
-JHN	21	3	Thomas/Nathanael/James/John/2 other disciples			Dialogue	Thomas	
+JHN	21	3	Thomas/Nathanael/James, the disciple/John/2 other disciples		Thomas/Nathanael/James/John/2 other disciples	Dialogue	Thomas	
 JHN	21	5	Jesus	questioning		Dialogue		
 JHN	21	5	Peter (Simon)/Thomas/Nathanael/James/John/2 other disciples	calling out		Dialogue	Peter (Simon)	
 JHN	21	6	Jesus			Dialogue		
@@ -15501,7 +15501,8 @@ ROM	16	22	Tertius			Indirect
 1CO	10	28	anyone			Hypothetical		
 1CO	11	24	Jesus			Normal		
 1CO	11	25	Jesus			Normal		
-1CO	12	3	no one says			Normal		
+1CO	12	3	no one speaking by the Holy Spirit			Hypothetical		
+1CO	12	3	only someone speaking by the Holy Spirit			Hypothetical		
 1CO	12	15	foot			Normal		
 1CO	12	16	ear			Normal		
 1CO	12	21	eye			Normal		
@@ -15586,7 +15587,7 @@ PHP	2	11	everyone			Hypothetical
 COL	2	21	rules of the world			Normal		
 COL	4	17	Paul			Normal		
 1TH	4	12	unbelievers			Indirect		
-1TH	5	3	people			Normal		
+1TH	5	3	people			Hypothetical		
 1TH	5	27	Paul			Potential		
 2TH	2	4	man of lawlessness			Indirect		
 2TH	3	10	rule given by Paul			Quotation		
@@ -15600,7 +15601,7 @@ COL	4	17	Paul			Normal
 2TI	2	13	saying, true			Quotation		
 2TI	2	18	men who have gone astray			Indirect		
 2TI	2	19	narrator-2TI			Quotation		
-TIT	1	12	Cretan prophet			Normal		
+TIT	1	12	Cretan prophet			Quotation		
 TIT	2	12	narrator-TIT			Hypothetical		
 HEB	1	5	scripture			Quotation	God	
 HEB	1	6	scripture			Quotation	God	
@@ -15615,8 +15616,8 @@ HEB	2	6	scripture			Quotation	David
 HEB	2	7	scripture			Quotation	David	
 HEB	2	8	scripture			Quotation	David	
 HEB	2	9	scripture			Quotation	David	
-HEB	2	12	Jesus		Jesus in Hebrews	Normal		
-HEB	2	13	Jesus		Jesus in Hebrews	Normal		
+HEB	2	12	Jesus			Normal		
+HEB	2	13	Jesus			Normal		
 HEB	3	7	scripture			Quotation		
 HEB	3	8	scripture			Quotation		
 HEB	3	9	scripture			Quotation		
@@ -15710,7 +15711,7 @@ JAS	5	17	Elijah	praying		Indirect
 2PE	2	19	saying about what controls you			Quotation		
 2PE	2	22	scripture		proverb about a dog	Quotation	Solomon, king	
 2PE	2	22	saying about sow			Quotation		
-2PE	3	4	scoffers			Normal		
+2PE	3	4	scoffers			Hypothetical		
 1JN	2	4	man who says 'I know him'			Hypothetical		
 1JN	2	6	man who says 'we remain in union with God'			Hypothetical		
 1JN	2	18	narrator-1JN			Hypothetical		
@@ -15811,7 +15812,7 @@ REV	7	10	multitude from all nations, tribes, peoples, languages			Normal
 REV	7	12	angels, all the			Normal		
 REV	7	13	elders, one of the			Normal		
 REV	7	14	elders, one of the			Normal		
-REV	7	14	John			Normal		
+REV	7	14	narrator-REV			Normal		
 REV	7	15	elders, one of the			Normal		
 REV	7	16	elders, one of the			Normal		
 REV	7	17	elders, one of the			Normal		
@@ -15946,5 +15947,6 @@ REV	22	15	Jesus			Normal
 REV	22	16	Jesus			Normal		
 REV	22	17	him who hears			Normal		
 REV	22	17	Holy Spirit, the/bride, the (referring to the Church)		Holy Spirit and the bride	Normal		
-REV	22	18	John			Potential		
+REV	22	18	narrator-REV			Potential		
+REV	22	19	narrator-REV			Potential		
 REV	22	20	Jesus			Normal		

@@ -14,13 +14,11 @@ namespace GlyssenTests.Dialogs
 	class VoiceActorEditingUndoActionTests
 	{
 		private Project m_testProject;
-		private CharacterByKeyStrokeComparer m_priorityComparer;
 
 		[TestFixtureSetUp]
 		public void FixtureSetup()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			m_priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
 		}
 
 		[SetUp]
@@ -32,7 +30,7 @@ namespace GlyssenTests.Dialogs
 
 		private CharacterGroup AddCharacterGroup(params string[] characterIds)
 		{
-			var group = new CharacterGroup(m_testProject, m_priorityComparer);
+			var group = new CharacterGroup(m_testProject);
 			foreach (var character in characterIds)
 				group.CharacterIds.Add(character);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(group);

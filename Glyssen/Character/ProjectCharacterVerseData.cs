@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using DesktopAnalytics;
+using SIL.Extensions;
 using SIL.Scripture;
 
 namespace Glyssen.Character
@@ -56,6 +58,12 @@ namespace Glyssen.Character
 		private void RemoveDataAlsoInControlFile()
 		{
 			RemoveAll(ControlCharacterVerseData.Singleton.GetAllQuoteInfo(), new BcvCharacterDeliveryEqualityComparer());
+		}
+
+		public void Remove(int bookNum, int chapterNumber, int initialStartVerseNumber, int initialEndVerseNumber, string characterId, string delivery)
+		{
+			RemoveAll(GetCharacters(bookNum, chapterNumber, initialStartVerseNumber, initialEndVerseNumber)
+				.Where(c => c.Character == characterId && c.Delivery == delivery), new BcvCharacterDeliveryEqualityComparer());
 		}
 	}
 }
