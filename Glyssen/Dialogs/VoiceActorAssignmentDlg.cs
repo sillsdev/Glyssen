@@ -799,6 +799,23 @@ namespace Glyssen.Dialogs
 
 		private void m_characterGroupGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
+			// ignore most ArgumentExceptions in the VoiceActorCol
+			// this can happen if you type in the name of an existing cameo actor
+			if (e.Exception.GetType().Name == "ArgumentException")
+			{
+				var src = (DataGridView)sender;
+				if (src.CurrentCell.OwningColumn == VoiceActorCol)
+				{
+					int currentVal;
+					var success = int.TryParse(src.CurrentCell.Value.ToString(), out currentVal);
+					if (success && (currentVal > -1))
+					{
+						e.Cancel = true;
+						return;
+					}
+				}
+			}
+
 			Analytics.ReportException(e.Exception);
 			ErrorReport.ReportFatalException(e.Exception);
 			throw e.Exception;
