@@ -2072,6 +2072,15 @@
         <seg>Santiago</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.James, the disciple">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>James, the disciple</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Jacobo</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Jehizkiah">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -2268,15 +2277,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Jesús (en la segunda epístola de Juan)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Jesus in Hebrews">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jesus in Hebrews</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Jesús (en el libro de hebreos)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Jesus' brothers">

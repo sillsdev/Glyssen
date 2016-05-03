@@ -3615,6 +3615,12 @@
         <seg>James</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.James, the disciple">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>James, the disciple</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Jebusites">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3799,12 +3805,6 @@
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>Jesus in 2 John</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Jesus in Hebrews">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jesus in Hebrews</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Jesus' mother and brothers">
@@ -5511,10 +5511,10 @@
         <seg>no one</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.no one says">
+    <tu tuid="CharacterName.no one speaking by the Holy Spirit">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
-        <seg>no one says</seg>
+        <seg>no one speaking by the Holy Spirit</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Noah">

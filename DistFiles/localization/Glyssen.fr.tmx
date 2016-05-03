@@ -2183,15 +2183,6 @@
         <seg>Jésus ***in*** ***2*** Jean, Jean-Baptiste</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Jesus in Hebrews">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jesus in Hebrews</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>Jésus ***in*** ***Hebrews***</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Jesus' mother and brothers">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">

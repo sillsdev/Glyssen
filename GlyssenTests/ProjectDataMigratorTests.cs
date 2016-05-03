@@ -3,11 +3,25 @@ using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using NUnit.Framework;
+using SIL.Scripture;
 
 namespace GlyssenTests
 {
 	class ProjectDataMigratorTests
 	{
+		[TestFixtureSetUp]
+		public void FixtureSetUp()
+		{
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
+			CharacterDetailData.TabDelimitedCharacterDetailData = null;
+		}
+
+		[TestFixtureTearDown]
+		public void FixtureTearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
 		[TestCase(MultiBlockQuote.Continuation)]
 		[TestCase(MultiBlockQuote.ChangeOfDelivery)]
 		public void MigrateInvalidMultiBlockQuoteDataToVersion88_NoSplits_DataUnchanged(MultiBlockQuote lastBlockMultiBlockQuote)
@@ -539,6 +553,99 @@ namespace GlyssenTests
 			Assert.AreEqual(unclearCharacterId, block1.CharacterIdInScript);
 			Assert.AreEqual(unclearCharacterId, block2.CharacterId);
 			Assert.AreEqual(unclearCharacterId, block2.CharacterIdInScript);
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_OneOfTwoCharacterIdsInVerseReplacedWithDifferentId_CharacterIdInScriptSetToAmbiguous()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var johnSpeakingInRev714 = testProject.IncludedBooks.Single().GetBlocksForVerse(7, 14).ElementAt(1);
+			johnSpeakingInRev714.SetCharacterAndCharacterIdInScript("John", 66);
+			var elderSpeakingInRev714 = testProject.IncludedBooks.Single().GetBlocksForVerse(7, 14).ElementAt(3);
+			elderSpeakingInRev714.SetCharacterAndCharacterIdInScript("elders, one of the", 66);
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, johnSpeakingInRev714.CharacterId);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, johnSpeakingInRev714.CharacterIdInScript);
+			Assert.AreEqual("elders, one of the", elderSpeakingInRev714.CharacterId);
+			Assert.AreEqual("elders, one of the", elderSpeakingInRev714.CharacterIdInScript);
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_CharacterIdReplacedWithSingleId_CharacterIdInScriptSetToReplacementId()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var angelsSpeakingInRev712 = testProject.IncludedBooks.Single().GetBlocksForVerse(7, 12).ElementAt(1);
+			angelsSpeakingInRev712.SetCharacterAndCharacterIdInScript("tons of angelic beings", 66);
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			Assert.AreEqual("angels, all the", angelsSpeakingInRev712.CharacterId);
+			Assert.AreEqual("angels, all the", angelsSpeakingInRev712.CharacterIdInScript);
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_DeliveryChanged_DeliveryChangedInBlock()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var singersInRev59 = testProject.IncludedBooks.Single().GetBlocksForVerse(5, 9).Skip(1).ToList();
+			foreach (var block in singersInRev59)
+				block.Delivery = "humming";
+
+			Assert.AreEqual(singersInRev59.Count, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			Assert.True(singersInRev59.All(b => b.CharacterId == "four living creatures/twenty-four elders" &&
+				b.Delivery == "singing"));
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_OneMemberOfMultiCharacterIdChanged_CharacterIdInScriptSetToReplacementId()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var singersInRev59 = testProject.IncludedBooks.Single().GetBlocksForVerse(5, 9).Skip(1).ToList();
+			foreach (var block in singersInRev59)
+				block.SetCharacterAndCharacterIdInScript("cuatro living creatures/twenty-four elders", 66);
+
+			Assert.AreEqual(singersInRev59.Count, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			Assert.True(singersInRev59.All(b => b.CharacterId == "four living creatures/twenty-four elders" &&
+				b.CharacterIdInScript == "four living creatures"));
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_CharacterIdRemoved_CharacterIdInScriptSetToUnknown()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var blockInRev711 = testProject.IncludedBooks.Single().GetBlocksForVerse(7, 11).First();
+			blockInRev711.SetCharacterAndCharacterIdInScript("angels, all the", 66);
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, blockInRev711.CharacterId);
+		}
+
+		/// <summary>
+		/// PG-471
+		/// </summary>
+		[Test]
+		public void MigrateDeprecatedCharacterIds_StandardCharacterIdUsedInUnexpectedPlaceIsLaterRenamed_CharacterIdInScriptSetToUnknown()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var unexpectedPeterInRev711 = testProject.IncludedBooks.Single().GetBlocksForVerse(7, 11).First();
+			testProject.ProjectCharacterVerseData.Add(new CharacterVerse(new BCVRef(66, 7, 11), "peter", "", "", true));
+			unexpectedPeterInRev711.SetCharacterAndCharacterIdInScript("peter", 66);
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, unexpectedPeterInRev711.CharacterId);
+			Assert.IsFalse(testProject.ProjectCharacterVerseData.Any());
 		}
 
 		[TestCase("c")]

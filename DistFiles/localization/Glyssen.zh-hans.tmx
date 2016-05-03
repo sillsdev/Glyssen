@@ -2285,15 +2285,6 @@
         <seg>耶稣 ***in*** ***2*** 约翰</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Jesus in Hebrews">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jesus in Hebrews</seg>
-      </tuv>
-      <tuv xml:lang="zh-Hans">
-        <seg>耶稣 ***in*** ***Hebrews***</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Jesus' mother and brothers">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">

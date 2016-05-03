@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Glyssen;
 using Glyssen.Character;
 using Glyssen.Rules;
 using Glyssen.VoiceActor;
@@ -10,10 +9,8 @@ using SIL.Scripture;
 namespace GlyssenTests.Rules
 {
 	[TestFixture]
-	class CharacterGroupsAdjusterTests
+	class CharacterGroupsAdjusterTests : CharacterGroupGeneratorAndAdjusterTestBase
 	{
-		private Project m_testProject;
-
 		[TestFixtureSetUpAttribute]
 		public void FixtureSetup()
 		{
@@ -31,6 +28,7 @@ namespace GlyssenTests.Rules
 			m_testProject.AvailableBooks.Single(b => b.Code == "LUK").IncludeInScript = true;
 			m_testProject.AvailableBooks.Single(b => b.Code == "ACT").IncludeInScript = false;
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = false;
+			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
 		}
 
@@ -48,7 +46,7 @@ namespace GlyssenTests.Rules
 	
 		private void GenerateGroups()
 		{
-			var generator = new CharacterGroupGenerator(m_testProject, m_testProject.GetKeyStrokesByCharacterId());
+			var generator = new CharacterGroupGenerator(m_testProject);
 			generator.GenerateCharacterGroups();
 			generator.ApplyGeneratedGroupsToProject();
 		}
@@ -64,6 +62,8 @@ namespace GlyssenTests.Rules
 
 			if (!m_testProject.AllCharacterDetailDictionary.ContainsKey(newCharacterId))
 				m_testProject.AddProjectCharacterDetail(new CharacterDetail { CharacterId = newCharacterId });
+
+			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when user makes changes in AssignCharacterDlg
 		}
 
 		private void SetBlockCharacterToNarrator(string bookCode, int chapter, int verse, string existingCharacterId)
@@ -76,7 +76,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void Constructor_PerfectCoverage_NoAdditionsOrDeletions()
 		{
-			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(9, 2, 1);
+			SetVoiceActors(9, 2, 1);
 			GenerateGroups();
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
 			Assert.IsFalse(adjuster.CharactersNotCoveredByAnyGroup.Any());
@@ -91,7 +91,7 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void CharacterGroupsToRemove_EmptyGroup_ReturnsFalse()
 		{
-			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(9, 2, 1);
+			SetVoiceActors(9, 2, 1);
 			GenerateGroups();
 			m_testProject.CharacterGroupList.CharacterGroups[0].AssignVoiceActor(m_testProject.VoiceActorList.AllActors[2].Id);
 			foreach (var character in m_testProject.CharacterGroupList.CharacterGroups[0].CharacterIds)
@@ -110,9 +110,10 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void Constructor_CharactersAddedToProject_AdditionsButNoDeletions()
 		{
-			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(9, 2, 1);
+			SetVoiceActors(9, 2, 1);
 			GenerateGroups();
 			m_testProject.AvailableBooks.Single(b => b.Code == "ACT").IncludeInScript = true;
+			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
 			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.ExtraBiblical)));
@@ -134,9 +135,10 @@ namespace GlyssenTests.Rules
 			// By keeping the number of actors really low, we guarantee that groups will have lots of characters,
 			// thus more-or-less ensuring that no groups will consist only of characters no longer in use after excluding Mark from the
 			// project.
-			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(7, 1, 1);
+			SetVoiceActors(7, 1, 1);
 			GenerateGroups();
 			m_testProject.AvailableBooks.Single(b => b.Code == "MRK").IncludeInScript = false;
+			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
 			Assert.AreEqual(0, adjuster.CharactersNotCoveredByAnyGroup.Count());
 			Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator)));
@@ -152,8 +154,9 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void Constructor_TwoCharactersRenamed_FullRegenerateNotRecommended()
 		{
-			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(9, 2, 1);
+			SetVoiceActors(9, 2, 1);
 			m_testProject.AvailableBooks.Single(b => b.Code == "LUK").IncludeInScript = false;
+			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			GenerateGroups();
 
 			try
@@ -183,8 +186,9 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void Constructor_FiveCharactersAddedRemovedOrRenamed_FullRegenerateRecommended()
 		{
-			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(9, 2, 1);
+			SetVoiceActors(9, 2, 1);
 			m_testProject.AvailableBooks.Single(b => b.Code == "LUK").IncludeInScript = false;
+			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			GenerateGroups();
 
 			try
@@ -225,9 +229,10 @@ namespace GlyssenTests.Rules
 			// By jacking up the number of actors really high, we guarantee that most characters will end up in a group by themselves,
 			// thus more-or-less ensuring that some groups will no longer contain any characters in use after excluding Mark from the
 			// project.
-			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(99, 22, 7);
+			SetVoiceActors(99, 22, 7);
 			GenerateGroups();
 			m_testProject.AvailableBooks.Single(b => b.Code == "MRK").IncludeInScript = false;
+			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
 			Assert.AreEqual(0, adjuster.CharactersNotCoveredByAnyGroup.Count());
 			Assert.IsTrue(adjuster.CharactersNoLongerInUse.Contains(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator)));
@@ -240,9 +245,10 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void MakeMinimalAdjustments_FewAdditions_NewGroupAddedWithNewCharacters()
 		{
-			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(9, 2, 1);
+			SetVoiceActors(9, 2, 1);
 			GenerateGroups();
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = true;
+			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
 			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(adjuster.CharactersNotCoveredByAnyGroup.Contains(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical)));
@@ -267,9 +273,11 @@ namespace GlyssenTests.Rules
 		public void MakeMinimalAdjustments_FewDeletionsAndFewGroups_CharactersRemovedFromExistingCharacterGroups()
 		{
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = true;
-			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(20, 2, 1);
+			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
+			SetVoiceActors(20, 2, 1);
 			GenerateGroups();
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = false;
+			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
 			var charactersNotInUse = adjuster.CharactersNoLongerInUse.ToList();
 			Assert.IsTrue(charactersNotInUse.Count > 0);
@@ -290,9 +298,11 @@ namespace GlyssenTests.Rules
 		public void MakeMinimalAdjustments_FewDeletionsAndManyGroups_CharactersRemovedFromExistingCharacterGroupsAndEmptyGroupsRemoved()
 		{
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = true;
-			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(100, 7, 2);
+			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
+			SetVoiceActors(100, 7, 2);
 			GenerateGroups();
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = false;
+			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
 			var charactersNotInUse = adjuster.CharactersNoLongerInUse.ToList();
 			Assert.IsTrue(charactersNotInUse.Count > 0);
@@ -317,7 +327,8 @@ namespace GlyssenTests.Rules
 		public void MakeMinimalAdjustments_CameoGroupsWithCharactersNoLongerInUse_EmptyCameoGroupsNotRemoved()
 		{
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = true;
-			m_testProject.VoiceActorList.AllActors = CharacterGroupGeneratorTests.GetVoiceActors(290, 17, 8);
+			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
+			SetVoiceActors(290, 17, 8);
 			GenerateGroups();
 			var frankie = m_testProject.VoiceActorList.AllActors.First(a => a.Gender == ActorGender.Male);
 			frankie.Name = "Frankie";
@@ -325,6 +336,7 @@ namespace GlyssenTests.Rules
 			var michaelTheArchAngelGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("Michael, archangel");
 			michaelTheArchAngelGroup.AssignVoiceActor(frankie.Id);
 			m_testProject.AvailableBooks.Single(b => b.Code == "JUD").IncludeInScript = false;
+			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			var adjuster = new CharacterGroupsAdjuster(m_testProject);
 			var charactersNotInUse = adjuster.CharactersNoLongerInUse.ToList();
 			Assert.IsTrue(charactersNotInUse.Contains("Michael, archangel"));

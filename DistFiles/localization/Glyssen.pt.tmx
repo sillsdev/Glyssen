@@ -2210,15 +2210,6 @@
         <seg>Jesus ***in*** ***2*** João</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Jesus in Hebrews">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Jesus in Hebrews</seg>
-      </tuv>
-      <tuv xml:lang="pt">
-        <seg>Jesus ***in*** ***Hebrews***</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Jesus' mother and brothers">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">

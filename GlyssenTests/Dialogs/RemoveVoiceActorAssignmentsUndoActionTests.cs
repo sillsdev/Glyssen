@@ -11,13 +11,11 @@ namespace GlyssenTests.Dialogs
 	internal class RemoveVoiceActorAssignmentsUndoActionTests
 	{
 		private Project m_testProject;
-		private IComparer<string> m_priorityComparer;
 			
 		[TestFixtureSetUp]
 		public void FixtureSetup()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			m_priorityComparer = new CharacterByKeyStrokeComparer(m_testProject.GetKeyStrokesByCharacterId());
 
 			var actor1 = new Glyssen.VoiceActor.VoiceActor {Id = 1, Name = "Oneyda Figueroa"};
 			var actor2 = new Glyssen.VoiceActor.VoiceActor {Id = 2, Name = "Paul Twomey"};
@@ -42,10 +40,10 @@ namespace GlyssenTests.Dialogs
 
 		private void AddCharacterGroup(params string[] characterIds)
 		{
-			var group = new CharacterGroup(m_testProject, m_priorityComparer);
+			var group = new CharacterGroup(m_testProject);
 			foreach (var character in characterIds)
 				group.CharacterIds.Add(character);
-			group.SetGroupIdLabelBasedOnCharacterIds();
+			group.SetGroupIdLabel();
 			m_testProject.CharacterGroupList.CharacterGroups.Add(group);
 		}
 

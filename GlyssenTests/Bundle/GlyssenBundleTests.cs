@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using Glyssen.Bundle;
 using SIL.DblBundle.Tests.Text;
 using SIL.IO;
 
 namespace GlyssenTests.Bundle
 {
-	class GlyssenBundleTests
+	internal static class GlyssenBundleTests
 	{
 		public const string kTestBundleIdPrefix = "test~~ProjectTests";
 		private static string GetUniqueBundleId()
