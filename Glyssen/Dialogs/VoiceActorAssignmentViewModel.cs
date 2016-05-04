@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Glyssen.Character;
 using Glyssen.Controls;
@@ -237,7 +238,7 @@ namespace Glyssen.Dialogs
 		private CharacterGroup GetSourceGroupForMove(IList<string> characterIds, CharacterGroup destGroup)
 		{
 			if (characterIds.Count == 0)
-				throw new ArgumentException("At least one characterId must be provided", "characterIds");
+				throw new ArgumentException(@"At least one characterId must be provided", "characterIds");
 
 			// Currently, we assume all characterIds are coming from the same source group
 			CharacterGroup sourceGroup = CharacterGroups.FirstOrDefault(t => t.CharacterIds.Contains(characterIds[0]));
@@ -386,7 +387,7 @@ namespace Glyssen.Dialogs
 			switch (by)
 			{
 				case SortedBy.Name:
-					how = (a, b) => String.Compare(a.GroupIdForUiDisplay, b.GroupIdForUiDisplay, StringComparison.CurrentCulture) * direction;
+					how = (a, b) => CompareGroupNames(a, b) * direction;
 					break;
 				case SortedBy.Attributes:
 					how = (a, b) => String.Compare(a.AttributesDisplay, b.AttributesDisplay, StringComparison.CurrentCulture) * direction;
@@ -405,7 +406,7 @@ namespace Glyssen.Dialogs
 					how = (a, b) => a.EstimatedHours.CompareTo(b.EstimatedHours) * direction;
 					break;
 				default:
-					throw new ArgumentException("Unexpected sorting method", "by");
+					throw new ArgumentException(@"Unexpected sorting method", "by");
 			}
 			CharacterGroups.Sort(how);
 		}
@@ -446,7 +447,7 @@ namespace Glyssen.Dialogs
 				throw new ArgumentNullException("textToFind");
 			textToFind = textToFind.Trim();
 			if (textToFind.Length < 2)
-				throw new ArgumentException("Value must contain at least two non-whitespace characters.", "textToFind");
+				throw new ArgumentException(@"Value must contain at least two non-whitespace characters.", "textToFind");
 			if (startingGroupIndex < 0 || startingGroupIndex >= CharacterGroups.Count)
 				startingGroupIndex = 0;
 			if (startingCharacterIndex < 0 || startingCharacterIndex >= CharacterGroups[startingGroupIndex].CharacterIds.Count)
@@ -531,6 +532,59 @@ namespace Glyssen.Dialogs
 			AssignActorToGroup(newActor.Id, group);
 			actorViewModel.SaveVoiceActorInformation();
 			return newActor;
+		}
+
+		private static int CompareGroupNames(CharacterGroup x, CharacterGroup y)
+		{
+			var s1 = x.GroupIdForUiDisplay ?? string.Empty;
+			var s2 = y.GroupIdForUiDisplay ?? string.Empty;
+
+			// check for identical strings
+			if (s1 == s2)
+				return 0;
+
+			// check for an empty string
+			if (string.IsNullOrEmpty(s1))
+				return -1;
+
+			if (string.IsNullOrEmpty(s2))
+				return 1;
+
+			var len1 = s1.Length;
+			var len2 = s2.Length;
+			var currentIdx = 0;
+			var d1 = '.';
+			var d2 = '.';
+
+			while ((currentIdx < len1) && (currentIdx < len2))
+			{
+				// compare once character from each string
+				var result = string.Compare(s1, currentIdx, s2, currentIdx, 1);
+
+				// if both characters are not the same, check for digits
+				if (result != 0)
+				{
+					d1 = s1[currentIdx];
+					d2 = s2[currentIdx];
+					if (!char.IsDigit(d1) || !char.IsDigit(d2)) return result;
+
+					// both characters are digits, compare the full numbers
+					var val1 = int.Parse(Regex.Match(s1, @"\d+").Value);
+					var val2 = int.Parse(Regex.Match(s2, @"\d+").Value);
+					return (val1 < val2) ? -1 : 1;
+				}
+
+				currentIdx++;
+			}
+
+			// if you are here, one string starts with the other
+			// the shorter string comes before the longer one
+			if (!char.IsDigit(d1) || !char.IsDigit(d2)) return (len1 < len2) ? -1 : 1;
+
+			// both ended with digits, so compare the full numbers
+			var num1 = int.Parse(Regex.Match(s1, @"\d+").Value);
+			var num2 = int.Parse(Regex.Match(s2, @"\d+").Value);
+			return (num1 < num2) ? -1 : 1;
 		}
 	}
 }
