@@ -250,7 +250,7 @@ namespace Glyssen.Quote
 				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber) { IsParagraphStart = block.IsParagraphStart };
 
 				bool atBeginningOfBlock = true;
-				bool specialOpeningPunctuation = false;
+				var specialOpeningPunctuationLen = 0;
 				foreach (BlockElement element in block.BlockElements)
 				{
 					var scriptText = element as ScriptText;
@@ -325,7 +325,7 @@ namespace Glyssen.Quote
 						{
 							if (match.Index > pos)
 							{
-								specialOpeningPunctuation = StartsWithSpecialOpeningPunctuation(content);
+								specialOpeningPunctuationLen = GetSpecialOpeningPunctuation(content).Length;
 								sb.Append(content.Substring(pos, match.Index - pos));
 							}
 
@@ -333,12 +333,17 @@ namespace Glyssen.Quote
 
 							var token = match.Value;
 
-							if (!specialOpeningPunctuation)
+							if (specialOpeningPunctuationLen > 0)
+							{
+								// this is only the beginning of a block if there are no characters between the special opening punctuation and the quotation mark
+								atBeginningOfBlock &= string.IsNullOrWhiteSpace(content.Substring(specialOpeningPunctuationLen, match.Index - specialOpeningPunctuationLen));
+							}
+							else
 								atBeginningOfBlock &= match.Index == 0;
 
 							if (atBeginningOfBlock)
 							{
-								if (!specialOpeningPunctuation)
+								if (specialOpeningPunctuationLen == 0)
 									atBeginningOfBlock = false;
 
 								if (m_quoteLevel > 0 && token.StartsWith(ContinuerForCurrentLevel))
@@ -488,13 +493,27 @@ namespace Glyssen.Quote
 			return "¡¿";
 		}
 
-		private bool StartsWithSpecialOpeningPunctuation(string text)
+		private string GetSpecialOpeningPunctuation(string text)
 		{
 			if (text.Length == 0)
-				return false;
-			char firstCharacter = text[0];
-			return CharUnicodeInfo.GetUnicodeCategory(firstCharacter) == UnicodeCategory.OpenPunctuation ||
-				GetOtherPunctuationTreatedAsOpeningPunctuationAsSingleString().Contains(firstCharacter);
+				return string.Empty;
+
+			var sb = new StringBuilder();
+			var testIndex = 0;
+			var testCharacter = text[testIndex];
+
+			while (CharUnicodeInfo.GetUnicodeCategory(testCharacter) == UnicodeCategory.OpenPunctuation ||
+				GetOtherPunctuationTreatedAsOpeningPunctuationAsSingleString().Contains(testCharacter))
+			{
+				sb.Append(testCharacter);
+				testIndex++;
+
+				if (testIndex >= text.Length)
+					break;
+				testCharacter = text[testIndex];
+			}
+
+			return sb.ToString();
 		}
 
 		private bool ProbablyAnApostrophe(string content, int pos)
