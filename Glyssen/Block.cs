@@ -310,7 +310,7 @@ namespace Glyssen
 
 		/// <summary>
 		/// Gets whether this block is a quote. It's not 100% reliable since there's the (slight) possibility that the user
-		/// could assign the character for a block and then assign it back to Narrator. This would result in UserConfrimed
+		/// could assign the character for a block and then assign it back to Narrator. This would result in UserConfirmed
 		/// being set to true even though it was a "non-quote" (unmarked) narrator block. Depending on how this
 		/// property gets used in the future, we might need to actually store an additional piece of information about
 		/// the block to distinguish this case and prevent a false positive. (For the current planned usage, an occasional
