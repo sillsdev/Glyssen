@@ -1,4 +1,4 @@
-Control File Version	98
+Control File Version	99
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -7626,6 +7626,163 @@ PSA	137	3	captors, our			Normal
 PSA	137	7	Edomites			Normal		
 PSA	138	1	narrator-PSA			Quotation		
 PSA	141	7	wicked, the			Hypothetical		
+PRO	1	11	sinners			Normal		
+PRO	1	12	sinners			Implicit		
+PRO	1	13	sinners			Implicit		
+PRO	1	14	sinners			Implicit		
+PRO	1	22	Wisdom			Implicit		
+PRO	1	23	Wisdom			Implicit		
+PRO	1	24	Wisdom			Implicit		
+PRO	1	25	Wisdom			Implicit		
+PRO	1	26	Wisdom			Implicit		
+PRO	1	27	Wisdom			Implicit		
+PRO	1	28	Wisdom			Implicit		
+PRO	1	29	Wisdom			Implicit		
+PRO	1	30	Wisdom			Implicit		
+PRO	1	31	Wisdom			Implicit		
+PRO	1	32	Wisdom			Implicit		
+PRO	1	33	Wisdom			Implicit		
+PRO	3	7	narrator-PRO			Potential		
+PRO	3	28	you (hypothetical)			Hypothetical		
+PRO	4	4	David		father of Solomon (King David)	Quotation		
+PRO	4	5	David		father of Solomon (King David)	Quotation		
+PRO	4	6	David		father of Solomon (King David)	Quotation		
+PRO	4	7	David		father of Solomon (King David)	Quotation		
+PRO	4	8	David		father of Solomon (King David)	Quotation		
+PRO	4	9	David		father of Solomon (King David)	Quotation		
+PRO	5	12	sons (hypothetical), at end of life			Hypothetical		
+PRO	5	13	sons (hypothetical), at end of life			Hypothetical		
+PRO	5	14	sons (hypothetical), at end of life			Hypothetical		
+PRO	7	4	narrator-PRO			Hypothetical		
+PRO	7	14	immoral woman			Implicit		
+PRO	7	15	immoral woman			Implicit		
+PRO	7	16	immoral woman			Implicit		
+PRO	7	17	immoral woman			Implicit		
+PRO	7	18	immoral woman			Implicit		
+PRO	7	19	immoral woman			Implicit		
+PRO	7	20	immoral woman			Implicit		
+PRO	8	4	Wisdom			Implicit		
+PRO	8	5	Wisdom			Implicit		
+PRO	8	6	Wisdom			Implicit		
+PRO	8	7	Wisdom			Implicit		
+PRO	8	8	Wisdom			Implicit		
+PRO	8	9	Wisdom			Implicit		
+PRO	8	10	Wisdom			Implicit		
+PRO	8	11	Wisdom			Potential		
+PRO	8	12	Wisdom			Implicit		
+PRO	8	13	Wisdom			Implicit		
+PRO	8	14	Wisdom			Implicit		
+PRO	8	15	Wisdom			Implicit		
+PRO	8	16	Wisdom			Implicit		
+PRO	8	17	Wisdom			Implicit		
+PRO	8	18	Wisdom			Implicit		
+PRO	8	19	Wisdom			Implicit		
+PRO	8	20	Wisdom			Implicit		
+PRO	8	21	Wisdom			Implicit		
+PRO	8	22	Wisdom			Implicit		
+PRO	8	23	Wisdom			Implicit		
+PRO	8	24	Wisdom			Implicit		
+PRO	8	25	Wisdom			Implicit		
+PRO	8	26	Wisdom			Implicit		
+PRO	8	27	Wisdom			Implicit		
+PRO	8	28	Wisdom			Implicit		
+PRO	8	29	Wisdom			Implicit		
+PRO	8	30	Wisdom			Implicit		
+PRO	8	31	Wisdom			Implicit		
+PRO	8	32	Wisdom			Implicit		
+PRO	8	33	Wisdom			Implicit		
+PRO	8	34	Wisdom			Implicit		
+PRO	8	35	Wisdom			Implicit		
+PRO	8	36	Wisdom			Implicit		
+PRO	9	4	Wisdom			Normal		
+PRO	9	5	Wisdom			Implicit		
+PRO	9	6	Wisdom			Implicit		
+PRO	9	7	Wisdom			Potential		
+PRO	9	8	Wisdom			Potential		
+PRO	9	9	Wisdom			Potential		
+PRO	9	10	Wisdom			Potential		
+PRO	9	11	Wisdom			Implicit		
+PRO	9	12	Wisdom			Implicit		
+PRO	9	16	Folly			Normal		
+PRO	9	17	Folly			Implicit		
+PRO	19	3	narrator-PRO			Potential		
+PRO	20	9	person claiming to have a pure heart			Hypothetical		
+PRO	20	14	buyer			Hypothetical		
+PRO	20	22	you (hypothetical)			Hypothetical		
+PRO	22	13	sluggard			Hypothetical		
+PRO	23	7	stingy man			Hypothetical		
+PRO	23	35	drunkard			Hypothetical		
+PRO	24	8	narrator-PRO			Potential		
+PRO	24	12	you (hypothetical)			Hypothetical		
+PRO	24	24	judge who says the wicked are innocent			Hypothetical		
+PRO	24	29	you (hypothetical)			Hypothetical		
+PRO	25	7	king			Hypothetical		
+PRO	26	13	sluggard			Hypothetical		
+PRO	30	1	Agur			Potential		
+PRO	30	2	Agur			Implicit		
+PRO	30	3	Agur			Implicit		
+PRO	30	4	Agur			Implicit		
+PRO	30	5	Agur			Implicit		
+PRO	30	6	Agur			Implicit		
+PRO	30	7	Agur			Implicit		
+PRO	30	8	Agur			Implicit		
+PRO	30	9	Agur			Implicit		
+PRO	30	10	Agur			Implicit		
+PRO	30	11	Agur			Implicit		
+PRO	30	12	Agur			Implicit		
+PRO	30	13	Agur			Implicit		
+PRO	30	14	Agur			Implicit		
+PRO	30	15	Agur			Implicit		
+PRO	30	16	Agur			Implicit		
+PRO	30	17	Agur			Implicit		
+PRO	30	18	Agur			Implicit		
+PRO	30	19	Agur			Implicit		
+PRO	30	20	Agur			Implicit		
+PRO	30	21	Agur			Implicit		
+PRO	30	22	Agur			Implicit		
+PRO	30	23	Agur			Implicit		
+PRO	30	24	Agur			Implicit		
+PRO	30	25	Agur			Implicit		
+PRO	30	26	Agur			Implicit		
+PRO	30	27	Agur			Implicit		
+PRO	30	28	Agur			Implicit		
+PRO	30	29	Agur			Implicit		
+PRO	30	30	Agur			Implicit		
+PRO	30	31	Agur			Implicit		
+PRO	30	32	Agur			Implicit		
+PRO	30	33	Agur			Implicit		
+PRO	31	2	King Lemuel's mother/King Lemuel			Implicit		
+PRO	31	3	King Lemuel's mother/King Lemuel			Implicit		
+PRO	31	4	King Lemuel's mother/King Lemuel			Implicit		
+PRO	31	5	King Lemuel's mother/King Lemuel			Implicit		
+PRO	31	6	King Lemuel's mother/King Lemuel			Implicit		
+PRO	31	7	King Lemuel's mother/King Lemuel			Implicit		
+PRO	31	8	King Lemuel's mother/King Lemuel			Implicit		
+PRO	31	9	King Lemuel's mother/King Lemuel			Implicit		
+PRO	31	10	King Lemuel's mother/King Lemuel			Potential	King Lemuel	
+PRO	31	11	King Lemuel's mother/King Lemuel			Potential	King Lemuel	
+PRO	31	12	King Lemuel's mother/King Lemuel			Potential	King Lemuel	
+PRO	31	13	King Lemuel's mother/King Lemuel			Potential	King Lemuel	
+PRO	31	14	King Lemuel's mother/King Lemuel			Potential	King Lemuel	
+PRO	31	15	King Lemuel's mother/King Lemuel			Potential	King Lemuel	
+PRO	31	16	King Lemuel's mother/King Lemuel			Potential	King Lemuel	
+PRO	31	17	King Lemuel's mother/King Lemuel			Potential	King Lemuel	
+PRO	31	18	King Lemuel's mother/King Lemuel			Potential	King Lemuel	
+PRO	31	19	King Lemuel's mother/King Lemuel			Potential	King Lemuel	
+PRO	31	20	King Lemuel's mother/King Lemuel			Potential	King Lemuel	
+PRO	31	21	King Lemuel's mother/King Lemuel			Potential	King Lemuel	
+PRO	31	22	King Lemuel's mother/King Lemuel			Potential	King Lemuel	
+PRO	31	23	King Lemuel's mother/King Lemuel			Potential	King Lemuel	
+PRO	31	24	King Lemuel's mother/King Lemuel			Potential	King Lemuel	
+PRO	31	25	King Lemuel's mother/King Lemuel			Potential	King Lemuel	
+PRO	31	26	King Lemuel's mother/King Lemuel			Potential	King Lemuel	
+PRO	31	27	King Lemuel's mother/King Lemuel			Potential	King Lemuel	
+PRO	31	28	children of excellent wife			Indirect		
+PRO	31	28	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	29	husband of excellent wife			Hypothetical		
+PRO	31	29	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	30	King Lemuel's mother/King Lemuel			Potential		
+PRO	31	31	King Lemuel's mother/King Lemuel			Potential		
 ECC	1	2	teacher (Preacher)			Normal		
 ECC	1	10	someone			Hypothetical		
 ECC	1	16	teacher (Preacher)			Normal		
