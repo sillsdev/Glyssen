@@ -35,7 +35,7 @@ namespace GlyssenTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			Assert.IsTrue(blocks[0].CharacterIs("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
-			Assert.IsTrue(blocks[1].CharacterId == Block.NotSet);
+			Assert.IsTrue(blocks[1].CharacterId == Block.kNotSet);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(false));
@@ -364,7 +364,7 @@ namespace GlyssenTests
 			Assert.IsTrue(blocks[2].CharacterIs("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
 			Assert.AreEqual(1, blocks[3].ChapterNumber);
 			Assert.AreEqual(1, blocks[3].InitialStartVerseNumber);
-			Assert.AreEqual(Block.NotSet, blocks[3].CharacterId);
+			Assert.AreEqual(Block.kNotSet, blocks[3].CharacterId);
 		}
 
 		[Test]
@@ -389,7 +389,7 @@ namespace GlyssenTests
 			Assert.AreEqual(1, blocks[2].ChapterNumber);
 			Assert.AreEqual(1, blocks[2].InitialStartVerseNumber);
 			Assert.AreEqual("p", blocks[2].StyleTag);
-			Assert.AreEqual(Block.NotSet, blocks[2].CharacterId);
+			Assert.AreEqual(Block.kNotSet, blocks[2].CharacterId);
 			Assert.AreEqual("Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(false));
 		}
 
@@ -411,13 +411,13 @@ namespace GlyssenTests
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("p", blocks[1].StyleTag);
-			Assert.AreEqual(Block.NotSet, blocks[1].CharacterId);
+			Assert.AreEqual(Block.kNotSet, blocks[1].CharacterId);
 			Assert.AreEqual("[1-2]\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
 
 			Assert.AreEqual(1, blocks[2].ChapterNumber);
 			Assert.AreEqual(1, blocks[2].InitialStartVerseNumber);
 			Assert.AreEqual("q1", blocks[2].StyleTag);
-			Assert.AreEqual(Block.NotSet, blocks[2].CharacterId);
+			Assert.AreEqual(Block.kNotSet, blocks[2].CharacterId);
 			Assert.AreEqual("“Nen, acwalo lakwenana otelo nyimi,", blocks[2].GetText(true));
 		}
 

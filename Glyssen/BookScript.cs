@@ -87,6 +87,14 @@ namespace Glyssen
 			get { return m_unappliedSplitBlocks; }
 		}
 
+		public BookScript Clone(bool join)
+		{
+			BookScript newBook = (BookScript) MemberwiseClone();
+			newBook.Blocks = new List<Block>(GetScriptBlocks(join).Select(b => b.Clone()));
+			newBook.m_unappliedSplitBlocks = new List<List<Block>>(m_unappliedSplitBlocks.Select(l => l.Select(b => b.Clone()).ToList()));
+			return newBook;
+		}
+
 		public System.Collections.Generic.IReadOnlyList<Block> GetScriptBlocks(bool join = false)
 		{
 			EnsureBlockCount();
@@ -105,7 +113,14 @@ namespace Glyssen
 					if (block.CharacterIdInScript == prevBlock.CharacterIdInScript && (block.Delivery ?? string.Empty) == (prevBlock.Delivery ?? String.Empty))
 					{
 						var newBlock = prevBlock.Clone();
-						foreach (var blockElement in block.BlockElements)
+						int skip = 0;
+						if (prevBlock.BlockElements.Last() is ScriptText && block.BlockElements.First() is ScriptText)
+						{
+							var lastScriptText = (ScriptText)newBlock.BlockElements.Last();
+							lastScriptText.Content += ((ScriptText)block.BlockElements.First()).Content;
+							skip = 1;
+						}
+						foreach (var blockElement in block.BlockElements.Skip(skip))
 							newBlock.BlockElements.Add(blockElement.Clone());
 						newBlock.UserConfirmed &= block.UserConfirmed;
 						list[list.Count - 1] = newBlock;
@@ -324,9 +339,9 @@ namespace Glyssen
 
 		private void ApplyUserSplits(BookScript sourceBookScript)
 		{
-			int splitId = Block.NotSplit;
+			int splitId = Block.kNotSplit;
 			List<Block> split = null;
-			foreach (var block in sourceBookScript.Blocks.Where(b => b.SplitId != Block.NotSplit))
+			foreach (var block in sourceBookScript.Blocks.Where(b => b.SplitId != Block.kNotSplit))
 			{
 				if (block.SplitId != splitId)
 				{
@@ -432,7 +447,7 @@ namespace Glyssen
 			return combinedBlock;
 		}
 
-		public Block SplitBlock(Block blockToSplit, string verseToSplit, int characterOffsetToSplit)
+		public Block SplitBlock(Block blockToSplit, string verseToSplit, int characterOffsetToSplit, bool userSplit = true)
 		{
 			var iBlock = m_blocks.IndexOf(blockToSplit);
 
@@ -440,7 +455,7 @@ namespace Glyssen
 				throw new ArgumentException("Block not found in the list for " + BookId, "blockToSplit");
 
 			int splitId;
-			if (blockToSplit.SplitId != Block.NotSplit)
+			if (blockToSplit.SplitId != Block.kNotSplit)
 				splitId = blockToSplit.SplitId;
 			else
 				splitId = m_blocks.Max(b => b.SplitId) + 1;
@@ -511,9 +526,17 @@ namespace Glyssen
 					}
 					newBlock = new Block(blockToSplit.StyleTag, blockToSplit.ChapterNumber,
 						initialStartVerse, initialEndVerse);
-					newBlock.CharacterId = CharacterVerseData.UnknownCharacter;
-					newBlock.CharacterIdOverrideForScript = null;
-					newBlock.UserConfirmed = false;
+					if (userSplit)
+					{
+						newBlock.CharacterId = CharacterVerseData.UnknownCharacter;
+					}
+					else
+					{
+						newBlock.CharacterId = blockToSplit.CharacterId;
+						newBlock.CharacterIdOverrideForScript = blockToSplit.CharacterIdOverrideForScript;
+						newBlock.Delivery = blockToSplit.Delivery;
+						newBlock.UserConfirmed = blockToSplit.UserConfirmed;
+					}
 					if (characterOffsetToSplit < content.Length)
 						newBlock.BlockElements.Add(new ScriptText(content.Substring(characterOffsetToSplit)));
 					text.Content = content.Substring(0, characterOffsetToSplit);
@@ -535,30 +558,33 @@ namespace Glyssen
 					blockToSplit.BlockElements.RemoveAt(indexOfFirstElementToRemove);
 			}
 
-			if (blockToSplit.MultiBlockQuote == MultiBlockQuote.Start)
+			if (userSplit)
 			{
-				blockToSplit.MultiBlockQuote = MultiBlockQuote.None;
-				newBlock.MultiBlockQuote = MultiBlockQuote.Start;
-			}
-			else if ((blockToSplit.MultiBlockQuote == MultiBlockQuote.Continuation || blockToSplit.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery) &&
-				iBlock < m_blockCount - 2 &&
-				(m_blocks[iBlock + 2].MultiBlockQuote == MultiBlockQuote.Continuation || m_blocks[iBlock + 2].MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery))
-			{
-				newBlock.MultiBlockQuote = MultiBlockQuote.Start;
-			}
+				if (blockToSplit.MultiBlockQuote == MultiBlockQuote.Start)
+				{
+					blockToSplit.MultiBlockQuote = MultiBlockQuote.None;
+					newBlock.MultiBlockQuote = MultiBlockQuote.Start;
+				}
+				else if ((blockToSplit.MultiBlockQuote == MultiBlockQuote.Continuation || blockToSplit.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery) &&
+					iBlock < m_blockCount - 2 &&
+					(m_blocks[iBlock + 2].MultiBlockQuote == MultiBlockQuote.Continuation || m_blocks[iBlock + 2].MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery))
+				{
+					newBlock.MultiBlockQuote = MultiBlockQuote.Start;
+				}
 
-			blockToSplit.SplitId = newBlock.SplitId = splitId;
+				blockToSplit.SplitId = newBlock.SplitId = splitId;
+			}
+			else if (blockToSplit.MultiBlockQuote != MultiBlockQuote.None)
+				newBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
+			//TODO handle splitId already exists but userSplit == false
 
 			return newBlock;
 		}
 
 		private void SplitBeforeBlock(int indexOfBlockToSplit, int splitId)
 		{
-			if (indexOfBlockToSplit == 0 || m_blocks[indexOfBlockToSplit].MultiBlockQuote == MultiBlockQuote.None ||
-				m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote == MultiBlockQuote.None)
-			{
+			if (indexOfBlockToSplit == 0 || m_blocks[indexOfBlockToSplit].MultiBlockQuote == MultiBlockQuote.None || m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote == MultiBlockQuote.None)
 				throw new InvalidOperationException("Split allowed only between blocks that are part of a multi-block quote");
-			}
 
 			if (m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote == MultiBlockQuote.Start)
 				m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote = MultiBlockQuote.None;

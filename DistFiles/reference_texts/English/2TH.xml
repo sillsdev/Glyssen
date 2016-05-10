@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="2TH" singlevoice="false" pageheader="2 THESSALONIANS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2TH">
+    <text>2 THESSALONIANS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="2TH" initialStartVerse="0" characterId="BC-2TH">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-2TH">
+    <verse num="1" />
+    <text>Paul, Silvanus, and Timothy, to the assembly of the Thessalonians in God our Father, and the Lord Jesus Christ:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-2TH">
+    <verse num="2" />
+    <text>Grace to you and peace from God our Father and the Lord Jesus Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-2TH">
+    <verse num="3" />
+    <text>We are bound to always give thanks to God for you, brothers, even as it is appropriate, because your faith grows exceedingly, and the love of each and every one of you towards one another abounds.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-2TH">
+    <verse num="4" />
+    <text>Therefore we ourselves boast about you in the assemblies of God. We boast of your patience and faith in all your persecutions and in the afflictions which you endure.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-2TH">
+    <verse num="5" />
+    <text>This is an obvious sign of the righteous judgment of God, to the end that you may be counted worthy of the Kingdom of God, for which you also suffer.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-2TH">
+    <verse num="6" />
+    <text>Since it is a righteous thing with God to repay affliction to those who afflict you,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2TH">
+    <verse num="7" />
+    <text>and to give relief to you who are afflicted with us. This will happen when the Lord Jesus is revealed from heaven with his mighty angels in flaming fire:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2TH">
+    <verse num="8" />
+    <text>He will give vengeance to those who don’t know God, and to those who don’t obey the Good News of our Lord Jesus Christ,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2TH">
+    <verse num="9" />
+    <text>They will pay the penalty: eternal destruction from the face of the Lord and from the glory of his might.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-2TH">
+    <verse num="10" />
+    <text>When he comes, his glory will be seen in his saints. He will receive honor from all those who put their trust in him. This includes you because you believed our testimony to you.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-2TH">
+    <verse num="11" />
+    <text>To this end we also pray always for you, that our God may count you worthy of your calling, and fulfill every desire of goodness and work of faith, with power.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2TH">
+    <verse num="12" />
+    <text>In this way, the name of our Lord Jesus Christ may be glorified in you, and you in him. Aaccording to the grace of our God and the Lord Jesus Christ.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="2TH" initialStartVerse="0" characterId="BC-2TH">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-2TH">
+    <verse num="1" />
+    <text>Now, brothers, concerning the coming of our Lord Jesus Christ, and our gathering together to him, here is what we ask:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-2TH">
+    <verse num="2" />
+    <text>Do not be quickly shaken in your mind, nor yet be troubled, either by spirit, or by word. Nor by letter as from us, saying that the day of Christ had come.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2TH">
+    <verse num="3" />
+    <text>Let no one deceive you in any way. For it will not be, unless the departure comes first, and the man of sin is revealed. He is the son of destruction.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-2TH">
+    <verse num="4" />
+    <text>He opposes and exalts himself against all that is called God or that is worshiped; so that he sits as God in the temple of God, setting himself up as God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2TH">
+    <verse num="5" />
+    <text>Don’t you remember that, when I was still with you, I told you these things?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-2TH">
+    <verse num="6" />
+    <text>Now you know what is restraining him, to the end that he may be revealed in his own season.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-2TH">
+    <verse num="7" />
+    <text>For the mystery of lawlessness already works. Only there is one who restrains now, until he is taken out of the way.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-2TH">
+    <verse num="8" />
+    <text>Then the lawless one will be revealed, whom the Lord will kill with the breath of his mouth, and destroy by the manifestation of his coming.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-2TH">
+    <verse num="9" />
+    <text>The coming of the lawless one will be in accordance with the working of Satan with all power and signs and lying wonders.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-2TH">
+    <verse num="10" />
+    <text>Those who are lost in sin will be deceived by the things he can do because they didn’t receive the love of the truth, that they might be saved.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2TH">
+    <verse num="11" />
+    <text>Because of this, God sends them a working of error, that they should believe a lie.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-2TH">
+    <verse num="12" />
+    <text>They will all be judged because they didn’t believe the truth, but had pleasure in unrighteousness.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2TH">
+    <verse num="13" />
+    <text>But we are bound to always give thanks to God for you, brothers loved by the Lord, because God chose you from the beginning for salvation through sanctification of the Spirit and belief in the truth.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2TH">
+    <verse num="14" />
+    <text>He called you to this through our Good News, for the obtaining of the glory of our Lord Jesus Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-2TH">
+    <verse num="15" />
+    <text>So then, brothers, stand firm, and hold the traditions which you were taught by us, whether by word, or by letter.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-2TH">
+    <verse num="16" />
+    <text>Now our Lord Jesus Christ himself, and God our Father, who loved us and gave us eternal comfort and good hope through grace,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-2TH">
+    <verse num="17" />
+    <text>comfort your hearts and establish you in every good work and word.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="2TH" initialStartVerse="0" characterId="BC-2TH">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-2TH">
+    <verse num="1" />
+    <text>Finally, brothers, pray for us, that the word of the Lord may spread rapidly and be glorified, even as also with you;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-2TH">
+    <verse num="2" />
+    <text>and that we may be delivered from unreasonable and evil men; for not all have faith.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-2TH">
+    <verse num="3" />
+    <text>But the Lord is faithful, who will establish you, and guard you from the evil one.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-2TH">
+    <verse num="4" />
+    <text>We have confidence in the Lord concerning you, that you both do and will do the things we command.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-2TH">
+    <verse num="5" />
+    <text>May the Lord direct your hearts into the love of God, and into the patience of Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-2TH">
+    <verse num="6" />
+    <text>Now we command you, brothers, in the name of our Lord Jesus Christ. Withdraw yourselves from every brother who walks in rebellion, and not after the tradition which they received from us.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-2TH">
+    <verse num="7" />
+    <text>For you know how you ought to imitate us. For we didn’t behave ourselves rebelliously among you,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2TH">
+    <verse num="8" />
+    <text>neither did we eat bread from anyone’s hand without paying for it. In labor and travail we worked night and day, that we might not burden any of you.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-2TH">
+    <verse num="9" />
+    <text>We did this, not because we don’t have the right, but to make ourselves an example to you, that you should imitate us.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-2TH">
+    <verse num="10" />
+    <text>For even when we were with you, we commanded you this: </text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="10" characterId="rule given by Paul">
+    <text>“If anyone will not work, neither let him eat.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-2TH">
+    <verse num="11" />
+    <text>For we hear of some who walk among you in rebellion, who don’t work at all, but are busybodies.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-2TH">
+    <verse num="12" />
+    <text>Now those who are that way, we command and exhort in the Lord Jesus Christ, that with quietness they work, and eat their own bread.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2TH">
+    <verse num="13" />
+    <text>But you, brothers, don’t be weary in doing well.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-2TH">
+    <verse num="14" />
+    <text>If any man doesn’t obey our word in this letter, note that man, that you have no company with him, to the end that he may be ashamed.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-2TH">
+    <verse num="15" />
+    <text>Don’t count him as an enemy, but admonish him as a brother.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-2TH">
+    <verse num="16" />
+    <text>Now may the Lord of peace himself give you peace at all times in all ways. The Lord be with you all.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-2TH">
+    <verse num="17" />
+    <text>The greeting of me, Paul, with my own hand, which is the sign in every letter: this is how I write.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-2TH">
+    <verse num="18" />
+    <text>The grace of our Lord Jesus Christ be with you all. Amen.</text>
+  </block>
+  <UnappliedSplits />
+</book>

@@ -10,7 +10,6 @@ using Glyssen.Properties;
 using L10NSharp;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
-using SIL.Extensions;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Scripture;
@@ -30,13 +29,14 @@ namespace Glyssen
 
 		private string m_customFileName;
 		private int m_numberOfFileSuccessfullyExported;
-
 		private readonly bool m_includeVoiceActors;
+		private readonly IReadOnlyList<BookScript> m_booksToExport;
 
 		public ProjectExporter(Project project)
 		{
 			Project = project;
 			m_includeVoiceActors = Project.CharacterGroupList.AnyVoiceActorAssigned();
+			m_booksToExport = new List<BookScript>(project.PrimaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(project));
 		}
 
 		public Project Project { get; private set; }
@@ -272,7 +272,7 @@ namespace Glyssen
 
 		private IEnumerable<Tuple<string, string>> GenerateBookFiles(string directoryPath)
 		{
-			foreach (var book in Project.IncludedBooks)
+			foreach (var book in m_booksToExport)
 			{
 				var bookId = book.BookId;
 				foreach (var lockedFile in GenerateFile(Path.Combine(directoryPath, book.BookId), () => GetExportData(bookId)))
@@ -338,6 +338,9 @@ namespace Glyssen
 				sheet.Column(columnNum).Style.WrapText = true; // script text
 				sheet.Column(columnNum++).Width = 50d;
 
+				sheet.Column(columnNum).Style.WrapText = true; // primaryReferenceText text
+				sheet.Column(columnNum++).Width = 50d;
+
 				// this is the last column, no need to increment columNum
 				sheet.Column(columnNum).AutoFit(2d, sheet.DefaultColWidth); // block length
 
@@ -350,20 +353,11 @@ namespace Glyssen
 		// internal for testing
 		internal IEnumerable<List<object>> GetExportData(string bookId = null, int voiceActorId = -1)
 		{
-			//if (m_data != null)
-			//{
-			//	foreach (var line in m_data)
-			//	{
-			//		yield return line;
-			//	}
-			//}
-			//else
-			//{
 			int blockNumber = 1;
 
 			IEnumerable<BookScript> booksToInclude = bookId == null
-				? Project.IncludedBooks
-				: Project.IncludedBooks.Where(b => b.BookId == bookId);
+				? m_booksToExport
+				: m_booksToExport.Where(b => b.BookId == bookId);
 
 			foreach (var book in booksToInclude)
 			{
@@ -371,7 +365,8 @@ namespace Glyssen
 				if (book.SingleVoice)
 					singleVoiceNarratorOverride = CharacterVerseData.GetStandardCharacterId(book.BookId,
 						CharacterVerseData.StandardCharacter.Narrator);
-				foreach (var block in book.GetScriptBlocks(true))
+				List<Block> pendingMismatchedReferenceBlocks = null;
+				foreach (var block in book.GetScriptBlocks())
 				{
 					if (block.IsChapterAnnouncement && block.ChapterNumber == 1)
 					{
@@ -381,17 +376,54 @@ namespace Glyssen
 							Project.Versification.LastChapter(BCVRef.BookToNumber(book.BookId)) == 1)
 							continue;
 					}
+					VoiceActor.VoiceActor voiceActor = null;
+					bool includeInOutput = true;
 					if (IncludeVoiceActors)
 					{
-						VoiceActor.VoiceActor voiceActor =
-							Project.GetVoiceActorForCharacter(singleVoiceNarratorOverride ?? block.CharacterIdInScript) ?? GetDummyActor();
-						if (voiceActorId == -1 || voiceActor.Id == voiceActorId)
-							yield return GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride, IncludeVoiceActors);
+						voiceActor = Project.GetVoiceActorForCharacter(singleVoiceNarratorOverride ?? block.CharacterIdInScript) ?? GetDummyActor();
+						includeInOutput = (voiceActorId == -1 || voiceActor.Id == voiceActorId);
 					}
-					else
-						 yield return GetExportDataForBlock(block, blockNumber++, book.BookId, null, singleVoiceNarratorOverride, IncludeVoiceActors);
+
+					if (includeInOutput)
+					{
+						if (pendingMismatchedReferenceBlocks != null && block.ReferenceBlocks.Any())
+						{
+							foreach (var refBlock in pendingMismatchedReferenceBlocks)
+								yield return GetExportDataForReferenceBlock(refBlock, book.BookId);
+							pendingMismatchedReferenceBlocks = null;
+						}
+						yield return GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride, IncludeVoiceActors);
+						if (!block.MatchesReferenceText && block.ReferenceBlocks.Any())
+							pendingMismatchedReferenceBlocks = block.ReferenceBlocks;
+					}
+				}
+				if (pendingMismatchedReferenceBlocks != null)
+				{
+					foreach (var refBlock in pendingMismatchedReferenceBlocks)
+						yield return GetExportDataForReferenceBlock(refBlock, book.BookId);
 				}
 			}
+		}
+
+		private List<object> GetExportDataForReferenceBlock(Block refBlock, string bookId)
+		{
+			var row = new List<object>();
+			row.Add(null);
+			if (IncludeVoiceActors)
+				row.Add(null);
+			row.Add(refBlock.StyleTag);
+			row.Add(bookId);
+			row.Add(refBlock.ChapterNumber);
+			row.Add(refBlock.InitialVerseNumberOrBridge);
+			row.Add((CharacterVerseData.IsCharacterStandard(refBlock.CharacterId) ?
+				CharacterVerseData.GetStandardCharacterIdAsEnglish(refBlock.CharacterId) : refBlock.CharacterId));
+			if (LocalizationManager.UILanguageId != "en")
+				row.Add(null);
+			row.Add(refBlock.Delivery);
+			row.Add(null);
+			row.Add(refBlock.GetText(true));
+			row.Add(0);
+			return row;
 		}
 
 		private List<object> GetHeaders()
@@ -418,11 +450,13 @@ namespace Glyssen
 
 			headers.Add("Delivery");
 			headers.Add("Text");
+			headers.Add("Primary Reference Text");
 			headers.Add("Size");
 			return headers;
 		}
 
-		internal static List<object> GetExportDataForBlock(Block block, int blockNumber, string bookId, VoiceActor.VoiceActor voiceActor = null, string singleVoiceNarratorOverride = null, bool useCharacterIdInScript = true)
+		internal static List<object> GetExportDataForBlock(Block block, int blockNumber, string bookId,
+			VoiceActor.VoiceActor voiceActor, string singleVoiceNarratorOverride, bool useCharacterIdInScript)
 		{
 			// NOTE: if the order here changes, there may be changes needed in GenerateExcelFile
 			List<object> list = new List<object>();
@@ -432,7 +466,7 @@ namespace Glyssen
 			list.Add(block.StyleTag);
 			list.Add(bookId);
 			list.Add(block.ChapterNumber);
-			list.Add(block.InitialStartVerseNumber);
+			list.Add(block.InitialVerseNumberOrBridge);
 			string characterId;
 			if (singleVoiceNarratorOverride != null)
 				characterId = singleVoiceNarratorOverride;
@@ -446,6 +480,7 @@ namespace Glyssen
 				
 			list.Add(block.Delivery);
 			list.Add(block.GetText(true));
+			list.Add(block.PrimaryReferenceText);
 			list.Add(block.GetText(false).Length);
 			return list;
 		}

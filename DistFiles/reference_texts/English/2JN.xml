@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="2JN" singlevoice="false" pageheader="2 JOHN">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2JN">
+    <text>2 JOHN</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="2JN" initialStartVerse="0" characterId="BC-2JN">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-2JN">
+    <verse num="1" />
+    <text>The elder, to the chosen lady and her children, whom I love because of the truth; and not I only, but all those who know the truth love you also.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-2JN">
+    <verse num="2" />
+    <text>It is because the truth remains in us, and it will be with us forever.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-2JN">
+    <verse num="3" />
+    <text>Grace, mercy, and peace will be with us, from God the Father, and from the Lord Jesus Christ, the Son of the Father, in truth and love.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-2JN">
+    <verse num="4" />
+    <text>I rejoice greatly that I have found some of your children walking in truth, even as we have been commanded by the Father.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-2JN">
+    <verse num="5" />
+    <text>Now I beg you, dear lady, not as though I wrote to you a new commandment, but that which we had from the beginning, that we love one another.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-2JN">
+    <verse num="6" />
+    <text>This is love, that we should walk according to his commandments. This is the commandment, even as you heard from the beginning, that you should walk in it.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2JN">
+    <verse num="7" />
+    <text>For many deceivers have gone out into the world, those who don’t confess that Jesus Christ came in the flesh. This is the deceiver and the Antichrist.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2JN">
+    <verse num="8" />
+    <text>Watch yourselves, that we don’t lose the things which we have accomplished, but that we receive a full reward.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2JN">
+    <verse num="9" />
+    <text>Whoever transgresses and doesn’t remain in the teaching of Christ, doesn’t have God. He who remains in the teaching, the same has both the Father and the Son.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-2JN">
+    <verse num="10" />
+    <text>If anyone comes to you, and doesn’t bring this teaching, don’t receive him into your house, and don’t welcome him.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-2JN">
+    <verse num="11" />
+    <text>He who welcomes him participates in his evil works.</text>
+  </block>
+  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="extra-2JN">
+    <text>||| + 2 SECs |||</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2JN">
+    <verse num="12" />
+    <text>Having many things to write to you, I don’t want to do so with paper and ink. I hope to come to you, and to speak face to face, that our joy may be made full.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-2JN">
+    <verse num="13" />
+    <text>The children of your chosen sister greet you. Amen.</text>
+  </block>
+  <UnappliedSplits />
+</book>

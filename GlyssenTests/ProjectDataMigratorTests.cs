@@ -729,8 +729,8 @@ namespace GlyssenTests
 		{
 			return new Block
 			{
+				CharacterIdInScript = characterId,
 				CharacterId = characterId,
-				CharacterIdInScript = characterId
 			};
 		}
 

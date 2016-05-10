@@ -142,45 +142,6 @@ namespace Glyssen.Dialogs
 			Save();
 		}
 
-		// Keep this method around for now in case we decide to support templates in some scenarios
-		// ReSharper disable once UnusedMember.Local
-		private void CreateInitialGroupsFromTemplate()
-		{
-			CharacterGroupTemplate charGroupTemplate;
-			using (var tempFile = new TempFile())
-			{
-				File.WriteAllBytes(tempFile.Path, Resources.CharacterGroups);
-				ICharacterGroupSource charGroupSource = new CharacterGroupTemplateExcelFile(m_project, tempFile.Path);
-				charGroupTemplate = charGroupSource.GetTemplate(m_project.VoiceActorList.ActiveActors.Count());
-			}
-
-			HashSet<string> includedCharacterIds = new HashSet<string>();
-			foreach (var book in m_project.IncludedBooks)
-				foreach (var block in book.GetScriptBlocks(true))
-					if (!block.CharacterIsUnclear())
-						includedCharacterIds.Add(block.CharacterId);
-			ISet<string> matchedCharacterIds = new HashSet<string>();
-
-			foreach (var group in charGroupTemplate.CharacterGroups.Values)
-			{
-				group.CharacterIds.IntersectWith(includedCharacterIds);
-
-				if (!group.CharacterIds.Any())
-					continue;
-
-				CharacterGroups.Add(group);
-
-				matchedCharacterIds.AddRange(group.CharacterIds);
-			}
-
-			// Add an extra group for any characters which weren't in the template
-			var unmatchedCharacters = includedCharacterIds.Except(matchedCharacterIds);
-			var unmatchedCharacterGroup = new CharacterGroup(m_project);
-			unmatchedCharacterGroup.GroupIdNumber = 999;
-			unmatchedCharacterGroup.CharacterIds.AddRange(unmatchedCharacters);
-			CharacterGroups.Add(unmatchedCharacterGroup);
-		}
-
 		private void Save(ICharacterGroupsUndoAction actionToSave = null)
 		{
 			m_project.SaveCharacterGroupData();

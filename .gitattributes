@@ -23,5 +23,6 @@ changelog -whitespace
 *.csproj.DotSettings -whitespace
 *.tmx -whitespace
 
+*.glyssen -whitespace
 *CharacterVerse*.txt -whitespace
 *CharacterDetail*.txt -whitespace

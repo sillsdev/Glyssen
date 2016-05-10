@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using Glyssen.Bundle;
-using OfficeOpenXml.FormulaParsing.Utilities;
 using SIL.Scripture;
 using SIL.Windows.Forms.WritingSystems;
 using ScrVers = Paratext.ScrVers;

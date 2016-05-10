@@ -22,7 +22,6 @@ namespace Glyssen.Rules
 		private readonly BackgroundWorker m_worker;
 
 		private static readonly SortedDictionary<int, IList<HashSet<string>>> DeityCharacters;
-		private CharacterGroupGenerationPreferences m_groupGenerationPreferencesOverride;
 
 		private IList<CharacterGroup> ProjectCharacterGroups
 		{
@@ -61,7 +60,7 @@ namespace Glyssen.Rules
 
 		private CharacterGroupGenerationPreferences GroupGenerationPreferences
 		{
-			get { return m_groupGenerationPreferencesOverride ?? m_project.CharacterGroupGenerationPreferences; }
+			get { return m_project.CharacterGroupGenerationPreferences; }
 		}
  
 		public void ApplyGeneratedGroupsToProject(bool attemptToPreserveActorAssignments = true)
@@ -139,8 +138,7 @@ namespace Glyssen.Rules
 
 		public List<CharacterGroup> GenerateCharacterGroups(bool enforceProximityAndGenderConstraints = false)
 		{
-			if (m_groupGenerationPreferencesOverride == null)
-				m_project.SetDefaultCharacterGroupGenerationPreferences();
+			m_project.SetDefaultCharacterGroupGenerationPreferences();
 
 			List<VoiceActor.VoiceActor> actorsForGeneration;
 			List<VoiceActor.VoiceActor> realActorsToReset = null;
@@ -251,8 +249,7 @@ namespace Glyssen.Rules
 				}
 			}
 
-			if (m_groupGenerationPreferencesOverride == null)
-				m_project.SetCharacterGroupGenerationPreferencesToValidValues();
+			m_project.SetCharacterGroupGenerationPreferencesToValidValues();
 
 			int maleNarrators = GroupGenerationPreferences.NumberOfMaleNarrators;
 			int femaleNarrators = GroupGenerationPreferences.NumberOfFemaleNarrators;

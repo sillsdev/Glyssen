@@ -29,14 +29,11 @@ using SIL.Windows.Forms;
 using SIL.Windows.Forms.FileSystem;
 using SIL.WritingSystems;
 using SIL.Xml;
-using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen
 {
-	public class Project
+	public class Project : ProjectBase
 	{
-		public const string kProjectFileExtension = ".glyssen";
-		private const string kBookScriptFileExtension = ".xml";
 		public const string kProjectCharacterVerseFileName = "ProjectCharacterVerse.txt";
 		public const string kProjectCharacterDetailFileName = "ProjectCharacterDetail.txt";
 		private const string kVoiceActorInformationFileName = "VoiceActorInformation.xml";
@@ -46,10 +43,6 @@ namespace Glyssen
 		private const double kGuessPercent = 0.10;
 		private const double kQuotePercent = 0.65;
 
-		private readonly GlyssenDblTextMetadata m_metadata;
-		private readonly List<BookScript> m_books = new List<BookScript>();
-		private readonly ScrVers m_vers;
-		private string m_recordingProjectName;
 		private int m_usxPercentComplete;
 		private int m_guessPercentComplete;
 		private int m_quotePercentComplete;
@@ -74,20 +67,16 @@ namespace Glyssen
 		public event EventHandler CharacterGroupCollectionChanged;
 		public event EventHandler CharacterStatisticsCleared;
 
-		private Func<string, string> GetBookName { get; set; }
-
 		private Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null, bool installFonts = false, WritingSystemDefinition ws = null)
+			: base(metadata, recordingProjectName ?? GetDefaultRecordingProjectName(metadata.Identification.Name))
 		{
-			m_metadata = metadata;
 			SetBlockGetChapterAnnouncement(ChapterAnnouncementStyle);
 			m_wsDefinition = ws;
-			m_recordingProjectName = recordingProjectName ?? GetDefaultRecordingProjectName(m_metadata.Identification.Name);
 			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath);
 			m_projectCharacterDetailData = ProjectCharacterDetailData.Load(ProjectCharacterDetailDataPath);
-			if (File.Exists(VersificationFilePath))
-				m_vers = LoadVersification(VersificationFilePath);
 			if (installFonts)
 				InstallFontsIfNecessary();
+			PrimaryReferenceText = ReferenceText.English;
 		}
 
 		public Project(GlyssenBundle bundle, string recordingProjectName = null, Project projectBeingUpdated = null) :
@@ -204,11 +193,6 @@ namespace Glyssen
 			get { return m_metadata.Language.ScriptDirection == "RTL"; }
 		}
 
-		public ScrVers Versification
-		{
-			get  { return m_vers; }
-		}
-
 		public ChapterAnnouncement ChapterAnnouncementStyle
 		{
 			get { return m_metadata.ChapterAnnouncementStyle; }
@@ -267,27 +251,6 @@ namespace Glyssen
 					break;
 			}
 			Block.FormatChapterAnnouncement = GetFormattedChapterAnnouncement;
-		}
-
-		public string GetFormattedChapterAnnouncement(string bookCode, int chapterNumber)
-		{
-			if (GetBookName == null)
-				return null;
-			var bookName = GetBookName(bookCode);
-			if (string.IsNullOrWhiteSpace(bookName))
-				return null;
-
-			StringBuilder bldr = new StringBuilder();
-			bldr.Append(bookName);
-			bldr.Append(" ");
-			bldr.Append(chapterNumber);
-			return bldr.ToString();
-		}
-
-		public static ScrVers LoadVersification(string vrsPath)
-		{
-			return Paratext.Versification.Table.Load(vrsPath, LocalizationManager.GetString("Project.DefaultCustomVersificationName",
-				"custom", "Used as the versification name when a the versification file does not contain a name."));
 		}
 
 		public ProjectStatus Status
@@ -432,8 +395,6 @@ namespace Glyssen
 				}
 			}
 		}
-
-		public IReadOnlyList<BookScript> Books { get { return m_books; } }
 
 		public IReadOnlyList<BookScript> IncludedBooks
 		{
@@ -654,6 +615,8 @@ namespace Glyssen
 		{
 			get { return VoiceActorList.ActiveActors.Where(actor => !CharacterGroupList.HasVoiceActorAssigned(actor.Id)); }
 		}
+
+		public ReferenceText PrimaryReferenceText { get; set; }
 
 		public bool HasUnappliedSplits()
 		{
@@ -1054,11 +1017,6 @@ namespace Glyssen
 			get { return Path.Combine(ProjectFolder, kProjectCharacterDetailFileName); }
 		}
 
-		private string VersificationFilePath
-		{
-			get { return Path.Combine(ProjectFolder, DblBundleFileUtils.kVersificationFileName); }
-		}
-
 		private string LdmlFilePath
 		{
 			get
@@ -1070,7 +1028,7 @@ namespace Glyssen
 			}
 		}
 
-		private string ProjectFolder
+		protected override string ProjectFolder
 		{
 			get { return GetProjectFolderPath(m_metadata.Language.Iso, m_metadata.Id, m_recordingProjectName); }
 		}

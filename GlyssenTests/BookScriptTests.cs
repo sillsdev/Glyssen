@@ -726,14 +726,14 @@ namespace GlyssenTests
 			var target = CreateStandardMarkScript();
 			var targetBlockToSplit = target.Blocks.First(b => b.InitialStartVerseNumber > 0);
 			var newTargetBlock = target.SplitBlock(targetBlockToSplit, "1", 5);
-			targetBlockToSplit.SplitId = Block.NotSplit;
-			newTargetBlock.SplitId = Block.NotSplit;
+			targetBlockToSplit.SplitId = Block.kNotSplit;
+			newTargetBlock.SplitId = Block.kNotSplit;
 
 			var expected = CreateStandardMarkScript();
 			var expectedBlockToSplit = expected.Blocks.First(b => b.InitialStartVerseNumber > 0);
 			var newExpectedBlock = expected.SplitBlock(expectedBlockToSplit, "1", 5);
-			expectedBlockToSplit.SplitId = Block.NotSplit;
-			newExpectedBlock.SplitId = Block.NotSplit;
+			expectedBlockToSplit.SplitId = Block.kNotSplit;
+			newExpectedBlock.SplitId = Block.kNotSplit;
 
 			target.ApplyUserDecisions(source);
 			Assert.True(expected.GetScriptBlocks().SequenceEqual(target.GetScriptBlocks(), new BlockComparer()));
@@ -809,14 +809,14 @@ namespace GlyssenTests
 			var target = CreateStandardMarkScript();
 			Block targetBlockToSplit = GetSecondBlockInVerse(target);
 			var newTargetBlock = target.SplitBlock(targetBlockToSplit, targetBlockToSplit.InitialStartVerseNumber.ToString(), 40);
-			targetBlockToSplit.SplitId = Block.NotSplit;
-			newTargetBlock.SplitId = Block.NotSplit;
+			targetBlockToSplit.SplitId = Block.kNotSplit;
+			newTargetBlock.SplitId = Block.kNotSplit;
 
 			var expected = CreateStandardMarkScript();
 			var expectedBlockToSplit = GetSecondBlockInVerse(expected);
 			var newExpectedBlock = expected.SplitBlock(expectedBlockToSplit, expectedBlockToSplit.InitialStartVerseNumber.ToString(), 40);
-			expectedBlockToSplit.SplitId = Block.NotSplit;
-			newExpectedBlock.SplitId = Block.NotSplit;
+			expectedBlockToSplit.SplitId = Block.kNotSplit;
+			newExpectedBlock.SplitId = Block.kNotSplit;
 
 			target.ApplyUserDecisions(source);
 			Assert.True(expected.GetScriptBlocks().SequenceEqual(target.GetScriptBlocks(), new BlockComparer()));
@@ -888,8 +888,8 @@ namespace GlyssenTests
 			foreach (var verse in blockToSplit.BlockElements.OfType<Verse>().Select(v => v.StartVerse).ToList())
 			{
 				var newBlock = target.SplitBlock(blockToSplit, verse.ToString(), 4);
-				blockToSplit.SplitId = Block.NotSplit;
-				newBlock.SplitId = Block.NotSplit;
+				blockToSplit.SplitId = Block.kNotSplit;
+				newBlock.SplitId = Block.kNotSplit;
 				blockToSplit = newBlock;
 			}
 
@@ -898,8 +898,8 @@ namespace GlyssenTests
 			foreach (var verse in blockToSplit.BlockElements.OfType<Verse>().Select(v => v.StartVerse).ToList())
 			{
 				var newBlock = expected.SplitBlock(blockToSplit, verse.ToString(), 4);
-				blockToSplit.SplitId = Block.NotSplit;
-				newBlock.SplitId = Block.NotSplit;
+				blockToSplit.SplitId = Block.kNotSplit;
+				newBlock.SplitId = Block.kNotSplit;
 				blockToSplit = newBlock;
 			}
 
@@ -944,8 +944,8 @@ namespace GlyssenTests
 			foreach (var verse in blockToSplit.BlockElements.OfType<Verse>().Select(v => v.StartVerse).ToList())
 			{
 				newBlock = target.SplitBlock(blockToSplit, verse.ToString(), 4);
-				blockToSplit.SplitId = Block.NotSplit;
-				newBlock.SplitId = Block.NotSplit;
+				blockToSplit.SplitId = Block.kNotSplit;
+				newBlock.SplitId = Block.kNotSplit;
 				blockToSplit = newBlock;
 			}
 			var last = newBlock.BlockElements.OfType<ScriptText>().Last();
@@ -1540,8 +1540,8 @@ namespace GlyssenTests
 			bookScript.SplitBlock(blockToSplit, "36", 15);
 
 			var blocks = bookScript.GetScriptBlocks();
-			Assert.AreEqual(Block.NotSplit, blocks[0].SplitId); // chapter number
-			Assert.AreEqual(Block.NotSplit, blocks[1].SplitId);
+			Assert.AreEqual(Block.kNotSplit, blocks[0].SplitId); // chapter number
+			Assert.AreEqual(Block.kNotSplit, blocks[1].SplitId);
 			Assert.AreEqual(0, blocks[2].SplitId);
 			Assert.AreEqual(0, blocks[3].SplitId);
 		}
@@ -1566,7 +1566,7 @@ namespace GlyssenTests
 			bookScript.SplitBlock(blockToSplit, "36", 15);
 
 			var blocks = bookScript.GetScriptBlocks();
-			Assert.AreEqual(Block.NotSplit, blocks[0].SplitId); // chapter number
+			Assert.AreEqual(Block.kNotSplit, blocks[0].SplitId); // chapter number
 			Assert.AreEqual(5, blocks[1].SplitId);
 			Assert.AreEqual(5, blocks[2].SplitId);
 			Assert.AreEqual(6, blocks[3].SplitId);
@@ -1589,8 +1589,8 @@ namespace GlyssenTests
 			bookScript.SplitBlock(blockToSplit, "36", 15);
 
 			var blocks = bookScript.GetScriptBlocks();
-			Assert.AreEqual(Block.NotSplit, blocks[0].SplitId); // chapter number
-			Assert.AreEqual(Block.NotSplit, blocks[1].SplitId);
+			Assert.AreEqual(Block.kNotSplit, blocks[0].SplitId); // chapter number
+			Assert.AreEqual(Block.kNotSplit, blocks[1].SplitId);
 			Assert.AreEqual(3, blocks[2].SplitId);
 			Assert.AreEqual(3, blocks[3].SplitId);
 		}
@@ -1612,8 +1612,8 @@ namespace GlyssenTests
 			bookScript.SplitBlock(blockToSplitBefore, null, 0);
 
 			var blocks = bookScript.GetScriptBlocks();
-			Assert.AreEqual(Block.NotSplit, blocks[0].SplitId); // chapter number
-			Assert.AreEqual(Block.NotSplit, blocks[1].SplitId);
+			Assert.AreEqual(Block.kNotSplit, blocks[0].SplitId); // chapter number
+			Assert.AreEqual(Block.kNotSplit, blocks[1].SplitId);
 			Assert.AreEqual(0, blocks[2].SplitId);
 			Assert.AreEqual(0, blocks[3].SplitId);
 		}
@@ -1719,6 +1719,8 @@ namespace GlyssenTests
 			block.BlockElements.Add(new ScriptText(chapterNum.ToString()));
 			block.IsParagraphStart = true;
 			m_curSetupChapter = chapterNum;
+			m_curSetupVerse = 0;
+			m_curSetupVerseEnd = 0;
 			m_curStyleTag = null;
 			return block;
 		}
@@ -1761,6 +1763,11 @@ namespace GlyssenTests
 		}
 
 		private BookScript CreateStandardMarkScript(bool includeExtraVersesInChapter1 = false, bool includeBookTitle = false)
+		{
+			return new BookScript("MRK", GetStandardMarkScriptBlocks(includeExtraVersesInChapter1, includeBookTitle));
+		}
+
+		private IList<Block> GetStandardMarkScriptBlocks(bool includeExtraVersesInChapter1 = false, bool includeBookTitle = false)
 		{
 			m_curSetupChapter = 1;
 			m_curSetupVerse = 0;
@@ -1828,7 +1835,7 @@ namespace GlyssenTests
 				mrkBlocks[i++].SetCharacterAndDelivery(new CharacterVerse[0]);
 			}
 
-			return new BookScript("MRK", mrkBlocks);
+			return mrkBlocks;
 		}
 		#endregion
 
@@ -1867,6 +1874,50 @@ namespace GlyssenTests
 			}
 		}
 		#endregion
+
+		[Test]
+		public void Clone_AllMembersAndAutoPropertiesDeepCopied()
+		{
+			var blocks = GetStandardMarkScriptBlocks(true, true);
+			var i = blocks.Count;
+			blocks.Add(NewChapterBlock(2));
+			blocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.BookOrChapter);
+			blocks.Add(NewPara("s", "Predicación de Juan el Bautista (chapter 2)"));
+			blocks[i++].SetStandardCharacter("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical);
+			blocks.Add(NewSingleVersePara(1, "Principio del evangelio de Jesucristo, el Hijo de Dios. (chapter 2) ")
+				.AddVerse(2, "Como está escrito en el profeta Isaías: (chapter 2) "));
+			var orig = new BookScript("MRK", blocks);
+
+			orig.MainTitle = "Main Title";
+			orig.PageHeader = "Page Header";
+			orig.SingleVoice = true;
+
+			var block1 = new Block("m", 3, 2).AddVerse("2", "Verse 2 text.");
+			var block2 = new Block("m", 3, 3).AddVerse("3", "Verse 3 text.");
+			orig.UnappliedBlockSplits_DoNotUse.Add(new List<Block> { block1, block2 });
+			var origMark1_4Blocks = orig.GetBlocksForVerse(1, 4).ToList(); // Populates orig.m_chapterStartBlockIndices
+			var origMark2_1Blocks = orig.GetBlocksForVerse(2, 1).ToList();
+
+			var clone = orig.Clone(true);
+			Assert.AreEqual("Main Title", clone.MainTitle);
+			Assert.AreEqual("Page Header", clone.PageHeader);
+			Assert.AreEqual("MRK", clone.BookId);
+			Assert.IsTrue(clone.SingleVoice);
+			Assert.IsTrue(orig.Blocks.Select(b => b.GetText(true)).SequenceEqual(clone.Blocks.Select(b => b.GetText(true))));
+			Assert.IsFalse(orig.Blocks.SequenceEqual(clone.Blocks));
+			Assert.AreEqual(1, clone.UnappliedSplits.Count);
+			Assert.IsTrue(orig.UnappliedSplits[0].Select(b => b.GetText(true)).SequenceEqual(clone.UnappliedSplits[0].Select(b => b.GetText(true))));
+			Assert.IsFalse(orig.UnappliedSplits.SequenceEqual(clone.UnappliedSplits));
+			Assert.IsFalse(orig.UnappliedSplits[0].SequenceEqual(clone.UnappliedSplits[0]));
+
+			var clonedMark1_4Blocks = clone.GetBlocksForVerse(1, 4);
+			Assert.IsTrue(origMark1_4Blocks.Select(b => b.GetText(true)).SequenceEqual(orig.GetBlocksForVerse(1, 4).Select(b => b.GetText(true))));
+			clone.SplitBlock(clonedMark1_4Blocks.First(), "4", BookScript.kSplitAtEndOfVerse, false);
+			Assert.IsTrue(origMark1_4Blocks.SequenceEqual(orig.GetBlocksForVerse(1, 5)));
+			Assert.IsTrue(origMark2_1Blocks.SequenceEqual(orig.GetBlocksForVerse(2, 1)));
+			Assert.IsFalse(origMark1_4Blocks.Select(b => b.GetText(true)).SequenceEqual(clone.GetBlocksForVerse(1, 4).Select(b => b.GetText(true))));
+			Assert.IsTrue(origMark2_1Blocks.Select(b => b.GetText(true)).SequenceEqual(clone.GetBlocksForVerse(2, 1).Select(b => b.GetText(true))));
+		}
 	}
 
 	internal static class BlockTestExtensions

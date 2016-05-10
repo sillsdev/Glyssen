@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="1JN" singlevoice="false" pageheader="1 JOHN">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1JN">
+    <text>1 JOHN</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1JN">
+    <verse num="1" />
+    <text>That which was from the beginning, that which we have heard, that which we have seen with our eyes, that which we saw, and our hands touched, concerning the Word of life.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1JN">
+    <verse num="2" />
+    <text>(Christ who is life was revealed to us, and we have seen, and testify, and declare to you the life, the eternal life, which was with the Father, and was revealed to us).</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-1JN">
+    <verse num="3" />
+    <text>That which we have seen and heard we declare to you, that you also may have fellowship with us. Yes, and our fellowship is with the Father, and with his Son, Jesus Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1JN">
+    <verse num="4" />
+    <text>And we write these things to you, that our joy may be fulfilled.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-1JN">
+    <verse num="5" />
+    <text>This is the message which we have heard from him and announce to you, that God is light, and in him is no darkness at all.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1JN">
+    <verse num="6" />
+    <text>If we say that we have fellowship with him and walk in the darkness, we lie, and don’t tell the truth.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-1JN">
+    <verse num="7" />
+    <text>But if we walk in the light, as he is in the light, we have fellowship with one another, and the blood of Jesus Christ, his Son, cleanses us from all sin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-1JN">
+    <verse num="8" />
+    <text>If we say that we have no sin, we deceive ourselves, and the truth is not in us.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-1JN">
+    <verse num="9" />
+    <text>If we confess our sins, he is faithful and righteous to forgive us the sins, and to cleanse us from all unrighteousness.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1JN">
+    <verse num="10" />
+    <text>If we say that we haven’t sinned, we make him a liar, and his word is not in us.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1JN">
+    <verse num="1" />
+    <text>My little children, I write these things to you so that you may not sin. If anyone sins, we have a Counselor with the Father, Jesus Christ, the righteous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1JN">
+    <verse num="2" />
+    <text>And he is the atoning sacrifice for our sins, and not for ours only, but also for the whole world.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1JN">
+    <verse num="3" />
+    <text>This is how we know that we know him: if we keep his commandments.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1JN">
+    <verse num="4" />
+    <text>One who says, </text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="4" characterId="man who says 'I know him'">
+    <text>“I know him,” </text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="4" characterId="narrator-1JN">
+    <text>and doesn’t keep his commandments, is a liar, and the truth isn’t in him.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1JN">
+    <verse num="5" />
+    <text>But whoever keeps his word, God’s love has most certainly been perfected in him. This is how we know that we are in him:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1JN">
+    <verse num="6" />
+    <text>He who says he remains in him ought himself also to walk just like he walked.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1JN">
+    <verse num="7" />
+    <text>Brothers, I write no new commandment to you, but an old commandment which you had from the beginning. The old commandment is the word which you heard from the beginning.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1JN">
+    <verse num="8" />
+    <text>Again, I write a new commandment to you, which is true in him and in you; because the darkness is passing away, and the true light already shines.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1JN">
+    <verse num="9" />
+    <text>He who says he is in the light and hates his brother, is in the darkness even until now.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1JN">
+    <verse num="10" />
+    <text>He who loves his brother remains in the light, and there is no occasion for stumbling in him.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1JN">
+    <verse num="11" />
+    <text>But he who hates his brother is in the darkness, and walks in the darkness. He doesn’t know where he is going, because the darkness has blinded his eyes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1JN">
+    <verse num="12" />
+    <text>I write to you, little children, because your sins are forgiven you for his name’s sake.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1JN">
+    <verse num="13" />
+    <text>I write to you, fathers, because you know him who is from the beginning. I write to you, young men, because you have overcome the evil one. I write to you, little children, because you know the Father.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1JN">
+    <verse num="14" />
+    <text>I have written to you, fathers, because you know him who is from the beginning. I have written to you, young men, because you are strong, and the word of God remains in you, and you have overcome the evil one.</text>
+  </block>
+  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="extra-1JN">
+    <text>||| DO NOT COMBINE |||</text>
+  </block>
+  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="extra-1JN">
+    <text>{Music--Starts @ v 15}</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1JN">
+    <verse num="15" />
+    <text>Don’t love the world, neither the things that are in the world. If anyone loves the world, the Father’s love isn’t in him.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1JN">
+    <verse num="16" />
+    <text>For all that is in the world, the lust of the flesh, the lust of the eyes, and the pride of life, isn’t the Father’s, but is the world’s.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1JN">
+    <verse num="17" />
+    <text>The world is passing away with its lusts, but he who does God’s will remains forever.</text>
+  </block>
+  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="extra-1JN">
+    <text>||| + 2 SECs |||</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-1JN">
+    <verse num="18" />
+    <text>Little children, these are the end times, and as you heard that the Antichrist is coming, even now many antichrists have arisen. By this we know that it is the final hour.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1JN">
+    <verse num="19" />
+    <text>They went out from us, but they didn’t belong to us; for if they had belonged to us, they would have continued with us. But they left, that they might be revealed that none of them belong to us.</text>
+  </block>
+  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="extra-1JN">
+    <text>||| DO NOT COMBINE |||</text>
+  </block>
+  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="extra-1JN">
+    <text>{Music--Starts @ v 20}</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-1JN">
+    <verse num="20" />
+    <text>You have an anointing from the Holy One, and you all have knowledge.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-1JN">
+    <verse num="21" />
+    <text>I have not written to you because you don’t know the truth, but because you know it, and because no lie is of the truth.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-1JN">
+    <verse num="22" />
+    <text>Who is the liar but he who denies that Jesus is the Christ? This is the Antichrist, he who denies the Father and the Son.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1JN">
+    <verse num="23" />
+    <text>Whoever denies the Son, the same doesn’t have the Father. He who confesses the Son has the Father also.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-1JN">
+    <verse num="24" />
+    <text>Therefore, as for you, let that remain in you which you heard from the beginning. If that which you heard from the beginning remains in you, you also will remain in the Son, and in the Father.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-1JN">
+    <verse num="25" />
+    <text>This is the promise which he promised us, the eternal life.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-1JN">
+    <verse num="26" />
+    <text>These things I have written to you concerning those who would lead you astray.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-1JN">
+    <verse num="27" />
+    <text>As for you, the anointing which you received from him remains in you, and you don’t need for anyone to teach you. But as his anointing teaches you concerning all things, and is true, and is no lie, and even as it taught you, you will remain in him.</text>
+  </block>
+  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="extra-1JN">
+    <text>||| + 2 SECs |||</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="narrator-1JN">
+    <verse num="28" />
+    <text>Now, little children, remain in him, that when he appears, we may have boldness, and not be ashamed before him at his coming.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="narrator-1JN">
+    <verse num="29" />
+    <text>If you know that he is righteous, you know that everyone who practices righteousness is born of him.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1JN">
+    <verse num="1" />
+    <text>Behold, how great a love the Father has bestowed on us, that we should be called children of God! For this cause the world doesn’t know us, because it didn’t know him.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1JN">
+    <verse num="2" />
+    <text>Beloved, now we are children of God, and it is not yet revealed what we will be. But we know that, when he is revealed, we will be like him; for we will see him just as he is.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1JN">
+    <verse num="3" />
+    <text>Everyone who has this hope set on him purifies himself, even as he is pure.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1JN">
+    <verse num="4" />
+    <text>Everyone who sins also commits lawlessness. Sin is lawlessness.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1JN">
+    <verse num="5" />
+    <text>You know that he was revealed to take away our sins, and in him is no sin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1JN">
+    <verse num="6" />
+    <text>Whoever remains in him doesn’t sin. Whoever sins hasn’t seen him, neither knows him.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1JN">
+    <verse num="7" />
+    <text>Little children, let no one lead you astray. He who does righteousness is righteous, even as he is righteous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1JN">
+    <verse num="8" />
+    <text>He who sins is of the devil, for the devil has been sinning from the beginning. And the Son of God was revealed, that he might destroy the works of the devil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1JN">
+    <verse num="9" />
+    <text>Whoever is born of God doesn’t commit sin, because his seed remains in him; and he can’t sin, because he is born of God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1JN">
+    <verse num="10" />
+    <text>In this the children of God are revealed, and the children of the devil. Whoever doesn’t do righteousness is not of God, neither is he who doesn’t love his brother.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-1JN">
+    <verse num="11" />
+    <text>For this is the message which you heard from the beginning, that we should love one another.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1JN">
+    <verse num="12" />
+    <text>Do not be like Cain, who was of the evil one, and killed his brother. Why did he kill him? Because his works were evil, and his brother’s righteous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1JN">
+    <verse num="13" />
+    <text>Don’t be surprised, my brothers, if the world hates you.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1JN">
+    <verse num="14" />
+    <text>We know that we have passed out of death into life, because we love the brothers. He who doesn’t love his brother remains in death.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1JN">
+    <verse num="15" />
+    <text>Whoever hates his brother is a murderer, and you know that no murderer has eternal life remaining in him.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-1JN">
+    <verse num="16" />
+    <text>By this we know the love of God, because he laid down his life for us. And we ought to lay down our lives for the brothers.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1JN">
+    <verse num="17" />
+    <text>But whoever has the world’s goods, and sees his brother in need, and closes his heart of compassion against him, how does the love of God remain in him?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1JN">
+    <verse num="18" />
+    <text>My little children, let’s not love in word only, neither with the tongue only, but in deed and truth.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-1JN">
+    <verse num="19" />
+    <text>And by this we know that we are of the truth, and persuade our hearts before him,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-1JN">
+    <verse num="20" />
+    <text>because if our heart condemns us, God is greater than our heart, and knows all things.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1JN">
+    <verse num="21" />
+    <text>Beloved, if our hearts don’t condemn us, we have boldness toward God;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-1JN">
+    <verse num="22" />
+    <text>and whatever we ask, we receive from him, because we keep his commandments and do the things that are pleasing in his sight.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="narrator-1JN">
+    <verse num="23" />
+    <text>This is his commandment, that we should believe in the name of his Son, Jesus Christ, and love one another, even as he commanded.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="24" characterId="narrator-1JN">
+    <verse num="24" />
+    <text>He who keeps his commandments remains in him, and he in him. By this we know that he remains in us, by the Spirit which he gave us.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1JN">
+    <verse num="1" />
+    <text>Beloved, don’t believe every spirit, but test the spirits, whether they are of God, because many false prophets have gone out into the world.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1JN">
+    <verse num="2" />
+    <text>By this you know the Spirit of God: every spirit who confesses that Jesus Christ has come in the flesh is of God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1JN">
+    <verse num="3" />
+    <text>And every spirit who doesn’t confess that Jesus Christ has come in the flesh is not of God, and this is the spirit of the Antichrist. Of whom you have heard that it comes. Now it is in the world already.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1JN">
+    <verse num="4" />
+    <text>You are of God, little children, and have overcome them; because greater is he who is in you than he who is in the world.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1JN">
+    <verse num="5" />
+    <text>They are of the world. Therefore they speak of the world, and the world hears them.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1JN">
+    <verse num="6" />
+    <text>We are of God. He who knows God listens to us. He who is not of God doesn’t listen to us. By this we know the spirit of truth, and the spirit of error.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1JN">
+    <verse num="7" />
+    <text>Beloved, let us love one another, for love is of God; and everyone who loves is born of God, and knows God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1JN">
+    <verse num="8" />
+    <text>He who doesn’t love doesn’t know God, for God is love.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1JN">
+    <verse num="9" />
+    <text>By this God’s love was revealed in us, that God has sent his only begotten Son into the world that we might live through him.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1JN">
+    <verse num="10" />
+    <text>In this is love, not that we loved God, but that he loved us, and sent his Son as the atoning sacrifice for our sins.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1JN">
+    <verse num="11" />
+    <text>Beloved, if God loved us in this way, we also ought to love one another.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1JN">
+    <verse num="12" />
+    <text>No one has seen God at any time. If we love one another, God remains in us, and his love has been perfected in us.</text>
+  </block>
+  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="extra-1JN">
+    <text>||| DO NOT COMBINE |||</text>
+  </block>
+  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="extra-1JN">
+    <text>{Music--Starts @ v 13}</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1JN">
+    <verse num="13" />
+    <text>By this we know that we remain in him and he in us, because he has given us of his Spirit.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1JN">
+    <verse num="14" />
+    <text>We have seen and testify that the Father has sent the Son as the Savior of the world.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1JN">
+    <verse num="15" />
+    <text>Whoever confesses that Jesus is the Son of God, God remains in him, and he in God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1JN">
+    <verse num="16" />
+    <text>We know and have believed the love which God has for us. God is love, and he who remains in love remains in God, and God remains in him.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1JN">
+    <verse num="17" />
+    <text>In this love has been made perfect among us, that we may have boldness in the day of judgment, because as he is, even so are we in this world.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1JN">
+    <verse num="18" />
+    <text>There is no fear in love; but perfect love casts out fear, because fear has punishment. He who fears is not made perfect in love.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-1JN">
+    <verse num="19" />
+    <text>We love him, because he first loved us.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-1JN">
+    <verse num="20" />
+    <text>If a man says, </text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="20" characterId="anyone">
+    <text>“I love God,” </text>
+  </block>
+  <block style="p" chapter="4" initialStartVerse="20" characterId="narrator-1JN">
+    <text>and hates his brother, he is a liar; for he who doesn’t love his brother whom he has seen, how can he love God whom he has not seen?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-1JN">
+    <verse num="21" />
+    <text>This commandment we have from him, that he who loves God should also love his brother.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1JN">
+    <verse num="1" />
+    <text>Whoever believes that Jesus is the Christ is born of God. Whoever loves the Father also loves the child who is born of him.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1JN">
+    <verse num="2" />
+    <text>By this we know that we love the children of God, when we love God and keep his commandments.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1JN">
+    <verse num="3" />
+    <text>For this is the love of God, that we keep his commandments. His commandments are not grievous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1JN">
+    <verse num="4" />
+    <text>For whatever is born of God overcomes the world. This is the victory that has overcome the world: your faith.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1JN">
+    <verse num="5" />
+    <text>Who is he who overcomes the world, but he who believes that Jesus is the Son of God?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1JN">
+    <verse num="6" />
+    <text>This is he who came by water and blood, Jesus Christ; not with the water only, but with the water and the blood. It is the Spirit who testifies, because the Spirit is the truth.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1JN">
+    <verse num="7" />
+    <text>For there are three who testify in heaven, the Father, the Word, and the Holy Spirit and these three are one.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1JN">
+    <verse num="8" />
+    <text>And there are three that bear witness in the earth, the Spirit, the water, and the blood; and the three agree as one.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1JN">
+    <verse num="9" />
+    <text>If we receive the witness of men, the witness of God is greater; for this is God’s testimony which he has testified concerning his Son.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1JN">
+    <verse num="10" />
+    <text>He who believes in the Son of God has the testimony in himself. He who doesn’t believe God has made him a liar, because he has not believed in the testimony that God has given concerning his Son.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1JN">
+    <verse num="11" />
+    <text>The testimony is this, that God gave to us eternal life, and this life is in his Son.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1JN">
+    <verse num="12" />
+    <text>He who has the Son has the life. He who doesn’t have God’s Son doesn’t have the life.</text>
+  </block>
+  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="extra-1JN">
+    <text>||| + 1.5 SECs |||</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1JN">
+    <verse num="13" />
+    <text>These things I have written to you who believe on the name of the Son of God, that you may know that you have eternal life, and that you may continue to believe in the name of the Son of God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1JN">
+    <verse num="14" />
+    <text>This is the boldness which we have toward him, that, if we ask anything according to his will, he listens to us.</text>
+  </block>
+  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="extra-1JN">
+    <text>||| DO NOT COMBINE |||</text>
+  </block>
+  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="extra-1JN">
+    <text>{Music--Starts @ v 15}</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-1JN">
+    <verse num="15" />
+    <text>And if we know that he listens to us, whatever we ask, we know that we have the petitions which we have asked of him.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1JN">
+    <verse num="16" />
+    <text>If anyone sees his brother sinning a sin not leading to death, he shall ask, and God will give him life for those who sin not leading to death. There is a sin leading to death. I don’t say that he should make a request concerning this.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-1JN">
+    <verse num="17" />
+    <text>All unrighteousness is sin, and there is a sin not leading to death.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1JN">
+    <verse num="18" />
+    <text>We know that whoever is born of God doesn’t sin, but he who was born of God keeps himself, and the evil one doesn’t touch him.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1JN">
+    <verse num="19" />
+    <text>We know that we are of God, and the whole world lies in the power of the evil one.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-1JN">
+    <verse num="20" />
+    <text>We know that the Son of God has come, and has given us an understanding, that we know him who is true, and we are in him who is true, in his Son Jesus Christ. This is the true God, and eternal life.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-1JN">
+    <verse num="21" />
+    <text>Little children, keep yourselves from idols.</text>
+  </block>
+  <UnappliedSplits />
+</book>

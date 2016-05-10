@@ -16,9 +16,9 @@ namespace Glyssen
 	public class Block
 	{
 		/// <summary>Blocks which has not yet been parsed to identify contents/character</summary>
-		public static readonly string NotSet = null;
+		public const string kNotSet = null;
 
-		public static readonly int NotSplit = -1;
+		public const int kNotSplit = -1;
 
 		public const string kCssFrame = "body{{font-family:{0};font-size:{1}pt}}" +
 						".right-to-left{{direction:rtl}}" +
@@ -41,7 +41,10 @@ namespace Glyssen
 		public Block()
 		{
 			// Needed for deserialization
-			SplitId = NotSplit;
+			SplitId = kNotSplit;
+			// We would really prefer to have this be null, but in deserializing,
+			// it always creates an empty list, so it's simpler to be able to assume that it's always non-null.
+			ReferenceBlocks = new List<Block>();
 		}
 
 		public Block(string styleTag, int chapterNum = 0, int initialStartVerseNum = 0, int initialEndVerseNum = 0) : this()
@@ -152,7 +155,7 @@ namespace Glyssen
 		public string CharacterIdInScript
 		{
 			get { return m_characterIdInScript ?? CharacterId; }
-			set { m_characterIdInScript = value; }
+			set { if (CharacterId != value) m_characterIdInScript = value; }
 		}
 
 		[XmlAttribute("delivery")]
@@ -179,6 +182,18 @@ namespace Glyssen
 		[DefaultValue(-1)]
 		public int SplitId { get; set; }
 
+		[XmlAttribute("matchesReferenceText")]
+		[DefaultValue(false)]
+		public bool MatchesReferenceText { get; set; }
+
+		public string PrimaryReferenceText
+		{
+			get { return MatchesReferenceText ? ReferenceBlocks[0].GetTextFromBlockElements(true) : null; }
+		}
+
+		[XmlElement]
+		public List<Block> ReferenceBlocks { get; set; }
+
 		[XmlElement(Type = typeof (ScriptText), ElementName = "text")]
 		[XmlElement(Type = typeof (Verse), ElementName = "verse")]
 		public List<BlockElement> BlockElements { get; set; }
@@ -193,11 +208,22 @@ namespace Glyssen
 			get { return StyleTag == "c" || StyleTag == "cl"; }
 		}
 
+		public void SetMatchedReferenceBlock(Block referenceBlock)
+		{
+			ReferenceBlocks = new List<Block> { referenceBlock };
+			MatchesReferenceText = true;
+		}
+
 		public string GetText(bool includeVerseNumbers)
 		{
 			if (IsChapterAnnouncement && BookCode != null && FormatChapterAnnouncement != null)
 				return FormatChapterAnnouncement(BookCode, ChapterNumber) ?? ((ScriptText)BlockElements.First()).Content;
 
+			return GetTextFromBlockElements(includeVerseNumbers);
+		}
+
+		private string GetTextFromBlockElements(bool includeVerseNumbers)
+		{
 			StringBuilder bldr = new StringBuilder();
 
 			foreach (var blockElement in BlockElements)
