@@ -116,11 +116,11 @@ namespace GlyssenTests.Dialogs
 			FindRefInMark(5, 9);
 			var characters = m_model.GetCharactersForCurrentReference().ToList();
 			Assert.AreEqual(3, characters.Count);
-			Assert.AreEqual("demons (Legion)/man delivered from Legion of demons", characters[0].CharacterId);
+			Assert.IsTrue(characters[0].IsNarrator);
 			Assert.IsFalse(characters[0].ProjectSpecific);
 			Assert.AreEqual("Jesus", characters[1].CharacterId);
 			Assert.IsFalse(characters[1].ProjectSpecific);
-			Assert.IsTrue(characters[2].IsNarrator);
+			Assert.AreEqual("demons (Legion)/man delivered from Legion of demons", characters[2].CharacterId);
 			Assert.IsFalse(characters[2].ProjectSpecific);
 		}
 
@@ -153,11 +153,11 @@ namespace GlyssenTests.Dialogs
 			FindRefInMark(6, 24);
 			var characters = m_model.GetCharactersForCurrentReference().ToList();
 			Assert.AreEqual(3, characters.Count);
-			Assert.AreEqual("Herodias' daughter", characters[0].CharacterId);
-			Assert.AreEqual("alias", characters[0].Alias);
-			Assert.AreEqual("Herodias", characters[1].CharacterId);
-			Assert.IsNull(characters[1].Alias);
-			Assert.IsTrue(characters[2].IsNarrator);
+			Assert.IsTrue(characters[0].IsNarrator);
+			Assert.AreEqual("Herodias' daughter", characters[1].CharacterId);
+			Assert.AreEqual("alias", characters[1].Alias);
+			Assert.AreEqual("Herodias", characters[2].CharacterId);
+			Assert.IsNull(characters[2].Alias);
 		}
 
 		[Test]
