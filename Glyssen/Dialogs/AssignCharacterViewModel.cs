@@ -150,7 +150,7 @@ namespace Glyssen.Dialogs
 			listToReturn.Sort(m_aliasComparer);
 
 			if (listToReturn.All(c => !c.IsNarrator))
-				listToReturn.Add(Character.Narrator);
+				listToReturn.Insert(0, Character.Narrator);
 
 			if (m_currentCharacters.Count == 0 && expandIfNone)
 			{
@@ -485,26 +485,47 @@ namespace Glyssen.Dialogs
 		#endregion
 
 		#region CharacterIdComparer class
-		public class CharacterIdComparer : IComparer<Character>
+
+		public abstract class CharacterComparer
+		{
+			protected int CompareSpecialCases(Character x, Character y, string xTextToCompare, string yTextToCompare)
+			{
+				// if the CharacterIds are not the same, check for a special case
+				if ((x.CharacterId) != (y.CharacterId))
+				{
+					// narrator should be first item
+					if (x.IsNarrator) return -1;
+					if (y.IsNarrator) return 1;
+
+					// Jesus should be second item
+					if (x.CharacterId == "Jesus") return -1;
+					if (y.CharacterId == "Jesus") return 1;
+				}
+				
+				// this is not a special case
+				return string.Compare(xTextToCompare, yTextToCompare, StringComparison.InvariantCultureIgnoreCase);
+			}
+		}
+
+		public class CharacterIdComparer : CharacterComparer, IComparer<Character>
 		{
 			int IComparer<Character>.Compare(Character x, Character y)
 			{
-				return String.Compare(x.CharacterId, y.CharacterId, StringComparison.InvariantCultureIgnoreCase);
+				return CompareSpecialCases(x, y, x.CharacterId, y.CharacterId);
 			}
 		}
 		#endregion
 
 		#region AliasComparer class
-		public class AliasComparer : IComparer<Character>
+		public class AliasComparer : CharacterComparer, IComparer<Character>
 		{
 			int IComparer<Character>.Compare(Character x, Character y)
 			{
-				string xTextToCompare = string.IsNullOrEmpty(x.Alias) ? x.CharacterId : x.Alias;
-				string yTextToCompare = string.IsNullOrEmpty(y.Alias) ? y.CharacterId : y.Alias;
-				int result = String.Compare(xTextToCompare, yTextToCompare, StringComparison.InvariantCultureIgnoreCase);
-				if (result != 0)
-					return result;
-				return String.Compare(x.CharacterId, y.CharacterId, StringComparison.InvariantCultureIgnoreCase);
+				var xTextToCompare = string.IsNullOrEmpty(x.Alias) ? x.CharacterId : x.Alias;
+				var yTextToCompare = string.IsNullOrEmpty(y.Alias) ? y.CharacterId : y.Alias;
+				
+				var result = CompareSpecialCases(x, y, xTextToCompare, yTextToCompare);
+				return result != 0 ? result : string.Compare(x.CharacterId, y.CharacterId, StringComparison.InvariantCultureIgnoreCase);
 			}
 		}
 		#endregion
