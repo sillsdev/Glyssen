@@ -1394,7 +1394,7 @@ namespace GlyssenTests.Rules
 		}
 
 		[Test]
-		public void GenerateCharacterGroups_LargeCast_NumberOfNarratorsMatchAuthors_NarratorsGroupedByAuthorAndHaveDistinctNarrationRoles()
+		public void GenerateCharacterGroups_LargeCast_NumberOfNarratorsMatchAuthors_NarratorsGroupedByAuthorAndHaveDistinctNarrationRolesAndPaulIncludedWithNarratorOfHisBooks()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 6;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
@@ -1414,9 +1414,10 @@ namespace GlyssenTests.Rules
 			Assert.AreEqual(1, narMark.CharacterIds.Count);
 			Assert.AreEqual(2, narLuke.CharacterIds.Count);
 			Assert.IsTrue(narLuke.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.Narrator)));
-			Assert.AreEqual(3, narPaul.CharacterIds.Count);
+			Assert.AreEqual(4, narPaul.CharacterIds.Count);
 			Assert.IsTrue(narPaul.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(narPaul.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("PHM", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narPaul.CharacterIds.Contains("Paul"));
 			Assert.AreEqual(1, narHebrews.CharacterIds.Count);
 			Assert.AreEqual(4, narJohn.CharacterIds.Count);
 			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("2JN", CharacterVerseData.StandardCharacter.Narrator)));

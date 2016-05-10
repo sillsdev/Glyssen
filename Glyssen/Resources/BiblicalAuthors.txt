@@ -170,7 +170,7 @@
 			<Book>ACT</Book>
 		</Books>
 	</Author>
-	<Author name="John">
+	<Author name="John" preventGroupingWithNarrator="true">
 		<Books>
 			<Book>JHN</Book>
 			<Book>1JN</Book>

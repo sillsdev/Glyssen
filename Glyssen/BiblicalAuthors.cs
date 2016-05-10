@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Xml.Serialization;
 using Glyssen.Properties;
 using Paratext;
@@ -45,6 +46,10 @@ namespace Glyssen
 		{
 			[XmlAttribute("name")]
 			public string Name { get; set; }
+
+			[XmlAttribute("preventGroupingWithNarrator")]
+			[DefaultValue(false)]
+			public bool PreventGroupingWithNarrator { get; set; }
 
 			[XmlArrayItem("Book")]
 			public List<string> Books { get; set; }

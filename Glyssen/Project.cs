@@ -1509,6 +1509,11 @@ namespace Glyssen
 		{
 			get { return BiblicalAuthors.GetAuthorCount(IncludedBooks.Select(b => b.BookId)); }
 		}
+
+		public IEnumerable<BiblicalAuthors.Author> AuthorsWithSpeakingRoles
+		{
+			get { return BiblicalAuthors.All().Where(a => !a.PreventGroupingWithNarrator && KeyStrokesByCharacterId.ContainsKey(a.Name)); }
+		}
 	}
 
 	public class ProjectStateChangedEventArgs : EventArgs
