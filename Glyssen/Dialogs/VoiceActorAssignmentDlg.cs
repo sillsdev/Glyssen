@@ -39,6 +39,7 @@ namespace Glyssen.Dialogs
 		private List<string> m_pendingMoveCharacters;
 		private readonly BackgroundWorker m_findCharacterBackgroundWorker;
 		private bool m_programmaticClickOfUpdateGroups;
+		private bool m_detailPinned;
 
 		public VoiceActorAssignmentDlg(VoiceActorAssignmentViewModel viewModel)
 		{
@@ -1146,11 +1147,15 @@ namespace Glyssen.Dialogs
 
 		private void HandleShowOrHideCharacterDetails_Click(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			ShowOrHideCharacterDetails(!m_characterDetailsVisible);
+			m_detailPinned = !m_characterDetailsVisible;
+			ShowOrHideCharacterDetails(m_detailPinned);
 		}
 
 		private void ShowOrHideCharacterDetails(bool show)
 		{
+			if (!show && m_detailPinned)
+				return;
+
 			if (m_characterDetailsVisible == show)
 				return;
 
