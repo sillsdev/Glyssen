@@ -4,8 +4,8 @@ using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using NUnit.Framework;
+using Paratext;
 using SIL.Extensions;
-using SIL.ObjectModel;
 using SIL.Windows.Forms;
 
 namespace GlyssenTests
@@ -13,12 +13,23 @@ namespace GlyssenTests
 	[TestFixture]
 	class ProjectExportTests
 	{
+		const int kBlockId = 0;
+		// These constants refer to the columns the Actor column is NOT included
+		const int kParaTag = 1;
+		const int kBookId = 2;
+		const int kChapter = 3;
+		const int kVerse = 4;
+		const int kCharacterId = 5;
+		const int kDelivery = 6;
+		const int kVernacularText = 7;
+		const int kPrimaryReferenceText = 8;
+		const int kVernacularTextLength = 9;
+
 		[TestFixtureSetUp]
 		public void FixtureSetup()
 		{
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
 			CharacterDetailData.TabDelimitedCharacterDetailData = null;
-
 		}
 
 		[Test]
@@ -30,7 +41,7 @@ namespace GlyssenTests
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			Assert.True(data.All(t => t.Count == 9));
+			Assert.True(data.All(t => t.Count == 10));
 		}
 
 		[Test]
@@ -53,7 +64,7 @@ namespace GlyssenTests
 
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			Assert.True(data.All(t => t.Count == 10));
+			Assert.True(data.All(t => t.Count == 11));
 		}
 
 		[Test]
@@ -145,9 +156,132 @@ namespace GlyssenTests
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData(voiceActorId: 1).Single();
 			Assert.AreEqual("Marlon", (string)data[1]);
-			Assert.AreEqual(1, (int)data[4]);
-			Assert.AreEqual(9, (int)data[5]);
+			Assert.AreEqual(1, data[4]);
+			Assert.AreEqual("9", data[5]);
 			Assert.AreEqual("Michael, archangel", (string)data[6]);
+		}
+
+		[Test]
+		public void GetExportData_BlocksAreJoinedToReferenceText_OutputContainsMatchedAndUnmatchedReferenceText()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD);
+			var narrator = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator);
+			var sectionHead = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical);
+			var jude = project.IncludedBooks.Single();
+			jude.Blocks = new List<Block>(new []
+				{
+					new Block("p", 1, 1) {CharacterId = narrator }.AddVerse("1", "A"),
+					new Block("s", 1, 1) {CharacterId = sectionHead, BlockElements = new List<BlockElement> {new ScriptText("Jude complains")}},
+					new Block("p", 1, 2) {CharacterId = "Enoch" }.AddVerse("2", "B"),
+					new Block("p", 1, 3) {CharacterId = narrator }.AddVerse("3", "C"),
+					new Block("p", 1, 4) {CharacterId = "Michael" }.AddVerse("4", "D"),
+					new Block("p", 1, 5) {CharacterId = narrator }.AddVerse("5", "E ").AddVerse("6", "F"),
+				});
+
+			var primaryReferenceText = new ReferenceText(new GlyssenDblTextMetadata(), ReferenceTextType.Custom);
+			ReflectionHelper.SetField(primaryReferenceText, "m_vers", ScrVers.English);
+			var books = (List<BookScript>)primaryReferenceText.Books;
+			var blocks = new List<Block>
+			{
+				new Block("p", 1, 1) { CharacterId = narrator }.AddVerse("1", "Ayy"),
+				new Block("p", 1, 2, 3) {CharacterId = narrator}.AddVerse("2-3", "Bee Cee"),
+				new Block("p", 1, 4) { CharacterId = "Michael" }.AddVerse(4, "Dee, "),
+				new Block("p", 1, 4) { CharacterId = narrator, BlockElements = new List<BlockElement> {new ScriptText("Michael said.")}},
+				new Block("p", 1, 5) { CharacterId = narrator }.AddVerse(5, "Ey"),
+				new Block("p", 1, 6) { CharacterId = narrator }.AddVerse(6, "Ef"),
+			};
+			var refBook = new BookScript("JUD", blocks);
+			books.Add(refBook);
+			project.PrimaryReferenceText = primaryReferenceText;
+			var exporter = new ProjectExporter(project);
+			var data = exporter.GetExportData().ToList();
+
+			Assert.IsTrue(data.All(d => (string)d[kBookId] == "JUD" && (int)d[kChapter] == 1));
+			var i = 0;
+			var row = data[i++];
+			Assert.AreEqual(i, row[kBlockId]); // Row 1
+			Assert.AreEqual("p", row[kParaTag]);
+			Assert.AreEqual("1", row[kVerse]);
+			Assert.AreEqual("narrator (JUD)", row[kCharacterId]);
+			Assert.AreEqual("[1]\u00A0A", row[kVernacularText]);
+			Assert.AreEqual("[1]\u00A0Ayy", row[kPrimaryReferenceText]);
+
+			row = data[i++];
+			Assert.AreEqual(i, row[kBlockId]); // Row 2
+			Assert.AreEqual("s", row[kParaTag]);
+			Assert.AreEqual("1", row[kVerse]);
+			Assert.AreEqual("section head (JUD)", row[kCharacterId]);
+			Assert.AreEqual("Jude complains", row[kVernacularText]);
+			Assert.IsTrue(string.IsNullOrEmpty(row[kPrimaryReferenceText] as string));
+
+			row = data[i++];
+			Assert.AreEqual(i, row[kBlockId]); // Row 3
+			Assert.AreEqual("p", row[kParaTag]);
+			Assert.AreEqual("2", row[kVerse]);
+			Assert.AreEqual("Enoch", row[kCharacterId]);
+			Assert.AreEqual("[2]\u00A0B", row[kVernacularText]);
+			Assert.IsTrue(string.IsNullOrEmpty(row[kPrimaryReferenceText] as string));
+
+			row = data[i++];
+			Assert.AreEqual(i, row[kBlockId]); // Row 4
+			Assert.AreEqual("p", row[kParaTag]);
+			Assert.AreEqual("3", row[kVerse]);
+			Assert.AreEqual("narrator (JUD)", row[kCharacterId]);
+			Assert.AreEqual("[3]\u00A0C", row[kVernacularText]);
+			Assert.IsTrue(string.IsNullOrEmpty(row[kPrimaryReferenceText] as string));
+
+			row = data[i++];
+			Assert.IsTrue(string.IsNullOrEmpty(row[kBlockId] as string));
+			Assert.AreEqual("p", row[kParaTag]);
+			Assert.AreEqual("2-3", row[kVerse]);
+			Assert.AreEqual("narrator (JUD)", row[kCharacterId]);
+			Assert.IsTrue(string.IsNullOrEmpty(row[kVernacularText] as string));
+			Assert.AreEqual("[2-3]\u00A0Bee Cee", row[kPrimaryReferenceText]);
+			Assert.AreEqual(0, row[kVernacularTextLength]);
+
+			row = data[i++];
+			Assert.AreEqual(5, row[kBlockId]); // Row 5
+			Assert.AreEqual("p", row[kParaTag]);
+			Assert.AreEqual("4", row[kVerse]);
+			Assert.AreEqual("Michael", row[kCharacterId]);
+			Assert.AreEqual("[4]\u00A0D", row[kVernacularText]);
+			Assert.IsTrue(string.IsNullOrEmpty(row[kPrimaryReferenceText] as string));
+
+			row = data[i++];
+			Assert.IsTrue(string.IsNullOrEmpty(row[kBlockId] as string));
+			Assert.AreEqual("p", row[kParaTag]);
+			Assert.AreEqual("4", row[kVerse]);
+			Assert.AreEqual("Michael", row[kCharacterId]);
+			Assert.IsTrue(string.IsNullOrEmpty(row[kVernacularText] as string));
+			Assert.AreEqual("[4]\u00A0Dee, ", row[kPrimaryReferenceText]);
+			Assert.AreEqual(0, row[kVernacularTextLength]);
+
+			row = data[i++];
+			Assert.IsTrue(string.IsNullOrEmpty(row[kBlockId] as string));
+			Assert.AreEqual("p", row[kParaTag]);
+			Assert.AreEqual("4", row[kVerse]);
+			Assert.AreEqual("narrator (JUD)", row[kCharacterId]);
+			Assert.IsTrue(string.IsNullOrEmpty(row[kVernacularText] as string));
+			Assert.AreEqual("Michael said.", row[kPrimaryReferenceText]);
+			Assert.AreEqual(0, row[kVernacularTextLength]);
+
+			row = data[i++];
+			Assert.AreEqual(6, row[kBlockId]);
+			Assert.AreEqual("p", row[kParaTag]);
+			Assert.AreEqual("5", row[kVerse]);
+			Assert.AreEqual("narrator (JUD)", row[kCharacterId]);
+			Assert.AreEqual("[5]\u00A0E ", row[kVernacularText]);
+			Assert.AreEqual("[5]\u00A0Ey", row[kPrimaryReferenceText]);
+
+			row = data[i++];
+			Assert.AreEqual(7, row[kBlockId]);
+			Assert.AreEqual("p", row[kParaTag]);
+			Assert.AreEqual("6", row[kVerse]);
+			Assert.AreEqual("narrator (JUD)", row[kCharacterId]);
+			Assert.AreEqual("[6]\u00A0F", row[kVernacularText]);
+			Assert.AreEqual("[6]\u00A0Ef", row[kPrimaryReferenceText]);
+
+			Assert.AreEqual(i, data.Count);
 		}
 
 		[Test]
@@ -165,10 +299,10 @@ namespace GlyssenTests
 			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			Assert.AreEqual("0\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK")));
-			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor)));
+			Assert.AreEqual("0\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t" + textLength,
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true)));
+			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t" + textLength,
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true)));
 		}
 
 		[Test]
@@ -184,10 +318,10 @@ namespace GlyssenTests
 			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse three, part two. ".Length + "Text of verse four. ".Length + "Text of verse five.".Length;
-			Assert.AreEqual("0\tp\tMRK\t4\t3\t\t\tText of verse three, part two. [4]\u00A0Text of verse four. [5]\u00A0Text of verse five.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK")));
-			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t3\t\t\tText of verse three, part two. [4]\u00A0Text of verse four. [5]\u00A0Text of verse five.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor)));
+			Assert.AreEqual("0\tp\tMRK\t4\t3\t\t\tText of verse three, part two. [4]\u00A0Text of verse four. [5]\u00A0Text of verse five.\t\t" + textLength,
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true)));
+			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t3\t\t\tText of verse three, part two. [4]\u00A0Text of verse four. [5]\u00A0Text of verse five.\t\t" + textLength,
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true)));
 		}
 
 		[Test]
@@ -205,10 +339,10 @@ namespace GlyssenTests
 			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			Assert.AreEqual("0\tp\tMRK\t4\t1\tnarrator (MRK)\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, "narrator-MRK")));
-			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tnarrator (MRK)\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, "narrator-MRK")));
+			Assert.AreEqual("0\tp\tMRK\t4\t1\tnarrator (MRK)\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t" + textLength,
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, "narrator-MRK", true)));
+			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tnarrator (MRK)\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t" + textLength,
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, "narrator-MRK", true)));
 		}
 
 		[Test]
@@ -227,10 +361,10 @@ namespace GlyssenTests
 			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			Assert.AreEqual("0\tp\tMRK\t4\t1\tMarko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK")));
-			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tMarko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor)));
+			Assert.AreEqual("0\tp\tMRK\t4\t1\tMarko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t" + textLength,
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true)));
+			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tMarko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t" + textLength,
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true)));
 		}
 
 		[Test]
@@ -249,10 +383,30 @@ namespace GlyssenTests
 			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			Assert.AreEqual("0\tp\tMRK\t4\t1\tFred/Marko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", useCharacterIdInScript: false)));
-			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tFred/Marko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, useCharacterIdInScript: false)));
+			Assert.AreEqual("0\tp\tMRK\t4\t1\tFred/Marko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t" + textLength,
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, false)));
+			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tFred/Marko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t" + textLength,
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, false)));
+		}
+
+		[Test]
+		public void GetTabSeparatedLine_GetExportDataForBlock_SpecifyReferenceText_OutputContainsReferenceText()
+		{
+			var block = new Block("p", 4);
+			block.IsParagraphStart = true;
+			block.CharacterId = "Fred";
+			block.Delivery = "With great gusto and quivering frustration";
+			block.BlockElements.Add(new Verse("1"));
+			block.BlockElements.Add(new ScriptText("Text of verse one. "));
+			block.BlockElements.Add(new Verse("2"));
+			block.BlockElements.Add(new ScriptText("Text of verse two."));
+			block.SetMatchedReferenceBlock(new Block("p", 4, 1, 2).AddVerse("1-2", "Text of verses one and two bridged in harmony and goodness."));
+
+			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
+
+			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
+			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t[1-2]\u00A0Text of verses one and two bridged in harmony and goodness.\t" + textLength,
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true)));
 		}
 	}
 }

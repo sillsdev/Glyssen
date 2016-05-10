@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="2PE" singlevoice="false" pageheader="2 PETER">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2PE">
+    <text>2 PETER</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="2PE" initialStartVerse="0" characterId="BC-2PE">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-2PE">
+    <verse num="1" />
+    <text>Simon Peter, a servant and apostle of Jesus Christ, to those who have obtained a like precious faith with us in the righteousness of our God and Savior, Jesus Christ:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-2PE">
+    <verse num="2" />
+    <text>Grace to you and peace be multiplied in the knowledge of God and of Jesus our Lord.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-2PE">
+    <verse num="3" />
+    <text>His divine power has granted to us all things that pertain to life and godliness, through the knowledge of him who called us by his own glory and virtue.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-2PE">
+    <verse num="4" />
+    <text>Through his glory and virtue, he has granted to us his precious and exceedingly great promises; that through these you may become partakers of the divine nature, having escaped from the corruption that is in the world by lust.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-2PE">
+    <verse num="5" />
+    <text>Yes, and for this very cause adding on your part all diligence, in your faith supply moral excellence; and in moral excellence, knowledge;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-2PE">
+    <verse num="6" />
+    <text>and in knowledge, self-control; and in self-control patience; and in patience godliness;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2PE">
+    <verse num="7" />
+    <text>and in godliness brotherly affection; and in brotherly affection, love.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2PE">
+    <verse num="8" />
+    <text>For if these things are yours and abound, they make you to be not idle nor unfruitful to the knowledge of our Lord Jesus Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2PE">
+    <verse num="9" />
+    <text>For he who lacks these things is blind, seeing only what is near, having forgotten the cleansing from his old sins.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-2PE">
+    <verse num="10" />
+    <text>Therefore, brothers, be more diligent to make your calling and election sure. For if you do these things, you will never stumble.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-2PE">
+    <verse num="11" />
+    <text>For thus you will be richly supplied with the entrance into the eternal Kingdom of our Lord and Savior, Jesus Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2PE">
+    <verse num="12" />
+    <text>Therefore I will not be negligent to remind you of these things, though you know them, and are established in the present truth.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-2PE">
+    <verse num="13" />
+    <text>I think it right, as long as I am alive, to stir you up by reminding you of these things.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-2PE">
+    <verse num="14" />
+    <text>I know that I will soon be leaving this body, even as our Lord Jesus Christ made clear to me.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-2PE">
+    <verse num="15" />
+    <text>Yes, I will make every effort that you may always be able to remember these things even after my departure.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-2PE">
+    <verse num="16" />
+    <text>For we did not follow cunningly devised fables, when we made known to you the power and coming of our Lord Jesus Christ. We were eyewitnesses of his majesty.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-2PE">
+    <verse num="17" />
+    <text>For he received from God the Father honor and glory, when the voice came to him from the Majestic Glory, </text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="17" characterId="God">
+    <text>“This is my beloved Son, in whom I am well pleased.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-2PE">
+    <verse num="18" />
+    <text>We heard this voice come out of heaven when we were with him on the holy mountain.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-2PE">
+    <verse num="19" />
+    <text>We have the more sure word of prophecy; and you do well that you heed it, as to a lamp shining in a dark place, until the day dawns, and the morning star arises in your hearts.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-2PE">
+    <verse num="20" />
+    <text>Know this first, that no prophecy of Scripture has been made up by prophet.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-2PE">
+    <verse num="21" />
+    <text>For no prophecy ever came by the will of man: but holy men of God spoke, being moved by the Holy Spirit.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="2PE" initialStartVerse="0" characterId="BC-2PE">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-2PE">
+    <verse num="1" />
+    <text>But false prophets also arose among the people, as false teachers will also be among you. They will secretly bring in damnable heresies, denying even the Master who bought them, bringing on themselves swift destruction.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-2PE">
+    <verse num="2" />
+    <text>Many will follow their immoral ways, and as a result, the way of the truth will be maligned.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2PE">
+    <verse num="3" />
+    <text>In covetousness they will exploit you with deceptive words: whose sentence now from of old doesn’t linger, and their destruction will not slumber.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-2PE">
+    <verse num="4" />
+    <text>For God didn’t spare angels when they sinned, but cast them down to Tartarus, and committed them to pits of darkness, to be reserved for judgment.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2PE">
+    <verse num="5" />
+    <text>And God didn’t spare the ancient world, but preserved Noah with seven others, a preacher of righteousness, when he brought a flood on the world of the ungodly.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-2PE">
+    <verse num="6" />
+    <text>God turned the cities of Sodom and Gomorrah into ashes and condemned them to destruction. He made them an example to those who would live ungodly.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-2PE">
+    <verse num="7" />
+    <text>He delivered righteous Lot, who was very distressed by the lustful life of the wicked.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-2PE">
+    <verse num="8" />
+    <text>(For that righteous man dwelling among them, was tormented in his righteous soul from day to day with seeing and hearing lawless deeds).</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-2PE">
+    <verse num="9" />
+    <text>But the Lord knows how to deliver the godly out of temptation and to keep the unrighteous under punishment for the day of judgment.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-2PE">
+    <verse num="10" />
+    <text>This is especially true of those who walk after the flesh in the lust of defilement, and despise authority. Daring, self-willed, they are not afraid to speak evil of dignitaries.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2PE">
+    <verse num="11" />
+    <text>Whereas angels, though greater in might and power, don’t bring a railing judgment against them before the Lord.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-2PE">
+    <verse num="12" />
+    <text>But these, as unreasoning creatures, born natural animals to be taken and destroyed, speaking evil in matters about which they are ignorant, will in their destroying surely be destroyed.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2PE">
+    <verse num="13" />
+    <text>They will be paid back with harm for the harm that they have done. Their idea of pleasure is to revel in the daytime. They are blots and blemishes reveling in their deceit while they feast with you.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2PE">
+    <verse num="14" />
+    <text>With eyes full of adultery, they can’t cease from sin; enticing unsettled souls; having a heart trained in greed; children of cursing.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-2PE">
+    <verse num="15" />
+    <text>They forsake the right way. They went astray, having followed the way of Balaam the son of Beor, who loved the wages of wrongdoing.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-2PE">
+    <verse num="16" />
+    <text>But he was rebuked for his own disobedience. A mute donkey spoke with a man’s voice and stopped the madness of the prophet.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-2PE">
+    <verse num="17" />
+    <text>These are wells without water, clouds driven by a storm; for whom the blackness of darkness has been reserved forever.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-2PE">
+    <verse num="18" />
+    <text>For, uttering great swelling words of emptiness, they entice in the lusts of the flesh, by licentiousness, those who are indeed escaping from those who live in error.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-2PE">
+    <verse num="19" />
+    <text>They promise them liberty, while they themselves are bondservants of corruption; for a man is brought into bondage by whoever overcomes him.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-2PE">
+    <verse num="20" />
+    <text>For if, after they have escaped the defilement of the world through the knowledge of the Lord and Savior Jesus Christ, they are again entangled in it and overcome, the last state has become worse for them than the first.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-2PE">
+    <verse num="21" />
+    <text>For it would be better for them not to have known the way of righteousness, than, after knowing it, to turn back from the holy commandment delivered to them.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-2PE">
+    <verse num="22" />
+    <text>But it has happened to them according to the true proverb,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture" userConfirmed="true">
+    <text>“The dog turns to his own vomit again,” </text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="22" characterId="narrator-2PE">
+    <text>and </text>
+  </block>
+  <block style="p" chapter="2" initialStartVerse="22" characterId="saying about sow" userConfirmed="true">
+    <text>“the sow that has washed to wallowing in the mire. [1]”</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="2PE" initialStartVerse="0" characterId="BC-2PE">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-2PE">
+    <verse num="1" />
+    <text>This is now, beloved, the second letter that I have written to you; and in both of them I stir up your sincere mind by reminding you of some things.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-2PE">
+    <verse num="2" />
+    <text>You should remember the words which were spoken before by the holy prophets, and the commandments of us, the apostles of the Lord and Savior.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-2PE">
+    <verse num="3" />
+    <text>First of all, I want you to know that in the last days mockers will come, walking after their own lusts.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-2PE">
+    <verse num="4" />
+    <text>They will be saying, </text>
+  </block>
+  <block style="p" chapter="3" initialStartVerse="4" characterId="scoffers">
+    <text>“Where is the promise of his coming? For, from the day that the fathers fell asleep, all things continue as they were from the beginning of the creation.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-2PE">
+    <verse num="5" />
+    <text>For this they willfully forget, that there were heavens from of old, and an earth formed out of water and amid water, by the word of God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-2PE">
+    <verse num="6" />
+    <text>By these waters also the world of that time was deluged and destroyed.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-2PE">
+    <verse num="7" />
+    <text>But the heavens that now are, and the earth, by the same word have been stored up for fire, being reserved against the day of judgment and destruction of ungodly men.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2PE">
+    <verse num="8" />
+    <text>But don’t forget this one thing, beloved, that one day is with the Lord as a thousand years, and a thousand years as one day.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-2PE">
+    <verse num="9" />
+    <text>The Lord is not slow concerning his promise, as some count slowness. He is patient with us, not wishing that any should perish, but that all should come to repentance.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-2PE">
+    <verse num="10" />
+    <text>But the day of the Lord will come as a thief in the night; in which the heavens will pass away with a great noise, and the elements will be dissolved with fervent heat, and the earth and the works that are in it will be burned up.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-2PE">
+    <verse num="11" />
+    <text>Therefore since all these things will be destroyed like this, what kind of people ought you to be? You ought to live holy and godly lives.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-2PE">
+    <verse num="12" />
+    <text>You should be looking for and earnestly desiring the coming of the day of God, which will cause the burning heavens to be dissolved, and the elements will melt with fervent heat?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2PE">
+    <verse num="13" />
+    <text>But, according to his promise, we look for new heavens and a new earth, in which righteousness dwells.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-2PE">
+    <verse num="14" />
+    <text>Therefore, beloved, seeing that you look for these things, be diligent to be found in peace, without blemish and blameless in his sight.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-2PE">
+    <verse num="15" />
+    <text>Regard the patience of our Lord as salvation; even as our beloved brother Paul also, according to the wisdom given to him, wrote to you.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-2PE">
+    <verse num="16" />
+    <text>He wrote about these things in all of his letters, speaking in them of these things. In those, there are some things that are hard to understand, which the ignorant and unsettled twist, as they also do to the other Scriptures, to their own destruction.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-2PE">
+    <verse num="17" />
+    <text>You therefore, beloved, know these things beforehand. Beware, lest being carried away with the error of the wicked, you fall from your own steadfastness.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-2PE">
+    <verse num="18" />
+    <text>But grow in the grace and knowledge of our Lord and Savior Jesus Christ. To him be the glory both now and forever. Amen.</text>
+  </block>
+  <UnappliedSplits />
+</book>

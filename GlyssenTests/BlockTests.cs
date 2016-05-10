@@ -494,8 +494,8 @@ namespace GlyssenTests
 		public void SetCharacterAndCharacterIdInScript_CharacterIdSetUnclear_CharacterIdInScriptSetToNull(string unclearCharacterId)
 		{
 			var block = new Block("p", 40, 8);
-			block.CharacterId = "chief monkey";
 			block.CharacterIdInScript = "chief monkey";
+			block.CharacterId = "chief monkey";
 			Assert.AreEqual("chief monkey", block.CharacterId);
 			Assert.AreEqual("chief monkey", block.CharacterIdInScript);
 			Assert.AreEqual("chief monkey", block.CharacterIdOverrideForScript);

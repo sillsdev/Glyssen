@@ -9140,6 +9140,8 @@ LUK	23	5	chief priests/Sanhedrin=chief priests/whole Sanhedrin 1	loud, angry		Di
 LUK	23	6	Pilate			Normal
 LUK	23	7	chief priests/teachers of the law 2			Normal
 LUK	23	14	Pilate	to crowd		Dialogue
+LUK	23	15	Pilate	to crowd		Normal		
+LUK	23	16	Pilate	to crowd		Normal		
 LUK	23	18	chief priests/rulers/the people	shouting		Dialogue
 LUK	23	20	Pilate			Normal
 LUK	23	21	chief priests/rulers/the people|mob			Dialogue
