@@ -1132,8 +1132,8 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
 		}
 
-		[TestCase(2, 0, true)]
-		[TestCase(1, 1, true)]
+		[TestCase(2, 0)]
+		[TestCase(1, 1)]
 		public void GenerateCharacterGroups_ExplicitlyRequestTwoNarrators_AllLinesForLukeAreNarratorAndLukeNarratorHandlesSomeMaleRolesInActs(int numMale, int numFemale)
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numMale;

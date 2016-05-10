@@ -4405,5 +4405,42 @@ namespace GlyssenTests.Quote
 			Assert.True(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
 		}
 		#endregion
+
+		[Test]
+		public void Parse_ContinuerSameAsCloserAndBlockStartsWithSpecialOpeningPunctuation_OneQuote()
+		{
+			// PG-690, PG-695 (Quichua Cañar - qxr)
+
+			// set up some text that uses special opening punctuation
+			var block1 = new Block("p", 15, 10) {UserConfirmed = false};
+			block1.BlockElements.Add((new Verse("10")));
+			block1.BlockElements.Add(new ScriptText("Cutinllatac Dios quillcachishcapica:"));
+			var block2 = new Block("p", 15, 10) { UserConfirmed = false };
+			block2.BlockElements.Add(new ScriptText("«Tucui llactacuna,"));
+			var block3 = new Block("p", 15, 10) { UserConfirmed = false };
+			block3.BlockElements.Add(new ScriptText("¡Dios acllashcacunahuan cushicuichic!» ninmi."));
+
+			var input = new List<Block> { block1, block2, block3 };
+
+			// set up a quote system that matches PG-690
+			var levels = new BulkObservableList<QuotationMark>
+			{
+				new QuotationMark("«", "»", "»", 1, QuotationMarkingSystemType.Normal),
+				new QuotationMark("«", "»", "«", 2, QuotationMarkingSystemType.Normal),
+				new QuotationMark("«", "»", "»", 3, QuotationMarkingSystemType.Normal)
+			};
+			QuoteParser.SetQuoteSystem(new QuoteSystem(levels));
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM", input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(4, results.Count());
+			Assert.AreEqual("Cutinllatac Dios quillcachishcapica:", ((ScriptText)(results[0].BlockElements[1])).Content);
+			Assert.AreEqual("«Tucui llactacuna,", ((ScriptText)(results[1].BlockElements[0])).Content);
+			Assert.AreEqual(MultiBlockQuote.Start, results[1].MultiBlockQuote);
+			Assert.AreEqual("¡Dios acllashcacunahuan cushicuichic!» ", ((ScriptText)(results[2].BlockElements[0])).Content);
+			Assert.AreEqual(MultiBlockQuote.Continuation, results[2].MultiBlockQuote);
+			Assert.AreEqual("ninmi.", ((ScriptText)(results[3].BlockElements[0])).Content);
+		}
 	}
 }
