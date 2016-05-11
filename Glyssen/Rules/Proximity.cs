@@ -41,13 +41,23 @@ namespace Glyssen.Rules
 
 			ISet<string> standardCharacterIdsToTreatAsOne = null;
 
+			ISet<string> standardCharacterIdsForBook = new HashSet<string>();
+			bool calculateAnyRelatedCharacters = characterIdsToCalculate.Any(c => relChar.HasMatchingCharacterIdsOfADifferentAge(c));
 			foreach (var book in m_booksToConsider)
 			{
 				if (breakOutOfBothLoops)
 					break;
 
 				if (!treatStandardNonScriptureCharactersAsDistinct)
-					standardCharacterIdsToTreatAsOne = new HashSet<string>();
+				{
+					standardCharacterIdsForBook.Clear();
+					standardCharacterIdsForBook.Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.BookOrChapter));
+					standardCharacterIdsForBook.Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.ExtraBiblical));
+					standardCharacterIdsForBook.Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Intro));
+
+					if (standardCharacterIdsForBook.Any(characterIdsToCalculate.Contains))
+						standardCharacterIdsToTreatAsOne = new HashSet<string>();
+				}
 
 				if (handleEachBookSeparately)
 					currentBlockCount += kDefaultMinimumProximity + 20; // 20 is a pretty arbitrary "magic number"
@@ -62,12 +72,12 @@ namespace Glyssen.Rules
 					// changes to this code.  (I'm sure it could be optimized further, too...)
 
 					ISet<string> matchingCharacterIds = null;
-					if (relChar.TryGetMatchingCharacterIdsOfADifferentAge(characterId, out matchingCharacterIds))
+					if (calculateAnyRelatedCharacters && relChar.TryGetMatchingCharacterIdsOfADifferentAge(characterId, out matchingCharacterIds))
 					{
 						if (matchingCharacterIds.Count == 1)
 							matchingCharacterIds = null;
 					}
-					else if (standardCharacterIdsToTreatAsOne != null && CharacterVerseData.IsCharacterStandard(characterId, false))
+					else if (standardCharacterIdsToTreatAsOne != null && standardCharacterIdsForBook.Contains(characterId))
 					{
 						standardCharacterIdsToTreatAsOne.Add(characterId);
 						matchingCharacterIds = standardCharacterIdsToTreatAsOne;
