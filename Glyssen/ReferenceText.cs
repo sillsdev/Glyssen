@@ -232,58 +232,61 @@ namespace Glyssen
 			}
 		}
 
-		private static bool NextScriptureBlockStartsWithAVerse(IReadOnlyList<Block> blockList, int i)
-		{
-			var nextScriptureBlock = blockList.Skip(i + 1).FirstOrDefault(b => !CharacterVerseData.IsCharacterStandard(b.CharacterId, false));
-			return nextScriptureBlock != null && nextScriptureBlock.BlockElements.First() is Verse;
-		}
-
 		private static void SplitVernBlocksToMatchReferenceText(BookScript vernacularBook, List<Block> refBlockList,
 			ScrVers vernacularVersification, ScrVers referenceVersification)
 		{
 			int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);
-			var vernBlockList = vernacularBook.GetScriptBlocks();
 
-			for (int iRefBlock = 0, iVernBlock = 0; iRefBlock < refBlockList.Count && iVernBlock < vernBlockList.Count; iRefBlock++, iVernBlock++)
+			var versesToSplitAfter = new List<VerseRef>();
+			var versesToSplitBefore = new List<VerseRef>();
+			Block prevBlock = null;
+			foreach (var refBlock in refBlockList)
 			{
-				var currentRefBlock = refBlockList[iRefBlock];
-				var currentVernBlock = vernBlockList[iVernBlock];
-				var vernInitStartVerse = new VerseRef(bookNum, currentVernBlock.ChapterNumber, currentVernBlock.InitialStartVerseNumber, vernacularVersification);
-				var refInitStartVerse = new VerseRef(bookNum, currentRefBlock.ChapterNumber, currentRefBlock.InitialStartVerseNumber, referenceVersification);
+				if (prevBlock == null)
+				{
+					prevBlock = refBlock;
+					continue;
+				}
+				if (refBlock.BlockElements.First() is Verse)
+				{
+					versesToSplitAfter.Add(new VerseRef(bookNum, prevBlock.ChapterNumber, prevBlock.LastVerse, referenceVersification));
+					versesToSplitBefore.Add(new VerseRef(bookNum, refBlock.ChapterNumber, refBlock.InitialStartVerseNumber, referenceVersification));
+				}
+				prevBlock = refBlock;
+			}
 
-				while (CharacterVerseData.IsCharacterStandard(currentVernBlock.CharacterId, false) || refInitStartVerse > vernInitStartVerse)
+			if (!versesToSplitAfter.Any())
+				return;
+
+			var iSplit = 0;
+			var verseToSplitAfter = versesToSplitAfter[iSplit];
+			for (int index = 0; index < vernacularBook.Blocks.Count; index++)
+			{
+				var vernBlock = vernacularBook.Blocks[index];
+				var vernInitStartVerse = new VerseRef(bookNum, vernBlock.ChapterNumber, vernBlock.InitialStartVerseNumber, vernacularVersification);
+				var vernInitEndVerse = new VerseRef(bookNum, vernBlock.ChapterNumber, vernBlock.InitialEndVerseNumber, vernacularVersification);
+
+				while (vernInitStartVerse > verseToSplitAfter)
 				{
-					if (iVernBlock == vernBlockList.Count - 1)
+					if (iSplit == versesToSplitAfter.Count - 1)
 						return;
-					currentVernBlock = vernBlockList[++iVernBlock];
-					vernInitStartVerse = new VerseRef(bookNum, currentVernBlock.ChapterNumber, currentVernBlock.InitialStartVerseNumber, vernacularVersification);
-				}
-				while (CharacterVerseData.IsCharacterStandard(currentRefBlock.CharacterId, false) || vernInitStartVerse > refInitStartVerse)
-				{
-					if (iRefBlock == refBlockList.Count - 1)
-						return;
-					currentRefBlock = refBlockList[++iRefBlock];
-					refInitStartVerse = new VerseRef(bookNum, currentRefBlock.ChapterNumber, currentRefBlock.InitialStartVerseNumber, referenceVersification);
+					verseToSplitAfter = versesToSplitAfter[++iSplit];
 				}
 
-				var nextRefScriptureBlockStartsWithAVerse = NextScriptureBlockStartsWithAVerse(refBlockList, iRefBlock);
-				if (nextRefScriptureBlockStartsWithAVerse)
+				var vernLastVerse = new VerseRef(bookNum, vernBlock.ChapterNumber, vernBlock.LastVerse, vernacularVersification);
+				if (vernLastVerse < verseToSplitAfter)
+					continue;
+
+				if (vernInitEndVerse.CompareTo(vernLastVerse) != 0 && vernLastVerse >= versesToSplitBefore[iSplit])
 				{
-					var vernLastVerse = new VerseRef(bookNum, currentVernBlock.ChapterNumber, currentVernBlock.LastVerse, vernacularVersification);
-					var refLastVerse = new VerseRef(bookNum, currentRefBlock.ChapterNumber, currentRefBlock.LastVerse, referenceVersification);
-					if (refLastVerse < vernLastVerse)
-					{
-						vernacularVersification.ChangeVersification(refLastVerse);
-						var verseToSplit = refLastVerse.Verse;
-						if ((vernInitStartVerse.CompareTo(refLastVerse) == 0 && currentVernBlock.InitialEndVerseNumber == 0) ||
-							currentVernBlock.BlockElements.OfType<Verse>().Any(v => v.Number == verseToSplit))
-						{
-							vernacularBook.SplitBlock(currentVernBlock, verseToSplit, BookScript.kSplitAtEndOfVerse, false);
-						}
-					}
-					else if (!NextScriptureBlockStartsWithAVerse(vernBlockList, iVernBlock))
-						iRefBlock--;
+					vernacularVersification.ChangeVersification(verseToSplitAfter);
+					vernacularBook.SplitBlock(vernBlock, verseToSplitAfter.VerseNum.ToString(), BookScript.kSplitAtEndOfVerse, false);
 				}
+				else if (vernInitStartVerse >= verseToSplitAfter)
+					continue;
+				if (iSplit == versesToSplitAfter.Count - 1)
+					return;
+				verseToSplitAfter = versesToSplitAfter[++iSplit];
 			}
 		}
 

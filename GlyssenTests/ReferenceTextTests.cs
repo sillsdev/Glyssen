@@ -787,7 +787,12 @@ namespace GlyssenTests
 
 			var referenceBlocks = new List<Block>();
 			referenceBlocks.Add(CreateNarratorBlockForVerse(0, "Hello!", true, 1, "PSA", "d"));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(0, "A psalm of David", true, 1, "PSA", "d"));
+			var block = new Block("d", 1) {
+				IsParagraphStart = true,
+				CharacterId = CharacterVerseData.GetStandardCharacterId("PSA", CharacterVerseData.StandardCharacter.Narrator),
+				BlockElements = new List<BlockElement> { new ScriptText("A psalm of David") }
+			};
+			referenceBlocks.Add(block);
 			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Then Jesus said, ", true, 1, "PSA", "q"));
 			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "Why do you kick the cat? ");
 
@@ -887,6 +892,39 @@ namespace GlyssenTests
 			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
 			Assert.IsTrue(result[0].MatchesReferenceText);
+		}
+
+		[Test]
+		public void ApplyTo_VernacularNeedsToBeBrokenByReference_FirstReferenceVerseHasTwoBlocks_VernacularBrokenCorrectly()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(7, "Verse seven. ", true).AddVerse(8, "Verse eight. "));
+			AddBlockForVerseInProgress(vernacularBlocks, "Herod", "What Herod says in verse eight.");
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(7, "Verse 7. ", true));
+			AddBlockForVerseInProgress(referenceBlocks, "Herod", "What Herod says in verse 7. ");
+			referenceBlocks.Add(CreateNarratorBlockForVerse(8, "Verse 8. ", true));
+			AddBlockForVerseInProgress(referenceBlocks, "Herod", "What Herod says in verse 8.");
+
+			ReferenceText.ApplyTo(vernBook, referenceBlocks, GetFormattedChapterAnnouncement, m_vernVersification, ScrVers.English);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(3, result.Count);
+
+			Assert.AreEqual(2, result[0].ReferenceBlocks.Count);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[0].ReferenceBlocks[1].GetText(true));
+			Assert.IsFalse(result[0].MatchesReferenceText);
+
+			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
+			Assert.AreEqual(referenceBlocks[2].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
+			Assert.IsTrue(result[2].MatchesReferenceText);
+
+			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
+			Assert.AreEqual(referenceBlocks[3].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
+			Assert.IsTrue(result[2].MatchesReferenceText);
 		}
 
 		[Test]
