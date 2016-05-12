@@ -308,6 +308,7 @@
 			this.Controls.Add(this.m_btnCancel);
 			this.Controls.Add(this.m_btnOk);
 			this.glyssenColorPalette.SetForeColor(this, Glyssen.Utilities.GlyssenColors.Default);
+			this.Icon = global::Glyssen.Properties.Resources.glyssenIcon;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, "{0} is the project name");
 			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.ScriptureRangeSelectionDlg.WindowTitle");
@@ -315,7 +316,6 @@
 			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(596, 383);
 			this.Name = "ScriptureRangeSelectionDlg";
-			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Select Books - {0}";

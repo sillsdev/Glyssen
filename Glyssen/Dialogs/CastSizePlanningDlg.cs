@@ -4,7 +4,6 @@ using System.Text;
 using System.Windows.Forms;
 using Glyssen.Bundle;
 using Glyssen.Controls;
-using Glyssen.Properties;
 using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
@@ -20,7 +19,6 @@ namespace Glyssen.Dialogs
 		public CastSizePlanningDlg(CastSizePlanningViewModel viewModel)
 		{
 			InitializeComponent();
-			Icon = Resources.glyssenIcon;
 			m_viewModel = viewModel;
 			m_viewModel.MaleNarratorsValueChanged += m_viewModel_MaleNarratorsValueChanged;
 			m_viewModel.FemaleNarratorsValueChanged += m_viewModel_FemaleNarratorsValueChanged;
@@ -55,6 +53,8 @@ namespace Glyssen.Dialogs
 			else
 				m_lblProjectSummary.Text = string.Format(m_fmtProjectSummaryPlural, includedBooksCount, project.TotalCharacterCount);
 			m_lblRecordingTime.Text = string.Format(m_lblRecordingTime.Text, project.GetEstimatedRecordingTime());
+
+			Text = string.Format(Text, m_viewModel.Project.Name);
 		}
 
 		private void CastSizePlanningDlg_Load(object sender, EventArgs e)

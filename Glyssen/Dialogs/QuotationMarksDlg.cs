@@ -95,6 +95,8 @@ namespace Glyssen.Dialogs
 			SetPromptText();
 			SetupQuoteMarksComboBoxes(CurrentQuoteSystem);
 			m_xOfYFmt = m_labelXofY.Text;
+
+			Text = string.Format(Text, m_project.Name);
 		}
 
 		private void SetPromptText()

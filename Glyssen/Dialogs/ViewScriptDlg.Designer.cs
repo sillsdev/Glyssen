@@ -15,6 +15,7 @@
 		{
 			if (disposing && (components != null))
 			{
+				L10NSharp.UI.LocalizeItemDlg.StringsLocalized -= HandleStringsLocalized;
 				components.Dispose();
 			}
 			base.Dispose(disposing);
@@ -202,12 +203,14 @@
 			this.Controls.Add(this.m_tableLayout);
 			this.Controls.Add(this.menuStrip);
 			this.glyssenColorPalette.SetForeColor(this, Glyssen.Utilities.GlyssenColors.Default);
+			this.Icon = global::Glyssen.Properties.Resources.glyssenIcon;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this, null);
-			this.m_L10NSharpExtender.SetLocalizationComment(this, null);
+			this.m_L10NSharpExtender.SetLocalizationComment(this, "{0} is the project name");
 			this.m_L10NSharpExtender.SetLocalizingId(this, "DialogBoxes.ViewScriptDlg.WindowTitle");
 			this.MainMenuStrip = this.menuStrip;
 			this.Name = "ViewScriptDlg";
-			this.Text = "View Recording Script";
+			this.ShowInTaskbar = false;
+			this.Text = "View Recording Script - {0}";
 			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			this.Load += new System.EventHandler(this.ViewScriptDlg_Load);
 			this.Shown += new System.EventHandler(this.ViewScriptDlg_Shown);

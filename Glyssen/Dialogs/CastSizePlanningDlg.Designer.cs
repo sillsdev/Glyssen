@@ -864,8 +864,9 @@ namespace Glyssen.Dialogs
 			this.Controls.Add(this.m_tableLayoutPanel);
 			this.glyssenColorPalette.SetForeColor(this, Glyssen.Utilities.GlyssenColors.Default);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Icon = global::Glyssen.Properties.Resources.glyssenIcon;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this, "{0} is the project name");
 			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.CastSizePlanningDlg.WindowTitle");
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
@@ -873,7 +874,7 @@ namespace Glyssen.Dialogs
 			this.Name = "CastSizePlanningDlg";
 			this.Padding = new System.Windows.Forms.Padding(10);
 			this.ShowInTaskbar = false;
-			this.Text = "Cast Size Planning";
+			this.Text = "Cast Size Planning - {0}";
 			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			this.Load += new System.EventHandler(this.CastSizePlanningDlg_Load);
 			this.Shown += new System.EventHandler(this.CastSizePlanningDlg_Shown);
