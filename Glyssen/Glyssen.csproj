@@ -584,6 +584,7 @@
     <None Include="Resources\AddCharacter.png" />
     <Content Include="Resources\Annotations.txt" />
     <Content Include="Resources\BiblicalAuthors.txt" />
+    <Content Include="Resources\BlockSplit.css" />
     <Content Include="Resources\CharacterVerse.txt" />
     <None Include="Resources\grid-icon.png" />
     <None Include="Resources\html-view.png" />
@@ -601,6 +602,7 @@
     <None Include="Resources\RemoveGridRowNormal.png" />
     <None Include="Resources\MoveArrow.png" />
     <None Include="Resources\printer.bmp" />
+    <Content Include="Resources\DeleteCursor.png" />
     <Content Include="Resources\HtmlMsg.html" />
     <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />

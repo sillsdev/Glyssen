@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using NUnit.Framework;
@@ -164,8 +163,10 @@ namespace GlyssenTests
 			var block = new Block("p", 4, 3);
 			block.BlockElements.Add(new ScriptText(@"The dog'cat says, <<Woof!>> & ""Meow."""));
 
-			Assert.AreEqual("<div id=\"3\" class=\"scripttext\">The dog&#39;cat says, &lt;&lt;Woof!&gt;&gt; &amp; &quot;Meow.&quot;</div>",
-				block.GetTextAsHtml(true, false));
+			const string expected = "<div id=\"3\" class=\"scripttext\">The dog&#39;cat says, &lt;&lt;Woof!&gt;&gt; &amp; &quot;Meow.&quot;</div>";
+			var actual = block.GetTextAsHtml(true, false);
+
+			Assert.AreEqual(expected, actual);
 		}
 
 		[Test]
@@ -178,10 +179,18 @@ namespace GlyssenTests
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
-			Assert.AreEqual("<div id=\"3\" class=\"scripttext\">Text of verse three, part two [2]. " +
-							"</div><sup>4&#160;</sup><div id=\"4\" class=\"scripttext\">Text of vers [sic] four. </div><sup>5&#160;</sup>" +
-							"<div id=\"5\" class=\"scripttext\">Text of verse five.</div>",
-				block.GetTextAsHtml(true, false));
+			const string expect1 = ">Text of verse three, part two [2]. <";
+			const string expect2 = "<sup>4&#160;</sup>";
+			const string expect3 = ">Text of vers [sic] four. <";
+			const string expect4 = "<sup>5&#160;</sup>";
+			const string expect5 = ">Text of verse five.<";
+			var actual = block.GetTextAsHtml(true, false);
+
+			Assert.IsTrue(actual.Contains(expect1), string.Format("The output string did not contain: {0}", expect1));
+			Assert.IsTrue(actual.Contains(expect2), string.Format("The output string did not contain: {0}", expect2));
+			Assert.IsTrue(actual.Contains(expect3), string.Format("The output string did not contain: {0}", expect3));
+			Assert.IsTrue(actual.Contains(expect4), string.Format("The output string did not contain: {0}", expect4));
+			Assert.IsTrue(actual.Contains(expect5), string.Format("The output string did not contain: {0}", expect5));
 		}
 
 		[Test]
@@ -192,21 +201,23 @@ namespace GlyssenTests
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Text of verse four. "));
 
-			Assert.AreEqual("<div id=\"3\" class=\"scripttext\">Text of verse three, part two. </div>" +
-							"<sup>&rlm;4&#160;&rlm;</sup><div id=\"4\" class=\"scripttext\">Text of verse four. </div>",
-				block.GetTextAsHtml(true, true));
+			const string expected = "<sup>&rlm;4&#160;&rlm;</sup>";
+			var actual = block.GetTextAsHtml(true, true);
+
+			Assert.IsTrue(actual.Contains(expected), string.Format("The output string did not contain: {0}", expected));
 		}
 
 		[Test]
-		public void GetTextAsHtml_OffsetTooHigh_ThrowsArgumentOutOfRangeException()
+		public void GetSplitTextAsHtml_OffsetTooHigh_ThrowsArgumentOutOfRangeException()
 		{
 			var block = new Block("p", 4, 3);
 			block.BlockElements.Add(new ScriptText("Text"));
-			Assert.Throws<ArgumentOutOfRangeException>(() => block.GetTextAsHtml(true, false, new[] { new BlockSplitData(0, block, "3", 5) }));
+			Assert.Throws<ArgumentOutOfRangeException>(
+				() => block.GetSplitTextAsHtml(0, false, new[] {new BlockSplitData(1, block, "3", 5)}, false));
 		}
 
 		[Test]
-		public void GetTextAsHtml_BlockSplitProvided_InsertsBlockSplit()
+		public void GetSplitTextAsHtml_BlockSplitProvided_InsertsBlockSplit()
 		{
 			var block = new Block("p", 4, 3);
 			block.BlockElements.Add(new ScriptText("Text of verse three, part two [2]. "));
@@ -215,14 +226,14 @@ namespace GlyssenTests
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
-			Assert.AreEqual("<div id=\"3\" class=\"scripttext\">Text of verse three, part two [2]. " +
-							"</div><sup>4&#160;</sup><div id=\"4\" class=\"scripttext\">Text " + Block.BuildSplitLineHtml(0) + "of vers [sic] four. </div><sup>5&#160;</sup>" +
-							"<div id=\"5\" class=\"scripttext\">Text of verse five.</div>",
-				block.GetTextAsHtml(true, false, new[] { new BlockSplitData(0, block, "4", 5) }));
+			var expected = Block.BuildSplitLineHtml(1);
+			var actual = block.GetSplitTextAsHtml(0, false, new[] { new BlockSplitData(1, block, "4", 5) }, false);
+
+			Assert.IsTrue(actual.Contains(expected), string.Format("The output string did not contain: {0}", expected));
 		}
 
 		[Test]
-		public void GetTextAsHtml_MultipleBlockSplitsProvided_InsertsBlockSplits()
+		public void GetSplitTextAsHtml_MultipleBlockSplitsProvided_InsertsBlockSplits()
 		{
 			var block = new Block("p", 4, 3);
 			block.BlockElements.Add(new ScriptText("Text of verse three, part two [2]. "));
@@ -231,68 +242,104 @@ namespace GlyssenTests
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
-			string expected = "<div id=\"3\" class=\"scripttext\">Text of verse three, part two [2]. " +
-							  "</div><sup>4&#160;</sup><div id=\"4\" class=\"scripttext\">Text " + Block.BuildSplitLineHtml(0) + "of " + Block.BuildSplitLineHtml(1) + "vers [sic] " + Block.BuildSplitLineHtml(2) + "four. </div><sup>5&#160;</sup>" +
-							  "<div id=\"5\" class=\"scripttext\">Text" + Block.BuildSplitLineHtml(3) + " of verse five.</div>";
-			string actual = block.GetTextAsHtml(true, false, new[]
+			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">Text of verse three, part two [2]. </div>" + 
+				            "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\"><sup>4&#160;</sup>Text </div>" +
+							Block.BuildSplitLineHtml(1) + 
+							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">of </div>" +
+							Block.BuildSplitLineHtml(2) + 
+							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">vers [sic] </div>" +
+							Block.BuildSplitLineHtml(3) + 
+							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">four. </div>" + 
+							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"5\"><sup>5&#160;</sup>Text</div>" +
+							Block.BuildSplitLineHtml(4) + 
+							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"5\"> of verse five.</div>";
+
+			var actual = block.GetSplitTextAsHtml(0, false, new[]
 			{
-				new BlockSplitData(0, block, "4", 5),
-				new BlockSplitData(1, block, "4", 8),
-				new BlockSplitData(2, block, "4", 19),
-				new BlockSplitData(3, block, "5", 4)
-			});
+				new BlockSplitData(1, block, "4", 5),
+				new BlockSplitData(2, block, "4", 8),
+				new BlockSplitData(3, block, "4", 19),
+				new BlockSplitData(4, block, "5", 4)
+			}, false);
 			Assert.AreEqual(expected, actual);
 		}
 
 		[Test]
-		public void GetTextAsHtml_MultipleBlockSplitsProvided_InsertsBlockSplits_TODO_Name_realdata()
+		public void GetSplitTextAsHtml_MultipleBlockSplitsProvided_InsertsBlockSplits_TODO_Name_realdata()
 		{
 			var block = new Block("p", 4, 3);
 			block.BlockElements.Add(new ScriptText("—Ananías, ¿Ibiga nia-saila-Satanás burba-isgana begi oubononiki? Emide, Bab-Dummad-Burba-Isligwaledga be gakansanonigu, mani-abala be susgu. "));
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Yoo be nainu-ukegu, ¿nainu begadinsursi? Nainu be uksagu, ¿a-manide begadinsursi? ¿Ibiga be-gwagegi anmarga gakansaedgi be binsanoniki? Dulemarga be gakan-imaksasulid, Bab-Dummadga be gakan-imaksad."));
 
-			string expected = "<div id=\"3\" class=\"scripttext\">—Anan&#237;as, &#191;Ibiga nia-saila-Satan&#225;s burba-isgana begi oubononiki? Emide, Bab-Dummad-Burba-Isligwaledga be gakans" + Block.BuildSplitLineHtml(0) + "anonigu, mani-abala be susgu. </div><sup>4&#160;</sup><div id=\"4\" class=\"scripttext\">Yoo be nainu-ukegu, &#191;nainu begadin" + Block.BuildSplitLineHtml(1) + "sursi? " + Block.BuildSplitLineHtml(3) + "Nainu be uksagu, &#191;a-manide begadinsursi? &#191;Ibiga be-gwagegi anmarga gakan" + Block.BuildSplitLineHtml(2) + "saedgi be binsanoniki? Dulemarga be gakan-imaksasulid, Bab-Dummadga be gakan-imaksad.</div>";
-			string actual = block.GetTextAsHtml(true, false, new[]
+			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">—Anan&#237;as, &#191;Ibiga nia-saila-Satan&#225;s burba-isgana begi oubononiki? Emide, Bab-Dummad-Burba-Isligwaledga be gakans</div>"+
+						   Block.BuildSplitLineHtml(1) +
+						   "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">anonigu, mani-abala be susgu. </div>" +
+						   "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\"><sup>4&#160;</sup>Yoo be nainu-ukegu, &#191;nainu begadin</div>" +
+						   Block.BuildSplitLineHtml(2) +
+						   "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">sursi? </div>" +
+						   Block.BuildSplitLineHtml(4) +
+						   "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">Nainu be uksagu, &#191;a-manide begadinsursi? &#191;Ibiga be-gwagegi anmarga gakan</div>" +
+						   Block.BuildSplitLineHtml(3) +
+						   "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">saedgi be binsanoniki? Dulemarga be gakan-imaksasulid, Bab-Dummadga be gakan-imaksad.</div>";
+
+			var actual = block.GetSplitTextAsHtml(0, false, new[]
 			{
-				new BlockSplitData(0, block, "3", 111),
-				new BlockSplitData(1, block, "4", 34),
-				new BlockSplitData(2, block, "4", 113),
-				new BlockSplitData(3, block, "4", 41)
-			});
+				new BlockSplitData(1, block, "3", 111),
+				new BlockSplitData(2, block, "4", 34),
+				new BlockSplitData(3, block, "4", 113),
+				new BlockSplitData(4, block, "4", 41)
+			}, false);
 			Assert.AreEqual(expected, actual);
 		}
 
 		[Test]
-		public void GetTextAsHtml_SpecialCharactersInText_InsertsInCorrectLocation()
+		public void GetSplitTextAsHtml_SpecialCharactersInText_InsertsInCorrectLocation()
 		{
 			var block = new Block("p", 4, 3);
 			block.BlockElements.Add(new ScriptText("Нылыс эз кув, сiйö узьö"));
-			Assert.AreEqual("<div id=\"3\" class=\"scripttext\">Нылыс эз кув, сiй&#246; " + Block.BuildSplitLineHtml(0) + "узь&#246;</div>",
-				block.GetTextAsHtml(false, false, new[] { new BlockSplitData(0, block, "3", 19) }));
+
+			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">Нылыс эз кув, сiй&#246; </div>" +
+						   Block.BuildSplitLineHtml(1) +
+						   "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">узь&#246;</div>";
+
+			var actual = block.GetSplitTextAsHtml(0, false, new[] { new BlockSplitData(1, block, "3", 19) }, false);
+
+			Assert.AreEqual( expected, actual);
 		}
 
 		[Test]
-		public void GetTextAsHtml_SpecialCharactersInTextWithSplitJustBeforeVerseNumber_InsertsInCorrectLocation()
+		public void GetSplitTextAsHtml_SpecialCharactersInTextWithSplitJustBeforeVerseNumber_InsertsInCorrectLocation()
 		{
 			var block = new Block("p", 4, 3);
 			block.BlockElements.Add(new ScriptText("Нылыс эз кув, сiйö узьö"));
 			block.BlockElements.Add(new Verse("4"));
 			block.BlockElements.Add(new ScriptText("Нылыс эз кув, сiйö узьö"));
-			Assert.AreEqual("<div id=\"3\" class=\"scripttext\">Ны" + Block.BuildSplitLineHtml(0) + "лыс эз кув, сiй&#246; узь&#246;" + Block.BuildSplitLineHtml(1) + "</div><sup>4&#160;</sup><div id=\"4\" class=\"scripttext\">Нылыс эз кув, сiй&#246; узь&#246;</div>",
-				block.GetTextAsHtml(true, false, new[]
-				{
-					new BlockSplitData(1, block, "3", BookScript.kSplitAtEndOfVerse),
-					new BlockSplitData(0, block, "3", 2),
-				}));
+
+			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">Ны</div>" +
+						   Block.BuildSplitLineHtml(1) +
+						   "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">лыс эз кув, сiй&#246; узь&#246;</div>" +
+						   Block.BuildSplitLineHtml(2) +
+						   "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\"></div>" +
+						   "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\"><sup>4&#160;</sup>Нылыс эз кув, сiй&#246; узь&#246;</div>";
+
+			var actual = block.GetSplitTextAsHtml(0, false, new[]
+			{
+				new BlockSplitData(2, block, "3", BookScript.kSplitAtEndOfVerse),
+				new BlockSplitData(1, block, "3", 2),
+			}, false);
+
+			Assert.AreEqual(expected, actual);
 		}
 
 		[Test]
-		public void GetTextAsHtml_ExpectedSpecialCharacters_InsertsInCorrectLocation()
+		public void GetSplitTextAsHtml_ExpectedSpecialCharacters_InsertsInCorrectLocation()
 		{
 			var block = new Block("p", 4, 3);
 			block.BlockElements.Add(new ScriptText("A & <<B>> C"));
-			Assert.AreEqual("<div id=\"3\" class=\"scripttext\">A &amp; &lt;&lt;B&gt;&gt; " + Block.BuildSplitLineHtml(0) + "C</div>", block.GetTextAsHtml(false, false, new[] { new BlockSplitData(0, block, "3", 10) }));
+			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">A &amp; &lt;&lt;B&gt;&gt; </div>" + Block.BuildSplitLineHtml(1) + "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">C</div>";
+			var actual = block.GetSplitTextAsHtml(0, false, new[] {new BlockSplitData(1, block, "3", 10)}, false);
+			Assert.AreEqual(expected, actual);
 		}
 
 		[Test]
