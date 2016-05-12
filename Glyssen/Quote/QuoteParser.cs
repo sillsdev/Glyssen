@@ -250,7 +250,6 @@ namespace Glyssen.Quote
 				m_workingBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber) { IsParagraphStart = block.IsParagraphStart };
 
 				bool atBeginningOfBlock = true;
-				var specialOpeningPunctuationLen = 0;
 				foreach (BlockElement element in block.BlockElements)
 				{
 					var scriptText = element as ScriptText;
@@ -323,6 +322,7 @@ namespace Glyssen.Quote
 						var match = regex.Match(content, pos);
 						if (match.Success)
 						{
+							var specialOpeningPunctuationLen = 0;
 							if (match.Index > pos)
 							{
 								specialOpeningPunctuationLen = GetSpecialOpeningPunctuation(content).Length;
