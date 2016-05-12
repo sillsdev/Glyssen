@@ -4407,18 +4407,21 @@ namespace GlyssenTests.Quote
 		#endregion
 
 		[Test]
-		public void Parse_ContinuerSameAsCloserAndBlockStartsWithSpecialOpeningPunctuation_OneQuote()
+		public void Parse_ContinuerSameAsCloserAndBlockStartsWithSpecialOpeningPunctuation_FollowedByRegularQuote_ParsedCorrectly()
 		{
 			// PG-690, PG-695 (Quichua Cañar - qxr)
+			// Added to for PG-705
 
 			// set up some text that uses special opening punctuation
 			var block1 = new Block("p", 15, 10) {UserConfirmed = false};
-			block1.BlockElements.Add((new Verse("10")));
+			block1.BlockElements.Add(new Verse("10"));
 			block1.BlockElements.Add(new ScriptText("Cutinllatac Dios quillcachishcapica:"));
 			var block2 = new Block("p", 15, 10) { UserConfirmed = false };
 			block2.BlockElements.Add(new ScriptText("«Tucui llactacuna,"));
 			var block3 = new Block("p", 15, 10) { UserConfirmed = false };
-			block3.BlockElements.Add(new ScriptText("¡Dios acllashcacunahuan cushicuichic!» ninmi."));
+			block3.BlockElements.Add(new ScriptText("¡Dios acllashcacunahuan cushicuichic!» ninmi. "));
+			block3.BlockElements.Add(new Verse("11"));
+			block3.BlockElements.Add(new ScriptText("«T»"));
 
 			var input = new List<Block> { block1, block2, block3 };
 
@@ -4434,13 +4437,14 @@ namespace GlyssenTests.Quote
 			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM", input);
 			var results = parser.Parse().ToList();
 
-			Assert.AreEqual(4, results.Count());
-			Assert.AreEqual("Cutinllatac Dios quillcachishcapica:", ((ScriptText)(results[0].BlockElements[1])).Content);
-			Assert.AreEqual("«Tucui llactacuna,", ((ScriptText)(results[1].BlockElements[0])).Content);
+			Assert.AreEqual(5, results.Count);
+			Assert.AreEqual("Cutinllatac Dios quillcachishcapica:", ((ScriptText)results[0].BlockElements[1]).Content);
+			Assert.AreEqual("«Tucui llactacuna,", ((ScriptText)results[1].BlockElements[0]).Content);
 			Assert.AreEqual(MultiBlockQuote.Start, results[1].MultiBlockQuote);
-			Assert.AreEqual("¡Dios acllashcacunahuan cushicuichic!» ", ((ScriptText)(results[2].BlockElements[0])).Content);
+			Assert.AreEqual("¡Dios acllashcacunahuan cushicuichic!» ", ((ScriptText)results[2].BlockElements[0]).Content);
 			Assert.AreEqual(MultiBlockQuote.Continuation, results[2].MultiBlockQuote);
-			Assert.AreEqual("ninmi.", ((ScriptText)(results[3].BlockElements[0])).Content);
+			Assert.AreEqual("ninmi. ", ((ScriptText)results[3].BlockElements[0]).Content);
+			Assert.AreEqual("«T»", ((ScriptText)results[4].BlockElements[1]).Content);
 		}
 	}
 }
