@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Dialogs;
@@ -416,7 +417,9 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(currentBlock, m_model.CurrentBlock);
 			var preSplit = currentBlock.Clone();
 
-			m_model.SplitBlock(new[] { new BlockSplitData(0, currentBlock, "2", 6) });
+			// List<KeyValuePair<int, string>> characters, Block currentBlock
+
+			m_model.SplitBlock(new[] { new BlockSplitData(1, currentBlock, "2", 6) }, GetListOfCharacters(2, new string[0]), currentBlock);
 			var splitPartA = m_model.CurrentBlock;
 			m_model.LoadNextRelevantBlock();
 			var splitPartB = m_model.CurrentBlock;
@@ -455,7 +458,7 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(currentBlock, model.CurrentBlock);
 			var preSplit = currentBlock.Clone();
 
-			model.SplitBlock(new[] { new BlockSplitData(0, currentBlock, "2", 6) });
+			model.SplitBlock(new[] { new BlockSplitData(1, currentBlock, "2", 6) }, GetListOfCharacters(2, new string[0]), currentBlock);
 			var splitPartA = model.CurrentBlock;
 			model.LoadNextRelevantBlock();
 			var splitPartB = model.CurrentBlock;
@@ -491,12 +494,12 @@ namespace GlyssenTests.Dialogs
 			m_model.SplitBlock(new[]
 			{
 				// The order here is significant as we need to be able to handle them "out of order" like this
-				new BlockSplitData(0, currentBlock, "7", 6),
-				new BlockSplitData(4, currentBlock, "8", 3),
-				new BlockSplitData(3, currentBlock, "7", BookScript.kSplitAtEndOfVerse),
-				new BlockSplitData(1, currentBlock, "7", 11),
-				new BlockSplitData(2, currentBlock, "7", 2)
-			});
+				new BlockSplitData(1, currentBlock, "7", 6),
+				new BlockSplitData(5, currentBlock, "8", 3),
+				new BlockSplitData(4, currentBlock, "7", BookScript.kSplitAtEndOfVerse),
+				new BlockSplitData(2, currentBlock, "7", 11),
+				new BlockSplitData(3, currentBlock, "7", 2)
+			}, GetListOfCharacters(6, new string[0]), currentBlock);
 
 			var splitPartA = m_model.CurrentBlock;
 			m_model.LoadNextRelevantBlock();
@@ -547,9 +550,9 @@ namespace GlyssenTests.Dialogs
 
 			m_model.SplitBlock(new[]
 			{
-				new BlockSplitData(0, currentBlock, "2", 6),
-				new BlockSplitData(1, nextBlock, "4", 8),
-			});
+				new BlockSplitData(1, currentBlock, "2", 6),
+				new BlockSplitData(2, nextBlock, "4", 8),
+			}, GetListOfCharacters(3, new string[0]), currentBlock);
 
 			var split1PartA = m_model.CurrentBlock;
 			m_model.LoadNextRelevantBlock();
@@ -588,9 +591,9 @@ namespace GlyssenTests.Dialogs
 
 			m_model.SplitBlock(new[]
 			{
-				new BlockSplitData(0, blockToSplit, "5", 6),
-				new BlockSplitData(1, blockToSplit, "5", 9)
-			});
+				new BlockSplitData(1, blockToSplit, "5", 6),
+				new BlockSplitData(2, blockToSplit, "5", 9)
+			}, GetListOfCharacters(3, new[] { currentBlockCharacterId }), blockToSplit);
 
 			Assert.False(m_model.IsCurrentBlockRelevant);
 			Assert.AreEqual(currentBlockCharacterId, m_model.CurrentBlock.CharacterId);
@@ -617,10 +620,10 @@ namespace GlyssenTests.Dialogs
 			Assert.DoesNotThrow(() =>
 				m_model.SplitBlock(new[]
 				{
-					new BlockSplitData(0, block1, "2", 13),
-					new BlockSplitData(1, block2, null, 0),
-					new BlockSplitData(2, block2, "2", 10)
-				})
+					new BlockSplitData(1, block1, "2", 13),
+					new BlockSplitData(2, block2, null, 0),
+					new BlockSplitData(3, block2, "2", 10)
+				}, GetListOfCharacters(4, new string[0]), block1)
 			);
 		}
 
@@ -642,10 +645,10 @@ namespace GlyssenTests.Dialogs
 
 			m_model.SplitBlock(new[]
 			{
-				new BlockSplitData(0, block1, "2", 13),
-				new BlockSplitData(1, block2, null, 0),
-				new BlockSplitData(2, block2, "2", 10)
-			});
+				new BlockSplitData(1, block1, "2", 13),
+				new BlockSplitData(2, block2, null, 0),
+				new BlockSplitData(3, block2, "2", 10)
+			}, GetListOfCharacters(4, new string[0]), block1);
 
 			// check the text
 			Assert.AreEqual(text1.Substring(0, 13), m_testProject.Books[0].Blocks[4].GetText(false));
@@ -704,6 +707,19 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual("MRK", m_model.CurrentBookId);
 			Assert.AreEqual(chapter, m_model.CurrentBlock.ChapterNumber);
 			Assert.AreEqual(verse, m_model.CurrentBlock.InitialStartVerseNumber);
+		}
+
+		private List<KeyValuePair<int, string>> GetListOfCharacters(int numberOfCharacters, IReadOnlyList<string> characterIds )
+		{
+			var returnVal = new List<KeyValuePair<int, string>>();
+
+			for (var i = 0; i < numberOfCharacters; i++)
+			{
+				var kvp = new KeyValuePair<int, string>(i, i < characterIds.Count ? characterIds[i] : "");
+				returnVal.Add(kvp);
+			}
+
+			return returnVal;
 		}
 	}
 }
