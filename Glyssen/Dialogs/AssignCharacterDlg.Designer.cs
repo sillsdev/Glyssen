@@ -1130,6 +1130,7 @@ namespace Glyssen.Dialogs
 			this.Controls.Add(this.m_toolStrip);
 			this.DoubleBuffered = true;
 			this.glyssenColorPalette.SetForeColor(this, Glyssen.Utilities.GlyssenColors.Default);
+			this.Icon = global::Glyssen.Properties.Resources.glyssenIcon;
 			this.KeyPreview = true;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, "{0} is the project name");
@@ -1137,7 +1138,6 @@ namespace Glyssen.Dialogs
 			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(651, 599);
 			this.Name = "AssignCharacterDlg";
-			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

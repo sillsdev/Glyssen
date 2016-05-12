@@ -32,7 +32,6 @@ namespace Glyssen.Dialogs
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoiceActorInformationDlg));
 			this.l10NSharpExtender1 = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_lblActorsEnteredSoFar = new System.Windows.Forms.Label();
 			this.m_lblTally = new System.Windows.Forms.Label();
@@ -291,7 +290,7 @@ namespace Glyssen.Dialogs
 			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.glyssenColorPalette.SetForeColor(this, Glyssen.Utilities.GlyssenColors.Default);
-			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Icon = global::Glyssen.Properties.Resources.glyssenIcon;
 			this.l10NSharpExtender1.SetLocalizableToolTip(this, null);
 			this.l10NSharpExtender1.SetLocalizationComment(this, "{0} is the project name");
 			this.l10NSharpExtender1.SetLocalizingId(this, "DialogBoxes.VoiceActorInformation.WindowTitle");

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using Glyssen.Properties;
+using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
 {
@@ -11,8 +11,15 @@ namespace Glyssen.Dialogs
 		public ViewScriptDlg(ProjectExporter viewModel)
 		{
 			InitializeComponent();
-			Icon = Resources.glyssenIcon;
 			m_viewModel = viewModel;
+
+			HandleStringsLocalized();
+			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+		}
+
+		private void HandleStringsLocalized()
+		{
+			Text = string.Format(Text, m_viewModel.Project.Name);
 		}
 
 		private void m_exportMenuItem_Click(object sender, EventArgs e)

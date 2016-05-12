@@ -1298,6 +1298,7 @@
 			this.Controls.Add(this.m_btnOk);
 			this.Controls.Add(this.m_btnCancel);
 			this.glyssenColorPalette.SetForeColor(this, Glyssen.Utilities.GlyssenColors.Default);
+			this.Icon = global::Glyssen.Properties.Resources.glyssenIcon;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.ProjectSettingsDlg.WindowTitle");
@@ -1306,7 +1307,6 @@
 			this.MinimumSize = new System.Drawing.Size(644, 436);
 			this.Name = "ProjectSettingsDlg";
 			this.Padding = new System.Windows.Forms.Padding(15, 15, 15, 55);
-			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Project Settings";
