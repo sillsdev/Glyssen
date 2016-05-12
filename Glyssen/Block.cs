@@ -7,6 +7,7 @@ using System.Text;
 using System.Web;
 using System.Xml.Serialization;
 using Glyssen.Character;
+using Glyssen.Dialogs;
 using Glyssen.Utilities;
 using SIL.Scripture;
 using SIL.Xml;
@@ -38,6 +39,7 @@ namespace Glyssen
 		private int m_chapterNumber;
 		private string m_characterIdInScript;
 		private string m_delivery;
+		private static string s_characterSelect;
 
 		public Block()
 		{
@@ -267,75 +269,120 @@ namespace Glyssen
 			}
 		}
 
-		public string GetTextAsHtml(bool showVerseNumbers, bool rightToLeftScript, IEnumerable<BlockSplitData> blockSplits = null)
+		public string GetTextAsHtml(bool showVerseNumbers, bool rightToLeftScript)
 		{
-			StringBuilder bldr = new StringBuilder();
+			var bldr = new StringBuilder();
 
 			var currVerse = InitialVerseNumberOrBridge;
 
 			foreach (var blockElement in BlockElements)
 			{
-				Verse verse = blockElement as Verse;
+				var verse = blockElement as Verse;
 				if (verse != null)
 				{
 					if (showVerseNumbers)
-					{
-						bldr.Append("<sup>");
-						if (rightToLeftScript)
-							bldr.Append("&rlm;");
-						bldr.Append(verse.Number);
-						bldr.Append("&#160;");
-						if (rightToLeftScript)
-							bldr.Append("&rlm;");
-						bldr.Append("</sup>");
-					}
+						bldr.Append(BuildVerseNumber(verse.Number, rightToLeftScript));
 					currVerse = verse.Number;
+					continue;
 				}
-				else
-				{
-					ScriptText text = blockElement as ScriptText;
-					if (text != null)
-					{
-						string encodedContent = HttpUtility.HtmlEncode(text.Content);
-						if (blockSplits != null && blockSplits.Any())
-						{
-							string preEncodedContent = text.Content;
-							List<string> allContentToInsert = new List<string>();
-							foreach (var groupOfSplits in blockSplits.GroupBy(s => new { s.BlockToSplit, s.VerseToSplit }))
-							{
-								IOrderedEnumerable<BlockSplitData> sortedGroupOfSplits = groupOfSplits.OrderByDescending(s => s, BlockSplitData.BlockSplitDataOffsetComparer);
-								foreach (var blockSplit in sortedGroupOfSplits)
-								{
-									var offsetToInsertExtra = blockSplit.CharacterOffsetToSplit;
-									if (blockSplit.VerseToSplit == currVerse)
-									{
-										if (offsetToInsertExtra == BookScript.kSplitAtEndOfVerse)
-											offsetToInsertExtra = preEncodedContent.Length;
-										if (offsetToInsertExtra < 0 || offsetToInsertExtra > preEncodedContent.Length)
-										{
-											throw new ArgumentOutOfRangeException("offsetToInsertExtra", offsetToInsertExtra,
-												"Value must be greater than or equal to 0 and less than or equal to the length (" + preEncodedContent.Length +
-												") of the encoded content of verse " + currVerse);
-										}
-										allContentToInsert.Insert(0, BuildSplitLineHtml(blockSplit.Id));
-										preEncodedContent = preEncodedContent.Insert(offsetToInsertExtra, kAwooga);
-									}
-								}
-							}
-							if (preEncodedContent != text.Content)
-							{
-								encodedContent = HttpUtility.HtmlEncode(preEncodedContent);
-								foreach (var contentToInsert in allContentToInsert)
-									encodedContent = encodedContent.ReplaceFirst(kAwooga, contentToInsert);
-							}
-						}
-						var content = String.Format("<div id=\"{0}\" class=\"scripttext\">{1}</div>", currVerse, encodedContent);
-						bldr.Append(content);
-					}
-				}
+
+				var text = blockElement as ScriptText;
+				if (text == null) continue;
+
+				var content = string.Format("<div id=\"{0}\" class=\"scripttext\">{1}</div>", currVerse, HttpUtility.HtmlEncode(text.Content));
+				bldr.Append(content);
 			}
 
 			return bldr.ToString();
+		}
+
+		public string GetSplitTextAsHtml(int blockId, bool rightToLeftScript, IEnumerable<BlockSplitData> blockSplits, bool showCharacters)
+		{
+			var bldr = new StringBuilder();
+			var currVerse = InitialVerseNumberOrBridge;
+			var verseNumberHtml = string.Empty;
+			const string splitTextTemplate = "<div class=\"splittext\" data-blockid=\"{2}\" data-verse=\"{3}\">{0}{1}</div>";
+
+			foreach (var blockElement in BlockElements)
+			{
+				// add verse marker
+				var verse = blockElement as Verse;
+				if (verse != null)
+				{
+					verseNumberHtml = BuildVerseNumber(verse.Number, rightToLeftScript);
+					currVerse = verse.Number;
+					continue;
+				}
+
+				// add verse text
+				var text = blockElement as ScriptText;
+				if (text == null) continue;
+
+				var encodedContent = string.Format(splitTextTemplate, verseNumberHtml, HttpUtility.HtmlEncode(text.Content), blockId, currVerse);
+				
+				if ((blockSplits != null) && blockSplits.Any())
+				{
+					var preEncodedContent = text.Content;
+
+					var allContentToInsert = new List<string>();
+					foreach (var groupOfSplits in blockSplits.GroupBy(s => new { s.BlockToSplit, s.VerseToSplit }))
+					{
+						
+						var sortedGroupOfSplits = groupOfSplits.OrderByDescending(s => s, BlockSplitData.BlockSplitDataOffsetComparer);
+						foreach (var blockSplit in sortedGroupOfSplits)
+						{
+							var offsetToInsertExtra = blockSplit.CharacterOffsetToSplit;
+							if (blockSplit.VerseToSplit == currVerse)
+							{
+								if (offsetToInsertExtra == BookScript.kSplitAtEndOfVerse)
+									offsetToInsertExtra = preEncodedContent.Length;
+								if (offsetToInsertExtra < 0 || offsetToInsertExtra > preEncodedContent.Length)
+								{
+									// ReSharper disable once NotResolvedInText
+									throw new ArgumentOutOfRangeException("offsetToInsertExtra", offsetToInsertExtra,
+										@"Value must be greater than or equal to 0 and less than or equal to the length (" + preEncodedContent.Length +
+										@") of the encoded content of verse " + currVerse);
+								}
+								allContentToInsert.Insert(0, BuildSplitLineHtml(blockSplit.Id) + (showCharacters ? CharacterSelect(blockSplit.Id) : ""));
+								preEncodedContent = preEncodedContent.Insert(offsetToInsertExtra, kAwooga);
+							}
+						}
+					}
+					if (preEncodedContent != text.Content)
+					{
+						encodedContent = HttpUtility.HtmlEncode(preEncodedContent);
+
+						// wrap each text segment in a splittext div
+						var segments = encodedContent.Split(new[] { kAwooga }, StringSplitOptions.None);
+						var newSegments = new List<string>();
+						foreach (var segment in segments)
+						{
+							newSegments.Add(string.Format(splitTextTemplate, verseNumberHtml, segment, blockId, currVerse));
+							verseNumberHtml = string.Empty;
+						}
+
+						encodedContent = string.Join(kAwooga, newSegments);
+
+						foreach (var contentToInsert in allContentToInsert)
+							encodedContent = encodedContent.ReplaceFirst(kAwooga, contentToInsert);
+					}
+				}
+
+				bldr.Append(encodedContent);
+
+				// reset verse number element
+				verseNumberHtml = string.Empty;
+			}
+
+			return bldr.ToString();
+		}
+
+		private string BuildVerseNumber(string verseNumber, bool rightToLeftScript)
+		{
+			const string template = "<sup>{1}{0}&#160;{1}</sup>";
+			var rtl = rightToLeftScript ? "&rlm;" : "";
+
+			return string.Format(template, verseNumber, rtl);
 		}
 
 		public override string ToString()
@@ -491,6 +538,51 @@ namespace Glyssen
 		public static string BuildSplitLineHtml(int id)
 		{
 			return string.Format(kSplitLineFrame, id);
+		}
+
+		public string CharacterSelect(int splitId, IEnumerable<AssignCharacterViewModel.Character> characters = null)
+		{
+			if ((characters == null) && !string.IsNullOrEmpty(s_characterSelect)) 
+				return string.Format(s_characterSelect, splitId);
+
+			const string optionTemplate = "<option value=\"{0}\">{1}</option>";
+			var sb = new StringBuilder("<select class=\"select-character\" data-splitid=\"{0}\"><option value=\"\"></option>");
+
+			if (characters != null)
+			{
+				foreach (var character in characters)
+				{
+					if (CharacterVerseData.IsCharacterStandard(character.CharacterId))
+					{
+							
+					}
+					if (character.IsNarrator)
+					{
+						sb.AppendFormat(optionTemplate,
+							CharacterVerseData.GetStandardCharacterId(BookCode, CharacterVerseData.StandardCharacter.Narrator),
+							character.LocalizedDisplay);
+					}
+					else
+					{
+						var stdCharacterType = CharacterVerseData.GetStandardCharacterType(character.CharacterId);
+						if (stdCharacterType == CharacterVerseData.StandardCharacter.NonStandard)
+						{
+							sb.AppendFormat(optionTemplate, character.CharacterId, character.LocalizedDisplay);								
+						}
+						else
+						{
+							sb.AppendFormat(optionTemplate,
+								CharacterVerseData.GetStandardCharacterId(BookCode, stdCharacterType),
+								character.LocalizedDisplay);
+						}
+					}
+				}
+			}
+
+			sb.Append("</select>");
+			s_characterSelect = sb.ToString();
+
+			return string.Format(s_characterSelect, splitId);
 		}
 	}
 

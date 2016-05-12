@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 
 namespace Glyssen.Utilities
@@ -23,6 +24,15 @@ namespace Glyssen.Utilities
 		public static void AppendParagraph(this StringBuilder sb, string paragraphText)
 		{
 			sb.AppendLine(string.Format("<p>{0}</p>", paragraphText));
+		}
+
+		public static bool IsWhitespace(this string value)
+		{
+			if (string.IsNullOrEmpty(value))
+				return false;
+
+			// ReSharper disable once SimplifyConditionalTernaryExpression
+			return value.Any(t => !char.IsWhiteSpace(t)) ? false : true;
 		}
 	}
 }
