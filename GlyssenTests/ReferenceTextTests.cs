@@ -11,6 +11,7 @@ using GlyssenTests.Properties;
 using NUnit.Framework;
 using Paratext;
 using SIL.IO;
+using SIL.Scripture;
 using SIL.Windows.Forms;
 using SIL.Xml;
 using ScrVers = Paratext.ScrVers;
@@ -928,6 +929,45 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void ApplyTo_FirstTwoVersesLinkedNtoM_RemainingVersesMatchedCorrectly()
+		{
+			//Acholi MAT 9:23-26
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(23, "Ka Yecu obino i ot pa laloc, oneno lukut nyamulere, kun lwak tye ka koko, ", false, 9)
+				.AddVerse(24, "ci owacci, "));
+			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Wua woko; nyakoni pe oto ento onino anina.” ");
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Ci gin gunyere anyera. ")
+				.AddVerse(25, "Ento i kare ma doŋ oryemo lwak gukato woko, ci en odonyo i ot omako latin nyako-nu ki ciŋe, nyako-nu oa malo. ")
+				.AddVerse(26, "Lok meno oywek owinnye oromo lobo meno ducu.");
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(23, "When Jesus came into the ruler’s house and saw the flute players and the noisy crowd, ", false, 9)
+				.AddVerse(24, "he said to them,"));
+			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "“Go away. The girl isn’t dead, but sleeping.”");
+			AddNarratorBlockForVerseInProgress(referenceBlocks, "They mocked him, saying:");
+			AddBlockForVerseInProgress(referenceBlocks, "people at Jairus' house", "“The girl is dead!”");
+			referenceBlocks.Add(CreateNarratorBlockForVerse(25, "But when the crowd was put out, he entered in, took her by the hand, and the girl arose.", false, 9));
+			referenceBlocks.Add(CreateNarratorBlockForVerse(26, "The report of this went out into all that land.", false, 9));
+
+			ReferenceText.ApplyTo(vernBook, referenceBlocks, GetFormattedChapterAnnouncement, m_vernVersification, ScrVers.English);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(5, result.Count);
+
+			//TODO: figure out how this is supposed to linked up
+			Assert.AreEqual(4, result[0].ReferenceBlocks.Count + result[1].ReferenceBlocks.Count + result[2].ReferenceBlocks.Count);
+
+			Assert.AreEqual(1, result[3].ReferenceBlocks.Count);
+			Assert.AreEqual(referenceBlocks[4].GetText(true), result[3].ReferenceBlocks[0].GetText(true));
+			Assert.IsTrue(result[3].MatchesReferenceText);
+
+			Assert.AreEqual(1, result[4].ReferenceBlocks.Count);
+			Assert.AreEqual(referenceBlocks[5].GetText(true), result[4].ReferenceBlocks[0].GetText(true));
+			Assert.IsTrue(result[4].MatchesReferenceText);
+		}
+
+		[Test]
 		public void ApplyTo_VernacularAndReferenceVersificationsDoNotMatch_SimpleVerseMapping_VersificationDifferencesResolvedBeforeMatching()
 		{
 			//GEN 32:1-32 = GEN 32:2-33
@@ -1217,8 +1257,16 @@ namespace GlyssenTests
 		private Block AddBlockForVerseInProgress(IList<Block> list, string characterId, string text)
 		{
 			var lastBlock = list.Last();
+			var initialStartVerse = lastBlock.InitialStartVerseNumber;
+			var initialEndVerse = lastBlock.InitialEndVerseNumber;
+			var lastVerseElement = lastBlock.BlockElements.OfType<Verse>().LastOrDefault();
+			if (lastVerseElement != null)
+			{
+				initialStartVerse = ScrReference.VerseToIntStart(lastVerseElement.Number);
+				initialEndVerse = ScrReference.VerseToIntEnd(lastVerseElement.Number);
+			}
 
-			var block = new Block(lastBlock.StyleTag, lastBlock.ChapterNumber, lastBlock.InitialStartVerseNumber, lastBlock.InitialEndVerseNumber)
+			var block = new Block(lastBlock.StyleTag, lastBlock.ChapterNumber, initialStartVerse, initialEndVerse)
 			{
 				CharacterId = characterId
 			};
