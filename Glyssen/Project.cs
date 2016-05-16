@@ -709,6 +709,7 @@ namespace Glyssen
 						upgradedProject.UserDecisionsProject = existingProject;
 						upgradedProject.PopulateAndParseBooks(bundle);
 						upgradedProject.m_metadata.ParserVersion = Settings.Default.ParserVersion;
+						upgradedProject.InitializeLoadedProject();
 						return upgradedProject;
 					}
 				}
