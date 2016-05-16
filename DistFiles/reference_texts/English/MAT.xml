@@ -10,12 +10,6 @@
     <verse num="1" />
     <text>The book of the genealogy of Jesus Christ, the son of David, the son of Abraham.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="extra-MAT">
-    <text>{Music--Starts @ v 2}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-MAT">
     <verse num="2" />
     <text>Abraham became the father of Isaac. Isaac became the father of Jacob. Jacob became the father of Judah and his brothers.</text>
@@ -80,9 +74,6 @@
     <verse num="17" />
     <text>So all the generations from Abraham to David are fourteen generations; from David to the exile to Babylon fourteen generations; and from the carrying away to Babylon to the Christ, fourteen generations.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-MAT">
     <verse num="18" />
     <text>Now the birth of Jesus Christ was like this; After his mother, Mary, was engaged to Joseph, before they came together, she was found pregnant by the Holy Spirit.</text>
@@ -96,11 +87,11 @@
     <text>But when he thought about these things, behold, an angel of the Lord appeared to him in a dream, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="angel" multiBlockQuote="Start">
-    <text>“Joseph, son of David, don’t be afraid to take to yourself Mary, your wife, for that which is conceived in her is of the Holy Spirit [1]. </text>
+    <text>“Joseph, son of David, don’t be afraid to take to yourself Mary, your wife, for that which is conceived in her is of the Holy Spirit . </text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="angel" multiBlockQuote="Continuation">
     <verse num="21" />
-    <text>She shall bring forth a son. You shall call his name Jesus, for it is he who shall save his people from their sins.[1]” </text>
+    <text>She shall bring forth a son. You shall call his name Jesus, for it is he who shall save his people from their sins.” </text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-MAT">
     <verse num="22" />
@@ -108,7 +99,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="scripture" userConfirmed="true">
     <verse num="23" />
-    <text>“Behold, the virgin shall be with child, and shall bring forth a son. They shall call his name Immanuel [1]”;  </text>
+    <text>“Behold, the virgin shall be with child, and shall bring forth a son. They shall call his name Immanuel”;  </text>
   </block>
   <block style="p" chapter="1" initialStartVerse="23" characterId="narrator-MAT">
     <text>which is, being interpreted, </text>
@@ -165,12 +156,6 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="Herod the Great" userConfirmed="true">
     <text>“What time did the star appear?”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="extra-MAT">
-    <text>{Music--Starts @ v 8}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-MAT">
     <verse num="8" />
     <text>He sent them to Bethlehem, and said,</text>
@@ -202,7 +187,7 @@
     <text>Now when they had departed, behold, an angel of the Lord appeared to Joseph in a dream, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="angel" delivery="commanding">
-    <text>“Arise and take the young child and his mother, and flee into Egypt, and stay there until I tell you, for Herod will seek the young child to destroy him. [1]”</text>
+    <text>“Arise and take the young child and his mother, and flee into Egypt, and stay there until I tell you, for Herod will seek the young child to destroy him.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-MAT">
     <verse num="14" />
@@ -213,7 +198,7 @@
     <text>They remained there until the death of Herod; that it might be fulfilled which was spoken by the Lord through the prophet, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="scripture">
-    <text>“Out of Egypt I called my son. [1]”</text>
+    <text>“Out of Egypt I called my son.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-MAT">
     <verse num="16" />
@@ -225,7 +210,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="scripture">
     <verse num="18" />
-    <text>“A voice was heard in Ramah, lamentation, weeping and great mourning, Rachel weeping for her children; she wouldn’t be comforted, because they are no more. [1]”</text>
+    <text>“A voice was heard in Ramah, lamentation, weeping and great mourning, Rachel weeping for her children; she wouldn’t be comforted, because they are no more.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-MAT">
     <verse num="19" />
@@ -233,7 +218,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="angel" delivery="commanding">
     <verse num="20" />
-    <text>“Arise and take the young child and his mother, and go into the land of Israel, for those who sought the young child’s life are dead. [1]”</text>
+    <text>“Arise and take the young child and his mother, and go into the land of Israel, for those who sought the young child’s life are dead.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-MAT">
     <verse num="21" />
@@ -248,7 +233,7 @@
     <text>He came and lived in a city called Nazareth; that it might be fulfilled which was spoken through the prophets:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="scripture">
-    <text>“He will be called a Nazarene. [1]”</text>
+    <text>“He will be called a Nazarene.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>3</text>
@@ -266,7 +251,7 @@
     <text>For this is he who was spoken of by Isaiah the prophet, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="scripture">
-    <text>“The voice of one crying in the wilderness, make ready the way of the Lord. Make his paths straight. [1]”</text>
+    <text>“The voice of one crying in the wilderness, make ready the way of the Lord. Make his paths straight.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-MAT">
     <verse num="4" />
@@ -337,7 +322,7 @@
     <text>Behold, a voice out of the heavens said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="God">
-    <text>“This is my beloved Son, with whom I am well pleased. [1]”</text>
+    <text>“This is my beloved Son, with whom I am well pleased.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>4</text>
@@ -355,7 +340,7 @@
     <text>The tempter came and said to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="Satan (Devil)">
-    <text>“If you are the Son of God, command that these stones become bread. [1]”</text>
+    <text>“If you are the Son of God, command that these stones become bread.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-MAT">
     <verse num="4" />
@@ -371,7 +356,7 @@
     <text>and said to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="Satan (Devil)">
-    <text>“If you are the Son of God, throw yourself down, for it is written, ‘He will put his angels in charge of you.’ and, ‘On their hands they will bear you up, so that you don’t dash your foot against a stone.’ [1]”</text>
+    <text>“If you are the Son of God, throw yourself down, for it is written, ‘He will put his angels in charge of you.’ and, ‘On their hands they will bear you up, so that you don’t dash your foot against a stone.’”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-MAT">
     <verse num="7" />
@@ -389,7 +374,7 @@
     <text>He said to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="Satan (Devil)">
-    <text>“I will give you all of these things, if you will fall down and worship me. [1]”</text>
+    <text>“I will give you all of these things, if you will fall down and worship me.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-MAT">
     <verse num="10" />
@@ -401,9 +386,6 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-MAT">
     <verse num="11" />
     <text>Then the devil left him, and behold, angels came and served him.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-MAT">
     <verse num="12" />
@@ -419,11 +401,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="scripture" multiBlockQuote="Start">
     <verse num="15" />
-    <text>“The land of Zebulun and the land of Naphtali, toward the sea, beyond the Jordan, Galilee of the Gentiles,[1]</text>
+    <text>“The land of Zebulun and the land of Naphtali, toward the sea, beyond the Jordan, Galilee of the Gentiles,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="scripture" multiBlockQuote="Continuation">
     <verse num="16" />
-    <text>the people who sat in darkness saw a great light, to those who sat in the region and shadow of death, to them light has dawned. [1]”</text>
+    <text>the people who sat in darkness saw a great light, to those who sat in the region and shadow of death, to them light has dawned.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-MAT">
     <verse num="17" />
@@ -431,9 +413,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="Jesus" delivery="preaching">
     <text>“Repent! For the Kingdom of Heaven is at hand.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-MAT">
     <verse num="18" />
@@ -455,9 +434,6 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-MAT">
     <verse num="22" />
     <text>They immediately left the boat and their father, and followed him.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-MAT">
     <verse num="23" />
@@ -689,12 +665,6 @@
     <verse num="6" />
     <text>But you, when you pray, enter into your inner room, and having shut your door, pray to your Father who is in secret. Your Father who sees in secret will reward you openly.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="extra-MAT">
-    <text>{Music--Ends before v 7}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="Jesus" delivery="preaching" multiBlockQuote="Start">
     <verse num="7" />
     <text>In praying, don’t use vain repetitions, as the Gentiles do; for they think that they will be heard for their much speaking.</text>
@@ -730,9 +700,6 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
     <verse num="15" />
     <text>But if you don’t forgive men their trespasses, neither will your Father forgive your trespasses.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="Jesus" delivery="preaching" multiBlockQuote="Start">
     <verse num="16" />
@@ -816,12 +783,6 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="Jesus" delivery="preaching">
     <verse num="1" />
     <text>“Don’t judge, so that you won’t be judged.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="extra-MAT">
-    <text>{Music--Starts @ v 2}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="2" characterId="Jesus" delivery="preaching" multiBlockQuote="Start">
     <verse num="2" />
@@ -966,9 +927,6 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="4" characterId="Jesus" delivery="giving orders">
     <text>“See that you tell nobody, but go, show yourself to the priest, and offer the gift that Moses commanded, as a testimony to them.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="4" characterId="extra-MAT">
-    <text>||| + 1.5 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-MAT">
     <verse num="5" />
     <text>When he came into Capernaum, a centurion came to him, asking him, </text>
@@ -1003,12 +961,6 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="Jesus">
     <text>“Most certainly I tell you, I haven’t found so great a faith, not even in Israel.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="extra-MAT">
-    <text>{Music--Ends before v 11}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Start">
     <verse num="11" />
     <text>I tell you that many will come from the east and the west, and will sit down with Abraham, Isaac, and Jacob in the Kingdom of Heaven,</text>
@@ -1027,9 +979,6 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-MAT">
     <text>His servant was healed in that hour.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="14" characterId="narrator-MAT">
     <verse num="14" />
     <text>When Jesus came into Peter’s house, he saw his wife’s mother lying sick with a fever.</text>
@@ -1047,10 +996,7 @@
     <text>This was to fulfill what was spoken through Isaiah the prophet, saying:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="17" characterId="scripture">
-    <text>“He took our infirmities, and bore our diseases. [1]”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="17" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
+    <text>“He took our infirmities, and bore our diseases.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="18" characterId="narrator-MAT">
     <verse num="18" />
@@ -1084,9 +1030,6 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="22" characterId="Jesus" delivery="giving orders">
     <text>“Follow me, and leave the dead to bury their own dead.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="22" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="23" characterId="narrator-MAT">
     <verse num="23" />
     <text>When he got into a boat, his disciples followed him.</text>
@@ -1111,12 +1054,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="narrator-MAT">
     <text>Then he got up, rebuked the wind and the sea, and there was a great calm.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="extra-MAT">
-    <text>{Music--Ends before v 27}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="27" characterId="narrator-MAT">
     <verse num="27" />
@@ -1173,12 +1110,6 @@
     <verse num="1" />
     <text>He entered into a boat, and crossed over, and came into his own city.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="extra-MAT">
-    <text>{SFX--Men talking--Starts @ v 2}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="narrator-MAT">
     <verse num="2" />
     <text>Behold, they brought to him a man who was paralyzed, lying on a bed. Jesus, seeing their faith, said to the paralytic,</text>
@@ -1222,9 +1153,6 @@
     <verse num="8" />
     <text>But when the multitudes saw it, they marveled and glorified God, who had given such authority to men.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="extra-MAT">
-    <text>||| + 1.5 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-MAT">
     <verse num="9" />
     <text>As Jesus passed by from there, he saw a man called Matthew sitting at the tax collection office. He said to him,</text>
@@ -1234,9 +1162,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-MAT">
     <text>He got up and followed him.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="extra-MAT">
-    <text>||| + 1.5 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-MAT">
     <verse num="10" />
@@ -1282,9 +1207,6 @@
     <verse num="17" />
     <text>Neither do people put new wine into old wineskins, or else the skins would burst, and the wine be spilled, and the skins ruined. No, they put new wine into fresh wineskins, and both are preserved.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="extra-MAT">
-    <text>||| + 1.5 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-MAT">
     <verse num="18" />
     <text>While he told these things to them, behold, a ruler came and worshiped him, saying,</text>
@@ -1303,7 +1225,7 @@
     <text>She thought to herself,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="woman, bleeding for twelve years" delivery="thinking">
-    <text>“If I just touch his garment, I will be made well. [1]”</text>
+    <text>“If I just touch his garment, I will be made well.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="22" characterId="narrator-MAT">
     <verse num="22" />
@@ -1314,12 +1236,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="22" characterId="narrator-MAT">
     <text>And the woman was made well from that hour.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="22" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="22" characterId="extra-MAT">
-    <text>{SFX--Women crying @ v 23}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="23" characterId="narrator-MAT">
     <verse num="23" />
@@ -1343,9 +1259,6 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="narrator-MAT">
     <verse num="26" />
     <text>The report of this went out into all that land.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="narrator-MAT">
     <verse num="27" />
@@ -1385,9 +1298,6 @@
     <verse num="31" />
     <text>But they went out and spread abroad his fame in all that land.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="31" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="32" characterId="narrator-MAT">
     <verse num="32" />
     <text>As they went out, behold, a mute man who was demon possessed was brought to him.</text>
@@ -1405,9 +1315,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="34" characterId="Pharisees" delivery="accusing">
     <text>“By the prince of the demons, he casts out demons.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="34" characterId="extra-MAT">
-    <text>||| + 1.5 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="35" characterId="narrator-MAT">
     <verse num="35" />
@@ -1525,12 +1432,6 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
     <verse num="23" />
     <text>But when they persecute you in this city, flee into the next, for most certainly I tell you, you will not have gone through all the cities of Israel until the Son of Man has come.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="extra-MAT">
-    <text>{Music--Ends before v 24}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="24" characterId="Jesus" delivery="instructing" multiBlockQuote="Start">
     <verse num="24" />
@@ -1678,9 +1579,6 @@
     <verse num="15" />
     <text>He who has ears to hear, let him hear.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Start">
     <verse num="16" />
     <text>“But to what shall I compare this generation? It is like children sitting in the marketplaces, who call to their companions and say,</text>
@@ -1817,12 +1715,6 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="13" characterId="narrator-MAT">
     <text>He stretched it out; and it was restored whole, just like the other.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="13" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="13" characterId="extra-MAT">
-    <text>{SFX--Crowd, excited @ v 14-18}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="narrator-MAT">
     <verse num="14" />
     <text>But the Pharisees went out, and conspired against him, how they might destroy him.</text>
@@ -1842,19 +1734,19 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="scripture" multiBlockQuote="Start">
     <verse num="18" />
-    <text>“Behold, my servant whom I have chosen; my beloved in whom my soul is well pleased: I will put my Spirit on him. He will proclaim justice to the nations.[1]</text>
+    <text>“Behold, my servant whom I have chosen; my beloved in whom my soul is well pleased: I will put my Spirit on him. He will proclaim justice to the nations.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="scripture" multiBlockQuote="Continuation">
     <verse num="19" />
-    <text>He will not strive, nor shout; neither will anyone hear his voice in the streets.[1]</text>
+    <text>He will not strive, nor shout; neither will anyone hear his voice in the streets.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="scripture" multiBlockQuote="Continuation">
     <verse num="20" />
-    <text>He won’t break a bruised reed. He won’t quench a smoking flax, until he leads justice to victory.[1]</text>
+    <text>He won’t break a bruised reed. He won’t quench a smoking flax, until he leads justice to victory.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="scripture" multiBlockQuote="Continuation">
     <verse num="21" />
-    <text>In his name, the nations will hope. [1]”</text>
+    <text>In his name, the nations will hope.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="22" characterId="narrator-MAT">
     <verse num="22" />
@@ -2034,9 +1926,6 @@
     <verse num="9" />
     <text>He who has ears to hear, let him hear.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="extra-MAT">
-    <text>||| + 1.5 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-MAT">
     <verse num="10" />
     <text>The disciples came, and said to him,</text>
@@ -2157,7 +2046,7 @@
     <text>So was fulfilled that which was spoken through the prophet:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="35" characterId="scripture">
-    <text>“I will open my mouth in parables; I will utter things hidden from the foundation of the world. [1]”</text>
+    <text>“I will open my mouth in parables; I will utter things hidden from the foundation of the world.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="36" characterId="narrator-MAT">
     <verse num="36" />
@@ -2244,9 +2133,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="52" characterId="Jesus">
     <text>“Therefore every scribe who has been made a disciple in the Kingdom of Heaven is like a man who is a householder, who brings out of his treasure new and old things.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="13" initialStartVerse="52" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="53" characterId="narrator-MAT">
     <verse num="53" />
@@ -2383,9 +2269,6 @@
     <verse num="21" />
     <text>Those who ate were about five thousand men, besides women and children.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="extra-MAT">
-    <text>||| + 1.5 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="narrator-MAT">
     <verse num="22" />
     <text>Immediately Jesus made the disciples get into the boat, and to go ahead of him to the other side, while he sent the multitudes away.</text>
@@ -2397,12 +2280,6 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="24" characterId="narrator-MAT">
     <verse num="24" />
     <text>But the boat was now in the middle of the sea, distressed by the waves, for the wind was contrary.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="14" initialStartVerse="24" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="14" initialStartVerse="24" characterId="extra-MAT">
-    <text>{Music--Starts @ v 25}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="25" characterId="narrator-MAT">
     <verse num="25" />
@@ -2507,12 +2384,6 @@
     <verse num="6" />
     <text>he shall not honor his father or mother.’ You have made the commandment of God void because of your tradition.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="15" initialStartVerse="6" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="15" initialStartVerse="6" characterId="extra-MAT">
-    <text>{Music--Starts @ v 7}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start">
     <verse num="7" />
     <text>“You hypocrites! Well did Isaiah prophesy of you, saying,</text>
@@ -2582,9 +2453,6 @@
     <verse num="20" />
     <text>These are the things which defile the man; but to eat with unwashed hands doesn’t defile the man.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="15" initialStartVerse="20" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="21" characterId="narrator-MAT">
     <verse num="21" />
     <text>Jesus went out from there, and withdrew into the region of Tyre and Sidon.</text>
@@ -2641,9 +2509,6 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="28" characterId="narrator-MAT">
     <text>And her daughter was healed from that hour.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="15" initialStartVerse="28" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="29" characterId="narrator-MAT">
     <verse num="29" />
     <text>Jesus departed there, and came near to the sea of Galilee; and he went up into the mountain, and sat there.</text>
@@ -2655,9 +2520,6 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="31" characterId="narrator-MAT">
     <verse num="31" />
     <text>The people were amazed when they saw the mute speaking, injured whole, lame walking, and blind seeing--and they glorified the God of Israel.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="15" initialStartVerse="31" characterId="extra-MAT">
-    <text>||| + 1.5 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="narrator-MAT">
     <verse num="32" />
@@ -2737,9 +2599,6 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="4" characterId="narrator-MAT">
     <text>He left them, and departed.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="4" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="5" characterId="narrator-MAT">
     <verse num="5" />
     <text>The disciples came to the other side and had forgotten to take bread. </text>
@@ -2778,9 +2637,6 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="12" characterId="narrator-MAT">
     <verse num="12" />
     <text>Then they understood that he didn’t tell them to beware of the yeast of bread, but of the teaching of the Pharisees and Sadducees.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="12" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="13" characterId="narrator-MAT">
     <verse num="13" />
@@ -2828,9 +2684,6 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="20" characterId="narrator-MAT">
     <verse num="20" />
     <text>Then he commanded the disciples that they should tell no one that he was Jesus the Christ.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="20" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="21" characterId="narrator-MAT">
     <verse num="21" />
@@ -2880,12 +2733,6 @@
     <verse num="1" />
     <text>After six days, Jesus took with him Peter, James, and John his brother, and brought them up into a high mountain by themselves.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="17" initialStartVerse="1" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="17" initialStartVerse="1" characterId="extra-MAT">
-    <text>{Music--Starts @ v 2}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="2" characterId="narrator-MAT">
     <verse num="2" />
     <text>He was transfigured before them. His face shone like the sun, and his garments became as white as the light.</text>
@@ -2906,7 +2753,7 @@
     <text>While he was still speaking, behold, a bright cloud overshadowed them. Behold, a voice came out of the cloud, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="5" characterId="God">
-    <text>“This is my beloved Son, in whom I am well pleased. Listen to him. [1]”</text>
+    <text>“This is my beloved Son, in whom I am well pleased. Listen to him.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="6" characterId="narrator-MAT">
     <verse num="6" />
@@ -2951,9 +2798,6 @@
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="13" characterId="narrator-MAT">
     <verse num="13" />
     <text>Then the disciples understood that he spoke to them of John the Baptizer.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="17" initialStartVerse="13" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="14" characterId="narrator-MAT">
     <verse num="14" />
@@ -3007,9 +2851,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="23" characterId="narrator-MAT">
     <text>They were exceedingly sorry.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="17" initialStartVerse="23" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="24" characterId="narrator-MAT">
     <verse num="24" />
@@ -3135,9 +2976,6 @@
     <verse num="20" />
     <text>For where two or three are gathered together in my name, there I am in their midst.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="18" initialStartVerse="20" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="21" characterId="narrator-MAT">
     <verse num="21" />
     <text>Then Peter came and said to him,</text>
@@ -3163,12 +3001,6 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="25" />
     <text>But because he couldn’t pay, his lord commanded him to be sold, with his wife, his children, and all that he had, and payment to be made.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="18" initialStartVerse="25" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="18" initialStartVerse="25" characterId="extra-MAT">
-    <text>{Music--Ends before v 26}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Start">
     <verse num="26" />
@@ -3291,9 +3123,6 @@
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="15" characterId="narrator-MAT">
     <verse num="15" />
     <text>He laid his hands on them, and departed from there.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="19" initialStartVerse="15" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="16" characterId="narrator-MAT">
     <verse num="16" />
@@ -3457,9 +3286,6 @@
     <verse num="16" />
     <text>So the last will be first, and the first last. For many are called, but few are chosen.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="20" initialStartVerse="16" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="17" characterId="narrator-MAT">
     <verse num="17" />
     <text>As Jesus was going up to Jerusalem, he took the twelve disciples aside, and on the way he said to them,</text>
@@ -3530,9 +3356,6 @@
     <verse num="28" />
     <text>For the Son of Man came not to be served, but to serve, and to give his life as a ransom for many.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="20" initialStartVerse="28" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="29" characterId="narrator-MAT">
     <verse num="29" />
     <text>As they went out from Jericho, a great multitude followed him.</text>
@@ -3597,7 +3420,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="5" characterId="scripture">
     <verse num="5" />
-    <text>“Tell the daughter of Zion, behold, your King comes to you, humble, and riding on a donkey, on a colt, the foal of a donkey. [1]”</text>
+    <text>“Tell the daughter of Zion, behold, your King comes to you, humble, and riding on a donkey, on a colt, the foal of a donkey.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="6" characterId="narrator-MAT">
     <verse num="6" />
@@ -3631,9 +3454,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="11" characterId="crowd" delivery="praising">
     <text>“This is the prophet, Jesus, from Nazareth of Galilee.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="21" initialStartVerse="11" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="12" characterId="narrator-MAT">
     <verse num="12" />
@@ -3673,9 +3493,6 @@
     <verse num="17" />
     <text>He left them, and went out of the city to Bethany, and lodged there.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="21" initialStartVerse="17" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="18" characterId="narrator-MAT">
     <verse num="18" />
     <text>Now in the morning, as he returned to the city, he was hungry.</text>
@@ -3705,9 +3522,6 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="22" />
     <text>All things, whatever you ask in prayer, believing, you will receive.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="21" initialStartVerse="22" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="23" characterId="narrator-MAT">
     <verse num="23" />
@@ -3827,12 +3641,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="42" characterId="Jesus">
     <text>“Did you never read in the Scriptures, ‘The stone which the builders rejected, the same was made the head of the corner. This was from the Lord. It is marvelous in our eyes?’”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="21" initialStartVerse="42" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="21" initialStartVerse="42" characterId="extra-MAT">
-    <text>{Music--Ends before v 43}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="43" characterId="Jesus" multiBlockQuote="Start">
     <verse num="43" />
@@ -3961,9 +3769,6 @@
     <verse num="22" />
     <text>When they heard it, they marveled, and left him, and went away.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="22" initialStartVerse="22" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="23" characterId="narrator-MAT">
     <verse num="23" />
     <text>On that day Sadducees (those who say that there is no resurrection) came to him. They asked him, </text>
@@ -4011,9 +3816,6 @@
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="33" characterId="narrator-MAT">
     <verse num="33" />
     <text>When the multitudes heard it, they were astonished at his teaching.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="22" initialStartVerse="33" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="34" characterId="narrator-MAT">
     <verse num="34" />
@@ -4184,12 +3986,6 @@
     <verse num="25" />
     <text>“Woe to you, scribes and Pharisees, hypocrites! For you clean the outside of the cup and of the platter, but within they are full of extortion and unrighteousness.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="23" initialStartVerse="25" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="23" initialStartVerse="25" characterId="extra-MAT">
-    <text>{Music--Ends before v 26}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="26" characterId="Jesus" delivery="rebuking">
     <verse num="26" />
     <text>“You blind Pharisee, first clean the inside of the cup and of the platter, that its outside may become clean also.”</text>
@@ -4233,9 +4029,6 @@
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="36" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation">
     <verse num="36" />
     <text>Most certainly I tell you, all these things will come upon this generation.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="23" initialStartVerse="36" characterId="extra-MAT">
-    <text>||| + 1.5 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="37" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start">
     <verse num="37" />
@@ -4355,12 +4148,6 @@
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="23" characterId="Jesus">
     <verse num="23" />
     <text>“Then if anyone tells you, ‘Behold, here is the Christ,’ or, ‘There,’ don’t believe it.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="24" initialStartVerse="23" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="24" initialStartVerse="23" characterId="extra-MAT">
-    <text>{Music--Ends before v 24}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="24" characterId="Jesus">
     <verse num="24" />
@@ -4517,12 +4304,6 @@
     <verse num="10" />
     <text>While they went away to buy more oil, the bridegroom came, and those who were ready went in with him to the marriage feast, and the door was shut.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="25" initialStartVerse="10" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="25" initialStartVerse="10" characterId="extra-MAT">
-    <text>{Music--Ends before v 11}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Start">
     <verse num="11" />
     <text>Afterward the other virgins also came, saying, ‘Lord, Lord, open to us.’</text>
@@ -4558,12 +4339,6 @@
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="19" characterId="Jesus">
     <verse num="19" />
     <text>“Now after a long time the lord of those servants came, and reconciled accounts with them.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="25" initialStartVerse="19" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="25" initialStartVerse="19" characterId="extra-MAT">
-    <text>{Music--Starts @ v 20}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="20" characterId="Jesus">
     <verse num="20" />
@@ -4697,9 +4472,6 @@
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="5" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests">
     <text>“Not during the feast, lest a riot occur among the people.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="26" initialStartVerse="5" characterId="extra-MAT">
-    <text>||| + 1.5 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="6" characterId="narrator-MAT">
     <verse num="6" />
     <text>Now Jesus was in Bethany, in the house of Simon the leper.</text>
@@ -4751,9 +4523,6 @@
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="16" characterId="narrator-MAT">
     <verse num="16" />
     <text>From that time he sought opportunity to betray him.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="26" initialStartVerse="16" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="17" characterId="narrator-MAT">
     <verse num="17" />
@@ -4992,9 +4761,6 @@
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="56" characterId="narrator-MAT">
     <text>Then all the disciples left him, and fled.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="26" initialStartVerse="56" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="57" characterId="narrator-MAT">
     <verse num="57" />
     <text>Those who had taken Jesus led him away to Caiaphas the high priest, where the scribes and the elders were gathered together.</text>
@@ -5063,9 +4829,6 @@
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="68" characterId="chief priests/Sanhedrin" characterIdOverrideForScript="chief priests" delivery="mocking">
     <text>“Prophesy to us, you Christ! Who hit you?”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="26" initialStartVerse="68" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="69" characterId="narrator-MAT">
     <verse num="69" />
     <text>Now Peter was sitting outside in the court, and a servant girl came to him, saying,</text>
@@ -5116,7 +4879,7 @@
     <text>Peter remembered the word which Jesus had said to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="75" characterId="Jesus">
-    <text>“Before the rooster crows, you will deny me three times. [1]”</text>
+    <text>“Before the rooster crows, you will deny me three times.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="75" characterId="narrator-MAT">
     <text>He went out and wept bitterly.</text>
@@ -5180,9 +4943,9 @@
     <text>Then, that which was spoken through Jeremiah the prophet was fulfilled, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="9" characterId="scripture">
-    <text>“They took the thirty pieces of silver, the price of him upon whom a price had been set, whom some of the children of Israel priced,[1] </text>
+    <text>“They took the thirty pieces of silver, the price of him upon whom a price had been set, whom some of the children of Israel priced, </text>
     <verse num="10" />
-    <text>and they gave them for the potter’s field, as the Lord commanded me. [1]”</text>
+    <text>and they gave them for the potter’s field, as the Lord commanded me.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="11" characterId="narrator-MAT">
     <verse num="11" />
@@ -5234,7 +4997,7 @@
     <text>While he was sitting on the judgment seat, his wife sent to him, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="19" characterId="Pilate's wife">
-    <text>“Have nothing to do with that righteous man, for I have suffered many things this day in a dream because of him. [1]”</text>
+    <text>“Have nothing to do with that righteous man, for I have suffered many things this day in a dream because of him.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="20" characterId="narrator-MAT">
     <verse num="20" />
@@ -5297,9 +5060,6 @@
     <verse num="26" />
     <text>Then he released to them Barabbas, but Jesus he flogged and delivered to be crucified.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="27" initialStartVerse="26" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="27" characterId="narrator-MAT">
     <verse num="27" />
     <text>Then the governor’s soldiers took Jesus into the Praetorium, and gathered the whole garrison together against him.</text>
@@ -5319,18 +5079,9 @@
     <verse num="30" />
     <text>They spat on him, and took the reed and struck him on the head.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="27" initialStartVerse="30" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="27" initialStartVerse="30" characterId="extra-MAT">
-    <text>{SFX--Men jeering--Ends before v 31}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="31" characterId="narrator-MAT">
     <verse num="31" />
     <text>When they had mocked him, they took the robe off of him, and put his clothes on him, and led him away to crucify him.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="27" initialStartVerse="31" characterId="extra-MAT">
-    <text>||| + 1.5 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="32" characterId="narrator-MAT">
     <verse num="32" />
@@ -5353,18 +5104,12 @@
     <verse num="34" />
     <text>They gave him sour wine to drink mixed with gall. When he had tasted it, he would not drink.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="27" initialStartVerse="34" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="27" initialStartVerse="34" characterId="extra-MAT">
-    <text>{Music--Starts @ v 35}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="35" characterId="narrator-MAT">
     <verse num="35" />
     <text>When they had crucified him, they divided his clothing among them, casting lots, that it might be fulfilled which was spoken by the prophet,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="35" characterId="scripture">
-    <text>“They parted my clothes among them, and for my cloak they cast lots. [1]”</text>
+    <text>“They parted my clothes among them, and for my cloak they cast lots.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="36" characterId="narrator-MAT">
     <verse num="36" />
@@ -5406,9 +5151,6 @@
     <verse num="44" />
     <text>The robbers also who were crucified with him cast on him the same reproach.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="27" initialStartVerse="44" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="45" characterId="narrator-MAT">
     <verse num="45" />
     <text>Now from the sixth hour there was darkness over all the land until the ninth hour.</text>
@@ -5446,12 +5188,6 @@
     <verse num="50" />
     <text>Jesus cried again with a loud voice, and yielded up his spirit.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="27" initialStartVerse="50" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="27" initialStartVerse="50" characterId="extra-MAT">
-    <text>{Music--Starts @ v 51}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="51" characterId="narrator-MAT">
     <verse num="51" />
     <text>Behold, the veil of the temple was torn  in two from the top to the bottom. The earth quaked and the rocks were split.</text>
@@ -5479,15 +5215,6 @@
     <verse num="56" />
     <text>Among them were Mary Magdalene, Mary the mother of James and Joses, and the mother of the sons of Zebedee.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="27" initialStartVerse="56" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="27" initialStartVerse="56" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="27" initialStartVerse="56" characterId="extra-MAT">
-    <text>{Music--Starts @ v 57}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="57" characterId="narrator-MAT">
     <verse num="57" />
     <text>When evening had come, a rich man from Arimathaea, named Joseph, who himself was also Jesus’ disciple came.</text>
@@ -5507,9 +5234,6 @@
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="61" characterId="narrator-MAT">
     <verse num="61" />
     <text>Mary Magdalene was there, and the other Mary, sitting opposite the tomb.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="27" initialStartVerse="61" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="62" characterId="narrator-MAT">
     <verse num="62" />
@@ -5542,12 +5266,6 @@
     <verse num="1" />
     <text>Now after the Sabbath, as it began to dawn on the first day of the week, Mary Magdalene and the other Mary came to see the tomb.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="28" initialStartVerse="1" characterId="extra-MAT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="28" initialStartVerse="1" characterId="extra-MAT">
-    <text>{Music--Ends before v 2}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="2" characterId="narrator-MAT">
     <verse num="2" />
     <text>Behold, there was a great earthquake, for an angel of the Lord descended from the sky, and came and rolled away the stone from the door, and sat on it.</text>
@@ -5565,15 +5283,15 @@
     <text>The angel answered the women,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="5" characterId="angels in white, two" multiBlockQuote="Start">
-    <text>“Don’t be afraid, for I know that you seek Jesus, who has been crucified.[1]</text>
+    <text>“Don’t be afraid, for I know that you seek Jesus, who has been crucified.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="6" characterId="angels in white, two" multiBlockQuote="Continuation">
     <verse num="6" />
-    <text>He is not here, for he has risen, just like he said. Come, see the place where the Lord was lying.[1]</text>
+    <text>He is not here, for he has risen, just like he said. Come, see the place where the Lord was lying.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="7" characterId="angels in white, two" multiBlockQuote="Continuation">
     <verse num="7" />
-    <text>Go quickly and tell his disciples, ‘He has risen from the dead, and behold, he goes before you into Galilee; there you will see him.’ Behold, I have told you. [1]”</text>
+    <text>Go quickly and tell his disciples, ‘He has risen from the dead, and behold, he goes before you into Galilee; there you will see him.’ Behold, I have told you.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="8" characterId="narrator-MAT">
     <verse num="8" />
@@ -5593,9 +5311,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="10" characterId="Jesus">
     <text>“Don’t be afraid. Go tell my brothers that they should go into Galilee, and there they will see me.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="28" initialStartVerse="10" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="11" characterId="narrator-MAT">
     <verse num="11" />
@@ -5617,9 +5332,6 @@
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="15" characterId="narrator-MAT">
     <verse num="15" />
     <text>So they took the money and did as they were told. This saying was spread abroad among the Jews, and continues until this day.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="28" initialStartVerse="15" characterId="extra-MAT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="16" characterId="narrator-MAT">
     <verse num="16" />

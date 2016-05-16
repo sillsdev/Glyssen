@@ -10,9 +10,6 @@
     <verse num="1" />
     <text>Paul, Silvanus, and Timothy, to the assembly of the Thessalonians in God the Father and the Lord Jesus Christ: Grace to you and peace from God our Father and the Lord Jesus Christ.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="extra-1TH">
-    <text>||| + 1.5 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1TH">
     <verse num="2" />
     <text>We always give thanks to God for all of you, mentioning you in our prayers.</text>

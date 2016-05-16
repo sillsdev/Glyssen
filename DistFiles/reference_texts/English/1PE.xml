@@ -69,7 +69,7 @@
     <text>because it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="scripture">
-    <text>“You shall be holy; for I am holy. [1]”</text>
+    <text>“You shall be holy; for I am holy.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1PE">
     <verse num="17" />
@@ -102,11 +102,11 @@
     <text>For,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="scripture" multiBlockQuote="Start">
-    <text>“All flesh is like grass, and all of man’s glory like the flower in the grass. The grass withers, and its flower falls;[1]</text>
+    <text>“All flesh is like grass, and all of man’s glory like the flower in the grass. The grass withers, and its flower falls;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="scripture" multiBlockQuote="Continuation">
     <verse num="25" />
-    <text>but the Lord’s word endures forever. [1]”</text>
+    <text>but the Lord’s word endures forever.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-1PE">
     <text>This is the word of Good News which was preached to you.</text>
@@ -142,21 +142,21 @@
     <text>Because it is contained in Scripture,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture">
-    <text>“Behold, I lay in Zion a chief cornerstone, chosen, and precious: He who believes in him will not be disappointed. [1]”</text>
+    <text>“Behold, I lay in Zion a chief cornerstone, chosen, and precious: He who believes in him will not be disappointed.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1PE">
     <verse num="7" />
     <text>For you who believe therefore is the honor, but for those who are disobedient,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="scripture">
-    <text>“The stone which the builders rejected, has become the chief cornerstone, [1]”</text>
+    <text>“The stone which the builders rejected, has become the chief cornerstone,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1PE">
     <verse num="8" />
     <text>and,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture">
-    <text>“a stone of stumbling, and a rock of offense. [1]”</text>
+    <text>“a stone of stumbling, and a rock of offense.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1PE">
     <text>For they stumble at the word, being disobedient, to which also they were appointed.</text>
@@ -218,7 +218,7 @@
     <text>who did not sin, </text>
   </block>
   <block style="p" chapter="2" initialStartVerse="22" characterId="scripture">
-    <text>“neither was deceit found in his mouth. [1]”</text>
+    <text>“neither was deceit found in his mouth.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1PE">
     <verse num="23" />
@@ -263,9 +263,6 @@
     <verse num="7" />
     <text>You husbands, in the same way, live with your wives according to knowledge. Give honor to the woman, as to the weaker vessel, as being also joint heirs of the grace of life; that your prayers may not be hindered.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="extra-1PE">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1PE">
     <verse num="8" />
     <text>Finally, be all like-minded, compassionate, loving as brothers, tenderhearted, courteous.</text>
@@ -277,15 +274,15 @@
     <text>For,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
-    <text>“He who would love life, and see good days, let him keep his tongue from evil, and his lips from speaking deceit.[1]</text>
+    <text>“He who would love life, and see good days, let him keep his tongue from evil, and his lips from speaking deceit.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
     <verse num="11" />
-    <text>Let him turn away from evil, and do good. Let him seek peace, and pursue it.[1]</text>
+    <text>Let him turn away from evil, and do good. Let him seek peace, and pursue it.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation">
     <verse num="12" />
-    <text>For the eyes of the Lord are on the righteous, and his ears open to their prayer; but the face of the Lord is against those who do evil. [1]”</text>
+    <text>For the eyes of the Lord are on the righteous, and his ears open to their prayer; but the face of the Lord is against those who do evil.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1PE">
     <verse num="13" />
@@ -377,9 +374,6 @@
     <verse num="11" />
     <text>If anyone speaks, let it be as it were the very words of God. If anyone serves, let it be as of the strength which God supplies. That in all things God may be glorified through Jesus Christ, to whom belong the glory and the dominion forever and ever. Amen.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="extra-1PE">
-    <text>||| + 1.5 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1PE">
     <verse num="12" />
     <text>Beloved, don’t be astonished at the fiery trial which has come upon you, to test you, as though a strange thing happened to you.</text>
@@ -406,7 +400,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture">
     <verse num="18" />
-    <text>“If it is hard for the righteous to be saved, what will happen to the ungodly and the sinner? [1]”</text>
+    <text>“If it is hard for the righteous to be saved, what will happen to the ungodly and the sinner?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-1PE">
     <verse num="19" />
@@ -436,7 +430,7 @@
     <text>Likewise, you younger ones, be subject to the elder. Yes, all of you clothe yourselves with humility, to subject yourselves to one another; for</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="scripture">
-    <text>“God resists the proud, but gives grace to the humble. [1]”</text>
+    <text>“God resists the proud, but gives grace to the humble.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1PE">
     <verse num="6" />

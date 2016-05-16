@@ -162,12 +162,6 @@
     <verse num="6" />
     <text>Sufficient to such a one is this punishment which was inflicted by the many;</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="extra-2CO">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="extra-2CO">
-    <text>{Music--Starts @ v 7}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-2CO">
     <verse num="7" />
     <text>so that on the contrary you should rather forgive him and comfort him, lest by any means such a one should be swallowed up with his excessive sorrow.</text>
@@ -347,7 +341,7 @@
     <text>But having the same spirit of faith, according to that which is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="scripture">
-    <text>“I believed, and therefore I spoke. [1]”</text>
+    <text>“I believed, and therefore I spoke.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-2CO">
     <text>We also believe, and therefore also we speak;</text>
@@ -469,7 +463,7 @@
     <text>for he says,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="scripture">
-    <text>“At an acceptable time I listened to you, in a day of salvation I helped you. [1]”</text>
+    <text>“At an acceptable time I listened to you, in a day of salvation I helped you.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-2CO">
     <text>Behold, now is the acceptable time. Behold, now is the day of salvation.</text>
@@ -531,18 +525,18 @@
     <text>What agreement has a temple of God with idols? For you are a temple of the living God. Even as God said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="scripture">
-    <text>“I will dwell in them, and walk in them; and I will be their God, and they will be my people. [1]”</text>
+    <text>“I will dwell in them, and walk in them; and I will be their God, and they will be my people.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-2CO">
     <verse num="17" />
     <text>Therefore </text>
   </block>
   <block style="p" chapter="6" initialStartVerse="17" characterId="scripture" multiBlockQuote="Start">
-    <text>“‘Come out from among them, and be separate,’ says the Lord. ‘Touch no unclean thing. I will receive you.[1]</text>
+    <text>“‘Come out from among them, and be separate,’ says the Lord. ‘Touch no unclean thing. I will receive you.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="scripture" multiBlockQuote="Continuation">
     <verse num="18" />
-    <text>I will be to you a Father. You will be to me sons and daughters,’ says the Lord Almighty. [1]”</text>
+    <text>I will be to you a Father. You will be to me sons and daughters,’ says the Lord Almighty.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="2CO" initialStartVerse="0" characterId="BC-2CO">
     <text>7</text>
@@ -673,7 +667,7 @@
     <text>As it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="15" characterId="scripture">
-    <text>“He who gathered much had nothing left over, and he who gathered little had no lack. [1]”</text>
+    <text>“He who gathered much had nothing left over, and he who gathered little had no lack.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="16" characterId="narrator-2CO">
     <verse num="16" />
@@ -749,7 +743,7 @@
     <text>As it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="scripture">
-    <text>“He has scattered abroad, he has given to the poor. His righteousness remains forever. [1]”</text>
+    <text>“He has scattered abroad, he has given to the poor. His righteousness remains forever.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-2CO">
     <verse num="10" />
@@ -850,9 +844,6 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-2CO">
     <verse num="16" />
     <text>We hope to preach the Good News even to the parts beyond you, not to boast in what someone else has already done.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="extra-2CO">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-2CO">
     <verse num="17" />
@@ -1012,12 +1003,6 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="narrator-2CO">
     <verse num="1" />
     <text>It is doubtless not profitable for me to boast. For I will come to visions and revelations of the Lord.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="extra-2CO">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="extra-2CO">
-    <text>{Music--Starts @ v 2}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-2CO">
     <verse num="2" />

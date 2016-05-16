@@ -53,12 +53,6 @@
     <verse num="11" />
     <text>Woe to them! For they went in the way of Cain, and ran riotously in the error of Balaam for hire, and perished in Korah’s rebellion.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="extra-JUD">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="extra-JUD">
-    <text>{SFX--Eerie--Starts @ v 12}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-JUD">
     <verse num="12" />
     <text>These men are hidden rocky reefs in your love feasts when they feast with you, shepherds who without fear feed themselves; clouds without water, carried along by winds. They are like autumn leaves without fruit, twice dead, plucked up by the roots.</text>
@@ -72,21 +66,15 @@
     <text>About these also Enoch, the seventh from Adam, prophesied, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="Enoch" multiBlockQuote="Start">
-    <text>“Behold, the Lord came with ten thousands of his holy ones,[1]</text>
+    <text>“Behold, the Lord came with ten thousands of his holy ones,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="Enoch" multiBlockQuote="Continuation">
     <verse num="15" />
-    <text>to execute judgment on all, and to convict all the ungodly of all their works of ungodliness which they have done in an ungodly way, and of all the hard things which ungodly sinners have spoken against him. [1]”</text>
+    <text>to execute judgment on all, and to convict all the ungodly of all their works of ungodliness which they have done in an ungodly way, and of all the hard things which ungodly sinners have spoken against him.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-JUD">
     <verse num="16" />
     <text>These are murmurers and complainers, walking after their lusts (and their mouth speaks proud things), showing respect of persons to gain advantage.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="extra-JUD">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="extra-JUD">
-    <text>{Music--Starts @ v 17}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-JUD">
     <verse num="17" />

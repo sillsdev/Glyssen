@@ -58,17 +58,11 @@
     <text>who also said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="men dressed in white, two (angels)">
-    <text>“You men of Galilee, why do you stand looking into the sky? This Jesus, who was received up from you into the sky will come back in the same way as you saw him going into the sky. [1]”</text>
+    <text>“You men of Galilee, why do you stand looking into the sky? This Jesus, who was received up from you into the sky will come back in the same way as you saw him going into the sky.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-ACT">
     <verse num="12" />
     <text>Then they returned to Jerusalem from the mountain called Olivet, which is near Jerusalem, a Sabbath day’s journey away.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="extra-ACT">
-    <text>{SFX--Men talking--Starts @ v 4}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-ACT">
     <verse num="13" />
@@ -131,12 +125,6 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-ACT">
     <verse num="1" />
     <text>Now when the day of Pentecost had come, they were all with one accord in one place.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="extra-ACT">
-    <text>{Music--Starts @ v 2}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-ACT">
     <verse num="2" />
@@ -202,12 +190,6 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="Peter (Simon)">
     <text>“You men of Judea, and all you who dwell at Jerusalem, let this be known to you, and listen to my words.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="extra-ACT">
-    <text>{Music--Starts @ v 15}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="Peter (Simon)" multiBlockQuote="Start">
     <verse num="15" />
     <text>For these aren’t drunken, as you suppose, seeing it is only the third hour of the day.</text>
@@ -243,12 +225,6 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="Peter (Simon)" multiBlockQuote="Continuation">
     <verse num="23" />
     <text>He was handed over to you by the determined counsel and foreknowledge of God, and you, with the help of wicked men, put him to death by nailing him to a cross.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="extra-ACT">
-    <text>{Music--Starts @ v 24}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="Peter (Simon)" multiBlockQuote="Start">
     <verse num="24" />
@@ -481,12 +457,6 @@
     <verse num="3" />
     <text>They laid hands on them, and put them in custody until the next day, for it was now evening.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="extra-ACT">
-    <text>{Music--Starts @ v 4}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-ACT">
     <verse num="4" />
     <text>But many of those who heard the word believed, and the number of the men came to be about five thousand.</text>
@@ -577,9 +547,6 @@
     <verse num="22" />
     <text>For the man on whom this miracle of healing was performed was more than forty years old.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-ACT">
     <verse num="23" />
     <text>Being let go, they came to their own company, and reported all that the chief priests and the elders had said to them.</text>
@@ -618,9 +585,6 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="narrator-ACT">
     <verse num="31" />
     <text>When they had prayed, the place was shaken where they were gathered together. They were all filled with the Holy Spirit, and they spoke the word of God with boldness.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="32" characterId="narrator-ACT">
     <verse num="32" />
@@ -706,9 +670,6 @@
     <verse num="11" />
     <text>Great fear came on the whole assembly, and on all who heard these things.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-ACT">
     <verse num="12" />
     <text>By the hands of the apostles many signs and wonders were done among the people. They were all with one accord in Solomon’s porch.</text>
@@ -721,12 +682,6 @@
     <verse num="14" />
     <text>More believers were added to the Lord, multitudes of both men and women.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="extra-ACT">
-    <text>{SFX--Crowd--Starts @ v 15}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-ACT">
     <verse num="15" />
     <text>They even carried out the sick into the streets, and laid them on cots and mattresses, so that as Peter came by, at the least his shadow might overshadow some of them.</text>
@@ -734,12 +689,6 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-ACT">
     <verse num="16" />
     <text>Multitudes also came together from the cities around Jerusalem, bringing sick people, and those who were tormented by unclean spirits: and they were all healed.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="extra-ACT">
-    <text>{Music--Ends before v 17}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-ACT">
     <verse num="17" />
@@ -755,7 +704,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="angel" delivery="commanding">
     <verse num="20" />
-    <text>“Go stand and speak in the temple to the people all the words of this life. [1]”</text>
+    <text>“Go stand and speak in the temple to the people all the words of this life.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-ACT">
     <verse num="21" />
@@ -893,9 +842,6 @@
     <verse num="7" />
     <text>The word of God increased and the number of the disciples multiplied in Jerusalem exceedingly. A great company of the priests were obedient to the faith.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-ACT">
     <verse num="8" />
     <text>Stephen, full of faith and power, performed great wonders and signs among the people.</text>
@@ -1024,12 +970,6 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="Stephen" multiBlockQuote="Continuation">
     <verse num="19" />
     <text>The same took advantage of our race, and mistreated our fathers, and forced them to throw out their babies, so that they wouldn’t stay alive.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="extra-ACT">
-    <text>{Music--Starts @ v 20}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="20" characterId="Stephen" multiBlockQuote="Start">
     <verse num="20" />
@@ -1240,15 +1180,6 @@
     <verse num="8" />
     <text>There was great joy in that city.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="extra-ACT">
-    <text>{Music--Ends before v 9}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-ACT">
     <verse num="9" />
     <text>But there was a certain man, Simon by name, who used to practice sorcery in the city, and amazed the people of Samaria, making himself out to be some great one. </text>
@@ -1327,15 +1258,12 @@
     <verse num="25" />
     <text>They therefore, when they had testified and spoken the word of the Lord, returned to Jerusalem, and preached the Good News to many villages of the Samaritans.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="narrator-ACT">
     <verse num="26" />
     <text>But an angel of the Lord spoke to Philip, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="angel">
-    <text>“Arise, and go toward the south to the way that goes down from Jerusalem to Gaza. This is a desert. [1]”</text>
+    <text>“Arise, and go toward the south to the way that goes down from Jerusalem to Gaza. This is a desert.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="27" characterId="narrator-ACT">
     <verse num="27" />
@@ -1348,7 +1276,7 @@
     <text>The Spirit said to Philip,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="29" characterId="Holy Spirit, the">
-    <text>“Go near, and join yourself to this chariot. [1]”</text>
+    <text>“Go near, and join yourself to this chariot.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="narrator-ACT">
     <verse num="30" />
@@ -1442,7 +1370,7 @@
     <text>He fell on the earth, and heard a voice saying to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="Jesus" delivery="questioning">
-    <text>“Saul, Saul, why do you persecute me? [1]”</text>
+    <text>“Saul, Saul, why do you persecute me?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="narrator-ACT">
     <verse num="5" />
@@ -1455,7 +1383,7 @@
     <text>The Lord said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="Jesus" userConfirmed="true">
-    <text>“I am Jesus, whom you are persecuting: it is hard for you to kick against the goads. [1]”</text>
+    <text>“I am Jesus, whom you are persecuting: it is hard for you to kick against the goads.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-ACT">
     <verse num="6" />
@@ -1468,7 +1396,7 @@
     <text>And the Lord said to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="Jesus">
-    <text>“Rise up, and enter into the city, and you will be told what you must do. [1]”</text>
+    <text>“Rise up, and enter into the city, and you will be told what you must do.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-ACT">
     <verse num="7" />
@@ -1487,7 +1415,7 @@
     <text>Now there was a certain disciple at Damascus named Ananias. The Lord said to him in a vision,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="Jesus" userConfirmed="true">
-    <text>“Ananias! [1]”</text>
+    <text>“Ananias!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-ACT">
     <text>He said,</text>
@@ -1500,11 +1428,11 @@
     <text>The Lord said to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Start">
-    <text>“Arise, and go to the street which is called Straight, and inquire in the house of Judah for one named Saul, a man of Tarsus. For behold, he is praying.[1]</text>
+    <text>“Arise, and go to the street which is called Straight, and inquire in the house of Judah for one named Saul, a man of Tarsus. For behold, he is praying.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="12" />
-    <text>In a vision he has seen a man named Ananias coming in, and laying his hands on him, that he might receive his sight. [1]”</text>
+    <text>In a vision he has seen a man named Ananias coming in, and laying his hands on him, that he might receive his sight.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="narrator-ACT">
     <verse num="13" />
@@ -1522,11 +1450,11 @@
     <text>But the Lord said to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Start">
-    <text>“Go your way, for he is my chosen vessel to bear my name before the nations and kings, and the children of Israel.[1]</text>
+    <text>“Go your way, for he is my chosen vessel to bear my name before the nations and kings, and the children of Israel.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="16" />
-    <text>For I will show him how many things he must suffer for my name’s sake. [1]”</text>
+    <text>For I will show him how many things he must suffer for my name’s sake.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="narrator-ACT">
     <verse num="17" />
@@ -1570,9 +1498,6 @@
     <verse num="25" />
     <text>Therefore, his disciples took him by night, and let him down through the wall, lowering him in a basket.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="narrator-ACT">
     <verse num="26" />
     <text>When Saul had come to Jerusalem, he tried to join himself to the disciples; but they were all afraid of him, not believing that he was a disciple.</text>
@@ -1600,9 +1525,6 @@
     <verse num="31" />
     <text>So the assemblies throughout all Judea and Galilee and Samaria had peace, and were built up. They were multiplied, walking in the fear of the Lord and in the comfort of the Holy Spirit.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="31" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="32" characterId="narrator-ACT">
     <verse num="32" />
     <text>It happened, as Peter went throughout all those parts, he came down also to the saints who lived at Lydda.</text>
@@ -1620,9 +1542,6 @@
     <text>Immediately he arose. </text>
     <verse num="35" />
     <text>All who lived at Lydda and in Sharon saw him, and they turned to the Lord.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="35" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="36" characterId="narrator-ACT">
     <verse num="36" />
@@ -1676,18 +1595,12 @@
     <verse num="2" />
     <text>He was a devout man, and one who feared God with all his house, who gave gifts for the needy generously to the people, and always prayed to God.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="extra-ACT">
-    <text>{Music--Starts @ v 3}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-ACT">
     <verse num="3" />
     <text>At about the ninth hour of the day, he clearly saw in a vision an angel of God coming to him, and saying to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="angel">
-    <text>“Cornelius! [1]”</text>
+    <text>“Cornelius!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="narrator-ACT">
     <verse num="4" />
@@ -1700,15 +1613,15 @@
     <text>He said to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="angel" multiBlockQuote="Start">
-    <text>“Your prayers and your gifts to the needy have gone up for a memorial before God.[1]</text>
+    <text>“Your prayers and your gifts to the needy have gone up for a memorial before God.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="angel" multiBlockQuote="Continuation">
     <verse num="5" />
-    <text>Now send men to Joppa, and get Simon, who is surnamed Peter.[1]</text>
+    <text>Now send men to Joppa, and get Simon, who is surnamed Peter.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="angel" multiBlockQuote="Continuation">
     <verse num="6" />
-    <text>He lodges with one Simon, a tanner, whose house is by the seaside: he will tell you what you should do.. [1]”</text>
+    <text>He lodges with one Simon, a tanner, whose house is by the seaside: he will tell you what you should do..”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-ACT">
     <verse num="7" />
@@ -1718,9 +1631,6 @@
     <verse num="8" />
     <text>Having explained everything to them, he sent them to Joppa.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-ACT">
     <verse num="9" />
     <text>Now on the next day as they were on their journey, and got close to the city, Peter went up on the housetop to pray at about noon.</text>
@@ -1728,12 +1638,6 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-ACT">
     <verse num="10" />
     <text>He became hungry and desired to eat, but while they were preparing, he fell into a trance.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="extra-ACT">
-    <text>{Music--Starts @ v 11}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="narrator-ACT">
     <verse num="11" />
@@ -1746,7 +1650,7 @@
     <text>A voice came to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="Jesus">
-    <text>“Rise, Peter, kill and eat! [1]”</text>
+    <text>“Rise, Peter, kill and eat!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-ACT">
     <verse num="14" />
@@ -1760,7 +1664,7 @@
     <text>A voice came to him again the second time,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="Jesus">
-    <text>“What God has cleansed, you must not call unclean. [1]”</text>
+    <text>“What God has cleansed, you must not call unclean.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-ACT">
     <verse num="16" />
@@ -1786,9 +1690,9 @@
     <text>While Peter was pondering the vision, the Spirit said to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="Holy Spirit, the">
-    <text>“Behold, three men seek you.[1] </text>
+    <text>“Behold, three men seek you. </text>
     <verse num="20" />
-    <text>Arise, go down and go with them, doubting nothing; for I have sent them. [1]”</text>
+    <text>Arise, go down and go with them, doubting nothing; for I have sent them.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="narrator-ACT">
     <verse num="21" />
@@ -1807,9 +1711,6 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="narrator-ACT">
     <verse num="23" />
     <text>So he called them in and lodged them.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="narrator-ACT">
     <text>On the next day Peter arose and went out with them, and some of the brothers from Joppa accompanied him.</text>
@@ -2003,9 +1904,6 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="believers, circumcised (in Jerusalem)" delivery="rejoicing">
     <text>“Then God has also granted to the Gentiles repentance to life!”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-ACT">
     <verse num="19" />
     <text>They therefore who were scattered abroad by the oppression that arose about Stephen traveled as far as Phoenicia, Cyprus, and Antioch, speaking the word to no one except to Jews only.</text>
@@ -2087,40 +1985,28 @@
     <verse num="6" />
     <text>The same night when Herod was about to bring him out, Peter was sleeping between two soldiers, and was bound with two chains. Guards in front of the door kept the prison.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="extra-ACT">
-    <text>{Music--Starts @ v 7}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="narrator-ACT">
     <verse num="7" />
     <text>And behold, an angel of the Lord stood by him, and a light shone in the cell. He struck Peter on the side, and woke him up, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="angel" delivery="commanding">
-    <text>“Stand up quickly! [1]”</text>
+    <text>“Stand up quickly!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="narrator-ACT">
     <text>His chains fell off from his hands.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="extra-ACT">
-    <text>{SFX--Chains falling off--Starts @ v 8}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-ACT">
     <verse num="8" />
     <text>The angel said to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="angel" delivery="commanding">
-    <text>“Get dressed and put on your sandals. [1]”</text>
+    <text>“Get dressed and put on your sandals.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-ACT">
     <text>He did so. He said to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="angel" delivery="commanding">
-    <text>“Put on your cloak, and follow me. [1]”</text>
+    <text>“Put on your cloak, and follow me.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-ACT">
     <verse num="9" />
@@ -2140,12 +2026,6 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="12" characterId="narrator-ACT">
     <verse num="12" />
     <text>Thinking about that, he came to the house of Mary, the mother of John whose surname was Mark, where many were gathered together and were praying.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="12" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="12" characterId="extra-ACT">
-    <text>{SFX--Knocking on door--Starts @ v 13}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="13" characterId="narrator-ACT">
     <verse num="13" />
@@ -2231,14 +2111,11 @@
     <text>As they served the Lord and fasted, the Holy Spirit said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="Holy Spirit, the">
-    <text>“Separate Barnabas and Saul for me, for the work to which I have called them. [1]”</text>
+    <text>“Separate Barnabas and Saul for me, for the work to which I have called them.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="3" characterId="narrator-ACT">
     <verse num="3" />
     <text>Then, when they had fasted and prayed and laid their hands on them, they sent them away.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="13" initialStartVerse="3" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="narrator-ACT">
     <verse num="4" />
@@ -2373,12 +2250,6 @@
     <verse num="33" />
     <text>that God has fulfilled the same to us, their children, in that he raised up Jesus. As it is also written in the second psalm, ‘You are my Son. Today I have become your father.’”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="13" initialStartVerse="33" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="13" initialStartVerse="33" characterId="extra-ACT">
-    <text>{Music--Ends &amp; New Music--Starts @ v 34}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="34" characterId="Paul" delivery="preaching" multiBlockQuote="Start">
     <verse num="34" />
     <text>“Concerning that he raised him up from the dead, now no more to return to corruption, he has spoken thus: ‘I will give you the holy and sure blessings of David.’</text>
@@ -2417,12 +2288,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="42" characterId="people in Pisidian Antioch synagogue">
     <text>“Preach these words to us on the next Sabbath.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="13" initialStartVerse="42" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="13" initialStartVerse="42" characterId="extra-ACT">
-    <text>{SFX--Crowd--Starts @ v 43}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="43" characterId="narrator-ACT">
     <verse num="43" />
@@ -2570,15 +2435,6 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="narrator-ACT">
     <verse num="20" />
     <text>But as the disciples stood around him, he rose up, and entered into the city. On the next day he went out with Barnabas to Derbe.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="extra-ACT">
-    <text>{Music--Ends before v 21}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="narrator-ACT">
     <verse num="21" />
@@ -2769,15 +2625,6 @@
     <verse num="35" />
     <text>But Paul and Barnabas stayed in Antioch, teaching and preaching the word of the Lord, with many others also.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="15" initialStartVerse="35" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="15" initialStartVerse="35" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="15" initialStartVerse="35" characterId="extra-ACT">
-    <text>{Music--Ends before v 36}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="36" characterId="narrator-ACT">
     <verse num="36" />
     <text>After some days Paul said to Barnabas,</text>
@@ -2834,9 +2681,6 @@
     <verse num="5" />
     <text>So the assemblies were strengthened in the faith, and increased in number daily.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="5" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="6" characterId="narrator-ACT">
     <verse num="6" />
     <text>When they had gone through the region of Phrygia and Galatia, they were forbidden by the Holy Spirit to speak the word in Asia.</text>
@@ -2854,7 +2698,7 @@
     <text>A vision appeared to Paul in the night. There was a man of Macedonia standing, begging him, and saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="9" characterId="Macedonian">
-    <text>“Come over into Macedonia and help us. [1]”</text>
+    <text>“Come over into Macedonia and help us.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="10" characterId="narrator-ACT">
     <verse num="10" />
@@ -2867,9 +2711,6 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="12" characterId="narrator-ACT">
     <verse num="12" />
     <text>From there we went to Philippi, which is a city of Macedonia, the foremost of the district, a Roman colony. We were staying some days in this city.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="12" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="13" characterId="narrator-ACT">
     <verse num="13" />
@@ -2888,9 +2729,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="narrator-ACT">
     <text>So she persuaded us.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="16" characterId="narrator-ACT">
     <verse num="16" />
@@ -2944,12 +2782,6 @@
     <verse num="25" />
     <text>But about midnight Paul and Silas were praying and singing hymns to God, and the prisoners were listening to them.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="25" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="25" characterId="extra-ACT">
-    <text>{SFX--Earthquake--Starts @ v 26}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="26" characterId="narrator-ACT">
     <verse num="26" />
     <text>Suddenly there was a great earthquake, so that the foundations of the prison were shaken. Immediately all the doors were opened, and everyone’s bonds were loosened.</text>
@@ -2994,12 +2826,6 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="34" characterId="narrator-ACT">
     <verse num="34" />
     <text>He brought them up into his house, and set food before them. He rejoiced greatly with all his household, having believed in God.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="34" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="34" characterId="extra-ACT">
-    <text>{Music--Ends before v 35}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="35" characterId="narrator-ACT">
     <verse num="35" />
@@ -3059,12 +2885,6 @@
     <verse num="4" />
     <text>Some of them were persuaded, and joined Paul and Silas, of the devout Greeks a great multitude, and not a few of the chief women.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="17" initialStartVerse="4" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="17" initialStartVerse="4" characterId="extra-ACT">
-    <text>{SFX--Riot--Starts @ v 5}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="5" characterId="narrator-ACT">
     <verse num="5" />
     <text>But the unpersuaded Jews took along some wicked men from the marketplace, and gathering a crowd, set the city in an uproar. Assaulting the house of Jason, they sought to bring them out to the people.</text>
@@ -3088,9 +2908,6 @@
     <verse num="9" />
     <text>When they had taken security from Jason and the rest, they let them go.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="17" initialStartVerse="9" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="10" characterId="narrator-ACT">
     <verse num="10" />
     <text>The brothers immediately sent Paul and Silas away by night to Beroea. When they arrived, they went into the Jewish synagogue.</text>
@@ -3098,12 +2915,6 @@
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="11" characterId="narrator-ACT">
     <verse num="11" />
     <text>Now these were more noble than those in Thessalonica. This is because they received the word with all readiness of the mind, examining the Scriptures daily to see whether these things were so.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="17" initialStartVerse="11" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="17" initialStartVerse="11" characterId="extra-ACT">
-    <text>{Music--Starts @ v 12}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="12" characterId="narrator-ACT">
     <verse num="12" />
@@ -3128,12 +2939,6 @@
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="17" characterId="narrator-ACT">
     <verse num="17" />
     <text>So he reasoned in the synagogue with the Jews and the devout persons, and in the marketplace every day with those who met him.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="17" initialStartVerse="17" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="17" initialStartVerse="17" characterId="extra-ACT">
-    <text>{SFX--Men talking--Starts @ v 18}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="narrator-ACT">
     <verse num="18" />
@@ -3247,12 +3052,6 @@
     <verse num="5" />
     <text>But when Silas and Timothy came down from Macedonia, Paul was compelled by the Spirit, testifying to the Jews that Jesus was the Christ.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="18" initialStartVerse="5" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="18" initialStartVerse="5" characterId="extra-ACT">
-    <text>{Music--Starts @ v 6}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="6" characterId="narrator-ACT">
     <verse num="6" />
     <text>When they opposed him and blasphemed, he shook out his clothing and said to them,</text>
@@ -3273,21 +3072,15 @@
     <text>The Lord said to Paul in the night by a vision,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="Jesus" delivery="in a vision" multiBlockQuote="Start">
-    <text>“Don’t be afraid, but speak and don’t be silent;[1]</text>
+    <text>“Don’t be afraid, but speak and don’t be silent;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="Jesus" delivery="in a vision" multiBlockQuote="Continuation">
     <verse num="10" />
-    <text>for I am with you, and no one will attack you to harm you, for I have many people in this city. [1]”</text>
+    <text>for I am with you, and no one will attack you to harm you, for I have many people in this city.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="11" characterId="narrator-ACT">
     <verse num="11" />
     <text>He lived there a year and six months, teaching the word of God among them.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="18" initialStartVerse="11" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="18" initialStartVerse="11" characterId="extra-ACT">
-    <text>{SFX--Men talking--Starts @ v 12}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="12" characterId="narrator-ACT">
     <verse num="12" />
@@ -3429,9 +3222,6 @@
     <verse num="10" />
     <text>This continued for two years, so that all those who lived in Asia heard the word of the Lord Jesus, both Jews and Greeks.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="19" initialStartVerse="10" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="11" characterId="narrator-ACT">
     <verse num="11" />
     <text>God worked special miracles by the hands of Paul.</text>
@@ -3478,12 +3268,6 @@
     <verse num="20" />
     <text>So the word of the Lord was growing and becoming mighty.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="19" initialStartVerse="20" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="19" initialStartVerse="20" characterId="extra-ACT">
-    <text>{Music--Ends before v 21}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="21" characterId="narrator-ACT">
     <verse num="21" />
     <text>Now after these things had ended, Paul determined in the spirit, when he had passed through Macedonia and Achaia, to go to Jerusalem, saying,</text>
@@ -3494,15 +3278,6 @@
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="22" characterId="narrator-ACT">
     <verse num="22" />
     <text>Having sent into Macedonia two of those who served him, Timothy and Erastus, he himself stayed in Asia for a while.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="19" initialStartVerse="22" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="19" initialStartVerse="22" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="19" initialStartVerse="22" characterId="extra-ACT">
-    <text>{SFX--Men talking--Starts @ v 23}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="23" characterId="narrator-ACT">
     <verse num="23" />
@@ -3607,9 +3382,6 @@
     <verse num="3" />
     <text>When he had spent three months there, and a plot was made against him by Jews as he was about to set sail for Syria, he determined to return through Macedonia.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="20" initialStartVerse="3" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="4" characterId="narrator-ACT">
     <verse num="4" />
     <text>These accompanied him as far as Asia: Sopater of Beroea; Aristarchus and Secundus of the Thessalonians; Gaius of Derbe; Timothy; and Tychicus and Trophimus of Asia.</text>
@@ -3621,9 +3393,6 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="6" characterId="narrator-ACT">
     <verse num="6" />
     <text>We sailed away from Philippi after the days of Unleavened Bread, and came to them at Troas in five days, where we stayed seven days.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="20" initialStartVerse="6" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="7" characterId="narrator-ACT">
     <verse num="7" />
@@ -3652,9 +3421,6 @@
     <verse num="12" />
     <text>They brought the boy in alive, and were greatly comforted.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="20" initialStartVerse="12" characterId="extra-ACT">
-    <text>||| + 1.5 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="13" characterId="narrator-ACT">
     <verse num="13" />
     <text>But we who went ahead to the ship set sail for Assos, intending to take Paul aboard there. He had arranged this because he was going there on foot.</text>
@@ -3670,9 +3436,6 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="16" characterId="narrator-ACT">
     <verse num="16" />
     <text>For Paul had determined to sail past Ephesus, that he might not have to spend time in Asia; for he was hastening, if it were possible for him, to be in Jerusalem on the day of Pentecost.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="20" initialStartVerse="16" characterId="extra-ACT">
-    <text>||| + 1.5 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="17" characterId="narrator-ACT">
     <verse num="17" />
@@ -3839,18 +3602,9 @@
     <verse num="16" />
     <text>Some of the disciples from Caesarea also went with us. They brought Mnason of Cyprus, an early disciple, with whom we would stay.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="21" initialStartVerse="16" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="17" characterId="narrator-ACT">
     <verse num="17" />
     <text>When we had come to Jerusalem, the brothers received us gladly.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="21" initialStartVerse="17" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="21" initialStartVerse="17" characterId="extra-ACT">
-    <text>{SFX--Men talking--Starts @ v 18}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="18" characterId="narrator-ACT">
     <verse num="18" />
@@ -3890,15 +3644,6 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="26" characterId="narrator-ACT">
     <verse num="26" />
     <text>Then Paul took the men, and the next day, purified himself. He went with them into the temple, declaring the fulfillment of the days of purification, until the offering was offered for every one of them.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="21" initialStartVerse="26" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="21" initialStartVerse="26" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="21" initialStartVerse="26" characterId="extra-ACT">
-    <text>{Music--Ends before v 27}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="27" characterId="narrator-ACT">
     <verse num="27" />
@@ -4062,9 +3807,6 @@
     <verse num="21" />
     <text>“He said to me, ‘Depart, for I will send you out far from here to the Gentiles.’”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="22" initialStartVerse="21" characterId="extra-ACT">
-    <text>||| + 1.5 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="22" characterId="narrator-ACT">
     <verse num="22" />
     <text>They listened to him until he said that; then they lifted up their voice, and said,</text>
@@ -4124,9 +3866,6 @@
     <verse num="29" />
     <text>Immediately those who were about to examine him departed from him. The commanding officer also was afraid when he realized that he was a Roman, because he had bound him.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="22" initialStartVerse="29" characterId="extra-ACT">
-    <text>||| + 1.5 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="30" characterId="narrator-ACT">
     <verse num="30" />
     <text>But on the next day, He desired to know the truth about why he was accused by the Jews. So he freed him from the bonds, and commanded the chief priests and all the council to come together. Then he brought Paul down and set him before them.</text>
@@ -4171,12 +3910,6 @@
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="6" characterId="Paul" delivery="calling out">
     <text>“Men and brothers, I am a Pharisee, a son of Pharisees. Concerning the hope and resurrection of the dead I am being judged!”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="23" initialStartVerse="6" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="23" initialStartVerse="6" characterId="extra-ACT">
-    <text>{SFX--Riot--Starts @ v 7}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="7" characterId="narrator-ACT">
     <verse num="7" />
     <text>When he had said this, an argument arose between the Pharisees and Sadducees, and the assembly was divided.</text>
@@ -4201,7 +3934,7 @@
     <text>The following night, the Lord stood by him, and said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="11" characterId="Jesus" delivery="in a vision">
-    <text>“Cheer up, Paul, for as you have testified about me at Jerusalem, so you must testify also at Rome. [1]”</text>
+    <text>“Cheer up, Paul, for as you have testified about me at Jerusalem, so you must testify also at Rome.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="12" characterId="narrator-ACT">
     <verse num="12" />
@@ -4445,9 +4178,6 @@
     <verse num="23" />
     <text>He ordered the centurion that Paul should be kept in custody, and should have some privileges, and not to forbid any of his friends to serve him or to visit him.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="24" initialStartVerse="23" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="24" characterId="narrator-ACT">
     <verse num="24" />
     <text>But after some days, Felix came with Drusilla, his wife, who was a Jewess. He sent for Paul, and heard him concerning the faith in Christ Jesus.</text>
@@ -4534,9 +4264,6 @@
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="12" characterId="Festus, governor of Judea">
     <text>“You have appealed to Caesar. To Caesar you shall go.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="25" initialStartVerse="12" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="13" characterId="narrator-ACT">
     <verse num="13" />
     <text>Now when some days had passed, King Agrippa and Bernice arrived at Caesarea, and greeted Festus.</text>
@@ -4591,9 +4318,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="22" characterId="Festus, governor of Judea" userConfirmed="true">
     <text>“you shall hear him.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="25" initialStartVerse="22" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="23" characterId="narrator-ACT">
     <verse num="23" />
@@ -4785,12 +4509,6 @@
     <verse num="2" />
     <text>Embarking in a ship of Adramyttium, which was about to sail to places on the coast of Asia, we put to sea. Aristarchus, a Macedonian of Thessalonica was with us.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="27" initialStartVerse="2" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="27" initialStartVerse="2" characterId="extra-ACT">
-    <text>{Music--Starts @ v 3}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="3" characterId="narrator-ACT">
     <verse num="3" />
     <text>The next day, we touched at Sidon. Julius treated Paul kindly, and gave him permission to go to his friends and refresh himself.</text>
@@ -4835,12 +4553,6 @@
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="13" characterId="narrator-ACT">
     <verse num="13" />
     <text>When the south wind blew softly, they supposed that they had obtained their purpose. They weighed anchor and sailed along Crete, close to shore.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="27" initialStartVerse="13" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="27" initialStartVerse="13" characterId="extra-ACT">
-    <text>{SFX--Wind--Starts @ v 14}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="14" characterId="narrator-ACT">
     <verse num="14" />
@@ -4897,18 +4609,9 @@
     <verse num="26" />
     <text>But we must run aground on a certain island.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="27" initialStartVerse="26" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="27" characterId="narrator-ACT">
     <verse num="27" />
     <text>But when the fourteenth night had come, we were driven back and forth in the Adriatic Sea. About midnight the sailors surmised that they were drawing near to some land.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="27" initialStartVerse="27" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="27" initialStartVerse="27" characterId="extra-ACT">
-    <text>{Music--Starts @ v 28}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="28" characterId="narrator-ACT">
     <verse num="28" />
@@ -5056,18 +4759,9 @@
     <verse num="15" />
     <text>From there the brothers, when they heard of us, came to meet us as far as The Market of Appius and The Three Taverns. When Paul saw them, he thanked God, and took courage.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="28" initialStartVerse="15" characterId="extra-ACT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="28" initialStartVerse="15" characterId="extra-ACT">
-    <text>{Music--Ends before v 16}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="16" characterId="narrator-ACT">
     <verse num="16" />
     <text>When we entered into Rome, the centurion delivered the prisoners to the captain of the guard, but Paul was allowed to stay by himself with the soldier who guarded him.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="28" initialStartVerse="16" characterId="extra-ACT">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="17" characterId="narrator-ACT">
     <verse num="17" />
@@ -5129,9 +4823,6 @@
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="29" characterId="narrator-ACT">
     <verse num="29" />
     <text>When he had said these words, the Jews departed, having a great dispute among themselves.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="28" initialStartVerse="29" characterId="extra-ACT">
-    <text>||| + 1.5 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="30" characterId="narrator-ACT">
     <verse num="30" />

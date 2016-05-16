@@ -75,12 +75,6 @@
     <verse num="12" />
     <text>For neither did I receive it from man, nor was I taught it, but it came to me through revelation of Jesus Christ.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="extra-GAL">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="extra-GAL">
-    <text>{Music--Ends before v 13}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-GAL">
     <verse num="13" />
     <text>For you have heard of my way of living in time past in the Jews’ religion. How that beyond measure I persecuted the assembly of God, and ravaged it.</text>
@@ -250,7 +244,7 @@
     <text>Even as Abraham</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="scripture">
-    <text>“believed God, and it was counted to him for righteousness. [1]”</text>
+    <text>“believed God, and it was counted to him for righteousness.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-GAL">
     <verse num="7" />
@@ -261,7 +255,7 @@
     <text>The Scripture, foreseeing that God would justify the Gentiles by faith, preached the Good News beforehand to Abraham, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="scripture">
-    <text>“In you all the nations will be blessed. [1]”</text>
+    <text>“In you all the nations will be blessed.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-GAL">
     <verse num="9" />
@@ -272,28 +266,28 @@
     <text>For as many as are of the works of the law are under a curse. For it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture">
-    <text>“Cursed is everyone who doesn’t continue in all things that are written in the book of the law, to do them. [1]”</text>
+    <text>“Cursed is everyone who doesn’t continue in all things that are written in the book of the law, to do them.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-GAL">
     <verse num="11" />
     <text>Now that no man is justified by the law before God is evident, for,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture">
-    <text>“The righteous will live by faith. [1]”</text>
+    <text>“The righteous will live by faith.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-GAL">
     <verse num="12" />
     <text>The law is not of faith, but,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture">
-    <text>“The man who does them will live by them. [1]”</text>
+    <text>“The man who does them will live by them.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-GAL">
     <verse num="13" />
     <text>Christ redeemed us from the curse of the law, having become a curse for us. For it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture">
-    <text>“Cursed is everyone who hangs on a tree, [1]”</text>
+    <text>“Cursed is everyone who hangs on a tree,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-GAL">
     <verse num="14" />
@@ -378,12 +372,6 @@
     <verse num="1" />
     <text>But I say that so long as the heir is a child, he is no different from a bondservant, though he is lord of all;</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="extra-GAL">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="extra-GAL">
-    <text>{Music--Starts @ v 2}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-GAL">
     <verse num="2" />
     <text>but is under guardians and stewards until the day appointed by the father.</text>
@@ -455,12 +443,6 @@
     <verse num="18" />
     <text>But it is always good to be zealous in a good cause, and not only when I am present with you.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="extra-GAL">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="extra-GAL">
-    <text>{Music--Ends before v 19}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-GAL">
     <verse num="19" />
     <text>My little children, I am again in travail until Christ is formed in you.</text>
@@ -496,7 +478,7 @@
     <text>For it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="27" characterId="scripture">
-    <text>“Rejoice, you barren who don’t bear. Break forth and shout, you that don’t travail. For more are the children of the desolate than of her who has a husband. [1]”</text>
+    <text>“Rejoice, you barren who don’t bear. Break forth and shout, you that don’t travail. For more are the children of the desolate than of her who has a husband.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="narrator-GAL">
     <verse num="28" />
@@ -511,7 +493,7 @@
     <text>However what does the Scripture say?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="scripture">
-    <text>“Throw out the handmaid and her son, for the son of the handmaid will not inherit with the son of the free woman. [1]”</text>
+    <text>“Throw out the handmaid and her son, for the son of the handmaid will not inherit with the son of the free woman.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="narrator-GAL">
     <verse num="31" />
@@ -554,7 +536,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-GAL">
     <verse num="9" />
-    <text>A little yeast grows through the whole lump.[1]</text>
+    <text>A little yeast grows through the whole lump.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-GAL">
     <verse num="10" />
@@ -577,17 +559,11 @@
     <text>For the whole law is fulfilled in one word, in this:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="scripture">
-    <text>“You shall love your neighbor as yourself. [1]”</text>
+    <text>“You shall love your neighbor as yourself.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-GAL">
     <verse num="15" />
     <text>But if you bite and devour one another, be careful that you don’t consume one another.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="extra-GAL">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="extra-GAL">
-    <text>{Music--Ends before v 16}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-GAL">
     <verse num="16" />

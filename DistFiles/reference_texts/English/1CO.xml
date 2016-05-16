@@ -18,9 +18,6 @@
     <verse num="3" />
     <text>Grace to you and peace from God our Father and the Lord Jesus Christ.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="extra-1CO">
-    <text>||| + 1.5 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1CO">
     <verse num="4" />
     <text>I always thank my God concerning you, for the grace of God which was given you in Christ Jesus.</text>
@@ -99,7 +96,7 @@
     <text>For it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="scripture">
-    <text>“I will destroy the wisdom of the wise, I will bring the discernment of the discerning to nothing. [1]”</text>
+    <text>“I will destroy the wisdom of the wise, I will bring the discernment of the discerning to nothing.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-1CO">
     <verse num="20" />
@@ -150,7 +147,7 @@
     <text>that, according as it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="31" characterId="scripture">
-    <text>“He who boasts, let him boast in the Lord. [1]”</text>
+    <text>“He who boasts, let him boast in the Lord.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>2</text>
@@ -190,7 +187,7 @@
     <text>But as it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="scripture">
-    <text>“Things which an eye didn’t see, and an ear didn’t hear, which didn’t enter into the heart of man, these God has prepared for those who love him. [1]”</text>
+    <text>“Things which an eye didn’t see, and an ear didn’t hear, which didn’t enter into the heart of man, these God has prepared for those who love him.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1CO">
     <verse num="10" />
@@ -218,7 +215,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="scripture">
     <verse num="16" />
-    <text>“For who has known the mind of the Lord, that he should instruct him? [1]”</text>
+    <text>“For who has known the mind of the Lord, that he should instruct him?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1CO">
     <text>But we have Christ’s mind.</text>
@@ -302,12 +299,6 @@
     <verse num="16" />
     <text>Don’t you know that you are a temple of God, and that God’s Spirit lives in you?</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="extra-1CO">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="extra-1CO">
-    <text>{Music--Ends before v 17}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1CO">
     <verse num="17" />
     <text>If anyone destroys the temple of God, God will destroy him; for God’s temple is holy, which you are.</text>
@@ -321,14 +312,14 @@
     <text>For the wisdom of this world is foolishness with God. For it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="scripture">
-    <text>“He has taken the wise in their craftiness. [1]”</text>
+    <text>“He has taken the wise in their craftiness.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-1CO">
     <verse num="20" />
     <text>And again,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="scripture">
-    <text>“The Lord knows the reasoning of the wise, that it is worthless. [1]”</text>
+    <text>“The Lord knows the reasoning of the wise, that it is worthless.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1CO">
     <verse num="21" />
@@ -376,12 +367,6 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1CO">
     <verse num="8" />
     <text>You are already filled. You have already become rich. You have come to reign without us. Yes, and I wish that you did reign, that we also might reign with you.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="extra-1CO">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="extra-1CO">
-    <text>{Music--Ends &amp; New Music--Starts @ v 9}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1CO">
     <verse num="9" />
@@ -662,12 +647,6 @@
     <verse num="14" />
     <text>For the unbelieving husband is sanctified in the wife, and the unbelieving wife is sanctified in the husband. Otherwise your children would be unclean, but now they are holy.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="extra-1CO">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="extra-1CO">
-    <text>{Music--Starts @ v 15}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="narrator-1CO">
     <verse num="15" />
     <text>Yet if the unbeliever departs, let there be separation. The brother or the sister is not under bondage in such cases, but God has called us in peace.</text>
@@ -880,7 +859,7 @@
     <text>For it is written in the law of Moses,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="scripture">
-    <text>“You shall not muzzle an ox while it treads out the grain. [1]”</text>
+    <text>“You shall not muzzle an ox while it treads out the grain.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-1CO">
     <text>Is it for the oxen that God cares, </text>
@@ -987,7 +966,7 @@
     <text>Neither be idolaters, as some of them were. As it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="scripture">
-    <text>“The people sat down to eat and drink, and rose up to play. [1]”</text>
+    <text>“The people sat down to eat and drink, and rose up to play.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-1CO">
     <verse num="8" />
@@ -1115,12 +1094,6 @@
     <verse num="1" />
     <text>Be imitators of me, even as I also am of Christ.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="11" initialStartVerse="1" characterId="extra-1CO">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="11" initialStartVerse="1" characterId="extra-1CO">
-    <text>{Music--Starts @ v 2}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="narrator-1CO">
     <verse num="2" />
     <text>Now I praise you, brothers, that you remember me in all things, and hold firm the traditions, even as I delivered them to you.</text>
@@ -1212,14 +1185,14 @@
     <text>When he had given thanks, he broke it, and said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="Jesus">
-    <text>“Take, eat. This is my body, which is broken for you. Do this in memory of me. [1]”</text>
+    <text>“Take, eat. This is my body, which is broken for you. Do this in memory of me.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-1CO">
     <verse num="25" />
     <text>In the same way he also took the cup, after supper, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="Jesus">
-    <text>“This cup is the new covenant in my blood. Do this, as often as you drink, in memory of me. [1]”</text>
+    <text>“This cup is the new covenant in my blood. Do this, as often as you drink, in memory of me.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="narrator-1CO">
     <verse num="26" />
@@ -1481,12 +1454,6 @@
     <verse num="2" />
     <text>For he who speaks in another language speaks not to men, but to God; for no one understands; but in the Spirit he speaks mysteries.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="14" initialStartVerse="2" characterId="extra-1CO">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="14" initialStartVerse="2" characterId="extra-1CO">
-    <text>{Music--Starts @ v 3}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="3" characterId="narrator-1CO">
     <verse num="3" />
     <text>But he who prophesies speaks to men for their edification, exhortation, and consolation.</text>
@@ -1570,7 +1537,7 @@
     <text>In the law it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="scripture">
-    <text>“By men of strange languages and by the lips of strangers I will speak to this people. Not even thus will they hear me, says the Lord. [1]”</text>
+    <text>“By men of strange languages and by the lips of strangers I will speak to this people. Not even thus will they hear me, says the Lord.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="narrator-1CO">
     <verse num="22" />
@@ -1794,12 +1761,6 @@
   <block style="p" chapter="15" initialStartVerse="32" characterId="scripture">
     <text>“let us eat and drink, for tomorrow we die.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="extra-1CO">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="extra-1CO">
-    <text>{Music--Ends before v 33}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="33" characterId="narrator-1CO">
     <verse num="33" />
     <text>Don’t be deceived! </text>
@@ -1848,12 +1809,6 @@
     <verse num="41" />
     <text>There is one glory of the sun, another glory of the moon, and another glory of the stars; for one star differs from another star in glory.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="15" initialStartVerse="41" characterId="extra-1CO">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="15" initialStartVerse="41" characterId="extra-1CO">
-    <text>{Music--Ends before v 42}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="42" characterId="narrator-1CO">
     <verse num="42" />
     <text>So also is the resurrection of the dead. It is sown in corruption; it is raised in incorruption.</text>
@@ -1869,7 +1824,7 @@
     <text>So also it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="scripture">
-    <text>“The first man, Adam, became a living soul. [1]”</text>
+    <text>“The first man, Adam, became a living soul.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="narrator-1CO">
     <text>The last Adam became a life-giving spirit.</text>
@@ -1911,11 +1866,11 @@
     <text>But when this corruptible will have put on incorruption, and this mortal will have put on immortality, then what is written will happen:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="54" characterId="scripture">
-    <text>“Death is swallowed up in victory. [1]”</text>
+    <text>“Death is swallowed up in victory.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="55" characterId="scripture">
     <verse num="55" />
-    <text>“O death, where is your victory? O death where is your sting? [1]”</text>
+    <text>“O death, where is your victory? O death where is your sting?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="56" characterId="narrator-1CO">
     <verse num="56" />

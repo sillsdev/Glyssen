@@ -22,9 +22,6 @@
     <verse num="4" />
     <text>I have no greater joy than this, to hear about my children walking in truth.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="extra-3JN">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-3JN">
     <verse num="5" />
     <text>Beloved, you do a faithful work in whatever you accomplish for those who are brothers and strangers.</text>

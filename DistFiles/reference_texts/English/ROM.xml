@@ -75,7 +75,7 @@
     <text>For in it is revealed God’s righteousness from faith to faith. As it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="scripture">
-    <text>“But the righteous shall live by faith. [1]”</text>
+    <text>“But the righteous shall live by faith.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-ROM">
     <verse num="18" />
@@ -143,12 +143,6 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-ROM">
     <verse num="1" />
     <text>Therefore you are without excuse, O man, whoever you are who judge. For in that which you judge another, you condemn yourself. For you who judge practice the same things.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="extra-ROM">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="extra-ROM">
-    <text>{Music--Starts @ v 2}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-ROM">
     <verse num="2" />
@@ -241,7 +235,7 @@
     <text>For just as it is written:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="scripture">
-    <text>“the name of God is blasphemed among the Gentiles because of you, [1]”</text>
+    <text>“the name of God is blasphemed among the Gentiles because of you,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-ROM">
     <verse num="25" />
@@ -283,7 +277,7 @@
     <text>May it never be! Yes, let God be found true, but every man a liar. As it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="scripture">
-    <text>“That you might be justified in your words, and might prevail when you come into judgment. [1]”</text>
+    <text>“That you might be justified in your words, and might prevail when you come into judgment.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-ROM">
     <verse num="5" />
@@ -314,13 +308,13 @@
     <text>As it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
-    <text>“There is no one righteous; no, not one.[1] </text>
+    <text>“There is no one righteous; no, not one. </text>
     <verse num="11" />
-    <text>There is no one who understands. There is no one who seeks after God.[1]</text>
+    <text>There is no one who understands. There is no one who seeks after God.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation">
     <verse num="12" />
-    <text>They have all turned aside. They have together become unprofitable. There is no one who does good, no, not, so much as one. [1]”</text>
+    <text>They have all turned aside. They have together become unprofitable. There is no one who does good, no, not, so much as one.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture">
     <verse num="13" />
@@ -330,25 +324,25 @@
     <text>“The poison of vipers is under their lips”;</text>
   </block>
   <block style="p" chapter="3" initialStartVerse="13" characterId="narrator-ROM">
-    <text>[1] </text>
+    <text> </text>
   </block>
   <block style="p" chapter="3" initialStartVerse="14" characterId="scripture">
     <verse num="14" />
-    <text>“whose mouth is full of cursing and bitterness. [1]”</text>
+    <text>“whose mouth is full of cursing and bitterness.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture" multiBlockQuote="Start">
     <verse num="15" />
-    <text>“Their feet are swift to shed blood.[1] </text>
+    <text>“Their feet are swift to shed blood. </text>
     <verse num="16" />
-    <text>Destruction and misery are in their ways.[1]</text>
+    <text>Destruction and misery are in their ways.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="scripture" multiBlockQuote="Continuation">
     <verse num="17" />
-    <text>The way of peace, they haven’t known. [1]” </text>
+    <text>The way of peace, they haven’t known.” </text>
   </block>
   <block style="p" chapter="3" initialStartVerse="18" characterId="scripture">
     <verse num="18" />
-    <text>“There is no fear of God before their eyes. [1]”</text>
+    <text>“There is no fear of God before their eyes.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-ROM">
     <verse num="19" />
@@ -416,7 +410,7 @@
     <text>For what does the Scripture say?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="scripture">
-    <text>“Abraham believed God, and it was accounted to him for righteousness. [1]”</text>
+    <text>“Abraham believed God, and it was accounted to him for righteousness.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-ROM">
     <verse num="4" />
@@ -433,11 +427,11 @@
     <text>David said:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture" multiBlockQuote="Start">
-    <text>“Blessed are they whose iniquities are forgiven, whose sins are covered.[1]</text>
+    <text>“Blessed are they whose iniquities are forgiven, whose sins are covered.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="scripture" multiBlockQuote="Continuation">
     <verse num="8" />
-    <text>Blessed is the man whom the Lord will by no means charge with sin. [1]”</text>
+    <text>Blessed is the man whom the Lord will by no means charge with sin.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-ROM">
     <verse num="9" />
@@ -477,7 +471,7 @@
     <text>* As the Scriptures say:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="scripture">
-    <text>“I have made you a father of many nations. [1]”</text>
+    <text>“I have made you a father of many nations.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-ROM">
     <text>Abraham is our father in the sight of God, in whom he believed --- The God who gives life to the dead, and calls the things that are not, as though they were.</text>
@@ -487,7 +481,7 @@
     <text>Who in hope believed against hope, to the end that he might become a father of many nations, according to that which had been spoken,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture">
-    <text>“So will your seed be. [1]”</text>
+    <text>“So will your seed be.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-ROM">
     <verse num="19" />
@@ -710,12 +704,6 @@
     <verse num="1" />
     <text>Or don’t you know, brothers (for I speak to men who know the law), that the law has dominion over a man for as long as he lives?</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="extra-ROM">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="extra-ROM">
-    <text>{Music--Starts @ v 2}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="2" characterId="narrator-ROM">
     <verse num="2" />
     <text>For the woman that has a husband is bound by law to the husband while he lives. But if the husband dies, she is discharged from the law of the husband.</text>
@@ -741,7 +729,7 @@
     <text>What shall we say then? Is the law sin? May it never be! However, I wouldn’t have known sin, except through the law. For I wouldn’t have known coveting, unless the law had said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="scripture">
-    <text>“You shall not covet. [1]”</text>
+    <text>“You shall not covet.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="8" characterId="narrator-ROM">
     <verse num="8" />
@@ -891,12 +879,6 @@
     <verse num="18" />
     <text>For I consider that the sufferings of this present time are not worthy to be compared with the glory which will be revealed toward us.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="18" characterId="extra-ROM">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="18" characterId="extra-ROM">
-    <text>{Music--Starts @ v 19}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="19" characterId="narrator-ROM">
     <verse num="19" />
     <text>For the creation waits with eager expectation for the children of God to be revealed.</text>
@@ -970,7 +952,7 @@
     <text>Even as it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="36" characterId="scripture">
-    <text>“For your sake we are killed all day long. We were accounted as sheep for the slaughter. [1]”</text>
+    <text>“For your sake we are killed all day long. We were accounted as sheep for the slaughter.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="37" characterId="narrator-ROM">
     <verse num="37" />
@@ -1016,7 +998,7 @@
     <text>Neither, because they are Abraham’s seed, are they all children. But,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="scripture">
-    <text>“In Isaac will your seed be called. [1]”</text>
+    <text>“In Isaac will your seed be called.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-ROM">
     <verse num="8" />
@@ -1025,7 +1007,7 @@
     <text>For this is a word of promise,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="scripture">
-    <text>“At the appointed time I will come, and Sarah will have a son. [1]”</text>
+    <text>“At the appointed time I will come, and Sarah will have a son.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-ROM">
     <verse num="10" />
@@ -1038,14 +1020,14 @@
     <text>it was said to her,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="scripture">
-    <text>“The elder will serve the younger. [1]”</text>
+    <text>“The elder will serve the younger.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="narrator-ROM">
     <verse num="13" />
     <text>Even as it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="scripture">
-    <text>“Jacob I loved, but Esau I hated. [1]”</text>
+    <text>“Jacob I loved, but Esau I hated.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-ROM">
     <verse num="14" />
@@ -1054,7 +1036,7 @@
     <text>For he said to Moses,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="scripture">
-    <text>“I will have mercy on whom I have mercy, and I will have compassion on whom I have compassion. [1]”</text>
+    <text>“I will have mercy on whom I have mercy, and I will have compassion on whom I have compassion.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="narrator-ROM">
     <verse num="16" />
@@ -1063,7 +1045,7 @@
     <text>For the Scripture says to Pharaoh,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="scripture">
-    <text>“For this very purpose I caused you to be raised up, that I might show in you my power, and that my name might be proclaimed in all the earth. [1]”</text>
+    <text>“For this very purpose I caused you to be raised up, that I might show in you my power, and that my name might be proclaimed in all the earth.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-ROM">
     <verse num="18" />
@@ -1081,7 +1063,7 @@
     <text>But indeed, O man, who are you to reply against God? Will the thing formed ask him who formed it, </text>
   </block>
   <block style="p" chapter="9" initialStartVerse="20" characterId="scripture">
-    <text>“Why did you make me like this? [1]”</text>
+    <text>“Why did you make me like this?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-ROM">
     <verse num="21" />
@@ -1104,29 +1086,29 @@
     <text>As he says also in Hosea,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="scripture">
-    <text>“I will call them ‘my people,’ which were not my people; and her ‘beloved,’ who was not beloved. [1]”</text>
+    <text>“I will call them ‘my people,’ which were not my people; and her ‘beloved,’ who was not beloved.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="scripture">
     <verse num="26" />
-    <text>“It will be that in the place where it was said to them, ‘You are not my people,’ There they will be called ‘children of the living God.’ [1]”</text>
+    <text>“It will be that in the place where it was said to them, ‘You are not my people,’ There they will be called ‘children of the living God.’”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="narrator-ROM">
     <verse num="27" />
     <text>Isaiah cries concerning Israel,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="scripture" multiBlockQuote="Start">
-    <text>“If the number of the children of Israel are as the sand of the sea, it is the remnant who will be saved;[1]</text>
+    <text>“If the number of the children of Israel are as the sand of the sea, it is the remnant who will be saved;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="28" characterId="scripture" multiBlockQuote="Continuation">
     <verse num="28" />
-    <text>for He will finish the work and cut it short in righteousness, because the LORD will make a short work upon the earth. [1]”</text>
+    <text>for He will finish the work and cut it short in righteousness, because the LORD will make a short work upon the earth.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="29" characterId="narrator-ROM">
     <verse num="29" />
     <text>As Isaiah has said before,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="29" characterId="scripture">
-    <text>“Unless the Lord of Armies had left us a seed, we would have become like Sodom, and would have been made like Gomorrah. [1]”</text>
+    <text>“Unless the Lord of Armies had left us a seed, we would have become like Sodom, and would have been made like Gomorrah.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="30" characterId="narrator-ROM">
     <verse num="30" />
@@ -1143,7 +1125,7 @@
     <text>even as it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="33" characterId="scripture">
-    <text>“Behold, I lay in Zion a stumbling stone and a rock of offense; and no one who believes in him will be disappointed. [1]”</text>
+    <text>“Behold, I lay in Zion a stumbling stone and a rock of offense; and no one who believes in him will be disappointed.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="ROM" initialStartVerse="0" characterId="BC-ROM">
     <text>10</text>
@@ -1169,7 +1151,7 @@
     <text>For Moses writes about the righteousness of the law,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="scripture">
-    <text>“The one who does them will live by them. [1]”</text>
+    <text>“The one who does them will live by them.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-ROM">
     <verse num="6" />
@@ -1180,12 +1162,12 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="scripture">
     <verse num="7" />
-    <text>“or, ‘Who will descend into the abyss?’ (that is, to bring Christ up from the dead.)[1] </text>
+    <text>“or, ‘Who will descend into the abyss?’ (that is, to bring Christ up from the dead.) </text>
     <verse num="8" />
     <text>But what does it say?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="scripture">
-    <text>“The word is near you, in your mouth, and in your heart [1]”</text>
+    <text>“The word is near you, in your mouth, and in your heart”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-ROM">
     <text>that is, the word of faith, which we preach:</text>
@@ -1201,7 +1183,7 @@
     <text>For the Scripture says,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="scripture">
-    <text>“Whoever believes in him will not be disappointed. [1]”</text>
+    <text>“Whoever believes in him will not be disappointed.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="narrator-ROM">
     <verse num="12" />
@@ -1210,7 +1192,7 @@
     <text>For,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="scripture">
-    <text>“Whoever will call on the name of the Lord will be saved. [1]”</text>
+    <text>“Whoever will call on the name of the Lord will be saved.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-ROM">
     <verse num="14" />
@@ -1221,14 +1203,14 @@
     <text>And how will they preach unless they are sent? As it is written:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="scripture">
-    <text>“How beautiful are the feet of those who preach the Good News of peace, who bring glad tidings of good things! [1]”</text>
+    <text>“How beautiful are the feet of those who preach the Good News of peace, who bring glad tidings of good things!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-ROM">
     <verse num="16" />
     <text>But they didn’t all listen to the glad news. For Isaiah says,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture">
-    <text>“Lord, who has believed our report? [1]”</text>
+    <text>“Lord, who has believed our report?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-ROM">
     <verse num="17" />
@@ -1239,28 +1221,28 @@
     <text>But I ask, didn’t they hear? Yes, most certainly,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="scripture">
-    <text>“Their sound went out into all the earth, their words to the ends of the world. [1]”</text>
+    <text>“Their sound went out into all the earth, their words to the ends of the world.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="narrator-ROM">
     <verse num="19" />
     <text>But I ask, didn’t Israel know? First Moses says,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="scripture">
-    <text>“I will provoke you to jealousy with that which is no nation, with a nation void of understanding I will make you angry. [1]”</text>
+    <text>“I will provoke you to jealousy with that which is no nation, with a nation void of understanding I will make you angry.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="narrator-ROM">
     <verse num="20" />
     <text>Isaiah is very bold, and says,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="scripture">
-    <text>“I was found by those who didn’t seek me. I was revealed to those who didn’t ask for me. [1]”</text>
+    <text>“I was found by those who didn’t seek me. I was revealed to those who didn’t ask for me.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="narrator-ROM">
     <verse num="21" />
     <text>But as to Israel he says,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="scripture">
-    <text>“All day long I stretched out my hands to a disobedient and contrary people. [1]”</text>
+    <text>“All day long I stretched out my hands to a disobedient and contrary people.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="ROM" initialStartVerse="0" characterId="BC-ROM">
     <text>11</text>
@@ -1275,14 +1257,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="3" characterId="scripture">
     <verse num="3" />
-    <text>“Lord, they have killed your prophets, they have broken down your altars; and I am left alone, and they seek my life. [1]”</text>
+    <text>“Lord, they have killed your prophets, they have broken down your altars; and I am left alone, and they seek my life.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-ROM">
     <verse num="4" />
     <text>But how does God answer him?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="scripture">
-    <text>“I have reserved for myself seven thousand men, who have not bowed the knee to Baal. [1]”</text>
+    <text>“I have reserved for myself seven thousand men, who have not bowed the knee to Baal.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-ROM">
     <verse num="5" />
@@ -1299,18 +1281,18 @@
     <text>According as it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="8" characterId="scripture">
-    <text>“God gave them a spirit of stupor, eyes that they should not see, and ears that they should not hear, to this very day. [1]”</text>
+    <text>“God gave them a spirit of stupor, eyes that they should not see, and ears that they should not hear, to this very day.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="narrator-ROM">
     <verse num="9" />
     <text>David says,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="scripture" multiBlockQuote="Start">
-    <text>“Let their table be made a snare, and a trap, a stumbling block, and a retribution to them.[1]</text>
+    <text>“Let their table be made a snare, and a trap, a stumbling block, and a retribution to them.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="scripture" multiBlockQuote="Continuation">
     <verse num="10" />
-    <text>Let their eyes be darkened, that they may not see. Bow down their back always. [1]”</text>
+    <text>Let their eyes be darkened, that they may not see. Bow down their back always.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-ROM">
     <verse num="11" />
@@ -1380,11 +1362,11 @@
     <text>Then all Israel will be saved. Even as it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="scripture" multiBlockQuote="Start">
-    <text>“There will come out of Zion the Deliverer, and he will turn away ungodliness from Jacob.[1]</text>
+    <text>“There will come out of Zion the Deliverer, and he will turn away ungodliness from Jacob.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="scripture" multiBlockQuote="Continuation">
     <verse num="27" />
-    <text>This is my covenant to them, when I will take away their sins. [1]”</text>
+    <text>This is my covenant to them, when I will take away their sins.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="narrator-ROM">
     <verse num="28" />
@@ -1412,11 +1394,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="34" characterId="scripture">
     <verse num="34" />
-    <text>“For who has known the mind of the Lord? Or who has been his counselor? [1]”</text>
+    <text>“For who has known the mind of the Lord? Or who has been his counselor?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="35" characterId="scripture">
     <verse num="35" />
-    <text>“Or who has first given to him, and it will be repaid to him again? [1]”</text>
+    <text>“Or who has first given to him, and it will be repaid to him again?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="36" characterId="narrator-ROM">
     <verse num="36" />
@@ -1432,12 +1414,6 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-ROM">
     <verse num="2" />
     <text>Don’t be conformed to this world, but be transformed by the renewing of your mind. That way you may prove what is the good, well-pleasing, and perfect will of God.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="extra-ROM">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="extra-ROM">
-    <text>{Music--Starts @ v 3}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-ROM">
     <verse num="3" />
@@ -1508,14 +1484,14 @@
     <text>Don’t seek revenge yourselves, beloved, but give place to God’s wrath. For it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="scripture">
-    <text>“Vengeance belongs to me; I will repay, says the Lord. [1]”</text>
+    <text>“Vengeance belongs to me; I will repay, says the Lord.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-ROM">
     <verse num="20" />
     <text>Therefore</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="scripture">
-    <text>“If your enemy is hungry, feed him. If he is thirsty, give him a drink; for in doing so, you will heap coals of fire on his head. [1]”</text>
+    <text>“If your enemy is hungry, feed him. If he is thirsty, give him a drink; for in doing so, you will heap coals of fire on his head.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-ROM">
     <verse num="21" />
@@ -1647,7 +1623,7 @@
     <text>For it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="scripture">
-    <text>“‘As I live,’ says the Lord, ‘to me every knee will bow. Every tongue will confess to God.’ [1]”</text>
+    <text>“‘As I live,’ says the Lord, ‘to me every knee will bow. Every tongue will confess to God.’”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="12" characterId="narrator-ROM">
     <verse num="12" />
@@ -1697,12 +1673,6 @@
     <verse num="23" />
     <text>But he who doubts is damned if he eats, because it isn’t of faith; and whatever is not of faith is sin.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="14" initialStartVerse="23" characterId="extra-ROM">
-    <text>||| + 2 SECs |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="14" initialStartVerse="23" characterId="extra-ROM">
-    <text>Some ancient manuscripts move Rom 16:25-27 to here. Those verses become 14:24-26</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="24" characterId="narrator-ROM">
     <verse num="24" />
     <text>Now to him who is able to establish you according to my Good News and the preaching of Jesus Christ. And this according to the revelation of the mystery which has been kept secret through long ages,</text>
@@ -1731,7 +1701,7 @@
     <text>For even Christ didn’t please himself. But, as it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="3" characterId="scripture">
-    <text>“The reproaches of those who reproached you fell on me. [1]”</text>
+    <text>“The reproaches of those who reproached you fell on me.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="4" characterId="narrator-ROM">
     <verse num="4" />
@@ -1758,41 +1728,32 @@
     <text>and that the Gentiles might glorify God for his mercy. As it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="9" characterId="scripture">
-    <text>“Therefore will I give praise to you among the Gentiles, and sing to your name. [1]”</text>
+    <text>“Therefore will I give praise to you among the Gentiles, and sing to your name.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="10" characterId="narrator-ROM">
     <verse num="10" />
     <text>Again he says,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="10" characterId="scripture">
-    <text>“Rejoice, you Gentiles, with his people. [1]”</text>
+    <text>“Rejoice, you Gentiles, with his people.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="11" characterId="narrator-ROM">
     <verse num="11" />
     <text>Again,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="11" characterId="scripture">
-    <text>“Praise the Lord, all you Gentiles! Let all the peoples praise him. [1]”</text>
+    <text>“Praise the Lord, all you Gentiles! Let all the peoples praise him.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="narrator-ROM">
     <verse num="12" />
     <text>Again, Isaiah says,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="scripture">
-    <text>“There will be the root of Jesse, he who arises to rule over the Gentiles; in him the Gentiles will hope. [1]”</text>
+    <text>“There will be the root of Jesse, he who arises to rule over the Gentiles; in him the Gentiles will hope.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="13" characterId="narrator-ROM">
     <verse num="13" />
     <text>Now may the God of hope fill you with all joy and peace in believing, that you may abound in hope, in the power of the Holy Spirit.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="15" initialStartVerse="13" characterId="extra-ROM">
-    <text>||| + 2 SECs |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="15" initialStartVerse="13" characterId="extra-ROM">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="15" initialStartVerse="13" characterId="extra-ROM">
-    <text>{Music--Ends before v 14}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="14" characterId="narrator-ROM">
     <verse num="14" />
@@ -1825,7 +1786,7 @@
     <text>But, as it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="21" characterId="scripture">
-    <text>“They will see, to whom no news of him came. They who haven’t heard will understand. [1]”</text>
+    <text>“They will see, to whom no news of him came. They who haven’t heard will understand.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="22" characterId="narrator-ROM">
     <verse num="22" />
@@ -1957,12 +1918,6 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="20" characterId="narrator-ROM">
     <verse num="20" />
     <text>And the God of peace will quickly crush Satan under your feet. The grace of our Lord Jesus Christ be with you.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="20" characterId="extra-ROM">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="20" characterId="extra-ROM">
-    <text>{Music--Ends before v 21}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="21" characterId="narrator-ROM">
     <verse num="21" />
