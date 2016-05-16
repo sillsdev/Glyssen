@@ -55,23 +55,23 @@
     <text>But the angel said to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="Gabriel" multiBlockQuote="Start">
-    <text>“Don’t be afraid, Zechariah, because your request has been heard, and your wife, Elizabeth, will bear you a son, and you shall call his name John.[1]</text>
+    <text>“Don’t be afraid, Zechariah, because your request has been heard, and your wife, Elizabeth, will bear you a son, and you shall call his name John.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="Gabriel" multiBlockQuote="Continuation">
     <verse num="14" />
-    <text>You will have joy and gladness; and many will rejoice at his birth.[1]</text>
+    <text>You will have joy and gladness; and many will rejoice at his birth.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="Gabriel" multiBlockQuote="Continuation">
     <verse num="15" />
-    <text>For he will be great in the sight of the Lord, and he will drink no wine nor strong drink. He will be filled with the Holy Spirit, even from his mother’s womb.[1]</text>
+    <text>For he will be great in the sight of the Lord, and he will drink no wine nor strong drink. He will be filled with the Holy Spirit, even from his mother’s womb.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="Gabriel" multiBlockQuote="Continuation">
     <verse num="16" />
-    <text>He will turn many of the children of Israel to the Lord, their God.[1]</text>
+    <text>He will turn many of the children of Israel to the Lord, their God.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="Gabriel" multiBlockQuote="Continuation">
     <verse num="17" />
-    <text>He will go before him in the spirit and power of Elijah, ‘to turn the hearts of the fathers to the children,’ and the disobedient to the wisdom of the just; to prepare a people prepared for the Lord. [1]”</text>
+    <text>He will go before him in the spirit and power of Elijah, ‘to turn the hearts of the fathers to the children,’ and the disobedient to the wisdom of the just; to prepare a people prepared for the Lord.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-LUK">
     <verse num="18" />
@@ -85,11 +85,11 @@
     <text>The angel answered him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="Gabriel" multiBlockQuote="Start">
-    <text>“I am Gabriel, who stands in the presence of God. I was sent to speak to you, and to bring you this good news.[1]</text>
+    <text>“I am Gabriel, who stands in the presence of God. I was sent to speak to you, and to bring you this good news.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="Gabriel" multiBlockQuote="Continuation">
     <verse num="20" />
-    <text>Behold, you will be silent and not able to speak, until the day that these things will happen, because you didn’t believe my words, which will be fulfilled in their proper time. [1]”</text>
+    <text>Behold, you will be silent and not able to speak, until the day that these things will happen, because you didn’t believe my words, which will be fulfilled in their proper time.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-LUK">
     <verse num="21" />
@@ -117,9 +117,6 @@
     <verse num="25" />
     <text>“Thus has the Lord done to me in the days in which he looked at me, to take away my reproach among men.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-LUK">
     <verse num="26" />
     <text>Now in the sixth month, the angel Gabriel was sent from God to a city of Galilee, called Nazareth.</text>
@@ -133,7 +130,7 @@
     <text>Having come in, the angel said to her,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="28" characterId="Gabriel">
-    <text>“Rejoice, you highly favored one! The Lord is with you. Blessed are you among women! [1]”</text>
+    <text>“Rejoice, you highly favored one! The Lord is with you. Blessed are you among women!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="29" characterId="narrator-LUK">
     <verse num="29" />
@@ -142,19 +139,19 @@
     <text>The angel said to her,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="30" characterId="Gabriel" multiBlockQuote="Start">
-    <text>“Don’t be afraid, Mary, for you have found favor with God.[1]</text>
+    <text>“Don’t be afraid, Mary, for you have found favor with God.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="31" characterId="Gabriel" multiBlockQuote="Continuation">
     <verse num="31" />
-    <text>Behold, you will conceive in your womb, and bring forth a son, and will call his name ‘Jesus.’[1]</text>
+    <text>Behold, you will conceive in your womb, and bring forth a son, and will call his name ‘Jesus.’</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="32" characterId="Gabriel" multiBlockQuote="Continuation">
     <verse num="32" />
-    <text>He will be great, and will be called the Son of the Most High. The Lord God will give him the throne of his father, David.[1]</text>
+    <text>He will be great, and will be called the Son of the Most High. The Lord God will give him the throne of his father, David.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="33" characterId="Gabriel" multiBlockQuote="Continuation">
     <verse num="33" />
-    <text>He will reign over the house of Jacob forever. There will be no end to his Kingdom. [1]”</text>
+    <text>He will reign over the house of Jacob forever. There will be no end to his Kingdom.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="34" characterId="narrator-LUK">
     <verse num="34" />
@@ -168,15 +165,15 @@
     <text>The angel answered her,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="35" characterId="Gabriel" multiBlockQuote="Start">
-    <text>“The Holy Spirit will come on you, and the power of the Most High will overshadow you. Therefore also the holy one who is born from you will be called the Son of God.[1]</text>
+    <text>“The Holy Spirit will come on you, and the power of the Most High will overshadow you. Therefore also the holy one who is born from you will be called the Son of God.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="36" characterId="Gabriel" multiBlockQuote="Continuation">
     <verse num="36" />
-    <text>Behold, Elizabeth, your relative, also has conceived a son in her old age; and this is the sixth month with her who was called barren.[1]</text>
+    <text>Behold, Elizabeth, your relative, also has conceived a son in her old age; and this is the sixth month with her who was called barren.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="37" characterId="Gabriel" multiBlockQuote="Continuation">
     <verse num="37" />
-    <text>For everything spoken by God is possible. [1]”</text>
+    <text>For everything spoken by God is possible.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="narrator-LUK">
     <verse num="38" />
@@ -187,9 +184,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="narrator-LUK">
     <text>The angel departed from her.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="39" characterId="narrator-LUK">
     <verse num="39" />
@@ -265,28 +259,13 @@
     <verse num="56" />
     <text>Mary stayed with her about three months, and then returned to her house.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="56" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="57" characterId="narrator-LUK">
     <verse num="57" />
     <text>Now the time that Elizabeth should give birth was fulfilled, and she brought forth a son.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="57" characterId="extra-LUK">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="57" characterId="extra-LUK">
-    <text>{SFX--People talking--Starts @ v 58}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="58" characterId="narrator-LUK">
     <verse num="58" />
     <text>Her neighbors and her relatives heard that the Lord had magnified his mercy towards her, and they rejoiced with her.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="58" characterId="extra-LUK">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="58" characterId="extra-LUK">
-    <text>{Music--Ends before v 59}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="59" characterId="narrator-LUK">
     <verse num="59" />
@@ -438,15 +417,15 @@
     <text>The angel said to them,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="angel" multiBlockQuote="Start">
-    <text>“Don’t be afraid, for behold, I bring you good news of great joy which will be to all the people.[1]</text>
+    <text>“Don’t be afraid, for behold, I bring you good news of great joy which will be to all the people.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="angel" multiBlockQuote="Continuation">
     <verse num="11" />
-    <text>For there is born to you, this day, in the city of David, a Savior, who is Christ the Lord.[1]</text>
+    <text>For there is born to you, this day, in the city of David, a Savior, who is Christ the Lord.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="angel" multiBlockQuote="Continuation">
     <verse num="12" />
-    <text>This is the sign to you: you will find a baby wrapped in strips of cloth, lying in a feeding trough. [1]”</text>
+    <text>This is the sign to you: you will find a baby wrapped in strips of cloth, lying in a feeding trough.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-LUK">
     <verse num="13" />
@@ -454,7 +433,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="great company of heavenly host">
     <verse num="14" />
-    <text>“Glory to God in the highest, on earth peace, good will toward men. [1]”</text>
+    <text>“Glory to God in the highest, on earth peace, good will toward men.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-LUK">
     <verse num="15" />
@@ -497,14 +476,14 @@
     <text>“Every male who opens the womb shall be called holy to the Lord”),</text>
   </block>
   <block style="p" chapter="2" initialStartVerse="23" characterId="narrator-LUK">
-    <text>[1]</text>
+    <text></text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-LUK">
     <verse num="24" />
     <text>and to offer a sacrifice according to that which is said in the law of the Lord,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="scripture">
-    <text>“A pair of turtledoves, or two young pigeons. [1]”</text>
+    <text>“A pair of turtledoves, or two young pigeons.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-LUK">
     <verse num="25" />
@@ -513,12 +492,6 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-LUK">
     <verse num="26" />
     <text>It had been revealed to him by the Holy Spirit that he should not see death before he had seen the Lord’s Christ.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="extra-LUK">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="extra-LUK">
-    <text>{SFX--Crowd--Starts @ v 27}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-LUK">
     <verse num="27" />
@@ -565,18 +538,9 @@
     <verse num="37" />
     <text>She had been a widow for about eighty-four years). She didn’t depart from the temple, worshipping with fastings and petitions night and day.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="37" characterId="extra-LUK">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="37" characterId="extra-LUK">
-    <text>{Music--Starts @ v 38}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="38" characterId="narrator-LUK">
     <verse num="38" />
     <text>Coming up at that very hour, she gave thanks to the Lord, and spoke of him to all those who were looking for redemption in Jerusalem.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="38" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="39" characterId="narrator-LUK">
     <verse num="39" />
@@ -663,13 +627,13 @@
     <text>As it is written in the book of the words of Isaiah the prophet,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="scripture" multiBlockQuote="Start">
-    <text>“The voice of one crying in the wilderness, ‘Make ready the way of the Lord. Make his paths straight.[1]</text>
+    <text>“The voice of one crying in the wilderness, ‘Make ready the way of the Lord. Make his paths straight.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="scripture" multiBlockQuote="Continuation">
     <verse num="5" />
-    <text>Every valley will be filled. Every mountain and hill will be brought low. The crooked will become straight, and the rough ways smooth.[1] </text>
+    <text>Every valley will be filled. Every mountain and hill will be brought low. The crooked will become straight, and the rough ways smooth. </text>
     <verse num="6" />
-    <text>All flesh will see God’s salvation.’ [1]”</text>
+    <text>All flesh will see God’s salvation.’”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-LUK">
     <verse num="7" />
@@ -763,9 +727,6 @@
     <verse num="20" />
     <text>Then Herod did something even worse: He put John in prison.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-LUK">
     <verse num="21" />
     <text>Now it happened, when all the people were baptized, Jesus also had been baptized, and was praying.</text>
@@ -776,7 +737,7 @@
     <text>and the Holy Spirit descended in a bodily form as a dove on him; and a voice came out of the sky, saying</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="God">
-    <text>“You are my beloved Son. In you I am well pleased. [1]”</text>
+    <text>“You are my beloved Son. In you I am well pleased.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="narrator-LUK">
     <verse num="23" />
@@ -856,7 +817,7 @@
     <text>The devil said to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="Satan (Devil)">
-    <text>“If you are the Son of God, command this stone to become bread. [1]”</text>
+    <text>“If you are the Son of God, command this stone to become bread.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-LUK">
     <verse num="4" />
@@ -874,11 +835,11 @@
     <text>The devil said to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="Satan (Devil)" multiBlockQuote="Start">
-    <text>“I will give you all this authority, and their glory, for it has been delivered to me; and I give it to whomever I want.[1]</text>
+    <text>“I will give you all this authority, and their glory, for it has been delivered to me; and I give it to whomever I want.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="Satan (Devil)" multiBlockQuote="Continuation">
     <verse num="7" />
-    <text>If you therefore will worship before me, it will all be yours. [1]”</text>
+    <text>If you therefore will worship before me, it will all be yours.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-LUK">
     <verse num="8" />
@@ -892,15 +853,15 @@
     <text>He led him to Jerusalem, and set him on the pinnacle of the temple, and said to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="Satan (Devil)" multiBlockQuote="Start">
-    <text>“If you are the Son of God, cast yourself down from here.[1]</text>
+    <text>“If you are the Son of God, cast yourself down from here.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="Satan (Devil)" multiBlockQuote="Continuation">
     <verse num="10" />
-    <text>For it is written, ‘He will put his angels in charge of you, to guard you;’[1]</text>
+    <text>For it is written, ‘He will put his angels in charge of you, to guard you;’</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="Satan (Devil)" multiBlockQuote="Continuation">
     <verse num="11" />
-    <text>and, ‘On their hands they will bear you up, lest perhaps you dash your foot against a stone.’ [1]”</text>
+    <text>and, ‘On their hands they will bear you up, lest perhaps you dash your foot against a stone.’”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-LUK">
     <verse num="12" />
@@ -913,9 +874,6 @@
     <verse num="13" />
     <text>When the devil had completed every temptation, he departed from him until another time.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="extra-LUK">
-    <text>||| + 1.5 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-LUK">
     <verse num="14" />
     <text>Jesus returned in the power of the Spirit into Galilee, and news about him spread through all the surrounding area.</text>
@@ -923,9 +881,6 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-LUK">
     <verse num="15" />
     <text>He taught in their synagogues, being glorified by all.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-LUK">
     <verse num="16" />
@@ -998,9 +953,6 @@
     <verse num="30" />
     <text>But he, passing through their midst, went his way.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="narrator-LUK">
     <verse num="31" />
     <text>He came down to Capernaum, a city of Galilee. He was teaching them on the Sabbath day.</text>
@@ -1037,9 +989,6 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="37" characterId="narrator-LUK">
     <verse num="37" />
     <text>News about him went out into every place of the surrounding region.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="37" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="38" characterId="narrator-LUK">
     <verse num="38" />
@@ -1135,9 +1084,6 @@
     <verse num="11" />
     <text>When they had brought their boats to land, they left everything, and followed him.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-LUK">
     <verse num="12" />
     <text>It happened, while he was in one of the cities, behold, there was a man full of leprosy. When he saw Jesus, he fell on his face, and begged him, saying,</text>
@@ -1168,18 +1114,9 @@
     <verse num="16" />
     <text>He withdrew himself into the desert, and prayed.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-LUK">
     <verse num="17" />
     <text>It happened on one of those days, that he was teaching; and there were Pharisees and teachers of the law sitting by, who had come out of every village of Galilee, Judea, and Jerusalem. The power of the Lord was with him to heal them.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="extra-LUK">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="extra-LUK">
-    <text>{Music--Starts @ v 18}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-LUK">
     <verse num="18" />
@@ -1234,9 +1171,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="26" characterId="everyone seeing healing of paralyzed man">
     <text>“We have seen strange things today.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="26" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="27" characterId="narrator-LUK">
     <verse num="27" />
@@ -1340,9 +1274,6 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="Jesus">
     <text>“The Son of Man is lord of the Sabbath.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-LUK">
     <verse num="6" />
     <text>It also happened on another Sabbath that he entered into the synagogue and taught. There was a man there, and his right hand was withered.</text>
@@ -1382,9 +1313,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="Pharisees/teachers of religious law" characterIdOverrideForScript="Pharisees">
     <text>“What can we do about Jesus?”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-LUK">
     <verse num="12" />
@@ -1594,9 +1522,6 @@
     <verse num="10" />
     <text>Those who were sent, returning to the house, found that the servant who had been sick was well.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="narrator-LUK">
     <verse num="11" />
     <text>It happened soon afterwards, that he went to a city called Nain. Many of his disciples, along with a great multitude, went with him.</text>
@@ -1642,9 +1567,6 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="narrator-LUK">
     <verse num="17" />
     <text>This report went out concerning him in the whole of Judea, and in all the surrounding region.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="narrator-LUK">
     <verse num="18" />
@@ -1712,12 +1634,6 @@
     <verse num="31" />
     <text>“To what then will I liken the people of this generation? What are they like?</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="7" initialStartVerse="31" characterId="extra-LUK">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="7" initialStartVerse="31" characterId="extra-LUK">
-    <text>{Music--Starts @ v 32}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="32" characterId="Jesus" multiBlockQuote="Start">
     <verse num="32" />
     <text>They are like children who sit in the marketplace, and call one to another, saying, ‘We piped to you, and you didn’t dance. We mourned, and you didn’t weep.’</text>
@@ -1733,9 +1649,6 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="35" />
     <text>Wisdom is justified by all her children.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="7" initialStartVerse="35" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="36" characterId="narrator-LUK">
     <verse num="36" />
@@ -1848,9 +1761,6 @@
     <verse num="3" />
     <text>and Joanna, the wife of Chuzas, Herod’s steward; Susanna; and many others; who served them from their possessions.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="4" characterId="narrator-LUK">
     <verse num="4" />
     <text>When a great multitude came together, and people from every city were coming to him, he spoke by a parable.</text>
@@ -1941,9 +1851,6 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="21" characterId="Jesus">
     <text>“My mother and my brothers are these who hear the word of God, and do it.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="21" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="22" characterId="narrator-LUK">
     <verse num="22" />
     <text>Now it happened on one of those days, that he entered into a boat, himself and his disciples, and he said to them,</text>
@@ -1980,12 +1887,6 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="narrator-LUK">
     <verse num="26" />
     <text>They arrived at the country of the Gadarenes, which is opposite Galilee.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="extra-LUK">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="extra-LUK">
-    <text>{Music--Starts @ v 27}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="27" characterId="narrator-LUK">
     <verse num="27" />
@@ -2065,9 +1966,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="39" characterId="narrator-LUK">
     <text>He went his way, proclaiming throughout the whole city what great things Jesus had done for him.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="39" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="40" characterId="narrator-LUK">
     <verse num="40" />
@@ -2201,9 +2099,6 @@
     <verse num="6" />
     <text>They departed, and went throughout the villages, preaching the Good News, and healing everywhere.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-LUK">
     <verse num="7" />
     <text>Now Herod the tetrarch heard of all that was done by him; and he was very perplexed, because some said:</text>
@@ -2233,9 +2128,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-LUK">
     <text>He sought to see him.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-LUK">
     <verse num="10" />
@@ -2283,9 +2175,6 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="narrator-LUK">
     <verse num="17" />
     <text>They ate, and were all filled. They gathered up twelve baskets of broken pieces that were left over.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-LUK">
     <verse num="18" />
@@ -2351,9 +2240,6 @@
     <verse num="27" />
     <text>But I tell you the truth: There are some of those who stand here, who will in no way taste of death, until they see the Kingdom of God.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="28" characterId="narrator-LUK">
     <verse num="28" />
     <text>It happened about eight days after these sayings, that he took with him Peter, John, and James, and went up onto the mountain to pray.</text>
@@ -2389,14 +2275,11 @@
     <text>A voice came out of the cloud, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="35" characterId="God">
-    <text>“This is my beloved Son. Listen to him! [1]”</text>
+    <text>“This is my beloved Son. Listen to him!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="36" characterId="narrator-LUK">
     <verse num="36" />
     <text>When the voice came, Jesus was found alone. They were silent, and told no one in those days any of the things which they had seen.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="36" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="37" characterId="narrator-LUK">
     <verse num="37" />
@@ -2446,9 +2329,6 @@
     <verse num="45" />
     <text>But they didn’t understand this saying. It was concealed from them, that they should not perceive it, and they were afraid to ask him about this saying.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="45" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="46" characterId="narrator-LUK">
     <verse num="46" />
     <text>There arose an argument among them about which of them was the greatest.</text>
@@ -2475,9 +2355,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="50" characterId="Jesus">
     <text>“Don’t forbid him, for he who is not against us is for us.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="50" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="51" characterId="narrator-LUK">
     <verse num="51" />
@@ -2629,9 +2506,6 @@
     <verse num="16" />
     <text>Whoever listens to you listens to me, and whoever rejects you rejects me. Whoever rejects me rejects him who sent me.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-LUK">
     <verse num="17" />
     <text>The seventy returned with joy, saying,</text>
@@ -2675,9 +2549,6 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="24" />
     <text>for I tell you that many prophets and kings desired to see the things which you see, and didn’t see them, and to hear the things which you hear, and didn’t hear them.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="10" initialStartVerse="24" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="narrator-LUK">
     <verse num="25" />
@@ -2760,9 +2631,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="Jesus" userConfirmed="true">
     <text>“Go and do likewise.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="38" characterId="narrator-LUK">
     <verse num="38" />
@@ -2852,9 +2720,6 @@
     <verse num="13" />
     <text>If you then, being evil, know how to give good gifts to your children, how much more will your heavenly Father give the Holy Spirit to those who ask him?”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-LUK">
     <verse num="14" />
     <text>He was casting out a demon, and it was mute. It happened, when the demon had gone out, the mute man spoke; and the multitudes marveled.</text>
@@ -2930,9 +2795,6 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="Jesus">
     <text>“On the contrary, blessed are those who hear the word of God, and keep it.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="extra-LUK">
-    <text>||| + 1.5 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-LUK">
     <verse num="29" />
     <text>As the multitudes continued to increase, he began to say,</text>
@@ -2967,9 +2829,6 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="36" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="36" />
     <text>If therefore your whole body is full of light, having no part dark, it will be wholly full of light, as when the lamp with its bright shining gives you light.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="11" initialStartVerse="36" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="37" characterId="narrator-LUK">
     <verse num="37" />
@@ -3104,12 +2963,6 @@
     <verse num="10" />
     <text>Everyone who speaks a word against the Son of Man will be forgiven, but those who blaspheme against the Holy Spirit will not be forgiven.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="extra-LUK">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="extra-LUK">
-    <text>{Music--Ends before v 11}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Start">
     <verse num="11" />
     <text>When they bring you before the synagogues, the rulers, and the authorities, don’t be anxious how or what you will answer, or what you will say;</text>
@@ -3208,9 +3061,6 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="31" />
     <text>But seek God’s Kingdom, and all these things will be added to you.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="31" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="32" characterId="Jesus" multiBlockQuote="Start">
     <verse num="32" />
@@ -3376,9 +3226,6 @@
     <verse num="9" />
     <text>If it bears fruit, fine; but if not, after that, you can cut it down.’”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-LUK">
     <verse num="10" />
     <text>He was teaching in one of the synagogues on the Sabbath day.</text>
@@ -3442,9 +3289,6 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="21" />
     <text>It is like yeast, which a woman took and hid in three measures of flour, until it was all leavened.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="13" initialStartVerse="21" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="22" characterId="narrator-LUK">
     <verse num="22" />
@@ -3624,9 +3468,6 @@
     <verse num="24" />
     <text>For I tell you that none of those men who were invited will taste of my supper.’”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="14" initialStartVerse="24" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="25" characterId="narrator-LUK">
     <verse num="25" />
     <text>Now great multitudes were going with him. He turned and said to them,</text>
@@ -3723,12 +3564,6 @@
     <text>“A certain man had two sons. </text>
     <verse num="12" />
     <text>The younger of them said to his father, ‘Father, give me my share of your property.’ He divided his livelihood between them.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="extra-LUK">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="extra-LUK">
-    <text>{Music--Starts @ v 13}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start">
     <verse num="13" />
@@ -3995,9 +3830,6 @@
     <verse num="10" />
     <text>Even so you also, when you have done all the things that are commanded you, say, ‘We are unworthy servants. We have done our duty.’”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="17" initialStartVerse="10" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="11" characterId="narrator-LUK">
     <verse num="11" />
     <text>It happened as he was on his way to Jerusalem, that he was passing along the borders of Samaria and Galilee.</text>
@@ -4049,9 +3881,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="19" characterId="Jesus" delivery="giving orders">
     <text>“Get up, and go your way. Your faith has healed you.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="17" initialStartVerse="19" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="20" characterId="narrator-LUK">
     <verse num="20" />
@@ -4300,9 +4129,6 @@
     <verse num="30" />
     <text>who will not receive many times more in this time, and in the world to come, eternal life.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="18" initialStartVerse="30" characterId="extra-LUK">
-    <text>||| + 1.5 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="31" characterId="narrator-LUK">
     <verse num="31" />
     <text>He took the twelve aside, and said to them,</text>
@@ -4321,9 +4147,6 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="34" characterId="narrator-LUK">
     <verse num="34" />
     <text>They understood none of these things. This saying was hidden from them, and they didn’t understand the things that were said.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="18" initialStartVerse="34" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="35" characterId="narrator-LUK">
     <verse num="35" />
@@ -4518,9 +4341,6 @@
     <verse num="27" />
     <text>But bring those enemies of mine who didn’t want me to reign over them here, and kill them before me.’”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="19" initialStartVerse="27" characterId="extra-LUK">
-    <text>||| + 1.5 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="28" characterId="narrator-LUK">
     <verse num="28" />
     <text>Having said these things, he went on ahead, going up to Jerusalem.</text>
@@ -4604,9 +4424,6 @@
     <verse num="44" />
     <text>They will dash you and your children within you to the ground. They will not leave in you one stone on another, because you didn’t know the time of your visitation.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="19" initialStartVerse="44" characterId="extra-LUK">
-    <text>||| + 1.5 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="45" characterId="narrator-LUK">
     <verse num="45" />
     <text>He entered into the temple, and began to drive out those who bought and sold in it, </text>
@@ -4677,12 +4494,6 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="9" characterId="Jesus">
     <text>“A man planted a vineyard, and rented it out to some farmers, and went into another country for a long time.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="20" initialStartVerse="9" characterId="extra-LUK">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="20" initialStartVerse="9" characterId="extra-LUK">
-    <text>{Music--Starts @ v 10}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Start">
     <verse num="10" />
     <text>At the proper season, he sent a servant to the farmers to collect his share of the fruit of the vineyard. But the farmers beat him, and sent him away empty.</text>
@@ -4732,9 +4543,6 @@
     <verse num="19" />
     <text>The chief priests and the scribes sought to lay hands on him that very hour, but they feared the people--for they knew he had spoken this parable against them.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="20" initialStartVerse="19" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="20" characterId="narrator-LUK">
     <verse num="20" />
     <text>They watched him, and sent out spies, who pretended to be righteous, that they might trap him in something he said, so as to deliver him up to the power and authority of the governor. </text>
@@ -4773,15 +4581,6 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="26" characterId="narrator-LUK">
     <verse num="26" />
     <text>They weren’t able to trap him in his words before the people. They marveled at his answer, and were silent.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="20" initialStartVerse="26" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="20" initialStartVerse="26" characterId="extra-LUK">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="20" initialStartVerse="26" characterId="extra-LUK">
-    <text>{Music--Starts @ v 27}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="27" characterId="narrator-LUK">
     <verse num="27" />
@@ -5079,9 +4878,6 @@
     <verse num="6" />
     <text>He consented, and sought an opportunity to deliver him to them in the absence of the multitude.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="22" initialStartVerse="6" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="7" characterId="narrator-LUK">
     <verse num="7" />
     <text>The day of unleavened bread came, on which the Passover must be sacrificed.</text>
@@ -5118,15 +4914,6 @@
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="13" characterId="narrator-LUK">
     <verse num="13" />
     <text>They went, found things as he had told them, and they prepared the Passover.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="22" initialStartVerse="13" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="22" initialStartVerse="13" characterId="extra-LUK">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="22" initialStartVerse="13" characterId="extra-LUK">
-    <text>{Music--Starts @ v 14}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="14" characterId="narrator-LUK">
     <verse num="14" />
@@ -5277,9 +5064,6 @@
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="38" characterId="Jesus" userConfirmed="true">
     <text>“That is enough.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="22" initialStartVerse="38" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="39" characterId="narrator-LUK">
     <verse num="39" />
     <text>He came out, and went, as his custom was, to the Mount of Olives. His disciples also followed him.</text>
@@ -5413,14 +5197,11 @@
     <text>The Lord turned, and looked at Peter. Then Peter remembered the Lord’s word, how he said to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="61" characterId="Jesus">
-    <text>“Before the rooster crows you will deny me three times. [1]”</text>
+    <text>“Before the rooster crows you will deny me three times.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="62" characterId="narrator-LUK">
     <verse num="62" />
     <text>He went out, and wept bitterly.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="22" initialStartVerse="62" characterId="extra-LUK">
-    <text>||| + 1.5 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="63" characterId="narrator-LUK">
     <verse num="63" />
@@ -5436,9 +5217,6 @@
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="65" characterId="narrator-LUK">
     <verse num="65" />
     <text>They spoke many other things against him, insulting him.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="22" initialStartVerse="65" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="66" characterId="narrator-LUK">
     <verse num="66" />
@@ -5551,9 +5329,6 @@
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="12" characterId="narrator-LUK">
     <verse num="12" />
     <text>Herod and Pilate became friends with each other that very day, for before that they were enemies with each other.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="23" initialStartVerse="12" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="13" characterId="narrator-LUK">
     <verse num="13" />
@@ -5813,15 +5588,15 @@
     <text>Becoming terrified, they bowed their faces down to the earth. They said to them,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="5" characterId="angels in white, two" multiBlockQuote="Start">
-    <text>“Why do you seek the living among the dead?[1]</text>
+    <text>“Why do you seek the living among the dead?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="6" characterId="angels in white, two" multiBlockQuote="Continuation">
     <verse num="6" />
-    <text>He isn’t here, but is risen. Remember what he told you when he was still in Galilee:[1]</text>
+    <text>He isn’t here, but is risen. Remember what he told you when he was still in Galilee:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="7" characterId="angels in white, two" multiBlockQuote="Continuation">
     <verse num="7" />
-    <text>He said that the Son of Man must be delivered up into the hands of sinful men, and be crucified, and the third day rise again? [1]”</text>
+    <text>He said that the Son of Man must be delivered up into the hands of sinful men, and be crucified, and the third day rise again?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="8" characterId="narrator-LUK">
     <verse num="8" />
@@ -5845,9 +5620,6 @@
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="12" characterId="narrator-LUK">
     <verse num="12" />
     <text>But Peter got up and ran to the tomb. Stooping and looking in, he saw the strips of linen lying by themselves, and he departed to his home, wondering what had happened.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="24" initialStartVerse="12" characterId="extra-LUK">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="13" characterId="narrator-LUK">
     <verse num="13" />

@@ -38,12 +38,6 @@
     <verse num="8" />
     <text>which he made to abound toward us in all wisdom and prudence,</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="extra-EPH">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="extra-EPH">
-    <text>{Music--Ends &amp; New Music--Starts @ v 9}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-EPH">
     <verse num="9" />
     <text>He makes known to us the mystery of his will, according to his good pleasure which he purposed in Christ.</text>
@@ -214,12 +208,6 @@
     <verse num="1" />
     <text>For this cause I, Paul, am the prisoner of Christ Jesus on behalf of you Gentiles.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="extra-EPH">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="extra-EPH">
-    <text>{Music--Starts @ v 2}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-EPH">
     <verse num="2" />
     <text>I am sure that you have heard of the administration of that grace of God which was given me toward you.</text>
@@ -263,12 +251,6 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-EPH">
     <verse num="12" />
     <text>We can come to God in boldness and access him in confidence through our faith in him.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="extra-EPH">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="extra-EPH">
-    <text>{Music--Ends before v 13}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-EPH">
     <verse num="13" />
@@ -340,7 +322,7 @@
     <text>Therefore he says,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="scripture">
-    <text>“When he ascended on high, he led captivity captive, and gave gifts to men. [1]”</text>
+    <text>“When he ascended on high, he led captivity captive, and gave gifts to men.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-EPH">
     <verse num="9" />
@@ -421,7 +403,7 @@
     <text>“Be angry, and don’t sin.” </text>
   </block>
   <block style="p" chapter="4" initialStartVerse="26" characterId="narrator-EPH">
-    <text>Don’t let the sun go down on your wrath, neither give place to the devil.[1]</text>
+    <text>Don’t let the sun go down on your wrath, neither give place to the devil.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="narrator-EPH">
     <verse num="28" />
@@ -501,7 +483,7 @@
     <text>Therefore he says,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="scripture">
-    <text>“Awake, you who sleep, and arise from the dead, and Christ will shine on you. [1]”</text>
+    <text>“Awake, you who sleep, and arise from the dead, and Christ will shine on you.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-EPH">
     <verse num="15" />
@@ -530,12 +512,6 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-EPH">
     <verse num="21" />
     <text>Subject yourselves one to another in the fear of Christ.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="extra-EPH">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="extra-EPH">
-    <text>{Music--Ends before v 22}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-EPH">
     <verse num="22" />
@@ -575,7 +551,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="scripture">
     <verse num="31" />
-    <text>“For this cause a man will leave his father and mother, and will be joined to his wife. The two will become one flesh. [1]”</text>
+    <text>“For this cause a man will leave his father and mother, and will be joined to his wife. The two will become one flesh.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="narrator-EPH">
     <verse num="32" />
@@ -594,14 +570,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="scripture">
     <verse num="2" />
-    <text>“Honor your father and mother, [1]”</text>
+    <text>“Honor your father and mother,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-EPH">
     <text>which is the first commandment with a promise:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="scripture">
     <verse num="3" />
-    <text>“that it may be well with you, and you may live long on the earth. [1]”</text>
+    <text>“that it may be well with you, and you may live long on the earth.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-EPH">
     <verse num="4" />

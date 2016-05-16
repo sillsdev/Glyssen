@@ -18,9 +18,6 @@
     <verse num="3" />
     <text>Blessed is he who reads and those who hear the words of the prophecy, and keep the things that are written in it, for the time is at hand.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="extra-REV">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-REV">
     <verse num="4" />
     <text>John, to the seven assemblies that are in Asia: Grace to you and peace, from God, who is and who was and who is to come; and from the seven Spirits who are before his throne;</text>
@@ -33,25 +30,19 @@
     <verse num="6" />
     <text>He made us to be a Kingdom, priests to his God and Father; to him be the glory and the dominion forever and ever. Amen.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="extra-REV">
-    <text>{Music--Starts @ v 7}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
     <text>Behold, he is coming with the clouds, and every eye will see him, including those who pierced him. All the tribes of the earth will mourn over him. Even so, Amen.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God" userConfirmed="true">
     <verse num="8" />
-    <text>“I am the Alpha and the Omega, the beginning and the ending, [1]”</text>
+    <text>“I am the Alpha and the Omega, the beginning and the ending,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-REV">
     <text>says the Lord God,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God" userConfirmed="true">
-    <text>“who is and who was and who is to come, the Almighty. [1]”</text>
+    <text>“who is and who was and who is to come, the Almighty.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-REV">
     <verse num="9" />
@@ -64,7 +55,7 @@
     <text>saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="Jesus">
-    <text>“I am the Alpha and Omega, the first and the last: and, What you see, write in a book and send to the seven assemblies: to Ephesus, Smyrna, Pergamum, Thyatira, Sardis, Philadelphia, and to Laodicea. [1]”</text>
+    <text>“I am the Alpha and Omega, the first and the last: and, What you see, write in a book and send to the seven assemblies: to Ephesus, Smyrna, Pergamum, Thyatira, Sardis, Philadelphia, and to Laodicea.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
@@ -91,230 +82,227 @@
     <text>When I saw him, I fell at his feet like a dead man. He laid his right hand on me, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Start">
-    <text>“Don’t be afraid. I am the first and the last,[1] </text>
+    <text>“Don’t be afraid. I am the first and the last, </text>
     <verse num="18" />
-    <text>and the Living one. I was dead, and behold, I am alive forevermore. Amen. I have the keys of Death and of Hades.[1]</text>
+    <text>and the Living one. I was dead, and behold, I am alive forevermore. Amen. I have the keys of Death and of Hades.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="19" />
-    <text>Write therefore the things which you have seen, and the things which are, and the things which will happen hereafter.[1]</text>
+    <text>Write therefore the things which you have seen, and the things which are, and the things which will happen hereafter.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="20" />
-    <text>Here is the hidden meaning of the seven stars that you see in my right hand, and the seven lamps of gold: the seven stars are the angels of the seven churches, and the seven lamps are the seven churches. [1]”</text>
+    <text>Here is the hidden meaning of the seven stars that you see in my right hand, and the seven lamps of gold: the seven stars are the angels of the seven churches, and the seven lamps are the seven churches.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>2</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="Jesus">
     <verse num="1" />
-    <text>“To the angel of the assembly in Ephesus write: He who holds the seven stars in his right hand, he who walks among the seven golden lampstands says these things: [1]”</text>
+    <text>“To the angel of the assembly in Ephesus write: He who holds the seven stars in his right hand, he who walks among the seven golden lampstands says these things:”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Start">
     <verse num="2" />
-    <text>“I know your works, and your toil and perseverance, and that you can’t tolerate evil men. You have tested those who call themselves apostles, and they are not, and found them false.[1]</text>
+    <text>“I know your works, and your toil and perseverance, and that you can’t tolerate evil men. You have tested those who call themselves apostles, and they are not, and found them false.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="3" />
-    <text>You have perseverance and have endured for my name’s sake, and have not grown weary.[1]</text>
+    <text>You have perseverance and have endured for my name’s sake, and have not grown weary.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="4" />
-    <text>But I have this against you, that you left your first love.[1]</text>
+    <text>But I have this against you, that you left your first love.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="5" />
-    <text>Remember therefore from where you have fallen, and repent and do the first works; or else I am coming to you swiftly, and will move your lampstand out of its place, unless you repent.[1]</text>
+    <text>Remember therefore from where you have fallen, and repent and do the first works; or else I am coming to you swiftly, and will move your lampstand out of its place, unless you repent.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="6" />
-    <text>But this you have, that you hate the works of the Nicolaitans, which I also hate.[1]</text>
+    <text>But this you have, that you hate the works of the Nicolaitans, which I also hate.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="7" />
-    <text>He who has an ear, let him hear what the Spirit says to the assemblies. To him who overcomes I will give to eat of the tree of life, which is in the Paradise of my God. [1]”</text>
+    <text>He who has an ear, let him hear what the Spirit says to the assemblies. To him who overcomes I will give to eat of the tree of life, which is in the Paradise of my God.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start">
     <verse num="8" />
-    <text>“To the angel of the assembly in Smyrna write: The first and the last, who was dead, and has come to life says these things:[1]</text>
+    <text>“To the angel of the assembly in Smyrna write: The first and the last, who was dead, and has come to life says these things:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="9" />
-    <text>I know your works, oppression, and your poverty (but you are rich). The blasphemy of those who say they are Jews, and they are not, but are a synagogue of Satan.[1]</text>
+    <text>I know your works, oppression, and your poverty (but you are rich). The blasphemy of those who say they are Jews, and they are not, but are a synagogue of Satan.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="10" />
-    <text>Don’t be afraid of the things which you are about to suffer. Behold, the devil is about to throw some of you into prison, that you may be tested; and you will have oppression for ten days. Be faithful to death, and I will give you the crown of life.[1]</text>
+    <text>Don’t be afraid of the things which you are about to suffer. Behold, the devil is about to throw some of you into prison, that you may be tested; and you will have oppression for ten days. Be faithful to death, and I will give you the crown of life.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="11" />
-    <text>He who has an ear, let him hear what the Spirit says to the assemblies. He who overcomes won’t be harmed by the second death. [1]”</text>
+    <text>He who has an ear, let him hear what the Spirit says to the assemblies. He who overcomes won’t be harmed by the second death.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="Jesus">
     <verse num="12" />
-    <text>“To the angel of the assembly in Pergamum write: He who has the sharp two-edged sword says these things: [1]”</text>
+    <text>“To the angel of the assembly in Pergamum write: He who has the sharp two-edged sword says these things:”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start">
     <verse num="13" />
-    <text>“I know your works and where you dwell, where Satan’s seat is. You hold firmly to my name, and didn’t deny my faith in the days of Antipas my witness, my faithful one, who was killed among you, where Satan dwells.[1]</text>
+    <text>“I know your works and where you dwell, where Satan’s seat is. You hold firmly to my name, and didn’t deny my faith in the days of Antipas my witness, my faithful one, who was killed among you, where Satan dwells.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="14" />
-    <text>But I have a few things against you, because you have there some who hold the teaching of Balaam, who taught Balak to throw a stumbling block before the children of Israel, to eat things sacrificed to idols, and to commit sexual immorality.[1]</text>
+    <text>But I have a few things against you, because you have there some who hold the teaching of Balaam, who taught Balak to throw a stumbling block before the children of Israel, to eat things sacrificed to idols, and to commit sexual immorality.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="15" />
-    <text>So you also have some who hold to the teaching of the Nicolaitans, which thing I hate.[1]</text>
+    <text>So you also have some who hold to the teaching of the Nicolaitans, which thing I hate.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="16" />
-    <text>Repent therefore, or else I am coming to you quickly, and I will make war against them with the sword of my mouth.[1]</text>
+    <text>Repent therefore, or else I am coming to you quickly, and I will make war against them with the sword of my mouth.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="17" />
-    <text>He who has an ear, let him hear what the Spirit says to the assemblies. To him who overcomes, to him I will give of the hidden manna, and I will give him a white stone, and on the stone a new name written, which no one knows but he who receives it. [1]”</text>
+    <text>He who has an ear, let him hear what the Spirit says to the assemblies. To him who overcomes, to him I will give of the hidden manna, and I will give him a white stone, and on the stone a new name written, which no one knows but he who receives it.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="Jesus">
     <verse num="18" />
-    <text>“To the angel of the assembly in Thyatira write: The Son of God, who has his eyes like a flame of fire, and his feet are like burnished brass, says these things: [1]”</text>
+    <text>“To the angel of the assembly in Thyatira write: The Son of God, who has his eyes like a flame of fire, and his feet are like burnished brass, says these things:”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Start">
     <verse num="19" />
-    <text>“I know your works, your love, faith, service, patient endurance, and that your last works are more than the first.[1]</text>
+    <text>“I know your works, your love, faith, service, patient endurance, and that your last works are more than the first.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="20" />
-    <text>But I have this against you, that you tolerate your woman, Jezebel, who calls herself a prophetess. She teaches and seduces my servants to commit sexual immorality, and to eat things sacrificed to idols.[1]</text>
+    <text>But I have this against you, that you tolerate your woman, Jezebel, who calls herself a prophetess. She teaches and seduces my servants to commit sexual immorality, and to eat things sacrificed to idols.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="21" />
-    <text>I gave her time to repent, but she refuses to repent of her sexual immorality.[1]</text>
+    <text>I gave her time to repent, but she refuses to repent of her sexual immorality.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="22" />
-    <text>So I will cast her on a bed of suffering, and I will make those who commit adultery with her suffer intensely, unless they repent of her ways.[1]</text>
+    <text>So I will cast her on a bed of suffering, and I will make those who commit adultery with her suffer intensely, unless they repent of her ways.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="23" />
-    <text>I will strike her children dead. Then all the churches will know that I am he who searches hearts and minds, and I will repay each of you according to your deeds.[1]</text>
+    <text>I will strike her children dead. Then all the churches will know that I am he who searches hearts and minds, and I will repay each of you according to your deeds.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="24" />
-    <text>But to you I say, to the rest who are in Thyatira, as many as don’t have this teaching, who don’t know what some call ‘the deep things of Satan,’ to you I say, I am not putting any other burden on you.[1]</text>
+    <text>But to you I say, to the rest who are in Thyatira, as many as don’t have this teaching, who don’t know what some call ‘the deep things of Satan,’ to you I say, I am not putting any other burden on you.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="25" />
-    <text>Nevertheless, hold that which you have firmly until I come.[1]</text>
+    <text>Nevertheless, hold that which you have firmly until I come.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="26" />
-    <text>He who overcomes, and he who keeps my works to the end, to him I will give authority over the nations.[1]</text>
+    <text>He who overcomes, and he who keeps my works to the end, to him I will give authority over the nations.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="27" />
-    <text>He will rule them with a rod of iron, shattering them like clay pots; as I also have received of my Father:[1]</text>
+    <text>He will rule them with a rod of iron, shattering them like clay pots; as I also have received of my Father:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="28" />
-    <text>and I will give him the morning star.[1]</text>
+    <text>and I will give him the morning star.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="29" />
-    <text>He who has an ear, let him hear what the Spirit says to the assemblies. [1]”</text>
+    <text>He who has an ear, let him hear what the Spirit says to the assemblies.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>3</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="Jesus" multiBlockQuote="Start">
     <verse num="1" />
-    <text>“And to the angel of the assembly in Sardis write: He who has the seven Spirits of God, and the seven stars says these things: I know your works, that you have a reputation of being alive, but you are dead.[1]</text>
+    <text>“And to the angel of the assembly in Sardis write: He who has the seven Spirits of God, and the seven stars says these things: I know your works, that you have a reputation of being alive, but you are dead.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="2" />
-    <text>Wake up, and keep the things that remain, which you were about to throw away, for I have found no works of yours perfected before my God.[1]</text>
+    <text>Wake up, and keep the things that remain, which you were about to throw away, for I have found no works of yours perfected before my God.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="3" />
-    <text>Remember therefore how you have received and heard. Keep it, and repent. If therefore you won’t watch, I will come as a thief, and you won’t know what hour I will come upon you.[1]</text>
+    <text>Remember therefore how you have received and heard. Keep it, and repent. If therefore you won’t watch, I will come as a thief, and you won’t know what hour I will come upon you.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="4" />
-    <text>Nevertheless you have a few names in Sardis that did not defile their garments. They will walk with me in white, for they are worthy.[1]</text>
+    <text>Nevertheless you have a few names in Sardis that did not defile their garments. They will walk with me in white, for they are worthy.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="5" />
-    <text>He who overcomes will be arrayed in white garments, and I will in no way blot his name out of the book of life, and I will confess his name before my Father, and before his angels.[1]</text>
+    <text>He who overcomes will be arrayed in white garments, and I will in no way blot his name out of the book of life, and I will confess his name before my Father, and before his angels.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="6" />
-    <text>He who has an ear, let him hear what the Spirit says to the assemblies. [1]”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="extra-REV">
-    <text>||| + 2 SECs |||</text>
+    <text>He who has an ear, let him hear what the Spirit says to the assemblies.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="Jesus">
     <verse num="7" />
-    <text>“To the angel of the assembly in Philadelphia write: He who is holy, he who is true, he who has the key of David, he who opens and no one can shut, and who shuts and no one opens, says these things: [1]”</text>
+    <text>“To the angel of the assembly in Philadelphia write: He who is holy, he who is true, he who has the key of David, he who opens and no one can shut, and who shuts and no one opens, says these things:”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start">
     <verse num="8" />
-    <text>“I know your works (behold, I have set before you an open door, which no one can shut), that you have a little power, and kept my word, and didn’t deny my name.[1]</text>
+    <text>“I know your works (behold, I have set before you an open door, which no one can shut), that you have a little power, and kept my word, and didn’t deny my name.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="9" />
-    <text>Behold, I give of the synagogue of Satan, of those who say they are Jews, and they are not, but lie. Behold, I will make them to come and worship before your feet, and to know that I have loved you.[1]</text>
+    <text>Behold, I give of the synagogue of Satan, of those who say they are Jews, and they are not, but lie. Behold, I will make them to come and worship before your feet, and to know that I have loved you.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="10" />
-    <text>Because you kept my command to endure, I also will keep you from the hour of testing, which is to come on the whole world, to test those who dwell on the earth.[1]</text>
+    <text>Because you kept my command to endure, I also will keep you from the hour of testing, which is to come on the whole world, to test those who dwell on the earth.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="11" />
-    <text>I am coming quickly! Hold firmly that which you have, so that no one takes your crown.[1]</text>
+    <text>I am coming quickly! Hold firmly that which you have, so that no one takes your crown.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="12" />
-    <text>He who overcomes, I will make him a pillar in the temple of my God, and he will go out from there no more. I will write on him the name of my God, and the name of the city of my God, the new Jerusalem, which comes down out of heaven from my God, and my own new name.[1]</text>
+    <text>He who overcomes, I will make him a pillar in the temple of my God, and he will go out from there no more. I will write on him the name of my God, and the name of the city of my God, the new Jerusalem, which comes down out of heaven from my God, and my own new name.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="13" />
-    <text>He who has an ear, let him hear what the Spirit says to the assemblies. [1]”</text>
+    <text>He who has an ear, let him hear what the Spirit says to the assemblies.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="Jesus">
     <verse num="14" />
-    <text>“To the angel of the assembly in Laodicea write: The Amen, the Faithful and True Witness, the Head of God’s creation, says these things: [1]”</text>
+    <text>“To the angel of the assembly in Laodicea write: The Amen, the Faithful and True Witness, the Head of God’s creation, says these things:”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Start">
     <verse num="15" />
-    <text>“I know your works, that you are neither cold nor hot. I wish you were cold or hot.[1]</text>
+    <text>“I know your works, that you are neither cold nor hot. I wish you were cold or hot.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="16" />
-    <text>So, because you are lukewarm, and neither hot nor cold, I will vomit you out of my mouth.[1]</text>
+    <text>So, because you are lukewarm, and neither hot nor cold, I will vomit you out of my mouth.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="17" />
-    <text>Because you say, ‘I am rich, and have gotten riches, and have need of nothing;’ You don’t know that you are the wretched one, miserable, poor, blind, and naked;[1]</text>
+    <text>Because you say, ‘I am rich, and have gotten riches, and have need of nothing;’ You don’t know that you are the wretched one, miserable, poor, blind, and naked;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="18" />
-    <text>I counsel you to buy from me gold refined by fire, that you may become rich; and white garments, that you may clothe yourself, and that the shame of your nakedness may not be revealed; and eye salve to anoint your eyes, that you may see.[1]</text>
+    <text>I counsel you to buy from me gold refined by fire, that you may become rich; and white garments, that you may clothe yourself, and that the shame of your nakedness may not be revealed; and eye salve to anoint your eyes, that you may see.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="19" />
-    <text>As many as I love, I reprove and chasten. Be zealous therefore, and repent.[1]</text>
+    <text>As many as I love, I reprove and chasten. Be zealous therefore, and repent.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="20" />
-    <text>Behold, I stand at the door and knock. If anyone hears my voice and opens the door, then I will come in to him, and will dine with him, and he with me.[1]</text>
+    <text>Behold, I stand at the door and knock. If anyone hears my voice and opens the door, then I will come in to him, and will dine with him, and he with me.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="21" />
-    <text>He who overcomes, I will give to him to sit down with me on my throne, as I also overcame, and sat down with my Father on his throne.[1]</text>
+    <text>He who overcomes, I will give to him to sit down with me on my throne, as I also overcame, and sat down with my Father on his throne.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="22" />
-    <text>He who has an ear, let him hear what the Spirit says to the assemblies. [1]”</text>
+    <text>He who has an ear, let him hear what the Spirit says to the assemblies.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>4</text>
@@ -324,7 +312,7 @@
     <text>After these things I looked and saw a door opened in heaven, and the first voice that I heard, like a trumpet speaking with me, was one saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="Jesus">
-    <text>“Come up here, and I will show you the things which must happen after this. [1]”</text>
+    <text>“Come up here, and I will show you the things which must happen after this.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-REV">
     <verse num="2" />
@@ -337,12 +325,6 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-REV">
     <verse num="4" />
     <text>Around the throne were twenty-four thrones. On the thrones were twenty-four elders sitting, dressed in white garments, with crowns of gold on their heads.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="extra-REV">
-    <text>{Music--Starts @ v 5}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-REV">
     <verse num="5" />
@@ -361,7 +343,7 @@
     <text>The four living creatures, each one of them having six wings, are full of eyes around and within. They have no rest day and night, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="four living creatures">
-    <text>“Holy, holy, holy is the Lord God, the Almighty, who was and who is and who is to come! [1]”</text>
+    <text>“Holy, holy, holy is the Lord God, the Almighty, who was and who is and who is to come!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-REV">
     <verse num="9" />
@@ -373,7 +355,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="twenty-four elders">
     <verse num="11" />
-    <text>“Worthy are you, our Lord and God, the Holy One, to receive the glory, the honor, and the power, for you created all things, and because of your desire they existed, and were created! [1]”</text>
+    <text>“Worthy are you, our Lord and God, the Holy One, to receive the glory, the honor, and the power, for you created all things, and because of your desire they existed, and were created!”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>5</text>
@@ -387,7 +369,7 @@
     <text>I saw a mighty angel proclaiming with a loud voice,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="angel, powerful" delivery="loud">
-    <text>“Who is worthy to open the book, and to break its seals? [1]”</text>
+    <text>“Who is worthy to open the book, and to break its seals?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-REV">
     <verse num="3" />
@@ -402,7 +384,7 @@
     <text>One of the elders said to me,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="elders, one of the">
-    <text>“Don’t weep. Behold, the Lion who is of the tribe of Judah, the Root of David, has overcome; he who opens the book and its seven seals. [1]”</text>
+    <text>“Don’t weep. Behold, the Lion who is of the tribe of Judah, the Root of David, has overcome; he who opens the book and its seven seals.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV">
     <verse num="6" />
@@ -421,11 +403,11 @@
     <text>They sang a new song, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="four living creatures/twenty-four elders" characterIdOverrideForScript="four living creatures" delivery="singing" multiBlockQuote="Start">
-    <text>“You are worthy to take the book, and to open its seals: for you were killed, and bought us for God with your blood, out of every tribe, language, people, and nation.[1]</text>
+    <text>“You are worthy to take the book, and to open its seals: for you were killed, and bought us for God with your blood, out of every tribe, language, people, and nation.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="four living creatures/twenty-four elders" characterIdOverrideForScript="four living creatures" delivery="singing" multiBlockQuote="Continuation">
     <verse num="10" />
-    <text>You made us kings and priests to our God, and we will reign on earth. [1]”</text>
+    <text>You made us kings and priests to our God, and we will reign on earth.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
@@ -436,21 +418,21 @@
     <text>saying with a loud voice,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="angels, many" delivery="singing">
-    <text>“Worthy is the Lamb who has been killed to receive the power, wealth, wisdom, strength, honor, glory, and blessing! [1]”</text>
+    <text>“Worthy is the Lamb who has been killed to receive the power, wealth, wisdom, strength, honor, glory, and blessing!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
     <text>I heard every created thing which is in heaven, on the earth, under the earth, on the sea, and everything in them, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="every created thing" delivery="singing">
-    <text>“To him who sits on the throne, and to the Lamb be the blessing, the honor, the glory, and the dominion, forever and ever! Amen! [1]”</text>
+    <text>“To him who sits on the throne, and to the Lamb be the blessing, the honor, the glory, and the dominion, forever and ever! Amen!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-REV">
     <verse num="14" />
     <text>The four living creatures said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="four living creatures">
-    <text>“Amen! [1]”</text>
+    <text>“Amen!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-REV">
     <text>The elders fell down and worshiped him that lives forever.</text>
@@ -504,14 +486,14 @@
     <text>I heard a voice in the midst of the four living creatures saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="voice from among living creatures">
-    <text>“A quart of wheat for a denarius, and three choenix of barley for a denarius! Don’t damage the oil and the wine! [1]”</text>
+    <text>“A quart of wheat for a denarius, and three choenix of barley for a denarius! Don’t damage the oil and the wine!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
     <text>When he opened the fourth seal, I heard the fourth living creature saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="living creature, fourth">
-    <text>“Come and see! [1]”</text>
+    <text>“Come and see!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-REV">
     <verse num="8" />
@@ -521,28 +503,16 @@
     <verse num="9" />
     <text>Then he opened the fifth seal. I saw underneath the altar the souls of those who had been killed for the Word of God, and for the testimony of the Lamb which they had.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="extra-REV">
-    <text>{SFX--Crying--Starts @ v 7}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
     <text>They cried with a loud voice, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="souls of those killed for word of God">
-    <text>“How long, Master, the holy and true, until you judge and avenge our blood on those who dwell on the earth? [1]”</text>
+    <text>“How long, Master, the holy and true, until you judge and avenge our blood on those who dwell on the earth?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
     <text>A long white robe was given to each of them. They were told that they should rest yet for a while. To wait until their fellow servants and their brothers, who would also be killed even as they were, should complete their course.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="extra-REV">
-    <text>{Music--Starts @ v 12}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
@@ -584,7 +554,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="3" characterId="angel standing in sun">
     <verse num="3" />
-    <text>“Don’t harm the earth, neither the sea, nor the trees, until we have sealed the bondservants of our God on their foreheads! [1]”</text>
+    <text>“Don’t harm the earth, neither the sea, nor the trees, until we have sealed the bondservants of our God on their foreheads!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="4" characterId="narrator-REV">
     <verse num="4" />
@@ -615,7 +585,7 @@
     <text>They cried with a loud voice, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="multitude from all nations, tribes, peoples, languages">
-    <text>“Salvation be to our God, who sits on the throne, and to the Lamb! [1]”</text>
+    <text>“Salvation be to our God, who sits on the throne, and to the Lamb!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
@@ -624,14 +594,14 @@
     <text>saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="angels, all the">
-    <text>“Amen! Blessing, glory, wisdom, thanksgiving, honor, power, and might, be to our God forever and ever! Amen. [1]”</text>
+    <text>“Amen! Blessing, glory, wisdom, thanksgiving, honor, power, and might, be to our God forever and ever! Amen.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
     <text>One of the elders answered, saying to me,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="elders, one of the">
-    <text>“These who are arrayed in white robes, who are they, and from where did they come? [1]”</text>
+    <text>“These who are arrayed in white robes, who are they, and from where did they come?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="narrator-REV">
     <verse num="14" />
@@ -644,19 +614,19 @@
     <text>He said to me,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="elders, one of the" multiBlockQuote="Start">
-    <text>“These are those who came out of the great tribulation. They washed their robes, and made them white in the Lamb’s blood.[1]</text>
+    <text>“These are those who came out of the great tribulation. They washed their robes, and made them white in the Lamb’s blood.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="elders, one of the" multiBlockQuote="Continuation">
     <verse num="15" />
-    <text>Therefore they are before the throne of God, they serve him day and night in his temple. He who sits on the throne will spread his tabernacle over them.[1]</text>
+    <text>Therefore they are before the throne of God, they serve him day and night in his temple. He who sits on the throne will spread his tabernacle over them.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="elders, one of the" multiBlockQuote="Continuation">
     <verse num="16" />
-    <text>They will never be hungry, neither thirsty any more; neither will the sun beat on them, nor any heat.[1]</text>
+    <text>They will never be hungry, neither thirsty any more; neither will the sun beat on them, nor any heat.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="elders, one of the" multiBlockQuote="Continuation">
     <verse num="17" />
-    <text>For the Lamb who is in the midst of the throne shepherds them, and leads them to springs of waters of life. And God will wipe away every tear from their eyes. [1]”</text>
+    <text>For the Lamb who is in the midst of the throne shepherds them, and leads them to springs of waters of life. And God will wipe away every tear from their eyes.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>8</text>
@@ -673,12 +643,6 @@
     <verse num="3" />
     <text>Another angel came and stood over the altar, having a golden censer. Much incense was given to him, that he should add it to the prayers of all the saints on the golden altar which was before the throne.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="extra-REV">
-    <text>{Music--Starts @ v 4}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="4" characterId="narrator-REV">
     <verse num="4" />
     <text>The smoke of the incense, with the prayers of the saints, went up before God out of the angel’s hand.</text>
@@ -691,21 +655,9 @@
     <verse num="6" />
     <text>The seven angels who had the seven trumpets prepared themselves to sound.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="6" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="6" characterId="extra-REV">
-    <text>{Music--Starts @ v 7}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
     <text>The first sounded, and there followed  hail and fire, mixed with blood, and they were thrown to the earth. One third of the earth was burnt up, and one third of the trees were burnt up, and all green grass was burnt up.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="extra-REV">
-    <text>{Music--Starts @ v 8}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-REV">
     <verse num="8" />
@@ -729,12 +681,6 @@
   <block style="p" chapter="8" initialStartVerse="11" characterId="narrator-REV">
     <text>One third of the waters became wormwood. Many people died from the waters, because they were made bitter.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="extra-REV">
-    <text>{Music--Starts @ v 12}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
     <text>The fourth angel sounded, and one third of  the sun was struck, and one third of the moon, and one third of the stars; so that one third of them would be darkened, and the day wouldn’t shine for one third of it, and the night in the same way.</text>
@@ -744,7 +690,7 @@
     <text>I saw, and I heard an angel, flying in mid heaven, saying with a loud voice,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="eagle crying with loud voice">
-    <text>“Woe! Woe! Woe for those who dwell on the earth, because of the other voices of the trumpets of the three angels, who are yet to sound! [1]”</text>
+    <text>“Woe! Woe! Woe for those who dwell on the earth, because of the other voices of the trumpets of the three angels, who are yet to sound!”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>9</text>
@@ -756,12 +702,6 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="narrator-REV">
     <verse num="2" />
     <text>He opened the pit of the abyss, and smoke went up out of the pit, like the smoke from a burning furnace. The sun and the air were darkened because of the smoke from the pit.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="extra-REV">
-    <text>{SFX--Locusts--Starts @ v 3}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="3" characterId="narrator-REV">
     <verse num="3" />
@@ -786,12 +726,6 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-REV">
     <verse num="8" />
     <text>They had hair like women’s hair, and their teeth were like those of lions.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="extra-REV">
-    <text>{SFX--Horses w/music--Starts @ v 9}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-REV">
     <verse num="9" />
@@ -827,7 +761,7 @@
     <text>It said to the sixth angel who had one trumpet,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="voice from altar">
-    <text>“Free the four angels who are bound at the great river Euphrates! [1]”</text>
+    <text>“Free the four angels who are bound at the great river Euphrates!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="narrator-REV">
     <verse num="15" />
@@ -844,12 +778,6 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-REV">
     <verse num="18" />
     <text>By these three plagues were one third of mankind killed: by the fire, the smoke, and the sulfur, which proceeded out of their mouths.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="extra-REV">
-    <text>{Music--Starts @ v 19}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="19" characterId="narrator-REV">
     <verse num="19" />
@@ -883,7 +811,7 @@
     <text>When the seven thunders sounded, I was about to write; but I heard a voice from the sky saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="voice from heaven (God?)">
-    <text>“Seal up the things which the seven thunders said, and don’t write them. [1]”</text>
+    <text>“Seal up the things which the seven thunders said, and don’t write them.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="narrator-REV">
     <verse num="5" />
@@ -894,25 +822,25 @@
     <text>and swore by him who lives forever and ever, who created heaven and the things that are in it, the earth and the things that are in it, and the sea and the things that are in it, saying:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="angel standing on sea and land" multiBlockQuote="Start">
-    <text>“There will be no more delay.[1]</text>
+    <text>“There will be no more delay.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="angel standing on sea and land" multiBlockQuote="Continuation">
     <verse num="7" />
-    <text>but in the days of the voice of the seventh angel, when he is about to sound, then the mystery of God is finished, as he declared to his servants, the prophets. [1]”</text>
+    <text>but in the days of the voice of the seventh angel, when he is about to sound, then the mystery of God is finished, as he declared to his servants, the prophets.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-REV">
     <verse num="8" />
     <text>The voice which I heard from heaven, again speaking with me, said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="voice from heaven (God?)">
-    <text>“Go, take the book which is open in the hand of the angel who stands on the sea and on the land. [1]”</text>
+    <text>“Go, take the book which is open in the hand of the angel who stands on the sea and on the land.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-REV">
     <verse num="9" />
     <text>I went to the angel, telling him to give me the little book. He said to me,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="angel standing on sea and land">
-    <text>“Take it, and eat it up. It will make your stomach bitter, but in your mouth it will be as sweet as honey. [1]”</text>
+    <text>“Take it, and eat it up. It will make your stomach bitter, but in your mouth it will be as sweet as honey.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
@@ -921,7 +849,7 @@
     <text>He told me,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="angel standing on sea and land">
-    <text>“You must prophesy again over many peoples, nations, languages, and kings. [1]”</text>
+    <text>“You must prophesy again over many peoples, nations, languages, and kings.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>11</text>
@@ -931,15 +859,15 @@
     <text>A reed like a rod was given to me. Someone said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="1" characterId="angel or messenger (Greek variant: someone speaking to John)" multiBlockQuote="Start">
-    <text>“Rise, and measure God’s temple, and the altar, and those who worship in it.[1]</text>
+    <text>“Rise, and measure God’s temple, and the altar, and those who worship in it.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="angel or messenger (Greek variant: someone speaking to John)" multiBlockQuote="Continuation">
     <verse num="2" />
-    <text>Leave out the court which is outside of the temple. Don’t measure it, for it has been given to the nations. They will tread the holy city under foot for forty-two months.[1]</text>
+    <text>Leave out the court which is outside of the temple. Don’t measure it, for it has been given to the nations. They will tread the holy city under foot for forty-two months.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="3" characterId="angel or messenger (Greek variant: someone speaking to John)" multiBlockQuote="Continuation">
     <verse num="3" />
-    <text>I will give power to my two witnesses, and they will prophesy one thousand two hundred sixty days, clothed in sackcloth. [1]”</text>
+    <text>I will give power to my two witnesses, and they will prophesy one thousand two hundred sixty days, clothed in sackcloth.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-REV">
     <verse num="4" />
@@ -978,16 +906,10 @@
     <text>I heard a loud voice from heaven saying to them,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="voice from heaven (God?)">
-    <text>“Come up here! [1]”</text>
+    <text>“Come up here!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-REV">
     <text>They went up into heaven in the cloud, and their enemies saw them.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="extra-REV">
-    <text>{SFX--Earthquake--Starts @ v 13}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
@@ -997,15 +919,12 @@
     <verse num="14" />
     <text>The second woe is past. Behold, the third woe comes quickly.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="extra-REV">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="narrator-REV">
     <verse num="15" />
     <text>The seventh angel sounded, and great voices in heaven followed, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="voices in heaven, loud">
-    <text>“The kingdoms of the world have become the Kingdoms of our Lord, and of his Christ. He will reign forever and ever! [1]”</text>
+    <text>“The kingdoms of the world have become the Kingdoms of our Lord, and of his Christ. He will reign forever and ever!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="narrator-REV">
     <verse num="16" />
@@ -1014,11 +933,11 @@
     <text>saying:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="twenty-four elders" multiBlockQuote="Start">
-    <text>“We give you thanks, Lord God, the Almighty, the one who is and who was, and is to come; because you have taken your great power, and reigned.[1]</text>
+    <text>“We give you thanks, Lord God, the Almighty, the one who is and who was, and is to come; because you have taken your great power, and reigned.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="twenty-four elders" multiBlockQuote="Continuation">
     <verse num="18" />
-    <text>The nations were angry, and your wrath came, as did the time for the dead to be judged, and to give your bondservants the prophets, their reward, as well as to the saints, and those who fear your name, to the small and the great; and to destroy those who destroy the earth. [1]”</text>
+    <text>The nations were angry, and your wrath came, as did the time for the dead to be judged, and to give your bondservants the prophets, their reward, as well as to the saints, and those who fear your name, to the small and the great; and to destroy those who destroy the earth.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-REV">
     <verse num="19" />
@@ -1034,12 +953,6 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-REV">
     <verse num="2" />
     <text>She was with child. She cried out in pain, laboring to give birth.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="extra-REV">
-    <text>{SFX--Dragon--Starts @ v 3}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-REV">
     <verse num="3" />
@@ -1077,15 +990,15 @@
     <text>I heard a loud voice in heaven, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="voice in heaven, loud" multiBlockQuote="Start">
-    <text>“Now the salvation, the power, and the Kingdom of our God, and the authority of his Christ has come; for the accuser of our brothers has been thrown down, who accuses them before our God day and night.[1]</text>
+    <text>“Now the salvation, the power, and the Kingdom of our God, and the authority of his Christ has come; for the accuser of our brothers has been thrown down, who accuses them before our God day and night.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="voice in heaven, loud" multiBlockQuote="Continuation">
     <verse num="11" />
-    <text>They overcame him because of the Lamb’s blood, and because of the word of their testimony. They didn’t love their life, even to death.[1]</text>
+    <text>They overcame him because of the Lamb’s blood, and because of the word of their testimony. They didn’t love their life, even to death.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="12" characterId="voice in heaven, loud" multiBlockQuote="Continuation">
     <verse num="12" />
-    <text>Therefore rejoice, heavens, and you who dwell in them. Woe to those who live in the earth and of the sea, because the devil has gone down to you, having great wrath, knowing that he has but a short time. [1]”</text>
+    <text>Therefore rejoice, heavens, and you who dwell in them. Woe to those who live in the earth and of the sea, because the devil has gone down to you, having great wrath, knowing that he has but a short time.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
@@ -1094,12 +1007,6 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="narrator-REV">
     <verse num="14" />
     <text>Two wings of the great eagle were given to the woman, that she might fly into the wilderness to her place, so that she might be nourished for a time, and times, and half a time, from the face of the serpent.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="extra-REV">
-    <text>{SFX--Spewing Water--Starts @ v 15}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-REV">
     <verse num="15" />
@@ -1133,7 +1040,7 @@
     <text>They worshiped the dragon, because he gave his authority to the beast, and they worshiped the beast, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="worshipers of the beast">
-    <text>“Who is like the beast? Who is able to make war with him? [1]”</text>
+    <text>“Who is like the beast? Who is able to make war with him?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-REV">
     <verse num="5" />
@@ -1155,9 +1062,6 @@
     <verse num="9" />
     <text>If anyone has an ear, let him hear.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="extra-REV">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
     <text>If anyone is to go into captivity, he will go into captivity. If anyone is to be killed with the sword, he must be killed. Here is the endurance and the faith of the saints.</text>
@@ -1170,28 +1074,16 @@
     <verse num="12" />
     <text>He exercises all the authority of the first beast in his presence. He makes the earth and those who dwell in it to worship the first beast, whose fatal wound was healed.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="extra-REV">
-    <text>{SFX--Fire--Starts @ v 13}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
     <text>He performs great signs, even making fire come down out of the sky to the earth in the sight of people.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="extra-REV">
-    <text>{SFX--Wind--Starts @ v 14}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="narrator-REV">
     <verse num="14" />
     <text>He deceives my own people who dwell on the earth because of the signs he was granted to do in front of the beast; saying to those who dwell on the earth:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="beast, the">
-    <text>“Make an image to the beast who was wounded by the sword and lived. [1]”</text>
+    <text>“Make an image to the beast who was wounded by the sword and lived.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="narrator-REV">
     <verse num="15" />
@@ -1215,12 +1107,6 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="1" characterId="narrator-REV">
     <verse num="1" />
     <text>I saw, and behold, the Lamb standing on Mount Zion, and with him a number, one hundred forty-four thousand, having his name, and the name of his Father, written on their foreheads.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="14" initialStartVerse="1" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="14" initialStartVerse="1" characterId="extra-REV">
-    <text>{SFX--Water--Starts @ v 2}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="2" characterId="narrator-REV">
     <verse num="2" />
@@ -1247,55 +1133,49 @@
     <text>He said with a loud voice,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="7" characterId="angel flying directly overhead">
-    <text>“Fear the Lord, and give him glory; for the hour of his judgment has come. Worship him who made the heaven, the earth, the sea, and the springs of waters! [1]”</text>
+    <text>“Fear the Lord, and give him glory; for the hour of his judgment has come. Worship him who made the heaven, the earth, the sea, and the springs of waters!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="8" characterId="narrator-REV">
     <verse num="8" />
     <text>Another, a second angel, followed, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="8" characterId="angel flying directly overhead, second">
-    <text>“Babylon the great has fallen, which has made all the nations to drink of the wine of the wrath of her sexual immorality. [1]”</text>
+    <text>“Babylon the great has fallen, which has made all the nations to drink of the wine of the wrath of her sexual immorality.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="9" characterId="narrator-REV">
     <verse num="9" />
     <text>Another angel, a third, followed them, saying with a great voice,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="9" characterId="angel flying directly overhead, third" multiBlockQuote="Start">
-    <text>“If anyone worships the beast and his image, and receives a mark on his forehead, or on his hand,[1]</text>
+    <text>“If anyone worships the beast and his image, and receives a mark on his forehead, or on his hand,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="10" characterId="angel flying directly overhead, third" multiBlockQuote="Continuation">
     <verse num="10" />
-    <text>he also will drink of the wine of the wrath of God, which is prepared unmixed in the cup of his anger. He will be tormented with fire and sulfur in the presence of the holy angels, and in the presence of the Lamb.[1]</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="14" initialStartVerse="10" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="14" initialStartVerse="10" characterId="extra-REV">
-    <text>{SFX--Smoke ascending--Starts @ v 11}</text>
+    <text>he also will drink of the wine of the wrath of God, which is prepared unmixed in the cup of his anger. He will be tormented with fire and sulfur in the presence of the holy angels, and in the presence of the Lamb.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="angel flying directly overhead, third" multiBlockQuote="Start">
     <verse num="11" />
-    <text>The smoke of their torment goes up forever and ever. They have no rest day and night, those who worship the beast and his image, and whoever receives the mark of his name.[1]</text>
+    <text>The smoke of their torment goes up forever and ever. They have no rest day and night, those who worship the beast and his image, and whoever receives the mark of his name.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="12" characterId="angel flying directly overhead, third" multiBlockQuote="Continuation">
     <verse num="12" />
-    <text>This calls for patient endurance on the part of the saints, those who keep the commandments of God, and the faith of Jesus. [1]”</text>
+    <text>This calls for patient endurance on the part of the saints, those who keep the commandments of God, and the faith of Jesus.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
     <text>I heard the voice from heaven saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="voice from heaven (God?)" userConfirmed="true">
-    <text>“Write, ‘Blessed are the dead who die in the Lord from now on.’ [1]”</text>
+    <text>“Write, ‘Blessed are the dead who die in the Lord from now on.’”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the" userConfirmed="true">
-    <text>“Yes, [1]”</text>
+    <text>“Yes,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-REV">
     <text>says the Spirit,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the" userConfirmed="true">
-    <text>“that they may rest from their labors; for their works follow with them. [1]”</text>
+    <text>“that they may rest from their labors; for their works follow with them.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="14" characterId="narrator-REV">
     <verse num="14" />
@@ -1306,7 +1186,7 @@
     <text>Another angel came out from the temple, crying with a loud voice to him who sat on the cloud,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="15" characterId="angel, coming out of temple">
-    <text>“Send forth your sickle, and reap; for the hour to reap has come; for the harvest of the earth is ripe! [1]”</text>
+    <text>“Send forth your sickle, and reap; for the hour to reap has come; for the harvest of the earth is ripe!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-REV">
     <verse num="16" />
@@ -1321,7 +1201,7 @@
     <text>Another angel came out from the altar, he who has power over fire, and he called with a great voice to him who had the sharp sickle, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="18" characterId="angel, coming out of temple, another">
-    <text>“Send forth your sharp sickle, and gather the clusters of the vine of the earth, for the earth’s grapes are fully ripe! [1]”</text>
+    <text>“Send forth your sharp sickle, and gather the clusters of the vine of the earth, for the earth’s grapes are fully ripe!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="19" characterId="narrator-REV">
     <verse num="19" />
@@ -1338,12 +1218,6 @@
     <verse num="1" />
     <text>I saw another great and marvelous sign in the sky: seven angels having the seven last plagues, for in them God’s wrath is finished.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="15" initialStartVerse="1" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="15" initialStartVerse="1" characterId="extra-REV">
-    <text>{SFX--Sea of Glass + Fire--Starts @ v 2}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="narrator-REV">
     <verse num="2" />
     <text>I saw something like a sea of glass mixed with fire, and those who overcame the beast, his image, and the number of his name, standing on the sea of glass, having harps of God.</text>
@@ -1353,11 +1227,11 @@
     <text>They sang the song of Moses, the servant of God, and the song of the Lamb, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="3" characterId="conquerors of beast, image &amp; his name" delivery="singing" multiBlockQuote="Start">
-    <text>“Great and marvelous are your works, Lord God, the Almighty! Righteous and true are your ways, you King of saints.[1]</text>
+    <text>“Great and marvelous are your works, Lord God, the Almighty! Righteous and true are your ways, you King of saints.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="4" characterId="conquerors of beast, image &amp; his name" delivery="singing" multiBlockQuote="Continuation">
     <verse num="4" />
-    <text>Who wouldn’t fear you, Lord, and glorify your name? For you only are holy. For all the nations will come and worship before you. For your righteous acts have been revealed. [1]”</text>
+    <text>Who wouldn’t fear you, Lord, and glorify your name? For you only are holy. For all the nations will come and worship before you. For your righteous acts have been revealed.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="5" characterId="narrator-REV">
     <verse num="5" />
@@ -1383,27 +1257,15 @@
     <text>I heard a loud voice out of the temple, saying to the seven angels,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="1" characterId="voice from temple">
-    <text>“Go and pour out the seven bowls of the wrath of God on the earth! [1]”</text>
+    <text>“Go and pour out the seven bowls of the wrath of God on the earth!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="2" characterId="narrator-REV">
     <verse num="2" />
     <text>The first went, and poured out his bowl into the earth, and it became a harmful and evil sore on the people who had the mark of the beast, and who worshiped his image.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="2" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="2" characterId="extra-REV">
-    <text>{SFX--Pouring--Starts @ v 3}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="3" characterId="narrator-REV">
     <verse num="3" />
     <text>The second angel poured out his bowl into the sea, and it became blood as of a dead man. Every living thing in the sea died.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="3" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="3" characterId="extra-REV">
-    <text>{SFX--Pouring--Starts @ v 4}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="4" characterId="narrator-REV">
     <verse num="4" />
@@ -1414,18 +1276,18 @@
     <text>I heard the angel of the waters saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="5" characterId="angel over waters" multiBlockQuote="Start">
-    <text>“You are righteous, who are and who were and shall be, you Holy One, because you have judged these things.[1]</text>
+    <text>“You are righteous, who are and who were and shall be, you Holy One, because you have judged these things.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="6" characterId="angel over waters" multiBlockQuote="Continuation">
     <verse num="6" />
-    <text>For they poured out the blood of the saints and the prophets, and you have given them blood to drink. They deserve this. [1]”</text>
+    <text>For they poured out the blood of the saints and the prophets, and you have given them blood to drink. They deserve this.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
     <text>I heard another out of the altar saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="7" characterId="altar">
-    <text>“Yes, Lord God, the Almighty, true and righteous are your judgments. [1]”</text>
+    <text>“Yes, Lord God, the Almighty, true and righteous are your judgments.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="8" characterId="narrator-REV">
     <verse num="8" />
@@ -1435,12 +1297,6 @@
     <verse num="9" />
     <text>People were scorched with great heat, and people blasphemed the name of God who has the power over these plagues. They didn’t repent and give him glory.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="9" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="9" characterId="extra-REV">
-    <text>{SFX--Pouring--Starts @ v 10}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
     <text>The fifth poured out his bowl on the throne of the beast, and his kingdom was darkened. They gnawed their tongues because of the pain,</text>
@@ -1448,12 +1304,6 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
     <text>and they blasphemed the God of heaven because of their pains and their sores. They didn’t repent of their works.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="11" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="11" characterId="extra-REV">
-    <text>{SFX--Pouring--Starts @ v 12}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
@@ -1469,24 +1319,18 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="Jesus">
     <verse num="15" />
-    <text>“Behold, I come like a thief. Blessed is he who watches, and keeps his clothes, so that he doesn’t walk naked, and they see his shame. [1]”</text>
+    <text>“Behold, I come like a thief. Blessed is he who watches, and keeps his clothes, so that he doesn’t walk naked, and they see his shame.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="16" characterId="narrator-REV">
     <verse num="16" />
     <text>He gathered them together into the place which is called in Hebrew, Megiddo.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="16" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="16" initialStartVerse="16" characterId="extra-REV">
-    <text>{Music--Starts @ v 17}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="narrator-REV">
     <verse num="17" />
     <text>The seventh poured out his bowl into the air. A loud voice came forth out of the temple of heaven, from the throne, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="God">
-    <text>“It is done! [1]”</text>
+    <text>“It is done!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="narrator-REV">
     <verse num="18" />
@@ -1512,11 +1356,11 @@
     <text>One of the seven angels who had the seven bowls came and spoke with me, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="1" characterId="angel (one of the seven)" multiBlockQuote="Start">
-    <text>“Come here. I will show you the judgment of the great prostitute who sits on many waters.[1]</text>
+    <text>“Come here. I will show you the judgment of the great prostitute who sits on many waters.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="2" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
     <verse num="2" />
-    <text>With her, the kings of the earth committed sexual immorality. Those who dwell in the earth were made drunken with the wine of her sexual immorality. [1]”</text>
+    <text>With her, the kings of the earth committed sexual immorality. Those who dwell in the earth were made drunken with the wine of her sexual immorality.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="3" characterId="narrator-REV">
     <verse num="3" />
@@ -1531,7 +1375,7 @@
     <text>And on her forehead a name was written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="5" characterId="inscription on forehead of Babylon">
-    <text>“MYSTERY, BABYLON THE GREAT, THE MOTHER OF THE PROSTITUTES AND OF THE ABOMINATIONS OF THE EARTH. [1]”</text>
+    <text>“MYSTERY, BABYLON THE GREAT, THE MOTHER OF THE PROSTITUTES AND OF THE ABOMINATIONS OF THE EARTH.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="6" characterId="narrator-REV">
     <verse num="6" />
@@ -1542,54 +1386,54 @@
     <text>The angel said to me,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="7" characterId="angel (one of the seven)" multiBlockQuote="Start">
-    <text>“Why do you wonder? I will tell you the mystery of the woman, and of the beast that carries her, which has the seven heads and the ten horns.[1]</text>
+    <text>“Why do you wonder? I will tell you the mystery of the woman, and of the beast that carries her, which has the seven heads and the ten horns.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="8" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
     <verse num="8" />
-    <text>The beast that you saw was, and is not; and is about to come up out of the abyss and to go into destruction. Those who dwell on the earth and whose names have not been written in the book of life from the foundation of the world will marvel when they see that the beast was, and is not, and shall be present.[1]</text>
+    <text>The beast that you saw was, and is not; and is about to come up out of the abyss and to go into destruction. Those who dwell on the earth and whose names have not been written in the book of life from the foundation of the world will marvel when they see that the beast was, and is not, and shall be present.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="9" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
     <verse num="9" />
-    <text>Here is the mind that has wisdom. The seven heads are seven mountains, on which the woman sits.[1]</text>
+    <text>Here is the mind that has wisdom. The seven heads are seven mountains, on which the woman sits.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="10" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
     <verse num="10" />
-    <text>They are seven kings. Five have fallen, the one is, the other has not yet come. When he comes, he must continue a little while.[1]</text>
+    <text>They are seven kings. Five have fallen, the one is, the other has not yet come. When he comes, he must continue a little while.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="11" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
     <verse num="11" />
-    <text>The beast that was, and is not, is himself also an eighth, and is of the seven; and he goes to destruction.[1]</text>
+    <text>The beast that was, and is not, is himself also an eighth, and is of the seven; and he goes to destruction.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="12" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
     <verse num="12" />
-    <text>The ten horns that you saw are ten kings who have received no kingdom as yet, but they receive authority as kings, with the beast, for one hour.[1]</text>
+    <text>The ten horns that you saw are ten kings who have received no kingdom as yet, but they receive authority as kings, with the beast, for one hour.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="13" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
     <verse num="13" />
-    <text>These have one mind, and they give their power and authority to the beast.[1]</text>
+    <text>These have one mind, and they give their power and authority to the beast.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="14" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
     <verse num="14" />
-    <text>These will war against the Lamb, and the Lamb will overcome them, for he is Lord of lords, and King of kings. They also will overcome who are with him, called and chosen and faithful. [1]”</text>
+    <text>These will war against the Lamb, and the Lamb will overcome them, for he is Lord of lords, and King of kings. They also will overcome who are with him, called and chosen and faithful.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="15" characterId="narrator-REV">
     <verse num="15" />
     <text>He said to me,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="15" characterId="angel (one of the seven)" multiBlockQuote="Start">
-    <text>“The waters which you saw, where the prostitute sits, are peoples, multitudes, nations, and languages.[1]</text>
+    <text>“The waters which you saw, where the prostitute sits, are peoples, multitudes, nations, and languages.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="16" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
     <verse num="16" />
-    <text>The ten horns which you saw, and the beast, these will hate the prostitute. They will make her desolate, and will make her naked, and will eat her flesh, and will burn her utterly with fire.[1]</text>
+    <text>The ten horns which you saw, and the beast, these will hate the prostitute. They will make her desolate, and will make her naked, and will eat her flesh, and will burn her utterly with fire.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="17" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
     <verse num="17" />
-    <text>For God has put in their hearts to do what he has in mind. To be of one mind, and to give their kingdom to the beast, until the words of God should be accomplished.[1]</text>
+    <text>For God has put in their hearts to do what he has in mind. To be of one mind, and to give their kingdom to the beast, until the words of God should be accomplished.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
     <verse num="18" />
-    <text>The woman whom you saw is the great city, which reigns over the kings of the earth. [1]”</text>
+    <text>The woman whom you saw is the great city, which reigns over the kings of the earth.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="18" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>18</text>
@@ -1603,35 +1447,35 @@
     <text>He cried with a mighty voice, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="2" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Start">
-    <text>“Fallen, fallen is Babylon the great! She has become a habitation of demons, a prison of every unclean spirit, and a prison of every unclean and hateful bird![1] </text>
+    <text>“Fallen, fallen is Babylon the great! She has become a habitation of demons, a prison of every unclean spirit, and a prison of every unclean and hateful bird! </text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="3" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Continuation">
     <verse num="3" />
-    <text>For all the nations have drunk of the wine of the wrath of her sexual immorality. The kings of the earth committed sexual immorality with her, and the merchants of the earth grew rich from the abundance of her luxury. [1]”</text>
+    <text>For all the nations have drunk of the wine of the wrath of her sexual immorality. The kings of the earth committed sexual immorality with her, and the merchants of the earth grew rich from the abundance of her luxury.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="narrator-REV">
     <verse num="4" />
     <text>I heard another voice from heaven, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Start">
-    <text>“Come out of her, my people, that you have no participation in her sins, and that you don’t receive of her plagues,[1]  </text>
+    <text>“Come out of her, my people, that you have no participation in her sins, and that you don’t receive of her plagues,  </text>
     <verse num="5" />
-    <text>for her sins have reached to the sky, and God has remembered her iniquities.[1]</text>
+    <text>for her sins have reached to the sky, and God has remembered her iniquities.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="6" characterId="voice from heaven, another" multiBlockQuote="Continuation">
     <verse num="6" />
-    <text>Return to her just as she returned, and repay her double as she did, and according to her works. In the cup which she mixed, mix to her double.[1]</text>
+    <text>Return to her just as she returned, and repay her double as she did, and according to her works. In the cup which she mixed, mix to her double.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="voice from heaven, another" multiBlockQuote="Continuation">
     <verse num="7" />
-    <text>However much she glorified herself, and grew wanton, so much give her of torment and mourning. For she says in her heart,[1]</text>
+    <text>However much she glorified herself, and grew wanton, so much give her of torment and mourning. For she says in her heart,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="voice from heaven, another" multiBlockQuote="Continuation">
-    <text>‘I sit as queen, and am no widow, and will in no way see mourning.’[1]</text>
+    <text>‘I sit as queen, and am no widow, and will in no way see mourning.’</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="8" characterId="voice from heaven, another" multiBlockQuote="Continuation">
     <verse num="8" />
-    <text>Therefore in one day her plagues will come:   death, mourning, and famine; and she will be utterly burned with fire; for the Lord God who has judged her is strong. [1]”</text>
+    <text>Therefore in one day her plagues will come:   death, mourning, and famine; and she will be utterly burned with fire; for the Lord God who has judged her is strong.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="narrator-REV">
     <verse num="9" />
@@ -1642,7 +1486,7 @@
     <text>standing far away for the fear of her torment, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth" userConfirmed="true">
-    <text>“Woe, woe, the great city, Babylon, the strong city! For your judgment has come in one hour. [1]”</text>
+    <text>“Woe, woe, the great city, Babylon, the strong city! For your judgment has come in one hour.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
@@ -1661,7 +1505,7 @@
     <text>They cried out to the city:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="14" characterId="merchants of the earth" userConfirmed="true">
-    <text>“The fruits which your soul lusted after have been lost to you. All things that were dainty and sumptuous have perished from you, and you will find them no more at all. [1]”</text>
+    <text>“The fruits which your soul lusted after have been lost to you. All things that were dainty and sumptuous have perished from you, and you will find them no more at all.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="15" characterId="narrator-REV">
     <verse num="15" />
@@ -1670,48 +1514,48 @@
     <text>saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="merchants of the earth" delivery="wailing" userConfirmed="true" multiBlockQuote="Start">
-    <text>“Woe, woe, the great city, she who was dressed in fine linen, purple, and scarlet, and decked with gold and precious stones and pearls![1]</text>
+    <text>“Woe, woe, the great city, she who was dressed in fine linen, purple, and scarlet, and decked with gold and precious stones and pearls!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="wailing" userConfirmed="true" multiBlockQuote="Continuation">
     <verse num="17" />
-    <text>For in an hour such great riches are made desolate. Every shipmaster, and everyone who sails anywhere, and mariners, and as many as gain their living by sea, stood far away, [1]”</text>
+    <text>For in an hour such great riches are made desolate. Every shipmaster, and everyone who sails anywhere, and mariners, and as many as gain their living by sea, stood far away,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="narrator-REV">
     <verse num="18" />
     <text>and cried out as they looked at the smoke of her burning, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="merchants of the earth" delivery="wailing" userConfirmed="true">
-    <text>“What is like the great city? [1]”</text>
+    <text>“What is like the great city?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="narrator-REV">
     <verse num="19" />
     <text>They cast dust on their heads, and cried, weeping and mourning, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="merchants of the earth" delivery="wailing" userConfirmed="true">
-    <text>“Woe, woe, the great city, in which all who had their ships in the sea were made rich by reason of her great wealth! For in one hour is she made desolate. [1]”</text>
+    <text>“Woe, woe, the great city, in which all who had their ships in the sea were made rich by reason of her great wealth! For in one hour is she made desolate.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="20" characterId="sea captains, seafarers, sailors" delivery="weeping">
     <verse num="20" />
-    <text>“Rejoice over her, O heaven, you saints, apostles, and prophets; for God has judged your judgment on her. [1]”</text>
+    <text>“Rejoice over her, O heaven, you saints, apostles, and prophets; for God has judged your judgment on her.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="21" characterId="narrator-REV">
     <verse num="21" />
     <text>A mighty angel took up a stone like a great millstone and cast it into the sea, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="21" characterId="angel, powerful" multiBlockQuote="Start">
-    <text>“Thus with violence will Babylon, the great city, be thrown down, and will be found no more at all.[1]</text>
+    <text>“Thus with violence will Babylon, the great city, be thrown down, and will be found no more at all.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="22" characterId="angel, powerful" multiBlockQuote="Continuation">
     <verse num="22" />
-    <text>The voice of harpists, minstrels, flute players, and trumpeters will be heard no more at all in you. No craftsman, of whatever craft, will be found any more at all in you. The sound of a mill will be heard no more at all in you.[1]</text>
+    <text>The voice of harpists, minstrels, flute players, and trumpeters will be heard no more at all in you. No craftsman, of whatever craft, will be found any more at all in you. The sound of a mill will be heard no more at all in you.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="23" characterId="angel, powerful" multiBlockQuote="Continuation">
     <verse num="23" />
-    <text>The light of a lamp will shine no more at all in you. The voice of the bridegroom and of the bride will be heard no more at all in you; for your merchants were the princes of the earth; for with your sorcery all the nations were deceived.[1]</text>
+    <text>The light of a lamp will shine no more at all in you. The voice of the bridegroom and of the bride will be heard no more at all in you; for your merchants were the princes of the earth; for with your sorcery all the nations were deceived.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="24" characterId="angel, powerful" multiBlockQuote="Continuation">
     <verse num="24" />
-    <text>In her was found the blood of prophets and of saints, and of all who have been slain on the earth. [1]”</text>
+    <text>In her was found the blood of prophets and of saints, and of all who have been slain on the earth.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="19" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>19</text>
@@ -1721,47 +1565,47 @@
     <text>After these things I heard something like a loud voice of a great multitude in heaven, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="1" characterId="voice of great crowd in heaven, loud" delivery="shouting" multiBlockQuote="Start">
-    <text>“Hallelujah! Salvation, power, and glory belong to our God:[1]</text>
+    <text>“Hallelujah! Salvation, power, and glory belong to our God:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="2" characterId="voice of great crowd in heaven, loud" delivery="shouting" multiBlockQuote="Continuation">
     <verse num="2" />
-    <text>for true and righteous are his judgments. For he has judged the great prostitute, who corrupted the earth with her sexual immorality, and he has avenged the blood of his servants at her hand. [1]”</text>
+    <text>for true and righteous are his judgments. For he has judged the great prostitute, who corrupted the earth with her sexual immorality, and he has avenged the blood of his servants at her hand.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="3" characterId="narrator-REV">
     <verse num="3" />
     <text>A second said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="3" characterId="voice of great crowd in heaven, loud" delivery="shouting">
-    <text>“Hallelujah! Her smoke goes up forever and ever. [1]”</text>
+    <text>“Hallelujah! Her smoke goes up forever and ever.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="narrator-REV">
     <verse num="4" />
     <text>The twenty-four elders and the four living creatures fell down and worshiped God who sits on the throne, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="twenty-four elders/four living creatures" characterIdOverrideForScript="twenty-four elders">
-    <text>“Amen! Hallelujah! [1]”</text>
+    <text>“Amen! Hallelujah!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="5" characterId="narrator-REV">
     <verse num="5" />
     <text>A voice came forth from the throne, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="5" characterId="voice from throne">
-    <text>“Give praise to our God, all you his servants, you who fear him, the small and the great! [1]”</text>
+    <text>“Give praise to our God, all you his servants, you who fear him, the small and the great!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="6" characterId="narrator-REV">
     <verse num="6" />
     <text>I heard something like the voice of a great multitude, and like the voice of many waters, and like the voice of mighty thunders, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="6" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting" multiBlockQuote="Start">
-    <text>“Hallelujah! For the Lord our God, the Almighty, reigns![1]</text>
+    <text>“Hallelujah! For the Lord our God, the Almighty, reigns!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="7" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting" multiBlockQuote="Continuation">
     <verse num="7" />
-    <text>Let us rejoice and be exceedingly glad, and let us give the glory to him. For the marriage of the Lamb has come, and his wife has made herself ready. [1]”</text>
+    <text>Let us rejoice and be exceedingly glad, and let us give the glory to him. For the marriage of the Lamb has come, and his wife has made herself ready.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting">
     <verse num="8" />
-    <text>“It was given to her that she would array herself in bright, pure, fine linen. [1]” </text>
+    <text>“It was given to her that she would array herself in bright, pure, fine linen.” </text>
   </block>
   <block style="p" chapter="19" initialStartVerse="8" characterId="narrator-REV">
     <text>(For the fine linen is the righteous acts of the saints.)</text>
@@ -1771,20 +1615,20 @@
     <text>He said to me,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="9" characterId="angel (one of the seven)">
-    <text>“Write, Blessed are those who are invited to the marriage supper of the Lamb. [1]”</text>
+    <text>“Write, Blessed are those who are invited to the marriage supper of the Lamb.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="9" characterId="narrator-REV">
     <text>He said to me,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="9" characterId="angel (one of the seven)">
-    <text>“These are true words of God. [1]”</text>
+    <text>“These are true words of God.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
     <text>I fell down before his feet to worship him. He said to me,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="10" characterId="angel (one of the seven)">
-    <text>“Look! Don’t do it! I am a fellow bondservant with you and with your brothers who hold the testimony of Jesus. Worship God, for the testimony of Jesus is the Spirit of Prophecy. [1]”</text>
+    <text>“Look! Don’t do it! I am a fellow bondservant with you and with your brothers who hold the testimony of Jesus. Worship God, for the testimony of Jesus is the Spirit of Prophecy.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
@@ -1805,12 +1649,6 @@
     <verse num="14" />
     <text>The armies which are in heaven followed him on white horses, clothed in white, pure, fine linen.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="19" initialStartVerse="14" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="19" initialStartVerse="14" characterId="extra-REV">
-    <text>{SFX--Drawing of sword--Starts @ v 15}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="15" characterId="narrator-REV">
     <verse num="15" />
     <text>Out of his mouth proceeds a sharp, double-edged sword, that with it he should strike the nations. He will rule them with an iron rod. He treads the winepress of the fierceness of the wrath of God, the Almighty.</text>
@@ -1820,18 +1658,18 @@
     <text>He has on his garment and on his thigh a name written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="16" characterId="narrator-REV">
-    <text>“KING OF KINGS, AND LORD OF LORDS. [1]”</text>
+    <text>“KING OF KINGS, AND LORD OF LORDS.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="17" characterId="narrator-REV">
     <verse num="17" />
     <text>I saw an angel standing in the sun. He cried with a loud voice, saying to all the birds that fly in the sky,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="17" characterId="angel standing in sun" multiBlockQuote="Start">
-    <text>“Come! Be gathered together to the great supper of God,[1]</text>
+    <text>“Come! Be gathered together to the great supper of God,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="18" characterId="angel standing in sun" multiBlockQuote="Continuation">
     <verse num="18" />
-    <text>that you may eat the flesh of kings, the flesh of captains, the flesh of mighty men, and the flesh of horses and of those who sit on them, and the flesh of all men, both free and slave, and small and great. [1]”</text>
+    <text>that you may eat the flesh of kings, the flesh of captains, the flesh of mighty men, and the flesh of horses and of those who sit on them, and the flesh of all men, both free and slave, and small and great.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="19" characterId="narrator-REV">
     <verse num="19" />
@@ -1852,12 +1690,6 @@
     <verse num="1" />
     <text>I saw an angel coming down out of heaven, having the key of the abyss and a great chain in his hand.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="20" initialStartVerse="1" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="20" initialStartVerse="1" characterId="extra-REV">
-    <text>{SFX--Chains--Starts @ v 2}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="2" characterId="narrator-REV">
     <verse num="2" />
     <text>He seized the dragon, the old serpent, which is the devil and Satan, who deceives the whole inhabited earth, and bound him for a thousand years.</text>
@@ -1877,12 +1709,6 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="6" characterId="narrator-REV">
     <verse num="6" />
     <text>Blessed and holy is he who has part in the first resurrection. Over these, the second death has no power, but they will be priests of God and of Christ, and will reign with him one thousand years.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="20" initialStartVerse="6" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="20" initialStartVerse="6" characterId="extra-REV">
-    <text>{SFX--Satan/Beast--Starts @ v 7}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
@@ -1936,46 +1762,46 @@
     <text>I heard a loud voice out of heaven saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="3" characterId="voice from throne" multiBlockQuote="Start">
-    <text>“Behold, God’s dwelling is with people, and he will dwell with them, and they will be his people, and God himself will be with them as their God.[1]</text>
+    <text>“Behold, God’s dwelling is with people, and he will dwell with them, and they will be his people, and God himself will be with them as their God.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="4" characterId="voice from throne" multiBlockQuote="Continuation">
     <verse num="4" />
-    <text>He will wipe away from them every tear from their eyes. Death will be no more; neither will there be mourning, nor crying, nor pain, any more. The first things have passed away. [1]”</text>
+    <text>He will wipe away from them every tear from their eyes. Death will be no more; neither will there be mourning, nor crying, nor pain, any more. The first things have passed away.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="5" characterId="narrator-REV">
     <verse num="5" />
     <text>He who sits on the throne said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="5" characterId="God">
-    <text>“Behold, I am making all things new. [1]”</text>
+    <text>“Behold, I am making all things new.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="5" characterId="narrator-REV">
     <text>He said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="5" characterId="God">
-    <text>“Write, for these words are faithful and true. [1]”</text>
+    <text>“Write, for these words are faithful and true.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="6" characterId="narrator-REV">
     <verse num="6" />
     <text>He said to me,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="6" characterId="God" multiBlockQuote="Start">
-    <text>“It is done! I am the Alpha and the Omega, the Beginning and the End. I will give freely to him who is thirsty from the spring of the water of life.[1]</text>
+    <text>“It is done! I am the Alpha and the Omega, the Beginning and the End. I will give freely to him who is thirsty from the spring of the water of life.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="God" multiBlockQuote="Continuation">
     <verse num="7" />
-    <text>He who overcomes, I will give him these things. I will be his God, and he will be my son.[1]</text>
+    <text>He who overcomes, I will give him these things. I will be his God, and he will be my son.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="8" characterId="God" multiBlockQuote="Continuation">
     <verse num="8" />
-    <text>But for the cowardly, unbelieving, sinners, abominable, murderers, sexually immoral, sorcerers, idolaters, and all liars, their part is in the lake that burns with fire and sulfur, which is the second death. [1]”</text>
+    <text>But for the cowardly, unbelieving, sinners, abominable, murderers, sexually immoral, sorcerers, idolaters, and all liars, their part is in the lake that burns with fire and sulfur, which is the second death.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="9" characterId="narrator-REV">
     <verse num="9" />
     <text>One of the seven angels who had the seven bowls, who were loaded with the seven last plagues came, and he spoke to me, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="9" characterId="angel (one of the seven)">
-    <text>“Come here. I will show you the bride, the wife of the Lamb. [1]”</text>
+    <text>“Come here. I will show you the bride, the wife of the Lamb.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
@@ -2008,12 +1834,6 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="17" characterId="narrator-REV">
     <verse num="17" />
     <text>Its wall is one hundred forty-four cubits, by the measure of a man, that is, of an angel.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="21" initialStartVerse="17" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="21" initialStartVerse="17" characterId="extra-REV">
-    <text>{Music--Starts @ v 18}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="18" characterId="narrator-REV">
     <verse num="18" />
@@ -2083,11 +1903,11 @@
     <text>He said to me,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="6" characterId="angel (one of the seven)">
-    <text>“These words are faithful and true. The Lord God of the spirits of the prophets sent his angel to show to his bondservants the things which must happen soon. [1]”</text>
+    <text>“These words are faithful and true. The Lord God of the spirits of the prophets sent his angel to show to his bondservants the things which must happen soon.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="7" characterId="Jesus">
     <verse num="7" />
-    <text>“Behold, I come quickly. Blessed is he who keeps the words of the prophecy of this book. [1]”</text>
+    <text>“Behold, I come quickly. Blessed is he who keeps the words of the prophecy of this book.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="8" characterId="narrator-REV">
     <verse num="8" />
@@ -2098,66 +1918,57 @@
     <text>He said to me,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="9" characterId="angel (one of the seven)">
-    <text>“See you don’t do it! I am a fellow bondservant with you and with your brothers, the prophets, and with those who keep the words of this book. Worship God. [1]”</text>
+    <text>“See you don’t do it! I am a fellow bondservant with you and with your brothers, the prophets, and with those who keep the words of this book. Worship God.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
     <text>He said to me,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="10" characterId="angel (one of the seven)" multiBlockQuote="Start">
-    <text>“Don’t seal up the words of the prophecy of this book, for the time is at hand.[1]</text>
+    <text>“Don’t seal up the words of the prophecy of this book, for the time is at hand.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="11" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
     <verse num="11" />
-    <text>He who acts unjustly, let him act unjustly still. He who is filthy, let him be filthy still. He who is righteous, let him do righteousness still. He who is holy, let him be holy still. [1]”</text>
+    <text>He who acts unjustly, let him act unjustly still. He who is filthy, let him be filthy still. He who is righteous, let him do righteousness still. He who is holy, let him be holy still.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
     <text>He said to me,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="12" characterId="Jesus">
-    <text>“Behold, I come quickly. My reward is with me, to repay to each man according to his work.[1]</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="22" initialStartVerse="12" characterId="extra-REV">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="22" initialStartVerse="12" characterId="extra-REV">
-    <text>{Music--Starts @ v 13}</text>
+    <text>“Behold, I come quickly. My reward is with me, to repay to each man according to his work.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start">
     <verse num="13" />
-    <text>I am the Alpha and the Omega, the First and the Last, the Beginning and the End.[1]</text>
+    <text>I am the Alpha and the Omega, the First and the Last, the Beginning and the End.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="14" />
-    <text>Blessed are those who do his commandments, that they may have the right to the tree of life, and may enter in by the gates into the city.[1]</text>
+    <text>Blessed are those who do his commandments, that they may have the right to the tree of life, and may enter in by the gates into the city.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="15" />
-    <text>Outside are the dogs, the sorcerers, the sexually immoral, the murderers, the idolaters, and everyone who loves and practices falsehood.[1]</text>
+    <text>Outside are the dogs, the sorcerers, the sexually immoral, the murderers, the idolaters, and everyone who loves and practices falsehood.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="16" />
-    <text>I, Jesus, have sent my angel to testify these things to you for the assemblies. I am the root and the offspring of David; the Bright and Morning Star. [1]”</text>
+    <text>I, Jesus, have sent my angel to testify these things to you for the assemblies. I am the root and the offspring of David; the Bright and Morning Star.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="narrator-REV">
     <verse num="17" />
     <text>The Spirit and the bride say,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="Holy Spirit, the/bride, the (referring to the Church)" characterIdOverrideForScript="Holy Spirit, the" userConfirmed="true">
-    <text>“Come! [1]”</text>
+    <text>“Come!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="narrator-REV">
     <text>He who hears, let him say,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="him who hears" userConfirmed="true">
-    <text>“Come! [1]”</text>
+    <text>“Come!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="narrator-REV">
     <text>He who is thirsty, let him come. He who desires, let him take the water of life freely.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="extra-REV">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="18" characterId="narrator-REV">
     <verse num="18" />
@@ -2172,7 +1983,7 @@
     <text>He who testifies these things says,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="20" characterId="Jesus">
-    <text>“Yes, I come quickly. [1]”</text>
+    <text>“Yes, I come quickly.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="20" characterId="narrator-REV">
     <text>Amen! Yes, come, Lord Jesus.</text>

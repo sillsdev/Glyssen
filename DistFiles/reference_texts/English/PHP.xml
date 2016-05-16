@@ -197,12 +197,6 @@
     <verse num="17" />
     <text>Yes, and if I am poured out on the sacrifice and service of your faith, I rejoice, and rejoice with you all.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="extra-PHP">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="extra-PHP">
-    <text>{Music--Ends before v 18}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-PHP">
     <verse num="18" />
     <text>In the same way, you also rejoice, and rejoice with me.</text>
@@ -293,12 +287,6 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-PHP">
     <verse num="9" />
     <text>that I may be found in him, not having a righteousness of my own, that which is of the law, but that which is through faith in Christ, the righteousness which is from God by faith;</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="extra-PHP">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="extra-PHP">
-    <text>{Music--Ends before v 10}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-PHP">
     <verse num="10" />

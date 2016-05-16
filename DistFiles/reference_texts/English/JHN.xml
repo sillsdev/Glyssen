@@ -81,9 +81,6 @@
     <verse num="18" />
     <text>No one has seen God at any time. The one and only Son, who is in the bosom of the Father, he has declared him.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-JHN">
     <verse num="19" />
     <text>This is John’s testimony, when the Jews sent priests and Levites from Jerusalem to ask him,</text>
@@ -160,9 +157,6 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="28" characterId="narrator-JHN">
     <verse num="28" />
     <text>These things were done in Bethany beyond the Jordan, where John was baptizing.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="28" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="29" characterId="narrator-JHN">
     <verse num="29" />
@@ -259,9 +253,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="42" characterId="narrator-JHN">
     <text>(which is by interpretation, Peter).</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="1" initialStartVerse="42" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="43" characterId="narrator-JHN">
     <verse num="43" />
@@ -398,28 +389,13 @@
     <verse num="11" />
     <text>This beginning of his signs Jesus did in Cana of Galilee, and revealed his glory; and his disciples believed in him.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="extra-JHN">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="extra-JHN">
-    <text>{Music--Starts @ v 12}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-JHN">
     <verse num="12" />
     <text>After this, he went down to Capernaum, he, and his mother, his brothers, and his disciples; and they stayed there a few days.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-JHN">
     <verse num="13" />
     <text>The Passover of the Jews was at hand, and Jesus went up to Jerusalem.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="extra-JHN">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="extra-JHN">
-    <text>{SFX--Overturn tables--Starts @ v 14}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-JHN">
     <verse num="14" />
@@ -441,7 +417,7 @@
     <text>His disciples remembered that it was written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="scripture">
-    <text>“Zeal for your house will eat me up. [1]”</text>
+    <text>“Zeal for your house will eat me up.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-JHN">
     <verse num="18" />
@@ -471,9 +447,6 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-JHN">
     <verse num="22" />
     <text>When therefore he was raised from the dead, his disciples remembered that he said this, and they believed the Scripture, and the word which Jesus had said.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JHN">
     <verse num="23" />
@@ -665,12 +638,6 @@
     <verse num="3" />
     <text>he left Judea, and departed into Galilee.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="extra-JHN">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="extra-JHN">
-    <text>{Music--Starts @ v 4}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-JHN">
     <verse num="4" />
     <text>He needed to pass through Samaria.</text>
@@ -810,9 +777,6 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="Jesus">
     <text>“I am he, the one who speaks to you.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="27" characterId="narrator-JHN">
     <verse num="27" />
     <text>At this, his disciples came. They marveled that he was speaking with a woman; yet no one said, </text>
@@ -903,9 +867,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="42" characterId="many Samaritans">
     <text>“Now we believe, not because of your speaking; for we have heard for ourselves, and know that this is indeed the Christ, the Savior of the world.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="42" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="43" characterId="narrator-JHN">
     <verse num="43" />
@@ -1066,9 +1027,6 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-JHN">
     <verse num="13" />
     <text>But he who was healed didn’t know who it was, for Jesus had withdrawn, a crowd being in the place.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-JHN">
     <verse num="14" />
@@ -1288,15 +1246,6 @@
     <verse num="15" />
     <text>Jesus therefore, perceiving that they were about to come and take him by force, to make him king, withdrew again to the mountain by himself.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="extra-JHN">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="extra-JHN">
-    <text>{SFX--Waves slapping--Starts @ v 16}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-JHN">
     <verse num="16" />
     <text>When evening came, his disciples went down to the sea, </text>
@@ -1320,9 +1269,6 @@
     <verse num="21" />
     <text>They were willing therefore to receive him into the boat. Immediately the boat was at the land where they were going.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="6" initialStartVerse="21" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="22" characterId="narrator-JHN">
     <verse num="22" />
     <text>On the next day, the multitude that stood on the other side of the sea saw that there was no other boat there, except the one in which his disciples had embarked, and that Jesus hadn’t entered with his disciples into the boat, but his disciples had gone away alone.</text>
@@ -1334,12 +1280,6 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="narrator-JHN">
     <verse num="24" />
     <text>When the multitude therefore saw that Jesus wasn’t there, nor his disciples, they themselves got into the boats, and came to Capernaum, seeking Jesus.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="extra-JHN">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="extra-JHN">
-    <text>{Music + SFX--Men talking Start @ v 25}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="25" characterId="narrator-JHN">
     <verse num="25" />
@@ -1434,7 +1374,7 @@
     <text>The Jews therefore murmured concerning him, because he said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="41" characterId="Jesus">
-    <text>“I am the bread which came down out of heaven. [1]”</text>
+    <text>“I am the bread which came down out of heaven.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="42" characterId="narrator-JHN">
     <verse num="42" />
@@ -1632,12 +1572,6 @@
     <verse num="10" />
     <text>But when his brothers had gone up to the feast, then he also went up, not publicly, but as it were in secret.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="extra-JHN">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="extra-JHN">
-    <text>{SFX--Men talking--Starts @ v 11}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="narrator-JHN">
     <verse num="11" />
     <text>The Jews therefore sought him at the feast, and said,</text>
@@ -1665,12 +1599,6 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="narrator-JHN">
     <verse num="14" />
     <text>But when it was now the midst of the feast, Jesus went up into the temple and taught.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="extra-JHN">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="extra-JHN">
-    <text>{Music--Starts @ v 15}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="narrator-JHN">
     <verse num="15" />
@@ -1785,9 +1713,6 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="36" characterId="Jews, the" multiBlockQuote="Continuation">
     <verse num="36" />
     <text>What is this word that he said, ‘You will seek me, and won’t find me; and where I am, you can’t come’?”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="7" initialStartVerse="36" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="37" characterId="narrator-JHN">
     <verse num="37" />
@@ -1942,9 +1867,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="Jesus" userConfirmed="true">
     <text>“Neither do I condemn you. Go your way. From now on, sin no more.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-JHN">
     <verse num="12" />
@@ -2610,9 +2532,6 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="Jews, other">
     <text>“These are not the sayings of one possessed by a demon. It isn’t possible for a demon to open the eyes of the blind, is it?”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="22" characterId="narrator-JHN">
     <verse num="22" />
     <text>It was the Feast of the Dedication at Jerusalem.</text>
@@ -2803,9 +2722,6 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="Thomas" delivery="resigned">
     <text>“Let’s go also, that we may die with him.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-JHN">
     <verse num="17" />
     <text>So when Jesus came, the people told him:</text>
@@ -2886,12 +2802,6 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-JHN">
     <verse num="31" />
     <text>Then the Jews who were with her in the house, consoling her, when they saw Mary, that she rose up quickly and went out, followed her, supposing she was going to the tomb to mourn there.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="extra-JHN">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="extra-JHN">
-    <text>{SFX--Wailing--Starts @ v 32}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="narrator-JHN">
     <verse num="32" />
@@ -2986,9 +2896,6 @@
     <verse num="46" />
     <text>But some of them went away to the Pharisees, and told them the things which Jesus had done.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="11" initialStartVerse="46" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="47" characterId="narrator-JHN">
     <verse num="47" />
     <text>The chief priests therefore and the Pharisees gathered a council, and said,</text>
@@ -3045,12 +2952,6 @@
     <verse num="1" />
     <text>Then six days before the Passover, Jesus came to Bethany, where Lazarus was, who had been dead, whom he raised from the dead.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="extra-JHN">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="extra-JHN">
-    <text>{SFX--Crowd, dinner--Starts @ v 2}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-JHN">
     <verse num="2" />
     <text>So they made him a supper there. Martha served, but Lazarus was one of those who sat at the table with him.</text>
@@ -3092,12 +2993,6 @@
     <verse num="11" />
     <text>because on account of Lazarus many of the Jews went away and believed in Jesus.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="extra-JHN">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="extra-JHN">
-    <text>{Music + SFX--Crowd Starts @ v 12}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="12" characterId="narrator-JHN">
     <verse num="12" />
     <text>On the next day a great multitude had come to the feast. When they heard that Jesus was coming to Jerusalem, </text>
@@ -3113,7 +3008,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="scripture">
     <verse num="15" />
-    <text>“Don’t be afraid, daughter of Zion. Behold, your King comes, sitting on a donkey’s colt. [1]”</text>
+    <text>“Don’t be afraid, daughter of Zion. Behold, your King comes, sitting on a donkey’s colt.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-JHN">
     <verse num="16" />
@@ -3122,12 +3017,6 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-JHN">
     <verse num="17" />
     <text>The multitude therefore that was with him when he called Lazarus out of the tomb, and raised him from the dead, was testifying about it.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="extra-JHN">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="extra-JHN">
-    <text>{SFX--Crowd--Starts @ v 18}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-JHN">
     <verse num="18" />
@@ -3139,9 +3028,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="teachers of religious law/Pharisees" characterIdOverrideForScript="teachers of religious law">
     <text>“See, this is getting us nowhere. The whole world is going after him!”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-JHN">
     <verse num="20" />
@@ -3185,7 +3071,7 @@
     <text>Then there came a voice out of the sky, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="28" characterId="God" userConfirmed="true">
-    <text>“I have both glorified it, and will glorify it again. [1]”</text>
+    <text>“I have both glorified it, and will glorify it again.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="29" characterId="narrator-JHN">
     <verse num="29" />
@@ -3238,9 +3124,6 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="36" characterId="narrator-JHN">
     <text>Jesus said these things, and he departed and hid himself from them.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="12" initialStartVerse="36" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="37" characterId="narrator-JHN">
     <verse num="37" />
     <text>But though he had done so many signs before them, yet they didn’t believe in him.</text>
@@ -3250,7 +3133,7 @@
     <text>Therefore the word of Isaiah the prophet was fulfilled, which he spoke,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="38" characterId="scripture">
-    <text>“Lord, who has believed our report? To whom has the arm of the Lord been revealed? [1]”</text>
+    <text>“Lord, who has believed our report? To whom has the arm of the Lord been revealed?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="39" characterId="narrator-JHN">
     <verse num="39" />
@@ -3258,7 +3141,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="40" characterId="scripture">
     <verse num="40" />
-    <text>“He has blinded their eyes and he hardened their heart, lest they should see with their eyes, and perceive with their heart, and would turn, and I would heal them. [1]”</text>
+    <text>“He has blinded their eyes and he hardened their heart, lest they should see with their eyes, and perceive with their heart, and would turn, and I would heal them.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="41" characterId="narrator-JHN">
     <verse num="41" />
@@ -3371,9 +3254,6 @@
   </block>
   <block style="p" chapter="13" initialStartVerse="11" characterId="Jesus">
     <text>“You are not all clean.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="narrator-JHN">
     <verse num="12" />
@@ -4131,18 +4011,9 @@
     <verse num="13" />
     <text>They led him to Annas first, for he was father-in-law to Caiaphas, who was high priest that year.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="18" initialStartVerse="13" characterId="extra-JHN">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="18" initialStartVerse="13" characterId="extra-JHN">
-    <text>{Music--Starts @ v 14}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="14" characterId="narrator-JHN">
     <verse num="14" />
     <text>Now it was Caiaphas who advised the Jews that it was expedient that one man should perish for the people.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="18" initialStartVerse="14" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="15" characterId="narrator-JHN">
     <verse num="15" />
@@ -4168,9 +4039,6 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="narrator-JHN">
     <verse num="18" />
     <text>Now the servants and the officers were standing there, having made a fire of coals, for it was cold. They were warming themselves. Peter was with them, standing and warming himself.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="narrator-JHN">
     <verse num="19" />
@@ -4203,12 +4071,6 @@
     <verse num="24" />
     <text>Annas sent him bound to Caiaphas, the high priest.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="18" initialStartVerse="24" characterId="extra-JHN">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="18" initialStartVerse="24" characterId="extra-JHN">
-    <text>{SFX--Crickets--Starts @ v 14}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="25" characterId="narrator-JHN">
     <verse num="25" />
     <text>Now Simon Peter was standing and warming himself. They said therefore to him,</text>
@@ -4232,9 +4094,6 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="27" characterId="narrator-JHN">
     <verse num="27" />
     <text>Peter therefore denied it again, and immediately the rooster crowed. </text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="18" initialStartVerse="27" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="28" characterId="narrator-JHN">
     <verse num="28" />
@@ -4436,12 +4295,6 @@
   <block style="p" chapter="19" initialStartVerse="13" characterId="narrator-JHN" userConfirmed="true">
     <text>“Gabbatha.”</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="19" initialStartVerse="13" characterId="extra-JHN">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="19" initialStartVerse="13" characterId="extra-JHN">
-    <text>{Music--Starts @ v 14}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="14" characterId="narrator-JHN">
     <verse num="14" />
     <text>Now it was the Preparation Day of the Passover, at about the sixth hour. He said to the Jews,</text>
@@ -4471,9 +4324,6 @@
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="16" characterId="narrator-JHN">
     <verse num="16" />
     <text>So then he delivered him to them to be crucified. So they took Jesus and led him away.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="19" initialStartVerse="16" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="17" characterId="narrator-JHN">
     <verse num="17" />
@@ -4533,19 +4383,10 @@
     <text>that the Scripture might be fulfilled, which says,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="24" characterId="scripture" userConfirmed="true">
-    <text>“They parted my garments among them. For my cloak they cast lots. [1]”</text>
+    <text>“They parted my garments among them. For my cloak they cast lots.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="24" characterId="narrator-JHN">
     <text>Therefore the soldiers did these things.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="19" initialStartVerse="24" characterId="extra-JHN">
-    <text>||| + 1.5 SECs |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="19" initialStartVerse="24" characterId="extra-JHN">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="19" initialStartVerse="24" characterId="extra-JHN">
-    <text>{SFX--Wailing--Starts @ v 25}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="25" characterId="narrator-JHN">
     <verse num="25" />
@@ -4568,9 +4409,6 @@
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="27" characterId="narrator-JHN">
     <text>From that hour, the disciple took her to his own home.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="19" initialStartVerse="27" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="28" characterId="narrator-JHN">
     <verse num="28" />
     <text>After this, Jesus, seeing that all things were now finished, that the Scripture might be fulfilled, said,</text>
@@ -4591,9 +4429,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="30" characterId="narrator-JHN">
     <text>He bowed his head, and gave up his spirit.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="19" initialStartVerse="30" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="31" characterId="narrator-JHN">
     <verse num="31" />
@@ -4620,14 +4455,14 @@
     <text>For these things happened, that the Scripture might be fulfilled,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="36" characterId="scripture">
-    <text>“A bone of him will not be broken. [1]”</text>
+    <text>“A bone of him will not be broken.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="37" characterId="narrator-JHN">
     <verse num="37" />
     <text>Again another Scripture says,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="37" characterId="scripture">
-    <text>“They will look on him whom they pierced. [1]”</text>
+    <text>“They will look on him whom they pierced.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="38" characterId="narrator-JHN">
     <verse num="38" />
@@ -4710,7 +4545,7 @@
     <text>They told her,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="13" characterId="angels in white, two" userConfirmed="true">
-    <text>“Woman, why are you weeping? [1]”</text>
+    <text>“Woman, why are you weeping?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="13" characterId="narrator-JHN">
     <text>She said to them,</text>
@@ -4769,9 +4604,6 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="18" characterId="narrator-JHN">
     <text>and she told them what he had said to her.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="20" initialStartVerse="18" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="19" characterId="narrator-JHN">
     <verse num="19" />
     <text>When therefore it was evening, on that day, the first day of the week, and when the doors were locked where the disciples were assembled, for fear of the Jews, Jesus came and stood in the midst, and said to them,</text>
@@ -4813,9 +4645,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="25" characterId="Thomas" delivery="stubborn" userConfirmed="true">
     <text>“Unless I see in his hands the print of the nails, and put my hand into his side, I will not believe.”</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="20" initialStartVerse="25" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="26" characterId="narrator-JHN">
     <verse num="26" />
@@ -4877,12 +4706,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="3" characterId="narrator-JHN">
     <text>They immediately went out, and entered into the boat. That night, they caught nothing.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="21" initialStartVerse="3" characterId="extra-JHN">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="21" initialStartVerse="3" characterId="extra-JHN">
-    <text>{SFX--Waves--Starts @ v 4}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="4" characterId="narrator-JHN">
     <verse num="4" />
@@ -4957,9 +4780,6 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="14" characterId="narrator-JHN">
     <verse num="14" />
     <text>This is now the third time that Jesus was revealed to his disciples, after he had risen from the dead.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="21" initialStartVerse="14" characterId="extra-JHN">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="15" characterId="narrator-JHN">
     <verse num="15" />

@@ -111,12 +111,6 @@
     <verse num="14" />
     <text>I have written to you, fathers, because you know him who is from the beginning. I have written to you, young men, because you are strong, and the word of God remains in you, and you have overcome the evil one.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="extra-1JN">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="extra-1JN">
-    <text>{Music--Starts @ v 15}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1JN">
     <verse num="15" />
     <text>Don’t love the world, neither the things that are in the world. If anyone loves the world, the Father’s love isn’t in him.</text>
@@ -129,9 +123,6 @@
     <verse num="17" />
     <text>The world is passing away with its lusts, but he who does God’s will remains forever.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="extra-1JN">
-    <text>||| + 2 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-1JN">
     <verse num="18" />
     <text>Little children, these are the end times, and as you heard that the Antichrist is coming, even now many antichrists have arisen. By this we know that it is the final hour.</text>
@@ -139,12 +130,6 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1JN">
     <verse num="19" />
     <text>They went out from us, but they didn’t belong to us; for if they had belonged to us, they would have continued with us. But they left, that they might be revealed that none of them belong to us.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="extra-1JN">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="extra-1JN">
-    <text>{Music--Starts @ v 20}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-1JN">
     <verse num="20" />
@@ -177,9 +162,6 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-1JN">
     <verse num="27" />
     <text>As for you, the anointing which you received from him remains in you, and you don’t need for anyone to teach you. But as his anointing teaches you concerning all things, and is true, and is no lie, and even as it taught you, you will remain in him.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="extra-1JN">
-    <text>||| + 2 SECs |||</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="narrator-1JN">
     <verse num="28" />
@@ -339,12 +321,6 @@
     <verse num="12" />
     <text>No one has seen God at any time. If we love one another, God remains in us, and his love has been perfected in us.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="extra-1JN">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="extra-1JN">
-    <text>{Music--Starts @ v 13}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1JN">
     <verse num="13" />
     <text>By this we know that we remain in him and he in us, because he has given us of his Spirit.</text>
@@ -438,9 +414,6 @@
     <verse num="12" />
     <text>He who has the Son has the life. He who doesn’t have God’s Son doesn’t have the life.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="extra-1JN">
-    <text>||| + 1.5 SECs |||</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1JN">
     <verse num="13" />
     <text>These things I have written to you who believe on the name of the Son of God, that you may know that you have eternal life, and that you may continue to believe in the name of the Son of God.</text>
@@ -448,12 +421,6 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1JN">
     <verse num="14" />
     <text>This is the boldness which we have toward him, that, if we ask anything according to his will, he listens to us.</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="extra-1JN">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="extra-1JN">
-    <text>{Music--Starts @ v 15}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-1JN">
     <verse num="15" />

@@ -181,12 +181,6 @@
     <verse num="9" />
     <text>Shun foolish questionings, genealogies, strife, and disputes about the law; for they are unprofitable and vain.</text>
   </block>
-  <block style="s" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="extra-TIT">
-    <text>||| DO NOT COMBINE |||</text>
-  </block>
-  <block style="s" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="extra-TIT">
-    <text>{Music--Ends before v 10}</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-TIT">
     <verse num="10" />
     <text>Avoid a factious man after a first and second warning;</text>
