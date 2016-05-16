@@ -548,6 +548,13 @@ namespace Glyssen
 					m_project.Save(true);
 				}
 			}
+			// This is for the migration of old projects.
+			// ENHANCE; Theoretically, we could, before we update the controlfileversion number, set a flag
+			// letting us know if this needs to run or not. It would be for any number < 96.
+			// This method would be moved into Project (which maybe it should be anyway).
+			// But this must be called only AFTER EnsureGroupsAreInSynchWithCharactersInUse has been run.
+			if (m_project.CharacterGroupList.CharacterGroups.Any(g => g.GroupIdLabel == CharacterGroup.Label.None))
+				CharacterGroupList.AssignGroupIds(m_project.CharacterGroupList.CharacterGroups);
 		}
 
 		private void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)
