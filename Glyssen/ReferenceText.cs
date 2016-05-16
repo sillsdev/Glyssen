@@ -264,7 +264,11 @@ namespace Glyssen
 			{
 				var vernBlock = vernacularBook.Blocks[index];
 				var vernInitStartVerse = new VerseRef(bookNum, vernBlock.ChapterNumber, vernBlock.InitialStartVerseNumber, vernacularVersification);
-				var vernInitEndVerse = new VerseRef(bookNum, vernBlock.ChapterNumber, vernBlock.InitialEndVerseNumber, vernacularVersification);
+				VerseRef vernInitEndVerse;
+				if (vernBlock.InitialEndVerseNumber != 0)
+					vernInitEndVerse = new VerseRef(bookNum, vernBlock.ChapterNumber, vernBlock.InitialEndVerseNumber, vernacularVersification);
+				else
+					vernInitEndVerse = vernInitStartVerse;
 
 				while (vernInitStartVerse > verseToSplitAfter)
 				{
@@ -282,11 +286,6 @@ namespace Glyssen
 					vernacularVersification.ChangeVersification(verseToSplitAfter);
 					vernacularBook.SplitBlock(vernBlock, verseToSplitAfter.VerseNum.ToString(), BookScript.kSplitAtEndOfVerse, false);
 				}
-				else if (vernInitStartVerse >= verseToSplitAfter)
-					continue;
-				if (iSplit == versesToSplitAfter.Count - 1)
-					return;
-				verseToSplitAfter = versesToSplitAfter[++iSplit];
 			}
 		}
 
