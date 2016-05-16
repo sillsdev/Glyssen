@@ -795,6 +795,11 @@ namespace Glyssen
 					project.m_books.Add(XmlSerializationHelper.DeserializeFromFile<BookScript>(possibleFileName));
 			}
 			project.RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
+
+			// For legacy projects
+			if (project.CharacterGroupList.CharacterGroups.Any() && project.CharacterGroupGenerationPreferences.CastSizeOption == CastSizeOption.NotSet)
+				project.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.MatchVoiceActorList;
+
 			return project;
 		}
 

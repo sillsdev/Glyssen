@@ -38,7 +38,6 @@ namespace Glyssen
 					MigrateInvalidMultiBlockQuoteData(project.Books);
 					CleanUpOrphanedMultiBlockQuoteStati(project.Books);
 					MigrateInvalidCharacterIdForScriptData(project.Books);
-					AddCharacterGroupIds(project);
 				}
 				MigrateDeprecatedCharacterIds(project);
 			}
@@ -198,11 +197,6 @@ namespace Glyssen
 				foreach (var block in book.GetScriptBlocks().Where(block => block.IsChapterAnnouncement && block.BookCode == null))
 					block.BookCode = book.BookId;
 			}
-		}
-
-		private static void AddCharacterGroupIds(Project project)
-		{
-			CharacterGroupList.AssignGroupIds(project.CharacterGroupList.CharacterGroups);
 		}
 	}
 }
