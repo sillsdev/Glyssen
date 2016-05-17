@@ -382,7 +382,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="narrator-EPH">
     <verse num="26" />
-    <text>“Be angry, and don’t sin.” Don’t let the sun go down on your wrath, neither give place to the devil.</text>
+    <text>“Be angry, and don’t sin.” Don’t let the sun go down on your wrath, </text>
+    <verse num="27" />
+    <text>neither give place to the devil.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="narrator-EPH">
     <verse num="28" />
