@@ -82,10 +82,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-JUD">
     <verse num="18" />
-    <text>They said to you that </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="18" characterId="apostles">
-    <text>“In the last time there will be mockers, walking after their own ungodly lusts.”</text>
+    <text>They said to you that “In the last time there will be mockers, walking after their own ungodly lusts.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-JUD">
     <verse num="19" />

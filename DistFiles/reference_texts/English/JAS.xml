@@ -56,13 +56,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-JAS">
     <verse num="13" />
-    <text>Let no man say when he is tempted, </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="13" characterId="no one">
-    <text>“I am tempted by God,” </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="13" characterId="narrator-JAS">
-    <text>for God can’t be tempted by evil, and he himself tempts no one.</text>
+    <text>Let no man say when he is tempted, “I am tempted by God,” for God can’t be tempted by evil, and he himself tempts no one.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-JAS">
     <verse num="14" />
@@ -133,22 +127,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-JAS">
     <verse num="3" />
-    <text>and if you pay special attention to him who wears the fine clothing, and say, </text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="3" characterId="someone">
-    <text>“Sit here in a good place”; </text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-JAS">
-    <text>and you tell the poor man, </text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="3" characterId="someone">
-    <text>“Stand there,” </text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="3" characterId="narrator-JAS">
-    <text>or </text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="3" characterId="someone">
-    <text>“Sit by my footstool”</text>
+    <text>and if you pay special attention to him who wears the fine clothing, and say, “Sit here in a good place”; and you tell the poor man, “Stand there,” or “Sit by my footstool”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-JAS">
     <verse num="4" />
@@ -214,13 +193,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-JAS">
     <verse num="16" />
-    <text>One of you tells them, </text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="16" characterId="one of you">
-    <text>“Go in peace, be warmed and filled”; </text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="16" characterId="narrator-JAS">
-    <text>and yet you didn’t give them the things the body needs, what good is it?</text>
+    <text>One of you tells them, “Go in peace, be warmed and filled”; and yet you didn’t give them the things the body needs, what good is it?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-JAS">
     <verse num="17" />
@@ -228,13 +201,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-JAS">
     <verse num="18" />
-    <text>Yes, a man will say, </text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="18" characterId="someone">
-    <text>“You have faith, and I have works.” </text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="18" characterId="narrator-JAS">
-    <text>Show me your faith without works, and I by my works will show you my faith.</text>
+    <text>Yes, a man will say, “You have faith, and I have works.” Show me your faith without works, and I by my works will show you my faith.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-JAS">
     <verse num="19" />
@@ -370,10 +337,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-JAS">
     <verse num="5" />
-    <text>Or do you think that the Scripture says in vain, </text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="5" characterId="scripture">
-    <text>“The Spirit who lives in us yearns jealously”?</text>
+    <text>Or do you think that the Scripture says in vain, “The Spirit who lives in us yearns jealously”?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-JAS">
     <verse num="6" />
@@ -408,10 +372,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-JAS">
     <verse num="13" />
-    <text>Come now, you who say, </text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="13" characterId="someone">
-    <text>“Today or tomorrow let’s go into this city, and spend a year there, trade, and make a profit.”</text>
+    <text>Come now, you who say, “Today or tomorrow let’s go into this city, and spend a year there, trade, and make a profit.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-JAS">
     <verse num="14" />
@@ -419,10 +380,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-JAS">
     <verse num="15" />
-    <text>For you ought to say, </text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="15" characterId="you ought to say">
-    <text>“If the Lord wills, we will both live, and do this or that.”</text>
+    <text>For you ought to say, “If the Lord wills, we will both live, and do this or that.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-JAS">
     <verse num="16" />
@@ -481,28 +439,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-JAS">
     <verse num="12" />
-    <text>But above all things, my brothers, don’t swear, neither by heaven, nor by the earth, nor by any other oath; but let your </text>
-  </block>
-  <block style="p" chapter="5" initialStartVerse="12" characterId="narrator-JAS">
-    <text>“yes” </text>
-  </block>
-  <block style="p" chapter="5" initialStartVerse="12" characterId="narrator-JAS">
-    <text>be </text>
-  </block>
-  <block style="p" chapter="5" initialStartVerse="12" characterId="narrator-JAS">
-    <text>“yes,” </text>
-  </block>
-  <block style="p" chapter="5" initialStartVerse="12" characterId="narrator-JAS">
-    <text>and your </text>
-  </block>
-  <block style="p" chapter="5" initialStartVerse="12" characterId="narrator-JAS">
-    <text>“no,” </text>
-  </block>
-  <block style="p" chapter="5" initialStartVerse="12" characterId="narrator-JAS">
-    <text>“no”; </text>
-  </block>
-  <block style="p" chapter="5" initialStartVerse="12" characterId="narrator-JAS">
-    <text>so that you don’t fall into hypocrisy.</text>
+    <text>But above all things, my brothers, don’t swear, neither by heaven, nor by the earth, nor by any other oath; but let your “yes” be “yes,” and your “no,” “no”; so that you don’t fall into hypocrisy.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-JAS">
     <verse num="13" />

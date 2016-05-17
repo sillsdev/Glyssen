@@ -231,13 +231,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-HEB">
     <verse num="13" />
-    <text>Exhort one another day by day, so long as it is called </text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="13" characterId="narrator-HEB">
-    <text>“today”; </text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="13" characterId="narrator-HEB">
-    <text>lest any one of you be hardened by the deceitfulness of sin.</text>
+    <text>Exhort one another day by day, so long as it is called “today”; lest any one of you be hardened by the deceitfulness of sin.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-HEB">
     <verse num="14" />
@@ -654,28 +648,16 @@
     <verse num="8" />
     <text>For finding fault with them, he said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="scripture">
-    <text>“Behold, the days come,” </text>
-  </block>
-  <block style="p" chapter="8" initialStartVerse="8" characterId="narrator-HEB">
-    <text>says the Lord, </text>
-  </block>
-  <block style="p" chapter="8" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start">
-    <text>“that I will make a new covenant with the house of Israel and with the house of Judah.</text>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start">
+    <text>“Behold, the days come,” says the Lord, “that I will make a new covenant with the house of Israel and with the house of Judah.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
     <verse num="9" />
-    <text>It will not be according to the covenant that I made with their fathers, in the day that I took them by the hand to lead them out of the land of Egypt; for they didn’t continue in my covenant, and I disregarded them,” </text>
-  </block>
-  <block style="p" chapter="8" initialStartVerse="9" characterId="narrator-HEB">
-    <text>says the Lord.</text>
+    <text>It will not be according to the covenant that I made with their fathers, in the day that I took them by the hand to lead them out of the land of Egypt; for they didn’t continue in my covenant, and I disregarded them,” says the Lord.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture">
     <verse num="10" />
-    <text>“For this is the covenant that I will make with the house of Israel. After those days,” </text>
-  </block>
-  <block style="p" chapter="8" initialStartVerse="10" characterId="narrator-HEB">
-    <text>says the Lord;</text>
+    <text>“For this is the covenant that I will make with the house of Israel. After those days,” says the Lord;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
     <text>“I will put my laws into their mind, I will also write them on their heart. I will be their God, and they will be my people.</text>
@@ -690,13 +672,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-HEB">
     <verse num="13" />
-    <text>In that he says, </text>
-  </block>
-  <block style="p" chapter="8" initialStartVerse="13" characterId="narrator-HEB">
-    <text>“A new covenant,” </text>
-  </block>
-  <block style="p" chapter="8" initialStartVerse="13" characterId="narrator-HEB">
-    <text>he has made the first old. But that which is becoming old and grows aged is near to vanishing away.</text>
+    <text>In that he says, “A new covenant,” he has made the first old. But that which is becoming old and grows aged is near to vanishing away.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="HEB" initialStartVerse="0" characterId="BC-HEB">
     <text>9</text>
@@ -957,13 +933,7 @@
     <text>For we know him who said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="scripture">
-    <text>“Vengeance belongs to me,” </text>
-  </block>
-  <block style="p" chapter="10" initialStartVerse="30" characterId="narrator-HEB">
-    <text>says the Lord, </text>
-  </block>
-  <block style="p" chapter="10" initialStartVerse="30" characterId="scripture">
-    <text>“I will repay.”</text>
+    <text>“Vengeance belongs to me,” says the Lord, “I will repay.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="narrator-HEB">
     <text>Again,</text>
@@ -1295,13 +1265,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="27" characterId="narrator-HEB">
     <verse num="27" />
-    <text>This phrase, </text>
-  </block>
-  <block style="p" chapter="12" initialStartVerse="27" characterId="narrator-HEB">
-    <text>“Yet once more,” </text>
-  </block>
-  <block style="p" chapter="12" initialStartVerse="27" characterId="narrator-HEB">
-    <text>signifies the removing of those things that are shaken, as of things that have been made, that those things which are not shaken may remain.</text>
+    <text>This phrase, “Yet once more,” signifies the removing of those things that are shaken, as of things that have been made, that those things which are not shaken may remain.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="28" characterId="narrator-HEB">
     <verse num="28" />

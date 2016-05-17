@@ -292,13 +292,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="63" characterId="narrator-LUK">
     <verse num="63" />
-    <text>He asked for a writing tablet, and wrote, </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="63" characterId="narrator-LUK">
-    <text>“His name is John.” </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="63" characterId="narrator-LUK">
-    <text>They all marveled.</text>
+    <text>He asked for a writing tablet, and wrote, “His name is John.” They all marveled.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="64" characterId="narrator-LUK">
     <verse num="64" />
@@ -410,9 +404,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-LUK">
     <verse num="9" />
-    <text>Behold, an angel of the Lord stood by them, and the glory of the Lord shone around them, and they were terrified.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-LUK">
+    <text>Behold, an angel of the Lord stood by them, and the glory of the Lord shone around them, and they were terrified. </text>
     <verse num="10" />
     <text>The angel said to them,</text>
   </block>
@@ -473,10 +465,7 @@
     <text>(as it is written in the law of the Lord,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="scripture">
-    <text>“Every male who opens the womb shall be called holy to the Lord”),</text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="23" characterId="narrator-LUK">
-    <text></text>
+    <text>“Every male who opens the womb shall be called holy to the Lord”), </text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-LUK">
     <verse num="24" />
@@ -828,9 +817,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-LUK">
     <verse num="5" />
-    <text>The devil, leading him up on a high mountain, showed him all the kingdoms of the world in a moment of time.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-LUK">
+    <text>The devil, leading him up on a high mountain, showed him all the kingdoms of the world in a moment of time. </text>
     <verse num="6" />
     <text>The devil said to him,</text>
   </block>
@@ -967,7 +954,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="34" characterId="man possessed by evil spirit">
     <verse num="34" />
-    <text>“What have we to do with you, Jesus of Nazareth? Have you come to destroy us? I know you who you are: the Holy One of God! [D]”</text>
+    <text>“What have we to do with you, Jesus of Nazareth? Have you come to destroy us? I know you who you are: the Holy One of God!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="35" characterId="narrator-LUK">
     <verse num="35" />
@@ -1007,7 +994,7 @@
     <text>Demons also came out from many, crying out, and saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="41" characterId="demons coming out of people">
-    <text>“You are the Christ, the Son of God! [D]”</text>
+    <text>“You are the Christ, the Son of God!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="41" characterId="narrator-LUK">
     <text>Rebuking them, he didn’t allow them to speak, because they knew that he was the Christ.</text>
@@ -1897,13 +1884,11 @@
     <text>When he saw Jesus, he cried out, and fell down before him, and with a loud voice said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="28" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)">
-    <text>“What do I have to do with you, Jesus, you Son of the Most High God? I beg you, don’t torment me! [D]”</text>
+    <text>“What do I have to do with you, Jesus, you Son of the Most High God? I beg you, don’t torment me!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="29" characterId="narrator-LUK">
     <verse num="29" />
-    <text>For Jesus was commanding the unclean spirit to come out of the man. For the unclean spirit had often seized the man. He was kept under guard, and bound with chains and fetters. Breaking the bands apart, he was driven by the demon into the desert.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="narrator-LUK">
+    <text>For Jesus was commanding the unclean spirit to come out of the man. For the unclean spirit had often seized the man. He was kept under guard, and bound with chains and fetters. Breaking the bands apart, he was driven by the demon into the desert. </text>
     <verse num="30" />
     <text>Jesus asked him,</text>
   </block>
@@ -1914,24 +1899,22 @@
     <text>He said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)" userConfirmed="true">
-    <text>“Legion, [D]”</text>
+    <text>“Legion,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="narrator-LUK">
-    <text>for many demons had entered into him.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="narrator-LUK">
+    <text>for many demons had entered into him. </text>
     <verse num="31" />
     <text>They begged him, saying:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)">
-    <text>“Do not send us into the abyss! [D]”</text>
+    <text>“Do not send us into the abyss!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-LUK">
     <verse num="32" />
     <text>Now there was there a herd of many pigs feeding on the mountain. The Demons begged Jesus, saying:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)" delivery="begging" userConfirmed="true">
-    <text>“Allow us to enter into the pigs! [D]”</text>
+    <text>“Allow us to enter into the pigs!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-LUK">
     <text>He allowed them.</text>
@@ -1973,7 +1956,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="41" characterId="narrator-LUK">
     <verse num="41" />
-    <text>A ruler of the Synagogue named Jairus came and fell at Jesus’ s feet, and begged him, saying:</text>
+    <text>A ruler of the Synagogue named Jairus came and fell at Jesus’s feet, and begged him, saying:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="41" characterId="Jairus (synagogue leader)" delivery="pleading">
     <text>“Come to my house!”</text>
@@ -2040,6 +2023,8 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="51" characterId="narrator-LUK">
     <verse num="51" />
     <text>When he came to the house, he didn’t allow anyone to enter in, except Peter, John, James, the father of the child, and her mother.  </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="52" characterId="narrator-LUK">
     <verse num="52" />
     <text>All were weeping and mourning her but he said,</text>
   </block>
@@ -2372,7 +2357,7 @@
     <verse num="54" />
     <text>When his disciples, James and John, saw this, they said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="54" characterId="James/John" characterIdOverrideForScript="John">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="54" characterId="James, the disciple/John" characterIdOverrideForScript="John">
     <text>“Lord, do you want us to command fire to come down from the sky, and destroy them, just as Elijah did?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="55" characterId="narrator-LUK">
@@ -4709,7 +4694,7 @@
     <verse num="7" />
     <text>They asked him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="Peter (Simon)/James/John/Andrew" characterIdOverrideForScript="Peter (Simon)">
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="Peter (Simon)/James, the disciple/John/Andrew" characterIdOverrideForScript="Peter (Simon)">
     <text>“Teacher, when will these things be? What is the sign that these things are about to happen?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="8" characterId="narrator-LUK">
@@ -4761,8 +4746,6 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="18" />
     <text>And not a hair of your head will perish.” </text>
-  </block>
-  <block style="p" chapter="21" initialStartVerse="19" characterId="Jesus">
     <verse num="19" />
     <text>“By your endurance you will win your lives.”</text>
   </block>
@@ -5290,7 +5273,7 @@
     <text>Pilate said to the chief priests and the multitudes,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="4" characterId="Pilate" delivery="to crowd">
-    <text>“I find no basis for a charge against this man. [P]”</text>
+    <text>“I find no basis for a charge against this man.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="5" characterId="narrator-LUK">
     <verse num="5" />
@@ -5304,7 +5287,7 @@
     <text>But when Pilate heard Galilee mentioned, he asked:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="6" characterId="Pilate">
-    <text>“Is this man a Galilean? [P]”</text>
+    <text>“Is this man a Galilean?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="7" characterId="narrator-LUK">
     <verse num="7" />
@@ -5337,15 +5320,15 @@
     <text>and said to them,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="14" characterId="Pilate" delivery="to crowd" multiBlockQuote="Start">
-    <text>“You brought this man to me as one that perverts the people, and see, I have examined him before you, and found no basis for a charge against this man concerning those things of which you accuse him.[P]</text>
+    <text>“You brought this man to me as one that perverts the people, and see, I have examined him before you, and found no basis for a charge against this man concerning those things of which you accuse him.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="15" characterId="Pilate" delivery="to crowd" multiBlockQuote="Continuation">
     <verse num="15" />
-    <text>Neither has Herod, for I sent you to him, and see, nothing worthy of death has been done by him.[P]</text>
+    <text>Neither has Herod, for I sent you to him, and see, nothing worthy of death has been done by him.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="16" characterId="Pilate" delivery="to crowd" multiBlockQuote="Continuation">
     <verse num="16" />
-    <text>I will therefore chastise him and release him. [P]”</text>
+    <text>I will therefore chastise him and release him.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="17" characterId="narrator-LUK">
     <verse num="17" />
@@ -5365,7 +5348,7 @@
     <text>Then Pilate spoke to them again, saying:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="20" characterId="Pilate">
-    <text>“Why not release Jesus? [P]”</text>
+    <text>“Why not release Jesus?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="21" characterId="narrator-LUK">
     <verse num="21" />
@@ -5379,7 +5362,7 @@
     <text>He said to them the third time,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="22" characterId="Pilate" delivery="to crowd">
-    <text>“Why? What evil has this man done? I have found no capital crime in him. I will therefore chastise him and release him. [P]”</text>
+    <text>“Why? What evil has this man done? I have found no capital crime in him. I will therefore chastise him and release him.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="23" characterId="narrator-LUK">
     <verse num="23" />
@@ -5394,14 +5377,14 @@
     <text>Pilate said:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="24" characterId="Pilate">
-    <text>“I will do what you ask. [P]”</text>
+    <text>“I will do what you ask.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="25" characterId="narrator-LUK">
     <verse num="25" />
     <text>He released Barrabus, the prisoner they asked for. He had been thrown into prison for insurrection and murder. Then Pilate gave Jesus to them, saying:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="25" characterId="Pilate">
-    <text>“Do what you want with him. [P]” </text>
+    <text>“Do what you want with him.” </text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="26" characterId="narrator-LUK">
     <verse num="26" />
@@ -5462,10 +5445,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="38" characterId="narrator-LUK">
     <verse num="38" />
-    <text>An inscription was also written over him in letters of Greek, Latin, and Hebrew: </text>
-  </block>
-  <block style="p" chapter="23" initialStartVerse="38" characterId="sign on the cross">
-    <text>“THIS IS THE KING OF THE JEWS.”</text>
+    <text>An inscription was also written over him in letters of Greek, Latin, and Hebrew: “THIS IS THE KING OF THE JEWS.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="39" characterId="narrator-LUK">
     <verse num="39" />

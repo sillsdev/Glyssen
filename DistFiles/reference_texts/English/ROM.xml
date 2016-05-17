@@ -293,13 +293,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-ROM">
     <verse num="8" />
-    <text>Why not (as we are slanderously reported, and as some affirm that we say), </text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="8" characterId="Paul">
-    <text>“Let us do evil, that good may come?” </text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="8" characterId="narrator-ROM">
-    <text>Those who say so are justly condemned.</text>
+    <text>Why not (as we are slanderously reported, and as some affirm that we say), “Let us do evil, that good may come?” Those who say so are justly condemned.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-ROM">
     <verse num="9" />
@@ -318,15 +312,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture">
     <verse num="13" />
-    <text>“Their throat is an open tomb. With their tongues they have used deceit.” </text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="13" characterId="scripture">
-    <text>“The poison of vipers is under their lips”;</text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="13" characterId="narrator-ROM">
-    <text> </text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="14" characterId="scripture">
+    <text>“Their throat is an open tomb. With their tongues they have used deceit.” “The poison of vipers is under their lips”; </text>
     <verse num="14" />
     <text>“whose mouth is full of cursing and bitterness.”</text>
   </block>
@@ -339,8 +325,6 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="scripture" multiBlockQuote="Continuation">
     <verse num="17" />
     <text>The way of peace, they haven’t known.” </text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="18" characterId="scripture">
     <verse num="18" />
     <text>“There is no fear of God before their eyes.”</text>
   </block>
@@ -497,10 +481,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-ROM">
     <verse num="22" />
-    <text>Therefore it also was </text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="22" characterId="scripture">
-    <text>“reckoned to him for righteousness.”</text>
+    <text>Therefore it also was “reckoned to him for righteousness.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-ROM">
     <verse num="23" />
@@ -862,10 +843,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="15" characterId="narrator-ROM">
     <verse num="15" />
-    <text>For you didn’t receive the spirit of slavery that leads you back into fear again. You received the Spirit of adoption, by whom we cry, </text>
-  </block>
-  <block style="p" chapter="8" initialStartVerse="15" characterId="we (believers)" delivery="crying">
-    <text>“Abba! Father!”</text>
+    <text>For you didn’t receive the spirit of slavery that leads you back into fear again. You received the Spirit of adoption, by whom we cry, “Abba! Father!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="16" characterId="narrator-ROM">
     <verse num="16" />
@@ -1053,17 +1031,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="19" characterId="narrator-ROM">
     <verse num="19" />
-    <text>You will say then to me, </text>
-  </block>
-  <block style="p" chapter="9" initialStartVerse="19" characterId="one of you">
-    <text>“Why does he still find fault? For who withstands his will?”</text>
+    <text>You will say then to me, “Why does he still find fault? For who withstands his will?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="narrator-ROM">
     <verse num="20" />
-    <text>But indeed, O man, who are you to reply against God? Will the thing formed ask him who formed it, </text>
-  </block>
-  <block style="p" chapter="9" initialStartVerse="20" characterId="scripture">
-    <text>“Why did you make me like this?”</text>
+    <text>But indeed, O man, who are you to reply against God? Will the thing formed ask him who formed it, “Why did you make me like this?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-ROM">
     <verse num="21" />
@@ -1155,12 +1127,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-ROM">
     <verse num="6" />
-    <text>But the righteousness which is of faith says this, </text>
+    <text>But the righteousness which is of faith says this, “Don’t say in your heart, ‘Who will ascend into heaven?’ (that is, to bring Christ down);”</text>
   </block>
-  <block style="p" chapter="10" initialStartVerse="6" characterId="scripture">
-    <text>“Don’t say in your heart, ‘Who will ascend into heaven?’ (that is, to bring Christ down);”</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-ROM">
     <verse num="7" />
     <text>“or, ‘Who will descend into the abyss?’ (that is, to bring Christ up from the dead.) </text>
     <verse num="8" />
@@ -1328,10 +1297,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-ROM">
     <verse num="19" />
-    <text>You will say then, </text>
-  </block>
-  <block style="p" chapter="11" initialStartVerse="19" characterId="you (hypothetical Gentile)" delivery="smug">
-    <text>“Branches were broken off, that I might be grafted in.”</text>
+    <text>You will say then, “Branches were broken off, that I might be grafted in.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-ROM">
     <verse num="20" />
@@ -1534,28 +1500,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="narrator-ROM">
     <verse num="9" />
-    <text>For the commandments, </text>
-  </block>
-  <block style="p" chapter="13" initialStartVerse="9" characterId="scripture">
-    <text>“You shall not commit adultery,” </text>
-  </block>
-  <block style="p" chapter="13" initialStartVerse="9" characterId="scripture">
-    <text>“You shall not murder,” </text>
-  </block>
-  <block style="p" chapter="13" initialStartVerse="9" characterId="scripture">
-    <text>“You shall not steal,” </text>
-  </block>
-  <block style="p" chapter="13" initialStartVerse="9" characterId="scripture">
-    <text>“You shall not give false testimony,” </text>
-  </block>
-  <block style="p" chapter="13" initialStartVerse="9" characterId="scripture">
-    <text>“You shall not covet,” </text>
-  </block>
-  <block style="p" chapter="13" initialStartVerse="9" characterId="narrator-ROM">
-    <text>and whatever other commandments there are, are all summed up in this saying, namely, </text>
-  </block>
-  <block style="p" chapter="13" initialStartVerse="9" characterId="scripture">
-    <text>“You shall love your neighbor as yourself.”</text>
+    <text>For the commandments, “You shall not commit adultery,” “You shall not murder,” “You shall not steal,” “You shall not give false testimony,” “You shall not covet,” and whatever other commandments there are, are all summed up in this saying, namely, “You shall love your neighbor as yourself.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-ROM">
     <verse num="10" />
@@ -1934,9 +1879,6 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="24" characterId="narrator-ROM">
     <verse num="24" />
     <text>The grace of our Lord Jesus Christ be with you all! Amen.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="24" characterId="narrator-ROM">
-    <text>Some ancient manuscripts move the following verses to the end of Rom 14. They become 14:24-26</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="25" characterId="narrator-ROM">
     <verse num="25" />
