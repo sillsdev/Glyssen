@@ -143,19 +143,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-EPH">
     <verse num="11" />
-    <text>Therefore remember that once you, the Gentiles in the flesh, who are called </text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-EPH">
-    <text>“uncircumcision” </text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-EPH">
-    <text>by that which is called </text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-EPH">
-    <text>“circumcision,” </text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="11" characterId="narrator-EPH">
-    <text>(in the flesh, made by hands);</text>
+    <text>Therefore remember that once you, the Gentiles in the flesh, who are called “uncircumcision” by that which is called “circumcision,” (in the flesh, made by hands);</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-EPH">
     <verse num="12" />
@@ -326,13 +314,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-EPH">
     <verse num="9" />
-    <text>Now this, </text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="9" characterId="narrator-EPH">
-    <text>“He ascended,” </text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="9" characterId="narrator-EPH">
-    <text>what is it but that he also first descended into the lower parts of the earth?</text>
+    <text>Now this, “He ascended,” what is it but that he also first descended into the lower parts of the earth?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-EPH">
     <verse num="10" />
@@ -398,12 +380,9 @@
     <verse num="25" />
     <text>Therefore putting away falsehood, speak truth each one with his neighbor. For we are members of one another.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="narrator-EPH">
     <verse num="26" />
-    <text>“Be angry, and don’t sin.” </text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="26" characterId="narrator-EPH">
-    <text>Don’t let the sun go down on your wrath, neither give place to the devil.</text>
+    <text>“Be angry, and don’t sin.” Don’t let the sun go down on your wrath, neither give place to the devil.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="narrator-EPH">
     <verse num="28" />

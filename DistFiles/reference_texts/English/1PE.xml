@@ -124,10 +124,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1PE">
     <verse num="3" />
-    <text>For as the Scriptures say: </text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="3" characterId="scripture" userConfirmed="true">
-    <text>“You have discovered for yourself that the Lord is good.”</text>
+    <text>For as the Scriptures say: “You have discovered for yourself that the Lord is good.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1PE">
     <verse num="4" />
@@ -215,10 +212,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-1PE">
     <verse num="22" />
-    <text>who did not sin, </text>
-  </block>
-  <block style="p" chapter="2" initialStartVerse="22" characterId="scripture">
-    <text>“neither was deceit found in his mouth.”</text>
+    <text>who did not sin, “neither was deceit found in his mouth.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1PE">
     <verse num="23" />
@@ -290,10 +284,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1PE">
     <verse num="14" />
-    <text>But even if you should suffer for righteousness’ sake, you are blessed. </text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="14" characterId="scripture">
-    <text>“Don’t fear what they fear, neither be troubled.”</text>
+    <text>But even if you should suffer for righteousness’ sake, you are blessed. “Don’t fear what they fear, neither be troubled.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1PE">
     <verse num="15" />

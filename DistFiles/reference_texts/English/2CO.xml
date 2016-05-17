@@ -72,52 +72,19 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-2CO">
     <verse num="17" />
-    <text>When I therefore was thus determined, did I show fickleness? Or the things that I purpose, do I purpose according to the flesh, that with me there should be the </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="17" characterId="narrator-2CO">
-    <text>“Yes, yes” </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="17" characterId="narrator-2CO">
-    <text>and the </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="17" characterId="narrator-2CO">
-    <text>“No, no?”</text>
+    <text>When I therefore was thus determined, did I show fickleness? Or the things that I purpose, do I purpose according to the flesh, that with me there should be the “Yes, yes” and the “No, no?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-2CO">
     <verse num="18" />
-    <text>But as God is faithful, our word toward you was not </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="18" characterId="narrator-2CO">
-    <text>“Yes and no.”</text>
+    <text>But as God is faithful, our word toward you was not “Yes and no.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-2CO">
     <verse num="19" />
-    <text>For the Son of God, Jesus Christ, who was preached among you by us, by me, Silvanus, and Timothy, was not </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="19" characterId="narrator-2CO">
-    <text>“Yes and no,” </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="19" characterId="narrator-2CO">
-    <text>but in him is </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="19" characterId="narrator-2CO">
-    <text>“Yes.”</text>
+    <text>For the Son of God, Jesus Christ, who was preached among you by us, by me, Silvanus, and Timothy, was not “Yes and no,” but in him is “Yes.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-2CO">
     <verse num="20" />
-    <text>For however many are the promises of God, in him is the </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="20" characterId="narrator-2CO">
-    <text>“Yes.” </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="20" characterId="narrator-2CO">
-    <text>Therefore also through him is the </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="20" characterId="narrator-2CO">
-    <text>“Amen,” </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="20" characterId="narrator-2CO">
-    <text>to the glory of God through us.</text>
+    <text>For however many are the promises of God, in him is the “Yes.” Therefore also through him is the “Amen,” to the glory of God through us.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-2CO">
     <verse num="21" />
@@ -306,13 +273,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-2CO">
     <verse num="6" />
-    <text>It is God who said, </text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="6" characterId="scripture">
-    <text>“Light will shine out of darkness.” </text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="6" characterId="narrator-2CO">
-    <text>He has shone in our hearts, to give the light of the knowledge of the glory of God in the face of Jesus Christ.</text>
+    <text>It is God who said, “Light will shine out of darkness.” He has shone in our hearts, to give the light of the knowledge of the glory of God in the face of Jesus Christ.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-2CO">
     <verse num="7" />
@@ -527,12 +488,9 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="scripture">
     <text>“I will dwell in them, and walk in them; and I will be their God, and they will be my people.”</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-2CO">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="scripture" multiBlockQuote="Start">
     <verse num="17" />
-    <text>Therefore </text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="17" characterId="scripture" multiBlockQuote="Start">
-    <text>“‘Come out from among them, and be separate,’ says the Lord. ‘Touch no unclean thing. I will receive you.</text>
+    <text>Therefore “‘Come out from among them, and be separate,’ says the Lord. ‘Touch no unclean thing. I will receive you.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="scripture" multiBlockQuote="Continuation">
     <verse num="18" />
@@ -810,16 +768,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-2CO">
     <verse num="10" />
-    <text>For, </text>
-  </block>
-  <block style="p" chapter="10" initialStartVerse="10" characterId="some people (quoted by Paul)">
-    <text>“His letters,” </text>
-  </block>
-  <block style="p" chapter="10" initialStartVerse="10" characterId="narrator-2CO">
-    <text>they say, </text>
-  </block>
-  <block style="p" chapter="10" initialStartVerse="10" characterId="some people (quoted by Paul)">
-    <text>“are weighty and strong, but his bodily presence is weak, and his speech is despised.”</text>
+    <text>For, “His letters,” they say, “are weighty and strong, but his bodily presence is weak, and his speech is despised.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="narrator-2CO">
     <verse num="11" />
@@ -847,10 +796,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-2CO">
     <verse num="17" />
-    <text>But </text>
-  </block>
-  <block style="p" chapter="10" initialStartVerse="17" characterId="scripture">
-    <text>“he who boasts, let him boast in the Lord.”</text>
+    <text>But “he who boasts, let him boast in the Lord.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-2CO">
     <verse num="18" />
@@ -873,13 +819,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-2CO">
     <verse num="4" />
-    <text>For if he who comes preaches another Jesus, whom we did not preach, or if you receive a different spirit, which you did not receive, or a different </text>
-  </block>
-  <block style="p" chapter="11" initialStartVerse="4" characterId="narrator-2CO" userConfirmed="true">
-    <text>“good news”, </text>
-  </block>
-  <block style="p" chapter="11" initialStartVerse="4" characterId="narrator-2CO">
-    <text>which you did not accept, you put up with that well enough.</text>
+    <text>For if he who comes preaches another Jesus, whom we did not preach, or if you receive a different spirit, which you did not receive, or a different “good news”, which you did not accept, you put up with that well enough.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-2CO">
     <verse num="5" />
@@ -1034,13 +974,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-2CO">
     <verse num="9" />
-    <text>He has said to me, </text>
-  </block>
-  <block style="p" chapter="12" initialStartVerse="9" characterId="Jesus">
-    <text>“My grace is sufficient for you, for my power is made perfect in weakness.” </text>
-  </block>
-  <block style="p" chapter="12" initialStartVerse="9" characterId="narrator-2CO">
-    <text>Most gladly therefore I will rather glory in my weaknesses, that the power of Christ may rest on me.</text>
+    <text>He has said to me, “My grace is sufficient for you, for my power is made perfect in weakness.” Most gladly therefore I will rather glory in my weaknesses, that the power of Christ may rest on me.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-2CO">
     <verse num="10" />
@@ -1095,10 +1029,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-2CO">
     <verse num="1" />
-    <text>This is the third time I am coming to you. </text>
-  </block>
-  <block style="p" chapter="13" initialStartVerse="1" characterId="scripture">
-    <text>“At the mouth of two or three witnesses shall every word be established.”</text>
+    <text>This is the third time I am coming to you. “At the mouth of two or three witnesses shall every word be established.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-2CO">
     <verse num="2" />

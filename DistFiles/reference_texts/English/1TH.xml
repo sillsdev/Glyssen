@@ -272,13 +272,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1TH">
     <verse num="3" />
-    <text>For when they are saying, </text>
-  </block>
-  <block style="p" chapter="5" initialStartVerse="3" characterId="people">
-    <text>“Peace and safety,” </text>
-  </block>
-  <block style="p" chapter="5" initialStartVerse="3" characterId="narrator-1TH">
-    <text>then sudden destruction will come on them, like birth pains on a pregnant woman; and they will in no way escape.</text>
+    <text>For when they are saying, “Peace and safety,” then sudden destruction will come on them, like birth pains on a pregnant woman; and they will in no way escape.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1TH">
     <verse num="4" />

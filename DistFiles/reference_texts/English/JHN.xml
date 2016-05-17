@@ -403,9 +403,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-JHN">
     <verse num="15" />
-    <text>He made a whip of cords, and threw all out of the temple, both the sheep and the oxen; and he poured out the changers’ money, and overthrew their tables.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-JHN">
+    <text>He made a whip of cords, and threw all out of the temple, both the sheep and the oxen; and he poured out the changers’ money, and overthrew their tables. </text>
     <verse num="16" />
     <text>To those who sold the doves, he said,</text>
   </block>
@@ -762,13 +760,7 @@
     <text>The woman said to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="woman, Samaritan">
-    <text>“I know that Messiah comes,” </text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="25" characterId="narrator-JHN">
-    <text>(he who is called Christ). </text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="25" characterId="woman, Samaritan">
-    <text>“When he has come, he will declare to us all things.”</text>
+    <text>“I know that Messiah comes,” (he who is called Christ). “When he has come, he will declare to us all things.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="narrator-JHN">
     <verse num="26" />
@@ -779,16 +771,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="27" characterId="narrator-JHN">
     <verse num="27" />
-    <text>At this, his disciples came. They marveled that he was speaking with a woman; yet no one said, </text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="27" characterId="narrator-JHN">
-    <text>“What are you looking for?” </text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="27" characterId="narrator-JHN">
-    <text>or, </text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="27" characterId="narrator-JHN">
-    <text>“Why do you speak with her?”</text>
+    <text>At this, his disciples came. They marveled that he was speaking with a woman; yet no one said, “What are you looking for?” or, “Why do you speak with her?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="narrator-JHN">
     <verse num="28" />
@@ -848,10 +831,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="39" characterId="narrator-JHN">
     <verse num="39" />
-    <text>From that city many of the Samaritans believed in him because of the word of the woman, who testified, </text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="39" characterId="woman, Samaritan">
-    <text>“He told me everything that I did.”</text>
+    <text>From that city many of the Samaritans believed in him because of the word of the woman, who testified, “He told me everything that I did.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="40" characterId="narrator-JHN">
     <verse num="40" />
@@ -937,13 +917,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="53" characterId="narrator-JHN">
     <verse num="53" />
-    <text>So the father knew that it was at that hour in which Jesus said to him, </text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="53" characterId="Jesus" delivery="giving orders">
-    <text>“Your son lives.” </text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="53" characterId="narrator-JHN">
-    <text>He believed, as did his whole house.</text>
+    <text>So the father knew that it was at that hour in which Jesus said to him, “Your son lives.” He believed, as did his whole house.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="54" characterId="narrator-JHN">
     <verse num="54" />
@@ -958,13 +932,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-JHN">
     <verse num="2" />
-    <text>Now in Jerusalem by the sheep gate, there is a pool, which is called in Hebrew, </text>
-  </block>
-  <block style="p" chapter="5" initialStartVerse="2" characterId="narrator-JHN" userConfirmed="true">
-    <text>“Bethesda,” </text>
-  </block>
-  <block style="p" chapter="5" initialStartVerse="2" characterId="narrator-JHN">
-    <text>having five porches.</text>
+    <text>Now in Jerusalem by the sheep gate, there is a pool, which is called in Hebrew, “Bethesda,” having five porches.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-JHN">
     <verse num="3" />
@@ -2179,13 +2147,7 @@
     <text>“Go, wash in the pool of Siloam”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-JHN">
-    <text>(which means </text>
-  </block>
-  <block style="p" chapter="9" initialStartVerse="7" characterId="narrator-JHN" userConfirmed="true">
-    <text>“Sent”). </text>
-  </block>
-  <block style="p" chapter="9" initialStartVerse="7" characterId="narrator-JHN">
-    <text>So he went away, washed, and came back seeing.</text>
+    <text>(which means “Sent”). So he went away, washed, and came back seeing.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-JHN">
     <verse num="8" />
@@ -2316,10 +2278,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="23" characterId="narrator-JHN">
     <verse num="23" />
-    <text>That is why his parents said, </text>
-  </block>
-  <block style="p" chapter="9" initialStartVerse="23" characterId="parents of cured man, blind from birth">
-    <text>“He is of age. Ask him.”</text>
+    <text>That is why his parents said, “He is of age. Ask him.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="24" characterId="narrator-JHN">
     <verse num="24" />
@@ -2879,7 +2838,7 @@
     <text>When he had said this, he cried with a loud voice,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="43" characterId="Jesus" delivery="giving orders">
-    <text>“Lazarus, come out! [P]”</text>
+    <text>“Lazarus, come out!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="44" characterId="narrator-JHN">
     <verse num="44" />
@@ -3250,10 +3209,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="narrator-JHN">
     <verse num="11" />
-    <text>For he knew him who would betray him, therefore he said, </text>
-  </block>
-  <block style="p" chapter="13" initialStartVerse="11" characterId="Jesus">
-    <text>“You are not all clean.”</text>
+    <text>For he knew him who would betray him, therefore he said, “You are not all clean.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="narrator-JHN">
     <verse num="12" />
@@ -3346,13 +3302,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="29" characterId="narrator-JHN">
     <verse num="29" />
-    <text>For some thought, because Judas had the money box, that Jesus said to him, </text>
-  </block>
-  <block style="p" chapter="13" initialStartVerse="29" characterId="Jesus">
-    <text>“Buy what things we need for the feast,” </text>
-  </block>
-  <block style="p" chapter="13" initialStartVerse="29" characterId="narrator-JHN">
-    <text>or that he should give something to the poor.</text>
+    <text>For some thought, because Judas had the money box, that Jesus said to him, “Buy what things we need for the feast,” or that he should give something to the poor.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="30" characterId="narrator-JHN">
     <verse num="30" />
@@ -3958,13 +3908,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="6" characterId="narrator-JHN">
     <verse num="6" />
-    <text>When therefore he said to them, </text>
-  </block>
-  <block style="p" chapter="18" initialStartVerse="6" characterId="Jesus">
-    <text>“I am he,” </text>
-  </block>
-  <block style="p" chapter="18" initialStartVerse="6" characterId="narrator-JHN">
-    <text>they went backward, and fell to the ground. </text>
+    <text>When therefore he said to them, “I am he,” they went backward, and fell to the ground. </text>
     <verse num="7" />
     <text>Again therefore he asked them,</text>
   </block>
@@ -3986,10 +3930,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="narrator-JHN">
     <verse num="9" />
-    <text>that the word might be fulfilled which he spoke, </text>
-  </block>
-  <block style="p" chapter="18" initialStartVerse="9" characterId="Jesus">
-    <text>“Of those whom you have given me, I have lost none.”</text>
+    <text>that the word might be fulfilled which he spoke, “Of those whom you have given me, I have lost none.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-JHN">
     <verse num="10" />
@@ -4104,7 +4045,7 @@
     <text>Pilate therefore went out to them, and said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="29" characterId="Pilate" delivery="to crowd">
-    <text>“What accusation do you bring against this man? [P]”</text>
+    <text>“What accusation do you bring against this man?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="30" characterId="narrator-JHN">
     <verse num="30" />
@@ -4118,7 +4059,7 @@
     <text>Pilate therefore said to them,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="31" characterId="Pilate" delivery="to crowd" userConfirmed="true">
-    <text>“Take him yourselves, and judge him according to your law. [P]”</text>
+    <text>“Take him yourselves, and judge him according to your law.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="31" characterId="narrator-JHN">
     <text>Therefore the Jews said to him,</text>
@@ -4181,12 +4122,12 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="38" characterId="narrator-JHN">
     <text>When he had said this, he went out again to the Jews, and said to them,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="38" characterId="Pilate" multiBlockQuote="Start">
-    <text>“I find no basis for a charge against him.[P]</text>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="38" characterId="Pilate" delivery="to crowd" userConfirmed="true" multiBlockQuote="Start">
+    <text>“I find no basis for a charge against him.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="Pilate" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="Pilate" delivery="to crowd" userConfirmed="true" multiBlockQuote="Continuation">
     <verse num="39" />
-    <text>But you have a custom, that I should release someone to you at the Passover. Therefore do you want me to release to you the King of the Jews? [P]”</text>
+    <text>But you have a custom, that I should release someone to you at the Passover. Therefore do you want me to release to you the King of the Jews?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="40" characterId="narrator-JHN">
     <verse num="40" />
@@ -4220,14 +4161,14 @@
     <text>Then Pilate went out again, and said to them,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="Pilate" delivery="to crowd">
-    <text>“Behold, I bring him out to you, that you may know that I find no basis for a charge against him. [P]”</text>
+    <text>“Behold, I bring him out to you, that you may know that I find no basis for a charge against him.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="5" characterId="narrator-JHN">
     <verse num="5" />
     <text>Jesus therefore came out, wearing the crown of thorns and the purple garment. Pilate said to them,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="5" characterId="Pilate" delivery="to crowd">
-    <text>“Behold, the man! [P]”</text>
+    <text>“Behold, the man!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="6" characterId="narrator-JHN">
     <verse num="6" />
@@ -4240,7 +4181,7 @@
     <text>Pilate said to them,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="6" characterId="Pilate" delivery="to crowd" userConfirmed="true">
-    <text>“Take him yourselves, and crucify him, for I find no basis for a charge against him. [P]”</text>
+    <text>“Take him yourselves, and crucify him, for I find no basis for a charge against him.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="7" characterId="narrator-JHN">
     <verse num="7" />
@@ -4284,23 +4225,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="13" characterId="narrator-JHN">
     <verse num="13" />
-    <text>When Pilate therefore heard these words, he brought Jesus out, and sat down on the judgment seat at a place called </text>
-  </block>
-  <block style="p" chapter="19" initialStartVerse="13" characterId="narrator-JHN" userConfirmed="true">
-    <text>“The Pavement,” </text>
-  </block>
-  <block style="p" chapter="19" initialStartVerse="13" characterId="narrator-JHN">
-    <text>but in Hebrew, </text>
-  </block>
-  <block style="p" chapter="19" initialStartVerse="13" characterId="narrator-JHN" userConfirmed="true">
-    <text>“Gabbatha.”</text>
+    <text>When Pilate therefore heard these words, he brought Jesus out, and sat down on the judgment seat at a place called “The Pavement,” but in Hebrew, “Gabbatha.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="14" characterId="narrator-JHN">
     <verse num="14" />
     <text>Now it was the Preparation Day of the Passover, at about the sixth hour. He said to the Jews,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="14" characterId="Pilate" delivery="to crowd">
-    <text>“Behold, your King! [P]”</text>
+    <text>“Behold, your King!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="15" characterId="narrator-JHN">
     <verse num="15" />
@@ -4313,7 +4245,7 @@
     <text>Pilate said to them,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="15" characterId="Pilate" delivery="to crowd" userConfirmed="true">
-    <text>“Shall I crucify your King? [P]”</text>
+    <text>“Shall I crucify your King?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="15" characterId="narrator-JHN">
     <text>The chief priests answered,</text>
@@ -4327,16 +4259,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="17" characterId="narrator-JHN">
     <verse num="17" />
-    <text>He went out, bearing his cross, to the place called </text>
-  </block>
-  <block style="p" chapter="19" initialStartVerse="17" characterId="narrator-JHN">
-    <text>“The Place of a Skull”, </text>
-  </block>
-  <block style="p" chapter="19" initialStartVerse="17" characterId="narrator-JHN">
-    <text>which is called in Hebrew, </text>
-  </block>
-  <block style="p" chapter="19" initialStartVerse="17" characterId="narrator-JHN">
-    <text>“Golgotha”.</text>
+    <text>He went out, bearing his cross, to the place called “The Place of a Skull”, which is called in Hebrew, “Golgotha”.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="18" characterId="narrator-JHN">
     <verse num="18" />
@@ -4344,10 +4267,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="19" characterId="narrator-JHN">
     <verse num="19" />
-    <text>Pilate wrote a title also, and put it on the cross. There was written, </text>
-  </block>
-  <block style="p" chapter="19" initialStartVerse="19" characterId="sign on the cross">
-    <text>“JESUS OF NAZARETH, THE KING OF THE JEWS.”</text>
+    <text>Pilate wrote a title also, and put it on the cross. There was written, “JESUS OF NAZARETH, THE KING OF THE JEWS.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="20" characterId="narrator-JHN">
     <verse num="20" />
@@ -4582,12 +4502,7 @@
     <text>“Rabboni!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="16" characterId="narrator-JHN">
-    <text>which is to say, </text>
-  </block>
-  <block style="p" chapter="20" initialStartVerse="16" characterId="narrator-JHN" userConfirmed="true">
-    <text>“Teacher!” </text>
-  </block>
-  <block style="p" chapter="20" initialStartVerse="17" characterId="narrator-JHN">
+    <text>which is to say, “Teacher!” </text>
     <verse num="17" />
     <text>Jesus said to her,</text>
   </block>
@@ -4701,7 +4616,7 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="3" characterId="narrator-JHN">
     <text>They told him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="3" characterId="Thomas/Nathanael/James/John/2 other disciples" characterIdOverrideForScript="Thomas" userConfirmed="true">
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="3" characterId="Thomas/Nathanael/James, the disciple/John/2 other disciples" characterIdOverrideForScript="Thomas" userConfirmed="true">
     <text>“We are also coming with you.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="3" characterId="narrator-JHN">
@@ -4765,13 +4680,7 @@
     <text>“Come and eat breakfast.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="12" characterId="narrator-JHN">
-    <text>None of the disciples dared inquire of him, </text>
-  </block>
-  <block style="p" chapter="21" initialStartVerse="12" characterId="narrator-JHN" userConfirmed="true">
-    <text>“Who are you?” </text>
-  </block>
-  <block style="p" chapter="21" initialStartVerse="12" characterId="narrator-JHN">
-    <text>knowing that it was the Lord.</text>
+    <text>None of the disciples dared inquire of him, “Who are you?” knowing that it was the Lord.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="13" characterId="narrator-JHN">
     <verse num="13" />
@@ -4827,13 +4736,7 @@
     <text>“Simon, son of Jonah, do you have affection for me?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="17" characterId="narrator-JHN">
-    <text>Peter was grieved because he asked him the third time, </text>
-  </block>
-  <block style="p" chapter="21" initialStartVerse="17" characterId="narrator-JHN" userConfirmed="true">
-    <text>“Do you love me?” </text>
-  </block>
-  <block style="p" chapter="21" initialStartVerse="17" characterId="narrator-JHN">
-    <text>He said to him,</text>
+    <text>Peter was grieved because he asked him the third time, “Do you love me?” He said to him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="17" characterId="Peter (Simon)" delivery="perplexed" userConfirmed="true">
     <text>“Lord, you know everything. You know that I love you!”</text>
@@ -4858,10 +4761,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="20" characterId="narrator-JHN">
     <verse num="20" />
-    <text>Then Peter, turning around, saw a disciple following. This was the disciple whom Jesus sincerely loved, the one who had also leaned on Jesus’ breast at the supper and asked, </text>
-  </block>
-  <block style="p" chapter="21" initialStartVerse="20" characterId="John">
-    <text>“Lord, who is going to betray You?”</text>
+    <text>Then Peter, turning around, saw a disciple following. This was the disciple whom Jesus sincerely loved, the one who had also leaned on Jesus’ breast at the supper and asked, “Lord, who is going to betray You?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="21" characterId="narrator-JHN">
     <verse num="21" />
@@ -4879,10 +4779,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="23" characterId="narrator-JHN">
     <verse num="23" />
-    <text>This saying therefore went out among the brothers, that this disciple wouldn’t die. Yet Jesus didn’t say to him that he wouldn’t die, but, </text>
-  </block>
-  <block style="p" chapter="21" initialStartVerse="23" characterId="Jesus">
-    <text>“If I desire that he stay until I come, what is that to you?”</text>
+    <text>This saying therefore went out among the brothers, that this disciple wouldn’t die. Yet Jesus didn’t say to him that he wouldn’t die, but, “If I desire that he stay until I come, what is that to you?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="24" characterId="narrator-JHN">
     <verse num="24" />

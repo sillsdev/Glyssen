@@ -361,10 +361,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-COL">
     <verse num="10" />
-    <text>Aristarchus, my fellow prisoner, greets you, and Mark, the cousin of Barnabas (concerning whom you received commandments, </text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="10" characterId="narrator-COL" userConfirmed="true">
-    <text>“if he comes to you, receive him”),</text>
+    <text>Aristarchus, my fellow prisoner, greets you, and Mark, the cousin of Barnabas (concerning whom you received commandments, “if he comes to you, receive him”),</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-COL">
     <verse num="11" />
@@ -392,10 +389,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-COL">
     <verse num="17" />
-    <text>Tell Archippus, </text>
-  </block>
-  <block style="p" chapter="4" initialStartVerse="17" characterId="Paul">
-    <text>“Take heed to the ministry which you have received in the Lord, that you fulfill it.”</text>
+    <text>Tell Archippus, “Take heed to the ministry which you have received in the Lord, that you fulfill it.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-COL">
     <verse num="18" />

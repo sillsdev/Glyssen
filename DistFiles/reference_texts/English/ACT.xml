@@ -848,13 +848,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-ACT">
     <verse num="9" />
-    <text>But some of those who were of the synagogue called </text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="9" characterId="narrator-ACT">
-    <text>“The Libertines,” </text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="9" characterId="narrator-ACT">
-    <text>and of the Cyrenians, of the Alexandrians, and of those of Cilicia and Asia arose, disputing with Stephen.</text>
+    <text>But some of those who were of the synagogue called “The Libertines,” and of the Cyrenians, of the Alexandrians, and of those of Cilicia and Asia arose, disputing with Stephen.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-ACT">
     <verse num="10" />
@@ -2390,19 +2384,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="12" characterId="narrator-ACT">
     <verse num="12" />
-    <text>They called Barnabas </text>
-  </block>
-  <block style="p" chapter="14" initialStartVerse="12" characterId="narrator-ACT">
-    <text>“Jupiter,” </text>
-  </block>
-  <block style="p" chapter="14" initialStartVerse="12" characterId="narrator-ACT">
-    <text>and Paul </text>
-  </block>
-  <block style="p" chapter="14" initialStartVerse="12" characterId="narrator-ACT">
-    <text>“Mercury,” </text>
-  </block>
-  <block style="p" chapter="14" initialStartVerse="12" characterId="narrator-ACT">
-    <text>because he was the chief speaker.</text>
+    <text>They called Barnabas “Jupiter,” and Paul “Mercury,” because he was the chief speaker.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-ACT">
     <verse num="13" />
@@ -3246,7 +3228,7 @@
     <text>The evil spirit answered,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="15" characterId="evil spirit in possessed man">
-    <text>“Jesus I know, and Paul I know, but who are you? [D]”</text>
+    <text>“Jesus I know, and Paul I know, but who are you?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="16" characterId="narrator-ACT">
     <verse num="16" />
@@ -4407,12 +4389,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="15" characterId="Paul">
     <verse num="15" />
-    <text>“I said, ‘Who are you, Lord?’” </text>
+    <text>“I said, ‘Who are you, Lord?’” “He said, ‘I am Jesus, whom you are persecuting.</text>
   </block>
-  <block style="p" chapter="26" initialStartVerse="15" characterId="Paul" multiBlockQuote="Start">
-    <text>“He said, ‘I am Jesus, whom you are persecuting.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="16" characterId="Paul" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="16" characterId="Paul" multiBlockQuote="Start">
     <verse num="16" />
     <text>But arise, and stand on your feet, for I have appeared to you for this purpose: to appoint you a servant and a witness both of the things which you have seen, and of the things which I will reveal to you.</text>
   </block>
@@ -4738,10 +4717,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="11" characterId="narrator-ACT">
     <verse num="11" />
-    <text>After three months, we set sail in a ship of Alexandria. It had wintered in the island, and its name was </text>
-  </block>
-  <block style="p" chapter="28" initialStartVerse="11" characterId="narrator-ACT">
-    <text>“The Twin Brothers.”</text>
+    <text>After three months, we set sail in a ship of Alexandria. It had wintered in the island, and its name was “The Twin Brothers.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="12" characterId="narrator-ACT">
     <verse num="12" />

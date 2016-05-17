@@ -52,22 +52,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-1CO">
     <verse num="12" />
-    <text>Now I mean this, that each one of you says, </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="12" characterId="narrator-1CO" userConfirmed="true">
-    <text>“I follow Paul,” </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="12" characterId="narrator-1CO" userConfirmed="true">
-    <text>“I follow Apollos,” </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="12" characterId="narrator-1CO" userConfirmed="true">
-    <text>“I follow Cephas,” </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="12" characterId="narrator-1CO">
-    <text>and, </text>
-  </block>
-  <block style="p" chapter="1" initialStartVerse="12" characterId="narrator-1CO" userConfirmed="true">
-    <text>“I follow Christ.”</text>
+    <text>Now I mean this, that each one of you says, “I follow Paul,” “I follow Apollos,” “I follow Cephas,” and, “I follow Christ.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-1CO">
     <verse num="13" />
@@ -237,19 +222,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1CO">
     <verse num="4" />
-    <text>For when one says, </text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-1CO" userConfirmed="true">
-    <text>“I follow Paul,” </text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-1CO">
-    <text>and another, </text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-1CO" userConfirmed="true">
-    <text>“I follow Apollos,” </text>
-  </block>
-  <block style="p" chapter="3" initialStartVerse="4" characterId="narrator-1CO">
-    <text>aren’t you fleshly?</text>
+    <text>For when one says, “I follow Paul,” and another, “I follow Apollos,” aren’t you fleshly?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1CO">
     <verse num="5" />
@@ -473,10 +446,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1CO">
     <verse num="13" />
-    <text>But those who are outside, God judges. </text>
-  </block>
-  <block style="p" chapter="5" initialStartVerse="13" characterId="scripture">
-    <text>“Put away the wicked man from among yourselves.”</text>
+    <text>But those who are outside, God judges. “Put away the wicked man from among yourselves.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>6</text>
@@ -527,23 +497,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-1CO">
     <verse num="12" />
-    <text>“All things are lawful for me,” </text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="12" characterId="narrator-1CO">
-    <text>but not all things are expedient. </text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="12" characterId="narrator-1CO">
-    <text>“All things are lawful for me,” </text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="12" characterId="narrator-1CO">
-    <text>but I will not be brought under the power of anything.</text>
+    <text>“All things are lawful for me,” but not all things are expedient. “All things are lawful for me,” but I will not be brought under the power of anything.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-1CO">
     <verse num="13" />
-    <text>“Foods for the belly, and the belly for foods,” </text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="13" characterId="narrator-1CO">
-    <text>but God will bring to nothing both it and them. But the body is not for sexual immorality, but for the Lord; and the Lord for the body.</text>
+    <text>“Foods for the belly, and the belly for foods,” but God will bring to nothing both it and them. But the body is not for sexual immorality, but for the Lord; and the Lord for the body.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-1CO">
     <verse num="14" />
@@ -555,16 +513,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-1CO">
     <verse num="16" />
-    <text>Or don’t you know that he who is joined to a prostitute is one body? For, </text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="16" characterId="scripture">
-    <text>“The two,” </text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="16" characterId="narrator-1CO">
-    <text>says he, </text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="16" characterId="scripture">
-    <text>“will become one flesh.”</text>
+    <text>Or don’t you know that he who is joined to a prostitute is one body? For, “The two,” says he, “will become one flesh.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-1CO">
     <verse num="17" />
@@ -572,13 +521,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-1CO">
     <verse num="18" />
-    <text>Flee sexual immorality! </text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="18" characterId="narrator-1CO" userConfirmed="true">
-    <text>“Every sin that a man does is outside the body,” </text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="18" characterId="narrator-1CO">
-    <text>but he who commits sexual immorality sins against his own body.</text>
+    <text>Flee sexual immorality! “Every sin that a man does is outside the body,” but he who commits sexual immorality sins against his own body.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-1CO">
     <verse num="19" />
@@ -772,22 +715,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-1CO">
     <verse num="5" />
-    <text>For though there are things that are called </text>
-  </block>
-  <block style="p" chapter="8" initialStartVerse="5" characterId="narrator-1CO">
-    <text>“gods,” </text>
-  </block>
-  <block style="p" chapter="8" initialStartVerse="5" characterId="narrator-1CO">
-    <text>whether in the heavens or on earth; as there are many </text>
-  </block>
-  <block style="p" chapter="8" initialStartVerse="5" characterId="narrator-1CO">
-    <text>“gods” </text>
-  </block>
-  <block style="p" chapter="8" initialStartVerse="5" characterId="narrator-1CO">
-    <text>and many </text>
-  </block>
-  <block style="p" chapter="8" initialStartVerse="5" characterId="narrator-1CO">
-    <text>“lords”;</text>
+    <text>For though there are things that are called “gods,” whether in the heavens or on earth; as there are many “gods” and many “lords”;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="6" characterId="narrator-1CO">
     <verse num="6" />
@@ -1030,16 +958,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="narrator-1CO">
     <verse num="23" />
-    <text>“All things are lawful for me,” </text>
-  </block>
-  <block style="p" chapter="10" initialStartVerse="23" characterId="narrator-1CO">
-    <text>but not all things are profitable. </text>
-  </block>
-  <block style="p" chapter="10" initialStartVerse="23" characterId="narrator-1CO">
-    <text>“All things are lawful for me,” </text>
-  </block>
-  <block style="p" chapter="10" initialStartVerse="23" characterId="narrator-1CO">
-    <text>but not all things build up.</text>
+    <text>“All things are lawful for me,” but not all things are profitable. “All things are lawful for me,” but not all things build up.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="24" characterId="narrator-1CO">
     <verse num="24" />
@@ -1051,10 +970,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="narrator-1CO">
     <verse num="26" />
-    <text>The scriptures say, for </text>
-  </block>
-  <block style="p" chapter="10" initialStartVerse="26" characterId="scripture">
-    <text>“the earth is the Lord’s, and its fullness.”</text>
+    <text>The scriptures say, for “the earth is the Lord’s, and its fullness.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="27" characterId="narrator-1CO">
     <verse num="27" />
@@ -1062,10 +978,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="narrator-1CO">
     <verse num="28" />
-    <text>But if anyone says to you, </text>
-  </block>
-  <block style="p" chapter="10" initialStartVerse="28" characterId="anyone">
-    <text>“This was offered to idols, don’t eat it for the sake of the one who told you. And for the sake of conscience. For ‘the earth is the Lord’s, and all its fullness.’”</text>
+    <text>But if anyone says to you, “This was offered to idols, don’t eat it for the sake of the one who told you. And for the sake of conscience. For ‘the earth is the Lord’s, and all its fullness.’”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="narrator-1CO">
     <verse num="29" />
@@ -1243,19 +1156,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-1CO">
     <verse num="3" />
-    <text>Therefore I make known to you that no man speaking by God’s Spirit says, </text>
-  </block>
-  <block style="p" chapter="12" initialStartVerse="3" characterId="no one says">
-    <text>“Jesus is accursed.” </text>
-  </block>
-  <block style="p" chapter="12" initialStartVerse="3" characterId="narrator-1CO">
-    <text>No one can say, </text>
-  </block>
-  <block style="p" chapter="12" initialStartVerse="3" characterId="no one says">
-    <text>“Jesus is Lord,” </text>
-  </block>
-  <block style="p" chapter="12" initialStartVerse="3" characterId="narrator-1CO">
-    <text>but by the Holy Spirit.</text>
+    <text>Therefore I make known to you that no man speaking by God’s Spirit says, “Jesus is accursed.” No one can say, “Jesus is Lord,” but by the Holy Spirit.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-1CO">
     <verse num="4" />
@@ -1303,23 +1204,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-1CO">
     <verse num="15" />
-    <text>If the foot would say, </text>
-  </block>
-  <block style="p" chapter="12" initialStartVerse="15" characterId="foot">
-    <text>“Because I’m not the hand, I’m not part of the body,” </text>
-  </block>
-  <block style="p" chapter="12" initialStartVerse="15" characterId="narrator-1CO">
-    <text>it is not therefore not part of the body.</text>
+    <text>If the foot would say, “Because I’m not the hand, I’m not part of the body,” it is not therefore not part of the body.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-1CO">
     <verse num="16" />
-    <text>If the ear would say, </text>
-  </block>
-  <block style="p" chapter="12" initialStartVerse="16" characterId="ear">
-    <text>“Because I’m not the eye, I’m not part of the body,” </text>
-  </block>
-  <block style="p" chapter="12" initialStartVerse="16" characterId="narrator-1CO">
-    <text>it’s not therefore not part of the body.</text>
+    <text>If the ear would say, “Because I’m not the eye, I’m not part of the body,” it’s not therefore not part of the body.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-1CO">
     <verse num="17" />
@@ -1337,16 +1226,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-1CO">
     <verse num="21" />
-    <text>The eye can’t tell the hand, </text>
-  </block>
-  <block style="p" chapter="12" initialStartVerse="21" characterId="narrator-1CO" userConfirmed="true">
-    <text>“I have no need for you,” </text>
-  </block>
-  <block style="p" chapter="12" initialStartVerse="21" characterId="narrator-1CO">
-    <text>or again the head to the feet, </text>
-  </block>
-  <block style="p" chapter="12" initialStartVerse="21" characterId="narrator-1CO" userConfirmed="true">
-    <text>“I have no need for you.”</text>
+    <text>The eye can’t tell the hand, “I have no need for you,” or again the head to the feet, “I have no need for you.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="22" characterId="narrator-1CO">
     <verse num="22" />
@@ -1508,13 +1388,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-1CO">
     <verse num="16" />
-    <text>Otherwise if you bless with the spirit, how will he who fills the place of the unlearned say the </text>
-  </block>
-  <block style="p" chapter="14" initialStartVerse="16" characterId="person without the gift of tongues">
-    <text>“Amen” </text>
-  </block>
-  <block style="p" chapter="14" initialStartVerse="16" characterId="narrator-1CO">
-    <text>at your giving of thanks? Seeing how he doesn’t know what you say.</text>
+    <text>Otherwise if you bless with the spirit, how will he who fills the place of the unlearned say the “Amen” at your giving of thanks? Seeing how he doesn’t know what you say.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="narrator-1CO">
     <verse num="17" />
@@ -1724,19 +1598,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="narrator-1CO">
     <verse num="27" />
-    <text>For, </text>
-  </block>
-  <block style="p" chapter="15" initialStartVerse="27" characterId="narrator-1CO" userConfirmed="true">
-    <text>“He put all things in subjection under his feet.” </text>
-  </block>
-  <block style="p" chapter="15" initialStartVerse="27" characterId="narrator-1CO">
-    <text>But when he says, </text>
-  </block>
-  <block style="p" chapter="15" initialStartVerse="27" characterId="narrator-1CO" userConfirmed="true">
-    <text>“All things are put in subjection,” </text>
-  </block>
-  <block style="p" chapter="15" initialStartVerse="27" characterId="narrator-1CO">
-    <text>it is evident that he is excepted who subjected all things to him.</text>
+    <text>For, “He put all things in subjection under his feet.” But when he says, “All things are put in subjection,” it is evident that he is excepted who subjected all things to him.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="28" characterId="narrator-1CO">
     <verse num="28" />
@@ -1756,17 +1618,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="narrator-1CO">
     <verse num="32" />
-    <text>If I fought with animals at Ephesus for human purposes, what does it profit me? If the dead are not raised, then </text>
-  </block>
-  <block style="p" chapter="15" initialStartVerse="32" characterId="scripture">
-    <text>“let us eat and drink, for tomorrow we die.”</text>
+    <text>If I fought with animals at Ephesus for human purposes, what does it profit me? If the dead are not raised, then “let us eat and drink, for tomorrow we die.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="33" characterId="narrator-1CO">
     <verse num="33" />
-    <text>Don’t be deceived! </text>
-  </block>
-  <block style="p" chapter="15" initialStartVerse="33" characterId="narrator-1CO">
-    <text>“Evil companionships corrupt good morals.”</text>
+    <text>Don’t be deceived! “Evil companionships corrupt good morals.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="34" characterId="narrator-1CO">
     <verse num="34" />
@@ -1774,16 +1630,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="35" characterId="narrator-1CO">
     <verse num="35" />
-    <text>But someone will say, </text>
-  </block>
-  <block style="p" chapter="15" initialStartVerse="35" characterId="someone (hypothetical argument)">
-    <text>“How are the dead raised?” </text>
-  </block>
-  <block style="p" chapter="15" initialStartVerse="35" characterId="narrator-1CO">
-    <text>and, </text>
-  </block>
-  <block style="p" chapter="15" initialStartVerse="35" characterId="someone (hypothetical argument)">
-    <text>“With what kind of body do they come?”</text>
+    <text>But someone will say, “How are the dead raised?” and, “With what kind of body do they come?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="36" characterId="narrator-1CO">
     <verse num="36" />

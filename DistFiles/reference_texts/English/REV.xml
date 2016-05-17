@@ -388,7 +388,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV">
     <verse num="6" />
-    <text>I saw a lamb in the midst of the throne and of the four living creatures, and in the midst of the elders.  A Lamb standing, as though it had been slain, having seven horns, and seven eyes, which are the seven Spirits of God, sent out into all the earth.</text>
+    <text>I saw a lamb in the midst of the throne and of the four living creatures, and in the midst of the elders. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV">
+    <text>A Lamb standing, as though it had been slain, having seven horns, and seven eyes, which are the seven Spirits of God, sent out into all the earth.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
@@ -396,7 +399,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV">
     <verse num="8" />
-    <text>Now when he had taken the book, the four living creatures and the twenty-four elders fell down before the Lamb,  each one having a harp, and golden bowls full of incense, which are the prayers of the saints.</text>
+    <text>Now when he had taken the book, the four living creatures and the twenty-four elders fell down before the Lamb, </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV">
+    <text>each one having a harp, and golden bowls full of incense, which are the prayers of the saints.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-REV">
     <verse num="9" />
@@ -447,9 +453,6 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="living creature, first" delivery="loud">
     <text>“Come and see!”</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="1" characterId="narrator-REV">
-    <text>[Come 1]</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-REV">
     <verse num="2" />
     <text>And behold, a white horse, and he who sat on it had a bow. A crown was given to him, and he came forth conquering, and to conquer.</text>
@@ -461,9 +464,6 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="living creature, second">
     <text>“Come!”</text>
   </block>
-  <block style="p" chapter="6" initialStartVerse="3" characterId="narrator-REV">
-    <text>[Come 2]</text>
-  </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-REV">
     <verse num="4" />
     <text>Another came forth, a red horse. To him who sat on it was given power to take peace from the earth, and that they should kill one another. There was given to him a great sword.</text>
@@ -474,9 +474,6 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="living creature, third">
     <text>“Come and see!”</text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="5" characterId="narrator-REV">
-    <text>[Come 3]</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-REV">
     <text>And behold, a black horse, and he who sat on it had a balance in his hand.</text>
@@ -605,13 +602,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="narrator-REV">
     <verse num="14" />
-    <text>I told him, </text>
-  </block>
-  <block style="p" chapter="7" initialStartVerse="14" characterId="narrator-REV" userConfirmed="true">
-    <text>“My lord, you know.” </text>
-  </block>
-  <block style="p" chapter="7" initialStartVerse="14" characterId="narrator-REV">
-    <text>He said to me,</text>
+    <text>I told him, “My lord, you know.” He said to me,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="elders, one of the" multiBlockQuote="Start">
     <text>“These are those who came out of the great tribulation. They washed their robes, and made them white in the Lamb’s blood.</text>
@@ -673,13 +664,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
-    <text>The name of the star is called </text>
-  </block>
-  <block style="p" chapter="8" initialStartVerse="11" characterId="narrator-REV">
-    <text>“Wormwood.” </text>
-  </block>
-  <block style="p" chapter="8" initialStartVerse="11" characterId="narrator-REV">
-    <text>One third of the waters became wormwood. Many people died from the waters, because they were made bitter.</text>
+    <text>The name of the star is called “Wormwood.” One third of the waters became wormwood. Many people died from the waters, because they were made bitter.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
@@ -737,16 +722,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
-    <text>They have over them as king the angel of the abyss. His name in Hebrew is </text>
-  </block>
-  <block style="p" chapter="9" initialStartVerse="11" characterId="narrator-REV">
-    <text>“Abaddon,” </text>
-  </block>
-  <block style="p" chapter="9" initialStartVerse="11" characterId="narrator-REV">
-    <text>but in Greek, he has the name </text>
-  </block>
-  <block style="p" chapter="9" initialStartVerse="11" characterId="narrator-REV">
-    <text>“Apollyon.”</text>
+    <text>They have over them as king the angel of the abyss. His name in Hebrew is “Abaddon,” but in Greek, he has the name “Apollyon.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
@@ -1459,6 +1435,8 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Start">
     <text>“Come out of her, my people, that you have no participation in her sins, and that you don’t receive of her plagues,  </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="5" characterId="voice from heaven, another" multiBlockQuote="Continuation">
     <verse num="5" />
     <text>for her sins have reached to the sky, and God has remembered her iniquities.</text>
   </block>
@@ -1475,7 +1453,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="8" characterId="voice from heaven, another" multiBlockQuote="Continuation">
     <verse num="8" />
-    <text>Therefore in one day her plagues will come:   death, mourning, and famine; and she will be utterly burned with fire; for the Lord God who has judged her is strong.”</text>
+    <text>Therefore in one day her plagues will come: death, mourning, and famine; and she will be utterly burned with fire; for the Lord God who has judged her is strong.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="narrator-REV">
     <verse num="9" />
@@ -1640,10 +1618,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
-    <text>He is clothed in a garment sprinkled with blood. His name is called </text>
-  </block>
-  <block style="p" chapter="19" initialStartVerse="13" characterId="narrator-REV">
-    <text>“The Word of God.”</text>
+    <text>He is clothed in a garment sprinkled with blood. His name is called “The Word of God.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="14" characterId="narrator-REV">
     <verse num="14" />
